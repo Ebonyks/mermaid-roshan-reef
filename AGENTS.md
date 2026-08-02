@@ -13,6 +13,103 @@ Runtime/editor baseline: exactly Godot 4.7.1-stable (owner decision
 the engine series there; it does not lower the required patch baseline. Do not
 validate releases with Godot 4.4 or a 4.7 development build.
 
+## ART REUSE AND GENERATION BUDGET (owner decision 2026-07-28)
+The project is in art finalization, not open-ended redesign. Conserve the
+generation budget by reusing approved art that already exists whenever it
+can meet the need efficiently.
+
+- Before generating or commissioning new art, inventory the relevant
+  existing assets and source masters in this repository.
+- Prefer direct reuse, shared components, or non-destructive derived
+  variants when existing art already meets the gameplay, storybook-style,
+  child-readability, licensing, technical, and performance requirements.
+- Do not regenerate or redesign approved art merely for novelty, preference,
+  or stylistic exploration. Keep established character and environment
+  designs stable while the artistic design is being finalized.
+- Generate new art only when no suitable reusable asset exists, or when
+  reuse would materially fail the intended purpose or quality bar. Record
+  the specific gap in the task or commit and limit generation to that gap.
+- Reuse never permits destructive edits to protected originals, license or
+  provenance violations, or bypassing the project's asset constraints.
+  Store derived variants at new paths and preserve their source attribution.
+
+## ABSOLUTE CINEMATIC RULE (owner decision 2026-07-29): FULL-FRAME IMAGE REGENERATION
+
+Authored cinematic delivery frames MUST be complete, flattened images produced
+in the current approved Codex image-generation style. The quality problem is
+the frame audit and regeneration process. It must never be worked around by
+substituting a different animation or production technique. This rule
+supersedes the art-reuse budget above for defective cinematic frames and
+supersedes any cinematic document or tool that recommends temporal shortcuts.
+
+- Repair subject drift frame by frame. Keep an existing frame only when that
+  exact frame passes the audit. Regenerate every failed frame at its exact
+  timeline index as a complete image, using accepted adjacent frames, the
+  direction brief, character/object references, and required continuity data.
+- Final or review-delivery frames MUST NOT be made by tweening, morphing,
+  optical-flow or motion interpolation, cross-dissolving, sprite/cutout
+  animation, chroma-key compositing, skeletal or rig animation, procedural
+  warping, translating a static layer or camera, or duplicating a frame to
+  conceal missing action. These are rejected production shortcuts even if
+  their transition metrics appear smooth.
+- An intentional hold is allowed only when the direction brief calls for
+  stillness. The manifest must identify the held span and its narrative
+  purpose. A hold may not replace motion, acting, contact, or camera action.
+- Every changed frame in an action span must therefore be an individually
+  accepted full-frame generation. A generated frame may use the immediately
+  preceding and following accepted full frames as visual references, but it
+  may not be synthesized by blending their pixels.
+- Production-only resolution normalization, padding, pixel-format conversion,
+  and encoding are allowed after acceptance only when the same whole-canvas
+  transform is applied to the complete flattened generated frame. Preserve
+  the native generated frame and hash in provenance. Normalization may not
+  isolate, translate, warp, mask, resize, or otherwise repair a subject or
+  compensate for failed motion; motion is audited in normalized coordinates
+  before the production transform.
+- The required final medium is the established polished 2D storybook image
+  generation seen in the current cinematic work. Do not switch to 3D,
+  sprites, vector animation, procedural animation, or another visual medium
+  to make the sequence easier to produce.
+
+### Position-guide exception
+
+A disposable sprite/chroma-key composite MAY be created only to show the image
+generator where an object belongs in a target frame.
+
+- The guide communicates only normalized object position, bounding box, scale,
+  and orientation. It has no authority over design, anatomy, topology, style,
+  lighting, texture, shading, background, or final pixels.
+- A generator-facing guide must place its flat chroma footprint and coordinate
+  marks on a neutral field. Never include a scene plate, accepted background,
+  texture, or other appearance-bearing pixels in the guide.
+- A neutral-field coordinate/crosshair guide with no subject footprint may be
+  tested, but it is not presumed superior. The 2026-07-29 opening-plane trial
+  overshot materially; every guide mode must earn acceptance from measured
+  full-frame candidates.
+- A neutral-field bounding-box guide is also experimental, not an approved
+  substitute for measured control. The 2026-07-29 opening-plane trial produced
+  one nearer result followed by material scale growth, stalls, reversals, and
+  overshoots. Never relax audit gates to make a guide mode appear successful.
+- The prompt must label the guide `POSITION_GUIDE_ONLY` and explicitly state
+  that all appearance comes from the approved image/style references.
+- No pixel from the guide may be copied, composited, keyed, traced, or otherwise
+  inserted into a delivered frame. The generator must return a new complete
+  frame, and that full frame must pass audit.
+- Guides stay under an ignored review/build path, never under runtime
+  `assets/`, and never count as production art or an accepted keyframe.
+- The frame-regeneration manifest must record the guide's path and hash,
+  `role: "position_only"`, and `used_as_delivery_pixels: false`.
+
+### Mandatory frame-regeneration evidence
+
+Every regenerated frame must record its timeline index, full-frame candidate
+path and hash, accepted neighboring reference paths and hashes, prompt hash,
+attempt number, generation method, declared action/hold state, subject geometry,
+position-guide metadata when used, and human identity/topology/style review.
+`tools/audit_cinematic.py` is the blocking validator. Missing provenance,
+forbidden methods, guide-pixel reuse, unreviewed identity, position drift, or a
+failed neighboring-frame comparison is a hard failure.
+
 ## Layout
 - scenes/main.tscn → scripts/main.gd (~6.8k lines as of 2026-07-18; still
   the state owner — see Refactor rules. Target <2.5k; remaining bulk is
@@ -86,6 +183,21 @@ installs it in place (save data kept).
 - No new OmniLights beyond current counts without a Speedy-tier cull path.
 - All new textures: ≤1024px longest side OR power-of-two; VRAM compress ok
   only if POT. New audio: OGG, music ≥64kbps, loop-tagged.
+- Multi-screen background resolution is measured PER PLAYABLE SCREEN, not
+  across the whole panorama. Every screen must have at least 2048×2048 native
+  background coverage before runtime slicing. A horizontal three-screen 3×1
+  stage therefore requires a native master of at least 6144×2048 and is
+  reconstructed as a 6×2 grid of non-overlapping 1024×1024 Sprite3D cards.
+  A 2048-wide (or similarly sized) three-screen panorama is reference-only
+  and is not runtime-ready, even though its panorama long edge exceeds 2K.
+  Preserve the approved panorama ratio and continuous composition.
+- Do not independently regenerate an object across background-tile
+  boundaries. If a tree, building, cloud, mountain feature, or other readable
+  object sits ambiguously between two generated panels, remove it from the
+  background, preserve/extract that same approved artwork as an unshaded
+  Sprite3D depth card, and heal the background behind it. Reinsert it once at
+  real scene depth. Do not add a second unrelated sticker over a painted copy.
+  Background tiles must join seam-free before the separated cards are added.
 - Every new asset gets a line in ASSET_LICENSES.md (source, license, URL,
   modifications) in the same commit that adds it.
 - No fail states, no reading-dependent objectives: any new objective must
@@ -127,6 +239,16 @@ masters and stale side-copies have repeatedly forced manual merge rescues.
   promotion from `dev` via the "Promote dev to master" workflow
   (workflow_dispatch), which verifies the probe suite is green for dev's
   exact HEAD before pushing.
+- Owner release shorthand (owner decision 2026-08-01): "push to master",
+  "ship it", "release it", and equivalent instructions explicitly authorize
+  the agent to complete the normal green integration and dispatch
+  `.github/workflows/promote.yml` with
+  `gh workflow run promote.yml --ref dev`. Do not ask for a second
+  confirmation, do not respond that agents cannot push master, and never use
+  a raw `git push` to master. The workflow waits for a green probe run on the
+  exact current `dev` head, follows `dev` if another agent advances it while
+  waiting, fast-forwards `master`, verifies the matching dev APK, and updates
+  the stable APK channel. Monitor it to completion and report both APK URLs.
 - `dev` is the INTEGRATION branch: when a task is COMPLETE (probes green
   on CI for your work branch), merge the work branch into `dev` and push
   dev — that is where finished work becomes visible. Reconcile

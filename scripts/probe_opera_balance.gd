@@ -133,13 +133,20 @@ func _snapshot(act: OperaAct) -> String:
 			return base + " press=%s candies=%d syrup=%d wrap=%d parade=%d" % [
 				act.press_phase, act.candies_done, act.syrup_want, act.wrap_done, act.parade_loaded]
 		"shuffle":
-			return base + " shuffle=%s round=%d knots=%d taps=%d" % [
-				act.shuffle_phase, act.shuffle_round, act.rope_undone, act.cab_taps]
+			return base + " shuffle=%s round=%d knots=%d taps=%d finale=%.1f" % [
+				act.shuffle_phase, act.shuffle_round, act.rope_undone, act.cab_taps, act.magic_finale_t]
 		"doctor":
 			return base + " vet=%s hurt=%d limb=%d wrap=%.1f" % [act.vet_phase, act.vet_hurt, act.vet_limb, act.vet_wrap]
 		"scroll":
 			return base + " farm=%s planted=%d fed=%d leaps=%d scrub=%.0f" % [
 				act.farm_phase, act.seeds_planted, act.farm_fed, act.mud_leaps, act.barn_scrub]
+		"nursery":
+			var world := act.career_world_2d
+			if world == null:
+				return base + " nursery=missing"
+			var catch_state := "off"
+			if world.nursery_catch != null: catch_state = "%d/%d miss=%d" % [world.nursery_catch.caught, world.nursery_catch.goal, world.nursery_catch.missed]
+			return base + " nursery_phase=%d catch=%s" % [world.phase_index, catch_state]
 		"fix":
 			return base + " fix=%s flow=%d fuse=%.1f leak=%.1f laid=%d" % [act.fix_phase, act.pipe_flow_cell, act.pipe_fuse_t, act.pipe_leak_t, act.pipe_filled.size()]
 	return base
@@ -252,8 +259,40 @@ func _drive(act: OperaAct, dt: float) -> void:
 			_drive_fix(act, dt)
 		"boss":
 			_drive_boss(act, dt)
+		"nursery":
+			_drive_nursery(act, dt)
+
+func _drive_nursery(act: OperaAct, dt: float) -> void:
+	var world := act.career_world_2d
+	if world == null or not world.active or world.phase_index >= world.phases.size():
+		return
+	if world.nursery_catch != null and world.nursery_catch.active:
+		var target := world.nursery_catch.lowest_baby_x()
+		if target >= 0.0:
+			var error := 0.0
+			if randf() < float(persona["err"]) * dt:
+				error = randf_range(-0.22, 0.22)
+				mistakes += 1
+			world.nursery_catch.steer_to(clampf(target + error, 0.1, 0.9))
+		elif _ready_to_act(dt):
+			world.nursery_catch.steer_to(0.5)
+		world.nursery_catch._process(dt)
+		return
+	var phase := world.phases[world.phase_index] as Dictionary
+	var mode := String(phase.get("mode", "tap"))
+	if mode == "hold":
+		if wait_t <= 0.0:
+			world._on_gesture("hold", dt, 1.0)
+		else:
+			wait_t -= dt
+	elif _ready_to_act(dt):
+		var quality := 0.32 if randf() < float(persona["err"]) else 1.0
+		if quality < 0.5:
+			mistakes += 1
+		world._on_gesture(mode, 1.0, quality)
 
 func _intent(count: int, want: int, key: int) -> int:
+
 	# one sticky decision per objective step: usually right, sometimes a
 	# wrong reach (rolled ONCE, not per tick). After the engine's gentle
 	# bounce the persona learns and goes for the right thing.
@@ -427,8 +466,17 @@ func _drive_shuffle(act: OperaAct, dt: float) -> void:
 		if act.cab_wand != null and _travel(act, act.cab_wand.position, dt) and _ready_to_act(dt):
 			act._shuffle_action(0)
 		return
-	if act.shuffle_phase != "pick":
+	if act.shuffle_phase == "finale":
+		# The finale is intentionally a steady hold rather than another tap.
+		# Travel to the wand, keep one finger down, and let the regular act tick
+		# fill the portal at the persona's real pace.
+		if act.cab_wand != null and _travel(act, act.cab_wand.position, dt):
+			act.hold_sim = true
 		return
+	if act.shuffle_phase != "pick":
+		act.hold_sim = false
+		return
+	act.hold_sim = false
 	if not _ready_to_act(dt):
 		return
 	var choice := _intent(act.hats.size(), act.bunny_at, 5000 + act.shuffle_round)

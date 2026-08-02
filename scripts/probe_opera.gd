@@ -1,7 +1,7 @@
 extends SceneTree
-# Pearl Opera House regression: fifteen acts across three lobby floors (four
-# career doors + a centre-stage boss medallion per floor, the fifteenth being
-# the grand finale), no passive wins, wrong answers stay gentle, stars persist
+# Pearl Opera House regression: sixteen stable save slots across three lobby
+# floors (thirteen career doors + three boss medallions), no passive wins,
+# wrong answers stay gentle, stars persist
 # across visits, and the completion rewards land exactly once.
 
 var main: ReefMain
@@ -28,7 +28,7 @@ func _init() -> void:
 	var opera: OperaHouse = main.opera_game
 	_ck("fresh save can enter the opera house", opera != null)
 	await _frames(4)
-	_ck("opera defines fifteen acts", OperaHouse.ACTS.size() == 15)
+	_ck("opera defines sixteen save-compatible acts", OperaHouse.ACTS.size() == 16)
 	var shows := {1: 0, 2: 0, 3: 0}
 	var bosses := {1: 0, 2: 0, 3: 0}
 	for cfg: Dictionary in OperaHouse.ACTS:
@@ -37,25 +37,26 @@ func _init() -> void:
 			bosses[story] = int(bosses[story]) + 1
 		else:
 			shows[story] = int(shows[story]) + 1
-	_ck("three floors run four shows each", int(shows[1]) == 4 and int(shows[2]) == 4 and int(shows[3]) == 4)
+	_ck("floors run four, four and five career shows", int(shows[1]) == 4 and int(shows[2]) == 4 and int(shows[3]) == 5)
 	_ck("every floor ends with one boss", int(bosses[1]) == 1 and int(bosses[2]) == 1 and int(bosses[3]) == 1)
 	_ck("floor bosses sit at acts five, ten and fifteen",
 		String(OperaHouse.ACTS[4]["type"]) == "boss" and String(OperaHouse.ACTS[9]["type"]) == "boss" and String(OperaHouse.ACTS[14]["type"]) == "boss")
-	_ck("the fifteenth act is the grand finale", bool(OperaHouse.ACTS[14].get("finale", false)))
+	_ck("the stable fifteenth save bit remains the grand finale", bool(OperaHouse.ACTS[14].get("finale", false)))
+	_ck("Nursery Nurse appends a stable bit while displaying as job twelve", String(OperaHouse.ACTS[15].get("career", "")) == "Nursery Nurse")
 	# every career is its own minigame on its own stage: no two shows may share
-	# an engine kind, and all twelve costumes must have a STAGE_SETS entry
+	# an engine kind; legacy 3D costumes retain STAGE_SETS while Nursery is 2D
 	var show_kinds := {}
 	var undressed: Array[String] = []
 	for cfg3: Dictionary in OperaHouse.ACTS:
 		if String(cfg3.get("type", "show")) == "boss":
 			continue
 		show_kinds[String(cfg3["kind"])] = int(show_kinds.get(String(cfg3["kind"]), 0)) + 1
-		if not OperaAct.STAGE_SETS.has(String(cfg3.get("costume", ""))):
+		if String(cfg3.get("costume", "")) != "nursery" and not OperaAct.STAGE_SETS.has(String(cfg3.get("costume", ""))):
 			undressed.append(String(cfg3["career"]))
-	_ck("twelve careers run twelve distinct engines", show_kinds.size() == 12)
-	_ck("every career has its own dressed stage", undressed.is_empty())
+	_ck("thirteen careers run thirteen distinct engines", show_kinds.size() == 13)
+	_ck("every legacy career has its own dressed stage", undressed.is_empty())
 	# ---- the explorable lobby: doors for shows, medallions for bosses ----
-	_ck("lobby builds a door for every career show", opera.doors.size() == 12)
+	_ck("lobby builds a door for every career show", opera.doors.size() == 13)
 	_ck("every floor has a centre-stage medallion", opera.boss_spots.size() == 3)
 	_ck("Roshan spawns in the lobby with no act running", opera.act == null and opera.lobby_y == 0.0)
 	_ck("lobby HUD never blocks touch", opera.star_label.mouse_filter == Control.MOUSE_FILTER_IGNORE)
@@ -76,12 +77,15 @@ func _init() -> void:
 	_ck("shell-clasp gates guard both landings, closed", opera.gates.size() == 2 and not bool(opera.gates[0]["open"]) and not bool(opera.gates[1]["open"]))
 	# door one: the chef show gets the full walk-in + brawl + puzzle coverage
 	var act: OperaAct = await _open_door(opera, 0)
-	# costumes are bone-attached to the REAL rigged player (puppet mode), not
-	# floating act props — the act must dress her and put her on stage
-	_ck("act one dresses Roshan in a bone-attached costume",
-		act != null and String(main.player.costume_id) == "chef" and main.player.costume_nodes.size() > 0)
-	_ck("act one puts the real 3D Roshan on stage", bool(main.player.puppet) and main.player.visible)
-	_ck("act one stays inside the mobile node budget", _descendants(act) < 170)
+	# Career ids remain on the real sprite player in puppet mode; no model or
+	# bone attachment may replace the animated Roshan atlas on stage.
+	_ck("act one dresses the primary Roshan sprite",
+		act != null and String(main.player.costume_id) == "chef"
+		and main.player.classic_sprite.visible)
+	_ck("act one puts the real 2.5D Roshan on stage",
+		bool(main.player.puppet) and main.player.visible)
+	var act_nodes: int = _descendants(act)
+	_ck("act one stays inside the mobile node budget (%d/210)" % act_nodes, act_nodes < 210)
 	_ck("the audience of friends is watching", act.audience.size() == 4)
 	_ck("shelled act opens backstage with the imp brawl", act.stage_phase == "brawl" and act.imps.size() >= 3)
 	for i in range(30): await process_frame
@@ -137,7 +141,7 @@ func _init() -> void:
 	_ck("finished door wears a gold star", (main.opera_stars & 1) == 1)
 	_ck("one star counts one cleared act", main.opera_progress == 1)
 	_ck("the costume comes off backstage",
-		String(main.player.costume_id) == "" and main.player.costume_nodes.is_empty() and not bool(main.player.puppet))
+		String(main.player.costume_id) == "" and not bool(main.player.puppet))
 	# leaving keeps every star; the next visit still shows it
 	opera._leave_early()
 	await process_frame
@@ -145,10 +149,11 @@ func _init() -> void:
 	main._start_opera()
 	opera = main.opera_game
 	await _frames(4)
-	_ck("stars persist across visits", (main.opera_stars & 1) == 1 and opera.doors.size() == 12)
+	_ck("stars persist across visits", (main.opera_stars & 1) == 1 and opera.doors.size() == 13)
 	# every remaining act: shows through their doors, then each floor's
 	# medallion lights up and its boss takes centre stage
-	for expected in range(1, OperaHouse.ACTS.size()):
+	var play_order: Array[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 13, 14]
+	for expected: int in play_order:
 		var cfg2: Dictionary = OperaHouse.ACTS[expected]
 		if expected == 5:
 			_ck("dragon star unlocks the balcony floor", opera._floor_unlocked(2))
@@ -158,19 +163,23 @@ func _init() -> void:
 		var is_boss := String(cfg2.get("type", "show")) == "boss"
 		if is_boss:
 			var spot_index := {4: 0, 9: 1, 14: 2}[expected] as int
-			_ck("four stars light the floor %d medallion" % int(cfg2["story"]), opera._spot_lit(opera.boss_spots[spot_index]))
+			_ck("all show stars light the floor %d medallion" % int(cfg2["story"]), opera._spot_lit(opera.boss_spots[spot_index]))
 			act = await _open_spot(opera, spot_index)
 		else:
 			act = await _open_door(opera, expected)
 		_ck("act %d builds its %s engine" % [expected + 1, String(cfg2["kind"])], act != null and act.kind == String(cfg2["kind"]))
 		if act == null:
 			continue
-		# per-job stages: a career listed in STAGE_SETS performs on its own
-		# dressed set; every other career keeps the shared toy proscenium
-		var dressed: bool = OperaAct.STAGE_SETS.has(String(cfg2.get("costume", "")))
-		var has_crest: bool = act.find_child("StageCrest", true, false) != null
-		_ck("act %d stage matches its dressing (%s)" % [expected + 1, "own set" if dressed else "shared"], has_crest == dressed)
-		if bool(cfg2.get("shell", false)):
+		if String(cfg2["kind"]) == "nursery":
+			_ck("nursery uses its dedicated scalable Canvas room",
+				act.use_career_world_2d and act.career_world_2d != null
+				and act.find_children("*", "Node3D", true, false).is_empty())
+		else:
+			# Legacy engines retain their per-job 3D dressing in this probe.
+			var dressed: bool = OperaAct.STAGE_SETS.has(String(cfg2.get("costume", "")))
+			var has_crest: bool = act.find_child("StageCrest", true, false) != null
+			_ck("act %d stage matches its dressing (%s)" % [expected + 1, "own set" if dressed else "shared"], has_crest == dressed)
+		if bool(cfg2.get("shell", false)) and not act.use_career_world_2d:
 			_ck("act %d opens with the backstage brawl" % (expected + 1), act.stage_phase == "brawl")
 			_drive_brawl(act)
 			_ck("act %d brawl opens the curtain" % (expected + 1), act.stage_phase == "puzzle")
@@ -178,7 +187,7 @@ func _init() -> void:
 			# the six acts with no backstage corridor rescue someone on their
 			# own stage first; until that is driven the act's engine is frozen
 			# and every check after it reads a game that never started
-			_drive_stage_rescue(act)
+			if not act.use_career_world_2d: _drive_stage_rescue(act)
 		match String(cfg2["kind"]):
 			"order", "paint":
 				await _drive_order(act, cfg2)
@@ -204,14 +213,16 @@ func _init() -> void:
 				await _drive_dance(act)
 			"boss":
 				await _drive_boss(act, cfg2)
+			"nursery":
+				await _drive_nursery_2d(act)
 		_ck("act %d reaches its curtain call" % (expected + 1), act.state == "won" or act.state == "done")
 		act.win_t = 0.0
 		await _wait_lobby(opera)
 		_ck("act %d wears its star" % (expected + 1), (main.opera_stars & (1 << expected)) != 0)
 	await process_frame
 	await process_frame
-	_ck("all fifteen acts are starred", main.opera_stars == OperaHouse.ALL_STARS)
-	_ck("stars count as fifteen cleared acts", main.opera_progress == 15)
+	_ck("all sixteen acts are starred", main.opera_stars == OperaHouse.ALL_STARS)
+	_ck("stars count as sixteen cleared acts", main.opera_progress == 16)
 	_ck("the grand finale completes the opera", main.opera_done)
 	_ck("the Showtime sticker is earned", bool(main.stickers.get("showtime", false)))
 	opera._leave_early()
@@ -220,7 +231,31 @@ func _init() -> void:
 	print("OPERA|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
 
+func _drive_nursery_2d(act: OperaAct) -> void:
+	var world := act.career_world_2d
+	_ck("nursery opens with Roshan and Faron together",
+		world != null and world.rival_actor.visible and act.competition.is_cooperative())
+	if world == null:
+		return
+	var guard := 0
+	while act.state == "play" and guard < 360:
+		if world.nursery_catch != null and world.nursery_catch.active:
+			var target := world.nursery_catch.lowest_baby_x()
+			world.nursery_catch.steer_to(target if target >= 0.0 else 0.5)
+			world.nursery_catch._process(0.12)
+		else:
+			world._on_gesture("probe", 100.0, 1.0)
+		act._process(0.05)
+		await process_frame
+		guard += 1
+	_ck("nursery completes catch, feed, burp and bedtime", guard < 360 and act.state == "won")
+	_ck("nursery curtain call is cooperative",
+		bool(act.performance_result.get("cooperative", false))
+		and world.title_label.text == "THE BABIES ARE COZY!")
+
+
 func _drive_stage_rescue(act: OperaAct) -> void:
+
 	# the six acts with no backstage corridor now rescue someone on their own
 	# stage before their game begins
 	if act.stage_phase != "rescue":
@@ -569,6 +604,22 @@ func _drive_shuffle(act: OperaAct, expected: int) -> void:
 				act.cab_beat_t = 0.0                                  # on the beat
 				act._shuffle_action(0)
 			_ck_once("three taps on the beat open the cabinet", act.cab_taps >= act.CAB_TAPS)
+			continue
+		if act.shuffle_phase == "finale":
+			# trick 5: the old cabinet ending was too small. The new payoff is
+			# a sustained one-finger wand hold that fills a stage-sized portal.
+			_ck_once("the cabinet opens onto a grand star portal",
+				act.magic_portal != null and act.magic_portal_fill != null)
+			act.player_pos = act.cab_wand.position
+			act.hold_sim = true
+			var fguard := 0
+			while act.shuffle_phase == "finale" and act.state == "play" and fguard < 80:
+				fguard += 1
+				act._process(0.1)
+				await process_frame
+			act.hold_sim = false
+			_ck_once("holding the wand fills the portal and wins the duel",
+				act.magic_finale_t >= act.MAGIC_FINALE_HOLD and act.state == "won")
 			continue
 		await process_frame
 	_ck("shuffle act does not stall", guard < 2500)

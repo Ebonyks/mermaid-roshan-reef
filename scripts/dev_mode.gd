@@ -107,7 +107,7 @@ const SKY_PRESETS := {
 
 # ---- Animation Lab (Roshan stress testing) ----
 const ANIM_VERBS := ["wave", "cheer", "clap", "twirl", "look", "giggle", "sleep",
-	"point", "collect", "boing", "hairtwirl", "hum"]
+	"point", "collect", "boing", "hairtwirl", "hum", "flop"]
 # the twelve opera career costumes (player.set_costume ids) + bare —
 # lets a tester inspect every outfit kit on the live swimming Roshan
 # without opening a door in the opera house
@@ -693,10 +693,9 @@ func _status(txt: String) -> void:
 
 func _build_ui() -> void:
 	panel = Panel.new()
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = Color(0.05, 0.08, 0.18, 0.92)
-	sb.set_corner_radius_all(18)
-	panel.add_theme_stylebox_override("panel", sb)
+	panel.name = "DeveloperStorybookPanel"
+	panel.add_theme_stylebox_override("panel", StorybookUI.panel_style(
+		StorybookUI.PURPLE, Color(0.91, 0.96, 1.0, 0.98), 24, 5))
 	panel.set_anchors_preset(Control.PRESET_RIGHT_WIDE)
 	panel.offset_left = -450
 	panel.offset_top = 10
@@ -706,22 +705,20 @@ func _build_ui() -> void:
 
 	var title := Label.new()
 	title.text = "Developer Mode"
-	title.add_theme_font_size_override("font_size", 26)
-	title.add_theme_color_override("font_color", Color(0.7, 0.95, 1.0))
+	StorybookUI.style_label(title, 26, StorybookUI.INK, 3)
 	title.position = Vector2(20, 12)
 	panel.add_child(title)
 
 	fps_label = Label.new()
 	fps_label.text = ""
-	fps_label.add_theme_font_size_override("font_size", 16)
-	fps_label.add_theme_color_override("font_color", Color(0.6, 0.8, 0.6))
+	StorybookUI.style_label(fps_label, 16, StorybookUI.MUTED, 2)
 	fps_label.position = Vector2(230, 20)
 	panel.add_child(fps_label)
 
 	var close := Button.new()
 	close.text = "X"
-	close.add_theme_font_size_override("font_size", 20)
 	close.custom_minimum_size = Vector2(52, 44)
+	StorybookUI.style_button(close, "secondary", 20, 18)
 	close.set_anchors_preset(Control.PRESET_TOP_RIGHT)
 	close.position = Vector2(-66, 8)
 	close.pressed.connect(toggle)
@@ -743,8 +740,7 @@ func _build_ui() -> void:
 
 	status = Label.new()
 	status.text = ""
-	status.add_theme_font_size_override("font_size", 15)
-	status.add_theme_color_override("font_color", Color(1.0, 0.9, 0.6))
+	StorybookUI.style_label(status, 15, StorybookUI.INK_SOFT, 2)
 	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	status.custom_minimum_size = Vector2(0, 44)
 	vb.add_child(status)
@@ -1050,6 +1046,28 @@ func _build_ui() -> void:
 	var pad := Control.new()
 	pad.custom_minimum_size = Vector2(0, 24)
 	vb.add_child(pad)
+	StorybookUI.add_shell_crest(panel, Rect2(166, -4, 92, 66),
+		"DeveloperShellCrest")
+	_style_parent_controls(panel)
+
+func _style_parent_controls(parent: Node) -> void:
+	for child: Node in parent.get_children():
+		if child is CheckButton:
+			var check := child as CheckButton
+			check.add_theme_color_override("font_color", StorybookUI.INK)
+			check.add_theme_color_override("font_pressed_color", StorybookUI.INK)
+			check.set_meta("parent_only", true)
+		elif child is Label:
+			var label := child as Label
+			StorybookUI.style_label(label,
+				label.get_theme_font_size("font_size"), StorybookUI.INK, 2)
+		elif child is Button:
+			var button := child as Button
+			StorybookUI.style_button(button, "secondary",
+				button.get_theme_font_size("font_size"), 14)
+			button.set_meta("parent_only", true)
+			button.set_meta("touch_target", false)
+		_style_parent_controls(child)
 
 func _section(txt: String) -> void:
 	var spacer := Control.new()
@@ -1057,8 +1075,7 @@ func _section(txt: String) -> void:
 	vb.add_child(spacer)
 	var l := Label.new()
 	l.text = txt
-	l.add_theme_font_size_override("font_size", 21)
-	l.add_theme_color_override("font_color", Color(0.55, 0.9, 1.0))
+	StorybookUI.style_label(l, 21, StorybookUI.PURPLE_DEEP, 2)
 	vb.add_child(l)
 
 func _slider(key: String, txt: String, mn: float, mx: float, step: float, val: float, fn: Callable) -> void:

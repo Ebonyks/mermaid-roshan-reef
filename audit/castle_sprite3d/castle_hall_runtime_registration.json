@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "purpose": "Lossless Main Hall screen, walkway, socket, and Sprite3D registration",
+  "new_art": false,
+  "scaling": false,
+  "interpolation": false,
+  "blend": false,
+  "source_masters_preserved": true,
+  "screen_views": {
+    "A": {
+      "source": "assets_src/castle/main_hall_alignment/main_hall_screen_a_fixture_aligned_master.png",
+      "source_sha256": "3512aed1f60906d4a89956c8317a24bc579b57b5bc9067f0bef8e17a1993df98",
+      "rect": [
+        376,
+        212,
+        2048,
+        1153
+      ],
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    "B": {
+      "source": "assets_src/castle/main_hall_alignment/main_hall_screen_b_fixture_aligned_master.png",
+      "source_sha256": "98cbfddd1aaa66fb751988c0bab0b27fdf481477f124c34ecb85bab5f6500b2d",
+      "rect": [
+        376,
+        147,
+        2048,
+        1088
+      ],
+      "dimensions": [
+        1672,
+        941
+      ]
+    }
+  },
+  "vertical_registration_delta_pixels": 65,
+  "fixture_runtime_y": {
+    "A": 215,
+    "B": 215
+  },
+  "walkway_edge_runtime_y": {
+    "A": 634,
+    "B": 634
+  },
+  "walkway_edge_delta_pixels": 0,
+  "tile_reconstruction_pixel_exact": {
+    "A": true,
+    "B": true
+  },
+  "tiles": [
+    {
+      "screen": "A",
+      "row": 0,
+      "column": 0,
+      "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c0.png",
+      "dimensions": [
+        836,
+        470
+      ],
+      "sha256": "9bbec1583f6e8192bd70edae1c7818aa6c0b44e407a5454562b5eb40b9a9b295",
+      "master_source_rect": [
+        376,
+        212,
+        1212,
+        682
+      ],
+      "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c0_bleed.png",
+      "runtime_bleed_dimensions": [
+        837,
+        471
+      ],
+      "runtime_bleed_sha256": "be22bfc045228f59872069776ed09f0e5bc286eb87794d27cef2aa89010c06e1",
+      "runtime_bleed_pixels": [
+        1,
+        1
+      ],
+      "runtime_bleed_source_exact": true
+    },
+    {
+      "screen": "A",
+      "row": 1,
+      "column": 0,
+      "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c0.png",
+      "dimensions": [
+        836,
+        471
+      ],
+      "sha256": "bc126dfc56894f75dd8f587c6ecc04c63f17175786f406eb3a23409f9e824033",
+      "master_source_rect": [
+        376,
+        682,
+        1212,
+        1153
+      ],
+      "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c0_bleed.png",
+      "runtime_bleed_dimensions": [
+        837,
+        471
+      ],
+      "runtime_bleed_sha256": "eb6f7e12948d7b3fed4a4592e136f91f430fcaf0df8a3223e8b76dc688035065",
+      "runtime_bleed_pixels": [
+        1,
+        0
+      ],
+      "runtime_bleed_source_exact": true
+    },
+    {
+      "screen": "A",
+      "row": 0,
+      "column": 1,
+      "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c1.png",
+      "dimensions": [
+        836,
+        470
+      ],
+      "sha256": "343d3ce3a0e56e87c4d396c1cf7f2a35756a26f92ea9565c9a5deef7e2d99414",
+      "master_source_rect": [
+        1212,
+        212,
+        2048,
+        682
+      ],
+      "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c1_bleed.png",
+      "runtime_bleed_dimensions": [
+        837,
+        471
+      ],
+      "runtime_bleed_sha256": "f02ff473d83239768854cb2225f52fff93224a40cee2cc9092e6363ceeb61e88",
+      "runtime_bleed_pixels": [
+        1,
+        1
+      ],
+      "runtime_bleed_source_exact": true
+    },
+    {
+      "screen": "A",
+      "row": 1,
+      "column": 1,
+      "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c1.png",
+      "dimensions": [
+        836,
+        471
+      ],
+      "sha256": "978c2e64ece50860c6e310cca637f72d49382612b6e798d3f0d7181fc13b9d47",
+      "master_source_rect": [
+        1212,
+        682,
+        2048,
+        1153
+      ],
+      "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c1_bleed.png",
+      "runtime_bleed_dimensions": [
+        837,
+        471
+      ],
+      "runtime_bleed_sha256": "cdcfaca73707c8b25385fce441e37381641ff352addd911f5cbfcd8436869412",
+      "runtime_bleed_pixels": [
+        1,
+        0
+      ],
+      "runtime_bleed_source_exact": true
+    },
+    {
+      "screen": "B",
+      "row": 0,
+      "column": 2,
+      "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c2.png",
+      "dimensions": [
+        836,
+        470
+      ],
+      "sha256": "e7dd2df4e011e8ec600fc4627ea70310c660299de1eae3f9ed94bb9cdc571b9c",
+      "master_source_rect": [
+        376,
+        147,
+        1212,
+        617
+      ],
+      "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c2_bleed.png",
+      "runtime_bleed_dimensions": [
+        837,
+        471
+      ],
+      "runtime_bleed_sha256": "005354fa26256aefd8f2b84e9259922d9a92ad025d04813266096e8bf3f58c7b",
+      "runtime_bleed_pixels": [
+        1,
+        1
+      ],
+      "runtime_bleed_source_exact": true
+    },
+    {
+      "screen": "B",
+      "row": 1,
+      "column": 2,
+      "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c2.png",
+      "dimensions": [
+        836,
+        471
+      ],
+      "sha256": "072d4547a05a41e24550a46466af939f5aea7939c09af9044077f42d691134b0",
+      "master_source_rect": [
+        376,
+        617,
+        1212,
+        1088
+      ],
+      "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c2_bleed.png",
+      "runtime_bleed_dimensions": [
+        837,
+        471
+      ],
+      "runtime_bleed_sha256": "f22eea74352a7f93fd776283f5c1c97fdf76d289f79cc1cd1ffff92585890849",
+      "runtime_bleed_pixels": [
+        1,
+        0
+      ],
+      "runtime_bleed_source_exact": true
+    },
+    {
+      "screen": "B",
+      "row": 0,
+      "column": 3,
+      "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c3.png",
+      "dimensions": [
+        836,
+        470
+      ],
+      "sha256": "f4e7a91a627862320aa8e5af230a31d5eeaa7eacb014f937b6399951fc34467c",
+      "master_source_rect": [
+        1212,
+        147,
+        2048,
+        617
+      ],
+      "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c3_bleed.png",
+      "runtime_bleed_dimensions": [
+        836,
+        471
+      ],
+      "runtime_bleed_sha256": "7637ac0bee2f2db967ba4cc28964c691ba919d9de18d5c50129c36c5a9a4fb45",
+      "runtime_bleed_pixels": [
+        0,
+        1
+      ],
+      "runtime_bleed_source_exact": true
+    },
+    {
+      "screen": "B",
+      "row": 1,
+      "column": 3,
+      "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c3.png",
+      "dimensions": [
+        836,
+        471
+      ],
+      "sha256": "f783b2931a4a26efef302770a12ed6d06fa33d8ee66323cd51de504faa9ff87d",
+      "master_source_rect": [
+        1212,
+        617,
+        2048,
+        1088
+      ],
+      "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c3_bleed.png",
+      "runtime_bleed_dimensions": [
+        836,
+        471
+      ],
+      "runtime_bleed_sha256": "f783b2931a4a26efef302770a12ed6d06fa33d8ee66323cd51de504faa9ff87d",
+      "runtime_bleed_pixels": [
+        0,
+        0
+      ],
+      "runtime_bleed_source_exact": true
+    }
+  ],
+  "contact_sheet": {
+    "path": "audit/castle_sprite3d/castle_hall_runtime_registration.png",
+    "sha256": "2d31a418ec40a2f27b55020166c47e327d2a1b9e6b17639f29f7449a3bf7395f"
+  }
+}

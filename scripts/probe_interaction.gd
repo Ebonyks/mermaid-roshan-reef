@@ -101,92 +101,224 @@ func _init() -> void:
 	for target_value in promenade_targets:
 		var promenade_target: Dictionary = target_value as Dictionary
 		promenade_ids[String(promenade_target.get("id", ""))] = true
-	for expected: String in ["plane", "runway_frame", "slide", "swing",
-			"seesaw", "playground_frame", "castle_frame", "castle_gate"]:
+	for expected: String in ["slide", "swing", "seesaw", "castle_gate"]:
 		if not promenade_ids.has(expected):
 			_bad("promenade interaction missing %s" % expected)
+	for removed_frame: String in ["runway_frame", "playground_frame", "castle_frame"]:
+		if promenade_ids.has(removed_frame):
+			_bad("removed lawn picture still interactive: %s" % removed_frame)
+	if promenade_targets.size() < 4 or promenade_targets.size() > 5:
+		_bad("promenade roster must be four permanent toys/landmarks plus optional Day One plane")
 
-	# Fix regression: with the castle OPEN the door slab is parked ~30 units up
-	# in the sky. court:castle must anchor at the doorway at walk height, and a
-	# real screen-space tap on the ground-level archway must pick the castle —
-	# not the secret back hatch through the walls.
 	# Exercise the first-visit Crown Star target, not the already-won keepsake.
+	# The castle is one picture-first Sprite3D stage, not a second free-roaming
+	# 3D world. Room props use UI hit targets projected over their world cards;
+	# the retired hall registry must therefore remain empty.
 	main.level2_done_once = false
 	main._enter_castle_interior_now(false)
 	await _frames(24)
 	main._populate_touch_interactables()
-	var hall_ids := _ids()
-	for expected: String in ["hall:bed", "hall:stand", "hall:exit", "hall:craft", "hall:wardrobe", "hall:bell_song", "hall:crown"]:
-		if not hall_ids.has(expected):
-			_bad("castle registry missing %s" % expected)
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	if not rooms.is_open():
+		_bad("castle Sprite3D room stage did not open")
+	if not _ids().is_empty():
+		_bad("retired 3D hall touch targets were populated")
+	for retired_key: String in [
+		"hall_exit", "bed_pos", "stand_chest", "toilet", "dungeon_gate",
+		"craft_easel", "wardrobe", "song_star", "secret_door", "hall_touch",
+		"bells", "opera_gate"]:
+		if main.g.has(retired_key):
+			_bad("retired 3D hall state rebuilt %s" % retired_key)
+	for room_id: String in [
+		"family_gallery", "opera_hall", "kitchen", "library", "playroom",
+		"craft_room", "mermaid_pool", "bubble_bath"]:
+		if not main.castle_room_buttons.has(room_id):
+			_bad("castle physical doorway missing %s" % room_id)
+	if main.castle_room_world_root == null \
+			or main.castle_room_camera == null \
+			or main.castle_room_camera.projection != Camera3D.PROJECTION_PERSPECTIVE:
+		_bad("castle did not build its perspective Sprite3D stage")
+	if main.touch_ui.world_controls_enabled or main.player.visible:
+		_bad("free-roaming 3D controls remained active inside castle stage")
 	if main.touch_discovery_ring == null or main.touch_focus_ring == null:
 		_bad("shared glow/focus visuals were not built")
+	if main.castle_room_stage.get_node_or_null("ElevatorButton") != null \
+			or main.castle_room_back_button == null:
+		_bad("redundant room selector remained or contextual Back was missing")
+	for dream_room_id: String in [
+		"family_gallery", "dining_room", "royal_bedroom",
+		"sleepover_bedroom", "movie_lounge"]:
+		if rooms._room(dream_room_id).is_empty():
+			_bad("dream-house room missing %s" % dream_room_id)
+	if main.castle_room_link_layer == null:
+		_bad("dream-house room-link layer was not built")
+	elif main.castle_room_link_layer.get_child_count() != 0:
+		_bad("floating dream-house route buttons remained")
 
-	# Hybrid advertises the music objective at proximity but starts it only
-	# through its explicit Music Star target.
-	var bellgame: Dictionary = main.g.get("bellgame", {})
-	bellgame["state"] = "idle"
-	bellgame["cool"] = 0.0
-	main.player.position = (main.g.get("song_star", main.player.position) as Vector3) + Vector3(2.0, 0.0, 0.0)
-	await _frames(8)
-	if String(bellgame.get("state", "")) != "idle":
-		_bad("Hybrid proximity auto-started the bell objective")
-	main._activate_touch_interactable("hall:bell_song")
+	rooms.show_room("family_gallery", false)
+	await _frames(2)
+	if main.castle_room_detail_tiles.size() != 4 \
+			or main.castle_room_action_button.visible:
+		_bad("Dream House Wing did not build as a native physical gallery")
+	var dream_routes: Array[Dictionary] = [
+		{"item": "gallery_dining_door", "child": "dining_room"},
+		{"item": "gallery_royal_bedroom_door", "child": "royal_bedroom"},
+		{"item": "gallery_sleepover_door", "child": "sleepover_bedroom"},
+		{"item": "gallery_movie_door", "child": "movie_lounge"},
+	]
+	for route: Dictionary in dream_routes:
+		var item_id: String = String(route["item"])
+		var child_id: String = String(route["child"])
+		var route_record: Dictionary = main.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		var door_sprite: Sprite3D = route_record.get("sprite") as Sprite3D
+		var door_hotspot: Button = route_record.get("hotspot") as Button
+		if door_sprite == null \
+				or String(door_sprite.get_meta(
+					"room_destination", "")) != child_id \
+				or not bool(door_sprite.get_meta(
+					"castle_physical_door", false)) \
+				or door_hotspot == null \
+				or String(door_hotspot.get_meta(
+					"room_destination", "")) != child_id \
+				or not bool(door_hotspot.get_meta("physical_door", false)):
+			_bad("physical dream-house doorway missing %s -> %s" % [
+				item_id, child_id])
+			continue
+		door_hotspot.pressed.emit()
+		var entered_room: bool = await _wait_for_castle_room(child_id)
+		if not entered_room:
+			_bad("dream-house doorway did not enter %s" % child_id)
+			rooms.show_room("family_gallery", false)
+			await _frames(2)
+			continue
+		main.castle_room_back_button.pressed.emit()
+		await _frames(2)
+		if main.castle_room_id != "family_gallery":
+			_bad("dream-house Back did not return %s to gallery" % child_id)
+
+	main.castle_room_back_button.pressed.emit()
+	await _frames(2)
+	if main.castle_room_id != "main_hall":
+		_bad("Dream House Wing Back did not return to Main Hall")
+
+	rooms.show_room("dining_room", false)
+	await _frames(2)
+	if main.castle_room_detail_tiles.size() != 4 \
+			or not main.castle_room_item_sprites.has("dining_table") \
+			or not main.castle_room_item_sprites.has("provisions_hutch"):
+		_bad("family dining room did not build native tiles and meal furniture")
+	rooms._activate_room_item("provisions_hutch")
 	await process_frame
-	if String(bellgame.get("state", "")) != "play":
-		_bad("explicit Music Star target did not start the bell objective")
-	main._populate_touch_interactables()
-	if _has_id_prefix("hall:bell:"):
-		_bad("bell target remained advertised during song playback")
-	# Playback completion must expose the bells in the exact frame that the
-	# child is told "Your turn."
-	bellgame["i"] = (bellgame.get("seq", []) as Array).size()
-	bellgame["t"] = 0.0
-	main._tick_bellgame(bellgame, 0.1, main.player.position)
-	if String(bellgame.get("state", "")) != "echo" or not _has_id_prefix("hall:bell:"):
-		_bad("play-to-echo transition did not expose bell targets immediately")
-	# A wrong echo restarts playback and must remove those targets immediately.
-	var sequence: Array = bellgame.get("seq", [])
-	var wrong_note: int = (int(sequence[0]) + 1) % 7
-	main._bellgame_echo(bellgame, wrong_note)
-	if String(bellgame.get("state", "")) != "play" or _has_id_prefix("hall:bell:"):
-		_bad("echo-to-play transition left stale bell targets")
-	# The completed third round returns the free-play bells immediately.
-	bellgame["state"] = "echo"
-	bellgame["round"] = 3
-	bellgame["seq"] = [0]
-	bellgame["i"] = 0
-	main._bellgame_echo(bellgame, 0)
-	if String(bellgame.get("state", "")) != "idle" or not _has_id_prefix("hall:bell:"):
-		_bad("bell completion did not restore free-play targets")
-
-	# Modal cutscenes intentionally clear a held movement finger and keep world
-	# controls blocked until their visual layer is gone.
-	main.touch_ui.touch_owners[71] = 2   # TouchOwner.STICK
-	main.touch_ui._press(Vector2(170.0, 550.0), 71)
-	main.touch_ui._drag(Vector2(245.0, 520.0))
-	main._begin_sleep()
-	if main.touch_ui.world_controls_enabled or not main.touch_ui.touch_owners.is_empty() or not (main.touch_ui.stick_vec as Vector2).is_zero_approx():
-		_bad("sleep cutscene retained held movement")
-	main._populate_touch_interactables()
-	if _ids().has("hall:bed"):
-		_bad("sleep target remained restartable during cutscene")
-	main._end_sleep()
-	if not main.touch_ui.world_controls_enabled:
-		_bad("world controls did not return after sleep")
-	main.touch_ui.touch_owners[72] = 2   # TouchOwner.STICK
-	main.touch_ui._press(Vector2(170.0, 550.0), 72)
-	main.touch_ui._drag(Vector2(245.0, 520.0))
-	main._play_hug_cutscene()
-	if main.touch_ui.world_controls_enabled or not main.touch_ui.touch_owners.is_empty():
-		_bad("hug cutscene retained held movement")
-	main._end_hug_cutscene()
+	var all_six_plates_visible := int(
+		main.g.get("castle_dining_plates", 0)) == 6
+	for plate_index in range(6):
+		var plate_record: Dictionary = main.castle_room_item_sprites.get(
+			"meal_plate_%d" % plate_index, {}) as Dictionary
+		var plate_sprite: Sprite3D = plate_record.get("sprite") as Sprite3D
+		all_six_plates_visible = all_six_plates_visible \
+			and plate_sprite != null and plate_sprite.visible
+	if not all_six_plates_visible:
+		_bad("serving dinner did not set six visible places")
+	rooms._activate_room_item("dining_table")
 	await process_frame
-	if not main.touch_ui.world_controls_enabled:
-		_bad("world controls did not return after hug")
+	if int(main.g.get("castle_dining_plates", 0)) != 5:
+		_bad("eating at the family table did not consume one place")
 
-	# Pointer-driven 2D games own the whole screen. World controls must vanish
-	# so the lower-right action bubble cannot cover a picture target.
+	rooms.show_room("royal_bedroom", false)
+	await _frames(2)
+	for bedroom_item: String in [
+		"canopy_bed", "shell_wardrobe",
+		"bedside_table", "reading_cushion"]:
+		if not main.castle_room_item_sprites.has(bedroom_item):
+			_bad("royal bedroom missing role-play prop %s" % bedroom_item)
+	var was_night: bool = main.is_night
+	var bed_record: Dictionary = main.castle_room_item_sprites.get(
+		"canopy_bed", {}) as Dictionary
+	var bed_sprite: Sprite3D = bed_record.get("sprite") as Sprite3D
+	rooms._activate_room_item("canopy_bed")
+	await process_frame
+	var sleep_overlay: ColorRect = main.castle_room_stage.get_node_or_null(
+		"DreamHouseSleepFade") as ColorRect
+	var sleep_marks: Label = main.castle_room_stage.get_node_or_null(
+		"DreamHouseSleepMarks") as Label
+	if not bool(main.g.get("castle_roleplay_sleeping", false)) \
+			or sleep_overlay == null or sleep_marks == null:
+		_bad("touching a royal bed did not start the cosy sleep sequence")
+	else:
+		rooms._flip_roleplay_sleep_time()
+		rooms._finish_roleplay_sleep(
+			sleep_overlay, sleep_marks, bed_sprite)
+		await process_frame
+		if main.is_night == was_night \
+				or bool(main.g.get("castle_roleplay_sleeping", false)):
+			_bad("dream-house sleep did not wake and toggle time")
+
+	rooms.show_room("sleepover_bedroom", false)
+	await _frames(2)
+	for dream_bed_id: String in [
+		"dream_bed_0", "dream_bed_1", "dream_bed_2"]:
+		var dream_bed_record: Dictionary = main.castle_room_item_sprites.get(
+			dream_bed_id, {}) as Dictionary
+		var dream_bed_sprite: Sprite3D = dream_bed_record.get(
+			"sprite") as Sprite3D
+		if dream_bed_sprite == null \
+				or String(dream_bed_sprite.get_meta(
+					"roleplay_action", "")) != "sleep":
+			_bad("sleepover room missing working bed %s" % dream_bed_id)
+
+	rooms.show_room("movie_lounge", false)
+	await _frames(2)
+	var picture_record: Dictionary = main.castle_room_item_sprites.get(
+		"movie_picture", {}) as Dictionary
+	var picture_sprite: Sprite3D = picture_record.get("sprite") as Sprite3D
+	var movie_before: int = int(main.g.get("castle_movie_index", 0))
+	rooms._activate_room_item("movie_screen")
+	await process_frame
+	var expected_movie: int = posmod(
+		movie_before + 1, CastleRooms25D.MOVIE_IMAGES.size())
+	if picture_sprite == null \
+			or int(main.g.get("castle_movie_index", -1)) != expected_movie \
+			or picture_sprite.texture.resource_path \
+				!= CastleRooms25D.MOVIE_IMAGES[expected_movie] \
+			or not bool(picture_sprite.get_meta(
+				"protected_original_displayed_directly", false)):
+		_bad("movie screen did not cycle direct protected home-movie art")
+	for lounge_item: String in [
+		"cloud_settee_left", "cloud_settee_right", "cloud_pouf"]:
+		var lounge_record: Dictionary = main.castle_room_item_sprites.get(
+			lounge_item, {}) as Dictionary
+		var lounge_sprite: Sprite3D = lounge_record.get("sprite") as Sprite3D
+		if lounge_sprite == null \
+				or String(lounge_sprite.get_meta(
+					"roleplay_action", "")) != "relax":
+			_bad("movie lounge missing relaxing seat %s" % lounge_item)
+
+	rooms.show_room("bubble_bath", false)
+	await _frames(2)
+	for prop_id: String in ["bathtub", "sink", "toilet"]:
+		if not main.castle_room_item_sprites.has(prop_id):
+			_bad("bubble bath missing separate Sprite3D prop %s" % prop_id)
+	var toilet_record: Dictionary = main.castle_room_item_sprites.get("toilet", {})
+	var toilet_sprite: Sprite3D = toilet_record.get("sprite") as Sprite3D
+	rooms._activate_room_item("toilet")
+	await process_frame
+	if toilet_sprite == null or not bool(toilet_sprite.get_meta("busy", false)):
+		_bad("touching the toilet did not animate its Sprite3D card")
+	if main.castle_room_prop_sfx == null or main.castle_room_prop_sfx.stream == null:
+		_bad("touching a room prop did not attach relevant sound")
+	main.castle_room_back_button.pressed.emit()
+	await _frames(2)
+	if main.castle_room_id != "main_hall":
+		_bad("room Back did not return to the Main Hall")
+	rooms.activate_current_room()
+	await process_frame
+	if not bool(main.g.get("crown_won", false)):
+		_bad("Main Hall action did not award the Crown Star")
+
+	# Pointer-driven activities may temporarily cover the castle, but closing a
+	# nested overlay must return to the room stage rather than resurrecting the
+	# retired free-roaming controls.
 	main._mg2d_open("garden")
 	await process_frame
 	if main.touch_ui.world_controls_enabled or (main.touch_ui._act_button != null and main.touch_ui._act_button.visible):
@@ -201,14 +333,14 @@ func _init() -> void:
 		_bad("closing nested overlay re-enabled controls above picture game")
 	main._mg2d_close()
 	await process_frame
-	if not main.touch_ui.world_controls_enabled:
-		_bad("world controls did not return after picture game")
+	if main.touch_ui.world_controls_enabled:
+		_bad("picture game close enabled 3D controls over castle stage")
 
-	# Synchronous zone rebuilds clear focus/assist immediately and reject taps
-	# until the black reveal finishes.
-	main.touch_focus_id = "hall:bed"
+	# Leaving the picture stage clears stale assisted navigation and restores the
+	# courtyard. The room overlay and its Sprite3D world must be fully released.
+	main.touch_focus_id = "retired:hall"
 	main.touch_auto_active = true
-	main._return_to_courtyard()
+	rooms._exit_to_courtyard()
 	main._on_touch_world(main.get_viewport().get_visible_rect().size * 0.5)
 	if not main.touch_focus_id.is_empty() or main.touch_auto_active:
 		_bad("rapid transition tap retained or created stale navigation")
@@ -216,20 +348,16 @@ func _init() -> void:
 		_bad("fade cover did not claim touches during transition")
 	await _frames(8)
 
-	# Fix regression: leaving the castle mid-tuck-in (pause -> "Leave") must
-	# unwind the sleep cutscene. Its reason-keyed "sleep" input block once
-	# leaked and left every touch control dead until an app restart.
+	# Leaving Level 2 directly from the castle must also tear down both UI and
+	# world-card roots; otherwise the old stage can remain over the reef.
 	main._enter_castle_interior_now(false)
 	await _frames(12)
-	main._begin_sleep()
-	if main.touch_ui.world_controls_enabled:
-		_bad("tuck-in did not take the sleep input block")
 	main._exit_level2_now()
 	await _frames(4)
 	if not main.touch_ui.world_controls_enabled:
-		_bad("leaving mid-sleep left touch controls dead (sleep block leak)")
-	if float(main.sleep_t) >= 0.0 or main.sleep_layer != null:
-		_bad("leaving mid-sleep left cutscene state armed")
+		_bad("leaving the castle left touch controls blocked")
+	if rooms.is_open() or main.castle_room_world_root != null:
+		_bad("leaving Level 2 retained the castle Sprite3D stage")
 
 	# Fix regression (Hybrid contract): the sparring den may advertise by
 	# proximity but must start ONLY from its explicit tap target.
@@ -272,6 +400,14 @@ func _has_id_prefix(prefix: String) -> bool:
 		if interactable_id.begins_with(prefix):
 			return true
 	return false
+
+func _wait_for_castle_room(expected_room: String,
+		timeout_ms: int = 1500) -> bool:
+	var deadline: int = Time.get_ticks_msec() + timeout_ms
+	while main.castle_room_id != expected_room \
+			and Time.get_ticks_msec() < deadline:
+		await process_frame
+	return main.castle_room_id == expected_room
 
 func _frames(count: int) -> void:
 	for frame_index in range(count):

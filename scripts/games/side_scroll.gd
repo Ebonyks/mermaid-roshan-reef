@@ -45,6 +45,10 @@ func open(cfg: Dictionary) -> void:
 	# screen_z declare the painted wall's half-width and depth, and the camera
 	# glide then REFUSES to pan past its painted edges, so the frame is always
 	# filled by the painting and never by raw environment sky.
+	# A mural stage may also set side_on_axis_lock: the camera then keeps its
+	# optical axis perpendicular to the stage while its position eases. Without
+	# that lock, look-at snaps to the goal while position lags, briefly yawing
+	# the lens and making real-depth cards skate against painted sockets.
 	# Scale note: the v4 Roshan is ~7 world units tall (3.7× model scale in
 	# player.gd) — size stages against HER, not against a 2-unit toy.
 	m.g["ss_cfg"] = cfg
@@ -212,11 +216,11 @@ func walk_tick(delta: float) -> Dictionary:
 	# same contract as Hybrid); any stick/pad/key input cancels the goal
 	# instantly and steers directly (the Hybrid manual-override rule). No
 	# tap-button semantics here — in the world, tap belongs to the
-	# interaction director. Returns {px, pz, moved, pointing, arrived}.
+	# interaction director. Returns {px, pz, moved, pointing, arrived, hopped}.
 	var cfg: Dictionary = m.g.get("ss_cfg", {})
 	var r := root()
 	if r == null:
-		return {"px": 0.0, "pz": 0.0, "moved": false, "pointing": false, "arrived": true}
+		return {"px": 0.0, "pz": 0.0, "moved": false, "pointing": false, "arrived": true, "hopped": false}
 	var half_w: float = float(cfg.get("half_w", 23.2))
 	var half_d: float = float(cfg.get("half_d", 7.0))
 	var mx := 0.0
@@ -289,6 +293,31 @@ func walk_tick(delta: float) -> Dictionary:
 		z = 0.0
 	if bool(cfg.get("keep_on_screen", false)):
 		x = keep_on_screen(cfg, x)
+	# The visible action medallion promises a hop in walk mode. Preserve the
+	# route/depth travel below while layering a small no-fail vertical arc over
+	# its authored ground height. A promenade director can reserve the same
+	# action edge for PLAY/ENTER and set ss_walk_jump_request only when no prop
+	# is focused.
+	var jump_down: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A)
+	var jump_edge: bool = jump_down and not bool(m.g.get("ss_walk_jump_prev", false))
+	m.g["ss_walk_jump_prev"] = jump_down
+	var jump_request: bool = bool(m.g.get("ss_walk_jump_request", false)) or jump_edge
+	m.g["ss_walk_jump_request"] = false
+	if m.touch_ui != null and m.touch_ui.consume_action_just():
+		jump_request = true
+	var jump_y: float = float(m.g.get("ss_walk_jump_y", 0.0))
+	var jump_v: float = float(m.g.get("ss_walk_jump_v", 0.0))
+	var hopped := false
+	if jump_request and jump_y <= 0.02:
+		jump_v = float(cfg.get("walk_jump_v", 18.0))
+		hopped = true
+	if jump_y > 0.0 or jump_v > 0.0:
+		jump_v -= float(cfg.get("walk_gravity", 44.0)) * delta
+		jump_y = maxf(0.0, jump_y + jump_v * delta)
+		if jump_y <= 0.0:
+			jump_v = 0.0
+	m.g["ss_walk_jump_y"] = jump_y
+	m.g["ss_walk_jump_v"] = jump_v
 	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta
 	var base_hover: float = float(cfg.get("hover", 3.0))
 	if walk_route.size() >= 2:
@@ -298,6 +327,7 @@ func walk_tick(delta: float) -> Dictionary:
 		# Roshan rides the same tide as the props and layers — analytically,
 		# never on a body (her hover just samples the shared wave)
 		hover += sin(swell_phase(x) + 0.9) * 0.35 * swell_amp()
+	hover += jump_y
 	m.player.position = r.position + Vector3(x, hover, z)
 	m.player.vel = Vector3.ZERO
 	# face the run: screen-left/right while traveling, the camera when idle
@@ -308,7 +338,7 @@ func walk_tick(delta: float) -> Dictionary:
 	m.player.rotation.z = lerpf(m.player.rotation.z, -dx * 0.16, 1.0 - pow(0.001, delta))
 	_glide_camera(delta, cfg, r, x * float(cfg.get("cam_follow", 0.25)))
 	return {"px": x, "pz": z, "moved": moved, "pointing": pointing,
-		"arrived": not (m.g.get("ss_walk_goal") is Vector2)}
+		"arrived": not (m.g.get("ss_walk_goal") is Vector2), "hopped": hopped}
 
 func plane_goal(screen_pos: Vector2) -> Variant:
 	# THE promenade projection, in one place: a screen press → the walk band.
@@ -428,7 +458,11 @@ func _glide_camera(delta: float, cfg: Dictionary, r: Node3D, follow_x: float) ->
 		follow_x = clampf(follow_x, -pan_limit, pan_limit)
 	var goal: Vector3 = r.position + Vector3(follow_x, float(cfg.get("cam_h", 12.0)), float(cfg.get("cam_dist", 20.5)))
 	cam.position = cam.position.lerp(goal, 1.0 - pow(0.002, delta))
-	cam.look_at(r.position + Vector3(follow_x, float(cfg.get("look_h", 10.5)), 0))
+	var look_x: float = follow_x
+	if bool(cfg.get("side_on_axis_lock", false)):
+		look_x = cam.position.x - r.position.x
+	cam.look_at(r.position + Vector3(
+		look_x, float(cfg.get("look_h", 10.5)), 0))
 	# parallax: locked layers ride the (lerped) camera by their lock factor,
 	# so a lock-1 sky never recedes and a lock-0 skirt stays stage-pinned;
 	# under a swell the near layers also breathe with the shared wave (the

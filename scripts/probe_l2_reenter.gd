@@ -37,7 +37,11 @@ func _init() -> void:
 	# Re-entry is safe when the rebuilt three-screen promenade has the same
 	# interaction roster and the scene tree stays within the original
 	# anti-duplication tolerance.
-	var ok: bool = targets1 == 8 and targets2 == targets1 \
+	# The picture easels were removed on 2026-07-29. The persistent roster is
+	# now slide, single-seat swing, seesaw, and castle door. The Day One plane
+	# makes the roster five until its saved arrival has completed, so both
+	# valid save states must rebuild without duplicating cards.
+	var ok: bool = targets1 >= 4 and targets1 <= 5 and targets2 == targets1 \
 		and n2 <= n1 + int(float(n1) * 0.1)
 	print("REENTER|no_duplicate_level: ", ("OK" if ok else "FAIL"))
 	quit()

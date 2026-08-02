@@ -16,6 +16,21 @@ python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.
 	|| { echo "LINT FAIL (:= from Variant)"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
+python3 tools/prepare_opera_nursery_art.py --check-only \
+	|| { echo "OPERA NURSERY ART FAIL"; exit 1; }
+# Game-wide visual design audit (VISUAL_AUDIT_TOOL.md). The self-test is a
+# HARD gate - a check that can no longer fail is worse than no check, and that
+# failure is silent by nature. The audit itself is advisory until the
+# 2026-07-28 findings are fixed or waived; flip it to --strict then.
+python3 tools/audit_visual_design.py --stress \
+	|| { echo "VISUAL AUDIT SELF-TEST FAIL (a check can no longer fail)"; exit 1; }
+python3 tools/audit_visual_design.py || true
+python3 tools/audit_scene_congruency.py \
+	|| { echo "SKY LAGOON CONGRUENCY FAIL"; exit 1; }
+python3 tools/audit_castle_card_alpha.py \
+	|| { echo "CASTLE CARD ALPHA/DEPTH FAIL"; exit 1; }
+python3 tools/audit_castle_interactions.py \
+	|| { echo "CASTLE INTERACTION PACK FAIL"; exit 1; }
 RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
 FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
 import_log="$(mktemp)"
@@ -24,11 +39,21 @@ timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
 rc=0
-for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_treasure probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
+for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_hit probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_nursery probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
 	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"
-	mkdir -p "$probe_home/data" "$probe_home/config"
+	mkdir -p "$probe_home/data" "$probe_home/config" \
+		"$probe_home/appdata" "$probe_home/localappdata"
+	probe_appdata="$probe_home/appdata"
+	probe_localappdata="$probe_home/localappdata"
+	if command -v cygpath >/dev/null 2>&1; then
+		# Godot's Windows build uses APPDATA/LOCALAPPDATA, not XDG_*.
+		# Native paths keep one probe's save from pre-winning the next probe.
+		probe_appdata="$(cygpath -w "$probe_appdata")"
+		probe_localappdata="$(cygpath -w "$probe_localappdata")"
+	fi
+	probe_output="$probe_home/$p.out"
 	touch_test_mode="--classic-touch-test"
 	case "$p" in
 		probe_passive|probe_touch_router|probe_interaction|probe_touch_adversary)
@@ -36,31 +61,32 @@ for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive pro
 			;;
 	esac
 	probe_rc=0
-	XDG_DATA_HOME="$probe_home/data" XDG_CONFIG_HOME="$probe_home/config" \
-		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch "$touch_test_mode" 2>&1 | tee "/tmp/$p.out" || probe_rc=$?
+	APPDATA="$probe_appdata" LOCALAPPDATA="$probe_localappdata" \
+		XDG_DATA_HOME="$probe_home/data" XDG_CONFIG_HOME="$probe_home/config" \
+		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch "$touch_test_mode" 2>&1 | tee "$probe_output" || probe_rc=$?
 	if [ "$probe_rc" -ne 0 ]; then
 		# Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at EXIT
 		# after a probe printed its complete verdict (seen after kart-heavy
 		# probes, always AFTER an ALL OK line). Accept a timeout kill (124)
 		# only when the transcript ends with a final verdict marker; the
 		# failure greps below still veto bad content. Anything else is real.
-		if [ "$probe_rc" -eq 124 ] && tail -n 5 "/tmp/$p.out" | grep -qE "ALL OK|RESULT"; then
+		if [ "$probe_rc" -eq 124 ] && tail -n 5 "$probe_output" | grep -qE "ALL OK|RESULT"; then
 			echo "PROBE $p reached its verdict; engine hung at exit and was reaped - accepted"
 		else
 			rc=1
 		fi
 	fi
-	grep -qE "$FAILURE_RE" "/tmp/$p.out" \
+	grep -qE "$FAILURE_RE" "$probe_output" \
 		&& { echo "PROBE $p reported a failure or runtime script error"; rc=1; }
 	# a script that cannot compile leaves the probe waiting on a world that
 	# never builds - bail on the whole gate instead of timing out per-probe
-	grep -qE "Parse Error|Compile Error" "/tmp/$p.out" \
+	grep -qE "Parse Error|Compile Error" "$probe_output" \
 		&& { echo "PROBE $p hit a script compile error - aborting gate"; exit 1; }
-	grep -qE "$RUNTIME_ERROR_RE" "/tmp/$p.out" \
+	grep -qE "$RUNTIME_ERROR_RE" "$probe_output" \
 		&& { echo "PROBE $p reported a resource or property runtime error"; rc=1; }
 	# positive floor: a probe that exits 0 while printing nothing asserted
 	# nothing - a startup crash swallowed before any output must not pass
-	[ -s "/tmp/$p.out" ] \
+	[ -s "$probe_output" ] \
 		|| { echo "PROBE $p produced no output - silent no-op treated as failure"; rc=1; }
 	rm -rf "$probe_home"
 done

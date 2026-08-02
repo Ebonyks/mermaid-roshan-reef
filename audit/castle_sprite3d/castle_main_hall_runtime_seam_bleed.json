@@ -1,0 +1,306 @@
+{
+  "schema": 2,
+  "purpose": "Mobile-renderer raster safety for every Main Hall horizontal and vertical Sprite3D tile boundary",
+  "art_change": "none; exact approved right/lower neighbor-edge duplication only",
+  "source_tile_rectangles_remain_non_overlapping": true,
+  "runtime_render_overlap_pixels": [
+    1,
+    1
+  ],
+  "scaling": false,
+  "interpolation": false,
+  "crop_or_content_loss": false,
+  "new_art": false,
+  "all_source_pixels_preserved": true,
+  "all_bleed_edges_match_approved_neighbors": true,
+  "tiles": [
+    {
+      "row": 0,
+      "column": 0,
+      "source_path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c0.png",
+      "source_dimensions": [
+        836,
+        470
+      ],
+      "source_sha256": "9bbec1583f6e8192bd70edae1c7818aa6c0b44e407a5454562b5eb40b9a9b295",
+      "runtime_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c0_bleed.png",
+      "runtime_dimensions": [
+        837,
+        471
+      ],
+      "runtime_sha256": "be22bfc045228f59872069776ed09f0e5bc286eb87794d27cef2aa89010c06e1",
+      "approved_source_body_pixel_exact": true,
+      "appended_right_edge_matches_approved_neighbor": true,
+      "appended_lower_edge_matches_approved_neighbor": true,
+      "appended_corner_matches_approved_neighbor": true,
+      "logical_source_rectangle": [
+        0,
+        0,
+        836,
+        470
+      ],
+      "runtime_render_rectangle": [
+        0,
+        0,
+        837,
+        471
+      ],
+      "seam_overlap_pixels": [
+        1,
+        1
+      ]
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "source_path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c1.png",
+      "source_dimensions": [
+        836,
+        470
+      ],
+      "source_sha256": "343d3ce3a0e56e87c4d396c1cf7f2a35756a26f92ea9565c9a5deef7e2d99414",
+      "runtime_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c1_bleed.png",
+      "runtime_dimensions": [
+        837,
+        471
+      ],
+      "runtime_sha256": "f02ff473d83239768854cb2225f52fff93224a40cee2cc9092e6363ceeb61e88",
+      "approved_source_body_pixel_exact": true,
+      "appended_right_edge_matches_approved_neighbor": true,
+      "appended_lower_edge_matches_approved_neighbor": true,
+      "appended_corner_matches_approved_neighbor": true,
+      "logical_source_rectangle": [
+        836,
+        0,
+        1672,
+        470
+      ],
+      "runtime_render_rectangle": [
+        836,
+        0,
+        1673,
+        471
+      ],
+      "seam_overlap_pixels": [
+        1,
+        1
+      ]
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "source_path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c2.png",
+      "source_dimensions": [
+        836,
+        470
+      ],
+      "source_sha256": "e7dd2df4e011e8ec600fc4627ea70310c660299de1eae3f9ed94bb9cdc571b9c",
+      "runtime_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c2_bleed.png",
+      "runtime_dimensions": [
+        837,
+        471
+      ],
+      "runtime_sha256": "005354fa26256aefd8f2b84e9259922d9a92ad025d04813266096e8bf3f58c7b",
+      "approved_source_body_pixel_exact": true,
+      "appended_right_edge_matches_approved_neighbor": true,
+      "appended_lower_edge_matches_approved_neighbor": true,
+      "appended_corner_matches_approved_neighbor": true,
+      "logical_source_rectangle": [
+        1672,
+        0,
+        2508,
+        470
+      ],
+      "runtime_render_rectangle": [
+        1672,
+        0,
+        2509,
+        471
+      ],
+      "seam_overlap_pixels": [
+        1,
+        1
+      ]
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "source_path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c3.png",
+      "source_dimensions": [
+        836,
+        470
+      ],
+      "source_sha256": "f4e7a91a627862320aa8e5af230a31d5eeaa7eacb014f937b6399951fc34467c",
+      "runtime_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c3_bleed.png",
+      "runtime_dimensions": [
+        836,
+        471
+      ],
+      "runtime_sha256": "7637ac0bee2f2db967ba4cc28964c691ba919d9de18d5c50129c36c5a9a4fb45",
+      "approved_source_body_pixel_exact": true,
+      "appended_right_edge_matches_approved_neighbor": true,
+      "appended_lower_edge_matches_approved_neighbor": true,
+      "appended_corner_matches_approved_neighbor": true,
+      "logical_source_rectangle": [
+        2508,
+        0,
+        3344,
+        470
+      ],
+      "runtime_render_rectangle": [
+        2508,
+        0,
+        3344,
+        471
+      ],
+      "seam_overlap_pixels": [
+        0,
+        1
+      ]
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "source_path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c0.png",
+      "source_dimensions": [
+        836,
+        471
+      ],
+      "source_sha256": "bc126dfc56894f75dd8f587c6ecc04c63f17175786f406eb3a23409f9e824033",
+      "runtime_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c0_bleed.png",
+      "runtime_dimensions": [
+        837,
+        471
+      ],
+      "runtime_sha256": "eb6f7e12948d7b3fed4a4592e136f91f430fcaf0df8a3223e8b76dc688035065",
+      "approved_source_body_pixel_exact": true,
+      "appended_right_edge_matches_approved_neighbor": true,
+      "appended_lower_edge_matches_approved_neighbor": true,
+      "appended_corner_matches_approved_neighbor": true,
+      "logical_source_rectangle": [
+        0,
+        470,
+        836,
+        941
+      ],
+      "runtime_render_rectangle": [
+        0,
+        470,
+        837,
+        941
+      ],
+      "seam_overlap_pixels": [
+        1,
+        0
+      ]
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "source_path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c1.png",
+      "source_dimensions": [
+        836,
+        471
+      ],
+      "source_sha256": "978c2e64ece50860c6e310cca637f72d49382612b6e798d3f0d7181fc13b9d47",
+      "runtime_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c1_bleed.png",
+      "runtime_dimensions": [
+        837,
+        471
+      ],
+      "runtime_sha256": "cdcfaca73707c8b25385fce441e37381641ff352addd911f5cbfcd8436869412",
+      "approved_source_body_pixel_exact": true,
+      "appended_right_edge_matches_approved_neighbor": true,
+      "appended_lower_edge_matches_approved_neighbor": true,
+      "appended_corner_matches_approved_neighbor": true,
+      "logical_source_rectangle": [
+        836,
+        470,
+        1672,
+        941
+      ],
+      "runtime_render_rectangle": [
+        836,
+        470,
+        1673,
+        941
+      ],
+      "seam_overlap_pixels": [
+        1,
+        0
+      ]
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "source_path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c2.png",
+      "source_dimensions": [
+        836,
+        471
+      ],
+      "source_sha256": "072d4547a05a41e24550a46466af939f5aea7939c09af9044077f42d691134b0",
+      "runtime_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c2_bleed.png",
+      "runtime_dimensions": [
+        837,
+        471
+      ],
+      "runtime_sha256": "f22eea74352a7f93fd776283f5c1c97fdf76d289f79cc1cd1ffff92585890849",
+      "approved_source_body_pixel_exact": true,
+      "appended_right_edge_matches_approved_neighbor": true,
+      "appended_lower_edge_matches_approved_neighbor": true,
+      "appended_corner_matches_approved_neighbor": true,
+      "logical_source_rectangle": [
+        1672,
+        470,
+        2508,
+        941
+      ],
+      "runtime_render_rectangle": [
+        1672,
+        470,
+        2509,
+        941
+      ],
+      "seam_overlap_pixels": [
+        1,
+        0
+      ]
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "source_path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c3.png",
+      "source_dimensions": [
+        836,
+        471
+      ],
+      "source_sha256": "f783b2931a4a26efef302770a12ed6d06fa33d8ee66323cd51de504faa9ff87d",
+      "runtime_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c3_bleed.png",
+      "runtime_dimensions": [
+        836,
+        471
+      ],
+      "runtime_sha256": "f783b2931a4a26efef302770a12ed6d06fa33d8ee66323cd51de504faa9ff87d",
+      "approved_source_body_pixel_exact": true,
+      "appended_right_edge_matches_approved_neighbor": true,
+      "appended_lower_edge_matches_approved_neighbor": true,
+      "appended_corner_matches_approved_neighbor": true,
+      "logical_source_rectangle": [
+        2508,
+        470,
+        3344,
+        941
+      ],
+      "runtime_render_rectangle": [
+        2508,
+        470,
+        3344,
+        941
+      ],
+      "seam_overlap_pixels": [
+        0,
+        0
+      ]
+    }
+  ]
+}

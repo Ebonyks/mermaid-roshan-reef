@@ -41,7 +41,7 @@ func _init() -> void:
 		["melody", {"time": 60.0}, 3], ["melody", {"time": 120.0}, 2], ["melody", {"time": 300.0}, 1],
 		["slide", {"got": 5}, 3], ["slide", {"got": 3}, 2], ["slide", {"got": 1}, 1],
 		["penguin", {"caught": true, "panic": 0}, 3], ["penguin", {"caught": false, "panic": 2}, 2], ["penguin", {"caught": false, "panic": 0}, 1],
-		["fairy", {"fails": 0, "hits": 10}, 3], ["fairy", {"fails": 1, "hits": 10}, 2], ["fairy", {"fails": 3, "hits": 4}, 1],
+		["fairy", {"fails": 0, "hits": 7}, 3], ["fairy", {"fails": 1, "hits": 7}, 2], ["fairy", {"fails": 3, "hits": 4}, 1],
 		["race", {"time": 70.0}, 3], ["treasure", {"time": 300.0}, 1],
 		["snowman", {"time": 70.0}, 3], ["garden", {"time": 40.0}, 2],
 		["trampoline", {"time": 8.0}, 3], ["xmas", {"time": 200.0}, 1],

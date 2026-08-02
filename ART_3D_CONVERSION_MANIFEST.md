@@ -34,7 +34,7 @@ intact.
 | P1 | Bush, flowers, trees, seed stages, coal, sun, and star | `assets/mg/*.png`, source in `assets_src/blender/low_score_batch_02.blend` | MOBILE_QA | Twenty-one Blender models feed touch-safe 2D renders; existing filenames preserve growth and placement contracts. |
 | P1 | Christmas ornaments | `assets/mg/orn1.png`-`orn5.png`, `xtree.png` | MOBILE_QA | Five independent ornament models/renders; the tree is now separate, empty, and has no baked topper. |
 | P1 | Kart checker and boost | `assets/kart/finish_banner.png`, `boost_ribbon.png` | MOBILE_QA | Runtime sprites preserve finish/ramp semantics. Decorated rock clusters were rejected as hazards because their stars and shells conflict with pickup language. |
-| P1 | Fairy Pond backgrounds, shadow bugs, leaf shield, and Fairy Flower growth sequence | `assets_src/fairy_v2/concepts/*.png`, runtime reliefs in `assets/fairy/models/*.glb` | MOBILE_QA | Three overhead pond plates and nine Blender-importable unlit reliefs are live. The boss now uses seed, sprout, closed bud, opening blossom, and giant full purple bloom states with matching leaves. Analytic hitboxes and forgiving phase timing are unchanged; `probe_fairy_art.gd` protects import, alpha, depth, and triangle budgets; Mobile phase screenshots remain the owner-review gate. |
+| P1 | Fairy Pond panorama, danger bugs, helpful cues, ornaments, fairy skin, and Fairy Flower growth sequence | V5 single-canvas source in `assets_src/fairy_v5/`; V2 subjects in `assets_src/fairy_v2/runtime_textures/*.png`; V4 cues in `assets_src/fairy_v4/`; runtime panorama at `assets/fairy/pond_panorama.png`; Sprite3D cards in `assets/fairy/sprites/*.png` | MOBILE_QA | All touched Fairy Pond and fairy-skin GLBs are retired. One 4096x1024 pond canvas carries a dramatic mint/aqua→cobalt→indigo/purple gradient with no generated joins. Two matching bank ornaments are separate noninteractive Sprite3D cards. Every helpful object uses a rounded mint/gold cue; every harmful object uses a pointed coral/plum cue. The boss uses seed, sprout, closed bud, opening blossom, and giant purple bloom sprite states with matching leaves. `probe_fairy_art.gd` protects the 2D-on-Sprite3D runtime contract; `tools/audit_fairy_art_v2.py` protects alpha and continuous-gradient limits. |
 | P2 | Tropical leaf/frond family | `assets/terrain/leaf.png` | MOBILE_QA | Approved broadleaf is live on crossed swaying cards. Additional fern/fan clumps remain optional 3D polish, not a score-2 blocker. |
 | P2 | Castle/furniture/park/ship raw kit surfaces | `ART_REMEDIATION_BATCH_03.md` material sheets and current GEN2 references | MODEL_PENDING | Shared trim vocabulary, rounded edges, matte paint, no photoreal PBR. |
 | P2 | Galaxy fruit/crystals/beetles | `ART_REMEDIATION_BATCH_03.md` candidates `012`, `013`, `029` | MODEL_PENDING | Retain distinct functional identity; use painted facet and shell materials rather than glossy generic pack skins. |
@@ -82,9 +82,11 @@ control, broadleaf card, kart finish banner, and kart ramp ribbon. It also
 retires the visible HDR sky and glossy beach-ball consumers in favor of
 Mobile-safe matte procedural treatments. See `ART_RUNTIME_REMEDIATION_BATCH_03.md`.
 
-Fairy Pond V2 promotes three generated overhead pond plates, three distinct
-shadow-bug species, a matching leaf-shield relief, and five authored Fairy
-Flower growth-state reliefs. The GLBs preserve the illustrated silhouette with
-real front/back/edge geometry and an overhead-camera contract; gameplay remains
-analytic. The family stays `MOBILE_QA` until the new phase captures in
-`probe_human_art_audit.gd` are reviewed under the Mobile renderer.
+Fairy Pond now publishes one generated 4096x1024 overhead panorama, three
+distinct danger-bug sprites, two matching bank-ornament sprites, a leaf target,
+two nonverbal readability cues, and five authored Fairy Flower growth-state
+sprites. The former Fairy Pond and fairy-skin GLBs are retired; Sprite3D cards
+preserve the illustrated silhouettes without adding 3D models. Gameplay
+remains analytic. The family stays `MOBILE_QA` until the
+new phase captures in `probe_human_art_audit.gd` are reviewed under the Mobile
+renderer.

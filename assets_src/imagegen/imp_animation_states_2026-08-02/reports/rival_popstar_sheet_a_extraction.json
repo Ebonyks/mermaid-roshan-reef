@@ -1,0 +1,181 @@
+{
+  "pass": true,
+  "method": "grid-cell grouping of 8-connected alpha components; 3px matte support; 8px crop padding",
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_sheet_a_attempt01_alpha_native.png",
+  "input_sha256": "329616c751137103e4f5f7cc143a2a5db9c2072138cd98706048b4213e264f41",
+  "sheet": "a",
+  "states": [
+    "idle",
+    "windup",
+    "charge",
+    "slash",
+    "recover",
+    "guard"
+  ],
+  "component_count": 6,
+  "occupied_grid_cells": 6,
+  "outputs": [
+    {
+      "state": "idle",
+      "source_components": [
+        {
+          "label": 3,
+          "area": 79297,
+          "bbox": [
+            42,
+            142,
+            409,
+            523
+          ],
+          "centroid": [
+            225.12011803725235,
+            325.48175845240047
+          ]
+        }
+      ],
+      "crop_bbox": [
+        34,
+        134,
+        417,
+        531
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "9cac12f4748b2c3bdca3904e30377dd1fc0281d7f6a35e76dc6195c838ec0989"
+    },
+    {
+      "state": "windup",
+      "source_components": [
+        {
+          "label": 1,
+          "area": 83382,
+          "bbox": [
+            432,
+            109,
+            824,
+            541
+          ],
+          "centroid": [
+            656.412990813365,
+            314.66063418963324
+          ]
+        }
+      ],
+      "crop_bbox": [
+        424,
+        101,
+        832,
+        549
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_windup_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "c92bc1d00ee65ffd85b41f2ccd50c63382db2ea01c45ff5adea52850ecd068e0"
+    },
+    {
+      "state": "charge",
+      "source_components": [
+        {
+          "label": 2,
+          "area": 78913,
+          "bbox": [
+            829,
+            131,
+            1223,
+            542
+          ],
+          "centroid": [
+            1018.6752879753652,
+            332.2259323558856
+          ]
+        }
+      ],
+      "crop_bbox": [
+        821,
+        122,
+        1231,
+        550
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_charge_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "7cb715230ba3578fc99871a7c8388e0d806385beb69e888da41687a27a1424e4"
+    },
+    {
+      "state": "slash",
+      "source_components": [
+        {
+          "label": 4,
+          "area": 88287,
+          "bbox": [
+            39,
+            681,
+            419,
+            1132
+          ],
+          "centroid": [
+            209.04165958748175,
+            898.8619842105859
+          ]
+        }
+      ],
+      "crop_bbox": [
+        31,
+        673,
+        427,
+        1140
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_slash_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "924272967255ecff28b7fe7b14e9d3fb244a3f92dd225ab7117a97e67327b2f9"
+    },
+    {
+      "state": "recover",
+      "source_components": [
+        {
+          "label": 5,
+          "area": 79443,
+          "bbox": [
+            430,
+            690,
+            777,
+            1137
+          ],
+          "centroid": [
+            600.7038002089548,
+            912.8777614138439
+          ]
+        }
+      ],
+      "crop_bbox": [
+        422,
+        682,
+        785,
+        1145
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_recover_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "ee544ea7df826f9f3bb20d46a6be327c3217c1a071cb22b762d8c9e3c04adbd1"
+    },
+    {
+      "state": "guard",
+      "source_components": [
+        {
+          "label": 6,
+          "area": 72078,
+          "bbox": [
+            855,
+            766,
+            1177,
+            1139
+          ],
+          "centroid": [
+            1008.6626987430284,
+            947.1415549821028
+          ]
+        }
+      ],
+      "crop_bbox": [
+        847,
+        757,
+        1185,
+        1147
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_guard_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "daef5bcfa0eebf77c641e1e90ae86c1edbc09ff9a7027f33e2e19c1b1782b5a0"
+    }
+  ]
+}

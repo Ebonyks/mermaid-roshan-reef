@@ -62,9 +62,9 @@ func _init(main: ReefMain) -> void:
 func evaluate(id: String, stats: Dictionary) -> int:
 	# Pure: no side effects, probe-testable. Returns 0 for unranked ids (shop).
 	if id == "fairy":
-		# Precision shmup: gold = a perfect run (never lost the sparkle shield,
-		# zapped every shadow bug); silver = at most one shield loss.
-		if int(stats.get("fails", 0)) == 0 and int(stats.get("hits", 0)) >= 10:
+		# Gentle flight: gold = a perfect run (never emptied fairy light and
+		# sparkled all seven danger bugs); silver = at most one light refill.
+		if int(stats.get("fails", 0)) == 0 and int(stats.get("hits", 0)) >= 7:
 			return GOLD
 		return SILVER if int(stats.get("fails", 0)) <= 1 else BRONZE
 	if id == "penguin":

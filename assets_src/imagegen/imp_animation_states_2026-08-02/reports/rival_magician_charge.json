@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "charge",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    41,
+    37,
+    491,
+    456
+  ],
+  "visible_bbox": [
+    41,
+    37,
+    491,
+    456
+  ],
+  "solid_height": 420,
+  "gaps": {
+    "left": 41,
+    "right": 20,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 11,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 87032,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    4,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    216,
+    120,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.512009,
+  "solid_centroid_x": 256.797,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_charge_attempt02_alpha_native.png",
+  "input_sha256": "e1d9241346dc08d62b8e502436c01ed610e594235070ae5af52f0a8dca0f05d2",
+  "output": "assets\\opera\\worlds\\actors\\rival_magician_charge.png",
+  "output_sha256": "b434a73357f784232b8fc67152c532e749d202e05f1be18b0d786eed8934520d",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_magician.png",
+  "idle_sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 420,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_charge\\rival_magician_charge_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_charge\\rival_magician_charge_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_charge\\rival_magician_charge_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_charge\\rival_magician_charge_idle_comparison.png"
+  }
+}

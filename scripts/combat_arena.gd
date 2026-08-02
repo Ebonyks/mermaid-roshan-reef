@@ -8,6 +8,7 @@ const CENTER := Vector3(0.0, -2200.0, 0.0)
 const RADIUS := 27.0
 const MOVE_SPEED := 14.0
 const CLEAN_BUBBLE_PATH := "res://assets/sprites/dust_bunnies/dust_bunny_clean_bubbles.png"
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 
 var m: ReefMain
 var kind := "ice"
@@ -31,10 +32,13 @@ var enemies: Array[Dictionary] = []
 var shots: Array[Dictionary] = []
 var enemy_shots: Array[Dictionary] = []
 var boss: Dictionary = {}
+var he: HitEngine = null
+var imp_brain: ImpAI = null      # the shared crew brain (scripts/imp_ai.gd)
 var encounter := {}
 var room_tag := ""
 var art_theme := ""
 var materials := {}
+var mic_live := false   # microphone armed AND both spells taught
 
 func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dictionary = {}) -> void:
 	m = main
@@ -49,18 +53,40 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 	_build_avatar()
 	_build_camera()
 	_build_hud()
+	# the shared hit pipeline: taps and projectiles both damage through it
+	he = HitEngine.new(m)
+	he.fx_root = self
+	he.camera = cam
+	he.on_hit = Callable(self, "_on_engine_hit")
+	# Spoken spells are an ADDITION to the buttons, never a replacement: the
+	# hint is only spoken when the microphone is actually listening and the
+	# words have actually been taught (MIC_SPELLS.md).
+	mic_live = _arm_mic()
 	if kind == "ice":
+		var ice_msg := "Ice Berry ready! Tap the big ICE button and freeze every mischief imp!"
+		if m.touch_uses_explicit_interactions():
+			ice_msg += " Or tap an imp right on its nose!"
+		if mic_live:
+			ice_msg += " Or shout FREEZE!"
 		_build_ice_swarm()
-		m.show_msg("Roshan", "Ice Berry ready! Tap the big ICE button and freeze every mischief imp!", "talk")
+		m.show_msg("Roshan", ice_msg, "talk")
 	elif kind == "dust":
 		_build_dust_bunny_swarm()
 		m.show_msg("Roshan", "Dust bunnies! Tap the big CLEAN button and give each one a sparkling bubble poof!", "talk")
 	else:
 		_build_pepper_boss()
 		if kind == "dual":
-			m.show_msg("Roshan", "Freeze the spinning shell with ICE, then use FIRE when the dragon-turtle peeks out!", "talk")
+			var dual_msg := "Freeze the spinning shell with ICE, then use FIRE when the dragon-turtle peeks out!"
+			if mic_live:
+				dual_msg += " You can shout FREEZE and FIREBALL too!"
+			m.show_msg("Roshan", dual_msg, "talk")
 		else:
-			m.show_msg("Roshan", "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!", "talk")
+			var fire_msg := "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!"
+			if mic_live:
+				fire_msg += " Or shout FIREBALL!"
+			m.show_msg("Roshan", fire_msg, "talk")
+	he.targets = enemies if kind in ["ice", "dust"] else [boss]
+	m.hit_engines.append(he)   # enemy priority: this battle's taps outrank the world
 	_update_hud()
 
 func _build_environment() -> void:
@@ -142,13 +168,14 @@ func _build_octagon() -> void:
 
 func _build_avatar() -> void:
 	avatar = Sprite3D.new()
-	var avatar_tex := load("res://assets/characters/roshan_sprite.png") as Texture2D
-	avatar.texture = avatar_tex
-	avatar.pixel_size = 6.2 / maxf(float(avatar_tex.get_height()), 1.0) if avatar_tex != null else 0.01
+	avatar.pixel_size = 6.2 / 256.0
 	avatar.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	avatar.no_depth_test = false
 	avatar.position = player_pos
 	add_child(avatar)
+	var animator := ROSHAN_SPRITE_LOOP.new()
+	avatar.add_child(animator)
+	animator.setup_sprite_3d(avatar, false, avatar)
 
 func _build_camera() -> void:
 	cam = Camera3D.new()
@@ -196,6 +223,25 @@ func _build_hud() -> void:
 func _build_ice_swarm() -> void:
 	var count: int = int(encounter.get("enemy_count", 8))
 	var layout: String = String(encounter.get("layout", "ring"))
+	# the shared crew brain (scripts/imp_ai.gd): arena metres, and the
+	# encounter's own imp_speed still sets the crew's walking pace
+	var pace: float = maxf(1.0, float(encounter.get("imp_speed", 1.5))) * 2.6
+	imp_brain = ImpAI.new({
+		"strike_range": 12.0,
+		"stand_off": 7.5,
+		"contact": 3.4,
+		"speed": pace,
+		"charge_speed": pace * 3.4,
+		"flee_speed": pace * 1.6,
+		"windup": 1.0,
+		"charge_time": 0.45,
+		"slash_time": 0.28,
+		"recover": 1.25,
+		"cool_min": float(encounter.get("attack_gap", 3.0)) * 0.8,
+		"cool_max": float(encounter.get("attack_gap", 3.0)) * 1.7,
+		"max_attackers": 2,
+	}, room_tag.hash() + count * 31)
+	imp_brain.begin_crew(count)
 	for i in range(count):
 		var a: float = float(i) * TAU / float(count)
 		var spawn_r := 18.0
@@ -208,7 +254,10 @@ func _build_ice_swarm() -> void:
 		root.position = pos
 		add_child(root)
 		DungeonArt.spawn("imp", root, Vector3.ZERO, art_theme)
-		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0, "attack": 1.0 + float(i) * 0.18, "phase": a})
+		var mind: Dictionary = imp_brain.spawn_mind(i, false)
+		mind["pos"] = Vector2(pos.x, pos.z)
+		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0,
+			"attack": 1.0 + float(i) * 0.18, "phase": a, "ai": mind, "pose": "prowl"})
 
 
 func _build_dust_bunny_swarm() -> void:
@@ -252,7 +301,7 @@ func _build_pepper_boss() -> void:
 	var shell := DungeonArt.find_part(root, "Shell")
 	var first_phase := "shell" if kind == "dual" else "peek"
 	var first_time := float(encounter.get("shell_time", 4.5)) if kind == "dual" else float(encounter.get("peek_time", 4.5))
-	boss = {"node": root, "head": head, "shell": shell, "hp": int(encounter.get("boss_hp", 7)), "phase": first_phase, "timer": first_time, "attack": 1.2, "pos": root.position}
+	boss = {"node": root, "head": head, "shell": shell, "hp": int(encounter.get("boss_hp", 7)), "phase": first_phase, "timer": first_time, "attack": 1.2, "pos": root.position, "aim_h": 3.0, "screen_radius": 170.0}
 	if kind == "dual":
 		head.visible = false
 
@@ -269,6 +318,29 @@ func _move_input() -> Vector2:
 	if m.touch_ui != null and m.touch_ui.stick_vec.length() > 0.12:
 		value = m.touch_ui.stick_vec
 	return value.limit_length(1.0)
+
+# Opens the capture device for this battle only. Returns true when a spoken
+# spell can actually land, so callers never promise the child something the
+# permission state or an untaught word cannot deliver.
+func _arm_mic() -> bool:
+	if m == null or not m.mic_on:
+		return false
+	var mic: MicInput = m._mic_ref()
+	mic.arm()
+	return m.mic_state == "listening" and mic.all_words_taught()
+
+# A recognised spell word, mapped to a power this arena can actually cast. A
+# word this battle has no use for is silently dropped — saying FIREBALL at the
+# imps simply does nothing, which is the no-fail-state rule applied to speech.
+func _mic_power() -> String:
+	if state != "play" or not mic_live or m == null or m.mic_sys == null:
+		return ""
+	var word: String = m.mic_sys.poll_word()
+	if word == "":
+		return ""
+	if kind == "dual":
+		return word          # the spoken word chooses the power
+	return word if word == kind else ""
 
 func _action_pressed() -> bool:
 	var held: bool = Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
@@ -301,7 +373,10 @@ func _process(delta: float) -> void:
 	if move.length() > 0.08:
 		player_yaw = atan2(move.x, move.y)
 	avatar.position = player_pos + Vector3(0, sin(elapsed * 4.0) * 0.12, 0)
-	if _action_pressed() and shot_cool <= 0.0:
+	var spoken: String = _mic_power()
+	if spoken != "" and shot_cool <= 0.0:
+		_fire(spoken)
+	elif _action_pressed() and shot_cool <= 0.0:
 		_fire()
 	_tick_shots(delta)
 	_tick_enemy_shots(delta)
@@ -312,6 +387,29 @@ func _process(delta: float) -> void:
 	else:
 		_tick_boss(delta)
 	_tick_pointer()
+
+# A screen tap from the touch router (Hybrid mode). The engine picks the
+# enemy under the finger and routes it through the shared hit() interface —
+# the same path the projectiles take.
+func on_world_tap(screen_pos: Vector2) -> void:
+	if state != "play" or he == null:
+		return
+	he.tap(screen_pos)
+
+# Every damage source lands here with its origin: "tap", "shot_ice",
+# "shot_fire" today; combo verbs tomorrow. Imps freeze into the popcorn
+# death; the boss keeps its phase rules whatever the source.
+func _on_engine_hit(enemy: Dictionary, _damage: int, source: String) -> void:
+	if kind == "ice":
+		if imp_brain != null:
+			imp_brain.on_player_swing(true)
+		_freeze_imp(enemy)
+		return
+	if kind == "dust":
+		_clean_dust_bunny(enemy)
+		return
+	var power: String = source.trim_prefix("shot_") if source.begins_with("shot_") else action_label().to_lower()
+	_hit_boss(power)
 
 func _nearest_target() -> Vector3:
 	if kind not in ["ice", "dust"] and not boss.is_empty():
@@ -327,8 +425,10 @@ func _nearest_target() -> Vector3:
 			best = enemy["pos"]
 	return best
 
-func _fire() -> void:
-	var power := action_label().to_lower()
+func _fire(power_override: String = "") -> void:
+	# power_override is set when a spoken spell named the power; otherwise the
+	# button casts whatever this arena's phase logic currently offers.
+	var power: String = power_override if power_override != "" else action_label().to_lower()
 	var target := _nearest_target()
 	var dir: Vector3 = target - player_pos
 	dir.y = 0.0
@@ -380,7 +480,7 @@ func _tick_shots(delta: float) -> void:
 		if kind == "ice":
 			for enemy in enemies:
 				if String(enemy["state"]) == "active" and node.position.distance_to((enemy["pos"] as Vector3) + Vector3(0, 2.2, 0)) < 2.6:
-					_freeze_imp(enemy)
+					he.hit(enemy, 1, "shot_ice")
 					hit = true
 					break
 		elif kind == "dust":
@@ -390,37 +490,132 @@ func _tick_shots(delta: float) -> void:
 					hit = true
 					break
 		elif not boss.is_empty() and node.position.distance_to((boss["pos"] as Vector3) + Vector3(0, 2.5, 0)) < 5.2:
-			_hit_boss(String(shot.get("power", "fire")))
+			he.hit(boss, 1, "shot_" + String(shot.get("power", "fire")))
 			hit = true
 		if hit or float(shot["life"]) <= 0.0:
 			node.queue_free()
 			shots.remove_at(i)
+
+## One imp, one pose, played on the transform — the toy imps carry no
+## animation clips, so the crouch, the dash, the swipe and the slumped
+## recovery are all built here (art states: the codex handoff).
+func _pose_imp(node: Node3D, pos: Vector3, pose: String, t: float, phase: float) -> void:
+	var hop: float = sin(elapsed * 3.0 + phase) * 0.25
+	var squash := Vector3.ONE
+	var tilt := 0.0
+	match pose:
+		"windup":
+			hop = -0.1
+			squash = Vector3(1.22, 0.76, 1.22)
+			tilt = -0.24
+		"charge":
+			hop = 0.45
+			squash = Vector3(0.88, 1.2, 0.88)
+			tilt = 0.34
+		"slash":
+			hop = 0.3
+			squash = Vector3(1.14, 0.94, 1.14)
+			tilt = lerpf(-0.6, 0.6, clampf(t / 0.28, 0.0, 1.0))
+		"recover":
+			hop = -0.05
+			squash = Vector3(1.16, 0.82, 1.16)
+			tilt = -0.32
+		"stagger":
+			node.rotate_y(0.14)
+			squash = Vector3(1.1, 0.9, 1.1)
+		"taunt", "rally":
+			hop = absf(sin(t * 9.0)) * 0.7
+			squash = Vector3(0.94, 1.1, 0.94)
+		"flee":
+			hop = absf(sin(elapsed * 9.0 + phase)) * 0.6
+			tilt = -0.2
+	node.position = pos + Vector3(0.0, hop, 0.0)
+	node.scale = squash
+	node.rotation.z = tilt
+	if pose != "stagger":
+		var look: Vector3 = player_pos - pos
+		if pose == "flee":
+			look = -look
+		if Vector2(look.x, look.z).length() > 0.05:
+			node.rotation.y = atan2(look.x, look.z)
+
+
+func _arena_brain_events() -> void:
+	for ev: Dictionary in imp_brain.drain_events():
+		var at: Vector2 = ev.get("pos", Vector2.ZERO)
+		var world_at := CENTER + Vector3(at.x, 2.4, at.y)
+		match String(ev.get("kind", "")):
+			"telegraph":
+				m._sparkle_burst(world_at + Vector3(0, 1.2, 0), Color(1.0, 0.82, 0.3))
+			"charge":
+				m._sparkle_burst(world_at, Color(1.0, 0.7, 0.45))
+			"contact":
+				# still just the bubble-shield bump: a push and sparkles
+				_bump_player(world_at)
+			"whiff":
+				m._sparkle_burst(world_at, Color(0.9, 0.95, 1.0))
+			"taunt", "rally":
+				m._sparkle_burst(world_at + Vector3(0, 1.0, 0), Color(1.0, 0.72, 0.88))
+
 
 func _freeze_imp(enemy: Dictionary) -> void:
 	if String(enemy["state"]) != "active":
 		return
 	enemy["state"] = "frozen"
 	enemy["timer"] = 1.7
+	var mind: Dictionary = enemy.get("ai", {})
+	if imp_brain != null and not mind.is_empty():
+		# frozen imps stop deciding, and the crew feels the gap
+		imp_brain.on_hit(mind, true)
 	var node: Node3D = enemy["node"]
 	DungeonArt.apply_material(node, _mat(Color(0.45, 0.88, 1.0), 0.45))
 	m._sparkle_burst(enemy["pos"] + Vector3(0, 2.5, 0), Color(0.55, 0.92, 1.0))
 	_update_hud()
 
 func _tick_imps(delta: float) -> void:
+	# the crew decides together: who closes in, who telegraphs a lunge, who
+	# hangs back and throws instead (scripts/imp_ai.gd)
+	var hero := Vector2(player_pos.x - CENTER.x, player_pos.z - CENTER.z)
+	if imp_brain != null:
+		var minds: Array = []
+		for enemy in enemies:
+			var mind: Dictionary = enemy.get("ai", {})
+			if mind.is_empty():
+				continue
+			var live: bool = String(enemy["state"]) == "active"
+			mind["alive"] = live
+			if live:
+				var at: Vector3 = enemy["pos"]
+				mind["pos"] = Vector2(at.x - CENTER.x, at.z - CENTER.z)
+				minds.append(mind)
+		imp_brain.tick(delta, minds, hero)
+		_arena_brain_events()
 	var remaining := 0
 	for enemy in enemies:
 		var node: Node3D = enemy["node"]
 		if String(enemy["state"]) == "active":
 			remaining += 1
 			var pos: Vector3 = enemy["pos"]
-			var toward: Vector3 = player_pos - pos
-			toward.y = 0.0
-			if toward.length() > 7.0:
-				pos += toward.normalized() * delta * float(encounter.get("imp_speed", 1.5))
+			var mind: Dictionary = enemy.get("ai", {})
+			var pose := "prowl"
+			var state_t := 0.0
+			if not mind.is_empty():
+				var want: Vector2 = mind.get("pos", Vector2(pos.x - CENTER.x, pos.z - CENTER.z))
+				# the floor is the truth: nobody walks through the trim
+				if want.length() > RADIUS - 2.5:
+					want = want.normalized() * (RADIUS - 2.5)
+				mind["pos"] = want
+				pos = Vector3(CENTER.x + want.x, pos.y, CENTER.z + want.y)
+				pose = String(mind.get("pose", "prowl"))
+				state_t = float(mind.get("t", 0.0))
 			enemy["pos"] = pos
-			node.position = pos + Vector3(0, sin(elapsed * 3.0 + float(enemy["phase"])) * 0.25, 0)
+			enemy["pose"] = pose
+			_pose_imp(node, pos, pose, state_t, float(enemy["phase"]))
+			# an imp that cannot reach her throws instead of standing about
 			enemy["attack"] = float(enemy["attack"]) - delta
-			if float(enemy["attack"]) <= 0.0:
+			var far: bool = pos.distance_to(player_pos) > 13.0
+			var settled: bool = pose == "prowl" or pose == "stalk" or pose == "flank" or pose == "taunt"
+			if float(enemy["attack"]) <= 0.0 and far and settled:
 				enemy["attack"] = float(encounter.get("attack_gap", 3.0)) + randf() * 1.5
 				_spawn_enemy_shot(pos + Vector3(0, 2.4, 0), player_pos, Color(0.72, 0.34, 0.92))
 		elif String(enemy["state"]) == "frozen":
@@ -433,24 +628,8 @@ func _tick_imps(delta: float) -> void:
 		_win()
 
 func _pop_imp(enemy: Dictionary) -> void:
-	enemy["state"] = "popped"
-	var pos: Vector3 = enemy["pos"]
-	(enemy["node"] as Node3D).visible = false
-	var corn_count := int(encounter.get("popcorn_count", 7))
-	for i in range(corn_count):
-		var a: float = float(i) * TAU / float(corn_count)
-		var corn: Node3D
-		if art_theme == "ember":
-			corn = DungeonArt.spawn("completion_spark", self,
-				pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), art_theme)
-			corn.scale = Vector3.ONE * 0.34
-		else:
-			corn = _sphere(self, pos + Vector3(cos(a) * 1.2, 1.0 + float(i % 3), sin(a) * 1.2), 0.42, Color(1.0, 0.92, 0.62), 0.25)
-		var tw := corn.create_tween()
-		tw.tween_property(corn, "position", corn.position + Vector3(cos(a) * 3.0, 3.0 + randf() * 2.0, sin(a) * 3.0), 0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tw.tween_property(corn, "scale", Vector3.ZERO, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-		tw.tween_callback(corn.queue_free)
-	m._sparkle_burst(pos + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.45))
+	# the dying animation now lives in the shared engine as the "pop" style
+	he.play_death(enemy, "pop", {"count": int(encounter.get("popcorn_count", 7)), "art_theme": art_theme})
 	_update_hud()
 
 
@@ -616,11 +795,14 @@ func _tick_pointer() -> void:
 func _update_hud() -> void:
 	if objective == null:
 		return
+	# A listening microphone is shown, never assumed: the glyph is the only
+	# promise the child gets that shouting will do anything.
+	var ear: String = "🎤  " if mic_live else ""
 	if kind == "ice":
 		var left := 0
 		for enemy in enemies:
 			if String(enemy["state"]) != "popped": left += 1
-		objective.text = (room_tag + "  •  " if room_tag != "" else "") + "🫐  ICE BERRY: tap ICE • follow the golden arrow  ❄"
+		objective.text = (room_tag + "  •  " if room_tag != "" else "") + ear + "🫐  ICE BERRY: tap ICE • follow the golden arrow  ❄"
 		counter.text = "❄  %d" % left
 	elif kind == "dust":
 		var left := 0
@@ -633,7 +815,7 @@ func _update_hud() -> void:
 	else:
 		var shell: bool = not boss.is_empty() and String(boss["phase"]) == "shell"
 		var action_text := "❄  FREEZE THE SPINNING SHELL!" if kind == "dual" and shell else ("🔥  PEEKING — USE FIRE!" if kind == "dual" else ("🌶  SHELL UP — dodge!" if shell else "🌶  PEEKING — tap FIRE!"))
-		objective.text = (room_tag + "  •  " if room_tag != "" else "") + action_text
+		objective.text = (room_tag + "  •  " if room_tag != "" else "") + ear + action_text
 		counter.text = "🔥  %d" % maxi(0, int(boss.get("hp", 0)))
 
 func _win() -> void:
@@ -662,6 +844,8 @@ func _win() -> void:
 
 func _finish() -> void:
 	state = "done"
+	_disarm_mic()
+	m.hit_engines.erase(he)
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -675,11 +859,20 @@ func cancel(notify_finish: bool = true) -> void:
 		_finish()   # the victory was already earned; leaving skips only the delay
 		return
 	state = "done"
+	_disarm_mic()
+	m.hit_engines.erase(he)
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():
 		finish_cb.call("")
 	queue_free()
+
+# Closing the arena closes the capture device: the audio HAL is only awake
+# while a battle is running, never for the rest of the session.
+func _disarm_mic() -> void:
+	mic_live = false
+	if m != null and m.mic_sys != null:
+		m.mic_sys.disarm()
 
 func action_label() -> String:
 	if kind == "ice":

@@ -6,6 +6,8 @@ const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
+const LivingWorldLogic = preload("res://scripts/living_world.gd")
+const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -60,7 +62,21 @@ var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var fish_schools: Array = []
 var _reef_districts: ReefDistricts = null
-var manta: Node3D
+# ---- LIVING WORLD: mutable runtime state stays on ReefMain; the extracted
+# ---- director only resolves stages and drives one reusable 2D CanvasItem.
+var _living_world: LivingWorldDirector = null
+var living_specs: Dictionary = {}
+var living_layer: CanvasLayer = null
+var living_canvas: LivingWorldCanvas = null
+var living_stage_id := ""
+var living_probe_stage_override := ""
+var living_time := 0.0
+var living_idle_time := 0.0
+var living_cooldown := 0.0
+var living_event_time := -1.0
+var living_event_count := 0
+var living_generation := 0
+var manta: Node3D   # stays null: the ghost-ship pearl shop went with the wreck; all uses are null-guarded
 var manta_t := -20.0
 var bloom_t := 25.0
 var bloom_parts: GPUParticles3D
@@ -77,6 +93,11 @@ var we_node: WorldEnvironment
 var music: AudioStreamPlayer
 var dance_engine: CanvasLayer = null
 var return_pos := Vector3.ZERO
+# The world a minigame was launched FROM, captured beside return_pos so the
+# exit restores where she actually came from instead of assuming the reef.
+# Null/"" mean "nothing captured yet" and fall back to the old reef values.
+var return_env: Environment = null
+var return_track := ""
 const ARENA_POS := Vector3(0, -600, 0)
 const LEVEL2_POS := Vector3(0, -1300, 0)
 const CASTLE_POS := Vector3(500, -1300, 0)
@@ -173,9 +194,36 @@ var fish_tokens := 0                      # LEGACY sparkle-fish count — kept f
 var stuffie_wins := {}                    # sparring-den ladder progress (round tag -> true)
 var companion_node: Node3D = null         # the follower in the open reef (never saved)
 var companion_gift: Node3D = null         # Huluu's gift box beside the Crown Star
-var companion_room: Node3D = null         # the Stuffie Den on the castle's Dreaming Floor
+var companion_room: Node3D = null         # the Stuffie Studio on the castle's Dreaming Floor
 var companion_room_rows: Array = []       # shelf rows {id, node, marker, heart}
 var companion_room_action_prev := false
+var castle_room_layer: CanvasLayer = null
+var castle_room_stage: Control = null
+var castle_room_world_root: Node3D = null
+var castle_room_camera: Camera3D = null
+var castle_room_background: Sprite3D = null
+var castle_room_background_tiles: Array[Sprite3D] = []
+var castle_room_detail_tiles: Array[Sprite3D] = []
+var castle_room_mid_layer: Node3D = null
+var castle_room_front_layer: Node3D = null
+var castle_room_item_visual_layer: Node3D = null
+var castle_room_item_effect_layer: Node3D = null
+var castle_room_item_hotspot_layer: Control = null
+var castle_room_door_hotspot_layer: Control = null
+var castle_room_link_layer: Control = null
+var castle_room_door_hotspots: Array[Dictionary] = []
+var castle_room_item_sprites: Dictionary = {}
+var castle_room_light_nodes: Array[Light3D] = []
+var castle_room_light_states: Dictionary = {}
+var castle_room_environment: Environment = null
+var castle_room_previous_environment: Environment = null
+var castle_room_prop_sfx: AudioStreamPlayer = null
+var castle_room_player_sprite: Sprite3D = null
+var castle_room_player_shadow: Sprite3D = null
+var castle_room_action_button: Button = null
+var castle_room_back_button: Button = null
+var castle_room_buttons: Dictionary = {}
+var castle_room_id := "main_hall"
 var companion_zone := ""                  # last game context; a flip snaps the follower to her side
 var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
 # ---- Tamagotchi care (owner 2026-07-20: replaces the sparkle-fish tokens) ----
@@ -185,7 +233,7 @@ var companion_want_bubble: Label3D = null # the emoji thought bubble over the st
 var companion_want_cool := 25.0           # first ask lands soon after adoption
 var companion_care_t := -1.0              # >0 while a care moment animation plays
 var companion_care_action_prev := false
-var companion_resting := false            # went home to rest (persisted) — on its Den shelf until re-picked
+var companion_resting := false            # went home to rest (persisted) — on its Studio shelf until re-picked
 var companion_bruises := 0                # battle boo-boos awaiting care (persisted)
 var companion_want_queue: Array = []      # queued wants (post-battle hug + bath)
 var companion_rest_timer := -1.0          # >0 while injured: patience left before it goes home
@@ -198,6 +246,7 @@ var companion_menu_button: Button = null  # inset upper-right HUD launcher
 var companion_pick_id := ""               # picker working state
 var companion_pick_colors: Array = []
 var companion_pick_slot := 0               # one large active paint row at a time
+var companion_pick_mode := "adopt"         # adopt / swap at chest / studio repaint
 var companion_cool := 0.0                 # cheer cooldown
 var companion_cheer_t := -1.0
 var companion_guide_cool := 20.0          # "this way!" helper dash cooldown
@@ -223,8 +272,8 @@ var ember_portal_pos := Vector3.ZERO   # the dark gateway at the rainbow junctio
 var ember_gateway_armed := true        # same leave-before-refire latch as the galaxy gate
 var kart_float_dest := "galaxy"    # where the floating rainbow race lands ("galaxy" | "ember")
 var opera_game: OperaHouse = null
-var opera_progress := 0            # cleared opera acts (star count), 0..15
-var opera_stars := 0               # bitmask of starred shows (lobby model, 15 bits)
+var opera_progress := 0            # cleared opera acts (star count), 0..16
+var opera_stars := 0               # bitmask of starred shows (lobby model, 16 bits)
 var opera_done := false
 # The rhythm (owner 2026-07-25): every shelled act opens with a RESCUE — imps
 # have someone caged backstage — and the freed friends hand Roshan a GIFT that
@@ -364,6 +413,10 @@ var touch_control_blocks: Dictionary = {}
 # directors receive this node and own behavior only, matching the extraction
 # rules used by the arena/minigame satellites.
 var touch_interactables: Array = []
+# Active HitEngine instances (encounters register in start, unregister on
+# teardown). Enemy priority rule: these get first refusal on every world
+# tap, ahead of touch_interactables — see _on_touch_world.
+var hit_engines: Array = []
 var touch_focus_id := ""
 var touch_focus_ready := false
 var touch_registry_t := 0.0
@@ -381,6 +434,21 @@ var _interaction_director: InteractionDirector = null
 var _tap_move_director: TapMoveDirector = null
 var quality := "sparkly"
 var music_on := true
+# Spoken spells (prototype 2026-08-02, see MIC_SPELLS.md). DEFAULT-ON is an
+# owner decision: MIC_DEFAULT_ON is the ONE flip point — set it to false and
+# the toggle, the save default and a fresh install all ship the feature dark.
+# On-by-default is only safe because the microphone device is opened lazily on
+# the first battle (never at boot), a denied RECORD_AUDIO permission silently
+# disables the feature forever, and the ICE/FIRE buttons are always live.
+const MIC_DEFAULT_ON := true
+var mic_on := MIC_DEFAULT_ON
+var mic_state := "idle"        # idle | asking | listening | enroll | test | off
+var mic_last_word := ""        # debug/HUD readout of the last accepted spell
+var mic_last_dist := -1.0      # ...and its DTW distance, for calibration
+var mic_enroll_left := 0
+var mic_permission_denied := false
+var mic_teach_layer: CanvasLayer = null
+var mic_btn: Button
 var save_data := {}
 var save_generation := 0   # monotonically orders primary/.tmp/.bak snapshots
 var save_dirty := false    # main retains failed-write responsibility after a minigame frees
@@ -434,15 +502,15 @@ var hint_idx := 0
 var hint_t := 0.0
 var anim_cull: Array = []
 var cull_timer := 0.0
-var wreck_pos := Vector3.ZERO
+var wreck_pos := Vector3.ZERO   # stays ZERO: the 3D wreck was deleted 2026-07-28 (redesigned); guards below and companion.gd no-op on ZERO
 var shop_cool := 0.0
 var treasure_cool := 0.0
 # Cosmetics are full alternative skins (mutually exclusive), chosen at the bedroom wardrobe.
-# "classic" is the default 3D Roshan; others swap her to a full-skin billboard.
+# "classic" is the animated 2.5D Roshan; other looks keep their existing paths.
 # (The Fairy Mermaid is NOT a wardrobe skin — it is Roshan's look inside the Fairy Pond game.)
 const SKINS := [
-	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_sprite.png", "sprite": ""},
-	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": ""},
+	{"id": "classic", "label": "Roshan", "preview": "res://assets/characters/roshan_25d/roshan_base.png", "sprite": ""},
+	{"id": "fairy", "label": "Fairy Mermaid", "preview": "res://assets/characters/skins/fairy_mermaid.png", "sprite": "res://assets/characters/skins/fairy_mermaid.png"},
 	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
 var skin_id := "classic"
@@ -563,6 +631,7 @@ func _refresh_joy_mapped() -> void:
 			joy_has_unmapped = true
 
 func _input(ev: InputEvent) -> void:
+	_living_world_ref().note_input(ev)
 	# record raw joypad events: unmapped pads never show up through the polled
 	# Input.get_joy_axis / is_joy_button_pressed API, but they DO send events
 	if ev is InputEventJoypadMotion:
@@ -651,7 +720,13 @@ func _district_ref() -> ReefDistricts:
 		_reef_districts = ReefDistricts.new(self)
 	return _reef_districts
 
+func _living_world_ref() -> LivingWorldDirector:
+	if _living_world == null:
+		_living_world = LivingWorldLogic.new(self)
+	return _living_world
+
 func _ready() -> void:
+	BootSplashOverlayLogic.show(self)
 	for jmap in EXTRA_JOY_MAPPINGS:
 		Input.add_joy_mapping(String(jmap), true)
 	Input.joy_connection_changed.connect(func(_dev: int, _conn: bool):
@@ -668,7 +743,6 @@ func _ready() -> void:
 	_build_meadows()
 	_build_aquatic_flora()
 	_build_aquatic_creatures()
-	_build_wreck()
 	_build_events()
 	_build_pearls()
 	_build_friends()
@@ -676,6 +750,7 @@ func _ready() -> void:
 	_build_player()
 	_build_hud()
 	_build_fade_cover()
+	_living_world_ref().setup()
 	_apply_cel_shading()
 	# (the storybook page frame — dotted border + corner bubbles — was removed
 	# here, owner request 2026-07-21: the screen was getting too busy)
@@ -1491,30 +1566,6 @@ func _apply_mat(node: Node, mat: Material, overlay: bool) -> void:
 	for c in node.get_children():
 		_apply_mat(c, mat, overlay)
 
-func _spawn(model: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
-	if rock_pbr == null:
-		_texture_mats()
-	if not model_cache.has(model):
-		var base := "res://assets/ship/" if model.begins_with("ship") or model in ["chest", "barrel"] else "res://assets/kenney/"
-		if not ResourceLoader.exists(base + model + ".glb"):
-			model_cache[model] = null
-		else:
-			model_cache[model] = load(base + model + ".glb")
-	var ps: PackedScene = model_cache[model]
-	if ps == null:
-		return null
-	var inst: Node3D = ps.instantiate()
-	_toonify(inst)
-	inst.position = pos
-	inst.scale = Vector3.ONE * scl
-	inst.rotation.y = yrot
-	if model.begins_with("cliff") or model.begins_with("rock"):
-		_apply_mat(inst, rock_pbr, false)            # real rock PBR
-	elif model.begins_with("ship") or model.begins_with("bridge") or model in ["barrel", "chest", "mast", "stump_round", "stump_roundDetailed", "stump_squareDetailed"]:
-		_apply_mat(inst, wood_overlay, true)         # wood grain detail, keeps Kenney colors
-	add_child(inst)
-	return inst
-
 func _halo(pos: Vector3, col: Color, size: float) -> MeshInstance3D:
 	var gt := GradientTexture2D.new()
 	gt.fill = GradientTexture2D.FILL_RADIAL
@@ -2272,7 +2323,7 @@ func _respawn_pearls() -> void:
 		# show_msg sets msg_timer = 5.0, so > 4.0 means another banner went up
 		# less than a second ago (the _end_game win message) — never fight it;
 		# the respawned pearls announce themselves by shimmering anyway
-		show_msg("", "New rainbow pearls are shimmering in the reef!")
+		show_msg("", "New rainbow pearls are shimmering in the ocean!")
 
 func _cutout_tex(name: String) -> Texture2D:
 	# STORYBOOK: in-world character cutouts use the die-cut STICKER bake
@@ -2669,7 +2720,7 @@ func _end_stuffie_battle(round_tag: String) -> void:
 			stuffie_wins["_replays"] = int(stuffie_wins.get("_replays", 0)) + 1
 		stuffie_wins[round_tag] = true
 		# CAPTURE (owner 2026-07-20): befriending a boss stuffie takes it HOME —
-		# it moves onto its Stuffie Den shelf and becomes a carryable companion
+		# it moves onto its Stuffie Studio shelf and becomes a carryable companion
 		for cfg in StuffieBattle.LADDER:
 			if String(cfg["tag"]) != round_tag or not cfg.has("award"):
 				continue
@@ -2677,7 +2728,7 @@ func _end_stuffie_battle(round_tag: String) -> void:
 			if not bool(stuffie_wins.get(friend_key, false)):
 				stuffie_wins[friend_key] = true
 				show_msg(String(cfg.get("award_name", "Your new friend")),
-					"I'm coming HOME with you! Find me on my shelf in the castle's Stuffie Den!", "win")
+					"I'm coming HOME with you! Find me on my shelf in the castle's Stuffie Studio!", "win")
 		pearl_count += 8
 		_reward(false)
 		_write_save()
@@ -2834,19 +2885,10 @@ func _end_opera(completed: bool) -> void:
 		player.cam.make_current()
 	if hud_layer != null:
 		hud_layer.visible = true
-	if g.has("opera_gate"):
-		var gate: Dictionary = g["opera_gate"]
-		# Stay outside the 4.5 entrance radius but leave enough room for the
-		# analytic wall/terrain correction to remain beside the marquee.
-		player.position = (gate["pos"] as Vector3) + Vector3(5.5, 0, 0)
-		player.vel = Vector3.ZERO
-		gate["armed"] = false
-		# A child often swims back across the marquee while reorienting toward
-		# the Dream Stars. Prevent an automatic Classic bounce for a while;
-		# Hybrid still permits a deliberate target tap immediately.
-		gate["cool"] = 20.0
 	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
+	if String(g.get("phase", "")) == "hall":
+		_castle_rooms_ref().resume("opera_hall")
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 
@@ -2939,10 +2981,15 @@ func _build_hud() -> void:
 	status_panel.size = Vector2(280, 146)
 	status_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	status_panel.add_theme_stylebox_override("panel", StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.93, 0.97, 1.0, 0.94), 44, 4))
+	# The July 23 owner declutter removed persistent scorekeeping from free roam.
+	# Keep these nodes as hidden compatibility surfaces for probes/save refreshes.
+	status_panel.visible = false
 	cl.add_child(status_panel)
 	hud_pearls = _mk_label(cl, Vector2(42, 24), 30)
 	hud_pearls.size = Vector2(220, 42)
+	hud_pearls.visible = false
 	hud_stars = _mk_label(cl, Vector2(42, 65), 22)
+	hud_stars.visible = false
 	# three lines (stars / crowns+critters / medal tally) inside the 146-tall tray
 	hud_stars.size = Vector2(230, 112)
 	hud_game = _mk_label(cl, Vector2(430, 20), 23)
@@ -2953,6 +3000,7 @@ func _build_hud() -> void:
 	hud_game.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hud_game.add_theme_stylebox_override("normal", StorybookUI.panel_style(StorybookUI.GOLD, Color(0.94, 0.97, 1.0, 0.94), 30, 4))
 	hud_game.set_meta("picture_objective", true)
+	hud_game.visible = false
 	hud_msg = _mk_label(cl, Vector2(230, 590), 24)
 	hud_msg.name = "HudVoiceCaption"
 	hud_msg.size = Vector2(820, 112)
@@ -2960,7 +3008,7 @@ func _build_hud() -> void:
 	hud_msg.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	hud_msg.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hud_msg.add_theme_stylebox_override("normal", StorybookUI.panel_style(StorybookUI.LAVENDER, Color(0.91, 0.94, 1.0, 0.94), 30, 4))
-	hud_msg.text = "Find the glowing friends in the fairy garden!"
+	hud_msg.text = ""
 	_build_obj_card(cl)
 	_update_hud()
 
@@ -3003,10 +3051,10 @@ func _set_objective(key: String, tex: Texture2D, emoji: String) -> void:
 		obj_key = ""
 		return
 	if key == obj_key:
-		# same target: after comprehension the card calms down instead of nagging
-		obj_seen_t += 2.2
-		if obj_seen_t > 8.0:
-			obj_card.modulate.a = maxf(0.45, obj_card.modulate.a - 0.12)
+		# Teach a changed picture briefly, then return the scenery to the child.
+		obj_seen_t += get_process_delta_time()
+		if obj_seen_t > 3.5:
+			obj_card.visible = false
 		return
 	obj_key = key
 	obj_seen_t = 0.0
@@ -3090,7 +3138,7 @@ var speech_layer: CanvasLayer
 var speech_portrait: TextureRect
 var speech_t := 0.0
 const SPEAKER_PORTRAIT := {
-	"roshan": "res://assets/characters/roshan_sprite.png",
+	"roshan": "res://assets/characters/roshan_25d/roshan_base.png",
 	"huluu": "res://assets/characters/friends/huluu.png",
 	"evie": "res://assets/characters/friends/mama_baby.png",
 	"harper": "res://assets/characters/friends/two_friends.png",
@@ -3098,10 +3146,10 @@ const SPEAKER_PORTRAIT := {
 	"daddy": "res://assets/characters/friends/daddy.webp",
 	"wacky": "res://assets/characters/friends/wacky_chuck.png",
 	"chuck": "res://assets/characters/friends/wacky_chuck.png",
-	"shop": "res://assets/characters/roshan_sprite.png",
+	"shop": "res://assets/characters/roshan_25d/roshan_base.png",
 	"sparkle": "res://assets/book/baby_eagle.png",
 	"rosalina": "res://assets/characters/skins/fairy_mermaid.png",
-	"everyone": "res://assets/characters/roshan_sprite.png"}
+	"everyone": "res://assets/characters/roshan_25d/roshan_base.png"}
 
 func _flash_speaker_icon(who: String) -> void:
 	if speech_layer == null:
@@ -3129,6 +3177,15 @@ func _flash_speaker_icon(who: String) -> void:
 # Phase 7.5: the audio pipeline lives in scripts/audio_director.gd
 # (state stays here; AudioDirector receives main by reference)
 var _audio_dir: AudioDirector = null
+
+# Phase 7 satellite: spoken-spell recognition (scripts/mic_input.gd). Built on
+# first use so a launch that never enters combat never touches the audio input.
+var mic_sys: MicInput = null
+
+func _mic_ref() -> MicInput:
+	if mic_sys == null:
+		mic_sys = MicInput.new(self)
+	return mic_sys
 
 func _audio_ref() -> AudioDirector:
 	if _audio_dir == null:
@@ -3376,6 +3433,7 @@ func _touch_mode_label() -> String:
 	return "🖐\nHybrid Touch" if touch_mode == TOUCH_MODE_HYBRID else "↔\nClassic Touch"
 
 func _on_touch_world(screen_pos: Vector2) -> void:
+	_living_world_ref().note_activity()
 	if intro_active or get_tree().paused or mg_kind != "":
 		return
 	if fade_rect != null and fade_rect.modulate.a > 0.02:
@@ -3387,9 +3445,36 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_touch(screen_pos)
 		return
+	# ENEMY PRIORITY RULE: enemies are always in the forefront of the stage.
+	# Every active hit engine gets first refusal on the tap — an enemy
+	# overlapping any prop/friend/interactable takes the touch, and only a
+	# tap that hits no enemy falls through to the interaction director.
+	# (Level design opts an encounter out via HitEngine.tap_priority.)
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine == null or not engine.tap_priority:
+			continue
+		var enemy: Dictionary = engine.tap_pick(screen_pos)
+		if not enemy.is_empty():
+			engine.hit(enemy, 1, "tap")
+			return
+	var arena: CombatArena = _combat_arena_ref()
+	if arena != null:
+		arena.on_world_tap(screen_pos)
+		return
 	_interaction_ref().on_world_touch(screen_pos)
 
+# The live hit-engine client, if a battle is running: a standalone arena
+# (overworld/galaxy encounters) or the arena inside either dungeon.
+func _combat_arena_ref() -> CombatArena:
+	if combat_game != null:
+		return combat_game
+	if dungeon_game != null:
+		return dungeon_game.arena
+	return null
+
 func _on_touch_manual_move() -> void:
+	_living_world_ref().note_activity()
 	_tap_move_ref().cancel("manual")
 
 func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> void:
@@ -3501,7 +3586,9 @@ func _populate_touch_interactables() -> void:
 	if String(g.get("phase", "")) == "promenade":
 		return
 	if String(g.get("phase", "court")) == "hall":
-		_populate_hall_touch_interactables()
+		# The castle room stage owns every interior touch target. Never rebuild
+		# the retired free-roaming hall's world-space interaction list behind it.
+		return
 	else:
 		_populate_courtyard_touch_interactables()
 
@@ -3518,9 +3605,6 @@ func _populate_courtyard_touch_interactables() -> void:
 	if g.has("northern_portal_pos"):
 		_touch_add_item("court:north", "Magic Cave", g["northern_portal_pos"],
 			g.get("northern_portal_rune") as Node3D, 8.0, 38.0, "ENTER")
-	if g.has("opera_gate"):
-		var opera_gate: Dictionary = g["opera_gate"]
-		_touch_add_item("court:opera", "Pearl Opera", opera_gate["pos"], null, 6.0, 34.0, "SHOW")
 	if galaxy_unlocked and bw_portal_pos != Vector3.ZERO:
 		_touch_add_item("court:galaxy", "Butterfly World", bw_portal_pos, null, 9.0, 38.0, "ENTER")
 	if ember_portal_pos != Vector3.ZERO:
@@ -3554,56 +3638,6 @@ func _populate_courtyard_touch_interactables() -> void:
 		if lagoon_floor:
 			castle_entry.y = lagoon_walk_h(castle_entry.x, castle_entry.z) + 2.0
 		_touch_add_item("court:castle", "Pearl Castle", castle_entry, null, 20.0, 52.0, "ENTER")
-
-func _populate_hall_touch_interactables() -> void:
-	if g.has("bed_pos") and sleep_cool <= 0.0 and sleep_t < 0.0:
-		_touch_add_item("hall:bed", "Cozy Bed", g["bed_pos"], null, 7.0, 28.0, "SLEEP")
-	if not bool(g.get("stand_open", false)) and g.has("stand_chest"):
-		var stand: Node3D = g["stand_chest"]
-		if is_instance_valid(stand):
-			_touch_add_item("hall:stand", "Golden Star Stand", stand.position, stand, 11.0, 32.0, "OPEN")
-	if g.has("toilet"):
-		var toilet: Dictionary = g["toilet"]
-		_touch_add_item("hall:toilet", "Royal Loo", toilet["pos"], null, 5.0, 24.0, "PLAY")
-	if g.has("dungeon_gate"):
-		var dungeon_gate: Dictionary = g["dungeon_gate"]
-		_touch_add_item("hall:dungeon", "Castle Dungeon", dungeon_gate["pos"], null, 6.0, 28.0, "ENTER")
-	if g.has("opera_gate"):
-		var opera_gate: Dictionary = g["opera_gate"]
-		_touch_add_item("hall:opera", "Pearl Opera", opera_gate["pos"], null, 6.0, 28.0, "SHOW")
-	# Unlike a proximity trigger, an explicit target cannot bounce Roshan back
-	# through the entrance accidentally, so it can be discoverable immediately.
-	if g.has("hall_exit"):
-		_touch_add_item("hall:exit", "Castle Courtyard", g["hall_exit"], null, 12.0, 34.0, "EXIT")
-	if g.has("craft_easel") and craft_layer == null:
-		_touch_add_item("hall:craft", "Craft Studio", g["craft_easel"], null, 7.0, 26.0, "MAKE")
-	if g.has("wardrobe") and wardrobe_layer == null:
-		_touch_add_item("hall:wardrobe", "Wardrobe", g["wardrobe"], null, 7.0, 26.0, "DRESS")
-	var bellgame: Dictionary = g.get("bellgame", {})
-	var bell_state: String = String(bellgame.get("state", ""))
-	if bell_state == "idle" and float(bellgame.get("cool", 0.0)) <= 0.0 and g.has("song_star"):
-		_touch_add_item("hall:bell_song", "Music Star", g["song_star"], null, 7.0, 30.0, "PLAY")
-	var bells: Array = g.get("bells", [])
-	if bell_state != "play":
-		for bell_index in range(bells.size()):
-			var bell: Dictionary = bells[bell_index]
-			var bell_node: Node3D = bell.get("node") as Node3D
-			if is_instance_valid(bell_node):
-				_touch_add_item("hall:bell:%d" % bell_index, "Music Bell", bell_node.position,
-					bell_node, 5.0, 20.0, "RING", bell_index)
-	if g.has("secret_door") and bool(g.get("stand_open", false)):
-		_touch_add_item("hall:secret", "Daddy's Treasure Chest", g["secret_door"], null, 8.0, 26.0, "HUG")
-	if not bool(g.get("crown_won", false)) and not l2_stars.is_empty():
-		var crown: Node3D = (l2_stars[0] as Dictionary).get("node") as Node3D
-		if is_instance_valid(crown):
-			_touch_add_item("hall:crown", "Crown Star", crown.position, crown, 10.0, 38.0, "GET")
-	var hall_touch: Array = g.get("hall_touch", [])
-	for prop_index in range(hall_touch.size()):
-		var prop: Dictionary = hall_touch[prop_index]
-		var prop_node: Node3D = prop.get("node") as Node3D
-		_touch_add_item("hall:prop:%d" % prop_index, "Magic Castle Toy",
-			prop.get("pos", Vector3.ZERO), prop_node, maxf(5.0, float(prop.get("r", 4.0))),
-			maxf(16.0, float(prop.get("r", 4.0)) * 4.0), "TOUCH", prop_index)
 
 func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 	if not touch_uses_explicit_interactions():
@@ -3646,8 +3680,6 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 			_enter_northern_kingdom()
 		"north:return":
 			_enter_level2(false, true)
-		"court:opera", "hall:opera":
-			_start_opera()
 		"court:galaxy":
 			kart_from = "level2"
 			_start_galaxy()
@@ -3662,32 +3694,6 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 			_enter_castle_interior(true)
 		"court:castle":
 			_enter_castle_interior()
-		"hall:bed":
-			_begin_sleep()
-		"hall:stand":
-			_hall_ref().slide_stand()
-		"hall:toilet":
-			var toilet: Dictionary = g.get("toilet", {})
-			var toilet_player: AudioStreamPlayer = toilet.get("player") as AudioStreamPlayer
-			if is_instance_valid(toilet_player):
-				toilet_player.play()
-			if not combat_fire_done and combat_game == null:
-				_start_combat("fire")
-		"hall:dungeon":
-			_start_dungeon()
-		"hall:exit":
-			_return_to_courtyard()
-		"hall:craft":
-			_open_craft_studio()
-		"hall:wardrobe":
-			_open_wardrobe()
-		"hall:bell_song":
-			var song_game: Dictionary = g.get("bellgame", {})
-			_start_bellgame(song_game)
-		"hall:secret":
-			_play_hug_cutscene()
-		"hall:crown":
-			_hall_ref().award_crown(player.position)
 		_:
 			if id.begins_with("court:ocean:"):
 				var gate_index: int = int(payload)
@@ -3701,23 +3707,6 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 				# Arrival collection remains the familiar forgiving proximity
 				# reward; the tap supplies navigation, not a second requirement.
 				pass
-			elif id.begins_with("hall:bell:"):
-				var bell_index: int = int(payload)
-				var bells: Array = g.get("bells", [])
-				if bell_index >= 0 and bell_index < bells.size():
-					var bellgame: Dictionary = g.get("bellgame", {})
-					var bell_state: String = String(bellgame.get("state", ""))
-					if bell_state != "play":
-						var bell: Dictionary = bells[bell_index]
-						bell["cool"] = 0.12
-						_ring_bell(bell)
-						if bell_state == "echo":
-							_bellgame_echo(bellgame, bell_index)
-			elif id.begins_with("hall:prop:"):
-				var prop_index: int = int(payload)
-				var props: Array = g.get("hall_touch", [])
-				if prop_index >= 0 and prop_index < props.size():
-					_hall_ref()._fire_touch(props[prop_index])
 
 func _touch_open_picture(picture_index: int) -> void:
 	if picture_index < 0 or picture_index >= wall_pics.size():
@@ -3791,7 +3780,7 @@ func _skin_def(id: String) -> Dictionary:
 	return SKINS[0]
 
 func _apply_skin() -> void:
-	# swap Roshan's whole appearance to the chosen skin (classic = 3D model)
+	# swap Roshan's whole appearance to the chosen skin (classic = 2.5D atlas)
 	if player == null:
 		return
 	var s := _skin_def(skin_id)
@@ -3945,6 +3934,8 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	# first, stacking a second terrain+castle+playground exactly on top of the
 	# live one (coplanar z-fighting shimmer over the whole level). Same idiom
 	# as _enter_castle_interior; the callers that already pre-free stay no-ops.
+	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
+		_sky_lagoon_promenade.teardown()
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -4030,7 +4021,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
 		if at_ocean_gate_hub:
-			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean reef. The blue ice gate leads to Norway!", "intro")
+			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean. The blue ice gate leads to Norway!", "intro")
 		else:
 			show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
@@ -5026,6 +5017,8 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 func _enter_castle_interior_now(from_back: bool = false) -> void:
 	player.visible = true
 	_play_music("hall")
+	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
+		_sky_lagoon_promenade.teardown()
 	g["l2_fish"] = []
 	for n in game_nodes:
 		if is_instance_valid(n):
@@ -5034,51 +5027,23 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	arena_solids.clear()
 	arena_zones.clear()
 	fade_walls.clear()
-	lagoon_floor = false   # the castle hall is flat indoor ground
+	lagoon_floor = false
 	g["phase"] = "hall"
 	arena_center = CASTLE_POS
-	arena_dome = 90.0   # covers the bedroom, the new top chambers and the undercroft
-	arena_ceil = 31.0   # keep Roshan below every interior ceiling (lowest sits at +32) instead of clipping through
-	# warm indoor castle light
-	var ie := Environment.new()
-	ie.background_mode = Environment.BG_COLOR
-	ie.background_color = Color(0.12, 0.10, 0.16)
-	ie.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	ie.ambient_light_color = Color(0.9, 0.82, 0.7)
-	ie.ambient_light_energy = 0.68
-	_wind_waker_bloom(ie, 0.48, 0.14, 1.12)   # the throne/lights bloom; walls and pale floors retain their value steps
-	ie.fog_enabled = true
-	ie.fog_light_color = Color(0.5, 0.42, 0.45)
-	ie.fog_density = 0.002   # 0.006 pink-hazed the whole hall and mushed the floor pattern into "spliced" blotches
-	arena_env = ie
-	_grade(ie)
-	we_node.environment = ie
-	_build_castle_hall(CASTLE_POS)
-	player.cam_back = 10.0   # pull the chase camera in so it does not clip the hall / back-room walls (diorama lens: 6.5 * ~1.55)
-	player.cam_high = 4.2
-	if from_back:
-		# the moat hatch is a SECRET back door: surface inside the treasure room
-		# behind the throne, where Daddy mermaid is waiting
-		player.position = CASTLE_POS + Vector3(4, 6, -44)
-		player.yaw = PI
-		player.vel = Vector3.ZERO
-		g["secret_armed"] = false   # don't fire the treasure-chest surprise on arrival
-		show_msg("", "Pssst... you found my secret door, Roshan! Welcome to the treasure room - Huluu is out on her throne!")
-		# Daddy's REAL recorded voice: no daddy.ogg base clip exists for the _say
-		# path, so direct-load like the hug cutscene. daddy2 keeps this line
-		# distinct from the hug's clip.
-		var dvo := AudioStreamPlayer.new()
-		dvo.stream = load("res://assets/audio/voices/daddy2.ogg")
-		dvo.bus = "Voice"
-		add_child(dvo)
-		dvo.play()
-		dvo.finished.connect(dvo.queue_free)
-	else:
-		player.position = CASTLE_POS + Vector3(0, 6, 24)
-		player.yaw = 0.0
-		player.vel = Vector3.ZERO
-		show_msg("Pearl Castle", "The Grand Hall! Princess Huluu is waiting up on the throne - climb the royal staircase!")
-	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
+	# The castle interior is exclusively the sprite-card room stage. Keep a
+	# harmless hidden player anchor for save/return continuity, but do not
+	# construct an Environment, meshes, colliders, lights, or the retired hall.
+	arena_dome = 24.0
+	arena_ceil = 12.0
+	player.position = CASTLE_POS + Vector3(0, 6, 24)
+	player.yaw = 0.0
+	player.vel = Vector3.ZERO
+	_castle_rooms_ref().open("main_hall")
+	show_msg("Pearl Castle",
+		"Touch a picture door to visit a room!" if not from_back
+		else "The secret shell door opens into the Main Hall!",
+		"home")
+	_say("roshan", "talk", 0.5)
 
 func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
 	# a stained-glass grid of glowing coloured panels (no mermaid)
@@ -5185,21 +5150,20 @@ func _hang_portrait(pos: Vector3, rot_deg: Vector3, art: String) -> void:
 	add_child(pl)
 	game_nodes.append(pl)
 
-# Phase 7.2: the Grand Hall lives in scripts/arena/castle_hall.gd
-# (state stays here; CastleHall receives main by reference)
-var _castle_hall: CastleHall = null
+var _castle_rooms_25d: CastleRooms25D = null
 
-func _hall_ref() -> CastleHall:
-	if _castle_hall == null:
-		_castle_hall = CastleHall.new(self)
-	return _castle_hall
+func _castle_rooms_ref() -> CastleRooms25D:
+	if _castle_rooms_25d == null:
+		_castle_rooms_25d = CastleRooms25D.new(self)
+	return _castle_rooms_25d
 
-func _build_castle_hall(o: Vector3) -> void:
-	_hall_ref().build(o)
-	_hall_ref().build_expansion(o)
-
-func _tick_castle_hall(delta: float, ppos: Vector3) -> void:
-	_hall_ref().tick(delta, ppos)
+func _tick_castle_rooms(delta: float) -> void:
+	# Phase "hall" now means the sprite-card castle exclusively. If an
+	# activity teardown returned without resuming its overlay, restore it here
+	# instead of falling back to the retired free-roaming 3D hall.
+	if not _castle_rooms_ref().is_open():
+		_castle_rooms_ref().open("main_hall")
+	_castle_rooms_ref().tick(delta)
 
 func _seg_box(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3) -> bool:
 	# does the segment p0->p1 pass through the axis-aligned box (center c, half-extents h)?
@@ -5442,7 +5406,7 @@ func _end_sleep() -> void:
 	if is_night:
 		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
 	else:
-		show_msg("Roshan", "Good morning! The sun is shining over the reef again!", "win")
+		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!", "win")
 	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
@@ -5493,6 +5457,8 @@ func _l2_start_slide() -> void:
 
 func _return_to_courtyard() -> void:
 	# step OUT of the castle into its own courtyard (Sky Lagoon) — not all the way back to the ocean
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		_castle_rooms_25d.close()
 	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	for n in game_nodes:
@@ -5783,6 +5749,8 @@ func _enter_ocean_kingdom(kingdom: String) -> void:
 	_fade_cut(_exit_level2_now.bind(kingdom))
 
 func _exit_level2_now(target_kingdom: String = "") -> void:
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		_castle_rooms_25d.close()
 	player.visible = true
 	if sleep_t >= 0.0:
 		# Leaving mid-tuck-in (pause -> Leave): _tick_sleep only runs in the
@@ -5802,6 +5770,8 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
 	game = ""
+	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
+		_sky_lagoon_promenade.teardown()
 	g = {}
 	hud_game.text = ""
 	for n in game_nodes:
@@ -5842,7 +5812,7 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	if target_kingdom == ReefDistricts.KINGDOM_NORWEGIAN:
 		show_msg("Roshan", "The icy waters of Norway! Follow the blue currents through the kelp and fjord!", "pearl2")
 	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
-		show_msg("Roshan", "The sunny Caribbean reef! Follow the warm shells and rainbow coral!", "pearl")
+		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
 	else:
 		show_msg("Roshan", "Back to the ocean! Wheee!")
 
@@ -5887,7 +5857,7 @@ func _do_finish_level2() -> void:
 	player.vel = Vector3.ZERO
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	_play_music("world")
-	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Reef now!", "win")
+	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Castle now!", "win")
 
 func _beans_go() -> void:
 	award_sticker("beans")
@@ -6606,7 +6576,7 @@ func skin_sprite_path() -> String:
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
 		return "res://assets/characters/skins/fairy_mermaid.png"
-	return "res://assets/characters/roshan_sprite.png"   # classic
+	return "res://assets/characters/roshan_25d/roshan_base.png"   # classic
 
 var _pad_prev_a := false
 var _pad_prev_b := false
@@ -6841,6 +6811,7 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 	return false
 
 func _process(delta: float) -> void:
+	_living_world_ref().tick(delta)
 	# camera watchdog (CAMERA_AUDIT_2026_07 P0): if a torn-down mode freed the
 	# current camera without restoring one (kart/galaxy teardown guards,
 	# cancel(false) paths), fall back to Roshan instead of a black screen
@@ -6863,11 +6834,15 @@ func _process(delta: float) -> void:
 	if hud_msg != null:
 		hud_msg.visible = hud_msg.text != ""
 	if hud_game != null:
-		hud_game.visible = hud_game.text != ""
+		# Activity-specific picture HUDs own their own surfaces; this legacy
+		# free-roam sentence card is intentionally never persistent.
+		hud_game.visible = false
 	if pose_t >= 0.0:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()
 	_tick_ambience_duck(delta)
+	if mic_sys != null:
+		mic_sys.tick(delta)   # no-op unless a battle armed the microphone
 	if player != null:
 		_tick_wayfinder(delta, player.position)
 	_tick_overlay_pads(delta)
@@ -6994,6 +6969,8 @@ func _process(delta: float) -> void:
 		pass   # DungeonLevel sequences the battles and visual puzzles
 	elif game == "opera":
 		pass   # OperaHouse sequences the eight costume acts across two floors
+	elif game == "kitchen_cooking":
+		pass   # The fridge portal's OperaAct owns the cooking gesture chain
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
@@ -7019,7 +6996,10 @@ func _process(delta: float) -> void:
 			if manta.position.distance_to(ppos) < 17.0:
 				shop_cool = 16.0
 				_start_game(shop_fr)
-		if treasure_cool <= 0.0 and wreck_pos.distance_to(ppos) < 13.0:
+		if treasure_cool <= 0.0 and wreck_pos != Vector3.ZERO \
+				and wreck_pos.distance_to(ppos) < 13.0:
+			# ZERO guard required: with the wreck deleted (2026-07-28) an
+			# unguarded distance check put this trigger at the world origin
 			treasure_cool = 12.0
 			_start_game(treasure_fr)
 		# the portal penguin is INTERACTIVE: he cheers when Roshan swims near,
@@ -7073,7 +7053,9 @@ func _process(delta: float) -> void:
 				ap2.pause()
 	if touch_ui != null:
 		var act_lbl := "JUMP"
-		if touch_uses_explicit_interactions() and touch_focus_ready:
+		if game == "level2" and String(g.get("phase", "")) == "promenade":
+			act_lbl = _lagoon_promenade_ref().action_label()
+		elif touch_uses_explicit_interactions() and touch_focus_ready:
 			for touch_item_value: Variant in touch_interactables:
 				var touch_item: Dictionary = touch_item_value as Dictionary
 				if String(touch_item.get("id", "")) == touch_focus_id:
@@ -7097,6 +7079,8 @@ func _process(delta: float) -> void:
 			act_lbl = dungeon_game.action_label()
 		elif game == "opera" and opera_game != null:
 			act_lbl = opera_game.action_label()
+		elif game == "kitchen_cooking":
+			act_lbl = _castle_rooms_ref().kitchen_action_label()
 		touch_ui.set_action_label(act_lbl)
 
 # ===================== BIOLUMINESCENT LIFE =====================
@@ -7483,87 +7467,6 @@ func _build_fish() -> void:
 		var halo := _halo(Vector3.ZERO, col, 12.0)
 		school["light"] = halo
 		fish_schools.append(school)
-
-func _build_wreck() -> void:
-	var wx: float = cos(2.4) * 150.0
-	var wz: float = sin(2.4) * 150.0
-	var wy: float = seabed_y(wx, wz)
-	wreck_pos = Vector3(wx, wy + 4.0, wz)
-	var ship := _spawn("ship-wreck", Vector3(wx, wy - 0.5, wz), 9.0, 2.4)
-	if ship != null:
-		ship.rotation_degrees.z = 14.0
-		_toon_tile(ship, "wood", 0.08, Color(0.9, 0.78, 0.7))   # painted timber hull
-		# NOTE: no collider on the wreck — swimming within 13u of it launches the
-		# treasure-dive minigame (see _build_events / treasure trigger). A solid
-		# bubble here would either block that trigger or, given the long hull,
-		# fit it badly. The wreck is an entrance, not a wall.
-	_spawn("chest", Vector3(wx + 10.0, seabed_y(wx + 10.0, wz + 4.0), wz + 4.0), 4.0, 1.0)
-	_spawn("barrel", Vector3(wx - 8.0, seabed_y(wx - 8.0, wz - 5.0), wz - 5.0), 4.0, 0.4)
-	_fairy_light(Vector3(wx, wy + 9.0, wz), Color(0.4, 1.0, 0.8), true)
-	_fairy_light(Vector3(wx + 10.0, seabed_y(wx + 10.0, wz + 4.0) + 3.0, wz + 4.0), Color(1.0, 0.85, 0.4), true)
-	# ghost ship drifting high above — the mystery
-	# nav audit: the shop ship was the game's remotest POI (150m ring). Pull it
-	# to a 100m ring on the OPPOSITE heading from the wreck, same drift/beacon.
-	var gsx: float = -wx * (100.0 / 150.0)
-	var gsz: float = -wz * (100.0 / 150.0)
-	var ghost := _spawn("ship-ghost", Vector3(gsx, WATER_TOP - 10.0, gsz), 7.0, 0.0)
-	if ghost != null:
-		ghost.set_meta("ghost", true)
-		manta = ghost
-		# PEARL SHOP ATTRACTION: the ship IS the shop, but three little lamps
-		# didn't pull anyone in. A golden beacon pillar reaches down into the
-		# reef (visible from anywhere underwater) + an unmissable sign.
-		var spil := MeshInstance3D.new()
-		var spm := CylinderMesh.new()
-		spm.top_radius = 0.7
-		spm.bottom_radius = 2.6
-		spm.height = 46.0
-		spm.radial_segments = 12
-		var spmat := StandardMaterial3D.new()
-		spmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		spmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		spmat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-		spmat.albedo_color = Color(1.0, 0.85, 0.4, 0.16)
-		spmat.cull_mode = BaseMaterial3D.CULL_DISABLED
-		spil.mesh = spm
-		spil.material_override = spmat
-		spil.position = ghost.position + Vector3(0, -24.0, 0)
-		add_child(spil)
-		var ssign := Label3D.new()
-		ssign.text = "🫧 Pearl Shop! 🫧\nswim up to the ship!"
-		ssign.font_size = 72
-		ssign.outline_size = 16
-		ssign.pixel_size = 0.03
-		ssign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		ssign.modulate = Color(1.0, 0.9, 0.55)
-		ssign.position = ghost.position + Vector3(0, -6.5, 0)
-		add_child(ssign)
-		var sglow := OmniLight3D.new()
-		sglow.light_color = Color(1.0, 0.82, 0.4)
-		sglow.light_energy = 3.2
-		sglow.omni_range = 42.0
-		sglow.position = ghost.position + Vector3(0, -8.0, 0)
-		add_child(sglow)
-		for li2 in range(3):
-			var lamp := OmniLight3D.new()
-			lamp.light_color = Color(1.0, 0.78, 0.42)
-			lamp.light_energy = 2.2
-			lamp.omni_range = 34.0
-			lamp.position = Vector3(-0.9 + float(li2) * 0.9, 1.2, 0.35 - float(li2) * 0.3)
-			ghost.add_child(lamp)
-			var bulb := MeshInstance3D.new()
-			var bm2 := SphereMesh.new()
-			bm2.radius = 0.12
-			bm2.height = 0.24
-			bulb.mesh = bm2
-			var bmat := StandardMaterial3D.new()
-			bmat.emission_enabled = true
-			bmat.emission = Color(1.0, 0.8, 0.45)
-			bmat.emission_energy_multiplier = 4.0
-			bulb.material_override = bmat
-			bulb.position = lamp.position
-			ghost.add_child(bulb)
-			pulse_lights.append({"light": lamp, "base": 2.2, "phase": randf() * TAU})
 
 func _build_events() -> void:
 	bloom_parts = GPUParticles3D.new()
@@ -8053,6 +7956,12 @@ func _arena_floor(col: Color, tex: String = "", nrm: String = "", uvs: float = 0
 
 func _enter_arena(kind: String) -> void:
 	return_pos = player.position
+	# Capture the whole return context, not just the spot. Today every caller
+	# launches from the reef, so these hold world_env/"world" and the exit is
+	# byte-for-byte what it always did; once the reef is gone they are what
+	# lets a game hand her back to the promenade or the castle she came from.
+	return_env = we_node.environment
+	return_track = cur_track
 	arena_solids.clear()
 	arena_zones.clear()
 	fade_walls.clear()
@@ -8160,10 +8069,13 @@ func _leave_arena() -> void:
 	_fade_cut(_leave_arena_now)
 
 func _leave_arena_now() -> void:
-	we_node.environment = world_env
+	# Hand her back to the world she came from. The fallbacks keep every
+	# pre-existing caller (and any save restored mid-activity) behaving exactly
+	# as before rather than dropping her into a null environment.
+	we_node.environment = return_env if return_env != null else world_env
 	player.position = return_pos
 	player.vel = Vector3.ZERO
-	_play_music("world")
+	_play_music(return_track if return_track != "" else "world")
 
 func _btn_pressed() -> int:
 	# returns 0..3 for A/B/X/Y edge press, else -1

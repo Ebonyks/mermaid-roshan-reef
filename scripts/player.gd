@@ -1,6 +1,8 @@
 extends Node3D
-# Roshan player: floaty swim + jump physics, procedural 26-bone swim animation.
+# Roshan player: floaty swim + jump physics with a camera-facing 2.5D sprite.
 
+const ROSHAN_SPRITE_ANCHORS := preload(
+	"res://scripts/roshan_sprite_anchors.gd")
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 
@@ -37,12 +39,9 @@ var arm_swim_phase := 0.0
 var jump_cool := 0.0
 var idle_t := 0.0
 
-# ---- R2-C verb layer: authored gestures blended over the procedural swim ----
-# One writer owns every bone. A verb samples its keyframes and slerps OVER
-# whatever the swim just wrote (weight ramps in/out), so entry and exit
-# blends are free and the two systems can never fight. Angles in radians on
-# ONE axis per bone per verb — same idiom as the swim's _rot_bone calls.
-# "sig" = [signature bone, min radians] so probe_verbs.gd can SEE each verb.
+# ---- sprite verb layer ---------------------------------------------------
+# Verb durations preserve the established gameplay timing; visible motion is
+# selected from the four-keyframe gesture atlases in _tick_classic_sprite().
 var verb := ""
 var verb_t := 0.0
 var idle_verb_cool := 0.0
@@ -50,11 +49,9 @@ var bump_verb_cool := 0.0    # keeps wall-bump "boing" from re-firing every fram
 var was_airborne := false    # free-swim only: tracks surface crossings for splashes
 
 # ---- land locomotion (comedy dept.) ----
-# A mermaid has no legs, so dry ground is covered in tiny determined hops:
-# tail coiled under her like a pogo spring, T-rex balance arms, dust poof on
-# touchdown. The layer is purely VISUAL — blended over the swim writes with
-# the verb-layer idiom — so the movement physics (and every probe trajectory)
-# stay byte-identical. main.water_surface_y is the wet/dry oracle.
+# A mermaid has no legs, so dry ground is covered in tiny determined hops.
+# The sprite layer supplies the pose and bounce while movement physics stay
+# byte-identical. main.water_surface_y is the wet/dry oracle.
 var land_rest := false       # resting on an arena floor this frame
 var land_dry := false        # that spot is dry land, not water
 var land_blend := 0.0        # 0 = swim pose, 1 = land pose (smoothed)
@@ -68,93 +65,47 @@ var _hop_base_y := 0.0
 var _hop_base_scale := Vector3.ONE
 
 const VERB_LIB := {
-	"wave": {"len": 2.6, "sig": ["armU2", 1.2], "tracks": {
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 2.8], [2.1, 2.8], [2.6, -0.2]]},
-		"armF2": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.55], [0.9, -0.55], [1.2, 0.55], [1.5, -0.55], [1.8, 0.55], [2.2, 0.0]]},
-		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.16], [2.0, 0.16], [2.6, 0.0]]},
-	}},
-	"cheer": {"len": 2.2, "sig": ["armU", 1.2], "tracks": {
-		"armU": {"axis": Vector3(1, 0, 3), "keys": [[0.0, -0.2], [0.4, 2.4], [1.7, 2.4], [2.2, -0.2]]},
-		"armU2": {"axis": Vector3(1, 0, -3), "keys": [[0.0, -0.2], [0.4, 2.4], [1.7, 2.4], [2.2, -0.2]]},
-		"armF": {"axis": Vector3(1, 0, -0.5), "keys": [[0.0, 0.0], [0.4, 0.8], [1.7, 0.8], [2.2, 0.0]]},
-		"armF2": {"axis": Vector3(1, 0, 0.5), "keys": [[0.0, 0.0], [0.4, 0.8], [1.7, 0.8], [2.2, 0.0]]},
-		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.08], [1.7, 0.08], [2.2, 0.0]]},
-		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, -0.08], [1.7, -0.08], [2.2, 0.0]]},
-	}},
-	"clap": {"len": 2.0, "sig": ["armU", 0.7], "tracks": {
-		"armU": {"axis": Vector3(1, 0, -1.5), "keys": [[0.0, -0.2], [0.35, 0.8], [0.5, 2.4], [0.65, 0.8], [0.8, 2.4], [0.95, 0.8], [1.1, 2.4], [1.25, 0.8], [1.4, 2.4], [1.55, 0.8], [2.0, -0.2]]},
-		"armU2": {"axis": Vector3(1, 0, 1.5), "keys": [[0.0, -0.2], [0.35, 0.8], [0.5, 2.4], [0.65, 0.8], [0.8, 2.4], [0.95, 0.8], [1.1, 2.4], [1.25, 0.8], [1.4, 2.4], [1.55, 0.8], [2.0, -0.2]]},
-		"armF": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, -0.5], [0.65, 0.0], [0.8, -0.5], [0.95, 0.0], [1.1, -0.5], [1.25, 0.0], [1.4, -0.5], [1.7, 0.0]]},
-		"armF2": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, 0.5], [0.65, 0.0], [0.8, 0.5], [0.95, 0.0], [1.1, 0.5], [1.25, 0.0], [1.4, 0.5], [1.7, 0.0]]},
-	}},
-	"twirl": {"len": 1.9, "sig": ["armU", 0.7], "spin": true, "tracks": {
-		"armU": {"axis": Vector3.FORWARD, "keys": [[0.0, 0.0], [0.4, -1.2], [1.5, -1.2], [1.9, 0.0]]},
-		"armU2": {"axis": Vector3.FORWARD, "keys": [[0.0, 0.0], [0.4, 1.2], [1.5, 1.2], [1.9, 0.0]]},
-		"hair1": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.9, 0.3], [1.9, 0.0]]},
-	}},
-	"look": {"len": 3.4, "sig": ["head", 0.35], "tracks": {
-		"neck": {"axis": Vector3.UP, "keys": [[0.0, 0.0], [0.7, 0.5], [1.4, 0.5], [2.1, -0.5], [2.8, -0.5], [3.4, 0.0]]},
-		"head": {"axis": Vector3.UP, "keys": [[0.0, 0.0], [0.7, 0.55], [1.4, 0.55], [2.1, -0.55], [2.8, -0.55], [3.4, 0.0]]},
-	}},
-	"giggle": {"len": 1.5, "sig": ["armU", 0.4], "tracks": {
-		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.2, -0.14], [0.4, 0.02], [0.6, -0.14], [0.8, 0.02], [1.0, -0.14], [1.5, 0.0]]},
-		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.25, 0.18], [0.55, -0.18], [0.85, 0.18], [1.15, -0.18], [1.5, 0.0]]},
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.95], [1.2, 1.95], [1.5, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.95], [1.2, 1.95], [1.5, -0.2]]},
-	}},
-	"sleep": {"len": 6.0, "sig": ["head", 0.3], "tracks": {
-		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.2, -0.5], [5.0, -0.5], [6.0, 0.0]]},
-		"neck": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.2, -0.32], [5.0, -0.32], [6.0, 0.0]]},
-		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.2, -0.26], [5.0, -0.26], [6.0, 0.0]]},
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [1.2, 0.7], [5.0, 0.7], [6.0, 0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.2], [1.2, 0.7], [5.0, 0.7], [6.0, 0.2]]},
-		"tail3": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.22], [5.0, -0.22], [6.0, 0.0]]},
-		"tail4": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.3], [5.0, -0.3], [6.0, 0.0]]},
-		"tail5": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.38], [5.0, -0.38], [6.0, 0.0]]},
-		"tail6": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.46], [5.0, -0.46], [6.0, 0.0]]},
-		"tail7": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.52], [5.0, -0.52], [6.0, 0.0]]},
-		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [1.4, -0.58], [5.0, -0.58], [6.0, 0.0]]},
-	}},
-	"point": {"len": 2.0, "sig": ["armU2", 0.9], "tracks": {
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.4, 1.65], [1.6, 1.65], [2.0, -0.2]]},
-		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.4, 0.15], [1.6, 0.15], [2.0, 0.0]]},
-		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.5, 0.12], [1.5, 0.12], [2.0, 0.0]]},
-	}},
-	"collect": {"len": 1.1, "sig": ["armU", 0.8], "tracks": {
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.35], [0.7, 1.35], [1.1, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.3, 1.35], [0.7, 1.35], [1.1, -0.2]]},
-		"armF": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.35, 0.7], [0.7, 0.7], [1.1, 0.0]]},
-		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.35, 0.7], [0.7, 0.7], [1.1, 0.0]]},
-		"head": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.3, -0.14], [0.7, -0.14], [1.1, 0.0]]},
-	}},
-	"boing": {"len": 0.8, "sig": ["armU", 0.5], "tracks": {
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.15, 1.1], [0.4, 0.4], [0.55, 0.9], [0.8, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.15, 1.1], [0.4, 0.4], [0.55, 0.9], [0.8, -0.2]]},
-		"chest": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.15, -0.2], [0.45, 0.08], [0.8, 0.0]]},
-		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.18, 0.2], [0.45, -0.16], [0.8, 0.0]]},
-	}},
-	"hairtwirl": {"len": 3.0, "sig": ["armU2", 1.3], "tracks": {
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 2.25], [2.4, 2.25], [3.0, -0.2]]},
-		"armF2": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.35], [1.2, -0.35], [1.7, 0.35], [2.2, -0.35], [2.7, 0.0]]},
-		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.18], [2.4, 0.18], [3.0, 0.0]]},
-	}},
-	"hum": {"len": 3.4, "sig": ["head", 0.16], "tracks": {
-		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.3], [1.3, -0.3], [2.0, 0.3], [2.7, -0.3], [3.4, 0.0]]},
-		"chest": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.7, 0.1], [1.5, -0.1], [2.3, 0.1], [3.4, 0.0]]},
-		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.3], [1.6, 0.0], [2.4, -0.3], [3.4, 0.0]]},
-	}},
-	"flop": {"len": 3.4, "sig": ["armU", 1.1], "tip": true, "tracks": {
-		# beached-seal intermission (on-land idle): she keels over sideways
-		# (the tip flag drives model_root), flails both arms, wiggles the tail
-		# tip like a landed fish, then pops back upright none the wiser
-		"armU": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 1.5], [0.9, 1.1], [1.3, 1.5], [2.5, 1.5], [3.4, -0.2]]},
-		"armU2": {"axis": Vector3.RIGHT, "keys": [[0.0, -0.2], [0.5, 1.5], [0.9, 1.1], [1.3, 1.5], [2.5, 1.5], [3.4, -0.2]]},
-		"armF": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.4], [2.5, 0.4], [3.4, 0.0]]},
-		"armF2": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.5, 0.4], [2.5, 0.4], [3.4, 0.0]]},
-		"head": {"axis": Vector3.BACK, "keys": [[0.0, 0.0], [0.6, 0.25], [1.4, 0.25], [2.0, -0.2], [2.6, 0.25], [3.4, 0.0]]},
-		"tail5": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.3], [1.2, 0.1], [1.6, -0.3], [2.0, 0.1], [2.4, -0.3], [3.4, 0.0]]},
-		"tail8": {"axis": Vector3.RIGHT, "keys": [[0.0, 0.0], [0.8, -0.5], [1.2, 0.15], [1.6, -0.5], [2.0, 0.15], [2.4, -0.5], [3.4, 0.0]]},
-	}},
+	"wave": {"len": 2.6},
+	"cheer": {"len": 2.2},
+	"clap": {"len": 2.0},
+	"twirl": {"len": 1.9},
+	"look": {"len": 3.4},
+	"giggle": {"len": 1.5},
+	"sleep": {"len": 6.0},
+	"point": {"len": 2.0},
+	"collect": {"len": 1.1},
+	"boing": {"len": 0.8},
+	"hairtwirl": {"len": 3.0},
+	"hum": {"len": 3.4},
+	"flop": {"len": 3.4},
+}
+
+const ROSHAN_25D_SHEETS := {
+	"directional": [preload("res://assets/characters/roshan_25d/roshan_directional.png"), 4, 2],
+	"swim_front": [preload("res://assets/characters/roshan_25d/roshan_swim_front.png"), 4, 4],
+	"swim_back": [preload("res://assets/characters/roshan_25d/roshan_swim_back.png"), 4, 4],
+	"gesture_a": [preload("res://assets/characters/roshan_25d/roshan_gesture_a.png"), 4, 4],
+	"gesture_b": [preload("res://assets/characters/roshan_25d/roshan_gesture_b.png"), 4, 4],
+	"gesture_c": [preload("res://assets/characters/roshan_25d/roshan_gesture_c.png"), 4, 4],
+	"gesture_d": [preload("res://assets/characters/roshan_25d/roshan_gesture_d.png"), 4, 2],
+	"play_a": [preload("res://assets/characters/roshan_25d/roshan_play_a.png"), 4, 4],
+	"play_b": [preload("res://assets/characters/roshan_25d/roshan_play_b.png"), 4, 4],
+}
+const ROSHAN_25D_KEYFRAMES := 4
+const ROSHAN_25D_GESTURES := {
+	"wave": ["gesture_a", 0], "cheer": ["gesture_a", 1],
+	"clap": ["gesture_a", 2], "twirl": ["gesture_a", 3],
+	"look": ["gesture_b", 0], "giggle": ["gesture_b", 1],
+	"sleep": ["gesture_b", 2], "point": ["gesture_b", 3],
+	"collect": ["gesture_c", 0], "boing": ["gesture_c", 1],
+	"hairtwirl": ["gesture_c", 2], "hum": ["gesture_c", 3],
+	"flop": ["gesture_d", 0], "carry": ["gesture_d", 1],
+}
+const ROSHAN_25D_PLAY := {
+	"swing": ["play_a", 0], "climb": ["play_a", 1],
+	"ride": ["play_a", 2], "land": ["play_a", 3],
+	"dig_l": ["play_b", 0], "dig_r": ["play_b", 1],
+	"seat": ["play_b", 2], "hop": ["play_b", 3],
 }
 
 func play_verb(vname: String) -> bool:
@@ -167,50 +118,17 @@ func play_verb(vname: String) -> bool:
 	idle_t = 0.0
 	return true
 
-func _sample_keys(keys: Array, t: float) -> float:
-	if t <= float(keys[0][0]):
-		return float(keys[0][1])
-	for i in range(1, keys.size()):
-		if t <= float(keys[i][0]):
-			var a: Array = keys[i - 1]
-			var b: Array = keys[i]
-			var f: float = (t - float(a[0])) / maxf(float(b[0]) - float(a[0]), 0.001)
-			return lerpf(float(a[1]), float(b[1]), smoothstep(0.0, 1.0, f))
-	return float(keys[-1][1])
 
 func _apply_verb(delta: float) -> void:
-	if verb == "" or skel == null:
+	if verb == "":
 		return
 	var spec: Dictionary = VERB_LIB[verb]
-	var vlen: float = spec["len"]
+	var vlen: float = float(spec["len"])
 	verb_t += delta
 	if verb_t >= vlen:
 		verb = ""
-		if model_root != null:
-			model_root.rotation.y = 0.0
-			model_root.rotation.z = 0.0
-		return
-	var w: float = smoothstep(0.0, 0.25, verb_t) * (1.0 - smoothstep(vlen - 0.3, vlen, verb_t))
-	var tracks: Dictionary = spec["tracks"]
-	for bname in tracks:
-		var bi: int = bone_idx.get(bname, -1)
-		if bi < 0 or not rest.has(bname):
-			continue
-		var tr: Dictionary = tracks[bname]
-		var ang: float = _sample_keys(tr["keys"], verb_t)
-		# model-space axis via the same rest-aware transform as _rot_bone —
-		# verbs were authored on the identity-rest card rig; without this the
-		# v3 rig's Blender rest orientations turn every gesture into a
-		# contortion (post-race cheer was the worst offender)
-		var target: Quaternion = _model_axis_quat(bname, tr["axis"], ang)
-		skel.set_bone_pose_rotation(bi, skel.get_bone_pose_rotation(bi).slerp(target, w))
-	if bool(spec.get("spin", false)) and model_root != null:
-		# a full pirouette that always lands facing forward again
-		model_root.rotation.y = TAU * smoothstep(0.0, 1.0, verb_t / vlen)
-	if bool(spec.get("tip", false)) and model_root != null:
-		# seal flop: keel over sideways, lie there wiggling, pop back upright
-		var tp: float = verb_t / vlen
-		model_root.rotation.z = smoothstep(0.05, 0.30, tp) * (1.0 - smoothstep(0.72, 0.92, tp)) * 1.15
+		if classic_sprite != null:
+			classic_sprite.rotation.z = 0.0
 var cam: Camera3D
 # STORYBOOK DIORAMA LENS: longer + narrower than a normal chase cam — the
 # compressed perspective flattens the world toward 2.5D so it reads as a
@@ -220,38 +138,31 @@ var cam_back := 25.0   # chase distance (reduced indoors so the camera does not 
 var cam_high := 9.0    # chase height
 var cam_orbit := 0.0        # right-stick look-around: yaw offset, drifts back behind Roshan
 var cam_pitch_off := 0.0    # right-stick look-around: height offset
-var skel: Skeleton3D
-var bone_idx := {}
-var rest := {}
-var rest_global := {}
-var warned := false
-var model_root: Node3D = null     # the 3D Roshan model (shown for the "classic" skin)
-# model-backed skins: rigged plushies sharing Roshan's bone names, so the
-# procedural swim drives every one of them (billboards never made sense)
-# huluu.glb shipped with NO skeleton (0 joints - probe_skins caught it): the
-# "rigged plushie" was a statue and the swim silently never applied. The
-# Huluu skin uses her illustrated cutout billboard instead (doll era: over).
-const SKIN_MODELS := {"fairy": "res://assets/characters/fairy_v2.glb"}
-var skin_models := {}             # id -> instantiated Node3D
-var _roshan_skel: Skeleton3D = null
-var _roshan_maps: Array = []      # [bone_idx, local rest, global rest] for Roshan
-var model_v3 := false
-var model_v2 := false             # true-3D v2 fallback (flat-card model needs in-plane swings)             # true-3D rebuild (multi-view Meshy, head faces forward)
-var hair_sim: HairSim = null      # spring physics for the v3 hair_SS_J strand chains
+var classic_motion_root: Node3D = null
+var classic_sprite: Sprite3D = null
+var classic_sprite_sheet := ""
+var classic_sprite_frame := -1
+var classic_sprite_flip := false
+var classic_toy_pose_until_msec := 0
+var classic_carry_started_msec := 0
+var classic_was_carrying := false
+var classic_life_phase := 0.0
+# Alternative looks are also flat cutouts; no character model is loaded.
+const SKIN_TEXTURES := {
+	"fairy": "res://assets/characters/skins/fairy_mermaid.png",
+	"huluu": "res://assets/characters/friends/huluu.png",
+}
 var skin_sprite: Sprite3D = null  # billboard used for alternative full skins
 var skin_sparkles: CPUParticles3D = null  # fairy sparkle trail for sparkly skins
 var skin_id := "classic"
 var skin_t := 0.0
-# opera stage puppet: an OperaAct drives position/yaw and reports her speed;
-# the SAME procedural swim + verb machinery keeps her alive, so every career
-# look reuses the one animation set. Input/physics/camera stay with the act.
+# OperaAct drives position/yaw and reports speed while this same sprite clock
+# keeps Roshan alive. Input, physics, and camera remain with the act.
 var puppet := false
 var puppet_speed := 0.0
-# career costume (Pearl Opera House): toy-primitive pieces anchored to the
-# ACTIVE skeleton with BoneAttachment3D — same contract as the plushie skins
-# (bone names, not new rigs), so the swim drives every costume for free
+# Career selection remains gameplay state. Dedicated 2D outfit atlases can
+# layer on this contract later; the animated base sprite never disappears.
 var costume_id := ""
-var costume_nodes: Array = []     # BoneAttachment3D anchors (freed by clear_costume)
 # WW swim wake: ribbon contrail rebuilt each frame from recent tail positions,
 # plus velocity-aligned dash particles that only appear at sprint speed
 var trail_node: MeshInstance3D
@@ -263,54 +174,29 @@ var speed_lines: GPUParticles3D
 var speed_pm: ParticleProcessMaterial
 
 func _ready() -> void:
-	# THE 3D Roshan. v3 (2026-07-11) is the multi-view Meshy rebuild from the
-	# three-view reference set in "Downloads/Mermaid roshan art base": head
-	# faces her swim direction (the v2/card models baked the illustration's
-	# over-the-shoulder head twist). roshan_v2/roshan.glb stay as fallbacks.
-	var glb: PackedScene = null
-	# v4 (2026-07-11): regenerated from arms-apart refs — BOTH arms rigged
-	# (v3's front ref had clasped hands, so its left arm was fused/unrigged)
-	for vpath in ["res://assets/characters/roshan_v4.glb",
-			"res://assets/characters/roshan_v3.glb"]:
-		if ResourceLoader.exists(vpath):
-			glb = load(vpath) as PackedScene
-			model_v3 = glb != null
-			if glb != null:
-				break
-	if glb == null:
-		glb = load("res://assets/characters/roshan_v2.glb") as PackedScene
-		model_v2 = glb != null
-	if glb == null:
-		glb = load("res://assets/characters/roshan.glb") as PackedScene
-	if glb != null:
-		var inst: Node3D = glb.instantiate()
-		if model_v3:
-			# v3 is 1.9 units tall centred at origin; match the classic visual size
-			inst.scale = Vector3.ONE * 3.7
-			inst.position.y = 0.89
-		else:
-			inst.scale = Vector3.ONE * 1.55
-			inst.position.y = -1.6
-		add_child(inst)
-		model_root = inst
-		if model_v3:
-			var mn0: Node = get_parent()
-			if mn0 != null and mn0.has_method("_toonify"):
-				mn0._toonify(inst)   # storybook flat response, same as fairy_v2
-		skel = _find_skeleton(inst)
-		_map_bones()
-		_roshan_skel = skel
-		_roshan_maps = [bone_idx.duplicate(), rest.duplicate(), rest_global.duplicate()]
-		if model_v3:
-			hair_sim = HairSim.new()
-			add_child(hair_sim)
-			hair_sim.setup(self)   # discovers hair_SS_J chains; no-op without them
+	# Sprite3D is the only Roshan renderer. The retired GLB rig is never loaded.
+	classic_motion_root = Node3D.new()
+	classic_motion_root.name = "AlwaysAliveMotion"
+	add_child(classic_motion_root)
+	classic_sprite = Sprite3D.new()
+	classic_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	classic_sprite.pixel_size = 7.4 / 256.0
+	classic_sprite.position = Vector3(0, 0.35, 0)
+	classic_sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	classic_sprite.shaded = false
+	classic_sprite.double_sided = true
+	classic_motion_root.add_child(classic_sprite)
+	_set_classic_sprite_frame("directional", 4)
+	_refresh_classic_visual()
 	# billboard sprite used when an alternative full skin is worn (hidden by default)
 	# pixel_size sized so the 707px-tall art ≈ the 7-unit classic model
 	skin_sprite = Sprite3D.new()
 	skin_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	skin_sprite.pixel_size = 0.0100
 	skin_sprite.position = Vector3(0, 0.6, 0)
+	skin_sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	skin_sprite.shaded = false
+	skin_sprite.double_sided = true
 	skin_sprite.visible = false
 	add_child(skin_sprite)
 	# fairy sparkle trail (only emits while a sparkly skin is worn)
@@ -410,535 +296,232 @@ func _ready() -> void:
 	cam.fov = 38.0   # diorama lens (see cam_back note)
 	get_parent().add_child.call_deferred(cam)
 
-func _map_bones() -> void:
-	bone_idx = {}
-	rest = {}
-	rest_global = {}
-	if skel == null:
-		return
-	for n in ["root", "spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
-			"hairL1", "hairL2", "armU", "armF", "hand", "armU2", "armF2", "hand2",
-			"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8",
-			"finTop", "finBot", "wingL", "wingR"]:
-		var bi: int = skel.find_bone(n)
-		bone_idx[n] = bi
-		if bi >= 0:
-			rest[n] = skel.get_bone_pose(bi)
-			rest_global[n] = skel.get_bone_global_rest(bi)
+func _refresh_classic_visual() -> void:
+	if classic_sprite != null:
+		classic_sprite.visible = skin_id == "classic"
 
-func _attach_wing_cards(mdl: Node3D) -> void:
-	# CARD WINGS: the Meshy sculpt fused its wings into her back (relief, not
-	# separable geometry), so those stay as static painted detail and the
-	# REAL flap is two textured plates on the measured wingL/wingR hinge
-	# bones — a rigid shader rotation around the hinge, like the butterflies.
-	var sk := _find_skeleton(mdl)
-	if sk == null or not ResourceLoader.exists("res://assets/characters/skins/fairy_wing_card.png"):
+func _set_classic_sprite_frame(sheet: String, frame_idx: int, flip: bool = false) -> void:
+	if classic_sprite == null or not ROSHAN_25D_SHEETS.has(sheet):
 		return
-	var tex: Texture2D = load("res://assets/characters/skins/fairy_wing_card.png")
-	for wi in range(2):
-		var bname: String = "wingL" if wi == 0 else "wingR"
-		if sk.find_bone(bname) < 0:
-			continue
-		var att := BoneAttachment3D.new()
-		att.bone_name = bname
-		sk.add_child(att)
-		var mi := MeshInstance3D.new()
-		var qm := QuadMesh.new()
-		qm.size = Vector2(1.6, 2.75)   # wing art aspect 282x489
-		qm.center_offset = Vector3(0.8, 0.0, 0.0)   # hinge edge at the origin
-		mi.mesh = qm
-		# map the quad's outward X onto the bone's along-axis (Y), keep it
-		# upright: columns are the bone-local images of quad X/Y/Z
-		mi.transform.basis = Basis(Vector3(0, 1, 0), Vector3(0, 0, 1), Vector3(1, 0, 0))
-		var wm := ShaderMaterial.new()
-		wm.shader = load("res://assets/shaders/fairy_wing.gdshader")
-		wm.set_shader_parameter("wing_tex", tex)
-		wm.set_shader_parameter("phase", 0.0 if wi == 0 else 0.18)
-		wm.set_shader_parameter("flip", 0.0 if wi == 0 else 1.0)
-		mi.material_override = wm
-		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		att.add_child(mi)
+	var spec: Array = ROSHAN_25D_SHEETS[sheet]
+	var frame_count: int = int(spec[1]) * int(spec[2])
+	var safe_frame: int = clampi(frame_idx, 0, frame_count - 1)
+	if classic_sprite_sheet != sheet:
+		classic_sprite.texture = spec[0] as Texture2D
+		classic_sprite.hframes = int(spec[1])
+		classic_sprite.vframes = int(spec[2])
+		classic_sprite_sheet = sheet
+		classic_sprite_frame = -1
+	if classic_sprite_frame != safe_frame:
+		classic_sprite.frame = safe_frame
+		classic_sprite_frame = safe_frame
+	if classic_sprite_flip != flip:
+		classic_sprite.flip_h = flip
+		classic_sprite_flip = flip
+	if ROSHAN_SPRITE_ANCHORS.has_sheet(sheet):
+		classic_sprite.offset = ROSHAN_SPRITE_ANCHORS.correction(
+			sheet, safe_frame, Vector2(128.0, 116.0), flip)
+	else:
+		classic_sprite.offset = Vector2.ZERO
+
+func _set_classic_sequence(sequence: Array, phase: int, flip: bool = false) -> void:
+	var sheet: String = String(sequence[0])
+	var row: int = int(sequence[1])
+	_set_classic_sprite_frame(sheet,
+		row * ROSHAN_25D_KEYFRAMES + clampi(phase, 0, ROSHAN_25D_KEYFRAMES - 1),
+		flip)
+
+func _classic_view_angle() -> float:
+	if cam == null or not cam.is_inside_tree():
+		return PI
+	var to_camera: Vector3 = cam.global_position - global_position
+	to_camera.y = 0.0
+	if to_camera.length_squared() < 0.0001:
+		return PI
+	to_camera = to_camera.normalized()
+	var forward := Vector3(sin(yaw), 0.0, cos(yaw))
+	return atan2(forward.cross(to_camera).y, forward.dot(to_camera))
+
+func _classic_direction_frame(view_angle: float) -> int:
+	var sector: int = int(round(view_angle / (PI * 0.25)))
+	return posmod(-sector, 8)
+
+func _classic_is_carrying() -> bool:
+	var mn: Node = get_parent()
+	return mn != null and "carry_sys" in mn and mn.carry_sys != null \
+		and bool(mn.carry_sys.is_carrying())
+
+func _tick_classic_sprite(speed: float,
+	tap_move_commanded: bool = false) -> void:
+	if classic_sprite == null or not classic_sprite.visible:
+		return
+	# Lagoon toys author a pose from the parent controller once per frame.
+	# Hold it briefly so player process ordering cannot immediately replace it.
+	if Time.get_ticks_msec() < classic_toy_pose_until_msec:
+		return
+	var view_angle: float = _classic_view_angle()
+	var flip: bool = view_angle > 0.15
+	var carrying: bool = _classic_is_carrying()
+	if tap_move_commanded and not carrying:
+		# A pressed world point owns the locomotion pose while its assisted
+		# route is actually commanding movement. This deliberately precedes
+		# idle/gesture and dry-land pose selection so Roshan always visibly
+		# swims toward the chosen point instead of sliding in a held pose.
+		classic_sprite.rotation.z = 0.0
+		var tap_phase: int = int(floor(fposmod(
+			swim_phase / TAU * 16.0, 16.0)))
+		var tap_sheet := "swim_back" \
+			if cos(view_angle) < -0.15 else "swim_front"
+		_set_classic_sprite_frame(tap_sheet, tap_phase, flip)
+		return
+	if verb != "" and ROSHAN_25D_GESTURES.has(verb):
+		var verb_len: float = maxf(float(VERB_LIB[verb]["len"]), 0.001)
+		var verb_phase: int = mini(
+			int(floor(clampf(verb_t / verb_len, 0.0, 0.9999) * ROSHAN_25D_KEYFRAMES)),
+			ROSHAN_25D_KEYFRAMES - 1)
+		_set_classic_sequence(ROSHAN_25D_GESTURES[verb] as Array, verb_phase, flip)
+		if verb == "twirl":
+			var spin_u: float = verb_t / verb_len
+			classic_sprite.rotation.z = sin(spin_u * TAU) * 0.10
+			var spin_flip: bool = spin_u >= 0.5
+			classic_sprite.flip_h = spin_flip
+			classic_sprite_flip = spin_flip
+		else:
+			classic_sprite.rotation.z = 0.0
+		return
+	classic_sprite.rotation.z = 0.0
+	if carrying:
+		var now_msec: int = Time.get_ticks_msec()
+		if not classic_was_carrying:
+			classic_carry_started_msec = now_msec
+			classic_was_carrying = true
+		var carry_elapsed: int = now_msec - classic_carry_started_msec
+		var carry_phase: int = mini(
+			int(carry_elapsed / 140), ROSHAN_25D_KEYFRAMES - 2)
+		if carry_elapsed >= 420:
+			# The first three frames lift the toy into place; the final two
+			# alternate forever as a gentle hold/breath loop. Previously the
+			# carry pose saturated on frame four and became a dead cutout.
+			carry_phase = 2 + posmod(int((carry_elapsed - 420) / 320), 2)
+		_set_classic_sequence(ROSHAN_25D_GESTURES["carry"] as Array, carry_phase, flip)
+		return
+	classic_was_carrying = false
+	if land_blend > 0.55 and (hop_amp > 0.10 or (land_dry and speed > 2.5)):
+		var hop_frame: int = int(floor(
+			fposmod(hop_phase, PI) / PI * ROSHAN_25D_KEYFRAMES))
+		_set_classic_sequence(ROSHAN_25D_PLAY["hop"] as Array, hop_frame, flip)
+		return
+	if speed > 0.7 and land_blend < 0.65:
+		var phase: int = int(floor(fposmod(
+			swim_phase / TAU * 16.0, 16.0)))
+		var swim_sheet := "swim_back" if cos(view_angle) < -0.15 else "swim_front"
+		_set_classic_sprite_frame(swim_sheet, phase, flip)
+		return
+	if land_blend > 0.55:
+		# A parked mermaid curls her tail under and gently shifts on the
+		# four-frame seated loop instead of becoming a single directional card.
+		var seated_phase: int = int(floor(fposmod(
+			swim_phase / TAU * float(ROSHAN_25D_KEYFRAMES),
+			float(ROSHAN_25D_KEYFRAMES))))
+		_set_classic_sequence(ROSHAN_25D_PLAY["seat"] as Array, seated_phase, flip)
+		return
+	# Stopping has a readable end: return to the matching directional pose.
+	# AlwaysAliveMotion keeps this pose breathing, so idle is distinct from
+	# locomotion without ever becoming a dead cutout.
+	_set_classic_sprite_frame(
+		"directional", _classic_direction_frame(view_angle), false)
+
+func _tick_always_alive_visual(delta: float, speed: float) -> void:
+	# Atlas frames do most of the acting. A tiny independent breath prevents
+	# long authored key poses (notably sleep) from reading as a stopped render.
+	# Playground choreography is excluded because its sprite must stay locked
+	# to the physical seat/rope phase with no second bobbing clock.
+	classic_life_phase = fposmod(
+		classic_life_phase + delta * (1.35 + minf(speed * 0.025, 0.6)), TAU)
+	if classic_motion_root != null:
+		if Time.get_ticks_msec() < classic_toy_pose_until_msec:
+			classic_motion_root.position = Vector3.ZERO
+			classic_motion_root.scale = Vector3.ONE
+		else:
+			var breath: float = sin(classic_life_phase)
+			classic_motion_root.position.y = breath * 0.055
+			classic_motion_root.scale = Vector3(
+				1.0 + breath * 0.008, 1.0 - breath * 0.006, 1.0)
+	if skin_sprite != null and skin_sprite.visible:
+		skin_t += delta * (2.2 + speed * 0.6)
+		# Alternate full-skin cutouts do not have atlases, so their established
+		# bob and squash remain their continuous idle/motion language.
+		skin_sprite.position.y = 0.6 + lerpf(
+			sin(skin_t) * 0.3,
+			absf(sin(skin_t * 1.6)) * 0.7,
+			land_blend)
+		var flap: float = sin(skin_t * 2.4)
+		skin_sprite.scale = Vector3(
+			1.0 + flap * 0.05, 1.0 - flap * 0.03, 1.0)
+
 
 func set_skin(id: String, tex_path: String) -> void:
-	# "classic" shows the 3D model; any other id swaps to a full-skin billboard
 	skin_id = id
-	if SKIN_MODELS.has(id) and ResourceLoader.exists(String(SKIN_MODELS[id])):
-		# the full Roshan treatment: a rigged double-sided plushie with the SAME
-		# bone names, so the procedural swim drives her directly
-		if not skin_models.has(id):
-			var mdl: Node3D = (load(String(SKIN_MODELS[id])) as PackedScene).instantiate()
-			if id == "fairy":
-				# fairy_v2 is exported at Roshan's world size, so it takes
-				# the classic transform, not the plushie one. NO
-				# _upgrade_texture: that helper swaps in the OLD atlas,
-				# which is UV-gibberish on Meshy meshes.
-				mdl.scale = Vector3.ONE * 1.55
-				mdl.position.y = -1.6
-				var mn0: Node = get_parent()
-				if mn0 != null and mn0.has_method("_toonify"):
-					# flat toon response = world lighting reads the same on
-					# her as on everything else
-					mn0._toonify(mdl)
-				_attach_wing_cards(mdl)
-			else:
-				mdl.scale = Vector3.ONE * 3.9
-				mdl.position.y = -3.4
-			add_child(mdl)
-			skin_models[id] = mdl
-		for k in skin_models:
-			(skin_models[k] as Node3D).visible = (k == id)
-		skel = _find_skeleton(skin_models[id])
-		_map_bones()
-		if model_root != null:
-			model_root.visible = false
-		if skin_sprite != null:
-			skin_sprite.visible = false
-		if skin_sparkles != null:
-			skin_sparkles.emitting = true   # every plushie skin gets the sparkle trail
-		return
-	# non-model skin: restore Roshan's skeleton for the swim code
-	for k in skin_models:
-		(skin_models[k] as Node3D).visible = false
-	if _roshan_skel != null and skel != _roshan_skel:
-		skel = _roshan_skel
-		bone_idx = _roshan_maps[0]
-		rest = _roshan_maps[1]
-		rest_global = _roshan_maps[2]
-	var on_skin: bool = not (id == "classic" or tex_path == "")
-	if on_skin:
-		if skin_sprite != null:
-			var tex: Texture2D = load(tex_path)
+	var resolved_path: String = tex_path
+	if resolved_path == "" and SKIN_TEXTURES.has(id):
+		resolved_path = String(SKIN_TEXTURES[id])
+	var on_skin: bool = id != "classic" and resolved_path != "" \
+		and ResourceLoader.exists(resolved_path)
+	if id != "classic" and not on_skin:
+		skin_id = "classic"
+	if skin_sprite != null:
+		skin_sprite.visible = on_skin
+		if on_skin:
+			var tex: Texture2D = load(resolved_path)
 			skin_sprite.texture = tex
-			# normalise so EVERY skin stands ~7 units tall regardless of art size
-			# (a fixed pixel_size made differently-sized art render giant or tiny)
+			# Every cutout stands about seven world units tall regardless of source size.
 			skin_sprite.pixel_size = 7.0 / maxf(float(tex.get_height()), 1.0)
-			skin_sprite.visible = true
 			skin_sprite.scale = Vector3.ONE
-		if model_root != null:
-			model_root.visible = false
-	else:
-		if model_root != null:
-			model_root.visible = true
-		if skin_sprite != null:
-			skin_sprite.visible = false
+	_refresh_classic_visual()
 	if skin_sparkles != null:
 		skin_sparkles.emitting = on_skin
 
 # ---------------- career costumes (Pearl Opera House) ----------------
-# One costume per career, worn on the SAME rigged Roshan: each piece is a toy
-# primitive parented to a BoneAttachment3D on the active skeleton, so the one
-# procedural swim (plus every verb) animates every career look for free —
-# the same bone-name contract that lets the plushie skins share her swim.
-# Pieces are placed in WORLD space at wear time from the anchor bone's pose
-# (upright, sharing her yaw) and then ride the bone rigidly, so no knowledge
-# of the Meshy rig's rest axes is needed. Offsets use her facing: -Z = front.
-
-# card-faithful outfit kits (CLAUDE_OPERA_JOB_3D_CONTINUATION): a GLB whose
-# top-level Piece* nodes mount onto the bone anchors below. Grows one job per
-# art batch; careers without a kit keep their toy-primitive costume.
-const COSTUME_KITS := {"chef": "pastry_chef", "ballerina": "ballerina",
-	"detective": "detective", "candymaker": "candymaker", "doctor": "doctor",
-	"farmer": "farmer", "boxer": "boxer", "magician": "magician",
-	"painter": "painter", "astronaut": "astronaut", "racer": "racer",
-	"popstar": "popstar"}
-
+# Costume ids remain part of opera/save behavior. Roshan stays on her animated
+# sprite atlas until matching 2D costume layers are available.
 func set_costume(id: String) -> void:
-	clear_costume()
 	costume_id = id
-	if id == "" or skel == null or not is_inside_tree():
-		return
-	var head := _costume_anchor(["head", "neck", "chest", "root"])
-	# rig audit 2026-07-15: hand2 (her right) is the well-bound hand; the left
-	# "hand" joint is a tiny underbound stub, so props prefer the right side
-	var hand := _costume_anchor(["hand2", "armF2", "hand", "chest"])
-	# left hand: underbound for SKINNING, but a BoneAttachment3D only needs the
-	# joint itself — rigid props (the boxer's second glove) ride it fine
-	var hand_l := _costume_anchor(["hand", "armF", "chest"])
-	var chest := _costume_anchor(["chest", "spine1", "root"])
-	var waist := _costume_anchor(["spine1", "root", "chest"])
-	if COSTUME_KITS.has(id):
-		var kp := "res://assets/opera/jobs/%s/opera_%s_outfit.glb" % [COSTUME_KITS[id], COSTUME_KITS[id]]
-		if ResourceLoader.exists(kp):
-			var kit := (load(kp) as PackedScene).instantiate()
-			var mounts := {"PieceHead": head, "PieceHandR": hand, "PieceHandL": hand_l,
-					"PieceChest": chest, "PieceWaist": waist}
-			for pname in mounts:
-				var pc: Node = kit.find_child(String(pname), true, false)
-				if pc != null:
-					pc.get_parent().remove_child(pc)
-					(mounts[pname] as Node3D).add_child(pc)
-			kit.queue_free()
-			_drop_empty_costume_anchors()
-			return
-	# Offsets are calibrated to the v4 rig's MEASURED rest joints (world units,
-	# model x3.7 + y0.89): head joint sits at EYE level y+2.18 while her crown
-	# is y+4.4 — so hats ride ~+2.2..+3.3 above the head joint, face pieces
-	# (glasses/visor/mirror) push ~-1.1 on Z to clear the face surface, and
-	# eyes sit ~+1.2 above the joint. hand2 rests at (-1.89, +0.41); chest
-	# +0.62, spine1 (waist) +0.28. Re-derive before retuning: the GLB node
-	# translations are the source of truth, not these comments.
-	match id:
-		"chef":
-			_cp_cyl(head, Vector3(0, 2.4, 0), 0.85, 0.9, Color(0.98, 0.97, 0.94), 0.05)
-			_cp_sphere(head, Vector3(0, 3.05, 0), 0.95, Color(1.0, 1.0, 0.98), 0.05)
-		"detective":
-			_cp_cyl(head, Vector3(0, 2.35, 0), 1.05, 0.5, Color(0.62, 0.45, 0.3))
-			var lens := TorusMesh.new()
-			lens.inner_radius = 0.34
-			lens.outer_radius = 0.56
-			_cp_mesh(hand, lens, Vector3(0, 0.35, 0), Color(1.0, 0.85, 0.4), 0.3)
-			_cp_box(hand, Vector3(0, -0.35, 0), Vector3(0.2, 0.9, 0.2), Color(0.5, 0.3, 0.2))
-		"ballerina":
-			var tutu := TorusMesh.new()
-			tutu.inner_radius = 0.55
-			tutu.outer_radius = 1.35
-			_cp_mesh(waist, tutu, Vector3.ZERO, Color(1.0, 0.72, 0.86), 0.15)
-		"boxer":
-			# champion of the friendly bout: a glove on EACH hand + the gold belt
-			_cp_sphere(hand, Vector3.ZERO, 0.62, Color(0.9, 0.25, 0.3), 0.15)
-			_cp_sphere(hand_l, Vector3.ZERO, 0.62, Color(0.9, 0.25, 0.3), 0.15)
-			_cp_box(waist, Vector3(0, -0.1, -0.6), Vector3(1.6, 0.4, 0.3), Color(1.0, 0.85, 0.4), 0.3)
-		"magician":
-			_cp_cyl(head, Vector3(0, 2.85, 0), 0.8, 1.3, Color(0.36, 0.22, 0.55), 0.15)
-			_cp_cyl(head, Vector3(0, 2.25, 0), 1.15, 0.22, Color(0.36, 0.22, 0.55), 0.15)
-			_cp_box(hand, Vector3(0, 0.2, 0), Vector3(0.16, 1.2, 0.16), Color(0.95, 0.95, 1.0), 0.4)
-		"painter":
-			var beret := _cp_cyl(head, Vector3(0.2, 2.4, 0), 1.0, 0.35, Color(0.32, 0.5, 0.85), 0.1)
-			beret.rotation_degrees = Vector3(0, 0, -12.0)
-			_cp_box(hand, Vector3(0, 0.1, 0), Vector3(0.16, 1.1, 0.16), Color(0.6, 0.4, 0.25))
-			_cp_box(hand, Vector3(0, 0.8, 0), Vector3(0.24, 0.3, 0.24), Color(1.0, 0.45, 0.6), 0.5)
-		"astronaut":
-			var collar := TorusMesh.new()
-			collar.inner_radius = 0.75
-			collar.outer_radius = 1.05
-			_cp_mesh(head, collar, Vector3(0, -0.6, 0), Color(0.85, 0.88, 0.95), 0.2)
-			# glassy bubble helmet: alpha keeps her painted face readable inside;
-			# r1.25 centred mid-head so the whole head (joint+0.2..+2.2) fits
-			_cp_sphere(head, Vector3(0, 1.2, 0), 1.25, Color(0.8, 0.92, 1.0, 0.32), 0.15)
-			_cp_cyl(chest, Vector3(-0.5, -0.2, 0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2)
-			_cp_cyl(chest, Vector3(0.5, -0.2, 0.85), 0.35, 1.4, Color(0.75, 0.8, 0.9), 0.2)
-		"candymaker":
-			_cp_cyl(head, Vector3(0, 2.3, 0), 0.9, 0.5, Color(1.0, 0.62, 0.7), 0.2)
-			_cp_cyl(head, Vector3(0, 2.8, 0), 0.75, 0.5, Color(1.0, 0.95, 0.95), 0.2)
-			_cp_cyl(head, Vector3(0, 3.3, 0), 0.6, 0.5, Color(1.0, 0.62, 0.7), 0.2)
-			_cp_cyl(hand, Vector3(0, 0.55, 0), 0.55, 0.2, Color(1.0, 0.5, 0.65), 0.6)
-			_cp_box(hand, Vector3(0, -0.2, 0), Vector3(0.14, 1.4, 0.14), Color(0.98, 0.95, 0.9), 0.1)
-		"doctor":
-			var mirror := TorusMesh.new()
-			mirror.inner_radius = 0.55
-			mirror.outer_radius = 0.8
-			_cp_mesh(head, mirror, Vector3(0, 1.7, 0), Color(0.95, 0.97, 1.0), 0.2)
-			_cp_sphere(head, Vector3(0, 1.85, -1.1), 0.3, Color(1.0, 0.9, 0.5), 0.8)
-			var scope := TorusMesh.new()
-			scope.inner_radius = 0.6
-			scope.outer_radius = 0.78
-			_cp_mesh(chest, scope, Vector3(0, 0.6, 0), Color(0.35, 0.4, 0.55), 0.1)
-			_cp_cyl(chest, Vector3(0, 0.2, -0.9), 0.28, 0.14, Color(0.8, 0.85, 0.95), 0.4)
-		"racer":
-			_cp_sphere(head, Vector3(0, 1.7, 0), 0.95, Color(0.95, 0.35, 0.3), 0.2)
-			_cp_box(head, Vector3(0, 1.5, -1.1), Vector3(1.3, 0.5, 0.3), Color(0.4, 0.75, 1.0), 0.4)
-			var wheel := TorusMesh.new()
-			wheel.inner_radius = 0.55
-			wheel.outer_radius = 0.85
-			var wheel_mesh := _cp_mesh(hand, wheel, Vector3(0, 0.3, 0), Color(0.25, 0.25, 0.35), 0.1)
-			wheel_mesh.rotation_degrees = Vector3(90, 0, 0)
-		"farmer":
-			_cp_cyl(head, Vector3(0, 2.25, 0), 1.5, 0.22, Color(0.93, 0.82, 0.5), 0.1)
-			_cp_cyl(head, Vector3(0, 2.65, 0), 0.85, 0.7, Color(0.93, 0.82, 0.5), 0.1)
-			var carrot := CylinderMesh.new()
-			carrot.top_radius = 0.05
-			carrot.bottom_radius = 0.4
-			carrot.height = 1.2
-			var carrot_mesh := _cp_mesh(hand, carrot, Vector3(0, 0.1, 0), Color(1.0, 0.55, 0.2), 0.3)
-			carrot_mesh.rotation_degrees = Vector3(180, 0, 0)
-			_cp_sphere(hand, Vector3(0, 0.85, 0), 0.3, Color(0.45, 0.8, 0.4), 0.2)
-		"popstar":
-			_cp_sphere(head, Vector3(-0.42, 1.2, -1.1), 0.35, Color(1.0, 0.85, 0.35), 0.7)
-			_cp_sphere(head, Vector3(0.42, 1.2, -1.1), 0.35, Color(1.0, 0.85, 0.35), 0.7)
-			_cp_box(head, Vector3(0, 1.2, -1.15), Vector3(0.5, 0.14, 0.14), Color(1.0, 0.85, 0.35), 0.7)
-			_cp_box(hand, Vector3(0, -0.1, 0), Vector3(0.16, 1.1, 0.16), Color(0.75, 0.78, 0.88), 0.2)
-			_cp_sphere(hand, Vector3(0, 0.65, 0), 0.42, Color(0.9, 0.5, 0.85), 0.6)
-	_drop_empty_costume_anchors()
-
-func _drop_empty_costume_anchors() -> void:
-	# an anchor that dressed nothing is dead weight — drop it
-	for n in costume_nodes.duplicate():
-		var holder: Node = n
-		if n is BoneAttachment3D and (n as Node).get_child_count() > 0:
-			holder = (n as Node).get_child(0)
-		if holder.get_child_count() == 0:
-			costume_nodes.erase(n)
-			(n as Node).queue_free()
+	_refresh_classic_visual()
 
 func clear_costume() -> void:
 	costume_id = ""
-	for n in costume_nodes:
-		if is_instance_valid(n):
-			(n as Node).queue_free()
-	costume_nodes = []
-
-func _costume_anchor(cands: Array) -> Node3D:
-	# BoneAttachment3D on the first bone the active skeleton actually has,
-	# plus an upright child anchor placed at the bone's CURRENT world pose —
-	# pieces are authored in plain world units around that point and then
-	# ride the bone rigidly through the swim and every verb.
-	var bname := ""
-	for n in cands:
-		if skel.find_bone(String(n)) >= 0:
-			bname = String(n)
-			break
-	if bname == "":
-		# no such bones at all (defensive): pin near the body centre instead
-		var loose := Node3D.new()
-		add_child(loose)
-		loose.position = Vector3(0, 1.0, 0)
-		costume_nodes.append(loose)
-		return loose
-	var att := BoneAttachment3D.new()
-	att.bone_name = bname
-	skel.add_child(att)
-	costume_nodes.append(att)
-	var anchor := Node3D.new()
-	att.add_child(anchor)
-	# derive the anchor's LOCAL transform from the bone pose itself rather
-	# than att.global_transform — the attachment may not have snapped to the
-	# bone yet on the frame it enters the tree, and a stale global here would
-	# bake every piece offset by one whole bone transform
-	var bi: int = skel.find_bone(bname)
-	var bone_pose: Transform3D = skel.get_bone_global_pose(bi)   # skeleton space
-	var desired_w := Transform3D(Basis(Vector3.UP, rotation.y), (skel.global_transform * bone_pose).origin)
-	var desired_s: Transform3D = skel.global_transform.affine_inverse() * desired_w
-	anchor.transform = bone_pose.affine_inverse() * desired_s
-	return anchor
-
-func _cp_mesh(anchor: Node3D, mesh: Mesh, off: Vector3, col: Color, glow: float = 0.0) -> MeshInstance3D:
-	var mi := MeshInstance3D.new()
-	mi.mesh = mesh
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = col
-	mat.roughness = 0.68
-	if col.a < 1.0:
-		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	if glow > 0.0:
-		mat.emission_enabled = true
-		mat.emission = Color(col.r, col.g, col.b)
-		mat.emission_energy_multiplier = glow
-	mi.material_override = mat
-	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	mi.position = off
-	anchor.add_child(mi)
-	return mi
-
-func _cp_cyl(anchor: Node3D, off: Vector3, r: float, h: float, col: Color, glow: float = 0.0) -> MeshInstance3D:
-	var cm := CylinderMesh.new()
-	cm.top_radius = r
-	cm.bottom_radius = r
-	cm.height = h
-	return _cp_mesh(anchor, cm, off, col, glow)
-
-func _cp_sphere(anchor: Node3D, off: Vector3, r: float, col: Color, glow: float = 0.0) -> MeshInstance3D:
-	var sm := SphereMesh.new()
-	sm.radius = r
-	sm.height = r * 2.0
-	return _cp_mesh(anchor, sm, off, col, glow)
-
-func _cp_box(anchor: Node3D, off: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> MeshInstance3D:
-	var bm := BoxMesh.new()
-	bm.size = size
-	return _cp_mesh(anchor, bm, off, col, glow)
-
-func _flatten_materials(node: Node) -> void:
-	# v2 model: keep the Meshy-baked textures but light them flat and evenly —
-	# same reasoning as _upgrade_texture (specular/rim streaks read as glitches
-	# on painted faces when the camera moves).
-	if node is MeshInstance3D:
-		var mi := node as MeshInstance3D
-		if mi.mesh != null:
-			for si in range(mi.mesh.get_surface_count()):
-				var m: Material = mi.mesh.surface_get_material(si)
-				if m is BaseMaterial3D:
-					var m2: BaseMaterial3D = (m as BaseMaterial3D).duplicate()
-					m2.rim_enabled = false
-					m2.roughness = 1.0
-					m2.metallic = 0.0
-					m2.metallic_specular = 0.0
-					# self-lit fill: true-3D curvature goes murky in the dim
-					# underwater scene; the painted look wants even brightness
-					# (the old flat card was effectively camera-lit).
-					m2.emission_enabled = true
-					m2.emission_texture = m2.albedo_texture
-					m2.emission = Color(0.05, 0.05, 0.05)
-					mi.set_surface_override_material(si, m2)
-	for c in node.get_children():
-		_flatten_materials(c)
-
-func _upgrade_texture(node: Node) -> void:
-	# swap embedded 512px texture for the 2K re-bake from the source illustration
-	if node is MeshInstance3D:
-		var mi := node as MeshInstance3D
-		if mi.mesh != null:
-			for si in range(mi.mesh.get_surface_count()):
-				var m: Material = mi.mesh.surface_get_material(si)
-				if m is BaseMaterial3D:
-					var m2: BaseMaterial3D = (m as BaseMaterial3D).duplicate()
-					m2.albedo_texture = load("res://assets/characters/roshan_tex_2k.webp")
-					# NO rim / NO specular: on the near-flat painted face, moving cameras
-					# (cutscenes) sweep fresnel + specular streaks across the painted EYES,
-					# which reads as the eye glitch. Painted texture must light flat + evenly.
-					m2.rim_enabled = false
-					m2.roughness = 1.0
-					m2.metallic = 0.0
-					m2.metallic_specular = 0.0
-					mi.set_surface_override_material(si, m2)
-	for c in node.get_children():
-		_upgrade_texture(c)
-
-func _find_skeleton(node: Node) -> Skeleton3D:
-	if node is Skeleton3D:
-		return node
-	for c in node.get_children():
-		var r := _find_skeleton(c)
-		if r != null:
-			return r
-	return null
-
-func attach_bone(n: Node3D, bone: String) -> bool:
-	if skel == null:
-		return false
-	var bi: int = skel.find_bone(bone)
-	if bi < 0:
-		return false
-	var ba := BoneAttachment3D.new()
-	ba.bone_name = bone
-	skel.add_child(ba)
-	ba.add_child(n)
-	return true
-
-func _model_axis_quat(bname: String, axis: Vector3, angle: float) -> Quaternion:
-	# Rotation about a MODEL-space axis, composed after the rest rotation. The
-	# card-era rigs have identity rests (axis passes through unchanged); imported
-	# rigs carry accumulated parent/rest orientations, so the model axis is
-	# brought through the bone's global rest basis first.
-	var rq: Quaternion = (rest[bname] as Transform3D).basis.get_rotation_quaternion()
-	var global_rq: Quaternion = (rest_global[bname] as Transform3D).basis.get_rotation_quaternion()
-	var local_axis: Vector3 = (global_rq.inverse() * axis).normalized()
-	return rq * Quaternion(local_axis, angle)
-
-func _rot_bone(bname: String, axis: Vector3, angle: float) -> void:
-	# Rotate a bone about a MODEL-space axis, composed after its rest rotation.
-	# _model_axis_quat handles the accumulated imported-rest orientation.
-	var bi: int = bone_idx.get(bname, -1)
-	if bi < 0 or not rest.has(bname):
-		return
-	skel.set_bone_pose_rotation(bi, _model_axis_quat(bname, axis, angle))
+	_refresh_classic_visual()
 
 # ---- playground choreography (Sky Lagoon toy play-moments) ----
-# While a play-moment runs, _process() returns early (the toy_play gate), so
-# the lagoon's _tick_toys is the single writer for every bone and calls this
-# once per frame. Same one-axis-per-bone idiom as the swim + the verb layer.
 func toy_pose(kind: String, t: float, aux: float = 0.0) -> void:
-	if skel == null:
+	if classic_sprite == null or not classic_sprite.visible:
 		return
-	# baseline life so she never freezes stiff: hair sway + a breath of head
-	_rot_bone("hair1", Vector3.BACK, sin(t * 2.1 + 0.8) * 0.05)
-	_rot_bone("hair2", Vector3.BACK, sin(t * 2.1 + 0.25) * 0.07)
-	_rot_bone("hair3", Vector3.BACK, sin(t * 2.1 - 0.35) * 0.09)
-	# ROSHAN RIG SIGNS (hand audit 2026-07-15, derived from the re-keyed verbs):
-	# arm raises use positive angles; the overhead cheer uses mirrored diagonal
-	# axes. The old
-	# negative raises drove the arms backward THROUGH her dress — shard-burst),
-	# head/neck/chest pitch is negative-forward, tail/hair are unchanged.
-	# NOTE: chest stays within the motion-cage range (|angle| <= ~0.28, and
-	# <= ~0.15 while the tail is curled) — deeper pitches tear the waist
-	# ruffle, which is skinned across chest+tail. Big body leans belong on
-	# player.rotation.x (the choreography lean), which stresses no skinning.
-	match kind:
-		"swing":
-			# both hands raised forward-up onto the chains (1.3: higher and
-			# the forearm passes through her dress bow); chest, head and
-			# tail pump WITH the arc (aux = rope angle) like a kid working it
-			_arms_fwd(1.3, 0.55)
-			_rot_bone("chest", Vector3.RIGHT, aux * 0.3)
-			_rot_bone("neck", Vector3.RIGHT, aux * 0.15)
-			_rot_bone("head", Vector3.RIGHT, aux * 0.25)
-			_tail_curl(0.35 - aux * 0.85)   # tail kicks out on the forward arc, tucks on the back
-		"climb":
-			# one hop up a slide step (aux = hop phase 0..1): the tail coils
-			# on the step, springs mid-hop while both arms swing up together
-			var push: float = sin(clampf(aux, 0.0, 1.0) * PI)
-			_arms_fwd(0.55 + push * 1.15, 0.25 + push * 0.3)
-			_rot_bone("chest", Vector3.RIGHT, -0.1 + push * 0.25)
-			_rot_bone("head", Vector3.RIGHT, 0.3)   # eyes on the top of the slide
-			_tail_curl(0.7 * (1.0 - push))
-		"ride":
-			# at the lip (aux~0) she's ducked under the hood, hands forward on
-			# the rails; as the chute drops away (aux->1) the arms fly up: wheee
-			var duck: float = 1.0 - smoothstep(0.1, 0.45, clampf(aux, 0.0, 1.0))
-			_arms_fwd(1.7 - duck * 0.8, 0.35)
-			_rot_bone("chest", Vector3.RIGHT, -0.08)
-			_rot_bone("head", Vector3.RIGHT, 0.22 - duck * 0.6)
-			_tail_curl(0.5)
-		"land":
-			# the arms float back down after the ride (aux = 0..1 settle)
-			var dn: float = 1.0 - clampf(aux, 0.0, 1.0)
-			_arms_fwd(1.7 * dn, 0.35 * dn)
-			_rot_bone("chest", Vector3.RIGHT, -0.08 * dn)
-			_tail_curl(0.5 * dn)
-		"dig":
-			# kneeling over the sand, watching her hands, arms alternating
-			# scoop strokes (aux = dig phase in radians; each half-cycle is
-			# one scoop — the tick throws a sand puff on the same beat)
-			var dl: float = maxf(sin(aux), 0.0)
-			var dr: float = maxf(-sin(aux), 0.0)
-			# the deep lean over the sand comes from the tick's body lean;
-			# chest stays shallow so the waist ruffle survives the tail curl
-			_rot_bone("chest", Vector3.RIGHT, -0.12)
-			_rot_bone("neck", Vector3.RIGHT, -0.18)
-			_rot_bone("head", Vector3.RIGHT, -0.3)   # watching her hands
-			# the idle arm hovers forward; the scooping arm plunges to the sand
-			var dig_upper: float = 0.55 - dr * 0.45
-			var dig_forearm: float = 0.3 + dr * 0.35
-			var dig_mirror: Vector2 = _mirror_arm(dig_upper, dig_forearm)
-			_rot_bone("armU", Vector3.RIGHT, 0.55 - dl * 0.45)
-			_rot_bone("armF", Vector3.RIGHT, 0.3 + dl * 0.35)
-			_rot_bone("armU2", Vector3.RIGHT, dig_mirror.x)
-			_rot_bone("armF2", Vector3.RIGHT, dig_mirror.y)
-			_tail_curl(0.7)   # plopped into the sand, tail tucked under
-		"seat":
-			# seated grip for the carousel / spring pony / seesaw: hands
-			# forward on the bar, tail hooked under the seat (aux = rock)
-			_arms_fwd(0.85, 0.5)
-			_rot_bone("chest", Vector3.RIGHT, -0.08 - aux * 0.06)
-			_rot_bone("head", Vector3.RIGHT, 0.06 - aux * 0.12)
-			_tail_curl(0.65)
-
-func _arms_fwd(amt: float, bend: float = 0.0) -> void:
-	# raise both arms forward by `amt` from the v4 rest (-0.2): POSITIVE about
-	# model RIGHT is the raise direction on this rig.
-	var ang: float = -0.2 + amt
-	var mirrored: Vector2 = _mirror_arm(ang, bend)
-	_rot_bone("armU", Vector3.RIGHT, ang)
-	_rot_bone("armU2", Vector3.RIGHT, mirrored.x)
-	_rot_bone("armF", Vector3.RIGHT, bend)
-	_rot_bone("armF2", Vector3.RIGHT, mirrored.y)
-
-func _mirror_arm(upper: float, forearm: float) -> Vector2:
-	# V5's joints are bilateral; this small fitted transfer compensates only for
-	# the differently sculpted weighted hand centroids and exported child rolls.
-	# It is calibrated over all 55 swing/climb/ride/land/dig/seat control states.
-	return Vector2(
-		upper * 1.015287 + forearm * 0.400216 - 0.450241,
-		upper * -0.027198 + forearm * 0.230443 + 0.586111,
-	)
-
-func _tail_curl(amt: float) -> void:
-	# curl the tail forward/under (positive amt grows down the chain — the
-	# mermaid "sitting" shape, same direction the sleep verb uses); negative
-	# kicks it out behind her. 0 leaves the swim rest pose.
-	for i in range(8):
-		_rot_bone("tail%d" % (i + 1), Vector3.RIGHT, -amt * (0.10 + 0.55 * float(i) / 7.0))
-	_rot_bone("finTop", Vector3.RIGHT, -amt * 0.35)
-	_rot_bone("finBot", Vector3.RIGHT, -amt * 0.35)
+	var sprite_pose: String = kind
+	var sprite_phase := 0
+	if kind == "dig":
+		var dig_angle: float = fposmod(aux, TAU)
+		sprite_pose = "dig_l" if dig_angle < PI else "dig_r"
+		sprite_phase = int(floor(
+			fposmod(dig_angle, PI) / PI * ROSHAN_25D_KEYFRAMES))
+	elif kind == "swing":
+		# SkyLagoon passes the normalized phase from the very same pendulum
+		# clock that moves the seat. Never free-run this pose from t: even a
+		# small frequency mismatch makes Roshan pump against the ropes.
+		sprite_phase = int(floor(
+			fposmod(aux, 1.0) * ROSHAN_25D_KEYFRAMES))
+	elif kind == "climb" or kind == "ride" or kind == "land":
+		sprite_phase = mini(
+			int(floor(clampf(aux, 0.0, 0.9999) * ROSHAN_25D_KEYFRAMES)),
+			ROSHAN_25D_KEYFRAMES - 1)
+	else:
+		sprite_phase = int(floor(fposmod(
+			t * 2.0, float(ROSHAN_25D_KEYFRAMES))))
+	if ROSHAN_25D_PLAY.has(sprite_pose):
+		_set_classic_sequence(ROSHAN_25D_PLAY[sprite_pose] as Array, sprite_phase)
+		if classic_motion_root != null:
+			classic_motion_root.position = Vector3.ZERO
+			classic_motion_root.scale = Vector3.ONE
+		classic_toy_pose_until_msec = Time.get_ticks_msec() + 100
 
 func _process(delta: float) -> void:
 	# consume mouse-look deltas up front: early returns below then drop them
@@ -947,6 +530,14 @@ func _process(delta: float) -> void:
 	_mlook_dx = 0.0
 	_mlook_dy = 0.0
 	var _m0: Node = get_parent()
+	# Visual life runs before every gameplay early-return. Overlays, cutscenes,
+	# externally-driven modes and puppet staging may suspend controls or physics,
+	# but a visible Roshan never suspends her atlas clock or breathing motion.
+	var visual_speed: float = puppet_speed if puppet else vel.length()
+	_tick_swim_bones(delta, visual_speed)
+	_apply_verb(delta)
+	_tick_always_alive_visual(delta, visual_speed)
+	_tick_classic_sprite(visual_speed)
 	if "intro_active" in _m0 and _m0.intro_active:
 		return
 	if "wardrobe_layer" in _m0 and _m0.wardrobe_layer != null:
@@ -969,13 +560,8 @@ func _process(delta: float) -> void:
 	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl"):
 		return   # these modes drive the player + camera themselves (dolls: the side-scroll stage)
 	if "g" in _m0 and String((_m0.g as Dictionary).get("phase", "")) == "promenade":
-		# A 2.5D promenade stage (GAME_REDESIGN_2P5D_2026-07-27) owns BOTH the
-		# player and the lens: SideScrollStage.walk_tick places her on the band
-		# and _glide_camera holds the side-on framing. main._process runs before
-		# this node, so without this gate the free-swim chase cam re-aimed the
-		# lens every single frame and the promenade's framing never reached the
-		# screen at all — the painted mural then sat in the top half of the
-		# frame with raw environment sky under it.
+		# The promenade owns movement and its side-on camera, but the visual
+		# clock above still runs so its externally positioned Roshan stays alive.
 		vel = Vector3.ZERO
 		return
 	if "l2_cutscene_t" in _m0 and _m0.l2_cutscene_t >= 0.0:
@@ -983,8 +569,7 @@ func _process(delta: float) -> void:
 			cam.look_at(position + Vector3(0, 1.5, 0))
 		return
 	if puppet:
-		_tick_swim_bones(delta, puppet_speed)
-		_apply_verb(delta)
+		_tick_classic_sprite(puppet_speed)
 		# settle toward idle unless the act keeps reporting movement, so she
 		# never treads water at sprint pace while standing for the applause
 		puppet_speed = lerpf(puppet_speed, 0.0, 1.0 - pow(0.05, delta))
@@ -1030,6 +615,7 @@ func _process(delta: float) -> void:
 	# Hybrid tap-to-move is an assisted steering source, never a second physics
 	# controller. Any real keyboard/pad/stick intent wins immediately.
 	var manual_move: bool = absf(fwd) > 0.08 or absf(turn) > 0.08
+	var tap_move_commanded := false
 	if manual_move and m0.has_method("_on_touch_manual_move"):
 		m0._on_touch_manual_move()
 	elif not manual_move and m0.has_method("touch_auto_direction"):
@@ -1043,6 +629,7 @@ func _process(delta: float) -> void:
 			turn = clampf(yaw_error * 2.0, -2.4, 2.4)
 			if absf(yaw_error) < 2.6:
 				fwd = clampf(1.0 - absf(yaw_error) / 2.6, 0.18, 1.0)
+				tap_move_commanded = true
 		# Elevated targets (portals, the penguin floe) need a climb/dive the
 		# yaw/fwd steering above cannot give. Swim medium only: on dry land she
 		# hops and breached in air she is ballistic — both keep their existing
@@ -1051,6 +638,7 @@ func _process(delta: float) -> void:
 			var want_vy: float = m0.touch_auto_vertical()
 			if absf(want_vy) > 0.05:
 				vel.y = move_toward(vel.y, want_vy, 52.0 * delta)
+				tap_move_commanded = true
 	var jump_held: bool = Input.is_physical_key_pressed(KEY_SPACE) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 	if "touch_ui" in m0 and m0.touch_ui != null and m0.touch_ui.action_down:
 		jump_held = true
@@ -1268,9 +856,8 @@ func _process(delta: float) -> void:
 	var speed: float = vel.length()
 	land_blend = move_toward(land_blend, 1.0 if land_dry else 0.0, delta * (4.0 if land_dry else 2.2))
 	_tick_wake(delta, speed)
-	_tick_swim_bones(delta, speed)
 	_apply_land_pose(delta, speed)
-	_apply_verb(delta)
+	_tick_classic_sprite(speed, tap_move_commanded)
 	# idle life: after a quiet while she looks around; at night she dozes off
 	# (free swim only — verbs never interrupt a minigame)
 	idle_verb_cool = maxf(0.0, idle_verb_cool - delta)
@@ -1288,14 +875,6 @@ func _process(delta: float) -> void:
 			# parked on dry land: sometimes she just gives up and flops over
 			play_verb(["flop", "look", "hum"][randi() % 3])
 			idle_verb_cool = 18.0
-
-	# full-skin billboard: gentle idle bob + a wing-flap squash so it feels alive without bones
-	if skin_sprite != null and skin_sprite.visible:
-		skin_t += delta * (2.2 + speed * 0.6)
-		# on dry land the smooth bob becomes a bunny-hop bounce (|sin| arcs)
-		skin_sprite.position.y = 0.6 + lerpf(sin(skin_t) * 0.3, absf(sin(skin_t * 1.6)) * 0.7, land_blend)
-		var flap: float = sin(skin_t * 2.4)               # quicker beat = wings flapping
-		skin_sprite.scale = Vector3(1.0 + flap * 0.05, 1.0 - flap * 0.03, 1.0)
 
 	# right-stick / right-drag / second-finger-drag camera: peek around and up
 	# or down, then drift back behind her once every look input is released
@@ -1339,81 +918,9 @@ func _process(delta: float) -> void:
 		cam.fov = lerpf(cam.fov, 38.0 + 3.5 * cam_spd, 1.0 - pow(0.1, delta))
 
 func _tick_swim_bones(delta: float, speed: float) -> void:
-	# The whole procedural swim on the ACTIVE skeleton — shared verbatim by
-	# free swim and the opera-stage puppet, so every mode and every costume
-	# reuses the one animation set.
+	# This legacy API name now advances only the 16-frame sprite-atlas clock.
 	swim_phase += delta * (2.2 + speed * 0.9)
-	# Arms keep a separate, deliberately slow water-sweep phase. Tying them to
-	# the tail beat made a sprint look like frantic flapping instead of swimming.
 	arm_swim_phase += delta * (1.0 + minf(speed * 0.035, 0.9))
-	var m0: Node = get_parent()   # carry pose below peeks at main's carry_sys
-	var amp: float = 0.10 + minf(speed * 0.03, 0.26)
-	var kick: float = sin(swim_phase)
-	if skel != null:
-		# Swing axis depends on the model:
-		#  * v2 true-3D model (faces -Z): dolphin-kick pitch + arm paddling are
-		#    rotations about model X (RIGHT).
-		#  * old flat-card model (geometry in the XY plane): swings must stay
-		#    in-plane, i.e. about model Z (BACK) — out-of-plane rotations shear
-		#    the card edge-on and axially twist the X-aligned tail bones.
-		var A: Vector3 = Vector3.RIGHT if (model_v3 or model_v2) else Vector3.BACK
-		for i in range(8):
-			var ph: float = swim_phase - float(i) * 0.45
-			var grow: float = 0.12 + 0.88 * pow(float(i) / 7.0, 1.5)
-			_rot_bone("tail%d" % (i + 1), A, sin(ph) * amp * grow)
-		var fin_ph: float = swim_phase - 3.6
-		_rot_bone("finTop", A, sin(fin_ph - 0.25) * amp * 0.9)
-		_rot_bone("finBot", A, sin(fin_ph - 0.55) * amp * 0.9)
-		_rot_bone("spine1", A, -kick * amp * 0.16)
-		_rot_bone("chest", A, -sin(swim_phase - 0.4) * amp * 0.12)
-		_rot_bone("neck", A, sin(swim_phase - 0.7) * amp * 0.06)
-		var idle_head: float = 0.0
-		if idle_t > 6.0:
-			idle_head = sin(Time.get_ticks_msec() / 1100.0) * 0.09
-		_rot_bone("head", Vector3.BACK, sin(swim_phase * 0.5 + 0.6) * 0.02 + idle_head)
-		if not (model_v3 and skel == _roshan_skel):
-			# card-era hair sway (v3 hair belongs to HairSim's strand chains)
-			_rot_bone("hair1", Vector3.BACK, sin(swim_phase * 0.65 + 0.8) * 0.045)
-			_rot_bone("hair2", Vector3.BACK, sin(swim_phase * 0.65 + 0.25) * 0.065)
-			_rot_bone("hair3", Vector3.BACK, sin(swim_phase * 0.65 - 0.35) * 0.085)
-		if model_v3 and skel == _roshan_skel:
-			# Relax the authored diagnostic A-pose into a soft, hip-height swim
-			# posture. Both hands sweep laterally with a small alternating depth
-			# drift, as though they are idly feeling the water. Upper arms lead;
-			# forearms follow with less travel so the elbows never look hinged.
-			var arm_ph: float = arm_swim_phase
-			# sprint streamline: the lateral spread tucks toward her sides and
-			# the idle sway calms as speed rises, so a dash reads as a dash
-			var streamline: float = smoothstep(16.0, 26.0, speed)
-			var spread: float = 0.65 - 0.22 * streamline
-			var sway_amp: float = 0.14 * (1.0 - 0.7 * streamline)
-			var bend_mul: float = 1.0 - 0.5 * streamline
-			var carrying: bool = false
-			if "carry_sys" in m0 and m0.carry_sys != null:
-				carrying = bool(m0.carry_sys.is_carrying())
-			if carrying:
-				# both hands raised under the carried toy (positive RIGHT = raise)
-				_rot_bone("armU", Vector3.RIGHT, 1.15 + sin(arm_ph) * 0.05)
-				_rot_bone("armF", Vector3.RIGHT, 0.4)
-				_rot_bone("armU2", Vector3.RIGHT, 1.15 + sin(arm_ph - 0.4) * 0.05)
-				_rot_bone("armF2", Vector3.RIGHT, 0.4)
-			else:
-				var left_sway: float = sin(arm_ph)
-				var right_sway: float = sin(arm_ph - 0.35)
-				var depth_sway: float = sin(arm_ph - 0.8) * 0.16
-				var water_axis: Vector3 = Vector3(depth_sway, 0.0, 1.0)
-				_rot_bone("armU", water_axis, -(spread + left_sway * sway_amp))
-				_rot_bone("armF", water_axis, -(0.18 + sin(arm_ph - 0.5) * 0.06) * bend_mul)
-				_rot_bone("armU2", water_axis, spread + right_sway * sway_amp)
-				_rot_bone("armF2", water_axis, (0.18 + sin(arm_ph - 0.85) * 0.06) * bend_mul)
-		else:
-			_rot_bone("armU", Vector3.RIGHT, sin(swim_phase * 0.5) * 0.35 + 0.18)
-			_rot_bone("armF", Vector3.RIGHT, sin(swim_phase * 0.5 - 0.6) * 0.30 + 0.22)
-			_rot_bone("armU2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8) * 0.35 + 0.18)
-			_rot_bone("armF2", Vector3.RIGHT, sin(swim_phase * 0.5 + PI * 0.8 - 0.6) * 0.30 + 0.22)
-	elif not warned:
-		warned = true
-		push_warning("Roshan skeleton not found in roshan.glb - check import")
 
 func snap_cam() -> void:
 	# Place the chase camera at its resolved rest pose INSTANTLY. Call after
@@ -1428,21 +935,12 @@ func snap_cam() -> void:
 	var focus := position + Vector3(0, 1.5, 0)
 	cam.position = CameraKit.resolve(get_parent(), focus, target)
 	cam.look_at(focus)
-func _blend_bone(bname: String, axis: Vector3, ang: float, w: float) -> void:
-	# slerp a bone TOWARD a model-space pose over whatever the swim just wrote —
-	# the verb layer's over-write idiom, with an external weight
-	var bi: int = bone_idx.get(bname, -1)
-	if bi < 0 or not rest.has(bname):
-		return
-	skel.set_bone_pose_rotation(bi, skel.get_bone_pose_rotation(bi).slerp(_model_axis_quat(bname, axis, ang), w))
 
 func _hop_visual_node() -> Node3D:
-	if model_root != null and model_root.visible:
-		return model_root
-	for k in skin_models:
-		var n: Node3D = skin_models[k]
-		if is_instance_valid(n) and n.visible:
-			return n
+	if classic_sprite != null and classic_sprite.visible:
+		return classic_sprite
+	if skin_sprite != null and skin_sprite.visible:
+		return skin_sprite
 	return null
 
 func _apply_land_pose(delta: float, speed: float) -> void:
@@ -1481,27 +979,7 @@ func _apply_land_pose(delta: float, speed: float) -> void:
 			# one giggle line per session, the first time she really scoots
 			mh.show_msg("Roshan", "Hopping is hard work with a tail!", "talk")
 	hop_prev = hop
-	if skel != null:
-		# same swing-axis rule as the swim: in-plane (BACK) on the old flat card
-		var A: Vector3 = Vector3.RIGHT if (model_v3 or model_v2) else Vector3.BACK
-		# tail = the pogo spring: coiled at rest, kicks out at the top of each hop
-		var curl: float = 0.85 - hop * 0.6
-		for i in range(8):
-			_blend_bone("tail%d" % (i + 1), A, -curl * (0.10 + 0.55 * float(i) / 7.0), lb)
-		_blend_bone("finTop", A, -curl * 0.35, lb)
-		_blend_bone("finBot", A, -curl * 0.35, lb)
-		# tiny T-rex balance arms, flapping a little harder mid-hop
-		var upper: float = 0.25 + hop * 0.45
-		var bend: float = 0.6
-		var mir: Vector2 = _mirror_arm(upper, bend)
-		_blend_bone("armU", Vector3.RIGHT, upper, lb)
-		_blend_bone("armF", Vector3.RIGHT, bend, lb)
-		_blend_bone("armU2", Vector3.RIGHT, mir.x, lb)
-		_blend_bone("armF2", Vector3.RIGHT, mir.y, lb)
-		# eager lean into the next hop (stays inside the chest motion cage)
-		_blend_bone("chest", A, -0.05 - 0.09 * hop, lb * 0.8)
-		_blend_bone("head", A, 0.06 - 0.12 * hop, lb * 0.6)
-	# the bounce itself lives on the visual model, never on the physics origin
+	# Bounce the visible sprite, never the physics origin.
 	var node: Node3D = _hop_visual_node()
 	if node != _hop_node:
 		if _hop_node != null and is_instance_valid(_hop_node):

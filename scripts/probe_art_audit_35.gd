@@ -174,7 +174,7 @@ func _capture_castle() -> void:
 	await _shot("30_castle_hall_wide", h + Vector3(0, 14, 42), h + Vector3(0, 13, -24), 66.0)
 	await _shot("31_castle_throne_and_stairs", h + Vector3(18, 16, 4), h + Vector3(0, 17, -31), 62.0)
 	await _shot("32_castle_crown_star", h + Vector3(-18, 27, -14), h + Vector3(-8, 24, -27), 44.0)
-	await _shot("33_castle_music_room", h + Vector3(-39, 13, -14), h + Vector3(-48, 9, -3), 62.0)
+	await _shot("33_castle_opera_foyer", h + Vector3(-37.5, 10, -9), h + Vector3(-44, 5, -20), 62.0)
 	await _shot("34_castle_royal_bedroom", h + Vector3(35, 11, -16), h + Vector3(48, 4, -16), 62.0)
 	await _shot("35_castle_kitchen_wide", h + Vector3(9, -8, 3), h + Vector3(20, -14, -6), 63.0)
 	await _shot("36_castle_kitchen_props", h + Vector3(17, -10, 5), h + Vector3(19, -14, -8), 54.0)

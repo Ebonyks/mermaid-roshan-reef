@@ -114,6 +114,14 @@ All restore recipes: BACKUP.md.
   fast-forward promotion from `dev` via the "Promote dev to master"
   workflow (Actions tab / workflow_dispatch), which refuses to run unless
   the probe suite is green for dev's exact HEAD.
+- Owner release shorthand (owner decision 2026-08-01): "push to master",
+  "ship it", "release it", and equivalent instructions are explicit
+  authorization to run `gh workflow run promote.yml --ref dev` after normal
+  integration. Do not ask for another confirmation or answer that agents
+  cannot push master; do not raw-push master. The workflow waits for the
+  exact current `dev` head to pass, follows newer `dev` heads while it is
+  waiting, fast-forwards `master`, and publishes the matching stable APK.
+  Monitor it to completion and report both APK URLs.
 - `dev` is the INTEGRATION branch: when a task is COMPLETE (probes green
   on CI for the work branch), merge the work branch into `dev` and push.
   Never merge unprobed or red work into dev.

@@ -136,7 +136,7 @@ func _playthrough(run_index: int) -> void:
 	match run_index % 4:
 		0:
 			_check_registry(main, _reef_required(main), issues)
-			var reef_actions: Array[String] = ["reef:shop", "reef:treasure", "reef:slide", "reef:brawl"]
+			var reef_actions: Array[String] = ["reef:slide", "reef:brawl"]
 			main._activate_touch_interactable(reef_actions[run_index % reef_actions.size()])
 			await _frames(4)
 			if main.game == "":
@@ -149,23 +149,31 @@ func _playthrough(run_index: int) -> void:
 			main._enter_level2_now(true, false, false)
 			await _frames(12)
 			var promenade_targets: Array = main.g.get("lagoon_promenade_targets", [])
-			if String(main.g.get("phase", "")) != "promenade" \
-					or promenade_targets.size() != 8:
+			var promenade_ids: Dictionary = {}
+			for target_value in promenade_targets:
+				var promenade_target: Dictionary = target_value as Dictionary
+				promenade_ids[String(promenade_target.get("id", ""))] = true
+			var roster_ok: bool = promenade_targets.size() >= 4 \
+				and promenade_targets.size() <= 5
+			for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
+				roster_ok = roster_ok and promenade_ids.has(required_id)
+			if String(main.g.get("phase", "")) != "promenade" or not roster_ok:
 				issues.append("three-screen promenade interaction roster missing")
 			else:
-				var plane_target: Dictionary = {}
+				var focus_target: Dictionary = {}
+				var focus_id: String = "plane" if promenade_ids.has("plane") else "swing"
 				for target_value in promenade_targets:
 					var promenade_target: Dictionary = target_value as Dictionary
-					if String(promenade_target.get("id", "")) == "plane":
-						plane_target = promenade_target
+					if String(promenade_target.get("id", "")) == focus_id:
+						focus_target = promenade_target
 						break
-				main._lagoon_promenade_ref()._focus(plane_target)
-				if String(main.g.get("lagoon_promenade_focus", "")) != "plane":
+				main._lagoon_promenade_ref()._focus(focus_target)
+				if String(main.g.get("lagoon_promenade_focus", "")) != focus_id:
 					issues.append("promenade first press did not focus")
-				main._lagoon_promenade_ref()._activate(plane_target)
+				main._lagoon_promenade_ref()._activate(focus_target)
 				await _frames(4)
 				if main.game != "level2":
-					issues.append("plane interaction left the promenade")
+					issues.append("%s interaction left the promenade" % focus_id)
 		2:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)
@@ -174,12 +182,28 @@ func _playthrough(run_index: int) -> void:
 			main._enter_castle_interior_now(false)
 			await _frames(12)
 			main._populate_touch_interactables()
-			_check_registry(main, _hall_required(main), issues)
-			main._activate_touch_interactable("hall:crown")
+			var rooms: CastleRooms25D = main._castle_rooms_ref()
+			if not rooms.is_open():
+				issues.append("castle Sprite3D stage did not open")
+			if not main.touch_interactables.is_empty():
+				issues.append("retired 3D hall targets were registered")
+			if main.castle_room_buttons.size() != 8 \
+					or not main.castle_room_buttons.has("family_gallery") \
+					or not main.castle_room_buttons.has("opera_hall") \
+					or main.castle_room_stage.get_node_or_null(
+						"ElevatorButton") != null:
+				issues.append("castle room routes were missing or redundant")
+			if main.castle_room_world_root == null \
+					or main.castle_room_camera == null \
+					or main.castle_room_camera.projection \
+						!= Camera3D.PROJECTION_PERSPECTIVE:
+				issues.append("castle lacks perspective Sprite3D stage")
+			rooms.show_room("main_hall", false)
+			rooms.activate_current_room()
 			await _frames(3)
 			if not bool(main.g.get("crown_won", false)):
-				issues.append("explicit Crown Star did not award")
-			main._activate_touch_interactable("hall:exit")
+				issues.append("Main Hall Crown action did not award")
+			rooms._exit_to_courtyard()
 			await _frames(10)
 			if main.game != "level2" or String(main.g.get("phase", "")) != "promenade":
 				issues.append("explicit castle exit did not return to promenade")
@@ -223,7 +247,7 @@ func _touch_tap(touch: CanvasLayer, index: int, pos: Vector2) -> void:
 	touch._unhandled_input(up)
 
 func _reef_required(main: Node3D) -> Array[String]:
-	var required: Array[String] = ["reef:shop", "reef:treasure", "reef:slide", "reef:brawl", "reef:kart"]
+	var required: Array[String] = ["reef:slide", "reef:brawl", "reef:kart"]
 	for friend_index in range(main.friends.size()):
 		required.append("friend:%d" % friend_index)
 	if main.portal_node != null and is_instance_valid(main.portal_node):
@@ -233,7 +257,7 @@ func _reef_required(main: Node3D) -> Array[String]:
 	return required
 
 func _court_required(main: Node3D) -> Array[String]:
-	var required: Array[String] = ["court:north", "court:opera", "court:ember", "court:kart_a", "court:kart_b", "court:back_entry", "court:castle"]
+	var required: Array[String] = ["court:north", "court:ember", "court:kart_a", "court:kart_b", "court:back_entry", "court:castle"]
 	var gates: Array = main.g.get("ocean_kingdom_gates", [])
 	for gate_index in range(gates.size()):
 		required.append("court:ocean:%d" % gate_index)
@@ -245,33 +269,6 @@ func _court_required(main: Node3D) -> Array[String]:
 	for star_index in range(main.l2_stars.size()):
 		if not bool((main.l2_stars[star_index] as Dictionary).get("got", false)):
 			required.append("court:star:%d" % star_index)
-	return required
-
-func _hall_required(main: Node3D) -> Array[String]:
-	var required: Array[String] = ["hall:exit", "hall:craft", "hall:wardrobe"]
-	if main.g.has("bed_pos") and main.sleep_cool <= 0.0:
-		required.append("hall:bed")
-	if not bool(main.g.get("stand_open", false)) and main.g.has("stand_chest"):
-		required.append("hall:stand")
-	if main.g.has("toilet"):
-		required.append("hall:toilet")
-	if main.g.has("dungeon_gate"):
-		required.append("hall:dungeon")
-	if main.g.has("opera_gate"):
-		required.append("hall:opera")
-	var bellgame: Dictionary = main.g.get("bellgame", {})
-	if String(bellgame.get("state", "")) == "idle" and float(bellgame.get("cool", 0.0)) <= 0.0 and main.g.has("song_star"):
-		required.append("hall:bell_song")
-	var bells: Array = main.g.get("bells", [])
-	for bell_index in range(bells.size()):
-		required.append("hall:bell:%d" % bell_index)
-	if main.g.has("secret_door") and bool(main.g.get("stand_open", false)):
-		required.append("hall:secret")
-	if not bool(main.g.get("crown_won", false)) and not main.l2_stars.is_empty():
-		required.append("hall:crown")
-	var props: Array = main.g.get("hall_touch", [])
-	for prop_index in range(props.size()):
-		required.append("hall:prop:%d" % prop_index)
 	return required
 
 func _check_registry(main: Node3D, required: Array[String], issues: Array[String]) -> void:
@@ -295,6 +292,13 @@ func _has_registry_prefix(main: Node3D, prefix: String) -> bool:
 	for item_value: Variant in main.touch_interactables:
 		var item: Dictionary = item_value as Dictionary
 		if String(item.get("id", "")).begins_with(prefix):
+			return true
+	return false
+
+func _has_registry_id(main: Node3D, target_id: String) -> bool:
+	for item_value: Variant in main.touch_interactables:
+		var item: Dictionary = item_value as Dictionary
+		if String(item.get("id", "")) == target_id:
 			return true
 	return false
 

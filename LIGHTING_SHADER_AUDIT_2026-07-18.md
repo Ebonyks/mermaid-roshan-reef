@@ -43,7 +43,7 @@ therefore always means "available under the Mobile rendering method".
 |---|---|
 | `cel.gdshader` | Toon: posterized N·L bands + Fresnel rim, per-surface albedo kept. Applied to **gen2 props only** via `_cel_replace` |
 | `outline.gdshader` | Inverted-hull ink line as `next_pass` (shared material via `_gen2_outline_mat`) |
-| `coral_flow`, `seagrass_sway`, `creature_sway`, `fairy_wing`, `butterfly_flap`, `swing_sway` | Vertex-animated life (wind globals `wind_dir`/`wind_gust`), cel-paired |
+| `coral_flow`, `seagrass_sway`, `creature_sway`, `butterfly_flap`, `swing_sway` | Vertex-animated life (wind globals `wind_dir`/`wind_gust`), cel-paired |
 | `toon_water` | Stylized water surface |
 | `cel_post.gdshader` | Fullscreen posterize + depth-edge ink — **dormant** (Forward+ only, guarded off since the unified-Mobile decision) |
 | Inline shaders in `main.gd` | Caustic dapple plane, god-ray blades, fog ring, various additive unshaded overlays |

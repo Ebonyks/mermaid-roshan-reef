@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "idle",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    89,
+    19,
+    442,
+    503
+  ],
+  "visible_bbox": [
+    89,
+    19,
+    442,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 89,
+    "right": 69,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 26,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 93219,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    49,
+    2,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.685032,
+  "solid_centroid_x": 256.268,
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_racer_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "5ce15a8ec058f13490e5d9daa9026b8bbd42fde6265dd5eb1abd5e3ad4245e46",
+  "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_racer.png",
+  "output_sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f",
+  "idle_reference": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_racer.png",
+  "idle_sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_racer\\rival_racer_checker.png",
+    "silhouette": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_racer\\rival_racer_silhouette.png",
+    "phone_25pct": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_racer\\rival_racer_phone_25pct.png",
+    "idle_comparison": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_racer\\rival_racer_idle_comparison.png"
+  }
+}

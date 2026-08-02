@@ -1,0 +1,2357 @@
+{
+  "clean_fill": "horizontal/vertical scanline interpolation plus nearest unmasked fallback from the same room composite, applied only beneath fully opaque card ownership; antialiased source boundaries are preserved",
+  "owner_native_environment_contract": {
+    "active_master_dimensions": [
+      2048,
+      1152
+    ],
+    "handoff": "FABLE_CASTLE_2K_REGEN_HANDOFF_2026-07-26.md",
+    "kitchen_active_master_dimensions": [
+      4096,
+      2304
+    ],
+    "low_resolution_reference_dimensions": [
+      1024,
+      576
+    ],
+    "master_power_of_two_required": false,
+    "ratio_rounding_tolerance_pixels": 1.0,
+    "required_minimum_long_edge": 2048,
+    "required_minimum_per_screen_dimensions": [
+      2048,
+      2048
+    ],
+    "required_reference_aspect_ratio": [
+      16,
+      9
+    ],
+    "runtime_tile_max_long_edge": 1024,
+    "runtime_tiles_lossless_no_scale": true,
+    "status": "compliant",
+    "upscale_authorization_date": "2026-07-29",
+    "upscale_authorized": true,
+    "upscale_method": "deterministic 2x Lanczos; no crop or padding"
+  },
+  "rooms": {
+    "bubble_bath": {
+      "active_background_system": "2x2 Sprite3D tile grid",
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_bubble_bath_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "cb2ea5976be13dde3c54cd2ea11abdcc8adb65671a86c6785bcf56b69e72fdce",
+      "card_count": 6,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 878,
+          "crop": [
+            279,
+            207,
+            320,
+            247
+          ],
+          "depth_footprint_reduction_ratio": 0.20598,
+          "depth_opaque_pixels": 717,
+          "id": "item_rubber_duck",
+          "role": "item",
+          "routing_depth_pixels": 903
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 37234,
+          "crop": [
+            76,
+            157,
+            397,
+            355
+          ],
+          "depth_footprint_reduction_ratio": 0.210686,
+          "depth_opaque_pixels": 34789,
+          "id": "item_bathtub",
+          "role": "item",
+          "routing_depth_pixels": 44075
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 16615,
+          "crop": [
+            440,
+            137,
+            645,
+            310
+          ],
+          "depth_footprint_reduction_ratio": 0.405679,
+          "depth_opaque_pixels": 14253,
+          "id": "item_sink",
+          "role": "item",
+          "routing_depth_pixels": 23982
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 12956,
+          "crop": [
+            753,
+            154,
+            906,
+            346
+          ],
+          "depth_footprint_reduction_ratio": 0.319231,
+          "depth_opaque_pixels": 11232,
+          "id": "item_toilet",
+          "role": "item",
+          "routing_depth_pixels": 16499
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 36287,
+          "crop": [
+            0,
+            358,
+            226,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.156095,
+          "depth_opaque_pixels": 35336,
+          "id": "front_left",
+          "role": "foreground",
+          "routing_depth_pixels": 41872
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 32203,
+          "crop": [
+            798,
+            358,
+            1024,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.259443,
+          "depth_opaque_pixels": 30879,
+          "id": "front_right",
+          "role": "foreground",
+          "routing_depth_pixels": 41697
+        }
+      ],
+      "changed_owned_pixels": 121278,
+      "changed_owned_ratio": 0.890617,
+      "master": "assets_src/castle/room_backgrounds_2k/room_bubble_bath_background_2k.png",
+      "master_aspect_ratio": 1.7777777777777777,
+      "master_dimensions": [
+        2048,
+        1152
+      ],
+      "master_sha256": "810412982404960bec9f336bd8b519a82e5993c694d056f2525c56eac1c96bd9",
+      "native_master_compliant": true,
+      "owned_background_pixels": 136173,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.000249,
+      "runtime_quad_overlap_native_pixels": [
+        1,
+        1
+      ],
+      "runtime_tiles": [
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            0,
+            1024,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c0.png",
+          "row": 0,
+          "sha256": "c667373dbfe98ddce7152c19ce0066fa9815ab67b266c804075130542ac29ff0"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            0,
+            2048,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c1.png",
+          "row": 0,
+          "sha256": "1d94d4257d7ef885d096dc5234a0a77089198451f8c07057debd32e8837cec7a"
+        },
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            576,
+            1024,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c0.png",
+          "row": 1,
+          "sha256": "369c50c14f8d62b64a82dc61d7e102977e8f51497eb54a79a116ef9f27db7fa8"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            576,
+            2048,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c1.png",
+          "row": 1,
+          "sha256": "34fd23f1c75ced776df3283cbafb3411ad075509d023cc7951d2e26c099cbb38"
+        }
+      ],
+      "source": "room_bubble_bath.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+      "source_tile_rectangles_non_overlapping": true,
+      "tile_reconstruction_pixel_exact": true,
+      "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
+      "upscale_method": "Pillow Image.Resampling.LANCZOS",
+      "upscaled_from_preserved_source": true
+    },
+    "craft_room": {
+      "active_background_system": "2x2 Sprite3D tile grid",
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_craft_room_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "35fc1573b5adea0793bf049ef2ce2c33f6fb89cb2b81c95b18bce04d087214a6",
+      "card_count": 6,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 6123,
+          "crop": [
+            270,
+            82,
+            396,
+            203
+          ],
+          "depth_footprint_reduction_ratio": 0.322089,
+          "depth_opaque_pixels": 5386,
+          "id": "item_ribbon_rack",
+          "role": "item",
+          "routing_depth_pixels": 7945
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 26056,
+          "crop": [
+            377,
+            103,
+            647,
+            274
+          ],
+          "depth_footprint_reduction_ratio": 0.385365,
+          "depth_opaque_pixels": 21940,
+          "id": "item_idea_board",
+          "role": "item",
+          "routing_depth_pixels": 35696
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 9708,
+          "crop": [
+            400,
+            272,
+            624,
+            367
+          ],
+          "depth_footprint_reduction_ratio": 0.554299,
+          "depth_opaque_pixels": 6977,
+          "id": "item_paint_table",
+          "role": "item",
+          "routing_depth_pixels": 15654
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 9042,
+          "crop": [
+            0,
+            320,
+            304,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.313042,
+          "depth_opaque_pixels": 7764,
+          "id": "item_palette",
+          "role": "item",
+          "routing_depth_pixels": 11302
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 41442,
+          "crop": [
+            0,
+            316,
+            304,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.399278,
+          "depth_opaque_pixels": 36101,
+          "id": "front_left",
+          "role": "foreground",
+          "routing_depth_pixels": 60096
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 62258,
+          "crop": [
+            720,
+            316,
+            1024,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.163321,
+          "depth_opaque_pixels": 59067,
+          "id": "front_right",
+          "role": "foreground",
+          "routing_depth_pixels": 70597
+        }
+      ],
+      "changed_owned_pixels": 126484,
+      "changed_owned_ratio": 0.817984,
+      "master": "assets_src/castle/room_backgrounds_2k/room_craft_room_background_2k.png",
+      "master_aspect_ratio": 1.7777777777777777,
+      "master_dimensions": [
+        2048,
+        1152
+      ],
+      "master_sha256": "5acb831a7634979fbc5fdd101beba31bd4aabe07469de1512c94fff5fb1f301f",
+      "native_master_compliant": true,
+      "owned_background_pixels": 154629,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.000801,
+      "runtime_quad_overlap_native_pixels": [
+        1,
+        1
+      ],
+      "runtime_tiles": [
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            0,
+            1024,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c0.png",
+          "row": 0,
+          "sha256": "2a903aceaea80df16cdb6f99b863cf0c11dd19f6b8b8000eb5a74dacccdedc3a"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            0,
+            2048,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c1.png",
+          "row": 0,
+          "sha256": "baf6baf3471f1e80a4e092f98aa98e3cc9f72d325d2df829904f25baa6a8083d"
+        },
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            576,
+            1024,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c0.png",
+          "row": 1,
+          "sha256": "f2a53c5ca4aac4eb3f6612ff70c3436b9ccdd96fb2ed969e7e576f00ad1be384"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            576,
+            2048,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c1.png",
+          "row": 1,
+          "sha256": "ca0bd5ddf83d70d86580cbfb08d9fee8427eb97898d30dc5e8b9b9439d26c648"
+        }
+      ],
+      "source": "room_craft_room.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+      "source_tile_rectangles_non_overlapping": true,
+      "tile_reconstruction_pixel_exact": true,
+      "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
+      "upscale_method": "Pillow Image.Resampling.LANCZOS",
+      "upscaled_from_preserved_source": true
+    },
+    "kitchen": {
+      "active_background_system": "3x4 Sprite3D tile grid",
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_kitchen_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "40c8bfc49c2a764ae11d51508b9273e0e541dea3df576957267779a795d4682f",
+      "card_count": 9,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 9566,
+          "crop": [
+            62,
+            176,
+            263,
+            300
+          ],
+          "depth_footprint_reduction_ratio": 0.235346,
+          "depth_opaque_pixels": 8662,
+          "id": "item_sink",
+          "role": "item",
+          "routing_depth_pixels": 11328
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 1057,
+          "crop": [
+            300,
+            132,
+            341,
+            215
+          ],
+          "depth_footprint_reduction_ratio": 0.479592,
+          "depth_opaque_pixels": 816,
+          "id": "item_pan_1",
+          "role": "item",
+          "routing_depth_pixels": 1568
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 1057,
+          "crop": [
+            337,
+            132,
+            382,
+            215
+          ],
+          "depth_footprint_reduction_ratio": 0.562722,
+          "depth_opaque_pixels": 739,
+          "id": "item_pan_2",
+          "role": "item",
+          "routing_depth_pixels": 1690
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 1197,
+          "crop": [
+            379,
+            132,
+            424,
+            215
+          ],
+          "depth_footprint_reduction_ratio": 0.449004,
+          "depth_opaque_pixels": 940,
+          "id": "item_pan_3",
+          "role": "item",
+          "routing_depth_pixels": 1706
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 498,
+          "crop": [
+            418,
+            132,
+            449,
+            215
+          ],
+          "depth_footprint_reduction_ratio": 0.697835,
+          "depth_opaque_pixels": 349,
+          "id": "item_pan_4",
+          "role": "item",
+          "routing_depth_pixels": 1155
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 13564,
+          "crop": [
+            289,
+            244,
+            491,
+            356
+          ],
+          "depth_footprint_reduction_ratio": 0.2225,
+          "depth_opaque_pixels": 12433,
+          "id": "item_oven",
+          "role": "item",
+          "routing_depth_pixels": 15991
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 32576,
+          "crop": [
+            631,
+            84,
+            771,
+            347
+          ],
+          "depth_footprint_reduction_ratio": 0.07766,
+          "depth_opaque_pixels": 31271,
+          "id": "item_fridge",
+          "role": "item",
+          "routing_depth_pixels": 33904
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 42697,
+          "crop": [
+            0,
+            354,
+            286,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.216415,
+          "depth_opaque_pixels": 41052,
+          "id": "front_left",
+          "role": "foreground",
+          "routing_depth_pixels": 52390
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 41248,
+          "crop": [
+            650,
+            324,
+            1024,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.329338,
+          "depth_opaque_pixels": 38382,
+          "id": "front_right",
+          "role": "foreground",
+          "routing_depth_pixels": 57230
+        }
+      ],
+      "changed_owned_pixels": 128786,
+      "changed_owned_ratio": 0.897714,
+      "generation_master": "assets_src/castle/room_regenerations/room_kitchen_fullframe_v3_1672x941.png",
+      "generation_master_dimensions": [
+        1672,
+        941
+      ],
+      "generation_master_sha256": "7824977df5c875246054bc480eb3b5bdaa00b41ca1b7da1e532216e2844b33f0",
+      "generation_method": "OpenAI built-in ImageGen complete full-frame regeneration plus recorded single-kettle topology repair",
+      "generation_prompt_record": "assets_src/castle/room_regenerations/room_kitchen_fullframe_v3_provenance.md",
+      "master": "assets_src/castle/room_backgrounds_2k/room_kitchen_background_2k.png",
+      "master_aspect_ratio": 1.7777777777777777,
+      "master_dimensions": [
+        4096,
+        2304
+      ],
+      "master_sha256": "a8981373bc6494177d11729918af8983f3e31e8f3229524f2cd5b5283f3400c0",
+      "native_master_compliant": true,
+      "owned_background_pixels": 143460,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.000335,
+      "runtime_quad_overlap_native_pixels": [
+        1,
+        1
+      ],
+      "runtime_tiles": [
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            0,
+            0,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            0,
+            0,
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c0.png",
+          "row": 0,
+          "sha256": "7e34291428f80522ef91f14cce379ad52a5e369a163a5e485078f0c4c6855aad"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            256,
+            0,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            1024,
+            0,
+            2048,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c1.png",
+          "row": 0,
+          "sha256": "6e29c108d780bacda16ca8f2d1ea597bbcbf9df5f0bb6c01b12b4e23eaa35c63"
+        },
+        {
+          "column": 2,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            512,
+            0,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            2048,
+            0,
+            3072,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c2.png",
+          "row": 0,
+          "sha256": "a1ffc11fc00abe8319226fef9cb4bbcb77a2b6940774f1979dd4e079057a8049"
+        },
+        {
+          "column": 3,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            768,
+            0,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            3072,
+            0,
+            4096,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c3.png",
+          "row": 0,
+          "sha256": "9a00c3850d67e037af2a043977ed7ded92cc98667e6316df1ec864a38addc133"
+        },
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            0,
+            192,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            0,
+            768,
+            1024,
+            1536
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c0.png",
+          "row": 1,
+          "sha256": "6c9acfe9912487b88369878db73609d4a8b064fa0209cca5aa51972d3474e270"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            256,
+            192,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            1024,
+            768,
+            2048,
+            1536
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c1.png",
+          "row": 1,
+          "sha256": "28dc2abaecdc612d44799e58aee251dec242c8fcdf9fd645873d5c8fbacf7b0e"
+        },
+        {
+          "column": 2,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            512,
+            192,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            2048,
+            768,
+            3072,
+            1536
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c2.png",
+          "row": 1,
+          "sha256": "23ccbb31dcc303b13c18aec0d29e3cafe9a99a76954dd34bfadb4fa32c779d0f"
+        },
+        {
+          "column": 3,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            768,
+            192,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            3072,
+            768,
+            4096,
+            1536
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c3.png",
+          "row": 1,
+          "sha256": "1f65eb323657f8214c191be59d67cd13a1f07f3003515d4e9b29cfe869dc47b1"
+        },
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            0,
+            384,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            0,
+            1536,
+            1024,
+            2304
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c0.png",
+          "row": 2,
+          "sha256": "399c5690b312f185565199ee2791a84a2ce1975d45d51d869d6bf25a3b194b6e"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            256,
+            384,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            1024,
+            1536,
+            2048,
+            2304
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c1.png",
+          "row": 2,
+          "sha256": "6f345eed1061797011e4274d381b40ec2299edb31f5e866b73ff1a555e5a1f66"
+        },
+        {
+          "column": 2,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            512,
+            384,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            2048,
+            1536,
+            3072,
+            2304
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c2.png",
+          "row": 2,
+          "sha256": "3361d89662f60514d37c18d4f5f65e87d286d48229b3fea47f43e1bf0993ad44"
+        },
+        {
+          "column": 3,
+          "dimensions": [
+            1024,
+            768
+          ],
+          "logical_art_rectangle": [
+            768,
+            384,
+            256,
+            192
+          ],
+          "master_rectangle": [
+            3072,
+            1536,
+            4096,
+            2304
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c3.png",
+          "row": 2,
+          "sha256": "8a0d7c53703c66dd348b0bf87a827dea0c80e531ddf55eff54bad1272d7ac2cc"
+        }
+      ],
+      "source": "room_kitchen.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "ee2f05ce1eff483060ace90aee729a561b3ddf471d25d5a5c75eb9b9ba948104",
+      "source_tile_rectangles_non_overlapping": true,
+      "tile_reconstruction_pixel_exact": true,
+      "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
+      "upscale_method": "Pillow Image.Resampling.LANCZOS",
+      "upscaled_from_preserved_source": true
+    },
+    "library": {
+      "active_background_system": "2x2 Sprite3D tile grid",
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_library_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "de5526db3220928fcdb2e9cc8afd132788f8c7a68b75f3479214554754734b0d",
+      "card_count": 6,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 25359,
+          "crop": [
+            0,
+            365,
+            165,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.062612,
+          "depth_opaque_pixels": 24104,
+          "id": "item_book_stack",
+          "role": "item",
+          "routing_depth_pixels": 25714
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 6257,
+          "crop": [
+            445,
+            145,
+            582,
+            314
+          ],
+          "depth_footprint_reduction_ratio": 0.363058,
+          "depth_opaque_pixels": 5207,
+          "id": "item_magic_book",
+          "role": "item",
+          "routing_depth_pixels": 8175
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 8045,
+          "crop": [
+            392,
+            315,
+            634,
+            437
+          ],
+          "depth_footprint_reduction_ratio": 0.592809,
+          "depth_opaque_pixels": 6410,
+          "id": "item_pearl_table",
+          "role": "item",
+          "routing_depth_pixels": 15742
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 3740,
+          "crop": [
+            4,
+            225,
+            92,
+            305
+          ],
+          "depth_footprint_reduction_ratio": 0.277018,
+          "depth_opaque_pixels": 3278,
+          "id": "item_pearl_lamp",
+          "role": "item",
+          "routing_depth_pixels": 4534
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 33889,
+          "crop": [
+            0,
+            273,
+            300,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.343775,
+          "depth_opaque_pixels": 32260,
+          "id": "front_left",
+          "role": "foreground",
+          "routing_depth_pixels": 49160
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 64599,
+          "crop": [
+            724,
+            273,
+            1024,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.181048,
+          "depth_opaque_pixels": 62165,
+          "id": "front_right",
+          "role": "foreground",
+          "routing_depth_pixels": 75908
+        }
+      ],
+      "changed_owned_pixels": 127296,
+      "changed_owned_ratio": 0.897152,
+      "master": "assets_src/castle/room_backgrounds_2k/room_library_background_2k.png",
+      "master_aspect_ratio": 1.7777777777777777,
+      "master_dimensions": [
+        2048,
+        1152
+      ],
+      "master_sha256": "6d519bb6c9fd854b7daf4e5ad6788f3ab18ba40ab2a486392c5a4fa89e6490ea",
+      "native_master_compliant": true,
+      "owned_background_pixels": 141889,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.000514,
+      "runtime_quad_overlap_native_pixels": [
+        1,
+        1
+      ],
+      "runtime_tiles": [
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            0,
+            1024,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c0.png",
+          "row": 0,
+          "sha256": "1332981112d2a1a98256d66e6e36a3e69ddcaed057e019ec576e20abfa8fc98b"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            0,
+            2048,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c1.png",
+          "row": 0,
+          "sha256": "c3e143d7873909b68c9ba04b31a60fe76feb89929a2fc6d394563b62cc31a52c"
+        },
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            576,
+            1024,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c0.png",
+          "row": 1,
+          "sha256": "d852782ad15c6ff7d18f313e2b19a6a94dfc03688098ca6ac7d0513c0135a915"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            576,
+            2048,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c1.png",
+          "row": 1,
+          "sha256": "7b9aeab24e0aeeb5d192d8e761cbef57342ff4309004de411498b66f85e70d92"
+        }
+      ],
+      "source": "room_library.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "e285f03aa260f9ad3586a5bea75935b98edc99324e14d704d2542bdd97e8570d",
+      "source_tile_rectangles_non_overlapping": true,
+      "tile_reconstruction_pixel_exact": true,
+      "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
+      "upscale_method": "Pillow Image.Resampling.LANCZOS",
+      "upscaled_from_preserved_source": true
+    },
+    "main_hall": {
+      "active_background_system": "two native >=2K masters / 2x4 Sprite3D grid",
+      "aspect_ratio_delta": 0.0005972498854811548,
+      "aspect_ratio_pixel_delta": 1.0,
+      "background": "room_main_hall_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "b39ec53fba6c5d5503fdd2aecbae09597d92458c5aac475f31e46de72c9c4acb",
+      "card_count": 5,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 19391,
+          "crop": [
+            430,
+            150,
+            594,
+            354
+          ],
+          "depth_footprint_reduction_ratio": 0.331477,
+          "depth_opaque_pixels": 18129,
+          "id": "item_throne",
+          "role": "item",
+          "routing_depth_pixels": 27118
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 15979,
+          "crop": [
+            122,
+            379,
+            268,
+            546
+          ],
+          "depth_footprint_reduction_ratio": 0.220979,
+          "depth_opaque_pixels": 14690,
+          "id": "item_fountain_left",
+          "role": "item",
+          "routing_depth_pixels": 18857
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 15947,
+          "crop": [
+            756,
+            379,
+            902,
+            546
+          ],
+          "depth_footprint_reduction_ratio": 0.219441,
+          "depth_opaque_pixels": 14719,
+          "id": "item_fountain_right",
+          "role": "item",
+          "routing_depth_pixels": 18857
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 56438,
+          "crop": [
+            0,
+            0,
+            274,
+            558
+          ],
+          "depth_footprint_reduction_ratio": 0.273953,
+          "depth_opaque_pixels": 53424,
+          "id": "front_left",
+          "role": "foreground",
+          "routing_depth_pixels": 73582
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 48265,
+          "crop": [
+            750,
+            0,
+            1024,
+            558
+          ],
+          "depth_footprint_reduction_ratio": 0.381479,
+          "depth_opaque_pixels": 45230,
+          "id": "front_right",
+          "role": "foreground",
+          "routing_depth_pixels": 73126
+        }
+      ],
+      "changed_owned_pixels": 139490,
+      "changed_owned_ratio": 0.894052,
+      "master_aspect_ratio": 1.7762359063313096,
+      "master_dimensions": [
+        2048,
+        1153
+      ],
+      "native_master_compliant": true,
+      "owned_background_pixels": 156020,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.000497,
+      "runtime_neighbor_bleed_pixels": [
+        1,
+        1
+      ],
+      "runtime_tiles": [
+        {
+          "column": 0,
+          "dimensions": [
+            836,
+            470
+          ],
+          "master_source_rect": [
+            376,
+            212,
+            1212,
+            682
+          ],
+          "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c0.png",
+          "row": 0,
+          "runtime_bleed_dimensions": [
+            837,
+            471
+          ],
+          "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c0_bleed.png",
+          "runtime_bleed_pixels": [
+            1,
+            1
+          ],
+          "runtime_bleed_sha256": "be22bfc045228f59872069776ed09f0e5bc286eb87794d27cef2aa89010c06e1",
+          "runtime_bleed_source_exact": true,
+          "screen": "A",
+          "sha256": "9bbec1583f6e8192bd70edae1c7818aa6c0b44e407a5454562b5eb40b9a9b295"
+        },
+        {
+          "column": 0,
+          "dimensions": [
+            836,
+            471
+          ],
+          "master_source_rect": [
+            376,
+            682,
+            1212,
+            1153
+          ],
+          "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c0.png",
+          "row": 1,
+          "runtime_bleed_dimensions": [
+            837,
+            471
+          ],
+          "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c0_bleed.png",
+          "runtime_bleed_pixels": [
+            1,
+            0
+          ],
+          "runtime_bleed_sha256": "eb6f7e12948d7b3fed4a4592e136f91f430fcaf0df8a3223e8b76dc688035065",
+          "runtime_bleed_source_exact": true,
+          "screen": "A",
+          "sha256": "bc126dfc56894f75dd8f587c6ecc04c63f17175786f406eb3a23409f9e824033"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            836,
+            470
+          ],
+          "master_source_rect": [
+            1212,
+            212,
+            2048,
+            682
+          ],
+          "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c1.png",
+          "row": 0,
+          "runtime_bleed_dimensions": [
+            837,
+            471
+          ],
+          "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c1_bleed.png",
+          "runtime_bleed_pixels": [
+            1,
+            1
+          ],
+          "runtime_bleed_sha256": "f02ff473d83239768854cb2225f52fff93224a40cee2cc9092e6363ceeb61e88",
+          "runtime_bleed_source_exact": true,
+          "screen": "A",
+          "sha256": "343d3ce3a0e56e87c4d396c1cf7f2a35756a26f92ea9565c9a5deef7e2d99414"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            836,
+            471
+          ],
+          "master_source_rect": [
+            1212,
+            682,
+            2048,
+            1153
+          ],
+          "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c1.png",
+          "row": 1,
+          "runtime_bleed_dimensions": [
+            837,
+            471
+          ],
+          "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c1_bleed.png",
+          "runtime_bleed_pixels": [
+            1,
+            0
+          ],
+          "runtime_bleed_sha256": "cdcfaca73707c8b25385fce441e37381641ff352addd911f5cbfcd8436869412",
+          "runtime_bleed_source_exact": true,
+          "screen": "A",
+          "sha256": "978c2e64ece50860c6e310cca637f72d49382612b6e798d3f0d7181fc13b9d47"
+        },
+        {
+          "column": 2,
+          "dimensions": [
+            836,
+            470
+          ],
+          "master_source_rect": [
+            376,
+            147,
+            1212,
+            617
+          ],
+          "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c2.png",
+          "row": 0,
+          "runtime_bleed_dimensions": [
+            837,
+            471
+          ],
+          "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c2_bleed.png",
+          "runtime_bleed_pixels": [
+            1,
+            1
+          ],
+          "runtime_bleed_sha256": "005354fa26256aefd8f2b84e9259922d9a92ad025d04813266096e8bf3f58c7b",
+          "runtime_bleed_source_exact": true,
+          "screen": "B",
+          "sha256": "e7dd2df4e011e8ec600fc4627ea70310c660299de1eae3f9ed94bb9cdc571b9c"
+        },
+        {
+          "column": 2,
+          "dimensions": [
+            836,
+            471
+          ],
+          "master_source_rect": [
+            376,
+            617,
+            1212,
+            1088
+          ],
+          "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c2.png",
+          "row": 1,
+          "runtime_bleed_dimensions": [
+            837,
+            471
+          ],
+          "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c2_bleed.png",
+          "runtime_bleed_pixels": [
+            1,
+            0
+          ],
+          "runtime_bleed_sha256": "f22eea74352a7f93fd776283f5c1c97fdf76d289f79cc1cd1ffff92585890849",
+          "runtime_bleed_source_exact": true,
+          "screen": "B",
+          "sha256": "072d4547a05a41e24550a46466af939f5aea7939c09af9044077f42d691134b0"
+        },
+        {
+          "column": 3,
+          "dimensions": [
+            836,
+            470
+          ],
+          "master_source_rect": [
+            1212,
+            147,
+            2048,
+            617
+          ],
+          "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r0_c3.png",
+          "row": 0,
+          "runtime_bleed_dimensions": [
+            836,
+            471
+          ],
+          "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r0_c3_bleed.png",
+          "runtime_bleed_pixels": [
+            0,
+            1
+          ],
+          "runtime_bleed_sha256": "7637ac0bee2f2db967ba4cc28964c691ba919d9de18d5c50129c36c5a9a4fb45",
+          "runtime_bleed_source_exact": true,
+          "screen": "B",
+          "sha256": "f4e7a91a627862320aa8e5af230a31d5eeaa7eacb014f937b6399951fc34467c"
+        },
+        {
+          "column": 3,
+          "dimensions": [
+            836,
+            471
+          ],
+          "master_source_rect": [
+            1212,
+            617,
+            2048,
+            1088
+          ],
+          "path": "assets/flats/castle/main_hall_2screen/tiles/main_hall_room_led_r1_c3.png",
+          "row": 1,
+          "runtime_bleed_dimensions": [
+            836,
+            471
+          ],
+          "runtime_bleed_path": "assets/flats/castle/main_hall_2screen/tiles/runtime_bleed/main_hall_room_led_r1_c3_bleed.png",
+          "runtime_bleed_pixels": [
+            0,
+            0
+          ],
+          "runtime_bleed_sha256": "f783b2931a4a26efef302770a12ed6d06fa33d8ee66323cd51de504faa9ff87d",
+          "runtime_bleed_source_exact": true,
+          "screen": "B",
+          "sha256": "f783b2931a4a26efef302770a12ed6d06fa33d8ee66323cd51de504faa9ff87d"
+        }
+      ],
+      "source": "room_main_hall.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "7b284cd4530faf38ee8b06e3613f5c81dddf40fc73a64aaf943496c98acfe1a0",
+      "source_tile_rectangles_non_overlapping": true,
+      "tile_reconstruction_pixel_exact": true,
+      "upscaled_from_preserved_source": false
+    },
+    "mermaid_pool": {
+      "active_background_system": "2x2 Sprite3D tile grid",
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_mermaid_pool_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "f15026de9084aef8d8b5a2a61710b6f4ba76b440779766813ddc49554317344d",
+      "card_count": 7,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 1203,
+          "crop": [
+            468,
+            260,
+            534,
+            306
+          ],
+          "depth_footprint_reduction_ratio": 0.071501,
+          "depth_opaque_pixels": 922,
+          "id": "item_star_float",
+          "role": "item",
+          "routing_depth_pixels": 993
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 25356,
+          "crop": [
+            285,
+            45,
+            466,
+            278
+          ],
+          "depth_footprint_reduction_ratio": 0.174059,
+          "depth_opaque_pixels": 24134,
+          "id": "item_waterfall",
+          "role": "item",
+          "routing_depth_pixels": 29220
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 3507,
+          "crop": [
+            371,
+            218,
+            512,
+            329
+          ],
+          "depth_footprint_reduction_ratio": 0.000306,
+          "depth_opaque_pixels": 3264,
+          "id": "item_flower_float",
+          "role": "item",
+          "routing_depth_pixels": 3265
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 3368,
+          "crop": [
+            553,
+            183,
+            711,
+            325
+          ],
+          "depth_footprint_reduction_ratio": 0.171372,
+          "depth_opaque_pixels": 2906,
+          "id": "item_bubble_fountain",
+          "role": "item",
+          "routing_depth_pixels": 3507
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 24008,
+          "crop": [
+            0,
+            378,
+            205,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.293155,
+          "depth_opaque_pixels": 22947,
+          "id": "front_left",
+          "role": "foreground",
+          "routing_depth_pixels": 32464
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 23035,
+          "crop": [
+            819,
+            378,
+            1024,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.344114,
+          "depth_opaque_pixels": 21193,
+          "id": "front_right",
+          "role": "foreground",
+          "routing_depth_pixels": 32312
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 125809,
+          "crop": [
+            0,
+            212,
+            1024,
+            382
+          ],
+          "depth_footprint_reduction_ratio": 0.108812,
+          "depth_opaque_pixels": 119969,
+          "id": "mid_pool",
+          "role": "midground",
+          "routing_depth_pixels": 134617
+        }
+      ],
+      "changed_owned_pixels": 186543,
+      "changed_owned_ratio": 0.904293,
+      "master": "assets_src/castle/room_backgrounds_2k/room_mermaid_pool_background_2k.png",
+      "master_aspect_ratio": 1.7777777777777777,
+      "master_dimensions": [
+        2048,
+        1152
+      ],
+      "master_sha256": "d472abe77493a4be7e3c5de83155dc2c613ae93a38a7819f2c5ffca02cff863e",
+      "native_master_compliant": true,
+      "owned_background_pixels": 206286,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.000606,
+      "runtime_quad_overlap_native_pixels": [
+        1,
+        1
+      ],
+      "runtime_tiles": [
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            0,
+            1024,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c0.png",
+          "row": 0,
+          "sha256": "efc33e5fd07c88e7e8364aedba9665e7f5cf28be1f3bbadc841be2b9d69601de"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            0,
+            2048,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c1.png",
+          "row": 0,
+          "sha256": "5dece9a9172eb0af17ab0b47646a8d97de38dfdb6f37e7e4942e33e037f4a956"
+        },
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            576,
+            1024,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c0.png",
+          "row": 1,
+          "sha256": "40bc4447110aa98f081b19f2bd4a1c00e85fef65325f72ac46363992b28759fb"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            576,
+            2048,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c1.png",
+          "row": 1,
+          "sha256": "6fd3d922175c8bd757c843db7cb1d46ed733aca8fd79b8fc79ebe07b2ea6d146"
+        }
+      ],
+      "source": "room_mermaid_pool.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "4ed0f6ce0fb79c35cb55f9c18c56518252df1a8e478de1ef8c06d3cf4a9e0e0d",
+      "source_tile_rectangles_non_overlapping": true,
+      "tile_reconstruction_pixel_exact": true,
+      "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
+      "upscale_method": "Pillow Image.Resampling.LANCZOS",
+      "upscaled_from_preserved_source": true
+    },
+    "opera_hall": {
+      "active_background_system": "2x2 Sprite3D tile grid",
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_opera_hall_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "f5415682c860146392ff9f47c2443406672746e0966f215ff1a78dd25a7849e1",
+      "card_count": 6,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 25341,
+          "crop": [
+            414,
+            100,
+            610,
+            309
+          ],
+          "depth_footprint_reduction_ratio": 0.090041,
+          "depth_opaque_pixels": 24305,
+          "id": "item_curtains",
+          "role": "item",
+          "routing_depth_pixels": 26710
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 9448,
+          "crop": [
+            418,
+            0,
+            608,
+            126
+          ],
+          "depth_footprint_reduction_ratio": 0.350752,
+          "depth_opaque_pixels": 8461,
+          "id": "item_chandelier",
+          "role": "item",
+          "routing_depth_pixels": 13032
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 3287,
+          "crop": [
+            414,
+            286,
+            610,
+            330
+          ],
+          "depth_footprint_reduction_ratio": 0.330903,
+          "depth_opaque_pixels": 2845,
+          "id": "item_footlights",
+          "role": "item",
+          "routing_depth_pixels": 4252
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 1552,
+          "crop": [
+            490,
+            309,
+            534,
+            354
+          ],
+          "depth_footprint_reduction_ratio": 0.0,
+          "depth_opaque_pixels": 1330,
+          "id": "item_stage_star",
+          "role": "item",
+          "routing_depth_pixels": 1330
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 58561,
+          "crop": [
+            0,
+            252,
+            274,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.149626,
+          "depth_opaque_pixels": 57271,
+          "id": "front_left",
+          "role": "foreground",
+          "routing_depth_pixels": 67348
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 56960,
+          "crop": [
+            750,
+            252,
+            1024,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.172983,
+          "depth_opaque_pixels": 55430,
+          "id": "front_right",
+          "role": "foreground",
+          "routing_depth_pixels": 67024
+        }
+      ],
+      "changed_owned_pixels": 145740,
+      "changed_owned_ratio": 0.939355,
+      "master": "assets_src/castle/room_backgrounds_2k/room_opera_hall_background_2k.png",
+      "master_aspect_ratio": 1.7777777777777777,
+      "master_dimensions": [
+        2048,
+        1152
+      ],
+      "master_sha256": "dd4b20e9ffd7b30d4945aaf82373b35c9721d27e83acae0f71ca796bcdb10551",
+      "native_master_compliant": true,
+      "owned_background_pixels": 155149,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.000241,
+      "runtime_quad_overlap_native_pixels": [
+        1,
+        1
+      ],
+      "runtime_tiles": [
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            0,
+            1024,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c0.png",
+          "row": 0,
+          "sha256": "6fbe7073627b98ff1481519ad1bc8bad78e51e1ca89132c31299243c1bcb714b"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            0,
+            2048,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c1.png",
+          "row": 0,
+          "sha256": "8062ae4485cc695d81fb566e13ec9f8f5ce249fb67e62b2bed39372eea0c3bfc"
+        },
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            576,
+            1024,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c0.png",
+          "row": 1,
+          "sha256": "44b58957119b9d6ff89c3e32f2da2fe840ba89a3f7478e59e6885de31bdb0233"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            576,
+            2048,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c1.png",
+          "row": 1,
+          "sha256": "efc09d8b7c6726e43a54e6a86d548f2e8eb642a677497c33e555481e6b2b4423"
+        }
+      ],
+      "source": "room_opera_hall.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "5878289852a911c50714aecddce1e9e63702425f3376e92205315e19a52c20cf",
+      "source_tile_rectangles_non_overlapping": true,
+      "tile_reconstruction_pixel_exact": true,
+      "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
+      "upscale_method": "Pillow Image.Resampling.LANCZOS",
+      "upscaled_from_preserved_source": true
+    },
+    "playroom": {
+      "active_background_system": "2x2 Sprite3D tile grid",
+      "aspect_ratio_delta": 0.0,
+      "aspect_ratio_pixel_delta": 0.0,
+      "background": "room_playroom_background.png",
+      "background_dimensions": [
+        1024,
+        576
+      ],
+      "background_sha256": "f95a320de56eb6b384658fdd3dc487434fd75c9dadedfdd5b41aafe351c1ded2",
+      "card_count": 6,
+      "card_overlap_pixels": 0,
+      "cards": [
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 8334,
+          "crop": [
+            105,
+            235,
+            270,
+            366
+          ],
+          "depth_footprint_reduction_ratio": 0.469436,
+          "depth_opaque_pixels": 6909,
+          "id": "item_play_tent",
+          "role": "item",
+          "routing_depth_pixels": 13022
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 32261,
+          "crop": [
+            380,
+            140,
+            646,
+            330
+          ],
+          "depth_footprint_reduction_ratio": 0.242742,
+          "depth_opaque_pixels": 30881,
+          "id": "item_stuffie_nook",
+          "role": "item",
+          "routing_depth_pixels": 40780
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 7667,
+          "crop": [
+            218,
+            284,
+            350,
+            441
+          ],
+          "depth_footprint_reduction_ratio": 0.471052,
+          "depth_opaque_pixels": 6578,
+          "id": "item_stacking_toy",
+          "role": "item",
+          "routing_depth_pixels": 12436
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 4654,
+          "crop": [
+            626,
+            320,
+            751,
+            420
+          ],
+          "depth_footprint_reduction_ratio": 0.599574,
+          "depth_opaque_pixels": 3758,
+          "id": "item_blocks",
+          "role": "item",
+          "routing_depth_pixels": 9385
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 43884,
+          "crop": [
+            0,
+            319,
+            247,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.22002,
+          "depth_opaque_pixels": 41672,
+          "id": "front_left",
+          "role": "foreground",
+          "routing_depth_pixels": 53427
+        },
+        {
+          "alpha_outline_refined": true,
+          "alpha_pixels": 43359,
+          "crop": [
+            777,
+            319,
+            1024,
+            576
+          ],
+          "depth_footprint_reduction_ratio": 0.287163,
+          "depth_opaque_pixels": 40976,
+          "id": "front_right",
+          "role": "foreground",
+          "routing_depth_pixels": 57483
+        }
+      ],
+      "changed_owned_pixels": 124709,
+      "changed_owned_ratio": 0.889768,
+      "master": "assets_src/castle/room_backgrounds_2k/room_playroom_background_2k.png",
+      "master_aspect_ratio": 1.7777777777777777,
+      "master_dimensions": [
+        2048,
+        1152
+      ],
+      "master_sha256": "84b2abfa07d28540088cf76844eb96b9ed89990445068b1c36c4140d801bc4d5",
+      "native_master_compliant": true,
+      "owned_background_pixels": 140159,
+      "reference_aspect_ratio": 1.777777778,
+      "resting_reconstruction_mean_abs_error": 0.000411,
+      "runtime_quad_overlap_native_pixels": [
+        1,
+        1
+      ],
+      "runtime_tiles": [
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            0,
+            1024,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c0.png",
+          "row": 0,
+          "sha256": "7a482d4d8092fb3abd4b44927d89cb6e800bc12c600e61b8fc944d34e34cbf46"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            0,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            0,
+            2048,
+            576
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c1.png",
+          "row": 0,
+          "sha256": "5c2113f072c38ef7c40d467c0e349af7ae4f8b0d35889a73ab1e8ce285dd9799"
+        },
+        {
+          "column": 0,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            0,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            0,
+            576,
+            1024,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c0.png",
+          "row": 1,
+          "sha256": "b685cccf2974cab278f1591b596689bbe16884a48a08036722245ee957b2b7c0"
+        },
+        {
+          "column": 1,
+          "dimensions": [
+            1024,
+            576
+          ],
+          "logical_art_rectangle": [
+            512,
+            288,
+            512,
+            288
+          ],
+          "master_rectangle": [
+            1024,
+            576,
+            2048,
+            1152
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c1.png",
+          "row": 1,
+          "sha256": "12455969706a492f89f237b28c6a6cfc89620d9cf77505ce40d0e7c240330da2"
+        }
+      ],
+      "source": "room_playroom.png",
+      "source_aspect_ratio": 1.777777778,
+      "source_dimensions": [
+        1024,
+        576
+      ],
+      "source_sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f",
+      "source_tile_rectangles_non_overlapping": true,
+      "tile_reconstruction_pixel_exact": true,
+      "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
+      "upscale_method": "Pillow Image.Resampling.LANCZOS",
+      "upscaled_from_preserved_source": true
+    }
+  },
+  "runtime_correction_2026_07_29": {
+    "evidence": {
+      "main_hall_capture_sha256": "68f4817ddce37b0ea0ba7971e1d1b22d986c82e3f4ffa21c42477a187103059b",
+      "probe": "scripts/probe_castle_pearl_art.gd",
+      "probe_result": "RESULT=OK checks_failed=0",
+      "registration": "audit/castle_sprite3d/castle_hall_runtime_registration.json",
+      "seam_capture_sha256": "be6220a35a1fa60c0694c3641dbf022ffbd5b9998cbdb61cd94c30a190e8ff74",
+      "seam_tone": "audit/castle_sprite3d/castle_tile_tone_audit_2026-07-29.json"
+    },
+    "interactive_fixture_family": {
+      "bloom_shader": "shaders/castle_fixture_bloom.gdshader",
+      "bloom_shader_sha256": "52177a6e84611c0ea2dae3ee8a2110aa0846f9ed03e40076f4fd53e6ac585851",
+      "count": 6,
+      "extra_halo_cards": 0,
+      "node_type": "Sprite3D",
+      "shared_center_y": 215,
+      "shared_scale": 0.125,
+      "texture": "assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png",
+      "texture_sha256": "dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e",
+      "unshaded": true
+    },
+    "lighting": {
+      "environment_glow_blend": "SCREEN",
+      "environment_hdr_scale": 4.2,
+      "environment_hdr_threshold_on": 0.58,
+      "full_glow_bloom": [
+        1.28,
+        0.3
+      ],
+      "off_glow_bloom": [
+        0.24,
+        0.015
+      ],
+      "seam_cluster_selection": [
+        "a_right",
+        "b_left"
+      ],
+      "speedy_glow_bloom": [
+        0.95,
+        0.18
+      ],
+      "speedy_shadow_maps": 1,
+      "visible_light_nodes": 3
+    },
+    "main_hall_registered_views": {
+      "fixture_runtime_y": 215,
+      "screen_a": [
+        376,
+        212,
+        1672,
+        941
+      ],
+      "screen_b": [
+        376,
+        147,
+        1672,
+        941
+      ],
+      "tile_grid": "2 rows x 4 columns",
+      "tile_reconstruction_pixel_exact": true,
+      "walkway_runtime_y": 634
+    },
+    "new_raster_art": false,
+    "runtime_inventory": {
+      "canvasitem_world_art": 0,
+      "maximum_visible_sprite3d": 24,
+      "modeled_world_art": 0
+    },
+    "screen_join": {
+      "join_column_loaded": false,
+      "opaque_bridge_loaded": false,
+      "portal_shader": "shaders/castle_portal_cutout.gdshader",
+      "portal_shader_sha256": "608758adf421e3c9bc14a902e67e0465db2e4671bbcc460c2c5ce92c3880e869",
+      "portal_texture": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
+      "raw_source_edge": "documented wallpaper-to-brick material transition",
+      "runtime_verdict": "PASS_RUNTIME_OCCLUDED_MATERIAL_TRANSITION"
+    },
+    "status": "accepted",
+    "tone_delta_e76": {
+      "maximum_allowed": 12.0,
+      "screen_a": 10.59,
+      "screen_b": 7.982,
+      "status": "PASS"
+    }
+  },
+  "runtime_correction_2026_08_01": {
+    "interactive_fixture_family": {
+      "atlas_frames": 8,
+      "atlas_grid": [
+        4,
+        2
+      ],
+      "bloom_shader": "shaders/castle_fixture_bloom.gdshader",
+      "bloom_shader_sha256": "811ded1fc380d8778eef10340096ab0c220b13b89f7ba9c410b68f7a532c5877",
+      "count": 6,
+      "extra_halo_cards": 0,
+      "frame_uv_clamped_to_atlas_cell": true,
+      "node_type": "Sprite3D",
+      "semantic_action": "toggle_shell_light",
+      "shared_center_y": 215,
+      "shared_scale": 0.8,
+      "texture": "assets/flats/castle/interactions/main_hall_sconce_atlas.png",
+      "texture_sha256": "1ae1732f9a061e6a13f4032cf81a2378d0a57da8be76cd3dcdfa30934f73d536",
+      "unshaded": true
+    },
+    "status": "accepted_current_runtime",
+    "supersedes_runtime_fixture_contract": "runtime_correction_2026_07_29.interactive_fixture_family"
+  },
+  "runtime_node_contract": {
+    "background_tile_seam_policy": {
+      "destination_room_overlap_method": "top-left-anchored geometry overscan; source textures unchanged",
+      "destination_room_runtime_quad_overlap_native_pixels": [
+        1,
+        1
+      ],
+      "main_hall_bleed_method": "source-exact right/lower neighbor edges; no scaling",
+      "main_hall_runtime_neighbor_bleed_pixels": [
+        1,
+        1
+      ],
+      "maximum_runtime_texture_long_edge": 1024,
+      "source_rectangles_non_overlapping": true
+    },
+    "camera": "Camera3D:perspective",
+    "native_master_runtime_note": "Background and any over-1024 layer counts expand only by the minimum lossless non-overlapping tile count.",
+    "reference_steady_sprite3d_inventory": {
+      "background": 1,
+      "contact_shadow": 1,
+      "foreground_max": 2,
+      "midground_max": 1,
+      "player": 1,
+      "touch_props": {
+        "average_per_room": 4.75,
+        "maximum_per_room": 7,
+        "minimum_per_destination_room": 4,
+        "physical_instances": 38
+      }
+    },
+    "shaded_role_allowlist": [
+      "clean_background_tile"
+    ],
+    "ui_only_allowed": [
+      "CanvasLayer",
+      "Control",
+      "Button",
+      "Panel",
+      "Label"
+    ],
+    "world_art_allowed": [
+      "Sprite3D:unshaded",
+      "Sprite3D:shaded lighting receiver"
+    ],
+    "world_art_forbidden": [
+      "Sprite2D",
+      "AnimatedSprite2D",
+      "TextureRect",
+      "Polygon2D",
+      "CanvasItem custom drawing",
+      "MeshInstance3D",
+      "MultiMeshInstance3D",
+      "CSGShape3D",
+      "Decal"
+    ],
+    "world_root": "Node3D"
+  },
+  "schema": 1,
+  "source_policy": "Approved room composites; Kitchen v3 retains its documented full-frame source and single-kettle topology repair; all runtime depth cards are outline-refined derivatives of accepted master pixels"
+}

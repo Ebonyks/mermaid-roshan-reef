@@ -17,10 +17,21 @@ const GAMEPLAY_HUD_SURFACES := [
 	"res://scripts/opera_house.gd",
 	"res://scripts/opera_act.gd",
 	"res://scripts/medal_system.gd"]
-const STORYBOOK_MENU_SURFACES := [
-	"res://scripts/collection_system.gd",
-	"res://scripts/companion.gd",
-	"res://scripts/games/dance_engine.gd"]
+const CHILD_MENU_SYSTEMS := [
+	{"id": "intro", "path": "res://scripts/intro_overlay.gd", "token": "adorn_panel"},
+	{"id": "pause", "path": "res://scripts/pause_menu.gd", "token": "PauseShell"},
+	{"id": "craft", "path": "res://scripts/craft_studio.gd", "token": "adorn_panel"},
+	{"id": "wardrobe", "path": "res://scripts/wardrobe_ui.gd", "token": "style_picture_button"},
+	{"id": "stickers", "path": "res://scripts/wardrobe_ui.gd", "token": "StickerBook"},
+	{"id": "critters", "path": "res://scripts/collection_system.gd", "token": "CritterBook"},
+	{"id": "stuffie_care", "path": "res://scripts/companion.gd", "token": "StuffieCare"},
+	{"id": "stuffie_picker", "path": "res://scripts/companion.gd", "token": "StuffiePicker"},
+	{"id": "castle_rooms", "path": "res://scripts/arena/castle_rooms_25d.gd", "token": "ROOM_ART"},
+	{"id": "kitchen", "path": "res://scripts/arena/castle_rooms_25d.gd", "token": "KitchenFridgeMenu"},
+	{"id": "picture_games", "path": "res://scripts/games/picture_games.gd", "token": "PictureGameStorybookHeader"},
+	{"id": "dance", "path": "res://scripts/games/dance_engine.gd", "token": "StorybookUI.add_panel"},
+	{"id": "kart_garage", "path": "res://scripts/kart.gd", "token": "KartRideChoice_"},
+	{"id": "opera_lobby", "path": "res://scripts/opera_lobby_2d.gd", "token": "CareerCard"}]
 
 func _check(ok: bool, label: String) -> void:
 	if ok:
@@ -52,9 +63,59 @@ func _check_storybook_coverage() -> void:
 	for path: String in GAMEPLAY_HUD_SURFACES:
 		var source: String = FileAccess.get_file_as_string(path)
 		_check(source.contains("StorybookUI.add_hud_panel"), "%s uses a shared Storybook HUD surface" % path.get_file())
-	for path: String in STORYBOOK_MENU_SURFACES:
+	_check(CHILD_MENU_SYSTEMS.size() == 14,
+		"menu census covers all 14 child-facing systems")
+	var developer_source: String = FileAccess.get_file_as_string(
+		"res://scripts/dev_mode.gd")
+	_check(developer_source.contains("DeveloperStorybookPanel")
+		and developer_source.contains("DeveloperShellCrest")
+		and developer_source.contains("_style_parent_controls"),
+		"15th interactive system gives parent Developer Mode Storybook styling")
+	for row: Dictionary in CHILD_MENU_SYSTEMS:
+		var path: String = String(row["path"])
 		var menu_source: String = FileAccess.get_file_as_string(path)
-		_check(menu_source.contains("StorybookUI.add_panel"), "%s uses shared Storybook menu cards" % path.get_file())
+		_check(menu_source.contains("StorybookUI")
+			and menu_source.contains(String(row["token"])),
+			"%s menu uses the audited Storybook contract" % String(row["id"]))
+	var picture_source: String = FileAccess.get_file_as_string(
+		"res://scripts/games/picture_games.gd")
+	var wardrobe_source: String = FileAccess.get_file_as_string(
+		"res://scripts/wardrobe_ui.gd")
+	var kart_source: String = FileAccess.get_file_as_string("res://scripts/kart.gd")
+	var pause_source: String = FileAccess.get_file_as_string(
+		"res://scripts/pause_menu.gd")
+	var touch_source: String = FileAccess.get_file_as_string("res://scripts/touch_ui.gd")
+	_check(picture_source.contains("style_picture_button")
+		and wardrobe_source.contains("style_picture_button")
+		and kart_source.contains("style_picture_button"),
+		"former flat picture choices share physical button states")
+	_check(kart_source.contains("KartPaintChoice_"),
+		"kart garage exposes direct ride and paint choices")
+	_check(not pause_source.contains("PauseTouchModeButton")
+		and not pause_source.contains("REEF"),
+		"Pause removes the obsolete touch choice and Reef destination")
+	_check(touch_source.contains("_stick_hint.visible = false")
+		and not touch_source.contains("_stick_hint.visible = wants_touch()"),
+		"point-to-interact keeps the movement pad renderer hidden")
+	var player_copy: String = ""
+	for ui_path: String in [
+		"res://scripts/collection_system.gd",
+		"res://scripts/companion.gd",
+		"res://scripts/games/dance_engine.gd",
+		"res://scripts/games/shop.gd",
+		"res://scripts/main.gd",
+		"res://scripts/opera_house.gd",
+		"res://scripts/opera_competition.gd",
+		"res://scripts/pause_menu.gd",
+		"res://scripts/wardrobe_ui.gd",
+	]:
+		player_copy += FileAccess.get_file_as_string(ui_path)
+	for retired_copy: String in [
+		"Back to the reef", "Reef Celebration", "Reef Garden",
+		"REEF BAKE-OFF", "Queen of the Reef", "Caribbean reef",
+	]:
+		_check(not player_copy.contains(retired_copy),
+			"retired player-facing Reef copy stays absent: %s" % retired_copy)
 	var companion_source: String = FileAccess.get_file_as_string("res://scripts/companion.gd")
 	_check(not companion_source.contains("companion_hud_btn")
 		and not companion_source.contains("func open_menu()"),
@@ -79,17 +140,38 @@ func _init() -> void:
 	_check(skip != null and float(skip.get_meta("hold_seconds", 0.0)) >= 1.2, "intro skip requires a deliberate hold")
 	var intro_pips: Array = main.intro_layer.get_meta("page_pips", [])
 	_check(intro_pips.size() == 4, "intro has four non-reading page pips")
+	_check(_find(main.intro_layer, "IntroShellCrest") != null,
+		"picture intro uses the recovered shell crest")
 	main._skip_intro()
 	await process_frame
 
+	# The gameplay canvas stays action-first: saved totals remain available to
+	# systems, but persistent report-card text is not rendered over the world.
+	var status_tray := _find(main.hud_layer, "HudStatusTray") as Control
+	var objective_sentence := _find(main.hud_layer, "HudPictureObjective") as Control
+	_check(status_tray != null and not status_tray.visible
+		and not main.hud_pearls.visible and not main.hud_stars.visible,
+		"free roam hides irrelevant persistent totals")
+	_check(objective_sentence != null and not objective_sentence.visible,
+		"free roam hides the legacy sentence objective")
+
 	# Pause: raised above overlays only while open; resume dominates the icon grid.
 	_check_target(main.pause_layer, "PauseCornerButton", "pause corner owns a 128px envelope", Vector2(128, 128))
+	_check(_find(main.pause_layer, "PauseCornerShell") != null,
+		"pause control uses the recovered shell crest")
 	main.toggle_pause()
 	_check(main.pause_layer.layer == 29 and main.get_tree().paused, "pause sheet rises above active overlays")
 	_check_target(main.pause_panel, "PauseResumeButton", "resume is the dominant 300x140 action", Vector2(300, 140))
 	_check_target(main.pause_panel, "PauseStickerButton", "sticker tile is thumb-sized")
 	_check_target(main.pause_panel, "PauseMusicButton", "music toggle is thumb-sized")
 	_check_target(main.pause_panel, "PauseQualityButton", "quality toggle is thumb-sized")
+	_check(_find(main.pause_panel, "PauseShellCrest") != null,
+		"pause sheet carries shell-and-pearl adornment")
+	_check(_find(main.pause_panel, "PauseTouchModeButton") == null,
+		"pause sheet has no movement-mode decision")
+	var touch_pad := _find(main.touch_ui, "TouchShellPad") as Control
+	_check(touch_pad != null and not touch_pad.visible,
+		"movement pad stays off-screen in point-to-interact play")
 	var leave := _find(main.pause_panel, "PauseLeaveButton") as Button
 	_check(leave != null and bool(leave.get_meta("neutral_exit", false)), "activity exit uses neutral-back semantics")
 	main.toggle_pause()
@@ -102,6 +184,8 @@ func _init() -> void:
 	_check_target(main.craft_layer, "CraftFinishButton", "craft finish is a 150px-class primary action", Vector2(150, 150))
 	_check(_count_named(main.craft_layer, "CraftPart_*") == 3, "craft exposes three picture part selectors")
 	_check(_count_named(main.craft_layer, "CraftSwatch_*") == 8 and _count_named(main.craft_layer, "CraftRainbowSwatch") == 1, "craft shows one nine-choice palette row")
+	_check(_find(main.craft_layer, "CraftShellCrest") != null,
+		"craft studio carries the shared shell crest")
 	for node: Node in main.craft_layer.find_children("CraftSwatch_*", "", true, false):
 		_check(_touch_size(node as Control).x >= 110.0 and _touch_size(node as Control).y >= 110.0, "craft swatch is at least 110x110")
 	main._close_craft()
@@ -112,18 +196,26 @@ func _init() -> void:
 	await process_frame
 	_check_target(main.wardrobe_layer, "WardrobeBackButton", "wardrobe back is thumb-sized")
 	_check_target(main.wardrobe_layer, "WardrobeFinishButton", "wardrobe finish is thumb-sized")
+	_check(_find(main.wardrobe_layer, "WardrobeShellCrest") != null,
+		"wardrobe carries the shared shell-and-pearl frame")
+	_check(_count_named(main.wardrobe_layer, "WardrobeLookPreview_*") == 3,
+		"wardrobe choices are backed by three existing character previews")
 	main._close_wardrobe()
 	main._open_stickers()
 	await process_frame
 	_check_target(main.stickers_layer, "StickerBookBackButton", "sticker book back is thumb-sized")
+	_check(_find(main.stickers_layer, "StickerBookShellCrest") != null,
+		"sticker book carries the shared shell crest")
 	main._close_stickers()
 	main._collection_ref().open_book()
 	await process_frame
 	_check_target(main.collection_layer, "CritterBookBackButton", "critter book back is thumb-sized")
+	_check(_find(main.collection_layer, "CritterBookShellCrest") != null,
+		"critter book carries the shared shell crest")
 	main._collection_ref().close_book()
 
 	# Stuffie paint uses the same one-active-part grammar and 110px swatches.
-	main._companion_ref().open_picker(false)
+	main._companion_ref().open_picker(false, "mewsha")
 	await process_frame
 	_check_target(main.companion_layer, "StuffiePickerBackButton", "stuffie picker back is thumb-sized")
 	_check(_count_named(main.companion_layer, "StuffiePart_*") == 3, "stuffie picker has three picture part selectors")
@@ -148,10 +240,14 @@ func _init() -> void:
 		and critter_button.global_position.x + critter_button.size.x < pause_button.global_position.x,
 		"Stuffie, Critter Book, and Pause keep separate upper-hand hit areas")
 	_check(_count_named(main, "StuffieCareMenuButton") == 1, "exactly one Stuffie care launcher exists")
+	_check(_find(main.hud_layer, "StuffieWatchShell") != null,
+		"Stuffie watch keeps its inset shell treatment")
 	main._companion_ref().open_care_menu()
 	await process_frame
 	_check_target(main.companion_care_layer, "StuffieCareBackButton", "Tamagotchi sheet has a neutral thumb-sized back")
 	_check_target(main.companion_care_layer, "StuffieSwitchButton", "Tamagotchi sheet has a thumb-sized friend switch")
+	_check(_find(main.companion_care_layer, "StuffieCareShellCrest") != null,
+		"Tamagotchi sheet carries the shared shell-and-pearl treatment")
 	_check(_find(main.companion_care_layer, "StuffieHeartProgress") != null, "Tamagotchi sheet shows hearts toward the next growth star")
 	_check(_count_named(main.companion_care_layer, "StuffieCareAction_*") == 5, "Tamagotchi sheet exposes five picture care actions")
 	for node: Node in main.companion_care_layer.find_children("StuffieCareAction_*", "", true, false):
@@ -163,6 +259,9 @@ func _init() -> void:
 	await process_frame
 	var picture_back := _check_target(main.mg2d_layer, "PictureGameBackButton", "picture-game back is thumb-sized")
 	_check(picture_back != null and bool(picture_back.get_meta("neutral_exit", false)), "picture-game exit is neutral")
+	_check(_find(main.mg2d_layer, "PictureGameStorybookHeader") != null
+		and _find(main.mg2d_layer, "PictureGameShellCrest") != null,
+		"picture games carry the shared Storybook shell header")
 	main._mg2d_close()
 
 	print("UI_SYSTEM|RESULT|", "FAIL" if failed else "ALL OK")

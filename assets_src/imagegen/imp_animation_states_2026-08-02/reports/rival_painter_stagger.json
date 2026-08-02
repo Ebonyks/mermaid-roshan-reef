@@ -1,0 +1,67 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "stagger",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    45,
+    19,
+    439,
+    503
+  ],
+  "visible_bbox": [
+    45,
+    19,
+    439,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 45,
+    "right": 72,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 23,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 91708,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    484,
+    21,
+    7,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.507694,
+  "solid_centroid_x": 255.364,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_painter_stagger_sheet_c_attempt01_alpha_crop_native.png",
+  "input_sha256": "46e1a0e1e7cf34d30e73180c356ae31155c519907e1ad9d83c5398df02718292",
+  "output": "assets\\opera\\worlds\\actors\\rival_painter_stagger.png",
+  "output_sha256": "63f624da9e6fde3f09c507af857d88b1cad9489e0931e99d6f4bbfed58226a2d",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_painter.png",
+  "idle_sha256": "3db2b23c3e1e2e0f4fcddd0864a11fd8cf41c9ab4d1d000d6f46796096f5277a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_stagger\\rival_painter_stagger_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_stagger\\rival_painter_stagger_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_stagger\\rival_painter_stagger_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_stagger\\rival_painter_stagger_idle_comparison.png"
+  }
+}

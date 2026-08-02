@@ -1,0 +1,180 @@
+{
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_sheet_b_attempt01_alpha_native.png",
+  "input_sha256": "b7143394076bcc23aa4838246c5d3644c1bae696edd854d76209bf23878bfaf2",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "alpha_threshold": 16,
+  "minimum_area": 5000,
+  "columns": 3,
+  "row_counts": [
+    3,
+    3,
+    1
+  ],
+  "method": "8-connected visible-alpha components; fixed horizontal row bands then x-centroid order; lossless crop and component-isolation matte only",
+  "records": [
+    {
+      "name": "rival_chef_stagger",
+      "component_area": 57394,
+      "component_bbox_in_sheet": [
+        59,
+        31,
+        398,
+        406
+      ],
+      "component_centroid_in_sheet": [
+        227.76448757709866,
+        201.90450221277484
+      ],
+      "crop_bbox": [
+        51,
+        23,
+        406,
+        414
+      ],
+      "isolation": "selected connected component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_stagger_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "d96928df19cc266842c820a3a89a4ffc8781e0b945d3b3b6ddb8a27438b3107a"
+    },
+    {
+      "name": "rival_chef_flee",
+      "component_area": 47130,
+      "component_bbox_in_sheet": [
+        456,
+        24,
+        766,
+        383
+      ],
+      "component_centroid_in_sheet": [
+        621.6436876723955,
+        192.9806492679822
+      ],
+      "crop_bbox": [
+        448,
+        16,
+        774,
+        391
+      ],
+      "isolation": "selected connected component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_flee_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "562d3c6ec6139fe8bfbc7d0d06cdaf96cdbf20e5a9d1cca537e2c5f35505178e"
+    },
+    {
+      "name": "rival_chef_bopped",
+      "component_area": 55482,
+      "component_bbox_in_sheet": [
+        825,
+        59,
+        1170,
+        373
+      ],
+      "component_centroid_in_sheet": [
+        1002.2149165495116,
+        212.97085541256624
+      ],
+      "crop_bbox": [
+        817,
+        51,
+        1178,
+        381
+      ],
+      "isolation": "selected connected component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_bopped_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "a1a5e6292d9d21d1a4fdbfad9c1b0454e06b497254111fbac3e4d856042ccb42"
+    },
+    {
+      "name": "rival_chef_bow",
+      "component_area": 50782,
+      "component_bbox_in_sheet": [
+        61,
+        477,
+        402,
+        787
+      ],
+      "component_centroid_in_sheet": [
+        204.44503958095387,
+        617.7197235240833
+      ],
+      "crop_bbox": [
+        53,
+        469,
+        410,
+        795
+      ],
+      "isolation": "selected connected component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_bow_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "50a159cf9f374d464c7e5d5e37568a507d841f284c95b99f70a3027c4fc0900e"
+    },
+    {
+      "name": "rival_chef_hop_a",
+      "component_area": 42403,
+      "component_bbox_in_sheet": [
+        449,
+        530,
+        763,
+        788
+      ],
+      "component_centroid_in_sheet": [
+        579.8594203240336,
+        649.8234794707921
+      ],
+      "crop_bbox": [
+        441,
+        522,
+        771,
+        796
+      ],
+      "isolation": "selected connected component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_hop_a_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "cd9a13f7833a4445c59de18bc166735a3ea22700053230968559c6052a7e2454"
+    },
+    {
+      "name": "rival_chef_hop_b",
+      "component_area": 50405,
+      "component_bbox_in_sheet": [
+        832,
+        410,
+        1118,
+        755
+      ],
+      "component_centroid_in_sheet": [
+        968.1153258605298,
+        584.7107628211487
+      ],
+      "crop_bbox": [
+        824,
+        402,
+        1126,
+        763
+      ],
+      "isolation": "selected connected component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "0408e33a27b54a44fa1eab1c753fe30d5a014b0eb60528599fb82310ae0f06bd"
+    },
+    {
+      "name": "rival_chef_taunt",
+      "component_area": 48346,
+      "component_bbox_in_sheet": [
+        74,
+        820,
+        337,
+        1202
+      ],
+      "component_centroid_in_sheet": [
+        208.7312083729781,
+        1004.6887022711289
+      ],
+      "crop_bbox": [
+        66,
+        812,
+        345,
+        1210
+      ],
+      "isolation": "selected connected component plus 3px antialias support; neighboring components cleared",
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_taunt_sheet_b_attempt01_alpha_crop_native.png",
+      "output_sha256": "168edf2cb24a7222d55b7a67ed9dddf2abd98e898b954c57f5a85a59990f021f"
+    }
+  ]
+}

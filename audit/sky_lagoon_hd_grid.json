@@ -1,0 +1,264 @@
+{
+  "source": {
+    "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v2_3x1.png",
+    "size": [
+      2172,
+      724
+    ],
+    "ratio": 3.0,
+    "sha256": "7b9e09243311d0bcb9960f3898d13fc5873537f92568397e1b951676f223c0af"
+  },
+  "master": {
+    "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "size": [
+      6144,
+      2048
+    ],
+    "ratio": 3.0,
+    "ratio_delta": 0.0,
+    "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "downsampled_mean_absolute_delta": 0.1127113810465563
+  },
+  "grid": {
+    "columns": 6,
+    "rows": 2,
+    "tile_size": [
+      1024,
+      1024
+    ]
+  },
+  "tiles": [
+    {
+      "row": 0,
+      "column": 0,
+      "rect": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb"
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "rect": [
+        1024,
+        0,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d"
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "rect": [
+        2048,
+        0,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850"
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "rect": [
+        3072,
+        0,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959"
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "rect": [
+        4096,
+        0,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac"
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "rect": [
+        5120,
+        0,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c"
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "rect": [
+        0,
+        1024,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a"
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "rect": [
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400"
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "rect": [
+        2048,
+        1024,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28"
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "rect": [
+        3072,
+        1024,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7"
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "rect": [
+        4096,
+        1024,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4"
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "rect": [
+        5120,
+        1024,
+        1024,
+        1024
+      ],
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21"
+    }
+  ],
+  "seams": [
+    {
+      "axis": "vertical",
+      "pixel": 1024,
+      "jump": 0.007126991421568627,
+      "near_jump": 0.007239008884803922,
+      "ratio": 0.9845258563682052,
+      "pass": true
+    },
+    {
+      "axis": "vertical",
+      "pixel": 2048,
+      "jump": 0.013320184844771241,
+      "near_jump": 0.013399650224673203,
+      "ratio": 0.9940695929692523,
+      "pass": true
+    },
+    {
+      "axis": "vertical",
+      "pixel": 3072,
+      "jump": 0.010017105800653596,
+      "near_jump": 0.009945938010620915,
+      "ratio": 1.0071554628589765,
+      "pass": true
+    },
+    {
+      "axis": "vertical",
+      "pixel": 4096,
+      "jump": 0.018557240604575163,
+      "near_jump": 0.018052683312908498,
+      "ratio": 1.0279491576360775,
+      "pass": true
+    },
+    {
+      "axis": "vertical",
+      "pixel": 5120,
+      "jump": 0.017071972017973856,
+      "near_jump": 0.017156224468954248,
+      "ratio": 0.9950891030172253,
+      "pass": true
+    },
+    {
+      "axis": "horizontal",
+      "pixel": 1024,
+      "jump": 0.020562065972222224,
+      "near_jump": 0.02115725847630719,
+      "ratio": 0.9718681650199865,
+      "pass": true
+    }
+  ],
+  "all_seams_pass": true,
+  "seam_capture": "audit/sky_lagoon_hd_seam_capture.jpg"
+}

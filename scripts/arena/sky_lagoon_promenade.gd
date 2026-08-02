@@ -4,14 +4,22 @@ extends RefCounted
 # transparent Codex sprites do the visual work; the real Roshan rig walks in
 # one shallow band in front of them. All mutable state remains on ReefMain.
 
+const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const OPAQUE_STORYBOOK_CUTOUT_SHADER := preload(
+	"res://assets/shaders/opaque_storybook_cutout.gdshader")
 const HALF_W := 72.0
 const HALF_D := 2.6
-const BACKDROP_TILE_SIZE := Vector2(48.0, 48.0)
+const BACKDROP_TILE_SIZE := Vector2(24.0, 24.0)
+const BACKDROP_COLUMNS := 6
+const BACKDROP_ROWS := 2
 const BACKDROP_Z := -18.0
-const FRAME_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_activity_frame_v2.png"
-# THE PAINTING IS THE SCREEN. The three lossless tiles reconstruct one 144x48
-# world-unit mural, and the lens is sized so the frame lands INSIDE it: the
-# camera sits far enough back that the frustum is ~45 units tall where it
+const CONTACT_SHADOW_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png"
+const SMOKE_WISP_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
+# THE PAINTING IS THE SCREEN. The 6x2 lossless Sprite3D grid reconstructs one
+# native 6144x2048, 144x48-world-unit mural. Each 1024px square is a separate
+# unshaded depth card, retaining the higher detail generated per square.
+# The lens is sized so the frame lands INSIDE it: the camera sits far enough
+# back that the frustum is ~45 units tall where it
 # crosses the mural (1.6 units of painted margin top and bottom) and pans only
 # as far as SideScrollStage.screen_pan_limit allows. Nothing outside the
 # painting can enter frame, so no environment sky is ever visible.
@@ -30,29 +38,228 @@ const BAND_H := 10.0
 # a press has to be held this long on open ground before it becomes follow-the-
 # finger travel; below it the press still belongs to the tap router
 const HOLD_TRAVEL_S := 0.20
-# ANCHOR THE SET TO THE PAINTING (owner report 2026-07-27). A standee standing
-# 12 units in FRONT of the mural parallaxes ~24% faster than the art it stands
-# on, so panning the lens slid the whole playground across the painted lawn -
-# nothing looked nailed down - and the castle-gate tap target drifted 237 px
-# away from the painted door, which is why tapping the door never entered the
-# castle. Every world card now shares the mural's depth: still its own sprite,
-# still tappable, still animated, but welded to the scene it belongs to and
-# with its tap target exactly on the art it represents. Screen sizes and the
-# ground line are unchanged - each height and y was rescaled by the depth
-# ratio (47 - z_new) / (47 - z_old). Roshan's band is ~18 units in front, so
-# she still passes in front of all of it, exactly as she did at z -5.
-# The small spread keeps the cards sorting against each other; 0.4 units of
-# separation is under 1% of parallax, far below anything the eye reads.
-const DRESS_Z := -17.90      # ambient firs, furthest of the anchored cards
-const CLOUD_Z := -17.95      # sky, behind the treetops
-const LANDMARK_Z := -17.85   # pearl plane, castle gate
-const PLAY_Z := -17.80       # playground standees
-const FRAME_Z := -17.75      # activity frames
-const NEAR_Z := -17.70       # flowering shrubs, nearest of the anchored cards
-# the activity frames stand on the lawn like easels (they used to hang at
-# y 14.5, which put them in the painted sky above the treeline)
-const FRAME_STAND_Y := 4.4
-const PLAY_ROSHAN_H := 10.2
+# REAL STORYBOOK DEPTH. The clean v5 plate has the extracted props removed,
+# so every restored card can occupy an intentional plane without doubling a
+# painted copy. Heights and y positions are perspective-compensated for these
+# depths, preserving the approved 720p composition while allowing restrained
+# parallax and correct player occlusion.
+const CLOUD_Z := -16.0       # drifting sky card
+const LANDMARK_Z := -11.0    # pearl plane and castle facade
+const DRESS_Z := -9.0        # rear PNW foliage
+const PLAY_Z := -6.0         # playground standees
+const NEAR_Z := -1.5         # near PNW foliage, inside the walk-depth band
+const SMOKE_Z := -10.5       # clears the castle cutout's transparent depth card
+# Landmarks retain restrained physical parallax. Playground equipment and
+# smoke origins are exact mural sockets: they remain Sprite3D cards at real
+# depth for occlusion, but compensate the entire camera-depth offset so they
+# cannot slide loose from the painted lawn/roof as Roshan crosses the stage.
+const DEFAULT_MURAL_SOCKET_LOCK := 0.65
+const GROUND_SOCKET_LOCK := 1.0
+const CLOUD_DRIFT_MIN_X := -10.0
+const CLOUD_DRIFT_MAX_X := 10.0
+const WIND_DIRECTION := 1.0
+const WIND_GUST_PERIOD_S := 24.0
+const WIND_GUST_RISE_AT_S := 16.0
+const WIND_GUST_PEAK_AT_S := 18.0
+const WIND_GUST_FALL_AT_S := 21.0
+# Three cabin roof/flue origins measured on the native 6144x2048 mural at
+# master pixels (4798,419), (4591,581), and (4806,669), then
+# perspective-compensated from BACKDROP_Z to SMOKE_Z at the approved
+# screen-three framing. The middle cabin intentionally keeps the roof
+# representation already baked into the approved mural; no chimney sticker is
+# added. Each receives one staggered thin-wisp card, preserving the former
+# three-card smoke budget while bringing every cabin to life.
+const CABIN_SMOKE_ANCHORS := [
+	Vector3(41.323918, 22.043570, SMOKE_Z),
+	Vector3(37.032151, 18.684796, SMOKE_Z),
+	Vector3(41.489784, 16.860276, SMOKE_Z),
+]
+const SMOKE_CARD_HEIGHT := 2.2
+const SMOKE_LIFETIME_S := 6.0
+const ANIMAL_ATLAS_COLUMNS := 2
+const ANIMAL_ATLAS_ROWS := 2
+const ANIMAL_STARTLE_ALERT_S := 0.24
+const ANIMAL_STARTLE_SQUASH_S := 0.18
+const ANIMAL_STARTLE_HOP_S := 0.24
+const ANIMAL_PAGE_SPAWN_S := 0.70
+const ANIMAL_RESPAWN_S := 5.5
+const ANIMAL_TOUCH_RADIUS_PX := 114.0
+const ANIMAL_EXIT_PAD_PX := 96.0
+const ANIMAL_ROUTE_CLEARANCE := 3.2
+# One pooled animal card is intentional. It keeps the five-species roster in
+# the game without adding ten permanently visible transparent cards to the
+# Speedy scene. Each camera page owns an ecological roster; tapping an animal
+# advances that page to its next species after the animal exits.
+const ANIMAL_PAGE_CENTERS := [-48.0, 0.0, 48.0]
+const ANIMAL_EXCLUSION_RECTS: Array[Dictionary] = [
+	{"id": "screen_1_2_seam", "rect": Rect2(-27.0, -2.0, 6.0, 10.0)},
+	{"id": "screen_2_3_seam", "rect": Rect2(21.0, -2.0, 6.0, 10.0)},
+	{"id": "slide", "rect": Rect2(-17.0, -1.0, 11.0, 14.0)},
+	{"id": "swing", "rect": Rect2(-3.0, -1.0, 12.0, 14.5)},
+	{"id": "seesaw", "rect": Rect2(11.0, -1.5, 12.0, 7.0)},
+	{"id": "drawbridge_and_door", "rect": Rect2(40.0, -2.0, 18.0, 10.0)},
+]
+const ANIMAL_DEFS: Array[Dictionary] = [
+	{
+		"id": "otter",
+		"page": 0,
+		"habitat": "arrival_shore",
+		"idle": "res://assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+		"startle": "res://assets/sprites/sky_lagoon/animals/otter_startle_atlas.png",
+		"path": [
+			Vector3(-62.0, 3.55, -5.8),
+			Vector3(-60.0, 3.82, -5.8),
+			Vector3(-57.8, 3.58, -5.8),
+		],
+		"height": 2.6,
+		"speed": 0.52,
+		"exit_speed": 12.0,
+		"frame_s": 0.26,
+		"dwell_s": 1.4,
+		"bob": 0.045,
+		"locomotion": "waddle",
+		"safe_exit": -1.0,
+		"requires_plane_departed": true,
+		"day_tint": Color(0.92, 1.00, 1.08, 1.0),
+		"night_tint": Color(0.67, 0.79, 1.02, 1.0),
+		"shadow_day": Color(0.38, 0.58, 0.70, 0.34),
+		"shadow_night": Color(0.24, 0.36, 0.58, 0.30),
+	},
+	{
+		"id": "frog",
+		"page": 0,
+		"habitat": "arrival_shore",
+		"idle": "res://assets/sprites/sky_lagoon/animals/frog_idle_atlas.png",
+		"startle": "res://assets/sprites/sky_lagoon/animals/frog_startle_atlas.png",
+		"path": [
+			Vector3(-61.7, 3.25, -6.1),
+			Vector3(-59.8, 3.48, -6.1),
+			Vector3(-58.0, 3.30, -6.1),
+		],
+		"height": 1.65,
+		"speed": 0.72,
+		"exit_speed": 10.5,
+		"frame_s": 0.30,
+		"dwell_s": 1.7,
+		"bob": 0.18,
+		"locomotion": "hop",
+		"safe_exit": -1.0,
+		"requires_plane_departed": true,
+		"day_tint": Color(0.96, 1.06, 1.02, 1.0),
+		"night_tint": Color(0.69, 0.86, 0.98, 1.0),
+		"shadow_day": Color(0.34, 0.55, 0.66, 0.30),
+		"shadow_night": Color(0.22, 0.34, 0.56, 0.28),
+	},
+	{
+		"id": "hare",
+		"page": 1,
+		"habitat": "west_meadow_edge",
+		"idle": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+		"startle": "res://assets/sprites/sky_lagoon/animals/hare_startle_atlas.png",
+		"path": [
+			Vector3(-20.7, 3.42, -4.8),
+			Vector3(-18.9, 3.72, -4.8),
+			Vector3(-17.2, 3.50, -4.8),
+		],
+		"height": 3.1,
+		"speed": 0.66,
+		"exit_speed": 13.5,
+		"frame_s": 0.28,
+		"dwell_s": 1.6,
+		"bob": 0.12,
+		"locomotion": "hop",
+		"safe_exit": -1.0,
+		"day_tint": Color(0.95, 0.99, 1.03, 1.0),
+		"night_tint": Color(0.68, 0.77, 0.99, 1.0),
+		"shadow_day": Color(0.29, 0.34, 0.42, 0.36),
+		"shadow_night": Color(0.20, 0.25, 0.46, 0.30),
+	},
+	{
+		"id": "squirrel",
+		"page": 1,
+		"habitat": "west_meadow_edge",
+		"idle": "res://assets/sprites/sky_lagoon/animals/squirrel_idle_atlas.png",
+		"startle": "res://assets/sprites/sky_lagoon/animals/squirrel_startle_atlas.png",
+		"path": [
+			Vector3(-20.7, 4.38, -7.2),
+			Vector3(-18.9, 4.70, -7.2),
+			Vector3(-17.2, 4.45, -7.2),
+		],
+		"height": 2.9,
+		"speed": 0.82,
+		"exit_speed": 14.5,
+		"frame_s": 0.22,
+		"dwell_s": 1.25,
+		"bob": 0.055,
+		"locomotion": "scamper",
+		"safe_exit": -1.0,
+		"day_tint": Color(0.84, 0.97, 1.05, 1.0),
+		"night_tint": Color(0.60, 0.74, 0.96, 1.0),
+		"shadow_day": Color(0.27, 0.34, 0.40, 0.34),
+		"shadow_night": Color(0.19, 0.24, 0.44, 0.29),
+	},
+	{
+		"id": "raccoon",
+		"page": 2,
+		"habitat": "castle_shrub_edge",
+		"idle": "res://assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
+		"startle": "res://assets/sprites/sky_lagoon/animals/raccoon_startle_atlas.png",
+		"path": [
+			Vector3(29.0, 4.15, -7.0),
+			Vector3(31.4, 4.55, -7.0),
+			Vector3(34.0, 4.28, -7.0),
+		],
+		"height": 3.0,
+		"speed": 0.58,
+		"exit_speed": 13.0,
+		"frame_s": 0.29,
+		"dwell_s": 1.8,
+		"bob": 0.035,
+		"locomotion": "amble",
+		"safe_exit": -1.0,
+		"day_tint": Color(1.06, 1.08, 1.12, 1.0),
+		"night_tint": Color(0.76, 0.84, 1.04, 1.0),
+		"shadow_day": Color(0.27, 0.32, 0.40, 0.37),
+		"shadow_night": Color(0.19, 0.24, 0.45, 0.31),
+	},
+]
+const NIGHT_WORLD_TINT := Color(0.72, 0.78, 0.96, 1.0)
+const NIGHT_BACKDROP_TINT := Color(0.48, 0.56, 0.82, 1.0)
+const PLANE_DEPARTURE_S := 7.0
+const SLIDE_H := 11.4
+const SWING_H := 10.8
+const SEESAW_H := 4.5
+const SLIDE_ANIM_SCALE := SLIDE_H / 19.1
+const SEESAW_ANIM_SCALE := SEESAW_H / 11.35
+const PLAY_ROSHAN_H := 8.34
+const SWING_FRAME_TEX := "res://assets/props/story/play_swing_frame.png"
+const SWING_SEAT_TEX := "res://assets/props/story/play_swing_seat.png"
+const SWING_ARM_H := 7.55
+const SWING_SEAT_W := 4.6
+const SWING_GRIP_ARM := 5.05
+const SWING_SEAT_CONTACT_ANCHOR := Vector2(200.0, 360.0)
+const SWING_PERIOD_S := 1.72
+const SWING_MAX_ANGLE := 0.20
+const OPAQUE_CUTOUT_ALPHA_THRESHOLD := 0.24
+# The generated play frames do not share a consistent transparent-canvas
+# origin. Anchor the visible action point instead of the 512x512 canvas centre,
+# or Roshan jumps several world units between poses.
+const SWING_HAND_ANCHORS := [
+	Vector2(264.5, 204.5),
+	Vector2(168.0, 205.0),
+	Vector2(322.5, 186.0),
+	Vector2(186.0, 184.5),
+]
+const SEESAW_SEAT_ANCHORS := [
+	Vector2(300.0, 420.0),
+	Vector2(225.0, 400.0),
+	Vector2(270.0, 340.0),
+	Vector2(220.0, 360.0),
+]
+# The seesaw pose faces left, so Roshan belongs on the right shell seat facing
+# its inward hoop. Placing this pose on the left seat put her below and outside
+# the beam.
+const SEESAW_RIGHT_SEAT_SOCKET := Vector2(3.84, 0.16)
 const PLAY_FRAME_PATHS := {
 	"swing": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
@@ -98,6 +305,9 @@ const ROUTE_PAINTED := [
 const CASTLE_DOOR_X := 52.5      # painted x of the door, shared with the gate card
 const DOORSTEP_R := 1.5          # how close counts as arriving at the door
 const DOORSTEP_REARM := 8.0      # walk this far back before it can fire again
+const CASTLE_CARD_SIZE := Vector2(1022.0, 1024.0)
+const CASTLE_DOOR_FOCUS_BOUNDS := Rect2(
+	Vector2(410.0, 557.0), Vector2(199.0, 228.0))
 # Roshan's card hangs 1.0 above her node and stands 7.8 tall, so her feet are
 # 2.9 below the node: the offset that turns a painted ground height into hover.
 const FOOT_OFFSET := 2.9
@@ -136,8 +346,12 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"look_h": CAM_H,
 		"cam_fov": CAM_FOV,
 		"cam_follow": 1.0,
+		# Keep the optical axis perpendicular to the mural while camera
+		# position eases. A yawing lens makes different Sprite3D depths skate
+		# against their painted sockets and visibly rebounds at the edge clamp.
+		"side_on_axis_lock": true,
 		# the mural the lens may never pan off
-		"screen_half_w": BACKDROP_TILE_SIZE.x * 1.5,
+		"screen_half_w": BACKDROP_TILE_SIZE.x * float(BACKDROP_COLUMNS) * 0.5,
 		"screen_z": BACKDROP_Z,
 		# taps belong to the interaction director below, not to raw travel
 		"touch_travel": false,
@@ -145,15 +359,20 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		"keep_on_screen": true,
 		"edge_margin": 5.0,
 	})
-	# Three native-resolution, lossless tiles reconstruct the exact 2172x724
-	# master at one depth. Their edges meet without overlap or rescaling.
-	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_0.png", -48.0)
-	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_1.png", 0.0)
-	_add_backdrop(
-		"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_tile_2.png", 48.0)
+	# Twelve native 1024px squares reconstruct the exact 6144x2048, 3:1
+	# master at one depth. They meet without runtime overlap or rescaling.
+	for row: int in range(BACKDROP_ROWS):
+		for column: int in range(BACKDROP_COLUMNS):
+			_add_backdrop(
+				"res://assets/flats/sky_lagoon/main/"
+				+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png"
+				% [row, column],
+				-60.0 + float(column) * BACKDROP_TILE_SIZE.x,
+				21.5 - float(row) * BACKDROP_TILE_SIZE.y,
+				row,
+				column)
 	_build_ambient_life()
+	_build_animals()
 	_build_runway_screen()
 	_build_playground_screen()
 	_build_castle_screen()
@@ -165,10 +384,13 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	if from_castle or from_north:
 		spawn_at = 34.0                       # painted: the way in front of the castle
 	_set_spawn(_walk_x(spawn_at))
+	_sync_target_mural_anchors()
 	if from_castle:
-		m.show_msg("Roshan", "Back outside! Tap a picture frame once to light it up, then tap it again to play.")
+		m.show_msg("Roshan", "Back outside! Tap a playground toy or the castle door once to light it up, then tap it again to play.")
+	elif m.g.get("lagoon_plane_card") is Sprite3D:
+		m.show_msg("Roshan", "Our pearl plane landed! Tap the plane or a playground toy to explore.", "intro")
 	else:
-		m.show_msg("Roshan", "Our pearl plane landed! Tap the plane or a picture frame to explore.", "intro")
+		m.show_msg("Roshan", "The Sky Lagoon is ready! Tap a playground toy once to light it up, then tap it again to play.", "intro")
 
 func tick(delta: float) -> void:
 	if m.mg_kind != "":
@@ -177,14 +399,21 @@ func tick(delta: float) -> void:
 	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
 		m.g["ss_walk_goal"] = null
 		stage.walk_tick(delta)
+		_sync_target_mural_anchors()
 		_tick_playground_animation(delta)
 		_tick_ambient_life(delta)
+		_tick_animals(delta)
 		return
 	_tick_hold_travel(delta)
+	if _handle_action():
+		return
 	var old_x: float = m.player.position.x
-	stage.walk_tick(delta)
-	_sync_roshan_card(m.player.position.x - old_x)
+	var walk_result: Dictionary = stage.walk_tick(delta)
+	_sync_target_mural_anchors()
+	_sync_roshan_card(
+		m.player.position.x - old_x, bool(walk_result.get("moved", false)))
 	_tick_ambient_life(delta)
+	_tick_animals(delta)
 	_tick_doorstep()
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
 	var focus_t: float = float(m.g.get("lagoon_promenade_focus_t", 0.0)) + delta
@@ -197,15 +426,47 @@ func tick(delta: float) -> void:
 		var selected: bool = String(target.get("id", "")) == focus_id
 		glow.visible = selected
 		if selected:
-			var pulse: float = 1.08 + sin(focus_t * 5.2) * 0.035
-			glow.scale = Vector3.ONE * pulse
+			if String(target.get("id", "")) == "castle_gate":
+				# The door itself breathes brighter in place. Scaling the full
+				# castle made a loose gold ghost around every tower and window.
+				glow.scale = Vector3.ONE
+				glow.modulate.a = 0.58 + sin(focus_t * 5.2) * 0.12
+			else:
+				var pulse: float = 1.08 + sin(focus_t * 5.2) * 0.035
+				glow.scale = Vector3.ONE * pulse
+
+func action_label() -> String:
+	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
+	if focus_id == "":
+		return "JUMP"
+	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == focus_id:
+			return "ENTER" if String(target.get("kind", "")) == "castle" else "PLAY"
+	return "JUMP"
+
+func _handle_action() -> bool:
+	if m.touch_ui == null or not m.touch_ui.consume_action_just():
+		return false
+	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
+	if focus_id != "":
+		for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+			var target: Dictionary = value as Dictionary
+			if String(target.get("id", "")) == focus_id:
+				_activate(target)
+				_clear_focus()
+				return true
+	# No focused toy owns the action, so the medallion performs the hop it
+	# advertises. SideScrollStage consumes this one-frame request below.
+	m.g["ss_walk_jump_request"] = true
+	return false
 
 func _tick_hold_travel(delta: float) -> void:
 	# The touch grammar, kept honest: a TAP belongs to the tap router
 	# (handle_touch, which the touch UI fires on release), a HOLD on open
 	# ground is travel. The engine's own hold-to-travel is switched off for
 	# this stage (cfg touch_travel false) — while it was on, every press was
-	# travel, so pressing a picture frame walked Roshan across the promenade
+	# travel, so pressing an interactive prop walked Roshan across the promenade
 	# on the way to opening it.
 	var vp := m.get_viewport()
 	if vp == null:
@@ -218,12 +479,16 @@ func _tick_hold_travel(delta: float) -> void:
 	if held < HOLD_TRAVEL_S:
 		return
 	var press: Vector2 = vp.get_mouse_position()
-	if not _target_at(press).is_empty():
+	if not _animal_at(press).is_empty() or not _target_at(press).is_empty():
 		return
 	_set_walk_goal(press)
 
 func handle_touch(screen_pos: Vector2) -> bool:
 	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
+		return true
+	var animal: Dictionary = _animal_at(screen_pos)
+	if not animal.is_empty():
+		_startle_animal(animal)
 		return true
 	var target: Dictionary = _target_at(screen_pos)
 	if target.is_empty():
@@ -240,109 +505,583 @@ func handle_touch(screen_pos: Vector2) -> bool:
 	return true
 
 func _build_runway_screen() -> void:
+	if bool(m.save_data.get("lagoon_plane_departed", false)):
+		m.g["lagoon_plane_card"] = null
+		return
 	var plane := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_plane.png",
-		Vector3(-65.0, 5.7, LANDMARK_Z), 13.7)   # the painted dock and water
+		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+		Vector3(-58.0, 5.341, LANDMARK_Z), 10.732)   # fully inside the painted dock
 	m.g["lagoon_plane_card"] = plane
 	m.g["lagoon_plane_base"] = plane.position
 	_register_target("plane", plane, "plane", "", 118.0, 1.12)
 	var targets: Array = m.g.get("lagoon_promenade_targets", [])
 	var plane_target: Dictionary = targets.back() as Dictionary
 	m.g["lagoon_plane_highlight"] = plane_target.get("highlight")
-	_add_activity_frame("runway_frame", Vector3(-34.5, FRAME_STAND_Y, FRAME_Z),
-		"res://assets/book/hall/p_snowman.jpg", "snowman")
 
 func _build_playground_screen() -> void:
-	_add_activity_frame("playground_frame", Vector3(-17.5, FRAME_STAND_Y, FRAME_Z),
-		"res://assets/book/hall/p_garden.jpg", "garden")
-	# the open painted lawn runs from about x -22 to +18
+	# Alpha-silhouette placement, not nominal sprite rectangles: there is
+	# visible grass between all three opaque cutouts at their actual scales.
+	# The single-seat swing and slide are sized against Roshan's 8.34-unit
+	# authored play pose instead of the old compact prop scale.
 	var slide := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_slide.png",
-		Vector3(-9.0, 8.15, PLAY_Z), 19.1)
-	var swing := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_swing.png",
-		Vector3(3.0, 8.15, PLAY_Z), 18.4)
+		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+		Vector3(-11.5, 6.61, PLAY_Z), SLIDE_H)
+	var swing := _build_promenade_swing(Vector3(3.0, 6.30, PLAY_Z))
 	var seesaw := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
-		Vector3(15.0, 4.95, PLAY_Z), 11.35)
-	_register_target("slide", slide, "playground", "slide", 100.0, 1.10)
-	_register_target("swing", swing, "playground", "swing", 100.0, 1.10)
-	_register_target("seesaw", seesaw, "playground", "seesaw", 100.0, 1.12)
+		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+		Vector3(17.0, 1.20, PLAY_Z), SEESAW_H)
+	# These are opaque storybook cutouts, not translucent overlays. Alpha
+	# scissoring keeps their transparent canvas while forcing the painted
+	# equipment into the depth-writing opaque pass (the swing source contains
+	# many soft-alpha interior pixels and otherwise looks ghosted).
+	slide.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	swing.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	seesaw.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	_register_target("slide", slide, "playground", "slide", 118.0, 1.10,
+		GROUND_SOCKET_LOCK)
+	_register_target("swing", swing, "playground", "swing", 122.0, 1.10,
+		GROUND_SOCKET_LOCK)
+	_register_target("seesaw", seesaw, "playground", "seesaw", 112.0, 1.12,
+		GROUND_SOCKET_LOCK)
+
+func _opaque_storybook_cutout(sprite: Sprite3D) -> void:
+	var material := ShaderMaterial.new()
+	material.shader = OPAQUE_STORYBOOK_CUTOUT_SHADER
+	material.set_shader_parameter("albedo_texture", sprite.texture)
+	material.set_shader_parameter("tint", sprite.modulate)
+	material.set_shader_parameter(
+		"alpha_threshold", OPAQUE_CUTOUT_ALPHA_THRESHOLD)
+	sprite.material_override = material
+	sprite.modulate = Color.WHITE
+	sprite.transparency = 0.0
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+
+func _build_promenade_swing(pos: Vector3) -> Sprite3D:
+	# The former swing was one flattened frame/rope/seat card. Roshan could
+	# change poses, but no part of the equipment could follow a pendulum arc.
+	# Reuse the approved separated playground layers so the ropes and seat own
+	# a real top-bar pivot and Roshan can share that exact motion.
+	var frame := _add_sprite(SWING_FRAME_TEX, pos, SWING_H)
+	frame.name = "SkyLagoonPromenadeSwingFrame"
+	_opaque_storybook_cutout(frame)
+
+	var pivot := Node3D.new()
+	pivot.name = "SwingSeatPivot"
+	pivot.position = Vector3(0.0, SWING_H * 0.5, 0.02)
+	frame.add_child(pivot)
+
+	var seat_texture: Texture2D = load(SWING_SEAT_TEX) as Texture2D
+	var seat := Sprite3D.new()
+	seat.name = "SwingSeatAndRopes"
+	seat.texture = seat_texture
+	seat.pixel_size = 1.0
+	seat.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	seat.shaded = false
+	seat.double_sided = true
+	seat.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	seat.modulate = NIGHT_WORLD_TINT if m.is_night else Color.WHITE
+	var seat_y_scale: float = SWING_ARM_H / 860.0
+	var seat_visual_h: float = float(seat_texture.get_height()) * seat_y_scale
+	seat.scale = Vector3(
+		SWING_SEAT_W / float(seat_texture.get_width()), seat_y_scale, 1.0)
+	seat.position = Vector3(0.0, -seat_visual_h * 0.5, 0.03)
+	pivot.add_child(seat)
+	_opaque_storybook_cutout(seat)
+
+	frame.set_meta("swing_seat_pivot", pivot)
+	frame.set_meta("swing_seat_sprite", seat)
+	return frame
+
+func _set_promenade_swing_angle(swing: Node3D, angle: float) -> void:
+	var pivot: Node3D = swing.get_meta("swing_seat_pivot", null) as Node3D
+	if pivot != null and is_instance_valid(pivot):
+		pivot.rotation.z = angle
+
+func _swing_grip_socket(swing: Node3D, angle: float) -> Vector2:
+	var pivot: Node3D = swing.get_meta("swing_seat_pivot", null) as Node3D
+	if pivot == null or not is_instance_valid(pivot):
+		return Vector2(0.0, -SWING_GRIP_ARM).rotated(angle)
+	return Vector2(pivot.position.x, pivot.position.y) \
+		+ Vector2(0.0, -SWING_GRIP_ARM).rotated(angle)
 
 func _build_castle_screen() -> void:
-	_add_activity_frame("castle_frame", Vector3(33.3, FRAME_STAND_Y, FRAME_Z),
-		"res://assets/book/hall/p_trampoline.jpg", "trampoline")
-	# ON the painted door, not merely near it: the entrance is painted at
-	# x 52.5 with its bridge running left to about x 42, and the card is sized
-	# to sit over that entrance so the first tap outlines what the child sees.
-	var gate := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
-		Vector3(CASTLE_DOOR_X, 3.3, LANDMARK_Z), 13.9)
-	# The full castle is painted into the panorama. This aligned card is kept
-	# hidden until focus so the first tap can still outline the entrance
-	# without drawing a second gate over the castle facade.
-	gate.visible = false
-	_register_target("castle_gate", gate, "castle", "", 128.0, 1.08)
+	# The four-tower castle remains one neutral, unshaded depth card. Its world
+	# width, waterline and bridge landing are fitted to the approved fallback.
+	var castle := _add_sprite(
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+		Vector3(51.572852, 11.022284, LANDMARK_Z), 28.430568, false)
+	castle.name = "SkyLagoonCastleFourTower"
+	m.g["lagoon_castle_card"] = castle
+	_register_mural_socket(castle, GROUND_SOCKET_LOCK)
+	var door_center_px: Vector2 = (
+		CASTLE_DOOR_FOCUS_BOUNDS.position
+		+ CASTLE_DOOR_FOCUS_BOUNDS.size * 0.5)
+	var door_position := castle.position + Vector3(
+		(door_center_px.x - CASTLE_CARD_SIZE.x * 0.5) * castle.pixel_size,
+		(CASTLE_CARD_SIZE.y * 0.5 - door_center_px.y) * castle.pixel_size,
+		0.10)
+	var door_anchor := Node3D.new()
+	door_anchor.name = "SkyLagoonCastleDoorFocus"
+	door_anchor.position = door_position
+	stage.root().add_child(door_anchor)
+	m.g["lagoon_castle_door_focus"] = door_anchor
+	_register_target(
+		"castle_gate", door_anchor, "castle", "", 128.0, 1.0,
+		GROUND_SOCKET_LOCK,
+		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+		castle.pixel_size)
 
 func _build_roshan_card() -> void:
 	var card := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+		"res://assets/characters/roshan_25d/roshan_base.png",
 		Vector3(0.0, 4.0, 0.2), 7.8)
 	card.name = "SkyLagoonRoshan"
+	card.set_meta("walking", false)
+	var animator: RoshanSpriteLoop = ROSHAN_SPRITE_LOOP.new()
+	animator.name = "AlwaysAliveSpriteLoop"
+	card.add_child(animator)
+	animator.setup_sprite_3d(card, false, card, 2)
 	m.g["lagoon_roshan_card"] = card
+	m.g["lagoon_roshan_animator"] = animator
 	m.g["lagoon_roshan_idle_texture"] = card.texture
 	m.g["lagoon_roshan_idle_pixel_size"] = card.pixel_size
 	m.player.visible = false
 
-func _sync_roshan_card(delta_x: float = 0.0) -> void:
+func _sync_roshan_card(delta_x: float = 0.0, moving: bool = false) -> void:
 	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
 	var root_node: Node3D = stage.root()
 	if card == null or not is_instance_valid(card) or root_node == null:
 		return
 	var local_player: Vector3 = m.player.position - root_node.position
 	card.position = Vector3(local_player.x, local_player.y + 1.0, local_player.z + 0.2)
-	if absf(delta_x) > 0.01:
+	_sync_contact_shadow(card)
+	var is_moving: bool = moving or absf(delta_x) > 0.01
+	card.set_meta("walking", is_moving)
+	if is_moving:
 		card.flip_h = delta_x < 0.0
+	var animator: RoshanSpriteLoop = m.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
+	if animator != null and is_instance_valid(animator):
+		animator.set_moving(is_moving)
 
 func _build_ambient_life() -> void:
 	m.g["lagoon_ambient_t"] = 0.0
+	m.g["lagoon_wind_gust"] = 1.0
+	m.g["lagoon_wind_distance"] = 0.0
 	m.g["lagoon_ambient_cards"] = []
-	_add_ambient_card("fir",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
-		Vector3(-57.0, 7.7, DRESS_Z), 16.65, 0.0, 0.55, 0.018)
-	_add_ambient_card("fir",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway.png",
-		Vector3(23.0, 7.05, DRESS_Z), 14.7, 1.8, 0.48, 0.016)
-	_add_ambient_card("flower",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
-		Vector3(-24.0, 1.3, NEAR_Z), 6.55, 0.7, 0.72, 0.030)
-	_add_ambient_card("flower",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
-		Vector3(23.5, 1.35, NEAR_Z), 6.3, 2.4, 0.68, 0.028)
-	_add_ambient_card("flower",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_pnw_currant_sway.png",
-		Vector3(62.0, 1.55, NEAR_Z), 6.8, 4.0, 0.64, 0.032)
+	# This approved PNW cutout restores depth where its baked-in counterpart
+	# was removed. The former near tree at x=-27 was deliberately retired:
+	# against the complete hedge it read as an asset stamp at the screen-one/
+	# screen-two boundary instead of as part of the continuous landscape.
+	_add_ambient_card("tree",
+		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
+		Vector3(26.0, 6.912, DRESS_Z), 8.197, 0.42, 0.010,
+		"foliage_far", "quiet", true)
+	# One cloud in one clear corridor: enough motion to keep the sky alive,
+	# without the overdraw from several translucent cards crossing each other.
 	_add_ambient_card("cloud",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_drift.png",
-		Vector3(-60.0, 26.6, CLOUD_Z), 7.25, 1.1, 0.72, 0.0)
+		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+		Vector3(CLOUD_DRIFT_MIN_X, 28.414, CLOUD_Z), 3.104, 0.45, 0.0,
+		"cloud", "quiet", false)
+	# One thin, airy wisp per cabin. Their phase offsets keep the smoke gentle
+	# and preserve the old three-card overdraw cost instead of tripling it. The
+	# approved panorama's existing roof/chimney representations remain baked
+	# into the mural; no extra chimney sticker is layered over them.
+	for index: int in range(CABIN_SMOKE_ANCHORS.size()):
+		_add_ambient_card("smoke", SMOKE_WISP_TEX,
+			CABIN_SMOKE_ANCHORS[index], SMOKE_CARD_HEIGHT,
+			0.0, 0.0, "smoke", "quiet", false, index)
+
+func _build_animals() -> void:
+	# All five authored definitions stay available, but one Sprite3D actor is
+	# rebound as the camera enters a habitat. The first pass created ten nodes
+	# and left every off-camera animal processing; this pool keeps the whole
+	# feature to one card and one contact shadow.
+	m.g["lagoon_animals"] = ANIMAL_DEFS.duplicate(true)
+	m.g["lagoon_animal_cycles"] = {0: 0, 1: 0, 2: 0}
+	var first_definition: Dictionary = ANIMAL_DEFS[0]
+	var first_path: Array = first_definition["path"] as Array
+	var card: Sprite3D = _add_sprite(
+		String(first_definition["idle"]), first_path[0] as Vector3,
+		float(first_definition["height"]))
+	card.name = "SkyLagoonAnimalPool"
+	card.hframes = ANIMAL_ATLAS_COLUMNS
+	card.vframes = ANIMAL_ATLAS_ROWS
+	card.frame = 0
+	card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	card.visible = false
+	card.set_meta("living_card", true)
+	card.set_meta("ambient_kind", "animal")
+	card.set_meta("motion_class", "authored_habitat_path")
+	card.set_meta("intensity_class", "quiet")
+	card.set_meta("touch_footprint_px", ANIMAL_TOUCH_RADIUS_PX * 2.0)
+	_sync_contact_shadow(card)
+	m.g["lagoon_animal_actor"] = {
+		"node": card,
+		"definition": {},
+		"page": -1,
+		"state": "hidden",
+		"state_t": 0.0,
+		"spawn_t": ANIMAL_PAGE_SPAWN_S,
+		"route_position": first_path[0] as Vector3,
+		"path_index": 1,
+		"path_direction": 1,
+		"exit_direction": -1.0,
+	}
+
+func _animal_camera_x() -> float:
+	var root_node: Node3D = stage.root()
+	var cam: Camera3D = m.player.cam
+	if root_node == null or cam == null or not cam.is_inside_tree():
+		return 0.0
+	return root_node.to_local(cam.global_position).x
+
+func _animal_page_index() -> int:
+	return clampi(int(floor((_animal_camera_x() + HALF_W) / 48.0)), 0, 2)
+
+func _animal_definition(animal_id: String) -> Dictionary:
+	for definition: Dictionary in ANIMAL_DEFS:
+		if String(definition["id"]) == animal_id:
+			return definition
+	return {}
+
+func _animal_definitions_for_page(page: int) -> Array[Dictionary]:
+	var definitions: Array[Dictionary] = []
+	for definition: Dictionary in ANIMAL_DEFS:
+		if int(definition["page"]) == page:
+			definitions.append(definition)
+	return definitions
+
+func _animal_distance_to_segment(point: Vector2, start: Vector2,
+		finish: Vector2) -> float:
+	var segment: Vector2 = finish - start
+	var length_squared: float = segment.length_squared()
+	if length_squared <= 0.00001:
+		return point.distance_to(start)
+	var amount: float = clampf((point - start).dot(segment) / length_squared, 0.0, 1.0)
+	return point.distance_to(start + segment * amount)
+
+func _animal_path_is_safe(definition: Dictionary) -> bool:
+	var path: Array = definition.get("path", []) as Array
+	var height: float = float(definition.get("height", 0.0))
+	if path.size() < 2 or height <= 0.0:
+		return false
+	for value: Variant in path:
+		var point: Vector3 = value as Vector3
+		var foot := Vector2(point.x, point.y - height * 0.5)
+		var route_clearance: float = INF
+		for route_index: int in range(ROUTE_PAINTED.size() - 1):
+			route_clearance = minf(route_clearance, _animal_distance_to_segment(
+				foot, ROUTE_PAINTED[route_index], ROUTE_PAINTED[route_index + 1]))
+		if route_clearance < ANIMAL_ROUTE_CLEARANCE:
+			return false
+		for exclusion: Dictionary in ANIMAL_EXCLUSION_RECTS:
+			var rect: Rect2 = exclusion["rect"] as Rect2
+			if rect.has_point(foot):
+				return false
+	return true
+
+func _animal_tint(definition: Dictionary) -> Color:
+	return definition["night_tint"] as Color if m.is_night \
+		else definition["day_tint"] as Color
+
+func _animal_shadow_tint(definition: Dictionary) -> Color:
+	return definition["shadow_night"] as Color if m.is_night \
+		else definition["shadow_day"] as Color
+
+func _sync_animal_shadow(actor: Dictionary) -> void:
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	var definition: Dictionary = actor.get("definition", {}) as Dictionary
+	if node == null or definition.is_empty() or not node.has_meta("contact_shadow"):
+		return
+	var shadow: Sprite3D = node.get_meta("contact_shadow") as Sprite3D
+	if shadow == null or not is_instance_valid(shadow):
+		return
+	var route_position: Vector3 = actor.get(
+		"route_position", node.position) as Vector3
+	var height: float = float(definition["height"])
+	shadow.position = Vector3(
+		route_position.x,
+		route_position.y - height * 0.5 + maxf(0.08, height * 0.025),
+		route_position.z - 0.035)
+	shadow.visible = node.visible
+	shadow.modulate = _animal_shadow_tint(definition)
+	shadow.pixel_size = maxf(1.0, height * 0.58) / maxf(
+		1.0, float(shadow.texture.get_width()))
+	shadow.scale.y = 0.20 if String(definition["habitat"]) == "arrival_shore" else 0.22
+
+func _hide_animal(actor: Dictionary, delay: float, advance_roster: bool) -> void:
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	if node != null and is_instance_valid(node):
+		node.visible = false
+	actor["state"] = "hidden"
+	actor["spawn_t"] = delay
+	if advance_roster:
+		var page: int = int(actor.get("page", -1))
+		var cycles: Dictionary = m.g.get("lagoon_animal_cycles", {}) as Dictionary
+		cycles[page] = int(cycles.get(page, 0)) + 1
+		m.g["lagoon_animal_cycles"] = cycles
+	_sync_animal_shadow(actor)
+
+func _bind_animal(definition: Dictionary) -> bool:
+	var actor: Dictionary = m.g.get("lagoon_animal_actor", {}) as Dictionary
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	if node == null or not is_instance_valid(node) or not _animal_path_is_safe(definition):
+		push_error("Sky Lagoon animal path rejected: %s" % String(
+			definition.get("id", "unknown")))
+		return false
+	var idle_texture: Texture2D = load(String(definition["idle"])) as Texture2D
+	var startle_texture: Texture2D = load(String(definition["startle"])) as Texture2D
+	if idle_texture == null or startle_texture == null:
+		push_error("Sky Lagoon animal atlas failed to load: %s" % String(definition["id"]))
+		return false
+	var path: Array = definition["path"] as Array
+	var route_position: Vector3 = path[0] as Vector3
+	var height: float = float(definition["height"])
+	actor["definition"] = definition
+	actor["page"] = int(definition["page"])
+	actor["state"] = "idle"
+	actor["state_t"] = 0.0
+	actor["route_position"] = route_position
+	actor["path_index"] = 1
+	actor["path_direction"] = 1
+	actor["idle_texture"] = idle_texture
+	actor["startle_texture"] = startle_texture
+	actor["exit_direction"] = float(definition["safe_exit"])
+	node.name = "SkyLagoonAnimal_%s" % String(definition["id"])
+	node.texture = idle_texture
+	node.pixel_size = height / maxf(1.0,
+		float(idle_texture.get_height()) / float(ANIMAL_ATLAS_ROWS))
+	node.position = route_position
+	node.frame = 0
+	node.flip_h = false
+	node.scale = Vector3.ONE
+	node.visible = true
+	node.modulate = _animal_tint(definition)
+	node.set_meta("animal_id", String(definition["id"]))
+	node.set_meta("animal_habitat", String(definition["habitat"]))
+	node.set_meta("animal_lighting_profile", "night" if m.is_night else "day")
+	node.set_meta("contact_shadow_height", height)
+	m.g["lagoon_animal_actor"] = actor
+	_sync_animal_shadow(actor)
+	return true
+
+func _bind_animal_id(animal_id: String) -> bool:
+	var definition: Dictionary = _animal_definition(animal_id)
+	return not definition.is_empty() and _bind_animal(definition)
+
+func _bind_next_animal(page: int) -> bool:
+	if page == 0 and m.g.get("lagoon_plane_card") is Sprite3D:
+		return false
+	var definitions: Array[Dictionary] = _animal_definitions_for_page(page)
+	if definitions.is_empty():
+		return false
+	var cycles: Dictionary = m.g.get("lagoon_animal_cycles", {}) as Dictionary
+	var definition: Dictionary = definitions[int(cycles.get(page, 0)) % definitions.size()]
+	return _bind_animal(definition)
+
+func _animal_at(screen_pos: Vector2) -> Dictionary:
+	var cam: Camera3D = m.player.cam
+	if cam == null or not cam.is_inside_tree():
+		return {}
+	var actor: Dictionary = m.g.get("lagoon_animal_actor", {}) as Dictionary
+	if String(actor.get("state", "")) not in ["idle", "pause"]:
+		return {}
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	if node == null or not is_instance_valid(node) or not node.visible \
+			or cam.is_position_behind(node.global_position):
+		return {}
+	var distance: float = cam.unproject_position(
+		node.global_position).distance_to(screen_pos)
+	return actor if distance <= ANIMAL_TOUCH_RADIUS_PX else {}
+
+func _startle_animal(animal: Dictionary) -> void:
+	if animal.is_empty() or String(animal.get("state", "")) not in ["idle", "pause"]:
+		return
+	var node: Sprite3D = animal.get("node") as Sprite3D
+	if node == null or not is_instance_valid(node):
+		return
+	var definition: Dictionary = animal.get("definition", {}) as Dictionary
+	var exit_direction: float = float(definition.get("safe_exit", -1.0))
+	animal["state"] = "startle"
+	animal["state_t"] = 0.0
+	animal["exit_direction"] = exit_direction
+	node.texture = animal.get("startle_texture") as Texture2D
+	node.frame = 0
+	node.flip_h = exit_direction < 0.0
+	m.g["ss_walk_goal"] = null
+	_clear_focus()
+	m._sparkle_burst(node.global_position + Vector3(0.0,
+		float(definition["height"]) * 0.25, 0.0), Color(1.0, 0.78, 0.42))
+	m.player.play_verb("giggle")
+
+func _animal_is_offscreen(node: Sprite3D) -> bool:
+	var cam: Camera3D = m.player.cam
+	if cam == null or not cam.is_inside_tree() or cam.is_position_behind(node.global_position):
+		return true
+	var viewport_rect: Rect2 = m.get_viewport().get_visible_rect().grow(
+		ANIMAL_EXIT_PAD_PX)
+	return not viewport_rect.has_point(cam.unproject_position(node.global_position))
+
+func _tick_animal_idle(actor: Dictionary, delta: float) -> void:
+	var node: Sprite3D = actor["node"] as Sprite3D
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var path: Array = definition["path"] as Array
+	var state: String = String(actor["state"])
+	var state_t: float = float(actor.get("state_t", 0.0)) + delta
+	actor["state_t"] = state_t
+	if state == "pause":
+		var pause_t: float = maxf(0.0, float(actor.get("pause_t", 0.0)) - delta)
+		actor["pause_t"] = pause_t
+		node.frame = 1 if pause_t > float(definition["dwell_s"]) * 0.45 else 3
+		node.position = actor["route_position"] as Vector3
+		if pause_t <= 0.0:
+			var path_index: int = int(actor["path_index"])
+			var path_direction: int = int(actor["path_direction"])
+			if path_index >= path.size() - 1:
+				path_direction = -1
+			elif path_index <= 0:
+				path_direction = 1
+			actor["path_direction"] = path_direction
+			actor["path_index"] = path_index + path_direction
+			actor["state"] = "idle"
+			actor["state_t"] = 0.0
+		_sync_animal_shadow(actor)
+		return
+	var route_position: Vector3 = actor["route_position"] as Vector3
+	var target: Vector3 = path[int(actor["path_index"])] as Vector3
+	var direction: float = signf(target.x - route_position.x)
+	route_position = route_position.move_toward(target, float(definition["speed"]) * delta)
+	actor["route_position"] = route_position
+	var frame_s: float = float(definition["frame_s"])
+	node.frame = 2 if int(floor(state_t / frame_s)) % 2 == 0 else 0
+	node.flip_h = direction < 0.0
+	var bob: float = float(definition["bob"])
+	var locomotion: String = String(definition["locomotion"])
+	var bob_amount: float = absf(sin(state_t * (8.5 if locomotion == "hop" else 5.5))) * bob
+	node.position = route_position + Vector3(0.0, bob_amount, 0.0)
+	if route_position.distance_to(target) <= 0.001:
+		actor["state"] = "pause"
+		actor["pause_t"] = float(definition["dwell_s"])
+		node.frame = 1
+		node.position = route_position
+	_sync_animal_shadow(actor)
+
+func _tick_animal_startle(actor: Dictionary, delta: float) -> void:
+	var node: Sprite3D = actor["node"] as Sprite3D
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var state_t: float = float(actor.get("state_t", 0.0)) + delta
+	actor["state_t"] = state_t
+	var route_position: Vector3 = actor["route_position"] as Vector3
+	var squash_end: float = ANIMAL_STARTLE_ALERT_S + ANIMAL_STARTLE_SQUASH_S
+	var hop_end: float = squash_end + ANIMAL_STARTLE_HOP_S
+	if state_t < ANIMAL_STARTLE_ALERT_S:
+		node.frame = 0
+		node.position = route_position
+	elif state_t < squash_end:
+		node.frame = 1
+		node.position = route_position
+	elif state_t < hop_end:
+		node.frame = 2
+		node.position = route_position + Vector3(0.0,
+			sin((state_t - squash_end) / ANIMAL_STARTLE_HOP_S * PI) * 0.28, 0.0)
+	else:
+		var run_t: float = state_t - hop_end
+		node.frame = 2 + int(floor(run_t / 0.13)) % 2
+		route_position.x += float(actor["exit_direction"]) \
+			* float(definition["exit_speed"]) * delta
+		actor["route_position"] = route_position
+		node.position = route_position + Vector3(0.0,
+			absf(sin(run_t * 10.0)) * 0.12, 0.0)
+		if run_t > 0.35 and _animal_is_offscreen(node):
+			_hide_animal(actor, ANIMAL_RESPAWN_S, true)
+			return
+	_sync_animal_shadow(actor)
+
+func _tick_animals(delta: float) -> void:
+	var actor: Dictionary = m.g.get("lagoon_animal_actor", {}) as Dictionary
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	if node == null or not is_instance_valid(node):
+		return
+	var page: int = _animal_page_index()
+	if page != int(actor.get("page", -1)):
+		actor["page"] = page
+		_hide_animal(actor, ANIMAL_PAGE_SPAWN_S, false)
+	if page == 0 and m.g.get("lagoon_plane_card") is Sprite3D:
+		if node.visible:
+			_hide_animal(actor, ANIMAL_PAGE_SPAWN_S, false)
+		actor["spawn_t"] = ANIMAL_PAGE_SPAWN_S
+		return
+	var state: String = String(actor.get("state", "hidden"))
+	if state == "hidden":
+		var spawn_t: float = maxf(0.0, float(actor.get("spawn_t", 0.0)) - delta)
+		actor["spawn_t"] = spawn_t
+		if spawn_t <= 0.0:
+			_bind_next_animal(page)
+		return
+	if state == "startle":
+		_tick_animal_startle(actor, delta)
+	else:
+		_tick_animal_idle(actor, delta)
 
 func _add_ambient_card(kind: String, path: String, pos: Vector3, height: float,
-		phase: float, speed: float, amplitude: float) -> void:
-	var card := _add_sprite(path, pos, height)
-	card.name = "SkyLagoonAmbient_%s" % kind
+		speed: float, amplitude: float, motion_class: String,
+		intensity_class: String, contact_shadow: bool = true,
+		cycle_index: int = 0) -> void:
+	var card := _add_sprite(path, pos, height, contact_shadow)
+	card.name = "SkyLagoonAmbient_%s_%02d" % [kind, cycle_index]
 	card.set_meta("ambient_kind", kind)
 	card.set_meta("ambient_base", pos)
-	card.set_meta("ambient_phase", phase)
+	card.set_meta("ambient_phase", _phase_token(pos))
 	card.set_meta("ambient_speed", speed)
 	card.set_meta("ambient_amplitude", amplitude)
+	card.set_meta("living_card", true)
+	card.set_meta("motion_class", motion_class)
+	card.set_meta("intensity_class", intensity_class)
+	card.set_meta("source_aspect",
+		float(card.texture.get_width()) / maxf(1.0, float(card.texture.get_height())))
+	card.set_meta("content_height_fraction", 0.992188 if kind == "smoke" else 1.0)
+	card.set_meta("target_world_height", height)
+	card.set_meta("touch_footprint_px", 0.0)
+	card.set_meta("ambient_cycle_index", cycle_index)
+	var socket_lock: float = GROUND_SOCKET_LOCK \
+		if kind == "smoke" or kind == "tree" \
+		else DEFAULT_MURAL_SOCKET_LOCK
+	_register_mural_socket(card, socket_lock)
+	if kind == "smoke":
+		card.flip_h = cycle_index % 2 == 1
+	card.modulate = NIGHT_WORLD_TINT if m.is_night else Color.WHITE
 	var cards: Array = m.g.get("lagoon_ambient_cards", [])
 	cards.append(card)
 	m.g["lagoon_ambient_cards"] = cards
 
+func _phase_token(pos: Vector3) -> float:
+	return wrapf(pos.x * 0.73 + pos.z * 1.31, 0.0, TAU)
+
+func _wind_gust_at(ambient_t: float) -> float:
+	var cycle_t: float = fposmod(ambient_t, WIND_GUST_PERIOD_S)
+	if cycle_t < WIND_GUST_RISE_AT_S:
+		return 1.0
+	if cycle_t < WIND_GUST_PEAK_AT_S:
+		return lerpf(1.0, 1.5, smoothstep(
+			WIND_GUST_RISE_AT_S, WIND_GUST_PEAK_AT_S, cycle_t))
+	if cycle_t < WIND_GUST_FALL_AT_S:
+		return lerpf(1.5, 1.0, smoothstep(
+			WIND_GUST_PEAK_AT_S, WIND_GUST_FALL_AT_S, cycle_t))
+	return 1.0
+
 func _tick_ambient_life(delta: float) -> void:
 	var ambient_t: float = float(m.g.get("lagoon_ambient_t", 0.0)) + delta
 	m.g["lagoon_ambient_t"] = ambient_t
-	for value in (m.g.get("lagoon_ambient_cards", []) as Array):
+	var wind_gust: float = _wind_gust_at(ambient_t)
+	m.g["lagoon_wind_gust"] = wind_gust
+	var wind_distance: float = float(m.g.get("lagoon_wind_distance", 0.0)) \
+		+ delta * wind_gust
+	m.g["lagoon_wind_distance"] = wind_distance
+	if not m.g.has("lagoon_ambient_cards"):
+		return
+	var ambient_cards: Array = m.g["lagoon_ambient_cards"] as Array
+	for value in ambient_cards:
 		var card := value as Sprite3D
 		if card == null or not is_instance_valid(card):
 			continue
@@ -352,37 +1091,126 @@ func _tick_ambient_life(delta: float) -> void:
 		var kind: String = String(card.get_meta("ambient_kind", "flower"))
 		if kind == "cloud":
 			card.position = Vector3(
-				wrapf(base.x + ambient_t * speed, -78.0, 78.0),
+				wrapf(base.x + wind_distance * speed,
+					CLOUD_DRIFT_MIN_X, CLOUD_DRIFT_MAX_X),
 				base.y + sin(ambient_t * 0.32 + phase) * 0.18,
 				base.z)
 			continue
+		if kind == "smoke":
+			var cycle_index: int = int(card.get_meta("ambient_cycle_index", 0))
+			var life: float = fposmod(
+				ambient_t + float(cycle_index) * SMOKE_LIFETIME_S / 3.0,
+				SMOKE_LIFETIME_S) / SMOKE_LIFETIME_S
+			var fade_in: float = smoothstep(0.0, 0.10, life)
+			var fade_out: float = 1.0 - smoothstep(0.60, 1.0, life)
+			var smoke_scale: float = lerpf(0.50, 0.85, life)
+			card.scale = Vector3.ONE * smoke_scale
+			var target_height: float = float(card.get_meta(
+				"target_world_height", SMOKE_CARD_HEIGHT))
+			var smoke_base: Vector3 = _mural_anchored_position(
+				base,
+				float(card.get_meta("mural_reference_camera_x",
+					_mural_reference_camera_x(base.x))),
+				float(card.get_meta("mural_socket_lock",
+					DEFAULT_MURAL_SOCKET_LOCK)))
+			card.set_meta("mural_socket_world_base", smoke_base)
+			card.position = smoke_base + Vector3(
+				WIND_DIRECTION * life * 0.20 * wind_gust,
+				target_height * smoke_scale * 0.5 + life * 0.45,
+				0.0)
+			var smoke_tint := Color(0.58, 0.60, 0.68, 1.0)
+			if m.is_night:
+				smoke_tint = smoke_tint.lerp(NIGHT_WORLD_TINT, 0.35)
+			smoke_tint.a = fade_in * fade_out * 0.62
+			card.modulate = smoke_tint
+			continue
 		var wave: float = sin(ambient_t * speed + phase)
 		var amplitude: float = float(card.get_meta("ambient_amplitude", 0.02))
-		card.rotation.z = wave * amplitude
-		card.position = Vector3(
-			base.x + wave * 0.04,
-			base.y + absf(wave) * 0.025,
-			base.z)
+		card.rotation.z = wave * amplitude * wind_gust
+		var grounded_base: Vector3 = _mural_anchored_position(
+			base,
+			float(card.get_meta("mural_reference_camera_x",
+				_mural_reference_camera_x(base.x))),
+			float(card.get_meta("mural_socket_lock",
+				DEFAULT_MURAL_SOCKET_LOCK)))
+		card.set_meta("mural_socket_world_base", grounded_base)
+		card.position = grounded_base + Vector3(
+			wave * 0.04, absf(wave) * 0.025, 0.0)
+		_sync_contact_shadow(card)
 	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
 	if plane != null and is_instance_valid(plane):
 		var plane_base: Vector3 = m.g.get("lagoon_plane_base", plane.position) as Vector3
-		plane.position = plane_base + Vector3(
+		var anchored_plane_base: Vector3 = _mural_anchored_position(
+			plane_base,
+			float(plane.get_meta("mural_reference_camera_x",
+				_mural_reference_camera_x(plane_base.x))),
+			float(plane.get_meta("mural_socket_lock",
+				DEFAULT_MURAL_SOCKET_LOCK)))
+		plane.position = anchored_plane_base + Vector3(
 			0.0, sin(ambient_t * 1.05) * 0.12, 0.0)
 		plane.rotation.z = sin(ambient_t * 0.72) * 0.010
+		_sync_contact_shadow(plane)
 		var plane_glow: Sprite3D = m.g.get("lagoon_plane_highlight") as Sprite3D
 		if plane_glow != null and is_instance_valid(plane_glow):
 			plane_glow.position = plane.position + Vector3(0.0, 0.0, -0.05)
 			plane_glow.rotation.z = plane.rotation.z
+		if ambient_t >= PLANE_DEPARTURE_S:
+			_finish_plane_arrival()
 
-func _add_backdrop(path: String, x: float) -> void:
+func teardown() -> void:
+	# Mutable stage state belongs to ReefMain by project architecture, so the
+	# persistent promenade helper explicitly releases its transient keys.
+	m.g.erase("lagoon_ambient_cards")
+	m.g.erase("lagoon_ambient_t")
+	m.g.erase("lagoon_wind_gust")
+	m.g.erase("lagoon_wind_distance")
+	m.g.erase("lagoon_animals")
+	m.g.erase("lagoon_animal_actor")
+	m.g.erase("lagoon_animal_cycles")
+
+func _finish_plane_arrival() -> void:
+	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
+	if plane == null or not is_instance_valid(plane):
+		return
+	var highlight: Sprite3D = m.g.get("lagoon_plane_highlight") as Sprite3D
+	if highlight != null and is_instance_valid(highlight):
+		highlight.queue_free()
+	var plane_shadow: Sprite3D = null
+	if plane.has_meta("contact_shadow"):
+		plane_shadow = plane.get_meta("contact_shadow") as Sprite3D
+	if plane_shadow != null and is_instance_valid(plane_shadow):
+		plane_shadow.queue_free()
+	plane.queue_free()
+	m.g["lagoon_plane_card"] = null
+	m.g["lagoon_plane_highlight"] = null
+	var retained: Array = []
+	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) != "plane":
+			retained.append(target)
+	m.g["lagoon_promenade_targets"] = retained
+	m.save_data["lagoon_plane_departed"] = true
+	m._write_save()
+
+func _add_backdrop(path: String, x: float, y: float, row: int, column: int) -> void:
 	var root_node: Node3D = stage.root()
 	if root_node == null:
 		return
+	# A tile that fails to load must never take the rest of the promenade down
+	# with it. This used to read backdrop.texture.get_width() unguarded, so one
+	# null texture aborted build() half-way — after _enter_level2_now had
+	# already hidden the reef sun and switched the music — and left Roshan
+	# standing in the legacy reef underneath, unlit (owner report 2026-07-29).
+	# Losing one painted square is a blemish; losing the whole area is the bug.
+	var tex: Texture2D = load(path) as Texture2D
+	if tex == null:
+		push_error("Sky Lagoon mural tile failed to load: %s" % path)
+		return
 	var backdrop := Sprite3D.new()
-	backdrop.name = "SkyLagoonBackdrop_%d" % roundi(x)
-	backdrop.texture = load(path)
+	backdrop.name = "SkyLagoonBackdrop_r%d_c%d" % [row, column]
+	backdrop.texture = tex
 	backdrop.pixel_size = BACKDROP_TILE_SIZE.x / maxf(
-		1.0, float(backdrop.texture.get_width()))
+		1.0, float(tex.get_width()))
 	# NEVER billboard the mural. A billboarded card swings about its OWN centre
 	# to face the lens, so the moment the camera was not dead in front of a
 	# tile the three cards stopped being coplanar, their painted edges pulled
@@ -396,10 +1224,12 @@ func _add_backdrop(path: String, x: float) -> void:
 	backdrop.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	backdrop.shaded = false
 	backdrop.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	backdrop.position = Vector3(x, BACKDROP_CENTER_Y, BACKDROP_Z)
+	backdrop.modulate = NIGHT_BACKDROP_TINT if m.is_night else Color.WHITE
+	backdrop.position = Vector3(x, y, BACKDROP_Z)
 	root_node.add_child(backdrop)
 
-func _add_sprite(path: String, pos: Vector3, height: float) -> Sprite3D:
+func _add_sprite(path: String, pos: Vector3, height: float,
+		contact_shadow: bool = true) -> Sprite3D:
 	var root_node: Node3D = stage.root()
 	var sprite := Sprite3D.new()
 	sprite.texture = load(path)
@@ -410,60 +1240,179 @@ func _add_sprite(path: String, pos: Vector3, height: float) -> Sprite3D:
 	sprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	sprite.shaded = false
 	sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	sprite.modulate = NIGHT_WORLD_TINT if m.is_night else Color.WHITE
 	sprite.position = pos
 	root_node.add_child(sprite)
+	if contact_shadow:
+		var shadow := _add_contact_shadow(pos, maxf(1.2, height * 0.62), height)
+		sprite.set_meta("contact_shadow", shadow)
+		sprite.set_meta("contact_shadow_height", height)
 	return sprite
 
-func _add_activity_frame(id: String, pos: Vector3, page_path: String, minigame: String) -> void:
+func _add_contact_shadow(pos: Vector3, width: float, height: float) -> Sprite3D:
 	var root_node: Node3D = stage.root()
-	if root_node == null:
+	var shadow := Sprite3D.new()
+	shadow.name = "SkyLagoonContactShadow"
+	shadow.set_meta("sky_lagoon_contact_shadow", true)
+	shadow.texture = load(CONTACT_SHADOW_TEX)
+	shadow.pixel_size = width / maxf(1.0, float(shadow.texture.get_width()))
+	shadow.scale.y = 0.22
+	shadow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	shadow.shaded = false
+	shadow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	shadow.position = Vector3(
+		pos.x,
+		pos.y - height * 0.5 + maxf(0.08, height * 0.025),
+		pos.z - 0.035)
+	root_node.add_child(shadow)
+	return shadow
+
+func _sync_contact_shadow(sprite: Sprite3D) -> void:
+	if not sprite.has_meta("contact_shadow"):
 		return
-	var holder := Node3D.new()
-	holder.position = pos
-	root_node.add_child(holder)
-	var page := Sprite3D.new()
-	page.texture = load(page_path)
-	page.pixel_size = 9.05 / maxf(1.0, float(page.texture.get_height()))
-	page.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-	page.shaded = false
-	page.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	page.position.z = -0.02
-	holder.add_child(page)
-	var frame := Sprite3D.new()
-	frame.texture = load(FRAME_TEX)
-	frame.pixel_size = 12.95 / maxf(1.0, float(frame.texture.get_height()))
-	frame.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-	frame.shaded = false
-	frame.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	holder.add_child(frame)
-	_register_target(id, holder, "frame", minigame, 92.0, 1.08, frame)
+	var shadow: Sprite3D = sprite.get_meta("contact_shadow") as Sprite3D
+	if shadow == null or not is_instance_valid(shadow):
+		return
+	if sprite == m.g.get("lagoon_roshan_card") and not (
+			m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
+		shadow.visible = false
+		return
+	var height: float = float(sprite.get_meta("contact_shadow_height", 1.0))
+	shadow.position = Vector3(
+		sprite.position.x,
+		sprite.position.y - height * 0.5 + maxf(0.08, height * 0.025),
+		sprite.position.z - 0.035)
+	shadow.visible = sprite.visible
+
+func _mural_reference_camera_x(reference_x: float) -> float:
+	# The approved review framings are the centres of the three 48-unit pages.
+	# Preserve a card exactly in the page where it was placed, then compensate
+	# only as the lens travels away from that authored framing.
+	return clampf(roundf(reference_x / 48.0) * 48.0, -48.0, 48.0)
+
+func _mural_anchored_x(reference_x: float, card_z: float,
+		reference_camera_x: float,
+		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK) -> float:
+	# Compatibility seam for older callers and probes. New placement uses the
+	# exact 2D projection in _mural_anchored_position so both axes stay locked.
+	var reference_position := Vector3(reference_x, CAM_H, card_z)
+	return _mural_anchored_position(
+		reference_position, reference_camera_x, socket_lock).x
+
+func _mural_reference_position(reference_position: Vector3,
+		reference_camera_x: float) -> Vector3:
+	# Recover the point on the painted wall that the authored card centre
+	# covered in its approved page framing. The source cards were composed at
+	# real depth, so their local coordinates already include perspective.
+	var backdrop_distance: float = CAM_DIST - BACKDROP_Z
+	var card_distance: float = maxf(0.001, CAM_DIST - reference_position.z)
+	var depth_scale: float = backdrop_distance / card_distance
+	return Vector3(
+		reference_camera_x
+			+ (reference_position.x - reference_camera_x) * depth_scale,
+		CAM_H + (reference_position.y - CAM_H) * depth_scale,
+		BACKDROP_Z)
+
+func _mural_anchored_position(reference_position: Vector3,
+		reference_camera_x: float,
+		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK) -> Vector3:
+	# Project the authored mural socket through the CURRENT camera, then
+	# intersect that screen ray with the card's real depth plane. This remains
+	# exact while the camera is moving, at both edge clamps, and on any aspect
+	# ratio. Blending retains restrained parallax for non-socket landmarks.
+	var root_node: Node3D = stage.root()
+	var cam: Camera3D = m.player.cam
+	if root_node == null or cam == null or not cam.is_inside_tree():
+		return reference_position
+	var mural_local: Vector3 = _mural_reference_position(
+		reference_position, reference_camera_x)
+	var mural_global: Vector3 = root_node.to_global(mural_local)
+	if cam.is_position_behind(mural_global):
+		return reference_position
+	var screen_point: Vector2 = cam.unproject_position(mural_global)
+	var ray_origin: Vector3 = cam.project_ray_origin(screen_point)
+	var ray_direction: Vector3 = cam.project_ray_normal(screen_point)
+	if absf(ray_direction.z) <= 0.00001:
+		return reference_position
+	var target_global_z: float = root_node.to_global(
+		Vector3(0.0, 0.0, reference_position.z)).z
+	var ray_t: float = (target_global_z - ray_origin.z) / ray_direction.z
+	if ray_t <= 0.0:
+		return reference_position
+	var exact_local: Vector3 = root_node.to_local(
+		ray_origin + ray_direction * ray_t)
+	exact_local.z = reference_position.z
+	return reference_position.lerp(exact_local, clampf(socket_lock, 0.0, 1.0))
+
+func _register_mural_socket(node: Node3D,
+		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK) -> void:
+	node.set_meta("mural_reference_x", node.position.x)
+	node.set_meta("mural_reference_position", node.position)
+	node.set_meta("mural_reference_camera_x",
+		_mural_reference_camera_x(node.position.x))
+	node.set_meta("mural_socket_lock", socket_lock)
+	node.set_meta("mural_backdrop_reference", _mural_reference_position(
+		node.position, _mural_reference_camera_x(node.position.x)))
+
+func _sync_mural_socket(node: Node3D) -> void:
+	if node == null or not is_instance_valid(node):
+		return
+	var reference_position: Vector3 = node.get_meta(
+		"mural_reference_position", node.position) as Vector3
+	var reference_camera_x: float = float(node.get_meta(
+		"mural_reference_camera_x",
+		_mural_reference_camera_x(reference_position.x)))
+	var socket_lock: float = float(node.get_meta(
+		"mural_socket_lock", DEFAULT_MURAL_SOCKET_LOCK))
+	node.position = _mural_anchored_position(
+		reference_position, reference_camera_x, socket_lock)
+	node.set_meta("mural_socket_world_base", node.position)
+	if node is Sprite3D:
+		_sync_contact_shadow(node as Sprite3D)
+
+func _sync_target_mural_anchors() -> void:
+	var castle: Node3D = m.g.get("lagoon_castle_card") as Node3D
+	if castle != null and is_instance_valid(castle):
+		_sync_mural_socket(castle)
+	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		var node: Node3D = target.get("node") as Node3D
+		if node == null or not is_instance_valid(node):
+			continue
+		_sync_mural_socket(node)
+		var glow: Sprite3D = target.get("highlight") as Sprite3D
+		if glow != null and is_instance_valid(glow):
+			glow.position = node.position + Vector3(0.0, 0.0, -0.05)
+			glow.rotation.z = node.rotation.z
 
 func _register_target(id: String, node: Node3D, kind: String, payload: String,
-		radius_px: float, highlight_scale: float, outline_source: Sprite3D = null) -> void:
+		radius_px: float, highlight_scale: float,
+		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK,
+		highlight_path: String = "", highlight_pixel_size: float = 0.0) -> void:
+	_register_mural_socket(node, socket_lock)
 	var glow: Sprite3D
-	if outline_source != null:
-		glow = Sprite3D.new()
-		glow.texture = outline_source.texture
-		glow.pixel_size = outline_source.pixel_size
+	glow = Sprite3D.new()
+	if not highlight_path.is_empty():
+		glow.texture = load(highlight_path)
+		glow.pixel_size = highlight_pixel_size
 		glow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 		glow.shaded = false
 		glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		glow.modulate = Color(1.0, 0.80, 0.20, 0.82)
-		glow.position.z = -0.04
-		node.add_child(glow)
-	else:
-		glow = Sprite3D.new()
-		if node is Sprite3D:
-			var source := node as Sprite3D
-			glow.texture = source.texture
-			glow.pixel_size = source.pixel_size
-			glow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-			glow.shaded = false
-			glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			glow.modulate = Color(1.0, 0.82, 0.25, 0.72)
-			glow.position = source.position + Vector3(0, 0, -0.05)
-			var root_node: Node3D = stage.root()
-			root_node.add_child(glow)
+		glow.modulate = Color(1.0, 0.82, 0.25, 0.72)
+		glow.position = node.position + Vector3(0, 0, -0.05)
+		var root_node: Node3D = stage.root()
+		root_node.add_child(glow)
+	elif node is Sprite3D:
+		var source := node as Sprite3D
+		glow.texture = source.texture
+		glow.pixel_size = source.pixel_size
+		glow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+		glow.shaded = false
+		glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		glow.modulate = Color(1.0, 0.82, 0.25, 0.72)
+		glow.position = source.position + Vector3(0, 0, -0.05)
+		var root_node: Node3D = stage.root()
+		root_node.add_child(glow)
 	glow.scale = Vector3.ONE * highlight_scale
 	glow.visible = false
 	var targets: Array = m.g.get("lagoon_promenade_targets", [])
@@ -519,8 +1468,6 @@ func _clear_focus() -> void:
 func _activate(target: Dictionary) -> void:
 	var node: Node3D = target.get("node") as Node3D
 	match String(target.get("kind", "")):
-		"frame":
-			m._mg2d_open(String(target.get("payload", "")))
 		"plane":
 			_bounce(node, 0.20)
 			m._sparkle_burst(node.global_position, Color(0.65, 0.94, 1.0))
@@ -555,7 +1502,9 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	if frames.size() != 4:
 		return
 	m.g["ss_walk_goal"] = null
-	m.player.position.x = root_node.position.x + _walk_x(equipment.position.x)
+	var equipment_reference_x: float = float(
+		equipment.get_meta("mural_reference_x", equipment.position.x))
+	m.player.position.x = root_node.position.x + _walk_x(equipment_reference_x)
 	m.g["lagoon_play_anim"] = {
 		"kind": kind,
 		"t": 0.0,
@@ -565,12 +1514,30 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 		"frames": frames,
 		"frame_index": -1,
 	}
+	var animator: RoshanSpriteLoop = m.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
+	if animator != null and is_instance_valid(animator):
+		animator.set_paused(true)
 	card.visible = true
 	card.flip_h = false
+	card.hframes = 1
+	card.vframes = 1
+	card.frame = 0
+	card.offset = Vector2.ZERO
 	card.position.z = PLAY_Z + 0.12
 	card.rotation.z = 0.0
 	card.scale = Vector3.ONE
 	_set_play_frame(0)
+	# Snap to the first authored pose immediately, before the next frame. This
+	# keeps Roshan's hands/seat contact aligned after the equipment was resized
+	# and avoids one frame at her prior walking position.
+	match kind:
+		"swing":
+			_tick_swing_animation(card, equipment, 0.0)
+		"slide":
+			_tick_slide_animation(card, equipment, 0.0)
+		"seesaw":
+			_tick_seesaw_animation(card, equipment, 0.0)
 
 func _set_play_frame(frame_index: int) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})
@@ -585,6 +1552,21 @@ func _set_play_frame(frame_index: int) -> void:
 	play["frame_index"] = frame_index
 	card.texture = frames[frame_index] as Texture2D
 	card.pixel_size = PLAY_ROSHAN_H / maxf(1.0, float(card.texture.get_height()))
+
+func _play_anchor_local(card: Sprite3D, anchor_pixels: Vector2) -> Vector2:
+	var texture_size: Vector2 = card.texture.get_size()
+	var local := Vector2(
+		(anchor_pixels.x - texture_size.x * 0.5) * card.pixel_size * card.scale.x,
+		(texture_size.y * 0.5 - anchor_pixels.y) * card.pixel_size * card.scale.y)
+	return local.rotated(card.rotation.z)
+
+func _place_play_anchor(card: Sprite3D, equipment: Node3D,
+		anchor_pixels: Vector2, socket_offset: Vector2) -> void:
+	var local_anchor: Vector2 = _play_anchor_local(card, anchor_pixels)
+	card.position = Vector3(
+		equipment.position.x + socket_offset.x - local_anchor.x,
+		equipment.position.y + socket_offset.y - local_anchor.y,
+		PLAY_Z + 0.12)
 
 func _tick_playground_animation(delta: float) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})
@@ -605,14 +1587,17 @@ func _tick_playground_animation(delta: float) -> void:
 			_tick_slide_animation(card, equipment, t)
 		"seesaw":
 			_tick_seesaw_animation(card, equipment, t)
+	_sync_contact_shadow(card)
 	if t >= float(play.get("dur", 0.0)):
 		_finish_playground_animation()
 
 func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
-	# Three readable pumps. The hands stay near the two painted ropes while
-	# the authored frames supply the lean, tail follow-through and seated pose.
-	var phase: float = t * TAU / 1.72
+	# Three readable pumps. The separated seat-and-rope layer and Roshan now
+	# share one top-bar pivot; the authored frames add the pumping lean without
+	# pretending that a static chair is moving.
+	var phase: float = t * TAU / SWING_PERIOD_S
 	var arc: float = sin(phase)
+	var angle: float = arc * SWING_MAX_ANGLE
 	var frame_index := 0
 	if arc > 0.34:
 		frame_index = 1
@@ -621,11 +1606,12 @@ func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
 	elif cos(phase) < 0.0:
 		frame_index = 3
 	_set_play_frame(frame_index)
-	card.position = Vector3(
-		swing.position.x + 2.45 + arc * 0.46,
-		swing.position.y - 2.42 + (1.0 - cos(phase)) * 0.18,
-		PLAY_Z + 0.12)
-	card.rotation.z = -arc * 0.055
+	card.scale = Vector3(1.38, 1.0, 1.0)
+	card.rotation.z = angle * 0.65
+	_set_promenade_swing_angle(swing, angle)
+	var hand_socket: Vector2 = _swing_grip_socket(swing, angle)
+	_place_play_anchor(
+		card, swing, SWING_HAND_ANCHORS[frame_index], hand_socket)
 
 func _tick_slide_animation(card: Sprite3D, slide: Node3D, t: float) -> void:
 	if t < 2.55:
@@ -637,25 +1623,31 @@ func _tick_slide_animation(card: Sprite3D, slide: Node3D, t: float) -> void:
 		var bounce: float = sin(step_phase * PI) * 0.42
 		_set_play_frame(step_i % 2)
 		card.position = Vector3(
-			slide.position.x - 6.2 + float(step_i) * 0.42,
-			slide.position.y - 3.7 + float(step_i) * 1.52 + bounce,
+			slide.position.x + (-6.2 + float(step_i) * 0.42) * SLIDE_ANIM_SCALE,
+			slide.position.y + (-3.7 + float(step_i) * 1.52) * SLIDE_ANIM_SCALE + bounce,
 			PLAY_Z + 0.12)
 		card.rotation.z = -0.03
 	elif t < 3.15:
 		_set_play_frame(2)
 		var settle: float = smoothstep(0.0, 1.0, (t - 2.55) / 0.60)
 		card.position = Vector3(
-			lerpf(slide.position.x - 4.5, slide.position.x - 2.1, settle),
-			lerpf(slide.position.y + 2.5, slide.position.y + 3.9, settle),
+			slide.position.x + lerpf(-4.5, -2.1, settle) * SLIDE_ANIM_SCALE,
+			slide.position.y + lerpf(2.5, 3.9, settle) * SLIDE_ANIM_SCALE,
 			PLAY_Z + 0.12)
 		card.rotation.z = lerpf(-0.03, -0.12, settle)
 	else:
 		_set_play_frame(3)
 		var ride: float = smoothstep(0.0, 1.0, clampf((t - 3.15) / 2.05, 0.0, 1.0))
 		# A quadratic chute path: gently over the lip, then faster down and out.
-		var start := Vector2(slide.position.x - 2.1, slide.position.y + 3.9)
-		var control := Vector2(slide.position.x + 1.8, slide.position.y + 2.6)
-		var finish := Vector2(slide.position.x + 7.1, slide.position.y - 4.2)
+		var start := Vector2(
+			slide.position.x - 2.1 * SLIDE_ANIM_SCALE,
+			slide.position.y + 3.9 * SLIDE_ANIM_SCALE)
+		var control := Vector2(
+			slide.position.x + 1.8 * SLIDE_ANIM_SCALE,
+			slide.position.y + 2.6 * SLIDE_ANIM_SCALE)
+		var finish := Vector2(
+			slide.position.x + 7.1 * SLIDE_ANIM_SCALE,
+			slide.position.y - 4.2 * SLIDE_ANIM_SCALE)
 		var a: Vector2 = start.lerp(control, ride)
 		var b: Vector2 = control.lerp(finish, ride)
 		var point: Vector2 = a.lerp(b, ride)
@@ -663,8 +1655,9 @@ func _tick_slide_animation(card: Sprite3D, slide: Node3D, t: float) -> void:
 		card.rotation.z = lerpf(-0.12, -0.42, ride)
 
 func _tick_seesaw_animation(card: Sprite3D, seesaw: Node3D, t: float) -> void:
-	# Almost three complete low-high-low rocks. Roshan sits on the left shell
-	# seat and follows its circular arc while her hands stay on its gold hoop.
+	# Almost three complete low-high-low rocks. This pose faces left, so Roshan
+	# sits on the right shell seat and follows its circular arc while her hands
+	# stay on the inward hoop.
 	var phase: float = t * TAU / 1.92
 	var rock: float = sin(phase) * 0.105
 	seesaw.rotation.z = float(
@@ -680,12 +1673,10 @@ func _tick_seesaw_animation(card: Sprite3D, seesaw: Node3D, t: float) -> void:
 	else:
 		frame_index = 3
 	_set_play_frame(frame_index)
-	var seat_offset := Vector2(-6.05, 1.42).rotated(rock)
-	card.position = Vector3(
-		seesaw.position.x + seat_offset.x,
-		seesaw.position.y + seat_offset.y + 0.95,
-		PLAY_Z + 0.12)
 	card.rotation.z = rock
+	var seat_socket: Vector2 = SEESAW_RIGHT_SEAT_SOCKET.rotated(rock)
+	_place_play_anchor(
+		card, seesaw, SEESAW_SEAT_ANCHORS[frame_index], seat_socket)
 
 func _finish_playground_animation() -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})
@@ -693,13 +1684,19 @@ func _finish_playground_animation() -> void:
 	var equipment: Node3D = play.get("equipment") as Node3D
 	if equipment != null and is_instance_valid(equipment):
 		equipment.rotation.z = float(play.get("equipment_rotation", 0.0))
+		if String(play.get("kind", "")) == "swing":
+			_set_promenade_swing_angle(equipment, 0.0)
 	m.g["lagoon_play_anim"] = {}
+	var animator: RoshanSpriteLoop = m.g.get(
+		"lagoon_roshan_animator") as RoshanSpriteLoop
 	if card != null and is_instance_valid(card):
-		card.texture = m.g.get("lagoon_roshan_idle_texture") as Texture2D
 		card.pixel_size = float(m.g.get("lagoon_roshan_idle_pixel_size", card.pixel_size))
 		card.rotation.z = 0.0
 		card.scale = Vector3.ONE
 		card.flip_h = false
+		card.set_meta("walking", false)
+	if animator != null and is_instance_valid(animator):
+		animator.set_paused(false)
 	_sync_roshan_card()
 	m.player.play_verb("giggle")
 

@@ -90,24 +90,6 @@ func _init() -> void:
 			" cutaway=", cutaway_ok, " wall_s=%.1f" % secs)
 		main._clear_game()
 		await _frames(5)
-	# --- treasure cavern ---
-	main.treasure_cool = 0.0
-	player.position = main.wreck_pos + Vector3(0, 4, 2)
-	player.vel = Vector3.ZERO
-	if main.touch_uses_explicit_interactions():
-		main._activate_touch_interactable("reef:treasure")
-	var waited := 0
-	while main.game == "" and waited < 900:
-		waited += 1
-		player.position = main.wreck_pos + Vector3(0, 4, 2)
-		player.vel = Vector3.ZERO
-		await process_frame
-	if main.game == "treasure":
-		var p0: int = main.pearl_count
-		var ok3 := await _drive_game("treasure", main.treasure_fr)
-		print("AUDIT|Secret Cave [treasure]: ", ("WON +pearls" if ok3 and main.pearl_count >= p0 + 3 else "FAILED"))
-	else:
-		print("AUDIT|Secret Cave [treasure]: DID NOT START")
 	# --- toy castle brawler (two heroes: Roshan + AI Huluu) ---
 	main.brawl_cool = 0.0
 	player.position = main.brawl_portal_pos + Vector3(0, 2, 3)
@@ -229,9 +211,18 @@ func _init() -> void:
 			await process_frame
 		print("AUDIT|Level 2 courtyard: ", ("OK" if main.game == "level2" else "FAIL"))
 		var targets: Array = main.g.get("lagoon_promenade_targets", [])
+		var target_ids: Dictionary = {}
+		for target_value in targets:
+			var target: Dictionary = target_value as Dictionary
+			target_ids[String(target.get("id", ""))] = true
+		var core_roster_ok: bool = true
+		for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
+			core_roster_ok = core_roster_ok and target_ids.has(required_id)
 		var promenade_ok: bool = (
 			String(main.g.get("phase", "")) == "promenade"
-			and targets.size() == 8
+			and targets.size() >= 4
+			and targets.size() <= 5
+			and core_roster_ok
 			and is_equal_approx(float((main.g.get("ss_cfg", {}) as Dictionary).get("half_w", 0.0)), 72.0))
 		print("AUDIT|Level 2 three-screen promenade: ",
 			("OK" if promenade_ok else "FAIL"), " targets=", targets.size())
@@ -248,29 +239,44 @@ func _init() -> void:
 			main._lagoon_promenade_ref()._activate(castle_target)
 			await _frames(10)
 		var hall_ok: bool = main.game == "level2" and String(main.g.get("phase","")) == "hall"
-		print("AUDIT|Level 2 castle hall: ", ("OK" if hall_ok else "FAIL"),
+		var rooms_a: CastleRooms25D = main._castle_rooms_ref()
+		var stage_ok: bool = hall_ok and rooms_a.is_open() \
+			and main.castle_room_world_root != null \
+			and main.castle_room_camera != null \
+			and main.castle_room_camera.projection \
+				== Camera3D.PROJECTION_PERSPECTIVE \
+			and main.touch_interactables.is_empty()
+		print("AUDIT|Level 2 castle Sprite3D stage: ",
+			("OK" if stage_ok else "FAIL"),
 			" game=", main.game, " phase=", String(main.g.get("phase","?")),
-			" mg_kind=", main.mg_kind)
-		# music room xylophone: ring a bar directly — art pass 3.5 swapped the
-		# bars for GLB props and the strike sparkle once crashed reading
-		# material_override off the prop root (any SCRIPT ERROR here fails CI)
-		var bells_a: Array = main.g.get("bells", [])
-		print("AUDIT|music bells built: ", ("OK" if bells_a.size() == 7 else "FAIL"))
-		if bells_a.size() > 0:
-			main._ring_bell(bells_a[0])
-			await _frames(20)
-			print("AUDIT|music bell rings without error: OK")
-		var hf := 0
-		# the Crown Star celebrates IN PLACE now (owner 2026-07-12: winning
-		# must not eject Roshan from her own castle) — drive to the crown,
-		# then assert the WIN STATE (crown_won + saved level2 flag), not the
-		# old return-to-ocean that the redesign explicitly removed
-		while main.game == "level2" and not bool(main.g.get("crown_won", false)) and hf < 60 * 60:
-			hf += 1
-			var cr: Node3D = main.l2_stars[0]["node"]
-			player.position = player.position.lerp(cr.position, 0.16)
-			player.vel = Vector3.ZERO
-			await process_frame
+			" mg_kind=", main.mg_kind, " stars_got=", _stars_got(), " l2_open=", main.l2_open)
+		# The hall phase must not construct the retired model-based interior or
+		# its physical navigation/interaction state.
+		var legacy_hall_absent: bool = main.game_nodes.is_empty() \
+			and main.arena_solids.is_empty() \
+			and main.arena_zones.is_empty()
+		for retired_key: String in [
+			"hall_exit", "bed_pos", "stand_chest", "toilet", "dungeon_gate",
+			"craft_easel", "wardrobe", "song_star", "secret_door",
+			"hall_touch", "bells", "opera_gate"]:
+			legacy_hall_absent = legacy_hall_absent \
+				and not main.g.has(retired_key)
+		print("AUDIT|retired 3D castle absent: ",
+			("OK" if legacy_hall_absent else "FAIL"))
+		var room_routes_ok: bool = main.castle_room_buttons.size() == 8 \
+			and main.castle_room_buttons.has("family_gallery") \
+			and main.castle_room_buttons.has("opera_hall") \
+			and main.castle_room_buttons.has("bubble_bath") \
+			and main.castle_room_back_button != null \
+			and main.castle_room_stage.get_node_or_null("ElevatorButton") == null
+		print("AUDIT|castle has one physical route per room: ",
+			("OK" if room_routes_ok else "FAIL"))
+		# The Main Hall action celebrates in place and records the win without
+		# switching back to the free-roaming world.
+		if stage_ok:
+			rooms_a.show_room("main_hall", false)
+			rooms_a.activate_current_room()
+			await _frames(4)
 		print("AUDIT|Level 2 finish: ", ("OK" if bool(main.g.get("crown_won", false)) and bool(main.save_data.get("level2", false)) else "FAIL"))
 	for i2 in range(60):
 		await process_frame

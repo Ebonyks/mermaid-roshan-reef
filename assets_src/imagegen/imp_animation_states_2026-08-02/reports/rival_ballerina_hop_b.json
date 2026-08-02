@@ -1,0 +1,75 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "hop_b",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    79,
+    27,
+    433,
+    456
+  ],
+  "visible_bbox": [
+    79,
+    27,
+    433,
+    456
+  ],
+  "solid_height": 430,
+  "gaps": {
+    "left": 79,
+    "right": 78,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 6,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 73856,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    189,
+    110,
+    110,
+    86,
+    67,
+    3,
+    3,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.567311,
+  "solid_centroid_x": 256.381,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_ballerina_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "664df8850af127b6f51f56d6741541ab70201923dfbf54f8a976afaae6426088",
+  "output": "assets\\opera\\worlds\\actors\\rival_ballerina_hop_b.png",
+  "output_sha256": "6f87db844ab250fc450e64aaeb841679905e99ccb303e96e1a442fbde4527d5e",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_ballerina.png",
+  "idle_sha256": "e2b8a9d82782b80a5e6f4c768eb0b349a91acaa859b32b820c2d1b6da305c583",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 430,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_hop_b\\rival_ballerina_hop_b_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_hop_b\\rival_ballerina_hop_b_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_hop_b\\rival_ballerina_hop_b_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_hop_b\\rival_ballerina_hop_b_idle_comparison.png"
+  }
+}

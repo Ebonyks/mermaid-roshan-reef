@@ -1,0 +1,63 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "flee",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    38,
+    19,
+    480,
+    503
+  ],
+  "visible_bbox": [
+    38,
+    19,
+    480,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 38,
+    "right": 31,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 8,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 107101,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    29
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    136,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.504875,
+  "solid_centroid_x": 256.039,
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_farmer_flee_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "efe2a2d42145a82114561aecc27fd2816864187705c6c2bafd9eb7047bc4e02d",
+  "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_farmer_flee.png",
+  "output_sha256": "aba5144f4bc4149154b90330ca4d086e00924b18ecd309060e3443cd7ed64451",
+  "idle_reference": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_farmer.png",
+  "idle_sha256": "399bfc65195d4fd959865620d206d6c115fac79b5c8921b3102277d8b416c9e9",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_farmer_flee\\rival_farmer_flee_checker.png",
+    "silhouette": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_farmer_flee\\rival_farmer_flee_silhouette.png",
+    "phone_25pct": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_farmer_flee\\rival_farmer_flee_phone_25pct.png",
+    "idle_comparison": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_farmer_flee\\rival_farmer_flee_idle_comparison.png"
+  }
+}

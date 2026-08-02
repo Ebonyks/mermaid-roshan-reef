@@ -29,8 +29,10 @@ func _build_pause() -> void:
 	StorybookUI.style_icon_button(gear, "Ⅱ", "secondary", Vector2(128, 128), "Pause")
 	gear.set_anchors_preset(Control.PRESET_TOP_RIGHT)
 	gear.position = Vector2(-146, 18)
-	gear.pressed.connect(toggle_pause)
+	# Pause on touch-down: a young child may slide off before lifting.
+	gear.button_down.connect(toggle_pause)
 	m.pause_layer.add_child(gear)
+	StorybookUI.add_shell_crest(gear, Rect2(34, 72, 60, 45), "PauseCornerShell")
 	m.pause_layer.set_meta("corner_button", gear)
 
 	# Full-screen root lets the dim and shell scale together while main keeps
@@ -42,16 +44,10 @@ func _build_pause() -> void:
 	m.pause_layer.add_child(m.pause_panel)
 	var dim := StorybookUI.add_dim(m.pause_panel)
 	dim.mouse_filter = Control.MOUSE_FILTER_STOP
-	var shell := StorybookUI.add_panel(m.pause_panel, Rect2(290, 25, 700, 670), StorybookUI.INK_SOFT, Color(0.86, 0.98, 0.98, 0.99), 62)
+	var shell_rect := Rect2(290, 25, 700, 670)
+	var shell := StorybookUI.add_panel(m.pause_panel, shell_rect, StorybookUI.PURPLE, Color(0.90, 0.96, 1.0, 0.99), 62)
 	shell.name = "PauseShell"
-	var crest := Label.new()
-	crest.text = "Ⅱ"
-	crest.position = Vector2(570, 38)
-	crest.size = Vector2(140, 62)
-	crest.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	crest.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	StorybookUI.style_label(crest, 46, StorybookUI.INK)
-	m.pause_panel.add_child(crest)
+	StorybookUI.adorn_panel(m.pause_panel, shell_rect, "Pause")
 
 	m.fps_lbl = Label.new()
 	StorybookUI.style_label(m.fps_lbl, 18, Color(0.74, 0.82, 0.94), 2)
@@ -80,24 +76,38 @@ func _build_pause() -> void:
 		m.music.volume_db = -8.0 if m.music_on else -60.0
 		_sync_labels()
 		m._write_save())
-	m.pause_leave_btn = _pause_btn("↩   REEF", Rect2(650, 420, 280, 132), "secondary")
+	m.pause_leave_btn = _pause_btn("↩   CASTLE", Rect2(650, 420, 280, 132), "secondary")
 	m.pause_leave_btn.name = "PauseLeaveButton"
 	m.pause_leave_btn.set_meta("neutral_exit", true)
 	m.pause_leave_btn.visible = false
 	m.pause_leave_btn.pressed.connect(_leave_current_activity)
-	# Hybrid/Classic touch-mode toggle (dev hybrid navigation, 2026-07-26):
-	# same storybook tile grammar, third row; the mode is shown by the icon
-	# silhouette, never by colour alone.
-	m.touch_mode_btn = _pause_btn(m._touch_mode_label(), Rect2(350, 570, 280, 120), "secondary")
-	m.touch_mode_btn.name = "PauseTouchModeButton"
-	m.touch_mode_btn.pressed.connect(func():
-		m._set_touch_mode(
-			m.TOUCH_MODE_CLASSIC if m.touch_mode == m.TOUCH_MODE_HYBRID
-			else m.TOUCH_MODE_HYBRID))
+	# Point-to-interact is the one child-facing touch vocabulary. The former
+	# mode choice advertised an obsolete on-screen movement stick.
+	m.touch_mode_btn = null
+	# Spoken spells (MIC_SPELLS.md). Same silhouette grammar: a microphone when
+	# on, a struck microphone when off — never colour alone. Switching it on
+	# with no spells taught yet drops straight into the teach overlay, the same
+	# way the sticker tile hands off to its own sheet. It takes the third-row
+	# slot the retired touch-mode toggle left empty.
+	m.mic_btn = _pause_btn(mic_label(), Rect2(350, 570, 280, 120), "secondary")
+	m.mic_btn.name = "PauseMicButton"
+	m.mic_btn.pressed.connect(func():
+		m.mic_on = not m.mic_on
+		_sync_labels()
+		m._write_save()
+		if not m.mic_on:
+			m._mic_ref().disarm()
+			return
+		if not m._mic_ref().all_words_taught():
+			toggle_pause()
+			m._mic_ref().open_teach())
 
 	# Parent/debug affordances deliberately sit outside the child icon grid.
+	# Shifted to the right column (same row and height dev placed it at): the
+	# spoken-spells tile now owns the third row's left slot, and at x=500 the
+	# parent button would have overlapped it.
 	if m.dev_mode != null:
-		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(650, 586, 280, 66), "secondary")
+		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(650, 582, 280, 66), "secondary")
 		dev_btn.name = "PauseDeveloperButton"
 		dev_btn.set_meta("parent_only", true)
 		dev_btn.pressed.connect(func():
@@ -111,6 +121,13 @@ func music_label() -> String:
 	# button straight from the loaded save - inlining the string here is what
 	# broke every probe on run 684.
 	return "♫   MUSIC ON" if m.music_on else "♫̸   MUSIC OFF"
+
+func mic_label() -> String:
+	# Same reasoning as music_label(): a function, not an inlined string, so a
+	# save load can refresh the button straight from the loaded value.
+	if m.mic_permission_denied:
+		return "🎤̸   SPELLS OFF"
+	return "🎤   SAY SPELLS" if m.mic_on else "🎤̸   SPELLS OFF"
 
 func _pause_btn(txt: String, rect: Rect2, kind: String) -> Button:
 	var button := Button.new()
@@ -129,8 +146,9 @@ func _sync_labels() -> void:
 	if m.quality_btn != null:
 		m.quality_btn.text = "✦   SPARKLY" if m.quality == "sparkly" else "≋   SPEEDY"
 		m.quality_btn.set_meta("toggle_on", m.quality == "sparkly")
-	if m.touch_mode_btn != null:
-		m.touch_mode_btn.text = m._touch_mode_label()
+	if m.mic_btn != null:
+		m.mic_btn.text = mic_label()
+		m.mic_btn.set_meta("toggle_on", m.mic_on and not m.mic_permission_denied)
 
 func toggle_pause() -> void:
 	var paused: bool = not m.get_tree().paused
@@ -237,4 +255,4 @@ func _leave_current_activity() -> void:
 	elif leaving_game == "fairyshoot" or leaving_name == "Rainbow Slide":
 		m.call_deferred("_enter_level2", m.l2_open)
 	else:
-		m.show_msg("Roshan", "Back to the reef! Pick anything you want to play.")
+		m.show_msg("Roshan", "Back to the castle! Pick anything you want to play.")

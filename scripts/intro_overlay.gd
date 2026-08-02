@@ -45,8 +45,10 @@ func _build_intro() -> void:
 	tap.pressed.connect(_intro_next)
 	stage.add_child(tap)
 
-	var book := StorybookUI.add_panel(stage, Rect2(150, 90, 980, 470), StorybookUI.INK_SOFT, Color(0.86, 0.97, 1.0, 0.98), 74)
+	var book_rect := Rect2(150, 90, 980, 470)
+	var book := StorybookUI.add_panel(stage, book_rect, StorybookUI.PURPLE, Color(0.86, 0.97, 1.0, 0.98), 74)
 	book.name = "IntroStoryBook"
+	StorybookUI.adorn_panel(stage, book_rect, "Intro")
 	book.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var current := ColorRect.new()
 	current.position = Vector2(626, 125)
@@ -135,7 +137,7 @@ func _build_intro() -> void:
 func _intro_tex(key: String) -> Texture2D:
 	if key == "huluu":
 		return load("res://assets/characters/friends/huluu.png")
-	return load("res://assets/characters/roshan_sprite.png")
+	return load("res://assets/characters/roshan_25d/roshan_base.png")
 
 func _intro_show() -> void:
 	var panel: Dictionary = INTRO_PANELS[m.intro_idx]
