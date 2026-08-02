@@ -84,10 +84,30 @@ func _build_pause() -> void:
 	# Point-to-interact is the one child-facing touch vocabulary. The former
 	# mode choice advertised an obsolete on-screen movement stick.
 	m.touch_mode_btn = null
+	# Spoken spells (MIC_SPELLS.md). Same silhouette grammar: a microphone when
+	# on, a struck microphone when off — never colour alone. Switching it on
+	# with no spells taught yet drops straight into the teach overlay, the same
+	# way the sticker tile hands off to its own sheet. It takes the third-row
+	# slot the retired touch-mode toggle left empty.
+	m.mic_btn = _pause_btn(mic_label(), Rect2(350, 570, 280, 120), "secondary")
+	m.mic_btn.name = "PauseMicButton"
+	m.mic_btn.pressed.connect(func():
+		m.mic_on = not m.mic_on
+		_sync_labels()
+		m._write_save()
+		if not m.mic_on:
+			m._mic_ref().disarm()
+			return
+		if not m._mic_ref().all_words_taught():
+			toggle_pause()
+			m._mic_ref().open_teach())
 
 	# Parent/debug affordances deliberately sit outside the child icon grid.
+	# Shifted to the right column (same row and height dev placed it at): the
+	# spoken-spells tile now owns the third row's left slot, and at x=500 the
+	# parent button would have overlapped it.
 	if m.dev_mode != null:
-		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(500, 582, 280, 66), "secondary")
+		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(650, 582, 280, 66), "secondary")
 		dev_btn.name = "PauseDeveloperButton"
 		dev_btn.set_meta("parent_only", true)
 		dev_btn.pressed.connect(func():
@@ -101,6 +121,13 @@ func music_label() -> String:
 	# button straight from the loaded save - inlining the string here is what
 	# broke every probe on run 684.
 	return "♫   MUSIC ON" if m.music_on else "♫̸   MUSIC OFF"
+
+func mic_label() -> String:
+	# Same reasoning as music_label(): a function, not an inlined string, so a
+	# save load can refresh the button straight from the loaded value.
+	if m.mic_permission_denied:
+		return "🎤̸   SPELLS OFF"
+	return "🎤   SAY SPELLS" if m.mic_on else "🎤̸   SPELLS OFF"
 
 func _pause_btn(txt: String, rect: Rect2, kind: String) -> Button:
 	var button := Button.new()
@@ -119,6 +146,9 @@ func _sync_labels() -> void:
 	if m.quality_btn != null:
 		m.quality_btn.text = "✦   SPARKLY" if m.quality == "sparkly" else "≋   SPEEDY"
 		m.quality_btn.set_meta("toggle_on", m.quality == "sparkly")
+	if m.mic_btn != null:
+		m.mic_btn.text = mic_label()
+		m.mic_btn.set_meta("toggle_on", m.mic_on and not m.mic_permission_denied)
 
 func toggle_pause() -> void:
 	var paused: bool = not m.get_tree().paused
