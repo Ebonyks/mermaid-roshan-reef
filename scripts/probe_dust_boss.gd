@@ -30,6 +30,7 @@ func _init() -> void:
 		await _second_hit_case()
 		await _mercy_case()
 		await _win_case()
+	await _pose_replay_case()
 	print("DUSTBOSS|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
 
@@ -168,6 +169,47 @@ func _framing_case() -> void:
 	_ck("the arena keeps the camera while the fight runs",
 		cam.position.distance_to(before) < 1.0)
 
+# ---- the art contract ------------------------------------------------------
+func _pose_case() -> void:
+	# The boss draws one pose PER BEAT (BOSS_ART_INTEGRATION_2026-08-02.md).
+	# Every pose is optional and falls back to the placeholder card, so this
+	# asserts the MAP, not the files — it stays green before the art lands and
+	# catches a beat wired to the wrong drawing after it does. Sampled EVERY
+	# frame, because the interesting poses (wind-up, open) last under a second.
+	var boss := _boss()
+	var seen: Dictionary = {}
+	for key: String in DustBossGame.BOSS_POSES.keys():
+		seen[key] = false
+	_ck("every beat maps to a named pose", boss.pose_for_state() != "")
+	var guard := 0
+	while main.game == "dustboss" and guard < 20000:
+		var pose: String = boss.pose_for_state()
+		if seen.has(pose):
+			seen[pose] = true
+		# land the three hits as they come, without skipping past any beat
+		if _state() == "vuln" and float(main.g.get("db_y", 0.0)) > 2.0:
+			_park_on_boss()
+			main.touch_ui.action_down = (guard % 6) < 3
+		else:
+			main.touch_ui.action_down = false
+		guard += 1
+		await process_frame
+	main.touch_ui.action_down = false
+	var used: Array[String] = []
+	var unused: Array[String] = []
+	for key: String in seen.keys():
+		if bool(seen[key]):
+			used.append(key)
+		else:
+			unused.append(key)
+	_ck("the fight shows the idle, wind-up, open, dizzy and angry poses",
+		bool(seen.get("idle", false)) and bool(seen.get("windup", false))
+		and bool(seen.get("open", false)) and bool(seen.get("dizzy", false))
+		and bool(seen.get("angry", false)))
+	_ck("the befriending beat has its own pose", bool(seen.get("friends", false)))
+	print("DUSTBOSS|poses used: ", ", ".join(used), " | not reached in this run: ",
+		", ".join(unused))
+
 # ---- the showing -----------------------------------------------------------
 func _showing_case() -> void:
 	_ck("the fight opens with the showing, not the fight", _state() == "showing")
@@ -285,3 +327,17 @@ func _win_case() -> void:
 	_ck("the win banner closes the fight", main.game == "")
 	_ck("befriending him pays the portal pearls", main.pearl_count >= pearls_before + 3)
 	main.touch_ui.action_down = false
+
+# ---- a second fight, walked beat by beat, to check the pose map ------------
+func _pose_replay_case() -> void:
+	main.dust_boss_cool = 0.0
+	main.game = ""
+	main._start_game_now(main.dust_boss_fr)
+	await _frames(4)
+	if main.game != "dustboss":
+		_ck("the attic reopens for a second fight", false)
+		return
+	await _pose_case()
+	if main.game == "dustboss":
+		main._clear_game()
+		main.game = ""

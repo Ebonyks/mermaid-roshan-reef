@@ -65,8 +65,28 @@ const MERCY_REACH_MAX := 6.0
 const MERCY_SLOW := 0.07       # he calms down when she keeps missing
 const MERCY_SLOW_MAX := 0.40
 
-const BOSS_TEX := "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
-const STAR_TEX := "res://assets/mg/star.png"
+# ---- the boss art contract -------------------------------------------------
+# One cutout per BEAT, not one cutout for the whole fight. Codex delivered the
+# sheets on 2026-08-02 (see BOSS_ART_INTEGRATION_2026-08-02.md for the cell
+# map); each pose below is optional, and any file that is not present falls
+# back to BOSS_FALLBACK_TEX, so the encounter runs identically whether none,
+# some or all of the art has landed.
+const BOSS_ART_DIR := "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/boss/"
+const BOSS_FALLBACK_TEX := "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+const BOSS_POSES := {
+	"idle": "boss_idle.png",          # prowling, shielded, pleased with himself
+	"windup": "boss_windup.png",      # squashed, ears back — he is about to spring
+	"open": "boss_open.png",          # airborne, crest lit — THE window
+	"struck": "boss_struck.png",      # the bonk: eyes wide, impact arrows
+	"dizzy": "boss_dizzy.png",        # spiral eyes, one ear drooping
+	"angry": "boss_angry.png",        # puffed, brows down, steam puffs
+	"friends": "boss_friends.png",    # eyes closed, laughing, crest halo
+}
+# The tell is its own art too: a closed badge and an open badge that read as
+# DIFFERENT OBJECTS, not one badge at two alphas.
+const TELL_OPEN_TEX := BOSS_ART_DIR + "boss_tell_open.png"
+const TELL_SHUT_TEX := BOSS_ART_DIR + "boss_tell_shielded.png"
+const STAR_TEX := "res://assets/mg/star.png"   # fallback tell (generic reward star)
 
 # Who he is at 0, 1 and 2 landed hits. "hop_speed" is the pace the owner
 # note is about: dizzy is slower than puffy, angry is much faster than both.
@@ -415,6 +435,59 @@ func _hop_move(delta: float, s: Dictionary) -> void:
 		m._say("roshan", "bump", 2.5)
 	m.g["db_bump_cd"] = maxf(0.0, float(m.g.get("db_bump_cd", 0.0)) - delta)
 
+# ---- the pose system -------------------------------------------------------
+func _pose_path(key: String) -> String:
+	var file: String = String(BOSS_POSES.get(key, ""))
+	if file != "":
+		var full: String = BOSS_ART_DIR + file
+		if ResourceLoader.exists(full):
+			return full
+	return BOSS_FALLBACK_TEX
+
+func pose_for_state() -> String:
+	# which drawing belongs to this beat. Public so the probe can assert the
+	# map without reaching into the tick.
+	var st: String = String(m.g.get("db_state", ""))
+	var hits: int = int(m.g.get("db_hits", 0))
+	match st:
+		"windup":
+			return "windup"
+		"vuln":
+			return "open"
+		"struck":
+			return "dizzy" if hits == 1 else "struck"
+		"friends":
+			return "friends"
+	return "angry" if hits >= 2 else "idle"
+
+func _apply_pose(body: Sprite3D, key: String) -> void:
+	var path: String = _pose_path(key)
+	if not ResourceLoader.exists(path):
+		return
+	var tex: Texture2D = load(path)
+	if tex == null:
+		return
+	body.texture = tex
+	# every pose is authored at its own height; normalise so the boss keeps
+	# one physical size no matter which drawing is showing
+	body.pixel_size = BOSS_H / maxf(1.0, float(tex.get_height()))
+	m.g["db_pose"] = key
+
+func _apply_tell(star: Sprite3D, open_now: bool) -> void:
+	var want: String = TELL_OPEN_TEX if open_now else TELL_SHUT_TEX
+	if not ResourceLoader.exists(want):
+		want = STAR_TEX
+	if not ResourceLoader.exists(want):
+		return
+	if String(m.g.get("db_tell_tex", "")) == want:
+		return
+	var tex: Texture2D = load(want)
+	if tex == null:
+		return
+	star.texture = tex
+	star.pixel_size = 4.2 / maxf(1.0, float(tex.get_height()))
+	m.g["db_tell_tex"] = want
+
 # ---- presentation ----------------------------------------------------------
 func _place_boss(delta: float) -> void:
 	var boss: Node3D = m.g.get("db_boss") as Node3D
@@ -429,6 +502,9 @@ func _place_boss(delta: float) -> void:
 	# dizzy wobbles, angry throbs — the phase is legible without any words
 	var body: Sprite3D = m.g.get("db_body") as Sprite3D
 	if body != null and is_instance_valid(body):
+		var want_pose: String = pose_for_state()
+		if String(m.g.get("db_pose", "")) != want_pose:
+			_apply_pose(body, want_pose)
 		var wob: float = 0.0
 		if String(m.g.get("db_state", "")) == "struck" and int(m.g.get("db_hits", 0)) == 1:
 			wob = sin(float(m.g.get("db_st", 0.0)) * 11.0) * 0.22
@@ -444,6 +520,7 @@ func _place_boss(delta: float) -> void:
 	var flash: float = float(m.g.get("db_flash", 0.0))
 	var star: Sprite3D = m.g.get("db_star") as Sprite3D
 	if star != null and is_instance_valid(star):
+		_apply_tell(star, flash >= 0.99)
 		var strobe: float = 0.5 + 0.5 * sin(float(m.g.get("db_st", 0.0)) * 22.0)
 		star.position.y = BOSS_H * puff + 1.5
 		star.position.x = 0.0
@@ -553,9 +630,7 @@ func _build_boss() -> void:
 	m.g["db_boss"] = boss
 	# the cutout: unshaded, billboarded, never re-lit or redesigned
 	var body := Sprite3D.new()
-	if ResourceLoader.exists(BOSS_TEX):
-		body.texture = load(BOSS_TEX)
-		body.pixel_size = BOSS_H / maxf(1.0, float(body.texture.get_height()))
+	_apply_pose(body, "idle")
 	body.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	body.shaded = false
 	body.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
@@ -571,9 +646,7 @@ func _build_boss() -> void:
 	m.g["db_shadow"] = shadow
 	# THE ICON ON HIS HEAD — the whole fight is reading this one sprite
 	var star := Sprite3D.new()
-	if ResourceLoader.exists(STAR_TEX):
-		star.texture = load(STAR_TEX)
-		star.pixel_size = 4.2 / maxf(1.0, float(star.texture.get_height()))
+	_apply_tell(star, false)
 	star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	star.shaded = false
 	star.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
@@ -625,8 +698,9 @@ func build_portal() -> Vector3:
 	door.material_override = m._soft_mat(Color(0.60, 0.50, 0.72), 0.16)
 	frame.add_child(door)
 	var peek := Sprite3D.new()
-	if ResourceLoader.exists(BOSS_TEX):
-		peek.texture = load(BOSS_TEX)
+	var peek_tex: String = _pose_path("idle")
+	if ResourceLoader.exists(peek_tex):
+		peek.texture = load(peek_tex)
 		peek.pixel_size = 6.5 / maxf(1.0, float(peek.texture.get_height()))
 	peek.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	peek.shaded = false
