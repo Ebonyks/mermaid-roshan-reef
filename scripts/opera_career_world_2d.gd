@@ -899,11 +899,8 @@ func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
 			spin.tween_property(node, "rotation", 0.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 			spin.parallel().tween_property(node, "modulate:a", 0.0, 0.62)
 			spin.tween_callback(node.queue_free)
-	else:
-		if node != null and is_instance_valid(node):
-			var squash := node.create_tween()
-			squash.tween_property(node, "scale", node.scale * Vector2(1.18, 0.84), 0.1)
-			squash.tween_property(node, "scale", node.scale, 0.16)
+	# (a survivor needs no squash tween: the brain puts it straight into the
+	# stagger pose, which the pose renderer plays every frame)
 	_bop_burst_at(at, false)
 	var bonus := 0.0
 	if popped and bool(imp.get("carrying", false)):
