@@ -14,6 +14,10 @@ extends RefCounted
 #   hit 2 → ANGRY  (he puffs up and moves at a much faster pace)
 #   hit 3 → FRIENDS (he deflates into a cuddly little puff — nobody loses)
 #
+# The arena is the shared OctagonStage (scripts/games/octagon_stage.gd): one
+# convex ring, a camera that never pans, so the boss can never leave the
+# screen and a dragged finger always makes progress.
+#
 # No fail state: he bumps, he never hurts. Every window that closes unhit
 # makes the NEXT window longer and Roshan's reach bigger (the mercy ramp), so
 # the fight always ends in a win — the only variable is how many windows it
@@ -36,11 +40,11 @@ const WIN_T := 2.6             # befriending beat before the win banner
 
 const LEAP_UP := 0.34          # seconds of rise at the top of a leap
 const LEAP_H := 7.6            # hover height while the star flashes
-const REACH := 12.0            # base tap reach during a window (stage units)
+const REACH := 12.0            # base tap reach during a window (ring units)
 const HOP_H := 2.4             # prowl hop arc height
 const BOSS_H := 11.5           # cutout height — Roshan is ~7 units tall
-const HALF_W := 25.0
-const HALF_D := 8.0
+const RADIUS := 26.0           # the ring's circumradius (apothem ≈ 24.0)
+const BOSS_INSET := 4.5        # how far inside the wall the boss may land
 
 const MERCY_WINDOW := 0.45     # +seconds of window per missed window
 const MERCY_WINDOW_MAX := 2.2
@@ -64,11 +68,11 @@ const PHASES: Array[Dictionary] = [
 ]
 
 var m: ReefMain
-var stage: SideScrollStage
+var stage: OctagonStage
 
 func _init(main: ReefMain) -> void:
 	m = main
-	stage = SideScrollStage.new(main)
+	stage = OctagonStage.new(main)
 
 # ---- lifecycle -------------------------------------------------------------
 func build(fr: Dictionary, _origin: Vector3) -> void:
@@ -77,11 +81,11 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_shield_taps"] = 0
 	m.g["db_window_hit"] = 0
 	m.g["db_win_len"] = 0.0
-	m.g["db_x"] = 9.0
-	m.g["db_z"] = 0.0
+	m.g["db_x"] = 0.0
+	m.g["db_z"] = -12.0
 	m.g["db_y"] = 0.0
-	m.g["db_from"] = Vector2(9.0, 0.0)
-	m.g["db_to"] = Vector2(9.0, 0.0)
+	m.g["db_from"] = Vector2(0.0, -12.0)
+	m.g["db_to"] = Vector2(0.0, -12.0)
 	m.g["db_hop_t"] = 0.0
 	m.g["db_spin"] = 0.0
 	m.g["db_flash"] = 0.0
@@ -99,10 +103,10 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var r := stage.root()
 	if r == null:
 		return
-	# the real one-finger read: walk the plane, tap = THE button. Damage can
+	# the real one-finger read: walk the ring, tap = THE button. Damage can
 	# only ever come from a fresh tap edge here, so a zero-input run cannot
 	# scratch him (probe_passive).
-	var s: Dictionary = stage.brawl_tick(delta)
+	var s: Dictionary = stage.tick(delta)
 	var tapped: bool = bool(s["tap"])
 	m.g["db_st"] = float(m.g.get("db_st", 0.0)) + delta
 	var st: float = float(m.g["db_st"])
@@ -119,14 +123,14 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			_tick_struck(delta, st, fr)
 		"friends":
 			_tick_friends(st, fr)
-	if m.game != "dustboss":
+	if m.g.is_empty():
 		return                      # the win banner fired and wiped the scratch
 	_place_boss(delta)
 	_update_hud()
 
 # ---- the state machine -----------------------------------------------------
-func _enter_state(name: String) -> void:
-	m.g["db_state"] = name
+func _enter_state(next_state: String) -> void:
+	m.g["db_state"] = next_state
 	m.g["db_st"] = 0.0
 
 func phase() -> int:
@@ -154,8 +158,8 @@ func hop_speed() -> float:
 
 # THE SHOWING — he is revealed before he is ever fought: he swells up out of
 # his dust nest, takes one big parade hop, and demonstrates the tell (the star
-# flashes three times) while the voice line and the pointer explain it. Taps
-# do nothing here on purpose; the child is being taught, not tested.
+# flashes) while the voice line and the pointer explain it. Taps do nothing
+# here on purpose; the child is being taught, not tested.
 func _tick_showing(st: float, fr: Dictionary) -> void:
 	var grow: float = clampf(st / 1.6, 0.0, 1.0)
 	m.g["db_show_grow"] = grow
@@ -173,7 +177,7 @@ func _tick_showing(st: float, fr: Dictionary) -> void:
 		_enter_state("prowl")
 		_pick_hop(true)
 
-# PROWL — bouncing around the attic, shielded. Taps bounce off with a poof;
+# PROWL — bouncing around the ring, shielded. Taps bounce off with a poof;
 # after three bounced taps he giggles the tell back at her.
 func _tick_prowl(delta: float, st: float, s: Dictionary, tapped: bool) -> void:
 	_hop_move(delta, s)
@@ -190,12 +194,10 @@ func _tick_windup(delta: float, st: float, tapped: bool) -> void:
 		_bounce_off()
 	if st >= WINDUP_T:
 		# he leaps toward Roshan so the skill is TIMING, not aim
+		var here: Vector2 = stage.player_local()
 		m.g["db_from"] = Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
-		m.g["db_to"] = Vector2(
-			clampf(m.player.position.x - stage.root().position.x + randf_range(-4.0, 4.0),
-				-HALF_W + 3.0, HALF_W - 3.0),
-			clampf(m.player.position.z - stage.root().position.z + randf_range(-2.5, 2.5),
-				-HALF_D + 1.0, HALF_D - 1.0))
+		m.g["db_to"] = stage.clamp_point(
+			here + Vector2(randf_range(-4.0, 4.0), randf_range(-4.0, 4.0)), BOSS_INSET)
 		m.g["db_window_hit"] = 0
 		m.g["db_win_len"] = window_len()
 		_enter_state("vuln")
@@ -281,8 +283,15 @@ func _land_hit(fr: Dictionary) -> void:
 	if m.voice != null:
 		m.voice.pitch_scale = 1.1 + randf() * 0.2
 		m.voice.play()
-	# a real recoil: the bonk shoves him back across the boards
-	m.g["db_x"] = clampf(float(m.g["db_x"]) - 6.0, -HALF_W + 3.0, HALF_W - 3.0)
+	# a real recoil: the bonk shoves him back across the ring
+	var knock: Vector2 = Vector2(float(m.g["db_x"]), float(m.g["db_z"])) \
+		- stage.player_local()
+	if knock.length() < 0.5:
+		knock = Vector2(1.0, 0.0)
+	var landed: Vector2 = stage.clamp_point(
+		Vector2(float(m.g["db_x"]), float(m.g["db_z"])) + knock.normalized() * 6.0, BOSS_INSET)
+	m.g["db_x"] = landed.x
+	m.g["db_z"] = landed.y
 	if hits >= HP:
 		_enter_state("friends")
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
@@ -300,6 +309,43 @@ func _land_hit(fr: Dictionary) -> void:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!")
 		m._say("roshan", "dustboss_hit", 2.0)
 
+func on_world_tap(screen_pos: Vector2) -> void:
+	# HYBRID TOUCH: the finger lands ON the boss instead of on the action
+	# button. Same verb, and MORE generous — a tap that visibly lands on his
+	# card counts as in-reach however far away she is standing, because "I
+	# touched the thing I wanted to bonk" is the truest intent a small player
+	# can express. It can never be less generous than the button.
+	if not m.g.has("db_state") or m.game != "dustboss":
+		return
+	var fr: Dictionary = m.g.get("fr", {})
+	var on_him: bool = _screen_hit(screen_pos)
+	if String(m.g.get("db_state", "")) == "vuln" \
+			and int(m.g.get("db_window_hit", 0)) < HITS_PER_WINDOW:
+		var here := Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
+		var d: float = (here - stage.player_local()).length()
+		if on_him or d <= reach():
+			m.g["db_window_hit"] = int(m.g.get("db_window_hit", 0)) + 1
+			_land_hit(fr)
+			return
+		m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0), Color(1.0, 0.92, 0.62))
+		m._say("roshan", "dustboss_closer", 3.0)
+		return
+	_bounce_off()
+
+func _screen_hit(screen_pos: Vector2) -> bool:
+	# did the finger land on his card? (generous: the whole cutout plus a ring)
+	var boss: Node3D = m.g.get("db_boss") as Node3D
+	var cam: Camera3D = m.player.cam if m.player != null else null
+	if boss == null or not is_instance_valid(boss) or cam == null or not cam.is_inside_tree():
+		return false
+	var mid: Vector3 = boss.global_position + Vector3(0, BOSS_H * 0.5, 0)
+	if cam.is_position_behind(mid):
+		return false
+	var centre: Vector2 = cam.unproject_position(mid)
+	var top: Vector2 = cam.unproject_position(boss.global_position + Vector3(0, BOSS_H, 0))
+	var half: float = maxf(64.0, absf(centre.y - top.y) * 1.15)
+	return screen_pos.distance_to(centre) <= half
+
 func _bounce_off() -> void:
 	# a shielded tap: never a failure, never a penalty — a poof, a giggle, and
 	# after three of them he giggles the tell back at her
@@ -316,21 +362,18 @@ func _bounce_off() -> void:
 func _pick_hop(reset: bool) -> void:
 	var cfg: Dictionary = phase_cfg()
 	var here := Vector2(float(m.g.get("db_x", 0.0)), float(m.g.get("db_z", 0.0)))
-	var want := Vector2(randf_range(-HALF_W + 4.0, HALF_W - 4.0),
-		randf_range(-HALF_D + 1.0, HALF_D - 1.0))
+	var ang: float = randf() * TAU
+	var rad: float = sqrt(randf()) * (RADIUS - BOSS_INSET)
+	var want := Vector2(cos(ang) * rad, sin(ang) * rad)
 	# part of the time he bounces AT her — playful, and the bump is harmless
 	if randf() < float(cfg["chase"]):
-		var r := stage.root()
-		if r != null:
-			want = Vector2(m.player.position.x - r.position.x,
-				m.player.position.z - r.position.z)
+		want = stage.player_local()
 	var step: float = hop_speed() * float(cfg["hop_gap"])
 	var dv: Vector2 = want - here
 	if dv.length() > step:
 		dv = dv.normalized() * step
 	m.g["db_from"] = here
-	m.g["db_to"] = Vector2(clampf(here.x + dv.x, -HALF_W + 3.0, HALF_W - 3.0),
-		clampf(here.y + dv.y, -HALF_D + 1.0, HALF_D - 1.0))
+	m.g["db_to"] = stage.clamp_point(here + dv, BOSS_INSET)
 	if reset:
 		m.g["db_hop_t"] = 0.0
 
@@ -340,8 +383,9 @@ func _hop_move(delta: float, s: Dictionary) -> void:
 	var t: float = float(m.g.get("db_hop_t", 0.0)) + delta
 	if t >= gap:
 		t = 0.0
-		m.g["db_x"] = (m.g["db_to"] as Vector2).x
-		m.g["db_z"] = (m.g["db_to"] as Vector2).y
+		var to_v: Vector2 = m.g["db_to"]
+		m.g["db_x"] = to_v.x
+		m.g["db_z"] = to_v.y
 		_pick_hop(false)
 	m.g["db_hop_t"] = t
 	var u: float = clampf(t / gap, 0.0, 1.0)
@@ -402,6 +446,15 @@ func _place_boss(delta: float) -> void:
 		else:
 			star.modulate = Color(0.66, 0.62, 0.78, 0.42 + 0.35 * flash)
 			star.scale = Vector3.ONE * (0.85 + 0.3 * flash)
+	var shadow: MeshInstance3D = m.g.get("db_shadow") as MeshInstance3D
+	if shadow != null and is_instance_valid(shadow):
+		var lift: float = clampf(float(m.g.get("db_y", 0.0)) / LEAP_H, 0.0, 1.0)
+		shadow.position = Vector3(float(m.g.get("db_x", 0.0)), 0.14,
+			float(m.g.get("db_z", 0.0)))
+		shadow.scale = Vector3.ONE * (1.0 - 0.5 * lift) * maxf(0.02, puff)
+		var sm: StandardMaterial3D = shadow.material_override as StandardMaterial3D
+		if sm != null:
+			sm.albedo_color = Color(0.16, 0.28, 0.45, 0.30 - 0.18 * lift)
 	var glow: MeshInstance3D = m.g.get("db_glow") as MeshInstance3D
 	if glow != null and is_instance_valid(glow):
 		glow.visible = flash >= 0.99
@@ -418,62 +471,63 @@ func _update_hud() -> void:
 	var lead: String = "⭐ TAP NOW!" if open else "Watch his star…"
 	m.hud_game.text = lead + "   " + m._pips(hits, HP, "💜")
 
-# ---- the attic -------------------------------------------------------------
+# ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:
 	stage.open({
 		"origin": m.ARENA_POS + Vector3(0, 2.5, 0),
-		"half_w": HALF_W,
-		"half_d": HALF_D,
+		"radius": RADIUS,
+		"inset": 2.6,
+		"wall_h": 5.4,
 		"hover": 3.0,
-		"bob_amp": 0.5,
-		"steer_speed": 24.0,
-		"cam_h": 13.0,
-		"cam_dist": 26.0,
-		"look_h": 7.0,
-		"cam_follow": 0.55,
+		"bob_amp": 0.45,
+		"speed": 24.0,
+		# the frame must hold the whole ring AND the top of a leap plus the
+		# star above his head: LEAP_H + BOSS_H + the icon ≈ 22 units of air
+		"headroom": LEAP_H + BOSS_H + 3.5,
+		"start": Vector2(0.0, 14.0),
+		"floor_col": Color(0.82, 0.74, 0.68),      # attic boards
+		"trim_col": Color(0.78, 0.72, 0.88),       # lavender panelling
+		"post_col": Color(0.94, 0.90, 0.99),
+		"post_glow": Color(1.0, 0.88, 0.70),
 	})
-	stage.set_bounds(-HALF_W, HALF_W)
 	m._play_music("race")
 	var r := stage.root()
 	if r == null:
 		return
-	# the attic shell: a long pastel wall, a round moon window, and rows of
-	# forgotten pearl crates for the dust to have come from
-	var wall := MeshInstance3D.new()
-	var wm := BoxMesh.new()
-	wm.size = Vector3(HALF_W * 2.0 + 20.0, 20.0, 3.0)
-	wall.mesh = wm
-	wall.position = Vector3(0, 10.0, -HALF_D - 5.5)
-	wall.material_override = m._soft_mat(Color(0.80, 0.74, 0.86), 0.06)
-	r.add_child(wall)
-	var window_disc := MeshInstance3D.new()
-	var wdm := CylinderMesh.new()
-	wdm.top_radius = 5.4
-	wdm.bottom_radius = 5.4
-	wdm.height = 0.6
-	window_disc.mesh = wdm
-	window_disc.rotation_degrees.x = 90.0
-	window_disc.position = Vector3(-4.0, 14.5, -HALF_D - 3.8)
-	window_disc.material_override = m._soft_mat(Color(0.90, 0.94, 1.0), 0.34)
-	r.add_child(window_disc)
-	for i in range(7):
-		var crate := MeshInstance3D.new()
-		var cm := BoxMesh.new()
-		cm.size = Vector3(4.4, 3.6, 3.2)
-		crate.mesh = cm
-		crate.position = Vector3(-HALF_W + 3.0 + float(i) * 8.2,
-			1.8 + (1.8 if i % 3 == 0 else 0.0), -HALF_D - 2.2)
-		crate.material_override = m._soft_mat(
-			Color(0.86, 0.78, 0.70) if i % 2 == 0 else Color(0.78, 0.80, 0.90), 0.05)
-		r.add_child(crate)
-	# his nest: a low lavender dust mound he is first seen rising out of
+	# forgotten pearl crates stacked against the wall panels, and low dust
+	# mounds banked in the corners: the room the dust came from
+	for i in range(8):
+		var ang: float = float(i) * PI / 4.0
+		var apo: float = OctagonStage.apothem(RADIUS)
+		if i % 2 == 0:
+			var crate := MeshInstance3D.new()
+			var cm := BoxMesh.new()
+			cm.size = Vector3(5.2, 4.0, 3.4)
+			crate.mesh = cm
+			crate.position = Vector3(cos(ang) * (apo - 2.0), 2.0, sin(ang) * (apo - 2.0))
+			crate.rotation.y = -ang
+			crate.material_override = m._soft_mat(Color(0.86, 0.78, 0.70), 0.05)
+			crate.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			r.add_child(crate)
+		else:
+			var mound := MeshInstance3D.new()
+			var mm := SphereMesh.new()
+			mm.radius = 3.6
+			mm.height = 3.0
+			mound.mesh = mm
+			mound.position = Vector3(cos(ang) * (apo - 1.6), 0.5, sin(ang) * (apo - 1.6))
+			mound.material_override = m._soft_mat(Color(0.80, 0.76, 0.92), 0.08)
+			mound.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			r.add_child(mound)
+	# his nest in the middle of the ring: he rises out of this in the showing
 	var nest := MeshInstance3D.new()
 	var nm := SphereMesh.new()
 	nm.radius = 6.0
-	nm.height = 5.0
+	nm.height = 4.4
 	nest.mesh = nm
-	nest.position = Vector3(9.0, 0.4, 0.0)
+	nest.position = Vector3(0.0, 0.3, -12.0)
 	nest.material_override = m._soft_mat(Color(0.80, 0.76, 0.92), 0.10)
+	nest.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	r.add_child(nest)
 
 func _build_boss() -> void:
@@ -481,7 +535,7 @@ func _build_boss() -> void:
 	if r == null:
 		return
 	var boss := Node3D.new()
-	boss.position = Vector3(9.0, 0.0, 0.0)
+	boss.position = Vector3(float(m.g["db_x"]), 0.0, float(m.g["db_z"]))
 	r.add_child(boss)
 	m.g["db_boss"] = boss
 	# the cutout: unshaded, billboarded, never re-lit or redesigned
@@ -495,20 +549,13 @@ func _build_boss() -> void:
 	body.position = Vector3(0, BOSS_H * 0.5, 0)
 	boss.add_child(body)
 	m.g["db_body"] = body
-	# contact shadow so an airborne leap reads as airborne
-	var sh := MeshInstance3D.new()
-	var sqm := QuadMesh.new()
-	sqm.size = Vector2(BOSS_H * 0.62, BOSS_H * 0.62)
-	sh.mesh = sqm
-	sh.rotation_degrees.x = -90.0
-	var sm := StandardMaterial3D.new()
-	sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	sm.albedo_color = Color(0.16, 0.28, 0.45, 0.26)
-	sh.material_override = sm
-	sh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	sh.position = Vector3(0, 0.12, 0)
-	boss.add_child(sh)
+	# THE GROUND SHADOW STAYS ON THE DECK. Parented to the boss it would fly
+	# with him and an airborne leap would read exactly like a ground hop —
+	# the shadow shrinking away from his feet is what says "he is UP THERE"
+	# (2026-08-02 stress test, visual pass).
+	var shadow := stage.contact_shadow(BOSS_H * 0.62)
+	r.add_child(shadow)
+	m.g["db_shadow"] = shadow
 	# THE ICON ON HIS HEAD — the whole fight is reading this one sprite
 	var star := Sprite3D.new()
 	if ResourceLoader.exists(STAR_TEX):
@@ -522,11 +569,10 @@ func _build_boss() -> void:
 	boss.add_child(star)
 	m.g["db_star"] = star
 	var glow := stage.glow(Color(1.0, 0.92, 0.55), BOSS_H * 1.5)
-	if glow != null:
-		glow.position = Vector3(0, BOSS_H * 0.5, 0)
-		glow.visible = false
-		boss.add_child(glow)
-		m.g["db_glow"] = glow
+	glow.position = Vector3(0, BOSS_H * 0.5, 0)
+	glow.visible = false
+	boss.add_child(glow)
+	m.g["db_glow"] = glow
 	var hand := Label3D.new()
 	hand.text = "👆"
 	hand.font_size = 128

@@ -23,6 +23,7 @@ func _init() -> void:
 	await process_frame
 	await _open_case()
 	if main.game == "dustboss":
+		await _framing_case()
 		await _showing_case()
 		await _shield_case()
 		await _first_hit_case()
@@ -73,13 +74,20 @@ func _await_airborne(cap: int) -> bool:
 	return false
 
 func _park(x: float, z: float) -> void:
-	# stand Roshan at a stage-local spot; brawl_tick reads her live position,
-	# so this is placement only — it can never stand in for the tap
-	var r: Node3D = main.g.get("ss_root") as Node3D
+	# stand Roshan at a ring-local spot; OctagonStage.tick reads her live
+	# position, so this is placement only — it can never stand in for the tap
+	var r: Node3D = main.g.get("oc_root") as Node3D
 	if r == null:
 		return
 	main.player.position = r.position + Vector3(x, 3.0, z)
 	main.player.vel = Vector3.ZERO
+
+func _player_local() -> Vector2:
+	var r: Node3D = main.g.get("oc_root") as Node3D
+	if r == null:
+		return Vector2.ZERO
+	return Vector2(main.player.position.x - r.position.x,
+		main.player.position.z - r.position.z)
 
 func _park_on_boss() -> void:
 	_park(float(main.g.get("db_x", 0.0)), float(main.g.get("db_z", 0.0)))
@@ -129,6 +137,37 @@ func _open_case() -> void:
 		await process_frame
 	_ck("swimming to the attic door opens the boss fight", main.game == "dustboss")
 
+# ---- the camera contract ---------------------------------------------------
+func _framing_case() -> void:
+	# THE FRAMING IS PART OF THE FIGHT. The 2026-08-02 stress test shipped a
+	# boss whose whole tell was cropped off the top of the phone and whose
+	# player was 255px below the bottom, with every behavioural probe green.
+	# These checks make that impossible to repeat: the ring, the child and the
+	# apex of a leap with its icon must all project inside the 1280x720 canvas.
+	var cam: Camera3D = main.player.cam
+	var r: Node3D = main.g.get("oc_root") as Node3D
+	_ck("the arena owns the camera", cam != null and r != null)
+	if cam == null or r == null:
+		return
+	var vp: Vector2 = cam.get_viewport().get_visible_rect().size
+	var apo: float = OctagonStage.apothem(DustBossGame.RADIUS)
+	var near_p: Vector2 = cam.unproject_position(r.position + Vector3(0, 4.5, apo))
+	var far_p: Vector2 = cam.unproject_position(r.position + Vector3(0, 4.5, -apo))
+	var apex: Vector2 = cam.unproject_position(r.position
+		+ Vector3(0, DustBossGame.LEAP_H + DustBossGame.BOSS_H + 3.5, 0))
+	_ck("the near rim of the ring is on screen", near_p.y < vp.y and near_p.y > 0.0)
+	_ck("the far rim of the ring is on screen", far_p.y > 0.0 and far_p.y < vp.y)
+	_ck("the top of a leap and its icon are on screen", apex.y > 0.0 and apex.y < vp.y)
+	var her: Vector2 = cam.unproject_position(main.player.global_position + Vector3(0, 3.0, 0))
+	_ck("Roshan herself is on screen at the start of the fight",
+		her.x > 0.0 and her.x < vp.x and her.y > 0.0 and her.y < vp.y)
+	# and the arena must KEEP the lens: player.gd hands the camera to a stage
+	# by game id, so a mode missing from that list silently loses it
+	var before: Vector3 = cam.position
+	await _frames(20)
+	_ck("the arena keeps the camera while the fight runs",
+		cam.position.distance_to(before) < 1.0)
+
 # ---- the showing -----------------------------------------------------------
 func _showing_case() -> void:
 	_ck("the fight opens with the showing, not the fight", _state() == "showing")
@@ -159,16 +198,35 @@ func _first_hit_case() -> void:
 	_ck("the wind-up becomes an airborne flashing window", open_now)
 	var up: bool = await _await_airborne(600)
 	_ck("he really is in the air while the star flashes", up)
-	# an open window on the far side of the attic is not a free hit
+	# an open window on the far side of the ring is not a free hit: stand
+	# diametrically opposite him, inside the octagon, and tap on the flash
 	var boss := _boss()
-	var far_x: float = -24.0 if float(main.g.get("db_x", 0.0)) > 0.0 else 24.0
-	_park(far_x, 0.0)
+	var him := Vector2(float(main.g.get("db_x", 0.0)), float(main.g.get("db_z", 0.0)))
+	var away: Vector2 = (-him).normalized() if him.length() > 0.5 else Vector2(1.0, 0.0)
+	var far_spot: Vector2 = away * (OctagonStage.apothem(DustBossGame.RADIUS) - 3.0)
+	_park(far_spot.x, far_spot.y)
 	await _tap()
-	var gap: float = Vector2(float(main.g.get("db_x", 0.0)) - far_x,
-		float(main.g.get("db_z", 0.0))).length()
+	var gap: float = (Vector2(float(main.g.get("db_x", 0.0)),
+		float(main.g.get("db_z", 0.0))) - _player_local()).length()
 	_ck("an open window still needs her to be near him",
 		gap > boss.reach() and _hits() == 0)
-	var hit1: bool = await _strike(4)
+	# HYBRID TOUCH: the finger goes ON him. Route a world tap through main's
+	# own router (the path the touch layer uses) and it must be the bonk.
+	var opened_again: bool = await _await_state("vuln", 4000)
+	var up2: bool = await _await_airborne(600)
+	if opened_again and up2:
+		var cam: Camera3D = main.player.cam
+		var b: Node3D = main.g.get("db_boss") as Node3D
+		var on_him: Vector2 = cam.unproject_position(b.global_position
+			+ Vector3(0, DustBossGame.BOSS_H * 0.5, 0))
+		var hits_before: int = _hits()
+		main._on_touch_world(on_him)
+		await process_frame
+		_ck("tapping the boss himself is the bonk, not a walk order",
+			_hits() == hits_before + 1)
+	var hit1: bool = _hits() >= 1
+	if not hit1:
+		hit1 = await _strike(4)
 	_ck("the first flash she reaches takes damage", hit1)
 	_ck("the landed hit closes the window", _state() == "struck")
 	await _tap()

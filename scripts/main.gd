@@ -3443,6 +3443,14 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 	if arena != null:
 		arena.on_world_tap(screen_pos)
 		return
+	if game == "dustboss":
+		# The boss is an ENEMY and obeys the same forefront rule: in Hybrid
+		# touch the finger goes ON him, and that must be the bonk. Without this
+		# the most natural thing a 4-year-old can do — tap the big fluffy
+		# thing — fell through to tap-to-move and did nothing at all
+		# (2026-08-02 boss stress test).
+		_game_obj("dustboss", DustBossGame).on_world_tap(screen_pos)
+		return
 	_interaction_ref().on_world_touch(screen_pos)
 
 # The live hit-engine client, if a battle is running: a standalone arena
