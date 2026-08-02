@@ -1,0 +1,1310 @@
+{
+ "apparent_scale": {
+  "roshan_assumed_cm": 105.0,
+  "roshan_card_screen_px": 174.3,
+  "species": {
+   "frog": {
+    "apparent_height_cm": 12.2,
+    "fraction_of_roshan": 0.1166,
+    "mean_visible_screen_px": 20.3,
+    "real_height_cm": 4.5,
+    "real_note": "Pacific tree frog, snout-vent",
+    "scale_error_x": 2.72
+   },
+   "hare": {
+    "apparent_height_cm": 28.7,
+    "fraction_of_roshan": 0.2736,
+    "mean_visible_screen_px": 47.7,
+    "real_height_cm": 32.0,
+    "real_note": "snowshoe hare, sitting",
+    "scale_error_x": 0.9
+   },
+   "otter": {
+    "apparent_height_cm": 14.7,
+    "fraction_of_roshan": 0.1405,
+    "mean_visible_screen_px": 24.5,
+    "real_height_cm": 30.0,
+    "real_note": "river otter, shoulder height",
+    "scale_error_x": 0.49
+   },
+   "raccoon": {
+    "apparent_height_cm": 22.5,
+    "fraction_of_roshan": 0.2145,
+    "mean_visible_screen_px": 37.4,
+    "real_height_cm": 30.0,
+    "real_note": "raccoon, shoulder height",
+    "scale_error_x": 0.75
+   },
+   "squirrel": {
+    "apparent_height_cm": 23.3,
+    "fraction_of_roshan": 0.2218,
+    "mean_visible_screen_px": 38.6,
+    "real_height_cm": 18.0,
+    "real_note": "Douglas squirrel, sitting",
+    "scale_error_x": 1.29
+   }
+  }
+ },
+ "atlas_geometry": {
+  "frog": {
+   "idle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.2688,
+      "foot_baseline_frac": 0.8281,
+      "frame": 0,
+      "screen_px_h_at_720p": 18.3,
+      "source_oversample_x": 7.88,
+      "subject_px_h": 144,
+      "subject_px_w": 206,
+      "visible_world_h": 0.928
+     },
+     {
+      "alpha_coverage": 0.2782,
+      "foot_baseline_frac": 0.8398,
+      "frame": 1,
+      "screen_px_h_at_720p": 21.8,
+      "source_oversample_x": 7.88,
+      "subject_px_h": 172,
+      "subject_px_w": 202,
+      "visible_world_h": 1.109
+     },
+     {
+      "alpha_coverage": 0.2606,
+      "foot_baseline_frac": 0.7305,
+      "frame": 2,
+      "screen_px_h_at_720p": 19.8,
+      "source_oversample_x": 7.88,
+      "subject_px_h": 156,
+      "subject_px_w": 229,
+      "visible_world_h": 1.005
+     },
+     {
+      "alpha_coverage": 0.2707,
+      "foot_baseline_frac": 0.7695,
+      "frame": 3,
+      "screen_px_h_at_720p": 21.4,
+      "source_oversample_x": 7.88,
+      "subject_px_h": 169,
+      "subject_px_w": 180,
+      "visible_world_h": 1.089
+     }
+    ],
+    "foot_baseline_drift_frac": 0.1093,
+    "foot_baseline_drift_world": 0.18,
+    "subject_height_drift_pct": 19.4
+   },
+   "startle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.2202,
+      "foot_baseline_frac": 0.832,
+      "frame": 0,
+      "screen_px_h_at_720p": 17.8,
+      "source_oversample_x": 7.88,
+      "subject_px_h": 140,
+      "subject_px_w": 174,
+      "visible_world_h": 0.902
+     },
+     {
+      "alpha_coverage": 0.1902,
+      "foot_baseline_frac": 0.832,
+      "frame": 1,
+      "screen_px_h_at_720p": 13.7,
+      "source_oversample_x": 7.88,
+      "subject_px_h": 108,
+      "subject_px_w": 173,
+      "visible_world_h": 0.696
+     },
+     {
+      "alpha_coverage": 0.1907,
+      "foot_baseline_frac": 0.7422,
+      "frame": 2,
+      "screen_px_h_at_720p": 21.7,
+      "source_oversample_x": 7.88,
+      "subject_px_h": 171,
+      "subject_px_w": 234,
+      "visible_world_h": 1.102
+     },
+     {
+      "alpha_coverage": 0.1882,
+      "foot_baseline_frac": 0.7422,
+      "frame": 3,
+      "screen_px_h_at_720p": 21.1,
+      "source_oversample_x": 7.88,
+      "subject_px_h": 166,
+      "subject_px_w": 246,
+      "visible_world_h": 1.07
+     }
+    ],
+    "foot_baseline_drift_frac": 0.0898,
+    "foot_baseline_drift_world": 0.148,
+    "subject_height_drift_pct": 58.3
+   }
+  },
+  "hare": {
+   "idle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.2958,
+      "foot_baseline_frac": 0.8945,
+      "frame": 0,
+      "screen_px_h_at_720p": 51.6,
+      "source_oversample_x": 4.09,
+      "subject_px_h": 211,
+      "subject_px_w": 183,
+      "visible_world_h": 2.555
+     },
+     {
+      "alpha_coverage": 0.3182,
+      "foot_baseline_frac": 0.8906,
+      "frame": 1,
+      "screen_px_h_at_720p": 36.9,
+      "source_oversample_x": 4.09,
+      "subject_px_h": 151,
+      "subject_px_w": 196,
+      "visible_world_h": 1.829
+     },
+     {
+      "alpha_coverage": 0.3096,
+      "foot_baseline_frac": 0.8359,
+      "frame": 2,
+      "screen_px_h_at_720p": 51.1,
+      "source_oversample_x": 4.09,
+      "subject_px_h": 209,
+      "subject_px_w": 201,
+      "visible_world_h": 2.531
+     },
+     {
+      "alpha_coverage": 0.3111,
+      "foot_baseline_frac": 0.8555,
+      "frame": 3,
+      "screen_px_h_at_720p": 51.1,
+      "source_oversample_x": 4.09,
+      "subject_px_h": 209,
+      "subject_px_w": 181,
+      "visible_world_h": 2.531
+     }
+    ],
+    "foot_baseline_drift_frac": 0.0586,
+    "foot_baseline_drift_world": 0.182,
+    "subject_height_drift_pct": 39.7
+   },
+   "startle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.217,
+      "foot_baseline_frac": 0.8789,
+      "frame": 0,
+      "screen_px_h_at_720p": 49.4,
+      "source_oversample_x": 4.09,
+      "subject_px_h": 202,
+      "subject_px_w": 134,
+      "visible_world_h": 2.446
+     },
+     {
+      "alpha_coverage": 0.213,
+      "foot_baseline_frac": 0.8672,
+      "frame": 1,
+      "screen_px_h_at_720p": 31.5,
+      "source_oversample_x": 4.09,
+      "subject_px_h": 129,
+      "subject_px_w": 182,
+      "visible_world_h": 1.562
+     },
+     {
+      "alpha_coverage": 0.2252,
+      "foot_baseline_frac": 0.7617,
+      "frame": 2,
+      "screen_px_h_at_720p": 46.4,
+      "source_oversample_x": 4.09,
+      "subject_px_h": 190,
+      "subject_px_w": 219,
+      "visible_world_h": 2.301
+     },
+     {
+      "alpha_coverage": 0.2284,
+      "foot_baseline_frac": 0.6914,
+      "frame": 3,
+      "screen_px_h_at_720p": 30.3,
+      "source_oversample_x": 4.09,
+      "subject_px_h": 124,
+      "subject_px_w": 224,
+      "visible_world_h": 1.502
+     }
+    ],
+    "foot_baseline_drift_frac": 0.1875,
+    "foot_baseline_drift_world": 0.581,
+    "subject_height_drift_pct": 62.9
+   }
+  },
+  "otter": {
+   "idle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.2018,
+      "foot_baseline_frac": 0.7773,
+      "frame": 0,
+      "screen_px_h_at_720p": 25.1,
+      "source_oversample_x": 4.97,
+      "subject_px_h": 125,
+      "subject_px_w": 233,
+      "visible_world_h": 1.27
+     },
+     {
+      "alpha_coverage": 0.1854,
+      "foot_baseline_frac": 0.8008,
+      "frame": 1,
+      "screen_px_h_at_720p": 20.1,
+      "source_oversample_x": 4.97,
+      "subject_px_h": 100,
+      "subject_px_w": 232,
+      "visible_world_h": 1.016
+     },
+     {
+      "alpha_coverage": 0.1986,
+      "foot_baseline_frac": 0.6797,
+      "frame": 2,
+      "screen_px_h_at_720p": 23.1,
+      "source_oversample_x": 4.97,
+      "subject_px_h": 115,
+      "subject_px_w": 239,
+      "visible_world_h": 1.168
+     },
+     {
+      "alpha_coverage": 0.186,
+      "foot_baseline_frac": 0.6875,
+      "frame": 3,
+      "screen_px_h_at_720p": 29.6,
+      "source_oversample_x": 4.97,
+      "subject_px_h": 147,
+      "subject_px_w": 198,
+      "visible_world_h": 1.493
+     }
+    ],
+    "foot_baseline_drift_frac": 0.1211,
+    "foot_baseline_drift_world": 0.315,
+    "subject_height_drift_pct": 47.0
+   },
+   "startle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.1928,
+      "foot_baseline_frac": 0.793,
+      "frame": 0,
+      "screen_px_h_at_720p": 25.9,
+      "source_oversample_x": 4.97,
+      "subject_px_h": 129,
+      "subject_px_w": 247,
+      "visible_world_h": 1.31
+     },
+     {
+      "alpha_coverage": 0.1398,
+      "foot_baseline_frac": 0.8047,
+      "frame": 1,
+      "screen_px_h_at_720p": 14.3,
+      "source_oversample_x": 4.97,
+      "subject_px_h": 71,
+      "subject_px_w": 238,
+      "visible_world_h": 0.721
+     },
+     {
+      "alpha_coverage": 0.1613,
+      "foot_baseline_frac": 0.6211,
+      "frame": 2,
+      "screen_px_h_at_720p": 21.3,
+      "source_oversample_x": 4.97,
+      "subject_px_h": 106,
+      "subject_px_w": 248,
+      "visible_world_h": 1.077
+     },
+     {
+      "alpha_coverage": 0.1666,
+      "foot_baseline_frac": 0.5977,
+      "frame": 3,
+      "screen_px_h_at_720p": 17.5,
+      "source_oversample_x": 4.97,
+      "subject_px_h": 87,
+      "subject_px_w": 235,
+      "visible_world_h": 0.884
+     }
+    ],
+    "foot_baseline_drift_frac": 0.207,
+    "foot_baseline_drift_world": 0.538,
+    "subject_height_drift_pct": 81.7
+   }
+  },
+  "raccoon": {
+   "idle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.3036,
+      "foot_baseline_frac": 0.8555,
+      "frame": 0,
+      "screen_px_h_at_720p": 40.4,
+      "source_oversample_x": 4.41,
+      "subject_px_h": 178,
+      "subject_px_w": 224,
+      "visible_world_h": 2.086
+     },
+     {
+      "alpha_coverage": 0.2916,
+      "foot_baseline_frac": 0.8555,
+      "frame": 1,
+      "screen_px_h_at_720p": 28.8,
+      "source_oversample_x": 4.41,
+      "subject_px_h": 127,
+      "subject_px_w": 223,
+      "visible_world_h": 1.488
+     },
+     {
+      "alpha_coverage": 0.3063,
+      "foot_baseline_frac": 0.7461,
+      "frame": 2,
+      "screen_px_h_at_720p": 38.8,
+      "source_oversample_x": 4.41,
+      "subject_px_h": 171,
+      "subject_px_w": 238,
+      "visible_world_h": 2.004
+     },
+     {
+      "alpha_coverage": 0.2362,
+      "foot_baseline_frac": 0.7695,
+      "frame": 3,
+      "screen_px_h_at_720p": 41.5,
+      "source_oversample_x": 4.41,
+      "subject_px_h": 183,
+      "subject_px_w": 164,
+      "visible_world_h": 2.145
+     }
+    ],
+    "foot_baseline_drift_frac": 0.1094,
+    "foot_baseline_drift_world": 0.328,
+    "subject_height_drift_pct": 44.1
+   },
+   "startle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.2734,
+      "foot_baseline_frac": 0.8477,
+      "frame": 0,
+      "screen_px_h_at_720p": 37.4,
+      "source_oversample_x": 4.41,
+      "subject_px_h": 165,
+      "subject_px_w": 216,
+      "visible_world_h": 1.934
+     },
+     {
+      "alpha_coverage": 0.2442,
+      "foot_baseline_frac": 0.8477,
+      "frame": 1,
+      "screen_px_h_at_720p": 24.3,
+      "source_oversample_x": 4.41,
+      "subject_px_h": 107,
+      "subject_px_w": 227,
+      "visible_world_h": 1.254
+     },
+     {
+      "alpha_coverage": 0.1959,
+      "foot_baseline_frac": 0.6758,
+      "frame": 2,
+      "screen_px_h_at_720p": 28.6,
+      "source_oversample_x": 4.41,
+      "subject_px_h": 126,
+      "subject_px_w": 216,
+      "visible_world_h": 1.477
+     },
+     {
+      "alpha_coverage": 0.201,
+      "foot_baseline_frac": 0.6484,
+      "frame": 3,
+      "screen_px_h_at_720p": 26.1,
+      "source_oversample_x": 4.41,
+      "subject_px_h": 115,
+      "subject_px_w": 240,
+      "visible_world_h": 1.348
+     }
+    ],
+    "foot_baseline_drift_frac": 0.1993,
+    "foot_baseline_drift_world": 0.598,
+    "subject_height_drift_pct": 54.2
+   }
+  },
+  "squirrel": {
+   "idle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.3273,
+      "foot_baseline_frac": 0.8672,
+      "frame": 0,
+      "screen_px_h_at_720p": 37.6,
+      "source_oversample_x": 4.58,
+      "subject_px_h": 172,
+      "subject_px_w": 208,
+      "visible_world_h": 1.948
+     },
+     {
+      "alpha_coverage": 0.2877,
+      "foot_baseline_frac": 0.8828,
+      "frame": 1,
+      "screen_px_h_at_720p": 38.5,
+      "source_oversample_x": 4.58,
+      "subject_px_h": 176,
+      "subject_px_w": 194,
+      "visible_world_h": 1.994
+     },
+     {
+      "alpha_coverage": 0.3224,
+      "foot_baseline_frac": 0.7734,
+      "frame": 2,
+      "screen_px_h_at_720p": 37.4,
+      "source_oversample_x": 4.58,
+      "subject_px_h": 171,
+      "subject_px_w": 214,
+      "visible_world_h": 1.937
+     },
+     {
+      "alpha_coverage": 0.31,
+      "foot_baseline_frac": 0.7852,
+      "frame": 3,
+      "screen_px_h_at_720p": 41.1,
+      "source_oversample_x": 4.58,
+      "subject_px_h": 188,
+      "subject_px_w": 177,
+      "visible_world_h": 2.13
+     }
+    ],
+    "foot_baseline_drift_frac": 0.1094,
+    "foot_baseline_drift_world": 0.317,
+    "subject_height_drift_pct": 9.9
+   },
+   "startle": {
+    "cell_px": 256,
+    "cells": [
+     {
+      "alpha_coverage": 0.3011,
+      "foot_baseline_frac": 0.8711,
+      "frame": 0,
+      "screen_px_h_at_720p": 41.1,
+      "source_oversample_x": 4.58,
+      "subject_px_h": 188,
+      "subject_px_w": 171,
+      "visible_world_h": 2.13
+     },
+     {
+      "alpha_coverage": 0.2787,
+      "foot_baseline_frac": 0.8906,
+      "frame": 1,
+      "screen_px_h_at_720p": 37.8,
+      "source_oversample_x": 4.58,
+      "subject_px_h": 173,
+      "subject_px_w": 192,
+      "visible_world_h": 1.96
+     },
+     {
+      "alpha_coverage": 0.2505,
+      "foot_baseline_frac": 0.7422,
+      "frame": 2,
+      "screen_px_h_at_720p": 32.8,
+      "source_oversample_x": 4.58,
+      "subject_px_h": 150,
+      "subject_px_w": 240,
+      "visible_world_h": 1.699
+     },
+     {
+      "alpha_coverage": 0.2239,
+      "foot_baseline_frac": 0.6992,
+      "frame": 3,
+      "screen_px_h_at_720p": 26.0,
+      "source_oversample_x": 4.58,
+      "subject_px_h": 119,
+      "subject_px_w": 244,
+      "visible_world_h": 1.348
+     }
+    ],
+    "foot_baseline_drift_frac": 0.1914,
+    "foot_baseline_drift_world": 0.555,
+    "subject_height_drift_pct": 58.0
+   }
+  }
+ },
+ "camera_reachability": {
+  "16:9": {
+   "aspect": 1.7778,
+   "pages_reachable": [
+    0,
+    1,
+    2
+   ],
+   "pan_limit": 32.21,
+   "pannable_width": 64.42,
+   "species": {
+    "frog": {
+     "camera_window_width": 3.01,
+     "camera_x_window": [
+      -32.21,
+      -29.2
+     ],
+     "fully_framed": true,
+     "page": 0,
+     "partially_framed": true
+    },
+    "hare": {
+     "camera_window_width": 35.0,
+     "camera_x_window": [
+      -24.0,
+      11.0
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    },
+    "otter": {
+     "camera_window_width": 2.53,
+     "camera_x_window": [
+      -32.21,
+      -29.68
+     ],
+     "fully_framed": true,
+     "page": 0,
+     "partially_framed": true
+    },
+    "raccoon": {
+     "camera_window_width": 8.2,
+     "camera_x_window": [
+      24.01,
+      32.21
+     ],
+     "fully_framed": true,
+     "page": 2,
+     "partially_framed": true
+    },
+    "squirrel": {
+     "camera_window_width": 36.46,
+     "camera_x_window": [
+      -24.0,
+      12.47
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    }
+   }
+  },
+  "18:9": {
+   "aspect": 2.0,
+   "pages_reachable": [
+    0,
+    1,
+    2
+   ],
+   "pan_limit": 27.24,
+   "pannable_width": 54.47,
+   "species": {
+    "frog": {
+     "camera_window_width": 2.1,
+     "camera_x_window": [
+      -27.24,
+      -25.14
+     ],
+     "fully_framed": true,
+     "page": 0,
+     "partially_framed": true
+    },
+    "hare": {
+     "camera_window_width": 38.96,
+     "camera_x_window": [
+      -24.0,
+      14.97
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    },
+    "otter": {
+     "camera_window_width": 1.59,
+     "camera_x_window": [
+      -27.24,
+      -25.64
+     ],
+     "fully_framed": true,
+     "page": 0,
+     "partially_framed": true
+    },
+    "raccoon": {
+     "camera_window_width": 3.23,
+     "camera_x_window": [
+      24.01,
+      27.24
+     ],
+     "fully_framed": true,
+     "page": 2,
+     "partially_framed": true
+    },
+    "squirrel": {
+     "camera_window_width": 40.61,
+     "camera_x_window": [
+      -24.0,
+      16.61
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    }
+   }
+  },
+  "19.5:9": {
+   "aspect": 2.1667,
+   "pages_reachable": [
+    1
+   ],
+   "pan_limit": 23.51,
+   "pannable_width": 47.01,
+   "species": {
+    "frog": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 0,
+     "partially_framed": false
+    },
+    "hare": {
+     "camera_window_width": 41.44,
+     "camera_x_window": [
+      -23.51,
+      17.94
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    },
+    "otter": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 0,
+     "partially_framed": false
+    },
+    "raccoon": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 2,
+     "partially_framed": false
+    },
+    "squirrel": {
+     "camera_window_width": 43.24,
+     "camera_x_window": [
+      -23.51,
+      19.73
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    }
+   }
+  },
+  "19:9": {
+   "aspect": 2.1111,
+   "pages_reachable": [
+    0,
+    1,
+    2
+   ],
+   "pan_limit": 24.75,
+   "pannable_width": 49.5,
+   "species": {
+    "frog": {
+     "camera_window_width": 0.74,
+     "camera_x_window": [
+      -24.75,
+      -24.01
+     ],
+     "fully_framed": true,
+     "page": 0,
+     "partially_framed": true
+    },
+    "hare": {
+     "camera_window_width": 40.94,
+     "camera_x_window": [
+      -24.0,
+      16.94
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    },
+    "otter": {
+     "camera_window_width": 0.74,
+     "camera_x_window": [
+      -24.75,
+      -24.01
+     ],
+     "fully_framed": true,
+     "page": 0,
+     "partially_framed": true
+    },
+    "raccoon": {
+     "camera_window_width": 0.74,
+     "camera_x_window": [
+      24.01,
+      24.75
+     ],
+     "fully_framed": true,
+     "page": 2,
+     "partially_framed": true
+    },
+    "squirrel": {
+     "camera_window_width": 42.68,
+     "camera_x_window": [
+      -24.0,
+      18.69
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    }
+   }
+  },
+  "20.5:9": {
+   "aspect": 2.2778,
+   "pages_reachable": [
+    1
+   ],
+   "pan_limit": 21.02,
+   "pannable_width": 42.04,
+   "species": {
+    "frog": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 0,
+     "partially_framed": false
+    },
+    "hare": {
+     "camera_window_width": 40.94,
+     "camera_x_window": [
+      -21.02,
+      19.92
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    },
+    "otter": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 0,
+     "partially_framed": false
+    },
+    "raccoon": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 2,
+     "partially_framed": false
+    },
+    "squirrel": {
+     "camera_window_width": 42.04,
+     "camera_x_window": [
+      -21.02,
+      21.02
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    }
+   }
+  },
+  "20:9": {
+   "aspect": 2.2222,
+   "pages_reachable": [
+    1
+   ],
+   "pan_limit": 22.26,
+   "pannable_width": 44.53,
+   "species": {
+    "frog": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 0,
+     "partially_framed": false
+    },
+    "hare": {
+     "camera_window_width": 41.2,
+     "camera_x_window": [
+      -22.26,
+      18.94
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    },
+    "otter": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 0,
+     "partially_framed": false
+    },
+    "raccoon": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 2,
+     "partially_framed": false
+    },
+    "squirrel": {
+     "camera_window_width": 43.04,
+     "camera_x_window": [
+      -22.26,
+      20.77
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    }
+   }
+  },
+  "21:9": {
+   "aspect": 2.3333,
+   "pages_reachable": [
+    1
+   ],
+   "pan_limit": 19.78,
+   "pannable_width": 39.55,
+   "species": {
+    "frog": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 0,
+     "partially_framed": false
+    },
+    "hare": {
+     "camera_window_width": 39.55,
+     "camera_x_window": [
+      -19.78,
+      19.78
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    },
+    "otter": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 0,
+     "partially_framed": false
+    },
+    "raccoon": {
+     "camera_window_width": 0.0,
+     "camera_x_window": null,
+     "fully_framed": false,
+     "page": 2,
+     "partially_framed": false
+    },
+    "squirrel": {
+     "camera_window_width": 39.55,
+     "camera_x_window": [
+      -19.78,
+      19.78
+     ],
+     "fully_framed": true,
+     "page": 1,
+     "partially_framed": true
+    }
+   }
+  },
+  "_page_reachability_threshold_aspect": 2.1446,
+  "_page_reachability_threshold_label": "19.30:9"
+ },
+ "canvas": "1280x720 base, canvas_items/expand, Godot Mobile renderer",
+ "locomotion": {
+  "frog": {
+   "authored_bob": 0.18,
+   "body_length_world": 1.476,
+   "exit_body_lengths_per_s": 7.11,
+   "idle_body_lengths_per_s": 0.488,
+   "patrol_cycle_s": 17.08,
+   "patrol_length_in_bodies": 2.51,
+   "patrol_length_world": 3.7,
+   "worst_baseline_drift_over_bob": 1.0
+  },
+  "hare": {
+   "authored_bob": 0.12,
+   "body_length_world": 2.434,
+   "exit_body_lengths_per_s": 5.55,
+   "idle_body_lengths_per_s": 0.271,
+   "patrol_cycle_s": 17.01,
+   "patrol_length_in_bodies": 1.44,
+   "patrol_length_world": 3.5,
+   "worst_baseline_drift_over_bob": 4.8
+  },
+  "otter": {
+   "authored_bob": 0.045,
+   "body_length_world": 2.427,
+   "exit_body_lengths_per_s": 4.94,
+   "idle_body_lengths_per_s": 0.214,
+   "patrol_cycle_s": 21.75,
+   "patrol_length_in_bodies": 1.73,
+   "patrol_length_world": 4.2,
+   "worst_baseline_drift_over_bob": 12.0
+  },
+  "raccoon": {
+   "authored_bob": 0.035,
+   "body_length_world": 2.789,
+   "exit_body_lengths_per_s": 4.66,
+   "idle_body_lengths_per_s": 0.208,
+   "patrol_cycle_s": 24.44,
+   "patrol_length_in_bodies": 1.79,
+   "patrol_length_world": 5.0,
+   "worst_baseline_drift_over_bob": 17.1
+  },
+  "squirrel": {
+   "authored_bob": 0.055,
+   "body_length_world": 2.424,
+   "exit_body_lengths_per_s": 5.98,
+   "idle_body_lengths_per_s": 0.338,
+   "patrol_cycle_s": 13.54,
+   "patrol_length_in_bodies": 1.44,
+   "patrol_length_world": 3.5,
+   "worst_baseline_drift_over_bob": 10.1
+  }
+ },
+ "mural_socket_drift": {
+  "frog": {
+   "camera_window_16_9": 3.01,
+   "slide_per_camera_unit": 0.2241,
+   "slide_vs_own_path_length": 0.18,
+   "total_slide_world_units": 0.67
+  },
+  "hare": {
+   "camera_window_16_9": 35.0,
+   "slide_per_camera_unit": 0.2548,
+   "slide_vs_own_path_length": 2.55,
+   "total_slide_world_units": 8.92
+  },
+  "otter": {
+   "camera_window_16_9": 2.53,
+   "slide_per_camera_unit": 0.2311,
+   "slide_vs_own_path_length": 0.14,
+   "total_slide_world_units": 0.58
+  },
+  "raccoon": {
+   "camera_window_16_9": 8.2,
+   "slide_per_camera_unit": 0.2037,
+   "slide_vs_own_path_length": 0.33,
+   "total_slide_world_units": 1.67
+  },
+  "squirrel": {
+   "camera_window_16_9": 36.46,
+   "slide_per_camera_unit": 0.1993,
+   "slide_vs_own_path_length": 2.08,
+   "total_slide_world_units": 7.27
+  }
+ },
+ "painted_footing": {
+  "frog": {
+   "foot_world_y": 2.425,
+   "painted_footing": [
+    "stone/neutral"
+   ],
+   "route_clearance_world": 5.51,
+   "samples": [
+    {
+     "mean_rgb": [
+      144,
+      153,
+      146
+     ],
+     "mural_px": [
+      439,
+      1325
+     ],
+     "painted": "stone/neutral",
+     "world": [
+      -61.7,
+      2.425
+     ]
+    },
+    {
+     "mean_rgb": [
+      97,
+      115,
+      118
+     ],
+     "mural_px": [
+      520,
+      1316
+     ],
+     "painted": "stone/neutral",
+     "world": [
+      -59.8,
+      2.655
+     ]
+    },
+    {
+     "mean_rgb": [
+      124,
+      128,
+      122
+     ],
+     "mural_px": [
+      597,
+      1323
+     ],
+     "painted": "stone/neutral",
+     "world": [
+      -58.0,
+      2.475
+     ]
+    }
+   ]
+  },
+  "hare": {
+   "foot_world_y": 1.87,
+   "painted_footing": [
+    "vegetation"
+   ],
+   "route_clearance_world": 5.48,
+   "samples": [
+    {
+     "mean_rgb": [
+      64,
+      123,
+      52
+     ],
+     "mural_px": [
+      2188,
+      1349
+     ],
+     "painted": "vegetation",
+     "world": [
+      -20.7,
+      1.87
+     ]
+    },
+    {
+     "mean_rgb": [
+      62,
+      118,
+      53
+     ],
+     "mural_px": [
+      2265,
+      1336
+     ],
+     "painted": "vegetation",
+     "world": [
+      -18.9,
+      2.17
+     ]
+    },
+    {
+     "mean_rgb": [
+      96,
+      144,
+      51
+     ],
+     "mural_px": [
+      2338,
+      1346
+     ],
+     "painted": "vegetation",
+     "world": [
+      -17.2,
+      1.95
+     ]
+    }
+   ]
+  },
+  "otter": {
+   "foot_world_y": 2.25,
+   "painted_footing": [
+    "stone/neutral"
+   ],
+   "route_clearance_world": 5.31,
+   "samples": [
+    {
+     "mean_rgb": [
+      133,
+      139,
+      132
+     ],
+     "mural_px": [
+      426,
+      1333
+     ],
+     "painted": "stone/neutral",
+     "world": [
+      -62.0,
+      2.25
+     ]
+    },
+    {
+     "mean_rgb": [
+      88,
+      113,
+      117
+     ],
+     "mural_px": [
+      512,
+      1321
+     ],
+     "painted": "stone/neutral",
+     "world": [
+      -60.0,
+      2.52
+     ]
+    },
+    {
+     "mean_rgb": [
+      128,
+      127,
+      119
+     ],
+     "mural_px": [
+      605,
+      1332
+     ],
+     "painted": "stone/neutral",
+     "world": [
+      -57.8,
+      2.28
+     ]
+    }
+   ]
+  },
+  "raccoon": {
+   "foot_world_y": 2.65,
+   "painted_footing": [
+    "stone/neutral",
+    "vegetation",
+    "water"
+   ],
+   "route_clearance_world": 6.5,
+   "samples": [
+    {
+     "mean_rgb": [
+      56,
+      111,
+      62
+     ],
+     "mural_px": [
+      4309,
+      1316
+     ],
+     "painted": "vegetation",
+     "world": [
+      29.0,
+      2.65
+     ]
+    },
+    {
+     "mean_rgb": [
+      48,
+      83,
+      80
+     ],
+     "mural_px": [
+      4411,
+      1299
+     ],
+     "painted": "water",
+     "world": [
+      31.4,
+      3.05
+     ]
+    },
+    {
+     "mean_rgb": [
+      98,
+      112,
+      116
+     ],
+     "mural_px": [
+      4522,
+      1310
+     ],
+     "painted": "stone/neutral",
+     "world": [
+      34.0,
+      2.78
+     ]
+    }
+   ]
+  },
+  "squirrel": {
+   "foot_world_y": 2.93,
+   "painted_footing": [
+    "vegetation"
+   ],
+   "route_clearance_world": 6.54,
+   "samples": [
+    {
+     "mean_rgb": [
+      46,
+      94,
+      56
+     ],
+     "mural_px": [
+      2188,
+      1304
+     ],
+     "painted": "vegetation",
+     "world": [
+      -20.7,
+      2.93
+     ]
+    },
+    {
+     "mean_rgb": [
+      31,
+      79,
+      53
+     ],
+     "mural_px": [
+      2265,
+      1290
+     ],
+     "painted": "vegetation",
+     "world": [
+      -18.9,
+      3.25
+     ]
+    },
+    {
+     "mean_rgb": [
+      49,
+      100,
+      58
+     ],
+     "mural_px": [
+      2338,
+      1301
+     ],
+     "painted": "vegetation",
+     "world": [
+      -17.2,
+      3.0
+     ]
+    }
+   ]
+  }
+ },
+ "source": "scripts/arena/sky_lagoon_promenade.gd",
+ "target": "Sky Lagoon promenade ambient animals"
+}
