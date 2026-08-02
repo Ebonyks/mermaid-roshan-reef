@@ -688,3 +688,75 @@ Re-cut with corrected bounds / erase debris; one line each:
 5. Delivery report: branch + SHA, reuse/regen/reject/accept counts, native
    resolution confirmation, per-career counts, min/max/mean scores, promoted
    paths, deferred assets, license updates, CI run URL.
+
+
+---
+
+## PRIORITY 6 — Imp & rival animation-state program (2026-08-02)
+
+Stage-roaming combat plays the characters as state sprites (idle / bopped /
+bow now; hop and taunt next). The base-imp six-sprite set is the quality
+benchmark; the audit found one defect in it and systemic foot-crops in the
+rival idles. Full audit: the Phase-2 sprite audit (imp_audit) — spec below
+is paste-ready.
+
+## 4. Codex generation spec for the twelve costumed rivals
+
+**Characters (12):** astronaut, ballerina, boxer, candymaker, chef, detective, doctor, farmer, magician, painter, popstar, racer.
+
+**Global rules — paste into every codex prompt:**
+- Canvas **512×512, RGBA, transparent background**. No background halo: semi-transparent fringe (16<alpha<240) must be **<15%** of solid pixels; hard-edged matte like `imp_captain.png` (6.8%) is the target.
+- **Full figure in frame**: minimum 12 px clear margin on all four sides; nothing may touch a canvas edge. Feet complete, including soles.
+- **Baseline/anchor lock**: soles rest at **y ≈ 504** (8 px bottom gap). Standing height (horn-tip to toe) **480–490 px**. Sprite pivot = bottom-center **(256, 504)**; horizontal centroid within **256 ± 24**. Airborne frames (`hop_b`, `bopped`) keep the same body scale and centroid window — do not shrink the character to fit FX.
+- **Facing**: 3/4-front, bow/taunt lean to viewer-left (matches imp set). Engine mirror-flips, so no readable text/logos on costumes.
+- **Alpha integrity**: exactly one connected solid component (plus declared FX only); **no interior holes >200 px** except true see-through gaps between limbs and body. (This is the `imp_captain_bow` shorts bug — reject any output with background showing through solid cloth.)
+- **Costume-consistency lock**: pass that character's existing idle (`rival_<costume>.png`) as the style/reference image. Identical skin purple (`#d070f0` family), amber eyes, fangs, ear/horn shapes, tail; identical costume garments, colors, shoes, and hat in **every** state. Held props (chef's whisk, detective's magnifier, etc.) appear in **all** states, same hand — including bopped — so state swaps never pop a prop in or out. Dizzy-spiral eyes in bopped only; amber eyes everywhere else.
+- **Bopped states: NO baked stars** — the shared `fx_dizzy_stars.png` overlay provides them.
+- Rendering style: match the imp 6-set's soft painterly shading and line weight (not the crisper `rival_boxer` outline style).
+
+### Numbered codex request list
+
+**Fixes to existing files:**
+1. `imp_captain_bow.png` — regenerate (same pose/costume). Reject cause: 1,252 px alpha hole through the shorts; also slim the belly/forearms ~10% toward `imp_captain.png` proportions.
+2. `rival_detective.png` — full regenerate. Reject cause: ghost/double-exposure artifacts, detached crescent artifact top-right, 38% semi-alpha matte, feet cropped at canvas bottom.
+3. `rival_boxer.png` — re-render at 512×512 standard framing (feet at y≈504, height 480–490 px). Art content is approved; only canvas/scale/baseline are wrong.
+4. Remaining 10 rival idles (`rival_astronaut/ballerina/candymaker/chef/doctor/farmer/magician/painter/popstar/racer.png`) — regenerate with complete feet (all currently hard-cropped at the last row) and clean mattes (<15% semi-alpha; magician currently 56%).
+
+**New shared FX:**
+5. `fx_dizzy_stars.png` — 256×256 RGBA overlay: 3 gold stars + thin swirl ring, transparent center; loops by engine rotation. One file serves all characters.
+
+**New per-character states — 5 files × 12 characters (60 files), filename pattern `rival_<costume>_<state>.png`:**
+6. `rival_<costume>_bopped.png` — knocked back mid-air, limbs flailing, dizzy-spiral eyes, open wailing mouth, **no stars** (pose reference: `imp_mischief_bopped.png` / `imp_captain_bopped.png`).
+7. `rival_<costume>_bow.png` — deep stage bow to viewer-left, one arm swept out, feet planted (pose reference: `imp_mischief_bow.png`).
+8. `rival_<costume>_hop_a.png` — crouch anticipation: knees bent, arms back, ears/tail down; soles at y≈504.
+9. `rival_<costume>_hop_b.png` — airborne stretch: legs tucked, arms up, ears/tail up; body lifted ~40–60 px, same body scale.
+10. `rival_<costume>_taunt.png` — standing, one arm waving overhead, cheeky grin, weight on one leg; soles at y≈504.
+
+Full manifest (rows 6–10 expanded): `rival_astronaut_bopped.png`, `rival_astronaut_bow.png`, `rival_astronaut_hop_a.png`, `rival_astronaut_hop_b.png`, `rival_astronaut_taunt.png` — and identically for `ballerina`, `boxer`, `candymaker`, `chef`, `detective`, `doctor`, `farmer`, `magician`, `painter`, `popstar`, `racer`.
+
+**Acceptance gate (run per file before commit):** canvas 512×512 RGBA; solid-mass height 480–492 (standing) ; bottom gap 6–10 px; no solid pixels within 2 px of any canvas edge; bottom-row solid run <100 px (crop detector); semi-alpha <15%; connected components = 1; no interior holes >200 px outside limb gaps; dominant skin quantized color in the `#d070f0` family. These thresholds all pass on the imp benchmark files and fail on every defect found above.
+
+*(Out of scope but adjacent: the matching `roshan_<costume>.png` set in the same directory will need the identical state expansion; same spec applies.)*
+
+---
+
+## PRIORITY 7 — Storybook task-card frame, station marker, magnifier (2026-08-02)
+
+The runtime draws these procedurally today (StorybookUI language); raster
+art upgrades them. Extracted from the UI design-language report:
+
+## 4. Codex art request spec (per assets/ART_GENERATION_CONTRACT.md)
+
+Contract constraints that bind any request: textures ≤1024 px longest side OR power-of-two; Mobile renderer must read correctly; every asset ships with generator/source + QA renders + ASSET_LICENSES.md row (project-generated, © Mermaid Roshan LLC) and must be PLACED by runtime code in the same workstream (no orphans); never touch assets/book/, assets/audio/voices/, assets/characters/friends/ or regenerate Roshan.
+
+Request A — task_card_frame (landscape nine-patch):
+- Canvas 1024x1024 RGBA (POT), frame drawn as a 920x760 landscape border centered, transparent center ≥560x420. Corner ornament zones ≤200x200 so NinePatch margins of 200 protect them; edge middles must be a REPEATABLE scallop/pearl run (uniform lobes, no centered medallion) so TILE_FIT stretching is invisible. Optional matching crest as a SEPARATE 256x192 RGBA sprite to overlay top-center (keeps the nine-patch clean).
+- Style contract wording: "Pastel toy playset, cel-shaded storybook diorama. Cream scallop-shell lobes (#f5ebd1) outer ring, lavender band (#a87dd6 lightened), gold trim (#f5b838), aqua pearl accents (#45c4c7 / #B3F7FF). Navy/indigo contour lines #4a4f78–#1a1238, never black; shadows aqua/lavender, high-key, no baked spotlights or vignettes. No faces on the frame. Flat broad color fields, rounded slightly-asymmetrical masses, child-readable at 50% scale."
+- Must harmonize with StyleBoxFlat neighbors: contour weight ≈5 px at 460-wide display, corner rounding reading ≈44 px.
+
+Request B — station_marker (world-space task beacon):
+- Canvas 512x1024 RGBA (POT), single upright sign/easel: rounded post + shell-crowned header board with transparent (or cream #f5ebd1) inner window ≥360x360 for a runtime-set task icon. Reuse the v3 easel language (wood + silver trim + pink scallop crest) or the lavender/gold frame language of v2 — one family, stated explicitly in the request. Bottom 96 px = soft contact-shadow blob baked separately (see sky_lagoon_contact_shadow.png precedent) or omitted.
+
+Request C — magnifier prop (search/inspect tasks; none exists in assets):
+- Canvas 512x512 RGBA (POT), single sticker-style magnifying glass at 45 degrees: gold handle #f5b838, lavender grip #a87dd6, aqua-tinted glass #45c4c7 at ~25% opacity with one white crescent specular, PURPLE_DEEP #382485 contour. No face, no rainbow (rainbow is a reward accent only). Silhouette must read at 64 px.
+- Deliver each with QA renders at gameplay scale on the Mobile renderer per the contract's stress-test loop; candidates without runtime captures cap at 2/5 and must not ship.

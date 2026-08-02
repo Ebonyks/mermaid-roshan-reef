@@ -10,6 +10,7 @@ extends CanvasLayer
 const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
+const StagePaths := preload("res://scripts/opera_stage_paths.gd")
 
 const SLUGS := {
 	"chef": "chef",
@@ -44,9 +45,9 @@ const PHASES := {
 	],
 	"detective": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_detective_imps", "voice": "Imps scattered the clue boxes! Tap each imp!"},
-		{"name": "PEEK", "icon": "?", "mode": "hold", "goal": 5.0, "vo": "op_detective_peek", "voice": "Hold the magnifier over the glowing clue!"},
+		{"name": "LENS", "icon": "?", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens", "voice": "Drag the magic magnifying glass over the stage to find the glowing clues!"},
 		{"name": "TRAIL", "icon": "→", "mode": "swipe", "goal": 7.5, "vo": "op_detective_trail", "voice": "Swipe along the footprint trail!"},
-		{"name": "CLUES", "icon": "●", "mode": "tap", "goal": 8.0, "vo": "op_detective_clues", "voice": "Tap every glowing clue you find!"},
+		{"name": "SEARCH", "icon": "★", "mode": "lens", "goal": 5.0, "vo": "op_detective_search", "voice": "Search the whole stage! Sweep your magnifying glass to find every hidden sparkle!"},
 		{"name": "TIARA CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_detective_tiara_chase", "voice": "The imp captain ran off with the tiara case! Bop the lookouts!"},
 		{"name": "MATCH", "icon": "◆", "mode": "choice", "goal": 5.0, "vo": "op_detective_match", "voice": "Match each clue to the glowing place!"},
 		{"name": "NAME", "icon": "★", "mode": "timing", "goal": 2.0, "vo": "op_detective_name", "voice": "Tap when the spotlight shines on the answer!"},
@@ -206,6 +207,27 @@ var captain_pending := false
 var idle_t := 0.0
 var bop_puff_texture: Texture2D = null
 var nursery_catch: OperaNurseryCatch = null
+## Stage geography: the painted world's walkable route and task stations.
+var stage_points := PackedVector2Array()
+var station_list: Array[Dictionary] = []
+var station_nodes: Array[Control] = []
+var station_for_phase: Dictionary = {}
+## Roaming stage combat (replaces the old panel scuffle).
+var combat_layer: Control = null
+var combat_imps: Array[Dictionary] = []
+var imp_idle_texture: Texture2D = null
+var imp_bopped_texture: Texture2D = null
+var captain_idle_texture: Texture2D = null
+var captain_bopped_texture: Texture2D = null
+var swipe_stroke := 0
+## Magnifier lens phases (detective's masked reveal over the whole stage).
+var lens_layer: Control = null
+var lens_pos := Vector2(640, 400)
+var lens_clues := PackedVector2Array()
+var lens_found: Array[bool] = []
+var lens_dwell := 0.0
+var lens_target := -1
+var lens_demo := true
 
 var root: Control
 var backdrop_node: OperaWorldBackdrop2D
@@ -282,6 +304,11 @@ func _build_world() -> void:
 	_full_rect(shade)
 	root.add_child(shade)
 
+	stage_points = StagePaths.path_points(career_id)
+	station_list = StagePaths.stations(career_id)
+	_assign_stations()
+	_build_station_markers()
+
 	var top := ColorRect.new()
 	top.color = Color(0.025, 0.025, 0.11, 0.84)
 	top.position = Vector2(18, 14)
@@ -322,15 +349,15 @@ func _build_world() -> void:
 	top.add_child(rival_name_label)
 
 	player_actor = _actor("res://assets/opera/worlds/actors/roshan_%s.png" % career_id)
-	player_actor.position = Vector2(35, 150)
-	player_actor.size = Vector2(420, 460)
+	player_actor.size = Vector2(250, 288)
+	_place_on_stage(player_actor, StagePaths.point_along(stage_points, 0.08))
 	root.add_child(player_actor)
 	var partner_path := "res://assets/opera/worlds/actors/rival_%s.png" % career_id
 	if career_id == "nursery":
 		partner_path = "res://assets/opera/worlds/actors/faron_nursery.png"
 	rival_actor = _actor(partner_path)
-	rival_actor.position = Vector2(825, 170)
-	rival_actor.size = Vector2(410, 420)
+	rival_actor.size = Vector2(250, 270)
+	_place_on_stage(rival_actor, StagePaths.point_along(stage_points, 0.92))
 	root.add_child(rival_actor)
 	if career_id == "nursery":
 		player_name_label.text = "NURSE ROSHAN"
@@ -350,12 +377,14 @@ func _build_world() -> void:
 	root.add_child(prop_rect)
 
 	action_panel = ColorRect.new()
-	action_panel.color = Color(0.025, 0.025, 0.11, 0.62)
+	# transparent host; the storybook card frame is drawn in _draw_task_card
+	action_panel.color = Color(0, 0, 0, 0)
 	action_panel.position = Vector2(430, 160)
 	action_panel.size = Vector2(420, 430)
 	action_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	action_panel.draw.connect(_draw_task_card)
 	root.add_child(action_panel)
-	phase_label = _label("", 32, Color(1.0, 0.92, 0.62))
+	phase_label = _label("", 30, Color("#382485"))
 	phase_label.position = Vector2(10, 8)
 	phase_label.size = Vector2(400, 62)
 	action_panel.add_child(phase_label)
@@ -398,6 +427,31 @@ func _build_world() -> void:
 	phase_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	action_panel.add_child(phase_fill)
 
+	combat_layer = Control.new()
+	combat_layer.name = "StageCombatLayer"
+	_full_rect(combat_layer)
+	combat_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	combat_layer.gui_input.connect(_combat_input)
+	root.add_child(combat_layer)
+	imp_idle_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_mischief.png")
+	imp_bopped_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_mischief_bopped.png")
+	captain_idle_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain.png")
+	captain_bopped_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain_bopped.png")
+	if not competition.is_cooperative() and rival_actor != null and rival_actor.texture != null:
+		# crews wear the career's special imp costume; the base-imp set keeps
+		# the bopped state until per-costume state sprites land (codex handoff)
+		imp_idle_texture = rival_actor.texture
+		captain_idle_texture = rival_actor.texture
+
+	lens_layer = Control.new()
+	lens_layer.name = "MagnifierLensLayer"
+	_full_rect(lens_layer)
+	lens_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	lens_layer.visible = false
+	lens_layer.gui_input.connect(_lens_input)
+	lens_layer.draw.connect(_draw_lens_layer)
+	root.add_child(lens_layer)
+
 	crowd_label = _label("●  ●  ●  ●  ●", 30, Color(1.0, 0.84, 0.5))
 	crowd_label.position = Vector2(430, 595)
 	crowd_label.size = Vector2(420, 42)
@@ -412,6 +466,91 @@ func _actor(path: String) -> TextureRect:
 	actor.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	actor.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return actor
+
+
+func _load_if_exists(path: String) -> Texture2D:
+	return load(path) as Texture2D if ResourceLoader.exists(path) else null
+
+
+func _place_on_stage(actor: Control, feet: Vector2) -> void:
+	# anchor a stage character by its feet with gentle painted-depth scaling
+	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
+	actor.scale = Vector2(depth, depth)
+	actor.position = feet - Vector2(actor.size.x * 0.5 * depth, actor.size.y * depth - 12.0)
+
+
+func _assign_stations() -> void:
+	# non-combat phases visit the painted stations left-to-right in order
+	station_for_phase = {}
+	if station_list.is_empty():
+		return
+	var station_index := 0
+	for index in range(phases.size()):
+		var mode := String((phases[index] as Dictionary).get("mode", ""))
+		if mode == "bop":
+			continue
+		station_for_phase[index] = mini(station_index, station_list.size() - 1)
+		station_index += 1
+
+
+func _build_station_markers() -> void:
+	for station: Dictionary in station_list:
+		var marker := Control.new()
+		marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		marker.position = station.get("pos", Vector2(640, 480)) as Vector2
+		marker.draw.connect(_draw_station_marker.bind(marker))
+		root.add_child(marker)
+		station_nodes.append(marker)
+
+
+func _draw_task_card() -> void:
+	# the exact StorybookUI menu language (see the UI extraction report):
+	# paper fill, violet drop shadow, PURPLE->PURPLE_DEEP contour, gold
+	# title ribbon and corner pearls — a task card that matches the menus
+	var card_size := action_panel.size
+	var rect := Rect2(Vector2.ZERO, card_size)
+	var frame := StyleBoxFlat.new()
+	frame.bg_color = Color("#e6f5ff")
+	frame.set_border_width_all(5)
+	frame.border_color = Color("#4b33a0")
+	frame.set_corner_radius_all(44)
+	frame.shadow_color = Color(0.19, 0.10, 0.48, 0.34)
+	frame.shadow_size = 14
+	frame.shadow_offset = Vector2(0, 8)
+	frame.draw(action_panel.get_canvas_item(), rect)
+	var ribbon := StyleBoxFlat.new()
+	ribbon.bg_color = Color("#fff7db")
+	ribbon.set_border_width_all(4)
+	ribbon.border_color = Color("#ffc74d").lerp(Color("#382485"), 0.62)
+	ribbon.set_corner_radius_all(32)
+	ribbon.draw(action_panel.get_canvas_item(), Rect2(20.0, 14.0, card_size.x - 40.0, 56.0))
+	for corner: Vector2 in [
+		Vector2(26, 26), Vector2(card_size.x - 26.0, 26),
+		Vector2(26, card_size.y - 26.0), Vector2(card_size.x - 26.0, card_size.y - 26.0),
+	]:
+		action_panel.draw_circle(corner, 9.0, Color("#382485"))
+		action_panel.draw_circle(corner, 6.5, Color("#b3f7ff"))
+		action_panel.draw_circle(corner + Vector2(-2, -2), 2.0, Color.WHITE)
+
+
+func _draw_station_marker(marker: Control) -> void:
+	var index := station_nodes.find(marker)
+	var current := int(station_for_phase.get(phase_index, -1)) == index
+	var pulse := (sin(elapsed * 4.2) + 1.0) * 0.5 if current else 0.0
+	var base := Color(1.0, 0.86, 0.42, 0.55 + pulse * 0.35) if current else Color(1.0, 1.0, 1.0, 0.22)
+	marker.draw_circle(Vector2.ZERO, 26.0 + pulse * 7.0, Color(base, base.a * 0.35))
+	marker.draw_arc(Vector2.ZERO, 26.0 + pulse * 7.0, 0.0, TAU, 32, base, 5.0)
+	if current:
+		marker.draw_circle(Vector2.ZERO, 8.0, Color(1.0, 0.97, 0.85))
+
+
+func _glide_roshan_to(feet: Vector2, duration: float = 1.3) -> void:
+	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
+	var target := feet - Vector2(player_actor.size.x * 0.5 * depth, player_actor.size.y * depth - 12.0)
+	player_actor.flip_h = target.x < player_actor.position.x
+	var tween := player_actor.create_tween()
+	tween.tween_property(player_actor, "position", target, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(player_actor, "scale", Vector2(depth, depth), duration)
 
 
 func _build_audience() -> void:
@@ -457,11 +596,26 @@ func _show_phase() -> void:
 	phase_progress = 0.0
 	idle_t = 0.0
 	var phase := phases[phase_index] as Dictionary
-	var is_bop := String(phase.get("mode", "tap")) == "bop"
+	var mode_name := String(phase.get("mode", "tap"))
+	var is_bop := mode_name == "bop"
+	var is_lens := mode_name == "lens"
 	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
 	choice_target = (phase_index + int(competition.rival_step)) % 3
-	_apply_panel_layout(is_bop)
-	var mode_name := String(phase.get("mode", "tap"))
+	_apply_panel_layout(phase)
+	if is_bop:
+		_start_stage_combat(phase.get("combat", {}) as Dictionary)
+	else:
+		_clear_stage_combat()
+		var station_index := int(station_for_phase.get(phase_index, -1))
+		if station_index >= 0 and station_index < station_list.size():
+			_glide_roshan_to(station_list[station_index].get("pos", Vector2(640, 480)) as Vector2)
+	if is_lens:
+		_start_lens_phase(phase)
+	elif lens_layer != null:
+		lens_layer.visible = false
+		lens_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for marker in station_nodes:
+		marker.queue_redraw()
 	var is_nursery_catch := career_id == "nursery" and mode_name == "catch"
 	surface.visible = not is_nursery_catch
 	if nursery_catch != null:
@@ -484,9 +638,6 @@ func _show_phase() -> void:
 			surface.swipe_dir = Vector2.DOWN
 		"up":
 			surface.swipe_dir = Vector2.UP
-	if is_bop:
-		bop_time = 0.0
-		surface.set_bop_targets(_build_bop_targets(phase.get("combat", {}) as Dictionary))
 	if prop_rect != null:
 		if phase_index == steal_index and prop_rect.visible:
 			# the theft is a visible event: the captain hauls the prop away
@@ -506,62 +657,170 @@ func _show_phase() -> void:
 		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
 
 
-func _apply_panel_layout(wide: bool) -> void:
+func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
-	if wide:
-		action_panel.position = Vector2(140, 150)
-		action_panel.size = Vector2(1000, 446)
-		phase_label.size = Vector2(980, 54)
-		surface.position = Vector2(24, 66)
-		surface.size = Vector2(952, 334)
-		phase_fill.position = Vector2(24, 408)
-		phase_fill.size = Vector2(952, 28)
-	else:
-		action_panel.position = Vector2(430, 160)
-		action_panel.size = Vector2(420, 430)
-		phase_label.size = Vector2(400, 62)
-		surface.position = Vector2(24, 78)
-		surface.size = Vector2(372, 266)
-		phase_fill.position = Vector2(24, 362)
-		phase_fill.size = Vector2(372, 40)
+	var mode := String(phase.get("mode", "tap"))
+	if mode == "bop" or mode == "lens":
+		# stage-wide beats play on the painting itself — no card at all
+		action_panel.visible = false
+		return
+	action_panel.visible = true
+	action_panel.position = _card_position_near_station()
+	action_panel.size = Vector2(440, 384)
+	phase_label.size = Vector2(420, 56)
+	surface.position = Vector2(24, 70)
+	surface.size = Vector2(392, 232)
+	phase_fill.position = Vector2(24, 318)
+	phase_fill.size = Vector2(392, 34)
+	action_panel.queue_redraw()
 
 
-func _build_bop_targets(combat: Dictionary) -> Array:
-	var targets: Array = []
+func _card_position_near_station() -> Vector2:
+	# dock the task card beside the phase's station, clamped on screen and
+	# clear of the top HUD strip and the audience row
+	var station_index := int(station_for_phase.get(phase_index, -1))
+	var anchor := Vector2(640, 430)
+	if station_index >= 0 and station_index < station_list.size():
+		anchor = station_list[station_index].get("pos", anchor) as Vector2
+	var pos := anchor + Vector2(60.0 if anchor.x < 640.0 else -500.0, -260.0)
+	pos.x = clampf(pos.x, 24.0, 1280.0 - 464.0)
+	pos.y = clampf(pos.y, 150.0, 720.0 - 384.0 - 130.0)
+	return pos
+
+
+func _start_stage_combat(combat: Dictionary) -> void:
+	_clear_stage_combat()
+	bop_time = 0.0
+	swipe_stroke = 0
+	combat_layer.mouse_filter = Control.MOUSE_FILTER_STOP
 	var count := maxi(1, int(combat.get("count", 3)))
-	var w := surface.size.x
-	var columns := maxi(1, ceili(float(count) / 2.0))
-	var spacing := (w - 220.0) / maxf(1.0, float(columns - 1))
 	for index in range(count):
-		# deterministic two-row lattice — guaranteed spacing even at full
-		# bob sway, and no RNG so probes and replays are stable
-		var home := Vector2(
-			110.0 + float(index / 2) * spacing + float(index % 2) * 40.0
-				+ fmod(float(career_id.length()) * 29.0, 36.0),
-			96.0 + float(index % 2) * 130.0
-		)
-		targets.append({
-			"home": home, "pos": home, "r": 46.0,
-			"hp": 1, "captain": false, "popped": false, "seed": index,
-		})
-	# the captain waits in the wings and jumps in once the crew is cleared
+		# deterministic spread along the painted route — no RNG
+		var t := fmod(0.14 + float(index) * 0.83 / float(count) + float(career_id.length()) * 0.031, 0.9)
+		_spawn_stage_imp(t, false, index)
 	captain_pending = bool(combat.get("captain", false))
-	return targets
 
 
-func _spawn_bop_captain() -> void:
-	captain_pending = false
-	var w := surface.size.x
-	var h := surface.size.y
-	var home := Vector2(w * 0.5, h * 0.45)
-	surface.bop_targets.append({
-		"home": home, "pos": home, "r": 62.0,
-		"hp": 2, "captain": true, "popped": false, "seed": surface.bop_targets.size(),
+func _spawn_stage_imp(path_t: float, captain: bool, seed_index: int) -> void:
+	var node := TextureRect.new()
+	node.texture = captain_idle_texture if captain else imp_idle_texture
+	node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	node.size = Vector2(150, 150) if captain else Vector2(118, 118)
+	combat_layer.add_child(node)
+	combat_imps.append({
+		"node": node, "t": path_t, "dir": 1.0 if seed_index % 2 == 0 else -1.0,
+		"speed": (46.0 if captain else 60.0) + float(seed_index % 3) * 14.0,
+		"hp": 2 if captain else 1, "captain": captain,
+		"popped": false, "seed": seed_index, "stroke": -1,
 	})
-	surface.queue_redraw()
+
+
+func _clear_stage_combat() -> void:
+	for imp: Dictionary in combat_imps:
+		var node := imp.get("node") as TextureRect
+		if node != null and is_instance_valid(node):
+			node.queue_free()
+	combat_imps = []
+	captain_pending = false
+	if combat_layer != null:
+		combat_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+func _combat_remaining() -> int:
+	var left := 0
+	for imp: Dictionary in combat_imps:
+		if not bool(imp.get("popped", false)):
+			left += 1
+	return left
+
+
+func _spawn_stage_captain() -> void:
+	captain_pending = false
+	_spawn_stage_imp(0.5, true, combat_imps.size())
 	if m != null:
 		m.show_msg("Imp Captain", "Hee hee! You'll have to bop ME twice!", "op_captain")
+
+
+func _combat_input(event: InputEvent) -> void:
+	if not active or combat_imps.is_empty():
+		return
+	if event is InputEventMouseButton and (event as InputEventMouseButton).device == InputEvent.DEVICE_ID_EMULATION:
+		return
+	if event is InputEventMouseMotion and (event as InputEventMouseMotion).device == InputEvent.DEVICE_ID_EMULATION:
+		return
+	if event is InputEventScreenTouch and (event as InputEventScreenTouch).pressed:
+		_combat_strike((event as InputEventScreenTouch).position, (event as InputEventScreenTouch).position)
+		swipe_stroke += 1
+	elif event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT and (event as InputEventMouseButton).pressed:
+		_combat_strike((event as InputEventMouseButton).position, (event as InputEventMouseButton).position)
+		swipe_stroke += 1
+	elif event is InputEventScreenDrag:
+		var drag := event as InputEventScreenDrag
+		_combat_strike(drag.position - drag.relative, drag.position)
+	elif event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		var motion := event as InputEventMouseMotion
+		_combat_strike(motion.position - motion.relative, motion.position)
+
+
+func _combat_strike(from: Vector2, to: Vector2) -> void:
+	# taps and swipe sweeps both bop: an imp is hit when the stroke segment
+	# passes within its friendly reach
+	var hit_any := false
+	for imp: Dictionary in combat_imps:
+		if bool(imp.get("popped", false)) or int(imp.get("stroke", -1)) == swipe_stroke:
+			continue
+		var node := imp.get("node") as TextureRect
+		if node == null or not is_instance_valid(node):
+			continue
+		var center := node.position + node.size * 0.5
+		var reach := node.size.x * 0.62
+		if _segment_distance(from, to, center) <= reach:
+			imp["stroke"] = swipe_stroke
+			hit_any = true
+			_hit_stage_imp(imp, center)
+	if not hit_any and from.distance_to(to) < 6.0:
+		# a stray tap fizzles kindly and still trickles a little progress
+		_bop_burst_at(to, true)
+		_register_bop(0.12, 0.2)
+
+
+func _segment_distance(a: Vector2, b: Vector2, point: Vector2) -> float:
+	var ab := b - a
+	var len_sq := ab.length_squared()
+	if len_sq <= 0.0001:
+		return a.distance_to(point)
+	var t := clampf((point - a).dot(ab) / len_sq, 0.0, 1.0)
+	return (a + ab * t).distance_to(point)
+
+
+func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
+	imp["hp"] = int(imp.get("hp", 1)) - 1
+	var node := imp.get("node") as TextureRect
+	if int(imp["hp"]) <= 0:
+		imp["popped"] = true
+		if node != null and is_instance_valid(node):
+			var bopped := captain_bopped_texture if bool(imp.get("captain", false)) else imp_bopped_texture
+			if bopped != null:
+				node.texture = bopped
+			var spin := node.create_tween()
+			spin.tween_property(node, "rotation", 0.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			spin.parallel().tween_property(node, "modulate:a", 0.0, 0.62)
+			spin.tween_callback(node.queue_free)
+	else:
+		if node != null and is_instance_valid(node):
+			var squash := node.create_tween()
+			squash.tween_property(node, "scale", Vector2(1.18, 0.84), 0.1)
+			squash.tween_property(node, "scale", Vector2.ONE, 0.16)
+	_bop_burst_at(at, false)
+	_register_bop(1.0, 1.0)
+
+
+func _register_bop(amount: float, quality: float) -> void:
+	# feeds the shared phase pipeline exactly like a gesture-surface event
+	_on_gesture("bop", amount, quality)
 
 
 func _finale_start() -> int:
@@ -631,10 +890,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			surface.target_choice = choice_target
 		surface.reflash_choice()
 	elif mode == "bop":
-		if quality >= 0.5:
-			_bop_burst(surface.last_bop_pos)
-			if captain_pending and surface.bop_remaining() <= 2 and phase_progress < goal:
-				_spawn_bop_captain()
+		if quality >= 0.5 and captain_pending and _combat_remaining() <= 2 and phase_progress < goal:
+			_spawn_stage_captain()
 		# the captain can never be mashed past: his two bops are reserved.
 		# (probe pumps arrive with amount 100 and skip the reserve)
 		if amount < 5.0 and (captain_pending or _live_captain_hp() > 0):
@@ -646,39 +903,37 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 
 
 func _live_captain_hp() -> int:
-	for target: Dictionary in surface.bop_targets:
-		if bool(target.get("captain", false)) and not bool(target.get("popped", false)):
-			return maxi(0, int(target.get("hp", 0)))
+	for imp: Dictionary in combat_imps:
+		if bool(imp.get("captain", false)) and not bool(imp.get("popped", false)):
+			return maxi(0, int(imp.get("hp", 0)))
 	return 0
 
 
-func _bop_burst(at: Vector2) -> void:
-	if action_panel == null:
-		return
-	var origin := action_panel.position + surface.position + at
-	if bop_puff_texture != null:
+func _bop_burst_at(origin: Vector2, fizzle: bool) -> void:
+	if bop_puff_texture != null and not fizzle:
 		# the accepted boxer bubble-puff impact card is the shared hit effect
 		var puff := TextureRect.new()
 		puff.texture = bop_puff_texture
 		puff.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		puff.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		puff.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		puff.position = origin - Vector2(30, 30)
-		puff.size = Vector2(60, 60)
-		puff.pivot_offset = Vector2(30, 30)
+		puff.position = origin - Vector2(34, 34)
+		puff.size = Vector2(68, 68)
+		puff.pivot_offset = Vector2(34, 34)
 		root.add_child(puff)
 		var pop := puff.create_tween()
 		pop.tween_property(puff, "scale", Vector2(2.2, 2.2), 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		pop.parallel().tween_property(puff, "modulate:a", 0.0, 0.34)
 		pop.tween_callback(puff.queue_free)
-	for index in range(6):
+	var bits := 4 if fizzle else 6
+	for index in range(bits):
 		var bit := ColorRect.new()
 		bit.color = Color.from_hsv(0.72 + float(index) * 0.04, 0.4, 1.0)
 		bit.position = origin
-		bit.size = Vector2(9, 9)
+		bit.size = Vector2(7, 7) if fizzle else Vector2(9, 9)
 		bit.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		root.add_child(bit)
-		var jump := Vector2(cos(float(index) * TAU / 6.0), sin(float(index) * TAU / 6.0)) * 64.0
+		var jump := Vector2(cos(float(index) * TAU / float(bits)), sin(float(index) * TAU / float(bits))) * (40.0 if fizzle else 64.0)
 		var tween := bit.create_tween()
 		tween.tween_property(bit, "position", origin + jump, 0.34).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tween.parallel().tween_property(bit, "modulate:a", 0.0, 0.34)
@@ -803,6 +1058,121 @@ func celebrate(result: Dictionary) -> void:
 		fall.tween_property(bit, "position:y", 760.0, 1.8 + float(index % 5) * 0.17)
 
 
+func _tick_stage_combat(delta: float) -> void:
+	# imps wander the painted route, hopping as they go
+	var length := StagePaths.path_length(stage_points)
+	for imp: Dictionary in combat_imps:
+		if bool(imp.get("popped", false)):
+			continue
+		var node := imp.get("node") as TextureRect
+		if node == null or not is_instance_valid(node):
+			continue
+		var t := float(imp.get("t", 0.5))
+		var direction := float(imp.get("dir", 1.0))
+		t += direction * float(imp.get("speed", 55.0)) * delta / length
+		if t >= 0.94 or t <= 0.06:
+			direction = -direction
+			t = clampf(t, 0.06, 0.94)
+		imp["t"] = t
+		imp["dir"] = direction
+		var seed := float(imp.get("seed", 0))
+		var feet := StagePaths.point_along(stage_points, t)
+		feet.y += sin(bop_time * 5.2 + seed * 1.7) * 9.0 - 9.0
+		var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
+		node.scale = Vector2(depth, depth)
+		node.flip_h = direction < 0.0
+		node.position = feet - Vector2(node.size.x * 0.5 * depth, node.size.y * depth - 8.0)
+
+
+func _start_lens_phase(phase: Dictionary) -> void:
+	lens_layer.visible = true
+	lens_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	lens_pos = Vector2(640, 420)
+	lens_demo = true
+	lens_dwell = 0.0
+	lens_target = -1
+	var spots := StagePaths.clue_spots(career_id)
+	var goal := mini(int(ceilf(float(phase.get("goal", 5.0)))), spots.size())
+	# rotate which painted details hide sparkles so the two lens phases differ
+	var offset := phase_index * 3
+	lens_clues = PackedVector2Array()
+	lens_found = []
+	for index in range(goal):
+		lens_clues.append(spots[(index + offset) % spots.size()])
+		lens_found.append(false)
+
+
+func _lens_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and (event as InputEventMouseButton).device == InputEvent.DEVICE_ID_EMULATION:
+		return
+	if event is InputEventMouseMotion and (event as InputEventMouseMotion).device == InputEvent.DEVICE_ID_EMULATION:
+		return
+	if event is InputEventScreenTouch and (event as InputEventScreenTouch).pressed:
+		lens_pos = (event as InputEventScreenTouch).position
+		lens_demo = false
+	elif event is InputEventScreenDrag:
+		lens_pos = (event as InputEventScreenDrag).position
+		lens_demo = false
+	elif event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT and (event as InputEventMouseButton).pressed:
+		lens_pos = (event as InputEventMouseButton).position
+		lens_demo = false
+	elif event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		lens_pos = (event as InputEventMouseMotion).position
+		lens_demo = false
+	lens_layer.queue_redraw()
+
+
+func _tick_lens(delta: float) -> void:
+	if lens_layer == null or not lens_layer.visible:
+		return
+	if lens_demo:
+		# the ghost lens drifts along the stage until the child grabs it
+		lens_pos = Vector2(
+			640.0 + sin(elapsed * 0.9) * 420.0,
+			410.0 + sin(elapsed * 1.7) * 130.0
+		)
+	var found_index := -1
+	for index in range(lens_clues.size()):
+		if not lens_found[index] and lens_pos.distance_to(lens_clues[index]) <= 96.0:
+			found_index = index
+			break
+	if found_index != lens_target:
+		lens_target = found_index
+		lens_dwell = 0.0
+	elif found_index >= 0:
+		lens_dwell += delta
+		if lens_dwell >= 0.45:
+			lens_found[found_index] = true
+			lens_target = -1
+			lens_dwell = 0.0
+			_bop_burst_at(lens_clues[found_index], false)
+			_on_gesture("lens", 1.0, 1.0)
+	lens_layer.queue_redraw()
+
+
+func _draw_lens_layer() -> void:
+	# sparkles hide in the painting and only glow under the magic lens
+	for index in range(lens_clues.size()):
+		var spot := lens_clues[index]
+		if lens_found[index]:
+			lens_layer.draw_circle(spot, 10.0, Color(1.0, 0.9, 0.5, 0.9))
+			continue
+		var d := lens_pos.distance_to(spot)
+		if d <= 118.0:
+			var reveal := clampf(1.0 - d / 118.0, 0.0, 1.0)
+			var twinkle := 0.6 + (sin(elapsed * 6.0 + float(index)) + 1.0) * 0.2
+			lens_layer.draw_circle(spot, 13.0 * reveal, Color(1.0, 0.95, 0.55, reveal * twinkle))
+			lens_layer.draw_arc(spot, 19.0 * reveal, 0.0, TAU, 20, Color(1.0, 0.85, 0.3, reveal * 0.8), 3.0)
+	# the magic magnifying glass: soft glass tint, brass rim and handle
+	lens_layer.draw_circle(lens_pos, 92.0, Color(0.75, 0.92, 1.0, 0.14))
+	lens_layer.draw_arc(lens_pos, 92.0, 0.0, TAU, 48, Color("#c88b3c"), 9.0)
+	lens_layer.draw_arc(lens_pos, 80.0, 0.0, TAU, 48, Color(1.0, 1.0, 1.0, 0.35), 3.0)
+	var handle_dir := Vector2(0.72, 0.72)
+	lens_layer.draw_line(lens_pos + handle_dir * 92.0, lens_pos + handle_dir * 158.0, Color("#8a5f3c"), 16.0)
+	if lens_target >= 0:
+		lens_layer.draw_arc(lens_pos, 100.0, -PI * 0.5, -PI * 0.5 + TAU * clampf(lens_dwell / 0.45, 0.0, 1.0), 40, Color(1.0, 0.9, 0.4), 6.0)
+
+
 func _process(delta: float) -> void:
 	elapsed += delta
 	if phase_gap > 0.0:
@@ -825,14 +1195,11 @@ func _process(delta: float) -> void:
 			_on_gesture("hold", delta, 1.0)
 		elif mode == "bop":
 			bop_time += delta
-			for target: Dictionary in surface.bop_targets:
-				var seed := float(target.get("seed", 0))
-				var sway := 20.0 if bool(target.get("captain", false)) else 28.0
-				target["pos"] = (target.get("home", Vector2.ZERO) as Vector2) + Vector2(
-					sin(bop_time * 1.3 + seed * 2.1) * sway,
-					sin(bop_time * 2.2 + seed * 1.7) * sway * 0.65
-				)
-			surface.queue_redraw()
+			_tick_stage_combat(delta)
+		elif mode == "lens":
+			_tick_lens(delta)
+	for marker_node in station_nodes:
+		marker_node.queue_redraw()
 	if reveal_t > 0.0:
 		reveal_t -= delta
 		# the reveal shows the ACTUAL answer, steady — recognition, not a light show

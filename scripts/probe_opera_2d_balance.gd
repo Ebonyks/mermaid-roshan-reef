@@ -106,6 +106,16 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 			continue
 		var phase := world.phases[world.phase_index] as Dictionary
 		var mode := String(phase.get("mode", "tap"))
+		if mode == "lens":
+			# sweep the magnifier toward the next sparkle at a child's drag
+			# speed — hunting time is real time
+			world.lens_demo = false
+			for index in range(world.lens_clues.size()):
+				if not world.lens_found[index]:
+					var step := float(persona.get("drag_px", 380.0)) * DT
+					world.lens_pos = world.lens_pos.move_toward(world.lens_clues[index], step)
+					break
+			continue
 		if mode == "catch" and world.nursery_catch != null:
 			# steer the cradle under the lowest falling baby, child-style
 			var target := world.nursery_catch.lowest_baby_x()
@@ -153,15 +163,17 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 						"timing":
 							world._on_gesture("timing", 0.32 if miss else 1.0, 0.32 if miss else 1.0)
 						"bop":
-							# press a live imp (or a far corner on a clumsy miss)
+							# strike a roaming imp (or a far corner on a miss)
 							var aim := Vector2(6, 6)
 							if not miss:
-								for target: Dictionary in world.surface.bop_targets:
-									if not bool(target.get("popped", false)):
-										aim = target.get("pos", Vector2.ZERO)
+								for imp: Dictionary in world.combat_imps:
+									if not bool(imp.get("popped", false)):
+										var imp_node := imp.get("node") as TextureRect
+										if imp_node != null:
+											aim = imp_node.position + imp_node.size * 0.5
 										break
-							world.surface._press(aim)
-							world.surface._release(aim)
+							world.swipe_stroke += 1
+							world._combat_strike(aim, aim)
 						_:
 							world._on_gesture("tap", 1.0, 1.0)
 	var done_time := time if act.state != "play" else TIME_CAP

@@ -231,8 +231,9 @@ func _gui_input(event: InputEvent) -> void:
 
 func _draw() -> void:
 	var panel := Rect2(Vector2.ZERO, size)
-	draw_rect(panel, Color(0.035, 0.04, 0.11, 0.78), true)
-	draw_rect(panel.grow(-4.0), accent.lightened(0.14), false, 5.0)
+	# light paper inset window per the StorybookUI language
+	draw_rect(panel, Color(0.94, 0.97, 1.0, 0.96), true)
+	draw_rect(panel.grow(-3.0), accent.lerp(Color("#382485"), 0.62), false, 4.0)
 	var center := size * 0.5
 	if visual_context.begins_with("nursery"):
 		_draw_nursery_context(center)
@@ -381,8 +382,9 @@ func _draw_demo_finger() -> void:
 		"hold":
 			pressing = true
 	var halo := 30.0 if pressing else 20.0
-	draw_circle(at, halo, Color(1.0, 1.0, 1.0, 0.22))
-	draw_circle(at, 13.0, Color(1.0, 0.98, 0.86, 0.95))
+	draw_circle(at, halo, Color(0.22, 0.14, 0.52, 0.18))
+	draw_circle(at, 14.5, Color("#382485"))
+	draw_circle(at, 12.0, Color(1.0, 0.98, 0.86, 0.98))
 	if pressing:
 		var ring := 18.0 + fmod(demo_t * 46.0, 26.0)
 		draw_arc(at, ring, 0.0, TAU, 24, Color(1.0, 0.95, 0.6, 0.6), 4.0)
