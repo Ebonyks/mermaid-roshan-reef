@@ -17,7 +17,6 @@ from collections import deque
 import hashlib
 import json
 from pathlib import Path
-import shutil
 
 import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter
@@ -312,8 +311,21 @@ def build_meal_plate() -> Path:
 		fill=(247, 227, 224, 255), outline=(82, 57, 104, 255), width=5 * scale)
 	draw.ellipse((22 * scale, 31 * scale, 154 * scale, 88 * scale),
 		fill=(255, 248, 238, 255), outline=(222, 151, 184, 255), width=6 * scale)
-	draw.ellipse((49 * scale, 42 * scale, 127 * scale, 76 * scale),
-		fill=(239, 221, 236, 255))
+	# A complete pretend meal must read even after the plate is scaled onto the
+	# table: star sandwich, peas, and carrot coins use the approved toy palette.
+	draw.regular_polygon((82 * scale, 58 * scale, 24 * scale),
+		n_sides=5, rotation=-18, fill=(242, 190, 112, 255),
+		outline=(91, 59, 104, 255))
+	for center_x, center_y in ((118, 50), (132, 57), (118, 66)):
+		draw.ellipse(((center_x - 7) * scale, (center_y - 7) * scale,
+			(center_x + 7) * scale, (center_y + 7) * scale),
+			fill=(112, 193, 139, 255), outline=(65, 92, 91, 255),
+			width=2 * scale)
+	for center_x, center_y in ((43, 53), (48, 69)):
+		draw.ellipse(((center_x - 9) * scale, (center_y - 6) * scale,
+			(center_x + 9) * scale, (center_y + 6) * scale),
+			fill=(242, 137, 91, 255), outline=(111, 69, 100, 255),
+			width=2 * scale)
 	image = image.resize((176, 112), Image.Resampling.LANCZOS)
 	path = DREAM_ROOT / "meal_plate.png"
 	image.save(path, format="PNG", optimize=True)
@@ -405,12 +417,6 @@ def build() -> None:
 				"transform": "new shared component in approved pearl material language",
 			})
 
-	contact = Image.new("RGB", (1024, 1152), (27, 19, 49))
-	for index, preview in enumerate(previews):
-		contact.paste(preview, (0, index * 288),
-			preview.resize((512, 288), Image.Resampling.LANCZOS))
-		contact.paste(preview.resize((512, 288), Image.Resampling.LANCZOS),
-			(0 if index % 2 == 0 else 512, (index // 2) * 576))
 	contact = Image.new("RGB", (1024, 576), (27, 19, 49))
 	for index, preview in enumerate(previews):
 		contact.paste(preview.resize((512, 288), Image.Resampling.LANCZOS),

@@ -31,6 +31,8 @@ python3 tools/audit_castle_card_alpha.py \
 	|| { echo "CASTLE CARD ALPHA/DEPTH FAIL"; exit 1; }
 python3 tools/audit_castle_interactions.py \
 	|| { echo "CASTLE INTERACTION PACK FAIL"; exit 1; }
+python3 tools/audit_castle_dream_house.py \
+	|| { echo "CASTLE DREAM HOUSE ART FAIL"; exit 1; }
 RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
 FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
 import_log="$(mktemp)"

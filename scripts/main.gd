@@ -210,6 +210,7 @@ var castle_room_item_visual_layer: Node3D = null
 var castle_room_item_effect_layer: Node3D = null
 var castle_room_item_hotspot_layer: Control = null
 var castle_room_door_hotspot_layer: Control = null
+var castle_room_link_layer: Control = null
 var castle_room_door_hotspots: Array[Dictionary] = []
 var castle_room_item_sprites: Dictionary = {}
 var castle_room_light_nodes: Array[Light3D] = []

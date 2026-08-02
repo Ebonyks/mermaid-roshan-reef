@@ -1033,3 +1033,65 @@ used. Exact PCM/file hashes and cue timing are in the audio manifest.
   derivatives built by `tools/build_castle_room_button_thumbnails.py` as
   400 x 224 center-crop/resamples of the registered masters. No external art
   or additional generated pixels. License remains project original.
+
+## Pearl Castle dream-house rooms (2026-08-01)
+
+- assets_src/imagegen/castle_dream_house_2026-08-01/dining_room_reference_1254.png
+  - project-original composition reference generated with the built-in Codex
+  ImageGen tool from approved Royal Kitchen/Library art and the approved
+  kitchen-table QA render; all rights reserved. It is below the native room
+  requirement and contributes no runtime pixels. The exact method, references,
+  and prompt are recorded in the adjacent PROMPTS.md.
+- assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png
+- assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png
+  - project-authored deterministic 2048 x 2048 room-shell masters composed by
+  tools/build_castle_dream_house_rooms.py from the already-licensed
+  up_castle_col, kitchen_floor_col, castle_floor_col,
+  bathroom_tile_col, and castle_carpet_col project textures. No protected
+  original was modified.
+- assets/flats/castle/rooms/room_dining_room_background.png
+- assets/flats/castle/rooms/room_royal_bedroom_background.png
+- assets/flats/castle/rooms/room_sleepover_bedroom_background.png
+- assets/flats/castle/rooms/room_movie_lounge_background.png
+  - project-original 1024 x 576 review previews derived from the corresponding
+  native masters; not used as delivered world pixels when native tiles exist.
+- assets/flats/castle/rooms/background_tiles/room_dining_room_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r*_c*.png
+- assets/flats/castle/rooms/background_tiles/room_movie_lounge_background_r*_c*.png
+  - project-original four-card runtime sets: exact, non-overlapping
+  1024 x 576 crops of each 2048 x 1152 playable master band. Tile hashes and
+  exact reconstruction evidence are recorded in the dream-house manifest.
+- assets/flats/castle/dream_house/dining_table.png
+- assets/flats/castle/dream_house/dining_seat.png
+- assets/flats/castle/dream_house/provisions_hutch.png
+- assets/flats/castle/dream_house/canopy_bed.png
+- assets/flats/castle/dream_house/bedside_table.png
+- assets/flats/castle/dream_house/shell_wardrobe.png
+- assets/flats/castle/dream_house/story_cushion.png
+- assets/flats/castle/dream_house/dream_bed_0.png
+- assets/flats/castle/dream_house/dream_bed_1.png
+- assets/flats/castle/dream_house/dream_bed_2.png
+- assets/flats/castle/dream_house/cloud_settee.png
+- assets/flats/castle/dream_house/cloud_pouf.png
+- assets/flats/castle/dream_house/shell_arch.png
+- assets/flats/castle/dream_house/shell_window.png
+- assets/flats/castle/dream_house/shell_chandelier.png
+  - non-destructive transparent-border crops of the already-licensed
+  project-generated Pearl Castle and art-pass-35 QA renders. Source renders,
+  source hashes, and transformations are recorded per file in the manifest;
+  approved source GLBs and renders remain unchanged.
+- assets/flats/castle/dream_house/meal_plate.png
+- assets/flats/castle/dream_house/movie_screen_frame.png
+  - new project-original deterministic Pillow drawings in the approved pearl
+  material language; all rights reserved. No external or protected pixels.
+- audit/castle_dream_house/dream_house_room_art_manifest.json
+- audit/castle_dream_house/dream_house_room_shells_contact.png
+  - deterministic provenance/integrity record and four-room shell review
+  contact sheet; project audit evidence, not runtime art.
+- assets/book/hall/p_slide.jpg, p_trampoline.jpg, p_garden.jpg,
+  p_snowman.jpg, and p_xmas.jpg are displayed directly and unchanged on
+  the movie screen. They remain protected book art under their existing
+  license; no derivative runtime copy is created.
