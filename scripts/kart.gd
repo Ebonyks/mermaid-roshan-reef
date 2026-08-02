@@ -234,6 +234,9 @@ var _finish_cb: Callable
 var _cam: Camera3D = null
 var _prev_env: Environment = null
 var _hud: CanvasLayer = null
+var _hud_root: Control = null
+var _ride_choice_buttons: Array[Button] = []
+var _paint_choice_buttons: Array[Button] = []
 var _lbl_place: Label = null
 var _lbl_lap: Label = null
 var _lbl_big: Label = null
@@ -509,6 +512,7 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_build_camera()
 	_build_hud()
 	_build_select()
+	_build_select_controls()
 	_clear_corridor()
 	_state = "select"
 	_sel_t = 0.0
@@ -2171,6 +2175,75 @@ func _build_select() -> void:
 			_cam.position = mid + Vector3(0, 7.0, 26.0)
 		_cam.look_at(mid + Vector3(0, 3.0, 0), Vector3.UP)
 
+func _build_select_controls() -> void:
+	if _hud_root == null:
+		return
+	var order := _vehicle_keys()
+	for i in range(order.size()):
+		var vehicle_key: String = String(order[i])
+		var vehicle: Dictionary = _vehicles_table()[vehicle_key]
+		var button := Button.new()
+		button.name = "KartRideChoice_" + vehicle_key
+		button.text = String(vehicle["label"])
+		button.position = Vector2(188.0 + float(i) * 302.0, 570.0)
+		button.custom_minimum_size = Vector2(278.0, 124.0)
+		button.size = Vector2(278.0, 124.0)
+		button.pressed.connect(_choose_ride_by_touch.bind(i))
+		_hud_root.add_child(button)
+		_ride_choice_buttons.append(button)
+	for i in range(PAINTS.size()):
+		var paint: Dictionary = PAINTS[i]
+		var swatch := Button.new()
+		swatch.name = "KartPaintChoice_%d" % i
+		swatch.position = Vector2(132.0 + float(i) * 126.0, 574.0)
+		swatch.custom_minimum_size = Vector2(112.0, 112.0)
+		swatch.size = Vector2(112.0, 112.0)
+		swatch.tooltip_text = String(paint["label"])
+		swatch.text = "*" if bool(paint.get("rainbow", false)) else ""
+		swatch.add_theme_font_size_override("font_size", 58)
+		swatch.pressed.connect(_choose_paint_by_touch.bind(i))
+		_hud_root.add_child(swatch)
+		_paint_choice_buttons.append(swatch)
+	_refresh_select_controls()
+
+func _choose_ride_by_touch(index: int) -> void:
+	if _state != "select" or _sel_phase != "ride":
+		return
+	_sel_idx = clampi(index, 0, _vehicle_keys().size() - 1)
+	_select_confirm_queued = true
+	_refresh_select_controls()
+
+func _choose_paint_by_touch(index: int) -> void:
+	if _state != "select" or _sel_phase != "paint":
+		return
+	_paint_idx = clampi(index, 0, PAINTS.size() - 1)
+	_select_confirm_queued = true
+	_refresh_select_controls()
+
+func _paint_choice_fill(index: int) -> Color:
+	var paint: Dictionary = PAINTS[index]
+	if bool(paint.get("rainbow", false)):
+		return StorybookUI.LILAC
+	var color_value: Variant = paint.get("col")
+	return StorybookUI.PAPER if color_value == null else Color(color_value)
+
+func _refresh_select_controls() -> void:
+	for i in range(_ride_choice_buttons.size()):
+		var selected: bool = i == _sel_idx
+		var ride_button: Button = _ride_choice_buttons[i]
+		ride_button.visible = _state == "select" and _sel_phase == "ride"
+		StorybookUI.style_button(ride_button,
+			"selected" if selected else "secondary", 25, 30)
+		ride_button.set_meta("selected", selected)
+		ride_button.set_meta("picture_context", "live_3d_vehicle")
+	for i in range(_paint_choice_buttons.size()):
+		var paint_selected: bool = i == _paint_idx
+		var paint_button: Button = _paint_choice_buttons[i]
+		paint_button.visible = _state == "select" and _sel_phase == "paint"
+		StorybookUI.style_picture_button(paint_button, _paint_choice_fill(i),
+			StorybookUI.GOLD if paint_selected else StorybookUI.PURPLE, 52)
+		paint_button.set_meta("selected", paint_selected)
+
 func _sel_move() -> int:
 	var mv := 0
 	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
@@ -2218,6 +2291,7 @@ func _build_paint_row() -> void:
 
 func _tick_select(delta: float) -> void:
 	_sel_t += delta
+	_refresh_select_controls()
 	for i in range(_sel_nodes.size()):
 		var sn: Dictionary = _sel_nodes[i]
 		var chosen: bool = (i == _sel_idx)
@@ -2277,6 +2351,7 @@ func _tick_select(delta: float) -> void:
 		_paint_orbs.clear()
 		_build_karts(vkey, paint)
 		_state = "countdown"
+		_refresh_select_controls()
 		_clock = 3.999
 		_lbl_big.text = ""
 		_lbl_hint.text = ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  SPACE or A = TURBO!")
@@ -3099,6 +3174,7 @@ func _build_hud() -> void:
 	_hud.layer = 18
 	add_child(_hud)
 	var root := Control.new()
+	_hud_root = root
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	# a plain Control defaults to MOUSE_FILTER_STOP — full-rect, that swallows
 	# every tap/drag before touch_ui's stick can see it. Display only: IGNORE.
