@@ -3,16 +3,24 @@
 An hourly Routine (Claude Code scheduled trigger) that answers two questions
 and acts on the answer:
 
-1. **Is every deliverable branch touched in the last 48 hours complete, green,
-   and no longer being worked on?** If not, do nothing this hour except report
-   the complete global blocker set.
-2. **Only when every deliverable passes that gate**, get all of them integrated
-   into `dev`, prove the exact `dev` result green, and promote that exact SHA to
-   `master`.
+1. **Which deliverable branches touched in the last 48 hours are complete,
+   green, and no longer being worked on?** Those integrate into `dev`.
+2. **Is *every* deliverable in that window complete?** Only then is the exact
+   `dev` SHA proven green and promoted to `master`.
 
-A red, unprobed, conflicted, ambiguous, owner-gated, or still-active branch
-blocks the entire batch and blocks promotion. Never skip such a branch and then
-promote around it merely because the remaining subset is green.
+The two gates differ on purpose (owner decision 2026-08-02, revising the
+2026-08-01 hardening):
+
+- **Integration into `dev` is per branch.** An individually finished, green,
+  quiet branch is not held hostage by an unrelated branch someone is still
+  pushing to. Active branches are dropped from this run's batch and retried on
+  the next one. `dev` is the *testing* branch — getting finished work onto it
+  promptly is the point.
+- **Promotion to `master` stays global and unchanged.** A red, unprobed,
+  conflicted, ambiguous, owner-gated, or still-active branch anywhere in the
+  48-hour window blocks promotion. Never promote around an incomplete
+  deliverable merely because the subset that landed on `dev` is green. `master`
+  is what the family phone installs.
 
 Each firing starts a **fresh session** with no memory of previous runs. All
 state lives in git and in GitHub Actions, so every run is idempotent: it
@@ -145,17 +153,44 @@ Failed, cancelled, timed-out, queued, in-progress, or missing exact-head CI is
 evidence of **incomplete** work, not a branch to skip. A clean old branch is
 also not automatically complete when its own handoff says otherwise.
 
-**If one or more branches are active or incomplete: stop here.** Do not stage,
-do not merge, and do not promote. Report every blocking branch and its concrete
-reason, then exit. The next hourly firing re-evaluates. Partial integration or
-promotion while any current deliverable is red, unprobed, conflicted,
-owner-gated, ambiguous, or mid-push is forbidden.
+**Active or incomplete branches are dropped from this run's `dev` batch, and
+they block promotion.** Concretely:
+
+- Drop each active/incomplete branch from the Step 3 merge input and record the
+  concrete reason. Never stage a branch that is mid-push, red, or unprobed —
+  that part of the gate is absolute.
+- Carry on and integrate the branches that *are* complete and exact-head green.
+- **Set the promotion blocker flag.** If even one audited deliverable is
+  active, red, unprobed, conflicted, owner-gated, or ambiguous, Step 5 does not
+  run this cycle, no matter how green `dev` ends up. Promoting around an
+  incomplete deliverable is forbidden.
+
+If *every* candidate is active or incomplete, there is nothing to stage:
+report the full blocker set and exit.
+
+### Branch classes that are never auto-integrated
+
+Excluded from the merge batch regardless of age or probe status, and listed in
+the report as "excluded by policy" so the owner can merge them by hand:
+
+- **`rescue/*`** — preservation snapshots, per Step 1. The `*-start` ones
+  capture the state at the *beginning* of a work session, so merging one can
+  revert real work.
+- **`claude/project-decommission-cleanup-*`**, and any other branch whose
+  purpose is bulk removal or quarantining of assets or docs (owner decision
+  2026-08-02: decommission work stays off `dev` until reviewed by hand).
+- Any branch whose diff is dominated by deletions under `assets/book/`,
+  `assets/audio/voices/`, or `assets/characters/friends/` — the irreplaceable
+  material named in CLAUDE.md.
+
+Policy exclusion is not the same as a blocker: an excluded branch does not by
+itself hold promotion, since it was never a candidate for `dev`.
 
 ## Step 3 — Stage the integration
 
-Only reached when the audit set contains one or more `needs-integration`
-branches and **every** audited deliverable, including already-integrated ones,
-is proven complete and exact-head green.
+Operates on the `needs-integration` branches that Step 2 proved complete and
+exact-head green, minus the policy exclusions. Branches still in flight are not
+staged; they are simply retried next run.
 
 Classify each candidate by its probe status (latest `probes.yml` run for the
 branch HEAD sha, via `mcp__github__actions_list`):
