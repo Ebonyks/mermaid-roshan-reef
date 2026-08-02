@@ -44,26 +44,39 @@ step.
 5. **Never** commit to, merge into, rebase, or push `master`. There are
    no exceptions for "finished", "trivial", "docs-only", or "the owner
    asked for it fast" — promotion handles all of that.
-6. Local `master` and `dev` are pull-only (`git pull --ff-only`); if
+6. "Push to master", "ship it", "release it", and equivalent owner
+   instructions explicitly authorize immediate dispatch of the promotion
+   workflow. Do not ask for another confirmation and do not turn the raw-push
+   prohibition into a refusal; use the workflow and monitor it through APK
+   publication.
+7. Local `master` and `dev` are pull-only (`git pull --ff-only`); if
    fast-forward fails, stop and rescue your work to `rescue/<machine>-<date>`
    per AGENTS.md — do not force anything.
 
 ## How master moves: the Promote workflow
 
 `.github/workflows/promote.yml` ("Promote dev to master", manual
-`workflow_dispatch` from the Actions tab):
+`workflow_dispatch` from the Actions tab or one CLI command):
 
-1. Checks out `dev` HEAD.
-2. Queries the probe-suite run for that **exact commit**; refuses to
-   promote unless its conclusion is `success`.
+```bash
+gh workflow run promote.yml --ref dev
+```
+
+1. Tracks the latest `dev` HEAD and waits for a successful `dev`-branch
+   probe-suite run for that **exact commit**.
+2. If another agent advances `dev` while it waits, follows the new head
+   automatically instead of requiring another owner command.
 3. Verifies `master` is an ancestor of `dev` (if not: merge master into
    dev first, let probes go green, re-run).
 4. Fast-forward pushes `master` to dev's HEAD.
+5. Waits for the matching dev APK, checksum-verifies it, and publishes it to
+   the stable channel.
 
 Fast-forward-only means master's history is always byte-identical to
 history that already passed the gate — no promotion-time merge commits,
-nothing on master that CI never saw. Promotion is normally triggered by
-the owner; an agent may trigger it only when the owner explicitly asks.
+nothing on master that CI never saw. An owner shorthand above is the explicit
+authorization: the agent should dispatch once, monitor, and report the result
+without an extra confirmation round trip.
 
 ## APK channels
 
