@@ -1,6 +1,6 @@
 {
-  "schema": "castle_dream_house_room_art_v1",
-  "method": "deterministic composition from approved project textures and prop QA renders",
+  "schema": "castle_dream_house_room_art_v2",
+  "method": "deterministic composition from approved project textures, prop QA renders, and the approved hall portal",
   "imagegen_reference": {
     "path": "assets_src/imagegen/castle_dream_house_2026-08-01/dining_room_reference_1254.png",
     "exists": true,
@@ -12,6 +12,10 @@
     {
       "path": "assets/terrain/up_castle_col.jpg",
       "sha256": "6a44d288fbaaa1d9729a06057a7b1f43c45c723a89999cfb7cd0561d584108a4"
+    },
+    {
+      "path": "assets/terrain/castle_floor_col.jpg",
+      "sha256": "be9636f8382d8094642e7baf15482e9f7e7253e6cbade2adddf22927c68c3a9b"
     },
     {
       "path": "assets/terrain/kitchen_floor_col.jpg",
@@ -31,6 +35,97 @@
     }
   ],
   "rooms": [
+    {
+      "room_id": "family_gallery",
+      "master": "assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png",
+      "master_dimensions": [
+        2048,
+        2048
+      ],
+      "master_sha256": "ab8d4afdb78fa7d7efb4df2b798c3d614af299d6e83242a54a4c7b80940b9af1",
+      "runtime_crop": [
+        0,
+        448,
+        2048,
+        1600
+      ],
+      "runtime_crop_dimensions": [
+        2048,
+        1152
+      ],
+      "preview": "assets/flats/castle/rooms/room_family_gallery_background.png",
+      "preview_dimensions": [
+        1024,
+        576
+      ],
+      "preview_sha256": "39a4a68adb860ba8d5579e20a81eb6fb7ec94b48c2123b000911605ad5e2aec2",
+      "tiles": [
+        {
+          "row": 0,
+          "column": 0,
+          "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r0_c0.png",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "master_rectangle": [
+            0,
+            0,
+            1024,
+            576
+          ],
+          "sha256": "79a218b4fe470b5b3228cfd1899734b3e1730dbd8f75ad783ea165aa7b9047dc"
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r0_c1.png",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "master_rectangle": [
+            1024,
+            0,
+            2048,
+            576
+          ],
+          "sha256": "f9fecea95f04e79b18844aa3434892f89afc5975ee6788dd670ca50eba5bba32"
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r1_c0.png",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "master_rectangle": [
+            0,
+            576,
+            1024,
+            1152
+          ],
+          "sha256": "717eb872ff8b1dfdd9bc4c7d66bcaea8fe6a3196bb18f41b0ecb4873ddf48130"
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r1_c1.png",
+          "dimensions": [
+            1024,
+            576
+          ],
+          "master_rectangle": [
+            1024,
+            576,
+            2048,
+            1152
+          ],
+          "sha256": "fe1c01762027565046065239c6e1a3ca7a714edadcbc04086d31e3ffabea9089"
+        }
+      ]
+    },
     {
       "room_id": "dining_room",
       "master": "assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png",
@@ -563,6 +658,72 @@
       "transform": "transparent-border crop only"
     },
     {
+      "path": "assets/flats/castle/dream_house/family_wing_portal.png",
+      "dimensions": [
+        250,
+        412
+      ],
+      "sha256": "c02f72d559470ecdcfe087e40e42180e891b01bc54b31770798bb9899e8890f5",
+      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
+      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
+      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_dining.png",
+      "dimensions": [
+        250,
+        412
+      ],
+      "sha256": "3f04daceaa02184f8ee2ce8ef6b643c19e090c98622cf3e505f022f33f117368",
+      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
+      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
+      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+      "dimensions": [
+        250,
+        412
+      ],
+      "sha256": "4d47f5c0a035913676429c0185fd2a1a17f29852614bc9678073d4defe5888a3",
+      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
+      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
+      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+      "dimensions": [
+        250,
+        412
+      ],
+      "sha256": "bc7e060d4d83ae9715c5c357ace9ae0cd83deadba14836406e0a30ebdfd06f21",
+      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
+      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
+      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+      "dimensions": [
+        250,
+        412
+      ],
+      "sha256": "bd5278b73180ff707077117c98c1daeac3832639149168ddc5d2e150ba1a736b",
+      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
+      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
+      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_wing_hall_insert.png",
+      "dimensions": [
+        370,
+        540
+      ],
+      "sha256": "ed0393718cbfd630ecb39ff6188f9d7ca0841376b6b46e1b25de89c3977b0d88",
+      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
+      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
+      "transform": "approved portal plus project-authored wall-texture surround; non-destructive Main Hall depth-card insert"
+    },
+    {
       "path": "assets/flats/castle/dream_house/meal_plate.png",
       "dimensions": [
         176,
@@ -584,6 +745,37 @@
     }
   ],
   "contact_sheet": "audit/castle_dream_house/dream_house_room_shells_contact.png",
+  "layout_contact": {
+    "path": "audit/castle_dream_house/dream_house_layout_contact.png",
+    "sha256": "b003d5b66db77f42ef4e66eb73154da1363ce96eb60432b0b968167663176095"
+  },
+  "hall_entry_contact": {
+    "path": "audit/castle_dream_house/dream_house_hall_entry_contact.png",
+    "sha256": "3830a596e63ad18c821d15982ab7976b376bec1f97768490ad8f15e6136322fc",
+    "source": "assets_src/castle/main_hall_alignment/main_hall_screen_a_fixture_aligned_master.png",
+    "source_sha256": "3512aed1f60906d4a89956c8317a24bc579b57b5bc9067f0bef8e17a1993df98",
+    "source_crop": [
+      376,
+      212,
+      2048,
+      1153
+    ],
+    "insert_position": [
+      35,
+      200
+    ]
+  },
+  "physical_layout": {
+    "main_hall_entry": "assets/flats/castle/dream_house/family_wing_hall_insert.png",
+    "gallery_room": "family_gallery",
+    "destinations": {
+      "dining_room": "family_portal_dining.png",
+      "royal_bedroom": "family_portal_royal_bedroom.png",
+      "sleepover_bedroom": "family_portal_sleepover_bedroom.png",
+      "movie_lounge": "family_portal_movie_lounge.png"
+    },
+    "floating_route_buttons": false
+  },
   "protected_originals_modified": false,
   "runtime_world_art": "unshaded Sprite3D cards only"
 }

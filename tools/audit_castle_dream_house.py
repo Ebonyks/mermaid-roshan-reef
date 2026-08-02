@@ -17,12 +17,14 @@ MANIFEST_PATH = (
 )
 RUNTIME_SCRIPT = ROOT / "scripts" / "arena" / "castle_rooms_25d.gd"
 REQUIRED_ROOMS = {
+	"family_gallery",
 	"dining_room",
 	"royal_bedroom",
 	"sleepover_bedroom",
 	"movie_lounge",
 }
 REQUIRED_ROLEPLAY = {
+	'"roleplay_action": "enter_room"',
 	'"roleplay_action": "serve_meal"',
 	'"roleplay_action": "eat_meal"',
 	'"roleplay_action": "sleep"',
@@ -66,7 +68,7 @@ def main() -> None:
 	if failures:
 		raise SystemExit("\n".join(f"FAIL: {item}" for item in failures))
 	manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-	check(manifest.get("schema") == "castle_dream_house_room_art_v1",
+	check(manifest.get("schema") == "castle_dream_house_room_art_v2",
 		"unexpected dream-house manifest schema", failures)
 	check(manifest.get("protected_originals_modified") is False,
 		"manifest does not preserve protected originals", failures)
@@ -83,6 +85,62 @@ def main() -> None:
 	if reference_path.is_file():
 		check(sha256(reference_path) == imagegen_reference.get("sha256"),
 			"ImageGen reference hash changed", failures)
+
+	physical_layout = manifest.get("physical_layout", {})
+	expected_destinations = {
+		"dining_room": "family_portal_dining.png",
+		"royal_bedroom": "family_portal_royal_bedroom.png",
+		"sleepover_bedroom": "family_portal_sleepover_bedroom.png",
+		"movie_lounge": "family_portal_movie_lounge.png",
+	}
+	check(physical_layout.get("gallery_room") == "family_gallery",
+		"physical gallery room changed", failures)
+	check(physical_layout.get("destinations") == expected_destinations,
+		"physical gallery destination map changed", failures)
+	check(physical_layout.get("floating_route_buttons") is False,
+		"floating route buttons returned", failures)
+	check(physical_layout.get("main_hall_entry")
+		== "assets/flats/castle/dream_house/family_wing_hall_insert.png",
+		"constructed Main Hall wing entry changed", failures)
+	repo_path(physical_layout.get("main_hall_entry"),
+		"constructed Main Hall wing entry", failures)
+
+	contact_path = repo_path(manifest.get("contact_sheet"),
+		"dream-house room contact", failures)
+	if contact_path.is_file():
+		with Image.open(contact_path) as contact:
+			check(contact.size == (1536, 576),
+				"dream-house room contact dimensions changed", failures)
+	layout_contact = manifest.get("layout_contact", {})
+	layout_contact_path = repo_path(layout_contact.get("path"),
+		"dream-house layout contact", failures)
+	if layout_contact_path.is_file():
+		with Image.open(layout_contact_path) as contact:
+			check(contact.size == (1280, 576),
+				"dream-house layout contact dimensions changed", failures)
+		check(sha256(layout_contact_path) == layout_contact.get("sha256"),
+			"dream-house layout contact hash changed", failures)
+
+	hall_entry_contact = manifest.get("hall_entry_contact", {})
+	hall_entry_contact_path = repo_path(hall_entry_contact.get("path"),
+		"Main Hall wing-entry contact", failures)
+	if hall_entry_contact_path.is_file():
+		with Image.open(hall_entry_contact_path) as contact:
+			check(contact.size == (1024, 576),
+				"Main Hall wing-entry contact dimensions changed", failures)
+		check(sha256(hall_entry_contact_path)
+			== hall_entry_contact.get("sha256"),
+			"Main Hall wing-entry contact hash changed", failures)
+	hall_entry_source_path = repo_path(hall_entry_contact.get("source"),
+		"Main Hall wing-entry contact source", failures)
+	if hall_entry_source_path.is_file():
+		check(sha256(hall_entry_source_path)
+			== hall_entry_contact.get("source_sha256"),
+			"Main Hall wing-entry source changed", failures)
+	check(hall_entry_contact.get("source_crop") == [376, 212, 2048, 1153],
+		"Main Hall wing-entry source crop changed", failures)
+	check(hall_entry_contact.get("insert_position") == [35, 200],
+		"Main Hall wing-entry insert position changed", failures)
 
 	room_records = manifest.get("rooms", [])
 	room_ids = {str(record.get("room_id", "")) for record in room_records}
@@ -134,8 +192,29 @@ def main() -> None:
 			f"{room_id} tiles do not reconstruct the native crop", failures)
 
 	prop_records = manifest.get("props", [])
-	check(len(prop_records) >= 17,
+	check(len(prop_records) >= 23,
 		"dream-house prop inventory is incomplete", failures)
+	required_portal_paths = {
+		"assets/flats/castle/dream_house/family_wing_portal.png",
+		"assets/flats/castle/dream_house/family_portal_dining.png",
+		"assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+		"assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+		"assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+		"assets/flats/castle/dream_house/family_wing_hall_insert.png",
+	}
+	prop_paths = {str(record.get("path", "")) for record in prop_records}
+	check(required_portal_paths <= prop_paths,
+		"physical dream-house portal inventory is incomplete", failures)
+	approved_portal_source = (
+		"assets/flats/castle/main_hall_2screen/"
+		"castle_playroom_portal_cutout_reuse.png"
+	)
+	for record in prop_records:
+		if str(record.get("path", "")) in required_portal_paths:
+			check(record.get("source") == approved_portal_source,
+				"physical portal does not reuse the approved castle portal",
+				failures)
+
 	for record in prop_records:
 		prop_path = repo_path(record.get("path"), "dream-house prop", failures)
 		if not prop_path.is_file():
@@ -170,6 +249,22 @@ def main() -> None:
 	for contract in REQUIRED_ROLEPLAY:
 		check(contract in runtime_text,
 			f"role-play contract missing: {contract}", failures)
+	for destination, portal_file in expected_destinations.items():
+		check(f'"room_destination": "{destination}"' in runtime_text,
+			f"physical gallery route missing: {destination}", failures)
+		check(portal_file in runtime_text,
+			f"physical portal art missing: {portal_file}", failures)
+		check(f'"{destination}": "family_gallery"' in runtime_text,
+			f"Back route does not return to gallery: {destination}", failures)
+	check('"family_gallery": "main_hall"' in runtime_text,
+		"gallery Back route does not return to Main Hall", failures)
+	check("family_wing_hall_insert.png" in runtime_text,
+		"constructed Main Hall wing entry is not loaded", failures)
+	check('"DreamHouseDoor_"' not in runtime_text,
+		"floating dream-house route buttons remain in runtime", failures)
+	check("m.castle_room_link_layer.visible = false" in runtime_text,
+		"obsolete floating route layer is not locked off", failures)
+
 	for movie_path in PROTECTED_MOVIE_PATHS:
 		check(movie_path in runtime_text,
 			f"direct protected movie path missing: {movie_path}", failures)

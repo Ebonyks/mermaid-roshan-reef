@@ -10,7 +10,7 @@ const ROOM_IDS: Array[String] = [
 	"craft_room", "mermaid_pool", "bubble_bath",
 ]
 const HALL_DESTINATION_IDS: Array[String] = [
-	"opera_hall", "kitchen", "library", "playroom",
+	"family_gallery", "opera_hall", "kitchen", "library", "playroom",
 	"craft_room", "mermaid_pool", "bubble_bath",
 ]
 const INTERACTION_MANIFEST := \
@@ -408,6 +408,54 @@ func _run() -> void:
 		and main.castle_room_back_button != null
 		and main.castle_room_back_button.name == "CastleBack"
 		and main.castle_room_back_button.tooltip_text == "Castle courtyard")
+	var family_entry: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
+		"HallStructure_family_wing_entry") as Sprite3D
+	_ck("main_hall_constructed_dream_house_wing_entry",
+		family_entry != null
+		and family_entry.texture != null
+		and family_entry.texture.resource_path.ends_with(
+			"family_wing_hall_insert.png")
+		and String(family_entry.get_meta("source_asset_role", ""))
+			== "registered_family_gallery_door")
+	rooms.show_room("family_gallery", false)
+	await _frames(2)
+	var gallery_destinations := {
+		"gallery_dining_door": "dining_room",
+		"gallery_royal_bedroom_door": "royal_bedroom",
+		"gallery_sleepover_door": "sleepover_bedroom",
+		"gallery_movie_door": "movie_lounge",
+	}
+	var gallery_doors_ok := true
+	for item_id: String in gallery_destinations:
+		var gallery_record: Dictionary = main.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		var gallery_sprite: Sprite3D = gallery_record.get("sprite") as Sprite3D
+		var gallery_hotspot: Button = gallery_record.get("hotspot") as Button
+		var destination: String = String(gallery_destinations[item_id])
+		gallery_doors_ok = (
+			gallery_doors_ok
+			and gallery_sprite != null
+			and gallery_hotspot != null
+			and String(gallery_sprite.get_meta(
+				"source_asset_role", "")) == "physical_room_door"
+			and String(gallery_sprite.get_meta(
+				"room_destination", "")) == destination
+			and bool(gallery_hotspot.get_meta("physical_door", false))
+			and String(gallery_hotspot.get_meta(
+				"room_destination", "")) == destination
+		)
+	_ck("dream_house_gallery_physical_door_inventory",
+		gallery_doors_ok
+		and main.castle_room_detail_tiles.size() == 4
+		and main.castle_room_item_sprites.size() == 4
+		and main.castle_room_item_hotspot_layer.get_child_count() == 4
+		and not main.castle_room_action_button.visible)
+	_ck("dream_house_gallery_has_no_floating_route_buttons",
+		main.castle_room_link_layer != null
+		and main.castle_room_link_layer.get_child_count() == 0)
+	await _capture("family_gallery")
+	rooms.show_room("main_hall", false)
+	await _frames(2)
 	var castle_roshan: Sprite3D = main.castle_room_player_sprite
 	var castle_roshan_loop: RoshanSpriteLoop = castle_roshan.get_node_or_null(
 		"AlwaysAliveSpriteLoop") as RoshanSpriteLoop
@@ -1252,7 +1300,7 @@ func _run() -> void:
 			fill_on_energy, fill_off_energy])
 	await _capture("main_hall_lights_off")
 	_ck("main_hall_physical_portal_inventory",
-		main.castle_room_door_hotspots.size() == 8
+		main.castle_room_door_hotspots.size() == 9
 		and main.castle_room_door_hotspot_layer != null
 		and main.castle_room_door_hotspot_layer.visible)
 	var bunny_ids: Array[String] = [

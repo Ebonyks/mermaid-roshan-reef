@@ -92,6 +92,10 @@ const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
 		"max_energy": 4.6},
 ]
 const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
+	{"id": "family_wing_entry", "pos": Vector2(220.0, 470.0),
+		"z": 0.01, "scale": 1.0, "shaded": false,
+		"tex_path": DREAM_HOUSE_ART + "family_wing_hall_insert.png",
+		"role": "registered_family_gallery_door"},
 	{"id": "playroom_portal_bridge", "pos": Vector2(1672.0, 490.0),
 		"z": 0.01, "scale": 0.96, "shaded": false,
 		"tex_path": HALL_ART_ROOT + "castle_playroom_portal_cutout_reuse.png",
@@ -107,6 +111,9 @@ const HALL_PORTALS: Array[Dictionary] = [
 	# Rects trace the painted doorway frames (arch band + posts) in hall art
 	# pixels, measured from the composited main_hall_2screen tiles. Floating
 	# room plaques above each arch are deliberately excluded.
+	{"id": "family_gallery", "name": "Dream House Wing",
+		"rect": Rect2(115.0, 310.0, 220.0, 420.0),
+		"foot": Vector2(220.0, 720.0)},
 	{"id": "opera_hall", "name": "Opera Hall",
 		"rect": Rect2(455.0, 105.0, 375.0, 510.0),
 		"foot": Vector2(630.0, 650.0)},
@@ -299,30 +306,16 @@ const ROOMS: Array[Dictionary] = [
 	{"id": "movie_lounge", "name": "Cloud Movie Lounge", "icon": "🎬",
 		"tex": "room_movie_lounge_background.png", "action": "movie",
 		"action_icon": "🎬"},
+	{"id": "family_gallery", "name": "Dream House Wing", "icon": "\u2302",
+		"tex": "room_family_gallery_background.png", "action": "",
+		"action_icon": "\u2302"},
 ]
 const ROOM_PARENTS := {
-	"dining_room": "kitchen",
-	"royal_bedroom": "library",
-	"sleepover_bedroom": "royal_bedroom",
-	"movie_lounge": "playroom",
-}
-const ROOM_LINKS := {
-	"kitchen": [
-		{"id": "dining_room", "name": "Family Dining Room",
-			"icon": "🍽️", "pos": Vector2(578.0, 92.0)},
-	],
-	"library": [
-		{"id": "royal_bedroom", "name": "Royal Bedroom",
-			"icon": "🌙", "pos": Vector2(1060.0, 118.0)},
-	],
-	"playroom": [
-		{"id": "movie_lounge", "name": "Cloud Movie Lounge",
-			"icon": "🎬", "pos": Vector2(1055.0, 118.0)},
-	],
-	"royal_bedroom": [
-		{"id": "sleepover_bedroom", "name": "Sleepover Bedroom",
-			"icon": "🛏️", "pos": Vector2(1055.0, 118.0)},
-	],
+	"family_gallery": "main_hall",
+	"dining_room": "family_gallery",
+	"royal_bedroom": "family_gallery",
+	"sleepover_bedroom": "family_gallery",
+	"movie_lounge": "family_gallery",
 }
 const ROOM_LAYOUTS := {
 	"main_hall": {
@@ -390,6 +383,12 @@ const ROOM_LAYOUTS := {
 			{"tex": "room_bubble_bath_front_left.png", "pos": Vector2(0.0, 358.0)},
 			{"tex": "room_bubble_bath_front_right.png", "pos": Vector2(798.0, 358.0)},
 		],
+	},
+	"family_gallery": {
+		"walk": Rect2(70.0, 500.0, 1140.0, 165.0),
+		"mid_foot_y": -1.0,
+		"mid": [],
+		"front": [],
 	},
 	"dining_room": {
 		"walk": Rect2(130.0, 390.0, 1020.0, 280.0), "mid_foot_y": 520.0,
@@ -530,6 +529,43 @@ const ROOM_ITEMS := {
 			"hotspot_offset": Vector2(-35.5, -36.0),
 			"hotspot_size": Vector2(112.0, 112.0),
 			"color": Color(1.0, 0.82, 0.32)},
+	],
+	"family_gallery": [
+		{"id": "gallery_dining_door", "name": "Family Dining Room",
+			"pos": Vector2(25.0, 115.0), "z": 0.86, "scale": 0.64,
+			"tex_path": DREAM_HOUSE_ART + "family_portal_dining.png",
+			"hotspot_size": Vector2(250.0, 412.0),
+			"roleplay_action": "enter_room",
+			"room_destination": "dining_room",
+			"roleplay_foot": Vector2(188.0, 620.0),
+			"sound": "castle/curtain_swish.ogg",
+			"color": Color(1.0, 0.72, 0.76)},
+		{"id": "gallery_royal_bedroom_door", "name": "Royal Bedroom",
+			"pos": Vector2(260.0, 115.0), "z": 0.87, "scale": 0.64,
+			"tex_path": DREAM_HOUSE_ART + "family_portal_royal_bedroom.png",
+			"hotspot_size": Vector2(250.0, 412.0),
+			"roleplay_action": "enter_room",
+			"room_destination": "royal_bedroom",
+			"roleplay_foot": Vector2(481.0, 620.0),
+			"sound": "castle/curtain_swish.ogg",
+			"color": Color(0.72, 0.88, 1.0)},
+		{"id": "gallery_sleepover_door", "name": "Sleepover Bedroom",
+			"pos": Vector2(495.0, 115.0), "z": 0.88, "scale": 0.64,
+			"tex_path": DREAM_HOUSE_ART + "family_portal_sleepover_bedroom.png",
+			"hotspot_size": Vector2(250.0, 412.0),
+			"roleplay_action": "enter_room",
+			"room_destination": "sleepover_bedroom",
+			"roleplay_foot": Vector2(775.0, 620.0),
+			"sound": "castle/curtain_swish.ogg",
+			"color": Color(0.80, 0.72, 1.0)},
+		{"id": "gallery_movie_door", "name": "Cloud Movie Lounge",
+			"pos": Vector2(730.0, 115.0), "z": 0.89, "scale": 0.64,
+			"tex_path": DREAM_HOUSE_ART + "family_portal_movie_lounge.png",
+			"hotspot_size": Vector2(250.0, 412.0),
+			"roleplay_action": "enter_room", "room_destination": "movie_lounge",
+			"roleplay_foot": Vector2(1069.0, 620.0),
+			"sound": "castle/curtain_swish.ogg",
+			"color": Color(1.0, 0.82, 0.42)},
 	],
 	"dining_room": [
 		{"id": "dining_table", "name": "Family feast table",
@@ -1251,40 +1287,13 @@ func _build_hall_portals() -> void:
 		})
 	m.castle_room_door_hotspot_layer.visible = false
 
-func _rebuild_room_links(room_id: String) -> void:
+func _rebuild_room_links(_room_id: String) -> void:
 	if m.castle_room_link_layer == null:
 		return
 	for child: Node in m.castle_room_link_layer.get_children():
-		child.free()
-	var links: Array = ROOM_LINKS.get(room_id, []) as Array
-	m.castle_room_link_layer.visible = not links.is_empty()
-	for link_value: Variant in links:
-		var link_data: Dictionary = link_value as Dictionary
-		var destination: String = String(link_data["id"])
-		var button := Button.new()
-		button.name = "DreamHouseDoor_" + destination
-		button.position = link_data["pos"] as Vector2
-		button.focus_mode = Control.FOCUS_NONE
-		button.tooltip_text = String(link_data["name"])
-		button.set_meta("picture_first", true)
-		button.set_meta("room_destination", destination)
-		button.set_meta("uses_own_sfx", true)
-		StorybookUI.style_icon_button(button, String(link_data["icon"]),
-			"gold", Vector2(112.0, 112.0), String(link_data["name"]))
-		button.pivot_offset = Vector2(56.0, 56.0)
-		button.pressed.connect(_enter_room_link.bind(destination))
-		m.castle_room_link_layer.add_child(button)
-		var pulse := button.create_tween().set_loops()
-		pulse.tween_property(button, "scale", Vector2(1.05, 1.05),
-			0.62).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		pulse.tween_property(button, "scale", Vector2.ONE,
-			0.62).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
-func _enter_room_link(destination: String) -> void:
-	if _room(destination).is_empty():
-		return
-	m._ui_tap()
-	show_room(destination, true)
+		m.castle_room_link_layer.remove_child(child)
+		child.queue_free()
+	m.castle_room_link_layer.visible = false
 
 func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)
@@ -1319,6 +1328,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	elif room_id == "movie_lounge":
 		_sync_movie_picture()
 	m.castle_room_action_button.visible = not hall_mode \
+		and room_id != "family_gallery" \
 		and (room_id != "playroom" or _playroom_rescue_done())
 	if not hall_mode:
 		StorybookUI.style_icon_button(m.castle_room_action_button,
@@ -1679,12 +1689,16 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		_place_art_card(piece, source_position, item_z)
 		piece.scale = Vector3.ONE * visual_scale
 	piece.flip_h = bool(item_data.get("flip_h", false))
-	piece.set_meta("source_asset_role", "unique_object")
+	piece.set_meta("source_asset_role", "physical_room_door"
+		if item_data.has("room_destination") else "unique_object")
 	piece.set_meta("source_object_id", room_id + ":" + item_id)
 	piece.set_meta("semantic_action", String(item_data.get(
 		"semantic_action", "")))
 	piece.set_meta("roleplay_action", String(item_data.get(
 		"roleplay_action", "")))
+	piece.set_meta("castle_physical_door", item_data.has("room_destination"))
+	piece.set_meta("room_destination", String(item_data.get(
+		"room_destination", "")))
 	piece.set_meta("frames", int(item_data.get("frames", 1)))
 	piece.set_meta("hframes", piece.hframes)
 	piece.set_meta("vframes", piece.vframes)
@@ -1703,6 +1717,8 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		piece.set_meta("dust_bunny_role", bunny_role)
 		piece.set_meta("spawn_guide_id", item_id)
 	piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
+	if item_data.has("room_destination"):
+		piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	if item_data.has("light_cluster"):
 		piece.shaded = false
 		piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -1735,6 +1751,9 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			if hotspot_group == "pan_rack" else String(item_data["name"])
 		hotspot.set_meta("uses_own_sfx", true)
 		hotspot.set_meta("hotspot_group", hotspot_group)
+		hotspot.set_meta("physical_door", item_data.has("room_destination"))
+		hotspot.set_meta("room_destination", String(item_data.get(
+			"room_destination", "")))
 		var hotspot_offset: Vector2 = item_data.get(
 			"hotspot_offset", Vector2.ZERO)
 		hotspot.position = (source_position + hotspot_offset) * ART_TO_STAGE
@@ -1805,6 +1824,8 @@ func _activate_room_item(item_id: String) -> void:
 func _activate_roleplay_item(roleplay_action: String, item_id: String,
 		sprite: Sprite3D, item_data: Dictionary) -> void:
 	match roleplay_action:
+		"enter_room":
+			_enter_gallery_room(sprite, item_data)
 		"serve_meal":
 			_serve_dining_meal(sprite, item_data)
 		"eat_meal":
@@ -1825,6 +1846,35 @@ func _activate_roleplay_item(roleplay_action: String, item_id: String,
 		_:
 			push_warning("Unknown castle role-play action: %s (%s)" % [
 				roleplay_action, item_id])
+
+func _enter_gallery_room(sprite: Sprite3D,
+		item_data: Dictionary) -> void:
+	if sprite == null or not is_instance_valid(sprite) \
+			or bool(sprite.get_meta("busy", false)):
+		return
+	var destination: String = String(item_data.get("room_destination", ""))
+	if _room(destination).is_empty():
+		return
+	sprite.set_meta("busy", true)
+	for hotspot_node: Node in m.castle_room_item_hotspot_layer.get_children():
+		var door_hotspot: Button = hotspot_node as Button
+		if door_hotspot != null:
+			door_hotspot.disabled = true
+	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+		float(item_data.get("pitch", 1.0)))
+	var roleplay_foot: Vector2 = item_data.get(
+		"roleplay_foot", Vector2(640.0, 620.0)) as Vector2
+	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
+		"stage_foot", roleplay_foot) as Vector2
+	var duration: float = clampf(
+		old_foot.distance_to(roleplay_foot) / 520.0,
+		0.12, 0.85)
+	_position_player_at_foot(roleplay_foot, true)
+	_item_burst(sprite.position,
+		Color(item_data.get("color", StorybookUI.GOLD)), 8)
+	var transition := m.create_tween()
+	transition.tween_interval(duration + 0.04)
+	transition.tween_callback(show_room.bind(destination, true))
 
 func _roleplay_prop_bounce(sprite: Sprite3D,
 		item_data: Dictionary) -> void:

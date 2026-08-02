@@ -130,7 +130,7 @@ func _init() -> void:
 		if main.g.has(retired_key):
 			_bad("retired 3D hall state rebuilt %s" % retired_key)
 	for room_id: String in [
-		"opera_hall", "kitchen", "library", "playroom",
+		"family_gallery", "opera_hall", "kitchen", "library", "playroom",
 		"craft_room", "mermaid_pool", "bubble_bath"]:
 		if not main.castle_room_buttons.has(room_id):
 			_bad("castle physical doorway missing %s" % room_id)
@@ -146,40 +146,58 @@ func _init() -> void:
 			or main.castle_room_back_button == null:
 		_bad("redundant room selector remained or contextual Back was missing")
 	for dream_room_id: String in [
-		"dining_room", "royal_bedroom",
+		"family_gallery", "dining_room", "royal_bedroom",
 		"sleepover_bedroom", "movie_lounge"]:
 		if rooms._room(dream_room_id).is_empty():
 			_bad("dream-house room missing %s" % dream_room_id)
 	if main.castle_room_link_layer == null:
 		_bad("dream-house room-link layer was not built")
+	elif main.castle_room_link_layer.get_child_count() != 0:
+		_bad("floating dream-house route buttons remained")
+
+	rooms.show_room("family_gallery", false)
+	await _frames(2)
+	if main.castle_room_detail_tiles.size() != 4 \
+			or main.castle_room_action_button.visible:
+		_bad("Dream House Wing did not build as a native physical gallery")
 	var dream_routes: Array[Dictionary] = [
-		{"parent": "kitchen", "child": "dining_room"},
-		{"parent": "library", "child": "royal_bedroom"},
-		{"parent": "royal_bedroom", "child": "sleepover_bedroom"},
-		{"parent": "playroom", "child": "movie_lounge"},
+		{"item": "gallery_dining_door", "child": "dining_room"},
+		{"item": "gallery_royal_bedroom_door", "child": "royal_bedroom"},
+		{"item": "gallery_sleepover_door", "child": "sleepover_bedroom"},
+		{"item": "gallery_movie_door", "child": "movie_lounge"},
 	]
 	for route: Dictionary in dream_routes:
-		var parent_id: String = String(route["parent"])
+		var item_id: String = String(route["item"])
 		var child_id: String = String(route["child"])
-		rooms.show_room(parent_id, false)
-		await _frames(2)
-		var door: Button = main.castle_room_link_layer.get_node_or_null(
-			"DreamHouseDoor_" + child_id) as Button
-		if door == null \
-				or String(door.get_meta("room_destination", "")) != child_id \
-				or not bool(door.get_meta("picture_first", false)):
-			_bad("picture-first dream-house doorway missing %s -> %s" % [
-				parent_id, child_id])
+		var route_record: Dictionary = main.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		var door_sprite: Sprite3D = route_record.get("sprite") as Sprite3D
+		var door_hotspot: Button = route_record.get("hotspot") as Button
+		if door_sprite == null \
+				or String(door_sprite.get_meta(
+					"room_destination", "")) != child_id \
+				or not bool(door_sprite.get_meta(
+					"castle_physical_door", false)) \
+				or door_hotspot == null \
+				or String(door_hotspot.get_meta(
+					"room_destination", "")) != child_id \
+				or not bool(door_hotspot.get_meta("physical_door", false)):
+			_bad("physical dream-house doorway missing %s -> %s" % [
+				item_id, child_id])
 			continue
-		door.pressed.emit()
-		await _frames(2)
+		door_hotspot.pressed.emit()
+		await _frames(28)
 		if main.castle_room_id != child_id:
 			_bad("dream-house doorway did not enter %s" % child_id)
 		main.castle_room_back_button.pressed.emit()
 		await _frames(2)
-		if main.castle_room_id != parent_id:
-			_bad("dream-house Back did not return %s -> %s" % [
-				child_id, parent_id])
+		if main.castle_room_id != "family_gallery":
+			_bad("dream-house Back did not return %s to gallery" % child_id)
+
+	main.castle_room_back_button.pressed.emit()
+	await _frames(2)
+	if main.castle_room_id != "main_hall":
+		_bad("Dream House Wing Back did not return to Main Hall")
 
 	rooms.show_room("dining_room", false)
 	await _frames(2)

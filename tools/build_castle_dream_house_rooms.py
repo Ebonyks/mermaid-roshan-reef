@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Build native-square Pearl Castle dream-house room art from approved parts.
+"""Build native-square Pearl Castle dream-house wing art from approved parts.
 
 The room shells are deterministic 2048x2048 compositions of the project's
 approved seamless castle textures. Readable furniture stays on independent
 transparent Sprite3D cards copied non-destructively from the approved Blender
 QA renders. The runtime sees only the centered 2048x1152 gameplay crop, split
 into four non-overlapping 1024x576 cards.
+
+The wing gallery and all five physical portals reuse the approved hall portal.
 
 The ImageGen dining-room concept is composition reference only. No pixel from
 that sub-2K reference enters a runtime asset.
@@ -40,6 +42,7 @@ RUNTIME_TILE_SIZE = (1024, 576)
 
 WALL_TEXTURE = ROOT / "assets" / "terrain" / "up_castle_col.jpg"
 FLOOR_TEXTURES = {
+	"family_gallery": ROOT / "assets" / "terrain" / "castle_floor_col.jpg",
 	"dining_room": ROOT / "assets" / "terrain" / "kitchen_floor_col.jpg",
 	"royal_bedroom": ROOT / "assets" / "terrain" / "castle_floor_col.jpg",
 	"sleepover_bedroom": ROOT / "assets" / "terrain" / "bathroom_tile_col.jpg",
@@ -47,6 +50,11 @@ FLOOR_TEXTURES = {
 }
 
 ROOMS = {
+	"family_gallery": {
+		"tint": (224, 202, 234),
+		"floor_tint": (226, 209, 236),
+		"feature": "family_gallery",
+	},
 	"dining_room": {
 		"tint": (238, 214, 235),
 		"floor_tint": (210, 244, 235),
@@ -88,6 +96,16 @@ PROP_SOURCES = {
 	"shell_window.png": (PEARL_QA / "pearl_shell_window.png", "all"),
 	"shell_chandelier.png": (PEARL_QA / "pearl_shell_chandelier.png", "all"),
 }
+
+HALL_PORTAL_SOURCE = (
+	ROOT / "assets" / "flats" / "castle" / "main_hall_2screen"
+	/ "castle_playroom_portal_cutout_reuse.png"
+)
+HALL_SCREEN_A_SOURCE = (
+	ROOT / "assets_src" / "castle" / "main_hall_alignment"
+	/ "main_hall_screen_a_fixture_aligned_master.png"
+)
+HALL_SCREEN_A_CROP = (376, 212, 2048, 1153)
 
 
 def sha256(path: Path) -> str:
@@ -189,7 +207,17 @@ def build_room_master(room_id: str, config: dict[str, object]) -> Image.Image:
 			outline=(93, 61, 112, 235), width=10)
 
 	feature = str(config["feature"])
-	if feature == "door":
+	if feature == "family_gallery":
+		# Four architectural bays make the new wing's topology visible before
+		# its independent picture-door cards are added at runtime.
+		draw.rounded_rectangle((126, 470, 1922, 1430), radius=92,
+			fill=(196, 167, 211, 92), outline=(244, 218, 194, 230), width=24)
+		for center_x in (300, 770, 1240, 1710):
+			draw_arch(draw, (center_x - 190, 690, center_x + 190, 1390),
+				(73, 52, 105, 155), (237, 207, 190, 235), 22)
+			draw.ellipse((center_x - 66, 584, center_x + 66, 716),
+				fill=(247, 219, 190, 235), outline=(99, 65, 116, 235), width=12)
+	elif feature == "door":
 		draw_arch(draw, (792, 486, 1256, 1118),
 			(112, 201, 203, 245), (245, 217, 192, 255), 34)
 		draw_arch(draw, (842, 540, 1206, 1118),
@@ -210,7 +238,13 @@ def build_room_master(room_id: str, config: dict[str, object]) -> Image.Image:
 			fill=(18, 22, 49, 255), outline=(114, 80, 135, 230), width=18)
 
 	# Room-specific rugs remain background regions, never duplicated furniture.
-	if room_id in ("royal_bedroom", "sleepover_bedroom"):
+	if room_id == "family_gallery":
+		draw.rounded_rectangle((170, 1435, 1878, 1910), radius=180,
+			fill=(130, 91, 162, 105), outline=(246, 216, 188, 190), width=20)
+		for center_x in (330, 790, 1250, 1710):
+			draw.ellipse((center_x - 22, 1550, center_x + 22, 1594),
+				fill=(248, 214, 142, 140), outline=(102, 67, 117, 170), width=7)
+	elif room_id in ("royal_bedroom", "sleepover_bedroom"):
 		rug_color = (205, 126, 174, 120) if room_id == "royal_bedroom" \
 			else (150, 119, 203, 110)
 		draw.ellipse((320, 1250, 1728, 1900), fill=rug_color,
@@ -303,6 +337,111 @@ def build_prop_assets() -> list[dict[str, object]]:
 	return records
 
 
+def _draw_portal_crest(draw: ImageDraw.ImageDraw, kind: str,
+		accent: tuple[int, int, int, int]) -> None:
+	# The approved stuffie plaque is covered, not edited in place. Bold
+	# pictograms keep every doorway readable without words.
+	draw.ellipse((52, -8, 198, 88), fill=(248, 221, 191, 255),
+		outline=(78, 51, 101, 255), width=6)
+	draw.ellipse((70, 5, 180, 78), fill=accent,
+		outline=(255, 239, 210, 255), width=5)
+	ink = (76, 48, 100, 255)
+	cream = (255, 240, 207, 255)
+	if kind == "house":
+		draw.polygon(((91, 42), (125, 16), (159, 42)),
+			fill=(244, 144, 159, 255), outline=ink)
+		draw.rounded_rectangle((99, 39, 151, 69), radius=5,
+			fill=cream, outline=ink, width=4)
+		draw.rounded_rectangle((119, 50, 132, 69), radius=3,
+			fill=(117, 199, 198, 255), outline=ink, width=3)
+	elif kind == "dining":
+		draw.ellipse((91, 17, 159, 70), fill=cream, outline=ink, width=4)
+		for center_x, center_y, color in (
+				(111, 40, (242, 137, 91, 255)),
+				(129, 34, (112, 193, 139, 255)),
+				(138, 50, (242, 190, 112, 255))):
+			draw.ellipse((center_x - 6, center_y - 6,
+				center_x + 6, center_y + 6), fill=color, outline=ink, width=2)
+		draw.line((82, 22, 82, 67), fill=ink, width=4)
+		draw.line((168, 22, 168, 67), fill=ink, width=4)
+	elif kind == "moon":
+		draw.ellipse((94, 14, 158, 72), fill=(255, 225, 133, 255),
+			outline=ink, width=4)
+		draw.ellipse((117, 9, 165, 60), fill=accent)
+	elif kind == "sleepover":
+		for center_x in (103, 125, 147):
+			draw.regular_polygon((center_x, 42, 12), n_sides=5,
+				rotation=-18, fill=(255, 226, 137, 255), outline=ink)
+		draw.rounded_rectangle((91, 56, 159, 69), radius=6,
+			fill=cream, outline=ink, width=3)
+	elif kind == "movie":
+		draw.rounded_rectangle((87, 17, 163, 70), radius=9,
+			fill=(37, 31, 70, 255), outline=cream, width=5)
+		draw.polygon(((116, 29), (116, 58), (144, 43)),
+			fill=(255, 222, 133, 255), outline=ink)
+
+
+def build_family_portal_assets() -> list[dict[str, object]]:
+	source = Image.open(HALL_PORTAL_SOURCE).convert("RGBA")
+	styles = {
+		"family_wing_portal.png": ("house", (188, 226, 218, 255)),
+		"family_portal_dining.png": ("dining", (244, 185, 191, 255)),
+		"family_portal_royal_bedroom.png": ("moon", (177, 214, 232, 255)),
+		"family_portal_sleepover_bedroom.png": (
+			"sleepover", (213, 185, 230, 255)),
+		"family_portal_movie_lounge.png": ("movie", (187, 170, 221, 255)),
+	}
+	records: list[dict[str, object]] = []
+	variants: dict[str, Image.Image] = {}
+	for output_name, (kind, accent) in styles.items():
+		image = source.copy()
+		_draw_portal_crest(ImageDraw.Draw(image, "RGBA"), kind, accent)
+		output_path = DREAM_ROOT / output_name
+		image.save(output_path, format="PNG", optimize=True)
+		variants[output_name] = image
+		records.append({
+			"path": output_path.relative_to(ROOT).as_posix(),
+			"dimensions": list(image.size),
+			"sha256": sha256(output_path),
+			"source": HALL_PORTAL_SOURCE.relative_to(ROOT).as_posix(),
+			"source_sha256": sha256(HALL_PORTAL_SOURCE),
+			"transform": (
+				"approved full portal reused unchanged below a new "
+				"project-authored picture crest"),
+		})
+
+	# A full architectural insert cleanly replaces the unused first wall bay
+	# without changing the approved hall master beneath it.
+	insert = Image.new("RGBA", (370, 540), (0, 0, 0, 0))
+	wall = tint(tile_image(WALL_TEXTURE, insert.size, 256), (213, 184, 222), 0.38)
+	mask = Image.new("L", insert.size, 0)
+	ImageDraw.Draw(mask).rounded_rectangle((5, 5, 364, 535), radius=42, fill=255)
+	insert.paste(wall.convert("RGBA"), (0, 0), mask)
+	draw = ImageDraw.Draw(insert, "RGBA")
+	draw.rounded_rectangle((5, 5, 364, 535), radius=42,
+		outline=(244, 218, 194, 250), width=12)
+	draw.rounded_rectangle((18, 34, 352, 94), radius=26,
+		fill=(242, 214, 191, 238), outline=(88, 57, 108, 240), width=8)
+	for center_x in (31, 339):
+		draw.rounded_rectangle((center_x - 20, 78, center_x + 20, 526),
+			radius=18, fill=(226, 198, 222, 245),
+			outline=(91, 58, 111, 245), width=7)
+	insert.alpha_composite(variants["family_wing_portal.png"], (60, 118))
+	insert_path = DREAM_ROOT / "family_wing_hall_insert.png"
+	insert.save(insert_path, format="PNG", optimize=True)
+	records.append({
+		"path": insert_path.relative_to(ROOT).as_posix(),
+		"dimensions": list(insert.size),
+		"sha256": sha256(insert_path),
+		"source": HALL_PORTAL_SOURCE.relative_to(ROOT).as_posix(),
+		"source_sha256": sha256(HALL_PORTAL_SOURCE),
+		"transform": (
+			"approved portal plus project-authored wall-texture surround; "
+			"non-destructive Main Hall depth-card insert"),
+	})
+	return records
+
+
 def build_meal_plate() -> Path:
 	scale = 3
 	image = Image.new("RGBA", (176 * scale, 112 * scale), (0, 0, 0, 0))
@@ -360,6 +499,7 @@ def build() -> None:
 
 	records: list[dict[str, object]] = []
 	previews: list[Image.Image] = []
+	preview_by_room: dict[str, Image.Image] = {}
 	for room_id, config in ROOMS.items():
 		master = build_room_master(room_id, config)
 		master_path = MASTER_ROOT / f"room_{room_id}_background_master.png"
@@ -369,6 +509,7 @@ def build() -> None:
 		preview = gameplay.resize((1024, 576), Image.Resampling.LANCZOS)
 		preview.save(preview_path, format="PNG", optimize=True)
 		previews.append(preview)
+		preview_by_room[room_id] = preview
 
 		reconstruction = Image.new("RGB", GAMEPLAY_SIZE)
 		tiles: list[dict[str, object]] = []
@@ -407,6 +548,7 @@ def build() -> None:
 		})
 
 	prop_records = build_prop_assets()
+	prop_records.extend(build_family_portal_assets())
 	for path in (build_meal_plate(), build_movie_frame()):
 		with Image.open(path) as image:
 			prop_records.append({
@@ -417,16 +559,54 @@ def build() -> None:
 				"transform": "new shared component in approved pearl material language",
 			})
 
-	contact = Image.new("RGB", (1024, 576), (27, 19, 49))
+	contact = Image.new("RGB", (1536, 576), (27, 19, 49))
 	for index, preview in enumerate(previews):
 		contact.paste(preview.resize((512, 288), Image.Resampling.LANCZOS),
-			((index % 2) * 512, (index // 2) * 288))
+			((index % 3) * 512, (index // 3) * 288))
 	contact_path = AUDIT_ROOT / "dream_house_room_shells_contact.png"
 	contact.save(contact_path, format="PNG", optimize=True)
 
+	# Stage the exact physical gallery doors over its native-backed runtime
+	# preview so human review covers the new layout, not only empty shells.
+	gallery_stage = preview_by_room["family_gallery"].convert("RGBA")
+	portal_names = [
+		"family_portal_dining.png",
+		"family_portal_royal_bedroom.png",
+		"family_portal_sleepover_bedroom.png",
+		"family_portal_movie_lounge.png",
+	]
+	for index, portal_name in enumerate(portal_names):
+		portal = Image.open(DREAM_ROOT / portal_name).convert("RGBA").resize(
+			(160, 264), Image.Resampling.LANCZOS)
+		gallery_stage.alpha_composite(portal, (70 + index * 235, 189))
+	layout_contact = Image.new("RGBA", (1280, 576), (27, 19, 49, 255))
+	layout_contact.alpha_composite(gallery_stage, (0, 0))
+	hall_insert = Image.open(
+		DREAM_ROOT / "family_wing_hall_insert.png").convert("RGBA")
+	hall_insert.thumbnail((240, 440), Image.Resampling.LANCZOS)
+	layout_contact.alpha_composite(hall_insert, (1035, 78))
+	layout_draw = ImageDraw.Draw(layout_contact, "RGBA")
+	layout_draw.line((1012, 288, 1036, 288), fill=(248, 216, 150, 255), width=8)
+	layout_draw.polygon(((1028, 278), (1044, 288), (1028, 298)),
+		fill=(248, 216, 150, 255))
+	layout_contact_path = AUDIT_ROOT / "dream_house_layout_contact.png"
+	layout_contact.convert("RGB").save(
+		layout_contact_path, format="PNG", optimize=True)
+
+	with Image.open(HALL_SCREEN_A_SOURCE) as source:
+		hall_entry_review = source.crop(HALL_SCREEN_A_CROP).convert("RGBA")
+	with Image.open(DREAM_ROOT / "family_wing_hall_insert.png") as source:
+		hall_entry_review.alpha_composite(source.convert("RGBA"), (35, 200))
+	hall_entry_contact = hall_entry_review.resize(
+		(1024, 576), Image.Resampling.LANCZOS)
+	hall_entry_contact_path = (
+		AUDIT_ROOT / "dream_house_hall_entry_contact.png")
+	hall_entry_contact.convert("RGB").save(
+		hall_entry_contact_path, format="PNG", optimize=True)
+
 	manifest = {
-		"schema": "castle_dream_house_room_art_v1",
-		"method": "deterministic composition from approved project textures and prop QA renders",
+		"schema": "castle_dream_house_room_art_v2",
+		"method": "deterministic composition from approved project textures, prop QA renders, and the approved hall portal",
 		"imagegen_reference": {
 			"path": IMAGEGEN_REFERENCE.relative_to(ROOT).as_posix(),
 			"exists": IMAGEGEN_REFERENCE.exists(),
@@ -441,6 +621,30 @@ def build() -> None:
 		"rooms": records,
 		"props": prop_records,
 		"contact_sheet": contact_path.relative_to(ROOT).as_posix(),
+		"layout_contact": {
+			"path": layout_contact_path.relative_to(ROOT).as_posix(),
+			"sha256": sha256(layout_contact_path),
+		},
+		"hall_entry_contact": {
+			"path": hall_entry_contact_path.relative_to(ROOT).as_posix(),
+			"sha256": sha256(hall_entry_contact_path),
+			"source": HALL_SCREEN_A_SOURCE.relative_to(ROOT).as_posix(),
+			"source_sha256": sha256(HALL_SCREEN_A_SOURCE),
+			"source_crop": list(HALL_SCREEN_A_CROP),
+			"insert_position": [35, 200],
+		},
+		"physical_layout": {
+			"main_hall_entry": (
+				"assets/flats/castle/dream_house/family_wing_hall_insert.png"),
+			"gallery_room": "family_gallery",
+			"destinations": {
+				"dining_room": "family_portal_dining.png",
+				"royal_bedroom": "family_portal_royal_bedroom.png",
+				"sleepover_bedroom": "family_portal_sleepover_bedroom.png",
+				"movie_lounge": "family_portal_movie_lounge.png",
+			},
+			"floating_route_buttons": False,
+		},
 		"protected_originals_modified": False,
 		"runtime_world_art": "unshaded Sprite3D cards only",
 	}

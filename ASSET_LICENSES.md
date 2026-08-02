@@ -1042,6 +1042,7 @@ used. Exact PCM/file hashes and cue timing are in the audio manifest.
   kitchen-table QA render; all rights reserved. It is below the native room
   requirement and contributes no runtime pixels. The exact method, references,
   and prompt are recorded in the adjacent PROMPTS.md.
+- assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png
 - assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png
 - assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png
 - assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png
@@ -1051,12 +1052,14 @@ used. Exact PCM/file hashes and cue timing are in the audio manifest.
   up_castle_col, kitchen_floor_col, castle_floor_col,
   bathroom_tile_col, and castle_carpet_col project textures. No protected
   original was modified.
+- assets/flats/castle/rooms/room_family_gallery_background.png
 - assets/flats/castle/rooms/room_dining_room_background.png
 - assets/flats/castle/rooms/room_royal_bedroom_background.png
 - assets/flats/castle/rooms/room_sleepover_bedroom_background.png
 - assets/flats/castle/rooms/room_movie_lounge_background.png
   - project-original 1024 x 576 review previews derived from the corresponding
   native masters; not used as delivered world pixels when native tiles exist.
+- assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r*_c*.png
 - assets/flats/castle/rooms/background_tiles/room_dining_room_background_r*_c*.png
 - assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r*_c*.png
 - assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r*_c*.png
@@ -1083,14 +1086,29 @@ used. Exact PCM/file hashes and cue timing are in the audio manifest.
   project-generated Pearl Castle and art-pass-35 QA renders. Source renders,
   source hashes, and transformations are recorded per file in the manifest;
   approved source GLBs and renders remain unchanged.
+- assets/flats/castle/dream_house/family_wing_portal.png
+- assets/flats/castle/dream_house/family_portal_dining.png
+- assets/flats/castle/dream_house/family_portal_royal_bedroom.png
+- assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png
+- assets/flats/castle/dream_house/family_portal_movie_lounge.png
+- assets/flats/castle/dream_house/family_wing_hall_insert.png
+  - non-destructive derivatives of the already-approved project-original
+  castle_playroom_portal_cutout_reuse.png. The portal pixels remain unchanged;
+  project-authored picture crests distinguish the routes, and the Main Hall
+  insert adds only an approved wall-texture surround. All source paths, hashes,
+  and transforms are recorded in the manifest. License remains project
+  original; all rights reserved.
+
 - assets/flats/castle/dream_house/meal_plate.png
 - assets/flats/castle/dream_house/movie_screen_frame.png
   - new project-original deterministic Pillow drawings in the approved pearl
   material language; all rights reserved. No external or protected pixels.
 - audit/castle_dream_house/dream_house_room_art_manifest.json
 - audit/castle_dream_house/dream_house_room_shells_contact.png
-  - deterministic provenance/integrity record and four-room shell review
-  contact sheet; project audit evidence, not runtime art.
+- audit/castle_dream_house/dream_house_layout_contact.png
+- audit/castle_dream_house/dream_house_hall_entry_contact.png
+  - deterministic provenance/integrity record, five-room shell review, and
+  physical gallery-layout review; project audit evidence, not runtime art.
 - assets/book/hall/p_slide.jpg, p_trampoline.jpg, p_garden.jpg,
   p_snowman.jpg, and p_xmas.jpg are displayed directly and unchanged on
   the movie screen. They remain protected book art under their existing

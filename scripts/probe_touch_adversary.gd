@@ -187,7 +187,8 @@ func _playthrough(run_index: int) -> void:
 				issues.append("castle Sprite3D stage did not open")
 			if not main.touch_interactables.is_empty():
 				issues.append("retired 3D hall targets were registered")
-			if main.castle_room_buttons.size() != 7 \
+			if main.castle_room_buttons.size() != 8 \
+					or not main.castle_room_buttons.has("family_gallery") \
 					or not main.castle_room_buttons.has("opera_hall") \
 					or main.castle_room_stage.get_node_or_null(
 						"ElevatorButton") != null:
