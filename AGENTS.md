@@ -234,6 +234,16 @@ masters and stale side-copies have repeatedly forced manual merge rescues.
   promotion from `dev` via the "Promote dev to master" workflow
   (workflow_dispatch), which verifies the probe suite is green for dev's
   exact HEAD before pushing.
+- Owner release shorthand (owner decision 2026-08-01): "push to master",
+  "ship it", "release it", and equivalent instructions explicitly authorize
+  the agent to complete the normal green integration and dispatch
+  `.github/workflows/promote.yml` with
+  `gh workflow run promote.yml --ref dev`. Do not ask for a second
+  confirmation, do not respond that agents cannot push master, and never use
+  a raw `git push` to master. The workflow waits for a green probe run on the
+  exact current `dev` head, follows `dev` if another agent advances it while
+  waiting, fast-forwards `master`, verifies the matching dev APK, and updates
+  the stable APK channel. Monitor it to completion and report both APK URLs.
 - `dev` is the INTEGRATION branch: when a task is COMPLETE (probes green
   on CI for your work branch), merge the work branch into `dev` and push
   dev — that is where finished work becomes visible. Reconcile
