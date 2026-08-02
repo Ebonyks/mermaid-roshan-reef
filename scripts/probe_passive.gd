@@ -95,6 +95,14 @@ func _init() -> void:
 	bad += fairy_bad
 	var brawl_bad: int = await _probe_brawl_agency()
 	bad += brawl_bad
+	# Water-FX cards are EVENT effects (fx_water.gd): the swell, sleeping-prop
+	# sway and every other ambient channel must never proc one. Zero input
+	# across this whole run therefore means zero cards, ever.
+	if int(main.fxw_total) != 0:
+		print("PASSIVE|Water FX: FAIL ", main.fxw_total, " event card(s) with zero input")
+		bad += 1
+	else:
+		print("PASSIVE|Water FX: OK ambient channels proc nothing")
 	print("PASSIVE|result: ", ("ALL OK" if bad == 0 else "%d game(s) FAILED" % bad))
 	quit()
 

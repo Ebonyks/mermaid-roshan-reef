@@ -846,6 +846,14 @@ func props_tick(delta: float) -> Dictionary:
 	var awake := 0
 	var amp := swell_amp()
 	var t: float = float(m.g.get("ss_swell_t", 0.0))
+	# opt-in waterline (cfg "water_y", stage-local): an awake body crossing
+	# it with real vertical speed procs the shared splash vocabulary
+	# (fx_water.gd) — a discrete transition event, never the ambient tide
+	var cfgd: Dictionary = m.g.get("ss_cfg", {})
+	var water_y: float = float(cfgd.get("water_y", -1e18))
+	var r0 := root()
+	if water_y > -1e17 and r0 != null:
+		water_y += r0.global_position.y   # bodies compare in global space
 	var ppos: Vector3 = m.player.global_position
 	var pvel: Vector3 = m.player.vel
 	for p_v in fleet:
@@ -872,6 +880,12 @@ func props_tick(delta: float) -> Dictionary:
 				q.rotation.z = sw.y
 		else:
 			awake += 1
+			if water_y > -1e17:
+				var below: bool = b.global_position.y < water_y
+				if below != bool(b.get_meta("fxw_below", below)) and absf(b.linear_velocity.y) > 2.0:
+					m.fx_splash(Vector3(b.global_position.x, water_y, b.global_position.z),
+						absf(b.linear_velocity.y), "prop_%d" % b.get_instance_id())
+				b.set_meta("fxw_below", below)
 			if amp > 0.0:
 				var fade: float = clampf(1.0 - (t - float(b.get_meta("ss_stir", 0.0))) / 6.0, 0.0, 1.0)
 				if fade > 0.0:

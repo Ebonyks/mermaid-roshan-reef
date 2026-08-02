@@ -47,6 +47,8 @@ var verb_t := 0.0
 var idle_verb_cool := 0.0
 var bump_verb_cool := 0.0    # keeps wall-bump "boing" from re-firing every frame
 var was_airborne := false    # free-swim only: tracks surface crossings for splashes
+var was_wet := false         # arena wet/dry oracle flips (rivers, moat, fjords)
+var wet_game := ""           # re-arms the wet tracker on every mode change
 
 # ---- land locomotion (comedy dept.) ----
 # A mermaid has no legs, so dry ground is covered in tiny determined hops.
@@ -699,7 +701,7 @@ func _process(delta: float) -> void:
 		var now_air: bool = position.y > WATER_TOP
 		if now_air != was_airborne and absf(vel.y) > 5.0:
 			if m0.has_method("on_player_jump"):
-				m0.on_player_jump(Vector3(position.x, WATER_TOP - 1.0, position.z))
+				m0.on_player_jump(Vector3(position.x, WATER_TOP - 1.0, position.z), true)
 			if now_air and vel.y > 10.0 and verb == "":
 				play_verb("twirl")   # a joyful breach pirouette
 		was_airborne = now_air
@@ -801,6 +803,17 @@ func _process(delta: float) -> void:
 		# comic-hop oracle: is she resting on this arena floor, and is it dry?
 		land_rest = position.y <= floor_a + 0.08
 		land_dry = m.has_method("water_surface_y") and position.y >= float(m.water_surface_y(position.x, position.z))
+		# a wet/dry FLIP is a real water boundary crossed (river bank, moat
+		# rim, fjord edge) — proc the shared splash vocabulary. Mode changes
+		# re-arm the tracker so entering an arena never counts as a crossing,
+		# and the speed gate keeps probe/teleport repositions silent.
+		if String(m.game) != wet_game:
+			wet_game = String(m.game)
+			was_wet = not land_dry
+		elif (not land_dry) != was_wet:
+			was_wet = not land_dry
+			if vel.length() > 4.0 and m.has_method("on_player_wet_change"):
+				m.on_player_wet_change(position, was_wet, vel.length())
 	else:
 		land_rest = false
 		land_dry = false

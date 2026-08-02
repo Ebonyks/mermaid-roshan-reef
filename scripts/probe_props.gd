@@ -31,6 +31,7 @@ func _init() -> void:
 	await _idle_case()
 	await _push_case()
 	await _swell_case()
+	await _fx_case()
 	await _cap_case()
 	await _teardown_case()
 	print("PROPS|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
@@ -206,6 +207,125 @@ func _swell_case() -> void:
 	_ck("sleeping sprite sways with the wave", sway_peak > 0.005)
 	_ck("cosmetic tide never moves the body", body_drift < 0.05)
 	cfg["swell"] = 0.0
+
+func _fx_case() -> void:
+	# The shared water-FX vocabulary (fx_water.gd): a proc spawns cards that
+	# animate out and free themselves; the per-emitter cooldown collapses
+	# machine-gun procs; the concurrent cap holds; the styled placeholder
+	# visuals must run headless with no atlas art on disk; and an awake prop
+	# falling through the stage's opt-in waterline procs a splash.
+	var fx: FxWater = main._fx_water_ref()
+	var t0: int = main.fxw_total
+	fx.splash(ORIGIN + Vector3(0, 2, 0), 20.0, "probe_a")
+	_ck("a breach-tier proc spawns splash + ripple cards",
+		main.fxw_total == t0 + 2 and main.fxw_cards.size() >= 2)
+	fx.splash(ORIGIN + Vector3(0, 2, 0), 20.0, "probe_a")
+	_ck("the per-emitter cooldown holds", main.fxw_total == t0 + 2)
+	for i in range(10):
+		fx.card("splash_small", ORIGIN + Vector3(float(i), 2.0, 0.0))
+	_ck("the concurrent-card cap holds", main.fxw_cards.size() <= FxWater.CAP)
+	var spawned: int = main.fxw_cards.size()
+	var gone := false
+	for i in range(300):
+		await process_frame
+		if main.fxw_cards.is_empty():
+			gone = true
+			break
+	_ck("cards animate out and free themselves", gone and spawned > 0)
+	# ---- the Codex atlas contract (art landed 2026-08-02) -------------------
+	# fx_water.gd's KINDS table hardcodes each sheet's grid, so art whose grid
+	# disagrees would silently mis-slice every frame, and a renamed sheet would
+	# silently drop back to the procedural stand-in with nothing failing. Gate
+	# both: the shipped sheets must match the table, and a card must really
+	# flipbook the atlas rather than draw the placeholder.
+	var absent := 0
+	var grid_bad := 0
+	var flip_spr: Sprite3D = null
+	for kind_v in FxWater.KINDS.keys():
+		var kind := String(kind_v)
+		if not ResourceLoader.exists("res://assets/sprites/fx_water/fx_water_%s_atlas.png" % kind):
+			absent += 1
+			continue
+		var kd: Array = FxWater.KINDS[kind]
+		var holder: Node3D = fx.card(kind, ORIGIN + Vector3(0, 2, 0))
+		var spr: Sprite3D = null
+		if holder != null:
+			for ch in holder.get_children():
+				if ch is Sprite3D:
+					spr = ch as Sprite3D
+		if spr == null or spr.hframes != int(kd[0]) or spr.vframes != int(kd[1]) \
+			or spr.hframes * spr.vframes < int(kd[2]):
+			grid_bad += 1
+		elif flip_spr == null:
+			flip_spr = spr
+	_ck("every shipped atlas matches the KINDS grid", grid_bad == 0)
+	if absent == FxWater.KINDS.size():
+		print("PROPS|atlas contract: SKIP (no sheets on disk; stand-in path is live)")
+	else:
+		var advanced := false
+		if flip_spr != null:
+			var f0: int = flip_spr.frame
+			for i in range(12):
+				await process_frame
+				if not is_instance_valid(flip_spr):
+					advanced = true   # played to the last frame and freed itself
+					break
+				if flip_spr.frame > f0:
+					advanced = true
+					break
+		_ck("a card flipbooks the atlas art", advanced)
+	for i in range(200):
+		await process_frame
+		if main.fxw_cards.is_empty():
+			break
+	# ---- the foam waterline (the sixth sheet) -------------------------------
+	# The strip art carries no painted motion by contract, so if the engine
+	# drift ever stops the edge goes dead-still and nothing else would notice.
+	if ResourceLoader.exists(FxWater.FOAMLINE):
+		var line: MeshInstance3D = fx.waterline(ORIGIN + Vector3(0, 1, 0), 40.0, {"depth": 4.0})
+		var lm: StandardMaterial3D = null
+		if line != null:
+			lm = line.material_override as StandardMaterial3D
+		_ck("the foam waterline builds and tiles", lm != null and lm.uv1_scale.x > 1.0)
+		if lm != null:
+			var u0: float = lm.uv1_offset.x
+			var drifted := false
+			for i in range(30):
+				await process_frame
+				if lm.uv1_offset.x != u0:
+					drifted = true
+					break
+			_ck("the waterline drifts with the water clock", drifted)
+			# queue_free lands at END of frame and tick() already ran this one,
+			# so the prune cannot happen before the next tick — wait for the
+			# entry to actually leave the list rather than assuming a frame is
+			# enough (and assert the list SHRANK: "no stale entries" is vacuously
+			# true for the frame before the node is deleted).
+			var before_n: int = main.fxw_lines.size()
+			line.queue_free()
+			var pruned := false
+			for i in range(10):
+				await process_frame
+				if main.fxw_lines.size() < before_n:
+					pruned = true
+					break
+			_ck("freed waterlines are pruned", pruned)
+	# the waterline: a prop dropped through cfg water_y procs on the way down
+	var cfg: Dictionary = main.g.get("ss_cfg", {})
+	cfg["water_y"] = 3.0
+	var t1: int = main.fxw_total
+	var faller := stage.prop("", PROP_SIZE, -14.0, -3.0, {"drop": 7.0})
+	if faller == null:
+		_ck("a waterline faller exists", false)
+	else:
+		for i in range(90):
+			_park_player_far()
+			stage.props_tick(_dt())
+			await process_frame
+			if main.fxw_total > t1:
+				break
+		_ck("a prop crossing the waterline procs a splash", main.fxw_total >= t1 + 2)
+	cfg.erase("water_y")
 
 func _cap_case() -> void:
 	var have: int = _fleet().size()
