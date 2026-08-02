@@ -91,7 +91,7 @@ jobs:
           # no assertions; under --headless it prints "HEADLESS SKIP" and exits 0,
           # so gating it here only manufactured false confidence. It runs under the
           # xvfb visual-review step below instead.
-          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
+          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_imp_ai probe_mic probe_stuffie probe_dust_boss probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1
@@ -177,6 +177,23 @@ jobs:
             echo "BOOT GATE FAILED — assertion or script error during boot"
             exit 1
           fi
+
+      # Advisory boss stress test: 25 simulated-child encounters against the
+      # Dust Bunny Boss plus 5 control extremes (asleep / never-looks-at-the-
+      # tell / perfect / very slow / never-moves), fixed-timestep and driven
+      # through real touch_ui taps. Prints DUSTBAL| metrics and a verdict
+      # against the 45-120s fun band. Review-only — never gates the build.
+      # (DUST_BUNNY_BOSS_STRESS_TEST_2026-08-02.md)
+      - name: Dust boss balance playtest (advisory)
+        continue-on-error: true
+        run: |
+          DB_HOME="/tmp/reef-dustbal"
+          rm -rf "$DB_HOME"
+          mkdir -p "$DB_HOME/data" "$DB_HOME/config"
+          XDG_DATA_HOME="$DB_HOME/data" XDG_CONFIG_HOME="$DB_HOME/config" \
+            timeout 10m godot --headless -s scripts/probe_dust_boss_balance.gd -- --touch 2>&1 | grep -E "^DUSTBAL\|" || true
+          XDG_DATA_HOME="$DB_HOME/data" XDG_CONFIG_HOME="$DB_HOME/config" \
+            timeout 6m godot --headless -s scripts/probe_dust_boss_balance.gd -- --touch --controls 2>&1 | grep -E "^DUSTBAL\|" || true
 
       # Advisory balance playtest: ten simulated-child runs per opera act
       # (personas with reaction delays, travel, wandering, wrong taps) via
@@ -275,6 +292,28 @@ jobs:
         with:
           name: northern-world-review
           path: /tmp/northern-shots/*.png
+          if-no-files-found: warn
+
+      # The boss arena, one frame per beat. The 2026-08-02 stress test found
+      # three defects NO headless probe could see (the chase cam stealing the
+      # lens, the tell cropped off the top of the phone, a shadow that flew
+      # with the boss), so a boss ships with a capture pass from now on.
+      - name: Capture dust-boss arena review
+        continue-on-error: true
+        env:
+          DUSTBOSS_SHOT_OUT: /tmp/dust-boss-shots
+          LIBGL_ALWAYS_SOFTWARE: 1
+        run: |
+          mkdir -p "$DUSTBOSS_SHOT_OUT"
+          timeout 8m xvfb-run -a godot --rendering-method mobile --resolution 1280x720 -s scripts/probe_dust_boss_shots.gd
+
+      - name: Upload dust-boss arena review
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dust-boss-arena-review
+          path: /tmp/dust-boss-shots/*.png
           if-no-files-found: warn
 
       - name: Capture pearl-castle visual review

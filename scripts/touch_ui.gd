@@ -70,6 +70,8 @@ const TAP_MS := 300
 const JUMP_HOLD_MS := 140
 const ACTION_PICTOGRAMS := {
 	"JUMP": "↑",
+	"BONK!": "✋",
+	"WAIT": "◇",
 	"PLAY": "▶",
 	"SHOP": "◆",
 	"OPEN": "◇",

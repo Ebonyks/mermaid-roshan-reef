@@ -571,8 +571,12 @@ func _process(delta: float) -> void:
 	if "collection_layer" in _m0 and _m0.collection_layer != null:
 		vel = Vector3.ZERO
 		return   # the icon-led Critter Book is a full-screen touch overlay
-	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl"):
-		return   # these modes drive the player + camera themselves (dolls: the side-scroll stage)
+	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl" or String(_m0.game) == "dustboss"):
+		return   # these modes drive the player + camera themselves (dolls: the side-scroll
+		# stage; dustboss: the octagon boss arena). A stage-driven mode MISSING from this
+		# list looks fine to every headless probe and is broken on the phone: the free-swim
+		# chase cam keeps re-aiming the lens after the stage has framed the ring
+		# (found by the 2026-08-02 boss stress test's visual pass).
 	if "g" in _m0 and String((_m0.g as Dictionary).get("phase", "")) == "promenade":
 		# The promenade owns movement and its side-on camera, but the visual
 		# clock above still runs so its externally positioned Roshan stays alive.
