@@ -64,6 +64,10 @@ var _reef_districts: ReefDistricts = null
 # ---- LIVING WORLD: mutable runtime state stays on ReefMain; the extracted
 # ---- director only resolves stages and drives one reusable 2D CanvasItem.
 var _living_world: LivingWorldDirector = null
+var _fx_water: FxWater = null
+var fxw_cards: Array = []       # live water-FX cards (fx_water.gd satellite)
+var fxw_total := 0              # cards ever spawned — probe_passive's counter
+var fxw_cool: Dictionary = {}   # per-emitter proc cooldowns
 var living_specs: Dictionary = {}
 var living_layer: CanvasLayer = null
 var living_canvas: LivingWorldCanvas = null
@@ -708,6 +712,17 @@ func _living_world_ref() -> LivingWorldDirector:
 	if _living_world == null:
 		_living_world = LivingWorldLogic.new(self)
 	return _living_world
+
+func _fx_water_ref() -> FxWater:
+	if _fx_water == null:
+		_fx_water = FxWater.new(self)
+	return _fx_water
+
+func fx_splash(pos: Vector3, energy: float, emitter: String = "", cfg: Dictionary = {}) -> void:
+	# the shared water-FX proc point (WATER_PHYSICS_EVALUATION_2026-08-02.md):
+	# every water system calls this on a discrete crossing event — never from
+	# an ambient channel — so the whole game splashes in one vocabulary
+	_fx_water_ref().splash(pos, energy, emitter, cfg)
 
 func _ready() -> void:
 	for jmap in EXTRA_JOY_MAPPINGS:
@@ -6786,6 +6801,8 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 
 func _process(delta: float) -> void:
 	_living_world_ref().tick(delta)
+	if _fx_water != null:
+		_fx_water.tick(delta)   # water-FX cards animate everywhere, even mid-cutaway
 	# camera watchdog (CAMERA_AUDIT_2026_07 P0): if a torn-down mode freed the
 	# current camera without restoring one (kart/galaxy teardown guards,
 	# cancel(false) paths), fall back to Roshan instead of a black screen
@@ -7872,11 +7889,28 @@ func _tick_surf_rings(delta: float, ppos: Vector3) -> void:
 			if float(s["t"]) >= 1.0:
 				(s["node"] as MeshInstance3D).visible = false
 
-func on_player_jump(pos: Vector3) -> void:
+func on_player_jump(pos: Vector3, crossed: bool = false) -> void:
 	# WW-style splash telegraph: ring + sparkles when she leaps near the surface
 	if game == "" and pos.y > WATER_TOP - 12.0:
 		_spawn_surf_ring(Vector3(pos.x, WATER_TOP - 0.25, pos.z), 16.0)
 		_sparkle_burst(Vector3(pos.x, minf(pos.y + 2.0, WATER_TOP - 1.0), pos.z), Color(0.75, 0.95, 1.0))
+		if crossed and player != null:
+			# a REAL surface crossing (breach out or plunge back in) gets the
+			# shared splash card, sized by how hard she crossed — kicks that
+			# never break the surface keep the telegraph ring only
+			fx_splash(Vector3(pos.x, WATER_TOP - 0.2, pos.z),
+				absf((player.vel as Vector3).y), "roshan_surface")
+
+func on_player_wet_change(pos: Vector3, entering: bool, speed: float) -> void:
+	# Arena wet/dry oracle flip (lagoon rivers and moat, northern fjords):
+	# the formerly SILENT water boundaries speak the shared vocabulary too.
+	var s: float = water_surface_y(pos.x, pos.z)
+	var at := Vector3(pos.x, pos.y + 0.4, pos.z)
+	if absf(s) < 1e17:
+		at.y = s + 0.05
+	fx_splash(at, speed * 0.55, "roshan_wetline")
+	if entering:
+		_sparkle_burst(at + Vector3(0, 0.8, 0), Color(0.75, 0.95, 1.0))
 
 func on_player_hop_land() -> void:
 	# soft cartoon boing per on-land hop touchdown, pitch-wobbled so a scoot

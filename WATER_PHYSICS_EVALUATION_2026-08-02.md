@@ -179,6 +179,19 @@ visuals at all (the unshipped fleet). Continuity comes from three bindings:
 
 ## 4. Recommended order of work (all probe-gated, one step per commit)
 
+**STATUS 2026-08-02 (same day, follow-up commit): P1–P4 are INSTITUTED.**
+`scripts/fx_water.gd` is the vocabulary satellite (atlas-ready flipbook,
+styled procedural stand-in until the Codex art lands); consumers wired:
+reef surface breach (`on_player_jump` crossing flag), lagoon/fjord wet-dry
+flips (`on_player_wet_change`), the fetch lake, and the prop-fleet
+waterline (`props_tick` cfg `water_y`). The toy-castle brawl courtyard is
+the first live swell + prop-fleet stage (6 waterlogged pastel blocks).
+Probe coverage: `probe_props` `_fx_case`, `probe_passive` zero-proc
+assertion. First-ever human inspection frames: `probe_human_art_audit`
+shots 20–22 in the CI visual-review artifact. Still open: P0 (Codex
+atlases — the workorder), the reef-pilot swell promenade, and the
+ReefPhysics `splashed`-flag consumer (no live `Body` exists yet to wire).
+
 1. **P0 — Codex paints the vocabulary** (workorder; no code dependency).
 2. **P1 — `fx_card()` primitive** + counters, with a `probe_fx` case and a
    `probe_passive` no-proc assertion.

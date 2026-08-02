@@ -114,5 +114,21 @@ func _init() -> void:
 	main.g["bloom_t"] = FairyGame.FS_BLOOM_T * 0.2
 	await _frames(3)
 	await _shot("19_fairy_flower_bloom", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
+	# ---- water physics + FX institution (2026-08-02): the Jolt prop fleet,
+	# the swell and the fx_water card vocabulary have NEVER been human-
+	# inspected (probe-validated only). These frames are the first look.
+	await _fresh_main()
+	main.brawl_cool = 0.0
+	main._start_game(main.brawl_fr)
+	await _frames(50)
+	var brawl_o: Vector3 = main.ARENA_POS + Vector3(0, 2.5, 0)
+	await _shot("20_toy_castle_block_fleet_swell", brawl_o + Vector3(-8, 9, 21), brawl_o + Vector3(-6, 1.5, 0), true)
+	main.fx_splash(brawl_o + Vector3(-2, 3.5, 2.0), 20.0, "art_audit_a")
+	await _frames(8)
+	await _shot("21_water_fx_breach_card", brawl_o + Vector3(-2, 5, 14), brawl_o + Vector3(-2, 3, 0), true)
+	main._fx_water_ref().card("splash_small", brawl_o + Vector3(-6, 3.5, 2.0))
+	main._fx_water_ref().card("bubble_burst", brawl_o + Vector3(2, 3.5, 2.0))
+	await _frames(6)
+	await _shot("22_water_fx_small_and_bubbles", brawl_o + Vector3(-2, 5, 14), brawl_o + Vector3(-2, 3, 0), true)
 	print("ART_AUDIT|DONE")
 	quit()

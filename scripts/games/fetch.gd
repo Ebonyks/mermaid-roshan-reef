@@ -266,6 +266,10 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 				# whimper + Wacky hamming it up ("OH NO! Chuck is all WET!")
 				m.g["miss"] = int(m.g["miss"]) + 1
 				m._sparkle_burst(ball.position, Color(0.4, 0.7, 1.0))
+				# the lake splash finally gets a PICTURE: the shared medium-tier
+				# splash card at the landing point (fixed energy — the same
+				# event must always look the same size)
+				m.fx_splash(ball.position + Vector3(0, 0.3, 0), 10.0, "fetch_lake")
 				var bz := AudioStreamPlayer.new()
 				bz.stream = load("res://assets/audio/voices/chuck_whimper.ogg")
 				bz.bus = "Voice"

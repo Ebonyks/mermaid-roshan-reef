@@ -46,6 +46,7 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	if r == null:
 		return
 	var s: Dictionary = stage.brawl_tick(delta)
+	stage.props_tick(delta)   # blocks: wake shove + swell tide + sleep contract
 	m.g["wave_t"] = float(m.g.get("wave_t", 0.0)) + delta
 	var enemies: Array = m.g["enemies"]
 	var seg: int = int(m.g["seg"])
@@ -180,7 +181,21 @@ func _stage_open() -> void:
 		"cam_dist": 24.0,
 		"look_h": 6.5,
 		"cam_follow": 0.85,
+		"swell": 0.6,   # the courtyard sits in the reef: a gentle shared tide
 	})
+	# Toy blocks strewn around Huluu's courtyard — the FIRST live prop fleet
+	# (the engine shipped 2026-07-27 with zero consumers). Waterlogged per
+	# the swell pairing rule so the tide can rock them; pastel banner tints
+	# ARE the toy-block look until Codex standee art lands (a flat pastel
+	# rectangle reads as a toy block by design). Garnish only, never logic.
+	stage.props_arena()
+	for i in range(6):
+		stage.prop("", Vector2(1.6, 1.6), X0 + 4.0 + float(i) * 5.2,
+			(-1.0 if i % 2 == 0 else 1.0) * (HALF_D - 1.5), {
+				"color": BANNERS[i % BANNERS.size()],
+				"drop": 0.8 + float(i % 3) * 0.6,
+				"gravity_scale": 0.35, "damp": 1.0,
+			})
 	m._play_music("race")   # the energetic track until the castle gets its own
 	var r := stage.root()
 	var total_w: float = SEG_W * float(WAVES.size())

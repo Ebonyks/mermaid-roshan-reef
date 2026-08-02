@@ -31,6 +31,7 @@ func _init() -> void:
 	await _idle_case()
 	await _push_case()
 	await _swell_case()
+	await _fx_case()
 	await _cap_case()
 	await _teardown_case()
 	print("PROPS|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
@@ -206,6 +207,47 @@ func _swell_case() -> void:
 	_ck("sleeping sprite sways with the wave", sway_peak > 0.005)
 	_ck("cosmetic tide never moves the body", body_drift < 0.05)
 	cfg["swell"] = 0.0
+
+func _fx_case() -> void:
+	# The shared water-FX vocabulary (fx_water.gd): a proc spawns cards that
+	# animate out and free themselves; the per-emitter cooldown collapses
+	# machine-gun procs; the concurrent cap holds; the styled placeholder
+	# visuals must run headless with no atlas art on disk; and an awake prop
+	# falling through the stage's opt-in waterline procs a splash.
+	var fx: FxWater = main._fx_water_ref()
+	var t0: int = main.fxw_total
+	fx.splash(ORIGIN + Vector3(0, 2, 0), 20.0, "probe_a")
+	_ck("a breach-tier proc spawns splash + ripple cards",
+		main.fxw_total == t0 + 2 and main.fxw_cards.size() >= 2)
+	fx.splash(ORIGIN + Vector3(0, 2, 0), 20.0, "probe_a")
+	_ck("the per-emitter cooldown holds", main.fxw_total == t0 + 2)
+	for i in range(10):
+		fx.card("splash_small", ORIGIN + Vector3(float(i), 2.0, 0.0))
+	_ck("the concurrent-card cap holds", main.fxw_cards.size() <= FxWater.CAP)
+	var spawned: int = main.fxw_cards.size()
+	var gone := false
+	for i in range(300):
+		await process_frame
+		if main.fxw_cards.is_empty():
+			gone = true
+			break
+	_ck("cards animate out and free themselves", gone and spawned > 0)
+	# the waterline: a prop dropped through cfg water_y procs on the way down
+	var cfg: Dictionary = main.g.get("ss_cfg", {})
+	cfg["water_y"] = 3.0
+	var t1: int = main.fxw_total
+	var faller := stage.prop("", PROP_SIZE, -14.0, -3.0, {"drop": 7.0})
+	if faller == null:
+		_ck("a waterline faller exists", false)
+	else:
+		for i in range(90):
+			_park_player_far()
+			stage.props_tick(_dt())
+			await process_frame
+			if main.fxw_total > t1:
+				break
+		_ck("a prop crossing the waterline procs a splash", main.fxw_total >= t1 + 2)
+	cfg.erase("water_y")
 
 func _cap_case() -> void:
 	var have: int = _fleet().size()
