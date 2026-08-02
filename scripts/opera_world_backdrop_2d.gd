@@ -1,6 +1,6 @@
 class_name OperaWorldBackdrop2D
 extends Control
-## Scalable, code-native scenery for the twelve Opera career worlds.
+## Scalable, code-native scenery for the thirteen Opera career worlds.
 ##
 ## The accepted 1024x576 scene keys remain composition references: they do not
 ## meet the project's 2048px-per-playable-screen raster rule. These lightweight
@@ -18,6 +18,7 @@ const PALETTES := {
 	"painter": [Color("#a84e5b"), Color("#f3a45d"), Color("#ffe599")],
 	"astronaut": [Color("#111d48"), Color("#315d9b"), Color("#72d9e8")],
 	"racer": [Color("#18234a"), Color("#4b5190"), Color("#ef5a59")],
+	"nursery": [Color("#202452"), Color("#88c9bd"), Color("#f4c7a7")],
 	"popstar": [Color("#34164d"), Color("#9c3c8c"), Color("#62d9e8")],
 }
 
@@ -102,6 +103,8 @@ func _draw() -> void:
 			_draw_astronaut(mid, accent)
 		"racer":
 			_draw_racer(mid, accent)
+		"nursery":
+			_draw_nursery(mid, accent)
 		"popstar":
 			_draw_popstar(mid, accent)
 	if stage_mode:
@@ -330,6 +333,38 @@ func _draw_racer(mid: Color, accent: Color) -> void:
 		for row in range(4):
 			for col in range(3):
 				draw_rect(Rect2(x + col * 32, 230 + row * 32, 28, 28), Color.WHITE if (row + col) % 2 == 0 else Color("#24233f"), true)
+
+
+func _draw_nursery(mid: Color, accent: Color) -> void:
+	# A moonlit infant-care room, not a clinic: rounded cradles, bottle
+	# warmers, pillows and a gently moving mobile keep it visually separate
+	# from the Stuffie Surgeon X-ray/cast set.
+	draw_circle(Vector2(640, 205), 116, Color("#fff0b8"))
+	draw_circle(Vector2(687, 168), 112, Color("#202452"))
+	for x in [90.0, 1010.0]:
+		draw_rect(Rect2(x, 245, 180, 252), mid.darkened(0.34), true)
+		for row in range(3):
+			draw_line(Vector2(x + 18, 308 + row * 62), Vector2(x + 162, 308 + row * 62), Color("#f7e5d5"), 7.0)
+			for col in range(3):
+				var bottle_x: float = float(x) + 43.0 + float(col) * 47.0
+				draw_rect(Rect2(bottle_x, 269 + row * 62, 22, 34), Color("#eaf8f1"), true)
+				draw_circle(Vector2(bottle_x + 11, 267 + row * 62), 7, accent)
+	for index in range(5):
+		var crib_x := 255.0 + float(index) * 193.0
+		var crib_y := 490.0 + sin(elapsed * 1.2 + float(index) * 0.7) * 3.0
+		draw_rect(Rect2(crib_x - 74, crib_y - 48, 148, 78), Color("#f4d4c2"), true)
+		draw_arc(Vector2(crib_x, crib_y - 45), 75, PI, TAU, 28, Color("#fff0df"), 10.0)
+		for rail in range(4):
+			var rail_x := crib_x - 50.0 + float(rail) * 34.0
+			draw_line(Vector2(rail_x, crib_y - 38), Vector2(rail_x, crib_y + 20), Color("#774f72"), 5.0)
+		draw_arc(Vector2(crib_x - 40, crib_y + 31), 24, 0, PI, 16, accent.darkened(0.18), 6.0)
+		draw_arc(Vector2(crib_x + 40, crib_y + 31), 24, 0, PI, 16, accent.darkened(0.18), 6.0)
+	var mobile_center := Vector2(640, 270)
+	for index in range(5):
+		var angle := elapsed * 0.22 + float(index) * TAU / 5.0
+		var star := mobile_center + Vector2(cos(angle) * 155.0, sin(angle) * 34.0)
+		draw_line(mobile_center, star, Color(0.80, 0.72, 0.92, 0.60), 3.0)
+		draw_circle(star, 12.0, accent if index % 2 == 0 else Color("#9be2d7"))
 
 
 func _draw_popstar(mid: Color, accent: Color) -> void:

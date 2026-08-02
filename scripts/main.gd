@@ -271,8 +271,8 @@ var ember_portal_pos := Vector3.ZERO   # the dark gateway at the rainbow junctio
 var ember_gateway_armed := true        # same leave-before-refire latch as the galaxy gate
 var kart_float_dest := "galaxy"    # where the floating rainbow race lands ("galaxy" | "ember")
 var opera_game: OperaHouse = null
-var opera_progress := 0            # cleared opera acts (star count), 0..15
-var opera_stars := 0               # bitmask of starred shows (lobby model, 15 bits)
+var opera_progress := 0            # cleared opera acts (star count), 0..16
+var opera_stars := 0               # bitmask of starred shows (lobby model, 16 bits)
 var opera_done := false
 # The rhythm (owner 2026-07-25): every shelled act opens with a RESCUE — imps
 # have someone caged backstage — and the freed friends hand Roshan a GIFT that

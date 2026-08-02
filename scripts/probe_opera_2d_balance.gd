@@ -106,6 +106,12 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 			continue
 		var phase := world.phases[world.phase_index] as Dictionary
 		var mode := String(phase.get("mode", "tap"))
+		if mode == "catch" and world.nursery_catch != null:
+			# steer the cradle under the lowest falling baby, child-style
+			var target := world.nursery_catch.lowest_baby_x()
+			world.nursery_catch.steer_to(target if target >= 0.0 else 0.5)
+			world.nursery_catch._process(DT)
+			continue
 		# children drag in short strokes with pauses, and re-grip long holds
 		stroke_t += DT
 		var stroke_active := fmod(stroke_t, 0.7 + rt * 0.5) < 0.7

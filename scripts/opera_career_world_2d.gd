@@ -9,6 +9,7 @@ extends CanvasLayer
 
 const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
+const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 
 const SLUGS := {
 	"chef": "chef",
@@ -23,6 +24,7 @@ const SLUGS := {
 	"astronaut": "astronaut",
 	"racer": "racer",
 	"popstar": "popstar",
+	"nursery": "nursery",
 }
 
 ## Every career follows the same five-beat arc (OPERA_2D_REBUILD_2026-08-01.md):
@@ -128,6 +130,15 @@ const PHASES := {
 		{"name": "LAP TWO", "icon": "↻", "mode": "circle", "goal": 4.0, "vo": "op_racer_lap_two", "voice": "Loop the loop! Draw big racing circles!"},
 		{"name": "FINISH", "icon": "●", "mode": "tap", "goal": 7.0, "vo": "op_racer_finish", "voice": "Tap the zoom strips and cross the line!"},
 	],
+	"nursery": [
+		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_nursery_imps", "voice": "Mischief imps are tickling the babies awake! Tap each imp!"},
+		{"name": "WASH HANDS", "icon": "●", "mode": "hold", "goal": 3.6, "vo": "op_nursery_wash", "voice": "Nursery Nurse Roshan! Hold the bubbly basin to wash your hands first!"},
+		{"name": "CATCH BABIES", "icon": "↓", "mode": "catch", "goal": 5.0, "speaker": "Faron", "vo": "op_nursery_catch", "voice": "Slide the soft cradle under five falling babies! Pillows keep every miss safe."},
+		{"name": "FEED", "icon": "♡", "mode": "hold", "goal": 4.2, "speaker": "Faron", "vo": "op_nursery_feed", "voice": "Hold the warm bottle while Roshan and Faron feed every baby!"},
+		{"name": "BABY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_nursery_baby_chase", "voice": "The imp captain is playing peek-a-boo with the babies! Bop the crew to the stage!"},
+		{"name": "BURP", "icon": "○", "mode": "timing", "goal": 4.0, "vo": "op_nursery_burp", "voice": "Tap in the green for gentle burp-pats!"},
+		{"name": "BEDTIME", "icon": "☾", "mode": "swipe", "goal": 6.0, "speaker": "Faron", "vo": "op_nursery_bedtime", "voice": "Swipe the blankets down and tuck every sleepy baby into bed!"},
+	],
 	"popstar": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_popstar_imps", "voice": "Imps are drumming on the speakers! Tap each imp!"},
 		{"name": "SOUND CHECK", "icon": "●", "mode": "hold", "goal": 4.5, "vo": "op_popstar_sound_check", "voice": "Hold the microphone for sound check!"},
@@ -151,6 +162,7 @@ const FINALE_START := {
 	"astronaut": 5,
 	"racer": 4,
 	"popstar": 4,
+	"nursery": 5,
 }
 
 ## Career goal prop shown at the workbench until the imp captain steals it in
@@ -170,6 +182,7 @@ const GOAL_PROPS := {
 	"astronaut": "goal_astronaut",
 	"racer": "goal_racer",
 	"popstar": "goal_popstar",
+	"nursery": "goal_nursery",
 }
 var m: ReefMain
 var config: Dictionary = {}
@@ -192,6 +205,7 @@ var steal_index := -1
 var captain_pending := false
 var idle_t := 0.0
 var bop_puff_texture: Texture2D = null
+var nursery_catch: OperaNurseryCatch = null
 
 var root: Control
 var backdrop_node: OperaWorldBackdrop2D
@@ -311,10 +325,16 @@ func _build_world() -> void:
 	player_actor.position = Vector2(35, 150)
 	player_actor.size = Vector2(420, 460)
 	root.add_child(player_actor)
-	rival_actor = _actor("res://assets/opera/worlds/actors/rival_%s.png" % career_id)
+	var partner_path := "res://assets/opera/worlds/actors/rival_%s.png" % career_id
+	if career_id == "nursery":
+		partner_path = "res://assets/opera/worlds/actors/faron_nursery.png"
+	rival_actor = _actor(partner_path)
 	rival_actor.position = Vector2(825, 170)
 	rival_actor.size = Vector2(410, 420)
 	root.add_child(rival_actor)
+	if career_id == "nursery":
+		player_name_label.text = "NURSE ROSHAN"
+		rival_name_label.text = "NURSE FARON"
 	_set_finale_visible(false)
 
 	prop_rect = TextureRect.new()
@@ -344,8 +364,14 @@ func _build_world() -> void:
 	surface.size = Vector2(372, 266)
 	surface.gesture.connect(_on_gesture)
 	# The scuffle crews wear the career's special imp costume (the accepted
-	# costume-sheet slices). Basic placeholder imps are only the fallback.
-	if rival_actor != null and rival_actor.texture != null:
+	# costume-sheet slices). Co-op careers keep the dedicated mischief-imp
+	# sprites (the partner is not an imp); placeholders are the last fallback.
+	if competition != null and competition.is_cooperative():
+		if ResourceLoader.exists("res://assets/opera/worlds/actors/imp_mischief.png"):
+			surface.bop_texture = load("res://assets/opera/worlds/actors/imp_mischief.png") as Texture2D
+		if ResourceLoader.exists("res://assets/opera/worlds/actors/imp_captain.png"):
+			surface.bop_captain_texture = load("res://assets/opera/worlds/actors/imp_captain.png") as Texture2D
+	elif rival_actor != null and rival_actor.texture != null:
 		surface.bop_texture = rival_actor.texture
 		surface.bop_captain_texture = rival_actor.texture
 	else:
@@ -356,6 +382,15 @@ func _build_world() -> void:
 	if ResourceLoader.exists("res://assets/opera/worlds/props/fx_bop_puff.png"):
 		bop_puff_texture = load("res://assets/opera/worlds/props/fx_bop_puff.png") as Texture2D
 	action_panel.add_child(surface)
+	if career_id == "nursery":
+		nursery_catch = NurseryCatch.new() as OperaNurseryCatch
+		nursery_catch.name = "NurseryCatchSurface"
+		nursery_catch.position = Vector2(24, 78)
+		nursery_catch.size = Vector2(372, 266)
+		nursery_catch.visible = false
+		nursery_catch.baby_caught.connect(_on_nursery_baby_caught)
+		nursery_catch.baby_missed.connect(_on_nursery_baby_missed)
+		action_panel.add_child(nursery_catch)
 	phase_fill = ProgressBar.new()
 	phase_fill.position = Vector2(24, 362)
 	phase_fill.size = Vector2(372, 40)
@@ -426,7 +461,24 @@ func _show_phase() -> void:
 	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
 	choice_target = (phase_index + int(competition.rival_step)) % 3
 	_apply_panel_layout(is_bop)
-	surface.configure(String(phase.get("mode", "tap")), accent, choice_target)
+	var mode_name := String(phase.get("mode", "tap"))
+	var is_nursery_catch := career_id == "nursery" and mode_name == "catch"
+	surface.visible = not is_nursery_catch
+	if nursery_catch != null:
+		nursery_catch.visible = is_nursery_catch
+		if is_nursery_catch:
+			nursery_catch.start(int(ceilf(float(phase.get("goal", 5.0)))))
+		else:
+			nursery_catch.stop()
+	var context := ""
+	if career_id == "nursery":
+		context = String({
+			"WASH HANDS": "nursery_wash",
+			"FEED": "nursery_feed",
+			"BURP": "nursery_burp",
+			"BEDTIME": "nursery_bedtime",
+		}.get(String(phase.get("name", "")), ""))
+	surface.configure(mode_name, accent, choice_target, context)
 	match String(phase.get("dir", "")):
 		"down":
 			surface.swipe_dir = Vector2.DOWN
@@ -451,7 +503,7 @@ func _show_phase() -> void:
 	phase_label.text = "%s   %s" % [String(phase.get("icon", "★")), String(phase.get("name", "PLAY"))]
 	phase_fill.value = 0.0
 	if m != null:
-		m.show_msg("Roshan", String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
+		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
 
 
 func _apply_panel_layout(wide: bool) -> void:
@@ -532,8 +584,9 @@ func competition_progress() -> float:
 
 
 func _set_finale_visible(show_finale: bool) -> void:
+	var cooperative := competition != null and competition.is_cooperative()
 	if rival_actor != null:
-		rival_actor.visible = show_finale
+		rival_actor.visible = show_finale or cooperative
 	if player_bar != null:
 		player_bar.visible = show_finale
 	if rival_bar != null:
@@ -558,6 +611,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		return
 	var phase := phases[phase_index] as Dictionary
 	var mode := String(phase.get("mode", ""))
+	if mode == "catch" and amount < 5.0:
+		return
 	idle_t = 0.0
 	surface.note_input()
 	if quality < 0.5:
@@ -630,6 +685,36 @@ func _bop_burst(at: Vector2) -> void:
 		tween.tween_callback(bit.queue_free)
 
 
+func _on_nursery_baby_caught(quality: float) -> void:
+	if not active or phase_index >= phases.size():
+		return
+	var phase := phases[phase_index] as Dictionary
+	if career_id != "nursery" or String(phase.get("mode", "")) != "catch":
+		return
+	idle_t = 0.0
+	competition.note_success(18 if quality >= 0.5 else 8)
+	phase_progress += 1.0
+	var goal := maxf(1.0, float(phase.get("goal", 5.0)))
+	phase_fill.value = clampf(phase_progress / goal, 0.0, 1.0) * 100.0
+	_bounce_actor(player_actor, 14.0)
+	_bounce_actor(rival_actor, 9.0)
+	if phase_progress >= goal:
+		phase_index += 1
+		_show_phase()
+
+
+func _on_nursery_baby_missed() -> void:
+	if not active or phase_index >= phases.size():
+		return
+	var phase := phases[phase_index] as Dictionary
+	if career_id != "nursery" or String(phase.get("mode", "")) != "catch":
+		return
+	_bounce_actor(rival_actor, 14.0)
+	competition.note_miss()
+	if m != null:
+		m._say("faron", "miss", 3.0)
+
+
 func _bounce_actor(actor: Control, height: float) -> void:
 	var home_y := actor.position.y
 	var tween := actor.create_tween()
@@ -679,7 +764,10 @@ func update_competition() -> void:
 func celebrate(result: Dictionary) -> void:
 	active = false
 	var tier := int(result.get("tier", 1))
-	title_label.text = "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
+	title_label.text = (
+		"THE BABIES ARE COZY!" if competition.is_cooperative()
+		else "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
+	)
 	if prop_rect != null and prop_rect.texture != null:
 		# the stolen goal prop comes home for the curtain call
 		prop_rect.position = Vector2(540, 250)

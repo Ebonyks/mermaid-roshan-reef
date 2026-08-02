@@ -1,6 +1,6 @@
 class_name OperaCompetition
 extends RefCounted
-## Shared competition contract for the twelve Pearl Opera career worlds.
+## Shared competition contract for the thirteen Pearl Opera career worlds.
 ##
 ## The career engine still owns its tactile minigames. This director turns
 ## those verbs into one readable stage contest: Roshan versus a dressed rival,
@@ -99,6 +99,16 @@ const CAREERS := {
 		"rival_cap": 0.94,
 		"accent": Color(1.0, 0.42, 0.40),
 	},
+	"nursery": {
+		"world": "MOONBEAM NURSERY TEAM",
+		"contest": "Catch, feed, burp and tuck in every baby with Faron",
+		"rival_verb": "helps a sleepy baby",
+		"par_time": 44.0,
+		"rival_cap": 0.82,
+		"cooperative": true,
+		"partner": "Nurse Faron",
+		"accent": Color(0.64, 0.88, 0.82),
+	},
 	"popstar": {
 		"world": "STARLIGHT SOUND-OFF",
 		"contest": "Lift the crowd higher than the rival act",
@@ -148,6 +158,10 @@ func configure(costume: String) -> void:
 
 func is_valid() -> bool:
 	return not spec.is_empty()
+
+
+func is_cooperative() -> bool:
+	return bool(spec.get("cooperative", false))
 
 
 func begin() -> void:
@@ -218,7 +232,13 @@ func complete() -> Dictionary:
 	active = false
 	completed = true
 	player_progress = 1.0
-	player_score = maxi(player_score + 180, rival_score + 40)
+	if is_cooperative():
+		# a team finale: Faron finishes WITH Roshan, nobody is beaten
+		rival_progress = 1.0
+		player_score += 180
+		rival_score = maxi(rival_score, int(round(float(player_score) * 0.72)))
+	else:
+		player_score = maxi(player_score + 180, rival_score + 40)
 	var par_time := maxf(10.0, float(spec.get("par_time", 80.0)))
 	var speed_quality := clampf(1.0 - maxf(0.0, elapsed - par_time * 0.58) / (par_time * 0.9), 0.0, 1.0)
 	var care_quality := clampf(1.0 - float(mistakes) * 0.055 - float(retries) * 0.18, 0.0, 1.0)
@@ -245,6 +265,7 @@ func result() -> Dictionary:
 		"rival_score": rival_score,
 		"elapsed": elapsed,
 		"retries": retries,
+		"cooperative": is_cooperative(),
 	}
 
 

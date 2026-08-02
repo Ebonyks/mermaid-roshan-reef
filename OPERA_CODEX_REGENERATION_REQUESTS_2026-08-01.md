@@ -513,6 +513,32 @@ Deliver every draft plus the remaining seven careers into the staging folder.
   the runtime currently draws a code proscenium overlay on the district
   painting during stage phases.
 
+### P3-05 — Nursery (job 13) world painting, stage scene and goal prop
+
+The Moonbeam Nursery career (cooperative, Nurse Faron) shipped with authored
+actor/baby sprites but no painted world, stage scene, or goal-prop card. Its
+backdrop currently falls back to the code-native vector set and its goal-prop
+dock is empty (both degrade gracefully).
+
+- **`world_nursery` district painting** — target
+  `assets/opera/worlds/backdrops/world_nursery.png`, same family and spec as
+  the twelve accepted 2p5d career keys (1672x941 generation, 16:9): a
+  moonlit underwater nursery district — crescent-moon lamps, cradle pods,
+  pillow drifts, bottle-warmer kiosk, star mobiles — entry left, open
+  mid-band walkway (the interaction panel sits there), destination right.
+  Palette: seafoam teal, cream, soft lavender, pearl gold; night-calm.
+  Also remove the probe exemption in probe_opera_2d.gd when it lands.
+- **`stage_nursery` on-stage scene** — joins the P3-04 twelve-scene family
+  (same shared contract): three cradle stations at the thirds, moonbeam
+  spotlights, blanket rail stage-right; audience band per contract.
+- **`goal_nursery` prop card** — a moonbeam star-mobile with three hanging
+  plush charms (matches the baby trio), 1024x1024 navy-field card for the
+  standard matting pipeline → `assets/opera/worlds/props/goal_nursery.png`.
+  This is the prop the imp captain steals in BABY CHASE.
+- **Content locks:** the three babies match `assets/opera/worlds/nursery/
+  baby_0..2.png`; Faron matches `faron_nursery.png`; no shell/pearl/marine
+  motifs on any imp; bubbles never flame; no text.
+
 ## PRIORITY 4 — Housekeeping regenerations
 
 ### P4-01 — Crest card re-slice (all 16) + flat job_crest re-slices

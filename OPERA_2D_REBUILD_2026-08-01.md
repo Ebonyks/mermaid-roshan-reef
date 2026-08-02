@@ -145,6 +145,20 @@ phases draw the code proscenium overlay on the district painting;
 `OperaWorldBackdrop2D.set_stage` is already the swap point for
 `stage_<career>.png`.
 
+## Job 13 — Moonbeam Nursery (2026-08-01 integration)
+
+The cooperative nursery career (dev's `codex/nursery-job-12`) is folded into
+the five-beat arc: imp scuffle -> WASH HANDS (basin tableau) -> CATCH BABIES
+(the dedicated falling-baby cradle engine, mercy-safe) -> FEED (bottle
+tableau) -> BABY CHASE (the captain plays peek-a-boo; stage door) -> BURP +
+BEDTIME as the cooperative stage finale with Nurse Faron. Faron is visible
+from the first beat (partner, not rival), speaks her own phase lines
+(faron_op_nursery_*), the crew wears the dedicated mischief-imp sprites (the
+partner is not an imp), and the curtain call reads THE BABIES ARE COZY!
+Save-compatible: act bit 15 appended, ALL_STARS 16-bit, old saves keep every
+star (probe_opera_nursery guards the migration). Missing art (district
+painting, stage scene, goal prop) is requested as P3-05.
+
 ## Save / probe safety
 
 ACTS, star bitmask, floor gating, save keys: untouched. All twelve rebuilt

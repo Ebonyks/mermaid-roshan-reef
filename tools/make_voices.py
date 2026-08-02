@@ -178,6 +178,14 @@ LINES = {
     "roshan_op_popstar_rhythm": ("roshan", "Tap each rainbow note in the green!"),
     "roshan_op_popstar_encore": ("roshan", "Draw a big encore spin for the crowd!"),
     "imp_op_captain": ("imp", "Hee hee! You will have to bop ME twice!"),
+    "roshan_op_nursery_imps": ("roshan", "Mischief imps are tickling the babies awake! Tap each imp!"),
+    "roshan_op_nursery_wash": ("roshan", "Nursery Nurse Roshan! Hold the bubbly basin to wash your hands first!"),
+    "faron_op_nursery_catch": ("faron", "Slide the soft cradle under five falling babies! Pillows keep every miss safe."),
+    "faron_op_nursery_feed": ("faron", "Hold the warm bottle while Roshan and Faron feed every baby!"),
+    "roshan_op_nursery_baby_chase": ("roshan", "The imp captain is playing peek-a-boo with the babies! Bop the crew to the stage!"),
+    "roshan_op_nursery_burp": ("roshan", "Tap in the green for gentle burp-pats!"),
+    "faron_op_nursery_bedtime": ("faron", "Swipe the blankets down and tuck every sleepy baby into bed!"),
+    "faron_miss": ("faron", "Whoopsie! The pillow caught the baby. Try again!"),
     "imp_op_retry": ("imp", "I found it first! Watch the glowing answer, then solve the same mystery with your sparkle memory!"),
 }
 
