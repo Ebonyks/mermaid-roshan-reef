@@ -296,12 +296,19 @@ func _fx_case() -> void:
 					drifted = true
 					break
 			_ck("the waterline drifts with the water clock", drifted)
+			# queue_free lands at END of frame and tick() already ran this one,
+			# so the prune cannot happen before the next tick — wait for the
+			# entry to actually leave the list rather than assuming a frame is
+			# enough (and assert the list SHRANK: "no stale entries" is vacuously
+			# true for the frame before the node is deleted).
+			var before_n: int = main.fxw_lines.size()
 			line.queue_free()
-			await process_frame
-			var pruned := true
-			for l_v in main.fxw_lines:
-				if not is_instance_valid((l_v as Dictionary)["node"]):
-					pruned = false
+			var pruned := false
+			for i in range(10):
+				await process_frame
+				if main.fxw_lines.size() < before_n:
+					pruned = true
+					break
 			_ck("freed waterlines are pruned", pruned)
 	# the waterline: a prop dropped through cfg water_y procs on the way down
 	var cfg: Dictionary = main.g.get("ss_cfg", {})
