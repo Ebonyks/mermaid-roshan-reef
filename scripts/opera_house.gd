@@ -18,11 +18,11 @@ const Lobby2D := preload("res://scripts/opera_lobby_2d.gd")
 
 const ACTS := [
 	# ---------- FLOOR 1: the Lagoon Lights Stage ----------
-	{"name": "The Reef Bake-Off", "career": "Pastry Chef", "costume": "chef", "emoji": "🍰", "story": 1, "type": "show",
+	{"name": "The Castle Bake-Off", "career": "Pastry Chef", "costume": "chef", "emoji": "🍰", "story": 1, "type": "show",
 		"kind": "order", "props": "cake", "order": [0, 2, 1, 0, 2], "finale": "stir", "decorate": 4, "imps": 6, "shell": true,
 		"rescue": "farmers", "gift": "carrots", "uses": "carrots",
 		"voice": "Chef hat on! You and the pastry imp each have a kitchen. Sift, pour, stir, bake, pipe and decorate the brightest celebration cake for the crowd!",
-		"win_line": "Roshan's celebration cake wins the Reef Bake-Off!",
+		"win_line": "Roshan's celebration cake wins the Castle Bake-Off!",
 		"floor_col": Color(0.72, 0.5, 0.62), "trim": Color(1.0, 0.78, 0.86), "curtain": Color(0.85, 0.3, 0.4)},
 	{"name": "The Two-Detective Mystery", "career": "Detective", "costume": "detective", "emoji": "🔍", "story": 1, "type": "show",
 		"kind": "sleuth", "props_n": 12, "clues": 5, "imps": 6, "shell": true,

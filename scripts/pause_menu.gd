@@ -76,24 +76,18 @@ func _build_pause() -> void:
 		m.music.volume_db = -8.0 if m.music_on else -60.0
 		_sync_labels()
 		m._write_save())
-	m.pause_leave_btn = _pause_btn("↩   REEF", Rect2(650, 420, 280, 132), "secondary")
+	m.pause_leave_btn = _pause_btn("↩   CASTLE", Rect2(650, 420, 280, 132), "secondary")
 	m.pause_leave_btn.name = "PauseLeaveButton"
 	m.pause_leave_btn.set_meta("neutral_exit", true)
 	m.pause_leave_btn.visible = false
 	m.pause_leave_btn.pressed.connect(_leave_current_activity)
-	# Hybrid/Classic touch-mode toggle (dev hybrid navigation, 2026-07-26):
-	# same storybook tile grammar, third row; the mode is shown by the icon
-	# silhouette, never by colour alone.
-	m.touch_mode_btn = _pause_btn(m._touch_mode_label(), Rect2(350, 570, 280, 120), "secondary")
-	m.touch_mode_btn.name = "PauseTouchModeButton"
-	m.touch_mode_btn.pressed.connect(func():
-		m._set_touch_mode(
-			m.TOUCH_MODE_CLASSIC if m.touch_mode == m.TOUCH_MODE_HYBRID
-			else m.TOUCH_MODE_HYBRID))
+	# Point-to-interact is the one child-facing touch vocabulary. The former
+	# mode choice advertised an obsolete on-screen movement stick.
+	m.touch_mode_btn = null
 
 	# Parent/debug affordances deliberately sit outside the child icon grid.
 	if m.dev_mode != null:
-		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(650, 586, 280, 66), "secondary")
+		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(500, 582, 280, 66), "secondary")
 		dev_btn.name = "PauseDeveloperButton"
 		dev_btn.set_meta("parent_only", true)
 		dev_btn.pressed.connect(func():
@@ -125,8 +119,6 @@ func _sync_labels() -> void:
 	if m.quality_btn != null:
 		m.quality_btn.text = "✦   SPARKLY" if m.quality == "sparkly" else "≋   SPEEDY"
 		m.quality_btn.set_meta("toggle_on", m.quality == "sparkly")
-	if m.touch_mode_btn != null:
-		m.touch_mode_btn.text = m._touch_mode_label()
 
 func toggle_pause() -> void:
 	var paused: bool = not m.get_tree().paused
@@ -233,4 +225,4 @@ func _leave_current_activity() -> void:
 	elif leaving_game == "fairyshoot" or leaving_name == "Rainbow Slide":
 		m.call_deferred("_enter_level2", m.l2_open)
 	else:
-		m.show_msg("Roshan", "Back to the reef! Pick anything you want to play.")
+		m.show_msg("Roshan", "Back to the castle! Pick anything you want to play.")
