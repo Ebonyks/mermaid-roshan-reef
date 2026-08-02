@@ -80,9 +80,9 @@ func card(kind: String, pos: Vector3, cfg: Dictionary = {}) -> Node3D:
 		return null
 	while m.fxw_cards.size() >= CAP:
 		var old: Dictionary = m.fxw_cards.pop_front()
-		var on: Node3D = old.get("node")
-		if on != null and is_instance_valid(on):
-			on.queue_free()
+		var o_raw: Variant = old.get("node")   # same freed-instance rule as tick()
+		if is_instance_valid(o_raw):
+			(o_raw as Node3D).queue_free()
 	var size: float = float(kd[4]) * float(cfg.get("scale", 1.0))
 	var holder := Node3D.new()
 	holder.position = pos
@@ -160,9 +160,14 @@ func tick(delta: float) -> void:
 		var live: Array = []
 		for l_v in m.fxw_lines:
 			var l: Dictionary = l_v
-			var ln: MeshInstance3D = l["node"]
-			if ln == null or not is_instance_valid(ln):
+			# validate BEFORE typing: Godot refuses to assign a previously
+			# freed instance to a typed variable and throws, which would abort
+			# this whole tick — every frame, forever, the moment any owner
+			# (a game teardown freeing its foam line) outlives its entry
+			var l_raw: Variant = l["node"]
+			if not is_instance_valid(l_raw):
 				continue
+			var ln: MeshInstance3D = l_raw
 			live.append(l)
 			l["t"] = fposmod(float(l["t"]) + delta * FOAM_DRIFT, 1.0)
 			(l["mat"] as StandardMaterial3D).uv1_offset = Vector3(float(l["t"]), 0.0, 0.0)
@@ -172,9 +177,10 @@ func tick(delta: float) -> void:
 	var alive: Array = []
 	for c_v in m.fxw_cards:
 		var c: Dictionary = c_v
-		var n: Node3D = c["node"]
-		if n == null or not is_instance_valid(n):
+		var c_raw: Variant = c["node"]   # same freed-instance rule as above
+		if not is_instance_valid(c_raw):
 			continue
+		var n: Node3D = c_raw
 		c["t"] = float(c["t"]) + delta
 		var p: float = clampf(float(c["t"]) / float(c["dur"]), 0.0, 1.0)
 		var spr: Sprite3D = c["sprite"]
