@@ -108,7 +108,7 @@ func _init() -> void:
 			and main.castle_room_layer.visible
 			and not main.player.visible
 			and main.touch_interactables.is_empty())
-		_ck("opera_lives_in_elevator_not_3d_courtyard",
+		_ck("opera_lives_behind_physical_door_not_3d_courtyard",
 			main.castle_room_buttons.has("opera_hall")
 			and not main.g.has("opera_gate"))
 		_ck("sprite3d_world_root", main.castle_room_world_root is Node3D)

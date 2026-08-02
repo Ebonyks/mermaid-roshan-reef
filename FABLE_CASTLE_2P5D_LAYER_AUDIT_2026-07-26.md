@@ -9,6 +9,17 @@ owner's corrected native-2K amendment; accepted exact-16:9 source regeneration,
 lossless runtime tiling, and the device composition/frame-rate pass are still
 required.
 
+## Navigation and tiling correction - 2026-08-01
+
+Any statement below that retains the elevator as a redundant room route is
+superseded. The seven painted Main Hall doors are the sole destination-room
+entry controls; contextual Back returns each room to the Main Hall. The old
+floor inlay seam mask is also retired from runtime. Screen A/B are processed
+at their distinct registered crop Y values, all eight Main Hall runtime tiles
+carry exact right/lower neighbor bleed, and the seven destination-room grids
+use a one-native-pixel interior quad overlap while source rectangles remain
+non-overlapping.
+
 ## Direction update
 
 This audit supersedes the castle-specific assumptions in

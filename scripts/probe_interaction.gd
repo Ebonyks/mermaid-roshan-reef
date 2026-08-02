@@ -130,10 +130,10 @@ func _init() -> void:
 		if main.g.has(retired_key):
 			_bad("retired 3D hall state rebuilt %s" % retired_key)
 	for room_id: String in [
-		"main_hall", "opera_hall", "kitchen", "library", "playroom",
+		"opera_hall", "kitchen", "library", "playroom",
 		"craft_room", "mermaid_pool", "bubble_bath"]:
 		if not main.castle_room_buttons.has(room_id):
-			_bad("castle elevator missing %s" % room_id)
+			_bad("castle physical doorway missing %s" % room_id)
 	if main.castle_room_world_root == null \
 			or main.castle_room_camera == null \
 			or main.castle_room_camera.projection != Camera3D.PROJECTION_PERSPECTIVE:
@@ -142,9 +142,9 @@ func _init() -> void:
 		_bad("free-roaming 3D controls remained active inside castle stage")
 	if main.touch_discovery_ring == null or main.touch_focus_ring == null:
 		_bad("shared glow/focus visuals were not built")
-	rooms._toggle_menu()
-	if not main.castle_room_menu_open or not main.castle_room_menu_panel.visible:
-		_bad("storybook elevator did not expand")
+	if main.castle_room_stage.get_node_or_null("ElevatorButton") != null \
+			or main.castle_room_back_button == null:
+		_bad("redundant room selector remained or contextual Back was missing")
 	rooms.show_room("bubble_bath", false)
 	await _frames(2)
 	for prop_id: String in ["bathtub", "sink", "toilet"]:
@@ -158,7 +158,10 @@ func _init() -> void:
 		_bad("touching the toilet did not animate its Sprite3D card")
 	if main.castle_room_prop_sfx == null or main.castle_room_prop_sfx.stream == null:
 		_bad("touching a room prop did not attach relevant sound")
-	rooms.show_room("main_hall", false)
+	main.castle_room_back_button.pressed.emit()
+	await _frames(2)
+	if main.castle_room_id != "main_hall":
+		_bad("room Back did not return to the Main Hall")
 	rooms.activate_current_room()
 	await process_frame
 	if not bool(main.g.get("crown_won", false)):

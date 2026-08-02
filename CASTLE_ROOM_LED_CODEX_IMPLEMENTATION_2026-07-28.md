@@ -4,6 +4,20 @@ Date: 2026-07-28
 Implementation: Codex  
 Status: accepted after runtime and visual re-audit
 
+## Owner correction - 2026-08-01
+
+The physical storybook doors are now the sole entry route to the seven
+destination rooms. The redundant bottom-right room-selector elevator and its
+preview grid were removed. The existing top-left Back control is contextual:
+it returns a destination room to the Main Hall, and exits the Main Hall to the
+castle courtyard.
+
+The Main Hall tile pipeline now evaluates Screen A at `(376, 212)` and Screen
+B at `(376, 147)`, harmonizes corresponding wall/carpet/floor bands, and
+derives exact one-pixel right/lower neighbor bleed for all eight runtime
+cards. The former vertical floor inlay is retained only for provenance because
+it read as a crack after the underlying seam was repaired.
+
 ## Outcome
 
 The legacy modeled castle hall is no longer instantiated. Pearl Castle now
@@ -12,11 +26,10 @@ opens as a two-screen, walkable Sprite3D storybook hub:
 - Screen A: courtyard exit, double-width Opera entrance, Library, Kitchen.
 - Screen B: Playroom, Craft Room, Mermaid Pool, Bubble Bath, and Huluu's
   far-right throne.
-- Eight physical touch doors/throne targets move Roshan to the target before
-  entering it.
-- The large Storybook elevator remains fixed at bottom-right and opens a
-  balanced 3 x 3 picture-only room grid.
-- Four reused dust-bunny cards occupy the lower walking lane. They animate and
+- Seven physical room doors plus the throne target move Roshan to the target
+  before entering it or activating the throne.
+- No second room-selector route is present.
+- Three reused dust-bunny cards occupy the lower walking lane. They animate and
   play sounds when touched.
 - All seven destination rooms use their approved room paintings as the visual
   reference/base, with extracted prop, midground, foreground, character,
@@ -42,14 +55,14 @@ Physical targets:
 | A | Opera Hall | `(630, 650)` |
 | A | Royal Library | `(1135, 660)` |
 | A | Royal Kitchen | `(1395, 660)` |
-| B | Stuffie Playroom | `(1755, 670)` |
+| B | Stuffie Playroom | `(1672, 670)` |
 | B | Craft Room | `(2095, 670)` |
 | B | Mermaid Pool | `(2500, 670)` |
 | B | Bubble Bath | `(2805, 670)` |
 | B | Huluu's throne | `(3090, 690)` |
 
-Opera's portal rectangle is 420 art pixels wide; the ordinary doors are
-190-280 pixels wide. Door art uses open, lit perspective corridors and large
+Opera's portal rectangle is 375 art pixels wide; the ordinary doors are
+180-225 pixels wide. Door art uses open, lit perspective corridors and large
 room pictograms rather than framed room thumbnails.
 
 ## Node-type and depth inventory
@@ -79,8 +92,8 @@ Destination-room steady state:
 - Roshan and a contact-shadow Sprite3D;
 - transient touch sparkles at `4.35`.
 
-`Control`, `Panel`, `Button`, and `Label` nodes are limited to the HUD,
-elevator, invisible touch routing, pause/back controls, and pointers.
+`Control`, `Button`, and `Label` nodes are limited to the HUD, invisible
+door touch routing, pause/back controls, and pointers.
 
 ## Interaction inventory
 
@@ -147,10 +160,11 @@ rejected outputs, and final prompt text are under
 The first runtime re-audit exposed two unrelated defects:
 
 - Roshan was too large for the hub and collided with the initial dust bunny.
-- the old four-column elevator grid left an empty, unbalanced third row.
+- the now-retired room-selector grid left an empty, unbalanced third row.
 
-The accepted correction uses a 190-pixel hall character height, separated
-spawn positions, and a centered 3 x 3 elevator grid.
+That pass used a 190-pixel hall character height, separated spawn positions,
+and a centered selector grid. The 2026-08-01 owner correction subsequently
+removed the selector rather than retaining two room routes.
 
 The re-audit also found that the deterministically cleaned destination-room
 plates leaked broad scanline-fill regions around low-depth alpha cards on the
@@ -173,13 +187,14 @@ Godot 4.7.1 validation used the repository's Mobile rendering method because
 the working project was already open in another Godot process. The same
 scripts target Godot 4.4 APIs.
 
-Final castle probe:
+Current castle probe contract:
 
 ```text
 room_stage_open OK
 perspective_depth_camera OK
 legacy_3d_hall_not_instantiated OK
-storybook_elevator_inventory OK
+main_hall_has_one_physical_route_per_room OK
+redundant_room_selector_removed OK
 all_eight_rooms_sprite3d_only OK
 all_rooms_use_multiple_real_depths OK
 approved_room_composites_preserved OK
@@ -190,7 +205,8 @@ main_hall_native_2x4_sprite3d_grid OK
 main_hall_physical_portal_inventory OK
 main_hall_lower_lane_interactions OK
 main_hall_two_screen_camera_travel OK camera_x=9.90
-opera_opens_from_elevator OK
+opera_opens_from_physical_hall_door OK
+room_back_has_single_main_hall_destination OK
 opera_returns_to_sprite_room OK
 RESULT=OK checks_failed=0
 ```
@@ -223,17 +239,17 @@ after play review because it read as a wall button. A tap now gives only a
 energy; there is no star burst. One independent royal tapestry remains where it
 has a clean socket.
 
-The raw A/B master junction has a measured material and floor-value
-discontinuity. A lossless alpha extraction of an approved open corridor now
-bridges that junction as a shaded Sprite3D at real depth and supplies the
-previously missing physical Playroom entrance. Its marker reuses the existing
-dust-bunny family cutout. The lower-lane props were also moved clear of the
-omnipresent elevator footprint.
+The A/B master junction is now registered at the distinct approved crop Y
+values and its wall, carpet, and floor bands are tone-matched. A lossless alpha
+extraction of the approved open corridor supplies the physical Playroom
+entrance as an unshaded near-background Sprite3D. Its marker reuses the
+existing dust-bunny family cutout. The vertical floor inlay is no longer
+instantiated because it read as a crack after the source seam was repaired.
 
-The revised Mobile inventory is 23 visible Sprite3D cards, three visible
-Light3D nodes, and one Speedy shadow map. The final probe additionally requires
-fixture texture identity, tapestry provenance, the architectural bridge and
-Playroom hotspot, fixed-UI clearance, a working single-light toggle, and a true
+The revised Mobile inventory remains within the established visible-card,
+Light3D, and Speedy shadow budgets. The final probe additionally requires
+fixture texture identity, tapestry provenance, the registered Playroom door,
+one unique physical route per destination, a working single-light toggle, and a true
 all-lights-off engine state.
 
 Full prompt/provenance, hashes, node inventory, on/off captures, rejection
