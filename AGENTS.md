@@ -131,7 +131,10 @@ failed neighboring-frame comparison is a hard failure.
 - scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
   probe_passive.gd is the zero-input negative test (Phase 6).
 - assets/ — aquatic GLBs, terrain PBR (ambientCG), book art, voices, music
-- disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
+- decommissioned/ — quarantined wing (superseded docs + dead working data)
+  staged for audit and deletion; see decommissioned/README.md. Never cite a
+  document in there as guidance. Includes tessarakkt.oceanfft, DISABLED since
+  Phase 0 (dead code already removed).
 - Target device: Lenovo Tab M11 (Helio G88 / Mali-G52) — Speedy tier is the
   mobile default; treat 30 fps and transparent-overdraw budget as hard limits.
 
