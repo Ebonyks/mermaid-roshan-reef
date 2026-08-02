@@ -32,6 +32,7 @@ var shots: Array[Dictionary] = []
 var enemy_shots: Array[Dictionary] = []
 var boss: Dictionary = {}
 var he: HitEngine = null
+var imp_brain: ImpAI = null      # the shared crew brain (scripts/imp_ai.gd)
 var encounter := {}
 var room_tag := ""
 var art_theme := ""
@@ -183,6 +184,25 @@ func _build_hud() -> void:
 func _build_ice_swarm() -> void:
 	var count: int = int(encounter.get("enemy_count", 8))
 	var layout: String = String(encounter.get("layout", "ring"))
+	# the shared crew brain (scripts/imp_ai.gd): arena metres, and the
+	# encounter's own imp_speed still sets the crew's walking pace
+	var pace: float = maxf(1.0, float(encounter.get("imp_speed", 1.5))) * 2.6
+	imp_brain = ImpAI.new({
+		"strike_range": 12.0,
+		"stand_off": 7.5,
+		"contact": 3.4,
+		"speed": pace,
+		"charge_speed": pace * 3.4,
+		"flee_speed": pace * 1.6,
+		"windup": 1.0,
+		"charge_time": 0.45,
+		"slash_time": 0.28,
+		"recover": 1.25,
+		"cool_min": float(encounter.get("attack_gap", 3.0)) * 0.8,
+		"cool_max": float(encounter.get("attack_gap", 3.0)) * 1.7,
+		"max_attackers": 2,
+	}, room_tag.hash() + count * 31)
+	imp_brain.begin_crew(count)
 	for i in range(count):
 		var a: float = float(i) * TAU / float(count)
 		var spawn_r := 18.0
@@ -195,7 +215,10 @@ func _build_ice_swarm() -> void:
 		root.position = pos
 		add_child(root)
 		DungeonArt.spawn("imp", root, Vector3.ZERO, art_theme)
-		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0, "attack": 1.0 + float(i) * 0.18, "phase": a})
+		var mind: Dictionary = imp_brain.spawn_mind(i, false)
+		mind["pos"] = Vector2(pos.x, pos.z)
+		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0,
+			"attack": 1.0 + float(i) * 0.18, "phase": a, "ai": mind, "pose": "prowl"})
 
 func _build_pepper_boss() -> void:
 	# A little basket makes the ability source readable even without text.
@@ -278,6 +301,8 @@ func on_world_tap(screen_pos: Vector2) -> void:
 # death; the boss keeps its phase rules whatever the source.
 func _on_engine_hit(enemy: Dictionary, _damage: int, source: String) -> void:
 	if kind == "ice":
+		if imp_brain != null:
+			imp_brain.on_player_swing(true)
 		_freeze_imp(enemy)
 		return
 	var power: String = source.trim_prefix("shot_") if source.begins_with("shot_") else action_label().to_lower()
@@ -339,31 +364,126 @@ func _tick_shots(delta: float) -> void:
 			node.queue_free()
 			shots.remove_at(i)
 
+## One imp, one pose, played on the transform — the toy imps carry no
+## animation clips, so the crouch, the dash, the swipe and the slumped
+## recovery are all built here (art states: the codex handoff).
+func _pose_imp(node: Node3D, pos: Vector3, pose: String, t: float, phase: float) -> void:
+	var hop: float = sin(elapsed * 3.0 + phase) * 0.25
+	var squash := Vector3.ONE
+	var tilt := 0.0
+	match pose:
+		"windup":
+			hop = -0.1
+			squash = Vector3(1.22, 0.76, 1.22)
+			tilt = -0.24
+		"charge":
+			hop = 0.45
+			squash = Vector3(0.88, 1.2, 0.88)
+			tilt = 0.34
+		"slash":
+			hop = 0.3
+			squash = Vector3(1.14, 0.94, 1.14)
+			tilt = lerpf(-0.6, 0.6, clampf(t / 0.28, 0.0, 1.0))
+		"recover":
+			hop = -0.05
+			squash = Vector3(1.16, 0.82, 1.16)
+			tilt = -0.32
+		"stagger":
+			node.rotate_y(0.14)
+			squash = Vector3(1.1, 0.9, 1.1)
+		"taunt", "rally":
+			hop = absf(sin(t * 9.0)) * 0.7
+			squash = Vector3(0.94, 1.1, 0.94)
+		"flee":
+			hop = absf(sin(elapsed * 9.0 + phase)) * 0.6
+			tilt = -0.2
+	node.position = pos + Vector3(0.0, hop, 0.0)
+	node.scale = squash
+	node.rotation.z = tilt
+	if pose != "stagger":
+		var look: Vector3 = player_pos - pos
+		if pose == "flee":
+			look = -look
+		if Vector2(look.x, look.z).length() > 0.05:
+			node.rotation.y = atan2(look.x, look.z)
+
+
+func _arena_brain_events() -> void:
+	for ev: Dictionary in imp_brain.drain_events():
+		var at: Vector2 = ev.get("pos", Vector2.ZERO)
+		var world_at := CENTER + Vector3(at.x, 2.4, at.y)
+		match String(ev.get("kind", "")):
+			"telegraph":
+				m._sparkle_burst(world_at + Vector3(0, 1.2, 0), Color(1.0, 0.82, 0.3))
+			"charge":
+				m._sparkle_burst(world_at, Color(1.0, 0.7, 0.45))
+			"contact":
+				# still just the bubble-shield bump: a push and sparkles
+				_bump_player(world_at)
+			"whiff":
+				m._sparkle_burst(world_at, Color(0.9, 0.95, 1.0))
+			"taunt", "rally":
+				m._sparkle_burst(world_at + Vector3(0, 1.0, 0), Color(1.0, 0.72, 0.88))
+
+
 func _freeze_imp(enemy: Dictionary) -> void:
 	if String(enemy["state"]) != "active":
 		return
 	enemy["state"] = "frozen"
 	enemy["timer"] = 1.7
+	var mind: Dictionary = enemy.get("ai", {})
+	if imp_brain != null and not mind.is_empty():
+		# frozen imps stop deciding, and the crew feels the gap
+		imp_brain.on_hit(mind, true)
 	var node: Node3D = enemy["node"]
 	DungeonArt.apply_material(node, _mat(Color(0.45, 0.88, 1.0), 0.45))
 	m._sparkle_burst(enemy["pos"] + Vector3(0, 2.5, 0), Color(0.55, 0.92, 1.0))
 	_update_hud()
 
 func _tick_imps(delta: float) -> void:
+	# the crew decides together: who closes in, who telegraphs a lunge, who
+	# hangs back and throws instead (scripts/imp_ai.gd)
+	var hero := Vector2(player_pos.x - CENTER.x, player_pos.z - CENTER.z)
+	if imp_brain != null:
+		var minds: Array = []
+		for enemy in enemies:
+			var mind: Dictionary = enemy.get("ai", {})
+			if mind.is_empty():
+				continue
+			var live: bool = String(enemy["state"]) == "active"
+			mind["alive"] = live
+			if live:
+				var at: Vector3 = enemy["pos"]
+				mind["pos"] = Vector2(at.x - CENTER.x, at.z - CENTER.z)
+				minds.append(mind)
+		imp_brain.tick(delta, minds, hero)
+		_arena_brain_events()
 	var remaining := 0
 	for enemy in enemies:
 		var node: Node3D = enemy["node"]
 		if String(enemy["state"]) == "active":
 			remaining += 1
 			var pos: Vector3 = enemy["pos"]
-			var toward: Vector3 = player_pos - pos
-			toward.y = 0.0
-			if toward.length() > 7.0:
-				pos += toward.normalized() * delta * float(encounter.get("imp_speed", 1.5))
+			var mind: Dictionary = enemy.get("ai", {})
+			var pose := "prowl"
+			var state_t := 0.0
+			if not mind.is_empty():
+				var want: Vector2 = mind.get("pos", Vector2(pos.x - CENTER.x, pos.z - CENTER.z))
+				# the floor is the truth: nobody walks through the trim
+				if want.length() > RADIUS - 2.5:
+					want = want.normalized() * (RADIUS - 2.5)
+				mind["pos"] = want
+				pos = Vector3(CENTER.x + want.x, pos.y, CENTER.z + want.y)
+				pose = String(mind.get("pose", "prowl"))
+				state_t = float(mind.get("t", 0.0))
 			enemy["pos"] = pos
-			node.position = pos + Vector3(0, sin(elapsed * 3.0 + float(enemy["phase"])) * 0.25, 0)
+			enemy["pose"] = pose
+			_pose_imp(node, pos, pose, state_t, float(enemy["phase"]))
+			# an imp that cannot reach her throws instead of standing about
 			enemy["attack"] = float(enemy["attack"]) - delta
-			if float(enemy["attack"]) <= 0.0:
+			var far: bool = pos.distance_to(player_pos) > 13.0
+			var settled: bool = pose == "prowl" or pose == "stalk" or pose == "flank" or pose == "taunt"
+			if float(enemy["attack"]) <= 0.0 and far and settled:
 				enemy["attack"] = float(encounter.get("attack_gap", 3.0)) + randf() * 1.5
 				_spawn_enemy_shot(pos + Vector3(0, 2.4, 0), player_pos, Color(0.72, 0.34, 0.92))
 		elif String(enemy["state"]) == "frozen":
