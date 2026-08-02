@@ -30,7 +30,10 @@ assets/audio/voices/, or assets/characters/friends/ without being asked.
 - scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
   probe_passive.gd is the zero-input negative test (Phase 6).
 - assets/ — aquatic GLBs, terrain PBR (ambientCG), book art, voices, music
-- disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
+- decommissioned/ — quarantined wing (superseded docs + dead working data)
+  staged for audit and deletion; see decommissioned/README.md. Never cite a
+  document in there as guidance. Includes tessarakkt.oceanfft, DISABLED since
+  Phase 0 (dead code already removed).
 
 ## Build & test (headless, no display needed)
 GODOT=./Godot_v4.7.1-stable_linux.x86_64   # or `godot` on PATH
