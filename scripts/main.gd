@@ -183,7 +183,9 @@ var galaxy_return_pos := Vector3.ZERO
 var galaxy_level2_open := false
 var combat_ice_done := false       # Butterfly Castle ice-berry encounter completed
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
+var combat_tutorial_done := false  # the throne sparring class, finished once
 var combat_game: CombatArena = null
+var combat_tutorial_game: CombatTutorial = null
 var combat_from := ""
 # ---- STUFFED-FRIEND COMPANION (Pokemon-style wing): mutable state stays here;
 # ---- CompanionSystem (scripts/companion.gd) owns the logic, StuffieBattle
@@ -420,6 +422,13 @@ var touch_interactables: Array = []
 # teardown). Enemy priority rule: these get first refusal on every world
 # tap, ahead of touch_interactables — see _on_touch_world.
 var hit_engines: Array = []
+# castle-local chain engine (combat wing 2026-08): deliberately NEVER in
+# hit_engines — the castle owns its own touch path; this instance supplies
+# the pop-chain, pips and feel to the dust-bunny pops there.
+var castle_dust_he: HitEngine = null
+# Daddy Mermaid's castle partner bubble (combat wing): staged in by the
+# child's first bunny pop each visit, torn down with the castle.
+var castle_partner: PartnerAssist = null
 var touch_focus_id := ""
 var touch_focus_ready := false
 var touch_registry_t := 0.0
@@ -3406,6 +3415,8 @@ func _init_touch_experiment() -> void:
 			touch_ui.world_touched.connect(_on_touch_world)
 		if not touch_ui.manual_move_started.is_connected(_on_touch_manual_move):
 			touch_ui.manual_move_started.connect(_on_touch_manual_move)
+		touch_ui.world_press_probe = Callable(self, "_on_world_press")
+		touch_ui.world_press_release = Callable(self, "_on_world_press_release")
 	_interaction_ref()
 	_populate_touch_interactables()
 
@@ -3441,15 +3452,54 @@ func _set_touch_mode(next_mode: String, persist: bool = true) -> void:
 func _touch_mode_label() -> String:
 	return "🖐\nHybrid Touch" if touch_mode == TOUCH_MODE_HYBRID else "↔\nClassic Touch"
 
+# The world-tap gates shared by the release path and the press-fire probe:
+# a tap may reach the stage only when no overlay or mode owns the screen.
+func _world_tap_gated() -> bool:
+	if intro_active or get_tree().paused or mg_kind != "":
+		return true
+	if fade_rect != null and fade_rect.modulate.a > 0.02:
+		return true
+	if touch_ui != null and not touch_ui.world_controls_enabled:
+		return true
+	if wardrobe_layer != null or craft_layer != null or collection_layer != null:
+		return true
+	return false
+
+# ENEMY PRIORITY RULE, press half (combat wing 2026-08): hit engines get the
+# finger-DOWN so a pop lands the instant the finger does — never after the
+# release half of a grabby preschool tap. Returning true tells the router to
+# suppress the release-side world_touched for this touch.
+func _on_world_press(screen_pos: Vector2) -> bool:
+	_living_world_ref().note_activity()
+	if _world_tap_gated():
+		return false
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		return false
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine == null or not engine.tap_priority:
+			continue
+		var enemy: Dictionary = engine.tap_pick(screen_pos)
+		if not enemy.is_empty():
+			engine.hit(enemy, 1, "tap")
+			# a surviving enemy invites the three-stage CHARGE: keep holding
+			# and a ring grows around it; the lift (or stage 3) delivers
+			engine.begin_charge(enemy)
+			return true
+	return false
+
+# The finger that press-fired has lifted: any held charge releases now.
+func _on_world_press_release() -> void:
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine != null:
+			engine.release_charge()
+	if castle_dust_he != null:
+		castle_dust_he.release_charge()
+
 func _on_touch_world(screen_pos: Vector2) -> void:
 	_living_world_ref().note_activity()
-	if intro_active or get_tree().paused or mg_kind != "":
-		return
-	if fade_rect != null and fade_rect.modulate.a > 0.02:
-		return
-	if touch_ui != null and not touch_ui.world_controls_enabled:
-		return
-	if wardrobe_layer != null or craft_layer != null or collection_layer != null:
+	if _world_tap_gated():
 		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_touch(screen_pos)
@@ -7968,6 +8018,12 @@ func _tick_movers(delta: float) -> void:
 var ambience: AudioStreamPlayer = null
 @warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
 var _tap_player: AudioStreamPlayer = null
+@warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
+var _pop_player: AudioStreamPlayer = null
+@warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
+var _sfx_pool: Array = []
+@warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
+var _sfx_i := 0
 
 func _arena_floor(col: Color, tex: String = "", nrm: String = "", uvs: float = 0.06) -> void:
 	var disc := CylinderMesh.new()

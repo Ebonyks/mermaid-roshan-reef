@@ -1483,3 +1483,25 @@ Runtime fluid, audio, review, and provenance artifacts:
 - `assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json` - exact kitchen/bath/pool prompt/hash/review evidence.
 - `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json` - exact playroom/craft/pool prompt/hash/review evidence.
 - `assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json` - exact four-pan prompt/hash/rejection/review evidence.
+- `assets/audio/sfx/combat_*.wav` (combat_pop, combat_bonk, combat_poof,
+  combat_freeze, combat_charge_ring, combat_fizzle) — synthesized entirely
+  by `tools/gen_combat_sfx.py` in this repository (deterministic
+  pure-stdlib waveforms, seeded noise, no external sources, no recordings).
+  The combat feel-stack reaction voices: hit pop, harm bonk, death poof,
+  freeze tinkle, charge-ring shimmer, kind-miss fizzle. Owner-recorded
+  replacements can drop in at the same paths (all callers check
+  ResourceLoader.exists). License: project code.
+
+## Combat tutorial training art (2026-08-01)
+
+- `assets/castle/training/training_grotto_backdrop.png`,
+  `ghost_hand.png`, `verb_chip_tap.png`, `verb_chip_hold.png`, and their
+  preservation masters under
+  `assets_src/imagegen/combat_tutorial_2026-08-01/` are project-original art
+  generated with OpenAI built-in image generation on 2026-08-01. License:
+  project original. URL: none (project-local generation). The backdrop was
+  whole-canvas resized to 2048x1024. The three simple opaque subjects were
+  generated on flat green, converted to alpha with the installed Codex chroma
+  helper using soft matte and despill, then whole-canvas resized to 512x512 or
+  256x256. Exact prompts, generation identifiers, dimensions, hashes, reuse
+  audit, and processing notes are recorded in the adjacent `PROMPTS.md`.

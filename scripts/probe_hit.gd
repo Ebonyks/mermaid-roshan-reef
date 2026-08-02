@@ -21,6 +21,7 @@ func _init() -> void:
 	await _tap_ice_case()
 	await _tap_boss_case()
 	await _generic_engine_case()
+	await _charge_case()
 	await _priority_case()
 	print("HIT|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	# tear the scene down before quitting: the Windows 4.7-dev2 binary can
@@ -64,19 +65,28 @@ func _tap_ice_case() -> void:
 	var tap_pos: Vector2 = _screen_pos_of(arena, target)
 	_ck("tap picks the imp under the finger", is_same(arena.he.tap_pick(tap_pos), target))
 	main._on_touch_world(tap_pos)
-	_ck("routed tap freezes the imp", String(target["state"]) == "frozen")
+	_ck("first tap harms, never fells (3 hp)",
+		String(target["state"]) == "active" and int(target["hp"]) == 2)
+	_ck("combat pops use their own voice", main._pop_player != null
+		and main._pop_player.stream.resource_path.ends_with("combat_pop.wav"))
+	main._on_touch_world(_screen_pos_of(arena, target))
+	main._on_touch_world(_screen_pos_of(arena, target))
+	_ck("the 1-2-3 combo fells the basic imp", String(target["state"]) == "frozen")
 	target["timer"] = 0.0
 	await process_frame
 	await process_frame
 	_ck("frozen imp pops into the dying animation", String(target["state"]) == "popped")
 	_ck("popped imp leaves the stage", not (target["node"] as Node3D).visible)
 	_ck("popped imp is no longer hittable", not arena.he.hit(target, 1, "tap"))
-	# pop the rest by tapping each one; the arena win flow is untouched
-	for enemy: Dictionary in arena.enemies:
-		if String(enemy["state"]) == "active":
-			main._on_touch_world(_screen_pos_of(arena, enemy))
-			enemy["timer"] = 0.0
-	await process_frame
+	# fell the rest by tapping; SUPER hits ride along on their own arithmetic
+	for _round in range(8):
+		for enemy: Dictionary in arena.enemies:
+			if String(enemy["state"]) == "active":
+				main._on_touch_world(_screen_pos_of(arena, enemy))
+		for enemy: Dictionary in arena.enemies:
+			if String(enemy["state"]) == "frozen":
+				enemy["timer"] = 0.0
+		await process_frame
 	await process_frame
 	_ck("tapping every imp wins the arena", arena.state == "won")
 	arena.win_t = 0.0
@@ -123,6 +133,36 @@ func _generic_engine_case() -> void:
 		await process_frame
 	_ck("flop death disposes the node", not is_instance_valid(dummy))
 	_ck("dead record refuses further hits", not eng.hit(rec, 1, "tap"))
+
+func _charge_case() -> void:
+	# the three-stage charge (damage grammar): press-tap 1, then release
+	# stages add +1/+2/+4 → owner totals 2/3/5. The ring appears after the
+	# grace, colors per stage, and a full charge fires itself. Charges only
+	# begin/release from the touch layer's calls — never on their own.
+	main.game = ""
+	var eng := HitEngine.new(main)
+	var dummy := Node3D.new()
+	main.add_child(dummy)
+	var rec: Dictionary = {"node": dummy, "state": "active", "hp": 5, "death": "shrink"}
+	eng.targets = [rec]
+	eng.hit(rec, 1, "tap")           # the press-fire half of the hold
+	eng.begin_charge(rec)
+	_ck("charge waits through the grace", eng.charge_ring == null)
+	eng.tick(0.4)
+	_ck("ring appears after the grace", eng.charge_ring != null and int(rec["hp"]) == 4)
+	eng.tick(0.2)
+	_ck("stage one reached", eng.charge_stage == 1)
+	eng.release_charge()
+	_ck("stage-one release totals 2 damage", int(rec["hp"]) == 3 and String(rec["state"]) == "active")
+	eng.hit(rec, 1, "tap")
+	eng.begin_charge(rec)
+	eng.tick(1.05)
+	_ck("stage two colors the ring", eng.charge_stage == 2)
+	eng.tick(0.5)
+	_ck("full charge fires itself", eng.charge_enemy.is_empty())
+	_ck("stage-three charge finishes the enemy", String(rec["state"]) == "popped")
+	await process_frame
+	await process_frame
 
 func _priority_case() -> void:
 	# ENEMY PRIORITY RULE: an enemy overlapping any other tappable object

@@ -34,6 +34,7 @@ var enemy_shots: Array[Dictionary] = []
 var boss: Dictionary = {}
 var he: HitEngine = null
 var imp_brain: ImpAI = null      # the shared crew brain (scripts/imp_ai.gd)
+var pa: PartnerAssist = null
 var encounter := {}
 var room_tag := ""
 var art_theme := ""
@@ -87,6 +88,11 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 			m.show_msg("Roshan", fire_msg, "talk")
 	he.targets = enemies if kind in ["ice", "dust"] else [boss]
 	m.hit_engines.append(he)   # enemy priority: this battle's taps outrank the world
+	# Partner Assist: the following stuffie brings her SPARKLE STAMPEDE super
+	# on a 12 s cooldown (per-partner supers, owner 2026-08-01)
+	if m.companion_id != "":
+		pa = PartnerAssist.new(m)
+		pa.attach("stuffie", Callable(self, "_partner_super"))
 	_update_hud()
 
 func _build_environment() -> void:
@@ -257,7 +263,8 @@ func _build_ice_swarm() -> void:
 		var mind: Dictionary = imp_brain.spawn_mind(i, false)
 		mind["pos"] = Vector2(pos.x, pos.z)
 		enemies.append({"node": root, "pos": pos, "state": "active", "timer": 0.0,
-			"attack": 1.0 + float(i) * 0.18, "phase": a, "ai": mind, "pose": "prowl"})
+			"attack": 1.0 + float(i) * 0.18, "phase": a, "ai": mind,
+			"pose": "prowl", "hp": int(encounter.get("imp_hp", 3))})
 
 
 func _build_dust_bunny_swarm() -> void:
@@ -356,6 +363,10 @@ func _process(delta: float) -> void:
 	elapsed += delta
 	shot_cool = maxf(0.0, shot_cool - delta)
 	bump_cool = maxf(0.0, bump_cool - delta)
+	if he != null:
+		he.tick(delta)   # pop-chain window decay (a lapsed chain fades silently)
+	if pa != null:
+		pa.tick(delta)
 	if state == "won":
 		win_t -= delta
 		if fmod(win_t, float(encounter.get("win_spark_gap", 0.32))) < delta:
@@ -399,17 +410,42 @@ func on_world_tap(screen_pos: Vector2) -> void:
 # Every damage source lands here with its origin: "tap", "shot_ice",
 # "shot_fire" today; combo verbs tomorrow. Imps freeze into the popcorn
 # death; the boss keeps its phase rules whatever the source.
-func _on_engine_hit(enemy: Dictionary, _damage: int, source: String) -> void:
+func _on_engine_hit(enemy: Dictionary, damage: int, source: String) -> void:
 	if kind == "ice":
 		if imp_brain != null:
 			imp_brain.on_player_swing(true)
-		_freeze_imp(enemy)
+		# every landed hit chains 1-2-3; the armed hit after chain 3 is the
+		# SUPER: +2 damage (a basic imp is out in one) plus a 1-damage splash
+		# to the nearby swarm — harmed or felled by their own hp
+		var super_now: bool = he.consume_super()
+		if super_now:
+			damage += 2
+		he.note_hit(enemy["pos"] as Vector3)
+		if pa != null:
+			pa.note_child_pop()
+		_damage_imp(enemy, damage)
+		if super_now:
+			m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 3.5, 0), Color(1.0, 0.95, 0.6))
+			for other in enemies:
+				if other != enemy and String(other["state"]) == "active" and (other["pos"] as Vector3).distance_to(enemy["pos"] as Vector3) < HitEngine.SUPER_R:
+					_damage_imp(other, 1)
 		return
 	if kind == "dust":
 		_clean_dust_bunny(enemy)
 		return
 	var power: String = source.trim_prefix("shot_") if source.begins_with("shot_") else action_label().to_lower()
 	_hit_boss(power)
+
+# The damage grammar's harm-or-eliminate rule: a surviving imp plays the
+# shared harm animation; an emptied one freezes into the popcorn finale.
+func _damage_imp(enemy: Dictionary, damage: int) -> void:
+	if String(enemy["state"]) != "active":
+		return
+	enemy["hp"] = maxi(0, int(enemy.get("hp", 3)) - damage)
+	if int(enemy["hp"]) > 0:
+		he.play_harm(enemy)
+	else:
+		_freeze_imp(enemy)
 
 func _nearest_target() -> Vector3:
 	if kind not in ["ice", "dust"] and not boss.is_empty():
@@ -569,6 +605,7 @@ func _freeze_imp(enemy: Dictionary) -> void:
 		imp_brain.on_hit(mind, true)
 	var node: Node3D = enemy["node"]
 	DungeonArt.apply_material(node, _mat(Color(0.45, 0.88, 1.0), 0.45))
+	m._audio_ref().sfx("combat_freeze")
 	m._sparkle_burst(enemy["pos"] + Vector3(0, 2.5, 0), Color(0.55, 0.92, 1.0))
 	_update_hud()
 
@@ -595,6 +632,12 @@ func _tick_imps(delta: float) -> void:
 		var node: Node3D = enemy["node"]
 		if String(enemy["state"]) == "active":
 			remaining += 1
+			# partner-stunned imps just spin dizzily — no chasing, no shots
+			var stun: float = float(enemy.get("stun_t", 0.0))
+			if stun > 0.0:
+				enemy["stun_t"] = stun - delta
+				node.rotation.y += delta * 6.0
+				continue
 			var pos: Vector3 = enemy["pos"]
 			var mind: Dictionary = enemy.get("ai", {})
 			var pose := "prowl"
@@ -631,7 +674,6 @@ func _pop_imp(enemy: Dictionary) -> void:
 	# the dying animation now lives in the shared engine as the "pop" style
 	he.play_death(enemy, "pop", {"count": int(encounter.get("popcorn_count", 7)), "art_theme": art_theme})
 	_update_hud()
-
 
 func _clean_dust_bunny(enemy: Dictionary) -> void:
 	if String(enemy["state"]) != "active":
@@ -675,6 +717,39 @@ func _finish_dust_bunny_clean(enemy: Dictionary) -> void:
 	_update_hud()
 
 
+# The partner SUPER (PartnerAssist fires this only from the child's tap).
+# Stuffie — SPARKLE STAMPEDE: pops the nearest fodder outright, dizzies the
+# rest, and grants Big Taps so her own next freezes pop almost instantly.
+# Boss arenas: never defeats — extends the peek window and chips one point.
+func _partner_super(_partner_kind: String) -> void:
+	if state != "play":
+		return
+	if kind == "ice":
+		var actives: Array[Dictionary] = []
+		for enemy in enemies:
+			if String(enemy["state"]) == "active":
+				actives.append(enemy)
+		actives.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+			return (a["pos"] as Vector3).distance_to(player_pos) < (b["pos"] as Vector3).distance_to(player_pos))
+		for i in range(actives.size()):
+			var enemy: Dictionary = actives[i]
+			if i < PartnerAssist.STAMPEDE_POPS:
+				enemy["hp"] = 0
+				_freeze_imp(enemy)
+				enemy["timer"] = 0.05
+			else:
+				enemy["stun_t"] = PartnerAssist.STUN_T
+			m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 2.5, 0), Color(0.95, 0.75, 1.0))
+		he.big_taps = PartnerAssist.BIG_TAPS
+	elif not boss.is_empty():
+		boss["timer"] = float(boss["timer"]) + PartnerAssist.STUN_T
+		if String(boss["phase"]) == "peek":
+			boss["hp"] = maxi(0, int(boss["hp"]) - 1)
+			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.95, 0.75, 1.0))
+			if int(boss["hp"]) <= 0:
+				_win()
+	_update_hud()
+
 func _hit_boss(power: String = "fire") -> void:
 	if state != "play":
 		return
@@ -684,15 +759,25 @@ func _hit_boss(power: String = "fire") -> void:
 			boss["phase"] = "peek"
 			boss["timer"] = float(encounter.get("peek_time", 3.2))
 			boss["attack"] = 0.55
+			m._audio_ref().sfx("combat_freeze")
 			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.55, 0.92, 1.0))
 			m.show_msg("Roshan", "Frozen shell! Now use FIRE on the peeking dragon-turtle!", "talk")
 		else:
+			m._audio_ref().sfx("combat_fizzle", 0.9, -8.0)
 			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
 		return
 	if phase == "shell" or (kind == "dual" and power != "fire"):
+		m._audio_ref().sfx("combat_fizzle", 0.9, -8.0)
 		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
 		return
-	boss["hp"] = int(boss["hp"]) - 1
+	# damaging hits chain; the hit after chain 3 is a SUPER for double damage
+	var super_bonus: bool = he.consume_super()
+	boss["hp"] = int(boss["hp"]) - (2 if super_bonus else 1)
+	he.note_hit(boss["pos"] as Vector3)
+	if pa != null:
+		pa.note_child_pop()
+	if super_bonus:
+		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.5, 0), Color(1.0, 0.95, 0.6))
 	m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 3.0, 3.5), Color(1.0, 0.3, 0.08))
 	if int(boss["hp"]) <= 0:
 		_win()
@@ -706,6 +791,11 @@ func _tick_boss(delta: float) -> void:
 	if boss.is_empty() or state != "play":
 		return
 	var root: Node3D = boss["node"]
+	# hitstop: the engine stamps a beat of stillness on impact (40-90 ms) —
+	# read here so the boss visibly "takes" the hit before phase logic moves
+	boss["hitstop"] = maxf(0.0, float(boss.get("hitstop", 0.0)) - delta)
+	if float(boss["hitstop"]) > 0.0:
+		return
 	boss["timer"] = float(boss["timer"]) - delta
 	boss["attack"] = float(boss["attack"]) - delta
 	var phase: String = boss["phase"]
@@ -846,6 +936,9 @@ func _finish() -> void:
 	state = "done"
 	_disarm_mic()
 	m.hit_engines.erase(he)
+	he.teardown()
+	if pa != null:
+		pa.detach()
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if finish_cb.is_valid():
@@ -861,6 +954,9 @@ func cancel(notify_finish: bool = true) -> void:
 	state = "done"
 	_disarm_mic()
 	m.hit_engines.erase(he)
+	he.teardown()
+	if pa != null:
+		pa.detach()
 	if prev_env != null:
 		m.we_node.environment = prev_env
 	if notify_finish and finish_cb.is_valid():
