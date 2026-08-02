@@ -154,6 +154,7 @@ func _build_charge_ring(node: Node3D) -> void:
 		return
 	parent.add_child(charge_ring)
 	charge_ring.global_position = node.global_position + Vector3(0, 0.15, 0)
+	m._audio_ref().sfx("combat_charge_ring", 1.0, -10.0)
 	_style_charge_ring()
 
 func _style_charge_ring() -> void:
@@ -350,6 +351,7 @@ func play_harm(enemy: Dictionary) -> void:
 	tw.tween_property(target, "position:x", base_x + 0.32, 0.05).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tw.tween_property(target, "position:x", base_x - 0.22, 0.07).set_trans(Tween.TRANS_QUAD)
 	tw.tween_property(target, "position:x", base_x, 0.09).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	m._audio_ref().sfx("combat_bonk")   # the rubbery "took it!" under the pop
 	m._sparkle_burst(node.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.55))
 
 # The default-path SUPER: everything near the struck enemy takes 1 damage —
@@ -382,6 +384,8 @@ func play_death(enemy: Dictionary, style: String = "", cfg: Dictionary = {}) -> 
 	var node: Node3D = node_value
 	var chosen: String = style if style != "" else String(enemy.get("death", "pop"))
 	enemy["state"] = String(cfg.get("end_state", "popped"))
+	# every elimination gets its airy poof under the style's visuals
+	m._audio_ref().sfx("combat_poof", 0.9 if chosen == "flop" else 1.0)
 	if on_defeated.is_valid():
 		on_defeated.call(enemy)
 	match chosen:

@@ -67,6 +67,8 @@ func _tap_ice_case() -> void:
 	main._on_touch_world(tap_pos)
 	_ck("first tap harms, never fells (3 hp)",
 		String(target["state"]) == "active" and int(target["hp"]) == 2)
+	_ck("combat pops use their own voice", main._pop_player != null
+		and main._pop_player.stream.resource_path.ends_with("combat_pop.wav"))
 	main._on_touch_world(_screen_pos_of(arena, target))
 	main._on_touch_world(_screen_pos_of(arena, target))
 	_ck("the 1-2-3 combo fells the basic imp", String(target["state"]) == "frozen")

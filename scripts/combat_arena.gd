@@ -383,6 +383,7 @@ func _freeze_imp(enemy: Dictionary) -> void:
 	enemy["timer"] = 1.7
 	var node: Node3D = enemy["node"]
 	DungeonArt.apply_material(node, _mat(Color(0.45, 0.88, 1.0), 0.45))
+	m._audio_ref().sfx("combat_freeze")
 	m._sparkle_burst(enemy["pos"] + Vector3(0, 2.5, 0), Color(0.55, 0.92, 1.0))
 	_update_hud()
 
@@ -465,12 +466,15 @@ func _hit_boss(power: String = "fire") -> void:
 			boss["phase"] = "peek"
 			boss["timer"] = float(encounter.get("peek_time", 3.2))
 			boss["attack"] = 0.55
+			m._audio_ref().sfx("combat_freeze")
 			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.55, 0.92, 1.0))
 			m.show_msg("Roshan", "Frozen shell! Now use FIRE on the peeking dragon-turtle!", "talk")
 		else:
+			m._audio_ref().sfx("combat_fizzle", 0.9, -8.0)
 			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
 		return
 	if phase == "shell" or (kind == "dual" and power != "fire"):
+		m._audio_ref().sfx("combat_fizzle", 0.9, -8.0)
 		m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
 		return
 	# damaging hits chain; the hit after chain 3 is a SUPER for double damage
