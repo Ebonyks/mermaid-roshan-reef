@@ -825,7 +825,6 @@ generator output is present in this directory or connected to runtime art.
 - `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png` ?
   reused unchanged for all six interactive fixtures in this correction; SHA-256
   remains `dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e`.
-<<<<<<< HEAD
 - `assets/audio/sfx/combat_*.wav` (combat_pop, combat_bonk, combat_poof,
   combat_freeze, combat_charge_ring, combat_fizzle) — synthesized entirely
   by `tools/gen_combat_sfx.py` in this repository (deterministic
@@ -834,7 +833,6 @@ generator output is present in this directory or connected to runtime art.
   freeze tinkle, charge-ring shimmer, kind-miss fizzle. Owner-recorded
   replacements can drop in at the same paths (all callers check
   ResourceLoader.exists). License: project code.
-=======
 
 ## Combat tutorial training art (2026-08-01)
 
