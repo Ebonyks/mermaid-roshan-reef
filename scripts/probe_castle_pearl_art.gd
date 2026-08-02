@@ -336,8 +336,14 @@ func _capture(room_id: String) -> void:
 	# Capture the settled stage, not the intentional 0.24-second room fade.
 	await _frames(20)
 	await RenderingServer.frame_post_draw
-	var output_dir := ProjectSettings.globalize_path(
-		"res://audit/castle_sprite3d")
+	# CI sets CASTLE_SHOT_OUT and uploads from there. Without this the shots
+	# landed in the gitignored res://audit/ and the "pearl-castle visual
+	# review" artifact came back empty on every run since it was added —
+	# green, because upload-artifact is configured if-no-files-found: warn.
+	# Same env-var idiom as NORTH_SHOT_OUT / OPERA_SHOT_OUT / REEF_SHOT_OUT.
+	var requested: String = OS.get_environment("CASTLE_SHOT_OUT")
+	var output_dir: String = requested if requested != "" \
+		else ProjectSettings.globalize_path("res://audit/castle_sprite3d")
 	DirAccess.make_dir_recursive_absolute(output_dir)
 	var output_path := output_dir.path_join(room_id + ".png")
 	var save_error: Error = root.get_viewport().get_texture().get_image() \

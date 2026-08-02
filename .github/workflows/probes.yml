@@ -260,7 +260,7 @@ jobs:
       - name: Upload Sky Lagoon visual review
         if: always()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: sky-lagoon-review
           path: /tmp/sky-lagoon-shots/*.png
@@ -296,7 +296,7 @@ jobs:
       - name: Upload pearl-castle visual review
         if: always()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: pearl-castle-review
           path: /tmp/castle-pearl-shots/*.png
