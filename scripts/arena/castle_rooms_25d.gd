@@ -466,7 +466,7 @@ const ROOM_ITEMS := {
 			"hotspot_size": Vector2(112.0, 112.0),
 			"symbol": "✦", "color": Color(1.0, 0.88, 0.48)},
 		{"id": "book_stack", "name": "Stack of storybooks",
-			"pos": Vector2(0, 365), "z": MIDGROUND_Z,
+			"pos": Vector2(13, 365), "z": MIDGROUND_Z,
 			"color": Color(0.81, 0.66, 1.0)},
 	],
 	"playroom": [

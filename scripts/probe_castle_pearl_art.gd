@@ -1182,26 +1182,67 @@ func _run() -> void:
 			kitchen_prop_set_ok = kitchen_ids.all(
 				func(kitchen_id: String) -> bool:
 					return main.castle_room_item_sprites.has(kitchen_id))
-			kitchen_pan_rack_group_ok = \
+			var pan_ids: Array[String] = ["pan_1", "pan_2", "pan_3", "pan_4"]
+			var pan_hotspot: Button = \
 				main.castle_room_item_hotspot_layer.get_node_or_null(
-					"Touch_pan_rack") is Button
-			for pan_id: String in ["pan_1", "pan_2", "pan_3", "pan_4"]:
+					"Touch_pan_rack") as Button
+			kitchen_pan_rack_group_ok = pan_hotspot != null
+			for pan_id: String in pan_ids:
+				var reset_record: Dictionary = main.castle_room_item_sprites.get(
+					pan_id, {}) as Dictionary
+				var reset_sprite: Sprite3D = reset_record.get("sprite") as Sprite3D
+				if reset_sprite != null:
+					reset_sprite.set_meta("animation_frames_visited", [])
+					reset_sprite.set_meta(
+						"animation_timeline_steps_visited", [])
+			if pan_hotspot != null:
+				pan_hotspot.pressed.emit()
+			var pan_group_deadline: int = Time.get_ticks_msec() + 3000
+			var pan_group_busy := true
+			while pan_group_busy \
+					and Time.get_ticks_msec() < pan_group_deadline:
+				pan_group_busy = false
+				for pan_id: String in pan_ids:
+					var busy_record: Dictionary = \
+						main.castle_room_item_sprites.get(
+							pan_id, {}) as Dictionary
+					var busy_sprite: Sprite3D = \
+						busy_record.get("sprite") as Sprite3D
+					pan_group_busy = pan_group_busy or (
+						busy_sprite != null
+						and bool(busy_sprite.get_meta("busy", false)))
+				if pan_group_busy:
+					await process_frame
+			kitchen_pan_rack_group_ok = kitchen_pan_rack_group_ok \
+				and not pan_group_busy \
+				and Time.get_ticks_msec() < pan_group_deadline
+			for pan_id: String in pan_ids:
 				var pan_record: Dictionary = main.castle_room_item_sprites.get(
 					pan_id, {}) as Dictionary
 				var pan_sprite: Sprite3D = pan_record.get("sprite") as Sprite3D
 				var pan_data: Dictionary = pan_record.get("data", {}) as Dictionary
 				var pan_manifest: Dictionary = manifest_assets.get(
 					"kitchen:" + pan_id, {}) as Dictionary
-				var expected_pan_frames: Array = pan_manifest.get(
-					"timeline_sequence", []) as Array
+				var expected_pan_frames: Array[int] = []
+				for frame_value: Variant in pan_manifest.get(
+						"timeline_sequence", []) as Array:
+					expected_pan_frames.append(int(frame_value))
+				var actual_pan_frames: Array = pan_sprite.get_meta(
+					"animation_frames_visited", []) as Array \
+					if pan_sprite != null else []
+				var pan_sequence_ok: bool = \
+					actual_pan_frames.size() == expected_pan_frames.size()
+				if pan_sequence_ok:
+					for frame_index: int in range(expected_pan_frames.size()):
+						pan_sequence_ok = pan_sequence_ok \
+							and int(actual_pan_frames[frame_index]) \
+								== expected_pan_frames[frame_index]
 				kitchen_pan_rack_group_ok = kitchen_pan_rack_group_ok \
 					and pan_sprite != null \
 					and String(pan_data.get("hotspot_group", "")) \
 						== "pan_rack" \
 					and (pan_record.get("hotspot") != null) == (pan_id == "pan_1") \
-					and (pan_sprite.get_meta(
-						"animation_frames_visited", []) as Array) \
-						== expected_pan_frames
+					and pan_sequence_ok
 			var kitchen_sink: Sprite3D = (
 				main.castle_room_item_sprites["sink"] as Dictionary
 			).get("sprite") as Sprite3D
@@ -1531,8 +1572,18 @@ func _run() -> void:
 	_ck("main_hall_equal_cluster_energy",
 		touch_light_energy_ok and is_equal_approx(fill_on_energy, 0.78),
 		"fill=%.3f" % fill_on_energy)
+	var sconce_manifest: Dictionary = manifest_assets.get(
+		"main_hall:sconce_a0", {}) as Dictionary
+	var tapestry_manifest: Dictionary = manifest_assets.get(
+		"main_hall:tapestry_right", {}) as Dictionary
+	var expected_fixture_asset_path: String = "res://" + String(
+		sconce_manifest.get("sheet", ""))
+	var expected_tapestry_asset_path: String = "res://" + String(
+		tapestry_manifest.get("sheet", ""))
 	var fixture_asset_path := ""
-	var fixture_continuity_ok := true
+	var fixture_continuity_ok: bool = \
+		expected_fixture_asset_path != "res://" \
+		and expected_tapestry_asset_path != "res://"
 	var fixture_y: float = -1.0
 	var fixture_height_ok := true
 	var fixture_bloom_emitters_ok := true
@@ -1580,8 +1631,7 @@ func _run() -> void:
 		if fixture_asset_path == "":
 			fixture_asset_path = path
 			fixture_continuity_ok = fixture_continuity_ok \
-				and path.ends_with(
-					"main_hall_sconce_atlas.png")
+				and path == expected_fixture_asset_path
 		else:
 			fixture_continuity_ok = fixture_continuity_ok \
 				and path == fixture_asset_path
@@ -1599,8 +1649,8 @@ func _run() -> void:
 		var tapestry: Sprite3D = tapestry_record.get("sprite") as Sprite3D
 		fixture_continuity_ok = fixture_continuity_ok \
 			and tapestry != null and tapestry.texture != null \
-			and tapestry.texture.resource_path.ends_with(
-				"main_hall_tapestry_atlas.png")
+			and tapestry.texture.resource_path \
+				== expected_tapestry_asset_path
 	_ck("main_hall_fixture_and_tapestry_continuity", fixture_continuity_ok)
 	_ck("main_hall_fixture_height_alignment",
 		fixture_height_ok and is_equal_approx(fixture_y, 215.0),

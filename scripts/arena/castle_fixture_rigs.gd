@@ -20,6 +20,10 @@ const MAX_HINGE_ANGLE := 0.21
 const MAX_BUOYANT_ANGLE := 0.12
 const MAX_HINGE_DISPLACEMENT := 0.35
 const MAX_BUOYANT_DISPLACEMENT := 0.06
+const JOLT_SETTLE_GRACE_TICKS := 6
+const JOLT_FORCE_SETTLE_TICKS := 300
+const JOLT_ANGULAR_SPRING := 0.16
+const JOLT_ANGULAR_DAMPING := 0.022
 
 var _flow_profile: PackedFloat32Array = PackedFloat32Array([
 	0.0, 0.18, 0.62, 1.0, 1.0, 0.68, 0.20, 0.0,
@@ -143,16 +147,10 @@ func activate(interaction_key: String) -> void:
 	rig["peak_displacement"] = 0.0
 	body.freeze = false
 	body.sleeping = false
-	var mode: String = String(rig.get("physics_mode", "none"))
 	var direction := -1.0 if abs(interaction_key.hash()) % 2 == 0 else 1.0
-	if mode == "hinge_z":
-		body.apply_torque_impulse(Vector3(
-			0.0, 0.0, direction * HINGE_TORQUE_IMPULSE))
-	elif mode == "buoyant":
-		body.apply_central_impulse(Vector3(
-			0.0, BUOYANT_VERTICAL_IMPULSE, 0.0))
-		body.apply_torque_impulse(Vector3(
-			0.0, 0.0, direction * BUOYANT_TORQUE_IMPULSE))
+	rig["jolt_direction"] = direction
+	rig["jolt_phase"] = "wake"
+	rig["jolt_active_ticks"] = 0
 
 
 func apply_frame(interaction_key: String, frame_index: int,
@@ -558,6 +556,9 @@ func _add_jolt_driver(rig: Dictionary, source_position: Vector2,
 	rig["rest_body_position"] = body.position
 	rig["pivot_offset"] = sprite.position - body.position
 	rig["base_sprite_position"] = sprite.position
+	rig["jolt_direction"] = 1.0
+	rig["jolt_phase"] = "idle"
+	rig["jolt_active_ticks"] = 0
 
 
 func _tick_body(rig: Dictionary) -> void:
@@ -567,19 +568,41 @@ func _tick_body(rig: Dictionary) -> void:
 		return
 	var rest_position: Vector3 = rig.get(
 		"rest_body_position", body.position) as Vector3
+	var jolt_phase: String = String(rig.get("jolt_phase", "idle"))
 	if body.freeze:
+		if jolt_phase == "idle":
+			return
+		body.freeze = false
+	if jolt_phase == "wake":
+		body.sleeping = false
+		rig["jolt_phase"] = "kick"
 		return
+	if jolt_phase == "kick":
+		body.sleeping = false
+		_apply_jolt_impulse(rig)
+		rig["jolt_phase"] = "observe"
+		rig["jolt_active_ticks"] = 0
+		return
+	var active_ticks: int = int(rig.get("jolt_active_ticks", 0)) + 1
+	rig["jolt_active_ticks"] = active_ticks
 	if body.sleeping:
-		body.position = rest_position
-		body.rotation.z = 0.0
-		body.linear_velocity = Vector3.ZERO
-		body.angular_velocity = Vector3.ZERO
-		_sync_body_sprite(rig)
-		body.freeze = true
-		body.sleeping = true
+		if active_ticks < JOLT_SETTLE_GRACE_TICKS:
+			body.sleeping = false
+			return
+		_settle_body(rig, rest_position)
 		return
 	var mode: String = String(rig.get("physics_mode", "none"))
 	var max_angle: float = float(rig.get("max_angle_radians", 0.12))
+	if mode == "hinge_z":
+		var hinge_displacement_limit: float = float(
+			rig.get("max_displacement", MAX_HINGE_DISPLACEMENT))
+		var pivot_offset: Vector3 = rig.get("pivot_offset", Vector3.ZERO)
+		var pivot_radius := Vector2(pivot_offset.x, pivot_offset.y).length()
+		if pivot_radius > hinge_displacement_limit * 0.5:
+			var displacement_ratio := clampf(
+				(hinge_displacement_limit - 0.001) / (2.0 * pivot_radius),
+				0.0, 1.0)
+			max_angle = minf(max_angle, 2.0 * asin(displacement_ratio))
 	var angle: float = clampf(body.rotation.z, -max_angle, max_angle)
 	if not is_equal_approx(angle, body.rotation.z):
 		var clamped_rotation: Vector3 = body.rotation
@@ -589,7 +612,8 @@ func _tick_body(rig: Dictionary) -> void:
 		angular_velocity.z = clampf(angular_velocity.z, -4.0, 4.0)
 		body.angular_velocity = angular_velocity
 	body.apply_torque(Vector3(
-		0.0, 0.0, -angle * 1.8 - body.angular_velocity.z * 0.62))
+		0.0, 0.0, -angle * JOLT_ANGULAR_SPRING
+			- body.angular_velocity.z * JOLT_ANGULAR_DAMPING))
 	if mode == "buoyant":
 		var max_displacement: float = float(rig.get("max_displacement", 0.06))
 		var displacement: float = body.position.y - rest_position.y
@@ -606,17 +630,49 @@ func _tick_body(rig: Dictionary) -> void:
 			0.0, -displacement * 7.0 - body.linear_velocity.y * 2.2, 0.0))
 	_sync_body_sprite(rig)
 	_record_body_peak(rig)
-	var position_error := body.position.distance_to(rest_position)
-	if absf(angle) < 0.008 and position_error < 0.008 \
+	var position_error: float = body.position.distance_to(rest_position)
+	var recorded_motion: bool = \
+		float(rig.get("peak_angle_radians", 0.0)) > 0.001 \
+		and float(rig.get("peak_displacement", 0.0)) > 0.001
+	var naturally_settled: bool = absf(angle) < 0.008 \
+			and position_error < 0.008 \
 			and body.angular_velocity.length() < 0.012 \
-			and body.linear_velocity.length() < 0.012:
-		body.position = rest_position
-		body.rotation.z = 0.0
-		body.linear_velocity = Vector3.ZERO
-		body.angular_velocity = Vector3.ZERO
-		_sync_body_sprite(rig)
-		body.freeze = true
-		body.sleeping = true
+			and body.linear_velocity.length() < 0.012
+	if active_ticks >= JOLT_FORCE_SETTLE_TICKS \
+			or (active_ticks >= JOLT_SETTLE_GRACE_TICKS \
+				and recorded_motion and naturally_settled):
+		_settle_body(rig, rest_position)
+
+
+func _apply_jolt_impulse(rig: Dictionary) -> void:
+	var body: RigidBody3D = rig.get("body") as RigidBody3D
+	if body == null:
+		return
+	var mode: String = String(rig.get("physics_mode", "none"))
+	var direction: float = float(rig.get("jolt_direction", 1.0))
+	if mode == "hinge_z":
+		body.apply_torque_impulse(Vector3(
+			0.0, 0.0, direction * HINGE_TORQUE_IMPULSE))
+	elif mode == "buoyant":
+		body.apply_central_impulse(Vector3(
+			0.0, BUOYANT_VERTICAL_IMPULSE, 0.0))
+		body.apply_torque_impulse(Vector3(
+			0.0, 0.0, direction * BUOYANT_TORQUE_IMPULSE))
+
+
+func _settle_body(rig: Dictionary, rest_position: Vector3) -> void:
+	var body: RigidBody3D = rig.get("body") as RigidBody3D
+	if body == null:
+		return
+	body.position = rest_position
+	body.rotation.z = 0.0
+	body.linear_velocity = Vector3.ZERO
+	body.angular_velocity = Vector3.ZERO
+	_sync_body_sprite(rig)
+	body.freeze = true
+	body.sleeping = true
+	rig["jolt_phase"] = "idle"
+	rig["jolt_active_ticks"] = 0
 
 
 func _record_body_peak(rig: Dictionary) -> void:
