@@ -33,6 +33,6 @@ static func show(main: ReefMain) -> void:
 	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(art)
 	var tween := layer.create_tween()
-	tween.tween_property(layer, "modulate:a", 0.0, HANDOFF_SECONDS) \
+	tween.tween_property(root, "modulate:a", 0.0, HANDOFF_SECONDS) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(layer.queue_free)
