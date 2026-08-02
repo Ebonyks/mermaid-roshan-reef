@@ -6,6 +6,7 @@ extends Node
 # sixteen-frame swim stroke.
 
 const ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
+const FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
 const DIRECTIONAL: Texture2D = preload(
 	"res://assets/characters/roshan_25d/roshan_directional.png")
 const SWIM_FRONT: Texture2D = preload(
@@ -164,22 +165,27 @@ func _apply_frame(frame_index: int) -> void:
 			_apply_anchor_offset()
 		return
 	_displayed_frame = safe_frame
+	var sheet: String = _sheet_key()
 	if _sprite != null and is_instance_valid(_sprite):
 		_sprite.frame = safe_frame
+		# The sheets pack their figures tighter than the nominal 256px grid;
+		# sample the corrected window so the lower rows keep her whole head.
+		FRAMES.apply_region(_sprite, sheet, safe_frame, ATLAS_COLUMNS)
 		_apply_anchor_offset()
 	if _atlas_texture != null:
-		var column: int = safe_frame % ATLAS_COLUMNS
-		var row: int = safe_frame / ATLAS_COLUMNS
-		_atlas_texture.region = Rect2(
-			Vector2(float(column), float(row)) * CELL_SIZE, CELL_SIZE)
+		_atlas_texture.region = FRAMES.region(sheet, safe_frame, ATLAS_COLUMNS)
+
+func _sheet_key() -> String:
+	return "directional" if _state == "idle" \
+		else "swim_back" if _back_view else "swim_front"
 
 func _apply_anchor_offset() -> void:
 	if _sprite == null or not is_instance_valid(_sprite):
 		return
-	var sheet := "directional" if _state == "idle" \
-		else "swim_back" if _back_view else "swim_front"
+	var sheet: String = _sheet_key()
 	_sprite.offset = _base_offset + ANCHORS.correction(
-		sheet, _displayed_frame, _target_anchor, _sprite.flip_h)
+		sheet, _displayed_frame, _target_anchor, _sprite.flip_h) \
+		+ FRAMES.offset_correction(sheet, _displayed_frame, _sprite.flip_h)
 	_sprite.set_meta("roshan_anchor_offset", _sprite.offset - _base_offset)
 
 func _apply_idle_breath() -> void:
