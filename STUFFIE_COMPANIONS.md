@@ -60,6 +60,17 @@ hotspot through the viewport rather than firing the Button signal.
 > all; the picker was reachable only from the Playroom toy chest (which
 > itself needs the dust-bunny rescue first). `_tick_gift` / `_tick_room`
 > remain in `companion.gd` as dead code pending removal.
+>
+> Second cause, same report, found 2026-08-03: restoring the offer was not
+> enough because **she could not walk to the throne**. `StorybookUI.add_stage`
+> returns a `MOUSE_FILTER_STOP` stage, and in the castle that stage sits on top
+> of the Control carrying `_on_room_input`, so every tap that missed a hotspot
+> button was swallowed — no floor walking anywhere in the picture-first castle
+> since `d0732324`. Room-to-room travel still worked (door hotspots are deeper
+> Controls), which is why it read as "the throne does not work" rather than
+> "nothing moves". Fixed by setting the castle stage to `MOUSE_FILTER_IGNORE`.
+> Every trusted castle probe drove `_position_player_at_foot` directly and was
+> blind to it; `probe_throne` now walks her there with real viewport taps.
 
 ## The follower (generalizes the peng_pal pattern)
 
