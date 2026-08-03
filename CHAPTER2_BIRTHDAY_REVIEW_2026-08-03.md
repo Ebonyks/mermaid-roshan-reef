@@ -382,11 +382,23 @@ outputs become actionable rather than awkward:
 
 - A **smaller, tighter Chapter 2 set** where every career has an unarguable
   reason to exist, rather than thirteen of varying strength.
-- **One or two new careers** covering needs the current roster misses —
-  candidates that a four-year-old would instantly recognise as party jobs
-  (e.g. someone who *decorates the hall*, someone who *greets and seats the
-  guests*, someone who *wraps the presents*). These are cheap to specify but
-  do need art, so they are a budget decision.
+- **Possibly no new careers at all.** Before inventing, check the existing
+  roster and the boss-staff — the obvious "missing" party jobs are already
+  owned:
+  - *Decorating the hall* -> **the PAINTER**. This is his real party role
+    (owner ruling): not "a framed sunrise on the wall" but **making the room
+    look like a party** — banners, colour, the space transformed. That is an
+    unarguable contribution a four-year-old reads instantly, and it upgrades
+    the painter from a weak prop-maker to one of the strongest jobs in the
+    chapter.
+  - *Greeting and seating the guests* -> **the CURTAIN DRAGON**, already cast
+    as the party's doorman in the bible.
+  - *Lighting the room* -> **the SHADOW PHANTOM**, already the lantern-lighter
+    (and the origin of the five candles).
+  - *Wrapping and handing out favours* -> **the CANDY MAKER**, whose piece is
+    literally wrapped sweets in party bags.
+  So an addition must clear a high bar: a real guest need that no career and
+  no boss-staff role already covers.
 - **A deferral list for Chapter 5**, which arrives with the new characters and
   environments that give those careers their proper context.
 
