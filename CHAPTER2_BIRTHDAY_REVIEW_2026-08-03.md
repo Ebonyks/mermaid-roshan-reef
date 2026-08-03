@@ -347,6 +347,60 @@ as cozy content rather than as a checklist.
 
 ---
 
+## 12. THE CAREER ROSTER IS A DESIGN VARIABLE (owner direction)
+
+Two further permissions change how section 11 resolves:
+
+**Chapter 5's extended universe is the home for excused careers.** New
+characters and environments arrive there, so a career that has no honest place
+in a birthday party is not orphaned by being excused — it is *deferred*. A job
+that makes no sense as party preparation can make excellent sense once the
+extended universe supplies the context for it. "Excused from Chapter 2" is
+therefore a scheduling decision, not a deletion.
+
+**Careers may be added or removed.** The thirteen are not fixed. This inverts
+the design question in the most useful way:
+
+> Stop asking "how do these thirteen careers serve a birthday party?" and start
+> asking "what does Roshan's birthday party actually need — and which careers
+> serve it?" Then keep, defer, repurpose, or *invent* accordingly.
+
+### How this resolves the party-function pass
+
+The taxonomy work (in flight) derives party needs from the guest's point of
+view and was already asked to flag (a) needs with no job covering them and
+(b) jobs whose contribution is weak or redundant. Under this direction both
+outputs become actionable rather than awkward:
+
+| Finding | Old response | New response |
+|---|---|---|
+| A job's party role is weak | argue it into the party | **repurpose** (structural, like the racer) or **defer to Chapter 5** |
+| A real party need has no job | ignore it, or stretch a job to cover it | **add a career** that owns it honestly |
+| Two jobs serve the same need | keep both, blur them | **keep the stronger**, defer or differentiate the other |
+
+### What this is likely to produce (to be confirmed by the taxonomy)
+
+- A **smaller, tighter Chapter 2 set** where every career has an unarguable
+  reason to exist, rather than thirteen of varying strength.
+- **One or two new careers** covering needs the current roster misses —
+  candidates that a four-year-old would instantly recognise as party jobs
+  (e.g. someone who *decorates the hall*, someone who *greets and seats the
+  guests*, someone who *wraps the presents*). These are cheap to specify but
+  do need art, so they are a budget decision.
+- **A deferral list for Chapter 5**, which arrives with the new characters and
+  environments that give those careers their proper context.
+
+### Cost note
+
+Removing or deferring a career costs nothing — the built content stays in the
+repo and stays playable; only its plot role changes. **Adding** a career is the
+expensive direction (painted world, stage, actor, rival set, widgets, voice),
+so any addition should be justified by a party need that no existing career
+can honestly meet, and should be weighed against simply re-skinning an
+existing career's framing.
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
@@ -364,10 +418,13 @@ as cozy content rather than as a checklist.
 6. **Room mapping (section 10):** confirm the placement, noting the racer is
    now proposed as the chapter's transition character (section 11) rather
    than a room-bound party job.
-7. **Which jobs get excused?** Once the party-function ranking lands, confirm
-   how many of the bottom-ranked careers become structural/excused rather
-   than forced contributions — i.e. how many slots the party table really
-   has.
+7. **Which jobs get excused, and does the roster change?** Once the
+   party-function ranking lands: confirm which careers stay as party
+   contributions, which become structural (racer = transition), and which
+   defer to Chapter 5's extended universe. Then rule on whether to ADD a
+   career for any uncovered party need — the only expensive option, since
+   additions need a painted world, stage, actor, rival set, widgets and
+   voice, whereas deferrals cost nothing.
 5. ~~Chapter-1 handoff~~ — **ANSWERED (see section 9):** chapter 1 ends with
    the giant dust bunny beaten and everyone going to bed; the party is named
    in the last lines before sleep. Days are the content gate, so the real
