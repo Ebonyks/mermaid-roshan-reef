@@ -559,10 +559,10 @@ line* — delivered right after the piece lands on the table.
 | 14 | "I go home with something in my hand." | Candy Maker |
 | 15 | "Somebody has to get me there." | **Racer** — *structural, not a table piece* (section 11) |
 
-**The elegant part:** needs 2, 3 and 4 — the place, the light, and the time —
-are the three things you *cannot make and put on a table*. They are owned by
-the three reformed bosses. The former enemies end up holding the party
-together, which is the chapter's thesis expressed as structure.
+**SUPERSEDED BY SECTION 16:** needs 2, 3 and 4 were assigned to the three
+floor bosses. That assignment was a retrofit, the bosses are cut, and those
+three "needs" turn out not to be real gaps — the Main Hall is the place, the
+lights are on, and the timing belongs to Roshan and her friends.
 
 ### 15.2 Two needs no job can meet — and that is the point
 
@@ -626,6 +626,81 @@ reformed boss. The only career without a table piece is the racer, and he has
 a better job (section 11). Chapter 2 therefore carries **twelve party
 contributions plus one structural career**, with each career's full
 cross-chapter arc (section 13) still to be written in one line apiece.
+
+---
+
+## 16. CUT THE THREE FLOOR BOSSES (owner ruling) — and my error in section 15
+
+**Ruling: the Curtain Dragon, Shadow Phantom and Midnight Maestro are cut.
+They serve no role in the greater narrative.**
+
+**I got this wrong in section 15 and the correction matters.** I wrote that the
+three bosses owning "the place, the light, and the time" was "the elegant
+part" — the former enemies holding the party together. That was not a finding;
+it was me **retrofitting a justification onto legacy content**, which is
+precisely the forced fit section 11 forbids. The tell was there in plain sight:
+their needs were the only ones I had to *invent a category* for. A real party
+need is felt by a guest ("I go home with something in my hand"); "someone must
+own the concept of time" is an adult abstraction I reverse-engineered.
+
+### Why cutting is correct
+
+- **They are artifacts of the abandoned hub.** They exist to gate *floors* of
+  an Opera House lobby. With the shows distributed through castle rooms
+  (section 10) there are no floors to gate, so their only structural job is
+  gone.
+- **They connect to nothing.** The chapter's antagonist is the Ember King and
+  his imps. The dragon, phantom and maestro belong to no chapter's plot, set
+  up nothing, and pay nothing off across chapters 2-5.
+- **They are the last live 3D content in the opera.** Every career show is 2D;
+  `kind == "boss"` is the *only* remaining path that builds the 3D proscenium,
+  avatar, camera and HUD. Cutting them retires that entire branch.
+
+### What cutting frees
+
+The largest simplification available in this system: the boss engine plus the
+3D theatre scaffolding it alone keeps alive (roughly the `_build_theatre`,
+`_build_avatar`, `_build_camera`, `_build_hud`, boss engine and dressing
+regions of `opera_act.gd`). Three acts removed, one whole rendering path
+retired, and `opera_act.gd` collapses toward the 2D router it effectively
+already is.
+
+### What it costs — the one real risk
+
+**Save compatibility.** `opera_stars` is a 16-bit mask where bit *i* is
+`ACTS[i]`, `ALL_STARS = (1 << 16) - 1`, and floor unlocks hardcode bits 4 and
+9. Removing three entries **renumbers every act after them**, so an existing
+save would credit the wrong shows. This is the "never break saves" rule, so it
+needs a deliberate migration: keep the mask's meaning stable by either
+retiring the three bits in place (leave gaps, so surviving acts keep their
+indices) or writing a one-time remap. **Retiring in place is the safer of the
+two and costs nothing at runtime** — the bits simply go unused and
+`ALL_STARS` becomes the mask of the thirteen live acts.
+
+Probe updates follow from that: `probe_opera.gd` asserts sixteen acts, one
+boss per floor, bosses at 5/10/15, and `opera_progress == 16`; those
+assertions describe the structure being removed and would be rewritten, not
+patched.
+
+### What needs rehoming (small)
+
+- **The five-candle rhyme** loses one leg — the Shadow Phantom's `"lanterns": 5`.
+  It survives intact and arguably cleaner: **five birthday candles (Ch2) → five
+  ember lanterns to relight (Ch4)**, a direct chapter-to-chapter rhyme with no
+  middleman.
+- **The three "needs"** they owned are not real gaps: the Main Hall *is* the
+  place, the lights are simply on, and the party's timing belongs to Roshan and
+  her friends. No replacement content is required.
+
+### Open question
+
+**Cut or defer?** Deleting the acts is free (section 12: built content can stay
+in the repo unused), and the dragon/phantom/maestro art and GLBs already exist.
+If the extended universe of Chapter 5 could use a theatrical dragon or a shy
+phantom as *characters* rather than boss fights, they cost nothing to leave on
+the shelf. My recommendation: **cut them from the chapter structure now**
+(remove the acts, retire the bits, delete the 3D boss path) and keep the art in
+the repo for later reuse as characters.
 
 ---
 
