@@ -37,6 +37,7 @@ renamed or deleted; this table is the index that makes them navigable._
 | `MEDALS.md` | 🟢 | Bronze/silver/gold rules and the full tier table. |
 | `STUFFIE_COMPANIONS.md` | 🟢 | The companion wing: roster, unlock, care loop, battles. |
 | `STUFFIE_PLAYROOM_RESCUE_GUIDE_2026-07-29.md` | 🟢 | The wordless stuffie tutorial (Baby Eagle rescue). |
+| `DAY_ONE_CASTLE_INTRO_PLAN_2026-08-03.md` | 🟢 | **The Day One plan** — arrival, the dirty castle, the per-room encounter table, purposes for the six stub rooms, the eight build phases, and the deactivation contract for the Codex art landed with it. Supersedes the Codex `dirty_castle_stage.gd` runtime shell (art and narrative kept, §2.3). |
 | `DUNGEON_DIFFICULTY_AUDIT_2026-07-18.md` | 🟢 | Age-4 difficulty read + the unbuilt lock-and-key design ([OW-16](04_OPEN_WORK.md#ow-16)). |
 | `ZELDA_GAMEPLAY_WORKORDER_2026-07-18.md` | 🟢 | Unbuilt verb/structure roadmap ([OW-17](04_OPEN_WORK.md#ow-17)). |
 | `FABLE_INTERACTION_HANDOFF_2026-07-25.md` | 🟢 | The interactable state machine and data contract. Long but current. |

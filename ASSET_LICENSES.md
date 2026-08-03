@@ -1863,3 +1863,62 @@ OpenAI built-in ImageGen natives and project-authored non-destructive derivative
 - `assets_src/imagegen/opera_codex_2026-08-02/native/world_painter_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
 - `assets_src/imagegen/opera_codex_2026-08-02/native/world_popstar_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
 - `assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+
+## Day One dirty-castle art brought forward from Codex (2026-08-03)
+
+Landed on `claude/day-one-castle-intro-u77vnf` from `codex/dirty-castle-2d`
+(runtime pack and cinematic frames) and `codex/day-one-opening-final` (arrival
+imp). **Every path in this section is DEACTIVATED**: no runtime script loads
+it, and both export presets exclude it from the APK until Day One activates
+(contract: `DAY_ONE_CASTLE_INTRO_PLAN_2026-08-03.md` §9). The already-shipped
+`assets/castle/dirty_cleanup_2d/critters/dust_bunnies/*` cards are the sole
+live exception and keep their existing entries above.
+
+- `assets/castle/dirty_cleanup_2d/{targets,tools,effects,progress,rooms}/**/*.png`
+  — 90 project-generated transparent 512×512 runtime sprites. The scene-bound
+  dirty room skins under `rooms/` are exact-render derivatives of already-
+  licensed project GLBs under `assets/castle/` and `assets/art35/castle/`,
+  rendered by `tools/render_dirty_castle_references.py` and modified only by
+  project-generated grime overlays in `tools/process_dirty_castle_2d.py`; the
+  grime-only targets, tools, effect and progress sprites retain their original
+  OpenAI built-in image-generation sources under project storybook direction.
+  Prompts: `assets_src/concepts/dirty_castle_cleanup_2026-07-22/PROMPTS.md`.
+  Project original, or derivative of project-original / previously licensed
+  project art; CC0-equivalent. Generated 2026-07-22, corrected 2026-07-23.
+- `assets/castle/dirty_cleanup_2d/manifest.json` — the pack's own generated
+  inventory record. Project original.
+- `assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_siblings.png`
+  — the sixth and last pose of the same project-original dust-bunny cast atlas
+  as the five cards already licensed above (happy sibling pair); OpenAI
+  built-in image generation under project storybook direction, transparent
+  512×512 RGBA, brought forward unchanged from `codex/dirty-castle-2d`. Needed
+  by Day One Phase 6 (the bunnies' basket home); excluded from export by exact
+  path until then, unlike its five live siblings. License: project original.
+- `assets/cinematics/dirty_castle/*.png` — 36 original project-generated
+  storybook cinematic frames made with OpenAI built-in image generation under
+  the owner's dirty-castle brief; existing Mermaid Roshan, Daddy Mermaid, Baby
+  Eagle and Pearl Castle art was used only as protected identity/environment
+  reference and was neither edited nor replaced; centred and normalised to
+  1024×576 by `tools/process_dirty_castle_2d.py`. Frame-by-frame narrative
+  and prompts: `assets_src/concepts/dirty_castle_cleanup_2026-07-22/STORYBOARD_36_PROMPTS.md`.
+  Project original derivative art for this personal game, CC0-equivalent
+  except that protected character identity remains owned by Mermaid Roshan
+  LLC. Generated 2026-07-22, expanded 2026-07-23.
+- `assets/sprites/story/arrival_imp.png` — one project-generated transparent
+  683×1024 imp cutout for the Day One arrival beat, from
+  `codex/day-one-opening-final`; OpenAI built-in image generation under
+  project storybook direction. Project original, CC0-equivalent.
+- `assets_src/concepts/dirty_castle_cleanup_2026-07-22/{PROMPTS.md,STORYBOARD_36_PROMPTS.md}`
+  — the pack's exact prompt and correction records. These were already cited by
+  the dust-bunny entries above but had never been landed on `dev`; bringing
+  them forward repairs that dangling provenance reference. Project original.
+- `assets_src/concepts/dirty_castle_cleanup_2026-07-22/processed/*.png` — the
+  16 alpha-processed atlas masters the runtime cutouts were sliced from,
+  including `dust_bunny_cast_atlas_alpha.png`, which `DUST_BUNNY_BOSS_2026-08-02.md`
+  cites as the boss-art search of record. Project-generated editable source
+  art; not exported. Generated 2026-07-22, corrected 2026-07-23.
+
+**Deliberately not landed:** the 121 MB of full-resolution generator output
+(`cinematic_raw/`, `raw/`, `scene_references/`) and the
+`audit/dirty_castle_2d_2026-07-22/` resemblance ledgers (`/audit/` is
+gitignored). They remain retrievable from `codex/dirty-castle-2d`.
