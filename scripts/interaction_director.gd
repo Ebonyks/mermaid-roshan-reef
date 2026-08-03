@@ -1,9 +1,12 @@
 class_name InteractionDirector
 extends RefCounted
 # Shared touch interaction language:
-# ambient -> discoverable glow -> focused acknowledgement -> approach -> ready
-# -> explicit second tap/action -> activation. Proximity advertises; it never
-# launches an activity in Hybrid mode.
+# ambient -> categorized discovery glow -> focused acknowledgement -> approach
+# -> ready -> explicit second tap/action -> activation. Gold/twinkle means a
+# local animation; deep blue/breath means an activity or state change.
+# Proximity advertises; it never launches an activity in Hybrid mode.
+
+const Affordance := preload("res://scripts/interaction_affordance.gd")
 
 const SCREEN_HIT_RADIUS := 104.0
 const DISCOVERY_DEFAULT := 30.0
@@ -52,7 +55,11 @@ func on_world_touch(screen_pos: Vector2) -> void:
 		m.touch_ui.clear_action_edge()
 	m.touch_focus_id = picked_id
 	m.touch_focus_ready = _distance_to(m.player.position, _position(picked)) <= float(picked.get("activation_radius", 5.0))
-	m._sparkle_burst(_position(picked) + Vector3(0.0, 1.0, 0.0), Color(1.0, 0.92, 0.48))
+	var affordance_kind: String = String(picked.get(
+		"affordance_kind", Affordance.INTERACTION))
+	m._sparkle_burst(
+		_position(picked) + Vector3(0.0, 1.0, 0.0),
+		Affordance.sparkle_color(affordance_kind))
 	if m.touch_focus_ready and was_focused:
 		_activate(picked)
 		return
@@ -164,14 +171,14 @@ func _distance_to(a: Vector3, b: Vector3) -> float:
 	return horizontal + vertical
 
 func _build_visuals() -> void:
-	m.touch_discovery_ring = _ring(Color(0.48, 1.0, 0.88, 0.50), 3.8)
+	m.touch_discovery_ring = _ring(3.8)
 	m.touch_discovery_ring.name = "TouchDiscoveryRing"
 	m.add_child(m.touch_discovery_ring)
-	m.touch_focus_ring = _ring(Color(1.0, 0.88, 0.36, 0.88), 4.8)
+	m.touch_focus_ring = _ring(4.8)
 	m.touch_focus_ring.name = "TouchFocusRing"
 	m.add_child(m.touch_focus_ring)
 
-func _ring(color: Color, radius: float) -> MeshInstance3D:
+func _ring(radius: float) -> MeshInstance3D:
 	var ring := MeshInstance3D.new()
 	var torus := TorusMesh.new()
 	torus.inner_radius = radius - 0.45
@@ -182,12 +189,16 @@ func _ring(color: Color, radius: float) -> MeshInstance3D:
 	var material := StandardMaterial3D.new()
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = color
+	material.albedo_color = Affordance.BLUE_IDLE
 	material.emission_enabled = true
-	material.emission = Color(color.r, color.g, color.b)
+	material.emission = Color(
+		Affordance.BLUE_IDLE.r,
+		Affordance.BLUE_IDLE.g,
+		Affordance.BLUE_IDLE.b)
 	material.emission_energy_multiplier = 0.75
 	material.cull_mode = BaseMaterial3D.CULL_DISABLED
 	ring.material_override = material
+	ring.set_meta("affordance_kind", Affordance.INTERACTION)
 	ring.visible = false
 	return ring
 
@@ -199,8 +210,21 @@ func _place_ring(ring: MeshInstance3D, item: Dictionary, focused: bool, delta: f
 		return
 	var position: Vector3 = _position(item)
 	ring.position = position + Vector3(0.0, float(item.get("ring_height", 0.35)), 0.0)
-	ring.rotation.y += delta * (1.8 if focused else 0.8)
+	var affordance_kind: String = Affordance.normalize(String(item.get(
+		"affordance_kind", Affordance.INTERACTION)))
+	var color: Color = Affordance.color(affordance_kind, focused)
+	var material: StandardMaterial3D = ring.material_override as StandardMaterial3D
+	if material != null:
+		material.albedo_color = color
+		material.emission = Color(color.r, color.g, color.b)
+		material.emission_energy_multiplier = 0.95 if focused else 0.55
+	ring.set_meta("affordance_kind", affordance_kind)
+	ring.rotation.y += delta * (
+		1.35 if affordance_kind == Affordance.ANIMATION \
+		else 0.72) * (1.35 if focused else 1.0)
 	var time_now: float = Time.get_ticks_msec() / 1000.0
-	var pulse: float = 1.0 + sin(time_now * (4.0 if focused else 2.2)) * (0.10 if focused else 0.05)
+	var pulse: float = 1.0 + sin(
+		time_now * Affordance.pulse_speed(affordance_kind, focused)
+	) * Affordance.pulse_amount(affordance_kind, focused)
 	ring.scale = Vector3.ONE * pulse
 	ring.visible = true
