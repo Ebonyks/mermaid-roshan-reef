@@ -1,0 +1,748 @@
+diff --git a/assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json b/assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json
+new file mode 100644
+index 00000000..f6ea5f51
+--- /dev/null
++++ b/assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json
+@@ -0,0 +1,742 @@
++{
++  "schema": "castle_object_animation_sheet_provenance_v1",
++  "created": "2026-08-01",
++  "scope": "Four generated kitchen pan 4x2 full-object interaction sheets.",
++  "design_policy": "Animation generation preserves the four approved source pan designs; new acting is limited to material response, depth articulation, and visible existing joints/handles.",
++  "delivery_policy": "No effect lines, sparkles, bubbles, water, background, frame duplication, interpolation, or static whole-object-rotation substitute.",
++  "assets": [
++    {
++      "id": "kitchen_pan_1",
++      "reference": {
++        "path": "assets/flats/castle/rooms/room_kitchen_item_pan_1.png",
++        "sha256": "19f5a340485c9d29ef5a99cf8e2926ba021d4b5e652baea7e5adee0c043f9914",
++        "role": "approved_identity_topology_style_reference"
++      },
++      "generation": {
++        "tool": "OpenAI built-in image_gen",
++        "mode": "reference-guided generation via one surfaced conversation image",
++        "attempt": 2,
++        "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc0ce-46f6-7183-bd3e-ed93f329c59f\\exec-2b6cd336-3a3d-4e04-bf7f-a08ccbd2f462.png",
++        "native_sha256": "e70aaeaa295bd561adaa4461374ca4c3491b52f68280cf9b13cc9429c0f33eb7",
++        "native_dimensions": [
++          1774,
++          887
++        ],
++        "prompt": "Use case: illustration-story\nAsset type: production 4x2 game animation sprite sheet for Mermaid Roshan castle kitchen\nInput image: the single supplied approved pan_1 cutout is the sole identity, topology, material, color, outline, and style reference. It depicts ONE hanging pan only.\nPrimary request: Create exactly eight unique chronological full-object animation states of this exact small shallow copper hanging pan, arranged as a strict 4 columns by 2 rows sheet, read left-to-right across the top row and then left-to-right across the bottom row.\nSilhouette lock: Every frame contains exactly one circular copper bowl, exactly one narrow vertical suspension neck, and exactly one small circular hook eye at the top. There is nothing behind, beside, nested with, or attached to the bowl. Do not interpret neighboring crop remnants as part of the pan.\nMotion acting: The top hook-eye center stays at the exact same normalized coordinate in all eight cells. Animate a believable struck-copper ringing response within the one pan itself, not a flat whole-pan rotation: the narrow neck bends and rebounds minutely below the fixed hook; the shallow circular rim alternately compresses into subtle perpendicular ovals; the hammered center dimples inward then springs forward; visible concavity and copper highlight change with the material flex.\nEight beats: (1) neutral front rest, (2) neck bows subtly left and rim begins to flex, (3) rim compresses horizontally and center moves inward, (4) vertical-oval rebound and center forward, (5) strongest gong-like dish flex, (6) smaller opposite recoil and neck rattle, (7) damped shallow dish flex, (8) almost settled with a tiny residual neck bend and a distinct rim shape.\nStyle/medium: preserve the approved polished pastel storybook cutout, warm copper/gold paint, navy-purple contour, soft painted highlights, child-readable silhouette.\nComposition/framing: each equal cell contains the entire one-pan silhouette at identical scale with generous padding; no parts cross cell boundaries; hook-eye center aligns perfectly across all cells.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key background only.\nConstraints: Preserve exact identity and single-piece topology; all 8 states visibly distinct; subtle plausible thin hammered-copper flex. No secondary bowl, no rear crescent, no side flap, no lid, no food, no utensils, no water, no fire, no wall rail, no room background, no text, labels, numbers, panel borders, grid lines, cast shadows, reflections, or floor.\nAvoid: simple whole-object rotation or bounce; extra or detached pieces; duplicated action frames; motion/effect lines; sparkles; bubbles; glow bursts; magenta anywhere in the pan; watermark.",
++        "prompt_sha256": "1e6cf9f542fd6240493c2831188ba5beca16ea847647d5d5775a15d78437c063",
++        "rejected_attempts": [
++          {
++            "attempt": 1,
++            "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc0ce-46f6-7183-bd3e-ed93f329c59f\\exec-b541d4f7-ba0b-4a2f-9d74-32d4f95733e4.png",
++            "sha256": "f2c3828d6fac9320b1238e61fe41846022029d82f57d5dc4db7de38ecd227215",
++            "reason": "Rejected: invented a second half-bowl/rear crescent, violating the approved single-pan topology."
++          }
++        ]
++      },
++      "chroma_master": {
++        "path": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_1_sheet_chroma.png",
++        "sha256": "8273354ce50b05c263719a36b5e6cad11e122fc4cdddeb79b9174b5d8e33bade",
++        "dimensions": [
++          1024,
++          512
++        ],
++        "mode": "RGB",
++        "background": "#FF00FF"
++      },
++      "runtime_sheet": {
++        "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
++        "sha256": "7870123de12b89ec5c55bdcad9170cbd37a600004a69e79d28d7697f681e9a14",
++        "dimensions": [
++          1024,
++          512
++        ],
++        "mode": "RGBA",
++        "grid": [
++          4,
++          2
++        ],
++        "frame_size": [
++          256,
++          256
++        ],
++        "timeline_frames": 8
++      },
++      "normalization": {
++        "operation": "Split generated 4x2 canvas into eight cells, uniformly resize each complete cell to 256x256, then integer-translate the whole cell so the enclosed top hook-eye center is (128,36).",
++        "subject_warping": false,
++        "frame_blending_or_interpolation": false,
++        "pivot_target_px": [
++          128,
++          36
++        ]
++      },
++      "alpha_extraction": {
++        "helper": "C:/Users/Peter/.codex/skills/.system/imagegen/scripts/remove_chroma_key.py",
++        "auto_key": "border",
++        "soft_matte": true,
++        "transparent_threshold": 12,
++        "opaque_threshold": 220,
++        "despill": true
++      },
++      "audit": {
++        "human_visual_review": "pass",
++        "topology_review": "pass",
++        "novel_item_specific_mechanics": "Hammered shallow bowl rings through alternating rim compression and center dimple/pop while its neck bends below the fixed hook.",
++        "effect_overlays_present": false,
++        "water_present": false,
++        "unique_frame_pixel_hashes": 8,
++        "minimum_pairwise_composited_mae": 7.115,
++        "runtime_hook_eye_centers_px": [
++          [
++            128.83,
++            36.0
++          ],
++          [
++            128.5,
++            36.0
++          ],
++          [
++            128.5,
++            36.0
++          ],
++          [
++            127.5,
++            36.0
++          ],
++          [
++            127.83,
++            36.0
++          ],
++          [
++            128.0,
++            37.0
++          ],
++          [
++            128.5,
++            36.0
++          ],
++          [
++            127.83,
++            36.0
++          ]
++        ],
++        "maximum_hook_center_deviation_px": 1.0,
++        "alpha_component_counts_per_frame": [
++          1,
++          1,
++          1,
++          1,
++          1,
++          1,
++          1,
++          1
++        ],
++        "alpha_bboxes_per_frame": [
++          [
++            70,
++            24,
++            190,
++            224
++          ],
++          [
++            80,
++            24,
++            203,
++            223
++          ],
++          [
++            59,
++            24,
++            206,
++            214
++          ],
++          [
++            75,
++            24,
++            177,
++            228
++          ],
++          [
++            65,
++            24,
++            190,
++            219
++          ],
++          [
++            64,
++            25,
++            183,
++            225
++          ],
++          [
++            63,
++            24,
++            195,
++            214
++          ],
++          [
++            63,
++            24,
++            188,
++            221
++          ]
++        ],
++        "transparent_corner_alpha": [
++          0,
++          0,
++          0,
++          0
++        ],
++        "status": "pass"
++      }
++    },
++    {
++      "id": "kitchen_pan_2",
++      "reference": {
++        "path": "assets/flats/castle/rooms/room_kitchen_item_pan_2.png",
++        "sha256": "3c3483f12ebdc42abe24a1fb5b832207f88e839f027004342acb2d27920cbf90",
++        "role": "approved_identity_topology_style_reference"
++      },
++      "generation": {
++        "tool": "OpenAI built-in image_gen",
++        "mode": "reference-guided generation via one surfaced conversation image",
++        "attempt": 2,
++        "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc0ce-46f6-7183-bd3e-ed93f329c59f\\exec-89c279ea-6df0-43fe-a690-3d5c69acf44f.png",
++        "native_sha256": "e8b447a03166c95a26bd096e8e64cd5d9e717becd3380e4d53d7b1eaf0e9fcde",
++        "native_dimensions": [
++          1774,
++          887
++        ],
++        "prompt": "Use case: illustration-story\nAsset type: production 4x2 game animation sprite sheet for Mermaid Roshan castle kitchen\nInput image: the single supplied approved pan_2 cutout is the sole identity, topology, material, color, outline, and style reference. It is ONE intact round copper pan with a fully closed 360-degree rim, one short neck, and one top hanging loop.\nPrimary request: Create exactly eight unique chronological full-object animation states of this exact intact pan, arranged as a strict 4 columns by 2 rows sheet, read top row left-to-right then bottom row left-to-right.\nAbsolute topology lock: The bowl/rim is a complete continuous closed oval in every frame. Never create a notch, opening, missing rim segment, scoop mouth, pouring spout, side flap, second bowl, or rear crescent. The outer silhouette remains one intact pan.\nNovel mechanical action: The top-loop center is fixed at the exact same normalized coordinate in all eight cells. Animate the intact bowl tipping forward and back in depth around its neck attachment while the short neck compresses and re-seats. Show real depth through continuous-rim foreshortening, changing visible inner-wall depth, and shifting hammered cooking-surface highlight?not by rotating a flat cutout.\nEight beats: (1) neutral circular rest, (2) joint starts compressing and intact rim begins a forward tilt, (3) full unbroken rim widens into a shallow ellipse as interior opens, (4) deepest forward tip with neck loaded, (5) intact rim recoils behind neutral into a taller ellipse, (6) opposite joint bend and re-seat, (7) smaller damped forward tip with closed rim, (8) near-rest closed rim with a tiny residual joint offset.\nStyle/medium: preserve approved polished pastel storybook cutout, warm orange-copper/gold hammered surface, navy-purple contour, soft painted highlights, child-readable silhouette.\nComposition/framing: each equal cell contains exactly one complete intact pan at consistent scale with generous padding; no part crosses a cell boundary; top-loop center aligns across all cells.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key background only.\nConstraints: one continuous bowl, one neck, one top loop; 8 visibly distinct states; preserve exact approved design. No spout/notch/open side, lid, food, utensil, liquid, fire, wall rail, room, text, labels, numbers, borders, grid, shadows, floor, or reflection.\nAvoid: simple flat rotation/bounce; duplicated frames; detached/extra parts; effect lines; sparkles; bubbles; glow; magenta in pan; watermark.",
++        "prompt_sha256": "fda9d64b6ec88cf65f50c45807a0c6b58275d54230c97ab8567a58e38f86018e",
++        "rejected_attempts": [
++          {
++            "attempt": 1,
++            "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc0ce-46f6-7183-bd3e-ed93f329c59f\\exec-f8fc4954-c4d2-47af-b9af-d43728cae93c.png",
++            "sha256": "c04fa45ce0898c13d17e15ac732a1dce045f972a454a77ef1fd3351a11a6c3df",
++            "reason": "Rejected: opened the continuous rim into a notched scoop/spout in several states."
++          }
++        ]
++      },
++      "chroma_master": {
++        "path": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_2_sheet_chroma.png",
++        "sha256": "b5dfe85fa584525c16de65a440b9843a7c17ef3a9efb1236ad66795ff02b70cd",
++        "dimensions": [
++          1024,
++          512
++        ],
++        "mode": "RGB",
++        "background": "#FF00FF"
++      },
++      "runtime_sheet": {
++        "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
++        "sha256": "e78950d766e9bc696327bfb63a22ce6acc078adb5dfea6dc052bbb7f5687f6ff",
++        "dimensions": [
++          1024,
++          512
++        ],
++        "mode": "RGBA",
++        "grid": [
++          4,
++          2
++        ],
++        "frame_size": [
++          256,
++          256
++        ],
++        "timeline_frames": 8
++      },
++      "normalization": {
++        "operation": "Split generated 4x2 canvas into eight cells, uniformly resize each complete cell to 256x256, then integer-translate the whole cell so the enclosed top hook-eye center is (128,36).",
++        "subject_warping": false,
++        "frame_blending_or_interpolation": false,
++        "pivot_target_px": [
++          128,
++          36
++        ]
++      },
++      "alpha_extraction": {
++        "helper": "C:/Users/Peter/.codex/skills/.system/imagegen/scripts/remove_chroma_key.py",
++        "auto_key": "border",
++        "soft_matte": true,
++        "transparent_threshold": 12,
++        "opaque_threshold": 220,
++        "despill": true
++      },
++      "audit": {
++        "human_visual_review": "pass",
++        "topology_review": "pass",
++        "novel_item_specific_mechanics": "Closed-rim bowl tips forward/back in depth on the neck joint, changing foreshortening and inner-wall visibility.",
++        "effect_overlays_present": false,
++        "water_present": false,
++        "unique_frame_pixel_hashes": 8,
++        "minimum_pairwise_composited_mae": 2.787,
++        "runtime_hook_eye_centers_px": [
++          [
++            127.5,
++            36.45
++          ],
++          [
++            128.38,
++            36.59
++          ],
++          [
++            128.04,
++            36.35
++          ],
++          [
++            128.33,
++            36.21
++          ],
++          [
++            128.3,
++            35.95
++          ],
++          [
++            127.57,
++            35.55
++          ],
++          [
++            128.38,
++            35.88
++          ],
++          [
++            128.4,
++            35.86
++          ]
++        ],
++        "maximum_hook_center_deviation_px": 0.702,
++        "alpha_component_counts_per_frame": [
++          1,
++          1,
++          1,
++          1,
++          1,
++          1,
++          1,
++          1
++        ],
++        "alpha_bboxes_per_frame": [
++          [
++            72,
++            13,
++            184,
++            223
++          ],
++          [
++            73,
++            13,
++            187,
++            219
++          ],
++          [
++            72,
++            13,
++            190,
++            225
++          ],
++          [
++            70,
++            12,
++            175,
++            231
++          ],
++          [
++            80,
++            12,
++            168,
++            227
++          ],
++          [
++            75,
++            12,
++            182,
++            224
++          ],
++          [
++            72,
++            12,
++            191,
++            220
++          ],
++          [
++            72,
++            12,
++            184,
++            224
++          ]
++        ],
++        "transparent_corner_alpha": [
++          0,
++          0,
++          0,
++          0
++        ],
++        "status": "pass"
++      }
++    },
++    {
++      "id": "kitchen_pan_3",
++      "reference": {
++        "path": "assets/flats/castle/rooms/room_kitchen_item_pan_3.png",
++        "sha256": "80ec47cc303a05833f585589f3a1ebdeec0627c4e3270fb5d5f3f622af46e2a8",
++        "role": "approved_identity_topology_style_reference"
++      },
++      "generation": {
++        "tool": "OpenAI built-in image_gen",
++        "mode": "reference-guided generation via one surfaced conversation image",
++        "attempt": 1,
++        "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc0ce-46f6-7183-bd3e-ed93f329c59f\\exec-1c354594-3b8c-42fa-9788-fd362da63337.png",
++        "native_sha256": "27c13f117a238ed7016a2a355318a0828a1e44fc43c40c70ac6627c66dbb96e5",
++        "native_dimensions": [
++          1774,
++          887
++        ],
++        "prompt": "Use case: illustration-story\nAsset type: production 4x2 game animation sprite sheet for Mermaid Roshan castle kitchen\nInput image: the single supplied approved pan_3 cutout is the sole identity, topology, material, color, outline, and style reference. It is one intact round hammered-copper hanging pan with a closed rim, short neck, and top hook eye.\nPrimary request: Create exactly eight unique chronological full-object animation states of this exact pan, in a strict 4 columns by 2 rows sheet, read top row left-to-right then bottom row left-to-right.\nNovel mechanical action: Keep the outer hanging silhouette mostly steady and keep the top hook-eye center fixed at exactly the same normalized coordinate in every cell. Animate an authentic thin-copper oil-can/ringing flex inside the pan: the visible hammered central cooking surface dimples inward, pops outward, and carries a small off-center flex wave around the interior while the continuous outer rim gives a subtle sympathetic rattle. The moving concavity and hammered highlight must clearly belong to the pan surface itself. This is not a flat rotation, swing, bounce, or overlaid effect.\nEight beats: (1) neutral shallow concave center, (2) small upper-left inward dimple begins, (3) dimple deepens and shifts across the center, (4) center pops outward with highlight and concavity reversal, (5) flex wave reaches lower-right interior while rim subtly compresses, (6) smaller opposite center pop, (7) damped off-center ripple in the metal surface, (8) nearly settled but still a distinct shallow center dimple.\nStyle/medium: preserve approved polished pastel storybook cutout, warm orange copper/gold hammered paint, navy-purple contour, soft illustrated highlights, child-readable silhouette.\nComposition/framing: each equal cell contains exactly one complete pan at consistent scale with generous padding; no parts cross cells; hook-eye center aligns perfectly.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key background only.\nConstraints: preserve the exact intact pan design, one continuous closed bowl/rim, one neck, one hook eye; 8 genuinely distinct material states. No second pan, rear crescent, side flap, missing rim, spout, lid, food, utensils, liquid, fire, rail, room, text, labels, numbers, borders, grid, cast shadow, floor, or reflection.\nAvoid: whole-object rotation/bounce; duplicate frames; detached pieces; drawn ripple/motion/effect lines; sparkles; bubbles; glow; magenta in pan; watermark.",
++        "prompt_sha256": "996adc664aecc1186e7e302cffa9fe82249ab33132a8f61d79839623852384d1",
++        "rejected_attempts": []
++      },
++      "chroma_master": {
++        "path": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_3_sheet_chroma.png",
++        "sha256": "0f2554f2d185dc8512919bf893a33489c44ec5e859d43ed3de9e5ce6d657665b",
++        "dimensions": [
++          1024,
++          512
++        ],
++        "mode": "RGB",
++        "background": "#FF00FF"
++      },
++      "runtime_sheet": {
++        "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
++        "sha256": "94de5afd08a273e29d72d9e84cd62158bd80a69c1fc219464aadcdd7de4e85e7",
++        "dimensions": [
++          1024,
++          512
++        ],
++        "mode": "RGBA",
++        "grid": [
++          4,
++          2
++        ],
++        "frame_size": [
++          256,
++          256
++        ],
++        "timeline_frames": 8
++      },
++      "normalization": {
++        "operation": "Split generated 4x2 canvas into eight cells, uniformly resize each complete cell to 256x256, then integer-translate the whole cell so the enclosed top hook-eye center is (128,36).",
++        "subject_warping": false,
++        "frame_blending_or_interpolation": false,
++        "pivot_target_px": [
++          128,
++          36
++        ]
++      },
++      "alpha_extraction": {
++        "helper": "C:/Users/Peter/.codex/skills/.system/imagegen/scripts/remove_chroma_key.py",
++        "auto_key": "border",
++        "soft_matte": true,
++        "transparent_threshold": 12,
++        "opaque_threshold": 220,
++        "despill": true
++      },
++      "audit": {
++        "human_visual_review": "pass",
++        "topology_review": "pass",
++        "novel_item_specific_mechanics": "Hammered central cooking surface performs an oil-can flex wave and center pop inside a mostly steady outer rim.",
++        "effect_overlays_present": false,
++        "water_present": false,
++        "unique_frame_pixel_hashes": 8,
++        "minimum_pairwise_composited_mae": 4.601,
++        "runtime_hook_eye_centers_px": [
++          [
++            127.96,
++            36.21
++          ],
++          [
++            127.92,
++            36.24
++          ],
++          [
++            128.26,
++            36.19
++          ],
++          [
++            128.46,
++            36.18
++          ],
++          [
++            127.7,
++            36.34
++          ],
++          [
++            128.03,
++            36.35
++          ],
++          [
++            128.37,
++            36.39
++          ],
++          [
++            127.59,
++            36.34
++          ]
++        ],
++        "maximum_hook_center_deviation_px": 0.538,
++        "alpha_component_counts_per_frame": [
++          1,
++          1,
++          1,
++          1,
++          1,
++          1,
++          1,
++          1
++        ],
++        "alpha_bboxes_per_frame": [
++          [
++            47,
++            20,
++            213,
++            230
++          ],
++          [
++            47,
++            20,
++            212,
++            230
++          ],
++          [
++            48,
++            20,
++            214,
++            230
++          ],
++          [
++            48,
++            20,
++            214,
++            230
++          ],
++          [
++            47,
++            20,
++            213,
++            231
++          ],
++          [
++            47,
++            20,
++            213,
++            231
++          ],
++          [
++            48,
++            20,
++            214,
++            231
++          ],
++          [
++            47,
++            20,
++            213,
++            231
++          ]
++        ],
++        "transparent_corner_alpha": [
++          0,
++          0,
++          0,
++          0
++        ],
++        "status": "pass"
++      }
++    },
++    {
++      "id": "kitchen_pan_4",
++      "reference": {
++        "path": "assets/flats/castle/rooms/room_kitchen_item_pan_4.png",
++        "sha256": "55dde8889763975219cb39322e77c264665b89957ed672ff79d9cd35547776c9",
++        "role": "approved_identity_topology_style_reference"
++      },
++      "generation": {
++        "tool": "OpenAI built-in image_gen",
++        "mode": "reference-guided generation via one surfaced conversation image",
++        "attempt": 2,
++        "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc0ce-46f6-7183-bd3e-ed93f329c59f\\exec-a1073e82-b009-4fec-8156-f28742d47121.png",
++        "native_sha256": "a5150ca67554dc5e4a483f8ca6b8bf95e8d7e4f09d3e024a5657c0414e9ae227",
++        "native_dimensions": [
++          1774,
++          887
++        ],
++        "prompt": "Use case: illustration-story\nAsset type: production 4x2 game animation sprite sheet for Mermaid Roshan castle kitchen\nInput image: the single supplied approved pan_4 cutout is the sole identity, topology, material, color, outline, and style reference. It is one small deep round copper pan hanging from one unusually long thin vertical handle with an OPEN circular hanging eye/hook at the top.\nPrimary request: Create exactly eight unique chronological full-object animation states of this exact long-handled little pan, arranged as a strict 4 columns by 2 rows sheet, read top row left-to-right then bottom row left-to-right.\nAbsolute top lock: Every frame must show the same clearly open circular copper hanging eye/ring at the very top?an open hole through the ring is visible. Never replace it with a ball, bead, solid knob, cap, or closed ornament. The center of that open ring remains fixed at the exact same normalized coordinate across all cells.\nNovel mechanical action: Below the fixed open ring, animate the actual long thin handle like a lightly sprung copper strip: bow left, recoil through straight, bow right, damp. At the lower handle-to-bowl connection, the little bowl pitches forward and back in depth, so its continuous closed circular rim changes foreshortening and the inner concavity becomes more or less visible. This is real handle flex plus bowl pitch, not a flat whole-object swing or overlay.\nEight beats: (1) neutral straight handle/front bowl, (2) handle bows left and bowl lags, (3) strongest left S-curve with bowl pitched forward, (4) snap through straight while bowl remains forward, (5) handle bows right and bowl pitches back into a narrower ellipse, (6) smaller opposite recoil, (7) damped curve and shallow forward pitch, (8) near-rest with tiny residual bend and distinct bowl angle.\nStyle/medium: preserve approved polished pastel storybook cutout, warm copper/gold hammered paint, navy-purple contour, soft highlights, child-readable silhouette.\nComposition/framing: each equal cell contains exactly one complete open ring, long handle, and one closed-rim bowl at consistent scale with generous padding; no part crosses cells; ring center aligns.\nScene/backdrop: perfectly flat uniform solid #FF00FF chroma-key background only.\nConstraints: exact one-piece identity; one open top ring, one long handle, one small bowl; continuous closed bowl rim; 8 distinct states. No ball top, solid knob, second bowl, lid, food, utensils, water, fire, wall rail, room, text, labels, numbers, borders, grid, cast shadow, floor, or reflection.\nAvoid: simple rigid whole-object rotation/bounce; duplicates; detached parts; motion/effect lines; sparkles; bubbles; glow; magenta in pan; watermark.",
++        "prompt_sha256": "415bcdd8a7c2839e5c9af1af9beef79e2c3bf906d9fbe77f09ec9cb620a43867",
++        "rejected_attempts": [
++          {
++            "attempt": 1,
++            "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc0ce-46f6-7183-bd3e-ed93f329c59f\\exec-94c5dce7-458d-444f-a682-7426cf923c8f.png",
++            "sha256": "83b611bff592b052b47dc0b4a5f88ccf51517bd602ed4a3266e32c4d063ad84e",
++            "reason": "Rejected: replaced the approved open top hook eye with a solid ball knob."
++          }
++        ]
++      },
++      "chroma_master": {
++        "path": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_4_sheet_chroma.png",
++        "sha256": "c5a7573323c7f8b37a797fe179c8309c02422d1dfe208d7a3f482464680063e4",
++        "dimensions": [
++          1024,
++          512
++        ],
++        "mode": "RGB",
++        "background": "#FF00FF"
++      },
++      "runtime_sheet": {
++        "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
++        "sha256": "1c7ffc85f981bfd873a261bcc65776c4842e313f8b96b08220fcc01aef962de9",
++        "dimensions": [
++          1024,
++          512
++        ],
++        "mode": "RGBA",
++        "grid": [
++          4,
++          2
++        ],
++        "frame_size": [
++          256,
++          256
++        ],
++        "timeline_frames": 8
++      },
++      "normalization": {
++        "operation": "Split generated 4x2 canvas into eight cells, uniformly resize each complete cell to 256x256, then integer-translate the whole cell so the enclosed top hook-eye center is (128,36).",
++        "subject_warping": false,
++        "frame_blending_or_interpolation": false,
++        "pivot_target_px": [
++          128,
++          36
++        ]
++      },
++      "alpha_extraction": {
++        "helper": "C:/Users/Peter/.codex/skills/.system/imagegen/scripts/remove_chroma_key.py",
++        "auto_key": "border",
++        "soft_matte": true,
++        "transparent_threshold": 12,
++        "opaque_threshold": 220,
++        "despill": true
++      },
++      "audit": {
++        "human_visual_review": "pass",
++        "topology_review": "pass",
++        "novel_item_specific_mechanics": "Long copper handle bows like a spring below the fixed open eye while the small closed-rim bowl pitches in depth.",
++        "effect_overlays_present": false,
++        "water_present": false,
++        "unique_frame_pixel_hashes": 8,
++        "minimum_pairwise_composited_mae": 5.615,
++        "runtime_hook_eye_centers_px": [
++          [
++            128.03,
++            36.44
++          ],
++          [
++            127.87,
++            36.16
++          ],
++          [
++            127.88,
++            36.36
++          ],
++          [
++            128.19,
++            36.19
++          ],
++          [
++            128.0,
++            35.62
++          ],
++          [
++            127.97,
++            35.56
++          ],
++          [
++            128.18,
++            35.61
++          ],
++          [
++            128.39,
++            35.57
++          ]
++        ],
++        "maximum_hook_center_deviation_px": 0.581,
++        "alpha_component_counts_per_frame": [
++          1,
++          1,
++          1,
++          1,
++          1,
++          1,
++          1,
++          1
++        ],
++        "alpha_bboxes_per_frame": [
++          [
++            94,
++            24,
++            163,
++            250
++          ],
++          [
++            102,
++            24,
++            164,
++            252
++          ],
++          [
++            95,
++            24,
++            169,
++            249
++          ],
++          [
++            100,
++            24,
++            168,
++            248
++          ],
++          [
++            98,
++            24,
++            146,
++            243
++          ],
++          [
++            93,
++            23,
++            151,
++            243
++          ],
++          [
++            94,
++            24,
++            158,
++            242
++          ],
++          [
++            100,
++            24,
++            164,
++            243
++          ]
++        ],
++        "transparent_corner_alpha": [
++          0,
++          0,
++          0,
++          0
++        ],
++        "status": "pass"
++      }
++    }
++  ]
++}
