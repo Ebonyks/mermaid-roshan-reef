@@ -9,13 +9,13 @@
     "v2_active": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
     "v2_active_sha256": "cfb23d53a2c64d88587f3ae84fef6a3cd5b6819bdd20357ff0358e1e67d9b303",
     "v3_specs": "tools/castle_interaction_v3_specs.py",
-    "v3_specs_sha256": "796a5ee0a6ed64f0e090ad0955749622c0d5983e33fa2fa31519ed584019ed87",
+    "v3_specs_sha256": "f984b6a7ee757747866bbb31bed6ffaf67ccf0b776220ed07cff6fb95a3654ec",
     "v3_source_preparation": "assets_src/imagegen/castle_object_animations_v3/castle_interactions_v3_source_preparation.json",
     "v3_source_preparation_sha256": "d09f6ea87f3a876080ade069e2813fcac00cf821937ed476f34554c3dc304e0e",
     "v3_normalization": "assets/flats/castle/interactions_v3/castle_interactions_v3_normalization.json",
     "v3_normalization_sha256": "a43eccc154319206ba69a3bb0c5e5a393295f35084e69228f5d181fb3af6fc5e",
     "fixture_runtime": "scripts/arena/castle_fixture_rigs.gd",
-    "fixture_runtime_sha256": "77a5db36c1d2cd553f17c48928f8814d36e0dfb831eb046e5b02a74e4e1b7d15",
+    "fixture_runtime_sha256": "8be624e8acb3d2d52ff4cd75c43166f7cfbc7606b520955ea5fc08d30a9356eb",
     "room_runtime": "scripts/arena/castle_rooms_25d.gd",
     "room_runtime_sha256": "81abcd5d957f24c479c77c3a5f2b69643b9287a6573b8b792230cc33432f0d53"
   },
@@ -8615,20 +8615,20 @@
       ],
       "name": "Royal chest bench",
       "placement_position": [
-        2300,
+        2302.5,
         530
       ],
       "placement_position_mode": "center",
       "placement_size": [
-        185,
+        180,
         135
       ],
       "hotspot_size": [
-        185,
+        180,
         135
       ],
       "hotspot_offset": [
-        -92.5,
+        -90.0,
         -67.5
       ],
       "z": 1.18,
@@ -8754,7 +8754,7 @@
       "anchor_mode": "bottom_center",
       "runtime_scale": 0.957446809,
       "runtime_center_offset": [
-        92.5,
+        90.0,
         67.5
       ],
       "hall_center_offset": [
@@ -8764,7 +8764,7 @@
       "runtime_mapping": {
         "runtime_scale": 0.957446809,
         "runtime_center_offset": [
-          92.5,
+          90.0,
           67.5
         ],
         "hall_center_offset": [
@@ -8836,9 +8836,9 @@
           ]
         ],
         "placement_limits": [
-          -92.5,
+          -90.0,
           -67.5,
-          92.5,
+          90.0,
           67.5
         ],
         "fit_method": "uniform_scale_all_frame_alpha_extents_about_fixed_anchor"

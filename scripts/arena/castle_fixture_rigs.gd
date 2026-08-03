@@ -225,8 +225,12 @@ func apply_frame(interaction_key: String, timeline_step: int,
 		var layer_amount := clampf(
 			(amount - flow_start) / maxf(0.001, 1.0 - flow_start), 0.0, 1.0)
 		var active_frames: Array = water.get("active_frames", []) as Array
-		if not active_frames.is_empty() \
-				and not active_frames.has(water_frame_index):
+		var active_frame_matches: bool = active_frames.is_empty()
+		for active_frame_value: Variant in active_frames:
+			if int(active_frame_value) == water_frame_index:
+				active_frame_matches = true
+				break
+		if not active_frame_matches:
 			layer_amount = 0.0
 		if role == "ripple":
 			layer_amount = minf(1.0, layer_amount * 1.15)

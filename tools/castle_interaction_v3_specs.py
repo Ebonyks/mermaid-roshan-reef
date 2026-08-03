@@ -147,8 +147,8 @@ ADDITIONS: list[dict[str, Any]] = [
       (170, 150), "unfurl_and_fold_fern_fronds",
       "assets/audio/castle/craft_brush.ogg", 1.15, duration=0.115,
       color=(0.48, 0.90, 0.70)),
-    s("main_hall", "chest_bench", "Royal chest bench", (2300, 530),
-      (185, 135), "unlock_open_and_close_bench",
+    s("main_hall", "chest_bench", "Royal chest bench", (2302.5, 530),
+      (180, 135), "unlock_open_and_close_bench",
       "assets/audio/castle/oven_door.ogg", 1.18, duration=0.15,
       color=(0.88, 0.72, 1.0)),
 

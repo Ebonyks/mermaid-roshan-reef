@@ -284,7 +284,9 @@ func _v3_addition_visual_contract(assets: Array) -> bool:
 			"per_frame_alpha_qa", []) as Array
 		if int(asset.get("authored_frame_count", 0)) != 8 \
 				or int(asset.get("unique_frame_count", 0)) != 8 \
-				or grid != [4, 2] \
+				or grid.size() != 2 \
+				or int(grid[0]) != 4 \
+				or int(grid[1]) != 2 \
 				or frame_hashes.size() != 8 \
 				or not bool(asset.get("transparent_border", false)) \
 				or String(asset.get("normalized_use_review", "")) \
@@ -795,7 +797,12 @@ func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 				if not active_frames.is_empty():
 					var water_atlas_frame := int(sprite.get_meta(
 						"fixture_water_atlas_frame", -1))
-					if active_frames.has(water_atlas_frame):
+					var water_frame_is_active := false
+					for active_frame_value: Variant in active_frames:
+						if int(active_frame_value) == water_atlas_frame:
+							water_frame_is_active = true
+							break
+					if water_frame_is_active:
 						dynamic_water_frame_seen[water_index] = true
 					else:
 						dynamic_water_outside_active_frame_seen = true
