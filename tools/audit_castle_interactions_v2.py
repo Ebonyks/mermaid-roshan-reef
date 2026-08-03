@@ -42,17 +42,16 @@ AUDIO_GENERATOR = ROOT / "tools/build_castle_interaction_audio.py"
 LICENSES = ROOT / "ASSET_LICENSES.md"
 
 EXPECTED_ASSETS = 33
-EXPECTED_INSTANCES = 38
+EXPECTED_ACTIVE_ASSETS = 29
+EXPECTED_INSTANCES = 34
+EXPECTED_JOLT = 6
+RETIRED_V2_ROOMS = {"mermaid_pool"}
 EXPECTED_WATER = {
     "kitchen_sink",
     "bubble_bath_sink",
     "bubble_bath_bathtub",
     "bubble_bath_toilet",
     "bubble_bath_rubber_duck",
-    "mermaid_pool_flower_float",
-    "mermaid_pool_star_float",
-    "mermaid_pool_waterfall",
-    "mermaid_pool_bubble_fountain",
 }
 EXPECTED_HIDDEN_SURFACES = {
     "kitchen_fridge",
@@ -697,7 +696,7 @@ def audit_sheet(
         errors.append(f"{asset_id}: chroma master hash mismatch")
     if not provenance_path.is_file():
         errors.append(f"{asset_id}: provenance manifest path is missing")
-    elif sha256(provenance_path) != asset.get("provenance_manifest_sha256"):
+    elif repository_text_sha256(provenance_path) != asset.get("provenance_manifest_sha256"):
         errors.append(f"{asset_id}: provenance manifest hash mismatch")
     if max(Image.open(path).size) > 1024:
         errors.append(f"{asset_id}: runtime sheet exceeds 1024 px")
@@ -942,7 +941,10 @@ def audit() -> int:
         for entry in v1.get("assets", [])
         if isinstance(entry, dict)
     }
-    expected_ids = set(v1_assets)
+    expected_ids = {
+        asset_id for asset_id, entry in v1_assets.items()
+        if str(entry.get("room", "")) not in RETIRED_V2_ROOMS
+    }
     assets = manifest.get("assets", [])
     asset_map = {
         str(entry.get("id", "")): entry
@@ -955,10 +957,10 @@ def audit() -> int:
         if isinstance(entry, dict)
     }
     provenance = provenance_index(errors)
-    if set(provenance) != expected_ids:
-        errors.append("ImageGen provenance roster differs from the 33 approved interactions")
+    if not expected_ids.issubset(set(provenance)):
+        errors.append("ImageGen provenance is missing an active v2 interaction")
 
-    if normalization.get("tool_sha256") != sha256(NORMALIZER):
+    if normalization.get("tool_sha256") != repository_text_sha256(NORMALIZER):
         errors.append("normalization report tool hash is stale")
     if int(normalization.get("schema_version", 0)) != 2:
         errors.append("normalization report schema is not 2")
@@ -966,25 +968,28 @@ def audit() -> int:
         errors.append("normalization report does not prove transactional delivery")
     if not bool(normalization.get("one_time_guard", False)):
         errors.append("normalization report does not prove rerun protection")
-    if set(normalized_map) != expected_ids:
-        errors.append("normalization roster differs from the 33 approved interactions")
+    if not expected_ids.issubset(set(normalized_map)):
+        errors.append("normalization roster is missing an active v2 interaction")
     if int(manifest.get("schema_version", 0)) != 2:
         errors.append("manifest schema is not v2")
-    if set(asset_map) != expected_ids or len(asset_map) != EXPECTED_ASSETS:
-        errors.append("v2 asset roster differs from the 33 approved interactions")
+    if set(asset_map) != expected_ids or len(asset_map) != EXPECTED_ACTIVE_ASSETS:
+        errors.append("active v2 asset roster differs from the room contract")
+    retired_rooms = manifest.get("retired_rooms", {})
+    if set(retired_rooms) != RETIRED_V2_ROOMS:
+        errors.append("v2 retired-room roster does not preserve Mermaid Pool")
     instance_count = sum(
         len(entry.get("instances", [])) for entry in asset_map.values()
     )
     if instance_count != EXPECTED_INSTANCES:
-        errors.append(f"physical instance count is {instance_count}, expected 38")
-    average = instance_count / 8.0
+        errors.append(f"physical instance count is {instance_count}, expected {EXPECTED_INSTANCES}")
+    average = instance_count / float(8 - len(RETIRED_V2_ROOMS))
     if not 4.0 <= average <= 6.0:
         errors.append(f"room interaction average {average:.2f} is outside 4–6")
     summary = manifest.get("summary", {})
-    if int(summary.get("generated_sheet_count", 0)) != EXPECTED_ASSETS:
+    if int(summary.get("generated_sheet_count", 0)) != EXPECTED_ACTIVE_ASSETS:
         errors.append("not every interaction uses a generated full-object sheet")
-    if int(summary.get("jolt_component_count", 0)) != 8:
-        errors.append("Jolt component count is not the approved capped set of 8")
+    if int(summary.get("jolt_component_count", 0)) != EXPECTED_JOLT:
+        errors.append("Jolt component count is not the active capped set")
     if int(summary.get("water_interaction_count", 0)) != len(EXPECTED_WATER):
         errors.append("water interaction count does not match the measured roster")
 
@@ -1108,7 +1113,9 @@ def audit() -> int:
     for path_key, hash_key, resource_path in expected_water_resources:
         if contract.get(path_key) != resource_path.relative_to(ROOT).as_posix():
             errors.append(f"water contract path is wrong for {path_key}")
-        if contract.get(hash_key) != sha256(resource_path):
+        resource_hash = (repository_text_sha256(resource_path)
+                         if resource_path == SHADER else sha256(resource_path))
+        if contract.get(hash_key) != resource_hash:
             errors.append(f"water contract hash is stale for {path_key}")
     if contract.get("water_mask_source") != (
         "runtime_cached_exact_polygon_image_texture"
@@ -1170,11 +1177,7 @@ def audit() -> int:
         ):
             errors.append(f"{asset_id}: fill mask is no longer inside its basin")
 
-    for ripple_id in (
-        "bubble_bath_rubber_duck",
-        "mermaid_pool_flower_float",
-        "mermaid_pool_star_float",
-    ):
+    for ripple_id in ("bubble_bath_rubber_duck",):
         ripples = [
             layer for layer in asset_map.get(ripple_id, {}).get("water_layers", [])
             if layer.get("role") == "ripple"
@@ -1196,26 +1199,6 @@ def audit() -> int:
             or float(radius[0]) > 0.20
         ):
             errors.append("toilet vortex is not centered inside the bowl")
-    waterfall = asset_map.get("mermaid_pool_waterfall", {})
-    waterfall_layers = waterfall.get("water_layers", [])
-    if sum(
-        layer.get("role") == "waterfall_band" and bool(layer.get("stream"))
-        for layer in waterfall_layers
-    ) != 5:
-        errors.append("waterfall lacks five progressive masked stream bands")
-    fountain = asset_map.get("mermaid_pool_bubble_fountain", {})
-    emitters = [
-        layer
-        for layer in fountain.get("water_layers", [])
-        if layer.get("role") == "bubble_emitter"
-    ]
-    if len(emitters) != 1 or len(emitters[0].get("outlet_frames", [])) != 8:
-        errors.append("fountain outlet does not track all eight nozzle states")
-    elif len({
-        tuple(round(float(value), 4) for value in outlet)
-        for outlet in emitters[0].get("outlet_frames", [])
-    }) < 5:
-        errors.append("fountain outlet motion has fewer than five authored positions")
 
     shader_source = SHADER.read_text(encoding="utf-8")
     render_modes = shader_render_modes(shader_source)
@@ -1315,11 +1298,12 @@ def audit() -> int:
     if "_castle_rooms_25d.physics_tick(delta)" not in main_source:
         errors.append("Jolt restoration is not driven by the physics tick")
     export_source = EXPORT_PRESETS.read_text(encoding="utf-8")
-    manifest_export_filter = (
-        'include_filter="assets/flats/castle/interactions_v2/'
-        'castle_interactions_v2.json"'
-    )
-    if export_source.count(manifest_export_filter) != 2:
+    manifest_export_path = (
+        "assets/flats/castle/interactions_v2/castle_interactions_v2.json")
+    include_filters = [line for line in export_source.splitlines()
+                       if line.startswith('include_filter="')]
+    if len(include_filters) != 2 or any(
+            manifest_export_path not in line for line in include_filters):
         errors.append(
             "desktop/Android exports do not both package the runtime v2 JSON"
         )
@@ -1387,7 +1371,7 @@ def audit() -> int:
         with Image.open(CONTACT) as contact:
             if list(contact.size) != evidence.get("dimensions"):
                 errors.append("manifest contact-sheet dimensions are stale")
-    if manifest.get("generator_sha256") != sha256(
+    if manifest.get("generator_sha256") != repository_text_sha256(
         ROOT / str(manifest.get("generator", ""))
     ):
         errors.append("v2 manifest generator hash is stale")
@@ -1400,7 +1384,7 @@ def audit() -> int:
     print(
         "CASTLEV2|RESULT|OK|"
         f"assets={len(asset_map)}|instances={instance_count}|"
-        f"average={average:.2f}|water={len(EXPECTED_WATER)}|jolt=8|"
+        f"average={average:.2f}|water={len(EXPECTED_WATER)}|jolt={EXPECTED_JOLT}|"
         f"max_room_rgba_mib={max_room_rgba_bytes / (1024.0 * 1024.0):.2f}"
     )
     return 0

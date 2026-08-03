@@ -1,6 +1,6 @@
 {
-  "schema": "castle_dream_house_room_art_v2",
-  "method": "deterministic composition from approved project textures, prop QA renders, and the approved hall portal",
+  "schema": "castle_dream_house_room_art_v3",
+  "method": "native room shells plus two accepted 2D storybook production sheets; no Blender render pixels",
   "imagegen_reference": {
     "path": "assets_src/imagegen/castle_dream_house_2026-08-01/dining_room_reference_1254.png",
     "exists": true,
@@ -8,6 +8,37 @@
     "role": "composition_reference_only",
     "used_as_runtime_pixels": false
   },
+  "production_sheets": [
+    {
+      "role": "physical_door_family",
+      "prompt_id": "physical-door-family",
+      "prompt_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/PROMPTS.md",
+      "prompt_sha256": "c4e00e94d9d71439e274f9d9880264e8b2374620c0c47f93a26c71d7238ec87a",
+      "chroma_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_chroma.png",
+      "chroma_sha256": "5f3afefea59b4dc399a077373ea443776f752422e31cff7776d1c7287e85142a",
+      "alpha_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+      "alpha_sha256": "36c4b4176f5038e25217eee78b7a6ac1480a11fe22a11ab949ad61d5fccb349d",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "role": "four_room_furnishing_family",
+      "prompt_id": "four-room-furnishing-family",
+      "prompt_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/PROMPTS.md",
+      "prompt_sha256": "c4e00e94d9d71439e274f9d9880264e8b2374620c0c47f93a26c71d7238ec87a",
+      "chroma_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_chroma.png",
+      "chroma_sha256": "441c9528d45ea36925ac467a131815af62b7a3172aa0a6aec152f742422f96e9",
+      "alpha_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "alpha_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "blender_runtime_pixels": false,
   "background_sources": [
     {
       "path": "assets/terrain/up_castle_col.jpg",
@@ -406,7 +437,7 @@
         2048,
         2048
       ],
-      "master_sha256": "4fc4dc0af5597578b7a4bd7bc888dd4eb151c76501a0e00bb1d0596c7e6b8ef1",
+      "master_sha256": "64a791e1e4c1861bcb7a63963c1292c1572696df4e26d391f4a51c30e3bc33e6",
       "runtime_crop": [
         0,
         448,
@@ -422,7 +453,7 @@
         1024,
         576
       ],
-      "preview_sha256": "51ff4499f35cbd81c39e28c5a78b301643839ef16b996d870967c6f9cca4035f",
+      "preview_sha256": "f08917fff93fd5b2de16cabafa75d284a963792f95507bc8398b1505947bd175",
       "tiles": [
         {
           "row": 0,
@@ -438,7 +469,7 @@
             1024,
             576
           ],
-          "sha256": "736f09aacdeaacff9c8560496eacd438c18640b4271445d438cf913b08e89334"
+          "sha256": "20622c31be27dedf1373db27b8b18082858f791158d5067b20d5417cd6f4973b"
         },
         {
           "row": 0,
@@ -454,7 +485,7 @@
             2048,
             576
           ],
-          "sha256": "60df6af74e0578103d5c8887d752c07b0439f69f8f6aef3b31022add59046391"
+          "sha256": "b79751daee585909b4b0a516e76c712e28c39bbd01c91b0c8f4c925bf4a3ecb4"
         },
         {
           "row": 1,
@@ -470,7 +501,7 @@
             1024,
             1152
           ],
-          "sha256": "3e79a96af3068ce87291a16746175e919ed5b0dff936c2aa9a853c7bf2c01280"
+          "sha256": "2b35ce0f8171643b855b416d71f23d7075eca1028c1e05acdbe4770b544d5f66"
         },
         {
           "row": 1,
@@ -486,7 +517,7 @@
             2048,
             1152
           ],
-          "sha256": "45b55788cd3445ae41c9d7ccabce8946b962a75458a403f2d2d08a51871b7485"
+          "sha256": "381c0ad1c7bbc6829018507c269e8e9fe151bd149e340398e22343c6ea4491bd"
         }
       ]
     }
@@ -495,263 +526,858 @@
     {
       "path": "assets/flats/castle/dream_house/dining_table.png",
       "dimensions": [
-        464,
-        377
+        292,
+        223
       ],
-      "sha256": "363b3514e29a99d6a8734a13df81abefefe1eb053a31beefebe2c4b9b99ee0c3",
-      "source": "assets_src/blender/qa_art_pass35/kitchen_table_set.png",
-      "source_sha256": "fa99aaac6841dfe8c1edb6bd646655ee690777bee630aeebf9f7fdb6157375b5",
-      "transform": "transparent-border crop; largest alpha component only"
+      "sha256": "722bd7b038cac2d09cfc157c54ee392136800c38722c82b47c748290964635b3",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        0,
+        0,
+        314,
+        314
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
     },
     {
       "path": "assets/flats/castle/dream_house/dining_seat.png",
       "dimensions": [
-        409,
-        367
+        179,
+        165
       ],
-      "sha256": "520427a7550ab837a74070b18195c421caff34a4b18828a525535fdf4fd048cd",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_cloud_pouf.png",
-      "source_sha256": "750de5d86640d8583c91ff973390e142be536de0d520191df4f4c1ac3531a714",
-      "transform": "transparent-border crop only"
+      "sha256": "37277f8779019842c18dd1aed5f070c043676535b6afa963b8423cd1bf7e0d17",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        314,
+        0,
+        627,
+        314
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
     },
     {
       "path": "assets/flats/castle/dream_house/provisions_hutch.png",
       "dimensions": [
-        456,
-        433
+        275,
+        291
       ],
-      "sha256": "4140b9757505e22b15512a58cd253244aad8761df4f7d2fa41d605c3e2169f82",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_provisions_hutch.png",
-      "source_sha256": "8fd4b24a494b8fb69c7766e59bebfa3f5409ca9738b1d02addee355d8e9b7a91",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/canopy_bed.png",
-      "dimensions": [
-        461,
-        565
+      "sha256": "28a6f3afa413b467cd05d421e54d2b36e9b6af14364dbedfad2fed64d86aa270",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        627,
+        0,
+        940,
+        314
       ],
-      "sha256": "c81ec320b5920ab449c547948859f9446e1159306c07f23d825d86b7b9c56232",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_canopy_bed.png",
-      "source_sha256": "9c80edde71b7ff7e7899ada87a4c0ecb3ad545a419f956ba93aefb4926545b4b",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/bedside_table.png",
-      "dimensions": [
-        254,
-        480
-      ],
-      "sha256": "c0cfca9c70de0c4ba95ef7b2fa321043f9c2bd46ce1245751327756446d8905e",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_bedside_table.png",
-      "source_sha256": "74f7e0279ff9637dfe148a776550c4fd395f01e52f039de78e4f0cefc4b6c107",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/shell_wardrobe.png",
-      "dimensions": [
-        264,
-        474
-      ],
-      "sha256": "7e59e16b0276e3a1dc1ec130860bad416f85321df8f94cab2449ceeaee83a067",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_shell_wardrobe.png",
-      "source_sha256": "e080db0a6d42c6003af63c7274175f1541fb699fdcba5e28bd60640976b58870",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/story_cushion.png",
-      "dimensions": [
-        443,
-        451
-      ],
-      "sha256": "0b1c6304e8d6e4a4be4f19822126321604d31bda3e12f3a29826e606ebfbffd8",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_story_cushion.png",
-      "source_sha256": "6e07091d73053259cb14206dcf264a612f190cf2449e7bbe210a8ab741e3817c",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/dream_bed_0.png",
-      "dimensions": [
-        671,
-        502
-      ],
-      "sha256": "eec9f8593277ce811af2adc0c681508af32ba33f36e4ba8c2d9e808b0b15fdce",
-      "source": "assets_src/blender/qa_art_pass35/dream_bed_0.png",
-      "source_sha256": "68134a3f1ce21ad0e8b3565271a76471b66b9d89674f6ef9d279633633897f45",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/dream_bed_1.png",
-      "dimensions": [
-        671,
-        502
-      ],
-      "sha256": "e3175faeea14cd3e3a10a1dcb80f0d927d2e67e0655a219b7a3e64d78d453a3e",
-      "source": "assets_src/blender/qa_art_pass35/dream_bed_1.png",
-      "source_sha256": "863d49d7664bdb2531b65b2796e372e8c34dc54b1b63bbf5741060844e01a9d9",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/dream_bed_2.png",
-      "dimensions": [
-        671,
-        502
-      ],
-      "sha256": "7f6ccb65e234aec1ab217a9ad1d0941113ef27809a8534c73d0b64aa757b7421",
-      "source": "assets_src/blender/qa_art_pass35/dream_bed_2.png",
-      "source_sha256": "2e58c600bc332bdabb87b4ab0e753ea1e2c321b8e4c6835ac1f2411f61258637",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/cloud_settee.png",
-      "dimensions": [
-        430,
-        338
-      ],
-      "sha256": "deabceb6c70ffcfee3e9db1a03d40c378174665b930ecded42e8ed7525de6e57",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_cloud_settee.png",
-      "source_sha256": "5751ed78c6d5ca623d4717d2b870d94b5b21cb7d097e54ffc9a5fbb4df3d91e1",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/cloud_pouf.png",
-      "dimensions": [
-        409,
-        367
-      ],
-      "sha256": "520427a7550ab837a74070b18195c421caff34a4b18828a525535fdf4fd048cd",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_cloud_pouf.png",
-      "source_sha256": "750de5d86640d8583c91ff973390e142be536de0d520191df4f4c1ac3531a714",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/shell_arch.png",
-      "dimensions": [
-        301,
-        464
-      ],
-      "sha256": "6e742d67d9acb589e8055dc4976b707020f8a898854984b9a5b76fb8f6a71fff",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_shell_arch.png",
-      "source_sha256": "41ed66749042ebfbe43802429978e659b356ee4c00681976b9e57e05dc2cf9d1",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/shell_window.png",
-      "dimensions": [
-        336,
-        461
-      ],
-      "sha256": "6d3896a66a457b2bc6e737ea887a5ed2ee0ff38edd8e861f6b60d9dbbc467482",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_shell_window.png",
-      "source_sha256": "fa8e51ef1d8e4d948c76927d214fc176314c75b292ca6157c852f5b6cb157584",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/shell_chandelier.png",
-      "dimensions": [
-        426,
-        334
-      ],
-      "sha256": "cf65a727e03bbe08433f87dd88396a006ee4d39ef06bdb8f45aacff17e026e17",
-      "source": "assets_src/blender/qa_pearl_castle_kit/pearl_shell_chandelier.png",
-      "source_sha256": "ef2fd93d65e90865c698e22c8652c83e0cddb11d170dffb616fe22fb9ec61d5f",
-      "transform": "transparent-border crop only"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/family_wing_portal.png",
-      "dimensions": [
-        250,
-        412
-      ],
-      "sha256": "c02f72d559470ecdcfe087e40e42180e891b01bc54b31770798bb9899e8890f5",
-      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
-      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
-      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/family_portal_dining.png",
-      "dimensions": [
-        250,
-        412
-      ],
-      "sha256": "3f04daceaa02184f8ee2ce8ef6b643c19e090c98622cf3e505f022f33f117368",
-      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
-      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
-      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
-      "dimensions": [
-        250,
-        412
-      ],
-      "sha256": "4d47f5c0a035913676429c0185fd2a1a17f29852614bc9678073d4defe5888a3",
-      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
-      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
-      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
-      "dimensions": [
-        250,
-        412
-      ],
-      "sha256": "bc7e060d4d83ae9715c5c357ace9ae0cd83deadba14836406e0a30ebdfd06f21",
-      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
-      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
-      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
-      "dimensions": [
-        250,
-        412
-      ],
-      "sha256": "bd5278b73180ff707077117c98c1daeac3832639149168ddc5d2e150ba1a736b",
-      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
-      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
-      "transform": "approved full portal reused unchanged below a new project-authored picture crest"
-    },
-    {
-      "path": "assets/flats/castle/dream_house/family_wing_hall_insert.png",
-      "dimensions": [
-        370,
-        540
-      ],
-      "sha256": "ed0393718cbfd630ecb39ff6188f9d7ca0841376b6b46e1b25de89c3977b0d88",
-      "source": "assets/flats/castle/main_hall_2screen/castle_playroom_portal_cutout_reuse.png",
-      "source_sha256": "017e1425f9b4a801d650d6e0d3527e82ff345d453764ac3c421257e97f719db8",
-      "transform": "approved portal plus project-authored wall-texture surround; non-destructive Main Hall depth-card insert"
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
     },
     {
       "path": "assets/flats/castle/dream_house/meal_plate.png",
       "dimensions": [
-        176,
-        112
+        287,
+        173
       ],
-      "sha256": "3584f0fe7b22253df278beb08eb9bed98f093a790df8875dfa2e9dd49ff3c52c",
-      "source": "project-authored deterministic Pillow drawing",
-      "transform": "new shared component in approved pearl material language"
+      "sha256": "7281e494f39b42523137c62750dbc7f48466c0b0595f4d7f69a3782a43dad502",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        940,
+        0,
+        1254,
+        314
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/canopy_bed.png",
+      "dimensions": [
+        296,
+        272
+      ],
+      "sha256": "92f100fc3343289efd3face16feb521ac623b5bc3be2d90d1b060b91d55a39b3",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        0,
+        314,
+        314,
+        627
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/shell_wardrobe.png",
+      "dimensions": [
+        227,
+        273
+      ],
+      "sha256": "0542edb622a6eeea953a1371e66dc6112b104a1da31e2d3c556a1c6250065595",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        314,
+        314,
+        627,
+        627
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/bedside_table.png",
+      "dimensions": [
+        218,
+        233
+      ],
+      "sha256": "7d4fdcb5d13128974a605caaa00b04aca4d11093ab34d9a37b1c5ce9546c6a3b",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        627,
+        314,
+        940,
+        627
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/story_cushion.png",
+      "dimensions": [
+        287,
+        223
+      ],
+      "sha256": "d70d5e48c8bbe758a2c640c0a64d2e41e5a5d08bf153b18114515adc74bcdd07",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        940,
+        314,
+        1254,
+        627
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/dream_bed_0.png",
+      "dimensions": [
+        253,
+        240
+      ],
+      "sha256": "d78893db559b9693da9765022f05cd3432163ff755aadc8cfbda1b94c41b003e",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        0,
+        627,
+        314,
+        940
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/dream_bed_1.png",
+      "dimensions": [
+        252,
+        237
+      ],
+      "sha256": "b8e2922fc81e378c01a08e50e8423760f85a3fbd58a0bfed7151d16875ff14b9",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        314,
+        627,
+        627,
+        940
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/dream_bed_2.png",
+      "dimensions": [
+        253,
+        237
+      ],
+      "sha256": "ce7ff47b05c4f55bbc5915c3ae13adb39e40dba01c4eac811a2ba24e52ec23e0",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        627,
+        627,
+        940,
+        940
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/shell_chandelier.png",
+      "dimensions": [
+        208,
+        245
+      ],
+      "sha256": "b5b8cbb8a2ce99df7a82ad6e5b6f5679656385ffd8a93a01d244a0fcc67e3f18",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        940,
+        627,
+        1254,
+        940
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/cloud_settee.png",
+      "dimensions": [
+        302,
+        238
+      ],
+      "sha256": "ad6d07702b791123c97f8a70ae2c59ef6fcc0c04aaa8acd4e630496914ac3977",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        0,
+        940,
+        314,
+        1254
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/cloud_pouf.png",
+      "dimensions": [
+        221,
+        170
+      ],
+      "sha256": "97396cb1d90c5633b65034bce658e005cf1036c68c6c57717808e4526fce386a",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        314,
+        940,
+        627,
+        1254
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
     },
     {
       "path": "assets/flats/castle/dream_house/movie_screen_frame.png",
       "dimensions": [
-        720,
-        400
+        313,
+        264
       ],
-      "sha256": "7caad17aa0c26618b74d233afc38d92e95dedff4853b0893335e0c16bf4b9b18",
-      "source": "project-authored deterministic Pillow drawing",
-      "transform": "new shared component in approved pearl material language"
+      "sha256": "02dc3c5011c72f4e09978705456ab2e9ec3579ec4067daeb66e14d85461cc330",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        627,
+        940,
+        940,
+        1254
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/shell_popcorn_bowl.png",
+      "dimensions": [
+        200,
+        204
+      ],
+      "sha256": "60f84350763fdb2a5bbcbd8768d86c311101363b6317ef0b0088cef3e4653825",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "source_region": [
+        940,
+        940,
+        1254,
+        1254
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_wing_portal.png",
+      "dimensions": [
+        481,
+        490
+      ],
+      "sha256": "0d038c9ba825b691d52303503933b6e615608bbb090ecbade17ca8a456a87f60",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+      "source_sha256": "36c4b4176f5038e25217eee78b7a6ac1480a11fe22a11ab949ad61d5fccb349d",
+      "source_region": [
+        0,
+        0,
+        560,
+        512
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_wing_hall_insert.png",
+      "dimensions": [
+        481,
+        490
+      ],
+      "sha256": "0d038c9ba825b691d52303503933b6e615608bbb090ecbade17ca8a456a87f60",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+      "source_sha256": "36c4b4176f5038e25217eee78b7a6ac1480a11fe22a11ab949ad61d5fccb349d",
+      "source_region": [
+        0,
+        0,
+        560,
+        512
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_dining.png",
+      "dimensions": [
+        379,
+        484
+      ],
+      "sha256": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+      "source_sha256": "36c4b4176f5038e25217eee78b7a6ac1480a11fe22a11ab949ad61d5fccb349d",
+      "source_region": [
+        560,
+        0,
+        1024,
+        512
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+      "dimensions": [
+        371,
+        488
+      ],
+      "sha256": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+      "source_sha256": "36c4b4176f5038e25217eee78b7a6ac1480a11fe22a11ab949ad61d5fccb349d",
+      "source_region": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+      "dimensions": [
+        345,
+        465
+      ],
+      "sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+      "source_sha256": "36c4b4176f5038e25217eee78b7a6ac1480a11fe22a11ab949ad61d5fccb349d",
+      "source_region": [
+        250,
+        512,
+        760,
+        1024
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+      "dimensions": [
+        351,
+        464
+      ],
+      "sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
+      "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+      "source_sha256": "36c4b4176f5038e25217eee78b7a6ac1480a11fe22a11ab949ad61d5fccb349d",
+      "source_region": [
+        760,
+        512,
+        1270,
+        1024
+      ],
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "blender_runtime_pixels": false
     }
   ],
+  "furnished_room_review": {
+    "path": "audit/castle_dream_house/dream_house_furnished_rooms_contact.png",
+    "sha256": "ba6a10c30cea19ac3c3bea5871fd8ae24658b552f00308d780e1916d4e539de1",
+    "dimensions": [
+      2048,
+      1152
+    ],
+    "rooms": [
+      "dining_room",
+      "royal_bedroom",
+      "sleepover_bedroom",
+      "movie_lounge"
+    ],
+    "placements": [
+      {
+        "room_id": "dining_room",
+        "item_id": "dining_chandelier",
+        "asset": "assets/flats/castle/dream_house/shell_chandelier.png",
+        "source_position": [
+          408.0,
+          -28.0
+        ],
+        "uniform_scale": 0.68,
+        "rendered_bbox": [
+          442,
+          11,
+          583,
+          178
+        ],
+        "visible_fraction": 1.0,
+        "z": 0.72
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "provisions_hutch",
+        "asset": "assets/flats/castle/dream_house/provisions_hutch.png",
+        "source_position": [
+          33.0,
+          155.0
+        ],
+        "uniform_scale": 0.78,
+        "rendered_bbox": [
+          64,
+          187,
+          278,
+          414
+        ],
+        "visible_fraction": 1.0,
+        "z": 0.82
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "dining_table",
+        "asset": "assets/flats/castle/dream_house/dining_table.png",
+        "source_position": [
+          366.0,
+          264.0
+        ],
+        "uniform_scale": 1.14,
+        "rendered_bbox": [
+          346,
+          248,
+          679,
+          502
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.05
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "dining_seat_left",
+        "asset": "assets/flats/castle/dream_house/dining_seat.png",
+        "source_position": [
+          175.0,
+          357.0
+        ],
+        "uniform_scale": 0.86,
+        "rendered_bbox": [
+          188,
+          368,
+          342,
+          510
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.32
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "dining_seat_right",
+        "asset": "assets/flats/castle/dream_house/dining_seat.png",
+        "source_position": [
+          670.0,
+          357.0
+        ],
+        "uniform_scale": 0.86,
+        "rendered_bbox": [
+          682,
+          368,
+          836,
+          510
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.32
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "meal_plate_0",
+        "asset": "assets/flats/castle/dream_house/meal_plate.png",
+        "source_position": [
+          277.0,
+          262.0
+        ],
+        "uniform_scale": 0.2,
+        "rendered_bbox": [
+          392,
+          331,
+          449,
+          366
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.46
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "meal_plate_1",
+        "asset": "assets/flats/castle/dream_house/meal_plate.png",
+        "source_position": [
+          342.0,
+          248.0
+        ],
+        "uniform_scale": 0.2,
+        "rendered_bbox": [
+          457,
+          317,
+          514,
+          352
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.4699999999999998
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "meal_plate_2",
+        "asset": "assets/flats/castle/dream_house/meal_plate.png",
+        "source_position": [
+          407.0,
+          248.0
+        ],
+        "uniform_scale": 0.2,
+        "rendered_bbox": [
+          522,
+          317,
+          579,
+          352
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.48
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "meal_plate_3",
+        "asset": "assets/flats/castle/dream_house/meal_plate.png",
+        "source_position": [
+          472.0,
+          262.0
+        ],
+        "uniform_scale": 0.2,
+        "rendered_bbox": [
+          587,
+          331,
+          644,
+          366
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.4899999999999998
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "meal_plate_4",
+        "asset": "assets/flats/castle/dream_house/meal_plate.png",
+        "source_position": [
+          327.0,
+          290.0
+        ],
+        "uniform_scale": 0.2,
+        "rendered_bbox": [
+          442,
+          359,
+          499,
+          394
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.5
+      },
+      {
+        "room_id": "dining_room",
+        "item_id": "meal_plate_5",
+        "asset": "assets/flats/castle/dream_house/meal_plate.png",
+        "source_position": [
+          417.0,
+          290.0
+        ],
+        "uniform_scale": 0.2,
+        "rendered_bbox": [
+          532,
+          359,
+          589,
+          394
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.51
+      },
+      {
+        "room_id": "royal_bedroom",
+        "item_id": "shell_wardrobe",
+        "asset": "assets/flats/castle/dream_house/shell_wardrobe.png",
+        "source_position": [
+          52.0,
+          164.0
+        ],
+        "uniform_scale": 0.83,
+        "rendered_bbox": [
+          72,
+          187,
+          260,
+          414
+        ],
+        "visible_fraction": 1.0,
+        "z": 0.92
+      },
+      {
+        "room_id": "royal_bedroom",
+        "item_id": "canopy_bed",
+        "asset": "assets/flats/castle/dream_house/canopy_bed.png",
+        "source_position": [
+          353.0,
+          175.0
+        ],
+        "uniform_scale": 1.25,
+        "rendered_bbox": [
+          316,
+          141,
+          686,
+          481
+        ],
+        "visible_fraction": 1.0,
+        "z": 1.2
+      },
+      {
+        "room_id": "royal_bedroom",
+        "item_id": "bedside_table",
+        "asset": "assets/flats/castle/dream_house/bedside_table.png",
+        "source_position": [
+          681.0,
+          214.0
+        ],
+        "uniform_scale": 0.63,
+        "rendered_bbox": [
+          722,
+          257,
+          859,
+          404
+        ],
+        "visible_fraction": 1.0,
+        "z": 1.42
+      },
+      {
+        "room_id": "royal_bedroom",
+        "item_id": "reading_cushion",
+        "asset": "assets/flats/castle/dream_house/story_cushion.png",
+        "source_position": [
+          742.0,
+          349.0
+        ],
+        "uniform_scale": 0.44,
+        "rendered_bbox": [
+          822,
+          412,
+          948,
+          510
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.25
+      },
+      {
+        "room_id": "sleepover_bedroom",
+        "item_id": "sleepover_chandelier",
+        "asset": "assets/flats/castle/dream_house/shell_chandelier.png",
+        "source_position": [
+          408.0,
+          -33.0
+        ],
+        "uniform_scale": 0.54,
+        "rendered_bbox": [
+          456,
+          24,
+          568,
+          156
+        ],
+        "visible_fraction": 1.0,
+        "z": 0.72
+      },
+      {
+        "room_id": "sleepover_bedroom",
+        "item_id": "dream_bed_0",
+        "asset": "assets/flats/castle/dream_house/dream_bed_0.png",
+        "source_position": [
+          83.0,
+          290.0
+        ],
+        "uniform_scale": 0.88,
+        "rendered_bbox": [
+          98,
+          304,
+          321,
+          515
+        ],
+        "visible_fraction": 1.0,
+        "z": 1.9
+      },
+      {
+        "room_id": "sleepover_bedroom",
+        "item_id": "dream_bed_1",
+        "asset": "assets/flats/castle/dream_house/dream_bed_1.png",
+        "source_position": [
+          387.0,
+          287.0
+        ],
+        "uniform_scale": 0.88,
+        "rendered_bbox": [
+          402,
+          301,
+          624,
+          510
+        ],
+        "visible_fraction": 1.0,
+        "z": 1.92
+      },
+      {
+        "room_id": "sleepover_bedroom",
+        "item_id": "dream_bed_2",
+        "asset": "assets/flats/castle/dream_house/dream_bed_2.png",
+        "source_position": [
+          688.0,
+          292.0
+        ],
+        "uniform_scale": 0.88,
+        "rendered_bbox": [
+          703,
+          306,
+          926,
+          515
+        ],
+        "visible_fraction": 1.0,
+        "z": 1.94
+      },
+      {
+        "room_id": "movie_lounge",
+        "item_id": "movie_screen",
+        "asset": "assets/flats/castle/dream_house/movie_screen_frame.png",
+        "source_position": [
+          356.0,
+          98.0
+        ],
+        "uniform_scale": 1.6,
+        "rendered_bbox": [
+          262,
+          19,
+          763,
+          441
+        ],
+        "visible_fraction": 1.0,
+        "z": 0.76
+      },
+      {
+        "room_id": "movie_lounge",
+        "item_id": "cloud_settee_left",
+        "asset": "assets/flats/castle/dream_house/cloud_settee.png",
+        "source_position": [
+          109.0,
+          351.0
+        ],
+        "uniform_scale": 0.74,
+        "rendered_bbox": [
+          148,
+          382,
+          371,
+          558
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.12
+      },
+      {
+        "room_id": "movie_lounge",
+        "item_id": "cloud_settee_right",
+        "asset": "assets/flats/castle/dream_house/cloud_settee.png",
+        "source_position": [
+          613.0,
+          351.0
+        ],
+        "uniform_scale": 0.74,
+        "rendered_bbox": [
+          652,
+          382,
+          875,
+          558
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.12
+      },
+      {
+        "room_id": "movie_lounge",
+        "item_id": "cloud_pouf",
+        "asset": "assets/flats/castle/dream_house/cloud_pouf.png",
+        "source_position": [
+          402.0,
+          396.0
+        ],
+        "uniform_scale": 0.62,
+        "rendered_bbox": [
+          444,
+          428,
+          581,
+          533
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.52
+      },
+      {
+        "room_id": "movie_lounge",
+        "item_id": "movie_popcorn",
+        "asset": "assets/flats/castle/dream_house/shell_popcorn_bowl.png",
+        "source_position": [
+          412.0,
+          333.0
+        ],
+        "uniform_scale": 0.25,
+        "rendered_bbox": [
+          487,
+          410,
+          537,
+          461
+        ],
+        "visible_fraction": 1.0,
+        "z": 2.64
+      }
+    ],
+    "critical_overlaps": [],
+    "protected_movie_pixels_copied": false
+  },
   "contact_sheet": "audit/castle_dream_house/dream_house_room_shells_contact.png",
   "layout_contact": {
     "path": "audit/castle_dream_house/dream_house_layout_contact.png",
-    "sha256": "b003d5b66db77f42ef4e66eb73154da1363ce96eb60432b0b968167663176095"
+    "sha256": "6c749f33994de2c1bb41cb170f32591dcbe36cfc5dc9a4ca80cc78a6d29f7964"
   },
   "hall_entry_contact": {
     "path": "audit/castle_dream_house/dream_house_hall_entry_contact.png",
-    "sha256": "3830a596e63ad18c821d15982ab7976b376bec1f97768490ad8f15e6136322fc",
+    "sha256": "44116daba5e495feb15700610ac59aacab30a9fa1cff1e9cd6f45f0c5aed3ee1",
     "source": "assets_src/castle/main_hall_alignment/main_hall_screen_a_fixture_aligned_master.png",
     "source_sha256": "3512aed1f60906d4a89956c8317a24bc579b57b5bc9067f0bef8e17a1993df98",
     "source_crop": [
@@ -776,6 +1402,14 @@
     },
     "floating_route_buttons": false
   },
+  "node_type_inventory": {
+    "world_art_node": "Sprite3D",
+    "world_art_builder": "_new_card",
+    "world_art_material": "unshaded storybook card",
+    "forbidden_world_nodes": [],
+    "hud_exception": "Control and CanvasItem only"
+  },
+  "source_visual_medium": "polished flattened 2D storybook illustration",
   "protected_originals_modified": false,
   "runtime_world_art": "unshaded Sprite3D cards only"
 }

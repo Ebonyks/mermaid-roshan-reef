@@ -302,7 +302,8 @@ def expected_runtime_mapping(spec: dict[str, Any], normalized: dict[str, Any], c
 def numbers_in_unit_interval(value: Any) -> bool:
     if isinstance(value, (int, float)) and not isinstance(value, bool):
         return math.isfinite(float(value)) and 0.0 <= float(value) <= 1.0
-    return isinstance(value, list) and all(numbers_in_unit_interval(item) for item in value)
+    return isinstance(value, (list, tuple)) and all(
+        numbers_in_unit_interval(item) for item in value)
 
 
 def point_to_runtime_pixel(entry: dict[str, Any], point: list[Any], cell: int) -> tuple[float, float]:
@@ -631,7 +632,8 @@ def audit_addition(spec: dict[str, Any], entry: dict[str, Any], prepared: dict[s
         "physics_pivot": spec["physics_pivot"],
         "physics_max_angle_radians": spec["physics_max_angle_radians"],
         "physics_impulse_scale": spec["physics_impulse_scale"],
-        "water_layers": spec["water_layers"], "primary_animation_is_overlay": False,
+        "water_layers": json.loads(json.dumps(spec["water_layers"])),
+        "primary_animation_is_overlay": False,
     }
     for key, value in expected.items():
         if entry.get(key) != value:
@@ -781,7 +783,10 @@ def audit_declarations(additions: list[dict[str, Any]],
     export_text = EXPORT_PRESETS.read_text(encoding="utf-8")
     if export_text.count(MANIFEST.relative_to(ROOT).as_posix()) < 2:
         add_error(errors, "Android/Windows export declarations omit v3 manifest")
-    if "python tools/audit_castle_interactions_v3.py" not in CI_SCRIPT.read_text(encoding="utf-8"):
+    ci_text = CI_SCRIPT.read_text(encoding="utf-8")
+    audit_commands = ("python tools/audit_castle_interactions_v3.py",
+                      "python3 tools/audit_castle_interactions_v3.py")
+    if not any(command in ci_text for command in audit_commands):
         add_error(errors, "scripts/ci.sh does not run v3 static audit")
 
 

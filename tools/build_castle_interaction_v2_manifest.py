@@ -33,6 +33,7 @@ WATER_SHADER = ROOT / "assets/shaders/castle_fixture_water.gdshader"
 RIPPLE_TEXTURE = ROOT / "assets/terrain/up_water_nrm.jpg"
 CAUSTICS_TEXTURE = ROOT / "assets/terrain/caustics.png"
 
+RETIRED_V2_ROOMS = {"mermaid_pool"}
 ALIGNMENT_FRAME = {
     "main_hall_tapestry": 7,
 }
@@ -118,6 +119,10 @@ def alpha_bbox(image: Image.Image) -> tuple[int, int, int, int]:
     if bbox is None:
         raise ValueError("animation frame has no visible alpha silhouette")
     return bbox
+
+
+def repository_text_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def anchor(bbox: tuple[int, int, int, int], mode: str) -> tuple[float, float]:
@@ -445,7 +450,7 @@ def generated_entry(
         "transparent_border": all(value == 0 for value in border_values),
         "normalization": {
             "report": NORMALIZATION_REPORT.relative_to(ROOT).as_posix(),
-            "report_sha256": sha256(NORMALIZATION_REPORT),
+            "report_sha256": repository_text_sha256(NORMALIZATION_REPORT),
             "uniform_scale": normalized.get("uniform_scale"),
             "padding_pixels": normalized.get("padding_pixels"),
             "anchor_spread_pixels": normalized.get("anchor_spread_pixels"),
@@ -472,7 +477,7 @@ def generated_entry(
             if provenance_path.is_file() else ""
         ),
         "provenance_manifest_sha256": (
-            sha256(provenance_path) if provenance_path.is_file() else ""
+            repository_text_sha256(provenance_path) if provenance_path.is_file() else ""
         ),
     }
     if asset_id == "kitchen_fridge":
@@ -487,6 +492,8 @@ def main() -> None:
     output_assets: list[dict[str, Any]] = []
     missing: list[str] = []
     for asset_id, base in sorted(base_assets.items()):
+        if str(base.get("room", "")) in RETIRED_V2_ROOMS:
+            continue
         sheet_path = SHEET_DIR / f"{asset_id}_sheet.png"
         if not sheet_path.is_file():
             missing.append(asset_id)
@@ -505,9 +512,9 @@ def main() -> None:
         contact_dimensions = list(contact_image.size)
     payload = {
         "schema_version": 2,
-        "generated_on": "2026-08-01",
+        "generated_on": "2026-08-02",
         "generator": "tools/build_castle_interaction_v2_manifest.py",
-        "generator_sha256": sha256(Path(__file__)),
+        "generator_sha256": repository_text_sha256(Path(__file__)),
         "visual_review_evidence": {
             "path": CONTACT_SHEET.relative_to(ROOT).as_posix(),
             "sha256": sha256(CONTACT_SHEET),
@@ -522,7 +529,7 @@ def main() -> None:
             "authored_state_count": 8,
             "primary_animation_is_overlay": False,
             "water_renderer": WATER_SHADER.relative_to(ROOT).as_posix(),
-            "water_renderer_sha256": sha256(WATER_SHADER),
+            "water_renderer_sha256": repository_text_sha256(WATER_SHADER),
             "water_ripple_texture": RIPPLE_TEXTURE.relative_to(ROOT).as_posix(),
             "water_ripple_texture_sha256": sha256(RIPPLE_TEXTURE),
             "water_caustics_texture": CAUSTICS_TEXTURE.relative_to(ROOT).as_posix(),
@@ -547,7 +554,14 @@ def main() -> None:
                 entry["timeline_frame_count"] for entry in output_assets
             ),
         },
-        "rooms": base_manifest.get("rooms", {}),
+        "rooms": {
+            room_id: room
+            for room_id, room in base_manifest.get("rooms", {}).items()
+            if room_id not in RETIRED_V2_ROOMS
+        },
+        "retired_rooms": {
+            "mermaid_pool": "2026-08-02 full-room regeneration uses room-derived v1 atlases"
+        },
         "assets": output_assets,
         "missing_generated_assets": [],
         "summary": {
