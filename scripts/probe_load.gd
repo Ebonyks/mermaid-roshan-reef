@@ -14,6 +14,8 @@ func _init() -> void:
 	sd["custom_fish"] = [[0.9, 0.3, 0.3, 1.0, 0.8, 0.2]]   # one crafted fish in the save
 	sd["animals"] = {"turtle": true}   # one tank friend already set free
 	sd["critters"] = {"coral_clownfish": true}   # one Critter Book discovery
+	sd["castle_logo_color"] = "purple"
+	sd["castle_logo_symbol"] = "dog"
 	var w := FileAccess.open("user://reef_save.json", FileAccess.WRITE)
 	w.store_string(JSON.stringify(sd))
 	w.close()
@@ -57,4 +59,8 @@ func _init() -> void:
 		print("FAIL: Critter Book discovery missing after reload")
 	else:
 		print("Critter Book restored: coral_clownfish")
+	if main.castle_logo_color != "purple" or main.castle_logo_symbol != "dog":
+		print("FAIL: castle logo choice missing after reload")
+	else:
+		print("castle logo restored: purple puppy")
 	quit()

@@ -142,6 +142,13 @@ var craft_unlocks := {}            # one-time pearl unlocks for craft creatures 
 var craft_status: Label = null     # in-studio feedback (HUD messages sit behind the overlay)
 var craft_pearl_lbl: Label = null
 var custom_friends: Array = []
+# ---- CASTLE LOGO TABLE: the paint-table activity owns layout only; the
+# chosen emblem lives here and is saved as two stable ids.
+var castle_logo_layer: CanvasLayer = null
+var castle_logo_preview: Control = null
+var castle_logo_room_display: Control = null
+var castle_logo_color := "rainbow"
+var castle_logo_symbol := "rainbow"
 # accent layers are DISTINCT zone masks (kitty: horn + chest tuft; birdie:
 # crest + wings) painted from the body art — the old cat/bird "accent" reused
 # the whole body at 50% alpha, so the two colors just mixed into grey
@@ -3466,7 +3473,8 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 		return
 	if touch_ui != null and not touch_ui.world_controls_enabled:
 		return
-	if wardrobe_layer != null or craft_layer != null or collection_layer != null:
+	if wardrobe_layer != null or craft_layer != null \
+			or castle_logo_layer != null or collection_layer != null:
 		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_touch(screen_pos)
@@ -5771,6 +5779,23 @@ func _craft_done() -> void:
 func _close_craft() -> void:
 	_craft_ref()._close_craft()
 
+# the castle-logo maker lives on the Craft Room paint table
+var _castle_logo_studio: CastleLogoStudio = null
+
+func _castle_logo_ref() -> CastleLogoStudio:
+	if _castle_logo_studio == null:
+		_castle_logo_studio = CastleLogoStudio.new(self)
+	return _castle_logo_studio
+
+func _open_castle_logo() -> void:
+	_castle_logo_ref().open()
+
+func _finish_castle_logo() -> void:
+	_castle_logo_ref().finish()
+
+func _close_castle_logo() -> void:
+	_castle_logo_ref().close(false)
+
 # the wardrobe + sticker book overlays live in scripts/wardrobe_ui.gd
 # (state stays here; WardrobeUI receives main by reference)
 var _wardrobe_ui: WardrobeUI = null
@@ -6655,6 +6680,8 @@ var pad_cursor_active := false
 var _pc_prev_a := false
 
 func _overlay_root_for_cursor() -> Node:
+	if castle_logo_layer != null and is_instance_valid(castle_logo_layer):
+		return castle_logo_layer
 	if craft_layer != null and is_instance_valid(craft_layer):
 		return craft_layer
 	if wardrobe_layer != null and is_instance_valid(wardrobe_layer):
@@ -6729,10 +6756,18 @@ func _tick_overlay_pads(delta: float) -> void:
 	# wardrobe and never leave (no pointer, no exit).
 	var a: bool = joy_pressed(JOY_BUTTON_A)
 	var b: bool = joy_pressed(JOY_BUTTON_B)
-	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null or collection_layer != null or companion_layer != null or companion_care_layer != null
+	var overlay_open: bool = castle_logo_layer != null or craft_layer != null \
+		or wardrobe_layer != null or stickers_layer != null \
+		or collection_layer != null or companion_layer != null \
+		or companion_care_layer != null
 	_overlay_age = _overlay_age + delta if overlay_open else 0.0
 	if _overlay_age > 0.6:   # grace so the A/B that was held while swimming in doesn't fire
-		if craft_layer != null:
+		if castle_logo_layer != null:
+			if a and not _pad_prev_a and not pad_cursor_active:
+				_finish_castle_logo()
+			elif b and not _pad_prev_b:
+				_close_castle_logo()
+		elif craft_layer != null:
 			if a and not _pad_prev_a and not pad_cursor_active:
 				_craft_done()   # quick-finish only while the star cursor is asleep
 			elif b and not _pad_prev_b:

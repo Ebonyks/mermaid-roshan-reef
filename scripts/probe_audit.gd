@@ -330,6 +330,14 @@ func _audit_storybook_ui() -> bool:
 	ok = _ui_named_count(main.craft_layer, "CraftRainbowSwatch") == 1 and ok
 	main._close_craft()
 
+	main._open_castle_logo()
+	await process_frame
+	ok = _ui_target_ok(main.castle_logo_layer, "CastleLogoBackButton") and ok
+	ok = _ui_target_ok(main.castle_logo_layer, "CastleLogoFinishButton", Vector2(150, 150)) and ok
+	ok = _ui_named_count(main.castle_logo_layer, "CastleLogoColor_*") == 6 and ok
+	ok = _ui_named_count(main.castle_logo_layer, "CastleLogoSymbol_*") == 8 and ok
+	main._close_castle_logo()
+
 	main._open_wardrobe()
 	await process_frame
 	ok = _ui_target_ok(main.wardrobe_layer, "WardrobeBackButton") and ok
