@@ -536,7 +536,11 @@ func _init() -> void:
 		and is_equal_approx(float(slide_node.get_meta("mural_socket_lock", 0.0)),
 			SkyLagoonPromenade.GROUND_SOCKET_LOCK)
 		and is_equal_approx(float(swing_node.get_meta("mural_socket_lock", 0.0)),
-			SkyLagoonPromenade.GROUND_SOCKET_LOCK))
+			SkyLagoonPromenade.GROUND_SOCKET_LOCK)
+		# OWNER 2026-08-03: the promenade reads FLAT. No card may keep partial
+		# parallax — an unpinned prop slides off its painted socket as the
+		# camera pans and the stage stops reading as one picture.
+		and is_equal_approx(SkyLagoonPromenade.DEFAULT_MURAL_SOCKET_LOCK, 1.0))
 	var slide_rect: Rect2 = _opaque_world_rect(slide_node)
 	var swing_rect: Rect2 = _opaque_world_rect(swing_node)
 	var seesaw_rect: Rect2 = _opaque_world_rect(compact_seesaw)

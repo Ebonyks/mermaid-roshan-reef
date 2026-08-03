@@ -9,8 +9,8 @@ part of the house as part of the encounter in it."_
 
 This document is the **plan**. Two pieces of it have shipped on owner decision
 (2026-08-03): the dated Huluu storybook opener is **cut** (§1.2), and the
-control guide that replaces it is **built** (§1.3). Everything else here is
-still design. The Codex Day One art is in the tree **deactivated** (§9).
+control guide that replaces it is **built** (§1.3). The promenade was also
+pinned flat (§1.4). Everything else here is still design. The Codex Day One art is in the tree **deactivated** (§9).
 
 Precedence: this sits under `CLAUDE.md`, `AGENTS.md` and `design/01_GAME_DESIGN.md`.
 Where it proposes something new it says so; where it records what is already
@@ -91,7 +91,38 @@ animal at the spawn point, and the slide is 40 painted units away. The plane is
 under her feet, is a registered two-press target, and is the thing she arrived
 in.
 
-### 1.4 Not built at all
+### 1.4 The promenade reads flat — FIXED (owner decision 2026-08-03)
+
+Owner report: *"the background should load flatly; there's a 3D card effect at
+load presently."*
+
+Cause, in `sky_lagoon_promenade.gd`: every world card is a `Sprite3D` at real
+depth under a 38° perspective lens 47 units back — mural at z −18, landmarks at
+−11, playground at −6, Roshan at 0. `_mural_anchored_position` re-projects each
+card onto its authored painted socket every frame, weighted by that card's
+`mural_socket_lock`. Playground equipment, the castle, trees and smoke were
+already pinned at 1.0. **Landmarks were not** — `DEFAULT_MURAL_SOCKET_LOCK` was
+`0.65`, leaving 35% raw parallax.
+
+The largest landmark is the **pearl plane**, which is the first thing on screen
+at spawn (painted x −60) and which the camera immediately pans away from, since
+the lens clamps to the mural's pan limit while Roshan stands at the painted
+edge. So the child met the promenade with its one unpinned prop visibly sliding
+off the painted dock. That is the 3D-card read.
+
+Fix: `DEFAULT_MURAL_SOCKET_LOCK := 1.0`. Every card now compensates the whole
+camera-depth offset, so the stage reads as one flat picture from any camera
+position. The cards stay `Sprite3D` at real depth, so occlusion still works —
+this pins the socket, it does not flatten the scene into a single quad. Ambient
+motion (cloud drift, smoke, the plane's idle bob) rides on top of the pinned
+base and is unchanged. `probe_l2` now asserts the constant is 1.0, so partial
+parallax cannot return by accident.
+
+Reversible in one constant if the depth findings
+([OW-3](design/04_OPEN_WORK.md#ow-3), [OW-4](design/04_OPEN_WORK.md#ow-4)) are
+ever addressed properly, which is where real parallax belongs.
+
+### 1.5 Not built at all
 
 - No arrival. The plane is *already parked* when the child first sees the world;
   nobody flies in and nobody gets out.
@@ -380,7 +411,8 @@ Findings specific to Day One. Game-wide findings live in
 | **D1-6** | **Tone conflict**: dust bunnies are "friendly helpers, never pests" in the art direction and a boss in `dust_boss.gd` | medium | §6.4 |
 | **D1-7** | The Codex Day One (7 rooms, tap-3-times, flat Control) and the shipped castle (13 rooms, 2.5D, walk-to-touch) are **two incompatible castles**. Whichever ships, the other's content is stranded | medium | §2.3 decision |
 | **D1-8** | Two designed rooms don't exist (Undercroft, Royal Loo) while their art does | low | Phase 6 |
-| **D1-9** | The Codex opener depends on **two `.ogv` movies that were never made**, black-screening on both, while 36 finished frames sit unused | medium | Phase 2 (flipbook, no video) |
+| **D1-9** | The Codex opener depends on **two `.ogv` movies that were never made**, black-screening on both, while 36 finished frames sit unused | medium | Phase 2 (flipbook, no video). The *opener* slot now shows nothing at all until the flight movie lands (§1.2) |
+| **D1-14** | The promenade's landmark cards kept 35% raw parallax, so the pearl plane visibly slid off its painted dock on the first screen | medium | **FIXED 2026-08-03** (§1.4) |
 | **D1-10** | The 36 frames are **33 MB of PNG** — too heavy for the target phone as-is | medium | Phase 8 (§7.2) |
 | **D1-11** | **The controls are never taught.** Touch-to-travel, two-press activation and tap-is-the-button were each discoverable only by accident | high | **FIXED 2026-08-03** — `day_one_guide.gd` teaches all three in the Sky Lagoon (§1.3); the hall bunnies then rehearse travel inside the castle |
 | **D1-12** | No Day One probe exists on `dev`. `probe_story_day_one.gd` lives only on a stale Codex branch | medium | Phase 1 |

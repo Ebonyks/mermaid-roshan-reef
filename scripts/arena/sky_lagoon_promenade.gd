@@ -52,11 +52,21 @@ const DRESS_Z := -9.0        # rear PNW foliage
 const PLAY_Z := -6.0         # playground standees
 const NEAR_Z := -1.5         # near PNW foliage, inside the walk-depth band
 const SMOKE_Z := -10.5       # clears the castle cutout's transparent depth card
-# Landmarks retain restrained physical parallax. Playground equipment and
-# smoke origins are exact mural sockets: they remain Sprite3D cards at real
-# depth for occlusion, but compensate the entire camera-depth offset so they
-# cannot slide loose from the painted lawn/roof as Roshan crosses the stage.
-const DEFAULT_MURAL_SOCKET_LOCK := 0.65
+# OWNER 2026-08-03: the promenade must READ FLAT. Every card is an exact mural
+# socket — it stays a Sprite3D at real depth so it can occlude and be occluded,
+# but it compensates the ENTIRE camera-depth offset, so it can never slide
+# loose from the painting it is standing in.
+#
+# Playground equipment, the castle, trees and smoke were already pinned. The
+# landmarks were not: they kept 35% raw parallax, and the biggest of them is
+# the pearl plane, which is the very first thing on screen at spawn and which
+# the camera immediately pans away from — so the child met the promenade with
+# its one unpinned prop visibly detaching from the painted dock. That is the
+# "3D card effect at load"; pinning it is a one-constant fix.
+#
+# Ambient drift (clouds, smoke, the plane's idle bob) still rides ON TOP of the
+# pinned base, so nothing goes stiff — only the socket stops sliding.
+const DEFAULT_MURAL_SOCKET_LOCK := 1.0
 const GROUND_SOCKET_LOCK := 1.0
 const CLOUD_DRIFT_MIN_X := -10.0
 const CLOUD_DRIFT_MAX_X := 10.0
