@@ -413,6 +413,60 @@ existing career's framing.
 
 ---
 
+## 13. THE CAREERS RUN ACROSS CHAPTERS 2-5 (owner clarification)
+
+**The jobs are not Chapter 2 content.** They exist through chapters 2, 3, 4
+and 5, and the design is revisited each time. Chapters **2 and 5 both take
+place at the castle**, so those two are the same place seen twice — which is
+exactly why Chapter 5 works as a remix.
+
+| Chapter | Place | What the careers mean there |
+|---|---|---|
+| 2 | **Castle** | **Preparation** — each job makes something the birthday party needs. |
+| 3 | North | **Journey and investigation** — the same skills used to travel and to learn how to stop the enemies. |
+| 4 | Lava planet | **The confrontation / the rescue** — the same skills under pressure, to win the candles back. |
+| 5 | **Castle** | **Celebration** — the ultimate party; the jobs return to their party roles, harder, and settle into the cozy endgame. |
+
+### What this corrects in sections 11-12
+
+"Excused from Chapter 2" does **not** mean "shelved until Chapter 5." A career
+with a weak party role may well be a *strong* Chapter 3 or Chapter 4 job — so
+the right question per career is not "does it fit the party?" but:
+
+> **What is this career's arc across the four chapters, and which chapter is
+> its home?**
+
+The racer illustrates it: as party preparation he is weak, but as *movement*
+he is load-bearing in Chapter 3's journey north, useful as Chapter 2's
+transition between stages, and a natural race event in Chapter 5's cozy
+castle. His home is the journey; Chapter 2 borrows him.
+
+Likewise the astronaut's rocket probably belongs to the departure in Chapter 4
+rather than to a birthday firework — though a firework is an honest party need,
+so he may legitimately serve both, with the launch meaning something different
+each time.
+
+### The design consequence
+
+Each career wants a **one-line arc** across the four chapters before Chapter 2
+is finalised, so that its Chapter 2 framing is chosen to *set up* its later
+role rather than to close it off. That is cheap to write now and expensive to
+retrofit later.
+
+It also means Chapter 2 does not have to carry all thirteen at full weight. A
+career can appear in Chapter 2 in a **light** form (a cameo, a transition, a
+single beat) and take its full form in the chapter where it belongs — which is
+a better use of the same built content than thirteen equal-weight party jobs.
+
+### And it makes Chapter 5 concrete
+
+Chapter 5 is the same castle, the same rooms, the same jobs — the party that
+finally happens without being ruined. That is why the party venue must be
+built as a **place** (section 7): Chapter 5 moves back into it. The remix is
+"everything you learned, in the home you know, with everyone invited."
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
