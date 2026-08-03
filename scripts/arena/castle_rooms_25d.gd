@@ -16,6 +16,7 @@ const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
 const CASTLE_PORTAL_CUTOUT_SHADER := preload(
 	"res://shaders/castle_portal_cutout.gdshader")
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const Affordance := preload("res://scripts/interaction_affordance.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
 const ART_TO_STAGE := 1.25
@@ -1001,6 +1002,7 @@ func tick(delta: float) -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
 	fixture_rigs.tick(delta)
+	_tick_item_affordances(delta)
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
@@ -1935,9 +1937,26 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			/ maxf(0.001, visual_scale)
 		hotspot_local_size = authored_hotspot_size \
 			/ maxf(0.001, runtime_scale)
+	var affordance_kind: String = Affordance.INTERACTION \
+		if item_data.has("room_destination") else Affordance.ANIMATION
+	var affordance_halo: Sprite3D = null
+	if hotspot != null:
+		var halo_size := Vector2(
+			maxf(1.4, visible_frame_rect.size.x * piece.pixel_size
+				* visual_scale * 1.18),
+			maxf(1.4, visible_frame_rect.size.y * piece.pixel_size
+				* visual_scale * 1.18))
+		affordance_halo = Affordance.make_radial_halo(
+			affordance_kind, halo_size)
+		affordance_halo.name = "TouchAffordance_" + item_id
+		affordance_halo.position = piece.position + Vector3(0.0, 0.0, -0.035)
+		affordance_halo.visible = piece.visible
+		m.castle_room_item_visual_layer.add_child(affordance_halo)
 	m.castle_room_item_sprites[item_id] = {
 		"sprite": piece,
 		"hotspot": hotspot,
+		"affordance": affordance_halo,
+		"affordance_kind": affordance_kind,
 		"data": item_data,
 		"contact_foot": contact_foot,
 		"contact_radius": contact_radius,
@@ -3070,6 +3089,34 @@ func _update_touch_hotspots() -> void:
 	for item_id_value: Variant in m.castle_room_item_sprites:
 		var record: Dictionary = m.castle_room_item_sprites[item_id_value]
 		_update_touch_hotspot(record)
+
+func _tick_item_affordances(_delta: float) -> void:
+	var time_now: float = Time.get_ticks_msec() / 1000.0
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var item_id: String = String(item_id_value)
+		var record: Dictionary = m.castle_room_item_sprites[item_id_value]
+		var halo: Sprite3D = record.get("affordance") as Sprite3D
+		if halo == null or not is_instance_valid(halo):
+			continue
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		var hotspot: Button = record.get("hotspot") as Button
+		halo.visible = sprite != null and is_instance_valid(sprite) \
+			and sprite.visible and hotspot != null and hotspot.visible \
+			and not bool(sprite.get_meta("busy", false))
+		if not halo.visible:
+			continue
+		var affordance_kind: String = String(record.get(
+			"affordance_kind", Affordance.ANIMATION))
+		var phase: float = float(absi(item_id.hash()) % 127) * 0.037
+		var wave: float = sin(
+			time_now * Affordance.pulse_speed(affordance_kind, false) + phase)
+		var pulse: float = 1.0 + wave * Affordance.pulse_amount(
+			affordance_kind, false)
+		halo.position = sprite.position + Vector3(0.0, 0.0, -0.035)
+		halo.rotation.z = sprite.rotation.z
+		var base_scale: Vector3 = halo.get_meta(
+			"affordance_base_scale", Vector3.ONE) as Vector3
+		halo.scale = base_scale * pulse
 
 func _update_touch_hotspot(record: Dictionary) -> void:
 	if m.castle_room_camera == null or m.castle_room_stage == null:

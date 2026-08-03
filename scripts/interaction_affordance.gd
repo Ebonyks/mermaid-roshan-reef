@@ -1,0 +1,64 @@
+class_name InteractionAffordance
+extends RefCounted
+# One non-reading touch vocabulary for world objects. Color is paired with
+# motion so the distinction remains legible without relying on hue alone:
+# gold twinkles promise a local animation; deep-blue breaths promise a real
+# activity, route, or state-changing interaction.
+
+const ANIMATION := "animation"
+const INTERACTION := "interaction"
+
+const GOLD_IDLE := Color(1.0, 0.72, 0.20, 0.18)
+const GOLD_FOCUS := Color(1.0, 0.84, 0.34, 0.82)
+const BLUE_IDLE := Color(0.16, 0.38, 0.82, 0.24)
+const BLUE_FOCUS := Color(0.24, 0.56, 1.0, 0.88)
+
+static func normalize(kind: String) -> String:
+	return ANIMATION if kind == ANIMATION else INTERACTION
+
+static func color(kind: String, focused: bool) -> Color:
+	var normalized: String = normalize(kind)
+	if normalized == ANIMATION:
+		return GOLD_FOCUS if focused else GOLD_IDLE
+	return BLUE_FOCUS if focused else BLUE_IDLE
+
+static func sparkle_color(kind: String) -> Color:
+	return Color(1.0, 0.84, 0.34) if normalize(kind) == ANIMATION \
+		else Color(0.34, 0.68, 1.0)
+
+static func pulse_speed(kind: String, focused: bool) -> float:
+	if normalize(kind) == ANIMATION:
+		return 5.2 if focused else 3.4
+	return 2.8 if focused else 1.7
+
+static func pulse_amount(kind: String, focused: bool) -> float:
+	if normalize(kind) == ANIMATION:
+		return 0.050 if focused else 0.022
+	return 0.075 if focused else 0.035
+
+static func make_radial_halo(kind: String, size: Vector2) -> Sprite3D:
+	var tint: Color = color(kind, false)
+	var gradient_texture := GradientTexture2D.new()
+	gradient_texture.width = 128
+	gradient_texture.height = 128
+	gradient_texture.fill = GradientTexture2D.FILL_RADIAL
+	gradient_texture.fill_from = Vector2(0.5, 0.5)
+	gradient_texture.fill_to = Vector2(0.5, 0.0)
+	var gradient := Gradient.new()
+	gradient.set_color(0, Color(tint.r, tint.g, tint.b, tint.a * 0.90))
+	gradient.set_color(1, Color(tint.r, tint.g, tint.b, 0.0))
+	gradient_texture.gradient = gradient
+
+	# Castle rooms are intentionally a Sprite3D-only picture stage. This uses
+	# the same runtime gradient without introducing model/mesh art or a texture
+	# asset, and its non-uniform base scale fits the touched object's silhouette.
+	var halo := Sprite3D.new()
+	halo.texture = gradient_texture
+	halo.pixel_size = size.x / 128.0
+	halo.scale = Vector3(1.0, size.y / maxf(size.x, 0.001), 1.0)
+	halo.shaded = false
+	halo.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	halo.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	halo.set_meta("affordance_kind", normalize(kind))
+	halo.set_meta("affordance_base_scale", halo.scale)
+	return halo
