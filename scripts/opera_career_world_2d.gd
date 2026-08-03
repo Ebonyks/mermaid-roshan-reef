@@ -665,6 +665,8 @@ func _show_phase() -> void:
 			"BURP": "nursery_burp",
 			"BEDTIME": "nursery_bedtime",
 		}.get(String(phase.get("name", "")), ""))
+	else:
+		context = _widget_context(mode_name)
 	surface.configure(mode_name, accent, choice_target, context)
 	match String(phase.get("dir", "")):
 		"down":
@@ -709,6 +711,33 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	phase_fill.position = Vector2(24, 318)
 	phase_fill.size = Vector2(392, 34)
 	action_panel.queue_redraw()
+
+
+func _widget_context(mode_name: String) -> String:
+	# census mapping from CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md:
+	# widget_<template>_<career>.png; absent files fall back to vectors
+	var template := ""
+	match mode_name:
+		"timing":
+			template = "gauge" if career_id in ["chef", "astronaut", "racer"] else "track"
+		"hold":
+			if career_id in ["chef", "candymaker", "painter"]:
+				template = "pour"
+			elif career_id == "doctor":
+				template = "basin"
+			else:
+				template = "charge"
+		"circle":
+			template = "crank"
+		"swipe":
+			template = "push" if career_id in ["farmer", "boxer", "racer"] else "trace"
+		"tap":
+			template = "target"
+		"choice":
+			template = "lanes"
+	if template == "":
+		return ""
+	return "%s_%s" % [template, career_id]
 
 
 func _card_position_near_station() -> Vector2:
@@ -1005,6 +1034,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	phase_progress += gain
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
 	phase_fill.value = clampf(phase_progress / goal, 0.0, 1.0) * 100.0
+	surface.fill_fraction = phase_fill.value / 100.0
 	_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
 		if quality >= 0.5:

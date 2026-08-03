@@ -42,9 +42,33 @@ var swipe_dir := Vector2.RIGHT
 ## Tap phases aim at a moving point that leaves a happy mark per hit.
 var tap_point := Vector2.ZERO
 var tap_marks: Array = []
-## Diegetic scene painted behind the affordance (nursery basin/bottle/cribs).
+## Diegetic scene painted behind the affordance (nursery basin/bottle/cribs
+## drawn in code; every other career loads codex widget art when present:
+## assets/opera/worlds/widgets/widget_<template>_<career>{,_mover,_fill}.png
+## per CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md, else vector fallback).
 var visual_context := ""
 var nursery_textures: Array[Texture2D] = []
+const WIDGET_DIR := "res://assets/opera/worlds/widgets/"
+var widget_backdrop: Texture2D = null
+var widget_mover: Texture2D = null
+var widget_fill: Texture2D = null
+## Fraction of the current phase already done — drives _fill overlays.
+var fill_fraction := 0.0
+
+
+func _load_widget_art() -> void:
+	widget_backdrop = null
+	widget_mover = null
+	widget_fill = null
+	if visual_context == "" or visual_context.begins_with("nursery"):
+		return
+	var base := WIDGET_DIR + "widget_" + visual_context
+	if ResourceLoader.exists(base + ".png"):
+		widget_backdrop = load(base + ".png") as Texture2D
+	if ResourceLoader.exists(base + "_mover.png"):
+		widget_mover = load(base + "_mover.png") as Texture2D
+	if ResourceLoader.exists(base + "_fill.png"):
+		widget_fill = load(base + "_fill.png") as Texture2D
 ## Trickle-by-assist (house pattern from fetch/melody/dolls): wrong input
 ## always celebrates but pays ~nothing, and repeat misses inside the
 ## cooldown pay zero — correct play must strictly beat mashing.
@@ -70,6 +94,8 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	accent = next_accent
 	target_choice = choice
 	visual_context = next_context
+	fill_fraction = 0.0
+	_load_widget_art()
 	if visual_context.begins_with("nursery") and nursery_textures.is_empty():
 		for index in range(3):
 			var path := "res://assets/opera/worlds/nursery/baby_%d.png" % index
@@ -277,8 +303,10 @@ func _gui_input(event: InputEvent) -> void:
 
 func _draw() -> void:
 	var panel := Rect2(Vector2.ZERO, size)
-	# light paper inset window per the StorybookUI language
-	draw_rect(panel, Color(0.94, 0.97, 1.0, 0.96), true)
+	# light paper inset window per the StorybookUI language; painted widget
+	# backdrops keep only the contour frame
+	if widget_backdrop == null or visual_context.begins_with("nursery"):
+		draw_rect(panel, Color(0.94, 0.97, 1.0, 0.96), true)
 	draw_rect(panel.grow(-3.0), accent.lerp(Color("#382485"), 0.62), false, 4.0)
 	var center := size * 0.5
 	if visual_context.begins_with("nursery"):
@@ -286,6 +314,15 @@ func _draw() -> void:
 		if demo_active:
 			_draw_demo_finger()
 		return
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, Rect2(Vector2.ZERO, size), false)
+		if widget_fill != null and fill_fraction > 0.0:
+			# the vessel fills from the bottom as the phase progresses
+			var tex_size := widget_fill.get_size()
+			var cut := clampf(fill_fraction, 0.0, 1.0)
+			var src := Rect2(0.0, tex_size.y * (1.0 - cut), tex_size.x, tex_size.y * cut)
+			var dst := Rect2(0.0, size.y * (1.0 - cut), size.x, size.y * cut)
+			draw_texture_rect_region(widget_fill, dst, src)
 	match mode:
 		"tap":
 			for mark: Vector2 in tap_marks:
@@ -326,6 +363,14 @@ func _draw() -> void:
 				if is_answer:
 					draw_circle(point, 15.0, Color.WHITE)
 		"timing":
+			if widget_backdrop != null and widget_mover != null:
+				# the codex track bakes the run and the green go-zone; the
+				# mover rides the same 12%-88% span the engine has always used
+				var mover_x := lerpf(size.x * 0.12, size.x * 0.88, timing_position)
+				var mover_y := size.y * (400.0 / 608.0)
+				var mside := size.y * 0.42
+				draw_texture_rect(widget_mover, Rect2(Vector2(mover_x - mside * 0.5, mover_y - mside * 0.5), Vector2(mside, mside)), false)
+				return
 			var bar := Rect2(size.x * 0.12, center.y - 23.0, size.x * 0.76, 46.0)
 			draw_rect(bar, Color(0.2, 0.23, 0.38), true)
 			var good := Rect2(
