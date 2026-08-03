@@ -14,12 +14,13 @@ var accent := Color(1.0, 0.62, 0.8)
 var target_choice := 1
 var choice_count := 3
 var timing_position := 0.0
-var timing_zone := Vector2(0.38, 0.68)
+var timing_zone := Vector2(0.30, 0.72)
 var held := false
 var pointer_pos := Vector2.ZERO
 var previous_pos := Vector2.ZERO
 var previous_angle := 0.0
 var have_angle := false
+var _last_spin := 0.0
 ## Friendly imp-scuffle targets for the "bop" combat beats. Each entry:
 ## {home: Vector2, pos: Vector2, r: float, hp: int, captain: bool, popped: bool}
 var bop_targets: Array = []
@@ -44,6 +45,24 @@ var tap_marks: Array = []
 ## Diegetic scene painted behind the affordance (nursery basin/bottle/cribs).
 var visual_context := ""
 var nursery_textures: Array[Texture2D] = []
+## Trickle-by-assist (house pattern from fetch/melody/dolls): wrong input
+## always celebrates but pays ~nothing, and repeat misses inside the
+## cooldown pay zero — correct play must strictly beat mashing.
+const MISS_COOLDOWN := {"tap": 0.5, "choice": 0.6, "timing": 1.0}
+var miss_cool := 0.0
+## Swipe honesty: per-event travel cap plus a refilling per-second budget
+## so scrubbing cannot trivialize goals; direction gates only when the
+## phase declares one (DUCK down, BEDTIME down).
+var swipe_budget := 1.3
+var swipe_require_dir := false
+
+
+func _miss_pay() -> float:
+	# first miss trickles a crumb; repeats inside the cooldown pay nothing
+	if miss_cool > 0.0:
+		return 0.0
+	miss_cool = float(MISS_COOLDOWN.get(mode, 0.5))
+	return 0.05
 
 
 func configure(next_mode: String, next_accent: Color, choice: int = 1, next_context: String = "") -> void:
@@ -62,6 +81,9 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	demo_active = true
 	demo_t = 0.0
 	choice_flash = 1.4
+	miss_cool = 0.0
+	swipe_budget = 1.3
+	swipe_require_dir = false
 	swipe_dir = Vector2.RIGHT
 	tap_marks = []
 	tap_point = size * 0.5
@@ -86,6 +108,9 @@ func reflash_choice() -> void:
 
 
 func _process(delta: float) -> void:
+	if miss_cool > 0.0:
+		miss_cool = maxf(0.0, miss_cool - delta)
+	swipe_budget = minf(1.3, swipe_budget + delta * 1.3)
 	if choice_flash > 0.0 and mode == "choice":
 		choice_flash -= delta
 		if choice_flash <= 0.0:
@@ -124,6 +149,7 @@ func _press(at: Vector2) -> void:
 	previous_pos = at
 	previous_angle = (at - size * 0.5).angle()
 	have_angle = true
+	_last_spin = 0.0
 	match mode:
 		"tap":
 			if at.distance_to(tap_point) <= 92.0:
@@ -131,14 +157,19 @@ func _press(at: Vector2) -> void:
 				_relocate_tap_point()
 				gesture.emit("tap", 1.0, 1.0)
 			else:
-				# near-misses still sparkle and trickle — no dead ends
-				gesture.emit("tap", 0.3, 0.4)
+				# near-misses still sparkle, but mashing pays no wage
+				gesture.emit("tap", _miss_pay(), 0.4)
 		"choice":
 			var lane := clampi(int(at.x / maxf(1.0, size.x) * float(choice_count)), 0, choice_count - 1)
-			gesture.emit("choice", 1.0 if lane == target_choice else 0.24, 1.0 if lane == target_choice else 0.0)
+			if lane == target_choice:
+				gesture.emit("choice", 1.0, 1.0)
+			else:
+				gesture.emit("choice", _miss_pay(), 0.0)
 		"timing":
-			var quality := 1.0 if timing_position >= timing_zone.x and timing_position <= timing_zone.y else 0.32
-			gesture.emit("timing", quality, quality)
+			if timing_position >= timing_zone.x and timing_position <= timing_zone.y:
+				gesture.emit("timing", 1.0, 1.0)
+			else:
+				gesture.emit("timing", _miss_pay(), 0.32)
 		"bop":
 			_bop_press(at)
 		"hold":
@@ -179,15 +210,30 @@ func _drag(at: Vector2) -> void:
 	pointer_pos = at
 	var distance := at.distance_to(previous_pos)
 	if mode == "swipe" and distance > 0.0:
-		gesture.emit("swipe", distance / 150.0, 1.0)
+		var travel := minf(distance, 34.0) / 150.0
+		travel = minf(travel, swipe_budget)
+		if travel > 0.0:
+			swipe_budget -= travel
+			var aligned := 1.0
+			if swipe_require_dir:
+				aligned = maxf(0.0, (at - previous_pos).normalized().dot(swipe_dir))
+			if aligned >= 0.35:
+				gesture.emit("swipe", travel, 1.0)
+			else:
+				# wrong-direction wiggles fizzle kindly, tiny trickle
+				gesture.emit("swipe", travel * 0.2, 0.4)
 	elif mode == "circle":
 		var center := size * 0.5
 		var radius := at.distance_to(center)
 		if radius > minf(size.x, size.y) * 0.13:
 			var angle := (at - center).angle()
 			if have_angle:
-				var change := absf(wrapf(angle - previous_angle, -PI, PI))
-				gesture.emit("circle", change / TAU, 1.0)
+				var change := wrapf(angle - previous_angle, -PI, PI)
+				# straight-line scrubs cross the center as big sign-flipping
+				# jumps; honest circling is small same-sign steps
+				if absf(change) <= 0.9 and signf(change) == signf(_last_spin) and absf(_last_spin) > 0.0001:
+					gesture.emit("circle", absf(change) / TAU, 1.0)
+				_last_spin = change
 			previous_angle = angle
 			have_angle = true
 	previous_pos = at
