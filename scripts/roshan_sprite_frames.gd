@@ -106,12 +106,53 @@ static func offset_correction(sheet: String, frame_index: int,
 	var s: Vector2 = shift(sheet, frame_index)
 	return Vector2(-s.x if flipped else s.x, -s.y)
 
-# Applies the corrected window to a Sprite3D. hframes/vframes are deliberately
-# left alone: Sprite3D ignores them once region_enabled is set, and callers
-# such as CastleRooms25D still read them to derive the frame size.
+# Applies the corrected window to a Sprite3D.
+#
+# Sprite3D does NOT ignore hframes/vframes once region_enabled is set -- that
+# is true of Sprite2D, not of Sprite3D. Sprite3D::_draw treats region_rect as
+# the whole atlas, divides it by hframes/vframes and adds the frame offset
+# itself:
+#     frame_size   = region_rect.size / Vector2(hframes, vframes)
+#     src_rect     = region_rect.position + frame_cell * frame_size
+# Handing it one 256x256 cell therefore shrank the drawn quad to a single grid
+# sub-cell of that cell (64x128 on a 4x2 sheet) and sampled the wrong corner of
+# it, which is how Roshan rendered as a hard-edged sliver of hair in the Sky
+# Lagoon and as nothing at all in the castle (owner report 2026-08-02).
+#
+# So the window is handed over as the whole sheet translated by the shift. The
+# engine's own division then lands exactly on cell + shift, at the unchanged
+# 256x256 cell size, and callers such as CastleRooms25D keep reading a
+# meaningful hframes/vframes.
 static func apply_region(sprite: Sprite3D, sheet: String, frame_index: int,
 		columns: int) -> void:
 	if sprite == null or not has_sheet(sheet):
 		return
+	var s: Vector2 = shift(sheet, frame_index)
+	if s == Vector2.ZERO:
+		# Nothing to correct -- leave the stock grid slice entirely alone.
+		sprite.region_enabled = false
+		return
+	# The engine slices with the sprite's OWN grid, so the window has to be
+	# expressed in that grid; `columns` is the caller's view of the same sheet
+	# and only stands in if the sprite has not been gridded yet.
+	var cols: int = sprite.hframes if sprite.hframes > 1 else maxi(1, columns)
+	var rows: int = maxi(1, sprite.vframes)
 	sprite.region_enabled = true
-	sprite.region_rect = region(sheet, frame_index, columns)
+	sprite.region_rect = Rect2(s, Vector2(float(cols), float(rows)) * CELL)
+
+# The texture rect Sprite3D will actually sample, derived the way the engine
+# derives it. This is the regression gate for the trap above: probes compare it
+# against region() so a window that looks right in this table can never again
+# reach the child as a shrunken sliver.
+static func sampled_rect(sprite: Sprite3D) -> Rect2:
+	if sprite == null or sprite.texture == null:
+		return Rect2()
+	var cols: int = maxi(1, sprite.hframes)
+	var rows: int = maxi(1, sprite.vframes)
+	var base := Rect2(Vector2.ZERO, sprite.texture.get_size())
+	if sprite.region_enabled:
+		base = sprite.region_rect
+	var frame_size: Vector2 = base.size / Vector2(float(cols), float(rows))
+	var safe: int = maxi(0, sprite.frame)
+	var cell := Vector2(float(safe % cols), float(safe / cols)) * frame_size
+	return Rect2(base.position + cell, frame_size)

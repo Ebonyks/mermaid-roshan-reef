@@ -35,6 +35,9 @@ AUDIT_PATH = ROOT / "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json"
 KITCHEN_GENERATED_SOURCE = (
 	ROOT / "assets_src" / "castle" / "room_regenerations"
 	/ "room_kitchen_fullframe_v3_1672x941.png")
+MERMAID_POOL_GENERATED_SOURCE = (
+	ROOT / "assets_src" / "imagegen" / "mermaid_pool_room_2026-08-02"
+	/ "room_mermaid_pool_fullframe_v2_native.png")
 CANVAS = (1024, 576)
 
 
@@ -280,10 +283,10 @@ ITEMS: dict[str, list[tuple[str, tuple[int, int, int, int], tuple]]] = {
 		)),
 	],
 	"mermaid_pool": [
-		("star_float", (468, 260, 534, 306), (
-			_poly((499, 263), (507, 275), (531, 279), (512, 287),
-				(522, 301), (500, 295), (480, 302), (486, 288),
-				(470, 280), (492, 275)),
+		("star_float", (470, 260, 553, 320), (
+			_poly((515, 266), (524, 280), (543, 283), (531, 294),
+				(535, 309), (516, 302), (500, 309), (501, 295),
+				(483, 287), (504, 280)),
 		)),
 		("waterfall", (285, 45, 466, 278), (
 			_poly((335, 62), (418, 62), (456, 126), (448, 224),
@@ -294,12 +297,18 @@ ITEMS: dict[str, list[tuple[str, tuple[int, int, int, int], tuple]]] = {
 			_ellipse((382, 272, 454, 322)),
 			_ellipse((396, 257, 441, 309)),
 		)),
-		("bubble_fountain", (553, 183, 711, 325), (
-			_ellipse((612, 254, 672, 292)),
-			_poly((626, 263), (638, 225), (652, 225), (660, 263)),
-			_ellipse((631, 222, 653, 245)),
-			_ellipse((636, 202, 660, 228)),
-			_ellipse((625, 188, 649, 214)),
+		("seahorse_fountain", (650, 95, 835, 325), (
+			_ellipse((710, 264, 825, 320)),
+			_ellipse((718, 104, 810, 178)),
+			_poly((690, 132), (760, 122), (775, 151), (755, 179),
+				(716, 181), (682, 165), (664, 151)),
+			_poly((748, 153), (790, 171), (796, 213), (783, 248),
+				(808, 272), (798, 300), (756, 302), (728, 277),
+				(727, 229), (711, 197)),
+			_poly((690, 158), (724, 158), (716, 205), (706, 252),
+				(701, 298), (671, 306), (679, 258), (684, 207)),
+			_ellipse((675, 178, 695, 198)),
+			_ellipse((665, 211, 686, 233)),
 		)),
 	],
 	"bubble_bath": [
@@ -336,7 +345,11 @@ ITEMS: dict[str, list[tuple[str, tuple[int, int, int, int], tuple]]] = {
 
 def _normalized_backdrop(room_id: str) -> Image.Image:
 	path = ROOM_DIR / f"room_{room_id}.png"
-	source_path = KITCHEN_GENERATED_SOURCE if room_id == "kitchen" else path
+	source_path = path
+	if room_id == "kitchen":
+		source_path = KITCHEN_GENERATED_SOURCE
+	elif room_id == "mermaid_pool":
+		source_path = MERMAID_POOL_GENERATED_SOURCE
 	image = Image.open(source_path).convert("RGB")
 	if image.size != CANVAS:
 		image = image.resize(CANVAS, Image.Resampling.LANCZOS)
@@ -501,18 +514,18 @@ def _build_actor_shadow() -> None:
 
 
 def main() -> None:
-	# This accepted runtime-correction evidence predates the deterministic room
-	# rebuild. Preserve it rather than silently erasing a reviewed audit record
-	# every time the clean plates are regenerated.
-	prior_runtime_correction: dict[str, object] | None = None
+	# Accepted runtime-correction evidence predates the deterministic room
+	# rebuilds. Preserve every dated record rather than silently erasing newer
+	# reviewed audits whenever the clean plates are regenerated.
+	prior_runtime_corrections: dict[str, dict[str, object]] = {}
 	if AUDIT_PATH.exists():
 		try:
 			prior_manifest = json.loads(AUDIT_PATH.read_text(encoding="utf-8"))
-			prior_value = prior_manifest.get("runtime_correction_2026_07_29")
-			if isinstance(prior_value, dict):
-				prior_runtime_correction = prior_value
+			for key, value in prior_manifest.items():
+				if key.startswith("runtime_correction_") and isinstance(value, dict):
+					prior_runtime_corrections[key] = value
 		except (OSError, json.JSONDecodeError):
-			prior_runtime_correction = None
+			prior_runtime_corrections = {}
 	manifest: dict[str, object] = {
 		"schema": 1,
 		"owner_native_environment_contract": {
@@ -576,8 +589,8 @@ def main() -> None:
 			"opaque card ownership; antialiased source boundaries are preserved"),
 		"rooms": {},
 	}
-	if prior_runtime_correction is not None:
-		manifest["runtime_correction_2026_07_29"] = prior_runtime_correction
+	for key, value in prior_runtime_corrections.items():
+		manifest[key] = value
 	for room_id, pieces in PIECES.items():
 		image = _normalized_backdrop(room_id)
 
@@ -716,6 +729,21 @@ def main() -> None:
 					"generation_prompt_record": (
 						"assets_src/castle/room_regenerations/"
 						"room_kitchen_fullframe_v3_provenance.md"),
+				})
+		elif room_id == "mermaid_pool":
+			with Image.open(MERMAID_POOL_GENERATED_SOURCE) as generated:
+				room_record.update({
+					"generation_master": MERMAID_POOL_GENERATED_SOURCE.relative_to(
+						ROOT).as_posix(),
+					"generation_master_dimensions": list(generated.size),
+					"generation_master_sha256": _sha256(
+						MERMAID_POOL_GENERATED_SOURCE),
+					"generation_method": (
+						"OpenAI built-in ImageGen complete full-frame "
+						"reference-guided regeneration"),
+					"generation_prompt_record": (
+						"assets_src/imagegen/mermaid_pool_room_2026-08-02/"
+						"PROVENANCE.md"),
 				})
 		manifest["rooms"][room_id] = room_record
 	_build_actor_shadow()

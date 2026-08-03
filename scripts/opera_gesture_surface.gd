@@ -42,33 +42,16 @@ var swipe_dir := Vector2.RIGHT
 ## Tap phases aim at a moving point that leaves a happy mark per hit.
 var tap_point := Vector2.ZERO
 var tap_marks: Array = []
-## Diegetic scene painted behind the affordance (nursery basin/bottle/cribs
-## drawn in code; every other career loads codex widget art when present:
-## assets/opera/worlds/widgets/widget_<template>_<career>{,_mover,_fill}.png
-## per CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md, else vector fallback).
+## Diegetic scene painted behind the affordance (nursery basin/bottle/cribs).
 var visual_context := ""
 var nursery_textures: Array[Texture2D] = []
-const WIDGET_DIR := "res://assets/opera/worlds/widgets/"
+var widget_template := ""
+var widget_fill := 0.0
 var widget_backdrop: Texture2D = null
 var widget_mover: Texture2D = null
-var widget_fill: Texture2D = null
-## Fraction of the current phase already done — drives _fill overlays.
-var fill_fraction := 0.0
-
-
-func _load_widget_art() -> void:
-	widget_backdrop = null
-	widget_mover = null
-	widget_fill = null
-	if visual_context == "" or visual_context.begins_with("nursery"):
-		return
-	var base := WIDGET_DIR + "widget_" + visual_context
-	if ResourceLoader.exists(base + ".png"):
-		widget_backdrop = load(base + ".png") as Texture2D
-	if ResourceLoader.exists(base + "_mover.png"):
-		widget_mover = load(base + "_mover.png") as Texture2D
-	if ResourceLoader.exists(base + "_fill.png"):
-		widget_fill = load(base + "_fill.png") as Texture2D
+var widget_overlay: Texture2D = null
+var widget_stamp: Texture2D = null
+var widget_shared: Texture2D = null
 ## Trickle-by-assist (house pattern from fetch/melody/dolls): wrong input
 ## always celebrates but pays ~nothing, and repeat misses inside the
 ## cooldown pay zero — correct play must strictly beat mashing.
@@ -94,9 +77,9 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	accent = next_accent
 	target_choice = choice
 	visual_context = next_context
-	fill_fraction = 0.0
-	_load_widget_art()
-	if visual_context.begins_with("nursery") and nursery_textures.is_empty():
+	widget_fill = 0.0
+	_load_widget_set()
+	if visual_context.ends_with("_nursery") and nursery_textures.is_empty():
 		for index in range(3):
 			var path := "res://assets/opera/worlds/nursery/baby_%d.png" % index
 			var texture := load(path) as Texture2D
@@ -116,6 +99,56 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	if next_mode != "bop":
 		bop_targets = []
 	queue_redraw()
+
+
+func _load_widget_texture(path: String) -> Texture2D:
+	return load(path) as Texture2D if ResourceLoader.exists(path) else null
+
+
+func _load_widget_set() -> void:
+	widget_template = visual_context.get_slice("_", 0) if not visual_context.is_empty() else ""
+	widget_backdrop = null
+	widget_mover = null
+	widget_overlay = null
+	widget_stamp = null
+	widget_shared = null
+	if widget_template.is_empty():
+		return
+	var prefix := "res://assets/opera/worlds/widgets/widget_%s" % visual_context
+	widget_backdrop = _load_widget_texture("%s.png" % prefix)
+	match widget_template:
+		"gauge":
+			widget_mover = _load_widget_texture("res://assets/opera/worlds/widgets/widget_gauge_shared_needle.png")
+			widget_overlay = _load_widget_texture("%s_success.png" % prefix)
+		"track":
+			widget_mover = _load_widget_texture("%s_mover.png" % prefix)
+			widget_shared = _load_widget_texture("res://assets/opera/worlds/widgets/widget_track_shared_hit.png")
+		"pour":
+			widget_mover = _load_widget_texture("%s_mover.png" % prefix)
+			widget_overlay = _load_widget_texture("%s_fill.png" % prefix)
+		"basin":
+			widget_overlay = _load_widget_texture("%s_bubbles.png" % prefix)
+			widget_shared = _load_widget_texture("res://assets/opera/worlds/widgets/widget_basin_shared_shine.png")
+		"charge":
+			widget_mover = _load_widget_texture("%s_glow.png" % prefix)
+			widget_overlay = _load_widget_texture("%s_full.png" % prefix)
+		"crank":
+			widget_mover = _load_widget_texture("%s_mover.png" % prefix)
+			widget_overlay = _load_widget_texture("%s_progress.png" % prefix)
+		"trace":
+			widget_overlay = _load_widget_texture("%s_lit.png" % prefix)
+		"push":
+			widget_mover = _load_widget_texture("%s_mover.png" % prefix)
+			var down := visual_context.ends_with("_boxer") or visual_context.ends_with("_nursery")
+			var shared_name := "arrow_down" if down else "arrow_lr"
+			widget_shared = _load_widget_texture("res://assets/opera/worlds/widgets/widget_push_shared_%s.png" % shared_name)
+		"target":
+			widget_mover = _load_widget_texture("%s_mover.png" % prefix)
+			widget_stamp = _load_widget_texture("%s_mark.png" % prefix)
+			widget_overlay = _load_widget_texture("%s_success.png" % prefix)
+		"lanes":
+			widget_mover = _load_widget_texture("%s_lit.png" % prefix)
+			widget_shared = _load_widget_texture("res://assets/opera/worlds/widgets/widget_lanes_shared_pick.png")
 
 
 func note_input() -> void:
@@ -166,6 +199,12 @@ func bop_remaining() -> int:
 func set_timing_position(value: float) -> void:
 	timing_position = clampf(value, 0.0, 1.0)
 	if mode == "timing":
+		queue_redraw()
+
+
+func set_fill(value: float) -> void:
+	widget_fill = clampf(value, 0.0, 1.0)
+	if widget_backdrop != null:
 		queue_redraw()
 
 
@@ -303,26 +342,21 @@ func _gui_input(event: InputEvent) -> void:
 
 func _draw() -> void:
 	var panel := Rect2(Vector2.ZERO, size)
-	# light paper inset window per the StorybookUI language; painted widget
-	# backdrops keep only the contour frame
-	if widget_backdrop == null or visual_context.begins_with("nursery"):
-		draw_rect(panel, Color(0.94, 0.97, 1.0, 0.96), true)
+	# light paper inset window per the StorybookUI language
+	draw_rect(panel, Color(0.94, 0.97, 1.0, 0.96), true)
 	draw_rect(panel.grow(-3.0), accent.lerp(Color("#382485"), 0.62), false, 4.0)
 	var center := size * 0.5
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, panel, false)
+		_draw_widget_layers(center)
+		if demo_active:
+			_draw_demo_finger()
+		return
 	if visual_context.begins_with("nursery"):
 		_draw_nursery_context(center)
 		if demo_active:
 			_draw_demo_finger()
 		return
-	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, Rect2(Vector2.ZERO, size), false)
-		if widget_fill != null and fill_fraction > 0.0:
-			# the vessel fills from the bottom as the phase progresses
-			var tex_size := widget_fill.get_size()
-			var cut := clampf(fill_fraction, 0.0, 1.0)
-			var src := Rect2(0.0, tex_size.y * (1.0 - cut), tex_size.x, tex_size.y * cut)
-			var dst := Rect2(0.0, size.y * (1.0 - cut), size.x, size.y * cut)
-			draw_texture_rect_region(widget_fill, dst, src)
 	match mode:
 		"tap":
 			for mark: Vector2 in tap_marks:
@@ -363,14 +397,6 @@ func _draw() -> void:
 				if is_answer:
 					draw_circle(point, 15.0, Color.WHITE)
 		"timing":
-			if widget_backdrop != null and widget_mover != null:
-				# the codex track bakes the run and the green go-zone; the
-				# mover rides the same 12%-88% span the engine has always used
-				var mover_x := lerpf(size.x * 0.12, size.x * 0.88, timing_position)
-				var mover_y := size.y * (400.0 / 608.0)
-				var mside := size.y * 0.42
-				draw_texture_rect(widget_mover, Rect2(Vector2(mover_x - mside * 0.5, mover_y - mside * 0.5), Vector2(mside, mside)), false)
-				return
 			var bar := Rect2(size.x * 0.12, center.y - 23.0, size.x * 0.76, 46.0)
 			draw_rect(bar, Color(0.2, 0.23, 0.38), true)
 			var good := Rect2(
@@ -386,6 +412,89 @@ func _draw() -> void:
 					_draw_imp(target)
 	if demo_active:
 		_draw_demo_finger()
+
+
+func _draw_progress_overlay(texture: Texture2D, progress: float, horizontal: bool) -> void:
+	var amount := clampf(progress, 0.0, 1.0)
+	if amount <= 0.0:
+		return
+	var texture_size := texture.get_size()
+	if horizontal:
+		var source := Rect2(0.0, 0.0, texture_size.x * amount, texture_size.y)
+		var destination := Rect2(0.0, 0.0, size.x * amount, size.y)
+		draw_texture_rect_region(texture, destination, source)
+	else:
+		var source_y := texture_size.y * (1.0 - amount)
+		var destination_y := size.y * (1.0 - amount)
+		var source := Rect2(0.0, source_y, texture_size.x, texture_size.y * amount)
+		var destination := Rect2(0.0, destination_y, size.x, size.y * amount)
+		draw_texture_rect_region(texture, destination, source)
+
+
+func _draw_widget_sprite(texture: Texture2D, center: Vector2, side: float, modulate := Color.WHITE) -> void:
+	if texture == null:
+		return
+	draw_texture_rect(texture, Rect2(center - Vector2.ONE * side * 0.5, Vector2.ONE * side), false, modulate)
+
+
+func _draw_widget_layers(center: Vector2) -> void:
+	match widget_template:
+		"gauge":
+			if widget_mover != null:
+				var pivot := Vector2(size.x * 0.5, size.y * 0.82)
+				var rotation := deg_to_rad(lerpf(-60.0, 60.0, timing_position))
+				draw_set_transform(pivot, rotation)
+				draw_texture_rect(widget_mover, Rect2(-48.0, -84.0, 96.0, 96.0), false)
+				draw_set_transform(Vector2.ZERO)
+			if widget_overlay != null and timing_position >= timing_zone.x and timing_position <= timing_zone.y:
+				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
+		"track":
+			var run_point := Vector2(lerpf(size.x * 0.12, size.x * 0.88, timing_position), size.y * 0.66)
+			_draw_widget_sprite(widget_mover, run_point, 128.0)
+			if widget_shared != null and timing_position >= timing_zone.x and timing_position <= timing_zone.y:
+				_draw_widget_sprite(widget_shared, run_point, 82.0)
+		"pour":
+			if held:
+				_draw_widget_sprite(widget_mover, center - Vector2(0.0, 18.0), 138.0)
+			if widget_overlay != null:
+				_draw_progress_overlay(widget_overlay, widget_fill, false)
+		"basin":
+			if widget_overlay != null:
+				_draw_progress_overlay(widget_overlay, widget_fill, false)
+			if widget_fill >= 0.96:
+				_draw_widget_sprite(widget_shared, center, 118.0)
+		"charge":
+			if widget_mover != null:
+				_draw_widget_sprite(widget_mover, center, 108.0 + widget_fill * 126.0)
+			if widget_overlay != null and widget_fill > 0.82:
+				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false, Color(1.0, 1.0, 1.0, widget_fill))
+		"crank":
+			if widget_mover != null:
+				draw_set_transform(center, previous_angle)
+				draw_texture_rect(widget_mover, Rect2(-70.0, -70.0, 140.0, 140.0), false)
+				draw_set_transform(Vector2.ZERO)
+			if widget_overlay != null:
+				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false, Color(1.0, 1.0, 1.0, widget_fill))
+		"trace":
+			if widget_overlay != null:
+				_draw_progress_overlay(widget_overlay, widget_fill, true)
+		"push":
+			var mover_point := center + swipe_dir * widget_fill * 42.0
+			_draw_widget_sprite(widget_mover, mover_point, 136.0)
+			_draw_widget_sprite(widget_shared, center + swipe_dir * 92.0, 92.0, Color(1.0, 1.0, 1.0, 0.72))
+		"target":
+			for mark: Vector2 in tap_marks:
+				_draw_widget_sprite(widget_stamp, mark, 76.0)
+			_draw_widget_sprite(widget_mover, tap_point, 142.0)
+			if widget_overlay != null and widget_fill >= 0.96:
+				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
+		"lanes":
+			var show_answer := choice_flash > 0.0 or demo_active
+			if show_answer and widget_mover != null:
+				var lane_point := Vector2(size.x * (float(target_choice) + 0.5) / float(choice_count), size.y * 0.70)
+				var source := Rect2(float(target_choice) * 256.0, 0.0, 256.0, 256.0)
+				draw_texture_rect_region(widget_mover, Rect2(lane_point - Vector2(62.0, 62.0), Vector2(124.0, 124.0)), source)
+				_draw_widget_sprite(widget_shared, lane_point, 82.0)
 
 
 func _draw_nursery_baby(texture_index: int, center: Vector2, extent: float) -> void:

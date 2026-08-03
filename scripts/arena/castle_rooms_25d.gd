@@ -16,6 +16,7 @@ const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
 const CASTLE_PORTAL_CUTOUT_SHADER := preload(
 	"res://shaders/castle_portal_cutout.gdshader")
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const Affordance := preload("res://scripts/interaction_affordance.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
 const ART_TO_STAGE := 1.25
@@ -52,11 +53,14 @@ const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
 const HALL_PLAYER_STAGE_HEIGHT := 190.0
 const SHADOW_STAGE_SIZE := Vector2(210.0, 38.0)
+const AFFORDANCE_TOUR_SECONDS := 3.2
 const HALL_VIEW_SIZE := Vector2(1672.0, 941.0)
 const HALL_LOGICAL_SIZE := Vector2(3344.0, 941.0)
 const HALL_STAGE_SCALE := 1280.0 / HALL_VIEW_SIZE.x
 const HALL_CARD_PIXEL_SIZE := WORLD_WIDTH / HALL_VIEW_SIZE.x
 const HALL_WALK := Rect2(60.0, 615.0, 3224.0, 300.0)
+# breath between the throne's own line and Princess Huluu's stuffie offer
+const THRONE_OFFER_BEAT := 1.6
 const HALL_FILL_COLOR := Color(0.78, 0.72, 0.94)
 const HALL_FILL_ENERGY := 0.78
 const HALL_FILL_OFF_ENERGY := 0.42
@@ -93,7 +97,7 @@ const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
 ]
 const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
 	{"id": "family_wing_entry", "pos": Vector2(220.0, 470.0),
-		"z": 0.01, "scale": 1.0, "shaded": false,
+		"z": 0.01, "scale": 0.82, "shaded": false,
 		"tex_path": DREAM_HOUSE_ART + "family_wing_hall_insert.png",
 		"role": "registered_family_gallery_door"},
 	{"id": "playroom_portal_bridge", "pos": Vector2(1672.0, 490.0),
@@ -499,19 +503,21 @@ const ROOM_ITEMS := {
 	],
 	"mermaid_pool": [
 		{"id": "waterfall", "name": "Rainbow waterfall", "pos": Vector2(285, 45),
-			"z": 0.65,
+			"z": 0.65, "hotspot_size": Vector2(181.0, 220.0),
 			"symbol": "○", "color": Color(0.52, 0.91, 1.0)},
 		{"id": "flower_float", "name": "Flower float", "pos": Vector2(371, 218),
-			"z": MIDGROUND_Z, "hotspot_offset": Vector2(4.0, 12.0),
-			"hotspot_size": Vector2(88.0, 88.0),
+			"z": MIDGROUND_Z, "hotspot_offset": Vector2(4.0, 32.0),
+			"hotspot_size": Vector2(108.0, 88.0),
 			"symbol": "✦", "color": Color(1.0, 0.62, 0.78)},
-		{"id": "bubble_fountain", "name": "Bubble fountain", "pos": Vector2(553, 183),
-			"z": MIDGROUND_Z,
+		{"id": "seahorse_fountain", "name": "Seahorse fountain",
+			"pos": Vector2(650, 95), "z": MIDGROUND_Z,
+			"hotspot_offset": Vector2(8.0, 2.0),
+			"hotspot_size": Vector2(170.0, 224.0),
 			"symbol": "○", "color": Color(0.72, 0.94, 1.0)},
 		{"id": "star_float", "name": "Star float",
-			"pos": Vector2(468, 260), "z": MIDGROUND_Z + 0.03,
-			"hotspot_offset": Vector2(0.0, -17.5),
-			"hotspot_size": Vector2(80.0, 80.0),
+			"pos": Vector2(470, 260), "z": MIDGROUND_Z + 0.03,
+			"hotspot_offset": Vector2(-6.0, -12.0),
+			"hotspot_size": Vector2(96.0, 88.0),
 			"color": Color(1.0, 0.82, 0.40)},
 	],
 	"bubble_bath": [
@@ -532,36 +538,32 @@ const ROOM_ITEMS := {
 	],
 	"family_gallery": [
 		{"id": "gallery_dining_door", "name": "Family Dining Room",
-			"pos": Vector2(25.0, 115.0), "z": 0.86, "scale": 0.64,
+			"pos": Vector2(-40.0, 79.0), "z": 0.86, "scale": 0.60,
 			"tex_path": DREAM_HOUSE_ART + "family_portal_dining.png",
-			"hotspot_size": Vector2(250.0, 412.0),
 			"roleplay_action": "enter_room",
 			"room_destination": "dining_room",
 			"roleplay_foot": Vector2(188.0, 620.0),
 			"sound": "castle/curtain_swish.ogg",
 			"color": Color(1.0, 0.72, 0.76)},
 		{"id": "gallery_royal_bedroom_door", "name": "Royal Bedroom",
-			"pos": Vector2(260.0, 115.0), "z": 0.87, "scale": 0.64,
+			"pos": Vector2(200.0, 77.0), "z": 0.87, "scale": 0.60,
 			"tex_path": DREAM_HOUSE_ART + "family_portal_royal_bedroom.png",
-			"hotspot_size": Vector2(250.0, 412.0),
 			"roleplay_action": "enter_room",
 			"room_destination": "royal_bedroom",
 			"roleplay_foot": Vector2(481.0, 620.0),
 			"sound": "castle/curtain_swish.ogg",
 			"color": Color(0.72, 0.88, 1.0)},
 		{"id": "gallery_sleepover_door", "name": "Sleepover Bedroom",
-			"pos": Vector2(495.0, 115.0), "z": 0.88, "scale": 0.64,
+			"pos": Vector2(448.0, 89.0), "z": 0.88, "scale": 0.60,
 			"tex_path": DREAM_HOUSE_ART + "family_portal_sleepover_bedroom.png",
-			"hotspot_size": Vector2(250.0, 412.0),
 			"roleplay_action": "enter_room",
 			"room_destination": "sleepover_bedroom",
 			"roleplay_foot": Vector2(775.0, 620.0),
 			"sound": "castle/curtain_swish.ogg",
 			"color": Color(0.80, 0.72, 1.0)},
 		{"id": "gallery_movie_door", "name": "Cloud Movie Lounge",
-			"pos": Vector2(730.0, 115.0), "z": 0.89, "scale": 0.64,
+			"pos": Vector2(680.0, 89.0), "z": 0.89, "scale": 0.60,
 			"tex_path": DREAM_HOUSE_ART + "family_portal_movie_lounge.png",
-			"hotspot_size": Vector2(250.0, 412.0),
 			"roleplay_action": "enter_room", "room_destination": "movie_lounge",
 			"roleplay_foot": Vector2(1069.0, 620.0),
 			"sound": "castle/curtain_swish.ogg",
@@ -569,75 +571,73 @@ const ROOM_ITEMS := {
 	],
 	"dining_room": [
 		{"id": "dining_table", "name": "Family feast table",
-			"pos": Vector2(280.0, 187.0), "z": 2.05, "scale": 0.70,
+			"pos": Vector2(366.0, 264.0), "z": 2.05, "scale": 1.14,
 			"tex_path": DREAM_HOUSE_ART + "dining_table.png",
-			"hotspot_offset": Vector2(17.0, 30.0),
-			"hotspot_size": Vector2(430.0, 320.0),
 			"roleplay_action": "eat_meal", "roleplay_foot": Vector2(512.0, 555.0),
 			"sound": "chime.ogg", "pitch": 1.12,
 			"color": Color(1.0, 0.68, 0.76)},
 		{"id": "provisions_hutch", "name": "Royal buffet",
-			"pos": Vector2(-58.0, 84.0), "z": 0.82, "scale": 0.50,
+			"pos": Vector2(33.0, 155.0), "z": 0.82, "scale": 0.78,
 			"tex_path": DREAM_HOUSE_ART + "provisions_hutch.png",
 			"roleplay_action": "serve_meal", "sound": "castle/page_flip.ogg",
 			"pitch": 1.18, "color": Color(0.58, 0.94, 0.82)},
 		{"id": "dining_seat_left", "name": "Cloud dining seat",
-			"pos": Vector2(60.0, 256.0), "z": 2.32, "scale": 0.38,
+			"pos": Vector2(175.0, 357.0), "z": 2.32, "scale": 0.86,
 			"tex_path": DREAM_HOUSE_ART + "dining_seat.png",
 			"proximity_only": true},
 		{"id": "dining_seat_right", "name": "Cloud dining seat",
-			"pos": Vector2(555.0, 256.0), "z": 2.32, "scale": 0.38,
+			"pos": Vector2(670.0, 357.0), "z": 2.32, "scale": 0.86,
 			"tex_path": DREAM_HOUSE_ART + "dining_seat.png",
 			"flip_h": true, "proximity_only": true},
 		{"id": "dining_chandelier", "name": "Pearl chandelier",
-			"pos": Vector2(299.0, -72.0), "z": 0.72, "scale": 0.45,
+			"pos": Vector2(408.0, -28.0), "z": 0.72, "scale": 0.68,
 			"tex_path": DREAM_HOUSE_ART + "shell_chandelier.png",
 			"proximity_only": true},
 		{"id": "meal_plate_0", "name": "Dinner plate",
-			"pos": Vector2(332.0, 292.0), "z": 2.46, "scale": 0.32,
+			"pos": Vector2(277.0, 262.0), "z": 2.46, "scale": 0.20,
 			"tex_path": DREAM_HOUSE_ART + "meal_plate.png",
 			"roleplay_plate": 0, "proximity_only": true},
 		{"id": "meal_plate_1", "name": "Dinner plate",
-			"pos": Vector2(397.0, 278.0), "z": 2.47, "scale": 0.32,
+			"pos": Vector2(342.0, 248.0), "z": 2.47, "scale": 0.20,
 			"tex_path": DREAM_HOUSE_ART + "meal_plate.png",
 			"roleplay_plate": 1, "proximity_only": true},
 		{"id": "meal_plate_2", "name": "Dinner plate",
-			"pos": Vector2(462.0, 278.0), "z": 2.48, "scale": 0.32,
+			"pos": Vector2(407.0, 248.0), "z": 2.48, "scale": 0.20,
 			"tex_path": DREAM_HOUSE_ART + "meal_plate.png",
 			"roleplay_plate": 2, "proximity_only": true},
 		{"id": "meal_plate_3", "name": "Dinner plate",
-			"pos": Vector2(527.0, 292.0), "z": 2.49, "scale": 0.32,
+			"pos": Vector2(472.0, 262.0), "z": 2.49, "scale": 0.20,
 			"tex_path": DREAM_HOUSE_ART + "meal_plate.png",
 			"roleplay_plate": 3, "proximity_only": true},
 		{"id": "meal_plate_4", "name": "Dinner plate",
-			"pos": Vector2(382.0, 320.0), "z": 2.50, "scale": 0.32,
+			"pos": Vector2(327.0, 290.0), "z": 2.50, "scale": 0.20,
 			"tex_path": DREAM_HOUSE_ART + "meal_plate.png",
 			"roleplay_plate": 4, "proximity_only": true},
 		{"id": "meal_plate_5", "name": "Dinner plate",
-			"pos": Vector2(472.0, 320.0), "z": 2.51, "scale": 0.32,
+			"pos": Vector2(417.0, 290.0), "z": 2.51, "scale": 0.20,
 			"tex_path": DREAM_HOUSE_ART + "meal_plate.png",
 			"roleplay_plate": 5, "proximity_only": true},
 	],
 	"royal_bedroom": [
 		{"id": "canopy_bed", "name": "Royal canopy bed",
-			"pos": Vector2(270.0, 28.0), "z": 1.20, "scale": 0.72,
+			"pos": Vector2(353.0, 175.0), "z": 1.20, "scale": 1.25,
 			"tex_path": DREAM_HOUSE_ART + "canopy_bed.png",
 			"roleplay_action": "sleep", "roleplay_foot": Vector2(515.0, 530.0),
 			"sound": "chime.ogg", "pitch": 0.82,
 			"color": Color(0.74, 0.84, 1.0)},
 		{"id": "shell_wardrobe", "name": "Shell wardrobe",
-			"pos": Vector2(33.0, 63.0), "z": 0.92, "scale": 0.55,
+			"pos": Vector2(52.0, 164.0), "z": 0.92, "scale": 0.83,
 			"tex_path": DREAM_HOUSE_ART + "shell_wardrobe.png",
 			"roleplay_action": "dress_up", "sound": "castle/curtain_swish.ogg",
 			"color": Color(1.0, 0.67, 0.82)},
 		{"id": "bedside_table", "name": "Bedside pearl light",
-			"pos": Vector2(663.0, 90.0), "z": 1.42, "scale": 0.42,
+			"pos": Vector2(681.0, 214.0), "z": 1.42, "scale": 0.63,
 			"tex_path": DREAM_HOUSE_ART + "bedside_table.png",
 			"roleplay_action": "bedside_light",
 			"sound": "castle/light_switch.ogg",
 			"color": Color(1.0, 0.88, 0.48)},
 		{"id": "reading_cushion", "name": "Cosy story cushion",
-			"pos": Vector2(664.0, 235.0), "z": 2.25, "scale": 0.28,
+			"pos": Vector2(742.0, 349.0), "z": 2.25, "scale": 0.44,
 			"tex_path": DREAM_HOUSE_ART + "story_cushion.png",
 			"roleplay_action": "relax", "roleplay_foot": Vector2(885.0, 535.0),
 			"sound": "castle/page_flip.ogg",
@@ -645,60 +645,66 @@ const ROOM_ITEMS := {
 	],
 	"sleepover_bedroom": [
 		{"id": "dream_bed_0", "name": "Pink dream bed",
-			"pos": Vector2(-126.0, 159.0), "z": 1.90, "scale": 0.42,
+			"pos": Vector2(83.0, 290.0), "z": 1.90, "scale": 0.88,
 			"tex_path": DREAM_HOUSE_ART + "dream_bed_0.png",
 			"roleplay_action": "sleep", "roleplay_foot": Vector2(210.0, 555.0),
 			"sound": "chime.ogg", "pitch": 0.82,
 			"color": Color(1.0, 0.70, 0.84)},
 		{"id": "dream_bed_1", "name": "Pearl dream bed",
-			"pos": Vector2(177.0, 154.0), "z": 1.92, "scale": 0.42,
+			"pos": Vector2(387.0, 287.0), "z": 1.92, "scale": 0.88,
 			"tex_path": DREAM_HOUSE_ART + "dream_bed_1.png",
 			"roleplay_action": "sleep", "roleplay_foot": Vector2(512.0, 555.0),
 			"sound": "chime.ogg", "pitch": 0.86,
 			"color": Color(0.74, 0.88, 1.0)},
 		{"id": "dream_bed_2", "name": "Purple dream bed",
-			"pos": Vector2(479.0, 159.0), "z": 1.94, "scale": 0.42,
+			"pos": Vector2(688.0, 292.0), "z": 1.94, "scale": 0.88,
 			"tex_path": DREAM_HOUSE_ART + "dream_bed_2.png",
 			"roleplay_action": "sleep", "roleplay_foot": Vector2(814.0, 555.0),
 			"sound": "chime.ogg", "pitch": 0.90,
 			"color": Color(0.78, 0.70, 1.0)},
 		{"id": "sleepover_chandelier", "name": "Pearl chandelier",
-			"pos": Vector2(299.0, -77.0), "z": 0.72, "scale": 0.38,
+			"pos": Vector2(408.0, -33.0), "z": 0.72, "scale": 0.54,
 			"tex_path": DREAM_HOUSE_ART + "shell_chandelier.png",
 			"proximity_only": true},
 	],
 	"movie_lounge": [
 		{"id": "movie_picture", "name": "Family home movie",
-			"pos": Vector2(255.0, -122.0), "z": 0.48, "scale": 0.40,
+			"pos": Vector2(255.0, -122.0), "z": 0.48, "scale": 0.30,
 			"tex_path": "res://assets/book/hall/p_slide.jpg",
 			"proximity_only": true},
 		{"id": "movie_screen", "name": "Home movie screen",
-			"pos": Vector2(152.0, 30.0), "z": 0.76, "scale": 0.92,
+			"pos": Vector2(356.0, 98.0), "z": 0.76, "scale": 1.60,
 			"tex_path": DREAM_HOUSE_ART + "movie_screen_frame.png",
-			"hotspot_offset": Vector2(30.0, 30.0),
-			"hotspot_size": Vector2(660.0, 340.0),
+			"hotspot_offset": Vector2(32.0, 65.0),
+			"hotspot_size": Vector2(248.0, 149.0),
 			"roleplay_action": "watch_movie",
 			"sound": "castle/page_flip.ogg",
 			"color": Color(1.0, 0.82, 0.42)},
 		{"id": "cloud_settee_left", "name": "Left cloud couch",
-			"pos": Vector2(45.0, 301.0), "z": 2.12, "scale": 0.52,
+			"pos": Vector2(109.0, 351.0), "z": 2.12, "scale": 0.74,
 			"tex_path": DREAM_HOUSE_ART + "cloud_settee.png",
 			"roleplay_action": "relax", "roleplay_foot": Vector2(260.0, 555.0),
 			"sound": "castle/curtain_swish.ogg",
 			"color": Color(0.72, 0.88, 1.0)},
 		{"id": "cloud_settee_right", "name": "Right cloud couch",
-			"pos": Vector2(549.0, 301.0), "z": 2.12, "scale": 0.52,
+			"pos": Vector2(613.0, 351.0), "z": 2.12, "scale": 0.74,
 			"tex_path": DREAM_HOUSE_ART + "cloud_settee.png",
 			"flip_h": true, "roleplay_action": "relax",
 			"roleplay_foot": Vector2(764.0, 555.0),
 			"sound": "castle/curtain_swish.ogg",
 			"color": Color(0.72, 0.88, 1.0)},
 		{"id": "cloud_pouf", "name": "Cloud play pouf",
-			"pos": Vector2(308.0, 297.0), "z": 2.52, "scale": 0.32,
+			"pos": Vector2(402.0, 396.0), "z": 2.52, "scale": 0.62,
 			"tex_path": DREAM_HOUSE_ART + "cloud_pouf.png",
 			"roleplay_action": "relax", "roleplay_foot": Vector2(512.0, 560.0),
 			"sound": "castle/toy_blocks.ogg",
 			"color": Color(1.0, 0.72, 0.88)},
+		{"id": "movie_popcorn", "name": "Movie-night popcorn",
+			"pos": Vector2(412.0, 333.0), "z": 2.64, "scale": 0.25,
+			"tex_path": DREAM_HOUSE_ART + "shell_popcorn_bowl.png",
+			"roleplay_action": "watch_movie",
+			"sound": "castle/page_flip.ogg",
+			"color": Color(1.0, 0.82, 0.42)},
 	],
 }
 
@@ -784,7 +790,7 @@ const INTERACTION_SPECS := {
 	"mermaid_pool:flower_float": {"semantic_action": "open_flower_and_make_ripples",
 		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
 		"sound_frame": 0, "pitch": 1.0},
-	"mermaid_pool:bubble_fountain": {"semantic_action": "raise_and_pop_bubbles",
+	"mermaid_pool:seahorse_fountain": {"semantic_action": "spray_seahorse_fountain",
 		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
 		"sound_frame": 0, "pitch": 1.0},
 	"mermaid_pool:star_float": {"semantic_action": "float_and_make_ripples",
@@ -982,6 +988,7 @@ func close() -> void:
 	m.castle_room_action_button = null
 	m.castle_room_back_button = null
 	m.castle_room_buttons.clear()
+	m.g.erase("castle_room_affordance")
 	m.g.erase("castle_dust_bunnies_cleared")
 	m.g.erase("castle_dust_bunny_runner_time")
 	m.g.erase("castle_dining_plates")
@@ -1001,6 +1008,7 @@ func tick(delta: float) -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
 	fixture_rigs.tick(delta)
+	_tick_item_affordances(delta)
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
@@ -1018,6 +1026,12 @@ func _build_stage() -> void:
 	m.castle_room_world_root.name = "CastleRoomsSprite3DWorld"
 	m.castle_room_world_root.position = WORLD_ORIGIN
 	m.add_child(m.castle_room_world_root)
+	var affordance_halo: Sprite3D = Affordance.make_radial_halo(
+		Affordance.ANIMATION, Vector2.ONE)
+	affordance_halo.name = "CastleTouchAffordance"
+	affordance_halo.visible = false
+	m.castle_room_world_root.add_child(affordance_halo)
+	m.g["castle_room_affordance"] = affordance_halo
 
 	m.castle_room_camera = Camera3D.new()
 	m.castle_room_camera.name = "CastleRoomsCamera"
@@ -1713,6 +1727,12 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	var interaction_spec: Dictionary = INTERACTION_SPECS.get(
 		interaction_key, {}) as Dictionary
 	var v2_visual: Dictionary = fixture_rigs.visual_spec(room_id, item_id)
+	# The generated v2 pool fixtures removed the iconic rainbow flow and turned
+	# the right-hand fountain into plumbing. The regenerated room deliberately
+	# uses exact room-derived atlases so its four resting interaction subjects
+	# remain visible, coherent, and aligned with their touch targets.
+	if room_id == "mermaid_pool":
+		v2_visual = {}
 	if not interaction_spec.is_empty() or not v2_visual.is_empty():
 		item_data = item_data.duplicate(true)
 		item_data.merge(interaction_spec, true)
@@ -1935,9 +1955,18 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			/ maxf(0.001, visual_scale)
 		hotspot_local_size = authored_hotspot_size \
 			/ maxf(0.001, runtime_scale)
+	var affordance_kind: String = Affordance.INTERACTION \
+		if item_data.has("room_destination") else Affordance.ANIMATION
+	var affordance_size := Vector2(
+		maxf(1.4, visible_frame_rect.size.x * piece.pixel_size
+			* visual_scale * 1.18),
+		maxf(1.4, visible_frame_rect.size.y * piece.pixel_size
+			* visual_scale * 1.18))
 	m.castle_room_item_sprites[item_id] = {
 		"sprite": piece,
 		"hotspot": hotspot,
+		"affordance_kind": affordance_kind,
+		"affordance_size": affordance_size,
 		"data": item_data,
 		"contact_foot": contact_foot,
 		"contact_radius": contact_radius,
@@ -3071,6 +3100,62 @@ func _update_touch_hotspots() -> void:
 		var record: Dictionary = m.castle_room_item_sprites[item_id_value]
 		_update_touch_hotspot(record)
 
+func _tick_item_affordances(_delta: float) -> void:
+	var halo: Sprite3D = m.g.get("castle_room_affordance") as Sprite3D
+	if halo == null or not is_instance_valid(halo):
+		return
+	var candidate_ids: Array[String] = []
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var item_id: String = String(item_id_value)
+		var record: Dictionary = m.castle_room_item_sprites[item_id_value]
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		var hotspot: Button = record.get("hotspot") as Button
+		if sprite != null and is_instance_valid(sprite) and sprite.visible \
+				and hotspot != null and hotspot.visible \
+				and not bool(sprite.get_meta("busy", false)):
+			candidate_ids.append(item_id)
+	if candidate_ids.is_empty():
+		halo.visible = false
+		return
+	candidate_ids.sort()
+	var time_now: float = Time.get_ticks_msec() / 1000.0
+	var tour_index: int = int(floor(
+		time_now / AFFORDANCE_TOUR_SECONDS)) % candidate_ids.size()
+	var target_id: String = candidate_ids[tour_index]
+	var target_record: Dictionary = m.castle_room_item_sprites[target_id]
+	var target_sprite: Sprite3D = target_record.get("sprite") as Sprite3D
+	if target_sprite == null or not is_instance_valid(target_sprite):
+		halo.visible = false
+		return
+	var affordance_kind: String = String(target_record.get(
+		"affordance_kind", Affordance.ANIMATION))
+	var affordance_size: Vector2 = target_record.get(
+		"affordance_size", Vector2.ONE) as Vector2
+	if String(halo.get_meta("affordance_target", "")) != target_id \
+			or String(halo.get_meta(
+				"affordance_kind", "")) != affordance_kind \
+			or halo.get_meta("affordance_size", Vector2.ZERO) != affordance_size:
+		Affordance.configure_radial_halo(halo, affordance_kind, affordance_size)
+		halo.set_meta("affordance_target", target_id)
+		halo.set_meta("affordance_size", affordance_size)
+	var slot_phase: float = fposmod(
+		time_now, AFFORDANCE_TOUR_SECONDS) / AFFORDANCE_TOUR_SECONDS
+	var envelope: float = smoothstep(0.0, 0.16, slot_phase) \
+		* (1.0 - smoothstep(0.82, 1.0, slot_phase))
+	var tint: Color = Affordance.color(affordance_kind, false)
+	tint.a *= envelope
+	halo.modulate = tint
+	var wave: float = sin(time_now * Affordance.pulse_speed(
+		affordance_kind, false))
+	var pulse: float = 1.0 + wave * Affordance.pulse_amount(
+		affordance_kind, false)
+	halo.position = target_sprite.position + Vector3(0.0, 0.0, -0.035)
+	halo.rotation.z = target_sprite.rotation.z
+	var base_scale: Vector3 = halo.get_meta(
+		"affordance_base_scale", Vector3.ONE) as Vector3
+	halo.scale = base_scale * pulse
+	halo.visible = envelope > 0.01
+
 func _update_touch_hotspot(record: Dictionary) -> void:
 	if m.castle_room_camera == null or m.castle_room_stage == null:
 		return
@@ -3398,6 +3483,7 @@ func activate_current_room() -> void:
 				_burst("✦", Color(1.0, 0.78, 0.30))
 			else:
 				_award_crown()
+			_offer_companion_at_throne()
 		"kitchen":
 			m.show_msg("Roshan", "Something delicious is bubbling!", "talk")
 			_burst("♡", Color(1.0, 0.50, 0.48))
@@ -3422,6 +3508,34 @@ func activate_current_room() -> void:
 				else "canopy_bed")
 		"movie":
 			_activate_room_item("movie_screen")
+
+func _offer_companion_at_throne() -> void:
+	# OWNER 2026-07-19: meeting Princess Huluu at her throne IS the stuffie
+	# trigger. The 2.5D hall rebuild retired CompanionSystem._tick_gift (its
+	# gift box hung off the modelled Crown Star this castle no longer builds),
+	# and nothing has written `huluu_greeted` since — so the throne stopped
+	# offering a friend at all. The hotspot itself is now both the offer and
+	# its re-entry: tap the throne again any time she still has no friend.
+	if m.companion_id != "":
+		return
+	if m.companion_layer != null or m.companion_care_layer != null:
+		return
+	m.g["huluu_greeted"] = true
+	var beat: Tween = m.create_tween()
+	beat.tween_interval(THRONE_OFFER_BEAT)   # let the crown line breathe first
+	beat.tween_callback(_open_companion_offer)
+
+func _open_companion_offer() -> void:
+	if m.companion_id != "" or m.companion_layer != null \
+			or m.companion_care_layer != null:
+		return
+	if not is_open() or m.castle_room_id != "main_hall":
+		return
+	m.g["companion_offered"] = true
+	m._companion_ref().open_picker(false)
+	m.show_msg("Princess Huluu",
+		"I want you to have a new friend! Pick Mewsha or Baby Eagle to come along!",
+		"talk")
 
 func _award_crown() -> void:
 	if bool(m.g.get("crown_won", false)):

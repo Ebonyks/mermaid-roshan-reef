@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "generated_on": "2026-08-01",
+  "generated_on": "2026-08-02",
   "generator": "tools/build_castle_interaction_v2_manifest.py",
-  "generator_sha256": "f07be5de3954cc58fb853799d11a3b98a6a1e34a1450cdb65843de15345c9c7d",
+  "generator_sha256": "109debd70f74e0173e218a25d1af2cf5d39381eebb5e98ce6483643c5fff420d",
   "visual_review_evidence": {
     "path": "audit/castle_interactions_v2/castle_interaction_frames_v2.png",
     "sha256": "4ace63822e2d625312f8674196f67f909679e4cac3a8a6cd45a186f48ba5df70",
@@ -29,7 +29,7 @@
     "authored_state_count": 8,
     "primary_animation_is_overlay": false,
     "water_renderer": "assets/shaders/castle_fixture_water.gdshader",
-    "water_renderer_sha256": "ab02d27200b8db6fcf2c656521dd746c25403b34dc3830dc6d3f4f7dd85a0481",
+    "water_renderer_sha256": "b93354f2416c17906199771998151f6dbab64c4cfb818a7600cbc7eafb5fd944",
     "water_ripple_texture": "assets/terrain/up_water_nrm.jpg",
     "water_ripple_texture_sha256": "e9233e71728ae5b934fb8b0f1af817783df4011fb0403700477c0cdf2b75b219",
     "water_caustics_texture": "assets/terrain/caustics.png",
@@ -206,31 +206,6 @@
         }
       ]
     },
-    "mermaid_pool": {
-      "physical_item_count": 4,
-      "instances": [
-        {
-          "id": "star_float",
-          "asset_id": "mermaid_pool_star_float",
-          "semantic_action": "float_and_make_ripples"
-        },
-        {
-          "id": "waterfall",
-          "asset_id": "mermaid_pool_waterfall",
-          "semantic_action": "surge_waterfall_flow"
-        },
-        {
-          "id": "flower_float",
-          "asset_id": "mermaid_pool_flower_float",
-          "semantic_action": "open_flower_and_make_ripples"
-        },
-        {
-          "id": "bubble_fountain",
-          "asset_id": "mermaid_pool_bubble_fountain",
-          "semantic_action": "raise_and_pop_bubbles"
-        }
-      ]
-    },
     "opera_hall": {
       "physical_item_count": 4,
       "instances": [
@@ -281,6 +256,9 @@
         }
       ]
     }
+  },
+  "retired_rooms": {
+    "mermaid_pool": "2026-08-02 full-room regeneration uses room-derived v1 atlases"
   },
   "assets": [
     {
@@ -425,7 +403,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.99186992,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -489,7 +467,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
-      "provenance_manifest_sha256": "ba443794467e9516f0f2ead79d81862200bba0708ffd3737d3ab5aec22d29866"
+      "provenance_manifest_sha256": "2acf5fd0cde3610f1af4ca9bac29a8bbecacdcb354ad2ea8138370d22a77f515"
     },
     {
       "id": "bubble_bath_rubber_duck",
@@ -636,7 +614,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -674,7 +652,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
-      "provenance_manifest_sha256": "ba443794467e9516f0f2ead79d81862200bba0708ffd3737d3ab5aec22d29866"
+      "provenance_manifest_sha256": "2acf5fd0cde3610f1af4ca9bac29a8bbecacdcb354ad2ea8138370d22a77f515"
     },
     {
       "id": "bubble_bath_sink",
@@ -818,7 +796,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -882,7 +860,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
-      "provenance_manifest_sha256": "ba443794467e9516f0f2ead79d81862200bba0708ffd3737d3ab5aec22d29866"
+      "provenance_manifest_sha256": "2acf5fd0cde3610f1af4ca9bac29a8bbecacdcb354ad2ea8138370d22a77f515"
     },
     {
       "id": "bubble_bath_toilet",
@@ -1026,7 +1004,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.98387097,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1065,7 +1043,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
-      "provenance_manifest_sha256": "ba443794467e9516f0f2ead79d81862200bba0708ffd3737d3ab5aec22d29866"
+      "provenance_manifest_sha256": "2acf5fd0cde3610f1af4ca9bac29a8bbecacdcb354ad2ea8138370d22a77f515"
     },
     {
       "id": "craft_room_idea_board",
@@ -1212,7 +1190,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1235,7 +1213,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
+      "provenance_manifest_sha256": "1102e0a2c864130fba15b7ddc7c94a3147ff777fb98b18e6d2c17462b7c97500"
     },
     {
       "id": "craft_room_paint_table",
@@ -1382,7 +1360,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1405,7 +1383,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
+      "provenance_manifest_sha256": "1102e0a2c864130fba15b7ddc7c94a3147ff777fb98b18e6d2c17462b7c97500"
     },
     {
       "id": "craft_room_palette",
@@ -1552,7 +1530,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1575,7 +1553,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
+      "provenance_manifest_sha256": "1102e0a2c864130fba15b7ddc7c94a3147ff777fb98b18e6d2c17462b7c97500"
     },
     {
       "id": "craft_room_ribbon_rack",
@@ -1719,7 +1697,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1742,7 +1720,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
+      "provenance_manifest_sha256": "1102e0a2c864130fba15b7ddc7c94a3147ff777fb98b18e6d2c17462b7c97500"
     },
     {
       "id": "kitchen_fridge",
@@ -1886,7 +1864,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.94573643,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1909,7 +1887,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": true,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/provenance.json",
-      "provenance_manifest_sha256": "9fb9dbcea0eb6601ccb8f0ed7ca16904a0d294d130abfba6796943c5d740407c",
+      "provenance_manifest_sha256": "68021f43536470a4be946773141d661ec67e983e90d5803fd01cf1b16c9fe453",
       "open_hold_step": 4
     },
     {
@@ -2054,7 +2032,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.9348659,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2077,7 +2055,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": true,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
-      "provenance_manifest_sha256": "ba443794467e9516f0f2ead79d81862200bba0708ffd3737d3ab5aec22d29866"
+      "provenance_manifest_sha256": "2acf5fd0cde3610f1af4ca9bac29a8bbecacdcb354ad2ea8138370d22a77f515"
     },
     {
       "id": "kitchen_pan_1",
@@ -2224,7 +2202,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2247,7 +2225,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json",
-      "provenance_manifest_sha256": "9dd2fc674c451c9a5a178d069fa5d07914e728769d3d8db97cacd7c8aa7b40fe"
+      "provenance_manifest_sha256": "b5695206558886fce52a67fd52f24a4fc8a033452dc68df9c7d28d2210fa0f64"
     },
     {
       "id": "kitchen_pan_2",
@@ -2394,7 +2372,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2417,7 +2395,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json",
-      "provenance_manifest_sha256": "9dd2fc674c451c9a5a178d069fa5d07914e728769d3d8db97cacd7c8aa7b40fe"
+      "provenance_manifest_sha256": "b5695206558886fce52a67fd52f24a4fc8a033452dc68df9c7d28d2210fa0f64"
     },
     {
       "id": "kitchen_pan_3",
@@ -2564,7 +2542,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2587,7 +2565,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json",
-      "provenance_manifest_sha256": "9dd2fc674c451c9a5a178d069fa5d07914e728769d3d8db97cacd7c8aa7b40fe"
+      "provenance_manifest_sha256": "b5695206558886fce52a67fd52f24a4fc8a033452dc68df9c7d28d2210fa0f64"
     },
     {
       "id": "kitchen_pan_4",
@@ -2734,7 +2712,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2757,7 +2735,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json",
-      "provenance_manifest_sha256": "9dd2fc674c451c9a5a178d069fa5d07914e728769d3d8db97cacd7c8aa7b40fe"
+      "provenance_manifest_sha256": "b5695206558886fce52a67fd52f24a4fc8a033452dc68df9c7d28d2210fa0f64"
     },
     {
       "id": "kitchen_sink",
@@ -2901,7 +2879,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.953125,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2965,7 +2943,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
-      "provenance_manifest_sha256": "ba443794467e9516f0f2ead79d81862200bba0708ffd3737d3ab5aec22d29866"
+      "provenance_manifest_sha256": "2acf5fd0cde3610f1af4ca9bac29a8bbecacdcb354ad2ea8138370d22a77f515"
     },
     {
       "id": "library_book_stack",
@@ -3112,7 +3090,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.85614035,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3135,7 +3113,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "library_magic_book",
@@ -3282,7 +3260,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3305,7 +3283,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "library_pearl_lamp",
@@ -3452,7 +3430,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.976,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3475,7 +3453,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "library_pearl_table",
@@ -3622,7 +3600,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.99591837,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3645,7 +3623,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "main_hall_sconce",
@@ -3793,7 +3771,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3816,7 +3794,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "main_hall_tapestry",
@@ -3963,7 +3941,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3986,970 +3964,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
-    },
-    {
-      "id": "mermaid_pool_bubble_fountain",
-      "room": "mermaid_pool",
-      "item_id": "bubble_fountain",
-      "instances": [
-        "bubble_fountain"
-      ],
-      "semantic_action": "raise_and_pop_bubbles",
-      "render_mode": "generated_full_object_states",
-      "frame_count": 8,
-      "hframes": 4,
-      "vframes": 2,
-      "sound": "assets/audio/castle/bubble_water.ogg",
-      "close_sound": "",
-      "sound_frame": 0,
-      "pitch": 1.0,
-      "close_pitch": 1.0,
-      "frame_duration_seconds": 0.185,
-      "fixed_pivot": true,
-      "root_transform_animation": false,
-      "secondary_root_physics": false,
-      "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
-      "sheet": "assets/flats/castle/interactions_v2/mermaid_pool_bubble_fountain_sheet.png",
-      "sheet_sha256": "59ffe2821675bed6e5edbb8d63f31ec4e1a49b82d1c5dce4f539f09572a152a8",
-      "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/mermaid_pool_bubble_fountain_sheet_chroma.png",
-      "raw_chroma_master_sha256": "0028ce1cb613cfe34b0b55b26783bca63d774108b43e2a8d7fd0378200e1dbc7",
-      "design_reference": "assets_src/imagegen/castle_interactions_2026-08-01/bubble_fountain_alpha.png",
-      "design_reference_sha256": "37020656d12b87c0fac563296b62f905e6a4c2b2debdb5dffb19c477e51eddf9",
-      "placement_reference": "assets/flats/castle/interactions/mermaid_pool_bubble_fountain_atlas.png",
-      "placement_reference_sha256": "b28f7bcbb10bd99610547cfc8c33c11a286fe16860e640619cd0e8a9adb5f186",
-      "placement_geometry_role": "v1_runtime_rest_cell",
-      "grid": [
-        4,
-        2
-      ],
-      "authored_frame_count": 8,
-      "timeline_sequence": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        3,
-        2,
-        1,
-        0
-      ],
-      "timeline_frame_count": 9,
-      "cell_size": [
-        256,
-        256
-      ],
-      "frame_bboxes": [
-        [
-          68,
-          91,
-          188,
-          250
-        ],
-        [
-          68,
-          76,
-          188,
-          250
-        ],
-        [
-          68,
-          49,
-          187,
-          250
-        ],
-        [
-          68,
-          43,
-          187,
-          250
-        ],
-        [
-          68,
-          43,
-          187,
-          250
-        ],
-        [
-          68,
-          63,
-          187,
-          250
-        ],
-        [
-          68,
-          71,
-          187,
-          250
-        ],
-        [
-          68,
-          91,
-          187,
-          250
-        ]
-      ],
-      "frame_sha256": [
-        "3dc21c534af69a0ea32f0b5c7a1bb96341169de2079d67f60b0fa4b6d0c1387e",
-        "c412997925be0463862bca266193175a822a0b5ba4f4145f993981c4416d0517",
-        "7c2abab512dea0d4457aac9723ba0f058a002944c5b6c8b39db2c3aa07e674a4",
-        "64c9b601666897c4913a6f9b92ab9b8b59791e1cfb5e13f2d8bc9cd5a2b38fa6",
-        "82f8594cfae22142a9ebf23ecf12ab4d3f18e741fcd16b03f7f44dc38d7b4090",
-        "9943ca33e16c7343ac819ad864d52a009f3a44a43ce71a4a85a05606f5aacec1",
-        "259da715dcf98aee7fed3a3d31a7b4a12f095dd7d5ac4bd45bdc30bb98492d7c",
-        "f2d2d2b6790fef1d52c5a4ffe9a7a96ae45f960d0ce4d24287aab90ff8234098"
-      ],
-      "unique_frame_count": 8,
-      "placement_size": [
-        158,
-        142
-      ],
-      "placement_bbox": [
-        30,
-        3,
-        127,
-        139
-      ],
-      "alignment_frame": 0,
-      "anchor_mode": "bottom_center",
-      "runtime_scale": 0.83150743,
-      "runtime_center_offset": [
-        78.5,
-        37.556093
-      ],
-      "hall_center_offset": [
-        -0.5,
-        -33.443907
-      ],
-      "rest_frame": 0,
-      "transparent_pixels": 422794,
-      "partial_alpha_pixels": 3739,
-      "opaque_pixels": 97755,
-      "total_pixels": 524288,
-      "transparent_border": true,
-      "normalization": {
-        "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
-        "uniform_scale": 1.0,
-        "padding_pixels": 6,
-        "anchor_spread_pixels": [
-          0.5,
-          0.0
-        ],
-        "alpha_matte_recovered": true,
-        "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
-        "rgb_subject_repainted": false,
-        "whole_object_translation_only": true,
-        "whole_sheet_uniform_scale_only": true,
-        "repainted_pixels": false
-      },
-      "physics_mode": "none",
-      "physics_pivot": [
-        0.5,
-        0.5
-      ],
-      "water_layers": [
-        {
-          "role": "bubble_emitter",
-          "outlet_frames": [
-            [
-              0.625,
-              0.16
-            ],
-            [
-              0.625,
-              0.15
-            ],
-            [
-              0.625,
-              0.13
-            ],
-            [
-              0.625,
-              0.1
-            ],
-            [
-              0.625,
-              0.075
-            ],
-            [
-              0.625,
-              0.105
-            ],
-            [
-              0.625,
-              0.14
-            ],
-            [
-              0.625,
-              0.16
-            ]
-          ],
-          "relative_centers": [
-            [
-              0.0,
-              -0.01
-            ],
-            [
-              -0.055,
-              -0.02
-            ],
-            [
-              0.05,
-              -0.03
-            ],
-            [
-              -0.105,
-              -0.035
-            ]
-          ],
-          "flow_start": 0.15,
-          "z_offset": 0.01
-        }
-      ],
-      "primary_animation_is_overlay": false,
-      "generated_hidden_surfaces": false,
-      "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
-      "provenance_manifest_sha256": "ba443794467e9516f0f2ead79d81862200bba0708ffd3737d3ab5aec22d29866"
-    },
-    {
-      "id": "mermaid_pool_flower_float",
-      "room": "mermaid_pool",
-      "item_id": "flower_float",
-      "instances": [
-        "flower_float"
-      ],
-      "semantic_action": "open_flower_and_make_ripples",
-      "render_mode": "generated_full_object_states",
-      "frame_count": 8,
-      "hframes": 4,
-      "vframes": 2,
-      "sound": "assets/audio/castle/bubble_water.ogg",
-      "close_sound": "",
-      "sound_frame": 0,
-      "pitch": 1.0,
-      "close_pitch": 1.0,
-      "frame_duration_seconds": 0.185,
-      "fixed_pivot": true,
-      "root_transform_animation": true,
-      "secondary_root_physics": true,
-      "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
-      "sheet": "assets/flats/castle/interactions_v2/mermaid_pool_flower_float_sheet.png",
-      "sheet_sha256": "ea8dd24e5fe43182c4e5b5b386409a98ae6e2a198af3087f7cdf44bb28bd7a69",
-      "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/mermaid_pool_flower_float_sheet_chroma.png",
-      "raw_chroma_master_sha256": "808734f7bd7ee8dae9a840d8125567fbb8c16f880283324d3512aa4dc1b773da",
-      "design_reference": "assets_src/imagegen/castle_interactions_2026-08-01/flower_float_alpha.png",
-      "design_reference_sha256": "ae0a274a486c2efa5324b895b99e7fe94a762effc8f6ed049eb2532ce7bd06b5",
-      "placement_reference": "assets/flats/castle/interactions/mermaid_pool_flower_float_atlas.png",
-      "placement_reference_sha256": "7e66883f17efb53fb8ca0a5967b0efb0aef5e46449bcadb47491da441cfbb3a6",
-      "placement_geometry_role": "v1_runtime_rest_cell",
-      "grid": [
-        4,
-        2
-      ],
-      "authored_frame_count": 8,
-      "timeline_sequence": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        5,
-        3,
-        1,
-        0
-      ],
-      "timeline_frame_count": 12,
-      "cell_size": [
-        256,
-        154
-      ],
-      "frame_bboxes": [
-        [
-          6,
-          21,
-          243,
-          148
-        ],
-        [
-          32,
-          21,
-          224,
-          148
-        ],
-        [
-          49,
-          24,
-          205,
-          148
-        ],
-        [
-          66,
-          29,
-          191,
-          148
-        ],
-        [
-          44,
-          31,
-          208,
-          148
-        ],
-        [
-          24,
-          6,
-          232,
-          148
-        ],
-        [
-          14,
-          15,
-          242,
-          148
-        ],
-        [
-          9,
-          19,
-          242,
-          148
-        ]
-      ],
-      "frame_sha256": [
-        "8beb40c2469647ea2b548e7776cc43fe6925003fcd91574ba9a046c1d23a8919",
-        "22aa81f5ddf19a7f0e39fde0da733d62fa4ddf32e20d24438cb1214a532defed",
-        "e36c4ad89c8537c75edb7d5294f0261eb76f1b84677096521d269e5658ac71b7",
-        "5badc9584d0f35d8009147cfb044c2baf25123174f129076468cc94536015501",
-        "b9a9aed030b9bdca824f63a8b12fe86967fc9af330a0b6b730dbdcdb0c9b947c",
-        "f5120dfe22a4aaf1db3bd694a314648f7fadae1add63669c01665604e44c9281",
-        "86b943912407cbc3e8c7e4fd9e5f23609661fcbd71caa04569c3771b75f33c79",
-        "dc44c4aaf7ddb3c682312e70b9b5506ea89b42d09de3ee08ddd2906c0199fa3a"
-      ],
-      "unique_frame_count": 8,
-      "placement_size": [
-        141,
-        111
-      ],
-      "placement_bbox": [
-        3,
-        39,
-        138,
-        108
-      ],
-      "alignment_frame": 0,
-      "anchor_mode": "bottom_center",
-      "runtime_scale": 0.55630812,
-      "runtime_center_offset": [
-        70.5,
-        68.502124
-      ],
-      "hall_center_offset": [
-        0.0,
-        13.002124
-      ],
-      "rest_frame": 0,
-      "transparent_pixels": 164555,
-      "partial_alpha_pixels": 5426,
-      "opaque_pixels": 145411,
-      "total_pixels": 315392,
-      "transparent_border": true,
-      "normalization": {
-        "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
-        "uniform_scale": 1.0,
-        "padding_pixels": 6,
-        "anchor_spread_pixels": [
-          1.0,
-          0.0
-        ],
-        "alpha_matte_recovered": true,
-        "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
-        "rgb_subject_repainted": false,
-        "whole_object_translation_only": true,
-        "whole_sheet_uniform_scale_only": true,
-        "repainted_pixels": false
-      },
-      "physics_mode": "buoyant",
-      "physics_pivot": [
-        0.5,
-        0.5
-      ],
-      "water_layers": [
-        {
-          "role": "ripple",
-          "shape": "ellipse",
-          "center": [
-            0.34,
-            0.78
-          ],
-          "radius": [
-            0.275,
-            0.065
-          ],
-          "z_offset": -0.01,
-          "render_priority": 0
-        }
-      ],
-      "primary_animation_is_overlay": false,
-      "generated_hidden_surfaces": false,
-      "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
-    },
-    {
-      "id": "mermaid_pool_star_float",
-      "room": "mermaid_pool",
-      "item_id": "star_float",
-      "instances": [
-        "star_float"
-      ],
-      "semantic_action": "float_and_make_ripples",
-      "render_mode": "generated_full_object_states",
-      "frame_count": 8,
-      "hframes": 4,
-      "vframes": 2,
-      "sound": "assets/audio/castle/bubble_water.ogg",
-      "close_sound": "",
-      "sound_frame": 0,
-      "pitch": 1.0,
-      "close_pitch": 1.0,
-      "frame_duration_seconds": 0.185,
-      "fixed_pivot": true,
-      "root_transform_animation": true,
-      "secondary_root_physics": true,
-      "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
-      "sheet": "assets/flats/castle/interactions_v2/mermaid_pool_star_float_sheet.png",
-      "sheet_sha256": "e43b881ee2c719346af1972ff83b948812c59303d929a55b8b89661ff1d150d3",
-      "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/mermaid_pool_star_float_sheet_chroma.png",
-      "raw_chroma_master_sha256": "55dc509ebc7d5df7a6153be2ea8a943aa0b13d08411e22a857f16891ee3c5818",
-      "design_reference": "assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png",
-      "design_reference_sha256": "26187cd4b6afd7b03a5559127101c14cd05c95d95ee8d4ccfd8618046db71321",
-      "placement_reference": "assets/flats/castle/interactions/mermaid_pool_star_float_atlas.png",
-      "placement_reference_sha256": "f92831ae79c68dd2555e3a20e857b24bd63727e3b1245793228504c9fa17a538",
-      "placement_geometry_role": "v1_runtime_rest_cell",
-      "grid": [
-        4,
-        2
-      ],
-      "authored_frame_count": 8,
-      "timeline_sequence": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        5,
-        3,
-        1,
-        0
-      ],
-      "timeline_frame_count": 12,
-      "cell_size": [
-        256,
-        220
-      ],
-      "frame_bboxes": [
-        [
-          25,
-          58,
-          245,
-          214
-        ],
-        [
-          22,
-          64,
-          244,
-          214
-        ],
-        [
-          43,
-          54,
-          250,
-          214
-        ],
-        [
-          26,
-          62,
-          247,
-          214
-        ],
-        [
-          29,
-          60,
-          245,
-          214
-        ],
-        [
-          30,
-          72,
-          249,
-          214
-        ],
-        [
-          26,
-          58,
-          246,
-          214
-        ],
-        [
-          27,
-          56,
-          247,
-          214
-        ]
-      ],
-      "frame_sha256": [
-        "a8d8cbaf3b453884a4580ed5a5c0ae3a220def3c238b2675fe67d868b9fb32ab",
-        "77dbc9d44ab231e941bd9bdb0b92f013735b56948ab78f121fb08437ac796510",
-        "82ce8a66f0870c9712523a64aca18a4ef598bff02f943deefad15084bc04b598",
-        "c08e704c373769d15a449478690fee0db7fb2be9eb1c626ec8dc11323503db49",
-        "c24a4bbe2a1553723f51d28e84d2104c60abf93f99c0a65e530cd1a2699e0ccc",
-        "763f05b49dad9813958f5da662852c5e2e4db2e1807e4b67d25aff32cfafecdc",
-        "c1910a1b0b90bd7e714069d5ddcb62f1b587f6f5b512d5f0ea6d94170439142e",
-        "dc95dae6d037cc11a780f3a64ed36a65f5a9b3a28ef2dd43995aa1c6f2c0d8e2"
-      ],
-      "unique_frame_count": 8,
-      "placement_size": [
-        66,
-        46
-      ],
-      "placement_bbox": [
-        1,
-        2,
-        65,
-        44
-      ],
-      "alignment_frame": 0,
-      "anchor_mode": "bottom_center",
-      "runtime_scale": 0.2798601,
-      "runtime_center_offset": [
-        33.0,
-        14.894549
-      ],
-      "hall_center_offset": [
-        0.0,
-        -8.105451
-      ],
-      "rest_frame": 0,
-      "transparent_pixels": 299825,
-      "partial_alpha_pixels": 14653,
-      "opaque_pixels": 136082,
-      "total_pixels": 450560,
-      "transparent_border": true,
-      "normalization": {
-        "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
-        "uniform_scale": 0.97991968,
-        "padding_pixels": 6,
-        "anchor_spread_pixels": [
-          1.5,
-          0.0
-        ],
-        "alpha_matte_recovered": true,
-        "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
-        "rgb_subject_repainted": false,
-        "whole_object_translation_only": true,
-        "whole_sheet_uniform_scale_only": true,
-        "repainted_pixels": false
-      },
-      "physics_mode": "buoyant",
-      "physics_pivot": [
-        0.5,
-        0.5
-      ],
-      "water_layers": [
-        {
-          "role": "ripple",
-          "shape": "ellipse",
-          "center": [
-            0.5,
-            0.77
-          ],
-          "radius": [
-            0.42,
-            0.08
-          ],
-          "z_offset": -0.01,
-          "render_priority": 0
-        }
-      ],
-      "primary_animation_is_overlay": false,
-      "generated_hidden_surfaces": false,
-      "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
-    },
-    {
-      "id": "mermaid_pool_waterfall",
-      "room": "mermaid_pool",
-      "item_id": "waterfall",
-      "instances": [
-        "waterfall"
-      ],
-      "semantic_action": "surge_waterfall_flow",
-      "render_mode": "generated_full_object_states",
-      "frame_count": 8,
-      "hframes": 4,
-      "vframes": 2,
-      "sound": "assets/audio/castle/bubble_water.ogg",
-      "close_sound": "",
-      "sound_frame": 0,
-      "pitch": 1.0,
-      "close_pitch": 1.0,
-      "frame_duration_seconds": 0.185,
-      "fixed_pivot": true,
-      "root_transform_animation": false,
-      "secondary_root_physics": false,
-      "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
-      "sheet": "assets/flats/castle/interactions_v2/mermaid_pool_waterfall_sheet.png",
-      "sheet_sha256": "b649b9eff6e0c77a2259dbf3d8116d449581507de2f1cc859b6648eb420ec1fc",
-      "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/mermaid_pool_waterfall_sheet_chroma.png",
-      "raw_chroma_master_sha256": "45b81cbf385f23c1e01497ec537723f5f82e84e7a6b049ba897940f5a33a9232",
-      "design_reference": "assets/flats/castle/rooms/room_mermaid_pool_item_waterfall.png",
-      "design_reference_sha256": "55fe651a8bd8de4c87d14c6e6b01122938c8ceaa14a052d5dc7c44876949b11a",
-      "placement_reference": "assets/flats/castle/interactions/mermaid_pool_waterfall_atlas.png",
-      "placement_reference_sha256": "6385afdeaaba9606239d796712506ebdf76f69503fa874818ca35b0add3d5864",
-      "placement_geometry_role": "v1_runtime_rest_cell",
-      "grid": [
-        4,
-        2
-      ],
-      "authored_frame_count": 8,
-      "timeline_sequence": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        3,
-        2,
-        1,
-        0
-      ],
-      "timeline_frame_count": 9,
-      "cell_size": [
-        256,
-        256
-      ],
-      "frame_bboxes": [
-        [
-          33,
-          53,
-          231,
-          250
-        ],
-        [
-          32,
-          53,
-          231,
-          250
-        ],
-        [
-          33,
-          53,
-          231,
-          250
-        ],
-        [
-          32,
-          53,
-          230,
-          250
-        ],
-        [
-          34,
-          53,
-          231,
-          250
-        ],
-        [
-          33,
-          53,
-          231,
-          250
-        ],
-        [
-          32,
-          53,
-          230,
-          250
-        ],
-        [
-          32,
-          53,
-          230,
-          250
-        ]
-      ],
-      "frame_sha256": [
-        "125f7f97cdf442c8d5445c650c7ce060debed202efa145284d1fe4dbb180f64f",
-        "24d092c193a8019f534a21925fed4dec36ac8d9526bc655d8d3581b1a306c315",
-        "0aa4c01404955c4a4570214c84d57a820d28c9f9aa5f3d7c54b02c232886e246",
-        "18511f7b56829b3fc25d3858df35694dd9f032a432b6cc59ea0790650a685613",
-        "2c2976584812b2d2c7e1775a46aace586cac14d4600b04609754470bbfc3d741",
-        "716ad37673f0da19f3f34ba56abb5895d61fb263a0063d6ab6cdc49c19d2d193",
-        "6ab0f6b355ceb3e0091fb188f9d464cac233207c3fecd12cbcb4318ab8ab269d",
-        "500f8246000581f1dde7483f55e681fc343445cff7ccd7fccba3807075df07fa"
-      ],
-      "unique_frame_count": 8,
-      "placement_size": [
-        181,
-        233
-      ],
-      "placement_bbox": [
-        3,
-        38,
-        171,
-        228
-      ],
-      "alignment_frame": 0,
-      "anchor_mode": "bottom_center",
-      "runtime_scale": 0.90461906,
-      "runtime_center_offset": [
-        87.0,
-        117.636475
-      ],
-      "hall_center_offset": [
-        -3.5,
-        1.136475
-      ],
-      "rest_frame": 0,
-      "transparent_pixels": 267959,
-      "partial_alpha_pixels": 5168,
-      "opaque_pixels": 251161,
-      "total_pixels": 524288,
-      "transparent_border": true,
-      "normalization": {
-        "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
-        "uniform_scale": 1.0,
-        "padding_pixels": 6,
-        "anchor_spread_pixels": [
-          1.0,
-          0.0
-        ],
-        "alpha_matte_recovered": true,
-        "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
-        "rgb_subject_repainted": false,
-        "whole_object_translation_only": true,
-        "whole_sheet_uniform_scale_only": true,
-        "repainted_pixels": false
-      },
-      "physics_mode": "none",
-      "physics_pivot": [
-        0.5,
-        0.5
-      ],
-      "water_layers": [
-        {
-          "role": "waterfall_band",
-          "shape": "polygon",
-          "stream": true,
-          "deep": [
-            0.32,
-            0.58,
-            0.76,
-            1.0
-          ],
-          "shallow": [
-            0.4,
-            0.72,
-            0.95,
-            1.0
-          ],
-          "points": [
-            [
-              0.335,
-              0.265
-            ],
-            [
-              0.41500000000000004,
-              0.265
-            ],
-            [
-              0.42900000000000005,
-              0.805
-            ],
-            [
-              0.321,
-              0.805
-            ]
-          ],
-          "z_offset": 0.008,
-          "render_priority": 1
-        },
-        {
-          "role": "waterfall_band",
-          "shape": "polygon",
-          "stream": true,
-          "deep": [
-            0.56,
-            0.48,
-            0.75,
-            1.0
-          ],
-          "shallow": [
-            0.7,
-            0.6,
-            0.94,
-            1.0
-          ],
-          "points": [
-            [
-              0.41500000000000004,
-              0.265
-            ],
-            [
-              0.495,
-              0.265
-            ],
-            [
-              0.509,
-              0.805
-            ],
-            [
-              0.401,
-              0.805
-            ]
-          ],
-          "z_offset": 0.0082,
-          "render_priority": 2
-        },
-        {
-          "role": "waterfall_band",
-          "shape": "polygon",
-          "stream": true,
-          "deep": [
-            0.78,
-            0.48,
-            0.62,
-            1.0
-          ],
-          "shallow": [
-            0.98,
-            0.6,
-            0.78,
-            1.0
-          ],
-          "points": [
-            [
-              0.495,
-              0.265
-            ],
-            [
-              0.5750000000000001,
-              0.265
-            ],
-            [
-              0.5890000000000001,
-              0.805
-            ],
-            [
-              0.481,
-              0.805
-            ]
-          ],
-          "z_offset": 0.0084,
-          "render_priority": 3
-        },
-        {
-          "role": "waterfall_band",
-          "shape": "polygon",
-          "stream": true,
-          "deep": [
-            0.78,
-            0.66,
-            0.34,
-            1.0
-          ],
-          "shallow": [
-            0.98,
-            0.82,
-            0.42,
-            1.0
-          ],
-          "points": [
-            [
-              0.5750000000000001,
-              0.265
-            ],
-            [
-              0.655,
-              0.265
-            ],
-            [
-              0.669,
-              0.805
-            ],
-            [
-              0.561,
-              0.805
-            ]
-          ],
-          "z_offset": 0.0086,
-          "render_priority": 4
-        },
-        {
-          "role": "waterfall_band",
-          "shape": "polygon",
-          "stream": true,
-          "deep": [
-            0.38,
-            0.7,
-            0.58,
-            1.0
-          ],
-          "shallow": [
-            0.48,
-            0.88,
-            0.72,
-            1.0
-          ],
-          "points": [
-            [
-              0.655,
-              0.265
-            ],
-            [
-              0.7350000000000001,
-              0.265
-            ],
-            [
-              0.7490000000000001,
-              0.805
-            ],
-            [
-              0.641,
-              0.805
-            ]
-          ],
-          "z_offset": 0.0088,
-          "render_priority": 5
-        },
-        {
-          "role": "waterfall_splash",
-          "shape": "ellipse",
-          "center": [
-            0.535,
-            0.82
-          ],
-          "radius": [
-            0.275,
-            0.04
-          ],
-          "z_offset": 0.01,
-          "flow_start": 0.64,
-          "render_priority": 7
-        }
-      ],
-      "primary_animation_is_overlay": false,
-      "generated_hidden_surfaces": false,
-      "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
-      "provenance_manifest_sha256": "ba443794467e9516f0f2ead79d81862200bba0708ffd3737d3ab5aec22d29866"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "opera_hall_chandelier",
@@ -5096,7 +4111,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -5119,7 +4134,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "opera_hall_curtains",
@@ -5263,7 +4278,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.92424242,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -5286,7 +4301,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "opera_hall_footlights",
@@ -5433,7 +4448,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.953125,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -5456,7 +4471,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "opera_hall_stage_star",
@@ -5603,7 +4618,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -5626,7 +4641,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "4bc9c41f412a68e709dd296fc52c5bf8935451bd2c5492335c809a7d735c6256"
+      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
     },
     {
       "id": "playroom_blocks",
@@ -5773,7 +4788,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 0.953125,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -5796,7 +4811,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
+      "provenance_manifest_sha256": "1102e0a2c864130fba15b7ddc7c94a3147ff777fb98b18e6d2c17462b7c97500"
     },
     {
       "id": "playroom_play_tent",
@@ -5940,7 +4955,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -5963,7 +4978,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": true,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
+      "provenance_manifest_sha256": "1102e0a2c864130fba15b7ddc7c94a3147ff777fb98b18e6d2c17462b7c97500"
     },
     {
       "id": "playroom_stacking_toy",
@@ -6110,7 +5125,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -6133,7 +5148,7 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
+      "provenance_manifest_sha256": "1102e0a2c864130fba15b7ddc7c94a3147ff777fb98b18e6d2c17462b7c97500"
     },
     {
       "id": "playroom_stuffie_nook",
@@ -6280,7 +5295,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "490fe93b319dc4674214821699f0b5820fe2ab41ba0bb066773342e1c85dbb3b",
+        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -6303,16 +5318,16 @@
       "primary_animation_is_overlay": false,
       "generated_hidden_surfaces": false,
       "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json",
-      "provenance_manifest_sha256": "7f54bd3dbb8a3e6e3517eea025191e9f8033b35d6547e6d41f7d63b8f2a86a69"
+      "provenance_manifest_sha256": "1102e0a2c864130fba15b7ddc7c94a3147ff777fb98b18e6d2c17462b7c97500"
     }
   ],
   "missing_generated_assets": [],
   "summary": {
-    "asset_count": 33,
-    "physical_instance_count": 38,
-    "generated_sheet_count": 33,
-    "jolt_component_count": 8,
-    "water_interaction_count": 9,
+    "asset_count": 29,
+    "physical_instance_count": 34,
+    "generated_sheet_count": 29,
+    "jolt_component_count": 6,
+    "water_interaction_count": 5,
     "missing_count": 0
   }
 }

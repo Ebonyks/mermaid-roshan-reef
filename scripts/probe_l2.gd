@@ -435,6 +435,16 @@ func _init() -> void:
 		and promenade_roshan.vframes == 4
 		and sky_corrected_anchor.distance_to(
 			ROSHAN_ANCHORS.anchor("directional", 2)) <= 0.11)
+	# What the engine will really sample, not what the table intends: Sprite3D
+	# re-divides region_rect by hframes/vframes, so a window handed over as a
+	# single cell shrank her to a rectangular sliver of hair here (2026-08-02).
+	_check("sky_lagoon_roshan_samples_her_own_window",
+		ROSHAN_FRAMES.sampled_rect(promenade_roshan).is_equal_approx(
+			ROSHAN_FRAMES.region(promenade_animator._sheet_key(),
+				promenade_roshan.frame, promenade_roshan.hframes)),
+		"sheet=%s frame=%d sampled=%s" % [
+			promenade_animator._sheet_key(), promenade_roshan.frame,
+			ROSHAN_FRAMES.sampled_rect(promenade_roshan)])
 	promenade._sync_roshan_card(0.0, false)
 	promenade_animator._process(0.2)
 	_check("sky_lagoon_swim_starts_and_finishes_with_motion",
@@ -570,6 +580,14 @@ func _init() -> void:
 		and swing_frame == 1
 		and absf(swing_seat_delta.y) < 0.18
 		and absf(swing_seat_delta.x) < SkyLagoonPromenade.SWING_SEAT_W * 0.5)
+	# The authored ride poses are whole PNGs. A sampling window left on the card
+	# by the swim loop would slice one of them down to an atlas cell measured
+	# for a different sheet, so the takeover must clear it.
+	_check("playground_pose_shows_the_whole_authored_png",
+		not roshan_card.region_enabled
+		and roshan_card.hframes == 1 and roshan_card.vframes == 1,
+		"region_enabled=%s grid=%dx%d" % [roshan_card.region_enabled,
+			roshan_card.hframes, roshan_card.vframes])
 	promenade._finish_playground_animation()
 	_check("swing_seat_ropes_and_rider_share_pendulum_pivot",
 		swing_animates and is_zero_approx(swing_pivot.rotation.z),

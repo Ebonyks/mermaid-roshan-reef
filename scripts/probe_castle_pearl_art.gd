@@ -15,6 +15,8 @@ const HALL_DESTINATION_IDS: Array[String] = [
 ]
 const INTERACTION_MANIFEST := \
 	"res://assets/flats/castle/interactions_v2/castle_interactions_v2.json"
+const LEGACY_INTERACTION_MANIFEST := \
+	"res://assets/flats/castle/interactions/castle_interactions.json"
 const EXPECTED_PHYSICAL_ITEM_COUNTS := {
 	"main_hall": 7,
 	"opera_hall": 4,
@@ -27,6 +29,7 @@ const EXPECTED_PHYSICAL_ITEM_COUNTS := {
 }
 const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
 const ROSHAN_FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
+const PLAYER_SCRIPT := preload("res://scripts/player.gd")
 
 var main: ReefMain
 var checks_failed := 0
@@ -39,6 +42,99 @@ func _ck(label: String, ok: bool, detail: String = "") -> void:
 func _frames(count: int) -> void:
 	for _index in range(count):
 		await process_frame
+
+# The authored PNG, read straight off disk so the measurement is independent
+# of whatever the importer decided to do with the sheet.
+func _sheet_image(texture: Texture2D) -> Image:
+	var image: Image = Image.load_from_file(
+		ProjectSettings.globalize_path(texture.resource_path))
+	if image == null:
+		image = texture.get_image()
+	if image != null and image.is_compressed():
+		image.decompress()
+	if image != null and image.is_compressed():
+		return null
+	return image
+
+# Share of lit pixels inside a texture-space window, sampled on a 4px lattice.
+func _alpha_coverage(image: Image, rect: Rect2) -> float:
+	if image == null:
+		return 0.0
+	var lit := 0
+	var total := 0
+	var y := int(rect.position.y)
+	while y < int(rect.position.y + rect.size.y):
+		var x := int(rect.position.x)
+		while x < int(rect.position.x + rect.size.x):
+			if x >= 0 and y >= 0 \
+					and x < image.get_width() and y < image.get_height():
+				total += 1
+				if image.get_pixel(x, y).a > 0.03:
+					lit += 1
+			x += 4
+		y += 4
+	return 0.0 if total == 0 else float(lit) / float(total)
+
+# Every frame of every 2.5D sheet must actually reach the screen.
+#
+# Sprite3D does not ignore hframes/vframes when a region is set: it divides
+# region_rect by the grid and adds the frame offset itself. A per-frame window
+# handed over as a single cell therefore shrank the quad to one sub-cell and
+# sampled the wrong corner of it -- the castle showed no Roshan at all (the
+# sampled corner was 0% alpha) and the Sky Lagoon showed a rectangular sliver
+# of her hair (owner report 2026-08-02). Assert what the ENGINE will sample,
+# not what the table intends, and that authored art lands inside it.
+func _check_roshan_sampling_windows() -> void:
+	var sheets: Dictionary = PLAYER_SCRIPT.ROSHAN_25D_SHEETS
+	var gate := Sprite3D.new()
+	var mismatched := 0
+	var thin := 0
+	var unreadable := 0
+	var checked := 0
+	var worst_coverage := 1.0
+	var worst_label := ""
+	var first_mismatch := ""
+	for sheet_name: String in sheets.keys():
+		var spec: Array = sheets[sheet_name]
+		var texture: Texture2D = spec[0] as Texture2D
+		var cols: int = int(spec[1])
+		var rows: int = int(spec[2])
+		var image: Image = _sheet_image(texture)
+		if image == null:
+			unreadable += 1
+		gate.texture = texture
+		gate.hframes = cols
+		gate.vframes = rows
+		for frame_index: int in range(cols * rows):
+			gate.frame = frame_index
+			ROSHAN_FRAMES.apply_region(gate, sheet_name, frame_index, cols)
+			var intended: Rect2 = ROSHAN_FRAMES.region(
+				sheet_name, frame_index, cols)
+			var sampled: Rect2 = ROSHAN_FRAMES.sampled_rect(gate)
+			checked += 1
+			if not sampled.is_equal_approx(intended):
+				mismatched += 1
+				if first_mismatch.is_empty():
+					first_mismatch = "%s[%d] sampled=%s intended=%s" % [
+						sheet_name, frame_index, sampled, intended]
+			if image == null:
+				continue
+			var coverage: float = _alpha_coverage(image, sampled)
+			if coverage < worst_coverage:
+				worst_coverage = coverage
+				worst_label = "%s[%d]" % [sheet_name, frame_index]
+			if coverage < 0.10:
+				thin += 1
+	gate.free()
+	_ck("roshan_frames_sample_their_own_window",
+		mismatched == 0 and checked == 128,
+		"checked=%d off_window=%d %s" % [checked, mismatched, first_mismatch])
+	# Lowest measured on the shipped sheets is 17.6% (swim_back[2..4]); the
+	# windows this replaced sat at 0.0%. 10% is the floor between them.
+	_ck("roshan_frames_render_real_art",
+		thin == 0 and unreadable == 0,
+		"below_10pct_alpha=%d unreadable_sheets=%d worst=%s at %.1f%%" % [
+			thin, unreadable, worst_label, worst_coverage * 100.0])
 
 func _audit_world_node(node: Node, counts: Dictionary) -> void:
 	for child: Node in node.get_children():
@@ -108,12 +204,15 @@ func _room_detail_tile_ready(tile: Sprite3D) -> bool:
 			tile.scale.y, render_rect.size.y / source_rect.size.y)
 	)
 
-func _interaction_manifest() -> Dictionary:
-	if not FileAccess.file_exists(INTERACTION_MANIFEST):
+func _load_interaction_manifest(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
 		return {}
 	var parsed: Variant = JSON.parse_string(
-		FileAccess.get_file_as_string(INTERACTION_MANIFEST))
+		FileAccess.get_file_as_string(path))
 	return parsed as Dictionary if parsed is Dictionary else {}
+
+func _interaction_manifest() -> Dictionary:
+	return _load_interaction_manifest(INTERACTION_MANIFEST)
 
 func _manifest_assets_by_instance(manifest: Dictionary) -> Dictionary:
 	var result: Dictionary = {}
@@ -125,6 +224,32 @@ func _manifest_assets_by_instance(manifest: Dictionary) -> Dictionary:
 		for instance_value: Variant in instances:
 			var item_id: String = String(instance_value)
 			result[room_id + ":" + item_id] = asset
+	return result
+
+func _legacy_pool_assets_by_instance(manifest: Dictionary) -> Dictionary:
+	var result: Dictionary = {}
+	var legacy_assets: Dictionary = _manifest_assets_by_instance(manifest)
+	for instance_key_value: Variant in legacy_assets:
+		var instance_key := String(instance_key_value)
+		if not instance_key.begins_with("mermaid_pool:"):
+			continue
+		var asset: Dictionary = (
+			legacy_assets[instance_key] as Dictionary).duplicate(true)
+		var frame_count: int = int(asset.get("frame_count", 0))
+		var timeline_sequence: Array[int] = []
+		for frame_index: int in range(frame_count):
+			timeline_sequence.append(frame_index)
+		asset["legacy_room_derived"] = true
+		asset["authored_frame_count"] = frame_count
+		asset["timeline_frame_count"] = frame_count
+		asset["timeline_sequence"] = timeline_sequence
+		asset["grid"] = [
+			int(asset.get("hframes", 0)), int(asset.get("vframes", 0))]
+		asset["sheet"] = String(asset.get("atlas", ""))
+		asset["rest_frame"] = 0
+		asset["physics_mode"] = "none"
+		asset["water_layers"] = []
+		result[instance_key] = asset
 	return result
 
 func _atlas_frames_have_clear_border(sprite: Sprite3D,
@@ -276,8 +401,10 @@ func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 	var sprite: Sprite3D = record.get("sprite") as Sprite3D
 	var item_data: Dictionary = record.get("data", {}) as Dictionary
 	if sprite == null or manifest_asset.is_empty():
-		result["detail"] = "missing runtime sprite or v2 manifest asset"
+		result["detail"] = "missing runtime sprite or interaction manifest asset"
 		return result
+	var legacy_room_derived := bool(manifest_asset.get(
+		"legacy_room_derived", false))
 	var authored_count: int = int(manifest_asset.get(
 		"authored_frame_count", 0))
 	var timeline_count: int = int(manifest_asset.get(
@@ -391,6 +518,28 @@ func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 		and bool(body.get_meta("depth_axis_locked", false))
 		and physics_metrics_present
 	)
+	var visual_delivery_contract_ok: bool = (
+		String(manifest_asset.get("normalized_use_review", "")) \
+			== "accepted_visual_review_2026-08-01"
+		and not bool(sprite.get_meta("generated_full_object_states", false))
+		and not bool(sprite.get_meta("primary_animation_is_overlay", false))
+		and rig.is_empty()
+		and sprite.texture_filter \
+			== BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	) if legacy_room_derived else (
+		String(manifest_asset.get("normalized_use_review", "")) \
+			== "codex_visual_review_accepted_2026-08-01"
+		and not bool(manifest_asset.get("primary_animation_is_overlay", true))
+		and not bool(sprite.get_meta("primary_animation_is_overlay", true))
+		and bool(sprite.get_meta("generated_full_object_states", false))
+		and String(sprite.get_meta("fixture_water_shader", "")) \
+			== "res://assets/shaders/castle_fixture_water.gdshader"
+		and String(sprite.get_meta("fixture_water_ripple_texture", "")) \
+			== "res://assets/terrain/up_water_nrm.jpg"
+		and String(sprite.get_meta("fixture_water_caustics_texture", "")) \
+			== "res://assets/terrain/caustics.png"
+		and sprite.texture_filter == BaseMaterial3D.TEXTURE_FILTER_LINEAR
+	)
 	result["contract_ok"] = (
 		authored_count == 8
 		and timeline_count >= 4 and timeline_count <= 12
@@ -415,23 +564,12 @@ func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 		and bool(sprite.get_meta("fixed_pivot_animation", false))
 		and bool(manifest_asset.get("fixed_pivot", false))
 		and bool(manifest_asset.get("transparent_border", false))
+		and visual_delivery_contract_ok
 		and int(manifest_asset.get("unique_frame_count", 0)) >= 4
 		and int(manifest_asset.get("unique_frame_count", 0)) <= authored_count
-		and String(manifest_asset.get("normalized_use_review", ""))
-			== "codex_visual_review_accepted_2026-08-01"
-		and not bool(manifest_asset.get("primary_animation_is_overlay", true))
-		and not bool(sprite.get_meta("primary_animation_is_overlay", true))
-		and bool(sprite.get_meta("generated_full_object_states", false))
-		and String(sprite.get_meta("fixture_water_shader", "")) \
-			== "res://assets/shaders/castle_fixture_water.gdshader"
-		and String(sprite.get_meta("fixture_water_ripple_texture", "")) \
-			== "res://assets/terrain/up_water_nrm.jpg"
-		and String(sprite.get_meta("fixture_water_caustics_texture", "")) \
-			== "res://assets/terrain/caustics.png"
 		and sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
 		and is_equal_approx(sprite.alpha_scissor_threshold, 0.5)
 		and not sprite.no_depth_test
-		and sprite.texture_filter == BaseMaterial3D.TEXTURE_FILTER_LINEAR
 		and _atlas_frames_have_clear_border(sprite, authored_count)
 		and ResourceLoader.exists(expected_sound_path)
 		and water_contract_ok
@@ -859,6 +997,14 @@ func _run() -> void:
 	_ck("castle_roshan_frames_share_anatomical_anchor",
 		max_anchor_drift <= 0.11,
 		"max_torso_drift_px=%.3f" % max_anchor_drift)
+	_check_roshan_sampling_windows()
+	_ck("castle_roshan_samples_her_own_window",
+		ROSHAN_FRAMES.sampled_rect(castle_roshan).is_equal_approx(
+			ROSHAN_FRAMES.region(castle_roshan_loop._sheet_key(),
+				castle_roshan.frame, castle_roshan.hframes)),
+		"sheet=%s frame=%d sampled=%s" % [
+			castle_roshan_loop._sheet_key(), castle_roshan.frame,
+			ROSHAN_FRAMES.sampled_rect(castle_roshan)])
 	rooms._position_player_at_foot(Vector2(380.0, 835.0), false)
 	castle_roshan_loop._process(0.2)
 	_ck("castle_roshan_swim_finishes_at_arrival",
@@ -889,6 +1035,8 @@ func _run() -> void:
 	var all_room_object_bounds_ok := true
 	var opera_split_hotspots_ok := false
 	var pool_split_hotspots_ok := false
+	var pool_interaction_set_ok := false
+	var pool_waterfall_hotspot_ok := false
 	var opera_split_overlap := 1.0
 	var pool_split_overlap := 1.0
 	var kitchen_prop_set_ok := false
@@ -901,13 +1049,21 @@ func _run() -> void:
 	var max_visible_world_cards := 0
 	var interaction_failures: Array[String] = []
 	var interaction_manifest: Dictionary = _interaction_manifest()
-	var manifest_assets: Dictionary = _manifest_assets_by_instance(
+	var active_manifest_assets: Dictionary = _manifest_assets_by_instance(
 		interaction_manifest)
+	var legacy_interaction_manifest: Dictionary = \
+		_load_interaction_manifest(LEGACY_INTERACTION_MANIFEST)
+	var legacy_pool_assets: Dictionary = _legacy_pool_assets_by_instance(
+		legacy_interaction_manifest)
+	var manifest_assets: Dictionary = active_manifest_assets.duplicate(true)
+	manifest_assets.merge(legacy_pool_assets, true)
 	var expected_physical_total := 0
 	for expected_count_value: Variant in EXPECTED_PHYSICAL_ITEM_COUNTS.values():
 		expected_physical_total += int(expected_count_value)
 	var delivered_average := float(expected_physical_total) \
 		/ float(EXPECTED_PHYSICAL_ITEM_COUNTS.size())
+	var active_physical_total: int = expected_physical_total \
+		- int(EXPECTED_PHYSICAL_ITEM_COUNTS["mermaid_pool"])
 	var manifest_rooms: Dictionary = interaction_manifest.get(
 		"rooms", {}) as Dictionary
 	var manifest_contract: Dictionary = interaction_manifest.get(
@@ -918,13 +1074,17 @@ func _run() -> void:
 		"summary", {}) as Dictionary
 	var manifest_unique_assets: Array = interaction_manifest.get(
 		"assets", []) as Array
+	var retired_rooms: Dictionary = interaction_manifest.get(
+		"retired_rooms", {}) as Dictionary
 	var interaction_manifest_ok: bool = \
 		int(interaction_manifest.get("schema_version", 0)) == 2 \
-		and manifest_unique_assets.size() == 33 \
+		and manifest_unique_assets.size() == 29 \
 		and manifest_assets.size() == expected_physical_total \
 		and int(manifest_summary.get("physical_instance_count", 0)) \
-			== expected_physical_total \
-		and int(manifest_summary.get("generated_sheet_count", 0)) == 33 \
+			== active_physical_total \
+		and int(manifest_summary.get("generated_sheet_count", 0)) == 29 \
+		and retired_rooms.has("mermaid_pool") \
+		and legacy_pool_assets.size() == 4 \
 		and delivered_average >= 4.0 and delivered_average <= 6.0 \
 		and int(manifest_frame_contract.get("minimum", 0)) == 4 \
 		and int(manifest_frame_contract.get("maximum", 0)) == 12 \
@@ -935,8 +1095,12 @@ func _run() -> void:
 		and String(manifest_contract.get("water_node_type", "")) == "Sprite3D" \
 		and not bool(manifest_contract.get("water_depth_write", true)) \
 		and not bool(manifest_contract.get("jolt_logic_authority", true))
+	var legacy_manifest_rooms: Dictionary = legacy_interaction_manifest.get(
+		"rooms", {}) as Dictionary
 	for expected_room_id: String in EXPECTED_PHYSICAL_ITEM_COUNTS:
-		var manifest_room: Dictionary = manifest_rooms.get(
+		var expected_rooms: Dictionary = legacy_manifest_rooms \
+			if expected_room_id == "mermaid_pool" else manifest_rooms
+		var manifest_room: Dictionary = expected_rooms.get(
 			expected_room_id, {}) as Dictionary
 		interaction_manifest_ok = interaction_manifest_ok \
 			and int(manifest_room.get("physical_item_count", -1)) \
@@ -959,6 +1123,25 @@ func _run() -> void:
 				and footlights_hotspot != null \
 				and opera_split_overlap <= 0.20
 		elif room_id == "mermaid_pool":
+			var pool_actual_items: Array[String] = []
+			for pool_item_id: Variant in main.castle_room_item_sprites.keys():
+				pool_actual_items.append(String(pool_item_id))
+			pool_actual_items.sort()
+			var pool_expected_items: Array[String] = [
+				"flower_float",
+				"seahorse_fountain",
+				"star_float",
+				"waterfall",
+			]
+			pool_interaction_set_ok = pool_actual_items == pool_expected_items
+			var waterfall_record: Dictionary = \
+				main.castle_room_item_sprites.get(
+					"waterfall", {}) as Dictionary
+			var waterfall_hotspot: Button = \
+				waterfall_record.get("hotspot") as Button
+			pool_waterfall_hotspot_ok = waterfall_hotspot != null \
+				and waterfall_hotspot.size.x >= 170.0 \
+				and waterfall_hotspot.size.y >= 210.0
 			var flower_record: Dictionary = \
 				main.castle_room_item_sprites.get("flower_float", {}) as Dictionary
 			var star_record: Dictionary = \
@@ -1340,7 +1523,12 @@ func _run() -> void:
 	_ck("pool_flower_and_star_hotspots_are_distinct",
 		pool_split_hotspots_ok,
 		"overlap=%.3f of smaller hotspot" % pool_split_overlap)
-	_ck("interaction_manifest_matches_38_runtime_items",
+	_ck("pool_uses_coherent_interaction_set",
+		pool_interaction_set_ok,
+		"expected waterfall, flower float, star float, and seahorse fountain")
+	_ck("pool_waterfall_hotspot_covers_full_fixture",
+		pool_waterfall_hotspot_ok)
+	_ck("active_v2_plus_retired_pool_match_38_runtime_items",
 		interaction_manifest_ok,
 		"count=%d average=%.2f" % [expected_physical_total, delivered_average])
 	_ck("all_interactions_use_4_to_12_frame_semantic_atlases",

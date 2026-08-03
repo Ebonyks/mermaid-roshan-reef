@@ -5,6 +5,7 @@ extends RefCounted
 # one shallow band in front of them. All mutable state remains on ReefMain.
 
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const Affordance := preload("res://scripts/interaction_affordance.gd")
 const OPAQUE_STORYBOOK_CUTOUT_SHADER := preload(
 	"res://assets/shaders/opaque_storybook_cutout.gdshader")
 const HALF_W := 72.0
@@ -418,22 +419,34 @@ func tick(delta: float) -> void:
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
 	var focus_t: float = float(m.g.get("lagoon_promenade_focus_t", 0.0)) + delta
 	m.g["lagoon_promenade_focus_t"] = focus_t
+	_tick_target_affordances(focus_id, focus_t)
+
+func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
 		var glow: Sprite3D = target.get("highlight") as Sprite3D
 		if glow == null or not is_instance_valid(glow):
 			continue
-		var selected: bool = String(target.get("id", "")) == focus_id
-		glow.visible = selected
-		if selected:
-			if String(target.get("id", "")) == "castle_gate":
-				# The door itself breathes brighter in place. Scaling the full
-				# castle made a loose gold ghost around every tower and window.
-				glow.scale = Vector3.ONE
-				glow.modulate.a = 0.58 + sin(focus_t * 5.2) * 0.12
-			else:
-				var pulse: float = 1.08 + sin(focus_t * 5.2) * 0.035
-				glow.scale = Vector3.ONE * pulse
+		var target_id: String = String(target.get("id", ""))
+		var selected: bool = target_id == focus_id
+		var affordance_kind: String = String(target.get(
+			"affordance_kind", Affordance.INTERACTION))
+		var phase: float = float(absi(target_id.hash()) % 127) * 0.037
+		var wave: float = sin(
+			focus_t * Affordance.pulse_speed(affordance_kind, selected) + phase)
+		var tint: Color = Affordance.color(affordance_kind, selected)
+		tint.a *= 0.95 + wave * 0.05
+		glow.modulate = tint
+		if target_id == "castle_gate":
+			# The door breathes through opacity. Scaling a facade-shaped signal
+			# would make a loose colored ghost around every tower and window.
+			glow.scale = Vector3.ONE
+		else:
+			var base_scale: float = float(target.get("highlight_scale", 1.0))
+			var pulse: float = 1.0 + wave * Affordance.pulse_amount(
+				affordance_kind, selected)
+			glow.scale = Vector3.ONE * base_scale * pulse
+		glow.visible = true
 
 func action_label() -> String:
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
@@ -1390,6 +1403,8 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK,
 		highlight_path: String = "", highlight_pixel_size: float = 0.0) -> void:
 	_register_mural_socket(node, socket_lock)
+	var affordance_kind: String = Affordance.INTERACTION \
+		if kind == "castle" else Affordance.ANIMATION
 	var glow: Sprite3D
 	glow = Sprite3D.new()
 	if not highlight_path.is_empty():
@@ -1398,7 +1413,7 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		glow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 		glow.shaded = false
 		glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		glow.modulate = Color(1.0, 0.82, 0.25, 0.72)
+		glow.modulate = Affordance.color(affordance_kind, false)
 		glow.position = node.position + Vector3(0, 0, -0.05)
 		var root_node: Node3D = stage.root()
 		root_node.add_child(glow)
@@ -1409,12 +1424,12 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		glow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 		glow.shaded = false
 		glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		glow.modulate = Color(1.0, 0.82, 0.25, 0.72)
+		glow.modulate = Affordance.color(affordance_kind, false)
 		glow.position = source.position + Vector3(0, 0, -0.05)
 		var root_node: Node3D = stage.root()
 		root_node.add_child(glow)
 	glow.scale = Vector3.ONE * highlight_scale
-	glow.visible = false
+	glow.visible = true
 	var targets: Array = m.g.get("lagoon_promenade_targets", [])
 	targets.append({
 		"id": id,
@@ -1422,6 +1437,7 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		"kind": kind,
 		"payload": payload,
 		"radius_px": radius_px,
+		"affordance_kind": affordance_kind,
 		"highlight": glow,
 		"highlight_scale": highlight_scale,
 	})
@@ -1448,22 +1464,16 @@ func _focus(target: Dictionary) -> void:
 	var target_id: String = String(target.get("id", ""))
 	m.g["lagoon_promenade_focus"] = target_id
 	m.g["lagoon_promenade_focus_t"] = 0.0
-	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
-		var item: Dictionary = value as Dictionary
-		var glow: Sprite3D = item.get("highlight") as Sprite3D
-		if glow != null and is_instance_valid(glow):
-			glow.visible = String(item.get("id", "")) == target_id
+	_tick_target_affordances(target_id, 0.0)
 	var node: Node3D = target.get("node") as Node3D
 	if node != null and is_instance_valid(node):
-		m._sparkle_burst(node.global_position, Color(1.0, 0.84, 0.30))
+		m._sparkle_burst(node.global_position, Affordance.sparkle_color(
+			String(target.get("affordance_kind", Affordance.INTERACTION))))
 
 func _clear_focus() -> void:
 	m.g["lagoon_promenade_focus"] = ""
-	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
-		var target: Dictionary = value as Dictionary
-		var glow: Sprite3D = target.get("highlight") as Sprite3D
-		if glow != null and is_instance_valid(glow):
-			glow.visible = false
+	_tick_target_affordances(
+		"", float(m.g.get("lagoon_promenade_focus_t", 0.0)))
 
 func _activate(target: Dictionary) -> void:
 	var node: Node3D = target.get("node") as Node3D
@@ -1523,6 +1533,10 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	card.hframes = 1
 	card.vframes = 1
 	card.frame = 0
+	# The authored playground poses are whole PNGs, not atlas cells. Drop any
+	# sampling window RoshanSpriteLoop left on the card, or the pose is sliced
+	# by a window measured for a different sheet.
+	card.region_enabled = false
 	card.offset = Vector2.ZERO
 	card.position.z = PLAY_Z + 0.12
 	card.rotation.z = 0.0
