@@ -95,6 +95,38 @@ func _init() -> void:
 			modes.append(String(phase_dict.get("mode", "")))
 		_check("%s opens with a friendly imp scuffle" % career,
 			modes.size() > 0 and modes[0] == "bop")
+		# Costume identity lock: bopping a dressed crew imp must never swap her
+		# back to the base purple imp — that reads as a different character
+		# every time she is bopped.
+		#
+		# The invariant is "never a base imp", NOT "always exactly the idle
+		# costume texture". Painted per-pose art (rival_<costume>_windup.png and
+		# friends) landed on dev, and _apply_imp_pose swaps to it by design, so
+		# a crew imp legitimately wears a different texture depending on which
+		# pose her brain is in on the frame this runs. Asserting equality with
+		# the idle texture would pass or fail on tick timing rather than on the
+		# thing that actually matters.
+		if not cooperative and not world.combat_imps.is_empty():
+			var base_imp := load("res://assets/opera/worlds/actors/imp_mischief.png") as Texture2D
+			var base_captain := load("res://assets/opera/worlds/actors/imp_captain.png") as Texture2D
+			var crew_dressed := true
+			for imp_entry: Dictionary in world.combat_imps:
+				var crew_node := imp_entry.get("node") as TextureRect
+				crew_dressed = crew_dressed and crew_node != null \
+					and crew_node.texture != null \
+					and crew_node.texture != base_imp \
+					and crew_node.texture != base_captain
+			_check("%s scuffle crew wears the career costume" % career, crew_dressed)
+			var victim: Dictionary = world.combat_imps[0]
+			var victim_node := victim.get("node") as TextureRect
+			world._hit_stage_imp(victim, Vector2(100.0, 100.0))
+			_check("%s keeps its costume through the shoo-off" % career,
+				victim_node != null and is_instance_valid(victim_node)
+				and victim_node.texture != base_imp
+				and victim_node.texture != base_captain)
+			_check("%s plays the shoo-off clip about the imp" % career,
+				victim_node != null and is_instance_valid(victim_node)
+				and victim_node.pivot_offset.is_equal_approx(victim_node.size * 0.5))
 		var captain_scuffle := -1
 		for mode_i in range(1, modes.size()):
 			if modes[mode_i] == "bop":
