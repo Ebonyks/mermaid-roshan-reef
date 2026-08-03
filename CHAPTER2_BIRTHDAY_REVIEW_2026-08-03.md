@@ -704,6 +704,89 @@ the repo for later reuse as characters.
 
 ---
 
+## 17. THE ANTAGONIST STRUCTURE: EMBER KING + EMBER PRINCE (owner ruling)
+
+**Primary antagonists: the EMBER KING and the EMBER PRINCE. Boss fights are
+their henchmen.**
+
+This supersedes section 16's "cut the bosses and have no boss fights." Boss
+fights *stay* — they simply belong to the real villains instead of to three
+characters imported from an opera that no longer exists.
+
+### On the dragon, phantom and maestro
+
+No objection to them existing in the story **if** they can be introduced
+elegantly — but they are not part of the standard Mermaid Roshan story and
+integrating them takes effort that buys little. So the ruling stands: **they
+are not boss fights.** They stay in the repo as art. If a later chapter finds a
+graceful use for a theatrical dragon or a shy phantom as *characters*, the
+assets are there; nothing is spent keeping that door open.
+
+### The Ember Prince is the key addition
+
+A **child-scale antagonist** is exactly what Chapter 2 was missing, and he
+solves a problem the Ember King alone could not:
+
+- **The King is an endgame threat** — a mountain that talks, saved for Chapter
+  4. Using him as the party-crasher spends the final boss in act one of the
+  story.
+- **The Prince is Roshan's counterpart.** A kid who wasn't invited to another
+  kid's birthday and wrecks it is the most legible villain motive a
+  four-year-old will ever meet — she has *lived* that feeling from both sides.
+- It also gives the imps a boss they plausibly report to, and it lets the
+  King's own line ("nobody ever invited ME to a party") land in Chapter 4 as
+  the *father's* version of the son's grievance. The two antagonists rhyme.
+
+**Recommended split:** the **Prince crashes the birthday party** (Chapter 2
+climax) and takes the candles; the **King** is the power behind it, met in
+Chapter 4 when she goes to get them back. Chapter 3's journey north is where
+she learns who the Prince's father actually is.
+
+### Henchmen as boss fights — the content already exists
+
+The Ember Fortress ships with exactly this cast and structure: **"Cinder Gate
+Imps"** (4 enemies), **"Ash Imp Ambush"** (6 enemies), and **"The Molten
+Throne"** (a dual fire/ice boss with `boss_hp`, peek/shell phases) — plus
+`ember_imp.glb`, `ember_boss.glb` and a full arena kit. So henchman bosses are
+not new content to invent; they are existing ember content promoted into the
+role the opera bosses were wrongly filling.
+
+**For Chapter 2 specifically:** one or two ember henchmen appearing at the
+castle would (a) prove the threat is real before the party, (b) explain how
+the mischief imps got organised, and (c) make the Prince's arrival at the
+climax feel prepared rather than sudden. That is a genuine narrative role —
+unlike the floor bosses, these earn their place.
+
+### What this changes in the plan
+
+- **Sections 15-16 stand corrected:** boss fights exist; they are ember
+  henchmen, not opera characters. The three "needs" the opera bosses held
+  remain non-gaps (the Main Hall is the place, the lights are on, timing
+  belongs to Roshan).
+- **The crash script (bible §5) is re-cast** from Ember King to Ember Prince,
+  with the King named but unseen — which *strengthens* the existing "never
+  seen, never frightening" design and saves his reveal for Chapter 4.
+- **The five-candle rhyme survives** and gets better: the Prince takes the
+  five candles to his father's mountain, where five ember lanterns must be
+  relit.
+- **Save/probe migration is unchanged** — the three opera boss acts still
+  retire in place (bits kept, indices stable); henchman encounters slot in as
+  new content rather than renumbering anything.
+
+### Open questions
+
+1. **How many henchman bosses in Chapter 2, and where?** My recommendation:
+   two — one mid-chapter (the imps get organised) and one just before the
+   party — staged in castle rooms rather than a separate venue.
+2. **Does the Ember Prince appear before the climax?** A brief early sighting
+   (watching from a window, unimpressed) would plant him cheaply. My
+   recommendation: yes, once, wordless.
+3. **Art needed:** the Prince has no assets. He needs a design — the one
+   genuinely new character this chapter requires, and worth commissioning
+   properly since he carries Chapters 2-4.
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
