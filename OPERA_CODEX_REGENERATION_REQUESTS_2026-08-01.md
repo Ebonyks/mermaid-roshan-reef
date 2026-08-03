@@ -771,7 +771,7 @@ Request C — magnifier prop (search/inspect tasks; none exists in assets):
 
 ---
 
-# PRIORITY 8 — Diegetic widget art for every non-bop/non-lens phase (codex handoff, 2026-08-02)
+# PRIORITY 8 (standalone working copy: CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md) — Diegetic widget art for every non-bop/non-lens phase (codex handoff, 2026-08-02)
 
 Sources audited: `scripts/opera_career_world_2d.gd` PHASES tables (13 careers, 86 phases), `scripts/opera_gesture_surface.gd` (draw code, engine state vars, the four proven nursery contexts), `scripts/opera_nursery_catch.gd` (catch engine geometry), `OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md` (P7 conventions, STYLE-JOBS/STYLE-HOUSE contracts, P2-09 canonical prop locks, staging protocol), and the 380-card inventory in `assets_src/concepts/opera_jobs_flat_2026-07-21/cards/`.
 

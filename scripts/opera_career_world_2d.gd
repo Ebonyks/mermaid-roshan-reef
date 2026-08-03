@@ -245,6 +245,9 @@ var lens_found: Array[bool] = []
 var lens_dwell := 0.0
 var lens_target := -1
 var lens_demo := true
+var task_frame_texture: Texture2D = null
+var station_marker_texture: Texture2D = null
+var magnifier_texture: Texture2D = null
 
 var root: Control
 var backdrop_node: OperaWorldBackdrop2D
@@ -308,6 +311,9 @@ func _build_world() -> void:
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_full_rect(root)
 	add_child(root)
+	task_frame_texture = _load_if_exists("res://assets/opera/worlds/ui/task_card_frame.png")
+	station_marker_texture = _load_if_exists("res://assets/opera/worlds/ui/station_marker.png")
+	magnifier_texture = _load_if_exists("res://assets/opera/worlds/ui/magnifier.png")
 
 	backdrop_node = WorldBackdrop.new() as OperaWorldBackdrop2D
 	backdrop_node.name = "CareerWorldBackdrop"
@@ -542,6 +548,10 @@ func _draw_task_card() -> void:
 	# title ribbon and corner pearls — a task card that matches the menus
 	var card_size := action_panel.size
 	var rect := Rect2(Vector2.ZERO, card_size)
+	if task_frame_texture != null:
+		action_panel.draw_rect(rect.grow(-20.0), Color("#e6f5ff"), true)
+		action_panel.draw_texture_rect(task_frame_texture, rect, false)
+		return
 	var frame := StyleBoxFlat.new()
 	frame.bg_color = Color("#e6f5ff")
 	frame.set_border_width_all(5)
@@ -571,6 +581,11 @@ func _draw_station_marker(marker: Control) -> void:
 	var current := int(station_for_phase.get(phase_index, -1)) == index
 	var pulse := (sin(elapsed * 4.2) + 1.0) * 0.5 if current else 0.0
 	var base := Color(1.0, 0.86, 0.42, 0.55 + pulse * 0.35) if current else Color(1.0, 1.0, 1.0, 0.22)
+	if station_marker_texture != null:
+		var marker_size := Vector2(96.0, 192.0) * (1.0 + pulse * 0.06)
+		var marker_rect := Rect2(Vector2(-marker_size.x * 0.5, -marker_size.y + 14.0), marker_size)
+		marker.draw_texture_rect(station_marker_texture, marker_rect, false, base)
+		return
 	marker.draw_circle(Vector2.ZERO, 26.0 + pulse * 7.0, Color(base, base.a * 0.35))
 	marker.draw_arc(Vector2.ZERO, 26.0 + pulse * 7.0, 0.0, TAU, 32, base, 5.0)
 	if current:
@@ -602,6 +617,31 @@ func _build_audience() -> void:
 		fan.modulate = Color(1.0, 1.0, 1.0, 0.96)
 		root.add_child(fan)
 		audience.append(fan)
+
+
+func _widget_template(phase: Dictionary) -> String:
+	var mode := String(phase.get("mode", ""))
+	var name := String(phase.get("name", ""))
+	match mode:
+		"timing":
+			return "gauge" if career_id in ["chef", "astronaut", "racer"] else "track"
+		"hold":
+			if name in ["WASH", "WASH HANDS"]:
+				return "basin"
+			if name in ["POUR", "SYRUP", "FILL", "FEED"]:
+				return "pour"
+			return "charge"
+		"circle":
+			return "crank"
+		"swipe":
+			return "push" if name in ["HERD", "DUCK", "STEER", "BEDTIME"] else "trace"
+		"tap":
+			return "target"
+		"choice":
+			return "lanes"
+		"catch":
+			return "catch"
+	return ""
 
 
 func _show_phase() -> void:
@@ -657,15 +697,10 @@ func _show_phase() -> void:
 			nursery_catch.start(int(ceilf(float(phase.get("goal", 5.0)))))
 		else:
 			nursery_catch.stop()
-	var context := ""
-	if career_id == "nursery":
-		context = String({
-			"WASH HANDS": "nursery_wash",
-			"FEED": "nursery_feed",
-			"BURP": "nursery_burp",
-			"BEDTIME": "nursery_bedtime",
-		}.get(String(phase.get("name", "")), ""))
+	var template := _widget_template(phase)
+	var context := "%s_%s" % [template, career_id] if not template.is_empty() else ""
 	surface.configure(mode_name, accent, choice_target, context)
+	surface.set_fill(0.0)
 	match String(phase.get("dir", "")):
 		"down":
 			surface.swipe_dir = Vector2.DOWN
@@ -1004,7 +1039,9 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	var gain := amount if continuous else maxf(0.04, amount)
 	phase_progress += gain
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
-	phase_fill.value = clampf(phase_progress / goal, 0.0, 1.0) * 100.0
+	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+	phase_fill.value = progress * 100.0
+	surface.set_fill(progress)
 	_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
 		if quality >= 0.5:
@@ -1077,7 +1114,9 @@ func _on_nursery_baby_caught(quality: float) -> void:
 	competition.note_success(18 if quality >= 0.5 else 8)
 	phase_progress += 1.0
 	var goal := maxf(1.0, float(phase.get("goal", 5.0)))
-	phase_fill.value = clampf(phase_progress / goal, 0.0, 1.0) * 100.0
+	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+	phase_fill.value = progress * 100.0
+	surface.set_fill(progress)
 	_bounce_actor(player_actor, 14.0)
 	_bounce_actor(rival_actor, 9.0)
 	if phase_progress >= goal:
@@ -1589,12 +1628,19 @@ func _draw_lens_layer() -> void:
 			var twinkle := 0.6 + (sin(elapsed * 6.0 + float(index)) + 1.0) * 0.2
 			lens_layer.draw_circle(spot, 13.0 * reveal, Color(1.0, 0.95, 0.55, reveal * twinkle))
 			lens_layer.draw_arc(spot, 19.0 * reveal, 0.0, TAU, 20, Color(1.0, 0.85, 0.3, reveal * 0.8), 3.0)
-	# the magic magnifying glass: soft glass tint, brass rim and handle
-	lens_layer.draw_circle(lens_pos, 92.0, Color(0.75, 0.92, 1.0, 0.14))
-	lens_layer.draw_arc(lens_pos, 92.0, 0.0, TAU, 48, Color("#c88b3c"), 9.0)
-	lens_layer.draw_arc(lens_pos, 80.0, 0.0, TAU, 48, Color(1.0, 1.0, 1.0, 0.35), 3.0)
-	var handle_dir := Vector2(0.72, 0.72)
-	lens_layer.draw_line(lens_pos + handle_dir * 92.0, lens_pos + handle_dir * 158.0, Color("#8a5f3c"), 16.0)
+	# The raster prop is authored at 45 degrees with translucent aqua glass.
+	if magnifier_texture != null:
+		lens_layer.draw_texture_rect(
+			magnifier_texture,
+			Rect2(lens_pos - Vector2(128.0, 128.0), Vector2(256.0, 256.0)),
+			false
+		)
+	else:
+		lens_layer.draw_circle(lens_pos, 92.0, Color(0.75, 0.92, 1.0, 0.14))
+		lens_layer.draw_arc(lens_pos, 92.0, 0.0, TAU, 48, Color("#c88b3c"), 9.0)
+		lens_layer.draw_arc(lens_pos, 80.0, 0.0, TAU, 48, Color(1.0, 1.0, 1.0, 0.35), 3.0)
+		var handle_dir := Vector2(0.72, 0.72)
+		lens_layer.draw_line(lens_pos + handle_dir * 92.0, lens_pos + handle_dir * 158.0, Color("#8a5f3c"), 16.0)
 	if lens_target >= 0:
 		lens_layer.draw_arc(lens_pos, 100.0, -PI * 0.5, -PI * 0.5 + TAU * clampf(lens_dwell / 0.45, 0.0, 1.0), 40, Color(1.0, 0.9, 0.4), 6.0)
 

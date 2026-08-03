@@ -60,7 +60,7 @@ func _init() -> void:
 
 	_pump(world)
 	_check("washing follows the scuffle with the basin tableau",
-		world.phase_index == 1 and world.surface.visual_context == "nursery_wash")
+		world.phase_index == 1 and world.surface.visual_context == "basin_nursery")
 	_pump(world)
 	var catcher := world.nursery_catch
 	_check("catch phase reuses and expands the falling-baby grammar",
@@ -85,7 +85,7 @@ func _init() -> void:
 	_check("one-finger steering catches all five babies after safe misses",
 		catcher.caught == 5 and world.phase_index == 3)
 	world.phase_gap = 0.0
-	_check("feeding uses a bottle hold tableau", world.surface.visual_context == "nursery_feed")
+	_check("feeding uses a bottle hold tableau", world.surface.visual_context == "pour_nursery")
 	_pump(world)
 	var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
 	_check("the imp captain's peek-a-boo chase happens at the stage door",
@@ -93,11 +93,11 @@ func _init() -> void:
 		and backdrop != null and backdrop.stage_mode)
 	_pump(world)
 	_check("the chase clears into the gentle burp-pat beat",
-		world.phase_index == 5 and world.surface.visual_context == "nursery_burp")
+		world.phase_index == 5 and world.surface.visual_context == "track_nursery")
 	for index in range(4):
 		world._on_gesture("probe", 1.0, 1.0)
 	_check("four gentle pats advance to bedtime",
-		world.phase_index == 6 and world.surface.visual_context == "nursery_bedtime")
+		world.phase_index == 6 and world.surface.visual_context == "push_nursery")
 	world.phase_gap = 0.0
 	world._on_gesture("probe", 100.0, 1.0)
 	await process_frame
