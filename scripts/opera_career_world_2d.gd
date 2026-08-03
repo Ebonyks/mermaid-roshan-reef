@@ -723,6 +723,7 @@ func _show_phase() -> void:
 				and (steal_index < 0 or phase_index < steal_index)
 	phase_label.text = "%s   %s" % [String(phase.get("icon", "★")), String(phase.get("name", "PLAY"))]
 	phase_fill.value = 0.0
+	surface.set_fill(0.0)
 	if m != null:
 		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
 
@@ -1041,6 +1042,10 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	phase_fill.value = progress * 100.0
+	# the widget's own art fills with the work: the bowl actually pours,
+	# the basin actually fills. Without this the delivered _fill/_bubbles/
+	# _full overlays never move and the child gets no feedback at all.
+	surface.set_fill(progress)
 	surface.set_fill(progress)
 	_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
@@ -1116,6 +1121,10 @@ func _on_nursery_baby_caught(quality: float) -> void:
 	var goal := maxf(1.0, float(phase.get("goal", 5.0)))
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	phase_fill.value = progress * 100.0
+	# the widget's own art fills with the work: the bowl actually pours,
+	# the basin actually fills. Without this the delivered _fill/_bubbles/
+	# _full overlays never move and the child gets no feedback at all.
+	surface.set_fill(progress)
 	surface.set_fill(progress)
 	_bounce_actor(player_actor, 14.0)
 	_bounce_actor(rival_actor, 9.0)
