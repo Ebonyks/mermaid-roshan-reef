@@ -33,14 +33,14 @@ All ten runtime atlases were reviewed at source and runtime scale against the es
 
 ## Runtime behavior
 
-The five-species roster uses one pooled `Sprite3D` card and one pooled contact shadow. Only the current page's animal is instantiated visually, keeping transparent overdraw inside the Speedy-tier budget. Each page has an ecological roster and authored three-point habitat paths:
+The five-species roster uses one pooled `Sprite3D` card, one pooled contact shadow, one pooled waterline, and one constrained `RigidBody3D`. Only the current page's animal is instantiated visually, keeping transparent overdraw and Jolt-body count inside the Speedy-tier budget. Each page has an ecological roster and authored three-point habitat paths:
 
-- arrival shore: otter and frog at the pond edge, unavailable until the pearl plane departs;
-- west meadow edge: hare and squirrel behind the navigation lane and west of the slide;
-- castle shrub edge: raccoon west of the castle, outside the drawbridge and door approach.
+- arrival pond: otter and frog use Jolt buoyancy behind the rope line, unavailable until the pearl plane departs;
+- west path shoulder: hare and squirrel keep their feet on the non-foliage stone/grass band west of the slide;
+- castle path shoulder: raccoon stays on the same load-bearing band west of the drawbridge and door approach.
 
-Every path is rejected at runtime if a waypoint enters a toy, screen-seam, drawbridge, or door exclusion rectangle, or comes within 3.2 world units of the painted player route. Species-specific cadence, pauses, bob amplitude, and idle atlas frames produce hops, waddles, scampers, and ambles instead of a shared lateral slide.
+Every path is rejected at runtime if its water surface or land foot leaves its declared support rectangle, enters a toy, screen-seam, drawbridge, or door exclusion rectangle, or comes within 1.25 world units of the painted player-route centerline. Species-specific cadence, pauses, bob amplitude, and idle atlas frames produce hops, waddles, scampers, and ambles instead of a shared lateral slide. Land idle bob moves only the card, never its audited foot support.
 
-A single tap switches to the activation sheet: alert, squash, hop, then a looping two-pose run or hop through the authored safe edge. Animals exit toward cover rather than across the player route, playground equipment, or castle entrance. After a short cooldown the page advances to its next species. No animal can block travel, alter progression, or be lost permanently.
+A single tap switches to the activation sheet: alert, squash, hop, then a looping two-pose run or hop through the authored safe edge. The water species receive a real Jolt escape impulse; land species remain on their ground shoulder. Animals exit toward cover rather than across playground equipment or the castle entrance. After a short cooldown the page advances to its next species. Collision layers remain disabled, so no animal can block travel, alter progression, or be lost permanently.
 
-The cards remain unshaded to match the flattened storybook mural, but each species has audited day/night modulation and habitat-colored contact shadows. The reproducible in-game lighting audit is documented in `docs/audits/SKY_LAGOON_ANIMALS_2026-08-01.md`.
+The cards remain unshaded to match the flattened storybook mural, but each species has audited day/night modulation. Land animals receive habitat-colored contact shadows; water animals receive a solver-following waterline/wake cue instead. The corrected reproducible support and lighting audit is documented in `docs/audits/SKY_LAGOON_ANIMAL_SUPPORT_2026-08-01.md`.

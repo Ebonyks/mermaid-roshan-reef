@@ -8,6 +8,7 @@ const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const OPAQUE_STORYBOOK_CUTOUT_SHADER := preload(
 	"res://assets/shaders/opaque_storybook_cutout.gdshader")
+const WATER_ANIMAL_BODY := preload("res://scripts/arena/sky_lagoon_water_body.gd")
 const HALF_W := 72.0
 const HALF_D := 2.6
 const BACKDROP_TILE_SIZE := Vector2(24.0, 24.0)
@@ -84,11 +85,17 @@ const ANIMAL_ATLAS_ROWS := 2
 const ANIMAL_STARTLE_ALERT_S := 0.24
 const ANIMAL_STARTLE_SQUASH_S := 0.18
 const ANIMAL_STARTLE_HOP_S := 0.24
+const ANIMAL_BRUSH_ENTRY_S := 0.48
+const ANIMAL_TREE_CLIMB_S := 1.05
 const ANIMAL_PAGE_SPAWN_S := 0.70
 const ANIMAL_RESPAWN_S := 5.5
 const ANIMAL_TOUCH_RADIUS_PX := 114.0
-const ANIMAL_EXIT_PAD_PX := 96.0
-const ANIMAL_ROUTE_CLEARANCE := 3.2
+const ANIMAL_ROUTE_CLEARANCE := 1.25
+const ANIMAL_SUPPORT_RECTS: Dictionary = {
+	"arrival_water": Rect2(-60.2, 2.0, 3.7, 1.4),
+	"west_path_shoulder_ground": Rect2(-21.2, -2.4, 4.5, 0.8),
+	"castle_path_shoulder_ground": Rect2(27.2, -2.4, 4.3, 0.8),
+}
 # One pooled animal card is intentional. It keeps the five-species roster in
 # the game without adding ten permanently visible transparent cards to the
 # Speedy scene. Each camera page owns an ecological roster; tapping an animal
@@ -107,12 +114,14 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"id": "otter",
 		"page": 0,
 		"habitat": "arrival_shore",
+		"support": "water_jolt",
+		"support_zone": "arrival_water",
 		"idle": "res://assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/otter_startle_atlas.png",
 		"path": [
-			Vector3(-62.0, 3.55, -5.8),
-			Vector3(-60.0, 3.82, -5.8),
-			Vector3(-57.8, 3.58, -5.8),
+			Vector3(-59.8, 2.72, -5.8),
+			Vector3(-58.2, 2.72, -5.8),
+			Vector3(-56.8, 2.72, -5.8),
 		],
 		"height": 2.6,
 		"speed": 0.52,
@@ -121,10 +130,16 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"dwell_s": 1.4,
 		"bob": 0.045,
 		"locomotion": "waddle",
-		"safe_exit": -1.0,
+		"refuge_kind": "brush",
+		"refuge_point": Vector3(-60.0, 2.72, -5.8),
+		"refuge_fx_point": Vector3(-60.85, 4.85, -5.72),
+		"refuge_speed": 3.2,
 		"requires_plane_departed": true,
+		"water_surface_y": 2.72,
+		"water_mass": 1.35,
+		"water_wave": 0.075,
 		"day_tint": Color(0.92, 1.00, 1.08, 1.0),
-		"night_tint": Color(0.67, 0.79, 1.02, 1.0),
+		"night_tint": Color(0.70, 0.98, 1.0, 1.0),
 		"shadow_day": Color(0.38, 0.58, 0.70, 0.34),
 		"shadow_night": Color(0.24, 0.36, 0.58, 0.30),
 	},
@@ -132,12 +147,14 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"id": "frog",
 		"page": 0,
 		"habitat": "arrival_shore",
+		"support": "water_jolt",
+		"support_zone": "arrival_water",
 		"idle": "res://assets/sprites/sky_lagoon/animals/frog_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/frog_startle_atlas.png",
 		"path": [
-			Vector3(-61.7, 3.25, -6.1),
-			Vector3(-59.8, 3.48, -6.1),
-			Vector3(-58.0, 3.30, -6.1),
+			Vector3(-59.6, 2.55, -6.1),
+			Vector3(-58.1, 2.55, -6.1),
+			Vector3(-56.8, 2.55, -6.1),
 		],
 		"height": 1.65,
 		"speed": 0.72,
@@ -146,23 +163,31 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"dwell_s": 1.7,
 		"bob": 0.18,
 		"locomotion": "hop",
-		"safe_exit": -1.0,
+		"refuge_kind": "brush",
+		"refuge_point": Vector3(-60.0, 2.55, -6.1),
+		"refuge_fx_point": Vector3(-60.85, 4.68, -6.02),
+		"refuge_speed": 3.5,
 		"requires_plane_departed": true,
+		"water_surface_y": 2.55,
+		"water_mass": 0.55,
+		"water_wave": 0.11,
 		"day_tint": Color(0.96, 1.06, 1.02, 1.0),
-		"night_tint": Color(0.69, 0.86, 0.98, 1.0),
+		"night_tint": Color(0.72, 0.82, 1.0, 1.0),
 		"shadow_day": Color(0.34, 0.55, 0.66, 0.30),
 		"shadow_night": Color(0.22, 0.34, 0.56, 0.28),
 	},
 	{
 		"id": "hare",
 		"page": 1,
-		"habitat": "west_meadow_edge",
+		"habitat": "west_path_shoulder",
+		"support": "ground",
+		"support_zone": "west_path_shoulder_ground",
 		"idle": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/hare_startle_atlas.png",
 		"path": [
-			Vector3(-20.7, 3.42, -4.8),
-			Vector3(-18.9, 3.72, -4.8),
-			Vector3(-17.2, 3.50, -4.8),
+			Vector3(-20.7, -0.55, -4.8),
+			Vector3(-18.9, -0.48, -4.8),
+			Vector3(-17.2, -0.53, -4.8),
 		],
 		"height": 3.1,
 		"speed": 0.66,
@@ -171,7 +196,10 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"dwell_s": 1.6,
 		"bob": 0.12,
 		"locomotion": "hop",
-		"safe_exit": -1.0,
+		"refuge_kind": "brush",
+		"refuge_point": Vector3(-16.82, -0.55, -4.8),
+		"refuge_fx_point": Vector3(-16.72, -0.05, -4.72),
+		"refuge_speed": 6.4,
 		"day_tint": Color(0.95, 0.99, 1.03, 1.0),
 		"night_tint": Color(0.68, 0.77, 0.99, 1.0),
 		"shadow_day": Color(0.29, 0.34, 0.42, 0.36),
@@ -179,14 +207,16 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 	},
 	{
 		"id": "squirrel",
-		"page": 1,
-		"habitat": "west_meadow_edge",
+		"page": 2,
+		"habitat": "castle_fir_edge",
+		"support": "ground",
+		"support_zone": "castle_path_shoulder_ground",
 		"idle": "res://assets/sprites/sky_lagoon/animals/squirrel_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/squirrel_startle_atlas.png",
 		"path": [
-			Vector3(-20.7, 4.38, -7.2),
-			Vector3(-18.9, 4.70, -7.2),
-			Vector3(-17.2, 4.45, -7.2),
+			Vector3(27.45, -0.68, -7.2),
+			Vector3(28.65, -0.60, -7.2),
+			Vector3(29.85, -0.65, -7.2),
 		],
 		"height": 2.9,
 		"speed": 0.82,
@@ -195,22 +225,28 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"dwell_s": 1.25,
 		"bob": 0.055,
 		"locomotion": "scamper",
-		"safe_exit": -1.0,
+		"refuge_kind": "tree",
+		"refuge_point": Vector3(27.25, -0.68, -7.2),
+		"refuge_climb_point": Vector3(26.10, 6.10, -7.2),
+		"refuge_fx_point": Vector3(26.10, 6.35, -7.12),
+		"refuge_speed": 7.2,
 		"day_tint": Color(0.84, 0.97, 1.05, 1.0),
-		"night_tint": Color(0.60, 0.74, 0.96, 1.0),
+		"night_tint": Color(0.66, 0.84, 1.0, 1.0),
 		"shadow_day": Color(0.27, 0.34, 0.40, 0.34),
 		"shadow_night": Color(0.19, 0.24, 0.44, 0.29),
 	},
 	{
 		"id": "raccoon",
 		"page": 2,
-		"habitat": "castle_shrub_edge",
+		"habitat": "castle_path_shoulder",
+		"support": "ground",
+		"support_zone": "castle_path_shoulder_ground",
 		"idle": "res://assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/raccoon_startle_atlas.png",
 		"path": [
-			Vector3(29.0, 4.15, -7.0),
-			Vector3(31.4, 4.55, -7.0),
-			Vector3(34.0, 4.28, -7.0),
+			Vector3(28.3, -0.60, -7.0),
+			Vector3(29.5, -0.52, -7.0),
+			Vector3(30.5, -0.58, -7.0),
 		],
 		"height": 3.0,
 		"speed": 0.58,
@@ -219,9 +255,12 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"dwell_s": 1.8,
 		"bob": 0.035,
 		"locomotion": "amble",
-		"safe_exit": -1.0,
+		"refuge_kind": "brush",
+		"refuge_point": Vector3(31.35, -0.58, -7.0),
+		"refuge_fx_point": Vector3(31.28, -0.03, -6.92),
+		"refuge_speed": 6.0,
 		"day_tint": Color(1.06, 1.08, 1.12, 1.0),
-		"night_tint": Color(0.76, 0.84, 1.04, 1.0),
+		"night_tint": Color(0.78, 0.86, 1.0, 1.0),
 		"shadow_day": Color(0.27, 0.32, 0.40, 0.37),
 		"shadow_night": Color(0.19, 0.24, 0.45, 0.31),
 	},
@@ -776,14 +815,23 @@ func _build_night_fireflies() -> void:
 	m.g["lagoon_night_fireflies"] = fireflies
 
 func _build_animals() -> void:
-	# All five authored definitions stay available, but one Sprite3D actor is
-	# rebound as the camera enters a habitat. The first pass created ten nodes
-	# and left every off-camera animal processing; this pool keeps the whole
-	# feature to one card and one contact shadow.
+	# All five definitions share one visual card. Water fauna ride a constrained
+	# RigidBody3D whose buoyancy and wake are integrated by Jolt; land fauna
+	# freeze that same body and use audited painted-ground support points.
 	m.g["lagoon_animals"] = ANIMAL_DEFS.duplicate(true)
 	m.g["lagoon_animal_cycles"] = {0: 0, 1: 0, 2: 0}
 	var first_definition: Dictionary = ANIMAL_DEFS[0]
 	var first_path: Array = first_definition["path"] as Array
+	var root_node: Node3D = stage.root()
+	var body: WATER_ANIMAL_BODY = WATER_ANIMAL_BODY.new()
+	body.name = "SkyLagoonAnimalJoltBody"
+	body.position = first_path[0] as Vector3
+	var collision: CollisionShape3D = CollisionShape3D.new()
+	var collision_shape: SphereShape3D = SphereShape3D.new()
+	collision_shape.radius = 0.48
+	collision.shape = collision_shape
+	body.add_child(collision)
+	root_node.add_child(body)
 	var card: Sprite3D = _add_sprite(
 		String(first_definition["idle"]), first_path[0] as Vector3,
 		float(first_definition["height"]))
@@ -799,8 +847,35 @@ func _build_animals() -> void:
 	card.set_meta("intensity_class", "quiet")
 	card.set_meta("touch_footprint_px", ANIMAL_TOUCH_RADIUS_PX * 2.0)
 	_sync_contact_shadow(card)
+	card.reparent(body)
+	card.position = Vector3.ZERO
+	var ripple: Sprite3D = Sprite3D.new()
+	ripple.name = "SkyLagoonAnimalWaterline"
+	ripple.texture = _animal_waterline_texture()
+	ripple.pixel_size = 3.4 / float(ripple.texture.get_width())
+	ripple.no_depth_test = false
+	ripple.shaded = false
+	ripple.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
+	ripple.render_priority = 2
+	ripple.visible = false
+	ripple.set_meta("animal_support_effect", "jolt_waterline")
+	root_node.add_child(ripple)
+	var refuge_fx: Sprite3D = Sprite3D.new()
+	refuge_fx.name = "SkyLagoonAnimalRefugeRustle"
+	refuge_fx.texture = _animal_brush_texture()
+	refuge_fx.pixel_size = 2.15 / float(refuge_fx.texture.get_width())
+	refuge_fx.shaded = false
+	refuge_fx.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
+	refuge_fx.render_priority = 3
+	refuge_fx.visible = false
+	refuge_fx.set_meta("animal_refuge_effect", "brush_rustle")
+	root_node.add_child(refuge_fx)
+
 	m.g["lagoon_animal_actor"] = {
 		"node": card,
+		"body": body,
+		"waterline": ripple,
+		"refuge_fx": refuge_fx,
 		"definition": {},
 		"page": -1,
 		"state": "hidden",
@@ -808,9 +883,61 @@ func _build_animals() -> void:
 		"spawn_t": ANIMAL_PAGE_SPAWN_S,
 		"route_position": first_path[0] as Vector3,
 		"path_index": 1,
+		"refuge_entry_position": first_path[0] as Vector3,
+		"refuge_contacted": false,
+		"refuge_effect_played": false,
+		"refuge_completed": false,
 		"path_direction": 1,
-		"exit_direction": -1.0,
+		"refuge_direction": -1.0,
+		"escape_impulse_sent": false,
 	}
+
+func _animal_waterline_texture() -> ImageTexture:
+	# A tiny generated ring gives the solver-driven card a readable contact
+	# line without copying or repainting any pixels from the protected mural.
+	var width: int = 128
+	var height: int = 48
+	var image: Image = Image.create(width, height, false, Image.FORMAT_RGBA8)
+	for y: int in range(height):
+		for x: int in range(width):
+			var px: float = (float(x) / float(width - 1) - 0.5) / 0.48
+			var py: float = (float(y) / float(height - 1) - 0.5) / 0.34
+			var radius: float = sqrt(px * px + py * py)
+			var ring: float = clampf(1.0 - absf(radius - 0.78) / 0.12, 0.0, 1.0)
+			var wake: float = clampf(1.0 - absf(radius - 0.50) / 0.08, 0.0, 1.0) * 0.38
+			var alpha: float = maxf(ring, wake) * 0.72
+			image.set_pixel(x, y, Color(0.70, 0.98, 1.0, alpha))
+	return ImageTexture.create_from_image(image)
+
+func _animal_brush_texture() -> ImageTexture:
+	# One pooled, code-native leaf cluster supplies the brief rustle at every
+	# brush refuge. It adds no permanent transparent-overdraw card or asset.
+	var size: int = 96
+	var image: Image = Image.create(size, size, false, Image.FORMAT_RGBA8)
+	var centers: Array[Vector2] = [
+		Vector2(-0.34, 0.04), Vector2(0.0, -0.17), Vector2(0.34, 0.04),
+		Vector2(-0.16, 0.30), Vector2(0.19, 0.29),
+	]
+	var angles: Array[float] = [-0.52, 0.08, 0.54, -0.24, 0.28]
+	var fills: Array[Color] = [
+		Color(0.39, 0.72, 0.47, 0.94), Color(0.52, 0.82, 0.54, 0.96),
+		Color(0.31, 0.64, 0.48, 0.94), Color(0.58, 0.79, 0.44, 0.94),
+		Color(0.38, 0.70, 0.56, 0.94),
+	]
+	var outline := Color(0.16, 0.25, 0.31, 0.96)
+	for y: int in range(size):
+		for x: int in range(size):
+			var point := Vector2(float(x) / float(size - 1) * 2.0 - 1.0,
+				float(y) / float(size - 1) * 2.0 - 1.0)
+			var pixel := Color(0.0, 0.0, 0.0, 0.0)
+			for index: int in range(centers.size()):
+				var local: Vector2 = (point - centers[index]).rotated(-angles[index])
+				var radius: float = sqrt(pow(local.x / 0.29, 2.0)
+					+ pow(local.y / 0.48, 2.0))
+				if radius <= 1.0:
+					pixel = outline if radius > 0.82 else fills[index]
+			image.set_pixel(x, y, pixel)
+	return ImageTexture.create_from_image(image)
 
 func _animal_camera_x() -> float:
 	var root_node: Node3D = stage.root()
@@ -844,24 +971,102 @@ func _animal_distance_to_segment(point: Vector2, start: Vector2,
 	var amount: float = clampf((point - start).dot(segment) / length_squared, 0.0, 1.0)
 	return point.distance_to(start + segment * amount)
 
+func _animal_sample_has_safe_support(point: Vector3, height: float,
+		support: String, support_rect: Rect2) -> bool:
+	var support_point: Vector2 = (
+		Vector2(point.x, point.y)
+		if support == "water_jolt"
+		else Vector2(point.x, point.y - height * 0.5)
+	)
+	if not support_rect.has_point(support_point):
+		return false
+	var route_clearance: float = INF
+	for route_index: int in range(ROUTE_PAINTED.size() - 1):
+		route_clearance = minf(route_clearance, _animal_distance_to_segment(
+			support_point, ROUTE_PAINTED[route_index],
+			ROUTE_PAINTED[route_index + 1]))
+	if route_clearance < ANIMAL_ROUTE_CLEARANCE:
+		return false
+	for exclusion: Dictionary in ANIMAL_EXCLUSION_RECTS:
+		var rect: Rect2 = exclusion["rect"] as Rect2
+		if rect.has_point(support_point):
+			return false
+	return true
+
 func _animal_path_is_safe(definition: Dictionary) -> bool:
 	var path: Array = definition.get("path", []) as Array
 	var height: float = float(definition.get("height", 0.0))
-	if path.size() < 2 or height <= 0.0:
+	var support: String = String(definition.get("support", ""))
+	var support_zone_id: String = String(definition.get("support_zone", ""))
+	var support_rect: Rect2 = ANIMAL_SUPPORT_RECTS.get(
+		support_zone_id, Rect2()) as Rect2
+	var refuge_kind: String = String(definition.get("refuge_kind", ""))
+	var refuge_point: Variant = definition.get("refuge_point")
+	var refuge_fx_point: Variant = definition.get("refuge_fx_point")
+	if (path.size() < 2 or height <= 0.0
+			or support not in ["ground", "water_jolt"]
+			or not ANIMAL_SUPPORT_RECTS.has(support_zone_id)
+			or refuge_kind not in ["brush", "tree"]
+			or not refuge_point is Vector3 or not refuge_fx_point is Vector3):
 		return false
 	for value: Variant in path:
 		var point: Vector3 = value as Vector3
 		var foot := Vector2(point.x, point.y - height * 0.5)
+		var support_point: Vector2 = Vector2(point.x, point.y) \
+			if support == "water_jolt" else foot
+		if not support_rect.has_point(support_point):
+			return false
 		var route_clearance: float = INF
 		for route_index: int in range(ROUTE_PAINTED.size() - 1):
 			route_clearance = minf(route_clearance, _animal_distance_to_segment(
-				foot, ROUTE_PAINTED[route_index], ROUTE_PAINTED[route_index + 1]))
+				support_point, ROUTE_PAINTED[route_index], ROUTE_PAINTED[route_index + 1]))
 		if route_clearance < ANIMAL_ROUTE_CLEARANCE:
 			return false
 		for exclusion: Dictionary in ANIMAL_EXCLUSION_RECTS:
 			var rect: Rect2 = exclusion["rect"] as Rect2
-			if rect.has_point(foot):
+			if rect.has_point(support_point):
 				return false
+	var refuge: Vector3 = refuge_point as Vector3
+	for value: Variant in path:
+		var start: Vector3 = value as Vector3
+		for sample_index: int in range(13):
+			var amount: float = float(sample_index) / 12.0
+			var sample: Vector3 = start.lerp(refuge, amount)
+			var sample_support: Vector2
+			if support == "water_jolt":
+				sample_support = Vector2(sample.x, sample.y)
+			else:
+				sample_support = Vector2(sample.x, sample.y - height * 0.5)
+			if not support_rect.has_point(sample_support):
+				return false
+	# Activation can happen between authored waypoints. Sample both every idle
+	# segment and the possible retreat from each sampled position so diagonal
+	# shortcuts cannot cross the player route, scenery, water, or a page seam.
+	for path_index: int in range(path.size() - 1):
+		var segment_start: Vector3 = path[path_index] as Vector3
+		var segment_finish: Vector3 = path[path_index + 1] as Vector3
+		for idle_index: int in range(13):
+			var idle_amount: float = float(idle_index) / 12.0
+			var current: Vector3 = segment_start.lerp(
+				segment_finish, idle_amount)
+			if not _animal_sample_has_safe_support(
+					current, height, support, support_rect):
+				return false
+			for retreat_index: int in range(13):
+				var retreat_amount: float = float(retreat_index) / 12.0
+				if not _animal_sample_has_safe_support(
+						current.lerp(refuge, retreat_amount),
+						height, support, support_rect):
+					return false
+
+	var page: int = int(definition.get("page", -1))
+	if page < 0 or page >= ANIMAL_PAGE_CENTERS.size():
+		return false
+	var page_center: float = float(ANIMAL_PAGE_CENTERS[page])
+	if absf(refuge.x - page_center) > 23.5:
+		return false
+	if refuge_kind == "tree" and not definition.get("refuge_climb_point") is Vector3:
+		return false
 	return true
 
 func _animal_tint(definition: Dictionary) -> Color:
@@ -874,14 +1079,29 @@ func _animal_shadow_tint(definition: Dictionary) -> Color:
 
 func _sync_animal_shadow(actor: Dictionary) -> void:
 	var node: Sprite3D = actor.get("node") as Sprite3D
+	var body: WATER_ANIMAL_BODY = actor.get("body") as WATER_ANIMAL_BODY
+	var waterline: Sprite3D = actor.get("waterline") as Sprite3D
 	var definition: Dictionary = actor.get("definition", {}) as Dictionary
 	if node == null or definition.is_empty() or not node.has_meta("contact_shadow"):
 		return
 	var shadow: Sprite3D = node.get_meta("contact_shadow") as Sprite3D
 	if shadow == null or not is_instance_valid(shadow):
 		return
-	var route_position: Vector3 = actor.get(
-		"route_position", node.position) as Vector3
+	var support: String = String(definition.get("support", "ground"))
+	if support == "water_jolt":
+		shadow.visible = false
+		if waterline != null and is_instance_valid(waterline) and body != null:
+			waterline.position = Vector3(body.position.x,
+				body.visual_waterline_y(), body.position.z + 0.045)
+			waterline.visible = node.visible
+			waterline.modulate = Color(1.0, 0.90, 0.84, 0.52) \
+				if m.is_night else Color(0.82, 1.0, 1.0, 0.72)
+			var wake_scale: float = 1.0 + minf(0.22, absf(body.linear_velocity.x) * 0.12)
+			waterline.scale = Vector3(wake_scale, 1.0 / wake_scale, 1.0)
+		return
+	if waterline != null and is_instance_valid(waterline):
+		waterline.visible = false
+	var route_position: Vector3 = actor.get("route_position", body.position) as Vector3
 	var height: float = float(definition["height"])
 	shadow.position = Vector3(
 		route_position.x,
@@ -895,10 +1115,22 @@ func _sync_animal_shadow(actor: Dictionary) -> void:
 
 func _hide_animal(actor: Dictionary, delay: float, advance_roster: bool) -> void:
 	var node: Sprite3D = actor.get("node") as Sprite3D
+	var body: WATER_ANIMAL_BODY = actor.get("body") as WATER_ANIMAL_BODY
+	var refuge_fx: Sprite3D = actor.get("refuge_fx") as Sprite3D
 	if node != null and is_instance_valid(node):
 		node.visible = false
+	if body != null and is_instance_valid(body):
+		body.disable_water()
+	if refuge_fx != null and is_instance_valid(refuge_fx):
+		refuge_fx.visible = false
 	actor["state"] = "hidden"
 	actor["spawn_t"] = delay
+	if advance_roster:
+		actor["refuge_completed"] = true
+	else:
+		actor["refuge_contacted"] = false
+		actor["refuge_effect_played"] = false
+		actor["refuge_completed"] = false
 	if advance_roster:
 		var page: int = int(actor.get("page", -1))
 		var cycles: Dictionary = m.g.get("lagoon_animal_cycles", {}) as Dictionary
@@ -909,7 +1141,10 @@ func _hide_animal(actor: Dictionary, delay: float, advance_roster: bool) -> void
 func _bind_animal(definition: Dictionary) -> bool:
 	var actor: Dictionary = m.g.get("lagoon_animal_actor", {}) as Dictionary
 	var node: Sprite3D = actor.get("node") as Sprite3D
-	if node == null or not is_instance_valid(node) or not _animal_path_is_safe(definition):
+	var body: WATER_ANIMAL_BODY = actor.get("body") as WATER_ANIMAL_BODY
+	var refuge_fx: Sprite3D = actor.get("refuge_fx") as Sprite3D
+	if node == null or body == null or not is_instance_valid(node) \
+			or not is_instance_valid(body) or not _animal_path_is_safe(definition):
 		push_error("Sky Lagoon animal path rejected: %s" % String(
 			definition.get("id", "unknown")))
 		return false
@@ -930,20 +1165,38 @@ func _bind_animal(definition: Dictionary) -> bool:
 	actor["path_direction"] = 1
 	actor["idle_texture"] = idle_texture
 	actor["startle_texture"] = startle_texture
-	actor["exit_direction"] = float(definition["safe_exit"])
+	actor["refuge_entry_position"] = route_position
+	actor["refuge_contacted"] = false
+	actor["refuge_effect_played"] = false
+	actor["refuge_completed"] = false
+	actor["escape_impulse_sent"] = false
 	node.name = "SkyLagoonAnimal_%s" % String(definition["id"])
 	node.texture = idle_texture
 	node.pixel_size = height / maxf(1.0,
 		float(idle_texture.get_height()) / float(ANIMAL_ATLAS_ROWS))
-	node.position = route_position
+	body.disable_water()
+	body.position = route_position
+	node.position = Vector3.ZERO
+	if String(definition["support"]) == "water_jolt":
+		body.configure_water(route_position,
+			float(definition["water_surface_y"]), float(definition["speed"]),
+			float(definition["water_mass"]), float(definition["water_wave"]))
 	node.frame = 0
 	node.flip_h = false
 	node.scale = Vector3.ONE
 	node.visible = true
 	node.modulate = _animal_tint(definition)
+	if refuge_fx != null and is_instance_valid(refuge_fx):
+		refuge_fx.visible = false
+		refuge_fx.scale = Vector3.ONE
+		refuge_fx.rotation.z = 0.0
 	node.set_meta("animal_id", String(definition["id"]))
 	node.set_meta("animal_habitat", String(definition["habitat"]))
+	node.set_meta("animal_support", String(definition["support"]))
+	node.set_meta("animal_support_zone", String(definition["support_zone"]))
 	node.set_meta("animal_lighting_profile", "night" if m.is_night else "day")
+	body.set_meta("animal_id", String(definition["id"]))
+	body.set_meta("animal_support", String(definition["support"]))
 	node.set_meta("contact_shadow_height", height)
 	m.g["lagoon_animal_actor"] = actor
 	_sync_animal_shadow(actor)
@@ -982,33 +1235,119 @@ func _startle_animal(animal: Dictionary) -> void:
 	if animal.is_empty() or String(animal.get("state", "")) not in ["idle", "pause"]:
 		return
 	var node: Sprite3D = animal.get("node") as Sprite3D
-	if node == null or not is_instance_valid(node):
+	var body: WATER_ANIMAL_BODY = animal.get("body") as WATER_ANIMAL_BODY
+	var refuge_fx: Sprite3D = animal.get("refuge_fx") as Sprite3D
+	if node == null or body == null or not is_instance_valid(node) or not is_instance_valid(body):
 		return
 	var definition: Dictionary = animal.get("definition", {}) as Dictionary
-	var exit_direction: float = float(definition.get("safe_exit", -1.0))
+	var refuge_point: Vector3 = definition["refuge_point"] as Vector3
+	var current_position: Vector3 = body.position
+	var refuge_direction: float = signf(refuge_point.x - current_position.x)
+	if is_zero_approx(refuge_direction):
+		refuge_direction = 1.0
 	animal["state"] = "startle"
 	animal["state_t"] = 0.0
-	animal["exit_direction"] = exit_direction
+	animal["refuge_direction"] = refuge_direction
+	animal["escape_impulse_sent"] = false
+	animal["refuge_contacted"] = false
+	animal["refuge_effect_played"] = false
+	animal["refuge_completed"] = false
+	if refuge_fx != null and is_instance_valid(refuge_fx):
+		refuge_fx.visible = false
 	node.texture = animal.get("startle_texture") as Texture2D
 	node.frame = 0
-	node.flip_h = exit_direction < 0.0
+	node.flip_h = refuge_direction < 0.0
 	m.g["ss_walk_goal"] = null
 	_clear_focus()
 	m._sparkle_burst(node.global_position + Vector3(0.0,
 		float(definition["height"]) * 0.25, 0.0), Color(1.0, 0.78, 0.42))
 	m.player.play_verb("giggle")
 
-func _animal_is_offscreen(node: Sprite3D) -> bool:
-	var cam: Camera3D = m.player.cam
-	if cam == null or not cam.is_inside_tree() or cam.is_position_behind(node.global_position):
-		return true
-	var viewport_rect: Rect2 = m.get_viewport().get_visible_rect().grow(
-		ANIMAL_EXIT_PAD_PX)
-	return not viewport_rect.has_point(cam.unproject_position(node.global_position))
+func _begin_animal_refuge(actor: Dictionary) -> void:
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var node: Sprite3D = actor["node"] as Sprite3D
+	var body: WATER_ANIMAL_BODY = actor["body"] as WATER_ANIMAL_BODY
+	var refuge_fx: Sprite3D = actor.get("refuge_fx") as Sprite3D
+	if node == null or body == null or not is_instance_valid(node) or not is_instance_valid(body):
+		return
+	actor["state"] = "refuge"
+	actor["state_t"] = 0.0
+	actor["refuge_entry_position"] = body.position
+	actor["route_position"] = body.position
+	actor["refuge_contacted"] = true
+	if String(definition["support"]) == "water_jolt":
+		body.disable_water()
+	node.position = Vector3.ZERO
+	node.scale = Vector3.ONE
+	node.modulate = _animal_tint(definition)
+	node.set_meta("animal_refuge_kind", String(definition["refuge_kind"]))
+	var shadow: Sprite3D = node.get_meta("contact_shadow") as Sprite3D
+	if shadow != null and is_instance_valid(shadow):
+		shadow.visible = false
+	var waterline: Sprite3D = actor.get("waterline") as Sprite3D
+	if waterline != null and is_instance_valid(waterline):
+		waterline.visible = false
+	if refuge_fx != null and is_instance_valid(refuge_fx):
+		refuge_fx.position = definition["refuge_fx_point"] as Vector3
+		refuge_fx.scale = Vector3.ONE
+		refuge_fx.rotation.z = 0.0
+		refuge_fx.visible = String(definition["refuge_kind"]) == "brush"
+		actor["refuge_effect_played"] = refuge_fx.visible
+
+func _tick_animal_refuge(actor: Dictionary, delta: float) -> void:
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var node: Sprite3D = actor["node"] as Sprite3D
+	var body: WATER_ANIMAL_BODY = actor["body"] as WATER_ANIMAL_BODY
+	var refuge_fx: Sprite3D = actor.get("refuge_fx") as Sprite3D
+	var state_t: float = float(actor.get("state_t", 0.0)) + delta
+	actor["state_t"] = state_t
+	var refuge_kind: String = String(definition["refuge_kind"])
+	var duration: float = ANIMAL_TREE_CLIMB_S if refuge_kind == "tree" else ANIMAL_BRUSH_ENTRY_S
+	var amount: float = clampf(state_t / duration, 0.0, 1.0)
+	var eased: float = amount * amount * (3.0 - 2.0 * amount)
+	if refuge_kind == "tree":
+		var start: Vector3 = actor["refuge_entry_position"] as Vector3
+		var climb: Vector3 = definition["refuge_climb_point"] as Vector3
+		var climb_position: Vector3 = start.lerp(climb, eased)
+		body.position = climb_position
+		actor["route_position"] = climb_position
+		node.position = Vector3(absf(sin(state_t * 17.0)) * 0.06, 0.0, 0.0)
+		node.frame = 2 + int(floor(state_t / 0.11)) % 2
+		node.flip_h = true
+		node.scale = Vector3.ONE * lerpf(1.0, 0.82, amount)
+		if refuge_fx != null and is_instance_valid(refuge_fx) and amount >= 0.38:
+			refuge_fx.visible = true
+			actor["refuge_effect_played"] = true
+	else:
+		body.position = actor["refuge_entry_position"] as Vector3
+		node.position = Vector3(0.0, -0.48 * eased, 0.0)
+		node.scale = Vector3.ONE.lerp(Vector3(0.52, 0.52, 1.0), eased)
+		node.frame = 3 if amount >= 0.42 else 2
+		if refuge_fx != null and is_instance_valid(refuge_fx):
+			refuge_fx.visible = true
+			actor["refuge_effect_played"] = true
+	if refuge_fx != null and is_instance_valid(refuge_fx) and refuge_fx.visible:
+		refuge_fx.position = definition["refuge_fx_point"] as Vector3
+		refuge_fx.rotation.z = sin(state_t * 28.0) * 0.16 * (1.0 - amount)
+		var pulse: float = 1.0 + sin(state_t * 22.0) * 0.12
+		refuge_fx.scale = Vector3(pulse, 2.0 - pulse, 1.0)
+		var rustle_tint := Color(0.65, 0.75, 0.94, 1.0) if m.is_night else Color(0.92, 1.0, 0.86, 1.0)
+		rustle_tint.a = sin(amount * PI) * 0.92
+		refuge_fx.modulate = rustle_tint
+	var animal_tint: Color = _animal_tint(definition)
+	animal_tint.a = clampf(1.0 - maxf(0.0, amount - 0.62) / 0.38, 0.0, 1.0)
+	node.modulate = animal_tint
+	if amount >= 1.0:
+		actor["refuge_completed"] = true
+		_hide_animal(actor, ANIMAL_RESPAWN_S, true)
 
 func _tick_animal_idle(actor: Dictionary, delta: float) -> void:
 	var node: Sprite3D = actor["node"] as Sprite3D
 	var definition: Dictionary = actor["definition"] as Dictionary
+	if String(definition["support"]) == "water_jolt":
+		_tick_animal_water_idle(actor, delta)
+		return
+	var body: WATER_ANIMAL_BODY = actor["body"] as WATER_ANIMAL_BODY
 	var path: Array = definition["path"] as Array
 	var state: String = String(actor["state"])
 	var state_t: float = float(actor.get("state_t", 0.0)) + delta
@@ -1017,7 +1356,8 @@ func _tick_animal_idle(actor: Dictionary, delta: float) -> void:
 		var pause_t: float = maxf(0.0, float(actor.get("pause_t", 0.0)) - delta)
 		actor["pause_t"] = pause_t
 		node.frame = 1 if pause_t > float(definition["dwell_s"]) * 0.45 else 3
-		node.position = actor["route_position"] as Vector3
+		body.position = actor["route_position"] as Vector3
+		node.position = Vector3.ZERO
 		if pause_t <= 0.0:
 			var path_index: int = int(actor["path_index"])
 			var path_direction: int = int(actor["path_direction"])
@@ -1042,17 +1382,64 @@ func _tick_animal_idle(actor: Dictionary, delta: float) -> void:
 	var bob: float = float(definition["bob"])
 	var locomotion: String = String(definition["locomotion"])
 	var bob_amount: float = absf(sin(state_t * (8.5 if locomotion == "hop" else 5.5))) * bob
-	node.position = route_position + Vector3(0.0, bob_amount, 0.0)
+	body.position = route_position
+	node.position = Vector3(0.0, bob_amount, 0.0)
 	if route_position.distance_to(target) <= 0.001:
 		actor["state"] = "pause"
 		actor["pause_t"] = float(definition["dwell_s"])
 		node.frame = 1
-		node.position = route_position
+		body.position = route_position
+		node.position = Vector3.ZERO
+	_sync_animal_shadow(actor)
+
+func _tick_animal_water_idle(actor: Dictionary, delta: float) -> void:
+	var node: Sprite3D = actor["node"] as Sprite3D
+	var body: WATER_ANIMAL_BODY = actor["body"] as WATER_ANIMAL_BODY
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var path: Array = definition["path"] as Array
+	var state: String = String(actor["state"])
+	var state_t: float = float(actor.get("state_t", 0.0)) + delta
+	actor["state_t"] = state_t
+	actor["route_position"] = body.position
+	node.position = Vector3.ZERO
+	if state == "pause":
+		var pause_t: float = maxf(0.0, float(actor.get("pause_t", 0.0)) - delta)
+		actor["pause_t"] = pause_t
+		body.set_patrol_target(body.position.x, 0.1)
+		node.frame = 1 if pause_t > float(definition["dwell_s"]) * 0.45 else 3
+		if pause_t <= 0.0:
+			var path_index: int = int(actor["path_index"])
+			var path_direction: int = int(actor["path_direction"])
+			if path_index >= path.size() - 1:
+				path_direction = -1
+			elif path_index <= 0:
+				path_direction = 1
+			actor["path_direction"] = path_direction
+			actor["path_index"] = path_index + path_direction
+			actor["state"] = "idle"
+			actor["state_t"] = 0.0
+		_sync_animal_shadow(actor)
+		return
+	var target: Vector3 = path[int(actor["path_index"])] as Vector3
+	body.set_patrol_target(target.x, float(definition["speed"]))
+	var direction: float = signf(target.x - body.position.x)
+	var frame_s: float = float(definition["frame_s"])
+	node.frame = 2 if int(floor(state_t / frame_s)) % 2 == 0 else 0
+	node.flip_h = direction < 0.0
+	if absf(body.position.x - target.x) <= 0.16 \
+			and absf(body.linear_velocity.x) <= 0.32:
+		actor["state"] = "pause"
+		actor["pause_t"] = float(definition["dwell_s"])
+		node.frame = 1
 	_sync_animal_shadow(actor)
 
 func _tick_animal_startle(actor: Dictionary, delta: float) -> void:
 	var node: Sprite3D = actor["node"] as Sprite3D
 	var definition: Dictionary = actor["definition"] as Dictionary
+	if String(definition["support"]) == "water_jolt":
+		_tick_animal_water_startle(actor, delta)
+		return
+	var body: WATER_ANIMAL_BODY = actor["body"] as WATER_ANIMAL_BODY
 	var state_t: float = float(actor.get("state_t", 0.0)) + delta
 	actor["state_t"] = state_t
 	var route_position: Vector3 = actor["route_position"] as Vector3
@@ -1060,25 +1447,65 @@ func _tick_animal_startle(actor: Dictionary, delta: float) -> void:
 	var hop_end: float = squash_end + ANIMAL_STARTLE_HOP_S
 	if state_t < ANIMAL_STARTLE_ALERT_S:
 		node.frame = 0
-		node.position = route_position
+		body.position = route_position
+		node.position = Vector3.ZERO
 	elif state_t < squash_end:
 		node.frame = 1
-		node.position = route_position
+		body.position = route_position
+		node.position = Vector3.ZERO
 	elif state_t < hop_end:
 		node.frame = 2
-		node.position = route_position + Vector3(0.0,
+		body.position = route_position
+		node.position = Vector3(0.0,
 			sin((state_t - squash_end) / ANIMAL_STARTLE_HOP_S * PI) * 0.28, 0.0)
 	else:
 		var run_t: float = state_t - hop_end
 		node.frame = 2 + int(floor(run_t / 0.13)) % 2
-		route_position.x += float(actor["exit_direction"]) \
-			* float(definition["exit_speed"]) * delta
+		var refuge_point: Vector3 = definition["refuge_point"] as Vector3
+		route_position = route_position.move_toward(refuge_point,
+			float(definition["refuge_speed"]) * delta)
 		actor["route_position"] = route_position
-		node.position = route_position + Vector3(0.0,
+		body.position = route_position
+		node.position = Vector3(0.0,
 			absf(sin(run_t * 10.0)) * 0.12, 0.0)
-		if run_t > 0.35 and _animal_is_offscreen(node):
-			_hide_animal(actor, ANIMAL_RESPAWN_S, true)
+		if route_position.distance_to(refuge_point) <= 0.04:
+			body.position = refuge_point
+			actor["route_position"] = refuge_point
+			_begin_animal_refuge(actor)
 			return
+	_sync_animal_shadow(actor)
+
+func _tick_animal_water_startle(actor: Dictionary, delta: float) -> void:
+	var node: Sprite3D = actor["node"] as Sprite3D
+	var body: WATER_ANIMAL_BODY = actor["body"] as WATER_ANIMAL_BODY
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var state_t: float = float(actor.get("state_t", 0.0)) + delta
+	actor["state_t"] = state_t
+	var squash_end: float = ANIMAL_STARTLE_ALERT_S + ANIMAL_STARTLE_SQUASH_S
+	var hop_end: float = squash_end + ANIMAL_STARTLE_HOP_S
+	var refuge_point: Vector3 = definition["refuge_point"] as Vector3
+	if state_t < ANIMAL_STARTLE_ALERT_S:
+		node.frame = 0
+		body.set_patrol_target(body.position.x, 0.1)
+	elif state_t < squash_end:
+		node.frame = 1
+		body.set_patrol_target(body.position.x, 0.1)
+	else:
+		if not bool(actor.get("escape_impulse_sent", false)):
+			body.apply_escape_to(refuge_point.x,
+				float(definition["refuge_speed"]))
+			actor["escape_impulse_sent"] = true
+		if state_t < hop_end:
+			node.frame = 2
+		else:
+			var run_t: float = state_t - hop_end
+			node.frame = 2 + int(floor(run_t / 0.13)) % 2
+			if absf(body.position.x - refuge_point.x) <= 0.16:
+				actor["route_position"] = body.position
+				_begin_animal_refuge(actor)
+				return
+	actor["route_position"] = body.position
+	node.position = Vector3.ZERO
 	_sync_animal_shadow(actor)
 
 func _tick_animals(delta: float) -> void:
@@ -1104,6 +1531,8 @@ func _tick_animals(delta: float) -> void:
 		return
 	if state == "startle":
 		_tick_animal_startle(actor, delta)
+	elif state == "refuge":
+		_tick_animal_refuge(actor, delta)
 	else:
 		_tick_animal_idle(actor, delta)
 

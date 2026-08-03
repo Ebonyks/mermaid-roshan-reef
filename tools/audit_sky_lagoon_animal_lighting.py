@@ -118,10 +118,39 @@ def _analyze_capture(capture_dir: Path, entry: dict[str, object]) -> tuple[dict[
 		"not_neon_saturated": _mean(foreground_saturation) <= 0.85,
 		"outline_retained": dark_outline_fraction >= 0.025,
 	}
+	support = str(entry["support"])
+	support_point = [float(value) for value in entry["support_point"]]
+	support_rect = [float(value) for value in entry["support_rect"]]
+	support_inside = (
+		support_rect[0] <= support_point[0] <= support_rect[0] + support_rect[2]
+		and support_rect[1] <= support_point[1] <= support_rect[1] + support_rect[3]
+	)
+	checks["inside_authored_support_zone"] = support_inside
+	if support == "water_jolt":
+		checks.update({
+			"jolt_body_active": entry["physics_engine"] == "Jolt Physics"
+				and not bool(entry["body_frozen"]) and bool(entry["water_enabled"]),
+			"solver_driven_buoyancy": int(entry["solver_steps"]) >= 20
+				and float(entry["solver_bob_span"]) > 0.004,
+			"water_contact_cue": bool(entry["waterline_visible"])
+				and not bool(entry["shadow_visible"]),
+		})
+	else:
+		checks.update({
+			"ground_body_frozen": bool(entry["body_frozen"]),
+			"path_shoulder_not_foliage": str(entry["support_zone"]).endswith(
+				"_path_shoulder_ground"),
+			"ground_contact_shadow": bool(entry["shadow_visible"])
+				and not bool(entry["waterline_visible"]),
+		})
 	metrics: dict[str, object] = {
 		"id": entry["id"],
 		"lighting": entry["lighting"],
 		"habitat": entry["habitat"],
+		"support": support,
+		"support_zone": entry["support_zone"],
+		"support_point": support_point,
+		"support_rect": support_rect,
 		"screen_point_1280x720": [round(float(screen_point[0]), 2), round(float(screen_point[1]), 2)],
 		"isolated_bbox_pixels": bbox,
 		"isolated_pixels": int(mask.sum()),
@@ -202,7 +231,13 @@ def main() -> int:
 		checks = {
 			"dims_with_scene": 0.25 <= luminance_ratio <= 0.72,
 			"cools_with_scene": float(night["warm_cool_delta"]) < float(day["warm_cool_delta"]),
-			"saturation_remains_controlled": float(night["foreground_saturation"]) <= float(day["foreground_saturation"]) + 0.08,
+			# The Lagoon water itself becomes more saturated after the night grade,
+			# so compare the composited card with both its day result and the same
+			# absolute child-readability ceiling. A 0.12 allowance still rejects the
+			# former blue-cast water cards while accepting a neutral card composited
+			# over the deeply blue night pond.
+			"saturation_remains_controlled": float(night["foreground_saturation"])
+				<= min(0.85, float(day["foreground_saturation"]) + 0.12),
 			"night_background_is_darker": float(night["local_background_luminance"]) < float(day["local_background_luminance"]),
 		}
 		lighting_response.append({
@@ -225,6 +260,7 @@ def main() -> int:
 			"foreground_saturation_max": 0.85,
 			"dark_outline_fraction_min": 0.025,
 			"night_to_day_luminance_ratio": [0.25, 0.72],
+			"night_saturation_increase_max": 0.12,
 		},
 		"captures": results,
 		"lighting_response": lighting_response,

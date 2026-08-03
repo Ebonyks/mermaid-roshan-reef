@@ -227,7 +227,7 @@ func _run() -> void:
 		not main.g.has("lagoon_night_fireflies"))
 	var inventory: Dictionary = _inventory(stage_root)
 	_check("node_type_inventory",
-		int(inventory["sprites"]) == 34
+		int(inventory["sprites"]) == 35
 		and int(inventory["meshes"]) == 0
 		and int(inventory["canvas"]) == 0
 		and int(inventory["shaded"]) == 0

@@ -1,5 +1,12 @@
 # Sky Lagoon ambient-animal implementation audit
 
+> **Superseded after failed human review (5/5).** This audit accepted route
+> coordinates without proving the painted support surface. The result placed
+> the land animals over collapsible foliage and treated the water animals as
+> animated cards rather than Jolt-supported water bodies. Its acceptance and
+> performance conclusions are withdrawn. The corrected blocking audit is
+> `SKY_LAGOON_ANIMAL_SUPPORT_2026-08-01.md`.
+
 Date: 2026-08-01
 Target: 1280x720 expanded canvas, Godot Mobile renderer, Speedy tier
 
