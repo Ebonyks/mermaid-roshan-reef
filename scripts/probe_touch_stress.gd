@@ -163,6 +163,7 @@ func _lagoon_gate() -> void:
 			% [main.game, main.g.get("phase", "")])
 		return
 	prom = main._lagoon_promenade_ref()
+	await _await_input_ready()
 	var screen: Vector2 = get_root().get_viewport().get_visible_rect().size
 	var low_y: float = screen.y * 0.78          # deep in the thumb bay
 	var high_y: float = screen.y * 0.40         # clear of every thumb control
@@ -235,8 +236,8 @@ func _travel_case(label: String, gesture: String, press: Vector2, expect: int) -
 			_bad("%s: a %s-side gesture carried Roshan the wrong way by %.2f units" \
 				% [label, way, worst_wrong])
 		elif moved < TRAVEL_MIN:
-			_bad("%s: the gesture produced no travel at all (%.2f units)" \
-				% [label, moved])
+			_bad("%s: the gesture produced no travel at all (%.2f units, press %s, walk goal %s)" \
+				% [label, moved, point, main.g.get("ss_walk_goal")])
 		else:
 			_ok(label, "travelled %.2f units %s, wrong-way excursion %.3f" \
 				% [moved, way, worst_wrong])
@@ -273,6 +274,17 @@ func _reset_promenade() -> void:
 	main._tap_move_ref().cancel("stress reset")
 	prom._set_spawn(prom._walk_x(0.0))
 	await _frames(4)
+	await _await_input_ready()
+
+func _await_input_ready() -> void:
+	# _on_touch_world deliberately drops taps while a world-transition fade is up.
+	# That is correct game behaviour, so the probe waits for the curtain instead of
+	# reading the dropped tap as a routing defect.
+	for _wait_frame: int in range(300):
+		if main.mg_kind == "" and not main.get_tree().paused \
+				and (main.fade_rect == null or main.fade_rect.modulate.a <= 0.02):
+			return
+		await process_frame
 
 func _press_is_open_ground(point: Vector2) -> bool:
 	# The promenade routes taps itself: an animal or a toy under the finger is a
