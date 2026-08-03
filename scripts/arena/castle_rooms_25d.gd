@@ -57,6 +57,8 @@ const HALL_LOGICAL_SIZE := Vector2(3344.0, 941.0)
 const HALL_STAGE_SCALE := 1280.0 / HALL_VIEW_SIZE.x
 const HALL_CARD_PIXEL_SIZE := WORLD_WIDTH / HALL_VIEW_SIZE.x
 const HALL_WALK := Rect2(60.0, 615.0, 3224.0, 300.0)
+# breath between the throne's own line and Princess Huluu's stuffie offer
+const THRONE_OFFER_BEAT := 1.6
 const HALL_FILL_COLOR := Color(0.78, 0.72, 0.94)
 const HALL_FILL_ENERGY := 0.78
 const HALL_FILL_OFF_ENERGY := 0.42
@@ -3406,6 +3408,7 @@ func activate_current_room() -> void:
 				_burst("✦", Color(1.0, 0.78, 0.30))
 			else:
 				_award_crown()
+			_offer_companion_at_throne()
 		"kitchen":
 			m.show_msg("Roshan", "Something delicious is bubbling!", "talk")
 			_burst("♡", Color(1.0, 0.50, 0.48))
@@ -3430,6 +3433,34 @@ func activate_current_room() -> void:
 				else "canopy_bed")
 		"movie":
 			_activate_room_item("movie_screen")
+
+func _offer_companion_at_throne() -> void:
+	# OWNER 2026-07-19: meeting Princess Huluu at her throne IS the stuffie
+	# trigger. The 2.5D hall rebuild retired CompanionSystem._tick_gift (its
+	# gift box hung off the modelled Crown Star this castle no longer builds),
+	# and nothing has written `huluu_greeted` since — so the throne stopped
+	# offering a friend at all. The hotspot itself is now both the offer and
+	# its re-entry: tap the throne again any time she still has no friend.
+	if m.companion_id != "":
+		return
+	if m.companion_layer != null or m.companion_care_layer != null:
+		return
+	m.g["huluu_greeted"] = true
+	var beat: Tween = m.create_tween()
+	beat.tween_interval(THRONE_OFFER_BEAT)   # let the crown line breathe first
+	beat.tween_callback(_open_companion_offer)
+
+func _open_companion_offer() -> void:
+	if m.companion_id != "" or m.companion_layer != null \
+			or m.companion_care_layer != null:
+		return
+	if not is_open() or m.castle_room_id != "main_hall":
+		return
+	m.g["companion_offered"] = true
+	m._companion_ref().open_picker(false)
+	m.show_msg("Princess Huluu",
+		"I want you to have a new friend! Pick Mewsha or Baby Eagle to come along!",
+		"talk")
 
 func _award_crown() -> void:
 	if bool(m.g.get("crown_won", false)):

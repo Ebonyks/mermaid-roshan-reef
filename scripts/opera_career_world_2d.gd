@@ -205,6 +205,7 @@ var bop_time := 0.0
 var steal_index := -1
 var captain_pending := false
 var idle_t := 0.0
+var score_cool := 0.0
 var bop_puff_texture: Texture2D = null
 var nursery_catch: OperaNurseryCatch = null
 ## Stage geography: the painted world's walkable route and task stations.
@@ -230,6 +231,7 @@ var fx_dust_puff_texture: Texture2D = null
 var fx_stolen_sparkle_texture: Texture2D = null
 var fx_dizzy_stars_texture: Texture2D = null
 var swipe_stroke := 0
+var combat_miss_cool := 0.0
 var imp_state_cache: Dictionary = {}
 ## The shared mischief-imp brain (scripts/imp_ai.gd) drives the crew: who
 ## closes in, who telegraphs, who hangs back. All state stays here.
@@ -667,8 +669,10 @@ func _show_phase() -> void:
 	match String(phase.get("dir", "")):
 		"down":
 			surface.swipe_dir = Vector2.DOWN
+			surface.swipe_require_dir = true
 		"up":
 			surface.swipe_dir = Vector2.UP
+			surface.swipe_require_dir = true
 	if prop_rect != null:
 		if phase_index == steal_index and prop_rect.visible:
 			# the theft is a visible event: the captain hauls the prop away
@@ -869,9 +873,13 @@ func _combat_strike(from: Vector2, to: Vector2) -> void:
 	if imp_brain != null:
 		imp_brain.on_player_swing(hit_any)
 	if not hit_any and from.distance_to(to) < 6.0:
-		# a stray tap fizzles kindly and still trickles a little progress
+		# a stray tap fizzles kindly; repeats inside the cooldown pay nothing
 		_bop_burst_at(to, true)
-		_register_bop(0.12, 0.2)
+		var pay := 0.0
+		if combat_miss_cool <= 0.0:
+			combat_miss_cool = 0.45
+			pay = 0.05
+		_register_bop(pay, 0.2)
 
 
 func _segment_distance(a: Vector2, b: Vector2, point: Vector2) -> float:
@@ -984,11 +992,16 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		return
 	idle_t = 0.0
 	surface.note_input()
+	var continuous := mode == "hold" or mode == "swipe" or mode == "circle"
 	if quality < 0.5:
 		competition.note_miss()
-	else:
+	elif not continuous or score_cool <= 0.0:
+		# continuous verbs award applause at most twice a second — a held
+		# finger must not out-score the whole finale
 		competition.note_success(10)
-	var gain := maxf(0.04, amount)
+		if continuous:
+			score_cool = 0.5
+	var gain := amount if continuous else maxf(0.04, amount)
 	phase_progress += gain
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
 	phase_fill.value = clampf(phase_progress / goal, 0.0, 1.0) * 100.0
@@ -998,7 +1011,11 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			# never rotate by a multiple of three — that froze the target
 			choice_target = (choice_target + 1 + (phase_index % 2)) % 3
 			surface.target_choice = choice_target
-		surface.reflash_choice()
+			surface.queue_redraw()
+		else:
+			# the answer re-flashes as mercy for a WRONG pick only — a
+			# correct pick must not reveal the next answer for free
+			surface.reflash_choice()
 	elif mode == "bop":
 		if quality >= 0.5 and captain_pending and _combat_remaining() <= 2 and phase_progress < goal:
 			_spawn_stage_captain()
@@ -1548,7 +1565,7 @@ func _tick_lens(delta: float) -> void:
 	if found_index != lens_target:
 		lens_target = found_index
 		lens_dwell = 0.0
-	elif found_index >= 0:
+	elif found_index >= 0 and not lens_demo:
 		lens_dwell += delta
 		if lens_dwell >= 0.45:
 			lens_found[found_index] = true
@@ -1584,6 +1601,10 @@ func _draw_lens_layer() -> void:
 
 func _process(delta: float) -> void:
 	elapsed += delta
+	if score_cool > 0.0:
+		score_cool = maxf(0.0, score_cool - delta)
+	if combat_miss_cool > 0.0:
+		combat_miss_cool = maxf(0.0, combat_miss_cool - delta)
 	if phase_gap > 0.0:
 		phase_gap = maxf(0.0, phase_gap - delta)
 	if active and reveal_t <= 0.0 and phase_index < phases.size():
@@ -1594,7 +1615,7 @@ func _process(delta: float) -> void:
 			surface.restart_demo()
 			if m != null:
 				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")), "hint")
-	timing_phase = fmod(timing_phase + delta * minf(0.92, 0.72 + 0.03 * float(phase_index)), 2.0)
+	timing_phase = fmod(timing_phase + delta * minf(0.70, 0.55 + 0.02 * float(phase_index)), 2.0)
 	var marker := timing_phase if timing_phase <= 1.0 else 2.0 - timing_phase
 	surface.set_timing_position(marker)
 	if active and phase_index < phases.size():

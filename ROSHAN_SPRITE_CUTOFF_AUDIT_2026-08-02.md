@@ -99,9 +99,14 @@ tail, her contact shadow and her ground alignment do not move by a subpixel —
 and the clipped art simply reappears. When `flip_h` is set the horizontal term
 is negated, matching the convention already used by `RoshanSpriteAnchors`.
 
-`hframes`/`vframes` are deliberately left set: Sprite3D ignores them once
-`region_enabled` is on, and `CastleRooms25D` still reads them to derive frame
-size.
+`hframes`/`vframes` are deliberately left set, because `CastleRooms25D` still
+reads them to derive frame size.
+
+> **CORRECTION (2026-08-03).** This section originally also claimed that
+> "Sprite3D ignores `hframes`/`vframes` once `region_enabled` is on". That is
+> false — it is `Sprite2D` that behaves that way. `Sprite3D` re-divides
+> `region_rect` by the grid, and the mistake made Roshan invisible on the
+> phone. See §8; the window arithmetic above is unchanged and still holds.
 
 ### Result
 
@@ -228,3 +233,91 @@ Per the brief, larger changes are left to the Codex art pass:
 - **No new costume layers.** Roshan still renders her base atlas while wearing
   a costume id; adding 2D costume layers remains open work.
 - **No CI workflow edit** (high-risk file per CLAUDE.md).
+
+---
+
+## 8. Defect C — the corrected window never reached the screen (2026-08-03)
+
+**Owner report:** "Roshan's sprite is not currently visible." Two phone
+screenshots: the castle main hall with **no Roshan at all**, and the Sky Lagoon
+promenade showing a **hard-edged rectangle containing only her hair**.
+
+Both are the same regression, introduced by the Defect A fix in `ca1381b8`.
+
+### The mechanism
+
+The fix handed each frame's corrected window to `Sprite3D.region_rect` as a
+single 256×256 cell, on the belief that a region overrides `hframes`/`vframes`.
+That is true of `Sprite2D`. It is **not** true of `Sprite3D`, which treats the
+region as the whole atlas and re-divides it (`Sprite3D::_draw`):
+
+```cpp
+base_rect    = region ? region_rect : Rect2(0, 0, tex_w, tex_h);
+frame_size   = base_rect.size / Size2(hframes, vframes);
+frame_offset = Point2(frame % hframes, frame / hframes) * frame_size;
+src_rect     = Rect2(base_rect.position + frame_offset, frame_size);
+dst_rect     = Rect2(dst_offset, frame_size);          // the quad shrinks too
+```
+
+Handing over one cell therefore asked for a **sub-cell of that cell** — 64×64 on
+a 4×4 sheet, 64×128 on a 4×2 sheet — sampled at the wrong place and drawn at a
+quarter of the intended size. What the child actually saw:
+
+| Where | Frame | Window the engine sampled | Alpha inside it | On screen |
+| --- | --- | --- | --- | --- |
+| Castle main hall | `directional[0]` | `(0, 0, 64, 128)` | **0.0%** | nothing |
+| Sky Lagoon idle | `directional[2]` | `(640, 0, 64, 128)` | 53.6% | a strip of hair |
+| Sky Lagoon swim | `swim_back[6]` | `(620, 315, 64, 64)` | 72.4% | a strip of hair |
+| Sky Lagoon land | `play_a[12]` | `(0, 895, 64, 64)` | 0.0% | nothing |
+
+64 of the 128 frames sampled a window under 6% alpha — she was simply gone in
+half of them, and a sliver in the rest.
+
+### The fix
+
+The window is expressed in the grid the engine actually slices with: the whole
+sheet, translated by the shift.
+
+```gdscript
+sprite.region_rect = Rect2(shift, Vector2(hframes, vframes) * CELL)
+```
+
+The engine's own division then lands on exactly `cell + shift` at the unchanged
+256×256 cell size — verified for all 128 frames, all in bounds. Frames with a
+zero shift (55 of 128, including every row 0) now disable the region entirely,
+so the common case is bit-identical to the pre-`ca1381b8` renderer. Defect A's
+recovered pixels and `offset_correction()` are untouched.
+
+One consequential site had to be taught about the region as well:
+`SkyLagoonPromenade._start_playground_animation()` takes the card over for the
+authored swing/slide/seesaw poses — whole PNGs, not atlas cells — and reset
+`hframes`/`vframes`/`frame` but not `region_enabled`, so a stale window sliced
+the pose. It now clears it.
+
+### Why the probes were green
+
+Every existing assertion tested the **table's intent** — `region()`, `shift()`,
+the anchor rebase — and none tested what `Sprite3D` would do with it. The audit
+tool has the same blind spot by construction: it measures the art and the
+`SHIFTS` numbers, never the engine's consumption of them.
+
+Three assertions now close that gap, all in probes already gated by CI:
+
+- `probe_castle_pearl_art` → `roshan_frames_sample_their_own_window`: for all
+  128 frames of all 9 sheets, the rect Sprite3D will sample (derived with the
+  engine's own arithmetic, `RoshanSpriteFrames.sampled_rect()`) must equal the
+  window the table intends. This fails loudly on the shipped regression.
+- `probe_castle_pearl_art` → `roshan_frames_render_real_art`: every sampled
+  window must contain at least 10% lit pixels of the authored PNG. Measured
+  floor on the shipped sheets is 17.6%; the broken windows sat at 0.0%.
+- `probe_l2` → `sky_lagoon_roshan_samples_her_own_window` and
+  `playground_pose_shows_the_whole_authored_png`.
+
+`probe_l2` and `probe_castle_pearl_art` are in both `scripts/ci.sh` and
+`.github/workflows/probes.yml`, so no CI workflow file needed editing.
+
+### Standing lesson
+
+A window that is *computed* correctly is not a window that *renders*. Any future
+change to how Roshan is sliced must assert the engine-side result, not the
+intent — that is what `sampled_rect()` exists for.

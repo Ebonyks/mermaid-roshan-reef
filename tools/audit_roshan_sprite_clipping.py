@@ -14,6 +14,11 @@ that table still holds.
 
 Run this after ANY regeneration of the sheets in assets/characters/roshan_25d/:
 new art means new packing, which means the table must be re-emitted.
+
+SCOPE: this tool measures the art and the table's INTENT. It cannot see how
+Sprite3D consumes the table -- that blind spot is what shipped an invisible
+Roshan on 2026-08-02 (audit section 8). The engine-side half is asserted by
+probe_castle_pearl_art (roshan_frames_sample_their_own_window) and probe_l2.
 """
 
 from __future__ import annotations
