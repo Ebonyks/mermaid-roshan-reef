@@ -31,8 +31,8 @@ The score averages palette harmony, outline/edge language, rounded shell/pearl s
 | main_hall | fountain_left | 3.3 | replace | 4.7 | `assets/flats/castle/rooms/room_main_hall_item_fountain_left_v2.png` |
 | main_hall | fountain_right | 3.3 | replace | 4.7 | `assets/flats/castle/rooms/room_main_hall_item_fountain_right_v2.png` |
 | main_hall | throne | 4.8 | reuse | 4.8 | `assets/flats/castle/rooms/room_main_hall_item_throne.png` |
-| mermaid_pool | bubble_fountain | 4.7 | reuse | 4.7 | `assets/flats/castle/rooms/room_mermaid_pool_item_bubble_fountain.png` |
 | mermaid_pool | flower_float | 4.6 | reuse | 4.6 | `assets/flats/castle/rooms/room_mermaid_pool_item_flower_float.png` |
+| mermaid_pool | seahorse_fountain | 4.9 | reuse | 4.9 | `assets/flats/castle/rooms/room_mermaid_pool_item_seahorse_fountain.png` |
 | mermaid_pool | waterfall | 4.8 | reuse | 4.8 | `assets/flats/castle/rooms/room_mermaid_pool_item_waterfall.png` |
 | opera_hall | chandelier | 4.7 | reuse | 4.7 | `assets/flats/castle/rooms/room_opera_hall_item_chandelier.png` |
 | opera_hall | curtains | 4.8 | reuse | 4.8 | `assets/flats/castle/rooms/room_opera_hall_item_curtains.png` |

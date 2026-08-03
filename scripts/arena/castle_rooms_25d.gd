@@ -499,19 +499,21 @@ const ROOM_ITEMS := {
 	],
 	"mermaid_pool": [
 		{"id": "waterfall", "name": "Rainbow waterfall", "pos": Vector2(285, 45),
-			"z": 0.65,
+			"z": 0.65, "hotspot_size": Vector2(181.0, 220.0),
 			"symbol": "○", "color": Color(0.52, 0.91, 1.0)},
 		{"id": "flower_float", "name": "Flower float", "pos": Vector2(371, 218),
-			"z": MIDGROUND_Z, "hotspot_offset": Vector2(4.0, 12.0),
-			"hotspot_size": Vector2(88.0, 88.0),
+			"z": MIDGROUND_Z, "hotspot_offset": Vector2(4.0, 32.0),
+			"hotspot_size": Vector2(112.0, 88.0),
 			"symbol": "✦", "color": Color(1.0, 0.62, 0.78)},
-		{"id": "bubble_fountain", "name": "Bubble fountain", "pos": Vector2(553, 183),
-			"z": MIDGROUND_Z,
+		{"id": "seahorse_fountain", "name": "Seahorse fountain",
+			"pos": Vector2(650, 95), "z": MIDGROUND_Z,
+			"hotspot_offset": Vector2(8.0, 2.0),
+			"hotspot_size": Vector2(170.0, 224.0),
 			"symbol": "○", "color": Color(0.72, 0.94, 1.0)},
 		{"id": "star_float", "name": "Star float",
-			"pos": Vector2(468, 260), "z": MIDGROUND_Z + 0.03,
-			"hotspot_offset": Vector2(0.0, -17.5),
-			"hotspot_size": Vector2(80.0, 80.0),
+			"pos": Vector2(470, 260), "z": MIDGROUND_Z + 0.03,
+			"hotspot_offset": Vector2(-6.0, -12.0),
+			"hotspot_size": Vector2(96.0, 88.0),
 			"color": Color(1.0, 0.82, 0.40)},
 	],
 	"bubble_bath": [
@@ -784,7 +786,7 @@ const INTERACTION_SPECS := {
 	"mermaid_pool:flower_float": {"semantic_action": "open_flower_and_make_ripples",
 		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
 		"sound_frame": 0, "pitch": 1.0},
-	"mermaid_pool:bubble_fountain": {"semantic_action": "raise_and_pop_bubbles",
+	"mermaid_pool:seahorse_fountain": {"semantic_action": "spray_seahorse_fountain",
 		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
 		"sound_frame": 0, "pitch": 1.0},
 	"mermaid_pool:star_float": {"semantic_action": "float_and_make_ripples",
@@ -1713,6 +1715,12 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	var interaction_spec: Dictionary = INTERACTION_SPECS.get(
 		interaction_key, {}) as Dictionary
 	var v2_visual: Dictionary = fixture_rigs.visual_spec(room_id, item_id)
+	# The generated v2 pool fixtures removed the iconic rainbow flow and turned
+	# the right-hand fountain into plumbing. The regenerated room deliberately
+	# uses exact room-derived atlases so its four resting interaction subjects
+	# remain visible, coherent, and aligned with their touch targets.
+	if room_id == "mermaid_pool":
+		v2_visual = {}
 	if not interaction_spec.is_empty() or not v2_visual.is_empty():
 		item_data = item_data.duplicate(true)
 		item_data.merge(interaction_spec, true)

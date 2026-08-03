@@ -42,7 +42,7 @@ SCORES: dict[tuple[str, str], tuple[float, str]] = {
 	("main_hall", "throne"): (4.8, "Approved throne identity retained exactly."),
 	("main_hall", "fountain_left"): (3.3, "Legacy flat white pedestal lacks the newer shell detail and finish."),
 	("main_hall", "fountain_right"): (3.3, "Legacy flat white pedestal lacks the newer shell detail and finish."),
-	("mermaid_pool", "bubble_fountain"): (4.7, "Pearl basin, bubbles, and water treatment match the room set."),
+	("mermaid_pool", "seahorse_fountain"): (4.9, "Readable seahorse fountain replaces the ambiguous pipe fixture."),
 	("mermaid_pool", "flower_float"): (4.6, "Simple but coherent pastel flower and painted water."),
 	("mermaid_pool", "waterfall"): (4.8, "High-detail shell arch and rainbow water focal object."),
 	("opera_hall", "chandelier"): (4.7, "Gold/pearl lighting motif matches Main Hall architecture."),

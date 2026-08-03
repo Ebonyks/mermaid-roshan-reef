@@ -889,6 +889,8 @@ func _run() -> void:
 	var all_room_object_bounds_ok := true
 	var opera_split_hotspots_ok := false
 	var pool_split_hotspots_ok := false
+	var pool_interaction_set_ok := false
+	var pool_waterfall_hotspot_ok := false
 	var opera_split_overlap := 1.0
 	var pool_split_overlap := 1.0
 	var kitchen_prop_set_ok := false
@@ -959,6 +961,25 @@ func _run() -> void:
 				and footlights_hotspot != null \
 				and opera_split_overlap <= 0.20
 		elif room_id == "mermaid_pool":
+			var pool_actual_items: Array[String] = []
+			for pool_item_id: Variant in main.castle_room_item_sprites.keys():
+				pool_actual_items.append(String(pool_item_id))
+			pool_actual_items.sort()
+			var pool_expected_items: Array[String] = [
+				"flower_float",
+				"seahorse_fountain",
+				"star_float",
+				"waterfall",
+			]
+			pool_interaction_set_ok = pool_actual_items == pool_expected_items
+			var waterfall_record: Dictionary = \
+				main.castle_room_item_sprites.get(
+					"waterfall", {}) as Dictionary
+			var waterfall_hotspot: Button = \
+				waterfall_record.get("hotspot") as Button
+			pool_waterfall_hotspot_ok = waterfall_hotspot != null \
+				and waterfall_hotspot.size.x >= 170.0 \
+				and waterfall_hotspot.size.y >= 210.0
 			var flower_record: Dictionary = \
 				main.castle_room_item_sprites.get("flower_float", {}) as Dictionary
 			var star_record: Dictionary = \
@@ -1340,6 +1361,11 @@ func _run() -> void:
 	_ck("pool_flower_and_star_hotspots_are_distinct",
 		pool_split_hotspots_ok,
 		"overlap=%.3f of smaller hotspot" % pool_split_overlap)
+	_ck("pool_uses_coherent_interaction_set",
+		pool_interaction_set_ok,
+		"expected waterfall, flower float, star float, and seahorse fountain")
+	_ck("pool_waterfall_hotspot_covers_full_fixture",
+		pool_waterfall_hotspot_ok)
 	_ck("interaction_manifest_matches_38_runtime_items",
 		interaction_manifest_ok,
 		"count=%d average=%.2f" % [expected_physical_total, delivered_average])

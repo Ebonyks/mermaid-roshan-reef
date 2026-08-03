@@ -1,5 +1,14 @@
 # Pearl Castle object-first interaction audit v2 — 2026-08-01
 
+## 2026-08-02 Mermaid Pool retirement addendum
+
+The regenerated Mermaid Pool no longer loads its four v2 dry-fixture sheets.
+Those sheets remain archived with their original provenance, but the active v2
+manifest now covers 29 generated sheets and 34 instances across the other
+seven rooms. Mermaid Pool uses four exact room-derived v1 atlases so the
+rainbow waterfall remains continuously visible and the replacement seahorse
+fountain, flower float, and star float match the regenerated room at rest.
+
 ## Outcome and review status
 
 The v2 rollout replaces generic bounce, spin, squash, rotation, and detached
