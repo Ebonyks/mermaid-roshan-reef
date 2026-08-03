@@ -229,6 +229,82 @@ menu.
 
 ---
 
+## 10. WHERE THE SHOWS LIVE — distribute them through the castle (owner direction)
+
+**Problem with the current gating:** all thirteen shows sit behind one Opera
+House menu, three floors of cards, unlocked in floor order. That is a menu, not
+a home, and it wastes the castle the child just spent Chapter 1 learning.
+
+**Direction:** mix the shows through the castle so each room promotes the jobs
+that belong to it — the Opera Hall hosting the ballerina and pop star makes
+sense; the kitchen should promote the baker and the candy maker.
+
+### The castle already has exactly the rooms this needs
+
+Thirteen rooms are shipped (`castle_rooms_25d.gd` ROOMS): main hall, opera
+hall, royal kitchen, royal library, stuffie playroom, craft room, mermaid
+pool, bubble bath, family dining room, royal bedroom, sleepover bedroom, cloud
+movie lounge, dream house wing — plus the courtyard outside. Thirteen careers,
+and the thematic fit is close to one-to-one:
+
+| Room | Shows it promotes | Why |
+|---|---|---|
+| **Royal Kitchen** | **Pastry Chef, Candy Maker** | the cake and the sweets are literally made here |
+| **Opera Hall** | **Ballerina, Pop Star, Magician** | the three performances; also the boss stage |
+| **Royal Library** | **Detective** | clue archives, evidence shelves, quiet searching |
+| **Craft Room** | **Painter** | the decorations, made where crafts are made |
+| **Stuffie Playroom** | **Stuffie Surgeon (doctor), Boxer** | the patients ARE stuffies; the toy ring is play-fighting |
+| **Bubble Bath** | **Nursery Nurse** | bath-time, babies, Faron's own domain |
+| **Mermaid Pool** | **Astronaut Engineer** | the bubble rocket launches through water |
+| **Family Dining Room** | **Farmer** | the picnic food for the party table |
+| **Cloud Movie Lounge** *or courtyard* | **Racer** | the big-screen grand prix / the outdoor track |
+| **Main Hall** | *(no show)* | **the party venue itself** — where the table fills and the party happens |
+| Bedrooms | *(no show)* | **the day boundary** — sleep, per section 9 |
+
+That is 2+3+1+1+2+1+1+1+1 = **thirteen shows**, every room with a job earning
+its place, and the two bedrooms and main hall carrying the story instead.
+
+### What this changes
+
+- **The Opera House stops being the hub and becomes one venue among many** —
+  the Opera Hall room, hosting its three stage careers plus the boss stage.
+  The existing 2D lobby stays useful there (three performance cards + the
+  finale card) rather than being the front door to all thirteen.
+- **Gating becomes spatial and thematic, not a floor ladder.** She wanders her
+  home on her birthday and each room offers what it can contribute. A room's
+  card can be marked done once its piece is on the party table.
+- **The party table moves to the Main Hall**, which is where the party
+  happens, where the Ember King crashes it, and — per Chapter 5 — the cozy
+  endgame lives. It becomes a place she returns to, not a menu strip.
+- **Progression** keys off the party table (thirteen pieces) rather than floor
+  stars; the three bosses can gate on counts (e.g. the Curtain Dragon wakes
+  once the first four pieces are home) instead of floor completion.
+
+### What it costs and what it does NOT cost
+
+- **Save compatibility is intact.** `opera_stars` remains the thirteen-bit
+  record of which pieces are made; only the *presentation* moves. No key is
+  removed or repurposed.
+- **No new career content.** All thirteen painted worlds, stages, widgets,
+  actors and props are already built and unchanged — this is a navigation and
+  framing change.
+- **Rooms need a job affordance:** each participating room needs its show
+  entry point (a themed hotspot/card in the room's existing 2.5D card stage)
+  and one line of dialogue. That is the main build cost.
+- **Open question:** the racer is the one awkward fit (movie lounge vs
+  courtyard). The courtyard is outdoors and already exists as the castle's
+  exterior — it may be the better home for both racer and farmer if we would
+  rather keep the dining room purely for the party feast.
+
+### Why this is better for the child
+
+She is not choosing "act 7 of 13" from a menu. She is walking around her own
+home on her birthday, and every room has something to make. It also makes the
+imps' floor-2 "copying" arc physical — their crate table can appear in the
+rooms they have raided.
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
@@ -241,6 +317,11 @@ menu.
    imps exactly.
 4. **Art budget:** approve the 13 blocking cards, or approve the minimum set
    (crate table + Lamba party hat + the seven helper actors) and defer props.
+   Note the room-distribution change (section 10) adds a small per-room job
+   affordance but removes nothing.
+6. **Room mapping (section 10):** confirm the thirteen-show placement, and
+   rule on the racer — cloud movie lounge, or the outdoor courtyard alongside
+   the farmer?
 5. ~~Chapter-1 handoff~~ — **ANSWERED (see section 9):** chapter 1 ends with
    the giant dust bunny beaten and everyone going to bed; the party is named
    in the last lines before sleep. Days are the content gate, so the real
