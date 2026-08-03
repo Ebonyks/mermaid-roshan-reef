@@ -1,16 +1,24 @@
 extends SceneTree
-# Throne triggers — both of them, driven the way a four-year-old drives them.
+# Throne triggers — both of them, reached the way a four-year-old reaches them.
 #
-# 1. Pearl Castle Grand Hall: the throne is a painted hotspot two screens to
-#    the right of where she spawns. Walking there must bring it on screen, and
-#    a REAL touch on it must fire the Crown Star and (owner 2026-07-19) Princess
-#    Huluu's stuffie offer. Tapping through the Button's `pressed` signal is not
-#    a test — the 2026-08-02 report was about the trigger not firing in the
-#    child's hands, so every tap here goes through the viewport.
+# Every tap here goes through the viewport, and she WALKS to the throne by
+# tapping the floor rather than being teleported there. That distinction is the
+# whole point of this file: on 2026-08-03 the throne was reported dead a second
+# time, and the cause was not the throne at all — the StorybookUI stage sat on
+# top of the Control carrying `_on_room_input` with MOUSE_FILTER_STOP, so every
+# tap that missed a hotspot button was swallowed and Roshan could not walk one
+# step anywhere in the picture-first castle. Probes that call
+# `_position_player_at_foot` directly are blind to that, so this one does not.
+#
+# 1. Pearl Castle Grand Hall: tapping the floor must move her; walking right
+#    must bring the throne (two screens over) on screen; touching it must fire
+#    the Crown Star and (owner 2026-07-19) Princess Huluu's stuffie offer.
 # 2. Butterfly World Star Hall: sitting on the Moon Throne must award the
 #    STAR PRINCESS sticker.
 
-const THRONE_FOOT := Vector2(3090.0, 690.0)
+const FLOOR_TAP := Vector2(1210.0, 560.0)   # right edge of the picture, on the floor
+const WALK_SETTLE := 90                     # frames for the step + camera pan
+const MAX_WALK_TAPS := 8
 
 var main: ReefMain
 var checks_failed := 0
@@ -41,6 +49,13 @@ func _touch(at: Vector2) -> void:
 	up.global_position = at
 	root.push_input(up, true)
 
+func _tap_stage(at: Vector2) -> void:
+	_touch(main.castle_room_stage.get_global_transform_with_canvas() * at)
+
+func _foot() -> Vector2:
+	return main.castle_room_player_sprite.get_meta(
+		"stage_foot", Vector2.ZERO) as Vector2
+
 func _throne_button() -> Button:
 	for record: Dictionary in main.castle_room_door_hotspots:
 		var data: Dictionary = record.get("data", {})
@@ -48,10 +63,7 @@ func _throne_button() -> Button:
 			return record.get("button") as Button
 	return null
 
-func _tap_throne(rooms: CastleRooms25D) -> void:
-	# walk her to the throne end of the hall and touch the painted throne
-	rooms._position_player_at_foot(THRONE_FOOT, false)
-	await _frames(240)   # the hall camera pans a full screen width
+func _tap_throne() -> void:
 	var button: Button = _throne_button()
 	if button == null or not button.visible:
 		return
@@ -83,23 +95,33 @@ func _run() -> void:
 		_finish()
 		return
 	_ck("throne_offscreen_at_spawn", not button.visible,
-		"she starts a screen away from it")
+		"she starts two screens away from it")
 
-	# ---- the walk, then a real touch ----
-	rooms._position_player_at_foot(THRONE_FOOT, false)
-	await _frames(240)
+	# ---- she must be able to WALK: the tap that misses every hotspot ----
+	var spawn_foot: Vector2 = _foot()
+	_tap_stage(FLOOR_TAP)
+	await _frames(WALK_SETTLE)
+	_ck("floor_tap_walks_her", _foot().x > spawn_foot.x + 200.0,
+		"foot %.0f -> %.0f" % [spawn_foot.x, _foot().x])
+
+	# ---- and walking right must bring the throne on screen ----
+	var taps := 1
+	while taps < MAX_WALK_TAPS and not _throne_button().visible:
+		_tap_stage(FLOOR_TAP)
+		await _frames(WALK_SETTLE)
+		taps += 1
 	button = _throne_button()
-	_ck("throne_onscreen_at_the_throne_end", button.visible,
-		str(button.get_global_rect()))
-	var centre: Vector2 = button.get_global_transform_with_canvas() \
-		* (button.size * 0.5)
+	_ck("walking_brings_the_throne_on_screen", button.visible,
+		"%d floor taps, foot=%.0f" % [taps, _foot().x])
+	if not button.visible:
+		_finish()
+		return
 	_ck("throne_hitbox_is_child_sized",
 		button.size.x >= 112.0 and button.size.y >= 112.0, str(button.size))
-	_touch(centre)
-	await _frames(120)
-	_ck("touch_awards_crown_star", bool(main.g.get("crown_won", false)))
 
-	# ---- and Princess Huluu's offer rides the same touch ----
+	# ---- the touch ----
+	await _tap_throne()
+	_ck("touch_awards_crown_star", bool(main.g.get("crown_won", false)))
 	await _frames(180)
 	_ck("throne_offers_a_stuffie_friend", main.companion_layer != null,
 		"companion_id=%s" % main.companion_id)
@@ -109,7 +131,7 @@ func _run() -> void:
 	companion.close_picker()
 	await _frames(10)
 	_ck("picker_closed", main.companion_layer == null)
-	await _tap_throne(rooms)
+	await _tap_throne()
 	await _frames(180)
 	_ck("throne_re_offers_after_a_closed_picker",
 		main.companion_layer != null and main.companion_id == "")
@@ -118,11 +140,23 @@ func _run() -> void:
 	companion.close_picker()
 	await _frames(10)
 	main.companion_id = "birdie"
-	await _tap_throne(rooms)
+	await _tap_throne()
 	await _frames(180)
 	_ck("no_re_offer_once_she_has_a_friend", main.companion_layer == null,
 		"companion_id=%s" % main.companion_id)
 	_ck("throne_still_waves", bool(main.g.get("crown_won", false)))
+
+	# ---- the same swallowed-tap bug froze every other room too ----
+	rooms.show_room("library", false)
+	await _frames(10)
+	var library_foot: Vector2 = _foot()
+	_tap_stage(Vector2(300.0, 560.0))
+	await _frames(WALK_SETTLE)
+	_ck("floor_tap_walks_her_in_a_room_too",
+		absf(_foot().x - library_foot.x) > 80.0,
+		"foot %.0f -> %.0f" % [library_foot.x, _foot().x])
+	rooms.show_room("main_hall", false)
+	await _frames(10)
 
 	# ---- Butterfly World: the Moon Throne ----
 	rooms.close()

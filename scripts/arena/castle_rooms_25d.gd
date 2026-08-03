@@ -908,6 +908,14 @@ func open(start_room: String = "main_hall") -> void:
 	m.castle_room_layer.add_child(root)
 	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
 	m.castle_room_stage = StorybookUI.add_stage(root, viewport_size)
+	# StorybookUI stages default to MOUSE_FILTER_STOP, which is right for the
+	# menus and pickers that own the whole screen. Here the stage sits ON TOP
+	# of the Control that carries `_on_room_input`, so a STOP stage eats every
+	# tap that does not land on a hotspot button and Roshan cannot walk at all.
+	# IGNORE only skips this node as a hit-test target; its own children (the
+	# door and item hotspots) are still picked normally, and empty floor now
+	# falls through to the walk handler. Gated by probe_throne's walk route.
+	m.castle_room_stage.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_build_stage()
 	m._set_world_controls_enabled(false, "castle_rooms")
 	if m.player != null:
