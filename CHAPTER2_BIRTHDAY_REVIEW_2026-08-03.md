@@ -865,6 +865,89 @@ because the art is already finished and currently underused.
 
 ---
 
+## 19. WHY THE COSTUMED IMPS EXIST — the plot detail behind the assets
+
+The assets are finished. This is the in-world reason they are there, built
+only from shipped canon (the Ember King, his imps, the fortress rooms) plus
+the Prince.
+
+### The premise: the Prince has never had a birthday
+
+The Ember King is, in his own shipped words, the one *"nobody ever invited to
+a party."* He is a mountain that talks and he does not do birthdays — so his
+son has never had one either. That is the sad, ordinary, entirely legible
+engine under the whole chapter: **a kid whose dad doesn't do birthdays hears
+about a kid who is having one.**
+
+### Why there is exactly one imp per career, in her exact costume
+
+The Prince cannot throw a party because **nobody in the fire mountain knows
+how.** So he sends his imps to find out — and assigns each one a single job to
+learn:
+
+> *"You. Learn the cake. You. Learn the music. You. Learn the picture on the
+> wall."*
+
+They watch Roshan and copy what they see. And here is the kid-logic that makes
+it funny, sad and true at once: **they copy the costume, because they think
+the costume is the magic.** If the hat makes a chef, put on the hat. That is
+why every imp wears her exact outfit, why there is one per job, and why their
+copy is always slightly wrong — they have the look and not the skill.
+
+It also means the theft is not malice. It is a homework problem: they cannot
+*make* the cake, so they take the cake. Procurement, not villainy.
+
+### The two-tier imp structure (this resolves the henchman question)
+
+The repo already contains two different imp species, and they should stay
+different:
+
+| | **Mischief imps** (purple, costumed) | **Ember imps** (fiery) |
+|---|---|---|
+| Whose | the **Prince's** crew | the **King's** soldiers |
+| Assets | `rival_<career>` x12, 13 states each; `imp_mischief`, `imp_captain` | `ember_imp.glb`, `ember_boss.glb`, the fortress arena kit |
+| Role | copy her jobs, take the pieces, redeemable | the actual **boss fights** — "Cinder Gate Imps", "Ash Imp Ambush", "The Molten Throne" |
+| Tone | funny, incompetent, sympathetic | genuine (if theatrical) opposition |
+
+So: the costumed imps are apprentices doing homework badly; the ember imps are
+soldiers. Boss fights are the King's, per section 17. The Imp Captain is the
+Prince's foreman — which is exactly why his one shipped line is a *rule of the
+game* ("you'll have to bop me twice") rather than a threat.
+
+### What each imp individually wants (the detail that makes them characters)
+
+Give each costumed imp one small want and the shadow cast stops being a
+uniform. Examples in the same register: the chef imp is genuinely hungry; the
+candy imp keeps eating the evidence; the doctor imp has something torn of his
+own; the nursery imp is the one who is actually gentle and is embarrassed
+about it; the magician imp desperately wants to be *watched*; the ballerina
+imp can dance and nobody has ever seen it. One line each, at the finale, when
+they lose gracefully.
+
+### Why this is the right answer
+
+- **It explains the assets exactly as built** — identical costumes, one per
+  career, full animation sets: a shadow cast of apprentices.
+- **It gives the Prince a real motive** that a four-year-old feels in her
+  stomach, not a plot device.
+- **It makes the ending inevitable rather than moralising:** you cannot copy
+  your way into a birthday. You have to be invited. When Roshan invites them,
+  the copying stops because it was never the point.
+- **It sets up the whole game.** Chapter 3 north = learning who the Prince's
+  father is. Chapter 4 lava planet = meeting the man who never had a party
+  either. **Chapter 5's ultimate party is the one where the ember family is
+  invited too** — and the same 156 costume files become fancy dress for imps
+  who, by then, actually know how to do the jobs.
+
+### The one line that carries it
+
+At the climax, when the Captain asks from the doorway *"...Are we invited?"*,
+the answer is not charity. It is the correction of a misunderstanding that has
+run for thirteen acts: **they were never supposed to copy it. They were
+supposed to come.**
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
