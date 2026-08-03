@@ -11,6 +11,7 @@ const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
+const ImpClips := preload("res://scripts/opera_imp_clips.gd")
 
 const SLUGS := {
 	"chef": "chef",
@@ -230,6 +231,10 @@ var fx_slash_arc_texture: Texture2D = null
 var fx_dust_puff_texture: Texture2D = null
 var fx_stolen_sparkle_texture: Texture2D = null
 var fx_dizzy_stars_texture: Texture2D = null
+## True while the crew wears the career costume: their states are clips over
+## that costume, never a swap back to the base purple imp.
+var costumed_crew := false
+var dizzy_texture: Texture2D = null
 var swipe_stroke := 0
 var combat_miss_cool := 0.0
 var imp_state_cache: Dictionary = {}
@@ -476,11 +481,21 @@ func _build_world() -> void:
 	fx_dust_puff_texture = _load_if_exists("res://assets/opera/worlds/props/fx_dust_puff.png")
 	fx_stolen_sparkle_texture = _load_if_exists("res://assets/opera/worlds/props/fx_stolen_sparkle.png")
 	fx_dizzy_stars_texture = _load_if_exists("res://assets/opera/worlds/props/fx_dizzy_stars.png")
-	if not competition.is_cooperative() and rival_actor != null and rival_actor.texture != null:
-		# crews wear the career's special imp costume; the base-imp set keeps
-		# the bopped state until per-costume state sprites land (codex handoff)
+	dizzy_texture = fx_dizzy_stars_texture
+	costumed_crew = not competition.is_cooperative() \
+		and rival_actor != null and rival_actor.texture != null
+	if costumed_crew:
+		# The crew wears the career's special imp costume. Painted per-costume
+		# state art is preferred whenever it exists; otherwise the costume
+		# texture is KEPT and the state plays as a transform clip. A costumed
+		# imp must never pop back to the base purple imp mid-scuffle — that
+		# reads as a different character every time she is bopped.
 		imp_idle_texture = rival_actor.texture
 		captain_idle_texture = rival_actor.texture
+		imp_bopped_texture = _load_if_exists(ImpClips.state_path(career_id, "bopped"))
+		# the captain wears the same costume — the gold ring marks him, not
+		# a second set of art
+		captain_bopped_texture = imp_bopped_texture
 
 	lens_layer = Control.new()
 	lens_layer.name = "MagnifierLensLayer"
@@ -822,7 +837,7 @@ func _spawn_stage_imp(path_t: float, captain: bool, seed_index: int) -> void:
 		"speed": (46.0 if captain else 60.0) + float(seed_index % 3) * 14.0,
 		"hp": 2 if captain else 1, "captain": captain,
 		"popped": false, "seed": seed_index, "stroke": -1,
-		"feet": feet, "carrying": false, "pose": "prowl",
+		"feet": feet, "carrying": false, "pose": "prowl", "hit_t": -1.0,
 	}
 	if imp_brain != null:
 		var mind: Dictionary = imp_brain.spawn_mind(seed_index, captain)
@@ -951,10 +966,7 @@ func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
 			combat_marks.append({"kind": "dizzy", "pos": at, "t": 0.0, "life": 0.62})
 			if bopped != null:
 				node.texture = bopped
-			var spin := node.create_tween()
-			spin.tween_property(node, "rotation", 0.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-			spin.parallel().tween_property(node, "modulate:a", 0.0, 0.62)
-			spin.tween_callback(node.queue_free)
+			_pop_imp_node(node)
 	# (a survivor needs no squash tween: the brain puts it straight into the
 	# stagger pose, which the pose renderer plays every frame)
 	_bop_burst_at(at, false)
@@ -969,6 +981,54 @@ func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
 	# one gesture, bonus folded in: a pop that finishes the beat must not
 	# spill its sparkle bonus into the next phase
 	_register_bop(1.0 + bonus, 1.0)
+
+
+func _imp_centre(node: Control) -> Vector2:
+	# Where the sprite is drawn: a Control scales about its pivot, so the feet
+	# pivot the roaming imps use puts their centre above their position.
+	var half := node.size * 0.5
+	return node.position + node.pivot_offset + node.scale * (half - node.pivot_offset)
+
+
+func _pop_imp_node(node: TextureRect) -> void:
+	# Re-anchor to the sprite's centre so the shoo-off spins and squashes about
+	# the imp instead of about her feet, keeping her where she was standing.
+	var half := node.size * 0.5
+	var centre := _imp_centre(node)
+	node.pivot_offset = half
+	node.position = centre - half
+	node.rotation = 0.0
+	var depth := maxf(0.2, (node.scale.x + node.scale.y) * 0.5)
+	node.scale = Vector2(depth, depth) * ImpClips.bopped_squash()
+	node.modulate = ImpClips.bopped_tint()
+	var stretch := Vector2(depth, depth) * ImpClips.bopped_stretch()
+	var pop := node.create_tween()
+	pop.tween_property(node, "scale", stretch, 0.18).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	pop.parallel().tween_property(node, "rotation", ImpClips.bopped_spin(), 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	pop.parallel().tween_property(node, "modulate:a", 0.0, ImpClips.duration("bopped"))
+	pop.tween_callback(node.queue_free)
+	_spawn_dizzy_stars(centre)
+
+
+func _spawn_dizzy_stars(centre: Vector2) -> void:
+	# One shared overlay serves all fourteen characters and every costume. When
+	# the file is absent the shoo-off still reads from the pop clip alone.
+	if dizzy_texture == null or combat_layer == null:
+		return
+	var stars := TextureRect.new()
+	stars.texture = dizzy_texture
+	stars.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	stars.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	stars.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stars.size = Vector2(96, 96)
+	stars.pivot_offset = Vector2(48, 48)
+	stars.position = centre - Vector2(48, 66)
+	combat_layer.add_child(stars)
+	var spin := stars.create_tween()
+	spin.tween_property(stars, "rotation", TAU, 0.9)
+	spin.parallel().tween_property(stars, "position:y", stars.position.y - 24.0, 0.9)
+	spin.parallel().tween_property(stars, "modulate:a", 0.0, 0.6).set_delay(0.3)
+	spin.tween_callback(stars.queue_free)
 
 
 func _register_bop(amount: float, quality: float) -> void:
@@ -1394,6 +1454,13 @@ func _imp_family(captain: bool) -> String:
 
 func _imp_texture(imp: Dictionary, pose: String) -> Texture2D:
 	var captain := bool(imp.get("captain", false))
+	if costumed_crew:
+		if pose == "bopped":
+			var costume_bopped: Texture2D = captain_bopped_texture \
+				if captain else imp_bopped_texture
+			if costume_bopped != null:
+				return costume_bopped
+		return captain_idle_texture if captain else imp_idle_texture
 	var family := _imp_family(captain)
 	var states: Array = POSE_STATES.get(pose, [])
 	for state: String in states:
