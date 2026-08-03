@@ -165,6 +165,70 @@ revisitable endgame. Three consequences to honour while building Chapter 2:
   the party scene should be a persistent space the child can return to, since
   Chapter 5 moves in there.
 
+---
+
+## 9. DAYS ARE THE CONTENT GATE (owner canon, 2026-08-03)
+
+**Days are the narrative device that locks content behaviour walls.** Chapters
+ARE days:
+
+| Day | Chapter | Content |
+|---|---|---|
+| Day 1 | 1 | Clean the castle. Ends: the dust bunnies are shooed, the giant one is beaten, **everyone goes to bed.** |
+| Day 2 | 2 | **Getting ready for the party** — the thirteen career shows — then the party itself, then the Ember King's crash. |
+| Day 3 | 3 | North, for information on how to stop them. |
+| Day 4 | 4 | The lava planet. |
+| Day 5 | 5 | The ultimate party; settles into the cozy endgame. |
+
+### What already exists (better than expected)
+
+**The chapter transition is already built.** `main.gd:_begin_sleep()` is a
+complete tuck-in cutscene: Roshan snuggles onto the castle bed, "z"s float up
+with descending lullaby chimes, the screen dream-fades to indigo, the
+"Sleepyhead" sticker is awarded, and *A Place I Call Home* plays. Chapter 1's
+"everyone goes to bed" is therefore not new work — it is the existing bed
+interaction, and **sleep is the chapter boundary**.
+
+The dust-bunny cleaning and the giant dust-bunny boss also already exist
+(`combat_arena.gd`, `dust_bunny_boss_sprite.gd`).
+
+### What does NOT exist — the one foundational gap
+
+**There is no day counter.** `is_night` today is cosmetic only: it flips on
+every launch (`plays % 2`) and again on each sleep, driving music and lighting.
+Nothing persists "which day/chapter am I on", and there is no castle-clean
+completion key in `KNOWN_KEYS`.
+
+So the foundational build item for Chapter 2 — before any story content — is:
+
+1. **A `story_day` save key** (int, default 1). Adding a key with a default is
+   explicitly permitted; no existing key is touched, and old saves migrate by
+   defaulting to day 1 (or by inferring day 2+ from existing progress flags so
+   current players aren't demoted).
+2. **Sleep advances the day** *only when the day's objective is complete* —
+   Day 1 advances once the giant dust bunny is beaten. Sleeping early stays the
+   existing cosy nap (it already awards its sticker), so nothing is lost.
+3. **Content gates read `story_day`.** The Opera career shows become available
+   on Day 2; the north opens on Day 3; and so on. This is the "behaviour wall"
+   the owner describes, and it gives every chapter a clean, testable condition.
+
+### A free win this unlocks
+
+Chapter 2 spans one day — morning preparation, evening party. The existing
+`is_night` / `_apply_time_of_day()` machinery can carry that arc: **the Opera
+lobby warms toward evening as the party table fills.** Thirteen pieces made =
+sundown = the party. No new system, and the child feels the day passing.
+
+### Consequence for the Chapter-1 handoff (my question 5, answered)
+
+Chapter 1 should end on the beaten giant and the tuck-in, with the party named
+in the last lines before sleep ("tomorrow is my birthday — tomorrow we get
+ready"). Day 2 then opens on waking, which is where this chapter's seven-line
+open begins. The two chapters lock together through the bed, not through a
+menu.
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
@@ -177,9 +241,12 @@ revisitable endgame. Three consequences to honour while building Chapter 2:
    imps exactly.
 4. **Art budget:** approve the 13 blocking cards, or approve the minimum set
    (crate table + Lamba party hat + the seven helper actors) and defer props.
-5. **Chapter-1 handoff:** should the castle-cleaning chapter end by explicitly
-   naming the party ("clean it for tomorrow's party"), which would make the
-   two chapters lock together?
+5. ~~Chapter-1 handoff~~ — **ANSWERED (see section 9):** chapter 1 ends with
+   the giant dust bunny beaten and everyone going to bed; the party is named
+   in the last lines before sleep. Days are the content gate, so the real
+   question is now: **approve adding the `story_day` save key** (default 1,
+   no existing key touched) as the foundational build item, and confirm that
+   current saves should be inferred forward rather than demoted to day 1.
 
 Once these are settled the build order is: defect fixes -> `opera_story.gd`
 data + hooks -> TTS generation -> party table -> codex art handoff.
