@@ -11,6 +11,7 @@ const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
+const ImpClips := preload("res://scripts/opera_imp_clips.gd")
 
 const SLUGS := {
 	"chef": "chef",
@@ -219,6 +220,10 @@ var imp_idle_texture: Texture2D = null
 var imp_bopped_texture: Texture2D = null
 var captain_idle_texture: Texture2D = null
 var captain_bopped_texture: Texture2D = null
+## True while the crew wears the career costume: their states are clips over
+## that costume, never a swap back to the base purple imp.
+var costumed_crew := false
+var dizzy_texture: Texture2D = null
 var swipe_stroke := 0
 ## Magnifier lens phases (detective's masked reveal over the whole stage).
 var lens_layer: Control = null
@@ -437,11 +442,21 @@ func _build_world() -> void:
 	imp_bopped_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_mischief_bopped.png")
 	captain_idle_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain.png")
 	captain_bopped_texture = _load_if_exists("res://assets/opera/worlds/actors/imp_captain_bopped.png")
-	if not competition.is_cooperative() and rival_actor != null and rival_actor.texture != null:
-		# crews wear the career's special imp costume; the base-imp set keeps
-		# the bopped state until per-costume state sprites land (codex handoff)
+	dizzy_texture = _load_if_exists("res://assets/opera/worlds/props/fx_dizzy_stars.png")
+	costumed_crew = not competition.is_cooperative() \
+		and rival_actor != null and rival_actor.texture != null
+	if costumed_crew:
+		# The crew wears the career's special imp costume. Painted per-costume
+		# state art is preferred whenever it exists; otherwise the costume
+		# texture is KEPT and the state plays as a transform clip. A costumed
+		# imp must never pop back to the base purple imp mid-scuffle — that
+		# reads as a different character every time she is bopped.
 		imp_idle_texture = rival_actor.texture
 		captain_idle_texture = rival_actor.texture
+		imp_bopped_texture = _load_if_exists(ImpClips.state_path(career_id, "bopped"))
+		# the captain wears the same costume — the gold ring marks him, not
+		# a second set of art
+		captain_bopped_texture = imp_bopped_texture
 
 	lens_layer = Control.new()
 	lens_layer.name = "MagnifierLensLayer"
@@ -709,12 +724,15 @@ func _spawn_stage_imp(path_t: float, captain: bool, seed_index: int) -> void:
 	node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	node.size = Vector2(150, 150) if captain else Vector2(118, 118)
+	# Pivot at the imp's feet: squash, stretch, and the hop lean all keep her
+	# planted on the painted route without touching the placement maths.
+	node.pivot_offset = Vector2(node.size.x * 0.5, node.size.y)
 	combat_layer.add_child(node)
 	combat_imps.append({
 		"node": node, "t": path_t, "dir": 1.0 if seed_index % 2 == 0 else -1.0,
 		"speed": (46.0 if captain else 60.0) + float(seed_index % 3) * 14.0,
 		"hp": 2 if captain else 1, "captain": captain,
-		"popped": false, "seed": seed_index, "stroke": -1,
+		"popped": false, "seed": seed_index, "stroke": -1, "hit_t": -1.0,
 	})
 
 
@@ -775,7 +793,9 @@ func _combat_strike(from: Vector2, to: Vector2) -> void:
 		var node := imp.get("node") as TextureRect
 		if node == null or not is_instance_valid(node):
 			continue
-		var center := node.position + node.size * 0.5
+		# aim at where the imp is actually drawn; the reach stays unscaled so a
+		# distant imp keeps the same forgiving tap target as a near one
+		var center := _imp_centre(node)
 		var reach := node.size.x * 0.62
 		if _segment_distance(from, to, center) <= reach:
 			imp["stroke"] = swipe_stroke
@@ -802,20 +822,67 @@ func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
 	if int(imp["hp"]) <= 0:
 		imp["popped"] = true
 		if node != null and is_instance_valid(node):
+			# Painted state art when it exists; otherwise the imp keeps her own
+			# texture (costume included) and the pop clip carries the state.
 			var bopped := captain_bopped_texture if bool(imp.get("captain", false)) else imp_bopped_texture
 			if bopped != null:
 				node.texture = bopped
-			var spin := node.create_tween()
-			spin.tween_property(node, "rotation", 0.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-			spin.parallel().tween_property(node, "modulate:a", 0.0, 0.62)
-			spin.tween_callback(node.queue_free)
+			_pop_imp_node(node)
 	else:
 		if node != null and is_instance_valid(node):
-			var squash := node.create_tween()
-			squash.tween_property(node, "scale", Vector2(1.18, 0.84), 0.1)
-			squash.tween_property(node, "scale", Vector2.ONE, 0.16)
+			# The recoil rides the roaming tick — a tween on scale here is
+			# overwritten by the per-frame depth pose and never shows.
+			imp["hit_t"] = 0.0
 	_bop_burst_at(at, false)
 	_register_bop(1.0, 1.0)
+
+
+func _imp_centre(node: Control) -> Vector2:
+	# Where the sprite is drawn: a Control scales about its pivot, so the feet
+	# pivot the roaming imps use puts their centre above their position.
+	var half := node.size * 0.5
+	return node.position + node.pivot_offset + node.scale * (half - node.pivot_offset)
+
+
+func _pop_imp_node(node: TextureRect) -> void:
+	# Re-anchor to the sprite's centre so the shoo-off spins and squashes about
+	# the imp instead of about her feet, keeping her where she was standing.
+	var half := node.size * 0.5
+	var centre := _imp_centre(node)
+	node.pivot_offset = half
+	node.position = centre - half
+	node.rotation = 0.0
+	var depth := maxf(0.2, (node.scale.x + node.scale.y) * 0.5)
+	node.scale = Vector2(depth, depth) * ImpClips.bopped_squash()
+	node.modulate = ImpClips.bopped_tint()
+	var stretch := Vector2(depth, depth) * ImpClips.bopped_stretch()
+	var pop := node.create_tween()
+	pop.tween_property(node, "scale", stretch, 0.18).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	pop.parallel().tween_property(node, "rotation", ImpClips.bopped_spin(), 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	pop.parallel().tween_property(node, "modulate:a", 0.0, ImpClips.duration("bopped"))
+	pop.tween_callback(node.queue_free)
+	_spawn_dizzy_stars(centre)
+
+
+func _spawn_dizzy_stars(centre: Vector2) -> void:
+	# One shared overlay serves all fourteen characters and every costume. When
+	# the file is absent the shoo-off still reads from the pop clip alone.
+	if dizzy_texture == null or combat_layer == null:
+		return
+	var stars := TextureRect.new()
+	stars.texture = dizzy_texture
+	stars.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	stars.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	stars.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stars.size = Vector2(96, 96)
+	stars.pivot_offset = Vector2(48, 48)
+	stars.position = centre - Vector2(48, 66)
+	combat_layer.add_child(stars)
+	var spin := stars.create_tween()
+	spin.tween_property(stars, "rotation", TAU, 0.9)
+	spin.parallel().tween_property(stars, "position:y", stars.position.y - 24.0, 0.9)
+	spin.parallel().tween_property(stars, "modulate:a", 0.0, 0.6).set_delay(0.3)
+	spin.tween_callback(stars.queue_free)
 
 
 func _register_bop(amount: float, quality: float) -> void:
@@ -1076,12 +1143,22 @@ func _tick_stage_combat(delta: float) -> void:
 		imp["t"] = t
 		imp["dir"] = direction
 		var seed := float(imp.get("seed", 0))
+		var phase := bop_time * 5.2 + seed * 1.7
 		var feet := StagePaths.point_along(stage_points, t)
-		feet.y += sin(bop_time * 5.2 + seed * 1.7) * 9.0 - 9.0
+		feet.y += sin(phase) * 9.0 - 9.0
 		var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
-		node.scale = Vector2(depth, depth)
+		# Squash/stretch and the recoil wobble are transform clips over each
+		# imp's own texture, so every costume animates without its own art.
+		var hit_t := float(imp.get("hit_t", -1.0))
+		if hit_t >= 0.0:
+			hit_t += delta
+			imp["hit_t"] = hit_t if hit_t < ImpClips.duration("hit") else -1.0
+		var pose := ImpClips.hop_scale(phase) * ImpClips.hit_scale(hit_t)
+		node.scale = Vector2(depth * pose.x, depth * pose.y)
+		node.rotation = ImpClips.hop_tilt(phase, direction) + ImpClips.hit_tilt(hit_t)
 		node.flip_h = direction < 0.0
-		node.position = feet - Vector2(node.size.x * 0.5 * depth, node.size.y * depth - 8.0)
+		# the feet pivot absorbs the pose, so placement stays scale-independent
+		node.position = feet + Vector2(0.0, 8.0) - node.pivot_offset
 
 
 func _start_lens_phase(phase: Dictionary) -> void:
