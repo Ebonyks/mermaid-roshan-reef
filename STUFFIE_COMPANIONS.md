@@ -41,14 +41,25 @@ the ROSTER entry's name/colours change (or a new rigged body lands later).
 
 ## Unlock flow (owner 2026-07-19: meeting Huluu IS the trigger)
 
-Reaching Princess Huluu's throne in the Pearl Castle Grand Hall
-(`huluu_greeted`) plays her greeting, and ~3s later her offer — **"I want
+Tapping Princess Huluu's throne at the right-hand end of the Pearl Castle
+Grand Hall (`castle_rooms_25d.gd` → `_offer_companion_at_throne`) fires the
+Crown Star beat, and `THRONE_OFFER_BEAT` (1.6s) later her offer — **"I want
 you to have a new friend!"** — opens the picker right there: friend cards on
 the left (Mewsha / Baby Eagle), live-tinted preview, three palette rows
 (body 🎨 / trim ✨ / tummy 🤍), one giant "✔ LET'S GO!". Choosing sparkles,
 saves, and the friend starts following in the reef. If the picker is closed
-without choosing, a **gift box** appears beside the Crown Star (pointer +
-voice hint) as the walk-up-and-tap re-entry, so the moment is never lost.
+without choosing, **the throne itself re-offers** on the next tap, so the
+moment is never lost. Gated by `scripts/probe_throne.gd`, which touches the
+hotspot through the viewport rather than firing the Button signal.
+
+> Regression note (found 2026-08-02, fixed same day). The 2.5D castle
+> rebuild (`d0732324`, 2026-07-29) stopped calling
+> `CompanionSystem._tick_gift` — its walk-up gift box hung off the modelled
+> Crown Star that the picture-first hall no longer builds — and nothing has
+> written `huluu_greeted` since. For four days the throne offered nothing at
+> all; the picker was reachable only from the Playroom toy chest (which
+> itself needs the dust-bunny rescue first). `_tick_gift` / `_tick_room`
+> remain in `companion.gd` as dead code pending removal.
 
 ## The follower (generalizes the peng_pal pattern)
 
