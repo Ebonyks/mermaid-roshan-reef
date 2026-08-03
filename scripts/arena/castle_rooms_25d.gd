@@ -2496,13 +2496,20 @@ func _sync_castle_environment(hall_visible: bool,
 	else:
 		# Destination rooms keep the castle's warm storybook finish, but their
 		# painted practical lights do not receive the Main Hall's dramatic lift.
+		# These rooms are pure unshaded painting: no light touches the cards, so
+		# this grade is the ONLY thing between the approved PNG and the child.
+		# 2026-08-02 (LIGHTING_2P5D_AUDIT §1.7/§E1): the previous 1.08/1.10/0.94
+		# stack drove 21.5% of room pixels into single-channel clipping that the
+		# source art did not have — saturated lavender walls losing their blue
+		# channel read as a hue shift, not as a brighter room. Held near unity
+		# now; the rooms get their richness from the paint.
 		environment.glow_intensity = 0.48 if speedy else 0.66
 		environment.glow_bloom = 0.055 if speedy else 0.09
 		environment.glow_hdr_threshold = 0.90
 		environment.ambient_light_energy = 0.28
-		environment.adjustment_saturation = 1.08
-		environment.adjustment_contrast = 1.10
-		environment.adjustment_brightness = 0.94
+		environment.adjustment_saturation = 1.02
+		environment.adjustment_contrast = 1.02
+		environment.adjustment_brightness = 0.98
 
 func _play_item_sfx(sound_file: String, pitch: float) -> void:
 	if m.castle_room_prop_sfx == null:
@@ -2751,6 +2758,13 @@ func _place_art_card(card: Sprite3D, source_position: Vector2,
 	card.pixel_size = _pixel_size_for_depth(depth_z)
 	card.set_meta("source_art_rect", Rect2(source_position, frame_size))
 	card.set_meta("depth_z", depth_z)
+	# Depth is geometric here but was never tonal: every plane rendered at pure
+	# white, so a framing prop 4 units in front of the wall read as a sticker on
+	# it (LIGHTING_2P5D_AUDIT_2026-08-02 §W2/§E2). The rig multiplies the card
+	# by its plane's tint — background stays the untouched reference, foreground
+	# settles back. Light fixtures opt themselves out inside the rig.
+	m.light_rig().apply_to_card(card, "castle_room", depth_z,
+		String(card.get_meta("intensity_class", "")))
 
 func _v2_vector2(value: Variant, fallback: Vector2) -> Vector2:
 	if value is Array:

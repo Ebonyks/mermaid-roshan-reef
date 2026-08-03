@@ -274,10 +274,15 @@ def _audit_current_sconce_contract(
 		if path is None or not path.is_file():
 			failures.append(f"Current sconce {key} file is missing")
 			continue
-		actual_hash = _text_sha256(path) \
-			if key == "bloom_shader" else _sha256(path)
-		_check(fixture.get(hash_key) == actual_hash,
-			f"Current sconce {hash_key} does not match file bytes", failures)
+		# Name both hashes and the file. A bare "does not match" cost an hour
+		# of git archaeology on 2026-08-02 to establish that the RECORD was
+		# wrong rather than the artifact; the values make that a ten-second
+		# check against `sha256sum <path>` and `git log -- <path>`.
+		recorded = fixture.get(hash_key)
+		actual = _text_sha256(path) if key == "bloom_shader" else _sha256(path)
+		_check(recorded == actual,
+			f"Current sconce {hash_key} does not match file bytes "
+			f"({path}: recorded {recorded}, actual {actual})", failures)
 
 
 def _audio_durations(
