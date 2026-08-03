@@ -347,7 +347,9 @@ func _draw() -> void:
 	draw_rect(panel.grow(-3.0), accent.lerp(Color("#382485"), 0.62), false, 4.0)
 	var center := size * 0.5
 	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, panel, false)
+		# authored at 1024x608 (1.684); the panel is not that aspect, so a plain
+		# stretch squashed every round object into an egg. Cover-fit instead.
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
 		_draw_widget_layers(center)
 		if demo_active:
 			_draw_demo_finger()
@@ -448,6 +450,16 @@ func _ink_bounds(texture: Texture2D) -> Vector2:
 	return bounds
 
 
+## Aspect-preserving cover rect: fills the panel, centred, never distorted.
+func _cover_rect(texture: Texture2D) -> Rect2:
+	var tex := texture.get_size()
+	if tex.x <= 0.0 or tex.y <= 0.0:
+		return Rect2(Vector2.ZERO, size)
+	var scale := maxf(size.x / tex.x, size.y / tex.y)
+	var drawn := tex * scale
+	return Rect2((size - drawn) * 0.5, drawn)
+
+
 func _draw_progress_overlay(texture: Texture2D, progress: float, horizontal: bool) -> void:
 	var amount := clampf(progress, 0.0, 1.0)
 	if amount <= 0.0:
@@ -468,11 +480,12 @@ func _draw_progress_overlay(texture: Texture2D, progress: float, horizontal: boo
 	var source_h := texture_size.y * (ink_bottom - edge)
 	if source_h <= 0.0:
 		return
-	var destination_y := size.y * edge
-	var destination_h := size.y * (ink_bottom - edge)
+	var cover := _cover_rect(texture)
+	var destination_y := cover.position.y + cover.size.y * edge
+	var destination_h := cover.size.y * (ink_bottom - edge)
 	draw_texture_rect_region(
 		texture,
-		Rect2(0.0, destination_y, size.x, destination_h),
+		Rect2(cover.position.x, destination_y, cover.size.x, destination_h),
 		Rect2(0.0, source_y, texture_size.x, source_h)
 	)
 
