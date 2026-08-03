@@ -948,6 +948,68 @@ supposed to come.**
 
 ---
 
+## 20. ACT PACING: RABBLE FIRST, THEN THE APPRENTICE ARRIVES (owner ruling)
+
+**Roshan meets plain imps in the first part of each level. When she has seen
+them off, the costumed imp arrives later on.**
+
+This is the shape the plot in section 19 demands, and it fixes the one place
+the current build wastes its best asset.
+
+### The corrected act shape
+
+| Beat | Who is on screen | Why |
+|---|---|---|
+| 1. Opening scuffle | **plain mischief imps** (`imp_mischief`) | the rabble got here first and are making a mess |
+| — she sees them off — | | |
+| 2. The arrival | **the costumed imp enters** (`rival_<career>`) | the apprentice assigned to THIS job turns up once there is something worth copying |
+| 3-4. The job | he is **present, watching, copying badly** | this is his homework; the `_taunt`, `_hop_a/b`, `_windup` states are exactly this vocabulary |
+| 5. The chase | he takes the finished piece and runs for the stage | he cannot make it, so he takes it (section 19) |
+| 6-7. The finale | he competes with it | she catches him doing her job |
+
+### Why this is better than what ships today
+
+Right now the costumed imp is **hidden until the finale** — the shipping code
+calls `_set_finale_visible(false)` and the probe literally asserts *"keeps the
+rival hidden during earlier minigames."* So a fully animated, thirteen-state,
+per-career character appears for the last ~30 seconds of a two-minute act.
+Under this ruling he is on screen for most of the act, which is what the art
+was built for.
+
+It also separates the two imp tiers **visually and in the child's head**: the
+plain imps are weather, the costumed one is a *character* — he has a name, a
+job, and a face she will recognise thirteen times.
+
+And it earns the theft. Watching him fail at the job for a minute is what
+makes taking it read as desperation rather than mischief.
+
+### Code implications (small, but one contract changes)
+
+- **The rival's visibility gate moves** from `FINALE_START` to "after the
+  opening scuffle." `_set_finale_visible()` currently couples rival visibility
+  to the score bars and name plates — those should stay finale-only; only the
+  actor comes out early.
+- **One probe assertion inverts.** `probe_opera_2d`'s *"keeps the rival hidden
+  during earlier minigames"* becomes *"the costumed imp arrives after the
+  opening scuffle and before the steal."* That is a deliberate contract
+  change, not a regression — it must be rewritten in the same commit.
+- **The co-op exception already exists:** the nursery's partner (Faron) is
+  visible from beat one via the cooperative branch, so the machinery for
+  "actor visible early, bars hidden" is already in place and tested.
+- **The arrival wants one beat of staging** — he should walk in, not blink on.
+  The `_hop_a/_hop_b` pair plus the existing stage-path movement covers it
+  with no new art.
+
+### Recommendation
+
+Give the arrival a spoken line in the Captain's voice or the imp's own (one
+per career, ~13 clips) so the entrance registers: he announces what he has
+been sent to learn. That single line per act is what turns thirteen identical
+structures into thirteen small characters — and it is the cheapest possible
+delivery of the section 19 plot.
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
