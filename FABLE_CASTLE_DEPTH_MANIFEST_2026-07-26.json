@@ -1508,43 +1508,43 @@
         1024,
         576
       ],
-      "background_sha256": "f15026de9084aef8d8b5a2a61710b6f4ba76b440779766813ddc49554317344d",
+      "background_sha256": "5632f69273ca5298e62c81d8c458d77b9cbdeb8fa3e00b4710eab280076098fa",
       "card_count": 7,
       "card_overlap_pixels": 0,
       "cards": [
         {
           "alpha_outline_refined": true,
-          "alpha_pixels": 1203,
+          "alpha_pixels": 1397,
           "crop": [
-            468,
+            470,
             260,
-            534,
-            306
+            553,
+            320
           ],
-          "depth_footprint_reduction_ratio": 0.071501,
-          "depth_opaque_pixels": 922,
+          "depth_footprint_reduction_ratio": 0.019641,
+          "depth_opaque_pixels": 1148,
           "id": "item_star_float",
           "role": "item",
-          "routing_depth_pixels": 993
+          "routing_depth_pixels": 1171
         },
         {
           "alpha_outline_refined": true,
-          "alpha_pixels": 25356,
+          "alpha_pixels": 25100,
           "crop": [
             285,
             45,
             466,
             278
           ],
-          "depth_footprint_reduction_ratio": 0.174059,
-          "depth_opaque_pixels": 24134,
+          "depth_footprint_reduction_ratio": 0.181793,
+          "depth_opaque_pixels": 23908,
           "id": "item_waterfall",
           "role": "item",
           "routing_depth_pixels": 29220
         },
         {
           "alpha_outline_refined": true,
-          "alpha_pixels": 3507,
+          "alpha_pixels": 3508,
           "crop": [
             371,
             218,
@@ -1559,78 +1559,86 @@
         },
         {
           "alpha_outline_refined": true,
-          "alpha_pixels": 3368,
+          "alpha_pixels": 23027,
           "crop": [
-            553,
-            183,
-            711,
+            650,
+            95,
+            835,
             325
           ],
-          "depth_footprint_reduction_ratio": 0.171372,
-          "depth_opaque_pixels": 2906,
-          "id": "item_bubble_fountain",
+          "depth_footprint_reduction_ratio": 0.083713,
+          "depth_opaque_pixels": 21333,
+          "id": "item_seahorse_fountain",
           "role": "item",
-          "routing_depth_pixels": 3507
+          "routing_depth_pixels": 23282
         },
         {
           "alpha_outline_refined": true,
-          "alpha_pixels": 24008,
+          "alpha_pixels": 23683,
           "crop": [
             0,
             378,
             205,
             576
           ],
-          "depth_footprint_reduction_ratio": 0.293155,
-          "depth_opaque_pixels": 22947,
+          "depth_footprint_reduction_ratio": 0.30061,
+          "depth_opaque_pixels": 22705,
           "id": "front_left",
           "role": "foreground",
           "routing_depth_pixels": 32464
         },
         {
           "alpha_outline_refined": true,
-          "alpha_pixels": 23035,
+          "alpha_pixels": 24019,
           "crop": [
             819,
             378,
             1024,
             576
           ],
-          "depth_footprint_reduction_ratio": 0.344114,
-          "depth_opaque_pixels": 21193,
+          "depth_footprint_reduction_ratio": 0.31691,
+          "depth_opaque_pixels": 22072,
           "id": "front_right",
           "role": "foreground",
           "routing_depth_pixels": 32312
         },
         {
           "alpha_outline_refined": true,
-          "alpha_pixels": 125809,
+          "alpha_pixels": 115672,
           "crop": [
             0,
             212,
             1024,
             382
           ],
-          "depth_footprint_reduction_ratio": 0.108812,
-          "depth_opaque_pixels": 119969,
+          "depth_footprint_reduction_ratio": 0.124573,
+          "depth_opaque_pixels": 110134,
           "id": "mid_pool",
           "role": "midground",
-          "routing_depth_pixels": 134617
+          "routing_depth_pixels": 125806
         }
       ],
-      "changed_owned_pixels": 186543,
-      "changed_owned_ratio": 0.904293,
+      "changed_owned_pixels": 194737,
+      "changed_owned_ratio": 0.899869,
+      "generation_master": "assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v2_native.png",
+      "generation_master_dimensions": [
+        1672,
+        941
+      ],
+      "generation_master_sha256": "a9c8ea63173fda88c2b674c9f3fc1ddbe2d85c9031bba778b86ec590b1e7a119",
+      "generation_method": "OpenAI built-in ImageGen complete full-frame reference-guided regeneration",
+      "generation_prompt_record": "assets_src/imagegen/mermaid_pool_room_2026-08-02/PROVENANCE.md",
       "master": "assets_src/castle/room_backgrounds_2k/room_mermaid_pool_background_2k.png",
       "master_aspect_ratio": 1.7777777777777777,
       "master_dimensions": [
         2048,
         1152
       ],
-      "master_sha256": "d472abe77493a4be7e3c5de83155dc2c613ae93a38a7819f2c5ffca02cff863e",
+      "master_sha256": "2d46ae86b6323293a1db8780a33bd6a29d839a1dae440bebf5d3da2fe1f30b7d",
       "native_master_compliant": true,
-      "owned_background_pixels": 206286,
+      "owned_background_pixels": 216406,
       "reference_aspect_ratio": 1.777777778,
-      "resting_reconstruction_mean_abs_error": 0.000606,
+      "resting_reconstruction_mean_abs_error": 0.000687,
       "runtime_quad_overlap_native_pixels": [
         1,
         1
@@ -1656,7 +1664,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c0.png",
           "row": 0,
-          "sha256": "efc33e5fd07c88e7e8364aedba9665e7f5cf28be1f3bbadc841be2b9d69601de"
+          "sha256": "fbb3fc1b51fc9186f65a4c996edc28bc8ec339af8b91e7a0f5d54a664d2bf9d5"
         },
         {
           "column": 1,
@@ -1678,7 +1686,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c1.png",
           "row": 0,
-          "sha256": "5dece9a9172eb0af17ab0b47646a8d97de38dfdb6f37e7e4942e33e037f4a956"
+          "sha256": "d17cfa4de03f681836a9610374b3e42e5dceb18e5aa29fbeed1290a218f92619"
         },
         {
           "column": 0,
@@ -1700,7 +1708,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c0.png",
           "row": 1,
-          "sha256": "40bc4447110aa98f081b19f2bd4a1c00e85fef65325f72ac46363992b28759fb"
+          "sha256": "71df95fd8754a03b825777474fee08d57ada5efcd99d7d099ea60601f53a3e60"
         },
         {
           "column": 1,
@@ -1722,7 +1730,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c1.png",
           "row": 1,
-          "sha256": "6fd3d922175c8bd757c843db7cb1d46ed733aca8fd79b8fc79ebe07b2ea6d146"
+          "sha256": "62e7543da181ef3496f46d85b2761dd0e57ef2d2515665dc2f5975969c847a11"
         }
       ],
       "source": "room_mermaid_pool.png",
@@ -1731,7 +1739,7 @@
         1024,
         576
       ],
-      "source_sha256": "4ed0f6ce0fb79c35cb55f9c18c56518252df1a8e478de1ef8c06d3cf4a9e0e0d",
+      "source_sha256": "a4fb146a18d4cc90dbff38525ca0c4555bad3e3424319e054c43330d845ce83b",
       "source_tile_rectangles_non_overlapping": true,
       "tile_reconstruction_pixel_exact": true,
       "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",

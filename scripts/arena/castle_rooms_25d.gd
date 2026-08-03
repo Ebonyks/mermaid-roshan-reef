@@ -16,6 +16,7 @@ const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
 const CASTLE_PORTAL_CUTOUT_SHADER := preload(
 	"res://shaders/castle_portal_cutout.gdshader")
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const Affordance := preload("res://scripts/interaction_affordance.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
 const ART_TO_STAGE := 1.25
@@ -52,6 +53,7 @@ const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
 const HALL_PLAYER_STAGE_HEIGHT := 190.0
 const SHADOW_STAGE_SIZE := Vector2(210.0, 38.0)
+const AFFORDANCE_TOUR_SECONDS := 3.2
 const HALL_VIEW_SIZE := Vector2(1672.0, 941.0)
 const HALL_LOGICAL_SIZE := Vector2(3344.0, 941.0)
 const HALL_STAGE_SCALE := 1280.0 / HALL_VIEW_SIZE.x
@@ -501,19 +503,21 @@ const ROOM_ITEMS := {
 	],
 	"mermaid_pool": [
 		{"id": "waterfall", "name": "Rainbow waterfall", "pos": Vector2(285, 45),
-			"z": 0.65,
+			"z": 0.65, "hotspot_size": Vector2(181.0, 220.0),
 			"symbol": "○", "color": Color(0.52, 0.91, 1.0)},
 		{"id": "flower_float", "name": "Flower float", "pos": Vector2(371, 218),
-			"z": MIDGROUND_Z, "hotspot_offset": Vector2(4.0, 12.0),
-			"hotspot_size": Vector2(88.0, 88.0),
+			"z": MIDGROUND_Z, "hotspot_offset": Vector2(4.0, 32.0),
+			"hotspot_size": Vector2(108.0, 88.0),
 			"symbol": "✦", "color": Color(1.0, 0.62, 0.78)},
-		{"id": "bubble_fountain", "name": "Bubble fountain", "pos": Vector2(553, 183),
-			"z": MIDGROUND_Z,
+		{"id": "seahorse_fountain", "name": "Seahorse fountain",
+			"pos": Vector2(650, 95), "z": MIDGROUND_Z,
+			"hotspot_offset": Vector2(8.0, 2.0),
+			"hotspot_size": Vector2(170.0, 224.0),
 			"symbol": "○", "color": Color(0.72, 0.94, 1.0)},
 		{"id": "star_float", "name": "Star float",
-			"pos": Vector2(468, 260), "z": MIDGROUND_Z + 0.03,
-			"hotspot_offset": Vector2(0.0, -17.5),
-			"hotspot_size": Vector2(80.0, 80.0),
+			"pos": Vector2(470, 260), "z": MIDGROUND_Z + 0.03,
+			"hotspot_offset": Vector2(-6.0, -12.0),
+			"hotspot_size": Vector2(96.0, 88.0),
 			"color": Color(1.0, 0.82, 0.40)},
 	],
 	"bubble_bath": [
@@ -786,7 +790,7 @@ const INTERACTION_SPECS := {
 	"mermaid_pool:flower_float": {"semantic_action": "open_flower_and_make_ripples",
 		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
 		"sound_frame": 0, "pitch": 1.0},
-	"mermaid_pool:bubble_fountain": {"semantic_action": "raise_and_pop_bubbles",
+	"mermaid_pool:seahorse_fountain": {"semantic_action": "spray_seahorse_fountain",
 		"sound": "castle/bubble_water.ogg", "frame_duration": 0.185,
 		"sound_frame": 0, "pitch": 1.0},
 	"mermaid_pool:star_float": {"semantic_action": "float_and_make_ripples",
@@ -984,6 +988,7 @@ func close() -> void:
 	m.castle_room_action_button = null
 	m.castle_room_back_button = null
 	m.castle_room_buttons.clear()
+	m.g.erase("castle_room_affordance")
 	m.g.erase("castle_dust_bunnies_cleared")
 	m.g.erase("castle_dust_bunny_runner_time")
 	m.g.erase("castle_dining_plates")
@@ -1003,6 +1008,7 @@ func tick(delta: float) -> void:
 	if m.player != null:
 		m.player.vel = Vector3.ZERO
 	fixture_rigs.tick(delta)
+	_tick_item_affordances(delta)
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
@@ -1020,6 +1026,12 @@ func _build_stage() -> void:
 	m.castle_room_world_root.name = "CastleRoomsSprite3DWorld"
 	m.castle_room_world_root.position = WORLD_ORIGIN
 	m.add_child(m.castle_room_world_root)
+	var affordance_halo: Sprite3D = Affordance.make_radial_halo(
+		Affordance.ANIMATION, Vector2.ONE)
+	affordance_halo.name = "CastleTouchAffordance"
+	affordance_halo.visible = false
+	m.castle_room_world_root.add_child(affordance_halo)
+	m.g["castle_room_affordance"] = affordance_halo
 
 	m.castle_room_camera = Camera3D.new()
 	m.castle_room_camera.name = "CastleRoomsCamera"
@@ -1715,6 +1727,12 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	var interaction_spec: Dictionary = INTERACTION_SPECS.get(
 		interaction_key, {}) as Dictionary
 	var v2_visual: Dictionary = fixture_rigs.visual_spec(room_id, item_id)
+	# The generated v2 pool fixtures removed the iconic rainbow flow and turned
+	# the right-hand fountain into plumbing. The regenerated room deliberately
+	# uses exact room-derived atlases so its four resting interaction subjects
+	# remain visible, coherent, and aligned with their touch targets.
+	if room_id == "mermaid_pool":
+		v2_visual = {}
 	if not interaction_spec.is_empty() or not v2_visual.is_empty():
 		item_data = item_data.duplicate(true)
 		item_data.merge(interaction_spec, true)
@@ -1937,9 +1955,18 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			/ maxf(0.001, visual_scale)
 		hotspot_local_size = authored_hotspot_size \
 			/ maxf(0.001, runtime_scale)
+	var affordance_kind: String = Affordance.INTERACTION \
+		if item_data.has("room_destination") else Affordance.ANIMATION
+	var affordance_size := Vector2(
+		maxf(1.4, visible_frame_rect.size.x * piece.pixel_size
+			* visual_scale * 1.18),
+		maxf(1.4, visible_frame_rect.size.y * piece.pixel_size
+			* visual_scale * 1.18))
 	m.castle_room_item_sprites[item_id] = {
 		"sprite": piece,
 		"hotspot": hotspot,
+		"affordance_kind": affordance_kind,
+		"affordance_size": affordance_size,
 		"data": item_data,
 		"contact_foot": contact_foot,
 		"contact_radius": contact_radius,
@@ -3072,6 +3099,62 @@ func _update_touch_hotspots() -> void:
 	for item_id_value: Variant in m.castle_room_item_sprites:
 		var record: Dictionary = m.castle_room_item_sprites[item_id_value]
 		_update_touch_hotspot(record)
+
+func _tick_item_affordances(_delta: float) -> void:
+	var halo: Sprite3D = m.g.get("castle_room_affordance") as Sprite3D
+	if halo == null or not is_instance_valid(halo):
+		return
+	var candidate_ids: Array[String] = []
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var item_id: String = String(item_id_value)
+		var record: Dictionary = m.castle_room_item_sprites[item_id_value]
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		var hotspot: Button = record.get("hotspot") as Button
+		if sprite != null and is_instance_valid(sprite) and sprite.visible \
+				and hotspot != null and hotspot.visible \
+				and not bool(sprite.get_meta("busy", false)):
+			candidate_ids.append(item_id)
+	if candidate_ids.is_empty():
+		halo.visible = false
+		return
+	candidate_ids.sort()
+	var time_now: float = Time.get_ticks_msec() / 1000.0
+	var tour_index: int = int(floor(
+		time_now / AFFORDANCE_TOUR_SECONDS)) % candidate_ids.size()
+	var target_id: String = candidate_ids[tour_index]
+	var target_record: Dictionary = m.castle_room_item_sprites[target_id]
+	var target_sprite: Sprite3D = target_record.get("sprite") as Sprite3D
+	if target_sprite == null or not is_instance_valid(target_sprite):
+		halo.visible = false
+		return
+	var affordance_kind: String = String(target_record.get(
+		"affordance_kind", Affordance.ANIMATION))
+	var affordance_size: Vector2 = target_record.get(
+		"affordance_size", Vector2.ONE) as Vector2
+	if String(halo.get_meta("affordance_target", "")) != target_id \
+			or String(halo.get_meta(
+				"affordance_kind", "")) != affordance_kind \
+			or halo.get_meta("affordance_size", Vector2.ZERO) != affordance_size:
+		Affordance.configure_radial_halo(halo, affordance_kind, affordance_size)
+		halo.set_meta("affordance_target", target_id)
+		halo.set_meta("affordance_size", affordance_size)
+	var slot_phase: float = fposmod(
+		time_now, AFFORDANCE_TOUR_SECONDS) / AFFORDANCE_TOUR_SECONDS
+	var envelope: float = smoothstep(0.0, 0.16, slot_phase) \
+		* (1.0 - smoothstep(0.82, 1.0, slot_phase))
+	var tint: Color = Affordance.color(affordance_kind, false)
+	tint.a *= envelope
+	halo.modulate = tint
+	var wave: float = sin(time_now * Affordance.pulse_speed(
+		affordance_kind, false))
+	var pulse: float = 1.0 + wave * Affordance.pulse_amount(
+		affordance_kind, false)
+	halo.position = target_sprite.position + Vector3(0.0, 0.0, -0.035)
+	halo.rotation.z = target_sprite.rotation.z
+	var base_scale: Vector3 = halo.get_meta(
+		"affordance_base_scale", Vector3.ONE) as Vector3
+	halo.scale = base_scale * pulse
+	halo.visible = envelope > 0.01
 
 func _update_touch_hotspot(record: Dictionary) -> void:
 	if m.castle_room_camera == null or m.castle_room_stage == null:
