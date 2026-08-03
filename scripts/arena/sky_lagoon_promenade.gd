@@ -496,6 +496,11 @@ func _tick_hold_travel(delta: float) -> void:
 	if held < HOLD_TRAVEL_S:
 		return
 	var press: Vector2 = vp.get_mouse_position()
+	# The emulated pointer is blind to touch ownership: without this the child
+	# holding the PLAY medallion or resting a thumb in the movement bay also
+	# commanded travel toward that corner of the screen.
+	if m.touch_ui != null and m.touch_ui.reserved_zone_hit(press):
+		return
 	if not _animal_at(press).is_empty() or not _target_at(press).is_empty():
 		return
 	_set_walk_goal(press)

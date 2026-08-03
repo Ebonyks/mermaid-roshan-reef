@@ -11,6 +11,7 @@ const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
+const ImpClips := preload("res://scripts/opera_imp_clips.gd")
 
 const SLUGS := {
 	"chef": "chef",
@@ -230,6 +231,9 @@ var fx_slash_arc_texture: Texture2D = null
 var fx_dust_puff_texture: Texture2D = null
 var fx_stolen_sparkle_texture: Texture2D = null
 var fx_dizzy_stars_texture: Texture2D = null
+## True while the crew wears the career costume: their states are clips over
+## that costume, never a swap back to the base purple imp.
+var costumed_crew := false
 var swipe_stroke := 0
 var combat_miss_cool := 0.0
 var imp_state_cache: Dictionary = {}
@@ -476,11 +480,20 @@ func _build_world() -> void:
 	fx_dust_puff_texture = _load_if_exists("res://assets/opera/worlds/props/fx_dust_puff.png")
 	fx_stolen_sparkle_texture = _load_if_exists("res://assets/opera/worlds/props/fx_stolen_sparkle.png")
 	fx_dizzy_stars_texture = _load_if_exists("res://assets/opera/worlds/props/fx_dizzy_stars.png")
-	if not competition.is_cooperative() and rival_actor != null and rival_actor.texture != null:
-		# crews wear the career's special imp costume; the base-imp set keeps
-		# the bopped state until per-costume state sprites land (codex handoff)
+	costumed_crew = not competition.is_cooperative() \
+		and rival_actor != null and rival_actor.texture != null
+	if costumed_crew:
+		# The crew wears the career's special imp costume. Painted per-costume
+		# state art is preferred whenever it exists; otherwise the costume
+		# texture is KEPT and the state plays as a transform clip. A costumed
+		# imp must never pop back to the base purple imp mid-scuffle — that
+		# reads as a different character every time she is bopped.
 		imp_idle_texture = rival_actor.texture
 		captain_idle_texture = rival_actor.texture
+		imp_bopped_texture = _load_if_exists(ImpClips.state_path(career_id, "bopped"))
+		# the captain wears the same costume — the gold ring marks him, not
+		# a second set of art
+		captain_bopped_texture = imp_bopped_texture
 
 	lens_layer = Control.new()
 	lens_layer.name = "MagnifierLensLayer"
@@ -814,7 +827,9 @@ func _spawn_stage_imp(path_t: float, captain: bool, seed_index: int) -> void:
 	node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	node.size = Vector2(150, 150) if captain else Vector2(118, 118)
-	node.pivot_offset = node.size * Vector2(0.5, 1.0)   # pivot at the feet
+	# Pivot at the imp's feet: squash, stretch, and the hop lean all keep her
+	# planted on the painted route without touching the placement maths.
+	node.pivot_offset = node.size * Vector2(0.5, 1.0)
 	combat_layer.add_child(node)
 	var feet := StagePaths.point_along(stage_points, path_t)
 	var imp := {
@@ -895,7 +910,10 @@ func _combat_strike(from: Vector2, to: Vector2) -> void:
 		var node := imp.get("node") as TextureRect
 		if node == null or not is_instance_valid(node):
 			continue
-		var center: Vector2 = imp.get("center", node.position + node.size * 0.5)
+		# aim at where the imp is actually drawn: the pose tick publishes the
+		# drawn centre and a depth-scaled reach, and _imp_centre backstops it
+		# from the node's own pivot/scale if a stroke ever lands first
+		var center: Vector2 = imp.get("center", _imp_centre(node))
 		var reach: float = float(imp.get("reach", node.size.x * 0.62))
 		# the counter window: an imp caught in its recovery is a bigger,
 		# friendlier target than one still on its feet
@@ -947,14 +965,15 @@ func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
 	if popped:
 		imp["popped"] = true
 		if node != null and is_instance_valid(node):
+			# Painted per-costume state art when it exists; when it does not the
+			# imp KEEPS her own texture and the pop clip carries the state. A
+			# costumed imp must never pop back to the base purple imp — that
+			# reads as a different character every time she is bopped.
 			var bopped := _imp_texture(imp, "bopped")
 			combat_marks.append({"kind": "dizzy", "pos": at, "t": 0.0, "life": 0.62})
 			if bopped != null:
 				node.texture = bopped
-			var spin := node.create_tween()
-			spin.tween_property(node, "rotation", 0.6, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-			spin.parallel().tween_property(node, "modulate:a", 0.0, 0.62)
-			spin.tween_callback(node.queue_free)
+			_pop_imp_node(node)
 	# (a survivor needs no squash tween: the brain puts it straight into the
 	# stagger pose, which the pose renderer plays every frame)
 	_bop_burst_at(at, false)
@@ -969,6 +988,33 @@ func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
 	# one gesture, bonus folded in: a pop that finishes the beat must not
 	# spill its sparkle bonus into the next phase
 	_register_bop(1.0 + bonus, 1.0)
+
+
+func _imp_centre(node: Control) -> Vector2:
+	# Where the sprite is drawn: a Control scales about its pivot, so the feet
+	# pivot the roaming imps use puts their centre above their position.
+	var half := node.size * 0.5
+	return node.position + node.pivot_offset + node.scale * (half - node.pivot_offset)
+
+
+func _pop_imp_node(node: TextureRect) -> void:
+	# Re-anchor to the sprite's centre so the shoo-off spins and squashes about
+	# the imp instead of about her feet, keeping her where she was standing.
+	var half := node.size * 0.5
+	var centre := _imp_centre(node)
+	node.pivot_offset = half
+	node.position = centre - half
+	node.rotation = 0.0
+	var depth := maxf(0.2, (node.scale.x + node.scale.y) * 0.5)
+	node.scale = Vector2(depth, depth) * ImpClips.bopped_squash()
+	node.modulate = ImpClips.bopped_tint()
+	var stretch := Vector2(depth, depth) * ImpClips.bopped_stretch()
+	var pop := node.create_tween()
+	pop.tween_property(node, "scale", stretch, 0.18).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	pop.parallel().tween_property(node, "rotation", ImpClips.bopped_spin(), 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	pop.parallel().tween_property(node, "modulate:a", 0.0, ImpClips.duration("bopped"))
+	pop.tween_callback(node.queue_free)
+
 
 
 func _register_bop(amount: float, quality: float) -> void:
