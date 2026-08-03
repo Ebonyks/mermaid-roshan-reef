@@ -467,6 +467,67 @@ built as a **place** (section 7): Chapter 5 moves back into it. The remix is
 
 ---
 
+## 14. THE ASTRONAUT ENGINEER SENDS THE INVITATIONS (owner ruling)
+
+**Her party role: she designs the invitations and launches them to her friends
+by bubble-rocket — early in the process.**
+
+This is the strongest single fit in the chapter, and it settles several open
+questions at once:
+
+- **It is an honest job, not a forced one.** A rocket's whole purpose is
+  *sending something far away*. Invitations are the one party item that must
+  travel. A four-year-old joins those two ideas instantly.
+- **It replaces the weak "birthday firework" framing** and frees the rocket's
+  *departure* meaning for Chapter 4, where the same launch means leaving for
+  the fire mountain. Same skill, different stakes — exactly the cross-chapter
+  arc section 13 asks for.
+- **It removes the racer from invitation duty.** The racer stays the
+  transition character (section 11); the astronaut owns invitations. No job
+  does double duty and neither is forced.
+- **The room already fits:** the Mermaid Pool, where bubbles rise and carry
+  things up and away.
+
+### It is the chapter's FIRST act (an ordering constraint)
+
+Invitations go out before anything else — that is simply how a party works,
+and a child knows it. So the astronaut act should be the chapter's opening
+job, either as the only one available at first or as the strongly-guided
+first choice. The rooms stay freely visitable afterwards.
+
+### It creates the chapter's central interlock: THE GUEST COUNT
+
+Sending the invitations **establishes how many friends are coming**, and that
+number then drives the other jobs:
+
+- the **candy maker** fills a party bag for every guest,
+- the **farmer** packs that many picnic portions,
+- the **pastry chef** bakes a cake big enough to share out,
+- the **nursery nurse** knows how many little ones need settling,
+- the **painter** knows how big the hall must be dressed,
+- and the **detective** notices when an invitation comes *back* — a guest who
+  did not reply is a guest who might be missing.
+
+That is the dependency web the interlock pass was asked to design, and it now
+has a natural source: one number, established in act one, felt everywhere
+after. It also gives the imps a motive with teeth on floor 1 — an invitation is
+the one party item that is literally *a ticket*, and they never got one.
+
+### Phase mapping (existing beats, no mechanical change)
+
+The shipped astronaut phases carry it as-is: **PIPES** routes the bubble
+tubes, **PATCH** seals the leaks, **VALVE** pressurises, **BOOST** builds
+thrust, **LAUNCH** sends them off — the invitations fly to every friend. The
+goal prop (`goal_astronaut`, the rocket) stays; what changes is what the child
+understands it is *for*.
+
+**Open sub-question:** should the child see *who* the invitations go to — i.e.
+does the launch beat name the guests as they fly out (Huluu, Evie, Wacky,
+Harper and Fiona...)? That would make the guest list explicit, set up every
+later callback, and cost only voice lines. Recommended.
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
