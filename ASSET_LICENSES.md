@@ -1483,3 +1483,406 @@ Runtime fluid, audio, review, and provenance artifacts:
 - `assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json` - exact kitchen/bath/pool prompt/hash/review evidence.
 - `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json` - exact playroom/craft/pool prompt/hash/review evidence.
 - `assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json` - exact four-pan prompt/hash/rejection/review evidence.
+
+## Opera Codex art regeneration - 2026-08-02
+
+OpenAI built-in ImageGen natives and project-authored non-destructive derivatives/composites. Copyright Mermaid Roshan LLC; no external asset license. Approved in-repo Opera cards used by Path-A widget compositions retain their existing provenance and licenses.
+
+- `assets/opera/worlds/backdrops/stage_astronaut_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_astronaut_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_astronaut_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_astronaut_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_ballerina_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_ballerina_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_ballerina_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_ballerina_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_boxer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_boxer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_boxer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_boxer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_candymaker_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_candymaker_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_candymaker_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_candymaker_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_chef_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_chef_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_chef_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_chef_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_detective_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_detective_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_detective_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_detective_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_doctor_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_doctor_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_doctor_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_doctor_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_farmer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_farmer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_farmer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_farmer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_magician_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_magician_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_magician_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_magician_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_nursery_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_nursery_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_nursery_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_nursery_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_painter_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_painter_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_painter_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_painter_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_popstar_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_popstar_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_popstar_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_popstar_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_racer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_racer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_racer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_racer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_astronaut_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_astronaut_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_astronaut_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_astronaut_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_ballerina_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_ballerina_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_ballerina_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_ballerina_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_boxer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_boxer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_boxer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_boxer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_candymaker_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_candymaker_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_candymaker_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_candymaker_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_chef_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_chef_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_chef_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_chef_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_detective_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_detective_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_detective_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_detective_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_doctor_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_doctor_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_doctor_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_doctor_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_farmer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_farmer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_farmer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_farmer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_magician_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_magician_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_magician_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_magician_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_nursery_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_nursery_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_nursery_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_nursery_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_painter_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_painter_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_painter_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_painter_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_popstar_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_popstar_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_popstar_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_popstar_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_racer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_racer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_racer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_racer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/props/goal_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/stage/finale_stage_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/stage/finale_stage_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/stage/finale_stage_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/stage/finale_stage_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/ui/magnifier.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/ui/station_marker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/ui/task_card_frame.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_doctor_bubbles.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_nursery_bubbles.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_shared_shine.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_catch_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_catch_nursery_cradle.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_catch_nursery_pillows.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_astronaut_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_astronaut_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_ballerina_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_ballerina_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_farmer_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_farmer_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_magician_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_magician_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_popstar.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_popstar_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_popstar_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_astronaut_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_astronaut_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_ballerina_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_ballerina_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_candymaker_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_candymaker_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_chef_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_chef_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_doctor_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_doctor_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_magician_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_magician_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_painter_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_painter_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_popstar.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_popstar_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_popstar_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_racer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_racer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_racer_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_astronaut_success.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_chef_success.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_racer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_racer_success.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_shared_needle.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_astronaut_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_ballerina_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_boxer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_boxer_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_candymaker_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_detective.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_detective_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_doctor_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_farmer_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_magician_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_painter_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_popstar.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_popstar_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_shared_pick.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_candymaker_fill.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_candymaker_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_chef_fill.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_chef_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_nursery_fill.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_nursery_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_painter_fill.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_painter_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_boxer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_boxer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_farmer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_nursery_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_racer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_racer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_shared_arrow_down.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_shared_arrow_lr.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_astronaut_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_astronaut_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_boxer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_boxer_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_boxer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_boxer_success.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_candymaker_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_candymaker_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_chef_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_chef_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_doctor_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_doctor_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_farmer_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_farmer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_painter_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_painter_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_racer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_racer_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_racer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_ballerina_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_chef_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_detective.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_detective_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_doctor_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_magician_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_painter_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_ballerina_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_boxer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_boxer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_candymaker_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_detective.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_detective_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_farmer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_magician_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_nursery_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_popstar.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_popstar_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_shared_hit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_finale_master_2048.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_basin_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_basin_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_catch_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_gauge_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_gauge_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_gauge_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_push_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_push_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_push_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_push_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_p7_gameplay_scale_1280x720.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_01.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_02.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_03.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_04.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_05.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_06.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_07.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/candymaker_chutes_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/doctor_xray_viewer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/goal_nursery_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/magician_rope_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/magnifier_alpha_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/magnifier_chroma_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/opera_stage_finale_master_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_astronaut_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_ballerina_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_boxer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_candymaker_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_chef_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_detective_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_doctor_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_farmer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_magician_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_nursery_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_painter_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_popstar_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_racer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/station_marker_alpha_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/station_marker_chroma_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/task_card_frame_alpha_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/task_card_frame_chroma_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_astronaut_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_ballerina_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_boxer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_candymaker_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_chef_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_detective_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_doctor_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_farmer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_magician_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_nursery_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_painter_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_popstar_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
