@@ -21,6 +21,7 @@ const CHILD_MENU_SYSTEMS := [
 	{"id": "intro", "path": "res://scripts/intro_overlay.gd", "token": "adorn_panel"},
 	{"id": "pause", "path": "res://scripts/pause_menu.gd", "token": "PauseShell"},
 	{"id": "craft", "path": "res://scripts/craft_studio.gd", "token": "adorn_panel"},
+	{"id": "castle_logo", "path": "res://scripts/castle_logo_studio.gd", "token": "CastleLogoShellCrest"},
 	{"id": "wardrobe", "path": "res://scripts/wardrobe_ui.gd", "token": "style_picture_button"},
 	{"id": "stickers", "path": "res://scripts/wardrobe_ui.gd", "token": "StickerBook"},
 	{"id": "critters", "path": "res://scripts/collection_system.gd", "token": "CritterBook"},
@@ -63,14 +64,14 @@ func _check_storybook_coverage() -> void:
 	for path: String in GAMEPLAY_HUD_SURFACES:
 		var source: String = FileAccess.get_file_as_string(path)
 		_check(source.contains("StorybookUI.add_hud_panel"), "%s uses a shared Storybook HUD surface" % path.get_file())
-	_check(CHILD_MENU_SYSTEMS.size() == 14,
-		"menu census covers all 14 child-facing systems")
+	_check(CHILD_MENU_SYSTEMS.size() == 15,
+		"menu census covers all 15 child-facing systems")
 	var developer_source: String = FileAccess.get_file_as_string(
 		"res://scripts/dev_mode.gd")
 	_check(developer_source.contains("DeveloperStorybookPanel")
 		and developer_source.contains("DeveloperShellCrest")
 		and developer_source.contains("_style_parent_controls"),
-		"15th interactive system gives parent Developer Mode Storybook styling")
+		"16th interactive system gives parent Developer Mode Storybook styling")
 	for row: Dictionary in CHILD_MENU_SYSTEMS:
 		var path: String = String(row["path"])
 		var menu_source: String = FileAccess.get_file_as_string(path)
@@ -189,6 +190,28 @@ func _init() -> void:
 	for node: Node in main.craft_layer.find_children("CraftSwatch_*", "", true, false):
 		_check(_touch_size(node as Control).x >= 110.0 and _touch_size(node as Control).y >= 110.0, "craft swatch is at least 110x110")
 	main._close_craft()
+	await process_frame
+
+	# Castle logo: six direct paints, eight picture marks, and one large preview.
+	main._open_castle_logo()
+	await process_frame
+	_check_target(main.castle_logo_layer, "CastleLogoBackButton",
+		"castle logo has a neutral thumb-sized back")
+	_check_target(main.castle_logo_layer, "CastleLogoFinishButton",
+		"castle logo finish is a 150px-class primary action", Vector2(150, 150))
+	_check(_count_named(main.castle_logo_layer, "CastleLogoColor_*") == 6,
+		"castle logo offers five solid paints plus rainbow")
+	_check(_count_named(main.castle_logo_layer, "CastleLogoSymbol_*") == 8,
+		"castle logo offers eight child-readable picture marks")
+	_check(_find(main.castle_logo_layer, "CastleLogoPreview") != null
+		and _find(main.castle_logo_layer, "CastleLogoShellCrest") != null,
+		"castle logo has a live emblem preview in the shared shell frame")
+	for node: Node in main.castle_logo_layer.find_children(
+			"CastleLogoColor_*", "", true, false):
+		_check(_touch_size(node as Control).x >= 110.0
+			and _touch_size(node as Control).y >= 110.0,
+			"castle logo paint is at least 110x110")
+	main._close_castle_logo()
 	await process_frame
 
 	# Wardrobe and books share the same back/finish grammar.

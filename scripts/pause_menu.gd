@@ -176,7 +176,9 @@ func toggle_pause() -> void:
 			focus_owner.release_focus()
 
 func _has_leave_context() -> bool:
-	return m.mg_kind != "" or m.game != "" or m.wardrobe_layer != null or m.craft_layer != null or m.stickers_layer != null or m.collection_layer != null or m.companion_layer != null or m.companion_care_layer != null
+	return m.mg_kind != "" or m.game != "" or m.wardrobe_layer != null \
+		or m.craft_layer != null or m.castle_logo_layer != null \
+		or m.stickers_layer != null or m.collection_layer != null or m.companion_layer != null or m.companion_care_layer != null
 
 func _leave_current_activity() -> void:
 	# This is a voluntary, neutral exit -- never a loss and never a free win.
@@ -200,6 +202,9 @@ func _leave_current_activity() -> void:
 		return
 	if m.wardrobe_layer != null:
 		m._close_wardrobe()
+		return
+	if m.castle_logo_layer != null:
+		m._close_castle_logo()
 		return
 	if m.craft_layer != null:
 		m._close_craft()

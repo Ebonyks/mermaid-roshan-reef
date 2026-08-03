@@ -570,6 +570,8 @@ func _process(delta: float) -> void:
 		return   # a 2D minigame overlay is up — stick input belongs to IT (snowball rolling!)
 	if "craft_layer" in _m0 and _m0.craft_layer != null:
 		return   # frozen while the craft studio is open (was drifting behind the overlay)
+	if "castle_logo_layer" in _m0 and _m0.castle_logo_layer != null:
+		return   # frozen while the castle-logo table is open
 	if "collection_layer" in _m0 and _m0.collection_layer != null:
 		vel = Vector3.ZERO
 		return   # the icon-led Critter Book is a full-screen touch overlay

@@ -489,9 +489,10 @@ const ROOM_ITEMS := {
 		{"id": "idea_board", "name": "Idea board", "pos": Vector2(377, 103),
 			"z": 0.70,
 			"symbol": "✦", "color": Color(1.0, 0.78, 0.45)},
-		{"id": "paint_table", "name": "Paint jars", "pos": Vector2(400, 272),
+		{"id": "paint_table", "name": "Castle logo table", "pos": Vector2(400, 272),
 			"z": MIDGROUND_Z,
-			"symbol": "●", "color": Color(0.60, 0.90, 0.82)},
+			"symbol": "♛", "color": Color(0.60, 0.90, 0.82),
+			"roleplay_action": "castle_logo"},
 		{"id": "palette", "name": "Rainbow palette", "pos": Vector2(0, 320),
 			"z": FOREGROUND_Z,
 			"symbol": "●", "color": Color(1.0, 0.55, 0.72)},
@@ -949,6 +950,9 @@ func close() -> void:
 	_close_kitchen_menu()
 	_set_fridge_close_blocked(false)
 	fixture_rigs.teardown()
+	if m.castle_logo_layer != null:
+		m._close_castle_logo()
+	m._castle_logo_ref().clear_room_display()
 	_restore_previous_environment()
 	if bool(m.g.get("castle_roleplay_sleeping", false)):
 		m._set_world_controls_enabled(true, "castle_roleplay_sleep")
@@ -1380,6 +1384,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_rebuild_depth_layers(room_id)
 	_rebuild_touch_items(room_id)
 	_rebuild_room_links(room_id)
+	m._castle_logo_ref().refresh_room_display()
 	if room_id == "dining_room":
 		_sync_dining_plates()
 	elif room_id == "royal_bedroom":
@@ -2005,6 +2010,8 @@ func _activate_roleplay_item(roleplay_action: String, item_id: String,
 			_cycle_home_movie(sprite, item_data)
 		"relax":
 			_relax_on_furniture(sprite, item_data)
+		"castle_logo":
+			_open_castle_logo_station(sprite, item_data)
 		"dress_up":
 			_roleplay_prop_bounce(sprite, item_data)
 			_item_burst(sprite.position, Color(1.0, 0.67, 0.82), 8)
@@ -2015,6 +2022,12 @@ func _activate_roleplay_item(roleplay_action: String, item_id: String,
 		_:
 			push_warning("Unknown castle role-play action: %s (%s)" % [
 				roleplay_action, item_id])
+
+func _open_castle_logo_station(sprite: Sprite3D,
+		item_data: Dictionary) -> void:
+	_roleplay_prop_bounce(sprite, item_data)
+	_item_burst(sprite.position, Color(0.60, 0.90, 0.82), 10)
+	m._open_castle_logo()
 
 func _enter_gallery_room(sprite: Sprite3D,
 		item_data: Dictionary) -> void:
