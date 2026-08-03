@@ -305,6 +305,48 @@ rooms they have raided.
 
 ---
 
+## 11. NO FORCED FITS — jobs may serve the game in other ways (owner direction)
+
+**Rule: do not force a job into the party-prep frame just to complete the set.**
+If a career does not have an honest reason to be birthday preparation, it is
+better used elsewhere — or excused from this chapter entirely. Not every job
+has to be represented in every phase of the game.
+
+**The worked example — the RACECAR DRIVER is a transition, not a party job.**
+"Roshan makes a shell trophy for her party" is a weak reason to exist. What
+the racer is genuinely good at is *movement*: getting from one place to the
+next. So the driver becomes the chapter's **transport character** — the
+interstitial that carries her between stages — rather than a thirteenth
+contribution. This also gives the chapter a rhythm device it currently lacks
+(a short, fast, low-stakes beat between two long careers) and it scales
+naturally into Chapter 3's journey north.
+
+Supporting tech already exists: the legacy race path delegates to `KartGame`,
+`slide_race.gd` ships, and the Fable kit includes train and station models
+used by the northern kingdom.
+
+**The three candidate categories for any weak-fitting job:**
+1. **Party contribution** — it meets a real guest need (the core set).
+2. **Structural role** — transitions, traversal, interstitials, or the hub
+   itself (the racer; potentially the astronaut, whose rocket may serve
+   Chapter 4's departure better than a birthday firework).
+3. **Excused from Chapter 2** — it keeps existing as playable content without
+   being load-bearing in this chapter's plot, and may headline a later day.
+
+**How this changes the review:** the party-function pass (in flight) was asked
+to flag every weak or redundant contribution and rank all thirteen by how
+legible they are to a four-year-old. Those flags are now *permission slips*,
+not problems to solve — anything at the bottom of that ranking gets reassigned
+to category 2 or 3 rather than being argued into the party.
+
+**Consequence for the party table:** it no longer needs exactly thirteen
+slots. The table holds however many pieces the honest set produces, and the
+remaining rooms/careers stay available as play without pretending to be
+preparation. This is also healthier for Chapter 5, which revisits the stages
+as cozy content rather than as a checklist.
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
@@ -319,9 +361,13 @@ rooms they have raided.
    (crate table + Lamba party hat + the seven helper actors) and defer props.
    Note the room-distribution change (section 10) adds a small per-room job
    affordance but removes nothing.
-6. **Room mapping (section 10):** confirm the thirteen-show placement, and
-   rule on the racer — cloud movie lounge, or the outdoor courtyard alongside
-   the farmer?
+6. **Room mapping (section 10):** confirm the placement, noting the racer is
+   now proposed as the chapter's transition character (section 11) rather
+   than a room-bound party job.
+7. **Which jobs get excused?** Once the party-function ranking lands, confirm
+   how many of the bottom-ranked careers become structural/excused rather
+   than forced contributions — i.e. how many slots the party table really
+   has.
 5. ~~Chapter-1 handoff~~ — **ANSWERED (see section 9):** chapter 1 ends with
    the giant dust bunny beaten and everyone going to bed; the party is named
    in the last lines before sleep. Days are the content gate, so the real
