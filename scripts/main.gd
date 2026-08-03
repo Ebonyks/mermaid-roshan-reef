@@ -4,6 +4,7 @@ extends Node3D
 const StoryArtFactory = preload("res://scripts/story_art.gd")
 const LandmarkArtFactory = preload("res://scripts/landmark_art.gd")
 const CollectionSystemLogic = preload("res://scripts/collection_system.gd")
+const InteractionAffordanceLogic = preload("res://scripts/interaction_affordance.gd")
 const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd")
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
 const LivingWorldLogic = preload("res://scripts/living_world.gd")
@@ -3561,7 +3562,8 @@ func touch_auto_vertical() -> float:
 func _touch_add_item(id: String, label: String, pos: Vector3,
 		node: Node3D = null, activation_radius: float = 6.0,
 		discover_radius: float = 32.0, verb: String = "PLAY",
-		payload: Variant = null, enabled: bool = true) -> void:
+		payload: Variant = null, enabled: bool = true,
+		affordance_kind: String = InteractionAffordanceLogic.INTERACTION) -> void:
 	touch_interactables.append({
 		"id": id,
 		"label": label,
@@ -3572,6 +3574,7 @@ func _touch_add_item(id: String, label: String, pos: Vector3,
 		"verb": verb,
 		"payload": payload,
 		"enabled": enabled,
+		"affordance_kind": InteractionAffordanceLogic.normalize(affordance_kind),
 	})
 
 func _populate_touch_interactables() -> void:

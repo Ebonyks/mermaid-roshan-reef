@@ -170,9 +170,9 @@ EXPECTED_ASSETS: dict[str, tuple[str, str, str, str, tuple[str, ...]]] = {
 		"mermaid_pool", "flower_float", "open_flower_and_make_ripples", "bubble_water.ogg",
 		("flower_float",),
 	),
-	"mermaid_pool_bubble_fountain": (
-		"mermaid_pool", "bubble_fountain", "raise_and_pop_bubbles", "bubble_water.ogg",
-		("bubble_fountain",),
+	"mermaid_pool_seahorse_fountain": (
+		"mermaid_pool", "seahorse_fountain", "spray_seahorse_fountain", "bubble_water.ogg",
+		("seahorse_fountain",),
 	),
 	"bubble_bath_rubber_duck": (
 		"bubble_bath", "rubber_duck", "squeak_dive_and_pop_up", "duck_squeak.ogg",

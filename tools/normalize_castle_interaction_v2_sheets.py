@@ -53,6 +53,10 @@ def sha256(path: Path) -> str:
             digest.update(chunk)
     return digest.hexdigest()
 
+def repository_text_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 
 def alpha_bbox(image: Image.Image) -> tuple[int, int, int, int]:
     alpha = image.getchannel("A")
@@ -542,7 +546,7 @@ def main() -> int:
         report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
         entries = report.get("assets", [])
         errors: list[str] = []
-        if report.get("tool_sha256") != sha256(Path(__file__)):
+        if report.get("tool_sha256") != repository_text_sha256(Path(__file__)):
             errors.append("normalization tool hash differs from its report")
         if int(report.get("schema_version", 0)) != 2:
             errors.append("normalization report schema is not 2")
@@ -604,7 +608,7 @@ def main() -> int:
             "schema_version": 2,
             "generated_on": "2026-08-01",
             "tool": "tools/normalize_castle_interaction_v2_sheets.py",
-            "tool_sha256": sha256(Path(__file__)),
+            "tool_sha256": repository_text_sha256(Path(__file__)),
             "method": "interior_alpha_recovery_then_fixed_pivot_translation_and_optional_uniform_scale",
             "transactional": True,
             "one_time_guard": True,

@@ -2,6 +2,8 @@ extends SceneTree
 # Interaction-language integration: proximity advertises, first tap selects,
 # assisted movement approaches, and only a second explicit verb activates.
 
+const Affordance := preload("res://scripts/interaction_affordance.gd")
+
 var main: Node3D
 var failures := 0
 
@@ -19,6 +21,11 @@ func _init() -> void:
 	main._populate_touch_interactables()
 	if main.touch_interactables.size() < main.friends.size():
 		_bad("reef registry omitted core friends")
+	for touch_target_value: Variant in main.touch_interactables:
+		var touch_target: Dictionary = touch_target_value as Dictionary
+		if String(touch_target.get("affordance_kind", "")) != Affordance.INTERACTION:
+			_bad("world activity missing deep-blue interaction affordance")
+			break
 
 	var friend: Dictionary = main.friends[0]
 	var friend_node: Node3D = friend["node"]
@@ -100,7 +107,16 @@ func _init() -> void:
 	var promenade_ids: Dictionary = {}
 	for target_value in promenade_targets:
 		var promenade_target: Dictionary = target_value as Dictionary
-		promenade_ids[String(promenade_target.get("id", ""))] = true
+		var promenade_id: String = String(promenade_target.get("id", ""))
+		promenade_ids[promenade_id] = true
+		var expected_affordance: String = Affordance.INTERACTION \
+			if promenade_id == "castle_gate" else Affordance.ANIMATION
+		var highlight: Sprite3D = promenade_target.get("highlight") as Sprite3D
+		if String(promenade_target.get(
+				"affordance_kind", "")) != expected_affordance:
+			_bad("promenade affordance category wrong for %s" % promenade_id)
+		elif highlight == null or not highlight.visible:
+			_bad("promenade idle affordance hidden for %s" % promenade_id)
 	for expected: String in ["slide", "swing", "seesaw", "castle_gate"]:
 		if not promenade_ids.has(expected):
 			_bad("promenade interaction missing %s" % expected)
@@ -160,6 +176,10 @@ func _init() -> void:
 	if main.castle_room_detail_tiles.size() != 4 \
 			or main.castle_room_action_button.visible:
 		_bad("Dream House Wing did not build as a native physical gallery")
+	var castle_affordance: Sprite3D = main.g.get(
+		"castle_room_affordance") as Sprite3D
+	if castle_affordance == null:
+		_bad("castle shared affordance card missing")
 	var dream_routes: Array[Dictionary] = [
 		{"item": "gallery_dining_door", "child": "dining_room"},
 		{"item": "gallery_royal_bedroom_door", "child": "royal_bedroom"},
@@ -174,6 +194,8 @@ func _init() -> void:
 		var door_sprite: Sprite3D = route_record.get("sprite") as Sprite3D
 		var door_hotspot: Button = route_record.get("hotspot") as Button
 		if door_sprite == null \
+				or String(route_record.get(
+					"affordance_kind", "")) != Affordance.INTERACTION \
 				or String(door_sprite.get_meta(
 					"room_destination", "")) != child_id \
 				or not bool(door_sprite.get_meta(
@@ -259,6 +281,13 @@ func _init() -> void:
 			or not main.castle_room_item_sprites.has("dining_table") \
 			or not main.castle_room_item_sprites.has("provisions_hutch"):
 		_bad("family dining room did not build native tiles and meal furniture")
+	var hutch_record: Dictionary = main.castle_room_item_sprites.get(
+		"provisions_hutch", {}) as Dictionary
+	if String(hutch_record.get("affordance_kind", "")) != Affordance.ANIMATION \
+			or castle_affordance == null \
+			or String(castle_affordance.get_meta(
+				"affordance_kind", "")) != Affordance.ANIMATION:
+		_bad("local castle prop missing gold animation affordance")
 	rooms._activate_room_item("provisions_hutch")
 	await process_frame
 	var all_six_plates_visible := int(

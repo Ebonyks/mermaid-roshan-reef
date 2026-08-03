@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""Build native-square Pearl Castle dream-house wing art from approved parts.
+"""Build the native Pearl Castle dream-house wing and its 2D card assets.
 
-The room shells are deterministic 2048x2048 compositions of the project's
-approved seamless castle textures. Readable furniture stays on independent
-transparent Sprite3D cards copied non-destructively from the approved Blender
-QA renders. The runtime sees only the centered 2048x1152 gameplay crop, split
-into four non-overlapping 1024x576 cards.
+The room shells remain deterministic 2048x2048 compositions of approved
+Castle textures. Every readable furnishing and physical doorway is extracted
+from one of two accepted, project-original 2D storybook sheets. The rejected
+Blender QA renders remain preserved as historical sources but contribute no
+runtime pixels.
 
-The wing gallery and all five physical portals reuse the approved hall portal.
-
-The ImageGen dining-room concept is composition reference only. No pixel from
-that sub-2K reference enters a runtime asset.
+The runtime sees only unshaded Sprite3D cards. Background gameplay crops are
+split into exact non-overlapping tiles; transparent object cards retain their
+original sheet pixels apart from chroma removal and cell cropping.
 """
 
 from __future__ import annotations
@@ -20,7 +19,6 @@ import hashlib
 import json
 from pathlib import Path
 
-import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter
 
 
@@ -34,6 +32,15 @@ IMAGEGEN_REFERENCE = (
 	ROOT / "assets_src" / "imagegen" / "castle_dream_house_2026-08-01"
 	/ "dining_room_reference_1254.png"
 )
+GENERATED_ROOT = (
+	ROOT / "assets_src" / "imagegen"
+	/ "castle_dream_house_2d_repair_2026-08-02"
+)
+DOOR_CHROMA_SHEET = GENERATED_ROOT / "door_family_sheet_chroma.png"
+DOOR_ALPHA_SHEET = GENERATED_ROOT / "door_family_sheet_alpha.png"
+FURNISHING_CHROMA_SHEET = GENERATED_ROOT / "furnishing_family_sheet_chroma.png"
+FURNISHING_ALPHA_SHEET = GENERATED_ROOT / "furnishing_family_sheet_alpha.png"
+REPAIR_PROMPTS = GENERATED_ROOT / "PROMPTS.md"
 
 MASTER_SIZE = (2048, 2048)
 GAMEPLAY_CROP = (0, 448, 2048, 1600)
@@ -77,30 +84,103 @@ ROOMS = {
 	},
 }
 
-PEARL_QA = ROOT / "assets_src" / "blender" / "qa_pearl_castle_kit"
-ART35_QA = ROOT / "assets_src" / "blender" / "qa_art_pass35"
-PROP_SOURCES = {
-	"dining_table.png": (ART35_QA / "kitchen_table_set.png", "largest"),
-	"dining_seat.png": (PEARL_QA / "pearl_cloud_pouf.png", "all"),
-	"provisions_hutch.png": (PEARL_QA / "pearl_provisions_hutch.png", "all"),
-	"canopy_bed.png": (PEARL_QA / "pearl_canopy_bed.png", "all"),
-	"bedside_table.png": (PEARL_QA / "pearl_bedside_table.png", "all"),
-	"shell_wardrobe.png": (PEARL_QA / "pearl_shell_wardrobe.png", "all"),
-	"story_cushion.png": (PEARL_QA / "pearl_story_cushion.png", "all"),
-	"dream_bed_0.png": (ART35_QA / "dream_bed_0.png", "all"),
-	"dream_bed_1.png": (ART35_QA / "dream_bed_1.png", "all"),
-	"dream_bed_2.png": (ART35_QA / "dream_bed_2.png", "all"),
-	"cloud_settee.png": (PEARL_QA / "pearl_cloud_settee.png", "all"),
-	"cloud_pouf.png": (PEARL_QA / "pearl_cloud_pouf.png", "all"),
-	"shell_arch.png": (PEARL_QA / "pearl_shell_arch.png", "all"),
-	"shell_window.png": (PEARL_QA / "pearl_shell_window.png", "all"),
-	"shell_chandelier.png": (PEARL_QA / "pearl_shell_chandelier.png", "all"),
+FURNISHING_CELLS = {
+	"dining_table.png": (0, 0),
+	"dining_seat.png": (1, 0),
+	"provisions_hutch.png": (2, 0),
+	"meal_plate.png": (3, 0),
+	"canopy_bed.png": (0, 1),
+	"shell_wardrobe.png": (1, 1),
+	"bedside_table.png": (2, 1),
+	"story_cushion.png": (3, 1),
+	"dream_bed_0.png": (0, 2),
+	"dream_bed_1.png": (1, 2),
+	"dream_bed_2.png": (2, 2),
+	"shell_chandelier.png": (3, 2),
+	"cloud_settee.png": (0, 3),
+	"cloud_pouf.png": (1, 3),
+	"movie_screen_frame.png": (2, 3),
+	"shell_popcorn_bowl.png": (3, 3),
 }
 
-HALL_PORTAL_SOURCE = (
-	ROOT / "assets" / "flats" / "castle" / "main_hall_2screen"
-	/ "castle_playroom_portal_cutout_reuse.png"
-)
+# The door sheet is intentionally asymmetric: three portals on the first row,
+# two centered on the second. Regions are generous and never overlap.
+DOOR_SHEET_REGIONS = {
+	"family_wing_portal.png": (0, 0, 560, 512),
+	"family_portal_dining.png": (560, 0, 1024, 512),
+	"family_portal_royal_bedroom.png": (1024, 0, 1536, 512),
+	"family_portal_sleepover_bedroom.png": (250, 512, 760, 1024),
+	"family_portal_movie_lounge.png": (760, 512, 1270, 1024),
+}
+FURNISHED_PREVIEW_PLACEMENTS: dict[str, list[dict[str, object]]] = {
+	"family_gallery": [
+		{"id": "gallery_dining_door", "file": "family_portal_dining.png",
+			"pos": (-40.0, 79.0), "scale": 0.60, "z": 0.86},
+		{"id": "gallery_royal_bedroom_door",
+			"file": "family_portal_royal_bedroom.png",
+			"pos": (200.0, 77.0), "scale": 0.60, "z": 0.87},
+		{"id": "gallery_sleepover_door",
+			"file": "family_portal_sleepover_bedroom.png",
+			"pos": (448.0, 89.0), "scale": 0.60, "z": 0.88},
+		{"id": "gallery_movie_door",
+			"file": "family_portal_movie_lounge.png",
+			"pos": (680.0, 89.0), "scale": 0.60, "z": 0.89},
+	],
+	"dining_room": [
+		{"id": "dining_chandelier", "file": "shell_chandelier.png",
+			"pos": (408.0, -28.0), "scale": 0.68, "z": 0.72},
+		{"id": "provisions_hutch", "file": "provisions_hutch.png",
+			"pos": (33.0, 155.0), "scale": 0.78, "z": 0.82},
+		{"id": "dining_table", "file": "dining_table.png",
+			"pos": (366.0, 264.0), "scale": 1.14, "z": 2.05},
+		{"id": "dining_seat_left", "file": "dining_seat.png",
+			"pos": (175.0, 357.0), "scale": 0.86, "z": 2.32},
+		{"id": "dining_seat_right", "file": "dining_seat.png",
+			"pos": (670.0, 357.0), "scale": 0.86, "z": 2.32,
+			"flip_h": True},
+		*[
+			{"id": f"meal_plate_{index}", "file": "meal_plate.png",
+				"pos": position, "scale": 0.20, "z": 2.46 + index * 0.01}
+			for index, position in enumerate([
+				(277.0, 262.0), (342.0, 248.0), (407.0, 248.0),
+				(472.0, 262.0), (327.0, 290.0), (417.0, 290.0)])
+		],
+	],
+	"royal_bedroom": [
+		{"id": "shell_wardrobe", "file": "shell_wardrobe.png",
+			"pos": (52.0, 164.0), "scale": 0.83, "z": 0.92},
+		{"id": "canopy_bed", "file": "canopy_bed.png",
+			"pos": (353.0, 175.0), "scale": 1.25, "z": 1.20},
+		{"id": "bedside_table", "file": "bedside_table.png",
+			"pos": (681.0, 214.0), "scale": 0.63, "z": 1.42},
+		{"id": "reading_cushion", "file": "story_cushion.png",
+			"pos": (742.0, 349.0), "scale": 0.44, "z": 2.25},
+	],
+	"sleepover_bedroom": [
+		{"id": "sleepover_chandelier", "file": "shell_chandelier.png",
+			"pos": (408.0, -33.0), "scale": 0.54, "z": 0.72},
+		{"id": "dream_bed_0", "file": "dream_bed_0.png",
+			"pos": (83.0, 290.0), "scale": 0.88, "z": 1.90},
+		{"id": "dream_bed_1", "file": "dream_bed_1.png",
+			"pos": (387.0, 287.0), "scale": 0.88, "z": 1.92},
+		{"id": "dream_bed_2", "file": "dream_bed_2.png",
+			"pos": (688.0, 292.0), "scale": 0.88, "z": 1.94},
+	],
+	"movie_lounge": [
+		{"id": "movie_screen", "file": "movie_screen_frame.png",
+			"pos": (356.0, 98.0), "scale": 1.60, "z": 0.76},
+		{"id": "cloud_settee_left", "file": "cloud_settee.png",
+			"pos": (109.0, 351.0), "scale": 0.74, "z": 2.12},
+		{"id": "cloud_settee_right", "file": "cloud_settee.png",
+			"pos": (613.0, 351.0), "scale": 0.74, "z": 2.12,
+			"flip_h": True},
+		{"id": "cloud_pouf", "file": "cloud_pouf.png",
+			"pos": (402.0, 396.0), "scale": 0.62, "z": 2.52},
+		{"id": "movie_popcorn", "file": "shell_popcorn_bowl.png",
+			"pos": (412.0, 333.0), "scale": 0.25, "z": 2.64},
+	],
+}
+
 HALL_SCREEN_A_SOURCE = (
 	ROOT / "assets_src" / "castle" / "main_hall_alignment"
 	/ "main_hall_screen_a_fixture_aligned_master.png"
@@ -232,10 +312,9 @@ def build_room_master(room_id: str, config: dict[str, object]) -> Image.Image:
 			draw_arch(draw, (left, 520, left + 500, 1118),
 				(103, 77, 132, 160), (243, 217, 196, 235), 24)
 	elif feature == "screen_recess":
-		draw.rounded_rectangle((480, 458, 1568, 1032), radius=86,
-			fill=(35, 27, 62, 245), outline=(244, 216, 188, 245), width=34)
-		draw.rounded_rectangle((528, 506, 1520, 984), radius=54,
-			fill=(18, 22, 49, 255), outline=(114, 80, 135, 230), width=18)
+		# The authored 2D movie-screen card supplies the complete surround.
+		# Leaving the wall uninterrupted prevents a doubled picture-frame read.
+		pass
 
 	# Room-specific rugs remain background regions, never duplicated furniture.
 	if room_id == "family_gallery":
@@ -275,33 +354,38 @@ def build_room_master(room_id: str, config: dict[str, object]) -> Image.Image:
 
 
 def largest_alpha_component(image: Image.Image) -> Image.Image:
-	array = np.asarray(image.convert("RGBA"), dtype=np.uint8).copy()
-	mask = array[:, :, 3] > 8
-	height, width = mask.shape
-	seen = np.zeros(mask.shape, dtype=bool)
-	best: list[tuple[int, int]] = []
-	for y, x in np.argwhere(mask):
-		if seen[y, x]:
+	image = image.convert("RGBA")
+	width, height = image.size
+	alpha = bytearray(image.getchannel("A").tobytes())
+	visited = bytearray(width * height)
+	best: list[int] = []
+	for start, value in enumerate(alpha):
+		if value <= 8 or visited[start]:
 			continue
-		seen[y, x] = True
-		queue: deque[tuple[int, int]] = deque([(int(y), int(x))])
-		component: list[tuple[int, int]] = []
+		visited[start] = 1
+		queue: deque[int] = deque([start])
+		component: list[int] = []
 		while queue:
-			cy, cx = queue.popleft()
-			component.append((cy, cx))
-			for ny, nx in ((cy - 1, cx), (cy + 1, cx),
-					(cy, cx - 1), (cy, cx + 1)):
-				if 0 <= ny < height and 0 <= nx < width \
-						and mask[ny, nx] and not seen[ny, nx]:
-					seen[ny, nx] = True
-					queue.append((ny, nx))
+			index = queue.popleft()
+			component.append(index)
+			x = index % width
+			y = index // width
+			for neighbor in (
+					index - 1 if x > 0 else -1,
+					index + 1 if x + 1 < width else -1,
+					index - width if y > 0 else -1,
+					index + width if y + 1 < height else -1):
+				if neighbor >= 0 and alpha[neighbor] > 8 and (
+						not visited[neighbor]):
+					visited[neighbor] = 1
+					queue.append(neighbor)
 		if len(component) > len(best):
 			best = component
-	keep = np.zeros(mask.shape, dtype=bool)
-	for y, x in best:
-		keep[y, x] = True
-	array[:, :, 3] = np.where(keep, array[:, :, 3], 0)
-	return Image.fromarray(array, mode="RGBA")
+	kept_alpha = bytearray(width * height)
+	for index in best:
+		kept_alpha[index] = alpha[index]
+	image.putalpha(Image.frombytes("L", image.size, bytes(kept_alpha)))
+	return image
 
 
 def crop_alpha(image: Image.Image, padding: int = 6) -> Image.Image:
@@ -316,177 +400,173 @@ def crop_alpha(image: Image.Image, padding: int = 6) -> Image.Image:
 	return image.crop((left, top, right, bottom))
 
 
+def grid_cell_box(image: Image.Image, column: int, row: int,
+		columns: int = 4, rows: int = 4) -> tuple[int, int, int, int]:
+	return (
+		round(column * image.width / columns),
+		round(row * image.height / rows),
+		round((column + 1) * image.width / columns),
+		round((row + 1) * image.height / rows),
+	)
+
+
+def extract_sheet_region(sheet: Image.Image,
+		region: tuple[int, int, int, int],
+		largest_only: bool = False) -> Image.Image:
+	image = crop_alpha(sheet.crop(region), padding=4)
+	if largest_only:
+		image = crop_alpha(largest_alpha_component(image), padding=4)
+	return image
+
+
+def generated_record(output_path: Path, source_path: Path,
+		source_region: tuple[int, int, int, int]) -> dict[str, object]:
+	with Image.open(output_path) as image:
+		dimensions = list(image.size)
+	return {
+		"path": output_path.relative_to(ROOT).as_posix(),
+		"dimensions": dimensions,
+		"sha256": sha256(output_path),
+		"source": source_path.relative_to(ROOT).as_posix(),
+		"source_sha256": sha256(source_path),
+		"source_region": list(source_region),
+		"transform": (
+			"built-in ImageGen 2D storybook sheet; flat chroma removed with "
+			"the installed ImageGen helper; deterministic cell crop only"),
+		"blender_runtime_pixels": False,
+	}
+
+
 def build_prop_assets() -> list[dict[str, object]]:
 	records: list[dict[str, object]] = []
-	for output_name, (source_path, mode) in PROP_SOURCES.items():
-		image = Image.open(source_path).convert("RGBA")
-		if mode == "largest":
-			image = largest_alpha_component(image)
-		image = crop_alpha(image)
-		output_path = DREAM_ROOT / output_name
-		image.save(output_path, format="PNG", optimize=True)
-		records.append({
-			"path": output_path.relative_to(ROOT).as_posix(),
-			"dimensions": list(image.size),
-			"sha256": sha256(output_path),
-			"source": source_path.relative_to(ROOT).as_posix(),
-			"source_sha256": sha256(source_path),
-			"transform": "transparent-border crop; largest alpha component only"
-				if mode == "largest" else "transparent-border crop only",
-		})
+	with Image.open(FURNISHING_ALPHA_SHEET) as source:
+		sheet = source.convert("RGBA")
+		for output_name, (column, row) in FURNISHING_CELLS.items():
+			region = grid_cell_box(sheet, column, row)
+			image = extract_sheet_region(
+				sheet, region, largest_only=output_name != "meal_plate.png")
+			output_path = DREAM_ROOT / output_name
+			image.save(output_path, format="PNG", optimize=True)
+			records.append(generated_record(
+				output_path, FURNISHING_ALPHA_SHEET, region))
 	return records
-
-
-def _draw_portal_crest(draw: ImageDraw.ImageDraw, kind: str,
-		accent: tuple[int, int, int, int]) -> None:
-	# The approved stuffie plaque is covered, not edited in place. Bold
-	# pictograms keep every doorway readable without words.
-	draw.ellipse((52, -8, 198, 88), fill=(248, 221, 191, 255),
-		outline=(78, 51, 101, 255), width=6)
-	draw.ellipse((70, 5, 180, 78), fill=accent,
-		outline=(255, 239, 210, 255), width=5)
-	ink = (76, 48, 100, 255)
-	cream = (255, 240, 207, 255)
-	if kind == "house":
-		draw.polygon(((91, 42), (125, 16), (159, 42)),
-			fill=(244, 144, 159, 255), outline=ink)
-		draw.rounded_rectangle((99, 39, 151, 69), radius=5,
-			fill=cream, outline=ink, width=4)
-		draw.rounded_rectangle((119, 50, 132, 69), radius=3,
-			fill=(117, 199, 198, 255), outline=ink, width=3)
-	elif kind == "dining":
-		draw.ellipse((91, 17, 159, 70), fill=cream, outline=ink, width=4)
-		for center_x, center_y, color in (
-				(111, 40, (242, 137, 91, 255)),
-				(129, 34, (112, 193, 139, 255)),
-				(138, 50, (242, 190, 112, 255))):
-			draw.ellipse((center_x - 6, center_y - 6,
-				center_x + 6, center_y + 6), fill=color, outline=ink, width=2)
-		draw.line((82, 22, 82, 67), fill=ink, width=4)
-		draw.line((168, 22, 168, 67), fill=ink, width=4)
-	elif kind == "moon":
-		draw.ellipse((94, 14, 158, 72), fill=(255, 225, 133, 255),
-			outline=ink, width=4)
-		draw.ellipse((117, 9, 165, 60), fill=accent)
-	elif kind == "sleepover":
-		for center_x in (103, 125, 147):
-			draw.regular_polygon((center_x, 42, 12), n_sides=5,
-				rotation=-18, fill=(255, 226, 137, 255), outline=ink)
-		draw.rounded_rectangle((91, 56, 159, 69), radius=6,
-			fill=cream, outline=ink, width=3)
-	elif kind == "movie":
-		draw.rounded_rectangle((87, 17, 163, 70), radius=9,
-			fill=(37, 31, 70, 255), outline=cream, width=5)
-		draw.polygon(((116, 29), (116, 58), (144, 43)),
-			fill=(255, 222, 133, 255), outline=ink)
 
 
 def build_family_portal_assets() -> list[dict[str, object]]:
-	source = Image.open(HALL_PORTAL_SOURCE).convert("RGBA")
-	styles = {
-		"family_wing_portal.png": ("house", (188, 226, 218, 255)),
-		"family_portal_dining.png": ("dining", (244, 185, 191, 255)),
-		"family_portal_royal_bedroom.png": ("moon", (177, 214, 232, 255)),
-		"family_portal_sleepover_bedroom.png": (
-			"sleepover", (213, 185, 230, 255)),
-		"family_portal_movie_lounge.png": ("movie", (187, 170, 221, 255)),
-	}
 	records: list[dict[str, object]] = []
-	variants: dict[str, Image.Image] = {}
-	for output_name, (kind, accent) in styles.items():
-		image = source.copy()
-		_draw_portal_crest(ImageDraw.Draw(image, "RGBA"), kind, accent)
-		output_path = DREAM_ROOT / output_name
-		image.save(output_path, format="PNG", optimize=True)
-		variants[output_name] = image
-		records.append({
-			"path": output_path.relative_to(ROOT).as_posix(),
-			"dimensions": list(image.size),
-			"sha256": sha256(output_path),
-			"source": HALL_PORTAL_SOURCE.relative_to(ROOT).as_posix(),
-			"source_sha256": sha256(HALL_PORTAL_SOURCE),
-			"transform": (
-				"approved full portal reused unchanged below a new "
-				"project-authored picture crest"),
-		})
-
-	# A full architectural insert cleanly replaces the unused first wall bay
-	# without changing the approved hall master beneath it.
-	insert = Image.new("RGBA", (370, 540), (0, 0, 0, 0))
-	wall = tint(tile_image(WALL_TEXTURE, insert.size, 256), (213, 184, 222), 0.38)
-	mask = Image.new("L", insert.size, 0)
-	ImageDraw.Draw(mask).rounded_rectangle((5, 5, 364, 535), radius=42, fill=255)
-	insert.paste(wall.convert("RGBA"), (0, 0), mask)
-	draw = ImageDraw.Draw(insert, "RGBA")
-	draw.rounded_rectangle((5, 5, 364, 535), radius=42,
-		outline=(244, 218, 194, 250), width=12)
-	draw.rounded_rectangle((18, 34, 352, 94), radius=26,
-		fill=(242, 214, 191, 238), outline=(88, 57, 108, 240), width=8)
-	for center_x in (31, 339):
-		draw.rounded_rectangle((center_x - 20, 78, center_x + 20, 526),
-			radius=18, fill=(226, 198, 222, 245),
-			outline=(91, 58, 111, 245), width=7)
-	insert.alpha_composite(variants["family_wing_portal.png"], (60, 118))
-	insert_path = DREAM_ROOT / "family_wing_hall_insert.png"
-	insert.save(insert_path, format="PNG", optimize=True)
-	records.append({
-		"path": insert_path.relative_to(ROOT).as_posix(),
-		"dimensions": list(insert.size),
-		"sha256": sha256(insert_path),
-		"source": HALL_PORTAL_SOURCE.relative_to(ROOT).as_posix(),
-		"source_sha256": sha256(HALL_PORTAL_SOURCE),
-		"transform": (
-			"approved portal plus project-authored wall-texture surround; "
-			"non-destructive Main Hall depth-card insert"),
-	})
+	with Image.open(DOOR_ALPHA_SHEET) as source:
+		sheet = source.convert("RGBA")
+		for output_name, region in DOOR_SHEET_REGIONS.items():
+			image = extract_sheet_region(
+				sheet, region, largest_only=output_name != "meal_plate.png")
+			output_path = DREAM_ROOT / output_name
+			image.save(output_path, format="PNG", optimize=True)
+			records.append(generated_record(
+				output_path, DOOR_ALPHA_SHEET, region))
+			if output_name == "family_wing_portal.png":
+				insert_path = DREAM_ROOT / "family_wing_hall_insert.png"
+				image.save(insert_path, format="PNG", optimize=True)
+				records.append(generated_record(
+					insert_path, DOOR_ALPHA_SHEET, region))
 	return records
 
 
-def build_meal_plate() -> Path:
-	scale = 3
-	image = Image.new("RGBA", (176 * scale, 112 * scale), (0, 0, 0, 0))
-	draw = ImageDraw.Draw(image, "RGBA")
-	draw.ellipse((8 * scale, 22 * scale, 168 * scale, 102 * scale),
-		fill=(247, 227, 224, 255), outline=(82, 57, 104, 255), width=5 * scale)
-	draw.ellipse((22 * scale, 31 * scale, 154 * scale, 88 * scale),
-		fill=(255, 248, 238, 255), outline=(222, 151, 184, 255), width=6 * scale)
-	# A complete pretend meal must read even after the plate is scaled onto the
-	# table: star sandwich, peas, and carrot coins use the approved toy palette.
-	draw.regular_polygon((82 * scale, 58 * scale, 24 * scale),
-		n_sides=5, rotation=-18, fill=(242, 190, 112, 255),
-		outline=(91, 59, 104, 255))
-	for center_x, center_y in ((118, 50), (132, 57), (118, 66)):
-		draw.ellipse(((center_x - 7) * scale, (center_y - 7) * scale,
-			(center_x + 7) * scale, (center_y + 7) * scale),
-			fill=(112, 193, 139, 255), outline=(65, 92, 91, 255),
-			width=2 * scale)
-	for center_x, center_y in ((43, 53), (48, 69)):
-		draw.ellipse(((center_x - 9) * scale, (center_y - 6) * scale,
-			(center_x + 9) * scale, (center_y + 6) * scale),
-			fill=(242, 137, 91, 255), outline=(111, 69, 100, 255),
-			width=2 * scale)
-	image = image.resize((176, 112), Image.Resampling.LANCZOS)
-	path = DREAM_ROOT / "meal_plate.png"
-	image.save(path, format="PNG", optimize=True)
-	return path
+def build_furnished_room_contact(
+		preview_by_room: dict[str, Image.Image]) -> dict[str, object]:
+	room_order = [
+		"dining_room", "royal_bedroom",
+		"sleepover_bedroom", "movie_lounge"]
+	contact = Image.new("RGBA", (2048, 1152), (27, 19, 49, 255))
+	placement_records: list[dict[str, object]] = []
+	for room_index, room_id in enumerate(room_order):
+		stage = preview_by_room[room_id].convert("RGBA")
+		for item in sorted(
+				FURNISHED_PREVIEW_PLACEMENTS[room_id],
+				key=lambda value: float(value["z"])):
+			source_path = DREAM_ROOT / str(item["file"])
+			with Image.open(source_path) as source:
+				card = source.convert("RGBA")
+			if bool(item.get("flip_h", False)):
+				card = card.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+			scale = float(item["scale"])
+			rendered_size = (
+				max(1, round(card.width * scale)),
+				max(1, round(card.height * scale)))
+			rendered = card.resize(rendered_size, Image.Resampling.LANCZOS)
+			source_x, source_y = item["pos"]
+			left = round(float(source_x) + card.width * 0.5
+				- rendered.width * 0.5)
+			top = round(float(source_y) + card.height * 0.5
+				- rendered.height * 0.5)
+			stage.alpha_composite(rendered, (left, top))
+			right = left + rendered.width
+			bottom = top + rendered.height
+			clipped_width = max(0, min(1024, right) - max(0, left))
+			clipped_height = max(0, min(576, bottom) - max(0, top))
+			placement_records.append({
+				"room_id": room_id,
+				"item_id": str(item["id"]),
+				"asset": source_path.relative_to(ROOT).as_posix(),
+				"source_position": [float(source_x), float(source_y)],
+				"uniform_scale": scale,
+				"rendered_bbox": [left, top, right, bottom],
+				"visible_fraction": round(
+					clipped_width * clipped_height
+					/ max(1, rendered.width * rendered.height), 6),
+				"z": float(item["z"]),
+			})
+		contact.alpha_composite(
+			stage, ((room_index % 2) * 1024, (room_index // 2) * 576))
 
+	contact_path = (
+		AUDIT_ROOT / "dream_house_furnished_rooms_contact.png")
+	contact.convert("RGB").save(contact_path, format="PNG", optimize=True)
 
-def build_movie_frame() -> Path:
-	scale = 2
-	image = Image.new("RGBA", (720 * scale, 400 * scale), (0, 0, 0, 0))
-	draw = ImageDraw.Draw(image, "RGBA")
-	draw.rounded_rectangle((8 * scale, 8 * scale, 712 * scale, 392 * scale),
-		radius=70 * scale, outline=(76, 48, 101, 255), width=30 * scale)
-	draw.rounded_rectangle((30 * scale, 30 * scale, 690 * scale, 370 * scale),
-		radius=52 * scale, outline=(245, 214, 176, 255), width=22 * scale)
-	draw.ellipse((318 * scale, 0, 402 * scale, 70 * scale),
-		fill=(250, 225, 194, 255), outline=(76, 48, 101, 255), width=8 * scale)
-	draw.pieslice((336 * scale, 12 * scale, 384 * scale, 58 * scale),
-		0, 180, fill=(197, 150, 190, 255))
-	image = image.resize((720, 400), Image.Resampling.LANCZOS)
-	path = DREAM_ROOT / "movie_screen_frame.png"
-	image.save(path, format="PNG", optimize=True)
-	return path
+	critical_groups = {
+		"gallery_doors": [
+			value for value in FURNISHED_PREVIEW_PLACEMENTS["family_gallery"]],
+		"sleepover_beds": [
+			value for value in FURNISHED_PREVIEW_PLACEMENTS["sleepover_bedroom"]
+			if str(value["id"]).startswith("dream_bed_")],
+	}
+	critical_overlaps: list[dict[str, object]] = []
+	for group_id, items in critical_groups.items():
+		rendered_rects: list[tuple[str, tuple[float, float, float, float]]] = []
+		for item in items:
+			with Image.open(DREAM_ROOT / str(item["file"])) as source:
+				width, height = source.size
+			scale = float(item["scale"])
+			x, y = item["pos"]
+			left = float(x) + width * (1.0 - scale) * 0.5
+			top = float(y) + height * (1.0 - scale) * 0.5
+			rendered_rects.append((str(item["id"]), (
+				left, top, left + width * scale, top + height * scale)))
+		for index, (left_id, left_rect) in enumerate(rendered_rects):
+			for right_id, right_rect in rendered_rects[index + 1:]:
+				intersection_width = max(0.0,
+					min(left_rect[2], right_rect[2])
+					- max(left_rect[0], right_rect[0]))
+				intersection_height = max(0.0,
+					min(left_rect[3], right_rect[3])
+					- max(left_rect[1], right_rect[1]))
+				if intersection_width > 0.5 and intersection_height > 0.5:
+					critical_overlaps.append({
+						"group": group_id,
+						"left": left_id,
+						"right": right_id,
+						"overlap": [
+							round(intersection_width, 3),
+							round(intersection_height, 3)],
+					})
+	return {
+		"path": contact_path.relative_to(ROOT).as_posix(),
+		"sha256": sha256(contact_path),
+		"dimensions": list(contact.size),
+		"rooms": room_order,
+		"placements": placement_records,
+		"critical_overlaps": critical_overlaps,
+		"protected_movie_pixels_copied": False,
+	}
 
 
 def exact_equal(left: Image.Image, right: Image.Image) -> bool:
@@ -549,15 +629,7 @@ def build() -> None:
 
 	prop_records = build_prop_assets()
 	prop_records.extend(build_family_portal_assets())
-	for path in (build_meal_plate(), build_movie_frame()):
-		with Image.open(path) as image:
-			prop_records.append({
-				"path": path.relative_to(ROOT).as_posix(),
-				"dimensions": list(image.size),
-				"sha256": sha256(path),
-				"source": "project-authored deterministic Pillow drawing",
-				"transform": "new shared component in approved pearl material language",
-			})
+	furnished_review = build_furnished_room_contact(preview_by_room)
 
 	contact = Image.new("RGB", (1536, 576), (27, 19, 49))
 	for index, preview in enumerate(previews):
@@ -576,9 +648,11 @@ def build() -> None:
 		"family_portal_movie_lounge.png",
 	]
 	for index, portal_name in enumerate(portal_names):
-		portal = Image.open(DREAM_ROOT / portal_name).convert("RGBA").resize(
-			(160, 264), Image.Resampling.LANCZOS)
-		gallery_stage.alpha_composite(portal, (70 + index * 235, 189))
+		portal = Image.open(DREAM_ROOT / portal_name).convert("RGBA")
+		portal.thumbnail((210, 280), Image.Resampling.LANCZOS)
+		center_x = 150 + index * 235
+		gallery_stage.alpha_composite(
+			portal, (round(center_x - portal.width / 2), 496 - portal.height))
 	layout_contact = Image.new("RGBA", (1280, 576), (27, 19, 49, 255))
 	layout_contact.alpha_composite(gallery_stage, (0, 0))
 	hall_insert = Image.open(
@@ -605,8 +679,8 @@ def build() -> None:
 		hall_entry_contact_path, format="PNG", optimize=True)
 
 	manifest = {
-		"schema": "castle_dream_house_room_art_v2",
-		"method": "deterministic composition from approved project textures, prop QA renders, and the approved hall portal",
+		"schema": "castle_dream_house_room_art_v3",
+		"method": "native room shells plus two accepted 2D storybook production sheets; no Blender render pixels",
 		"imagegen_reference": {
 			"path": IMAGEGEN_REFERENCE.relative_to(ROOT).as_posix(),
 			"exists": IMAGEGEN_REFERENCE.exists(),
@@ -614,12 +688,38 @@ def build() -> None:
 			"role": "composition_reference_only",
 			"used_as_runtime_pixels": False,
 		},
+		"production_sheets": [
+			{
+				"role": "physical_door_family",
+				"prompt_id": "physical-door-family",
+				"prompt_path": REPAIR_PROMPTS.relative_to(ROOT).as_posix(),
+				"prompt_sha256": sha256(REPAIR_PROMPTS),
+				"chroma_path": DOOR_CHROMA_SHEET.relative_to(ROOT).as_posix(),
+				"chroma_sha256": sha256(DOOR_CHROMA_SHEET),
+				"alpha_path": DOOR_ALPHA_SHEET.relative_to(ROOT).as_posix(),
+				"alpha_sha256": sha256(DOOR_ALPHA_SHEET),
+				"dimensions": list(Image.open(DOOR_ALPHA_SHEET).size),
+			},
+			{
+				"role": "four_room_furnishing_family",
+				"prompt_id": "four-room-furnishing-family",
+				"prompt_path": REPAIR_PROMPTS.relative_to(ROOT).as_posix(),
+				"prompt_sha256": sha256(REPAIR_PROMPTS),
+				"chroma_path": FURNISHING_CHROMA_SHEET.relative_to(ROOT).as_posix(),
+				"chroma_sha256": sha256(FURNISHING_CHROMA_SHEET),
+				"alpha_path": FURNISHING_ALPHA_SHEET.relative_to(ROOT).as_posix(),
+				"alpha_sha256": sha256(FURNISHING_ALPHA_SHEET),
+				"dimensions": list(Image.open(FURNISHING_ALPHA_SHEET).size),
+			},
+		],
+		"blender_runtime_pixels": False,
 		"background_sources": [
 			{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)}
 			for path in [WALL_TEXTURE, *FLOOR_TEXTURES.values()]
 		],
 		"rooms": records,
 		"props": prop_records,
+		"furnished_room_review": furnished_review,
 		"contact_sheet": contact_path.relative_to(ROOT).as_posix(),
 		"layout_contact": {
 			"path": layout_contact_path.relative_to(ROOT).as_posix(),
@@ -645,6 +745,14 @@ def build() -> None:
 			},
 			"floating_route_buttons": False,
 		},
+		"node_type_inventory": {
+			"world_art_node": "Sprite3D",
+			"world_art_builder": "_new_card",
+			"world_art_material": "unshaded storybook card",
+			"forbidden_world_nodes": [],
+			"hud_exception": "Control and CanvasItem only",
+		},
+		"source_visual_medium": "polished flattened 2D storybook illustration",
 		"protected_originals_modified": False,
 		"runtime_world_art": "unshaded Sprite3D cards only",
 	}
