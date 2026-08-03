@@ -21,7 +21,7 @@ const CHILD_MENU_SYSTEMS := [
 	{"id": "intro", "path": "res://scripts/intro_overlay.gd", "token": "adorn_panel"},
 	{"id": "pause", "path": "res://scripts/pause_menu.gd", "token": "PauseShell"},
 	{"id": "craft", "path": "res://scripts/craft_studio.gd", "token": "adorn_panel"},
-	{"id": "castle_logo", "path": "res://scripts/castle_logo_studio.gd", "token": "CastleLogoShellCrest"},
+	{"id": "castle_logo", "path": "res://scripts/castle_logo_studio.gd", "token": "adorn_panel"},
 	{"id": "wardrobe", "path": "res://scripts/wardrobe_ui.gd", "token": "style_picture_button"},
 	{"id": "stickers", "path": "res://scripts/wardrobe_ui.gd", "token": "StickerBook"},
 	{"id": "critters", "path": "res://scripts/collection_system.gd", "token": "CritterBook"},
