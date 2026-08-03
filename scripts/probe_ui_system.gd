@@ -18,7 +18,9 @@ const GAMEPLAY_HUD_SURFACES := [
 	"res://scripts/opera_act.gd",
 	"res://scripts/medal_system.gd"]
 const CHILD_MENU_SYSTEMS := [
-	{"id": "intro", "path": "res://scripts/intro_overlay.gd", "token": "adorn_panel"},
+	# "intro" was the four-panel Huluu storybook. Owner cut it 2026-08-03; the
+	# opener is now a movie or nothing at all, so it has no storybook chrome to
+	# cover. See scripts/intro_overlay.gd.
 	{"id": "pause", "path": "res://scripts/pause_menu.gd", "token": "PauseShell"},
 	{"id": "craft", "path": "res://scripts/craft_studio.gd", "token": "adorn_panel"},
 	{"id": "wardrobe", "path": "res://scripts/wardrobe_ui.gd", "token": "style_picture_button"},
@@ -129,21 +131,18 @@ func _init() -> void:
 	await process_frame
 	_check_storybook_coverage()
 
-	# Intro: four shape pips, repeat voice, explicit next, and deliberate hold-skip.
-	if not main.intro_active:
-		main._build_intro()
+	# Opener (owner 2026-08-03): the Huluu storybook is cut. Until the Roshan +
+	# Daddy flight movie is delivered there must be NO opener overlay at all —
+	# a placeholder that shows nothing is worse than going straight into play.
+	main._build_intro()
 	await process_frame
-	_check(_count_named(main.intro_layer, "IntroNextButton") == 1, "picture intro has one obvious next action")
-	_check_target(main.intro_layer, "IntroNextButton", "intro next is a 150px-class target", Vector2(150, 150))
-	_check_target(main.intro_layer, "IntroRepeatVoiceButton", "intro narration repeat is thumb-sized")
-	var skip := _check_target(main.intro_layer, "IntroHoldToSkipButton", "intro skip is thumb-sized")
-	_check(skip != null and float(skip.get_meta("hold_seconds", 0.0)) >= 1.2, "intro skip requires a deliberate hold")
-	var intro_pips: Array = main.intro_layer.get_meta("page_pips", [])
-	_check(intro_pips.size() == 4, "intro has four non-reading page pips")
-	_check(_find(main.intro_layer, "IntroShellCrest") != null,
-		"picture intro uses the recovered shell crest")
+	_check(not main.intro_active,
+		"no opener overlay while the flight movie is undelivered")
+	_check(main.intro_layer == null,
+		"the cut Huluu storybook leaves no layer behind")
 	main._skip_intro()
 	await process_frame
+	_check(not main.intro_active, "_skip_intro stays a safe no-op")
 
 	# The gameplay canvas stays action-first: saved totals remain available to
 	# systems, but persistent report-card text is not rendered over the world.

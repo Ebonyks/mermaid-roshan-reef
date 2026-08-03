@@ -604,9 +604,9 @@ var idle_voice_t := 9.0
 var intro_active := false
 var intro_layer: CanvasLayer
 var intro_idx := 0
-var intro_art: TextureRect
-var intro_art2: TextureRect
-var intro_text: Label
+# intro_art / intro_art2 / intro_text went with the four-panel Huluu storybook
+# opener (owner cut, 2026-08-03). The opener is a movie or nothing — see
+# scripts/intro_overlay.gd.
 const BTN_COLS := [Color(0.35, 0.95, 0.4), Color(1.0, 0.35, 0.35), Color(0.4, 0.55, 1.0), Color(1.0, 0.9, 0.35)]  # A B X Y
 const BTN_OFFS := [Vector3(0, 0, 9), Vector3(9, 0, 0), Vector3(-9, 0, 0), Vector3(0, 0, -9)]                     # bottom right left top
 
@@ -915,8 +915,10 @@ func _skip_intro() -> void:
 	_intro_ref()._skip_intro()
 
 func _unhandled_input(ev: InputEvent) -> void:
-	# gamepad/keyboard advance for the storybook intro (taps and clicks land on
-	# the invisible full-screen button; this covers A/B/Start, Space and Enter)
+	# gamepad/keyboard dismiss for the opening movie (taps and clicks land on
+	# the invisible full-screen button; this covers A/B/Start, Space and Enter).
+	# Inert when no movie is playing, which is every session until the Roshan +
+	# Daddy flight edit is delivered.
 	if not intro_active:
 		return
 	var advance := false

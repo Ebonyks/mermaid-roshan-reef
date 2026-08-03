@@ -7,9 +7,10 @@ bunnies. This is the introduction level, where you explore the whole castle in
 the process of cleaning it, and each room teaches you the mechanics of that
 part of the house as part of the encounter in it."_
 
-This document is the **plan**, not the implementation. The only code-adjacent
-change in the landing commit is the Codex Day One art, brought into the tree
-**deactivated** (§9). Nothing in the shipped game changes yet.
+This document is the **plan**. Two pieces of it have shipped on owner decision
+(2026-08-03): the dated Huluu storybook opener is **cut** (§1.2), and the
+control guide that replaces it is **built** (§1.3). Everything else here is
+still design. The Codex Day One art is in the tree **deactivated** (§9).
 
 Precedence: this sits under `CLAUDE.md`, `AGENTS.md` and `design/01_GAME_DESIGN.md`.
 Where it proposes something new it says so; where it records what is already
@@ -43,14 +44,54 @@ baby eagle opens up the stuffie collection"* — is already built exactly that
 way, wordlessly, with no fail state, and covered by `probe_stuffie.gd`. It is
 the template every other room encounter in this plan copies.
 
-### 1.2 Built but telling the wrong story
+### 1.2 The old opener — CUT (owner decision 2026-08-03)
 
-`scripts/intro_overlay.gd` still plays the **old** four-panel premise: *Huluu
+`scripts/intro_overlay.gd` used to play the **old** four-panel premise: *Huluu
 lives in the sky, a storm swept her down, find the pearls, open the sky river.*
-It fires on first session (`main.gd:836`) over the lagoon. It is not the
-airplane arrival, Daddy Mermaid is not in it, and there is no dirty castle.
+It fired on first session over the lagoon. It was not the airplane arrival,
+Daddy Mermaid was not in it, and there was no dirty castle.
 
-### 1.3 Not built at all
+**Owner cut it on 2026-08-03.** In its place:
+
+- `IntroOverlay` is now a movie player and nothing else. A film of Mermaid
+  Roshan and Daddy Mermaid flying to the castle together will be added
+  eventually; drop it at `assets/cinematics/opening/roshan_daddy_flight.ogv`
+  and it plays on the first session with no code change.
+- **While that file is absent there is no overlay at all** — no black frame, no
+  poster, no placeholder panel. An opener that exists and shows nothing is
+  worse than no opener. `probe_day_one_guide` asserts the absence so a blank
+  placeholder cannot creep back.
+- `_build_intro` / `_intro_next` / `_skip_intro` stay on `ReefMain` as safe
+  no-ops, because ~40 probes call `_skip_intro()` defensively at boot.
+- The controls the storybook never taught are now taught in the world, by the
+  Day One guide (§1.3).
+
+### 1.3 The Day One guide — BUILT (owner decision 2026-08-03)
+
+`scripts/day_one_guide.gd`, a `SkyLagoonPromenade` satellite, teaches the three
+controls the game had never taught (D1-11), in the world, using the promenade's
+own equipment and animals rather than a slideshow:
+
+| Step | Teaches | Anchor | Completes on |
+|---|---|---|---|
+| 1 | **Touch-the-world travel** | a spot nine paces along the shore, always toward open ground | arriving there — drifting past does not count |
+| 2 | **Two-press activation** | the pearl plane she just landed in (the slide, once the plane has flown) | a real second press |
+| 3 | **Tap a thing** | the live animal; while none is on camera the pointer leads her along the promenade, past the slide, swing and seesaw | startling an animal |
+
+It is a pulsing gold `Sprite3D` pointer and one voiced line per step — no
+`Control`, no modal, nothing that can eat a tap. There is no timer and no
+failure; a step that has been up for 22 s re-voices its line once and then
+waits indefinitely. Progress persists under the additive key
+`day_one_guide_done`, written true and never false, so a taught child is never
+taught twice. Gate: `scripts/probe_day_one_guide.gd`.
+
+Step 2 uses the plane rather than the slide deliberately: the arrival shore's
+otter and frog carry `requires_plane_departed`, so on Day One there is no
+animal at the spawn point, and the slide is 40 painted units away. The plane is
+under her feet, is a registered two-press target, and is the thing she arrived
+in.
+
+### 1.4 Not built at all
 
 - No arrival. The plane is *already parked* when the child first sees the world;
   nobody flies in and nobody gets out.
@@ -208,7 +249,7 @@ receives `main` by reference, all state on `main`), per the refactor rules.
 |---|---|---|
 | **0** | *(this commit)* Land Codex art deactivated; write this plan | existing suite stays green |
 | **1** | `scripts/day_one.gd` satellite + additive save keys + `scripts/probe_day_one.gd`. No visuals — the state machine and its probe first | new probe in `ci.sh` |
-| **2** | `scripts/story_flipbook.gd`: tap-advanced 36-frame storybook overlay (Control + TextureRect, **no video, no OGV**). Replaces `intro_overlay.gd` as the day-one opener; the old Huluu panels move to the Library shelf | `probe_day_one` asserts frame count, hold-to-skip, replay, and that skipping saves |
+| **2** | `scripts/story_flipbook.gd`: tap-advanced 36-frame storybook overlay (Control + TextureRect, **no video, no OGV**) for the per-room beats. The *opener* is settled separately — owner cut the storybook and reserved that slot for the Roshan + Daddy flight movie (§1.2) | `probe_day_one` asserts frame count, hold-to-skip, replay, and that skipping saves |
 | **3** | Arrival: Daddy standee at the lagoon, Roshan disembarks, one imp sighting, gate-only targeting | `probe_l2` extended |
 | **4** | Grand Hall mess pass: dirty skins over the existing hall cards, Daddy's tool hand-off, the three bunnies re-framed as the travel tutorial, first persistent `clean_done` writes | `probe_castle_pearl_art`, `probe_day_one` |
 | **5** | Room encounters 4–8, one room per commit, each with its own voice line + visual pointer | per-room probe assertions |
@@ -219,6 +260,7 @@ receives `main` by reference, all state on `main`), per the refactor rules.
 ### 5.1 Save keys (additive only — never removed, per the hard rules)
 
 ```
+day_one_guide_done : bool    — the Sky Lagoon control guide (SHIPPED 2026-08-03)
 day_one_stage      : String  — "arrival" | "landing" | "castle" | "closing" | "done"
 day_one_room       : String  — the room being cleaned, "" between rooms
 clean_done         : Dictionary — "<room_id>:<target_id>" -> true   (persistent; the
@@ -330,7 +372,7 @@ Findings specific to Day One. Game-wide findings live in
 
 | # | Weakness | Severity | Fixed by |
 |---|---|---|---|
-| **D1-1** | The first-session intro tells a **story the game no longer has** (Huluu's storm, "find the pearls, open the sky river"). The child's first 40 seconds set up a premise nothing follows through on | high | Phase 2 |
+| **D1-1** | The first-session intro told a **story the game no longer has** (Huluu's storm, "find the pearls, open the sky river") | high | **FIXED 2026-08-03** — cut; the opener is the flight movie or nothing (§1.2) |
 | **D1-2** | **Daddy Mermaid is not in the game.** The co-lead of the owner's premise, with three sacred family recordings sitting unused, appears in exactly one minigame cutout | high | Phases 2–4 |
 | **D1-3** | Nothing persists. Five bunnies exist; all are visit-scoped; no room can be *completed*; there is no "you did it" for the whole castle | high | Phases 1, 4–7 |
 | **D1-4** | Six of thirteen rooms are a voice line and a sparkle. The castle is the game's hub and most of it is scenery | high | §6, Phase 5 |
@@ -340,7 +382,7 @@ Findings specific to Day One. Game-wide findings live in
 | **D1-8** | Two designed rooms don't exist (Undercroft, Royal Loo) while their art does | low | Phase 6 |
 | **D1-9** | The Codex opener depends on **two `.ogv` movies that were never made**, black-screening on both, while 36 finished frames sit unused | medium | Phase 2 (flipbook, no video) |
 | **D1-10** | The 36 frames are **33 MB of PNG** — too heavy for the target phone as-is | medium | Phase 8 (§7.2) |
-| **D1-11** | **The controls are never taught.** Touch-to-travel, two-press activation and tap-is-the-button are each discoverable only by accident | high | Phase 4 — this is what the hall bunnies are *for* |
+| **D1-11** | **The controls are never taught.** Touch-to-travel, two-press activation and tap-is-the-button were each discoverable only by accident | high | **FIXED 2026-08-03** — `day_one_guide.gd` teaches all three in the Sky Lagoon (§1.3); the hall bunnies then rehearse travel inside the castle |
 | **D1-12** | No Day One probe exists on `dev`. `probe_story_day_one.gd` lives only on a stale Codex branch | medium | Phase 1 |
 | **D1-13** | Most of the world is unreachable from normal play ([OW-6](design/04_OPEN_WORK.md#ow-6)); the castle is the only hub the child actually visits | high | §6.1, §6.2 — partial |
 

@@ -297,15 +297,12 @@ func _init() -> void:
 
 func _audit_storybook_ui() -> bool:
 	var ok := true
-	if not main.intro_active:
-		main._build_intro()
+	# Owner 2026-08-03: the four-panel Huluu storybook opener is cut. Until the
+	# Roshan + Daddy flight movie lands there is no opener overlay to audit —
+	# assert its absence so it cannot creep back as a blank placeholder.
+	main._build_intro()
 	await process_frame
-	ok = _ui_named_count(main.intro_layer, "IntroNextButton") == 1 and ok
-	ok = _ui_target_ok(main.intro_layer, "IntroNextButton", Vector2(150, 150)) and ok
-	ok = _ui_target_ok(main.intro_layer, "IntroRepeatVoiceButton") and ok
-	var skip := main.intro_layer.find_child("IntroHoldToSkipButton", true, false) as Control
-	ok = skip != null and float(skip.get_meta("hold_seconds", 0.0)) >= 1.2 and ok
-	ok = (main.intro_layer.get_meta("page_pips", []) as Array).size() == 4 and ok
+	ok = (not main.intro_active) and main.intro_layer == null and ok
 	main._skip_intro()
 	await process_frame
 

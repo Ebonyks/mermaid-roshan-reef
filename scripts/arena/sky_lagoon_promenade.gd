@@ -317,6 +317,9 @@ const FOOT_OFFSET := 2.9
 
 var m: ReefMain
 var stage: SideScrollStage
+# The Day One movement/interaction guide. Built with the stage, silent forever
+# after the child has been taught once (its own save key).
+var guide: DayOneGuide = null
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -389,6 +392,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		spawn_at = 34.0                       # painted: the way in front of the castle
 	_set_spawn(_walk_x(spawn_at))
 	_sync_target_mural_anchors()
+	_begin_day_one_guide(spawn_at)
 	if from_castle:
 		m.show_msg("Roshan", "Back outside! Tap a playground toy or the castle door once to light it up, then tap it again to play.")
 	elif m.g.get("lagoon_plane_card") is Sprite3D:
@@ -418,6 +422,8 @@ func tick(delta: float) -> void:
 		m.player.position.x - old_x, bool(walk_result.get("moved", false)))
 	_tick_ambient_life(delta)
 	_tick_animals(delta)
+	if guide != null:
+		guide.tick(delta)
 	_tick_doorstep()
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
 	var focus_t: float = float(m.g.get("lagoon_promenade_focus_t", 0.0)) + delta
@@ -996,6 +1002,7 @@ func _startle_animal(animal: Dictionary) -> void:
 	m._sparkle_burst(node.global_position + Vector3(0.0,
 		float(definition["height"]) * 0.25, 0.0), Color(1.0, 0.78, 0.42))
 	m.player.play_verb("giggle")
+	m.g["lagoon_guide_event"] = "animal"
 
 func _animal_is_offscreen(node: Sprite3D) -> bool:
 	var cam: Camera3D = m.player.cam
@@ -1239,6 +1246,52 @@ func _tick_ambient_life(delta: float) -> void:
 		if ambient_t >= PLANE_DEPARTURE_S:
 			_finish_plane_arrival()
 
+# ---- Day One guide ---------------------------------------------------------
+# The guide owns its own sequencing; the promenade only tells it where the
+# world currently is. Every value below is stage-local, matching the space the
+# guide's pointer card lives in.
+
+func _begin_day_one_guide(spawn_painted_x: float) -> void:
+	if DayOneGuide.is_finished(m):
+		return
+	guide = DayOneGuide.new(m, self)
+	# Walk toward the middle of the promenade — away from the painted edge she
+	# spawned against, so the first instruction always has somewhere to go.
+	var direction: float = 1.0 if spawn_painted_x < 0.0 else -1.0
+	guide.set_walk_goal_x(
+		_walk_x(spawn_painted_x + direction * DayOneGuide.FIRST_WALK_STEPS))
+	guide.begin()
+
+func guide_floor_y(x: float) -> float:
+	return stage.route_y(m.g.get("ss_cfg", {}), x, 3.0)
+
+func guide_play_anchor() -> Vector3:
+	# The pearl plane while it is still parked; once it has flown, the slide.
+	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
+	if plane != null and is_instance_valid(plane):
+		return plane.position + Vector3(0.0, 7.4, 0.9)
+	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("payload", "")) != "slide":
+			continue
+		var node: Node3D = target.get("node") as Node3D
+		if node != null and is_instance_valid(node):
+			return node.position + Vector3(0.0, 6.2, 0.9)
+	return Vector3.ZERO
+
+func guide_animal_anchor() -> Vector3:
+	# One pooled actor serves every habitat, so there is at most one animal to
+	# point at, and only while it is actually on camera and approachable.
+	var actor: Dictionary = m.g.get("lagoon_animal_actor", {}) as Dictionary
+	if String(actor.get("state", "")) not in ["idle", "pause"]:
+		return Vector3.ZERO
+	var node: Sprite3D = actor.get("node") as Sprite3D
+	if node == null or not is_instance_valid(node) or not node.visible:
+		return Vector3.ZERO
+	var definition: Dictionary = actor.get("definition", {}) as Dictionary
+	return node.position + Vector3(
+		0.0, float(definition.get("height", 2.6)) * 0.85 + 1.1, 0.6)
+
 func teardown() -> void:
 	# Mutable stage state belongs to ReefMain by project architecture, so the
 	# persistent promenade helper explicitly releases its transient keys.
@@ -1250,6 +1303,11 @@ func teardown() -> void:
 	m.g.erase("lagoon_animals")
 	m.g.erase("lagoon_animal_actor")
 	m.g.erase("lagoon_animal_cycles")
+	m.g.erase("lagoon_guide_event")
+	m.g.erase("lagoon_guide_step")
+	if guide != null:
+		guide.clear()
+	guide = null
 
 func _finish_plane_arrival() -> void:
 	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
@@ -1547,6 +1605,9 @@ func _clear_focus() -> void:
 
 func _activate(target: Dictionary) -> void:
 	var node: Node3D = target.get("node") as Node3D
+	# The Day One guide teaches two-press activation on the pearl plane; any
+	# real second press satisfies it, including the toys and the castle door.
+	m.g["lagoon_guide_event"] = "play"
 	match String(target.get("kind", "")):
 		"plane":
 			_bounce(node, 0.20)
