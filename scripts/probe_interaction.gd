@@ -211,12 +211,15 @@ func _init() -> void:
 	var logo_table_sprite: Sprite3D = logo_table_record.get(
 		"sprite") as Sprite3D
 	if logo_table_sprite == null or String(logo_table_sprite.get_meta(
-			"roleplay_action", "")) != "castle_logo":
+			"launch_activity", "")) != "castle_logo":
 		_bad("craft-room paint table is not the castle-logo station")
 	rooms._activate_room_item("paint_table")
-	await process_frame
+	var logo_deadline: int = Time.get_ticks_msec() + 2500
+	while main.castle_logo_layer == null \
+			and Time.get_ticks_msec() < logo_deadline:
+		await process_frame
 	if main.castle_logo_layer == null:
-		_bad("touching the castle-logo table did not open its picture game")
+		_bad("paint-table animation did not open its castle-logo picture game")
 	else:
 		var dog_button := main.castle_logo_layer.find_child(
 			"CastleLogoSymbol_dog", true, false) as Button

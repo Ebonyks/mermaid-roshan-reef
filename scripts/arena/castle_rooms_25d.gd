@@ -492,7 +492,7 @@ const ROOM_ITEMS := {
 		{"id": "paint_table", "name": "Castle logo table", "pos": Vector2(400, 272),
 			"z": MIDGROUND_Z,
 			"symbol": "♛", "color": Color(0.60, 0.90, 0.82),
-			"roleplay_action": "castle_logo"},
+			"launch_activity": "castle_logo"},
 		{"id": "palette", "name": "Rainbow palette", "pos": Vector2(0, 320),
 			"z": FOREGROUND_Z,
 			"symbol": "●", "color": Color(1.0, 0.55, 0.72)},
@@ -1819,6 +1819,8 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		"semantic_action", "")))
 	piece.set_meta("roleplay_action", String(item_data.get(
 		"roleplay_action", "")))
+	piece.set_meta("launch_activity", String(item_data.get(
+		"launch_activity", "")))
 	piece.set_meta("castle_physical_door", item_data.has("room_destination"))
 	piece.set_meta("room_destination", String(item_data.get(
 		"room_destination", "")))
@@ -1835,7 +1837,8 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	piece.set_meta("animation_frames_visited", [])
 	piece.set_meta("fixed_pivot_animation", not interaction_spec.is_empty()
 		or item_data.has("semantic_action")
-		or item_data.has("roleplay_action"))
+		or item_data.has("roleplay_action")
+		or item_data.has("launch_activity"))
 	if bunny_role != "":
 		piece.set_meta("dust_bunny_role", bunny_role)
 		piece.set_meta("spawn_guide_id", item_id)
@@ -1992,6 +1995,9 @@ func _activate_room_item(item_id: String) -> void:
 		return
 	var interaction_key := String(sprite.get_meta("source_object_id", ""))
 	fixture_rigs.activate(interaction_key)
+	var launch_activity: String = String(item_data.get("launch_activity", ""))
+	if launch_activity != "":
+		sprite.set_meta("launch_activity_after_sequence", launch_activity)
 	_play_sprite_atlas_sequence(sprite, item_data, true,
 		m.castle_room_id == "kitchen" and item_id == "fridge")
 
@@ -2010,8 +2016,6 @@ func _activate_roleplay_item(roleplay_action: String, item_id: String,
 			_cycle_home_movie(sprite, item_data)
 		"relax":
 			_relax_on_furniture(sprite, item_data)
-		"castle_logo":
-			_open_castle_logo_station(sprite, item_data)
 		"dress_up":
 			_roleplay_prop_bounce(sprite, item_data)
 			_item_burst(sprite.position, Color(1.0, 0.67, 0.82), 8)
@@ -2022,12 +2026,6 @@ func _activate_roleplay_item(roleplay_action: String, item_id: String,
 		_:
 			push_warning("Unknown castle role-play action: %s (%s)" % [
 				roleplay_action, item_id])
-
-func _open_castle_logo_station(sprite: Sprite3D,
-		item_data: Dictionary) -> void:
-	_roleplay_prop_bounce(sprite, item_data)
-	_item_burst(sprite.position, Color(0.60, 0.90, 0.82), 10)
-	m._open_castle_logo()
 
 func _enter_gallery_room(sprite: Sprite3D,
 		item_data: Dictionary) -> void:
@@ -2593,6 +2591,10 @@ func _finish_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
 		sprite.remove_meta("active_close_tween")
 	_sync_sconce_frame_uv(sprite)
 	sprite.set_meta("busy", false)
+	var launch_activity: String = String(sprite.get_meta(
+		"launch_activity_after_sequence", ""))
+	if sprite.has_meta("launch_activity_after_sequence"):
+		sprite.remove_meta("launch_activity_after_sequence")
 	if bool(sprite.get_meta(
 			"enable_world_controls_after_close", false)):
 		sprite.remove_meta("enable_world_controls_after_close")
@@ -2600,6 +2602,13 @@ func _finish_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
 		m._set_world_controls_enabled(true, "kitchen_fridge_close")
 	if open_kitchen_menu_after and m.castle_room_id == "kitchen":
 		_open_kitchen_menu()
+	if launch_activity == "castle_logo" \
+			and m.castle_room_id == "craft_room" \
+			and String(sprite.get_meta("source_object_id", "")) \
+				== "craft_room:paint_table" \
+			and m.castle_logo_layer == null:
+		_item_burst(sprite.position, Color(0.60, 0.90, 0.82), 10)
+		m._open_castle_logo()
 
 
 func _close_fridge_visual() -> bool:
