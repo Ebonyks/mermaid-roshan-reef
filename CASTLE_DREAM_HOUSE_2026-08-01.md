@@ -1,45 +1,52 @@
 # Pearl Castle Dream House Wing
 
-The castle now has a constructed Dream House Wing: one physical gallery plus
-four casual role-play rooms designed for one-finger, non-reading play.
+The Dream House Wing remains one physical gallery plus four casual role-play rooms for one-finger, non-reading play:
 
-The first bay of Main Hall now contains a house-crest arch that opens the wing.
-It is an unshaded depth-card insert over the existing decorative bay, so the
-approved two-screen hall master remains unchanged. Main Hall therefore has
-eight room doors, plus Huluu's throne.
-
-Inside the gallery, four large picture doors are always visible in one screen,
-left to right:
-
-| Picture door | Room | Casual play |
+| Gallery ornament | Room | Casual play |
 | --- | --- | --- |
-| plate and fork | Family Dining Room | serve six places and eat a meal one bite at a time |
-| moon | Royal Bedroom | sleep, use the pearl light, pretend dress-up, and relax with a story |
-| three stars and pillow | Sleepover Bedroom | choose any of three distinct dream beds and sleep |
-| movie play symbol | Cloud Movie Lounge | cycle family home movies, sit on cloud couches, and play on the pouf |
+| plate, spoon, and fruit | Family Dining Room | serve six places and eat |
+| moon, pearl, and crown | Royal Bedroom | sleep, use the pearl light, dress up, and read |
+| three stars and pillow | Sleepover Bedroom | choose one of three dream beds |
+| curtain and play symbol | Cloud Movie Lounge | watch family pictures, sit, bounce, and tap popcorn |
 
-The doors are world-space Sprite3D cards with invisible touch hotspots. There
-are no floating room buttons. Back from any role-play room returns to the
-gallery; Back from the gallery returns to Main Hall. Every activity has no
-failure or resource cost and can be repeated forever.
+Back from each role-play room returns to the gallery. Back from the gallery returns to Main Hall. No route depends on text, and there is no failure state.
 
-## Art and runtime contract
+## 2026-08-02 2D repair
 
-- The gallery and four role-play rooms each have a deterministic 2048 x 2048
-  native master. Each centered 2048 x 1152 gameplay band is split into four
-  exact 1024 x 576 Sprite3D cards.
-- The wing entrance and its four doors reuse the approved Pearl Castle
-  playroom portal non-destructively. New project-authored crests distinguish
-  the routes without requiring words or new generated art.
-- Readable furniture remains on separate unshaded Sprite3D cards. No readable
-  object is painted across a background-tile boundary.
-- The ImageGen dining-room result remains a composition reference only and is
-  never loaded at runtime.
-- Protected family book images are loaded directly into the movie-screen card.
-  No book image is modified, recompressed, or copied into a derivative asset.
+The four-room expansion had a correct Sprite3D runtime structure but the wrong visible source medium:
 
-tools/build_castle_dream_house_rooms.py reproduces the art package.
-tools/audit_castle_dream_house.py blocks missing sources, changed hashes,
-undersized masters, oversized runtime textures, tile reconstruction drift,
-floating-route regressions, ImageGen-reference leakage, or loss of the
-physical-door and role-play contracts.
+- furnishings were transparent crops of Blender QA renders;
+- all four gallery doors reused the same perspective-corridor picture;
+- the family-wing Main Hall entry added a rectangular wall insert;
+- the generated cards had different dimensions, so a texture-only swap would have shifted and shrunk the rooms.
+
+The repair uses exactly two accepted ImageGen sheets:
+
+1. one five-door architectural family, without corridor pictures or UI-button plaques;
+2. one 4×4 furnishing family covering every loaded dining, royal-bedroom, sleepover, and movie-lounge prop plus a tappable popcorn bowl.
+
+The full chroma and alpha sheets, exact prompts, hashes, and reference roles are under `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/`. Runtime cards are deterministic crops made by `tools/build_castle_dream_house_rooms.py`.
+
+## Runtime and depth contract
+
+- Every visible wing background, door, furnishing, family movie, and player remains a real-depth Sprite3D card.
+- There are no Sprite2D, AnimatedSprite2D, TextureRect, Polygon2D, CanvasItem-drawn world objects, MeshInstance3D props, GLBs, or procedural runtime meshes in this room pipeline.
+- HUD and controls remain permitted Control/CanvasItem elements.
+- Five 2048×2048 background masters remain preserved. Each centered 2048×1152 gameplay band reconstructs from four exact, non-overlapping 1024×576 cards.
+- Furnishings are independent transparent cards with uniform scaling and audited source positions. The gallery doors and sleepover beds have zero geometric overlap.
+- The movie background no longer paints a second screen frame behind the generated 2D screen.
+- Protected family pictures are loaded directly and unchanged from `assets/book/hall/`; none is copied into the placement contact.
+
+## Audit evidence
+
+- `audit/castle_dream_house/dream_house_room_art_manifest.json`: sources, hashes, cell rectangles, node inventory, placement rectangles, tile reconstruction, and zero-overlap result.
+- `audit/castle_dream_house/dream_house_layout_contact.png`: physical gallery doors and Main Hall wing entry.
+- `audit/castle_dream_house/dream_house_furnished_rooms_contact.png`: all four furnished room compositions, omitting protected family picture pixels.
+- `CASTLE_DREAM_HOUSE_2D_REPAIR_AUDIT_2026-08-02.md`: before/after audit and intervention decision.
+
+Rebuild and block regressions with:
+
+```powershell
+python tools/build_castle_dream_house_rooms.py
+python tools/audit_castle_dream_house.py
+```
