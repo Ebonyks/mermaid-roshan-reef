@@ -246,7 +246,7 @@ func _init() -> void:
 			main.castle_room_background is Sprite3D
 			and main.castle_room_background_tiles.size() == 8
 			and main.castle_room_detail_tiles.size() == 4
-			and main.castle_room_item_sprites.size() == 4
+			and main.castle_room_item_sprites.size() == 8
 			and main.castle_room_front_layer.get_child_count() == 2
 			and main.castle_room_player_sprite is Sprite3D
 			and main.castle_room_player_shadow is Sprite3D)
@@ -272,12 +272,12 @@ func _init() -> void:
 			rooms.show_room(room_id, false)
 			await _frames(2)
 			var hall_mode: bool = room_id == "main_hall"
-			var expected_items: int = 10 if hall_mode else (
-				7 if room_id == "kitchen" else (
-					7 if room_id == "playroom"
-						and not rooms._playroom_rescue_done() else 4))
-			var expected_hotspots: int = 7 if hall_mode else (
-				4 if room_id == "kitchen" else 4)
+			var expected_items: int = 17 if hall_mode else (
+				14 if room_id == "kitchen" else (
+					11 if room_id == "playroom"
+						and not rooms._playroom_rescue_done() else 8))
+			var expected_hotspots: int = 14 if hall_mode else (
+				11 if room_id == "kitchen" else 8)
 			room_items_ok = room_items_ok \
 				and main.castle_room_item_sprites.size() == expected_items \
 				and main.castle_room_item_hotspot_layer.get_child_count() \
@@ -312,7 +312,7 @@ func _init() -> void:
 				and _world_cards_conform(main.castle_room_world_root)
 			overdraw_budget_ok = overdraw_budget_ok \
 				and _visible_sprite_card_count(
-					main.castle_room_world_root) <= 26
+					main.castle_room_world_root) <= 33
 		_ck("room_touch_inventory_matches_design", room_items_ok)
 		_ck("all_room_art_uses_sprite3d_contract", room_cards_ok)
 		_ck("objects_have_authored_real_depth", room_depth_ok)

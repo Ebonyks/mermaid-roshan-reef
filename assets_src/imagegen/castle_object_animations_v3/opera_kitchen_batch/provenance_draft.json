@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "repository_copy_lifecycle": "The chroma_master/copied_output path, hash, and byte-identical fields record the accepted native repository copy before the one-time source-preparation transaction. After that transaction, the current repository path and prepared hash are authoritative only through castle_interactions_v3_source_preparation.json; the external native path/hash remain immutable provenance.",
+  "batch_id": "opera_hall_and_kitchen_v3_2026-08-02",
+  "generation_method": "built_in_image_gen",
+  "reviewer": "Codex visual review; human review pending",
+  "review_status": "accepted_for_source_normalization_pending_alpha_and_runtime_audit",
+  "assets": [
+    {
+      "id": "opera_hall_coral_harp",
+      "attempt": 2,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-b3053c43-7c79-4902-83e9-83daf318387a.png",
+      "output": "assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_coral_harp_sheet_chroma.png",
+      "prompt": "RETRY ??? Use case: illustration-story. Asset type: Godot game sprite-sheet source master. Generate a LANDSCAPE image whose width is exactly twice its height, so it can contain 4 columns by 2 rows of equal square cells. Do NOT make a square overall canvas. No grid lines.\nPrimary request: exactly eight complete states of one coral-and-pearl harp, cells ordered left-to-right across top row, then left-to-right across bottom row: 0 rest; 1 first string pulled; 2 two strings pulled; 3 full chord with several strings displaced; 4 rebound; 5 damping; 6 nearly still; 7 same readable rest. Entire harp fixed to identical bottom-center pivot and scale in every cell.\nScene/backdrop: solid flat #FF00FF only.\nStyle: polished pastel Pearl Castle storybook 2D toy prop, warm gold strings, coral shell frame, lavender outlines, aqua/blush highlights.\nConstraints: every cell has a full harp; only these eight cells; no room pixels, floor, shadows, reflections, notes, sparkles, motion lines, detached effects, text, labels, watermark, characters, extra objects, panel borders or subject magenta. Background uniform #FF00FF."
+    },
+    {
+      "id": "opera_hall_conductor_podium",
+      "attempt": 2,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-596b611a-3bfc-430f-b77d-dc7400309696.png",
+      "output": "assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_conductor_podium_sheet_chroma.png",
+      "prompt": "RETRY ??? LANDSCAPE, exactly 2:1 width-to-height canvas, strict 4 columns by 2 rows of equal square cells. No borders.\nUse case: illustration-story. Asset: Godot source sprite sheet. Subject: coral conductor podium with attached pearl-shell score stand and a gold baton. Exactly eight complete fixed-bottom-center-pivot states: 0 baton docked; 1 lifts from dock; 2 conducting angle; 3 clear downbeat; 4 score page turns while baton remains angled; 5 baton rises; 6 returns; 7 docked rest. Whole podium shown in each equal cell.\nBackdrop: solid uniform #FF00FF only. Style: polished pastel Pearl Castle 2D storybook toy theatre prop, shell/coral/pearl/gold, lavender outlines.\nNo room pixels, floor, shadows, reflections, notes, sparkles, motion lines, effect overlays, text, labels, watermark, people, extra or duplicate props, magenta subject pixels, grids or panel lines."
+    },
+    {
+      "id": "opera_hall_costume_trunk",
+      "attempt": 2,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-684bd342-ffc6-4387-873d-0fd94ee8e0c5.png",
+      "output": "assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_costume_trunk_sheet_chroma.png",
+      "prompt": "RETRY ??? Generate LANDSCAPE at exact 2:1 width-to-height ratio: strictly four columns by two rows of equal square animation cells, no panel lines.\nUse case: illustration-story. Asset: Godot sprite-sheet source. Subject: pink scallop-shell costume trunk with coral-gold clasp, hinged lid and tucked feather boa. Exactly eight complete fixed-bottom-center-pivot states: 0 closed; 1 clasp turns; 2 lid cracks; 3 lid open showing interior; 4 boa lifts from inside; 5 boa tucks back; 6 lid closes; 7 clasp reset, closed rest. Whole trunk shown at equal scale in all cells.\nBackdrop: entirely uniform flat #FF00FF.\nStyle: polished pastel Pearl Castle storybook 2D toy prop, coral/shell/pearl/gold detail, lavender outlines, aqua/blush highlights.\nNo room pixels, floor, shadows, reflections, glow/sparkle or detached effect overlays, captions, text, labels, watermark, characters, extra props, duplicates, magenta subject pixels, grids or borders."
+    },
+        {
+      "id": "kitchen_seafoam_kettle",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production 4-by-2 full-object animation source sheet for a Godot children's storybook game\nInput image: the immediately preceding image is the exact approved Pearl Castle kettle design and animation-sheet reference. Preserve its seafoam scallop-shell porcelain body, blush-and-cream shell lid, warm-gold handle and hardware, short left-facing spout, separate-but-fixture-attached small shell cup on the left, lavender/navy contours, viewpoint, proportions, palette, polish, and overall 4x2 presentation.\n\nPrimary request: redraw the full sheet as exactly eight chronological complete-object states of this same kettle-and-cup fixture in strict reading order: four equal conceptual cells across the top row, then four across the bottom row. Preserve the same normalized mechanics and poses while making every state completely dry.\nEight beats: 1 complete kettle upright at rest, lid seated, handle relaxed, cup empty; 2 actual gold handle lifts; 3 actual spout lever/cap pivots open; 4 kettle begins tilting left toward the fixed attached cup; 5 kettle reaches its greatest coherent pour tilt with the real spout tip aimed directly above the cup center, but there is an obvious clean EMPTY-AIR GAP between spout and cup; 6 kettle returns upright; 7 spout hardware closes and handle lowers; 8 exact complete dry rest. Redraw the entire coherent kettle and cup in every state.\n\nStyle/medium: polished pastel 2D children's storybook cel shading in the same Mermaid Roshan Pearl Castle style as the reference; softly hand-painted opaque pearl-shell enamel, mint/aqua porcelain, blush and cream highlights, warm gold joints, lavender/navy edge accents, rounded premium toy-playset geometry.\nComposition/framing: same fixed bottom-center fixture pivot and scale across all eight cells; the cup remains fixed at the same left-side footprint and fully visible in every cell; kettle, handle, lid, spout, lever, feet, and cup fully inside each padded conceptual cell. Exactly 4 columns x 2 rows.\nScene/backdrop: one perfectly flat uniform solid #FF00FF chroma-key field across the entire canvas and between conceptual cells, with no panel divisions.\n\nABSOLUTE DRY-FIXTURE CONSTRAINT: draw NO liquid of any kind in any state. No water inside the kettle, cup, spout, or elsewhere. No stream, trickle, pour ribbon, splash, droplets, beads, mist, steam, foam, bubbles, wet sheen, filled cup, aqua pool, translucent fluid, ripple, or water-colored highlight. The cup interior must be plainly empty dry pearl enamel. State 5 must show only flat-magenta empty air between the spout tip and empty cup so the runtime Jolt-water shader can occupy that gap later.\nOther constraints: preserve the actual fixture design and part mechanics; no whole-fixture bounce, generic spin, detached motion marks, arrows, icons, glow, sparkles, hands, characters, extra kettles, extra cups, text, labels, frame numbers, grid lines, borders, room pixels, counter, floor, cast/contact shadows, reflections, scenery, or watermark. No part crosses a cell boundary. Never use #FF00FF inside the subject. Exactly eight complete states.",
+      "generation": {
+        "attempt": 2,
+        "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc59f-5f15-74d3-9d3b-a40837a37746\\exec-a4546c12-4048-4e08-8298-e4dbffccb0e1.png",
+        "native_sha256": "6b12705b5917685cdb82cbf41713be8acc19bfb087573c1d272701db3bb0c1f7",
+        "native_dimensions": [
+          1774,
+          887
+        ],
+        "rejected_attempts": [
+          {
+            "attempt": 1,
+            "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-73246e4e-598c-4f34-9a01-67be26821bf9.png",
+            "native_sha256": "2250e6b87c8aeece3874991cc72b105479840efd47c10dd587e89ed307ad7a52",
+            "reason": "Rejected after Codex visual review: authored liquid pixels during the pour conflicted with runtime-only Jolt water."
+          }
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_seafoam_kettle_sheet_chroma.png",
+        "sha256": "6b12705b5917685cdb82cbf41713be8acc19bfb087573c1d272701db3bb0c1f7",
+        "byte_identical_to_native": true
+      },
+      "codex_visual_review": {
+        "status": "accepted_on_retry",
+        "notes": "Accepted attempt 2: exactly eight occupied complete-fixture states in strict 4x2 order. The approved seafoam shell kettle, attached left cup, handle, spout hardware, and tilt vocabulary are preserved. Cup interiors are visibly dry pearl enamel. The maximum-pour states retain empty magenta air between spout and cup. No authored liquid, stream, splash, droplets, mist, steam, foam, bubbles, grid, text, shadow, or room pixels."
+      },
+      "human_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "kitchen_soup_pot",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-881f9947-bed9-4dc1-ae9c-62a8bd20170e.png",
+      "output": "assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_soup_pot_sheet_chroma.png",
+      "prompt": "Use case: illustration-story\nAsset type: Godot game sprite-sheet source master\nPrimary request: ONE strict 4 columns by 2 rows equal-cell sheet with exactly 8 complete states of a turquoise sea-shell soup pot on a tiny attached burner ring. Fixed bottom-center pivot. 0 lid seated. 1 lid knob lifts. 2 lid cracks. 3 lid hinges open. 4 pale soup surface rises but stays entirely inside pot rim. 5 surface lowers. 6 lid lowers. 7 seated rest. Every state whole pot visible at consistent scale.\nScene/backdrop: perfectly flat solid #FF00FF chroma key only.\nStyle: polished pastel Pearl Castle storybook 2D prop, rounded aqua glazed ceramic, coral/gold accents, deep lavender outline.\nComposition: only 4x2 equal cells and no borders, generous padding.\nConstraints: exactly eight unique complete states, no room pixels, floor, shadows, reflections, steam/smoke, bubbles, sparkles, generic effects, text, labels, watermark, people, extra props, duplicates or magenta subject pixels. Background all #FF00FF."
+    },
+    {
+      "id": "kitchen_cookie_jar",
+      "attempt": 2,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-95979a97-b7c2-484f-a336-3dc5be8dcca0.png",
+      "accepted_retry_prompt": "RETRY — Generate LANDSCAPE at exact 2:1 width-to-height ratio: four columns by two rows of equal square animation cells, with no grid lines or borders. Do NOT make a square canvas.\\nUse case: illustration-story. Asset: Godot sprite-sheet source. Subject: a single shell cookie jar with pearl lid and three round cookies. Exactly eight full fixed-bottom-center-pivot states in reading order: 0 lid on; 1 lid quarter-turns; 2 lid lifts; 3 open jar with cookies visible; 4 top cookie rises over the jar mouth; 5 cookie reseats; 6 lid closes; 7 exact readable rest. Every state must show a complete jar at the same scale.\\nBackdrop: perfectly flat uniform #FF00FF only.\\nStyle: polished pastel Pearl Castle storybook 2D game prop, rounded scallop ceramic, blush/aqua/gold palette, lavender outlines.\\nNo room scenery, floors, shadows, reflections, sparkles/effects, text, labels, watermark, characters, extra props, duplicate jar, subject magenta, panel lines or borders.",
+      "review_notes": "Attempt 1 rejected because the delivered sheet was 1:1; accepted retry is 2:1 with equal 4x2 cells.",
+      "output": "assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_cookie_jar_sheet_chroma.png",
+      "prompt": "Use case: illustration-story\nAsset type: Godot game sprite-sheet source master\nPrimary request: single square 4x2 strict grid sheet, exactly eight complete-object states of a shell cookie jar with a pearl lid and three round cookies. Fixed bottom-center pivot, same full jar scale each cell: 0 lid on, 1 lid quarter turns, 2 lid lifts, 3 open jar with cookies visible, 4 top cookie rises but stays framed over jar mouth, 5 cookie reseats, 6 lid closes, 7 exact rest.\nScene/backdrop: perfectly flat #FF00FF chroma-key background.\nStyle/medium: polished pastel Pearl Castle 2D storybook game prop, rounded scallop ceramic, blush/aqua/gold, lavender outlines.\nComposition: strict four columns by two rows, equal cells only, generous pad, no separators.\nConstraints: 8 distinct whole-object states, no room scenery, floor, cast/contact shadow, reflections, sparkles, effects, text, labels, watermark, characters, extra props, duplicate jar, or magenta on object. Background exactly uniform #FF00FF."
+    },
+    {
+      "id": "kitchen_cutlery_drawer",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-a6cc7fb8-28e4-436f-829d-62428b72124b.png",
+      "output": "assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_cutlery_drawer_sheet_chroma.png",
+      "prompt": "Use case: illustration-story\nAsset type: Godot game sprite-sheet source master\nPrimary request: One strict 4 columns by 2 rows equal-cell sheet with exactly eight complete states of a pearl cutlery drawer: a teal shell-cabinet drawer with gold handle and contained pearl spoon/fork tray. Fixed bottom-center pivot. 0 closed. 1 handle pulls. 2 drawer opens a little. 3 drawer fully open showing neat tray. 4 a spoon rocks only in its own slot. 5 spoon settles and tray begins returning. 6 drawer nearly closed. 7 exact closed rest. Complete drawer in every state.\nScene/backdrop: perfectly flat solid #FF00FF chroma key only.\nStyle/medium: polished pastel Pearl Castle storybook 2D interactive prop, rounded teal cabinetry, shell pulls, pearl/gold utensils, lavender outlines.\nComposition: only 4x2 equal cells, generous padding, consistent scale/baseline, no divider lines.\nConstraints: exact eight unique complete object states; no room scenery, floor, shadows, reflection, generic effects, text, labels, watermark, people, extra props, duplicate drawer, loose utensils, or magenta subject pixels. Background entirely #FF00FF."
+    },
+        {
+      "id": "kitchen_ladle_rack",
+      "accepted_prompt": "Use case: precise-object-edit\nAsset type: production Godot 4-by-2 complete-object animation source sheet\nInput image: the immediately preceding image is the approved Pearl Castle coral-and-gold ladle-rack design and its current animation-sheet reference. Preserve the same coral branch crown, central blush shell, pearl endcaps, warm-gold rail and hooks, three scalloped pearl ladles, lavender/navy contours, pastel storybook rendering, viewpoint, proportions, palette, polish, and overall action vocabulary.\n\nPrimary request: redraw the full sheet as exactly eight chronological complete-object states of this same wall-mounted rack in strict reading order: four equal square conceptual cells across the top row and four across the bottom row. The rail and wall mount remain absolutely fixed. Exactly THREE real ladles remain attached to their own three hooks and swing together: 1 vertical rest; 2 small left swing; 3 wider left swing; 4 maximum coherent left swing; 5 pass through center; 6 maximum coherent right swing; 7 small damped return swing; 8 exact vertical rest. Redraw the entire coherent rack, all three hooks, and all three complete ladles in every state.\n\nComposition/framing: LANDSCAPE canvas at exact 2:1 width-to-height ratio. Identical fixed top-center wall-mount pivot, scale, rail position, and viewpoint in every cell. Give every conceptual cell generous empty margin on all four sides. Every ladle from hook through handle through complete bowl must stay fully inside its own cell, even at maximum swing. No part may touch or cross an implied cell boundary.\n\nScene/backdrop: perfectly flat uniform solid #FF00FF across the entire canvas and between conceptual cells; no grid or panel divisions.\n\nStyle/medium: polished pastel 2D Mermaid Roshan Pearl Castle storybook game art, softly painted shell enamel and gold, rounded toy-playset geometry, crisp child-readable silhouette.\n\nCRITICAL COUNT/CUTOUT CONSTRAINT: exactly one rack and exactly THREE complete attached ladles per cell?never two, never four. No partial bowl, cut-off handle, duplicate utensil, neighboring-cell fragment, detached spoon piece, or stray gold sliver anywhere. No cell overlap.\nOther constraints: actual attached ladles swing while fixed rail stays still; no whole-object bounce/rotation, motion marks, arrows, glow, sparkles, bubbles, notes, hands, characters, extra rack, extra utensil, text, labels, frame numbers, grid lines, borders, room pixels, wall, floor, cast/contact shadow, reflection, scenery, or watermark. Never use #FF00FF inside the subject. Exactly eight complete states.",
+      "generation": {
+        "attempt": 2,
+        "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc5b6-a9fa-7db3-bf30-e9f46b0820be\\exec-9feb2582-dfc9-4d17-8a8b-cf0fefc46917.png",
+        "native_sha256": "6b89bd3973dfae64c18999c8b37765592f05192d4077ef6e8a73c95fbc0671c5",
+        "native_dimensions": [
+          1774,
+          887
+        ],
+        "rejected_attempts": [
+          {
+            "attempt": 1,
+            "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-3c7ed607-fb42-4fb2-bc57-ed248b207e3c.png",
+            "native_sha256": "d1b83ffb5da5fce53203962ff67c70261cf7a58be9c6fbef23b124f2e3e0f42b",
+            "reason": "Rejected after normalized contact-sheet review: one state retained a neighboring fourth partial bowl and another clipped an intended ladle at the conceptual cell boundary."
+          }
+        ]
+      },
+      "chroma_master": {
+        "path": "assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_ladle_rack_sheet_chroma.png",
+        "sha256": "6b89bd3973dfae64c18999c8b37765592f05192d4077ef6e8a73c95fbc0671c5",
+        "byte_identical_to_native": true
+      },
+      "codex_visual_review": {
+        "status": "accepted_on_retry",
+        "notes": "Accepted attempt 2: exactly eight occupied states in strict 4x2 order. Every state contains one fixed coral-shell rail, exactly three complete attached hooks, and exactly three complete ladles. All bowls and handles remain inside their own conceptual cell; there is no fourth utensil, clipped bowl, neighboring-cell fragment, grid, shadow, room pixel, or detached effect."
+      },
+      "human_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "kitchen_serving_tureen",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-cb05f5c3-51e1-43dd-9e6c-ad5651f16b6b.png",
+      "output": "assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_serving_tureen_sheet_chroma.png",
+      "prompt": "Use case: illustration-story\nAsset type: Godot game sprite-sheet source master\nPrimary request: One strict 4 columns by 2 rows equal-cell sheet, exactly eight whole-object states of a pink scallop-shell serving tureen with pearl knob and golden handles. Fixed bottom-center pivot. 0 lid closed. 1 knob twists. 2 lid lifts. 3 lid fully open with inner bowl visible. 4 pale pearl soup is revealed and rises slightly but remains entirely within tureen rim. 5 soup lowers. 6 lid lowers. 7 lid seated rest. Whole tureen visible at same scale all states.\nScene/backdrop: perfectly flat #FF00FF chroma-key background only.\nStyle: polished pastel Pearl Castle 2D storybook prop, rounded pink shell porcelain, aqua/gold/pearl details, lavender outline.\nComposition: strict 4x2 equal cells, no cell lines, generous padding.\nConstraints: exactly eight unique complete states; no room pixels, floor, shadow, reflection, steam/smoke, bubbles, glow/sparkle effects, text, labels, watermark, characters, extra props or magenta subject pixels. Background exactly uniform #FF00FF."
+    },
+    {
+      "id": "kitchen_shell_cupboard",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fc4f3-f509-7220-838a-c9ce4945202e\\exec-e0cbfc2d-673d-4cbe-b02a-8d64ae4a0db8.png",
+      "output": "assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_shell_cupboard_sheet_chroma.png",
+      "prompt": "Use case: illustration-story\nAsset type: Godot game sprite-sheet source master\nPrimary request: single strict 4x2 equal-cell sheet containing exactly 8 complete states of a teal scallop-shell kitchen cupboard with one hinged door, pearl knob, and a neat stack of shell cups inside. Fixed bottom-center pivot. 0 closed. 1 knob turns. 2 door cracks. 3 door open showing cups. 4 cups settle visibly on shelf without leaving it. 5 door starts returning. 6 door almost shut. 7 knob resets, exact closed rest. Entire cupboard visible each state at same scale.\nScene/backdrop: perfectly flat #FF00FF chroma key only.\nStyle: polished pastel Pearl Castle storybook 2D game prop, teal cabinetry, blush inner lining, pearl/gold fittings, lavender outline.\nComposition: exactly 4 columns x 2 rows, equal cells, generous pad, no borders.\nConstraints: exactly 8 distinct full-object states; no room/background pixels, floor, shadow, reflection, sparkles/glow/effect overlays, text, labels, watermark, characters, extra props, duplicate cupboard, loose cups or magenta in subject. Background exactly uniform #FF00FF."
+    }
+  ]
+}

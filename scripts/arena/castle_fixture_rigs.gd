@@ -6,7 +6,7 @@ extends RefCounted
 # emitted from the real outlet/cavity and capped Jolt secondary motion for
 # appropriate solids. Objective and menu logic never depend on body settling.
 
-const MANIFEST_PATH := "res://assets/flats/castle/interactions_v2/castle_interactions_v2.json"
+const MANIFEST_PATH := "res://assets/flats/castle/interactions_v3/castle_interactions_v3.json"
 const WATER_SHADER := preload("res://assets/shaders/castle_fixture_water.gdshader")
 const RIPPLE_TEXTURE := preload("res://assets/terrain/up_water_nrm.jpg")
 const CAUSTICS_TEXTURE := preload("res://assets/terrain/caustics.png")
@@ -34,6 +34,7 @@ var _vortex_profile: PackedFloat32Array = PackedFloat32Array([
 
 var m: ReefMain
 var _water_mask_cache: Dictionary = {}
+var _additive_items_by_room: Dictionary = {}
 
 
 func _init(main: ReefMain) -> void:
@@ -46,6 +47,11 @@ func visual_spec(room_id: String, item_id: String) -> Dictionary:
 		room_id + ":" + item_id, {}) as Dictionary).duplicate(true)
 
 
+func room_additions(room_id: String) -> Array:
+	_ensure_manifest()
+	return (_additive_items_by_room.get(room_id, []) as Array).duplicate(true)
+
+
 func _ensure_manifest() -> void:
 	if not m.castle_room_fixture_manifest.is_empty():
 		return
@@ -56,13 +62,42 @@ func _ensure_manifest() -> void:
 	if not parsed is Dictionary:
 		return
 	var index: Dictionary = {}
+	var additions: Dictionary = {}
 	for entry_value: Variant in (parsed as Dictionary).get("assets", []):
 		var entry: Dictionary = entry_value as Dictionary
 		var room_id: String = String(entry.get("room", ""))
 		for instance_value: Variant in entry.get("instances", []):
-			index[room_id + ":" + String(instance_value)] = entry
+			var item_id: String = String(instance_value)
+			index[room_id + ":" + item_id] = entry
+			if String(entry.get("pack", "")) == "v3_addition":
+				var room_items: Array = additions.get(room_id, []) as Array
+				room_items.append(_runtime_item(entry, item_id))
+				additions[room_id] = room_items
 	m.castle_room_fixture_manifest = index
+	_additive_items_by_room = additions
 	_prewarm_water_masks((parsed as Dictionary).get("assets", []))
+
+
+func _runtime_item(entry: Dictionary, item_id: String) -> Dictionary:
+	var position := _vector2(entry.get("placement_position", []), Vector2.ZERO)
+	var size := _vector2(entry.get("placement_size", []), Vector2(112.0, 112.0))
+	var hotspot_size := _vector2(entry.get("hotspot_size", []), size)
+	var hotspot_offset := _vector2(
+		entry.get("hotspot_offset", []), Vector2.ZERO)
+	var color_values: Array = entry.get("color", [0.72, 0.90, 1.0]) as Array
+	var color := Color(0.72, 0.90, 1.0)
+	if color_values.size() >= 3:
+		color = Color(float(color_values[0]), float(color_values[1]),
+			float(color_values[2]))
+	return {
+		"id": item_id,
+		"name": String(entry.get("name", item_id)),
+		"pos": position,
+		"z": float(entry.get("z", 0.82)),
+		"hotspot_offset": hotspot_offset,
+		"hotspot_size": hotspot_size,
+		"color": color,
+	}
 
 
 func _prewarm_water_masks(asset_values: Array) -> void:
@@ -76,8 +111,14 @@ func _prewarm_water_masks(asset_values: Array) -> void:
 					"center": [0.5, 0.5],
 					"radius": [0.25, 0.25],
 				})
-			else:
+				continue
+			var points_frames: Array = layer.get("points_frames", []) as Array
+			if points_frames.is_empty():
 				_cache_layer_mask(layer)
+			else:
+				for frame_index in range(points_frames.size()):
+					_cache_layer_mask(_layer_geometry_for_frame(
+						layer, frame_index))
 
 
 func _cache_layer_mask(layer: Dictionary) -> void:
@@ -112,12 +153,20 @@ func build(interaction_key: String, piece: Sprite3D, item_data: Dictionary,
 	var rig_mode: String = String(rig["physics_mode"])
 	rig["peak_angle_radians"] = 0.0
 	rig["peak_displacement"] = 0.0
-	rig["max_angle_radians"] = (
+	var default_max_angle := (
 		MAX_HINGE_ANGLE if rig_mode == "hinge_z" else MAX_BUOYANT_ANGLE)
+	var configured_max_angle := float(visual.get(
+		"physics_max_angle_radians", 0.0))
+	rig["max_angle_radians"] = configured_max_angle \
+		if configured_max_angle > 0.0 else default_max_angle
+	rig["impulse_scale"] = clampf(float(visual.get(
+		"physics_impulse_scale", 1.0)), 0.05, 1.0)
 	rig["max_displacement"] = (
 		MAX_HINGE_DISPLACEMENT if rig_mode == "hinge_z"
 		else MAX_BUOYANT_DISPLACEMENT)
 	piece.set_meta("castle_component_rig_v2", true)
+	piece.set_meta("castle_component_rig_v3",
+		String(visual.get("pack", "")) == "v3_addition")
 	piece.set_meta("primary_animation_is_overlay", false)
 	piece.set_meta("generated_full_object_states",
 		String(visual.get("render_mode", "")) == "generated_full_object_states")
@@ -153,30 +202,37 @@ func activate(interaction_key: String) -> void:
 	rig["jolt_active_ticks"] = 0
 
 
-func apply_frame(interaction_key: String, frame_index: int,
-		frame_count: int) -> void:
+func apply_frame(interaction_key: String, timeline_step: int,
+		timeline_count: int, atlas_frame: int = -1) -> void:
 	var rig: Dictionary = m.castle_room_fixture_rigs.get(
 		interaction_key, {}) as Dictionary
 	if rig.is_empty():
 		return
-	var timeline_t := float(frame_index) / float(maxi(1, frame_count - 1))
+	var timeline_t := float(timeline_step) / float(maxi(1, timeline_count - 1))
+	var water_frame_index := atlas_frame if atlas_frame >= 0 else timeline_step
 	var amount := _sample_profile(_flow_profile, timeline_t)
 	var vortex := _sample_profile(_vortex_profile, timeline_t)
+	var any_water_active := false
 	for water_value: Variant in rig.get("water", []):
 		var water: Dictionary = water_value as Dictionary
 		var material: ShaderMaterial = water.get("material") as ShaderMaterial
 		var node: Sprite3D = water.get("node") as Sprite3D
 		if material == null or node == null:
 			continue
+		_update_polygon_water_for_frame(water, water_frame_index)
 		var role: String = String(water.get("role", "water"))
 		var flow_start: float = float(water.get("flow_start", 0.0))
 		var layer_amount := clampf(
 			(amount - flow_start) / maxf(0.001, 1.0 - flow_start), 0.0, 1.0)
+		var active_frames: Array = water.get("active_frames", []) as Array
+		if not active_frames.is_empty() \
+				and not active_frames.has(water_frame_index):
+			layer_amount = 0.0
 		if role == "ripple":
 			layer_amount = minf(1.0, layer_amount * 1.15)
 		material.set_shader_parameter("flow_amount", layer_amount)
-		var progressive_fill := role in [
-			"stream", "waterfall_band", "fill", "basin",
+		var progressive_fill := bool(water.get("stream", false)) or role in [
+			"stream", "waterfall_band", "fill", "basin", "cup_fill",
 		]
 		material.set_shader_parameter("fill_amount",
 			maxf(0.02, layer_amount) if progressive_fill else 1.0)
@@ -184,12 +240,14 @@ func apply_frame(interaction_key: String, frame_index: int,
 			vortex if role == "vortex" else 0.0)
 		_position_water_for_frame(water, timeline_t)
 		node.visible = layer_amount > 0.01
+		any_water_active = any_water_active or node.visible
 		water["flow_amount"] = layer_amount
 	var sprite: Sprite3D = rig.get("sprite") as Sprite3D
 	if sprite != null:
-		sprite.set_meta("fixture_timeline_frame", frame_index)
-		sprite.set_meta("fixture_timeline_frame_count", frame_count)
-		sprite.set_meta("fixture_water_active", amount > 0.01)
+		sprite.set_meta("fixture_timeline_frame", timeline_step)
+		sprite.set_meta("fixture_timeline_frame_count", timeline_count)
+		sprite.set_meta("fixture_water_atlas_frame", water_frame_index)
+		sprite.set_meta("fixture_water_active", any_water_active)
 
 
 func tick(_delta: float) -> void:
@@ -290,7 +348,8 @@ func _add_bubble_emitter(rig: Dictionary, emitter: Dictionary,
 func _add_water_layer(rig: Dictionary, layer: Dictionary,
 		source_position: Vector2, placement_size: Vector2, depth_z: float,
 		to_world: Callable) -> void:
-	var normalized_points := _layer_polygon(layer)
+	var geometry_layer := _layer_geometry_for_frame(layer, 0)
+	var normalized_points := _layer_polygon(geometry_layer)
 	if normalized_points.size() < 3:
 		return
 	var bounds := _polygon_bounds(normalized_points)
@@ -360,7 +419,7 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 	node.set_meta("depth_write_disabled", true)
 	node.set_meta("logic_authority", false)
 	node.set_meta("fixture_bounds_normalized", bounds)
-	node.set_meta("fixture_outlet_normalized", _layer_outlet(layer))
+	node.set_meta("fixture_outlet_normalized", _layer_outlet(geometry_layer))
 	node.set_meta("water_shape", String(layer.get("shape", "")))
 	m.castle_room_item_visual_layer.add_child(node)
 	var water: Dictionary = {
@@ -368,19 +427,88 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 		"material": material,
 		"role": role,
 		"shape": String(layer.get("shape", "")),
+		"stream": bool(layer.get("stream", false)),
 		"base_position": node.position,
 		"flow_amount": 0.0,
 		"flow_start": float(layer.get("flow_start", 0.0)),
 		"center_frames": layer.get("center_frames", []),
+		"points_frames": layer.get("points_frames", []),
+		"active_frames": layer.get("active_frames", []),
+		"layer_spec": layer.duplicate(true),
 		"source_position": source_position,
 		"placement_size": placement_size,
 		"depth_z": depth_z + z_offset,
 		"to_world": to_world,
 		"base_center_normalized": center_normalized,
 		"bounds_normalized": bounds,
-		"outlet_normalized": _layer_outlet(layer),
+		"outlet_normalized": _layer_outlet(geometry_layer),
 	}
 	(rig["water"] as Array).append(water)
+
+
+func _layer_geometry_for_frame(layer: Dictionary,
+		frame_index: int) -> Dictionary:
+	var geometry := layer.duplicate(true)
+	var points_frames: Array = layer.get("points_frames", []) as Array
+	if not points_frames.is_empty():
+		var index := clampi(frame_index, 0, points_frames.size() - 1)
+		geometry["points"] = points_frames[index]
+	return geometry
+
+
+func _update_polygon_water_for_frame(water: Dictionary,
+		frame_index: int) -> void:
+	var points_frames: Array = water.get("points_frames", []) as Array
+	if points_frames.is_empty():
+		return
+	var layer: Dictionary = water.get("layer_spec", {}) as Dictionary
+	var geometry := _layer_geometry_for_frame(layer, frame_index)
+	var points := _layer_polygon(geometry)
+	if points.size() < 3:
+		return
+	var bounds := _polygon_bounds(points)
+	if bounds.size.x <= 0.0001 or bounds.size.y <= 0.0001:
+		return
+	var node: Sprite3D = water.get("node") as Sprite3D
+	var material: ShaderMaterial = water.get("material") as ShaderMaterial
+	if node == null or material == null:
+		return
+	var mask_texture := _polygon_mask(points, bounds)
+	node.texture = mask_texture
+	material.set_shader_parameter("shape_mask", mask_texture)
+	var source_position: Vector2 = water.get(
+		"source_position", Vector2.ZERO) as Vector2
+	var placement_size: Vector2 = water.get(
+		"placement_size", Vector2.ONE) as Vector2
+	var to_world: Callable = water.get("to_world") as Callable
+	var depth_z: float = float(water.get("depth_z", 0.0))
+	var center_normalized := bounds.position + bounds.size * 0.5
+	var center_art := source_position + center_normalized * placement_size
+	var center_world: Vector3 = to_world.call(center_art, depth_z)
+	var left_world: Vector3 = to_world.call(Vector2(
+		source_position.x + bounds.position.x * placement_size.x,
+		center_art.y), depth_z)
+	var right_world: Vector3 = to_world.call(Vector2(
+		source_position.x + bounds.end.x * placement_size.x,
+		center_art.y), depth_z)
+	var top_world: Vector3 = to_world.call(Vector2(center_art.x,
+		source_position.y + bounds.position.y * placement_size.y), depth_z)
+	var bottom_world: Vector3 = to_world.call(Vector2(center_art.x,
+		source_position.y + bounds.end.y * placement_size.y), depth_z)
+	node.position = center_world
+	node.scale = Vector3(
+		absf(right_world.x - left_world.x)
+			/ (float(WATER_MASK_SIZE) * node.pixel_size),
+		absf(top_world.y - bottom_world.y)
+			/ (float(WATER_MASK_SIZE) * node.pixel_size),
+		1.0)
+	var outlet := _layer_outlet(geometry)
+	node.set_meta("fixture_bounds_normalized", bounds)
+	node.set_meta("fixture_outlet_normalized", outlet)
+	water["base_position"] = node.position
+	water["base_center_normalized"] = center_normalized
+	water["bounds_normalized"] = bounds
+	water["outlet_normalized"] = outlet
 
 
 func _layer_polygon(layer: Dictionary) -> PackedVector2Array:
@@ -650,14 +778,15 @@ func _apply_jolt_impulse(rig: Dictionary) -> void:
 		return
 	var mode: String = String(rig.get("physics_mode", "none"))
 	var direction: float = float(rig.get("jolt_direction", 1.0))
+	var impulse_scale: float = float(rig.get("impulse_scale", 1.0))
 	if mode == "hinge_z":
 		body.apply_torque_impulse(Vector3(
-			0.0, 0.0, direction * HINGE_TORQUE_IMPULSE))
+			0.0, 0.0, direction * HINGE_TORQUE_IMPULSE * impulse_scale))
 	elif mode == "buoyant":
 		body.apply_central_impulse(Vector3(
-			0.0, BUOYANT_VERTICAL_IMPULSE, 0.0))
+			0.0, BUOYANT_VERTICAL_IMPULSE * impulse_scale, 0.0))
 		body.apply_torque_impulse(Vector3(
-			0.0, 0.0, direction * BUOYANT_TORQUE_IMPULSE))
+			0.0, 0.0, direction * BUOYANT_TORQUE_IMPULSE * impulse_scale))
 
 
 func _settle_body(rig: Dictionary, rest_position: Vector3) -> void:

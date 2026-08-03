@@ -1,6 +1,6 @@
 extends SceneTree
 # Focused live-world audit for the Bubble Bath room. The room is a layered
-# Sprite3D stage: tub, sink, toilet, and duck are separate world cards with
+# Sprite3D stage: eight bathroom fixtures are separate world cards with
 # projected touch targets, semantic atlas animations, and sounds. No modeled
 # bathroom may be rebuilt.
 
@@ -20,6 +20,22 @@ const PROP_EXPECTATIONS := {
 	"rubber_duck": {
 		"semantic_action": "squeak_dive_and_pop_up",
 		"sound": "res://assets/audio/castle/duck_squeak.ogg",
+	},
+	"shell_shower": {
+		"semantic_action": "turn_shower_control_and_run_water",
+		"sound": "res://assets/audio/castle/faucet_water.ogg",
+	},
+	"vanity_cupboard": {
+		"semantic_action": "open_vanity_and_reveal_towels",
+		"sound": "res://assets/audio/castle/oven_door.ogg",
+	},
+	"soap_pump": {
+		"semantic_action": "press_soap_pump_and_dispense_bead",
+		"sound": "res://assets/audio/castle/duck_squeak.ogg",
+	},
+	"towel_spool": {
+		"semantic_action": "turn_spool_unroll_and_rewind_towel",
+		"sound": "res://assets/audio/castle/ribbon_roll.ogg",
 	},
 }
 
@@ -82,9 +98,9 @@ func _run() -> void:
 		and main.game_nodes.is_empty()
 		and main.arena_solids.is_empty()
 		and main.arena_zones.is_empty())
-	_ck("four separate touch props",
-		main.castle_room_item_sprites.size() == 4
-		and main.castle_room_item_hotspot_layer.get_child_count() == 4)
+	_ck("eight separate touch props",
+		main.castle_room_item_sprites.size() == 8
+		and main.castle_room_item_hotspot_layer.get_child_count() == 8)
 
 	var props_ok := true
 	var depth_ok := true

@@ -710,7 +710,9 @@ generator output is present in this directory or connected to runtime art.
 - `assets_src/castle/room_regenerations/room_kitchen_fullframe_v2_1672x941.png` — original complete full-frame OpenAI built-in ImageGen regeneration for Mermaid Roshan: Reef of Light, using the prior Royal Kitchen composite as the composition/style reference; removes the two incompatible ocean-view windows, retains one small opaque shell light inset, and adds the gameplay-critical mint refrigerator; native generation preserved at 1672×941 with SHA-256 `8faa4e15e60503cb0303434b77461fa559a81c3d021eb6c3165e9ed176bfbf3e`; prompt and audit record retained beside it in `room_kitchen_fullframe_v2_provenance.md`; generated 2026-07-29.
 - `assets_src/castle/room_regenerations/room_kitchen_kettle_single_spout_chroma.png`, `room_kitchen_kettle_single_spout.png`, and `room_kitchen_fullframe_v3_1672x941.png` — project-original OpenAI built-in ImageGen single-object correction of the v2 stove-kettle defect; the accepted isolated golden kettle has exactly one right-side spout, was hard-key alpha extracted with despill and one-pixel contraction, and was composited only over the restored old-kettle footprint by `tools/repair_kitchen_kettle.py`; native source, exact prompt, hashes, rejected-method note, and production method are recorded in `room_kitchen_fullframe_v3_provenance.md`; generated and integrated 2026-07-29.
 - `assets/flats/castle/rooms/room_kitchen.png`, `room_kitchen_background.png`, `room_kitchen_front_left.png`, `room_kitchen_front_right.png`, `room_kitchen_item_sink.png`, `room_kitchen_item_oven.png`, `room_kitchen_item_pan_1.png` through `room_kitchen_item_pan_4.png`, `room_kitchen_item_fridge.png`, `assets_src/castle/room_backgrounds_2k/room_kitchen_background_2k.png`, and `assets/flats/castle/rooms/background_tiles/room_kitchen_background_r*_c*.png` — deterministic derivatives of the preserved Kitchen v3 full-frame source; normalized to the 1024×576 logical stage, separated into outline-refined Sprite3D cards, and whole-canvas Lanczos enlarged to a 4096×2304 background master split into twelve non-overlapping 1024×768 runtime tiles; generated 2026-07-29 by `tools/build_castle_room_layers.py` and `tools/build_castle_room_2k_tiles.py`.
-- `assets/flats/castle/rooms/room_mermaid_pool.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light; prompt-authored Pearl Castle mermaid pool; resized to 1024×576 for mobile runtime use.
+- `assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v2_native.png` and adjacent `PROVENANCE.md` — project-original OpenAI built-in ImageGen full-frame Mermaid Pool regeneration; restores the continuously visible rainbow waterfall, removes the dry shell-gate device and ambiguous pipe fixture, and introduces one coherent seahorse fountain; native 1672x941 source, exact prompt, references, method, and SHA-256 are preserved; generated 2026-08-02.
+- `assets/flats/castle/rooms/room_mermaid_pool.png`, `room_mermaid_pool_background.png`, `room_mermaid_pool_{front_left,front_right,mid_pool}.png`, `room_mermaid_pool_item_{waterfall,flower_float,star_float,seahorse_fountain}.png`, `assets_src/castle/room_backgrounds_2k/room_mermaid_pool_background_2k.png`, and `assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r*_c*.png` — deterministic normalized, outline-refined, healed-plate, depth-card, 2048x1152 master, and non-overlapping runtime-tile derivatives of the accepted 2026-08-02 full-frame source; built by `tools/build_castle_room_layers.py` and `tools/build_castle_room_2k_tiles.py`.
+- The superseded original Mermaid Pool composite and its dry v2 generated fixture sheets remain in Git/provenance history for audit only; runtime uses the accepted 2026-08-02 complete room and room-derived interaction atlases.
 - `assets/flats/castle/rooms/room_bubble_bath.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the Mermaid Pool, Kitchen, and Main Hall style references; authored as a wide room with separated bathtub, sink, and toilet; resized to 1024×576.
 - `assets/flats/castle/rooms/room_*_front_*.png` and `room_*_mid_*.png` — exact-pixel alpha crops derived from the corresponding licensed room backdrops by `tools/build_castle_room_layers.py`; no new source artwork.
 - `assets/flats/castle/rooms/room_*_item_*.png` — exact-pixel alpha touch-prop crops derived from the corresponding licensed room backdrops by `tools/build_castle_room_layers.py`; no new source artwork.
@@ -1037,6 +1039,7 @@ frame grids, action names, and review state are recorded in
 - `assets/flats/castle/interactions/mermaid_pool_waterfall_atlas.png` - eight-frame fixed-pivot deterministic waterfall-flow atlas.
 - `assets/flats/castle/interactions/mermaid_pool_flower_float_atlas.png` - eight-frame fixed-pivot deterministic petal/ripple atlas using the preservation master below.
 - `assets/flats/castle/interactions/mermaid_pool_bubble_fountain_atlas.png` - eight-frame fixed-pivot deterministic jet/bubble atlas using the preservation master below.
+- `assets/flats/castle/interactions/mermaid_pool_seahorse_fountain_atlas.png` - eight-frame fixed-pivot deterministic water-spray atlas derived from the accepted 2026-08-02 room card; project-original, no external URL.
 - `assets/flats/castle/interactions/bubble_bath_rubber_duck_atlas.png` - eight-frame fixed-pivot deterministic squeak/dive atlas color-isolated from the accepted tub preservation master.
 - `assets/flats/castle/interactions/bubble_bath_bathtub_atlas.png` - eight-frame fixed-pivot deterministic tap/water/bubble atlas using the preservation master below.
 - `assets/flats/castle/interactions/bubble_bath_sink_atlas.png` - eight-frame fixed-pivot deterministic faucet/water atlas using the preservation master below.
@@ -1483,3 +1486,115 @@ Runtime fluid, audio, review, and provenance artifacts:
 - `assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json` - exact kitchen/bath/pool prompt/hash/review evidence.
 - `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json` - exact playroom/craft/pool prompt/hash/review evidence.
 - `assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json` - exact four-pan prompt/hash/rejection/review evidence.
+
+## Pearl Castle authored object interactions v3 expansion (2026-08-02)
+
+This additive pass fills a specific production gap: the approved rooms did not
+have enough clean, complete-object animation states to double their interactive
+fixture inventories. The 38 new source sheets are project-original OpenAI
+built-in ImageGen output in the established Pearl Castle storybook style; no
+third-party visual source or external URL was used. License: project-owned
+original, all rights reserved; source URL: N/A. Native generation paths, hashes,
+exact prompts, accepted attempts, rejected attempts where applicable, and review
+state are retained in the four provenance ledgers listed below.
+
+The checked-in chroma sheets are non-destructive prepared copies of those native
+generations: one uniform fit of each complete conceptual cell into a 1024 x 512
+sheet, with a four-pixel exact-chroma inset around every conceptual cell.
+Runtime sheets are derived by chroma matte/despill,
+whole-object fixed-anchor registration, transparent padding, and one uniform
+per-sheet scale. No tweening, pixel morphing, or overlay animation authors an
+object state. Codex visual review is recorded; owner/human review remains
+pending and is not implied by this license record.
+
+Prepared generated chroma/source sheets (eight complete states, 4 x 2):
+
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/craft_room/craft_room_scissors_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/craft_room/craft_room_sewing_machine_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/library/library_quill_set_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/library/library_rolling_ladder_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/library/library_secret_panel_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/library/library_telescope_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/playroom/playroom_dollhouse_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/playroom/playroom_rocking_horse_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/playroom/playroom_toy_chest_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/playroom/playroom_xylophone_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/bubble_bath/bubble_bath_shell_shower_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/bubble_bath/bubble_bath_soap_pump_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/bubble_bath/bubble_bath_towel_spool_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/bubble_bath/bubble_bath_vanity_cupboard_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/craft_room/craft_room_bead_jar_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/craft_room/craft_room_stamp_press_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_cookie_jar_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_cutlery_drawer_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_ladle_rack_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_seafoam_kettle_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_serving_tureen_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_shell_cupboard_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_soup_pot_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_banner_left_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_chest_bench_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_fern_planter_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_left_pearl_vitrine_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_right_pearl_vitrine_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_shell_clock_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_visitor_bell_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/mermaid_pool/mermaid_pool_buoy_bell_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/mermaid_pool/mermaid_pool_dock_chest_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/mermaid_pool/mermaid_pool_sailboat_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/mermaid_pool/mermaid_pool_waterwheel_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_conductor_podium_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_coral_harp_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_costume_trunk_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_shell_piano_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+
+Runtime generated full-object state sheets (eight authored states, 4 x 2):
+
+- `assets/flats/castle/interactions_v3/bubble_bath_shell_shower_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/bubble_bath_soap_pump_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/bubble_bath_towel_spool_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/bubble_bath_vanity_cupboard_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/craft_room_bead_jar_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/craft_room_scissors_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/craft_room_sewing_machine_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/craft_room_stamp_press_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/kitchen_cookie_jar_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/kitchen_cutlery_drawer_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/kitchen_ladle_rack_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/kitchen_seafoam_kettle_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/kitchen_serving_tureen_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/kitchen_shell_cupboard_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/kitchen_soup_pot_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/library_quill_set_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/library_rolling_ladder_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/library_secret_panel_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/library_telescope_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/main_hall_banner_left_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/main_hall_chest_bench_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/main_hall_fern_planter_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/main_hall_left_pearl_vitrine_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/main_hall_right_pearl_vitrine_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/main_hall_shell_clock_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/main_hall_visitor_bell_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/mermaid_pool_buoy_bell_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/mermaid_pool_dock_chest_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/mermaid_pool_sailboat_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/mermaid_pool_waterwheel_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/opera_hall_conductor_podium_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/opera_hall_coral_harp_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/opera_hall_costume_trunk_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/opera_hall_shell_piano_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/playroom_dollhouse_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/playroom_rocking_horse_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/playroom_toy_chest_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+- `assets/flats/castle/interactions_v3/playroom_xylophone_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+
+V3 preparation, normalization, runtime, and provenance records:
+
+- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/provenance_draft.json` - exact prompt, native-path/hash, attempt, and Codex-review evidence for ten Library, Playroom, and Craft Room sources; human review pending.
+- `assets_src/imagegen/castle_object_animations_v3/final_10/provenance_draft.json` - exact prompt, native-path/hash, attempt, and Codex-review evidence for ten sources including the accepted dry shower redraw; human review pending.
+- `assets_src/imagegen/castle_object_animations_v3/opera_kitchen_batch/provenance_draft.json` - exact prompt, native-path/hash, attempt, and Codex-review evidence for ten Opera Hall/Kitchen sources including the accepted dry kettle redraw; human review pending.
+- `assets_src/imagegen/castle_object_animations_v3/root_batch/provenance_draft.json` - exact prompt, native-path/hash, attempt, and Codex-review evidence for eight sources; human review pending.
+- `assets_src/imagegen/castle_object_animations_v3/castle_interactions_v3_source_preparation.json` - project-authored transactional source-preparation hashes, dimensions, insets, and provenance links.
+- `assets/flats/castle/interactions_v3/castle_interactions_v3_normalization.json` - project-authored alpha, padding, scale, anchor, frame-hash, and fixed-pivot evidence.
+- `assets/flats/castle/interactions_v3/castle_interactions_v3.json` - project-authored combined runtime manifest for 29 active v2-base assets plus 38 v3 additions, with the four approved room-derived pool bases recorded separately.
