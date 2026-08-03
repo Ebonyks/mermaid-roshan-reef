@@ -206,6 +206,7 @@ var steal_index := -1
 var captain_pending := false
 var idle_t := 0.0
 var score_cool := 0.0
+var bounce_cool := 0.0
 var bop_puff_texture: Texture2D = null
 var nursery_catch: OperaNurseryCatch = null
 ## Stage geography: the painted world's walkable route and task stations.
@@ -1047,7 +1048,9 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	# _full overlays never move and the child gets no feedback at all.
 	surface.set_fill(progress)
 	surface.set_fill(progress)
-	_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
+	if bounce_cool <= 0.0:
+		bounce_cool = 0.22
+		_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
 		if quality >= 0.5:
 			# never rotate by a multiple of three — that froze the target
@@ -1067,7 +1070,14 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			var reserve := 2.0 if captain_pending else float(_live_captain_hp())
 			phase_progress = minf(phase_progress, goal - reserve)
 	if phase_progress >= goal:
+		# hold the finished picture and celebrate it — the completion state
+		# used to exist for ~0.18s before the next phase wiped it, so the
+		# child never saw the thing she had just made
+		surface.set_fill(1.0)
+		if action_panel != null and surface != null:
+			_bop_burst_at(action_panel.position + surface.position + surface.size * 0.5, false)
 		phase_index += 1
+		phase_gap = maxf(phase_gap, 0.9)
 		_show_phase()
 
 
@@ -1658,6 +1668,8 @@ func _process(delta: float) -> void:
 	elapsed += delta
 	if score_cool > 0.0:
 		score_cool = maxf(0.0, score_cool - delta)
+	if bounce_cool > 0.0:
+		bounce_cool = maxf(0.0, bounce_cool - delta)
 	if combat_miss_cool > 0.0:
 		combat_miss_cool = maxf(0.0, combat_miss_cool - delta)
 	if phase_gap > 0.0:
@@ -1676,7 +1688,11 @@ func _process(delta: float) -> void:
 	if active and phase_index < phases.size():
 		var phase := phases[phase_index] as Dictionary
 		var mode := String(phase.get("mode", ""))
-		if mode == "hold" and surface.held and phase_gap <= 0.0:
+		if mode == "hold" and surface.held:
+			# a finger that is already down generates no new gesture events, so
+			# it could never skip its own phase gap — it just went dead for 1s
+			if phase_gap > 0.0:
+				phase_gap = 0.0
 			_on_gesture("hold", delta, 1.0)
 		elif mode == "bop":
 			bop_time += delta
