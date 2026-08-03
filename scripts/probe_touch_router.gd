@@ -32,18 +32,47 @@ func _init() -> void:
 	if move_zone.size.x < 390.0 or move_zone.size.y < 300.0:
 		_bad("movement thumb bay is too small: %s" % move_zone)
 	var move_start: Vector2 = move_zone.get_center()
-	# The painted cardinal pad is a real pad, not a drag-only illustration:
-	# pressing its right side must move immediately without a motion event.
-	var pad_center: Vector2 = touch._fixed_stick_center()
-	_down(8, pad_center + Vector2(64.0, 0.0))
+	# DIRECTION AGREEMENT (owner report 2026-08-03). The thumb bay draws no pad,
+	# so the stick anchors on the finger and a drag's direction IS the commanded
+	# direction — asserted at both ends of the bay and in the middle, because the
+	# old fixed anchor sat at the bay's far left and made most of it push right.
+	for probe_x: float in [move_zone.position.x + 40.0, move_zone.get_center().x,
+			move_zone.end.x - 40.0]:
+		var bay_press := Vector2(probe_x, move_zone.get_center().y)
+		_down(8, bay_press)
+		await process_frame
+		if not (touch.stick_vec as Vector2).is_zero_approx():
+			_bad("a press with no drag pushed the stick at x=%.0f: %s" \
+				% [probe_x, touch.stick_vec])
+		_drag(8, bay_press + Vector2(-70.0, 0.0))
+		await process_frame
+		if (touch.stick_vec as Vector2).x > -0.45:
+			_bad("dragging LEFT at x=%.0f did not steer left: %s" \
+				% [probe_x, touch.stick_vec])
+		_up(8, fingers[8])
+		await process_frame
+	# The bay is an accessibility stick, not a hole in the world: a press there
+	# that never became a drag still reaches the world as a tap.
+	var bay_taps: int = taps.size()
+	_down(9, move_start)
+	_up(9, move_start)
 	await process_frame
-	if (touch.stick_vec as Vector2).x < 0.45:
-		_bad("tapping the visible right direction did not move immediately")
-	_up(8, pad_center + Vector2(64.0, 0.0))
-	await process_frame
+	if taps.size() != bay_taps + 1:
+		_bad("a tap in the thumb bay was swallowed instead of reaching the world")
+	# Hold-to-travel clients read the emulated pointer, which knows nothing about
+	# ownership. They ask this instead, so a held button never means "walk here".
+	if not touch.reserved_zone_hit(touch.action_zone().get_center()):
+		_bad("holding the action medallion is not reserved from hold-to-travel")
+	if not touch.reserved_zone_hit(move_start):
+		_bad("holding inside the thumb bay is not reserved from hold-to-travel")
+	main._tap_move_ref().cancel("probe reset")
+	main._interaction_ref().clear_focus()
+	taps.clear()
 	var world_pos := Vector2(
 		get_root().get_viewport().get_visible_rect().size.x * 0.58,
 		get_root().get_viewport().get_visible_rect().size.y * 0.30)
+	if touch.reserved_zone_hit(world_pos):
+		_bad("open world space is wrongly reserved from hold-to-travel")
 
 	# One-finger movement: no action pulse and no accidental world command.
 	_down(0, move_start)
