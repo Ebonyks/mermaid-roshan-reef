@@ -438,11 +438,12 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 		var wave: float = sin(
 			focus_t * Affordance.pulse_speed(affordance_kind, selected) + phase)
 		var tint: Color = Affordance.color(affordance_kind, selected)
-		tint.a *= 0.95 + wave * 0.05
+		var opacity_floor: float = Affordance.opacity_floor(affordance_kind)
+		tint.a *= lerpf(opacity_floor, 1.0, wave * 0.5 + 0.5)
 		glow.modulate = tint
 		if target_id == "castle_gate":
-			# The door breathes through opacity. Scaling a facade-shaped signal
-			# would make a loose colored ghost around every tower and window.
+			# The plot door beacons through opacity. Scaling a facade-shaped
+			# signal would make a loose ghost around every tower and window.
 			glow.scale = Vector3.ONE
 		else:
 			var base_scale: float = float(target.get("highlight_scale", 1.0))
@@ -1473,7 +1474,7 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK,
 		highlight_path: String = "", highlight_pixel_size: float = 0.0) -> void:
 	_register_mural_socket(node, socket_lock)
-	var affordance_kind: String = Affordance.INTERACTION \
+	var affordance_kind: String = Affordance.PLOT \
 		if kind == "castle" else Affordance.ANIMATION
 	var glow: Sprite3D
 	glow = Sprite3D.new()

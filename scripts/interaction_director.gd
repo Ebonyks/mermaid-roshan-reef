@@ -3,7 +3,8 @@ extends RefCounted
 # Shared touch interaction language:
 # ambient -> categorized discovery glow -> focused acknowledgement -> approach
 # -> ready -> explicit second tap/action -> activation. Gold/twinkle means a
-# local animation; deep blue/breath means an activity or state change.
+# local animation; deep blue/breath means an activity or state change; the
+# brightest red beacon means this object advances the plot.
 # Proximity advertises; it never launches an activity in Hybrid mode.
 
 const Affordance := preload("res://scripts/interaction_affordance.gd")
@@ -217,11 +218,11 @@ func _place_ring(ring: MeshInstance3D, item: Dictionary, focused: bool, delta: f
 	if material != null:
 		material.albedo_color = color
 		material.emission = Color(color.r, color.g, color.b)
-		material.emission_energy_multiplier = 0.95 if focused else 0.55
+		material.emission_energy_multiplier = Affordance.emission_energy(
+			affordance_kind, focused)
 	ring.set_meta("affordance_kind", affordance_kind)
-	ring.rotation.y += delta * (
-		1.35 if affordance_kind == Affordance.ANIMATION \
-		else 0.72) * (1.35 if focused else 1.0)
+	ring.rotation.y += delta * Affordance.rotation_speed(affordance_kind) \
+		* (1.35 if focused else 1.0)
 	var time_now: float = Time.get_ticks_msec() / 1000.0
 	var pulse: float = 1.0 + sin(
 		time_now * Affordance.pulse_speed(affordance_kind, focused)

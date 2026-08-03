@@ -23,9 +23,29 @@ func _init() -> void:
 		_bad("reef registry omitted core friends")
 	for touch_target_value: Variant in main.touch_interactables:
 		var touch_target: Dictionary = touch_target_value as Dictionary
-		if String(touch_target.get("affordance_kind", "")) != Affordance.INTERACTION:
-			_bad("world activity missing deep-blue interaction affordance")
+		var target_id: String = String(touch_target.get("id", ""))
+		var expected_affordance: String = Affordance.INTERACTION
+		if target_id.begins_with("friend:"):
+			var friend_index: int = int(touch_target.get("payload", -1))
+			if friend_index >= 0 and friend_index < main.friends.size():
+				var target_friend: Dictionary = main.friends[friend_index] as Dictionary
+				if not bool(target_friend.get("won", false)):
+					expected_affordance = Affordance.PLOT
+		elif target_id == "reef:lagoon" and not main.level2_done_once:
+			expected_affordance = Affordance.PLOT
+		elif target_id == "reef:return" and main._all_friends_won():
+			expected_affordance = Affordance.PLOT
+		var actual_affordance: String = String(touch_target.get(
+			"affordance_kind", ""))
+		if actual_affordance != expected_affordance:
+			_bad("world affordance category wrong for %s" % target_id)
 			break
+	if Affordance.RED_IDLE.a <= Affordance.BLUE_IDLE.a \
+			or Affordance.emission_energy(Affordance.PLOT, false) \
+				<= Affordance.emission_energy(Affordance.INTERACTION, false) \
+			or Affordance.pulse_amount(Affordance.PLOT, false) \
+				<= Affordance.pulse_amount(Affordance.INTERACTION, false):
+		_bad("red plot beacon is not the most obvious affordance")
 
 	var friend: Dictionary = main.friends[0]
 	var friend_node: Node3D = friend["node"]
@@ -109,7 +129,7 @@ func _init() -> void:
 		var promenade_target: Dictionary = target_value as Dictionary
 		var promenade_id: String = String(promenade_target.get("id", ""))
 		promenade_ids[promenade_id] = true
-		var expected_affordance: String = Affordance.INTERACTION \
+		var expected_affordance: String = Affordance.PLOT \
 			if promenade_id == "castle_gate" else Affordance.ANIMATION
 		var highlight: Sprite3D = promenade_target.get("highlight") as Sprite3D
 		if String(promenade_target.get(
