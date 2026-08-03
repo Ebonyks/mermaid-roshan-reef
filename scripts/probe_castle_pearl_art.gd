@@ -1051,6 +1051,7 @@ func _run() -> void:
 	var playroom_rescue_ray_ok := false
 	var playroom_rescue_route_ok := false
 	var max_visible_world_cards := 0
+	var hall_colony_size_ok := true
 	var interaction_failures: Array[String] = []
 	var interaction_manifest: Dictionary = _interaction_manifest()
 	var active_manifest_assets: Dictionary = _manifest_assets_by_instance(
@@ -1169,7 +1170,14 @@ func _run() -> void:
 			EXPECTED_PHYSICAL_ITEM_COUNTS[room_id])
 		var expected_room_items: int = expected_physical_items
 		if hall_mode:
-			expected_room_items += 3
+			# The dust-bunny colony is generated per castle visit, so the hall's
+			# runtime inventory is its seven props plus however many bunnies the
+			# generator is currently keeping alive (never more than the cap).
+			var hall_bunny_count: int = rooms.hall_dust_bunny_ids().size()
+			expected_room_items += hall_bunny_count
+			hall_colony_size_ok = hall_colony_size_ok \
+				and hall_bunny_count >= 3 \
+				and hall_bunny_count <= CastleRooms25D.HALL_BUNNY_LIVE_CAP
 		elif room_id == "playroom" and not rooms._playroom_rescue_done():
 			expected_room_items += 3
 		var background_ready: bool = (
@@ -1580,7 +1588,7 @@ func _run() -> void:
 			EXPECTED_PHYSICAL_ITEM_COUNTS[room_id])
 		var expected_runtime_items: int = expected_physical_items
 		if room_id == "main_hall":
-			expected_runtime_items += 3
+			expected_runtime_items += rooms.hall_dust_bunny_ids().size()
 		elif room_id == "playroom" and not rooms._playroom_rescue_done():
 			expected_runtime_items += 3
 		var expected_hotspots: int = 7 if room_id == "main_hall" else (
@@ -1943,6 +1951,40 @@ func _run() -> void:
 		main.castle_room_door_hotspots.size() == 9
 		and main.castle_room_door_hotspot_layer != null
 		and main.castle_room_door_hotspot_layer.visible)
+	# Dust-bunny AI (2026-08-02): rebuild the hall so the colony reports its
+	# generated spawn state. Earlier steps in this run deliberately unfurl props
+	# and switch shell lights, and both of those startle live bunnies.
+	rooms.show_room("library", false)
+	rooms.show_room("main_hall", false)
+	await _frames(2)
+	rooms._position_player_at_foot(Vector2(380.0, 835.0), false)
+	var colony_ids: Array[String] = rooms.hall_dust_bunny_ids()
+	var colony_roles: Dictionary = {}
+	var colony_cards_ok: bool = colony_ids.size() > 3 \
+		and colony_ids.size() <= CastleRooms25D.HALL_BUNNY_LIVE_CAP
+	for item_id: String in colony_ids:
+		var colony_record: Dictionary = main.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		var colony_sprite: Sprite3D = colony_record.get("sprite") as Sprite3D
+		var colony_role: String = String(colony_record.get("bunny_role", ""))
+		colony_roles[colony_role] = int(colony_roles.get(colony_role, 0)) + 1
+		colony_cards_ok = colony_cards_ok \
+			and colony_role != "" \
+			and colony_sprite != null \
+			and colony_sprite.texture != null \
+			and colony_sprite.texture.resource_path.contains("dust_bunnies/") \
+			and not colony_sprite.shaded \
+			and not colony_sprite.no_depth_test \
+			and colony_record.get("hotspot") == null \
+			and int(colony_record.get("hp", 0)) \
+				== CastleRooms25D.HALL_BUNNY_HP
+	_ck("main_hall_generates_several_dust_bunny_versions", colony_cards_ok,
+		"live=%d roles=%s" % [colony_ids.size(), colony_roles])
+	_ck("main_hall_colony_includes_sleeper_and_shell_hider",
+		int(colony_roles.get("sleeping_static", 0)) >= 1
+		and int(colony_roles.get("shell_static", 0)) >= 1,
+		"roles=%s" % colony_roles)
+	_ck("main_hall_dust_bunny_colony_size_within_budget", hall_colony_size_ok)
 	var bunny_ids: Array[String] = [
 		"sleepy_bunny", "shell_bunny", "runner_bunny"]
 	var expected_bunny_roles := {
@@ -2031,6 +2073,74 @@ func _run() -> void:
 			"runner_bunny", Vector3.INF) as Vector3
 		runner_moves_ok = runner_now.position.distance_to(runner_start) > 0.01
 	_ck("main_hall_third_dust_bunny_runs", runner_moves_ok)
+	# Hopping is a toy pace, never a chase: one second of colony time moves a
+	# travelling bunny a few dozen logical pixels, far under Roshan's swim.
+	var hop_path := 0.0
+	var hop_previous: Vector2 = runner_record.get(
+		"contact_foot", Vector2.ZERO) as Vector2
+	for _hop_tick in range(10):
+		rooms.tick(0.1)
+		var hop_now: Vector2 = runner_record.get(
+			"contact_foot", Vector2.ZERO) as Vector2
+		hop_path += absf(hop_now.x - hop_previous.x)
+		hop_previous = hop_now
+	_ck("main_hall_dust_bunnies_hop_slowly",
+		hop_path > 10.0 and hop_path <= 120.0,
+		"logical_px_travelled_per_second=%.1f" % hop_path)
+	# The painted shell is a hiding place. In the dark with Roshan far away the
+	# bunny peeks out; light or an approaching mermaid tucks it back under.
+	var shell_foot: Vector2 = shell_record.get(
+		"contact_foot", Vector2.ZERO) as Vector2
+	rooms._position_player_at_foot(Vector2(380.0, 835.0), false)
+	rooms.tick(0.4)
+	rooms.tick(0.4)
+	var shell_peek_state: String = String(
+		shell_now.get_meta("dust_bunny_state", ""))
+	var shell_peek_scale: float = shell_now.scale.x
+	rooms._position_player_at_foot(
+		Vector2(shell_foot.x - 210.0, 835.0), false)
+	rooms.tick(0.4)
+	rooms.tick(0.4)
+	var shell_hide_state: String = String(
+		shell_now.get_meta("dust_bunny_state", ""))
+	_ck("main_hall_shell_bunny_hides_and_peeks",
+		shell_peek_state == "peeking"
+		and shell_hide_state == "hidden"
+		and shell_now.scale.x < shell_peek_scale
+		and shell_now.position == bunny_start_positions.get(
+			"shell_bunny", Vector3.INF),
+		"peek=%s hide=%s scale=%.3f->%.3f" % [
+			shell_peek_state, shell_hide_state,
+			shell_peek_scale, shell_now.scale.x])
+	# Codex sconce art dictates the sleeper's behaviour: switching a shell light
+	# back on wakes the bunny under it, and it starts hopping.
+	rooms._position_player_at_foot(Vector2(300.0, 835.0), false)
+	var sleepy_sleep_position: Vector3 = sleepy_now.position
+	rooms._activate_room_item("sconce_a1")
+	await _frames(2)
+	var sleepy_wake_state: String = String(
+		sleepy_now.get_meta("dust_bunny_state", ""))
+	for _wake_tick in range(4):
+		rooms.tick(0.5)
+	var sleepy_awake_ok: bool = sleepy_wake_state != "asleep" \
+		and String(sleepy_now.get_meta("dust_bunny_state", "")) == "hopping" \
+		and sleepy_now.position != sleepy_sleep_position
+	_ck("main_hall_sconce_light_wakes_sleeping_dust_bunny", sleepy_awake_ok,
+		"wake=%s now=%s" % [
+			sleepy_wake_state,
+			String(sleepy_now.get_meta("dust_bunny_state", ""))])
+	# Switching that light back off lets the same bunny curl up again. The wait
+	# lets the sconce atlas sequence finish so the fixture is touchable again.
+	await create_timer(1.2).timeout
+	rooms._activate_room_item("sconce_a1")
+	await _frames(2)
+	for _settle_tick in range(24):
+		rooms.tick(0.6)
+	_ck("main_hall_dark_settles_woken_dust_bunny_back_to_sleep",
+		String(sleepy_now.get_meta("dust_bunny_state", "")) == "asleep"
+		and String(sleepy_now.texture.resource_path).ends_with(
+			"dust_bunny_sleepy.png"),
+		"state=%s" % String(sleepy_now.get_meta("dust_bunny_state", "")))
 	var explosion_effects_before: int = \
 		main.castle_room_item_effect_layer.get_child_count()
 	var one_touch_explosions_ok := true
@@ -2062,9 +2172,36 @@ func _run() -> void:
 		and cleared_count_before_repeat == 3)
 	rooms.show_room("library", false)
 	rooms.show_room("main_hall", false)
-	_ck("main_hall_dust_bunnies_do_not_respawn_this_visit",
-		main.castle_room_item_sprites.size() == 7
-		and main.castle_room_item_hotspot_layer.get_child_count() == 7)
+	rooms._position_player_at_foot(Vector2(380.0, 835.0), false)
+	var surviving_ids: Array[String] = rooms.hall_dust_bunny_ids()
+	var cleared_stay_cleared := true
+	for item_id: String in bunny_ids:
+		cleared_stay_cleared = cleared_stay_cleared \
+			and not surviving_ids.has(item_id)
+	_ck("main_hall_cleared_dust_bunnies_do_not_respawn_this_visit",
+		cleared_stay_cleared
+		and main.castle_room_item_sprites.size() == 7 + surviving_ids.size()
+		and main.castle_room_item_hotspot_layer.get_child_count() == 7,
+		"surviving=%d" % surviving_ids.size())
+	# Passive generation: with the founders cleared the hall quietly makes new
+	# bunnies again, up to the mobile card cap and never past it.
+	rooms.tick(CastleRooms25D.HALL_BUNNY_DRIFT_INTERVAL + 0.5)
+	var drifted_ids: Array[String] = rooms.hall_dust_bunny_ids()
+	var drift_ok: bool = drifted_ids.size() == surviving_ids.size() + 1
+	for _refill_tick in range(8):
+		rooms.tick(CastleRooms25D.HALL_BUNNY_DRIFT_INTERVAL + 0.5)
+	var refilled_ids: Array[String] = rooms.hall_dust_bunny_ids()
+	var refill_reuses_cleared_id := false
+	for item_id: String in bunny_ids:
+		refill_reuses_cleared_id = refill_reuses_cleared_id \
+			or refilled_ids.has(item_id)
+	_ck("main_hall_passively_generates_more_dust_bunnies",
+		drift_ok
+		and not refill_reuses_cleared_id
+		and refilled_ids.size() > drifted_ids.size()
+		and refilled_ids.size() <= CastleRooms25D.HALL_BUNNY_LIVE_CAP,
+		"survivors=%d drifted=%d refilled=%d" % [
+			surviving_ids.size(), drifted_ids.size(), refilled_ids.size()])
 	rooms._position_player_at_foot(Vector2(2500.0, 835.0), false)
 	await _frames(2)
 	rooms.tick(1.0)

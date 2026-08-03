@@ -1,5 +1,11 @@
 # Pearl Castle dust-bunny spawn guide — 2026-07-29
 
+> **Behaviour superseded 2026-08-02** by `CASTLE_DUST_BUNNY_AI_2026-08-02.md`:
+> the three spawns below are now the founders of a generated colony that keeps
+> passively making more bunnies, and the patrol is a slow hop. The spawn table,
+> asset inventory, one-touch clear contract and camera-ray touch routing in this
+> guide are still current.
+
 ## Outcome
 
 The Main Hall now spawns exactly three distinct dust bunnies as unshaded Sprite3D cards at real scene depth:
