@@ -787,6 +787,84 @@ unlike the floor bosses, these earn their place.
 
 ---
 
+## 18. THE MIRROR IMPS ARE THE SPINE (owner ruling) — already built, barely used
+
+**There is an imp in an identical costume matching Mermaid Roshan for every
+single career. This must be a key part of every one of these processes.**
+
+Verified in the repo: **156 rival files** — all twelve careers, each with a
+full thirteen-state set (`rival_chef.png` plus `_bopped, _bow, _charge, _flee,
+_guard, _hop_a, _hop_b, _recover, _slash, _stagger, _taunt, _windup`) against
+Roshan's 13 costumed actors. Chef imp in a toque, detective imp in a
+deerstalker, ballerina imp in a tutu — a complete shadow cast, fully animated,
+**already delivered**. The game currently spends it on "a rival appears at the
+finale."
+
+### What the mirror actually means (the story it was always telling)
+
+The imps are not random thieves. **They are copying her, job for job, costume
+for costume.** Everything she makes, an identical imp is making beside her.
+That single image explains the whole chapter without a word of exposition:
+
+- **Why they steal each piece** — not mischief, *procurement*. They are
+  assembling a duplicate party, one stolen piece at a time.
+- **Why there is a rival in every act** — because the copy needs a chef, a
+  painter, a magician too. The finale isn't a random duel; it is her catching
+  the imp doing her job.
+- **Why the invitation resolves it** — a copy exists because someone wanted the
+  real thing and could not have it. Inviting them makes the copy unnecessary.
+  The lesson is enacted by the *structure*, never spoken.
+
+### This promotes the bible's floor-2 "COPYING" posture to the whole spine
+
+The bible staged copying as one floor's escalation with a crate-table prop.
+That is now the chapter's **through-line from act one**, and the escalation
+becomes how *good* the copy gets:
+
+| Stage | The copy | What the child sees |
+|---|---|---|
+| Early | clumsy imitation — wrong hats, upside-down tools | funny |
+| Middle | a working duplicate — their crate table has real pieces on it | uh-oh |
+| Late | nearly as good as hers, and *nearly convincing* | genuinely tense |
+| Party | the copy is abandoned the moment they are invited | the payoff |
+
+### It hands the Ember Prince his entire characterisation for free
+
+If the imps copy Roshan job-for-job, then **the Prince is the copy of Roshan
+herself** — a child throwing his own party because he was not invited to hers.
+The costumed imps are *his* court doing what he ordered. His crash at the
+climax is the copy's final act: if he cannot have a party, nobody can. And it
+sets his Chapter 4 father as the origin of the grievance.
+
+That is a complete antagonist arc derived entirely from art that already
+exists — no new character logic required, only the Prince's own design.
+
+### Consequences for the plan
+
+- **Every act should show the mirror early**, not just at the finale. The
+  costumed imp should be visible doing her job badly somewhere in the act
+  before he steals the piece — the shipped `_taunt`, `_hop`, `_windup` and
+  `_flee` states are exactly the vocabulary for that, and the roaming stage
+  combat already places imps in the painted world.
+- **The party table gains a shadow.** The imps' crate table can hold *their*
+  version of each piece taken — visible, wrong, sad. It is the strongest
+  single image available for the invitation payoff, and it costs one prop.
+- **The stolen piece is never destroyed**, which the design already assumes —
+  it is *displayed* on their table, so winning it back reads as reclaiming
+  rather than repairing.
+- **Chapter 5 inherits it:** at the ultimate party the imps are guests, and
+  their thirteen costumes become fancy dress rather than counterfeit — the
+  same 156 files, re-read.
+
+### Recommendation
+
+Make the mirror explicit in the chapter's opening minute (the child should see
+one costumed imp copying her *before* the first theft), and let it carry the
+imp arc end to end. It is the highest-value narrative change available,
+because the art is already finished and currently underused.
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
