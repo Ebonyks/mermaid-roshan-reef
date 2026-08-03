@@ -38,6 +38,60 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		m.voice.play()
 
 
+# ===================== STORY DIALOGUE =====================
+# Sequenced spoken exchanges: two or more characters trading lines while the
+# game keeps running. There is ONE caption slot, so a burst of show_msg calls
+# overwrites itself; story lines queue here instead and advance on a TIMER —
+# never on audio-finished, because headless probe runs have no audio device.
+# Any touch skips to the next line, so neither an impatient child nor a probe
+# pump is ever blocked. Queue state lives on ReefMain per the satellite rule.
+
+func say_sequence(lines: Array, opening_hold: float = 0.0) -> void:
+	if lines.is_empty():
+		return
+	m.dialogue_queue = lines.duplicate(true)
+	m.dialogue_t = opening_hold
+	m.dialogue_active = true
+	if opening_hold <= 0.0:
+		_advance_dialogue()
+
+
+func _advance_dialogue() -> void:
+	if m.dialogue_queue.is_empty():
+		m.dialogue_active = false
+		m.dialogue_t = 0.0
+		return
+	var line: Dictionary = m.dialogue_queue.pop_front()
+	show_msg(
+		String(line.get("who", "Roshan")),
+		String(line.get("text", "")),
+		String(line.get("vo", "talk"))
+	)
+	m.dialogue_t = maxf(0.8, float(line.get("hold", 3.2)))
+
+
+## A touch consumed a story line? (callers use this to swallow the tap)
+func skip_dialogue() -> bool:
+	if not m.dialogue_active:
+		return false
+	_advance_dialogue()
+	return true
+
+
+func tick_dialogue(delta: float) -> void:
+	if not m.dialogue_active:
+		return
+	m.dialogue_t -= delta
+	if m.dialogue_t <= 0.0:
+		_advance_dialogue()
+
+
+func clear_dialogue() -> void:
+	m.dialogue_queue = []
+	m.dialogue_t = 0.0
+	m.dialogue_active = false
+
+
 func _speaker_key(who: String) -> String:
 	var w := who.to_lower()
 	if "rosalina" in w: return "rosalina"
@@ -53,6 +107,8 @@ func _speaker_key(who: String) -> String:
 	if "sparkle" in w or "eagle" in w: return "sparkle"
 	if "mewsha" in w or "kitty" in w: return "mewsha"
 	if "everyone" in w: return "everyone"
+	if "maestro" in w: return "maestro"
+	if "kareem" in w: return "shop"
 	if "imp" in w: return "imp"
 	return "roshan"
 
