@@ -68,12 +68,65 @@ def main() -> None:
 	if failures:
 		raise SystemExit("\n".join(f"FAIL: {item}" for item in failures))
 	manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-	check(manifest.get("schema") == "castle_dream_house_room_art_v2",
+	check(manifest.get("schema") == "castle_dream_house_room_art_v3",
 		"unexpected dream-house manifest schema", failures)
 	check(manifest.get("protected_originals_modified") is False,
 		"manifest does not preserve protected originals", failures)
 	check(manifest.get("runtime_world_art") == "unshaded Sprite3D cards only",
 		"runtime world-art method changed", failures)
+
+	check(manifest.get("blender_runtime_pixels") is False,
+		"Blender render pixels are not blocked from runtime", failures)
+	check(manifest.get("source_visual_medium")
+		== "polished flattened 2D storybook illustration",
+		"dream-house source medium is not approved 2D storybook art", failures)
+	node_inventory = manifest.get("node_type_inventory", {})
+	check(node_inventory.get("world_art_node") == "Sprite3D",
+		"world-art node inventory is not Sprite3D", failures)
+	check(node_inventory.get("forbidden_world_nodes") == [],
+		"node inventory contains forbidden world-art nodes", failures)
+
+	production_sheets = manifest.get("production_sheets", [])
+	check(len(production_sheets) == 2,
+		"expected exactly two accepted 2D production sheets", failures)
+	sheet_roles = {str(record.get("role", "")) for record in production_sheets}
+	check(sheet_roles == {
+			"physical_door_family", "four_room_furnishing_family"},
+		"2D production-sheet roles changed", failures)
+	allowed_alpha_sources: set[str] = set()
+	for sheet_record in production_sheets:
+		role = str(sheet_record.get("role", "sheet"))
+		expected_prompt_id = {
+			"physical_door_family": "physical-door-family",
+			"four_room_furnishing_family": "four-room-furnishing-family",
+		}.get(role, "")
+		check(sheet_record.get("prompt_id") == expected_prompt_id,
+			f"{role} prompt id changed", failures)
+		prompt_path = repo_path(
+			sheet_record.get("prompt_path"), f"{role} prompt ledger", failures)
+		if prompt_path.is_file():
+			check(sha256(prompt_path) == sheet_record.get("prompt_sha256"),
+				f"{role} prompt ledger hash changed", failures)
+		chroma_path = repo_path(
+			sheet_record.get("chroma_path"), f"{role} chroma sheet", failures)
+		alpha_path = repo_path(
+			sheet_record.get("alpha_path"), f"{role} alpha sheet", failures)
+		if chroma_path.is_file():
+			check(sha256(chroma_path) == sheet_record.get("chroma_sha256"),
+				f"{role} chroma sheet hash changed", failures)
+		if alpha_path.is_file():
+			check(sha256(alpha_path) == sheet_record.get("alpha_sha256"),
+				f"{role} alpha sheet hash changed", failures)
+			with Image.open(alpha_path) as alpha_image:
+				check(list(alpha_image.size) == sheet_record.get("dimensions"),
+					f"{role} alpha sheet dimensions drifted", failures)
+				alpha_min, alpha_max = alpha_image.convert("RGBA").getchannel(
+					"A").getextrema()
+				check(alpha_min == 0 and alpha_max == 255,
+					f"{role} alpha sheet lacks clean transparency", failures)
+			allowed_alpha_sources.add(
+				alpha_path.relative_to(ROOT).as_posix())
+
 
 	imagegen_reference = manifest.get("imagegen_reference", {})
 	check(imagegen_reference.get("role") == "composition_reference_only",
@@ -120,6 +173,28 @@ def main() -> None:
 				"dream-house layout contact dimensions changed", failures)
 		check(sha256(layout_contact_path) == layout_contact.get("sha256"),
 			"dream-house layout contact hash changed", failures)
+
+	furnished_review = manifest.get("furnished_room_review", {})
+	furnished_contact_path = repo_path(
+		furnished_review.get("path"), "furnished-room placement contact", failures)
+	if furnished_contact_path.is_file():
+		check(sha256(furnished_contact_path) == furnished_review.get("sha256"),
+			"furnished-room placement contact hash changed", failures)
+		with Image.open(furnished_contact_path) as contact:
+			check(list(contact.size) == furnished_review.get("dimensions")
+				== [2048, 1152],
+				"furnished-room contact dimensions changed", failures)
+	check(furnished_review.get("critical_overlaps") == [],
+		"gallery doors or sleepover beds overlap", failures)
+	check(furnished_review.get("protected_movie_pixels_copied") is False,
+		"protected movie pixels were copied into placement evidence", failures)
+	placement_records = furnished_review.get("placements", [])
+	check(len(placement_records) == 24,
+		"furnished-room placement inventory is incomplete", failures)
+	for placement in placement_records:
+		check(float(placement.get("visible_fraction", 0.0)) >= 0.999,
+			f"furnished card is clipped: {placement.get('room_id')}:"
+			f"{placement.get('item_id')}", failures)
 
 	hall_entry_contact = manifest.get("hall_entry_contact", {})
 	hall_entry_contact_path = repo_path(hall_entry_contact.get("path"),
@@ -192,7 +267,7 @@ def main() -> None:
 			f"{room_id} tiles do not reconstruct the native crop", failures)
 
 	prop_records = manifest.get("props", [])
-	check(len(prop_records) >= 23,
+	check(len(prop_records) >= 22,
 		"dream-house prop inventory is incomplete", failures)
 	required_portal_paths = {
 		"assets/flats/castle/dream_house/family_wing_portal.png",
@@ -205,14 +280,14 @@ def main() -> None:
 	prop_paths = {str(record.get("path", "")) for record in prop_records}
 	check(required_portal_paths <= prop_paths,
 		"physical dream-house portal inventory is incomplete", failures)
-	approved_portal_source = (
-		"assets/flats/castle/main_hall_2screen/"
-		"castle_playroom_portal_cutout_reuse.png"
+	door_sheet_source = (
+		"assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/"
+		"door_family_sheet_alpha.png"
 	)
 	for record in prop_records:
 		if str(record.get("path", "")) in required_portal_paths:
-			check(record.get("source") == approved_portal_source,
-				"physical portal does not reuse the approved castle portal",
+			check(record.get("source") == door_sheet_source,
+				"physical portal does not come from the accepted 2D door family",
 				failures)
 
 	for record in prop_records:
@@ -232,6 +307,14 @@ def main() -> None:
 		check(sha256(prop_path) == record.get("sha256"),
 			f"prop hash changed: {prop_path.name}", failures)
 		source_value = record.get("source")
+		check(record.get("blender_runtime_pixels") is False,
+			f"prop permits Blender runtime pixels: {prop_path.name}", failures)
+		check(isinstance(source_value, str)
+			and source_value in allowed_alpha_sources,
+			f"prop is not extracted from an accepted 2D sheet: {prop_path.name}",
+			failures)
+		check("/blender/" not in str(source_value).replace("\\", "/"),
+			f"prop still references a Blender source: {prop_path.name}", failures)
 		if isinstance(source_value, str) \
 				and source_value.startswith("assets"):
 			source_path = repo_path(
@@ -240,7 +323,35 @@ def main() -> None:
 				check(sha256(source_path) == record.get("source_sha256"),
 					f"approved source changed: {source_path.name}", failures)
 
+	for legacy_path in (
+			"assets/flats/castle/dream_house/shell_arch.png",
+			"assets/flats/castle/dream_house/shell_window.png"):
+		check(not (ROOT / legacy_path).exists(),
+			f"unused Blender-derived runtime card returned: {legacy_path}",
+			failures)
 	runtime_text = RUNTIME_SCRIPT.read_text(encoding="utf-8")
+	for placement in placement_records:
+		source_position = placement.get("source_position", [])
+		if not isinstance(source_position, list) or len(source_position) != 2:
+			check(False, "placement source position is malformed", failures)
+			continue
+		token = (
+			f'"pos": Vector2({float(source_position[0]):.1f}, '
+			f'{float(source_position[1]):.1f}), '
+			f'"z": {float(placement.get("z", 0.0)):.2f}, '
+			f'"scale": {float(placement.get("uniform_scale", 1.0)):.2f}')
+		check(token in runtime_text,
+			f"runtime placement drifted: {placement.get('room_id')}:"
+			f"{placement.get('item_id')}", failures)
+	for door_token in (
+			'"pos": Vector2(-40.0, 79.0), "z": 0.86, "scale": 0.60',
+			'"pos": Vector2(200.0, 77.0), "z": 0.87, "scale": 0.60',
+			'"pos": Vector2(448.0, 89.0), "z": 0.88, "scale": 0.60',
+			'"pos": Vector2(680.0, 89.0), "z": 0.89, "scale": 0.60'):
+		check(door_token in runtime_text,
+			f"physical gallery door placement drifted: {door_token}", failures)
+	check('"z": 0.01, "scale": 0.82, "shaded": false' in runtime_text,
+		"Main Hall family-wing door scale drifted", failures)
 	for room_id in REQUIRED_ROOMS:
 		check(f'"id": "{room_id}"' in runtime_text,
 			f"runtime room missing: {room_id}", failures)
@@ -272,6 +383,15 @@ def main() -> None:
 		"reference-only ImageGen file is loaded by runtime", failures)
 	check("MeshInstance3D.new()" not in runtime_text,
 		"dream-house runtime introduced modeled world art", failures)
+	check("Sprite3D.new()" in runtime_text,
+		"dream-house runtime no longer constructs Sprite3D world cards",
+		failures)
+	for forbidden_node in (
+			"Sprite2D.new()", "AnimatedSprite2D.new()",
+			"TextureRect.new()", "Polygon2D.new()"):
+		check(forbidden_node not in runtime_text,
+			f"forbidden world-art node constructor found: {forbidden_node}",
+			failures)
 
 	result = {
 		"rooms": len(room_records),
