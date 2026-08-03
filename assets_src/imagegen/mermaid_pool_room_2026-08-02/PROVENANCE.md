@@ -1,6 +1,6 @@
 # Mermaid Pool full-frame regeneration - 2026-08-02
 
-Status: accepted production source on `codex/mermaid-pool-room`.
+Status: v3 accepted production source on `codex/mermaid-pool-expanded`.
 
 ## Defect and scope
 
@@ -23,7 +23,7 @@ was modified.
 - Supporting room-purpose reference: `assets_src/imagegen/castle_room_buttons_2026-08-01/castle_button_mermaid_pool_master.png`; SHA-256 `0e90d41d68fe208d47567dfa6511afd417b2b803aef09a880c3255a2323fd25f`.
 - Reuse decision: the approved architecture, layout, waterfall identity, and two sensible floats were retained. New generation was limited to the complete coherent room frame required to remove the dry shell-gate regression and ambiguous pipe.
 
-## Accepted generation
+## Accepted generation (v2)
 
 - Method: OpenAI built-in Codex ImageGen, reference-guided precise-object edit.
 - Attempt: 1.
@@ -44,10 +44,41 @@ was modified.
 > Constraints: complete flattened full-frame image; no characters; no text; no labels; no UI; no watermark. Exactly four intended interaction subjects are visible and separated: rainbow waterfall, pink flower float, golden star float, seahorse fountain. Keep these subjects visually distinct, toddler-readable, and not overlapping. The rainbow flow must remain visible in the resting scene.
 > Avoid: dry waterfall fixture; retracting shell gate; pearl control; shell device; control panel; exposed outlet mouth; pipe; plumbing; faucet; narrow bottle-shaped fountain; duplicated fountains; extra floats; extra interaction props; technical machinery; empty waterfall opening; scene redesign; changed room camera; foreground clutter.
 
+## Accepted geometry revision (v3)
+
+The owner accepted the v2 interaction repair but found its pool too small and
+too kidney-bean-shaped. The requested follow-up was limited to enlarging the
+pool beyond half of the visible room floor, rounding its footprint, and
+extending it into the foreground. Existing approved art was inventoried before
+generation; the accepted v2 full frame remained the authoritative edit target,
+and the existing Mermaid Pool room-button master was used only as a supporting
+pool-proportion reference.
+
+- Method: OpenAI built-in Codex ImageGen, reference-guided precise-object edit.
+- Attempt: 1.
+- Native output copy: `room_mermaid_pool_fullframe_v3_native.png`.
+- Native dimensions: 1672x941.
+- Native SHA-256: `2a4bd923c26d5f7980fc8a723576ecb573097e30bc94090f75437833fc3d55a5`.
+- Original tool output: `C:\Users\Peter\.codex\generated_images\019fc4ee-fba3-7dc3-876c-f751c715c915\exec-9694b851-d751-4c35-9e94-0f865351c43a.png`.
+- Authoritative edit target: `room_mermaid_pool_fullframe_v2_native.png`;
+  SHA-256 `a9c8ea63173fda88c2b674c9f3fc1ddbe2d85c9031bba778b86ec590b1e7a119`.
+- Supporting proportion reference:
+  `assets_src/imagegen/castle_room_buttons_2026-08-01/castle_button_mermaid_pool_master.png`;
+  SHA-256 `0e90d41d68fe208d47567dfa6511afd417b2b803aef09a880c3255a2323fd25f`.
+- Exact prompt: `room_mermaid_pool_fullframe_v3_prompt.txt`;
+  SHA-256 `d592d192699a36fcf7b90063795042660467c86db7d3d91884cf01bed03e6560`.
+
+Visual review accepted the broad continuous convex front rim, balanced oval
+silhouette, foreground expansion, slim remaining promenade, and preservation
+of the waterfall, flower float, star float, and seahorse fountain. The routing
+polygon for the pool occupies 69.44% of the visible floor plane below its back
+edge. No pipe, shell gate, control device, extra float, text, character, or
+additional interaction prop is present.
+
 ## Production derivatives and review
 
 `tools/build_castle_room_layers.py` performs the only whole-canvas normalization
-to 1024x576, records the native source hash, extracts outline-refined depth
+of the accepted v3 master to 1024x576, records the native source hash, extracts outline-refined depth
 cards for the four interaction subjects, and heals the non-overlapping clean
 plate. `tools/build_castle_room_2k_tiles.py` creates the 2048x1152 clean
 background master and four non-overlapping 1024x576 runtime tiles.
