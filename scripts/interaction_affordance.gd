@@ -3,38 +3,73 @@ extends RefCounted
 # One non-reading touch vocabulary for world objects. Color is paired with
 # motion so the distinction remains legible without relying on hue alone:
 # gold twinkles promise a local animation; deep-blue breaths promise a real
-# activity, route, or state-changing interaction.
+# activity or state change; bright-red beacons mark plot progress.
 
 const ANIMATION := "animation"
 const INTERACTION := "interaction"
+const PLOT := "plot"
 
 const GOLD_IDLE := Color(1.0, 0.72, 0.20, 0.18)
 const GOLD_FOCUS := Color(1.0, 0.84, 0.34, 0.82)
 const BLUE_IDLE := Color(0.16, 0.38, 0.82, 0.24)
 const BLUE_FOCUS := Color(0.24, 0.56, 1.0, 0.88)
+const RED_IDLE := Color(1.0, 0.08, 0.14, 0.42)
+const RED_FOCUS := Color(1.0, 0.18, 0.22, 0.98)
 
 static func normalize(kind: String) -> String:
-	return ANIMATION if kind == ANIMATION else INTERACTION
+	if kind == ANIMATION or kind == PLOT:
+		return kind
+	return INTERACTION
 
 static func color(kind: String, focused: bool) -> Color:
 	var normalized: String = normalize(kind)
 	if normalized == ANIMATION:
 		return GOLD_FOCUS if focused else GOLD_IDLE
+	if normalized == PLOT:
+		return RED_FOCUS if focused else RED_IDLE
 	return BLUE_FOCUS if focused else BLUE_IDLE
 
 static func sparkle_color(kind: String) -> Color:
-	return Color(1.0, 0.84, 0.34) if normalize(kind) == ANIMATION \
-		else Color(0.34, 0.68, 1.0)
+	match normalize(kind):
+		ANIMATION:
+			return Color(1.0, 0.84, 0.34)
+		PLOT:
+			return Color(1.0, 0.16, 0.22)
+		_:
+			return Color(0.34, 0.68, 1.0)
 
 static func pulse_speed(kind: String, focused: bool) -> float:
-	if normalize(kind) == ANIMATION:
+	var normalized: String = normalize(kind)
+	if normalized == ANIMATION:
 		return 5.2 if focused else 3.4
+	if normalized == PLOT:
+		return 6.4 if focused else 4.6
 	return 2.8 if focused else 1.7
 
 static func pulse_amount(kind: String, focused: bool) -> float:
-	if normalize(kind) == ANIMATION:
+	var normalized: String = normalize(kind)
+	if normalized == ANIMATION:
 		return 0.050 if focused else 0.022
+	if normalized == PLOT:
+		return 0.180 if focused else 0.120
 	return 0.075 if focused else 0.035
+
+static func emission_energy(kind: String, focused: bool) -> float:
+	if normalize(kind) == PLOT:
+		return 1.65 if focused else 1.05
+	return 0.95 if focused else 0.55
+
+static func rotation_speed(kind: String) -> float:
+	match normalize(kind):
+		ANIMATION:
+			return 1.35
+		PLOT:
+			return 1.05
+		_:
+			return 0.72
+
+static func opacity_floor(kind: String) -> float:
+	return 0.68 if normalize(kind) == PLOT else 0.90
 
 static func make_radial_halo(kind: String, size: Vector2) -> Sprite3D:
 	var gradient_texture := GradientTexture2D.new()

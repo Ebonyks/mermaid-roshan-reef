@@ -32,6 +32,7 @@ const KNOWN_KEYS: Array[String] = [
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done", "opera_pantry",
+	"castle_logo_color", "castle_logo_symbol",
 	"stickers", "owned", "animals", "critters",
 	"companion", "companion_colors", "fish_tokens", "stuffie_wins", "care_points",
 	"companion_resting", "companion_bruises",
@@ -93,6 +94,10 @@ func load_save() -> void:
 	m.custom_fish = m.save_data.get("custom_fish", [])
 	m.custom_friends = m.save_data.get("custom_friends", [])
 	m.craft_unlocks = m.save_data.get("crafts", {})
+	m.castle_logo_color = CastleLogoStudio.normalise_color(String(
+		m.save_data.get("castle_logo_color", "rainbow")))
+	m.castle_logo_symbol = CastleLogoStudio.normalise_symbol(String(
+		m.save_data.get("castle_logo_symbol", "rainbow")))
 	m.stickers = m.save_data.get("stickers", {})
 	# legacy cosmetic flags (tail/tiara/pearlskin) may still sit in "owned" from
 	# old saves -- kept for save compatibility, no longer applied to the player
@@ -191,6 +196,8 @@ func write_save() -> bool:
 	next_data["custom_fish"] = m.custom_fish
 	next_data["custom_friends"] = m.custom_friends
 	next_data["crafts"] = m.craft_unlocks
+	next_data["castle_logo_color"] = CastleLogoStudio.normalise_color(m.castle_logo_color)
+	next_data["castle_logo_symbol"] = CastleLogoStudio.normalise_symbol(m.castle_logo_symbol)
 	next_data["galaxy"] = m.galaxy_unlocked
 	next_data["bwdone"] = m.bwd_done
 	next_data["fairyskin"] = m.fairy_skin_unlocked
@@ -418,6 +425,14 @@ func _known_types_are_valid(data: Dictionary) -> bool:
 			return false
 	if data.has("skin") and (typeof(data["skin"]) != TYPE_STRING or String(data["skin"]).is_empty()):
 		return false
+	if data.has("castle_logo_color") and (
+			typeof(data["castle_logo_color"]) != TYPE_STRING \
+			or not CastleLogoStudio.has_color(String(data["castle_logo_color"]))):
+		return false
+	if data.has("castle_logo_symbol") and (
+			typeof(data["castle_logo_symbol"]) != TYPE_STRING \
+			or not CastleLogoStudio.has_symbol(String(data["castle_logo_symbol"]))):
+		return false
 	return true
 
 func _normalise_save(raw: Dictionary) -> Dictionary:
@@ -443,6 +458,10 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["custom_fish"] = _array_or_default(raw, "custom_fish")
 	data["custom_friends"] = _array_or_default(raw, "custom_friends")
 	data["crafts"] = _dictionary_or_default(raw, "crafts")
+	data["castle_logo_color"] = CastleLogoStudio.normalise_color(
+		_string_or_default(raw, "castle_logo_color", "rainbow"))
+	data["castle_logo_symbol"] = CastleLogoStudio.normalise_symbol(
+		_string_or_default(raw, "castle_logo_symbol", "rainbow"))
 	data["galaxy"] = _bool_or_default(raw, "galaxy", false)
 	data["bwdone"] = _bool_or_default(raw, "bwdone", false)
 	data["fairyskin"] = _bool_or_default(raw, "fairyskin", false)

@@ -82,6 +82,7 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+		"res://assets/fairy/sprites/bug_firefly.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png",
@@ -743,6 +744,26 @@ func _init() -> void:
 	_check("walking_the_path_enters_the_castle",
 		main.game == "level2" and String(main.g.get("phase", "")) == "hall",
 		"phase=%s" % String(main.g.get("phase", "?")))
+
+	# Bedtime can flip the world while Roshan is indoors. Returning to the
+	# promenade must add its fireflies at night and remove them again by day.
+	main.is_night = true
+	main._enter_level2()
+	await _frames(8)
+	var night_fireflies: CPUParticles3D = main.g.get(
+		"lagoon_night_fireflies") as CPUParticles3D
+	_check("night_return_has_outdoor_fireflies",
+		String(main.g.get("phase", "")) == "promenade"
+		and night_fireflies != null
+		and is_instance_valid(night_fireflies)
+		and night_fireflies.emitting
+		and night_fireflies.amount == SkyLagoonPromenade.FIREFLY_COUNT)
+	main.is_night = false
+	main._enter_level2()
+	await _frames(8)
+	_check("day_return_has_no_fireflies",
+		String(main.g.get("phase", "")) == "promenade"
+		and not main.g.has("lagoon_night_fireflies"))
 
 	if failed:
 		print("FAIL|Sky Lagoon 2.5D promenade regression")

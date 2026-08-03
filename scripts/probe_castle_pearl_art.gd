@@ -985,6 +985,10 @@ func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 		expected_water_roles.size(), peak_visible_cards,
 		peak_angle, peak_displacement,
 		max_angle, max_displacement]
+	if String(item_data.get("launch_activity", "")) == "castle_logo" \
+			and main.castle_logo_layer != null:
+		main._close_castle_logo()
+		await process_frame
 	return result
 
 func _capture(room_id: String) -> void:

@@ -16,6 +16,8 @@ const BACKDROP_ROWS := 2
 const BACKDROP_Z := -18.0
 const CONTACT_SHADOW_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png"
 const SMOKE_WISP_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
+const FIREFLY_TEX := "res://assets/fairy/sprites/bug_firefly.png"
+const FIREFLY_COUNT := 18
 # THE PAINTING IS THE SCREEN. The 6x2 lossless Sprite3D grid reconstructs one
 # native 6144x2048, 144x48-world-unit mural. Each 1024px square is a separate
 # unshaded depth card, retaining the higher detail generated per square.
@@ -373,6 +375,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 				row,
 				column)
 	_build_ambient_life()
+	_build_night_fireflies()
 	_build_animals()
 	_build_runway_screen()
 	_build_playground_screen()
@@ -435,11 +438,12 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 		var wave: float = sin(
 			focus_t * Affordance.pulse_speed(affordance_kind, selected) + phase)
 		var tint: Color = Affordance.color(affordance_kind, selected)
-		tint.a *= 0.95 + wave * 0.05
+		var opacity_floor: float = Affordance.opacity_floor(affordance_kind)
+		tint.a *= lerpf(opacity_floor, 1.0, wave * 0.5 + 0.5)
 		glow.modulate = tint
 		if target_id == "castle_gate":
-			# The door breathes through opacity. Scaling a facade-shaped signal
-			# would make a loose colored ghost around every tower and window.
+			# The plot door beacons through opacity. Scaling a facade-shaped
+			# signal would make a loose ghost around every tower and window.
 			glow.scale = Vector3.ONE
 		else:
 			var base_scale: float = float(target.get("highlight_scale", 1.0))
@@ -704,6 +708,72 @@ func _build_ambient_life() -> void:
 		_add_ambient_card("smoke", SMOKE_WISP_TEX,
 			CABIN_SMOKE_ANCHORS[index], SMOKE_CARD_HEIGHT,
 			0.0, 0.0, "smoke", "quiet", false, index)
+
+func _build_night_fireflies() -> void:
+	# A single low-count particle draw scatters a few readable fireflies across
+	# each outdoor page. Reuse the approved Fairy Pond subject instead of adding
+	# new art or lights; the lifetime ramp supplies independent-looking blinks
+	# once preprocess has distributed the particles through their cycle.
+	if not m.is_night:
+		return
+	var root_node: Node3D = stage.root()
+	if root_node == null:
+		return
+	var fireflies := CPUParticles3D.new()
+	fireflies.name = "SkyLagoonNightFireflies"
+	fireflies.amount = FIREFLY_COUNT
+	fireflies.lifetime = 5.4
+	fireflies.preprocess = fireflies.lifetime
+	fireflies.randomness = 0.78
+	fireflies.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	fireflies.emission_box_extents = Vector3(HALF_W - 5.0, 4.6, 0.45)
+	fireflies.direction = Vector3(0.45, 0.25, 0.0)
+	fireflies.spread = 180.0
+	fireflies.gravity = Vector3.ZERO
+	fireflies.initial_velocity_min = 0.08
+	fireflies.initial_velocity_max = 0.34
+	fireflies.damping_min = 0.03
+	fireflies.damping_max = 0.10
+	fireflies.angular_velocity_min = -24.0
+	fireflies.angular_velocity_max = 24.0
+	fireflies.scale_amount_min = 0.72
+	fireflies.scale_amount_max = 1.16
+
+	var blink := Gradient.new()
+	blink.offsets = PackedFloat32Array([
+		0.0, 0.10, 0.34, 0.50, 0.66, 0.88, 1.0,
+	])
+	blink.colors = PackedColorArray([
+		Color(1.0, 0.88, 0.34, 0.0),
+		Color(1.0, 0.94, 0.52, 1.0),
+		Color(1.0, 0.82, 0.24, 0.72),
+		Color(1.0, 0.88, 0.34, 0.08),
+		Color(1.0, 0.96, 0.58, 1.0),
+		Color(1.0, 0.84, 0.28, 0.68),
+		Color(1.0, 0.88, 0.34, 0.0),
+	])
+	fireflies.color_ramp = blink
+
+	var quad := QuadMesh.new()
+	quad.size = Vector2(0.92, 0.92)
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	material.vertex_color_use_as_albedo = true
+	material.albedo_texture = load(FIREFLY_TEX)
+	material.emission_enabled = true
+	material.emission = Color(1.0, 0.78, 0.18)
+	material.emission_energy_multiplier = 1.45
+	quad.material = material
+	fireflies.mesh = quad
+	fireflies.position = Vector3(0.0, 7.0, PLAY_Z + 0.4)
+	fireflies.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	fireflies.set_meta("ambient_kind", "fireflies")
+	fireflies.set_meta("night_only", true)
+	fireflies.set_meta("outdoor_only", true)
+	root_node.add_child(fireflies)
+	m.g["lagoon_night_fireflies"] = fireflies
 
 func _build_animals() -> void:
 	# All five authored definitions stay available, but one Sprite3D actor is
@@ -1177,6 +1247,7 @@ func teardown() -> void:
 	m.g.erase("lagoon_ambient_t")
 	m.g.erase("lagoon_wind_gust")
 	m.g.erase("lagoon_wind_distance")
+	m.g.erase("lagoon_night_fireflies")
 	m.g.erase("lagoon_animals")
 	m.g.erase("lagoon_animal_actor")
 	m.g.erase("lagoon_animal_cycles")
@@ -1403,7 +1474,7 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK,
 		highlight_path: String = "", highlight_pixel_size: float = 0.0) -> void:
 	_register_mural_socket(node, socket_lock)
-	var affordance_kind: String = Affordance.INTERACTION \
+	var affordance_kind: String = Affordance.PLOT \
 		if kind == "castle" else Affordance.ANIMATION
 	var glow: Sprite3D
 	glow = Sprite3D.new()

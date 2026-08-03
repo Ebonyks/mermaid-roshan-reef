@@ -57,6 +57,7 @@ func tick(delta: float, ppos: Vector3) -> void:
 	# ACTION edge — overlays and minigames own the button while they are up
 	var blocked: bool = m.get("wardrobe_layer") != null \
 		or m.get("stickers_layer") != null or m.get("craft_layer") != null \
+		or m.get("castle_logo_layer") != null \
 		or m.get("collection_layer") != null or m.intro_active
 	var mgv: Variant = m.get("mg_kind")
 	if mgv != null and String(mgv) != "":

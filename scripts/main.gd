@@ -142,6 +142,13 @@ var craft_unlocks := {}            # one-time pearl unlocks for craft creatures 
 var craft_status: Label = null     # in-studio feedback (HUD messages sit behind the overlay)
 var craft_pearl_lbl: Label = null
 var custom_friends: Array = []
+# ---- CASTLE LOGO TABLE: the paint-table activity owns layout only; the
+# chosen emblem lives here and is saved as two stable ids.
+var castle_logo_layer: CanvasLayer = null
+var castle_logo_preview: Control = null
+var castle_logo_room_display: Control = null
+var castle_logo_color := "rainbow"
+var castle_logo_symbol := "rainbow"
 # accent layers are DISTINCT zone masks (kitty: horn + chest tuft; birdie:
 # crest + wings) painted from the body art — the old cat/bird "accent" reused
 # the whole body at 50% alpha, so the two colors just mixed into grey
@@ -3466,7 +3473,8 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 		return
 	if touch_ui != null and not touch_ui.world_controls_enabled:
 		return
-	if wardrobe_layer != null or craft_layer != null or collection_layer != null:
+	if wardrobe_layer != null or craft_layer != null \
+			or castle_logo_layer != null or collection_layer != null:
 		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_touch(screen_pos)
@@ -3579,6 +3587,9 @@ func _populate_touch_interactables() -> void:
 			var friend_node: Node3D = friend.get("node") as Node3D
 			if not is_instance_valid(friend_node):
 				continue
+			var friend_affordance: String = InteractionAffordanceLogic.PLOT \
+				if not bool(friend.get("won", false)) \
+				else InteractionAffordanceLogic.INTERACTION
 			_touch_add_item(
 				"friend:%d" % friend_index,
 				String(friend.get("fname", "Friend")),
@@ -3587,7 +3598,8 @@ func _populate_touch_interactables() -> void:
 				maxf(6.0, float(friend.get("start_radius", 8.0))),
 				maxf(30.0, float(friend.get("linger_radius", 10.0)) * 3.0),
 				"PLAY",
-				friend_index)
+				friend_index,
+				true, friend_affordance)
 		if manta != null and is_instance_valid(manta):
 			_touch_add_item("reef:shop", "Pearl Shop", manta.position, manta, 17.0, 38.0, "SHOP")
 		if wreck_pos != Vector3.ZERO:
@@ -3607,12 +3619,18 @@ func _populate_touch_interactables() -> void:
 			_touch_add_item("reef:den", "Sparring Den", companion_den.position,
 				companion_den, 9.0, 30.0, "PLAY")
 		if portal_node != null and is_instance_valid(portal_node):
-			_touch_add_item("reef:lagoon", "Rainbow Portal", portal_node.position, portal_node, 9.0, 42.0, "ENTER")
+			var lagoon_affordance: String = InteractionAffordanceLogic.PLOT \
+				if not level2_done_once else InteractionAffordanceLogic.INTERACTION
+			_touch_add_item("reef:lagoon", "Rainbow Portal", portal_node.position,
+				portal_node, 9.0, 42.0, "ENTER", null, true, lagoon_affordance)
 		if ocean_routes_enabled:
 			var kingdom: String = ReefDistricts.kingdom_at(Vector2(player.position.x, player.position.z))
 			var gate_xz: Vector2 = ReefDistricts.kingdom_return_gate(kingdom)
 			var gate_pos := Vector3(gate_xz.x, seabed_y(gate_xz.x, gate_xz.y) + 6.0, gate_xz.y)
-			_touch_add_item("reef:return", "Castle Gate", gate_pos, null, 10.0, 42.0, "ENTER", kingdom)
+			var return_affordance: String = InteractionAffordanceLogic.PLOT \
+				if _all_friends_won() else InteractionAffordanceLogic.INTERACTION
+			_touch_add_item("reef:return", "Castle Gate", gate_pos, null,
+				10.0, 42.0, "ENTER", kingdom, true, return_affordance)
 		return
 	if game == "north":
 		var north_return: Vector3 = g.get("north_return_pos", Vector3.ZERO)
@@ -3639,7 +3657,8 @@ func _populate_courtyard_touch_interactables() -> void:
 			"Ocean Kingdom",
 			gate.get("pos", Vector3.ZERO),
 			gate.get("rune") as Node3D,
-			9.0, 40.0, "ENTER", gate_index)
+			9.0, 40.0, "ENTER", gate_index, true,
+			InteractionAffordanceLogic.PLOT)
 	if g.has("northern_portal_pos"):
 		_touch_add_item("court:north", "Magic Cave", g["northern_portal_pos"],
 			g.get("northern_portal_rune") as Node3D, 8.0, 38.0, "ENTER")
@@ -3657,7 +3676,8 @@ func _populate_courtyard_touch_interactables() -> void:
 		var star_node: Node3D = star_data.get("node") as Node3D
 		if is_instance_valid(star_node):
 			_touch_add_item("court:star:%d" % star_index, "Dream Star", star_node.position,
-				star_node, 14.0, 50.0, "GET", star_index)
+				star_node, 14.0, 50.0, "GET", star_index, true,
+				InteractionAffordanceLogic.PLOT)
 	if l2_open:
 		for picture_index in range(wall_pics.size()):
 			var picture: Dictionary = wall_pics[picture_index]
@@ -3675,7 +3695,9 @@ func _populate_courtyard_touch_interactables() -> void:
 		var castle_entry: Vector3 = g["entry"]
 		if lagoon_floor:
 			castle_entry.y = lagoon_walk_h(castle_entry.x, castle_entry.z) + 2.0
-		_touch_add_item("court:castle", "Pearl Castle", castle_entry, null, 20.0, 52.0, "ENTER")
+		_touch_add_item("court:castle", "Pearl Castle", castle_entry, null,
+			20.0, 52.0, "ENTER", null, true,
+			InteractionAffordanceLogic.PLOT)
 
 func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 	if not touch_uses_explicit_interactions():
@@ -5757,6 +5779,23 @@ func _craft_done() -> void:
 func _close_craft() -> void:
 	_craft_ref()._close_craft()
 
+# the castle-logo maker lives on the Craft Room paint table
+var _castle_logo_studio: CastleLogoStudio = null
+
+func _castle_logo_ref() -> CastleLogoStudio:
+	if _castle_logo_studio == null:
+		_castle_logo_studio = CastleLogoStudio.new(self)
+	return _castle_logo_studio
+
+func _open_castle_logo() -> void:
+	_castle_logo_ref().open()
+
+func _finish_castle_logo() -> void:
+	_castle_logo_ref().finish()
+
+func _close_castle_logo() -> void:
+	_castle_logo_ref().close(false)
+
 # the wardrobe + sticker book overlays live in scripts/wardrobe_ui.gd
 # (state stays here; WardrobeUI receives main by reference)
 var _wardrobe_ui: WardrobeUI = null
@@ -6641,6 +6680,8 @@ var pad_cursor_active := false
 var _pc_prev_a := false
 
 func _overlay_root_for_cursor() -> Node:
+	if castle_logo_layer != null and is_instance_valid(castle_logo_layer):
+		return castle_logo_layer
 	if craft_layer != null and is_instance_valid(craft_layer):
 		return craft_layer
 	if wardrobe_layer != null and is_instance_valid(wardrobe_layer):
@@ -6715,10 +6756,18 @@ func _tick_overlay_pads(delta: float) -> void:
 	# wardrobe and never leave (no pointer, no exit).
 	var a: bool = joy_pressed(JOY_BUTTON_A)
 	var b: bool = joy_pressed(JOY_BUTTON_B)
-	var overlay_open: bool = craft_layer != null or wardrobe_layer != null or stickers_layer != null or collection_layer != null or companion_layer != null or companion_care_layer != null
+	var overlay_open: bool = castle_logo_layer != null or craft_layer != null \
+		or wardrobe_layer != null or stickers_layer != null \
+		or collection_layer != null or companion_layer != null \
+		or companion_care_layer != null
 	_overlay_age = _overlay_age + delta if overlay_open else 0.0
 	if _overlay_age > 0.6:   # grace so the A/B that was held while swimming in doesn't fire
-		if craft_layer != null:
+		if castle_logo_layer != null:
+			if a and not _pad_prev_a and not pad_cursor_active:
+				_finish_castle_logo()
+			elif b and not _pad_prev_b:
+				_close_castle_logo()
+		elif craft_layer != null:
 			if a and not _pad_prev_a and not pad_cursor_active:
 				_craft_done()   # quick-finish only while the star cursor is asleep
 			elif b and not _pad_prev_b:
