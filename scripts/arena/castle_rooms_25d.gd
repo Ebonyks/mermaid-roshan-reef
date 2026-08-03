@@ -505,7 +505,7 @@ const ROOM_ITEMS := {
 			"symbol": "○", "color": Color(0.52, 0.91, 1.0)},
 		{"id": "flower_float", "name": "Flower float", "pos": Vector2(371, 218),
 			"z": MIDGROUND_Z, "hotspot_offset": Vector2(4.0, 32.0),
-			"hotspot_size": Vector2(112.0, 88.0),
+			"hotspot_size": Vector2(108.0, 88.0),
 			"symbol": "✦", "color": Color(1.0, 0.62, 0.78)},
 		{"id": "seahorse_fountain", "name": "Seahorse fountain",
 			"pos": Vector2(650, 95), "z": MIDGROUND_Z,
