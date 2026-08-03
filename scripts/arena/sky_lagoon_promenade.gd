@@ -1523,6 +1523,10 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	card.hframes = 1
 	card.vframes = 1
 	card.frame = 0
+	# The authored playground poses are whole PNGs, not atlas cells. Drop any
+	# sampling window RoshanSpriteLoop left on the card, or the pose is sliced
+	# by a window measured for a different sheet.
+	card.region_enabled = false
 	card.offset = Vector2.ZERO
 	card.position.z = PLAY_Z + 0.12
 	card.rotation.z = 0.0

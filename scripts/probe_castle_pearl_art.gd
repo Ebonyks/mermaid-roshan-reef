@@ -27,6 +27,7 @@ const EXPECTED_PHYSICAL_ITEM_COUNTS := {
 }
 const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
 const ROSHAN_FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
+const PLAYER_SCRIPT := preload("res://scripts/player.gd")
 
 var main: ReefMain
 var checks_failed := 0
@@ -39,6 +40,99 @@ func _ck(label: String, ok: bool, detail: String = "") -> void:
 func _frames(count: int) -> void:
 	for _index in range(count):
 		await process_frame
+
+# The authored PNG, read straight off disk so the measurement is independent
+# of whatever the importer decided to do with the sheet.
+func _sheet_image(texture: Texture2D) -> Image:
+	var image: Image = Image.load_from_file(
+		ProjectSettings.globalize_path(texture.resource_path))
+	if image == null:
+		image = texture.get_image()
+	if image != null and image.is_compressed():
+		image.decompress()
+	if image != null and image.is_compressed():
+		return null
+	return image
+
+# Share of lit pixels inside a texture-space window, sampled on a 4px lattice.
+func _alpha_coverage(image: Image, rect: Rect2) -> float:
+	if image == null:
+		return 0.0
+	var lit := 0
+	var total := 0
+	var y := int(rect.position.y)
+	while y < int(rect.position.y + rect.size.y):
+		var x := int(rect.position.x)
+		while x < int(rect.position.x + rect.size.x):
+			if x >= 0 and y >= 0 \
+					and x < image.get_width() and y < image.get_height():
+				total += 1
+				if image.get_pixel(x, y).a > 0.03:
+					lit += 1
+			x += 4
+		y += 4
+	return 0.0 if total == 0 else float(lit) / float(total)
+
+# Every frame of every 2.5D sheet must actually reach the screen.
+#
+# Sprite3D does not ignore hframes/vframes when a region is set: it divides
+# region_rect by the grid and adds the frame offset itself. A per-frame window
+# handed over as a single cell therefore shrank the quad to one sub-cell and
+# sampled the wrong corner of it -- the castle showed no Roshan at all (the
+# sampled corner was 0% alpha) and the Sky Lagoon showed a rectangular sliver
+# of her hair (owner report 2026-08-02). Assert what the ENGINE will sample,
+# not what the table intends, and that authored art lands inside it.
+func _check_roshan_sampling_windows() -> void:
+	var sheets: Dictionary = PLAYER_SCRIPT.ROSHAN_25D_SHEETS
+	var gate := Sprite3D.new()
+	var mismatched := 0
+	var thin := 0
+	var unreadable := 0
+	var checked := 0
+	var worst_coverage := 1.0
+	var worst_label := ""
+	var first_mismatch := ""
+	for sheet_name: String in sheets.keys():
+		var spec: Array = sheets[sheet_name]
+		var texture: Texture2D = spec[0] as Texture2D
+		var cols: int = int(spec[1])
+		var rows: int = int(spec[2])
+		var image: Image = _sheet_image(texture)
+		if image == null:
+			unreadable += 1
+		gate.texture = texture
+		gate.hframes = cols
+		gate.vframes = rows
+		for frame_index: int in range(cols * rows):
+			gate.frame = frame_index
+			ROSHAN_FRAMES.apply_region(gate, sheet_name, frame_index, cols)
+			var intended: Rect2 = ROSHAN_FRAMES.region(
+				sheet_name, frame_index, cols)
+			var sampled: Rect2 = ROSHAN_FRAMES.sampled_rect(gate)
+			checked += 1
+			if not sampled.is_equal_approx(intended):
+				mismatched += 1
+				if first_mismatch.is_empty():
+					first_mismatch = "%s[%d] sampled=%s intended=%s" % [
+						sheet_name, frame_index, sampled, intended]
+			if image == null:
+				continue
+			var coverage: float = _alpha_coverage(image, sampled)
+			if coverage < worst_coverage:
+				worst_coverage = coverage
+				worst_label = "%s[%d]" % [sheet_name, frame_index]
+			if coverage < 0.10:
+				thin += 1
+	gate.free()
+	_ck("roshan_frames_sample_their_own_window",
+		mismatched == 0 and checked == 128,
+		"checked=%d off_window=%d %s" % [checked, mismatched, first_mismatch])
+	# Lowest measured on the shipped sheets is 17.6% (swim_back[2..4]); the
+	# windows this replaced sat at 0.0%. 10% is the floor between them.
+	_ck("roshan_frames_render_real_art",
+		thin == 0 and unreadable == 0,
+		"below_10pct_alpha=%d unreadable_sheets=%d worst=%s at %.1f%%" % [
+			thin, unreadable, worst_label, worst_coverage * 100.0])
 
 func _audit_world_node(node: Node, counts: Dictionary) -> void:
 	for child: Node in node.get_children():
@@ -859,6 +953,14 @@ func _run() -> void:
 	_ck("castle_roshan_frames_share_anatomical_anchor",
 		max_anchor_drift <= 0.11,
 		"max_torso_drift_px=%.3f" % max_anchor_drift)
+	_check_roshan_sampling_windows()
+	_ck("castle_roshan_samples_her_own_window",
+		ROSHAN_FRAMES.sampled_rect(castle_roshan).is_equal_approx(
+			ROSHAN_FRAMES.region(castle_roshan_loop._sheet_key(),
+				castle_roshan.frame, castle_roshan.hframes)),
+		"sheet=%s frame=%d sampled=%s" % [
+			castle_roshan_loop._sheet_key(), castle_roshan.frame,
+			ROSHAN_FRAMES.sampled_rect(castle_roshan)])
 	rooms._position_player_at_foot(Vector2(380.0, 835.0), false)
 	castle_roshan_loop._process(0.2)
 	_ck("castle_roshan_swim_finishes_at_arrival",
