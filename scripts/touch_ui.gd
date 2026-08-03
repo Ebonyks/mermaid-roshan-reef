@@ -55,6 +55,7 @@ var _look_idx := -1       # the finger that owns the camera peek
 var _look_dx := 0.0       # accumulated camera-drag pixels, consumed by the
 var _look_dy := 0.0       # active camera owner (player.gd or galaxy.gd)
 var _origin := Vector2.ZERO
+var _press_pos := Vector2.ZERO
 var _moved := false
 var _manual_emitted := false
 var _press_ms := 0
@@ -232,10 +233,18 @@ func _flash(pos: Vector2) -> void:
 
 func _press(pos: Vector2, idx: int) -> void:
 	_touch_idx = idx
-	# Hybrid advertises a fixed four-direction pad. Its origin must therefore
-	# be the visible ring's center: tapping a side gives an immediate vector.
-	# Classic retains the original floating joystick under the finger.
-	_origin = _fixed_stick_center() if control_mode == "hybrid" else pos
+	# THE STICK ORIGIN IS ALWAYS THE FINGER (owner report 2026-08-03: "touching
+	# the left side of the screen sometimes moves right, in Sky Lagoon").
+	# Hybrid used to anchor the origin to a fixed bottom-left ring instead. That
+	# ring is never drawn (see _rest_stick), yet movement_zone() claims the whole
+	# lower-left third of the phone — so on a 1600x720 handset roughly three
+	# quarters of the thumb bay lay to the RIGHT of the invisible anchor and
+	# shoved Roshan right the instant it was touched, with nothing on screen to
+	# explain why. A finger-anchored origin makes the drag direction and the
+	# travel direction the same thing everywhere in the bay. Classic already
+	# worked this way; the two paths now agree.
+	_origin = pos
+	_press_pos = pos
 	if drag_mode:
 		# the finger paints instead of steering — no stick, no tap-to-jump
 		drag_active = true
@@ -255,13 +264,6 @@ func _press(pos: Vector2, idx: int) -> void:
 	_base.visible = false
 	_knob.visible = false
 	stick_vec = Vector2.ZERO
-	if control_mode == "hybrid":
-		_drag(pos)
-
-func _fixed_stick_center() -> Vector2:
-	if _stick_hint != null and is_instance_valid(_stick_hint):
-		return _stick_hint.get_global_rect().get_center()
-	return rest_zone().get_center()
 
 func _drag(pos: Vector2) -> void:
 	if drag_mode:
@@ -294,6 +296,15 @@ func _release_stick() -> void:
 	if control_mode == "classic" and not _moved and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
 		_jump_pulse()
 		_flash(_origin)
+	elif control_mode == "hybrid" and not _moved:
+		# The thumb bay is an accessibility stick, not a hole in the world. A
+		# press that never became a drag is still a tap on whatever is painted
+		# underneath, so tap-to-travel and tap-to-select keep working in the
+		# lower-left corner exactly as they do everywhere else. No TAP_MS gate:
+		# a four-year-old's deliberate press is slow, and the world-tap owner
+		# elsewhere in this router has no time limit either.
+		world_touched.emit(_press_pos)
+		_flash(_press_pos)
 	if _manual_emitted:
 		manual_move_ended.emit()
 	_touch_idx = -1
@@ -344,6 +355,21 @@ func pause_zone() -> Rect2:
 		vs = get_viewport().get_visible_rect().size
 	return Rect2(Vector2(vs.x - 170.0, 0.0), Vector2(170.0, 170.0))
 
+func reserved_zone_hit(pos: Vector2) -> bool:
+	# True when this router already owns a press at this screen point. Stages
+	# that read the EMULATED MOUSE directly for hold-to-travel must ask first:
+	# that pointer knows nothing about touch ownership, so without this guard a
+	# hold on the action medallion (bottom-right) or in the thumb bay commanded
+	# travel toward that corner of the screen — Roshan strolled off to the right
+	# while the child was simply holding PLAY down.
+	if not wants_touch() or not world_controls_enabled:
+		return false
+	if pause_zone().has_point(pos):
+		return true
+	if control_mode != "hybrid":
+		return false
+	return action_zone().has_point(pos) or movement_zone().has_point(pos)
+
 func _clear_touch_state() -> void:
 	drag_active = false
 	drag_started = false
@@ -362,6 +388,7 @@ func _clear_touch_state() -> void:
 	_look_dy = 0.0
 	_moved = false
 	_manual_emitted = false
+	_press_pos = Vector2.ZERO
 	_pulse = 0.0
 	_rest_stick()
 

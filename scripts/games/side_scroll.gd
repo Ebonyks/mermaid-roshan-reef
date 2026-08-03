@@ -268,7 +268,14 @@ func walk_tick(delta: float) -> Dictionary:
 			# plane_goal() for the presses its director judges to be travel.
 			var vp := m.get_viewport()
 			if vp != null:
-				var goal_here: Variant = plane_goal(vp.get_mouse_position())
+				# ownership first: the emulated pointer cannot tell a press on
+				# the action medallion or in the thumb bay from a press on open
+				# ground, and travelling toward a held BUTTON is never what the
+				# child asked for
+				var press: Vector2 = vp.get_mouse_position()
+				var reserved: bool = m.touch_ui != null \
+					and m.touch_ui.reserved_zone_hit(press)
+				var goal_here: Variant = null if reserved else plane_goal(press)
 				if goal_here is Vector2:
 					m.g["ss_walk_goal"] = goal_here
 					pointing = true
