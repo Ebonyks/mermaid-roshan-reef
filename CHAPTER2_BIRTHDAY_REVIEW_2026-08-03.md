@@ -1,0 +1,185 @@
+# CHAPTER 2 — "Roshan Makes Her Own Birthday": review for discussion
+
+**Status: DESIGN ONLY. Nothing below is implemented.** This is the review
+document requested before any build. Full working papers (the chapter bible,
+four floors of act scripts, the systems build plan — ~175k words) are in the
+session analysis archive; this is the decision surface.
+
+The one thing already built is the plumbing the story needs: `say_sequence`
+(timer-advanced, touch-skippable, non-blocking spoken exchanges) shipped at
+`a0fbdf33` because the game previously had ONE caption slot that overwrote
+itself — two characters could never trade lines.
+
+---
+
+## 1. THE CHAPTER IN ONE PARAGRAPH
+
+The castle is clean (Chapter 1) and it is Roshan's birthday. Princess Huluu
+offers to have the whole party *made for her*; Roshan says no thank you — she
+wants to make her own. So the thirteen Pearl Opera career shows become the
+thirteen things her party needs, and she makes each one herself with a friend
+who knows that job. The mischief imps — who have never been invited to
+anything — sabotage each preparation, and the Imp Captain snatches each
+finished piece and runs for the stage, where Roshan wins it back by
+out-performing him. Every piece lands on a party table in the lobby. When the
+table is full the party happens and she invites the imps. Then the **Ember
+King** arrives, blows out her five birthday candles, takes them home to his
+fire mountain, and dares her to come get them — which sends everyone north
+(Chapter 3) and ultimately to the lava planet (Chapter 4).
+
+## 2. THE SPINE, BEAT BY BEAT
+
+**Chapter open (7 spoken lines, over the existing lobby).** Roshan announces
+her birthday; Huluu offers to have it all made; Roshan refuses — *making it is
+the joy she chose, not a chore*; the Maestro welcomes her ("thirteen shows,
+thirteen party things"); she sees her empty party table; the Imp Captain
+giggles offstage: "a party? WE love parties…" — the villains are planted
+before act one.
+
+**The loop, thirteen times.** Costume on -> into the painted world with a
+helper -> make the piece at the painted stations -> the Captain steals it ->
+win it back on stage -> it drops onto the party table.
+
+**Imp escalation, one posture per floor** (this is what stops thirteen acts
+feeling identical):
+- **Floor 1 — PLAYING.** They just want to touch the party things. *"Is that
+  for the PARTY? Let me hold it!"*
+- **Floor 2 — COPYING.** They're building a rival party backstage out of a
+  crate and a paper tablecloth; every steal now goes on *their* table.
+  *"We're having our OWN party! You weren't invited either!"*
+- **Floor 3 — FRANTIC.** They can hear the real party being laid out and hold
+  pieces like a ticket. *"If we HOLD it, you have to let us come… right?"*
+
+**The three bosses are the three things a party needs that aren't objects:**
+the Curtain Dragon is **the place** (asleep in the curtains; he isn't evicted,
+he's cast as doorman), the Shadow Phantom is **the light** (lighting his five
+lanterns lights the whole floor), the Midnight Maestro is **the music** (he
+has hosted every act since the chapter open; at his own act he finally stops
+announcing and conducts). All three keep their shipped kind win-lines.
+
+**The party (climax).** The shelf ripples to full colour, the Maestro
+announces "Roshan's birthday party!", Huluu notes the whole reef came, Evie
+says Lamba wants to sit next to the cake — and from the doorway, small: *"…Are
+we invited?"* Roshan: **"Imps — you're invited."** The lesson is enacted,
+never stated.
+
+**The crash (cliffhanger).** The Ember King **is never seen** — a huge rumble,
+one long puff, every light goes out. *"Nobody ever invited ME to a party. So I
+shall take the candles."* He takes only the candles, hurts nobody, and dares
+her to come to the fire mountain. The Imp Captain: *"We know him — our cousins
+live at his gate."* Rosalina: the old folk in the far north know the way.
+Roshan's last line of the chapter: *"Then we're going north — and I'm getting
+my candles back."*
+
+## 3. THE FIVE-CANDLE RHYME (the best find in the whole pass)
+
+Three fives already exist in the shipped codebase and nobody connected them:
+the Shadow Phantom act carries `"lanterns": 5`, the Ember Fortress objective
+is `const LANTERNS := 5`, and the birthday wants candles. Wire them and the
+chapter's spine becomes literal and childproof: **five lanterns lit here ->
+five candles on the table -> five candles taken -> five lanterns to relight at
+the fire mountain.** It costs no new mechanic, gives the shy phantom a reason
+to exist ("the one who made the candles"), and gives Chapter 3 a second owner
+— Roshan wants her candles back, the phantom wants his light back.
+
+*Owner call:* if Roshan is turning four rather than five, the fifth candle can
+be the King's own. The scripts are written agnostic, so either ruling stands
+without a rewrite.
+
+## 4. WHO DOES WHAT — the thirteen helpers
+
+| Act | Piece made | Helper | The hook |
+|---|---|---|---|
+| Chef | the cake | **Kareem** (shopkeeper) | She walks into his cake shop on her birthday and tells him she does NOT want to buy one — then bakes hers beside his. A boxed shop cake sits on the cart all show as the road not taken. |
+| Detective | the tiara crown | **Princess Huluu** | Huluu lends her own tiara as a birthday crown; it vanishes the moment it leaves her head. |
+| Ballerina | the music box | **Rosalina** | A music box that only plays while somebody is dancing — she teaches Roshan the dance she'll dance at her own party. |
+| Candymaker | the party bags | **Sparkle** (baby eagle, chirps only) | Sparkle keeps eating the party bags; the reveal is that nobody had given *her* one yet. |
+| Doctor | the mended plushy guest | **Evie** | Evie's beloved starfish is torn; her posture on the sideline is the tension meter. |
+| Farmer | the picnic | **Chuck** (real family recordings only) | A herding dog performance built entirely from his existing bark/whimper clips. One piggy, "Pudding", wears a party hat so a non-reader can find her among twelve. |
+| Boxer | the champion's sash | **Wacky** | Grandpa corner-coach with a threaded needle — the belt gets *re-tailored* into a birthday sash. |
+| Magician | the entertainment | **Evie + Lamba** ⭐ | The owner's own bar: Lamba is the vanishing subject, Evie watches from the stage lip with her hands over her mouth. |
+| Painter | the decorations | **Flower Friend** | Silent muse — she poses, and the finished sunrise is *her* portrait. |
+| Astronaut | the fireworks | **Mewsha** (meows only) | The cat in a fishbowl helmet. |
+| Racer | the invitations | **Harper & Fiona** | The speed sisters as pit crew; `harper_win.ogg` already exists for the finish line. |
+| Nursery | the star ceiling | **Nurse Faron** (shipped) | The one thing Roshan has never been good at: being quiet. |
+| Pop Star | the microphone | **Daddy Mermaid** (existing clips only) | She finds out what a microphone is *for* when the imps unplug it. |
+
+Sacred audio is honoured throughout: Daddy and Chuck appear using **existing
+recordings only**, never new lines.
+
+## 5. WHAT IT COSTS
+
+**Voice — ~120 new Kokoro clips**, all in already-configured voices except
+three new speaker slots. Generation is ~20-30 minutes on CPU, ~3 MB total.
+- New speaking roles needing a voice assignment: **Ember King** (recommend
+  `am_santa` — big, warm, theatrical), **Shadow Phantom** (recommend `af_sky`
+  — soft and unmistakably *small*), **Imp Captain** as a distinct routing from
+  the generic imp.
+- Three `_speaker_key` branches are missing today, so those characters would
+  silently speak in **Roshan's voice**: phantom, captain, and (already fixed
+  by me) maestro/kareem.
+
+**Graphics — 13 blocking + ~10 optional.** The whole floor-2 arc leans on
+**one shared asset**: `dressing_imp_crate_table.png`, a packing crate with a
+paper tablecloth parked in every floor-2 world, re-dressed four times
+(bandage bunting -> muddy hoofprint -> paper crown -> taped curtain). One
+asset, four acts, and the child reads the imps' entire motive without a word.
+- **Highest value single card:** `lamba_partyhat.png` — Lamba in a tiny imp
+  party hat, which proves the imps' motive at a glance five acts before the
+  invitation pays off.
+- Helper stage actors needed: Kareem, Rosalina, Evie (two poses — scrubs and
+  stage), Wacky, Mewsha, Flower Friend, Sparkle; plus small story props
+  (empty tiara cushion, torn starfish "before", party bag, five candles,
+  Pudding's party hat, the boxed shop cake).
+- **Reused, no new art:** every career backdrop, stage, actor, rival 13-frame
+  set, all 13 goal props, the dragon GLB, `imp_captain_bow.png`.
+
+**Engine — no new save keys.** The party table derives entirely from the
+existing `opera_stars` bitmask; the thirteen shelf textures are the goal props
+that already ship.
+
+## 6. THREE DEFECTS FOUND (all would block or embarrass the story)
+
+1. **Captions are invisible over the Opera lobby.** `hud_msg` sits on a
+   CanvasLayer at layer 0; `OperaLobby2D` is layer 35 with an opaque
+   backdrop. Every spoken line in the lobby — the entire chapter open, the
+   party, the crash — currently plays audio behind an opaque panel. Fix is a
+   mirrored caption label inside the lobby (~8 lines), not a global z-order
+   change.
+2. **The Shadow Phantom speaks in Roshan's voice** (no `_speaker_key`
+   branch). Same class of bug would hit the Ember King and the Captain.
+3. **Boxer, racer and pop star never visit their final station** — 6 phases,
+   4 non-bop, 5 stations, so the last landmark is orphaned. In all three the
+   orphan is *the pedestal holding that act's goal prop* — the birthday piece
+   the painting was built around. One-line fix in `_assign_stations()`.
+
+## 7. CHAPTER 5 IMPLICATIONS (decided now, cheaply)
+
+Chapter 5 remixes these same stages harder and settles into a cozy,
+revisitable endgame. Three consequences to honour while building Chapter 2:
+- **Parameterize difficulty** rather than hard-coding goals, so the remix is
+  a data pass and not a rewrite.
+- **No one-shot-only story.** Beats must be replayable and shortenable (an act
+  that already has its star plays a trimmed version).
+- **Build the party venue as a place, not a cutscene** — the party table and
+  the party scene should be a persistent space the child can return to, since
+  Chapter 5 moves in there.
+
+## 8. DECISIONS I NEED FROM YOU
+
+1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
+   hers or the Ember King's; scripts work either way.)
+2. **Ember King as the party crasher** — confirm. He is existing canon (all
+   growl, zero bite; his shipped ending is friendship), needs no new art
+   because he is never seen, and his imps already guard his gate.
+3. **The Maestro as house host from act one** — confirm. It makes his own
+   act land ("the one staff member never allowed on stage") and mirrors the
+   imps exactly.
+4. **Art budget:** approve the 13 blocking cards, or approve the minimum set
+   (crate table + Lamba party hat + the seven helper actors) and defer props.
+5. **Chapter-1 handoff:** should the castle-cleaning chapter end by explicitly
+   naming the party ("clean it for tomorrow's party"), which would make the
+   two chapters lock together?
+
+Once these are settled the build order is: defect fixes -> `opera_story.gd`
+data + hooks -> TTS generation -> party table -> codex art handoff.
