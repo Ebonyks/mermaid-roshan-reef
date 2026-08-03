@@ -34,17 +34,27 @@ var fallers: Array[Dictionary] = []
 var safe_landings: Array[Dictionary] = []
 var settled: Array[int] = []
 var textures: Array[Texture2D] = []
+var backdrop_texture: Texture2D = null
+var cradle_texture: Texture2D = null
+var pillows_texture: Texture2D = null
 
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	set_process(false)
+	backdrop_texture = _load_if_exists("res://assets/opera/worlds/widgets/widget_catch_nursery.png")
+	cradle_texture = _load_if_exists("res://assets/opera/worlds/widgets/widget_catch_nursery_cradle.png")
+	pillows_texture = _load_if_exists("res://assets/opera/worlds/widgets/widget_catch_nursery_pillows.png")
 	for path: String in BABY_PATHS:
 		var texture := load(path) as Texture2D
 		if texture != null:
 			textures.append(texture)
 	set_meta("no_fail", true)
 	set_meta("live_input_gate_seconds", INPUT_MEMORY)
+
+
+func _load_if_exists(path: String) -> Texture2D:
+	return load(path) as Texture2D if ResourceLoader.exists(path) else null
 
 
 func start(next_goal: int) -> void:
@@ -216,21 +226,29 @@ func _draw_baby(texture_index: int, point: Vector2, extent: float, opacity: floa
 
 func _draw() -> void:
 	var panel := Rect2(Vector2.ZERO, size)
-	draw_rect(panel, Color(0.035, 0.04, 0.11, 0.86), true)
+	if backdrop_texture != null:
+		draw_texture_rect(backdrop_texture, panel, false)
+	else:
+		draw_rect(panel, Color(0.035, 0.04, 0.11, 0.86), true)
 	draw_rect(panel.grow(-4.0), Color(0.66, 0.90, 0.88), false, 5.0)
-	# Moon-and-stars mobile: living motion with no extra texture or overdraw.
-	var mobile_y := size.y * 0.12
-	draw_line(Vector2(size.x * 0.50, 0), Vector2(size.x * 0.50, mobile_y), Color(0.94, 0.83, 0.55), 4.0)
-	for index in range(3):
-		var mobile_x := size.x * (0.34 + float(index) * 0.16)
-		var bob := sin(elapsed * (1.4 + float(index) * 0.13) + float(index)) * 5.0
-		draw_line(Vector2(size.x * 0.50, mobile_y), Vector2(mobile_x, mobile_y + 22.0 + bob), Color(0.78, 0.72, 0.92), 3.0)
-		draw_circle(Vector2(mobile_x, mobile_y + 29.0 + bob), 7.0, Color(1.0, 0.88, 0.42))
+	# The authored backdrop carries the mobile band; keep the vector mobile as
+	# a graceful fallback when the raster set is unavailable.
+	if backdrop_texture == null:
+		var mobile_y := size.y * 0.12
+		draw_line(Vector2(size.x * 0.50, 0), Vector2(size.x * 0.50, mobile_y), Color(0.94, 0.83, 0.55), 4.0)
+		for index in range(3):
+			var mobile_x := size.x * (0.34 + float(index) * 0.16)
+			var bob := sin(elapsed * (1.4 + float(index) * 0.13) + float(index)) * 5.0
+			draw_line(Vector2(size.x * 0.50, mobile_y), Vector2(mobile_x, mobile_y + 22.0 + bob), Color(0.78, 0.72, 0.92), 3.0)
+			draw_circle(Vector2(mobile_x, mobile_y + 29.0 + bob), 7.0, Color(1.0, 0.88, 0.42))
 
 	# Pillow-safe floor. A miss rests here while Faron gently returns the baby.
-	for index in range(5):
-		var pillow_x := size.x * (0.10 + float(index) * 0.20)
-		draw_circle(Vector2(pillow_x, size.y * 0.91), size.x * 0.085, Color(0.66, 0.55 + float(index % 2) * 0.08, 0.82, 0.88))
+	if pillows_texture != null:
+		draw_texture_rect(pillows_texture, Rect2(0.0, size.y * 0.78, size.x, size.y * 0.22), false)
+	else:
+		for index in range(5):
+			var pillow_x := size.x * (0.10 + float(index) * 0.20)
+			draw_circle(Vector2(pillow_x, size.y * 0.91), size.x * 0.085, Color(0.66, 0.55 + float(index % 2) * 0.08, 0.82, 0.88))
 	for landing: Dictionary in safe_landings:
 		var fade := clampf(float(landing.get("time", 0.0)) / 0.35, 0.0, 1.0)
 		_draw_baby(
@@ -243,10 +261,17 @@ func _draw() -> void:
 	# Roshan's broad cradle/arms move directly under the player's finger.
 	var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
 	var catch_radius := minf(58.0, size.x * 0.15)
-	draw_circle(catch_point + Vector2(0, 12), catch_radius, Color(0.35, 0.76, 0.78, 0.34))
-	draw_arc(catch_point, catch_radius, 0.10, PI - 0.10, 36, Color(1.0, 0.74, 0.78), 12.0)
-	draw_line(catch_point + Vector2(-catch_radius, 2), catch_point + Vector2(-catch_radius * 0.42, -18), Color(1.0, 0.86, 0.72), 11.0, true)
-	draw_line(catch_point + Vector2(catch_radius, 2), catch_point + Vector2(catch_radius * 0.42, -18), Color(1.0, 0.86, 0.72), 11.0, true)
+	if cradle_texture != null:
+		draw_texture_rect(
+			cradle_texture,
+			Rect2(catch_point - Vector2(catch_radius, catch_radius * 1.55), Vector2(catch_radius * 2.0, catch_radius * 2.0)),
+			false
+		)
+	else:
+		draw_circle(catch_point + Vector2(0, 12), catch_radius, Color(0.35, 0.76, 0.78, 0.34))
+		draw_arc(catch_point, catch_radius, 0.10, PI - 0.10, 36, Color(1.0, 0.74, 0.78), 12.0)
+		draw_line(catch_point + Vector2(-catch_radius, 2), catch_point + Vector2(-catch_radius * 0.42, -18), Color(1.0, 0.86, 0.72), 11.0, true)
+		draw_line(catch_point + Vector2(catch_radius, 2), catch_point + Vector2(catch_radius * 0.42, -18), Color(1.0, 0.86, 0.72), 11.0, true)
 	if input_live_t <= 0.0:
 		var arrow := catch_point + Vector2(0, -72)
 		draw_colored_polygon(PackedVector2Array([

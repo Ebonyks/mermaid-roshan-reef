@@ -1,5 +1,5 @@
 extends SceneTree
-## Runtime contract for the twelve Canvas-based Pearl Opera career worlds.
+## Runtime contract for the thirteen Canvas-based Pearl Opera career worlds.
 ##
 ## This intentionally forces the 2D path under headless Godot. The older
 ## probe_opera.gd continues to regression-test the detailed legacy mechanics,
@@ -110,9 +110,25 @@ func _init() -> void:
 		var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
 		_check("%s starts in its job world, off the proscenium" % career,
 			backdrop != null and not backdrop.stage_mode)
-		if career != "nursery":
-			_check("%s paints the supplied codex career world" % career,
-				backdrop != null and backdrop.painting != null)
+		_check("%s paints the supplied codex career world" % career,
+			backdrop != null and backdrop.world_tiles.size() == 4)
+		_check("%s owns a complete on-stage tile set" % career,
+			backdrop != null and backdrop.stage_tiles.size() == 4)
+		var widgets_complete := true
+		var widget_count := 0
+		for phase_dict: Dictionary in world.phases:
+			var template := world._widget_template(phase_dict)
+			if template.is_empty():
+				continue
+			widget_count += 1
+			var widget_path := "res://assets/opera/worlds/widgets/widget_%s_%s.png" % [template, career]
+			widgets_complete = widgets_complete and ResourceLoader.exists(widget_path)
+		_check("%s loads every diegetic phase widget" % career,
+			widgets_complete and widget_count > 0)
+		_check("%s loads the Storybook task frame and station beacon" % career,
+			world.task_frame_texture != null and world.station_marker_texture != null)
+		_check("%s loads the authored magnifier prop" % career,
+			world.magnifier_texture != null)
 		var captain_stage_seen := false
 		if career == "detective":
 			var original_phase_count := world.phases.size()
