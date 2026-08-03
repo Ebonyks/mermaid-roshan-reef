@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "slash",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    75,
+    19,
+    466,
+    503
+  ],
+  "visible_bbox": [
+    75,
+    19,
+    466,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 75,
+    "right": 45,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 24,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 91894,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    7,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.581578,
+  "solid_centroid_x": 255.645,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_slash_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "7fb22b457684589239b5ba0c1ece7d01ab15086c7a76ca30caf8e0b1f496ec21",
+  "output": "assets\\opera\\worlds\\actors\\rival_detective_slash.png",
+  "output_sha256": "1d3ff9e9fbdd1c0c6b490f73bc7cc19bab09c6e9a47e8f3d85a88293450b6d39",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_detective.png",
+  "idle_sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_slash\\rival_detective_slash_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_slash\\rival_detective_slash_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_slash\\rival_detective_slash_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_slash\\rival_detective_slash_idle_comparison.png"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "stagger",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    51,
+    20,
+    430,
+    503
+  ],
+  "visible_bbox": [
+    50,
+    19,
+    431,
+    504
+  ],
+  "solid_height": 484,
+  "gaps": {
+    "left": 51,
+    "right": 81,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 8,
+  "semi_alpha_pixels": 3283,
+  "solid_pixels": 66922,
+  "semi_alpha_to_solid_ratio": 0.049057,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [],
+  "reviewed_large_hole_exemptions": 1,
+  "dominant_purple_rgb": [
+    216,
+    104,
+    248
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.411814,
+  "solid_centroid_x": 256.287,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\imp_mischief_stagger_attempt01_alpha_native.png",
+  "input_sha256": "2ed6b5c377ad4de1c806ab47461509fee56a665d3356737277764dd23f51d72e",
+  "output": "assets\\opera\\worlds\\actors\\imp_mischief_stagger.png",
+  "output_sha256": "4dd6a7013e61f74b8f5de82d3c582f715752f18d5a42b511ebf6e1df101ff237",
+  "idle_reference": "assets\\opera\\worlds\\actors\\imp_mischief.png",
+  "idle_sha256": "fa68c88fb78817dcbfcdb7dc011ffa277529fb1d3c6bbc2a0bde8c532ac8744a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_stagger\\imp_mischief_stagger_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_stagger\\imp_mischief_stagger_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_stagger\\imp_mischief_stagger_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_stagger\\imp_mischief_stagger_idle_comparison.png"
+  }
+}

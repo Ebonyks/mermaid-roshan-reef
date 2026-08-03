@@ -1,0 +1,67 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "windup",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    91,
+    94,
+    477,
+    503
+  ],
+  "visible_bbox": [
+    91,
+    94,
+    477,
+    503
+  ],
+  "solid_height": 410,
+  "gaps": {
+    "left": 91,
+    "right": 34,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 30,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 91003,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    477,
+    43,
+    33,
+    22,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    216,
+    104,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.541623,
+  "solid_centroid_x": 257.262,
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_windup_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "6e26eaec64f909dd7b7db06a7b027730aa4f885e298a4c105daff9b36bbee08b",
+  "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_boxer_windup.png",
+  "output_sha256": "d5b51680b6d3645a6488b1328d37ca71676d8d806b2bbe0378e5bf7950f7e795",
+  "idle_reference": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_boxer.png",
+  "idle_sha256": "ce55fa14790fd4def1055e6623502a8502d7ea8695d70f31827871fb62c034db",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 410,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_windup\\rival_boxer_windup_checker.png",
+    "silhouette": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_windup\\rival_boxer_windup_silhouette.png",
+    "phone_25pct": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_windup\\rival_boxer_windup_phone_25pct.png",
+    "idle_comparison": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_windup\\rival_boxer_windup_idle_comparison.png"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "stagger",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    14,
+    24,
+    498,
+    503
+  ],
+  "visible_bbox": [
+    14,
+    24,
+    498,
+    503
+  ],
+  "solid_height": 480,
+  "gaps": {
+    "left": 14,
+    "right": 13,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 20,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 103631,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    7,
+    3,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    216,
+    104,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.401152,
+  "solid_centroid_x": 253.648,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_stagger_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "a961d47281511c3a446f37bac3d6f6410f9d3d300487aecf80d7d10ed61848eb",
+  "output": "assets\\opera\\worlds\\actors\\rival_boxer_stagger.png",
+  "output_sha256": "62798f10e195e83b75103b8c1b252ccaceef8f169ec191a8c032b4a41a7436a3",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_boxer.png",
+  "idle_sha256": "ce55fa14790fd4def1055e6623502a8502d7ea8695d70f31827871fb62c034db",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 480,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 253.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_stagger\\rival_boxer_stagger_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_stagger\\rival_boxer_stagger_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_stagger\\rival_boxer_stagger_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_boxer_stagger\\rival_boxer_stagger_idle_comparison.png"
+  }
+}

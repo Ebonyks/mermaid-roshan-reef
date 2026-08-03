@@ -1,0 +1,70 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "charge",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    84,
+    37,
+    446,
+    456
+  ],
+  "visible_bbox": [
+    84,
+    37,
+    446,
+    456
+  ],
+  "solid_height": 420,
+  "gaps": {
+    "left": 84,
+    "right": 65,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 9,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 67055,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    108,
+    37,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.503461,
+  "solid_centroid_x": 255.809,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_ballerina_charge_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "7c60c1b1bfe4f44c1ca3b49eae9609aa774ec057acfadab906eb01b7b6029203",
+  "output": "assets\\opera\\worlds\\actors\\rival_ballerina_charge.png",
+  "output_sha256": "1050c0f7dc8e8e41160343542ebc32b79d9e3a15c593f9b9241ac03326a43424",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_ballerina.png",
+  "idle_sha256": "e2b8a9d82782b80a5e6f4c768eb0b349a91acaa859b32b820c2d1b6da305c583",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 420,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_charge\\rival_ballerina_charge_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_charge\\rival_ballerina_charge_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_charge\\rival_ballerina_charge_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_ballerina_charge\\rival_ballerina_charge_idle_comparison.png"
+  }
+}

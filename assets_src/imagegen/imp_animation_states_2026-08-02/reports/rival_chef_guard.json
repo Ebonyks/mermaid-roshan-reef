@@ -1,0 +1,76 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "guard",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    70,
+    16,
+    445,
+    503
+  ],
+  "visible_bbox": [
+    70,
+    16,
+    445,
+    503
+  ],
+  "solid_height": 488,
+  "gaps": {
+    "left": 70,
+    "right": 66,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 26,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 95640,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    299,
+    8,
+    4,
+    4,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    136,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 34.871,
+  "silhouette_iou_against_idle": 0.59376,
+  "solid_centroid_x": 255.908,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_guard_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "9e8c7fce53d07f121fbcd1d3e24f0248f403eca806a683e1ba5bc68197f75505",
+  "output": "assets\\opera\\worlds\\actors\\rival_chef_guard.png",
+  "output_sha256": "9f24e77e94f077373288b13c9aeeb266f3a679b8fa104a6ed9d632d598ce3f57",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_chef.png",
+  "idle_sha256": "84b855248ce55a424d9781608ebc35e5b94317d5961354e8d0d2977ff47ecf76",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 488,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_guard\\rival_chef_guard_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_guard\\rival_chef_guard_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_guard\\rival_chef_guard_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_guard\\rival_chef_guard_idle_comparison.png"
+  }
+}

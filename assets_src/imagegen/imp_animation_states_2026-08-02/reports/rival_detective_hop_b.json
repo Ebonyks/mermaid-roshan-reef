@@ -1,0 +1,66 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "hop_b",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    116,
+    27,
+    436,
+    456
+  ],
+  "visible_bbox": [
+    116,
+    27,
+    436,
+    456
+  ],
+  "solid_height": 430,
+  "gaps": {
+    "left": 116,
+    "right": 75,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 9,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 72451,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    3,
+    2,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    216,
+    136,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.46102,
+  "solid_centroid_x": 256.202,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_detective_hop_b_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "a0f5f806c82b7dd55fdaa16cfb347b29844d7d68594f7ebc50d5fd673e92f81d",
+  "output": "assets\\opera\\worlds\\actors\\rival_detective_hop_b.png",
+  "output_sha256": "4905c9f6f72cf88c072232368054a9b49f58d3c47b4ce3a00c92b0c935b6f699",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_detective.png",
+  "idle_sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 430,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_hop_b\\rival_detective_hop_b_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_hop_b\\rival_detective_hop_b_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_hop_b\\rival_detective_hop_b_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_detective_hop_b\\rival_detective_hop_b_idle_comparison.png"
+  }
+}

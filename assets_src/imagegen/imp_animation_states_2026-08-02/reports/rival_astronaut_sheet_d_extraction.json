@@ -1,0 +1,97 @@
+{
+  "pass": true,
+  "method": "grid-cell grouping of 8-connected alpha components; 3px matte support; 8px crop padding",
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_sheet_d_attempt01_alpha_native.png",
+  "input_sha256": "86e715d0b7b0f3cc6335225f8ae24782fe0c931d1e6246167c740b492f0c8b47",
+  "sheet": "d",
+  "states": [
+    "stagger",
+    "flee",
+    "bopped"
+  ],
+  "component_count": 3,
+  "occupied_grid_cells": 3,
+  "outputs": [
+    {
+      "state": "stagger",
+      "source_components": [
+        {
+          "label": 1,
+          "area": 149547,
+          "bbox": [
+            136,
+            64,
+            709,
+            619
+          ],
+          "centroid": [
+            435.3372317732887,
+            332.98796365022366
+          ]
+        }
+      ],
+      "crop_bbox": [
+        128,
+        56,
+        717,
+        627
+      ],
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_stagger_sheet_d_attempt01_alpha_crop_native.png",
+      "output_sha256": "88f3cd8aa83c17538fb0f2daece4669b34154b3fe461f294cf51956aecf15a42"
+    },
+    {
+      "state": "flee",
+      "source_components": [
+        {
+          "label": 2,
+          "area": 128195,
+          "bbox": [
+            844,
+            78,
+            1344,
+            607
+          ],
+          "centroid": [
+            1115.1082959553805,
+            336.23913569171964
+          ]
+        }
+      ],
+      "crop_bbox": [
+        836,
+        70,
+        1352,
+        615
+      ],
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_flee_sheet_d_attempt01_alpha_crop_native.png",
+      "output_sha256": "900d192ade3c2092bf9a29f306a998c8df4a4be9c6be838dedcfe9b34d70f226"
+    },
+    {
+      "state": "bopped",
+      "source_components": [
+        {
+          "label": 3,
+          "area": 139149,
+          "bbox": [
+            1489,
+            115,
+            2036,
+            618
+          ],
+          "centroid": [
+            1765.0975213619934,
+            362.46644963312707
+          ]
+        }
+      ],
+      "crop_bbox": [
+        1481,
+        107,
+        2045,
+        626
+      ],
+      "output": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_astronaut_bopped_sheet_d_attempt01_alpha_crop_native.png",
+      "output_sha256": "713a2d056fbe8dabf9f6995e7a2bc1b23a1d9801167325ba31d61e712dda29d5"
+    }
+  ]
+}

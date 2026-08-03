@@ -11,6 +11,7 @@ ledger when requested and exits non-zero until every audited element passes.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import re
@@ -64,12 +65,35 @@ class Element:
 	shadow_mode: str = "card"
 	palette_band: str = ""
 	atlas_rows: int = 1
+	runtime_paths: tuple[str, ...] = ()
+	runtime_sha256: tuple[str, ...] = ()
 
 
 ELEMENTS = (
 	Element("cloud_single_drift", "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", 3.104, -16.0, "sky", "painted_underside"),
 	Element("plane", "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", 10.732, -11.0),
-	Element("swing", "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png", 11.8, -6.0, "castle", "card", "accent"),
+	# Owner-reviewed 2026-08-01: the accepted runtime swing is a two-card
+	# assembly. Keep the approved single-chair art as its palette/value
+	# reference, and exact-hash lock both runtime layers so this exception
+	# cannot silently authorize different art.
+	Element(
+		"swing",
+		"assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+		11.8,
+		-6.0,
+		"castle",
+		"card",
+		"accent",
+		1,
+		(
+			"assets/props/story/play_swing_frame.png",
+			"assets/props/story/play_swing_seat.png",
+		),
+		(
+			"a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+			"b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+		),
+	),
 	Element("slide", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", 11.4, -6.0),
 	Element("castle_four_tower", "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png", 28.431, -11.0, "castle", "painted_underside", "castle"),
 	Element("roshan_idle_directional", "assets/characters/roshan_25d/roshan_directional.png", 7.8, 0.2, "roshan", "card", "roshan", 2),
@@ -188,9 +212,23 @@ def contact_shadow_ok(element: Element, metrics: dict[str, float], source: str) 
 		and "func _add_contact_shadow" in source
 		and "func _sync_contact_shadow" in source
 	)
-	asset_name = Path(element.path).name
-	required = required and asset_name in source
-	return required
+	runtime_paths = element.runtime_paths or (element.path,)
+	required = required and all(Path(path).name in source for path in runtime_paths)
+	if not required:
+		return False
+	if element.runtime_sha256:
+		if len(element.runtime_sha256) != len(runtime_paths):
+			return False
+		for relative_path, expected_hash in zip(
+			runtime_paths, element.runtime_sha256, strict=True
+		):
+			asset_path = ROOT / relative_path
+			if not asset_path.is_file():
+				return False
+			actual_hash = hashlib.sha256(asset_path.read_bytes()).hexdigest()
+			if actual_hash != expected_hash:
+				return False
+	return True
 
 
 def evaluate(element: Element, bands: dict[str, dict[str, float]],

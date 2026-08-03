@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "guard",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    108,
+    17,
+    433,
+    503
+  ],
+  "visible_bbox": [
+    107,
+    16,
+    434,
+    504
+  ],
+  "solid_height": 487,
+  "gaps": {
+    "left": 108,
+    "right": 78,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 7,
+  "semi_alpha_pixels": 2658,
+  "solid_pixels": 69211,
+  "semi_alpha_to_solid_ratio": 0.038404,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [],
+  "reviewed_large_hole_exemptions": 1,
+  "dominant_purple_rgb": [
+    216,
+    120,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.390255,
+  "solid_centroid_x": 255.55,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\imp_mischief_guard_attempt01_alpha_native.png",
+  "input_sha256": "382d23a72986c7f74f90eec310d650ff930681fa393d0d96ce628d03d31e40fa",
+  "output": "assets\\opera\\worlds\\actors\\imp_mischief_guard.png",
+  "output_sha256": "0c2f4c01543076255ea6b1bbe8e8119f7c469685f7dbfe19407d37db7b327203",
+  "idle_reference": "assets\\opera\\worlds\\actors\\imp_mischief.png",
+  "idle_sha256": "fa68c88fb78817dcbfcdb7dc011ffa277529fb1d3c6bbc2a0bde8c532ac8744a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 488,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_guard\\imp_mischief_guard_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_guard\\imp_mischief_guard_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_guard\\imp_mischief_guard_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_mischief_guard\\imp_mischief_guard_idle_comparison.png"
+  }
+}

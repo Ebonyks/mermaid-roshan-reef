@@ -161,6 +161,37 @@ static func style_button(button: Button, kind: String = "secondary", font_size: 
 	button.set_meta("storybook_kind", kind)
 	button.set_meta("touch_target", true)
 
+static func style_picture_button(button: Button, fill: Color = PAPER, accent: Color = PURPLE, radius: int = 28) -> void:
+	# Art-backed choices still need the same violet contour, physical press,
+	# focus ring and shadow as text/icon tiles. Keeping this in the shared
+	# system prevents picture games and selectors from falling back to flat,
+	# feedback-free hotspots.
+	var normal := panel_style(accent, fill, radius, 5)
+	normal.shadow_size = 7
+	normal.shadow_offset = Vector2(0.0, 4.0)
+	var hover: StyleBoxFlat = normal.duplicate()
+	hover.bg_color = fill.lightened(0.08)
+	hover.border_color = GOLD
+	var pressed: StyleBoxFlat = normal.duplicate()
+	pressed.bg_color = fill.darkened(0.10)
+	pressed.shadow_size = 2
+	pressed.shadow_offset = Vector2(0.0, 1.0)
+	var focus: StyleBoxFlat = normal.duplicate()
+	focus.border_color = GOLD
+	focus.set_border_width_all(8)
+	button.add_theme_stylebox_override("normal", normal)
+	button.add_theme_stylebox_override("hover", hover)
+	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_stylebox_override("focus", focus)
+	button.add_theme_stylebox_override("disabled", panel_style(
+		MUTED, Color(0.74, 0.76, 0.84, 0.96), radius, 5))
+	button.add_theme_color_override("font_color", PURPLE_DEEP)
+	button.add_theme_color_override("font_hover_color", PURPLE_DEEP)
+	button.add_theme_color_override("font_pressed_color", PURPLE_DEEP)
+	button.set_meta("storybook_kind", "picture")
+	button.set_meta("picture_first", true)
+	button.set_meta("touch_target", true)
+
 static func style_icon_button(button: Button, icon: String, kind: String = "secondary", size: Vector2 = MIN_TOUCH, parent_hint: String = "") -> void:
 	button.text = icon
 	button.custom_minimum_size = size

@@ -1,0 +1,63 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "windup",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    70,
+    78,
+    498,
+    503
+  ],
+  "visible_bbox": [
+    69,
+    78,
+    499,
+    504
+  ],
+  "solid_height": 426,
+  "gaps": {
+    "left": 70,
+    "right": 13,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 11,
+  "semi_alpha_pixels": 2736,
+  "solid_pixels": 88535,
+  "semi_alpha_to_solid_ratio": 0.030903,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    58
+  ],
+  "reviewed_large_hole_exemptions": 1,
+  "dominant_purple_rgb": [
+    200,
+    104,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.468089,
+  "solid_centroid_x": 255.828,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\imp_captain_windup_attempt01_alpha_native.png",
+  "input_sha256": "49c439779ff7a7e695caf97493d65407af7e6015069419abdbb6978943555b31",
+  "output": "assets\\opera\\worlds\\actors\\imp_captain_windup.png",
+  "output_sha256": "8827a774b9ceacf8fd1eecca396c3827179436966e786a38aefb09ff14494a8a",
+  "idle_reference": "assets\\opera\\worlds\\actors\\imp_captain.png",
+  "idle_sha256": "4bab4b6da2ecd717a46722226c50431626843c0040b237048219fde6f49f0d8b",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 427,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_windup\\imp_captain_windup_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_windup\\imp_captain_windup_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_windup\\imp_captain_windup_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\imp_captain_windup\\imp_captain_windup_idle_comparison.png"
+  }
+}

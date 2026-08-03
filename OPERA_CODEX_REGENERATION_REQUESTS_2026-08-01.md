@@ -694,6 +694,13 @@ Re-cut with corrected bounds / erase debris; one line each:
 
 ## PRIORITY 6 — Imp & rival animation-state program (2026-08-02)
 
+> **EXTENDED 2026-08-02 → `CODEX_IMP_ANIMATION_HANDOFF_2026-08-02.md`.**
+> The shared imp brain (`scripts/imp_ai.gd`) now plays wind-up, charge,
+> slash, recover, guard, stagger and flee as well. Everything below is
+> still wanted and unchanged; the new handoff adds those seven states,
+> the per-character fallback chain the loader uses, and a pose-aware
+> acceptance gate. Read both, deliver from the handoff's tier list.
+
 Stage-roaming combat plays the characters as state sprites (idle / bopped /
 bow now; hop and taunt next). The base-imp six-sprite set is the quality
 benchmark; the audit found one defect in it and systemic foot-crops in the

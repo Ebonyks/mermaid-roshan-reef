@@ -65,6 +65,11 @@ var _reef_districts: ReefDistricts = null
 # ---- LIVING WORLD: mutable runtime state stays on ReefMain; the extracted
 # ---- director only resolves stages and drives one reusable 2D CanvasItem.
 var _living_world: LivingWorldDirector = null
+var _fx_water: FxWater = null
+var fxw_cards: Array = []       # live water-FX cards (fx_water.gd satellite)
+var fxw_lines: Array = []       # drifting foam waterlines (same satellite)
+var fxw_total := 0              # cards ever spawned — probe_passive's counter
+var fxw_cool: Dictionary = {}   # per-emitter proc cooldowns
 var living_specs: Dictionary = {}
 var living_layer: CanvasLayer = null
 var living_canvas: LivingWorldCanvas = null
@@ -210,8 +215,12 @@ var castle_room_item_visual_layer: Node3D = null
 var castle_room_item_effect_layer: Node3D = null
 var castle_room_item_hotspot_layer: Control = null
 var castle_room_door_hotspot_layer: Control = null
+var castle_room_link_layer: Control = null
 var castle_room_door_hotspots: Array[Dictionary] = []
 var castle_room_item_sprites: Dictionary = {}
+var castle_room_fixture_manifest: Dictionary = {}
+var castle_room_fixture_rigs: Dictionary = {}
+var castle_room_fixture_physics: Array[RigidBody3D] = []
 var castle_room_light_nodes: Array[Light3D] = []
 var castle_room_light_states: Dictionary = {}
 var castle_room_environment: Environment = null
@@ -433,6 +442,21 @@ var _interaction_director: InteractionDirector = null
 var _tap_move_director: TapMoveDirector = null
 var quality := "sparkly"
 var music_on := true
+# Spoken spells (prototype 2026-08-02, see MIC_SPELLS.md). DEFAULT-ON is an
+# owner decision: MIC_DEFAULT_ON is the ONE flip point — set it to false and
+# the toggle, the save default and a fresh install all ship the feature dark.
+# On-by-default is only safe because the microphone device is opened lazily on
+# the first battle (never at boot), a denied RECORD_AUDIO permission silently
+# disables the feature forever, and the ICE/FIRE buttons are always live.
+const MIC_DEFAULT_ON := true
+var mic_on := MIC_DEFAULT_ON
+var mic_state := "idle"        # idle | asking | listening | enroll | test | off
+var mic_last_word := ""        # debug/HUD readout of the last accepted spell
+var mic_last_dist := -1.0      # ...and its DTW distance, for calibration
+var mic_enroll_left := 0
+var mic_permission_denied := false
+var mic_teach_layer: CanvasLayer = null
+var mic_btn: Button
 var save_data := {}
 var save_generation := 0   # monotonically orders primary/.tmp/.bak snapshots
 var save_dirty := false    # main retains failed-write responsibility after a minigame frees
@@ -515,6 +539,11 @@ var peng_giggle: AudioStreamPlayer = null   # the baby's squeaky giggle
 var brawl_fr := {"fname": "Toy Castle", "game": "brawl", "won": true, "cool": 0.0}
 var brawl_portal_pos := Vector3.ZERO
 var brawl_cool := 0.0
+# the great dust bunny's attic (scripts/games/dust_boss.gd) — a boss with one
+# rule: he is only open while airborne with his star flashing
+var dust_boss_fr := {"fname": "Dusty Attic", "game": "dustboss", "won": true, "cool": 0.0}
+var dust_boss_portal_pos := Vector3.ZERO
+var dust_boss_cool := 0.0
 var fairy_fr := {"fname": "Fairy Pond", "game": "fairyshoot", "won": true, "cool": 0.0}
 var fairy_pond_pos := Vector3.ZERO
 var fairy_cool := 0.0
@@ -709,6 +738,17 @@ func _living_world_ref() -> LivingWorldDirector:
 		_living_world = LivingWorldLogic.new(self)
 	return _living_world
 
+func _fx_water_ref() -> FxWater:
+	if _fx_water == null:
+		_fx_water = FxWater.new(self)
+	return _fx_water
+
+func fx_splash(pos: Vector3, energy: float, emitter: String = "", cfg: Dictionary = {}) -> void:
+	# the shared water-FX proc point (WATER_PHYSICS_EVALUATION_2026-08-02.md):
+	# every water system calls this on a discrete crossing event — never from
+	# an ambient channel — so the whole game splashes in one vocabulary
+	_fx_water_ref().splash(pos, energy, emitter, cfg)
+
 func _ready() -> void:
 	BootSplashOverlayLogic.show(self)
 	for jmap in EXTRA_JOY_MAPPINGS:
@@ -783,6 +823,7 @@ func _ready() -> void:
 	_build_guide()
 	_build_slide_portal()
 	_build_brawl_portal()
+	dust_boss_portal_pos = _game_obj("dustboss", DustBossGame).build_portal()
 	_build_pause()
 	_load_save()
 	_init_touch_experiment()
@@ -2307,7 +2348,7 @@ func _respawn_pearls() -> void:
 		# show_msg sets msg_timer = 5.0, so > 4.0 means another banner went up
 		# less than a second ago (the _end_game win message) — never fight it;
 		# the respawned pearls announce themselves by shimmering anyway
-		show_msg("", "New rainbow pearls are shimmering in the reef!")
+		show_msg("", "New rainbow pearls are shimmering in the ocean!")
 
 func _cutout_tex(name: String) -> Texture2D:
 	# STORYBOOK: in-world character cutouts use the die-cut STICKER bake
@@ -3162,6 +3203,15 @@ func _flash_speaker_icon(who: String) -> void:
 # (state stays here; AudioDirector receives main by reference)
 var _audio_dir: AudioDirector = null
 
+# Phase 7 satellite: spoken-spell recognition (scripts/mic_input.gd). Built on
+# first use so a launch that never enters combat never touches the audio input.
+var mic_sys: MicInput = null
+
+func _mic_ref() -> MicInput:
+	if mic_sys == null:
+		mic_sys = MicInput.new(self)
+	return mic_sys
+
 func _audio_ref() -> AudioDirector:
 	if _audio_dir == null:
 		_audio_dir = AudioDirector.new(self)
@@ -3437,6 +3487,14 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 	if arena != null:
 		arena.on_world_tap(screen_pos)
 		return
+	if game == "dustboss":
+		# The boss is an ENEMY and obeys the same forefront rule: in Hybrid
+		# touch the finger goes ON him, and that must be the bonk. Without this
+		# the most natural thing a 4-year-old can do — tap the big fluffy
+		# thing — fell through to tap-to-move and did nothing at all
+		# (2026-08-02 boss stress test).
+		_game_obj("dustboss", DustBossGame).on_world_tap(screen_pos)
+		return
 	_interaction_ref().on_world_touch(screen_pos)
 
 # The live hit-engine client, if a battle is running: a standalone arena
@@ -3535,6 +3593,8 @@ func _populate_touch_interactables() -> void:
 			_touch_add_item("reef:slide", "Penguin Slide", slide_portal_pos, slide_portal_penguin, 14.0, 38.0, "SLIDE")
 		if brawl_portal_pos != Vector3.ZERO:
 			_touch_add_item("reef:brawl", "Toy Castle", brawl_portal_pos, null, 13.0, 36.0, "PLAY")
+		if dust_boss_portal_pos != Vector3.ZERO:
+			_touch_add_item("reef:dustboss", "Dusty Attic", dust_boss_portal_pos, null, 13.0, 36.0, "PLAY")
 		if kart_portal_pos != Vector3.ZERO:
 			_touch_add_item("reef:kart", "Ocean Race", kart_portal_pos, null, 12.0, 42.0, "RACE")
 		if companion_den != null and is_instance_valid(companion_den) \
@@ -3641,6 +3701,9 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 		"reef:brawl":
 			brawl_cool = 14.0
 			_start_game(brawl_fr)
+		"reef:dustboss":
+			dust_boss_cool = 14.0
+			_start_game(dust_boss_fr)
 		"reef:kart":
 			_start_kart_game(false, "terrain")
 		"reef:den":
@@ -3996,7 +4059,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		player.position = LEVEL2_POS + Vector3(0, 8, 175)
 		player.vel = Vector3.ZERO
 		if at_ocean_gate_hub:
-			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean reef. The blue ice gate leads to Norway!", "intro")
+			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean. The blue ice gate leads to Norway!", "intro")
 		else:
 			show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
@@ -5381,7 +5444,7 @@ func _end_sleep() -> void:
 	if is_night:
 		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
 	else:
-		show_msg("Roshan", "Good morning! The sun is shining over the reef again!", "win")
+		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!", "win")
 	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
@@ -5787,7 +5850,7 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	if target_kingdom == ReefDistricts.KINGDOM_NORWEGIAN:
 		show_msg("Roshan", "The icy waters of Norway! Follow the blue currents through the kelp and fjord!", "pearl2")
 	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
-		show_msg("Roshan", "The sunny Caribbean reef! Follow the warm shells and rainbow coral!", "pearl")
+		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
 	else:
 		show_msg("Roshan", "Back to the ocean! Wheee!")
 
@@ -5832,7 +5895,7 @@ func _do_finish_level2() -> void:
 	player.vel = Vector3.ZERO
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	_play_music("world")
-	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Reef now!", "win")
+	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Castle now!", "win")
 
 func _beans_go() -> void:
 	award_sticker("beans")
@@ -6025,6 +6088,7 @@ func _tick_hints(delta: float) -> void:
 func _clear_game() -> void:
 	_game_obj("dolls", DollsGame).stage_close()
 	_game_obj("brawl", BrawlGame).stage_close()
+	_game_obj("dustboss", DustBossGame).stage_close()
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
@@ -6044,6 +6108,7 @@ func _fail_line() -> String:
 		"fetch":      return "Aww... now Chuck is all wet!"
 		"dolls":      return "Oh no, the babies!"
 		"brawl":      return "The imps are extra giggly today! Huluu says come back soon!"
+		"dustboss":   return "The great dust bunny puffed away — he'll bounce back for another game!"
 		"seek":       return "Where did Lamb-a' go?"
 		"melody":     return "Oh no, the colors!"
 		"treasure":   return "Aww, the treasure slipped back into the dark!"
@@ -6228,6 +6293,8 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		slide_cool = 3.0
 	elif String(fr["fname"]) == "Toy Castle":
 		brawl_cool = 3.0
+	elif String(fr["fname"]) == "Dusty Attic":
+		dust_boss_cool = 3.0
 	elif String(fr["fname"]) == "Fairy Pond":
 		fairy_cool = 3.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
@@ -6413,6 +6480,8 @@ func _start_game_now(fr: Dictionary) -> void:
 		_game_obj("dolls", DollsGame).build(fr, origin)
 	elif game == "brawl":
 		_game_obj("brawl", BrawlGame).build(fr, origin)
+	elif game == "dustboss":
+		_game_obj("dustboss", DustBossGame).build(fr, origin)
 	elif game == "seek":
 		_game_obj("seek", SeekGame).build(fr, origin)
 	elif game == "race":
@@ -6530,6 +6599,8 @@ func _tick_game(delta: float) -> void:
 		_tick_dolls(delta, fr, ppos)
 	elif game == "brawl":
 		_tick_brawl(delta, fr, ppos)
+	elif game == "dustboss":
+		_game_obj("dustboss", DustBossGame).tick(delta, fr, ppos)
 	elif game == "seek":
 		_game_obj("seek", SeekGame).tick(delta, fr, ppos)
 	elif game == "race" or game == "treasure":
@@ -6787,6 +6858,8 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 
 func _process(delta: float) -> void:
 	_living_world_ref().tick(delta)
+	if _fx_water != null:
+		_fx_water.tick(delta)   # water-FX cards animate everywhere, even mid-cutaway
 	# camera watchdog (CAMERA_AUDIT_2026_07 P0): if a torn-down mode freed the
 	# current camera without restoring one (kart/galaxy teardown guards,
 	# cancel(false) paths), fall back to Roshan instead of a black screen
@@ -6816,6 +6889,8 @@ func _process(delta: float) -> void:
 		pose_t -= delta   # trophy curtain-call countdown (player frozen while >=0)
 	_tick_contact_shadow()
 	_tick_ambience_duck(delta)
+	if mic_sys != null:
+		mic_sys.tick(delta)   # no-op unless a battle armed the microphone
 	if player != null:
 		_tick_wayfinder(delta, player.position)
 	_tick_overlay_pads(delta)
@@ -6963,6 +7038,7 @@ func _process(delta: float) -> void:
 	treasure_cool = maxf(0.0, treasure_cool - delta)
 	slide_cool = maxf(0.0, slide_cool - delta)
 	brawl_cool = maxf(0.0, brawl_cool - delta)
+	dust_boss_cool = maxf(0.0, dust_boss_cool - delta)
 	kart_cool = maxf(0.0, kart_cool - delta)
 	if game == "" and finale_t < 0.0 and not touch_uses_explicit_interactions():
 		if manta != null and shop_cool <= 0.0:
@@ -6995,6 +7071,10 @@ func _process(delta: float) -> void:
 		if brawl_cool <= 0.0 and brawl_portal_pos != Vector3.ZERO and brawl_portal_pos.distance_to(ppos) < 13.0:
 			brawl_cool = 14.0
 			_start_game(brawl_fr)
+		if dust_boss_cool <= 0.0 and dust_boss_portal_pos != Vector3.ZERO \
+				and dust_boss_portal_pos.distance_to(ppos) < 13.0:
+			dust_boss_cool = 14.0
+			_start_game(dust_boss_fr)
 		if kart_portal_pos != Vector3.ZERO:
 			var kd: float = Vector2(kart_portal_pos.x - ppos.x, kart_portal_pos.z - ppos.z).length()
 			var ky: float = absf(kart_portal_pos.y - ppos.y)
@@ -7046,6 +7126,8 @@ func _process(delta: float) -> void:
 			act_lbl = String(kart_game.action_label())   # GO! on the pick screens, TURBO in the race
 		elif game == "combat" and combat_game != null:
 			act_lbl = "ICE" if combat_game.kind == "ice" else "FIRE"
+		elif game == "dustboss":
+			act_lbl = String(_game_obj("dustboss", DustBossGame).action_label())
 		elif game == "stuffie" and stuffie_game != null:
 			act_lbl = stuffie_game.action_label()   # PECK / CLAW
 		elif (game == "dungeon" or game == "emberdun") and dungeon_game != null:
@@ -7131,6 +7213,8 @@ func _physlab_standees() -> void:
 			jolt_props.append(p)
 
 func _physics_process(delta: float) -> void:
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		_castle_rooms_25d.physics_tick(delta)
 	# Roshan -> Jolt coupling: firm contact push + softer swim-wake drag,
 	# at the physics tick so it is frame-rate independent.
 	if player == null or jolt_props.is_empty():
@@ -7873,11 +7957,28 @@ func _tick_surf_rings(delta: float, ppos: Vector3) -> void:
 			if float(s["t"]) >= 1.0:
 				(s["node"] as MeshInstance3D).visible = false
 
-func on_player_jump(pos: Vector3) -> void:
+func on_player_jump(pos: Vector3, crossed: bool = false) -> void:
 	# WW-style splash telegraph: ring + sparkles when she leaps near the surface
 	if game == "" and pos.y > WATER_TOP - 12.0:
 		_spawn_surf_ring(Vector3(pos.x, WATER_TOP - 0.25, pos.z), 16.0)
 		_sparkle_burst(Vector3(pos.x, minf(pos.y + 2.0, WATER_TOP - 1.0), pos.z), Color(0.75, 0.95, 1.0))
+		if crossed and player != null:
+			# a REAL surface crossing (breach out or plunge back in) gets the
+			# shared splash card, sized by how hard she crossed — kicks that
+			# never break the surface keep the telegraph ring only
+			fx_splash(Vector3(pos.x, WATER_TOP - 0.2, pos.z),
+				absf((player.vel as Vector3).y), "roshan_surface")
+
+func on_player_wet_change(pos: Vector3, entering: bool, speed: float) -> void:
+	# Arena wet/dry oracle flip (lagoon rivers and moat, northern fjords):
+	# the formerly SILENT water boundaries speak the shared vocabulary too.
+	var s: float = water_surface_y(pos.x, pos.z)
+	var at := Vector3(pos.x, pos.y + 0.4, pos.z)
+	if absf(s) < 1e17:
+		at.y = s + 0.05
+	fx_splash(at, speed * 0.55, "roshan_wetline")
+	if entering:
+		_sparkle_burst(at + Vector3(0, 0.8, 0), Color(0.75, 0.95, 1.0))
 
 func on_player_hop_land() -> void:
 	# soft cartoon boing per on-land hop touchdown, pitch-wobbled so a scoot
@@ -7966,6 +8067,13 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.62
 		arena_env.glow_bloom = 0.06
 		_arena_floor(Color(0.84, 0.76, 0.68), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.07)
+	elif kind == "dustboss":     # the castle attic: lavender dusk through one round window
+		grade_profile = "warm_pastel"
+		arena_env.background_color = Color(0.30, 0.24, 0.42)
+		arena_env.ambient_light_color = Color(0.86, 0.80, 0.98)
+		arena_env.ambient_light_energy = 0.60
+		arena_env.glow_bloom = 0.07
+		_arena_floor(Color(0.80, 0.72, 0.66), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "seek":         # sunny meadow
 		grade_profile = "bright_pastel"
 		arena_env.background_color = Color(0.30, 0.58, 0.78)

@@ -204,6 +204,12 @@ def _sha256(path: Path) -> str:
 	return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _text_sha256(path: Path) -> str:
+	"""Hash repository text consistently across LF/CRLF working trees."""
+	data = path.read_bytes().replace(b"\r\n", b"\n")
+	return hashlib.sha256(data).hexdigest()
+
+
 def _check(condition: bool, message: str, failures: list[str]) -> None:
 	if not condition:
 		failures.append(message)
@@ -268,7 +274,9 @@ def _audit_current_sconce_contract(
 		if path is None or not path.is_file():
 			failures.append(f"Current sconce {key} file is missing")
 			continue
-		_check(fixture.get(hash_key) == _sha256(path),
+		actual_hash = _text_sha256(path) \
+			if key == "bloom_shader" else _sha256(path)
+		_check(fixture.get(hash_key) == actual_hash,
 			f"Current sconce {hash_key} does not match file bytes", failures)
 
 
@@ -282,7 +290,8 @@ def _audio_durations(
 	if generator_path is None or not generator_path.is_file():
 		failures.append("Castle SFX generator file is missing")
 	else:
-		_check(audio_manifest.get("generator_sha256") == _sha256(generator_path),
+		_check(audio_manifest.get("generator_sha256")
+			== _text_sha256(generator_path),
 			"Castle SFX generator_sha256 does not match generator bytes", failures)
 	files = audio_manifest.get("files")
 	if not isinstance(files, list):

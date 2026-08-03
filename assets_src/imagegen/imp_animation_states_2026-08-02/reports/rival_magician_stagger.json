@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "stagger",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    21,
+    19,
+    496,
+    503
+  ],
+  "visible_bbox": [
+    21,
+    19,
+    496,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 21,
+    "right": 15,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 10,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 115515,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    783,
+    2,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.575375,
+  "solid_centroid_x": 256.051,
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_magician_stagger_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "2c1d4abd8ed2d7beee62fbfc7c701d9961b54a6bc41d6c560d656c3c0611a133",
+  "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_magician_stagger.png",
+  "output_sha256": "09ac77e1054401b0bf31a14d35d11fc8684f85f40e081ab3e757622519676183",
+  "idle_reference": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets\\opera\\worlds\\actors\\rival_magician.png",
+  "idle_sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_stagger\\rival_magician_stagger_checker.png",
+    "silhouette": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_stagger\\rival_magician_stagger_silhouette.png",
+    "phone_25pct": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_stagger\\rival_magician_stagger_phone_25pct.png",
+    "idle_comparison": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_magician_stagger\\rival_magician_stagger_idle_comparison.png"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "charge",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    53,
+    37,
+    499,
+    456
+  ],
+  "visible_bbox": [
+    53,
+    37,
+    499,
+    456
+  ],
+  "solid_height": 420,
+  "gaps": {
+    "left": 53,
+    "right": 12,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 13,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 88514,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    11,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.52601,
+  "solid_centroid_x": 251.482,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_painter_charge_sheet_a_attempt01_alpha_crop_native.png",
+  "input_sha256": "23b79129f365bf181eb14917e87437fae76056c7fe8675dc9d0d538d1dfbc745",
+  "output": "assets\\opera\\worlds\\actors\\rival_painter_charge.png",
+  "output_sha256": "144fd8f380ca7684b3052ea7eeed3be0bc7a3ab56db51a7b698b0752d4dfa840",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_painter.png",
+  "idle_sha256": "3db2b23c3e1e2e0f4fcddd0864a11fd8cf41c9ab4d1d000d6f46796096f5277a",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 420,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 251.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_charge\\rival_painter_charge_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_charge\\rival_painter_charge_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_charge\\rival_painter_charge_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_painter_charge\\rival_painter_charge_idle_comparison.png"
+  }
+}
