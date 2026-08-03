@@ -176,6 +176,10 @@ func _init() -> void:
 	if main.castle_room_detail_tiles.size() != 4 \
 			or main.castle_room_action_button.visible:
 		_bad("Dream House Wing did not build as a native physical gallery")
+	var castle_affordance: Sprite3D = main.g.get(
+		"castle_room_affordance") as Sprite3D
+	if castle_affordance == null:
+		_bad("castle shared affordance card missing")
 	var dream_routes: Array[Dictionary] = [
 		{"item": "gallery_dining_door", "child": "dining_room"},
 		{"item": "gallery_royal_bedroom_door", "child": "royal_bedroom"},
@@ -189,12 +193,9 @@ func _init() -> void:
 			item_id, {}) as Dictionary
 		var door_sprite: Sprite3D = route_record.get("sprite") as Sprite3D
 		var door_hotspot: Button = route_record.get("hotspot") as Button
-		var door_halo: Sprite3D = route_record.get(
-			"affordance") as Sprite3D
 		if door_sprite == null \
 				or String(route_record.get(
 					"affordance_kind", "")) != Affordance.INTERACTION \
-				or door_halo == null or not door_halo.visible \
 				or String(door_sprite.get_meta(
 					"room_destination", "")) != child_id \
 				or not bool(door_sprite.get_meta(
@@ -231,10 +232,10 @@ func _init() -> void:
 		_bad("family dining room did not build native tiles and meal furniture")
 	var hutch_record: Dictionary = main.castle_room_item_sprites.get(
 		"provisions_hutch", {}) as Dictionary
-	var hutch_halo: Sprite3D = hutch_record.get(
-		"affordance") as Sprite3D
 	if String(hutch_record.get("affordance_kind", "")) != Affordance.ANIMATION \
-			or hutch_halo == null or not hutch_halo.visible:
+			or castle_affordance == null \
+			or String(castle_affordance.get_meta(
+				"affordance_kind", "")) != Affordance.ANIMATION:
 		_bad("local castle prop missing gold animation affordance")
 	rooms._activate_room_item("provisions_hutch")
 	await process_frame

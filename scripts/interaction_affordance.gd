@@ -37,7 +37,6 @@ static func pulse_amount(kind: String, focused: bool) -> float:
 	return 0.075 if focused else 0.035
 
 static func make_radial_halo(kind: String, size: Vector2) -> Sprite3D:
-	var tint: Color = color(kind, false)
 	var gradient_texture := GradientTexture2D.new()
 	gradient_texture.width = 128
 	gradient_texture.height = 128
@@ -45,20 +44,25 @@ static func make_radial_halo(kind: String, size: Vector2) -> Sprite3D:
 	gradient_texture.fill_from = Vector2(0.5, 0.5)
 	gradient_texture.fill_to = Vector2(0.5, 0.0)
 	var gradient := Gradient.new()
-	gradient.set_color(0, Color(tint.r, tint.g, tint.b, tint.a * 0.90))
-	gradient.set_color(1, Color(tint.r, tint.g, tint.b, 0.0))
+	gradient.set_color(0, Color(1.0, 1.0, 1.0, 0.90))
+	gradient.set_color(1, Color(1.0, 1.0, 1.0, 0.0))
 	gradient_texture.gradient = gradient
 
 	# Castle rooms are intentionally a Sprite3D-only picture stage. This uses
 	# the same runtime gradient without introducing model/mesh art or a texture
-	# asset, and its non-uniform base scale fits the touched object's silhouette.
+	# asset. A neutral texture lets one pooled card change category and size.
 	var halo := Sprite3D.new()
 	halo.texture = gradient_texture
-	halo.pixel_size = size.x / 128.0
-	halo.scale = Vector3(1.0, size.y / maxf(size.x, 0.001), 1.0)
 	halo.shaded = false
 	halo.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	halo.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	configure_radial_halo(halo, kind, size)
+	return halo
+
+static func configure_radial_halo(
+		halo: Sprite3D, kind: String, size: Vector2) -> void:
+	halo.pixel_size = size.x / 128.0
+	halo.scale = Vector3(1.0, size.y / maxf(size.x, 0.001), 1.0)
+	halo.modulate = color(kind, false)
 	halo.set_meta("affordance_kind", normalize(kind))
 	halo.set_meta("affordance_base_scale", halo.scale)
-	return halo
