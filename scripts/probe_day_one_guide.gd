@@ -1,11 +1,13 @@
 extends SceneTree
-# Day One guide gate (owner 2026-08-03).
+# Days + Day One guide gate (owner 2026-08-03).
 #
-# Two things this covers that nothing else does:
+# Three things this covers that nothing else does:
 #   1. the cut Huluu storybook opener leaves NO overlay behind — the child goes
 #      straight into play while the flight movie is undelivered;
-#   2. the three-step movement/interaction guide runs in the Sky Lagoon, in
-#      order, completes only on the real action, and never runs twice.
+#   2. the days system: Free Play is the DEFAULT, the pause selector reaches
+#      Day One, and the roster always cycles back out — no day can trap you;
+#   3. the three-step movement/interaction guide runs in the Sky Lagoon on Day
+#      One only, in order, completes only on the real action, never twice.
 #
 # It also holds the no-fail line: the guide must never block input, never time
 # out, and never be able to move a step backwards.
@@ -36,13 +38,41 @@ func _init() -> void:
 	await process_frame
 	_check("_skip_intro is a safe no-op with no opener", not main.intro_active)
 
-	# ---- the guide comes up with the promenade ------------------------------
+	# ---- days: Free Play is the default, and it is quiet --------------------
+	_check("a fresh save starts on no day at all",
+		main.current_day == DaySystem.NO_DAY)
+	_check("Free Play is the first entry in the roster",
+		String(DaySystem.DAYS[0]["id"]) == DaySystem.NO_DAY)
+	_check("the pause menu carries the day selector",
+		main.pause_panel != null
+		and main.pause_panel.find_child("PauseDayButton", true, false) != null)
+	var day_button: Button = main.pause_panel.find_child(
+		"PauseDayButton", true, false) as Button
+	_check("the day selector is a parent affordance, not a child tile",
+		day_button != null and bool(day_button.get_meta("parent_only", false)))
 	main.save_data.erase(DayOneGuide.SAVE_KEY)
 	main._enter_level2_now(false, false, true)
 	await process_frame
 	await process_frame
+	_check("Free Play runs the lagoon with no guide at all",
+		not DayOneGuide.should_run(main)
+		and (main._lagoon_promenade_ref().guide == null
+			or not main._lagoon_promenade_ref().guide.active))
+
+	# Cycling reaches Day One, and cycling again always gets back out: there is
+	# no day the owner can be stuck inside.
+	main._day_ref().cycle()
+	await process_frame
+	await process_frame
+	_check("cycling the selector enters Day One", main.current_day == "day_one")
+	_check("the selected day persists",
+		String(main.save_data.get("current_day", "")) == "day_one")
+	_check("the roster cycles back out to Free Play",
+		main._day_ref().next_id() == DaySystem.NO_DAY)
+
+	# ---- the guide comes up with the promenade on Day One -------------------
 	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
-	_check("promenade built the guide on a fresh save",
+	_check("Day One built the guide on a fresh save",
 		promenade != null and promenade.guide != null and promenade.guide.active)
 	if promenade == null or promenade.guide == null:
 		print("DAYONEGUIDE|RESULT: ", failures, " failure(s)")
@@ -108,6 +138,8 @@ func _init() -> void:
 
 	# ---- it never runs twice ------------------------------------------------
 	_check("a taught save is recognised as finished", DayOneGuide.is_finished(main))
+	_check("a taught child is not re-taught even on Day One",
+		not DayOneGuide.should_run(main))
 	main._enter_level2_now(false, false, true)
 	await process_frame
 	await process_frame

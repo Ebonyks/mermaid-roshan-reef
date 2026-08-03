@@ -106,8 +106,21 @@ func _build_pause() -> void:
 	# Shifted to the right column (same row and height dev placed it at): the
 	# spoken-spells tile now owns the third row's left slot, and at x=500 the
 	# parent button would have overlapped it.
+	#
+	# DAYS (owner 2026-08-03, dev process): the day selector lives here, above
+	# the developer tile, and cycles Free Play -> Day One -> Free Play. It ships
+	# on the phone build — the owner needs it for play-testing — but it is
+	# parent_only, so the child icon-grid contracts do not apply to it and the
+	# UI probes do not hold it to a 150x132 tile.
+	m.day_btn = _pause_btn(m._day_ref().label(), Rect2(650, 566, 280, 58),
+		"secondary")
+	m.day_btn.name = "PauseDayButton"
+	m.day_btn.set_meta("parent_only", true)
+	m.day_btn.pressed.connect(func():
+		m._day_ref().cycle()
+		_sync_labels())
 	if m.dev_mode != null:
-		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(650, 582, 280, 66), "secondary")
+		var dev_btn := _pause_btn("Parent: Developer Mode", Rect2(650, 632, 280, 58), "secondary")
 		dev_btn.name = "PauseDeveloperButton"
 		dev_btn.set_meta("parent_only", true)
 		dev_btn.pressed.connect(func():
@@ -146,6 +159,9 @@ func _sync_labels() -> void:
 	if m.quality_btn != null:
 		m.quality_btn.text = "✦   SPARKLY" if m.quality == "sparkly" else "≋   SPEEDY"
 		m.quality_btn.set_meta("toggle_on", m.quality == "sparkly")
+	if m.day_btn != null:
+		m.day_btn.text = m._day_ref().label()
+		m.day_btn.set_meta("toggle_on", m.current_day != DaySystem.NO_DAY)
 	if m.mic_btn != null:
 		m.mic_btn.text = mic_label()
 		m.mic_btn.set_meta("toggle_on", m.mic_on and not m.mic_permission_denied)

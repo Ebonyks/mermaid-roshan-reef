@@ -1262,7 +1262,9 @@ func _tick_ambient_life(delta: float) -> void:
 # guide's pointer card lives in.
 
 func _begin_day_one_guide(spawn_painted_x: float) -> void:
-	if DayOneGuide.is_finished(m):
+	# Free Play (the default day) gets the lagoon exactly as it was: no pointer,
+	# no guide lines. The guide is Day One content.
+	if not DayOneGuide.should_run(m):
 		return
 	guide = DayOneGuide.new(m, self)
 	# Walk toward the middle of the promenade — away from the painted edge she

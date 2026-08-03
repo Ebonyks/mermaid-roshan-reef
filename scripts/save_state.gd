@@ -75,6 +75,10 @@ func load_save() -> void:
 	m.plays = int(m.save_data.get("plays", 0)) + 1   # each launch flips day <-> night
 	m.is_night = (m.plays % 2) == 0
 	m._apply_time_of_day()
+	# Days default to Free Play: a save written before the days system, or one
+	# whose key is missing, must never land the child inside a day.
+	m.current_day = String(m.save_data.get("current_day", DaySystem.NO_DAY))
+	m.current_day = String(DaySystem.day_record(m.current_day)["id"])
 	m.music_on = bool(m.save_data.get("music", true))
 	m.mic_on = bool(m.save_data.get("mic", m.MIC_DEFAULT_ON))
 	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
@@ -178,6 +182,7 @@ func write_save() -> bool:
 	next_data["won"] = won_d
 	next_data["found"] = found_d
 	next_data["finale"] = m.finale_done
+	next_data["current_day"] = m.current_day
 	next_data["music"] = m.music_on
 	next_data["mic"] = m.mic_on
 	next_data["quality"] = m.quality

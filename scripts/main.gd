@@ -458,6 +458,7 @@ var mic_enroll_left := 0
 var mic_permission_denied := false
 var mic_teach_layer: CanvasLayer = null
 var mic_btn: Button
+var day_btn: Button        # pause-menu day selector (parent-only)
 var save_data := {}
 var save_generation := 0   # monotonically orders primary/.tmp/.bak snapshots
 var save_dirty := false    # main retains failed-write responsibility after a minigame frees
@@ -591,6 +592,10 @@ var animals_owned := {}    # tank friends released into the reef (persisted)
 var animals_spawned := {}  # runtime: released species already swimming this session
 var flora_nodes: Array = []
 var first_session := true
+# DAYS (owner 2026-08-03, dev process): "" is Free Play and is the DEFAULT.
+# Selected from the pause menu; see scripts/day_system.gd. Nothing may enter or
+# leave a day on its own until real story progression replaces the selector.
+var current_day := ""
 var chime: AudioStreamPlayer
 var buy_sound: AudioStreamPlayer
 var beans_sfx: AudioStreamPlayer   # banjo toot-loop: a SOUND EFFECT, not music (plays with music off)
@@ -895,6 +900,13 @@ func _warm_shaders() -> void:
 	rig.add_child(cp)
 	# a handful of frames is enough for the driver to finish; then vanish
 	get_tree().create_timer(0.5).timeout.connect(rig.queue_free)
+
+var _day_system: DaySystem = null
+
+func _day_ref() -> DaySystem:
+	if _day_system == null:
+		_day_system = DaySystem.new(self)
+	return _day_system
 
 # the storybook intro overlay lives in scripts/intro_overlay.gd
 # (state stays here; IntroOverlay receives main by reference)

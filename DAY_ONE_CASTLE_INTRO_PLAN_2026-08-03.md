@@ -9,8 +9,8 @@ part of the house as part of the encounter in it."_
 
 This document is the **plan**. Two pieces of it have shipped on owner decision
 (2026-08-03): the dated Huluu storybook opener is **cut** (§1.2), and the
-control guide that replaces it is **built** (§1.3). The promenade was also
-pinned flat (§1.4). Everything else here is still design. The Codex Day One art is in the tree **deactivated** (§9).
+days system and the control guide that replaces it are **built** (§1.3), with
+the player on **no day by default**. The promenade was also pinned flat (§1.4). Everything else here is still design. The Codex Day One art is in the tree **deactivated** (§9).
 
 Precedence: this sits under `CLAUDE.md`, `AGENTS.md` and `design/01_GAME_DESIGN.md`.
 Where it proposes something new it says so; where it records what is already
@@ -66,11 +66,41 @@ Daddy Mermaid was not in it, and there was no dirty castle.
 - The controls the storybook never taught are now taught in the world, by the
   Day One guide (§1.3).
 
-### 1.3 The Day One guide — BUILT (owner decision 2026-08-03)
+### 1.3 The days system — BUILT, dev-process shape (owner decision 2026-08-03)
+
+Days are selected from the **pause menu**, and **the player is on no day by
+default**. Free Play is the shipped state; a day is something you deliberately
+step into while its content is being built. Real story progression replaces the
+selector later.
+
+`scripts/day_system.gd` owns the roster and is the single place anything asks
+what day it is, so replacing the selector with progression is one call site:
+
+```
+DAYS = [ {"id": "",        "name": "Free Play"},      # index 0 — the default
+         {"id": "day_one", "name": "Day One"} ]
+```
+
+- The selector is `PauseDayButton`, a small right-column tile above the
+  developer button. It cycles Free Play → Day One → Free Play. Free Play is
+  index 0, so **there is never a day you cannot leave**.
+- It is marked `parent_only`, so the child icon-grid contracts do not apply and
+  the UI probes do not hold it to a 150×132 tile — but it ships on the phone
+  build, because play-testing needs it there.
+- Persisted as `current_day` (additive, defaults `""`). A save written before
+  the days system, or one with the key missing or holding an unknown day, loads
+  as Free Play — a save can never strand the child inside a day.
+- Changing day re-enters the current area, because day-gated content is decided
+  at build time rather than polled per frame.
+- Everything Day One asks `DaySystem.is_day(main, "day_one")`. In Free Play the
+  lagoon behaves exactly as it did before this branch.
+
+### 1.3.1 The Day One guide — BUILT (owner decision 2026-08-03)
 
 `scripts/day_one_guide.gd`, a `SkyLagoonPromenade` satellite, teaches the three
 controls the game had never taught (D1-11), in the world, using the promenade's
-own equipment and animals rather than a slideshow:
+own equipment and animals rather than a slideshow. **It runs only while Day One
+is the selected day** (§1.3):
 
 | Step | Teaches | Anchor | Completes on |
 |---|---|---|---|
@@ -83,7 +113,8 @@ It is a pulsing gold `Sprite3D` pointer and one voiced line per step — no
 failure; a step that has been up for 22 s re-voices its line once and then
 waits indefinitely. Progress persists under the additive key
 `day_one_guide_done`, written true and never false, so a taught child is never
-taught twice. Gate: `scripts/probe_day_one_guide.gd`.
+taught twice. Gate: `scripts/probe_day_one_guide.gd`, which also covers the
+days system itself.
 
 Step 2 uses the plane rather than the slide deliberately: the arrival shore's
 otter and frog carry `requires_plane_departed`, so on Day One there is no
@@ -291,6 +322,7 @@ receives `main` by reference, all state on `main`), per the refactor rules.
 ### 5.1 Save keys (additive only — never removed, per the hard rules)
 
 ```
+current_day        : String  — "" = Free Play, the DEFAULT (SHIPPED 2026-08-03)
 day_one_guide_done : bool    — the Sky Lagoon control guide (SHIPPED 2026-08-03)
 day_one_stage      : String  — "arrival" | "landing" | "castle" | "closing" | "done"
 day_one_room       : String  — the room being cleaned, "" between rooms

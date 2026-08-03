@@ -20,6 +20,10 @@ extends RefCounted
 
 const POINTER_TEX := "res://assets/mg/star.png"
 const SAVE_KEY := "day_one_guide_done"
+# The guide belongs to Day One and only runs while Day One is the selected day
+# (owner 2026-08-03: days are chosen from the pause menu, and Free Play is the
+# default). In Free Play the lagoon behaves exactly as it did before.
+const DAY_ID := "day_one"
 # She has to actually arrive, not graze the goal — a pointer that clears
 # because she happened to drift past teaches nothing.
 const WALK_ARRIVE := 3.2
@@ -79,10 +83,12 @@ func _init(main: ReefMain, stage_owner: SkyLagoonPromenade) -> void:
 static func is_finished(main: ReefMain) -> bool:
 	return bool(main.save_data.get(SAVE_KEY, false))
 
+# The single gate: Day One selected, and this child not already taught.
+static func should_run(main: ReefMain) -> bool:
+	return DaySystem.is_day(main, DAY_ID) and not is_finished(main)
+
 func begin() -> void:
-	# Never on top of a minigame, never on a save that has already been taught,
-	# and never in a headless probe that did not ask for it by hand.
-	if is_finished(m):
+	if not should_run(m):
 		return
 	active = true
 	step = 0
