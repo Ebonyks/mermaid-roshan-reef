@@ -1287,85 +1287,59 @@ One row per accepted runtime file; all native generations, prompt bindings, hash
 | assets/opera/worlds/props/fx_dust_puff.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 256x256; prompt, hashes and QA in the linked packet |
 | assets/opera/worlds/props/fx_stolen_sparkle.png | Non-destructive derivative of approved project art `assets/mg/star.png` | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Uniform whole-star resize and transparent-canvas padding to 128x128; no generated pixels |
 | assets/opera/worlds/props/fx_dizzy_stars.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 256x256; prompt, hashes and QA in the linked packet |
-## Pearl Castle dream-house rooms (2026-08-01)
+## Pearl Castle dream-house rooms — 2D repair (2026-08-02)
 
-- assets_src/imagegen/castle_dream_house_2026-08-01/dining_room_reference_1254.png
-  - project-original composition reference generated with the built-in Codex
-  ImageGen tool from approved Royal Kitchen/Library art and the approved
-  kitchen-table QA render; all rights reserved. It is below the native room
-  requirement and contributes no runtime pixels. The exact method, references,
-  and prompt are recorded in the adjacent PROMPTS.md.
-- assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png
-- assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png
-- assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png
-- assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png
-- assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png
-  - project-authored deterministic 2048 x 2048 room-shell masters composed by
-  tools/build_castle_dream_house_rooms.py from the already-licensed
-  up_castle_col, kitchen_floor_col, castle_floor_col,
-  bathroom_tile_col, and castle_carpet_col project textures. No protected
-  original was modified.
-- assets/flats/castle/rooms/room_family_gallery_background.png
-- assets/flats/castle/rooms/room_dining_room_background.png
-- assets/flats/castle/rooms/room_royal_bedroom_background.png
-- assets/flats/castle/rooms/room_sleepover_bedroom_background.png
-- assets/flats/castle/rooms/room_movie_lounge_background.png
-  - project-original 1024 x 576 review previews derived from the corresponding
-  native masters; not used as delivered world pixels when native tiles exist.
-- assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r*_c*.png
-- assets/flats/castle/rooms/background_tiles/room_dining_room_background_r*_c*.png
-- assets/flats/castle/rooms/background_tiles/room_royal_bedroom_background_r*_c*.png
-- assets/flats/castle/rooms/background_tiles/room_sleepover_bedroom_background_r*_c*.png
-- assets/flats/castle/rooms/background_tiles/room_movie_lounge_background_r*_c*.png
-  - project-original four-card runtime sets: exact, non-overlapping
-  1024 x 576 crops of each 2048 x 1152 playable master band. Tile hashes and
-  exact reconstruction evidence are recorded in the dream-house manifest.
-- assets/flats/castle/dream_house/dining_table.png
-- assets/flats/castle/dream_house/dining_seat.png
-- assets/flats/castle/dream_house/provisions_hutch.png
-- assets/flats/castle/dream_house/canopy_bed.png
-- assets/flats/castle/dream_house/bedside_table.png
-- assets/flats/castle/dream_house/shell_wardrobe.png
-- assets/flats/castle/dream_house/story_cushion.png
-- assets/flats/castle/dream_house/dream_bed_0.png
-- assets/flats/castle/dream_house/dream_bed_1.png
-- assets/flats/castle/dream_house/dream_bed_2.png
-- assets/flats/castle/dream_house/cloud_settee.png
-- assets/flats/castle/dream_house/cloud_pouf.png
-- assets/flats/castle/dream_house/shell_arch.png
-- assets/flats/castle/dream_house/shell_window.png
-- assets/flats/castle/dream_house/shell_chandelier.png
-  - non-destructive transparent-border crops of the already-licensed
-  project-generated Pearl Castle and art-pass-35 QA renders. Source renders,
-  source hashes, and transformations are recorded per file in the manifest;
-  approved source GLBs and renders remain unchanged.
-- assets/flats/castle/dream_house/family_wing_portal.png
-- assets/flats/castle/dream_house/family_portal_dining.png
-- assets/flats/castle/dream_house/family_portal_royal_bedroom.png
-- assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png
-- assets/flats/castle/dream_house/family_portal_movie_lounge.png
-- assets/flats/castle/dream_house/family_wing_hall_insert.png
-  - non-destructive derivatives of the already-approved project-original
-  castle_playroom_portal_cutout_reuse.png. The portal pixels remain unchanged;
-  project-authored picture crests distinguish the routes, and the Main Hall
-  insert adds only an approved wall-texture surround. All source paths, hashes,
-  and transforms are recorded in the manifest. License remains project
-  original; all rights reserved.
+- `assets_src/imagegen/castle_dream_house_2026-08-01/dining_room_reference_1254.png` — OpenAI built-in ImageGen from approved project-local Castle references; project-original composition reference, all rights reserved; below native background requirements and contributes no runtime pixels; prompt in the adjacent `PROMPTS.md`.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_chroma.png` — OpenAI built-in ImageGen using approved project-local Castle doorway/room references; project-original production sheet, all rights reserved; native accepted chroma master, no post-generation resize.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png` — derivative of the adjacent project-original door chroma master; flat chroma removed with the installed ImageGen helper using border auto-key, soft matte, thresholds 12/220, and despill; no resize or redraw.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_chroma.png` — OpenAI built-in ImageGen using approved project-local Castle art plus rejected Blender renders only as identity/gameplay-purpose references; project-original production sheet, all rights reserved; native accepted chroma master, no post-generation resize.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png` — derivative of the adjacent project-original furnishing chroma master; flat chroma removed with the installed ImageGen helper using border auto-key, soft matte, thresholds 12/220, and despill; no resize or redraw.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/PROMPTS.md` — project provenance ledger containing exact accepted prompts, reference roles, methods, dimensions, and hashes.
 
-- assets/flats/castle/dream_house/meal_plate.png
-- assets/flats/castle/dream_house/movie_screen_frame.png
-  - new project-original deterministic Pillow drawings in the approved pearl
-  material language; all rights reserved. No external or protected pixels.
-- audit/castle_dream_house/dream_house_room_art_manifest.json
-- audit/castle_dream_house/dream_house_room_shells_contact.png
-- audit/castle_dream_house/dream_house_layout_contact.png
-- audit/castle_dream_house/dream_house_hall_entry_contact.png
-  - deterministic provenance/integrity record, five-room shell review, and
-  physical gallery-layout review; project audit evidence, not runtime art.
-- assets/book/hall/p_slide.jpg, p_trampoline.jpg, p_garden.jpg,
-  p_snowman.jpg, and p_xmas.jpg are displayed directly and unchanged on
-  the movie screen. They remain protected book art under their existing
-  license; no derivative runtime copy is created.
+The following runtime cards are project-original deterministic crops of the accepted alpha sheets above. Modifications are transparent-bound cropping only (largest connected component for furnishings except the deliberately disconnected place setting); no generated card is enlarged, warped, repainted, or sourced from Blender:
+
+- `assets/flats/castle/dream_house/family_wing_portal.png`
+- `assets/flats/castle/dream_house/family_wing_hall_insert.png`
+- `assets/flats/castle/dream_house/family_portal_dining.png`
+- `assets/flats/castle/dream_house/family_portal_royal_bedroom.png`
+- `assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png`
+- `assets/flats/castle/dream_house/family_portal_movie_lounge.png`
+- `assets/flats/castle/dream_house/dining_table.png`
+- `assets/flats/castle/dream_house/dining_seat.png`
+- `assets/flats/castle/dream_house/provisions_hutch.png`
+- `assets/flats/castle/dream_house/meal_plate.png`
+- `assets/flats/castle/dream_house/canopy_bed.png`
+- `assets/flats/castle/dream_house/shell_wardrobe.png`
+- `assets/flats/castle/dream_house/bedside_table.png`
+- `assets/flats/castle/dream_house/story_cushion.png`
+- `assets/flats/castle/dream_house/dream_bed_0.png`
+- `assets/flats/castle/dream_house/dream_bed_1.png`
+- `assets/flats/castle/dream_house/dream_bed_2.png`
+- `assets/flats/castle/dream_house/shell_chandelier.png`
+- `assets/flats/castle/dream_house/cloud_settee.png`
+- `assets/flats/castle/dream_house/cloud_pouf.png`
+- `assets/flats/castle/dream_house/movie_screen_frame.png`
+- `assets/flats/castle/dream_house/shell_popcorn_bowl.png`
+
+The following retained project-authored background assets are deterministic compositions by `tools/build_castle_dream_house_rooms.py` from already-licensed Castle wall/floor textures. The Movie Lounge master removes its obsolete second screen frame; no protected original is modified:
+
+- `assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png`
+- `assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png`
+- `assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png`
+- `assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png`
+- `assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png`
+- `assets/flats/castle/rooms/room_{family_gallery,dining_room,royal_bedroom,sleepover_bedroom,movie_lounge}_background.png` — 1024×576 review previews only.
+- `assets/flats/castle/rooms/background_tiles/room_{family_gallery,dining_room,royal_bedroom,sleepover_bedroom,movie_lounge}_background_r{0,1}_c{0,1}.png` — exact non-overlapping runtime crops; 1024×576 each.
+
+- `audit/castle_dream_house/dream_house_room_art_manifest.json` — deterministic source, hash, crop, node-type, placement, and tile-reconstruction evidence.
+- `audit/castle_dream_house/dream_house_room_shells_contact.png` — five-room native-shell review contact; project audit evidence.
+- `audit/castle_dream_house/dream_house_layout_contact.png` — physical four-door gallery and Main Hall entry contact; project audit evidence.
+- `audit/castle_dream_house/dream_house_hall_entry_contact.png` — Main Hall integration contact; project audit evidence.
+- `audit/castle_dream_house/dream_house_furnished_rooms_contact.png` — four-room furnished placement contact; project audit evidence; protected family movie pixels deliberately omitted.
+- `CASTLE_DREAM_HOUSE_2D_REPAIR_AUDIT_2026-08-02.md` — project audit documentation.
+
+`assets/book/hall/p_slide.jpg`, `p_trampoline.jpg`, `p_garden.jpg`, `p_snowman.jpg`, and `p_xmas.jpg` remain protected originals displayed directly and unchanged on the movie Sprite3D card. They are not copied into a derivative runtime or audit image.
+
 ## Shared water-FX atlas vocabulary (2026-08-02)
 
 - `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_small_chroma_native.png` ? Source: OpenAI built-in ImageGen using only approved project-local castle water atlas references; License: project original, all rights reserved; URL: N/A (generated in-project); Modifications: none, preserved native flat-chroma small-splash generation.
