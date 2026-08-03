@@ -528,6 +528,107 @@ later callback, and cost only voice lines. Recommended.
 
 ---
 
+## 15. THE RECONCILED PARTY-ROLE MAP (the answer to "why does each job make the party better?")
+
+Derived from first principles by walking one guest through one party, then
+reconciled with the owner rulings in sections 11-14. Working papers:
+`CHAPTER2_PARTY_ROLES_2026-08-03.md`.
+
+**The governing rule this establishes:** a job does not earn its place by
+producing an object. It earns its place by **meeting a need a guest would
+otherwise feel**. So every act gains one extra spoken line — the *function
+line* — delivered right after the piece lands on the table.
+
+### 15.1 The fifteen things a party needs, in a guest's own words
+
+| # | The felt need | Owned by |
+|---|---|---|
+| 1 | "Somebody has to come and TELL me." | **Astronaut** (owner ruling: invitations by rocket) |
+| 2 | "Somebody has to open the door and be GLAD it's me." | Curtain Dragon *(staff)* |
+| 3 | "I have to be able to SEE." | Shadow Phantom *(staff)* |
+| 4 | "Somebody has to say when it's time." | Midnight Maestro *(staff)* |
+| 5 | "Everybody has to HEAR — even me at the back." | Pop Star |
+| 6 | "The second I walk in it has to LOOK like a party, not a room." | **Painter** (owner ruling: decorates the hall) |
+| 7 | "I have to know WHOSE birthday it is." | Detective |
+| 8 | "Nobody goes hungry — not even the animals." | Farmer |
+| 9 | "There has to be CAKE." | Pastry Chef |
+| 10 | "There has to be something to DO." | Ballerina (dancing) + Boxer (the wild half) |
+| 11 | "There has to be something to WATCH if I don't join in." | Magician |
+| 12 | "If I'm little or sleepy I need somewhere soft — and still to be AT the party." | Nursery Nurse |
+| 13 | "If I'm torn or hurt or broken, I still get to come." | Stuffie Surgeon |
+| 14 | "I go home with something in my hand." | Candy Maker |
+| 15 | "Somebody has to get me there." | **Racer** — *structural, not a table piece* (section 11) |
+
+**The elegant part:** needs 2, 3 and 4 — the place, the light, and the time —
+are the three things you *cannot make and put on a table*. They are owned by
+the three reformed bosses. The former enemies end up holding the party
+together, which is the chapter's thesis expressed as structure.
+
+### 15.2 Two needs no job can meet — and that is the point
+
+- **"The one moment we all share"** — the candles, the wish, the song. No job
+  makes it; it only happens when everything else is in place. **This is
+  exactly what the Ember King takes.** He does not steal an object; he steals
+  the only thing nobody could make.
+- **"Being wanted when nobody ever invited you"** — the imps' whole arc, paid
+  off by the invitation at the climax, and the Ember King's own motive
+  ("nobody ever invited ME").
+
+### 15.3 Per job: role, who it serves BY NAME, what breaks
+
+The specificity is the point — a named guest with a concrete problem, not
+"everyone."
+
+| Job | The role | Serves | Breaks without it |
+|---|---|---|---|
+| **Astronaut** | the one who tells everybody it's happening | **Wacky** (lives furthest out, slowest) | half the chairs are empty; Wacky knocks the next morning asking when the party is |
+| **Pastry Chef** | makes the thing that turns a day into a birthday | **Evie** ("Lamba wants to sit next to the cake!") | nowhere to put the candles — no wish, no song, a table with nothing in the middle |
+| **Candy Maker** | makes sure nobody goes home empty-handed | **Sparkle** (she kept eating the bags because nobody made her one) | guests leave with nothing and Sparkle eats the tablecloth |
+| **Painter** | makes the hall LOOK like a party before anyone speaks | **the Flower Friend** (silent — the decorations are how she is present) | it is just the main hall with food in it |
+| **Ballerina** | makes sure there's something to DO | **Princess Huluu** (a princess with nothing to do stands politely all evening) | music plays and everyone stands in a ring looking at their feet |
+| **Magician** | gives the non-dancers somewhere to look | **Kareem** (the grown-up at the edge with a cup) | the shy and the grown-ups drift to the walls and leave before cake |
+| **Detective** | makes sure everyone can tell whose birthday it is | **the imps** (they arrive last, having never met her) | guests wish the wrong mermaid; Roshan is a guest at her own party |
+| **Farmer** | makes sure nobody goes hungry, animals included | **Chuck** (a dog with no dinner goes for the cake) | Chuck reaches the cake first |
+| **Boxer** | the wild half of "something to do" — the party games | the big kids who won't dance | the energy has nowhere to go and ends in tears |
+| **Nursery Nurse** | keeps the littlest guests happy AND present | the babies (and every grown-up holding one) | the little ones cry and their grown-ups take them home early |
+| **Stuffie Surgeon** | makes sure the broken ones still get to come | **Lamba** (torn) | a guest is left on a shelf |
+| **Pop Star** | makes sure everyone can hear | the guests at the back | the song happens for the front row only |
+| **Racer** | **structural** — movement between stages; his home is Ch3 | — | (not a table piece) |
+
+### 15.4 The interlock: one number, established first, felt everywhere
+
+The astronaut sending invitations **fixes the guest count**, and that number
+drives the rest — party bags, picnic portions, cake size, how many little ones
+to settle, how big the hall must be dressed. It also gives the detective a
+thread (an invitation that comes *back* is a guest who might be missing) and
+gives the imps a motive with teeth on floor 1: an invitation is literally a
+ticket, and they never got one.
+
+**Order-independence rule** (rooms are freely visitable): a callback line only
+fires if the referenced piece is already on the table — read straight from the
+`opera_stars` bitmask — otherwise a neutral variant plays. No sequencing is
+enforced beyond the astronaut going first.
+
+### 15.5 Two framing fixes the analysis surfaced
+
+- **The magician's piece is an event, not an object.** What lands on the table
+  should be the magician's hat **with Lamba coming out of it in a party hat** —
+  which is the already-approved `lamba_partyhat.png`, doing double duty as the
+  imps' motive plant.
+- **Pudding must never read as food.** The farmer's fed piggy comes to the
+  party as a *guest* in a party hat. That also cleanly separates the farmer's
+  "everybody eats" from the chef's "the one cake we share."
+
+### 15.6 Recommendation on the roster
+
+**No new careers.** Every honest party need is owned by an existing career or a
+reformed boss. The only career without a table piece is the racer, and he has
+a better job (section 11). Chapter 2 therefore carries **twelve party
+contributions plus one structural career**, with each career's full
+cross-chapter arc (section 13) still to be written in one line apiece.
+
+---
+
 ## 8. DECISIONS I NEED FROM YOU
 
 1. **Is Roshan turning four or five?** (Decides whether the fifth candle is
