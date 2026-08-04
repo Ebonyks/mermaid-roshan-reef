@@ -2188,3 +2188,11 @@ OpenAI built-in ImageGen natives and project-authored non-destructive derivative
 - `assets_src/imagegen/opera_codex_2026-08-02/native/world_painter_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
 - `assets_src/imagegen/opera_codex_2026-08-02/native/world_popstar_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
 - `assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+
+## Fable Opera animation review kit (2026-08-04)
+
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_imp_family_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_60_widget_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_12_rival_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_selected_scuffles_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_stress_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
