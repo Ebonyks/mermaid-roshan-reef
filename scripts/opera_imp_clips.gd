@@ -2,29 +2,12 @@ class_name OperaImpClips
 extends RefCounted
 ## Shared animation state clips for the Pearl Opera scuffle imps.
 ##
-## The costumed scuffle crews ship exactly ONE sprite per career
-## (assets/opera/worlds/actors/rival_<costume>.png). Every animation state is
-## a transform clip over that same texture, so adding a costume costs one PNG
-## and adding a state costs one row in CLIPS — never one file per costume per
-## state. At 118 px on a roaming route the motion is what reads; frame art at
-## that size is mostly invisible.
-##
-## Painted state art still wins wherever it exists: the world resolves
-## rival_<costume>_bopped.png first and only falls back to a clip, so art can
-## land later as a drop-in upgrade with no code change.
-##
-## The same principle is already used for the imp captain, who is marked by a
-## drawn gold ring over the shared costume sprite rather than by his own
-## costumed art.
-##
-## MERGE NOTE 2026-08-03: the painted state art this file was written to make
-## unnecessary landed anyway (codex/opera-full-art-regen), and the roaming imps
-## are now driven by the imp_ai brain through _apply_imp_pose, which does its
-## own squash/tilt/lift/tint per pose. Live from here: state_path (the naming
-## convention the world resolves costume art through) and the bopped_* clip the
-## shoo-off still plays. The hop_* and hit_* clips are kept but currently
-## unused — _apply_imp_pose supersedes them for roaming and for the survived
-## hit. Re-point them or delete them, but do not assume they run today.
+## Every delivered family now has authored state art. The live world resolves
+## exact pose -> same-family cousin -> same-family idle. These clips are only
+## small supporting envelopes and never authorize a cross-family costume swap.
+## `state_path()` owns the family naming convention; the bopped clip owns the
+## final bounded squash/spin/fade. The older hop and hit helpers remain only as
+## compatible utilities and are not the primary acting path.
 
 const CLIPS := {
 	# Roaming hop, keyed to the route's own bob phase: the imp lands wide and

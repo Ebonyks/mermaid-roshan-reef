@@ -34,6 +34,12 @@ var last_bop_pos := Vector2.ZERO
 var demo_active := true
 var demo_t := 0.0
 var _demo_redraw := 0.0
+var input_started := false
+var feedback_t := 0.0
+var feedback_positive := false
+var feedback_position := 0.0
+var feedback_anchor := Vector2.ZERO
+var completion_accepted := false
 ## Choice lanes flash gold briefly, then dim so the pick uses recognition
 ## memory instead of tap-the-highlight; wrong picks kindly re-flash.
 var choice_flash := 1.4
@@ -42,6 +48,7 @@ var swipe_dir := Vector2.RIGHT
 ## Tap phases aim at a moving point that leaves a happy mark per hit.
 var tap_point := Vector2.ZERO
 var tap_marks: Array = []
+var tap_relocate_pending := false
 ## Diegetic scene painted behind the affordance (nursery basin/bottle/cribs).
 var visual_context := ""
 var nursery_textures: Array[Texture2D] = []
@@ -52,6 +59,7 @@ var widget_mover: Texture2D = null
 var widget_overlay: Texture2D = null
 var widget_stamp: Texture2D = null
 var widget_shared: Texture2D = null
+var crank_rotation := 0.0
 ## Trickle-by-assist (house pattern from fetch/melody/dolls): wrong input
 ## always celebrates but pays ~nothing, and repeat misses inside the
 ## cooldown pay zero — correct play must strictly beat mashing.
@@ -78,6 +86,13 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	target_choice = choice
 	visual_context = next_context
 	widget_fill = 0.0
+	completion_accepted = false
+	feedback_t = 0.0
+	feedback_positive = false
+	feedback_position = 0.0
+	feedback_anchor = Vector2.ZERO
+	input_started = false
+	crank_rotation = 0.0
 	_load_widget_set()
 	if visual_context.ends_with("_nursery") and nursery_textures.is_empty():
 		for index in range(3):
@@ -96,6 +111,7 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	swipe_dir = Vector2.RIGHT
 	tap_marks = []
 	tap_point = size * 0.5
+	tap_relocate_pending = false
 	if next_mode != "bop":
 		bop_targets = []
 	queue_redraw()
@@ -152,7 +168,22 @@ func _load_widget_set() -> void:
 
 
 func note_input() -> void:
+	input_started = true
 	demo_active = false
+	queue_redraw()
+
+
+func note_result(accepted: bool) -> void:
+	feedback_positive = accepted
+	feedback_t = 0.32
+	queue_redraw()
+
+
+func accept_completion() -> void:
+	completion_accepted = true
+	feedback_positive = true
+	feedback_t = maxf(feedback_t, 0.32)
+	queue_redraw()
 
 
 func restart_demo() -> void:
@@ -170,6 +201,9 @@ func _process(delta: float) -> void:
 	if miss_cool > 0.0:
 		miss_cool = maxf(0.0, miss_cool - delta)
 	swipe_budget = minf(1.3, swipe_budget + delta * 1.3)
+	if feedback_t > 0.0:
+		feedback_t = maxf(0.0, feedback_t - delta)
+		queue_redraw()
 	if choice_flash > 0.0 and mode == "choice":
 		choice_flash -= delta
 		if choice_flash <= 0.0:
@@ -209,17 +243,20 @@ func set_fill(value: float) -> void:
 
 
 func _press(at: Vector2) -> void:
+	note_input()
 	held = true
 	pointer_pos = at
 	previous_pos = at
 	previous_angle = (at - size * 0.5).angle()
 	have_angle = true
 	_last_spin = 0.0
+	feedback_anchor = at
+	feedback_position = timing_position
 	match mode:
 		"tap":
 			if at.distance_to(tap_point) <= 92.0:
 				tap_marks.append(tap_point)
-				_relocate_tap_point()
+				tap_relocate_pending = true
 				gesture.emit("tap", 1.0, 1.0)
 			else:
 				# near-misses still sparkle, but mashing pays no wage
@@ -272,6 +309,7 @@ func _bop_press(at: Vector2) -> void:
 
 
 func _drag(at: Vector2) -> void:
+	note_input()
 	pointer_pos = at
 	var distance := at.distance_to(previous_pos)
 	if mode == "swipe" and distance > 0.0:
@@ -294,6 +332,7 @@ func _drag(at: Vector2) -> void:
 			var angle := (at - center).angle()
 			if have_angle:
 				var change := wrapf(angle - previous_angle, -PI, PI)
+				crank_rotation = angle
 				# straight-line scrubs cross the center as big sign-flipping
 				# jumps; honest circling is small same-sign steps
 				if absf(change) <= 0.9 and signf(change) == signf(_last_spin) and absf(_last_spin) > 0.0001:
@@ -309,6 +348,9 @@ func _release(at: Vector2) -> void:
 	held = false
 	pointer_pos = at
 	have_angle = false
+	if tap_relocate_pending:
+		tap_relocate_pending = false
+		_relocate_tap_point()
 	queue_redraw()
 
 
@@ -446,31 +488,32 @@ func _draw_widget_layers(center: Vector2) -> void:
 				draw_set_transform(pivot, rotation)
 				draw_texture_rect(widget_mover, Rect2(-48.0, -84.0, 96.0, 96.0), false)
 				draw_set_transform(Vector2.ZERO)
-			if widget_overlay != null and timing_position >= timing_zone.x and timing_position <= timing_zone.y:
+			if widget_overlay != null and (completion_accepted or (feedback_t > 0.0 and feedback_positive)):
 				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
 		"track":
 			var run_point := Vector2(lerpf(size.x * 0.12, size.x * 0.88, timing_position), size.y * 0.66)
 			_draw_widget_sprite(widget_mover, run_point, 128.0)
-			if widget_shared != null and timing_position >= timing_zone.x and timing_position <= timing_zone.y:
-				_draw_widget_sprite(widget_shared, run_point, 82.0)
+			if widget_shared != null and feedback_t > 0.0 and feedback_positive:
+				var hit_point := Vector2(lerpf(size.x * 0.12, size.x * 0.88, feedback_position), size.y * 0.66)
+				_draw_widget_sprite(widget_shared, hit_point, 82.0)
 		"pour":
 			if held:
 				_draw_widget_sprite(widget_mover, center - Vector2(0.0, 18.0), 138.0)
 			if widget_overlay != null:
 				_draw_progress_overlay(widget_overlay, widget_fill, false)
 		"basin":
-			if widget_overlay != null:
+			if widget_overlay != null and (held or completion_accepted):
 				_draw_progress_overlay(widget_overlay, widget_fill, false)
-			if widget_fill >= 0.96:
+			if completion_accepted:
 				_draw_widget_sprite(widget_shared, center, 118.0)
 		"charge":
-			if widget_mover != null:
+			if widget_mover != null and (held or completion_accepted):
 				_draw_widget_sprite(widget_mover, center, 108.0 + widget_fill * 126.0)
-			if widget_overlay != null and widget_fill > 0.82:
-				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false, Color(1.0, 1.0, 1.0, widget_fill))
+			if widget_overlay != null and completion_accepted:
+				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
 		"crank":
 			if widget_mover != null:
-				draw_set_transform(center, previous_angle)
+				draw_set_transform(center, crank_rotation)
 				draw_texture_rect(widget_mover, Rect2(-70.0, -70.0, 140.0, 140.0), false)
 				draw_set_transform(Vector2.ZERO)
 			if widget_overlay != null:
@@ -486,7 +529,7 @@ func _draw_widget_layers(center: Vector2) -> void:
 			for mark: Vector2 in tap_marks:
 				_draw_widget_sprite(widget_stamp, mark, 76.0)
 			_draw_widget_sprite(widget_mover, tap_point, 142.0)
-			if widget_overlay != null and widget_fill >= 0.96:
+			if widget_overlay != null and completion_accepted:
 				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
 		"lanes":
 			var show_answer := choice_flash > 0.0 or demo_active
@@ -494,7 +537,9 @@ func _draw_widget_layers(center: Vector2) -> void:
 				var lane_point := Vector2(size.x * (float(target_choice) + 0.5) / float(choice_count), size.y * 0.70)
 				var source := Rect2(float(target_choice) * 256.0, 0.0, 256.0, 256.0)
 				draw_texture_rect_region(widget_mover, Rect2(lane_point - Vector2(62.0, 62.0), Vector2(124.0, 124.0)), source)
-				_draw_widget_sprite(widget_shared, lane_point, 82.0)
+			if widget_shared != null and feedback_t > 0.0:
+				_draw_widget_sprite(widget_shared, feedback_anchor, 82.0,
+					Color.WHITE if feedback_positive else Color(1.0, 0.82, 0.92, 0.82))
 
 
 func _draw_nursery_baby(texture_index: int, center: Vector2, extent: float) -> void:
