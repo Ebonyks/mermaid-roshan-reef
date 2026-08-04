@@ -96,10 +96,13 @@ func _init() -> void:
 		world.phase_index == 5 and world.surface.visual_context == "track_nursery")
 	for index in range(4):
 		world._on_gesture("probe", 1.0, 1.0)
+	if world.phase_advance_pending:
+		world._on_gesture("probe", 0.0, 1.0)
 	_check("four gentle pats advance to bedtime",
 		world.phase_index == 6 and world.surface.visual_context == "push_nursery")
 	world.phase_gap = 0.0
 	world._on_gesture("probe", 100.0, 1.0)
+	world._process(0.31)
 	await process_frame
 	_check("blanket tuck completes the cooperative nursery show",
 		act.state == "won" and bool(act.performance_result.get("cooperative", false))
@@ -117,6 +120,8 @@ func _init() -> void:
 func _pump(world: OperaCareerWorld2D) -> void:
 	# complete the current phase, then swallow the between-phase sparkle sting
 	world._on_gesture("probe", 100.0, 1.0)
+	if world.phase_advance_pending:
+		world._on_gesture("probe", 0.0, 1.0)
 	world.phase_gap = 0.0
 
 

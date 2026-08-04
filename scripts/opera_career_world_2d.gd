@@ -202,6 +202,12 @@ var timing_phase := 0.0
 var choice_target := 1
 
 var phase_gap := 0.0
+var phase_complete_t := 0.0
+var phase_advance_pending := false
+## One owner per animated stage element. Rest snapshots never come from an
+## interrupted tween, so rapid input always converges on the same transform.
+var actor_rests: Dictionary = {}
+var actor_tweens: Dictionary = {}
 var bop_time := 0.0
 var steal_index := -1
 var captain_pending := false
@@ -494,6 +500,7 @@ func _build_world() -> void:
 		# the captain wears the same costume — the gold ring marks him, not
 		# a second set of art
 		captain_bopped_texture = imp_bopped_texture
+	_prewarm_imp_textures()
 
 	lens_layer = Control.new()
 	lens_layer.name = "MagnifierLensLayer"
@@ -509,6 +516,11 @@ func _build_world() -> void:
 	crowd_label.size = Vector2(420, 42)
 	root.add_child(crowd_label)
 	_build_audience()
+	_capture_actor_rest("player", player_actor)
+	_capture_actor_rest("rival", rival_actor)
+	_capture_actor_rest("prop", prop_rect)
+	for index in range(audience.size()):
+		_capture_actor_rest("audience_%d" % index, audience[index])
 
 
 func _actor(path: String) -> TextureRect:
@@ -529,6 +541,105 @@ func _place_on_stage(actor: Control, feet: Vector2) -> void:
 	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
 	actor.scale = Vector2(depth, depth)
 	actor.position = feet - Vector2(actor.size.x * 0.5 * depth, actor.size.y * depth - 12.0)
+
+
+func _capture_actor_rest(key: String, actor: Control) -> void:
+	if actor == null:
+		return
+	var rest := {
+		"position": actor.position,
+		"size": actor.size,
+		"scale": actor.scale,
+		"rotation": actor.rotation,
+		"modulate": actor.modulate,
+	}
+	if actor is TextureRect:
+		var sprite := actor as TextureRect
+		rest["flip_h"] = sprite.flip_h
+		rest["texture"] = sprite.texture
+	actor_rests[key] = rest
+
+
+func _apply_actor_rest(key: String, actor: Control) -> void:
+	if actor == null or not actor_rests.has(key):
+		return
+	var rest: Dictionary = actor_rests[key]
+	actor.position = rest.get("position", actor.position) as Vector2
+	actor.size = rest.get("size", actor.size) as Vector2
+	actor.scale = rest.get("scale", Vector2.ONE) as Vector2
+	actor.rotation = float(rest.get("rotation", 0.0))
+	actor.modulate = rest.get("modulate", Color.WHITE) as Color
+	if actor is TextureRect:
+		var sprite := actor as TextureRect
+		sprite.flip_h = bool(rest.get("flip_h", sprite.flip_h))
+		sprite.texture = rest.get("texture", sprite.texture) as Texture2D
+
+
+func _restore_actor(key: String, actor: Control) -> void:
+	var old := actor_tweens.get(key) as Tween
+	if old != null and old.is_valid():
+		old.kill()
+	actor_tweens.erase(key)
+	_apply_actor_rest(key, actor)
+
+
+func _restore_stage_actors() -> void:
+	_restore_actor("player", player_actor)
+	_restore_actor("rival", rival_actor)
+	_restore_actor("prop", prop_rect)
+	for index in range(audience.size()):
+		_restore_actor("audience_%d" % index, audience[index])
+
+
+func _claim_actor_tween(key: String, actor: Control) -> Tween:
+	var old := actor_tweens.get(key) as Tween
+	if old != null and old.is_valid():
+		old.kill()
+	var tween := actor.create_tween()
+	actor_tweens[key] = tween
+	return tween
+
+
+func _finish_actor_motion(key: String, actor: Control) -> void:
+	actor_tweens.erase(key)
+	_apply_actor_rest(key, actor)
+
+
+func _set_actor_arc(progress_value: float, actor: Control, start: Vector2,
+		target: Vector2, height: float) -> void:
+	if actor == null or not is_instance_valid(actor):
+		return
+	actor.position = start.lerp(target, progress_value) \
+		- Vector2(0.0, sin(progress_value * PI) * height)
+
+
+func _set_glide_rotation(progress_value: float, actor: Control,
+		start_rotation: float, lean: float) -> void:
+	if actor == null or not is_instance_valid(actor):
+		return
+	actor.rotation = lerpf(start_rotation, 0.0, progress_value) \
+		+ sin(progress_value * PI) * lean
+
+
+func _set_actor_recoil(progress_value: float, actor: Control, start: Vector2,
+		target: Vector2, offset: Vector2) -> void:
+	if actor == null or not is_instance_valid(actor):
+		return
+	actor.position = start.lerp(target, progress_value) \
+		+ offset * sin(progress_value * PI)
+
+
+func _actor_key(actor: Control) -> String:
+	if actor == player_actor:
+		return "player"
+	if actor == rival_actor:
+		return "rival"
+	if actor == prop_rect:
+		return "prop"
+	for index in range(audience.size()):
+		if actor == audience[index]:
+			return "audience_%d" % index
+	return ""
 
 
 func _assign_stations() -> void:
@@ -608,10 +719,26 @@ func _draw_station_marker(marker: Control) -> void:
 func _glide_roshan_to(feet: Vector2, duration: float = 1.3) -> void:
 	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
 	var target := feet - Vector2(player_actor.size.x * 0.5 * depth, player_actor.size.y * depth - 12.0)
-	player_actor.flip_h = target.x < player_actor.position.x
-	var tween := player_actor.create_tween()
-	tween.tween_property(player_actor, "position", target, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(player_actor, "scale", Vector2(depth, depth), duration)
+	var start := player_actor.position
+	var moving_left := target.x < start.x
+	var rest: Dictionary = actor_rests.get("player", {})
+	rest["position"] = target
+	rest["scale"] = Vector2(depth, depth)
+	rest["rotation"] = 0.0
+	rest["flip_h"] = moving_left
+	actor_rests["player"] = rest
+	player_actor.flip_h = moving_left
+	var tween := _claim_actor_tween("player", player_actor)
+	tween.set_parallel(true)
+	tween.tween_method(_set_actor_arc.bind(player_actor, start, target, 12.0),
+		0.0, 1.0, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(player_actor, "scale", Vector2(depth, depth), duration) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	var lean := -0.055 if moving_left else 0.055
+	tween.tween_method(_set_glide_rotation.bind(player_actor, player_actor.rotation, lean),
+		0.0, 1.0, duration) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.chain().tween_callback(_finish_actor_motion.bind("player", player_actor))
 
 
 func _build_audience() -> void:
@@ -658,6 +785,9 @@ func _widget_template(phase: Dictionary) -> String:
 
 
 func _show_phase() -> void:
+	_restore_stage_actors()
+	phase_complete_t = 0.0
+	phase_advance_pending = false
 	if phase_index >= phases.size():
 		active = false
 		if win_callback.is_valid():
@@ -724,13 +854,13 @@ func _show_phase() -> void:
 	if prop_rect != null:
 		if phase_index == steal_index and prop_rect.visible:
 			# the theft is a visible event: the captain hauls the prop away
-			var flee := prop_rect.create_tween()
+			var flee := _claim_actor_tween("prop", prop_rect)
 			flee.tween_property(prop_rect, "position", Vector2(1210.0, -180.0), 0.9).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-			flee.parallel().tween_property(prop_rect, "size", Vector2(140, 115), 0.9)
+			# Scale the complete prop so its accepted aspect ratio cannot change.
+			flee.parallel().tween_property(prop_rect, "scale", Vector2(0.5, 0.5), 0.9)
 			flee.tween_callback(func() -> void:
 				prop_rect.visible = false
-				prop_rect.position = Vector2(890, 330)
-				prop_rect.size = Vector2(280, 230))
+				_finish_actor_motion("prop", prop_rect))
 		else:
 			prop_rect.visible = prop_rect.texture != null and phase_index > 0 \
 				and (steal_index < 0 or phase_index < steal_index)
@@ -851,8 +981,9 @@ func _spawn_stage_imp(path_t: float, captain: bool, seed_index: int) -> void:
 
 func _clear_stage_combat() -> void:
 	for imp: Dictionary in combat_imps:
-		var node := imp.get("node") as TextureRect
-		if node != null and is_instance_valid(node):
+		var node_ref: Variant = imp.get("node")
+		if is_instance_valid(node_ref):
+			var node := node_ref as TextureRect
 			node.queue_free()
 	combat_imps = []
 	combat_marks = []
@@ -970,7 +1101,8 @@ func _hit_stage_imp(imp: Dictionary, at: Vector2) -> void:
 			# costumed imp must never pop back to the base purple imp — that
 			# reads as a different character every time she is bopped.
 			var bopped := _imp_texture(imp, "bopped")
-			combat_marks.append({"kind": "dizzy", "pos": at, "t": 0.0, "life": 0.62})
+			combat_marks.append({"kind": "dizzy", "pos": at, "node": node,
+				"t": 0.0, "life": 0.62})
 			if bopped != null:
 				node.texture = bopped
 			_pop_imp_node(node)
@@ -1063,9 +1195,15 @@ func _set_finale_visible(show_finale: bool) -> void:
 func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if not active or reveal_t > 0.0 or phase_index >= phases.size():
 		return
+	if phase_advance_pending:
+		_advance_completed_phase()
+		return
 	if phase_gap > 0.0:
 		# any touch skips the between-phase sparkle sting
 		phase_gap = 0.0
+		if phase_index == steal_index and prop_rect != null:
+			_restore_actor("prop", prop_rect)
+			prop_rect.visible = false
 		return
 	var phase := phases[phase_index] as Dictionary
 	var mode := String(phase.get("mode", ""))
@@ -1088,6 +1226,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	phase_fill.value = progress * 100.0
 	surface.set_fill(progress)
+	surface.note_result(quality >= 0.5)
 	_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
 		if quality >= 0.5:
@@ -1108,8 +1247,18 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			var reserve := 2.0 if captain_pending else float(_live_captain_hp())
 			phase_progress = minf(phase_progress, goal - reserve)
 	if phase_progress >= goal:
-		phase_index += 1
-		_show_phase()
+		surface.accept_completion()
+		phase_complete_t = 0.30
+		phase_advance_pending = true
+
+
+func _advance_completed_phase() -> void:
+	if not phase_advance_pending:
+		return
+	phase_advance_pending = false
+	phase_complete_t = 0.0
+	phase_index += 1
+	_show_phase()
 
 
 func _live_captain_hp() -> int:
@@ -1163,6 +1312,7 @@ func _on_nursery_baby_caught(quality: float) -> void:
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	phase_fill.value = progress * 100.0
 	surface.set_fill(progress)
+	surface.note_result(true)
 	_bounce_actor(player_actor, 14.0)
 	_bounce_actor(rival_actor, 9.0)
 	if phase_progress >= goal:
@@ -1182,11 +1332,33 @@ func _on_nursery_baby_missed() -> void:
 		m._say("faron", "miss", 3.0)
 
 
-func _bounce_actor(actor: Control, height: float) -> void:
-	var home_y := actor.position.y
-	var tween := actor.create_tween()
-	tween.tween_property(actor, "position:y", home_y - height, 0.12).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_property(actor, "position:y", home_y, 0.18).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+func _bounce_actor(actor: Control, height: float, duration: float = 0.30) -> void:
+	if actor == null:
+		return
+	var key := _actor_key(actor)
+	if key.is_empty() or not actor_rests.has(key):
+		return
+	var rest: Dictionary = actor_rests[key]
+	var target: Vector2 = rest.get("position", actor.position)
+	var start := actor.position
+	var tween := _claim_actor_tween(key, actor)
+	tween.set_parallel(true)
+	tween.tween_method(_set_actor_arc.bind(actor, start, target, height),
+		0.0, 1.0, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(actor, "scale", rest.get("scale", Vector2.ONE), duration)
+	tween.tween_property(actor, "rotation", rest.get("rotation", 0.0), duration)
+	tween.tween_property(actor, "modulate", rest.get("modulate", Color.WHITE), duration)
+	tween.chain().tween_callback(_finish_actor_motion.bind(key, actor))
+
+
+func _set_rival_pose(state: String) -> bool:
+	if rival_actor == null or competition == null or competition.is_cooperative():
+		return false
+	var texture := _state_texture("rival_%s_%s" % [career_id, state])
+	if texture == null:
+		return false
+	rival_actor.texture = texture
+	return true
 
 
 func progress() -> float:
@@ -1202,6 +1374,7 @@ func progress() -> float:
 func rival_step() -> void:
 	if rival_actor == null:
 		return
+	_set_rival_pose("taunt")
 	_bounce_actor(rival_actor, 10.0 + float(competition.rival_step) * 1.8)
 
 
@@ -1230,6 +1403,7 @@ func update_competition() -> void:
 
 func celebrate(result: Dictionary) -> void:
 	active = false
+	_restore_stage_actors()
 	var tier := int(result.get("tier", 1))
 	title_label.text = (
 		"THE BABIES ARE COZY!" if competition.is_cooperative()
@@ -1237,27 +1411,17 @@ func celebrate(result: Dictionary) -> void:
 	)
 	if prop_rect != null and prop_rect.texture != null:
 		# the stolen goal prop comes home for the curtain call
-		prop_rect.position = Vector2(540, 250)
-		prop_rect.size = Vector2(200, 170)
 		prop_rect.visible = true
-		var prop_home := prop_rect.position.y
-		var prop_tween := prop_rect.create_tween().set_loops(3)
-		prop_tween.tween_property(prop_rect, "position:y", prop_home - 26.0, 0.22).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		prop_tween.tween_property(prop_rect, "position:y", prop_home, 0.26).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+		_bounce_actor(prop_rect, 26.0, 0.48)
 	crowd_label.text = "★  " + "★  ".repeat(tier * 2 + 1)
 	for index in range(audience.size()):
 		var fan := audience[index]
-		var home_y := fan.position.y
-		var tween := fan.create_tween().set_loops(tier + 1)
-		tween.tween_property(fan, "position:y", home_y - 18.0 - float(tier) * 6.0, 0.13).set_delay(float(index) * 0.025)
-		tween.tween_property(fan, "position:y", home_y, 0.16)
-	_bounce_actor(player_actor, 34.0)
-	var bow_y := rival_actor.position.y
-	var bow := rival_actor.create_tween()
-	bow.tween_property(rival_actor, "rotation", 0.15, 0.25)
-	bow.tween_property(rival_actor, "rotation", 0.0, 0.25)
-	bow.tween_property(rival_actor, "position:y", bow_y + 12.0, 0.2)
-	bow.tween_property(rival_actor, "position:y", bow_y, 0.2)
+		_bounce_actor(fan, 18.0 + float(tier) * 6.0, 0.34 + float(index) * 0.012)
+	_bounce_actor(player_actor, 34.0 + float(tier) * 4.0, 0.52)
+	if not _set_rival_pose("bow"):
+		# Faron keeps her one accepted cutout and answers with a gentle nod.
+		rival_actor.rotation = -0.045
+	_bounce_actor(rival_actor, 10.0, 0.58)
 	for index in range(24):
 		var bit := ColorRect.new()
 		bit.color = Color.from_hsv(float(index) / 24.0, 0.58, 1.0)
@@ -1359,6 +1523,11 @@ func _apply_imp_pose(imp: Dictionary, node: TextureRect, feet: Vector2,
 	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
 	var seed := float(imp.get("seed", 0))
 	var t := float(imp.get("state_t", 0.0))
+	var resolved := _imp_texture_resolution(imp, pose)
+	var resolution_kind := String(resolved.get("resolution", "idle"))
+	# Authored silhouettes do the acting. Cousin/idle fallbacks retain more of
+	# the old procedural envelope so a missing pose is still readable.
+	var envelope := 0.24 if resolution_kind == "exact" else (0.62 if resolution_kind == "cousin" else 1.0)
 	var lift := 0.0
 	var squash := Vector2.ONE
 	var tilt := 0.0
@@ -1370,7 +1539,8 @@ func _apply_imp_pose(imp: Dictionary, node: TextureRect, feet: Vector2,
 			var k := clampf(t / maxf(0.2, hold), 0.0, 1.0)
 			squash = Vector2(1.0 + 0.18 * k, 1.0 - 0.2 * k)
 			tilt = -0.14 * k * face
-			tint = Color(1.0, 0.9, 0.78).lerp(Color(1.0, 0.6, 0.52), k)
+			var warning := Color(1.0, 0.9, 0.78).lerp(Color(1.0, 0.6, 0.52), k)
+			tint = Color.WHITE.lerp(warning, 0.18 if resolution_kind == "exact" else 0.72)
 		"charge":
 			squash = Vector2(1.14, 0.92)
 			tilt = 0.24 * face
@@ -1383,10 +1553,10 @@ func _apply_imp_pose(imp: Dictionary, node: TextureRect, feet: Vector2,
 			# wide open: the counter window reads as an exhausted slump
 			squash = Vector2(1.08, 0.88)
 			tilt = -0.18 * face
-			tint = Color(0.84, 0.9, 1.0)
+			tint = Color.WHITE if resolution_kind == "exact" else Color(0.84, 0.9, 1.0)
 		"guard":
 			squash = Vector2(0.9, 1.08)
-			tint = Color(0.78, 0.93, 1.0)
+			tint = Color.WHITE if resolution_kind == "exact" else Color(0.78, 0.93, 1.0)
 		"taunt", "rally":
 			lift = absf(sin(t * 9.0)) * 18.0
 			tilt = sin(t * 12.0) * 0.13
@@ -1398,7 +1568,12 @@ func _apply_imp_pose(imp: Dictionary, node: TextureRect, feet: Vector2,
 			tilt = -0.2 * face
 		_:
 			lift = sin(bop_time * 5.2 + seed * 1.7) * 9.0
-	var texture := _imp_texture(imp, pose)
+	squash = Vector2.ONE.lerp(squash, envelope)
+	tilt *= envelope
+	lift *= maxf(0.38, envelope)
+	if pose == "stagger" and t <= 0.18:
+		tint = Color.WHITE.lerp(Color(1.0, 0.94, 0.78), 0.32)
+	var texture := resolved.get("texture") as Texture2D
 	if texture != null:
 		node.texture = texture
 	node.pivot_offset = node.size * Vector2(0.5, 1.0)
@@ -1407,6 +1582,10 @@ func _apply_imp_pose(imp: Dictionary, node: TextureRect, feet: Vector2,
 	node.flip_h = face < 0.0
 	node.modulate = tint
 	node.position = feet - Vector2(node.size.x * 0.5, node.size.y) - Vector2(0.0, lift - 8.0)
+	imp["texture_resolution"] = resolution_kind
+	imp["texture_state"] = String(resolved.get("state", "idle"))
+	imp["texture_family"] = String(resolved.get("family", ""))
+	imp["sole"] = node.position + node.pivot_offset
 	imp["center"] = feet - Vector2(0.0, node.size.y * node.scale.y * 0.5 + lift - 8.0)
 	imp["reach"] = node.size.x * 0.62 * maxf(depth, 0.7)
 
@@ -1416,6 +1595,8 @@ func _apply_imp_pose(imp: Dictionary, node: TextureRect, feet: Vector2,
 ## The chain is "the pose's own art, then its nearest cousin, then idle" —
 ## every missing file just falls through (see the codex handoff).
 const POSE_STATES := {
+	"idle": ["idle"],
+	"prowl": [],
 	"windup": ["windup", "hop_a"],
 	"charge": ["charge", "hop_b"],
 	"slash": ["slash", "hop_b"],
@@ -1426,7 +1607,14 @@ const POSE_STATES := {
 	"flee": ["flee", "hop_b"],
 	"stagger": ["stagger"],
 	"bopped": ["bopped"],
+	"hop_a": ["hop_a"],
+	"hop_b": ["hop_b"],
+	"bow": ["bow"],
 }
+const IMP_PREWARM_STATES: Array[String] = [
+	"idle", "windup", "charge", "slash", "recover", "guard", "stagger",
+	"flee", "taunt", "hop_a", "hop_b", "bopped", "bow",
+]
 
 
 func _imp_family(captain: bool) -> String:
@@ -1438,21 +1626,45 @@ func _imp_family(captain: bool) -> String:
 	return "imp_captain" if captain else "imp_mischief"
 
 
-func _imp_texture(imp: Dictionary, pose: String) -> Texture2D:
+func _prewarm_imp_textures() -> void:
+	var families: Array[String] = [_imp_family(false), _imp_family(true),
+		"imp_mischief", "imp_captain"]
+	var seen: Dictionary = {}
+	for family: String in families:
+		if seen.has(family):
+			continue
+		seen[family] = true
+		for state: String in IMP_PREWARM_STATES:
+			var slug := family if state == "idle" else "%s_%s" % [family, state]
+			_state_texture(slug)
+
+
+func _imp_texture_resolution(imp: Dictionary, pose: String) -> Dictionary:
 	var captain := bool(imp.get("captain", false))
 	var family := _imp_family(captain)
 	var states: Array = POSE_STATES.get(pose, [])
 	for state: String in states:
-		var art := _state_texture("%s_%s" % [family, state])
+		var slug := family if state == "idle" else "%s_%s" % [family, state]
+		var art := _state_texture(slug)
 		if art != null:
-			return art
-	if pose == "bopped":
-		return captain_bopped_texture if captain else imp_bopped_texture
-	if pose == "taunt" or pose == "rally":
-		var bow := captain_bow_texture if captain else imp_bow_texture
-		if bow != null and family.begins_with("imp_"):
-			return bow
-	return captain_idle_texture if captain else imp_idle_texture
+			return {
+				"texture": art,
+				"resolution": "exact" if state == pose else "cousin",
+				"family": family,
+				"state": state,
+			}
+	var idle := _state_texture(family)
+	return {
+		"texture": idle,
+		"resolution": "idle",
+		"family": family,
+		"state": "idle",
+	}
+
+
+func _imp_texture(imp: Dictionary, pose: String) -> Texture2D:
+	var resolution := _imp_texture_resolution(imp, pose)
+	return resolution.get("texture") as Texture2D
 
 
 func _state_texture(slug: String) -> Texture2D:
@@ -1467,6 +1679,13 @@ func _handle_brain_events() -> void:
 	for ev: Dictionary in imp_brain.drain_events():
 		var kind := String(ev.get("kind", ""))
 		var at: Vector2 = ev.get("pos", Vector2(640, 460))
+		var event_index := int(ev.get("index", -1))
+		var event_face := 1.0
+		for imp: Dictionary in combat_imps:
+			if int(imp.get("seed", -2)) == event_index:
+				var mind: Dictionary = imp.get("ai", {})
+				event_face = float(mind.get("face", imp.get("dir", 1.0)))
+				break
 		match kind:
 			"telegraph":
 				combat_marks.append({"kind": "ring", "pos": at, "t": 0.0,
@@ -1481,7 +1700,8 @@ func _handle_brain_events() -> void:
 			"contact":
 				_imp_contact(int(ev.get("index", -1)), at)
 			"whiff":
-				combat_marks.append({"kind": "arc", "pos": at, "t": 0.0, "life": 0.3})
+				combat_marks.append({"kind": "arc", "pos": at, "face": event_face,
+					"t": 0.0, "life": 0.3})
 			"taunt":
 				combat_marks.append({"kind": "taunt", "pos": at, "t": 0.0, "life": 0.7})
 			"rally":
@@ -1503,12 +1723,14 @@ func _imp_contact(index: int, at: Vector2) -> void:
 	combat_marks.append({"kind": "bump", "pos": at, "t": 0.0, "life": 0.5})
 	_bop_burst_at(at, true)
 	if player_actor != null:
-		var home := player_actor.position
-		var away := signf(home.x + player_actor.size.x * 0.5 - at.x)
-		var shove := player_actor.create_tween()
-		shove.tween_property(player_actor, "position",
-			home + Vector2(away * 26.0, -8.0), 0.09).set_trans(Tween.TRANS_QUAD)
-		shove.tween_property(player_actor, "position", home, 0.24).set_trans(Tween.TRANS_BOUNCE)
+		var rest: Dictionary = actor_rests.get("player", {})
+		var target: Vector2 = rest.get("position", player_actor.position)
+		var away := signf(target.x + player_actor.size.x * 0.5 - at.x)
+		var shove := _claim_actor_tween("player", player_actor)
+		shove.tween_method(_set_actor_recoil.bind(player_actor, player_actor.position,
+			target, Vector2(away * 26.0, -8.0)), 0.0, 1.0, 0.33) \
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		shove.tween_callback(_finish_actor_motion.bind("player", player_actor))
 
 
 func _tick_combat_marks(delta: float) -> void:
@@ -1527,6 +1749,11 @@ func _draw_combat_fx() -> void:
 	# a stolen sparkle orbiting whoever bumped her
 	for mark: Dictionary in combat_marks:
 		var at: Vector2 = mark.get("pos", Vector2.ZERO)
+		if String(mark.get("kind", "")) == "dizzy":
+			var follow_ref: Variant = mark.get("node")
+			if is_instance_valid(follow_ref):
+				var follow := follow_ref as Control
+				at = _imp_centre(follow)
 		var life: float = maxf(0.05, float(mark.get("life", 0.3)))
 		var k: float = clampf(float(mark.get("t", 0.0)) / life, 0.0, 1.0)
 		match String(mark.get("kind", "")):
@@ -1550,13 +1777,19 @@ func _draw_combat_fx() -> void:
 					combat_fx.draw_circle(head + Vector2(0.0, 14.0), 7.0,
 						Color(1.0, 0.85, 0.3, 0.55 + pulse * 0.45))
 			"arc":
+				var face := float(mark.get("face", 1.0))
+				var arc_center := at - Vector2(0.0, 60.0)
 				if fx_slash_arc_texture != null:
 					var arc_size := Vector2(210.0, 105.0)
+					combat_fx.draw_set_transform(arc_center, 0.0, Vector2(face, 1.0))
 					combat_fx.draw_texture_rect(fx_slash_arc_texture,
-						Rect2(at - Vector2(arc_size.x * 0.5, arc_size.y * 0.5 + 60.0), arc_size),
+						Rect2(-arc_size * 0.5, arc_size),
 						false, Color(1.0, 1.0, 1.0, 0.55 * (1.0 - k)))
+					combat_fx.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 				else:
-					combat_fx.draw_arc(at - Vector2(0.0, 60.0), 92.0, -0.9, 0.9, 20,
+					var start_angle := -0.9 if face >= 0.0 else PI - 0.9
+					var end_angle := 0.9 if face >= 0.0 else PI + 0.9
+					combat_fx.draw_arc(arc_center, 92.0, start_angle, end_angle, 20,
 						Color(1.0, 1.0, 1.0, 0.55 * (1.0 - k)), 9.0)
 			"dust":
 				if fx_dust_puff_texture != null:
@@ -1693,13 +1926,17 @@ func _draw_lens_layer() -> void:
 
 func _process(delta: float) -> void:
 	elapsed += delta
+	if phase_advance_pending:
+		phase_complete_t = maxf(0.0, phase_complete_t - delta)
+		if phase_complete_t <= 0.0:
+			_advance_completed_phase()
 	if score_cool > 0.0:
 		score_cool = maxf(0.0, score_cool - delta)
 	if combat_miss_cool > 0.0:
 		combat_miss_cool = maxf(0.0, combat_miss_cool - delta)
 	if phase_gap > 0.0:
 		phase_gap = maxf(0.0, phase_gap - delta)
-	if active and reveal_t <= 0.0 and phase_index < phases.size():
+	if active and not phase_advance_pending and reveal_t <= 0.0 and phase_index < phases.size():
 		# quiet children get the prompt again plus a fresh finger demo
 		idle_t += delta
 		if idle_t >= 9.0:
@@ -1710,7 +1947,7 @@ func _process(delta: float) -> void:
 	timing_phase = fmod(timing_phase + delta * minf(0.70, 0.55 + 0.02 * float(phase_index)), 2.0)
 	var marker := timing_phase if timing_phase <= 1.0 else 2.0 - timing_phase
 	surface.set_timing_position(marker)
-	if active and phase_index < phases.size():
+	if active and not phase_advance_pending and phase_index < phases.size():
 		var phase := phases[phase_index] as Dictionary
 		var mode := String(phase.get("mode", ""))
 		if mode == "hold" and surface.held and phase_gap <= 0.0:
@@ -1742,4 +1979,8 @@ func _process(delta: float) -> void:
 
 func close() -> void:
 	active = false
+	_restore_stage_actors()
+	_clear_stage_combat()
+	if nursery_catch != null:
+		nursery_catch.stop()
 	queue_free()

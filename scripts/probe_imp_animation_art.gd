@@ -206,18 +206,17 @@ func _capture_page(family: String, states: Array[String], page: int) -> void:
 			"state_t": _pose_time(state),
 		}
 		var expected := _texture_path(family, state)
-		var runtime_pose := state
-		match state:
-			"hop_a": runtime_pose = "windup"
-			"hop_b": runtime_pose = "charge"
-			"bow": runtime_pose = "taunt"
-		world._apply_imp_pose(imp, node, positions[local_index], runtime_pose, 1.0)
-		if state == "hop_a" or state == "hop_b" or state == "bow":
-			var fallback_texture := world._state_texture("%s_%s" % [family, state])
-			if fallback_texture != null:
-				node.texture = fallback_texture
+		world._apply_imp_pose(imp, node, positions[local_index], state, 1.0)
 		_check("%s resolves through the live state loader" % expected,
 			node.texture != null and node.texture.resource_path == expected)
+		_check("%s reports exact same-family resolution" % expected,
+			String(imp.get("texture_resolution", "")) == "exact"
+			and String(imp.get("texture_family", "")) == family
+			and String(imp.get("texture_state", "")) == state)
+		if state in ["windup", "recover", "guard"]:
+			var sole: Vector2 = imp.get("sole", Vector2.ZERO)
+			_check("%s keeps its grounded sole registered" % expected,
+				absf(sole.y - (positions[local_index].y + 8.0)) <= 3.0)
 		review_nodes.append(node)
 	await _settle(4)
 	await RenderingServer.frame_post_draw
@@ -261,6 +260,12 @@ func _capture_fx(family: String) -> void:
 func _init() -> void:
 	var family := _requested_family()
 	var states := _requested_states()
+	if OS.get_environment("IMP_ANIM_CAPTURE_STATES").strip_edges().is_empty():
+		var delivered: Array[String] = []
+		for state: String in states:
+			if FileAccess.file_exists(_texture_path(family, state)):
+				delivered.append(state)
+		states = delivered
 	_verify_delivery()
 	if DisplayServer.get_name() == "headless":
 		_finish()

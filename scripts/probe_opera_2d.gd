@@ -8,9 +8,27 @@ extends SceneTree
 
 var main: ReefMain
 var bad := 0
+var widget_shot_out := ""
+var rival_shot_out := ""
+var scuffle_shot_out := ""
+var scuffle_capture_career := ""
+var stress_shot_out := ""
 
 
 func _init() -> void:
+	widget_shot_out = OS.get_environment("OPERA_WIDGET_SHOT_OUT").strip_edges()
+	rival_shot_out = OS.get_environment("OPERA_RIVAL_SHOT_OUT").strip_edges()
+	scuffle_shot_out = OS.get_environment("OPERA_SCUFFLE_SHOT_OUT").strip_edges()
+	scuffle_capture_career = OS.get_environment("OPERA_SCUFFLE_CAPTURE_CAREER").strip_edges()
+	stress_shot_out = OS.get_environment("OPERA_STRESS_SHOT_OUT").strip_edges()
+	if not widget_shot_out.is_empty():
+		DirAccess.make_dir_recursive_absolute(widget_shot_out)
+	if not rival_shot_out.is_empty():
+		DirAccess.make_dir_recursive_absolute(rival_shot_out)
+	if not scuffle_shot_out.is_empty():
+		DirAccess.make_dir_recursive_absolute(scuffle_shot_out)
+	if not stress_shot_out.is_empty():
+		DirAccess.make_dir_recursive_absolute(stress_shot_out)
 	var scene := load("res://scenes/main.tscn") as PackedScene
 	main = scene.instantiate() as ReefMain
 	get_root().add_child(main)
@@ -52,6 +70,7 @@ func _init() -> void:
 	if main.touch_ui != null:
 		_check("2D lobby restores the touch layer on exit", main.touch_ui.visible == lobby_touch_before)
 	var show_count := 0
+	var total_widget_count := 0
 	for source: Dictionary in OperaHouse.ACTS:
 		if String(source.get("type", "show")) == "boss":
 			continue
@@ -70,6 +89,21 @@ func _init() -> void:
 			act.queue_free()
 			continue
 		var world := act.career_world_2d
+		if not scuffle_shot_out.is_empty() and not scuffle_capture_career.is_empty():
+			if career != scuffle_capture_career:
+				act.cancel()
+				await process_frame
+				continue
+			await _capture_scuffle_sequences(world, career)
+			act.cancel()
+			await process_frame
+			if bad == 0:
+				print("OPERA2D|result: ALL OK (scuffle capture)")
+				quit()
+			else:
+				print("OPERA2D|result: %d FAIL" % bad)
+				quit(1)
+			return
 		_check("%s uses no 3D children in career play" % career,
 			act.find_children("*", "Node3D", true, false).is_empty())
 		_check("%s builds a scalable code-native career world" % career,
@@ -87,6 +121,9 @@ func _init() -> void:
 				not world.rival_actor.visible and not world.in_competition_finale())
 		_check("%s pauses competition scoring before the finale" % career,
 			not act.competition.active)
+		if not scuffle_shot_out.is_empty() and scuffle_capture_career.is_empty() \
+				and career in ["chef", "detective", "ballerina", "candymaker", "nursery"]:
+			await _capture_scuffle_sequences(world, career)
 		_check("%s has a multi-phase job game" % career, world.phases.size() >= 4)
 		_check("%s starts without passive progress" % career,
 			is_equal_approx(world.progress(), 0.0))
@@ -127,6 +164,34 @@ func _init() -> void:
 			_check("%s plays the shoo-off clip about the imp" % career,
 				victim_node != null and is_instance_valid(victim_node)
 				and victim_node.pivot_offset.is_equal_approx(victim_node.size * 0.5))
+			var authored_exact := true
+			for state: String in OperaCareerWorld2D.IMP_PREWARM_STATES:
+				var resolution := world._imp_texture_resolution({"captain": false}, state)
+				authored_exact = authored_exact \
+					and String(resolution.get("family", "")) == "rival_%s" % career \
+					and String(resolution.get("resolution", "")) == "exact"
+			_check("%s resolves every delivered state exactly within its costume family" % career,
+				authored_exact)
+			var idle_texture := world.rival_actor.texture
+			_check("%s finale rival exposes authored taunt" % career,
+				world._set_rival_pose("taunt")
+				and world.rival_actor.texture.resource_path.ends_with("rival_%s_taunt.png" % career))
+			world._restore_actor("rival", world.rival_actor)
+			_check("%s finale rival exposes authored bow" % career,
+				world._set_rival_pose("bow")
+				and world.rival_actor.texture.resource_path.ends_with("rival_%s_bow.png" % career))
+			world._restore_actor("rival", world.rival_actor)
+			_check("%s rival pose restores the idle texture" % career,
+				world.rival_actor.texture == idle_texture)
+		if career == "chef":
+			var player_rest: Dictionary = (world.actor_rests.get("player", {}) as Dictionary).duplicate()
+			for _tap in range(20):
+				world._bounce_actor(world.player_actor, 14.0)
+			await create_timer(0.42).timeout
+			_check("twenty rapid reactions return Roshan to her exact rest transform",
+				_actor_matches_rest(world.player_actor, player_rest))
+			if not stress_shot_out.is_empty():
+				await _capture_viewport(stress_shot_out.path_join("rapid_input_rest.png"))
 		var captain_scuffle := -1
 		for mode_i in range(1, modes.size()):
 			if modes[mode_i] == "bop":
@@ -146,17 +211,55 @@ func _init() -> void:
 			backdrop != null and backdrop.world_tiles.size() == 4)
 		_check("%s owns a complete on-stage tile set" % career,
 			backdrop != null and backdrop.stage_tiles.size() == 4)
+		if not rival_shot_out.is_empty() and not cooperative:
+			await _capture_rival_states(world, career, backdrop)
 		var widgets_complete := true
+		var widgets_causal := true
+		var target_lock_checked := false
 		var widget_count := 0
-		for phase_dict: Dictionary in world.phases:
+		for phase_number in range(world.phases.size()):
+			var phase_dict: Dictionary = world.phases[phase_number]
 			var template := world._widget_template(phase_dict)
 			if template.is_empty():
 				continue
 			widget_count += 1
+			total_widget_count += 1
 			var widget_path := "res://assets/opera/worlds/widgets/widget_%s_%s.png" % [template, career]
 			widgets_complete = widgets_complete and ResourceLoader.exists(widget_path)
+			var context := "%s_%s" % [template, career]
+			var before_progress := world.phase_progress
+			world.surface.configure(String(phase_dict.get("mode", "tap")), Color.WHITE,
+				world.choice_target, context)
+			world.surface._process(0.8)
+			widgets_causal = widgets_causal and is_equal_approx(world.phase_progress, before_progress) \
+				and is_equal_approx(world.surface.widget_fill, 0.0) \
+				and world.surface.demo_active
+			world.surface.set_fill(1.0)
+			widgets_causal = widgets_causal and not world.surface.completion_accepted
+			world.surface.accept_completion()
+			widgets_causal = widgets_causal and world.surface.completion_accepted
+			world.surface.restart_demo()
+			world.surface.note_input()
+			widgets_causal = widgets_causal and not world.surface.demo_active \
+				and world.surface.input_started
+			if template == "target" and not target_lock_checked:
+				world.surface.set_block_signals(true)
+				var target_before := world.surface.tap_point
+				world.surface._press(target_before)
+				widgets_causal = widgets_causal \
+					and world.surface.tap_point.is_equal_approx(target_before)
+				world.surface._release(target_before)
+				widgets_causal = widgets_causal \
+					and not world.surface.tap_point.is_equal_approx(target_before)
+				world.surface.set_block_signals(false)
+				target_lock_checked = true
+			if not widget_shot_out.is_empty():
+				await _capture_widget_states(world, career, phase_number, phase_dict, template)
 		_check("%s loads every diegetic phase widget" % career,
 			widgets_complete and widget_count > 0)
+		_check("%s widgets remain input-causal with owner-gated completion" % career,
+			widgets_causal)
+		world._show_phase()
 		_check("%s loads the Storybook task frame and station beacon" % career,
 			world.task_frame_texture != null and world.station_marker_texture != null)
 		_check("%s loads the authored magnifier prop" % career,
@@ -215,7 +318,42 @@ func _init() -> void:
 			_check("%s restores the touch layer on exit" % career,
 				main.touch_ui.visible == touch_before)
 
+	var reentry_config: Dictionary = {}
+	for source: Dictionary in OperaHouse.ACTS:
+		if String(source.get("costume", "")) == "chef":
+			reentry_config = source.duplicate(true)
+			reentry_config["force_2d"] = true
+			break
+	var reentry_clean := not reentry_config.is_empty()
+	for cycle in range(5):
+		var touch_before := main.touch_ui.visible if main.touch_ui != null else false
+		var reentry_act := OperaAct.new()
+		get_root().add_child(reentry_act)
+		reentry_act.start(main, reentry_config, Callable())
+		await process_frame
+		var reentry_world := reentry_act.career_world_2d
+		reentry_clean = reentry_clean and reentry_act.use_career_world_2d \
+			and reentry_world != null and is_instance_valid(reentry_world)
+		if reentry_world != null and is_instance_valid(reentry_world):
+			reentry_world._bounce_actor(reentry_world.player_actor, 16.0)
+			if reentry_world.rival_actor != null:
+				reentry_world._set_rival_pose("taunt")
+			await process_frame
+			if not stress_shot_out.is_empty():
+				await _capture_viewport(stress_shot_out.path_join(
+					"early_reentry_%02d.png" % (cycle + 1)))
+		reentry_act.cancel()
+		await process_frame
+		await process_frame
+		reentry_clean = reentry_clean and not is_instance_valid(reentry_act) \
+			and get_root().find_children("*", "OperaCareerWorld2D", true, false).is_empty()
+		if main.touch_ui != null:
+			reentry_clean = reentry_clean and main.touch_ui.visible == touch_before
+	_check("five early exits and re-entries free every Opera world and restore touch",
+		reentry_clean)
+
 	_check("all thirteen career jobs were exercised", show_count == 13)
+	_check("all sixty art-backed career widgets were exercised", total_widget_count == 60)
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()
@@ -224,12 +362,155 @@ func _init() -> void:
 		quit(1)
 
 
+func _capture_viewport(path: String) -> void:
+	await process_frame
+	await process_frame
+	await RenderingServer.frame_post_draw
+	var image: Image = get_root().get_viewport().get_texture().get_image()
+	var error := image.save_png(path)
+	_check("saved review capture %s" % path.get_file(), error == OK)
+
+
+func _capture_control(control: Control, path: String) -> void:
+	await process_frame
+	await process_frame
+	await RenderingServer.frame_post_draw
+	var viewport := get_root().get_viewport()
+	var image: Image = viewport.get_texture().get_image()
+	var visible_size := viewport.get_visible_rect().size
+	var image_scale := Vector2(image.get_width(), image.get_height()) / visible_size
+	var global_rect := control.get_global_rect()
+	var region := Rect2i(
+		Vector2i(global_rect.position * image_scale),
+		Vector2i(global_rect.size * image_scale)
+	)
+	region = region.intersection(Rect2i(Vector2i.ZERO, image.get_size()))
+	var crop := image.get_region(region)
+	var error := crop.save_png(path)
+	_check("saved review capture %s" % path.get_file(), error == OK)
+
+
+func _capture_rival_states(world: OperaCareerWorld2D, career: String,
+		backdrop: OperaWorldBackdrop2D) -> void:
+	world._clear_stage_combat()
+	world._restore_stage_actors()
+	backdrop.set_stage(true)
+	world._set_finale_visible(true)
+	world.action_panel.visible = false
+	world._set_rival_pose("taunt")
+	world._bounce_actor(world.rival_actor, 14.0, 0.46)
+	await create_timer(0.16).timeout
+	await _capture_viewport(rival_shot_out.path_join("%s_rival_taunt.png" % career))
+	world._restore_actor("rival", world.rival_actor)
+	world._set_rival_pose("bow")
+	world._bounce_actor(world.rival_actor, 10.0, 0.58)
+	await create_timer(0.20).timeout
+	await _capture_viewport(rival_shot_out.path_join("%s_rival_bow.png" % career))
+	world._restore_actor("rival", world.rival_actor)
+	backdrop.set_stage(false)
+	world._set_finale_visible(false)
+
+
+func _capture_scuffle_sequences(world: OperaCareerWorld2D, career: String) -> void:
+	await _capture_one_scuffle(world, career, false)
+	await _capture_one_scuffle(world, career, true)
+	world.phase_index = 0
+	world.phase_progress = 0.0
+	world._show_phase()
+	world.phase_gap = 0.0
+
+
+func _capture_one_scuffle(world: OperaCareerWorld2D, career: String,
+		captain_scuffle: bool) -> void:
+	var target_phase := world.steal_index if captain_scuffle else 0
+	world.phase_index = target_phase
+	world.phase_progress = 0.0
+	world._show_phase()
+	world.phase_gap = 0.0
+	var label := "captain" if captain_scuffle else "opening"
+	var shot := 0
+	while shot < 24 and world.phase_index == target_phase:
+		await create_timer(0.16).timeout
+		await _capture_viewport(scuffle_shot_out.path_join(
+			"%s_%s_%02d.png" % [career, label, shot + 1]))
+		var live_imp: Dictionary = {}
+		for imp: Dictionary in world.combat_imps:
+			if not bool(imp.get("popped", false)):
+				live_imp = imp
+				break
+		if live_imp.is_empty():
+			if world.phase_advance_pending:
+				world._advance_completed_phase()
+			break
+		var center: Vector2 = live_imp.get("center", Vector2(640.0, 440.0))
+		world.swipe_stroke += 1
+		world._combat_strike(center, center)
+		shot += 1
+	if world.phase_advance_pending:
+		await _capture_viewport(scuffle_shot_out.path_join(
+			"%s_%s_%02d.png" % [career, label, shot + 1]))
+		world._advance_completed_phase()
+
+
+func _capture_widget_states(world: OperaCareerWorld2D, career: String,
+		phase_number: int, phase: Dictionary, template: String) -> void:
+	var surface := world.surface
+	var mode := String(phase.get("mode", "tap"))
+	var context := "%s_%s" % [template, career]
+	world.action_panel.visible = true
+	world.action_panel.position = Vector2(420.0, 154.0)
+	surface.visible = true
+	surface.configure(mode, Color(0.92, 0.58, 0.82), world.choice_target, context)
+	match String(phase.get("dir", "")):
+		"down": surface.swipe_dir = Vector2.DOWN
+		"up": surface.swipe_dir = Vector2.UP
+	var prefix := "%s_%02d_%s" % [career, phase_number + 1, template]
+	surface.demo_t = 0.92
+	surface.set_timing_position(0.18)
+	await _capture_control(surface, widget_shot_out.path_join("%s_idle_demo.png" % prefix))
+
+	surface.note_input()
+	surface.held = mode == "hold"
+	surface.set_fill(0.45)
+	surface.set_timing_position(0.50)
+	surface.crank_rotation = 0.72
+	surface.feedback_anchor = surface.size * Vector2(0.5, 0.68)
+	surface.feedback_position = 0.50
+	if mode in ["tap", "choice", "timing"]:
+		surface.note_result(true)
+	if template == "target":
+		surface.tap_marks = [surface.tap_point]
+	await _capture_control(surface, widget_shot_out.path_join("%s_active_input.png" % prefix))
+
+	surface.feedback_t = 0.0
+	surface.held = mode == "hold"
+	surface.set_fill(0.90)
+	surface.set_timing_position(0.68)
+	surface.crank_rotation = 1.34
+	await _capture_control(surface, widget_shot_out.path_join("%s_near_completion.png" % prefix))
+
+	surface.held = false
+	surface.set_fill(1.0)
+	surface.accept_completion()
+	await _capture_control(surface, widget_shot_out.path_join("%s_accepted_completion.png" % prefix))
+
+
 func _visible_card_count(cards: Array) -> int:
 	var count := 0
 	for card: Button in cards:
 		if card.visible:
 			count += 1
 	return count
+
+
+func _actor_matches_rest(actor: TextureRect, rest: Dictionary) -> bool:
+	return actor.position.is_equal_approx(rest.get("position", actor.position) as Vector2) \
+		and actor.size.is_equal_approx(rest.get("size", actor.size) as Vector2) \
+		and actor.scale.is_equal_approx(rest.get("scale", actor.scale) as Vector2) \
+		and is_equal_approx(actor.rotation, float(rest.get("rotation", actor.rotation))) \
+		and actor.modulate.is_equal_approx(rest.get("modulate", actor.modulate) as Color) \
+		and actor.flip_h == bool(rest.get("flip_h", actor.flip_h)) \
+		and actor.texture == (rest.get("texture", actor.texture) as Texture2D)
 
 
 func _check(label: String, condition: bool) -> void:
