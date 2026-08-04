@@ -252,6 +252,7 @@ var magnifier_texture: Texture2D = null
 
 var root: Control
 var backdrop_node: OperaWorldBackdrop2D
+var top: ColorRect
 var action_panel: ColorRect
 var prop_rect: TextureRect
 var player_actor: TextureRect
@@ -323,7 +324,7 @@ func _build_world() -> void:
 	backdrop_node.setup(career_id)
 
 	var shade := ColorRect.new()
-	shade.color = Color(0.025, 0.025, 0.11, 0.10)
+	shade.color = Color(0.0, 0.0, 0.0, 0.0)
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_full_rect(shade)
 	root.add_child(shade)
@@ -333,16 +334,19 @@ func _build_world() -> void:
 	_assign_stations()
 	_build_station_markers()
 
-	var top := ColorRect.new()
-	top.color = Color(0.025, 0.025, 0.11, 0.84)
-	top.position = Vector2(18, 14)
-	top.size = Vector2(1244, 124)
+	top = ColorRect.new()
+	# was a 1244x124 near-black slab (16.7% of screen) whose lower 78px were
+	# empty on every non-finale beat, covering the painted curtain valance
+	top.color = Color(0, 0, 0, 0)
+	top.position = Vector2(18, 10)
+	top.size = Vector2(1244, 96)
 	top.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(top)
 
-	title_label = _label(String(competition.spec.get("world", String(config.get("name", "CAREER CUP")))), 28, Color(1.0, 0.91, 0.55))
-	title_label.position = Vector2(24, 8)
-	title_label.size = Vector2(1196, 38)
+	top.draw.connect(_draw_title_pill)
+	title_label = _label(String(competition.spec.get("world", String(config.get("name", "CAREER CUP")))), 26, Color("#382485"))
+	title_label.position = Vector2(322, 6)
+	title_label.size = Vector2(600, 40)
 	top.add_child(title_label)
 
 	player_bar = ProgressBar.new()
@@ -493,7 +497,7 @@ func _build_world() -> void:
 	root.add_child(lens_layer)
 
 	crowd_label = _label("●  ●  ●  ●  ●", 30, Color(1.0, 0.84, 0.5))
-	crowd_label.position = Vector2(430, 595)
+	crowd_label.position = Vector2(430, 556)
 	crowd_label.size = Vector2(420, 42)
 	root.add_child(crowd_label)
 	_build_audience()
@@ -541,6 +545,21 @@ func _build_station_markers() -> void:
 		marker.draw.connect(_draw_station_marker.bind(marker))
 		root.add_child(marker)
 		station_nodes.append(marker)
+
+
+func _draw_title_pill() -> void:
+	# a compact storybook plate instead of a full-width black slab
+	if title_label == null or not title_label.visible:
+		return
+	var plate := StyleBoxFlat.new()
+	plate.bg_color = Color(0.94, 0.98, 1.0, 0.94)
+	plate.set_border_width_all(4)
+	plate.border_color = Color("#6e4dc2").lerp(Color("#382485"), 0.62)
+	plate.set_corner_radius_all(30)
+	plate.shadow_color = Color(0.19, 0.10, 0.48, 0.30)
+	plate.shadow_size = 10
+	plate.shadow_offset = Vector2(0, 5)
+	plate.draw(top.get_canvas_item(), Rect2(300.0, 0.0, 644.0, 52.0))
 
 
 func _draw_task_card() -> void:
@@ -616,6 +635,7 @@ func _build_audience() -> void:
 		fan.position = Vector2(18.0 + float(index) * 207.0, 592.0)
 		fan.size = Vector2(116, 126)
 		fan.modulate = Color(1.0, 1.0, 1.0, 0.96)
+		fan.visible = false   # the crowd arrives for the show, not for prep
 		root.add_child(fan)
 		audience.append(fan)
 
@@ -999,6 +1019,12 @@ func competition_progress() -> float:
 
 func _set_finale_visible(show_finale: bool) -> void:
 	var cooperative := competition != null and competition.is_cooperative()
+	# the family fills the front row for the performance and is absent while
+	# she works — the row used to cover 57% of the painting's richest band
+	for fan in audience:
+		fan.visible = show_finale
+	if crowd_label != null:
+		crowd_label.visible = show_finale
 	if rival_actor != null:
 		rival_actor.visible = show_finale or cooperative
 	if player_bar != null:
