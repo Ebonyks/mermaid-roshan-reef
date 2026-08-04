@@ -2,7 +2,7 @@
 
 **Audience:** Codex — image generation + deterministic promotion.
 **Purpose:** regenerate the diegetic art for all ~60 non-combat opera beats at the caliber of the goal props and the career paintings. The engine work is finished and merged; this file and its ledger are the art request.
-**Companion ledger:** `OPERA_WIDGET_ART_REQUEST_LEDGER_2026-08-03.csv` — 221 rows, one per file. **The ledger is the authoritative per-file request list.** This document is the grammar; the ledger is the work.
+**Companion ledger:** `assets_src/concepts/OPERA_WIDGET_ASSET_LEDGER_2026-08-03.csv` — 221 rows, one per file. **The ledger is the authoritative per-file request list.** This document is the grammar; the ledger is the work.
 **Conventions by reference:** the weighted acceptance gate, auto-rejection list, STYLE-JOBS / STYLE-HOUSE contracts, P2-09 canonical prop locks, and the staging protocol are as written in `OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md` and `CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md`. Everything in those files still binds except where section 9 below explicitly supersedes it.
 
 ---
@@ -184,7 +184,7 @@ These beats do not need a full object list, but every named object below must be
 
 ## 5. HOW TO USE THE LEDGER
 
-`OPERA_WIDGET_ART_REQUEST_LEDGER_2026-08-03.csv` — **221 rows, one row per file.** It supersedes and reconciles the three per-section manifests inside the concepts document (44 / 46 / 118), which overlap and disagree on canvas sizes. **Where this document, the concepts document and the ledger disagree, the ledger wins.** If a row is wrong, fix the row — do not diverge in the file.
+`assets_src/concepts/OPERA_WIDGET_ASSET_LEDGER_2026-08-03.csv` — **221 rows, one row per file.** It supersedes and reconciles the three per-section manifests inside the concepts document (44 / 46 / 118), which overlap and disagree on canvas sizes. **Where this document, the concepts document and the ledger disagree, the ledger wins.** If a row is wrong, fix the row — do not diverge in the file.
 
 Do not re-derive the request from the prose. Read the ledger, generate row by row.
 
@@ -306,7 +306,7 @@ Staging into `assets_src/concepts/opera_regeneration_2026-08-01/cards/` with con
 
 **This handoff and its ledger**
 - `C:/Users/Peter/Documents/mermaid-roshan-reef/.worktrees/codex-opera-art-regeneration/CODEX_OPERA_WIDGET_ART_REGENERATION_HANDOFF_2026-08-03.md`
-- `.../OPERA_WIDGET_ART_REQUEST_LEDGER_2026-08-03.csv` — 221 rows, authoritative
+- `.../assets_src/concepts/OPERA_WIDGET_ASSET_LEDGER_2026-08-03.csv` — 221 rows, authoritative
 
 **Direction and evidence**
 - `.../OPERA_WIDGET_ART_CONCEPTS_2026-08-03.md` — the full art direction, all ~60 beats (provenance for `depicts`)
