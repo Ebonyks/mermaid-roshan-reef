@@ -1726,6 +1726,7 @@ func _rebuild_touch_items(room_id: String) -> void:
 			_restore_playroom_rescue_clears()
 			if not _playroom_rescue_done():
 				items.append_array(PLAYROOM_RESCUE_ITEMS)
+	items.append_array(fixture_rigs.room_additions(room_id))
 	for item_data_value: Variant in items:
 		var item_data: Dictionary = item_data_value
 		_add_touch_item(room_id, item_data)
@@ -1743,8 +1744,10 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	# The generated v2 pool fixtures removed the iconic rainbow flow and turned
 	# the right-hand fountain into plumbing. The regenerated room deliberately
 	# uses exact room-derived atlases so its four resting interaction subjects
-	# remain visible, coherent, and aligned with their touch targets.
-	if room_id == "mermaid_pool":
+	# remain visible, coherent, and aligned with their touch targets. V3 pool
+	# additions stay manifest-backed.
+	if room_id == "mermaid_pool" and item_id in [
+			"waterfall", "flower_float", "seahorse_fountain", "star_float"]:
 		v2_visual = {}
 	if not interaction_spec.is_empty() or not v2_visual.is_empty():
 		item_data = item_data.duplicate(true)
@@ -1998,9 +2001,12 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		"render_art_rect": rendered_art_rect,
 	}
 	var stored_record: Dictionary = m.castle_room_item_sprites[item_id]
+	var rig_to_world: Callable = Callable(self, "_art_to_world")
+	if room_id == "main_hall":
+		rig_to_world = Callable(self, "_hall_art_to_world")
 	stored_record["fixture_rig"] = fixture_rigs.build(
 		interaction_key, piece, item_data, source_position, reference_size,
-		item_z, Callable(self, "_art_to_world"))
+		item_z, rig_to_world)
 	_update_touch_hotspot(stored_record)
 	if room_id == "playroom" and item_id == "baby_eagle_rescue":
 		_add_playroom_rescue_pointer()
@@ -2568,7 +2574,8 @@ func _play_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
 	sprite.set_meta("busy", true)
 	sprite.frame = sequence[0]
 	_sync_sconce_frame_uv(sprite)
-	fixture_rigs.apply_frame(interaction_key, 0, timeline_count)
+	fixture_rigs.apply_frame(
+		interaction_key, 0, timeline_count, int(sequence[0]))
 	var visited: Array[int] = [sequence[0]]
 	var timeline_visited: Array[int] = [0]
 	sprite.set_meta("animation_frames_visited", visited)
@@ -2608,7 +2615,8 @@ func _show_item_atlas_frame(sprite: Sprite3D, item_data: Dictionary,
 	timeline_visited.append(step)
 	sprite.set_meta("animation_timeline_steps_visited", timeline_visited)
 	var interaction_key := String(sprite.get_meta("source_object_id", ""))
-	fixture_rigs.apply_frame(interaction_key, step, sequence.size())
+	fixture_rigs.apply_frame(
+		interaction_key, step, sequence.size(), atlas_frame)
 	if play_sound and step == int(item_data.get("sound_frame", 0)):
 		_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
 			float(item_data.get("pitch", 1.0)))
@@ -2624,11 +2632,13 @@ func _finish_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
 	if open_kitchen_menu_after:
 		var step := clampi(terminal_step, 0, sequence.size() - 1)
 		sprite.frame = sequence[step]
-		fixture_rigs.apply_frame(interaction_key, step, sequence.size())
+		fixture_rigs.apply_frame(
+			interaction_key, step, sequence.size(), int(sequence[step]))
 	else:
 		var rest_frame: int = int(item_data.get("rest_frame", 0))
 		sprite.frame = clampi(rest_frame, 0, available_frames - 1)
-		fixture_rigs.apply_frame(interaction_key, 0, sequence.size())
+		fixture_rigs.apply_frame(
+			interaction_key, 0, sequence.size(), rest_frame)
 	if sprite.has_meta("active_close_tween"):
 		sprite.remove_meta("active_close_tween")
 	_sync_sconce_frame_uv(sprite)

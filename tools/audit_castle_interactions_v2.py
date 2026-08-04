@@ -1298,11 +1298,12 @@ def audit() -> int:
     if "_castle_rooms_25d.physics_tick(delta)" not in main_source:
         errors.append("Jolt restoration is not driven by the physics tick")
     export_source = EXPORT_PRESETS.read_text(encoding="utf-8")
-    manifest_export_filter = (
-        'include_filter="assets/flats/castle/interactions_v2/'
-        'castle_interactions_v2.json"'
-    )
-    if export_source.count(manifest_export_filter) != 2:
+    manifest_export_path = (
+        "assets/flats/castle/interactions_v2/castle_interactions_v2.json")
+    include_filters = [line for line in export_source.splitlines()
+                       if line.startswith('include_filter="')]
+    if len(include_filters) != 2 or any(
+            manifest_export_path not in line for line in include_filters):
         errors.append(
             "desktop/Android exports do not both package the runtime v2 JSON"
         )

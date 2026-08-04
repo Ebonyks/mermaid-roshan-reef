@@ -41,6 +41,12 @@ python3 tools/normalize_castle_interaction_v2_sheets.py --check \
 	|| { echo "CASTLE INTERACTION V2 NORMALIZATION FAIL"; exit 1; }
 python3 tools/audit_castle_interactions_v2.py \
 	|| { echo "CASTLE INTERACTION V2 DELIVERY FAIL"; exit 1; }
+python3 tools/prepare_castle_interaction_v3_sources.py --check \
+	|| { echo "CASTLE INTERACTION V3 SOURCE PREP FAIL"; exit 1; }
+python3 tools/normalize_castle_interaction_v3_sheets.py --check \
+	|| { echo "CASTLE INTERACTION V3 NORMALIZATION FAIL"; exit 1; }
+python3 tools/audit_castle_interactions_v3.py \
+	|| { echo "CASTLE INTERACTION V3 DELIVERY FAIL"; exit 1; }
 RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
 FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
 import_log="$(mktemp)"

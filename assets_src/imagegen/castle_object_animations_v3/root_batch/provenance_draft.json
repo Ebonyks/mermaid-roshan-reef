@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "repository_copy_lifecycle": "The chroma_master/copied_output path, hash, and byte-identical fields record the accepted native repository copy before the one-time source-preparation transaction. After that transaction, the current repository path and prepared hash are authoritative only through castle_interactions_v3_source_preparation.json; the external native path/hash remain immutable provenance.",
+  "batch_id": "main_hall_and_shell_piano_v3_2026-08-02",
+  "generation_method": "built_in_image_gen",
+  "reviewer": "Codex visual review; human review pending",
+  "review_status": "accepted_for_source_normalization_pending_alpha_and_runtime_audit",
+  "prompt_record_status": "Reconstructed faithfully from the ImageGen tool calls after conversation compaction; exact byte-for-byte execution strings were not retained by the image files.",
+  "assets": [
+    {
+      "id": "main_hall_shell_clock",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fbe47-8946-7701-9d57-49744b1e38ef\\exec-a11fc751-497e-4d1d-b4a6-90d36f75c07b.png",
+      "native_sha256": "485c3f10f81033e1941703826a51b644317261c17bf90662071efe5e987f2673",
+      "output": "assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_shell_clock_sheet_chroma.png",
+      "prompt": "Use case: illustration-story. Godot sprite-sheet source master. Exactly eight full-object states in a strict 4x2 reading order of one polished pastel Pearl Castle wall clock: closed rest; latch turns; tiny shell door opens; pendulum starts; hands advance while pendulum swings; pendulum reverses; door closes; exact rest. Identical clock identity, scale, fixed centre mount and outer case in every state. Uniform flat #FF00FF background only. Coral, pearl, warm gold and aqua storybook toy styling with lavender outline. No room pixels, floor, shadows, detached effects, text, labels, characters, extra objects, borders or magenta subject pixels."
+    },
+    {
+      "id": "main_hall_visitor_bell",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fbe47-8946-7701-9d57-49744b1e38ef\\exec-2aaeffb2-5408-4a22-8d40-695c0e7d0b0c.png",
+      "native_sha256": "ec2e3b7f0eebd0950511eeac6eae975cfb50fe1806df7dd92fcf7ad28e4ec993",
+      "output": "assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_visitor_bell_sheet_chroma.png",
+      "prompt": "Use case: illustration-story. Godot sprite-sheet source master. Exactly eight complete states in strict 4x2 order of one pearl-shell visitor bell mounted on a coral bracket with attached pull cord: rest; cord begins down; cord fully pulled; clapper strikes left; bell flexes; clapper rebounds right; cord rises; exact rest. Fixed top-centre mount and identical scale. Uniform #FF00FF only. Pearl Castle pastel storybook toy finish, gold bell, coral bracket, pearl cord handle, lavender outline. No room, shadows, sound symbols, motion lines, text, extra props, borders or detached effects."
+    },
+    {
+      "id": "main_hall_left_pearl_vitrine",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fbe47-8946-7701-9d57-49744b1e38ef\\exec-4b81691d-8c30-4774-acd9-f316f1eda897.png",
+      "native_sha256": "55fecceaf8538be215b6b1a64875c67b7c66e6d5c2b3b80ffef606b96ee27c28",
+      "output": "assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_left_pearl_vitrine_sheet_chroma.png",
+      "prompt": "Use case: illustration-story. Godot sprite-sheet source master. Exactly eight full-object 4x2 states of one pearl-and-aqua royal wall vitrine containing a tiny shell crown: closed rest; latch turns; glass doors crack; doors open; crown pedestal rises inside; crown pauses inside; pedestal lowers and doors close; exact rest. Same complete cabinet, fixed centre wall mount, identity and scale. Flat #FF00FF only. Polished pastel Pearl Castle storybook toy styling. No room pixels, shadows, floating effects, text, labels, people, duplicate cabinet, borders or magenta subject."
+    },
+    {
+      "id": "main_hall_right_pearl_vitrine",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fbe47-8946-7701-9d57-49744b1e38ef\\exec-be424f7a-ab58-4e88-89c7-8bc974ea84d6.png",
+      "native_sha256": "d854808d6b03a29f2720ac71b3418cfe2692f25b7c2dd76de94b1f37186c4867",
+      "output": "assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_right_pearl_vitrine_sheet_chroma.png",
+      "prompt": "Use case: illustration-story. Godot sprite-sheet source master. Exactly eight full-object states in strict 4x2 order of one pearl-and-lavender royal wall vitrine containing a shell compass: closed rest; pearl latch turns; shutters crack; shutters open; compass petals unfold while remaining inside; compass rotates slightly inside; petals fold and shutters close; exact rest. Stable complete cabinet, fixed centre mount and scale. Uniform #FF00FF only. Pastel Pearl Castle storybook toy finish. No room, shadows, generic effects, text, labels, characters, duplicates, borders or magenta subject."
+    },
+    {
+      "id": "main_hall_banner_left",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fbe47-8946-7701-9d57-49744b1e38ef\\exec-dafb8bdd-43aa-44c4-8b9b-f67a1352bda3.png",
+      "native_sha256": "031c7e6eec7372d4c841bb26ddecb766e56040919cb6cf9b14f3fec8342787b4",
+      "output": "assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_banner_left_sheet_chroma.png",
+      "prompt": "Use case: illustration-story. Godot sprite-sheet source master. Exactly eight complete states in strict 4x2 order of one pearl-capped coral royal wall banner with attached gold pull cord: rolled rest; cord pulls; fabric begins unrolling; half open; fully unrolled with a generic shell motif; fabric begins rewinding; nearly rolled; exact rest. Fixed top-centre rod and identical scale. Solid #FF00FF only. Polished pastel Pearl Castle storybook toy styling. No room pixels, shadows, loose cloth, wind or sparkle overlays, text, symbols from other franchises, characters, borders or magenta subject."
+    },
+    {
+      "id": "main_hall_fern_planter",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fbe47-8946-7701-9d57-49744b1e38ef\\exec-95075eec-5739-4a18-a0b8-d28589f936f9.png",
+      "native_sha256": "273b5d8dc4ae86f6e3c4f6a1e31d42c690428eacb2c83c967a58e8e2e62ab73f",
+      "output": "assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_fern_planter_sheet_chroma.png",
+      "prompt": "Use case: illustration-story. Godot sprite-sheet source master. Exactly eight full-object states in strict 4x2 order of one aqua scallop-shell floor planter and its attached green fern: compact rest; centre frond loosens; left fronds unfurl; right fronds unfurl; full open plant; fronds begin folding; nearly compact; exact rest. Pot bottom-centre pivot, same pot and plant identity and scale. Uniform #FF00FF only. Pastel Pearl Castle storybook toy styling with lavender outlines. No room, floor, cast shadow, floating leaves, sparkles, text, characters, borders or magenta subject."
+    },
+    {
+      "id": "main_hall_chest_bench",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fbe47-8946-7701-9d57-49744b1e38ef\\exec-fd14c9ee-b95b-4b7d-a469-851fd203e508.png",
+      "native_sha256": "a23270702ec65cc4250fdf6a257b261040b7d82843851fa6b22d677ab6f39c75",
+      "output": "assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_chest_bench_sheet_chroma.png",
+      "prompt": "Use case: illustration-story. Godot sprite-sheet source master. Exactly eight complete states in strict 4x2 order of one lavender scallop-shell royal chest bench with attached gold key and folded blanket inside: locked rest; key turns; latch lifts; lid cracks; lid fully opens showing contained blanket; blanket lifts slightly but stays attached inside; lid closes; exact locked rest. Fixed bottom-centre footprint and scale. Flat #FF00FF only. Pastel Pearl Castle storybook toy finish. No room, floor, shadow, detached effects, text, characters, extra objects, borders or magenta subject."
+    },
+    {
+      "id": "opera_hall_shell_piano",
+      "attempt": 1,
+      "native": "C:\\Users\\Peter\\.codex\\generated_images\\019fbe47-8946-7701-9d57-49744b1e38ef\\exec-c804cd5a-a3e7-4b71-b967-ad32137bf3a9.png",
+      "native_sha256": "f5fb73a294981b58bc167bc8f4e3804ced77a0994ca91387cc4e1ca21dcced7e",
+      "output": "assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_shell_piano_sheet_chroma.png",
+      "prompt": "Use case: illustration-story. Godot sprite-sheet source master. Exactly eight full-object states in strict 4x2 order of one compact pink scallop-shell opera piano: closed rest; lid latch turns; music lid opens; first keys depress; different adjacent keys depress; keys rebound; lid closes; exact rest. Complete piano in every cell, stable legs, bottom-centre pivot, identity and scale. Uniform #FF00FF only. Polished pastel Pearl Castle theatre prop with pearl keys, coral and gold trim, lavender outline. No stage or room pixels, floor, shadows, music notes, motion lines, text, characters, extra props, borders or magenta subject."
+    }
+  ]
+}
