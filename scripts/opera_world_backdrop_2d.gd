@@ -102,7 +102,10 @@ func _draw() -> void:
 		return
 	if painting != null:
 		draw_texture_rect(painting, Rect2(Vector2.ZERO, size), false)
-		_draw_spotlights(accent)
+		# spotlights are stage lighting — over a painted district they fight
+		# the art's own light sources
+		if stage_mode:
+			_draw_spotlights(accent)
 		if stage_mode:
 			_draw_stage_frame(accent)
 		return

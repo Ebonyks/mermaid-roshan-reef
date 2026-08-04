@@ -152,6 +152,34 @@ const PATHS: Dictionary = {
 	},
 }
 
+## Walkable roam envelope per career, as [t_min, t_max] along the route.
+## The route's extreme ends are the painted entry and destination (arches,
+## daises, carts) — scenery, not standing room — and several careers have
+## mid-route hazards recorded in the derivation notes (chef's water inlet
+## under the footbridge, doctor's canal descent, ballerina's bridge gap).
+## Crew imps roam inside this envelope; Roshan still walks the full route.
+const ROAM: Dictionary = {
+	"chef": [0.14, 0.86],
+	"detective": [0.16, 0.88],
+	"ballerina": [0.14, 0.84],
+	"candymaker": [0.12, 0.86],
+	"doctor": [0.12, 0.80],
+	"farmer": [0.14, 0.88],
+	"boxer": [0.14, 0.86],
+	"magician": [0.14, 0.86],
+	"painter": [0.14, 0.86],
+	"astronaut": [0.14, 0.86],
+	"racer": [0.16, 0.84],
+	"popstar": [0.14, 0.86],
+	"nursery": [0.15, 0.85],
+}
+
+
+static func roam_range(career: String) -> Vector2:
+	var entry: Array = ROAM.get(career, [0.14, 0.86])
+	return Vector2(float(entry[0]), float(entry[1]))
+
+
 const FALLBACK_PATH := [
 	[0.08, 0.72], [0.22, 0.66], [0.38, 0.70], [0.52, 0.64],
 	[0.66, 0.70], [0.80, 0.65], [0.92, 0.70],
