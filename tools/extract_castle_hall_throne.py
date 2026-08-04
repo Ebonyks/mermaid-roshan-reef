@@ -1,39 +1,106 @@
 #!/usr/bin/env python3
-"""Extract the approved Main Hall shell throne as a transparent runtime card.
+"""Extract the approved pearl-shell throne as a transparent runtime card.
 
-The source is the prior approved high-resolution Screen-B painting. This tool
-only crops existing RGB pixels and authors an alpha silhouette around the
-already-painted throne; it does not repaint, upscale, interpolate RGB, or add
-new visual content. The manifest records the exact source rectangle, mask,
-dimensions, and hashes.
+The source is the accepted Regen-01 flat-storybook turnaround sheet.  This tool
+crops its orthographic front view and removes only the connected cream studio
+matte.  It does not repaint, upscale, interpolate RGB, or add visual content.
+The manifest records the exact source rectangle, mask, dimensions, and hashes.
 """
 
 from __future__ import annotations
 
 import argparse
+from collections import deque
 import hashlib
 import json
+import math
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageDraw, ImageFilter
+from PIL import Image, ImageChops
 
 
-SOURCE_RECT = (1790, 355, 1975, 540)
-MASK_SCALE = 4
+SOURCE_SIZE = (1536, 1024)
+SOURCE_RECT = (48, 16, 570, 540)
+MATTE_DISTANCE_LIMIT = 50.0
+MATTE_CHANNEL_LIMIT = 43
+OBJECT_FLOOR_Y = 503
 
 
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _scaled_box(box: tuple[int, int, int, int]) -> tuple[int, int, int, int]:
-    return tuple(value * MASK_SCALE for value in box)
+def _connected_studio_matte(crop: Image.Image) -> Image.Image:
+    """Return object alpha after removing only border-connected studio matte."""
+    width, height = crop.size
+    pixels = crop.load()
+    candidates = bytearray(width * height)
+    for y in range(height):
+        # The accepted sheet uses a gently varying cream field.  Sampling both
+        # clear side gutters per row follows that gradient without modeling or
+        # changing any subject pixels.
+        samples = [pixels[x, y] for x in range(12)]
+        samples.extend(pixels[x, y] for x in range(width - 12, width))
+        background = tuple(
+            sum(sample[channel] for sample in samples) / len(samples)
+            for channel in range(3)
+        )
+        for x in range(width):
+            color = pixels[x, y]
+            delta = tuple(abs(color[channel] - background[channel])
+                          for channel in range(3))
+            distance = math.sqrt(sum(value * value for value in delta))
+            if max(delta) <= MATTE_CHANNEL_LIMIT \
+                    and distance <= MATTE_DISTANCE_LIMIT:
+                candidates[y * width + x] = 1
+
+    connected = bytearray(width * height)
+    queue: deque[tuple[int, int]] = deque()
+    for x in range(width):
+        for y in (0, height - 1):
+            index = y * width + x
+            if candidates[index] and not connected[index]:
+                connected[index] = 1
+                queue.append((x, y))
+    for y in range(height):
+        for x in (0, width - 1):
+            index = y * width + x
+            if candidates[index] and not connected[index]:
+                connected[index] = 1
+                queue.append((x, y))
+    while queue:
+        x, y = queue.popleft()
+        for nx, ny in ((x - 1, y), (x + 1, y),
+                       (x, y - 1), (x, y + 1)):
+            if nx < 0 or nx >= width or ny < 0 or ny >= height:
+                continue
+            index = ny * width + nx
+            if candidates[index] and not connected[index]:
+                connected[index] = 1
+                queue.append((nx, ny))
+
+    alpha = Image.new("L", crop.size, 255)
+    alpha_pixels = alpha.load()
+    for y in range(height):
+        for x in range(width):
+            if connected[y * width + x]:
+                alpha_pixels[x, y] = 0
+    return alpha
 
 
-def _scaled_points(
-    points: list[tuple[int, int]],
-) -> list[tuple[int, int]]:
-    return [(x * MASK_SCALE, y * MASK_SCALE) for x, y in points]
+def _remove_turnaround_floor_shadow(alpha: Image.Image) -> Image.Image:
+    """Remove the source sheet's soft floor shadow below the chair base.
+
+    The runtime card casts its own scene-depth contact shadow.  The accepted
+    front-view object ends at source y=518; pixels below it belong only to the
+    turnaround sheet's diffuse studio floor shadow.
+    """
+    result = alpha.copy()
+    pixels = result.load()
+    for y in range(OBJECT_FLOOR_Y, result.height):
+        for x in range(result.width):
+            pixels[x, y] = 0
+    return result
 
 
 def main() -> None:
@@ -45,48 +112,13 @@ def main() -> None:
 
     with Image.open(arguments.source) as opened:
         source = opened.convert("RGB")
-    if source.size != (2048, 1153):
+    if source.size != SOURCE_SIZE:
         raise ValueError(
-            "Expected approved Screen-B master at 2048x1153; "
+            f"Expected accepted Regen-01 sheet at {SOURCE_SIZE}; "
             f"got {source.width}x{source.height}: {arguments.source}")
 
     crop = source.crop(SOURCE_RECT)
-    mask = Image.new(
-        "L", (crop.width * MASK_SCALE, crop.height * MASK_SCALE), 0)
-    draw = ImageDraw.Draw(mask)
-    # Keep the recognizable shell seat, finial, pearl standards, and platform;
-    # deliberately exclude the old alcove, rainbow arch, wall, and staircase.
-    # This prevents the retained object from reading as a rectangular inset.
-    draw.polygon(_scaled_points([
-        (88, 25), (108, 33), (121, 46), (136, 57),
-        (149, 89), (141, 116), (121, 139), (62, 139),
-        (42, 120), (32, 95), (39, 65), (55, 50), (73, 38),
-    ]), fill=255)
-    draw.polygon(_scaled_points([
-        (79, 0), (105, 0), (111, 27), (105, 38),
-        (79, 38), (73, 27),
-    ]), fill=255)
-    draw.polygon(_scaled_points([
-        (23, 104), (44, 104), (49, 166), (18, 166),
-    ]), fill=255)
-    draw.polygon(_scaled_points([
-        (144, 104), (163, 104), (165, 166), (140, 166),
-    ]), fill=255)
-    # Preserve the chair's lower pearl platform without the painted stair.
-    draw.rounded_rectangle(
-        _scaled_box((16, 133, 165, 184)),
-        radius=7 * MASK_SCALE,
-        fill=255,
-    )
-    mask = mask.resize(crop.size, Image.Resampling.LANCZOS)
-    # Remove the old dark chair-back/alcove pixels from inside the audited
-    # silhouette while preserving the dark painted outlines touching the
-    # bright shell, pearl, and gold object. A small max filter expands only
-    # from existing bright source pixels; it never alters RGB.
-    bright_source = crop.convert("L").point(
-        lambda value: 255 if value >= 100 else 0)
-    bright_with_outlines = bright_source.filter(ImageFilter.MaxFilter(5))
-    mask = ImageChops.multiply(mask, bright_with_outlines)
+    mask = _remove_turnaround_floor_shadow(_connected_studio_matte(crop))
 
     result = crop.convert("RGBA")
     result.putalpha(mask)
@@ -102,7 +134,7 @@ def main() -> None:
     result.save(arguments.output, format="PNG", optimize=True)
     manifest = {
         "schema": 1,
-        "purpose": "Pixel-preserving approved shell-throne Sprite3D cutout",
+        "purpose": "Pixel-preserving approved pearl-shell throne Sprite3D cutout",
         "source": {
             "path": arguments.source.as_posix(),
             "dimensions": list(source.size),
@@ -120,9 +152,14 @@ def main() -> None:
         "upscaled": False,
         "generated_rgb_pixels": False,
         "mask": {
-            "method": "manually audited antialiased silhouette",
-            "supersample": MASK_SCALE,
-            "source_authority": "approved Screen-B throne silhouette only",
+            "method": (
+                "border-connected accepted cream-studio matte removal + "
+                "source-sheet floor-shadow exclusion"
+            ),
+            "distance_limit": MATTE_DISTANCE_LIMIT,
+            "channel_limit": MATTE_CHANNEL_LIMIT,
+            "object_floor_y_in_crop": OBJECT_FLOOR_Y,
+            "source_authority": "accepted Regen-01 orthographic front view",
         },
     }
     arguments.manifest.parent.mkdir(parents=True, exist_ok=True)

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Build the integration-safe Pearl Castle interaction-v3 manifest.
 
-The active manifest contains 29 generated-v2 bases and 38 additive generated
-full-object sheets. The four approved room-derived Mermaid Pool bases remain
+The active manifest contains 28 generated-v2 bases and 38 additive generated
+full-object sheets. The incompatible legacy Main Hall tapestry remains safely
+preserved in the v2 source manifest but is retired from runtime. The four
+approved room-derived Mermaid Pool bases remain
 runtime evidence outside ``assets`` so retired generated-v2 pool cutouts cannot
 silently return. This tool registers existing pixels only; it never edits art.
 """
@@ -35,19 +37,23 @@ WATER_SHADER = ROOT / "assets/shaders/castle_fixture_water.gdshader"
 RIPPLE_TEXTURE = ROOT / "assets/terrain/up_water_nrm.jpg"
 CAUSTICS_TEXTURE = ROOT / "assets/terrain/caustics.png"
 
-ACTIVE_V2_ASSETS = 29
-ACTIVE_V2_INSTANCES = 34
+SOURCE_V2_ASSETS = 29
+SOURCE_V2_INSTANCES = 34
+ACTIVE_V2_ASSETS = 28
+ACTIVE_V2_INSTANCES = 33
 V3_ADDITIONS = 38
 LEGACY_POOL_ASSETS = 4
-MANIFEST_ASSETS = 67
-MANIFEST_INSTANCES = 72
-OVERALL_ASSETS = 71
-OVERALL_INSTANCES = 76
+MANIFEST_ASSETS = 66
+MANIFEST_INSTANCES = 71
+OVERALL_ASSETS = 70
+OVERALL_INSTANCES = 75
 MANIFEST_JOLT = 8
 MANIFEST_WATER = 10
 OVERALL_WATER = 14
 ROOM_BUDGET_BYTES = 24 * 1024 * 1024
 POOL_ROOM = "mermaid_pool"
+RETIRED_V2_ASSET_IDS = {"main_hall_tapestry"}
+RETIRED_V2_INSTANCE_IDS = {"tapestry_right"}
 
 
 def sha256(path: Path) -> str:
@@ -122,16 +128,25 @@ def review_is_accepted(status: str) -> bool:
 def integration_rosters(
     v1: dict[str, Any], v2: dict[str, Any]
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    active = copy.deepcopy(v2.get("assets", []))
-    if len(active) != ACTIVE_V2_ASSETS:
+    source_active = copy.deepcopy(v2.get("assets", []))
+    if len(source_active) != SOURCE_V2_ASSETS:
         raise ValueError(
             "v3 requires the current 29-asset v2 baseline; merge origin/dev "
-            f"before building (found {len(active)})"
+            f"before building (found {len(source_active)})"
         )
-    if sum(len(value.get("instances", [])) for value in active) != ACTIVE_V2_INSTANCES:
-        raise ValueError("active v2 physical-instance count is not 34")
-    if any(str(value.get("room", "")) == POOL_ROOM for value in active):
+    if sum(len(value.get("instances", [])) for value in source_active) \
+            != SOURCE_V2_INSTANCES:
+        raise ValueError("source v2 physical-instance count is not 34")
+    if any(str(value.get("room", "")) == POOL_ROOM for value in source_active):
         raise ValueError("retired generated-v2 Mermaid Pool art was reintroduced")
+    active = [
+        value for value in source_active
+        if str(value.get("id", "")) not in RETIRED_V2_ASSET_IDS
+    ]
+    if len(active) != ACTIVE_V2_ASSETS \
+            or sum(len(value.get("instances", [])) for value in active) \
+            != ACTIVE_V2_INSTANCES:
+        raise ValueError("active v2 roster is not 28 assets / 33 instances")
     retired = v2.get("retired_rooms", {})
     if not isinstance(retired, dict) or POOL_ROOM not in retired:
         raise ValueError("v2 does not record the retired Mermaid Pool")
@@ -426,6 +441,13 @@ def build_addition(
 
 def active_rooms(v2: dict[str, Any], additions: list[dict[str, Any]]) -> dict[str, Any]:
     rooms = copy.deepcopy(v2.get("rooms", {}))
+    for room in rooms.values():
+        instances = room.get("instances", [])
+        room["instances"] = [
+            value for value in instances
+            if str(value.get("id", "")) not in RETIRED_V2_INSTANCE_IDS
+        ]
+        room["physical_item_count"] = len(room["instances"])
     by_room: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for entry in additions:
         by_room[str(entry["room"])].append({
@@ -440,7 +462,7 @@ def active_rooms(v2: dict[str, Any], additions: list[dict[str, Any]]) -> dict[st
         instances.extend(copy.deepcopy(values))
         room["physical_item_count"] = len(instances)
     expected = {
-        "main_hall": 14, "opera_hall": 8, "kitchen": 14,
+        "main_hall": 13, "opera_hall": 8, "kitchen": 14,
         "library": 8, "playroom": 8, "craft_room": 8,
         "mermaid_pool": 4, "bubble_bath": 8,
     }
@@ -501,7 +523,7 @@ def main() -> None:
     assets = [*base_assets, *additions]
     manifest_instances = sum(len(value.get("instances", [])) for value in assets)
     if len(assets) != MANIFEST_ASSETS or manifest_instances != MANIFEST_INSTANCES:
-        raise ValueError("active combined manifest is not 67 assets / 72 instances")
+        raise ValueError("active combined manifest is not 66 assets / 71 instances")
     manifest_jolt = sum(str(value.get("physics_mode", "none")) != "none" for value in assets)
     manifest_water = sum(bool(value.get("water_layers", [])) for value in assets)
     if manifest_jolt != MANIFEST_JOLT or manifest_water != MANIFEST_WATER:
@@ -556,7 +578,7 @@ def main() -> None:
     if (summary["overall_asset_count"] != OVERALL_ASSETS
             or summary["overall_physical_instance_count"] != OVERALL_INSTANCES
             or summary["overall_water_interaction_count"] != OVERALL_WATER):
-        raise ValueError("overall castle totals are not 71 assets / 76 instances / 14 water")
+        raise ValueError("overall castle totals are not 70 assets / 75 instances / 14 water")
     payload = {
         "schema_version": 3,
         "generated_on": "2026-08-02",

@@ -44,7 +44,7 @@
     },
     {
       "output": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
-      "output_sha256": "65AE7B5B6FFDF734EBC70B2AB9113AD2ACC5985CB9A042F8A6DBADCD192CCD51",
+      "output_sha256": "A21EB872F17FFD77E74944E7FBDB4B3DDD0923F3D32CAD59F7AE7D92890F24DE",
       "output_dimensions": [
         256,
         256
@@ -52,12 +52,12 @@
       "source": "assets/flats/castle/dream_house/family_wing_hall_insert.png",
       "source_sha256": "0D038C9BA825B691D52303503933B6E615608BBB090ECBADE17CA8A456A87F60",
       "source_crop_xyxy": [
-        112,
+        158,
         0,
-        369,
-        190
+        335,
+        178
       ],
-      "derivation": "approved transparent crop + soft ellipse cap + Lanczos resize"
+      "derivation": "approved crest-only crop + hand-traced semantic alpha + whole-object Lanczos resize"
     },
     {
       "output": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",

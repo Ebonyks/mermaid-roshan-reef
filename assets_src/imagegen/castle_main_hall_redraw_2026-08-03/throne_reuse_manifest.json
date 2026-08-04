@@ -1,32 +1,32 @@
 {
   "schema": 1,
-  "purpose": "Pixel-preserving approved shell-throne Sprite3D cutout",
+  "purpose": "Pixel-preserving approved pearl-shell throne Sprite3D cutout",
   "source": {
-    "path": "assets_src/castle/main_hall_alignment/main_hall_screen_b_fixture_aligned_master.png",
+    "path": "assets_src/concepts/cc0_ocean_replacements_2026-07-22/regen_01_pearl_shell_throne.png",
     "dimensions": [
-      2048,
-      1153
+      1536,
+      1024
     ],
-    "sha256": "98cbfddd1aaa66fb751988c0bab0b27fdf481477f124c34ecb85bab5f6500b2d"
+    "sha256": "b401a6314275068ef0702b23871b07695c19abf12dc7e23e1ec6db1b5a6f8c1e"
   },
   "source_rectangle": [
-    1790,
-    355,
-    1975,
+    48,
+    16,
+    570,
     540
   ],
   "output": {
     "path": "assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png",
     "dimensions": [
-      185,
-      185
+      522,
+      524
     ],
-    "sha256": "49c91df90ca65b56a5562a9ecc5e61fc4dc361fb684370cd7e3365375ff8ca1f",
+    "sha256": "91a8edcb91492d699e228cb4048fa346825f2a9e034ca3c9693f69a98933bcff",
     "alpha_bbox": [
-      15,
-      0,
-      168,
-      185
+      26,
+      13,
+      496,
+      503
     ],
     "long_edge_within_1024_limit": true
   },
@@ -34,8 +34,10 @@
   "upscaled": false,
   "generated_rgb_pixels": false,
   "mask": {
-    "method": "manually audited antialiased silhouette",
-    "supersample": 4,
-    "source_authority": "approved Screen-B throne silhouette only"
+    "method": "border-connected accepted cream-studio matte removal + source-sheet floor-shadow exclusion",
+    "distance_limit": 50.0,
+    "channel_limit": 43,
+    "object_floor_y_in_crop": 503,
+    "source_authority": "accepted Regen-01 orthographic front view"
   }
 }
