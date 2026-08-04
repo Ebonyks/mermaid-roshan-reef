@@ -2,8 +2,8 @@ extends SceneTree
 # Structural and visual acceptance probe for the picture-first Pearl Castle.
 # The historical filename remains so CI callers do not change, but modeled
 # pearl-kit geometry is now a regression: world art must remain Sprite3D. The
-# main hall background is intentionally shaded so its touch-controlled
-# SpotLight3D clusters can produce real depth and shadows.
+# Main Hall tiles are opaque, unshaded Sprite3D cards; practical fixtures use
+# HDR emission and the shared Environment for touch-controlled bloom.
 
 const ROOM_IDS: Array[String] = [
 	"main_hall", "opera_hall", "kitchen", "library", "playroom",
@@ -12,6 +12,32 @@ const ROOM_IDS: Array[String] = [
 const HALL_DESTINATION_IDS: Array[String] = [
 	"family_gallery", "opera_hall", "kitchen", "library", "playroom",
 	"craft_room", "mermaid_pool", "bubble_bath",
+]
+const HALL_SIGN_FILES := {
+	"family_gallery": "sign_family_gallery.png",
+	"opera_hall": "sign_opera_hall.png",
+	"library": "sign_library.png",
+	"kitchen": "sign_kitchen.png",
+	"playroom": "sign_playroom.png",
+	"craft_room": "sign_craft_room.png",
+	"mermaid_pool": "sign_mermaid_pool.png",
+	"bubble_bath": "sign_bubble_bath.png",
+}
+const HALL_TILE_COLUMNS := 8
+const HALL_TILE_ROWS := 2
+const HALL_TILE_COUNT := HALL_TILE_COLUMNS * HALL_TILE_ROWS
+const HALL_NATIVE_SIZE := Vector2(7280.0, 2048.0)
+const HALL_LOGICAL_SIZE := Vector2(3344.0, 941.0)
+const HALL_SCREEN_NATIVE_WIDTH := 3640.0
+const HALL_TILE_NATIVE_HEIGHT := 1024.0
+const HALL_TILE_NATIVE_WIDTHS: Array[int] = [
+	910, 910, 910, 910, 910, 910, 910, 910,
+]
+const HALL_NATIVE_TO_LOGICAL := HALL_LOGICAL_SIZE / HALL_NATIVE_SIZE
+const ELEVATOR_ROOM_IDS: Array[String] = [
+	"main_hall", "opera_hall", "kitchen", "library",
+	"playroom", "craft_room", "mermaid_pool", "bubble_bath",
+	"dining_room", "royal_bedroom", "sleepover_bedroom", "movie_lounge",
 ]
 const INTERACTION_MANIFEST := \
 	"res://assets/flats/castle/interactions_v3/castle_interactions_v3.json"
@@ -166,7 +192,12 @@ func _audit_world_node(node: Node, counts: Dictionary) -> void:
 				if source_role == "portal_glow":
 					counts["portal_glow"] = int(
 						counts.get("portal_glow", 0)) + 1
+				var is_opaque_background: bool = \
+					source_role == "clean_background_tile"
 				var alpha_ok: bool = (
+					not sprite.transparent
+					and sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED
+				) if is_opaque_background else (
 					sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED
 					if source_role == "portal_glow" else
 					sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
@@ -202,6 +233,8 @@ func _room_detail_tile_ready(tile: Sprite3D) -> bool:
 	return (
 		tile.visible
 		and tile.texture != null
+		and not tile.transparent
+		and tile.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED
 		and tile.texture.get_size() == native_size
 		and maxf(native_size.x, native_size.y) <= 1024.0
 		and tile.texture.resource_path.contains("rooms/background_tiles/")
@@ -214,6 +247,100 @@ func _room_detail_tile_ready(tile: Sprite3D) -> bool:
 		and is_equal_approx(
 			tile.scale.y, render_rect.size.y / source_rect.size.y)
 	)
+
+func _hall_native_column_x(column: int) -> float:
+	var x := 0.0
+	for prior_column: int in range(column):
+		x += float(HALL_TILE_NATIVE_WIDTHS[prior_column])
+	return x
+
+func _hall_expected_native_size(column: int) -> Vector2:
+	return Vector2(
+		float(HALL_TILE_NATIVE_WIDTHS[column]), HALL_TILE_NATIVE_HEIGHT)
+
+func _hall_expected_logical_rect(row: int, column: int) -> Rect2:
+	var native_position := Vector2(
+		_hall_native_column_x(column),
+		float(row) * HALL_TILE_NATIVE_HEIGHT)
+	var native_size: Vector2 = _hall_expected_native_size(column)
+	return Rect2(
+		native_position * HALL_NATIVE_TO_LOGICAL,
+		native_size * HALL_NATIVE_TO_LOGICAL)
+
+func _hall_runtime_tile_seams_match(tiles: Array[Sprite3D]) -> Dictionary:
+	var result := {
+		"ok": tiles.size() == HALL_TILE_COUNT,
+		"mismatch": "",
+		"worst_mean_rgb_delta": 0.0,
+	}
+	if not bool(result["ok"]):
+		result["mismatch"] = "tile_count=%d" % tiles.size()
+		return result
+	var images: Array[Image] = []
+	for tile: Sprite3D in tiles:
+		var image: Image = tile.texture.get_image() if tile.texture != null else null
+		if image == null or image.is_empty():
+			return {"ok": false, "mismatch": "%s:no_image" % tile.name}
+		images.append(image)
+	for index: int in range(tiles.size()):
+		var row: int = index / HALL_TILE_COLUMNS
+		var column: int = index % HALL_TILE_COLUMNS
+		var tile: Sprite3D = tiles[index]
+		var image: Image = images[index]
+		var source_rect: Rect2 = tile.get_meta(
+			"source_art_rect", Rect2()) as Rect2
+		var expected_rect: Rect2 = _hall_expected_logical_rect(row, column)
+		if not source_rect.is_equal_approx(expected_rect):
+			return {"ok": false,
+				"mismatch": "r%d_c%d:logical_rect=%s" % [
+					row, column, source_rect]}
+		if column < HALL_TILE_COLUMNS - 1:
+			var right_image: Image = images[index + 1]
+			var right_rect: Rect2 = tiles[index + 1].get_meta(
+				"source_art_rect", Rect2()) as Rect2
+			if not is_equal_approx(source_rect.end.x, right_rect.position.x):
+				return {"ok": false, "mismatch":
+					"r%d_c%d:horizontal_geometry_gap" % [row, column]}
+			var shared_height := mini(image.get_height(), right_image.get_height())
+			var vertical_edge_delta := 0.0
+			for y: int in range(shared_height):
+				var left_color: Color = image.get_pixel(image.get_width() - 1, y)
+				var right_color: Color = right_image.get_pixel(0, y)
+				vertical_edge_delta += absf(left_color.r - right_color.r) \
+					+ absf(left_color.g - right_color.g) \
+					+ absf(left_color.b - right_color.b)
+			var vertical_mean_delta: float = vertical_edge_delta \
+				/ maxf(1.0, float(shared_height * 3))
+			result["worst_mean_rgb_delta"] = maxf(
+				float(result["worst_mean_rgb_delta"]), vertical_mean_delta)
+			if vertical_mean_delta > 0.18:
+				return {"ok": false, "mismatch":
+					"r%d_c%d:right_mean=%.4f" % [
+						row, column, vertical_mean_delta]}
+		if row == 0:
+			var lower_image: Image = images[index + HALL_TILE_COLUMNS]
+			var lower_rect: Rect2 = tiles[index + HALL_TILE_COLUMNS].get_meta(
+				"source_art_rect", Rect2()) as Rect2
+			if not is_equal_approx(source_rect.end.y, lower_rect.position.y):
+				return {"ok": false, "mismatch":
+					"r%d_c%d:vertical_geometry_gap" % [row, column]}
+			var shared_width := mini(image.get_width(), lower_image.get_width())
+			var horizontal_edge_delta := 0.0
+			for x: int in range(shared_width):
+				var upper_color: Color = image.get_pixel(x, image.get_height() - 1)
+				var lower_color: Color = lower_image.get_pixel(x, 0)
+				horizontal_edge_delta += absf(upper_color.r - lower_color.r) \
+					+ absf(upper_color.g - lower_color.g) \
+					+ absf(upper_color.b - lower_color.b)
+			var horizontal_mean_delta: float = horizontal_edge_delta \
+				/ maxf(1.0, float(shared_width * 3))
+			result["worst_mean_rgb_delta"] = maxf(
+				float(result["worst_mean_rgb_delta"]), horizontal_mean_delta)
+			if horizontal_mean_delta > 0.18:
+				return {"ok": false, "mismatch":
+					"r%d_c%d:lower_mean=%.4f" % [
+						row, column, horizontal_mean_delta]}
+	return result
 
 func _load_interaction_manifest(path: String) -> Dictionary:
 	if not FileAccess.file_exists(path):
@@ -447,6 +574,73 @@ func _visible_world_sprite3d_count() -> int:
 	var counts: Dictionary = {}
 	_audit_world_node(main.castle_room_world_root, counts)
 	return int(counts.get("visible_sprite3d", 0))
+
+func _hall_cull_snapshot() -> Dictionary:
+	var snapshot := {
+		"inventory": 0,
+		"backgrounds": 0,
+		"signs": 0,
+		"thrones": 0,
+		"visible": 0,
+		"visible_backgrounds": 0,
+		"visible_signs": 0,
+		"visible_thrones": 0,
+		"metadata_ok": true,
+	}
+	for tile: Sprite3D in main.castle_room_background_tiles:
+		snapshot["inventory"] = int(snapshot["inventory"]) + 1
+		snapshot["backgrounds"] = int(snapshot["backgrounds"]) + 1
+		var tile_rect: Rect2 = tile.get_meta(
+			"hall_horizontal_cull_rect", Rect2()) as Rect2
+		var source_rect: Rect2 = tile.get_meta(
+			"source_art_rect", Rect2()) as Rect2
+		snapshot["metadata_ok"] = bool(snapshot["metadata_ok"]) \
+			and bool(tile.get_meta("hall_horizontal_cull", false)) \
+			and String(tile.get_meta("hall_horizontal_cull_kind", "")) \
+				== "background_tile" \
+			and tile_rect.has_area() \
+			and tile_rect == source_rect
+		if tile.visible:
+			snapshot["visible"] = int(snapshot["visible"]) + 1
+			snapshot["visible_backgrounds"] = \
+				int(snapshot["visible_backgrounds"]) + 1
+	if main.castle_room_mid_layer == null:
+		snapshot["metadata_ok"] = false
+		return snapshot
+	for child: Node in main.castle_room_mid_layer.get_children():
+		var card: Sprite3D = child as Sprite3D
+		if card == null:
+			continue
+		var is_sign: bool = String(card.name).begins_with("HallDoorSign_")
+		var is_throne: bool = card.name == "HallRetainedHuluuThrone"
+		if not is_sign and not is_throne:
+			continue
+		snapshot["inventory"] = int(snapshot["inventory"]) + 1
+		var card_rect: Rect2 = card.get_meta(
+			"hall_horizontal_cull_rect", Rect2()) as Rect2
+		var expected_kind: String = "door_sign" if is_sign else "throne"
+		var expected_role: String = "room_door_sign" \
+			if is_sign else "retained_huluu_throne"
+		snapshot["metadata_ok"] = bool(snapshot["metadata_ok"]) \
+			and bool(card.get_meta("hall_horizontal_cull", false)) \
+			and String(card.get_meta("hall_horizontal_cull_kind", "")) \
+				== expected_kind \
+			and String(card.get_meta("source_asset_role", "")) \
+				== expected_role \
+			and card_rect.has_area()
+		if is_sign:
+			snapshot["signs"] = int(snapshot["signs"]) + 1
+			if card.visible:
+				snapshot["visible_signs"] = \
+					int(snapshot["visible_signs"]) + 1
+		else:
+			snapshot["thrones"] = int(snapshot["thrones"]) + 1
+			if card.visible:
+				snapshot["visible_thrones"] = \
+					int(snapshot["visible_thrones"]) + 1
+		if card.visible:
+			snapshot["visible"] = int(snapshot["visible"]) + 1
+	return snapshot
 
 func _expanded_runtime_water_roles(layers: Array) -> Array[String]:
 	var roles: Array[String] = []
@@ -1011,6 +1205,131 @@ func _capture(room_id: String) -> void:
 		.save_png(output_path)
 	print("CASTLE_ART|capture|", output_path, "|error=", save_error)
 
+func _inventory_increment(counts: Dictionary, key: String) -> void:
+	counts[key] = int(counts.get(key, 0)) + 1
+
+func _collect_runtime_node_inventory(node: Node, inventory: Dictionary) -> void:
+	if node == null:
+		return
+	var node_types: Dictionary = inventory["node_types"] as Dictionary
+	_inventory_increment(node_types, node.get_class())
+	if node is Sprite3D:
+		var sprite: Sprite3D = node as Sprite3D
+		var sprite_summary: Dictionary = inventory["sprite3d"] as Dictionary
+		sprite_summary["total"] = int(sprite_summary["total"]) + 1
+		sprite_summary["visible"] = int(sprite_summary["visible"]) \
+			+ (1 if sprite.visible else 0)
+		sprite_summary["unshaded"] = int(sprite_summary["unshaded"]) \
+			+ (1 if not sprite.shaded else 0)
+		sprite_summary["shaded"] = int(sprite_summary["shaded"]) \
+			+ (1 if sprite.shaded else 0)
+		sprite_summary["depth_tested"] = int(
+			sprite_summary["depth_tested"]) \
+			+ (1 if not sprite.no_depth_test else 0)
+		sprite_summary["missing_texture"] = int(
+			sprite_summary["missing_texture"]) \
+			+ (1 if sprite.texture == null else 0)
+		var role: String = String(sprite.get_meta(
+			"source_asset_role", "unspecified_sprite3d"))
+		var roles: Dictionary = inventory["world_art_roles"] as Dictionary
+		_inventory_increment(roles, role)
+		var texture_path := ""
+		var texture_dimensions: Array[int] = []
+		if sprite.texture != null:
+			texture_path = sprite.texture.resource_path
+			texture_dimensions = [
+				sprite.texture.get_width(), sprite.texture.get_height()]
+		var cards: Array = inventory["sprite3d_cards"] as Array
+		cards.append({
+			"node_path": String(sprite.get_path()),
+			"role": role,
+			"source_object_id": String(sprite.get_meta(
+				"source_object_id", "")),
+			"texture": texture_path,
+			"texture_dimensions": texture_dimensions,
+			"visible": sprite.visible,
+			"unshaded": not sprite.shaded,
+			"depth_tested": not sprite.no_depth_test,
+			"transparent": sprite.transparent,
+			"alpha_cut_mode": int(sprite.alpha_cut),
+			"cast_shadow_mode": int(sprite.cast_shadow),
+			"depth_z": sprite.position.z,
+		})
+	for child: Node in node.get_children():
+		_collect_runtime_node_inventory(child, inventory)
+
+func _write_main_hall_node_inventory() -> bool:
+	if main.castle_room_world_root == null \
+			or main.castle_room_id != "main_hall":
+		return false
+	var inventory := {
+		"schema": 1,
+		"purpose": "Castle Main Hall runtime Sprite3D node-type inventory",
+		"engine": Engine.get_version_info(),
+		"rendering_method": RenderingServer.get_current_rendering_method(),
+		"room": main.castle_room_id,
+		"node_types": {},
+		"world_art_roles": {},
+		"sprite3d": {
+			"total": 0,
+			"visible": 0,
+			"unshaded": 0,
+			"shaded": 0,
+			"depth_tested": 0,
+			"missing_texture": 0,
+		},
+		"sprite3d_cards": [],
+	}
+	_collect_runtime_node_inventory(main.castle_room_world_root, inventory)
+	var node_types: Dictionary = inventory["node_types"] as Dictionary
+	var sprite_summary: Dictionary = inventory["sprite3d"] as Dictionary
+	var forbidden_types := {
+		"Sprite2D": int(node_types.get("Sprite2D", 0)),
+		"AnimatedSprite2D": int(node_types.get("AnimatedSprite2D", 0)),
+		"TextureRect": int(node_types.get("TextureRect", 0)),
+		"Polygon2D": int(node_types.get("Polygon2D", 0)),
+		"MeshInstance3D": int(node_types.get("MeshInstance3D", 0)),
+		"MultiMeshInstance3D": int(node_types.get("MultiMeshInstance3D", 0)),
+		"CSGShape3D": int(node_types.get("CSGShape3D", 0)),
+	}
+	var forbidden_total := 0
+	for forbidden_count: Variant in forbidden_types.values():
+		forbidden_total += int(forbidden_count)
+	var roles: Dictionary = inventory["world_art_roles"] as Dictionary
+	var validation := {
+		"registered_background_cards": main.castle_room_background_tiles.size(),
+		"door_sign_cards": int(roles.get("room_door_sign", 0)),
+		"retained_throne_cards": int(roles.get(
+			"retained_huluu_throne", 0)),
+		"forbidden_world_art_nodes": forbidden_types,
+		"forbidden_world_art_total": forbidden_total,
+		"all_sprite3d_unshaded": int(sprite_summary["shaded"]) == 0,
+		"all_sprite3d_depth_tested": int(sprite_summary["depth_tested"]) \
+			== int(sprite_summary["total"]),
+		"all_sprite3d_textured": int(sprite_summary["missing_texture"]) == 0,
+	}
+	validation["structural_pass"] = \
+		int(validation["registered_background_cards"]) == HALL_TILE_COUNT \
+		and int(validation["door_sign_cards"]) == 8 \
+		and int(validation["retained_throne_cards"]) == 1 \
+		and forbidden_total == 0 \
+		and bool(validation["all_sprite3d_unshaded"]) \
+		and bool(validation["all_sprite3d_depth_tested"]) \
+		and bool(validation["all_sprite3d_textured"])
+	inventory["validation"] = validation
+	var requested: String = OS.get_environment("CASTLE_NODE_INVENTORY_OUT")
+	var output_path: String = requested if requested != "" else \
+		ProjectSettings.globalize_path(
+			"res://audit/castle_sprite3d/" \
+			+ "castle_main_hall_redraw_2026-08-03_node_inventory.json")
+	DirAccess.make_dir_recursive_absolute(output_path.get_base_dir())
+	var output: FileAccess = FileAccess.open(output_path, FileAccess.WRITE)
+	if output == null:
+		return false
+	output.store_string(JSON.stringify(inventory, "\t", false) + "\n")
+	output.close()
+	return bool(validation["structural_pass"])
+
 func _run() -> void:
 	var main_scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
 	main = main_scene.instantiate() as ReefMain
@@ -1062,28 +1381,220 @@ func _run() -> void:
 			and room_button.name == "HallDoor_" + room_id
 		if room_button != null:
 			unique_route_buttons[room_button.get_instance_id()] = true
-	var redundant_route_ui_absent := (
-		main.castle_room_stage.get_node_or_null("ElevatorButton") == null
-		and main.castle_room_stage.get_node_or_null("ElevatorPointer") == null)
 	_ck("main_hall_has_one_physical_route_per_room",
 		physical_routes_ok
 		and unique_route_buttons.size() == HALL_DESTINATION_IDS.size(),
 		"routes=%d unique=%d" % [
 			main.castle_room_buttons.size(), unique_route_buttons.size()])
-	_ck("redundant_room_selector_removed",
-		redundant_route_ui_absent
-		and main.castle_room_back_button != null
+	var elevator_button: Button = main.castle_room_stage.get_node_or_null(
+		"ElevatorButton") as Button
+	var elevator_pointer: Label = main.castle_room_stage.get_node_or_null(
+		"ElevatorPointer") as Label
+	var elevator_inventory_ok := (
+		elevator_button != null
+		and elevator_pointer != null
+		and main.castle_room_menu_panel != null
+		and not main.castle_room_menu_panel.visible
+		and main.castle_room_menu_buttons.size() == ELEVATOR_ROOM_IDS.size()
+		and not main.castle_room_menu_buttons.has("family_gallery"))
+	var elevator_button_instances: Dictionary = {}
+	for elevator_room_id: String in ELEVATOR_ROOM_IDS:
+		var menu_button: Button = main.castle_room_menu_buttons.get(
+			elevator_room_id) as Button
+		elevator_inventory_ok = elevator_inventory_ok \
+			and menu_button != null \
+			and menu_button.name == "ElevatorRoom_" + elevator_room_id \
+			and menu_button.size.x >= StorybookUI.MIN_TOUCH.x \
+			and menu_button.size.y >= StorybookUI.MIN_TOUCH.y \
+			and String(menu_button.get_meta(
+				"castle_room_destination", "")) == elevator_room_id
+		if menu_button != null:
+			elevator_button_instances[menu_button.get_instance_id()] = true
+	_ck("storybook_elevator_has_twelve_direct_actual_rooms",
+		elevator_inventory_ok
+		and elevator_button_instances.size() == ELEVATOR_ROOM_IDS.size()
+		and elevator_button.size.x >= StorybookUI.MIN_TOUCH.x
+		and elevator_button.size.y >= StorybookUI.MIN_TOUCH.y)
+	_ck("contextual_back_remains_beside_elevator",
+		main.castle_room_back_button != null
 		and main.castle_room_back_button.name == "CastleBack"
 		and main.castle_room_back_button.tooltip_text == "Castle courtyard")
-	var family_entry: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
-		"HallStructure_family_wing_entry") as Sprite3D
-	_ck("main_hall_constructed_dream_house_wing_entry",
-		family_entry != null
-		and family_entry.texture != null
-		and family_entry.texture.resource_path.ends_with(
-			"family_wing_hall_insert.png")
-		and String(family_entry.get_meta("source_asset_role", ""))
-			== "registered_family_gallery_door")
+	_ck("main_hall_redraw_has_no_legacy_architecture_overlays",
+		main.castle_room_mid_layer.get_node_or_null(
+			"HallStructure_family_wing_entry") == null
+		and main.castle_room_mid_layer.get_node_or_null(
+			"HallStructure_playroom_portal_bridge") == null
+		and main.castle_room_mid_layer.get_node_or_null(
+			"HallStructure_playroom_portal_marker") == null)
+	var hall_portal_rects: Dictionary = {}
+	for hall_portal_record: Dictionary in main.castle_room_door_hotspots:
+		var hall_portal_data: Dictionary = hall_portal_record.get("data", {})
+		if not hall_portal_data.is_empty():
+			hall_portal_rects[String(hall_portal_data["id"])] = \
+				hall_portal_data["rect"]
+	var hall_sign_count := 0
+	var craft_sign_count := 0
+	var hall_signs_ok := true
+	for hall_mid_child: Node in main.castle_room_mid_layer.get_children():
+		if not String(hall_mid_child.name).begins_with("HallDoorSign_"):
+			continue
+		hall_sign_count += 1
+		var hall_sign: Sprite3D = hall_mid_child as Sprite3D
+		var sign_destination: String = String(hall_sign.get_meta(
+			"room_destination", "")) if hall_sign != null else ""
+		var portal_rect: Rect2 = hall_portal_rects.get(
+			sign_destination, Rect2()) as Rect2
+		var expected_sign_file: String = String(HALL_SIGN_FILES.get(
+			sign_destination, ""))
+		var expected_sign_scale: float = 0.46 \
+			if sign_destination == "family_gallery" else 1.55 \
+			if sign_destination == "opera_hall" else 1.0
+		var sign_art_position := Vector2.INF
+		if hall_sign != null:
+			sign_art_position = hall_sign.get_meta(
+				"source_art_position", Vector2.INF) as Vector2
+		hall_signs_ok = hall_signs_ok \
+			and hall_sign != null and hall_sign.texture != null \
+			and not hall_sign.shaded \
+			and hall_sign.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD \
+			and String(hall_sign.get_meta("source_asset_role", "")) \
+				== "room_door_sign" \
+			and expected_sign_file != "" \
+			and hall_sign.texture.resource_path.ends_with(expected_sign_file) \
+			and is_equal_approx(hall_sign.scale.x, expected_sign_scale) \
+			and HALL_DESTINATION_IDS.has(sign_destination) \
+			and portal_rect.has_area() \
+			and absf(sign_art_position.x - portal_rect.get_center().x) \
+				<= portal_rect.size.x * 0.25 \
+			and sign_art_position.y <= portal_rect.position.y \
+				+ portal_rect.size.y * 0.20
+		if sign_destination == "craft_room":
+			craft_sign_count += 1
+	_ck("main_hall_has_one_separate_sprite3d_sign_per_destination",
+		hall_signs_ok
+		and hall_sign_count == HALL_DESTINATION_IDS.size()
+		and craft_sign_count == 1,
+		"signs=%d craft=%d" % [hall_sign_count, craft_sign_count])
+	var left_door_button: Button = main.castle_room_buttons.get(
+		"family_gallery") as Button
+	var left_door_rect: Rect2 = hall_portal_rects.get(
+		"family_gallery", Rect2()) as Rect2
+	var left_door_sign: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
+		"HallDoorSign_family_gallery") as Sprite3D
+	_ck("main_hall_left_end_dream_house_door_is_clear_and_signed",
+		left_door_button != null and left_door_button.visible
+		and left_door_rect == Rect2(210.0, 300.0, 160.0, 305.0)
+		and left_door_sign != null and left_door_sign.visible
+		and left_door_sign.texture != null
+		and left_door_sign.texture.resource_path.ends_with(
+			"sign_family_gallery.png"))
+	var retained_throne: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
+		"HallRetainedHuluuThrone") as Sprite3D
+	_ck("main_hall_retains_huluu_throne_as_depth_card",
+		retained_throne != null
+		and retained_throne.texture != null
+		and retained_throne.texture.resource_path.ends_with(
+			"main_hall_retained_shell_throne.png")
+		and maxf(retained_throne.texture.get_width(),
+			retained_throne.texture.get_height()) <= 1024.0
+		and not retained_throne.shaded
+		and retained_throne.cast_shadow \
+			== GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
+		and String(retained_throne.get_meta("source_asset_role", "")) \
+			== "retained_huluu_throne"
+		and (retained_throne.get_meta(
+			"source_art_position", Vector2.ZERO) as Vector2).is_equal_approx(
+				Vector2(3045.0, 485.0)))
+	var left_camera_position := Vector3(
+		rooms._hall_camera_x_for_foot(380.0), 0.0,
+		main.castle_room_camera.position.z)
+	main.castle_room_camera.position = left_camera_position
+	rooms._sync_hall_horizontal_culling()
+	rooms._update_hall_portals()
+	var left_cull_snapshot: Dictionary = _hall_cull_snapshot()
+	var left_local_sconce_record: Dictionary = \
+		main.castle_room_item_sprites.get("sconce_a0", {}) as Dictionary
+	var left_remote_sconce_record: Dictionary = \
+		main.castle_room_item_sprites.get("sconce_b2", {}) as Dictionary
+	var left_local_sconce: Sprite3D = \
+		left_local_sconce_record.get("sprite") as Sprite3D
+	var left_local_hotspot: Button = \
+		left_local_sconce_record.get("hotspot") as Button
+	var left_remote_sconce: Sprite3D = \
+		left_remote_sconce_record.get("sprite") as Sprite3D
+	var left_remote_hotspot: Button = \
+		left_remote_sconce_record.get("hotspot") as Button
+	var left_interaction_cull_ok: bool = left_local_sconce != null \
+		and left_local_sconce.visible \
+		and left_local_hotspot != null and left_local_hotspot.visible \
+		and left_remote_sconce != null and not left_remote_sconce.visible \
+		and left_remote_hotspot != null and not left_remote_hotspot.visible
+	var hall_tile_inventory_complete: bool = \
+		main.castle_room_background_tiles.size() == HALL_TILE_COUNT
+	var left_tile_endpoints_ok := false
+	if hall_tile_inventory_complete:
+		left_tile_endpoints_ok = \
+			main.castle_room_background_tiles[0].visible \
+			and main.castle_room_background_tiles[HALL_TILE_COLUMNS].visible \
+			and not main.castle_room_background_tiles[7].visible \
+			and not main.castle_room_background_tiles[15].visible
+	var right_door_button: Button = main.castle_room_buttons.get(
+		"bubble_bath") as Button
+	var right_door_sign: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
+		"HallDoorSign_bubble_bath") as Sprite3D
+	main.castle_room_camera.position = Vector3(
+		rooms._hall_camera_x_for_foot(3045.0), 0.0,
+		left_camera_position.z)
+	rooms._sync_hall_horizontal_culling()
+	rooms._update_hall_portals()
+	var right_cull_snapshot: Dictionary = _hall_cull_snapshot()
+	var right_interaction_cull_ok: bool = left_local_sconce != null \
+		and not left_local_sconce.visible \
+		and left_local_hotspot != null and not left_local_hotspot.visible \
+		and left_remote_sconce != null and left_remote_sconce.visible \
+		and left_remote_hotspot != null and left_remote_hotspot.visible \
+		and String(left_remote_sconce.get_meta(
+			"hall_horizontal_cull_kind", "")) == "interaction" \
+		and (left_remote_sconce.get_meta(
+			"hall_horizontal_cull_rect", Rect2()) as Rect2).has_area()
+	var right_tile_endpoints_ok := false
+	if hall_tile_inventory_complete:
+		right_tile_endpoints_ok = \
+			main.castle_room_background_tiles[7].visible \
+			and main.castle_room_background_tiles[15].visible \
+			and not main.castle_room_background_tiles[0].visible \
+			and not main.castle_room_background_tiles[HALL_TILE_COLUMNS].visible
+	var right_endpoints_ok: bool = right_door_button != null \
+		and right_door_button.visible \
+		and right_door_sign != null and right_door_sign.visible \
+		and retained_throne != null and retained_throne.visible
+	_ck("main_hall_horizontal_sprite3d_culling_preserves_endpoints",
+		bool(left_cull_snapshot["metadata_ok"])
+		and bool(right_cull_snapshot["metadata_ok"])
+		and int(left_cull_snapshot["inventory"]) == 25
+		and int(left_cull_snapshot["backgrounds"]) == HALL_TILE_COUNT
+		and int(left_cull_snapshot["signs"]) == 8
+		and int(left_cull_snapshot["thrones"]) == 1
+		and int(left_cull_snapshot["visible_backgrounds"]) >= 8
+		and int(left_cull_snapshot["visible_backgrounds"]) <= 12
+		and int(left_cull_snapshot["visible_signs"]) == 4
+		and int(left_cull_snapshot["visible_thrones"]) == 0
+		and int(left_cull_snapshot["visible"]) <= 16
+		and int(right_cull_snapshot["visible_backgrounds"]) >= 8
+		and int(right_cull_snapshot["visible_backgrounds"]) <= 12
+		and int(right_cull_snapshot["visible_signs"]) == 4
+		and int(right_cull_snapshot["visible_thrones"]) == 1
+		and int(right_cull_snapshot["visible"]) <= 17
+		and left_tile_endpoints_ok and right_tile_endpoints_ok
+		and right_endpoints_ok
+		and left_interaction_cull_ok and right_interaction_cull_ok,
+		"left=%s right=%s" % [left_cull_snapshot, right_cull_snapshot])
+	main.castle_room_camera.position = left_camera_position
+	rooms._sync_hall_horizontal_culling()
+	rooms._update_hall_portals()
+	_ck("main_hall_runtime_node_type_inventory",
+		_write_main_hall_node_inventory())
+	await _capture("main_hall_screen_a")
 	rooms.show_room("family_gallery", false)
 	await _frames(2)
 	var gallery_destinations := {
@@ -1237,6 +1748,7 @@ func _run() -> void:
 	var playroom_rescue_ray_ok := false
 	var playroom_rescue_route_ok := false
 	var max_visible_world_cards := 0
+	var visible_card_peaks: Dictionary = {}
 	var interaction_failures: Array[String] = []
 	var interaction_manifest: Dictionary = _interaction_manifest()
 	var active_manifest_assets: Dictionary = _manifest_assets_by_instance(
@@ -1420,6 +1932,8 @@ func _run() -> void:
 		var visible_sprite_count := int(counts.get("visible_sprite3d", 0))
 		max_visible_world_cards = maxi(
 			max_visible_world_cards, visible_sprite_count)
+		visible_card_peaks[room_id] = maxi(
+			int(visible_card_peaks.get(room_id, 0)), visible_sprite_count)
 		var hall_mode: bool = room_id == "main_hall"
 		var expected_room_tiles: int = (
 			12 if room_id == "kitchen" else 4)
@@ -1430,11 +1944,20 @@ func _run() -> void:
 			expected_room_items += 3
 		elif room_id == "playroom" and not rooms._playroom_rescue_done():
 			expected_room_items += 3
+		var visible_hall_tile_count := 0
+		if hall_mode:
+			for hall_tile: Sprite3D in main.castle_room_background_tiles:
+				if hall_tile.visible:
+					visible_hall_tile_count += 1
 		var background_ready: bool = (
-			main.castle_room_background_tiles.size() == 8
+			main.castle_room_background_tiles.size() == HALL_TILE_COUNT
 			and main.castle_room_background_tiles.all(
 				func(tile: Sprite3D) -> bool:
-					return tile.visible and tile.texture != null)
+					return tile.texture != null \
+						and bool(tile.get_meta(
+							"hall_horizontal_cull", false)))
+			and visible_hall_tile_count > 0
+			and visible_hall_tile_count <= 12
 			and not main.castle_room_background.visible
 		) if hall_mode else (
 			not main.castle_room_background.visible
@@ -1456,8 +1979,7 @@ func _run() -> void:
 			and int(counts.get("canvas_world", 0)) == 0 \
 			and int(counts.get("bad_alpha_depth", 0)) == 0 \
 			and int(counts.get("portal_glow", 0)) == 0 \
-			and int(counts.get("shaded", 0)) \
-				== 8 \
+			and int(counts.get("shaded", 0)) == 0 \
 			and int(counts.get("missing_texture", 0)) == 0
 		var depths: Dictionary = {}
 		if hall_mode:
@@ -1617,8 +2139,12 @@ func _run() -> void:
 				and bool(audit.get("physics_motion_ok", false))
 			all_jolt_settles_ok = all_jolt_settles_ok \
 				and bool(audit.get("settled_ok", false))
-			max_visible_world_cards = maxi(max_visible_world_cards,
-				int(audit.get("peak_visible_cards", 0)))
+			var animation_peak: int = int(audit.get(
+				"peak_visible_cards", 0))
+			max_visible_world_cards = maxi(
+				max_visible_world_cards, animation_peak)
+			visible_card_peaks[room_id] = maxi(
+				int(visible_card_peaks.get(room_id, 0)), animation_peak)
 			if room_id == "kitchen" and semantic_item_id == "fridge":
 				fridge_door_then_menu_ok = bool(audit.get(
 					"menu_order_ok", false))
@@ -1861,7 +2387,8 @@ func _run() -> void:
 	_ck("playroom_bunny_contacts_inside_navigation",
 		playroom_rescue_route_ok)
 	_ck("speedy_visible_card_budget", max_visible_world_cards <= 33,
-		"maximum visible cards=%d" % max_visible_world_cards)
+		"maximum visible cards=%d rooms=%s" % [
+			max_visible_world_cards, visible_card_peaks])
 	await _frames(60)
 	var repeated_rebuilds_clean := true
 	for room_id: String in ROOM_IDS:
@@ -1910,8 +2437,8 @@ func _run() -> void:
 
 	rooms.show_room("main_hall", false)
 	var castle_environment: Environment = main.castle_room_environment
-	var expected_glow: float = 0.95 if main.quality == "speedy" else 1.28
-	var expected_bloom: float = 0.18 if main.quality == "speedy" else 0.30
+	var expected_glow: float = 0.78 if main.quality == "speedy" else 1.00
+	var expected_bloom: float = 0.10 if main.quality == "speedy" else 0.16
 	var glow_on: float = castle_environment.glow_intensity \
 		if castle_environment != null else 0.0
 	var bloom_on: float = castle_environment.glow_bloom \
@@ -1925,14 +2452,20 @@ func _run() -> void:
 			== Environment.GLOW_BLEND_MODE_SCREEN
 		and is_equal_approx(glow_on, expected_glow)
 		and is_equal_approx(bloom_on, expected_bloom)
-		and castle_environment.glow_hdr_threshold <= 0.59
-		and castle_environment.glow_hdr_scale >= 4.1
-		and castle_environment.adjustment_contrast >= 1.13
-		and castle_environment.adjustment_brightness >= 1.04
+		and castle_environment.glow_hdr_threshold >= 1.79
+		and castle_environment.glow_hdr_threshold <= 1.81
+		and castle_environment.glow_hdr_scale >= 1.99
+		and castle_environment.glow_hdr_scale <= 2.01
+		and castle_environment.tonemap_white >= 1.55
+		and castle_environment.adjustment_saturation >= 1.0
+		and castle_environment.adjustment_contrast <= 1.05
+		and castle_environment.adjustment_brightness <= 1.0
 		and castle_environment.ambient_light_energy <= 0.33,
-		"quality=%s glow=%.3f bloom=%.3f threshold=%.3f" % [
+		"quality=%s glow=%.3f bloom=%.3f threshold=%.3f scale=%.3f" % [
 			main.quality, glow_on, bloom_on,
 			castle_environment.glow_hdr_threshold
+				if castle_environment != null else 0.0,
+			castle_environment.glow_hdr_scale
 				if castle_environment != null else 0.0])
 	var original_quality: String = main.quality
 	main.quality = "speedy"
@@ -1942,8 +2475,8 @@ func _run() -> void:
 		if speedy_light.visible and speedy_light.shadow_enabled:
 			speedy_shadow_count += 1
 	_ck("main_hall_speedy_glow_budget",
-		castle_environment.glow_intensity <= 0.951
-		and castle_environment.glow_bloom <= 0.181
+		castle_environment.glow_intensity <= 0.781
+		and castle_environment.glow_bloom <= 0.101
 		and speedy_shadow_count <= 1,
 		"glow=%.3f bloom=%.3f shadows=%d" % [
 			castle_environment.glow_intensity,
@@ -1954,85 +2487,80 @@ func _run() -> void:
 	var tile_registration_ok := true
 	var tile_index := 0
 	for tile: Sprite3D in main.castle_room_background_tiles:
-		var tile_row: int = tile_index / 4
-		var tile_column: int = tile_index % 4
+		var tile_row: int = tile_index / HALL_TILE_COLUMNS
+		var tile_column: int = tile_index % HALL_TILE_COLUMNS
 		var source_rect: Rect2 = tile.get_meta(
 			"source_art_rect", Rect2()) as Rect2
 		var master_rect: Rect2 = tile.get_meta(
 			"source_master_rect", Rect2()) as Rect2
 		var render_rect: Rect2 = tile.get_meta(
 			"render_art_rect", Rect2()) as Rect2
+		var screen_rect: Rect2 = tile.get_meta(
+			"source_screen_rect", Rect2()) as Rect2
+		var native_size: Vector2 = tile.get_meta(
+			"native_texture_size", Vector2.ZERO) as Vector2
+		var native_scale: Vector2 = tile.get_meta(
+			"native_to_logical_scale", Vector2.ZERO) as Vector2
 		var bleed_pixels: Vector2i = tile.get_meta(
 			"runtime_seam_bleed_pixels", Vector2i(-1, -1)) as Vector2i
-		var source_size := Vector2(
-			836.0, 470.0 if tile_row == 0 else 471.0)
-		var expected_bleed := Vector2i(
-			1 if tile_column < 3 else 0,
-			1 if tile_row == 0 else 0)
-		var expected_render_size := source_size + Vector2(
-			float(expected_bleed.x), float(expected_bleed.y))
+		var expected_source_rect: Rect2 = _hall_expected_logical_rect(
+			tile_row, tile_column)
+		var expected_native_size: Vector2 = _hall_expected_native_size(
+			tile_column)
+		var expected_native_scale: Vector2 = HALL_NATIVE_TO_LOGICAL
 		var source_path: String = tile.texture.resource_path
 		tile_paths_ok = tile_paths_ok \
 			and tile.texture != null \
-			and source_path.contains("main_hall_2screen/tiles/") \
-			and source_path.contains("/runtime_bleed/") \
-			and source_path.ends_with("_bleed.png") \
-			and tile.texture.get_size() == expected_render_size \
-			and source_rect.size == source_size \
-			and render_rect.size == expected_render_size \
-			and bleed_pixels == expected_bleed \
-			and tile.shaded and tile.transparent \
-			and tile.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD \
-			and is_equal_approx(tile.alpha_scissor_threshold, 0.5) \
+			and source_path.contains(
+				"main_hall_redraw_2026-08-03/tiles/") \
+			and not source_path.contains("/runtime_bleed/") \
+			and source_path.ends_with(
+				"_r%d_c%d.png" % [tile_row, tile_column]) \
+			and tile.texture.get_size() == expected_native_size \
+			and maxf(tile.texture.get_width(), tile.texture.get_height()) <= 1024.0 \
+			and source_rect.is_equal_approx(expected_source_rect) \
+			and render_rect == source_rect \
+			and native_size == expected_native_size \
+			and native_scale.is_equal_approx(expected_native_scale) \
+			and is_equal_approx(tile.scale.x, expected_native_scale.x) \
+			and is_equal_approx(tile.scale.y, expected_native_scale.y) \
+			and bleed_pixels == Vector2i.ZERO \
+			and String(tile.get_meta("source_asset_role", "")) \
+				== "clean_background_tile" \
+			and String(tile.get_meta("source_master_grid", "")) \
+				== "2x8_7280x2048" \
+			and not tile.shaded and not tile.transparent \
+			and tile.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED \
 			and tile.texture_filter == BaseMaterial3D.TEXTURE_FILTER_LINEAR
-		var expected_master_y: float = (
-			212.0 if tile_column < 2 else 147.0
-		) + (0.0 if tile_row == 0 else 470.0)
-		var expected_master_x: float = 376.0 \
-			+ float(tile_column % 2) * 836.0
+		var expected_master_position := Vector2(
+			_hall_native_column_x(tile_column),
+			float(tile_row) * HALL_TILE_NATIVE_HEIGHT)
+		var screen_index: int = tile_column / 4
+		var expected_screen_position := Vector2(
+			expected_master_position.x
+				- float(screen_index) * HALL_SCREEN_NATIVE_WIDTH,
+			expected_master_position.y)
 		tile_registration_ok = tile_registration_ok \
 			and master_rect == Rect2(
-				expected_master_x, expected_master_y,
-				836.0, 470.0 if tile_row == 0 else 471.0) \
+				expected_master_position, expected_native_size) \
+			and screen_rect == Rect2(
+				expected_screen_position, expected_native_size) \
 			and String(tile.get_meta("source_screen_id", "")) \
-				== ("a" if tile_column < 2 else "b")
+				== ("a" if screen_index == 0 else "b")
 		tile_index += 1
-	_ck("main_hall_native_2x4_sprite3d_grid",
-		main.castle_room_background_tiles.size() == 8 and tile_paths_ok)
+	_ck("main_hall_native_2x8_sprite3d_grid",
+		main.castle_room_background_tiles.size() == HALL_TILE_COUNT \
+		and tile_paths_ok)
 	_ck("main_hall_lossless_screen_registration",
 		tile_registration_ok,
-		"A_y=212 B_y=147 fixture_and_walkway_delta=65")
-	var bridge: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
-		"HallStructure_playroom_portal_bridge") as Sprite3D
-	var join_column: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
-		"HallStructure_screen_join_column") as Sprite3D
-	var join_inlay: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
-		"HallStructure_screen_join_floor_inlay") as Sprite3D
-	var playroom_marker: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
-		"HallStructure_playroom_portal_marker") as Sprite3D
-	var playroom_portal_ok := false
-	for portal_record: Dictionary in main.castle_room_door_hotspots:
-		var portal_data: Dictionary = portal_record.get("data", {})
-		if String(portal_data.get("id", "")) == "playroom":
-			var portal_rect: Rect2 = portal_data.get("rect", Rect2())
-			playroom_portal_ok = portal_rect.size.x >= 180.0 \
-				and portal_rect.size.y >= 280.0
-			break
-	var bridge_material: ShaderMaterial = bridge.material_override \
-		as ShaderMaterial if bridge != null else null
-	_ck("main_hall_join_is_registered_playroom_door",
-		bridge != null and bridge.texture != null and not bridge.shaded
-		and bridge_material != null and bridge_material.shader != null
-		and bridge_material.shader.resource_path.ends_with(
-			"castle_portal_cutout.gdshader")
-		and bool(bridge.get_meta("castle_transparent_portal_cutout", false))
-		and join_column == null
-		and join_inlay == null
-		and is_equal_approx(float(bridge.get_meta("depth_z", -1.0)), 0.01)
-		and String(bridge.get_meta("source_asset_role", "")) \
-			== "registered_playroom_door"
-		and playroom_marker != null and playroom_marker.texture != null
-		and not playroom_marker.shaded and playroom_portal_ok)
+		"7280x2048 master -> sixteen exact 910x1024 cards")
+	var runtime_seam_stress: Dictionary = _hall_runtime_tile_seams_match(
+		main.castle_room_background_tiles)
+	_ck("main_hall_runtime_tiles_reconstruct_without_gaps",
+		bool(runtime_seam_stress.get("ok", false)),
+		"%s worst_mean=%.4f" % [
+			String(runtime_seam_stress.get("mismatch", "")),
+			float(runtime_seam_stress.get("worst_mean_rgb_delta", -1.0))])
 	var light_inventory_ok: bool = main.castle_room_light_nodes.size() == 5
 	var visible_lights := 0
 	var visible_shadow_lights := 0
@@ -2172,6 +2700,43 @@ func _run() -> void:
 						String(item_id_value), item_rect, portal_index])
 	_ck("main_hall_objects_clear_all_door_approaches",
 		hall_door_clearance_ok, ",".join(hall_door_conflicts))
+	var expected_hall_positions := {
+		"shell_clock": Vector2(1260.0, 360.0),
+		"visitor_bell": Vector2(1410.0, 360.0),
+		"left_pearl_vitrine": Vector2(790.0, 480.0),
+		"right_pearl_vitrine": Vector2(2780.0, 480.0),
+		"banner_left": Vector2(1810.0, 360.0),
+		"fern_planter": Vector2(1510.0, 790.0),
+		"chest_bench": Vector2(1810.0, 805.0),
+	}
+	var hall_addition_positions_ok := true
+	for expected_item_id: String in expected_hall_positions:
+		var expected_record: Dictionary = main.castle_room_item_sprites.get(
+			expected_item_id, {}) as Dictionary
+		var expected_data: Dictionary = expected_record.get("data", {}) as Dictionary
+		hall_addition_positions_ok = hall_addition_positions_ok \
+			and (expected_data.get("pos", Vector2.INF) as Vector2).is_equal_approx(
+				expected_hall_positions[expected_item_id] as Vector2)
+	_ck("main_hall_additions_use_audited_placement_map",
+		hall_addition_positions_ok)
+	var fern_sprite: Sprite3D = (main.castle_room_item_sprites.get(
+		"fern_planter", {}) as Dictionary).get("sprite") as Sprite3D
+	var chest_sprite: Sprite3D = (main.castle_room_item_sprites.get(
+		"chest_bench", {}) as Dictionary).get("sprite") as Sprite3D
+	rooms._position_player_at_foot(Vector2(1600.0, 680.0), false)
+	var player_behind_floor_props: bool = fern_sprite != null \
+		and chest_sprite != null \
+		and main.castle_room_player_sprite.position.z < fern_sprite.position.z \
+		and main.castle_room_player_sprite.position.z < chest_sprite.position.z
+	rooms._position_player_at_foot(Vector2(1600.0, 900.0), false)
+	var player_in_front_of_floor_props: bool = fern_sprite != null \
+		and chest_sprite != null \
+		and main.castle_room_player_sprite.position.z > fern_sprite.position.z \
+		and main.castle_room_player_sprite.position.z > chest_sprite.position.z
+	_ck("main_hall_floor_props_participate_in_depth_occlusion",
+		player_behind_floor_props and player_in_front_of_floor_props
+		and is_equal_approx(fern_sprite.position.z, 2.83)
+		and is_equal_approx(chest_sprite.position.z, 2.88))
 	rooms._position_player_at_foot(Vector2(1672.0, 835.0), false)
 	await _frames(2)
 	rooms.tick(1.0)
@@ -2270,6 +2835,12 @@ func _run() -> void:
 			camera_ray_touch_ok = false
 			camera_ray_details.append(item_id + ":missing")
 			continue
+		var contact_foot: Vector2 = record.get(
+			"contact_foot", Vector2.ZERO) as Vector2
+		main.castle_room_camera.position = Vector3(
+			rooms._hall_camera_x_for_foot(contact_foot.x), 0.0,
+			main.castle_room_camera.position.z)
+		rooms._sync_hall_horizontal_culling()
 		var center_screen: Vector2 = main.castle_room_camera.unproject_position(
 			sprite.global_position)
 		var ray_origin: Vector3 = main.castle_room_camera.project_ray_origin(
@@ -2282,8 +2853,6 @@ func _run() -> void:
 			ray_origin + ray_direction * sprite_distance
 		var ray_error: float = sprite_ray_point.distance_to(
 			sprite.global_position)
-		var contact_foot: Vector2 = record.get(
-			"contact_foot", Vector2.ZERO) as Vector2
 		var mapped_foot: Vector2 = rooms._dust_bunny_foot_from_camera_ray(
 			center_screen)
 		var foot_error: float = mapped_foot.distance_to(contact_foot)
@@ -2294,6 +2863,8 @@ func _run() -> void:
 		camera_ray_details.append(
 			"%s:ray=%.4f foot=%.4f mapped=%s" % [
 				item_id, ray_error, foot_error, mapped_foot])
+	main.castle_room_camera.position = left_camera_position
+	rooms._sync_hall_horizontal_culling()
 	_ck("main_hall_bunny_camera_ray_touch_mapping", camera_ray_touch_ok,
 		";".join(camera_ray_details))
 	rooms.tick(0.5)
@@ -2362,9 +2933,14 @@ func _run() -> void:
 		main.castle_room_camera.position.x > 5.0,
 		"camera_x=%.2f" % main.castle_room_camera.position.x)
 	await _capture("main_hall_screen_b")
-	# Opera has exactly one route: the painted physical door in the Main Hall.
-	# The activity returns to that Sprite3D room, then contextual Back returns
-	# to the Main Hall without a second room-selector route.
+	elevator_button.pressed.emit()
+	await _frames(2)
+	_ck("storybook_elevator_expands_over_every_castle_room",
+		main.castle_room_menu_open and main.castle_room_menu_panel.visible)
+	await _capture("elevator_menu")
+	rooms._set_elevator_menu_open(false, false)
+	# Opera remains walkable through its painted physical door; the elevator is
+	# an additional child-friendly travel aid, not a replacement doorway.
 	var opera_door: Button = main.castle_room_buttons.get(
 		"opera_hall") as Button
 	if opera_door != null:

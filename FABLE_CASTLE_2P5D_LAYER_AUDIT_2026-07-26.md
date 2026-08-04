@@ -9,6 +9,25 @@ owner's corrected native-2K amendment; accepted exact-16:9 source regeneration,
 lossless runtime tiling, and the device composition/frame-rate pass are still
 required.
 
+## Main Hall strict-runtime supersession — 2026-08-04
+
+The status and later eight-tile Main Hall statements below are preserved as
+dated audit history and are superseded for the active hub. Its accepted two
+3640×2048 screen masters form one lossless 7280×2048 panorama. Runtime uses a
+2×8 grid of sixteen exact, non-overlapping 910×1024 unshaded Sprite3D cards at
+one coherent background depth, with zero neighbor bleed and horizontal
+visibility culling. Eight separate unshaded door-sign cards, the retained
+Huluu throne card, seventeen unique touch-object cards, Roshan, and her contact
+shadow supply real depth above that architecture. The Godot 4.7.1 Mobile node
+inventory reports 46 Sprite3D cards total, 29 visible at the measured Main Hall
+view, all 46 unshaded/depth-tested, and zero forbidden CanvasItem or mesh-art
+nodes. Exact dimensions, hashes, ratio-rounding evidence, tile rectangles,
+pixel-exact reconstruction, seam proofs, and the node inventory live in:
+
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_strict_2k_build_manifest.json`;
+- `audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_audit.json`;
+- `audit/castle_sprite3d/castle_main_hall_redraw_2026-08-03_node_inventory.json`.
+
 ## Navigation and tiling correction - 2026-08-01
 
 Any statement below that retains the elevator as a redundant room route is

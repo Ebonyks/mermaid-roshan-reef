@@ -1,9 +1,7 @@
 class_name CastleRooms25D
 extends RefCounted
-# Picture-first Pearl Castle room shell. Every in-world image is a Sprite3D
-# card at real scene depth. Main Hall background tiles are the sole shaded
-# receiver exception for its touch-controlled light pool; characters, props,
-# and effects remain unshaded. Controls are reserved for touch routing, the
+# Picture-first Pearl Castle room shell. Every in-world image is an unshaded
+# Sprite3D card at real scene depth. Controls are reserved for touch routing, the
 # single contextual Back control, and other interface chrome. No model or mesh art is
 # created or loaded by this satellite.
 
@@ -11,10 +9,10 @@ const ROOM_ART := "res://assets/flats/castle/rooms/"
 const INTERACTION_ART := "res://assets/flats/castle/interactions/"
 const DREAM_HOUSE_ART := "res://assets/flats/castle/dream_house/"
 const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
-const HALL_TILE_ROOT := "res://assets/flats/castle/main_hall_2screen/tiles/"
-const HALL_ART_ROOT := "res://assets/flats/castle/main_hall_2screen/"
-const CASTLE_PORTAL_CUTOUT_SHADER := preload(
-	"res://shaders/castle_portal_cutout.gdshader")
+const HALL_REDRAW_ROOT := \
+	"res://assets/flats/castle/main_hall_redraw_2026-08-03/"
+const HALL_TILE_ROOT := HALL_REDRAW_ROOT + "tiles/"
+const HALL_SIGN_ART_ROOT := HALL_REDRAW_ROOT + "signs/"
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
@@ -48,6 +46,7 @@ const PLAYER_FRONT_Z := 3.15
 const FOREGROUND_Z := 4.0
 const EFFECT_Z := 4.35
 const LIGHT_FIXTURE_Z := 0.72
+const HALL_SIGN_Z := 0.68
 const MIRROR_INSERT_Z := 0.24
 const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
@@ -58,6 +57,16 @@ const HALL_VIEW_SIZE := Vector2(1672.0, 941.0)
 const HALL_LOGICAL_SIZE := Vector2(3344.0, 941.0)
 const HALL_STAGE_SCALE := 1280.0 / HALL_VIEW_SIZE.x
 const HALL_CARD_PIXEL_SIZE := WORLD_WIDTH / HALL_VIEW_SIZE.x
+const HALL_SOURCE_NATIVE_SIZE := Vector2(7280.0, 2048.0)
+const HALL_TILE_COLUMNS := 8
+const HALL_TILE_ROWS := 2
+const HALL_SCREEN_NATIVE_WIDTH := 3640.0
+const HALL_TILE_NATIVE_HEIGHT := 1024.0
+const HALL_TILE_NATIVE_WIDTHS: Array[int] = [
+	910, 910, 910, 910, 910, 910, 910, 910,
+]
+const HALL_NATIVE_TO_LOGICAL := HALL_LOGICAL_SIZE / HALL_SOURCE_NATIVE_SIZE
+const HALL_HORIZONTAL_CULL_MARGIN := 96.0
 const HALL_WALK := Rect2(60.0, 615.0, 3224.0, 300.0)
 # breath between the throne's own line and Princess Huluu's stuffie offer
 const THRONE_OFFER_BEAT := 1.6
@@ -65,87 +74,93 @@ const HALL_FILL_COLOR := Color(0.78, 0.72, 0.94)
 const HALL_FILL_ENERGY := 0.78
 const HALL_FILL_OFF_ENERGY := 0.42
 const HALL_SCONCE_COLOR := Color(1.0, 0.74, 0.43)
-const HALL_GLOW_FULL := 1.28
-const HALL_GLOW_SPEEDY := 0.95
-const HALL_BLOOM_FULL := 0.30
-const HALL_BLOOM_SPEEDY := 0.18
+const HALL_GLOW_FULL := 1.00
+const HALL_GLOW_SPEEDY := 0.78
+const HALL_BLOOM_FULL := 0.16
+const HALL_BLOOM_SPEEDY := 0.10
+const HALL_GLOW_THRESHOLD := 1.80
+const HALL_GLOW_HDR_SCALE := 2.00
 const HALL_GLOW_OFF := 0.24
 const HALL_BLOOM_OFF := 0.015
-const HALL_SCREEN_SOURCE_RECTS: Array[Rect2] = [
-	Rect2(376.0, 212.0, 1672.0, 941.0),
-	Rect2(376.0, 147.0, 1672.0, 941.0),
-]
 const HALL_TILE_FILES: Array[String] = [
-	"runtime_bleed/main_hall_room_led_r0_c0_bleed.png",
-	"runtime_bleed/main_hall_room_led_r0_c1_bleed.png",
-	"runtime_bleed/main_hall_room_led_r0_c2_bleed.png",
-	"runtime_bleed/main_hall_room_led_r0_c3_bleed.png",
-	"runtime_bleed/main_hall_room_led_r1_c0_bleed.png",
-	"runtime_bleed/main_hall_room_led_r1_c1_bleed.png",
-	"runtime_bleed/main_hall_room_led_r1_c2_bleed.png",
-	"runtime_bleed/main_hall_room_led_r1_c3_bleed.png",
+	"main_hall_room_led_r0_c0.png",
+	"main_hall_room_led_r0_c1.png",
+	"main_hall_room_led_r0_c2.png",
+	"main_hall_room_led_r0_c3.png",
+	"main_hall_room_led_r0_c4.png",
+	"main_hall_room_led_r0_c5.png",
+	"main_hall_room_led_r0_c6.png",
+	"main_hall_room_led_r0_c7.png",
+	"main_hall_room_led_r1_c0.png",
+	"main_hall_room_led_r1_c1.png",
+	"main_hall_room_led_r1_c2.png",
+	"main_hall_room_led_r1_c3.png",
+	"main_hall_room_led_r1_c4.png",
+	"main_hall_room_led_r1_c5.png",
+	"main_hall_room_led_r1_c6.png",
+	"main_hall_room_led_r1_c7.png",
 ]
 const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
-	{"id": "a_left", "half": "a", "pos": Vector2(330.0, 335.0),
+	{"id": "a_left", "half": "a", "pos": Vector2(290.0, 335.0),
 		"max_energy": 4.6},
-	{"id": "a_right", "half": "a", "pos": Vector2(1320.0, 335.0),
+	{"id": "a_right", "half": "a", "pos": Vector2(1130.0, 335.0),
 		"max_energy": 4.6},
-	{"id": "b_left", "half": "b", "pos": Vector2(1970.0, 335.0),
+	{"id": "b_left", "half": "b", "pos": Vector2(2215.0, 335.0),
 		"max_energy": 4.6},
 	{"id": "b_right", "half": "b", "pos": Vector2(2780.0, 335.0),
 		"max_energy": 4.6},
 ]
-const HALL_STRUCTURE_CARDS: Array[Dictionary] = [
-	{"id": "family_wing_entry", "pos": Vector2(220.0, 470.0),
-		"z": 0.01, "scale": 0.82, "shaded": false,
-		"tex_path": DREAM_HOUSE_ART + "family_wing_hall_insert.png",
-		"role": "registered_family_gallery_door"},
-	{"id": "playroom_portal_bridge", "pos": Vector2(1672.0, 490.0),
-		"z": 0.01, "scale": 0.96, "shaded": false,
-		"tex_path": HALL_ART_ROOT + "castle_playroom_portal_cutout_reuse.png",
-		"shader": "portal_cutout",
-		"role": "registered_playroom_door"},
-	{"id": "playroom_portal_marker", "pos": Vector2(1672.0, 376.0),
-		"z": 0.68, "scale": 0.15, "shaded": false,
-		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
-			+ "dust_bunnies/dust_bunny_family.png",
-		"role": "playroom_door_marker"},
-]
+const HALL_THRONE_CARD := {
+	"id": "huluu_throne",
+	"pos": Vector2(3045.0, 485.0),
+	"z": 0.55,
+	"scale": 1.25,
+	"tex_path": HALL_REDRAW_ROOT \
+		+ "props/main_hall_retained_shell_throne.png",
+}
 const HALL_PORTALS: Array[Dictionary] = [
-	# Rects trace the painted doorway frames (arch band + posts) in hall art
-	# pixels, measured from the composited main_hall_2screen tiles. Floating
-	# room plaques above each arch are deliberately excluded.
+	# Rects trace the painted doorway frames and their approach in hall-art
+	# pixels. Each room sign is a separate Sprite3D card; it shares the door's
+	# visual footprint but never adds a second independent touch hotspot.
 	{"id": "family_gallery", "name": "Dream House Wing",
-		"rect": Rect2(115.0, 310.0, 220.0, 420.0),
-		"foot": Vector2(220.0, 720.0)},
+		"rect": Rect2(210.0, 300.0, 160.0, 305.0),
+		"foot": Vector2(290.0, 620.0), "sign_pos": Vector2(290.0, 340.0),
+		"sign_tex": "sign_family_gallery.png", "sign_scale": 0.46},
 	{"id": "opera_hall", "name": "Opera Hall",
-		"rect": Rect2(455.0, 105.0, 375.0, 510.0),
-		"foot": Vector2(630.0, 650.0)},
+		"rect": Rect2(875.0, 180.0, 300.0, 425.0),
+		"foot": Vector2(1025.0, 620.0), "sign_pos": Vector2(1025.0, 225.0),
+		"sign_tex": "sign_opera_hall.png", "sign_scale": 1.55},
 	{"id": "library", "name": "Royal Library",
-		"rect": Rect2(1030.0, 318.0, 215.0, 290.0),
-		"foot": Vector2(1135.0, 660.0)},
+		"rect": Rect2(380.0, 300.0, 160.0, 305.0),
+		"foot": Vector2(455.0, 620.0), "sign_pos": Vector2(455.0, 340.0),
+		"sign_tex": "sign_library.png", "sign_scale": 1.0},
 	{"id": "kitchen", "name": "Royal Kitchen",
-		"rect": Rect2(1288.0, 320.0, 180.0, 290.0),
-		"foot": Vector2(1395.0, 660.0)},
+		"rect": Rect2(545.0, 300.0, 160.0, 305.0),
+		"foot": Vector2(620.0, 620.0), "sign_pos": Vector2(620.0, 340.0),
+		"sign_tex": "sign_kitchen.png", "sign_scale": 1.0},
 	{"id": "playroom", "name": "Stuffie Playroom",
-		"rect": Rect2(1577.0, 319.0, 187.0, 325.0),
-		"foot": Vector2(1672.0, 670.0)},
+		"rect": Rect2(1940.0, 300.0, 160.0, 305.0),
+		"foot": Vector2(2015.0, 620.0), "sign_pos": Vector2(2015.0, 340.0),
+		"sign_tex": "sign_playroom.png", "sign_scale": 1.0},
 	{"id": "craft_room", "name": "Craft Room",
-		"rect": Rect2(1985.0, 325.0, 225.0, 280.0),
-		"foot": Vector2(2095.0, 670.0)},
+		"rect": Rect2(2140.0, 300.0, 160.0, 305.0),
+		"foot": Vector2(2215.0, 620.0), "sign_pos": Vector2(2215.0, 340.0),
+		"sign_tex": "sign_craft_room.png", "sign_scale": 1.0},
 	{"id": "mermaid_pool", "name": "Mermaid Pool",
-		"rect": Rect2(2395.0, 340.0, 195.0, 265.0),
-		"foot": Vector2(2500.0, 670.0)},
+		"rect": Rect2(2340.0, 300.0, 160.0, 305.0),
+		"foot": Vector2(2415.0, 620.0), "sign_pos": Vector2(2415.0, 340.0),
+		"sign_tex": "sign_mermaid_pool.png", "sign_scale": 1.0},
 	{"id": "bubble_bath", "name": "Bubble Bath",
-		"rect": Rect2(2685.0, 300.0, 185.0, 300.0),
-		"foot": Vector2(2805.0, 670.0)},
+		"rect": Rect2(2540.0, 300.0, 160.0, 305.0),
+		"foot": Vector2(2615.0, 620.0), "sign_pos": Vector2(2615.0, 340.0),
+		"sign_tex": "sign_bubble_bath.png", "sign_scale": 1.0},
 	{"id": "__throne", "name": "Huluu's throne",
-		"rect": Rect2(3000.0, 90.0, 330.0, 570.0),
-		"foot": Vector2(3090.0, 690.0)},
+		"rect": Rect2(2870.0, 150.0, 350.0, 470.0),
+		"foot": Vector2(3045.0, 620.0)},
 ]
 const HALL_ITEMS: Array[Dictionary] = [
 	{"id": "tapestry_right", "name": "Royal shell tapestry",
-		"pos": Vector2(2612.0, 142.0), "z": MIRROR_INSERT_Z,
+		"pos": Vector2(1560.0, 360.0), "z": MIRROR_INSERT_Z,
 		"tex_path": INTERACTION_ART + "main_hall_tapestry_atlas.png",
 		"scale": 0.72, "semantic_action": "unfurl_cloth",
 		"frames": 8, "hframes": 4, "vframes": 2,
@@ -154,7 +169,7 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"hotspot_size": Vector2(105.0, 190.0),
 		"symbol": "*", "color": Color(1.0, 0.80, 0.91)},
 	{"id": "sconce_a0", "name": "Pearl shell light",
-		"pos": Vector2(260.0, 215.0), "z": LIGHT_FIXTURE_Z,
+		"pos": Vector2(290.0, 215.0), "z": LIGHT_FIXTURE_Z,
 		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
 		"scale": 0.8, "semantic_action": "toggle_shell_light",
 		"frames": 8, "hframes": 4, "vframes": 2,
@@ -163,7 +178,7 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_a1", "name": "Pearl shell light",
-		"pos": Vector2(1012.0, 215.0), "z": LIGHT_FIXTURE_Z,
+		"pos": Vector2(790.0, 215.0), "z": LIGHT_FIXTURE_Z,
 		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
 		"scale": 0.8, "semantic_action": "toggle_shell_light",
 		"frames": 8, "hframes": 4, "vframes": 2,
@@ -172,7 +187,7 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_a2", "name": "Pearl shell light",
-		"pos": Vector2(1476.0, 215.0), "z": LIGHT_FIXTURE_Z,
+		"pos": Vector2(1470.0, 215.0), "z": LIGHT_FIXTURE_Z,
 		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
 		"scale": 0.8, "semantic_action": "toggle_shell_light",
 		"frames": 8, "hframes": 4, "vframes": 2,
@@ -181,7 +196,7 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b0", "name": "Pearl shell light",
-		"pos": Vector2(2048.0, 215.0), "z": LIGHT_FIXTURE_Z,
+		"pos": Vector2(2015.0, 215.0), "z": LIGHT_FIXTURE_Z,
 		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
 		"scale": 0.8, "semantic_action": "toggle_shell_light",
 		"frames": 8, "hframes": 4, "vframes": 2,
@@ -199,7 +214,7 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_left",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_b2", "name": "Pearl shell light",
-		"pos": Vector2(2888.0, 215.0), "z": LIGHT_FIXTURE_Z,
+		"pos": Vector2(2780.0, 215.0), "z": LIGHT_FIXTURE_Z,
 		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
 		"scale": 0.8, "semantic_action": "toggle_shell_light",
 		"frames": 8, "hframes": 4, "vframes": 2,
@@ -228,13 +243,13 @@ const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.45,
 		"color": Color(0.60, 0.92, 1.0)},
 	{"id": "runner_bunny", "name": "Running dust bunny",
-		"pos": Vector2(1850.0, 830.0), "z": 2.85,
+		"pos": Vector2(2050.0, 830.0), "z": 2.85,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
 			+ "dust_bunnies/dust_bunny_hop.png",
 		"scale": 0.32, "dust_bunny_role": "runner",
 		"contact_offset": Vector2(0.0, 60.0),
 		"contact_radius": Vector2(142.0, 98.0),
-		"patrol_x": Vector2(1850.0, 2550.0), "run_speed": 220.0,
+		"patrol_x": Vector2(2050.0, 2500.0), "run_speed": 220.0,
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.70,
 		"color": Color(1.0, 0.75, 0.86)},
 ]
@@ -290,7 +305,7 @@ const ROOMS: Array[Dictionary] = [
 		"tex": "room_playroom_background.png", "action": "stuffies",
 		"action_icon": "🧸"},
 	{"id": "craft_room", "name": "Craft Room", "icon": "🎨",
-		"tex": "room_craft_room_background.png", "action": "craft",
+		"tex": "room_craft_room_background.png", "action": "castle_logo",
 		"action_icon": "🎨"},
 	{"id": "mermaid_pool", "name": "Mermaid Pool", "icon": "💦",
 		"tex": "room_mermaid_pool_background.png", "action": "pool",
@@ -313,6 +328,13 @@ const ROOMS: Array[Dictionary] = [
 	{"id": "family_gallery", "name": "Dream House Wing", "icon": "\u2302",
 		"tex": "room_family_gallery_background.png", "action": "",
 		"action_icon": "\u2302"},
+]
+const ELEVATOR_ROOM_IDS: Array[String] = [
+	# Stable 4 x 3 picture grid. The Family Gallery remains a walkable physical
+	# hall, while its four actual rooms are direct one-tap destinations here.
+	"main_hall", "opera_hall", "kitchen", "library",
+	"playroom", "craft_room", "mermaid_pool", "bubble_bath",
+	"dining_room", "royal_bedroom", "sleepover_bedroom", "movie_lounge",
 ]
 const ROOM_PARENTS := {
 	"family_gallery": "main_hall",
@@ -888,6 +910,8 @@ func open(start_room: String = "main_hall") -> void:
 		return
 	m.castle_room_id = start_room
 	m.castle_room_buttons.clear()
+	m.castle_room_menu_buttons.clear()
+	m.castle_room_menu_open = false
 	m.g["castle_dust_bunnies_cleared"] = {}
 	m.g["castle_dust_bunny_runner_time"] = 0.0
 	if not m.g.has("castle_dining_plates"):
@@ -947,6 +971,7 @@ func resume(room_id: String = "") -> void:
 
 func suspend() -> void:
 	_close_kitchen_menu()
+	_set_elevator_menu_open(false, false)
 	_set_fridge_close_blocked(false)
 	_restore_previous_environment()
 	if is_open():
@@ -1000,6 +1025,9 @@ func close() -> void:
 	m.castle_room_action_button = null
 	m.castle_room_back_button = null
 	m.castle_room_buttons.clear()
+	m.castle_room_menu_panel = null
+	m.castle_room_menu_buttons.clear()
+	m.castle_room_menu_open = false
 	m.g.erase("castle_room_affordance")
 	m.g.erase("castle_dust_bunnies_cleared")
 	m.g.erase("castle_dust_bunny_runner_time")
@@ -1024,6 +1052,7 @@ func tick(delta: float) -> void:
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
+	_sync_hall_horizontal_culling()
 	_update_touch_hotspots()
 	_update_hall_portals()
 	_sync_hall_lighting()
@@ -1148,50 +1177,95 @@ func _build_stage() -> void:
 	m.castle_room_back_button.z_index = 30
 	stage.add_child(m.castle_room_back_button)
 
+	var elevator := Button.new()
+	elevator.name = "ElevatorButton"
+	elevator.position = Vector2(1116.0, 544.0)
+	StorybookUI.style_icon_button(elevator, "↕", "primary",
+		Vector2(136.0, 136.0), "Castle elevator")
+	elevator.pressed.connect(_toggle_elevator_menu)
+	elevator.z_index = 30
+	stage.add_child(elevator)
+	var elevator_pointer := Label.new()
+	elevator_pointer.name = "ElevatorPointer"
+	elevator_pointer.text = "▼"
+	elevator_pointer.position = Vector2(1155.0, 490.0)
+	StorybookUI.style_label(elevator_pointer, 48, StorybookUI.GOLD, 5)
+	elevator_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	elevator_pointer.z_index = 30
+	stage.add_child(elevator_pointer)
+	var point := elevator_pointer.create_tween().set_loops()
+	point.tween_property(elevator_pointer, "position:y", 502.0,
+		0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	point.tween_property(elevator_pointer, "position:y", 490.0,
+		0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_build_elevator_menu(stage)
+
 func _build_hall_background_tiles() -> void:
 	m.castle_room_background_tiles.clear()
 	for index in range(HALL_TILE_FILES.size()):
 		var texture: Texture2D = load(HALL_TILE_ROOT + HALL_TILE_FILES[index])
 		if texture == null:
 			continue
-		var row: int = index / 4
-		var column: int = index % 4
-		var top_left := Vector2(float(column) * 836.0,
-			0.0 if row == 0 else 470.0)
+		var row: int = index / HALL_TILE_COLUMNS
+		var column: int = index % HALL_TILE_COLUMNS
+		var native_size := Vector2(
+			float(HALL_TILE_NATIVE_WIDTHS[column]),
+			HALL_TILE_NATIVE_HEIGHT)
+		var native_top_left := Vector2(
+			_hall_native_column_x(column),
+			float(row) * HALL_TILE_NATIVE_HEIGHT)
+		var logical_size: Vector2 = native_size * HALL_NATIVE_TO_LOGICAL
+		var top_left: Vector2 = native_top_left * HALL_NATIVE_TO_LOGICAL
 		var tile: Sprite3D = _new_card(
 			"MainHallTile_r%d_c%d" % [row, column], texture)
-		var center: Vector2 = top_left + texture.get_size() * 0.5
+		var center: Vector2 = top_left + logical_size * 0.5
 		tile.position = _hall_art_to_world(center, BACKGROUND_Z)
 		tile.pixel_size = HALL_CARD_PIXEL_SIZE
+		tile.scale = Vector3(
+			HALL_NATIVE_TO_LOGICAL.x,
+			HALL_NATIVE_TO_LOGICAL.y, 1.0)
 		tile.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
-		tile.shaded = true
+		tile.shaded = false
+		tile.transparent = false
+		tile.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
 		tile.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		tile.visible = false
 		tile.set_meta("source_asset_role", "clean_background_tile")
-		tile.set_meta("source_master_grid", "2x4")
-		# The approved source rectangles remain exact and non-overlapping.
-		# Runtime cards append the approved neighbor edge to the right and/or
-		# beneath them. The one-pixel two-axis overlap closes Mobile raster
-		# cracks without scaling, interpolation, crop, or generated art.
-		var source_size := Vector2(836.0, 470.0 if row == 0 else 471.0)
-		var bleed_pixels := Vector2i(1 if column < 3 else 0, 1 if row == 0 else 0)
-		tile.set_meta("source_art_rect", Rect2(top_left, source_size))
-		var screen_index: int = column / 2
-		var local_column: int = column % 2
-		var screen_source_rect: Rect2 = HALL_SCREEN_SOURCE_RECTS[
-			screen_index]
+		tile.set_meta("source_master_grid", "2x8_7280x2048")
+		# These sixteen runtime textures are exact non-overlapping crops of the
+		# 7280x2048 master. Proportional mapping preserves every native boundary
+		# native boundary while returning the hall to its established 3344x941
+		# two-screen layout coordinate system.
+		tile.set_meta("source_art_rect",
+			Rect2(top_left, logical_size))
+		tile.set_meta("hall_horizontal_cull", true)
+		tile.set_meta("hall_horizontal_cull_kind", "background_tile")
+		tile.set_meta("hall_horizontal_cull_rect",
+			Rect2(top_left, logical_size))
+		tile.set_meta("render_art_rect",
+			Rect2(top_left, logical_size))
+		tile.set_meta("native_texture_size", native_size)
+		tile.set_meta("native_to_logical_scale", HALL_NATIVE_TO_LOGICAL)
+		tile.set_meta("runtime_seam_bleed_pixels", Vector2i.ZERO)
+		var screen_index: int = column / 4
 		tile.set_meta("source_screen_id", "a" if screen_index == 0 else "b")
 		tile.set_meta("source_master_rect", Rect2(
-			screen_source_rect.position + Vector2(
-				float(local_column) * 836.0,
-				0.0 if row == 0 else 470.0),
-			source_size))
-		tile.set_meta("render_art_rect",
-			Rect2(top_left, texture.get_size()))
-		tile.set_meta("runtime_seam_bleed_pixels", bleed_pixels)
+			native_top_left, native_size))
+		tile.set_meta("source_screen_rect", Rect2(
+			Vector2(
+				native_top_left.x
+					- float(screen_index) * HALL_SCREEN_NATIVE_WIDTH,
+				native_top_left.y),
+			native_size))
 		tile.set_meta("depth_z", BACKGROUND_Z)
 		m.castle_room_world_root.add_child(tile)
 		m.castle_room_background_tiles.append(tile)
+
+func _hall_native_column_x(column: int) -> float:
+	var x := 0.0
+	for prior_column: int in range(column):
+		x += float(HALL_TILE_NATIVE_WIDTHS[prior_column])
+	return x
 
 func _build_hall_lighting() -> void:
 	m.castle_room_light_nodes.clear()
@@ -1232,16 +1306,17 @@ func _build_castle_environment() -> void:
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	environment.ambient_light_color = Color(0.70, 0.62, 0.78)
 	environment.ambient_light_energy = 0.26
+	# Keep the pale painted architecture below the glow knee; the fixture
+	# shader's >1.0 HDR emission still produces a broad, dramatic local halo.
+	# A low threshold washed the entire lavender plate toward white and erased
+	# the approved texture/value hierarchy.
 	m._wind_waker_bloom(environment, HALL_GLOW_FULL,
-		HALL_BLOOM_FULL, 0.58)
-	# The shell cards carry true HDR spatial emission. A higher scale lets the
-	# Mobile renderer spread that energy into the wall while the low-emission
-	# shell body keeps its drawn pink/gold detail.
-	environment.glow_hdr_scale = 4.20
+		HALL_BLOOM_FULL, HALL_GLOW_THRESHOLD)
+	# The shell cards carry true HDR spatial emission. A moderate HDR scale
+	# spreads that energy locally without lifting pale background ornament over
+	# the glow threshold or erasing the shell body's drawn pink/gold detail.
+	environment.glow_hdr_scale = HALL_GLOW_HDR_SCALE
 	m._apply_scene_grade(environment, "warm_pastel")
-	environment.adjustment_saturation = 0.50
-	environment.adjustment_contrast = 1.20
-	environment.adjustment_brightness = 1.12
 	environment.set_meta("castle_glow_profile", "dramatic_storybook")
 	environment.set_meta("castle_glow_full",
 		Vector2(HALL_GLOW_FULL, HALL_BLOOM_FULL))
@@ -1269,7 +1344,7 @@ func _restore_previous_environment() -> void:
 func _set_hall_background_visible(visible: bool) -> void:
 	for tile: Sprite3D in m.castle_room_background_tiles:
 		if tile != null and is_instance_valid(tile):
-			tile.visible = visible
+			tile.visible = false
 	for tile: Sprite3D in m.castle_room_detail_tiles:
 		if tile != null and is_instance_valid(tile):
 			tile.visible = not visible
@@ -1277,6 +1352,72 @@ func _set_hall_background_visible(visible: bool) -> void:
 		m.castle_room_background.visible = false
 	if m.castle_room_door_hotspot_layer != null:
 		m.castle_room_door_hotspot_layer.visible = visible
+	_sync_hall_horizontal_culling()
+
+func _hall_horizontal_cull_span() -> Vector2:
+	var camera_center_art: float = HALL_LOGICAL_SIZE.x * 0.5
+	if m.castle_room_camera != null:
+		camera_center_art += m.castle_room_camera.position.x \
+			/ HALL_CARD_PIXEL_SIZE
+	return Vector2(
+		camera_center_art - HALL_VIEW_SIZE.x * 0.5
+			- HALL_HORIZONTAL_CULL_MARGIN,
+		camera_center_art + HALL_VIEW_SIZE.x * 0.5
+			+ HALL_HORIZONTAL_CULL_MARGIN)
+
+func _hall_card_inside_horizontal_span(card: Sprite3D,
+		span: Vector2) -> bool:
+	if card == null or not is_instance_valid(card):
+		return false
+	var art_rect: Rect2 = card.get_meta(
+		"hall_horizontal_cull_rect", Rect2()) as Rect2
+	return _hall_art_rect_inside_horizontal_span(art_rect, span)
+
+func _hall_art_rect_inside_horizontal_span(art_rect: Rect2,
+		span: Vector2) -> bool:
+	return art_rect.has_area() \
+		and art_rect.end.x >= span.x \
+		and art_rect.position.x <= span.y
+
+func _sync_hall_horizontal_culling() -> void:
+	var hall_visible: bool = is_open() and _is_wide_hall()
+	var span: Vector2 = _hall_horizontal_cull_span()
+	for tile: Sprite3D in m.castle_room_background_tiles:
+		if tile != null and is_instance_valid(tile):
+			tile.visible = hall_visible \
+				and _hall_card_inside_horizontal_span(tile, span)
+	if m.castle_room_mid_layer == null:
+		return
+	for child: Node in m.castle_room_mid_layer.get_children():
+		var card: Sprite3D = child as Sprite3D
+		if card == null or not bool(card.get_meta(
+				"hall_horizontal_cull", false)):
+			continue
+		card.visible = hall_visible \
+			and _hall_card_inside_horizontal_span(card, span)
+	if not _is_wide_hall():
+		return
+	# Main Hall interactions remain live in the room-state dictionary, but
+	# cards outside the camera prefetch band do not consume transparent
+	# overdraw. Their touch controls follow the card and reappear as soon as
+	# the camera approaches; animation/state is never rebuilt or discarded.
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[
+			item_id_value] as Dictionary
+		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		if sprite == null or not is_instance_valid(sprite):
+			continue
+		var art_rect: Rect2 = record.get(
+			"render_art_rect", record.get("art_rect", Rect2())) as Rect2
+		var item_visible: bool = hall_visible \
+			and _hall_art_rect_inside_horizontal_span(art_rect, span)
+		sprite.visible = item_visible
+		sprite.set_meta("hall_horizontal_cull", true)
+		sprite.set_meta("hall_horizontal_cull_kind", "interaction")
+		sprite.set_meta("hall_horizontal_cull_rect", art_rect)
+		var hotspot: Button = record.get("hotspot") as Button
+		if hotspot != null:
+			hotspot.visible = item_visible
 
 func _clear_room_background_tiles() -> void:
 	for tile: Sprite3D in m.castle_room_detail_tiles:
@@ -1321,6 +1462,8 @@ func _build_room_background_tiles(room_id: String) -> void:
 			var tile := _new_card(
 				"RoomTile_%s_r%d_c%d" % [room_id, row, column],
 				texture)
+			tile.transparent = false
+			tile.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
 			tile.position = _art_to_world(render_center, BACKGROUND_Z)
 			tile.scale = Vector3(
 				render_logical_size.x / logical_size.x,
@@ -1368,6 +1511,100 @@ func _build_hall_portals() -> void:
 		})
 	m.castle_room_door_hotspot_layer.visible = false
 
+func _build_elevator_menu(stage: Control) -> void:
+	var overlay := Control.new()
+	overlay.name = "CastleElevatorMenu"
+	overlay.position = Vector2.ZERO
+	overlay.size = StorybookUI.CANVAS_SIZE
+	overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+	overlay.z_index = 40
+	overlay.visible = false
+	stage.add_child(overlay)
+	m.castle_room_menu_panel = overlay
+
+	var dim := ColorRect.new()
+	dim.name = "CastleElevatorDim"
+	dim.position = Vector2.ZERO
+	dim.size = StorybookUI.CANVAS_SIZE
+	dim.color = StorybookUI.DIM
+	dim.mouse_filter = Control.MOUSE_FILTER_STOP
+	overlay.add_child(dim)
+	var book: Panel = StorybookUI.add_panel(overlay,
+		Rect2(192.0, 55.0, 896.0, 610.0), StorybookUI.PURPLE_DEEP,
+		Color(0.94, 0.98, 1.0, 0.99), 42)
+	book.name = "CastleElevatorBook"
+	book.mouse_filter = Control.MOUSE_FILTER_STOP
+	StorybookUI.add_shell_crest(book,
+		Rect2(408.0, 12.0, 80.0, 54.0), "CastleElevatorShellCrest")
+
+	for index: int in range(ELEVATOR_ROOM_IDS.size()):
+		var room_id: String = ELEVATOR_ROOM_IDS[index]
+		var room: Dictionary = _room(room_id)
+		if room.is_empty():
+			continue
+		var button := Button.new()
+		button.name = "ElevatorRoom_" + room_id
+		button.position = Vector2(
+			44.0 + float(index % 4) * 208.0,
+			76.0 + float(index / 4) * 166.0)
+		StorybookUI.style_icon_button(button, String(room["icon"]),
+			"secondary", Vector2(180.0, 138.0), String(room["name"]))
+		button.set_meta("castle_room_destination", room_id)
+		button.pressed.connect(_choose_elevator_room.bind(room_id))
+		book.add_child(button)
+		m.castle_room_menu_buttons[room_id] = button
+
+	var close_button := Button.new()
+	close_button.name = "ElevatorMenuClose"
+	close_button.position = Vector2(1116.0, 544.0)
+	StorybookUI.style_icon_button(close_button, "↕", "primary",
+		Vector2(136.0, 136.0), "Close the castle elevator")
+	close_button.pressed.connect(_toggle_elevator_menu)
+	overlay.add_child(close_button)
+	_update_elevator_selected()
+
+func _update_elevator_selected() -> void:
+	for room_id_value: Variant in m.castle_room_menu_buttons:
+		var room_id := String(room_id_value)
+		var button: Button = m.castle_room_menu_buttons.get(room_id) as Button
+		if button != null:
+			StorybookUI.set_selected(button, room_id == m.castle_room_id)
+
+func _set_elevator_menu_open(open_menu: bool, play_sound: bool = true) -> void:
+	if m.castle_room_menu_panel == null:
+		m.castle_room_menu_open = false
+		return
+	if play_sound and m.castle_room_menu_open != open_menu:
+		m._ui_tap()
+	m.castle_room_menu_open = open_menu
+	m.castle_room_menu_panel.visible = open_menu
+	if not open_menu:
+		return
+	_update_elevator_selected()
+	var pointer: Label = m.castle_room_stage.get_node_or_null(
+		"ElevatorPointer") as Label
+	if pointer != null:
+		pointer.visible = false
+	var book: Panel = m.castle_room_menu_panel.get_node_or_null(
+		"CastleElevatorBook") as Panel
+	if book != null:
+		book.pivot_offset = book.size * 0.5
+		book.scale = Vector2(0.88, 0.88)
+		var pop := m.create_tween()
+		pop.tween_property(book, "scale", Vector2.ONE, 0.18).set_trans(
+			Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func _toggle_elevator_menu() -> void:
+	if _fridge_close_is_blocked():
+		return
+	_set_elevator_menu_open(not m.castle_room_menu_open)
+
+func _choose_elevator_room(room_id: String) -> void:
+	if not ELEVATOR_ROOM_IDS.has(room_id):
+		return
+	_set_elevator_menu_open(false, false)
+	show_room(room_id, true)
+
 func _rebuild_room_links(_room_id: String) -> void:
 	if m.castle_room_link_layer == null:
 		return
@@ -1383,6 +1620,8 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if room.is_empty() or m.castle_room_background == null:
 		return
 	m.castle_room_id = room_id
+	_set_elevator_menu_open(false, false)
+	_update_elevator_selected()
 	if m.castle_room_prop_sfx != null:
 		m.castle_room_prop_sfx.stop()
 	var hall_mode: bool = room_id == "main_hall"
@@ -1430,6 +1669,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 			fade.parallel().tween_property(
 				tile, "modulate:a", 1.0, 0.24)
 	_center_player()
+	_sync_hall_horizontal_culling()
 	_update_hall_portals()
 	_sync_hall_lighting()
 	if announce:
@@ -1448,7 +1688,7 @@ func _room(room_id: String) -> Dictionary:
 	return {}
 
 func _on_room_input(event: InputEvent) -> void:
-	if _fridge_close_is_blocked():
+	if _fridge_close_is_blocked() or m.castle_room_menu_open:
 		return
 	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed:
 		_walk_cutout_to((event as InputEventMouseButton).position)
@@ -1667,8 +1907,9 @@ func _rebuild_depth_layers(room_id: String) -> void:
 			for child: Node in container.get_children():
 				child.free()
 	if room_id == "main_hall":
-		for piece_data: Dictionary in HALL_STRUCTURE_CARDS:
-			_add_hall_structure_piece(piece_data)
+		_build_hall_door_signs()
+		_build_hall_throne_card()
+		_sync_hall_horizontal_culling()
 		return
 	var layout: Dictionary = ROOM_LAYOUTS.get(room_id, {})
 	for piece_data: Dictionary in layout.get("mid", []):
@@ -1676,32 +1917,74 @@ func _rebuild_depth_layers(room_id: String) -> void:
 	for piece_data: Dictionary in layout.get("front", []):
 		_add_layer_piece(m.castle_room_front_layer, piece_data, FOREGROUND_Z)
 
-func _add_hall_structure_piece(piece_data: Dictionary) -> void:
+func _build_hall_door_signs() -> void:
 	if m.castle_room_mid_layer == null:
 		return
-	var texture: Texture2D = load(String(piece_data["tex_path"]))
+	for portal_data: Dictionary in HALL_PORTALS:
+		var portal_id: String = String(portal_data["id"])
+		var sign_filename: String = String(portal_data.get("sign_tex", ""))
+		if sign_filename == "":
+			continue
+		var sign_path := HALL_SIGN_ART_ROOT + sign_filename
+		if not ResourceLoader.exists(sign_path):
+			continue
+		var texture: Texture2D = load(sign_path) as Texture2D
+		if texture == null:
+			continue
+		var portal_rect: Rect2 = portal_data["rect"] as Rect2
+		var default_position := Vector2(
+			portal_rect.get_center().x, portal_rect.position.y - 44.0)
+		var sign_position: Vector2 = portal_data.get(
+			"sign_pos", default_position) as Vector2
+		var sign := _new_card("HallDoorSign_" + portal_id, texture)
+		var sign_scale: float = float(portal_data.get("sign_scale", 0.28))
+		var sign_art_size: Vector2 = texture.get_size() * sign_scale
+		sign.position = _hall_art_to_world(sign_position, HALL_SIGN_Z)
+		sign.pixel_size = _pixel_size_for_depth(HALL_SIGN_Z)
+		sign.scale = Vector3.ONE * sign_scale
+		sign.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		sign.set_meta("source_asset_role", "room_door_sign")
+		sign.set_meta("source_object_id", "main_hall_sign:" + portal_id)
+		sign.set_meta("room_destination", portal_id)
+		sign.set_meta("source_art_position", sign_position)
+		sign.set_meta("hall_horizontal_cull", true)
+		sign.set_meta("hall_horizontal_cull_kind", "door_sign")
+		sign.set_meta("hall_horizontal_cull_rect", Rect2(
+			sign_position - sign_art_size * 0.5, sign_art_size))
+		sign.set_meta("depth_z", HALL_SIGN_Z)
+		m.castle_room_mid_layer.add_child(sign)
+
+func _build_hall_throne_card() -> void:
+	if m.castle_room_mid_layer == null:
+		return
+	var texture_path: String = String(HALL_THRONE_CARD["tex_path"])
+	if not ResourceLoader.exists(texture_path):
+		return
+	var texture: Texture2D = load(texture_path) as Texture2D
 	if texture == null:
 		return
-	var piece := _new_card(
-		"HallStructure_" + String(piece_data["id"]), texture)
-	var depth_z: float = float(piece_data["z"])
-	piece.position = _hall_art_to_world(
-		piece_data["pos"] as Vector2, depth_z)
-	piece.pixel_size = _pixel_size_for_depth(depth_z)
-	piece.scale = Vector3.ONE * float(piece_data.get("scale", 1.0))
-	piece.shaded = bool(piece_data.get("shaded", false))
-	piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	if String(piece_data.get("shader", "")) == "portal_cutout":
-		var portal_material := ShaderMaterial.new()
-		portal_material.shader = CASTLE_PORTAL_CUTOUT_SHADER
-		portal_material.set_shader_parameter("portal_texture", texture)
-		piece.material_override = portal_material
-		piece.set_meta("castle_transparent_portal_cutout", true)
-	piece.set_meta("source_asset_role", String(piece_data["role"]))
-	piece.set_meta("source_object_id",
-		"main_hall:" + String(piece_data["id"]))
-	piece.set_meta("depth_z", depth_z)
-	m.castle_room_mid_layer.add_child(piece)
+	var throne := _new_card("HallRetainedHuluuThrone", texture)
+	var art_position: Vector2 = HALL_THRONE_CARD["pos"] as Vector2
+	var depth_z: float = float(HALL_THRONE_CARD["z"])
+	var visual_scale: float = float(HALL_THRONE_CARD["scale"])
+	throne.position = _hall_art_to_world(art_position, depth_z)
+	throne.pixel_size = _pixel_size_for_depth(depth_z)
+	throne.scale = Vector3.ONE * visual_scale
+	throne.cast_shadow = \
+		GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
+	throne.set_meta("source_asset_role", "retained_huluu_throne")
+	throne.set_meta("source_object_id", "main_hall:huluu_throne")
+	throne.set_meta("source_asset_path", texture_path)
+	throne.set_meta("source_art_position", art_position)
+	throne.set_meta("source_art_rect", Rect2(
+		art_position - texture.get_size() * visual_scale * 0.5,
+		texture.get_size() * visual_scale))
+	throne.set_meta("hall_horizontal_cull", true)
+	throne.set_meta("hall_horizontal_cull_kind", "throne")
+	throne.set_meta("hall_horizontal_cull_rect", throne.get_meta(
+		"source_art_rect", Rect2()))
+	throne.set_meta("depth_z", depth_z)
+	m.castle_room_mid_layer.add_child(throne)
 
 func _rebuild_touch_items(room_id: String) -> void:
 	fixture_rigs.rebuild_begin()
@@ -2497,16 +2780,15 @@ func _sync_castle_environment(hall_visible: bool,
 			HALL_GLOW_OFF, glow_target, half_light_ratio)
 		environment.glow_bloom = lerpf(
 			HALL_BLOOM_OFF, bloom_target, half_light_ratio)
-		environment.glow_hdr_threshold = lerpf(
-			0.98, 0.58, half_light_ratio)
+		# The fixture atlas emits true HDR. Keep the finished painted plate below
+		# the glow knee at every switch state instead of relighting/regrading it.
+		environment.glow_hdr_threshold = HALL_GLOW_THRESHOLD
+		environment.glow_hdr_scale = HALL_GLOW_HDR_SCALE
 		environment.ambient_light_energy = lerpf(
 			0.12, 0.26, half_light_ratio)
-		environment.adjustment_saturation = lerpf(
-			0.66, 0.50, half_light_ratio)
-		environment.adjustment_contrast = lerpf(
-			1.12, 1.20, half_light_ratio)
-		environment.adjustment_brightness = lerpf(
-			0.84, 1.12, half_light_ratio)
+		environment.adjustment_saturation = 1.06
+		environment.adjustment_contrast = 1.03
+		environment.adjustment_brightness = 0.97
 	else:
 		# Destination rooms keep the castle's warm storybook finish, but their
 		# painted practical lights do not receive the Main Hall's dramatic lift.
@@ -3217,6 +3499,9 @@ func _update_touch_hotspot(record: Dictionary) -> void:
 	var hotspot: Button = record.get("hotspot") as Button
 	if sprite == null or hotspot == null or sprite.texture == null:
 		return
+	if not sprite.visible:
+		hotspot.visible = false
+		return
 	if m.castle_room_camera.is_position_behind(sprite.global_position):
 		hotspot.visible = false
 		return
@@ -3308,7 +3593,7 @@ func _update_hall_portals() -> void:
 func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 	if _fridge_close_is_blocked():
 		return
-	if not _is_wide_hall():
+	if not _is_wide_hall() or m.castle_room_menu_open:
 		return
 	m._ui_tap()
 	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
@@ -3519,8 +3804,8 @@ func activate_current_room() -> void:
 		"opera":
 			suspend()
 			m._start_opera()
-		"craft":
-			m._open_craft_studio()
+		"castle_logo":
+			_activate_room_item("paint_table")
 		"stuffies":
 			if not _playroom_rescue_done():
 				m.show_msg("Baby Eagle",
@@ -3612,6 +3897,9 @@ func _burst(_symbol: String, color: Color) -> void:
 		color, 9)
 
 func _go_back() -> void:
+	if m.castle_room_menu_open:
+		_set_elevator_menu_open(false)
+		return
 	if m.castle_room_id == "main_hall":
 		_exit_to_courtyard()
 	else:

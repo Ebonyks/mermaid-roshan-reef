@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "purpose": "Godot Mobile-rendered Main Hall bloom and tile-join gate",
+  "inputs": {
+    "lights_on": {
+      "path": "audit/castle_sprite3d/main_hall_screen_a.png",
+      "dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "97f7a1343f46e3e8408165c8c509b173cb7d5b6a3a3d93c9361064aec197cd08"
+    },
+    "lights_off": {
+      "path": "audit/castle_sprite3d/main_hall_lights_off.png",
+      "dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "35fbb20b67a51dca6298dbd4e4bdf1031f98d53e0801307e7857875bf1f2c15d"
+    },
+    "seam": {
+      "path": "audit/castle_sprite3d/main_hall_seam_bridge.png",
+      "dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "54bce1a8a4e106a80f0ca573606e9faf486877c128c05b84ed4e466b73edae0f"
+    }
+  },
+  "bloom": {
+    "on_mean_luma": 150.1185,
+    "off_mean_luma": 140.016,
+    "mean_positive_luma_delta": 10.4056,
+    "positive_luma_p95": 23.7468,
+    "changed_pixel_fraction_over_3_rgb": 0.922993,
+    "unsaturated_halo_fraction": 0.794808,
+    "unsaturated_halo_mean_delta": 12.6305,
+    "fixture_region_positive_mean_delta": 25.856,
+    "far_field_positive_mean_delta": 8.7266,
+    "localized_fixture_gain_ratio": 2.9629,
+    "pass": true
+  },
+  "rendered_seams": {
+    "central_screen_join": {
+      "edge_mean_abs_rgb": 7.0292,
+      "edge_p95_abs_rgb": 21.0,
+      "local_baseline_mean_abs_rgb": 3.4727,
+      "edge_to_local_ratio": 2.0241,
+      "seam_to_neighbor_luma_ratio": 0.9904,
+      "pass": true
+    },
+    "horizontal_tile_join": {
+      "edge_mean_abs_rgb": 2.2522,
+      "edge_p95_abs_rgb": 7.0,
+      "local_baseline_mean_abs_rgb": 2.6593,
+      "edge_to_local_ratio": 0.8469,
+      "seam_to_neighbor_luma_ratio": 0.9997,
+      "pass": true
+    }
+  },
+  "blocking_pass": true
+}

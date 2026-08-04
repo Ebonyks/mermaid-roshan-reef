@@ -6,7 +6,10 @@ The owner explicitly authorized deterministic upscaling for the seven legacy
 Kitchen uses a 4096x2304 master so both native dimensions provide at least
 2048 pixels of coverage; the other preserved rooms retain their authorized
 2048x1152 masters. Every master is split into non-overlapping runtime tiles,
-and reconstruction must be pixel exact.
+and reconstruction must be pixel exact. The Main Hall is not rebuilt here:
+its live depth-manifest record is projected only from the accepted strict
+7280x2048/2x8 build manifest, so this legacy room tool cannot restore the
+retired shaded 2x4/bleed implementation.
 """
 
 from __future__ import annotations
@@ -30,6 +33,13 @@ OUTPUT_CONTACT = AUDIT_ROOT / "castle_room_2k_upscale_contact.png"
 HALL_RUNTIME_ROOT = (
 	ROOT / "assets" / "flats" / "castle" / "main_hall_2screen")
 HALL_ALIGNED_ROOT = ROOT / "assets_src" / "castle" / "main_hall_alignment"
+HALL_STRICT_BUILD_MANIFEST = (
+	ROOT / "assets_src" / "imagegen" / "castle_main_hall_redraw_2026-08-03"
+	/ "main_hall_strict_2k_build_manifest.json")
+HALL_STRICT_AUDIT = (
+	AUDIT_ROOT / "castle_main_hall_redraw_2026-08-04_2k_audit.json")
+HALL_NODE_INVENTORY = (
+	AUDIT_ROOT / "castle_main_hall_redraw_2026-08-03_node_inventory.json")
 
 ROOM_IDS = (
 	"opera_hall",
@@ -89,8 +99,9 @@ def roundtrip_metrics(source: Image.Image, master: Image.Image) -> dict[str, obj
 	}
 
 
-def main_hall_tile_records() -> list[dict[str, object]]:
-	"""Verify the tracked Hall and reproduce its rich runtime tile inventory."""
+def _historical_main_hall_tile_records_2026_07_29(
+) -> list[dict[str, object]]:
+	"""Verify archived 2x4 evidence; never use it as the active Hall record."""
 	master_paths = (
 		HALL_ALIGNED_ROOT / "main_hall_screen_a_fixture_aligned_master.png",
 		HALL_ALIGNED_ROOT / "main_hall_screen_b_fixture_aligned_master.png",
@@ -184,6 +195,80 @@ def main_hall_tile_records() -> list[dict[str, object]]:
 		raise RuntimeError(
 			"Main Hall source tiles do not reconstruct the aligned masters")
 	return records
+
+
+def current_main_hall_record() -> dict[str, object]:
+	"""Project the accepted strict Hall build into the living depth manifest."""
+	data = json.loads(HALL_STRICT_BUILD_MANIFEST.read_text(encoding="utf-8"))
+	panorama = data.get("panorama", {})
+	grid = data.get("runtime_grid", {})
+	tiles = data.get("tiles", [])
+	if panorama.get("dimensions") != [7280, 2048]:
+		raise ValueError("Strict Main Hall panorama must be exactly 7280x2048")
+	if panorama.get("file_sha256") != (
+			"297cd6d181288ef6cc364a71a89fdb4da168f688249ca910995e71f6f769a9dd"):
+		raise ValueError("Strict Main Hall panorama hash changed")
+	if grid.get("rows") != 2 or grid.get("columns") != 8 \
+			or grid.get("tile_count") != 16:
+		raise ValueError("Strict Main Hall runtime grid must be 2x8 / 16 cards")
+
+	runtime_tiles: list[dict[str, object]] = []
+	for tile in tiles:
+		dimensions = tile.get("dimensions", [])
+		path = str(tile.get("path", ""))
+		if dimensions != [910, 1024] or not path.startswith(
+				"assets/flats/castle/main_hall_redraw_2026-08-03/tiles/"):
+			raise ValueError(f"Nonconforming strict Main Hall tile: {path}")
+		tile_path = ROOT / path
+		if not tile_path.exists() or sha256(tile_path) != tile.get("file_sha256"):
+			raise ValueError(f"Strict Main Hall tile hash mismatch: {path}")
+		runtime_tiles.append({
+			"column": int(tile["column"]),
+			"dimensions": list(dimensions),
+			"master_source_rect": list(tile["panorama_source_rectangle"]),
+			"path": path,
+			"row": int(tile["row"]),
+			"screen": str(tile["screen"]),
+			"sha256": str(tile["file_sha256"]),
+		})
+	if len(runtime_tiles) != 16:
+		raise ValueError("Strict Main Hall manifest must contain sixteen tiles")
+
+	chains = data.get("transform_chains", {})
+	return {
+		"active_background_system": (
+			"two 3640x2048 per-screen masters / lossless 7280x2048 "
+			"panorama / 2x8 unshaded Sprite3D grid"),
+		"active_runtime_status": "accepted_current_runtime",
+		"aspect_ratio_delta": 0.0005105937832092788,
+		"aspect_ratio_pixel_delta": 0.5885167464111873,
+		"master": str(panorama["path"]),
+		"master_aspect_ratio": 7280 / 2048,
+		"master_dimensions": [7280, 2048],
+		"master_sha256": str(panorama["file_sha256"]),
+		"native_master_compliant": True,
+		"reference_aspect_ratio": 1672 / 941,
+		"runtime_neighbor_bleed_pixels": [0, 0],
+		"runtime_tiles": runtime_tiles,
+		"screen_masters": [
+			{
+				"dimensions": list(chains[screen]["final"]["dimensions"]),
+				"path": str(chains[screen]["final"]["path"]),
+				"screen": screen,
+				"sha256": str(chains[screen]["final"]["file_sha256"]),
+			}
+			for screen in ("A", "B")
+		],
+		"source_tile_rectangles_non_overlapping": True,
+		"tile_reconstruction_pixel_exact": True,
+		"upscale_authorization": (
+			"Owner 2026-07-29 and 2026-08-03: upscale as needed while "
+			"preserving the accepted art"),
+		"upscale_method": (
+			"whole-canvas Pillow Image.Resampling.LANCZOS; no crop, padding, "
+			"canvas extension, local retouch, seam blend, or AI upscale"),
+		"upscaled_from_preserved_source": True,
+	}
 
 
 def build_room(room_id: str) -> dict[str, object]:
@@ -308,16 +393,15 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 		"outline-refined derivatives of accepted master pixels")
 	manifest["runtime_node_contract"]["world_art_allowed"] = [
 		"Sprite3D:unshaded",
-		"Sprite3D:shaded lighting receiver",
 	]
-	manifest["runtime_node_contract"]["shaded_role_allowlist"] = [
-		"clean_background_tile",
-	]
+	manifest["runtime_node_contract"]["shaded_role_allowlist"] = []
 	manifest["runtime_node_contract"]["background_tile_seam_policy"] = {
 		"source_rectangles_non_overlapping": True,
-		"main_hall_runtime_neighbor_bleed_pixels": [1, 1],
+		"main_hall_runtime_neighbor_bleed_pixels": [0, 0],
 		"main_hall_bleed_method": (
-			"source-exact right/lower neighbor edges; no scaling"),
+			"none; sixteen exact non-overlapping 910x1024 crops reconstruct "
+			"the 7280x2048 master without scaling or overlap"),
+		"main_hall_runtime_tile_grid": "2 rows x 8 columns",
 		"destination_room_runtime_quad_overlap_native_pixels": [1, 1],
 		"destination_room_overlap_method": (
 			"top-left-anchored geometry overscan; source textures unchanged"),
@@ -333,6 +417,8 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 		"active_master_dimensions": [2048, 1152],
 		"required_minimum_per_screen_dimensions": [2048, 2048],
 		"kitchen_active_master_dimensions": [4096, 2304],
+		"main_hall_active_master_dimensions": [7280, 2048],
+		"main_hall_per_screen_master_dimensions": [3640, 2048],
 	})
 	for record in records:
 		room = manifest["rooms"][record["room_id"]]
@@ -356,26 +442,24 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 			"source_tile_rectangles_non_overlapping": True,
 		})
 
+	# Main Hall is owned by the strict per-screen >=2K pipeline. Never derive
+	# its active record from the archived 2x4/bleed implementation above.
 	main_hall = manifest["rooms"]["main_hall"]
-	hall_runtime_manifest = (
-		AUDIT_ROOT / "castle_hall_runtime_registration.json")
-	hall_tiles = (
-		json.loads(hall_runtime_manifest.read_text(encoding="utf-8"))["tiles"]
-		if hall_runtime_manifest.exists() else main_hall_tile_records())
-	main_hall.update({
-		"active_background_system": (
-			"two native >=2K masters / 2x4 Sprite3D grid"),
-		"native_master_compliant": True,
-		"master_dimensions": [2048, 1153],
-		"master_aspect_ratio": 2048 / 1153,
-		"aspect_ratio_delta": abs((2048 / 1153) - (1672 / 941)),
-		"aspect_ratio_pixel_delta": 1.0,
-		"upscaled_from_preserved_source": False,
-		"runtime_tiles": hall_tiles,
-		"tile_reconstruction_pixel_exact": True,
-		"runtime_neighbor_bleed_pixels": [1, 1],
-		"source_tile_rectangles_non_overlapping": True,
-	})
+	main_hall.update(current_main_hall_record())
+	main_hall["card_inventory_scope"] = (
+		"preserved 2026-07-26 source-extraction evidence for legacy crop and "
+		"alpha audits; not the current runtime node count")
+	main_hall["source_record_scope"] = (
+		"preserved historical 2026-07-26 clean-plate/card extraction input; "
+		"current runtime background provenance is current_runtime_audit")
+	main_hall["current_runtime_audit"] = {
+		"blocking_audit": HALL_STRICT_AUDIT.relative_to(ROOT).as_posix(),
+		"blocking_audit_sha256": sha256(HALL_STRICT_AUDIT),
+		"build_manifest": HALL_STRICT_BUILD_MANIFEST.relative_to(ROOT).as_posix(),
+		"build_manifest_sha256": sha256(HALL_STRICT_BUILD_MANIFEST),
+		"node_inventory": HALL_NODE_INVENTORY.relative_to(ROOT).as_posix(),
+		"node_inventory_sha256": sha256(HALL_NODE_INVENTORY),
+	}
 	DEPTH_MANIFEST.write_text(
 		json.dumps(manifest, indent=2, sort_keys=True) + "\n",
 		encoding="utf-8")

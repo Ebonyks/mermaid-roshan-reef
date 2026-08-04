@@ -178,9 +178,22 @@ func _init() -> void:
 		_bad("free-roaming 3D controls remained active inside castle stage")
 	if main.touch_discovery_ring == null or main.touch_focus_ring == null:
 		_bad("shared glow/focus visuals were not built")
-	if main.castle_room_stage.get_node_or_null("ElevatorButton") != null \
-			or main.castle_room_back_button == null:
-		_bad("redundant room selector remained or contextual Back was missing")
+	var elevator_button: Button = main.castle_room_stage.get_node_or_null(
+		"ElevatorButton") as Button
+	if elevator_button == null or main.castle_room_back_button == null \
+			or main.castle_room_menu_panel == null \
+			or main.castle_room_menu_buttons.size() != 12 \
+			or main.castle_room_menu_buttons.has("family_gallery"):
+		_bad("storybook elevator or contextual Back was missing")
+	elif elevator_button.size.x < StorybookUI.MIN_TOUCH.x \
+			or elevator_button.size.y < StorybookUI.MIN_TOUCH.y:
+		_bad("storybook elevator touch target is too small")
+	else:
+		elevator_button.pressed.emit()
+		if not main.castle_room_menu_open \
+				or not main.castle_room_menu_panel.visible:
+			_bad("storybook elevator did not expand")
+		rooms._set_elevator_menu_open(false, false)
 	for dream_room_id: String in [
 		"family_gallery", "dining_room", "royal_bedroom",
 		"sleepover_bedroom", "movie_lounge"]:
@@ -244,6 +257,31 @@ func _init() -> void:
 	if main.castle_room_id != "main_hall":
 		_bad("Dream House Wing Back did not return to Main Hall")
 
+	# The four newest rooms retain their physical gallery doors, but the
+	# omnipresent picture elevator also reaches each in one direct choice.
+	for direct_room_id: String in [
+		"dining_room", "royal_bedroom", "sleepover_bedroom", "movie_lounge"]:
+		elevator_button = main.castle_room_stage.get_node_or_null(
+			"ElevatorButton") as Button
+		var direct_button: Button = main.castle_room_menu_buttons.get(
+			direct_room_id) as Button
+		if elevator_button == null or direct_button == null:
+			_bad("direct elevator route missing %s" % direct_room_id)
+			continue
+		elevator_button.pressed.emit()
+		if not main.castle_room_menu_open:
+			_bad("elevator would not open from %s" % main.castle_room_id)
+			continue
+		direct_button.pressed.emit()
+		if not await _wait_for_castle_room(direct_room_id):
+			_bad("elevator did not directly enter %s" % direct_room_id)
+	var main_hall_button: Button = main.castle_room_menu_buttons.get(
+		"main_hall") as Button
+	if main_hall_button != null:
+		elevator_button.pressed.emit()
+		main_hall_button.pressed.emit()
+		await _wait_for_castle_room("main_hall")
+
 	# The paint table, not the room-wide make-a-friend action, owns the new
 	# castle-logo game. A confirmed choice saves and returns as board art.
 	rooms.show_room("craft_room", false)
@@ -255,13 +293,15 @@ func _init() -> void:
 	if logo_table_sprite == null or String(logo_table_sprite.get_meta(
 			"launch_activity", "")) != "castle_logo":
 		_bad("craft-room paint table is not the castle-logo station")
-	rooms._activate_room_item("paint_table")
+	rooms.activate_current_room()
 	var logo_deadline: int = Time.get_ticks_msec() + 2500
 	while main.castle_logo_layer == null \
 			and Time.get_ticks_msec() < logo_deadline:
 		await process_frame
 	if main.castle_logo_layer == null:
-		_bad("paint-table animation did not open its castle-logo picture game")
+		_bad("Craft Room action did not open its paint-table castle-logo game")
+	elif main.craft_layer != null:
+		_bad("Craft Room action opened the generic Creature Craft Studio")
 	else:
 		var dog_button := main.castle_logo_layer.find_child(
 			"CastleLogoSymbol_dog", true, false) as Button

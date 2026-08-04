@@ -268,8 +268,12 @@ func _init() -> void:
 			and main.castle_room_buttons.has("opera_hall") \
 			and main.castle_room_buttons.has("bubble_bath") \
 			and main.castle_room_back_button != null \
-			and main.castle_room_stage.get_node_or_null("ElevatorButton") == null
-		print("AUDIT|castle has one physical route per room: ",
+			and main.castle_room_stage.get_node_or_null("ElevatorButton") != null \
+			and main.castle_room_menu_buttons.size() == 12 \
+			and main.castle_room_menu_buttons.has("dining_room") \
+			and main.castle_room_menu_buttons.has("movie_lounge") \
+			and not main.castle_room_menu_buttons.has("family_gallery")
+		print("AUDIT|castle physical doors plus direct elevator routes: ",
 			("OK" if room_routes_ok else "FAIL"))
 		# The Main Hall action celebrates in place and records the win without
 		# switching back to the free-roaming world.

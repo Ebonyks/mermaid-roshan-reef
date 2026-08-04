@@ -760,6 +760,220 @@ generator output is present in this directory or connected to runtime art.
   Dust Bunny Boss cutout (`scripts/games/dust_boss.gd`,
   `DUST_BUNNY_BOSS_2026-08-02.md`). License: project original.
 
+## Pearl Castle clean two-screen Main Hall redraw (2026-08-03)
+
+All OpenAI ImageGen files in this section are project-owned original art made
+only from already approved Mermaid Roshan project references. There is no
+external source or URL. Exact prompts, generator-cache paths, reference hashes,
+acceptance decisions, and the owner-authorized production transform are in
+`assets_src/imagegen/castle_main_hall_redraw_2026-08-03/PROMPTS.md`.
+
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/concept_reference_1774x887.png`
+  - project-original OpenAI built-in ImageGen two-screen composition reference;
+    review-only because its 2:1 canvas is not the playable two-screen ratio;
+    SHA-256 `734a26f8ae41157a0a3f070e6cfdd61ed927462ba21f9071c880d46bab1ac618`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/concept_left_reference_887x887.png`
+  - deterministic unscaled left-half crop of the project-owned concept above;
+    reference-only; SHA-256
+    `73de6e4983d2e0cfc9725190836cc7952d41e8c821faa020f9e908a4edb87716`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/concept_right_reference_887x887.png`
+  - deterministic unscaled right-half crop of the project-owned concept above;
+    reference-only; SHA-256
+    `ea728541fd57934a7b973cdf6bb12e77d676cf244dc613004e3ad33a638c60ad`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/rejected_screen_a_square_1254x1254.png`
+  - project-original OpenAI built-in ImageGen candidate; rejected for its 1:1
+    playable-screen ratio and retained only for provenance; SHA-256
+    `1e2b2d8016ac7f3f811755747aec9ca5c4dd8a03bebcf11c884c66385f47d8e5`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/superseded_decorated_screen_a_native_1672x941.png`
+  - project-original OpenAI built-in ImageGen left-screen architectural
+    intermediate; composition-approved but superseded because detachable props
+    were baked into the plate; SHA-256
+    `80a8f6d0a01bda6908c1763462acecf5ca96068bdc0a20a133aa31a711bc6a5a`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/superseded_decorated_screen_b_native_1672x941.png`
+  - project-original OpenAI built-in ImageGen right-screen architectural
+    intermediate; composition-approved but superseded because detachable props
+    were baked into the plate; SHA-256
+    `2416cd4475b02c31399ed9c7fa6718e779b33d2bb4c6cb3d5fdac2bd70128381`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_a_native_1672x941.png`
+  - accepted project-original OpenAI built-in ImageGen clean left architectural
+    plate, with detachable props removed and healed in the same approved castle
+    style; native generator file preserved unchanged; SHA-256
+    `6e840715f1ff580a21e8df3406b5c23733bf584d5046345f7239d72913c04c5d`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_b_native_1672x941.png`
+  - accepted project-original OpenAI built-in ImageGen clean right architectural
+    plate, generated against the accepted clean left plate for continuity;
+    native generator file preserved unchanged; SHA-256
+    `7e77e4c29bbbdcaf2230031a760137a28371532debefda971ab1b251df3ee2ad`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_a_production_master_2048x1152.png`
+  - deterministic owner-authorized whole-canvas Pillow Lanczos enlargement of
+    `accepted_screen_a_native_1672x941.png`; no crop, padding, local edit, seam
+    blend, AI upscale, or new artwork; SHA-256
+    `577acdf482afb923e888189351501d3db69fcc9e8ae5d5bd401f64aafd76069a`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_b_production_master_2048x1152.png`
+  - deterministic owner-authorized whole-canvas Pillow Lanczos enlargement of
+    `accepted_screen_b_native_1672x941.png`; no crop, padding, local edit, seam
+    blend, AI upscale, or new artwork; SHA-256
+    `8726f60df470dacd34ed3bf8d1ea40dba0d374f1f1b0fb1504a99c134e12e885`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_4096x1152.png`
+  - preserved intermediate lossless side-by-side stitch of the two 2048x1152
+    production masters above; no overlap, scaling, interpolation, or seam
+    repair; SHA-256
+  `0bed0ed409c966a2bae7505788f91b86725227b16a46054d85aa672963bfc54c`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_a_production_master_3641x2048.png`
+  - superseded whole-canvas Pillow Lanczos Screen A attempt retained for
+    provenance; rejected because its cumulative native-ratio rounding error was
+    1.151 pixels; SHA-256
+    `f8b3af85316f0c3e549227a31fe378b83a3500c3379808657c7eac9662fc2c4d`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_b_production_master_3641x2048.png`
+  - matching superseded whole-canvas Screen B attempt, retained only for the
+    same rejected transform's provenance; SHA-256
+    `89915458278908ef9ed105386ad205227496edad828ce97ffe92e9ab9ed02637`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7282x2048.png`
+  - superseded lossless stitch of the two rejected 3641x2048 attempts; retained
+    for provenance and never loaded by Godot; SHA-256
+    `e3d91bc5119016c5a1c8bd6fe08a4c1d1964cc16497df3f31515d4bdc1f10d31`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_a_production_master_3640x2048.png`
+  - accepted final per-screen whole-canvas Pillow Lanczos enlargement of the
+    preserved 2048x1152 Screen A intermediate; all native, intermediate, and
+    cumulative aspect-ratio steps remain within one-pixel rounding tolerance;
+    no crop, padding, local edit, AI upscale, or new artwork; SHA-256
+    `46c0a3443029a5699bf440e9abb8289046bd42d4e62195b2d36ce261883eb948`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_b_production_master_3640x2048.png`
+  - accepted final Screen B whole-canvas enlargement under the same method,
+    authorization, ratio gates, and restrictions; SHA-256
+    `ff8b69b80acda82d156086a33c74ae8f5cc8699ed1cf4d6b69239b7058962f46`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7280x2048.png`
+  - accepted final lossless side-by-side stitch of the two 3640x2048 strict
+    per-screen 2K masters; no overlap, scaling, interpolation, or seam repair;
+    SHA-256 `297cd6d181288ef6cc364a71a89fdb4da168f688249ca910995e71f6f769a9dd`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_strict_2k_build_manifest.json`
+  - project-authored deterministic transform, dimension, aspect-ratio, hash,
+    tile-rectangle, and invariance ledger for the native, intermediate, final,
+    and runtime files in this section; provenance data, not runtime art.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/PROMPTS.md`
+  - project-authored generation and acceptance ledger; records prompts, methods,
+    source/cache paths, dimensions, hashes, references, rejection reasons, and
+    the production resize authorization; provenance data, not runtime art.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/sign_reuse_manifest.json`
+  - project-authored deterministic reuse ledger for every sign card below;
+    records output hashes, approved source hashes and crop rectangles, alpha
+    treatment, and the one whole-card Lanczos resize; provenance data, not art.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/throne_reuse_manifest.json`
+  - project-authored deterministic reuse ledger for the retained throne card;
+    records its approved source rectangle, hashes, alpha audit, unchanged RGB
+    pixels, and no-upscale status; provenance data, not art.
+
+The sixteen runtime background cards below are non-overlapping crops of the
+licensed 7280x2048 production master. Every card is 910x1024, so each texture
+remains within the
+1024-pixel runtime limit. They add no pixels and reconstruct the master exactly.
+Source rectangles, hashes, and zero-difference evidence are recorded in the
+strict 2K build and audit manifests.
+
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png`
+  - deterministic 910x1024 crop; SHA-256
+    `317cdef9249c73bae64d8b0e7c6590a78b5a4f71d3187a2c32e5fa435150c1cb`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png`
+  - deterministic 910x1024 crop; SHA-256
+    `2584ed2636652871e5a7eeb3400243a61a2676cf966b9e9f652463f424467e22`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png`
+  - deterministic 910x1024 crop; SHA-256
+    `ee46dfa20f4de0140c8dbfb56eacba2d59acdb8eff684c0c45422fd34862b892`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png`
+  - deterministic 910x1024 crop ending exactly at the Screen A boundary;
+    SHA-256 `802731a92762c849f9c0597b2e75a6dbc0336dbf60032ee9290867cd4ce7d1a1`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png`
+  - deterministic 910x1024 crop; SHA-256
+    `9bfa44736244ae50fda10461c48cc0ee0cf35f195dd6e3b59364c6c9756cfc82`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png`
+  - deterministic 910x1024 crop; SHA-256
+    `d1e4652e644bd5354c5bd779242f885cc58ad0f2a6adc61dff4105d7417fc0ae`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png`
+  - deterministic 910x1024 crop; SHA-256
+    `17e74663ad7b95414453e106265258642f51b820001a99e0f1882352a96012da`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c7.png`
+  - deterministic 910x1024 crop ending at the panorama edge; SHA-256
+    `0fa83e2c10c68d7c86e97b8d6a8ef19eebc7a01fa8f87a05aeb8a312037209b0`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png`
+  - deterministic 910x1024 crop; SHA-256
+    `d1e3eab5aa9ce34c9b136343c03709b707e775883177c51244fe1b1dc56d74ec`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png`
+  - deterministic 910x1024 crop; SHA-256
+    `e775495278b8fbcadca429dececa5445fe6dc5d8327f9758966ac4a5ae615129`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png`
+  - deterministic 910x1024 crop; SHA-256
+    `c2abbd83f3fce093addd9250c1930ee57d86f4c21e170b2d454121d12b723ea5`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png`
+  - deterministic 910x1024 crop ending exactly at the Screen A boundary;
+    SHA-256 `3b5ba5dd85ba1bf5969be08a191957e2eb476e741b717aa0e7fb843eb0aee40d`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png`
+  - deterministic 910x1024 crop; SHA-256
+    `9e180247910d843b535998ad1167371b1990834279a26119714743af59a11203`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png`
+  - deterministic 910x1024 crop; SHA-256
+    `31b6d8a5dfef47c575b63f953c98240c826f5007ef1fa406ef17a853630ff808`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png`
+  - deterministic 910x1024 crop; SHA-256
+    `0068537a79a205fa50f3747b37735c591f876ceac92d685abaa3d6f57605c92c`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c7.png`
+  - deterministic 910x1024 crop ending at the panorama edge; SHA-256
+    `24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41`.
+
+The eight 256x256 sign cards below reuse only already licensed, approved
+project art. Each source crop, source hash, soft alpha treatment, and whole-card
+Lanczos resize is recorded in `sign_reuse_manifest.json`; no external or newly
+generated RGB artwork was introduced.
+
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png`
+  - approved Main Hall Screen B badge reuse; SHA-256
+    `3a43e1fc23f95f9f3a2ec256861d418017d783bbf0d30f7b85fee677838aa3c4`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_craft_room.png`
+  - approved Main Hall Screen B badge reuse; SHA-256
+    `17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png`
+  - approved Family Wing hall badge reuse; SHA-256
+    `65ae7b5b6ffdf734ebc70b2ab9113ad2acc5985cb9a042f8a6dbadcd192ccd51`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png`
+  - approved Main Hall Screen A badge reuse; SHA-256
+    `7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png`
+  - approved Main Hall Screen A badge reuse; SHA-256
+    `7aa633b17cd655f5bf340636555fab1406fc86030e9de38e667f9e701dd764b0`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png`
+  - approved Main Hall Screen B badge reuse; SHA-256
+    `8ae6239cc8d01eecaa741842b591b2388659ff92929b9dec336e62ffa7ab4033`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png`
+  - approved Main Hall Screen A badge reuse; SHA-256
+    `7378b84c037fc6c5fe21880577f6eba2214d3c5e990b726bfaf67d83e8c03fd1`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png`
+  - approved Main Hall Screen B badge reuse; SHA-256
+    `22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png`
+  - approved-project exact RGB crop of the previously licensed aligned Screen B
+    throne, with only a manually audited antialiased silhouette alpha mask;
+    no upscale, external source, new RGB pixels, or redesigned throne;
+    SHA-256 `49c91df90ca65b56a5562a9ecc5e61fc4dc361fb684370cd7e3365375ff8ca1f`.
+
+- `audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_audit.json`
+  and `castle_main_hall_redraw_2026-08-04_2k_{transform_overlay,grid_proof,seam_proof,reconstruction_proof}.png`
+  - deterministic project-authored transform-invariance, strict-resolution,
+  tile-grid, seam, and exact-reconstruction evidence derived solely from the
+  licensed masters and runtime crops above; not additional runtime art. A
+  rejected 1025px NPOT bleed experiment and its derivatives are intentionally
+  excluded from delivery and do not feed Godot.
+- `audit/castle_sprite3d/castle_main_hall_redraw_2026-08-03_node_inventory.json`,
+  `castle_main_hall_redraw_2026-08-03_render_audit.json`, and
+  `castle_main_hall_redraw_2026-08-03_render_proof.png` - deterministic
+  project-authored structural and rendered-scene validation derived only from
+  the licensed runtime cards above; these files record Sprite3D node types,
+  lighting deltas, and seam measurements and are not runtime art.
+- `audit/castle_sprite3d/main_hall.png`, `main_hall_screen_a.png`,
+  `main_hall_screen_b.png`, `main_hall_seam_bridge.png`,
+  `main_hall_lights_off.png`, and `elevator_menu.png` - project-authored
+  Godot 4.7.1 runtime QA captures of the licensed scene, retained as visual
+  evidence for door-sign placement, left-end access, two-screen continuity,
+  lighting state, and the Storybook travel menu; not runtime art.
+
 ## Pearl Castle touch lighting and continuity cards (2026-07-29)
 
 - `assets/flats/castle/main_hall_2screen/castle_shell_sconce_touchable.png`

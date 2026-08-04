@@ -1,0 +1,745 @@
+{
+  "schema": 1,
+  "pipeline": "castle_main_hall_redraw_strict_per_screen_2k_audit",
+  "decision_date": "2026-08-04",
+  "audit_method": "independent output revalidation",
+  "build_manifest": {
+    "path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_strict_2k_build_manifest.json",
+    "sha256": "083017b08dff556a8a2f5e4391586f0092f85f707a44b4d90ecae4ad3ce18516"
+  },
+  "ratio_steps": {
+    "native_to_prior": {
+      "label": "accepted native to prior production",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "target_dimensions": [
+        2048,
+        1152
+      ],
+      "source_aspect_ratio": 1.7768331562167907,
+      "target_aspect_ratio": 1.7777777777777777,
+      "aspect_ratio_delta": 0.0009446215609869579,
+      "ideal_target_height_at_fixed_target_width": 1152.6124401913876,
+      "target_height_rounding_error_pixels": 0.6124401913875772,
+      "one_pixel_rounding_tolerance": 1.0,
+      "within_one_pixel_rounding_tolerance": true,
+      "whole_canvas": true,
+      "resampling": "Pillow Image.Resampling.LANCZOS",
+      "crop": false,
+      "padding": false,
+      "canvas_extension": false,
+      "local_retouch": false,
+      "seam_blend": false,
+      "ai_upscale": false
+    },
+    "prior_to_final": {
+      "label": "prior production to strict per-screen 2K",
+      "source_dimensions": [
+        2048,
+        1152
+      ],
+      "target_dimensions": [
+        3640,
+        2048
+      ],
+      "source_aspect_ratio": 1.7777777777777777,
+      "target_aspect_ratio": 1.77734375,
+      "aspect_ratio_delta": 0.0004340277777776791,
+      "ideal_target_height_at_fixed_target_width": 2047.5,
+      "target_height_rounding_error_pixels": 0.5,
+      "one_pixel_rounding_tolerance": 1.0,
+      "within_one_pixel_rounding_tolerance": true,
+      "whole_canvas": true,
+      "resampling": "Pillow Image.Resampling.LANCZOS",
+      "crop": false,
+      "padding": false,
+      "canvas_extension": false,
+      "local_retouch": false,
+      "seam_blend": false,
+      "ai_upscale": false
+    },
+    "native_to_final_cumulative": {
+      "label": "accepted native to strict per-screen 2K cumulative ratio check",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "target_dimensions": [
+        3640,
+        2048
+      ],
+      "source_aspect_ratio": 1.7768331562167907,
+      "target_aspect_ratio": 1.77734375,
+      "aspect_ratio_delta": 0.0005105937832092788,
+      "ideal_target_height_at_fixed_target_width": 2048.588516746411,
+      "target_height_rounding_error_pixels": 0.5885167464111873,
+      "one_pixel_rounding_tolerance": 1.0,
+      "within_one_pixel_rounding_tolerance": true,
+      "whole_canvas": true,
+      "resampling": "Pillow Image.Resampling.LANCZOS",
+      "crop": false,
+      "padding": false,
+      "canvas_extension": false,
+      "local_retouch": false,
+      "seam_blend": false,
+      "ai_upscale": false
+    }
+  },
+  "content_invariance": {
+    "A": {
+      "comparison_space_dimensions": [
+        2048,
+        1152
+      ],
+      "normalization": "final whole canvas reduced to the accepted 2048x1152 prior with Pillow Lanczos for audit only",
+      "mean_absolute_channel_error": 0.2863883972167969,
+      "p95_absolute_channel_error": 1.0,
+      "p99_absolute_channel_error": 2.0,
+      "maximum_absolute_channel_error": 8,
+      "pixel_channel_correlation": 0.99990694031167,
+      "mean_error_limit": 0.5,
+      "p99_error_limit": 3.0,
+      "correlation_floor": 0.999,
+      "passes": true
+    },
+    "B": {
+      "comparison_space_dimensions": [
+        2048,
+        1152
+      ],
+      "normalization": "final whole canvas reduced to the accepted 2048x1152 prior with Pillow Lanczos for audit only",
+      "mean_absolute_channel_error": 0.27482181787490845,
+      "p95_absolute_channel_error": 1.0,
+      "p99_absolute_channel_error": 2.0,
+      "maximum_absolute_channel_error": 10,
+      "pixel_channel_correlation": 0.999917795720271,
+      "mean_error_limit": 0.5,
+      "p99_error_limit": 3.0,
+      "correlation_floor": 0.999,
+      "passes": true
+    }
+  },
+  "panorama": {
+    "path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7280x2048.png",
+    "dimensions": [
+      7280,
+      2048
+    ],
+    "mode": "RGB",
+    "file_sha256": "297cd6d181288ef6cc364a71a89fdb4da168f688249ca910995e71f6f769a9dd",
+    "pixel_sha256": "16fbc9e0ff0ac84c7aed1f08d32a37271b24231efe9cdbd6442cfc1d2e8265aa"
+  },
+  "runtime_grid": {
+    "rows": 2,
+    "columns": 8,
+    "column_widths": [
+      910,
+      910,
+      910,
+      910,
+      910,
+      910,
+      910,
+      910
+    ],
+    "row_heights": [
+      1024,
+      1024
+    ],
+    "column_bounds": [
+      0,
+      910,
+      1820,
+      2730,
+      3640,
+      4550,
+      5460,
+      6370,
+      7280
+    ],
+    "row_bounds": [
+      0,
+      1024,
+      2048
+    ],
+    "screen_boundary_after_column": 3,
+    "screen_boundary_x": 3640,
+    "tiles": [
+      {
+        "row": 0,
+        "column": 0,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "317cdef9249c73bae64d8b0e7c6590a78b5a4f71d3187a2c32e5fa435150c1cb",
+        "pixel_sha256": "2e92f9344ac4011422dfb264ed0f24861b6c69c7098e6e6ffeea8bbb37fea2e5",
+        "panorama_rectangle": [
+          0,
+          0,
+          910,
+          1024
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 0,
+        "column": 1,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "2584ed2636652871e5a7eeb3400243a61a2676cf966b9e9f652463f424467e22",
+        "pixel_sha256": "b9c74954526589fdb7e67be863e46e888b1fc89b58e74e7d389a25fb390f7def",
+        "panorama_rectangle": [
+          910,
+          0,
+          1820,
+          1024
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 0,
+        "column": 2,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "ee46dfa20f4de0140c8dbfb56eacba2d59acdb8eff684c0c45422fd34862b892",
+        "pixel_sha256": "78263f9181b5dc00483e4076c70eba8b1d70442d6dc6a1b7b4211810cbfa01d9",
+        "panorama_rectangle": [
+          1820,
+          0,
+          2730,
+          1024
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 0,
+        "column": 3,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "802731a92762c849f9c0597b2e75a6dbc0336dbf60032ee9290867cd4ce7d1a1",
+        "pixel_sha256": "49278fe9613d5f031b9ee213f533051f9e998b20047cfd471c8138b6fe17f7bc",
+        "panorama_rectangle": [
+          2730,
+          0,
+          3640,
+          1024
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 0,
+        "column": 4,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "9bfa44736244ae50fda10461c48cc0ee0cf35f195dd6e3b59364c6c9756cfc82",
+        "pixel_sha256": "47c5755730c5f6eb88be0bc589ced185d5cb046f01bf7b22f052190fc5c5b552",
+        "panorama_rectangle": [
+          3640,
+          0,
+          4550,
+          1024
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 0,
+        "column": 5,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "d1e4652e644bd5354c5bd779242f885cc58ad0f2a6adc61dff4105d7417fc0ae",
+        "pixel_sha256": "1d63584e47f221724dcb6e06059d929a819e4130535c24accfd34c896a85ca50",
+        "panorama_rectangle": [
+          4550,
+          0,
+          5460,
+          1024
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 0,
+        "column": 6,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "17e74663ad7b95414453e106265258642f51b820001a99e0f1882352a96012da",
+        "pixel_sha256": "05fb0c1fbdd8c3db81f49248ff864b874034b6fbc65f7eb548e23cd81970d19c",
+        "panorama_rectangle": [
+          5460,
+          0,
+          6370,
+          1024
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 0,
+        "column": 7,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c7.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "0fa83e2c10c68d7c86e97b8d6a8ef19eebc7a01fa8f87a05aeb8a312037209b0",
+        "pixel_sha256": "cbdaf9ad34e695482046a8b8867d8c2d280a566103a60adcc69bcbe472484a23",
+        "panorama_rectangle": [
+          6370,
+          0,
+          7280,
+          1024
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 1,
+        "column": 0,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "d1e3eab5aa9ce34c9b136343c03709b707e775883177c51244fe1b1dc56d74ec",
+        "pixel_sha256": "e42acb1346b78ad5e6d1cd72c209ba24986fab5192f804e4df9c7ede0a845642",
+        "panorama_rectangle": [
+          0,
+          1024,
+          910,
+          2048
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 1,
+        "column": 1,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "e775495278b8fbcadca429dececa5445fe6dc5d8327f9758966ac4a5ae615129",
+        "pixel_sha256": "ab8c17e0808bfb4c1345896af3beeaa72ec81af545c7bfd0631c27747896dafd",
+        "panorama_rectangle": [
+          910,
+          1024,
+          1820,
+          2048
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 1,
+        "column": 2,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "c2abbd83f3fce093addd9250c1930ee57d86f4c21e170b2d454121d12b723ea5",
+        "pixel_sha256": "2c9d01af4622c53d1801ccf40ac6fb516486fa468e3acffa3532ed0118ffb982",
+        "panorama_rectangle": [
+          1820,
+          1024,
+          2730,
+          2048
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 1,
+        "column": 3,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "3b5ba5dd85ba1bf5969be08a191957e2eb476e741b717aa0e7fb843eb0aee40d",
+        "pixel_sha256": "1b9f6d59ba36ced8f99e57be8cf9b90596c47f22cfffe49320c7b5949d99eee4",
+        "panorama_rectangle": [
+          2730,
+          1024,
+          3640,
+          2048
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 1,
+        "column": 4,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "9e180247910d843b535998ad1167371b1990834279a26119714743af59a11203",
+        "pixel_sha256": "c1076635b7eb4a82b54b67cef9b469b1f8272af57a1439fc2a2093d178809378",
+        "panorama_rectangle": [
+          3640,
+          1024,
+          4550,
+          2048
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 1,
+        "column": 5,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "31b6d8a5dfef47c575b63f953c98240c826f5007ef1fa406ef17a853630ff808",
+        "pixel_sha256": "8dcab62619be379b6a52de0fe915a20176f69b2d2e3af00d8e24b1c871a4941b",
+        "panorama_rectangle": [
+          4550,
+          1024,
+          5460,
+          2048
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 1,
+        "column": 6,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "0068537a79a205fa50f3747b37735c591f876ceac92d685abaa3d6f57605c92c",
+        "pixel_sha256": "1b8459a3cea71d26fb99d7cb09ec0b9ef50fd11679a150ed861bf4433fd48a9f",
+        "panorama_rectangle": [
+          5460,
+          1024,
+          6370,
+          2048
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      },
+      {
+        "row": 1,
+        "column": 7,
+        "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c7.png",
+        "dimensions": [
+          910,
+          1024
+        ],
+        "expected_dimensions": [
+          910,
+          1024
+        ],
+        "file_sha256": "24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41",
+        "pixel_sha256": "2f596c9d4028f3b05ff0d6dabdb47637de965cd32027b4f3f093949b266ad96a",
+        "panorama_rectangle": [
+          6370,
+          1024,
+          7280,
+          2048
+        ],
+        "dimensions_exact": true,
+        "long_edge_within_1024_limit": true
+      }
+    ]
+  },
+  "reconstruction": {
+    "pixel_exact": true,
+    "different_channel_count": 0,
+    "maximum_channel_difference": 0,
+    "source_pixel_sha256": "16fbc9e0ff0ac84c7aed1f08d32a37271b24231efe9cdbd6442cfc1d2e8265aa",
+    "reconstruction_pixel_sha256": "16fbc9e0ff0ac84c7aed1f08d32a37271b24231efe9cdbd6442cfc1d2e8265aa"
+  },
+  "seams": [
+    {
+      "orientation": "vertical",
+      "coordinate": 910,
+      "role": "lossless_intra_screen_tile_boundary",
+      "edge_rgb_mean_absolute_error": 3.1282551288604736,
+      "edge_rgb_p95_absolute_error": 10.0,
+      "edge_maximum_channel_error": 70,
+      "band_width": 32,
+      "left_band_mean_rgb": [
+        149.29701232910156,
+        110.80973815917969,
+        134.1730499267578
+      ],
+      "right_band_mean_rgb": [
+        144.64170837402344,
+        110.07662963867188,
+        140.14210510253906
+      ],
+      "band_mean_rgb_euclidean_delta": 7.605190277099609
+    },
+    {
+      "orientation": "vertical",
+      "coordinate": 1820,
+      "role": "lossless_intra_screen_tile_boundary",
+      "edge_rgb_mean_absolute_error": 2.7093098163604736,
+      "edge_rgb_p95_absolute_error": 10.0,
+      "edge_maximum_channel_error": 38,
+      "band_width": 32,
+      "left_band_mean_rgb": [
+        168.76800537109375,
+        128.32135009765625,
+        148.7631072998047
+      ],
+      "right_band_mean_rgb": [
+        170.0513153076172,
+        128.99024963378906,
+        147.28012084960938
+      ],
+      "band_mean_rgb_euclidean_delta": 2.0720906257629395
+    },
+    {
+      "orientation": "vertical",
+      "coordinate": 2730,
+      "role": "lossless_intra_screen_tile_boundary",
+      "edge_rgb_mean_absolute_error": 2.4954426288604736,
+      "edge_rgb_p95_absolute_error": 8.0,
+      "edge_maximum_channel_error": 33,
+      "band_width": 32,
+      "left_band_mean_rgb": [
+        168.68057250976562,
+        127.09980773925781,
+        147.61509704589844
+      ],
+      "right_band_mean_rgb": [
+        167.52012634277344,
+        126.02200317382812,
+        146.76548767089844
+      ],
+      "band_mean_rgb_euclidean_delta": 1.7972573041915894
+    },
+    {
+      "orientation": "vertical",
+      "coordinate": 3640,
+      "role": "independently_authored_screen_join",
+      "edge_rgb_mean_absolute_error": 7.292806148529053,
+      "edge_rgb_p95_absolute_error": 20.0,
+      "edge_maximum_channel_error": 61,
+      "band_width": 32,
+      "left_band_mean_rgb": [
+        154.2618408203125,
+        116.85691833496094,
+        148.7398681640625
+      ],
+      "right_band_mean_rgb": [
+        148.19772338867188,
+        110.66874694824219,
+        144.33929443359375
+      ],
+      "band_mean_rgb_euclidean_delta": 9.717615127563477
+    },
+    {
+      "orientation": "vertical",
+      "coordinate": 4550,
+      "role": "lossless_intra_screen_tile_boundary",
+      "edge_rgb_mean_absolute_error": 2.5455729961395264,
+      "edge_rgb_p95_absolute_error": 7.0,
+      "edge_maximum_channel_error": 31,
+      "band_width": 32,
+      "left_band_mean_rgb": [
+        166.86216735839844,
+        124.24647521972656,
+        136.9707794189453
+      ],
+      "right_band_mean_rgb": [
+        160.00082397460938,
+        118.81430053710938,
+        141.46600341796875
+      ],
+      "band_mean_rgb_euclidean_delta": 9.838373184204102
+    },
+    {
+      "orientation": "vertical",
+      "coordinate": 5460,
+      "role": "lossless_intra_screen_tile_boundary",
+      "edge_rgb_mean_absolute_error": 2.5475261211395264,
+      "edge_rgb_p95_absolute_error": 8.0,
+      "edge_maximum_channel_error": 42,
+      "band_width": 32,
+      "left_band_mean_rgb": [
+        161.97520446777344,
+        120.49095153808594,
+        142.7511444091797
+      ],
+      "right_band_mean_rgb": [
+        162.0760498046875,
+        120.82984924316406,
+        143.28689575195312
+      ],
+      "band_mean_rgb_euclidean_delta": 0.6419119238853455
+    },
+    {
+      "orientation": "vertical",
+      "coordinate": 6370,
+      "role": "lossless_intra_screen_tile_boundary",
+      "edge_rgb_mean_absolute_error": 3.27294921875,
+      "edge_rgb_p95_absolute_error": 11.0,
+      "edge_maximum_channel_error": 53,
+      "band_width": 32,
+      "left_band_mean_rgb": [
+        183.8643341064453,
+        139.7134552001953,
+        136.6626434326172
+      ],
+      "right_band_mean_rgb": [
+        168.44102478027344,
+        120.47169494628906,
+        122.04962158203125
+      ],
+      "band_mean_rgb_euclidean_delta": 28.66468620300293
+    },
+    {
+      "orientation": "horizontal",
+      "coordinate": 1024,
+      "role": "lossless_intra_screen_tile_boundary",
+      "edge_rgb_mean_absolute_error": 1.8054945468902588,
+      "edge_rgb_p95_absolute_error": 6.0,
+      "edge_maximum_channel_error": 46
+    }
+  ],
+  "center_seam_gate": {
+    "coordinate": 3640,
+    "maximum_edge_mean_absolute_error": 45.0,
+    "maximum_band_mean_rgb_delta": 60.0,
+    "passes": true
+  },
+  "proofs": {
+    "transform_overlay": {
+      "path": "audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_transform_overlay.png",
+      "sha256": "d598f4a11bd236be61f3ac91137f731f97f187ff0d1e2cd372d142d81d9afde4"
+    },
+    "grid": {
+      "path": "audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_grid_proof.png",
+      "sha256": "629d3a12c5c1e8d54c8975880a66cc82e98bf5da86b7936cec5154eefe7d9e83"
+    },
+    "seams": {
+      "path": "audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_seam_proof.png",
+      "sha256": "1412d9f7bd50ef13486dd9bc1b6a6e11c392041cd419a5fb949134a828a5c3e6"
+    },
+    "reconstruction": {
+      "path": "audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_reconstruction_proof.png",
+      "sha256": "12197a77712fed15303d9d0453afe77b4c7233d9170c7b442f5914e5d890d23c"
+    }
+  },
+  "checks": {
+    "native_to_prior_screen_a_rederives_pixel_exactly": true,
+    "native_to_prior_screen_b_rederives_pixel_exactly": true,
+    "prior_to_final_screen_a_rederives_pixel_exactly": true,
+    "prior_to_final_screen_b_rederives_pixel_exactly": true,
+    "native_to_prior_within_one_pixel_ratio_rounding": true,
+    "prior_to_final_within_one_pixel_ratio_rounding": true,
+    "native_to_final_cumulative_within_one_pixel_ratio_rounding": true,
+    "each_playable_screen_long_edge_at_least_2048": true,
+    "panorama_is_exact_lossless_stitch": true,
+    "tile_count_is_16": true,
+    "runtime_tile_directory_has_exact_expected_set": true,
+    "tile_dimensions_match_rectangles": true,
+    "all_runtime_tiles_within_1024_long_edge": true,
+    "screen_boundary_is_exact_after_column_3": true,
+    "tiles_reconstruct_panorama_pixel_exactly": true,
+    "reconstruction_has_zero_changed_channels": true,
+    "reconstruction_maximum_channel_difference_is_zero": true,
+    "build_manifest_claims_match_outputs": true,
+    "screen_a_content_invariance_passes": true,
+    "screen_b_content_invariance_passes": true,
+    "independently_authored_center_seam_within_review_gate": true
+  },
+  "blocking_pass": true
+}

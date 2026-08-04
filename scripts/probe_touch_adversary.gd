@@ -191,13 +191,36 @@ func _playthrough(run_index: int) -> void:
 					or not main.castle_room_buttons.has("family_gallery") \
 					or not main.castle_room_buttons.has("opera_hall") \
 					or main.castle_room_stage.get_node_or_null(
-						"ElevatorButton") != null:
+						"ElevatorButton") == null \
+					or main.castle_room_menu_buttons.size() != 12 \
+					or not main.castle_room_menu_buttons.has("dining_room") \
+					or not main.castle_room_menu_buttons.has("movie_lounge"):
 				issues.append("castle room routes were missing or redundant")
 			if main.castle_room_world_root == null \
 					or main.castle_room_camera == null \
 					or main.castle_room_camera.projection \
 						!= Camera3D.PROJECTION_PERSPECTIVE:
 				issues.append("castle lacks perspective Sprite3D stage")
+			var elevator_button: Button = main.castle_room_stage.get_node_or_null(
+				"ElevatorButton") as Button
+			if elevator_button != null and main.castle_room_player_sprite != null:
+				var elevator_foot_before: Vector2 = \
+					main.castle_room_player_sprite.get_meta(
+						"stage_foot", Vector2.ZERO) as Vector2
+				elevator_button.pressed.emit()
+				var blocked_tap := InputEventScreenTouch.new()
+				blocked_tap.position = Vector2(640.0, 640.0)
+				blocked_tap.pressed = true
+				rooms._on_room_input(blocked_tap)
+				await _frames(2)
+				var elevator_foot_after: Vector2 = \
+					main.castle_room_player_sprite.get_meta(
+						"stage_foot", Vector2.ZERO) as Vector2
+				if not main.castle_room_menu_open \
+						or not elevator_foot_after.is_equal_approx(
+							elevator_foot_before):
+					issues.append("open castle elevator leaked taps into world travel")
+				rooms._set_elevator_menu_open(false, false)
 			rooms.show_room("main_hall", false)
 			rooms.activate_current_room()
 			await _frames(3)

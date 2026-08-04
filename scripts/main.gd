@@ -239,6 +239,9 @@ var castle_room_player_shadow: Sprite3D = null
 var castle_room_action_button: Button = null
 var castle_room_back_button: Button = null
 var castle_room_buttons: Dictionary = {}
+var castle_room_menu_panel: Control = null
+var castle_room_menu_buttons: Dictionary = {}
+var castle_room_menu_open := false
 var castle_room_id := "main_hall"
 var companion_zone := ""                  # last game context; a flip snaps the follower to her side
 var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
@@ -5119,7 +5122,7 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	player.vel = Vector3.ZERO
 	_castle_rooms_ref().open("main_hall")
 	show_msg("Pearl Castle",
-		"Touch a picture door to visit a room!" if not from_back
+		"Touch a picture door or the shell elevator to visit a room!" if not from_back
 		else "The secret shell door opens into the Main Hall!",
 		"home")
 	_say("roshan", "talk", 0.5)

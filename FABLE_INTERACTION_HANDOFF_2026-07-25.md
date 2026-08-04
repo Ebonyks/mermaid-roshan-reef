@@ -13,6 +13,21 @@ sprite-led 2.5D storybook stages. The touch-ownership and explicit-activation
 rules in this handoff remain binding. References below to keeping the 3D world
 describe legacy behavior only. They do not authorize new 3D work.
 
+### Main Hall strict-runtime supersession — 2026-08-04
+
+This note supersedes the older eight-tile shaded-receiver and seam-bridge
+exception below. The accepted two-screen Main Hall now uses two 3640×2048
+screen masters joined losslessly into one 7280×2048 panorama, reconstructed by
+sixteen exact, non-overlapping 910×1024 **unshaded Sprite3D** background cards
+in a 2×8 grid. Runtime bleed is zero; camera-band culling controls overdraw.
+Every door crest, retained throne, touch prop, character, foreground, and
+background remains an unshaded depth-tested Sprite3D card. The current blocking
+records are
+`assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_strict_2k_build_manifest.json`,
+`audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_audit.json`, and
+`audit/castle_sprite3d/castle_main_hall_redraw_2026-08-03_node_inventory.json`.
+Older values remain in this handoff only as dated implementation history.
+
 ### Binding 2D-source / Sprite3D-world rule
 
 - All new and replacement artwork is 2D sprite art.

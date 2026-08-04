@@ -16,9 +16,13 @@ extends SceneTree
 # 2. Butterfly World Star Hall: sitting on the Moon Throne must award the
 #    STAR PRINCESS sticker.
 
-const FLOOR_TAP := Vector2(1210.0, 560.0)   # right edge of the picture, on the floor
+# Keep the walking target clear of the omnipresent 136px elevator button at
+# x=1116..1252. It remains on the right side of the painted walk lane, so each
+# viewport tap still exercises real floor navigation and advances the camera.
+const FLOOR_TAP := Vector2(1050.0, 560.0)
 const WALK_SETTLE := 90                     # frames for the step + camera pan
 const MAX_WALK_TAPS := 8
+const THRONE_RESPONSE_TIMEOUT_MS := 4000
 
 var main: ReefMain
 var checks_failed := 0
@@ -69,6 +73,17 @@ func _tap_throne() -> void:
 		return
 	_touch(button.get_global_transform_with_canvas() * (button.size * 0.5))
 	await _frames(120)   # portal walk + its tweened callback
+
+func _wait_for_throne_offer() -> void:
+	# Headless frames can advance with a much smaller delta than a rendered
+	# 60 Hz frame. Wait on the authored outcomes (arrival callback plus Huluu's
+	# deliberate 1.6 s story beat), bounded by real monotonic time.
+	var deadline_ms: int = Time.get_ticks_msec() + THRONE_RESPONSE_TIMEOUT_MS
+	while Time.get_ticks_msec() < deadline_ms:
+		if bool(main.g.get("crown_won", false)) \
+				and main.companion_layer != null:
+			return
+		await process_frame
 
 func _run() -> void:
 	var scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
@@ -121,8 +136,8 @@ func _run() -> void:
 
 	# ---- the touch ----
 	await _tap_throne()
+	await _wait_for_throne_offer()
 	_ck("touch_awards_crown_star", bool(main.g.get("crown_won", false)))
-	await _frames(180)
 	_ck("throne_offers_a_stuffie_friend", main.companion_layer != null,
 		"companion_id=%s" % main.companion_id)
 	var companion: CompanionSystem = main._companion_ref()
@@ -132,7 +147,7 @@ func _run() -> void:
 	await _frames(10)
 	_ck("picker_closed", main.companion_layer == null)
 	await _tap_throne()
-	await _frames(180)
+	await _wait_for_throne_offer()
 	_ck("throne_re_offers_after_a_closed_picker",
 		main.companion_layer != null and main.companion_id == "")
 

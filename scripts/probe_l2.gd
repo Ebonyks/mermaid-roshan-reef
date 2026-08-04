@@ -713,21 +713,24 @@ func _init() -> void:
 	_check("drawbridge_enters_castle",
 		main.game == "level2" and String(main.g.get("phase", "")) == "hall")
 	var castle_rooms: CastleRooms25D = main._castle_rooms_ref()
+	var expected_hall_tiles: int = CastleRooms25D.HALL_TILE_COLUMNS \
+		* CastleRooms25D.HALL_TILE_ROWS
 	_check("drawbridge_opens_visible_2_5d_castle_not_legacy_hall",
 		castle_rooms.is_open()
 		and main.castle_room_world_root != null
 		and main.castle_room_world_root.visible
 		and main.castle_room_camera != null
 		and main.castle_room_camera.current
-		and main.castle_room_background_tiles.size() == 8
+		and main.castle_room_background_tiles.size() == expected_hall_tiles
 		and main.arena_solids.is_empty()
 		and not main.g.has("hall_exit"),
-		"open=%s world=%s camera=%s tiles=%d solids=%d" % [
+		"open=%s world=%s camera=%s tiles=%d/%d solids=%d" % [
 			str(castle_rooms.is_open()),
 			str(main.castle_room_world_root != null
 				and main.castle_room_world_root.visible),
 			str(main.castle_room_camera != null and main.castle_room_camera.current),
 			main.castle_room_background_tiles.size(),
+			expected_hall_tiles,
 			main.arena_solids.size()])
 
 	# ...and the other road in: follow the painted way to its end. Rebuild the

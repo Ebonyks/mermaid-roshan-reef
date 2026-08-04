@@ -173,17 +173,70 @@ func _init() -> void:
 			"runtime_node_contract", {}) as Dictionary
 		var forbidden_world_types: Array = node_contract.get(
 			"world_art_forbidden", []) as Array
+		var allowed_world_types: Array = node_contract.get(
+			"world_art_allowed", []) as Array
+		var shaded_role_allowlist: Array = node_contract.get(
+			"shaded_role_allowlist", []) as Array
 		_ck("manifest_sprite3d_node_contract",
 			String(node_contract.get("world_root", "")) == "Node3D"
 			and String(node_contract.get("camera", ""))
 				== "Camera3D:perspective"
-			and (node_contract.get("world_art_allowed", []) as Array).has(
-				"Sprite3D:unshaded")
-			and (node_contract.get("world_art_allowed", []) as Array).has(
-				"Sprite3D:shaded lighting receiver")
+			and allowed_world_types.size() == 1
+			and allowed_world_types.has("Sprite3D:unshaded")
+			and shaded_role_allowlist.is_empty()
 			and forbidden_world_types.has("Sprite2D")
 			and forbidden_world_types.has("TextureRect")
 			and forbidden_world_types.has("MeshInstance3D"))
+		var hall_manifest: Dictionary = manifest_rooms.get(
+			"main_hall", {}) as Dictionary
+		var hall_master_dimensions: Array = hall_manifest.get(
+			"master_dimensions", []) as Array
+		var hall_manifest_tiles: Array = hall_manifest.get(
+			"runtime_tiles", []) as Array
+		var hall_runtime_audit: Dictionary = hall_manifest.get(
+			"current_runtime_audit", {}) as Dictionary
+		var current_hall_revision: Dictionary = manifest.get(
+			"runtime_correction_2026_08_04", {}) as Dictionary
+		var current_hall_background: Dictionary = current_hall_revision.get(
+			"background_contract", {}) as Dictionary
+		var hall_manifest_tiles_current := hall_manifest_tiles.size() == 16
+		for hall_tile_value: Variant in hall_manifest_tiles:
+			var hall_tile: Dictionary = hall_tile_value as Dictionary
+			var hall_tile_dimensions: Array = hall_tile.get(
+				"dimensions", []) as Array
+			hall_manifest_tiles_current = hall_manifest_tiles_current \
+				and String(hall_tile.get("path", "")).begins_with(
+					"assets/flats/castle/main_hall_redraw_2026-08-03/tiles/") \
+				and hall_tile_dimensions.size() == 2 \
+				and int(hall_tile_dimensions[0]) == 910 \
+				and int(hall_tile_dimensions[1]) == 1024
+		var hall_master_dimensions_current: bool = \
+			hall_master_dimensions.size() == 2 \
+			and int(hall_master_dimensions[0]) == 7280 \
+			and int(hall_master_dimensions[1]) == 2048
+		var current_hall_bleed: Array = current_hall_background.get(
+			"runtime_neighbor_bleed_pixels", []) as Array
+		var current_hall_zero_bleed: bool = current_hall_bleed.size() == 2 \
+			and int(current_hall_bleed[0]) == 0 \
+			and int(current_hall_bleed[1]) == 0
+		_ck("main_hall_manifest_points_to_current_strict_runtime",
+			String(hall_manifest.get("active_runtime_status", ""))
+				== "accepted_current_runtime"
+			and hall_master_dimensions_current
+			and String(hall_manifest.get("master_sha256", ""))
+				== "297cd6d181288ef6cc364a71a89fdb4da168f688249ca910995e71f6f769a9dd"
+			and hall_manifest_tiles_current
+			and String(hall_runtime_audit.get("build_manifest", ""))
+				== "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_strict_2k_build_manifest.json"
+			and String(hall_runtime_audit.get("blocking_audit", ""))
+				== "audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_audit.json"
+			and String(hall_runtime_audit.get("node_inventory", ""))
+				== "audit/castle_sprite3d/castle_main_hall_redraw_2026-08-03_node_inventory.json"
+			and String(current_hall_revision.get("status", ""))
+				== "accepted_current_runtime"
+			and bool(current_hall_background.get("all_cards_unshaded", false))
+			and int(current_hall_background.get("runtime_tile_count", 0)) == 16
+			and current_hall_zero_bleed)
 		var native_contract: Dictionary = manifest.get(
 			"owner_native_environment_contract", {}) as Dictionary
 		var required_ratio: Array = native_contract.get(
@@ -218,13 +271,13 @@ func _init() -> void:
 					int(master_dimensions[0]), int(master_dimensions[1]))
 				master_short_edge = mini(
 					int(master_dimensions[0]), int(master_dimensions[1]))
-			var expected_tile_count := 8 if manifest_room_id == "main_hall" \
+			var expected_tile_count := 16 if manifest_room_id == "main_hall" \
 				else (12 if manifest_room_id == "kitchen" else 4)
 			native_2k_ok = native_2k_ok \
 				and bool(manifest_room.get(
 					"native_master_compliant", false)) \
 				and master_long_edge >= 2048 \
-				and (manifest_room_id != "kitchen" \
+				and (not ["kitchen", "main_hall"].has(manifest_room_id) \
 					or master_short_edge >= 2048) \
 				and float(manifest_room.get(
 					"aspect_ratio_pixel_delta", 99.0)) <= 1.0 \
@@ -244,7 +297,7 @@ func _init() -> void:
 		_ck("library_front_layers", main.castle_room_front_layer.get_child_count() == 2)
 		_ck("library_node_inventory",
 			main.castle_room_background is Sprite3D
-			and main.castle_room_background_tiles.size() == 8
+			and main.castle_room_background_tiles.size() == 16
 			and main.castle_room_detail_tiles.size() == 4
 			and main.castle_room_item_sprites.size() == 8
 			and main.castle_room_front_layer.get_child_count() == 2
@@ -294,7 +347,7 @@ func _init() -> void:
 			room_depth_ok = room_depth_ok and item_depths.size() >= 2
 			if room_id == "main_hall":
 				room_depth_ok = room_depth_ok \
-					and main.castle_room_background_tiles.size() == 8 \
+					and main.castle_room_background_tiles.size() == 16 \
 					and main.castle_room_detail_tiles.is_empty()
 			else:
 				var expected_room_tiles: int = (
