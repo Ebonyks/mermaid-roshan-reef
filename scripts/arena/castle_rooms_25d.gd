@@ -103,7 +103,7 @@ const HALL_TILE_FILES: Array[String] = [
 const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
 	{"id": "a_left", "half": "a", "pos": Vector2(290.0, 335.0),
 		"max_energy": 4.6},
-	{"id": "a_right", "half": "a", "pos": Vector2(1130.0, 335.0),
+	{"id": "a_right", "half": "a", "pos": Vector2(1090.0, 335.0),
 		"max_energy": 4.6},
 	{"id": "b_left", "half": "b", "pos": Vector2(2215.0, 335.0),
 		"max_energy": 4.6},
@@ -112,9 +112,9 @@ const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
 ]
 const HALL_THRONE_CARD := {
 	"id": "huluu_throne",
-	"pos": Vector2(3045.0, 485.0),
+	"pos": Vector2(3045.0, 431.0),
 	"z": 0.55,
-	"scale": 1.25,
+	"scale": 0.70,
 	"tex_path": HALL_REDRAW_ROOT \
 		+ "props/main_hall_retained_shell_throne.png",
 }
@@ -125,7 +125,7 @@ const HALL_PORTALS: Array[Dictionary] = [
 	{"id": "family_gallery", "name": "Dream House Wing",
 		"rect": Rect2(210.0, 300.0, 160.0, 305.0),
 		"foot": Vector2(290.0, 620.0), "sign_pos": Vector2(290.0, 340.0),
-		"sign_tex": "sign_family_gallery.png", "sign_scale": 0.46},
+		"sign_tex": "sign_family_gallery.png", "sign_scale": 1.0},
 	{"id": "opera_hall", "name": "Opera Hall",
 		"rect": Rect2(875.0, 180.0, 300.0, 425.0),
 		"foot": Vector2(1025.0, 620.0), "sign_pos": Vector2(1025.0, 225.0),
@@ -159,15 +159,6 @@ const HALL_PORTALS: Array[Dictionary] = [
 		"foot": Vector2(3045.0, 620.0)},
 ]
 const HALL_ITEMS: Array[Dictionary] = [
-	{"id": "tapestry_right", "name": "Royal shell tapestry",
-		"pos": Vector2(1560.0, 360.0), "z": MIRROR_INSERT_Z,
-		"tex_path": INTERACTION_ART + "main_hall_tapestry_atlas.png",
-		"scale": 0.72, "semantic_action": "unfurl_cloth",
-		"frames": 8, "hframes": 4, "vframes": 2,
-		"frame_duration": 0.125, "sound": "castle/curtain_swish.ogg",
-		"sound_frame": 0, "pitch": 1.0,
-		"hotspot_size": Vector2(105.0, 190.0),
-		"symbol": "*", "color": Color(1.0, 0.80, 0.91)},
 	{"id": "sconce_a0", "name": "Pearl shell light",
 		"pos": Vector2(290.0, 215.0), "z": LIGHT_FIXTURE_Z,
 		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
@@ -187,7 +178,7 @@ const HALL_ITEMS: Array[Dictionary] = [
 		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
 		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
 	{"id": "sconce_a2", "name": "Pearl shell light",
-		"pos": Vector2(1470.0, 215.0), "z": LIGHT_FIXTURE_Z,
+		"pos": Vector2(1390.0, 215.0), "z": LIGHT_FIXTURE_Z,
 		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
 		"scale": 0.8, "semantic_action": "toggle_shell_light",
 		"frames": 8, "hframes": 4, "vframes": 2,
@@ -234,7 +225,7 @@ const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.55,
 		"color": Color(0.86, 0.72, 1.0)},
 	{"id": "shell_bunny", "name": "Shell-hide dust bunny",
-		"pos": Vector2(1340.0, 830.0), "z": 3.05,
+		"pos": Vector2(1250.0, 830.0), "z": 3.05,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
 			+ "dust_bunnies/dust_bunny_shell_hide.png",
 		"scale": 0.32, "dust_bunny_role": "shell_static",

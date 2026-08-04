@@ -920,9 +920,10 @@ strict 2K build and audit manifests.
     `24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41`.
 
 The eight 256x256 sign cards below reuse only already licensed, approved
-project art. Each source crop, source hash, soft alpha treatment, and whole-card
-Lanczos resize is recorded in `sign_reuse_manifest.json`; no external or newly
-generated RGB artwork was introduced.
+project art. Each source crop, source hash, alpha treatment, and whole-card
+Lanczos resize is recorded in `sign_reuse_manifest.json`; the Dream House sign
+uses a hand-traced semantic alpha to exclude its portal architecture. No
+external or newly generated RGB artwork was introduced.
 
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png`
   - approved Main Hall Screen B badge reuse; SHA-256
@@ -932,7 +933,7 @@ generated RGB artwork was introduced.
     `17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png`
   - approved Family Wing hall badge reuse; SHA-256
-    `65ae7b5b6ffdf734ebc70b2ab9113ad2acc5985cb9a042f8a6dbadcd192ccd51`.
+    `a21eb872f17ffd77e74944e7fbdb4b3ddd0923f3d32cad59f7ae7d92890f24de`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png`
   - approved Main Hall Screen A badge reuse; SHA-256
     `7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd`.
@@ -949,10 +950,11 @@ generated RGB artwork was introduced.
   - approved Main Hall Screen B badge reuse; SHA-256
     `22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png`
-  - approved-project exact RGB crop of the previously licensed aligned Screen B
-    throne, with only a manually audited antialiased silhouette alpha mask;
-    no upscale, external source, new RGB pixels, or redesigned throne;
-    SHA-256 `49c91df90ca65b56a5562a9ecc5e61fc4dc361fb684370cd7e3365375ff8ca1f`.
+  - exact RGB crop of the approved Regen-01 pearl-shell throne's orthographic
+    front view, with only border-connected studio-matte removal and exclusion
+    of its source-sheet floor shadow; no upscale, external source, new RGB
+    pixels, or redesign; SHA-256
+    `91a8edcb91492d699e228cb4048fa346825f2a9e034ca3c9693f69a98933bcff`.
 
 - `audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_audit.json`
   and `castle_main_hall_redraw_2026-08-04_2k_{transform_overlay,grid_proof,seam_proof,reconstruction_proof}.png`
@@ -1785,7 +1787,7 @@ V3 preparation, normalization, runtime, and provenance records:
 - `assets_src/imagegen/castle_object_animations_v3/root_batch/provenance_draft.json` - exact prompt, native-path/hash, attempt, and Codex-review evidence for eight sources; human review pending.
 - `assets_src/imagegen/castle_object_animations_v3/castle_interactions_v3_source_preparation.json` - project-authored transactional source-preparation hashes, dimensions, insets, and provenance links.
 - `assets/flats/castle/interactions_v3/castle_interactions_v3_normalization.json` - project-authored alpha, padding, scale, anchor, frame-hash, and fixed-pivot evidence.
-- `assets/flats/castle/interactions_v3/castle_interactions_v3.json` - project-authored combined runtime manifest for 29 active v2-base assets plus 38 v3 additions, with the four approved room-derived pool bases recorded separately.
+- `assets/flats/castle/interactions_v3/castle_interactions_v3.json` - project-authored combined runtime manifest for 28 active v2-base assets plus 38 v3 additions, with the incompatible legacy Main Hall tapestry preserved in its v2 source manifest but retired from runtime, and the four approved room-derived pool bases recorded separately.
 ## Opera Codex art regeneration - 2026-08-02
 
 OpenAI built-in ImageGen natives and project-authored non-destructive derivatives/composites. Copyright Mermaid Roshan LLC; no external asset license. Approved in-repo Opera cards used by Path-A widget compositions retain their existing provenance and licenses.

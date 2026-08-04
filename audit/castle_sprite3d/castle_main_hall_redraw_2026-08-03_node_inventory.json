@@ -16,7 +16,7 @@
 	"room": "main_hall",
 	"node_types": {
 		"Node3D": 5,
-		"Sprite3D": 46,
+		"Sprite3D": 45,
 		"Camera3D": 1,
 		"DirectionalLight3D": 1,
 		"SpotLight3D": 4,
@@ -26,18 +26,18 @@
 		"unspecified_sprite3d": 1,
 		"clean_background": 1,
 		"clean_background_tile": 16,
-		"unique_object": 17,
+		"unique_object": 16,
 		"room_door_sign": 8,
 		"retained_huluu_throne": 1,
 		"actor_shadow": 1,
 		"character": 1
 	},
 	"sprite3d": {
-		"total": 46,
-		"visible": 29,
-		"unshaded": 46,
+		"total": 45,
+		"visible": 27,
+		"unshaded": 45,
 		"shaded": 0,
-		"depth_tested": 46,
+		"depth_tested": 45,
 		"missing_texture": 0
 	},
 	"sprite3d_cards": [
@@ -56,7 +56,7 @@
 			"transparent": true,
 			"alpha_cut_mode": 0,
 			"cast_shadow_mode": 0,
-			"depth_z": 2.79499983787537
+			"depth_z": 0.654999971389771
 		},
 		{
 			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomBackdrop",
@@ -348,23 +348,6 @@
 			"depth_z": 0.0
 		},
 		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_tapestry_right",
-			"role": "unique_object",
-			"source_object_id": "main_hall:tapestry_right",
-			"texture": "res://assets/flats/castle/interactions_v2/main_hall_tapestry_sheet.png",
-			"texture_dimensions": [
-				1024,
-				1024
-			],
-			"visible": true,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 2,
-			"depth_z": 0.239999994635582
-		},
-		{
 			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_a0",
 			"role": "unique_object",
 			"source_object_id": "main_hall:sconce_a0",
@@ -628,7 +611,7 @@
 				768,
 				384
 			],
-			"visible": true,
+			"visible": false,
 			"unshaded": true,
 			"depth_tested": true,
 			"transparent": true,
@@ -778,8 +761,8 @@
 			"source_object_id": "main_hall:huluu_throne",
 			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png",
 			"texture_dimensions": [
-				185,
-				185
+				522,
+				524
 			],
 			"visible": false,
 			"unshaded": true,

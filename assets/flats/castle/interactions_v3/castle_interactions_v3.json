@@ -2,14 +2,14 @@
   "schema_version": 3,
   "generated_on": "2026-08-02",
   "generator": "tools/build_castle_interaction_v3_manifest.py",
-  "generator_sha256": "65a512131a9da5d6b1c669400551d5cbb7165fabb4bf989b90da6ea38c783252",
+  "generator_sha256": "36e856f5548989fc5419e096d702feed89658ad4ff6c98062b790c545bc18cb5",
   "source_manifests": {
     "v1_room_derived": "assets/flats/castle/interactions/castle_interactions.json",
     "v1_room_derived_sha256": "a24480bcf43036543033be9acf2eacd46f31f13514baf726408b9ab99928c3b5",
     "v2_active": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
     "v2_active_sha256": "cfb23d53a2c64d88587f3ae84fef6a3cd5b6819bdd20357ff0358e1e67d9b303",
     "v3_specs": "tools/castle_interaction_v3_specs.py",
-    "v3_specs_sha256": "77865d5f6518ed8daeabf215da720172e861e6d8355a9f8d0d04b4e980f37df8",
+    "v3_specs_sha256": "7211e45dfd95dbf20fd4e50356108f3aa25ca361ee30743657c23169b1c4411e",
     "v3_source_preparation": "assets_src/imagegen/castle_object_animations_v3/castle_interactions_v3_source_preparation.json",
     "v3_source_preparation_sha256": "d09f6ea87f3a876080ade069e2813fcac00cf821937ed476f34554c3dc304e0e",
     "v3_normalization": "assets/flats/castle/interactions_v3/castle_interactions_v3_normalization.json",
@@ -17,7 +17,7 @@
     "fixture_runtime": "scripts/arena/castle_fixture_rigs.gd",
     "fixture_runtime_sha256": "8be624e8acb3d2d52ff4cd75c43166f7cfbc7606b520955ea5fc08d30a9356eb",
     "room_runtime": "scripts/arena/castle_rooms_25d.gd",
-    "room_runtime_sha256": "23a504d3aa316f71e34707f1b06d5b28c2f2884714a0df99d11adf9ed6dea7d6"
+    "room_runtime_sha256": "c0638a9fab54909e697657336ffe653fc1a5c620b9e07a084d5afe23f762c86a"
   },
   "visual_review_evidence": {
     "codex_reviewed_v3_assets": 38,
@@ -298,13 +298,8 @@
       ]
     },
     "main_hall": {
-      "physical_item_count": 14,
+      "physical_item_count": 13,
       "instances": [
-        {
-          "id": "tapestry_right",
-          "asset_id": "main_hall_tapestry",
-          "semantic_action": "unfurl_cloth"
-        },
         {
           "id": "sconce_a0",
           "asset_id": "main_hall_sconce",
@@ -4313,177 +4308,6 @@
       "pack": "v2_base"
     },
     {
-      "id": "main_hall_tapestry",
-      "room": "main_hall",
-      "item_id": "tapestry",
-      "instances": [
-        "tapestry_right"
-      ],
-      "semantic_action": "unfurl_cloth",
-      "render_mode": "generated_full_object_states",
-      "frame_count": 8,
-      "hframes": 4,
-      "vframes": 2,
-      "sound": "assets/audio/castle/curtain_swish.ogg",
-      "close_sound": "",
-      "sound_frame": 0,
-      "pitch": 1.0,
-      "close_pitch": 1.0,
-      "frame_duration_seconds": 0.125,
-      "fixed_pivot": true,
-      "root_transform_animation": false,
-      "secondary_root_physics": false,
-      "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
-      "sheet": "assets/flats/castle/interactions_v2/main_hall_tapestry_sheet.png",
-      "sheet_sha256": "cf0e47d10b57f10a01056d5996b650b54621bb0aded253fe6792541801ba27a6",
-      "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/main_hall_tapestry_sheet_chroma.png",
-      "raw_chroma_master_sha256": "b8de9fccaa0c21962bf0e507bff9086f8e090bf45ff63436c47c6b70cfa4e090",
-      "design_reference": "assets/flats/castle/main_hall_2screen/castle_royal_tapestry_reuse.png",
-      "design_reference_sha256": "1bc0809edd3102dd0dcc0e4605a583078d0d91080b5cad5f84786ab743f83833",
-      "placement_reference": "assets/flats/castle/interactions/main_hall_tapestry_atlas.png",
-      "placement_reference_sha256": "89fac58f2686f352c22671ece7f806bc07d05f3924142bf18086332c51b705a1",
-      "placement_geometry_role": "v1_runtime_rest_cell",
-      "grid": [
-        4,
-        2
-      ],
-      "authored_frame_count": 8,
-      "timeline_sequence": [
-        7,
-        6,
-        4,
-        2,
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ],
-      "timeline_frame_count": 12,
-      "cell_size": [
-        256,
-        512
-      ],
-      "frame_bboxes": [
-        [
-          38,
-          6,
-          220,
-          115
-        ],
-        [
-          38,
-          6,
-          220,
-          187
-        ],
-        [
-          38,
-          6,
-          219,
-          322
-        ],
-        [
-          38,
-          6,
-          219,
-          437
-        ],
-        [
-          37,
-          6,
-          219,
-          469
-        ],
-        [
-          37,
-          6,
-          219,
-          476
-        ],
-        [
-          38,
-          6,
-          219,
-          477
-        ],
-        [
-          38,
-          6,
-          219,
-          482
-        ]
-      ],
-      "frame_sha256": [
-        "febc46d603d98214f4073d4292716b0bdad6ca5fe9734ba3b521e04c2c9950a7",
-        "0aeb4656747c32facdfda8ad7ee5c92888d387e05644d776a7a5e6ca4f0066e6",
-        "daaab321177c252221518114e5f9c2f5da25551188df8efcd38a41b5bb20824c",
-        "d78bf05c939c22134b1b1304b3d4defce1a8ff637549d0a6e4e8e284875dbbe8",
-        "268a512b1dc46abfdbfe62be0ec96b7cea83a2495bab878fb833a223084b13e6",
-        "f2fe163ae1254d53b1d82017440da5c500f28bc145e44a4fd726a9d480daf2d4",
-        "1e76217509617ee6a1b83f4d6e5f7dd13559302f712ff4422eee26eb0831df5a",
-        "0af69aef9e16a9ad9305c273b3757c7960b388e2521438cdad74b22459ed8a46"
-      ],
-      "unique_frame_count": 8,
-      "placement_size": [
-        138,
-        328
-      ],
-      "placement_bbox": [
-        9,
-        3,
-        129,
-        325
-      ],
-      "alignment_frame": 7,
-      "anchor_mode": "top_center",
-      "runtime_scale": 0.66969305,
-      "runtime_center_offset": [
-        69.0,
-        170.423264
-      ],
-      "hall_center_offset": [
-        0.0,
-        6.423264
-      ],
-      "rest_frame": 7,
-      "transparent_pixels": 782630,
-      "partial_alpha_pixels": 9821,
-      "opaque_pixels": 256125,
-      "total_pixels": 1048576,
-      "transparent_border": true,
-      "normalization": {
-        "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "7a9850a999d1dd9a310c1162b872d54e583df00ebf7371925959ab45bc089995",
-        "uniform_scale": 1.0,
-        "padding_pixels": 6,
-        "anchor_spread_pixels": [
-          0.5,
-          0.0
-        ],
-        "alpha_matte_recovered": true,
-        "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
-        "rgb_subject_repainted": false,
-        "whole_object_translation_only": true,
-        "whole_sheet_uniform_scale_only": true,
-        "repainted_pixels": false
-      },
-      "physics_mode": "none",
-      "physics_pivot": [
-        0.5,
-        0.5
-      ],
-      "water_layers": [],
-      "primary_animation_is_overlay": false,
-      "generated_hidden_surfaces": false,
-      "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
-      "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e",
-      "pack": "v2_base"
-    },
-    {
       "id": "opera_hall_chandelier",
       "room": "opera_hall",
       "item_id": "chandelier",
@@ -6316,7 +6140,7 @@
       "name": "Pearl visitor bell",
       "placement_position": [
         1410,
-        360
+        375
       ],
       "placement_position_mode": "center",
       "placement_size": [
@@ -7235,7 +7059,7 @@
       ],
       "name": "Compass pearl vitrine",
       "placement_position": [
-        2780,
+        2785,
         480
       ],
       "placement_position_mode": "center",
@@ -8155,7 +7979,7 @@
       ],
       "name": "Pearl fern planter",
       "placement_position": [
-        1510,
+        1750,
         790
       ],
       "placement_position_mode": "center",
@@ -8615,8 +8439,8 @@
       ],
       "name": "Royal chest bench",
       "placement_position": [
-        1810,
-        805
+        1930,
+        845
       ],
       "placement_position_mode": "center",
       "placement_size": [
@@ -23794,15 +23618,15 @@
   ],
   "missing_generated_assets": [],
   "summary": {
-    "asset_count": 67,
-    "physical_instance_count": 72,
-    "generated_sheet_count": 67,
-    "v2_base_asset_count": 29,
+    "asset_count": 66,
+    "physical_instance_count": 71,
+    "generated_sheet_count": 66,
+    "v2_base_asset_count": 28,
     "v3_addition_asset_count": 38,
     "legacy_room_derived_asset_count": 4,
     "legacy_room_derived_instance_count": 4,
-    "overall_asset_count": 71,
-    "overall_physical_instance_count": 76,
+    "overall_asset_count": 70,
+    "overall_physical_instance_count": 75,
     "water_interaction_count": 10,
     "overall_water_interaction_count": 14,
     "jolt_component_count": 8,
@@ -23811,7 +23635,7 @@
       "craft_room": 17686528,
       "kitchen": 23199744,
       "library": 23199744,
-      "main_hall": 16646144,
+      "main_hall": 12451840,
       "mermaid_pool": 11135008,
       "opera_hall": 23199744,
       "playroom": 20754176

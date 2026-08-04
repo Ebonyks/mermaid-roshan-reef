@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Derive the Main Hall door badges from approved, already-shipped castle art.
 
-The source backgrounds remain untouched.  Each badge is cropped once, receives
-only a soft geometric alpha outside its existing circular plaque, and is
-uniformly resized onto a transparent 256 px card for Sprite3D use.
+The source backgrounds remain untouched.  Each badge is cropped once and is
+uniformly resized onto a transparent 256 px card for Sprite3D use.  The Dream
+House badge comes from the already-transparent crest in its approved doorway,
+so no piece of the purple portal architecture is copied into the sign.
 """
 
 from __future__ import annotations
@@ -73,14 +74,29 @@ def extract_round_badge(
 
 
 def extract_family_badge(image: Image.Image) -> tuple[Image.Image, list[int]]:
-	box = [112, 0, 369, 190]
+	# This box follows only the cream/gold house medallion.  A hand-audited
+	# polygon traces its scalloped cap and lower shell; unlike the old ellipse,
+	# it excludes the purple scrollwork and navy doorway arch behind the crest.
+	box = [158, 0, 335, 178]
 	crop = image.crop(tuple(box)).convert("RGBA")
-	cap = Image.new("L", crop.size, 0)
-	draw = ImageDraw.Draw(cap)
-	draw.ellipse((8, -16, crop.width - 9, crop.height + 20), fill=255)
-	cap = cap.filter(ImageFilter.GaussianBlur(0.8))
-	crop.putalpha(ImageChops.multiply(crop.getchannel("A"), cap))
-	return fit_on_card(crop, (240, 210)), box
+	mask = Image.new("L", crop.size, 0)
+	draw = ImageDraw.Draw(mask)
+	draw.polygon([
+		(88, 0), (111, 4), (128, 14), (146, 19), (160, 31),
+		(168, 45), (176, 58), (176, 77), (172, 95), (164, 111),
+		(151, 124), (137, 133), (121, 139), (105, 144), (72, 144),
+		(56, 139), (40, 133), (26, 124), (14, 111), (6, 95),
+		(1, 77), (2, 58), (9, 44), (18, 31), (31, 22), (48, 16),
+		(64, 6),
+	], fill=255)
+	draw.polygon([
+		(55, 116), (70, 112), (88, 116), (106, 112), (122, 117),
+		(126, 134), (120, 151), (107, 163), (89, 174), (72, 164),
+		(59, 152), (52, 135),
+	], fill=255)
+	mask = mask.filter(ImageFilter.GaussianBlur(0.45))
+	crop.putalpha(ImageChops.multiply(crop.getchannel("A"), mask))
+	return fit_on_card(crop, (102, 98)), box
 
 
 def main() -> None:
@@ -121,7 +137,10 @@ def main() -> None:
 			"source": sources["family"].relative_to(ROOT).as_posix(),
 			"source_sha256": sha256(sources["family"]),
 			"source_crop_xyxy": family_box,
-			"derivation": "approved transparent crop + soft ellipse cap + Lanczos resize",
+			"derivation": (
+				"approved crest-only crop + hand-traced semantic alpha + "
+				"whole-object Lanczos resize"
+			),
 		}
 	)
 

@@ -54,7 +54,7 @@ RESAMPLED_CHROMA_ALPHA_LIMIT = 96
 DETACHED_ARTIFACT_MAX_PIXELS = 96
 ROOM_BUDGET_BYTES = 24 * 1024 * 1024
 EXPECTED_ACTIVE_ROOMS = {
-    "main_hall": 14, "opera_hall": 8, "kitchen": 14, "library": 8,
+    "main_hall": 13, "opera_hall": 8, "kitchen": 14, "library": 8,
     "playroom": 8, "craft_room": 8, "mermaid_pool": 4, "bubble_bath": 8,
 }
 EXPECTED_OVERALL_ROOMS = {**EXPECTED_ACTIVE_ROOMS, "mermaid_pool": 8}
@@ -64,6 +64,7 @@ ROOM_LOGICAL_SIZE = {
     **{room: (1024.0, 576.0) for room in EXPECTED_ACTIVE_ROOMS},
     "main_hall": (3344.0, 941.0),
 }
+RETIRED_V2_ASSET_IDS = {"main_hall_tapestry"}
 
 
 def sha256(path: Path) -> str:
@@ -932,12 +933,17 @@ def audit(write_contact_sheet: bool = False) -> int:
                if value.get("pack") not in {"v2_base", "v3_addition"}]
     if unknown:
         add_error(errors, f"manifest has unknown packs: {unknown}")
-    if len(base) != 29 or [without_pack(value) for value in base] != v2_assets:
-        add_error(errors, "v2_base entries are not immutable source-order deep copies")
+    expected_base = [
+        value for value in v2_assets
+        if str(value.get("id", "")) not in RETIRED_V2_ASSET_IDS
+    ]
+    if len(base) != 28 \
+            or [without_pack(value) for value in base] != expected_base:
+        add_error(errors, "active v2_base entries differ from the audited retirement map")
     if len(additions) != 38:
         add_error(errors, f"v3 addition roster has {len(additions)} assets")
-    if len(assets) != 67 or sum(len(value.get("instances", [])) for value in assets) != 72:
-        add_error(errors, "active manifest is not 67 assets / 72 instances")
+    if len(assets) != 66 or sum(len(value.get("instances", [])) for value in assets) != 71:
+        add_error(errors, "active manifest is not 66 assets / 71 instances")
     ids = [str(value.get("id", "")) for value in assets]
     if len(ids) != len(set(ids)):
         add_error(errors, "active manifest has duplicate asset ids")
@@ -990,11 +996,11 @@ def audit(write_contact_sheet: bool = False) -> int:
     room_bytes = decoded_rgba_by_room(assets, legacy, errors)
     summary = manifest.get("summary", {})
     expected_summary = {
-        "asset_count": 67, "physical_instance_count": 72,
-        "generated_sheet_count": 67, "v2_base_asset_count": 29,
+        "asset_count": 66, "physical_instance_count": 71,
+        "generated_sheet_count": 66, "v2_base_asset_count": 28,
         "v3_addition_asset_count": 38, "legacy_room_derived_asset_count": 4,
-        "legacy_room_derived_instance_count": 4, "overall_asset_count": 71,
-        "overall_physical_instance_count": 76, "water_interaction_count": 10,
+        "legacy_room_derived_instance_count": 4, "overall_asset_count": 70,
+        "overall_physical_instance_count": 75, "water_interaction_count": 10,
         "overall_water_interaction_count": 14, "jolt_component_count": 8,
         "decoded_rgba_bytes_by_room": room_bytes,
         "max_room_decoded_rgba_bytes": max(room_bytes.values(), default=0),
@@ -1020,7 +1026,7 @@ def audit(write_contact_sheet: bool = False) -> int:
             print("FAIL: " + error)
         print(f"CASTLEV3|AUDIT_FAIL|errors={len(errors)}")
         return 1
-    print("CASTLEV3|AUDIT_OK|active=67/72|overall=71/76|water=10+4|jolt=8|near_key=0")
+    print("CASTLEV3|AUDIT_OK|active=66/71|overall=70/75|water=10+4|jolt=8|near_key=0")
     return 0
 
 

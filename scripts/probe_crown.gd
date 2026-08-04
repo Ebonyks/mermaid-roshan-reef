@@ -325,11 +325,11 @@ func _init() -> void:
 			rooms.show_room(room_id, false)
 			await _frames(2)
 			var hall_mode: bool = room_id == "main_hall"
-			var expected_items: int = 17 if hall_mode else (
+			var expected_items: int = 16 if hall_mode else (
 				14 if room_id == "kitchen" else (
 					11 if room_id == "playroom"
 						and not rooms._playroom_rescue_done() else 8))
-			var expected_hotspots: int = 14 if hall_mode else (
+			var expected_hotspots: int = 13 if hall_mode else (
 				11 if room_id == "kitchen" else 8)
 			room_items_ok = room_items_ok \
 				and main.castle_room_item_sprites.size() == expected_items \

@@ -44,7 +44,7 @@ const INTERACTION_MANIFEST := \
 const LEGACY_INTERACTION_MANIFEST := \
 	"res://assets/flats/castle/interactions/castle_interactions.json"
 const EXPECTED_PHYSICAL_ITEM_COUNTS := {
-	"main_hall": 14,
+	"main_hall": 13,
 	"opera_hall": 8,
 	"kitchen": 14,
 	"library": 8,
@@ -53,13 +53,13 @@ const EXPECTED_PHYSICAL_ITEM_COUNTS := {
 	"mermaid_pool": 8,
 	"bubble_bath": 8,
 }
-const EXPECTED_ACTIVE_MANIFEST_ASSET_COUNT := 67
-const EXPECTED_ACTIVE_MANIFEST_INSTANCE_COUNT := 72
-const EXPECTED_V2_BASE_ASSET_COUNT := 29
+const EXPECTED_ACTIVE_MANIFEST_ASSET_COUNT := 66
+const EXPECTED_ACTIVE_MANIFEST_INSTANCE_COUNT := 71
+const EXPECTED_V2_BASE_ASSET_COUNT := 28
 const EXPECTED_V3_ADDITION_COUNT := 38
 const EXPECTED_LEGACY_POOL_ASSET_COUNT := 4
-const EXPECTED_OVERALL_UNIQUE_ASSET_COUNT := 71
-const EXPECTED_OVERALL_PHYSICAL_ITEM_COUNT := 76
+const EXPECTED_OVERALL_UNIQUE_ASSET_COUNT := 70
+const EXPECTED_OVERALL_PHYSICAL_ITEM_COUNT := 75
 const EXPECTED_ACTIVE_SHADER_WATER_COUNT := 10
 const EXPECTED_OVERALL_WATER_INTERACTION_COUNT := 14
 const EXPECTED_JOLT_FIXTURE_COUNT := 8
@@ -111,6 +111,23 @@ func _alpha_coverage(image: Image, rect: Rect2) -> float:
 			x += 4
 		y += 4
 	return 0.0 if total == 0 else float(lit) / float(total)
+
+func _alpha_visible_rect(image: Image, threshold: float = 0.03) -> Rect2i:
+	if image == null:
+		return Rect2i()
+	var minimum := Vector2i(image.get_width(), image.get_height())
+	var maximum := Vector2i(-1, -1)
+	for y: int in range(image.get_height()):
+		for x: int in range(image.get_width()):
+			if image.get_pixel(x, y).a <= threshold:
+				continue
+			minimum.x = mini(minimum.x, x)
+			minimum.y = mini(minimum.y, y)
+			maximum.x = maxi(maximum.x, x)
+			maximum.y = maxi(maximum.y, y)
+	if maximum.x < minimum.x or maximum.y < minimum.y:
+		return Rect2i()
+	return Rect2i(minimum, maximum - minimum + Vector2i.ONE)
 
 # Every frame of every 2.5D sheet must actually reach the screen.
 #
@@ -389,7 +406,7 @@ func _room_decoded_rgba_bytes(
 
 func _expected_room_hotspot_count(room_id: String) -> int:
 	if room_id == "main_hall":
-		return 14
+		return 13
 	if room_id == "kitchen":
 		return 11
 	return int(EXPECTED_PHYSICAL_ITEM_COUNTS.get(room_id, 0))
@@ -1446,7 +1463,7 @@ func _run() -> void:
 			sign_destination, Rect2()) as Rect2
 		var expected_sign_file: String = String(HALL_SIGN_FILES.get(
 			sign_destination, ""))
-		var expected_sign_scale: float = 0.46 \
+		var expected_sign_scale: float = 1.0 \
 			if sign_destination == "family_gallery" else 1.55 \
 			if sign_destination == "opera_hall" else 1.0
 		var sign_art_position := Vector2.INF
@@ -1504,7 +1521,44 @@ func _run() -> void:
 			== "retained_huluu_throne"
 		and (retained_throne.get_meta(
 			"source_art_position", Vector2.ZERO) as Vector2).is_equal_approx(
-				Vector2(3045.0, 485.0)))
+				Vector2(3045.0, 431.0))
+		and is_equal_approx(retained_throne.scale.x, 0.70))
+	var throne_image: Image = _sheet_image(retained_throne.texture) \
+		if retained_throne != null else null
+	var throne_alpha_rect := _alpha_visible_rect(throne_image)
+	var throne_art_position := Vector2(3045.0, 431.0)
+	var throne_texture_size := Vector2(522.0, 524.0)
+	var throne_visible_rect := Rect2(
+		throne_art_position
+			+ (Vector2(throne_alpha_rect.position)
+				- throne_texture_size * 0.5) * 0.70,
+		Vector2(throne_alpha_rect.size) * 0.70)
+	var throne_portal_rect: Rect2 = hall_portal_rects.get(
+		"__throne", Rect2()) as Rect2
+	var throne_shadow_strip := Rect2(
+		0.0, 503.0, throne_texture_size.x, throne_texture_size.y - 503.0)
+	_ck("main_hall_throne_cleanly_fits_its_dais",
+		throne_image != null and throne_image.get_size() == Vector2i(522, 524)
+		and throne_alpha_rect == Rect2i(26, 13, 470, 490)
+		and _alpha_coverage(throne_image, throne_shadow_strip) == 0.0
+		and throne_portal_rect.has_area()
+		and throne_visible_rect.position.x >= throne_portal_rect.position.x
+		and throne_visible_rect.end.x <= throne_portal_rect.end.x
+		and throne_visible_rect.position.y >= throne_portal_rect.position.y
+		and throne_visible_rect.end.y <= throne_portal_rect.end.y
+		and throne_visible_rect.end.y >= 590.0,
+		"alpha=%s visible=%s portal=%s" % [
+			throne_alpha_rect, throne_visible_rect, throne_portal_rect])
+	var family_sign_image: Image = _sheet_image(left_door_sign.texture) \
+		if left_door_sign != null else null
+	var family_alpha_rect := _alpha_visible_rect(family_sign_image)
+	_ck("main_hall_first_door_uses_clean_house_crest",
+		family_sign_image != null
+		and family_sign_image.get_size() == Vector2i(256, 256)
+		and family_alpha_rect == Rect2i(79, 81, 97, 95)
+		and is_equal_approx(left_door_sign.scale.x, 1.0),
+		"alpha=%s scale=%.2f" % [family_alpha_rect,
+			left_door_sign.scale.x if left_door_sign != null else -1.0])
 	var left_camera_position := Vector3(
 		rooms._hall_camera_x_for_foot(380.0), 0.0,
 		main.castle_room_camera.position.z)
@@ -1595,6 +1649,26 @@ func _run() -> void:
 	_ck("main_hall_runtime_node_type_inventory",
 		_write_main_hall_node_inventory())
 	await _capture("main_hall_screen_a")
+	# Fast rendered review mode for iterative hall polish. The normal trusted
+	# probe continues below; this opt-in path only stages A/seam/B plus the
+	# omnipresent elevator so visual audits do not replay every room animation.
+	if OS.get_environment("CASTLE_HALL_CAPTURE_ONLY") == "1":
+		rooms._position_player_at_foot(Vector2(1672.0, 835.0), false)
+		await _frames(2)
+		rooms.tick(1.0)
+		await _capture("main_hall_seam_bridge")
+		rooms._position_player_at_foot(Vector2(2500.0, 835.0), false)
+		await _frames(2)
+		rooms.tick(1.0)
+		await _capture("main_hall_screen_b")
+		elevator_button.pressed.emit()
+		await _frames(2)
+		await _capture("elevator_menu")
+		print("CASTLE_ART|RESULT=",
+			"FAIL" if checks_failed > 0 else "OK",
+			" checks_failed=", checks_failed)
+		quit(1 if checks_failed > 0 else 0)
+		return
 	rooms.show_room("family_gallery", false)
 	await _frames(2)
 	var gallery_destinations := {
@@ -1846,7 +1920,7 @@ func _run() -> void:
 		and manifest_legacy_pool_assets.size() \
 			== EXPECTED_LEGACY_POOL_ASSET_COUNT \
 		and legacy_pool_assets.size() == EXPECTED_LEGACY_POOL_ASSET_COUNT \
-		and is_equal_approx(delivered_average, 9.5) \
+		and is_equal_approx(delivered_average, 75.0 / 8.0) \
 		and int(manifest_frame_contract.get("minimum", 0)) == 4 \
 		and int(manifest_frame_contract.get("maximum", 0)) == 12 \
 		and int(manifest_frame_contract.get(
@@ -2340,7 +2414,7 @@ func _run() -> void:
 		"expected waterfall, flower float, star float, and seahorse fountain")
 	_ck("pool_waterfall_hotspot_covers_full_fixture",
 		pool_waterfall_hotspot_ok)
-	_ck("v3_plus_room_derived_pool_match_71_assets_76_runtime_items",
+	_ck("v3_plus_room_derived_pool_match_70_assets_75_runtime_items",
 		interaction_manifest_ok,
 		"active=%d overall=%d average=%.2f" % [
 			active_manifest_assets.size(), manifest_assets.size(),
@@ -2551,6 +2625,19 @@ func _run() -> void:
 	_ck("main_hall_native_2x8_sprite3d_grid",
 		main.castle_room_background_tiles.size() == HALL_TILE_COUNT \
 		and tile_paths_ok)
+	var per_screen_native_width := 0
+	for local_column: int in range(HALL_TILE_COLUMNS / 2):
+		per_screen_native_width += HALL_TILE_NATIVE_WIDTHS[local_column]
+	_ck("main_hall_each_screen_has_eight_native_2k_tiles",
+		HALL_TILE_COLUMNS == 8 and HALL_TILE_ROWS == 2 \
+		and HALL_TILE_COUNT == 16 \
+		and per_screen_native_width == int(HALL_SCREEN_NATIVE_WIDTH) \
+		and per_screen_native_width >= 2048 \
+		and int(HALL_TILE_NATIVE_HEIGHT) * HALL_TILE_ROWS >= 2048,
+		"screen=%dx%d tiles_per_screen=%d total=%d" % [
+			per_screen_native_width,
+			int(HALL_TILE_NATIVE_HEIGHT) * HALL_TILE_ROWS,
+			HALL_TILE_COUNT / 2, HALL_TILE_COUNT])
 	_ck("main_hall_lossless_screen_registration",
 		tile_registration_ok,
 		"7280x2048 master -> sixteen exact 910x1024 cards")
@@ -2590,16 +2677,16 @@ func _run() -> void:
 		"fill=%.3f" % fill_on_energy)
 	var sconce_manifest: Dictionary = manifest_assets.get(
 		"main_hall:sconce_a0", {}) as Dictionary
-	var tapestry_manifest: Dictionary = manifest_assets.get(
-		"main_hall:tapestry_right", {}) as Dictionary
+	var banner_manifest: Dictionary = manifest_assets.get(
+		"main_hall:banner_left", {}) as Dictionary
 	var expected_fixture_asset_path: String = "res://" + String(
 		sconce_manifest.get("sheet", ""))
-	var expected_tapestry_asset_path: String = "res://" + String(
-		tapestry_manifest.get("sheet", ""))
+	var expected_banner_asset_path: String = "res://" + String(
+		banner_manifest.get("sheet", ""))
 	var fixture_asset_path := ""
 	var fixture_continuity_ok: bool = \
 		expected_fixture_asset_path != "res://" \
-		and expected_tapestry_asset_path != "res://"
+		and expected_banner_asset_path != "res://"
 	var fixture_y: float = -1.0
 	var fixture_height_ok := true
 	var fixture_bloom_emitters_ok := true
@@ -2659,15 +2746,15 @@ func _run() -> void:
 		else:
 			fixture_height_ok = fixture_height_ok \
 				and is_equal_approx(fixture_position.y, fixture_y)
-	for tapestry_id: String in ["tapestry_right"]:
-		var tapestry_record: Dictionary = main.castle_room_item_sprites.get(
-			tapestry_id, {})
-		var tapestry: Sprite3D = tapestry_record.get("sprite") as Sprite3D
-		fixture_continuity_ok = fixture_continuity_ok \
-			and tapestry != null and tapestry.texture != null \
-			and tapestry.texture.resource_path \
-				== expected_tapestry_asset_path
-	_ck("main_hall_fixture_and_tapestry_continuity", fixture_continuity_ok)
+	var banner_record: Dictionary = main.castle_room_item_sprites.get(
+		"banner_left", {}) as Dictionary
+	var banner_sprite: Sprite3D = banner_record.get("sprite") as Sprite3D
+	var coherent_banner_family: bool = banner_sprite != null \
+		and banner_sprite.texture != null \
+		and banner_sprite.texture.resource_path == expected_banner_asset_path \
+		and not main.castle_room_item_sprites.has("tapestry_right")
+	_ck("main_hall_fixture_family_continuity", fixture_continuity_ok)
+	_ck("main_hall_uses_one_coherent_banner_family", coherent_banner_family)
 	_ck("main_hall_fixture_height_alignment",
 		fixture_height_ok and is_equal_approx(fixture_y, 215.0),
 		"shared_y=%.1f" % fixture_y)
@@ -2702,12 +2789,12 @@ func _run() -> void:
 		hall_door_clearance_ok, ",".join(hall_door_conflicts))
 	var expected_hall_positions := {
 		"shell_clock": Vector2(1260.0, 360.0),
-		"visitor_bell": Vector2(1410.0, 360.0),
+		"visitor_bell": Vector2(1410.0, 375.0),
 		"left_pearl_vitrine": Vector2(790.0, 480.0),
-		"right_pearl_vitrine": Vector2(2780.0, 480.0),
+		"right_pearl_vitrine": Vector2(2785.0, 480.0),
 		"banner_left": Vector2(1810.0, 360.0),
-		"fern_planter": Vector2(1510.0, 790.0),
-		"chest_bench": Vector2(1810.0, 805.0),
+		"fern_planter": Vector2(1750.0, 790.0),
+		"chest_bench": Vector2(1930.0, 845.0),
 	}
 	var hall_addition_positions_ok := true
 	for expected_item_id: String in expected_hall_positions:
@@ -2719,6 +2806,16 @@ func _run() -> void:
 				expected_hall_positions[expected_item_id] as Vector2)
 	_ck("main_hall_additions_use_audited_placement_map",
 		hall_addition_positions_ok)
+	var sconce_a2_data: Dictionary = (main.castle_room_item_sprites.get(
+		"sconce_a2", {}) as Dictionary).get("data", {}) as Dictionary
+	var shell_bunny_data: Dictionary = (main.castle_room_item_sprites.get(
+		"shell_bunny", {}) as Dictionary).get("data", {}) as Dictionary
+	_ck("main_hall_hud_clear_runtime_placements",
+		(sconce_a2_data.get("pos", Vector2.INF) as Vector2).is_equal_approx(
+			Vector2(1390.0, 215.0))
+		and (shell_bunny_data.get(
+			"pos", Vector2.INF) as Vector2).is_equal_approx(
+				Vector2(1250.0, 830.0)))
 	var fern_sprite: Sprite3D = (main.castle_room_item_sprites.get(
 		"fern_planter", {}) as Dictionary).get("sprite") as Sprite3D
 	var chest_sprite: Sprite3D = (main.castle_room_item_sprites.get(
@@ -2824,7 +2921,7 @@ func _run() -> void:
 			bunny_start_positions[item_id] = sprite.position
 	_ck("main_hall_three_depth_card_dust_bunnies", bunny_assets_ok)
 	_ck("main_hall_bunnies_are_proximity_only",
-		main.castle_room_item_hotspot_layer.get_child_count() == 14)
+		main.castle_room_item_hotspot_layer.get_child_count() == 13)
 	var camera_ray_touch_ok := true
 	var camera_ray_details: Array[String] = []
 	for item_id: String in bunny_ids:
@@ -2924,8 +3021,8 @@ func _run() -> void:
 	rooms.show_room("library", false)
 	rooms.show_room("main_hall", false)
 	_ck("main_hall_dust_bunnies_do_not_respawn_this_visit",
-		main.castle_room_item_sprites.size() == 14
-		and main.castle_room_item_hotspot_layer.get_child_count() == 14)
+		main.castle_room_item_sprites.size() == 13
+		and main.castle_room_item_hotspot_layer.get_child_count() == 13)
 	rooms._position_player_at_foot(Vector2(2500.0, 835.0), false)
 	await _frames(2)
 	rooms.tick(1.0)
