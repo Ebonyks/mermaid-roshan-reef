@@ -180,6 +180,50 @@ static func roam_range(career: String) -> Vector2:
 	return Vector2(float(entry[0]), float(entry[1]))
 
 
+## Horizontal span the painting actually occupies on screen, per career.
+##
+## The four world_<career>_c{0,1}r{0,1}.png tiles compose into a 2048-square
+## master, and opera_world_backdrop_2d.gd:66-75 draws master y=448..1600 across
+## the whole 1280x720 screen. Vertically that crop IS the sharp band, so a
+## painting-normalized y maps straight through. Horizontally the artwork is
+## inset inside a blurred bleed margin of roughly 9% a side, so a coordinate
+## derived from the painting has to be remapped onto the span the painting
+## really covers — otherwise every station drifts outward, by nothing at centre
+## and up to ~115px at the edges (measured against 30 stations across five
+## careers, 2026-08-04).
+##
+## Regenerate with tools/measure_opera_bleed.py after any world repaint.
+const BLEED: Dictionary = {
+	"chef": [0.0913, 0.9077],
+	"detective": [0.0913, 0.9077],
+	"ballerina": [0.0942, 0.9038],
+	"candymaker": [0.0942, 0.9038],
+	"doctor": [0.0913, 0.9077],
+	"farmer": [0.0952, 0.9038],
+	"boxer": [0.0938, 0.9043],
+	"magician": [0.0947, 0.9038],
+	"painter": [0.0947, 0.9048],
+	"astronaut": [0.0913, 0.9028],
+	"racer": [0.0947, 0.9038],
+	"popstar": [0.0957, 0.9023],
+	"nursery": [0.0947, 0.9077],
+}
+
+
+static func bleed_span(career: String) -> Vector2:
+	var entry: Array = BLEED.get(career, [0.0936, 0.9049])
+	return Vector2(float(entry[0]), float(entry[1]))
+
+
+## Painting-normalized (0..1 across the sharp artwork) -> screen pixels.
+static func to_screen(career: String, normalized: Vector2) -> Vector2:
+	var span := bleed_span(career)
+	return Vector2(
+		(span.x + (span.y - span.x) * normalized.x) * SCREEN.x,
+		normalized.y * SCREEN.y
+	)
+
+
 const FALLBACK_PATH := [
 	[0.08, 0.72], [0.22, 0.66], [0.38, 0.70], [0.52, 0.64],
 	[0.66, 0.70], [0.80, 0.65], [0.92, 0.70],
@@ -191,7 +235,7 @@ static func path_points(career: String) -> PackedVector2Array:
 	var raw: Array = (PATHS.get(career, {}) as Dictionary).get("path", FALLBACK_PATH)
 	var points := PackedVector2Array()
 	for entry: Array in raw:
-		points.append(Vector2(float(entry[0]), float(entry[1])) * SCREEN)
+		points.append(to_screen(career, Vector2(float(entry[0]), float(entry[1]))))
 	return points
 
 
@@ -211,7 +255,7 @@ static func stations(career: String) -> Array[Dictionary]:
 		var pos: Array = entry.get("pos", [0.5, 0.68])
 		out.append({
 			"id": String(entry.get("id", "station")),
-			"pos": Vector2(float(pos[0]), float(pos[1])) * SCREEN,
+			"pos": to_screen(career, Vector2(float(pos[0]), float(pos[1]))),
 			"landmark": String(entry.get("landmark", "")),
 		})
 	return out
@@ -223,13 +267,13 @@ static func clue_spots(career: String) -> PackedVector2Array:
 	if raw.is_empty():
 		# spread fallback sparkle spots across the stage
 		for index in range(8):
-			out.append(Vector2(
-				(0.12 + 0.76 * float(index) / 7.0) * SCREEN.x,
-				(0.30 + 0.35 * float((index * 3) % 5) / 4.0) * SCREEN.y
-			))
+			out.append(to_screen(career, Vector2(
+				0.12 + 0.76 * float(index) / 7.0,
+				0.30 + 0.35 * float((index * 3) % 5) / 4.0
+			)))
 		return out
 	for entry: Array in raw:
-		out.append(Vector2(float(entry[0]), float(entry[1])) * SCREEN)
+		out.append(to_screen(career, Vector2(float(entry[0]), float(entry[1]))))
 	return out
 
 
