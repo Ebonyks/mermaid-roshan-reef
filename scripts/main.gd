@@ -40,6 +40,10 @@ var obj_icon_lbl: Label = null     # emoji pictogram for portal/star goals
 var obj_key := ""                  # current objective identity; card pulses once on change
 var obj_seen_t := 0.0              # seconds on the same target; card calms after comprehension
 var msg_timer := 0.0
+# ---- STORY DIALOGUE (AudioDirector owns the logic; state lives here) ----
+var dialogue_queue: Array = []     # [{who, text, vo, hold}] spoken in order
+var dialogue_t := 0.0              # seconds left on the line being spoken
+var dialogue_active := false       # true while a story sequence is playing
 var fade_rect: ColorRect = null   # full-screen black cover (layer 30) — see _fade_cut
 var fade_tween: Tween = null      # active reveal tween; killed on every new cut
 # ---- CRITTER BOOK: mutable state stays on ReefMain; CollectionSystem owns logic ----
@@ -3252,6 +3256,15 @@ func _speaker_key(who: String) -> String:
 
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 	_audio_ref().show_msg(who, txt, vo)
+
+func say_sequence(lines: Array, opening_hold: float = 0.0) -> void:
+	_audio_ref().say_sequence(lines, opening_hold)
+
+func skip_dialogue() -> bool:
+	return _audio_ref().skip_dialogue()
+
+func clear_dialogue() -> void:
+	_audio_ref().clear_dialogue()
 
 func _fanfare() -> void:
 	_audio_ref()._fanfare()
@@ -6959,6 +6972,7 @@ func _process(delta: float) -> void:
 		save_pending_t -= delta
 		if save_pending_t <= 0.0:
 			_write_save()
+	_audio_ref().tick_dialogue(delta)
 	if msg_timer > 0.0:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
