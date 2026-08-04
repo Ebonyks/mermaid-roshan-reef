@@ -377,14 +377,16 @@ func _build_world() -> void:
 	top.add_child(rival_name_label)
 
 	player_actor = _actor("res://assets/opera/worlds/actors/roshan_%s.png" % career_id)
-	player_actor.size = Vector2(250, 288)
+	# scale contract: Roshan is ~1.3x a crew imp, ~1.2x the captain —
+	# a small bit taller, never more than 1.5x (owner 2026-08-03)
+	player_actor.size = Vector2(250, 250)
 	_place_on_stage(player_actor, StagePaths.point_along(stage_points, 0.08))
 	root.add_child(player_actor)
 	var partner_path := "res://assets/opera/worlds/actors/rival_%s.png" % career_id
 	if career_id == "nursery":
 		partner_path = "res://assets/opera/worlds/actors/faron_nursery.png"
 	rival_actor = _actor(partner_path)
-	rival_actor.size = Vector2(250, 270)
+	rival_actor.size = Vector2(190, 190)   # he is an imp, not her equal in height
 	_place_on_stage(rival_actor, StagePaths.point_along(stage_points, 0.92))
 	root.add_child(rival_actor)
 	if career_id == "nursery":
@@ -821,7 +823,10 @@ func _start_stage_combat(combat: Dictionary) -> void:
 	imp_brain.begin_crew(count + (1 if captain_coming else 0))
 	for index in range(count):
 		# deterministic spread along the painted route — no RNG
-		var t := fmod(0.14 + float(index) * 0.83 / float(count) + float(career_id.length()) * 0.031, 0.9)
+		var roam := StagePaths.roam_range(career_id)
+		var spread := roam.y - roam.x
+		var t := roam.x + fmod(float(index) * spread / float(count)
+			+ float(career_id.length()) * 0.031, spread)
 		_spawn_stage_imp(t, false, index)
 	captain_pending = captain_coming
 	# Roshan takes her mark so the crew has room to come at her from both
@@ -835,7 +840,7 @@ func _spawn_stage_imp(path_t: float, captain: bool, seed_index: int) -> void:
 	node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	node.size = Vector2(150, 150) if captain else Vector2(118, 118)
+	node.size = Vector2(200, 200) if captain else Vector2(180, 180)
 	node.pivot_offset = node.size * Vector2(0.5, 1.0)   # pivot at the feet
 	combat_layer.add_child(node)
 	var feet := StagePaths.point_along(stage_points, path_t)
