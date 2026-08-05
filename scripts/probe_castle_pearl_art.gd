@@ -33,7 +33,7 @@ const HALL_SIGN_REUSE_MANIFEST := \
 	"res://assets_src/imagegen/castle_main_hall_redraw_2026-08-03/" \
 	+ "sign_reuse_manifest.json"
 const HALL_SIGN_REUSE_MANIFEST_SHA256 := \
-	"a6d0c762af29f11ca684b741a91235ad5e9aa027eff278cc4a360ec835642101"
+	"2a28d95d6ad0dda17e75e61388cb6849edb6b4e24bb688aaaa3b2d2cd4529920"
 const HALL_TILE_COLUMNS := 8
 const HALL_TILE_ROWS := 2
 const HALL_TILE_COUNT := HALL_TILE_COLUMNS * HALL_TILE_ROWS
@@ -1773,6 +1773,8 @@ func _run() -> void:
 		"family_gallery", {}) as Dictionary
 	var playroom_score: Dictionary = sign_scores.get(
 		"playroom", {}) as Dictionary
+	var normalized_sign_manifest: String = FileAccess.get_file_as_string(
+		HALL_SIGN_REUSE_MANIFEST).replace("\r\n", "\n").replace("\r", "\n")
 	_ck("main_hall_family_and_playroom_icons_are_cohesive_approved_crests",
 		family_sign_image != null
 		and family_sign_image.get_size() == Vector2i(256, 256)
@@ -1794,8 +1796,8 @@ func _run() -> void:
 			Vector2(128.0, 128.0)) <= 1.0
 		and Vector2(playroom_alpha_rect.get_center()).distance_to(
 			Vector2(128.0, 128.0)) <= 1.0
-		and FileAccess.get_sha256(ProjectSettings.globalize_path(
-			HALL_SIGN_REUSE_MANIFEST)) == HALL_SIGN_REUSE_MANIFEST_SHA256
+		and normalized_sign_manifest.sha256_text() \
+			== HALL_SIGN_REUSE_MANIFEST_SHA256
 		and String(sign_collection_audit.get("schema", "")) \
 			== "castle_main_hall_physical_sign_audit_v1"
 		and is_equal_approx(float(sign_collection_audit.get(
