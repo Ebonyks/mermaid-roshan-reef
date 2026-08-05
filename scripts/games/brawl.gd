@@ -49,6 +49,7 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["timer"] = -1.0
 	m.g["imp_brain"] = null      # a fresh crew brain is built per wave
 	m.g["imp_warned"] = false
+	m.g["brawl_reach_ring"] = null   # rebuilt on the fresh stage root
 	_stage_open()
 	stage.set_bounds(X0, X0 + SEG_W)
 	m.show_msg(fr["fname"], "Mischief imps are in Huluu's toy castle! Tap to POP them — Huluu helps!")
@@ -74,6 +75,7 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var mercy: float = clampf((float(m.g["wave_t"]) - 45.0) / 60.0, 0.0, 1.0)
 	var imp_spd: float = IMP_SPEED * (1.0 - 0.45 * mercy)
 	var bop_r: float = BOP_R + BOP_R_MERCY * mercy
+	_update_reach_ring(r, s, bop_r, enemies)
 	# Huluu (player 2): chase the nearest un-stunned imp, stun on contact.
 	# Her taps (human) and her AI both STUN only — pops are Roshan's alone.
 	var p2_want_x: float = float(s["px"]) - 4.0
@@ -211,6 +213,49 @@ func stage_close() -> void:
 
 # Harm-or-eliminate (damage grammar, owner 2026-08-01): a surviving imp
 # flinches with a giggle-wobble; an emptied one pops away toward the wave.
+# HER REACH, MADE VISIBLE (owner 2026-08-04). The pop reach shrank in the
+# difficulty pass so she has to close the distance — but a reach she cannot see
+# is just "my tapping stopped working". A soft ring on the floor shows exactly
+# how far the bop carries, and it BRIGHTENS whenever an imp is standing inside
+# it: the whole efficacy readout is "is my ring lit?", which needs no reading.
+# It also grows on its own as mercy widens the reach, so the game visibly
+# helping her is something she can watch happen.
+func _update_reach_ring(r: Node3D, s: Dictionary, bop_r: float, enemies: Array) -> void:
+	var ring: MeshInstance3D = m.g.get("brawl_reach_ring", null) as MeshInstance3D
+	if ring == null or not is_instance_valid(ring):
+		var torus := TorusMesh.new()
+		torus.inner_radius = 0.93
+		torus.outer_radius = 1.0
+		torus.rings = 32
+		torus.ring_segments = 8
+		ring = MeshInstance3D.new()
+		ring.mesh = torus
+		var mat := StandardMaterial3D.new()
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		mat.emission_enabled = true
+		ring.material_override = mat
+		r.add_child(ring)
+		m.g["brawl_reach_ring"] = ring
+	ring.position = Vector3(float(s["px"]), 0.06, float(s["pz"]))
+	ring.scale = Vector3(bop_r, 1.0, bop_r)
+	var in_reach := false
+	for e in enemies:
+		var en: Node3D = e["node"]
+		if not is_instance_valid(en):
+			continue
+		if Vector2(en.position.x - float(s["px"]), en.position.z - float(s["pz"])).length() < bop_r:
+			in_reach = true
+			break
+	var mat_ref: StandardMaterial3D = ring.material_override as StandardMaterial3D
+	if mat_ref == null:
+		return
+	# lit = something is poppable right now; resting = walk closer
+	var col: Color = Color(1.0, 0.82, 0.42, 0.55) if in_reach else Color(0.72, 0.84, 1.0, 0.22)
+	mat_ref.albedo_color = col
+	mat_ref.emission = Color(col.r, col.g, col.b)
+	mat_ref.emission_energy_multiplier = 0.9 if in_reach else 0.25
+
 func _damage_imp(e: Dictionary, dmg: int) -> void:
 	var en: Node3D = e["node"]
 	if not is_instance_valid(en):

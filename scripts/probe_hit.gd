@@ -168,11 +168,14 @@ func _charge_case() -> void:
 	_ck("full charge fires itself", eng.charge_enemy.is_empty())
 	_ck("a full charge totals 4, not 5", int(rec["hp"]) == 0)
 	_ck("stage-three charge finishes the enemy", String(rec["state"]) == "popped")
-	# the charge must never out-damage her own tapping (owner 2026-08-04):
-	# tapping runs ~2.5 hits/s, so the top of the ladder has to sit below it
+	# WAITING must never be the best play (owner 2026-08-04). Tapping runs about
+	# 2.5 hits/s at this age; a full hold has to come in under that, so the
+	# passive option is the slow one and the charge earns its keep on the size
+	# of the single hit instead. Shorter, actively-released charges may be
+	# brisker — that is a rhythm she plays, not a finger she parks.
 	var top_dps: float = float(1 + int(HitEngine.CHARGE_RELEASE_DAMAGE[3])) \
 		/ float(HitEngine.CHARGE_STAGE_T[2])
-	_ck("holding is never faster than tapping", top_dps < 2.5)
+	_ck("a full hold is slower than her own tapping", top_dps < 2.5)
 	await process_frame
 	await process_frame
 
