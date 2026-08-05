@@ -2,8 +2,8 @@
   "approved_native_transform": "whole-canvas Pillow Image.Resampling.LANCZOS; no crop or padding",
   "contact_sheet": {
     "path": "audit/castle_sprite3d/castle_live_alpha_baseline_repair_contact.png",
-    "review_output_ignored": true,
-    "sha256": "1b4fc462ba19f73254cf80eedb07e248dc8ccf1080d1ba16ff2ac49e3df10fcc"
+    "raw_pixel_sha256": "4247833d4429c73d04eccd7aef36142ae7f1e4e29c040ef00afbe3e74701f24f",
+    "review_output_ignored": true
   },
   "live_alpha_threshold": 128,
   "logical_canvas_size": [
@@ -3019,6 +3019,6 @@
     }
   ],
   "runtime_contract": "SpriteBase3D.ALPHA_CUT_DISCARD / alpha_scissor_threshold 0.5",
-  "schema": 1,
+  "schema": 2,
   "tool": "tools/repair_castle_room_native_backgrounds.py"
 }

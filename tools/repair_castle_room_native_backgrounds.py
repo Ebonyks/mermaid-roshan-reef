@@ -102,6 +102,30 @@ def _png_bytes(image: Image.Image) -> bytes:
 	return stream.getvalue()
 
 
+def _png_bytes_preserving_pixels(path: Path, image: Image.Image) -> bytes:
+	"""Keep an existing PNG encoding when its decoded pixels are exact.
+
+	Pillow delegates PNG compression to platform-specific zlib builds.
+	The same pixels can consequently produce different PNG bytes on Windows and
+	Linux even with identical pinned Pillow versions.  The runtime contract is
+	the decoded image, while FABLE/provenance still bind the exact committed file
+	bytes.  Reusing an existing exact-pixel encoding makes ``--check`` portable
+	without accepting even a one-channel pixel change.
+	"""
+	if path.exists():
+		try:
+			existing_bytes = path.read_bytes()
+			with Image.open(io.BytesIO(existing_bytes)) as existing:
+				if existing.mode == image.mode and existing.size == image.size \
+						and existing.tobytes() == image.tobytes():
+					return existing_bytes
+		except (OSError, ValueError):
+			# A corrupt or non-image artifact must not be preserved.  Rebuild it
+			# so --check reports the exact byte mismatch and write mode repairs it.
+			pass
+	return _png_bytes(image)
+
+
 def _atomic_write(path: Path, data: bytes) -> None:
 	path.parent.mkdir(parents=True, exist_ok=True)
 	temporary = path.with_name(path.name + ".tmp")
@@ -525,13 +549,13 @@ def build_expected_baselines() -> dict[str, dict[str, Any]]:
 				toilet_context_native, (0, 0), toilet_native_mask)
 
 		master_path = ROOT / str(room_record["master"])
-		master_bytes = _png_bytes(repaired)
+		master_bytes = _png_bytes_preserving_pixels(master_path, repaired)
 		tile_outputs: list[dict[str, Any]] = []
 		for tile in room_record.get("runtime_tiles", []):
 			rect = tuple(int(value) for value in tile["master_rectangle"])
 			path = ROOT / str(tile["path"])
 			image = repaired.crop(rect)
-			data = _png_bytes(image)
+			data = _png_bytes_preserving_pixels(path, image)
 			tile_outputs.append({
 				"path": path,
 				"relative_path": _relative(path),
@@ -619,9 +643,9 @@ def expected_baseline_master(room_id: str) -> Image.Image:
 
 
 def _provenance(results: dict[str, dict[str, Any]],
-		contact_sha256: str) -> dict[str, Any]:
+		contact_raw_pixel_sha256: str) -> dict[str, Any]:
 	return {
-		"schema": 1,
+		"schema": 2,
 		"purpose": (
 			"Restore approved room pixels outside exact live Sprite3D alpha "
 			"ownership; retain prior hidden fill only beneath rendered objects"),
@@ -639,13 +663,13 @@ def _provenance(results: dict[str, dict[str, Any]],
 		"rooms": [results[room_id]["record"] for room_id in ROOM_IDS],
 		"contact_sheet": {
 			"path": _relative(CONTACT_PATH),
-			"sha256": contact_sha256,
+			"raw_pixel_sha256": contact_raw_pixel_sha256,
 			"review_output_ignored": True,
 		},
 	}
 
 
-def _contact_bytes(results: dict[str, dict[str, Any]]) -> bytes:
+def _contact_image(results: dict[str, dict[str, Any]]) -> Image.Image:
 	panel_size = (384, 216)
 	label_height = 38
 	columns = 3
@@ -675,7 +699,7 @@ def _contact_bytes(results: dict[str, dict[str, Any]]) -> bytes:
 				(x + 8, y + panel_size[1] + 5),
 				f"{room_id.replace('_', ' ').upper()} — {label}",
 				font=_font(14, bold=True), fill="#ffffff")
-	return _png_bytes(canvas)
+	return canvas
 
 
 def _update_fable(results: dict[str, dict[str, Any]]) -> None:
@@ -717,9 +741,10 @@ def _write_outputs(results: dict[str, dict[str, Any]]) -> None:
 		for tile in result["tiles"]:
 			_atomic_write(tile["path"], tile["bytes"])
 	_update_fable(results)
-	contact_data = _contact_bytes(results)
+	contact_image = _contact_image(results)
+	contact_data = _png_bytes_preserving_pixels(CONTACT_PATH, contact_image)
 	_atomic_write(CONTACT_PATH, contact_data)
-	provenance = _provenance(results, _sha256_bytes(contact_data))
+	provenance = _provenance(results, _raw_sha256(contact_image))
 	_atomic_write(
 		PROVENANCE_PATH,
 		(json.dumps(provenance, indent=2, sort_keys=True) + "\n").encode(),
@@ -747,13 +772,14 @@ def _check_outputs(results: dict[str, dict[str, Any]]) -> list[str]:
 			problems.append(
 				f"{room_id}: runtime changed outside combined live union")
 
-	contact_data = _contact_bytes(results)
+	contact_image = _contact_image(results)
+	contact_data = _png_bytes_preserving_pixels(CONTACT_PATH, contact_image)
 	# Review captures live under the intentionally ignored audit tree.  Validate
 	# them when present locally, but do not make a fresh CI clone require an
 	# untracked review artifact.
 	if CONTACT_PATH.exists() and CONTACT_PATH.read_bytes() != contact_data:
 		problems.append("contact sheet is stale")
-	expected_provenance = _provenance(results, _sha256_bytes(contact_data))
+	expected_provenance = _provenance(results, _raw_sha256(contact_image))
 	if not PROVENANCE_PATH.exists():
 		problems.append("provenance is missing")
 	else:
