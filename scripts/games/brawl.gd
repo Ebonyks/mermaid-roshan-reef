@@ -19,9 +19,16 @@ const IMP_SPEED := 7.0
 const HULUU_SPEED := 20.0
 const STUN_T := 3.0                  # Huluu's stun duration
 const STUN_R := 5.0                  # Huluu's stun reach
-const BOP_R := 6.0                   # Roshan's base pop reach (mercy grows it)
+# Roshan's base pop reach (mercy grows it). Owner 2026-08-04, "it feels too
+# easy": 6.0 base rising to 10.0 under mercy covered most of a 34-wide, 14-deep
+# segment, so a bop landed on the nearest imp wherever she stood — the fight
+# played itself. 4.5 rising to 7.5 asks her to actually close the distance,
+# which is the "more active style" the pass is for, while mercy still rescues a
+# child who is struggling (and the recover-pose bonus still forgives a lunge).
+const BOP_R := 4.5
+const BOP_R_MERCY := 3.0             # added at full mercy, not before
 const CHAIN_T := 2.0                 # pop-chain rolling window (COMBO_SYSTEM.md)
-const SUPER_R := 10.0                # SUPER POP burst radius once chain 3 arms it
+const SUPER_R := 6.5                 # SUPER POP burst radius once chain 3 arms it
 const BANNERS := [Color(1.0, 0.72, 0.82), Color(0.62, 0.90, 0.78), Color(0.78, 0.72, 0.98), Color(1.0, 0.87, 0.55)]
 
 var m: ReefMain
@@ -66,7 +73,7 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	# mercy: a long wave slows the imps and grows Roshan's pop reach
 	var mercy: float = clampf((float(m.g["wave_t"]) - 45.0) / 60.0, 0.0, 1.0)
 	var imp_spd: float = IMP_SPEED * (1.0 - 0.45 * mercy)
-	var bop_r: float = BOP_R + 4.0 * mercy
+	var bop_r: float = BOP_R + BOP_R_MERCY * mercy
 	# Huluu (player 2): chase the nearest un-stunned imp, stun on contact.
 	# Her taps (human) and her AI both STUN only — pops are Roshan's alone.
 	var p2_want_x: float = float(s["px"]) - 4.0

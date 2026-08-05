@@ -50,6 +50,14 @@ var world_press_probe: Callable = Callable()
 # fires when a consumed (press-fired) world touch lifts, so a held CHARGE
 # attack knows to release; also fired defensively on _clear_touch_state
 var world_press_release: Callable = Callable()
+# ---- combat SLICE (combat wing 2026-08-04) ----
+# A world touch that TRAVELS is a swipe of the blade. It is reported on lift as
+# (start, end); a moved world touch never emitted world_touched anyway, so the
+# slice costs no existing behaviour. world_press_drag fires once when a press
+# first breaks slop, which cancels any charge the press started — one finger,
+# one verb.
+var world_press_drag: Callable = Callable()
+var world_drag_end: Callable = Callable()
 
 var _root: Control
 var _base: Panel
@@ -523,6 +531,7 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 					_flash(touch.position)
 				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
 					world_press_release.call()
+				_world_swipe(world_data, touch.position)
 				_world_pend.erase(touch.index)
 			touch_owners.erase(touch.index)
 	elif ev is InputEventScreenDrag:
@@ -530,9 +539,13 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 		var owner: int = int(touch_owners.get(drag.index, TouchOwner.NONE))
 		if owner == TouchOwner.STICK and drag.index == _touch_idx:
 			_drag(drag.position)
-		elif owner == TouchOwner.WORLD_INTERACT and _world_pend.has(drag.index):
+		elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) \
+				and _world_pend.has(drag.index):
 			var world_data: Dictionary = _world_pend[drag.index]
+			world_data["last"] = drag.position
 			if (drag.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
+				if not bool(world_data.get("moved", false)) and world_press_drag.is_valid():
+					world_press_drag.call()   # a travelling finger is not a charge
 				world_data["moved"] = true
 				touch_owners[drag.index] = TouchOwner.WORLD_MOVE
 	elif ev is InputEventMouseButton:
@@ -564,19 +577,32 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 					_flash(mouse_button.position)
 				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
 					world_press_release.call()
+				_world_swipe(world_data, mouse_button.position)
 				_world_pend.erase(99)
 			touch_owners.erase(99)
 	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
 		var mouse_motion := ev as InputEventMouseMotion
 		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
 			_drag(mouse_motion.position)
-	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.WORLD_INTERACT:
+	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) in \
+			[TouchOwner.WORLD_INTERACT, TouchOwner.WORLD_MOVE]:
 		var world_motion := ev as InputEventMouseMotion
 		if world_motion.device != InputEvent.DEVICE_ID_EMULATION and _world_pend.has(99):
 			var world_data: Dictionary = _world_pend[99]
+			world_data["last"] = world_motion.position
 			if (world_motion.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
+				if not bool(world_data.get("moved", false)) and world_press_drag.is_valid():
+					world_press_drag.call()
 				world_data["moved"] = true
 				touch_owners[99] = TouchOwner.WORLD_MOVE
+
+# A world touch that travelled is reported to the combat layer as a swipe.
+# Non-combat drags simply find no hit engine listening and cost nothing.
+func _world_swipe(world_data: Dictionary, end_pos: Vector2) -> void:
+	if not bool(world_data.get("moved", false)) or not world_drag_end.is_valid():
+		return
+	world_drag_end.call(world_data.get("pos", end_pos) as Vector2,
+		world_data.get("last", end_pos) as Vector2)
 
 # Reversible shipped input path. Keep behavioral edits to this method out of the
 # hybrid experiment so selecting Classic is a genuine runtime rollback.

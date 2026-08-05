@@ -3473,6 +3473,8 @@ func _init_touch_experiment() -> void:
 			touch_ui.manual_move_started.connect(_on_touch_manual_move)
 		touch_ui.world_press_probe = Callable(self, "_on_world_press")
 		touch_ui.world_press_release = Callable(self, "_on_world_press_release")
+		touch_ui.world_press_drag = Callable(self, "_on_world_press_drag")
+		touch_ui.world_drag_end = Callable(self, "_on_world_drag_end")
 	_interaction_ref()
 	_populate_touch_interactables()
 
@@ -3553,6 +3555,32 @@ func _on_world_press_release() -> void:
 			engine.release_charge()
 	if castle_dust_he != null:
 		castle_dust_he.release_charge()
+
+# Every hit engine currently on stage, battle engines first.
+func _live_hit_engines() -> Array:
+	var live: Array = []
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine != null:
+			live.append(engine)
+	if castle_dust_he != null:
+		live.append(castle_dust_he)
+	return live
+
+# The press-firing finger started travelling: it is a SLICE now, not a charge.
+func _on_world_press_drag() -> void:
+	for engine_value: Variant in _live_hit_engines():
+		(engine_value as HitEngine).cancel_charge_for_drag()
+
+# A world touch that travelled — offer it to the blades. A drag that reaches no
+# enemy simply cuts nothing; it never stole a tap, because a moved world touch
+# has never emitted world_touched.
+func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
+	if _world_tap_gated():
+		return
+	for engine_value: Variant in _live_hit_engines():
+		if (engine_value as HitEngine).slash(from, to) > 0:
+			return
 
 func _on_touch_world(screen_pos: Vector2) -> void:
 	_living_world_ref().note_activity()

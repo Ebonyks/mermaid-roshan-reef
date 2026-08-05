@@ -22,6 +22,7 @@ func _init() -> void:
 	await _tap_boss_case()
 	await _generic_engine_case()
 	await _charge_case()
+	await _slash_case()
 	await _priority_case()
 	print("HIT|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	# tear the scene down before quitting: the Windows 4.7-dev2 binary can
@@ -135,33 +136,97 @@ func _generic_engine_case() -> void:
 	_ck("dead record refuses further hits", not eng.hit(rec, 1, "tap"))
 
 func _charge_case() -> void:
-	# the three-stage charge (damage grammar): press-tap 1, then release
-	# stages add +1/+2/+4 → owner totals 2/3/5. The ring appears after the
-	# grace, colors per stage, and a full charge fires itself. Charges only
+	# the three-stage charge (damage grammar + the 2026-08-04 difficulty pass):
+	# press-tap 1, then release stages add +1/+2/+3 → totals 2/3/4 at
+	# 0.50/1.10/1.75s. The ring appears after the short grace, the stage lamps
+	# light one per stage, and a full charge fires itself. Charges only
 	# begin/release from the touch layer's calls — never on their own.
 	main.game = ""
 	var eng := HitEngine.new(main)
 	var dummy := Node3D.new()
 	main.add_child(dummy)
-	var rec: Dictionary = {"node": dummy, "state": "active", "hp": 5, "death": "shrink"}
+	var rec: Dictionary = {"node": dummy, "state": "active", "hp": 6, "death": "shrink"}
 	eng.targets = [rec]
 	eng.hit(rec, 1, "tap")           # the press-fire half of the hold
 	eng.begin_charge(rec)
+	eng.tick(0.08)
 	_ck("charge waits through the grace", eng.charge_ring == null)
+	eng.tick(0.1)
+	_ck("ring appears after the grace", eng.charge_ring != null and int(rec["hp"]) == 5)
 	eng.tick(0.4)
-	_ck("ring appears after the grace", eng.charge_ring != null and int(rec["hp"]) == 4)
-	eng.tick(0.2)
 	_ck("stage one reached", eng.charge_stage == 1)
+	_ck("the stage lamps show the hold working", eng.charge_pips != null
+		and eng.charge_pips.get_child_count() == HitEngine.CHARGE_STAGE_T.size())
 	eng.release_charge()
-	_ck("stage-one release totals 2 damage", int(rec["hp"]) == 3 and String(rec["state"]) == "active")
+	_ck("stage-one release totals 2 damage", int(rec["hp"]) == 4 and String(rec["state"]) == "active")
+	_ck("the lamps leave with the charge", eng.charge_pips == null)
 	eng.hit(rec, 1, "tap")
 	eng.begin_charge(rec)
-	eng.tick(1.05)
+	eng.tick(1.15)
 	_ck("stage two colors the ring", eng.charge_stage == 2)
-	eng.tick(0.5)
+	eng.tick(0.7)
 	_ck("full charge fires itself", eng.charge_enemy.is_empty())
+	_ck("a full charge totals 4, not 5", int(rec["hp"]) == 0)
 	_ck("stage-three charge finishes the enemy", String(rec["state"]) == "popped")
+	# the charge must never out-damage her own tapping (owner 2026-08-04):
+	# tapping runs ~2.5 hits/s, so the top of the ladder has to sit below it
+	var top_dps: float = float(1 + int(HitEngine.CHARGE_RELEASE_DAMAGE[3])) \
+		/ float(HitEngine.CHARGE_STAGE_T[2])
+	_ck("holding is never faster than tapping", top_dps < 2.5)
 	await process_frame
+	await process_frame
+
+func _slash_case() -> void:
+	# THE SLICE, BOUNDED (owner 2026-08-04). The blade cuts only inside its
+	# narrow band, never past its fixed length, never more than two enemies,
+	# and then it rests. Every limit here is one the ribbon draws.
+	main.game = ""
+	var eng := HitEngine.new(main)
+	var lens := Camera3D.new()
+	main.add_child(lens)
+	lens.global_position = Vector3(0, 0, 12)
+	lens.look_at(Vector3.ZERO, Vector3.UP)
+	eng.camera = lens
+	await process_frame
+	var recs: Array = []
+	# five enemies in a straight world row, left to right across the lens
+	for i in range(5):
+		var node := Node3D.new()
+		main.add_child(node)
+		node.global_position = Vector3(-4.0 + float(i) * 2.0, -2.2, 0)
+		recs.append({"node": node, "state": "active", "hp": 9, "death": "shrink", "aim_h": 0.0})
+	eng.targets = recs
+	await process_frame
+	var line: Array = []
+	for rec_value: Variant in recs:
+		line.append(lens.unproject_position(eng.aim_point(rec_value as Dictionary)))
+	var row_y: float = (line[0] as Vector2).y
+	# a twitch is not a swipe
+	_ck("a short drag is not a slice",
+		eng.slash(line[0] as Vector2, (line[0] as Vector2) + Vector2(20, 0)) == 0)
+	# a swipe well above the row cuts nobody: the band is narrow
+	var high: Vector2 = Vector2((line[0] as Vector2).x, row_y - HitEngine.SLASH_BAND * 3.0)
+	_ck("a swipe outside the band cuts nothing",
+		eng.slash(high, high + Vector2(HitEngine.SLASH_MAX_LEN, 0)) == 0)
+	eng.slash_cool = 0.0
+	# a swipe along the row cuts at most two, nearest-first along the blade
+	var cut: int = eng.slash(Vector2((line[0] as Vector2).x - 30.0, row_y),
+		Vector2((line[4] as Vector2).x + 30.0, row_y))
+	_ck("a swipe never cuts more than the cap", cut == HitEngine.SLASH_MAX_TARGETS)
+	_ck("the slice deals its 2 damage",
+		int((recs[0] as Dictionary)["hp"]) == 9 - int(HitEngine.VERB_DAMAGE["slice"]))
+	_ck("the far end of a long drag is out of reach",
+		int((recs[4] as Dictionary)["hp"]) == 9)
+	# and the blade rests
+	_ck("a spent blade cuts nothing", eng.slash(Vector2((line[0] as Vector2).x - 30.0, row_y),
+		Vector2((line[4] as Vector2).x + 30.0, row_y)) == 0)
+	eng.tick(HitEngine.SLASH_COOL + 0.05)
+	_ck("the blade comes back after its rest", eng.slash_cool <= 0.0)
+	# a travelling finger is a slice, never a charge
+	eng.begin_charge(recs[3] as Dictionary)
+	eng.cancel_charge_for_drag()
+	_ck("a drag cancels the held charge", eng.charge_enemy.is_empty())
+	eng.teardown()
 	await process_frame
 
 func _priority_case() -> void:

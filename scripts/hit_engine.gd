@@ -17,7 +17,10 @@ extends RefCounted
 const SCREEN_HIT_RADIUS := 110.0
 const AIM_HEIGHT := 2.2
 const CHAIN_T := 2.0                     # rolling hit-combo window (COMBO_SYSTEM)
-const SUPER_R := 10.0                    # default SUPER burst radius, world units
+# SUPER burst radius. Owner 2026-08-04 ("it feels too easy"): 10.0 covered most
+# of a brawler segment, so every fourth tap wiped the screen. A SUPER is now a
+# LOCAL burst around the struck enemy — a reward, not a wave-clear.
+const SUPER_R := 6.5
 const HITSTOP := [0.04, 0.06, 0.09]      # target-freeze seconds at chain 0/1-2/3
 # THE DAMAGE GRAMMAR (owner decision 2026-08-01) — canon for every encounter:
 #   tap = 1 · slice/slash = 2 · hold (charge) = STAGED 2/3/5 totals · mash =
@@ -36,13 +39,45 @@ const VERB_DAMAGE := {"tap": 1, "mash": 1, "slice": 2, "hold": 5}   # hold = sta
 # The ring is cosmetic; damage is one hit() on release. A finger must be
 # down the whole time — begin/release come only from the touch layer, so a
 # zero-input run can never charge (probe_passive).
-const CHARGE_GRACE := 0.30                   # held this long → the ring appears
-const CHARGE_STAGE_T := [0.55, 1.00, 1.45]   # stage completions, from press
-const CHARGE_RELEASE_DAMAGE := [0, 1, 2, 4]  # extra damage by stage reached
+# DIFFICULTY PASS (owner 2026-08-04, "it feels too easy"): the old ladder was
+# 2/3/5 at 0.55/1.00/1.45s, which made HOLDING strictly better than playing —
+# a 1.00s hold felled a 3-hp imp with ONE finger action while three taps cost
+# ~1.2s and three actions. The charge was the laziest verb AND the strongest.
+# Now the top of the ladder is 4 damage at 1.75s (2.3 dmg/s) — below a child's
+# sustained tapping (~2.5 taps/s), so tapping is the fastest way to fight and
+# the charge is what you spend when one BIG hit is worth the wait.
+const CHARGE_GRACE := 0.12                   # held this long → the ring appears
+const CHARGE_STAGE_T := [0.50, 1.10, 1.75]   # stage completions, from press
+const CHARGE_RELEASE_DAMAGE := [0, 1, 2, 3]  # extra damage by stage reached
 const CHARGE_COLORS := [Color(0.72, 0.60, 0.95, 0.45), Color(1.0, 0.85, 0.35, 0.52), Color(1.0, 0.45, 0.75, 0.60)]
 const CHARGE_CHIME := [0.9, 1.12, 1.35]      # the fanfare ladder, one note per stage
 const CHARGE_RING_MIN := 0.9
 const CHARGE_RING_MAX := 2.7
+const CHARGE_PIP_H := 1.35                   # stage pips ride this far above aim
+const CHARGE_PIP_GAP := 0.5
+
+# ---- the SLICE / slash (owner 2026-08-04) -----------------------------------
+# The horizontal swipe (owner-approved 2026-07-25) was never implemented — only
+# its damage-table row existed. It is built here BOUNDED, because the obvious
+# version (cut everything the finger crosses) clears a wave in one gesture:
+#   NARROW BAND   the blade cuts a band SLASH_BAND px either side of the swipe
+#                 line and nothing else. The ribbon that draws is exactly that
+#                 band, so what she sees is precisely what she cut.
+#   FIXED LENGTH  the blade is SLASH_MAX_LEN px long. Dragging further does not
+#                 cut further — the ribbon visibly stops at the blade's end, so
+#                 a screen-wide sweep is no better than a well-aimed one.
+#   TARGET CAP    at most SLASH_MAX_TARGETS enemies per swipe, nearest-first
+#                 along the blade. A packed crowd cannot be one-shotted.
+#   COOLDOWN      SLASH_COOL between swipes. A spent blade draws grey and
+#                 fizzles (a kind sound, never a buzzer) so the rest is visible.
+# Damage stays 2 — it is the reward for an aimed, committed gesture, and two
+# slices still do not fell a 4-hp advanced enemy on their own.
+const SLASH_MIN_LEN := 90.0        # px of travel before a drag counts as a swipe
+const SLASH_MAX_LEN := 420.0       # px: the blade's reach, hard-capped
+const SLASH_BAND := 54.0           # px half-height of the cutting band
+const SLASH_MAX_TARGETS := 2
+const SLASH_COOL := 0.9
+const SLASH_RIBBON_T := 0.28       # seconds the ribbon lingers
 
 var m: ReefMain
 # ENEMY PRIORITY RULE (owner decision 2026-07-28): enemies always sit in
@@ -74,6 +109,9 @@ var charge_enemy: Dictionary = {}
 var charge_t := 0.0
 var charge_stage := 0
 var charge_ring: MeshInstance3D = null
+var charge_pips: Node3D = null     # the three stage lamps above the target
+var slash_cool := 0.0              # blade rest; a swipe inside it only fizzles
+var ribbon: Line2D = null          # the band she cut, drawn at its true width
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -82,6 +120,7 @@ func _init(main: ReefMain) -> void:
 # here (a lapsed chain fades silently) and a live charge grows its ring.
 func tick(delta: float) -> void:
 	_charge_tick(delta)
+	slash_cool = maxf(0.0, slash_cool - delta)
 	if chain_t <= 0.0:
 		return
 	chain_t = maxf(0.0, chain_t - delta)
@@ -123,9 +162,12 @@ func _charge_tick(delta: float) -> void:
 	for i in range(CHARGE_STAGE_T.size()):
 		if charge_t >= float(CHARGE_STAGE_T[i]):
 			stage = i + 1
+	if charge_pips == null:
+		_build_charge_pips(node)
 	if stage > charge_stage:
 		charge_stage = stage
 		_style_charge_ring()
+		_light_charge_pip(stage)
 		if m.chime != null:
 			m.chime.pitch_scale = float(CHARGE_CHIME[stage - 1])
 			m.chime.play()
@@ -135,8 +177,53 @@ func _charge_tick(delta: float) -> void:
 		var radius: float = lerpf(CHARGE_RING_MIN, CHARGE_RING_MAX, grow)
 		charge_ring.scale = Vector3(radius, 1.0, radius)
 		charge_ring.global_position = node.global_position + Vector3(0, 0.15, 0)
+	# THE WORKING-INDICATOR (owner 2026-08-04): the pip row is alive the whole
+	# hold, not just at the stage snaps — the NEXT pip swells steadily toward
+	# its moment, so a held finger always has something visibly filling. Nothing
+	# here is countable-by-reading; it is three lamps and a growing one.
+	if charge_pips != null and is_instance_valid(charge_pips):
+		charge_pips.global_position = aim_point(charge_enemy) + Vector3(0, CHARGE_PIP_H, 0)
+		var next_i: int = mini(charge_stage, CHARGE_STAGE_T.size() - 1)
+		if charge_stage < CHARGE_STAGE_T.size():
+			var from_t: float = 0.0 if charge_stage == 0 else float(CHARGE_STAGE_T[charge_stage - 1])
+			var span: float = maxf(float(CHARGE_STAGE_T[next_i]) - from_t, 0.001)
+			var fill: float = clampf((charge_t - from_t) / span, 0.0, 1.0)
+			var pip: Node3D = charge_pips.get_child(next_i) as Node3D
+			if pip != null:
+				pip.scale = Vector3.ONE * lerpf(0.42, 1.0, fill)
 	if charge_stage >= 3:
 		release_charge()   # full charge fires itself — anticipation, not timing
+
+# Three lamps over the target's head: dim = not yet, bright = banked. The one
+# in progress swells (see _charge_tick), so "it is working" is legible from the
+# first tenth of a second — the old ring alone waited 0.30s and read as a
+# puddle on the floor in the 2.5D promenade.
+func _build_charge_pips(node: Node3D) -> void:
+	var parent: Node3D = fx_root
+	if parent == null:
+		parent = node.get_parent() as Node3D
+	if parent == null:
+		return
+	charge_pips = Node3D.new()
+	parent.add_child(charge_pips)
+	charge_pips.global_position = aim_point(charge_enemy) + Vector3(0, CHARGE_PIP_H, 0)
+	var span: float = float(CHARGE_STAGE_T.size() - 1) * CHARGE_PIP_GAP
+	for i in range(CHARGE_STAGE_T.size()):
+		var lamp: MeshInstance3D = _sphere(charge_pips,
+			Vector3(-span * 0.5 + float(i) * CHARGE_PIP_GAP, 0.0, 0.0),
+			0.17, Color(0.85, 0.88, 1.0), 0.0)
+		lamp.scale = Vector3.ONE * 0.42
+
+func _light_charge_pip(stage: int) -> void:
+	if charge_pips == null or not is_instance_valid(charge_pips):
+		return
+	var lamp: MeshInstance3D = charge_pips.get_child(stage - 1) as MeshInstance3D
+	if lamp == null:
+		return
+	lamp.material_override = _mat(CHARGE_COLORS[clampi(stage - 1, 0, CHARGE_COLORS.size() - 1)], 1.6)
+	var tw: Tween = lamp.create_tween()
+	tw.tween_property(lamp, "scale", Vector3.ONE * 1.5, 0.09).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(lamp, "scale", Vector3.ONE, 0.14).set_trans(Tween.TRANS_QUAD)
 
 func _build_charge_ring(node: Node3D) -> void:
 	var torus := TorusMesh.new()
@@ -174,6 +261,12 @@ func _end_charge(fired: bool) -> void:
 	charge_enemy = {}
 	charge_t = 0.0
 	charge_stage = 0
+	if charge_pips != null and is_instance_valid(charge_pips):
+		var lamps: Node3D = charge_pips
+		var pip_tw: Tween = lamps.create_tween()
+		pip_tw.tween_property(lamps, "scale", Vector3.ONE * 0.01, 0.14).set_ease(Tween.EASE_IN)
+		pip_tw.tween_callback(lamps.queue_free)
+	charge_pips = null
 	if charge_ring == null or not is_instance_valid(charge_ring):
 		charge_ring = null
 		return
@@ -216,11 +309,17 @@ func consume_super() -> bool:
 	_fade_pips()
 	return true
 
+# The engine's own screen overlay, shared by the chain pips and the ribbon.
+func _ensure_pips_layer() -> void:
+	if pips_layer != null and is_instance_valid(pips_layer):
+		return
+	pips_layer = CanvasLayer.new()
+	pips_layer.layer = 14
+	m.add_child(pips_layer)
+
 func _show_pips() -> void:
+	_ensure_pips_layer()
 	if chain_pips == null:
-		pips_layer = CanvasLayer.new()
-		pips_layer.layer = 14
-		m.add_child(pips_layer)
 		chain_pips = Label.new()
 		StorybookUI.style_hud_label(chain_pips, 46)
 		chain_pips.position = Vector2(m.get_viewport().get_visible_rect().size.x * 0.5 - 80.0, 148.0)
@@ -244,10 +343,15 @@ func teardown() -> void:
 		pips_layer.queue_free()
 	pips_layer = null
 	chain_pips = null
+	ribbon = null
 	if charge_ring != null and is_instance_valid(charge_ring):
 		charge_ring.queue_free()
 	charge_ring = null
+	if charge_pips != null and is_instance_valid(charge_pips):
+		charge_pips.queue_free()
+	charge_pips = null
 	charge_enemy = {}
+	slash_cool = 0.0
 
 func hittable(enemy: Dictionary) -> bool:
 	if enemy.is_empty():
@@ -288,6 +392,89 @@ func tap_pick(screen_pos: Vector2) -> Dictionary:
 			best = enemy
 	return best
 
+# ---- the SLICE -------------------------------------------------------------
+# A world drag that travelled far enough becomes a swipe of the blade. Returns
+# how many enemies it cut. The blade is clamped to SLASH_MAX_LEN, cuts only
+# inside SLASH_BAND of the line, takes at most SLASH_MAX_TARGETS nearest-first
+# along its length, and then rests. Every one of those limits is drawn.
+func slash(from: Vector2, to: Vector2) -> int:
+	var span: Vector2 = to - from
+	var travel: float = span.length()
+	if travel < SLASH_MIN_LEN:
+		return 0
+	# the blade has a fixed reach: a longer finger-drag simply overshoots it
+	var tip: Vector2 = from + span.normalized() * minf(travel, SLASH_MAX_LEN)
+	if slash_cool > 0.0:
+		_draw_ribbon(from, tip, true)      # spent blade: grey, and it fizzles
+		m._audio_ref().sfx("combat_fizzle", 1.0, -6.0)
+		return 0
+	var lens: Camera3D = camera
+	if lens == null or not is_instance_valid(lens):
+		lens = m.get_viewport().get_camera_3d()
+	if lens == null:
+		return 0
+	var blade: Vector2 = tip - from
+	var blade_len: float = maxf(blade.length(), 0.001)
+	var found: Array = []
+	for enemy_value: Variant in targets:
+		var enemy: Dictionary = enemy_value as Dictionary
+		if not hittable(enemy):
+			continue
+		var pos: Vector3 = aim_point(enemy)
+		if lens.is_position_behind(pos):
+			continue
+		var projected: Vector2 = lens.unproject_position(pos)
+		# how far along the blade the enemy sits, and how far off its line
+		var along: float = (projected - from).dot(blade) / blade_len
+		if along < 0.0 or along > blade_len:
+			continue
+		var off: float = (projected - (from + blade.normalized() * along)).length()
+		if off > SLASH_BAND:
+			continue
+		found.append({"enemy": enemy, "along": along})
+	found.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return float(a["along"]) < float(b["along"]))
+	_draw_ribbon(from, tip, false)
+	var cut := 0
+	for record_value: Variant in found:
+		if cut >= SLASH_MAX_TARGETS:
+			break
+		var enemy: Dictionary = (record_value as Dictionary)["enemy"] as Dictionary
+		if hit(enemy, int(VERB_DAMAGE.get("slice", 2)), "slice"):
+			cut += 1
+	slash_cool = SLASH_COOL
+	if cut > 0:
+		Juice.haptic(28)
+	else:
+		# an honest miss still costs the blade its rest, but it is never a
+		# scolding: the ribbon flew, a soft chime, and she may swipe again soon
+		m._audio_ref().sfx("combat_fizzle", 1.12, -8.0)
+	return cut
+
+# The ribbon IS the hitbox: half-width SLASH_BAND, length the clamped blade.
+# Drawing anything wider would be a lie about what the swipe can reach.
+func _draw_ribbon(from: Vector2, to: Vector2, spent: bool) -> void:
+	_ensure_pips_layer()
+	if ribbon != null and is_instance_valid(ribbon):
+		ribbon.queue_free()
+	ribbon = Line2D.new()
+	ribbon.width = SLASH_BAND * 2.0
+	ribbon.begin_cap_mode = Line2D.LINE_CAP_ROUND
+	ribbon.end_cap_mode = Line2D.LINE_CAP_ROUND
+	ribbon.default_color = Color(0.72, 0.74, 0.80, 0.30) if spent else Color(1.0, 0.93, 0.66, 0.55)
+	ribbon.points = PackedVector2Array([from, to])
+	pips_layer.add_child(ribbon)
+	var blade: Line2D = ribbon
+	var tw: Tween = blade.create_tween()
+	tw.tween_property(blade, "modulate:a", 0.0, SLASH_RIBBON_T)
+	tw.tween_callback(blade.queue_free)
+
+# A drag cancels a held charge: one finger, one verb. Without this the charge
+# keeps growing under a swipe and auto-fires mid-gesture.
+func cancel_charge_for_drag() -> void:
+	if not charge_enemy.is_empty():
+		_end_charge(false)
+
 # Convenience: resolve a tap into a hit. Returns true when it landed.
 func tap(screen_pos: Vector2) -> bool:
 	var enemy: Dictionary = tap_pick(screen_pos)
@@ -314,8 +501,11 @@ func hit(enemy: Dictionary, damage: int = 1, source: String = "tap") -> bool:
 	Juice.squash(node, big)
 	Juice.flash(node)
 	enemy["hitstop"] = HITSTOP[clampi(chain, 0, HITSTOP.size() - 1)]
+	if not enemy.has("hp_max"):
+		enemy["hp_max"] = int(enemy.get("hp", 1))
 	if on_hit.is_valid():
 		on_hit.call(enemy, damage, source)
+		show_hp_pips(enemy)
 		return true
 	# default hp pipeline: the hit after an armed combo strikes hard (+2 —
 	# a SUPER tap knocks out a basic imp outright), every landed hit chains,
@@ -325,6 +515,7 @@ func hit(enemy: Dictionary, damage: int = 1, source: String = "tap") -> bool:
 		damage += 2
 	note_hit(node.global_position)
 	enemy["hp"] = maxi(0, int(enemy.get("hp", 1)) - damage)
+	show_hp_pips(enemy)
 	if int(enemy["hp"]) > 0:
 		play_harm(enemy)
 	else:
@@ -332,6 +523,50 @@ func hit(enemy: Dictionary, damage: int = 1, source: String = "tap") -> bool:
 	if super_now:
 		_super_burst(node.global_position, enemy)
 	return true
+
+# COMBAT EFFICACY, MADE VISIBLE (owner 2026-08-04). A 3-hp imp used to eat two
+# taps with nothing but a wobble to show for them, which reads to a four-year-
+# old as "my tapping does nothing" — the same feeling as "too easy" from the
+# other side. Now every damaged enemy wears a little row of lamps: one per
+# hit-point, snuffed out as they go. No numerals, no reading, and it says both
+# "that worked" and "he is nearly done". One-pop fodder gets none — for them
+# the pop IS the readout. The row rides above the aim point and follows.
+func show_hp_pips(enemy: Dictionary) -> void:
+	var max_hp: int = int(enemy.get("hp_max", 0))
+	if max_hp <= 1:
+		return
+	var node_value: Variant = enemy.get("node")
+	if node_value == null or not is_instance_valid(node_value):
+		return
+	var node: Node3D = node_value
+	var row_value: Variant = enemy.get("hp_row")
+	var row: Node3D = row_value as Node3D if row_value != null and is_instance_valid(row_value) else null
+	if row == null:
+		row = Node3D.new()
+		node.add_child(row)
+		row.position = Vector3(0, float(enemy.get("aim_h", AIM_HEIGHT)) + 1.05, 0)
+		var span: float = float(max_hp - 1) * 0.34
+		for i in range(max_hp):
+			_sphere(row, Vector3(-span * 0.5 + float(i) * 0.34, 0.0, 0.0),
+				0.13, Color(0.55, 0.95, 0.68), 1.1)
+		enemy["hp_row"] = row
+	var left: int = clampi(int(enemy.get("hp", 0)), 0, max_hp)
+	for i in range(row.get_child_count()):
+		var lamp: MeshInstance3D = row.get_child(i) as MeshInstance3D
+		if lamp == null:
+			continue
+		if i < left:
+			continue
+		if lamp.scale.x > 0.2:
+			lamp.material_override = _mat(Color(0.36, 0.33, 0.42), 0.0)
+			var out: Tween = lamp.create_tween()
+			out.tween_property(lamp, "scale", Vector3.ONE * 1.35, 0.06).set_ease(Tween.EASE_OUT)
+			out.tween_property(lamp, "scale", Vector3.ONE * 0.18, 0.16).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	if left <= 0:
+		var gone: Tween = row.create_tween()
+		gone.tween_property(row, "scale", Vector3.ONE * 0.01, 0.16).set_ease(Tween.EASE_IN)
+		gone.tween_callback(row.queue_free)
+		enemy.erase("hp_row")
 
 # THE HARM ANIMATION (owner 2026-08-01): a surviving enemy visibly takes the
 # hit — recoil wobble on the art child + hurt sparkle. Never grim, never a
