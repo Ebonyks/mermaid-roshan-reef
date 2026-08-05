@@ -20,6 +20,8 @@ const HULUU_SPEED := 20.0
 const STUN_T := 3.0                  # Huluu's stun duration
 const STUN_R := 5.0                  # Huluu's stun reach
 const BOP_R := 6.0                   # Roshan's base pop reach (mercy grows it)
+const CHAIN_T := 2.0                 # pop-chain rolling window (COMBO_SYSTEM.md)
+const SUPER_R := 10.0                # SUPER POP burst radius once chain 3 arms it
 const BANNERS := [Color(1.0, 0.72, 0.82), Color(0.62, 0.90, 0.78), Color(0.78, 0.72, 0.98), Color(1.0, 0.87, 0.55)]
 
 var m: ReefMain
@@ -32,6 +34,8 @@ func _init(main: ReefMain) -> void:
 func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["seg"] = 0
 	m.g["bops"] = 0
+	m.g["chain"] = 0
+	m.g["chain_t"] = 0.0
 	m.g["wave_t"] = 0.0
 	m.g["enemies"] = []
 	m.g["gates"] = []
@@ -50,6 +54,10 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var s: Dictionary = stage.brawl_tick(delta)
 	stage.props_tick(delta)   # blocks: wake shove + swell tide + sleep contract
 	m.g["wave_t"] = float(m.g.get("wave_t", 0.0)) + delta
+	# pop-chain window: a lapsed chain just fades — no sound, no sting
+	m.g["chain_t"] = maxf(0.0, float(m.g.get("chain_t", 0.0)) - delta)
+	if float(m.g["chain_t"]) <= 0.0:
+		m.g["chain"] = 0
 	var enemies: Array = m.g["enemies"]
 	var seg: int = int(m.g["seg"])
 	if enemies.is_empty() and seg < WAVES.size():
@@ -121,7 +129,11 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			en2.position.x = px
 			en2.position.z = pz
 			_pose_imp(e, en2, String(mind2.get("pose", "prowl")), float(mind2.get("t", 0.0)), hero)
-	# Roshan's POP — the deliberate verb; only a fresh tap lands it
+	# Roshan's BOP — the deliberate verb; only a fresh tap lands it. Every
+	# landed bop chains 1→2→3 (one full combo fells a basic 3-hp imp); the
+	# armed bop after chain 3 is the SUPER POP: +2 damage plus a 1-damage
+	# splash near the hit. Only her taps chain — Huluu's stuns never count
+	# (Phase-6 agency rule).
 	if bool(s["tap"]):
 		var hit: Dictionary = _nearest_imp(float(s["px"]), float(s["pz"]), false)
 		var landed := false
@@ -134,15 +146,33 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 				var hit_mind: Dictionary = hit.get("ai", {})
 				if brain != null and not hit_mind.is_empty():
 					brain.on_hit(hit_mind, true)
-				enemies.erase(hit)
-				m.g["bops"] = int(m.g["bops"]) + 1
-				m._sparkle_burst(hn.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.75, 0.9))
+				var super_pop: bool = int(m.g.get("chain", 0)) >= 3
+				var dmg := 1
+				if super_pop:
+					m.g["chain"] = 0
+					dmg = 3
+					m._sparkle_burst(hn.global_position + Vector3(0, 3.5, 0), Color(1.0, 0.95, 0.6))
+					m._say("huluu", "hero", 4.0)
+				else:
+					m.g["chain"] = int(m.g["chain"]) + 1
+					if int(m.g["chain"]) == 3:
+						m._say("huluu", "talk", 4.0)   # cheer: next bop is SUPER
+				m.g["chain_t"] = CHAIN_T
+				_damage_imp(hit, dmg)
+				if super_pop:
+					for e in enemies.duplicate():
+						var en3: Node3D = e["node"]
+						if e == hit or not is_instance_valid(en3):
+							continue
+						if Vector2(en3.position.x - hn.position.x, en3.position.z - hn.position.z).length() < SUPER_R:
+							_damage_imp(e, 1)
 				if m.voice != null:
-					m.voice.pitch_scale = 1.05 + randf() * 0.25
+					# pitch climbs with the chain; the SUPER POP tops the ramp
+					if super_pop:
+						m.voice.pitch_scale = 1.4
+					else:
+						m.voice.pitch_scale = 1.0 + 0.15 * float(maxi(int(m.g["chain"]) - 1, 0))
 					m.voice.play()
-				var tw := hn.create_tween()
-				tw.tween_property(hn, "scale", Vector3.ONE * 0.01, 0.3).set_ease(Tween.EASE_IN)
-				tw.tween_callback(hn.queue_free)
 		if brain != null:
 			# a miss tells the crew she needs a slower fight; a hit tells it
 			# she is ready for a bolder one
@@ -166,10 +196,32 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var imps_total := 0
 	for wv in WAVES:
 		imps_total += int(wv)
-	m.hud_game.text = "POP the mischief imps!  " + m._pips(int(m.g["bops"]), imps_total, "🎈")
+	var stars: String = "⭐".repeat(mini(int(m.g.get("chain", 0)), 3))
+	m.hud_game.text = "POP the mischief imps!  " + m._pips(int(m.g["bops"]), imps_total, "🎈") + ("  " + stars if stars != "" else "")
 
 func stage_close() -> void:
 	stage.close()
+
+# Harm-or-eliminate (damage grammar, owner 2026-08-01): a surviving imp
+# flinches with a giggle-wobble; an emptied one pops away toward the wave.
+func _damage_imp(e: Dictionary, dmg: int) -> void:
+	var en: Node3D = e["node"]
+	if not is_instance_valid(en):
+		return
+	e["hp"] = maxi(0, int(e.get("hp", 3)) - dmg)
+	if int(e["hp"]) > 0:
+		m._sparkle_burst(en.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.85, 0.55))
+		var tw := en.create_tween()
+		tw.tween_property(en, "rotation:z", 0.22, 0.07).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tw.tween_property(en, "rotation:z", -0.16, 0.09).set_trans(Tween.TRANS_QUAD)
+		tw.tween_property(en, "rotation:z", 0.0, 0.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		return
+	(m.g["enemies"] as Array).erase(e)
+	m.g["bops"] = int(m.g["bops"]) + 1
+	m._sparkle_burst(en.global_position + Vector3(0, 2.0, 0), Color(1.0, 0.75, 0.9))
+	var tw2 := en.create_tween()
+	tw2.tween_property(en, "scale", Vector3.ONE * 0.01, 0.3).set_ease(Tween.EASE_IN)
+	tw2.tween_callback(en.queue_free)
 
 func _nearest_imp(x: float, z: float, skip_stunned: bool) -> Dictionary:
 	var best: Dictionary = {}
@@ -230,6 +282,7 @@ func _spawn_wave(seg: int) -> void:
 		mind["pos"] = Vector2(imp.position.x, imp.position.z)
 		(m.g["enemies"] as Array).append({
 			"node": imp, "stun": 0.0, "bump_cd": 0.0, "ai": mind, "pose": "prowl",
+			"hp": 3,   # basic imp = 3 hp (damage grammar, owner 2026-08-01)
 		})
 
 

@@ -189,6 +189,55 @@ func _tick_ambience_duck(delta: float) -> void:
 	m.ambience.volume_db = lerpf(m.ambience.volume_db, want, minf(1.0, delta * 6.0))
 
 
+# Combat pop with the chain pitch ladder (COMBO_SYSTEM): chain 1/2/3 climb
+# a step each, 4 is the SUPER top. A dedicated player so combo pitch never
+# fights the global button-tap hook. Combat has its own pop voice
+# (synthesized pack, tools/gen_combat_sfx.py); ui_tap remains the fallback
+# so a missing pack degrades to the old sound, never to silence.
+const POP_PITCH: Array[float] = [1.0, 1.15, 1.3, 1.4]
+const SFX_ROOT := "res://assets/audio/sfx/"
+
+
+func pop(level: int) -> void:
+	if m._pop_player == null:
+		m._pop_player = AudioStreamPlayer.new()
+		m._pop_player.bus = "UI"
+		var pop_path: String = SFX_ROOT + "combat_pop.wav"
+		if ResourceLoader.exists(pop_path):
+			m._pop_player.stream = load(pop_path)
+		else:
+			m._pop_player.stream = load("res://assets/audio/ui_tap.ogg")
+		m._pop_player.volume_db = -6.0
+		m._pop_player.process_mode = Node.PROCESS_MODE_ALWAYS
+		m.add_child(m._pop_player)
+	m._pop_player.pitch_scale = POP_PITCH[clampi(level - 1, 0, POP_PITCH.size() - 1)]
+	m._pop_player.play()
+
+
+# The combat reaction voice: bonks, poofs, tinkles, fizzles. A tiny
+# rotating pool so rapid hits never cut each other off; every call degrades
+# to silence gracefully when a file is absent, so owner-recorded
+# replacements can drop in at the same paths any time.
+func sfx(name: String, pitch: float = 1.0, volume_db: float = -6.0) -> void:
+	var path: String = SFX_ROOT + name + ".wav"
+	if not ResourceLoader.exists(path):
+		return
+	if m._sfx_pool.is_empty():
+		for _i in range(4):
+			var ap := AudioStreamPlayer.new()
+			ap.bus = "SFX"
+			ap.process_mode = Node.PROCESS_MODE_ALWAYS
+			m.add_child(ap)
+			m._sfx_pool.append(ap)
+	var player: AudioStreamPlayer = m._sfx_pool[m._sfx_i % m._sfx_pool.size()]
+	m._sfx_i += 1
+	if player.stream == null or player.stream.resource_path != path:
+		player.stream = load(path)
+	player.pitch_scale = pitch
+	player.volume_db = volume_db
+	player.play()
+
+
 func _ui_tap() -> void:
 	if m._tap_player == null:
 		m._tap_player = AudioStreamPlayer.new()

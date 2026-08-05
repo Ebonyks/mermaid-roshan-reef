@@ -40,6 +40,17 @@ var drag_active := false
 var drag_pos := Vector2.ZERO
 var drag_started := false          # set for one read on touch-down
 
+# ---- combat press-fire (combat wing 2026-08) ----
+# main installs a probe so hit engines can claim a world press the moment
+# the finger LANDS — an enemy pop must never wait out the release half of a
+# preschooler's grabby tap. A claimed press marks its pend record consumed,
+# which suppresses the release-side world_touched (no double fire). Hybrid
+# only; Classic has no world-tap concept and stays a genuine rollback.
+var world_press_probe: Callable = Callable()
+# fires when a consumed (press-fired) world touch lifts, so a held CHARGE
+# attack knows to release; also fired defensively on _clear_touch_state
+var world_press_release: Callable = Callable()
+
 var _root: Control
 var _base: Panel
 var _knob: Panel
@@ -371,6 +382,8 @@ func reserved_zone_hit(pos: Vector2) -> bool:
 	return action_zone().has_point(pos) or movement_zone().has_point(pos)
 
 func _clear_touch_state() -> void:
+	if world_press_release.is_valid():
+		world_press_release.call()   # a held charge never survives focus loss
 	drag_active = false
 	drag_started = false
 	_touch_idx = -1
@@ -494,6 +507,9 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			else:
 				touch_owners[touch.index] = TouchOwner.WORLD_INTERACT
 				_world_pend[touch.index] = {"pos": touch.position, "moved": false}
+				if world_press_probe.is_valid() and bool(world_press_probe.call(touch.position)):
+					_world_pend[touch.index]["consumed"] = true
+					_flash(touch.position)
 		else:
 			var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and touch.index == _touch_idx:
@@ -502,9 +518,11 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_release_action(touch.index)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
 				var world_data: Dictionary = _world_pend[touch.index]
-				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
 					world_touched.emit(touch.position)
 					_flash(touch.position)
+				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
+					world_press_release.call()
 				_world_pend.erase(touch.index)
 			touch_owners.erase(touch.index)
 	elif ev is InputEventScreenDrag:
@@ -530,6 +548,9 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			else:
 				touch_owners[99] = TouchOwner.WORLD_INTERACT
 				_world_pend[99] = {"pos": mouse_button.position, "moved": false}
+				if world_press_probe.is_valid() and bool(world_press_probe.call(mouse_button.position)):
+					_world_pend[99]["consumed"] = true
+					_flash(mouse_button.position)
 		else:
 			var owner: int = int(touch_owners.get(99, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and _touch_idx == 99:
@@ -538,9 +559,11 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_release_action(99)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
 				var world_data: Dictionary = _world_pend[99]
-				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
 					world_touched.emit(mouse_button.position)
 					_flash(mouse_button.position)
+				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
+					world_press_release.call()
 				_world_pend.erase(99)
 			touch_owners.erase(99)
 	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
