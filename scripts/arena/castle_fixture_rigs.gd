@@ -6,7 +6,22 @@ extends RefCounted
 # emitted from the real outlet/cavity and capped Jolt secondary motion for
 # appropriate solids. Objective and menu logic never depend on body settling.
 
-const MANIFEST_PATH := "res://assets/flats/castle/interactions_v3/castle_interactions_v3.json"
+const V2_BASE_MANIFEST_PATH := \
+	"res://assets/flats/castle/interactions_v2/castle_interactions_v2.json"
+const MANIFEST_PATH := "res://assets/flats/castle/interactions_v4/castle_interactions_v4.json"
+const NATIVE_V4_TILE_ROOT := \
+	"res://assets/flats/castle/interactions_v4/background_tiles/"
+const NATIVE_V4_TILE_MANIFEST_ROOT := \
+	"assets/flats/castle/interactions_v4/background_tiles"
+const V2_BASE_PACK := "v2_base"
+const NATIVE_V4_PACK := "v4_native"
+const NATIVE_V4_BEHAVIOR_MODE := "authored_object_states"
+const NATIVE_V4_BACKGROUND_ROUTE := \
+	"v4_native_high_resolution_healed_tiles"
+const RETIRED_V2_ASSET_IDS: Array[String] = [
+	"main_hall_sconce",
+	"main_hall_tapestry",
+]
 const WATER_SHADER := preload("res://assets/shaders/castle_fixture_water.gdshader")
 const RIPPLE_TEXTURE := preload("res://assets/terrain/up_water_nrm.jpg")
 const CAUSTICS_TEXTURE := preload("res://assets/terrain/caustics.png")
@@ -34,7 +49,11 @@ var _vortex_profile: PackedFloat32Array = PackedFloat32Array([
 
 var m: ReefMain
 var _water_mask_cache: Dictionary = {}
-var _additive_items_by_room: Dictionary = {}
+var _native_items_by_room: Dictionary = {}
+var _declared_native_source_items: Dictionary = {}
+var _native_background_tile_roots: Dictionary = {}
+var _native_background_tile_specs: Dictionary = {}
+var _active_native_background_rooms: Dictionary = {}
 
 
 func _init(main: ReefMain) -> void:
@@ -43,42 +62,335 @@ func _init(main: ReefMain) -> void:
 
 func visual_spec(room_id: String, item_id: String) -> Dictionary:
 	_ensure_manifest()
-	return (m.castle_room_fixture_manifest.get(
-		room_id + ":" + item_id, {}) as Dictionary).duplicate(true)
+	var spec: Dictionary = m.castle_room_fixture_manifest.get(
+		room_id + ":" + item_id, {}) as Dictionary
+	if String(spec.get("pack", "")) == NATIVE_V4_PACK \
+			and not _active_native_background_rooms.has(room_id):
+		return {}
+	return spec.duplicate(true)
 
 
-func room_additions(room_id: String) -> Array:
+func room_native_items(room_id: String) -> Array:
 	_ensure_manifest()
-	return (_additive_items_by_room.get(room_id, []) as Array).duplicate(true)
+	if not _active_native_background_rooms.has(room_id):
+		return []
+	return (_native_items_by_room.get(room_id, []) as Array).duplicate(true)
+
+
+func native_source_item_uses_fallback_paint(
+		room_id: String, item_id: String) -> bool:
+	_ensure_manifest()
+	return _declared_native_source_items.has(room_id + ":" + item_id) \
+		and not _active_native_background_rooms.has(room_id)
+
+
+func room_background_tile_root(room_id: String) -> String:
+	_ensure_manifest()
+	return String(_native_background_tile_roots.get(room_id, ""))
+
+
+func room_background_tile_textures(room_id: String, columns: int, rows: int,
+		expected_dimensions: Vector2i) -> Array[Texture2D]:
+	_ensure_manifest()
+	# A native route is active only after every tile has decoded at the exact
+	# dimensions declared by the room. Never expose a partial set: source-owned
+	# object cards are unsafe over the unhealed fallback background.
+	_active_native_background_rooms.erase(room_id)
+	var textures: Array[Texture2D] = []
+	var tile_root := String(_native_background_tile_roots.get(room_id, ""))
+	var route_spec: Dictionary = _native_background_tile_specs.get(
+		room_id, {}) as Dictionary
+	var route_dimensions: Vector2i = route_spec.get(
+		"tile_dimensions", Vector2i.ZERO)
+	if tile_root == "" or columns <= 0 or rows <= 0 \
+			or expected_dimensions.x <= 0 or expected_dimensions.y <= 0 \
+			or columns != int(route_spec.get("columns", 0)) \
+			or rows != int(route_spec.get("rows", 0)) \
+			or expected_dimensions != route_dimensions:
+		return textures
+	for row in range(rows):
+		for column in range(columns):
+			var file_name := "room_%s_background_r%d_c%d.png" % [
+				room_id, row, column]
+			var path := tile_root + file_name
+			if not ResourceLoader.exists(path):
+				return []
+			var texture: Texture2D = load(path) as Texture2D
+			if texture == null or Vector2i(
+					texture.get_width(), texture.get_height()) \
+					!= expected_dimensions:
+				return []
+			textures.append(texture)
+	if textures.size() != columns * rows:
+		return []
+	_active_native_background_rooms[room_id] = true
+	return textures
 
 
 func _ensure_manifest() -> void:
 	if not m.castle_room_fixture_manifest.is_empty():
 		return
-	if not FileAccess.file_exists(MANIFEST_PATH):
-		return
-	var parsed: Variant = JSON.parse_string(
-		FileAccess.get_file_as_string(MANIFEST_PATH))
-	if not parsed is Dictionary:
-		return
 	var index: Dictionary = {}
-	var additions: Dictionary = {}
-	for entry_value: Variant in (parsed as Dictionary).get("assets", []):
-		var entry: Dictionary = entry_value as Dictionary
+	var native_items: Dictionary = {}
+	var declared_native_source_items: Dictionary = {}
+	var native_entries_by_room: Dictionary = {}
+	var accepted_assets: Array = []
+	var rejected_native_v4 := 0
+	for entry_value: Variant in _manifest_assets(V2_BASE_MANIFEST_PATH):
+		var raw_entry: Dictionary = entry_value as Dictionary
+		var declared_pack: String = String(raw_entry.get("pack", ""))
+		if declared_pack != "" and declared_pack != V2_BASE_PACK:
+			continue
+		var entry := raw_entry.duplicate(true)
+		entry["pack"] = V2_BASE_PACK
+		if String(entry.get("id", "")) in RETIRED_V2_ASSET_IDS:
+			continue
+		_index_entry(index, entry)
+		accepted_assets.append(entry)
+	var native_manifest := _manifest_data(MANIFEST_PATH)
+	var native_manifest_assets: Array = native_manifest.get("assets", []) as Array
+	var declared_native_counts: Dictionary = {}
+	for entry_value: Variant in native_manifest_assets:
+		var raw_entry: Dictionary = entry_value as Dictionary
+		var declared_room_id: String = String(raw_entry.get("room", ""))
+		if declared_room_id != "":
+			declared_native_counts[declared_room_id] = int(
+				declared_native_counts.get(declared_room_id, 0)) + 1
+		if String(raw_entry.get("pack", "")) == NATIVE_V4_PACK \
+				and declared_room_id != "":
+			for instance_value: Variant in raw_entry.get("instances", []):
+				var declared_item_id := String(instance_value)
+				if declared_item_id != "":
+					declared_native_source_items[
+						declared_room_id + ":" + declared_item_id] = true
+		if not _valid_native_v4_entry(raw_entry):
+			rejected_native_v4 += 1
+			continue
+		var entry := _normalized_native_v4_entry(raw_entry)
 		var room_id: String = String(entry.get("room", ""))
-		for instance_value: Variant in entry.get("instances", []):
-			var item_id: String = String(instance_value)
-			index[room_id + ":" + item_id] = entry
-			if String(entry.get("pack", "")) == "v3_addition":
-				var room_items: Array = additions.get(room_id, []) as Array
-				room_items.append(_runtime_item(entry, item_id))
-				additions[room_id] = room_items
+		var room_entries: Array = native_entries_by_room.get(room_id, []) as Array
+		room_entries.append(entry)
+		native_entries_by_room[room_id] = room_entries
+	var native_background_roots := _validated_native_background_tile_roots(
+		native_manifest, declared_native_counts, native_entries_by_room)
+	for room_id_value: Variant in native_entries_by_room:
+		var room_id := String(room_id_value)
+		var room_entries: Array = native_entries_by_room.get(room_id, []) as Array
+		# A source-owned card is safe only with the matching high-resolution healed
+		# room route. Gate the whole room so a partial delivery can neither erase a
+		# pending fixture nor draw an animated card over its baked original.
+		if not native_background_roots.has(room_id):
+			rejected_native_v4 += room_entries.size()
+			continue
+		for entry_value: Variant in room_entries:
+			var entry: Dictionary = entry_value as Dictionary
+			_index_entry(index, entry)
+			accepted_assets.append(entry)
+			for instance_value: Variant in entry.get("instances", []):
+				var item_id: String = String(instance_value)
+				var room_items: Array = native_items.get(room_id, []) as Array
+				room_items.append(_native_runtime_item(entry, item_id))
+				native_items[room_id] = room_items
 	m.castle_room_fixture_manifest = index
-	_additive_items_by_room = additions
-	_prewarm_water_masks((parsed as Dictionary).get("assets", []))
+	_native_items_by_room = native_items
+	_declared_native_source_items = declared_native_source_items
+	_native_background_tile_roots = native_background_roots
+	m.g["castle_fixture_native_v4_loaded"] = _native_item_count(native_items)
+	m.g["castle_fixture_native_v4_rejected"] = rejected_native_v4
+	m.g["castle_fixture_native_v4_background_rooms"] = \
+		native_background_roots.size()
+	_prewarm_water_masks(accepted_assets)
 
 
-func _runtime_item(entry: Dictionary, item_id: String) -> Dictionary:
+func _manifest_assets(path: String) -> Array:
+	return _manifest_data(path).get("assets", []) as Array
+
+
+func _manifest_data(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
+		return {}
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not parsed is Dictionary:
+		return {}
+	return parsed as Dictionary
+
+
+func _validated_native_background_tile_roots(manifest: Dictionary,
+		declared_counts: Dictionary, valid_entries_by_room: Dictionary
+		) -> Dictionary:
+	var validated: Dictionary = {}
+	_native_background_tile_specs.clear()
+	var routes: Dictionary = manifest.get(
+		"runtime_background_tiles", {}) as Dictionary
+	for room_id_value: Variant in routes:
+		var room_id := String(room_id_value)
+		var declared_count := int(declared_counts.get(room_id, 0))
+		var valid_entries: Array = valid_entries_by_room.get(room_id, []) as Array
+		if declared_count <= 0 or valid_entries.size() != declared_count:
+			continue
+		var route: Dictionary = routes.get(room_id, {}) as Dictionary
+		if String(route.get("route", "")) != NATIVE_V4_BACKGROUND_ROUTE \
+				or bool(route.get(
+					"derived_from_low_resolution_audit_plate", true)) \
+				or String(route.get("source_tile_root", "")) \
+					!= "assets/flats/castle/rooms/background_tiles" \
+				or String(route.get("runtime_tile_root", "")) \
+				!= NATIVE_V4_TILE_MANIFEST_ROOT:
+			continue
+		var grid: Array = route.get("grid", []) as Array
+		if grid.size() != 2:
+			continue
+		var columns := int(grid[0])
+		var rows := int(grid[1])
+		if columns <= 0 or rows <= 0:
+			continue
+		var dimensions: Array = route.get("tile_dimensions", []) as Array
+		if dimensions.size() != 2 or int(dimensions[0]) <= 0 \
+				or int(dimensions[1]) <= 0 or int(dimensions[0]) > 1024 \
+				or int(dimensions[1]) > 1024:
+			continue
+		var native_canvas: Array = route.get("native_canvas_size", []) as Array
+		if native_canvas.size() != 2 \
+				or int(native_canvas[0]) != columns * int(dimensions[0]) \
+				or int(native_canvas[1]) != rows * int(dimensions[1]):
+			continue
+		var tiles: Array = route.get("tiles", []) as Array
+		if tiles.size() != columns * rows:
+			continue
+		var all_tiles_ready := true
+		for row in range(rows):
+			for column in range(columns):
+				var tile_index := row * columns + column
+				var tile: Dictionary = tiles[tile_index] as Dictionary
+				var file_name := "room_%s_background_r%d_c%d.png" % [
+					room_id, row, column]
+				var expected_path := NATIVE_V4_TILE_MANIFEST_ROOT \
+					+ "/" + file_name
+				if String(tile.get("path", "")) != expected_path \
+						or not bool(tile.get("opaque", false)) \
+						or not ResourceLoader.exists("res://" + expected_path):
+					all_tiles_ready = false
+					break
+			if not all_tiles_ready:
+				break
+		if all_tiles_ready:
+			validated[room_id] = NATIVE_V4_TILE_ROOT
+			_native_background_tile_specs[room_id] = {
+				"columns": columns,
+				"rows": rows,
+				"tile_dimensions": Vector2i(
+					int(dimensions[0]), int(dimensions[1])),
+			}
+	return validated
+
+
+func _index_entry(index: Dictionary, entry: Dictionary) -> void:
+	var room_id: String = String(entry.get("room", ""))
+	if room_id == "":
+		return
+	for instance_value: Variant in entry.get("instances", []):
+		var item_id: String = String(instance_value)
+		if item_id != "":
+			index[room_id + ":" + item_id] = entry
+
+
+func _valid_native_v4_entry(entry: Dictionary) -> bool:
+	if String(entry.get("pack", "")) != NATIVE_V4_PACK:
+		return false
+	var room_id: String = String(entry.get("room", ""))
+	var instances: Array = entry.get("instances", []) as Array
+	var semantic_action: String = String(entry.get("semantic_action", ""))
+	if room_id == "" or instances.size() != 1 or semantic_action == "":
+		return false
+	for instance_value: Variant in instances:
+		if String(instance_value) == "":
+			return false
+	var ownership: Dictionary = entry.get("source_ownership", {}) as Dictionary
+	if not bool(ownership.get("passed", false)) \
+			or not bool(ownership.get("verified", false)) \
+			or not bool(ownership.get("background_healed", false)) \
+			or not bool(ownership.get("duplicate_pixels_removed", false)):
+		return false
+	var source_rect: Array = ownership.get("source_rect", []) as Array
+	if not _valid_source_rect(source_rect, room_id):
+		return false
+	var behavior: Dictionary = entry.get("animation_behavior", {}) as Dictionary
+	if String(behavior.get("mode", "")) != NATIVE_V4_BEHAVIOR_MODE \
+			or String(behavior.get("action", "")) != semantic_action \
+			or bool(behavior.get("generic_transform_fallback", true)):
+		return false
+	var physics_mode: String = String(entry.get("physics_mode", "none"))
+	if physics_mode != "none":
+		if physics_mode not in ["hinge_z", "buoyant"] \
+				or not bool(behavior.get("secondary_physics", false)) \
+				or String(behavior.get("physics_role", "")) == "":
+			return false
+	if String(entry.get("render_mode", "")) \
+			!= "generated_full_object_states" \
+			or bool(entry.get("primary_animation_is_overlay", true)):
+		return false
+	var frame_count := int(entry.get("authored_frame_count",
+		entry.get("frame_count", 0)))
+	if frame_count < 4 or frame_count > 12:
+		return false
+	var rest_frame := int(entry.get("rest_frame", 0))
+	if rest_frame < 0 or rest_frame >= frame_count:
+		return false
+	var grid: Array = entry.get("grid", []) as Array
+	if grid.size() < 2 or int(grid[0]) <= 0 or int(grid[1]) <= 0 \
+			or int(grid[0]) * int(grid[1]) < frame_count:
+		return false
+	var timeline: Array = entry.get("timeline_sequence", []) as Array
+	if timeline.size() < 4 or timeline.size() > 12:
+		return false
+	if entry.has("timeline_frame_count") \
+			and int(entry.get("timeline_frame_count", 0)) != timeline.size():
+		return false
+	for frame_value: Variant in timeline:
+		var frame_index := int(frame_value)
+		if frame_index < 0 or frame_index >= frame_count:
+			return false
+	var sheet_path: String = String(entry.get("sheet", ""))
+	if sheet_path == "" or not ResourceLoader.exists("res://" + sheet_path):
+		return false
+	return true
+
+
+func _valid_source_rect(source_rect: Array, room_id: String) -> bool:
+	if source_rect.size() < 4:
+		return false
+	for value_index in range(4):
+		if typeof(source_rect[value_index]) not in [TYPE_INT, TYPE_FLOAT]:
+			return false
+	var rect := Rect2(float(source_rect[0]), float(source_rect[1]),
+		float(source_rect[2]), float(source_rect[3]))
+	var room_size := Vector2(3344.0, 941.0) \
+		if room_id == "main_hall" else Vector2(1024.0, 576.0)
+	return rect.position.x >= 0.0 and rect.position.y >= 0.0 \
+		and rect.size.x > 0.0 and rect.size.y > 0.0 \
+		and rect.end.x <= room_size.x and rect.end.y <= room_size.y
+
+
+func _normalized_native_v4_entry(entry: Dictionary) -> Dictionary:
+	var normalized := entry.duplicate(true)
+	var ownership: Dictionary = normalized.get(
+		"source_ownership", {}) as Dictionary
+	var source_rect: Array = ownership.get("source_rect", []) as Array
+	normalized["placement_position"] = [
+		float(source_rect[0]), float(source_rect[1])]
+	normalized["placement_size"] = [
+		float(source_rect[2]), float(source_rect[3])]
+	return normalized
+
+
+func _native_item_count(items_by_room: Dictionary) -> int:
+	var count := 0
+	for room_items_value: Variant in items_by_room.values():
+		count += (room_items_value as Array).size()
+	return count
+
+
+func _native_runtime_item(entry: Dictionary, item_id: String) -> Dictionary:
 	var position := _vector2(entry.get("placement_position", []), Vector2.ZERO)
 	var size := _vector2(entry.get("placement_size", []), Vector2(112.0, 112.0))
 	var hotspot_size := _vector2(entry.get("hotspot_size", []), size)
@@ -97,6 +409,7 @@ func _runtime_item(entry: Dictionary, item_id: String) -> Dictionary:
 		"hotspot_offset": hotspot_offset,
 		"hotspot_size": hotspot_size,
 		"color": color,
+		"source_owned_native": true,
 	}
 
 
@@ -140,6 +453,8 @@ func build(interaction_key: String, piece: Sprite3D, item_data: Dictionary,
 	var visual: Dictionary = item_data.get("v2_visual", {}) as Dictionary
 	if visual.is_empty() or piece == null:
 		return {}
+	var visual_pack: String = String(visual.get("pack", ""))
+	var behavior: Dictionary = visual.get("animation_behavior", {}) as Dictionary
 	var rig: Dictionary = {
 		"key": interaction_key,
 		"sprite": piece,
@@ -164,10 +479,13 @@ func build(interaction_key: String, piece: Sprite3D, item_data: Dictionary,
 	rig["max_displacement"] = (
 		MAX_HINGE_DISPLACEMENT if rig_mode == "hinge_z"
 		else MAX_BUOYANT_DISPLACEMENT)
-	piece.set_meta("castle_component_rig_v2", true)
-	piece.set_meta("castle_component_rig_v3",
-		String(visual.get("pack", "")) == "v3_addition")
-	piece.set_meta("primary_animation_is_overlay", false)
+	piece.set_meta("castle_component_rig_v2", visual_pack == V2_BASE_PACK)
+	piece.set_meta("castle_component_rig_v4", visual_pack == NATIVE_V4_PACK)
+	piece.set_meta("native_authored_object_states",
+		visual_pack == NATIVE_V4_PACK
+		and String(behavior.get("mode", "")) == NATIVE_V4_BEHAVIOR_MODE)
+	piece.set_meta("primary_animation_is_overlay",
+		bool(visual.get("primary_animation_is_overlay", false)))
 	piece.set_meta("generated_full_object_states",
 		String(visual.get("render_mode", "")) == "generated_full_object_states")
 	piece.set_meta("fixture_water_shader", WATER_SHADER.resource_path)
@@ -283,6 +601,12 @@ func stats() -> Dictionary:
 		"body_cap": MAX_JOLT_BODIES,
 		"awake_cap": MAX_AWAKE_BODIES,
 		"water_mask_cache_entries": _water_mask_cache.size(),
+		"native_v4_loaded": int(m.g.get(
+			"castle_fixture_native_v4_loaded", 0)),
+		"native_v4_rejected": int(m.g.get(
+			"castle_fixture_native_v4_rejected", 0)),
+		"native_v4_background_rooms": int(m.g.get(
+			"castle_fixture_native_v4_background_rooms", 0)),
 	}
 
 
@@ -413,6 +737,14 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 		_layer_color(layer, "deep", Color(0.10, 0.50, 0.76)))
 	material.set_shader_parameter("shallow_color",
 		_layer_color(layer, "shallow", Color(0.48, 0.90, 0.96)))
+	material.set_shader_parameter("alpha_base",
+		float(layer.get("alpha_base", 0.84)))
+	material.set_shader_parameter("turbulence",
+		float(layer.get("turbulence", 0.65)))
+	material.set_shader_parameter("edge_foam",
+		float(layer.get("edge_foam", 0.35)))
+	material.set_shader_parameter("flow_speed",
+		float(layer.get("flow_speed", 1.0)))
 	material.render_priority = int(layer.get("render_priority", 1))
 	node.material_override = material
 	node.visible = false
@@ -424,6 +756,7 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 	node.set_meta("logic_authority", false)
 	node.set_meta("fixture_bounds_normalized", bounds)
 	node.set_meta("fixture_outlet_normalized", _layer_outlet(geometry_layer))
+	node.set_meta("fixture_z_offset", z_offset)
 	node.set_meta("water_shape", String(layer.get("shape", "")))
 	m.castle_room_item_visual_layer.add_child(node)
 	var water: Dictionary = {
@@ -442,6 +775,7 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 		"source_position": source_position,
 		"placement_size": placement_size,
 		"depth_z": depth_z + z_offset,
+		"z_offset": z_offset,
 		"to_world": to_world,
 		"base_center_normalized": center_normalized,
 		"bounds_normalized": bounds,

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "canvas": [1024, 576],
+  "candidates": {
+    "opera_hall": [
+      {
+        "id": "pearl_sconce_left",
+        "semantic_action": "brighten_left_pearl_sconce_in_color_chase",
+        "crop": [278, 169, 321, 226],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [[299, 171], [310, 177], [316, 188], [313, 200], [307, 207], [307, 216], [300, 224], [292, 218], [292, 207], [284, 201], [281, 189], [286, 178]]
+          }
+        ]
+      },
+      {
+        "id": "pearl_sconce_right",
+        "semantic_action": "brighten_right_pearl_sconce_in_color_chase",
+        "crop": [703, 169, 746, 226],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [[725, 171], [736, 177], [742, 188], [739, 200], [733, 207], [733, 216], [726, 224], [718, 218], [718, 207], [710, 201], [707, 189], [712, 178]]
+          }
+        ]
+      }
+    ],
+    "kitchen": [],
+    "library": [
+      {
+        "id": "pearl_lamp_right",
+        "semantic_action": "wake_right_pearl_lamp_with_glow",
+        "crop": [917, 214, 1024, 309],
+        "shapes": [
+          {
+            "type": "polygon",
+            "points": [[985, 216], [1002, 222], [1017, 236], [1024, 252], [1024, 291], [1014, 303], [997, 308], [968, 305], [954, 296], [947, 279], [948, 256], [957, 237], [971, 224]]
+          }
+        ]
+      },
+      {
+        "id": "ceiling_chandelier",
+        "semantic_action": "chase_chandelier_pearl_lights",
+        "crop": [445, 0, 580, 96],
+        "shapes": [
+          {"type": "line", "points": [[512, 0], [512, 29]], "width": 4},
+          {"type": "ellipse", "box": [448, 20, 576, 66]},
+          {"type": "ellipse", "box": [458, 28, 566, 56], "op": "subtract"},
+          {"type": "line", "points": [[456, 35], [512, 59], [568, 35]], "width": 4},
+          {"type": "line", "points": [[476, 25], [489, 61]], "width": 4},
+          {"type": "line", "points": [[548, 25], [535, 61]], "width": 4},
+          {"type": "ellipse", "box": [500, 27, 524, 61]},
+          {"type": "line", "points": [[457, 49], [457, 73]], "width": 3},
+          {"type": "line", "points": [[479, 56], [479, 79]], "width": 3},
+          {"type": "line", "points": [[512, 58], [512, 80]], "width": 3},
+          {"type": "line", "points": [[545, 56], [545, 79]], "width": 3},
+          {"type": "line", "points": [[567, 49], [567, 73]], "width": 3},
+          {"type": "ellipse", "box": [451, 67, 463, 82]},
+          {"type": "ellipse", "box": [473, 73, 485, 88]},
+          {"type": "ellipse", "box": [539, 73, 551, 88]},
+          {"type": "ellipse", "box": [561, 67, 573, 82]}
+        ]
+      }
+    ],
+    "playroom": [
+      {
+        "id": "tent_flaps_right",
+        "semantic_action": "open_tent_flap_for_peekaboo",
+        "crop": [816, 274, 862, 341],
+        "shapes": [
+          {"type": "polygon", "points": [[827, 279], [843, 291], [841, 338], [823, 338], [829, 315]]},
+          {"type": "polygon", "points": [[843, 291], [859, 306], [859, 338], [841, 338]]}
+        ]
+      },
+      {
+        "id": "shelf_sailboat",
+        "semantic_action": "unfurl_sail_and_rock_boat",
+        "crop": [687, 226, 759, 298],
+        "shapes": [
+          {"type": "line", "points": [[710, 235], [710, 282]], "width": 4},
+          {"type": "polygon", "points": [[712, 239], [746, 270], [713, 270]]},
+          {"type": "polygon", "points": [[708, 242], [693, 267], [708, 267]]},
+          {"type": "polygon", "points": [[690, 273], [752, 273], [744, 283], [703, 285]]}
+        ]
+      }
+    ],
+    "craft_room": [
+      {
+        "id": "supply_cupboard_left",
+        "semantic_action": "open_cupboard_and_reveal_art_supplies",
+        "crop": [222, 207, 309, 294],
+        "shapes": [
+          {"type": "rounded_rectangle", "box": [224, 211, 307, 292], "radius": 3}
+        ]
+      }
+    ],
+    "mermaid_pool": [],
+    "bubble_bath": [
+      {
+        "id": "vanity_mirror",
+        "semantic_action": "fog_and_wipe_mirror_clear",
+        "crop": [486, 42, 644, 203],
+        "shapes": [
+          {"type": "ellipse", "box": [491, 53, 639, 199]},
+          {"type": "polygon", "points": [[526, 69], [541, 46], [563, 42], [584, 50], [594, 70]]}
+        ]
+      }
+    ]
+  },
+  "reused_existing": {
+    "kitchen": [
+      {
+        "id": "fridge",
+        "semantic_action": "unlatch_and_open_fridge_door",
+        "repair_healing": true,
+        "alpha_cleanup": "fridge_only_source_pixels_v1",
+        "v4_override_of": "kitchen_fridge"
+      }
+    ],
+    "mermaid_pool": [
+      {"id": "waterfall", "semantic_action": "surge_waterfall_and_sparkle"},
+      {"id": "flower_float", "semantic_action": "bob_and_spin_flower_float"},
+      {"id": "seahorse_fountain", "semantic_action": "arc_fountain_water_and_splash"},
+      {"id": "star_float", "semantic_action": "bob_and_twinkle_star_float", "repair_healing": true}
+    ]
+  },
+  "excluded": [
+    {
+      "room": "main_hall",
+      "id": "huluu_throne",
+      "reason": "Already extracted from its approved high-resolution source as main_hall_retained_shell_throne.png with separate ownership provenance; re-extraction would create duplicate ownership."
+    },
+    {
+      "room": "opera_hall",
+      "id": "side_portals",
+      "reason": "The painted side openings are architectural recesses partly occluded by the auditorium rails, not separable door objects; animating them would carry rail or wall fragments."
+    },
+    {
+      "room": "mermaid_pool",
+      "id": "giant_clam",
+      "reason": "The large shell is integrated into the stair architecture and overlaps the self-contained foreground bubble fountain; separating both would split or duplicate the same painted pixels."
+    },
+    {
+      "room": "mermaid_pool",
+      "id": "bubble_fountain",
+      "reason": "The small clam is integrated into the giant-clam stair composition; its generated hidden-state trial drifted into a new jar and would have repeated the rejected static-fixture-plus-overlay pattern. Existing Pool objects are upgraded directly instead."
+    },
+    {
+      "room": "kitchen",
+      "id": "teapot",
+      "reason": "The painted teapot touches the cup, coral, and counter shadow at its spout and handle; repeated masks retained neighboring pixels, so it is rejected instead of shipping a dirty cutout."
+    },
+    {
+      "room": "kitchen",
+      "id": "stove_pot_lid",
+      "reason": "Three source-mask refinements could not isolate the knob and lid rim without retaining purple wall pixels or stealing pot-body and right-handle pixels. The candidate is rejected so no baked pot part vanishes during interaction."
+    },
+    {
+      "room": "craft_room",
+      "id": "ribbon_rack_right",
+      "reason": "The right rack's lowest ribbons overlap the painted wall shelf and cup; exact separation left detached wall fragments, so the existing clean left ribbon interaction remains the room's ribbon activity."
+    },
+    {
+      "room": "bubble_bath",
+      "id": "toilet_roll",
+      "reason": "The paper cylinder is painted through its gold holder and overlapping purple plant/wall shadow; removing those pixels cuts an obvious hole in the roll, so it is rejected rather than shipped as a compromised partial cutout."
+    }
+  ]
+}

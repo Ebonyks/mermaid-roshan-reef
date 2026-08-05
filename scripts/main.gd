@@ -3868,6 +3868,8 @@ func _apply_skin() -> void:
 	var s := _skin_def(skin_id)
 	skin_id = String(s["id"])   # normalise any stale/removed skin id back to a valid one
 	player.set_skin(skin_id, String(s["sprite"]))
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		_castle_rooms_25d.refresh_player_skin()
 
 func _all_pearls_done() -> bool:
 	return pearls.is_empty()

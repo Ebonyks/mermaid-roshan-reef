@@ -381,11 +381,11 @@ func refresh_room_display() -> void:
 	if m.castle_room_stage == null or m.castle_room_id != "craft_room":
 		return
 	var display := _make_preview(
-		"CastleLogoRoomDisplay", Vector2(148.0, 148.0))
-	# The logo is pinned to the painted idea board above the paint table. It is
-	# UI-only and ignores input, so the board and table keep their full hotspots.
-	display.position = Vector2(548.0, 128.0)
+		"CastleLogoRoomDisplay", Vector2(88.0, 88.0))
+	# Keep the personalized logo as a small pinned badge on the painted board.
+	# It is UI-only and ignores input, so the board keeps its full hotspot.
+	display.position = Vector2(578.0, 158.0)
 	display.z_index = 22
-	display.set_meta("display_location", "craft_room_idea_board")
+	display.set_meta("display_location", "craft_room_idea_board_pinned_badge")
 	m.castle_room_stage.add_child(display)
 	m.castle_logo_room_display = display

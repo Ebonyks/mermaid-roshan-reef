@@ -41,12 +41,27 @@ python3 tools/normalize_castle_interaction_v2_sheets.py --check \
 	|| { echo "CASTLE INTERACTION V2 NORMALIZATION FAIL"; exit 1; }
 python3 tools/audit_castle_interactions_v2.py \
 	|| { echo "CASTLE INTERACTION V2 DELIVERY FAIL"; exit 1; }
-python3 tools/prepare_castle_interaction_v3_sources.py --check \
-	|| { echo "CASTLE INTERACTION V3 SOURCE PREP FAIL"; exit 1; }
-python3 tools/normalize_castle_interaction_v3_sheets.py --check \
-	|| { echo "CASTLE INTERACTION V3 NORMALIZATION FAIL"; exit 1; }
-python3 tools/audit_castle_interactions_v3.py \
-	|| { echo "CASTLE INTERACTION V3 DELIVERY FAIL"; exit 1; }
+python3 tools/build_castle_interaction_v4_delivery.py --check \
+	|| { echo "CASTLE INTERACTION V4 DELIVERY DRIFT"; exit 1; }
+python3 tools/audit_castle_native_interactions.py \
+	|| { echo "CASTLE NATIVE INTERACTION OWNERSHIP FAIL"; exit 1; }
+python3 tools/repair_castle_room_native_backgrounds.py --check \
+	|| { echo "CASTLE LIVE-ALPHA BACKGROUND HEALING FAIL"; exit 1; }
+python3 tools/refine_castle_depth_cards.py --check \
+	|| { echo "CASTLE STATIC DEPTH-CARD REFINEMENT DRIFT"; exit 1; }
+python3 tools/audit_castle_static_depth_cards.py \
+	|| { echo "CASTLE STATIC DEPTH-CARD ALPHA FAIL"; exit 1; }
+python3 -m unittest \
+	tools.test_audit_castle_native_interactions \
+	tools.test_build_castle_interaction_v4_delivery \
+	tools.test_castle_interaction_frame_qa \
+	tools.test_review_castle_interaction_frames_v4 \
+	tools.test_refine_castle_depth_cards \
+	tools.test_audit_castle_static_depth_cards \
+	tools.test_repair_castle_room_native_backgrounds \
+	|| { echo "CASTLE INTERACTION/DEPTH REVIEW SELF-TEST FAIL"; exit 1; }
+python3 tools/review_castle_interaction_frames_v4.py check \
+	|| { echo "CASTLE INTERACTION PER-FRAME APPROVAL FAIL"; exit 1; }
 RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
 FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
 import_log="$(mktemp)"

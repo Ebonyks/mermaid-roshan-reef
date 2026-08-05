@@ -24,16 +24,38 @@ const WORLD_HEIGHT := 11.25
 const CAMERA_DISTANCE := 18.0
 const CAMERA_FOV := 58.109
 const CARD_PIXEL_SIZE := WORLD_WIDTH / ART_SIZE.x
-const ROOM_TILE_NATIVE_SIZE := Vector2(1024.0, 576.0)
-const ROOM_TILE_LOGICAL_SIZE := Vector2(512.0, 288.0)
-const ROOM_TILE_PIXEL_SIZE := CARD_PIXEL_SIZE * 0.5
+const ROOM_TILE_NATIVE_SIZE := Vector2(910.0, 1024.0)
+const ROOM_TILE_LOGICAL_SIZE := Vector2(256.0, 288.0)
+const ROOM_TILE_PIXEL_SIZE := CARD_PIXEL_SIZE
+const LEGACY_ROOM_BACKGROUND_GRID := {
+	"rows": 2,
+	"columns": 2,
+	"native_size": Vector2(1024.0, 576.0),
+	"logical_size": Vector2(512.0, 288.0),
+	"pixel_size": CARD_PIXEL_SIZE,
+	"source_grid": "2x2_2k",
+}
+const NATIVE_ROOM_BACKGROUND_GRID := {
+	"rows": 2,
+	"columns": 4,
+	"native_size": ROOM_TILE_NATIVE_SIZE,
+	"logical_size": ROOM_TILE_LOGICAL_SIZE,
+	"pixel_size": ROOM_TILE_PIXEL_SIZE,
+	"source_grid": "2x4_3640x2048",
+}
 const ROOM_BACKGROUND_GRIDS := {
+	"opera_hall": NATIVE_ROOM_BACKGROUND_GRID,
+	"library": NATIVE_ROOM_BACKGROUND_GRID,
+	"playroom": NATIVE_ROOM_BACKGROUND_GRID,
+	"craft_room": NATIVE_ROOM_BACKGROUND_GRID,
+	"mermaid_pool": NATIVE_ROOM_BACKGROUND_GRID,
+	"bubble_bath": NATIVE_ROOM_BACKGROUND_GRID,
 	"kitchen": {
 		"rows": 3,
 		"columns": 4,
 		"native_size": Vector2(1024.0, 768.0),
 		"logical_size": Vector2(256.0, 192.0),
-		"pixel_size": CARD_PIXEL_SIZE * 0.25,
+		"pixel_size": CARD_PIXEL_SIZE,
 		"source_grid": "3x4_4k",
 	},
 }
@@ -45,9 +67,7 @@ const MIDGROUND_Z := 2.0
 const PLAYER_FRONT_Z := 3.15
 const FOREGROUND_Z := 4.0
 const EFFECT_Z := 4.35
-const LIGHT_FIXTURE_Z := 0.72
 const HALL_SIGN_Z := 0.68
-const MIRROR_INSERT_Z := 0.24
 const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
 const HALL_PLAYER_STAGE_HEIGHT := 190.0
@@ -158,71 +178,6 @@ const HALL_PORTALS: Array[Dictionary] = [
 		"rect": Rect2(2870.0, 150.0, 350.0, 470.0),
 		"foot": Vector2(3045.0, 620.0)},
 ]
-const HALL_ITEMS: Array[Dictionary] = [
-	{"id": "tapestry_right", "name": "Royal shell tapestry",
-		"pos": Vector2(1560.0, 360.0), "z": MIRROR_INSERT_Z,
-		"tex_path": INTERACTION_ART + "main_hall_tapestry_atlas.png",
-		"scale": 0.72, "semantic_action": "unfurl_cloth",
-		"frames": 8, "hframes": 4, "vframes": 2,
-		"frame_duration": 0.125, "sound": "castle/curtain_swish.ogg",
-		"sound_frame": 0, "pitch": 1.0,
-		"hotspot_size": Vector2(105.0, 190.0),
-		"symbol": "*", "color": Color(1.0, 0.80, 0.91)},
-	{"id": "sconce_a0", "name": "Pearl shell light",
-		"pos": Vector2(290.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
-		"scale": 0.8, "semantic_action": "toggle_shell_light",
-		"frames": 8, "hframes": 4, "vframes": 2,
-		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
-		"sound_frame": 0, "pitch": 1.0,
-		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_left",
-		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
-	{"id": "sconce_a1", "name": "Pearl shell light",
-		"pos": Vector2(790.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
-		"scale": 0.8, "semantic_action": "toggle_shell_light",
-		"frames": 8, "hframes": 4, "vframes": 2,
-		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
-		"sound_frame": 0, "pitch": 1.0,
-		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
-		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
-	{"id": "sconce_a2", "name": "Pearl shell light",
-		"pos": Vector2(1470.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
-		"scale": 0.8, "semantic_action": "toggle_shell_light",
-		"frames": 8, "hframes": 4, "vframes": 2,
-		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
-		"sound_frame": 0, "pitch": 1.0,
-		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "a_right",
-		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
-	{"id": "sconce_b0", "name": "Pearl shell light",
-		"pos": Vector2(2015.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
-		"scale": 0.8, "semantic_action": "toggle_shell_light",
-		"frames": 8, "hframes": 4, "vframes": 2,
-		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
-		"sound_frame": 0, "pitch": 1.0,
-		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_left",
-		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
-	{"id": "sconce_b1", "name": "Pearl shell light",
-		"pos": Vector2(2415.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
-		"scale": 0.8, "semantic_action": "toggle_shell_light",
-		"frames": 8, "hframes": 4, "vframes": 2,
-		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
-		"sound_frame": 0, "pitch": 1.0,
-		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_left",
-		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
-	{"id": "sconce_b2", "name": "Pearl shell light",
-		"pos": Vector2(2780.0, 215.0), "z": LIGHT_FIXTURE_Z,
-		"tex_path": INTERACTION_ART + "main_hall_sconce_atlas.png",
-		"scale": 0.8, "semantic_action": "toggle_shell_light",
-		"frames": 8, "hframes": 4, "vframes": 2,
-		"frame_duration": 0.1025, "sound": "castle/light_switch.ogg",
-		"sound_frame": 0, "pitch": 1.0,
-		"hotspot_size": Vector2(112.0, 128.0), "light_cluster": "b_right",
-		"symbol": "*", "color": Color(1.0, 0.78, 0.48)},
-]
 const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 	{"id": "sleepy_bunny", "name": "Sleeping dust bunny",
 		"pos": Vector2(900.0, 830.0), "z": 2.65,
@@ -255,9 +210,9 @@ const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 ]
 const PLAYROOM_RESCUE_ITEMS: Array[Dictionary] = [
 	{"id": "baby_eagle_rescue", "name": "Baby Eagle",
-		"pos": Vector2(367.0, 85.0), "z": 1.55,
+		"pos": Vector2(382.0, 110.0), "z": 1.55,
 		"tex_path": "res://assets/book/baby_eagle.png",
-		"scale": 0.42, "rescue_role": "baby_eagle",
+		"scale": 0.32, "rescue_role": "baby_eagle",
 		"proximity_only": true,
 		"color": Color(0.54, 0.91, 1.0)},
 	{"id": "eagle_pin_left", "name": "Left pinning dust bunny",
@@ -393,10 +348,8 @@ const ROOM_LAYOUTS := {
 		],
 	},
 	"mermaid_pool": {
-		"walk": Rect2(170.0, 400.0, 940.0, 270.0), "mid_foot_y": 535.0,
-		"mid": [
-			{"tex": "room_mermaid_pool_mid_pool.png", "pos": Vector2(0.0, 218.0)},
-		],
+		"walk": Rect2(170.0, 400.0, 940.0, 270.0), "mid_foot_y": -1.0,
+		"mid": [],
 		"front": [
 			{"tex": "room_mermaid_pool_front_left.png", "pos": Vector2(0.0, 430.0)},
 			{"tex": "room_mermaid_pool_front_right.png", "pos": Vector2(885.0, 435.0)},
@@ -529,7 +482,10 @@ const ROOM_ITEMS := {
 			"z": 0.65, "hotspot_size": Vector2(155.0, 185.0),
 			"symbol": "○", "color": Color(0.52, 0.91, 1.0)},
 		{"id": "flower_float", "name": "Flower float", "pos": Vector2(310, 300),
-			"z": MIDGROUND_Z, "hotspot_offset": Vector2(0.0, 0.0),
+			# Bloom states spread beyond the exact rest-state hole in the pool's
+			# mid-depth water card. Keep the real petals deterministically above
+			# that water plane instead of leaving two coplanar alpha surfaces.
+			"z": MIDGROUND_Z + 0.02, "hotspot_offset": Vector2(0.0, 0.0),
 			"hotspot_size": Vector2(105.0, 85.0),
 			"symbol": "✦", "color": Color(1.0, 0.62, 0.78)},
 		{"id": "seahorse_fountain", "name": "Seahorse fountain",
@@ -725,9 +681,9 @@ const ROOM_ITEMS := {
 		{"id": "movie_popcorn", "name": "Movie-night popcorn",
 			"pos": Vector2(412.0, 333.0), "z": 2.64, "scale": 0.25,
 			"tex_path": DREAM_HOUSE_ART + "shell_popcorn_bowl.png",
-			"roleplay_action": "watch_movie",
-			"sound": "castle/page_flip.ogg",
-			"color": Color(1.0, 0.82, 0.42)},
+			# This approved cutout has no honest empty-bowl state. Keep it as set
+			# dressing instead of making a snack inexplicably control the movie.
+			"proximity_only": true},
 	],
 }
 
@@ -855,6 +811,7 @@ var kitchen_menu_layer: CanvasLayer = null
 var kitchen_menu_stage: Control = null
 var kitchen_act: OperaAct = null
 var fridge_close_input_blocker: Control = null
+var _room_build_generation := 0
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -984,6 +941,7 @@ func suspend() -> void:
 	m._set_world_controls_enabled(true, "kitchen_fridge_close")
 
 func close() -> void:
+	_room_build_generation += 1
 	_close_kitchen_menu()
 	_set_fridge_close_blocked(false)
 	fixture_rigs.teardown()
@@ -1103,7 +1061,8 @@ func _build_stage() -> void:
 	m.castle_room_world_root.add_child(m.castle_room_mid_layer)
 
 	var shadow_texture: Texture2D = load(ROOM_ART + "room_actor_shadow.png")
-	m.castle_room_player_shadow = _new_card("RoshanContactShadow", shadow_texture)
+	m.castle_room_player_shadow = _new_card(
+		"RoshanContactShadow", shadow_texture, true)
 	m.castle_room_player_shadow.modulate = Color(0.24, 0.25, 0.48, 0.58)
 	m.castle_room_player_shadow.cast_shadow = \
 		GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -1425,25 +1384,70 @@ func _clear_room_background_tiles() -> void:
 			tile.free()
 	m.castle_room_detail_tiles.clear()
 
+
+func _load_room_background_tile_set(tile_root: String, room_id: String,
+		columns: int, rows: int,
+		expected_dimensions: Vector2i) -> Array[Texture2D]:
+	var textures: Array[Texture2D] = []
+	for row in range(rows):
+		for column in range(columns):
+			var file_name := "room_%s_background_r%d_c%d.png" % [
+				room_id, row, column]
+			var path := tile_root + file_name
+			if not ResourceLoader.exists(path):
+				return []
+			var texture: Texture2D = load(path) as Texture2D
+			if texture == null or Vector2i(
+					texture.get_width(), texture.get_height()) \
+					!= expected_dimensions:
+				return []
+			textures.append(texture)
+	return textures
+
+
 func _build_room_background_tiles(room_id: String) -> void:
-	_clear_room_background_tiles()
+	var native_tile_root := fixture_rigs.room_background_tile_root(room_id)
 	var grid: Dictionary = ROOM_BACKGROUND_GRIDS.get(room_id, {})
+	if grid.is_empty() and native_tile_root == "":
+		grid = LEGACY_ROOM_BACKGROUND_GRID
 	var rows: int = int(grid.get("rows", 2))
-	var columns: int = int(grid.get("columns", 2))
+	var columns: int = int(grid.get("columns", 4))
 	var native_size: Vector2 = grid.get(
 		"native_size", ROOM_TILE_NATIVE_SIZE)
 	var logical_size: Vector2 = grid.get(
 		"logical_size", ROOM_TILE_LOGICAL_SIZE)
 	var tile_pixel_size: float = float(grid.get(
 		"pixel_size", ROOM_TILE_PIXEL_SIZE))
-	var source_grid: String = String(grid.get("source_grid", "2x2_2k"))
+	var source_grid: String = String(grid.get(
+		"source_grid", "2x4_3640x2048"))
+	var expected_dimensions := Vector2i(
+		int(native_size.x), int(native_size.y))
+	var textures: Array[Texture2D] = \
+		fixture_rigs.room_background_tile_textures(
+			room_id, columns, rows, expected_dimensions)
+	var uses_native_healed_tiles := textures.size() == columns * rows
+	var tile_root := fixture_rigs.room_background_tile_root(room_id) \
+		if uses_native_healed_tiles else ROOM_TILE_ROOT
+	if not uses_native_healed_tiles:
+		grid = ROOM_BACKGROUND_GRIDS.get(
+			room_id, LEGACY_ROOM_BACKGROUND_GRID)
+		rows = int(grid.get("rows", 2))
+		columns = int(grid.get("columns", 2))
+		native_size = grid.get("native_size", Vector2(1024.0, 576.0))
+		logical_size = grid.get("logical_size", Vector2(512.0, 288.0))
+		tile_pixel_size = float(grid.get("pixel_size", CARD_PIXEL_SIZE))
+		source_grid = String(grid.get("source_grid", "2x2_2k"))
+		expected_dimensions = Vector2i(
+			int(native_size.x), int(native_size.y))
+		textures = _load_room_background_tile_set(
+			ROOM_TILE_ROOT, room_id, columns, rows, expected_dimensions)
+	_clear_room_background_tiles()
+	if textures.size() != columns * rows:
+		push_warning("Castle room %s has no complete background tile set" % room_id)
+		return
 	for row in range(rows):
 		for column in range(columns):
-			var file_name := "room_%s_background_r%d_c%d.png" % [
-				room_id, row, column]
-			var texture: Texture2D = load(ROOM_TILE_ROOT + file_name)
-			if texture == null:
-				continue
+			var texture: Texture2D = textures[row * columns + column]
 			var logical_top_left := Vector2(
 				float(column) * logical_size.x,
 				float(row) * logical_size.y)
@@ -1466,15 +1470,20 @@ func _build_room_background_tiles(room_id: String) -> void:
 			tile.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
 			tile.position = _art_to_world(render_center, BACKGROUND_Z)
 			tile.scale = Vector3(
-				render_logical_size.x / logical_size.x,
-				render_logical_size.y / logical_size.y, 1.0)
+				render_logical_size.x / native_size.x,
+				render_logical_size.y / native_size.y, 1.0)
 			tile.pixel_size = tile_pixel_size
 			# Mip edge sampling causes a one-pixel dark hairline where opaque
 			# cards meet. Linear sampling without mipmaps keeps adjacent source
 			# texels continuous at this fixed camera distance.
 			tile.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
 			tile.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			tile.set_meta("source_asset_role", "clean_background_tile")
+			tile.set_meta("source_asset_role",
+				"source_owned_healed_background_tile"
+				if uses_native_healed_tiles else "clean_background_tile")
+			tile.set_meta("native_source_ownership_background",
+				uses_native_healed_tiles)
+			tile.set_meta("runtime_background_tile_root", tile_root)
 			tile.set_meta("render_art_rect",
 				Rect2(logical_top_left, render_logical_size))
 			tile.set_meta("runtime_seam_overlap_pixels", Vector2i(
@@ -1987,6 +1996,7 @@ func _build_hall_throne_card() -> void:
 	m.castle_room_mid_layer.add_child(throne)
 
 func _rebuild_touch_items(room_id: String) -> void:
+	_room_build_generation += 1
 	fixture_rigs.rebuild_begin()
 	if m.castle_room_item_visual_layer != null:
 		for child: Node in m.castle_room_item_visual_layer.get_children():
@@ -2000,7 +2010,6 @@ func _rebuild_touch_items(room_id: String) -> void:
 	m.castle_room_item_sprites.clear()
 	var items: Array = []
 	if room_id == "main_hall":
-		items.append_array(HALL_ITEMS)
 		items.append_array(HALL_DUST_BUNNY_SPAWNS)
 	else:
 		var room_items: Array = ROOM_ITEMS.get(room_id, []) as Array
@@ -2009,7 +2018,20 @@ func _rebuild_touch_items(room_id: String) -> void:
 			_restore_playroom_rescue_clears()
 			if not _playroom_rescue_done():
 				items.append_array(PLAYROOM_RESCUE_ITEMS)
-	items.append_array(fixture_rigs.room_additions(room_id))
+	# A native V4 item can enter a room only through the source-ownership gate in
+	# CastleFixtureRigs. Existing ROOM_ITEMS keep their authored placement while
+	# newly isolated painted objects derive their placement from source_rect.
+	var present_item_ids: Dictionary = {}
+	for item_data_value: Variant in items:
+		var present_item: Dictionary = item_data_value as Dictionary
+		present_item_ids[String(present_item.get("id", ""))] = true
+	for native_item_value: Variant in fixture_rigs.room_native_items(room_id):
+		var native_item: Dictionary = native_item_value as Dictionary
+		var native_item_id: String = String(native_item.get("id", ""))
+		if native_item_id == "" or present_item_ids.has(native_item_id):
+			continue
+		items.append(native_item)
+		present_item_ids[native_item_id] = true
 	for item_data_value: Variant in items:
 		var item_data: Dictionary = item_data_value
 		_add_touch_item(room_id, item_data)
@@ -2020,6 +2042,12 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			or m.castle_room_item_hotspot_layer == null:
 		return
 	var item_id: String = String(item_data["id"])
+	# A rejected native route falls back to the intact room painting. Do not let
+	# an overlapping legacy ROOM_ITEMS record (notably the refrigerator or pool
+	# fixtures) put an older atlas over that baked object. The interaction is
+	# intentionally unavailable until its complete healed-background route loads.
+	if fixture_rigs.native_source_item_uses_fallback_paint(room_id, item_id):
+		return
 	var interaction_key := room_id + ":" + item_id
 	var interaction_spec: Dictionary = INTERACTION_SPECS.get(
 		interaction_key, {}) as Dictionary
@@ -2027,15 +2055,41 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	# The generated v2 pool fixtures removed the iconic rainbow flow and turned
 	# the right-hand fountain into plumbing. The regenerated room deliberately
 	# uses exact room-derived atlases so its four resting interaction subjects
-	# remain visible, coherent, and aligned with their touch targets. V3 pool
-	# additions stay manifest-backed.
+	# remain visible, coherent, and aligned with their touch targets.
 	if room_id == "mermaid_pool" and item_id in [
-			"waterfall", "flower_float", "seahorse_fountain", "star_float"]:
+			"waterfall", "flower_float", "seahorse_fountain", "star_float"] \
+			and String(v2_visual.get("pack", "")) != "v4_native":
 		v2_visual = {}
+	var visual_pack: String = String(v2_visual.get("pack", ""))
 	if not interaction_spec.is_empty() or not v2_visual.is_empty():
 		item_data = item_data.duplicate(true)
 		item_data.merge(interaction_spec, true)
 	if not v2_visual.is_empty():
+		# Native V4 cards own pixels removed from the room painting. Their verified
+		# source_rect is therefore the sole placement authority, including when the
+		# item id overrides a legacy ROOM_ITEMS entry. Never inherit the older
+		# hand-placed position, hotspot, scale, or reference size in that case.
+		if visual_pack == "v4_native":
+			var native_ownership: Dictionary = v2_visual.get(
+				"source_ownership", {}) as Dictionary
+			var native_source_rect: Array = native_ownership.get(
+				"source_rect", []) as Array
+			if native_source_rect.size() == 4:
+				var native_source_position := Vector2(
+					float(native_source_rect[0]), float(native_source_rect[1]))
+				var native_source_size := Vector2(
+					float(native_source_rect[2]), float(native_source_rect[3]))
+				v2_visual = v2_visual.duplicate(true)
+				v2_visual["placement_position"] = [
+					native_source_position.x, native_source_position.y]
+				v2_visual["placement_size"] = [
+					native_source_size.x, native_source_size.y]
+				item_data["pos"] = native_source_position
+				item_data["scale"] = 1.0
+				item_data["hotspot_offset"] = _v2_vector2(
+					v2_visual.get("hotspot_offset", []), Vector2.ZERO)
+				item_data["hotspot_size"] = _v2_vector2(
+					v2_visual.get("hotspot_size", []), native_source_size)
 		var grid: Array = v2_visual.get("grid", [1, 1]) as Array
 		item_data["v2_visual"] = v2_visual
 		item_data["semantic_action"] = String(v2_visual.get(
@@ -2085,7 +2139,12 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	var texture: Texture2D = load(texture_path)
 	if texture == null:
 		return
-	var piece: Sprite3D = _new_card("Animated_" + item_id, texture)
+	var needs_soft_alpha: bool = item_id == "movie_picture" \
+		or item_id.begins_with("meal_plate_") \
+		or bunny_role != "" \
+		or String(item_data.get("rescue_role", "")) != ""
+	var piece: Sprite3D = _new_card(
+		"Animated_" + item_id, texture, needs_soft_alpha)
 	if not v2_visual.is_empty():
 		piece.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
 	piece.hframes = int(item_data.get("hframes", 1))
@@ -2147,6 +2206,20 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	piece.set_meta("animation_frame_duration", float(item_data.get(
 		"frame_duration", 0.10)))
 	piece.set_meta("animation_frames_visited", [])
+	var ownership: Dictionary = v2_visual.get(
+		"source_ownership", {}) as Dictionary
+	var animation_behavior: Dictionary = v2_visual.get(
+		"animation_behavior", {}) as Dictionary
+	piece.set_meta("source_owned_native", visual_pack == "v4_native")
+	piece.set_meta("source_ownership_verified",
+		visual_pack == "v4_native"
+		and bool(ownership.get("passed", false))
+		and bool(ownership.get("verified", false)))
+	piece.set_meta("source_ownership", ownership.duplicate(true))
+	piece.set_meta("animation_behavior", animation_behavior.duplicate(true))
+	piece.set_meta("generic_transform_fallback",
+		bool(animation_behavior.get("generic_transform_fallback",
+			visual_pack != "v4_native")))
 	piece.set_meta("fixed_pivot_animation", not interaction_spec.is_empty()
 		or item_data.has("semantic_action")
 		or item_data.has("roleplay_action")
@@ -2157,7 +2230,7 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 	if item_data.has("room_destination"):
 		piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	if item_data.has("light_cluster"):
+	if item_data.has("light_cluster") and visual_pack != "v4_native":
 		piece.shaded = false
 		piece.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		var fixture_material := ShaderMaterial.new()
@@ -2304,7 +2377,25 @@ func _activate_room_item(item_id: String) -> void:
 	var item_data: Dictionary = record.get("data", {})
 	if sprite == null or bool(sprite.get_meta("busy", false)):
 		return
-	if item_data.has("light_cluster"):
+	var visual: Dictionary = item_data.get("v2_visual", {}) as Dictionary
+	var is_native_authored_states: bool = \
+		String(visual.get("pack", "")) == "v4_native"
+	# Native V4 props always play their item-specific authored states. This route
+	# deliberately precedes the older roleplay/light helpers, several of which
+	# use whole-card bounce or a hard-coded eight-frame light transform.
+	if is_native_authored_states and not item_data.has("room_destination"):
+		var native_interaction_key := String(
+			sprite.get_meta("source_object_id", ""))
+		fixture_rigs.activate(native_interaction_key)
+		var native_launch_activity: String = String(item_data.get(
+			"launch_activity", ""))
+		if native_launch_activity != "":
+			sprite.set_meta(
+				"launch_activity_after_sequence", native_launch_activity)
+		_play_sprite_atlas_sequence(sprite, item_data, true,
+			m.castle_room_id == "kitchen" and item_id == "fridge")
+		return
+	if item_data.has("light_cluster") and not is_native_authored_states:
 		_toggle_hall_sconce(item_id, sprite, item_data)
 		return
 	var roleplay_action: String = String(item_data.get(
@@ -2341,10 +2432,7 @@ func _activate_roleplay_item(roleplay_action: String, item_id: String,
 		"relax":
 			_relax_on_furniture(sprite, item_data)
 		"dress_up":
-			_roleplay_prop_bounce(sprite, item_data)
-			_item_burst(sprite.position, Color(1.0, 0.67, 0.82), 8)
-			m.show_msg("Roshan",
-				"Pretend dress-up time! A crown, a cape, or both!", "talk")
+			_open_roleplay_wardrobe(sprite, item_data)
 		"bedside_light":
 			_toggle_bedside_light(sprite, item_data)
 		_:
@@ -2380,53 +2468,109 @@ func _enter_gallery_room(sprite: Sprite3D,
 	transition.tween_interval(duration + 0.04)
 	transition.tween_callback(show_room.bind(destination, true))
 
-func _roleplay_prop_bounce(sprite: Sprite3D,
+func _serve_dining_meal(sprite: Sprite3D,
 		item_data: Dictionary) -> void:
 	if sprite == null or not is_instance_valid(sprite) \
 			or bool(sprite.get_meta("busy", false)):
 		return
 	sprite.set_meta("busy", true)
+	sprite.set_meta("roleplay_state_count", 6)
+	sprite.set_meta("normalized_use_animation", "stagger_real_meal_plates")
 	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
 		float(item_data.get("pitch", 1.0)))
-	var original_scale: Vector3 = sprite.scale
-	var bounce := sprite.create_tween()
-	bounce.tween_property(sprite, "scale", original_scale * 1.08,
-		0.14).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	bounce.tween_property(sprite, "scale", original_scale,
-		0.20).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	bounce.tween_callback(_finish_roleplay_prop_bounce.bind(
-		sprite, original_scale))
-
-func _finish_roleplay_prop_bounce(sprite: Sprite3D,
-		original_scale: Vector3) -> void:
-	if sprite == null or not is_instance_valid(sprite):
-		return
-	sprite.scale = original_scale
-	sprite.set_meta("busy", false)
-
-func _serve_dining_meal(sprite: Sprite3D,
-		item_data: Dictionary) -> void:
 	m.g["castle_dining_plates"] = 6
-	_sync_dining_plates()
-	_roleplay_prop_bounce(sprite, item_data)
+	for plate_index in range(6):
+		var record: Dictionary = m.castle_room_item_sprites.get(
+			"meal_plate_%d" % plate_index, {}) as Dictionary
+		var plate: Sprite3D = record.get("sprite") as Sprite3D
+		if plate != null:
+			plate.visible = false
+			plate.modulate.a = 1.0
+			plate.set_meta("meal_plate_state", "waiting_to_serve")
+	var room_id := m.castle_room_id
+	var generation := _room_build_generation
+	var serve_sequence := sprite.create_tween()
+	for plate_index in range(6):
+		serve_sequence.tween_interval(0.075)
+		serve_sequence.tween_callback(_reveal_dining_plate.bind(
+			plate_index, room_id, generation))
+	serve_sequence.tween_callback(_finish_serve_dining_meal.bind(
+		sprite, room_id, generation))
 	_item_burst(sprite.position, Color(0.58, 0.94, 0.82), 10)
 	m.show_msg("Roshan",
 		"Dinner is served! Everyone gets a plate at the family table.",
 		"hungry")
 
+func _room_generation_matches(room_id: String, generation: int) -> bool:
+	return is_open() and m.castle_room_id == room_id \
+		and _room_build_generation == generation
+
+
+func _reveal_dining_plate(plate_index: int, room_id: String,
+		generation: int) -> void:
+	if not _room_generation_matches(room_id, generation):
+		return
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		"meal_plate_%d" % plate_index, {}) as Dictionary
+	var plate: Sprite3D = record.get("sprite") as Sprite3D
+	if plate == null or not is_instance_valid(plate):
+		return
+	plate.visible = true
+	plate.modulate.a = 1.0
+	plate.set_meta("meal_plate_state", "served")
+	plate.set_meta("meal_plate_reveal_step", plate_index)
+
+func _finish_serve_dining_meal(sprite: Sprite3D, room_id: String,
+		generation: int) -> void:
+	if not _room_generation_matches(room_id, generation):
+		return
+	_sync_dining_plates()
+	if sprite != null and is_instance_valid(sprite):
+		sprite.set_meta("busy", false)
+
 func _eat_dining_meal(sprite: Sprite3D,
 		item_data: Dictionary) -> void:
 	var plate_count: int = int(m.g.get("castle_dining_plates", 0))
 	if plate_count <= 0:
-		_serve_dining_meal(sprite, item_data)
+		# An empty table asks the actual provisions hutch to serve. The table
+		# itself stays still, and the six existing plate cards own the action.
+		var hutch_record: Dictionary = m.castle_room_item_sprites.get(
+			"provisions_hutch", {}) as Dictionary
+		var hutch_sprite: Sprite3D = hutch_record.get("sprite") as Sprite3D
+		var hutch_data: Dictionary = hutch_record.get(
+			"data", {}) as Dictionary
+		_serve_dining_meal(hutch_sprite, hutch_data)
 		return
 	plate_count -= 1
 	m.g["castle_dining_plates"] = plate_count
-	_sync_dining_plates()
 	var roleplay_foot: Vector2 = item_data.get(
 		"roleplay_foot", Vector2(512.0, 555.0)) as Vector2
 	_position_player_at_foot(roleplay_foot, true)
-	_roleplay_prop_bounce(sprite, item_data)
+	if sprite != null and is_instance_valid(sprite):
+		sprite.set_meta("busy", true)
+		sprite.set_meta("roleplay_state_count", 4)
+		sprite.set_meta("normalized_use_animation", "consume_real_meal_plate")
+	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+		float(item_data.get("pitch", 1.0)))
+	var plate_record: Dictionary = m.castle_room_item_sprites.get(
+		"meal_plate_%d" % plate_count, {}) as Dictionary
+	var consumed_plate: Sprite3D = plate_record.get("sprite") as Sprite3D
+	var room_id := m.castle_room_id
+	var generation := _room_build_generation
+	if consumed_plate != null and is_instance_valid(consumed_plate):
+		consumed_plate.set_meta("meal_plate_state", "being_eaten")
+		var consume_sequence := consumed_plate.create_tween()
+		for alpha_value: float in [0.72, 0.42, 0.16, 0.0]:
+			consume_sequence.tween_interval(0.055)
+			consume_sequence.tween_callback(
+				_set_dining_plate_alpha.bind(
+					consumed_plate, alpha_value, room_id, generation))
+		consume_sequence.tween_callback(_finish_eat_dining_meal.bind(
+			consumed_plate, sprite, room_id, generation))
+	else:
+		_sync_dining_plates()
+		if sprite != null and is_instance_valid(sprite):
+			sprite.set_meta("busy", false)
 	_item_burst(sprite.position, Color(1.0, 0.68, 0.76), 7)
 	if plate_count == 0:
 		m.show_msg("Roshan",
@@ -2434,6 +2578,25 @@ func _eat_dining_meal(sprite: Sprite3D,
 	else:
 		m.show_msg("Roshan",
 			"Yum! One happy bite at the family table.", "hungry")
+
+func _set_dining_plate_alpha(plate: Sprite3D, alpha_value: float,
+		room_id: String, generation: int) -> void:
+	if not _room_generation_matches(room_id, generation):
+		return
+	if plate != null and is_instance_valid(plate):
+		plate.modulate.a = alpha_value
+
+
+func _finish_eat_dining_meal(plate: Sprite3D, sprite: Sprite3D,
+		room_id: String, generation: int) -> void:
+	if not _room_generation_matches(room_id, generation):
+		return
+	if plate != null and is_instance_valid(plate):
+		plate.visible = false
+		plate.modulate.a = 1.0
+		plate.set_meta("meal_plate_state", "eaten")
+	if sprite != null and is_instance_valid(sprite):
+		sprite.set_meta("busy", false)
 
 func _sync_dining_plates() -> void:
 	var plate_count: int = clampi(
@@ -2446,6 +2609,9 @@ func _sync_dining_plates() -> void:
 		var plate: Sprite3D = record.get("sprite") as Sprite3D
 		if plate != null:
 			plate.visible = plate_index < plate_count
+			plate.modulate.a = 1.0
+			plate.set_meta("meal_plate_state",
+				"served" if plate.visible else "eaten")
 
 func _start_roleplay_sleep(sprite: Sprite3D,
 		item_data: Dictionary) -> void:
@@ -2541,44 +2707,112 @@ func _sync_movie_picture() -> void:
 	var picture_texture: Texture2D = load(MOVIE_IMAGES[movie_index]) as Texture2D
 	if picture_texture != null:
 		picture.texture = picture_texture
+		picture.modulate.a = 1.0
 		picture.set_meta("movie_index", movie_index)
 		picture.set_meta("protected_original_displayed_directly", true)
+		picture.set_meta("normalized_use_animation", "actual_picture_crossfade")
 
 func _cycle_home_movie(sprite: Sprite3D,
 		item_data: Dictionary) -> void:
+	var picture_record: Dictionary = m.castle_room_item_sprites.get(
+		"movie_picture", {}) as Dictionary
+	var picture: Sprite3D = picture_record.get("sprite") as Sprite3D
+	if picture == null or not is_instance_valid(picture) \
+			or bool(picture.get_meta("busy", false)):
+		return
 	var movie_index: int = int(m.g.get("castle_movie_index", 0))
-	m.g["castle_movie_index"] = posmod(
+	var next_movie_index := posmod(
 		movie_index + 1, MOVIE_IMAGES.size())
-	_sync_movie_picture()
-	_roleplay_prop_bounce(sprite, item_data)
-	_item_burst(sprite.position, Color(1.0, 0.82, 0.42), 8)
+	m.g["castle_movie_index"] = next_movie_index
+	picture.set_meta("busy", true)
+	picture.set_meta("roleplay_state_count", 4)
+	picture.set_meta("normalized_use_animation", "actual_picture_crossfade")
+	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+		float(item_data.get("pitch", 1.0)))
+	var crossfade := picture.create_tween()
+	crossfade.tween_property(picture, "modulate:a", 0.48, 0.10)
+	crossfade.tween_property(picture, "modulate:a", 0.05, 0.08)
+	crossfade.tween_callback(_apply_home_movie_picture.bind(
+		picture, next_movie_index))
+	crossfade.tween_property(picture, "modulate:a", 0.56, 0.10)
+	crossfade.tween_property(picture, "modulate:a", 1.0, 0.12)
+	crossfade.tween_callback(_finish_home_movie_crossfade.bind(picture))
+	_item_burst(picture.position, Color(1.0, 0.82, 0.42), 8)
 	m.show_msg("Roshan",
 		"Movie night! Pick a cloud couch and watch our family adventure.",
 		"talk")
+
+func _apply_home_movie_picture(picture: Sprite3D, movie_index: int) -> void:
+	if picture == null or not is_instance_valid(picture) \
+			or MOVIE_IMAGES.is_empty():
+		return
+	var normalized_index := posmod(movie_index, MOVIE_IMAGES.size())
+	var picture_texture: Texture2D = load(
+		MOVIE_IMAGES[normalized_index]) as Texture2D
+	if picture_texture == null:
+		return
+	picture.texture = picture_texture
+	picture.set_meta("movie_index", normalized_index)
+	picture.set_meta("protected_original_displayed_directly", true)
+
+func _finish_home_movie_crossfade(picture: Sprite3D) -> void:
+	if picture == null or not is_instance_valid(picture):
+		return
+	picture.modulate.a = 1.0
+	picture.set_meta("busy", false)
 
 func _relax_on_furniture(sprite: Sprite3D,
 		item_data: Dictionary) -> void:
 	var roleplay_foot: Vector2 = item_data.get(
 		"roleplay_foot", Vector2(512.0, 555.0)) as Vector2
 	_position_player_at_foot(roleplay_foot, true)
-	_roleplay_prop_bounce(sprite, item_data)
-	_item_burst(sprite.position,
-		Color(item_data.get("color", Color(0.78, 0.86, 1.0))), 6)
-	m.show_msg("Roshan",
-		"Cloud-couch cuddle time! We can relax as long as we like.", "talk")
+	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+		float(item_data.get("pitch", 1.0)))
+	if sprite != null and is_instance_valid(sprite):
+		sprite.set_meta("normalized_use_animation", "player_moves_to_seat")
+		_item_burst(sprite.position,
+			Color(item_data.get("color", Color(0.78, 0.86, 1.0))), 6)
+	var item_id: String = String(item_data.get("id", ""))
+	var relax_copy := "Cloud-couch cuddle time! We can relax as long as we like."
+	if item_id == "reading_cushion":
+		relax_copy = "Cosy story-cushion time! Let's pick a favorite story."
+	elif item_id == "cloud_pouf":
+		relax_copy = "Roshan found the middle cloud pouf for movie night!"
+	m.show_msg("Roshan", relax_copy, "talk")
 
 func _toggle_bedside_light(sprite: Sprite3D,
 		item_data: Dictionary) -> void:
+	if sprite == null or not is_instance_valid(sprite) \
+			or bool(sprite.get_meta("busy", false)):
+		return
 	var light_on: bool = not bool(m.g.get(
 		"castle_bedside_light_on", false))
 	m.g["castle_bedside_light_on"] = light_on
-	sprite.modulate = Color(1.12, 1.03, 0.78, 1.0) if light_on \
+	var target_color := Color(1.12, 1.03, 0.78, 1.0) if light_on \
 		else Color(0.64, 0.66, 0.80, 1.0)
-	_roleplay_prop_bounce(sprite, item_data)
+	var start_color: Color = sprite.modulate
+	sprite.set_meta("busy", true)
+	sprite.set_meta("roleplay_state_count", 4)
+	sprite.set_meta("normalized_use_animation", "actual_light_brightness")
+	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+		float(item_data.get("pitch", 1.0)))
+	var brightness_sequence := sprite.create_tween()
+	for step in range(1, 5):
+		brightness_sequence.tween_property(
+			sprite, "modulate", start_color.lerp(target_color,
+				float(step) / 4.0), 0.065)
+	brightness_sequence.tween_callback(_finish_bedside_light.bind(
+		sprite, target_color))
 	_item_burst(sprite.position, Color(1.0, 0.88, 0.48), 6)
 	m.show_msg("Roshan",
 		"Bedtime pearl light on!" if light_on \
 		else "Bedtime pearl light off. So cosy!", "talk")
+
+func _finish_bedside_light(sprite: Sprite3D, target_color: Color) -> void:
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	sprite.modulate = target_color
+	sprite.set_meta("busy", false)
 
 func _sync_bedside_light() -> void:
 	var record: Dictionary = m.castle_room_item_sprites.get(
@@ -2589,6 +2823,44 @@ func _sync_bedside_light() -> void:
 	sprite.modulate = Color(1.12, 1.03, 0.78, 1.0) \
 		if bool(m.g.get("castle_bedside_light_on", false)) \
 		else Color(0.64, 0.66, 0.80, 1.0)
+	sprite.set_meta("normalized_use_animation", "actual_light_brightness")
+
+func _open_roleplay_wardrobe(sprite: Sprite3D,
+		item_data: Dictionary) -> void:
+	if sprite == null or not is_instance_valid(sprite) \
+			or bool(sprite.get_meta("busy", false)) \
+			or m.wardrobe_layer != null:
+		return
+	sprite.set_meta("busy", true)
+	sprite.set_meta("roleplay_state_count", 4)
+	sprite.set_meta(
+		"normalized_use_animation", "wardrobe_glint_then_real_picker")
+	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+		float(item_data.get("pitch", 1.0)))
+	var original_modulate: Color = sprite.modulate
+	var pearl_glint := Color(
+		minf(original_modulate.r * 1.10, 1.25),
+		minf(original_modulate.g * 1.06, 1.20),
+		minf(original_modulate.b * 1.14, 1.25), original_modulate.a)
+	var open_sequence := sprite.create_tween()
+	open_sequence.tween_property(sprite, "modulate", pearl_glint, 0.075)
+	open_sequence.tween_property(
+		sprite, "modulate", original_modulate.lerp(pearl_glint, 0.42), 0.075)
+	open_sequence.tween_property(sprite, "modulate", pearl_glint, 0.075)
+	open_sequence.tween_property(sprite, "modulate", original_modulate, 0.075)
+	open_sequence.tween_callback(_finish_open_roleplay_wardrobe.bind(
+		sprite, original_modulate))
+
+func _finish_open_roleplay_wardrobe(sprite: Sprite3D,
+		original_modulate: Color) -> void:
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	sprite.modulate = original_modulate
+	sprite.set_meta("busy", false)
+	_item_burst(sprite.position, Color(1.0, 0.67, 0.82), 8)
+	m.show_msg("Roshan",
+		"Pretend dress-up time! A crown, a cape, or both!", "talk")
+	m._open_wardrobe()
 
 func _activate_item_group(hotspot_group: String, _owner_item_id: String) -> void:
 	var group_records: Array[Dictionary] = []
@@ -2711,27 +2983,10 @@ func _sync_hall_lighting() -> void:
 				nearest_distance = distance
 		if nearest_id != "":
 			active_cluster_ids.append(nearest_id)
-	var active_fixture_count := 0
-	var active_lit_count := 0
-	for item_data: Dictionary in HALL_ITEMS:
-		if not item_data.has("light_cluster"):
-			continue
-		var item_cluster: String = String(item_data["light_cluster"])
-		var item_id: String = String(item_data["id"])
-		var item_record: Dictionary = m.castle_room_item_sprites.get(
-			item_id, {})
-		var item_sprite: Sprite3D = item_record.get("sprite") as Sprite3D
-		var item_is_on: bool = bool(m.castle_room_light_states.get(
-			item_id, true))
-		if item_sprite != null:
-			_apply_sconce_visual(item_sprite, item_is_on)
-		if item_cluster not in active_cluster_ids:
-			continue
-		active_fixture_count += 1
-		if item_is_on:
-			active_lit_count += 1
-	var active_light_ratio: float = float(active_lit_count) \
-		/ maxf(1.0, float(active_fixture_count))
+	# The current hall painting has no separately owned sconces. Keep its capped
+	# light clusters aligned to the painted illumination, without laying obsolete
+	# switchable fixture sprites over the finished background.
+	var active_light_ratio := 1.0
 	var speedy_shadow_used := false
 	for light: Light3D in m.castle_room_light_nodes:
 		if light == null or not is_instance_valid(light):
@@ -2743,20 +2998,10 @@ func _sync_hall_lighting() -> void:
 				HALL_FILL_OFF_ENERGY, HALL_FILL_ENERGY, active_light_ratio)
 			continue
 		var cluster_id: String = String(light.get_meta("cluster_id", ""))
-		var fixture_count := 0
-		var lit_count := 0
-		for item_data: Dictionary in HALL_ITEMS:
-			if String(item_data.get("light_cluster", "")) != cluster_id:
-				continue
-			fixture_count += 1
-			if bool(m.castle_room_light_states.get(
-					String(item_data["id"]), true)):
-				lit_count += 1
-		var energy_ratio: float = float(lit_count) / maxf(1.0, float(fixture_count))
 		var cluster_is_active: bool = cluster_id in active_cluster_ids
-		light.visible = hall_visible and cluster_is_active and lit_count > 0
+		light.visible = hall_visible and cluster_is_active
 		var max_energy: float = float(light.get_meta("max_energy", 2.5))
-		light.light_energy = lerpf(0.55, max_energy, energy_ratio)
+		light.light_energy = max_energy
 		if not light.visible:
 			light.shadow_enabled = false
 		elif m.quality == "speedy":
@@ -2986,7 +3231,7 @@ func _item_burst(center: Vector3, color: Color, count: int) -> void:
 		return
 	var star_texture: Texture2D = load("res://assets/mg/star.png")
 	for index in range(count):
-		var mote: Sprite3D = _new_card("TouchSparkle", star_texture)
+		var mote: Sprite3D = _new_card("TouchSparkle", star_texture, true)
 		mote.set_meta("source_asset_role", "transient_effect")
 		var local_effect_z := center.z + 0.035
 		mote.pixel_size = _pixel_size_for_depth(local_effect_z)
@@ -3031,7 +3276,8 @@ func _update_depth_sort() -> void:
 func _player_shadow() -> Sprite3D:
 	return m.castle_room_player_shadow
 
-func _new_card(card_name: String, texture: Texture2D) -> Sprite3D:
+func _new_card(card_name: String, texture: Texture2D,
+		soft_alpha: bool = false) -> Sprite3D:
 	var card := Sprite3D.new()
 	card.name = card_name
 	card.texture = texture
@@ -3039,11 +3285,19 @@ func _new_card(card_name: String, texture: Texture2D) -> Sprite3D:
 	card.shaded = false
 	card.no_depth_test = false
 	card.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-	# Discard below the painted silhouette before depth testing. Opaque prepass
-	# made routing-mask pixels participate in depth and could erase Roshan even
-	# where the card appeared to contain only background.
-	card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-	card.alpha_scissor_threshold = 0.5
+	if soft_alpha:
+		# Contact shadows and deliberately fading picture/effect cards need the
+		# full alpha ramp. Alpha-blended Sprite3D surfaces do not write the opaque
+		# depth pass, so their transparent texels cannot erase Roshan.
+		card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
+		card.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		card.set_meta("castle_soft_alpha", true)
+	else:
+		# Discard below the painted silhouette before depth testing. Opaque prepass
+		# made routing-mask pixels participate in depth and could erase Roshan even
+		# where the card appeared to contain only background.
+		card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+		card.alpha_scissor_threshold = 0.5
 	card.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	card.set_meta("castle_world_sprite3d", true)
 	return card
@@ -3155,6 +3409,33 @@ func _player_texture_scale() -> float:
 		/ float(maxi(1, m.castle_room_player_sprite.vframes))
 	return desired_art_height \
 		/ maxf(1.0, frame_height)
+
+func refresh_player_skin() -> void:
+	# WardrobeUI changes the primary 3D Player through ReefMain._apply_skin().
+	# The castle owns a separate Sprite3D standee, so refresh that same selected
+	# look in place without replacing the room actor or disturbing its position.
+	var sprite: Sprite3D = m.castle_room_player_sprite
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	var prior_loop: Node = sprite.get_node_or_null("AlwaysAliveSpriteLoop")
+	if prior_loop != null:
+		sprite.remove_child(prior_loop)
+		prior_loop.queue_free()
+	sprite.region_enabled = false
+	sprite.hframes = 1
+	sprite.vframes = 1
+	sprite.frame = 0
+	sprite.offset = Vector2.ZERO
+	sprite.texture = load(m.skin_sprite_path()) as Texture2D
+	if m.skin_id == "classic":
+		var animator: RoshanSpriteLoop = ROSHAN_SPRITE_LOOP.new()
+		animator.name = "AlwaysAliveSpriteLoop"
+		sprite.add_child(animator)
+		animator.setup_sprite_3d(sprite, false, sprite)
+	sprite.set_meta("wardrobe_skin_id", m.skin_id)
+	var foot: Vector2 = sprite.get_meta(
+		"stage_foot", Vector2(640.0, 620.0)) as Vector2
+	_position_player_at_foot(foot, false)
 
 func _player_depth_for_foot(foot_y: float, walk: Rect2,
 		mid_foot_y: float) -> float:
@@ -3335,7 +3616,7 @@ func _add_playroom_rescue_pointer() -> void:
 	if star_texture == null:
 		return
 	var pointer: Sprite3D = _new_card(
-		"BabyEagleRescuePointer", star_texture)
+		"BabyEagleRescuePointer", star_texture, true)
 	pointer.position = _art_to_world(Vector2(512.0, 210.0), 2.72)
 	pointer.pixel_size = _pixel_size_for_depth(2.72)
 	pointer.scale = Vector3.ONE * 0.052
