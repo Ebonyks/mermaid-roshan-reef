@@ -857,7 +857,10 @@ acceptance decisions, and the owner-authorized production transform are in
 - `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/sign_reuse_manifest.json`
   - project-authored deterministic reuse ledger for every sign card below;
     records output hashes, approved source hashes and crop rectangles, alpha
-    treatment, and the one whole-card Lanczos resize; provenance data, not art.
+    treatment, the one whole-card Lanczos resize, and the Family Gallery
+    badge's exact collection-palette samples and outline radii; it also keeps
+    the eight-sign 4.5/5 compatibility scorecard and acceptance decisions;
+    provenance data, not art.
 - `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/throne_reuse_manifest.json`
   - project-authored deterministic reuse ledger for the retained throne card;
     records its approved source rectangle, hashes, alpha audit, unchanged RGB
@@ -920,9 +923,11 @@ strict 2K build and audit manifests.
     `24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41`.
 
 The eight 256x256 sign cards below reuse only already licensed, approved
-project art. Each source crop, source hash, soft alpha treatment, and whole-card
-Lanczos resize is recorded in `sign_reuse_manifest.json`; no external or newly
-generated RGB artwork was introduced.
+project art. Each source crop, source hash, alpha treatment, and whole-card
+Lanczos resize is recorded in `sign_reuse_manifest.json`; the Dream House sign
+uses a hand-traced semantic alpha to exclude its portal architecture, plus a
+deterministic navy keyline and gold edge sampled from the approved Library
+badge. No external or AI-generated RGB artwork was introduced.
 
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png`
   - approved Main Hall Screen B badge reuse; SHA-256
@@ -931,8 +936,12 @@ generated RGB artwork was introduced.
   - approved Main Hall Screen B badge reuse; SHA-256
     `17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png`
-  - approved Family Wing hall badge reuse; SHA-256
-    `65ae7b5b6ffdf734ebc70b2ab9113ad2acc5985cb9a042f8a6dbadcd192ccd51`.
+  - approved Family Wing hall crest re-extracted from the full existing source
+    so its formerly clipped right edge and adjacent portal scroll are absent;
+    semantic alpha, visible-bounds centering, and a deterministic
+    collection-sampled keyline only, with no repaint or new RGB artwork;
+    SHA-256
+    `222d5a5a4c590b6ae951ff5d7f4431bd35ed539e48cf0346a2e31fd83a09a0dd`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png`
   - approved Main Hall Screen A badge reuse; SHA-256
     `7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd`.
@@ -946,13 +955,46 @@ generated RGB artwork was introduced.
   - approved Main Hall Screen A badge reuse; SHA-256
     `7378b84c037fc6c5fe21880577f6eba2214d3c5e990b726bfaf67d83e8c03fd1`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png`
-  - approved Main Hall Screen B badge reuse; SHA-256
+  - approved Main Hall Screen B badge reuse, accepted and preserved
+    byte-for-byte after review found that removing its minor source-arch cap
+    would also cut valid teddy/rim pixels; SHA-256
     `22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df`.
+
+The twelve 256x256 elevator crests below are project-authored deterministic
+derivatives of the already licensed physical-door art above and the four
+approved Dream House portal cards. `tools/build_castle_elevator_picture_icons.py`
+alpha-crops the existing crest, applies one aspect-preserving Lanczos fit into
+a shared 256x256 transparent canvas with audited optical-size normalization,
+and centers it without repainting, stretching, AI generation, or alteration
+of any source. Exact source/output
+dimensions, crop rectangles, hashes, and transforms are recorded in
+`assets/ui/castle_room_buttons_v2/elevator_picture_icon_manifest.json`.
+
+- `assets/ui/castle_room_buttons_v2/room_main_hall.png`
+- `assets/ui/castle_room_buttons_v2/room_opera_hall.png`
+- `assets/ui/castle_room_buttons_v2/room_kitchen.png`
+- `assets/ui/castle_room_buttons_v2/room_library.png`
+- `assets/ui/castle_room_buttons_v2/room_playroom.png`
+- `assets/ui/castle_room_buttons_v2/room_craft_room.png`
+- `assets/ui/castle_room_buttons_v2/room_mermaid_pool.png`
+- `assets/ui/castle_room_buttons_v2/room_bubble_bath.png`
+- `assets/ui/castle_room_buttons_v2/room_dining_room.png`
+- `assets/ui/castle_room_buttons_v2/room_royal_bedroom.png`
+- `assets/ui/castle_room_buttons_v2/room_sleepover_bedroom.png`
+- `assets/ui/castle_room_buttons_v2/room_movie_lounge.png`
+
+The Royal Hall veil reuses
+`assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png` under its existing
+project-original license. Five narrow, low-alpha unshaded `Sprite3D` cards use
+that exact byte-unchanged texture at separate real depths; this introduces no
+new art and does not alter the accepted Main Hall background.
+
 - `assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png`
-  - approved-project exact RGB crop of the previously licensed aligned Screen B
-    throne, with only a manually audited antialiased silhouette alpha mask;
-    no upscale, external source, new RGB pixels, or redesigned throne;
-    SHA-256 `49c91df90ca65b56a5562a9ecc5e61fc4dc361fb684370cd7e3365375ff8ca1f`.
+  - exact RGB crop of the approved Regen-01 pearl-shell throne's orthographic
+    front view, with only border-connected studio-matte removal and exclusion
+    of its source-sheet floor shadow; no upscale, external source, new RGB
+    pixels, or redesign; SHA-256
+    `91a8edcb91492d699e228cb4048fa346825f2a9e034ca3c9693f69a98933bcff`.
 
 - `audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_audit.json`
   and `castle_main_hall_redraw_2026-08-04_2k_{transform_overlay,grid_proof,seam_proof,reconstruction_proof}.png`
@@ -2297,3 +2339,33 @@ OpenAI built-in ImageGen natives and project-authored non-destructive derivative
 - `assets_src/imagegen/opera_codex_2026-08-02/native/world_painter_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
 - `assets_src/imagegen/opera_codex_2026-08-02/native/world_popstar_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
 - `assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+
+## Fable Opera animation review kit (2026-08-04)
+
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_imp_family_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_60_widget_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_12_rival_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_selected_scuffles_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_stress_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `assets/audio/sfx/combat_*.wav` (combat_pop, combat_bonk, combat_poof,
+  combat_freeze, combat_charge_ring, combat_fizzle) — synthesized entirely
+  by `tools/gen_combat_sfx.py` in this repository (deterministic
+  pure-stdlib waveforms, seeded noise, no external sources, no recordings).
+  The combat feel-stack reaction voices: hit pop, harm bonk, death poof,
+  freeze tinkle, charge-ring shimmer, kind-miss fizzle. Owner-recorded
+  replacements can drop in at the same paths (all callers check
+  ResourceLoader.exists). License: project code.
+
+## Combat tutorial training art (2026-08-01)
+
+- `assets/castle/training/training_grotto_backdrop.png`,
+  `ghost_hand.png`, `verb_chip_tap.png`, `verb_chip_hold.png`, and their
+  preservation masters under
+  `assets_src/imagegen/combat_tutorial_2026-08-01/` are project-original art
+  generated with OpenAI built-in image generation on 2026-08-01. License:
+  project original. URL: none (project-local generation). The backdrop was
+  whole-canvas resized to 2048x1024. The three simple opaque subjects were
+  generated on flat green, converted to alpha with the installed Codex chroma
+  helper using soft matte and despill, then whole-canvas resized to 512x512 or
+  256x256. Exact prompts, generation identifiers, dimensions, hashes, reuse
+  audit, and processing notes are recorded in the adjacent `PROMPTS.md`.

@@ -11,6 +11,68 @@ Android phone (see AGENTS.md). More things to touch, and gentle ambient motion
 that invites touching, without breaking the picture-first art rules or the
 performance envelope.
 
+## Current Royal Hall semantic supersession (owner 2026-08-04)
+
+This section is the current design contract. References later in this handoff
+to a tappable throne or throne portal are retained as historical audit context;
+they no longer describe the intended Main Hall endpoint.
+
+- The oversized portal at the far-right end of the Main Hall is the **Royal
+  Hall event gate**. It is the staging entrance for Crown moments, companion
+  moments, the first combat class, boss fights, and other explicitly armed
+  major story events, not a generic throne toy.
+- The separate Huluu throne overlay is retired from the runtime composition.
+  Preserve its source and provenance, but do not load or substitute it in the
+  Main Hall.
+- The accepted shell-and-pearl doorway, curtains, corridor, stairs, and runner
+  already painted beneath that overlay remain unchanged in the approved tiled
+  background. Do not repaint, regenerate, cover with a second doorway frame,
+  or otherwise change the base tiles.
+- In its ordinary state, the doorway is sealed by discreet, unshaded,
+  depth-tested `Sprite3D` mist cards placed at real scene depth. The mist is an
+  environmental veil, not a button, badge, full-screen overlay, or loud looping
+  effect. The accepted implementation reuses five narrow, low-alpha copies of
+  the existing Sky Lagoon wisp card rather than broad stacked smoke puffs.
+- The mist clears only while a Crown/companion/first-combat progression beat is
+  eligible or a boss/other major-event controller has explicitly armed the
+  Royal Hall. Priority is: explicitly armed event, Crown, companion, unfinished
+  first combat class, then locked/resting. This prevents training from stealing
+  either welcome and lets future bosses pre-empt training safely. The event owns
+  the opening, entry, and optional reseal choreography. A locked tap must remain
+  kind and wordless-first: a quiet mist response, spoken cue, and visual
+  pointer; never a fail state or reading-dependent instruction.
+- Runtime event ownership uses generation tokens. Leaving the hall, opening
+  the elevator, changing rooms, or starting a newer approach invalidates an
+  earlier arrival callback; a named clear must also present the generation it
+  owns. Rapid taps and stale controllers therefore cannot launch an event in a
+  different room or consume a newly re-armed boss event.
+- The combat tutorial no longer has a throne hotspot. Once Crown and companion
+  welcomes are complete, an unfinished first class becomes the next Royal Hall
+  event. Cancelling keeps it eligible; graduation saves completion and reseals
+  the mist. Its arena and lesson behavior remain unchanged.
+
+### Current icon-family compatibility contract (2026-08-05)
+
+- The eight physical Main Hall signs form one approved pearl-scallop family.
+  Seven remain byte-identical to their accepted sources. Only the Family
+  Gallery sign was re-extracted from its full approved doorway crest after the
+  4.5/5 audit found both a thin border and a clipped right-edge tab. A semantic
+  alpha and collection-sampled navy/gold outline remove the adjacent portal
+  scroll without repainting or generating new RGB artwork.
+- The omnipresent Storybook elevator must not use platform emoji. Its twelve
+  destinations use 256x256 transparent crests derived only from those physical
+  signs and the four approved Dream House doorway crests. One shared canvas,
+  optically normalized scale, pearl/gold palette, and Storybook button
+  treatment make the collection stable across desktop and Android while
+  preserving one-tap, non-reader navigation.
+- Menu crests are HUD assets and may remain `Control` icons. The physical door
+  signs, Royal Hall wisps, characters, props, occluders, and all other world art
+  remain depth-tested `Sprite3D` cards.
+
+This supersession changes only the far-right endpoint's meaning and overlay.
+All other Main Hall architecture, props, lighting, placement, navigation, and
+tiled-background continuity remain outside its scope.
+
 ---
 
 ## 1. Current state (verified against code, screenshots, and probes)
@@ -21,11 +83,15 @@ performance envelope.
   (`WORLD_ORIGIN` y=2000, camera z=18, FOV 58.109). No meshes, no models.
   Main Hall background tiles are the only shaded receivers (touch-lit hall);
   all other cards are unshaded (`castle_rooms_25d.gd:1-8`).
-- **Main Hall** is one logical 3344×941 art space (two 1672×941 screens, 8
-  native tiles). Roshan's foot X pans the camera. Depth Z bands: background 0,
+- **Main Hall** is one logical 3344×941 art space (two 1672×941 screens, 16
+  non-overlapping 910×1024 native tiles reconstructed from the accepted
+  7280×2048 master). Roshan's foot X pans the camera. Depth Z bands: background 0,
   items 0.55, player 1.25–3.15, midground 2.0, foreground 4.0, effects 4.35.
-- **Seven destination rooms** each: 2×2 background tiles (from 2K masters),
-  optional midground (only `mermaid_pool` has one — the pool water card), two
+- **Eleven destination rooms** supplement the Main Hall; the original seven use
+  2×2 background tiles from 2K masters and the Dream House wing adds Dining,
+  Royal Bedroom, Sleepover Bedroom, and Movie Lounge with the same world-card
+  contract. Each room has an optional midground (the Mermaid Pool uses a pool
+  water card), two
   foreground occluder cards, three touch-prop cards, Roshan + contact shadow.
   Steady-state visible world cards per room ≈ 10–14 (probe-enforced in the
   hall at 14).
@@ -35,10 +101,10 @@ performance envelope.
   (`_update_touch_hotspot`), minimum size 112×112 stage px. The world systems
   (InteractionDirector, tap_move, hit_engines, verbs) are all disabled/dormant
   inside the castle — do not re-enable them; extend the local pattern.
-- **Navigation:** tap-to-walk (walk Rect2 per room); 8 hall door/throne
-  portals with walk-then-enter choreography; Storybook elevator (↕, bottom
-  right) opens a 3×3 icon grid (8 rooms + disabled "Bedrooms are dreaming"
-  moon tile); back button exits to the Sky Lagoon promenade
+- **Navigation:** tap-to-walk (walk Rect2 per room); 8 ordinary hall doors plus
+  the separate Royal Hall event gate use walk-then-enter choreography. The
+  omnipresent Storybook elevator (↕, bottom right) opens a 4×3 crest grid for
+  all 12 actual rooms; back exits to the Sky Lagoon promenade
   (`_return_to_courtyard`). Entry is the promenade castle gate (tap-confirm or
   doorstep walk) → `_enter_castle_interior` → `open("main_hall")`.
 - **Lighting toy (the current crown jewel):** 6 hall sconces toggle 4

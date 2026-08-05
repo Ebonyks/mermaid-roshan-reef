@@ -213,6 +213,7 @@ var steal_index := -1
 var captain_pending := false
 var idle_t := 0.0
 var score_cool := 0.0
+var bounce_cool := 0.0
 var bop_puff_texture: Texture2D = null
 var nursery_catch: OperaNurseryCatch = null
 ## Stage geography: the painted world's walkable route and task stations.
@@ -261,6 +262,7 @@ var magnifier_texture: Texture2D = null
 
 var root: Control
 var backdrop_node: OperaWorldBackdrop2D
+var top: ColorRect
 var action_panel: ColorRect
 var prop_rect: TextureRect
 var player_actor: TextureRect
@@ -332,7 +334,7 @@ func _build_world() -> void:
 	backdrop_node.setup(career_id)
 
 	var shade := ColorRect.new()
-	shade.color = Color(0.025, 0.025, 0.11, 0.10)
+	shade.color = Color(0.0, 0.0, 0.0, 0.0)
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_full_rect(shade)
 	root.add_child(shade)
@@ -342,16 +344,19 @@ func _build_world() -> void:
 	_assign_stations()
 	_build_station_markers()
 
-	var top := ColorRect.new()
-	top.color = Color(0.025, 0.025, 0.11, 0.84)
-	top.position = Vector2(18, 14)
-	top.size = Vector2(1244, 124)
+	top = ColorRect.new()
+	# was a 1244x124 near-black slab (16.7% of screen) whose lower 78px were
+	# empty on every non-finale beat, covering the painted curtain valance
+	top.color = Color(0, 0, 0, 0)
+	top.position = Vector2(18, 10)
+	top.size = Vector2(1244, 96)
 	top.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(top)
 
-	title_label = _label(String(competition.spec.get("world", String(config.get("name", "CAREER CUP")))), 28, Color(1.0, 0.91, 0.55))
-	title_label.position = Vector2(24, 8)
-	title_label.size = Vector2(1196, 38)
+	top.draw.connect(_draw_title_pill)
+	title_label = _label(String(competition.spec.get("world", String(config.get("name", "CAREER CUP")))), 26, Color("#382485"))
+	title_label.position = Vector2(322, 6)
+	title_label.size = Vector2(600, 40)
 	top.add_child(title_label)
 
 	player_bar = ProgressBar.new()
@@ -382,14 +387,16 @@ func _build_world() -> void:
 	top.add_child(rival_name_label)
 
 	player_actor = _actor("res://assets/opera/worlds/actors/roshan_%s.png" % career_id)
-	player_actor.size = Vector2(250, 288)
+	# scale contract: Roshan is ~1.3x a crew imp, ~1.2x the captain —
+	# a small bit taller, never more than 1.5x (owner 2026-08-03)
+	player_actor.size = Vector2(250, 250)
 	_place_on_stage(player_actor, StagePaths.point_along(stage_points, 0.08))
 	root.add_child(player_actor)
 	var partner_path := "res://assets/opera/worlds/actors/rival_%s.png" % career_id
 	if career_id == "nursery":
 		partner_path = "res://assets/opera/worlds/actors/faron_nursery.png"
 	rival_actor = _actor(partner_path)
-	rival_actor.size = Vector2(250, 270)
+	rival_actor.size = Vector2(190, 190)   # he is an imp, not her equal in height
 	_place_on_stage(rival_actor, StagePaths.point_along(stage_points, 0.92))
 	root.add_child(rival_actor)
 	if career_id == "nursery":
@@ -512,7 +519,7 @@ func _build_world() -> void:
 	root.add_child(lens_layer)
 
 	crowd_label = _label("●  ●  ●  ●  ●", 30, Color(1.0, 0.84, 0.5))
-	crowd_label.position = Vector2(430, 595)
+	crowd_label.position = Vector2(430, 556)
 	crowd_label.size = Vector2(420, 42)
 	root.add_child(crowd_label)
 	_build_audience()
@@ -666,6 +673,21 @@ func _build_station_markers() -> void:
 		station_nodes.append(marker)
 
 
+func _draw_title_pill() -> void:
+	# a compact storybook plate instead of a full-width black slab
+	if title_label == null or not title_label.visible:
+		return
+	var plate := StyleBoxFlat.new()
+	plate.bg_color = Color(0.94, 0.98, 1.0, 0.94)
+	plate.set_border_width_all(4)
+	plate.border_color = Color("#6e4dc2").lerp(Color("#382485"), 0.62)
+	plate.set_corner_radius_all(30)
+	plate.shadow_color = Color(0.19, 0.10, 0.48, 0.30)
+	plate.shadow_size = 10
+	plate.shadow_offset = Vector2(0, 5)
+	plate.draw(top.get_canvas_item(), Rect2(300.0, 0.0, 644.0, 52.0))
+
+
 func _draw_task_card() -> void:
 	# the exact StorybookUI menu language (see the UI extraction report):
 	# paper fill, violet drop shadow, PURPLE->PURPLE_DEEP contour, gold
@@ -755,6 +777,7 @@ func _build_audience() -> void:
 		fan.position = Vector2(18.0 + float(index) * 207.0, 592.0)
 		fan.size = Vector2(116, 126)
 		fan.modulate = Color(1.0, 1.0, 1.0, 0.96)
+		fan.visible = false   # the crowd arrives for the show, not for prep
 		root.add_child(fan)
 		audience.append(fan)
 
@@ -866,6 +889,7 @@ func _show_phase() -> void:
 				and (steal_index < 0 or phase_index < steal_index)
 	phase_label.text = "%s   %s" % [String(phase.get("icon", "★")), String(phase.get("name", "PLAY"))]
 	phase_fill.value = 0.0
+	surface.set_fill(0.0)
 	if m != null:
 		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
 
@@ -942,7 +966,10 @@ func _start_stage_combat(combat: Dictionary) -> void:
 	imp_brain.begin_crew(count + (1 if captain_coming else 0))
 	for index in range(count):
 		# deterministic spread along the painted route — no RNG
-		var t := fmod(0.14 + float(index) * 0.83 / float(count) + float(career_id.length()) * 0.031, 0.9)
+		var roam := StagePaths.roam_range(career_id)
+		var spread := roam.y - roam.x
+		var t := roam.x + fmod(float(index) * spread / float(count)
+			+ float(career_id.length()) * 0.031, spread)
 		_spawn_stage_imp(t, false, index)
 	captain_pending = captain_coming
 	# Roshan takes her mark so the crew has room to come at her from both
@@ -956,8 +983,10 @@ func _spawn_stage_imp(path_t: float, captain: bool, seed_index: int) -> void:
 	node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	node.size = Vector2(150, 150) if captain else Vector2(118, 118)
-	# Pivot at the imp's feet: squash, stretch, and the hop lean all keep her
+	# scale contract (owner 2026-08-03): Roshan is a small bit taller than the
+	# imps and never more than 1.5x — 1.39x the crew, 1.25x the captain.
+	node.size = Vector2(200, 200) if captain else Vector2(180, 180)
+	# Pivot at the imp's feet: squash, stretch, and the hop lean all keep him
 	# planted on the painted route without touching the placement maths.
 	node.pivot_offset = node.size * Vector2(0.5, 1.0)
 	combat_layer.add_child(node)
@@ -1175,6 +1204,12 @@ func competition_progress() -> float:
 
 func _set_finale_visible(show_finale: bool) -> void:
 	var cooperative := competition != null and competition.is_cooperative()
+	# the family fills the front row for the performance and is absent while
+	# she works — the row used to cover 57% of the painting's richest band
+	for fan in audience:
+		fan.visible = show_finale
+	if crowd_label != null:
+		crowd_label.visible = show_finale
 	if rival_actor != null:
 		rival_actor.visible = show_finale or cooperative
 	if player_bar != null:
@@ -1225,9 +1260,16 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	phase_fill.value = progress * 100.0
+	# the widget's own art fills with the work: the bowl actually pours,
+	# the basin actually fills. Without this the delivered _fill/_bubbles/
+	# _full overlays never move and the child gets no feedback at all.
 	surface.set_fill(progress)
 	surface.note_result(quality >= 0.5)
-	_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
+	# one bounce per 0.22s: mashing used to restart the tween every frame and
+	# leave her drifting off her rest transform
+	if bounce_cool <= 0.0:
+		bounce_cool = 0.22
+		_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
 		if quality >= 0.5:
 			# never rotate by a multiple of three — that froze the target
@@ -1247,7 +1289,12 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			var reserve := 2.0 if captain_pending else float(_live_captain_hp())
 			phase_progress = minf(phase_progress, goal - reserve)
 	if phase_progress >= goal:
+		# hold the finished picture and celebrate it — the completion state
+		# used to exist for ~0.18s before the next phase wiped it, so the
+		# child never saw the thing she had just made
 		surface.accept_completion()
+		if action_panel != null and surface != null:
+			_bop_burst_at(action_panel.position + surface.position + surface.size * 0.5, false)
 		phase_complete_t = 0.30
 		phase_advance_pending = true
 
@@ -1258,6 +1305,9 @@ func _advance_completed_phase() -> void:
 	phase_advance_pending = false
 	phase_complete_t = 0.0
 	phase_index += 1
+	# a beat of quiet before the next task opens — the acts used to snap
+	# straight from one widget into the next with no breath between them
+	phase_gap = maxf(phase_gap, 0.9)
 	_show_phase()
 
 
@@ -1311,6 +1361,10 @@ func _on_nursery_baby_caught(quality: float) -> void:
 	var goal := maxf(1.0, float(phase.get("goal", 5.0)))
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	phase_fill.value = progress * 100.0
+	# the widget's own art fills with the work: the bowl actually pours,
+	# the basin actually fills. Without this the delivered _fill/_bubbles/
+	# _full overlays never move and the child gets no feedback at all.
+	surface.set_fill(progress)
 	surface.set_fill(progress)
 	surface.note_result(true)
 	_bounce_actor(player_actor, 14.0)
@@ -1932,6 +1986,8 @@ func _process(delta: float) -> void:
 			_advance_completed_phase()
 	if score_cool > 0.0:
 		score_cool = maxf(0.0, score_cool - delta)
+	if bounce_cool > 0.0:
+		bounce_cool = maxf(0.0, bounce_cool - delta)
 	if combat_miss_cool > 0.0:
 		combat_miss_cool = maxf(0.0, combat_miss_cool - delta)
 	if phase_gap > 0.0:
@@ -1950,7 +2006,11 @@ func _process(delta: float) -> void:
 	if active and not phase_advance_pending and phase_index < phases.size():
 		var phase := phases[phase_index] as Dictionary
 		var mode := String(phase.get("mode", ""))
-		if mode == "hold" and surface.held and phase_gap <= 0.0:
+		if mode == "hold" and surface.held:
+			# a finger that is already down generates no new gesture events, so
+			# it could never skip its own phase gap — it just went dead for 1s
+			if phase_gap > 0.0:
+				phase_gap = 0.0
 			_on_gesture("hold", delta, 1.0)
 		elif mode == "bop":
 			bop_time += delta

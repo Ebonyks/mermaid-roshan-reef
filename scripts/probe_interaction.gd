@@ -170,6 +170,9 @@ func _init() -> void:
 	# 3D world. Room props use UI hit targets projected over their world cards;
 	# the retired hall registry must therefore remain empty.
 	main.level2_done_once = false
+	# This probe audits the Crown route only. Companion re-offer behavior has
+	# dedicated close/reopen and save-safe coverage in probe_throne.
+	main.companion_id = "eagle"
 	main._enter_castle_interior_now(false)
 	await _frames(24)
 	main._populate_touch_interactables()
@@ -678,9 +681,14 @@ func _init() -> void:
 	if main.castle_room_id != "main_hall":
 		_bad("room Back did not return to the Main Hall")
 	rooms.activate_current_room()
-	await process_frame
+	# Royal Hall is a real walk-then-arrive doorway now, not the retired
+	# instant throne action. Wait for the authored approach callback.
+	var royal_hall_deadline_ms: int = Time.get_ticks_msec() + 3000
+	while not bool(main.g.get("crown_won", false)) \
+			and Time.get_ticks_msec() < royal_hall_deadline_ms:
+		await process_frame
 	if not bool(main.g.get("crown_won", false)):
-		_bad("Main Hall action did not award the Crown Star")
+		_bad("eligible Royal Hall event did not award the Crown Star")
 
 	# Pointer-driven activities may temporarily cover the castle, but closing a
 	# nested overlay must return to the room stage rather than resurrecting the

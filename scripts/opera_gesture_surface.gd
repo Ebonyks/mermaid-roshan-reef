@@ -389,7 +389,9 @@ func _draw() -> void:
 	draw_rect(panel.grow(-3.0), accent.lerp(Color("#382485"), 0.62), false, 4.0)
 	var center := size * 0.5
 	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, panel, false)
+		# authored at 1024x608 (1.684); the panel is not that aspect, so a plain
+		# stretch squashed every round object into an egg. Cover-fit instead.
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
 		_draw_widget_layers(center)
 		if demo_active:
 			_draw_demo_finger()
@@ -456,6 +458,50 @@ func _draw() -> void:
 		_draw_demo_finger()
 
 
+## Overlay ink bounds, cached per texture: the reveal must sweep the PAINTED
+## band, not the whole 608px canvas. Sweeping the canvas made the pour
+## saturate at 43% of the hold and then sit frozen — the exact playtest
+## complaint ("no animation, no feedback").
+var _ink_cache: Dictionary = {}
+
+
+func _ink_bounds(texture: Texture2D) -> Vector2:
+	var key := texture.resource_path
+	if _ink_cache.has(key):
+		return _ink_cache[key]
+	var bounds := Vector2(0.0, 1.0)
+	var image := texture.get_image()
+	if image != null:
+		var h := image.get_height()
+		var w := image.get_width()
+		var top := -1
+		var bottom := -1
+		for y in range(h):
+			var painted := false
+			for x in range(0, w, 4):
+				if image.get_pixel(x, y).a > 0.08:
+					painted = true
+					break
+			if painted:
+				if top < 0:
+					top = y
+				bottom = y
+		if top >= 0 and bottom > top:
+			bounds = Vector2(float(top) / float(h), float(bottom + 1) / float(h))
+	_ink_cache[key] = bounds
+	return bounds
+
+
+## Aspect-preserving cover rect: fills the panel, centred, never distorted.
+func _cover_rect(texture: Texture2D) -> Rect2:
+	var tex := texture.get_size()
+	if tex.x <= 0.0 or tex.y <= 0.0:
+		return Rect2(Vector2.ZERO, size)
+	var scale := maxf(size.x / tex.x, size.y / tex.y)
+	var drawn := tex * scale
+	return Rect2((size - drawn) * 0.5, drawn)
+
+
 func _draw_progress_overlay(texture: Texture2D, progress: float, horizontal: bool) -> void:
 	var amount := clampf(progress, 0.0, 1.0)
 	if amount <= 0.0:
@@ -465,12 +511,25 @@ func _draw_progress_overlay(texture: Texture2D, progress: float, horizontal: boo
 		var source := Rect2(0.0, 0.0, texture_size.x * amount, texture_size.y)
 		var destination := Rect2(0.0, 0.0, size.x * amount, size.y)
 		draw_texture_rect_region(texture, destination, source)
-	else:
-		var source_y := texture_size.y * (1.0 - amount)
-		var destination_y := size.y * (1.0 - amount)
-		var source := Rect2(0.0, source_y, texture_size.x, texture_size.y * amount)
-		var destination := Rect2(0.0, destination_y, size.x, size.y * amount)
-		draw_texture_rect_region(texture, destination, source)
+		return
+	# sweep the reveal edge across the ink band so 0%..100% of the hold maps
+	# to 0%..100% of the visible liquid
+	var ink := _ink_bounds(texture)
+	var ink_top := ink.x
+	var ink_bottom := ink.y
+	var edge := ink_bottom - (ink_bottom - ink_top) * amount
+	var source_y := texture_size.y * edge
+	var source_h := texture_size.y * (ink_bottom - edge)
+	if source_h <= 0.0:
+		return
+	var cover := _cover_rect(texture)
+	var destination_y := cover.position.y + cover.size.y * edge
+	var destination_h := cover.size.y * (ink_bottom - edge)
+	draw_texture_rect_region(
+		texture,
+		Rect2(cover.position.x, destination_y, cover.size.x, destination_h),
+		Rect2(0.0, source_y, texture_size.x, source_h)
+	)
 
 
 func _draw_widget_sprite(texture: Texture2D, center: Vector2, side: float, modulate := Color.WHITE) -> void:
@@ -509,8 +568,13 @@ func _draw_widget_layers(center: Vector2) -> void:
 		"charge":
 			if widget_mover != null and (held or completion_accepted):
 				_draw_widget_sprite(widget_mover, center, 108.0 + widget_fill * 126.0)
-			if widget_overlay != null and completion_accepted:
-				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
+			if widget_overlay != null:
+				if completion_accepted:
+					draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
+				else:
+					# the meter tube fills as she holds — it used to stay dark
+					# for 3+ seconds and then fade in whole over the last 18%
+					_draw_progress_overlay(widget_overlay, widget_fill, false)
 		"crank":
 			if widget_mover != null:
 				draw_set_transform(center, crank_rotation)

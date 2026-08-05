@@ -23,6 +23,17 @@ const HALL_SIGN_FILES := {
 	"mermaid_pool": "sign_mermaid_pool.png",
 	"bubble_bath": "sign_bubble_bath.png",
 }
+const FAMILY_SIGN_SHA256 := \
+	"222d5a5a4c590b6ae951ff5d7f4431bd35ed539e48cf0346a2e31fd83a09a0dd"
+const PLAYROOM_SIGN_SHA256 := \
+	"22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df"
+const FAMILY_SIGN_ALPHA_RECT := Rect2i(77, 72, 101, 112)
+const PLAYROOM_SIGN_ALPHA_RECT := Rect2i(77, 83, 102, 90)
+const HALL_SIGN_REUSE_MANIFEST := \
+	"res://assets_src/imagegen/castle_main_hall_redraw_2026-08-03/" \
+	+ "sign_reuse_manifest.json"
+const HALL_SIGN_REUSE_MANIFEST_SHA256 := \
+	"2a28d95d6ad0dda17e75e61388cb6849edb6b4e24bb688aaaa3b2d2cd4529920"
 const HALL_TILE_COLUMNS := 8
 const HALL_TILE_ROWS := 2
 const HALL_TILE_COUNT := HALL_TILE_COLUMNS * HALL_TILE_ROWS
@@ -45,11 +56,31 @@ const KITCHEN_TILE_ROWS := 3
 const KITCHEN_TILE_COUNT := KITCHEN_TILE_COLUMNS * KITCHEN_TILE_ROWS
 const KITCHEN_TILE_DIMENSIONS := Vector2i(1024, 768)
 const KITCHEN_CANVAS_SIZE := Vector2i(4096, 2304)
+const ROYAL_HALL_PORTAL_ID := "__royal_hall"
+const ROYAL_HALL_MIST_TEXTURE := \
+	"res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
+const ROYAL_HALL_MIST_TEXTURE_SHA256 := \
+	"ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007"
+const ROYAL_HALL_MIST_ALPHA_RECT := Rect2i(1, 1, 44, 254)
+const ROYAL_HALL_MIST_SPECS: Array[Dictionary] = [
+	{"pos": Vector2(2935.0, 385.0), "scale": 1.38, "z": 0.40,
+		"alpha": 0.22},
+	{"pos": Vector2(2990.0, 365.0), "scale": 1.55, "z": 0.42,
+		"alpha": 0.27},
+	{"pos": Vector2(3045.0, 405.0), "scale": 1.62, "z": 0.44,
+		"alpha": 0.30},
+	{"pos": Vector2(3100.0, 370.0), "scale": 1.48, "z": 0.46,
+		"alpha": 0.26},
+	{"pos": Vector2(3155.0, 400.0), "scale": 1.32, "z": 0.48,
+		"alpha": 0.21},
+]
 const ELEVATOR_ROOM_IDS: Array[String] = [
 	"main_hall", "opera_hall", "kitchen", "library",
 	"playroom", "craft_room", "mermaid_pool", "bubble_bath",
 	"dining_room", "royal_bedroom", "sleepover_bedroom", "movie_lounge",
 ]
+const ELEVATOR_ICON_MANIFEST := \
+	"res://assets/ui/castle_room_buttons_v2/elevator_picture_icon_manifest.json"
 const V2_INTERACTION_MANIFEST := \
 	"res://assets/flats/castle/interactions_v2/castle_interactions_v2.json"
 const V4_INTERACTION_MANIFEST := \
@@ -81,6 +112,8 @@ const PLAYER_SCRIPT := preload("res://scripts/player.gd")
 var main: ReefMain
 var checks_failed := 0
 var expected_physical_item_counts: Dictionary = {}
+var royal_hall_probe_entry_calls := 0
+var royal_hall_probe_consumed_before_entry := false
 
 func _ck(label: String, ok: bool, detail: String = "") -> void:
 	if not ok:
@@ -90,6 +123,12 @@ func _ck(label: String, ok: bool, detail: String = "") -> void:
 func _frames(count: int) -> void:
 	for _index in range(count):
 		await process_frame
+
+func _on_royal_hall_probe_entry() -> void:
+	royal_hall_probe_entry_calls += 1
+	royal_hall_probe_consumed_before_entry = \
+		main.castle_royal_hall_event_id.is_empty() \
+		and not main.castle_royal_hall_event_entry.is_valid()
 
 # The authored PNG, read straight off disk so the measurement is independent
 # of whatever the importer decided to do with the sheet.
@@ -122,6 +161,23 @@ func _alpha_coverage(image: Image, rect: Rect2) -> float:
 			x += 4
 		y += 4
 	return 0.0 if total == 0 else float(lit) / float(total)
+
+func _alpha_visible_rect(image: Image, threshold: float = 0.03) -> Rect2i:
+	if image == null:
+		return Rect2i()
+	var minimum := Vector2i(image.get_width(), image.get_height())
+	var maximum := Vector2i(-1, -1)
+	for y: int in range(image.get_height()):
+		for x: int in range(image.get_width()):
+			if image.get_pixel(x, y).a <= threshold:
+				continue
+			minimum.x = mini(minimum.x, x)
+			minimum.y = mini(minimum.y, y)
+			maximum.x = maxi(maximum.x, x)
+			maximum.y = maxi(maximum.y, y)
+	if maximum.x < minimum.x or maximum.y < minimum.y:
+		return Rect2i()
+	return Rect2i(minimum, maximum - minimum + Vector2i.ONE)
 
 # Every frame of every 2.5D sheet must actually reach the screen.
 #
@@ -209,10 +265,16 @@ func _audit_world_node(node: Node, counts: Dictionary) -> void:
 				]
 				var uses_soft_alpha: bool = bool(sprite.get_meta(
 					"castle_soft_alpha", false))
+				var is_soft_depth_mist: bool = \
+					source_role == "royal_hall_mist"
 				var alpha_ok: bool = (
 					not sprite.transparent
 					and sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED
 				) if is_opaque_background else (
+					sprite.transparent
+					and not sprite.no_depth_test
+					and sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED
+					if is_soft_depth_mist else
 					sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED
 					if source_role == "portal_glow" or uses_soft_alpha else
 					sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
@@ -729,11 +791,11 @@ func _hall_cull_snapshot() -> Dictionary:
 		"inventory": 0,
 		"backgrounds": 0,
 		"signs": 0,
-		"thrones": 0,
+		"royal_hall_mist_cards": 0,
 		"visible": 0,
 		"visible_backgrounds": 0,
 		"visible_signs": 0,
-		"visible_thrones": 0,
+		"visible_royal_hall_mist_cards": 0,
 		"metadata_ok": true,
 	}
 	for tile: Sprite3D in main.castle_room_background_tiles:
@@ -761,15 +823,17 @@ func _hall_cull_snapshot() -> Dictionary:
 		if card == null:
 			continue
 		var is_sign: bool = String(card.name).begins_with("HallDoorSign_")
-		var is_throne: bool = card.name == "HallRetainedHuluuThrone"
-		if not is_sign and not is_throne:
+		var is_royal_mist: bool = String(card.name).begins_with(
+			"RoyalHallMist_")
+		if not is_sign and not is_royal_mist:
 			continue
 		snapshot["inventory"] = int(snapshot["inventory"]) + 1
 		var card_rect: Rect2 = card.get_meta(
 			"hall_horizontal_cull_rect", Rect2()) as Rect2
-		var expected_kind: String = "door_sign" if is_sign else "throne"
+		var expected_kind: String = "door_sign" \
+			if is_sign else "royal_hall_mist"
 		var expected_role: String = "room_door_sign" \
-			if is_sign else "retained_huluu_throne"
+			if is_sign else "royal_hall_mist"
 		snapshot["metadata_ok"] = bool(snapshot["metadata_ok"]) \
 			and bool(card.get_meta("hall_horizontal_cull", false)) \
 			and String(card.get_meta("hall_horizontal_cull_kind", "")) \
@@ -783,10 +847,11 @@ func _hall_cull_snapshot() -> Dictionary:
 				snapshot["visible_signs"] = \
 					int(snapshot["visible_signs"]) + 1
 		else:
-			snapshot["thrones"] = int(snapshot["thrones"]) + 1
+			snapshot["royal_hall_mist_cards"] = \
+				int(snapshot["royal_hall_mist_cards"]) + 1
 			if card.visible:
-				snapshot["visible_thrones"] = \
-					int(snapshot["visible_thrones"]) + 1
+				snapshot["visible_royal_hall_mist_cards"] = \
+					int(snapshot["visible_royal_hall_mist_cards"]) + 1
 		if card.visible:
 			snapshot["visible"] = int(snapshot["visible"]) + 1
 	return snapshot
@@ -1513,6 +1578,7 @@ func _write_main_hall_node_inventory() -> bool:
 	var validation := {
 		"registered_background_cards": main.castle_room_background_tiles.size(),
 		"door_sign_cards": int(roles.get("room_door_sign", 0)),
+		"royal_hall_mist_cards": int(roles.get("royal_hall_mist", 0)),
 		"retained_throne_cards": int(roles.get(
 			"retained_huluu_throne", 0)),
 		"forbidden_world_art_nodes": forbidden_types,
@@ -1525,7 +1591,9 @@ func _write_main_hall_node_inventory() -> bool:
 	validation["structural_pass"] = \
 		int(validation["registered_background_cards"]) == HALL_TILE_COUNT \
 		and int(validation["door_sign_cards"]) == 8 \
-		and int(validation["retained_throne_cards"]) == 1 \
+		and int(validation["royal_hall_mist_cards"]) \
+			== ROYAL_HALL_MIST_SPECS.size() \
+		and int(validation["retained_throne_cards"]) == 0 \
 		and forbidden_total == 0 \
 		and bool(validation["all_sprite3d_unshaded"]) \
 		and bool(validation["all_sprite3d_depth_tested"]) \
@@ -1611,20 +1679,64 @@ func _run() -> void:
 		and not main.castle_room_menu_panel.visible
 		and main.castle_room_menu_buttons.size() == ELEVATOR_ROOM_IDS.size()
 		and not main.castle_room_menu_buttons.has("family_gallery"))
+	var elevator_icon_manifest: Dictionary = _load_interaction_manifest(
+		ELEVATOR_ICON_MANIFEST)
+	var elevator_icon_records: Dictionary = {}
+	for icon_record_value: Variant in elevator_icon_manifest.get(
+			"icons", []) as Array:
+		var icon_record: Dictionary = icon_record_value as Dictionary
+		elevator_icon_records[String(icon_record.get("room_id", ""))] = \
+			icon_record
+	var elevator_collection_audit: Dictionary = elevator_icon_manifest.get(
+		"collection_audit", {}) as Dictionary
+	var elevator_after_audit: Dictionary = elevator_collection_audit.get(
+		"after", {}) as Dictionary
+	elevator_inventory_ok = elevator_inventory_ok \
+		and int(elevator_icon_manifest.get("schema_version", 0)) == 2 \
+		and int(elevator_icon_manifest.get("output_count", 0)) \
+			== ELEVATOR_ROOM_IDS.size() \
+		and not bool(elevator_icon_manifest.get("uses_image_generation", true)) \
+		and float(elevator_collection_audit.get(
+			"threshold_out_of_5", 0.0)) == 4.5 \
+		and float(elevator_after_audit.get("overall", 0.0)) >= 4.5 \
+		and String(elevator_after_audit.get("status", "")) \
+			== "accepted_shared_door_crest_family" \
+		and elevator_icon_records.size() == ELEVATOR_ROOM_IDS.size()
 	var elevator_button_instances: Dictionary = {}
 	for elevator_room_id: String in ELEVATOR_ROOM_IDS:
 		var menu_button: Button = main.castle_room_menu_buttons.get(
 			elevator_room_id) as Button
+		var expected_icon_path := \
+			"res://assets/ui/castle_room_buttons_v2/room_%s.png" \
+			% elevator_room_id
+		var icon_record: Dictionary = elevator_icon_records.get(
+			elevator_room_id, {}) as Dictionary
 		elevator_inventory_ok = elevator_inventory_ok \
 			and menu_button != null \
 			and menu_button.name == "ElevatorRoom_" + elevator_room_id \
 			and menu_button.size.x >= StorybookUI.MIN_TOUCH.x \
 			and menu_button.size.y >= StorybookUI.MIN_TOUCH.y \
+			and menu_button.text.is_empty() \
+			and menu_button.icon != null \
+			and menu_button.icon.get_size() == Vector2(256.0, 256.0) \
+			and menu_button.icon.resource_path == expected_icon_path \
+			and menu_button.expand_icon \
 			and String(menu_button.get_meta(
 				"castle_room_destination", "")) == elevator_room_id
+		elevator_inventory_ok = elevator_inventory_ok \
+			and String(menu_button.get_meta(
+				"castle_room_icon_path", "")) == expected_icon_path \
+			and String(menu_button.get_meta(
+				"castle_room_icon_family", "")) \
+				== "pearl_castle_scallop_crest" \
+			and String(icon_record.get("output", "")) \
+				== expected_icon_path.trim_prefix("res://") \
+			and FileAccess.get_sha256(ProjectSettings.globalize_path(
+				expected_icon_path)) == String(icon_record.get(
+					"output_sha256", ""))
 		if menu_button != null:
 			elevator_button_instances[menu_button.get_instance_id()] = true
-	_ck("storybook_elevator_has_twelve_direct_actual_rooms",
+	_ck("storybook_elevator_has_one_cohesive_twelve_crest_family",
 		elevator_inventory_ok
 		and elevator_button_instances.size() == ELEVATOR_ROOM_IDS.size()
 		and elevator_button.size.x >= StorybookUI.MIN_TOUCH.x
@@ -1641,11 +1753,14 @@ func _run() -> void:
 		and main.castle_room_mid_layer.get_node_or_null(
 			"HallStructure_playroom_portal_marker") == null)
 	var hall_portal_rects: Dictionary = {}
+	var hall_portal_buttons: Dictionary = {}
 	for hall_portal_record: Dictionary in main.castle_room_door_hotspots:
 		var hall_portal_data: Dictionary = hall_portal_record.get("data", {})
 		if not hall_portal_data.is_empty():
-			hall_portal_rects[String(hall_portal_data["id"])] = \
+			var hall_portal_id: String = String(hall_portal_data["id"])
+			hall_portal_rects[hall_portal_id] = \
 				hall_portal_data["rect"]
+			hall_portal_buttons[hall_portal_id] = hall_portal_record.get("button")
 	var hall_sign_count := 0
 	var craft_sign_count := 0
 	var hall_signs_ok := true
@@ -1660,7 +1775,7 @@ func _run() -> void:
 			sign_destination, Rect2()) as Rect2
 		var expected_sign_file: String = String(HALL_SIGN_FILES.get(
 			sign_destination, ""))
-		var expected_sign_scale: float = 0.46 \
+		var expected_sign_scale: float = 1.0 \
 			if sign_destination == "family_gallery" else 1.55 \
 			if sign_destination == "opera_hall" else 1.0
 		var sign_art_position := Vector2.INF
@@ -1702,23 +1817,211 @@ func _run() -> void:
 		and left_door_sign.texture != null
 		and left_door_sign.texture.resource_path.ends_with(
 			"sign_family_gallery.png"))
-	var retained_throne: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
-		"HallRetainedHuluuThrone") as Sprite3D
-	_ck("main_hall_retains_huluu_throne_as_depth_card",
-		retained_throne != null
-		and retained_throne.texture != null
-		and retained_throne.texture.resource_path.ends_with(
-			"main_hall_retained_shell_throne.png")
-		and maxf(retained_throne.texture.get_width(),
-			retained_throne.texture.get_height()) <= 1024.0
-		and not retained_throne.shaded
-		and retained_throne.cast_shadow \
-			== GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
-		and String(retained_throne.get_meta("source_asset_role", "")) \
-			== "retained_huluu_throne"
-		and (retained_throne.get_meta(
-			"source_art_position", Vector2.ZERO) as Vector2).is_equal_approx(
-				Vector2(3045.0, 485.0)))
+	var retired_throne_count := 0
+	for royal_mid_child: Node in main.castle_room_mid_layer.get_children():
+		if royal_mid_child.name == "HallRetainedHuluuThrone" \
+				or String(royal_mid_child.get_meta(
+					"source_asset_role", "")) == "retained_huluu_throne":
+			retired_throne_count += 1
+	_ck("main_hall_runtime_retires_throne_overlay",
+		retired_throne_count == 0
+		and main.castle_room_mid_layer.get_node_or_null(
+			"HallRetainedHuluuThrone") == null,
+		"retained throne cards=%d" % retired_throne_count)
+	var royal_hall_portal_rect: Rect2 = hall_portal_rects.get(
+		ROYAL_HALL_PORTAL_ID, Rect2()) as Rect2
+	var royal_hall_button: Button = hall_portal_buttons.get(
+		ROYAL_HALL_PORTAL_ID) as Button
+	_ck("main_hall_far_right_endpoint_is_royal_hall_event_gate",
+		royal_hall_portal_rect == Rect2(2870.0, 150.0, 350.0, 470.0)
+		and royal_hall_button != null
+		and royal_hall_button.tooltip_text == "Royal Hall"
+		and not hall_portal_rects.has("__throne"))
+	var mist_image: Image
+	var mist_alpha_rect := Rect2i()
+	var mist_structure_ok := \
+		main.castle_royal_hall_mist_cards.size() \
+			== ROYAL_HALL_MIST_SPECS.size()
+	var mist_detail: Array[String] = []
+	for mist_index: int in range(ROYAL_HALL_MIST_SPECS.size()):
+		var expected_mist: Dictionary = ROYAL_HALL_MIST_SPECS[mist_index]
+		var mist: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
+			"RoyalHallMist_%d" % mist_index) as Sprite3D
+		if mist == null or mist.texture == null:
+			mist_structure_ok = false
+			mist_detail.append("%d:missing" % mist_index)
+			continue
+		if mist_image == null:
+			mist_image = _sheet_image(mist.texture)
+			mist_alpha_rect = _alpha_visible_rect(mist_image)
+		var art_position: Vector2 = expected_mist["pos"] as Vector2
+		var visual_scale: float = float(expected_mist["scale"])
+		var depth_z: float = float(expected_mist["z"])
+		var rest_alpha: float = float(expected_mist["alpha"])
+		var texture_size: Vector2 = mist.texture.get_size()
+		var expected_art_rect := Rect2(
+			art_position - texture_size * visual_scale * 0.5,
+			texture_size * visual_scale)
+		var visible_rect := Rect2(
+			art_position + (Vector2(mist_alpha_rect.position)
+				- texture_size * 0.5) * visual_scale,
+			Vector2(mist_alpha_rect.size) * visual_scale)
+		var source_art_rect: Rect2 = mist.get_meta(
+			"source_art_rect", Rect2()) as Rect2
+		var cull_rect: Rect2 = mist.get_meta(
+			"hall_horizontal_cull_rect", Rect2()) as Rect2
+		var rest_scale: Vector3 = mist.get_meta(
+			"mist_rest_scale", Vector3.ZERO) as Vector3
+		var contained: bool = royal_hall_portal_rect.has_area() \
+			and visible_rect.position.x >= royal_hall_portal_rect.position.x \
+			and visible_rect.end.x <= royal_hall_portal_rect.end.x \
+			and visible_rect.position.y >= royal_hall_portal_rect.position.y \
+			and visible_rect.end.y <= royal_hall_portal_rect.end.y
+		mist_structure_ok = mist_structure_ok \
+			and mist.texture.resource_path == ROYAL_HALL_MIST_TEXTURE \
+			and mist.texture.get_size() == Vector2(46.0, 256.0) \
+			and not mist.shaded and not mist.no_depth_test \
+			and mist.cast_shadow \
+				== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF \
+			and mist.transparent \
+			and mist.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED \
+			and String(mist.get_meta("source_asset_role", "")) \
+				== "royal_hall_mist" \
+			and String(mist.get_meta("source_object_id", "")) \
+				== "main_hall:royal_hall_mist_%d" % mist_index \
+			and String(mist.get_meta("source_asset_path", "")) \
+				== ROYAL_HALL_MIST_TEXTURE \
+			and (mist.get_meta("source_art_position", Vector2.INF) \
+				as Vector2).is_equal_approx(art_position) \
+			and source_art_rect.is_equal_approx(expected_art_rect) \
+			and cull_rect.is_equal_approx(source_art_rect) \
+			and bool(mist.get_meta("hall_horizontal_cull", false)) \
+			and String(mist.get_meta("hall_horizontal_cull_kind", "")) \
+				== "royal_hall_mist" \
+			and is_equal_approx(float(mist.get_meta("depth_z", -1.0)), depth_z) \
+			and is_equal_approx(mist.position.z, depth_z) \
+			and rest_scale.is_equal_approx(Vector3.ONE * visual_scale) \
+			and is_equal_approx(float(mist.get_meta(
+				"mist_rest_alpha", -1.0)), rest_alpha) \
+			and contained
+		mist_detail.append("%d:%s" % [mist_index, visible_rect])
+	_ck("main_hall_has_five_audited_royal_hall_mist_sprite3d_cards",
+		mist_structure_ok
+		and mist_image != null
+		and mist_alpha_rect == ROYAL_HALL_MIST_ALPHA_RECT
+		and FileAccess.get_sha256(ProjectSettings.globalize_path(
+			ROYAL_HALL_MIST_TEXTURE)) == ROYAL_HALL_MIST_TEXTURE_SHA256,
+		"alpha=%s cards=%s" % [mist_alpha_rect, mist_detail])
+	var original_companion_id: String = main.companion_id
+	var original_level2_done_once: bool = main.level2_done_once
+	var original_combat_tutorial_done: bool = main.combat_tutorial_done
+	main.level2_done_once = true
+	main.companion_id = "mewsha"
+	main.combat_tutorial_done = true
+	main.castle_room_camera.position = Vector3(
+		rooms._hall_camera_x_for_foot(3045.0), 0.0,
+		main.castle_room_camera.position.z)
+	rooms._sync_hall_horizontal_culling()
+	rooms._force_clear_royal_hall_event()
+	rooms._tick_royal_hall_mist(1.0)
+	var resting_mist_visible := true
+	for resting_index: int in range(main.castle_royal_hall_mist_cards.size()):
+		var resting_mist: Sprite3D = \
+			main.castle_royal_hall_mist_cards[resting_index]
+		var expected_rest_alpha: float = float(
+			ROYAL_HALL_MIST_SPECS[resting_index]["alpha"])
+		resting_mist_visible = resting_mist_visible \
+			and resting_mist.visible \
+			and resting_mist.modulate.a >= expected_rest_alpha * 0.90 \
+			and resting_mist.modulate.a <= expected_rest_alpha * 1.01
+	_ck("royal_hall_mist_seals_gate_while_no_major_event_is_armed",
+		resting_mist_visible and rooms._royal_hall_event_id().is_empty())
+	royal_hall_probe_entry_calls = 0
+	royal_hall_probe_consumed_before_entry = false
+	var royal_event_armed: bool = rooms.arm_royal_hall_event(
+		"probe_major_event", Callable(self, "_on_royal_hall_probe_entry"))
+	var royal_event_generation: int = rooms.royal_hall_event_token(
+		"probe_major_event")
+	rooms._tick_royal_hall_mist(1.0)
+	var armed_mist_hidden := true
+	for armed_mist: Sprite3D in main.castle_royal_hall_mist_cards:
+		armed_mist_hidden = armed_mist_hidden \
+			and not armed_mist.visible and armed_mist.modulate.a <= 0.012
+	_ck("royal_hall_mist_clears_only_for_armed_major_event",
+		royal_event_armed and armed_mist_hidden
+		and rooms._royal_hall_event_id() == "probe_major_event")
+	var royal_hall_foot := Vector2(3045.0, 620.0)
+	rooms._position_player_at_foot(royal_hall_foot, false)
+	main.castle_royal_hall_arrival_generation += 1
+	main.castle_royal_hall_arrival_pending = true
+	rooms._activate_royal_hall_event(
+		main.castle_royal_hall_arrival_generation,
+		"probe_major_event", royal_event_generation, royal_hall_foot)
+	_ck("royal_hall_armed_callback_is_consumed_before_one_shot_entry",
+		royal_hall_probe_entry_calls == 1
+		and royal_hall_probe_consumed_before_entry
+		and main.castle_royal_hall_event_id.is_empty()
+		and not main.castle_royal_hall_event_entry.is_valid())
+	rooms._tick_royal_hall_mist(1.0)
+	var family_sign_image: Image = _sheet_image(left_door_sign.texture) \
+		if left_door_sign != null else null
+	var family_alpha_rect := _alpha_visible_rect(family_sign_image)
+	var playroom_sign: Sprite3D = main.castle_room_mid_layer.get_node_or_null(
+		"HallDoorSign_playroom") as Sprite3D
+	var playroom_sign_image: Image = _sheet_image(playroom_sign.texture) \
+		if playroom_sign != null else null
+	var playroom_alpha_rect := _alpha_visible_rect(playroom_sign_image)
+	var family_sign_position: Vector2 = left_door_sign.get_meta(
+		"source_art_position", Vector2.INF) as Vector2 \
+		if left_door_sign != null else Vector2.INF
+	var playroom_sign_position: Vector2 = playroom_sign.get_meta(
+		"source_art_position", Vector2.INF) as Vector2 \
+		if playroom_sign != null else Vector2.INF
+	var sign_reuse_manifest: Dictionary = _load_interaction_manifest(
+		HALL_SIGN_REUSE_MANIFEST)
+	var sign_collection_audit: Dictionary = sign_reuse_manifest.get(
+		"collection_audit", {}) as Dictionary
+	var sign_scores: Dictionary = sign_collection_audit.get(
+		"per_icon_overall_scores", {}) as Dictionary
+	var family_score: Dictionary = sign_scores.get(
+		"family_gallery", {}) as Dictionary
+	var playroom_score: Dictionary = sign_scores.get(
+		"playroom", {}) as Dictionary
+	var normalized_sign_manifest: String = FileAccess.get_file_as_string(
+		HALL_SIGN_REUSE_MANIFEST).replace("\r\n", "\n").replace("\r", "\n")
+	_ck("main_hall_family_and_playroom_icons_are_cohesive_approved_crests",
+		family_sign_image != null
+		and family_sign_image.get_size() == Vector2i(256, 256)
+		and family_alpha_rect == FAMILY_SIGN_ALPHA_RECT
+		and FileAccess.get_sha256(ProjectSettings.globalize_path(
+			left_door_sign.texture.resource_path)) == FAMILY_SIGN_SHA256
+		and is_equal_approx(left_door_sign.scale.x, 1.0)
+		and family_sign_position.is_equal_approx(Vector2(290.0, 340.0))
+		and playroom_sign != null and playroom_sign.texture != null
+		and playroom_sign.texture.resource_path.ends_with("sign_playroom.png")
+		and playroom_sign_image != null
+		and playroom_sign_image.get_size() == Vector2i(256, 256)
+		and playroom_alpha_rect == PLAYROOM_SIGN_ALPHA_RECT
+		and FileAccess.get_sha256(ProjectSettings.globalize_path(
+			playroom_sign.texture.resource_path)) == PLAYROOM_SIGN_SHA256
+		and is_equal_approx(playroom_sign.scale.x, 1.0)
+		and playroom_sign_position.is_equal_approx(Vector2(2015.0, 340.0))
+		and Vector2(family_alpha_rect.get_center()).distance_to(
+			Vector2(128.0, 128.0)) <= 1.0
+		and Vector2(playroom_alpha_rect.get_center()).distance_to(
+			Vector2(128.0, 128.0)) <= 1.0
+		and normalized_sign_manifest.sha256_text() \
+			== HALL_SIGN_REUSE_MANIFEST_SHA256
+		and String(sign_collection_audit.get("schema", "")) \
+			== "castle_main_hall_physical_sign_audit_v1"
+		and is_equal_approx(float(sign_collection_audit.get(
+			"threshold_out_of_5", 0.0)), 4.5)
+		and float(family_score.get("after", 0.0)) >= 4.5
+		and String(family_score.get("status", "")) == "corrected_pass"
+		and float(playroom_score.get("overall", 0.0)) >= 4.5
+		and String(playroom_score.get("status", "")) \
+			== "accepted_preserved",
+		"family=%s playroom=%s" % [family_alpha_rect, playroom_alpha_rect])
 	var left_camera_position := Vector3(
 		rooms._hall_camera_x_for_foot(380.0), 0.0,
 		main.castle_room_camera.position.z)
@@ -1758,27 +2061,37 @@ func _run() -> void:
 			and main.castle_room_background_tiles[15].visible \
 			and not main.castle_room_background_tiles[0].visible \
 			and not main.castle_room_background_tiles[HALL_TILE_COLUMNS].visible
+	var right_mist_visible: bool = \
+		main.castle_royal_hall_mist_cards.size() \
+			== ROYAL_HALL_MIST_SPECS.size()
+	for right_mist: Sprite3D in main.castle_royal_hall_mist_cards:
+		right_mist_visible = right_mist_visible and right_mist.visible
 	var right_endpoints_ok: bool = right_door_button != null \
 		and right_door_button.visible \
 		and right_door_sign != null and right_door_sign.visible \
-		and retained_throne != null and retained_throne.visible
+		and royal_hall_button != null and royal_hall_button.visible \
+		and right_mist_visible
 	_ck("main_hall_horizontal_sprite3d_culling_preserves_endpoints",
 		bool(left_cull_snapshot["metadata_ok"])
 		and bool(right_cull_snapshot["metadata_ok"])
-		and int(left_cull_snapshot["inventory"]) == 25
+		and int(left_cull_snapshot["inventory"]) == 29
 		and int(left_cull_snapshot["backgrounds"]) == HALL_TILE_COUNT
 		and int(left_cull_snapshot["signs"]) == 8
-		and int(left_cull_snapshot["thrones"]) == 1
+		and int(left_cull_snapshot["royal_hall_mist_cards"]) \
+			== ROYAL_HALL_MIST_SPECS.size()
 		and int(left_cull_snapshot["visible_backgrounds"]) >= 8
 		and int(left_cull_snapshot["visible_backgrounds"]) <= 12
 		and int(left_cull_snapshot["visible_signs"]) == 4
-		and int(left_cull_snapshot["visible_thrones"]) == 0
+		and int(left_cull_snapshot[
+			"visible_royal_hall_mist_cards"]) == 0
 		and int(left_cull_snapshot["visible"]) <= 16
 		and int(right_cull_snapshot["visible_backgrounds"]) >= 8
 		and int(right_cull_snapshot["visible_backgrounds"]) <= 12
 		and int(right_cull_snapshot["visible_signs"]) == 4
-		and int(right_cull_snapshot["visible_thrones"]) == 1
-		and int(right_cull_snapshot["visible"]) <= 17
+		and int(right_cull_snapshot[
+			"visible_royal_hall_mist_cards"]) \
+			== ROYAL_HALL_MIST_SPECS.size()
+		and int(right_cull_snapshot["visible"]) <= 21
 		and left_tile_endpoints_ok and right_tile_endpoints_ok
 		and right_endpoints_ok
 		and obsolete_hall_overlays_absent,
@@ -1788,7 +2101,38 @@ func _run() -> void:
 	rooms._update_hall_portals()
 	_ck("main_hall_runtime_node_type_inventory",
 		_write_main_hall_node_inventory())
+	rooms._position_player_at_foot(Vector2(380.0, 835.0), false)
+	await _frames(2)
+	rooms.tick(1.0)
+	main.castle_room_camera.position = left_camera_position
+	rooms._sync_hall_horizontal_culling()
+	rooms._update_hall_portals()
 	await _capture("main_hall_screen_a")
+	# Fast rendered review mode for iterative hall polish. The normal trusted
+	# probe continues below; this opt-in path only stages A/seam/B plus the
+	# omnipresent elevator so visual audits do not replay every room animation.
+	if OS.get_environment("CASTLE_HALL_CAPTURE_ONLY") == "1":
+		rooms._position_player_at_foot(Vector2(1672.0, 835.0), false)
+		await _frames(2)
+		rooms.tick(1.0)
+		await _capture("main_hall_seam_bridge")
+		rooms._position_player_at_foot(Vector2(2500.0, 835.0), false)
+		await _frames(2)
+		rooms.tick(1.0)
+		await _capture("main_hall_screen_b")
+		elevator_button.pressed.emit()
+		await _frames(2)
+		await _capture("elevator_menu")
+		print("CASTLE_ART|RESULT=",
+			"FAIL" if checks_failed > 0 else "OK",
+			" checks_failed=", checks_failed)
+		quit(1 if checks_failed > 0 else 0)
+		return
+	main.companion_id = original_companion_id
+	main.level2_done_once = original_level2_done_once
+	main.combat_tutorial_done = original_combat_tutorial_done
+	rooms._force_clear_royal_hall_event()
+	rooms._tick_royal_hall_mist(1.0)
 	rooms.show_room("family_gallery", false)
 	await _frames(2)
 	var gallery_destinations := {
@@ -1905,6 +2249,7 @@ func _run() -> void:
 			castle_roshan.texture.resource_path])
 
 	var all_rooms_ok := true
+	var room_structure_failures: Array[Dictionary] = []
 	var all_depth_ok := true
 	# LIGHTING_2P5D_AUDIT_2026-08-02 §E2: depth must be TONAL as well as
 	# geometric. Foreground framing cards are multiplied by the light rig's
@@ -2196,6 +2541,25 @@ func _run() -> void:
 			and int(counts.get("portal_glow", 0)) == 0 \
 			and int(counts.get("shaded", 0)) == 0 \
 			and int(counts.get("missing_texture", 0)) == 0
+		if not room_ok:
+			room_structure_failures.append({
+				"room": room_id,
+				"active_room": main.castle_room_id,
+				"background_sprite3d": main.castle_room_background is Sprite3D,
+				"background_unshaded": main.castle_room_background != null \
+					and not main.castle_room_background.shaded,
+				"items": main.castle_room_item_sprites.size(),
+				"expected_items": expected_room_items,
+				"hotspots": main.castle_room_item_hotspot_layer.get_child_count(),
+				"expected_hotspots": _expected_room_hotspot_count(room_id),
+				"background_ready": background_ready,
+				"modeled": int(counts.get("modeled", 0)),
+				"canvas_world": int(counts.get("canvas_world", 0)),
+				"bad_alpha_depth": int(counts.get("bad_alpha_depth", 0)),
+				"portal_glow": int(counts.get("portal_glow", 0)),
+				"shaded": int(counts.get("shaded", 0)),
+				"missing_texture": int(counts.get("missing_texture", 0)),
+			})
 		var depths: Dictionary = {}
 		if hall_mode:
 			depths[snappedf(
@@ -2542,7 +2906,8 @@ func _run() -> void:
 				and main.game == "level2" \
 				and main.castle_room_id == "kitchen" \
 				and main.castle_room_layer.visible
-	_ck("all_eight_rooms_sprite3d_only", all_rooms_ok)
+	_ck("all_eight_rooms_sprite3d_only", all_rooms_ok,
+		"failures=%s" % [room_structure_failures])
 	_ck("all_rooms_use_multiple_real_depths", all_depth_ok)
 	_ck("depth_planes_are_tonally_separated",
 		all_depth_tint_ok and saw_tinted_foreground,
@@ -2790,6 +3155,19 @@ func _run() -> void:
 	_ck("main_hall_native_2x8_sprite3d_grid",
 		main.castle_room_background_tiles.size() == HALL_TILE_COUNT \
 		and tile_paths_ok)
+	var per_screen_native_width := 0
+	for local_column: int in range(HALL_TILE_COLUMNS / 2):
+		per_screen_native_width += HALL_TILE_NATIVE_WIDTHS[local_column]
+	_ck("main_hall_each_screen_has_eight_native_2k_tiles",
+		HALL_TILE_COLUMNS == 8 and HALL_TILE_ROWS == 2 \
+		and HALL_TILE_COUNT == 16 \
+		and per_screen_native_width == int(HALL_SCREEN_NATIVE_WIDTH) \
+		and per_screen_native_width >= 2048 \
+		and int(HALL_TILE_NATIVE_HEIGHT) * HALL_TILE_ROWS >= 2048,
+		"screen=%dx%d tiles_per_screen=%d total=%d" % [
+			per_screen_native_width,
+			int(HALL_TILE_NATIVE_HEIGHT) * HALL_TILE_ROWS,
+			HALL_TILE_COUNT / 2, HALL_TILE_COUNT])
 	_ck("main_hall_lossless_screen_registration",
 		tile_registration_ok,
 		"7280x2048 master -> sixteen exact 910x1024 cards")

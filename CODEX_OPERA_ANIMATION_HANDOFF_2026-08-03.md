@@ -495,22 +495,27 @@ full scripts/ci.sh result:
 Android device and Speedy-tier frame result:
   pending - `adb devices -l` reported no attached device
 owner identity/topology/style review:
-  pending - review evidence is under
-  .godot/opera_animation_review_20260803/
+  pending - portable review masters, hashes, and usage instructions are under
+  FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/; the raw capture tree remains
+  build-only under .godot/opera_animation_review_20260803/
 known fallbacks still exercised:
   neutral prowl uses same-family idle; rally uses same-family taunt;
   base families have no delivered hop_a/hop_b and do not cross families
 ```
 
-Review masters:
+Portable review kit:
 
-- `.godot/opera_animation_review_20260803/contact_sheets/opera_imp_family_master_contact.png`
-- `.godot/opera_animation_review_20260803/widget_contact_sheets/opera_60_widget_master_contact.png`
-- `.godot/opera_animation_review_20260803/rival_contact_sheets/opera_12_rival_master_contact.png`
-- `.godot/opera_animation_review_20260803/scuffle_contact_sheets/opera_selected_scuffles_master_contact.png`
-- `.godot/opera_animation_review_20260803/stress/opera_stress_master_contact.png`
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/README.md`
 
-Full-gate logs:
+Tracked review masters:
+
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_imp_family_master_contact.png`
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_60_widget_master_contact.png`
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_12_rival_master_contact.png`
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_selected_scuffles_master_contact.png`
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_stress_master_contact.png`
+
+Build-only full-gate logs:
 
 - `.godot/opera_animation_review_20260803/ci_utf8.log`
 - `.godot/opera_animation_review_20260803/ci_retry2.log`

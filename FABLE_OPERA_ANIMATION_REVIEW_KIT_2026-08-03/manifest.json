@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "kit_id": "fable_opera_animation_review_2026-08-03",
+  "created_date": "2026-08-04",
+  "purpose": "Portable visual-QA summaries for the implemented Pearl Opera runtime animation pass",
+  "capture_engine": "Godot 4.7.1-stable",
+  "capture_renderer": "mobile",
+  "source_implementation_commit": "d0a35d3e0085a1bb1ccd3319196ff6788818e076",
+  "source_integration_commit": "dcf60c046ff12c8cb1d51581a6b947bcf0ee35ca",
+  "role": "review_evidence_only",
+  "runtime_asset": false,
+  "delivery_pixels": false,
+  "copied_without_pixel_modification": true,
+  "owner_identity_topology_style_review": "pending",
+  "android_speedy_tier_review": "pending",
+  "protected_source_assets_modified": false,
+  "files": [
+    {
+      "path": "review_masters/opera_imp_family_master_contact.png",
+      "source_path": ".godot/opera_animation_review_20260803/contact_sheets/opera_imp_family_master_contact.png",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 2107638,
+      "sha256": "260edecb740c4a417d688edfe2e461db43db9b18922c5dd077eaf4db694e4a09",
+      "coverage": "14 families; 56 live full-viewport frames; 14 family sheets"
+    },
+    {
+      "path": "review_masters/opera_60_widget_master_contact.png",
+      "source_path": ".godot/opera_animation_review_20260803/widget_contact_sheets/opera_60_widget_master_contact.png",
+      "width": 1500,
+      "height": 2760,
+      "bytes": 2787154,
+      "sha256": "2d0b663bd4884cfc7e50d9d54d822fff854fb409fc8484a28bf155dbd47d1dd3",
+      "coverage": "60 widgets at four states; 240 cropped live frames; 60 widget sheets"
+    },
+    {
+      "path": "review_masters/opera_12_rival_master_contact.png",
+      "source_path": ".godot/opera_animation_review_20260803/rival_contact_sheets/opera_12_rival_master_contact.png",
+      "width": 1600,
+      "height": 900,
+      "bytes": 1025531,
+      "sha256": "36bcdc8b0ef2415c2592909967000818f589818fd51a8159531d30204f1b3796",
+      "coverage": "12 finale rivals at taunt and bow; 24 live frames; 12 rival sheets"
+    },
+    {
+      "path": "review_masters/opera_selected_scuffles_master_contact.png",
+      "source_path": ".godot/opera_animation_review_20260803/scuffle_contact_sheets/opera_selected_scuffles_master_contact.png",
+      "width": 1560,
+      "height": 2000,
+      "bytes": 2960347,
+      "sha256": "5ccc0f2519ab2c6dec52837b62c044482bf8db7fe2243ea60fcfecd01e267d34",
+      "coverage": "Opening and captain sequences for five careers; 77 live frames; 10 scuffle sheets"
+    },
+    {
+      "path": "review_masters/opera_stress_master_contact.png",
+      "source_path": ".godot/opera_animation_review_20260803/stress/opera_stress_master_contact.png",
+      "width": 1216,
+      "height": 458,
+      "bytes": 459163,
+      "sha256": "1f5ca6a724b1e2ecd79de84b5e57cfb710f3207c29bb83a56ec5c29633a867f4",
+      "coverage": "One 20-tap rest frame plus five early exit/re-entry frames"
+    }
+  ]
+}

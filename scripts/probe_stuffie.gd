@@ -70,9 +70,23 @@ func _picker_case() -> void:
 	var eagle_sprite: Sprite3D = eagle_record.get("sprite") as Sprite3D
 	var left_sprite: Sprite3D = left_record.get("sprite") as Sprite3D
 	var right_sprite: Sprite3D = right_record.get("sprite") as Sprite3D
+	# The V3 additive sticker pack is deliberately retired. The audited room now
+	# contains its four established interactions, two source-owned V4 subjects
+	# isolated from the painting, and these three rescue cards. Assert the exact
+	# semantic roster so an unrelated addition cannot make a raw count pass.
+	var expected_playroom_ids: Array[String] = [
+		"stuffie_nook", "stacking_toy", "blocks", "play_tent",
+		"tent_flaps_right", "shelf_sailboat",
+		"baby_eagle_rescue", "eagle_pin_left", "eagle_pin_right",
+	]
+	var audited_playroom_roster := \
+		main.castle_room_item_sprites.size() == expected_playroom_ids.size()
+	for expected_id: String in expected_playroom_ids:
+		audited_playroom_roster = audited_playroom_roster \
+			and main.castle_room_item_sprites.has(expected_id)
 	_ck("Playroom starts with Baby Eagle and two pinning dust bunnies",
-		main.castle_room_item_sprites.size() == 11
-		and main.castle_room_item_hotspot_layer.get_child_count() == 8
+		audited_playroom_roster
+		and main.castle_room_item_hotspot_layer.get_child_count() == 6
 		and eagle_sprite != null
 		and left_sprite != null
 		and right_sprite != null

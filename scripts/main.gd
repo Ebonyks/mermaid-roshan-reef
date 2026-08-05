@@ -40,6 +40,10 @@ var obj_icon_lbl: Label = null     # emoji pictogram for portal/star goals
 var obj_key := ""                  # current objective identity; card pulses once on change
 var obj_seen_t := 0.0              # seconds on the same target; card calms after comprehension
 var msg_timer := 0.0
+# ---- STORY DIALOGUE (AudioDirector owns the logic; state lives here) ----
+var dialogue_queue: Array = []     # [{who, text, vo, hold}] spoken in order
+var dialogue_t := 0.0              # seconds left on the line being spoken
+var dialogue_active := false       # true while a story sequence is playing
 var fade_rect: ColorRect = null   # full-screen black cover (layer 30) — see _fade_cut
 var fade_tween: Tween = null      # active reveal tween; killed on every new cut
 # ---- CRITTER BOOK: mutable state stays on ReefMain; CollectionSystem owns logic ----
@@ -196,12 +200,14 @@ var galaxy_return_pos := Vector3.ZERO
 var galaxy_level2_open := false
 var combat_ice_done := false       # Butterfly Castle ice-berry encounter completed
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
+var combat_tutorial_done := false  # the Royal Hall sparring class, finished once
 var combat_game: CombatArena = null
+var combat_tutorial_game: CombatTutorial = null
 var combat_from := ""
 # ---- STUFFED-FRIEND COMPANION (Pokemon-style wing): mutable state stays here;
 # ---- CompanionSystem (scripts/companion.gd) owns the logic, StuffieBattle
 # ---- (scripts/stuffie_battle.gd) owns the sparring arena ----
-var companion_id := ""                    # chosen stuffie ("" until picked at Huluu's throne)
+var companion_id := ""                    # chosen stuffie ("" until picked at the Royal Hall welcome)
 var companion_colors: Array = []          # [body, accent, third] html colours from the picker
 var fish_tokens := 0                      # LEGACY sparkle-fish count — kept for save compat; migrated into care_points on load
 var stuffie_wins := {}                    # sparring-den ladder progress (round tag -> true)
@@ -243,6 +249,20 @@ var castle_room_menu_panel: Control = null
 var castle_room_menu_buttons: Dictionary = {}
 var castle_room_menu_open := false
 var castle_room_id := "main_hall"
+var castle_royal_hall_mist_cards: Array[Sprite3D] = []
+var castle_royal_hall_mist_time := 0.0
+var castle_royal_hall_mist_flutter_time := 0.0
+var castle_royal_hall_feedback_cool := 0.0
+# Runtime generations prevent a delayed doorway arrival or stale event owner
+# from consuming a newer Royal Hall event after navigation or re-arming.
+var castle_royal_hall_arrival_generation := 0
+var castle_royal_hall_arrival_pending := false
+# Runtime-only event hook. Concrete story/boss controllers own persistence and
+# re-arm this doorway from their saved progression flags; Callables never enter
+# reef_save.json.
+var castle_royal_hall_event_id := ""
+var castle_royal_hall_event_entry: Callable = Callable()
+var castle_royal_hall_event_generation := 0
 var companion_zone := ""                  # last game context; a flip snaps the follower to her side
 var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
 # ---- Tamagotchi care (owner 2026-07-20: replaces the sparkle-fish tokens) ----
@@ -436,6 +456,13 @@ var touch_interactables: Array = []
 # teardown). Enemy priority rule: these get first refusal on every world
 # tap, ahead of touch_interactables — see _on_touch_world.
 var hit_engines: Array = []
+# castle-local chain engine (combat wing 2026-08): deliberately NEVER in
+# hit_engines — the castle owns its own touch path; this instance supplies
+# the pop-chain, pips and feel to the dust-bunny pops there.
+var castle_dust_he: HitEngine = null
+# Daddy Mermaid's castle partner bubble (combat wing): staged in by the
+# child's first bunny pop each visit, torn down with the castle.
+var castle_partner: PartnerAssist = null
 var touch_focus_id := ""
 var touch_focus_ready := false
 var touch_registry_t := 0.0
@@ -3253,6 +3280,15 @@ func _speaker_key(who: String) -> String:
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 	_audio_ref().show_msg(who, txt, vo)
 
+func say_sequence(lines: Array, opening_hold: float = 0.0) -> void:
+	_audio_ref().say_sequence(lines, opening_hold)
+
+func skip_dialogue() -> bool:
+	return _audio_ref().skip_dialogue()
+
+func clear_dialogue() -> void:
+	_audio_ref().clear_dialogue()
+
 func _fanfare() -> void:
 	_audio_ref()._fanfare()
 
@@ -3449,6 +3485,10 @@ func _init_touch_experiment() -> void:
 			touch_ui.world_touched.connect(_on_touch_world)
 		if not touch_ui.manual_move_started.is_connected(_on_touch_manual_move):
 			touch_ui.manual_move_started.connect(_on_touch_manual_move)
+		touch_ui.world_press_probe = Callable(self, "_on_world_press")
+		touch_ui.world_press_release = Callable(self, "_on_world_press_release")
+		touch_ui.world_press_drag = Callable(self, "_on_world_press_drag")
+		touch_ui.world_drag_end = Callable(self, "_on_world_drag_end")
 	_interaction_ref()
 	_populate_touch_interactables()
 
@@ -3484,16 +3524,81 @@ func _set_touch_mode(next_mode: String, persist: bool = true) -> void:
 func _touch_mode_label() -> String:
 	return "🖐\nHybrid Touch" if touch_mode == TOUCH_MODE_HYBRID else "↔\nClassic Touch"
 
-func _on_touch_world(screen_pos: Vector2) -> void:
-	_living_world_ref().note_activity()
+# The world-tap gates shared by the release path and the press-fire probe:
+# a tap may reach the stage only when no overlay or mode owns the screen.
+func _world_tap_gated() -> bool:
 	if intro_active or get_tree().paused or mg_kind != "":
-		return
+		return true
 	if fade_rect != null and fade_rect.modulate.a > 0.02:
-		return
+		return true
 	if touch_ui != null and not touch_ui.world_controls_enabled:
-		return
+		return true
 	if wardrobe_layer != null or craft_layer != null \
 			or castle_logo_layer != null or collection_layer != null:
+		return true
+	return false
+
+# ENEMY PRIORITY RULE, press half (combat wing 2026-08): hit engines get the
+# finger-DOWN so a pop lands the instant the finger does — never after the
+# release half of a grabby preschool tap. Returning true tells the router to
+# suppress the release-side world_touched for this touch.
+func _on_world_press(screen_pos: Vector2) -> bool:
+	_living_world_ref().note_activity()
+	if _world_tap_gated():
+		return false
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		return false
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine == null or not engine.tap_priority:
+			continue
+		var enemy: Dictionary = engine.tap_pick(screen_pos)
+		if not enemy.is_empty():
+			engine.hit(enemy, 1, "tap")
+			# a surviving enemy invites the three-stage CHARGE: keep holding
+			# and a ring grows around it; the lift (or stage 3) delivers
+			engine.begin_charge(enemy)
+			return true
+	return false
+
+# The finger that press-fired has lifted: any held charge releases now.
+func _on_world_press_release() -> void:
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine != null:
+			engine.release_charge()
+	if castle_dust_he != null:
+		castle_dust_he.release_charge()
+
+# Every hit engine currently on stage, battle engines first.
+func _live_hit_engines() -> Array:
+	var live: Array = []
+	for engine_value: Variant in hit_engines:
+		var engine: HitEngine = engine_value as HitEngine
+		if engine != null:
+			live.append(engine)
+	if castle_dust_he != null:
+		live.append(castle_dust_he)
+	return live
+
+# The press-firing finger started travelling: it is a SLICE now, not a charge.
+func _on_world_press_drag() -> void:
+	for engine_value: Variant in _live_hit_engines():
+		(engine_value as HitEngine).cancel_charge_for_drag()
+
+# A world touch that travelled — offer it to the blades. A drag that reaches no
+# enemy simply cuts nothing; it never stole a tap, because a moved world touch
+# has never emitted world_touched.
+func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
+	if _world_tap_gated():
+		return
+	for engine_value: Variant in _live_hit_engines():
+		if (engine_value as HitEngine).slash(from, to) > 0:
+			return
+
+func _on_touch_world(screen_pos: Vector2) -> void:
+	_living_world_ref().note_activity()
+	if _world_tap_gated():
 		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_touch(screen_pos)
@@ -6961,6 +7066,7 @@ func _process(delta: float) -> void:
 		save_pending_t -= delta
 		if save_pending_t <= 0.0:
 			_write_save()
+	_audio_ref().tick_dialogue(delta)
 	if msg_timer > 0.0:
 		msg_timer -= delta
 		if msg_timer <= 0.0:
@@ -8089,6 +8195,12 @@ func _tick_movers(delta: float) -> void:
 var ambience: AudioStreamPlayer = null
 @warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
 var _tap_player: AudioStreamPlayer = null
+@warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
+var _pop_player: AudioStreamPlayer = null
+@warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
+var _sfx_pool: Array = []
+@warning_ignore("unused_private_class_variable")   # written/read by AudioDirector via m.
+var _sfx_i := 0
 
 func _arena_floor(col: Color, tex: String = "", nrm: String = "", uvs: float = 0.06) -> void:
 	var disc := CylinderMesh.new()
