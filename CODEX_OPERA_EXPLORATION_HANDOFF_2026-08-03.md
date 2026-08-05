@@ -78,6 +78,22 @@ and stations, at once. **Do not re-render the 52 world tiles + 52 stage tiles
 to remove the bleed** — that is a 104-file regeneration to save four lines,
 and it would invalidate the widget package's registration work.
 
+> **IMPLEMENTED 2026-08-04 — the decision above stands, its numbers do not.**
+> The transform is live in `OperaStagePaths.to_screen()`, applied by
+> `path_points()`, `stations()` and `clue_spots()` including their fallbacks.
+> Three corrections to the paragraph above, all measured rather than assumed:
+> the composed master is **2048x2048**, not 2048x1152 — `opera_world_backdrop_2d.gd:66-75`
+> already crops the 1152 band out of it, so the **vertical bleed was never a
+> defect and y passes through untouched**; the real horizontal spans are
+> `0.0913..0.0957` and scale `0.8066..0.8164`, not `0.10 + 0.80`; and they vary
+> per career, so `BLEED` is a 13-row table — a single constant would cost up to
+> 6.9px. Confirmed against 30 stations across five careers whose landmarks still
+> match their paintings: 25 of 30 land closer under the transform, worst case
+> detective `treasure_dais` 115px -> 14px. Regenerate the table with
+> `tools/measure_opera_bleed.py` after any world repaint. Full evidence:
+> `OPERA_MASTER_PACKAGE_2026-08-04.md` §2. **Codex: nothing to do here — this is
+> engine work, already done. Do not re-render tiles to chase it.**
+
 Two consequences that bind this package:
 
 1. **Nothing in this ledger is coordinate-anchored.** Every shared file is a
@@ -89,6 +105,14 @@ Two consequences that bind this package:
    furniture that is gone. That is a **data** re-derivation task (ours), and
    it gates only the two placement-sensitive files in this package
    (`explore_sprout`, `explore_curtain_open`).
+   **DONE 2026-08-04** — all seven re-derived from the shipped paintings and
+   landed in `scripts/opera_stage_paths.gd` (route, five stations with true
+   landmark strings, eight clue spots, ROAM envelope each). `explore_sprout`
+   and `explore_curtain_open` are unblocked. Two notes carried forward in
+   `OPERA_MASTER_PACKAGE_2026-08-04.md` §3: racer's aqua ribbon is a water
+   canal, not a road — no walking figure may enter it; magician's plaza is now
+   three curtained shell stages and its route hugs their bases, so the open
+   foreground plaza is currently unused.
 
 ---
 
