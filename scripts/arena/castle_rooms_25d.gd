@@ -74,6 +74,7 @@ const ROYAL_HALL_OFFER_BEAT := 1.6
 const ROYAL_HALL_PORTAL_ID := "__royal_hall"
 const ROYAL_HALL_CROWN_EVENT := "crown_welcome"
 const ROYAL_HALL_COMPANION_EVENT := "companion_welcome"
+const ROYAL_HALL_TUTORIAL_EVENT := "combat_tutorial"
 const ROYAL_HALL_MIST_TEXTURE := \
 	"res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
 const ROYAL_HALL_MIST_FADE_SPEED := 2.8
@@ -976,6 +977,11 @@ func open(start_room: String = "main_hall") -> void:
 	show_room(start_room, false)
 	_activate_castle_environment()
 	_sync_hall_lighting()
+	# combat wing 2026-08: the castle's chain engine (pop-chain, pips, pitch
+	# ladder, haptics for bunny pops). Never registered in main.hit_engines —
+	# the castle layer owns its own touch path.
+	m.castle_dust_he = HitEngine.new(m)
+	m.castle_dust_he.camera = m.castle_room_camera
 
 func resume(room_id: String = "") -> void:
 	if not is_open():
@@ -1067,6 +1073,12 @@ func close() -> void:
 	m.g.erase("castle_movie_index")
 	m.g.erase("castle_bedside_light_on")
 	m.g.erase("castle_roleplay_sleeping")
+	if m.castle_dust_he != null:
+		m.castle_dust_he.teardown()
+		m.castle_dust_he = null
+	if m.castle_partner != null:
+		m.castle_partner.detach()
+		m.castle_partner = null
 	m._set_world_controls_enabled(true, "castle_rooms")
 	m._set_world_controls_enabled(true, "kitchen_fridge_close")
 	if m.player != null:
@@ -1083,6 +1095,10 @@ func tick(delta: float) -> void:
 		0.0, m.castle_royal_hall_feedback_cool - delta)
 	fixture_rigs.tick(delta)
 	_tick_item_affordances(delta)
+	if m.castle_dust_he != null:
+		m.castle_dust_he.tick(delta)   # pop-chain window decay
+	if m.castle_partner != null:
+		m.castle_partner.tick(delta)
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
@@ -1747,10 +1763,12 @@ func _walk_cutout_to(screen_position: Vector2) -> void:
 	if m.castle_room_player_sprite == null:
 		return
 	_invalidate_royal_hall_arrival()
-	var bunny_foot: Vector2 = _dust_bunny_foot_from_camera_ray(
-		screen_position)
-	if bunny_foot != Vector2.INF:
-		_position_player_at_foot(bunny_foot, true)
+	# combat wing 2026-08: a tap on a bunny card pops it on the spot — the
+	# game-wide tap-the-creature verb now works here too. Walking into a
+	# bunny still pops it as well (the motor-inclusive floor stays).
+	var bunny_id: String = _dust_bunny_id_from_camera_ray(screen_position)
+	if bunny_id != "":
+		_explode_dust_bunny(bunny_id)
 		return
 	var local_position: Vector2 = _screen_to_stage(screen_position)
 	if _is_wide_hall():
@@ -1766,15 +1784,25 @@ func _walk_cutout_to(screen_position: Vector2) -> void:
 	var foot_y: float = clampf(local_position.y, walk.position.y, walk.end.y)
 	_position_player_at_foot(Vector2(foot_x, foot_y), true)
 
+# The probe-proven card picker, kept verbatim below but returning the picked
+# bunny's id; the foot variant wraps it for the walking route and the probes.
 func _dust_bunny_foot_from_camera_ray(screen_position: Vector2) -> Vector2:
-	if m.castle_room_camera == null:
+	var item_id: String = _dust_bunny_id_from_camera_ray(screen_position)
+	if item_id == "":
 		return Vector2.INF
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		item_id, {}) as Dictionary
+	return record.get("contact_foot", Vector2.INF) as Vector2
+
+func _dust_bunny_id_from_camera_ray(screen_position: Vector2) -> String:
+	if m.castle_room_camera == null:
+		return ""
 	var ray_origin: Vector3 = m.castle_room_camera.project_ray_origin(
 		screen_position)
 	var ray_direction: Vector3 = m.castle_room_camera.project_ray_normal(
 		screen_position)
 	var nearest_distance: float = INF
-	var nearest_foot: Vector2 = Vector2.INF
+	var nearest_id: String = ""
 	for item_id_value: Variant in m.castle_room_item_sprites:
 		var record: Dictionary = m.castle_room_item_sprites[item_id_value] \
 			as Dictionary
@@ -1804,8 +1832,8 @@ func _dust_bunny_foot_from_camera_ray(screen_position: Vector2) -> Vector2:
 				or absf(relative.dot(basis.y.normalized())) > half_height:
 			continue
 		nearest_distance = hit_distance
-		nearest_foot = record.get("contact_foot", Vector2.INF) as Vector2
-	return nearest_foot
+		nearest_id = String(item_id_value)
+	return nearest_id
 
 func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	if m.castle_room_player_sprite == null:
@@ -2061,6 +2089,7 @@ func arm_royal_hall_event(event_id: String, entry: Callable) -> bool:
 	# shadowed by the built-in match branches at arrival.
 	if event_id.is_empty() or event_id == ROYAL_HALL_CROWN_EVENT \
 			or event_id == ROYAL_HALL_COMPANION_EVENT \
+			or event_id == ROYAL_HALL_TUTORIAL_EVENT \
 			or not entry.is_valid():
 		return false
 	m.castle_royal_hall_event_generation += 1
@@ -2104,12 +2133,16 @@ func _royal_hall_event_id() -> String:
 	if m.castle_royal_hall_event_id != "" \
 			and m.castle_royal_hall_event_entry.is_valid():
 		return m.castle_royal_hall_event_id
-	# These two existing progression beats moved with the Royal Hall gate. A
+	# These existing progression beats moved with the Royal Hall gate. A
 	# child who closed the companion picker must never lose the chance to return.
+	# Custom boss/story owners retain first priority; the one-time combat lesson
+	# follows Crown and companion so it can never steal either welcome moment.
 	if not m.level2_done_once:
 		return ROYAL_HALL_CROWN_EVENT
 	if m.companion_id == "":
 		return ROYAL_HALL_COMPANION_EVENT
+	if not m.combat_tutorial_done:
+		return ROYAL_HALL_TUTORIAL_EVENT
 	return ""
 
 func _tick_royal_hall_mist(delta: float) -> void:
@@ -3429,7 +3462,7 @@ func _check_dust_bunny_contacts() -> void:
 	for item_id: String in touched_ids:
 		_explode_dust_bunny(item_id)
 
-func _explode_dust_bunny(item_id: String) -> void:
+func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 	var record: Dictionary = m.castle_room_item_sprites.get(
 		item_id, {}) as Dictionary
 	if record.is_empty():
@@ -3454,6 +3487,26 @@ func _explode_dust_bunny(item_id: String) -> void:
 		hotspot.disabled = true
 		hotspot.queue_free()
 	m.castle_room_item_sprites.erase(item_id)
+	# combat wing 2026-08: bunny pops join the shared pop-chain (tap and
+	# walk-contact count equally), pay one pearl, and a quick trio — chain
+	# level 3 — earns a little TRIO celebration. Rescue pins keep their own
+	# reward flow and stay pearl-free.
+	if not bool(item_data.get("rescue_bunny", false)):
+		m.pearl_count += 1
+	if not partner_pop and m.castle_dust_he != null:
+		var chain_level: int = m.castle_dust_he.note_hit(sprite.global_position)
+		if chain_level >= 3:
+			_item_burst(sprite.position, Color(StorybookUI.GOLD), 16)
+			m._audio_ref()._fanfare()
+			Juice.shake(m.castle_room_camera)
+		if m.castle_partner != null:
+			m.castle_partner.note_child_pop()
+	# Daddy's bubble debuts after her first own pop of the visit (staged
+	# teach): the castle is his home, and his DADDY SPLASH super rests on an
+	# 18 s cooldown between waves of hearts.
+	if not partner_pop and m.castle_partner == null and m.castle_room_id == "main_hall":
+		m.castle_partner = PartnerAssist.new(m)
+		m.castle_partner.attach("daddy", Callable(self, "_daddy_splash"))
 	_play_item_sfx(String(item_data.get("sound", "hop_boing.ogg")),
 		float(item_data.get("pitch", 1.5)))
 	var burst_color := Color(item_data.get("color", StorybookUI.GOLD))
@@ -3473,6 +3526,30 @@ func _explode_dust_bunny(item_id: String) -> void:
 		_check_playroom_rescue_complete()
 		if not _playroom_rescue_done():
 			m._write_save()
+
+# DADDY SPLASH (PartnerAssist fires this only from the child's tap on his
+# bubble): a wave of hearts pops every ordinary dust bunny in the current
+# room. Rescue pins are deliberately excluded — freeing the Baby Eagle is
+# HER moment ("I know you can do it!"), Daddy never takes it from her.
+func _daddy_splash(_partner_kind: String) -> void:
+	var ids: Array[String] = []
+	for item_id_value: Variant in m.castle_room_item_sprites:
+		var record: Dictionary = m.castle_room_item_sprites[item_id_value] \
+			as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if String(item_data.get("dust_bunny_role", "")) == "":
+			continue
+		if bool(item_data.get("rescue_bunny", false)):
+			continue
+		ids.append(String(item_id_value))
+	for item_id: String in ids:
+		var record2: Dictionary = m.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		var sprite: Sprite3D = record2.get("sprite") as Sprite3D
+		if sprite != null and is_instance_valid(sprite):
+			_item_burst(sprite.position, Color(0.98, 0.62, 0.78), 10)
+		_explode_dust_bunny(item_id, true)
+	Juice.shake(m.castle_room_camera)
 
 func _playroom_rescue_done() -> bool:
 	return m.companion_id != "" \
@@ -3822,6 +3899,8 @@ func _activate_royal_hall_event(arrival_generation: int,
 			_offer_companion_at_royal_hall()
 		ROYAL_HALL_COMPANION_EVENT:
 			_offer_companion_at_royal_hall()
+		ROYAL_HALL_TUTORIAL_EVENT:
+			_start_combat_tutorial()
 		_:
 			var entry: Callable = m.castle_royal_hall_event_entry
 			# Consume the one-shot hook before calling into its owner. That owner can
@@ -4014,6 +4093,20 @@ func _finish_kitchen_recipe() -> void:
 	m.game = "level2"
 	resume("kitchen")
 	m.show_msg("Roshan", "Something delicious is ready!", "win")
+
+# Suspend the castle, run the sparring class, and come home to the hall.
+# The same cutaway pattern the kitchen and opera hall already use.
+func _start_combat_tutorial() -> void:
+	if m.combat_tutorial_game != null:
+		return
+	suspend()
+	var tut := CombatTutorial.new()
+	m.combat_tutorial_game = tut
+	m.add_child(tut)
+	tut.start(m, func() -> void:
+		m.combat_tutorial_game = null
+		resume("main_hall")
+		m.show_msg("Roshan", "A royal wave from the Royal Hall!", "win"))
 
 func activate_current_room() -> void:
 	if _fridge_close_is_blocked():

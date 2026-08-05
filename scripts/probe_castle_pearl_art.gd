@@ -1700,8 +1700,10 @@ func _run() -> void:
 		"alpha=%s cards=%s" % [mist_alpha_rect, mist_detail])
 	var original_companion_id: String = main.companion_id
 	var original_level2_done_once: bool = main.level2_done_once
+	var original_combat_tutorial_done: bool = main.combat_tutorial_done
 	main.level2_done_once = true
 	main.companion_id = "mewsha"
+	main.combat_tutorial_done = true
 	main.castle_room_camera.position = Vector3(
 		rooms._hall_camera_x_for_foot(3045.0), 0.0,
 		main.castle_room_camera.position.z)
@@ -1932,6 +1934,7 @@ func _run() -> void:
 		return
 	main.companion_id = original_companion_id
 	main.level2_done_once = original_level2_done_once
+	main.combat_tutorial_done = original_combat_tutorial_done
 	rooms._force_clear_royal_hall_event()
 	rooms._tick_royal_hall_mist(1.0)
 	rooms.show_room("family_gallery", false)

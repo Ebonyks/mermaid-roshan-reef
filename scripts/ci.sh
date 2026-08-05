@@ -4,6 +4,12 @@
 set -uo pipefail
 GODOT="${GODOT:-godot}"
 cd "$(dirname "$0")/.."
+# Windows-local parity (2026-08-04): on Windows the Python default text codec
+# is cp1252, so every tool below that reads a UTF-8 source file or prints an
+# arrow/em-dash dies with a charmap error and the suite never reaches the
+# probes. Linux CI already defaults to UTF-8, so this is a no-op there.
+export PYTHONIOENCODING="utf-8"
+export PYTHONUTF8=1
 # fast static gates first (no Godot needed): syntax, then the ':=' Variant
 # inference shape that broke main.gd twice on 2026-07-11 - a parse error in
 # main.gd makes every probe idle to its 8m timeout, so catching it here
@@ -55,7 +61,7 @@ timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
 rc=0
-for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_nursery probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
+for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_nursery probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
 	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"

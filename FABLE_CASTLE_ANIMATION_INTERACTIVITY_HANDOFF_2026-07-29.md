@@ -19,8 +19,8 @@ they no longer describe the intended Main Hall endpoint.
 
 - The oversized portal at the far-right end of the Main Hall is the **Royal
   Hall event gate**. It is the staging entrance for Crown moments, companion
-  moments, boss fights, and other explicitly armed major story events, not a
-  generic throne toy.
+  moments, the first combat class, boss fights, and other explicitly armed
+  major story events, not a generic throne toy.
 - The separate Huluu throne overlay is retired from the runtime composition.
   Preserve its source and provenance, but do not load or substitute it in the
   Main Hall.
@@ -33,16 +33,23 @@ they no longer describe the intended Main Hall endpoint.
   environmental veil, not a button, badge, full-screen overlay, or loud looping
   effect. The accepted implementation reuses five narrow, low-alpha copies of
   the existing Sky Lagoon wisp card rather than broad stacked smoke puffs.
-- The mist clears only while a Crown, companion, boss, or other major-event
-  controller has explicitly armed the Royal Hall. The event owns the opening,
-  entry, and optional reseal choreography. A locked tap must remain kind and
-  wordless-first: a quiet mist response, spoken cue, and visual pointer; never
-  a fail state or reading-dependent instruction.
+- The mist clears only while a Crown/companion/first-combat progression beat is
+  eligible or a boss/other major-event controller has explicitly armed the
+  Royal Hall. Priority is: explicitly armed event, Crown, companion, unfinished
+  first combat class, then locked/resting. This prevents training from stealing
+  either welcome and lets future bosses pre-empt training safely. The event owns
+  the opening, entry, and optional reseal choreography. A locked tap must remain
+  kind and wordless-first: a quiet mist response, spoken cue, and visual
+  pointer; never a fail state or reading-dependent instruction.
 - Runtime event ownership uses generation tokens. Leaving the hall, opening
   the elevator, changing rooms, or starting a newer approach invalidates an
   earlier arrival callback; a named clear must also present the generation it
   owns. Rapid taps and stale controllers therefore cannot launch an event in a
   different room or consume a newly re-armed boss event.
+- The combat tutorial no longer has a throne hotspot. Once Crown and companion
+  welcomes are complete, an unfinished first class becomes the next Royal Hall
+  event. Cancelling keeps it eligible; graduation saves completion and reseals
+  the mist. Its arena and lesson behavior remain unchanged.
 
 ### Current icon-family compatibility contract (2026-08-05)
 

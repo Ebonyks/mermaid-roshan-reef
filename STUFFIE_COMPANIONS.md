@@ -51,9 +51,11 @@ When the companion offer is eligible, its story controller arms the Royal Hall:
 the mist quietly clears, the doorway becomes available, and walking through it
 starts the Crown/companion moment with its voice and visual guidance. Closing
 the picker without choosing must leave the offer eligible so the Royal Hall can
-open for it again; the child cannot lose the moment. Crown, companion, and
-other explicitly armed major events may clear the same gate, while ordinary
-free-roam leaves it mist-sealed.
+open for it again; the child cannot lose the moment. Crown, companion, the
+unfinished first combat class, and other explicitly armed major events may
+clear the same gate. Crown and companion retain priority over training; an
+explicitly armed boss/story event retains priority over all three. Ordinary
+free-roam leaves the gate mist-sealed.
 
 The arrival is generation-guarded: opening the elevator, changing rooms,
 closing the castle, or beginning a newer approach cancels the older delayed

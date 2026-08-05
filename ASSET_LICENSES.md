@@ -2238,3 +2238,25 @@ OpenAI built-in ImageGen natives and project-authored non-destructive derivative
 - `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_12_rival_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
 - `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_selected_scuffles_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
 - `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_stress_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `assets/audio/sfx/combat_*.wav` (combat_pop, combat_bonk, combat_poof,
+  combat_freeze, combat_charge_ring, combat_fizzle) — synthesized entirely
+  by `tools/gen_combat_sfx.py` in this repository (deterministic
+  pure-stdlib waveforms, seeded noise, no external sources, no recordings).
+  The combat feel-stack reaction voices: hit pop, harm bonk, death poof,
+  freeze tinkle, charge-ring shimmer, kind-miss fizzle. Owner-recorded
+  replacements can drop in at the same paths (all callers check
+  ResourceLoader.exists). License: project code.
+
+## Combat tutorial training art (2026-08-01)
+
+- `assets/castle/training/training_grotto_backdrop.png`,
+  `ghost_hand.png`, `verb_chip_tap.png`, `verb_chip_hold.png`, and their
+  preservation masters under
+  `assets_src/imagegen/combat_tutorial_2026-08-01/` are project-original art
+  generated with OpenAI built-in image generation on 2026-08-01. License:
+  project original. URL: none (project-local generation). The backdrop was
+  whole-canvas resized to 2048x1024. The three simple opaque subjects were
+  generated on flat green, converted to alpha with the installed Codex chroma
+  helper using soft matte and despill, then whole-canvas resized to 512x512 or
+  256x256. Exact prompts, generation identifiers, dimensions, hashes, reuse
+  audit, and processing notes are recorded in the adjacent `PROMPTS.md`.

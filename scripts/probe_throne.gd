@@ -196,6 +196,7 @@ func _run() -> void:
 	main.trophies = 5
 	main.level2_done_once = true
 	main.companion_id = "birdie"
+	main.combat_tutorial_done = true
 	main.g["crown_won"] = false
 	main._enter_level2_now(true, false, false)
 	await _frames(12)
@@ -301,9 +302,12 @@ func _run() -> void:
 		"crown_welcome", incumbent_entry)
 	var reserved_companion_id: bool = rooms.arm_royal_hall_event(
 		"companion_welcome", incumbent_entry)
+	var reserved_tutorial_id: bool = rooms.arm_royal_hall_event(
+		"combat_tutorial", incumbent_entry)
 	_ck("invalid_arm_preserves_incumbent",
 		not invalid_empty_id and not invalid_callable
 		and not reserved_crown_id and not reserved_companion_id
+		and not reserved_tutorial_id
 		and _event_matches(rooms, "probe_same_id", incumbent_token)
 		and main.castle_royal_hall_event_entry == incumbent_entry,
 		"token=%d current=%d id=%s" % [incumbent_token,
@@ -327,6 +331,7 @@ func _run() -> void:
 		and not main.castle_royal_hall_event_entry.is_valid())
 
 	# ---- an eligible Crown welcome clears the veil and opens on arrival ----
+	main.combat_tutorial_done = false
 	main.level2_done_once = false
 	main.companion_id = ""
 	# Complete the authored fade deterministically. Script-mode headless frames
@@ -353,13 +358,22 @@ func _run() -> void:
 	_ck("royal_hall_re_offers_after_a_closed_picker",
 		main.companion_layer != null and main.companion_id == "")
 
-	# ---- once she has a friend, ordinary mist returns ----
+	# ---- after both welcomes, the first combat class is the next event ----
 	companion.close_picker()
 	await _frames(10)
 	main.companion_id = "birdie"
 	await _frames(40)
-	_ck("mist_returns_after_companion_is_chosen",
-		_visible_royal_hall_mist() == 5)
+	_ck("combat_tutorial_follows_crown_and_companion",
+		rooms._royal_hall_event_id() == "combat_tutorial"
+		and _visible_royal_hall_mist() == 0)
+	# The dedicated tutorial probe enters and graduates through the real gate.
+	# Here, mark that separate saved beat complete so the remaining locked-state
+	# and custom-owner checks stay focused on Royal Hall routing.
+	main.combat_tutorial_done = true
+	rooms._tick_royal_hall_mist(1.0)
+	_ck("mist_returns_after_first_combat_class",
+		rooms._royal_hall_event_id().is_empty()
+		and _visible_royal_hall_mist() == 5)
 	await _tap_royal_hall()
 	await _frames(60)
 	_ck("no_re_offer_once_she_has_a_friend", main.companion_layer == null,
