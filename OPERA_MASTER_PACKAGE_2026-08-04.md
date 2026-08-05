@@ -26,7 +26,7 @@ at her.**
 | 5 | **Roshan animation, `sheet_c`** | same, proposed by `OPERA_EXPLORATION_DESIGN_2026-08-03.md` §9 | **13** | **PROPOSED — not owner-accepted.** T3/Q1/H4/Y-series all ship without it on `ActorMotion` | owner decides (§7 Q2) |
 | 6 | **Exploration art** | `CODEX_OPERA_EXPLORATION_HANDOFF_2026-08-03.md` + `assets_src/concepts/OPERA_EXPLORATION_ASSET_LEDGER_2026-08-03.csv` (**57 rows**, verified: 56 NEW + 1 REUSE; P1 6 / P2 15 / P3 36) | **56** | **REQUESTED, 0 delivered.** `assets/opera/worlds/explore/` does not exist yet; no `helper_*.png` on disk | Codex |
 | 7 | **Exploration engine + data** | `OPERA_EXPLORATION_DESIGN_2026-08-03.md` §8, §10 | 0 art | **NOT STARTED.** ~310 lines new engine + 7 new data tables. All line numbers in that document are against the 1755-line `opera_career_world_2d.gd`; it is **2046 lines** today after the animation pass | us |
-| 8 | **Coordinate re-derivation** | this document §2, §3 | 0 art | **DERIVED, NOT LANDED.** 7 careers' paths/stations/clue spots + ROAM; the P0 ruling | us |
+| 8 | **Coordinate re-derivation** | this document §2, §3 | 0 art | **LANDED 2026-08-04.** P0 transform in `89794aec` (per-career `BLEED` + `to_screen()`); the 7 careers' paths/stations/clue spots + ROAM in `c4afa1a3`. §3 is now a **record of what is in the file**, not a splice instruction | done |
 | 9 | Ambient loops (13 × 2–3 s) + short VO (~130 lines) | exploration handoff §3.8 | 0 art | **DEFERRED, optional.** `AudioDirector._say` degrades to the speaker's generic clip and then to the pitched "yay" | family / us |
 
 **Total outstanding art files: 316** (221 + 26 + 13 + 56). §6 sequences them.
@@ -43,9 +43,13 @@ Superseded and dead — do not act on these again:
 **The transform is real, it is horizontal only, and it goes in `OperaStagePaths`.**
 
 ```
-screen_u = 0.091 + 0.817 * recorded_u        # apply
-screen_v = recorded_v                        # identity — already handled
+screen_u = bleed_u0 + (bleed_u1 - bleed_u0) * recorded_u   # apply, PER CAREER
+screen_v = recorded_v                                      # identity — already handled
 ```
+
+The spans are per-career and measured, not the flat `0.091 + 0.817` first
+proposed: `bleed_u0` runs `0.0913..0.0957` and the width `0.8066..0.8164`.
+See the shipped `OperaStagePaths.BLEED` table below.
 
 ### Why horizontal only
 
@@ -119,20 +123,39 @@ like the six shipped rows, and is consumed through the same transform.** Do not
 **screen** fractions and pixels, because it was measured on the composed,
 cropped, 1280×720 frame.
 
-### Implementation
+### Implementation — SHIPPED 2026-08-04 in `89794aec`, do not re-implement
 
-One private helper, three call sites, no new public API:
+The sketch below was written before the fix landed and prescribed a *career-blind*
+single constant. **What shipped is per-career and public**, because the spans are
+not uniform: measured, they run `0.0913..0.0957` and `0.8066..0.8164`, and a single
+constant costs up to **6.9 px**. Build against the shipped API, not this sketch:
 
 ```gdscript
-const SHARP_U := Vector2(0.091, 0.817)   # bleed-corrected horizontal span of
-                                          # the composed 2048 master (P0, 2026-08-04)
+const BLEED: Dictionary = { "chef": [0.0913, 0.9077], ... }   # 13 rows
 
+static func bleed_span(career: String) -> Vector2:
+	var entry: Array = BLEED.get(career, [0.0936, 0.9049])
+	return Vector2(float(entry[0]), float(entry[1]))
+
+static func to_screen(career: String, normalized: Vector2) -> Vector2:
+	var span := bleed_span(career)
+	return Vector2(
+		(span.x + (span.y - span.x) * normalized.x) * SCREEN.x,
+		normalized.y * SCREEN.y
+	)
+```
+
+Regenerate `BLEED` with `tools/measure_opera_bleed.py` after any world repaint.
+The superseded sketch was:
+
+```gdscript
+const SHARP_U := Vector2(0.091, 0.817)   # SUPERSEDED — career-blind, ±6.9px
 static func _to_screen(u: float, v: float) -> Vector2:
 	return Vector2((SHARP_U.x + SHARP_U.y * u) * SCREEN.x, v * SCREEN.y)
 ```
 
-Called from `path_points()` (`opera_stage_paths.gd:190`), `stations()` (`:198`)
-and `clue_spots()` (`:220`), replacing the bare `* SCREEN`. `roam_range()`,
+Called from `path_points()`, `stations()` and `clue_spots()` **including their
+fallback branches**, replacing the bare `* SCREEN`. `roam_range()`,
 `point_along()` and `nearest_t()` need no change — ROAM is a `t` parameter along
 the polyline, not a coordinate, and the other two consume already-converted
 points.
@@ -162,9 +185,10 @@ following replaces `PATHS` and `ROAM` rows for all seven, read off the shipped
 tiles. Ten waypoints each (shipped rows have nine; `path_points()` is
 count-agnostic). Landmark strings are compressed to the shipped register.
 
-Splice these blocks over the existing rows in `scripts/opera_stage_paths.gd:76-152`
-(farmer at `:76`, boxer `:87`, magician `:98`, painter `:109`, astronaut `:120`,
-racer `:131`, popstar `:142`) and the seven matching keys in `ROAM` (`:161-175`).
+**These blocks are already in `scripts/opera_stage_paths.gd` as of `c4afa1a3`** — reproduced here as the record of what shipped, not as a splice instruction. Do not re-apply them by line number
+(farmer at `:86`, boxer `:97`, magician `:108`, painter `:119`, astronaut `:130`,
+racer `:141`, popstar `:152`) and the seven matching keys in `ROAM` (`:171-185`),
+verified against the file at `c4afa1a3`.
 
 ```gdscript
 	# UNWALKABLE: bottom-left tide pool + rock ledge (screen x 0.15-0.36,
@@ -357,9 +381,16 @@ Owner rule, 2026-08-03. Shipped today, in code:
 | **Widget creature subjects** — piggies (farmer HERD), plushy starfish patients (doctor CAST / BANDAGE), babies (nursery FEED / BEDTIME / catch), the lamb (magician VANISH) | widget ledger, `template ∈ {push, target, trace, pour, catch}` | **Exempt** — they live inside the task card, at card scale, in TASK state, and never touch the stage's ground plane. Widget lock G11 already forbids baked Roshan and baked imps, so there is no scale exposure. Say this out loud so nobody "fixes" a piggy to 180 px. **One watch item:** the `widget_*_state_*` strips (N × 256). If the future ingredient-surface mode ever lifts a state cell onto the stage, that cell inherits both contracts on the spot. |
 
 **Nothing** in the three open packages may introduce a walking figure taller than
-166 px of Roshan's 250 (1.5×) or shorter than ~140 px (below which she stops
-reading as "a bit taller" and starts reading as a giant). The band is
-**166 ≥ figure ≥ 140**; 180 and 190 sit comfortably inside it.
+200 px (the captain box — above which Roshan stops reading as taller at all) or
+**shorter than 167 px** (at which she is already 1.50× and any smaller figure
+breaks the owner rule and starts reading as a giant beside her).
+
+The band is **200 ≥ figure ≥ 167**; 180 and 190 sit comfortably inside it.
+
+Note the direction: 250 / 1.5 = 166.7 is the **floor** on the figure, not a
+ceiling. A 166 px figure puts Roshan at 1.51× — a violation. An earlier draft of
+this line inverted the inequality and quoted a `166 ≥ figure ≥ 140` band, which
+excludes both the 190 helper and the 180 peek imp ruled on immediately above.
 
 ### 4.2 PATHFINDING — every walking figure is confined to `roam_range()`
 
@@ -465,7 +496,10 @@ Every one of them is checked against four disqualifiers before it appears here:
   one per visit).
 - **Data:** `m.opera_pantry["farmer_bed_%d"] = stage` — the dictionary already
   exists (`main.gd:295`), already saves (`save_state.gd:132/207/465`) and is
-  already asserted to round-trip by `probe_load.gd:6`. No save-schema change, no
+  a direct precedent: `opera_pantry` round-trips and `probe_load.gd` covers it
+  (`:6` is that test's header comment). The nine-bed state is a **new key** and
+  needs its own assertion added there — do not claim existing coverage. No
+  save-schema *removal*, no
   removed keys.
 - **Serves:** farmer (9 beds), painter (3 easels), magician (3 booths). Census
   §2: "Nine beds = nine touches = a complete, countable act" and "three blank
@@ -593,7 +627,14 @@ Every one of them is checked against four disqualifiers before it appears here:
   and is never noted.
 
 ### Y10 — WHAT SHE SEES FROM HERE
-- **She does:** stands at any station for 2.5 s. She turns to face its landmark,
+- **Blocked by item 8, and must be sequenced after it.** Build item 8 arms a
+  station and auto-opens its task card on a 0.35 s dwell. A 2.5 s stand can
+  therefore never be reached at an armed station — the card opens first and
+  eats the beat. Y10 fires **only at stations with no task armed**: ones already
+  completed, and ones belonging to a later phase. Implement the check against
+  the armed-station id, not against a timer, or this reads as a dead feature on
+  the first playtest.
+- **She does:** stands at any *unarmed* station for 2.5 s. She turns to face its landmark,
   and the **landmark itself** takes a slow 0.9 s bloom — a light, not a sparkle
   — and she says its name, the first clause of the `landmark` string.
 - **Art:** **none** — `explore_glow_warm` / `explore_glow_cool` (exploration P1).
@@ -632,16 +673,16 @@ parallel from the start; `→` marks a hard dependency.
 
 | # | Work | Lane | Files | Blocking |
 |---:|---|---|---:|---|
-| **0** | **P0 transform** — `_to_screen()` helper in `OperaStagePaths`, three call sites (§2) | engine | 0 | **Blocks 1, 2, 10, 11, 16.** Four lines; nothing else positional is true until it lands. |
-| **1** | Land the 7 re-derived `PATHS` + `ROAM` rows (§3) | data | 0 | → 0. Blocks 2, 10, 12(part), 16. |
+| **0** | ~~**P0 transform**~~ — **DONE `89794aec`.** Shipped as a per-career `BLEED` table + public `to_screen(career, normalized)`, applied by all three converters *and their fallbacks* (§2) | engine | 0 | Was blocking 1, 2, 10, 11, 16 — all unblocked. |
+| **1** | ~~Land the 7 re-derived `PATHS` + `ROAM` rows (§3)~~ — **DONE `c4afa1a3`.** In `scripts/opera_stage_paths.gd`; §3 is now a record, not an instruction | data | 0 | Was blocking 2, 10, 12(part), 16 — all unblocked. |
 | **2** | **Render check** — farmer, racer, magician at 1280 × 720 with station markers drawn; confirm `hay_bales` lands on the bales and `ribbon_finish_arch` under the arch | QA | 0 | → 1. **Blocks everything downstream.** This is the one check that catches a coordinate-space inversion before 316 files are placed against it. |
 | **3** | **Widget P1** (8 files: `widget_pour_chef` + `_mover` + `_fill`, `widget_crank_chef` + `_mover` + `_progress`, `widget_trace_chef` + `_lit`) → **stop, get owner sign-off** | art-W | **8** | ‖ from t=0. Proves all three animation grammars (G1–G3 bottom-up, G5 cross-fade, G6 chronological wipe). If one is wrong, that rule is wrong for a third of the set. |
 | **4** | **Exploration P1** (6 shared files) | art-E | **6** | ‖ from t=0. Nothing in family A depends on anything. Highest coverage-per-file in the programme: 6 files light 104 painted details across 13 careers. |
 | **5** | **`roshan_chef_sheet_a`** (1 file) → style proof, owner sign-off | art-R | **1** | ‖ from t=0. |
 | **6** | `ActorMotion` three-node stack + per-actor rest-transform ownership | engine | 0 | ‖. Half-delivered already by the animation pass's B1 (`d0a35d3e`); finish it. Also fixes the live `_bounce_actor` stale-`home_y` bug. Blocks T3, Q1, H4 and Y1–Y10. |
 | **7** | **W1 walk integrator + `wander_layer`** with the 6-step hit-test order | engine | 0 | → 0, 6. **Blocks every T / C / Q / H / X / Y task.** ~140 lines. |
-| **8** | Split `_show_phase()` → `_arm_phase()` / `_open_task()`; 150 px / 0.35 s dwell; delete the blank `phase_gap`; add the probe auto-open guard so `probe_opera_2d_balance.gd`'s 287 assertions hold unedited | engine | 0 | → 7. |
-| **9** | **Widget P2** (27 rows — pour ×3, basin ×2, shared shine, crank ×8, charge ×5, trace ×5, push ×4, shared arrows) | art-W | **27** | → 3 sign-off. ‖ with everything in the engine lane. |
+| **8** | Split `_show_phase()` → `_arm_phase()` / `_open_task()`; 150 px / 0.35 s dwell; delete the blank `phase_gap`; add the probe auto-open guard so `probe_opera_2d.gd`'s 287 checks hold unedited — that is the trusted gate probe, it pumps `_on_gesture("probe", …)` without ever walking, and it calls `world._show_phase()` directly, so keep `_show_phase()` as a shim that arms then opens. (`probe_opera_2d_balance.gd` is advisory: zero assertions, no gate tokens, not in the trusted lists) | engine | 0 | → 7. |
+| **9** | **Widget P2** (27 rows — target ×8, track ×5, gauge ×4, lanes ×4, pour ×3, crank ×3; verified against `priority == "P2"` in the ledger) | art-W | **27** | → 3 sign-off. ‖ with everything in the engine lane. |
 | **10** | Data tables: `DETAILS` 104 rows, `WORKBENCH` 13, `PATHS["nursery"]` 1, `OBJECT_POS` 65 (Y10), `HELPER` 13, `FAVOUR` 13, `TRAILS` 3 (Y1). Run the 220 px favour-placement filter over all 104 clue spots (§4.2) | data | 0 | → 1, 2. Blocks 11, 12(part), 16. |
 | **11** | T1 tile-quadrant patch sampler (seam-clipping helper, ~60 lines) → T2 → T3; then C1/C2 favours on `opera_pantry` + the orbiting-sparkle draw | engine | 0 | → 7, 10. |
 | **12** | **Exploration P2** (14 new files: quiet-beat props ×4, dwell arc, breadcrumb, favour glint, prop mat, sprout, curtain-open, peek imp, **4 Path-B helper cards** — Sparkle, Mewsha, Rosalina, Lamba) | art-E | **14** | `explore_sprout` + `explore_curtain_open` promotion → 1. The other 12 are unblocked. The 4 Path-B cards are the only rows in the exploration package that block whole careers. |
@@ -702,8 +743,9 @@ in the programme.**
    while she is not playing. Yes or no?
 
 6. **APK budget.** 316 files: 221 widget layers (mostly 1024 × 576), 56
-   exploration files, 39 Roshan sheets at 2048² (~58 MB for the sheets alone
-   before `sheet_c`). The boot audit already flags a 30–40 s tablet boot. Do you
+   exploration files, 39 Roshan sheets (13 × 2048², 26 × 2048×1024) — **~58 MB**
+   for the 26 accepted `sheet_a`/`sheet_b`, **~78 MB** if the 13 `sheet_c` (Q2,
+   ~20 MB) are commissioned. The boot audit already flags a 30–40 s tablet boot. Do you
    want a size cap and a staged shipping order (P1 art on the stable channel,
    P3 tail on `android-dev` only), or ship everything as it lands?
 
@@ -733,7 +775,7 @@ Repo root: `C:/Users/Peter/Documents/mermaid-roshan-reef/`
 - `.../CHAPTER2_PARTY_ROLES_2026-08-03.md` §2 — the helper cast and the 13 already-written wish lines
 
 **Code this document binds to**
-- `.../scripts/opera_stage_paths.gd` (279 lines) — `PATHS:20`, `ROAM:161`, `roam_range:178`, `path_points:190`, `stations:198`, `clue_spots:220`, `point_along:245`, `nearest_t:261`
+- `.../scripts/opera_stage_paths.gd` (**333 lines** at `c4afa1a3`) — `PATHS:30`, `ROAM:171`, `roam_range:188`, `BLEED:206`, `bleed_span:223`, `to_screen:229`, `path_points:244`, `stations:252`, `clue_spots:274`, `point_along:299`, `nearest_t:315`. (An earlier draft carried the 279-line map from `d8369f4b`; editing at those offsets lands inside the data tables.)
 - `.../scripts/opera_career_world_2d.gd` (**2046 lines** — every line number in the exploration design is against the older 1755-line file) — `player_actor.size:392`, `rival_actor.size:399`, `prop_rect.position:414`, `_glide_roshan_to:741`, `imp roam spread:969-973`, `imp size:988`, `_bop_burst_at:1321`, `celebrate:1458`, `_hero_feet:1543`, `_stage_feet_at_x:1551`, lens catch 96 px `:1934`, dwell 0.45 s `:1942`, reveal 118 px `:1959`
 - `.../scripts/opera_world_backdrop_2d.gd` — `_load_tile_set:50`, `_draw_tile_set:66-75` (the y 448..1600 crop), `_draw:93`, the unreachable `painting` fallback `:103-111`
 - `.../scripts/opera_gesture_surface.gd` — `_ink_bounds:426`, `_cover_rect:454`, `_draw_progress_overlay:463`
