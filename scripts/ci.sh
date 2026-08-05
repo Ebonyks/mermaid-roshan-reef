@@ -4,6 +4,12 @@
 set -uo pipefail
 GODOT="${GODOT:-godot}"
 cd "$(dirname "$0")/.."
+# Windows-local parity (2026-08-04): on Windows the Python default text codec
+# is cp1252, so every tool below that reads a UTF-8 source file or prints an
+# arrow/em-dash dies with a charmap error and the suite never reaches the
+# probes. Linux CI already defaults to UTF-8, so this is a no-op there.
+export PYTHONIOENCODING="utf-8"
+export PYTHONUTF8=1
 # fast static gates first (no Godot needed): syntax, then the ':=' Variant
 # inference shape that broke main.gd twice on 2026-07-11 - a parse error in
 # main.gd makes every probe idle to its 8m timeout, so catching it here

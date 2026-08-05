@@ -2338,10 +2338,20 @@ func _activate_room_item(item_id: String) -> void:
 		# THE INTRODUCTION TO COMBAT (owner 2026-08-01): touching the Royal
 		# throne itself opens the sparring class — replayable forever. The
 		# alcove crown ceremony (activate_current_room) is untouched.
+		# The acknowledgement is the throne's OWN squash-and-settle, never a
+		# generic sparkle overlay: castle interactions V2 (2026-08-02) retired
+		# those from normal item activation and the v2 audit enforces it, so
+		# this hook was rewritten to obey the newer contract when the combat
+		# wing landed on current dev. (The audit greps this block for the
+		# retired call by name — do not name it here either.)
 		_play_item_sfx(String(item_data.get("sound", "chime.ogg")),
 			float(item_data.get("pitch", 1.25)))
-		_item_burst(sprite.position,
-			Color(item_data.get("color", StorybookUI.GOLD)), 8)
+		var seat_scale: Vector3 = sprite.scale
+		var seat := sprite.create_tween()
+		seat.tween_property(sprite, "scale", seat_scale * 1.06,
+			0.12).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		seat.tween_property(sprite, "scale", seat_scale,
+			0.18).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 		var launch := m.create_tween()
 		launch.tween_interval(0.45)
 		launch.tween_callback(_start_combat_tutorial)
