@@ -34,6 +34,7 @@ RUNTIME_SCAN_ROOTS = ("scripts", "scenes", "assets")
 RUNTIME_TEXT_SUFFIXES = {".gd", ".tscn", ".tres", ".godot", ".cfg"}
 HEX_SHA256 = re.compile(r"^[0-9a-f]{64}$")
 NUMBER = r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?"
+PROVENANCE_SCHEMA_VERSION = 2
 
 
 class AuditInputError(ValueError):
@@ -472,8 +473,10 @@ def audit_repository(
 		return summary, [f"cannot load provenance manifest: {exc}"]
 	if not isinstance(manifest, dict):
 		return summary, ["provenance manifest must contain a JSON object"]
-	if manifest.get("schema_version") != 1:
-		errors.append("provenance schema_version must equal 1")
+	if manifest.get("schema_version") != PROVENANCE_SCHEMA_VERSION:
+		errors.append(
+			"provenance schema_version must equal "
+			f"{PROVENANCE_SCHEMA_VERSION}")
 	if manifest.get("alpha_scissor_threshold") != 128:
 		errors.append("provenance alpha_scissor_threshold must equal 128")
 	if manifest.get("runtime_layout_path") != EXPECTED_LAYOUT:

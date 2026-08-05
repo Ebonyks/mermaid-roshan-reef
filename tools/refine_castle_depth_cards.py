@@ -396,6 +396,30 @@ def png_bytes(image: Image.Image) -> bytes:
 	return stream.getvalue()
 
 
+def png_bytes_preserving_pixels(path: Path, image: Image.Image) -> bytes:
+	"""Preserve committed PNG bytes only for an exact decoded-pixel match.
+
+	Pinned Pillow versions can still use different zlib encodings on Windows
+	and Linux. Runtime behavior is defined by the decoded image, while the
+	provenance continues to bind the exact committed artifact bytes. A mode,
+	size, or single-channel pixel change always forces a rebuilt encoding.
+	"""
+	if path.is_file():
+		try:
+			existing_bytes = path.read_bytes()
+			with Image.open(io.BytesIO(existing_bytes)) as existing:
+				if existing.mode == image.mode and existing.size == image.size \
+						and existing.tobytes() == image.tobytes():
+					return existing_bytes
+		except (OSError, ValueError):
+			pass
+	return png_bytes(image)
+
+
+def raw_pixel_hash(image: Image.Image) -> str:
+	return sha256_bytes(image.tobytes())
+
+
 def provenance_shapes(spec: CardSpec, size: tuple[int, int]) -> list[Shape]:
 	if spec.keep_shapes:
 		return [json.loads(json.dumps(shape)) for shape in spec.keep_shapes]
@@ -419,7 +443,8 @@ def card_record(spec: CardSpec, output: Image.Image, source: Image.Image) -> dic
 		"source_room_sha256": sha256_file(spec.source_room_path),
 		"source_alpha_path": relative(spec.source_alpha_path),
 		"source_alpha_sha256": sha256_file(spec.source_alpha_path),
-		"output_sha256": sha256_bytes(png_bytes(output)),
+		"output_sha256": sha256_bytes(
+			png_bytes_preserving_pixels(spec.path, output)),
 		"alpha_sha256": raw_plane_hash(alpha),
 		"core_mask_sha256": core_plane_hash(alpha),
 		"before": metrics(source),
@@ -497,7 +522,7 @@ def build_outputs(bootstrap: bool) -> tuple[
 		value["source_sha256"] = sha256_file(path)
 		retired.append(value)
 	provenance = {
-		"schema_version": 1,
+		"schema_version": 2,
 		"generated_by": "tools/refine_castle_depth_cards.py",
 		"alpha_scissor_threshold": ALPHA_SCISSOR_THRESHOLD,
 		"runtime_layout_path": relative(RUNTIME_LAYOUT_PATH),
@@ -505,7 +530,7 @@ def build_outputs(bootstrap: bool) -> tuple[
 		"retired_cards": retired,
 		"contact_sheet": {
 			"path": relative(CONTACT_PATH),
-			"sha256": sha256_bytes(png_bytes(sheet)),
+			"raw_pixel_sha256": raw_pixel_hash(sheet),
 		},
 		"constraints": {
 			"visible_rgb_repainted": False,
@@ -524,9 +549,9 @@ def json_bytes(value: dict[str, Any]) -> bytes:
 def apply() -> int:
 	entries, provenance, sheet = build_outputs(bootstrap=True)
 	for spec, _source, output in entries:
-		spec.path.write_bytes(png_bytes(output))
+		spec.path.write_bytes(png_bytes_preserving_pixels(spec.path, output))
 	CONTACT_PATH.parent.mkdir(parents=True, exist_ok=True)
-	CONTACT_PATH.write_bytes(png_bytes(sheet))
+	CONTACT_PATH.write_bytes(png_bytes_preserving_pixels(CONTACT_PATH, sheet))
 	PROVENANCE_PATH.parent.mkdir(parents=True, exist_ok=True)
 	PROVENANCE_PATH.write_bytes(json_bytes(provenance))
 	for record in provenance["cards"]:
@@ -571,8 +596,17 @@ def check() -> int:
 				problems.append("provenance differs from deterministic output")
 	if not CONTACT_PATH.is_file():
 		problems.append(f"missing contact sheet: {relative(CONTACT_PATH)}")
-	elif sha256_file(CONTACT_PATH) != sha256_bytes(png_bytes(expected_sheet)):
-		problems.append("contact sheet differs from deterministic output")
+	else:
+		try:
+			actual_sheet = Image.open(CONTACT_PATH)
+			actual_sheet.load()
+		except (OSError, ValueError) as exc:
+			problems.append(f"cannot decode contact sheet: {exc}")
+		else:
+			if actual_sheet.mode != expected_sheet.mode \
+					or actual_sheet.size != expected_sheet.size \
+					or actual_sheet.tobytes() != expected_sheet.tobytes():
+				problems.append("contact sheet differs from deterministic output")
 	if problems:
 		for problem in problems:
 			print(f"CASTLE_DEPTH_REFINE|FAIL|{problem}")

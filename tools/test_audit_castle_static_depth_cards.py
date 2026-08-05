@@ -116,7 +116,7 @@ const ROOM_LAYOUTS := {{
 		if callable(mutate):
 			mutate(record)
 		manifest = {
-			"schema_version": 1,
+			"schema_version": AUDIT.PROVENANCE_SCHEMA_VERSION,
 			"alpha_scissor_threshold": 128,
 			"runtime_layout_path": AUDIT.EXPECTED_LAYOUT,
 			"cards": [record],

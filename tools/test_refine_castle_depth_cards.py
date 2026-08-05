@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import importlib.util
+import io
 from pathlib import Path
 import sys
 import tempfile
@@ -11,6 +12,7 @@ import unittest
 
 import numpy as np
 from PIL import Image
+from PIL.PngImagePlugin import PngInfo
 
 
 TOOL = Path(__file__).with_name("refine_castle_depth_cards.py")
@@ -86,9 +88,28 @@ class CastleDepthRefinerTests(unittest.TestCase):
 		self.assertTrue(np.any(
 			(alpha > 0) & (alpha < REFINE.ALPHA_SCISSOR_THRESHOLD)))
 
-	def test_png_encoding_is_deterministic(self) -> None:
+	def test_pixel_identical_existing_png_encoding_is_preserved(self) -> None:
 		output, _source = REFINE.refined_card(self._fixture())
-		self.assertEqual(REFINE.png_bytes(output), REFINE.png_bytes(output))
+		metadata = PngInfo()
+		metadata.add_text("test-encoding", "intentionally different")
+		stream = io.BytesIO()
+		output.save(stream, format="PNG", compress_level=0, pnginfo=metadata)
+		path = self.root / "same-pixels-different-encoding.png"
+		path.write_bytes(stream.getvalue())
+		self.assertEqual(
+			REFINE.png_bytes_preserving_pixels(path, output), path.read_bytes())
+
+	def test_pixel_change_never_preserves_existing_png_encoding(self) -> None:
+		output, _source = REFINE.refined_card(self._fixture())
+		changed = output.copy()
+		red, green, blue, alpha = changed.getpixel((2, 2))
+		changed.putpixel((2, 2), ((red + 1) % 256, green, blue, alpha))
+		path = self.root / "changed-pixel.png"
+		path.write_bytes(REFINE.png_bytes(output))
+		rebuilt_bytes = REFINE.png_bytes_preserving_pixels(path, changed)
+		with Image.open(io.BytesIO(rebuilt_bytes)) as rebuilt:
+			self.assertEqual(rebuilt.convert("RGBA").tobytes(), changed.tobytes())
+		self.assertNotEqual(rebuilt_bytes, path.read_bytes())
 
 
 if __name__ == "__main__":
