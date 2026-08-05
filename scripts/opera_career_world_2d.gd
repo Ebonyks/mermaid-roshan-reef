@@ -262,23 +262,18 @@ var magnifier_texture: Texture2D = null
 
 var root: Control
 var backdrop_node: OperaWorldBackdrop2D
-var top: ColorRect
 var action_panel: ColorRect
 var prop_rect: TextureRect
 var player_actor: TextureRect
 var rival_actor: TextureRect
 var player_bar: ProgressBar
 var rival_bar: ProgressBar
-var title_label: Label
-var phase_label: Label
-var score_label: Label
-var timer_label: Label
-var player_name_label: Label
-var rival_name_label: Label
-var crowd_label: Label
+## Curtain-call cheer as data (spoken by VO, asserted by probes) - the owner
+## removed every on-screen text header 2026-08-04: these are full-screen art
+## games, and the child cannot read.
+var last_cheer := ""
 var surface: OperaGestureSurface
 var phase_fill: ProgressBar
-var audience: Array[TextureRect] = []
 var confetti: Array[ColorRect] = []
 
 
@@ -344,47 +339,22 @@ func _build_world() -> void:
 	_assign_stations()
 	_build_station_markers()
 
-	top = ColorRect.new()
-	# was a 1244x124 near-black slab (16.7% of screen) whose lower 78px were
-	# empty on every non-finale beat, covering the painted curtain valance
-	top.color = Color(0, 0, 0, 0)
-	top.position = Vector2(18, 10)
-	top.size = Vector2(1244, 96)
-	top.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	root.add_child(top)
-
-	top.draw.connect(_draw_title_pill)
-	title_label = _label(String(competition.spec.get("world", String(config.get("name", "CAREER CUP")))), 26, Color("#382485"))
-	title_label.position = Vector2(322, 6)
-	title_label.size = Vector2(600, 40)
-	top.add_child(title_label)
-
+	# owner 2026-08-04: NO audience, NO text headers - full-screen art games
+	# like the rest of Mermaid Roshan. The only chrome that remains is the
+	# finale race, drawn as two slim footlight bars on the bottom edge where
+	# they sit on the painted apron instead of covering the district.
 	player_bar = ProgressBar.new()
-	player_bar.position = Vector2(30, 58)
-	player_bar.size = Vector2(430, 28)
+	player_bar.position = Vector2(30, 698)
+	player_bar.size = Vector2(500, 12)
 	player_bar.show_percentage = false
-	top.add_child(player_bar)
+	player_bar.visible = false
+	root.add_child(player_bar)
 	rival_bar = ProgressBar.new()
-	rival_bar.position = Vector2(784, 58)
-	rival_bar.size = Vector2(430, 28)
+	rival_bar.position = Vector2(750, 698)
+	rival_bar.size = Vector2(500, 12)
 	rival_bar.show_percentage = false
-	top.add_child(rival_bar)
-	score_label = _label("0  ★  0", 25)
-	score_label.position = Vector2(470, 51)
-	score_label.size = Vector2(304, 42)
-	top.add_child(score_label)
-	timer_label = _label("", 21, Color(0.72, 0.94, 1.0))
-	timer_label.position = Vector2(490, 88)
-	timer_label.size = Vector2(264, 30)
-	top.add_child(timer_label)
-	player_name_label = _label("MERMAID ROSHAN", 17, Color(1.0, 0.82, 0.94))
-	player_name_label.position = Vector2(30, 87)
-	player_name_label.size = Vector2(430, 28)
-	top.add_child(player_name_label)
-	rival_name_label = _label("%s IMP" % String(config.get("career", "RIVAL")).to_upper(), 17, Color(0.82, 0.76, 1.0))
-	rival_name_label.position = Vector2(784, 87)
-	rival_name_label.size = Vector2(430, 28)
-	top.add_child(rival_name_label)
+	rival_bar.visible = false
+	root.add_child(rival_bar)
 
 	player_actor = _actor("res://assets/opera/worlds/actors/roshan_%s.png" % career_id)
 	# scale contract: Roshan is ~1.3x a crew imp, ~1.2x the captain —
@@ -399,9 +369,6 @@ func _build_world() -> void:
 	rival_actor.size = Vector2(190, 190)   # he is an imp, not her equal in height
 	_place_on_stage(rival_actor, StagePaths.point_along(stage_points, 0.92))
 	root.add_child(rival_actor)
-	if career_id == "nursery":
-		player_name_label.text = "NURSE ROSHAN"
-		rival_name_label.text = "NURSE FARON"
 	_set_finale_visible(false)
 
 	prop_rect = TextureRect.new()
@@ -424,10 +391,6 @@ func _build_world() -> void:
 	action_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	action_panel.draw.connect(_draw_task_card)
 	root.add_child(action_panel)
-	phase_label = _label("", 30, Color("#382485"))
-	phase_label.position = Vector2(10, 8)
-	phase_label.size = Vector2(400, 62)
-	action_panel.add_child(phase_label)
 	surface = GestureSurface.new()
 	surface.position = Vector2(24, 78)
 	surface.size = Vector2(372, 266)
@@ -518,16 +481,9 @@ func _build_world() -> void:
 	lens_layer.draw.connect(_draw_lens_layer)
 	root.add_child(lens_layer)
 
-	crowd_label = _label("●  ●  ●  ●  ●", 30, Color(1.0, 0.84, 0.5))
-	crowd_label.position = Vector2(430, 556)
-	crowd_label.size = Vector2(420, 42)
-	root.add_child(crowd_label)
-	_build_audience()
 	_capture_actor_rest("player", player_actor)
 	_capture_actor_rest("rival", rival_actor)
 	_capture_actor_rest("prop", prop_rect)
-	for index in range(audience.size()):
-		_capture_actor_rest("audience_%d" % index, audience[index])
 
 
 func _actor(path: String) -> TextureRect:
@@ -594,8 +550,6 @@ func _restore_stage_actors() -> void:
 	_restore_actor("player", player_actor)
 	_restore_actor("rival", rival_actor)
 	_restore_actor("prop", prop_rect)
-	for index in range(audience.size()):
-		_restore_actor("audience_%d" % index, audience[index])
 
 
 func _claim_actor_tween(key: String, actor: Control) -> Tween:
@@ -643,9 +597,6 @@ func _actor_key(actor: Control) -> String:
 		return "rival"
 	if actor == prop_rect:
 		return "prop"
-	for index in range(audience.size()):
-		if actor == audience[index]:
-			return "audience_%d" % index
 	return ""
 
 
@@ -671,21 +622,6 @@ func _build_station_markers() -> void:
 		marker.draw.connect(_draw_station_marker.bind(marker))
 		root.add_child(marker)
 		station_nodes.append(marker)
-
-
-func _draw_title_pill() -> void:
-	# a compact storybook plate instead of a full-width black slab
-	if title_label == null or not title_label.visible:
-		return
-	var plate := StyleBoxFlat.new()
-	plate.bg_color = Color(0.94, 0.98, 1.0, 0.94)
-	plate.set_border_width_all(4)
-	plate.border_color = Color("#6e4dc2").lerp(Color("#382485"), 0.62)
-	plate.set_corner_radius_all(30)
-	plate.shadow_color = Color(0.19, 0.10, 0.48, 0.30)
-	plate.shadow_size = 10
-	plate.shadow_offset = Vector2(0, 5)
-	plate.draw(top.get_canvas_item(), Rect2(300.0, 0.0, 644.0, 52.0))
 
 
 func _draw_task_card() -> void:
@@ -761,25 +697,6 @@ func _glide_roshan_to(feet: Vector2, duration: float = 1.3) -> void:
 		0.0, 1.0, duration) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.chain().tween_callback(_finish_actor_motion.bind("player", player_actor))
-
-
-func _build_audience() -> void:
-	var portraits := [
-		"res://assets/characters/friends/daddy.webp",
-		"res://assets/characters/friends/huluu.png",
-		"res://assets/characters/friends/mama_baby.png",
-		"res://assets/characters/friends/flower_friend.png",
-		"res://assets/characters/friends/wacky_chuck.png",
-		"res://assets/characters/friends/two_friends.png",
-	]
-	for index in range(portraits.size()):
-		var fan := _actor(String(portraits[index]))
-		fan.position = Vector2(18.0 + float(index) * 207.0, 592.0)
-		fan.size = Vector2(116, 126)
-		fan.modulate = Color(1.0, 1.0, 1.0, 0.96)
-		fan.visible = false   # the crowd arrives for the show, not for prep
-		root.add_child(fan)
-		audience.append(fan)
 
 
 func _widget_template(phase: Dictionary) -> String:
@@ -887,7 +804,6 @@ func _show_phase() -> void:
 		else:
 			prop_rect.visible = prop_rect.texture != null and phase_index > 0 \
 				and (steal_index < 0 or phase_index < steal_index)
-	phase_label.text = "%s   %s" % [String(phase.get("icon", "★")), String(phase.get("name", "PLAY"))]
 	phase_fill.value = 0.0
 	surface.set_fill(0.0)
 	if m != null:
@@ -905,7 +821,6 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	action_panel.visible = true
 	action_panel.position = _card_position_near_station()
 	action_panel.size = Vector2(440, 384)
-	phase_label.size = Vector2(420, 56)
 	surface.position = Vector2(24, 70)
 	surface.size = Vector2(392, 232)
 	phase_fill.position = Vector2(24, 318)
@@ -914,8 +829,7 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 
 
 func _card_position_near_station() -> Vector2:
-	# dock the task card beside the phase's station, clamped on screen and
-	# clear of the top HUD strip and the audience row
+	# dock the task card beside the phase's station, clamped on screen
 	var station_index := int(station_for_phase.get(phase_index, -1))
 	var anchor := Vector2(640, 430)
 	if station_index >= 0 and station_index < station_list.size():
@@ -1204,28 +1118,13 @@ func competition_progress() -> float:
 
 func _set_finale_visible(show_finale: bool) -> void:
 	var cooperative := competition != null and competition.is_cooperative()
-	# the family fills the front row for the performance and is absent while
-	# she works — the row used to cover 57% of the painting's richest band
-	for fan in audience:
-		fan.visible = show_finale
-	if crowd_label != null:
-		crowd_label.visible = show_finale
-	if rival_actor != null:
-		rival_actor.visible = show_finale or cooperative
 	if player_bar != null:
 		player_bar.visible = show_finale
 	if rival_bar != null:
 		rival_bar.visible = show_finale
-	if score_label != null:
-		score_label.visible = show_finale
-	if timer_label != null:
-		timer_label.visible = show_finale and career_id == "detective"
-	if player_name_label != null:
-		player_name_label.visible = show_finale
-	if rival_name_label != null:
-		rival_name_label.visible = show_finale
-	if title_label != null:
-		title_label.text = String(competition.spec.get("world", String(config.get("name", "CAREER CUP")))) if show_finale else "%s MINIGAMES" % String(config.get("career", "CAREER")).to_upper()
+	if rival_actor != null:
+		rival_actor.visible = show_finale or cooperative
+
 
 func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if not active or reveal_t > 0.0 or phase_index >= phases.size():
@@ -1437,8 +1336,8 @@ func begin_guided_retry() -> void:
 		return
 	active = false
 	reveal_t = 3.6
-	phase_label.text = "★   WATCH THE IMP'S ANSWER"
 	surface.configure("choice", Color(1.0, 0.84, 0.28), choice_target)
+	surface.restart_demo()
 	if m != null:
 		m.show_msg("Rival Imp", "The imp found it! Watch the glowing answer, then solve the same mystery with the sparkle memory!", "op_retry")
 
@@ -1448,18 +1347,13 @@ func update_competition() -> void:
 		return
 	player_bar.value = competition.player_progress * 100.0
 	rival_bar.value = competition.rival_progress * 100.0
-	score_label.text = "%03d  ★  %03d" % [competition.player_score, competition.rival_score]
-	var left := competition.time_left()
-	timer_label.text = "⏳ %02d" % int(ceilf(left)) if left >= 0.0 else ""
-	var energy := competition.audience_energy()
-	crowd_label.text = "●  ●  ●" if energy < 0.36 else ("●  ●  ●  ●  ●" if energy < 0.72 else "★  ★  ★  ★  ★")
 
 
 func celebrate(result: Dictionary) -> void:
 	active = false
 	_restore_stage_actors()
 	var tier := int(result.get("tier", 1))
-	title_label.text = (
+	last_cheer = (
 		"THE BABIES ARE COZY!" if competition.is_cooperative()
 		else "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
 	)
@@ -1467,10 +1361,6 @@ func celebrate(result: Dictionary) -> void:
 		# the stolen goal prop comes home for the curtain call
 		prop_rect.visible = true
 		_bounce_actor(prop_rect, 26.0, 0.48)
-	crowd_label.text = "★  " + "★  ".repeat(tier * 2 + 1)
-	for index in range(audience.size()):
-		var fan := audience[index]
-		_bounce_actor(fan, 18.0 + float(tier) * 6.0, 0.34 + float(index) * 0.012)
 	_bounce_actor(player_actor, 34.0 + float(tier) * 4.0, 0.52)
 	if not _set_rival_pose("bow"):
 		# Faron keeps her one accepted cutout and answers with a gentle nod.

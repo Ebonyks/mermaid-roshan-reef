@@ -47,8 +47,7 @@ func _init() -> void:
 			return String(phase.get("name", "")) not in ["X-RAY", "CAST", "BANDAGE"]))
 	_check("Roshan and Faron use authored nursery actors",
 		world.player_actor.texture != null and world.rival_actor.texture != null
-		and world.player_name_label.text == "NURSE ROSHAN"
-		and world.rival_name_label.text == "NURSE FARON")
+		and act.competition.is_cooperative())
 	_check("Nurse Faron stays beside Roshan as a cooperative partner",
 		world.rival_actor.visible and act.competition.is_cooperative())
 	_check("the care story keeps its beats inside the five-beat arc",
@@ -109,7 +108,7 @@ func _init() -> void:
 		and is_equal_approx(act.competition.player_progress, 1.0)
 		and is_equal_approx(act.competition.rival_progress, 1.0))
 	_check("curtain call celebrates cozy babies, not beating Faron",
-		world.title_label.text == "THE BABIES ARE COZY!")
+		world.last_cheer == "THE BABIES ARE COZY!")
 	act.cancel()
 	await process_frame
 	if main.touch_ui != null:
