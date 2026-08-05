@@ -16,7 +16,7 @@
 	"room": "main_hall",
 	"node_types": {
 		"Node3D": 5,
-		"Sprite3D": 45,
+		"Sprite3D": 49,
 		"Camera3D": 1,
 		"DirectionalLight3D": 1,
 		"SpotLight3D": 4,
@@ -28,16 +28,16 @@
 		"clean_background_tile": 16,
 		"unique_object": 16,
 		"room_door_sign": 8,
-		"retained_huluu_throne": 1,
+		"royal_hall_mist": 5,
 		"actor_shadow": 1,
 		"character": 1
 	},
 	"sprite3d": {
-		"total": 45,
+		"total": 49,
 		"visible": 27,
-		"unshaded": 45,
+		"unshaded": 49,
 		"shaded": 0,
-		"depth_tested": 45,
+		"depth_tested": 49,
 		"missing_texture": 0
 	},
 	"sprite3d_cards": [
@@ -56,7 +56,7 @@
 			"transparent": true,
 			"alpha_cut_mode": 0,
 			"cast_shadow_mode": 0,
-			"depth_z": 0.654999971389771
+			"depth_z": 0.685000002384186
 		},
 		{
 			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomBackdrop",
@@ -756,21 +756,89 @@
 			"depth_z": 0.680000007152557
 		},
 		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallRetainedHuluuThrone",
-			"role": "retained_huluu_throne",
-			"source_object_id": "main_hall:huluu_throne",
-			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png",
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_0",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_0",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
 			"texture_dimensions": [
-				522,
-				524
+				46,
+				256
 			],
 			"visible": false,
 			"unshaded": true,
 			"depth_tested": true,
 			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 2,
-			"depth_z": 0.550000011920929
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.400000005960464
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_1",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_1",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+			"texture_dimensions": [
+				46,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.419999986886978
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_2",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_2",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+			"texture_dimensions": [
+				46,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.439999997615814
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_3",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_3",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+			"texture_dimensions": [
+				46,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.46000000834465
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_4",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_4",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+			"texture_dimensions": [
+				46,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.479999989271164
 		},
 		{
 			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoshanContactShadow",
@@ -787,7 +855,7 @@
 			"transparent": true,
 			"alpha_cut_mode": 1,
 			"cast_shadow_mode": 0,
-			"depth_z": 2.60333323478699
+			"depth_z": 1.24166667461395
 		},
 		{
 			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoshanCutout",
@@ -804,13 +872,14 @@
 			"transparent": true,
 			"alpha_cut_mode": 1,
 			"cast_shadow_mode": 2,
-			"depth_z": 2.64333343505859
+			"depth_z": 1.28166663646698
 		}
 	],
 	"validation": {
 		"registered_background_cards": 16,
 		"door_sign_cards": 8,
-		"retained_throne_cards": 1,
+		"royal_hall_mist_cards": 5,
+		"retained_throne_cards": 0,
 		"forbidden_world_art_nodes": {
 			"Sprite2D": 0,
 			"AnimatedSprite2D": 0,

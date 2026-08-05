@@ -1,0 +1,410 @@
+{
+  "schema_version": 2,
+  "generated_on": "2026-08-05",
+  "generator": "tools/build_castle_elevator_picture_icons.py",
+  "generator_sha256": "b30609c8b9bcec8f6db9ae408957f7b7f1b6bfc47a4821bd7017721c2d150c46",
+  "purpose": "Replace platform-dependent emoji with one child-readable Pearl Castle scallop-crest family derived from the current physical door signs and the four approved Dream House portal crests.",
+  "output_dimensions": [
+    256,
+    256
+  ],
+  "standard_motif_window": [
+    216,
+    216
+  ],
+  "wide_crest_motif_window": [
+    236,
+    220
+  ],
+  "output_count": 12,
+  "uses_image_generation": false,
+  "preserves_all_source_files": true,
+  "collection_audit": {
+    "threshold_out_of_5": 4.5,
+    "before": {
+      "overall": 2.0,
+      "status": "rejected_platform_emoji_mix",
+      "finding": "twelve OS text glyphs mixed monochrome symbols and several emoji families with platform-variable palette, outline, and scale"
+    },
+    "after": {
+      "overall": 4.6,
+      "status": "accepted_shared_door_crest_family",
+      "palette_and_material": 4.8,
+      "outline_language": 4.6,
+      "child_readability": 4.7,
+      "scale_and_framing": 4.5,
+      "platform_stability": 5.0,
+      "finding": "all twelve use authored pearl, gold, lavender, and navy door crests on one fixed 256px transparent canvas with audited optical-size normalization for the four naturally wider badges"
+    }
+  },
+  "icons": [
+    {
+      "room_id": "main_hall",
+      "source": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+      "source_role": "approved castle-home crest; reused as the elevator's Main Hall symbol",
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "source_sha256": "222d5a5a4c590b6ae951ff5d7f4431bd35ed539e48cf0346a2e31fd83a09a0dd",
+      "crest_crop": null,
+      "alpha_extraction": "existing source alpha",
+      "visible_bbox_within_crop": [
+        77,
+        72,
+        178,
+        184
+      ],
+      "motif_window": [
+        216,
+        216
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_main_hall.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "1fb15c4590e8f9e2e181e0efa1d45dbb5bbf699ceda18215e68c15944536edd7",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "opera_hall",
+      "source": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+      "source_role": "approved physical-door crest",
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "source_sha256": "7378b84c037fc6c5fe21880577f6eba2214d3c5e990b726bfaf67d83e8c03fd1",
+      "crest_crop": null,
+      "alpha_extraction": "existing source alpha",
+      "visible_bbox_within_crop": [
+        65,
+        76,
+        191,
+        180
+      ],
+      "motif_window": [
+        216,
+        216
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_opera_hall.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "b7c29e845656333d53ed342445410948a055ebf4ccd6fd1553dffe0839adfb66",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "kitchen",
+      "source": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+      "source_role": "approved physical-door crest",
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "source_sha256": "7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd",
+      "crest_crop": null,
+      "alpha_extraction": "existing source alpha",
+      "visible_bbox_within_crop": [
+        75,
+        79,
+        181,
+        177
+      ],
+      "motif_window": [
+        216,
+        216
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_kitchen.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "b21287d6b927dcd425aeec590d58be441985d8bd7080cd83c1021d777c81dfe8",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "library",
+      "source": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+      "source_role": "approved physical-door crest",
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "source_sha256": "7aa633b17cd655f5bf340636555fab1406fc86030e9de38e667f9e701dd764b0",
+      "crest_crop": null,
+      "alpha_extraction": "existing source alpha",
+      "visible_bbox_within_crop": [
+        75,
+        78,
+        181,
+        178
+      ],
+      "motif_window": [
+        216,
+        216
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_library.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "a01cd3d9f1338f439d90b0617e24226ff909ba872365905c1d7985517f13269d",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "playroom",
+      "source": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png",
+      "source_role": "approved physical-door crest",
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "source_sha256": "22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df",
+      "crest_crop": null,
+      "alpha_extraction": "existing source alpha",
+      "visible_bbox_within_crop": [
+        77,
+        83,
+        179,
+        173
+      ],
+      "motif_window": [
+        216,
+        216
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_playroom.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "4784b897f487b50aa69ac053322778be7af421791b583b4637ac1aea62bbd5f5",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "craft_room",
+      "source": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_craft_room.png",
+      "source_role": "approved physical-door crest",
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "source_sha256": "17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e",
+      "crest_crop": null,
+      "alpha_extraction": "existing source alpha",
+      "visible_bbox_within_crop": [
+        77,
+        80,
+        179,
+        176
+      ],
+      "motif_window": [
+        216,
+        216
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_craft_room.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "eb21d47e9b3e3f1566df23a854102d0e86665aae5ec9d88a4d7275cb33ac5a24",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "mermaid_pool",
+      "source": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png",
+      "source_role": "approved physical-door crest",
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "source_sha256": "8ae6239cc8d01eecaa741842b591b2388659ff92929b9dec336e62ffa7ab4033",
+      "crest_crop": null,
+      "alpha_extraction": "existing source alpha",
+      "visible_bbox_within_crop": [
+        80,
+        82,
+        176,
+        174
+      ],
+      "motif_window": [
+        216,
+        216
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_mermaid_pool.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "ceb65b0124313919dc9389a53f879ba8e3786015e8f293867e152146c904a66b",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "bubble_bath",
+      "source": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png",
+      "source_role": "approved physical-door crest",
+      "source_dimensions": [
+        256,
+        256
+      ],
+      "source_sha256": "3a43e1fc23f95f9f3a2ec256861d418017d783bbf0d30f7b85fee677838aa3c4",
+      "crest_crop": null,
+      "alpha_extraction": "existing source alpha",
+      "visible_bbox_within_crop": [
+        79,
+        81,
+        177,
+        175
+      ],
+      "motif_window": [
+        216,
+        216
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_bubble_bath.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "0fc301b534e1235d2cc16932f7a5cc2b67636b8884e363bbd6fc74ebf9d64c65",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "dining_room",
+      "source": "assets/flats/castle/dream_house/family_portal_dining.png",
+      "source_role": "approved Dream House portal crest",
+      "source_dimensions": [
+        379,
+        484
+      ],
+      "source_sha256": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb",
+      "crest_crop": [
+        42,
+        0,
+        337,
+        174
+      ],
+      "alpha_extraction": "4x-antialiased ellipse selecting the existing shell medallion",
+      "visible_bbox_within_crop": [
+        22,
+        4,
+        273,
+        173
+      ],
+      "motif_window": [
+        236,
+        220
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_dining_room.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "f405881d7c212c6d7ccd0524f95618ac51c557d0dcac77166e936cbdf435ca4d",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "royal_bedroom",
+      "source": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+      "source_role": "approved Dream House portal crest",
+      "source_dimensions": [
+        371,
+        488
+      ],
+      "source_sha256": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a",
+      "crest_crop": [
+        42,
+        0,
+        329,
+        168
+      ],
+      "alpha_extraction": "4x-antialiased ellipse selecting the existing shell medallion",
+      "visible_bbox_within_crop": [
+        23,
+        4,
+        263,
+        167
+      ],
+      "motif_window": [
+        236,
+        220
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_royal_bedroom.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "2382f42ca0d1de14cc602f9a43780ffe30a19098703208e0ed6fbdaf84321674",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "sleepover_bedroom",
+      "source": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+      "source_role": "approved Dream House portal crest",
+      "source_dimensions": [
+        345,
+        465
+      ],
+      "source_sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
+      "crest_crop": [
+        38,
+        0,
+        307,
+        166
+      ],
+      "alpha_extraction": "4x-antialiased ellipse selecting the existing shell medallion",
+      "visible_bbox_within_crop": [
+        22,
+        4,
+        247,
+        165
+      ],
+      "motif_window": [
+        236,
+        220
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_sleepover_bedroom.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "2bff373d6b04c6b2d18ddd28e89275794f1f5478a99eedab5a0abc0f839e6da2",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    },
+    {
+      "room_id": "movie_lounge",
+      "source": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+      "source_role": "approved Dream House portal crest",
+      "source_dimensions": [
+        351,
+        464
+      ],
+      "source_sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
+      "crest_crop": [
+        35,
+        0,
+        316,
+        168
+      ],
+      "alpha_extraction": "4x-antialiased ellipse selecting the existing shell medallion",
+      "visible_bbox_within_crop": [
+        23,
+        4,
+        258,
+        167
+      ],
+      "motif_window": [
+        236,
+        220
+      ],
+      "output": "assets/ui/castle_room_buttons_v2/room_movie_lounge.png",
+      "output_dimensions": [
+        256,
+        256
+      ],
+      "output_sha256": "536a69c6aade7f03db9869859eac3211ad11ee104115a0742af273b1deabd38b",
+      "transform": "alpha-bounds crop, aspect-preserving LANCZOS fit into a shared transparent canvas with optical-size normalization, and centered placement; no stretching, padding of source content, compositing with other art, repainting, or AI-generated pixels"
+    }
+  ]
+}

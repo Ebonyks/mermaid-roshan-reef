@@ -39,7 +39,33 @@ picker preview tints the same `assets/mg` book-art layers the craft studio
 uses. The owner mentioned the real stuffie may be a flamingo — if so, only
 the ROSTER entry's name/colours change (or a new rigged body lands later).
 
-## Unlock flow (owner 2026-07-19: meeting Huluu IS the trigger)
+## Current Royal Hall companion trigger (owner 2026-08-04)
+
+The companion gift remains a Princess Huluu/Crown story beat, but its current
+home is the far-right **Royal Hall event gate** in the Pearl Castle Main Hall.
+The separate throne overlay and throne hotspot are retired. The approved grand
+doorway remains part of the unchanged tiled background and is ordinarily
+sealed by discreet, real-depth `Sprite3D` mist.
+
+When the companion offer is eligible, its story controller arms the Royal Hall:
+the mist quietly clears, the doorway becomes available, and walking through it
+starts the Crown/companion moment with its voice and visual guidance. Closing
+the picker without choosing must leave the offer eligible so the Royal Hall can
+open for it again; the child cannot lose the moment. Crown, companion, and
+other explicitly armed major events may clear the same gate, while ordinary
+free-roam leaves it mist-sealed.
+
+The arrival is generation-guarded: opening the elevator, changing rooms,
+closing the castle, or beginning a newer approach cancels the older delayed
+arrival. Major-event owners receive a generation token when arming the gate;
+named clears must present that token, so an old story controller cannot erase a
+newer boss or companion event that reused the same identifier.
+
+The following 2026-07-19 throne flow and regression notes are preserved as
+historical implementation context. They explain prior behavior and probes but
+do not override the Royal Hall gate contract above.
+
+## Historical unlock flow (owner 2026-07-19: meeting Huluu IS the trigger)
 
 Tapping Princess Huluu's throne at the right-hand end of the Pearl Castle
 Grand Hall (`castle_rooms_25d.gd` → `_offer_companion_at_throne`) fires the

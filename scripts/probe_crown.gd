@@ -1,12 +1,14 @@
 extends SceneTree
-# Crown Star probe: touching the crown must CELEBRATE IN PLACE — win recorded,
-# Roshan stays in her castle — instead of the old _finish_level2() ocean eject.
+# Crown Star probe: entering the armed Royal Hall must CELEBRATE IN PLACE —
+# win recorded, Roshan stays in her castle — instead of the old
+# _finish_level2() ocean eject.
 # The front-door exit must still return her to the courtyard when SHE chooses.
 # Prints OK/FAIL lines (ci.sh convention).
 
 var main: Node
 var checks_failed := 0
 const DEPTH_MANIFEST := "res://FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json"
+const ROYAL_HALL_ARRIVAL_SETTLE_MS := 1250
 
 func _ck(label: String, ok: bool, detail: String = "") -> void:
 	if not ok:
@@ -523,14 +525,25 @@ func _init() -> void:
 		rooms._position_player_at_foot(Vector2(640.0, 556.0), false)
 		_ck("sorts_in_front_of_midground", sprite.position.z > mid_card.position.z)
 		rooms.show_room("main_hall", false)
-		rooms.activate_current_room()
-		await _frames(2)
+		var royal_hall_button: Button = null
+		for portal_record: Dictionary in main.castle_room_door_hotspots:
+			var portal_data: Dictionary = portal_record.get("data", {})
+			if String(portal_data.get("id", "")) == "__royal_hall":
+				royal_hall_button = portal_record.get("button") as Button
+				break
+		_ck("royal_hall_route_available", royal_hall_button != null)
+		if royal_hall_button != null:
+			royal_hall_button.pressed.emit()
+			var arrival_deadline_ms: int = Time.get_ticks_msec() \
+				+ ROYAL_HALL_ARRIVAL_SETTLE_MS
+			while Time.get_ticks_msec() < arrival_deadline_ms:
+				await process_frame
 	_ck("crown_won_flag", bool(main.g.get("crown_won", false)))
 	_ck("win_recorded", main.level2_done_once)
 	_ck("still_in_castle", main.game == "level2" and String(main.g.get("phase", "")) == "hall", "game=%s phase=%s" % [main.game, str(main.g.get("phase", ""))])
 	var near: bool = (player.position - o).length() < 90.0
 	_ck("not_ejected_to_ocean", near, "dist=%.0f" % (player.position - o).length())
-	# linger near the throne — no re-trigger, no teleport
+	# Linger after the Royal Hall welcome: no re-trigger and no teleport.
 	await _frames(60)
 	_ck("no_retrigger_teleport", main.game == "level2" and (player.position - o).length() < 90.0)
 	# The child-selected exit still leaves the castle for the courtyard.

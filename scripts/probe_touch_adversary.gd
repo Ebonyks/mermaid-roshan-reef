@@ -179,6 +179,9 @@ func _playthrough(run_index: int) -> void:
 			main._enter_level2_now(true, false, false)
 			await _frames(8)
 			main.level2_done_once = false
+			# This scenario audits the Crown route only; companion re-offer behavior
+			# has dedicated coverage in probe_throne.
+			main.companion_id = "birdie"
 			main._enter_castle_interior_now(false)
 			await _frames(12)
 			main._populate_touch_interactables()
@@ -223,9 +226,12 @@ func _playthrough(run_index: int) -> void:
 				rooms._set_elevator_menu_open(false, false)
 			rooms.show_room("main_hall", false)
 			rooms.activate_current_room()
-			await _frames(3)
+			var royal_hall_deadline_ms: int = Time.get_ticks_msec() + 3000
+			while not bool(main.g.get("crown_won", false)) \
+					and Time.get_ticks_msec() < royal_hall_deadline_ms:
+				await process_frame
 			if not bool(main.g.get("crown_won", false)):
-				issues.append("Main Hall Crown action did not award")
+				issues.append("eligible Royal Hall Crown event did not award")
 			rooms._exit_to_courtyard()
 			await _frames(10)
 			if main.game != "level2" or String(main.g.get("phase", "")) != "promenade":

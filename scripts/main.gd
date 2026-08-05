@@ -205,7 +205,7 @@ var combat_from := ""
 # ---- STUFFED-FRIEND COMPANION (Pokemon-style wing): mutable state stays here;
 # ---- CompanionSystem (scripts/companion.gd) owns the logic, StuffieBattle
 # ---- (scripts/stuffie_battle.gd) owns the sparring arena ----
-var companion_id := ""                    # chosen stuffie ("" until picked at Huluu's throne)
+var companion_id := ""                    # chosen stuffie ("" until picked at the Royal Hall welcome)
 var companion_colors: Array = []          # [body, accent, third] html colours from the picker
 var fish_tokens := 0                      # LEGACY sparkle-fish count — kept for save compat; migrated into care_points on load
 var stuffie_wins := {}                    # sparring-den ladder progress (round tag -> true)
@@ -247,6 +247,20 @@ var castle_room_menu_panel: Control = null
 var castle_room_menu_buttons: Dictionary = {}
 var castle_room_menu_open := false
 var castle_room_id := "main_hall"
+var castle_royal_hall_mist_cards: Array[Sprite3D] = []
+var castle_royal_hall_mist_time := 0.0
+var castle_royal_hall_mist_flutter_time := 0.0
+var castle_royal_hall_feedback_cool := 0.0
+# Runtime generations prevent a delayed doorway arrival or stale event owner
+# from consuming a newer Royal Hall event after navigation or re-arming.
+var castle_royal_hall_arrival_generation := 0
+var castle_royal_hall_arrival_pending := false
+# Runtime-only event hook. Concrete story/boss controllers own persistence and
+# re-arm this doorway from their saved progression flags; Callables never enter
+# reef_save.json.
+var castle_royal_hall_event_id := ""
+var castle_royal_hall_event_entry: Callable = Callable()
+var castle_royal_hall_event_generation := 0
 var companion_zone := ""                  # last game context; a flip snaps the follower to her side
 var companion_den: Node3D = null          # the sparkle-ring battle entrance in the reef
 # ---- Tamagotchi care (owner 2026-07-20: replaces the sparkle-fish tokens) ----

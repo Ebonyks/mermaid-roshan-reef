@@ -857,7 +857,10 @@ acceptance decisions, and the owner-authorized production transform are in
 - `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/sign_reuse_manifest.json`
   - project-authored deterministic reuse ledger for every sign card below;
     records output hashes, approved source hashes and crop rectangles, alpha
-    treatment, and the one whole-card Lanczos resize; provenance data, not art.
+    treatment, the one whole-card Lanczos resize, and the Family Gallery
+    badge's exact collection-palette samples and outline radii; it also keeps
+    the eight-sign 4.5/5 compatibility scorecard and acceptance decisions;
+    provenance data, not art.
 - `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/throne_reuse_manifest.json`
   - project-authored deterministic reuse ledger for the retained throne card;
     records its approved source rectangle, hashes, alpha audit, unchanged RGB
@@ -922,8 +925,9 @@ strict 2K build and audit manifests.
 The eight 256x256 sign cards below reuse only already licensed, approved
 project art. Each source crop, source hash, alpha treatment, and whole-card
 Lanczos resize is recorded in `sign_reuse_manifest.json`; the Dream House sign
-uses a hand-traced semantic alpha to exclude its portal architecture. No
-external or newly generated RGB artwork was introduced.
+uses a hand-traced semantic alpha to exclude its portal architecture, plus a
+deterministic navy keyline and gold edge sampled from the approved Library
+badge. No external or AI-generated RGB artwork was introduced.
 
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png`
   - approved Main Hall Screen B badge reuse; SHA-256
@@ -932,8 +936,12 @@ external or newly generated RGB artwork was introduced.
   - approved Main Hall Screen B badge reuse; SHA-256
     `17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png`
-  - approved Family Wing hall badge reuse; SHA-256
-    `a21eb872f17ffd77e74944e7fbdb4b3ddd0923f3d32cad59f7ae7d92890f24de`.
+  - approved Family Wing hall crest re-extracted from the full existing source
+    so its formerly clipped right edge and adjacent portal scroll are absent;
+    semantic alpha, visible-bounds centering, and a deterministic
+    collection-sampled keyline only, with no repaint or new RGB artwork;
+    SHA-256
+    `222d5a5a4c590b6ae951ff5d7f4431bd35ed539e48cf0346a2e31fd83a09a0dd`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png`
   - approved Main Hall Screen A badge reuse; SHA-256
     `7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd`.
@@ -947,8 +955,40 @@ external or newly generated RGB artwork was introduced.
   - approved Main Hall Screen A badge reuse; SHA-256
     `7378b84c037fc6c5fe21880577f6eba2214d3c5e990b726bfaf67d83e8c03fd1`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png`
-  - approved Main Hall Screen B badge reuse; SHA-256
+  - approved Main Hall Screen B badge reuse, accepted and preserved
+    byte-for-byte after review found that removing its minor source-arch cap
+    would also cut valid teddy/rim pixels; SHA-256
     `22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df`.
+
+The twelve 256x256 elevator crests below are project-authored deterministic
+derivatives of the already licensed physical-door art above and the four
+approved Dream House portal cards. `tools/build_castle_elevator_picture_icons.py`
+alpha-crops the existing crest, applies one aspect-preserving Lanczos fit into
+a shared 256x256 transparent canvas with audited optical-size normalization,
+and centers it without repainting, stretching, AI generation, or alteration
+of any source. Exact source/output
+dimensions, crop rectangles, hashes, and transforms are recorded in
+`assets/ui/castle_room_buttons_v2/elevator_picture_icon_manifest.json`.
+
+- `assets/ui/castle_room_buttons_v2/room_main_hall.png`
+- `assets/ui/castle_room_buttons_v2/room_opera_hall.png`
+- `assets/ui/castle_room_buttons_v2/room_kitchen.png`
+- `assets/ui/castle_room_buttons_v2/room_library.png`
+- `assets/ui/castle_room_buttons_v2/room_playroom.png`
+- `assets/ui/castle_room_buttons_v2/room_craft_room.png`
+- `assets/ui/castle_room_buttons_v2/room_mermaid_pool.png`
+- `assets/ui/castle_room_buttons_v2/room_bubble_bath.png`
+- `assets/ui/castle_room_buttons_v2/room_dining_room.png`
+- `assets/ui/castle_room_buttons_v2/room_royal_bedroom.png`
+- `assets/ui/castle_room_buttons_v2/room_sleepover_bedroom.png`
+- `assets/ui/castle_room_buttons_v2/room_movie_lounge.png`
+
+The Royal Hall veil reuses
+`assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png` under its existing
+project-original license. Five narrow, low-alpha unshaded `Sprite3D` cards use
+that exact byte-unchanged texture at separate real depths; this introduces no
+new art and does not alter the accepted Main Hall background.
+
 - `assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png`
   - exact RGB crop of the approved Regen-01 pearl-shell throne's orthographic
     front view, with only border-connected studio-matte removal and exclusion
