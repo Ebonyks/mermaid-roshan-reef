@@ -37,45 +37,51 @@ const SLUGS := {
 const PHASES := {
 	"chef": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_chef_imps", "voice": "Mischief imps grabbed the spoons! Tap each imp to shoo them off!"},
-		{"name": "POUR", "icon": "●", "mode": "hold", "goal": 5.0, "vo": "op_chef_pour", "voice": "Hold to pour the sparkling batter!"},
+		{"name": "POUR", "icon": "●", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Grab the pitcher and TIP it — pour the sparkling batter into the bowl!"},
 		{"name": "STIR", "icon": "↻", "mode": "circle", "goal": 4.0, "vo": "op_chef_stir", "voice": "Draw big circles to stir!"},
-		{"name": "BAKE", "icon": "★", "mode": "timing", "goal": 6.0, "vo": "op_chef_bake", "voice": "Tap when the oven marker is green!"},
+		{"name": "BAKE", "icon": "★", "mode": "oven", "goal": 6.0, "vo": "op_chef_bake", "voice": "Watch the cake turn golden — then grab the big mitt and take it out!"},
 		{"name": "CAKE CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_chef_cake_chase", "voice": "The imp captain snatched the cake! Bop the crew to the stage door!"},
 		{"name": "PIPE", "icon": "〰", "mode": "swipe", "goal": 7.0, "vo": "op_chef_pipe", "voice": "On stage! Swipe to pipe the frosting!"},
 		{"name": "TOP", "icon": "●", "mode": "tap", "goal": 8.0, "vo": "op_chef_top", "voice": "Tap the bright toppings and win the cake back!"},
 	],
 	"detective": [
-		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_detective_imps", "voice": "Imps scattered the clue boxes! Tap each imp!"},
-		{"name": "LENS", "icon": "?", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens", "voice": "Drag the magic magnifying glass over the stage to find the glowing clues!"},
-		{"name": "TRAIL", "icon": "→", "mode": "swipe", "goal": 7.5, "vo": "op_detective_trail", "voice": "Swipe along the footprint trail!"},
-		{"name": "SEARCH", "icon": "★", "mode": "lens", "goal": 5.0, "vo": "op_detective_search", "voice": "Search the whole stage! Sweep your magnifying glass to find every hidden sparkle!"},
-		{"name": "TIARA CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_detective_tiara_chase", "voice": "The imp captain ran off with the tiara case! Bop the lookouts!"},
-		{"name": "MATCH", "icon": "◆", "mode": "choice", "goal": 5.0, "vo": "op_detective_match", "voice": "Match each clue to the glowing place!"},
-		{"name": "NAME", "icon": "★", "mode": "timing", "goal": 2.0, "vo": "op_detective_name", "voice": "Tap when the spotlight shines on the answer!"},
+		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_detective_imps", "voice": "The mermaid crown is GONE from its cushion — and imps scattered the clue boxes! Tap each imp!"},
+		{"name": "ASK KAREEM", "icon": "?", "mode": "talk", "goal": 1.0, "speaker": "Kareem", "vo": "op_detective_ask_kareem", "voice": "Somebody saw something! Walk over and ask Kareem!", "lines": [
+			{"who": "Kareem", "text": "A sparkle zoomed behind the big CLOCK!", "vo": "op_detective_hint_clock", "hold": 2.8},
+			{"who": "Roshan", "text": "To the clock — detective time!", "vo": "op_detective_to_clock", "hold": 2.2}]},
+		{"name": "CLOCK", "icon": "?", "mode": "lens", "goal": 2.0, "vo": "op_detective_lens", "voice": "Sweep the magnifying glass by the clock — glitter footprints!"},
+		{"name": "TRAIL TRICK", "icon": "!", "mode": "bop", "goal": 3.0, "combat": {"count": 3}, "vo": "op_detective_trail_trick", "voice": "Sneaky! That imp is re-laying the footprints the WRONG way! Bop the tricksters!"},
+		{"name": "ASK ROSALINA", "icon": "?", "mode": "talk", "goal": 1.0, "speaker": "Rosalina", "vo": "op_detective_ask_rosalina", "voice": "He dropped a torn crown ribbon! Show it to Rosalina!", "lines": [
+			{"who": "Rosalina", "text": "That ribbon was floating by the FOUNTAIN!", "vo": "op_detective_hint_fountain", "hold": 2.8},
+			{"who": "Roshan", "text": "The fountain! Come on!", "vo": "op_detective_to_fountain", "hold": 2.0}]},
+		{"name": "FOUNTAIN", "icon": "?", "mode": "lens", "goal": 2.0, "vo": "op_detective_search", "voice": "Look into the fountain water — something glitters down there!"},
+		{"name": "ASK CHUCK", "icon": "?", "mode": "talk", "goal": 1.0, "speaker": "Chuck", "vo": "op_detective_ask_chuck", "voice": "A crown jewel! One person left to ask — Chuck!", "lines": [
+			{"who": "Chuck", "text": "I heard giggling under the STAGE STAIRS!", "vo": "op_detective_hint_stairs", "hold": 2.8},
+			{"who": "Roshan", "text": "Shhh... tip-toe, tip-toe...", "vo": "op_detective_tiptoe", "hold": 2.2}]},
+		{"name": "STAIRS", "icon": "?", "mode": "lens", "goal": 1.0, "vo": "op_detective_lens", "voice": "Shine the lens under the stage stairs..."},
+		{"name": "CROWN CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_detective_tiara_chase", "voice": "The imp captain is wearing the crown like a HAT! He bolts — bop the crew!"},
+		{"name": "TEAM CORNER", "icon": "!", "mode": "bop", "goal": 6.0, "combat": {"count": 4, "captain": true}, "vo": "op_detective_team_corner", "voice": "The rival detective wants the crown found too! Corner the captain together!"},
 	],
 	"ballerina": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_ballerina_imps", "voice": "Imps are bouncing on the recital tiles! Tap them gently off!"},
-		{"name": "WATCH", "icon": "♪", "mode": "hold", "goal": 4.0, "vo": "op_ballerina_watch", "voice": "Hold still and watch the glowing dance!"},
 		{"name": "STEPS", "icon": "◆", "mode": "choice", "goal": 7.0, "vo": "op_ballerina_steps", "voice": "Tap the glowing dance step!"},
 		{"name": "RIBBON", "icon": "〰", "mode": "swipe", "goal": 6.5, "vo": "op_ballerina_ribbon", "voice": "Trace the ribbon across the floor!"},
 		{"name": "RIBBON CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_ballerina_ribbon_chase", "voice": "The imp captain tangled the ribbons! Twirl-bop the crew!"},
-		{"name": "DUET", "icon": "★", "mode": "timing", "goal": 6.0, "vo": "op_ballerina_duet", "voice": "Step on the beat — tap in the green!"},
 		{"name": "TWIRL", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_ballerina_twirl", "voice": "Draw circles for the grand twirl!"},
 	],
 	"candymaker": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_candymaker_imps", "voice": "Imps are juggling the gumdrops! Tap each imp!"},
-		{"name": "SYRUP", "icon": "●", "mode": "hold", "goal": 4.5, "vo": "op_candymaker_syrup", "voice": "Hold the sparkling syrup bottle!"},
+		{"name": "SYRUP", "icon": "●", "mode": "pourt", "goal": 4.5, "vo": "op_candymaker_syrup", "voice": "Grab the syrup bottle and TIP it over the candy mold!"},
 		{"name": "SORT", "icon": "◆", "mode": "choice", "goal": 7.0, "vo": "op_candymaker_sort", "voice": "Tap the glowing candy chute!"},
 		{"name": "WRAP", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_candymaker_wrap", "voice": "Twist the wrappers in circles!"},
 		{"name": "CANDY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_candymaker_candy_chase", "voice": "The imp captain rolled away the candy cart! Bop the crew!"},
-		{"name": "PARADE", "icon": "★", "mode": "timing", "goal": 6.0, "vo": "op_candymaker_parade", "voice": "Tap when the parade cart is in the green!"},
-		{"name": "SHARE", "icon": "●", "mode": "tap", "goal": 7.0, "vo": "op_candymaker_share", "voice": "Tap a candy for every friend in the crowd!"},
+		{"name": "SHARE", "icon": "●", "mode": "tap", "goal": 6.0, "vo": "op_candymaker_share", "voice": "The candy cart rolls by — toss a candy to every waving friend!"},
 	],
 	"doctor": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_doctor_imps", "voice": "Imps are hiding the bandages! Tap each imp!"},
 		{"name": "WASH", "icon": "●", "mode": "hold", "goal": 4.5, "vo": "op_doctor_wash", "voice": "Hold to wash Doctor Roshan's hands!"},
 		{"name": "FIND", "icon": "?", "mode": "choice", "goal": 6.0, "vo": "op_doctor_find", "voice": "Find the plushy with the glowing ouch!"},
-		{"name": "X-RAY", "icon": "◆", "mode": "tap", "goal": 6.0, "vo": "op_doctor_x_ray", "voice": "Tap the glowing cracked bone!"},
+		{"name": "X-RAY", "icon": "?", "mode": "lens", "goal": 3.0, "vo": "op_doctor_x_ray", "voice": "Slide the X-ray scanner over the plushy to find the cracked bone!"},
 		{"name": "PLUSHY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_doctor_plushy_chase", "voice": "The imp captain borrowed the plushy patient! Bop the crew to the stage!"},
 		{"name": "CAST", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_doctor_cast", "voice": "Draw circles to wrap the soft cast!"},
 		{"name": "BANDAGE", "icon": "〰", "mode": "swipe", "goal": 6.5, "vo": "op_doctor_bandage", "voice": "Swipe the stretchy bandage around!"},
@@ -91,7 +97,7 @@ const PHASES := {
 	],
 	"boxer": [
 		{"name": "SPAR", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_boxer_spar", "voice": "Friendly sparring! Bop each padded imp!"},
-		{"name": "JAB", "icon": "★", "mode": "timing", "goal": 7.0, "vo": "op_boxer_jab", "voice": "Tap in the green to punch the padded gloves!"},
+		{"name": "JAB", "icon": "!", "mode": "bop", "goal": 4.0, "combat": {"count": 4}, "vo": "op_boxer_jab", "voice": "Jab practice! Bop every training pad the partners hold up!"},
 		{"name": "DUCK", "icon": "↓", "mode": "swipe", "goal": 4.0, "dir": "down", "vo": "op_boxer_duck", "voice": "Swipe down to duck the friendly counter!"},
 		{"name": "BELL CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_boxer_bell_chase", "voice": "The imp captain grabbed the championship belt and rang the big bell! Win it back in the title match!"},
 		{"name": "ROUND", "icon": "◆", "mode": "choice", "goal": 8.0, "vo": "op_boxer_round", "voice": "Punch the glowing pad — left, middle, right!"},
@@ -103,7 +109,7 @@ const PHASES := {
 		{"name": "TRACK", "icon": "?", "mode": "choice", "goal": 6.0, "vo": "op_magician_track", "voice": "Follow the glowing hat through the shuffle!"},
 		{"name": "ROPE", "icon": "〰", "mode": "swipe", "goal": 6.5, "vo": "op_magician_rope", "voice": "Swipe the magic rope into one long ribbon!"},
 		{"name": "LAMBA CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_magician_bunny_chase", "voice": "The imp captain hid Lamba! Bop the crew to the stage!"},
-		{"name": "CABINET", "icon": "★", "mode": "timing", "goal": 6.0, "vo": "op_magician_cabinet", "voice": "Tap on the star flashes to open the cabinet!"},
+		{"name": "CABINET", "icon": "〰", "mode": "swipe", "dir": "down", "goal": 6.0, "vo": "op_magician_cabinet", "voice": "Grab the doors and swipe down — pull the magic cabinet open!"},
 		{"name": "PORTAL", "icon": "↻", "mode": "circle", "goal": 4.0, "vo": "op_magician_portal", "voice": "Draw circles to open the giant star portal!"},
 	],
 	"painter": [
@@ -117,20 +123,18 @@ const PHASES := {
 	],
 	"astronaut": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_astronaut_imps", "voice": "Imps are floating around the rocket bay! Tap each imp!"},
-		{"name": "PIPES", "icon": "◆", "mode": "choice", "goal": 6.0, "vo": "op_astronaut_pipes", "voice": "Tap the glowing pipe to route the bubbles!"},
+		{"name": "PIPES", "icon": "◆", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes", "voice": "Connect the bubble pipes from the fuel tank all the way to the rocket!"},
 		{"name": "PATCH", "icon": "●", "mode": "tap", "goal": 6.0, "vo": "op_astronaut_patch", "voice": "Tap the sparkle leaks to patch them!"},
 		{"name": "VALVE", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_astronaut_valve", "voice": "Draw circles to turn the launch valve!"},
 		{"name": "ROCKET CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_astronaut_rocket_chase", "voice": "The imp captain scooped up the little rocket and pressed the silly button! Bop the crew!"},
-		{"name": "BOOST", "icon": "★", "mode": "timing", "goal": 6.0, "vo": "op_astronaut_boost", "voice": "Tap the boosters in the green!"},
 		{"name": "LAUNCH", "icon": "●", "mode": "hold", "goal": 5.0, "vo": "op_astronaut_launch", "voice": "Hold through the countdown... and launch!"},
 	],
 	"racer": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_racer_imps", "voice": "Imps rolled tires onto the track! Tap each imp!"},
-		{"name": "STEER", "icon": "↔", "mode": "swipe", "goal": 9.0, "vo": "op_racer_steer", "voice": "Swipe to steer through the coral gates!"},
-		{"name": "TURBO", "icon": "★", "mode": "timing", "goal": 7.0, "vo": "op_racer_turbo", "voice": "Tap TURBO when the marker hits green!"},
-		{"name": "TROPHY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_racer_trophy_chase", "voice": "The imp captain grabbed the shell trophy! Clear the track!"},
-		{"name": "LAP TWO", "icon": "↻", "mode": "circle", "goal": 4.0, "vo": "op_racer_lap_two", "voice": "Loop the loop! Draw big racing circles!"},
-		{"name": "FINISH", "icon": "●", "mode": "tap", "goal": 7.0, "vo": "op_racer_finish", "voice": "Tap the zoom strips and cross the line!"},
+		{"name": "TUNE UP", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_racer_tune_up", "voice": "Turn the wrench in big circles — tighten every wheel before the race!"},
+		{"name": "TO THE LINE", "icon": "↔", "mode": "swipe", "goal": 6.0, "vo": "op_racer_to_the_line", "voice": "Push the kart all the way out to the starting line!"},
+		{"name": "TROPHY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_racer_trophy_chase", "voice": "The imp captain grabbed the shell trophy and jumped into his kart! Clear the track!"},
+		{"name": "RACE!", "icon": "★", "mode": "kart", "goal": 1.0, "vo": "op_racer_race", "voice": "After him! Pick your ride and race through the rainbow!"},
 	],
 	"nursery": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_nursery_imps", "voice": "Mischief imps are tickling the babies awake! Tap each imp!"},
@@ -138,7 +142,7 @@ const PHASES := {
 		{"name": "CATCH BABIES", "icon": "↓", "mode": "catch", "goal": 5.0, "speaker": "Faron", "vo": "op_nursery_catch", "voice": "Slide the soft cradle under five falling babies! Pillows keep every miss safe."},
 		{"name": "FEED", "icon": "♡", "mode": "hold", "goal": 4.2, "speaker": "Faron", "vo": "op_nursery_feed", "voice": "Hold the warm bottle while Roshan and Faron feed every baby!"},
 		{"name": "BABY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_nursery_baby_chase", "voice": "The imp captain is playing peek-a-boo with the babies! Bop the crew to the stage!"},
-		{"name": "BURP", "icon": "○", "mode": "timing", "goal": 4.0, "vo": "op_nursery_burp", "voice": "Tap in the green for gentle burp-pats!"},
+		{"name": "BURP", "icon": "○", "mode": "tap", "widget": "", "pace": 0.55, "goal": 4.0, "vo": "op_nursery_burp", "voice": "Pat the baby's back — gentle and slow. Pat... pat... pat!"},
 		{"name": "BEDTIME", "icon": "☾", "mode": "swipe", "goal": 6.0, "speaker": "Faron", "vo": "op_nursery_bedtime", "voice": "Swipe the blankets down and tuck every sleepy baby into bed!"},
 	],
 	"popstar": [
@@ -146,15 +150,15 @@ const PHASES := {
 		{"name": "SOUND CHECK", "icon": "●", "mode": "hold", "goal": 4.5, "vo": "op_popstar_sound_check", "voice": "Hold the microphone for sound check!"},
 		{"name": "DANCE", "icon": "◆", "mode": "choice", "goal": 8.0, "vo": "op_popstar_dance", "voice": "Tap the glowing dance arrow!"},
 		{"name": "MIC CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_popstar_mic_chase", "voice": "The imp captain unplugged the microphone! Bop the mischief band!"},
-		{"name": "RHYTHM", "icon": "♪", "mode": "timing", "goal": 7.0, "vo": "op_popstar_rhythm", "voice": "Tap each rainbow note in the green!"},
+		{"name": "RHYTHM", "icon": "♪", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm", "voice": "Listen to the stars sing — then tap their song back, as slow as you like!"},
 		{"name": "ENCORE", "icon": "↻", "mode": "circle", "goal": 4.2, "vo": "op_popstar_encore", "voice": "Draw a big encore spin for the crowd!"},
 	],
 }
 
 const FINALE_START := {
 	"chef": 5,
-	"detective": 5,
-	"ballerina": 5,
+	"detective": 9,
+	"ballerina": 4,
 	"candymaker": 5,
 	"doctor": 5,
 	"farmer": 5,
@@ -212,6 +216,36 @@ var bop_time := 0.0
 var steal_index := -1
 var captain_pending := false
 var idle_t := 0.0
+## WANDER (owner 2026-08-04, the curiosity layer): between tasks the world
+## is HERS — tap-to-walk along the painted route while the armed station
+## breathes and invites. The task opens when she arrives (150px + 0.35s
+## dwell), when she taps the lit marker, or on any card gesture (which is
+## also the probes' pump path, so every existing drive still works).
+var task_open := true
+## The racer finale rides the game's own 3D kart engine (owner 2026-08-04).
+## Headless probes get a pump-completable 2D beat instead; on device the
+## 2D world pauses, the kart runs a one-lap pursuit, and EVERY finishing
+## place — including a watching child's — wins the trophy back.
+const OPERA_SPRINT_CTRL := [
+	Vector3(0, 6, 150), Vector3(105, 10, 105), Vector3(150, 22, 0),
+	Vector3(105, 34, -105), Vector3(0, 26, -150), Vector3(-105, 14, -105),
+	Vector3(-150, 10, 0), Vector3(-105, 6, 105),
+]
+var race_active := false
+var kart_node: Node = null
+var race_touch_was := false
+## Gentle-pace gate (nursery BURP): taps faster than the phase "pace" pay
+## nothing — the baby just bounces. Restraint is the skill being taught.
+var pace_cool := 0.0
+## "talk" beats (detective crown hunt): the witness speaks via say_sequence
+## while she may keep strolling; the beat completes when the lines finish
+## (or instantly on any probe/child gesture — the standard pump path).
+var talk_t := 0.0
+var armed_station := -1
+var wander_dwell := 0.0
+var wander_dest := Vector2.ZERO
+var wander_walking := false
+var wander_layer: Control
 var score_cool := 0.0
 var bounce_cool := 0.0
 var bop_puff_texture: Texture2D = null
@@ -481,6 +515,14 @@ func _build_world() -> void:
 	lens_layer.draw.connect(_draw_lens_layer)
 	root.add_child(lens_layer)
 
+	wander_layer = Control.new()
+	wander_layer.position = Vector2.ZERO
+	wander_layer.size = Vector2(1280, 720)
+	wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	wander_layer.visible = false
+	wander_layer.gui_input.connect(_wander_input)
+	root.add_child(wander_layer)
+
 	_capture_actor_rest("player", player_actor)
 	_capture_actor_rest("rival", rival_actor)
 	_capture_actor_rest("prop", prop_rect)
@@ -702,7 +744,28 @@ func _glide_roshan_to(feet: Vector2, duration: float = 1.3) -> void:
 func _widget_template(phase: Dictionary) -> String:
 	var mode := String(phase.get("mode", ""))
 	var name := String(phase.get("name", ""))
+	# a rebuilt beat can name its own family, or opt out of the card art
+	# entirely with "widget": "" (nursery BURP draws its own pat scene)
+	if phase.has("widget"):
+		return String(phase["widget"])
 	match mode:
+		"talk":
+			return ""
+		"kart":
+			return ""
+		"echo":
+			# draws its own three singing stars; star-pad art is ledgered P2
+			return ""
+		"pourt":
+			# the tilt-pour uses the pour art family (pitcher, bowl, fill)
+			return "pour"
+		"pipe":
+			# draws its own rocket-bay scene; tile art is ledgered P1
+			return ""
+		"oven":
+			# chef BAKE reuses the gauge_chef art family (ledger redirect:
+			# oven face, no needle) — remove-before-toasty, never ping-pong
+			return "gauge"
 		"timing":
 			return "gauge" if career_id in ["chef", "astronaut", "racer"] else "track"
 		"hold":
@@ -714,7 +777,7 @@ func _widget_template(phase: Dictionary) -> String:
 		"circle":
 			return "crank"
 		"swipe":
-			return "push" if name in ["HERD", "DUCK", "STEER", "BEDTIME"] else "trace"
+			return "push" if name in ["HERD", "DUCK", "STEER", "BEDTIME", "TO THE LINE"] else "trace"
 		"tap":
 			return "target"
 		"choice":
@@ -725,9 +788,20 @@ func _widget_template(phase: Dictionary) -> String:
 
 
 func _show_phase() -> void:
+	# direct (probe and setup) path: arm and open in one synchronous step,
+	# exactly the pre-wander behaviour every probe drive was written against
+	_arm_phase()
+	_open_task()
+
+
+func _arm_phase() -> void:
 	_restore_stage_actors()
 	phase_complete_t = 0.0
 	phase_advance_pending = false
+	task_open = false
+	armed_station = -1
+	wander_dwell = 0.0
+	wander_walking = false
 	if phase_index >= phases.size():
 		active = false
 		if win_callback.is_valid():
@@ -753,44 +827,16 @@ func _show_phase() -> void:
 	idle_t = 0.0
 	var phase := phases[phase_index] as Dictionary
 	var mode_name := String(phase.get("mode", "tap"))
-	var is_bop := mode_name == "bop"
-	var is_lens := mode_name == "lens"
-	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
-	choice_target = (phase_index + int(competition.rival_step)) % 3
-	_apply_panel_layout(phase)
-	if is_bop:
-		_start_stage_combat(phase.get("combat", {}) as Dictionary)
-	else:
+	if mode_name != "bop":
 		_clear_stage_combat()
-		var station_index := int(station_for_phase.get(phase_index, -1))
-		if station_index >= 0 and station_index < station_list.size():
-			_glide_roshan_to(station_list[station_index].get("pos", Vector2(640, 480)) as Vector2)
-	if is_lens:
-		_start_lens_phase(phase)
-	elif lens_layer != null:
+	armed_station = int(station_for_phase.get(phase_index, -1))
+	if action_panel != null:
+		action_panel.visible = false
+	if lens_layer != null and mode_name != "lens":
 		lens_layer.visible = false
 		lens_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	for marker in station_nodes:
 		marker.queue_redraw()
-	var is_nursery_catch := career_id == "nursery" and mode_name == "catch"
-	surface.visible = not is_nursery_catch
-	if nursery_catch != null:
-		nursery_catch.visible = is_nursery_catch
-		if is_nursery_catch:
-			nursery_catch.start(int(ceilf(float(phase.get("goal", 5.0)))))
-		else:
-			nursery_catch.stop()
-	var template := _widget_template(phase)
-	var context := "%s_%s" % [template, career_id] if not template.is_empty() else ""
-	surface.configure(mode_name, accent, choice_target, context)
-	surface.set_fill(0.0)
-	match String(phase.get("dir", "")):
-		"down":
-			surface.swipe_dir = Vector2.DOWN
-			surface.swipe_require_dir = true
-		"up":
-			surface.swipe_dir = Vector2.UP
-			surface.swipe_require_dir = true
 	if prop_rect != null:
 		if phase_index == steal_index and prop_rect.visible:
 			# the theft is a visible event: the captain hauls the prop away
@@ -803,22 +849,104 @@ func _show_phase() -> void:
 				_finish_actor_motion("prop", prop_rect))
 		else:
 			prop_rect.visible = prop_rect.texture != null and phase_index > 0 \
-				and (steal_index < 0 or phase_index < steal_index)
-	phase_fill.value = 0.0
-	surface.set_fill(0.0)
+				and (steal_index < 0 or phase_index < steal_index) \
+				and career_id != "detective"
 	if m != null:
 		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
+	# combat and lens beats come to HER; widget tasks wait for her to walk up
+	# bind the job's own art now: the armed station already knows its trade
+	if mode_name != "bop" and mode_name != "lens":
+		_bind_widget(phase, mode_name,
+			Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8))))
+	if mode_name == "bop" or mode_name == "lens" or mode_name == "kart" \
+			or (career_id == "nursery" and mode_name == "catch") \
+			or armed_station < 0 or armed_station >= station_list.size():
+		_open_task()
+	else:
+		wander_layer.visible = true
+		wander_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+
+
+func _bind_widget(phase: Dictionary, mode_name: String, accent: Color) -> void:
+	var template := _widget_template(phase)
+	var context := "%s_%s" % [template, career_id] if not template.is_empty() else ""
+	surface.configure(mode_name, accent, choice_target, context)
+
+
+func _open_task() -> void:
+	if task_open or not active or phase_index >= phases.size():
+		return
+	task_open = true
+	wander_walking = false
+	if wander_layer != null:
+		wander_layer.visible = false
+		wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var phase := phases[phase_index] as Dictionary
+	var mode_name := String(phase.get("mode", "tap"))
+	var is_bop := mode_name == "bop"
+	var is_lens := mode_name == "lens"
+	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
+	choice_target = (phase_index + int(competition.rival_step)) % 3
+	_apply_panel_layout(phase)
+	if is_bop:
+		_start_stage_combat(phase.get("combat", {}) as Dictionary)
+	if is_lens:
+		_start_lens_phase(phase)
+	var is_nursery_catch := career_id == "nursery" and mode_name == "catch"
+	surface.visible = not is_nursery_catch
+	if nursery_catch != null:
+		nursery_catch.visible = is_nursery_catch
+		if is_nursery_catch:
+			nursery_catch.start(int(ceilf(float(phase.get("goal", 5.0)))))
+		else:
+			nursery_catch.stop()
+	_bind_widget(phase, mode_name, accent)
+	if career_id == "magician" and mode_name == "choice":
+		# the shuffle the fiction always promised: glow glides into its lane
+		surface.start_shuffle((choice_target + 1 + (phase_index % 2)) % 3)
+	if mode_name == "kart":
+		_start_kart_race()
+	if mode_name == "talk":
+		var lines: Array = phase.get("lines", [])
+		talk_t = 0.6
+		for line: Dictionary in lines:
+			talk_t += maxf(0.8, float(line.get("hold", 3.2)))
+		if m != null and not lines.is_empty():
+			m.say_sequence(lines)
+		# the stage stays hers while the witness talks
+		if wander_layer != null:
+			wander_layer.visible = true
+			wander_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	surface.set_fill(0.0)
+	match String(phase.get("dir", "")):
+		"down":
+			surface.swipe_dir = Vector2.DOWN
+			surface.swipe_require_dir = true
+		"up":
+			surface.swipe_dir = Vector2.UP
+			surface.swipe_require_dir = true
+	phase_fill.value = 0.0
 
 
 func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
 	var mode := String(phase.get("mode", "tap"))
-	if mode == "bop" or mode == "lens":
+	if mode == "bop" or mode == "lens" or mode == "talk" or mode == "kart":
 		# stage-wide beats play on the painting itself — no card at all
 		action_panel.visible = false
 		return
 	action_panel.visible = true
+	if mode == "pipe":
+		# the pipe board earns the big stage: a full-width workbench card
+		action_panel.position = Vector2(190, 36)
+		action_panel.size = Vector2(900, 648)
+		surface.position = Vector2(24, 24)
+		surface.size = Vector2(852, 560)
+		phase_fill.position = Vector2(24, 596)
+		phase_fill.size = Vector2(852, 30)
+		action_panel.queue_redraw()
+		return
 	action_panel.position = _card_position_near_station()
 	action_panel.size = Vector2(440, 384)
 	surface.position = Vector2(24, 70)
@@ -1129,6 +1257,22 @@ func _set_finale_visible(show_finale: bool) -> void:
 func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if not active or reveal_t > 0.0 or phase_index >= phases.size():
 		return
+	if _kind == "echo_note":
+		if m != null and m.chime != null:
+			var steps: Array = [1.0, 1.1892, 1.4983]
+			m.chime.pitch_scale = float(steps[clampi(surface.echo_last_note, 0, 2)]) * (1.0 if quality >= 0.9 else 0.94)
+			m.chime.play()
+		return
+	if _kind == "pour_ding":
+		if m != null and m.chime != null:
+			m.chime.pitch_scale = 1.45
+			m.chime.play()
+		return
+	if _kind == "hold_release":
+		# the wind-up's payoff: MUD HOP's actual hop, the sound-check flourish
+		if player_actor != null:
+			_bounce_actor(player_actor, 36.0, 0.5)
+		return
 	if phase_advance_pending:
 		_advance_completed_phase()
 		return
@@ -1139,13 +1283,25 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			_restore_actor("prop", prop_rect)
 			prop_rect.visible = false
 		return
+	if not task_open:
+		# WANDER: any card gesture opens the armed task at once — the
+		# probes' pump path, and no child is left poking a sleeping card
+		_open_task()
 	var phase := phases[phase_index] as Dictionary
 	var mode := String(phase.get("mode", ""))
 	if mode == "catch" and amount < 5.0:
 		return
 	idle_t = 0.0
 	surface.note_input()
-	var continuous := mode == "hold" or mode == "swipe" or mode == "circle"
+	var pace := float(phase.get("pace", 0.0))
+	if pace > 0.0 and _kind == "tap":
+		if pace_cool > 0.0:
+			# too quick — the baby bounces happily, the pat pays nothing
+			amount = 0.0
+			quality = 0.6
+		else:
+			pace_cool = pace
+	var continuous := mode == "hold" or mode == "swipe" or mode == "circle" or mode == "pourt"
 	if quality < 0.5:
 		competition.note_miss()
 	elif not continuous or score_cool <= 0.0:
@@ -1194,7 +1350,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		surface.accept_completion()
 		if action_panel != null and surface != null:
 			_bop_burst_at(action_panel.position + surface.position + surface.size * 0.5, false)
-		phase_complete_t = 0.30
+		phase_complete_t = 2.2
 		phase_advance_pending = true
 
 
@@ -1204,10 +1360,9 @@ func _advance_completed_phase() -> void:
 	phase_advance_pending = false
 	phase_complete_t = 0.0
 	phase_index += 1
-	# a beat of quiet before the next task opens — the acts used to snap
-	# straight from one widget into the next with no breath between them
-	phase_gap = maxf(phase_gap, 0.9)
-	_show_phase()
+	# no forced gap here: the wander window IS the breath between tasks —
+	# the world stays hers until she walks up to the next lit station
+	_arm_phase()
 
 
 func _live_captain_hp() -> int:
@@ -1269,8 +1424,9 @@ func _on_nursery_baby_caught(quality: float) -> void:
 	_bounce_actor(player_actor, 14.0)
 	_bounce_actor(rival_actor, 9.0)
 	if phase_progress >= goal:
-		phase_index += 1
-		_show_phase()
+		# join the shared advance rhythm: hold the cozy scene, then arm
+		phase_complete_t = 0.8
+		phase_advance_pending = true
 
 
 func _on_nursery_baby_missed() -> void:
@@ -1870,22 +2026,49 @@ func _draw_lens_layer() -> void:
 
 func _process(delta: float) -> void:
 	elapsed += delta
+	if race_active:
+		# the 2D world sleeps while the 3D lap runs
+		return
 	if phase_advance_pending:
 		phase_complete_t = maxf(0.0, phase_complete_t - delta)
 		if phase_complete_t <= 0.0:
 			_advance_completed_phase()
 	if score_cool > 0.0:
 		score_cool = maxf(0.0, score_cool - delta)
+	if pace_cool > 0.0:
+		pace_cool = maxf(0.0, pace_cool - delta)
 	if bounce_cool > 0.0:
 		bounce_cool = maxf(0.0, bounce_cool - delta)
 	if combat_miss_cool > 0.0:
 		combat_miss_cool = maxf(0.0, combat_miss_cool - delta)
 	if phase_gap > 0.0:
 		phase_gap = maxf(0.0, phase_gap - delta)
+	if active and not task_open and reveal_t <= 0.0 and phase_index < phases.size():
+		_wander_step(delta)
+	if active and task_open and not phase_advance_pending and reveal_t <= 0.0 \
+			and phase_index < phases.size() and talk_t > 0.0:
+		var talk_phase := phases[phase_index] as Dictionary
+		if String(talk_phase.get("mode", "")) == "talk":
+			talk_t -= delta
+			if talk_t <= 0.0:
+				phase_progress = maxf(phase_progress, float(talk_phase.get("goal", 1.0)))
+				surface.accept_completion()
+				phase_complete_t = 0.6
+				phase_advance_pending = true
+		else:
+			talk_t = 0.0
 	if active and not phase_advance_pending and reveal_t <= 0.0 and phase_index < phases.size():
 		# quiet children get the prompt again plus a fresh finger demo
 		idle_t += delta
-		if idle_t >= 9.0:
+		if not task_open:
+			if idle_t >= 20.0:
+				# the kind assist: she drifts toward the waiting station
+				idle_t = 8.0
+				if armed_station >= 0 and armed_station < station_list.size():
+					_glide_roshan_to(station_list[armed_station].get("pos", Vector2(640, 480)) as Vector2)
+			elif idle_t >= 9.0 and idle_t - delta < 9.0 and m != null:
+				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")), "hint")
+		elif idle_t >= 9.0:
 			idle_t = 0.0
 			surface.restart_demo()
 			if m != null:
@@ -1929,8 +2112,129 @@ func _process(delta: float) -> void:
 
 func close() -> void:
 	active = false
+	if kart_node != null and is_instance_valid(kart_node):
+		kart_node.queue_free()
+		kart_node = null
+	if race_active:
+		race_active = false
+		root.visible = true
+		if m != null and m.touch_ui != null:
+			m.touch_ui.visible = race_touch_was
+	if wander_layer != null:
+		wander_layer.visible = false
+		wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_restore_stage_actors()
 	_clear_stage_combat()
 	if nursery_catch != null:
 		nursery_catch.stop()
 	queue_free()
+
+
+func _wander_input(event: InputEvent) -> void:
+	if task_open or not active:
+		return
+	var point := Vector2(-1.0, -1.0)
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed:
+			point = touch.position
+	elif event is InputEventMouseButton:
+		var click := event as InputEventMouseButton
+		if click.pressed and click.button_index == MOUSE_BUTTON_LEFT:
+			point = click.position
+	elif event is InputEventScreenDrag:
+		# a held finger leads her — the destination follows it
+		point = (event as InputEventScreenDrag).position
+	if point.x < 0.0:
+		return
+	idle_t = 0.0
+	if phase_gap > 0.0:
+		phase_gap = 0.0
+	var old := actor_tweens.get("player") as Tween
+	if old != null and old.is_valid():
+		old.kill()
+	actor_tweens.erase("player")
+	if armed_station >= 0 and armed_station < station_list.size():
+		var station_pos: Vector2 = station_list[armed_station].get("pos", Vector2.ZERO)
+		if point.distance_to(station_pos) <= 120.0:
+			# a tap on the lit marker sends her straight to the job
+			wander_dest = station_pos
+			wander_walking = true
+			return
+	# everywhere else: walk the painted route to under the finger — the
+	# identical clamp the imps live by, so she can never leave the walkway
+	wander_dest = _stage_feet_at_x(point.x)
+	wander_walking = true
+
+
+func _wander_step(delta: float) -> void:
+	if player_actor == null:
+		return
+	if wander_walking:
+		var feet := _hero_feet()
+		var next := feet.move_toward(wander_dest, 250.0 * delta)
+		if absf(next.x - feet.x) > 0.5:
+			player_actor.flip_h = next.x < feet.x
+		_place_on_stage(player_actor, next)
+		if next.distance_to(wander_dest) <= 3.0:
+			wander_walking = false
+			_capture_actor_rest("player", player_actor)
+	if armed_station >= 0 and armed_station < station_list.size():
+		var station_pos: Vector2 = station_list[armed_station].get("pos", Vector2.ZERO)
+		if _hero_feet().distance_to(station_pos) <= 150.0:
+			wander_dwell += delta
+			if wander_dwell >= 0.35:
+				_capture_actor_rest("player", player_actor)
+				_open_task()
+		else:
+			wander_dwell = 0.0
+
+
+func _start_kart_race() -> void:
+	# headless probes (and any safety fallback) keep the pump-completable 2D
+	# beat; a live device gets the real lap. DisplayServer is the honest gate.
+	if m == null or DisplayServer.get_name() == "headless" \
+			or OS.get_environment("OPERA_FORCE_2D") == "1":
+		return
+	race_active = true
+	root.visible = false
+	race_touch_was = m.touch_ui != null and m.touch_ui.visible
+	if m.touch_ui != null:
+		m.touch_ui.visible = true
+	# pre-commit so the reef's kart medals, stickers and Galaxy unlock can
+	# never double-award from an opera race (guard verified in main.gd)
+	m.kart_completion_committed = true
+	kart_node = (load("res://scripts/kart.gd") as GDScript).new()
+	m.add_child(kart_node)
+	kart_node.configure({
+		"theme": "rainbow",
+		"ground": "float",
+		"laps": 1,
+		"lap_target_sec": 40.0,
+		"road_half": 13.2,
+		"ctrl": OPERA_SPRINT_CTRL,
+		"origin": Vector3(0.0, 3300.0, 0.0),
+		"pearl_payout": false,
+		"minimal_hud": true,
+		"assume_acted": true,
+	})
+	kart_node.start(m, _opera_race_done)
+
+
+func _opera_race_done(_place: int) -> void:
+	# EVERY child wins the trophy — fast children also win the race. Back in
+	# 2D the captain's kart-cart wobbles and the trophy bounces free to her.
+	kart_node = null
+	race_active = false
+	root.visible = true
+	if m != null and m.touch_ui != null:
+		m.touch_ui.visible = race_touch_was
+	if prop_rect != null and prop_rect.texture != null:
+		prop_rect.visible = true
+		prop_rect.scale = Vector2.ONE
+		_bounce_actor(prop_rect, 30.0, 0.5)
+	if active and phase_index < phases.size():
+		phase_progress = maxf(phase_progress, float((phases[phase_index] as Dictionary).get("goal", 1.0)))
+		surface.accept_completion()
+		phase_complete_t = 1.2
+		phase_advance_pending = true

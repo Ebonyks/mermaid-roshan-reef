@@ -76,11 +76,16 @@ func _init() -> void:
 		catcher.active and catcher.goal == 5 and catcher.missed >= 2)
 
 	var catch_guard := 0
-	while world.phase_index == 2 and catch_guard < 360:
+	while catcher.caught < 5 and catch_guard < 360:
 		var target := catcher.lowest_baby_x()
 		catcher.steer_to(target if target >= 0.0 else 0.5)
 		catcher._process(0.12)
 		catch_guard += 1
+	# the cozy full-cradle scene holds before the next station arms
+	var hold_guard := 0
+	while world.phase_index == 2 and hold_guard < 40:
+		world._process(0.1)
+		hold_guard += 1
 	_check("one-finger steering catches all five babies after safe misses",
 		catcher.caught == 5 and world.phase_index == 3)
 	world.phase_gap = 0.0
@@ -92,16 +97,26 @@ func _init() -> void:
 		and backdrop != null and backdrop.stage_mode)
 	_pump(world)
 	_check("the chase clears into the gentle burp-pat beat",
-		world.phase_index == 5 and world.surface.visual_context == "track_nursery")
-	for index in range(4):
-		world._on_gesture("probe", 1.0, 1.0)
+		world.phase_index == 5 and String((world.phases[5] as Dictionary).get("name", "")) == "BURP")
+	# gentle pats: a pat inside the pace window pays nothing, so a drumming
+	# finger cannot rush the baby — the probe waits between pats like a child
+	var pat_guard := 0
+	while world.phase_index == 5 and pat_guard < 40:
+		world._on_gesture("tap", 1.0, 1.0)
+		world._process(0.6)
+		pat_guard += 1
 	if world.phase_advance_pending:
 		world._on_gesture("probe", 0.0, 1.0)
 	_check("four gentle pats advance to bedtime",
 		world.phase_index == 6 and world.surface.visual_context == "push_nursery")
 	world.phase_gap = 0.0
 	world._on_gesture("probe", 100.0, 1.0)
-	world._process(0.31)
+	# the tucked-in blanket holds on screen before the curtain call — let
+	# that beat elapse the way a watching child would
+	var tuck_guard := 0
+	while act.state == "play" and tuck_guard < 40:
+		world._process(0.1)
+		tuck_guard += 1
 	await process_frame
 	_check("blanket tuck completes the cooperative nursery show",
 		act.state == "won" and bool(act.performance_result.get("cooperative", false))

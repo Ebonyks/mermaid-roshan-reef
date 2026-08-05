@@ -43,12 +43,87 @@ var completion_accepted := false
 ## Choice lanes flash gold briefly, then dim so the pick uses recognition
 ## memory instead of tap-the-highlight; wrong picks kindly re-flash.
 var choice_flash := 1.4
+## Shell-game glide (magician TRACK): after the flash, the glow visibly
+## slides from the flashed lane into the target lane before dimming.
+var shuffle_from := -1
+var shuffle_t := 0.0
+## Oven bake (chef BAKE, owner 2026-08-04): heat RISES AT A STATIC RATE and
+## the child REMOVES the cake by tapping the big mitt handle. Bands: pale ->
+## golden window -> toasty -> cap, then a kind auto-ding. A toastier cake is
+## still a cake — there is no burn state and no fail branch anywhere.
+var oven_t := 0.0
+var oven_grace := 0.0
+var oven_peek := 0.0
+var oven_done := false
+var oven_redraw := 0.0
+## Bubble-fuel pipes (astronaut PIPES; owner-mandated mini Pipe Dream).
+## Place or slide PRE-ROTATED tiles — no rotation control exists anywhere,
+## no timer, no failure: fuel WAITS kindly at a gap, and after 8s a gold
+## twinkle marks the cell that needs a tile. Three rounds, each one pipe
+## longer, with napping imps as the routing puzzle (they never touch tiles
+## the child has placed — escalation is routing, not sabotage).
+const PIPE_COLS := 4
+const PIPE_ROWS := 3
+const PIPE_CELL := 128.0
+const PIPE_ORIGIN := Vector2(170.0, 40.0)
+const PIPE_MOUTHS := {
+	"H": [Vector2i(-1, 0), Vector2i(1, 0)],
+	"V": [Vector2i(0, -1), Vector2i(0, 1)],
+	"NE": [Vector2i(0, -1), Vector2i(1, 0)],
+	"NW": [Vector2i(0, -1), Vector2i(-1, 0)],
+	"SE": [Vector2i(0, 1), Vector2i(1, 0)],
+	"SW": [Vector2i(0, 1), Vector2i(-1, 0)],
+}
+## rounds: fixed stubs are pre-placed and never liftable; imps nap on their
+## cells and giggle when tapped, but stay (tray = needed tiles + at most one)
+const PIPE_ROUNDS := [
+	{"entry": 4, "exit": 7, "exit_dir": Vector2i(1, 0), "fixed": {4: "H", 7: "H"}, "imps": [], "tray": ["H", "H"]},
+	{"entry": 4, "exit": 7, "exit_dir": Vector2i(1, 0), "fixed": {4: "NW", 7: "H"}, "imps": [5], "tray": ["SE", "H", "SW", "NE", "H"]},
+	{"entry": 4, "exit": 3, "exit_dir": Vector2i(0, -1), "fixed": {4: "H"}, "imps": [0, 6], "tray": ["H", "NW", "SE", "H", "NW", "V"]},
+]
+var pipe_round := 0
+var pipe_grid: Array = []
+var pipe_fixed: Array = []
+var pipe_tray: Array = []
+var pipe_tray_sel := -1
+var pipe_drag_tile := ""
+var pipe_drag_from := -1
+var pipe_flow: Array = []
+var pipe_flow_t := 0.0
+var pipe_wait_t := 0.0
+var pipe_pause := 0.0
+var pipe_redraw := 0.0
+
+## Echo Song (popstar RHYTHM rebuild): three stage stars light in order
+## with pitched notes; the child taps them back in ANY tempo — order
+## matters, speed never does. Wrong star kindly replays the verse.
+const ECHO_VERSES := [[0, 2], [0, 1, 2], [2, 1, 0]]
+var echo_verse := 0
+var echo_show_i := -1
+var echo_show_t := 0.0
+var echo_input_i := 0
+var echo_listening := false
+var echo_last_note := 0
+var echo_glow := 0.0
+## Tilt-pour (chef POUR / candymaker SYRUP): grab the pitcher and it TILTS;
+## the stream follows, the bowl fills only while the stream lands in it,
+## and the pitcher visibly drains. The child controls the pour, not a clock.
+var pour_tilt := 0.0
+var pour_x := 0.0
+var pour_level := 0.0
+var pour_reserve := 1.2
+var pour_hold := false
+var pour_emit_acc := 0.0
+var pour_redraw := 0.0
+
 ## Directional hint for swipe phases (DUCK draws a downward arrow).
 var swipe_dir := Vector2.RIGHT
-## Tap phases aim at a moving point that leaves a happy mark per hit.
-var tap_point := Vector2.ZERO
+## Tap phases stamp a happy mark AT THE FINGER (owner 2026-08-04: free
+## placement is the game — decorating, splatting, pearl-setting; the old
+## wandering hotspot rewarded chasing a dot instead of making a thing).
 var tap_marks: Array = []
-var tap_relocate_pending := false
+## Finger trail for trace phases: the reveal follows the child's own path.
+var trace_points: Array = []
 ## Diegetic scene painted behind the affordance (nursery basin/bottle/cribs).
 var visual_context := ""
 var nursery_textures: Array[Texture2D] = []
@@ -59,11 +134,19 @@ var widget_mover: Texture2D = null
 var widget_overlay: Texture2D = null
 var widget_stamp: Texture2D = null
 var widget_shared: Texture2D = null
+## Pipe-dream tile art (ledger P1). Code-drawn until these land; the draw
+## path prefers the texture whenever the face has one.
+var pipe_tiles: Dictionary = {}
+var pipe_tank_texture: Texture2D = null
+var pipe_intake_texture: Texture2D = null
+## Echo Song star pads (ledger P2), tinted per star at runtime.
+var echo_unlit_texture: Texture2D = null
+var echo_lit_texture: Texture2D = null
 var crank_rotation := 0.0
 ## Trickle-by-assist (house pattern from fetch/melody/dolls): wrong input
 ## always celebrates but pays ~nothing, and repeat misses inside the
 ## cooldown pay zero — correct play must strictly beat mashing.
-const MISS_COOLDOWN := {"tap": 0.5, "choice": 0.6, "timing": 1.0}
+const MISS_COOLDOWN := {"tap": 0.5, "choice": 0.6, "timing": 1.0, "oven": 1.0}
 var miss_cool := 0.0
 ## Swipe honesty: per-event travel cap plus a refilling per-second budget
 ## so scrubbing cannot trivialize goals; direction gates only when the
@@ -110,8 +193,45 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	swipe_require_dir = false
 	swipe_dir = Vector2.RIGHT
 	tap_marks = []
-	tap_point = size * 0.5
-	tap_relocate_pending = false
+	trace_points = []
+	shuffle_t = 0.0
+	shuffle_from = -1
+	oven_t = 0.0
+	oven_grace = 0.0
+	oven_peek = 0.0
+	oven_done = false
+	if next_mode == "pipe":
+		pipe_round = 0
+		_pipe_setup_round()
+		if pipe_tiles.is_empty():
+			var faces := {
+				"H": "tile_h", "V": "tile_v", "NE": "elbow_ne",
+				"NW": "elbow_nw", "SE": "elbow_se", "SW": "elbow_sw",
+			}
+			for face: String in faces.keys():
+				var tile := _load_widget_texture(
+					"res://assets/opera/worlds/widgets/widget_pipe_%s.png" % faces[face])
+				if tile != null:
+					pipe_tiles[face] = tile
+			pipe_tank_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_pipe_tank.png")
+			pipe_intake_texture = _load_widget_texture("res://assets/opera/worlds/widgets/widget_pipe_intake.png")
+	if next_mode == "echo" and echo_unlit_texture == null:
+		echo_unlit_texture = _load_widget_texture("res://assets/opera/worlds/widgets/popstar_star_note_unlit.png")
+		echo_lit_texture = _load_widget_texture("res://assets/opera/worlds/widgets/popstar_star_note_lit.png")
+	if next_mode == "echo":
+		echo_verse = 0
+		echo_show_i = -1
+		echo_show_t = 0.0
+		echo_input_i = 0
+		echo_listening = false
+		echo_glow = 0.0
+	if next_mode == "pourt":
+		pour_tilt = 0.0
+		pour_x = size.x * 0.34
+		pour_level = 0.0
+		pour_reserve = 1.2
+		pour_hold = false
+		pour_emit_acc = 0.0
 	if next_mode != "bop":
 		bop_targets = []
 	queue_redraw()
@@ -208,6 +328,33 @@ func _process(delta: float) -> void:
 		choice_flash -= delta
 		if choice_flash <= 0.0:
 			queue_redraw()
+	if shuffle_t > 0.0 and mode == "choice":
+		shuffle_t = maxf(0.0, shuffle_t - delta)
+		queue_redraw()
+	if mode == "pipe" and not completion_accepted:
+		_pipe_tick(delta)
+	if mode == "echo" and not completion_accepted:
+		_echo_tick(delta)
+	if mode == "pourt" and not completion_accepted:
+		_pour_tick(delta)
+	if mode == "oven" and not completion_accepted:
+		if oven_peek > 0.0:
+			# door open for a peek — the heat politely waits
+			oven_peek = maxf(0.0, oven_peek - delta)
+		elif not oven_done:
+			# STATIC rate: cold to cap in 8s, no acceleration, never resets
+			oven_t = minf(1.0, oven_t + delta / 8.0)
+			if oven_t >= 1.0:
+				oven_grace += delta
+				if oven_grace >= 1.2:
+					# auto-ding: the door springs open on its own. Extra
+					# toasty is a KIND of cake, not a failure.
+					oven_done = true
+					gesture.emit("oven", 999.0, 0.7)
+		oven_redraw += delta
+		if oven_redraw >= 0.05:
+			oven_redraw = 0.0
+			queue_redraw()
 	if not demo_active:
 		return
 	demo_t += delta
@@ -254,13 +401,9 @@ func _press(at: Vector2) -> void:
 	feedback_position = timing_position
 	match mode:
 		"tap":
-			if at.distance_to(tap_point) <= 92.0:
-				tap_marks.append(tap_point)
-				tap_relocate_pending = true
-				gesture.emit("tap", 1.0, 1.0)
-			else:
-				# near-misses still sparkle, but mashing pays no wage
-				gesture.emit("tap", _miss_pay(), 0.4)
+			# every tap lands its mark where the finger is — placing, not aiming
+			tap_marks.append(at)
+			gesture.emit("tap", 1.0, 1.0)
 		"choice":
 			var lane := clampi(int(at.x / maxf(1.0, size.x) * float(choice_count)), 0, choice_count - 1)
 			if lane == target_choice:
@@ -274,20 +417,42 @@ func _press(at: Vector2) -> void:
 				gesture.emit("timing", _miss_pay(), 0.32)
 		"bop":
 			_bop_press(at)
+		"pipe":
+			if completion_accepted:
+				gesture.emit("pipe", 0.0, 1.0)   # skips the completion hold
+			else:
+				_pipe_press(at)
+		"echo":
+			if completion_accepted:
+				gesture.emit("echo", 0.0, 1.0)
+			else:
+				_echo_press(at)
+		"pourt":
+			if _pour_pitcher_rect().has_point(at):
+				pour_hold = true
+				pour_x = clampf(at.x, size.x * 0.12, size.x * 0.88)
+			else:
+				# a tap on the bowl answers with a friendly ripple
+				gesture.emit("pourt", 0.0, 0.6)
+		"oven":
+			if oven_done or completion_accepted:
+				gesture.emit("oven", 0.0, 1.0)
+			elif oven_t < 0.45:
+				# a peek: door opens, the cake jiggles gooey, baking resumes.
+				# The trickle teaches color-watching; mashing pays nothing.
+				oven_peek = 0.7
+				gesture.emit("oven", _miss_pay(), 0.55)
+			else:
+				# she takes the cake out — golden is perfect, toasty is still
+				# wonderful, and the difference is only the confetti's size
+				oven_done = true
+				gesture.emit("oven", 999.0, 1.0 if oven_t <= 0.80 else 0.7)
 		"hold":
 			# a tap on the hold circle answers with a small warm trickle
 			gesture.emit("hold", 0.06, 0.6)
 		"swipe", "circle":
 			gesture.emit(mode, 0.05, 0.6)
 	queue_redraw()
-
-
-func _relocate_tap_point() -> void:
-	var n := tap_marks.size()
-	tap_point = Vector2(
-		size.x * 0.5 + sin(float(n) * 2.4 + 0.9) * size.x * 0.3,
-		size.y * 0.5 + cos(float(n) * 1.7 + 0.4) * size.y * 0.26
-	)
 
 
 func _bop_press(at: Vector2) -> void:
@@ -325,6 +490,19 @@ func _drag(at: Vector2) -> void:
 			else:
 				# wrong-direction wiggles fizzle kindly, tiny trickle
 				gesture.emit("swipe", travel * 0.2, 0.4)
+	if mode == "pipe":
+		queue_redraw()
+		previous_pos = at
+		return
+	if mode == "pourt":
+		if pour_hold:
+			pour_x = clampf(at.x, size.x * 0.12, size.x * 0.88)
+		queue_redraw()
+		previous_pos = at
+		return
+	if mode == "swipe" and widget_template == "trace":
+		if trace_points.is_empty() or at.distance_to(trace_points[trace_points.size() - 1]) > 24.0:
+			trace_points.append(at)
 	elif mode == "circle":
 		var center := size * 0.5
 		var radius := at.distance_to(center)
@@ -348,9 +526,13 @@ func _release(at: Vector2) -> void:
 	held = false
 	pointer_pos = at
 	have_angle = false
-	if tap_relocate_pending:
-		tap_relocate_pending = false
-		_relocate_tap_point()
+	if mode == "pipe":
+		_pipe_release(at)
+	if mode == "pourt":
+		pour_hold = false
+	if mode == "hold" and widget_fill > 0.22:
+		# the wind-up pays off on release — the hop, the swell, the flourish
+		gesture.emit("hold_release", 0.0, 1.0)
 	queue_redraw()
 
 
@@ -388,6 +570,26 @@ func _draw() -> void:
 	draw_rect(panel, Color(0.94, 0.97, 1.0, 0.96), true)
 	draw_rect(panel.grow(-3.0), accent.lerp(Color("#382485"), 0.62), false, 4.0)
 	var center := size * 0.5
+	if mode == "pipe":
+		_draw_pipe()
+		if demo_active:
+			_draw_demo_finger()
+		return
+	if mode == "echo":
+		_draw_echo(center)
+		if demo_active:
+			_draw_demo_finger()
+		return
+	if mode == "pourt":
+		_draw_pour_scene(center)
+		if demo_active:
+			_draw_demo_finger()
+		return
+	if mode == "oven":
+		_draw_oven(center)
+		if demo_active:
+			_draw_demo_finger()
+		return
 	if widget_backdrop != null:
 		# authored at 1024x608 (1.684); the panel is not that aspect, so a plain
 		# stretch squashed every round object into an egg. Cover-fit instead.
@@ -403,12 +605,13 @@ func _draw() -> void:
 		return
 	match mode:
 		"tap":
+			# free placement: the marks ARE the picture; no hotspot to chase.
+			# The ghost-finger demo teaches "touch here makes a mark".
 			for mark: Vector2 in tap_marks:
 				draw_circle(mark, 13.0, Color(accent, 0.85))
 				draw_circle(mark, 6.0, Color.WHITE)
-			draw_circle(tap_point, 64.0, Color(accent, 0.25))
-			draw_arc(tap_point, 64.0, 0.0, TAU, 48, accent, 9.0)
-			draw_circle(tap_point, 18.0, Color.WHITE)
+			if held:
+				draw_circle(pointer_pos, 26.0, Color(accent, 0.35))
 		"hold":
 			draw_circle(center, minf(size.x, size.y) * 0.25, Color(accent, 0.24))
 			draw_arc(center, minf(size.x, size.y) * 0.25, 0.0, TAU, 48, accent, 10.0)
@@ -584,7 +787,10 @@ func _draw_widget_layers(center: Vector2) -> void:
 				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false, Color(1.0, 1.0, 1.0, widget_fill))
 		"trace":
 			if widget_overlay != null:
-				_draw_progress_overlay(widget_overlay, widget_fill, true)
+				if completion_accepted or widget_fill >= 0.999:
+					draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
+				else:
+					_draw_trace_patches(widget_overlay)
 		"push":
 			var mover_point := center + swipe_dir * widget_fill * 42.0
 			_draw_widget_sprite(widget_mover, mover_point, 136.0)
@@ -592,7 +798,9 @@ func _draw_widget_layers(center: Vector2) -> void:
 		"target":
 			for mark: Vector2 in tap_marks:
 				_draw_widget_sprite(widget_stamp, mark, 76.0)
-			_draw_widget_sprite(widget_mover, tap_point, 142.0)
+			if held:
+				# the next piece rides the finger until it is placed
+				_draw_widget_sprite(widget_mover, pointer_pos, 142.0)
 			if widget_overlay != null and completion_accepted:
 				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
 		"lanes":
@@ -601,6 +809,8 @@ func _draw_widget_layers(center: Vector2) -> void:
 				var lane_point := Vector2(size.x * (float(target_choice) + 0.5) / float(choice_count), size.y * 0.70)
 				var source := Rect2(float(target_choice) * 256.0, 0.0, 256.0, 256.0)
 				draw_texture_rect_region(widget_mover, Rect2(lane_point - Vector2(62.0, 62.0), Vector2(124.0, 124.0)), source)
+			if shuffle_t > 0.0 and shuffle_from >= 0:
+				_draw_shuffle_glide(target_choice)
 			if widget_shared != null and feedback_t > 0.0:
 				_draw_widget_sprite(widget_shared, feedback_anchor, 82.0,
 					Color.WHITE if feedback_positive else Color(1.0, 0.82, 0.92, 0.82))
@@ -742,3 +952,590 @@ func _draw_imp(target: Dictionary) -> void:
 		draw_line(pos + Vector2(-radius * 0.8, radius * 0.62), pos + Vector2(radius * 0.8, radius * 0.62), Color("#e0b34c"), 8.0)
 		if int(target.get("hp", 1)) > 1:
 			draw_arc(pos, radius * 1.12, 0.0, TAU, 32, Color("#e0b34c"), 5.0)
+
+
+func start_shuffle(from_lane: int) -> void:
+	# magician TRACK: the fiction promises motion — show it. The answer glow
+	# glides from the flashed lane to the true lane; a decoy arc crosses it.
+	shuffle_from = clampi(from_lane, 0, choice_count - 1)
+	shuffle_t = 1.5
+	choice_flash = maxf(choice_flash, 2.2)
+	queue_redraw()
+
+
+func _lane_center(lane: int) -> Vector2:
+	var lane_width := size.x / maxf(1.0, float(choice_count))
+	return Vector2((float(lane) + 0.5) * lane_width, size.y * 0.55)
+
+
+func _draw_shuffle_glide(target_lane: int) -> void:
+	var t := clampf(1.0 - shuffle_t / 1.5, 0.0, 1.0)
+	var eased := t * t * (3.0 - 2.0 * t)
+	var from_point := _lane_center(shuffle_from)
+	var to_point := _lane_center(target_lane)
+	var main_point := from_point.lerp(to_point, eased)
+	main_point.y -= sin(eased * PI) * 64.0
+	var decoy_point := to_point.lerp(from_point, eased)
+	decoy_point.y += sin(eased * PI) * 40.0
+	draw_circle(decoy_point, 16.0, Color(1.0, 1.0, 1.0, 0.22))
+	for i in range(4):
+		var trail := clampf(eased - float(i) * 0.07, 0.0, 1.0)
+		var trail_point := from_point.lerp(to_point, trail)
+		trail_point.y -= sin(trail * PI) * 64.0
+		draw_circle(trail_point, 20.0 - float(i) * 3.5, Color(accent, 0.85 - float(i) * 0.18))
+
+
+func _draw_trace_patches(texture: Texture2D) -> void:
+	# reveal the picture along the child's own finger path, patch by patch
+	if trace_points.is_empty():
+		return
+	var texture_size := texture.get_size()
+	var scale := Vector2(texture_size.x / maxf(1.0, size.x), texture_size.y / maxf(1.0, size.y))
+	var patch := 96.0
+	for point: Vector2 in trace_points:
+		var destination := Rect2(point - Vector2(patch, patch) * 0.5, Vector2(patch, patch))
+		var source := Rect2(destination.position * scale, destination.size * scale)
+		draw_texture_rect_region(texture, destination, source)
+
+
+func _draw_oven(_center: Vector2) -> void:
+	# authored oven backdrop when present (gauge_chef ledger redirect);
+	# a warm code-drawn oven face otherwise. NO green anywhere — the green
+	# lock belongs to the retired ping-pong zones.
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
+	else:
+		draw_rect(Rect2(size.x * 0.08, size.y * 0.08, size.x * 0.68, size.y * 0.84), Color("#8a5a4a"), true)
+		draw_rect(Rect2(size.x * 0.08, size.y * 0.08, size.x * 0.68, size.y * 0.84), Color("#5c3a30"), false, 6.0)
+	if completion_accepted:
+		if widget_overlay != null:
+			draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
+			return
+	# the window, and the cake tinting with the heat
+	var window := Rect2(size.x * 0.16, size.y * 0.16, size.x * 0.52, size.y * 0.44)
+	draw_rect(window, Color(0.23, 0.13, 0.10, 0.90), true)
+	var heat := clampf(oven_t, 0.0, 1.0)
+	var cake_color := Color("#f7ecd2").lerp(Color("#eab54e"), clampf(heat / 0.62, 0.0, 1.0))
+	if heat > 0.80:
+		cake_color = cake_color.lerp(Color("#9c6a30"), (heat - 0.80) * 5.0)
+	var rise := 0.55 + 0.30 * heat
+	var cake_base := Vector2(window.get_center().x, window.end.y - 10.0)
+	var cake_width := window.size.x * 0.56
+	var cake_height := window.size.y * 0.52 * rise
+	var jiggle := 0.0
+	if oven_peek > 0.0:
+		jiggle = sin(oven_peek * 26.0) * 5.0
+	if completion_accepted:
+		jiggle = 0.0
+	draw_rect(Rect2(cake_base.x - cake_width * 0.5 + jiggle, cake_base.y - cake_height, cake_width, cake_height), cake_color, true)
+	draw_circle(Vector2(cake_base.x + jiggle, cake_base.y - cake_height), cake_width * 0.5, cake_color)
+	# golden shimmer in the window during the ready band
+	if heat >= 0.45 and heat <= 0.80:
+		var shimmer := 0.30 + 0.20 * sin(heat * 90.0)
+		draw_circle(Vector2(cake_base.x, cake_base.y - cake_height * 0.9), 10.0, Color(1.0, 0.92, 0.55, shimmer))
+	# toasty steam curls — cozy, not alarming
+	if heat > 0.80:
+		for i in range(3):
+			var sx := window.position.x + window.size.x * (0.28 + 0.22 * float(i))
+			var sy := window.position.y + 14.0 - fmod(heat * 260.0 + float(i) * 23.0, 34.0)
+			draw_arc(Vector2(sx, sy), 9.0, PI * 0.2, PI * 1.3, 12, Color(0.98, 0.92, 0.80, 0.5), 4.0)
+	# the thermometer: rises bottom-to-top at the static rate, band-colored
+	var slot := Rect2(size.x * 0.84, size.y * 0.12, 26.0, size.y * 0.64)
+	draw_rect(slot, Color(0.98, 0.97, 0.93, 0.9), true)
+	draw_rect(slot, Color("#5c3a30"), false, 4.0)
+	var fill_height := slot.size.y * heat
+	var band_color := Color("#f3dfa8") if heat < 0.45 else (Color("#ffc94d") if heat <= 0.80 else Color("#d9813c"))
+	draw_rect(Rect2(slot.position.x, slot.end.y - fill_height, slot.size.x, fill_height), band_color, true)
+	for band: float in [0.45, 0.80]:
+		var tick_y: float = slot.end.y - slot.size.y * band
+		draw_line(Vector2(slot.position.x - 6.0, tick_y), Vector2(slot.end.x + 6.0, tick_y), Color("#5c3a30"), 3.0)
+	# the mitt handle — the ONE verb. It glows gold through the ready band.
+	var handle := Rect2(size.x * 0.20, size.y * 0.66, size.x * 0.44, size.y * 0.15)
+	var handle_center := handle.get_center()
+	if oven_peek > 0.0:
+		# the door swings open for the peek
+		draw_rect(Rect2(handle.position.x, handle.position.y + 10.0, handle.size.x, handle.size.y), Color("#6e4638"), true)
+	else:
+		draw_rect(handle, Color("#6e4638"), true)
+	draw_rect(handle, Color("#4a2c22"), false, 4.0)
+	draw_circle(handle_center, 20.0, Color("#e8b24a"))
+	if heat >= 0.45 and not oven_done:
+		var pulse := 0.35 + 0.25 * (0.5 + 0.5 * sin(heat * 70.0))
+		draw_arc(handle_center, 34.0 + 8.0 * pulse, 0.0, TAU, 40, Color(1.0, 0.83, 0.35, pulse), 7.0)
+
+
+func _pipe_setup_round() -> void:
+	var round_data: Dictionary = PIPE_ROUNDS[clampi(pipe_round, 0, PIPE_ROUNDS.size() - 1)]
+	pipe_grid = []
+	pipe_fixed = []
+	for _cell in range(PIPE_COLS * PIPE_ROWS):
+		pipe_grid.append("")
+		pipe_fixed.append(false)
+	var fixed: Dictionary = round_data.get("fixed", {})
+	for cell: int in fixed.keys():
+		pipe_grid[cell] = String(fixed[cell])
+		pipe_fixed[cell] = true
+	for cell: int in (round_data.get("imps", []) as Array):
+		pipe_grid[cell] = "IMP"
+		pipe_fixed[cell] = true
+	pipe_tray = (round_data.get("tray", []) as Array).duplicate()
+	pipe_tray_sel = -1
+	pipe_drag_tile = ""
+	pipe_drag_from = -1
+	pipe_flow = []
+	pipe_flow_t = 0.0
+	pipe_wait_t = 0.0
+	pipe_pause = 0.0
+	queue_redraw()
+
+
+func _pipe_cell_rect(cell: int) -> Rect2:
+	var col := cell % PIPE_COLS
+	var row := floori(float(cell) / float(PIPE_COLS))
+	return Rect2(PIPE_ORIGIN + Vector2(float(col), float(row)) * PIPE_CELL, Vector2(PIPE_CELL, PIPE_CELL))
+
+
+func _pipe_cell_at(point: Vector2) -> int:
+	var local := point - PIPE_ORIGIN
+	if local.x < 0.0 or local.y < 0.0:
+		return -1
+	var col := int(local.x / PIPE_CELL)
+	var row := int(local.y / PIPE_CELL)
+	if col >= PIPE_COLS or row >= PIPE_ROWS:
+		return -1
+	return row * PIPE_COLS + col
+
+
+func _pipe_tray_rect(slot: int) -> Rect2:
+	return Rect2(Vector2(120.0 + float(slot) * 104.0, PIPE_ORIGIN.y + PIPE_CELL * float(PIPE_ROWS) + 26.0), Vector2(92.0, 92.0))
+
+
+func _pipe_flow_cells() -> Array:
+	var cells: Array = []
+	for step: Array in pipe_flow:
+		cells.append(int(step[0]))
+	return cells
+
+
+func _pipe_next_step() -> Array:
+	# [next_cell, in_dir] the fuel would advance into, or [] if blocked/done
+	var round_data: Dictionary = PIPE_ROUNDS[clampi(pipe_round, 0, PIPE_ROUNDS.size() - 1)]
+	var entry := int(round_data.get("entry", 4))
+	if pipe_flow.is_empty():
+		return [entry, Vector2i(1, 0)] if pipe_grid[entry] != "" else []
+	var head: Array = pipe_flow[pipe_flow.size() - 1]
+	var head_cell := int(head[0])
+	var in_dir: Vector2i = head[1]
+	var tile := String(pipe_grid[head_cell])
+	if not PIPE_MOUTHS.has(tile):
+		return []
+	var out_dir := Vector2i.ZERO
+	for mouth: Vector2i in (PIPE_MOUTHS[tile] as Array):
+		if mouth != -in_dir:
+			out_dir = mouth
+	if head_cell == int(round_data.get("exit", 7)) and out_dir == (round_data.get("exit_dir", Vector2i(1, 0)) as Vector2i):
+		return [-1, out_dir]
+	var col := head_cell % PIPE_COLS + out_dir.x
+	var row := floori(float(head_cell) / float(PIPE_COLS)) + out_dir.y
+	if col < 0 or col >= PIPE_COLS or row < 0 or row >= PIPE_ROWS:
+		return []
+	var next_cell := row * PIPE_COLS + col
+	var next_tile := String(pipe_grid[next_cell])
+	if not PIPE_MOUTHS.has(next_tile):
+		return []
+	var accepts := false
+	for mouth: Vector2i in (PIPE_MOUTHS[next_tile] as Array):
+		if mouth == -out_dir:
+			accepts = true
+	return [next_cell, out_dir] if accepts else []
+
+
+func _pipe_path_complete() -> bool:
+	# would the fuel reach the exit if it kept flowing? (drives acceleration)
+	var probe_flow := pipe_flow.duplicate(true)
+	var original := pipe_flow
+	pipe_flow = probe_flow
+	var reached := false
+	for _guard in range(PIPE_COLS * PIPE_ROWS + 2):
+		var step := _pipe_next_step()
+		if step.is_empty():
+			break
+		if int(step[0]) < 0:
+			reached = true
+			break
+		pipe_flow.append(step)
+	pipe_flow = original
+	return reached
+
+
+func _pipe_tick(delta: float) -> void:
+	if pipe_pause > 0.0:
+		pipe_pause = maxf(0.0, pipe_pause - delta)
+		if pipe_pause <= 0.0 and pipe_round < PIPE_ROUNDS.size():
+			_pipe_setup_round()
+		queue_redraw()
+		return
+	pipe_flow_t += delta
+	var step_time := 0.35 if _pipe_path_complete() else 1.2
+	if pipe_flow_t >= step_time:
+		pipe_flow_t = 0.0
+		var step := _pipe_next_step()
+		if step.is_empty():
+			# the fuel WAITS at the last good pipe, bulging patiently
+			pipe_wait_t += step_time
+		elif int(step[0]) < 0:
+			# reached the rocket! round done
+			pipe_round += 1
+			pipe_wait_t = 0.0
+			gesture.emit("pipe", 1.0, 1.0)
+			if pipe_round < PIPE_ROUNDS.size():
+				pipe_pause = 1.0
+		else:
+			pipe_wait_t = 0.0
+			pipe_flow.append(step)
+	pipe_redraw += delta
+	if pipe_redraw >= 0.06:
+		pipe_redraw = 0.0
+		queue_redraw()
+
+
+func _pipe_press(at: Vector2) -> void:
+	if completion_accepted:
+		return
+	for slot in range(pipe_tray.size()):
+		if _pipe_tray_rect(slot).has_point(at):
+			# lift from the tray (drag) and remember it (tap-then-tap)
+			pipe_drag_tile = String(pipe_tray[slot])
+			pipe_drag_from = -1
+			pipe_tray_sel = slot
+			queue_redraw()
+			return
+	var cell := _pipe_cell_at(at)
+	if cell < 0:
+		return
+	var tile := String(pipe_grid[cell])
+	if tile == "IMP":
+		# giggle! he rolls over but keeps napping — route around him
+		gesture.emit("pipe", 0.0, 0.6)
+		queue_redraw()
+		return
+	var fueled := cell in _pipe_flow_cells()
+	if PIPE_MOUTHS.has(tile) and not pipe_fixed[cell] and not fueled:
+		# lift a placed pipe to slide it somewhere better
+		pipe_drag_tile = tile
+		pipe_drag_from = cell
+		pipe_grid[cell] = ""
+		pipe_tray_sel = -1
+		queue_redraw()
+		return
+	if tile == "" and pipe_tray_sel >= 0 and pipe_tray_sel < pipe_tray.size():
+		# tap-tile-then-tap-cell: place the remembered tray tile here
+		pipe_grid[cell] = String(pipe_tray[pipe_tray_sel])
+		pipe_tray.remove_at(pipe_tray_sel)
+		pipe_tray_sel = -1
+		pipe_wait_t = 0.0
+		gesture.emit("pipe", 0.0, 1.0)
+		queue_redraw()
+
+
+func _pipe_release(at: Vector2) -> void:
+	if pipe_drag_tile == "":
+		return
+	var cell := _pipe_cell_at(at)
+	if cell >= 0 and String(pipe_grid[cell]) == "":
+		pipe_grid[cell] = pipe_drag_tile
+		pipe_wait_t = 0.0
+		gesture.emit("pipe", 0.0, 1.0)
+	elif pipe_drag_from >= 0 and String(pipe_grid[pipe_drag_from]) == "":
+		pipe_grid[pipe_drag_from] = pipe_drag_tile
+	else:
+		pipe_tray.append(pipe_drag_tile)
+	pipe_drag_tile = ""
+	pipe_drag_from = -1
+	pipe_tray_sel = -1
+	queue_redraw()
+
+
+func _pipe_hint_cell() -> int:
+	# after 8s of waiting fuel, point at the cell the flow needs next
+	if pipe_wait_t < 8.0:
+		return -1
+	var round_data: Dictionary = PIPE_ROUNDS[clampi(pipe_round, 0, PIPE_ROUNDS.size() - 1)]
+	if pipe_flow.is_empty():
+		return int(round_data.get("entry", 4))
+	var head: Array = pipe_flow[pipe_flow.size() - 1]
+	var head_cell := int(head[0])
+	var in_dir: Vector2i = head[1]
+	var tile := String(pipe_grid[head_cell])
+	if not PIPE_MOUTHS.has(tile):
+		return -1
+	var out_dir := Vector2i.ZERO
+	for mouth: Vector2i in (PIPE_MOUTHS[tile] as Array):
+		if mouth != -in_dir:
+			out_dir = mouth
+	var col := head_cell % PIPE_COLS + out_dir.x
+	var row := floori(float(head_cell) / float(PIPE_COLS)) + out_dir.y
+	if col < 0 or col >= PIPE_COLS or row < 0 or row >= PIPE_ROWS:
+		return -1
+	return row * PIPE_COLS + col
+
+
+func _draw_pipe_tile(rect: Rect2, tile: String, fueled: bool) -> void:
+	if pipe_tiles.has(tile):
+		# authored tile: the art owns the look; fuel is a teal wash inside it
+		draw_texture_rect(pipe_tiles[tile] as Texture2D, rect.grow(-6.0), false)
+		if fueled:
+			draw_texture_rect(pipe_tiles[tile] as Texture2D, rect.grow(-6.0), false,
+				Color(0.37, 0.85, 0.81, 0.55))
+		return
+	var body := rect.grow(-10.0)
+	draw_rect(body, Color("#caa269") if not fueled else Color("#d8b87e"), true)
+	draw_rect(body, Color("#7a5a34"), false, 4.0)
+	var center := rect.get_center()
+	var bore := 26.0
+	var fuel := Color("#5fd8cf")
+	var glass := Color("#2e4a52")
+	for mouth: Vector2i in (PIPE_MOUTHS.get(tile, []) as Array):
+		var arm_end := center + Vector2(float(mouth.x), float(mouth.y)) * (rect.size.x * 0.5 - 8.0)
+		draw_line(center, arm_end, glass, bore)
+		if fueled:
+			draw_line(center, arm_end, fuel, bore - 10.0)
+		# open dark mouths: wordless orientation cues
+		draw_circle(arm_end, bore * 0.42, Color(0.12, 0.10, 0.10, 0.95))
+	draw_circle(center, bore * 0.62, glass)
+	if fueled:
+		draw_circle(center, bore * 0.40, fuel)
+
+
+func _draw_pipe() -> void:
+	var round_data: Dictionary = PIPE_ROUNDS[clampi(pipe_round, 0, PIPE_ROUNDS.size() - 1)]
+	var flow_cells := _pipe_flow_cells()
+	var hint := _pipe_hint_cell()
+	# grid plates
+	for cell in range(PIPE_COLS * PIPE_ROWS):
+		var rect := _pipe_cell_rect(cell)
+		draw_rect(rect.grow(-4.0), Color(0.16, 0.22, 0.34, 0.55), true)
+		draw_rect(rect.grow(-4.0), Color(0.55, 0.66, 0.86, 0.5), false, 2.0)
+		var tile := String(pipe_grid[cell])
+		if tile == "IMP":
+			# a napping mischief imp: he giggles if tapped, but stays
+			var imp_center := rect.get_center()
+			draw_circle(imp_center + Vector2(0, 12.0), 30.0, Color("#8d6bc8"))
+			draw_circle(imp_center + Vector2(0, -16.0), 20.0, Color("#a186d6"))
+			for z in range(2):
+				draw_circle(imp_center + Vector2(26.0 + float(z) * 14.0, -30.0 - float(z) * 12.0), 4.0 + float(z) * 2.0, Color(1, 1, 1, 0.7))
+		elif PIPE_MOUTHS.has(tile):
+			_draw_pipe_tile(rect, tile, cell in flow_cells)
+		if cell == hint:
+			# Mewsha's stand-in twinkle: the kind nudge, never a demand
+			var pulse := 0.5 + 0.4 * sin(pipe_wait_t * 5.0)
+			draw_arc(rect.get_center(), 44.0, 0.0, TAU, 32, Color(1.0, 0.85, 0.35, pulse), 6.0)
+	# fuel bulge where the flow waits
+	if pipe_wait_t > 0.5 and not pipe_flow.is_empty():
+		var head_rect := _pipe_cell_rect(int((pipe_flow[pipe_flow.size() - 1] as Array)[0]))
+		var bulge := 6.0 + 3.0 * sin(pipe_wait_t * 6.0)
+		draw_circle(head_rect.get_center(), 18.0 + bulge, Color(0.37, 0.85, 0.81, 0.55))
+	# tank (entry) and rocket (exit) stubs outside the grid
+	var entry_rect := _pipe_cell_rect(int(round_data.get("entry", 4)))
+	var tank_center := Vector2(PIPE_ORIGIN.x - 62.0, entry_rect.get_center().y)
+	if pipe_tank_texture != null:
+		draw_texture_rect(pipe_tank_texture, Rect2(tank_center - Vector2(58.0, 58.0), Vector2(116.0, 116.0)), false)
+	else:
+		draw_circle(tank_center, 46.0, Color("#3f6f8a"))
+		draw_circle(tank_center, 34.0, Color("#5fd8cf"))
+	draw_rect(Rect2(tank_center.x + 34.0, tank_center.y - 13.0, PIPE_ORIGIN.x - tank_center.x - 34.0 + 6.0, 26.0), Color("#7a5a34"), true)
+	var exit_cell := int(round_data.get("exit", 7))
+	var exit_dir: Vector2i = round_data.get("exit_dir", Vector2i(1, 0))
+	var exit_rect := _pipe_cell_rect(exit_cell)
+	var rocket_center := exit_rect.get_center() + Vector2(float(exit_dir.x), float(exit_dir.y)) * (PIPE_CELL * 0.5 + 58.0)
+	if pipe_intake_texture != null:
+		draw_texture_rect(pipe_intake_texture, Rect2(rocket_center - Vector2(56.0, 56.0), Vector2(112.0, 112.0)), false)
+	else:
+		draw_circle(rocket_center, 44.0, Color("#c8cede"))
+		draw_circle(rocket_center, 30.0, Color("#8090b0"))
+	var round_done := pipe_round >= PIPE_ROUNDS.size() or pipe_pause > 0.0
+	if round_done:
+		draw_circle(rocket_center, 20.0, Color("#5fd8cf"))
+		for ring in range(3):
+			draw_arc(rocket_center, 52.0 + float(ring) * 16.0, 0.0, TAU, 32, Color(1.0, 0.9, 0.5, 0.5 - float(ring) * 0.13), 5.0)
+	# the tray
+	for slot in range(pipe_tray.size()):
+		var tray_rect := _pipe_tray_rect(slot)
+		draw_rect(tray_rect, Color(0.92, 0.95, 1.0, 0.9), true)
+		draw_rect(tray_rect, Color("#7a5a34") if slot != pipe_tray_sel else Color("#ffcf4d"), false, 4.0 if slot != pipe_tray_sel else 6.0)
+		_draw_pipe_tile(tray_rect, String(pipe_tray[slot]), false)
+	# the tile riding the finger
+	if pipe_drag_tile != "":
+		_draw_pipe_tile(Rect2(pointer_pos - Vector2(PIPE_CELL, PIPE_CELL) * 0.5, Vector2(PIPE_CELL, PIPE_CELL)), pipe_drag_tile, false)
+
+
+func _echo_star_center(star: int) -> Vector2:
+	return Vector2(size.x * (0.22 + 0.28 * float(star)), size.y * 0.52)
+
+
+func _echo_tick(delta: float) -> void:
+	echo_glow = maxf(0.0, echo_glow - delta)
+	if echo_listening:
+		return
+	# SHOW: the stars sing their verse one by one; then it is her turn
+	echo_show_t -= delta
+	if echo_show_t <= 0.0:
+		var verse: Array = ECHO_VERSES[clampi(echo_verse, 0, ECHO_VERSES.size() - 1)]
+		echo_show_i += 1
+		if echo_show_i >= verse.size():
+			echo_listening = true
+			echo_input_i = 0
+		else:
+			echo_last_note = int(verse[echo_show_i])
+			echo_glow = 0.45
+			gesture.emit("echo_note", 0.0, 1.0)
+			echo_show_t = 0.55
+	queue_redraw()
+
+
+func _echo_press(at: Vector2) -> void:
+	if completion_accepted:
+		return
+	var verse: Array = ECHO_VERSES[clampi(echo_verse, 0, ECHO_VERSES.size() - 1)]
+	for star in range(3):
+		if at.distance_to(_echo_star_center(star)) <= 74.0:
+			if not echo_listening:
+				# eager taps during the song just twinkle — no punishment
+				echo_last_note = star
+				gesture.emit("echo_note", 0.0, 0.8)
+				return
+			if star == int(verse[echo_input_i]):
+				echo_last_note = star
+				echo_glow = 0.45
+				gesture.emit("echo_note", 0.0, 1.0)
+				echo_input_i += 1
+				if echo_input_i >= verse.size():
+					# verse sung back! the song grows by one verse
+					echo_verse += 1
+					echo_listening = false
+					echo_show_i = -1
+					echo_show_t = 0.7
+					gesture.emit("echo", 1.0, 1.0)
+			else:
+				# kind replay: the stars sing the verse again
+				echo_last_note = star
+				gesture.emit("echo", _miss_pay(), 0.4)
+				echo_listening = false
+				echo_show_i = -1
+				echo_show_t = 0.9
+			queue_redraw()
+			return
+	gesture.emit("echo", 0.0, 0.6)
+
+
+func _draw_echo_star(center: Vector2, radius: float, color: Color) -> void:
+	var art: Texture2D = echo_lit_texture if color.r > 0.9 and color.g > 0.7 else echo_unlit_texture
+	if art != null:
+		draw_texture_rect(art, Rect2(center - Vector2.ONE * radius, Vector2.ONE * radius * 2.0), false, color)
+		return
+	var points := PackedVector2Array()
+	for i in range(10):
+		var r := radius if i % 2 == 0 else radius * 0.45
+		var a := -PI * 0.5 + TAU * float(i) / 10.0
+		points.append(center + Vector2(cos(a), sin(a)) * r)
+	draw_polygon(points, PackedColorArray([color]))
+
+
+func _draw_echo(_center: Vector2) -> void:
+	var verse: Array = ECHO_VERSES[clampi(echo_verse, 0, ECHO_VERSES.size() - 1)]
+	var showing := -1 if echo_listening or echo_show_i < 0 or echo_show_i >= verse.size() else int(verse[echo_show_i])
+	for star in range(3):
+		var star_center := _echo_star_center(star)
+		var lit := star == showing or (star == echo_last_note and echo_glow > 0.0)
+		var base := Color("#ffd75e") if lit else Color(0.72, 0.62, 0.92, 0.85)
+		_draw_echo_star(star_center, 64.0 if lit else 54.0, base)
+		if lit:
+			draw_arc(star_center, 78.0, 0.0, TAU, 36, Color(1.0, 0.9, 0.5, 0.55), 6.0)
+	# the assembled song: one small lit star per verse already sung
+	for done in range(clampi(echo_verse, 0, ECHO_VERSES.size())):
+		_draw_echo_star(Vector2(size.x * (0.38 + 0.12 * float(done)), size.y * 0.14), 18.0, Color("#ffd75e"))
+	if echo_listening:
+		# her turn: a soft ring invites the next star in the verse
+		var next_center := _echo_star_center(int(verse[clampi(echo_input_i, 0, verse.size() - 1)]))
+		draw_arc(next_center, 88.0, 0.0, TAU, 36, Color(accent, 0.35), 5.0)
+
+
+func _pour_pitcher_rect() -> Rect2:
+	return Rect2(pour_x - 70.0, size.y * 0.10, 140.0, 120.0)
+
+
+func _pour_bowl_rect() -> Rect2:
+	return Rect2(size.x * 0.20, size.y * 0.62, size.x * 0.60, size.y * 0.30)
+
+
+func _pour_tick(delta: float) -> void:
+	var want := 1.0 if pour_hold else 0.0
+	var rate := delta / 0.8 if pour_hold else delta / 0.35
+	pour_tilt = move_toward(pour_tilt, want, rate)
+	var stream := pour_tilt > 0.36
+	if stream:
+		var spout_x := pour_x + 52.0 + 26.0 * pour_tilt
+		var bowl := _pour_bowl_rect()
+		var on_target := spout_x >= bowl.position.x and spout_x <= bowl.end.x
+		var flow := maxf(pour_reserve, 0.12) / 1.2
+		if on_target and pour_level < 1.0:
+			var fill := (pour_tilt - 0.36) / 0.64 * delta / 4.6 * flow
+			pour_level = minf(1.0, pour_level + fill)
+			pour_reserve = maxf(0.0, pour_reserve - fill)
+			# the child controls the pour, not a clock: progress IS the fill
+			pour_emit_acc += fill
+			if pour_emit_acc >= 0.04 or pour_level >= 1.0:
+				gesture.emit("pourt", pour_emit_acc * 5.0, 1.0)
+				pour_emit_acc = 0.0
+			if pour_level >= 1.0:
+				# brim! the pitcher politely rights itself with a ring
+				pour_hold = false
+				gesture.emit("pour_ding", 0.0, 1.0)
+	pour_redraw += delta
+	if pour_redraw >= 0.05:
+		pour_redraw = 0.0
+		queue_redraw()
+
+
+func _draw_pour_scene(_center: Vector2) -> void:
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
+	var bowl := _pour_bowl_rect()
+	# the bowl and its rising batter (authored fill strip when present)
+	if widget_overlay != null:
+		_draw_progress_overlay(widget_overlay, pour_level, false)
+	else:
+		draw_rect(bowl, Color(0.90, 0.94, 1.0, 0.55), true)
+		var level_height := bowl.size.y * 0.8 * pour_level
+		var surface_y := bowl.end.y - 8.0 - level_height
+		var wobble := sin(pour_tilt * 20.0 + pour_level * 30.0) * 2.0
+		draw_rect(Rect2(bowl.position.x + 8.0, surface_y + wobble, bowl.size.x - 16.0, level_height), Color("#f2c66d"), true)
+	draw_rect(bowl, Color("#7a5a34"), false, 5.0)
+	# the pitcher: tilts in the hand, visibly drains as it pours
+	var pitcher := _pour_pitcher_rect()
+	var pitcher_center := pitcher.get_center()
+	draw_set_transform(pitcher_center, pour_tilt * 1.05)
+	if widget_mover != null:
+		draw_texture_rect(widget_mover, Rect2(-pitcher.size * 0.5, pitcher.size), false)
+	else:
+		draw_rect(Rect2(-pitcher.size * 0.5, pitcher.size), Color("#8fb4d8"), true)
+		var content_height := pitcher.size.y * 0.7 * (pour_reserve / 1.2)
+		draw_rect(Rect2(-pitcher.size.x * 0.36, pitcher.size.y * 0.42 - content_height, pitcher.size.x * 0.72, content_height), Color("#f2c66d"), true)
+		draw_rect(Rect2(-pitcher.size * 0.5, pitcher.size), Color("#4a5a7a"), false, 4.0)
+	draw_set_transform(Vector2.ZERO)
+	# the stream: it follows the spout, thick with the tilt, and lands
+	if pour_tilt > 0.36 and pour_level < 1.0:
+		var spout := Vector2(pour_x + 52.0 + 26.0 * pour_tilt, pitcher.position.y + 58.0 + 30.0 * pour_tilt)
+		var landing := Vector2(spout.x + 10.0, bowl.position.y + 16.0)
+		var thickness := 5.0 + 9.0 * (pour_tilt - 0.36) / 0.64
+		var mid := Vector2(lerpf(spout.x, landing.x, 0.5) + 6.0, lerpf(spout.y, landing.y, 0.5))
+		draw_line(spout, mid, Color("#f2c66d"), thickness)
+		draw_line(mid, landing, Color("#f2c66d"), thickness * 0.9)
+		for blip in range(3):
+			var blip_t := fmod(pour_tilt * 8.0 + float(blip) * 0.33, 1.0)
+			draw_circle(spout.lerp(landing, blip_t) + Vector2(4.0, 0.0), 4.0, Color("#f7dfa0"))
+		# a bulge where the stream lands
+		draw_circle(landing, thickness * 0.9, Color(0.95, 0.80, 0.45, 0.7))
+	# near-empty: fat last drips
+	if pour_reserve < 0.18 and pour_tilt > 0.36:
+		draw_circle(Vector2(pour_x + 58.0, pitcher.end.y + 14.0), 6.0, Color("#f2c66d"))
