@@ -73,7 +73,7 @@ def _floats(block: str) -> dict:
 
 def parse_profiles() -> dict:
 	"""Pull _apply_scene_grade's defaults + per-profile overrides from main.gd."""
-	src = MAIN_GD.read_text()
+	src = MAIN_GD.read_text(encoding="utf-8")
 	body = src.split("func _apply_scene_grade")[1].split("\nfunc ")[0]
 	defaults = _floats(body.split("match profile:")[0])
 	profiles = {}
@@ -88,7 +88,7 @@ def parse_profiles() -> dict:
 
 def parse_castle_room() -> dict:
 	"""Destination-room BCS + glow overrides from _sync_castle_environment."""
-	src = CASTLE_GD.read_text()
+	src = CASTLE_GD.read_text(encoding="utf-8")
 	body = src.split("func _sync_castle_environment")[1].split("\nfunc ")[0]
 	tail = body.split("\telse:")[1]
 	def g(key, default):
