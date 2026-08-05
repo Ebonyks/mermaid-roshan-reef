@@ -5,13 +5,23 @@ extends RefCounted
 ## Every painted world (assets/opera/worlds/backdrops/world_<career>.png) was
 ## designed as a walkable district: entry at the left, a continuous route to
 ## the right. PATHS holds that route as normalized waypoints plus the task
-## stations (anchored to painted landmarks) and magnifier clue spots, all in
-## 0..1 coordinates of the full-bleed painting; helpers convert to the
-## 1280x720 screen. Careers without derived data (or without a painting yet,
-## like nursery) fall back to a gentle mid-stage arc so nothing breaks.
+## stations (anchored to painted landmarks) and magnifier clue spots.
+##
+## COORDINATE SPACE: 0..1 across the SHARP ARTWORK, not the full drawn frame.
+## The composed tiles inset the painting inside a blurred bleed margin, so
+## to_screen() remaps x onto the span the artwork actually occupies (see BLEED
+## below). Read a coordinate off the painting and record it as-is; do not
+## pre-compensate. Getting this wrong drifts every station outward — nothing at
+## centre, up to ~115px at the edges.
+##
+## Careers without derived data (or without a painting yet, like nursery) fall
+## back to a gentle mid-stage arc so nothing breaks.
 ##
 ## Waypoint data is derived visually from each painting — see
-## OPERA_STAGE_INTERACTION_2026-08-02.md for the derivation record.
+## OPERA_STAGE_INTERACTION_2026-08-02.md for the derivation record, and
+## OPERA_MASTER_PACKAGE_2026-08-04.md §2-§3 for the 2026-08-04 re-derivation of
+## farmer, boxer, magician, painter, astronaut, racer and popstar, whose worlds
+## were repainted as different places.
 
 const SCREEN := Vector2(1280.0, 720.0)
 
@@ -74,81 +84,81 @@ const PATHS: Dictionary = {
 		"clue_spots": [[0.062, 0.19], [0.317, 0.125], [0.21, 0.25], [0.39, 0.295], [0.474, 0.645], [0.765, 0.355], [0.68, 0.83], [0.963, 0.655]],
 	},
 	"farmer": {
-		"path": [[0.11, 0.63], [0.24, 0.65], [0.39, 0.61], [0.45, 0.55], [0.55, 0.58], [0.64, 0.585], [0.74, 0.6], [0.845, 0.59], [0.9, 0.52]],
+		"path": [[0.0795, 0.4833], [0.1752, 0.5028], [0.2901, 0.5361], [0.4528, 0.6111], [0.4738, 0.7014], [0.558, 0.7569], [0.6824, 0.7542], [0.8068, 0.7333], [0.9063, 0.7139], [0.9236, 0.6361]],
 		"stations": [
-			{"id": "flower_urn", "pos": [0.23, 0.6], "landmark": "stone pedestal urn overflowing with pink flowers at the first path bend"},
-			{"id": "barn_door", "pos": [0.445, 0.47], "landmark": "red barn with green shingle roof and open arched wooden door at the top of the path spur"},
-			{"id": "hay_steps", "pos": [0.585, 0.55], "landmark": "staircase of stacked golden hay bales climbing the hillside"},
-			{"id": "mud_pen", "pos": [0.745, 0.61], "landmark": "round log-post fenced pen with churned mud floor (animal pen)"},
-			{"id": "harvest_picnic", "pos": [0.9, 0.51], "landmark": "red gingham picnic blanket with woven baskets of corn, grapes and vegetables"},
+			{"id": "barn_doors", "pos": [0.1542, 0.4556], "landmark": "sand apron directly below the big red coral-shingled barn's white cross-braced double doors (fish weathervane on the ridge, pink scallop shell under the round loft window)"},
+			{"id": "pearl_clam", "pos": [0.1035, 0.75], "landmark": "giant pink scallop clam shell holding a glowing pearl, sitting on the rock rim of the teal tide pool at bottom-left"},
+			{"id": "blossom_arch", "pos": [0.4585, 0.4417], "landmark": "sand at the foot of the coral-flower arch where the rail-fenced orchard lane opens onto the yard (arch wreathed in orange starfish and pink blossoms)"},
+			{"id": "seed_beds", "pos": [0.7092, 0.6764], "landmark": "the front-centre tilled oval seedbed of the 3x3 field, rimmed with pebbles and little corals"},
+			{"id": "hay_bales", "pos": [0.8929, 0.3889], "landmark": "stack of three giant round golden hay bales at the right edge (one red starfish stuck to the front bale)"},
 		],
-		"clue_spots": [[0.065, 0.475], [0.244, 0.286], [0.345, 0.33], [0.454, 0.274], [0.674, 0.252], [0.88, 0.24], [0.615, 0.77], [0.94, 0.92]],
+		"clue_spots": [[0.1398, 0.125], [0.0604, 0.5444], [0.1676, 0.8333], [0.3571, 0.3278], [0.625, 0.2611], [0.7877, 0.2333], [0.7637, 0.8028], [0.9714, 0.6528]],
 	},
 	"boxer": {
-		"path": [[0.09, 0.63], [0.2, 0.645], [0.3, 0.685], [0.445, 0.69], [0.58, 0.685], [0.655, 0.7], [0.755, 0.67], [0.83, 0.615], [0.88, 0.685]],
+		"path": [[0.0225, 0.694], [0.0799, 0.833], [0.2042, 0.882], [0.3189, 0.889], [0.4289, 0.854], [0.5245, 0.813], [0.6297, 0.833], [0.7397, 0.84], [0.8401, 0.771], [0.9453, 0.688]],
 		"stations": [
-			{"id": "target_pads", "pos": [0.205, 0.635], "landmark": "red X-stitched target shields mounted on the domed training tunnel"},
-			{"id": "punching_bags", "pos": [0.42, 0.675], "landmark": "rack of red, purple and teal punching bags hanging from the rope-lashed frame on the round platform"},
-			{"id": "sparring_mats", "pos": [0.58, 0.685], "landmark": "the red circular sparring mat (last of three colored floor rings)"},
-			{"id": "victory_bell", "pos": [0.815, 0.615], "landmark": "bell tower with the golden victory bell, at the top of the rope bridge"},
-			{"id": "champion_belt", "pos": [0.885, 0.68], "landmark": "giant championship belt with golden scallop-shell buckle displayed on the tiered pedestal"},
+			{"id": "glove_wall_shelf", "pos": [0.0273, 0.667], "landmark": "far-left pearl-crowned pink coral shelf unit holding three rows of red, purple and teal boxing gloves"},
+			{"id": "purple_sparring_mat", "pos": [0.1755, 0.813], "landmark": "low round purple sparring mat with a cream scallop-shell emblem, sitting on an orange coral-and-pearl ring base"},
+			{"id": "teal_heavy_bag", "pos": [0.5102, 0.792], "landmark": "tall teal heavy bag with cream drum-laced top and scallop-shell crest, on the pink coral-and-pearl ring platform at frame centre"},
+			{"id": "shell_pavilion_stage", "pos": [0.6488, 0.611], "landmark": "raised tiled stage in front of the purple scallop-dome pavilion with pearl-studded rim and teal curtains"},
+			{"id": "red_heavy_bag", "pos": [0.8047, 0.781], "landmark": "tall coral-red heavy bag in a gold-trimmed purple cradle frame, on the purple coral-and-pearl ring platform right of centre"},
 		],
-		"clue_spots": [[0.086, 0.3], [0.385, 0.165], [0.55, 0.285], [0.727, 0.19], [0.16, 0.47], [0.895, 0.525], [0.478, 0.615], [0.17, 0.92]],
+		"clue_spots": [[0.121, 0.194], [0.2233, 0.486], [0.3161, 0.275], [0.5503, 0.236], [0.7062, 0.403], [0.9596, 0.34], [0.8831, 0.833], [0.2137, 0.872]],
 	},
 	"magician": {
-		"path": [[0.07, 0.56], [0.16, 0.59], [0.24, 0.53], [0.36, 0.54], [0.45, 0.61], [0.56, 0.7], [0.64, 0.72], [0.74, 0.47], [0.84, 0.42]],
+		"path": [[0.145, 0.628], [0.204, 0.635], [0.281, 0.643], [0.357, 0.654], [0.434, 0.667], [0.51, 0.675], [0.577, 0.679], [0.644, 0.676], [0.703, 0.668], [0.746, 0.658]],
 		"stations": [
-			{"id": "stage_curtain", "pos": [0.08, 0.56], "landmark": "Golden scallop-shell proscenium arch with red velvet stage curtains at the left entry"},
-			{"id": "purple_hat_door", "pos": [0.22, 0.52], "landmark": "Giant purple top-hat building with gold star band and round performer's door"},
-			{"id": "red_hat_den", "pos": [0.43, 0.52], "landmark": "Red top-hat building with pink shell buckle and arched rabbit-den doorway beside the bridge"},
-			{"id": "magic_door_gallery", "pos": [0.74, 0.48], "landmark": "Row of freestanding enchanted doors and open potion-shelf wardrobes where the star-tile trail bends"},
-			{"id": "moon_pool", "pos": [0.84, 0.44], "landmark": "Large round scrying pool reflecting the crescent moon, ringed by rope fence and twin-lamp posts"},
+			{"id": "violet_shell_stage", "pos": [0.154, 0.631], "landmark": "Pale sand in front of the violet/plum curtained shell stage on the left - domed canopy topped by a pink scallop shell with a big pearl, gold-scrolled base with a scallop medallion, pearl-knobbed steps on its right"},
+			{"id": "pearl_tide_pool", "pos": [0.324, 0.647], "landmark": "Gold-rimmed edge of the blue stepping-stone tide pool in the left foreground - flat lavender-blue stones and loose pearls set in dark water, ringed by purple kelp and pink tube coral"},
+			{"id": "teal_shell_stage", "pos": [0.508, 0.653], "landmark": "Sand directly in front of the centre teal/turquoise curtained shell stage - mint shell crown with a pearl, gold-swagged teal curtains, three-step teal stair with pearl newel posts"},
+			{"id": "pearl_lamp_avenue", "pos": [0.644, 0.676], "landmark": "Foot of the tall gold lamppost with a glowing white pearl globe that stands in the kelp bed between the teal and rose stages, just above the gold-filigree border of the right-hand coral bed"},
+			{"id": "rose_shell_stage", "pos": [0.743, 0.658], "landmark": "Sand at the foot of the rose/coral curtained shell stage on the right - salmon shell crown with a pearl, pink columns with pearl collars, cream-and-coral steps (the destination dais)"},
 		],
-		"clue_spots": [[0.845, 0.08], [0.125, 0.12], [0.32, 0.08], [0.69, 0.165], [0.21, 0.385], [0.44, 0.4], [0.14, 0.86], [0.95, 0.7]],
+		"clue_spots": [[0.037, 0.479], [0.083, 0.774], [0.219, 0.287], [0.242, 0.794], [0.508, 0.297], [0.633, 0.447], [0.827, 0.832], [0.94, 0.733]],
 	},
 	"painter": {
-		"path": [[0.06, 0.68], [0.19, 0.66], [0.34, 0.65], [0.47, 0.63], [0.565, 0.61], [0.65, 0.475], [0.71, 0.58], [0.8, 0.61], [0.9, 0.46]],
+		"path": [[0.0464, 0.6278], [0.1181, 0.6556], [0.2185, 0.6667], [0.3237, 0.675], [0.4289, 0.6792], [0.5312, 0.6792], [0.6326, 0.6667], [0.7186, 0.6278], [0.754, 0.5167], [0.8888, 0.4889]],
 		"stations": [
-			{"id": "purple_pot", "pos": [0.2, 0.63], "landmark": "giant purple paint pot with brush on its stepped pedestal, paint spilling onto the deck"},
-			{"id": "coral_pot", "pos": [0.35, 0.62], "landmark": "giant coral-pink paint pot with brush, pink spill running down its steps"},
-			{"id": "cream_pot", "pos": [0.48, 0.61], "landmark": "giant cream/gold paint pot with brush at the deck's right end before the bridge"},
-			{"id": "splat_garden", "pos": [0.76, 0.6], "landmark": "rock-ringed garden bed of paint-splat topiaries (pink, mint, white splats on stems) across the bridge"},
-			{"id": "arch_gallery", "pos": [0.9, 0.46], "landmark": "balustraded stone terrace beneath the grand scallop-shell archway at far right"},
+			{"id": "purple_paint_pot", "pos": [0.1631, 0.6417], "landmark": "giant purple paint pot with drip glaze and a pink starfish badge, on a round purple stone pedestal ringed by purple paint-splat pebbles, left of centre"},
+			{"id": "gazebo_easel", "pos": [0.3744, 0.4583], "landmark": "foot of the stepped pink dais under the coral-domed gazebo that shelters a blank wooden easel canvas"},
+			{"id": "coral_paint_pot", "pos": [0.5083, 0.6417], "landmark": "giant salmon/coral paint pot with drip glaze and flower badge on its round stone pedestal, dead centre of the sand plaza"},
+			{"id": "rainbow_brush", "pos": [0.6709, 0.4069], "landmark": "stepped plum pedestal of the giant wooden paintbrush whose rainbow bristles pour coloured paint rivers across the seabed"},
+			{"id": "arch_easel", "pos": [0.8888, 0.4889], "landmark": "cream dais under the pearl-crested scallop arch, beside the tall wooden easel and its palette, far right"},
 		],
-		"clue_spots": [[0.035, 0.03], [0.3, 0.1], [0.14, 0.27], [0.555, 0.32], [0.79, 0.25], [0.6, 0.42], [0.815, 0.93], [0.07, 0.86]],
+		"clue_spots": [[0.0588, 0.4069], [0.1095, 0.1319], [0.2912, 0.8056], [0.3744, 0.3167], [0.536, 0.2083], [0.5695, 0.4472], [0.7904, 0.8125], [0.9529, 0.4472]],
 	},
 	"astronaut": {
-		"path": [[0.07, 0.72], [0.17, 0.735], [0.3, 0.735], [0.42, 0.73], [0.5, 0.725], [0.615, 0.715], [0.72, 0.68], [0.83, 0.655], [0.92, 0.625]],
+		"path": [[0.0168, 0.5944], [0.0942, 0.6528], [0.1946, 0.675], [0.3094, 0.6667], [0.4624, 0.6792], [0.5771, 0.675], [0.6727, 0.6625], [0.7492, 0.6472], [0.8544, 0.5347], [0.8975, 0.4278]],
 		"stations": [
-			{"id": "observation_scope", "pos": [0.23, 0.73], "landmark": "giant brass-and-glass telescope tube mounted on a stone stand"},
-			{"id": "zero_g_ring", "pos": [0.49, 0.72], "landmark": "giant upright glass ring (torus) with gold crown fitting, like a zero-g training loop"},
-			{"id": "valve_tower", "pos": [0.615, 0.715], "landmark": "mint control tower with pink hand-wheel valve and shell emblem"},
-			{"id": "oxygen_tanks", "pos": [0.735, 0.675], "landmark": "row of linked glass bubble tanks resting on arched bridge supports"},
-			{"id": "rocket_pad", "pos": [0.915, 0.625], "landmark": "teal-and-pink rocket ship standing on the pier launch pad at far right"},
+			{"id": "coolant_tank_pad", "pos": [0.1707, 0.6778], "landmark": "long horizontal chrome cylinder tank clamped in two studded purple flanges, standing on the left round dais with a teal five-petal flower hatch in front of it"},
+			{"id": "pipe_arch_planter", "pos": [0.3237, 0.5486], "landmark": "tiered round purple-stone planter mounded with orange and yellow tube corals, directly under the big blue glass pipe arch that runs down from the left dome habitat"},
+			{"id": "periscope_elbow", "pos": [0.4719, 0.6778], "landmark": "tall chrome elbow/periscope pipe with riveted purple collars on the centre round dais, pink flower hatch in front of it"},
+			{"id": "airlock_ring", "pos": [0.7492, 0.6472], "landmark": "giant white torus / airlock hoop banded with four studded purple straps, on the right round dais with the blue flower hatch"},
+			{"id": "rocket_launch_dais", "pos": [0.8946, 0.425], "landmark": "cream rocket with red nose cone and red fins, blue star porthole and arched red doorway, standing on the raised oval launch dais at the far right, at the foot of its blue steps"},
 		],
-		"clue_spots": [[0.07, 0.32], [0.32, 0.21], [0.4, 0.1], [0.71, 0.22], [0.625, 0.49], [0.127, 0.64], [0.205, 0.895], [0.35, 0.88]],
+		"clue_spots": [[0.0722, 0.8083], [0.1726, 0.2514], [0.2711, 0.1417], [0.4002, 0.8056], [0.4738, 0.375], [0.6087, 0.8028], [0.7645, 0.1639], [0.9357, 0.5]],
 	},
 	"racer": {
-		"path": [[0.088, 0.69], [0.195, 0.72], [0.342, 0.69], [0.488, 0.675], [0.605, 0.64], [0.664, 0.54], [0.752, 0.535], [0.84, 0.48], [0.908, 0.445]],
+		"path": [[0.145, 0.701], [0.175, 0.728], [0.242, 0.75], [0.318, 0.758], [0.399, 0.761], [0.481, 0.758], [0.564, 0.767], [0.639, 0.803], [0.717, 0.81], [0.844, 0.761]],
 		"stations": [
-			{"id": "start_curtain", "pos": [0.09, 0.66], "landmark": "giant scallop-shell archway with purple velvet stage curtains (starting gate)"},
-			{"id": "pit_garage", "pos": [0.34, 0.65], "landmark": "blue arched pit-garage bays stocked with tool racks, crates, and stacked tires"},
-			{"id": "tire_depot", "pos": [0.6, 0.63], "landmark": "stacks of purple and teal race tires piled at the base of the track wall"},
-			{"id": "grandstand", "pos": [0.64, 0.545], "landmark": "purple-seated spectator grandstand with scalloped white canopy"},
-			{"id": "trophy_shell", "pos": [0.91, 0.44], "landmark": "giant scallop-shell trophy stage holding a huge pearl on a golden pedestal at the ramp summit"},
+			{"id": "pearl_start_arch", "pos": [0.156, 0.711], "landmark": "giant cream scallop-shell start arch rimmed with pearls, spanning the aqua race canal at the far left; its foot stands on dark purple rock slabs behind a big red-coral cluster"},
+			{"id": "teal_gem_buoy", "pos": [0.304, 0.757], "landmark": "first floating gate marker in the canal - a gold ring buoy on a pearl-studded lilac float, crowned with a large teal gemstone (station stands on the sand beach directly in front of it)"},
+			{"id": "pearl_dome_pavilion", "pos": [0.481, 0.758], "landmark": "purple pearl-domed rotunda pavilion on the sand infield across the canal, white columns and a short flight of steps down to the paddock sand"},
+			{"id": "rose_gem_buoy", "pos": [0.671, 0.811], "landmark": "third floating gate marker - gold ring buoy with a big magenta/rose gemstone; the beach in front of it holds a pale ribbed urchin and a purple rock mound with teal tube corals"},
+			{"id": "ribbon_finish_arch", "pos": [0.844, 0.761], "landmark": "big scallop-shell finish arch tied with a pink-and-white checkered ribbon banner and a fat pink bow, rising over the purple rock terrace at the right"},
 		],
-		"clue_spots": [[0.07, 0.08], [0.38, 0.1], [0.22, 0.31], [0.63, 0.23], [0.41, 0.84], [0.94, 0.28], [0.92, 0.74], [0.61, 0.95]],
+		"clue_spots": [[0.159, 0.181], [0.176, 0.817], [0.285, 0.176], [0.432, 0.869], [0.534, 0.199], [0.498, 0.535], [0.733, 0.261], [0.883, 0.718]],
 	},
 	"popstar": {
-		"path": [[0.04, 0.75], [0.13, 0.71], [0.24, 0.71], [0.42, 0.71], [0.52, 0.69], [0.58, 0.66], [0.66, 0.69], [0.75, 0.76], [0.89, 0.73]],
+		"path": [[0.038, 0.648], [0.094, 0.658], [0.18, 0.667], [0.299, 0.662], [0.409, 0.672], [0.504, 0.68], [0.605, 0.678], [0.69, 0.672], [0.8, 0.666], [0.929, 0.656]],
 		"stations": [
-			{"id": "stage_curtain", "pos": [0.1, 0.7], "landmark": "shell-arched stage doorway with magenta curtains, pearl garland and steps down to the deck"},
-			{"id": "mic_row", "pos": [0.25, 0.68], "landmark": "row of golden vintage microphone stands lining the music-note railing walkway"},
-			{"id": "dance_pads", "pos": [0.42, 0.68], "landmark": "circular stage plaza inlaid with four hexagonal arrow dance pads (teal up, purple left, pink right, cream down)"},
-			{"id": "rainbow_bridge", "pos": [0.66, 0.66], "landmark": "S-curved rainbow road with gold pearl-topped railings and lamp posts"},
-			{"id": "encore_balcony", "pos": [0.9, 0.71], "landmark": "round encore balcony with shell crest, gold railings and coral planters at the far right"},
+			{"id": "shell_stage", "pos": [0.182, 0.666], "landmark": "giant scallop-shell concert stage on the left: cream shell arch studded with pearls over a purple fan interior, pearl-swag garland, a big pearl on a blue cushion at its lip, flanked by two stacks of round teal-and-gold speaker cabinets, cream steps down to the sand"},
+			{"id": "clam_coral_bed", "pos": [0.299, 0.66], "landmark": "violet fan clam with a gold clasp and an orange starfish on the lavender rock ledge between the shell stage and the gazebo, orange branch coral rising behind it"},
+			{"id": "mic_gazebo", "pos": [0.504, 0.68], "landmark": "centre bandstand gazebo: pink domed roof with a pearl finial, pearl-shell trim and pearl swags, red coral columns, a gold vintage microphone standing on a blue disc in front of a purple scallop backdrop, cream steps to the sand"},
+			{"id": "pink_clam_reef", "pos": [0.688, 0.672], "landmark": "large pink fan clam with a pearl in its hinge on the reef ledge between the gazebo and the dome, orange branch coral and a purple fan shell beside it"},
+			{"id": "record_dais", "pos": [0.809, 0.664], "landmark": "round vinyl-record dance floor (purple and blue disc with a swirl label) on the raised dais in front of the aqua glass dome pavilion with its ivory scrolled archway and gold treble clef on top"},
 		],
-		"clue_spots": [[0.06, 0.62], [0.24, 0.27], [0.5, 0.16], [0.72, 0.13], [0.9, 0.22], [0.63, 0.3], [0.39, 0.92], [0.82, 0.76]],
+		"clue_spots": [[0.035, 0.285], [0.192, 0.82], [0.262, 0.226], [0.319, 0.824], [0.504, 0.257], [0.635, 0.86], [0.833, 0.256], [0.962, 0.286]],
 	},
 }
 
@@ -164,13 +174,13 @@ const ROAM: Dictionary = {
 	"ballerina": [0.14, 0.84],
 	"candymaker": [0.12, 0.86],
 	"doctor": [0.12, 0.80],
-	"farmer": [0.14, 0.88],
-	"boxer": [0.14, 0.86],
-	"magician": [0.14, 0.86],
-	"painter": [0.14, 0.86],
-	"astronaut": [0.14, 0.86],
-	"racer": [0.16, 0.84],
-	"popstar": [0.14, 0.86],
+	"farmer": [0.12, 0.86],
+	"boxer": [0.12, 0.88],
+	"magician": [0.14, 0.85],
+	"painter": [0.1, 0.82],
+	"astronaut": [0.1, 0.87],
+	"racer": [0.18, 0.82],
+	"popstar": [0.1, 0.82],
 	"nursery": [0.15, 0.85],
 }
 
