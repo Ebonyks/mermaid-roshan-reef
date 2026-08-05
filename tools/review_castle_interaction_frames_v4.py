@@ -49,8 +49,8 @@ DEFAULT_APPROVAL_RELATIVE = Path(
     "castle_interaction_frame_approval_ledger.json")
 CANDIDATE_FILENAME = "castle_interaction_frame_candidate_v4.json"
 
-CANDIDATE_SCHEMA = "castle_interaction_frame_candidate_v1"
-APPROVAL_SCHEMA = "castle_interaction_frame_approval_v1"
+CANDIDATE_SCHEMA = "castle_interaction_frame_candidate_v2"
+APPROVAL_SCHEMA = "castle_interaction_frame_approval_v2"
 EXPECTED_V4_ASSET_COUNT = 13
 LOGICAL_ROOM_SIZE = (1024, 576)
 STATIC_ALPHA_THRESHOLD = 128
@@ -123,6 +123,17 @@ def canonical_json_bytes(value: Any) -> bytes:
         separators=(",", ":"),
         ensure_ascii=False,
     ).encode("utf-8")
+
+
+def semantic_json_sha256(value: Any) -> str:
+    """Hash parsed JSON semantics, independent of checkout line endings."""
+    return sha256_bytes(canonical_json_bytes(value))
+
+
+def normalized_text_sha256(text: str) -> str:
+    """Hash UTF-8 text after normalizing CRLF/CR to repository LF."""
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return sha256_bytes(normalized.encode("utf-8"))
 
 
 def candidate_payload_sha256(candidate: Mapping[str, Any]) -> str:
@@ -751,6 +762,15 @@ def png_bytes(image: Image.Image) -> bytes:
     return stream.getvalue()
 
 
+def contact_sheet_evidence(filename: str, image: Image.Image) -> dict[str, Any]:
+    """Bind review-visible pixels, never platform-specific PNG compression."""
+    return {
+        "file": filename,
+        "pixel_sha256": frame_qa.raw_pixel_sha256(image),
+        "dimensions": list(image.size),
+    }
+
+
 def _frame_approval_payload(
         qa_record: Mapping[str, Any],
         occlusions: Sequence[Mapping[str, Any]],
@@ -1017,24 +1037,16 @@ def build_repository_candidate(
         filename = f"{asset_id}_frames.png"
         contact_data = png_bytes(contact)
         contact_sheets[filename] = contact_data
-        asset_record["contact_sheet"] = {
-            "file": filename,
-            "file_sha256": sha256_bytes(contact_data),
-            "pixel_sha256": frame_qa.raw_pixel_sha256(contact),
-            "dimensions": list(contact.size),
-        }
+        asset_record["contact_sheet"] = contact_sheet_evidence(
+            filename, contact)
         plain_contact = render_contact_sheet(
             asset_record, results, occlusion_masks_by_frame,
             show_diagnostics=False)
         plain_filename = f"{asset_id}_plain_frames.png"
         plain_contact_data = png_bytes(plain_contact)
         contact_sheets[plain_filename] = plain_contact_data
-        asset_record["plain_contact_sheet"] = {
-            "file": plain_filename,
-            "file_sha256": sha256_bytes(plain_contact_data),
-            "pixel_sha256": frame_qa.raw_pixel_sha256(plain_contact),
-            "dimensions": list(plain_contact.size),
-        }
+        asset_record["plain_contact_sheet"] = contact_sheet_evidence(
+            plain_filename, plain_contact)
         candidate_assets.append(asset_record)
 
     candidate = seal_candidate({
@@ -1054,15 +1066,18 @@ def build_repository_candidate(
         "inputs": {
             "v4_manifest": {
                 "path": _relative(root, manifest_path),
-                "file_sha256": sha256_file(manifest_path),
+                "semantic_sha256": semantic_json_sha256(manifest),
+                "hash_kind": "canonical_json_utf8",
             },
             "runtime_layout": {
                 "path": _relative(root, runtime_path),
-                "file_sha256": sha256_file(runtime_path),
+                "semantic_sha256": normalized_text_sha256(runtime_text),
+                "hash_kind": "utf8_lf_normalized_text",
             },
             "fixture_runtime": {
                 "path": _relative(root, fixture_path),
-                "file_sha256": sha256_file(fixture_path),
+                "semantic_sha256": normalized_text_sha256(fixture_text),
+                "hash_kind": "utf8_lf_normalized_text",
             },
             "rooms": room_evidence,
             "active_static_cards": [
@@ -1097,9 +1112,10 @@ def validate_approval_ledger(
         problems.append(f"approval ledger schema_version must be {APPROVAL_SCHEMA}")
     if ledger.get("candidate_payload_sha256") != measured_candidate_hash:
         problems.append("approval ledger candidate_payload_sha256 is missing or stale")
-    manifest_hash = candidate["inputs"]["v4_manifest"]["file_sha256"]
-    if ledger.get("manifest_sha256") != manifest_hash:
-        problems.append("approval ledger manifest_sha256 is missing or stale")
+    manifest_hash = candidate["inputs"]["v4_manifest"]["semantic_sha256"]
+    if ledger.get("manifest_semantic_sha256") != manifest_hash:
+        problems.append(
+            "approval ledger manifest_semantic_sha256 is missing or stale")
     reviewer = ledger.get("reviewer")
     if not isinstance(reviewer, str) or not reviewer.strip():
         problems.append("approval ledger reviewer must be a non-empty string")

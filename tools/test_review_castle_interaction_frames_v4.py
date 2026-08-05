@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+from io import BytesIO
 from pathlib import Path
 import sys
 import tempfile
@@ -37,7 +38,7 @@ def candidate_with_relation(
     candidate = review.seal_candidate({
         "schema_version": review.CANDIDATE_SCHEMA,
         "inputs": {
-            "v4_manifest": {"file_sha256": "1" * 64},
+            "v4_manifest": {"semantic_sha256": "1" * 64},
         },
         "assets": [{
             "id": "test_asset",
@@ -58,8 +59,8 @@ def exact_ledger(build: review.RepositoryReviewBuild) -> dict[str, object]:
         "schema_version": review.APPROVAL_SCHEMA,
         "candidate_payload_sha256": build.candidate[
             "candidate_payload_sha256"],
-        "manifest_sha256": build.candidate[
-            "inputs"]["v4_manifest"]["file_sha256"],
+        "manifest_semantic_sha256": build.candidate[
+            "inputs"]["v4_manifest"]["semantic_sha256"],
         "reviewer": "Human visual review",
         "assets": {
             asset["id"]: {
@@ -74,6 +75,46 @@ def exact_ledger(build: review.RepositoryReviewBuild) -> dict[str, object]:
 
 
 class CastleInteractionRepositoryReviewTests(unittest.TestCase):
+    def test_json_semantic_hash_ignores_formatting_and_line_endings(self) -> None:
+        left = json.loads('{\r\n  "b": 2,\r\n  "a": [1, 3]\r\n}')
+        right = json.loads('{"a":[1,3],"b":2}\n')
+        self.assertEqual(
+            review.semantic_json_sha256(left),
+            review.semantic_json_sha256(right))
+        right["b"] = 4
+        self.assertNotEqual(
+            review.semantic_json_sha256(left),
+            review.semantic_json_sha256(right))
+
+    def test_text_semantic_hash_normalizes_line_endings_only(self) -> None:
+        self.assertEqual(
+            review.normalized_text_sha256("one\r\ntwo\r\n"),
+            review.normalized_text_sha256("one\ntwo\n"))
+        self.assertNotEqual(
+            review.normalized_text_sha256("one\ntwo\n"),
+            review.normalized_text_sha256("one\nthree\n"))
+
+    def test_contact_evidence_ignores_encoding_but_rejects_pixel_drift(self) -> None:
+        source = rgba((8, 6), (80, 180, 220, 255))
+        fast = BytesIO()
+        compact = BytesIO()
+        source.save(fast, format="PNG", compress_level=0)
+        source.save(compact, format="PNG", compress_level=9, optimize=True)
+        self.assertNotEqual(fast.getvalue(), compact.getvalue())
+        fast_image = Image.open(BytesIO(fast.getvalue())).convert("RGBA")
+        compact_image = Image.open(BytesIO(compact.getvalue())).convert("RGBA")
+        fast_evidence = review.contact_sheet_evidence("review.png", fast_image)
+        compact_evidence = review.contact_sheet_evidence(
+            "review.png", compact_image)
+        self.assertEqual(fast_evidence, compact_evidence)
+        self.assertNotIn("file_sha256", fast_evidence)
+        changed = compact_image.copy()
+        changed.putpixel((3, 2), (81, 180, 220, 255))
+        self.assertNotEqual(
+            fast_evidence["pixel_sha256"],
+            review.contact_sheet_evidence(
+                "review.png", changed)["pixel_sha256"])
+
     def test_shipping_manifest_has_all_thirteen_v4_assets(self) -> None:
         root = Path(__file__).resolve().parents[1]
         manifest = json.loads(
