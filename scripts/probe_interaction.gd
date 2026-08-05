@@ -153,7 +153,7 @@ func _init() -> void:
 	main.level2_done_once = false
 	# This probe audits the Crown route only. Companion re-offer behavior has
 	# dedicated close/reopen and save-safe coverage in probe_throne.
-	main.companion_id = "birdie"
+	main.companion_id = "eagle"
 	main._enter_castle_interior_now(false)
 	await _frames(24)
 	main._populate_touch_interactables()

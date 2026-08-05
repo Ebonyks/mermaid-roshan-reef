@@ -195,7 +195,7 @@ func _run() -> void:
 	main.pearl_count = main.PEARL_TOTAL
 	main.trophies = 5
 	main.level2_done_once = true
-	main.companion_id = "birdie"
+	main.companion_id = "eagle"
 	main.combat_tutorial_done = true
 	main.g["crown_won"] = false
 	main._enter_level2_now(true, false, false)
@@ -361,7 +361,7 @@ func _run() -> void:
 	# ---- after both welcomes, the first combat class is the next event ----
 	companion.close_picker()
 	await _frames(10)
-	main.companion_id = "birdie"
+	main.companion_id = "eagle"
 	await _frames(40)
 	_ck("combat_tutorial_follows_crown_and_companion",
 		rooms._royal_hall_event_id() == "combat_tutorial"

@@ -40,7 +40,7 @@ func _tap(tut: CombatTutorial, enemy: Dictionary) -> void:
 
 func _class_case() -> void:
 	main.level2_done_once = true
-	main.companion_id = "birdie"
+	main.companion_id = "eagle"
 	main.combat_tutorial_done = false
 	main.game = "level2"
 	main.g["t"] = 0.0
