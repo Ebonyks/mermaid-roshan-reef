@@ -520,3 +520,36 @@ Build-only full-gate logs:
 - `.godot/opera_animation_review_20260803/ci_utf8.log`
 - `.godot/opera_animation_review_20260803/ci_retry2.log`
 - `.godot/opera_animation_review_20260803/ci_final.log`
+
+
+## 15. Post-rebuild integration record - 2026-08-05
+
+The 2026-08-04 logical rebuild replaced roughly a quarter of the phases this
+handoff's package C was bound to (oven, tilt-pour, pipe dream, crown hunt,
+echo song, 3D kart lap). Packages A, B1, B3 and B4 were re-verified against
+the rebuilt code and hold unchanged. What the seam required:
+
+- **B2 extended to the new locomotion.** Tap-to-walk is now how Roshan
+  travels the stage nearly all of the time, and it shipped without the
+  shallow vertical arc and directional lean B2 requires (only the 22s assist
+  glide had them). The walk now carries a step bob and a lean that eases in
+  and out of travel. Both are PURELY visual: the walk keeps its own clean
+  feet position, so an interrupted walk can never bank a bobbed frame as the
+  next rest transform (B1). `probe_opera_2d`'s twenty-rapid-taps rest gate
+  confirms it.
+- **C3 completion-hold violation fixed.** The three new modes (oven, pipe,
+  echo) swallowed the press once complete, so the 2.2s finished-work hold
+  could not be skipped — over the 350ms limit. All three now emit on press.
+- **C forward binding.** Pipe tiles/tank/intake and the Echo star pads load
+  in `configure` and replace the code-drawn stand-ins the moment the art
+  lands; no `load()` in `_process`/`_draw`.
+- **Widget art binds at ARM time, not card-open time**, so a lit station
+  shows its own trade's art while she is still walking toward it.
+- **B4 audience clause is moot**: the owner removed the audience row and all
+  text headers on 2026-08-04. The five review masters predate that and must
+  be re-captured before any framing judgement.
+- **Package C census is now 46 art-backed widgets, not 60.** The retired 14
+  are listed in `CODEX_OPERA_LOGICAL_REBUILD_HANDOFF_2026-08-04.md` section 2.
+
+Probes after integration: `probe_opera_2d`, `probe_opera_nursery`,
+`probe_opera`, `probe_imp_animation_art`, `probe_imp_ai` — ALL OK.

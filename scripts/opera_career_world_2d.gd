@@ -245,6 +245,11 @@ var armed_station := -1
 var wander_dwell := 0.0
 var wander_dest := Vector2.ZERO
 var wander_walking := false
+## the walk's own clean feet position: the bob/lean never feed back into it,
+## so twenty interrupted walks still end on exactly the painted route
+var wander_feet := Vector2.ZERO
+var wander_stride := 0.0
+var wander_lean := 0.0
 var wander_layer: Control
 var score_cool := 0.0
 var bounce_cool := 0.0
@@ -802,6 +807,9 @@ func _arm_phase() -> void:
 	armed_station = -1
 	wander_dwell = 0.0
 	wander_walking = false
+	wander_lean = 0.0
+	wander_stride = 0.0
+	wander_feet = _hero_feet() if player_actor != null else Vector2.ZERO
 	if phase_index >= phases.size():
 		active = false
 		if win_callback.is_valid():
@@ -2154,6 +2162,9 @@ func _wander_input(event: InputEvent) -> void:
 	if old != null and old.is_valid():
 		old.kill()
 	actor_tweens.erase("player")
+	if not wander_walking:
+		# start from where she actually stands, never from a bobbed frame
+		wander_feet = _hero_feet()
 	if armed_station >= 0 and armed_station < station_list.size():
 		var station_pos: Vector2 = station_list[armed_station].get("pos", Vector2.ZERO)
 		if point.distance_to(station_pos) <= 120.0:
@@ -2171,19 +2182,41 @@ func _wander_step(delta: float) -> void:
 	if player_actor == null:
 		return
 	if wander_walking:
-		var feet := _hero_feet()
-		var next := feet.move_toward(wander_dest, 250.0 * delta)
-		if absf(next.x - feet.x) > 0.5:
-			player_actor.flip_h = next.x < feet.x
-		_place_on_stage(player_actor, next)
-		if next.distance_to(wander_dest) <= 3.0:
+		var previous := wander_feet
+		wander_feet = wander_feet.move_toward(wander_dest, 250.0 * delta)
+		var step := wander_feet.x - previous.x
+		if absf(step) > 0.5:
+			player_actor.flip_h = step < 0.0
+		# B2: a shallow vertical arc (the bob of a step) and a slight lean
+		# into the travel direction — both purely visual, both easing to
+		# rest the moment she stops
+		wander_stride += absf(step)
+		wander_lean = move_toward(wander_lean, signf(step) * 0.05, delta * 0.9)
+		_place_on_stage(player_actor, wander_feet)
+		player_actor.position.y -= absf(sin(wander_stride * 0.035)) * 7.0
+		player_actor.rotation = wander_lean
+		if wander_feet.distance_to(wander_dest) <= 3.0:
 			wander_walking = false
+	elif absf(wander_lean) > 0.001 or absf(player_actor.rotation) > 0.001:
+		# settle: she straightens up and comes down off the last step
+		wander_lean = move_toward(wander_lean, 0.0, delta * 2.4)
+		_place_on_stage(player_actor, wander_feet)
+		player_actor.rotation = wander_lean
+		if absf(wander_lean) <= 0.001:
+			player_actor.rotation = 0.0
+			wander_stride = 0.0
 			_capture_actor_rest("player", player_actor)
 	if armed_station >= 0 and armed_station < station_list.size():
 		var station_pos: Vector2 = station_list[armed_station].get("pos", Vector2.ZERO)
-		if _hero_feet().distance_to(station_pos) <= 150.0:
+		if wander_feet.distance_to(station_pos) <= 150.0:
 			wander_dwell += delta
 			if wander_dwell >= 0.35:
+				# arrive clean: no bob, no lean, then bank the rest transform
+				wander_walking = false
+				wander_lean = 0.0
+				wander_stride = 0.0
+				_place_on_stage(player_actor, wander_feet)
+				player_actor.rotation = 0.0
 				_capture_actor_rest("player", player_actor)
 				_open_task()
 		else:
