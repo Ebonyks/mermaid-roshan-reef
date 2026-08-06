@@ -78,6 +78,10 @@ func load_save() -> void:
 	m._apply_time_of_day()
 	m.music_on = bool(m.save_data.get("music", true))
 	m.mic_on = bool(m.save_data.get("mic", m.MIC_DEFAULT_ON))
+	# haptics ride the save (add-only key, default on): the parent can turn
+	# them off by editing the save today; a pause-menu toggle can bind to the
+	# same key later without a schema change
+	Juice.haptics_enabled = bool(m.save_data.get("haptics", true))
 	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
 	m._apply_quality(String(m.save_data.get("quality", qdef)))
 	m._set_touch_mode(String(m.save_data.get("touch_mode", m.TOUCH_MODE_HYBRID)), false)
@@ -186,6 +190,7 @@ func write_save() -> bool:
 	next_data["finale"] = m.finale_done
 	next_data["music"] = m.music_on
 	next_data["mic"] = m.mic_on
+	next_data["haptics"] = Juice.haptics_enabled
 	next_data["quality"] = m.quality
 	next_data["touch_mode"] = m.touch_mode
 	next_data["pearls"] = maxi(m.pearl_count, 0)
@@ -478,6 +483,9 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["ember_found"] = _bool_or_default(raw, "ember_found", false)
 	data["ember_progress"] = clampi(_nonnegative_int_or_default(raw, "ember_progress", 0), 0, 6)
 	data["ember_done"] = _bool_or_default(raw, "ember_done", false)
+	# combat wing (2026-08) + alpha polish keys, same critters precedent:
+	data["combat_tutorial"] = _bool_or_default(raw, "combat_tutorial", false)
+	data["haptics"] = _bool_or_default(raw, "haptics", true)
 	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 16)
 	data["opera_progress"] = opera_prog
 	# migrate pre-lobby saves: a linear checkpoint means the first N doors starred

@@ -53,7 +53,10 @@ const CHARGE_COLORS := [Color(0.72, 0.60, 0.95, 0.45), Color(1.0, 0.85, 0.35, 0.
 const CHARGE_CHIME := [0.9, 1.12, 1.35]      # the fanfare ladder, one note per stage
 const CHARGE_RING_MIN := 0.9
 const CHARGE_RING_MAX := 2.7
-const CHARGE_PIP_H := 1.35                   # stage pips ride this far above aim
+const CHARGE_PIP_H := 1.75                   # stage pips ride this far above aim
+# (1.35 collided with the hp-lamp row at aim_h+1.05 — radii 0.17+0.13 meant
+# the two rows touched whenever a charge ran on a damaged enemy; alpha audit
+# 2026-08-05 opened the gap to 0.7 so both read as separate readouts)
 const CHARGE_PIP_GAP := 0.5
 
 # ---- the SLICE / slash (owner 2026-08-04) -----------------------------------
