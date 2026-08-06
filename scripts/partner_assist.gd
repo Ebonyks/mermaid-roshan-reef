@@ -95,9 +95,17 @@ func detach() -> void:
 func ready() -> bool:
 	return bubble != null and cool <= 0.0
 
+# The bubble rides CanvasLayer 15, ABOVE full-screen modals on the base
+# canvas — while the elevator book (or any room menu) is open the bubble
+# would still catch taps and waste the super into a covered screen. It
+# steps aside whenever a castle menu is up (alpha audit 2026-08-05).
+func _blocked() -> bool:
+	return m.castle_room_menu_open
+
 func tick(delta: float) -> void:
 	if bubble == null:
 		return
+	bubble.visible = not _blocked()
 	elapsed += delta
 	if cool > 0.0:
 		cool = maxf(0.0, cool - delta)
@@ -119,7 +127,7 @@ func note_child_pop() -> void:
 		cool = maxf(0.0, cool - POP_SHAVE)
 
 func on_bubble_tap() -> void:
-	if bubble == null or cool > 0.0:
+	if bubble == null or cool > 0.0 or _blocked():
 		return
 	cool = float(COOLDOWNS.get(kind, 12.0))
 	announced = false
