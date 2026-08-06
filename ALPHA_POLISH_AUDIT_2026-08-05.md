@@ -48,7 +48,7 @@ stretches exactly with them, and `gui_input` is inverse-transformed by the
 engine. The hardcoded-720 wander layer stops being a dead tap band for the
 same reason.
 
-### 3. The 560 MB APK (reduced ~40%, runtime texture RAM ~4× lower)
+### 3. The 560 MB APK (runtime texture RAM ~4× lower; disk +25 MB — see MEASURED OUTCOME)
 The install was 560 MB — a real install-failure and session-kill risk on a
 3–4-year-old phone. Measured causes and actions:
 - **629 power-of-two lossless textures (260 MB source)** — eligible for VRAM
@@ -74,6 +74,19 @@ The install was 560 MB — a real install-failure and session-kill risk on a
   keeping the two files the v2 manifest still references).
 - **`.gdignore` added to `tmp/` (206 MB), `output/`, `build/`** — the editor
   was importing all of it on every scan.
+
+**MEASURED OUTCOME (2026-08-06 APK build):** 585.6 MB, **up 24.9 MB** from
+the 560.7 baseline. The prediction of a large disk reduction was wrong: this
+game's flat pastel art compresses extremely well under the lossless CTEX
+zstd path, while VRAM formats are fixed-rate per pixel — so the compressed
+set grew on disk by more than the ~90 MB of exclusions saved. What the
+conversion DID buy, and why it stays for the alpha: ~4× less GPU texture
+memory and zero runtime decode on the biggest art, which is the protection
+against the OS killing the game mid-session on the M11 — the catastrophic
+outcome for a 4-year-old's play session. Post-alpha follow-up if disk size
+matters: `compress/mode=1` (lossy WebP) for the opera backdrops would cut
+disk sharply but gives back the GPU-memory win; that trade needs owner eyes
+on the art either way.
 
 ## Confirmed high findings — fixed
 
