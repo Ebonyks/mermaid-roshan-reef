@@ -116,10 +116,23 @@ func _speaker_key(who: String) -> String:
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 	# owner 2026-08-04: opera career worlds are full-screen art with no text.
 	# The spoken line IS the message there; the caption strip stays empty.
+	# ALPHA MERCY (2026-08-05): that rule assumed every line had a recording.
+	# 14 career vo keys have none (all of detective's dialogue among them) —
+	# with the caption ALSO hidden the instruction collapsed to a pitched
+	# "yay" and the child was left with nothing. When the exact clip is
+	# missing the caption comes back, so the grown-up sitting beside her can
+	# read the line aloud. The moment a recording lands, the text hides again.
 	if m.game == "opera":
+		var speaker := _speaker_key(who)
+		var has_exact := ResourceLoader.exists(
+			"res://assets/audio/voices/" + speaker + "_" + vo + ".ogg")
 		m.hud_msg.visible = false
+		if not has_exact and txt != "":
+			m.hud_msg.text = txt
+			m.hud_msg.visible = true
+			m.msg_timer = 5.0
 		if who != "":
-			_say(_speaker_key(who), vo, 0.5)
+			_say(speaker, vo, 0.5)
 		return
 	m.hud_msg.text = txt
 	m.hud_msg.visible = txt != ""

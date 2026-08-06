@@ -77,6 +77,20 @@ var _cam_pitch := 0.0
 var _mlook_dx := 0.0
 var _mlook_dy := 0.0
 
+
+# Speedy-tier cull path (alpha audit 2026-08-05): the garden planet carried
+# ~23 always-on OmniLights with zero quality gating — the only zone with none.
+# On the Mobile renderer >8 omnis per mesh drop nondeterministically and each
+# visible one costs per-pixel on the tablet. Decorative lights (trays, pads,
+# fountain, lanterns, butterfly shards, hall chandeliers) now register here
+# and go dark in Speedy — their hosts are all emissive so the read survives.
+# Hero lights (Rosalina's glow, the GREAT butterfly, the avatar trail, the
+# moon sun) stay lit at every tier.
+func _gate_light(light: OmniLight3D, speedy_visible: bool = false) -> void:
+	if _main == null or not "quality" in _main:
+		return
+	light.visible = String(_main.quality) != "speedy" or speedy_visible
+
 func _input(ev: InputEvent) -> void:
 	if ev is InputEventMouseMotion and (ev.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
 		_mlook_dx += ev.relative.x
@@ -593,6 +607,7 @@ func _build_decor() -> void:
 		tl.light_energy = 1.2
 		tl.omni_range = 9.0
 		tl.position = Vector3(0, 2.4, 0)
+		_gate_light(tl)
 		th.add_child(tl)
 		_place_on_planet(th, tdir)
 		_trays.append({"dir": tdir, "cool": 0.0, "node": th})
@@ -667,6 +682,7 @@ func _build_decor() -> void:
 		pl.light_energy = 1.4
 		pl.omni_range = 10.0
 		pl.position = Vector3(0, 2.0, 0)
+		_gate_light(pl)
 		holder3.add_child(pl)
 		_pads.append({"dir": pdir, "cool": 0.0})
 	# ---- the FAIRY FOUNTAIN: touch it to fly the fairy flight (moved here from
@@ -716,6 +732,7 @@ func _build_decor() -> void:
 	ffl.light_energy = 1.6
 	ffl.omni_range = 13.0
 	ffl.position = Vector3(0, 4.2, 0)
+	_gate_light(ffl)
 	ff.add_child(ffl)
 	var fflab := Label3D.new()
 	fflab.text = "✨ Fairy Fountain ✨\nfly with the fairies!"
@@ -810,6 +827,7 @@ void fragment(){
 		ll.light_energy = 1.5
 		ll.omni_range = 13.0
 		ll.position = Vector3(0, 6.4, 0)
+		_gate_light(ll)
 		lp.add_child(ll)
 		_place_on_planet(lp, ldir)
 	# Coral remains an underwater habitat family. Mixing it into the vivarium
@@ -873,6 +891,7 @@ func _build_shards() -> void:
 		gl.light_color = wing
 		gl.light_energy = 1.6
 		gl.omni_range = 14.0
+		_gate_light(gl)
 		star.add_child(gl)
 		# BEACON: a tall additive light pillar so far-away shards show over the horizon
 		var beam := MeshInstance3D.new()
@@ -1533,6 +1552,7 @@ func _build_hall() -> void:
 		sl.light_energy = 1.6
 		sl.omni_range = 20.0
 		sl.position = star.position
+		_gate_light(sl)
 		_hall_root.add_child(sl)
 	# The Moon Throne now has a shell-back silhouette and a real seat instead
 	# of a single glowing sphere.

@@ -338,6 +338,15 @@ func _full_rect(control: Control) -> void:
 	control.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 
+func _sync_root_scale() -> void:
+	if root == null or not is_instance_valid(root):
+		return
+	var vs: Vector2 = get_viewport().get_visible_rect().size
+	if vs.x <= 0.0 or vs.y <= 0.0:
+		return
+	root.scale = vs / StagePaths.SCREEN
+
+
 func _label(text: String, font_size: int, colour: Color = Color.WHITE) -> Label:
 	var label := Label.new()
 	label.text = text
@@ -355,8 +364,21 @@ func _build_world() -> void:
 	root = Control.new()
 	root.name = "OperaCareerWorld2D"
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_full_rect(root)
+	# DEVICE GEOMETRY (alpha audit 2026-08-05). Every station, clue spot,
+	# path point and depth rule in this world was derived in a fixed
+	# 1280x720 painting space — but the backdrop used to stretch to the REAL
+	# canvas, which under canvas_items/expand is 1280x800 on the M11 and
+	# ~1600x720 on a tall phone. Landmarks drifted up to 80px vertically /
+	# 320px horizontally off their painted objects on exactly the two alpha
+	# devices (CI probes run at 1280x720, so they never saw it). The root is
+	# now FROZEN at 1280x720 and scaled to the live canvas: children keep
+	# their derived coordinates, the painting stretches exactly with them,
+	# and gui_input events are inverse-transformed through the scale by the
+	# engine — so the same numbers are correct at every aspect ratio.
+	root.size = StagePaths.SCREEN
 	add_child(root)
+	_sync_root_scale()
+	get_viewport().size_changed.connect(_sync_root_scale)
 	task_frame_texture = _load_if_exists("res://assets/opera/worlds/ui/task_card_frame.png")
 	station_marker_texture = _load_if_exists("res://assets/opera/worlds/ui/station_marker.png")
 	magnifier_texture = _load_if_exists("res://assets/opera/worlds/ui/magnifier.png")
@@ -2087,12 +2109,17 @@ func _process(delta: float) -> void:
 					wander_dest = station_list[armed_station].get("pos", Vector2(640, 480)) as Vector2
 					wander_walking = true
 			elif idle_t >= 9.0 and idle_t - delta < 9.0 and m != null:
-				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")), "hint")
+				# re-prompt with the phase's OWN recorded line — the hardcoded
+				# "hint" event has no recording, so a quiet child used to get
+				# a content-free pitched yay instead of her instruction again
+				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
+					String((phases[phase_index] as Dictionary).get("vo", "hint")))
 		elif idle_t >= 9.0:
 			idle_t = 0.0
 			surface.restart_demo()
 			if m != null:
-				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")), "hint")
+				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
+					String((phases[phase_index] as Dictionary).get("vo", "hint")))
 	timing_phase = fmod(timing_phase + delta * minf(0.70, 0.55 + 0.02 * float(phase_index)), 2.0)
 	var marker := timing_phase if timing_phase <= 1.0 else 2.0 - timing_phase
 	surface.set_timing_position(marker)
