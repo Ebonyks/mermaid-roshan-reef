@@ -323,6 +323,11 @@ func configure(overrides: Dictionary) -> void:
 func _cv(key: String, dflt):
 	return cfg[key] if cfg.has(key) else dflt
 
+func _minimal() -> bool:
+	# opera career races run wordless: the child cannot read, and the career
+	# worlds are full-screen art — icons and sparkle FX carry everything
+	return bool(_cv("minimal_hud", false))
+
 func _laps() -> int:
 	return int(_cv("laps", LAPS))
 
@@ -489,7 +494,9 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_main = main
 	_finish_cb = finish_cb
 	_rev = reversed_track
-	_player_acted = false
+	# opera runs pre-credit the race verb: a watching child still wins the
+	# story beat, and the kart's own "YOUR TURN!" podium branch never shows
+	_player_acted = bool(_cv("assume_acted", false))
 	_payout_banked = 0
 	_payout_dirty = false
 	_completion_committed = false
@@ -2160,8 +2167,8 @@ func _build_select() -> void:
 		halo.visible = not _speedy()
 		slot.add_child(halo)
 		_sel_nodes.append({"slot": slot, "halo": halo, "body": body})
-	_lbl_big.text = "Pick your ride!"
-	_lbl_hint.text = ("slide a finger to choose  •  TAP to GO!" if _touch_device() else "LEFT/RIGHT to choose  •  SPACE or A to GO!")
+	_lbl_big.text = "" if _minimal() else "Pick your ride!"
+	_lbl_hint.text = "" if _minimal() else ("slide a finger to choose  •  TAP to GO!" if _touch_device() else "LEFT/RIGHT to choose  •  SPACE or A to GO!")
 	_set_guide_mode("steer")
 	if _main != null and _main.has_method("_say"):
 		_main._say("roshan", "intro4", 10.0)
@@ -2184,7 +2191,7 @@ func _build_select_controls() -> void:
 		var vehicle: Dictionary = _vehicles_table()[vehicle_key]
 		var button := Button.new()
 		button.name = "KartRideChoice_" + vehicle_key
-		button.text = String(vehicle["label"])
+		button.text = "" if _minimal() else String(vehicle["label"])
 		button.position = Vector2(188.0 + float(i) * 302.0, 570.0)
 		button.custom_minimum_size = Vector2(278.0, 124.0)
 		button.size = Vector2(278.0, 124.0)
@@ -2317,7 +2324,7 @@ func _tick_select(delta: float) -> void:
 			_sel_t = 0.0
 			_paint_prev = -1
 			_build_paint_row()
-			_lbl_big.text = "Pick your paint!"
+			_lbl_big.text = "" if _minimal() else "Pick your paint!"
 		return
 	# ---- paint phase ----
 	var np := PAINTS.size()
@@ -2341,7 +2348,7 @@ func _tick_select(delta: float) -> void:
 		_paint_prev = _paint_idx
 		_apply_paint((_sel_nodes[_sel_idx] as Dictionary)["body"], PAINTS[_paint_idx])
 		var confirm_hint := "TAP to GO!" if _touch_device() else "SPACE or A to GO!"
-		_lbl_hint.text = String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  " + confirm_hint
+		_lbl_hint.text = "" if _minimal() else (String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  " + confirm_hint)
 	if confirm or _sel_t > SELECT_TIMEOUT:
 		var vkey: String = String(_vehicle_keys()[_sel_idx])
 		var paint: Dictionary = PAINTS[_paint_idx]
@@ -2354,7 +2361,7 @@ func _tick_select(delta: float) -> void:
 		_refresh_select_controls()
 		_clock = 3.999
 		_lbl_big.text = ""
-		_lbl_hint.text = ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  SPACE or A = TURBO!")
+		_lbl_hint.text = "" if _minimal() else ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  SPACE or A = TURBO!")
 		_meter_bg.visible = true
 		_set_guide_mode("action")
 		# put the whole pack ON the grid right now (nodes used to sit at the
@@ -2858,6 +2865,8 @@ func _drift_cancel(k: Dictionary) -> void:
 			_spray.emitting = false
 
 func _flash_big(txt: String) -> void:
+	if _minimal():
+		return
 	if _lbl_big != null and _state == "race":
 		_lbl_big.text = txt
 		_flash_t = 1.1
@@ -3313,6 +3322,11 @@ func _update_hud() -> void:
 	_meter_fill.color = (Color(1.0, 0.85, 0.2) if rdy else Color(0.3, 0.95, 1.0))
 	var ready_hint := "TAP for TURBO!!" if _touch_device() else "SPACE or A for TURBO!!"
 	_lbl_hint.text = ready_hint if rdy else ("TURBO!" if float(_pl["boost_t"]) > 0.0 else "shells & stars charge turbo • bubbles ZIP • rainbow star = FULL power!")
+	if _minimal():
+		_lbl_lap.text = ""
+		_lbl_place.text = ""
+		_lbl_pearls.text = ""
+		_lbl_hint.text = ""
 	if rdy:
 		_set_guide_mode("action")
 	elif _race_t < 7.0:
@@ -3340,6 +3354,9 @@ func _finish() -> void:
 	_set_guide_mode("")
 	_lbl_big.text = "YOU DID IT!" if _player_acted else "YOUR TURN!"
 	_lbl_hint.text = (("%d%s place  •  +%d pearls!" % [place, suffix, payout]) if bool(_cv("pearl_payout", true)) else ("Great racing — %d%s place!" % [place, suffix])) if _player_acted else "Steer or tap TURBO next race to join in!"
+	if _minimal():
+		_lbl_big.text = ""
+		_lbl_hint.text = ""
 	if _main != null and _main.has_method("_say"):
 		_main._say("roshan", "win", 2.0)
 	# podium: top 3 by distance

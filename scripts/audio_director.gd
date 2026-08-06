@@ -114,6 +114,13 @@ func _speaker_key(who: String) -> String:
 
 
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:
+	# owner 2026-08-04: opera career worlds are full-screen art with no text.
+	# The spoken line IS the message there; the caption strip stays empty.
+	if m.game == "opera":
+		m.hud_msg.visible = false
+		if who != "":
+			_say(_speaker_key(who), vo, 0.5)
+		return
 	m.hud_msg.text = txt
 	m.hud_msg.visible = txt != ""
 	m.msg_timer = 5.0

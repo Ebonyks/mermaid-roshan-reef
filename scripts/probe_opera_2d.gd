@@ -194,7 +194,7 @@ func _init() -> void:
 				await _capture_viewport(stress_shot_out.path_join("rapid_input_rest.png"))
 		var captain_scuffle := -1
 		for mode_i in range(1, modes.size()):
-			if modes[mode_i] == "bop":
+			if modes[mode_i] == "bop" and mode_i < world._finale_start():
 				captain_scuffle = mode_i
 		_check("%s stages a bigger scuffle before the stage door" % career,
 			captain_scuffle > 0 and captain_scuffle < world._finale_start()
@@ -203,7 +203,10 @@ func _init() -> void:
 		var scuffle_free_finale := true
 		for mode_i in range(world._finale_start(), modes.size()):
 			scuffle_free_finale = scuffle_free_finale and modes[mode_i] != "bop"
-		_check("%s keeps the stage finale for the job contest" % career, scuffle_free_finale)
+		# detective's finale is the owner's ally-corner: the one career whose
+		# job contest IS a shared scuffle (rival detective + Roshan vs captain)
+		_check("%s keeps the stage finale for the job contest" % career,
+			scuffle_free_finale or career == "detective")
 		var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
 		_check("%s starts in its job world, off the proscenium" % career,
 			backdrop != null and not backdrop.stage_mode)
@@ -244,19 +247,21 @@ func _init() -> void:
 				and world.surface.input_started
 			if template == "target" and not target_lock_checked:
 				world.surface.set_block_signals(true)
-				var target_before := world.surface.tap_point
-				world.surface._press(target_before)
+				var stamp_at := world.surface.size * Vector2(0.31, 0.62)
+				var marks_before := world.surface.tap_marks.size()
+				world.surface._press(stamp_at)
+				world.surface._release(stamp_at)
 				widgets_causal = widgets_causal \
-					and world.surface.tap_point.is_equal_approx(target_before)
-				world.surface._release(target_before)
-				widgets_causal = widgets_causal \
-					and not world.surface.tap_point.is_equal_approx(target_before)
+					and world.surface.tap_marks.size() == marks_before + 1 \
+					and (world.surface.tap_marks.back() as Vector2).is_equal_approx(stamp_at)
 				world.surface.set_block_signals(false)
 				target_lock_checked = true
 			if not widget_shot_out.is_empty():
 				await _capture_widget_states(world, career, phase_number, phase_dict, template)
+		# detective (wander-and-talk crown hunt) and racer (3D kart lap) have
+		# no card widgets by design — their beats play on the stage itself
 		_check("%s loads every diegetic phase widget" % career,
-			widgets_complete and widget_count > 0)
+			widgets_complete and (widget_count > 0 or career in ["detective", "racer"]))
 		_check("%s widgets remain input-causal with owner-gated completion" % career,
 			widgets_causal)
 		world._show_phase()
@@ -353,7 +358,11 @@ func _init() -> void:
 		reentry_clean)
 
 	_check("all thirteen career jobs were exercised", show_count == 13)
-	_check("all sixty art-backed career widgets were exercised", total_widget_count == 60)
+	# 46 after the 2026-08-04 logical rebuild: the ping-pong meters, the
+	# scatter-tap boards and the racer widget set were retired in favour of
+	# grammars that ARE the job (oven, tilt-pour, pipe dream, crown hunt,
+	# echo song, 3D kart lap). Detective and the kart beat carry no card.
+	_check("every art-backed career widget was exercised", total_widget_count == 46)
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()
@@ -479,7 +488,7 @@ func _capture_widget_states(world: OperaCareerWorld2D, career: String,
 	if mode in ["tap", "choice", "timing"]:
 		surface.note_result(true)
 	if template == "target":
-		surface.tap_marks = [surface.tap_point]
+		surface.tap_marks = [surface.size * Vector2(0.42, 0.58)]
 	await _capture_control(surface, widget_shot_out.path_join("%s_active_input.png" % prefix))
 
 	surface.feedback_t = 0.0

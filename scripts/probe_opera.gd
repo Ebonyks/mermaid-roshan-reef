@@ -251,7 +251,7 @@ func _drive_nursery_2d(act: OperaAct) -> void:
 	_ck("nursery completes catch, feed, burp and bedtime", guard < 360 and act.state == "won")
 	_ck("nursery curtain call is cooperative",
 		bool(act.performance_result.get("cooperative", false))
-		and world.title_label.text == "THE BABIES ARE COZY!")
+		and world.last_cheer == "THE BABIES ARE COZY!")
 
 
 func _drive_stage_rescue(act: OperaAct) -> void:

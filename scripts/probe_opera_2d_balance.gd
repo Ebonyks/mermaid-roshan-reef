@@ -144,6 +144,9 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 					match mode:
 						"timing":
 							action_wait = maxf(rt, 1.4)
+						"oven":
+							# poll the thermometer often; the grab is gated below
+							action_wait = 0.15
 						"choice":
 							action_wait = maxf(rt, 1.1)
 						_:
@@ -155,9 +158,23 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 						clumsy += 1
 					match mode:
 						"tap":
-							var tap_at := world.surface.tap_point if not miss else Vector2(8, 8)
+							# free placement: every tap is a placed mark; the
+							# persona's "miss" is just a mark near the edge
+							var tap_at := world.surface.size * 0.5 if not miss else Vector2(8, 8)
 							world.surface._press(tap_at)
 							world.surface._release(tap_at)
+						"oven":
+							# a clumsy persona peeks early; everyone grabs the
+							# mitt once the thermometer reaches the gold band
+							var mitt := world.surface.size * Vector2(0.42, 0.73)
+							if miss and world.surface.oven_t < 0.40:
+								world.surface._press(mitt)
+								world.surface._release(mitt)
+								action_wait = maxf(rt, 0.6)
+							elif world.surface.oven_t >= 0.5:
+								world.surface._press(mitt)
+								world.surface._release(mitt)
+								action_wait = maxf(rt, 0.8)
 						"choice":
 							world._on_gesture("choice", 0.24 if miss else 1.0, 0.0 if miss else 1.0)
 						"timing":
