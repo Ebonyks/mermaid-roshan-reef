@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca8i75htg8dc6"
-path="res://.godot/imported/room_actor_shadow.png-f1d04727dc138f663653a3117bb0a06a.ctex"
+path.s3tc="res://.godot/imported/room_actor_shadow.png-f1d04727dc138f663653a3117bb0a06a.s3tc.ctex"
+path.etc2="res://.godot/imported/room_actor_shadow.png-f1d04727dc138f663653a3117bb0a06a.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/flats/castle/rooms/room_actor_shadow.png"
-dest_files=["res://.godot/imported/room_actor_shadow.png-f1d04727dc138f663653a3117bb0a06a.ctex"]
+dest_files=["res://.godot/imported/room_actor_shadow.png-f1d04727dc138f663653a3117bb0a06a.s3tc.ctex", "res://.godot/imported/room_actor_shadow.png-f1d04727dc138f663653a3117bb0a06a.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

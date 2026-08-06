@@ -100,7 +100,15 @@ func ready() -> bool:
 # would still catch taps and waste the super into a covered screen. It
 # steps aside whenever a castle menu is up (alpha audit 2026-08-05).
 func _blocked() -> bool:
-	return m.castle_room_menu_open
+	if m.castle_room_menu_open:
+		return true
+	# Daddy's SPLASH only herds the MAIN HALL's dust bunnies — in any other
+	# castle room it was a silent no-op that still spent the whole 18s
+	# cooldown. The bubble steps aside outside the hall instead of tempting
+	# a wasted tap (alpha audit 2026-08-05).
+	if kind == "daddy" and String(m.castle_room_id) != "main_hall":
+		return true
+	return false
 
 func tick(delta: float) -> void:
 	if bubble == null:

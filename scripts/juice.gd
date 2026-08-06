@@ -46,16 +46,31 @@ static func squash(node: Node3D, big: bool = false) -> void:
 # entries, so tinting one would flash every enemy wearing it — meshes get
 # squash + sparkle instead.
 static func flash(node: Node3D) -> void:
-	var sprite: Sprite3D = node as Sprite3D
+	# SpriteBase3D covers Sprite3D AND AnimatedSprite3D — the old Sprite3D
+	# check silently skipped every AnimatedSprite3D enemy (alpha audit
+	# 2026-08-05), so animated foes never blinked on hit.
+	var sprite: SpriteBase3D = node as SpriteBase3D
 	if sprite == null:
 		for child in node.get_children():
-			if child is Sprite3D:
-				sprite = child as Sprite3D
+			if child is SpriteBase3D:
+				sprite = child as SpriteBase3D
 				break
 	if sprite == null or not sprite.is_inside_tree():
 		return
-	var base: Color = sprite.modulate
+	# rest-modulate remembered once: interrupting a flash mid-tween must not
+	# strand the sprite tinted (same capture rule as squash)
+	var base: Color
+	if sprite.has_meta("juice_rest_modulate"):
+		base = sprite.get_meta("juice_rest_modulate")
+	else:
+		base = sprite.modulate
+		sprite.set_meta("juice_rest_modulate", base)
+	if sprite.has_meta("juice_flash_tw"):
+		var old: Tween = sprite.get_meta("juice_flash_tw")
+		if old != null and old.is_valid():
+			old.kill()
 	var tw: Tween = sprite.create_tween()
+	sprite.set_meta("juice_flash_tw", tw)
 	tw.tween_property(sprite, "modulate", Color(1.6, 1.6, 1.5, base.a), 0.06)
 	tw.tween_property(sprite, "modulate", base, 0.10)
 

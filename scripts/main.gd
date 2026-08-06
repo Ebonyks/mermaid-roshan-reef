@@ -3489,6 +3489,7 @@ func _init_touch_experiment() -> void:
 		touch_ui.world_press_release = Callable(self, "_on_world_press_release")
 		touch_ui.world_press_drag = Callable(self, "_on_world_press_drag")
 		touch_ui.world_drag_end = Callable(self, "_on_world_drag_end")
+		touch_ui.world_press_cancel = Callable(self, "_on_world_press_cancel")
 	_interaction_ref()
 	_populate_touch_interactables()
 
@@ -3583,6 +3584,12 @@ func _live_hit_engines() -> Array:
 
 # The press-firing finger started travelling: it is a SLICE now, not a charge.
 func _on_world_press_drag() -> void:
+	for engine_value: Variant in _live_hit_engines():
+		(engine_value as HitEngine).cancel_charge_for_drag()
+
+# Focus loss / pause / touch-state reset: any held charge is thrown away
+# WITHOUT firing — opening the pause menu must never land a hit.
+func _on_world_press_cancel() -> void:
 	for engine_value: Variant in _live_hit_engines():
 		(engine_value as HitEngine).cancel_charge_for_drag()
 

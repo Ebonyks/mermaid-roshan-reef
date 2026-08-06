@@ -22,13 +22,13 @@ const CHAIN_T := 2.0                     # rolling hit-combo window (COMBO_SYSTE
 # LOCAL burst around the struck enemy — a reward, not a wave-clear.
 const SUPER_R := 6.5
 const HITSTOP := [0.04, 0.06, 0.09]      # target-freeze seconds at chain 0/1-2/3
-# THE DAMAGE GRAMMAR (owner decision 2026-08-01) — canon for every encounter:
-#   tap = 1 · slice/slash = 2 · hold (charge) = STAGED 2/3/5 totals · mash =
+# THE DAMAGE GRAMMAR (owner 2026-08-01; charge retuned 2026-08-04) — canon:
+#   tap = 1 · slice/slash = 2 · hold (charge) = STAGED 2/3/4 totals · mash =
 #   taps at 1. Enemy HP tiers: dust bunny 1 · basic imp 3 · advanced/captain
 #   4+ · bosses phase-ruled. A surviving enemy plays the HARM animation; at 0
 #   it is eliminated. The 1-2-3 tap combo therefore knocks out exactly a
 #   basic imp (3 × 1) and never an advanced enemy. Partner Big Taps = tap + 1.
-const VERB_DAMAGE := {"tap": 1, "mash": 1, "slice": 2, "hold": 5}   # hold = stage-3 total
+const VERB_DAMAGE := {"tap": 1, "mash": 1, "slice": 2, "hold": 4}   # hold = stage-3 total
 
 # ---- the three-stage charge attack (owner 2026-08-01) -----------------------
 # Press-and-HOLD on an enemy. The press already landed its tap (1 damage,

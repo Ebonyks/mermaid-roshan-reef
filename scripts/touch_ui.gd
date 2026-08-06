@@ -58,6 +58,10 @@ var world_press_release: Callable = Callable()
 # one verb.
 var world_press_drag: Callable = Callable()
 var world_drag_end: Callable = Callable()
+# fires on focus loss / state reset: a held charge is thrown AWAY (no damage),
+# unlike a deliberate lift which releases it. Opening the pause menu must not
+# land a hit (alpha audit 2026-08-05).
+var world_press_cancel: Callable = Callable()
 
 var _root: Control
 var _base: Panel
@@ -390,8 +394,10 @@ func reserved_zone_hit(pos: Vector2) -> bool:
 	return action_zone().has_point(pos) or movement_zone().has_point(pos)
 
 func _clear_touch_state() -> void:
-	if world_press_release.is_valid():
-		world_press_release.call()   # a held charge never survives focus loss
+	if world_press_cancel.is_valid():
+		world_press_cancel.call()   # thrown away, not fired: no surprise damage
+	elif world_press_release.is_valid():
+		world_press_release.call()
 	drag_active = false
 	drag_started = false
 	_touch_idx = -1
@@ -544,7 +550,11 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			var world_data: Dictionary = _world_pend[drag.index]
 			world_data["last"] = drag.position
 			if (drag.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
-				if not bool(world_data.get("moved", false)) and world_press_drag.is_valid():
+				# only the finger that press-fired may cancel its own charge —
+				# a sibling finger wobbling 22px elsewhere must not (alpha
+				# audit 2026-08-05: any second finger killed every held charge)
+				if not bool(world_data.get("moved", false)) and bool(world_data.get("consumed", false)) \
+						and world_press_drag.is_valid():
 					world_press_drag.call()   # a travelling finger is not a charge
 				world_data["moved"] = true
 				touch_owners[drag.index] = TouchOwner.WORLD_MOVE
@@ -598,8 +608,13 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 
 # A world touch that travelled is reported to the combat layer as a swipe.
 # Non-combat drags simply find no hit engine listening and cost nothing.
+# A stroke that press-fired on an enemy already spent itself as tap+charge —
+# it never doubles as a slash on lift (one stroke, one verb; without this a
+# single drag over an enemy dealt tap 1 + slice 2 in one gesture).
 func _world_swipe(world_data: Dictionary, end_pos: Vector2) -> void:
 	if not bool(world_data.get("moved", false)) or not world_drag_end.is_valid():
+		return
+	if bool(world_data.get("consumed", false)):
 		return
 	world_drag_end.call(world_data.get("pos", end_pos) as Vector2,
 		world_data.get("last", end_pos) as Vector2)
