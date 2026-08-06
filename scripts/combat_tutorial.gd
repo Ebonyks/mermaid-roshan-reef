@@ -91,9 +91,14 @@ class DemoFinger:
 			var ring: float = 18.0 + fmod(t * 46.0, 26.0)
 			draw_arc(anchor, ring, 0.0, TAU, 32, Color(1.0, 0.95, 0.6, 0.7), 3.0, true)
 		if mode == "hold" and pressing:
-			# the charge preview: an arc that grows and walks the stage colors
-			var cycle: float = fmod(t, 2.4)
-			var grow: float = clampf((cycle - 0.7) / 1.45, 0.0, 1.0)
+			# the charge preview: an arc that grows and walks the stage colors.
+			# The demo's fill time IS the engine's real full-charge time — the
+			# lesson would teach a lie if these ever drifted apart (they did
+			# once: the 2026-08-04 retune moved the charge to 1.75s while this
+			# demo still filled in 1.45s).
+			var full_t: float = float(HitEngine.CHARGE_STAGE_T[2])
+			var cycle: float = fmod(t, full_t + 0.95)
+			var grow: float = clampf((cycle - 0.7) / full_t, 0.0, 1.0)
 			var stage_col: Color = HitEngine.CHARGE_COLORS[clampi(int(grow * 3.0), 0, 2)]
 			draw_arc(anchor, 34.0 + grow * 26.0, -PI * 0.5,
 				-PI * 0.5 + TAU * maxf(grow, 0.06), 40,

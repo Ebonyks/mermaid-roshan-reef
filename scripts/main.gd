@@ -4446,7 +4446,9 @@ func _wind_sway(node: Node3D) -> void:
 	# per tree (gen2 wraps pivot at the base, so this reads as wind not tilt)
 	var amp: float = 0.018 + randf() * 0.014
 	var dur: float = 1.7 + randf() * 0.9
-	var tw := create_tween().set_loops()
+	# on the tree, not on main: a looping tween on main whose target is freed
+	# degenerates into a zero-duration loop and errors every frame forever
+	var tw := node.create_tween().set_loops()
 	tw.tween_property(node, "rotation:z", amp, dur).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tw.tween_property(node, "rotation:z", -amp, dur * 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tw.tween_property(node, "rotation:z", 0.0, dur).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -4525,15 +4527,17 @@ func _toy_anim(node: Node3D, name: String) -> void:
 		# the ambient spin IS the ride drive — _tick_toys reads rotation.y to
 		# seat Roshan on the deck, so this never pauses. 7s/turn reads clearly
 		# as spinning from across the meadow (11s looked parked at a glance).
-		var tw := create_tween().set_loops()
+		# All three toy tweens live on the toy node (not main) so they die
+		# with it instead of error-looping empty after a zone rebuild.
+		var tw := node.create_tween().set_loops()
 		tw.tween_property(node, "rotation:y", node.rotation.y + TAU, 7.0)
 	elif name.contains("horse"):
-		var tw2 := create_tween().set_loops()
+		var tw2 := node.create_tween().set_loops()
 		tw2.tween_property(node, "rotation:x", 0.07, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		tw2.tween_property(node, "rotation:x", -0.05, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		node.set_meta("toy_tw", tw2)   # paused while Roshan rides — she drives the rock herself
 	elif name.contains("seesaw"):
-		var tw3 := create_tween().set_loops()
+		var tw3 := node.create_tween().set_loops()
 		tw3.tween_property(node, "rotation:z", 0.055, 2.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		tw3.tween_property(node, "rotation:z", -0.055, 2.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		node.set_meta("toy_tw", tw3)   # paused while Roshan bounces the open seat
@@ -6270,6 +6274,12 @@ func _clear_game() -> void:
 	_game_obj("dolls", DollsGame).stage_close()
 	_game_obj("brawl", BrawlGame).stage_close()
 	_game_obj("dustboss", DustBossGame).stage_close()
+	# safety net (alpha audit 2026-08-05): any tween a minigame stashed in g
+	# dies WITH the game — a looping tween that outlives its freed target
+	# degenerates to a zero-duration loop and errors every frame forever
+	for v in g.values():
+		if v is Tween and (v as Tween).is_valid():
+			(v as Tween).kill()
 	for n in game_nodes:
 		if is_instance_valid(n):
 			n.queue_free()

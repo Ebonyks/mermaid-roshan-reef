@@ -154,7 +154,11 @@ func _seek_hide() -> void:
 	# still — a slow seeker lost the only signal. It wiggles until found now.
 	if m.g.get("wiggle_tw") != null and (m.g["wiggle_tw"] as Tween).is_valid():
 		(m.g["wiggle_tw"] as Tween).kill()
-	var tw = m.create_tween().set_loops()
+	# the tween lives on the BUSH, not on main: when _clear_game frees the
+	# bushes this dies with its target instead of looping empty forever
+	# (the "Infinite loop detected" spam after every seek win, alpha audit
+	# 2026-08-05 — a permanent per-frame error drain on the phone)
+	var tw = bush.create_tween().set_loops()
 	tw.tween_property(bush, "scale", Vector3(1.35, 0.75, 1.35), 0.16)
 	tw.tween_property(bush, "scale", Vector3.ONE, 0.16)
 	tw.tween_interval(0.9)
