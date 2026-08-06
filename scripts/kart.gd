@@ -2324,7 +2324,7 @@ func _tick_select(delta: float) -> void:
 			_sel_t = 0.0
 			_paint_prev = -1
 			_build_paint_row()
-			_lbl_big.text = "Pick your paint!"
+			_lbl_big.text = "" if _minimal() else "Pick your paint!"
 		return
 	# ---- paint phase ----
 	var np := PAINTS.size()
@@ -2348,7 +2348,7 @@ func _tick_select(delta: float) -> void:
 		_paint_prev = _paint_idx
 		_apply_paint((_sel_nodes[_sel_idx] as Dictionary)["body"], PAINTS[_paint_idx])
 		var confirm_hint := "TAP to GO!" if _touch_device() else "SPACE or A to GO!"
-		_lbl_hint.text = String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  " + confirm_hint
+		_lbl_hint.text = "" if _minimal() else (String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  " + confirm_hint)
 	if confirm or _sel_t > SELECT_TIMEOUT:
 		var vkey: String = String(_vehicle_keys()[_sel_idx])
 		var paint: Dictionary = PAINTS[_paint_idx]
@@ -2361,7 +2361,7 @@ func _tick_select(delta: float) -> void:
 		_refresh_select_controls()
 		_clock = 3.999
 		_lbl_big.text = ""
-		_lbl_hint.text = ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  SPACE or A = TURBO!")
+		_lbl_hint.text = "" if _minimal() else ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  SPACE or A = TURBO!")
 		_meter_bg.visible = true
 		_set_guide_mode("action")
 		# put the whole pack ON the grid right now (nodes used to sit at the

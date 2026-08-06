@@ -134,6 +134,11 @@ var widget_mover: Texture2D = null
 var widget_overlay: Texture2D = null
 var widget_stamp: Texture2D = null
 var widget_shared: Texture2D = null
+## True between a phase being ARMED (station lit, art bound, child still
+## wandering) and OPENED. Self-running clocks — oven heat, pipe fuel, the
+## echo song — hold still until she actually arrives; without this the
+## oven auto-dinged and completed the bake while she was still walking.
+var armed_only := false
 ## Pipe-dream tile art (ledger P1). Code-drawn until these land; the draw
 ## path prefers the texture whenever the face has one.
 var pipe_tiles: Dictionary = {}
@@ -331,13 +336,13 @@ func _process(delta: float) -> void:
 	if shuffle_t > 0.0 and mode == "choice":
 		shuffle_t = maxf(0.0, shuffle_t - delta)
 		queue_redraw()
-	if mode == "pipe" and not completion_accepted:
+	if mode == "pipe" and not completion_accepted and not armed_only:
 		_pipe_tick(delta)
-	if mode == "echo" and not completion_accepted:
+	if mode == "echo" and not completion_accepted and not armed_only:
 		_echo_tick(delta)
 	if mode == "pourt" and not completion_accepted:
 		_pour_tick(delta)
-	if mode == "oven" and not completion_accepted:
+	if mode == "oven" and not completion_accepted and not armed_only:
 		if oven_peek > 0.0:
 			# door open for a peek — the heat politely waits
 			oven_peek = maxf(0.0, oven_peek - delta)
@@ -439,9 +444,12 @@ func _press(at: Vector2) -> void:
 				gesture.emit("oven", 0.0, 1.0)
 			elif oven_t < 0.45:
 				# a peek: door opens, the cake jiggles gooey, baking resumes.
-				# The trickle teaches color-watching; mashing pays nothing.
-				oven_peek = 0.7
-				gesture.emit("oven", _miss_pay(), 0.55)
+				# Mashing neither pays NOR peeks — a drumming finger cannot
+				# hold the door open and freeze the bake clock.
+				var pay := _miss_pay()
+				if pay > 0.0:
+					oven_peek = 0.7
+				gesture.emit("oven", pay, 0.55)
 			else:
 				# she takes the cake out — golden is perfect, toasty is still
 				# wonderful, and the difference is only the confetti's size
@@ -1183,6 +1191,20 @@ func _pipe_tick(delta: float) -> void:
 		if step.is_empty():
 			# the fuel WAITS at the last good pipe, bulging patiently
 			pipe_wait_t += step_time
+			if pipe_wait_t >= 16.0:
+				# waited twice the hint window: the wrong pipe hops back to
+				# the tray on its own. Nothing lost, nothing failed.
+				var wrong := _pipe_hint_cell()
+				if wrong >= 0 and PIPE_MOUTHS.has(String(pipe_grid[wrong])) and not pipe_fixed[wrong]:
+					var keep: Array = []
+					for flow_step: Array in pipe_flow:
+						if int(flow_step[0]) == wrong:
+							break
+						keep.append(flow_step)
+					pipe_flow = keep
+					pipe_tray.append(String(pipe_grid[wrong]))
+					pipe_grid[wrong] = ""
+				pipe_wait_t = 8.0
 		elif int(step[0]) < 0:
 			# reached the rocket! round done
 			pipe_round += 1
@@ -1204,10 +1226,12 @@ func _pipe_press(at: Vector2) -> void:
 		return
 	for slot in range(pipe_tray.size()):
 		if _pipe_tray_rect(slot).has_point(at):
-			# lift from the tray (drag) and remember it (tap-then-tap)
+			# CARRY the tile: it leaves the tray immediately, so no input
+			# sequence can ever duplicate it (2026-08-05 release audit)
 			pipe_drag_tile = String(pipe_tray[slot])
+			pipe_tray.remove_at(slot)
 			pipe_drag_from = -1
-			pipe_tray_sel = slot
+			pipe_tray_sel = -1
 			queue_redraw()
 			return
 	var cell := _pipe_cell_at(at)
@@ -1219,13 +1243,23 @@ func _pipe_press(at: Vector2) -> void:
 		gesture.emit("pipe", 0.0, 0.6)
 		queue_redraw()
 		return
-	var fueled := cell in _pipe_flow_cells()
-	if PIPE_MOUTHS.has(tile) and not pipe_fixed[cell] and not fueled:
-		# lift a placed pipe to slide it somewhere better
+	if PIPE_MOUTHS.has(tile) and not pipe_fixed[cell]:
+		# lift ANY placed pipe — even a fueled one. A wrong pipe the fuel
+		# has entered was a permanent dead end (rounds 2 and 3 both had a
+		# natural first move that killed the round); lifting it drains the
+		# fuel back to the last good pipe and the child fixes her own plan.
+		if cell in _pipe_flow_cells():
+			var keep: Array = []
+			for step: Array in pipe_flow:
+				if int(step[0]) == cell:
+					break
+				keep.append(step)
+			pipe_flow = keep
 		pipe_drag_tile = tile
 		pipe_drag_from = cell
 		pipe_grid[cell] = ""
 		pipe_tray_sel = -1
+		pipe_wait_t = 0.0
 		queue_redraw()
 		return
 	if tile == "" and pipe_tray_sel >= 0 and pipe_tray_sel < pipe_tray.size():
@@ -1246,13 +1280,18 @@ func _pipe_release(at: Vector2) -> void:
 		pipe_grid[cell] = pipe_drag_tile
 		pipe_wait_t = 0.0
 		gesture.emit("pipe", 0.0, 1.0)
-	elif pipe_drag_from >= 0 and String(pipe_grid[pipe_drag_from]) == "":
+	elif cell >= 0 and pipe_drag_from >= 0 and String(pipe_grid[pipe_drag_from]) == "":
+		# dropped on an occupied cell: the tile hops back where it came from
 		pipe_grid[pipe_drag_from] = pipe_drag_tile
 	else:
+		# released off the grid (the tray, or a stray drag): back to the
+		# tray, SELECTED — a tap on the tray then a tap on a cell is the
+		# whole one-finger placement grammar, and lifting a placed pipe
+		# down to the tray must actually put it there
 		pipe_tray.append(pipe_drag_tile)
+		pipe_tray_sel = pipe_tray.size() - 1
 	pipe_drag_tile = ""
 	pipe_drag_from = -1
-	pipe_tray_sel = -1
 	queue_redraw()
 
 
@@ -1276,8 +1315,13 @@ func _pipe_hint_cell() -> int:
 	var col := head_cell % PIPE_COLS + out_dir.x
 	var row := floori(float(head_cell) / float(PIPE_COLS)) + out_dir.y
 	if col < 0 or col >= PIPE_COLS or row < 0 or row >= PIPE_ROWS:
-		return -1
-	return row * PIPE_COLS + col
+		# blocked by the edge: the wrong pipe itself is the fix — lift it
+		return head_cell if not pipe_fixed[head_cell] else -1
+	var next_cell := row * PIPE_COLS + col
+	if String(pipe_grid[next_cell]) == "IMP":
+		# never mark the napping imp — the pipe pointing at him is the fix
+		return head_cell if not pipe_fixed[head_cell] else -1
+	return next_cell
 
 
 func _draw_pipe_tile(rect: Rect2, tile: String, fueled: bool) -> void:
@@ -1397,8 +1441,15 @@ func _echo_press(at: Vector2) -> void:
 	if completion_accepted:
 		return
 	var verse: Array = ECHO_VERSES[clampi(echo_verse, 0, ECHO_VERSES.size() - 1)]
+	var nearest := -1
+	var nearest_d := 92.0
+	for candidate in range(3):
+		var d := at.distance_to(_echo_star_center(candidate))
+		if d < nearest_d:
+			nearest_d = d
+			nearest = candidate
 	for star in range(3):
-		if at.distance_to(_echo_star_center(star)) <= 74.0:
+		if star == nearest:
 			if not echo_listening:
 				# eager taps during the song just twinkle — no punishment
 				echo_last_note = star

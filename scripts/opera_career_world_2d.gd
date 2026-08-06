@@ -865,7 +865,7 @@ func _arm_phase() -> void:
 	# bind the job's own art now: the armed station already knows its trade
 	if mode_name != "bop" and mode_name != "lens":
 		_bind_widget(phase, mode_name,
-			Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8))))
+			Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8))), true)
 	if mode_name == "bop" or mode_name == "lens" or mode_name == "kart" \
 			or (career_id == "nursery" and mode_name == "catch") \
 			or armed_station < 0 or armed_station >= station_list.size():
@@ -875,10 +875,13 @@ func _arm_phase() -> void:
 		wander_layer.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
-func _bind_widget(phase: Dictionary, mode_name: String, accent: Color) -> void:
+func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := false) -> void:
 	var template := _widget_template(phase)
 	var context := "%s_%s" % [template, career_id] if not template.is_empty() else ""
 	surface.configure(mode_name, accent, choice_target, context)
+	# while she is still wandering, the bound widget shows but its clocks
+	# (oven heat, pipe fuel, echo song) hold still until she arrives
+	surface.armed_only = armed
 
 
 func _open_task() -> void:
@@ -1318,7 +1321,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		competition.note_success(10)
 		if continuous:
 			score_cool = 0.5
-	var gain := amount if continuous else maxf(0.04, amount)
+	var gain := amount if continuous else (maxf(0.04, amount) if amount > 0.0 else 0.0)
 	phase_progress += gain
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
@@ -1496,14 +1499,20 @@ func rival_step() -> void:
 
 
 func begin_guided_retry() -> void:
-	if career_id != "detective" or reveal_t > 0.0:
+	# the rival's clock may only claim the STAGE contest: the investigation
+	# (talk and lens hops) has no rival, so the retry can never teleport her
+	# past ASK ROSALINA, the FOUNTAIN, the STAIRS and the CROWN CHASE
+	if career_id != "detective" or reveal_t > 0.0 or phase_index < _finale_start():
 		return
 	active = false
 	reveal_t = 3.6
-	surface.configure("choice", Color(1.0, 0.84, 0.28), choice_target)
+	# the finale is the ally-corner: the rival detective DEMONSTRATES the
+	# corner (taunt + VO) — there is no choice widget in this career
+	_set_rival_pose("taunt")
+	_bounce_actor(rival_actor, 16.0, 0.5)
 	surface.restart_demo()
 	if m != null:
-		m.show_msg("Rival Imp", "The imp found it! Watch the glowing answer, then solve the same mystery with the sparkle memory!", "op_retry")
+		m.show_msg("Rival Imp", "The rival detective corners him first — watch, then trap him together!", "op_retry")
 
 
 func update_competition() -> void:
@@ -2070,10 +2079,13 @@ func _process(delta: float) -> void:
 		idle_t += delta
 		if not task_open:
 			if idle_t >= 20.0:
-				# the kind assist: she drifts toward the waiting station
+				# the kind assist: she walks herself to the waiting station.
+				# The WALK, not the glide — the walk owns wander_feet, which
+				# is what the arrival dwell reads, so she really arrives.
 				idle_t = 8.0
 				if armed_station >= 0 and armed_station < station_list.size():
-					_glide_roshan_to(station_list[armed_station].get("pos", Vector2(640, 480)) as Vector2)
+					wander_dest = station_list[armed_station].get("pos", Vector2(640, 480)) as Vector2
+					wander_walking = true
 			elif idle_t >= 9.0 and idle_t - delta < 9.0 and m != null:
 				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")), "hint")
 		elif idle_t >= 9.0:
@@ -2113,21 +2125,32 @@ func _process(delta: float) -> void:
 			active = true
 			competition.guided_retry()
 			_show_phase()
-			# the remembered clues give a visible head start on the rematch
-			phase_progress = 2.0
-			phase_fill.value = clampf(2.0 / maxf(0.1, float((phases[phase_index] as Dictionary).get("goal", 1.0))), 0.0, 1.0) * 100.0
+			if String((phases[phase_index] as Dictionary).get("mode", "")) == "choice":
+				# remembered clues earn a head start on a MEMORY rematch;
+				# a bop finale credits no hits she never landed
+				phase_progress = 2.0
+				phase_fill.value = clampf(2.0 / maxf(0.1, float((phases[phase_index] as Dictionary).get("goal", 1.0))), 0.0, 1.0) * 100.0
 
 
 func close() -> void:
 	active = false
+	if m != null:
+		# story lines queued by talk beats must not drain into the lagoon
+		m.clear_dialogue()
 	if kart_node != null and is_instance_valid(kart_node):
-		kart_node.queue_free()
+		# the kart's own teardown restores environment and camera and fires
+		# the finish callback (harmless here: active is already false)
+		kart_node._teardown(-1)
 		kart_node = null
 	if race_active:
 		race_active = false
 		root.visible = true
-		if m != null and m.touch_ui != null:
-			m.touch_ui.visible = race_touch_was
+		if m != null:
+			if m.game == "kart":
+				m.game = "opera"
+			m.kart_game = null
+			if m.touch_ui != null:
+				m.touch_ui.visible = race_touch_was
 	if wander_layer != null:
 		wander_layer.visible = false
 		wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -2224,16 +2247,13 @@ func _wander_step(delta: float) -> void:
 
 
 func _start_kart_race() -> void:
-	# headless probes (and any safety fallback) keep the pump-completable 2D
-	# beat; a live device gets the real lap. DisplayServer is the honest gate.
+	# PROBE-ONLY path: headless (or OPERA_FORCE_2D) skips the 3D lap and the
+	# beat completes through the normal gesture pump. There is NO separate
+	# 2D race minigame — on a real tablet the kart always runs.
 	if m == null or DisplayServer.get_name() == "headless" \
 			or OS.get_environment("OPERA_FORCE_2D") == "1":
 		return
-	race_active = true
-	root.visible = false
 	race_touch_was = m.touch_ui != null and m.touch_ui.visible
-	if m.touch_ui != null:
-		m.touch_ui.visible = true
 	# pre-commit so the reef's kart medals, stickers and Galaxy unlock can
 	# never double-award from an opera race (guard verified in main.gd)
 	m.kart_completion_committed = true
@@ -2252,6 +2272,16 @@ func _start_kart_race() -> void:
 		"assume_acted": true,
 	})
 	kart_node.start(m, _opera_race_done)
+	# only after the kart is running does the 2D world step aside — nothing
+	# above may leave the child on a blank, unresponsive screen
+	race_active = true
+	root.visible = false
+	if m.touch_ui != null:
+		m.touch_ui.visible = true
+	# main.gd suspends the reef/lagoon simulation ONLY for game == "kart" —
+	# the heaviest frame in the game must not tick the whole world under it
+	m.game = "kart"
+	m.kart_game = kart_node
 
 
 func _opera_race_done(_place: int) -> void:
@@ -2260,8 +2290,11 @@ func _opera_race_done(_place: int) -> void:
 	kart_node = null
 	race_active = false
 	root.visible = true
-	if m != null and m.touch_ui != null:
-		m.touch_ui.visible = race_touch_was
+	if m != null:
+		m.game = "opera"
+		m.kart_game = null
+		if m.touch_ui != null:
+			m.touch_ui.visible = race_touch_was
 	if prop_rect != null and prop_rect.texture != null:
 		prop_rect.visible = true
 		prop_rect.scale = Vector2.ONE
