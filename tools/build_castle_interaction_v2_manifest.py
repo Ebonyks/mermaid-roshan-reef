@@ -227,8 +227,18 @@ def water_layers_for(asset_id: str) -> list[dict[str, Any]]:
     if asset_id == "bubble_bath_toilet":
         return [
             _ellipse(
-                "vortex", (0.500, 0.420), (0.180, 0.043),
-                z_offset=0.007, flow_start=0.08, render_priority=2,
+                "vortex", (0.510, 0.615), (0.120, 0.028),
+                z_offset=0.003, flow_start=0.08, render_priority=1,
+                active_frames=[2, 3, 4],
+                contact_role="inside_bowl_cavity",
+                cavity_bounds_normalized=[0.365, 0.570, 0.290, 0.090],
+                occlusion_contract="front_surface_confined_to_inner_bowl_waterline",
+                deep=[0.30, 0.70, 0.82, 1.0],
+                shallow=[0.74, 0.95, 0.98, 1.0],
+                alpha_base=0.56,
+                turbulence=0.52,
+                edge_foam=0.18,
+                flow_speed=1.25,
             ),
         ]
     if asset_id == "mermaid_pool_flower_float":

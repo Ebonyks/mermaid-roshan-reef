@@ -711,7 +711,7 @@ generator output is present in this directory or connected to runtime art.
 - `assets_src/castle/room_regenerations/room_kitchen_kettle_single_spout_chroma.png`, `room_kitchen_kettle_single_spout.png`, and `room_kitchen_fullframe_v3_1672x941.png` — project-original OpenAI built-in ImageGen single-object correction of the v2 stove-kettle defect; the accepted isolated golden kettle has exactly one right-side spout, was hard-key alpha extracted with despill and one-pixel contraction, and was composited only over the restored old-kettle footprint by `tools/repair_kitchen_kettle.py`; native source, exact prompt, hashes, rejected-method note, and production method are recorded in `room_kitchen_fullframe_v3_provenance.md`; generated and integrated 2026-07-29.
 - `assets/flats/castle/rooms/room_kitchen.png`, `room_kitchen_background.png`, `room_kitchen_front_left.png`, `room_kitchen_front_right.png`, `room_kitchen_item_sink.png`, `room_kitchen_item_oven.png`, `room_kitchen_item_pan_1.png` through `room_kitchen_item_pan_4.png`, `room_kitchen_item_fridge.png`, `assets_src/castle/room_backgrounds_2k/room_kitchen_background_2k.png`, and `assets/flats/castle/rooms/background_tiles/room_kitchen_background_r*_c*.png` — deterministic derivatives of the preserved Kitchen v3 full-frame source; normalized to the 1024×576 logical stage, separated into outline-refined Sprite3D cards, and whole-canvas Lanczos enlarged to a 4096×2304 background master split into twelve non-overlapping 1024×768 runtime tiles; generated 2026-07-29 by `tools/build_castle_room_layers.py` and `tools/build_castle_room_2k_tiles.py`.
 - `assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v2_native.png`, `room_mermaid_pool_fullframe_v3_native.png`, `room_mermaid_pool_fullframe_v3_prompt.txt`, and adjacent `PROVENANCE.md` — project-original OpenAI built-in ImageGen full-frame Mermaid Pool regenerations; v2 restores the continuously visible rainbow waterfall, removes the dry shell-gate device and ambiguous pipe fixture, and introduces one coherent seahorse fountain; v3 preserves those accepted interaction subjects while enlarging the pool into a broad rounded foreground lagoon. Native sources, exact prompts, references, methods, and SHA-256 values are preserved; generated 2026-08-02.
-- `assets/flats/castle/rooms/room_mermaid_pool.png`, `room_mermaid_pool_background.png`, `room_mermaid_pool_{front_left,front_right,mid_pool}.png`, `room_mermaid_pool_item_{waterfall,flower_float,star_float,seahorse_fountain}.png`, `assets_src/castle/room_backgrounds_2k/room_mermaid_pool_background_2k.png`, and `assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r*_c*.png` — deterministic normalized, outline-refined, healed-plate, depth-card, 2048x1152 master, and non-overlapping runtime-tile derivatives of the accepted 2026-08-02 v3 full-frame source; built by `tools/build_castle_room_layers.py` and `tools/build_castle_room_2k_tiles.py`.
+- `assets/flats/castle/rooms/room_mermaid_pool.png`, `room_mermaid_pool_background.png`, `room_mermaid_pool_{front_left,front_right,mid_pool}.png`, `room_mermaid_pool_item_{waterfall,flower_float,star_float,seahorse_fountain}.png`, `assets_src/castle/room_backgrounds_2k/room_mermaid_pool_background_2k.png`, and `assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r*_c*.png` — deterministic normalized, outline-refined, healed-plate, depth-card, 3640x2048 master, and eight non-overlapping 910x1024 runtime-tile derivatives of the accepted 2026-08-02 v3 full-frame source; built by `tools/build_castle_room_layers.py` and `tools/build_castle_room_2k_tiles.py`.
 - The superseded original Mermaid Pool composite and its dry v2 generated fixture sheets remain in Git/provenance history for audit only; runtime uses the accepted 2026-08-02 complete room and room-derived interaction atlases.
 - `assets/flats/castle/rooms/room_bubble_bath.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the Mermaid Pool, Kitchen, and Main Hall style references; authored as a wide room with separated bathtub, sink, and toilet; resized to 1024×576.
 - `assets/flats/castle/rooms/room_*_front_*.png` and `room_*_mid_*.png` — exact-pixel alpha crops derived from the corresponding licensed room backdrops by `tools/build_castle_room_layers.py`; no new source artwork.
@@ -857,7 +857,10 @@ acceptance decisions, and the owner-authorized production transform are in
 - `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/sign_reuse_manifest.json`
   - project-authored deterministic reuse ledger for every sign card below;
     records output hashes, approved source hashes and crop rectangles, alpha
-    treatment, and the one whole-card Lanczos resize; provenance data, not art.
+    treatment, the one whole-card Lanczos resize, and the Family Gallery
+    badge's exact collection-palette samples and outline radii; it also keeps
+    the eight-sign 4.5/5 compatibility scorecard and acceptance decisions;
+    provenance data, not art.
 - `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/throne_reuse_manifest.json`
   - project-authored deterministic reuse ledger for the retained throne card;
     records its approved source rectangle, hashes, alpha audit, unchanged RGB
@@ -920,9 +923,11 @@ strict 2K build and audit manifests.
     `24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41`.
 
 The eight 256x256 sign cards below reuse only already licensed, approved
-project art. Each source crop, source hash, soft alpha treatment, and whole-card
-Lanczos resize is recorded in `sign_reuse_manifest.json`; no external or newly
-generated RGB artwork was introduced.
+project art. Each source crop, source hash, alpha treatment, and whole-card
+Lanczos resize is recorded in `sign_reuse_manifest.json`; the Dream House sign
+uses a hand-traced semantic alpha to exclude its portal architecture, plus a
+deterministic navy keyline and gold edge sampled from the approved Library
+badge. No external or AI-generated RGB artwork was introduced.
 
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png`
   - approved Main Hall Screen B badge reuse; SHA-256
@@ -931,8 +936,12 @@ generated RGB artwork was introduced.
   - approved Main Hall Screen B badge reuse; SHA-256
     `17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png`
-  - approved Family Wing hall badge reuse; SHA-256
-    `65ae7b5b6ffdf734ebc70b2ab9113ad2acc5985cb9a042f8a6dbadcd192ccd51`.
+  - approved Family Wing hall crest re-extracted from the full existing source
+    so its formerly clipped right edge and adjacent portal scroll are absent;
+    semantic alpha, visible-bounds centering, and a deterministic
+    collection-sampled keyline only, with no repaint or new RGB artwork;
+    SHA-256
+    `222d5a5a4c590b6ae951ff5d7f4431bd35ed539e48cf0346a2e31fd83a09a0dd`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png`
   - approved Main Hall Screen A badge reuse; SHA-256
     `7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd`.
@@ -946,13 +955,46 @@ generated RGB artwork was introduced.
   - approved Main Hall Screen A badge reuse; SHA-256
     `7378b84c037fc6c5fe21880577f6eba2214d3c5e990b726bfaf67d83e8c03fd1`.
 - `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png`
-  - approved Main Hall Screen B badge reuse; SHA-256
+  - approved Main Hall Screen B badge reuse, accepted and preserved
+    byte-for-byte after review found that removing its minor source-arch cap
+    would also cut valid teddy/rim pixels; SHA-256
     `22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df`.
+
+The twelve 256x256 elevator crests below are project-authored deterministic
+derivatives of the already licensed physical-door art above and the four
+approved Dream House portal cards. `tools/build_castle_elevator_picture_icons.py`
+alpha-crops the existing crest, applies one aspect-preserving Lanczos fit into
+a shared 256x256 transparent canvas with audited optical-size normalization,
+and centers it without repainting, stretching, AI generation, or alteration
+of any source. Exact source/output
+dimensions, crop rectangles, hashes, and transforms are recorded in
+`assets/ui/castle_room_buttons_v2/elevator_picture_icon_manifest.json`.
+
+- `assets/ui/castle_room_buttons_v2/room_main_hall.png`
+- `assets/ui/castle_room_buttons_v2/room_opera_hall.png`
+- `assets/ui/castle_room_buttons_v2/room_kitchen.png`
+- `assets/ui/castle_room_buttons_v2/room_library.png`
+- `assets/ui/castle_room_buttons_v2/room_playroom.png`
+- `assets/ui/castle_room_buttons_v2/room_craft_room.png`
+- `assets/ui/castle_room_buttons_v2/room_mermaid_pool.png`
+- `assets/ui/castle_room_buttons_v2/room_bubble_bath.png`
+- `assets/ui/castle_room_buttons_v2/room_dining_room.png`
+- `assets/ui/castle_room_buttons_v2/room_royal_bedroom.png`
+- `assets/ui/castle_room_buttons_v2/room_sleepover_bedroom.png`
+- `assets/ui/castle_room_buttons_v2/room_movie_lounge.png`
+
+The Royal Hall veil reuses
+`assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png` under its existing
+project-original license. Five narrow, low-alpha unshaded `Sprite3D` cards use
+that exact byte-unchanged texture at separate real depths; this introduces no
+new art and does not alter the accepted Main Hall background.
+
 - `assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png`
-  - approved-project exact RGB crop of the previously licensed aligned Screen B
-    throne, with only a manually audited antialiased silhouette alpha mask;
-    no upscale, external source, new RGB pixels, or redesigned throne;
-    SHA-256 `49c91df90ca65b56a5562a9ecc5e61fc4dc361fb684370cd7e3365375ff8ca1f`.
+  - exact RGB crop of the approved Regen-01 pearl-shell throne's orthographic
+    front view, with only border-connected studio-matte removal and exclusion
+    of its source-sheet floor shadow; no upscale, external source, new RGB
+    pixels, or redesign; SHA-256
+    `91a8edcb91492d699e228cb4048fa346825f2a9e034ca3c9693f69a98933bcff`.
 
 - `audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_audit.json`
   and `castle_main_hall_redraw_2026-08-04_2k_{transform_overlay,grid_proof,seam_proof,reconstruction_proof}.png`
@@ -1037,14 +1079,26 @@ generated RGB artwork was introduced.
 ## Pearl Castle 2K room cards and final junction derivatives (2026-07-29)
 
 - `assets_src/castle/room_backgrounds_2k/room_*_background_2k.png` —
-  seven project-original 2048 x 1152 preservation masters derived from the
-  already licensed 1024 x 576 clean room plates with Pillow Lanczos under the
-  owner's explicit authorization to upscale for this pass. Originals and
-  aspect ratios are preserved; no external source or new object design.
+  six project-original 3640 x 2048 preservation masters plus the Kitchen's
+  4096 x 2304 master, derived from the already licensed 1024 x 576 clean room
+  plates with whole-canvas Pillow Lanczos under the owner's explicit
+  authorization to upscale for this pass. Originals and aspect ratios are
+  preserved; no external source or new object design.
 - `assets/flats/castle/rooms/background_tiles/room_*_background_r*_c*.png`
-  — 28 non-overlapping 1024 x 576 runtime crops of the seven masters above,
-  produced by `tools/build_castle_room_2k_tiles.py`. Every four-card group
-  reconstructs its master pixel-exactly; no scaling occurs during slicing.
+  — 48 non-overlapping 910 x 1024 runtime crops of the six native masters plus
+  twelve non-overlapping 1024 x 768 Kitchen crops, produced by
+  `tools/build_castle_room_2k_tiles.py`. Each tile group reconstructs its
+  master pixel-exactly; no scaling occurs during slicing.
+- `assets_src/castle/room_backgrounds_2k/castle_live_alpha_baseline_repair.json`
+  — project-authored 2026-08-04 provenance and hash ledger for the
+  non-destructive seven-room baseline repair. The approved whole-room image is
+  restored outside the exact union of active V2/V4 animation-frame alpha and
+  static depth-card alpha at the runtime scissor threshold of 128; prior hidden
+  fill is retained only beneath that live union. The logical binary union is
+  scaled to the native canvas with nearest-neighbor while the approved image
+  uses the existing whole-canvas Lanczos transform. All seven repaired masters
+  report zero changed native pixels outside the live union; protected originals
+  are unchanged; no new art or external source is introduced.
 - `assets_src/castle/main_hall_alignment/generated_cleanup_candidate_{a,b}.png`
   — project-original OpenAI built-in ImageGen precision-removal candidates
   made from the two already licensed Main Hall masters. The request removed
@@ -1675,117 +1729,214 @@ Runtime fluid, audio, review, and provenance artifacts:
 - `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json` - exact playroom/craft/pool prompt/hash/review evidence.
 - `assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json` - exact four-pan prompt/hash/rejection/review evidence.
 
-## Pearl Castle authored object interactions v3 expansion (2026-08-02)
+## Pearl Castle native-object interactions V4 (2026-08-04)
 
-This additive pass fills a specific production gap: the approved rooms did not
-have enough clean, complete-object animation states to double their interactive
-fixture inventories. The 38 new source sheets are project-original OpenAI
-built-in ImageGen output in the established Pearl Castle storybook style; no
-third-party visual source or external URL was used. License: project-owned
-original, all rights reserved; source URL: N/A. Native generation paths, hashes,
-exact prompts, accepted attempts, rejected attempts where applicable, and review
-state are retained in the four provenance ledgers listed below.
+This corrective pass isolates and animates only objects already present in the
+approved Pearl Castle rooms. All files in this section are project-owned
+originals or non-destructive derivatives of already licensed project art; no
+third-party visual source or external URL was used. Approved parent room images
+remain unchanged. Exact source, native-generation, derivative, delivery, and
+rejection hashes are recorded in the V4 runtime and ImageGen provenance
+manifests. Rejected and superseded generations are non-runtime evidence only.
 
-The checked-in chroma sheets are non-destructive prepared copies of those native
-generations: one uniform fit of each complete conceptual cell into a 1024 x 512
-sheet, with a four-pixel exact-chroma inset around every conceptual cell.
-Runtime sheets are derived by chroma matte/despill,
-whole-object fixed-anchor registration, transparent padding, and one uniform
-per-sheet scale. No tweening, pixel morphing, or overlay animation authors an
-object state. Codex visual review is recorded; owner/human review remains
-pending and is not implied by this license record.
+Runtime healed background tiles:
 
-Prepared generated chroma/source sheets (eight complete states, 4 x 2):
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c0.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c1.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c2.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c3.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
 
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/craft_room/craft_room_scissors_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/craft_room/craft_room_sewing_machine_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/library/library_quill_set_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/library/library_rolling_ladder_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/library/library_secret_panel_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/library/library_telescope_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/playroom/playroom_dollhouse_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/playroom/playroom_rocking_horse_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/playroom/playroom_toy_chest_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/playroom/playroom_xylophone_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/bubble_bath/bubble_bath_shell_shower_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/bubble_bath/bubble_bath_soap_pump_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/bubble_bath/bubble_bath_towel_spool_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/bubble_bath/bubble_bath_vanity_cupboard_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/craft_room/craft_room_bead_jar_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/craft_room/craft_room_stamp_press_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_cookie_jar_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_cutlery_drawer_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_ladle_rack_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_seafoam_kettle_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_serving_tureen_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_shell_cupboard_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/kitchen/kitchen_soup_pot_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_banner_left_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_chest_bench_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_fern_planter_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_left_pearl_vitrine_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_right_pearl_vitrine_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_shell_clock_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/main_hall/main_hall_visitor_bell_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/mermaid_pool/mermaid_pool_buoy_bell_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/mermaid_pool/mermaid_pool_dock_chest_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/mermaid_pool/mermaid_pool_sailboat_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/mermaid_pool/mermaid_pool_waterwheel_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_conductor_podium_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_coral_harp_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_costume_trunk_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
-- `assets_src/imagegen/castle_object_animations_v3/opera_hall/opera_hall_shell_piano_sheet_chroma.png` - prepared generated chroma source and provenance input; project-owned original.
+Full healed room plates:
 
-Runtime generated full-object state sheets (eight authored states, 4 x 2):
+- `assets/flats/castle/interactions_v4/backgrounds/room_bubble_bath_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_craft_room_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_kitchen_background.png` - project-authored non-destructive healed derivative of the approved Kitchen art, limited to the cleaned refrigerator's source-owned/live-frame union; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_library_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_opera_hall_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_playroom_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
 
-- `assets/flats/castle/interactions_v3/bubble_bath_shell_shower_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/bubble_bath_soap_pump_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/bubble_bath_towel_spool_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/bubble_bath_vanity_cupboard_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/craft_room_bead_jar_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/craft_room_scissors_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/craft_room_sewing_machine_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/craft_room_stamp_press_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/kitchen_cookie_jar_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/kitchen_cutlery_drawer_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/kitchen_ladle_rack_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/kitchen_seafoam_kettle_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/kitchen_serving_tureen_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/kitchen_shell_cupboard_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/kitchen_soup_pot_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/library_quill_set_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/library_rolling_ladder_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/library_secret_panel_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/library_telescope_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/main_hall_banner_left_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/main_hall_chest_bench_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/main_hall_fern_planter_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/main_hall_left_pearl_vitrine_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/main_hall_right_pearl_vitrine_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/main_hall_shell_clock_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/main_hall_visitor_bell_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/mermaid_pool_buoy_bell_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/mermaid_pool_dock_chest_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/mermaid_pool_sailboat_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/mermaid_pool_waterwheel_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/opera_hall_conductor_podium_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/opera_hall_coral_harp_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/opera_hall_costume_trunk_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/opera_hall_shell_piano_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/playroom_dollhouse_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/playroom_rocking_horse_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/playroom_toy_chest_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
-- `assets/flats/castle/interactions_v3/playroom_xylophone_sheet.png` - alpha-normalized complete-object animation sheet derived from its same-named chroma source; project-owned original.
+Exact source-owned resting cards:
 
-V3 preparation, normalization, runtime, and provenance records:
+- `assets/flats/castle/interactions_v4/rest_cards/bubble_bath_vanity_mirror_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/craft_room_supply_cupboard_left_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png` - exact-RGB derivative of the approved pre-existing teal Kitchen refrigerator card with contaminated purple-wall, neighboring-cabinet, sub-16-alpha, and sub-eight-pixel alpha components removed; no RGB repaint; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/library_ceiling_chandelier_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/library_pearl_lamp_right_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_flower_float_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_star_float_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_waterfall_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_left_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_right_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/playroom_shelf_sailboat_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/playroom_tent_flaps_right_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
 
-- `assets_src/imagegen/castle_object_animations_v3/batch_library_play_craft_2026-08-02/provenance_draft.json` - exact prompt, native-path/hash, attempt, and Codex-review evidence for ten Library, Playroom, and Craft Room sources; human review pending.
-- `assets_src/imagegen/castle_object_animations_v3/final_10/provenance_draft.json` - exact prompt, native-path/hash, attempt, and Codex-review evidence for ten sources including the accepted dry shower redraw; human review pending.
-- `assets_src/imagegen/castle_object_animations_v3/opera_kitchen_batch/provenance_draft.json` - exact prompt, native-path/hash, attempt, and Codex-review evidence for ten Opera Hall/Kitchen sources including the accepted dry kettle redraw; human review pending.
-- `assets_src/imagegen/castle_object_animations_v3/root_batch/provenance_draft.json` - exact prompt, native-path/hash, attempt, and Codex-review evidence for eight sources; human review pending.
-- `assets_src/imagegen/castle_object_animations_v3/castle_interactions_v3_source_preparation.json` - project-authored transactional source-preparation hashes, dimensions, insets, and provenance links.
-- `assets/flats/castle/interactions_v3/castle_interactions_v3_normalization.json` - project-authored alpha, padding, scale, anchor, frame-hash, and fixed-pivot evidence.
-- `assets/flats/castle/interactions_v3/castle_interactions_v3.json` - project-authored combined runtime manifest for 29 active v2-base assets plus 38 v3 additions, with the four approved room-derived pool bases recorded separately.
+Eight-state runtime atlases:
+
+- `assets/flats/castle/interactions_v4/sheets/bubble_bath_vanity_mirror_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/craft_room_supply_cupboard_left_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png` - project-authored RGBA 3-by-3 runtime derivative containing eight fixed-base refrigerator states and one unused cell; exact cleaned source-owned rest state replaces frame 0; generated-state segmentation, edge cleanup, method, and hash are recorded in the V4 runtime and ImageGen provenance manifests.
+- `assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/mermaid_pool_flower_float_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/mermaid_pool_seahorse_fountain_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/mermaid_pool_star_float_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/mermaid_pool_waterfall_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/playroom_tent_flaps_right_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+
+Ownership masks:
+
+- `assets_src/castle/interactions_v4/masks/bubble_bath_vanity_mirror_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/craft_room_supply_cupboard_left_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/kitchen_fridge_existing_mask.png` - project-authored alpha ownership mask for the cleaned pre-existing Kitchen refrigerator; purple wall and neighboring cabinet are excluded; no external source.
+- `assets_src/castle/interactions_v4/masks/library_ceiling_chandelier_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/library_pearl_lamp_right_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/mermaid_pool_flower_float_existing_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/mermaid_pool_seahorse_fountain_existing_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/mermaid_pool_star_float_existing_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/mermaid_pool_waterfall_existing_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_left_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_right_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/playroom_shelf_sailboat_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/playroom_tent_flaps_right_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+
+Accepted built-in ImageGen sources and alpha derivatives used by runtime:
+
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/craft_room_supply_cupboard_left_sheet_alpha.png` - project-authored alpha derivative of an accepted project-owned OpenAI built-in ImageGen source; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/craft_room_supply_cupboard_left_sheet_chroma.png` - hash-verified repository copy of accepted project-owned OpenAI built-in ImageGen output; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/kitchen_fridge_sheet_checkerboard.png` - hash-verified byte-identical repository copy of the accepted 1536x1024 RGB OpenAI built-in ImageGen refrigerator source; its baked pale checker field is not true alpha/chroma and is removed only by the fully recorded deterministic segmentation in `PROVENANCE.json`; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_flower_float_sheet_alpha.png` - project-authored alpha derivative of an accepted project-owned OpenAI built-in ImageGen source; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_flower_float_sheet_chroma.png` - hash-verified repository copy of accepted project-owned OpenAI built-in ImageGen output; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_star_float_sheet_alpha.png` - project-authored alpha derivative of an accepted project-owned OpenAI built-in ImageGen source; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_star_float_sheet_chroma.png` - hash-verified repository copy of accepted project-owned OpenAI built-in ImageGen output; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/playroom_shelf_sailboat_sheet_alpha.png` - project-authored alpha derivative of an accepted project-owned OpenAI built-in ImageGen source; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/playroom_shelf_sailboat_sheet_chroma.png` - hash-verified repository copy of accepted project-owned OpenAI built-in ImageGen output; no external source.
+
+Source-review pass superseded by the final ownership gate:
+
+- `assets_src/imagegen/castle_object_animations_v4/playroom/playroom_tent_flaps_right_sheet_alpha.png` - project-authored alpha derivative that passed source review but is non-runtime because the tent outer canopy/knob is not source-owned.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/playroom_tent_flaps_right_sheet_chroma.png` - hash-verified project-owned OpenAI built-in ImageGen output that passed source review but is non-runtime because the tent outer canopy/knob is not source-owned.
+
+Rejected built-in ImageGen evidence and alpha derivatives:
+
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_seahorse_fountain_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence after the final room review found body-color and silhouette drift.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_seahorse_fountain_sheet_chroma.png` - rejected hash-verified project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence after the final room review found body-color and silhouette drift.
+- `assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/rejected_source_ownership_bubble_bath_toilet_roll_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/rejected_source_ownership_bubble_bath_toilet_roll_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/toilet_roll_attempt1_includes_baked_holder.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/craft_room_ribbon_rack_right_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/craft_room_ribbon_rack_right_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/supply_cupboard_attempt1_merged_layout.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/attempt2_kitchen_tea_service_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/attempt2_kitchen_tea_service_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_lid_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_lid_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/tea_service_attempt1_spout_away_from_cup.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/tea_service_attempt2_duplicate_baked_cup.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/teapot_attempt3_clean_but_source_extraction_failed.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/attempt1_magenta_sheet_alpha_failed.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/attempt1_magenta_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/bubble_fountain_attempt1_design_drift.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/rejected_design_drift_mermaid_pool_waterfall_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/rejected_design_drift_mermaid_pool_waterfall_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/rejected/full_arch_playroom_play_tent_right_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/rejected/full_arch_playroom_play_tent_right_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+
+Runtime and provenance records:
+
+- `assets/flats/castle/interactions_v4/castle_interactions_v4.json` - project-authored runtime delivery, frame, placement, ownership, water, physics, and hash manifest.
+- `assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json` - project-authored exact-hash Codex visual-review ledger for all 104 authored runtime states and every measured static-card occlusion relation; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/PROVENANCE.json` - project-authored built-in generation attempt, native-path/ID, source, derivative, status, reason, and hash ledger.
+- `CASTLE_NATIVE_INTERACTIONS_V4_AUDIT_2026-08-04.md` - project-authored comprehensive placement, blending, child-interest, animation-semantics, rejection, and duplication audit.
+
+## Pearl Castle static depth-card alpha repair (2026-08-04)
+
+The existing room foreground cards retain their approved source RGB wherever
+visible. This pass only tightens alpha to reviewed physical subjects, clears RGB
+beneath fully transparent pixels, and retires the Pool's full-water-oval mid card
+from runtime; no object or background art was generated or repainted.
+
+- `assets_src/castle/depth_cards/source_alpha/room_bubble_bath_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Bubble Bath foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_bubble_bath_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Bubble Bath foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_craft_room_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Craft Room foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_craft_room_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Craft Room foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_kitchen_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Kitchen foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_kitchen_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Kitchen foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_library_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Library foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_library_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Library foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_main_hall_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Main Hall foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_main_hall_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Main Hall foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_mermaid_pool_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Mermaid Pool foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_mermaid_pool_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Mermaid Pool foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_opera_hall_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Opera Hall foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_opera_hall_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Opera Hall foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_playroom_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Playroom foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_playroom_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Playroom foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/static_depth_card_refinement.json` - project-authored exact source/output hash, reviewed keep-shape, alpha/RGB metric, placement, retirement, and contact-sheet provenance ledger; no external source.
+- `audit/castle_static_depth_cards/static_depth_card_refinement_contact.png` - deterministic project-authored before/after checkerboard review sheet for all sixteen retained static depth cards; generated only from the licensed card/source pixels and alpha evidence above; no external source.
+
 ## Opera Codex art regeneration - 2026-08-02
 
 OpenAI built-in ImageGen natives and project-authored non-destructive derivatives/composites. Copyright Mermaid Roshan LLC; no external asset license. Approved in-repo Opera cards used by Path-A widget compositions retain their existing provenance and licenses.
@@ -2196,3 +2347,25 @@ OpenAI built-in ImageGen natives and project-authored non-destructive derivative
 - `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_12_rival_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
 - `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_selected_scuffles_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
 - `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_stress_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `assets/audio/sfx/combat_*.wav` (combat_pop, combat_bonk, combat_poof,
+  combat_freeze, combat_charge_ring, combat_fizzle) — synthesized entirely
+  by `tools/gen_combat_sfx.py` in this repository (deterministic
+  pure-stdlib waveforms, seeded noise, no external sources, no recordings).
+  The combat feel-stack reaction voices: hit pop, harm bonk, death poof,
+  freeze tinkle, charge-ring shimmer, kind-miss fizzle. Owner-recorded
+  replacements can drop in at the same paths (all callers check
+  ResourceLoader.exists). License: project code.
+
+## Combat tutorial training art (2026-08-01)
+
+- `assets/castle/training/training_grotto_backdrop.png`,
+  `ghost_hand.png`, `verb_chip_tap.png`, `verb_chip_hold.png`, and their
+  preservation masters under
+  `assets_src/imagegen/combat_tutorial_2026-08-01/` are project-original art
+  generated with OpenAI built-in image generation on 2026-08-01. License:
+  project original. URL: none (project-local generation). The backdrop was
+  whole-canvas resized to 2048x1024. The three simple opaque subjects were
+  generated on flat green, converted to alpha with the installed Codex chroma
+  helper using soft matte and despill, then whole-canvas resized to 512x512 or
+  256x256. Exact prompts, generation identifiers, dimensions, hashes, reuse
+  audit, and processing notes are recorded in the adjacent `PROMPTS.md`.

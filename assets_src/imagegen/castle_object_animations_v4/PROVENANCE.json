@@ -1,0 +1,690 @@
+{
+  "schema_version": 1,
+  "batch_id": "castle_object_animations_v4",
+  "created_on": "2026-08-04",
+  "scope": "Built-in ImageGen attempts considered by the V4 native-object interaction pass. Deterministic room-art derivatives are intentionally documented in CASTLE_NATIVE_INTERACTIONS_V4_AUDIT_2026-08-04.md instead of being misclassified as generations.",
+  "generation_mode": {
+    "tool": "OpenAI built-in image_gen.imagegen",
+    "native_root": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef",
+    "native_dimensions": [
+      1774,
+      887
+    ],
+    "native_dimensions_note": "The first eighteen attempts use 1774x887. The accepted kitchen_fridge_01 exception is a 1536x1024 RGB source and records its dimensions on that attempt.",
+    "native_mode": "RGB",
+    "intended_sheet_layout": "Default: 4 columns x 2 rows with 8 authored object states. The kitchen_fridge_01 source contains two rows of four independently segmented states and is normalized into a 3x3 runtime atlas with one unused cell.",
+    "exact_prompt_available": false,
+    "prompt_summary_policy": "Every prompt_summary below is a concise, non-verbatim description reconstructed from the recorded interaction intent and surviving evidence. It is not represented as the original prompt.",
+    "reference_transport": "Not recoverable from the retained invocation record; audit references below are identity and ownership authorities, not a claim about tool transport.",
+    "repository_chroma_copy_policy": "Each listed chroma or raw RGB repository copy was hash-verified byte-identical to its listed native output.",
+    "alpha_derivative_policy": "RGBA derivatives were produced locally from the chroma field. Exact matte parameters were not retained and are therefore not invented here. Each derivative path, hash, dimensions, and acceptance state is recorded. The accepted refrigerator source is the documented exception: it has a baked pale checker field rather than true alpha/chroma, so its fully recorded deterministic component segmentation and edge cleanup are preserved on that attempt.",
+    "protected_originals_modified": false
+  },
+  "audit_source_references": {
+    "bubble_bath_room": {
+      "path": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da"
+    },
+    "craft_room": {
+      "path": "assets/flats/castle/rooms/room_craft_room.png",
+      "sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae"
+    },
+    "craft_room_supply_cupboard_left_rest": {
+      "path": "assets/flats/castle/interactions_v4/rest_cards/craft_room_supply_cupboard_left_rest.png",
+      "sha256": "cb56c57e4d9888eefecf401a45ea84f23613330bf09d9de193ade634f0b7b2f4"
+    },
+    "kitchen_room": {
+      "path": "assets/flats/castle/rooms/room_kitchen.png",
+      "sha256": "ee2f05ce1eff483060ace90aee729a561b3ddf471d25d5a5c75eb9b9ba948104"
+    },
+    "kitchen_fridge_rest": {
+      "path": "assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png",
+      "sha256": "5685ca9dfa53ef2c1f935fd08fdb4808f567cee7aaa90d4de19544255e31dc7f"
+    },
+    "mermaid_pool_room": {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d"
+    },
+    "mermaid_pool_flower_float_rest": {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_flower_float.png",
+      "sha256": "8fe5eed4c464d9e3e71338e57662f16c3999450e6c8346763f75d67624a61513"
+    },
+    "mermaid_pool_seahorse_fountain_rest": {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_seahorse_fountain.png",
+      "sha256": "6b55d9096e9043d30be16117c81da1d4e2b487db8fff572226588135bf676344"
+    },
+    "mermaid_pool_star_float_rest": {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png",
+      "sha256": "d1f3067ce56cd2e6a844c597a48bf01b0661ae34507d99af3272a7a56db88fc5"
+    },
+    "mermaid_pool_waterfall_rest": {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_waterfall.png",
+      "sha256": "6ead36f8efc3b115a3c7116ec3d88a80e905730548d2949c063c65c671042cba"
+    },
+    "playroom_room": {
+      "path": "assets/flats/castle/rooms/room_playroom.png",
+      "sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f"
+    },
+    "playroom_shelf_sailboat_rest": {
+      "path": "assets/flats/castle/interactions_v4/rest_cards/playroom_shelf_sailboat_rest.png",
+      "sha256": "b2debf899c5cd6cbc5464e2b836b1075eacf92a403f8e071cb5495d7cc4fcd27"
+    },
+    "playroom_tent_flaps_right_rest": {
+      "path": "assets/flats/castle/interactions_v4/rest_cards/playroom_tent_flaps_right_rest.png",
+      "sha256": "28568458f0ee9b635ffc698bda9f64f65536e580a9d1f1d83134a9692fecca7e"
+    }
+  },
+  "attempts": [
+    {
+      "attempt_id": "mermaid_pool_flower_float_01",
+      "asset_id": "mermaid_pool_flower_float",
+      "room": "mermaid_pool",
+      "generation_id": "exec-9b9ed115-1988-40c0-b220-827fd829ea07",
+      "prompt_summary": "Create eight authored states of the existing flower float opening and closing its real petals while preserving its identity on a chroma field.",
+      "audit_source_reference_ids": [
+        "mermaid_pool_room",
+        "mermaid_pool_flower_float_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-9b9ed115-1988-40c0-b220-827fd829ea07.png",
+        "sha256": "bb6539fc5b0ce1e15762e983b11e41a1e12976e8ee9b01ec7f067e2b203adeb0"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/attempt1_magenta_sheet_chroma.png",
+        "sha256": "bb6539fc5b0ce1e15762e983b11e41a1e12976e8ee9b01ec7f067e2b203adeb0",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/attempt1_magenta_sheet_alpha_failed.png",
+        "sha256": "8b6f82b8533c5889cee29e112322dd3d5053dadf2335fb9ca07a010bf5d2deb9",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "rejected"
+      },
+      "status": "rejected",
+      "reason": "The first local matte failed cutout quality review; a later generation replaced it."
+    },
+    {
+      "attempt_id": "mermaid_pool_flower_float_02",
+      "asset_id": "mermaid_pool_flower_float",
+      "room": "mermaid_pool",
+      "generation_id": "exec-efc94dfc-d1dd-42ce-9950-025561c93300",
+      "prompt_summary": "Create eight authored states of the existing flower float opening and closing its real petals while preserving its identity on a clean chroma field.",
+      "audit_source_reference_ids": [
+        "mermaid_pool_room",
+        "mermaid_pool_flower_float_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-efc94dfc-d1dd-42ce-9950-025561c93300.png",
+        "sha256": "e6a91dce51d313d61db5ec854828ff0be4a78ea7c88890f18518f5bb77089b65"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_flower_float_sheet_chroma.png",
+        "sha256": "e6a91dce51d313d61db5ec854828ff0be4a78ea7c88890f18518f5bb77089b65",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_flower_float_sheet_alpha.png",
+        "sha256": "cd2f310ef8667c13d28152bc77435a4253c9c17421a0d083c87abe396d7938ff",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "accepted_source"
+      },
+      "status": "accepted_for_runtime_derivation",
+      "reason": "The petal-bloom source retains the approved Pool float identity and passed source-level cutout review; final runtime normalization and culling remain a separate delivery gate."
+    },
+    {
+      "attempt_id": "mermaid_pool_star_float_01",
+      "asset_id": "mermaid_pool_star_float",
+      "room": "mermaid_pool",
+      "generation_id": "exec-8c1a12ea-ee21-4cca-a2d9-46d768da0e51",
+      "prompt_summary": "Create eight authored states in which the existing star float flexes and waves its real points without introducing a second room object.",
+      "audit_source_reference_ids": [
+        "mermaid_pool_room",
+        "mermaid_pool_star_float_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-8c1a12ea-ee21-4cca-a2d9-46d768da0e51.png",
+        "sha256": "4d452ea0ff236ff0f9e1298bd9fe05711039682b9bd2acabbf7f0f528f9f1b31"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_star_float_sheet_chroma.png",
+        "sha256": "4d452ea0ff236ff0f9e1298bd9fe05711039682b9bd2acabbf7f0f528f9f1b31",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_star_float_sheet_alpha.png",
+        "sha256": "74beb70a9bf6ffebfaadea0bddef4fcc7996c92954f8da77b0cbd4dd7077164e",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "accepted_source"
+      },
+      "status": "accepted_for_runtime_derivation",
+      "reason": "The point-flex source animates the already present star float and passed source review; final delivery culls the most extreme deformations, and the ownership pass separately repaired the old background heal."
+    },
+    {
+      "attempt_id": "mermaid_pool_seahorse_fountain_01",
+      "asset_id": "mermaid_pool_seahorse_fountain",
+      "room": "mermaid_pool",
+      "generation_id": "exec-8d86e50f-e144-45f1-8f64-ec2b02112138",
+      "prompt_summary": "Create eight dry fixture states in which the existing seahorse fountain moves its real head and mouth; runtime water will originate separately at the real nozzle.",
+      "audit_source_reference_ids": [
+        "mermaid_pool_room",
+        "mermaid_pool_seahorse_fountain_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-8d86e50f-e144-45f1-8f64-ec2b02112138.png",
+        "sha256": "a64a9a92f691623ce047cccebe245d16be9bc18292911bc0dea60ba8db2e03eb"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_seahorse_fountain_sheet_chroma.png",
+        "sha256": "a64a9a92f691623ce047cccebe245d16be9bc18292911bc0dea60ba8db2e03eb",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_seahorse_fountain_sheet_alpha.png",
+        "sha256": "24845ac1a81e4e696c9cdda5107977c0fe7f6865b82401e087be41cfff299296",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "rejected_after_room_composite_review"
+      },
+      "status": "rejected",
+      "reason": "The source passed isolated cutout review but failed final in-room review: its purple body, silhouette, and base drift from the approved cyan seahorse fixture. Runtime instead keeps the exact source-owned seahorse body in every state and varies only its already-present nozzle stream; no generated pixel from this attempt ships."
+    },
+    {
+      "attempt_id": "mermaid_pool_waterfall_01",
+      "asset_id": "mermaid_pool_waterfall",
+      "room": "mermaid_pool",
+      "generation_id": "exec-3e29f320-3c76-49e2-a935-957db30fffaf",
+      "prompt_summary": "Create eight authored states of the existing waterfall surging and sparkling within its owned waterfall footprint.",
+      "audit_source_reference_ids": [
+        "mermaid_pool_room",
+        "mermaid_pool_waterfall_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-3e29f320-3c76-49e2-a935-957db30fffaf.png",
+        "sha256": "20fdc1ea72340f3cbad7082757aac12014b17034f370430c4b65dcbdf4ab68bd"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/rejected_design_drift_mermaid_pool_waterfall_sheet_chroma.png",
+        "sha256": "20fdc1ea72340f3cbad7082757aac12014b17034f370430c4b65dcbdf4ab68bd",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/rejected_design_drift_mermaid_pool_waterfall_sheet_alpha.png",
+        "sha256": "655e070488831282ff14d6d87cbe135ce8b77f26a04c2dc8e0048b4aef964664",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "rejected"
+      },
+      "status": "rejected",
+      "reason": "Visual delivery review found an invented clam-door/gate that is not part of the approved waterfall; runtime uses deterministic states derived from the exact source-owned waterfall card instead."
+    },
+    {
+      "attempt_id": "mermaid_pool_bubble_fountain_01",
+      "asset_id": "mermaid_pool_bubble_fountain",
+      "room": "mermaid_pool",
+      "generation_id": "exec-74d090b4-553f-4702-ad71-f166e3de2c0f",
+      "prompt_summary": "Attempt authored states for the small built-in bubble fountain while preserving the approved shell fixture.",
+      "audit_source_reference_ids": [
+        "mermaid_pool_room"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-74d090b4-553f-4702-ad71-f166e3de2c0f.png",
+        "sha256": "202d7968bb3f2158ec9fb4f8cfc6db57839b2e85f1efd5922266f68fdc6ca009"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/bubble_fountain_attempt1_design_drift.png",
+        "sha256": "202d7968bb3f2158ec9fb4f8cfc6db57839b2e85f1efd5922266f68fdc6ca009",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": null,
+      "status": "rejected",
+      "reason": "The fixture drifted into a new jar-like design, and the original fountain is integrated into the giant-clam stair composition."
+    },
+    {
+      "attempt_id": "kitchen_stove_pot_full_body_01",
+      "asset_id": "kitchen_stove_pot_full_body",
+      "room": "kitchen",
+      "generation_id": "exec-9c222e6e-0e71-4538-a6d9-ba222293ee7b",
+      "prompt_summary": "Create eight complete stove-pot states with the lid lifting and soup being stirred.",
+      "audit_source_reference_ids": [
+        "kitchen_room"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-9c222e6e-0e71-4538-a6d9-ba222293ee7b.png",
+        "sha256": "5c7562fbee0045b20ea5ddaad05bb693aa04b3198e7b9d188a45a66bf874be05"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_sheet_chroma.png",
+        "sha256": "5c7562fbee0045b20ea5ddaad05bb693aa04b3198e7b9d188a45a66bf874be05",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_sheet_alpha.png",
+        "sha256": "504928531b4214b0762804dc5b08e8a920c37609f6bb7a04a01f95d1cdb45d23",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "rejected"
+      },
+      "status": "rejected",
+      "reason": "Only the lid can be cleanly owned and healed in the room plate; a full-pot animation would duplicate or replace non-owned pot-body pixels."
+    },
+    {
+      "attempt_id": "kitchen_tea_service_01",
+      "asset_id": "kitchen_teapot",
+      "room": "kitchen",
+      "generation_id": "exec-16e88e63-68ec-439b-be70-df19ca07d794",
+      "prompt_summary": "Attempt eight pouring states for the existing teapot and cup relationship.",
+      "audit_source_reference_ids": [
+        "kitchen_room"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-16e88e63-68ec-439b-be70-df19ca07d794.png",
+        "sha256": "7adab83100af1a188d8f874a222f59b1d61258778698f8225796e707cdb76d76"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/tea_service_attempt1_spout_away_from_cup.png",
+        "sha256": "7adab83100af1a188d8f874a222f59b1d61258778698f8225796e707cdb76d76",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": null,
+      "status": "rejected",
+      "reason": "The authored pour moved the spout away from the cup, so the interaction did not read as normalized teapot use."
+    },
+    {
+      "attempt_id": "kitchen_tea_service_02",
+      "asset_id": "kitchen_teapot",
+      "room": "kitchen",
+      "generation_id": "exec-17b19dd4-2a70-4e01-a01c-5e870f0504fb",
+      "prompt_summary": "Retry eight pouring states for the existing teapot and cup while keeping the serving relationship coherent.",
+      "audit_source_reference_ids": [
+        "kitchen_room"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-17b19dd4-2a70-4e01-a01c-5e870f0504fb.png",
+        "sha256": "b49816f2b23eaf505cdb5fec46807b9450833786e241b75086ee718a4482b800"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/attempt2_kitchen_tea_service_sheet_chroma.png",
+        "sha256": "b49816f2b23eaf505cdb5fec46807b9450833786e241b75086ee718a4482b800",
+        "byte_identical_to_generated_source": true
+      },
+      "additional_repository_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/tea_service_attempt2_duplicate_baked_cup.png",
+        "sha256": "b49816f2b23eaf505cdb5fec46807b9450833786e241b75086ee718a4482b800",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/attempt2_kitchen_tea_service_sheet_alpha.png",
+        "sha256": "b5376256d192886468c1b8df2ebae91f04c98e0c27e89bd547864bc841b2b042",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "rejected"
+      },
+      "status": "rejected",
+      "reason": "The sheet baked a duplicate cup into the animated source and would place it over the room's existing cup."
+    },
+    {
+      "attempt_id": "playroom_tent_full_arch_01",
+      "asset_id": "playroom_tent_full_arch",
+      "room": "playroom",
+      "generation_id": "exec-5bb269fb-4d81-433a-96a3-dffc1f7c1dd5",
+      "prompt_summary": "Create eight peekaboo states for the room's right play tent, including its full architectural arch.",
+      "audit_source_reference_ids": [
+        "playroom_room",
+        "playroom_tent_flaps_right_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-5bb269fb-4d81-433a-96a3-dffc1f7c1dd5.png",
+        "sha256": "1dc7fe380a048f18dc599ffc80fb8e28653807160da6bd915ca4f0b7a139117a"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/playroom/rejected/full_arch_playroom_play_tent_right_sheet_chroma.png",
+        "sha256": "1dc7fe380a048f18dc599ffc80fb8e28653807160da6bd915ca4f0b7a139117a",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/playroom/rejected/full_arch_playroom_play_tent_right_sheet_alpha.png",
+        "sha256": "1894ce3c239bdf90c600d93d5b6655d99616b81e2dba499672b9af35def4f62d",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "rejected"
+      },
+      "status": "rejected",
+      "reason": "The arch is room architecture and cannot be cleanly removed; only the movable cloth flaps form an appropriate ownership unit."
+    },
+    {
+      "attempt_id": "playroom_shelf_sailboat_01",
+      "asset_id": "playroom_shelf_sailboat",
+      "room": "playroom",
+      "generation_id": "exec-eddff8de-b408-43ad-afda-07ca43afe322",
+      "prompt_summary": "Create eight states of the existing shelf sailboat unfurling its real sail and rocking around its hull.",
+      "audit_source_reference_ids": [
+        "playroom_room",
+        "playroom_shelf_sailboat_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-eddff8de-b408-43ad-afda-07ca43afe322.png",
+        "sha256": "7486da1803fab9720d38f686f0d9c573fc39f03353ae3e8e0fe3654a432333af"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/playroom/playroom_shelf_sailboat_sheet_chroma.png",
+        "sha256": "7486da1803fab9720d38f686f0d9c573fc39f03353ae3e8e0fe3654a432333af",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/playroom/playroom_shelf_sailboat_sheet_alpha.png",
+        "sha256": "1d9e138e50f66239f9c81d99fcd427e0cef55de305e68af22235fc4aecb47dc8",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "accepted_source"
+      },
+      "status": "accepted_for_runtime_derivation",
+      "reason": "The action is item-specific and the boat was already correctly placed on the shelf."
+    },
+    {
+      "attempt_id": "craft_room_ribbon_rack_right_01",
+      "asset_id": "craft_room_ribbon_rack_right",
+      "room": "craft_room",
+      "generation_id": "exec-4f1d083d-d265-4d59-b515-917578a4ae84",
+      "prompt_summary": "Create eight coherent states driven by the existing right ribbon rack's real spools and ribbons.",
+      "audit_source_reference_ids": [
+        "craft_room"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-4f1d083d-d265-4d59-b515-917578a4ae84.png",
+        "sha256": "43c3c63e444fe07b56f070f2d12b335f9caf1e362865ff04325decfa1bae0ed6"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/craft_room_ribbon_rack_right_sheet_chroma.png",
+        "sha256": "43c3c63e444fe07b56f070f2d12b335f9caf1e362865ff04325decfa1bae0ed6",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/craft_room_ribbon_rack_right_sheet_alpha.png",
+        "sha256": "3cf9c2fbf5ba1e6b6979d6511ce2c00fa9d328c94fe43f04a265428ca99e7b46",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "rejected"
+      },
+      "status": "rejected",
+      "reason": "The painted lower ribbons overlap the wall shelf and cup; separation retained neighboring room fragments."
+    },
+    {
+      "attempt_id": "craft_room_supply_cupboard_left_01",
+      "asset_id": "craft_room_supply_cupboard_left",
+      "room": "craft_room",
+      "generation_id": "exec-6e0ebe21-9d98-43a1-87d5-331d6478dbb6",
+      "prompt_summary": "Create eight pull-out and supply-reveal states for the existing left craft cupboard's real bins/drawers.",
+      "audit_source_reference_ids": [
+        "craft_room",
+        "craft_room_supply_cupboard_left_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-6e0ebe21-9d98-43a1-87d5-331d6478dbb6.png",
+        "sha256": "46a91a345de9dc8b9c3fa3e572bbe3eab31e88b2ae12abc098e43cb03b6081cb"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/supply_cupboard_attempt1_merged_layout.png",
+        "sha256": "46a91a345de9dc8b9c3fa3e572bbe3eab31e88b2ae12abc098e43cb03b6081cb",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": null,
+      "status": "rejected",
+      "reason": "The generated sheet merged the intended frame layout, so it could not provide eight independently readable states."
+    },
+    {
+      "attempt_id": "kitchen_teapot_03",
+      "asset_id": "kitchen_teapot",
+      "room": "kitchen",
+      "generation_id": "exec-a7f87840-b012-46ca-ba5a-b74fd616e30e",
+      "prompt_summary": "Retry a clean eight-state teapot interaction without the duplicate cup from the prior attempt.",
+      "audit_source_reference_ids": [
+        "kitchen_room"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-a7f87840-b012-46ca-ba5a-b74fd616e30e.png",
+        "sha256": "10c0382dcede2aa280c78f4cdb3048c2bbe0a3284b95ffc7d779da99ba953474"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/teapot_attempt3_clean_but_source_extraction_failed.png",
+        "sha256": "10c0382dcede2aa280c78f4cdb3048c2bbe0a3284b95ffc7d779da99ba953474",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": null,
+      "status": "rejected",
+      "reason": "The generated states were cleaner, but the painted source teapot still could not be isolated from the cup, coral, and counter shadow."
+    },
+    {
+      "attempt_id": "bubble_bath_toilet_roll_01",
+      "asset_id": "bubble_bath_toilet_roll",
+      "room": "bubble_bath",
+      "generation_id": "exec-6070d61e-07d8-42ac-9c4e-6c89dc97d3d8",
+      "prompt_summary": "Create eight object-specific states for the existing toilet-roll fixture while preserving its room design.",
+      "audit_source_reference_ids": [
+        "bubble_bath_room"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-6070d61e-07d8-42ac-9c4e-6c89dc97d3d8.png",
+        "sha256": "f6ea77cc9c45c9a9cfa0e7dc1ed45e44de773950d0fbdde2e2a4cc53e8608aa6"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/rejected_source_ownership_bubble_bath_toilet_roll_sheet_chroma.png",
+        "sha256": "f6ea77cc9c45c9a9cfa0e7dc1ed45e44de773950d0fbdde2e2a4cc53e8608aa6",
+        "byte_identical_to_generated_source": true
+      },
+      "additional_repository_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/toilet_roll_attempt1_includes_baked_holder.png",
+        "sha256": "f6ea77cc9c45c9a9cfa0e7dc1ed45e44de773950d0fbdde2e2a4cc53e8608aa6",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/rejected_source_ownership_bubble_bath_toilet_roll_sheet_alpha.png",
+        "sha256": "b678aa9e0026ada5ad150c1d4b354706bd8be65cc2122b4edbb1f77aa1b6b22b",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "rejected"
+      },
+      "status": "rejected",
+      "reason": "The paper is painted through its holder and the overlapping plant/wall shadow, so the generated source necessarily carries non-owned holder pixels."
+    },
+    {
+      "attempt_id": "kitchen_stove_pot_lid_01",
+      "asset_id": "kitchen_stove_pot_lid",
+      "room": "kitchen",
+      "generation_id": "exec-7ad146ea-0599-436d-a9f4-aecf2031c320",
+      "prompt_summary": "Create eight lid-only states that lift the actual stove-pot lid and reveal the soup while leaving the pot body in the room.",
+      "audit_source_reference_ids": [
+        "kitchen_room"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-7ad146ea-0599-436d-a9f4-aecf2031c320.png",
+        "sha256": "2dafacf93b8c287820a062e42d776d82f158699037687a8f92631b04bd8b694c"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_lid_sheet_chroma.png",
+        "sha256": "2dafacf93b8c287820a062e42d776d82f158699037687a8f92631b04bd8b694c",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_lid_sheet_alpha.png",
+        "sha256": "0db754ac6e361e23d4f961e26f91ddc9c461ed9c7d91419d0099aacb857610d2",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "accepted_source_only"
+      },
+      "status": "superseded_at_delivery_source_ownership",
+      "reason": "The generation passed source-level alpha/style review, but repeated final room extraction masks retained the pot-body band and right handle. No lid card or authored lid sheet is delivered at runtime."
+    },
+    {
+      "attempt_id": "craft_room_supply_cupboard_left_02",
+      "asset_id": "craft_room_supply_cupboard_left",
+      "room": "craft_room",
+      "generation_id": "exec-5667f50f-4d9b-449e-9ac7-03dc9e9dcab6",
+      "prompt_summary": "Create eight independently readable states of the existing left cupboard's real bins/drawers sliding out to reveal art supplies and reseating again.",
+      "audit_source_reference_ids": [
+        "craft_room",
+        "craft_room_supply_cupboard_left_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-5667f50f-4d9b-449e-9ac7-03dc9e9dcab6.png",
+        "sha256": "2153afff3531fc9ba85baba3f805288898dd693b804a17cffe80ce03a5d97608"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/craft_room/craft_room_supply_cupboard_left_sheet_chroma.png",
+        "sha256": "2153afff3531fc9ba85baba3f805288898dd693b804a17cffe80ce03a5d97608",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/craft_room/craft_room_supply_cupboard_left_sheet_alpha.png",
+        "sha256": "9cc1260f20969a7552ff0d184c3dcffcfe3841cefa26cc8bf20bda817aec264e",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "accepted_source"
+      },
+      "status": "accepted_for_runtime_derivation",
+      "reason": "The retry has discrete bin/drawer states and animates the already present cupboard rather than adding a new freestanding cabinet."
+    },
+    {
+      "attempt_id": "playroom_tent_flaps_right_02",
+      "asset_id": "playroom_tent_flaps_right",
+      "room": "playroom",
+      "generation_id": "exec-d574d2d7-c550-4149-bb3d-06683bab170c",
+      "prompt_summary": "Create eight flap-only peekaboo states, moving the tent cloth while excluding the non-owned architectural arch.",
+      "audit_source_reference_ids": [
+        "playroom_room",
+        "playroom_tent_flaps_right_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-d574d2d7-c550-4149-bb3d-06683bab170c.png",
+        "sha256": "fd8e1c0fcab4d247158f7a808c6f42fb40c0f61a0070c0a088605736be828f37"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/playroom/playroom_tent_flaps_right_sheet_chroma.png",
+        "sha256": "fd8e1c0fcab4d247158f7a808c6f42fb40c0f61a0070c0a088605736be828f37",
+        "byte_identical_to_generated_source": true
+      },
+      "alpha_derivative": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/playroom/playroom_tent_flaps_right_sheet_alpha.png",
+        "sha256": "6612b68c344c03313bd496b34302c6f5efc8094d98c39a745ad3c17de18be5fe",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "status": "accepted_source_only"
+      },
+      "status": "superseded_at_delivery_non_owned_outer_canopy",
+      "reason": "The flap-only retry passed alpha and style review, but final ownership review found non-owned outer-canopy and knob pixels. Runtime therefore uses deterministic fold states derived from the exact owned flap rest card."
+    },
+    {
+      "attempt_id": "kitchen_fridge_01",
+      "asset_id": "kitchen_fridge",
+      "room": "kitchen",
+      "generation_id": "exec-ab09557c-43c7-4feb-a255-a9d59c180cbc",
+      "prompt_summary": "Create eight states of the existing teal-and-mint refrigerator unlatching and opening its real door to reveal a coherent food interior, then closing again, while preserving the peach shell badge, gold hardware, and fixed cabinet base.",
+      "audit_source_reference_ids": [
+        "kitchen_room",
+        "kitchen_fridge_rest"
+      ],
+      "generated_source": {
+        "path": "C:/Users/Peter/.codex/generated_images/019fbe47-8946-7701-9d57-49744b1e38ef/exec-ab09557c-43c7-4feb-a255-a9d59c180cbc.png",
+        "sha256": "dca550b5c4f952c9bd865dfb04acf0f476b15fa8db3583413bf2b24d7234a9bb"
+      },
+      "repository_chroma_copy": {
+        "path": "assets_src/imagegen/castle_object_animations_v4/kitchen/kitchen_fridge_sheet_checkerboard.png",
+        "sha256": "dca550b5c4f952c9bd865dfb04acf0f476b15fa8db3583413bf2b24d7234a9bb",
+        "byte_identical_to_generated_source": true,
+        "field_role": "raw_RGB_checkerboard_source_not_true_chroma"
+      },
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "segmentation_derivative": {
+        "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+        "sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+        "dimensions": [
+          960,
+          816
+        ],
+        "mode": "RGBA",
+        "grid": [
+          3,
+          3
+        ],
+        "authored_frames": 8,
+        "method": "Edge-connected neutral-matte flood in each source row; retain the four largest components per row sorted left-to-right; erode the matte core by one pixel; feather 0.8 pixels; decontaminate edge RGB from the nearest eroded foreground core; normalize all states with one scale and a fixed bottom-left cabinet base; decontaminate generated translucent edges from the nearest alpha>=224 core.",
+        "component_integrity": "one_connected_visible_alpha_component_per_frame",
+        "pale_matte_edge_audit": "passed_zero_visible_pale_matte_pixels_in_all_frames",
+        "cyan_green_matte_leakage": "none_detected",
+        "status": "accepted_runtime"
+      },
+      "exact_rest_card_cleanup": {
+        "source_path": "assets/flats/castle/rooms/room_kitchen_item_fridge.png",
+        "source_sha256": "5e0dd8203510685e128d693758a0b26c06d8b7a2d47e52a1d500fd7fdf4d9c8e",
+        "cleaned_path": "assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png",
+        "cleaned_sha256": "5685ca9dfa53ef2c1f935fd08fdb4808f567cee7aaa90d4de19544255e31dc7f",
+        "method": "Keep byte-exact refrigerator RGB, drop alpha below 16, remove purple-wall pixels where red>=green+8 and blue>=green+8, exclude neighboring cabinet rectangle [133,164,140,197], remove visible components smaller than 8 pixels, and zero hidden RGB.",
+        "rgb_repainted": false,
+        "removed_visible_pixels": 240,
+        "retained_visible_pixels": 31755
+      },
+      "status": "accepted_for_runtime_derivation",
+      "reason": "The generated states preserve the approved refrigerator identity and fixed base while the real attached door opens to a coherent interior. The checker field and contaminated legacy alpha are removed by audited deterministic cleanup; frame 0 is replaced by the exact cleaned source-owned rest card, so the room receives no second refrigerator."
+    }
+  ],
+  "summary": {
+    "built_in_attempts": 19,
+    "accepted_at_source_review": 8,
+    "accepted_for_runtime_derivation": 6,
+    "superseded_at_delivery": 2,
+    "rejected_before_delivery": 11,
+    "alpha_derivatives_passing_source_review": 7,
+    "rejected_alpha_derivatives": 7,
+    "attempts_without_alpha_derivative": 5,
+    "segmented_sources_passing_source_review": 1,
+    "human_review": "The user's iterative visual direction informed the pass; this file does not claim a separate formal human frame-by-frame approval."
+  }
+}

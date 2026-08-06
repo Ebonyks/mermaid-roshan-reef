@@ -1635,5 +1635,8 @@ func _build_den() -> void:
 	root.set_meta("pointer", pointer)
 	if not m.companion_den_said:
 		m.companion_den_said = true
-		var d := active_def()
-		m.show_msg(String(d["name"]), "Look, a sparkle ring! Let's play-battle with the mischief imps!", "talk")
+		var d: Dictionary = active_def()
+		if not d.is_empty():
+			m.show_msg(String(d.get("name", "Stuffie Friend")),
+				"Look, a sparkle ring! Let's play-battle with the mischief imps!",
+				"talk")

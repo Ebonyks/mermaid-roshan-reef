@@ -7,6 +7,63 @@
     256,
     256
   ],
+  "collection_audit": {
+    "schema": "castle_main_hall_physical_sign_audit_v1",
+    "criterion": "visual compatibility and cohesiveness",
+    "threshold_out_of_5": 4.5,
+    "criteria_reviewed": [
+      "silhouette",
+      "palette",
+      "outline",
+      "border_medallion_geometry",
+      "scale",
+      "semantic_legibility_for_non_reader",
+      "source_provenance",
+      "runtime_placement"
+    ],
+    "per_icon_overall_scores": {
+      "family_gallery": {
+        "before": 3.9,
+        "after": 4.7,
+        "status": "corrected_pass",
+        "note": "Re-extracted from the full approved crest so the former clipped right-edge tab and adjacent portal scroll are absent."
+      },
+      "opera_hall": {
+        "overall": 4.8,
+        "status": "pass_intentional_double_scale"
+      },
+      "library": {
+        "overall": 4.9,
+        "status": "pass"
+      },
+      "kitchen": {
+        "overall": 4.8,
+        "status": "pass"
+      },
+      "playroom": {
+        "overall": 4.6,
+        "status": "accepted_preserved",
+        "note": "Minor twelve-o'clock source-arch fragment retained because masking it also cuts valid teddy/rim pixels."
+      },
+      "craft_room": {
+        "overall": 4.9,
+        "status": "pass"
+      },
+      "mermaid_pool": {
+        "overall": 4.6,
+        "status": "pass"
+      },
+      "bubble_bath": {
+        "overall": 4.6,
+        "status": "pass"
+      }
+    },
+    "opera_scale_exception": {
+      "intentional": true,
+      "reason": "The Opera Hall doorway and sign are approximately 2x standard."
+    },
+    "conclusion": "Only Family Gallery fell below 4.5/5 and required an art change; the other seven signs remain byte-for-byte unchanged."
+  },
   "records": [
     {
       "output": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png",
@@ -44,7 +101,7 @@
     },
     {
       "output": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
-      "output_sha256": "65AE7B5B6FFDF734EBC70B2AB9113AD2ACC5985CB9A042F8A6DBADCD192CCD51",
+      "output_sha256": "222D5A5A4C590B6AE951FF5D7F4431BD35ED539E48CF0346A2E31FD83A09A0DD",
       "output_dimensions": [
         256,
         256
@@ -52,12 +109,38 @@
       "source": "assets/flats/castle/dream_house/family_wing_hall_insert.png",
       "source_sha256": "0D038C9BA825B691D52303503933B6E615608BBB090ECBADE17CA8A456A87F60",
       "source_crop_xyxy": [
-        112,
+        140,
         0,
-        369,
-        190
+        375,
+        180
       ],
-      "derivation": "approved transparent crop + soft ellipse cap + Lanczos resize"
+      "derivation": "approved full-crest crop + hand-traced semantic alpha + visible-bounds centering + whole-object Lanczos resize + collection-sampled navy keyline and gold edge",
+      "collection_keyline": {
+        "palette_reference": "sign_library.png",
+        "navy_sample_xy": [
+          128,
+          84
+        ],
+        "navy_rgba": [
+          62,
+          75,
+          98,
+          255
+        ],
+        "gold_sample_xy": [
+          128,
+          90
+        ],
+        "gold_rgba": [
+          240,
+          174,
+          61,
+          255
+        ],
+        "keyline_radius_px": 4,
+        "gold_edge_radius_px": 1,
+        "opaque_motif_pixels_preserved": 6051
+      }
     },
     {
       "output": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
@@ -142,7 +225,8 @@
         376,
         499
       ],
-      "derivation": "approved crop + soft ellipse alpha + Lanczos resize"
+      "derivation": "approved crop + soft ellipse alpha + Lanczos resize",
+      "audit_note": "Accepted and preserved byte-for-byte at 4.6/5. The minor twelve-o'clock source-arch fragment cannot be removed without cutting valid teddy/rim pixels."
     }
   ]
 }

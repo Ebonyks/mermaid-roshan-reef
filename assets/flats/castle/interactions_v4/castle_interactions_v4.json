@@ -1,0 +1,5746 @@
+{
+  "assets": [
+    {
+      "anchor_mode": "center",
+      "animation_behavior": {
+        "action": "brighten_left_pearl_sconce_in_color_chase",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.0,
+        "maximum_visible_size": [
+          28,
+          37
+        ],
+        "maximum_width_ratio_to_rest": 1.0,
+        "minimum_visible_size": [
+          28,
+          37
+        ],
+        "rest_visible_size": [
+          28,
+          37
+        ]
+      },
+      "fluid_engine": "none",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.12,
+      "frame_sha256": [
+        "1c24cf7ff71386852b576d086f30857623996ee496a0f85aeed56ee08f4792cf",
+        "f79c257cac7abbf682719ecd0d451546ebc6548a25f1f145ba1afff9f5b08be2",
+        "ce7475e7e129e221520def565b8681f84e4da48c269aae7e77c00d16d0d21158",
+        "ecacec599e9db617effad2c221d4911e13849742f20e6abdc7728833bd34ec09",
+        "c37c8a84feca951da5859d1f084b693c5612910c1b9034de2fb3ed701f667e3d",
+        "7489a6920820659a302a6ea5a5e12e80ac3aa2450bd4e5c18f20228106cdec09",
+        "f89697c2dcfac7842ec7788446edce8eb5bc9bf2be026931dc3a9eb1df70f1f5",
+        "36fe86c83f6239af56f0cbb428e24623de57b57e2f9a2d27d610f5e662f91afe"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_opera_hall_background.png",
+      "hotspot_offset": [
+        -42.0,
+        -37.5
+      ],
+      "hotspot_size": [
+        112.0,
+        112.0
+      ],
+      "id": "opera_hall_pearl_sconce_left",
+      "instances": [
+        "pearl_sconce_left"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_left_mask.png",
+      "name": "Pearl Sconce Left",
+      "normalization": {
+        "method": "source_owned_pearl_color_chase",
+        "per_frame_warp": false,
+        "root_transform_animation": false
+      },
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        283,
+        180
+      ],
+      "placement_size": [
+        28,
+        37
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        114,
+        109
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_left_rest.png",
+      "rest_card_registration_bbox": [
+        0,
+        0,
+        28,
+        37
+      ],
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        114,
+        109,
+        142,
+        146
+      ],
+      "rest_visible_bbox_in_cell": [
+        114,
+        109,
+        142,
+        146
+      ],
+      "room": "opera_hall",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        14.0,
+        19.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "brighten_left_pearl_sconce_in_color_chase",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "58152cddf979b1a834b2eec6b4aaf814e5a3405acb8bd86028e78d0783e0d08b",
+        "mask_sha256": "499a743644211dede52ecaf4620c22a4059e7e637cad85a259ca3a531aad6066",
+        "passed": true,
+        "rest_card_sha256": "4376c2c27788b89c8396056cdc138a9d5c124baa27cb377de0950fa7dc89edc5",
+        "source_rect": [
+          283,
+          180,
+          28,
+          37
+        ],
+        "source_room_plate_sha256": "5878289852a911c50714aecddce1e9e63702425f3376e92205315e19a52c20cf",
+        "verified": true
+      },
+      "source_rect": [
+        283,
+        180,
+        28,
+        37
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_opera_hall.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted: complete object identity remains coherent across all authored states with an exact source-owned rest frame and fixed root pivot.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      }
+    },
+    {
+      "anchor_mode": "center",
+      "animation_behavior": {
+        "action": "brighten_right_pearl_sconce_in_color_chase",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.0,
+        "maximum_visible_size": [
+          28,
+          37
+        ],
+        "maximum_width_ratio_to_rest": 1.0,
+        "minimum_visible_size": [
+          28,
+          37
+        ],
+        "rest_visible_size": [
+          28,
+          37
+        ]
+      },
+      "fluid_engine": "none",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ],
+        [
+          114,
+          109,
+          142,
+          146
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.12,
+      "frame_sha256": [
+        "9d980bff94dafb0136336dc2f5af37183db920a2b775acf6c8603e7ab82c3e51",
+        "4b0272d38b2aeecb4922660ab855aca37cfa14f384480ee45aca2cf39a5bed08",
+        "d131c04fcd633fcb108b4f66697ba8a3eb6af7ceeacd3b317970c19c94fa0156",
+        "7ad2653d2810b77e61e2efffec9c5df738950191a5fd99b46ae2d42aee3ac1ed",
+        "a0f2611385da7e6ee46d5d9a06b220ab8d29b66383b61dc1e1bf983da3a2b937",
+        "7d538fb284a4a26ce788b0edb360acd84aea77fbfcedb2ec135aa3433ba13224",
+        "6a02cf80f5a41514d5e08e5ad90e68ec4ba4084d6fabd449c43c7e3c812d9a36",
+        "c5d805e83808864cfe808be0df82659193396e9b8e45c38eef9620f3946868a2"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_opera_hall_background.png",
+      "hotspot_offset": [
+        -42.0,
+        -37.5
+      ],
+      "hotspot_size": [
+        112.0,
+        112.0
+      ],
+      "id": "opera_hall_pearl_sconce_right",
+      "instances": [
+        "pearl_sconce_right"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_right_mask.png",
+      "name": "Pearl Sconce Right",
+      "normalization": {
+        "method": "source_owned_pearl_color_chase",
+        "per_frame_warp": false,
+        "root_transform_animation": false
+      },
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        713,
+        180
+      ],
+      "placement_size": [
+        28,
+        37
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        114,
+        109
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_right_rest.png",
+      "rest_card_registration_bbox": [
+        0,
+        0,
+        28,
+        37
+      ],
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        114,
+        109,
+        142,
+        146
+      ],
+      "rest_visible_bbox_in_cell": [
+        114,
+        109,
+        142,
+        146
+      ],
+      "room": "opera_hall",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        14.0,
+        19.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "brighten_right_pearl_sconce_in_color_chase",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "58152cddf979b1a834b2eec6b4aaf814e5a3405acb8bd86028e78d0783e0d08b",
+        "mask_sha256": "45f1ac4ac6e764a68d51cc627d60481f6365082e2a32e8588487ee90ce3a71e9",
+        "passed": true,
+        "rest_card_sha256": "b8dce6759ee5004a8507363ce70607885db5897a94aaa12662c8e3894e0c2f03",
+        "source_rect": [
+          713,
+          180,
+          28,
+          37
+        ],
+        "source_room_plate_sha256": "5878289852a911c50714aecddce1e9e63702425f3376e92205315e19a52c20cf",
+        "verified": true
+      },
+      "source_rect": [
+        713,
+        180,
+        28,
+        37
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_opera_hall.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted: complete object identity remains coherent across all authored states with an exact source-owned rest frame and fixed root pivot.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      }
+    },
+    {
+      "anchor_mode": "bottom_left",
+      "animation_behavior": {
+        "action": "unlatch_and_open_fridge_door",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        320,
+        272
+      ],
+      "close_sound": "assets/audio/castle/fridge_close.ogg",
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.007812,
+        "maximum_visible_size": [
+          204,
+          258
+        ],
+        "maximum_width_ratio_to_rest": 1.533835,
+        "minimum_visible_size": [
+          131,
+          254
+        ],
+        "rest_visible_size": [
+          133,
+          256
+        ]
+      },
+      "fluid_engine": "none",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          93,
+          8,
+          226,
+          264
+        ],
+        [
+          93,
+          10,
+          227,
+          264
+        ],
+        [
+          93,
+          9,
+          232,
+          264
+        ],
+        [
+          93,
+          6,
+          297,
+          264
+        ],
+        [
+          93,
+          7,
+          284,
+          264
+        ],
+        [
+          93,
+          9,
+          232,
+          264
+        ],
+        [
+          93,
+          9,
+          227,
+          264
+        ],
+        [
+          93,
+          10,
+          224,
+          264
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.145,
+      "frame_sha256": [
+        "8ab03a3cca5406570433aa4b12cf68ad19f40c9b8fdda3357c624f932fa23614",
+        "b9a983946cb783b5b9731221fdb3e947f236bc731934ea7922f2c85cc1d6c02b",
+        "11b88f859a1a5d2c8b994034fee861931a6d50e9dcb89ee5a55a491fb429515e",
+        "89681c4b0d0ca1d23e0d7323f866c995a144cb45288734bc9cfd691dd06d0ccf",
+        "b3bdec9e2d69f9b0a023cd1dd11546d11f25b4ea0e3bf8573378580b2a59bcb9",
+        "db0a4f259ad3a5cb8022f3bf6cbd358cf9124e1081fc34ac593d36af8591fcdd",
+        "b9be38616450b6cac060ce3ffe9e5586337b1627b0b1364b32a51dc32ca225d8",
+        "5b5a381c24a2e92e8f7dfe5ff5862171de3bde7cc5613da5090ff07233b28cb6"
+      ],
+      "grid": [
+        3,
+        3
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_kitchen_background.png",
+      "hotspot_offset": [
+        0.0,
+        0.0
+      ],
+      "hotspot_size": [
+        133.0,
+        256.0
+      ],
+      "id": "kitchen_fridge",
+      "instances": [
+        "fridge"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/kitchen_fridge_existing_mask.png",
+      "name": "Fridge",
+      "normalization": {
+        "canonical_component_canvas": [
+          512,
+          512
+        ],
+        "component_selection": "four_largest_per_row_sorted_left_to_right",
+        "edge_rgb_decontamination": "nearest_eroded_foreground_core",
+        "fixed_source_base_registration": [
+          16,
+          496
+        ],
+        "generated_edge_cleanup": {
+          "disconnected_alpha_components_removed": true,
+          "method": "nearest_solid_object_core_rgb_on_translucent_generated_edges",
+          "pale_visible_edge_pixels_replaced_by_frame": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "solid_alpha_threshold": 224,
+          "translucent_edge_pixels_by_frame": [
+            0,
+            1866,
+            1698,
+            2109,
+            2065,
+            1693,
+            1852,
+            1813
+          ],
+          "visible_alpha_component_count_by_frame": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "matte_core_erosion_pixels": 1,
+        "matte_feather_radius_pixels": 0.8,
+        "matte_method": "edge_connected_neutral_components_in_two_source_rows",
+        "method": "normalized_generated_fridge_states_fixed_base",
+        "neutral_max_channel_spread": 18,
+        "neutral_minimum_rgb": 232,
+        "pale_matte_edge_audit": {
+          "edge_band_pixels": 2,
+          "maximum_channel_spread": 18,
+          "minimum_rgb": 232,
+          "status": "passed",
+          "visible_pale_matte_pixels_by_frame": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "per_frame_scale": false,
+        "per_frame_warp": false,
+        "root_transform_animation": false,
+        "source_cell_canvas": [
+          512,
+          512
+        ],
+        "source_component_bboxes": [
+          [
+            50,
+            29,
+            294,
+            492
+          ],
+          [
+            400,
+            29,
+            645,
+            492
+          ],
+          [
+            769,
+            29,
+            1022,
+            494
+          ],
+          [
+            1125,
+            28,
+            1496,
+            498
+          ],
+          [
+            41,
+            531,
+            389,
+            1000
+          ],
+          [
+            471,
+            532,
+            724,
+            997
+          ],
+          [
+            830,
+            531,
+            1075,
+            996
+          ],
+          [
+            1192,
+            531,
+            1430,
+            994
+          ]
+        ],
+        "source_component_pixels": [
+          105944,
+          106771,
+          109768,
+          159069,
+          149096,
+          110218,
+          106860,
+          103533
+        ],
+        "source_frame_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "source_grid_role": "layout_only_components_may_cross_nominal_cells",
+        "source_path": "assets_src/imagegen/castle_object_animations_v4/kitchen/kitchen_fridge_sheet_checkerboard.png",
+        "source_pivot": [
+          16.0,
+          496.0
+        ],
+        "source_sha256": "dca550b5c4f952c9bd865dfb04acf0f476b15fa8db3583413bf2b24d7234a9bb",
+        "target_pivot": [
+          93.0,
+          264.0
+        ],
+        "uniform_scale": 0.54893617,
+        "uniform_translation": [
+          84,
+          -8
+        ]
+      },
+      "ownership_continuity": [
+        "frame0_exact_source_derived_fridge_only_card",
+        "generated_states_preserve_mint_shell_peach_badge_gold_hardware",
+        "generated_hidden_food_interior_only_visible_after_door_opens",
+        "pale_checkerboard_matte_removed_and_audited",
+        "fixed_cabinet_base_with_attached_door_motion_only"
+      ],
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        636,
+        86
+      ],
+      "placement_size": [
+        133,
+        256
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        88,
+        6
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png",
+      "rest_card_registration_bbox": [
+        5,
+        2,
+        138,
+        258
+      ],
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        93,
+        8,
+        226,
+        264
+      ],
+      "rest_visible_bbox_in_cell": [
+        93,
+        8,
+        226,
+        264
+      ],
+      "room": "kitchen",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        67.0,
+        128.0
+      ],
+      "runtime_interaction_key": "kitchen:fridge",
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "unlatch_and_open_fridge_door",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "sheet_dimensions": [
+        960,
+        816
+      ],
+      "sheet_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "sound": "assets/audio/castle/fridge_open.ogg",
+      "sound_frame": 1,
+      "source_alpha_cleanup": {
+        "cleaned_card_path": "assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png",
+        "cleaned_card_sha256": "5685ca9dfa53ef2c1f935fd08fdb4808f567cee7aaa90d4de19544255e31dc7f",
+        "method": "fridge_only_source_pixels_v1",
+        "minimum_retained_alpha": 16,
+        "minimum_retained_component_pixels": 8,
+        "neighboring_cabinet_exclusion_xyxy": [
+          133,
+          164,
+          140,
+          197
+        ],
+        "purple_wall_rule": "red>=green+8 and blue>=green+8",
+        "removed_visible_pixels": 240,
+        "retained_visible_pixels": 31755,
+        "rgb_repainted": false,
+        "source_card_path": "assets/flats/castle/rooms/room_kitchen_item_fridge.png",
+        "source_card_sha256": "5e0dd8203510685e128d693758a0b26c06d8b7a2d47e52a1d500fd7fdf4d9c8e"
+      },
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "c1ceafaadc2fe905667ac04caef3aabaef49ced1768e16b5616cb83a4e49f3ab",
+        "mask_sha256": "3976fd2b8f8d9b8e89f7b68fa0666e6ad5c3e8c496de7aacacce95be690e3a4f",
+        "passed": true,
+        "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+        "prior_ownership_verified": true,
+        "production_rehealed": true,
+        "rest_card_sha256": "5685ca9dfa53ef2c1f935fd08fdb4808f567cee7aaa90d4de19544255e31dc7f",
+        "source_rect": [
+          636,
+          86,
+          133,
+          256
+        ],
+        "source_room_plate_sha256": "ee2f05ce1eff483060ace90aee729a561b3ddf471d25d5a5c75eb9b9ba948104",
+        "verified": true
+      },
+      "source_rect": [
+        636,
+        86,
+        133,
+        256
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_kitchen.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "v4_override_of": {
+        "asset_id": "kitchen_fridge",
+        "pack": "v2_base"
+      },
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted source-owned override: frame zero keeps exact approved teal fridge RGB while discarding only audited wall/cabinet alpha from the legacy card. Generated frames preserve its mint shell, peach shell badge, gold handle and hinges while opening the attached door to reveal a coherent food interior; the cabinet stays registered at one fixed base pivot.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      }
+    },
+    {
+      "anchor_mode": "center",
+      "animation_behavior": {
+        "action": "wake_right_pearl_lamp_with_glow",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.0,
+        "maximum_visible_size": [
+          77,
+          83
+        ],
+        "maximum_width_ratio_to_rest": 1.0,
+        "minimum_visible_size": [
+          77,
+          83
+        ],
+        "rest_visible_size": [
+          77,
+          83
+        ]
+      },
+      "fluid_engine": "none",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          89,
+          86,
+          166,
+          169
+        ],
+        [
+          89,
+          86,
+          166,
+          169
+        ],
+        [
+          89,
+          86,
+          166,
+          169
+        ],
+        [
+          89,
+          86,
+          166,
+          169
+        ],
+        [
+          89,
+          86,
+          166,
+          169
+        ],
+        [
+          89,
+          86,
+          166,
+          169
+        ],
+        [
+          89,
+          86,
+          166,
+          169
+        ],
+        [
+          89,
+          86,
+          166,
+          169
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.12,
+      "frame_sha256": [
+        "7df52a153beea77faa25d72ff7d74e1d5a32befd507e859bbe0884934c4e0266",
+        "cb4ea175570003d6db4f3fbdd32a3ef9b9e371aa4ec0818f0ae8cbcd50de3c8e",
+        "894b7a87f3ecce00a9af756adc5403fe3c0e1d6985ec8f4b2d2e875682c52753",
+        "ef8d9476a3e232a1a30beee4f9b37a9820a272b1c9ea6a439e6f48297af3790b",
+        "d334cbc4ea22c09381d370eec8111f4af7fd8e384040164fdaeb8d44f28aa5e5",
+        "106b8709b3c8827be4a2ab37ff7d3c2d75dcbd1e4099f8140a78fc13b2e96094",
+        "f81f3b8fd78c7707987985d2c44a36e974a74c9720b7e96b2912ea2c98537670",
+        "5e20e17d2f251af8e91d7be98b7d332ad1bbfbdb87b5d8134e6ab0abdf9345bb"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_library_background.png",
+      "hotspot_offset": [
+        -17.5,
+        -14.5
+      ],
+      "hotspot_size": [
+        112.0,
+        112.0
+      ],
+      "id": "library_pearl_lamp_right",
+      "instances": [
+        "pearl_lamp_right"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/library_pearl_lamp_right_mask.png",
+      "name": "Pearl Lamp Right",
+      "normalization": {
+        "method": "source_owned_pearl_color_chase",
+        "per_frame_warp": false,
+        "root_transform_animation": false
+      },
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        947,
+        225
+      ],
+      "placement_size": [
+        77,
+        83
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        89,
+        86
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/library_pearl_lamp_right_rest.png",
+      "rest_card_registration_bbox": [
+        0,
+        0,
+        77,
+        83
+      ],
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        89,
+        86,
+        166,
+        169
+      ],
+      "rest_visible_bbox_in_cell": [
+        89,
+        86,
+        166,
+        169
+      ],
+      "room": "library",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        39.0,
+        42.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "wake_right_pearl_lamp_with_glow",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "cb665af95fc578e365973e84670d75de22ce54feb192bd22bab24964b94619a4",
+        "mask_sha256": "92d6be1054e9eeb173d20a46120ecfc0da21b27b770949982a8674755ea4a207",
+        "passed": true,
+        "rest_card_sha256": "e4b49b2aa94b8aa9908941da401becb42894550339b6dbf91b4c5ff8d012841c",
+        "source_rect": [
+          947,
+          225,
+          77,
+          83
+        ],
+        "source_room_plate_sha256": "e285f03aa260f9ad3586a5bea75935b98edc99324e14d704d2542bdd97e8570d",
+        "verified": true
+      },
+      "source_rect": [
+        947,
+        225,
+        77,
+        83
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_library.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted: complete object identity remains coherent across all authored states with an exact source-owned rest frame and fixed root pivot.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      }
+    },
+    {
+      "anchor_mode": "center",
+      "animation_behavior": {
+        "action": "chase_chandelier_pearl_lights",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.0,
+        "maximum_visible_size": [
+          125,
+          67
+        ],
+        "maximum_width_ratio_to_rest": 1.0,
+        "minimum_visible_size": [
+          125,
+          67
+        ],
+        "rest_visible_size": [
+          125,
+          67
+        ]
+      },
+      "fluid_engine": "none",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          65,
+          94,
+          190,
+          161
+        ],
+        [
+          65,
+          94,
+          190,
+          161
+        ],
+        [
+          65,
+          94,
+          190,
+          161
+        ],
+        [
+          65,
+          94,
+          190,
+          161
+        ],
+        [
+          65,
+          94,
+          190,
+          161
+        ],
+        [
+          65,
+          94,
+          190,
+          161
+        ],
+        [
+          65,
+          94,
+          190,
+          161
+        ],
+        [
+          65,
+          94,
+          190,
+          161
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.12,
+      "frame_sha256": [
+        "f37976e4a010aa0b797cde95068e23bda5db3dfa6a4bc8f537aeab98139820d5",
+        "5d053e86907ef81d59fc8707429f161293632fd488d8708d97f6cca1986fc33e",
+        "a00b04f088887bf3800d59500ad08243eaa41fce3bd4b89c467021954e2e11d5",
+        "0b3ae12ab83e90dd03dc52ca9c20a41c209d8eb6818eec29afa8c4b53548e59f",
+        "6ba993635fd7507ac9b3d3b72916ab2e6e07636b1b64be564ca34b0c1cd53e83",
+        "94066d8e964b2cac15f7728c0fee7c82cfc173c905dceae08461024142666631",
+        "3514c53f7ca24424660bfcf66362ef0a58f54bf1602d6c82a432c6d520445937",
+        "4762fe05ef30a56336003b48d071b902c717fd1f317627828dc363bfb951dfe4"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_library_background.png",
+      "hotspot_offset": [
+        0.0,
+        -22.5
+      ],
+      "hotspot_size": [
+        125.0,
+        112.0
+      ],
+      "id": "library_ceiling_chandelier",
+      "instances": [
+        "ceiling_chandelier"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/library_ceiling_chandelier_mask.png",
+      "name": "Ceiling Chandelier",
+      "normalization": {
+        "method": "source_owned_pearl_color_chase",
+        "per_frame_warp": false,
+        "root_transform_animation": false
+      },
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        451,
+        0
+      ],
+      "placement_size": [
+        125,
+        67
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        65,
+        94
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/library_ceiling_chandelier_rest.png",
+      "rest_card_registration_bbox": [
+        0,
+        0,
+        125,
+        67
+      ],
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        65,
+        94,
+        190,
+        161
+      ],
+      "rest_visible_bbox_in_cell": [
+        65,
+        94,
+        190,
+        161
+      ],
+      "room": "library",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        63.0,
+        34.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "chase_chandelier_pearl_lights",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+      "sound": "assets/audio/castle/light_switch.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "cb665af95fc578e365973e84670d75de22ce54feb192bd22bab24964b94619a4",
+        "mask_sha256": "c7d472185750a46cae3081ecad7f872915252d6acca29cb21c28e4653053b5b4",
+        "passed": true,
+        "rest_card_sha256": "6fc7827c8367cfb38bec2c5992d73c4306483bb4c68870f46bd61b93246ba815",
+        "source_rect": [
+          451,
+          0,
+          125,
+          67
+        ],
+        "source_room_plate_sha256": "e285f03aa260f9ad3586a5bea75935b98edc99324e14d704d2542bdd97e8570d",
+        "verified": true
+      },
+      "source_rect": [
+        451,
+        0,
+        125,
+        67
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_library.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted: complete object identity remains coherent across all authored states with an exact source-owned rest frame and fixed root pivot.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      }
+    },
+    {
+      "anchor_mode": "top_right",
+      "animation_behavior": {
+        "action": "open_tent_flap_for_peekaboo",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.0,
+        "maximum_visible_size": [
+          33,
+          57
+        ],
+        "maximum_width_ratio_to_rest": 1.0,
+        "minimum_visible_size": [
+          13,
+          57
+        ],
+        "rest_visible_size": [
+          33,
+          57
+        ]
+      },
+      "fluid_engine": "none",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          111,
+          99,
+          144,
+          156
+        ],
+        [
+          115,
+          99,
+          144,
+          156
+        ],
+        [
+          121,
+          99,
+          144,
+          156
+        ],
+        [
+          127,
+          99,
+          144,
+          156
+        ],
+        [
+          131,
+          99,
+          144,
+          156
+        ],
+        [
+          126,
+          99,
+          144,
+          156
+        ],
+        [
+          120,
+          99,
+          144,
+          156
+        ],
+        [
+          114,
+          99,
+          144,
+          156
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.11,
+      "frame_sha256": [
+        "2d6250f0c2199d225e372f536ee369be8ae14990591873e260b9972bfbd58f14",
+        "47fb65625ccf2afce5821cdc33506f9bb7d950b7afe46601c69c71ca27ea53a3",
+        "cfe48ddc4e48e38b64ec9b4cc2be9067bbffff81703e51849acbe6fb1aae0c60",
+        "5e2f0f6bccf070ef0cb8727bebf9bfc678b10596f0d317e8fc1cce51b7363ba2",
+        "ecf2c5179b6c8f7b41821af356f5c0e60b1126ed6dbf96ebd4c3780b85a0d153",
+        "25cccf86ea1394748893c5d9b5b49dea63b0b80bd01f21001287dd3bc6684f7e",
+        "ddb270d1c186cfb383e707e73b292e5ac3f8ec259dc889b0db41d11d69b7482d",
+        "fbc6c6b5d8e9e3c03503197792c7b0c480422240c7837499171530f81719a81e"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_playroom_background.png",
+      "hotspot_offset": [
+        -39.5,
+        -27.5
+      ],
+      "hotspot_size": [
+        112.0,
+        112.0
+      ],
+      "id": "playroom_tent_flaps_right",
+      "instances": [
+        "tent_flaps_right"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/playroom_tent_flaps_right_mask.png",
+      "name": "Tent Flaps Right",
+      "normalization": {
+        "fixed_root_pivot": true,
+        "local_component": "owned_inner_right_flap",
+        "method": "source_owned_flap_fold_states",
+        "per_frame_local_resample": true,
+        "per_frame_warp": true,
+        "root_transform_animation": false,
+        "source_owned_pixels_only": true
+      },
+      "ownership_continuity": [
+        "exact_inner_right_flap_pixels_only",
+        "generated_outer_canopy_rejected"
+      ],
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        826,
+        281
+      ],
+      "placement_size": [
+        33,
+        57
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        111,
+        99
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/playroom_tent_flaps_right_rest.png",
+      "rest_card_registration_bbox": [
+        0,
+        0,
+        33,
+        57
+      ],
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        111,
+        99,
+        144,
+        156
+      ],
+      "rest_visible_bbox_in_cell": [
+        111,
+        99,
+        144,
+        156
+      ],
+      "room": "playroom",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        17.0,
+        29.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "open_tent_flap_for_peekaboo",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/playroom_tent_flaps_right_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "5c2c52009ec229f3277d3b7b69f74adaa86071f5d377a07e8a3463252ceb2259",
+      "sound": "assets/audio/castle/curtain_swish.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "7b95a0ff64aeb3fdf81b511e534c95484ac836d82cb0d51b90a3a75b090a2163",
+        "mask_sha256": "575cb9c978b66b3e3b16b8d0eb3fde5c056c35e1c3cad0bd5e3bb9585f6e7251",
+        "passed": true,
+        "rest_card_sha256": "28568458f0ee9b635ffc698bda9f64f65536e580a9d1f1d83134a9692fecca7e",
+        "source_rect": [
+          826,
+          281,
+          33,
+          57
+        ],
+        "source_room_plate_sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f",
+        "verified": true
+      },
+      "source_rect": [
+        826,
+        281,
+        33,
+        57
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_playroom.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted source-derived replacement: only the exact owned inner right flap folds at its seam; the non-owned generated canopy and gold knob are excluded.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      }
+    },
+    {
+      "anchor_mode": "bottom_center",
+      "animation_behavior": {
+        "action": "unfurl_sail_and_rock_boat",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.155556,
+        "maximum_visible_size": [
+          49,
+          52
+        ],
+        "maximum_width_ratio_to_rest": 1.0,
+        "minimum_visible_size": [
+          43,
+          45
+        ],
+        "rest_visible_size": [
+          49,
+          45
+        ]
+      },
+      "fluid_engine": "none",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          103,
+          105,
+          152,
+          150
+        ],
+        [
+          103,
+          98,
+          147,
+          150
+        ],
+        [
+          102,
+          98,
+          145,
+          150
+        ],
+        [
+          99,
+          98,
+          143,
+          150
+        ],
+        [
+          106,
+          97,
+          149,
+          149
+        ],
+        [
+          103,
+          97,
+          146,
+          149
+        ],
+        [
+          102,
+          97,
+          145,
+          149
+        ],
+        [
+          100,
+          97,
+          143,
+          149
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.13,
+      "frame_sha256": [
+        "7cd40d6de55f59d98bb5ed4eed563ecbfd70f8a145d478c2d9a6e8c982319c69",
+        "f585367c7e7b867e1520d1580a68d828ca931c0abc714398159dcfc8e11a33f0",
+        "bf07ad80439c964ee7e79d7f6cad7ee49541796eabcc231c4263bce14afd1ebb",
+        "03248c3345cbe5df70f0b66336e2954b6ab60ae3ee9cdfddf9a88304e8d380ef",
+        "b9bee73997907f463c53fb90cfe3ab5d30bb5da674b05407af4b4816503f4c2e",
+        "109eac0e630c80b39d4ecc1ca873b76b1e15d19d926236a67b95ab1d03b32366",
+        "c3cdc331a8473dc99c2dba79ba52c62496eeed3218570479b98ccc705a46be3d",
+        "90098356c991f7f5d95b00b7f8b52e7fd9e53867d3ca9c00e1fcefeec43f9780"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_playroom_background.png",
+      "hotspot_offset": [
+        -31.5,
+        -33.5
+      ],
+      "hotspot_size": [
+        112.0,
+        112.0
+      ],
+      "id": "playroom_shelf_sailboat",
+      "instances": [
+        "shelf_sailboat"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/playroom_shelf_sailboat_mask.png",
+      "name": "Shelf Sailboat",
+      "normalization": {
+        "method": "normalized_generated_full_object_states_fixed_pivot",
+        "per_frame_scale": false,
+        "per_frame_warp": false,
+        "root_transform_animation": false,
+        "source_cell_canvas": [
+          444,
+          444
+        ],
+        "source_frame_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "source_path": "assets_src/imagegen/castle_object_animations_v4/playroom/playroom_shelf_sailboat_sheet_alpha.png",
+        "source_pivot": [
+          244.0,
+          436.0
+        ],
+        "source_sha256": "1d9e138e50f66239f9c81d99fcd427e0cef55de305e68af22235fc4aecb47dc8",
+        "target_pivot": [
+          127.5,
+          150.0
+        ],
+        "uniform_scale": 0.12698062,
+        "uniform_translation": [
+          97,
+          95
+        ]
+      },
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        694,
+        240
+      ],
+      "placement_size": [
+        49,
+        45
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        103,
+        105
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/playroom_shelf_sailboat_rest.png",
+      "rest_card_registration_bbox": [
+        0,
+        0,
+        49,
+        45
+      ],
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        103,
+        105,
+        152,
+        150
+      ],
+      "rest_visible_bbox_in_cell": [
+        103,
+        105,
+        152,
+        150
+      ],
+      "room": "playroom",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        25.0,
+        23.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "unfurl_sail_and_rock_boat",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+      "sound": "assets/audio/castle/curtain_swish.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "7b95a0ff64aeb3fdf81b511e534c95484ac836d82cb0d51b90a3a75b090a2163",
+        "mask_sha256": "4efa8b041ac2d8f5cede10dc9c9e9985d0476137ebb4762e95c59c490c92d91e",
+        "passed": true,
+        "rest_card_sha256": "b2debf899c5cd6cbc5464e2b836b1075eacf92a403f8e071cb5495d7cc4fcd27",
+        "source_rect": [
+          694,
+          240,
+          49,
+          45
+        ],
+        "source_room_plate_sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f",
+        "verified": true
+      },
+      "source_rect": [
+        694,
+        240,
+        49,
+        45
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_playroom.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted: the same pink hull, pearl mast, flag, and triangular sail remain legible; authored states furl and unfurl the attached sail on a fixed bottom pivot rather than replacing or moving the shelf toy.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      }
+    },
+    {
+      "anchor_mode": "bottom_center",
+      "animation_behavior": {
+        "action": "pull_supply_bins_and_reveal_art_supplies",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.0,
+        "maximum_visible_size": [
+          82,
+          80
+        ],
+        "maximum_width_ratio_to_rest": 1.078947,
+        "minimum_visible_size": [
+          76,
+          77
+        ],
+        "rest_visible_size": [
+          76,
+          80
+        ]
+      },
+      "fluid_engine": "none",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          90,
+          88,
+          166,
+          168
+        ],
+        [
+          88,
+          92,
+          168,
+          169
+        ],
+        [
+          88,
+          92,
+          170,
+          169
+        ],
+        [
+          88,
+          92,
+          169,
+          169
+        ],
+        [
+          88,
+          92,
+          169,
+          169
+        ],
+        [
+          88,
+          92,
+          169,
+          169
+        ],
+        [
+          88,
+          92,
+          168,
+          169
+        ],
+        [
+          88,
+          92,
+          168,
+          169
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.13,
+      "frame_sha256": [
+        "deb06016c5a37b1bd89b38f30710f385bf25f39b0166897913ae1b5ccecbf770",
+        "812a3e93bd19b890efa696d270d74291094c91b3b6ebe355cfe212fc545c0496",
+        "f8062153d5ca5abd6015046d6e22450372fae530e41ffc5dc70397ea209a73f3",
+        "90736d56ca44592c2c643d125877659c6a593d86995dbee8bfb950b8971bfbcc",
+        "9abd57e70e57113cf367d957462f2be873e9c1ed8644ce7ffa168427fc2e85e6",
+        "7e84d2121db9e96e78f6143c5f4faa068eafe4af6efa3782e4d371b260bcd653",
+        "05fbdbf067da67cd04afdbf6bccb7458478e8e31b88b8a481b437303d72da137",
+        "52044b2521f6d602521471cfa6b146d579d935c7f1d4873c32ba3bc9e5bfd868"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_craft_room_background.png",
+      "hotspot_offset": [
+        -18.0,
+        -16.0
+      ],
+      "hotspot_size": [
+        112.0,
+        112.0
+      ],
+      "id": "craft_room_supply_cupboard_left",
+      "instances": [
+        "supply_cupboard_left"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/craft_room_supply_cupboard_left_mask.png",
+      "name": "Supply Cupboard Left",
+      "normalization": {
+        "method": "normalized_generated_full_object_states_fixed_pivot",
+        "per_frame_scale": false,
+        "per_frame_warp": false,
+        "root_transform_animation": false,
+        "source_cell_canvas": [
+          444,
+          444
+        ],
+        "source_frame_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "source_path": "assets_src/imagegen/castle_object_animations_v4/craft_room/craft_room_supply_cupboard_left_sheet_alpha.png",
+        "source_pivot": [
+          216.0,
+          385.0
+        ],
+        "source_sha256": "9cc1260f20969a7552ff0d184c3dcffcfe3841cefa26cc8bf20bda817aec264e",
+        "target_pivot": [
+          128.0,
+          168.0
+        ],
+        "uniform_scale": 0.22704023,
+        "uniform_translation": [
+          79,
+          81
+        ]
+      },
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        231,
+        212
+      ],
+      "placement_size": [
+        76,
+        80
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        90,
+        88
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/craft_room_supply_cupboard_left_rest.png",
+      "rest_card_registration_bbox": [
+        0,
+        0,
+        76,
+        80
+      ],
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        90,
+        88,
+        166,
+        168
+      ],
+      "rest_visible_bbox_in_cell": [
+        90,
+        88,
+        166,
+        168
+      ],
+      "room": "craft_room",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        38.0,
+        40.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "pull_supply_bins_and_reveal_art_supplies",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/craft_room_supply_cupboard_left_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "35c9b395077c6866d46890598243b7233cfa4003e35d7931769c3dddeae6ea59",
+      "sound": "assets/audio/castle/toy_blocks.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "4971f81c6f2fda76b249c5fbcc47663f9abf572b83287e100db51e2f5b8f060c",
+        "mask_sha256": "2b8d6a16404da33cd814063cadea895ebc3d9750db7425e46b619a73b4ba64f5",
+        "passed": true,
+        "rest_card_sha256": "cb56c57e4d9888eefecf401a45ea84f23613330bf09d9de193ade634f0b7b2f4",
+        "source_rect": [
+          231,
+          212,
+          76,
+          80
+        ],
+        "source_room_plate_sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+        "verified": true
+      },
+      "source_rect": [
+        231,
+        212,
+        76,
+        80
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_craft_room.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted: the cream 2x2 casing, books, yellow supply cup, lavender bin, and blue bin retain identity; only the attached lower bins pull forward, with the casing held at the registered fixed root.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      }
+    },
+    {
+      "anchor_mode": "top_center",
+      "animation_behavior": {
+        "action": "surge_waterfall_and_sparkle",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.0,
+        "maximum_visible_size": [
+          121,
+          166
+        ],
+        "maximum_width_ratio_to_rest": 1.0,
+        "minimum_visible_size": [
+          121,
+          166
+        ],
+        "rest_visible_size": [
+          121,
+          166
+        ]
+      },
+      "fluid_engine": "fixture_water_shader",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          67,
+          45,
+          188,
+          211
+        ],
+        [
+          67,
+          45,
+          188,
+          211
+        ],
+        [
+          67,
+          45,
+          188,
+          211
+        ],
+        [
+          67,
+          45,
+          188,
+          211
+        ],
+        [
+          67,
+          45,
+          188,
+          211
+        ],
+        [
+          67,
+          45,
+          188,
+          211
+        ],
+        [
+          67,
+          45,
+          188,
+          211
+        ],
+        [
+          67,
+          45,
+          188,
+          211
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1,
+      "frame_sha256": [
+        "a1e32b39ecb339459834eab54379a4325fc576abf269aa808e3c0ce81104d252",
+        "72760c197b2555191e3b0083bd74c500cba51f0221a408f98334e9fa99da35d0",
+        "facf7ece4bd9fd84fcc84e6e3163cb97c064272f84ef9d6c8f9c192982ba3fc4",
+        "a48bf176df579f6fe22ad1d24b7ecc7f6a030285c3a828c45edc49632e1594a7",
+        "b1a80321cb16111933352df0ffd57e210772ad555b251bc3a23bfceb7ff59e88",
+        "c779428437f59c9fd72bca9a64daf87d8fe00741c96431ca9323f6359f043dff",
+        "41ef3ab2253dad54a824c8b0389ad247479d0623fe270b7bd695214f27c0ee5f",
+        "0c5a94890729d6721b49d6290a1798da2cce28a2423d70b926e404a8bf9fec56"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+      "hotspot_offset": [
+        0.0,
+        0.0
+      ],
+      "hotspot_size": [
+        121.0,
+        166.0
+      ],
+      "id": "mermaid_pool_waterfall",
+      "instances": [
+        "waterfall"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/mermaid_pool_waterfall_existing_mask.png",
+      "name": "Waterfall",
+      "native_painted_rest_water": true,
+      "normalization": {
+        "method": "source_owned_native_states_with_fixture_water_shader_handoff",
+        "per_frame_warp": false,
+        "root_transform_animation": false
+      },
+      "ownership_continuity": [
+        "exact_source_shell_and_rocks_in_every_state",
+        "invented_clam_gate_generated_source_rejected",
+        "complete_painted_stream_alpha_preserved_in_every_state",
+        "painted_stream_brightness_pulse_under_low_alpha_bounded_shader",
+        "shader_polygon_follows_painted_fall_lip_and_foam_silhouette"
+      ],
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        309,
+        90
+      ],
+      "placement_size": [
+        121,
+        166
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        58,
+        35
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_waterfall_rest.png",
+      "rest_card_pixel_cleanup": {
+        "hidden_rgb_zeroed": true,
+        "method": "zero_rgb_under_fully_transparent_alpha_only",
+        "protected_source_modified": false
+      },
+      "rest_card_registration_bbox": [
+        9,
+        10,
+        130,
+        176
+      ],
+      "rest_card_source_path": "assets/flats/castle/rooms/room_mermaid_pool_item_waterfall.png",
+      "rest_card_source_sha256": "6ead36f8efc3b115a3c7116ec3d88a80e905730548d2949c063c65c671042cba",
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        67,
+        45,
+        188,
+        211
+      ],
+      "rest_visible_bbox_in_cell": [
+        67,
+        45,
+        188,
+        211
+      ],
+      "room": "mermaid_pool",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        61.0,
+        83.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "surge_waterfall_and_sparkle",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_waterfall_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "d7a4d7d6a01fc454f1cbe6fb7a9c17ff032002bac33bd20b2106b82483565f52",
+      "sound": "assets/audio/castle/bubble_water.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "cf31e36118c7d82f9ef12d19e6a7b739af81aa8a7a84166d6a0e13419d1e181f",
+        "mask_sha256": "67027246af478e6539d1669d2bf013b4330321451e0aa82d4d0adbccff7be9b1",
+        "passed": true,
+        "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+        "prior_ownership_verified": true,
+        "production_rehealed": false,
+        "rest_card_sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+        "source_rect": [
+          309,
+          90,
+          121,
+          166
+        ],
+        "source_room_plate_sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+        "verified": true
+      },
+      "source_rect": [
+        309,
+        90,
+        121,
+        166
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "uses_jolt_for_fluid": false,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted source-derived replacement: exact shell, rock, and rainbow-flow alpha remains complete in every state while the painted stream pulses beneath a low-alpha fixture-water highlight shaped from lip to foam; the invented gate generation and both defective rectangular handoffs are excluded.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      },
+      "water_layers": [
+        {
+          "active_frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "alpha_base": 0.12,
+          "deep": [
+            0.72,
+            0.93,
+            0.99,
+            1.0
+          ],
+          "edge_foam": 0.05,
+          "flow_speed": 1.35,
+          "flow_start": 0.02,
+          "local_origin": "source_rect",
+          "outlet_bounds_normalized": [
+            0.29,
+            0.11,
+            0.52,
+            0.08
+          ],
+          "painted_stream_alpha_preserved": true,
+          "points": [
+            [
+              0.29,
+              0.13
+            ],
+            [
+              0.81,
+              0.13
+            ],
+            [
+              0.76,
+              0.93
+            ],
+            [
+              0.34,
+              0.93
+            ]
+          ],
+          "role": "waterfall_band",
+          "shallow": [
+            0.97,
+            0.995,
+            1.0,
+            1.0
+          ],
+          "shape": "polygon",
+          "stream": true,
+          "turbulence": 0.42,
+          "z_offset": 0.012
+        }
+      ],
+      "water_mask_space": "source_rect_normalized"
+    },
+    {
+      "anchor_mode": "bottom_center",
+      "animation_behavior": {
+        "action": "bloom_flower_petals_and_make_ripples",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "physics_role": "bounded_float_settle_after_authored_petals",
+        "secondary_physics": true
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.318841,
+        "maximum_visible_size": [
+          141,
+          91
+        ],
+        "maximum_width_ratio_to_rest": 1.5,
+        "minimum_visible_size": [
+          83,
+          41
+        ],
+        "rest_visible_size": [
+          94,
+          69
+        ]
+      },
+      "fluid_engine": "fixture_water_shader",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          87,
+          106,
+          170,
+          147
+        ],
+        [
+          70,
+          81,
+          171,
+          162
+        ],
+        [
+          58,
+          81,
+          170,
+          163
+        ],
+        [
+          42,
+          83,
+          178,
+          166
+        ],
+        [
+          54,
+          56,
+          195,
+          147
+        ],
+        [
+          62,
+          57,
+          181,
+          147
+        ],
+        [
+          64,
+          59,
+          170,
+          147
+        ],
+        [
+          67,
+          65,
+          170,
+          147
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.13,
+      "frame_sha256": [
+        "d62949a366365a6122337c930d11530da35f92e10e8b97d356fa3119e380e277",
+        "85b8dfae727e07119752ad68c9cba512f40030a69429f47ed2c251c73ff42d09",
+        "3eb2ccc5180a68f8cfa9f74a7a326500ddb64927606a7af9a0204b8d7db3368c",
+        "2838146aaca93761718f71fc01541b9fe7eeeecaf6f3be6408db0c433792636a",
+        "2d8d2143690226f5ea7080f4a0d4329cf9d134d5726f51e1b778d4b9f2d3acb0",
+        "7e90e72bccf15c18627371ae9b63c01b091cc73ff29300682734540766e5a7bd",
+        "06052b65c5c92b9cd4bad6bc2c29cc82b8f13f529e892212fab137be5603e75f",
+        "6654782fed426ff6ef79e12a4ef6a64671017eb2d2ba5785dbdde809d77ebfac"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+      "hotspot_offset": [
+        -9.0,
+        -21.5
+      ],
+      "hotspot_size": [
+        112.0,
+        112.0
+      ],
+      "id": "mermaid_pool_flower_float",
+      "instances": [
+        "flower_float"
+      ],
+      "jolt_role": "secondary_solid_body_garnish",
+      "mask_path": "assets_src/castle/interactions_v4/masks/mermaid_pool_flower_float_existing_mask.png",
+      "name": "Flower Float",
+      "native_painted_rest_water": true,
+      "normalization": {
+        "method": "normalized_generated_states_with_exact_source_support",
+        "per_frame_scale": false,
+        "per_frame_warp": false,
+        "root_transform_animation": false,
+        "source_cell_canvas": [
+          444,
+          444
+        ],
+        "source_frame_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "source_path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_flower_float_sheet_alpha.png",
+        "source_pivot": [
+          244.0,
+          363.0
+        ],
+        "source_sha256": "cd2f310ef8667c13d28152bc77435a4253c9c17421a0d083c87abe396d7938ff",
+        "target_pivot": [
+          128.0,
+          162.0
+        ],
+        "uniform_scale": 0.36349698,
+        "uniform_translation": [
+          39,
+          30
+        ]
+      },
+      "ownership_continuity": [
+        "exact_source_aqua_float_base_in_every_state",
+        "generated_petals_remain_attached_to_base"
+      ],
+      "pack": "v4_native",
+      "physics_impulse_scale": 0.24,
+      "physics_max_angle_radians": 0.065,
+      "physics_mode": "buoyant",
+      "physics_role": "bounded_float_settle_after_authored_petals",
+      "placement_position": [
+        315,
+        307
+      ],
+      "placement_size": [
+        94,
+        69
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        76,
+        86
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_flower_float_rest.png",
+      "rest_card_pixel_cleanup": {
+        "contact_role_retained": "narrow_attached_flower_underside",
+        "hidden_rgb_zeroed": true,
+        "method": "source_rgb_preserving_alpha_only_pool_contact_trim",
+        "protected_source_modified": false,
+        "registration_bbox_preserved": [
+          5,
+          7,
+          99,
+          76
+        ],
+        "removed_visible_pixels": 2430
+      },
+      "rest_card_registration_bbox": [
+        5,
+        7,
+        99,
+        76
+      ],
+      "rest_card_source_path": "assets/flats/castle/rooms/room_mermaid_pool_item_flower_float.png",
+      "rest_card_source_sha256": "8fe5eed4c464d9e3e71338e57662f16c3999450e6c8346763f75d67624a61513",
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        81,
+        93,
+        175,
+        162
+      ],
+      "rest_visible_bbox_in_cell": [
+        87,
+        106,
+        170,
+        147
+      ],
+      "room": "mermaid_pool",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        47.0,
+        35.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": true,
+      "semantic_action": "bloom_flower_petals_and_make_ripples",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_flower_float_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "40e14632dfcd4a9f79b89b3232460d5e653731a85ecd9ca060dae62f66bfe8a9",
+      "sound": "assets/audio/castle/bubble_water.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "cf31e36118c7d82f9ef12d19e6a7b739af81aa8a7a84166d6a0e13419d1e181f",
+        "mask_sha256": "3ffa4f4c7039e1c9fd2b5dc88a88d618b729385423008fa199329242880f45f6",
+        "passed": true,
+        "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+        "prior_ownership_verified": true,
+        "production_rehealed": false,
+        "rest_card_sha256": "4cdb5331f57c54ca77a573f38e899ca34066a2ef306cebe5a7dccdb8c0738ad0",
+        "source_rect": [
+          315,
+          307,
+          94,
+          69
+        ],
+        "source_room_plate_sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+        "verified": true
+      },
+      "source_rect": [
+        315,
+        307,
+        94,
+        69
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "uses_jolt_for_fluid": false,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted with continuity repair: the exact aqua support remains attached beneath every petal state and the ripple stays under the float.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      },
+      "water_layers": [
+        {
+          "active_frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "alpha_base": 0.12,
+          "center": [
+            0.5,
+            0.76
+          ],
+          "contact_role": "under_object_pool_contact",
+          "edge_foam": 0.04,
+          "flow_speed": 0.72,
+          "flow_start": 0.1,
+          "local_origin": "source_rect",
+          "radius": [
+            0.27,
+            0.07
+          ],
+          "role": "ripple",
+          "shape": "ellipse",
+          "turbulence": 0.08,
+          "z_offset": -0.004
+        }
+      ],
+      "water_mask_space": "source_rect_normalized"
+    },
+    {
+      "anchor_mode": "bottom_center",
+      "animation_behavior": {
+        "action": "arc_fountain_water_and_splash",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 0.901554,
+        "maximum_visible_size": [
+          160,
+          174
+        ],
+        "maximum_width_ratio_to_rest": 0.958084,
+        "minimum_visible_size": [
+          160,
+          174
+        ],
+        "rest_visible_size": [
+          167,
+          193
+        ]
+      },
+      "fluid_engine": "fixture_water_shader",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          48,
+          31,
+          208,
+          205
+        ],
+        [
+          48,
+          31,
+          208,
+          205
+        ],
+        [
+          48,
+          31,
+          208,
+          205
+        ],
+        [
+          48,
+          31,
+          208,
+          205
+        ],
+        [
+          48,
+          31,
+          208,
+          205
+        ],
+        [
+          48,
+          31,
+          208,
+          205
+        ],
+        [
+          48,
+          31,
+          208,
+          205
+        ],
+        [
+          48,
+          31,
+          208,
+          205
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.1,
+      "frame_sha256": [
+        "c7e9bd7ab13ebe606a7a61dcfc173eb44d0d5966cf053b9ddf3684a11a247576",
+        "e37dfe46a6b205d97408368f6577d810a9d5cff77b7a5e8b7c4b539c5128d22d",
+        "209e9687f4294e0f465bebb8482d36ad87a5ca5af04107d516d1dce2da940e2e",
+        "214420dc97c4a8082e303fcfed1dfa1fcdfb7d87d682f2af3f8f9c1bd5283aca",
+        "f18e491f9a3e8200bb65a7fcf49b896dce1497cba646f0c6d6b8d46042aacb8b",
+        "7fb99a62aaad8e43e0f08a299071316f855cda799cc349bde1e1156e5ea5ea3f",
+        "1d904e50c3f45189f55a59da394d39f9cacc6bc1549feb5e68566edc482dbee9",
+        "d2e7af22e40f8325a8e3f61f022b3484268f986012ef9bc0467193625adb7558"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+      "hotspot_offset": [
+        0.0,
+        0.0
+      ],
+      "hotspot_size": [
+        167.0,
+        193.0
+      ],
+      "id": "mermaid_pool_seahorse_fountain",
+      "instances": [
+        "seahorse_fountain"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/mermaid_pool_seahorse_fountain_existing_mask.png",
+      "name": "Seahorse Fountain",
+      "native_painted_rest_water": true,
+      "normalization": {
+        "body_rgb_unchanged_outside_stream_mask": true,
+        "exact_alpha_silhouette_all_frames": true,
+        "generated_source_rejected": "purple_blue_matte_and_body_damage_in_maximum_state_mobile_review",
+        "method": "source_owned_seahorse_stream_shimmer_states",
+        "per_frame_warp": false,
+        "root_transform_animation": false,
+        "source_owned_pixels_only": true,
+        "stream_mask_source": "owned_fixture_water_polygon_times_rest_alpha"
+      },
+      "ownership_continuity": [
+        "exact_source_fountain_body_in_every_state",
+        "exact_source_alpha_silhouette_in_every_state",
+        "generated_damaged_body_states_rejected_after_mobile_review",
+        "existing_painted_stream_rgb_shimmer_only",
+        "shader_flow_begins_at_exact_mouth_outlet"
+      ],
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        654,
+        100
+      ],
+      "placement_size": [
+        167,
+        193
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        25,
+        21
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png",
+      "rest_card_pixel_cleanup": {
+        "contact_role_retained": "narrow_attached_pedestal_and_mouth_stream",
+        "hidden_rgb_zeroed": true,
+        "method": "source_rgb_preserving_alpha_only_pool_contact_trim",
+        "protected_source_modified": false,
+        "registration_bbox_preserved": [
+          19,
+          10,
+          186,
+          203
+        ],
+        "removed_visible_pixels": 3071
+      },
+      "rest_card_registration_bbox": [
+        19,
+        10,
+        186,
+        203
+      ],
+      "rest_card_source_path": "assets/flats/castle/rooms/room_mermaid_pool_item_seahorse_fountain.png",
+      "rest_card_source_sha256": "6b55d9096e9043d30be16117c81da1d4e2b487db8fff572226588135bf676344",
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        44,
+        31,
+        211,
+        224
+      ],
+      "rest_visible_bbox_in_cell": [
+        48,
+        31,
+        208,
+        205
+      ],
+      "room": "mermaid_pool",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        84.0,
+        97.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "arc_fountain_water_and_splash",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_seahorse_fountain_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "2c76698701ec4e5d0b1055ba21fe29a86fe78d5bbeaa0cd4cc8de2ed1bfbd156",
+      "sound": "assets/audio/castle/faucet_water.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "cf31e36118c7d82f9ef12d19e6a7b739af81aa8a7a84166d6a0e13419d1e181f",
+        "mask_sha256": "b3f51ef90e6f48380ab82ced1f74fbe55868e5862cb46ec671528b3f9210fe10",
+        "passed": true,
+        "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+        "prior_ownership_verified": true,
+        "production_rehealed": false,
+        "rest_card_sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+        "source_rect": [
+          654,
+          100,
+          167,
+          193
+        ],
+        "source_room_plate_sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+        "verified": true
+      },
+      "source_rect": [
+        654,
+        100,
+        167,
+        193
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 8,
+      "uses_jolt_for_fluid": false,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted source-derived replacement after maximum-state Mobile review: the generated statue states were rejected for purple matte/body damage. Every state now preserves the exact painted fountain body and alpha silhouette; only its existing attached stream receives a gentle source-pixel shimmer beneath the tightly outlet-registered fixture-water shader.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      },
+      "water_layers": [
+        {
+          "active_frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "alpha_base": 0.14,
+          "deep": [
+            0.68,
+            0.91,
+            0.97,
+            1.0
+          ],
+          "edge_foam": 0.06,
+          "flow_speed": 1.1,
+          "flow_start": 0.08,
+          "local_origin": "source_rect",
+          "outlet_bounds_normalized": [
+            0.32,
+            0.29,
+            0.17,
+            0.1
+          ],
+          "points": [
+            [
+              0.35,
+              0.32
+            ],
+            [
+              0.46,
+              0.34
+            ],
+            [
+              0.4,
+              0.47
+            ],
+            [
+              0.29,
+              0.66
+            ],
+            [
+              0.12,
+              0.91
+            ],
+            [
+              0.03,
+              0.89
+            ],
+            [
+              0.17,
+              0.62
+            ],
+            [
+              0.27,
+              0.43
+            ]
+          ],
+          "role": "stream",
+          "shallow": [
+            0.92,
+            0.995,
+            1.0,
+            1.0
+          ],
+          "shape": "polygon",
+          "stream": true,
+          "turbulence": 0.12,
+          "z_offset": 0.013
+        }
+      ],
+      "water_mask_space": "source_rect_normalized"
+    },
+    {
+      "anchor_mode": "bottom_center",
+      "animation_behavior": {
+        "action": "flex_star_point_and_make_ripples",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "physics_role": "bounded_float_settle_after_authored_point_flex",
+        "secondary_physics": true
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.183673,
+        "maximum_visible_size": [
+          73,
+          58
+        ],
+        "maximum_width_ratio_to_rest": 1.042857,
+        "minimum_visible_size": [
+          70,
+          48
+        ],
+        "rest_visible_size": [
+          70,
+          49
+        ]
+      },
+      "fluid_engine": "fixture_water_shader",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          93,
+          103,
+          163,
+          152
+        ],
+        [
+          86,
+          94,
+          158,
+          152
+        ],
+        [
+          82,
+          94,
+          155,
+          152
+        ],
+        [
+          86,
+          94,
+          158,
+          152
+        ],
+        [
+          92,
+          104,
+          165,
+          152
+        ],
+        [
+          82,
+          94,
+          155,
+          152
+        ],
+        [
+          86,
+          94,
+          158,
+          152
+        ],
+        [
+          92,
+          104,
+          165,
+          152
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.13,
+      "frame_sha256": [
+        "0c5a987456f1ec376e36b077d1c4128b6244215fbd25e415a9dbdcc360afb528",
+        "ba096caf6db1ebd0dddad0f5c0ee07525382c726fa4b933cfbe50b2613fba07b",
+        "dea8e037537f1f21e8126da375618cde0897302bc7eb7d973814b1454b5b787b",
+        "ba096caf6db1ebd0dddad0f5c0ee07525382c726fa4b933cfbe50b2613fba07b",
+        "e2325de63b1adfb4e138b619e25aa89187525d7e647425bd7b83932c5fd1fabb",
+        "dea8e037537f1f21e8126da375618cde0897302bc7eb7d973814b1454b5b787b",
+        "ba096caf6db1ebd0dddad0f5c0ee07525382c726fa4b933cfbe50b2613fba07b",
+        "e2325de63b1adfb4e138b619e25aa89187525d7e647425bd7b83932c5fd1fabb"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+      "hotspot_offset": [
+        -21.0,
+        -31.5
+      ],
+      "hotspot_size": [
+        112.0,
+        112.0
+      ],
+      "id": "mermaid_pool_star_float",
+      "instances": [
+        "star_float"
+      ],
+      "jolt_role": "secondary_solid_body_garnish",
+      "mask_path": "assets_src/castle/interactions_v4/masks/mermaid_pool_star_float_existing_mask.png",
+      "name": "Star Float",
+      "native_painted_rest_water": true,
+      "normalization": {
+        "method": "safe_generated_states_with_exact_source_support",
+        "per_frame_scale": false,
+        "per_frame_warp": false,
+        "root_transform_animation": false,
+        "source_cell_canvas": [
+          444,
+          444
+        ],
+        "source_frame_indices": [
+          0,
+          6,
+          7,
+          6,
+          0,
+          7,
+          6,
+          0
+        ],
+        "source_path": "assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_star_float_sheet_alpha.png",
+        "source_pivot": [
+          237.0,
+          369.0
+        ],
+        "source_sha256": "74beb70a9bf6ffebfaadea0bddef4fcc7996c92954f8da77b0cbd4dd7077164e",
+        "target_pivot": [
+          128.0,
+          152.0
+        ],
+        "uniform_scale": 0.20732211,
+        "uniform_translation": [
+          79,
+          75
+        ]
+      },
+      "ownership_continuity": [
+        "exact_source_cyan_rear_underside_in_every_state",
+        "extreme_crescent_generated_states_rejected",
+        "gentle_inflatable_point_flex_only"
+      ],
+      "pack": "v4_native",
+      "physics_impulse_scale": 0.22,
+      "physics_max_angle_radians": 0.06,
+      "physics_mode": "buoyant",
+      "physics_role": "bounded_float_settle_after_authored_point_flex",
+      "placement_position": [
+        540,
+        299
+      ],
+      "placement_size": [
+        70,
+        49
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        83,
+        94
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_star_float_rest.png",
+      "rest_card_pixel_cleanup": {
+        "hidden_rgb_zeroed": true,
+        "method": "zero_rgb_under_fully_transparent_alpha_only",
+        "protected_source_modified": false
+      },
+      "rest_card_registration_bbox": [
+        10,
+        9,
+        80,
+        58
+      ],
+      "rest_card_source_path": "assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png",
+      "rest_card_source_sha256": "d1f3067ce56cd2e6a844c597a48bf01b0661ae34507d99af3272a7a56db88fc5",
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        93,
+        103,
+        163,
+        152
+      ],
+      "rest_visible_bbox_in_cell": [
+        93,
+        103,
+        163,
+        152
+      ],
+      "room": "mermaid_pool",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        35.0,
+        25.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": true,
+      "semantic_action": "flex_star_point_and_make_ripples",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_star_float_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "9847fd5b4ed7624ddcefb64ffbb6d785e37462334bb78142496d5920c7f7d214",
+      "sound": "assets/audio/castle/bubble_water.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "cf31e36118c7d82f9ef12d19e6a7b739af81aa8a7a84166d6a0e13419d1e181f",
+        "mask_sha256": "29cde829c81058459d4938ea8325532f78c7415a9f0721a283bb576d8fd73d75",
+        "passed": true,
+        "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+        "prior_ownership_verified": true,
+        "production_rehealed": true,
+        "rest_card_sha256": "1caa8bf0be058603d2bec968f7225801e0aab128b6b324f711f3fdc29e8db046",
+        "source_rect": [
+          540,
+          299,
+          70,
+          49
+        ],
+        "source_room_plate_sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+        "verified": true
+      },
+      "source_rect": [
+        540,
+        299,
+        70,
+        49
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 4,
+      "uses_jolt_for_fluid": false,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted safe subset: the exact cyan underside remains attached; extreme crescent states are excluded in favor of gentle point flex.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      },
+      "water_layers": [
+        {
+          "active_frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "alpha_base": 0.12,
+          "center": [
+            0.5,
+            0.78
+          ],
+          "contact_role": "under_object_pool_contact",
+          "edge_foam": 0.04,
+          "flow_speed": 0.72,
+          "flow_start": 0.1,
+          "local_origin": "source_rect",
+          "radius": [
+            0.25,
+            0.07
+          ],
+          "role": "ripple",
+          "shape": "ellipse",
+          "turbulence": 0.08,
+          "z_offset": -0.004
+        }
+      ],
+      "water_mask_space": "source_rect_normalized"
+    },
+    {
+      "anchor_mode": "center",
+      "animation_behavior": {
+        "action": "fog_and_wipe_mirror_clear",
+        "generic_transform_fallback": false,
+        "mode": "authored_object_states",
+        "secondary_physics": false
+      },
+      "authored_frame_count": 8,
+      "cell_size": [
+        256,
+        256
+      ],
+      "delivery_status": "runtime_ready_source_owned_states",
+      "fixed_pivot": true,
+      "fixed_root_bbox_metrics": {
+        "maximum_height_ratio_to_rest": 1.0,
+        "maximum_visible_size": [
+          137,
+          116
+        ],
+        "maximum_width_ratio_to_rest": 1.0,
+        "minimum_visible_size": [
+          137,
+          116
+        ],
+        "rest_visible_size": [
+          137,
+          116
+        ]
+      },
+      "fluid_engine": "none",
+      "frame0_exact_rest_card": true,
+      "frame_bboxes": [
+        [
+          59,
+          70,
+          196,
+          186
+        ],
+        [
+          59,
+          70,
+          196,
+          186
+        ],
+        [
+          59,
+          70,
+          196,
+          186
+        ],
+        [
+          59,
+          70,
+          196,
+          186
+        ],
+        [
+          59,
+          70,
+          196,
+          186
+        ],
+        [
+          59,
+          70,
+          196,
+          186
+        ],
+        [
+          59,
+          70,
+          196,
+          186
+        ],
+        [
+          59,
+          70,
+          196,
+          186
+        ]
+      ],
+      "frame_count": 8,
+      "frame_duration_seconds": 0.12,
+      "frame_sha256": [
+        "19adbaa0cfcf5393cbea028fc9fbfacfb20a0629d185ab727426af03ed6551cf",
+        "7277b4655d8787d0a8c76ecfef9845c4b3778f6db55958ff149f8b053de3f32a",
+        "dd1562334c49c67a18e0b826e4a0411964321bee92e9b299bee1d6372634a21d",
+        "d2327e1c7d70b6bfbd437cffa44b61ab5ff55f61b931a596d87cadd0d5502338",
+        "59f181dcf1b08adc0c4bb0400ad86619c4cd3c2bd7cb4b61cb7f7deb6c0567b6",
+        "19adbaa0cfcf5393cbea028fc9fbfacfb20a0629d185ab727426af03ed6551cf",
+        "5a98739946d233e7c41abf6231f98b36b7b5c03f992d325fd0cb43f372d5a2f8",
+        "19adbaa0cfcf5393cbea028fc9fbfacfb20a0629d185ab727426af03ed6551cf"
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_bubble_bath_background.png",
+      "hotspot_offset": [
+        0.0,
+        0.0
+      ],
+      "hotspot_size": [
+        137.0,
+        116.0
+      ],
+      "id": "bubble_bath_vanity_mirror",
+      "instances": [
+        "vanity_mirror"
+      ],
+      "mask_path": "assets_src/castle/interactions_v4/masks/bubble_bath_vanity_mirror_mask.png",
+      "name": "Vanity Mirror",
+      "normalization": {
+        "method": "source_owned_mirror_fog_wipe_states",
+        "per_frame_warp": false,
+        "root_transform_animation": false
+      },
+      "pack": "v4_native",
+      "physics_mode": "none",
+      "placement_position": [
+        491,
+        42
+      ],
+      "placement_size": [
+        137,
+        116
+      ],
+      "primary_animation_is_overlay": false,
+      "render_mode": "generated_full_object_states",
+      "rest_card_cell_origin": [
+        59,
+        70
+      ],
+      "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/bubble_bath_vanity_mirror_rest.png",
+      "rest_card_registration_bbox": [
+        0,
+        0,
+        137,
+        116
+      ],
+      "rest_frame": 0,
+      "rest_registration_bbox_in_cell": [
+        59,
+        70,
+        196,
+        186
+      ],
+      "rest_visible_bbox_in_cell": [
+        59,
+        70,
+        196,
+        186
+      ],
+      "room": "bubble_bath",
+      "root_transform_animation": false,
+      "runtime_center_offset": [
+        69.0,
+        58.0
+      ],
+      "runtime_scale": 1.0,
+      "secondary_root_physics": false,
+      "semantic_action": "fog_and_wipe_mirror_clear",
+      "sheet": "assets/flats/castle/interactions_v4/sheets/bubble_bath_vanity_mirror_sheet.png",
+      "sheet_dimensions": [
+        1024,
+        512
+      ],
+      "sheet_sha256": "905eb10c535fcb2bc935a32385e298505dd0f6e4e7f161d0d9f00e20ba62c5c1",
+      "sound": "assets/audio/castle/faucet_water.ogg",
+      "sound_frame": 1,
+      "source_ownership": {
+        "background_healed": true,
+        "duplicate_pixels_removed": true,
+        "healed_background_sha256": "0924bb2edf8a8a20fbbb292d1c7d693a1921286dc3a1e9b877a763252ef7895b",
+        "mask_sha256": "72f71c808e49994423d4a0d554fcd167a6c2acd0461ef239591573d94492edca",
+        "passed": true,
+        "rest_card_sha256": "7990ea11ca159ddebabcdc385c2c257e2f826c278f824b34bbe1bd972a890f05",
+        "source_rect": [
+          491,
+          42,
+          137,
+          116
+        ],
+        "source_room_plate_sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+        "verified": true
+      },
+      "source_rect": [
+        491,
+        42,
+        137,
+        116
+      ],
+      "source_room_plate_path": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "timeline_frame_count": 9,
+      "timeline_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "unique_frame_count": 6,
+      "visual_review": {
+        "fixed_root_verified": true,
+        "identity_continuity": "accepted",
+        "normalized_use_verified": true,
+        "notes": "Accepted: complete object identity remains coherent across all authored states with an exact source-owned rest frame and fixed root pivot.",
+        "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+        "status": "accepted"
+      }
+    }
+  ],
+  "contract": {
+    "authored_animation_states_required_before_runtime": true,
+    "card_overlap_pixels_allowed": 0,
+    "card_rgb_repainted": false,
+    "generic_transform_fallback": false,
+    "new_background_healing_passes": 1,
+    "parent_backgrounds_modified": false,
+    "resting_rgb_source": "exact approved room-composite pixels"
+  },
+  "delivery": {
+    "background_contract": "approved_native_tiles_locally_healed_at_scaled_ownership_masks",
+    "builder": "tools/build_castle_interaction_v4_delivery.py",
+    "builder_version": 1,
+    "generation_date": "2026-08-04",
+    "rejected_assets": [
+      "bubble_bath_toilet_roll",
+      "kitchen_stove_pot_lid",
+      "kitchen_stove_pot_full_body",
+      "generated_mermaid_pool_waterfall_clam_gate",
+      "generated_playroom_full_tent_canopy"
+    ],
+    "rest_contract": "frame0_exact_clean_source_owned_rest_pixels_unscaled",
+    "sheet_contract": "RGBA_4_to_12_state_fixed_pivot_atlas_max_1024px_edge",
+    "v4_interaction_overrides": [
+      "kitchen:fridge"
+    ]
+  },
+  "excluded": [
+    {
+      "id": "huluu_throne",
+      "reason": "Already extracted from its approved high-resolution source as main_hall_retained_shell_throne.png with separate ownership provenance; re-extraction would create duplicate ownership.",
+      "room": "main_hall"
+    },
+    {
+      "id": "side_portals",
+      "reason": "The painted side openings are architectural recesses partly occluded by the auditorium rails, not separable door objects; animating them would carry rail or wall fragments.",
+      "room": "opera_hall"
+    },
+    {
+      "id": "giant_clam",
+      "reason": "The large shell is integrated into the stair architecture and overlaps the self-contained foreground bubble fountain; separating both would split or duplicate the same painted pixels.",
+      "room": "mermaid_pool"
+    },
+    {
+      "id": "bubble_fountain",
+      "reason": "The small clam is integrated into the giant-clam stair composition; its generated hidden-state trial drifted into a new jar and would have repeated the rejected static-fixture-plus-overlay pattern. Existing Pool objects are upgraded directly instead.",
+      "room": "mermaid_pool"
+    },
+    {
+      "id": "teapot",
+      "reason": "The painted teapot touches the cup, coral, and counter shadow at its spout and handle; repeated masks retained neighboring pixels, so it is rejected instead of shipping a dirty cutout.",
+      "room": "kitchen"
+    },
+    {
+      "id": "stove_pot_lid",
+      "reason": "Three source-mask refinements could not isolate the knob and lid rim without retaining purple wall pixels or stealing pot-body and right-handle pixels. The candidate is rejected so no baked pot part vanishes during interaction.",
+      "room": "kitchen"
+    },
+    {
+      "id": "ribbon_rack_right",
+      "reason": "The right rack's lowest ribbons overlap the painted wall shelf and cup; exact separation left detached wall fragments, so the existing clean left ribbon interaction remains the room's ribbon activity.",
+      "room": "craft_room"
+    },
+    {
+      "id": "toilet_roll",
+      "reason": "The paper cylinder is painted through its gold holder and overlapping purple plant/wall shadow; removing those pixels cuts an obvious hole in the roll, so it is rejected rather than shipped as a compromised partial cutout.",
+      "room": "bubble_bath"
+    }
+  ],
+  "generated_on": "2026-08-04",
+  "generator": "tools/build_castle_native_interactions_v4.py",
+  "generator_sha256": "4dbeda88b8351d7e0dc3751c16bb1f06a6e3c7a2cd3278c00e8c34f546876419",
+  "rooms": {
+    "bubble_bath": {
+      "existing_card_overlap_pixels": 0,
+      "healed_background": "assets/flats/castle/interactions_v4/backgrounds/room_bubble_bath_background.png",
+      "healed_background_sha256": "0924bb2edf8a8a20fbbb292d1c7d693a1921286dc3a1e9b877a763252ef7895b",
+      "healing_changed_pixels": 9876,
+      "healing_changed_pixels_outside_owned_core": 0,
+      "instances": [
+        {
+          "alpha_pixels": 10762,
+          "animation_behavior": {
+            "action": "fog_and_wipe_mirror_clear",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "bubble_bath_vanity_mirror",
+          "authored_frames": {
+            "method": "source_owned_mirror_fog_wipe_states",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/bubble_bath_vanity_mirror_sheet.png",
+            "sheet_sha256": "905eb10c535fcb2bc935a32385e298505dd0f6e4e7f161d0d9f00e20ba62c5c1",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "depth_opaque_pixels": 9833,
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_bubble_bath_background.png",
+          "id": "vanity_mirror",
+          "mask_path": "assets_src/castle/interactions_v4/masks/bubble_bath_vanity_mirror_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/bubble_bath_vanity_mirror_rest.png",
+          "routing_crop": [
+            486,
+            42,
+            644,
+            203
+          ],
+          "semantic_action": "fog_and_wipe_mirror_clear",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "0924bb2edf8a8a20fbbb292d1c7d693a1921286dc3a1e9b877a763252ef7895b",
+            "mask_sha256": "72f71c808e49994423d4a0d554fcd167a6c2acd0461ef239591573d94492edca",
+            "passed": true,
+            "rest_card_sha256": "7990ea11ca159ddebabcdc385c2c257e2f826c278f824b34bbe1bd972a890f05",
+            "source_rect": [
+              491,
+              42,
+              137,
+              116
+            ],
+            "source_room_plate_sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+            "verified": true
+          },
+          "source_rect": [
+            491,
+            42,
+            137,
+            116
+          ]
+        }
+      ],
+      "new_card_overlap_pixels": 0,
+      "parent_background": "assets/flats/castle/rooms/room_bubble_bath_background.png",
+      "parent_background_sha256": "cb2ea5976be13dde3c54cd2ea11abdcc8adb65671a86c6785bcf56b69e72fdce",
+      "physical_item_count": 1,
+      "production_healing_passes": 1,
+      "resting_reconstruction_mean_abs_error": 0.490872,
+      "source_room_plate": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "source_room_plate_sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+      "visual_audit": {
+        "path": "audit/castle_native_interactions_v4/room_bubble_bath_ownership_audit.png",
+        "sha256": "8c809f00c8c1dc5ce2334f2455e23274705fd4fc867bff80991028a76680e12c",
+        "status": "generated_for_visual_review"
+      }
+    },
+    "craft_room": {
+      "existing_card_overlap_pixels": 0,
+      "healed_background": "assets/flats/castle/interactions_v4/backgrounds/room_craft_room_background.png",
+      "healed_background_sha256": "4971f81c6f2fda76b249c5fbcc47663f9abf572b83287e100db51e2f5b8f060c",
+      "healing_changed_pixels": 4813,
+      "healing_changed_pixels_outside_owned_core": 0,
+      "instances": [
+        {
+          "alpha_pixels": 5888,
+          "animation_behavior": {
+            "action": "pull_supply_bins_and_reveal_art_supplies",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "craft_room_supply_cupboard_left",
+          "authored_frames": {
+            "method": "normalized_generated_full_object_states_fixed_pivot",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/craft_room_supply_cupboard_left_sheet.png",
+            "sheet_sha256": "35c9b395077c6866d46890598243b7233cfa4003e35d7931769c3dddeae6ea59",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "depth_opaque_pixels": 4810,
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_craft_room_background.png",
+          "id": "supply_cupboard_left",
+          "mask_path": "assets_src/castle/interactions_v4/masks/craft_room_supply_cupboard_left_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/craft_room_supply_cupboard_left_rest.png",
+          "routing_crop": [
+            222,
+            207,
+            309,
+            294
+          ],
+          "semantic_action": "pull_supply_bins_and_reveal_art_supplies",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "4971f81c6f2fda76b249c5fbcc47663f9abf572b83287e100db51e2f5b8f060c",
+            "mask_sha256": "2b8d6a16404da33cd814063cadea895ebc3d9750db7425e46b619a73b4ba64f5",
+            "passed": true,
+            "rest_card_sha256": "cb56c57e4d9888eefecf401a45ea84f23613330bf09d9de193ade634f0b7b2f4",
+            "source_rect": [
+              231,
+              212,
+              76,
+              80
+            ],
+            "source_room_plate_sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+            "verified": true
+          },
+          "source_rect": [
+            231,
+            212,
+            76,
+            80
+          ]
+        }
+      ],
+      "new_card_overlap_pixels": 0,
+      "parent_background": "assets/flats/castle/rooms/room_craft_room_background.png",
+      "parent_background_sha256": "35fc1573b5adea0793bf049ef2ce2c33f6fb89cb2b81c95b18bce04d087214a6",
+      "physical_item_count": 1,
+      "production_healing_passes": 1,
+      "resting_reconstruction_mean_abs_error": 0.439631,
+      "source_room_plate": "assets/flats/castle/rooms/room_craft_room.png",
+      "source_room_plate_sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+      "visual_audit": {
+        "path": "audit/castle_native_interactions_v4/room_craft_room_ownership_audit.png",
+        "sha256": "3224d260d9f5ef1fda9ba4a98dd49150f12cf055f38fbc4b0c4d90120f1324b7",
+        "status": "generated_for_visual_review"
+      }
+    },
+    "kitchen": {
+      "existing_card_overlap_pixels": 0,
+      "healed_background": "assets/flats/castle/interactions_v4/backgrounds/room_kitchen_background.png",
+      "healed_background_sha256": "c1ceafaadc2fe905667ac04caef3aabaef49ced1768e16b5616cb83a4e49f3ab",
+      "healing_changed_pixels": 31274,
+      "healing_changed_pixels_outside_owned_core": 0,
+      "instances": [
+        {
+          "animation_behavior": {
+            "action": "unlatch_and_open_fridge_door",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "kitchen_fridge",
+          "authored_frames": {
+            "method": "normalized_generated_fridge_states_fixed_base",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+            "sheet_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_kitchen_background.png",
+          "id": "fridge",
+          "mask_path": "assets_src/castle/interactions_v4/masks/kitchen_fridge_existing_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png",
+          "reuse_existing_card": true,
+          "routing_crop": [
+            631,
+            84,
+            771,
+            347
+          ],
+          "semantic_action": "unlatch_and_open_fridge_door",
+          "source_alpha_cleanup": {
+            "cleaned_card_path": "assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png",
+            "cleaned_card_sha256": "5685ca9dfa53ef2c1f935fd08fdb4808f567cee7aaa90d4de19544255e31dc7f",
+            "method": "fridge_only_source_pixels_v1",
+            "minimum_retained_alpha": 16,
+            "minimum_retained_component_pixels": 8,
+            "neighboring_cabinet_exclusion_xyxy": [
+              133,
+              164,
+              140,
+              197
+            ],
+            "purple_wall_rule": "red>=green+8 and blue>=green+8",
+            "removed_visible_pixels": 240,
+            "retained_visible_pixels": 31755,
+            "rgb_repainted": false,
+            "source_card_path": "assets/flats/castle/rooms/room_kitchen_item_fridge.png",
+            "source_card_sha256": "5e0dd8203510685e128d693758a0b26c06d8b7a2d47e52a1d500fd7fdf4d9c8e"
+          },
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "c1ceafaadc2fe905667ac04caef3aabaef49ced1768e16b5616cb83a4e49f3ab",
+            "mask_sha256": "3976fd2b8f8d9b8e89f7b68fa0666e6ad5c3e8c496de7aacacce95be690e3a4f",
+            "passed": true,
+            "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+            "prior_ownership_verified": true,
+            "production_rehealed": true,
+            "rest_card_sha256": "5685ca9dfa53ef2c1f935fd08fdb4808f567cee7aaa90d4de19544255e31dc7f",
+            "source_rect": [
+              636,
+              86,
+              133,
+              256
+            ],
+            "source_room_plate_sha256": "ee2f05ce1eff483060ace90aee729a561b3ddf471d25d5a5c75eb9b9ba948104",
+            "verified": true
+          },
+          "source_rect": [
+            636,
+            86,
+            133,
+            256
+          ]
+        }
+      ],
+      "new_card_overlap_pixels": 0,
+      "parent_background": "assets/flats/castle/rooms/room_kitchen_background.png",
+      "parent_background_sha256": "40c8bfc49c2a764ae11d51508b9273e0e541dea3df576957267779a795d4682f",
+      "physical_item_count": 1,
+      "production_healing_passes": 1,
+      "resting_reconstruction_mean_abs_error": 0.463445,
+      "source_room_plate": "assets/flats/castle/rooms/room_kitchen.png",
+      "source_room_plate_sha256": "ee2f05ce1eff483060ace90aee729a561b3ddf471d25d5a5c75eb9b9ba948104",
+      "visual_audit": {
+        "path": "audit/castle_native_interactions_v4/room_kitchen_ownership_audit.png",
+        "sha256": "cb6e3d63f86f49deb2a07dc8b1023acf500508c035c73155be8ab555ec76cd78",
+        "status": "generated_for_visual_review"
+      }
+    },
+    "library": {
+      "existing_card_overlap_pixels": 0,
+      "healed_background": "assets/flats/castle/interactions_v4/backgrounds/room_library_background.png",
+      "healed_background_sha256": "cb665af95fc578e365973e84670d75de22ce54feb192bd22bab24964b94619a4",
+      "healing_changed_pixels": 6634,
+      "healing_changed_pixels_outside_owned_core": 0,
+      "instances": [
+        {
+          "alpha_pixels": 5039,
+          "animation_behavior": {
+            "action": "wake_right_pearl_lamp_with_glow",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "library_pearl_lamp_right",
+          "authored_frames": {
+            "method": "source_owned_pearl_color_chase",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+            "sheet_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "depth_opaque_pixels": 4443,
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_library_background.png",
+          "id": "pearl_lamp_right",
+          "mask_path": "assets_src/castle/interactions_v4/masks/library_pearl_lamp_right_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/library_pearl_lamp_right_rest.png",
+          "routing_crop": [
+            917,
+            214,
+            1024,
+            309
+          ],
+          "semantic_action": "wake_right_pearl_lamp_with_glow",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "cb665af95fc578e365973e84670d75de22ce54feb192bd22bab24964b94619a4",
+            "mask_sha256": "92d6be1054e9eeb173d20a46120ecfc0da21b27b770949982a8674755ea4a207",
+            "passed": true,
+            "rest_card_sha256": "e4b49b2aa94b8aa9908941da401becb42894550339b6dbf91b4c5ff8d012841c",
+            "source_rect": [
+              947,
+              225,
+              77,
+              83
+            ],
+            "source_room_plate_sha256": "e285f03aa260f9ad3586a5bea75935b98edc99324e14d704d2542bdd97e8570d",
+            "verified": true
+          },
+          "source_rect": [
+            947,
+            225,
+            77,
+            83
+          ]
+        },
+        {
+          "alpha_pixels": 3005,
+          "animation_behavior": {
+            "action": "chase_chandelier_pearl_lights",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "library_ceiling_chandelier",
+          "authored_frames": {
+            "method": "source_owned_pearl_color_chase",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+            "sheet_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "depth_opaque_pixels": 2111,
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_library_background.png",
+          "id": "ceiling_chandelier",
+          "mask_path": "assets_src/castle/interactions_v4/masks/library_ceiling_chandelier_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/library_ceiling_chandelier_rest.png",
+          "routing_crop": [
+            445,
+            0,
+            580,
+            96
+          ],
+          "semantic_action": "chase_chandelier_pearl_lights",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "cb665af95fc578e365973e84670d75de22ce54feb192bd22bab24964b94619a4",
+            "mask_sha256": "c7d472185750a46cae3081ecad7f872915252d6acca29cb21c28e4653053b5b4",
+            "passed": true,
+            "rest_card_sha256": "6fc7827c8367cfb38bec2c5992d73c4306483bb4c68870f46bd61b93246ba815",
+            "source_rect": [
+              451,
+              0,
+              125,
+              67
+            ],
+            "source_room_plate_sha256": "e285f03aa260f9ad3586a5bea75935b98edc99324e14d704d2542bdd97e8570d",
+            "verified": true
+          },
+          "source_rect": [
+            451,
+            0,
+            125,
+            67
+          ]
+        }
+      ],
+      "new_card_overlap_pixels": 0,
+      "parent_background": "assets/flats/castle/rooms/room_library_background.png",
+      "parent_background_sha256": "de5526db3220928fcdb2e9cc8afd132788f8c7a68b75f3479214554754734b0d",
+      "physical_item_count": 2,
+      "production_healing_passes": 1,
+      "resting_reconstruction_mean_abs_error": 0.641964,
+      "source_room_plate": "assets/flats/castle/rooms/room_library.png",
+      "source_room_plate_sha256": "e285f03aa260f9ad3586a5bea75935b98edc99324e14d704d2542bdd97e8570d",
+      "visual_audit": {
+        "path": "audit/castle_native_interactions_v4/room_library_ownership_audit.png",
+        "sha256": "a9086ea7c6c7f07206b90f3cc9139859120a8a9fed4301310365fbaf72a185f3",
+        "status": "generated_for_visual_review"
+      }
+    },
+    "mermaid_pool": {
+      "existing_card_overlap_pixels": 0,
+      "healed_background": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+      "healed_background_sha256": "cf31e36118c7d82f9ef12d19e6a7b739af81aa8a7a84166d6a0e13419d1e181f",
+      "healing_changed_pixels": 1588,
+      "healing_changed_pixels_outside_owned_core": 0,
+      "instances": [
+        {
+          "animation_behavior": {
+            "action": "surge_waterfall_and_sparkle",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "mermaid_pool_waterfall",
+          "authored_frames": {
+            "method": "source_owned_native_states_with_fixture_water_shader_handoff",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_waterfall_sheet.png",
+            "sheet_sha256": "d7a4d7d6a01fc454f1cbe6fb7a9c17ff032002bac33bd20b2106b82483565f52",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+          "id": "waterfall",
+          "mask_path": "assets_src/castle/interactions_v4/masks/mermaid_pool_waterfall_existing_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_waterfall_rest.png",
+          "reuse_existing_card": true,
+          "routing_crop": [
+            300,
+            80,
+            455,
+            265
+          ],
+          "semantic_action": "surge_waterfall_and_sparkle",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "cf31e36118c7d82f9ef12d19e6a7b739af81aa8a7a84166d6a0e13419d1e181f",
+            "mask_sha256": "67027246af478e6539d1669d2bf013b4330321451e0aa82d4d0adbccff7be9b1",
+            "passed": true,
+            "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+            "prior_ownership_verified": true,
+            "production_rehealed": false,
+            "rest_card_sha256": "0c3ab0c84300c06032478ae13df5164efd4175d7503a8ca6fde24d5220f17949",
+            "source_rect": [
+              309,
+              90,
+              121,
+              166
+            ],
+            "source_room_plate_sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+            "verified": true
+          },
+          "source_rect": [
+            309,
+            90,
+            121,
+            166
+          ]
+        },
+        {
+          "animation_behavior": {
+            "action": "bloom_flower_petals_and_make_ripples",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "physics_role": "bounded_float_settle_after_authored_petals",
+            "secondary_physics": true
+          },
+          "asset_id": "mermaid_pool_flower_float",
+          "authored_frames": {
+            "method": "normalized_generated_states_with_exact_source_support",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_flower_float_sheet.png",
+            "sheet_sha256": "40e14632dfcd4a9f79b89b3232460d5e653731a85ecd9ca060dae62f66bfe8a9",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+          "id": "flower_float",
+          "mask_path": "assets_src/castle/interactions_v4/masks/mermaid_pool_flower_float_existing_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_flower_float_rest.png",
+          "reuse_existing_card": true,
+          "routing_crop": [
+            310,
+            300,
+            415,
+            385
+          ],
+          "semantic_action": "bloom_flower_petals_and_make_ripples",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "cf31e36118c7d82f9ef12d19e6a7b739af81aa8a7a84166d6a0e13419d1e181f",
+            "mask_sha256": "3ffa4f4c7039e1c9fd2b5dc88a88d618b729385423008fa199329242880f45f6",
+            "passed": true,
+            "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+            "prior_ownership_verified": true,
+            "production_rehealed": false,
+            "rest_card_sha256": "4cdb5331f57c54ca77a573f38e899ca34066a2ef306cebe5a7dccdb8c0738ad0",
+            "source_rect": [
+              315,
+              307,
+              94,
+              69
+            ],
+            "source_room_plate_sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+            "verified": true
+          },
+          "source_rect": [
+            315,
+            307,
+            94,
+            69
+          ]
+        },
+        {
+          "animation_behavior": {
+            "action": "arc_fountain_water_and_splash",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "mermaid_pool_seahorse_fountain",
+          "authored_frames": {
+            "method": "source_owned_seahorse_stream_shimmer_states",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_seahorse_fountain_sheet.png",
+            "sheet_sha256": "2c76698701ec4e5d0b1055ba21fe29a86fe78d5bbeaa0cd4cc8de2ed1bfbd156",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+          "id": "seahorse_fountain",
+          "mask_path": "assets_src/castle/interactions_v4/masks/mermaid_pool_seahorse_fountain_existing_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png",
+          "reuse_existing_card": true,
+          "routing_crop": [
+            635,
+            90,
+            830,
+            305
+          ],
+          "semantic_action": "arc_fountain_water_and_splash",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "cf31e36118c7d82f9ef12d19e6a7b739af81aa8a7a84166d6a0e13419d1e181f",
+            "mask_sha256": "b3f51ef90e6f48380ab82ced1f74fbe55868e5862cb46ec671528b3f9210fe10",
+            "passed": true,
+            "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+            "prior_ownership_verified": true,
+            "production_rehealed": false,
+            "rest_card_sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+            "source_rect": [
+              654,
+              100,
+              167,
+              193
+            ],
+            "source_room_plate_sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+            "verified": true
+          },
+          "source_rect": [
+            654,
+            100,
+            167,
+            193
+          ]
+        },
+        {
+          "animation_behavior": {
+            "action": "flex_star_point_and_make_ripples",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "physics_role": "bounded_float_settle_after_authored_point_flex",
+            "secondary_physics": true
+          },
+          "asset_id": "mermaid_pool_star_float",
+          "authored_frames": {
+            "method": "safe_generated_states_with_exact_source_support",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_star_float_sheet.png",
+            "sheet_sha256": "9847fd5b4ed7624ddcefb64ffbb6d785e37462334bb78142496d5920c7f7d214",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+          "id": "star_float",
+          "mask_path": "assets_src/castle/interactions_v4/masks/mermaid_pool_star_float_existing_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_star_float_rest.png",
+          "reuse_existing_card": true,
+          "routing_crop": [
+            530,
+            290,
+            620,
+            360
+          ],
+          "semantic_action": "flex_star_point_and_make_ripples",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "cf31e36118c7d82f9ef12d19e6a7b739af81aa8a7a84166d6a0e13419d1e181f",
+            "mask_sha256": "29cde829c81058459d4938ea8325532f78c7415a9f0721a283bb576d8fd73d75",
+            "passed": true,
+            "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+            "prior_ownership_verified": true,
+            "production_rehealed": true,
+            "rest_card_sha256": "1caa8bf0be058603d2bec968f7225801e0aab128b6b324f711f3fdc29e8db046",
+            "source_rect": [
+              540,
+              299,
+              70,
+              49
+            ],
+            "source_room_plate_sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+            "verified": true
+          },
+          "source_rect": [
+            540,
+            299,
+            70,
+            49
+          ]
+        }
+      ],
+      "new_card_overlap_pixels": 0,
+      "parent_background": "assets/flats/castle/rooms/room_mermaid_pool_background.png",
+      "parent_background_sha256": "f57e144d7cffa08b169c066585ce0612fa591089359c792b1925531a26c781c6",
+      "physical_item_count": 4,
+      "production_healing_passes": 1,
+      "resting_reconstruction_mean_abs_error": 0.099639,
+      "source_room_plate": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "source_room_plate_sha256": "1a9a2005d4d27bd57848130c5d7b402b71d8004d4eb803fa16e1493f6a6a222d",
+      "visual_audit": {
+        "path": "audit/castle_native_interactions_v4/room_mermaid_pool_ownership_audit.png",
+        "sha256": "26696a0c2b207892259454e5442bad0e13709690f289e5d32ad89d4eabd89724",
+        "status": "generated_for_visual_review"
+      }
+    },
+    "opera_hall": {
+      "existing_card_overlap_pixels": 0,
+      "healed_background": "assets/flats/castle/interactions_v4/backgrounds/room_opera_hall_background.png",
+      "healed_background_sha256": "58152cddf979b1a834b2eec6b4aaf814e5a3405acb8bd86028e78d0783e0d08b",
+      "healing_changed_pixels": 1102,
+      "healing_changed_pixels_outside_owned_core": 0,
+      "instances": [
+        {
+          "alpha_pixels": 715,
+          "animation_behavior": {
+            "action": "brighten_left_pearl_sconce_in_color_chase",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "opera_hall_pearl_sconce_left",
+          "authored_frames": {
+            "method": "source_owned_pearl_color_chase",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+            "sheet_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "depth_opaque_pixels": 542,
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_opera_hall_background.png",
+          "id": "pearl_sconce_left",
+          "mask_path": "assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_left_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_left_rest.png",
+          "routing_crop": [
+            278,
+            169,
+            321,
+            226
+          ],
+          "semantic_action": "brighten_left_pearl_sconce_in_color_chase",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "58152cddf979b1a834b2eec6b4aaf814e5a3405acb8bd86028e78d0783e0d08b",
+            "mask_sha256": "499a743644211dede52ecaf4620c22a4059e7e637cad85a259ca3a531aad6066",
+            "passed": true,
+            "rest_card_sha256": "4376c2c27788b89c8396056cdc138a9d5c124baa27cb377de0950fa7dc89edc5",
+            "source_rect": [
+              283,
+              180,
+              28,
+              37
+            ],
+            "source_room_plate_sha256": "5878289852a911c50714aecddce1e9e63702425f3376e92205315e19a52c20cf",
+            "verified": true
+          },
+          "source_rect": [
+            283,
+            180,
+            28,
+            37
+          ]
+        },
+        {
+          "alpha_pixels": 724,
+          "animation_behavior": {
+            "action": "brighten_right_pearl_sconce_in_color_chase",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "opera_hall_pearl_sconce_right",
+          "authored_frames": {
+            "method": "source_owned_pearl_color_chase",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+            "sheet_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "depth_opaque_pixels": 549,
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_opera_hall_background.png",
+          "id": "pearl_sconce_right",
+          "mask_path": "assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_right_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_right_rest.png",
+          "routing_crop": [
+            703,
+            169,
+            746,
+            226
+          ],
+          "semantic_action": "brighten_right_pearl_sconce_in_color_chase",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "58152cddf979b1a834b2eec6b4aaf814e5a3405acb8bd86028e78d0783e0d08b",
+            "mask_sha256": "45f1ac4ac6e764a68d51cc627d60481f6365082e2a32e8588487ee90ce3a71e9",
+            "passed": true,
+            "rest_card_sha256": "b8dce6759ee5004a8507363ce70607885db5897a94aaa12662c8e3894e0c2f03",
+            "source_rect": [
+              713,
+              180,
+              28,
+              37
+            ],
+            "source_room_plate_sha256": "5878289852a911c50714aecddce1e9e63702425f3376e92205315e19a52c20cf",
+            "verified": true
+          },
+          "source_rect": [
+            713,
+            180,
+            28,
+            37
+          ]
+        }
+      ],
+      "new_card_overlap_pixels": 0,
+      "parent_background": "assets/flats/castle/rooms/room_opera_hall_background.png",
+      "parent_background_sha256": "f5415682c860146392ff9f47c2443406672746e0966f215ff1a78dd25a7849e1",
+      "physical_item_count": 2,
+      "production_healing_passes": 1,
+      "resting_reconstruction_mean_abs_error": 0.001955,
+      "source_room_plate": "assets/flats/castle/rooms/room_opera_hall.png",
+      "source_room_plate_sha256": "5878289852a911c50714aecddce1e9e63702425f3376e92205315e19a52c20cf",
+      "visual_audit": {
+        "path": "audit/castle_native_interactions_v4/room_opera_hall_ownership_audit.png",
+        "sha256": "8a4d5886505fd46ba3a74222be2b495f968ac944c83b1d0c6e9989da359bc6d7",
+        "status": "generated_for_visual_review"
+      }
+    },
+    "playroom": {
+      "existing_card_overlap_pixels": 0,
+      "healed_background": "assets/flats/castle/interactions_v4/backgrounds/room_playroom_background.png",
+      "healed_background_sha256": "7b95a0ff64aeb3fdf81b511e534c95484ac836d82cb0d51b90a3a75b090a2163",
+      "healing_changed_pixels": 1327,
+      "healing_changed_pixels_outside_owned_core": 0,
+      "instances": [
+        {
+          "alpha_pixels": 887,
+          "animation_behavior": {
+            "action": "open_tent_flap_for_peekaboo",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "playroom_tent_flaps_right",
+          "authored_frames": {
+            "method": "source_owned_flap_fold_states",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/playroom_tent_flaps_right_sheet.png",
+            "sheet_sha256": "5c2c52009ec229f3277d3b7b69f74adaa86071f5d377a07e8a3463252ceb2259",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "depth_opaque_pixels": 675,
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_playroom_background.png",
+          "id": "tent_flaps_right",
+          "mask_path": "assets_src/castle/interactions_v4/masks/playroom_tent_flaps_right_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/playroom_tent_flaps_right_rest.png",
+          "routing_crop": [
+            816,
+            274,
+            862,
+            341
+          ],
+          "semantic_action": "open_tent_flap_for_peekaboo",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "7b95a0ff64aeb3fdf81b511e534c95484ac836d82cb0d51b90a3a75b090a2163",
+            "mask_sha256": "575cb9c978b66b3e3b16b8d0eb3fde5c056c35e1c3cad0bd5e3bb9585f6e7251",
+            "passed": true,
+            "rest_card_sha256": "28568458f0ee9b635ffc698bda9f64f65536e580a9d1f1d83134a9692fecca7e",
+            "source_rect": [
+              826,
+              281,
+              33,
+              57
+            ],
+            "source_room_plate_sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f",
+            "verified": true
+          },
+          "source_rect": [
+            826,
+            281,
+            33,
+            57
+          ]
+        },
+        {
+          "alpha_pixels": 1033,
+          "animation_behavior": {
+            "action": "unfurl_sail_and_rock_boat",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "asset_id": "playroom_shelf_sailboat",
+          "authored_frames": {
+            "method": "normalized_generated_full_object_states_fixed_pivot",
+            "sheet_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+            "sheet_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+            "state_count": 8,
+            "status": "runtime_ready_source_owned_states"
+          },
+          "depth_opaque_pixels": 634,
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_playroom_background.png",
+          "id": "shelf_sailboat",
+          "mask_path": "assets_src/castle/interactions_v4/masks/playroom_shelf_sailboat_mask.png",
+          "pack": "v4_native",
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/playroom_shelf_sailboat_rest.png",
+          "routing_crop": [
+            687,
+            226,
+            759,
+            298
+          ],
+          "semantic_action": "unfurl_sail_and_rock_boat",
+          "source_ownership": {
+            "background_healed": true,
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "7b95a0ff64aeb3fdf81b511e534c95484ac836d82cb0d51b90a3a75b090a2163",
+            "mask_sha256": "4efa8b041ac2d8f5cede10dc9c9e9985d0476137ebb4762e95c59c490c92d91e",
+            "passed": true,
+            "rest_card_sha256": "b2debf899c5cd6cbc5464e2b836b1075eacf92a403f8e071cb5495d7cc4fcd27",
+            "source_rect": [
+              694,
+              240,
+              49,
+              45
+            ],
+            "source_room_plate_sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f",
+            "verified": true
+          },
+          "source_rect": [
+            694,
+            240,
+            49,
+            45
+          ]
+        }
+      ],
+      "new_card_overlap_pixels": 0,
+      "parent_background": "assets/flats/castle/rooms/room_playroom_background.png",
+      "parent_background_sha256": "f95a320de56eb6b384658fdd3dc487434fd75c9dadedfdd5b41aafe351c1ded2",
+      "physical_item_count": 2,
+      "production_healing_passes": 1,
+      "resting_reconstruction_mean_abs_error": 0.65088,
+      "source_room_plate": "assets/flats/castle/rooms/room_playroom.png",
+      "source_room_plate_sha256": "5c7797c3be3586daca648f4fa4ab1161368f1c99fee719b42ba5efd27f5eaf6f",
+      "visual_audit": {
+        "path": "audit/castle_native_interactions_v4/room_playroom_ownership_audit.png",
+        "sha256": "fa773f769a89993cd3cd124e36bc939c41adb150740190e29f88c1de2c17ea1c",
+        "status": "generated_for_visual_review"
+      }
+    }
+  },
+  "runtime_background_tiles": {
+    "bubble_bath": {
+      "changed_outside_pixels": 0,
+      "changed_owned_pixels": 124778,
+      "derived_from_low_resolution_audit_plate": false,
+      "full_source_ownership_healed": true,
+      "grid": [
+        4,
+        2
+      ],
+      "healing_mask_pixel_sha256": "c62f3cfc2f8738bbe17da10637bca2bb50fdbd697dc318b66a1f04da50133a65",
+      "healing_mask_pixels_logical": 9876,
+      "live_alpha_scissor_threshold": 128,
+      "live_frame_union_pixel_sha256": "1cceee06b796a0f3ebe66ed1147f6e6ffc1867e492498848792acfce856617b7",
+      "live_frame_union_pixels_logical": 9833,
+      "logical_canvas_size": [
+        1024,
+        576
+      ],
+      "native_canvas_size": [
+        3640,
+        2048
+      ],
+      "native_scale": 3.555555556,
+      "native_scale_xy": [
+        3.5546875,
+        3.555555556
+      ],
+      "owned_pixel_count_native": 124780,
+      "ownership_mask_pixel_sha256": "c62f3cfc2f8738bbe17da10637bca2bb50fdbd697dc318b66a1f04da50133a65",
+      "ownership_mask_pixels_logical": 9876,
+      "ownership_pixels_clipped_outside_live_union": 0,
+      "route": "v4_native_high_resolution_healed_tiles",
+      "runtime_tile_root": "assets/flats/castle/interactions_v4/background_tiles",
+      "source_ownership_pixels_outside_live_union": 43,
+      "source_tile_root": "assets/flats/castle/rooms/background_tiles",
+      "source_tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c0.png",
+          "sha256": "9526f0eaaa73448f9da97026e5da8632bd237a710c51e58a99596a3c40943f4a"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c1.png",
+          "sha256": "6ef0f9296e5815e9d22720402869eaea3ad60f5183171e94b8a435c8eb8223a7"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c2.png",
+          "sha256": "8d4b5a037ad086849a8bc81f20cb7e0b87f8846f5876930758f2d5129031a6f0"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c3.png",
+          "sha256": "7d7de83152ba176090722403f53766c33ad7c1c1fafbc2ef08247be4e72bc5ba"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c0.png",
+          "sha256": "86d4ce581893d25058f24db56d468848084bb3aea69724fe59418719ca0bf0c8"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c1.png",
+          "sha256": "d4b3a7e6bc6683011bc77ac94f9b913d080c880d8aa4d7ea669dc78b53ff510f"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c2.png",
+          "sha256": "34beb62e25ac57dbab79aff01fec3c0ff681dcbad44ce069c0a39be6e777317c"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c3.png",
+          "sha256": "099ee04e50b82e5404fb267f4a8624760c2ba4af633350ef829370ff8997ae9e"
+        }
+      ],
+      "tile_dimensions": [
+        910,
+        1024
+      ],
+      "tile_name_pattern": "room_bubble_bath_background_r{row}_c{column}.png",
+      "tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c0.png",
+          "sha256": "9526f0eaaa73448f9da97026e5da8632bd237a710c51e58a99596a3c40943f4a"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c1.png",
+          "sha256": "43782534058d64fde8382945e9e4e01154f93449c33a44031fa0a257476b8f7f"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c2.png",
+          "sha256": "6c3ace8180e0614996625fa996891a56f30e3011b9f993c5cf9ed416c3df36d7"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c3.png",
+          "sha256": "7d7de83152ba176090722403f53766c33ad7c1c1fafbc2ef08247be4e72bc5ba"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c0.png",
+          "sha256": "86d4ce581893d25058f24db56d468848084bb3aea69724fe59418719ca0bf0c8"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c1.png",
+          "sha256": "d4b3a7e6bc6683011bc77ac94f9b913d080c880d8aa4d7ea669dc78b53ff510f"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c2.png",
+          "sha256": "34beb62e25ac57dbab79aff01fec3c0ff681dcbad44ce069c0a39be6e777317c"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c3.png",
+          "sha256": "099ee04e50b82e5404fb267f4a8624760c2ba4af633350ef829370ff8997ae9e"
+        }
+      ],
+      "visible_ownership_pixels_outside_live_union": 0
+    },
+    "craft_room": {
+      "changed_outside_pixels": 0,
+      "changed_owned_pixels": 60793,
+      "derived_from_low_resolution_audit_plate": false,
+      "full_source_ownership_healed": true,
+      "grid": [
+        4,
+        2
+      ],
+      "healing_mask_pixel_sha256": "ae2b97ad0763fcd2a5407eb09ce39133791708de7abd86588d7333cfdd28cfb4",
+      "healing_mask_pixels_logical": 4813,
+      "live_alpha_scissor_threshold": 128,
+      "live_frame_union_pixel_sha256": "d31eb96ce3b76b2c9a0162ab85b028db1b1a8092f17c628792f8d7d916fa0eb0",
+      "live_frame_union_pixels_logical": 6262,
+      "logical_canvas_size": [
+        1024,
+        576
+      ],
+      "native_canvas_size": [
+        3640,
+        2048
+      ],
+      "native_scale": 3.555555556,
+      "native_scale_xy": [
+        3.5546875,
+        3.555555556
+      ],
+      "owned_pixel_count_native": 60793,
+      "ownership_mask_pixel_sha256": "ae2b97ad0763fcd2a5407eb09ce39133791708de7abd86588d7333cfdd28cfb4",
+      "ownership_mask_pixels_logical": 4813,
+      "ownership_pixels_clipped_outside_live_union": 0,
+      "route": "v4_native_high_resolution_healed_tiles",
+      "runtime_tile_root": "assets/flats/castle/interactions_v4/background_tiles",
+      "source_ownership_pixels_outside_live_union": 0,
+      "source_tile_root": "assets/flats/castle/rooms/background_tiles",
+      "source_tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c0.png",
+          "sha256": "5bfde257afc1270a25085eda67ace560142fdd6b43647900c9a49344c71044e9"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c1.png",
+          "sha256": "16123d5bc9928cc132e47d1c633cabaf375f05883377a5e9ff913cf82a484604"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c2.png",
+          "sha256": "e2a17f6ffc6bb38d5724e504e273a630d484f6189ba6bd92c9e2e5add3a95514"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c3.png",
+          "sha256": "44d9e81015fc999716d034cd546bf861de7804561e0c62baf86f1342ae2a9907"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c0.png",
+          "sha256": "03acd4c50f4c8d30b168ed5979c7192bf67e432b3a83785d962af6e09a1d0228"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c1.png",
+          "sha256": "075759c9a8e5befa69c3362e72bf0c0a2ad7c133e967204f97fd9e3e8f8a4604"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c2.png",
+          "sha256": "98d6b59200ad22dffb8391ae50d076fc844ce3c566633995e08cd39680f20749"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c3.png",
+          "sha256": "d734c4fea9293431358133fcc857713788a5c2e65a571a15add7038f831bca75"
+        }
+      ],
+      "tile_dimensions": [
+        910,
+        1024
+      ],
+      "tile_name_pattern": "room_craft_room_background_r{row}_c{column}.png",
+      "tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c0.png",
+          "sha256": "e70acc21584bd04b05c768443455a16e053d4d56cb073123a0672b0cd76f0849"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c1.png",
+          "sha256": "91bcdc3e95372660773ffe74bd248ec043120c61c95fd777a948e1faf5c1958a"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c2.png",
+          "sha256": "e2a17f6ffc6bb38d5724e504e273a630d484f6189ba6bd92c9e2e5add3a95514"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c3.png",
+          "sha256": "44d9e81015fc999716d034cd546bf861de7804561e0c62baf86f1342ae2a9907"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c0.png",
+          "sha256": "e6ed32678a42b11beac7fff997fd65664f56bf0ff1f17a495e8519bf0ad96893"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c1.png",
+          "sha256": "bc91895dea8102e2e974355e81e5175f066cfd477df34a23a9488a7e379c76e8"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c2.png",
+          "sha256": "98d6b59200ad22dffb8391ae50d076fc844ce3c566633995e08cd39680f20749"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c3.png",
+          "sha256": "d734c4fea9293431358133fcc857713788a5c2e65a571a15add7038f831bca75"
+        }
+      ],
+      "visible_ownership_pixels_outside_live_union": 0
+    },
+    "kitchen": {
+      "changed_outside_pixels": 0,
+      "changed_owned_pixels": 500377,
+      "derived_from_low_resolution_audit_plate": false,
+      "full_source_ownership_healed": true,
+      "grid": [
+        4,
+        3
+      ],
+      "healing_mask_pixel_sha256": "5b44c3dad0e1d775f4ab386b3325b766ef405463ba2425c8f016cf995fdb7366",
+      "healing_mask_pixels_logical": 31274,
+      "live_alpha_scissor_threshold": 128,
+      "live_frame_union_pixel_sha256": "b12a3ef6849046047024b30e5565603b95cbbf4aee123035e46f15f871b1b1ee",
+      "live_frame_union_pixels_logical": 48848,
+      "logical_canvas_size": [
+        1024,
+        576
+      ],
+      "native_canvas_size": [
+        4096,
+        2304
+      ],
+      "native_scale": 4.0,
+      "native_scale_xy": [
+        4.0,
+        4.0
+      ],
+      "owned_pixel_count_native": 500384,
+      "ownership_mask_pixel_sha256": "5b44c3dad0e1d775f4ab386b3325b766ef405463ba2425c8f016cf995fdb7366",
+      "ownership_mask_pixels_logical": 31274,
+      "ownership_pixels_clipped_outside_live_union": 0,
+      "route": "v4_native_high_resolution_healed_tiles",
+      "runtime_tile_root": "assets/flats/castle/interactions_v4/background_tiles",
+      "source_ownership_pixels_outside_live_union": 5,
+      "source_tile_root": "assets/flats/castle/rooms/background_tiles",
+      "source_tiles": [
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c0.png",
+          "sha256": "9c15ef2eafd3980980164c5d76005df54ae1eee95c10fa872c69b4971ace1068"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c1.png",
+          "sha256": "22747f928bd58a9e6ae9bccdc2240a06d36669c2f412a0eccf09907946af4f4a"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c2.png",
+          "sha256": "87ae6ce373ae80ccd51d324ca65b0a6f8448296bd0352903a89e6b5d4d7d7f44"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c3.png",
+          "sha256": "2b59922d30ebd9ffbfe9b917ec8b68fdcd028105e01ce679a8a69b2ea4de490a"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c0.png",
+          "sha256": "d78015c0e6b4fa376964c37bf7f4b51551eb103dfc73f69547ed6f497a3779c5"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c1.png",
+          "sha256": "8375a132bdb8b48c6ab88932a80249f19b690dee4d7f96a4feaca1e91690d772"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c2.png",
+          "sha256": "5a152c4430e25d2c7302faee2a5f46f7a9d9c3966fe4e63a961dad40db1e21eb"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c3.png",
+          "sha256": "38a0c5313c2172df68ba8f38f282191f62730f08e194088e708a0813f48d669b"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c0.png",
+          "sha256": "3f59b84a25dbd6807fb13800fda06d42a9ec951ec43d326d36359d1bc663c2f0"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c1.png",
+          "sha256": "aa5ed8d587cd122570d0d957628d692ad60f04f7779b5060e61fdca2176a9727"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c2.png",
+          "sha256": "93b9a98584bbdf89835465a7da1d57192e7616f5e68d652510a3420668f39ece"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c3.png",
+          "sha256": "23ada8d9518f9ba3ad4c38e5c49ec2377a33c6066ced0bc96f3dbb6f6992c429"
+        }
+      ],
+      "tile_dimensions": [
+        1024,
+        768
+      ],
+      "tile_name_pattern": "room_kitchen_background_r{row}_c{column}.png",
+      "tiles": [
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c0.png",
+          "sha256": "9c15ef2eafd3980980164c5d76005df54ae1eee95c10fa872c69b4971ace1068"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c1.png",
+          "sha256": "22747f928bd58a9e6ae9bccdc2240a06d36669c2f412a0eccf09907946af4f4a"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c2.png",
+          "sha256": "28992df516e96f25fc8fd8b162d61fd49d95fabb217fa0467bbb5bb1ac4d2ea4"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c3.png",
+          "sha256": "2b59922d30ebd9ffbfe9b917ec8b68fdcd028105e01ce679a8a69b2ea4de490a"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c0.png",
+          "sha256": "d78015c0e6b4fa376964c37bf7f4b51551eb103dfc73f69547ed6f497a3779c5"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c1.png",
+          "sha256": "8375a132bdb8b48c6ab88932a80249f19b690dee4d7f96a4feaca1e91690d772"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c2.png",
+          "sha256": "5ccc334565fcce91c7bf09f4616f95639e4d345ec19a19418334722ac4d50d4e"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c3.png",
+          "sha256": "38a0c5313c2172df68ba8f38f282191f62730f08e194088e708a0813f48d669b"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c0.png",
+          "sha256": "3f59b84a25dbd6807fb13800fda06d42a9ec951ec43d326d36359d1bc663c2f0"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c1.png",
+          "sha256": "aa5ed8d587cd122570d0d957628d692ad60f04f7779b5060e61fdca2176a9727"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c2.png",
+          "sha256": "93b9a98584bbdf89835465a7da1d57192e7616f5e68d652510a3420668f39ece"
+        },
+        {
+          "dimensions": [
+            1024,
+            768
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c3.png",
+          "sha256": "23ada8d9518f9ba3ad4c38e5c49ec2377a33c6066ced0bc96f3dbb6f6992c429"
+        }
+      ],
+      "visible_ownership_pixels_outside_live_union": 0
+    },
+    "library": {
+      "changed_outside_pixels": 0,
+      "changed_owned_pixels": 83903,
+      "derived_from_low_resolution_audit_plate": false,
+      "full_source_ownership_healed": true,
+      "grid": [
+        4,
+        2
+      ],
+      "healing_mask_pixel_sha256": "8877235b6fd12e178fcc15c48f34965efac76b28bfa9503c833c4520e170f445",
+      "healing_mask_pixels_logical": 6634,
+      "live_alpha_scissor_threshold": 128,
+      "live_frame_union_pixel_sha256": "692500abb89d6a31715707b9000dc76c2b8ba64c2906f9657f5e36255ebdcc69",
+      "live_frame_union_pixels_logical": 6554,
+      "logical_canvas_size": [
+        1024,
+        576
+      ],
+      "native_canvas_size": [
+        3640,
+        2048
+      ],
+      "native_scale": 3.555555556,
+      "native_scale_xy": [
+        3.5546875,
+        3.555555556
+      ],
+      "owned_pixel_count_native": 83903,
+      "ownership_mask_pixel_sha256": "8877235b6fd12e178fcc15c48f34965efac76b28bfa9503c833c4520e170f445",
+      "ownership_mask_pixels_logical": 6634,
+      "ownership_pixels_clipped_outside_live_union": 0,
+      "route": "v4_native_high_resolution_healed_tiles",
+      "runtime_tile_root": "assets/flats/castle/interactions_v4/background_tiles",
+      "source_ownership_pixels_outside_live_union": 80,
+      "source_tile_root": "assets/flats/castle/rooms/background_tiles",
+      "source_tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c0.png",
+          "sha256": "e2f49a4260129057c888584aba69a1238bb7ceaf293e280913228bfc2100bf95"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c1.png",
+          "sha256": "8d7a1d4f1c71afb65bbd8de040c4083b33c581672138c57dfa41950325087dc1"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c2.png",
+          "sha256": "c32bc2b58f6a8588d83adef4b3c15b962efed83ac39c4265636d60a049dc9763"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c3.png",
+          "sha256": "5c698ba46d9a4d7c456dcab7ecb36dcae992c28a9074c4440b52208102ea2bf1"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c0.png",
+          "sha256": "174de271d05ffbca6ee221b7800026cf5a851aa677499e3b8b809cb88e5d8529"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c1.png",
+          "sha256": "bae6f50968b803df03d86b143cf216491cd02a8ae7b13c11caf6329a6ebb914f"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c2.png",
+          "sha256": "d80ef82f6961122d4aeadf48be92b4ad9d718165f8db8a01ad621d3a73db691b"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c3.png",
+          "sha256": "6f7fc8f4d93ed061741c847e2862a701c84edcca12145c5adb62a7c290e0ef1f"
+        }
+      ],
+      "tile_dimensions": [
+        910,
+        1024
+      ],
+      "tile_name_pattern": "room_library_background_r{row}_c{column}.png",
+      "tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c0.png",
+          "sha256": "e2f49a4260129057c888584aba69a1238bb7ceaf293e280913228bfc2100bf95"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c1.png",
+          "sha256": "6d062587abecb832752d9c622e935bbcdcab6845cfb6020cbed4b5083fc187f9"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c2.png",
+          "sha256": "d08b92677b22f5d5e299915e5ae9bc92f7e4caee762a8eed61589d219c97d2d4"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c3.png",
+          "sha256": "dece2e036d6323d2d5bb0dbd84175ff2c1df3674566eff5d81ec06914ee83c4e"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c0.png",
+          "sha256": "174de271d05ffbca6ee221b7800026cf5a851aa677499e3b8b809cb88e5d8529"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c1.png",
+          "sha256": "bae6f50968b803df03d86b143cf216491cd02a8ae7b13c11caf6329a6ebb914f"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c2.png",
+          "sha256": "d80ef82f6961122d4aeadf48be92b4ad9d718165f8db8a01ad621d3a73db691b"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c3.png",
+          "sha256": "07ea6162407ba95c0755eba6f6db71b857962dae67a037d5cc7a97d7d432c2e2"
+        }
+      ],
+      "visible_ownership_pixels_outside_live_union": 0
+    },
+    "mermaid_pool": {
+      "changed_outside_pixels": 0,
+      "changed_owned_pixels": 533217,
+      "derived_from_low_resolution_audit_plate": false,
+      "full_source_ownership_healed": true,
+      "grid": [
+        4,
+        2
+      ],
+      "healing_mask_pixel_sha256": "77d8b259882dcc31a28f23e96c449982ab3b0034d6a3eb458a90c31f0012ec7b",
+      "healing_mask_pixels_logical": 42203,
+      "live_alpha_scissor_threshold": 128,
+      "live_frame_union_pixel_sha256": "e791152b57170bd74362e5c5330e98a89ae29151813d8c5a66a337613571c1cb",
+      "live_frame_union_pixels_logical": 47545,
+      "logical_canvas_size": [
+        1024,
+        576
+      ],
+      "native_canvas_size": [
+        3640,
+        2048
+      ],
+      "native_scale": 3.555555556,
+      "native_scale_xy": [
+        3.5546875,
+        3.555555556
+      ],
+      "owned_pixel_count_native": 533236,
+      "ownership_mask_pixel_sha256": "77d8b259882dcc31a28f23e96c449982ab3b0034d6a3eb458a90c31f0012ec7b",
+      "ownership_mask_pixels_logical": 42203,
+      "ownership_pixels_clipped_outside_live_union": 0,
+      "route": "v4_native_high_resolution_healed_tiles",
+      "runtime_tile_root": "assets/flats/castle/interactions_v4/background_tiles",
+      "source_ownership_pixels_outside_live_union": 3398,
+      "source_tile_root": "assets/flats/castle/rooms/background_tiles",
+      "source_tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c0.png",
+          "sha256": "ff976de6ed1378453610f9e54177fac449c266b158d690c56e0226e4b3cdd62a"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c1.png",
+          "sha256": "4afd34512664144f9dbef1adad02f3abe901f61672048052793bb665fac6e347"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c2.png",
+          "sha256": "7470a5c1ce79cc91a3e2a0c3891cf29353d3acb82fc58ca65c3f1c580c4608c3"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c3.png",
+          "sha256": "c8d95f9a3d077a0f1a48082172db68f58412d11802b2ef9b80a262edb88d73f2"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c0.png",
+          "sha256": "1131272bffcc7f9c057956ff778ef0b2da0f5fefe2aa8dc1ea390b630d417728"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c1.png",
+          "sha256": "ac02a7749ece6a5e22572d5b0526259dbe8cf0ae4c8b742c7559fa8cc031f569"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c2.png",
+          "sha256": "6aae98d04bc1bb97aa43dc3ca38139e49ab504be0101e03994ae31cdff3aedc0"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c3.png",
+          "sha256": "c72c17d44093c8872c1477278eedd2e807122d006cfed8bff25524b6198638d6"
+        }
+      ],
+      "tile_dimensions": [
+        910,
+        1024
+      ],
+      "tile_name_pattern": "room_mermaid_pool_background_r{row}_c{column}.png",
+      "tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c0.png",
+          "sha256": "7064cf5b4daad41f0616d40a02048f08ea7bbf5a0387b8b65b71c93d02871c78"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png",
+          "sha256": "70306b12087c0b46207c69ee16052da569d1292c563d59b03d4dc2006d2e4fda"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c2.png",
+          "sha256": "ab27d89b550ba5d4e32497a218e2e7d398cf7b3be67d907fde0ee5b955363140"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c3.png",
+          "sha256": "4927262e663a3b870184401f5e8d0a839b8ed3a78df7c7855f63bd2943ca9f50"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c0.png",
+          "sha256": "1131272bffcc7f9c057956ff778ef0b2da0f5fefe2aa8dc1ea390b630d417728"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c1.png",
+          "sha256": "18aea94f5587b8c94a36037d6dba4f1d4f2dec6bd50dd4dbba17ec41ad624960"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c2.png",
+          "sha256": "41aeece0a37fa5b770f11d7c230042a2353686c6510c6d9f4345731b587a5a71"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c3.png",
+          "sha256": "78c42ad7439a2c54f2eb173b2c5bbd9c78b736160f93b8e32a0f07989378e830"
+        }
+      ],
+      "visible_ownership_pixels_outside_live_union": 2849
+    },
+    "opera_hall": {
+      "changed_outside_pixels": 0,
+      "changed_owned_pixels": 13891,
+      "derived_from_low_resolution_audit_plate": false,
+      "full_source_ownership_healed": true,
+      "grid": [
+        4,
+        2
+      ],
+      "healing_mask_pixel_sha256": "dd85fbad37b7d96daa34bdd830103531e1abc86daabbf49c17e97df205051691",
+      "healing_mask_pixels_logical": 1102,
+      "live_alpha_scissor_threshold": 128,
+      "live_frame_union_pixel_sha256": "05fb1e9b6d58fb1d639060e1c8dd14d30cf4f78957addc749ed7f55a2d5e90db",
+      "live_frame_union_pixels_logical": 1091,
+      "logical_canvas_size": [
+        1024,
+        576
+      ],
+      "native_canvas_size": [
+        3640,
+        2048
+      ],
+      "native_scale": 3.555555556,
+      "native_scale_xy": [
+        3.5546875,
+        3.555555556
+      ],
+      "owned_pixel_count_native": 13891,
+      "ownership_mask_pixel_sha256": "dd85fbad37b7d96daa34bdd830103531e1abc86daabbf49c17e97df205051691",
+      "ownership_mask_pixels_logical": 1102,
+      "ownership_pixels_clipped_outside_live_union": 0,
+      "route": "v4_native_high_resolution_healed_tiles",
+      "runtime_tile_root": "assets/flats/castle/interactions_v4/background_tiles",
+      "source_ownership_pixels_outside_live_union": 11,
+      "source_tile_root": "assets/flats/castle/rooms/background_tiles",
+      "source_tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c0.png",
+          "sha256": "e480e0e071ed6185dd697b70fe3e5877bfb3da2e74b9e60bf19bbe6e7eb2aa23"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c1.png",
+          "sha256": "790ba9664172c5d41e0a8ada4119f982257ce7b0fabfab12d9ef0a9855890eb6"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c2.png",
+          "sha256": "7d6dcadadb1d09bf11a76db4b02b65ecb747861e8225584b9d8a11dba62b2a94"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c3.png",
+          "sha256": "e774bfd1c57e339063caf1142b6154f142f511209f526d7cd5389afb2629c079"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c0.png",
+          "sha256": "34212511cb34c93939b82ce737ca4752bf16ca1b481d5d98130eece51d920f4c"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c1.png",
+          "sha256": "c3631419a7877ea3db280a86d672ee8c0c5aa83dc8084e05f42d551eca811b5a"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c2.png",
+          "sha256": "d1bc774daa2c1ef9a54f92034d7a04e98cdce090f489ef09b10050d8873805c0"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c3.png",
+          "sha256": "b69aa02c0a9bc246a9e497dab872f831755292ba943d521b86ffcfb4263a0db6"
+        }
+      ],
+      "tile_dimensions": [
+        910,
+        1024
+      ],
+      "tile_name_pattern": "room_opera_hall_background_r{row}_c{column}.png",
+      "tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c0.png",
+          "sha256": "e480e0e071ed6185dd697b70fe3e5877bfb3da2e74b9e60bf19bbe6e7eb2aa23"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c1.png",
+          "sha256": "3046659f299f59ef8d8a2dfb3668b067ea236b79f44ad797e4e6f8a353e13281"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c2.png",
+          "sha256": "46035797e4e614a4d0742fcd8002e2def0a23d3f2f4da75d52769f71b4e834d4"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c3.png",
+          "sha256": "e774bfd1c57e339063caf1142b6154f142f511209f526d7cd5389afb2629c079"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c0.png",
+          "sha256": "34212511cb34c93939b82ce737ca4752bf16ca1b481d5d98130eece51d920f4c"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c1.png",
+          "sha256": "c3631419a7877ea3db280a86d672ee8c0c5aa83dc8084e05f42d551eca811b5a"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c2.png",
+          "sha256": "d1bc774daa2c1ef9a54f92034d7a04e98cdce090f489ef09b10050d8873805c0"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c3.png",
+          "sha256": "ca8dd0303a558c85aabd1b0598b1c86c1ef8366bd96eb5e31199c4be0fe2a9f6"
+        }
+      ],
+      "visible_ownership_pixels_outside_live_union": 0
+    },
+    "playroom": {
+      "changed_outside_pixels": 0,
+      "changed_owned_pixels": 16770,
+      "derived_from_low_resolution_audit_plate": false,
+      "full_source_ownership_healed": true,
+      "grid": [
+        4,
+        2
+      ],
+      "healing_mask_pixel_sha256": "c06cb0595d49caa0e57c998483f4bb68c3e14f107456d5f6cd901759ef51127a",
+      "healing_mask_pixels_logical": 1327,
+      "live_alpha_scissor_threshold": 128,
+      "live_frame_union_pixel_sha256": "704e8daae7d10be25fae333b5f71c775e956f2b3e7e1e6d8fec54a5bd60d26b0",
+      "live_frame_union_pixels_logical": 2560,
+      "logical_canvas_size": [
+        1024,
+        576
+      ],
+      "native_canvas_size": [
+        3640,
+        2048
+      ],
+      "native_scale": 3.555555556,
+      "native_scale_xy": [
+        3.5546875,
+        3.555555556
+      ],
+      "owned_pixel_count_native": 16770,
+      "ownership_mask_pixel_sha256": "c06cb0595d49caa0e57c998483f4bb68c3e14f107456d5f6cd901759ef51127a",
+      "ownership_mask_pixels_logical": 1327,
+      "ownership_pixels_clipped_outside_live_union": 0,
+      "route": "v4_native_high_resolution_healed_tiles",
+      "runtime_tile_root": "assets/flats/castle/interactions_v4/background_tiles",
+      "source_ownership_pixels_outside_live_union": 2,
+      "source_tile_root": "assets/flats/castle/rooms/background_tiles",
+      "source_tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c0.png",
+          "sha256": "92822246ba645ad0537da01791c4c8fabcdf5e73599351b166584119fbe31da5"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c1.png",
+          "sha256": "bf69a0f0dfcfc94c3efc2fbdd02cd196b2991e0d23859beb20ca2576b3ddff07"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c2.png",
+          "sha256": "d84bc10f537fb3df73c306ef18fadc9139cec4097f59e178ea39b72f665ee074"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c3.png",
+          "sha256": "f8e414c230d3311427d4d428315723a595c9b17fdafab1de0c9d3702d16a5b29"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c0.png",
+          "sha256": "e9c0f14a81830aa5b7df842044678f8fb5941de62ea014026ded2da7da25988c"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c1.png",
+          "sha256": "3367f2e01373cd4bbc3ba2d1f1ddb83b4acd742173798ab99c734b9eb5cbce58"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c2.png",
+          "sha256": "47186ee72f9642e71e79415a66c7655edee7787dad36bff6913922ab9eedfdb5"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c3.png",
+          "sha256": "6fdd3e0f56fdf9ccba3e8207e3b0a64bc06c8885799ee311a019d8ea56b12b2b"
+        }
+      ],
+      "tile_dimensions": [
+        910,
+        1024
+      ],
+      "tile_name_pattern": "room_playroom_background_r{row}_c{column}.png",
+      "tiles": [
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c0.png",
+          "sha256": "92822246ba645ad0537da01791c4c8fabcdf5e73599351b166584119fbe31da5"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c1.png",
+          "sha256": "bf69a0f0dfcfc94c3efc2fbdd02cd196b2991e0d23859beb20ca2576b3ddff07"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c2.png",
+          "sha256": "c807d85c8a8f21f81805e81a9772a61ef4bb58109f4bff754e95c9b1278a5e2f"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c3.png",
+          "sha256": "e7728b35f656807c5b3a5cb2dd3508f4a83eaf2aeadcae4aaa923c49f45cdf15"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c0.png",
+          "sha256": "e9c0f14a81830aa5b7df842044678f8fb5941de62ea014026ded2da7da25988c"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c1.png",
+          "sha256": "3367f2e01373cd4bbc3ba2d1f1ddb83b4acd742173798ab99c734b9eb5cbce58"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c2.png",
+          "sha256": "47186ee72f9642e71e79415a66c7655edee7787dad36bff6913922ab9eedfdb5"
+        },
+        {
+          "dimensions": [
+            910,
+            1024
+          ],
+          "opaque": true,
+          "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c3.png",
+          "sha256": "264496e85852092e4d6d1aca084b7bab23c65e9a01481e04c5e163db0a364b2e"
+        }
+      ],
+      "visible_ownership_pixels_outside_live_union": 0
+    }
+  },
+  "schema_version": 4,
+  "source_layer_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+  "source_layer_manifest_sha256": "0bc038303b00af82996d6b231151bb9ef7a9470d8222b91a0c547196720f88de",
+  "spec": "tools/castle_native_interactions_v4_spec.json",
+  "spec_sha256": "896164ac2d5df6ab75f0aa4bc20ad5f39db065a341a7e2e526bce6381f32878b",
+  "summary": {
+    "new_native_cards": 8,
+    "reused_source_owned_cards": 5,
+    "rooms_with_new_ownership": 5,
+    "runtime_healed_native_tile_rooms": 7,
+    "runtime_ready_authored_animation_sheets": 13
+  },
+  "visual_review_evidence": {
+    "dimensions": [
+      960,
+      720
+    ],
+    "path": "audit/castle_native_interactions_v4/native_rest_cards_contact_sheet.png",
+    "sha256": "11b9ee046fd85f65aff5cda2b8eb65d2b1400dbcc7eebb575acbaaa67bb0b7b9",
+    "status": "generated_for_visual_review",
+    "white_background_path": "audit/castle_native_interactions_v4/native_rest_cards_white_contact_sheet.png",
+    "white_background_sha256": "27622967a2c6baa4e3611c85acfa065c3af6d63380e8b6fc53984a468cd4769f"
+  }
+}

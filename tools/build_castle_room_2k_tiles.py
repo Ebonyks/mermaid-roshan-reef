@@ -2,11 +2,12 @@
 """Build authorized Pearl Castle room masters and seam-safe runtime tiles.
 
 The owner explicitly authorized deterministic upscaling for the seven legacy
-1024x576 room plates on 2026-07-29. Originals remain untouched. The corrected
-Kitchen uses a 4096x2304 master so both native dimensions provide at least
-2048 pixels of coverage; the other preserved rooms retain their authorized
-2048x1152 masters. Every master is split into non-overlapping runtime tiles,
-and reconstruction must be pixel exact. The Main Hall is not rebuilt here:
+1024x576 room plates on 2026-07-29. Originals remain untouched. Every playable
+screen now provides at least 2048 native pixels on both axes: preserved
+single-screen rooms use the same 3640x2048 contract as one strict Main Hall
+screen, while the corrected Kitchen keeps its accepted 4096x2304 master. Every
+master is split into non-overlapping runtime tiles, and reconstruction must be
+pixel exact. The Main Hall is not rebuilt here:
 its live depth-manifest record is projected only from the accepted strict
 7280x2048/2x8 build manifest, so this legacy room tool cannot restore the
 retired shaded 2x4/bleed implementation.
@@ -20,6 +21,8 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageFont
+
+from repair_castle_room_native_backgrounds import build_expected_baselines
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -51,8 +54,8 @@ ROOM_IDS = (
 	"bubble_bath",
 )
 SOURCE_SIZE = (1024, 576)
-DEFAULT_MASTER_SIZE = (2048, 1152)
-DEFAULT_TILE_SIZE = (1024, 576)
+DEFAULT_MASTER_SIZE = (3640, 2048)
+DEFAULT_TILE_SIZE = (910, 1024)
 ROOM_GRID_OVERRIDES = {
 	"kitchen": {
 		"master_size": (4096, 2304),
@@ -90,7 +93,7 @@ def roundtrip_metrics(source: Image.Image, master: Image.Image) -> dict[str, obj
 	roundtrip_array = np.asarray(roundtrip, dtype=np.float32)
 	difference = np.abs(source_array - roundtrip_array)
 	return {
-		"comparison": "2K master reduced to source dimensions with Lanczos",
+		"comparison": "native master reduced to source dimensions with Lanczos",
 		"mean_absolute_rgb_error": round(float(difference.mean()), 6),
 		"p95_absolute_rgb_error": round(float(np.percentile(difference, 95)), 6),
 		"maximum_absolute_rgb_error": int(difference.max()),
@@ -271,7 +274,8 @@ def current_main_hall_record() -> dict[str, object]:
 	}
 
 
-def build_room(room_id: str) -> dict[str, object]:
+def build_room(room_id: str,
+		live_alpha_master: Image.Image | None = None) -> dict[str, object]:
 	source_path = ROOM_ROOT / f"room_{room_id}_background.png"
 	source = Image.open(source_path).convert("RGB")
 	if source.size != SOURCE_SIZE:
@@ -282,13 +286,23 @@ def build_room(room_id: str) -> dict[str, object]:
 		"master_size": DEFAULT_MASTER_SIZE,
 		"tile_size": DEFAULT_TILE_SIZE,
 		"rows": 2,
-		"columns": 2,
+		"columns": 4,
 	})
 	master_size = tuple(grid["master_size"])
 	tile_size = tuple(grid["tile_size"])
 	rows = int(grid["rows"])
 	columns = int(grid["columns"])
-	master = source.resize(master_size, Image.Resampling.LANCZOS)
+	master = source.resize(master_size, Image.Resampling.LANCZOS) \
+		if live_alpha_master is None else live_alpha_master.convert("RGB")
+	# The first run of a native-coverage migration receives the prior accepted
+	# live-alpha master from the manifest. Scale that complete flattened canvas;
+	# never re-run or locally stretch an ownership patch in isolation.
+	if master.size != master_size and live_alpha_master is not None:
+		master = master.resize(master_size, Image.Resampling.LANCZOS)
+	if master.size != master_size:
+		raise ValueError(
+			f"{room_id} live-alpha master is {master.size}, "
+			f"expected {master_size}")
 	master_path = MASTER_ROOT / f"room_{room_id}_background_2k.png"
 	master.save(master_path, format="PNG", optimize=True)
 
@@ -321,7 +335,8 @@ def build_room(room_id: str) -> dict[str, object]:
 
 	exact = exact_equal(master, reconstruction)
 	if not exact:
-		raise RuntimeError(f"{room_id} tiles do not reconstruct the 2K master")
+		raise RuntimeError(
+			f"{room_id} tiles do not reconstruct the native master")
 	return {
 		"room_id": room_id,
 		"source": source_path.relative_to(ROOT).as_posix(),
@@ -332,9 +347,16 @@ def build_room(room_id: str) -> dict[str, object]:
 		"master_sha256": sha256(master_path),
 		"source_ratio": source.width / source.height,
 		"master_ratio": master.width / master.height,
-		"ratio_delta": 0.0,
+		"ratio_delta": abs(
+			(master.width / master.height) - (source.width / source.height)),
+		"aspect_ratio_pixel_delta": abs(
+			master.width - master.height * (source.width / source.height)),
 		"scale_factor": master.width / source.width,
-		"resampling": "Pillow Image.Resampling.LANCZOS",
+		"resampling": (
+			"approved full-room whole-canvas Lanczos to native size; prior "
+			"hidden fill retained only inside exact live-alpha ownership"
+			if live_alpha_master is not None
+			else "Pillow Image.Resampling.LANCZOS"),
 		"authorization": (
 			"Owner 2026-07-29: Upscale as needed in this situation."),
 		"tiles": tile_records,
@@ -412,9 +434,10 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 		"status": "compliant",
 		"upscale_authorized": True,
 		"upscale_authorization_date": "2026-07-29",
-		"upscale_method": "deterministic 2x Lanczos; no crop or padding",
+		"upscale_method": (
+			"deterministic whole-canvas Lanczos; no crop or padding"),
 		"runtime_tiles_lossless_no_scale": True,
-		"active_master_dimensions": [2048, 1152],
+		"active_master_dimensions": list(DEFAULT_MASTER_SIZE),
 		"required_minimum_per_screen_dimensions": [2048, 2048],
 		"kitchen_active_master_dimensions": [4096, 2304],
 		"main_hall_active_master_dimensions": [7280, 2048],
@@ -426,11 +449,12 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 		room.update({
 			"active_background_system": "%dx%d Sprite3D tile grid" % (
 				int(grid["rows"]), int(grid["columns"])),
-			"native_master_compliant": True,
+			"native_master_compliant": (
+				min(int(value) for value in record["master_dimensions"]) >= 2048),
 			"master_dimensions": record["master_dimensions"],
 			"master_aspect_ratio": record["master_ratio"],
 			"aspect_ratio_delta": record["ratio_delta"],
-			"aspect_ratio_pixel_delta": 0.0,
+			"aspect_ratio_pixel_delta": record["aspect_ratio_pixel_delta"],
 			"upscaled_from_preserved_source": True,
 			"upscale_authorization": record["authorization"],
 			"upscale_method": record["resampling"],
@@ -469,17 +493,21 @@ def main() -> None:
 	MASTER_ROOT.mkdir(parents=True, exist_ok=True)
 	TILE_ROOT.mkdir(parents=True, exist_ok=True)
 	AUDIT_ROOT.mkdir(parents=True, exist_ok=True)
-	records = [build_room(room_id) for room_id in ROOM_IDS]
+	live_alpha_baselines = build_expected_baselines()
+	records = [build_room(
+		room_id, live_alpha_baselines[room_id]["master"])
+		for room_id in ROOM_IDS]
 	write_contact(records)
 	report = {
 		"schema": 1,
-		"purpose": "authorized 2K castle-room background derivation",
+		"purpose": "authorized native-coverage castle-room background derivation",
 		"originals_preserved": True,
 		"new_art_generated": False,
 		"source_dimensions": list(SOURCE_SIZE),
 		"default_master_dimensions": list(DEFAULT_MASTER_SIZE),
 		"default_master_aspect_ratio": (
 			DEFAULT_MASTER_SIZE[0] / DEFAULT_MASTER_SIZE[1]),
+		"required_minimum_per_screen_dimensions": [2048, 2048],
 		"kitchen_minimum_coverage_master_dimensions": [4096, 2304],
 		"runtime_grids_are_room_specific": True,
 		"all_reconstructions_pixel_exact": all(
@@ -497,7 +525,7 @@ def main() -> None:
 		encoding="utf-8")
 	update_depth_manifest(records)
 	print(
-		"OK: 7 room plates -> 6 2048x1152 masters + "
+		"OK: 7 room plates -> 6 3640x2048 masters + "
 		"1 Kitchen 4096x2304 master -> exact runtime tiles")
 
 

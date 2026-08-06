@@ -4,6 +4,12 @@
 set -uo pipefail
 GODOT="${GODOT:-godot}"
 cd "$(dirname "$0")/.."
+# Windows-local parity (2026-08-04): on Windows the Python default text codec
+# is cp1252, so every tool below that reads a UTF-8 source file or prints an
+# arrow/em-dash dies with a charmap error and the suite never reaches the
+# probes. Linux CI already defaults to UTF-8, so this is a no-op there.
+export PYTHONIOENCODING="utf-8"
+export PYTHONUTF8=1
 # fast static gates first (no Godot needed): syntax, then the ':=' Variant
 # inference shape that broke main.gd twice on 2026-07-11 - a parse error in
 # main.gd makes every probe idle to its 8m timeout, so catching it here
@@ -41,12 +47,27 @@ python3 tools/normalize_castle_interaction_v2_sheets.py --check \
 	|| { echo "CASTLE INTERACTION V2 NORMALIZATION FAIL"; exit 1; }
 python3 tools/audit_castle_interactions_v2.py \
 	|| { echo "CASTLE INTERACTION V2 DELIVERY FAIL"; exit 1; }
-python3 tools/prepare_castle_interaction_v3_sources.py --check \
-	|| { echo "CASTLE INTERACTION V3 SOURCE PREP FAIL"; exit 1; }
-python3 tools/normalize_castle_interaction_v3_sheets.py --check \
-	|| { echo "CASTLE INTERACTION V3 NORMALIZATION FAIL"; exit 1; }
-python3 tools/audit_castle_interactions_v3.py \
-	|| { echo "CASTLE INTERACTION V3 DELIVERY FAIL"; exit 1; }
+python3 tools/build_castle_interaction_v4_delivery.py --check \
+	|| { echo "CASTLE INTERACTION V4 DELIVERY DRIFT"; exit 1; }
+python3 tools/audit_castle_native_interactions.py \
+	|| { echo "CASTLE NATIVE INTERACTION OWNERSHIP FAIL"; exit 1; }
+python3 tools/repair_castle_room_native_backgrounds.py --check \
+	|| { echo "CASTLE LIVE-ALPHA BACKGROUND HEALING FAIL"; exit 1; }
+python3 tools/refine_castle_depth_cards.py --check \
+	|| { echo "CASTLE STATIC DEPTH-CARD REFINEMENT DRIFT"; exit 1; }
+python3 tools/audit_castle_static_depth_cards.py \
+	|| { echo "CASTLE STATIC DEPTH-CARD ALPHA FAIL"; exit 1; }
+python3 -m unittest \
+	tools.test_audit_castle_native_interactions \
+	tools.test_build_castle_interaction_v4_delivery \
+	tools.test_castle_interaction_frame_qa \
+	tools.test_review_castle_interaction_frames_v4 \
+	tools.test_refine_castle_depth_cards \
+	tools.test_audit_castle_static_depth_cards \
+	tools.test_repair_castle_room_native_backgrounds \
+	|| { echo "CASTLE INTERACTION/DEPTH REVIEW SELF-TEST FAIL"; exit 1; }
+python3 tools/review_castle_interaction_frames_v4.py check \
+	|| { echo "CASTLE INTERACTION PER-FRAME APPROVAL FAIL"; exit 1; }
 RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
 FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
 import_log="$(mktemp)"
@@ -55,7 +76,7 @@ timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
 rc=0
-for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_nursery probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
+for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_nursery probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
 	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"

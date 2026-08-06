@@ -2,7 +2,7 @@
   "schema_version": 2,
   "generated_on": "2026-08-02",
   "generator": "tools/build_castle_interaction_v2_manifest.py",
-  "generator_sha256": "109debd70f74e0173e218a25d1af2cf5d39381eebb5e98ce6483643c5fff420d",
+  "generator_sha256": "ebf8f6d4366c47b2ea297d3684fbcd6e84a99277d18d8d93e86ee1fd8471bd7a",
   "visual_review_evidence": {
     "path": "audit/castle_interactions_v2/castle_interaction_frames_v2.png",
     "sha256": "4ace63822e2d625312f8674196f67f909679e4cac3a8a6cd45a186f48ba5df70",
@@ -1028,16 +1028,45 @@
           "role": "vortex",
           "shape": "ellipse",
           "center": [
-            0.5,
-            0.42
+            0.51,
+            0.615
           ],
           "radius": [
-            0.18,
-            0.043
+            0.12,
+            0.028
           ],
-          "z_offset": 0.007,
+          "z_offset": 0.003,
           "flow_start": 0.08,
-          "render_priority": 2
+          "render_priority": 1,
+          "active_frames": [
+            2,
+            3,
+            4
+          ],
+          "contact_role": "inside_bowl_cavity",
+          "cavity_bounds_normalized": [
+            0.365,
+            0.57,
+            0.29,
+            0.09
+          ],
+          "occlusion_contract": "front_surface_confined_to_inner_bowl_waterline",
+          "deep": [
+            0.3,
+            0.7,
+            0.82,
+            1.0
+          ],
+          "shallow": [
+            0.74,
+            0.95,
+            0.98,
+            1.0
+          ],
+          "alpha_base": 0.56,
+          "turbulence": 0.52,
+          "edge_foam": 0.18,
+          "flow_speed": 1.25
         }
       ],
       "primary_animation_is_overlay": false,
