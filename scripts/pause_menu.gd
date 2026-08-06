@@ -209,6 +209,21 @@ func _leave_current_activity() -> void:
 	if m.craft_layer != null:
 		m._close_craft()
 		return
+	if m.combat_tutorial_game != null:
+		# the sparring class is a castle cutaway (m.game stays "level2"):
+		# leaving must put the CLASS away first — cancel resumes the hall via
+		# its finish callback; the next leave-press then exits the castle.
+		# Without this the tutorial haunted the session: ghost finger stuck on
+		# screen, its hit engine stealing every ocean tap (alpha audit
+		# 2026-08-05).
+		m.combat_tutorial_game.cancel()
+		return
+	if m.game == "kitchen_cooking":
+		m._castle_rooms_ref().cancel_kitchen_recipe()
+		return
+	if m.game == "opera" and m.opera_game != null:
+		(m.opera_game as OperaHouse)._leave_early()
+		return
 	if m.game == "level2":
 		m._exit_level2()
 		return

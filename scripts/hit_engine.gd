@@ -584,8 +584,21 @@ func play_harm(enemy: Dictionary) -> void:
 		if child is Node3D:
 			target = child as Node3D
 			break
-	var base_x: float = target.position.x
+	# rest-x is remembered once: a second harm mid-wobble used to capture the
+	# displaced x as its "home" and the art crept sideways off its hitbox and
+	# hp-pip row under rapid taps (alpha audit 2026-08-05)
+	var base_x: float
+	if target.has_meta("harm_rest_x"):
+		base_x = float(target.get_meta("harm_rest_x"))
+	else:
+		base_x = target.position.x
+		target.set_meta("harm_rest_x", base_x)
+	if target.has_meta("harm_tw"):
+		var old: Tween = target.get_meta("harm_tw")
+		if old != null and old.is_valid():
+			old.kill()
 	var tw: Tween = target.create_tween()
+	target.set_meta("harm_tw", tw)
 	tw.tween_property(target, "position:x", base_x + 0.32, 0.05).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tw.tween_property(target, "position:x", base_x - 0.22, 0.07).set_trans(Tween.TRANS_QUAD)
 	tw.tween_property(target, "position:x", base_x, 0.09).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)

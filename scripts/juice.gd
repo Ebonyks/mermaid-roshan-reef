@@ -20,9 +20,24 @@ static func squash(node: Node3D, big: bool = false) -> void:
 		if child is Node3D:
 			target = child as Node3D
 			break
-	var base: Vector3 = target.scale
+	# Re-entrancy (alpha audit 2026-08-05): under mash tapping a second squash
+	# used to read the FIRST squash's mid-deform scale as its "base" and
+	# restore to that — enemies drifted permanently squashed. The true rest
+	# scale is remembered once on the node and every squash restores to it;
+	# the previous tween is killed so two never fight over the same property.
+	var base: Vector3
+	if target.has_meta("juice_rest_scale"):
+		base = target.get_meta("juice_rest_scale")
+	else:
+		base = target.scale
+		target.set_meta("juice_rest_scale", base)
+	if target.has_meta("juice_squash_tw"):
+		var old: Tween = target.get_meta("juice_squash_tw")
+		if old != null and old.is_valid():
+			old.kill()
 	var mult: float = 1.3 if big else 1.18
 	var tw: Tween = target.create_tween()
+	target.set_meta("juice_squash_tw", tw)
 	tw.tween_property(target, "scale", Vector3(base.x * mult, base.y * (2.0 - mult), base.z * mult), 0.08).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tw.tween_property(target, "scale", base, 0.18).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 

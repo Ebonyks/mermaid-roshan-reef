@@ -323,6 +323,12 @@ func _tick_lesson(delta: float) -> void:
 			if pa != null and pa.bubble != null and pa.cool > 0.0:
 				m.show_msg("Roshan", "Partner power! Now finish them!", "win")
 				_begin_lesson("wave")
+				# the stampede may have popped the whole practice wave — the
+				# graduation must still be HER pops, so a fresh wave arrives
+				# when nothing is left standing (alpha audit 2026-08-05: the
+				# class could otherwise complete itself off the partner's work)
+				if _lesson_target().is_empty():
+					_spawn_wave()
 			elif _lesson_target().is_empty() and enemies.size() < 6:
 				_spawn_wave()
 		"wave":

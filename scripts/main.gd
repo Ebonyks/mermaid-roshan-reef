@@ -3593,7 +3593,10 @@ func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
 	if _world_tap_gated():
 		return
 	for engine_value: Variant in _live_hit_engines():
-		if (engine_value as HitEngine).slash(from, to) > 0:
+		var engine: HitEngine = engine_value as HitEngine
+		if not engine.tap_priority:
+			continue   # a suspended castle's engine must not catch swipes
+		if engine.slash(from, to) > 0:
 			return
 
 func _on_touch_world(screen_pos: Vector2) -> void:

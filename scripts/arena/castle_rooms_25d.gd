@@ -958,6 +958,8 @@ func resume(room_id: String = "") -> void:
 		m.castle_room_world_root.visible = true
 	if m.castle_room_camera != null:
 		m.castle_room_camera.make_current()
+	if m.castle_dust_he != null:
+		m.castle_dust_he.tap_priority = true   # the castle is the surface again
 	_activate_castle_environment()
 	m._set_world_controls_enabled(false, "castle_rooms")
 	if m.player != null:
@@ -973,6 +975,17 @@ func suspend() -> void:
 	_set_elevator_menu_open(false, false)
 	_set_fridge_close_blocked(false)
 	_restore_previous_environment()
+	# alpha audit 2026-08-05: the Daddy bubble and the dust chain-engine used
+	# to stay live UNDER the cutaway (cooking act, sparring class, opera hall)
+	# — the bubble floated over the new scene catching taps, and a swipe could
+	# strike a hidden bunny through the castle's stale camera. The partner
+	# detaches (she re-invites him with her next pop after resume) and the
+	# dust engine stands down from the shared swipe path.
+	if m.castle_partner != null:
+		m.castle_partner.detach()
+		m.castle_partner = null
+	if m.castle_dust_he != null:
+		m.castle_dust_he.tap_priority = false
 	if is_open():
 		m.castle_room_layer.visible = false
 	if m.castle_room_world_root != null:
@@ -982,11 +995,37 @@ func suspend() -> void:
 	m._set_world_controls_enabled(true, "castle_rooms")
 	m._set_world_controls_enabled(true, "kitchen_fridge_close")
 
+# A pause-leave (or any exit) while the cooking cutaway is live: the act is
+# put away kindly and the child comes home to the kitchen. Without this, the
+# act outlived the castle and its finish callback rebuilt the castle over
+# whatever scene came next (alpha audit 2026-08-05).
+func cancel_kitchen_recipe() -> void:
+	if kitchen_act == null:
+		return
+	var act_node: OperaAct = kitchen_act
+	kitchen_act = null   # the tree_exited guard sees null and stands down
+	act_node.cancel()
+	m.game = "level2"
+	resume("kitchen")
+
 func close() -> void:
 	_room_build_generation += 1
 	_invalidate_royal_hall_arrival()
 	_close_kitchen_menu()
 	_set_fridge_close_blocked(false)
+	# a live cooking act must never outlive the castle that hosts it — put it
+	# away silently (no resume: the castle itself is closing)
+	if kitchen_act != null:
+		var act_node: OperaAct = kitchen_act
+		kitchen_act = null
+		act_node.cancel()
+	# same for a live sparring class: silence its finish callback first so
+	# cancel() cannot resume the hall mid-close
+	if m.combat_tutorial_game != null:
+		var tut: CombatTutorial = m.combat_tutorial_game
+		m.combat_tutorial_game = null
+		tut.finish_cb = Callable()
+		tut.cancel()
 	fixture_rigs.teardown()
 	if m.castle_logo_layer != null:
 		m._close_castle_logo()
