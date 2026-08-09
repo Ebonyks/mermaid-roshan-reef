@@ -1471,6 +1471,76 @@ class Game2DAuditTests(unittest.TestCase):
 			any(finding.check_id == "G2D401" for finding in findings), findings)
 		self.assertEqual(manifest.read_bytes(), before)
 
+	def test_committed_source_fixtures_do_not_block_shrink_but_real_models_do(self) -> None:
+		temp, root, manifest = self.fixture()
+		self.addCleanup(temp.cleanup)
+
+		def git(*args: str) -> None:
+			subprocess.run(
+				["git", "-C", str(root), *args], check=True,
+				stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+			)
+
+		fixture = root / "tools/tests/test_model_signatures.py"
+		fixture.parent.mkdir(parents=True, exist_ok=True)
+		fixture.write_text(
+			"def model_signature_fixtures():\n"
+			"\tglb = b'glTF\\x02\\x00\\x00\\x00'\n"
+			"\tcollada = b'<c:COLLADA xmlns:c=\\\"urn:test\\\">'\n"
+			"\tx3d = b'<x:X3D xmlns:x=\\\"urn:test\\\">'\n"
+			"\treturn glb, collada, x3d\n",
+			encoding="utf-8",
+		)
+		boundary_fixture = root / "tools/tests/test_utf8_boundary.py"
+		boundary_prefix = b"FIXTURE = b'<c:COLLADA>'\n# "
+		boundary_fixture.write_bytes(
+			boundary_prefix + b"x" * (
+				game_2d.MODEL_SAMPLE_BYTES - 1 - len(boundary_prefix)) +
+			"é\n".encode("utf-8"))
+		git("init", "-q")
+		git("config", "user.email", "game-2d-test@example.invalid")
+		git("config", "user.name", "Game 2D Test")
+		git("add", ".")
+		git("commit", "-q", "-m", "baseline with gate fixtures")
+		self.assertTrue({
+			"tools/tests/test_model_signatures.py",
+			"tools/tests/test_utf8_boundary.py",
+		}.isdisjoint(game_2d.discover(root).model_files))
+
+		anchor = self.read_manifest(manifest)["initial_ceiling"]["canonical_sha256"]
+		(root / "assets/legacy/prop.glb").unlink()
+		(root / "assets/legacy/prop.glb.import").unlink()
+		git("add", "-u")
+		ok, findings = game_2d.refresh_manifest(
+			root, manifest, initial_ceiling_anchor=anchor)
+		self.assertTrue(ok, findings)
+		self.assertNotIn(
+			"tools/tests/test_model_signatures.py",
+			self.read_manifest(manifest)["model_files"],
+		)
+		git("add", game_2d.DEFAULT_MANIFEST)
+		git("commit", "-q", "-m", "shrink known model debt")
+
+		real_model = root / "tools/tests/actual_model.glb"
+		real_model.write_bytes(b"glTF\x02\x00\x00\x00")
+		disguised_model = root / "tools/tests/actual_model.py"
+		disguised_model.write_bytes(b"BLENDER-v300")
+		git("add", real_model.relative_to(root).as_posix(),
+			disguised_model.relative_to(root).as_posix())
+		git("commit", "-q", "-m", "invalid model addition")
+		before = manifest.read_bytes()
+		ok, findings = game_2d.refresh_manifest(
+			root, manifest, initial_ceiling_anchor=anchor)
+		self.assertFalse(ok)
+		expected_models = {
+			"tools/tests/actual_model.glb", "tools/tests/actual_model.py"}
+		self.assertTrue(expected_models.issubset({
+			finding.path for finding in findings if finding.check_id == "G2D401"
+		}), findings)
+		self.assertTrue(expected_models.issubset(
+			set(game_2d.discover(root).model_files)))
+		self.assertEqual(manifest.read_bytes(), before)
+
 	def test_refresh_manifest_refuses_path_token_and_fingerprint_growth(self) -> None:
 		for mutation in ("path", "token", "fingerprint"):
 			with self.subTest(mutation=mutation):

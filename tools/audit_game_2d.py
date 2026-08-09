@@ -97,6 +97,7 @@ PRODUCTION_SOURCE_EXTENSIONS = {
 	".c", ".cc", ".cpp", ".cs", ".cxx", ".gd", ".gdshader",
 	".gdshaderinc", ".h", ".hh", ".hpp", ".hxx", ".java", ".kt", ".rs",
 }
+SOURCE_TEXT_EXTENSIONS = PRODUCTION_SOURCE_EXTENSIONS | {".py", ".pyi"}
 NATIVE_BINARY_EXTENSIONS = {".a", ".dll", ".dylib", ".lib", ".so", ".wasm"}
 OPAQUE_RUNTIME_BINARY_EXTENSIONS = {".aar", ".jar", ".pck"}
 ACTIVE_DATA_EXTENSIONS = {
@@ -592,6 +593,52 @@ def _sample_is_model(sample: bytes) -> bool:
 	return bool(b"\0" not in sample and ASCII_STL_RE.search(sample))
 
 
+def _sample_is_declared_source_text(path: Path, sample: bytes) -> bool:
+	"""Distinguish source containing model fixtures from a model payload.
+
+	A source suffix is not a directory waiver: named model extensions are handled
+	before this check, and binary or document-level disguised models remain debt.
+	Only credible UTF-8 program text whose *document* is not itself a known model
+	format is protected from signatures embedded in literals and test fixtures.
+	"""
+	if path.suffix.lower() not in SOURCE_TEXT_EXTENSIONS or b"\0" in sample:
+		return False
+	if any(sample.startswith(prefix) for prefix in MODEL_MAGIC_PREFIXES):
+		return False
+	try:
+		sample.decode("utf-8")
+	except UnicodeDecodeError as error:
+		# A bounded prefix may end between bytes of one otherwise-valid UTF-8
+		# codepoint.  Accept only that terminal truncation; malformed bytes inside
+		# the sample still prove this is not credible source text.
+		if error.reason != "unexpected end of data" or error.end != len(sample):
+			return False
+	stripped = sample.lstrip(b"\xef\xbb\xbf\t\r\n ")
+	if not stripped:
+		return True
+	if stripped.startswith((
+			b"{", b"<", b"#usda 1.0", b"Ogawa", b"ply\n", b"ply\r\n",
+			b"solid ", b"solid\t", b"solid\r", b"solid\n")):
+		return False
+	# Preserve disguised OBJ detection when the first non-comment record is
+	# model syntax, while allowing fixture records inside ordinary source code.
+	first_record = next((
+		line.lstrip() for line in stripped.splitlines()
+		if line.strip() and not line.lstrip().startswith(b"#")
+	), b"")
+	if (first_record.startswith((
+			b"v ", b"v\t", b"mtllib ", b"mtllib\t", b"o ", b"o\t",
+			b"g ", b"g\t", b"usemtl ", b"usemtl\t", b"s ", b"s\t"))
+			and OBJ_VERTEX_RE.search(sample) and OBJ_FACE_RE.search(sample)):
+		return False
+	return True
+
+
+def _sample_is_model_for_path(path: Path, sample: bytes) -> bool:
+	return (not _sample_is_declared_source_text(path, sample)
+		and _sample_is_model(sample))
+
+
 def _plausible_model_text(sample: bytes) -> bool:
 	stripped = sample.lstrip(b"\xef\xbb\xbf\t\r\n ")
 	return stripped.startswith((b"{", b"<"))
@@ -676,12 +723,12 @@ def _path_model_sample(path: Path) -> bytes:
 
 def _has_model_magic(path: Path) -> bool:
 	"""Recognise credible model signatures even when the extension is disguised."""
-	return _sample_is_model(_path_model_sample(path))
+	return _sample_is_model_for_path(path, _path_model_sample(path))
 
 
 def _is_model_or_scan_coverage(path: Path) -> bool:
 	sample, coverage = _path_model_scan(path)
-	return coverage or _sample_is_model(sample)
+	return coverage or _sample_is_model_for_path(path, sample)
 
 
 def _is_model_resource(path: Path) -> bool:
@@ -1957,7 +2004,7 @@ def _repository_model_resources(root: Path,
 			else:
 				sample, coverage, is_zip = _path_model_scan_details(
 					path, detect_zip=True)
-			if is_named_model or coverage or _sample_is_model(sample):
+			if is_named_model or coverage or _sample_is_model_for_path(path, sample):
 				models_list.append(normalised)
 			if coverage:
 				coverage_list.append(normalised)
@@ -1995,7 +2042,7 @@ def _repository_model_resources(root: Path,
 			models_list.append(_relative(path, root))
 			continue
 		sample, coverage = _path_model_scan(path)
-		if coverage or _sample_is_model(sample):
+		if coverage or _sample_is_model_for_path(path, sample):
 			models_list.append(_relative(path, root))
 		if coverage:
 			coverage_list.append(_relative(path, root))
