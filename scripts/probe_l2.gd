@@ -48,6 +48,19 @@ func _sprite_pixel_world(sprite: Sprite3D, pixel: Vector2) -> Vector2:
 	return Vector2(sprite.position.x, sprite.position.y) + local.rotated(
 		sprite.rotation.z)
 
+
+func _unique_texture_bytes(texture: Texture2D, seen: Dictionary) -> int:
+	if texture == null:
+		return 0
+	var key: String = texture.resource_path
+	if key == "":
+		key = str(texture.get_rid())
+	if seen.has(key):
+		return 0
+	seen[key] = true
+	var image: Image = texture.get_image()
+	return image.get_data_size() if image != null else 0
+
 func _complete_playground_action(main: ReefMain,
 		promenade: SkyLagoonPromenade, card: Sprite3D) -> Dictionary:
 	# Cross the real duration boundary in two close samples, then follow the
@@ -240,10 +253,14 @@ func _init() -> void:
 	var tree_cards: Array[Sprite3D] = []
 	var cloud_card: Sprite3D = null
 	var smoke_cards: Array[Sprite3D] = []
+	var resident_texture_paths: Dictionary = {}
+	var resident_texture_bytes := 0
 	while not node_stack.is_empty():
 		var stage_node: Node = node_stack.pop_back()
 		if stage_node is Sprite3D:
 			var stage_sprite := stage_node as Sprite3D
+			resident_texture_bytes += _unique_texture_bytes(
+				stage_sprite.texture, resident_texture_paths)
 			sprite_count += 1
 			visible_sprite_count += 1 if stage_sprite.visible else 0
 			shaded_count += 1 if stage_sprite.shaded else 0
@@ -271,6 +288,17 @@ func _init() -> void:
 			canvas_count += 1
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
+	# The Lagoon animator keeps all three atlases resident even while its card
+	# displays only one. Night fireflies are the larger day/night alternative,
+	# so include their texture even when this probe starts in daytime.
+	for resident_texture: Texture2D in [
+			RoshanSpriteLoop.DIRECTIONAL,
+			RoshanSpriteLoop.SWIM_FRONT,
+			RoshanSpriteLoop.SWIM_BACK,
+			load(SkyLagoonPromenade.FIREFLY_TEX) as Texture2D,
+	]:
+		resident_texture_bytes += _unique_texture_bytes(
+			resident_texture, resident_texture_paths)
 	_check("world_art_is_unshaded_sprite3d",
 		sprite_count == 37 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
@@ -595,6 +623,25 @@ func _init() -> void:
 	var slide_node: Sprite3D = toy_nodes.get("slide") as Sprite3D
 	var swing_node: Sprite3D = toy_nodes.get("swing") as Sprite3D
 	var compact_seesaw: Sprite3D = toy_nodes.get("seesaw") as Sprite3D
+	var action_peak_extra_bytes := 0
+	var action_peak_kind := ""
+	for action_kind: String in ["swing", "slide", "seesaw"]:
+		var action_paths: Dictionary = resident_texture_paths.duplicate()
+		var action_extra_bytes := 0
+		for frame_path_value: Variant in (
+				SkyLagoonPromenade.PLAY_FRAME_PATHS[action_kind] as Array):
+			action_extra_bytes += _unique_texture_bytes(
+				load(String(frame_path_value)) as Texture2D, action_paths)
+		if action_extra_bytes > action_peak_extra_bytes:
+			action_peak_extra_bytes = action_extra_bytes
+			action_peak_kind = action_kind
+	var texture_peak_bytes: int = resident_texture_bytes + action_peak_extra_bytes
+	_check("sky_lagoon_texture_peak_stays_inside_m11_budget",
+		texture_peak_bytes <= 24 * 1024 * 1024,
+		"resident=%.2fMiB action=%s peak=%.2fMiB textures=%d+4" % [
+			float(resident_texture_bytes) / 1048576.0, action_peak_kind,
+			float(texture_peak_bytes) / 1048576.0,
+			resident_texture_paths.size()])
 	var swing_pivot: Node3D = null
 	var swing_seat: Sprite3D = null
 	if swing_node != null:

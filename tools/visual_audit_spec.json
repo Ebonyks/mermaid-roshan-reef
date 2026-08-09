@@ -66,6 +66,38 @@
         "assets/characters/roshan_25d/roshan_base.png",
         "assets/sprites/sky_lagoon/roshan_playground/*.png"
       ],
+      "runtime_auxiliary": [
+        "assets/characters/roshan_25d/roshan_directional.png",
+        "assets/characters/roshan_25d/roshan_swim_front.png",
+        "assets/characters/roshan_25d/roshan_swim_back.png",
+        "assets/fairy/sprites/bug_firefly.png",
+        "assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+        "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+        "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+        "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
+      ],
+      "texture_peak_alternatives": [
+        {
+          "id": "roshan_playground_action",
+          "alternatives": [
+            {
+              "id": "swing",
+              "files": ["assets/sprites/sky_lagoon/roshan_playground/roshan_swing_*.png"],
+              "expected_count": 4
+            },
+            {
+              "id": "slide",
+              "files": ["assets/sprites/sky_lagoon/roshan_playground/roshan_slide_*.png"],
+              "expected_count": 4
+            },
+            {
+              "id": "seesaw",
+              "files": ["assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_*.png"],
+              "expected_count": 4
+            }
+          ]
+        }
+      ],
       "asset_roots": ["assets/flats/sky_lagoon", "assets/sprites/sky_lagoon"]
     },
     {

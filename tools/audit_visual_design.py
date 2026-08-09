@@ -166,6 +166,7 @@ class Repo:
         self.runtime = runtime_facts or {}
         self._img_cache: dict[str, dict] = {}
         self._text_cache: dict[str, str] = {}
+        self._texture_import_cache: dict[str, dict] = {}
         self._all_source: str | None = None
 
     # -- files ------------------------------------------------------------
@@ -253,6 +254,57 @@ class Repo:
         self._img_cache[rel] = info
         return info
 
+    def texture_import(self, rel: str) -> dict:
+        """Reviewed Godot texture-import settings relevant to GPU residency."""
+        if rel in self._texture_import_cache:
+            return self._texture_import_cache[rel]
+        source = self.read(rel + ".import")
+        mode_match = re.search(r"^compress/mode=(\d+)$", source, re.MULTILINE)
+        high_match = re.search(
+            r"^compress/high_quality=(true|false)$", source, re.MULTILINE)
+        mip_match = re.search(
+            r"^mipmaps/generate=(true|false)$", source, re.MULTILINE)
+        info = {
+            "mode": int(mode_match.group(1)) if mode_match else None,
+            "high_quality": high_match is not None and high_match.group(1) == "true",
+            "mipmaps": mip_match is not None and mip_match.group(1) == "true",
+        }
+        self._texture_import_cache[rel] = info
+        return info
+
+    def texture_vram_bytes(self, rel: str) -> int:
+        """Conservative Android GPU bytes from the pinned Godot import mode.
+
+        Godot's VRAM-compressed ETC2 path stores opaque colour as 4-bpp ETC2
+        RGB and alpha art as 8-bpp ETC2 RGBA. Lossless/lossy source storage is
+        decoded to 32-bpp on upload. Missing sidecars stay conservatively
+        uncompressed; the separate sidecar check explains the missing review.
+        """
+        image = self.image(rel)
+        if "error" in image:
+            return 0
+        settings = self.texture_import(rel)
+        width = int(image.get("w", 0))
+        height = int(image.get("h", 0))
+        mipmaps = bool(settings.get("mipmaps", False))
+        mode = settings.get("mode")
+        total = 0
+        while width > 0 and height > 0:
+            if mode == 2:
+                # ETC2 is block-compressed in 4x4 blocks. High-quality imports
+                # may select an 8-bpp path even for opaque art, so retain the
+                # conservative block size there.
+                block_bytes = 16 if image.get("has_alpha") \
+                    or settings.get("high_quality") else 8
+                total += math.ceil(width / 4) * math.ceil(height / 4) * block_bytes
+            else:
+                total += width * height * 4
+            if not mipmaps or (width == 1 and height == 1):
+                break
+            width = max(1, width // 2)
+            height = max(1, height // 2)
+        return total
+
     def license_patterns(self) -> list[str]:
         """Every asset path token in ASSET_LICENSES.md, brace-expanded.
 
@@ -329,6 +381,8 @@ class Zone:
         self.murals = repo.expand(raw.get("murals", []))
         self.standees = repo.expand(raw.get("standees", []))
         self.characters = repo.expand(raw.get("characters", []))
+        self.runtime_auxiliary = repo.expand(raw.get("runtime_auxiliary", []))
+        self.texture_peak_alternatives = raw.get("texture_peak_alternatives", [])
         self.asset_roots = raw.get("asset_roots", [])
 
     @property
@@ -337,7 +391,8 @@ class Zone:
 
     @property
     def runtime_art(self) -> list[str]:
-        return self.murals + self.standees + self.characters
+        return sorted(set(
+            self.murals + self.standees + self.characters + self.runtime_auxiliary))
 
     def budget(self, name: str, default=None):
         return self.raw.get("budgets", {}).get(name, self.repo.budgets.get(name, default))
@@ -418,31 +473,74 @@ def _texture_sidecar(zone: Zone) -> Iterator[Finding]:
 
 @check("texture.zone_budget", "texture", "texture_max_side_or_pot")
 def _texture_budget(zone: Zone) -> Iterator[Finding]:
-    """A zone's runtime art stays inside its uncompressed-texture budget."""
+    """A zone's simultaneous imported texture peak stays inside budget."""
     art = zone.runtime_art
     if not art:
         yield Finding("texture.zone_budget", zone.id, SKIP, "no runtime PNG art")
         return
-    # On the Mali GPU a power-of-two texture block-compresses to ~8 bpp
-    # (ETC2/ASTC 4x4); a non-power-of-two one cannot compress and costs the
-    # full 32 bpp.  Budget against the realistic on-device cost, not the
-    # decoded size, or every zone looks over budget and the check gets ignored.
-    decoded = 0
-    vram = 0
-    for rel in art:
-        info = zone.repo.image(rel)
-        b = info.get("rgba_bytes", 0)
-        decoded += b
-        vram += b // 4 if info.get("pot") else b
-    decoded /= 1048576.0
-    vram /= 1048576.0
+    declared = set(art)
+    base = set(art)
+    grouped: set[str] = set()
+    choices = []
+    for group in zone.texture_peak_alternatives:
+        group_id = str(group.get("id", "unnamed"))
+        alternatives = []
+        group_paths: set[str] = set()
+        for alternative in group.get("alternatives", []):
+            alternative_id = str(alternative.get("id", "unnamed"))
+            paths = zone.repo.expand(alternative.get("files", []))
+            expected = int(alternative.get("expected_count", len(paths)))
+            if not paths or len(paths) != expected:
+                yield Finding("texture.zone_budget", zone.id, ERROR,
+                              f"texture peak group '{group_id}/{alternative_id}' resolved "
+                              f"{len(paths)} files (expected {expected})",
+                              evidence={"group": group_id, "alternative": alternative_id,
+                                        "files": paths, "expected_count": expected})
+                return
+            unknown = set(paths) - declared
+            overlap = set(paths) & (grouped | group_paths)
+            if unknown or overlap:
+                yield Finding("texture.zone_budget", zone.id, ERROR,
+                              f"texture peak group '{group_id}/{alternative_id}' has "
+                              "undeclared or multiply-grouped files",
+                              evidence={"unknown": sorted(unknown),
+                                        "overlap": sorted(overlap)})
+                return
+            alternatives.append({"id": alternative_id, "paths": paths})
+            group_paths.update(paths)
+        if not alternatives:
+            yield Finding("texture.zone_budget", zone.id, ERROR,
+                          f"texture peak group '{group_id}' declares no alternatives")
+            return
+        grouped.update(group_paths)
+        base.difference_update(group_paths)
+        selected = max(
+            alternatives,
+            key=lambda alternative: sum(
+                zone.repo.texture_vram_bytes(path) for path in alternative["paths"]),
+        )
+        choices.append({"group": group_id, **selected})
+
+    peak_paths = set(base)
+    for choice in choices:
+        peak_paths.update(choice["paths"])
+    decoded_bytes = sum(
+        int(zone.repo.image(rel).get("rgba_bytes", 0)) for rel in peak_paths)
+    vram_bytes = sum(zone.repo.texture_vram_bytes(rel) for rel in peak_paths)
+    decoded = decoded_bytes / 1048576.0
+    vram = vram_bytes / 1048576.0
     cap = float(zone.budget("zone_runtime_texture_mb", 24.0))
     sev = ERROR if vram > cap * 1.5 else (WARN if vram > cap else INFO)
     yield Finding("texture.zone_budget", zone.id, sev,
-                  f"runtime art costs ~{vram:.1f} MB of VRAM on the M11 "
+                  f"simultaneous runtime art peaks at ~{vram:.1f} MB of VRAM on the M11 "
                   f"({decoded:.1f} MB decoded, budget {cap:.0f} MB)",
                   evidence={"vram_mb": round(vram, 2), "decoded_mb": round(decoded, 2),
-                            "budget_mb": cap, "files": len(art)})
+                            "budget_mb": cap, "files": len(art),
+                            "peak_files": len(peak_paths),
+                            "alternatives": [{"group": choice["group"],
+                                              "selected": choice["id"],
+                                              "files": choice["paths"]}
+                                             for choice in choices]})
 
 
 # --------------------------------------------------------------------------

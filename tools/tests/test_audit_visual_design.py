@@ -9,6 +9,8 @@ import unittest
 from unittest import mock
 from pathlib import Path
 
+from PIL import Image
+
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 
@@ -127,6 +129,42 @@ class RegistryContractTests(unittest.TestCase):
 			self.assertIn(f"res://{path}", probe_source)
 		for path in retired:
 			self.assertNotIn(f"res://{path}", probe_source)
+
+	def test_sky_lagoon_texture_peak_declares_resident_auxiliary_and_actions(self) -> None:
+		sky_lagoon = next(
+			zone for zone in ava.load_spec()["zones"]
+			if zone["id"] == "sky_lagoon"
+		)
+		expected_auxiliary = {
+			"assets/characters/roshan_25d/roshan_directional.png",
+			"assets/characters/roshan_25d/roshan_swim_front.png",
+			"assets/characters/roshan_25d/roshan_swim_back.png",
+			"assets/fairy/sprites/bug_firefly.png",
+			"assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+			"assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+			"assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+			"assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+		}
+		self.assertEqual(set(sky_lagoon["runtime_auxiliary"]), expected_auxiliary)
+		groups = sky_lagoon["texture_peak_alternatives"]
+		self.assertEqual(len(groups), 1)
+		self.assertEqual(groups[0]["id"], "roshan_playground_action")
+		self.assertEqual(
+			{alternative["id"] for alternative in groups[0]["alternatives"]},
+			{"swing", "slide", "seesaw"},
+		)
+		self.assertTrue(all(
+			alternative["expected_count"] == 4
+			for alternative in groups[0]["alternatives"]
+		))
+		repo = ava.Repo(str(ROOT), ava.load_spec())
+		rows = ava.run(repo, zone_ids=["sky_lagoon"],
+			check_ids=["texture.zone_budget"])
+		self.assertEqual(len(rows), 1)
+		self.assertEqual(rows[0].disposition, ava.PASS)
+		self.assertLess(float(rows[0].evidence["vram_mb"]), 24.0)
+		self.assertEqual(rows[0].evidence["files"], 41)
+		self.assertEqual(rows[0].evidence["peak_files"], 33)
 
 	def test_waivers_satisfy_full_contract(self) -> None:
 		spec = ava.load_spec()
@@ -292,6 +330,100 @@ class LifecycleStateTests(unittest.TestCase):
 				self.assertEqual(rows[0].disposition, expected)
 				self.assertIn("WAIVER CANNOT REPLACE", rows[0].message)
 				self.assertFalse(ava.strict_passes(rows))
+
+
+class TextureBudgetTests(unittest.TestCase):
+	"""The M11 peak follows Godot imports and mutually exclusive action sets."""
+
+	@staticmethod
+	def _asset(root: Path, name: str, size: tuple[int, int], mode: int,
+			alpha: int = 255) -> str:
+		path = root / "assets" / name
+		path.parent.mkdir(parents=True, exist_ok=True)
+		Image.new("RGBA", size, (24, 96, 160, alpha)).save(path)
+		Path(f"{path}.import").write_text(
+			"[params]\n"
+			f"compress/mode={mode}\n"
+			"compress/high_quality=false\n"
+			"mipmaps/generate=false\n",
+			encoding="utf-8",
+		)
+		return path.relative_to(root).as_posix()
+
+	@staticmethod
+	def _zone(root: Path, raw: dict) -> ava.Zone:
+		spec = {"budgets": {}, "rules": {}, "waivers": []}
+		return ava.Zone(raw, ava.Repo(str(root), spec))
+
+	def test_vram_compressed_opaque_import_uses_etc2_rgb_blocks(self) -> None:
+		with tempfile.TemporaryDirectory() as raw_root:
+			root = Path(raw_root)
+			rel = self._asset(root, "opaque.png", (64, 64), 2)
+			raw = {
+				"id": "fixture", "name": "fixture", "murals": [rel],
+				"budgets": {"zone_runtime_texture_mb": 0.005},
+			}
+			compressed_zone = self._zone(root, raw)
+			compressed = list(ava._texture_budget(compressed_zone))[0]
+			self.assertEqual(compressed.disposition, ava.PASS)
+			self.assertEqual(compressed_zone.repo.texture_vram_bytes(rel), 2048)
+			alpha_rel = self._asset(root, "alpha.png", (64, 64), 2, alpha=128)
+			self.assertEqual(
+				self._zone(root, raw).repo.texture_vram_bytes(alpha_rel), 4096)
+
+			Path(f"{root / rel}.import").write_text(
+				"[params]\ncompress/mode=0\n"
+				"compress/high_quality=false\nmipmaps/generate=false\n",
+				encoding="utf-8",
+			)
+			uncompressed_zone = self._zone(root, raw)
+			uncompressed = list(ava._texture_budget(uncompressed_zone))[0]
+			self.assertEqual(uncompressed.disposition, ava.FAIL)
+			self.assertEqual(uncompressed_zone.repo.texture_vram_bytes(rel), 16384)
+			self.assertGreater(uncompressed.evidence["vram_mb"], 0.015)
+
+	def test_peak_alternatives_count_one_complete_action_set(self) -> None:
+		with tempfile.TemporaryDirectory() as raw_root:
+			root = Path(raw_root)
+			base = self._asset(root, "base.png", (64, 64), 0)
+			for name, size in (("swing_0.png", (32, 32)),
+					("swing_1.png", (32, 32)), ("slide_0.png", (16, 16)),
+					("slide_1.png", (16, 16))):
+				self._asset(root, f"actions/{name}", size, 0)
+			raw = {
+				"id": "fixture", "name": "fixture",
+				"murals": [base], "characters": ["assets/actions/*.png"],
+				"budgets": {"zone_runtime_texture_mb": 0.024},
+				"texture_peak_alternatives": [{
+					"id": "action",
+					"alternatives": [
+						{"id": "swing", "files": ["assets/actions/swing_*.png"],
+							"expected_count": 2},
+						{"id": "slide", "files": ["assets/actions/slide_*.png"],
+							"expected_count": 2},
+					],
+				}],
+			}
+			grouped = list(ava._texture_budget(self._zone(root, raw)))[0]
+			self.assertEqual(grouped.disposition, ava.PASS)
+			self.assertEqual(grouped.evidence["peak_files"], 3)
+			self.assertEqual(grouped.evidence["alternatives"][0]["selected"], "swing")
+
+			ungrouped_raw = dict(raw)
+			ungrouped_raw.pop("texture_peak_alternatives")
+			ungrouped = list(ava._texture_budget(
+				self._zone(root, ungrouped_raw)))[0]
+			self.assertEqual(ungrouped.disposition, ava.REVIEW_OPEN)
+
+			bad_raw = dict(raw)
+			bad_raw["texture_peak_alternatives"] = [{
+				"id": "action", "alternatives": [{
+					"id": "swing", "files": ["assets/actions/swing_*.png"],
+					"expected_count": 3,
+				}],
+			}]
+			invalid = list(ava._texture_budget(self._zone(root, bad_raw)))[0]
+			self.assertEqual(invalid.disposition, ava.FAIL)
 
 
 class StressHarnessTests(unittest.TestCase):
