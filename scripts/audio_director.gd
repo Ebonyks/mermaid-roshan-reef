@@ -124,7 +124,10 @@ func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 	# read the line aloud. The moment a recording lands, the text hides again.
 	if m.game == "opera":
 		var speaker := _speaker_key(who)
-		var has_exact := ResourceLoader.exists(
+		# "talk" is a generic acknowledgement, not an exact recording of an
+		# arbitrary lobby/boss sentence. Never hide a supplied instruction just
+		# because that one generic clip exists.
+		var has_exact := vo != "talk" and ResourceLoader.exists(
 			"res://assets/audio/voices/" + speaker + "_" + vo + ".ogg")
 		m.hud_msg.visible = false
 		if not has_exact and txt != "":

@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "review_date": "2026-08-09",
+  "review_scope": "All 208 native frames at original resolution, followed by all 208 packed runtime cells; zero-based row/column audit before runtime registration.",
+  "row_contract": ["idle", "travel", "work", "cheer"],
+  "careers": {
+    "astronaut": {
+      "decision": "accepted",
+      "accepted_generation": "exec-bd7bf278-5854-463c-a9c0-4b56aa0fed19.png",
+      "native_sha256": "daf1c6b52e86343a167bab7dbce2f96b48810d0e2340b470b7a1e3ba002d28fa",
+      "runtime_sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": [{"generation": "exec-cba8d271-46b9-4245-a8f1-4a7ac1a032d0.png", "defect": "work machinery obscured/compressed the tail and a travel fin formed a ring"}]
+    },
+    "ballerina": {
+      "decision": "accepted",
+      "accepted_generation": "exec-a4dfa550-5374-43b6-a5e0-16a9d3d4b81c.png",
+      "native_sha256": "4b5e9d75d46351717be86263c39303ba7ef467e7d597850623733049b3745c2e",
+      "runtime_sha256": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": [
+        {"generation": "exec-a7a3e8eb-8e56-4aee-a3d9-6716aab141a5.png", "defect": "pointe legs and feet appeared beneath the tutu"},
+        {"generation": "exec-b93f3c40-6860-4a7b-992f-1419d4d57fb0.png", "defect": "secondary ribbon-like lower-body appendages still read as legs"}
+      ]
+    },
+    "boxer": {
+      "decision": "accepted",
+      "accepted_generation": "exec-1286f989-2802-450f-817d-af0b7301ce01.png",
+      "native_sha256": "a46b4a8edca022ecad653b7a87e60c0406c52a99ff629d795b8066afab3177ee",
+      "runtime_sha256": "dbda6f6edd01e48b74095915f338fe3f6eb690ccd5f0f314d50e6940bb33c7c9",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": []
+    },
+    "candymaker": {
+      "decision": "accepted",
+      "accepted_generation": "exec-4c9cc807-1056-4541-b57a-82c4295c6dec.png",
+      "native_sha256": "57ce5e3fcc61e5ecc5efdbd8dcb4eae99863acb7067ced57e95d43f69b522c3c",
+      "runtime_sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": [
+        {"generation": "exec-e1037b92-8762-405b-9793-3fe9262440bf.png", "defect": "idle and cheer tails were split across cells"},
+        {"generation": "exec-cd74832a-b587-473a-91ea-c534343dcd0c.png", "defect": "work and fourth-row figures still lost their long tail"}
+      ]
+    },
+    "chef": {
+      "decision": "accepted",
+      "accepted_generation": "exec-3d995f7e-89ba-4f22-8581-ba7edfd8241e.png",
+      "native_sha256": "511dfe698aa0d21b3675c2098bdc18d24db258e362feae6e359a42e6739b8fe2",
+      "runtime_sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": [
+        {"generation": "exec-490c672f-5291-4950-a561-22b34dba4bec.png", "defect": "torsos and tails were severed across the grid"},
+        {"generation": "exec-68fd1986-dbba-48ba-96d8-a1bc57cea1f5.png", "defect": "floating pastry-bag/utensil topology remained"}
+      ]
+    },
+    "detective": {
+      "decision": "accepted",
+      "accepted_generation": "exec-d4670f0e-9a6e-4946-b541-bc167d225129.png",
+      "native_sha256": "da25d99d7ff6e0d38833ada78dc100aa3f1e45937b073065ecb80b90d1361503",
+      "runtime_sha256": "fb0a7d8b718d797484f1d0da22c330a7e01d0e0bb192f9296f3f288a30cf7e7c",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": []
+    },
+    "doctor": {
+      "decision": "accepted",
+      "accepted_generation": "exec-b3a493ca-b271-4151-af38-8e7f7b88d324.png",
+      "native_sha256": "9d36ff75b1d1b7c6116fe7a4d3411ce960a88465ed557dcd83acef26f45de2aa",
+      "runtime_sha256": "bfffbd5389d63f8c9337a132bb20e09abbd4d8fc8471ec406fba2d722106a50e",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": []
+    },
+    "farmer": {
+      "decision": "accepted",
+      "accepted_generation": "exec-af3552f0-d1b8-4377-9039-a246e021e577.png",
+      "native_sha256": "9cfd86ab2a131bc17f680786429ed314eee81513c7f84a90036c44b5f009ce2e",
+      "runtime_sha256": "f0c9947b093c489145945467af62e50ce748b56b344c55942b7532742bc64bc5",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": [{"generation": "exec-9a64b27e-ad71-43ba-8ab5-37b6e3c7256b.png", "defect": "a travel frame lost its fin and a vegetable floated away from the hand"}]
+    },
+    "magician": {
+      "decision": "accepted",
+      "accepted_generation": "exec-fa274a60-c63e-4958-a910-84f48d06e185.png",
+      "native_sha256": "b6fe8a2661cb0d5cd015c878b0884749c0550e0acec354c616e5aca9525a1339",
+      "runtime_sha256": "768e6980fa8f4ca9cc3281a2fb1f23f0fcdeac8f2d524e6135b3be03eafc13cb",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": []
+    },
+    "nursery": {
+      "decision": "accepted",
+      "accepted_generation": "exec-033cfc4b-c9aa-4ab3-a9d0-b511938a799d.png",
+      "native_sha256": "6bb11d5369199eb56105c264b3749584e17ad43cd95e209892fe417bc398b0de",
+      "runtime_sha256": "9880fc9ac328b0112d8a7162c656b2a2d9471a4995dd11bd606607f12ca13a52",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": [{"generation": "exec-f8013dcc-595f-41d5-8545-35565ba2ed28.png", "defect": "work and cheer rows had hook-like stumps or no mermaid tail"}]
+    },
+    "painter": {
+      "decision": "accepted",
+      "accepted_generation": "exec-68ed5ff3-b52f-42a1-b9d4-e2fa249ef796.png",
+      "native_sha256": "c6b9fec9d49736b3538cab1b3f03db52d5939130ff7721c456925f766cdeaac1",
+      "runtime_sha256": "016dbac4a6c2342679410c19aa782d999557b92f4fc34f99f58d23dd714ea638",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": [{"generation": "exec-c8eaeb0d-bb97-4351-a0a5-3eeeb4bf4d0b.png", "defect": "work/bow frames formed stumps and duplicate or detached palettes"}]
+    },
+    "popstar": {
+      "decision": "accepted",
+      "accepted_generation": "exec-7900961a-af0f-49d6-9857-e8f80ed824b8.png",
+      "native_sha256": "89175a8deed0d62d7c3a8519bb312a89afd1ffee433b06cc9ab77e00b9e0192f",
+      "runtime_sha256": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": []
+    },
+    "racer": {
+      "decision": "accepted",
+      "accepted_generation": "exec-1e21004e-cfb4-44fb-98c9-cf063b060820.png",
+      "native_sha256": "1e07eb5d3e01b8db3a5e0729711b43188e2aa069b8d3b537df990896323b909e",
+      "runtime_sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79",
+      "rows": ["idle", "travel", "work", "cheer"],
+      "human_review": {"identity": true, "costume": true, "one_mermaid_tail": true, "no_human_legs": true, "props_attached": true, "no_artifacts": true},
+      "rejected_predecessors": []
+    }
+  }
+}

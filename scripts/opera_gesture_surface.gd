@@ -64,8 +64,15 @@ var oven_redraw := 0.0
 ## the child has placed — escalation is routing, not sabotage).
 const PIPE_COLS := 4
 const PIPE_ROWS := 3
-const PIPE_CELL := 128.0
-const PIPE_ORIGIN := Vector2(170.0, 40.0)
+const PIPE_CELL := 112.0
+const PIPE_ORIGIN := Vector2(124.0, 114.0)
+const PIPE_TRAY_SIDE := 84.0
+const PIPE_TRAY_STEP := 94.0
+const PIPE_TRAY_START_X := 76.0
+const PIPE_TRAY_GAP_Y := 12.0
+const PIPE_TANK_SIDE := 116.0
+const PIPE_INTAKE_SIDE := 112.0
+const PIPE_ENDPOINT_GAP := 58.0
 const PIPE_MOUTHS := {
 	"H": [Vector2i(-1, 0), Vector2i(1, 0)],
 	"V": [Vector2i(0, -1), Vector2i(0, 1)],
@@ -115,6 +122,101 @@ var pour_reserve := 1.2
 var pour_hold := false
 var pour_emit_acc := 0.0
 var pour_redraw := 0.0
+
+## Plushy Doctor X-ray: drag one scanner beam over two deterministic sore
+## spots on the approved X-ray-machine card. A stationary tap cannot diagnose;
+## only a real sweep crossing the current spot changes state. There is no
+## timer, miss, or reset, and the same wordless sweep replays after release.
+const XRAY_SPOTS: Array[Vector2] = [Vector2(0.65, 0.50), Vector2(0.48, 0.40)]
+var xray_scanner_pos := Vector2.ZERO
+var xray_dragging := false
+var xray_found: Array[bool] = []
+var xray_found_count := 0
+var xray_complete := false
+var xray_glow := 0.0
+var xray_redraw := 0.0
+
+## Ballerina call-and-response: four floor pads perform one short phrase,
+## then wait without a clock for the child to dance it back. Progress is
+## emitted only after the whole phrase is reproduced in order; a wrong pad
+## simply starts the wordless demonstration again.
+const DANCE_SEQUENCE: Array[int] = [0, 2, 3, 1]
+const DANCE_SHOW_STEP := 0.58
+var dance_show_index: int = -1
+var dance_show_t := 0.0
+var dance_input_index: int = 0
+var dance_listening := false
+var dance_complete := false
+var dance_last_pad: int = -1
+var dance_glow := 0.0
+var dance_redraw := 0.0
+
+## Candymaker sorting: one slow, deterministic conveyor piece at a time.
+## Missed pieces loop; a wrong bin returns the same piece to the belt. Only a
+## correctly matched silhouette advances the queue.
+const CANDY_SEQUENCE: Array[int] = [0, 1, 2, 2, 0, 1]
+var candy_piece_index: int = 0
+var candy_type: int = 0
+var candy_position := Vector2.ZERO
+var candy_drag_offset := Vector2.ZERO
+var candy_dragging := false
+var candy_sorted: int = 0
+var candy_complete := false
+var candy_loops: int = 0
+var candy_last_bin: int = -1
+var candy_glow := 0.0
+var candy_redraw := 0.0
+
+## Painter reveal: coverage belongs to a coarse grid, not the career's scalar
+## fill meter. Stationary taps uncover nothing; actual strokes claim cells and
+## the completed painting emits exactly one progress event at the threshold.
+const PAINT_GRID_COLS := 10
+const PAINT_GRID_ROWS := 6
+const PAINT_REQUIRED_COVERAGE := 0.62
+var paint_cells: Array[bool] = []
+var paint_covered: int = 0
+var paint_dragging := false
+var paint_last_point := Vector2.ZERO
+var paint_complete := false
+var paint_reveal_texture: Texture2D = null
+
+## Farmer feed: pull one vegetable back from the basket and let go. A valid
+## pull follows a deterministic arc to the pig; every other release loops the
+## same vegetable gently home. The landing, never the release, pays progress.
+const FARM_LOB_GOAL := 4
+const FARM_FLIGHT_DURATION := 0.90
+var farm_piece_position := Vector2.ZERO
+var farm_drag_offset := Vector2.ZERO
+var farm_dragging := false
+var farm_flying := false
+var farm_will_land := false
+var farm_flight_t := 0.0
+var farm_flight_start := Vector2.ZERO
+var farm_flight_end := Vector2.ZERO
+var farm_pause := 0.0
+var farm_landed: int = 0
+var farm_loops: int = 0
+var farm_complete := false
+var farm_land_glow := 0.0
+var farm_redraw := 0.0
+var farm_vegetable_texture: Texture2D = null
+
+## Boxer mitt phrase: left/right alternate without a clock. After the third
+## correct mitt a single, wordlessly demonstrated downward swipe ducks the
+## counter, then the remaining three mitts continue. The duck is state, not
+## scalar payout, so the phase contract remains six landed mitt taps.
+const BOXER_SEQUENCE: Array[int] = [0, 1, 0, 1, 0, 1]
+const BOXER_DUCK_AFTER := 3
+var boxer_hit_index: int = 0
+var boxer_expected: int = 0
+var boxer_last_mitt: int = -1
+var boxer_flash := 0.0
+var boxer_hit_glow := 0.0
+var boxer_duck_pending := false
+var boxer_duck_done := false
+var boxer_duck_distance := 0.0
+var boxer_complete := false
+var boxer_redraw := 0.0
 
 ## Directional hint for swipe phases (DUCK draws a downward arrow).
 var swipe_dir := Vector2.RIGHT
@@ -173,6 +275,23 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	accent = next_accent
 	target_choice = choice
 	visual_context = next_context
+	# New specialist modes have an authored career backdrop even when the
+	# caller uses the minimal configure(mode, accent) form. An explicit
+	# context still wins, preserving the existing texture-hook API.
+	if visual_context.is_empty():
+		match next_mode:
+			"dance_sequence":
+				visual_context = "lanes_ballerina"
+			"candy_sort":
+				visual_context = "lanes_candymaker"
+			"paint_reveal":
+				visual_context = "trace_painter"
+			"farm_lob":
+				visual_context = "target_farmer"
+			"boxer_rhythm":
+				visual_context = "lanes_boxer"
+			"xray_scan":
+				visual_context = "target_doctor"
 	widget_fill = 0.0
 	completion_accepted = false
 	feedback_t = 0.0
@@ -205,6 +324,75 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	oven_grace = 0.0
 	oven_peek = 0.0
 	oven_done = false
+	xray_scanner_pos = _xray_home_point()
+	xray_dragging = false
+	xray_found.clear()
+	xray_found.resize(XRAY_SPOTS.size())
+	xray_found.fill(false)
+	xray_found_count = 0
+	xray_complete = false
+	xray_glow = 0.0
+	xray_redraw = 0.0
+	dance_show_index = -1
+	dance_show_t = 0.0
+	dance_input_index = 0
+	dance_listening = false
+	dance_complete = false
+	dance_last_pad = -1
+	dance_glow = 0.0
+	dance_redraw = 0.0
+	candy_piece_index = 0
+	candy_type = int(CANDY_SEQUENCE[0])
+	candy_position = _candy_spawn_point()
+	candy_drag_offset = Vector2.ZERO
+	candy_dragging = false
+	candy_sorted = 0
+	candy_complete = false
+	candy_loops = 0
+	candy_last_bin = -1
+	candy_glow = 0.0
+	candy_redraw = 0.0
+	paint_cells.clear()
+	paint_cells.resize(PAINT_GRID_COLS * PAINT_GRID_ROWS)
+	paint_cells.fill(false)
+	paint_covered = 0
+	paint_dragging = false
+	paint_last_point = Vector2.ZERO
+	paint_complete = false
+	farm_piece_position = _farm_anchor_point()
+	farm_drag_offset = Vector2.ZERO
+	farm_dragging = false
+	farm_flying = false
+	farm_will_land = false
+	farm_flight_t = 0.0
+	farm_flight_start = farm_piece_position
+	farm_flight_end = farm_piece_position
+	farm_pause = 0.0
+	farm_landed = 0
+	farm_loops = 0
+	farm_complete = false
+	farm_land_glow = 0.0
+	farm_redraw = 0.0
+	boxer_hit_index = 0
+	boxer_expected = int(BOXER_SEQUENCE[0])
+	boxer_last_mitt = -1
+	boxer_flash = 1.2
+	boxer_hit_glow = 0.0
+	boxer_duck_pending = false
+	boxer_duck_done = false
+	boxer_duck_distance = 0.0
+	boxer_complete = false
+	boxer_redraw = 0.0
+	if next_mode == "dance_sequence":
+		_dance_restart_show(0.32)
+	if next_mode == "candy_sort":
+		_candy_reset_piece(false)
+	if next_mode == "paint_reveal" and paint_reveal_texture == null:
+		paint_reveal_texture = _load_widget_texture(
+			"res://assets/opera/worlds/props/goal_painter.png")
+	if next_mode == "farm_lob" and farm_vegetable_texture == null:
+		farm_vegetable_texture = _load_widget_texture(
+			"res://assets/opera/worlds/props/goal_farmer.png")
 	if next_mode == "pipe":
 		pipe_round = 0
 		_pipe_setup_round()
@@ -315,6 +503,11 @@ func restart_demo() -> void:
 	demo_active = true
 	demo_t = 0.0
 	choice_flash = 1.2
+	if mode == "dance_sequence" and not dance_complete:
+		# The phrase itself is the instruction. Rehints therefore replay all
+		# four pads instead of pointing at a static center finger.
+		_dance_restart_show(0.22)
+	queue_redraw()
 
 
 func reflash_choice() -> void:
@@ -342,6 +535,16 @@ func _process(delta: float) -> void:
 		_echo_tick(delta)
 	if mode == "pourt" and not completion_accepted:
 		_pour_tick(delta)
+	if mode == "xray_scan" and not completion_accepted and not armed_only:
+		_xray_tick(delta)
+	if mode == "dance_sequence" and not completion_accepted and not armed_only:
+		_dance_tick(delta)
+	if mode == "candy_sort" and not completion_accepted and not armed_only:
+		_candy_tick(delta)
+	if mode == "farm_lob" and not completion_accepted and not armed_only:
+		_farm_tick(delta)
+	if mode == "boxer_rhythm" and not completion_accepted and not armed_only:
+		_boxer_tick(delta)
 	if mode == "oven" and not completion_accepted and not armed_only:
 		if oven_peek > 0.0:
 			# door open for a peek — the heat politely waits
@@ -455,11 +658,27 @@ func _press(at: Vector2) -> void:
 				# wonderful, and the difference is only the confetti's size
 				oven_done = true
 				gesture.emit("oven", 999.0, 1.0 if oven_t <= 0.80 else 0.7)
+		"xray_scan":
+			_xray_press(at)
+		"dance_sequence":
+			_dance_press(at)
+		"candy_sort":
+			_candy_press(at)
+		"paint_reveal":
+			_paint_press(at)
+		"farm_lob":
+			_farm_press(at)
+		"boxer_rhythm":
+			_boxer_press(at)
 		"hold":
-			# a tap on the hold circle answers with a small warm trickle
-			gesture.emit("hold", 0.06, 0.6)
+			# Pressing arms the hold; the career-world tick pays only while the
+			# finger remains down. A drum of stationary taps must not substitute
+			# for the sustained verb.
+			pass
 		"swipe", "circle":
-			gesture.emit(mode, 0.05, 0.6)
+			# These verbs pay from qualifying motion in _drag(), never from the
+			# initial stationary press. The idle rehint still restarts the demo.
+			pass
 	queue_redraw()
 
 
@@ -485,6 +704,26 @@ func _drag(at: Vector2) -> void:
 	note_input()
 	pointer_pos = at
 	var distance := at.distance_to(previous_pos)
+	if mode == "xray_scan":
+		_xray_drag(at)
+		previous_pos = at
+		return
+	if mode == "farm_lob":
+		_farm_drag(at)
+		previous_pos = at
+		return
+	if mode == "boxer_rhythm":
+		_boxer_drag(at)
+		previous_pos = at
+		return
+	if mode == "candy_sort":
+		_candy_drag(at)
+		previous_pos = at
+		return
+	if mode == "paint_reveal":
+		_paint_drag(at)
+		previous_pos = at
+		return
 	if mode == "swipe" and distance > 0.0:
 		var travel := minf(distance, 34.0) / 150.0
 		travel = minf(travel, swipe_budget)
@@ -538,6 +777,16 @@ func _release(at: Vector2) -> void:
 		_pipe_release(at)
 	if mode == "pourt":
 		pour_hold = false
+	if mode == "xray_scan":
+		_xray_release()
+	if mode == "candy_sort":
+		_candy_release(at)
+	if mode == "paint_reveal":
+		_paint_release()
+	if mode == "farm_lob":
+		_farm_release(at)
+	if mode == "boxer_rhythm":
+		_boxer_release()
 	if mode == "hold" and widget_fill > 0.22:
 		# the wind-up pays off on release — the hop, the swell, the flourish
 		gesture.emit("hold_release", 0.0, 1.0)
@@ -595,6 +844,36 @@ func _draw() -> void:
 		return
 	if mode == "oven":
 		_draw_oven(center)
+		if demo_active:
+			_draw_demo_finger()
+		return
+	if mode == "xray_scan":
+		_draw_xray_scan()
+		if demo_active:
+			_draw_demo_finger()
+		return
+	if mode == "dance_sequence":
+		_draw_dance_sequence()
+		if demo_active:
+			_draw_demo_finger()
+		return
+	if mode == "candy_sort":
+		_draw_candy_sort()
+		if demo_active:
+			_draw_demo_finger()
+		return
+	if mode == "paint_reveal":
+		_draw_paint_reveal()
+		if demo_active:
+			_draw_demo_finger()
+		return
+	if mode == "farm_lob":
+		_draw_farm_lob()
+		if demo_active:
+			_draw_demo_finger()
+		return
+	if mode == "boxer_rhythm":
+		_draw_boxer_rhythm()
 		if demo_active:
 			_draw_demo_finger()
 		return
@@ -880,14 +1159,20 @@ func _draw_nursery_context(center: Vector2) -> void:
 				Vector2(arrow_x - 28.0, size.y - 68.0), Vector2(arrow_x + 28.0, size.y - 68.0), Vector2(arrow_x, size.y - 28.0),
 			]), accent)
 
-func _draw_demo_finger() -> void:
+func _demo_finger_pose() -> Dictionary:
 	var center := size * 0.5
 	var cycle := fmod(demo_t, 2.4)
 	var pressing := cycle > 1.1
 	var at := center
 	match mode:
 		"swipe":
-			at = Vector2(lerpf(size.x * 0.22, size.x * 0.78, cycle / 2.4), center.y)
+			var direction := swipe_dir.normalized()
+			if direction.length_squared() < 0.01:
+				direction = Vector2.RIGHT
+			var span := minf(size.x, size.y) * 0.34
+			var travel := clampf(cycle / 1.85, 0.0, 1.0)
+			travel = travel * travel * (3.0 - 2.0 * travel)
+			at = center + direction * lerpf(-span, span, travel)
 			pressing = true
 		"circle":
 			var radius := minf(size.x, size.y) * 0.26
@@ -908,6 +1193,135 @@ func _draw_demo_finger() -> void:
 					break
 		"hold":
 			pressing = true
+		"pourt":
+			# Approach the actual pitcher, then stay pressed while it would tilt.
+			# A small rock makes the sustained grab readable without moving the
+			# real gameplay state or pretending the bowl itself is the control.
+			var pitcher_center := _pour_pitcher_rect().get_center()
+			var approach := clampf(cycle / 0.8, 0.0, 1.0)
+			at = center.lerp(pitcher_center, approach)
+			pressing = cycle >= 0.8
+			if pressing:
+				at += Vector2(sin((cycle - 0.8) * 5.0) * 10.0, 0.0)
+		"oven":
+			var meter := _oven_meter_rect()
+			var handle := _oven_handle_rect()
+			if oven_t < 0.45 and not oven_done:
+				# Watch the rising thermometer without showing a false early tap.
+				at = Vector2(meter.get_center().x,
+					meter.end.y - meter.size.y * clampf(oven_t, 0.0, 1.0))
+				pressing = false
+			else:
+				# Once golden, travel from the meter to the real mitt handle and tap.
+				var approach := clampf(cycle / 1.0, 0.0, 1.0)
+				at = meter.get_center().lerp(handle.get_center(), approach)
+				pressing = cycle >= 1.0
+		"xray_scan":
+			var scan_target := _xray_target_center(xray_found_count)
+			var scan_start := _xray_home_point()
+			var scan_travel := clampf(cycle / 1.65, 0.0, 1.0)
+			scan_travel = scan_travel * scan_travel * (3.0 - 2.0 * scan_travel)
+			at = scan_start.lerp(scan_target, scan_travel)
+			pressing = cycle <= 1.78
+		"pipe":
+			var target_cell := _pipe_demo_target_cell()
+			if target_cell >= 0:
+				var destination := _pipe_cell_rect(target_cell).get_center()
+				var start := center
+				var demonstrates_drag := false
+				var target_tile := String(pipe_grid[target_cell])
+				if PIPE_MOUTHS.has(target_tile) and not pipe_fixed[target_cell]:
+					# A stuck wrong pipe is lifted back toward the visible tray.
+					start = destination
+					destination = _pipe_tray_rect(pipe_tray.size()).get_center()
+					demonstrates_drag = true
+				elif not pipe_tray.is_empty():
+					var slot := pipe_tray_sel if pipe_tray_sel >= 0 else 0
+					slot = clampi(slot, 0, pipe_tray.size() - 1)
+					start = _pipe_tray_rect(slot).get_center()
+					demonstrates_drag = true
+				var travel := clampf(cycle / 1.75, 0.0, 1.0)
+				travel = travel * travel * (3.0 - 2.0 * travel)
+				at = start.lerp(destination, travel)
+				pressing = demonstrates_drag and cycle <= 1.85
+		"dance_sequence":
+			var pad := int(DANCE_SEQUENCE[0])
+			if dance_listening:
+				pad = int(DANCE_SEQUENCE[clampi(
+					dance_input_index, 0, DANCE_SEQUENCE.size() - 1)])
+				var dance_target := _dance_pad_rect(pad).get_center()
+				at = Vector2(center.x, size.y * 0.94).lerp(
+					dance_target, clampf(cycle / 1.0, 0.0, 1.0))
+				pressing = cycle >= 1.0
+			else:
+				if dance_show_index >= 0 and dance_show_index < DANCE_SEQUENCE.size():
+					pad = int(DANCE_SEQUENCE[dance_show_index])
+				at = Vector2(_dance_pad_rect(pad).get_center().x, size.y * 0.94)
+				pressing = false
+		"candy_sort":
+			var candy_target := _candy_bin_rect(candy_type).get_center()
+			var candy_travel := clampf((cycle - 0.35) / 1.45, 0.0, 1.0)
+			candy_travel = candy_travel * candy_travel * (3.0 - 2.0 * candy_travel)
+			at = candy_position.lerp(candy_target, candy_travel)
+			pressing = cycle >= 0.35 and cycle <= 1.90
+		"paint_reveal":
+			var canvas := _paint_canvas_rect()
+			var stroke_points: Array[Vector2] = [
+				canvas.position + canvas.size * Vector2(0.16, 0.25),
+				canvas.position + canvas.size * Vector2(0.84, 0.25),
+				canvas.position + canvas.size * Vector2(0.16, 0.55),
+				canvas.position + canvas.size * Vector2(0.84, 0.78),
+			]
+			var stroke_progress := clampf(cycle / 2.15, 0.0, 0.999)
+			var stroke_scaled := stroke_progress * float(stroke_points.size() - 1)
+			var stroke_index := clampi(floori(stroke_scaled), 0, stroke_points.size() - 2)
+			at = stroke_points[stroke_index].lerp(
+				stroke_points[stroke_index + 1], stroke_scaled - float(stroke_index))
+			pressing = cycle >= 0.25 and cycle <= 2.18
+		"farm_lob":
+			var pull_target := _farm_demo_pull_point()
+			var pull_travel := clampf(cycle / 1.15, 0.0, 1.0)
+			pull_travel = pull_travel * pull_travel * (3.0 - 2.0 * pull_travel)
+			at = _farm_anchor_point().lerp(pull_target, pull_travel)
+			pressing = cycle <= 1.25
+		"boxer_rhythm":
+			if boxer_duck_pending:
+				var duck_start := Vector2(center.x, size.y * 0.22)
+				var duck_end := Vector2(center.x, size.y * 0.82)
+				var duck_travel := clampf(cycle / 1.55, 0.0, 1.0)
+				duck_travel = duck_travel * duck_travel * (3.0 - 2.0 * duck_travel)
+				at = duck_start.lerp(duck_end, duck_travel)
+				pressing = cycle <= 1.68
+			else:
+				var mitt_target := _boxer_mitt_rect(boxer_expected).get_center()
+				at = Vector2(center.x, size.y * 0.92).lerp(
+					mitt_target, clampf(cycle / 0.95, 0.0, 1.0))
+				pressing = cycle >= 0.95
+		"echo":
+			var verse: Array = ECHO_VERSES[clampi(echo_verse, 0, ECHO_VERSES.size() - 1)]
+			if echo_listening and not verse.is_empty():
+				# Her turn: approach and tap the next actual singing star.
+				var next_note := int(verse[clampi(echo_input_i, 0, verse.size() - 1)])
+				var target := _echo_star_center(next_note)
+				at = Vector2(center.x, size.y * 0.84).lerp(target,
+					clampf(cycle / 1.0, 0.0, 1.0))
+				pressing = cycle >= 1.0
+			else:
+				# During the song the hand waits below the lit star; no press ring
+				# invites an eager tap before the call-and-response turn begins.
+				var watch_x := center.x
+				if echo_show_i >= 0 and echo_show_i < verse.size():
+					watch_x = _echo_star_center(int(verse[echo_show_i])).x
+				at = center.lerp(Vector2(watch_x, size.y * 0.84),
+					clampf(cycle / 0.8, 0.0, 1.0))
+				pressing = false
+	return {"at": at, "pressing": pressing}
+
+
+func _draw_demo_finger() -> void:
+	var pose := _demo_finger_pose()
+	var at: Vector2 = pose.get("at", size * 0.5)
+	var pressing := bool(pose.get("pressing", false))
 	var halo := 30.0 if pressing else 20.0
 	draw_circle(at, halo, Color(0.22, 0.14, 0.52, 0.18))
 	draw_circle(at, 14.5, Color("#382485"))
@@ -915,6 +1329,897 @@ func _draw_demo_finger() -> void:
 	if pressing:
 		var ring := 18.0 + fmod(demo_t * 46.0, 26.0)
 		draw_arc(at, ring, 0.0, TAU, 24, Color(1.0, 0.95, 0.6, 0.6), 4.0)
+
+
+func _xray_home_point() -> Vector2:
+	return Vector2(size.x * 0.27, size.y * 0.74)
+
+
+func _xray_target_center(index: int) -> Vector2:
+	var spot_index := clampi(index, 0, XRAY_SPOTS.size() - 1)
+	return size * XRAY_SPOTS[spot_index]
+
+
+func _xray_scanner_radius() -> float:
+	return maxf(38.0, minf(size.x, size.y) * 0.17)
+
+
+func _xray_segment_hits(from: Vector2, to: Vector2, target: Vector2, radius: float) -> bool:
+	var segment := to - from
+	if segment.length_squared() <= 0.001:
+		return false
+	var along := clampf((target - from).dot(segment) / segment.length_squared(), 0.0, 1.0)
+	return target.distance_to(from + segment * along) <= radius
+
+
+func _xray_press(at: Vector2) -> void:
+	if xray_complete or completion_accepted:
+		return
+	xray_dragging = true
+	xray_scanner_pos = at.clamp(Vector2.ZERO, size)
+	queue_redraw()
+
+
+func _xray_drag(at: Vector2) -> void:
+	if not xray_dragging or xray_complete or completion_accepted:
+		return
+	xray_scanner_pos = at.clamp(Vector2.ZERO, size)
+	var travel := at.distance_to(previous_pos)
+	if travel < 3.0 or xray_found_count >= XRAY_SPOTS.size():
+		queue_redraw()
+		return
+	var target_index := xray_found_count
+	var target := _xray_target_center(target_index)
+	if not _xray_segment_hits(previous_pos, at, target, _xray_scanner_radius() * 0.72):
+		queue_redraw()
+		return
+	xray_found[target_index] = true
+	xray_found_count += 1
+	xray_glow = 0.48
+	feedback_anchor = target
+	feedback_positive = true
+	feedback_t = 0.30
+	xray_complete = xray_found_count >= XRAY_SPOTS.size()
+	gesture.emit("xray_scan", 1.0, 1.0)
+	if not xray_complete:
+		# Bank the diagnosis and quietly demonstrate the next sore spot. The
+		# child may keep the same finger down or lift and follow the replay.
+		demo_active = true
+		demo_t = 0.0
+	queue_redraw()
+
+
+func _xray_release() -> void:
+	xray_dragging = false
+	if not xray_complete and not completion_accepted:
+		demo_active = true
+		demo_t = 0.0
+	queue_redraw()
+
+
+func _xray_tick(delta: float) -> void:
+	xray_glow = maxf(0.0, xray_glow - delta)
+	xray_redraw += delta
+	if xray_redraw >= 0.05:
+		xray_redraw = 0.0
+		queue_redraw()
+
+
+func _draw_xray_scan() -> void:
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
+	else:
+		draw_rect(Rect2(Vector2.ZERO, size), Color("#dff4f5"), true)
+	var scan_at := xray_scanner_pos
+	if demo_active and not xray_complete:
+		scan_at = _demo_finger_pose().get("at", scan_at) as Vector2
+	var radius := _xray_scanner_radius()
+	for index in range(XRAY_SPOTS.size()):
+		var target := _xray_target_center(index)
+		if xray_found[index]:
+			draw_circle(target, 13.0, Color(1.0, 0.91, 0.46, 0.88))
+			draw_arc(target, 21.0, 0.0, TAU, 28, Color("#382485"), 4.0)
+		elif index == xray_found_count:
+			var nearness := clampf(1.0 - scan_at.distance_to(target) / (radius * 1.45), 0.0, 1.0)
+			if nearness > 0.0:
+				draw_circle(target, 7.0 + nearness * 10.0,
+					Color(1.0, 0.91, 0.46, 0.20 + nearness * 0.58))
+				draw_arc(target, 18.0 + nearness * 8.0, 0.0, TAU, 28,
+					Color(0.40, 0.94, 0.95, 0.28 + nearness * 0.62), 4.0)
+	# A square scan plate and moving beam distinguish this control from the
+	# detective's round handled magnifying glass.
+	var scan_rect := Rect2(scan_at - Vector2.ONE * radius, Vector2.ONE * radius * 2.0)
+	draw_rect(scan_rect, Color(0.30, 0.90, 0.93, 0.14), true)
+	draw_rect(scan_rect, Color(0.24, 0.76, 0.82, 0.90), false, 5.0)
+	var beam_y := lerpf(scan_rect.position.y + 7.0, scan_rect.end.y - 7.0,
+		0.5 + 0.5 * sin(demo_t * 4.2 + xray_glow * 8.0))
+	draw_line(Vector2(scan_rect.position.x + 7.0, beam_y),
+		Vector2(scan_rect.end.x - 7.0, beam_y), Color(0.84, 1.0, 1.0, 0.88), 4.0)
+	for found_index in range(XRAY_SPOTS.size()):
+		var dot := Vector2(size.x * 0.5 + (float(found_index) - 0.5) * 30.0, size.y * 0.075)
+		draw_circle(dot, 7.0, Color("#ffd75e") if xray_found[found_index]
+			else Color(0.30, 0.26, 0.42, 0.30))
+	if xray_complete:
+		draw_rect(Rect2(Vector2(8.0, 8.0), size - Vector2(16.0, 16.0)),
+			Color(1.0, 0.86, 0.32, 0.72), false, 8.0)
+
+
+func _dance_restart_show(delay: float = 0.32) -> void:
+	dance_show_index = -1
+	dance_show_t = delay
+	dance_input_index = 0
+	dance_listening = false
+	dance_last_pad = -1
+	dance_glow = 0.0
+
+
+func _dance_tick(delta: float) -> void:
+	dance_glow = maxf(0.0, dance_glow - delta)
+	if not dance_complete and not dance_listening:
+		dance_show_t -= delta
+		if dance_show_t <= 0.0:
+			dance_show_index += 1
+			if dance_show_index >= DANCE_SEQUENCE.size():
+				dance_show_index = -1
+				dance_listening = true
+				dance_input_index = 0
+			else:
+				dance_last_pad = int(DANCE_SEQUENCE[dance_show_index])
+				dance_glow = DANCE_SHOW_STEP * 0.78
+				dance_show_t = DANCE_SHOW_STEP
+	dance_redraw += delta
+	if dance_redraw >= 0.05:
+		dance_redraw = 0.0
+		queue_redraw()
+
+
+func _dance_pad_rect(pad: int) -> Rect2:
+	var area := Rect2(size.x * 0.08, size.y * 0.15, size.x * 0.84, size.y * 0.72)
+	var gap := maxf(8.0, minf(size.x, size.y) * 0.035)
+	var cell_size := Vector2((area.size.x - gap) * 0.5, (area.size.y - gap) * 0.5)
+	var col := pad % 2
+	var row := floori(float(pad) / 2.0)
+	return Rect2(
+		area.position + Vector2(float(col) * (cell_size.x + gap), float(row) * (cell_size.y + gap)),
+		cell_size
+	)
+
+
+func _dance_pad_color(pad: int) -> Color:
+	match pad:
+		0:
+			return Color("#ef7d83")
+		1:
+			return Color("#62c9c4")
+		2:
+			return Color("#a77ad8")
+		_:
+			return Color("#f2bd58")
+
+
+func _dance_press(at: Vector2) -> void:
+	if dance_complete or completion_accepted:
+		return
+	var pressed_pad := -1
+	for pad in range(4):
+		if _dance_pad_rect(pad).grow(7.0).has_point(at):
+			pressed_pad = pad
+			break
+	if pressed_pad < 0:
+		return
+	feedback_anchor = _dance_pad_rect(pressed_pad).get_center()
+	if not dance_listening:
+		# Eager taps during Roshan's call make that pad shimmer, but cannot
+		# skip the phrase or accidentally bank progress.
+		dance_last_pad = pressed_pad
+		dance_glow = 0.24
+		feedback_positive = true
+		feedback_t = 0.20
+		return
+	var expected := int(DANCE_SEQUENCE[dance_input_index])
+	if pressed_pad != expected:
+		feedback_positive = false
+		feedback_t = 0.28
+		gesture.emit("dance_sequence", 0.0, 0.4)
+		_dance_restart_show(0.42)
+		demo_active = true
+		demo_t = 0.0
+		return
+	dance_last_pad = pressed_pad
+	dance_glow = 0.34
+	dance_input_index += 1
+	feedback_positive = true
+	feedback_t = 0.24
+	if dance_input_index >= DANCE_SEQUENCE.size():
+		dance_complete = true
+		dance_listening = false
+		gesture.emit("dance_sequence", 1.0, 1.0)
+
+
+func _draw_dance_capsule(rect: Rect2, color: Color, lit: bool) -> void:
+	var radius := rect.size.y * 0.5
+	var outline := Color("#382485")
+	var body := color.lightened(0.16) if lit else color.darkened(0.08)
+	draw_rect(Rect2(rect.position + Vector2(radius, 0.0),
+		Vector2(maxf(1.0, rect.size.x - radius * 2.0), rect.size.y)), outline, true)
+	draw_circle(Vector2(rect.position.x + radius, rect.get_center().y), radius, outline)
+	draw_circle(Vector2(rect.end.x - radius, rect.get_center().y), radius, outline)
+	var inner := rect.grow(-5.0)
+	var inner_radius := inner.size.y * 0.5
+	draw_rect(Rect2(inner.position + Vector2(inner_radius, 0.0),
+		Vector2(maxf(1.0, inner.size.x - inner_radius * 2.0), inner.size.y)), body, true)
+	draw_circle(Vector2(inner.position.x + inner_radius, inner.get_center().y), inner_radius, body)
+	draw_circle(Vector2(inner.end.x - inner_radius, inner.get_center().y), inner_radius, body)
+	draw_circle(inner.get_center(), 11.0 if lit else 7.0, Color(1.0, 0.97, 0.78, 0.92))
+
+
+func _draw_dance_sequence() -> void:
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
+	var pad_area := Rect2(size.x * 0.055, size.y * 0.10, size.x * 0.89, size.y * 0.82)
+	# The approved ballerina card currently has three pads. This soft stage
+	# inset keeps its context visible while four large hit shapes supply the
+	# requested call-and-response grammar without fabricating replacement art.
+	draw_rect(pad_area, Color(0.95, 0.97, 1.0, 0.86), true)
+	draw_rect(pad_area, Color("#382485"), false, 3.0)
+	for pad in range(4):
+		var lit := (pad == dance_last_pad and dance_glow > 0.0) or dance_complete
+		_draw_dance_capsule(_dance_pad_rect(pad), _dance_pad_color(pad), lit)
+		if lit:
+			draw_arc(_dance_pad_rect(pad).get_center(), _dance_pad_rect(pad).size.y * 0.55,
+				0.0, TAU, 28, Color(1.0, 0.91, 0.45, 0.72), 5.0)
+	for step in range(DANCE_SEQUENCE.size()):
+		var step_center := Vector2(
+			size.x * 0.5 + (float(step) - 1.5) * maxf(18.0, size.x * 0.045),
+			size.y * 0.075)
+		var step_done := step < dance_input_index or dance_complete
+		draw_circle(step_center, 7.0, _dance_pad_color(int(DANCE_SEQUENCE[step]))
+			if step_done else Color(0.32, 0.30, 0.48, 0.38))
+	if dance_complete:
+		draw_arc(size * 0.5, minf(size.x, size.y) * 0.45, 0.0, TAU, 48,
+			Color(1.0, 0.88, 0.35, 0.62), 8.0)
+
+
+func _candy_spawn_point() -> Vector2:
+	return Vector2(size.x * 0.10, size.y * 0.24)
+
+
+func _candy_piece_radius() -> float:
+	return maxf(22.0, minf(size.x, size.y) * 0.085)
+
+
+func _candy_piece_rect() -> Rect2:
+	var radius := _candy_piece_radius()
+	return Rect2(candy_position - Vector2.ONE * radius, Vector2.ONE * radius * 2.0)
+
+
+func _candy_bin_rect(bin: int) -> Rect2:
+	var width := size.x * 0.22
+	var center_x := size.x * (0.20 + 0.30 * float(clampi(bin, 0, 2)))
+	return Rect2(center_x - width * 0.5, size.y * 0.63, width, size.y * 0.27)
+
+
+func _candy_reset_piece(advance: bool) -> void:
+	if advance:
+		candy_piece_index = posmod(candy_piece_index + 1, CANDY_SEQUENCE.size())
+	candy_type = int(CANDY_SEQUENCE[candy_piece_index])
+	candy_position = _candy_spawn_point()
+	candy_drag_offset = Vector2.ZERO
+	candy_dragging = false
+
+
+func _candy_tick(delta: float) -> void:
+	candy_glow = maxf(0.0, candy_glow - delta)
+	if not candy_complete and not candy_dragging:
+		candy_position.x += maxf(24.0, size.x * 0.08) * delta
+		if candy_position.x > size.x * 0.91:
+			candy_loops += 1
+			candy_position = _candy_spawn_point()
+	candy_redraw += delta
+	if candy_redraw >= 0.05:
+		candy_redraw = 0.0
+		queue_redraw()
+
+
+func _candy_press(at: Vector2) -> void:
+	if candy_complete or completion_accepted:
+		return
+	if _candy_piece_rect().grow(20.0).has_point(at):
+		candy_dragging = true
+		candy_drag_offset = candy_position - at
+
+
+func _candy_drag(at: Vector2) -> void:
+	if not candy_dragging or candy_complete:
+		return
+	var radius := _candy_piece_radius()
+	var desired := at + candy_drag_offset
+	candy_position = Vector2(
+		clampf(desired.x, radius, maxf(radius, size.x - radius)),
+		clampf(desired.y, radius, maxf(radius, size.y - radius)))
+	queue_redraw()
+
+
+func _candy_release(at: Vector2) -> void:
+	if not candy_dragging:
+		return
+	candy_dragging = false
+	var bin := -1
+	for candidate in range(3):
+		if _candy_bin_rect(candidate).grow(8.0).has_point(at):
+			bin = candidate
+			break
+	if bin == candy_type:
+		candy_sorted += 1
+		candy_last_bin = bin
+		candy_glow = 0.42
+		feedback_anchor = _candy_bin_rect(bin).get_center()
+		feedback_positive = true
+		feedback_t = 0.28
+		gesture.emit("candy_sort", 1.0, 1.0)
+		if candy_sorted >= CANDY_SEQUENCE.size():
+			candy_complete = true
+			candy_position = _candy_bin_rect(bin).get_center()
+		else:
+			_candy_reset_piece(true)
+	else:
+		# The same piece returns to the start. Nothing is lost and the hand
+		# quietly demonstrates its matching silhouette again.
+		if bin >= 0:
+			feedback_anchor = _candy_bin_rect(bin).get_center()
+			feedback_positive = false
+			feedback_t = 0.28
+			gesture.emit("candy_sort", 0.0, 0.4)
+		_candy_reset_piece(false)
+		demo_active = true
+		demo_t = 0.0
+	queue_redraw()
+
+
+func _candy_color(kind: int) -> Color:
+	match kind:
+		0:
+			return Color("#ef776f")
+		1:
+			return Color("#57c4c2")
+		_:
+			return Color("#ae64bd")
+
+
+func _draw_candy_shape(center: Vector2, kind: int, radius: float, color: Color) -> void:
+	match kind:
+		0:
+			for petal in range(6):
+				var angle := TAU * float(petal) / 6.0
+				draw_circle(center + Vector2.from_angle(angle) * radius * 0.48,
+					radius * 0.43, color)
+			draw_circle(center, radius * 0.50, color.lightened(0.12))
+		1:
+			var shell_points := PackedVector2Array([center + Vector2(0.0, radius * 0.78)])
+			for point in range(7):
+				var angle := lerpf(PI * 1.12, PI * 1.88, float(point) / 6.0)
+				shell_points.append(center + Vector2.from_angle(angle) * radius)
+			draw_colored_polygon(shell_points, color)
+			for rib in range(1, 6):
+				var rib_angle := lerpf(PI * 1.18, PI * 1.82, float(rib) / 6.0)
+				draw_line(center + Vector2(0.0, radius * 0.70),
+					center + Vector2.from_angle(rib_angle) * radius * 0.82,
+					color.lightened(0.28), 2.5)
+		_:
+			var left := center + Vector2(-radius * 0.45, 0.0)
+			var right := center + Vector2(radius * 0.45, 0.0)
+			draw_circle(left, radius * 0.57, color)
+			draw_circle(right, radius * 0.57, color)
+			draw_colored_polygon(PackedVector2Array([
+				center, center + Vector2(-radius, -radius * 0.72),
+				center + Vector2(-radius, radius * 0.72),
+			]), color)
+			draw_colored_polygon(PackedVector2Array([
+				center, center + Vector2(radius, -radius * 0.72),
+				center + Vector2(radius, radius * 0.72),
+			]), color)
+			draw_circle(center, radius * 0.35, color.lightened(0.18))
+
+
+func _draw_candy_sort() -> void:
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
+	else:
+		draw_rect(Rect2(Vector2.ZERO, size), Color("#f7eafa"), true)
+	# A slow belt gives every piece unlimited chances; crossing the right edge
+	# loops it with no penalty and no queue advance.
+	var belt_y := size.y * 0.24
+	draw_line(Vector2(size.x * 0.07, belt_y + _candy_piece_radius() + 9.0),
+		Vector2(size.x * 0.93, belt_y + _candy_piece_radius() + 9.0),
+		Color(0.30, 0.24, 0.48, 0.42), 7.0)
+	for bin in range(3):
+		var bin_rect := _candy_bin_rect(bin)
+		var lit := bin == candy_last_bin and candy_glow > 0.0
+		draw_rect(bin_rect, Color(_candy_color(bin), 0.16 if not lit else 0.32), true)
+		draw_rect(bin_rect, Color("#382485") if not lit else Color("#ffd75e"),
+			false, 4.0 if not lit else 7.0)
+		var silhouette_center := bin_rect.get_center()
+		var silhouette_radius := minf(bin_rect.size.x, bin_rect.size.y) * 0.24
+		_draw_candy_shape(silhouette_center, bin, silhouette_radius * 1.18,
+			Color(0.18, 0.16, 0.29, 0.28))
+		_draw_candy_shape(silhouette_center, bin, silhouette_radius,
+			Color(_candy_color(bin), 0.78))
+	if not candy_complete or completion_accepted:
+		_draw_candy_shape(candy_position + Vector2(3.0, 5.0), candy_type,
+			_candy_piece_radius() * 1.04, Color(0.18, 0.12, 0.28, 0.28))
+		_draw_candy_shape(candy_position, candy_type, _candy_piece_radius(),
+			_candy_color(candy_type))
+	for sorted_index in range(CANDY_SEQUENCE.size()):
+		var dot := Vector2(size.x * 0.5 + (float(sorted_index) - 2.5) * maxf(14.0, size.x * 0.035),
+			size.y * 0.075)
+		draw_circle(dot, 6.0, _candy_color(int(CANDY_SEQUENCE[sorted_index]))
+			if sorted_index < candy_sorted else Color(0.30, 0.26, 0.42, 0.32))
+
+
+func _paint_canvas_rect() -> Rect2:
+	var side := minf(size.x * 0.46, size.y * 0.72)
+	return Rect2(size * 0.5 - Vector2.ONE * side * 0.5, Vector2.ONE * side)
+
+
+func _paint_required_cells() -> int:
+	return ceili(float(PAINT_GRID_COLS * PAINT_GRID_ROWS) * PAINT_REQUIRED_COVERAGE)
+
+
+func paint_coverage() -> float:
+	return float(paint_covered) / float(PAINT_GRID_COLS * PAINT_GRID_ROWS)
+
+
+func _paint_press(at: Vector2) -> void:
+	paint_dragging = not paint_complete and not completion_accepted and _paint_canvas_rect().has_point(at)
+	paint_last_point = at
+
+
+func _paint_mark_at(at: Vector2) -> int:
+	var canvas := _paint_canvas_rect()
+	if not canvas.has_point(at):
+		return 0
+	var local := (at - canvas.position) / canvas.size
+	var col := clampi(floori(local.x * float(PAINT_GRID_COLS)), 0, PAINT_GRID_COLS - 1)
+	var row := clampi(floori(local.y * float(PAINT_GRID_ROWS)), 0, PAINT_GRID_ROWS - 1)
+	var added := 0
+	# A cross-shaped, one-cell brush is forgiving on a small phone without
+	# allowing a stationary press to flood the whole canvas.
+	for dy in range(-1, 2):
+		for dx in range(-1, 2):
+			if absi(dx) + absi(dy) > 1:
+				continue
+			var brush_col := col + dx
+			var brush_row := row + dy
+			if brush_col < 0 or brush_col >= PAINT_GRID_COLS \
+					or brush_row < 0 or brush_row >= PAINT_GRID_ROWS:
+				continue
+			var cell := brush_row * PAINT_GRID_COLS + brush_col
+			if not paint_cells[cell]:
+				paint_cells[cell] = true
+				paint_covered += 1
+				added += 1
+	return added
+
+
+func _paint_drag(at: Vector2) -> void:
+	if not paint_dragging or paint_complete:
+		return
+	var distance := at.distance_to(paint_last_point)
+	if distance < 2.0:
+		return
+	var canvas := _paint_canvas_rect()
+	var cell_size := Vector2(
+		canvas.size.x / float(PAINT_GRID_COLS),
+		canvas.size.y / float(PAINT_GRID_ROWS))
+	var spacing := maxf(3.0, minf(cell_size.x, cell_size.y) * 0.45)
+	var steps := maxi(1, ceili(distance / spacing))
+	var added := 0
+	for step in range(1, steps + 1):
+		added += _paint_mark_at(paint_last_point.lerp(at, float(step) / float(steps)))
+	paint_last_point = at
+	if added <= 0:
+		return
+	feedback_anchor = at
+	feedback_positive = true
+	feedback_t = 0.18
+	if not paint_complete and paint_covered >= _paint_required_cells():
+		paint_complete = true
+		paint_dragging = false
+		gesture.emit("paint_reveal", 1.0, 1.0)
+	queue_redraw()
+
+
+func _paint_release() -> void:
+	paint_dragging = false
+
+
+func _draw_paint_reveal() -> void:
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
+	else:
+		draw_rect(Rect2(Vector2.ZERO, size), Color("#eee9df"), true)
+	var canvas := _paint_canvas_rect()
+	draw_rect(canvas.grow(7.0), Color("#8b633d"), true)
+	if paint_reveal_texture != null:
+		draw_texture_rect(paint_reveal_texture, canvas, false)
+	elif widget_overlay != null:
+		draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
+	else:
+		draw_rect(canvas, Color("#f3d5a0"), true)
+	var cell_size := Vector2(
+		canvas.size.x / float(PAINT_GRID_COLS),
+		canvas.size.y / float(PAINT_GRID_ROWS))
+	if not paint_complete:
+		for row in range(PAINT_GRID_ROWS):
+			for col in range(PAINT_GRID_COLS):
+				var cell := row * PAINT_GRID_COLS + col
+				if paint_cells[cell]:
+					continue
+				var veil := Rect2(canvas.position + Vector2(float(col), float(row)) * cell_size,
+					cell_size).grow(0.35)
+				draw_rect(veil, Color("#eee7dc"), true)
+	draw_rect(canvas.grow(7.0), Color("#382485") if not paint_complete else Color("#ffd75e"),
+		false, 5.0 if not paint_complete else 8.0)
+	for marker in range(8):
+		var marker_center := Vector2(
+			size.x * 0.5 + (float(marker) - 3.5) * maxf(13.0, size.x * 0.028),
+			size.y * 0.93)
+		var marker_filled := paint_covered >= ceili(
+			float(marker + 1) / 8.0 * float(_paint_required_cells()))
+		draw_circle(marker_center, 5.5,
+			Color("#ffd75e") if marker_filled else Color(0.30, 0.26, 0.42, 0.30))
+	if paint_complete:
+		for sparkle in range(6):
+			var angle := TAU * float(sparkle) / 6.0
+			var sparkle_at := canvas.get_center() + Vector2.from_angle(angle) * canvas.size.x * 0.62
+			draw_circle(sparkle_at, 7.0, Color(1.0, 0.88, 0.35, 0.72))
+
+
+func _farm_anchor_point() -> Vector2:
+	# This sits on the vegetable basket in widget_target_farmer.
+	return Vector2(size.x * 0.42, size.y * 0.69)
+
+
+func _farm_target_center() -> Vector2:
+	# One large forgiving target, centered on the right-hand feeding piggy.
+	return Vector2(size.x * 0.67, size.y * 0.38)
+
+
+func _farm_target_radius() -> float:
+	return maxf(44.0, minf(size.x, size.y) * 0.19)
+
+
+func _farm_piece_radius() -> float:
+	return maxf(21.0, minf(size.x, size.y) * 0.075)
+
+
+func _farm_piece_rect() -> Rect2:
+	var radius := _farm_piece_radius()
+	return Rect2(farm_piece_position - Vector2.ONE * radius,
+		Vector2.ONE * radius * 2.0)
+
+
+func _farm_demo_pull_point() -> Vector2:
+	var launch_direction := (_farm_target_center() - _farm_anchor_point()).normalized()
+	return _farm_anchor_point() - launch_direction * minf(size.x, size.y) * 0.30
+
+
+func _farm_reset_piece() -> void:
+	farm_piece_position = _farm_anchor_point()
+	farm_drag_offset = Vector2.ZERO
+	farm_dragging = false
+	farm_flying = false
+	farm_will_land = false
+	farm_flight_t = 0.0
+	farm_flight_start = farm_piece_position
+	farm_flight_end = farm_piece_position
+
+
+func _farm_press(at: Vector2) -> void:
+	if farm_complete or farm_flying or farm_pause > 0.0 or completion_accepted:
+		return
+	if _farm_piece_rect().grow(22.0).has_point(at):
+		farm_dragging = true
+		farm_drag_offset = farm_piece_position - at
+
+
+func _farm_drag(at: Vector2) -> void:
+	if not farm_dragging or farm_flying or farm_complete:
+		return
+	var radius := _farm_piece_radius()
+	var desired := at + farm_drag_offset
+	farm_piece_position = Vector2(
+		clampf(desired.x, radius, maxf(radius, size.x - radius)),
+		clampf(desired.y, radius, maxf(radius, size.y - radius)))
+	queue_redraw()
+
+
+func _farm_release(_at: Vector2) -> void:
+	if not farm_dragging:
+		return
+	farm_dragging = false
+	var anchor := _farm_anchor_point()
+	var launch := anchor - farm_piece_position
+	var target_direction := (_farm_target_center() - anchor).normalized()
+	var enough_pull := launch.length() >= minf(size.x, size.y) * 0.11
+	var alignment := launch.normalized().dot(target_direction) if launch.length_squared() > 1.0 else 0.0
+	farm_will_land = enough_pull and alignment >= 0.55
+	farm_flight_start = farm_piece_position
+	farm_flight_end = _farm_target_center() if farm_will_land else anchor
+	farm_flight_t = 0.0
+	farm_flying = true
+	queue_redraw()
+
+
+func _farm_arc_point(start: Vector2, finish: Vector2, progress: float, height: float) -> Vector2:
+	var t := clampf(progress, 0.0, 1.0)
+	return start.lerp(finish, t) + Vector2.UP * sin(t * PI) * height
+
+
+func _farm_tick(delta: float) -> void:
+	farm_land_glow = maxf(0.0, farm_land_glow - delta)
+	if farm_pause > 0.0:
+		farm_pause = maxf(0.0, farm_pause - delta)
+		if farm_pause <= 0.0 and not farm_complete:
+			_farm_reset_piece()
+	if farm_flying:
+		farm_flight_t = minf(1.0, farm_flight_t + delta / FARM_FLIGHT_DURATION)
+		var arc_height := minf(size.x, size.y) * (0.28 if farm_will_land else 0.16)
+		farm_piece_position = _farm_arc_point(
+			farm_flight_start, farm_flight_end, farm_flight_t, arc_height)
+		if farm_flight_t >= 1.0:
+			farm_flying = false
+			if farm_will_land:
+				farm_landed += 1
+				farm_land_glow = 0.48
+				feedback_anchor = _farm_target_center()
+				feedback_positive = true
+				feedback_t = 0.30
+				gesture.emit("farm_lob", 1.0, 1.0)
+				if farm_landed >= FARM_LOB_GOAL:
+					farm_complete = true
+				else:
+					farm_pause = 0.42
+			else:
+				# The miss completes its visible loop back into the basket. It
+				# neither emits progress nor consumes a vegetable.
+				farm_loops += 1
+				farm_pause = 0.18
+				demo_active = true
+				demo_t = 0.0
+	farm_redraw += delta
+	if farm_redraw >= 0.04:
+		farm_redraw = 0.0
+		queue_redraw()
+
+
+func _draw_farm_arc_guide(start: Vector2, finish: Vector2, height: float, color: Color) -> void:
+	for guide_step in range(1, 12):
+		var t := float(guide_step) / 12.0
+		draw_circle(_farm_arc_point(start, finish, t, height),
+			3.5 if guide_step % 2 == 0 else 2.2, color)
+
+
+func _draw_farm_vegetable() -> void:
+	var radius := _farm_piece_radius()
+	if farm_vegetable_texture != null:
+		draw_texture_rect(farm_vegetable_texture,
+			Rect2(farm_piece_position - Vector2.ONE * radius * 1.30,
+				Vector2.ONE * radius * 2.60), false)
+		return
+	# Texture-safe fallback remains an abstract draggable control token; it
+	# does not invent replacement farmer art.
+	draw_circle(farm_piece_position + Vector2(3.0, 5.0), radius,
+		Color(0.20, 0.12, 0.28, 0.24))
+	draw_circle(farm_piece_position, radius, Color("#ef9b45"))
+	draw_arc(farm_piece_position, radius * 0.72, 0.0, TAU, 24,
+		Color("#fff0b0"), 4.0)
+
+
+func _draw_farm_lob() -> void:
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
+	else:
+		draw_rect(Rect2(Vector2.ZERO, size), Color("#edf2cf"), true)
+	var anchor := _farm_anchor_point()
+	var target := _farm_target_center()
+	var target_radius := _farm_target_radius()
+	var target_pulse := 1.0 + (0.08 * sin(farm_land_glow * 30.0) if farm_land_glow > 0.0 else 0.0)
+	draw_circle(target, target_radius * target_pulse, Color(1.0, 0.88, 0.45, 0.18))
+	draw_arc(target, target_radius * target_pulse, 0.0, TAU, 40,
+		Color("#ffd75e") if farm_land_glow > 0.0 else Color("#6e4c78"),
+		8.0 if farm_land_glow > 0.0 else 5.0)
+	# Basket anchor and backward-pull cue. The authored basket remains visible
+	# beneath these translucent control rings.
+	draw_circle(anchor, _farm_piece_radius() * 1.34, Color(0.35, 0.24, 0.24, 0.16))
+	draw_arc(anchor, _farm_piece_radius() * 1.34, 0.0, TAU, 30,
+		Color("#8b633d"), 4.0)
+	if farm_dragging:
+		draw_line(anchor, farm_piece_position, Color(0.25, 0.18, 0.36, 0.50), 5.0)
+		var launch := anchor - farm_piece_position
+		var target_direction := (target - anchor).normalized()
+		var valid := launch.length() >= minf(size.x, size.y) * 0.11 \
+			and launch.normalized().dot(target_direction) >= 0.55
+		_draw_farm_arc_guide(farm_piece_position, target if valid else anchor,
+			minf(size.x, size.y) * (0.28 if valid else 0.16),
+			Color(1.0, 0.83, 0.32, 0.78) if valid else Color(0.55, 0.45, 0.65, 0.42))
+	elif not farm_flying and farm_pause <= 0.0 and not farm_complete:
+		var pull := _farm_demo_pull_point()
+		draw_line(anchor, pull, Color(0.32, 0.24, 0.45, 0.28), 4.0)
+		var direction := (pull - anchor).normalized()
+		var side := direction.orthogonal()
+		draw_colored_polygon(PackedVector2Array([
+			pull + side * 10.0, pull + direction * 15.0, pull - side * 10.0,
+		]), Color(0.32, 0.24, 0.45, 0.42))
+	_draw_farm_vegetable()
+	for landing in range(FARM_LOB_GOAL):
+		var dot := Vector2(size.x * 0.5 + (float(landing) - 1.5) * maxf(18.0, size.x * 0.05),
+			size.y * 0.075)
+		draw_circle(dot, 7.0,
+			Color("#ffd75e") if landing < farm_landed else Color(0.30, 0.26, 0.42, 0.30))
+	if farm_complete:
+		draw_arc(target, target_radius * 1.26, 0.0, TAU, 44,
+			Color(1.0, 0.88, 0.35, 0.65), 8.0)
+
+
+func _boxer_mitt_rect(side: int) -> Rect2:
+	var area := Rect2(size.x * 0.075, size.y * 0.18, size.x * 0.85, size.y * 0.67)
+	var gap := maxf(12.0, size.x * 0.045)
+	var width := (area.size.x - gap) * 0.5
+	return Rect2(area.position + Vector2(float(clampi(side, 0, 1)) * (width + gap), 0.0),
+		Vector2(width, area.size.y))
+
+
+func _boxer_tick(delta: float) -> void:
+	boxer_flash = maxf(0.0, boxer_flash - delta)
+	boxer_hit_glow = maxf(0.0, boxer_hit_glow - delta)
+	boxer_redraw += delta
+	if boxer_redraw >= 0.05:
+		boxer_redraw = 0.0
+		queue_redraw()
+
+
+func _boxer_press(at: Vector2) -> void:
+	if boxer_complete or completion_accepted:
+		return
+	if boxer_duck_pending:
+		boxer_duck_distance = 0.0
+		return
+	var pressed_mitt := -1
+	for side in range(2):
+		if _boxer_mitt_rect(side).has_point(at):
+			pressed_mitt = side
+			break
+	if pressed_mitt < 0:
+		return
+	feedback_anchor = _boxer_mitt_rect(pressed_mitt).get_center()
+	if pressed_mitt != boxer_expected:
+		feedback_positive = false
+		feedback_t = 0.28
+		boxer_flash = 1.2
+		gesture.emit("boxer_rhythm", 0.0, 0.4)
+		demo_active = true
+		demo_t = 0.0
+		return
+	boxer_last_mitt = pressed_mitt
+	boxer_hit_glow = 0.34
+	boxer_hit_index += 1
+	feedback_positive = true
+	feedback_t = 0.24
+	gesture.emit("boxer_rhythm", 1.0, 1.0)
+	if boxer_hit_index >= BOXER_SEQUENCE.size():
+		boxer_complete = true
+		return
+	boxer_expected = int(BOXER_SEQUENCE[boxer_hit_index])
+	boxer_flash = 0.62
+	if boxer_hit_index == BOXER_DUCK_AFTER and not boxer_duck_done:
+		boxer_duck_pending = true
+		boxer_duck_distance = 0.0
+		demo_active = true
+		demo_t = 0.0
+
+
+func _boxer_drag(at: Vector2) -> void:
+	if not boxer_duck_pending or boxer_complete:
+		return
+	var movement := at - previous_pos
+	boxer_duck_distance += maxf(0.0, movement.y - absf(movement.x) * 0.35)
+	if boxer_duck_distance >= maxf(52.0, minf(size.x, size.y) * 0.24):
+		boxer_duck_pending = false
+		boxer_duck_done = true
+		boxer_flash = 1.2
+		feedback_anchor = Vector2(size.x * 0.5, size.y * 0.72)
+		feedback_positive = true
+		feedback_t = 0.28
+		demo_active = true
+		demo_t = 0.0
+	queue_redraw()
+
+
+func _boxer_release() -> void:
+	if boxer_duck_pending:
+		# A short or sideways attempt simply replays the downward hand. The
+		# three banked mitts remain banked and there is no timing reset.
+		boxer_duck_distance = 0.0
+		demo_active = true
+		demo_t = 0.0
+
+
+func _boxer_mitt_color(side: int) -> Color:
+	return Color("#53bbb8") if side == 0 else Color("#ef7d75")
+
+
+func _draw_boxer_mitt(rect: Rect2, side: int, highlighted: bool) -> void:
+	var center := rect.get_center()
+	var radius := minf(rect.size.x, rect.size.y) * 0.37
+	var color := _boxer_mitt_color(side)
+	var glow := highlighted or (side == boxer_last_mitt and boxer_hit_glow > 0.0) or boxer_complete
+	draw_circle(center + Vector2(4.0, 7.0), radius * 1.06, Color(0.20, 0.12, 0.28, 0.24))
+	draw_circle(center, radius, Color("#382485"))
+	draw_circle(center, radius - 6.0, color.lightened(0.10) if glow else color.darkened(0.05))
+	draw_circle(center, radius * 0.56, Color(0.98, 0.91, 0.75, 0.88))
+	draw_arc(center, radius * 0.58, 0.0, TAU, 32, Color("#8b633d"), 4.0)
+	var wrist := Rect2(center.x - radius * 0.46, center.y + radius * 0.68,
+		radius * 0.92, radius * 0.46)
+	draw_rect(wrist, color.darkened(0.16), true)
+	draw_rect(wrist, Color("#382485"), false, 4.0)
+	if highlighted:
+		var pulse := 0.50 + 0.22 * sin(boxer_flash * 18.0)
+		draw_arc(center, radius * 1.18, 0.0, TAU, 40,
+			Color(1.0, 0.86, 0.30, pulse), 8.0)
+
+
+func _draw_boxer_rhythm() -> void:
+	if widget_backdrop != null:
+		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
+	else:
+		draw_rect(Rect2(Vector2.ZERO, size), Color("#f3e6eb"), true)
+	var mitt_panel := Rect2(size.x * 0.045, size.y * 0.12, size.x * 0.91, size.y * 0.78)
+	draw_rect(mitt_panel, Color(0.96, 0.97, 1.0, 0.78), true)
+	draw_rect(mitt_panel, Color("#382485"), false, 3.0)
+	# The approved lane overlay's first square is the boxer focus-pad pair.
+	# It remains visible as thematic art beneath the oversized touch geometry.
+	if widget_mover != null:
+		var texture_size := widget_mover.get_size()
+		var source_side := minf(texture_size.x, texture_size.y)
+		var art_side := minf(size.x * 0.44, size.y * 0.58)
+		draw_texture_rect_region(widget_mover,
+			Rect2(size * 0.5 - Vector2.ONE * art_side * 0.5, Vector2.ONE * art_side),
+			Rect2(0.0, 0.0, source_side, source_side),
+			Color(1.0, 1.0, 1.0, 0.40))
+	for side in range(2):
+		var highlighted := not boxer_duck_pending and not boxer_complete and side == boxer_expected
+		_draw_boxer_mitt(_boxer_mitt_rect(side), side, highlighted)
+	for hit in range(BOXER_SEQUENCE.size()):
+		var sequence_center := Vector2(
+			size.x * 0.5 + (float(hit) - 2.5) * maxf(14.0, size.x * 0.035),
+			size.y * 0.068)
+		var done := hit < boxer_hit_index
+		draw_circle(sequence_center, 6.5,
+			_boxer_mitt_color(int(BOXER_SEQUENCE[hit])) if done
+			else Color(_boxer_mitt_color(int(BOXER_SEQUENCE[hit])), 0.28))
+		if hit == boxer_hit_index and not boxer_complete:
+			draw_arc(sequence_center, 10.5, 0.0, TAU, 20, Color("#ffd75e"), 3.0)
+	if boxer_duck_pending:
+		var duck_x := size.x * 0.5
+		var duck_top := size.y * 0.20
+		var duck_bottom := size.y * 0.79
+		draw_rect(mitt_panel, Color(0.20, 0.16, 0.36, 0.38), true)
+		draw_line(Vector2(duck_x, duck_top), Vector2(duck_x, duck_bottom - 22.0),
+			Color("#ffd75e"), 16.0, true)
+		draw_colored_polygon(PackedVector2Array([
+			Vector2(duck_x - 35.0, duck_bottom - 34.0),
+			Vector2(duck_x + 35.0, duck_bottom - 34.0),
+			Vector2(duck_x, duck_bottom + 8.0),
+		]), Color("#ffd75e"))
+		# Fill the arrow from the child's real downward travel.
+		var duck_progress := clampf(boxer_duck_distance /
+			maxf(52.0, minf(size.x, size.y) * 0.24), 0.0, 1.0)
+		draw_circle(Vector2(duck_x, lerpf(duck_top, duck_bottom, duck_progress)),
+			18.0, Color(1.0, 0.95, 0.70, 0.72))
+	if boxer_complete:
+		draw_arc(size * 0.5, minf(size.x, size.y) * 0.43,
+			0.0, TAU, 48, Color(1.0, 0.88, 0.35, 0.65), 8.0)
 
 
 func _draw_imp(target: Dictionary) -> void:
@@ -1006,6 +2311,14 @@ func _draw_trace_patches(texture: Texture2D) -> void:
 		draw_texture_rect_region(texture, destination, source)
 
 
+func _oven_meter_rect() -> Rect2:
+	return Rect2(size.x * 0.84, size.y * 0.12, 26.0, size.y * 0.64)
+
+
+func _oven_handle_rect() -> Rect2:
+	return Rect2(size.x * 0.20, size.y * 0.66, size.x * 0.44, size.y * 0.15)
+
+
 func _draw_oven(_center: Vector2) -> void:
 	# authored oven backdrop when present (gauge_chef ledger redirect);
 	# a warm code-drawn oven face otherwise. NO green anywhere — the green
@@ -1048,7 +2361,7 @@ func _draw_oven(_center: Vector2) -> void:
 			var sy := window.position.y + 14.0 - fmod(heat * 260.0 + float(i) * 23.0, 34.0)
 			draw_arc(Vector2(sx, sy), 9.0, PI * 0.2, PI * 1.3, 12, Color(0.98, 0.92, 0.80, 0.5), 4.0)
 	# the thermometer: rises bottom-to-top at the static rate, band-colored
-	var slot := Rect2(size.x * 0.84, size.y * 0.12, 26.0, size.y * 0.64)
+	var slot := _oven_meter_rect()
 	draw_rect(slot, Color(0.98, 0.97, 0.93, 0.9), true)
 	draw_rect(slot, Color("#5c3a30"), false, 4.0)
 	var fill_height := slot.size.y * heat
@@ -1058,7 +2371,7 @@ func _draw_oven(_center: Vector2) -> void:
 		var tick_y: float = slot.end.y - slot.size.y * band
 		draw_line(Vector2(slot.position.x - 6.0, tick_y), Vector2(slot.end.x + 6.0, tick_y), Color("#5c3a30"), 3.0)
 	# the mitt handle — the ONE verb. It glows gold through the ready band.
-	var handle := Rect2(size.x * 0.20, size.y * 0.66, size.x * 0.44, size.y * 0.15)
+	var handle := _oven_handle_rect()
 	var handle_center := handle.get_center()
 	if oven_peek > 0.0:
 		# the door swings open for the peek
@@ -1115,7 +2428,29 @@ func _pipe_cell_at(point: Vector2) -> int:
 
 
 func _pipe_tray_rect(slot: int) -> Rect2:
-	return Rect2(Vector2(120.0 + float(slot) * 104.0, PIPE_ORIGIN.y + PIPE_CELL * float(PIPE_ROWS) + 26.0), Vector2(92.0, 92.0))
+	return Rect2(Vector2(
+		PIPE_TRAY_START_X + float(slot) * PIPE_TRAY_STEP,
+		PIPE_ORIGIN.y + PIPE_CELL * float(PIPE_ROWS) + PIPE_TRAY_GAP_Y),
+		Vector2.ONE * PIPE_TRAY_SIDE)
+
+
+func _pipe_tank_rect(round_data: Dictionary) -> Rect2:
+	var entry_rect := _pipe_cell_rect(int(round_data.get("entry", 4)))
+	var center := Vector2(
+		PIPE_ORIGIN.x - PIPE_TANK_SIDE * 0.5 - 4.0,
+		entry_rect.get_center().y)
+	return Rect2(center - Vector2.ONE * PIPE_TANK_SIDE * 0.5,
+		Vector2.ONE * PIPE_TANK_SIDE)
+
+
+func _pipe_intake_rect(round_data: Dictionary) -> Rect2:
+	var exit_cell := int(round_data.get("exit", 7))
+	var exit_dir: Vector2i = round_data.get("exit_dir", Vector2i(1, 0))
+	var exit_rect := _pipe_cell_rect(exit_cell)
+	var center := exit_rect.get_center() + Vector2(float(exit_dir.x), float(exit_dir.y)) \
+		* (PIPE_CELL * 0.5 + PIPE_ENDPOINT_GAP)
+	return Rect2(center - Vector2.ONE * PIPE_INTAKE_SIDE * 0.5,
+		Vector2.ONE * PIPE_INTAKE_SIDE)
 
 
 func _pipe_flow_cells() -> Array:
@@ -1324,6 +2659,39 @@ func _pipe_hint_cell() -> int:
 	return next_cell
 
 
+func _pipe_demo_target_cell() -> int:
+	# Rehints prefer the live fuel-gap diagnosis. On the first untouched
+	# board, derive the cell immediately beyond the authored entry stub so the
+	# hand demonstrates a useful tray-to-grid placement instead of dropping a
+	# pipe on an arbitrary empty square.
+	var hinted := _pipe_hint_cell()
+	if hinted >= 0:
+		return hinted
+	if pipe_round < 0 or pipe_round >= PIPE_ROUNDS.size() or pipe_grid.is_empty():
+		return -1
+	var round_data: Dictionary = PIPE_ROUNDS[pipe_round]
+	var entry := int(round_data.get("entry", 4))
+	if entry < 0 or entry >= pipe_grid.size():
+		return -1
+	var tile := String(pipe_grid[entry])
+	if PIPE_MOUTHS.has(tile):
+		var incoming := Vector2i(1, 0)
+		var outgoing := Vector2i.ZERO
+		for mouth: Vector2i in (PIPE_MOUTHS[tile] as Array):
+			if mouth != -incoming:
+				outgoing = mouth
+		var col := entry % PIPE_COLS + outgoing.x
+		var row := floori(float(entry) / float(PIPE_COLS)) + outgoing.y
+		if col >= 0 and col < PIPE_COLS and row >= 0 and row < PIPE_ROWS:
+			var next_cell := row * PIPE_COLS + col
+			if String(pipe_grid[next_cell]) == "":
+				return next_cell
+	for cell in range(pipe_grid.size()):
+		if String(pipe_grid[cell]) == "":
+			return cell
+	return -1
+
+
 func _draw_pipe_tile(rect: Rect2, tile: String, fueled: bool) -> void:
 	if pipe_tiles.has(tile):
 		# authored tile: the art owns the look; fuel is a teal wash inside it
@@ -1380,20 +2748,18 @@ func _draw_pipe() -> void:
 		var bulge := 6.0 + 3.0 * sin(pipe_wait_t * 6.0)
 		draw_circle(head_rect.get_center(), 18.0 + bulge, Color(0.37, 0.85, 0.81, 0.55))
 	# tank (entry) and rocket (exit) stubs outside the grid
-	var entry_rect := _pipe_cell_rect(int(round_data.get("entry", 4)))
-	var tank_center := Vector2(PIPE_ORIGIN.x - 62.0, entry_rect.get_center().y)
+	var tank_rect := _pipe_tank_rect(round_data)
+	var tank_center := tank_rect.get_center()
 	if pipe_tank_texture != null:
-		draw_texture_rect(pipe_tank_texture, Rect2(tank_center - Vector2(58.0, 58.0), Vector2(116.0, 116.0)), false)
+		draw_texture_rect(pipe_tank_texture, tank_rect, false)
 	else:
 		draw_circle(tank_center, 46.0, Color("#3f6f8a"))
 		draw_circle(tank_center, 34.0, Color("#5fd8cf"))
 	draw_rect(Rect2(tank_center.x + 34.0, tank_center.y - 13.0, PIPE_ORIGIN.x - tank_center.x - 34.0 + 6.0, 26.0), Color("#7a5a34"), true)
-	var exit_cell := int(round_data.get("exit", 7))
-	var exit_dir: Vector2i = round_data.get("exit_dir", Vector2i(1, 0))
-	var exit_rect := _pipe_cell_rect(exit_cell)
-	var rocket_center := exit_rect.get_center() + Vector2(float(exit_dir.x), float(exit_dir.y)) * (PIPE_CELL * 0.5 + 58.0)
+	var intake_rect := _pipe_intake_rect(round_data)
+	var rocket_center := intake_rect.get_center()
 	if pipe_intake_texture != null:
-		draw_texture_rect(pipe_intake_texture, Rect2(rocket_center - Vector2(56.0, 56.0), Vector2(112.0, 112.0)), false)
+		draw_texture_rect(pipe_intake_texture, intake_rect, false)
 	else:
 		draw_circle(rocket_center, 44.0, Color("#c8cede"))
 		draw_circle(rocket_center, 30.0, Color("#8090b0"))

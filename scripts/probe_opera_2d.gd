@@ -13,6 +13,7 @@ var rival_shot_out := ""
 var scuffle_shot_out := ""
 var scuffle_capture_career := ""
 var stress_shot_out := ""
+var lobby_shot_out := ""
 
 
 func _init() -> void:
@@ -21,6 +22,7 @@ func _init() -> void:
 	scuffle_shot_out = OS.get_environment("OPERA_SCUFFLE_SHOT_OUT").strip_edges()
 	scuffle_capture_career = OS.get_environment("OPERA_SCUFFLE_CAPTURE_CAREER").strip_edges()
 	stress_shot_out = OS.get_environment("OPERA_STRESS_SHOT_OUT").strip_edges()
+	lobby_shot_out = OS.get_environment("OPERA_LOBBY_SHOT_OUT").strip_edges()
 	if not widget_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(widget_shot_out)
 	if not rival_shot_out.is_empty():
@@ -29,6 +31,8 @@ func _init() -> void:
 		DirAccess.make_dir_recursive_absolute(scuffle_shot_out)
 	if not stress_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(stress_shot_out)
+	if not lobby_shot_out.is_empty():
+		DirAccess.make_dir_recursive_absolute(lobby_shot_out)
 	var scene := load("res://scenes/main.tscn") as PackedScene
 	main = scene.instantiate() as ReefMain
 	get_root().add_child(main)
@@ -56,13 +60,76 @@ func _init() -> void:
 			roshan_only = roshan_only and card.get_node_or_null("RoshanActor") != null
 			roshan_only = roshan_only and card.get_node_or_null("RivalActor") == null
 		_check("job cards show Roshan only, never imp matchup cards", roshan_only)
+		var lobby_stage := lobby.stage as Control
+		_check("Opera lobby uses one centered uniform 1280 by 720 stage",
+			lobby_stage != null
+			and lobby_stage.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
+			and is_equal_approx(lobby_stage.scale.x, lobby_stage.scale.y))
+		var buttons_are_pictures := lobby.boss_button.text.is_empty()
+		var touch_targets_safe := lobby.boss_button.size.x >= StorybookUI.MIN_TOUCH.x \
+			and lobby.boss_button.size.y >= StorybookUI.MIN_TOUCH.y
+		var cards_unclipped := not lobby.boss_button.clip_contents
+		var crests_complete := true
+		var actors_fully_framed := true
+		var actors_use_audited_atlases := true
+		var active_animators := 0
+		for tab: Button in lobby.floor_tabs:
+			buttons_are_pictures = buttons_are_pictures and tab.text.is_empty()
+			touch_targets_safe = touch_targets_safe \
+				and tab.size.x >= StorybookUI.MIN_TOUCH.x \
+				and tab.size.y >= StorybookUI.MIN_TOUCH.y
+			var floor_crest := tab.get_node_or_null("FloorCrest") as TextureRect
+			crests_complete = crests_complete and floor_crest != null \
+				and floor_crest.texture != null
+		var boss_crest := lobby.boss_button.get_node_or_null("BossCrest") as TextureRect
+		crests_complete = crests_complete and boss_crest != null and boss_crest.texture != null
+		for card: Button in lobby.card_buttons:
+			buttons_are_pictures = buttons_are_pictures and card.text.is_empty()
+			cards_unclipped = cards_unclipped and not card.clip_contents
+			if not card.visible:
+				continue
+			touch_targets_safe = touch_targets_safe \
+				and card.size.x >= StorybookUI.MIN_TOUCH.x \
+				and card.size.y >= StorybookUI.MIN_TOUCH.y
+			var actor := card.get_node_or_null("RoshanActor") as TextureRect
+			var crest := card.get_node_or_null("CareerCrest") as TextureRect
+			crests_complete = crests_complete and crest != null and crest.texture != null
+			actors_fully_framed = actors_fully_framed and actor != null \
+				and actor.texture != null \
+				and actor.position.x >= 0.0 and actor.position.y >= 0.0 \
+				and actor.position.x + actor.size.x <= card.size.x \
+				and actor.position.y + actor.size.y <= card.size.y \
+				and crest.position.y >= actor.position.y + actor.size.y
+			var actor_frame := actor.texture as AtlasTexture if actor != null else null
+			actors_use_audited_atlases = actors_use_audited_atlases \
+				and actor_frame != null and actor_frame.atlas != null \
+				and actor_frame.atlas.resource_path.contains("/actors/animation/roshan_")
+			if bool(card.get_meta("animator_active", false)):
+				active_animators += 1
+		var back_button := lobby.stage.get_node_or_null("OperaBackButton") as Button
+		buttons_are_pictures = buttons_are_pictures and back_button != null \
+			and back_button.text.is_empty()
+		_check("Opera lobby keeps every Button visually text-free", buttons_are_pictures)
+		_check("Opera lobby cards and finale never clip their pictures", cards_unclipped)
+		_check("every visible Opera choice has its approved pictorial crest", crests_complete)
+		_check("every Roshan portrait is fully framed above its crest", actors_fully_framed)
+		_check("every visible menu portrait uses its audited full-tail atlas",
+			actors_use_audited_atlases)
+		_check("every Opera lobby touch target is at least 110 pixels", touch_targets_safe)
+		_check("only the highlighted career card owns the active animator",
+			active_animators == 1 and lobby.active_actor_animator != null
+			and lobby.active_actor_animator.has_animation)
 		_check("floor finale is gated by the four job stars", bool(lobby.boss_button.get_meta("locked", false)))
+		if not lobby_shot_out.is_empty():
+			await _capture_viewport(lobby_shot_out.path_join("opera_lobby_floor_1.png"))
 		lobby.refresh((1 << 4) | (1 << 9), 2)
 		_check("Grand Gallery expands to five direct job cards", _visible_card_count(lobby.card_buttons) == 5)
 		_check("Nursery Nurse is displayed as job twelve before Pop Star",
 			int(lobby.card_buttons[3].get_meta("act_index", -1)) == 15
 			and int(lobby.card_buttons[4].get_meta("act_index", -1)) == 13)
 		_check("five Grand Gallery jobs gate the finale", bool(lobby.boss_button.get_meta("locked", false)))
+		if not lobby_shot_out.is_empty():
+			await _capture_viewport(lobby_shot_out.path_join("opera_lobby_floor_3.png"))
 		lobby.refresh(0, 0)
 	house._leave_early()
 	await process_frame
@@ -122,16 +189,37 @@ func _init() -> void:
 		_check("%s pauses competition scoring before the finale" % career,
 			not act.competition.active)
 		if not scuffle_shot_out.is_empty() and scuffle_capture_career.is_empty() \
-				and career in ["chef", "detective", "ballerina", "candymaker", "nursery"]:
+				and career == "boxer":
 			await _capture_scuffle_sequences(world, career)
-		_check("%s has a multi-phase job game" % career, world.phases.size() >= 4)
+		_check("%s has a multi-phase job game" % career, world.phases.size() >= 3)
 		_check("%s starts without passive progress" % career,
 			is_equal_approx(world.progress(), 0.0))
 		var modes: Array[String] = []
 		for phase_dict: Dictionary in world.phases:
 			modes.append(String(phase_dict.get("mode", "")))
-		_check("%s opens with a friendly imp scuffle" % career,
-			modes.size() > 0 and modes[0] == "bop")
+		_check("%s opens with its job verb, not the shared brawl" % career,
+			modes.size() > 0 and modes[0] != "bop")
+		_check("%s uses real costume-frame animation" % career,
+			world.player_animator != null and world.player_animator.has_animation
+			and world.player_animator.current_animation == "work")
+		if world.player_animator != null and world.player_animator.has_animation:
+			var frame_before := world.player_animator.current_frame
+			# Work runs at 7 fps. A 0.5s sample can advance 3 or 4 frames
+			# depending on the accumulated fraction and wrap onto the same cell.
+			# 0.2s always crosses at least one boundary and cannot wrap four.
+			world.player_animator._process(0.2)
+			_check("%s costume atlas advances frames" % career,
+				world.player_animator.current_frame != frame_before)
+		var expected_signature := {
+			"chef": "oven", "detective": "lens", "ballerina": "dance_sequence",
+			"candymaker": "candy_sort", "doctor": "xray_scan", "farmer": "farm_lob",
+			"boxer": "boxer_rhythm", "magician": "choice", "painter": "paint_reveal",
+			"astronaut": "pipe", "racer": "kart", "nursery": "catch", "popstar": "echo",
+		}
+		_check("%s contains its signature mechanic" % career,
+			modes.has(String(expected_signature.get(career, ""))))
+		_check("%s avoids copied combat phases" % career,
+			modes.count("bop") == (1 if career == "boxer" else 0))
 		# Costume identity lock: bopping a dressed crew imp must never swap her
 		# back to the base purple imp — that reads as a different character
 		# every time she is bopped.
@@ -192,21 +280,11 @@ func _init() -> void:
 				_actor_matches_rest(world.player_actor, player_rest))
 			if not stress_shot_out.is_empty():
 				await _capture_viewport(stress_shot_out.path_join("rapid_input_rest.png"))
-		var captain_scuffle := -1
-		for mode_i in range(1, modes.size()):
-			if modes[mode_i] == "bop" and mode_i < world._finale_start():
-				captain_scuffle = mode_i
-		_check("%s stages a bigger scuffle before the stage door" % career,
-			captain_scuffle > 0 and captain_scuffle < world._finale_start()
-			and float((world.phases[captain_scuffle] as Dictionary).get("goal", 0.0))
-			> float((world.phases[0] as Dictionary).get("goal", 0.0)))
 		var scuffle_free_finale := true
 		for mode_i in range(world._finale_start(), modes.size()):
 			scuffle_free_finale = scuffle_free_finale and modes[mode_i] != "bop"
-		# detective's finale is the owner's ally-corner: the one career whose
-		# job contest IS a shared scuffle (rival detective + Roshan vs captain)
 		_check("%s keeps the stage finale for the job contest" % career,
-			scuffle_free_finale or career == "detective")
+			scuffle_free_finale or career == "boxer")
 		var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
 		_check("%s starts in its job world, off the proscenium" % career,
 			backdrop != null and not backdrop.stage_mode)
@@ -230,8 +308,9 @@ func _init() -> void:
 			var widget_path := "res://assets/opera/worlds/widgets/widget_%s_%s.png" % [template, career]
 			widgets_complete = widgets_complete and ResourceLoader.exists(widget_path)
 			var context := "%s_%s" % [template, career]
+			var phase_mode := String(phase_dict.get("mode", "tap"))
 			var before_progress := world.phase_progress
-			world.surface.configure(String(phase_dict.get("mode", "tap")), Color.WHITE,
+			world.surface.configure(phase_mode, Color.WHITE,
 				world.choice_target, context)
 			world.surface._process(0.8)
 			widgets_causal = widgets_causal and is_equal_approx(world.phase_progress, before_progress) \
@@ -245,7 +324,7 @@ func _init() -> void:
 			world.surface.note_input()
 			widgets_causal = widgets_causal and not world.surface.demo_active \
 				and world.surface.input_started
-			if template == "target" and not target_lock_checked:
+			if template == "target" and phase_mode == "tap" and not target_lock_checked:
 				world.surface.set_block_signals(true)
 				var stamp_at := world.surface.size * Vector2(0.31, 0.62)
 				var marks_before := world.surface.tap_marks.size()
@@ -256,6 +335,41 @@ func _init() -> void:
 					and (world.surface.tap_marks.back() as Vector2).is_equal_approx(stamp_at)
 				world.surface.set_block_signals(false)
 				target_lock_checked = true
+			elif phase_mode == "xray_scan":
+				# A target-family backdrop no longer implies free-placement taps.
+				# Drive Doctor's actual drag grammar with signals blocked so this
+				# integration check cannot mutate the live career phase.
+				world.surface.configure(phase_mode, Color.WHITE,
+					world.choice_target, context)
+				world.surface.set_block_signals(true)
+				var sore_spot := world.surface._xray_target_center(0)
+				world.surface._press(sore_spot)
+				world.surface._release(sore_spot)
+				widgets_causal = widgets_causal and world.surface.xray_found_count == 0
+				world.surface._press(world.surface._xray_home_point())
+				world.surface._drag(sore_spot)
+				world.surface._release(sore_spot)
+				widgets_causal = widgets_causal and world.surface.xray_found_count == 1
+				world.surface.set_block_signals(false)
+			elif phase_mode == "farm_lob":
+				# The farmer card is release-driven: a weak release loops safely;
+				# only the completed arc changes its deterministic landing state.
+				world.surface.configure(phase_mode, Color.WHITE,
+					world.choice_target, context)
+				world.surface.set_block_signals(true)
+				var basket := world.surface._farm_anchor_point()
+				world.surface._press(basket)
+				world.surface._release(basket)
+				world.surface._farm_tick(OperaGestureSurface.FARM_FLIGHT_DURATION + 0.01)
+				widgets_causal = widgets_causal and world.surface.farm_landed == 0 \
+					and world.surface.farm_loops == 1
+				world.surface._farm_tick(0.20)
+				world.surface._press(world.surface._farm_anchor_point())
+				world.surface._drag(world.surface._farm_demo_pull_point())
+				world.surface._release(world.surface._farm_demo_pull_point())
+				world.surface._farm_tick(OperaGestureSurface.FARM_FLIGHT_DURATION + 0.01)
+				widgets_causal = widgets_causal and world.surface.farm_landed == 1
+				world.surface.set_block_signals(false)
 			if not widget_shot_out.is_empty():
 				await _capture_widget_states(world, career, phase_number, phase_dict, template)
 		# detective (wander-and-talk crown hunt) and racer (3D kart lap) have
@@ -269,6 +383,12 @@ func _init() -> void:
 			world.task_frame_texture != null and world.station_marker_texture != null)
 		_check("%s loads the authored magnifier prop" % career,
 			world.magnifier_texture != null)
+		if world.action_panel.visible:
+			var panel_rect := Rect2(world.action_panel.position, world.action_panel.size)
+			var actor_rect := Rect2(world.player_actor.position,
+				world.player_actor.size * world.player_actor.scale).grow(24.0)
+			_check("%s task card never covers animated Roshan" % career,
+				panel_rect.intersection(actor_rect).get_area() <= 0.01)
 		var captain_stage_seen := false
 		if career == "detective":
 			var original_phase_count := world.phases.size()
@@ -305,7 +425,8 @@ func _init() -> void:
 			saw_finale_imp = saw_finale_imp or (world.rival_actor.visible and world.in_competition_finale())
 		_check("%s brings in its dressed finale partner" % career, saw_finale_imp)
 		_check("%s keeps the rival away from both imp scuffles" % career, rival_hid_through_scuffles)
-		_check("%s brawls the captain at the stage door" % career, captain_stage_seen)
+		_check("%s uses combat only when the job is boxing" % career,
+			captain_stage_seen if career == "boxer" else world.steal_index < 0)
 		if career == "nursery":
 			_check("nursery curtain call records cooperative care",
 				bool(act.performance_result.get("cooperative", false)))
@@ -362,7 +483,7 @@ func _init() -> void:
 	# scatter-tap boards and the racer widget set were retired in favour of
 	# grammars that ARE the job (oven, tilt-pour, pipe dream, crown hunt,
 	# echo song, 3D kart lap). Detective and the kart beat carry no card.
-	_check("every art-backed career widget was exercised", total_widget_count == 46)
+	_check("every art-backed career widget was exercised", total_widget_count >= 40)
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()

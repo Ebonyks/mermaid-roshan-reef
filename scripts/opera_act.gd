@@ -600,8 +600,10 @@ func _start_career_world_2d() -> void:
 	if not competition.is_valid():
 		use_career_world_2d = false
 		return
+	# The Canvas career world owns the finale start. Mark the director as
+	# installed for OperaAct's shared tick, but leave it paused until the
+	# career-specific finale is actually visible.
 	competition_started = true
-	competition.begin()
 	if m.touch_ui != null:
 		touch_was_visible = m.touch_ui.visible
 		m.touch_ui.visible = false

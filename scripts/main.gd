@@ -682,6 +682,23 @@ func _refresh_joy_mapped() -> void:
 			joy_has_unmapped = true
 
 func _input(ev: InputEvent) -> void:
+	# Story exchanges advance on the next deliberate press and consume that
+	# press, so skipping a witness line never also scores the task underneath.
+	var dialogue_press := false
+	if ev is InputEventScreenTouch:
+		dialogue_press = (ev as InputEventScreenTouch).pressed
+	elif ev is InputEventMouseButton:
+		var mouse_event := ev as InputEventMouseButton
+		dialogue_press = mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT \
+			and mouse_event.device != InputEvent.DEVICE_ID_EMULATION
+	elif ev is InputEventJoypadButton:
+		dialogue_press = (ev as InputEventJoypadButton).pressed
+	elif ev is InputEventKey:
+		var key_event := ev as InputEventKey
+		dialogue_press = key_event.pressed and not key_event.echo
+	if game == "opera" and dialogue_press and skip_dialogue():
+		get_viewport().set_input_as_handled()
+		return
 	_living_world_ref().note_input(ev)
 	# record raw joypad events: unmapped pads never show up through the polled
 	# Input.get_joy_axis / is_joy_button_pressed API, but they DO send events

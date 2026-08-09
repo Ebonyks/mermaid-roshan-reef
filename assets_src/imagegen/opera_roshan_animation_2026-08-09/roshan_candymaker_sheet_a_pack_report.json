@@ -1,0 +1,775 @@
+{
+  "pass": true,
+  "method": "8-connected alpha components grouped by 4x4 centroid; 3px matte support; one shared whole-figure scale; bottom-aligned 256px cells",
+  "input": "assets_src\\imagegen\\opera_roshan_animation_2026-08-09\\roshan_candymaker_sheet_a_alpha_native.png",
+  "input_sha256": "e5534463dbbb6fa6be281d0760cbb05e2590d48ff0ba3f3ea32ba82f2d34f681",
+  "output": "assets\\opera\\worlds\\actors\\animation\\roshan_candymaker_sheet_a.png",
+  "output_sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "runtime_size": [
+    1024,
+    1024
+  ],
+  "shared_scale": 0.7,
+  "cell_padding": 16,
+  "component_count": 16,
+  "frames": [
+    {
+      "row": 0,
+      "col": 0,
+      "source_components": [
+        {
+          "label": 2,
+          "area": 34554,
+          "bbox": [
+            67,
+            18,
+            292,
+            317
+          ],
+          "centroid": [
+            179.54592811251953,
+            172.37717775076692
+          ]
+        }
+      ],
+      "source_bbox": [
+        63,
+        14,
+        297,
+        321
+      ],
+      "runtime_rect": [
+        46,
+        25,
+        210,
+        240
+      ],
+      "runtime_size": [
+        164,
+        215
+      ]
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "source_components": [
+        {
+          "label": 3,
+          "area": 36407,
+          "bbox": [
+            358,
+            20,
+            612,
+            312
+          ],
+          "centroid": [
+            472.2594830664433,
+            170.2050704534842
+          ]
+        }
+      ],
+      "source_bbox": [
+        353,
+        15,
+        616,
+        316
+      ],
+      "runtime_rect": [
+        292,
+        29,
+        476,
+        240
+      ],
+      "runtime_size": [
+        184,
+        211
+      ]
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "source_components": [
+        {
+          "label": 4,
+          "area": 34090,
+          "bbox": [
+            692,
+            21,
+            908,
+            312
+          ],
+          "centroid": [
+            785.1840422411265,
+            175.20167204458787
+          ]
+        }
+      ],
+      "source_bbox": [
+        688,
+        17,
+        912,
+        317
+      ],
+      "runtime_rect": [
+        561,
+        30,
+        718,
+        240
+      ],
+      "runtime_size": [
+        157,
+        210
+      ]
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "source_components": [
+        {
+          "label": 1,
+          "area": 35310,
+          "bbox": [
+            957,
+            9,
+            1207,
+            310
+          ],
+          "centroid": [
+            1075.2324553950723,
+            165.12863211554802
+          ]
+        }
+      ],
+      "source_bbox": [
+        952,
+        5,
+        1211,
+        314
+      ],
+      "runtime_rect": [
+        805,
+        24,
+        986,
+        240
+      ],
+      "runtime_size": [
+        181,
+        216
+      ]
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "source_components": [
+        {
+          "label": 8,
+          "area": 28348,
+          "bbox": [
+            14,
+            358,
+            325,
+            550
+          ],
+          "centroid": [
+            163.03640468463382,
+            458.1821292507408
+          ]
+        }
+      ],
+      "source_bbox": [
+        10,
+        354,
+        330,
+        554
+      ],
+      "runtime_rect": [
+        16,
+        356,
+        240,
+        496
+      ],
+      "runtime_size": [
+        224,
+        140
+      ]
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "source_components": [
+        {
+          "label": 7,
+          "area": 28665,
+          "bbox": [
+            324,
+            355,
+            622,
+            552
+          ],
+          "centroid": [
+            463.3173556602128,
+            456.8162567591139
+          ]
+        }
+      ],
+      "source_bbox": [
+        319,
+        350,
+        626,
+        556
+      ],
+      "runtime_rect": [
+        276,
+        352,
+        491,
+        496
+      ],
+      "runtime_size": [
+        215,
+        144
+      ]
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "source_components": [
+        {
+          "label": 6,
+          "area": 29998,
+          "bbox": [
+            627,
+            352,
+            921,
+            548
+          ],
+          "centroid": [
+            769.2337489165944,
+            443.7637175811721
+          ]
+        }
+      ],
+      "source_bbox": [
+        623,
+        347,
+        926,
+        552
+      ],
+      "runtime_rect": [
+        534,
+        352,
+        746,
+        496
+      ],
+      "runtime_size": [
+        212,
+        144
+      ]
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "source_components": [
+        {
+          "label": 9,
+          "area": 29598,
+          "bbox": [
+            933,
+            362,
+            1240,
+            559
+          ],
+          "centroid": [
+            1080.423102912359,
+            464.184167849179
+          ]
+        }
+      ],
+      "source_bbox": [
+        929,
+        357,
+        1244,
+        564
+      ],
+      "runtime_rect": [
+        786,
+        351,
+        1006,
+        496
+      ],
+      "runtime_size": [
+        220,
+        145
+      ]
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "source_components": [
+        {
+          "label": 13,
+          "area": 33844,
+          "bbox": [
+            59,
+            622,
+            314,
+            908
+          ],
+          "centroid": [
+            185.54166174211088,
+            766.1014655478076
+          ]
+        }
+      ],
+      "source_bbox": [
+        54,
+        618,
+        318,
+        913
+      ],
+      "runtime_rect": [
+        35,
+        546,
+        220,
+        752
+      ],
+      "runtime_size": [
+        185,
+        206
+      ]
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "source_components": [
+        {
+          "label": 11,
+          "area": 37168,
+          "bbox": [
+            353,
+            610,
+            607,
+            912
+          ],
+          "centroid": [
+            475.01218790357296,
+            763.9129627636677
+          ]
+        }
+      ],
+      "source_bbox": [
+        348,
+        606,
+        611,
+        916
+      ],
+      "runtime_rect": [
+        292,
+        535,
+        476,
+        752
+      ],
+      "runtime_size": [
+        184,
+        217
+      ]
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "source_components": [
+        {
+          "label": 10,
+          "area": 39304,
+          "bbox": [
+            634,
+            601,
+            930,
+            906
+          ],
+          "centroid": [
+            781.6929320170975,
+            756.8014960309383
+          ]
+        }
+      ],
+      "source_bbox": [
+        630,
+        596,
+        934,
+        911
+      ],
+      "runtime_rect": [
+        533,
+        532,
+        746,
+        752
+      ],
+      "runtime_size": [
+        213,
+        220
+      ]
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "source_components": [
+        {
+          "label": 12,
+          "area": 35194,
+          "bbox": [
+            959,
+            613,
+            1228,
+            900
+          ],
+          "centroid": [
+            1088.153151105302,
+            760.4032221401375
+          ]
+        }
+      ],
+      "source_bbox": [
+        954,
+        609,
+        1233,
+        905
+      ],
+      "runtime_rect": [
+        798,
+        545,
+        993,
+        752
+      ],
+      "runtime_size": [
+        195,
+        207
+      ]
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "source_components": [
+        {
+          "label": 16,
+          "area": 33192,
+          "bbox": [
+            27,
+            931,
+            317,
+            1212
+          ],
+          "centroid": [
+            181.47436129187756,
+            1072.5402807905518
+          ]
+        }
+      ],
+      "source_bbox": [
+        23,
+        926,
+        322,
+        1216
+      ],
+      "runtime_rect": [
+        23,
+        805,
+        232,
+        1008
+      ],
+      "runtime_size": [
+        209,
+        203
+      ]
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "source_components": [
+        {
+          "label": 15,
+          "area": 33516,
+          "bbox": [
+            337,
+            930,
+            607,
+            1219
+          ],
+          "centroid": [
+            472.8269483231889,
+            1076.6996061582527
+          ]
+        }
+      ],
+      "source_bbox": [
+        332,
+        925,
+        611,
+        1224
+      ],
+      "runtime_rect": [
+        286,
+        799,
+        481,
+        1008
+      ],
+      "runtime_size": [
+        195,
+        209
+      ]
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "source_components": [
+        {
+          "label": 14,
+          "area": 34316,
+          "bbox": [
+            663,
+            929,
+            904,
+            1219
+          ],
+          "centroid": [
+            773.1565159109454,
+            1073.8581711155146
+          ]
+        }
+      ],
+      "source_bbox": [
+        659,
+        925,
+        909,
+        1224
+      ],
+      "runtime_rect": [
+        552,
+        799,
+        727,
+        1008
+      ],
+      "runtime_size": [
+        175,
+        209
+      ]
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "source_components": [
+        {
+          "label": 17,
+          "area": 30957,
+          "bbox": [
+            985,
+            932,
+            1204,
+            1222
+          ],
+          "centroid": [
+            1067.3301353490326,
+            1083.4878379687955
+          ]
+        }
+      ],
+      "source_bbox": [
+        981,
+        928,
+        1208,
+        1226
+      ],
+      "runtime_rect": [
+        816,
+        799,
+        975,
+        1008
+      ],
+      "runtime_size": [
+        159,
+        209
+      ]
+    }
+  ],
+  "cell_audits": [
+    {
+      "row": 0,
+      "col": 0,
+      "alpha_bbox": [
+        46,
+        25,
+        210,
+        240
+      ],
+      "safe": true
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "alpha_bbox": [
+        37,
+        30,
+        220,
+        240
+      ],
+      "safe": true
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "alpha_bbox": [
+        49,
+        30,
+        206,
+        239
+      ],
+      "safe": true
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "alpha_bbox": [
+        38,
+        24,
+        218,
+        240
+      ],
+      "safe": true
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "alpha_bbox": [
+        16,
+        100,
+        239,
+        240
+      ],
+      "safe": true
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "alpha_bbox": [
+        21,
+        97,
+        235,
+        240
+      ],
+      "safe": true
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "alpha_bbox": [
+        22,
+        97,
+        234,
+        240
+      ],
+      "safe": true
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "alpha_bbox": [
+        18,
+        96,
+        238,
+        239
+      ],
+      "safe": true
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "alpha_bbox": [
+        36,
+        34,
+        220,
+        239
+      ],
+      "safe": true
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "alpha_bbox": [
+        37,
+        23,
+        220,
+        240
+      ],
+      "safe": true
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "alpha_bbox": [
+        21,
+        21,
+        234,
+        239
+      ],
+      "safe": true
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "alpha_bbox": [
+        31,
+        33,
+        224,
+        240
+      ],
+      "safe": true
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "alpha_bbox": [
+        23,
+        38,
+        232,
+        240
+      ],
+      "safe": true
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "alpha_bbox": [
+        31,
+        32,
+        225,
+        239
+      ],
+      "safe": true
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "alpha_bbox": [
+        40,
+        31,
+        214,
+        239
+      ],
+      "safe": true
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "alpha_bbox": [
+        48,
+        31,
+        207,
+        240
+      ],
+      "safe": true
+    }
+  ]
+}

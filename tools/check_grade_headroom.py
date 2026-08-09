@@ -18,8 +18,10 @@ zone's real flats, and fails if a zone exceeds its clip/crush budget.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
@@ -128,18 +130,35 @@ def build_profile_table() -> dict:
 
 
 def _sample(paths, limit):
-	"""Evenly-spaced sample across the whole corpus, not the first `limit`.
+	"""Choose a stable, directory-stratified sample of the corpus.
 
-	`paths[:limit]` reads alphabetically, so one directory that sorts early can
-	own the entire sample: when the opera actor sheets landed on 2026-08-03 the
-	578-file bright_pastel corpus reported numbers measured purely from
-	assets/opera/worlds/actors/. Striding keeps every directory represented and
-	keeps the pick deterministic (no RNG in a gate).
+	Index striding reshuffles every selected file whenever assets are inserted,
+	which makes unrelated additions move the gate by several percentage points.
+	A content-independent path hash keeps existing choices stable. Reserving one
+	lowest-hash representative per directory prevents a large alphabetic folder
+	from crowding out smaller art families; the remaining slots are the globally
+	lowest hashes, so the result stays deterministic without an RNG or state file.
 	"""
 	if len(paths) <= limit:
 		return list(paths)
-	step = len(paths) / float(limit)
-	return [paths[int(i * step)] for i in range(limit)]
+
+	def score(path):
+		return hashlib.sha256(path.as_posix().encode("utf-8")).digest()
+
+	by_directory = defaultdict(list)
+	for path in paths:
+		by_directory[path.parent.as_posix()].append(path)
+	representatives = [
+		min(group, key=score)
+		for group in by_directory.values()
+	]
+	selected = sorted(representatives, key=score)[:limit]
+	if len(selected) == limit:
+		return selected
+
+	selected_set = set(selected)
+	remainder = sorted((path for path in paths if path not in selected_set), key=score)
+	return selected + remainder[:limit - len(selected)]
 
 
 def measure(paths, profile_values, light=None, limit=80):
