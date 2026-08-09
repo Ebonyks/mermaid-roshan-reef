@@ -56,6 +56,8 @@ python3 tools/audit_castle_card_alpha.py \
 # between an approved PNG and the child. This replays the shipped grade over
 # the real art and fails when a profile clips or crushes pixels the source did
 # not (LIGHTING_2P5D_AUDIT_2026-08-02 §1.7/§E1).
+python3 -m unittest tools.tests.test_check_grade_headroom \
+	|| { echo "GRADE HEADROOM CONSOLE TEST FAIL"; exit 1; }
 python3 tools/check_grade_headroom.py \
 	|| { echo "GRADE HEADROOM FAIL (Environment grade is clipping painted art)"; exit 1; }
 python3 tools/audit_castle_interactions.py \
