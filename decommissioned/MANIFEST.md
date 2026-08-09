@@ -372,3 +372,22 @@ Untouched for ≥2 weeks but **not** quarantined, with reasons:
 5. `assets_src/blender/` (562 MB, last edit 2026-07-29) — mostly the paused 3D
    pipeline, but recent enough that it needs an explicit owner call.
 6. Delete tranche 1 outright once audited.
+
+---
+
+## Owner-approved tranche 2A — 3D Mermaid Roshan (2026-08-09)
+
+The owner confirmed that Mermaid Roshan is a 2D character and instructed that
+the retired 3D resources be placed on the deprecated-resources lineage. The
+active game already rendered Roshan from `assets/characters/roshan_25d/`, but
+two unreferenced GLBs and their textures remained under `assets/characters/`,
+where Godot could still index and preview them.
+
+`data/roshan-3d-character/` preserves 12 files (both GLBs, authored textures,
+import sidecars, and importer-extracted textures). All source/destination
+SHA-256 hashes were matched before active-tree removal. The parent `.gdignore`
+keeps this package out of Godot and the APK.
+
+This tranche supersedes the earlier "paused" wording for Roshan specifically:
+the 3D Roshan direction is retired, not pending. Restoring it requires a new
+explicit owner decision.
