@@ -2,7 +2,7 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "df5b4cf7",
+    "inventory_head": "8ed978be",
     "inventory_date": "2026-08-09",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
@@ -7579,7 +7579,7 @@
     "model_import_sidecars": 157,
     "active_untracked_model_import_sidecars": 356,
     "model_archive_files": 0,
-    "production_3d_files": 72,
+    "production_3d_files": 70,
     "probe_3d_files": 80,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
@@ -12447,12 +12447,6 @@
       "VisualInstance3D": 5,
       "WorldEnvironment": 2
     },
-    "scripts/medal_system.gd": {
-      "BaseMaterial3D": 1,
-      "Label3D": 2,
-      "Sprite3D": 1,
-      "Vector3": 1
-    },
     "scripts/opera_act.gd": {
       "<3d-multimesh>": 1,
       "<model-reference>": 27,
@@ -12479,9 +12473,6 @@
       "TorusMesh": 7,
       "Transform3D": 12,
       "Vector3": 1001
-    },
-    "scripts/opera_career_world_2d.gd": {
-      "Vector3": 9
     },
     "scripts/opera_house.gd": {
       "<lowercase-3d-marker>": 1,
