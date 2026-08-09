@@ -2,6 +2,17 @@ extends SceneTree
 
 var bad := 0
 
+
+class CountingAudioDirector:
+	extends AudioDirector
+
+	var requests: Array[Dictionary] = []
+
+	func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
+		requests.append({"speaker": speaker, "event": event, "min_gap": min_gap})
+		super._say(speaker, event, min_gap)
+
+
 func _init() -> void:
 	var ms: PackedScene = load("res://scenes/main.tscn")
 	var main: ReefMain = ms.instantiate()
@@ -67,10 +78,77 @@ func _init() -> void:
 	main._beans_go()
 	_check_exact_cue(main, "beans", before)
 
+	var brawl_audio := CountingAudioDirector.new(main)
+	main._audio_dir = brawl_audio
+	await _check_brawl_message_cues(main, brawl_audio)
 	_check_dialogue_speech_lifecycle(main)
 
 	print("VOICE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit(1 if bad > 0 else 0)
+
+
+func _check_brawl_message_cues(main: ReefMain, audio: CountingAudioDirector) -> void:
+	# Every child-visible brawl prompt owns its one intended Huluu cue. These
+	# checks exercise the real entry, route, and imp-warning branches so an
+	# adjacent _say cannot hide behind the cue cooldown again.
+	main.clear_dialogue()
+	main.said_cool.erase("huluu_greet")
+	var before: int = main.voice_i
+	var requests_before: int = audio.requests.size()
+	main._start_game_now(main.brawl_fr)
+	_check_named_cue(main, audio, "brawl entry", "huluu", "greet", before, requests_before)
+	_check("brawl entry caption and state stay intact",
+		main.game == "brawl" and int(main.g.get("seg", -1)) == 0
+		and main.hud_msg.text == "Mischief imps are in Huluu's toy castle! Tap to POP them — Huluu helps!")
+
+	var brawl: BrawlGame = main._game_obj("brawl", BrawlGame) as BrawlGame
+	# Spawn the first real wave, leave one one-hit imp on Roshan's mark, then
+	# land the actual clearing tap. The existing progression branch must open
+	# the next route while speaking exactly once.
+	brawl._tick_brawl(0.0, main.brawl_fr, main.player.position)
+	var enemies: Array = main.g.get("enemies", []) as Array
+	while enemies.size() > 1:
+		brawl._damage_imp(enemies[0] as Dictionary, 99)
+	var last_imp: Dictionary = enemies[0] as Dictionary
+	var stage_root: Node3D = brawl.stage.root()
+	(last_imp["node"] as Node3D).position = Vector3(0.0, 0.4, 0.0)
+	last_imp["hp"] = 1
+	main.player.position = stage_root.position + Vector3(0.0, 3.0, 0.0)
+	main.g["ss_tap_prev"] = false
+	main.touch_ui.action_down = false
+	main.touch_ui.action_just = true
+	main.clear_dialogue()
+	main.said_cool.erase("huluu_talk")
+	before = main.voice_i
+	requests_before = audio.requests.size()
+	brawl._tick_brawl(0.0, main.brawl_fr, main.player.position)
+	_check_named_cue(main, audio, "brawl route", "huluu", "talk", before, requests_before)
+	_check("brawl route caption and progression stay intact",
+		int(main.g.get("seg", -1)) == 1
+		and main.hud_msg.text == "This way! More imps ahead! ➜")
+
+	# Feed the real warning dispatcher one deterministic telegraph event.
+	main.clear_dialogue()
+	main.said_cool.erase("huluu_talk")
+	main.g["imp_warned"] = false
+	var warning_brain := ImpAI.new()
+	warning_brain.events.append({"kind": "telegraph", "pos": Vector2.ZERO})
+	before = main.voice_i
+	requests_before = audio.requests.size()
+	brawl._brawl_brain_events(warning_brain, stage_root, Vector2.ZERO)
+	_check_named_cue(main, audio, "brawl warning", "huluu", "talk", before, requests_before)
+	_check("brawl warning caption and one-shot state stay intact",
+		bool(main.g.get("imp_warned", false))
+		and main.hud_msg.text == "Look out — that imp is winding up! POP it quick!")
+
+	main.touch_ui.action_down = false
+	main.touch_ui.action_just = false
+	main.clear_dialogue()
+	for active_tween: Tween in main.get_tree().get_processed_tweens():
+		active_tween.kill()
+	main._clear_game()
+	await process_frame
+	await process_frame
 
 
 func _check_dialogue_speech_lifecycle(main: ReefMain) -> void:
@@ -150,6 +228,23 @@ func _stream_path(player: AudioStreamPlayer) -> String:
 	if player == null or player.stream == null:
 		return "missing"
 	return player.stream.resource_path
+
+
+func _check_named_cue(main: ReefMain, audio: CountingAudioDirector, label: String,
+		speaker: String, event: String, before: int, requests_before: int) -> void:
+	var actual_path: String = _stream_path(_last_pool_player(main))
+	var expected_path := "res://assets/audio/voices/%s_%s.ogg" % [speaker, event]
+	var request: Dictionary = audio.requests[-1] if not audio.requests.is_empty() else {}
+	_check("%s makes one intended request" % label,
+		audio.requests.size() == requests_before + 1
+		and String(request.get("speaker", "")) == speaker
+		and String(request.get("event", "")) == event,
+		"requests=%d->%d cue=%s_%s" % [requests_before, audio.requests.size(),
+			request.get("speaker", "missing"), request.get("event", "missing")])
+	_check("%s plays one cue" % label, main.voice_i == before + 1,
+		"voice_i=%d->%d" % [before, main.voice_i])
+	_check("%s resolves exact clip" % label, actual_path == expected_path,
+		"expected=%s actual=%s" % [expected_path, actual_path])
 
 
 func _check_exact_cue(main: ReefMain, event: String, before: int) -> void:
