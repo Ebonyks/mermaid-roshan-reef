@@ -232,7 +232,17 @@ func _validate_continuity(promenade: SkyLagoonPromenade) -> void:
 	_check("shore_returns_after_plane_departure",
 		String(actor["state"]) in ["idle", "pause"] \
 		and (actor["node"] as Sprite3D).visible)
+	var roshan_card: Sprite3D = main.g.get("lagoon_roshan_card") as Sprite3D
+	var celebration_count: int = int(
+		main.g.get("lagoon_visible_roshan_celebrations", 0))
+	main.player.verb = ""
 	promenade._startle_animal(actor)
+	_check("animal_celebrates_on_visible_roshan_card",
+		roshan_card != null and roshan_card.visible and not main.player.visible
+		and not roshan_card.scale.is_equal_approx(Vector3.ONE)
+		and int(main.g.get("lagoon_visible_roshan_celebrations", 0)) \
+			== celebration_count + 1
+		and main.player.verb != "giggle")
 	for _step: int in range(240):
 		promenade._tick_animal_startle(actor, 0.05)
 		if String(actor["state"]) == "hidden":

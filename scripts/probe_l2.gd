@@ -38,6 +38,55 @@ func _sprite_pixel_world(sprite: Sprite3D, pixel: Vector2) -> Vector2:
 	return Vector2(sprite.position.x, sprite.position.y) + local.rotated(
 		sprite.rotation.z)
 
+func _complete_playground_action(main: ReefMain,
+		promenade: SkyLagoonPromenade, card: Sprite3D) -> Dictionary:
+	# Cross the real duration boundary in two close samples, then follow the
+	# visible card through its short settle. This catches the former same-frame
+	# teleport and the giggle mistakenly played on the hidden Player renderer.
+	var play: Dictionary = main.g.get("lagoon_play_anim", {}) as Dictionary
+	var remaining: float = float(play.get("dur", 0.0)) \
+		- float(play.get("t", 0.0)) - 0.01
+	if remaining > 0.0:
+		promenade._tick_playground_animation(remaining)
+	var before_boundary: Vector3 = card.position
+	var card_id: int = card.get_instance_id()
+	var celebration_count: int = int(
+		main.g.get("lagoon_visible_roshan_celebrations", 0))
+	main.player.verb = ""
+	promenade._tick_playground_animation(0.02)
+	play = main.g.get("lagoon_play_anim", {}) as Dictionary
+	var settle_start: Vector3 = card.position
+	var started: bool = String(play.get("phase", "")) == "settle"
+	var continuous: bool = before_boundary.distance_to(settle_start) < 0.75
+	var visible_owner: bool = card.get_instance_id() == card_id \
+		and card.visible and not main.player.visible
+	var visible_celebration: bool = int(
+		main.g.get("lagoon_visible_roshan_celebrations", 0)) \
+		== celebration_count + 1 and main.player.verb != "giggle"
+	promenade._tick_playground_animation(
+		SkyLagoonPromenade.PLAY_SETTLE_S * 0.5)
+	var halfway: Vector3 = card.position
+	var moved_during_settle: bool = halfway.distance_to(settle_start) > 0.01
+	promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
+	var root_node: Node3D = promenade.stage.root()
+	var local_player: Vector3 = main.player.position - root_node.position
+	var expected_position := Vector3(
+		local_player.x, local_player.y + 1.0, local_player.z + 0.2)
+	var shadow: Sprite3D = card.get_meta("contact_shadow") as Sprite3D
+	return {
+		"started": started,
+		"continuous": continuous,
+		"visible_owner": visible_owner,
+		"visible_celebration": visible_celebration,
+		"moved": moved_during_settle,
+		"completed": (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty(),
+		"position": card.position.distance_to(expected_position) < 0.01,
+		"transform": card.rotation.is_zero_approx()
+			and card.scale.is_equal_approx(Vector3.ONE),
+		"shadow": shadow != null and shadow.visible
+			and absf(shadow.position.x - card.position.x) < 0.01,
+	}
+
 func _init() -> void:
 	var packed: PackedScene = load("res://scenes/main.tscn")
 	var main: ReefMain = packed.instantiate()
@@ -574,6 +623,9 @@ func _init() -> void:
 			seesaw_rect.position.x - swing_rect.end.x])
 	var roshan_card: Sprite3D = main.g.get("lagoon_roshan_card") as Sprite3D
 	var idle_texture: Texture2D = roshan_card.texture
+	promenade._celebrate_visible_roshan()
+	var celebration_pending: bool = not roshan_card.scale.is_equal_approx(
+		Vector3.ONE) and main.g.has("lagoon_visible_roshan_tween")
 	promenade._start_playground_animation("swing", toy_nodes.get("swing") as Node3D)
 	var swing_start: Vector3 = roshan_card.position
 	promenade._tick_playground_animation(0.55)
@@ -601,6 +653,7 @@ func _init() -> void:
 		and roshan_card.position != swing_start
 		and roshan_card.position.z > SkyLagoonPromenade.PLAY_Z
 		and is_equal_approx(roshan_card.scale.x, 1.38)
+		and celebration_pending and not main.g.has("lagoon_visible_roshan_tween")
 		and is_equal_approx(swing_pivot.rotation.z, swing_angle)
 		and swing_hand_world.distance_to(expected_swing_hand) < 0.02
 		and swing_frame == 1
@@ -614,7 +667,8 @@ func _init() -> void:
 		and roshan_card.hframes == 1 and roshan_card.vframes == 1,
 		"region_enabled=%s grid=%dx%d" % [roshan_card.region_enabled,
 			roshan_card.hframes, roshan_card.vframes])
-	promenade._finish_playground_animation()
+	var swing_settle: Dictionary = _complete_playground_action(
+		main, promenade, roshan_card)
 	_check("swing_seat_ropes_and_rider_share_pendulum_pivot",
 		swing_animates and is_zero_approx(swing_pivot.rotation.z),
 		"frame=%d angle=%.3f grip_error=%.3f" % [swing_frame, swing_angle,
@@ -638,7 +692,8 @@ func _init() -> void:
 		and seated_texture.ends_with("roshan_slide_2.png")
 		and riding_texture.ends_with("roshan_slide_3.png")
 		and roshan_card.rotation.z < -0.1)
-	promenade._finish_playground_animation()
+	var slide_settle: Dictionary = _complete_playground_action(
+		main, promenade, roshan_card)
 	_check("slide_has_bouncy_steps_and_seated_ride", slide_animates)
 
 	var seesaw_node: Node3D = toy_nodes.get("seesaw") as Node3D
@@ -673,10 +728,23 @@ func _init() -> void:
 	var seesaw_animates: bool = (
 		saw_high and saw_low and saw_motion_samples >= 5
 		and roshan_card.texture != idle_texture)
-	promenade._finish_playground_animation()
+	var seesaw_settle: Dictionary = _complete_playground_action(
+		main, promenade, roshan_card)
 	_check("seesaw_rocks_back_and_forth_three_times", seesaw_animates)
+	var settle_contract_ok := true
+	for settle_value in [swing_settle, slide_settle, seesaw_settle]:
+		var settle: Dictionary = settle_value as Dictionary
+		for key in ["started", "continuous", "visible_owner",
+				"visible_celebration", "moved", "completed", "position",
+				"transform", "shadow"]:
+			settle_contract_ok = settle_contract_ok and bool(settle.get(key, false))
+	_check("playground_completion_settles_the_visible_roshan_card",
+		settle_contract_ok, JSON.stringify([
+			swing_settle, slide_settle, seesaw_settle]))
 	_check("playground_animation_reuses_one_sprite3d",
 		roshan_card.texture == idle_texture
+		and roshan_card.hframes == 4 and roshan_card.vframes == 2
+		and ROSHAN_FRAMES.sampled_rect(roshan_card).size == Vector2(256.0, 256.0)
 		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty())
 
 	var swing_screen: Vector2 = lens.unproject_position(swing_node.global_position)
@@ -691,7 +759,20 @@ func _init() -> void:
 		String((main.g.get("lagoon_play_anim", {}) as Dictionary).get(
 			"kind", "")) == "swing")
 	promenade._finish_playground_animation()
+	promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
 	await _frames(2)
+	var invalid_equipment := Node3D.new()
+	promenade.stage.root().add_child(invalid_equipment)
+	promenade._start_playground_animation("slide", invalid_equipment)
+	invalid_equipment.free()
+	promenade._tick_playground_animation(0.01)
+	var invalid_cleanup_started: bool = String((main.g.get(
+		"lagoon_play_anim", {}) as Dictionary).get("phase", "")) == "settle"
+	promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
+	_check("invalid_playground_equipment_settles_without_stranding_input",
+		invalid_cleanup_started
+		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty()
+		and not main.player.visible and roshan_card.visible)
 
 	# Walk to the castle end and enter it THE WAY THE CHILD DOES: two taps at
 	# the door's own place on screen. The old probe called _focus/_activate

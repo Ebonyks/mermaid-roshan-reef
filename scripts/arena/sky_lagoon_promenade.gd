@@ -285,6 +285,8 @@ const PLAY_FRAME_PATHS := {
 	],
 }
 const PLAY_DURATIONS := {"swing": 5.6, "slide": 5.4, "seesaw": 5.8}
+const PLAY_SETTLE_S := 0.34
+const PLAY_SETTLE_HOP := 0.26
 
 # THE ROUTE THROUGH THE LEVEL (owner request 2026-07-27: "she should have a
 # clear routing path through the level as well"). The promenade is a path, not
@@ -1046,7 +1048,7 @@ func _startle_animal(animal: Dictionary) -> void:
 	_clear_focus()
 	m._sparkle_burst(node.global_position + Vector3(0.0,
 		float(definition["height"]) * 0.25, 0.0), Color(1.0, 0.78, 0.42))
-	m.player.play_verb("giggle")
+	_celebrate_visible_roshan()
 
 func _animal_is_offscreen(node: Sprite3D) -> bool:
 	var cam: Camera3D = m.player.cam
@@ -1644,6 +1646,7 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	var root_node: Node3D = stage.root()
 	if card == null or not is_instance_valid(card) or root_node == null:
 		return
+	_stop_visible_roshan_celebration()
 	var frames: Array[Texture2D] = []
 	for path_value in PLAY_FRAME_PATHS[kind]:
 		var frame: Texture2D = load(String(path_value)) as Texture2D
@@ -1657,6 +1660,7 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	m.player.position.x = root_node.position.x + _walk_x(equipment_reference_x)
 	m.g["lagoon_play_anim"] = {
 		"kind": kind,
+		"phase": "action",
 		"t": 0.0,
 		"dur": float(PLAY_DURATIONS[kind]),
 		"equipment": equipment,
@@ -1725,12 +1729,16 @@ func _place_play_anchor(card: Sprite3D, equipment: Node3D,
 func _tick_playground_animation(delta: float) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})
 	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
-	var equipment: Node3D = play.get("equipment") as Node3D
 	if play.is_empty() or card == null or not is_instance_valid(card):
 		return
-	if equipment == null or not is_instance_valid(equipment):
+	if String(play.get("phase", "action")) == "settle":
+		_tick_playground_settle(card, play, delta)
+		return
+	var equipment_value: Variant = play.get("equipment")
+	if equipment_value == null or not is_instance_valid(equipment_value):
 		_finish_playground_animation()
 		return
+	var equipment: Node3D = equipment_value as Node3D
 	var t: float = float(play.get("t", 0.0)) + delta
 	play["t"] = t
 	var kind: String = String(play.get("kind", ""))
@@ -1835,24 +1843,95 @@ func _tick_seesaw_animation(card: Sprite3D, seesaw: Node3D, t: float) -> void:
 func _finish_playground_animation() -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})
 	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
-	var equipment: Node3D = play.get("equipment") as Node3D
-	if equipment != null and is_instance_valid(equipment):
+	if play.is_empty() or card == null or not is_instance_valid(card) \
+			or String(play.get("phase", "action")) == "settle":
+		return
+	var equipment: Node3D = null
+	var equipment_value: Variant = play.get("equipment")
+	if equipment_value != null and is_instance_valid(equipment_value):
+		equipment = equipment_value as Node3D
+	if equipment != null:
 		equipment.rotation.z = float(play.get("equipment_rotation", 0.0))
 		if String(play.get("kind", "")) == "swing":
 			_set_promenade_swing_angle(equipment, 0.0)
-	m.g["lagoon_play_anim"] = {}
+	play["phase"] = "settle"
+	play["settle_t"] = 0.0
+	play["settle_start_position"] = card.position
+	play["settle_start_rotation"] = card.rotation.z
+	play["settle_start_scale"] = card.scale
 	var animator: RoshanSpriteLoop = m.g.get(
 		"lagoon_roshan_animator") as RoshanSpriteLoop
-	if card != null and is_instance_valid(card):
-		card.pixel_size = float(m.g.get("lagoon_roshan_idle_pixel_size", card.pixel_size))
-		card.rotation.z = 0.0
-		card.scale = Vector3.ONE
-		card.flip_h = false
-		card.set_meta("walking", false)
+	card.pixel_size = float(m.g.get("lagoon_roshan_idle_pixel_size", card.pixel_size))
+	card.flip_h = false
+	card.set_meta("walking", false)
 	if animator != null and is_instance_valid(animator):
 		animator.set_paused(false)
+	m.g["lagoon_visible_roshan_celebrations"] = int(
+		m.g.get("lagoon_visible_roshan_celebrations", 0)) + 1
+
+func _roshan_route_card_position(card: Sprite3D) -> Vector3:
+	var root_node: Node3D = stage.root()
+	if root_node == null:
+		return card.position
+	var local_player: Vector3 = m.player.position - root_node.position
+	return Vector3(local_player.x, local_player.y + 1.0, local_player.z + 0.2)
+
+func _tick_playground_settle(card: Sprite3D, play: Dictionary,
+		delta: float) -> void:
+	var settle_t: float = minf(
+		float(play.get("settle_t", 0.0)) + delta, PLAY_SETTLE_S)
+	play["settle_t"] = settle_t
+	var progress: float = settle_t / PLAY_SETTLE_S
+	var eased: float = smoothstep(0.0, 1.0, progress)
+	var start_position: Vector3 = play.get(
+		"settle_start_position", card.position) as Vector3
+	var target_position: Vector3 = _roshan_route_card_position(card)
+	card.position = start_position.lerp(target_position, eased) + Vector3(
+		0.0, sin(progress * PI) * PLAY_SETTLE_HOP, 0.0)
+	card.rotation.z = lerp_angle(
+		float(play.get("settle_start_rotation", 0.0)), 0.0, eased)
+	var start_scale: Vector3 = play.get(
+		"settle_start_scale", Vector3.ONE) as Vector3
+	var base_scale: Vector3 = start_scale.lerp(Vector3.ONE, eased)
+	var squash: float = sin(progress * PI) * 0.07
+	card.scale = Vector3(
+		base_scale.x * (1.0 + squash * 0.45),
+		base_scale.y * (1.0 - squash),
+		base_scale.z)
+	if settle_t < PLAY_SETTLE_S:
+		return
+	m.g["lagoon_play_anim"] = {}
+	card.position = target_position
+	card.rotation.z = 0.0
+	card.scale = Vector3.ONE
 	_sync_roshan_card()
-	m.player.play_verb("giggle")
+
+func _celebrate_visible_roshan() -> void:
+	# The promenade hides the primary Player renderer. Celebrate on the one card
+	# the child can actually see instead of playing a gesture on the hidden node.
+	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
+		return
+	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
+	if card == null or not is_instance_valid(card):
+		return
+	_stop_visible_roshan_celebration()
+	m.g["lagoon_visible_roshan_celebrations"] = int(
+		m.g.get("lagoon_visible_roshan_celebrations", 0)) + 1
+	card.scale = Vector3(1.07, 0.93, 1.0)
+	var tween: Tween = m.create_tween()
+	m.g["lagoon_visible_roshan_tween"] = tween
+	tween.tween_property(card, "scale", Vector3(0.97, 1.06, 1.0), 0.12) \
+		.set_trans(Tween.TRANS_SINE)
+	tween.tween_property(card, "scale", Vector3.ONE, 0.16) \
+		.set_trans(Tween.TRANS_BACK)
+
+func _stop_visible_roshan_celebration() -> void:
+	var tween_value: Variant = m.g.get("lagoon_visible_roshan_tween")
+	if tween_value is Tween:
+		var tween: Tween = tween_value as Tween
+		if tween.is_valid():
+			tween.kill()
+	m.g.erase("lagoon_visible_roshan_tween")
 
 func _depth_ratio() -> float:
 	# her plane sits at z 0, the painting at BACKDROP_Z: everything painted is
