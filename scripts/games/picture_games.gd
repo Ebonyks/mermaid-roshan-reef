@@ -289,7 +289,8 @@ func _mg_snow_face_phase() -> void:
 	var carrot := _mg_artbtn("res://assets/mg/carrot.png", Vector2(360, 600), Vector2(150, 110))
 	carrot.pressed.connect(func(): _mg_snow_face("carrot", carrot))
 	for i in range(2):
-		var coal := _mg_artbtn("res://assets/mg/coal.png", Vector2(250 + float(i) * 220, 600), Vector2(90, 90))
+		var coal := _mg_artbtn("res://assets/mg/coal.png",
+			Vector2(220 + float(i) * 280, 600), StorybookUI.MIN_TOUCH)
 		var idx := i
 		coal.pressed.connect(func(): _mg_snow_face("coal" + str(idx), coal))
 

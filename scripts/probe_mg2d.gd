@@ -24,6 +24,8 @@ func _init() -> void:
 	main.touch_ui.stick_vec = Vector2.ZERO
 	var results := []
 	var failed := not passive_ok or not assist_ok
+	var snow_face_touch_checked := false
+	var snow_face_touch_ok := false
 	results.append("snow assist: %s" % ("OK" if passive_ok and assist_ok else "FAIL"))
 	for kind in ["snowman", "garden", "trampoline", "xmas"]:
 		if kind != "snowman":
@@ -39,6 +41,24 @@ func _init() -> void:
 			# eat his carrot nose (the book-canon ending).
 			if kind == "snowman" and main.touch_ui != null:
 				var snow_phase: String = String(main.mg.get("phase", ""))
+				if snow_phase == "face" and not snow_face_touch_checked:
+					snow_face_touch_checked = true
+					var face_buttons: Array = main.mg.get("btns", [])
+					snow_face_touch_ok = face_buttons.size() == 3
+					for face_button_value in face_buttons:
+						var face_button: Control = face_button_value as Control
+						if face_button == null:
+							snow_face_touch_ok = false
+							continue
+						var touch_size := Vector2(
+							maxf(face_button.size.x, face_button.custom_minimum_size.x),
+							maxf(face_button.size.y, face_button.custom_minimum_size.y))
+						if touch_size.x < StorybookUI.MIN_TOUCH.x \
+								or touch_size.y < StorybookUI.MIN_TOUCH.y:
+							snow_face_touch_ok = false
+					failed = failed or not snow_face_touch_ok
+					results.append("snow face touch targets: %s" % (
+						"OK" if snow_face_touch_ok else "FAIL"))
 				if snow_phase == "roll":
 					var spin_ang: float = float(main.mg.get("t", 0.0)) * 2.4
 					main.touch_ui.stick_vec = Vector2(cos(spin_ang), sin(spin_ang))
@@ -69,6 +89,9 @@ func _init() -> void:
 		if main.touch_ui != null:
 			main.touch_ui.stick_vec = Vector2.ZERO
 		await process_frame
+	if not snow_face_touch_checked:
+		failed = true
+		results.append("snow face touch targets: FAIL (face phase not reached)")
 	print("=== STAGE 2 MINIGAME STRESS TEST ===")
 	for r in results: print("  " + r)
 	print("MG2D|done: ", "FAIL" if failed else "OK")
