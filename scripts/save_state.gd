@@ -116,7 +116,9 @@ func load_save() -> void:
 	# Tamagotchi care replaced the token collectibles (owner 2026-07-20):
 	# migrate any legacy token progress into care points, never losing growth
 	m.care_points = maxi(int(m.save_data.get("care_points", 0)), m.fish_tokens)
-	m.companion_resting = bool(m.save_data.get("companion_resting", false))
+	# `companion_resting` is retained in the schema so old saves stay readable,
+	# but the retired timeout/fail state can never strand a saved friend.
+	m.companion_resting = false
 	m.companion_bruises = int(m.save_data.get("companion_bruises", 0))
 	var saved_stuffie_wins: Variant = m.save_data.get("stuffie_wins", {})
 	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
@@ -227,7 +229,8 @@ func write_save() -> bool:
 	next_data["companion_colors"] = m.companion_colors
 	next_data["fish_tokens"] = maxi(m.fish_tokens, 0)
 	next_data["care_points"] = maxi(m.care_points, 0)
-	next_data["companion_resting"] = m.companion_resting
+	# Add-only save compatibility: keep the retired key, permanently healed.
+	next_data["companion_resting"] = false
 	next_data["companion_bruises"] = maxi(m.companion_bruises, 0)
 	next_data["lagoon_plane_departed"] = bool(
 		m.save_data.get("lagoon_plane_departed", false))
@@ -501,7 +504,9 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["companion_colors"] = _array_or_default(raw, "companion_colors")
 	data["fish_tokens"] = _nonnegative_int_or_default(raw, "fish_tokens", 0)
 	data["care_points"] = _nonnegative_int_or_default(raw, "care_points", 0)
-	data["companion_resting"] = _bool_or_default(raw, "companion_resting", false)
+	# Legacy builds could send an untended friend home. Preserve the key but
+	# normalize every old `true` value so the friend returns on the next load.
+	data["companion_resting"] = false
 	data["companion_bruises"] = _nonnegative_int_or_default(raw, "companion_bruises", 0)
 	data["lagoon_plane_departed"] = _bool_or_default(
 		raw, "lagoon_plane_departed", false)

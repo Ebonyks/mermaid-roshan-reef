@@ -272,11 +272,10 @@ var companion_want_bubble: Label3D = null # the emoji thought bubble over the st
 var companion_want_cool := 25.0           # first ask lands soon after adoption
 var companion_care_t := -1.0              # >0 while a care moment animation plays
 var companion_care_action_prev := false
-var companion_resting := false            # went home to rest (persisted) — on its Studio shelf until re-picked
+var companion_resting := false            # retired save flag; always normalized false (compatibility only)
 var companion_bruises := 0                # battle boo-boos awaiting care (persisted)
 var companion_want_queue: Array = []      # queued wants (post-battle hug + bath)
-var companion_rest_timer := -1.0          # >0 while injured: patience left before it goes home
-var companion_rest_warned := 0            # escalating "needs care" reminders fired
+var companion_rest_timer := -1.0          # >0 while injured: time until the next gentle reminder
 var companion_layer: CanvasLayer = null   # picker overlay
 var companion_stage: Control = null
 var companion_care_layer: CanvasLayer = null # Tamagotchi care overlay
@@ -2770,7 +2769,7 @@ func _end_combat(battle_kind: String) -> void:
 func _start_stuffie_battle() -> void:
 	# the sparring-den ladder: one round per visit; once all three are won the
 	# den keeps serving rounds in rotation (replayable, no dead end)
-	if stuffie_game != null or companion_id == "" or companion_resting:
+	if stuffie_game != null or companion_id == "":
 		return
 	# The battle swaps the mode with no fade, so stale focus/assisted travel
 	# must not survive into (or past) it.
@@ -3747,7 +3746,7 @@ func _populate_touch_interactables() -> void:
 		if kart_portal_pos != Vector3.ZERO:
 			_touch_add_item("reef:kart", "Ocean Race", kart_portal_pos, null, 12.0, 42.0, "RACE")
 		if companion_den != null and is_instance_valid(companion_den) \
-				and companion_id != "" and not companion_resting \
+				and companion_id != "" \
 				and stuffie_game == null and stuffie_cool <= 0.0:
 			# 9.0 matches companion.gd DEN_RADIUS (the Classic walk-in ring)
 			_touch_add_item("reef:den", "Sparring Den", companion_den.position,
