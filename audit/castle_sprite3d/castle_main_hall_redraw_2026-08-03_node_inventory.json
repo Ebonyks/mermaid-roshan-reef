@@ -16,7 +16,7 @@
 	"room": "main_hall",
 	"node_types": {
 		"Node3D": 5,
-		"Sprite3D": 49,
+		"Sprite3D": 36,
 		"Camera3D": 1,
 		"DirectionalLight3D": 1,
 		"SpotLight3D": 4,
@@ -26,18 +26,18 @@
 		"unspecified_sprite3d": 1,
 		"clean_background": 1,
 		"clean_background_tile": 16,
-		"unique_object": 16,
+		"unique_object": 3,
 		"room_door_sign": 8,
 		"royal_hall_mist": 5,
 		"actor_shadow": 1,
 		"character": 1
 	},
 	"sprite3d": {
-		"total": 49,
-		"visible": 27,
-		"unshaded": 49,
+		"total": 36,
+		"visible": 18,
+		"unshaded": 36,
 		"shaded": 0,
-		"depth_tested": 49,
+		"depth_tested": 36,
 		"missing_texture": 0
 	},
 	"sprite3d_cards": [
@@ -50,13 +50,13 @@
 				128,
 				128
 			],
-			"visible": true,
+			"visible": false,
 			"unshaded": true,
 			"depth_tested": true,
 			"transparent": true,
 			"alpha_cut_mode": 0,
 			"cast_shadow_mode": 0,
-			"depth_z": 0.685000002384186
+			"depth_z": 0.0
 		},
 		{
 			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomBackdrop",
@@ -348,108 +348,6 @@
 			"depth_z": 0.0
 		},
 		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_a0",
-			"role": "unique_object",
-			"source_object_id": "main_hall:sconce_a0",
-			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
-			"texture_dimensions": [
-				1024,
-				1024
-			],
-			"visible": true,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 0,
-			"depth_z": 0.720000028610229
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_a1",
-			"role": "unique_object",
-			"source_object_id": "main_hall:sconce_a1",
-			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
-			"texture_dimensions": [
-				1024,
-				1024
-			],
-			"visible": true,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 0,
-			"depth_z": 0.720000028610229
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_a2",
-			"role": "unique_object",
-			"source_object_id": "main_hall:sconce_a2",
-			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
-			"texture_dimensions": [
-				1024,
-				1024
-			],
-			"visible": true,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 0,
-			"depth_z": 0.720000028610229
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_b0",
-			"role": "unique_object",
-			"source_object_id": "main_hall:sconce_b0",
-			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
-			"texture_dimensions": [
-				1024,
-				1024
-			],
-			"visible": false,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 0,
-			"depth_z": 0.720000028610229
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_b1",
-			"role": "unique_object",
-			"source_object_id": "main_hall:sconce_b1",
-			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
-			"texture_dimensions": [
-				1024,
-				1024
-			],
-			"visible": false,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 0,
-			"depth_z": 0.720000028610229
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_b2",
-			"role": "unique_object",
-			"source_object_id": "main_hall:sconce_b2",
-			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
-			"texture_dimensions": [
-				1024,
-				1024
-			],
-			"visible": false,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 0,
-			"depth_z": 0.720000028610229
-		},
-		{
 			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sleepy_bunny",
 			"role": "unique_object",
 			"source_object_id": "main_hall:sleepy_bunny",
@@ -462,7 +360,7 @@
 			"unshaded": true,
 			"depth_tested": true,
 			"transparent": true,
-			"alpha_cut_mode": 1,
+			"alpha_cut_mode": 0,
 			"cast_shadow_mode": 2,
 			"depth_z": 2.65000009536743
 		},
@@ -479,7 +377,7 @@
 			"unshaded": true,
 			"depth_tested": true,
 			"transparent": true,
-			"alpha_cut_mode": 1,
+			"alpha_cut_mode": 0,
 			"cast_shadow_mode": 2,
 			"depth_z": 3.04999995231628
 		},
@@ -496,128 +394,9 @@
 			"unshaded": true,
 			"depth_tested": true,
 			"transparent": true,
-			"alpha_cut_mode": 1,
+			"alpha_cut_mode": 0,
 			"cast_shadow_mode": 2,
 			"depth_z": 2.84999990463257
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_shell_clock",
-			"role": "unique_object",
-			"source_object_id": "main_hall:shell_clock",
-			"texture": "res://assets/flats/castle/interactions_v3/main_hall_shell_clock_sheet.png",
-			"texture_dimensions": [
-				768,
-				384
-			],
-			"visible": true,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 2,
-			"depth_z": 0.699999988079071
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_visitor_bell",
-			"role": "unique_object",
-			"source_object_id": "main_hall:visitor_bell",
-			"texture": "res://assets/flats/castle/interactions_v3/main_hall_visitor_bell_sheet.png",
-			"texture_dimensions": [
-				768,
-				384
-			],
-			"visible": true,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 2,
-			"depth_z": 0.709999978542328
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_left_pearl_vitrine",
-			"role": "unique_object",
-			"source_object_id": "main_hall:left_pearl_vitrine",
-			"texture": "res://assets/flats/castle/interactions_v3/main_hall_left_pearl_vitrine_sheet.png",
-			"texture_dimensions": [
-				768,
-				384
-			],
-			"visible": true,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 2,
-			"depth_z": 0.689999997615814
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_right_pearl_vitrine",
-			"role": "unique_object",
-			"source_object_id": "main_hall:right_pearl_vitrine",
-			"texture": "res://assets/flats/castle/interactions_v3/main_hall_right_pearl_vitrine_sheet.png",
-			"texture_dimensions": [
-				768,
-				384
-			],
-			"visible": false,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 2,
-			"depth_z": 0.689999997615814
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_banner_left",
-			"role": "unique_object",
-			"source_object_id": "main_hall:banner_left",
-			"texture": "res://assets/flats/castle/interactions_v3/main_hall_banner_left_sheet.png",
-			"texture_dimensions": [
-				768,
-				384
-			],
-			"visible": true,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 2,
-			"depth_z": 0.680000007152557
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_fern_planter",
-			"role": "unique_object",
-			"source_object_id": "main_hall:fern_planter",
-			"texture": "res://assets/flats/castle/interactions_v3/main_hall_fern_planter_sheet.png",
-			"texture_dimensions": [
-				768,
-				384
-			],
-			"visible": true,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 2,
-			"depth_z": 2.82999992370605
-		},
-		{
-			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_chest_bench",
-			"role": "unique_object",
-			"source_object_id": "main_hall:chest_bench",
-			"texture": "res://assets/flats/castle/interactions_v3/main_hall_chest_bench_sheet.png",
-			"texture_dimensions": [
-				768,
-				384
-			],
-			"visible": false,
-			"unshaded": true,
-			"depth_tested": true,
-			"transparent": true,
-			"alpha_cut_mode": 1,
-			"cast_shadow_mode": 2,
-			"depth_z": 2.88000011444092
 		},
 		{
 			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallDoorSign_family_gallery",
@@ -853,7 +632,7 @@
 			"unshaded": true,
 			"depth_tested": true,
 			"transparent": true,
-			"alpha_cut_mode": 1,
+			"alpha_cut_mode": 0,
 			"cast_shadow_mode": 0,
 			"depth_z": 1.24166667461395
 		},
