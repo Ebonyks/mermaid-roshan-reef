@@ -95,6 +95,7 @@ func _init() -> void:
 	bad += fairy_bad
 	var brawl_bad: int = await _probe_brawl_agency()
 	bad += brawl_bad
+	bad += _probe_companion_patient_care()
 	# Water-FX cards are EVENT effects (fx_water.gd): the swell, sleeping-prop
 	# sway and every other ambient channel must never proc one. Zero input
 	# across this whole run therefore means zero cards, ever.
@@ -131,6 +132,61 @@ func _progress_unchanged(before: Dictionary) -> bool:
 		and main.shop_owned == before["shop"] \
 		and main.animals_owned == before["animals"] \
 		and main.medals == before["medals"]
+
+func _probe_companion_patient_care() -> int:
+	# The retired 120-second send-home path was a zero-input failure. Cross that
+	# boundary with the real care clock and prove that waiting changes nothing
+	# except the non-blocking reminder cadence.
+	main.companion_id = "eagle"
+	main.companion_colors = ["f7b77f", "ffd86b", "fff2a0"]
+	main.companion_resting = false
+	var companion: CompanionSystem = main._companion_ref()
+	companion.tick(0.0)
+	if main.companion_node == null or not is_instance_valid(main.companion_node):
+		print("PASSIVE|Stuffie patient care: FAIL follower did not spawn")
+		return 1
+	main.companion_bruises = 2
+	companion.after_battle(false)
+	main.touch_ui.stick_vec = Vector2.ZERO
+	main.touch_ui.action_down = false
+	main.touch_ui.action_just = false
+	var follower_before: int = main.companion_node.get_instance_id()
+	var companion_before: String = main.companion_id
+	var colors_before: Array = main.companion_colors.duplicate(true)
+	var bruises_before: int = main.companion_bruises
+	var tokens_before: int = main.fish_tokens
+	var care_before: int = main.care_points
+	var wins_before: Dictionary = main.stuffie_wins.duplicate(true)
+	var progress_before: Dictionary = _progress_snapshot()
+	for _second: int in range(181):
+		companion._tick_care(1.0)
+	var follower_present: bool = main.companion_node != null \
+		and is_instance_valid(main.companion_node) \
+		and main.companion_node.get_instance_id() == follower_before \
+		and main.companion_node.visible
+	var invitation_present: bool = main.companion_want != "" \
+		and main.companion_want_bubble != null \
+		and is_instance_valid(main.companion_want_bubble)
+	var unchanged: bool = not main.companion_resting \
+		and main.game == "" and main.stuffie_game == null \
+		and main.companion_id == companion_before \
+		and main.companion_colors == colors_before \
+		and main.companion_bruises == bruises_before \
+		and main.fish_tokens == tokens_before \
+		and main.care_points == care_before \
+		and main.stuffie_wins == wins_before \
+		and main.companion_care_t <= 0.0 \
+		and main.companion_rest_timer > 0.0 \
+		and main.companion_rest_timer <= CompanionSystem.CARE_REMINDER_GAP \
+		and _progress_unchanged(progress_before)
+	var ok: bool = follower_present and invitation_present and unchanged
+	print("PASSIVE|Stuffie patient care: ",
+		"OK present, unchanged, and optional after 181s" if ok else \
+		"FAIL follower=%s invitation=%s unchanged=%s resting=%s bruises=%d timer=%.2f" \
+		% [follower_present, invitation_present, unchanged,
+			main.companion_resting, main.companion_bruises,
+			main.companion_rest_timer])
+	return 0 if ok else 1
 
 func _probe_brawl_agency() -> int:
 	# The brawler ships with an AI partner (Huluu) who fights on her own —

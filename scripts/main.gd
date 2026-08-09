@@ -2817,8 +2817,8 @@ func _end_stuffie_battle(round_tag: String) -> void:
 		player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	if hud_layer != null:
 		hud_layer.visible = true
-	# post-battle care (owner 2026-07-21): a big battle earns a hug + bath;
-	# boo-boos that never get that care send the stuffie home to rest
+	# Post-battle care is a patient hug + bath invitation. Boo-boos wait until
+	# the child is ready; the reminder clock never removes or blocks the friend.
 	_companion_ref().after_battle()
 
 func _start_dungeon() -> void:
