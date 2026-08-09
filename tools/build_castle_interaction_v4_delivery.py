@@ -309,6 +309,11 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def repository_text_sha256(path: Path) -> str:
+    """Hash text as it is stored in Git, independent of checkout EOLs."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def sha256_bytes(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
 
@@ -1699,7 +1704,7 @@ def audit_upstream_provenance(root: Path, manifest: dict[str, Any]) -> list[str]
         if not path.is_file():
             errors.append(f"missing upstream provenance file: {declared_path}")
             continue
-        actual_hash = sha256_file(path)
+        actual_hash = repository_text_sha256(path)
         if actual_hash != declared_hash:
             errors.append(
                 f"stale upstream provenance hash: {hash_key}; "

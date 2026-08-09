@@ -9,6 +9,7 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from tools.build_castle_interaction_v4_delivery import audit_upstream_provenance
+from tools.build_castle_native_interactions_v4 import _repository_text_sha256
 
 
 class UpstreamProvenanceTests(unittest.TestCase):
@@ -44,6 +45,32 @@ class UpstreamProvenanceTests(unittest.TestCase):
                 "stale upstream provenance hash" in error
                 and "source_layer_manifest_sha256" in error
                 for error in errors))
+
+    def test_accepts_repository_hash_across_checkout_line_endings(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            manifest = self._fixture(root)
+            generator = root / manifest["generator"]
+            generator.write_bytes(b"first line\r\nsecond line\r\n")
+            manifest["generator_sha256"] = hashlib.sha256(
+                b"first line\nsecond line\n").hexdigest()
+            self.assertEqual(audit_upstream_provenance(root, manifest), [])
+
+            generator.write_bytes(b"first line\r\nchanged line\r\n")
+            errors = audit_upstream_provenance(root, manifest)
+            self.assertTrue(any(
+                "stale upstream provenance hash" in error
+                and "generator_sha256" in error
+                for error in errors))
+
+    def test_native_generator_records_repository_text_hash(self) -> None:
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "source.json"
+            path.write_bytes(b'{\r\n  "value": true\r\n}\r\n')
+            self.assertEqual(
+                _repository_text_sha256(path),
+                hashlib.sha256(b'{\n  "value": true\n}\n').hexdigest(),
+            )
 
     def test_rejects_repository_escape(self) -> None:
         with TemporaryDirectory() as directory:

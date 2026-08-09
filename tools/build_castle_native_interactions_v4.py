@@ -39,6 +39,11 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _repository_text_sha256(path: Path) -> str:
+    """Hash text as it is stored in Git, independent of checkout EOLs."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def _relative(path: Path, root: Path) -> str:
     return path.relative_to(root).as_posix()
 
@@ -545,11 +550,12 @@ def build(root: Path, spec_path: Path) -> dict[str, Any]:
         "schema_version": 4,
         "generated_on": GENERATION_DATE,
         "generator": _relative(Path(__file__).resolve(), root),
-        "generator_sha256": _sha256(Path(__file__).resolve()),
+        "generator_sha256": _repository_text_sha256(Path(__file__).resolve()),
         "spec": _relative(spec_path, root),
-        "spec_sha256": _sha256(spec_path),
+        "spec_sha256": _repository_text_sha256(spec_path),
         "source_layer_manifest": _relative(layer_manifest_path, root),
-        "source_layer_manifest_sha256": _sha256(layer_manifest_path),
+        "source_layer_manifest_sha256": _repository_text_sha256(
+            layer_manifest_path),
         "contract": {
             "resting_rgb_source": "exact approved room-composite pixels",
             "card_rgb_repainted": False,
