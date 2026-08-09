@@ -566,6 +566,15 @@ func _init() -> void:
 		var target: Dictionary = value as Dictionary
 		var id: String = String(target.get("id", ""))
 		ids[id] = true
+	var preschool_hit_areas_ok := true
+	var smallest_hit_diameter := INF
+	for value in targets:
+		var target: Dictionary = value as Dictionary
+		var hit_diameter: float = float(target.get("radius_px", 0.0)) * 2.0
+		preschool_hit_areas_ok = preschool_hit_areas_ok and hit_diameter >= 110.0
+		smallest_hit_diameter = minf(smallest_hit_diameter, hit_diameter)
+	_check("promenade_targets_have_preschool_hit_areas", preschool_hit_areas_ok,
+		"smallest_diameter=%.1f" % smallest_hit_diameter)
 	_check("interactive_roster", targets.size() == 5
 		and ids.has("reef_route") and ids.has("slide") and ids.has("swing")
 		and ids.has("seesaw") and ids.has("castle_gate"))

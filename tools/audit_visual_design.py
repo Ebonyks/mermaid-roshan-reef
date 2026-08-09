@@ -713,7 +713,8 @@ def _tap_targets(zone: Zone) -> Iterator[Finding]:
     small = [t for t in targets if float(t.get("screen_px", 0)) < 110.0]
     for t in small:
         yield Finding("readability.tap_target_size", zone.id, WARN,
-                      f"target '{t.get('id')}' projects to {float(t.get('screen_px', 0)):.0f}px "
+                      f"target '{t.get('id')}' has a {float(t.get('screen_px', 0)):.0f}px "
+                      "touch diameter "
                       f"— under the 110px storybook minimum",
                       evidence=t)
     if not small:

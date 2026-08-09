@@ -214,6 +214,19 @@ class LifecycleStateTests(unittest.TestCase):
 		self.assertEqual(rows[0].disposition, ava.COVERAGE_GAP)
 		self.assertFalse(ava.strict_passes(rows))
 
+	def test_runtime_touch_diameter_boundary_is_enforced(self) -> None:
+		spec = ava.load_spec()
+		for diameter, expected in ((109.9, ava.REVIEW_OPEN), (110.0, ava.PASS)):
+			with self.subTest(diameter=diameter):
+				runtime = {"zones": {"fairy_pond": {"targets": [{
+					"id": "fixture", "screen_px": diameter,
+				}]}}}
+				repo = ava.Repo(str(ROOT), spec, runtime)
+				rows = ava.run(repo, zone_ids=["fairy_pond"],
+					check_ids=["readability.tap_target_size"])
+				self.assertEqual(len(rows), 1)
+				self.assertEqual(rows[0].disposition, expected)
+
 	def test_waiver_cannot_replace_manual_or_coverage_evidence(self) -> None:
 		for check_id, rule, expected in (
 			("hygiene.manual_squint_test", "no_text_in_art", ava.MANUAL_OPEN),
