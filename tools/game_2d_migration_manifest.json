@@ -2,7 +2,7 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "b3ad3842",
+    "inventory_head": "df5b4cf7",
     "inventory_date": "2026-08-09",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
@@ -7573,17 +7573,17 @@
     ]
   },
   "declared_counts": {
-    "model_files": 637,
+    "model_files": 513,
     "model_scan_coverage_files": 0,
-    "active_export_model_files": 637,
-    "model_import_sidecars": 179,
-    "active_untracked_model_import_sidecars": 458,
+    "active_export_model_files": 513,
+    "model_import_sidecars": 157,
+    "active_untracked_model_import_sidecars": 356,
     "model_archive_files": 0,
     "production_3d_files": 72,
     "probe_3d_files": 80,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
-    "archive_now_model_files": 124
+    "archive_now_model_files": 0
   },
   "model_files": [
     "assets/aquatic/Carp.glb",
@@ -7745,30 +7745,6 @@
     "assets/art35/cards/style3/leaf_broad.glb",
     "assets/art35/cards/style3/leaf_fern.glb",
     "assets/art35/cards/style3/shipwood.glb",
-    "assets/art35/castle/dream_bed_0.glb",
-    "assets/art35/castle/dream_bed_1.glb",
-    "assets/art35/castle/dream_bed_2.glb",
-    "assets/art35/castle/dream_bed_3.glb",
-    "assets/art35/castle/dream_bed_4.glb",
-    "assets/art35/castle/dungeon_gate.glb",
-    "assets/art35/castle/kitchen_kettle.glb",
-    "assets/art35/castle/kitchen_pan_set.glb",
-    "assets/art35/castle/kitchen_soup_pot.glb",
-    "assets/art35/castle/kitchen_table_set.glb",
-    "assets/art35/castle/kitchen_teapot.glb",
-    "assets/art35/castle/music_bar_0.glb",
-    "assets/art35/castle/music_bar_1.glb",
-    "assets/art35/castle/music_bar_2.glb",
-    "assets/art35/castle/music_bar_3.glb",
-    "assets/art35/castle/music_bar_4.glb",
-    "assets/art35/castle/music_bar_5.glb",
-    "assets/art35/castle/music_bar_6.glb",
-    "assets/art35/castle/music_rail.glb",
-    "assets/art35/castle/music_song_star.glb",
-    "assets/art35/castle/music_wall_panel.glb",
-    "assets/art35/castle/royal_bed.glb",
-    "assets/art35/castle/royal_bookcase.glb",
-    "assets/art35/castle/royal_nightstand.glb",
     "assets/art35/galaxy/ice_gate.glb",
     "assets/art35/galaxy/shell_throne.glb",
     "assets/art35/galaxy/star_bell_0.glb",
@@ -7777,26 +7753,15 @@
     "assets/art35/galaxy/wish_fountain.glb",
     "assets/art35/kart/finish_arch.glb",
     "assets/art35/kart/showcase_plinth.glb",
-    "assets/art35/kart/soft_barrier.glb",
     "assets/art35/landmarks/butterfly_gate.glb",
-    "assets/art35/landmarks/chamber_star.glb",
     "assets/art35/landmarks/cloud_0.glb",
     "assets/art35/landmarks/cloud_1.glb",
     "assets/art35/landmarks/cloud_2.glb",
     "assets/art35/landmarks/crown_star.glb",
     "assets/art35/landmarks/dream_star.glb",
-    "assets/art35/landmarks/star_observatory.glb",
-    "assets/art35/northern/northern_castle.glb",
-    "assets/art35/northern/northern_gate.glb",
-    "assets/art35/northern/northern_house_0.glb",
-    "assets/art35/northern/northern_house_1.glb",
-    "assets/art35/northern/northern_house_2.glb",
-    "assets/art35/northern/northern_mountain.glb",
     "assets/art35/opera/opera_arch.glb",
     "assets/art35/opera/opera_bench.glb",
     "assets/art35/opera/opera_chandelier.glb",
-    "assets/art35/opera/opera_crate.glb",
-    "assets/art35/opera/opera_crate_lid.glb",
     "assets/art35/opera/opera_curtain.glb",
     "assets/art35/opera/opera_door.glb",
     "assets/art35/opera/opera_dragon.glb",
@@ -7809,79 +7774,11 @@
     "assets/art35/opera/opera_shell_gate.glb",
     "assets/art35/opera/opera_silly_fish.glb",
     "assets/art35/opera/opera_stage_apron.glb",
-    "assets/art35/opera/opera_tiara_chest.glb",
     "assets/art35/reef/kelp_0.glb",
     "assets/art35/reef/kelp_1.glb",
     "assets/art35/reef/seagrass_0.glb",
     "assets/art35/reef/seagrass_1.glb",
-    "assets/castle/bathroom_bathtub.glb",
-    "assets/castle/bathroom_sink.glb",
-    "assets/castle/bathroom_toilet.glb",
-    "assets/castle/bed.glb",
-    "assets/castle/kitchen_counter.glb",
-    "assets/castle/kitchen_sink.glb",
-    "assets/castle/kitchen_stove.glb",
-    "assets/castle/pearl_kit/pearl_balustrade.glb",
-    "assets/castle/pearl_kit/pearl_bath_duck.glb",
-    "assets/castle/pearl_kit/pearl_bedside_table.glb",
-    "assets/castle/pearl_kit/pearl_canopy_bed.glb",
-    "assets/castle/pearl_kit/pearl_cloud_pouf.glb",
-    "assets/castle/pearl_kit/pearl_cloud_settee.glb",
-    "assets/castle/pearl_kit/pearl_column.glb",
-    "assets/castle/pearl_kit/pearl_craft_easel.glb",
-    "assets/castle/pearl_kit/pearl_craft_table.glb",
-    "assets/castle/pearl_kit/pearl_floor_medallion.glb",
-    "assets/castle/pearl_kit/pearl_keepsake_cradle.glb",
-    "assets/castle/pearl_kit/pearl_keepsake_music_box.glb",
-    "assets/castle/pearl_kit/pearl_keepsake_tiara.glb",
-    "assets/castle/pearl_kit/pearl_library_table.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_0.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_1.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_2.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_3.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_4.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_5.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_6.glb",
-    "assets/castle/pearl_kit/pearl_music_mallet_stand.glb",
-    "assets/castle/pearl_kit/pearl_music_rail.glb",
-    "assets/castle/pearl_kit/pearl_ocean_portal.glb",
-    "assets/castle/pearl_kit/pearl_opera_gate.glb",
-    "assets/castle/pearl_kit/pearl_opera_vista.glb",
-    "assets/castle/pearl_kit/pearl_paint_rack.glb",
-    "assets/castle/pearl_kit/pearl_pantry_shelf.glb",
-    "assets/castle/pearl_kit/pearl_pet_basket.glb",
-    "assets/castle/pearl_kit/pearl_provisions_hutch.glb",
-    "assets/castle/pearl_kit/pearl_rainbow_gate.glb",
-    "assets/castle/pearl_kit/pearl_rainbow_stacker.glb",
-    "assets/castle/pearl_kit/pearl_rainbow_window.glb",
-    "assets/castle/pearl_kit/pearl_secret_chest.glb",
-    "assets/castle/pearl_kit/pearl_shell_arch.glb",
-    "assets/castle/pearl_kit/pearl_shell_banner_a.glb",
-    "assets/castle/pearl_kit/pearl_shell_banner_b.glb",
-    "assets/castle/pearl_kit/pearl_shell_bench.glb",
-    "assets/castle/pearl_kit/pearl_shell_chandelier.glb",
-    "assets/castle/pearl_kit/pearl_shell_drum.glb",
-    "assets/castle/pearl_kit/pearl_shell_fountain.glb",
-    "assets/castle/pearl_kit/pearl_shell_hopscotch.glb",
-    "assets/castle/pearl_kit/pearl_shell_lantern.glb",
-    "assets/castle/pearl_kit/pearl_shell_planter.glb",
-    "assets/castle/pearl_kit/pearl_shell_sconce.glb",
-    "assets/castle/pearl_kit/pearl_shell_throne.glb",
-    "assets/castle/pearl_kit/pearl_shell_wardrobe.glb",
-    "assets/castle/pearl_kit/pearl_shell_window.glb",
-    "assets/castle/pearl_kit/pearl_stair_rail.glb",
-    "assets/castle/pearl_kit/pearl_storage_barrel.glb",
-    "assets/castle/pearl_kit/pearl_storage_cart.glb",
-    "assets/castle/pearl_kit/pearl_storage_crate.glb",
-    "assets/castle/pearl_kit/pearl_story_cushion.glb",
-    "assets/castle/pearl_kit/pearl_throne_canopy.glb",
-    "assets/castle/pearl_kit/pearl_towel_stack.glb",
-    "assets/castle/pearl_kit/pearl_toy_block_stack.glb",
-    "assets/castle/pearl_kit/pearl_toy_chest.glb",
-    "assets/castle/pearl_kit/pearl_toy_sailboat.glb",
-    "assets/castle/throne.glb",
     "assets/characters/chuck_poodle_rigged.glb",
-    "assets/characters/huluu.glb",
     "assets/characters/lamb.glb",
     "assets/collectibles/aurora_tern.glb",
     "assets/collectibles/blue_dragonfly.glb",
@@ -7955,34 +7852,15 @@
     "assets/ember_fortress/ember_tower_d.glb",
     "assets/fable_kit/coral_bare_0.glb",
     "assets/fable_kit/kelp_vol_0.glb",
-    "assets/fable_kit/loco_body.glb",
-    "assets/fable_kit/station_platform.glb",
-    "assets/fable_kit/station_shelter.glb",
-    "assets/fable_kit/track_curve.glb",
-    "assets/fable_kit/track_straight.glb",
-    "assets/galaxy/beetle.glb",
     "assets/galaxy/butterfly1.glb",
     "assets/galaxy/butterfly2.glb",
     "assets/galaxy/crystal1.glb",
     "assets/galaxy/crystal2.glb",
     "assets/galaxy/crystal3.glb",
     "assets/galaxy/crystal_castle.glb",
-    "assets/galaxy/fruit_apple.glb",
-    "assets/galaxy/fruit_banana.glb",
-    "assets/galaxy/fruit_melon.glb",
-    "assets/galaxy/fruit_orange.glb",
-    "assets/galaxy/ladybug.glb",
     "assets/galaxy/tray.glb",
-    "assets/galaxy/trop_bigleaf.glb",
-    "assets/galaxy/trop_fern.glb",
-    "assets/galaxy/trop_monstera.glb",
-    "assets/galaxy/trop_palm1.glb",
-    "assets/galaxy/trop_palm2.glb",
     "assets/kits/castle/flag.glb",
     "assets/kits/castle/tower-square.glb",
-    "assets/kits/furniture/bookcase.glb",
-    "assets/kits/furniture/chair.glb",
-    "assets/kits/furniture/table.glb",
     "assets/kits/park/bench.glb",
     "assets/kits/park/fountain.glb",
     "assets/nature/cliff_block_rock.glb",
@@ -8091,7 +7969,6 @@
     "assets/opera/rivals/opera_rival_painter.glb",
     "assets/opera/rivals/opera_rival_popstar.glb",
     "assets/opera/rivals/opera_rival_racer.glb",
-    "assets/portal/butterfly_gate.glb",
     "assets/props/alpine/alpine_beetle_terrarium.glb",
     "assets/props/alpine/alpine_bird_cage.glb",
     "assets/props/alpine/alpine_fish_aquarium.glb",
@@ -8157,7 +8034,6 @@
     "assets/reef_regions/moon_shell_arch.glb",
     "assets/reef_regions/wreck_ravine_shoulders.glb",
     "assets/ship/barrel.glb",
-    "assets/ship/chest.glb",
     "assets/sky_lagoon/lagoon_kit/lagoon_alpine_cairn.glb",
     "assets/sky_lagoon/lagoon_kit/lagoon_alpine_cave.glb",
     "assets/sky_lagoon/lagoon_kit/lagoon_alpine_chalet_a.glb",
@@ -8861,102 +8737,6 @@
       "size": 1271144,
       "sha256": "d7b49d89c6ae99e1d376c73e65820f3207725e08d90e8afa42d16b5809a06b83"
     },
-    "assets/art35/castle/dream_bed_0.glb": {
-      "size": 50708,
-      "sha256": "0779212e0de72071f31e2cd5c076f06215277b5c6ff45c4fb6fa1bcef43b75e0"
-    },
-    "assets/art35/castle/dream_bed_1.glb": {
-      "size": 51848,
-      "sha256": "41b69b0444b3a5a6ce189058532dd9027a86c20028531d533bc03b51c09d5655"
-    },
-    "assets/art35/castle/dream_bed_2.glb": {
-      "size": 50712,
-      "sha256": "5086f0e5547d9c40ecfcb0ab485227414cc299fa1d7ac8acb671e7060880911d"
-    },
-    "assets/art35/castle/dream_bed_3.glb": {
-      "size": 50700,
-      "sha256": "39c693cbb9234a1f6d8646c37c3b1bc78d60f280b8eba674fc57322e59af81b7"
-    },
-    "assets/art35/castle/dream_bed_4.glb": {
-      "size": 50700,
-      "sha256": "35ff57082d8a65b02115f9b09b29cd220f6414724edffbd22c7386f3a8a674de"
-    },
-    "assets/art35/castle/dungeon_gate.glb": {
-      "size": 81176,
-      "sha256": "27cd8521c384492935079f93dd958ed1bf8559da50c41fd83d1034ee6cb828ef"
-    },
-    "assets/art35/castle/kitchen_kettle.glb": {
-      "size": 37720,
-      "sha256": "52f0f8ca9a47dae5b459fd32f2ad68213fd324af5d9e2ac1c51defcc4154ef14"
-    },
-    "assets/art35/castle/kitchen_pan_set.glb": {
-      "size": 24780,
-      "sha256": "a7053c73a1dcfe31e3315a022a5101ade445920791ebee99dfd81ac791c79fba"
-    },
-    "assets/art35/castle/kitchen_soup_pot.glb": {
-      "size": 47780,
-      "sha256": "f9003ead4fa864b3790ce53d91139e0f4cd48db4f90c65b521ce16df8615c859"
-    },
-    "assets/art35/castle/kitchen_table_set.glb": {
-      "size": 77596,
-      "sha256": "8f687d04983e0a2cd6929f60d7f158233a0e22d070575579e2d95b0a7a8cd02d"
-    },
-    "assets/art35/castle/kitchen_teapot.glb": {
-      "size": 37744,
-      "sha256": "087d26bcda4788e288f14e1f415b689f586d4b7ab5589c30fdb882f1d7386153"
-    },
-    "assets/art35/castle/music_bar_0.glb": {
-      "size": 20184,
-      "sha256": "4d0ac7f57cd45b7f77bf3540e9e7383a8a025de0d969f0e9e56ef3c297c6c8e3"
-    },
-    "assets/art35/castle/music_bar_1.glb": {
-      "size": 20180,
-      "sha256": "e6e77efa07224e451f9840774666051c6bbc7079bc88be84f23b0bc07e5d42bd"
-    },
-    "assets/art35/castle/music_bar_2.glb": {
-      "size": 20196,
-      "sha256": "85d8b3618793c496817ad6872ccf9c4aca4b6872e1669226e6980b5eb457a230"
-    },
-    "assets/art35/castle/music_bar_3.glb": {
-      "size": 20160,
-      "sha256": "399203b6a6e7f1153d977c2ed4adc354ce7e030edbe63fea07dec22921ee1e25"
-    },
-    "assets/art35/castle/music_bar_4.glb": {
-      "size": 20192,
-      "sha256": "2a97a0c47658811674f30faa99083aa7d2a03eb212a36afb29503226b7d45625"
-    },
-    "assets/art35/castle/music_bar_5.glb": {
-      "size": 20196,
-      "sha256": "e4c86249b90b7d9371306ead249190d784117f41797efc0f34493455c88e5951"
-    },
-    "assets/art35/castle/music_bar_6.glb": {
-      "size": 20180,
-      "sha256": "caba0b9900c9328e29bedc5c58ad3a7d8fde975392c977a2e71ea358f3303058"
-    },
-    "assets/art35/castle/music_rail.glb": {
-      "size": 24728,
-      "sha256": "cacf53be4e52e40a7e903e49935824f980604a2ee3654c266b67a2c3b7a49538"
-    },
-    "assets/art35/castle/music_song_star.glb": {
-      "size": 37460,
-      "sha256": "4c4bb971a9821c8618355db20cc4160bfa06271307e7b04fd12b98fe83173d3b"
-    },
-    "assets/art35/castle/music_wall_panel.glb": {
-      "size": 68164,
-      "sha256": "f0ec2bc5248f38f0294e11c861c95972e6d8abafec659d65b20cca7727bd105c"
-    },
-    "assets/art35/castle/royal_bed.glb": {
-      "size": 51808,
-      "sha256": "ed26fc3a58067c3e24d9d4a66c6d9b8d68ebfafa44915ec0390d15f7e74b6fb4"
-    },
-    "assets/art35/castle/royal_bookcase.glb": {
-      "size": 102908,
-      "sha256": "933b0385deecf4ed3587f4145e7e9221f05add24dcb36d415f19d8454626b23c"
-    },
-    "assets/art35/castle/royal_nightstand.glb": {
-      "size": 26112,
-      "sha256": "f1860dd378a778fddc7aa4fe9bad26d7c7dba81f3020fd26ef56e0176cbda4c8"
-    },
     "assets/art35/galaxy/ice_gate.glb": {
       "size": 96296,
       "sha256": "867f921426d109de30b464d5d226674b9e18f4d5c9fc094f49bc46f3c3fc399c"
@@ -8989,17 +8769,9 @@
       "size": 53228,
       "sha256": "50c95aff1d65f47d9575237b070c40794adf0ba4e9700646d43b682f6a307604"
     },
-    "assets/art35/kart/soft_barrier.glb": {
-      "size": 27344,
-      "sha256": "6381df4c08ccf9df01b0457a5aa68188adfe69e37db743048aee8a187d79886d"
-    },
     "assets/art35/landmarks/butterfly_gate.glb": {
       "size": 86472,
       "sha256": "880b95d3a0d6f85ef3929f4b4f70a32b501ca32c2fbae9aab612b0922d7f3560"
-    },
-    "assets/art35/landmarks/chamber_star.glb": {
-      "size": 63012,
-      "sha256": "d82c37c9cb9082ffab0cbcca61ae693251dda08fc57fdbcd62031b1bc7e25d9a"
     },
     "assets/art35/landmarks/cloud_0.glb": {
       "size": 11192,
@@ -9021,34 +8793,6 @@
       "size": 42876,
       "sha256": "00067305c89f2a8dbf12c67b44ee28ce4cb78f3f4f3a2be7ee76b3910e3f544a"
     },
-    "assets/art35/landmarks/star_observatory.glb": {
-      "size": 119196,
-      "sha256": "65572b66e83a8993623bdd8933ebf63aaad2ef2fe62f67d82a04675a352a2541"
-    },
-    "assets/art35/northern/northern_castle.glb": {
-      "size": 84568,
-      "sha256": "5e00663f6f160778025c63376ebb984d6340f9a78c70b1e5b300f29aa4dc72de"
-    },
-    "assets/art35/northern/northern_gate.glb": {
-      "size": 25928,
-      "sha256": "99d7422843a6191c5c53cab1cc3e4f4c6c3717e425dbc225c50b42109be28845"
-    },
-    "assets/art35/northern/northern_house_0.glb": {
-      "size": 36060,
-      "sha256": "129c8c3f267b7c31066456b5a13c6d7095b14b06230a679515a38983b364248f"
-    },
-    "assets/art35/northern/northern_house_1.glb": {
-      "size": 35836,
-      "sha256": "8d6f8bd5c43e9f88e8bab8c130e2ea44b622c1846d281cd11f8db5935f7ad1d5"
-    },
-    "assets/art35/northern/northern_house_2.glb": {
-      "size": 36120,
-      "sha256": "2cd3a92ec04c93914af72d04d99c15a96bf89031c62216cc77d3c75dd1bb3c7b"
-    },
-    "assets/art35/northern/northern_mountain.glb": {
-      "size": 14880,
-      "sha256": "5defb7e81360c8e71df3857ffbc421c5430477c5c99d6cfafa70a54454cd3311"
-    },
     "assets/art35/opera/opera_arch.glb": {
       "size": 122732,
       "sha256": "c97fafb6d5f65ca0c2f03b0b926be89633519e5d4d17f9ff2837799d97ad25eb"
@@ -9060,14 +8804,6 @@
     "assets/art35/opera/opera_chandelier.glb": {
       "size": 68796,
       "sha256": "991360da2ae3ca7909b7de90f219cb6cbfc002feb3c192c4a7bcb3c3d96c309b"
-    },
-    "assets/art35/opera/opera_crate.glb": {
-      "size": 14820,
-      "sha256": "2d931292982cf35f9337e9feaee5ab9abd3a4e6f3f8363e64ec4a2c5afa396c6"
-    },
-    "assets/art35/opera/opera_crate_lid.glb": {
-      "size": 7280,
-      "sha256": "612488f21646f4178afaf6d5a75661dac51ad19e755143cd938048d56695cb07"
     },
     "assets/art35/opera/opera_curtain.glb": {
       "size": 48864,
@@ -9117,10 +8853,6 @@
       "size": 36196,
       "sha256": "86c4aefa6f8b69506498da7383b9326bf3de7c2ef3062eeb882760cfb6752b96"
     },
-    "assets/art35/opera/opera_tiara_chest.glb": {
-      "size": 16552,
-      "sha256": "0ae402eb019c3fcb1789a1514f48164ccd16d5ab5cc225e0fe5285509e897c0e"
-    },
     "assets/art35/reef/kelp_0.glb": {
       "size": 8412,
       "sha256": "f2b990c1cdc2179dfc8059d8922d7a35f7856ab269e27c39d5dcef63ce272643"
@@ -9137,277 +8869,9 @@
       "size": 10200,
       "sha256": "01194d84e5252294b73538b890585c46d6275b3f72971d1f9ebda01a7239f198"
     },
-    "assets/castle/bathroom_bathtub.glb": {
-      "size": 324060,
-      "sha256": "296916f1350530a345cf7f46c0c473be8a7a5ad9e4f2ba0dd61b0e51cdd0e3b3"
-    },
-    "assets/castle/bathroom_sink.glb": {
-      "size": 381060,
-      "sha256": "4b8d96ecfb130ac3296e4736df35d71290d6bdfb85ad688d31ff2b5cd23fc1be"
-    },
-    "assets/castle/bathroom_toilet.glb": {
-      "size": 280040,
-      "sha256": "5060d1262528490c8f49960eeb9b265e0adea5ae0eaed6d7a1a7de37f1accedb"
-    },
-    "assets/castle/bed.glb": {
-      "size": 1300220,
-      "sha256": "297305c096b51f801ac1c97ba00522d0e9b0cf454c08635157d56ff04882c652"
-    },
-    "assets/castle/kitchen_counter.glb": {
-      "size": 42872,
-      "sha256": "5ba4e48c3b419f7e19cbee8793e0efee890627f3d052b6a82e6f83dfd136c82d"
-    },
-    "assets/castle/kitchen_sink.glb": {
-      "size": 57860,
-      "sha256": "993549a6aabe1528fb9ec463c0ea6d01420c7906677304c954dd4090839cf3c2"
-    },
-    "assets/castle/kitchen_stove.glb": {
-      "size": 63784,
-      "sha256": "0b5cc94d9e4942853316dabb822bc4facee5b5f8fb962cd4c973327369f9bde3"
-    },
-    "assets/castle/pearl_kit/pearl_balustrade.glb": {
-      "size": 215152,
-      "sha256": "a54359db90130e325fa20f380372552904074fa521b9a8e971040a8332834f92"
-    },
-    "assets/castle/pearl_kit/pearl_bath_duck.glb": {
-      "size": 20332,
-      "sha256": "2dc483b78f19e10b9c0715b2b9647b1dcde61da3e8098b6228431f7eccca7ba3"
-    },
-    "assets/castle/pearl_kit/pearl_bedside_table.glb": {
-      "size": 100160,
-      "sha256": "b47cc0d7f6e4a124b49598e3aad0d09f74ba2f34026b3de6e2b73818fb459a60"
-    },
-    "assets/castle/pearl_kit/pearl_canopy_bed.glb": {
-      "size": 219272,
-      "sha256": "21965d88f5e0d48cb0bdfb97be3a8c0f3c86c9682d418501d798c5fc9558c34a"
-    },
-    "assets/castle/pearl_kit/pearl_cloud_pouf.glb": {
-      "size": 72000,
-      "sha256": "e2a15c4cc81b121d265b934d0cfdf7e68c74d0d1900ece98a8acf48c60f7c6e6"
-    },
-    "assets/castle/pearl_kit/pearl_cloud_settee.glb": {
-      "size": 152492,
-      "sha256": "75e3cc2717ea15bc3f19af3e71f9b77c56f2d6e906c73b303adac40b6689a2ae"
-    },
-    "assets/castle/pearl_kit/pearl_column.glb": {
-      "size": 305468,
-      "sha256": "4d4ae797eb119eea5cec47e2f96d58506b8f20c37c696980afba045d02e5a2c0"
-    },
-    "assets/castle/pearl_kit/pearl_craft_easel.glb": {
-      "size": 77572,
-      "sha256": "d038a917ec5b03db5be1cd9425e557bf90903ee878dcca2a9339f4650a4e55bf"
-    },
-    "assets/castle/pearl_kit/pearl_craft_table.glb": {
-      "size": 115996,
-      "sha256": "a291ea61e41adde0d3cea4d8143c5d59fbfab44d32e41d6630ce1f7c414fd767"
-    },
-    "assets/castle/pearl_kit/pearl_floor_medallion.glb": {
-      "size": 112932,
-      "sha256": "13a1b900a98498b0679104fc0e4c0cc5ae16a210eeadffda8ef5daab20809cb7"
-    },
-    "assets/castle/pearl_kit/pearl_keepsake_cradle.glb": {
-      "size": 78828,
-      "sha256": "e1e910bbe500a67c662ed714463189174663a79aaa56b613ff5298b017cbb895"
-    },
-    "assets/castle/pearl_kit/pearl_keepsake_music_box.glb": {
-      "size": 113140,
-      "sha256": "404cfb68ba7cdfba1c1d5b2747f757123911f411d903c063a1e3250b0728d1bd"
-    },
-    "assets/castle/pearl_kit/pearl_keepsake_tiara.glb": {
-      "size": 122732,
-      "sha256": "c660cc2b633032d34ca4f37c7c77838054f391e39224b4a8f3489067e69ccf6f"
-    },
-    "assets/castle/pearl_kit/pearl_library_table.glb": {
-      "size": 135408,
-      "sha256": "e2a61c209fd7f51e112649f37ba96908101f5ae9ef1789c67f42a04b91163e8c"
-    },
-    "assets/castle/pearl_kit/pearl_music_bar_0.glb": {
-      "size": 44108,
-      "sha256": "87dfa7f5a0ad06ff6007c6b2f3475bab406e766ed0203a49bfcad2c587935c78"
-    },
-    "assets/castle/pearl_kit/pearl_music_bar_1.glb": {
-      "size": 44048,
-      "sha256": "53da89a02dfcf9feb30d09c81e6d7741bbe061f11cc74f3fb68daf6cef0d7859"
-    },
-    "assets/castle/pearl_kit/pearl_music_bar_2.glb": {
-      "size": 44136,
-      "sha256": "9c906a8bceb951063a7bc0a34197cec3235ce5b7bd54626972a158c9f7432ce8"
-    },
-    "assets/castle/pearl_kit/pearl_music_bar_3.glb": {
-      "size": 44132,
-      "sha256": "2d777d0f55462bbc37eb717f873423b9727d805691cb6a5f58edc64c71ce0687"
-    },
-    "assets/castle/pearl_kit/pearl_music_bar_4.glb": {
-      "size": 44128,
-      "sha256": "79111b2e774c3554db03d9cb15093db69a3c5949a49863a57194b8f7aae42831"
-    },
-    "assets/castle/pearl_kit/pearl_music_bar_5.glb": {
-      "size": 44128,
-      "sha256": "639152f9fe50b36588455f5dc0dd42b77cfd9a3b8a8f484af322876b67fa87df"
-    },
-    "assets/castle/pearl_kit/pearl_music_bar_6.glb": {
-      "size": 44132,
-      "sha256": "b69cc738deabb0aa99cdf2d29e9d7ab6e5af0bd9d749cdc4a1f4d5d2b6c61344"
-    },
-    "assets/castle/pearl_kit/pearl_music_mallet_stand.glb": {
-      "size": 73404,
-      "sha256": "de1a9015aa244cb5ad5c9bca15b7151d3be38e7f536c3f90fd9f856b73b9515b"
-    },
-    "assets/castle/pearl_kit/pearl_music_rail.glb": {
-      "size": 83880,
-      "sha256": "8f8dcc473b28b7e4d2c3f5a8334a778a7eedbb904b919af56f3a6976e8e056b4"
-    },
-    "assets/castle/pearl_kit/pearl_ocean_portal.glb": {
-      "size": 92356,
-      "sha256": "0df053255313250d5c0385be07ba281a02f029aaaf715cafacb60766a617bce5"
-    },
-    "assets/castle/pearl_kit/pearl_opera_gate.glb": {
-      "size": 201828,
-      "sha256": "4d6f106db81274ea802e162b43d94f6d50de6d49a2721598075a0c3d50e6fd7c"
-    },
-    "assets/castle/pearl_kit/pearl_opera_vista.glb": {
-      "size": 163108,
-      "sha256": "f238d8ff818d6d46be922182e354503adc42191d10a6fd464310c47f18335af6"
-    },
-    "assets/castle/pearl_kit/pearl_paint_rack.glb": {
-      "size": 169476,
-      "sha256": "76b07284d74f031d1abe76bfe608c1f100a820b000ce982390b28379f0a25c25"
-    },
-    "assets/castle/pearl_kit/pearl_pantry_shelf.glb": {
-      "size": 272792,
-      "sha256": "e9df7e4033d5b2289f1db53ec3e55ee8acf13bf91df3061e6e4a63c942f822f8"
-    },
-    "assets/castle/pearl_kit/pearl_pet_basket.glb": {
-      "size": 63212,
-      "sha256": "266c209ac6978fc55be3d74b59309c5121452bb42d044a9d532582435427dd8a"
-    },
-    "assets/castle/pearl_kit/pearl_provisions_hutch.glb": {
-      "size": 275904,
-      "sha256": "fb2e9a00d1b2334f08228a4d67371ba0cbbfadc58cf2e8dc0ab4ea23c3441d45"
-    },
-    "assets/castle/pearl_kit/pearl_rainbow_gate.glb": {
-      "size": 143112,
-      "sha256": "84bc48f6ffe7ed3d03b7ae9b3a909b8e144e2ef9126fc81cb4be28ef0fe37ba2"
-    },
-    "assets/castle/pearl_kit/pearl_rainbow_stacker.glb": {
-      "size": 107636,
-      "sha256": "05fe6c549bfaef5da4ac65ad1deba2e43cb0892d4b9dec41ab69330d3c5f16e3"
-    },
-    "assets/castle/pearl_kit/pearl_rainbow_window.glb": {
-      "size": 159880,
-      "sha256": "d958bd0ec42eb6e951bc847672fc69dacce69d3753368ad1bca327455798a7b0"
-    },
-    "assets/castle/pearl_kit/pearl_secret_chest.glb": {
-      "size": 98060,
-      "sha256": "4a7e82ce23bca2bc821dad27bb1aab7a59261b4575c38bff2e50aefd6203f515"
-    },
-    "assets/castle/pearl_kit/pearl_shell_arch.glb": {
-      "size": 107824,
-      "sha256": "1cfa3f43e1db9f51319521b8dc031a609b7ab68e852b7f78c7b0e8e36ee86050"
-    },
-    "assets/castle/pearl_kit/pearl_shell_banner_a.glb": {
-      "size": 70320,
-      "sha256": "7d3d9b282efbbb871deadd12f873822eee4a505c5fe5eb52e70ad8f8a3912014"
-    },
-    "assets/castle/pearl_kit/pearl_shell_banner_b.glb": {
-      "size": 71508,
-      "sha256": "20a3a9aec544409ecacb9d21cd0b5574e0ce7fd61df3eb198c54cb66a7671b91"
-    },
-    "assets/castle/pearl_kit/pearl_shell_bench.glb": {
-      "size": 127908,
-      "sha256": "062bef12ef973f5c00202e8d3b1806c8f279e526ba978c000d33930aaf053f87"
-    },
-    "assets/castle/pearl_kit/pearl_shell_chandelier.glb": {
-      "size": 156492,
-      "sha256": "574466cb574a7b2913a73e2138ca32100e390eaa0c50d65fd3bb2b8875f91e3a"
-    },
-    "assets/castle/pearl_kit/pearl_shell_drum.glb": {
-      "size": 93232,
-      "sha256": "17bd8e8345ec1dbad9f799c8bcb474eb6e5b630dce1d795f5f2ffec616233f7a"
-    },
-    "assets/castle/pearl_kit/pearl_shell_fountain.glb": {
-      "size": 114944,
-      "sha256": "0a79cdb4e1a583f7ecb1bb16b1e3e0ceae7d68ffe3b65feaaaf0f8c6a607f0cd"
-    },
-    "assets/castle/pearl_kit/pearl_shell_hopscotch.glb": {
-      "size": 283960,
-      "sha256": "60f3dfd98538627d84d583cda29290e148db6689ac0e6c4b964978973bf0a5ab"
-    },
-    "assets/castle/pearl_kit/pearl_shell_lantern.glb": {
-      "size": 37244,
-      "sha256": "6da4f6c993b41d300bbc15f6cc265367e67b2eda8a45c2c8e14e2035d01d2001"
-    },
-    "assets/castle/pearl_kit/pearl_shell_planter.glb": {
-      "size": 126832,
-      "sha256": "0b80abc6e46b8caa0728c26fb322a7935e665ee4b0499dd313afde42dddb767b"
-    },
-    "assets/castle/pearl_kit/pearl_shell_sconce.glb": {
-      "size": 33956,
-      "sha256": "b92ec8e655c5ef142fada6ddad1f4b3e9a5f32e8a03983bb7a3a92bc4c5d570d"
-    },
-    "assets/castle/pearl_kit/pearl_shell_throne.glb": {
-      "size": 137492,
-      "sha256": "85a53757167496836907920391cfacdaf78c03f0bb0e5b5ce8e2ee7c9eb20222"
-    },
-    "assets/castle/pearl_kit/pearl_shell_wardrobe.glb": {
-      "size": 177856,
-      "sha256": "c2c73376ce7b7030d01836c9559abdd0e3ea181692be3dc9228aa8de0c92f325"
-    },
-    "assets/castle/pearl_kit/pearl_shell_window.glb": {
-      "size": 88528,
-      "sha256": "43741a3026fd98720b841ca292aa5811aa799b633a444cd2d0b3e1f02d2953a4"
-    },
-    "assets/castle/pearl_kit/pearl_stair_rail.glb": {
-      "size": 199596,
-      "sha256": "a0ce1c4ab24b7b1bf4eeae8233abaa49c58adcc93a4989d4d007e75f138dea0e"
-    },
-    "assets/castle/pearl_kit/pearl_storage_barrel.glb": {
-      "size": 88184,
-      "sha256": "7d72774b8e2e0eb0fe555c319fcd6d7201a64eb160f2cdbec06a76ab4f72a1f3"
-    },
-    "assets/castle/pearl_kit/pearl_storage_cart.glb": {
-      "size": 173012,
-      "sha256": "f22253ba531026c0d81f43a60c827ec5e740eb87387d6032c54ec1ab547530b0"
-    },
-    "assets/castle/pearl_kit/pearl_storage_crate.glb": {
-      "size": 75356,
-      "sha256": "dd3d102a772ab2812428d6f52ced4c38e09763b979be1119b0021ff7813c4cce"
-    },
-    "assets/castle/pearl_kit/pearl_story_cushion.glb": {
-      "size": 59512,
-      "sha256": "86bc4cfc28c5f454a81412aea513d7c116fb868a484db9ed2fe6eca1644986e4"
-    },
-    "assets/castle/pearl_kit/pearl_throne_canopy.glb": {
-      "size": 118600,
-      "sha256": "6775e829d5b8967c24a35c50a3d0b3d6eef0120b8d8e60e5e40d5437c774232b"
-    },
-    "assets/castle/pearl_kit/pearl_towel_stack.glb": {
-      "size": 51616,
-      "sha256": "27750816a9febafeea20da2804930c6405ff78d85c506d6dd9ddf8d9a4cf1538"
-    },
-    "assets/castle/pearl_kit/pearl_toy_block_stack.glb": {
-      "size": 127408,
-      "sha256": "97bbac5a0af5c91550e516d5f5e1dd85a3e46fe6dd03f9e0c31611be5d1aca18"
-    },
-    "assets/castle/pearl_kit/pearl_toy_chest.glb": {
-      "size": 83268,
-      "sha256": "34c01d127dab127eb396ea4cd4c7a24563be61ea6494a72162cb844975337508"
-    },
-    "assets/castle/pearl_kit/pearl_toy_sailboat.glb": {
-      "size": 73540,
-      "sha256": "622b83e102f03f32e42afc8371e5bb800a3343ff6a6c02702e0d7142c5eb94b0"
-    },
-    "assets/castle/throne.glb": {
-      "size": 672544,
-      "sha256": "8bbcca2f3fc5acb0adb69d11c079293877ca77872e08ac386055a1af435f9825"
-    },
     "assets/characters/chuck_poodle_rigged.glb": {
       "size": 8352856,
       "sha256": "040c278c1f3e4ccb673686a16c627abcfb848c526e6d02b8468d1336c5748f6f"
-    },
-    "assets/characters/huluu.glb": {
-      "size": 2653068,
-      "sha256": "ec01880465a493c877a73a3de3335a07744726f3bcb9221c806b1827c9aeee38"
     },
     "assets/characters/lamb.glb": {
       "size": 772852,
@@ -9701,30 +9165,6 @@
       "size": 29012,
       "sha256": "e7d7b71044cf1b19e2d51066f994e64928253947d18df3a6eeb7731c3000441f"
     },
-    "assets/fable_kit/loco_body.glb": {
-      "size": 102168,
-      "sha256": "c25e309db8f27ecded82ab4c18570de6871577ce835afdc5b4001c402c3524cb"
-    },
-    "assets/fable_kit/station_platform.glb": {
-      "size": 75896,
-      "sha256": "0e2eebcd2571a3d845b7ef45bf7c9ed83eebf3529978c6f77413a0db308f2d4e"
-    },
-    "assets/fable_kit/station_shelter.glb": {
-      "size": 78356,
-      "sha256": "144d324f50bbe6bdd39ca303554a53fe3140b215e2986b0e5790034a8f3e5b58"
-    },
-    "assets/fable_kit/track_curve.glb": {
-      "size": 448520,
-      "sha256": "ecc69f64e1d49c1e82e6e361ed11f623ac48443500986f1083cdc739b528c0e6"
-    },
-    "assets/fable_kit/track_straight.glb": {
-      "size": 84312,
-      "sha256": "b1333911c04142155b7ad243db593d103bdd0163b4e54a35e7781597130f6e46"
-    },
-    "assets/galaxy/beetle.glb": {
-      "size": 64408,
-      "sha256": "940353aa8afca44e21c00511495a5aa5492cc4d8327bf5405c6ca9f329ebc309"
-    },
     "assets/galaxy/butterfly1.glb": {
       "size": 3109216,
       "sha256": "1647611dbca8cbdc41549281bc07c3ea72973de904e827b1c6c663c989a023a9"
@@ -9749,49 +9189,9 @@
       "size": 1044432,
       "sha256": "8d6776a6304f0aee2abb39ee5d1410b5945b996c3431bd97789967fd84e40542"
     },
-    "assets/galaxy/fruit_apple.glb": {
-      "size": 21540,
-      "sha256": "a89e346eb2a77de581ba3a58c4ba27f6e62842bdac34b44f1f5028ed3acd0010"
-    },
-    "assets/galaxy/fruit_banana.glb": {
-      "size": 7380,
-      "sha256": "61ed0a676c85f52bf94b846c3eaa8bb69ef95da6361ab22651aeb50acb178083"
-    },
-    "assets/galaxy/fruit_melon.glb": {
-      "size": 416508,
-      "sha256": "7e10e281288604c3fa358e1608e5e592c74cfc0334c07ce381330c611629c8fe"
-    },
-    "assets/galaxy/fruit_orange.glb": {
-      "size": 24828,
-      "sha256": "0e3ff50ab104c405609f8a4c8245a74caa406ac845c5c50c4f48b779098a3ca1"
-    },
-    "assets/galaxy/ladybug.glb": {
-      "size": 40880,
-      "sha256": "17d5347e26e6e99b27967854dd1047d64129d0148cd2b43a31156bf62e0cf352"
-    },
     "assets/galaxy/tray.glb": {
       "size": 376312,
       "sha256": "b68b72bd177d3fe9779282ea804bd1e9cd755fc7574bffec5b2f0fb902eebb52"
-    },
-    "assets/galaxy/trop_bigleaf.glb": {
-      "size": 4103164,
-      "sha256": "65fd37502af7751263b9f154b9b3be7517fb515b414ac0b2bafeb85fa61f8112"
-    },
-    "assets/galaxy/trop_fern.glb": {
-      "size": 293692,
-      "sha256": "50c95a54fb93cb990293c2fc79fc3335ca1533e6155fbb3dd02835e24b1e14e8"
-    },
-    "assets/galaxy/trop_monstera.glb": {
-      "size": 545944,
-      "sha256": "44b0140edee5aaee130e0f1e29f8f96905c4ee4c71707c47033aaf67bb808934"
-    },
-    "assets/galaxy/trop_palm1.glb": {
-      "size": 1042724,
-      "sha256": "b2e13da0197b44746d031f282add3d94b5b4e0a28d24faedb4e2e303b0d61681"
-    },
-    "assets/galaxy/trop_palm2.glb": {
-      "size": 620720,
-      "sha256": "1c427468691ca2cebed385ec740461b0170994828b39e4f9493261bc78135cde"
     },
     "assets/kits/castle/flag.glb": {
       "size": 18072,
@@ -9800,18 +9200,6 @@
     "assets/kits/castle/tower-square.glb": {
       "size": 19156,
       "sha256": "348682ddc82020188bc063b7652ba8bf49dcbd5a3dec0598a34e218eb662ca89"
-    },
-    "assets/kits/furniture/bookcase.glb": {
-      "size": 136032,
-      "sha256": "237e56f374f99c48bbd61596658eff9da7c1ee5f7513f482a800065d79456762"
-    },
-    "assets/kits/furniture/chair.glb": {
-      "size": 38172,
-      "sha256": "398341ce9c9642b9a7bd09675416aed369179e0b5c3fe84823349ac86155ee47"
-    },
-    "assets/kits/furniture/table.glb": {
-      "size": 44380,
-      "sha256": "84c65106944b80bf7a3375438437252eda4ba25ae3008f73b8b4e0dde1f63418"
     },
     "assets/kits/park/bench.glb": {
       "size": 41000,
@@ -10245,10 +9633,6 @@
       "size": 135700,
       "sha256": "cf8e6e30ddb29e507e21f1a3bebcf861ff3176058ea4caa70ef952167701411a"
     },
-    "assets/portal/butterfly_gate.glb": {
-      "size": 197312,
-      "sha256": "a12d694eaf316e9dcb47b1d7c7a2b884047fb463801a4c213956d10555b34444"
-    },
     "assets/props/alpine/alpine_beetle_terrarium.glb": {
       "size": 231116,
       "sha256": "cf202af9000f75156650fcebffe91ed25ff195351e0db8847731fe8a78895091"
@@ -10508,10 +9892,6 @@
     "assets/ship/barrel.glb": {
       "size": 14092,
       "sha256": "7616dedf7c1023afa6ecd3c52a4609460aae0e582dee14e60ec5e47c1174793b"
-    },
-    "assets/ship/chest.glb": {
-      "size": 25240,
-      "sha256": "26d26c4c032a12320fe05b5005a72eba96db7167db0d35873639a4b7dcc06bcb"
     },
     "assets/sky_lagoon/lagoon_kit/lagoon_alpine_cairn.glb": {
       "size": 44452,
@@ -10935,30 +10315,6 @@
     "assets/art35/cards/style3/leaf_broad.glb",
     "assets/art35/cards/style3/leaf_fern.glb",
     "assets/art35/cards/style3/shipwood.glb",
-    "assets/art35/castle/dream_bed_0.glb",
-    "assets/art35/castle/dream_bed_1.glb",
-    "assets/art35/castle/dream_bed_2.glb",
-    "assets/art35/castle/dream_bed_3.glb",
-    "assets/art35/castle/dream_bed_4.glb",
-    "assets/art35/castle/dungeon_gate.glb",
-    "assets/art35/castle/kitchen_kettle.glb",
-    "assets/art35/castle/kitchen_pan_set.glb",
-    "assets/art35/castle/kitchen_soup_pot.glb",
-    "assets/art35/castle/kitchen_table_set.glb",
-    "assets/art35/castle/kitchen_teapot.glb",
-    "assets/art35/castle/music_bar_0.glb",
-    "assets/art35/castle/music_bar_1.glb",
-    "assets/art35/castle/music_bar_2.glb",
-    "assets/art35/castle/music_bar_3.glb",
-    "assets/art35/castle/music_bar_4.glb",
-    "assets/art35/castle/music_bar_5.glb",
-    "assets/art35/castle/music_bar_6.glb",
-    "assets/art35/castle/music_rail.glb",
-    "assets/art35/castle/music_song_star.glb",
-    "assets/art35/castle/music_wall_panel.glb",
-    "assets/art35/castle/royal_bed.glb",
-    "assets/art35/castle/royal_bookcase.glb",
-    "assets/art35/castle/royal_nightstand.glb",
     "assets/art35/galaxy/ice_gate.glb",
     "assets/art35/galaxy/shell_throne.glb",
     "assets/art35/galaxy/star_bell_0.glb",
@@ -10967,26 +10323,15 @@
     "assets/art35/galaxy/wish_fountain.glb",
     "assets/art35/kart/finish_arch.glb",
     "assets/art35/kart/showcase_plinth.glb",
-    "assets/art35/kart/soft_barrier.glb",
     "assets/art35/landmarks/butterfly_gate.glb",
-    "assets/art35/landmarks/chamber_star.glb",
     "assets/art35/landmarks/cloud_0.glb",
     "assets/art35/landmarks/cloud_1.glb",
     "assets/art35/landmarks/cloud_2.glb",
     "assets/art35/landmarks/crown_star.glb",
     "assets/art35/landmarks/dream_star.glb",
-    "assets/art35/landmarks/star_observatory.glb",
-    "assets/art35/northern/northern_castle.glb",
-    "assets/art35/northern/northern_gate.glb",
-    "assets/art35/northern/northern_house_0.glb",
-    "assets/art35/northern/northern_house_1.glb",
-    "assets/art35/northern/northern_house_2.glb",
-    "assets/art35/northern/northern_mountain.glb",
     "assets/art35/opera/opera_arch.glb",
     "assets/art35/opera/opera_bench.glb",
     "assets/art35/opera/opera_chandelier.glb",
-    "assets/art35/opera/opera_crate.glb",
-    "assets/art35/opera/opera_crate_lid.glb",
     "assets/art35/opera/opera_curtain.glb",
     "assets/art35/opera/opera_door.glb",
     "assets/art35/opera/opera_dragon.glb",
@@ -10999,79 +10344,11 @@
     "assets/art35/opera/opera_shell_gate.glb",
     "assets/art35/opera/opera_silly_fish.glb",
     "assets/art35/opera/opera_stage_apron.glb",
-    "assets/art35/opera/opera_tiara_chest.glb",
     "assets/art35/reef/kelp_0.glb",
     "assets/art35/reef/kelp_1.glb",
     "assets/art35/reef/seagrass_0.glb",
     "assets/art35/reef/seagrass_1.glb",
-    "assets/castle/bathroom_bathtub.glb",
-    "assets/castle/bathroom_sink.glb",
-    "assets/castle/bathroom_toilet.glb",
-    "assets/castle/bed.glb",
-    "assets/castle/kitchen_counter.glb",
-    "assets/castle/kitchen_sink.glb",
-    "assets/castle/kitchen_stove.glb",
-    "assets/castle/pearl_kit/pearl_balustrade.glb",
-    "assets/castle/pearl_kit/pearl_bath_duck.glb",
-    "assets/castle/pearl_kit/pearl_bedside_table.glb",
-    "assets/castle/pearl_kit/pearl_canopy_bed.glb",
-    "assets/castle/pearl_kit/pearl_cloud_pouf.glb",
-    "assets/castle/pearl_kit/pearl_cloud_settee.glb",
-    "assets/castle/pearl_kit/pearl_column.glb",
-    "assets/castle/pearl_kit/pearl_craft_easel.glb",
-    "assets/castle/pearl_kit/pearl_craft_table.glb",
-    "assets/castle/pearl_kit/pearl_floor_medallion.glb",
-    "assets/castle/pearl_kit/pearl_keepsake_cradle.glb",
-    "assets/castle/pearl_kit/pearl_keepsake_music_box.glb",
-    "assets/castle/pearl_kit/pearl_keepsake_tiara.glb",
-    "assets/castle/pearl_kit/pearl_library_table.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_0.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_1.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_2.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_3.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_4.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_5.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_6.glb",
-    "assets/castle/pearl_kit/pearl_music_mallet_stand.glb",
-    "assets/castle/pearl_kit/pearl_music_rail.glb",
-    "assets/castle/pearl_kit/pearl_ocean_portal.glb",
-    "assets/castle/pearl_kit/pearl_opera_gate.glb",
-    "assets/castle/pearl_kit/pearl_opera_vista.glb",
-    "assets/castle/pearl_kit/pearl_paint_rack.glb",
-    "assets/castle/pearl_kit/pearl_pantry_shelf.glb",
-    "assets/castle/pearl_kit/pearl_pet_basket.glb",
-    "assets/castle/pearl_kit/pearl_provisions_hutch.glb",
-    "assets/castle/pearl_kit/pearl_rainbow_gate.glb",
-    "assets/castle/pearl_kit/pearl_rainbow_stacker.glb",
-    "assets/castle/pearl_kit/pearl_rainbow_window.glb",
-    "assets/castle/pearl_kit/pearl_secret_chest.glb",
-    "assets/castle/pearl_kit/pearl_shell_arch.glb",
-    "assets/castle/pearl_kit/pearl_shell_banner_a.glb",
-    "assets/castle/pearl_kit/pearl_shell_banner_b.glb",
-    "assets/castle/pearl_kit/pearl_shell_bench.glb",
-    "assets/castle/pearl_kit/pearl_shell_chandelier.glb",
-    "assets/castle/pearl_kit/pearl_shell_drum.glb",
-    "assets/castle/pearl_kit/pearl_shell_fountain.glb",
-    "assets/castle/pearl_kit/pearl_shell_hopscotch.glb",
-    "assets/castle/pearl_kit/pearl_shell_lantern.glb",
-    "assets/castle/pearl_kit/pearl_shell_planter.glb",
-    "assets/castle/pearl_kit/pearl_shell_sconce.glb",
-    "assets/castle/pearl_kit/pearl_shell_throne.glb",
-    "assets/castle/pearl_kit/pearl_shell_wardrobe.glb",
-    "assets/castle/pearl_kit/pearl_shell_window.glb",
-    "assets/castle/pearl_kit/pearl_stair_rail.glb",
-    "assets/castle/pearl_kit/pearl_storage_barrel.glb",
-    "assets/castle/pearl_kit/pearl_storage_cart.glb",
-    "assets/castle/pearl_kit/pearl_storage_crate.glb",
-    "assets/castle/pearl_kit/pearl_story_cushion.glb",
-    "assets/castle/pearl_kit/pearl_throne_canopy.glb",
-    "assets/castle/pearl_kit/pearl_towel_stack.glb",
-    "assets/castle/pearl_kit/pearl_toy_block_stack.glb",
-    "assets/castle/pearl_kit/pearl_toy_chest.glb",
-    "assets/castle/pearl_kit/pearl_toy_sailboat.glb",
-    "assets/castle/throne.glb",
     "assets/characters/chuck_poodle_rigged.glb",
-    "assets/characters/huluu.glb",
     "assets/characters/lamb.glb",
     "assets/collectibles/aurora_tern.glb",
     "assets/collectibles/blue_dragonfly.glb",
@@ -11145,34 +10422,15 @@
     "assets/ember_fortress/ember_tower_d.glb",
     "assets/fable_kit/coral_bare_0.glb",
     "assets/fable_kit/kelp_vol_0.glb",
-    "assets/fable_kit/loco_body.glb",
-    "assets/fable_kit/station_platform.glb",
-    "assets/fable_kit/station_shelter.glb",
-    "assets/fable_kit/track_curve.glb",
-    "assets/fable_kit/track_straight.glb",
-    "assets/galaxy/beetle.glb",
     "assets/galaxy/butterfly1.glb",
     "assets/galaxy/butterfly2.glb",
     "assets/galaxy/crystal1.glb",
     "assets/galaxy/crystal2.glb",
     "assets/galaxy/crystal3.glb",
     "assets/galaxy/crystal_castle.glb",
-    "assets/galaxy/fruit_apple.glb",
-    "assets/galaxy/fruit_banana.glb",
-    "assets/galaxy/fruit_melon.glb",
-    "assets/galaxy/fruit_orange.glb",
-    "assets/galaxy/ladybug.glb",
     "assets/galaxy/tray.glb",
-    "assets/galaxy/trop_bigleaf.glb",
-    "assets/galaxy/trop_fern.glb",
-    "assets/galaxy/trop_monstera.glb",
-    "assets/galaxy/trop_palm1.glb",
-    "assets/galaxy/trop_palm2.glb",
     "assets/kits/castle/flag.glb",
     "assets/kits/castle/tower-square.glb",
-    "assets/kits/furniture/bookcase.glb",
-    "assets/kits/furniture/chair.glb",
-    "assets/kits/furniture/table.glb",
     "assets/kits/park/bench.glb",
     "assets/kits/park/fountain.glb",
     "assets/nature/cliff_block_rock.glb",
@@ -11281,7 +10539,6 @@
     "assets/opera/rivals/opera_rival_painter.glb",
     "assets/opera/rivals/opera_rival_popstar.glb",
     "assets/opera/rivals/opera_rival_racer.glb",
-    "assets/portal/butterfly_gate.glb",
     "assets/props/alpine/alpine_beetle_terrarium.glb",
     "assets/props/alpine/alpine_bird_cage.glb",
     "assets/props/alpine/alpine_fish_aquarium.glb",
@@ -11347,7 +10604,6 @@
     "assets/reef_regions/moon_shell_arch.glb",
     "assets/reef_regions/wreck_ravine_shoulders.glb",
     "assets/ship/barrel.glb",
-    "assets/ship/chest.glb",
     "assets/sky_lagoon/lagoon_kit/lagoon_alpine_cairn.glb",
     "assets/sky_lagoon/lagoon_kit/lagoon_alpine_cave.glb",
     "assets/sky_lagoon/lagoon_kit/lagoon_alpine_chalet_a.glb",
@@ -11470,13 +10726,7 @@
     "assets/aquatic2/StingRay.glb.import",
     "assets/aquatic2/Turtle.glb.import",
     "assets/aquatic2/Whale.glb.import",
-    "assets/castle/bed.glb.import",
-    "assets/castle/kitchen_counter.glb.import",
-    "assets/castle/kitchen_sink.glb.import",
-    "assets/castle/kitchen_stove.glb.import",
-    "assets/castle/throne.glb.import",
     "assets/characters/chuck_poodle_rigged.glb.import",
-    "assets/characters/huluu.glb.import",
     "assets/characters/lamb.glb.import",
     "assets/dungeon/crystal_pedestal.glb.import",
     "assets/dungeon/dragon_turtle.glb.import",
@@ -11488,29 +10738,15 @@
     "assets/dungeon/pepper_lantern.glb.import",
     "assets/dungeon/stepping_stone.glb.import",
     "assets/dungeon/turtle_statue.glb.import",
-    "assets/galaxy/beetle.glb.import",
     "assets/galaxy/butterfly1.glb.import",
     "assets/galaxy/butterfly2.glb.import",
     "assets/galaxy/crystal1.glb.import",
     "assets/galaxy/crystal2.glb.import",
     "assets/galaxy/crystal3.glb.import",
     "assets/galaxy/crystal_castle.glb.import",
-    "assets/galaxy/fruit_apple.glb.import",
-    "assets/galaxy/fruit_banana.glb.import",
-    "assets/galaxy/fruit_melon.glb.import",
-    "assets/galaxy/fruit_orange.glb.import",
-    "assets/galaxy/ladybug.glb.import",
     "assets/galaxy/tray.glb.import",
-    "assets/galaxy/trop_bigleaf.glb.import",
-    "assets/galaxy/trop_fern.glb.import",
-    "assets/galaxy/trop_monstera.glb.import",
-    "assets/galaxy/trop_palm1.glb.import",
-    "assets/galaxy/trop_palm2.glb.import",
     "assets/kits/castle/flag.glb.import",
     "assets/kits/castle/tower-square.glb.import",
-    "assets/kits/furniture/bookcase.glb.import",
-    "assets/kits/furniture/chair.glb.import",
-    "assets/kits/furniture/table.glb.import",
     "assets/kits/park/bench.glb.import",
     "assets/kits/park/fountain.glb.import",
     "assets/nature/cliff_block_rock.glb.import",
@@ -11529,7 +10765,6 @@
     "assets/nature/tree_palm.glb.import",
     "assets/nature/tree_pineRoundF.glb.import",
     "assets/nature/tree_simple_fall.glb.import",
-    "assets/portal/butterfly_gate.glb.import",
     "assets/props/gen2/anemone_story.glb.import",
     "assets/props/gen2/butterfly_story.glb.import",
     "assets/props/gen2/clownfish.glb.import",
@@ -11589,7 +10824,6 @@
     "assets/reef_regions/moon_pearl_totem.glb.import",
     "assets/reef_regions/moon_shell_arch.glb.import",
     "assets/ship/barrel.glb.import",
-    "assets/ship/chest.glb.import",
     "assets/vehicles/gokart.glb.import",
     "assets/vehicles/monstertruck.glb.import",
     "assets/vehicles/monstertruck_story.glb.import",
@@ -11700,30 +10934,6 @@
     "assets/art35/cards/style3/leaf_broad.glb.import",
     "assets/art35/cards/style3/leaf_fern.glb.import",
     "assets/art35/cards/style3/shipwood.glb.import",
-    "assets/art35/castle/dream_bed_0.glb.import",
-    "assets/art35/castle/dream_bed_1.glb.import",
-    "assets/art35/castle/dream_bed_2.glb.import",
-    "assets/art35/castle/dream_bed_3.glb.import",
-    "assets/art35/castle/dream_bed_4.glb.import",
-    "assets/art35/castle/dungeon_gate.glb.import",
-    "assets/art35/castle/kitchen_kettle.glb.import",
-    "assets/art35/castle/kitchen_pan_set.glb.import",
-    "assets/art35/castle/kitchen_soup_pot.glb.import",
-    "assets/art35/castle/kitchen_table_set.glb.import",
-    "assets/art35/castle/kitchen_teapot.glb.import",
-    "assets/art35/castle/music_bar_0.glb.import",
-    "assets/art35/castle/music_bar_1.glb.import",
-    "assets/art35/castle/music_bar_2.glb.import",
-    "assets/art35/castle/music_bar_3.glb.import",
-    "assets/art35/castle/music_bar_4.glb.import",
-    "assets/art35/castle/music_bar_5.glb.import",
-    "assets/art35/castle/music_bar_6.glb.import",
-    "assets/art35/castle/music_rail.glb.import",
-    "assets/art35/castle/music_song_star.glb.import",
-    "assets/art35/castle/music_wall_panel.glb.import",
-    "assets/art35/castle/royal_bed.glb.import",
-    "assets/art35/castle/royal_bookcase.glb.import",
-    "assets/art35/castle/royal_nightstand.glb.import",
     "assets/art35/galaxy/ice_gate.glb.import",
     "assets/art35/galaxy/shell_throne.glb.import",
     "assets/art35/galaxy/star_bell_0.glb.import",
@@ -11732,26 +10942,15 @@
     "assets/art35/galaxy/wish_fountain.glb.import",
     "assets/art35/kart/finish_arch.glb.import",
     "assets/art35/kart/showcase_plinth.glb.import",
-    "assets/art35/kart/soft_barrier.glb.import",
     "assets/art35/landmarks/butterfly_gate.glb.import",
-    "assets/art35/landmarks/chamber_star.glb.import",
     "assets/art35/landmarks/cloud_0.glb.import",
     "assets/art35/landmarks/cloud_1.glb.import",
     "assets/art35/landmarks/cloud_2.glb.import",
     "assets/art35/landmarks/crown_star.glb.import",
     "assets/art35/landmarks/dream_star.glb.import",
-    "assets/art35/landmarks/star_observatory.glb.import",
-    "assets/art35/northern/northern_castle.glb.import",
-    "assets/art35/northern/northern_gate.glb.import",
-    "assets/art35/northern/northern_house_0.glb.import",
-    "assets/art35/northern/northern_house_1.glb.import",
-    "assets/art35/northern/northern_house_2.glb.import",
-    "assets/art35/northern/northern_mountain.glb.import",
     "assets/art35/opera/opera_arch.glb.import",
     "assets/art35/opera/opera_bench.glb.import",
     "assets/art35/opera/opera_chandelier.glb.import",
-    "assets/art35/opera/opera_crate.glb.import",
-    "assets/art35/opera/opera_crate_lid.glb.import",
     "assets/art35/opera/opera_curtain.glb.import",
     "assets/art35/opera/opera_door.glb.import",
     "assets/art35/opera/opera_dragon.glb.import",
@@ -11764,72 +10963,10 @@
     "assets/art35/opera/opera_shell_gate.glb.import",
     "assets/art35/opera/opera_silly_fish.glb.import",
     "assets/art35/opera/opera_stage_apron.glb.import",
-    "assets/art35/opera/opera_tiara_chest.glb.import",
     "assets/art35/reef/kelp_0.glb.import",
     "assets/art35/reef/kelp_1.glb.import",
     "assets/art35/reef/seagrass_0.glb.import",
     "assets/art35/reef/seagrass_1.glb.import",
-    "assets/castle/bathroom_bathtub.glb.import",
-    "assets/castle/bathroom_sink.glb.import",
-    "assets/castle/bathroom_toilet.glb.import",
-    "assets/castle/pearl_kit/pearl_balustrade.glb.import",
-    "assets/castle/pearl_kit/pearl_bath_duck.glb.import",
-    "assets/castle/pearl_kit/pearl_bedside_table.glb.import",
-    "assets/castle/pearl_kit/pearl_canopy_bed.glb.import",
-    "assets/castle/pearl_kit/pearl_cloud_pouf.glb.import",
-    "assets/castle/pearl_kit/pearl_cloud_settee.glb.import",
-    "assets/castle/pearl_kit/pearl_column.glb.import",
-    "assets/castle/pearl_kit/pearl_craft_easel.glb.import",
-    "assets/castle/pearl_kit/pearl_craft_table.glb.import",
-    "assets/castle/pearl_kit/pearl_floor_medallion.glb.import",
-    "assets/castle/pearl_kit/pearl_keepsake_cradle.glb.import",
-    "assets/castle/pearl_kit/pearl_keepsake_music_box.glb.import",
-    "assets/castle/pearl_kit/pearl_keepsake_tiara.glb.import",
-    "assets/castle/pearl_kit/pearl_library_table.glb.import",
-    "assets/castle/pearl_kit/pearl_music_bar_0.glb.import",
-    "assets/castle/pearl_kit/pearl_music_bar_1.glb.import",
-    "assets/castle/pearl_kit/pearl_music_bar_2.glb.import",
-    "assets/castle/pearl_kit/pearl_music_bar_3.glb.import",
-    "assets/castle/pearl_kit/pearl_music_bar_4.glb.import",
-    "assets/castle/pearl_kit/pearl_music_bar_5.glb.import",
-    "assets/castle/pearl_kit/pearl_music_bar_6.glb.import",
-    "assets/castle/pearl_kit/pearl_music_mallet_stand.glb.import",
-    "assets/castle/pearl_kit/pearl_music_rail.glb.import",
-    "assets/castle/pearl_kit/pearl_ocean_portal.glb.import",
-    "assets/castle/pearl_kit/pearl_opera_gate.glb.import",
-    "assets/castle/pearl_kit/pearl_opera_vista.glb.import",
-    "assets/castle/pearl_kit/pearl_paint_rack.glb.import",
-    "assets/castle/pearl_kit/pearl_pantry_shelf.glb.import",
-    "assets/castle/pearl_kit/pearl_pet_basket.glb.import",
-    "assets/castle/pearl_kit/pearl_provisions_hutch.glb.import",
-    "assets/castle/pearl_kit/pearl_rainbow_gate.glb.import",
-    "assets/castle/pearl_kit/pearl_rainbow_stacker.glb.import",
-    "assets/castle/pearl_kit/pearl_rainbow_window.glb.import",
-    "assets/castle/pearl_kit/pearl_secret_chest.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_arch.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_banner_a.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_banner_b.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_bench.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_chandelier.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_drum.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_fountain.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_hopscotch.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_lantern.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_planter.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_sconce.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_throne.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_wardrobe.glb.import",
-    "assets/castle/pearl_kit/pearl_shell_window.glb.import",
-    "assets/castle/pearl_kit/pearl_stair_rail.glb.import",
-    "assets/castle/pearl_kit/pearl_storage_barrel.glb.import",
-    "assets/castle/pearl_kit/pearl_storage_cart.glb.import",
-    "assets/castle/pearl_kit/pearl_storage_crate.glb.import",
-    "assets/castle/pearl_kit/pearl_story_cushion.glb.import",
-    "assets/castle/pearl_kit/pearl_throne_canopy.glb.import",
-    "assets/castle/pearl_kit/pearl_towel_stack.glb.import",
-    "assets/castle/pearl_kit/pearl_toy_block_stack.glb.import",
-    "assets/castle/pearl_kit/pearl_toy_chest.glb.import",
-    "assets/castle/pearl_kit/pearl_toy_sailboat.glb.import",
     "assets/collectibles/aurora_tern.glb.import",
     "assets/collectibles/blue_dragonfly.glb.import",
     "assets/collectibles/catch_net.glb.import",
@@ -11892,11 +11029,6 @@
     "assets/ember_fortress/ember_tower_d.glb.import",
     "assets/fable_kit/coral_bare_0.glb.import",
     "assets/fable_kit/kelp_vol_0.glb.import",
-    "assets/fable_kit/loco_body.glb.import",
-    "assets/fable_kit/station_platform.glb.import",
-    "assets/fable_kit/station_shelter.glb.import",
-    "assets/fable_kit/track_curve.glb.import",
-    "assets/fable_kit/track_straight.glb.import",
     "assets/northern/northern_bedroom_set.glb.import",
     "assets/northern/northern_center_castle.glb.import",
     "assets/northern/northern_fjord_dock.glb.import",
@@ -12276,33 +11408,9 @@
       "size": 1146,
       "sha256": "ab2ecbe0a0b6a2b27e19be54d2b026cee5939dcd28d7f25470b23fccc6b70e7e"
     },
-    "assets/castle/bed.glb.import": {
-      "size": 1138,
-      "sha256": "65e19d3a78654ad75e14fde547262b4da825eb3859081acd9e7ddf7136e36f09"
-    },
-    "assets/castle/kitchen_counter.glb.import": {
-      "size": 1173,
-      "sha256": "e6cb67ab6750a99c34139a737c65eae7774f95f2ef52d4b950cd92621538d406"
-    },
-    "assets/castle/kitchen_sink.glb.import": {
-      "size": 1165,
-      "sha256": "4eb01cfbfbbc75e339d2db9b97c0a2a3c2f411b49c72f4cf13f9e40f820f8470"
-    },
-    "assets/castle/kitchen_stove.glb.import": {
-      "size": 1168,
-      "sha256": "342bdb8e7878116c5b9f9fb0189ba6fa973978c5975b6c22b8ce381551ba1671"
-    },
-    "assets/castle/throne.glb.import": {
-      "size": 1147,
-      "sha256": "f6e2f6a5a7ef23649d096b8be0c9c3ea5fbf3e061512dca6cdfa2f87cd0782a4"
-    },
     "assets/characters/chuck_poodle_rigged.glb.import": {
       "size": 1190,
       "sha256": "4e476147461d080e4549cb14a056a0275b2f8ae7e325da3271003b123fd45bee"
-    },
-    "assets/characters/huluu.glb.import": {
-      "size": 1148,
-      "sha256": "9017a83a842f547a6c5717172b118f90728316c05315eb7814a881258ed66596"
     },
     "assets/characters/lamb.glb.import": {
       "size": 1144,
@@ -12348,10 +11456,6 @@
       "size": 1169,
       "sha256": "d9cd989b4eea2ba05deb8b2f90e14eea09b7f5c20da048888188778a8e65279d"
     },
-    "assets/galaxy/beetle.glb.import": {
-      "size": 1147,
-      "sha256": "8ed067cf5c8aa542ca4cbdc980ca79c067a62ef31d3a82689a9cfe25206af862"
-    },
     "assets/galaxy/butterfly1.glb.import": {
       "size": 1158,
       "sha256": "df2ee4898e292933a854235ebc536e0f465d146d0eb906d2924199e80a9f8da7"
@@ -12376,49 +11480,9 @@
       "size": 1171,
       "sha256": "3aceee23f99e7baccb2719f8850988f921540787b399743f162a4eb83f39872f"
     },
-    "assets/galaxy/fruit_apple.glb.import": {
-      "size": 1162,
-      "sha256": "c451d73d9a76e2b642440a2d86b618b41b852ab2d3a8802e542da857a8e4c136"
-    },
-    "assets/galaxy/fruit_banana.glb.import": {
-      "size": 1165,
-      "sha256": "24c6d67a996eff1b5718c4167f6aa700abe12db1221dec132f84aca373499d16"
-    },
-    "assets/galaxy/fruit_melon.glb.import": {
-      "size": 1161,
-      "sha256": "655f1d597f87dd4c93a716a50060d98a818f6810a332cf9ca2e3f54f7a6df73e"
-    },
-    "assets/galaxy/fruit_orange.glb.import": {
-      "size": 1165,
-      "sha256": "c032ea53e060a155caaa24a04fa7039e6d2f8196d007106a8a0fcb0fdf6b95f3"
-    },
-    "assets/galaxy/ladybug.glb.import": {
-      "size": 1150,
-      "sha256": "f219f654508572c10e06c97e1628302bfe9481a203f0c62383fb955bf20c67ff"
-    },
     "assets/galaxy/tray.glb.import": {
       "size": 1141,
       "sha256": "13a4bc3d8a4be0809e52adae7fa6032fbd26c377a5a347c5034395862ec979d1"
-    },
-    "assets/galaxy/trop_bigleaf.glb.import": {
-      "size": 1165,
-      "sha256": "425c71600b1b3ef811c5d58782b7c641abcabd6a7bcf03d586f9c4d20e782c78"
-    },
-    "assets/galaxy/trop_fern.glb.import": {
-      "size": 1156,
-      "sha256": "c48da10fd7cb906726c9ea47611d6ab84905d89dfd4cda2e3cd3da389b3fb7fb"
-    },
-    "assets/galaxy/trop_monstera.glb.import": {
-      "size": 1168,
-      "sha256": "96bcb51df5618c24d2d03bfa0d8b1901776e4967f6f0f5e92d84e1c8d216c9e6"
-    },
-    "assets/galaxy/trop_palm1.glb.import": {
-      "size": 1159,
-      "sha256": "de679359b59e54e2f9c9d84ce8b9eed0f471aa09d6c93dcd6a7222cd847f0771"
-    },
-    "assets/galaxy/trop_palm2.glb.import": {
-      "size": 1159,
-      "sha256": "a70d94c7c6fc75894a3b7d55ea0c9f689d6ca7e3fe67544329e8254e31c88afe"
     },
     "assets/kits/castle/flag.glb.import": {
       "size": 1146,
@@ -12427,18 +11491,6 @@
     "assets/kits/castle/tower-square.glb.import": {
       "size": 1170,
       "sha256": "6cc5a0688869c8d5fc6d286252eea44f12be5f52e172b50726d635e02729b2b8"
-    },
-    "assets/kits/furniture/bookcase.glb.import": {
-      "size": 1161,
-      "sha256": "ed9c65093a027866212a50f2673f536285cdc2b32bb0cdccb41c91081f00defc"
-    },
-    "assets/kits/furniture/chair.glb.import": {
-      "size": 1152,
-      "sha256": "6d099c7ad7b7f9a29e59bb6e7ba24fde034a45edd31c62c3e1251045f6906573"
-    },
-    "assets/kits/furniture/table.glb.import": {
-      "size": 1151,
-      "sha256": "c76d7fc04c29221cff681f7bbe6c89ecf686694cba779458efb335f940621b1c"
     },
     "assets/kits/park/bench.glb.import": {
       "size": 1147,
@@ -12511,10 +11563,6 @@
     "assets/nature/tree_simple_fall.glb.import": {
       "size": 1177,
       "sha256": "0f4cf570c23997afbd97e45a6e8b660a391fe48a52b4f98eb460a46a2fc0539c"
-    },
-    "assets/portal/butterfly_gate.glb.import": {
-      "size": 1171,
-      "sha256": "4bf033dc2854acd7516d61deffbac2ccf8cd4f93522f52dd01907b6c922c8fd7"
     },
     "assets/props/gen2/anemone_story.glb.import": {
       "size": 1172,
@@ -12751,10 +11799,6 @@
     "assets/ship/barrel.glb.import": {
       "size": 1145,
       "sha256": "a2212858864a5c446e15757c3a0536a060504b64ef44806289e87e04114d291c"
-    },
-    "assets/ship/chest.glb.import": {
-      "size": 1142,
-      "sha256": "6b173bc48f33cf0570575d05c588b04174eb38fe4f7316f3a4fe51271a42b1d9"
     },
     "assets/vehicles/gokart.glb.import": {
       "size": 1148,
@@ -14002,130 +13046,5 @@
       "Vector3": 1
     }
   },
-  "archive_now_model_files": [
-    "assets/art35/castle/dream_bed_0.glb",
-    "assets/art35/castle/dream_bed_1.glb",
-    "assets/art35/castle/dream_bed_2.glb",
-    "assets/art35/castle/dream_bed_3.glb",
-    "assets/art35/castle/dream_bed_4.glb",
-    "assets/art35/castle/dungeon_gate.glb",
-    "assets/art35/castle/kitchen_kettle.glb",
-    "assets/art35/castle/kitchen_pan_set.glb",
-    "assets/art35/castle/kitchen_soup_pot.glb",
-    "assets/art35/castle/kitchen_table_set.glb",
-    "assets/art35/castle/kitchen_teapot.glb",
-    "assets/art35/castle/music_bar_0.glb",
-    "assets/art35/castle/music_bar_1.glb",
-    "assets/art35/castle/music_bar_2.glb",
-    "assets/art35/castle/music_bar_3.glb",
-    "assets/art35/castle/music_bar_4.glb",
-    "assets/art35/castle/music_bar_5.glb",
-    "assets/art35/castle/music_bar_6.glb",
-    "assets/art35/castle/music_rail.glb",
-    "assets/art35/castle/music_song_star.glb",
-    "assets/art35/castle/music_wall_panel.glb",
-    "assets/art35/castle/royal_bed.glb",
-    "assets/art35/castle/royal_bookcase.glb",
-    "assets/art35/castle/royal_nightstand.glb",
-    "assets/art35/kart/soft_barrier.glb",
-    "assets/art35/landmarks/chamber_star.glb",
-    "assets/art35/landmarks/star_observatory.glb",
-    "assets/art35/northern/northern_castle.glb",
-    "assets/art35/northern/northern_gate.glb",
-    "assets/art35/northern/northern_house_0.glb",
-    "assets/art35/northern/northern_house_1.glb",
-    "assets/art35/northern/northern_house_2.glb",
-    "assets/art35/northern/northern_mountain.glb",
-    "assets/art35/opera/opera_crate.glb",
-    "assets/art35/opera/opera_crate_lid.glb",
-    "assets/art35/opera/opera_tiara_chest.glb",
-    "assets/castle/bathroom_bathtub.glb",
-    "assets/castle/bathroom_sink.glb",
-    "assets/castle/bathroom_toilet.glb",
-    "assets/castle/bed.glb",
-    "assets/castle/kitchen_counter.glb",
-    "assets/castle/kitchen_sink.glb",
-    "assets/castle/kitchen_stove.glb",
-    "assets/castle/pearl_kit/pearl_balustrade.glb",
-    "assets/castle/pearl_kit/pearl_bath_duck.glb",
-    "assets/castle/pearl_kit/pearl_bedside_table.glb",
-    "assets/castle/pearl_kit/pearl_canopy_bed.glb",
-    "assets/castle/pearl_kit/pearl_cloud_pouf.glb",
-    "assets/castle/pearl_kit/pearl_cloud_settee.glb",
-    "assets/castle/pearl_kit/pearl_column.glb",
-    "assets/castle/pearl_kit/pearl_craft_easel.glb",
-    "assets/castle/pearl_kit/pearl_craft_table.glb",
-    "assets/castle/pearl_kit/pearl_floor_medallion.glb",
-    "assets/castle/pearl_kit/pearl_keepsake_cradle.glb",
-    "assets/castle/pearl_kit/pearl_keepsake_music_box.glb",
-    "assets/castle/pearl_kit/pearl_keepsake_tiara.glb",
-    "assets/castle/pearl_kit/pearl_library_table.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_0.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_1.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_2.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_3.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_4.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_5.glb",
-    "assets/castle/pearl_kit/pearl_music_bar_6.glb",
-    "assets/castle/pearl_kit/pearl_music_mallet_stand.glb",
-    "assets/castle/pearl_kit/pearl_music_rail.glb",
-    "assets/castle/pearl_kit/pearl_ocean_portal.glb",
-    "assets/castle/pearl_kit/pearl_opera_gate.glb",
-    "assets/castle/pearl_kit/pearl_opera_vista.glb",
-    "assets/castle/pearl_kit/pearl_paint_rack.glb",
-    "assets/castle/pearl_kit/pearl_pantry_shelf.glb",
-    "assets/castle/pearl_kit/pearl_pet_basket.glb",
-    "assets/castle/pearl_kit/pearl_provisions_hutch.glb",
-    "assets/castle/pearl_kit/pearl_rainbow_gate.glb",
-    "assets/castle/pearl_kit/pearl_rainbow_stacker.glb",
-    "assets/castle/pearl_kit/pearl_rainbow_window.glb",
-    "assets/castle/pearl_kit/pearl_secret_chest.glb",
-    "assets/castle/pearl_kit/pearl_shell_arch.glb",
-    "assets/castle/pearl_kit/pearl_shell_banner_a.glb",
-    "assets/castle/pearl_kit/pearl_shell_banner_b.glb",
-    "assets/castle/pearl_kit/pearl_shell_bench.glb",
-    "assets/castle/pearl_kit/pearl_shell_chandelier.glb",
-    "assets/castle/pearl_kit/pearl_shell_drum.glb",
-    "assets/castle/pearl_kit/pearl_shell_fountain.glb",
-    "assets/castle/pearl_kit/pearl_shell_hopscotch.glb",
-    "assets/castle/pearl_kit/pearl_shell_lantern.glb",
-    "assets/castle/pearl_kit/pearl_shell_planter.glb",
-    "assets/castle/pearl_kit/pearl_shell_sconce.glb",
-    "assets/castle/pearl_kit/pearl_shell_throne.glb",
-    "assets/castle/pearl_kit/pearl_shell_wardrobe.glb",
-    "assets/castle/pearl_kit/pearl_shell_window.glb",
-    "assets/castle/pearl_kit/pearl_stair_rail.glb",
-    "assets/castle/pearl_kit/pearl_storage_barrel.glb",
-    "assets/castle/pearl_kit/pearl_storage_cart.glb",
-    "assets/castle/pearl_kit/pearl_storage_crate.glb",
-    "assets/castle/pearl_kit/pearl_story_cushion.glb",
-    "assets/castle/pearl_kit/pearl_throne_canopy.glb",
-    "assets/castle/pearl_kit/pearl_towel_stack.glb",
-    "assets/castle/pearl_kit/pearl_toy_block_stack.glb",
-    "assets/castle/pearl_kit/pearl_toy_chest.glb",
-    "assets/castle/pearl_kit/pearl_toy_sailboat.glb",
-    "assets/castle/throne.glb",
-    "assets/characters/huluu.glb",
-    "assets/fable_kit/loco_body.glb",
-    "assets/fable_kit/station_platform.glb",
-    "assets/fable_kit/station_shelter.glb",
-    "assets/fable_kit/track_curve.glb",
-    "assets/fable_kit/track_straight.glb",
-    "assets/galaxy/beetle.glb",
-    "assets/galaxy/fruit_apple.glb",
-    "assets/galaxy/fruit_banana.glb",
-    "assets/galaxy/fruit_melon.glb",
-    "assets/galaxy/fruit_orange.glb",
-    "assets/galaxy/ladybug.glb",
-    "assets/galaxy/trop_bigleaf.glb",
-    "assets/galaxy/trop_fern.glb",
-    "assets/galaxy/trop_monstera.glb",
-    "assets/galaxy/trop_palm1.glb",
-    "assets/galaxy/trop_palm2.glb",
-    "assets/kits/furniture/bookcase.glb",
-    "assets/kits/furniture/chair.glb",
-    "assets/kits/furniture/table.glb",
-    "assets/portal/butterfly_gate.glb",
-    "assets/ship/chest.glb"
-  ]
+  "archive_now_model_files": []
 }
