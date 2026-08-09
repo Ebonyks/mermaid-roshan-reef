@@ -1,8 +1,8 @@
 class_name SkyLagoonPromenade
 extends RefCounted
-# The Sky Lagoon's three-page 2.5D promenade. The painted PNW flats and
-# transparent Codex sprites do the visual work; the real Roshan rig walks in
-# one shallow band in front of them. All mutable state remains on ReefMain.
+# The Sky Lagoon's three-page 2.5D promenade. Painted PNW flats and transparent
+# sprites do the visual work; Roshan's animated 2D card walks in one shallow
+# band in front of them. All mutable state remains on ReefMain.
 
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")

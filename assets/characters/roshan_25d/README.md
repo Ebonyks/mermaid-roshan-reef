@@ -1,5 +1,11 @@
 # Mermaid Roshan 2.5D sprite contract
 
+**Binding owner decision (2026-08-09): Mermaid Roshan is 2D-only.** Godot may
+stage these flat images on a `Sprite3D` card for depth, but Roshan must not use
+a mesh, GLB, armature, character skeleton, or model fallback. Retired 3D
+resources and pipeline evidence live only on
+`codex/deprecated-resources-roshan-20260809` (archive head `8d9c69b6`).
+
 All runtime textures are RGBA PNGs with power-of-two dimensions and 256x256
 cells. `scripts/player.gd` is the source of truth for frame selection.
 

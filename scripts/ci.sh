@@ -20,6 +20,13 @@ python3 -m gdtoolkit.parser $(find scripts -name '*.gd') \
 	|| { echo "PARSE FAIL (gdtoolkit)"; exit 1; }
 python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd \
 	|| { echo "LINT FAIL (:= from Variant)"; exit 1; }
+# Owner decision 2026-08-09: Mermaid Roshan is 2D-only. Prove the guard can
+# fail before trusting it, then reject model assets, rig APIs, missing atlases,
+# or a future CI bypass before Godot imports anything.
+python3 tools/audit_roshan_2d.py --stress \
+	|| { echo "ROSHAN 2D AUDIT SELF-TEST FAIL"; exit 1; }
+python3 tools/audit_roshan_2d.py \
+	|| { echo "ROSHAN 2D-ONLY CONTRACT FAIL"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
 python3 tools/prepare_opera_nursery_art.py --check-only \

@@ -3663,7 +3663,7 @@ func _player_texture_scale() -> float:
 		/ maxf(1.0, frame_height)
 
 func refresh_player_skin() -> void:
-	# WardrobeUI changes the primary 3D Player through ReefMain._apply_skin().
+	# WardrobeUI changes the primary 2D player through ReefMain._apply_skin().
 	# The castle owns a separate Sprite3D standee, so refresh that same selected
 	# look in place without replacing the room actor or disturbing its position.
 	var sprite: Sprite3D = m.castle_room_player_sprite

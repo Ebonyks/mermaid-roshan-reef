@@ -179,7 +179,7 @@ var speed_lines: GPUParticles3D
 var speed_pm: ParticleProcessMaterial
 
 func _ready() -> void:
-	# Sprite3D is the only Roshan renderer. The retired GLB rig is never loaded.
+	# Sprite3D atlas frames are the only Roshan renderer.
 	classic_motion_root = Node3D.new()
 	classic_motion_root.name = "AlwaysAliveMotion"
 	add_child(classic_motion_root)
