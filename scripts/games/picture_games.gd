@@ -12,7 +12,7 @@ func _init(main: ReefMain) -> void:
 
 func _mg2d_open(kind: String) -> void:
 	if kind == "slide":
-		m._l2_start_slide()   # the rainbow slide is always the 3D play-place, never the old 2D screen
+		m._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen
 		return
 	m._set_world_controls_enabled(false, "picture_game")
 	m.mg_kind = kind
@@ -54,6 +54,17 @@ func _mg2d_open(kind: String) -> void:
 	m.mg2d_stage.scale = Vector2(sc, sc)
 	m.mg2d_stage.position = (vp - Vector2(1280, 720) * sc) * 0.5
 	m.mg2d_root.add_child(m.mg2d_stage)
+	# All picture-game feedback lives above the play pieces on this stage. The
+	# layer and every tween below it die with the stage on close or re-entry.
+	var feedback_layer := Control.new()
+	feedback_layer.name = "PictureGameFeedbackLayer"
+	feedback_layer.size = m.mg2d_stage.size
+	feedback_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	feedback_layer.z_index = 20
+	m.mg2d_stage.add_child(feedback_layer)
+	m.mg["feedback_layer"] = feedback_layer
+	m.mg["feedback_tweens"] = []
+	m.mg["feedback_events"] = {}
 	var header := StorybookUI.add_hud_panel(m.mg2d_stage,
 		Rect2(24, 18, 880, 112), StorybookUI.PURPLE,
 		Color(0.94, 0.98, 1.0, 0.97), 34)
@@ -99,7 +110,7 @@ func _mg_circle(pos: Vector2, r: float, col: Color) -> Panel:
 	p.size = Vector2(r * 2.0, r * 2.0)
 	p.position = pos - Vector2(r, r)
 	m.mg2d_stage.add_child(p)
-	# glossy highlight (upper-left) gives a 3D ball sheen
+	# glossy highlight (upper-left) gives the ball a soft rounded sheen
 	var hl := Panel.new()
 	var hsb := StyleBoxFlat.new()
 	hsb.bg_color = Color(1, 1, 1, 0.38)
@@ -155,6 +166,90 @@ func _mg_roundbtn(pos: Vector2, r: float, col: Color, txt: String = "") -> Butto
 	return b
 
 
+func _mg2d_feedback_burst(at: Vector2, col: Color, feedback_kind: String,
+		element_count: int = 8, radius: float = 90.0,
+		duration: float = 0.55) -> void:
+	if m.mg2d_stage == null or not is_instance_valid(m.mg2d_stage):
+		return
+	var layer: Control = m.mg.get("feedback_layer") as Control
+	if layer == null or not is_instance_valid(layer):
+		return
+	# One win burst replaces the old world bursts plus falling confetti. Action
+	# feedback is capped at three short bursts so rapid preschool tapping cannot
+	# create an unbounded transparent-overdraw cloud on the target phone.
+	var active_count := 0
+	for old_value in layer.get_children():
+		var old_burst := old_value as Control
+		if old_burst != null and old_burst.visible:
+			if feedback_kind == "win":
+				old_burst.visible = false
+				old_burst.queue_free()
+			else:
+				active_count += 1
+	if feedback_kind != "win":
+		while active_count >= 3:
+			for old_value in layer.get_children():
+				var old_burst := old_value as Control
+				if old_burst != null and old_burst.visible:
+					old_burst.visible = false
+					old_burst.queue_free()
+					active_count -= 1
+					break
+	var count := clampi(element_count, 4, 18)
+	var travel := clampf(radius, 40.0, 320.0)
+	var lifetime := clampf(duration, 0.35, 0.9)
+	var burst := Control.new()
+	burst.name = "PictureGameFeedbackBurst"
+	burst.position = at
+	burst.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	burst.set_meta("feedback_kind", feedback_kind)
+	burst.set_meta("visible_elements", count)
+	layer.add_child(burst)
+	var star_points := PackedVector2Array([
+		Vector2(0, -13), Vector2(4, -4), Vector2(13, 0), Vector2(4, 4),
+		Vector2(0, 13), Vector2(-4, 4), Vector2(-13, 0), Vector2(-4, -4)])
+	for i in range(count):
+		var angle := TAU * float(i) / float(count) + 0.12 * float(i % 2)
+		var direction := Vector2(cos(angle), sin(angle))
+		var sparkle := Polygon2D.new()
+		sparkle.polygon = star_points
+		sparkle.color = Color.from_hsv(float(i) / float(count), 0.62, 1.0) \
+			if feedback_kind == "win" else col.lerp(Color.WHITE, 0.14 * float(i % 3))
+		sparkle.position = direction * 8.0
+		sparkle.rotation = angle
+		sparkle.scale = Vector2.ONE * (0.75 + 0.12 * float(i % 3))
+		sparkle.set_meta("feedback_endpoint", direction * travel * (0.72 + 0.14 * float(i % 3)))
+		burst.add_child(sparkle)
+	var burst_tween := burst.create_tween()
+	var first_property := true
+	for sparkle_value in burst.get_children():
+		var sparkle := sparkle_value as Polygon2D
+		if sparkle == null:
+			continue
+		var endpoint: Vector2 = sparkle.get_meta("feedback_endpoint")
+		if first_property:
+			burst_tween.tween_property(sparkle, "position", endpoint, lifetime) \
+				.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			first_property = false
+		else:
+			burst_tween.parallel().tween_property(sparkle, "position", endpoint, lifetime) \
+				.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		burst_tween.parallel().tween_property(
+			sparkle, "scale", Vector2(0.18, 0.18), lifetime)
+		burst_tween.parallel().tween_property(sparkle, "modulate:a", 0.0, lifetime)
+	burst_tween.tween_callback(burst.queue_free)
+	var tracked: Array = m.mg.get("feedback_tweens", [])
+	for i in range(tracked.size() - 1, -1, -1):
+		var old_tween := tracked[i] as Tween
+		if old_tween == null or not old_tween.is_valid():
+			tracked.remove_at(i)
+	tracked.append(burst_tween)
+	m.mg["feedback_tweens"] = tracked
+	var events: Dictionary = m.mg.get("feedback_events", {})
+	events[feedback_kind] = int(events.get(feedback_kind, 0)) + 1
+	m.mg["feedback_events"] = events
+
+
 func _mg2d_win(msg: String) -> void:
 	m._reward(false)   # RewardDirector: same chime run on every win
 	if m.mg_kind == "snowman":
@@ -164,8 +259,6 @@ func _mg2d_win(msg: String) -> void:
 	m.mg["won"] = true
 	m._medal_ref().award_from_mg2d(m.mg_kind, m.mg)
 	m.show_msg("Roshan", msg, "win")
-	for i in range(8):
-		m._sparkle_burst(m.player.position + Vector3(randf() * 8 - 4, randf() * 6, randf() * 8 - 4), Color.from_hsv(randf(), 0.6, 1.0))
 	m.pearl_count += 2
 	m._update_hud()
 	m._write_save()
@@ -179,19 +272,32 @@ func _mg2d_win(msg: String) -> void:
 	if m.mg2d_stage != null and is_instance_valid(m.mg2d_stage):
 		var banner := _mg_label("\u2b50  Yay! You did it!  \u2b50", 76, Vector2(330, 26))
 		banner.add_theme_color_override("font_color", Color(1.0, 0.95, 0.4))
-		for ci in range(40):
-			var conf := ColorRect.new()
-			conf.color = Color.from_hsv(randf(), 0.7, 1.0)
-			conf.size = Vector2(18, 18)
-			conf.position = Vector2(randf() * 1280, -20.0 - randf() * 200.0)
-			conf.rotation = randf() * TAU
-			m.mg2d_stage.add_child(conf)
-			var tw = m.create_tween()
-			tw.tween_property(conf, "position:y", 760.0, 1.3 + randf() * 0.5).set_delay(randf() * 0.3)
-	m.get_tree().create_timer(1.6).timeout.connect(_mg2d_close)
+		_mg2d_feedback_burst(Vector2(640, 345), Color(1.0, 0.9, 0.35),
+			"win", 18, 300.0, 0.9)
+		# Binding the delayed close to this stage prevents an old win callback
+		# from closing a newly opened picture game.
+		var winning_root: Control = m.mg2d_root
+		var close_tween := m.mg2d_stage.create_tween()
+		close_tween.tween_interval(1.6)
+		close_tween.tween_callback(func(): _mg2d_finish_win(winning_root))
+		m.mg["close_tween"] = close_tween
+
+
+func _mg2d_finish_win(expected_root: Control) -> void:
+	if m.mg2d_root != expected_root:
+		return
+	m.mg.erase("close_tween")
+	_mg2d_close()
 
 
 func _mg2d_close() -> void:
+	var close_tween := m.mg.get("close_tween") as Tween
+	if close_tween != null and close_tween.is_valid():
+		close_tween.kill()
+	for tween_value in (m.mg.get("feedback_tweens", []) as Array):
+		var feedback_tween := tween_value as Tween
+		if feedback_tween != null and feedback_tween.is_valid():
+			feedback_tween.kill()
 	if m.mg2d_root != null and is_instance_valid(m.mg2d_root):
 		m.mg2d_root.queue_free()
 	m.mg2d_root = null
@@ -265,13 +371,14 @@ func _mg_snow_ball_done() -> void:
 	m.mg.erase("roll_ball")
 	var r: float = float(m.mg["final_r"])
 	var bc := Vector2(980, 560.0 - float(b - 1) * 175.0)
-	var tw = m.create_tween()
+	var tw = ball.create_tween()
 	tw.tween_property(ball, "position", bc - Vector2(r, r), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	(m.mg["body"] as Array).append(ball)
 	if m.chime != null:
 		m.chime.pitch_scale = 1.0 + float(b) * 0.15
 		m.chime.play()
-	m._sparkle_burst(m.player.position + Vector3(0, 1, 0), Color(0.8, 0.92, 1.0))
+	_mg2d_feedback_burst(bc, Color(0.8, 0.92, 1.0),
+		"snowball_settle", 10, 96.0, 0.55)
 	if b >= 3:
 		m.mg["head_pos"] = bc
 		if m.mg.has("flash") and is_instance_valid(m.mg["flash"]):
@@ -485,7 +592,6 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 		return
 	st[i] = int(st[i]) + 1
 	var x: float = b.get_meta("hx")
-	m._sparkle_burst(m.player.position + Vector3(0, 1, 0), Color(0.4, 0.7, 1.0))
 	var tex = b.get_child(0) as TextureRect
 	if int(st[i]) == 1:
 		# seed -> seedling (same small sprout for every plant); the art fills the
@@ -500,6 +606,8 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 		b.size = Vector2(GARDEN_SPROUT_RECT, GARDEN_SPROUT_RECT)
 		b.custom_minimum_size = b.size
 		b.position = Vector2(x - GARDEN_SPROUT_RECT * 0.5, GARDEN_SOIL_Y - GARDEN_SPROUT_RECT * GARDEN_ART_BOTTOM)
+		_mg2d_feedback_burst(Vector2(x, GARDEN_SOIL_Y - 82.0),
+			Color(0.4, 0.8, 0.7), "garden_growth", 8, 74.0, 0.5)
 	else:
 		# seedling -> a distinct flower, with a happy pop; ~170px of visible
 		# flower rooted on the same soil line (seed < sprout < flower)
@@ -509,12 +617,15 @@ func _mg_garden_tap(i: int, b: Button) -> void:
 		b.position = Vector2(x - GARDEN_FLOWER_RECT * 0.5, GARDEN_SOIL_Y - GARDEN_FLOWER_RECT * GARDEN_ART_BOTTOM)
 		b.pivot_offset = b.size * 0.5
 		b.disabled = true
-		var tw = m.create_tween()
+		var tw = b.create_tween()
 		tw.tween_property(b, "scale", Vector2(1.2, 1.2), 0.12)
 		tw.tween_property(b, "scale", Vector2(1.0, 1.0), 0.12)
 		m.mg["grown"] = int(m.mg["grown"]) + 1
 		if int(m.mg["grown"]) >= 5:
 			_mg2d_win("Look at my beautiful flower garden!")
+		else:
+			_mg2d_feedback_burst(Vector2(x, GARDEN_SOIL_Y - 112.0),
+				Color(0.5, 0.76, 1.0), "garden_growth", 10, 88.0, 0.55)
 
 # ---- TRAMPOLINE: tap BOUNCE to jump up to the star ----
 
@@ -548,7 +659,7 @@ func _mg_tramp_tap() -> void:
 	if reached:
 		apex_center = star_y + 110.0   # land her right at the star
 	var rest_top: float = rest_y - 95.0
-	var tw = m.create_tween()
+	var tw = r.create_tween()
 	tw.tween_property(r, "position:y", apex_center - 95.0, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tw.tween_property(r, "position:y", rest_top, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	if reached:
