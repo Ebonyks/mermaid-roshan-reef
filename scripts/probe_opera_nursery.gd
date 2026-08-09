@@ -56,10 +56,13 @@ func _init() -> void:
 	_check("the imp scuffle opens with no passive progress",
 		world.phase_index == 0 and is_equal_approx(world.progress(), 0.0)
 		and String((world.phases[0] as Dictionary).get("mode", "")) == "bop")
+	_check_all_phase_reprompts(world)
+	_check_timed_reprompt(world, "open-task re-prompt")
 
 	_pump(world)
 	_check("washing follows the scuffle with the basin tableau",
 		world.phase_index == 1 and world.surface.visual_context == "basin_nursery")
+	_check_timed_reprompt(world, "waiting-at-station re-prompt")
 	_pump(world)
 	var catcher := world.nursery_catch
 	_check("catch phase reuses and expands the falling-baby grammar",
@@ -144,6 +147,59 @@ func _phase_names(world: OperaCareerWorld2D) -> Array[String]:
 	for phase: Dictionary in world.phases:
 		names.append(String(phase.get("name", "")))
 	return names
+
+
+func _check_all_phase_reprompts(world: OperaCareerWorld2D) -> void:
+	var saved_phase_index: int = world.phase_index
+	for index: int in range(world.phases.size()):
+		var phase := world.phases[index] as Dictionary
+		var speaker: String = String(phase.get("speaker", "Roshan"))
+		var speaker_key: String = main._speaker_key(speaker)
+		var vo: String = String(phase.get("vo", "hint"))
+		var cue_key := "%s_%s" % [speaker_key, vo]
+		var expected_path := "res://assets/audio/voices/%s.ogg" % cue_key
+		main.clear_dialogue()
+		main.said_cool.erase(cue_key)
+		var before: int = main.voice_i
+		world.phase_index = index
+		world._repeat_phase_prompt()
+		var actual_path := _last_voice_path()
+		_check("%s re-prompt preserves speaker and cue" % String(phase.get("name", index)),
+			main.voice_i == before + 1 and actual_path == expected_path)
+		if speaker == "Faron":
+			_check("%s re-prompt selects exact Faron clip" % String(phase.get("name", index)),
+				actual_path == expected_path and expected_path.begins_with(
+					"res://assets/audio/voices/faron_op_nursery_"))
+	world.phase_index = saved_phase_index
+	main.clear_dialogue()
+
+
+func _check_timed_reprompt(world: OperaCareerWorld2D, label: String) -> void:
+	var phase := world.phases[world.phase_index] as Dictionary
+	var speaker_key: String = main._speaker_key(String(phase.get("speaker", "Roshan")))
+	var vo: String = String(phase.get("vo", "hint"))
+	var cue_key := "%s_%s" % [speaker_key, vo]
+	main.clear_dialogue()
+	main.said_cool.erase(cue_key)
+	world.reveal_t = 0.0
+	world.phase_advance_pending = false
+	world.idle_t = 8.95
+	var before: int = main.voice_i
+	world._process(0.1)
+	_check(label + " uses active phase identity",
+		main.voice_i == before + 1
+		and _last_voice_path() == "res://assets/audio/voices/%s.ogg" % cue_key)
+	main.clear_dialogue()
+
+
+func _last_voice_path() -> String:
+	if main.voice_i <= 0 or main.voice_pool.is_empty():
+		return "missing"
+	var index := posmod(main.voice_i - 1, main.voice_pool.size())
+	var player := main.voice_pool[index] as AudioStreamPlayer
+	if player == null or player.stream == null:
+		return "missing"
+	return player.stream.resource_path
 
 
 func _check(label: String, condition: bool) -> void:

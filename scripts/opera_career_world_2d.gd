@@ -961,6 +961,17 @@ func _open_task() -> void:
 	phase_fill.value = 0.0
 
 
+func _repeat_phase_prompt() -> void:
+	if m == null or phase_index < 0 or phase_index >= phases.size():
+		return
+	var phase := phases[phase_index] as Dictionary
+	m.show_msg(
+		String(phase.get("speaker", "Roshan")),
+		String(phase.get("voice", "Follow the golden sparkle!")),
+		String(phase.get("vo", "hint"))
+	)
+
+
 func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
@@ -2112,14 +2123,11 @@ func _process(delta: float) -> void:
 				# re-prompt with the phase's OWN recorded line — the hardcoded
 				# "hint" event has no recording, so a quiet child used to get
 				# a content-free pitched yay instead of her instruction again
-				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
-					String((phases[phase_index] as Dictionary).get("vo", "hint")))
+				_repeat_phase_prompt()
 		elif idle_t >= 9.0:
 			idle_t = 0.0
 			surface.restart_demo()
-			if m != null:
-				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
-					String((phases[phase_index] as Dictionary).get("vo", "hint")))
+			_repeat_phase_prompt()
 	timing_phase = fmod(timing_phase + delta * minf(0.70, 0.55 + 0.02 * float(phase_index)), 2.0)
 	var marker := timing_phase if timing_phase <= 1.0 else 2.0 - timing_phase
 	surface.set_timing_position(marker)
