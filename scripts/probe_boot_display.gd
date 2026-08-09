@@ -15,8 +15,9 @@ extends SceneTree
 # the track first) and then dying partway through the promenade build, which
 # leaves the player standing in the reef that _ready() built underneath.
 #
-# This probe boots main.tscn under a REAL viewport (Xvfb in CI) and takes no
-# action at all: it just waits and asserts the promenade actually came up.
+# This probe boots main.tscn under a REAL viewport (Xvfb in CI), verifies the
+# untouched first frame, then dismisses the story and exercises the route the
+# child sees. Headless probes cannot cover either display-only boot behavior.
 
 var failures: int = 0
 
@@ -84,6 +85,47 @@ func _run() -> void:
 	# and she is standing on the promenade, not at the reef origin
 	var from_lagoon: float = main.player.position.distance_to(main.LEVEL2_POS)
 	_check(from_lagoon < 120.0, "player_spawns_on_the_promenade")
+
+	# The route already exists while the story is open, but its prompt must wait
+	# until the story is gone instead of expiring behind four full-screen pages.
+	var route_target: Dictionary = {}
+	for target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = target_value as Dictionary
+		if String(target.get("id", "")) == "reef_route":
+			route_target = target
+			break
+	_check(not route_target.is_empty(), "reef_route_is_visible_on_first_phone_frame")
+	_check(float(route_target.get("radius_px", 0.0)) >= 128.0,
+		"reef_route_has_child_touch_radius")
+	_check(String(route_target.get("affordance_kind", "")) == "interaction",
+		"reef_route_uses_blue_interaction_language")
+	if main.first_session and main.intro_active:
+		_check(bool(main.g.get("lagoon_reef_guidance_pending", false)),
+			"reef_guidance_waits_behind_story")
+	if main.intro_active:
+		main._skip_intro()
+	for _i in range(4):
+		await process_frame
+	_check(not bool(main.g.get("lagoon_reef_guidance_pending", true)),
+		"reef_guidance_releases_after_story")
+	_check(String(main.g.get("lagoon_promenade_focus", "")) == "reef_route",
+		"reef_route_pulses_after_story")
+	_check(main.msg_timer > 0.0 and main.hud_msg.text.contains("visit the Reef"),
+		"reef_route_prompt_is_post_story_and_semantic")
+
+	# One tap on the focused plane is enough: this is the normal visible return
+	# route, not a hidden Pause-menu escape hatch.
+	var route_node: Node3D = route_target.get("node") as Node3D
+	var route_ready: bool = route_node != null and is_instance_valid(route_node)
+	if route_ready:
+		var route_screen: Vector2 = main.player.cam.unproject_position(
+			route_node.global_position)
+		promenade.handle_touch(route_screen)
+		for _i in range(3):
+			await process_frame
+	_check(route_ready and main.game == "" and main.player.visible
+		and main.we_node.environment == main.world_env,
+		"one_tap_reef_route_restores_free_swim")
 
 	_finish()
 

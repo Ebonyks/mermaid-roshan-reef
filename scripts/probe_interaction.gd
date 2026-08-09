@@ -149,21 +149,23 @@ func _init() -> void:
 		var promenade_id: String = String(promenade_target.get("id", ""))
 		promenade_ids[promenade_id] = true
 		var expected_affordance: String = Affordance.PLOT \
-			if promenade_id == "castle_gate" else Affordance.ANIMATION
+			if promenade_id == "castle_gate" \
+			else Affordance.INTERACTION if promenade_id == "reef_route" \
+			else Affordance.ANIMATION
 		var highlight: Sprite3D = promenade_target.get("highlight") as Sprite3D
 		if String(promenade_target.get(
 				"affordance_kind", "")) != expected_affordance:
 			_bad("promenade affordance category wrong for %s" % promenade_id)
 		elif highlight == null or not highlight.visible:
 			_bad("promenade idle affordance hidden for %s" % promenade_id)
-	for expected: String in ["slide", "swing", "seesaw", "castle_gate"]:
+	for expected: String in ["reef_route", "slide", "swing", "seesaw", "castle_gate"]:
 		if not promenade_ids.has(expected):
 			_bad("promenade interaction missing %s" % expected)
 	for removed_frame: String in ["runway_frame", "playground_frame", "castle_frame"]:
 		if promenade_ids.has(removed_frame):
 			_bad("removed lawn picture still interactive: %s" % removed_frame)
-	if promenade_targets.size() < 4 or promenade_targets.size() > 5:
-		_bad("promenade roster must be four permanent toys/landmarks plus optional Day One plane")
+	if promenade_targets.size() != 5:
+		_bad("promenade roster must contain the permanent Reef route and four toys/landmarks")
 
 	# Exercise the first-visit Crown Star target, not the already-won keepsake.
 	# The castle is one picture-first Sprite3D stage, not a second free-roaming

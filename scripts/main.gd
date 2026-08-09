@@ -6046,7 +6046,7 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
 		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
 	else:
-		show_msg("Roshan", "Back to the ocean! Wheee!")
+		show_msg("Roshan", "Back in the Reef! I love swimming!", "idle2")
 
 func _finish_level2() -> void:
 	_do_finish_level2()

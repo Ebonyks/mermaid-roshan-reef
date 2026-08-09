@@ -93,8 +93,9 @@ func _check_storybook_coverage() -> void:
 	_check(kart_source.contains("KartPaintChoice_"),
 		"kart garage exposes direct ride and paint choices")
 	_check(not pause_source.contains("PauseTouchModeButton")
-		and not pause_source.contains("REEF"),
-		"Pause removes the obsolete touch choice and Reef destination")
+		and pause_source.contains("func leave_label")
+		and pause_source.contains("REEF"),
+		"Pause removes the obsolete touch choice and derives its real destination")
 	_check(touch_source.contains("_stick_hint.visible = false")
 		and not touch_source.contains("_stick_hint.visible = wants_touch()"),
 		"point-to-interact keeps the movement pad renderer hidden")
@@ -175,6 +176,17 @@ func _init() -> void:
 		"movement pad stays off-screen in point-to-interact play")
 	var leave := _find(main.pause_panel, "PauseLeaveButton") as Button
 	_check(leave != null and bool(leave.get_meta("neutral_exit", false)), "activity exit uses neutral-back semantics")
+	main.game = "level2"
+	main._pause_ref()._sync_labels()
+	_check(leave != null and leave.text.contains("REEF"),
+		"bare Sky Lagoon Pause fallback names its Reef destination")
+	main.mg_kind = "snowman"
+	main._pause_ref()._sync_labels()
+	_check(leave != null and leave.text.contains("BACK"),
+		"Sky Lagoon local activity Pause closes locally before leaving")
+	main.mg_kind = ""
+	main.game = ""
+	main._pause_ref()._sync_labels()
 	main.toggle_pause()
 	_check(main.pause_layer.layer == 12 and not main.get_tree().paused, "resume restores normal overlay order")
 

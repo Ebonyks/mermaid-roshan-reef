@@ -3,6 +3,7 @@ extends SceneTree
 
 const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
 const ROSHAN_FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
+const Affordance := preload("res://scripts/interaction_affordance.gd")
 
 var failed := false
 
@@ -248,10 +249,29 @@ func _init() -> void:
 			and cloud_card.position.y >= 28.2)
 	_check("single_cloud_uses_clear_sky_corridor", cloud_clear_ok,
 		"position=%s" % (cloud_card.position if cloud_card != null else Vector3.ZERO))
-	_check("day_one_plane_departs_and_stays_gone",
-		main.g.get("lagoon_plane_card") == null
-		and bool(main.save_data.get("lagoon_plane_departed", false)),
-		"departed=%s" % main.save_data.get("lagoon_plane_departed", false))
+	var reef_plane: Sprite3D = main.g.get("lagoon_reef_route_card") as Sprite3D
+	var reef_plane_base: Vector3 = main.g.get(
+		"lagoon_reef_route_base", Vector3.ZERO) as Vector3
+	var reef_route_target: Dictionary = {}
+	for target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = target_value as Dictionary
+		if String(target.get("id", "")) == "reef_route":
+			reef_route_target = target
+			break
+	_check("day_one_arrival_becomes_a_permanent_reef_shuttle",
+		reef_plane != null and is_instance_valid(reef_plane)
+		and reef_plane.name == "SkyLagoonReefPlane"
+		and main.g.get("lagoon_plane_card") == null
+		and bool(main.save_data.get("lagoon_plane_departed", false))
+		and reef_plane_base.x <= -66.0 and reef_plane_base.y >= 8.0
+		and not reef_plane.has_meta("contact_shadow")
+		and float(reef_route_target.get("radius_px", 0.0)) >= 128.0
+		and String(reef_route_target.get("affordance_kind", "")) \
+			== Affordance.INTERACTION,
+		"plane=%s base=%s arrival_done=%s" % [
+			reef_plane.name if reef_plane != null else "missing",
+			reef_plane_base,
+			main.save_data.get("lagoon_plane_departed", false)])
 	var seamless_cards_ok := backdrop_positions.size() == 12
 	for row: int in range(2):
 		for column: int in range(6):
@@ -284,16 +304,21 @@ func _init() -> void:
 		"jump_y=%.3f" % float(main.g.get("ss_walk_jump_y", 0.0)))
 	var play_label_ok := false
 	var enter_label_ok := false
+	var fly_label_ok := false
 	for action_target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
 		var action_target: Dictionary = action_target_value as Dictionary
 		if String(action_target.get("id", "")) == "swing":
 			promenade._focus(action_target)
 			play_label_ok = promenade.action_label() == "PLAY"
+		elif String(action_target.get("kind", "")) == "reef":
+			promenade._focus(action_target)
+			fly_label_ok = promenade.action_label() == "FLY"
 		elif String(action_target.get("kind", "")) == "castle":
 			promenade._focus(action_target)
 			enter_label_ok = promenade.action_label() == "ENTER"
 	promenade._clear_focus()
-	_check("promenade_action_label_matches_focus", play_label_ok and enter_label_ok)
+	_check("promenade_action_label_matches_focus",
+		play_label_ok and enter_label_ok and fly_label_ok)
 	var lens: Camera3D = main.player.cam
 	var origin: Vector3 = main.LEVEL2_POS
 	_check("stage_owns_the_lens",
@@ -482,8 +507,8 @@ func _init() -> void:
 		var target: Dictionary = value as Dictionary
 		var id: String = String(target.get("id", ""))
 		ids[id] = true
-	_check("interactive_roster", targets.size() == 4
-		and not ids.has("plane") and ids.has("slide") and ids.has("swing")
+	_check("interactive_roster", targets.size() == 5
+		and ids.has("reef_route") and ids.has("slide") and ids.has("swing")
 		and ids.has("seesaw") and ids.has("castle_gate"))
 	_check("mismatched_lawn_picture_frames_removed",
 		not ids.has("runway_frame")
@@ -767,6 +792,26 @@ func _init() -> void:
 	_check("day_return_has_no_fireflies",
 		String(main.g.get("phase", "")) == "promenade"
 		and not main.g.has("lagoon_night_fireflies"))
+
+	# The child-visible plane is the normal route out of the promenade. Exercise
+	# its real single-tap screen target, not the hidden Pause fallback or a direct
+	# internal call, and verify the transition lands in free-swim Reef state.
+	var travel_target: Dictionary = {}
+	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == "reef_route":
+			travel_target = target
+			break
+	var travel_node: Node3D = travel_target.get("node") as Node3D
+	var travel_ready: bool = travel_node != null and is_instance_valid(travel_node)
+	if travel_ready:
+		var travel_screen: Vector2 = main.player.cam.unproject_position(
+			travel_node.global_position)
+		main._lagoon_promenade_ref().handle_touch(travel_screen)
+		await _frames(2)
+	_check("one_tap_plane_route_returns_to_the_reef",
+		travel_ready and main.game == "" and main.player.visible
+		and main.we_node.environment == main.world_env)
 
 	if failed:
 		print("FAIL|Sky Lagoon 2.5D promenade regression")

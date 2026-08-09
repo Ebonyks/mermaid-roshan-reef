@@ -229,6 +229,7 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 const NIGHT_WORLD_TINT := Color(0.72, 0.78, 0.96, 1.0)
 const NIGHT_BACKDROP_TINT := Color(0.48, 0.56, 0.82, 1.0)
 const PLANE_DEPARTURE_S := 7.0
+const REEF_ROUTE_MARKER_H := 5.2
 const SLIDE_H := 11.4
 const SWING_H := 10.8
 const SEESAW_H := 4.5
@@ -329,6 +330,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_promenade_focus"] = ""
 	m.g["lagoon_promenade_focus_t"] = 0.0
 	m.g["lagoon_play_anim"] = {}
+	m.g["lagoon_reef_guidance_pending"] = false
 	m.lagoon_floor = false
 	m.northern_floor = false
 	m.arena_center = m.LEVEL2_POS
@@ -391,14 +393,20 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	_sync_target_mural_anchors()
 	if from_castle:
 		m.show_msg("Roshan", "Back outside! Tap a playground toy or the castle door once to light it up, then tap it again to play.")
-	elif m.g.get("lagoon_plane_card") is Sprite3D:
-		m.show_msg("Roshan", "Our pearl plane landed! Tap the plane or a playground toy to explore.", "intro")
+	elif m.first_session and at_ocean_gate_hub:
+		# The four-page story opens after this stage is built. Defer the route
+		# prompt so its five-second banner cannot expire invisibly behind it.
+		m.g["lagoon_reef_guidance_pending"] = true
 	else:
-		m.show_msg("Roshan", "The Sky Lagoon is ready! Tap a playground toy once to light it up, then tap it again to play.", "intro")
+		_show_reef_route_guidance()
 
 func tick(delta: float) -> void:
 	if m.mg_kind != "":
 		return
+	if bool(m.g.get("lagoon_reef_guidance_pending", false)) \
+			and not m.intro_active:
+		m.g["lagoon_reef_guidance_pending"] = false
+		_show_reef_route_guidance()
 	_refresh_route()
 	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
 		m.g["ss_walk_goal"] = null
@@ -459,7 +467,12 @@ func action_label() -> String:
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
 		if String(target.get("id", "")) == focus_id:
-			return "ENTER" if String(target.get("kind", "")) == "castle" else "PLAY"
+			var kind: String = String(target.get("kind", ""))
+			if kind == "castle":
+				return "ENTER"
+			if kind == "reef":
+				return "FLY"
+			return "PLAY"
 	return "JUMP"
 
 func _handle_action() -> bool:
@@ -519,6 +532,13 @@ func handle_touch(screen_pos: Vector2) -> bool:
 		return true
 	m.g["ss_walk_goal"] = null
 	var target_id: String = String(target.get("id", ""))
+	# The plane is the promenade's child-visible world route, not a toy setup.
+	# One deliberate tap on its artwork travels immediately; requiring a second
+	# tap made the only non-Pause exit undiscoverable for a four-year-old.
+	if String(target.get("kind", "")) == "reef":
+		_activate(target)
+		_clear_focus()
+		return true
 	if String(m.g.get("lagoon_promenade_focus", "")) == target_id:
 		_activate(target)
 		_clear_focus()
@@ -529,16 +549,41 @@ func handle_touch(screen_pos: Vector2) -> bool:
 func _build_runway_screen() -> void:
 	if bool(m.save_data.get("lagoon_plane_departed", false)):
 		m.g["lagoon_plane_card"] = null
+		_build_reef_route_marker()
 		return
 	var plane := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
 		Vector3(-58.0, 5.341, LANDMARK_Z), 10.732)   # fully inside the painted dock
 	m.g["lagoon_plane_card"] = plane
 	m.g["lagoon_plane_base"] = plane.position
-	_register_target("plane", plane, "plane", "", 118.0, 1.12)
+	_register_target("reef_route", plane, "reef", "reef", 132.0, 1.12)
 	var targets: Array = m.g.get("lagoon_promenade_targets", [])
 	var plane_target: Dictionary = targets.back() as Dictionary
 	m.g["lagoon_plane_highlight"] = plane_target.get("highlight")
+
+func _build_reef_route_marker() -> void:
+	# The full arrival card clears the shoreline after its opening beat, but a
+	# smaller permanent shuttle remains above the west dock. Reusing the
+	# approved plane art adds a visible route without another generated asset;
+	# its high, left placement clears the otter/frog ground corridor.
+	var plane := _add_sprite(
+		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+		Vector3(-66.0, 8.6, LANDMARK_Z), REEF_ROUTE_MARKER_H, false)
+	plane.name = "SkyLagoonReefPlane"
+	m.g["lagoon_reef_route_card"] = plane
+	m.g["lagoon_reef_route_base"] = plane.position
+	_register_target("reef_route", plane, "reef", "reef", 132.0, 1.14)
+	var targets: Array = m.g.get("lagoon_promenade_targets", [])
+	var plane_target: Dictionary = targets.back() as Dictionary
+	m.g["lagoon_reef_route_highlight"] = plane_target.get("highlight")
+
+func _show_reef_route_guidance() -> void:
+	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == "reef_route":
+			_focus(target)
+			break
+	m.show_msg("Roshan", "Tap the pearl plane to visit the Reef!", "intro4")
 
 func _build_playground_screen() -> void:
 	# Alpha-silhouette placement, not nominal sprite rectangles: there is
@@ -1244,6 +1289,24 @@ func _tick_ambient_life(delta: float) -> void:
 			plane_glow.rotation.z = plane.rotation.z
 		if ambient_t >= PLANE_DEPARTURE_S:
 			_finish_plane_arrival()
+	var reef_route: Sprite3D = m.g.get("lagoon_reef_route_card") as Sprite3D
+	if reef_route != null and is_instance_valid(reef_route):
+		var route_base: Vector3 = m.g.get(
+			"lagoon_reef_route_base", reef_route.position) as Vector3
+		var anchored_route_base: Vector3 = _mural_anchored_position(
+			route_base,
+			float(reef_route.get_meta("mural_reference_camera_x",
+				_mural_reference_camera_x(route_base.x))),
+			float(reef_route.get_meta("mural_socket_lock",
+				DEFAULT_MURAL_SOCKET_LOCK)))
+		reef_route.position = anchored_route_base + Vector3(
+			0.0, sin(ambient_t * 1.05) * 0.12, 0.0)
+		reef_route.rotation.z = sin(ambient_t * 0.72) * 0.010
+		var route_glow: Sprite3D = m.g.get(
+			"lagoon_reef_route_highlight") as Sprite3D
+		if route_glow != null and is_instance_valid(route_glow):
+			route_glow.position = reef_route.position + Vector3(0.0, 0.0, -0.05)
+			route_glow.rotation.z = reef_route.rotation.z
 
 func teardown() -> void:
 	# Mutable stage state belongs to ReefMain by project architecture, so the
@@ -1256,6 +1319,7 @@ func teardown() -> void:
 	m.g.erase("lagoon_animals")
 	m.g.erase("lagoon_animal_actor")
 	m.g.erase("lagoon_animal_cycles")
+	m.g.erase("lagoon_reef_guidance_pending")
 
 func _finish_plane_arrival() -> void:
 	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
@@ -1275,11 +1339,12 @@ func _finish_plane_arrival() -> void:
 	var retained: Array = []
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
-		if String(target.get("id", "")) != "plane":
+		if String(target.get("id", "")) != "reef_route":
 			retained.append(target)
 	m.g["lagoon_promenade_targets"] = retained
 	m.save_data["lagoon_plane_departed"] = true
 	m._write_save()
+	_build_reef_route_marker()
 
 func _add_backdrop(path: String, x: float, y: float, row: int, column: int) -> void:
 	var root_node: Node3D = stage.root()
@@ -1479,8 +1544,8 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK,
 		highlight_path: String = "", highlight_pixel_size: float = 0.0) -> void:
 	_register_mural_socket(node, socket_lock)
-	var affordance_kind: String = Affordance.PLOT \
-		if kind == "castle" else Affordance.ANIMATION
+	var affordance_kind: String = Affordance.PLOT if kind == "castle" \
+		else Affordance.INTERACTION if kind == "reef" else Affordance.ANIMATION
 	var glow: Sprite3D
 	glow = Sprite3D.new()
 	if not highlight_path.is_empty():
@@ -1554,10 +1619,9 @@ func _clear_focus() -> void:
 func _activate(target: Dictionary) -> void:
 	var node: Node3D = target.get("node") as Node3D
 	match String(target.get("kind", "")):
-		"plane":
-			_bounce(node, 0.20)
+		"reef":
 			m._sparkle_burst(node.global_position, Color(0.65, 0.94, 1.0))
-			m.show_msg("Roshan", "The pearl plane is ready for another sky adventure!")
+			m._exit_level2()
 		"playground":
 			_start_playground_animation(String(target.get("payload", "")), node)
 			m._sparkle_burst(node.global_position, Color(1.0, 0.65, 0.88))
