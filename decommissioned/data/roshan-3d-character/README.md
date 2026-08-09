@@ -19,6 +19,8 @@ Source paths before retirement:
 - importer-extracted `roshan_v4_Image_0.jpg` and `roshan_v4_Image_1.jpg`
 - `gen2/meshy/roshan_playable/` (raw rejected model bundle)
 - `gen2/meshy/roshan_v2/` (raw superseded model bundle)
+- `retired-pipeline/` (orphan runtime, broken rig probes, 3D-only build/audit
+  tools, and the generated pose-stress review renders)
 
 The `.import` files are evidence only. The parent `decommissioned/.gdignore`
 keeps every file here outside Godot's resource index and all APK exports.

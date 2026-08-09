@@ -383,11 +383,12 @@ active game already rendered Roshan from `assets/characters/roshan_25d/`, but
 two unreferenced GLBs and their textures remained under `assets/characters/`,
 where Godot could still index and preview them.
 
-`data/roshan-3d-character/` preserves 24 files: both formerly runtime-eligible
+`data/roshan-3d-character/` preserves 68 files: both formerly runtime-eligible
 GLBs, authored textures, importer-extracted textures, every import sidecar,
-and both ignored raw Meshy model bundles formerly kept under `gen2/meshy/`.
-All source/destination SHA-256 hashes were matched before active-tree removal.
-The parent `.gdignore` keeps this package out of Godot and the APK.
+both ignored raw Meshy model bundles formerly kept under `gen2/meshy/`, and
+the retired 3D-only runtime/probe/tool/review pipeline. All source/destination
+SHA-256 hashes were matched before active-tree removal. The parent `.gdignore`
+keeps this package out of Godot and the APK.
 
 This tranche supersedes the earlier "paused" wording for Roshan specifically:
 the 3D Roshan direction is retired, not pending. Restoring it requires a new
