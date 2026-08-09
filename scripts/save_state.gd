@@ -10,7 +10,7 @@ const BACKUP_SUFFIX := ".bak"
 const TEMP_SUFFIX := ".tmp"
 const OLD_SUFFIX := ".old"
 const BOOL_KEYS: Array[String] = [
-	"finale", "music", "level2", "galaxy", "bwdone", "fairyskin",
+	"finale", "music", "mic", "level2", "galaxy", "bwdone", "fairyskin",
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
 	"opera_done", "ember_found", "ember_done", "companion_resting",
 	"lagoon_plane_departed",
@@ -28,10 +28,11 @@ const CORE_KEYS: Array[String] = ["won", "found", "pearls", "plays"]
 # slot became Daddy Mermaid on 2026-07-19 — IP hold, see attic/gabby/).
 const LEGACY_FRIEND_SAVE_KEYS := {"Daddy Mermaid": "Gabby"}
 const KNOWN_KEYS: Array[String] = [
-	"schema_version", "won", "found", "finale", "music", "quality", "touch_mode",
+	"schema_version", "won", "found", "finale", "music", "mic", "quality", "touch_mode",
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done", "opera_pantry",
+	"castle_logo_color", "castle_logo_symbol",
 	"stickers", "owned", "animals", "critters",
 	"companion", "companion_colors", "fish_tokens", "stuffie_wins", "care_points",
 	"companion_resting", "companion_bruises",
@@ -76,12 +77,19 @@ func load_save() -> void:
 	m.is_night = (m.plays % 2) == 0
 	m._apply_time_of_day()
 	m.music_on = bool(m.save_data.get("music", true))
+	m.mic_on = bool(m.save_data.get("mic", m.MIC_DEFAULT_ON))
+	# haptics ride the save (add-only key, default on): the parent can turn
+	# them off by editing the save today; a pause-menu toggle can bind to the
+	# same key later without a schema change
+	Juice.haptics_enabled = bool(m.save_data.get("haptics", true))
 	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
 	m._apply_quality(String(m.save_data.get("quality", qdef)))
 	m._set_touch_mode(String(m.save_data.get("touch_mode", m.TOUCH_MODE_HYBRID)), false)
 	m.music.volume_db = -8.0 if m.music_on else -60.0
 	if m.music_btn != null:
 		m.music_btn.text = m._pause_ref().music_label()
+	if m.mic_btn != null:
+		m.mic_btn.text = m._pause_ref().mic_label()
 	m.pearl_count = int(m.save_data.get("pearls", 0))
 	m.pearls_ever = maxi(m.pearl_count, int(m.save_data.get("pearls_ever", m.pearl_count)))
 	# A completed Level 2 is definitive legacy evidence that the portal opened.
@@ -90,6 +98,10 @@ func load_save() -> void:
 	m.custom_fish = m.save_data.get("custom_fish", [])
 	m.custom_friends = m.save_data.get("custom_friends", [])
 	m.craft_unlocks = m.save_data.get("crafts", {})
+	m.castle_logo_color = CastleLogoStudio.normalise_color(String(
+		m.save_data.get("castle_logo_color", "rainbow")))
+	m.castle_logo_symbol = CastleLogoStudio.normalise_symbol(String(
+		m.save_data.get("castle_logo_symbol", "rainbow")))
 	m.stickers = m.save_data.get("stickers", {})
 	# legacy cosmetic flags (tail/tiara/pearlskin) may still sit in "owned" from
 	# old saves -- kept for save compatibility, no longer applied to the player
@@ -104,7 +116,9 @@ func load_save() -> void:
 	# Tamagotchi care replaced the token collectibles (owner 2026-07-20):
 	# migrate any legacy token progress into care points, never losing growth
 	m.care_points = maxi(int(m.save_data.get("care_points", 0)), m.fish_tokens)
-	m.companion_resting = bool(m.save_data.get("companion_resting", false))
+	# `companion_resting` is retained in the schema so old saves stay readable,
+	# but the retired timeout/fail state can never strand a saved friend.
+	m.companion_resting = false
 	m.companion_bruises = int(m.save_data.get("companion_bruises", 0))
 	var saved_stuffie_wins: Variant = m.save_data.get("stuffie_wins", {})
 	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
@@ -114,6 +128,7 @@ func load_save() -> void:
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
 	m.combat_ice_done = bool(m.save_data.get("combat_ice", false))
 	m.combat_fire_done = bool(m.save_data.get("combat_fire", false))
+	m.combat_tutorial_done = bool(m.save_data.get("combat_tutorial", false))
 	m.dungeon_progress = clampi(int(m.save_data.get("dungeon_progress", 0)), 0, 10)
 	m.dungeon_done = bool(m.save_data.get("dungeon_done", false))
 	m.ember_found = bool(m.save_data.get("ember_found", false))
@@ -176,6 +191,8 @@ func write_save() -> bool:
 	next_data["found"] = found_d
 	next_data["finale"] = m.finale_done
 	next_data["music"] = m.music_on
+	next_data["mic"] = m.mic_on
+	next_data["haptics"] = Juice.haptics_enabled
 	next_data["quality"] = m.quality
 	next_data["touch_mode"] = m.touch_mode
 	next_data["pearls"] = maxi(m.pearl_count, 0)
@@ -187,11 +204,14 @@ func write_save() -> bool:
 	next_data["custom_fish"] = m.custom_fish
 	next_data["custom_friends"] = m.custom_friends
 	next_data["crafts"] = m.craft_unlocks
+	next_data["castle_logo_color"] = CastleLogoStudio.normalise_color(m.castle_logo_color)
+	next_data["castle_logo_symbol"] = CastleLogoStudio.normalise_symbol(m.castle_logo_symbol)
 	next_data["galaxy"] = m.galaxy_unlocked
 	next_data["bwdone"] = m.bwd_done
 	next_data["fairyskin"] = m.fairy_skin_unlocked
 	next_data["combat_ice"] = m.combat_ice_done
 	next_data["combat_fire"] = m.combat_fire_done
+	next_data["combat_tutorial"] = m.combat_tutorial_done
 	next_data["dungeon_progress"] = clampi(m.dungeon_progress, 0, 10)
 	next_data["dungeon_done"] = m.dungeon_done
 	next_data["ember_found"] = m.ember_found
@@ -209,7 +229,8 @@ func write_save() -> bool:
 	next_data["companion_colors"] = m.companion_colors
 	next_data["fish_tokens"] = maxi(m.fish_tokens, 0)
 	next_data["care_points"] = maxi(m.care_points, 0)
-	next_data["companion_resting"] = m.companion_resting
+	# Add-only save compatibility: keep the retired key, permanently healed.
+	next_data["companion_resting"] = false
 	next_data["companion_bruises"] = maxi(m.companion_bruises, 0)
 	next_data["lagoon_plane_departed"] = bool(
 		m.save_data.get("lagoon_plane_departed", false))
@@ -414,6 +435,14 @@ func _known_types_are_valid(data: Dictionary) -> bool:
 			return false
 	if data.has("skin") and (typeof(data["skin"]) != TYPE_STRING or String(data["skin"]).is_empty()):
 		return false
+	if data.has("castle_logo_color") and (
+			typeof(data["castle_logo_color"]) != TYPE_STRING \
+			or not CastleLogoStudio.has_color(String(data["castle_logo_color"]))):
+		return false
+	if data.has("castle_logo_symbol") and (
+			typeof(data["castle_logo_symbol"]) != TYPE_STRING \
+			or not CastleLogoStudio.has_symbol(String(data["castle_logo_symbol"]))):
+		return false
 	return true
 
 func _normalise_save(raw: Dictionary) -> Dictionary:
@@ -425,6 +454,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["found"] = _dictionary_or_default(raw, "found")
 	data["finale"] = _bool_or_default(raw, "finale", false)
 	data["music"] = _bool_or_default(raw, "music", true)
+	data["mic"] = _bool_or_default(raw, "mic", m.MIC_DEFAULT_ON)
 	data["quality"] = _quality_or_default(raw, qdef)
 	var saved_touch_mode: String = _string_or_default(raw, "touch_mode", "hybrid")
 	data["touch_mode"] = saved_touch_mode if saved_touch_mode in ["hybrid", "classic"] else "hybrid"
@@ -438,6 +468,10 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["custom_fish"] = _array_or_default(raw, "custom_fish")
 	data["custom_friends"] = _array_or_default(raw, "custom_friends")
 	data["crafts"] = _dictionary_or_default(raw, "crafts")
+	data["castle_logo_color"] = CastleLogoStudio.normalise_color(
+		_string_or_default(raw, "castle_logo_color", "rainbow"))
+	data["castle_logo_symbol"] = CastleLogoStudio.normalise_symbol(
+		_string_or_default(raw, "castle_logo_symbol", "rainbow"))
 	data["galaxy"] = _bool_or_default(raw, "galaxy", false)
 	data["bwdone"] = _bool_or_default(raw, "bwdone", false)
 	data["fairyskin"] = _bool_or_default(raw, "fairyskin", false)
@@ -452,6 +486,9 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["ember_found"] = _bool_or_default(raw, "ember_found", false)
 	data["ember_progress"] = clampi(_nonnegative_int_or_default(raw, "ember_progress", 0), 0, 6)
 	data["ember_done"] = _bool_or_default(raw, "ember_done", false)
+	# combat wing (2026-08) + alpha polish keys, same critters precedent:
+	data["combat_tutorial"] = _bool_or_default(raw, "combat_tutorial", false)
+	data["haptics"] = _bool_or_default(raw, "haptics", true)
 	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 16)
 	data["opera_progress"] = opera_prog
 	# migrate pre-lobby saves: a linear checkpoint means the first N doors starred
@@ -467,7 +504,9 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["companion_colors"] = _array_or_default(raw, "companion_colors")
 	data["fish_tokens"] = _nonnegative_int_or_default(raw, "fish_tokens", 0)
 	data["care_points"] = _nonnegative_int_or_default(raw, "care_points", 0)
-	data["companion_resting"] = _bool_or_default(raw, "companion_resting", false)
+	# Legacy builds could send an untended friend home. Preserve the key but
+	# normalize every old `true` value so the friend returns on the next load.
+	data["companion_resting"] = false
 	data["companion_bruises"] = _nonnegative_int_or_default(raw, "companion_bruises", 0)
 	data["lagoon_plane_departed"] = _bool_or_default(
 		raw, "lagoon_plane_departed", false)

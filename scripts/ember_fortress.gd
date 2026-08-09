@@ -791,18 +791,12 @@ func _build_home_ring() -> void:
 
 # ---------------------------------------------------------------- avatar
 
-var _av_skel: Skeleton3D = null
 var _av_sprite: Sprite3D = null
-var _av_bones := {}
-var _av_rest := {}
-var _av_run := 0.0
 
 func _build_avatar() -> void:
-	# same wardrobe-aware avatar as GalaxyLevel: v4/v3 mermaid GLB, the huluu
-	# cutout, or the fairy skin — whatever Roshan is wearing travels here too
+	# The same wardrobe-aware 2D avatar as GalaxyLevel travels here too.
 	_avatar = Node3D.new()
 	add_child(_avatar)
-	var glb := ""   # legacy Roshan GLB fallback deleted in the 2026-07-28 purge
 	var cutout: Sprite3D = null
 	var sid := "classic"
 	if _main != null and "skin_id" in _main:
@@ -840,28 +834,6 @@ func _build_avatar() -> void:
 			var animator := ROSHAN_SPRITE_LOOP.new()
 			_av_sprite.add_child(animator)
 			animator.setup_sprite_3d(_av_sprite, true, _avatar)
-	if glb != "" and ResourceLoader.exists(glb):
-		var inst: Node3D = (load(glb) as PackedScene).instantiate()
-		var acc: Array = []
-		_gather_aabbs(inst, Transform3D.IDENTITY, acc)
-		if acc.size() > 0:
-			var bb: AABB = acc[0]
-			for k in range(1, acc.size()):
-				bb = bb.merge(acc[k])
-			var sc: float = 4.2 / maxf(bb.size.y, 0.001)
-			inst.scale = Vector3.ONE * sc
-			inst.position = Vector3(0, -bb.position.y * sc, 0)
-		_avatar.add_child(inst)
-		_av_skel = _find_av_skel(inst)
-		_av_bones.clear()
-		_av_rest.clear()
-		if _av_skel != null:
-			for bn: String in ["spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
-					"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8"]:
-				var bi := _av_skel.find_bone(bn)
-				if bi >= 0:
-					_av_bones[bn] = bi
-					_av_rest[bi] = _av_skel.get_bone_pose_rotation(bi)
 	_trail_light = OmniLight3D.new()
 	_trail_light.light_color = Color(0.6, 0.85, 1.0)   # Roshan's cool glow vs the warm world
 	_trail_light.light_energy = 1.35
@@ -873,39 +845,6 @@ func _build_avatar() -> void:
 	_fwd = Vector3(1, 0, 0)
 	_project_fwd()
 	_update_avatar_transform()
-
-func _find_av_skel(n: Node) -> Skeleton3D:
-	if n is Skeleton3D:
-		return n
-	for c in n.get_children():
-		var r := _find_av_skel(c)
-		if r != null:
-			return r
-	return null
-
-func _av_rot(bi: int, axis: Vector3, ang: float) -> void:
-	var rq: Quaternion = _av_rest.get(bi, Quaternion.IDENTITY)
-	_av_skel.set_bone_pose_rotation(bi, rq * Quaternion((rq.inverse() * axis).normalized(), ang))
-
-func _animate_avatar(delta: float, moving: float) -> void:
-	_av_run += delta * (2.4 + moving * 4.2)
-	if _av_skel == null:
-		return
-	var amp: float = 0.10 + moving * 0.17
-	for i in range(8):
-		var bi: int = int(_av_bones.get("tail%d" % (i + 1), -1))
-		if bi >= 0:
-			_av_rot(bi, Vector3(1, 0, 0), sin(_av_run - float(i) * 0.55) * amp * (0.55 + float(i) * 0.11))
-	for hi in range(3):
-		var hb: int = int(_av_bones.get("hair%d" % (hi + 1), -1))
-		if hb >= 0:
-			_av_rot(hb, Vector3(0, 0, 1), sin(_av_run * 0.8 - float(hi) * 0.7) * 0.12)
-	var head: int = int(_av_bones.get("head", -1))
-	if head >= 0:
-		_av_rot(head, Vector3(1, 0, 0), sin(_av_run * 0.5) * 0.06)
-	var chest: int = int(_av_bones.get("chest", -1))
-	if chest >= 0:
-		_av_rot(chest, Vector3(0, 1, 0), sin(_av_run * 0.7) * 0.05 * (0.4 + moving))
 
 func _project_fwd() -> void:
 	_fwd = (_fwd - _dir * _fwd.dot(_dir))
@@ -1108,7 +1047,6 @@ func _process(delta: float) -> void:
 					_main.show_msg("Ember King", "Grrr... the gate is open. Show me how brave you are, tiny mermaid!", "talk")
 				else:
 					_main.show_msg("Ember King", "RRRUMBLE! Light all five of my lanterns first, little one!", "talk")
-	_animate_avatar(delta, _last_move)
 	# ---- movement on the sphere ----
 	var mv := _move_input()
 	if absf(mv.x) > 0.01:

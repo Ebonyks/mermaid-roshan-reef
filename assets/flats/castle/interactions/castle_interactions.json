@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_on": "2026-08-01",
+  "generated_on": "2026-08-02",
   "generator": "tools/build_castle_interaction_atlases.py",
   "frame_contract": {
     "minimum": 4,
@@ -9,7 +9,7 @@
   },
   "visual_review_evidence": {
     "path": "audit/castle_interactions/castle_interaction_frames.png",
-    "sha256": "1ef3e7f2035de3037b3ecc80aa5d1c69d2d3b0b53265249211dac55ebd9ed94f",
+    "sha256": "8797f9e0e249a6f0ab4edea4ba08fbb58b585151d9dc782419b566f8c0c4b1fa",
     "reviewed_frame_indices": [
       0,
       1,
@@ -200,9 +200,9 @@
           "semantic_action": "open_flower_and_make_ripples"
         },
         {
-          "id": "bubble_fountain",
-          "asset_id": "mermaid_pool_bubble_fountain",
-          "semantic_action": "raise_and_pop_bubbles"
+          "id": "seahorse_fountain",
+          "asset_id": "mermaid_pool_seahorse_fountain",
+          "semantic_action": "spray_seahorse_fountain"
         }
       ]
     },
@@ -1766,12 +1766,12 @@
       ],
       "semantic_action": "float_and_make_ripples",
       "source": "assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png",
-      "source_sha256": "26187cd4b6afd7b03a5559127101c14cd05c95d95ee8d4ccfd8618046db71321",
+      "source_sha256": "d1f3067ce56cd2e6a844c597a48bf01b0661ae34507d99af3272a7a56db88fc5",
       "atlas": "assets/flats/castle/interactions/mermaid_pool_star_float_atlas.png",
-      "atlas_sha256": "f92831ae79c68dd2555e3a20e857b24bd63727e3b1245793228504c9fa17a538",
+      "atlas_sha256": "b135f6f52d51c3ebbdce3a1e491216120a6ac5ca5c8b7df7b814188405c68a5b",
       "cell_size": [
-        66,
-        46
+        90,
+        70
       ],
       "hframes": 4,
       "vframes": 2,
@@ -1779,14 +1779,14 @@
       "frame_duration_seconds": 0.185,
       "animation_duration_seconds": 1.48,
       "frame_sha256": [
-        "929921c78a2a441ac7fa96be401b4c31eed76e9d50a5b0a3dcc727b94fe7a504",
-        "a495eb4a3b765186385c5f1d1838d81983454dcb0e475a90759ed61a7648f35c",
-        "ddd2b9198f207ba7c1924146982d0169ad610f82ad61ad00f34b952a0a335222",
-        "2fb8895232408a5f5c951d65a036cf99418202a3da245f6067a7693d0bf050d5",
-        "3704daec0b332cf9d28040a96ec532b2f88313c1545d3ba17ff172ff371d1e7b",
-        "b385aa7db11c34de05f57e9f6697d95a795345139abbf2a0e1dcc071ed6277cb",
-        "b1d20c77fdb3aa3d33b695c965c2dd22a138a3a9d764dd68ffbff6f84a186c3d",
-        "929921c78a2a441ac7fa96be401b4c31eed76e9d50a5b0a3dcc727b94fe7a504"
+        "7e53b7867c8287663ce87e1de77826d614c4c5a0cda95e0682d7426e4c86de01",
+        "05daf35ff1c4f8a6f83305a4801e7f6a59d4c01d361f308cee746ae07c358647",
+        "0d0f3892718ca9795d57d1141956086988ea3cd0ca63f64ed1801d01da0fdedf",
+        "7bb286f666fc0be868f60eb5de070d7f0cf43f50365383c8a699a161eb131c8e",
+        "98c3d3f51ead3607c6b56f3330e1bd9499ae9286a25cdc65111d759a2597dc5f",
+        "ee5a15835793d083c73003b203adcd14baccde8bb041315718b60c595859c10b",
+        "23c77c4e1ecdd7b92823d3e891308af009a00e0eefdde061552820bb29e79819",
+        "7e53b7867c8287663ce87e1de77826d614c4c5a0cda95e0682d7426e4c86de01"
       ],
       "unique_frame_count": 7,
       "sound": "assets/audio/castle/bubble_water.ogg",
@@ -1797,10 +1797,10 @@
       "root_transform_animation": false,
       "transparent_border": true,
       "rest_alpha_bbox": [
-        1,
-        2,
-        65,
-        44
+        9,
+        8,
+        81,
+        59
       ],
       "normalized_use_review": "accepted_visual_review_2026-08-01",
       "reviewed_frame_indices": [
@@ -1813,8 +1813,8 @@
         6,
         7
       ],
-      "source_depth_pixels": 922,
-      "rest_depth_pixels": 922,
+      "source_depth_pixels": 1511,
+      "rest_depth_pixels": 1511,
       "silhouette_retention": 1.0
     },
     {
@@ -1826,12 +1826,12 @@
       ],
       "semantic_action": "surge_waterfall_flow",
       "source": "assets/flats/castle/rooms/room_mermaid_pool_item_waterfall.png",
-      "source_sha256": "55fe651a8bd8de4c87d14c6e6b01122938c8ceaa14a052d5dc7c44876949b11a",
+      "source_sha256": "6ead36f8efc3b115a3c7116ec3d88a80e905730548d2949c063c65c671042cba",
       "atlas": "assets/flats/castle/interactions/mermaid_pool_waterfall_atlas.png",
-      "atlas_sha256": "6385afdeaaba9606239d796712506ebdf76f69503fa874818ca35b0add3d5864",
+      "atlas_sha256": "1db7039ad484a0e0f02baf07f8fbb8771b24ded4537523bf7d01939b23693e22",
       "cell_size": [
-        181,
-        233
+        155,
+        185
       ],
       "hframes": 4,
       "vframes": 2,
@@ -1839,14 +1839,14 @@
       "frame_duration_seconds": 0.185,
       "animation_duration_seconds": 1.48,
       "frame_sha256": [
-        "7a52465a6bafe2abbc7ee94616d3a301133816de9f8a162cbe60b5f33189841d",
-        "0075509fb40deb8c1be251314c71ff84d0ab41812d843326b03ea00e134e06a1",
-        "989d19685c77155bb3f18634d85d9951858c50d11a276ca0686484c767cc3ff1",
-        "2d295a8b8a998e481d906e1ddcd93c838b4a078432118876fa8dcecdb18403ba",
-        "572233cbbac0ba163ce7a3763264d8bc2bfe3762af5eaff8397293c194a82552",
-        "563461e1a9e4991f894ff1a8d2a5f1455b8095bfcc48b92c968906cbdbc213fa",
-        "5bf2b1a00e5767a84ba6af93f2c6c892876ca97c8f2a43ff7813e7a95f41944a",
-        "e2ce8d7fc6505f51d81bf890c05abd0a4bb09345571ea82470232ade40821057"
+        "5fa82c8474784809cbb3e03e2767a83e4841595268d0e5830ba1f5aa41da3bc3",
+        "9d9e13cfdfc0f56e2a60c958ecd6502937d837cf7717126635e39cd15c5f1329",
+        "5a73dfaf0c6af6fa4595250511b353b33fbb09813ab9fed6e20273189968666b",
+        "246dbb989e85a0708420ebadddf907c15a58ef70a9cd1c3501ff60b2df306a6f",
+        "a5e0505ffddde4f5d9b23e91b77c4081234311b69896390e0d8c7b6186502eaf",
+        "374328893fb7121e9e6a830d8d3a776192bd817522ca3eebe40110b04d919f86",
+        "3468430876e6f6c0da9fd10c675abf6c44e2289cec1e931b95360c96d011d053",
+        "68640ed1db2a731b966ed84c03c75444f95a9efcfa57bcd069f4f63deb71fbed"
       ],
       "unique_frame_count": 8,
       "sound": "assets/audio/castle/bubble_water.ogg",
@@ -1857,10 +1857,10 @@
       "root_transform_animation": false,
       "transparent_border": true,
       "rest_alpha_bbox": [
-        3,
-        38,
-        171,
-        228
+        9,
+        10,
+        130,
+        177
       ],
       "normalized_use_review": "accepted_visual_review_2026-08-01",
       "reviewed_frame_indices": [
@@ -1873,8 +1873,8 @@
         6,
         7
       ],
-      "source_depth_pixels": 24134,
-      "rest_depth_pixels": 24134,
+      "source_depth_pixels": 16866,
+      "rest_depth_pixels": 16866,
       "silhouette_retention": 1.0
     },
     {
@@ -1885,13 +1885,13 @@
         "flower_float"
       ],
       "semantic_action": "open_flower_and_make_ripples",
-      "source": "assets_src/imagegen/castle_interactions_2026-08-01/flower_float_alpha.png",
-      "source_sha256": "ae0a274a486c2efa5324b895b99e7fe94a762effc8f6ed049eb2532ce7bd06b5",
+      "source": "assets/flats/castle/rooms/room_mermaid_pool_item_flower_float.png",
+      "source_sha256": "8fe5eed4c464d9e3e71338e57662f16c3999450e6c8346763f75d67624a61513",
       "atlas": "assets/flats/castle/interactions/mermaid_pool_flower_float_atlas.png",
-      "atlas_sha256": "7e66883f17efb53fb8ca0a5967b0efb0aef5e46449bcadb47491da441cfbb3a6",
+      "atlas_sha256": "7f338ab435d3261070d96077315d79e8c14d2b0a6d2aef1ef821be72395f250e",
       "cell_size": [
-        141,
-        111
+        105,
+        85
       ],
       "hframes": 4,
       "vframes": 2,
@@ -1899,16 +1899,16 @@
       "frame_duration_seconds": 0.185,
       "animation_duration_seconds": 1.48,
       "frame_sha256": [
-        "cdc57e54ca1d06452b7b2f314458bc16f2f2c1f797623d805ba89bb5017815e3",
-        "570b4c712476b1d646fa32ea15cead93add3a3cd4804dcd40e1c39f0842227b1",
-        "4e2bfeee82ea87fdb48663006f96bbce2ea53be88894be79fabcf5bd3203cb09",
-        "dc47cb3bbb162aeffdf07d6716d2652e887b17c297ee8f12846ffe22e35203d7",
-        "5973abab999aeff0046c6362e77538117d7f70f0ed32c389f2bc9243100eb2ce",
-        "7f7afe204b6dd07060037a31930276b61456e8473f26642c22959f48e1f7d5d1",
-        "570b4c712476b1d646fa32ea15cead93add3a3cd4804dcd40e1c39f0842227b1",
-        "cdc57e54ca1d06452b7b2f314458bc16f2f2c1f797623d805ba89bb5017815e3"
+        "1c92091a4a0077cc90548c2ece05dec206c56bb0aff086897f0545fb4fbdb717",
+        "e13ce040bd4ee7e49fca3e8a3300a99901eb12794b8a7adaabc62c7c81640795",
+        "59c434b610d624b0f2773ecd57b313d45b8988371ef641e2e5898ed3932c1f4c",
+        "fb4f30dda500d94bd7ca3461ca0d5d4892fa23a17bb210e0f8a14429b50e03b4",
+        "f7216bd83b9600d3ab7471d2d433ce8b7e7eb03eb419923ab57a11c3a218e4eb",
+        "59c434b610d624b0f2773ecd57b313d45b8988371ef641e2e5898ed3932c1f4c",
+        "e13ce040bd4ee7e49fca3e8a3300a99901eb12794b8a7adaabc62c7c81640795",
+        "1c92091a4a0077cc90548c2ece05dec206c56bb0aff086897f0545fb4fbdb717"
       ],
-      "unique_frame_count": 6,
+      "unique_frame_count": 5,
       "sound": "assets/audio/castle/bubble_water.ogg",
       "sound_duration_seconds": 1.48,
       "sound_frame": 0,
@@ -1917,10 +1917,10 @@
       "root_transform_animation": false,
       "transparent_border": true,
       "rest_alpha_bbox": [
-        3,
-        39,
-        138,
-        108
+        4,
+        6,
+        100,
+        77
       ],
       "normalized_use_review": "accepted_visual_review_2026-08-01",
       "reviewed_frame_indices": [
@@ -1932,23 +1932,26 @@
         5,
         6,
         7
-      ]
+      ],
+      "source_depth_pixels": 4750,
+      "rest_depth_pixels": 4750,
+      "silhouette_retention": 1.0
     },
     {
-      "id": "mermaid_pool_bubble_fountain",
+      "id": "mermaid_pool_seahorse_fountain",
       "room": "mermaid_pool",
-      "item_id": "bubble_fountain",
+      "item_id": "seahorse_fountain",
       "instances": [
-        "bubble_fountain"
+        "seahorse_fountain"
       ],
-      "semantic_action": "raise_and_pop_bubbles",
-      "source": "assets_src/imagegen/castle_interactions_2026-08-01/bubble_fountain_alpha.png",
-      "source_sha256": "37020656d12b87c0fac563296b62f905e6a4c2b2debdb5dffb19c477e51eddf9",
-      "atlas": "assets/flats/castle/interactions/mermaid_pool_bubble_fountain_atlas.png",
-      "atlas_sha256": "b28f7bcbb10bd99610547cfc8c33c11a286fe16860e640619cd0e8a9adb5f186",
+      "semantic_action": "spray_seahorse_fountain",
+      "source": "assets/flats/castle/rooms/room_mermaid_pool_item_seahorse_fountain.png",
+      "source_sha256": "6b55d9096e9043d30be16117c81da1d4e2b487db8fff572226588135bf676344",
+      "atlas": "assets/flats/castle/interactions/mermaid_pool_seahorse_fountain_atlas.png",
+      "atlas_sha256": "181d5c1ab767458b96d09c3e38bbbf50aa15b63229e7dd19d1155ea6a29c08c0",
       "cell_size": [
-        158,
-        142
+        195,
+        215
       ],
       "hframes": 4,
       "vframes": 2,
@@ -1956,14 +1959,14 @@
       "frame_duration_seconds": 0.185,
       "animation_duration_seconds": 1.48,
       "frame_sha256": [
-        "49293e1b2d770928157215a392d81366b8fa954e24fce87ae67f138f717d9450",
-        "a795675919f0af8b1cad9133c650b4d4a5a3ee08d8a4948d9f5c500d58ab5801",
-        "b00c52a1a90e53fc6ba04d4663b7723bc1a322ecd882f7b421a996396c9dbcc8",
-        "c78b4634798c1c83cc581a8698eb5d82eae01f75344030f9916c02556d1b5af6",
-        "0e400cf1b45a195b021948939b6faee703d04669190c7b046e62a0875680135b",
-        "4d6d8034bce15a2c52786698c6401e18af0235c873bbc15cb0aaee3ab1911ed4",
-        "1f0d2681a62944793e647220799859b0543f3e5fc143af9d9ab99f4ef8ab9ec0",
-        "54108837d7114326b1f829f59fe70f5062eee124d96488501f1097636194595d"
+        "6402d429cb67d97f4f4a0b5ec7519db19b0f51eb233c02745001ed4d2d6a4242",
+        "00eec0f8bc40feb76de5f75ee4d048b18aaccdc84141d9bc9f6f759a83308191",
+        "152b4b9f49c784cdf3209d5045b593457991f74c5c14a27003ca38090c788abe",
+        "461a57b74843b2f98af503e5cdb7f9247ab1fafc68c97e200d73f7788c12cdb3",
+        "efbb9c0bbf1a414c49e1e939689d1c3f1949e81576045ec51563e1f44bdaf9e3",
+        "bf660cefc3b84d236176d365c3b4c2280d5bc7ebafaa9914f45633da1df60a91",
+        "0b9d774d1b17f0373001ddf9f1981399d436a6bb7e9d687e0960a843a6bdf88b",
+        "1d1edb5adaaa0d219c387d7c96124e3d43eed937500b6208dbe6798f6534445b"
       ],
       "unique_frame_count": 8,
       "sound": "assets/audio/castle/bubble_water.ogg",
@@ -1974,10 +1977,10 @@
       "root_transform_animation": false,
       "transparent_border": true,
       "rest_alpha_bbox": [
-        30,
-        3,
-        127,
-        139
+        18,
+        9,
+        187,
+        204
       ],
       "normalized_use_review": "accepted_visual_review_2026-08-01",
       "reviewed_frame_indices": [
@@ -1989,7 +1992,10 @@
         5,
         6,
         7
-      ]
+      ],
+      "source_depth_pixels": 18376,
+      "rest_depth_pixels": 18376,
+      "silhouette_retention": 1.0
     },
     {
       "id": "bubble_bath_rubber_duck",

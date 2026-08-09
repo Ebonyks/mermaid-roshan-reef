@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "purpose": "Pixel-preserving approved pearl-shell throne Sprite3D cutout",
+  "source": {
+    "path": "assets_src/concepts/cc0_ocean_replacements_2026-07-22/regen_01_pearl_shell_throne.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "b401a6314275068ef0702b23871b07695c19abf12dc7e23e1ec6db1b5a6f8c1e"
+  },
+  "source_rectangle": [
+    48,
+    16,
+    570,
+    540
+  ],
+  "output": {
+    "path": "assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png",
+    "dimensions": [
+      522,
+      524
+    ],
+    "sha256": "91a8edcb91492d699e228cb4048fa346825f2a9e034ca3c9693f69a98933bcff",
+    "alpha_bbox": [
+      26,
+      13,
+      496,
+      503
+    ],
+    "long_edge_within_1024_limit": true
+  },
+  "rgb_pixel_invariance": true,
+  "upscaled": false,
+  "generated_rgb_pixels": false,
+  "mask": {
+    "method": "border-connected accepted cream-studio matte removal + source-sheet floor-shadow exclusion",
+    "distance_limit": 50.0,
+    "channel_limit": 43,
+    "object_floor_y_in_crop": 503,
+    "source_authority": "accepted Regen-01 orthographic front view"
+  }
+}

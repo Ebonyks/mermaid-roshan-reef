@@ -11,8 +11,8 @@ extends Node3D
 #
 # BOO-BOOS (owner 2026-07-21): landed bumps leave little bruises (🩹 pips on
 # the HUD). They never end the battle — but they come home with the stuffie,
-# who then needs its post-battle hug + bubble bath (companion.gd). An injured
-# stuffie whose care never comes goes home to its Den shelf to rest.
+# who then asks for its post-battle hug + bubble bath (companion.gd). Care
+# waits forever; reminders never remove the friend or block another battle.
 
 const CENTER := Vector3(0.0, -2400.0, 0.0)
 const RADIUS := 27.0
@@ -68,6 +68,9 @@ var miss_streak := 0        # consecutive misses → mercy widens the window
 var bruises := 0            # landed bumps — boo-boos the stuffie carries home
 var hop_t := -1.0
 var hop_vec := Vector3.ZERO
+## The shared crew brain (scripts/imp_ai.gd) with its lunges OFF: it owns
+## where the imps stand and how the crew feels, the QTE owns attacking.
+var imp_brain: ImpAI = null
 var materials := {}
 
 func start(main: ReefMain, ladder_index: int, done_cb: Callable) -> void:
@@ -82,6 +85,14 @@ func start(main: ReefMain, ladder_index: int, done_cb: Callable) -> void:
 	_build_creature()
 	_build_camera()
 	_build_hud()
+	imp_brain = ImpAI.new({
+		"strike_range": 12.0,
+		"stand_off": 6.5,     # the ring the imps held before the brain landed
+		"speed": 3.4,
+		"taunt_time": 1.0,
+		"flee_time": 0.9,
+		"lunges": false,
+	}, round_tag.hash())
 	if bool(round_cfg.get("boss", false)):
 		_build_boss()
 	else:
@@ -226,8 +237,11 @@ func _build_imps() -> void:
 		root.position = pos
 		add_child(root)
 		DungeonArt.spawn("imp", root)
+		var mind: Dictionary = imp_brain.spawn_mind(i, false)
+		mind["pos"] = Vector2(pos.x - CENTER.x, pos.z - CENTER.z)
 		enemies.append({"node": root, "pos": pos, "state": "active", "hp": int(round_cfg.get("hp", 2)),
-			"timer": 0.0, "attack": 2.5 + float(i) * 1.4, "phase": a, "boss": false})
+			"timer": 0.0, "attack": 2.5 + float(i) * 1.4, "phase": a, "boss": false,
+			"ai": mind, "pose": "prowl"})
 
 func _build_boss() -> void:
 	# a FRIENDLY sparring boss: capture rounds bring a real stuffie model
@@ -244,8 +258,11 @@ func _build_boss() -> void:
 	if root == null:
 		root = DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
 		root.scale = Vector3.ONE * 1.2
+	var boss_mind: Dictionary = imp_brain.spawn_mind(0, true)
+	boss_mind["pos"] = Vector2(root.position.x - CENTER.x, root.position.z - CENTER.z)
 	enemies.append({"node": root, "pos": root.position, "state": "active", "hp": int(round_cfg.get("hp", 5)),
-		"timer": 0.0, "attack": 3.0, "phase": 0.0, "boss": true})
+		"timer": 0.0, "attack": 3.0, "phase": 0.0, "boss": true,
+		"ai": boss_mind, "pose": "prowl"})
 
 # ===================== input =====================
 
@@ -405,6 +422,9 @@ func _hit_enemy(enemy: Dictionary) -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 1.1 + randf() * 0.2
 		m.chime.play()
+	var mind: Dictionary = enemy.get("ai", {})
+	if imp_brain != null and not mind.is_empty():
+		imp_brain.on_hit(mind, int(enemy["hp"]) <= 0)
 	if int(enemy["hp"]) <= 0:
 		enemy["state"] = "dizzy"
 		enemy["timer"] = 1.3
@@ -427,6 +447,25 @@ func _nearest_enemy() -> Dictionary:
 # ---------- enemies + befriending ----------
 
 func _tick_enemies(delta: float) -> void:
+	# The shared crew brain (scripts/imp_ai.gd) owns SPACING and MOOD here —
+	# who circles, who hangs back once the crew thins, who shows off while
+	# nothing is happening. Attacking stays with the QTE below ("lunges"
+	# off), because the telegraph the child answers is the dodge bubble.
+	var hero := Vector2(pal_pos.x - CENTER.x, pal_pos.z - CENTER.z)
+	if imp_brain != null:
+		var minds: Array = []
+		for enemy in enemies:
+			var mind: Dictionary = enemy.get("ai", {})
+			if mind.is_empty():
+				continue
+			var live: bool = String(enemy["state"]) == "active"
+			mind["alive"] = live
+			if live:
+				var at: Vector3 = enemy["pos"]
+				mind["pos"] = Vector2(at.x - CENTER.x, at.z - CENTER.z)
+				minds.append(mind)
+		imp_brain.tick(delta, minds, hero)
+		imp_brain.drain_events()
 	var remaining := 0
 	for enemy in enemies:
 		var node: Node3D = enemy["node"]
@@ -436,11 +475,25 @@ func _tick_enemies(delta: float) -> void:
 			var pos: Vector3 = enemy["pos"]
 			var toward: Vector3 = pal_pos - pos
 			toward.y = 0.0
-			var keep: float = 9.0 if bool(enemy["boss"]) else 6.5
-			if toward.length() > keep:
-				pos += toward.normalized() * delta * (2.2 if bool(enemy["boss"]) else 1.8)
+			var mind: Dictionary = enemy.get("ai", {})
+			var pose := "prowl"
+			if mind.is_empty():
+				var keep: float = 9.0 if bool(enemy["boss"]) else 6.5
+				if toward.length() > keep:
+					pos += toward.normalized() * delta * (2.2 if bool(enemy["boss"]) else 1.8)
+			else:
+				var want: Vector2 = mind.get("pos", Vector2(pos.x - CENTER.x, pos.z - CENTER.z))
+				if want.length() > 20.0:
+					want = want.normalized() * 20.0
+				mind["pos"] = want
+				pos = Vector3(CENTER.x + want.x, pos.y, CENTER.z + want.y)
+				pose = String(mind.get("pose", "prowl"))
 			enemy["pos"] = pos
-			node.position = pos + Vector3(0, sin(elapsed * 3.0 + float(enemy["phase"])) * 0.25, 0)
+			enemy["pose"] = pose
+			var bob := sin(elapsed * 3.0 + float(enemy["phase"])) * 0.25
+			if pose == "taunt" or pose == "rally":
+				bob = absf(sin(float(mind.get("t", 0.0)) * 9.0)) * 0.7
+			node.position = pos + Vector3(0, bob, 0)
 			node.rotation.y = atan2(toward.x, toward.z)
 			# only schedule an attack when nobody else is telegraphing
 			if qte_t <= 0.0 and qte_enemy.is_empty():

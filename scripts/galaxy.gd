@@ -77,6 +77,20 @@ var _cam_pitch := 0.0
 var _mlook_dx := 0.0
 var _mlook_dy := 0.0
 
+
+# Speedy-tier cull path (alpha audit 2026-08-05): the garden planet carried
+# ~23 always-on OmniLights with zero quality gating — the only zone with none.
+# On the Mobile renderer >8 omnis per mesh drop nondeterministically and each
+# visible one costs per-pixel on the tablet. Decorative lights (trays, pads,
+# fountain, lanterns, butterfly shards, hall chandeliers) now register here
+# and go dark in Speedy — their hosts are all emissive so the read survives.
+# Hero lights (Rosalina's glow, the GREAT butterfly, the avatar trail, the
+# moon sun) stay lit at every tier.
+func _gate_light(light: OmniLight3D, speedy_visible: bool = false) -> void:
+	if _main == null or not "quality" in _main:
+		return
+	light.visible = String(_main.quality) != "speedy" or speedy_visible
+
 func _input(ev: InputEvent) -> void:
 	if ev is InputEventMouseMotion and (ev.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
 		_mlook_dx += ev.relative.x
@@ -593,6 +607,7 @@ func _build_decor() -> void:
 		tl.light_energy = 1.2
 		tl.omni_range = 9.0
 		tl.position = Vector3(0, 2.4, 0)
+		_gate_light(tl)
 		th.add_child(tl)
 		_place_on_planet(th, tdir)
 		_trays.append({"dir": tdir, "cool": 0.0, "node": th})
@@ -667,6 +682,7 @@ func _build_decor() -> void:
 		pl.light_energy = 1.4
 		pl.omni_range = 10.0
 		pl.position = Vector3(0, 2.0, 0)
+		_gate_light(pl)
 		holder3.add_child(pl)
 		_pads.append({"dir": pdir, "cool": 0.0})
 	# ---- the FAIRY FOUNTAIN: touch it to fly the fairy flight (moved here from
@@ -716,6 +732,7 @@ func _build_decor() -> void:
 	ffl.light_energy = 1.6
 	ffl.omni_range = 13.0
 	ffl.position = Vector3(0, 4.2, 0)
+	_gate_light(ffl)
 	ff.add_child(ffl)
 	var fflab := Label3D.new()
 	fflab.text = "✨ Fairy Fountain ✨\nfly with the fairies!"
@@ -810,6 +827,7 @@ void fragment(){
 		ll.light_energy = 1.5
 		ll.omni_range = 13.0
 		ll.position = Vector3(0, 6.4, 0)
+		_gate_light(ll)
 		lp.add_child(ll)
 		_place_on_planet(lp, ldir)
 	# Coral remains an underwater habitat family. Mixing it into the vivarium
@@ -873,6 +891,7 @@ func _build_shards() -> void:
 		gl.light_color = wing
 		gl.light_energy = 1.6
 		gl.omni_range = 14.0
+		_gate_light(gl)
 		star.add_child(gl)
 		# BEACON: a tall additive light pillar so far-away shards show over the horizon
 		var beam := MeshInstance3D.new()
@@ -933,10 +952,7 @@ func _spawn_grand_star() -> void:
 func _build_avatar() -> void:
 	_avatar = Node3D.new()
 	add_child(_avatar)
-	# the wardrobe skin travels here too (audit: was hardcoded classic Roshan)
-	# Classic Roshan uses the same 2.5D swim atlas as the ocean. Fairy retains
-	# its rigged model and Huluu retains her illustrated cutout.
-	var glb := ""
+	# The wardrobe skin travels here too. Every choice is a 2D atlas or cutout.
 	var cutout: Sprite3D = null
 	var sid := "classic"
 	if _main != null and "skin_id" in _main:
@@ -974,31 +990,6 @@ func _build_avatar() -> void:
 			var animator := ROSHAN_SPRITE_LOOP.new()
 			_av_sprite.add_child(animator)
 			animator.setup_sprite_3d(_av_sprite, true, _avatar)
-	if glb != "" and ResourceLoader.exists(glb):
-		var inst: Node3D = (load(glb) as PackedScene).instantiate()
-		# reuse the race engine's fit idea: measure and normalise to ~4.2 tall
-		var acc: Array = []
-		_gather_aabbs(inst, Transform3D.IDENTITY, acc)
-		if acc.size() > 0:
-			var bb: AABB = acc[0]
-			for k in range(1, acc.size()):
-				bb = bb.merge(acc[k])
-			var sc: float = 4.2 / maxf(bb.size.y, 0.001)
-			inst.scale = Vector3.ONE * sc
-			inst.position = Vector3(0, -bb.position.y * sc, 0)
-		_avatar.add_child(inst)
-		# capture the skeleton so the mermaid actually SWIMS through the air
-		# here instead of standing frozen (audit: bob-only, no animation)
-		_av_skel = _find_av_skel(inst)
-		_av_bones.clear()
-		_av_rest.clear()
-		if _av_skel != null:
-			for bn: String in ["spine1", "chest", "neck", "head", "hair1", "hair2", "hair3",
-					"tail1", "tail2", "tail3", "tail4", "tail5", "tail6", "tail7", "tail8"]:
-				var bi := _av_skel.find_bone(bn)
-				if bi >= 0:
-					_av_bones[bn] = bi
-					_av_rest[bi] = _av_skel.get_bone_pose_rotation(bi)
 	var trail := OmniLight3D.new()
 	trail.light_color = Color(1.0, 0.6, 0.9)
 	trail.light_energy = 1.6
@@ -1010,50 +1001,9 @@ func _build_avatar() -> void:
 	_project_fwd()
 	_update_avatar_transform()
 
-var _av_skel: Skeleton3D = null
 var _av_sprite: Sprite3D = null
-var _av_bones := {}
-var _av_rest := {}   # bone idx -> rest rotation; raw Quaternion writes would erase the v3 rests
-var _av_run := 0.0
-
-func _av_rot(bi: int, axis: Vector3, ang: float) -> void:
-	# model-space axis composed after the rest rotation (same idiom as
-	# player.gd's _rot_bone); identical result on the identity-rest old rigs
-	var rq: Quaternion = _av_rest.get(bi, Quaternion.IDENTITY)
-	_av_skel.set_bone_pose_rotation(bi, rq * Quaternion((rq.inverse() * axis).normalized(), ang))
 var _last_move := 0.0
 var _pets: Array = []   # rescued baby butterflies flying home WITH Roshan
-
-func _find_av_skel(n: Node) -> Skeleton3D:
-	if n is Skeleton3D:
-		return n
-	for c in n.get_children():
-		var r := _find_av_skel(c)
-		if r != null:
-			return r
-	return null
-
-func _animate_avatar(delta: float, moving: float) -> void:
-	# the same procedural mermaid swim the ocean uses: tail wave + hair sway +
-	# gentle head/spine roll, amplitude scaling with movement
-	_av_run += delta * (2.4 + moving * 4.2)
-	if _av_skel == null:
-		return
-	var amp: float = 0.10 + moving * 0.17
-	for i in range(8):
-		var bi: int = int(_av_bones.get("tail%d" % (i + 1), -1))
-		if bi >= 0:
-			_av_rot(bi, Vector3(1, 0, 0), sin(_av_run - float(i) * 0.55) * amp * (0.55 + float(i) * 0.11))
-	for hi in range(3):
-		var hb: int = int(_av_bones.get("hair%d" % (hi + 1), -1))
-		if hb >= 0:
-			_av_rot(hb, Vector3(0, 0, 1), sin(_av_run * 0.8 - float(hi) * 0.7) * 0.12)
-	var head: int = int(_av_bones.get("head", -1))
-	if head >= 0:
-		_av_rot(head, Vector3(1, 0, 0), sin(_av_run * 0.5) * 0.06)
-	var chest: int = int(_av_bones.get("chest", -1))
-	if chest >= 0:
-		_av_rot(chest, Vector3(0, 1, 0), sin(_av_run * 0.7) * 0.05 * (0.4 + moving))
 
 func _tick_pets(delta: float) -> void:
 	# rescued babies orbit Roshan in a sparkling train — the world fills with
@@ -1293,7 +1243,6 @@ func _process(delta: float) -> void:
 		_grand.position = _surf(Vector3.UP, 9.0 + sin(tt * 1.5) * 1.0)
 		_grand.rotate_y(delta * 1.2)
 	_tick_pets(delta)
-	_animate_avatar(delta, _last_move)
 	if _state == "won":
 		_won_t -= delta
 		if fmod(_won_t, 0.3) < delta and _main != null and _main.has_method("_sparkle_burst"):
@@ -1533,6 +1482,7 @@ func _build_hall() -> void:
 		sl.light_energy = 1.6
 		sl.omni_range = 20.0
 		sl.position = star.position
+		_gate_light(sl)
 		_hall_root.add_child(sl)
 	# The Moon Throne now has a shell-back silhouette and a real seat instead
 	# of a single glowing sphere.

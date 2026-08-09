@@ -39,16 +39,66 @@ picker preview tints the same `assets/mg` book-art layers the craft studio
 uses. The owner mentioned the real stuffie may be a flamingo — if so, only
 the ROSTER entry's name/colours change (or a new rigged body lands later).
 
-## Unlock flow (owner 2026-07-19: meeting Huluu IS the trigger)
+## Current Royal Hall companion trigger (owner 2026-08-04)
 
-Reaching Princess Huluu's throne in the Pearl Castle Grand Hall
-(`huluu_greeted`) plays her greeting, and ~3s later her offer — **"I want
+The companion gift remains a Princess Huluu/Crown story beat, but its current
+home is the far-right **Royal Hall event gate** in the Pearl Castle Main Hall.
+The separate throne overlay and throne hotspot are retired. The approved grand
+doorway remains part of the unchanged tiled background and is ordinarily
+sealed by discreet, real-depth `Sprite3D` mist.
+
+When the companion offer is eligible, its story controller arms the Royal Hall:
+the mist quietly clears, the doorway becomes available, and walking through it
+starts the Crown/companion moment with its voice and visual guidance. Closing
+the picker without choosing must leave the offer eligible so the Royal Hall can
+open for it again; the child cannot lose the moment. Crown, companion, the
+unfinished first combat class, and other explicitly armed major events may
+clear the same gate. Crown and companion retain priority over training; an
+explicitly armed boss/story event retains priority over all three. Ordinary
+free-roam leaves the gate mist-sealed.
+
+The arrival is generation-guarded: opening the elevator, changing rooms,
+closing the castle, or beginning a newer approach cancels the older delayed
+arrival. Major-event owners receive a generation token when arming the gate;
+named clears must present that token, so an old story controller cannot erase a
+newer boss or companion event that reused the same identifier.
+
+The following 2026-07-19 throne flow and regression notes are preserved as
+historical implementation context. They explain prior behavior and probes but
+do not override the Royal Hall gate contract above.
+
+## Historical unlock flow (owner 2026-07-19: meeting Huluu IS the trigger)
+
+Tapping Princess Huluu's throne at the right-hand end of the Pearl Castle
+Grand Hall (`castle_rooms_25d.gd` → `_offer_companion_at_throne`) fires the
+Crown Star beat, and `THRONE_OFFER_BEAT` (1.6s) later her offer — **"I want
 you to have a new friend!"** — opens the picker right there: friend cards on
 the left (Mewsha / Baby Eagle), live-tinted preview, three palette rows
 (body 🎨 / trim ✨ / tummy 🤍), one giant "✔ LET'S GO!". Choosing sparkles,
 saves, and the friend starts following in the reef. If the picker is closed
-without choosing, a **gift box** appears beside the Crown Star (pointer +
-voice hint) as the walk-up-and-tap re-entry, so the moment is never lost.
+without choosing, **the throne itself re-offers** on the next tap, so the
+moment is never lost. Gated by `scripts/probe_throne.gd`, which touches the
+hotspot through the viewport rather than firing the Button signal.
+
+> Regression note (found 2026-08-02, fixed same day). The 2.5D castle
+> rebuild (`d0732324`, 2026-07-29) stopped calling
+> `CompanionSystem._tick_gift` — its walk-up gift box hung off the modelled
+> Crown Star that the picture-first hall no longer builds — and nothing has
+> written `huluu_greeted` since. For four days the throne offered nothing at
+> all; the picker was reachable only from the Playroom toy chest (which
+> itself needs the dust-bunny rescue first). `_tick_gift` / `_tick_room`
+> remain in `companion.gd` as dead code pending removal.
+>
+> Second cause, same report, found 2026-08-03: restoring the offer was not
+> enough because **she could not walk to the throne**. `StorybookUI.add_stage`
+> returns a `MOUSE_FILTER_STOP` stage, and in the castle that stage sits on top
+> of the Control carrying `_on_room_input`, so every tap that missed a hotspot
+> button was swallowed — no floor walking anywhere in the picture-first castle
+> since `d0732324`. Room-to-room travel still worked (door hotspots are deeper
+> Controls), which is why it read as "the throne does not work" rather than
+> "nothing moves". Fixed by setting the castle stage to `MOUSE_FILTER_IGNORE`.
+> Every trusted castle probe drove `_position_player_at_foot` directly and was
+> blind to it; `probe_throne` now walks her there with real viewport taps.
 
 ## The follower (generalizes the peng_pal pattern)
 
@@ -115,18 +165,14 @@ pointer + voice line). Swimming in starts `StuffieBattle`:
   straight misses ANY button counts as the dodge (mash-proof for age 4).
 - **Boo-boos**: landed bumps never end a battle, but they leave bruises
   (🩹 pips on the HUD) that ride home with the stuffie.
-- **THE GENTLE FAILURE** (owner 2026-07-21, a deliberate refinement of the
-  no-fail rule — failure comes from NOT CARING, never from the battle):
-  after every big battle the stuffie asks for its **hug + bubble bath**
-  (queued care wants). Tending both heals every boo-boo ("All better!").
-  But an INJURED stuffie whose care never comes (a generous ~2-minute
-  patience clock that only ticks in free-roam, with two spoken reminders)
-  goes home to its Den shelf to rest (`companion_resting`, persisted).
-  Nothing is lost — care points, captures, colours all keep — but the
-  follower is gone and battles pause until Roshan walks back to the
-  castle's Stuffie Den and picks a friend again, **the same one included**
-  (its shelf shows 💤 and it yawns awake). Failure = a nap + a little
-  journey, never a punishment.
+- **PATIENT CARE** (owner correction 2026-08-09; supersedes the 2026-07-21
+  “gentle failure”): after every big battle the stuffie asks for its
+  **hug + bubble bath** (queued care wants). Tending both heals every
+  boo-boo ("All better!"). If care waits, a kind reminder may repeat every
+  minute, but the friend stays beside Roshan forever. Waiting never removes
+  the follower, pauses battles, clears bruises, loses progress, or creates a
+  last-chance message. The old `companion_resting` save key remains readable
+  but is normalized to `false`, returning companions stranded by old saves.
 - **Ladder**: round1 (2 imps) → round2 (3 imps) → round3 (dragon-turtle
   friendly rematch) → **boss_lamma** (Lamb-a' capture — see THE CAPTURE
   LOOP), one round per visit, saved in `stuffie_wins`; after all rounds,

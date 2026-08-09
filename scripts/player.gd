@@ -3,6 +3,8 @@ extends Node3D
 
 const ROSHAN_SPRITE_ANCHORS := preload(
 	"res://scripts/roshan_sprite_anchors.gd")
+const ROSHAN_SPRITE_FRAMES := preload(
+	"res://scripts/roshan_sprite_frames.gd")
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 
@@ -47,6 +49,8 @@ var verb_t := 0.0
 var idle_verb_cool := 0.0
 var bump_verb_cool := 0.0    # keeps wall-bump "boing" from re-firing every frame
 var was_airborne := false    # free-swim only: tracks surface crossings for splashes
+var was_wet := false         # arena wet/dry oracle flips (rivers, moat, fjords)
+var wet_game := ""           # re-arms the wet tracker on every mode change
 
 # ---- land locomotion (comedy dept.) ----
 # A mermaid has no legs, so dry ground is covered in tiny determined hops.
@@ -143,6 +147,7 @@ var classic_sprite: Sprite3D = null
 var classic_sprite_sheet := ""
 var classic_sprite_frame := -1
 var classic_sprite_flip := false
+var classic_sprite_region := false
 var classic_toy_pose_until_msec := 0
 var classic_carry_started_msec := 0
 var classic_was_carrying := false
@@ -174,7 +179,7 @@ var speed_lines: GPUParticles3D
 var speed_pm: ParticleProcessMaterial
 
 func _ready() -> void:
-	# Sprite3D is the only Roshan renderer. The retired GLB rig is never loaded.
+	# Sprite3D atlas frames are the only Roshan renderer.
 	classic_motion_root = Node3D.new()
 	classic_motion_root.name = "AlwaysAliveMotion"
 	add_child(classic_motion_root)
@@ -312,17 +317,28 @@ func _set_classic_sprite_frame(sheet: String, frame_idx: int, flip: bool = false
 		classic_sprite.vframes = int(spec[2])
 		classic_sprite_sheet = sheet
 		classic_sprite_frame = -1
+		classic_sprite_region = false
 	if classic_sprite_frame != safe_frame:
 		classic_sprite.frame = safe_frame
 		classic_sprite_frame = safe_frame
+		classic_sprite_region = false
+	if not classic_sprite_region:
+		# The sheets pack their figures tighter than the nominal 256px grid, so
+		# a plain hframes slice clips her head in the lower rows. Sample the
+		# corrected window instead; offset_correction below keeps every pixel
+		# that already rendered exactly where it is.
+		ROSHAN_SPRITE_FRAMES.apply_region(
+			classic_sprite, sheet, safe_frame, int(spec[1]))
+		classic_sprite_region = true
 	if classic_sprite_flip != flip:
 		classic_sprite.flip_h = flip
 		classic_sprite_flip = flip
+	var sprite_offset := Vector2.ZERO
 	if ROSHAN_SPRITE_ANCHORS.has_sheet(sheet):
-		classic_sprite.offset = ROSHAN_SPRITE_ANCHORS.correction(
+		sprite_offset = ROSHAN_SPRITE_ANCHORS.correction(
 			sheet, safe_frame, Vector2(128.0, 116.0), flip)
-	else:
-		classic_sprite.offset = Vector2.ZERO
+	classic_sprite.offset = sprite_offset \
+		+ ROSHAN_SPRITE_FRAMES.offset_correction(sheet, safe_frame, flip)
 
 func _set_classic_sequence(sequence: Array, phase: int, flip: bool = false) -> void:
 	var sheet: String = String(sequence[0])
@@ -554,11 +570,17 @@ func _process(delta: float) -> void:
 		return   # a 2D minigame overlay is up — stick input belongs to IT (snowball rolling!)
 	if "craft_layer" in _m0 and _m0.craft_layer != null:
 		return   # frozen while the craft studio is open (was drifting behind the overlay)
+	if "castle_logo_layer" in _m0 and _m0.castle_logo_layer != null:
+		return   # frozen while the castle-logo table is open
 	if "collection_layer" in _m0 and _m0.collection_layer != null:
 		vel = Vector3.ZERO
 		return   # the icon-led Critter Book is a full-screen touch overlay
-	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl"):
-		return   # these modes drive the player + camera themselves (dolls: the side-scroll stage)
+	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl" or String(_m0.game) == "dustboss"):
+		return   # these modes drive the player + camera themselves (dolls: the side-scroll
+		# stage; dustboss: the octagon boss arena). A stage-driven mode MISSING from this
+		# list looks fine to every headless probe and is broken on the phone: the free-swim
+		# chase cam keeps re-aiming the lens after the stage has framed the ring
+		# (found by the 2026-08-02 boss stress test's visual pass).
 	if "g" in _m0 and String((_m0.g as Dictionary).get("phase", "")) == "promenade":
 		# The promenade owns movement and its side-on camera, but the visual
 		# clock above still runs so its externally positioned Roshan stays alive.
@@ -699,7 +721,7 @@ func _process(delta: float) -> void:
 		var now_air: bool = position.y > WATER_TOP
 		if now_air != was_airborne and absf(vel.y) > 5.0:
 			if m0.has_method("on_player_jump"):
-				m0.on_player_jump(Vector3(position.x, WATER_TOP - 1.0, position.z))
+				m0.on_player_jump(Vector3(position.x, WATER_TOP - 1.0, position.z), true)
 			if now_air and vel.y > 10.0 and verb == "":
 				play_verb("twirl")   # a joyful breach pirouette
 		was_airborne = now_air
@@ -801,6 +823,17 @@ func _process(delta: float) -> void:
 		# comic-hop oracle: is she resting on this arena floor, and is it dry?
 		land_rest = position.y <= floor_a + 0.08
 		land_dry = m.has_method("water_surface_y") and position.y >= float(m.water_surface_y(position.x, position.z))
+		# a wet/dry FLIP is a real water boundary crossed (river bank, moat
+		# rim, fjord edge) — proc the shared splash vocabulary. Mode changes
+		# re-arm the tracker so entering an arena never counts as a crossing,
+		# and the speed gate keeps probe/teleport repositions silent.
+		if String(m.game) != wet_game:
+			wet_game = String(m.game)
+			was_wet = not land_dry
+		elif (not land_dry) != was_wet:
+			was_wet = not land_dry
+			if vel.length() > 4.0 and m.has_method("on_player_wet_change"):
+				m.on_player_wet_change(position, was_wet, vel.length())
 	else:
 		land_rest = false
 		land_dry = false

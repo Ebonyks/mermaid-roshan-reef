@@ -38,10 +38,10 @@ func _init() -> void:
 	# interaction roster and the scene tree stays within the original
 	# anti-duplication tolerance.
 	# The picture easels were removed on 2026-07-29. The persistent roster is
-	# now slide, single-seat swing, seesaw, and castle door. The Day One plane
-	# makes the roster five until its saved arrival has completed, so both
-	# valid save states must rebuild without duplicating cards.
-	var ok: bool = targets1 >= 4 and targets1 <= 5 and targets2 == targets1 \
+	# the Reef route plane, slide, single-seat swing, seesaw, and castle door. The
+	# full Day One arrival shrinks to the permanent plane shuttle without
+	# changing that five-target interaction contract.
+	var ok: bool = targets1 == 5 and targets2 == 5 \
 		and n2 <= n1 + int(float(n1) * 0.1)
 	print("REENTER|no_duplicate_level: ", ("OK" if ok else "FAIL"))
 	quit()

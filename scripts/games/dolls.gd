@@ -1,12 +1,12 @@
 class_name DollsGame
 extends RefCounted
 # Phase 7.4 extraction, rebuilt Phase 8 on the SideScrollStage engine: the
-# catch-the-babies game is now a 2.5D nursery diorama — the real 3D Roshan
+# catch-the-babies game is a 2.5D nursery diorama. Roshan's animated 2D card
 # (wardrobe skin and all) slides under a side-on camera catching 3D swaddled
 # babies that drift down in front of the floating nursery book page. Caught
 # babies tuck into a cradle; missed ones land safely on pillows (no fail).
 # All state stays on main (m.*); received by reference.
-# Scale: the v4 Roshan is ~7 world units tall — the 2D era's geometry maps
+# Scale: Roshan's player card is about 7 world units tall; the geometry maps
 # at 25 px per unit (1160 px playfield → 46.4 units).
 
 const BLANKETS := [Color(0.62, 0.90, 0.78), Color(1.0, 0.72, 0.82), Color(0.78, 0.72, 0.98)]

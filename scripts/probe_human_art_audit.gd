@@ -4,6 +4,12 @@ const OUT := "res://audit/runtime_shots_2026-07-16"
 
 var main: Node3D
 var camera: Camera3D
+# Where the frames actually land. The CI capture step runs this probe inside
+# the same block as probe_reef_shots and uploads $REEF_SHOT_OUT/*.png — a
+# hardcoded res:// path renders the shots into the workspace and throws them
+# away, so honour the same env var the sibling capture probes use (2026-08-02:
+# that is why the water-FX inspection frames never reached the artifact).
+var out_dir := ""
 
 func _frames(count: int) -> void:
 	for i in range(count):
@@ -17,8 +23,8 @@ func _shot(name: String, position: Vector3 = Vector3.ZERO, target: Vector3 = Vec
 	await _frames(3)
 	await RenderingServer.frame_post_draw
 	var image: Image = get_root().get_viewport().get_texture().get_image()
-	image.save_png(OUT + "/" + name + ".png")
-	print("ART_AUDIT|saved ", name)
+	var err: Error = image.save_png(out_dir.path_join(name + ".png"))
+	print("ART_AUDIT|saved ", name, " -> ", out_dir, (" ERR %d" % err) if err != OK else "")
 
 func _fresh_main() -> Node3D:
 	if main != null and is_instance_valid(main):
@@ -37,7 +43,9 @@ func _init() -> void:
 		print("ART_AUDIT|RESULT: HEADLESS SKIP (visual capture requires a display renderer)")
 		quit()
 		return
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
+	var requested: String = OS.get_environment("REEF_SHOT_OUT")
+	out_dir = requested if requested != "" else ProjectSettings.globalize_path(OUT)
+	DirAccess.make_dir_recursive_absolute(out_dir)
 	camera = Camera3D.new()
 	camera.fov = 66.0
 	get_root().add_child(camera)
@@ -114,5 +122,35 @@ func _init() -> void:
 	main.g["bloom_t"] = FairyGame.FS_BLOOM_T * 0.2
 	await _frames(3)
 	await _shot("19_fairy_flower_bloom", flower + Vector3(0, 58, 0), flower, true, Vector3(0, 0, 1))
+	# ---- water physics + FX institution (2026-08-02): the Jolt prop fleet,
+	# the swell and the fx_water card vocabulary have NEVER been human-
+	# inspected (probe-validated only). These frames are the first look.
+	await _fresh_main()
+	main.brawl_cool = 0.0
+	main._start_game(main.brawl_fr)
+	await _frames(50)
+	var brawl_o: Vector3 = main.ARENA_POS + Vector3(0, 2.5, 0)
+	await _shot("20_toy_castle_block_fleet_swell", brawl_o + Vector3(-8, 9, 21), brawl_o + Vector3(-6, 1.5, 0), true)
+	main.fx_splash(brawl_o + Vector3(-2, 3.5, 2.0), 20.0, "art_audit_a")
+	await _frames(8)
+	await _shot("21_water_fx_breach_card", brawl_o + Vector3(-2, 5, 14), brawl_o + Vector3(-2, 3, 0), true)
+	main._fx_water_ref().card("splash_small", brawl_o + Vector3(-6, 3.5, 2.0))
+	main._fx_water_ref().card("bubble_burst", brawl_o + Vector3(2, 3.5, 2.0))
+	await _frames(6)
+	await _shot("22_water_fx_small_and_bubbles", brawl_o + Vector3(-2, 5, 14), brawl_o + Vector3(-2, 3, 0), true)
+	# the painted foam shoreline in the one shipped scene with a real land/
+	# water edge, plus a splash card on the lake it guards
+	await _fresh_main()
+	var fetch_fr: Dictionary = {}
+	for f in main.friends:
+		if String(f["game"]) == "fetch":
+			fetch_fr = f
+	if not fetch_fr.is_empty():
+		main._start_game(fetch_fr)
+	await _frames(30)
+	var lake_o: Vector3 = main.ARENA_POS
+	main.fx_splash(lake_o + Vector3(16.0, 0.9, 2.0), 10.0, "art_audit_lake")
+	await _frames(4)
+	await _shot("23_fetch_foam_shoreline", lake_o + Vector3(2.0, 9.0, 26.0), lake_o + Vector3(14.0, 0.6, 0.0), true)
 	print("ART_AUDIT|DONE")
 	quit()

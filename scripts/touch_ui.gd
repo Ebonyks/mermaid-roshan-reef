@@ -1,6 +1,6 @@
 extends CanvasLayer
 # Touch controls (Android/tablet):
-#   HYBRID (default): lower-left movement + a real lower-right action button;
+#   HYBRID (default): point-to-interact + a contextual lower-right action button;
 #   taps on unclaimed world space are emitted for select/approach/move.
 #   CLASSIC (rollback): the shipped drag-anywhere stick, tap action and
 #   second-finger camera path is retained below.
@@ -40,6 +40,29 @@ var drag_active := false
 var drag_pos := Vector2.ZERO
 var drag_started := false          # set for one read on touch-down
 
+# ---- combat press-fire (combat wing 2026-08) ----
+# main installs a probe so hit engines can claim a world press the moment
+# the finger LANDS — an enemy pop must never wait out the release half of a
+# preschooler's grabby tap. A claimed press marks its pend record consumed,
+# which suppresses the release-side world_touched (no double fire). Hybrid
+# only; Classic has no world-tap concept and stays a genuine rollback.
+var world_press_probe: Callable = Callable()
+# fires when a consumed (press-fired) world touch lifts, so a held CHARGE
+# attack knows to release; also fired defensively on _clear_touch_state
+var world_press_release: Callable = Callable()
+# ---- combat SLICE (combat wing 2026-08-04) ----
+# A world touch that TRAVELS is a swipe of the blade. It is reported on lift as
+# (start, end); a moved world touch never emitted world_touched anyway, so the
+# slice costs no existing behaviour. world_press_drag fires once when a press
+# first breaks slop, which cancels any charge the press started — one finger,
+# one verb.
+var world_press_drag: Callable = Callable()
+var world_drag_end: Callable = Callable()
+# fires on focus loss / state reset: a held charge is thrown AWAY (no damage),
+# unlike a deliberate lift which releases it. Opening the pause menu must not
+# land a hit (alpha audit 2026-08-05).
+var world_press_cancel: Callable = Callable()
+
 var _root: Control
 var _base: Panel
 var _knob: Panel
@@ -55,6 +78,7 @@ var _look_idx := -1       # the finger that owns the camera peek
 var _look_dx := 0.0       # accumulated camera-drag pixels, consumed by the
 var _look_dy := 0.0       # active camera owner (player.gd or galaxy.gd)
 var _origin := Vector2.ZERO
+var _press_pos := Vector2.ZERO
 var _moved := false
 var _manual_emitted := false
 var _press_ms := 0
@@ -70,6 +94,8 @@ const TAP_MS := 300
 const JUMP_HOLD_MS := 140
 const ACTION_PICTOGRAMS := {
 	"JUMP": "↑",
+	"BONK!": "✋",
+	"WAIT": "◇",
 	"PLAY": "▶",
 	"SHOP": "◆",
 	"OPEN": "◇",
@@ -107,7 +133,7 @@ func _ready() -> void:
 	_stick_hint.offset_top = -206.0
 	_stick_hint.offset_right = 206.0
 	_stick_hint.offset_bottom = -26.0
-	_stick_hint.visible = wants_touch()
+	_stick_hint.visible = false
 	_root.add_child(_stick_hint)
 	var hint_arrows := Label.new()
 	hint_arrows.name = "TouchDirectionHints"
@@ -230,10 +256,18 @@ func _flash(pos: Vector2) -> void:
 
 func _press(pos: Vector2, idx: int) -> void:
 	_touch_idx = idx
-	# Hybrid advertises a fixed four-direction pad. Its origin must therefore
-	# be the visible ring's center: tapping a side gives an immediate vector.
-	# Classic retains the original floating joystick under the finger.
-	_origin = _fixed_stick_center() if control_mode == "hybrid" else pos
+	# THE STICK ORIGIN IS ALWAYS THE FINGER (owner report 2026-08-03: "touching
+	# the left side of the screen sometimes moves right, in Sky Lagoon").
+	# Hybrid used to anchor the origin to a fixed bottom-left ring instead. That
+	# ring is never drawn (see _rest_stick), yet movement_zone() claims the whole
+	# lower-left third of the phone — so on a 1600x720 handset roughly three
+	# quarters of the thumb bay lay to the RIGHT of the invisible anchor and
+	# shoved Roshan right the instant it was touched, with nothing on screen to
+	# explain why. A finger-anchored origin makes the drag direction and the
+	# travel direction the same thing everywhere in the bay. Classic already
+	# worked this way; the two paths now agree.
+	_origin = pos
+	_press_pos = pos
 	if drag_mode:
 		# the finger paints instead of steering — no stick, no tap-to-jump
 		drag_active = true
@@ -250,16 +284,9 @@ func _press(pos: Vector2, idx: int) -> void:
 	_knob.position = _origin - _knob.size * 0.5
 	_base.modulate.a = 1.0
 	_knob.modulate.a = 1.0
-	_base.visible = true
-	_knob.visible = true
+	_base.visible = false
+	_knob.visible = false
 	stick_vec = Vector2.ZERO
-	if control_mode == "hybrid":
-		_drag(pos)
-
-func _fixed_stick_center() -> Vector2:
-	if _stick_hint != null and is_instance_valid(_stick_hint):
-		return _stick_hint.get_global_rect().get_center()
-	return rest_zone().get_center()
 
 func _drag(pos: Vector2) -> void:
 	if drag_mode:
@@ -292,6 +319,15 @@ func _release_stick() -> void:
 	if control_mode == "classic" and not _moved and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
 		_jump_pulse()
 		_flash(_origin)
+	elif control_mode == "hybrid" and not _moved:
+		# The thumb bay is an accessibility stick, not a hole in the world. A
+		# press that never became a drag is still a tap on whatever is painted
+		# underneath, so tap-to-travel and tap-to-select keep working in the
+		# lower-left corner exactly as they do everywhere else. No TAP_MS gate:
+		# a four-year-old's deliberate press is slow, and the world-tap owner
+		# elsewhere in this router has no time limit either.
+		world_touched.emit(_press_pos)
+		_flash(_press_pos)
 	if _manual_emitted:
 		manual_move_ended.emit()
 	_touch_idx = -1
@@ -300,15 +336,14 @@ func _release_stick() -> void:
 	_rest_stick()
 
 func _rest_stick() -> void:
-	# StorybookUI resting affordance: the real stick only appears under the
-	# finger; the fixed ghost wheel owns the bottom-left teaching role and
-	# hides while world controls are off.
+	# Point-to-interact keeps the screen clear. Gesture steering remains available
+	# to legacy movement activities without drawing a virtual stick.
 	if _base != null:
 		_base.visible = false
 	if _knob != null:
 		_knob.visible = false
 	if _stick_hint != null:
-		_stick_hint.visible = wants_touch() and world_controls_enabled
+		_stick_hint.visible = false
 
 func rest_zone() -> Rect2:
 	var vs: Vector2 = _root.size
@@ -343,7 +378,26 @@ func pause_zone() -> Rect2:
 		vs = get_viewport().get_visible_rect().size
 	return Rect2(Vector2(vs.x - 170.0, 0.0), Vector2(170.0, 170.0))
 
+func reserved_zone_hit(pos: Vector2) -> bool:
+	# True when this router already owns a press at this screen point. Stages
+	# that read the EMULATED MOUSE directly for hold-to-travel must ask first:
+	# that pointer knows nothing about touch ownership, so without this guard a
+	# hold on the action medallion (bottom-right) or in the thumb bay commanded
+	# travel toward that corner of the screen — Roshan strolled off to the right
+	# while the child was simply holding PLAY down.
+	if not wants_touch() or not world_controls_enabled:
+		return false
+	if pause_zone().has_point(pos):
+		return true
+	if control_mode != "hybrid":
+		return false
+	return action_zone().has_point(pos) or movement_zone().has_point(pos)
+
 func _clear_touch_state() -> void:
+	if world_press_cancel.is_valid():
+		world_press_cancel.call()   # thrown away, not fired: no surprise damage
+	elif world_press_release.is_valid():
+		world_press_release.call()
 	drag_active = false
 	drag_started = false
 	_touch_idx = -1
@@ -361,6 +415,7 @@ func _clear_touch_state() -> void:
 	_look_dy = 0.0
 	_moved = false
 	_manual_emitted = false
+	_press_pos = Vector2.ZERO
 	_pulse = 0.0
 	_rest_stick()
 
@@ -466,6 +521,9 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			else:
 				touch_owners[touch.index] = TouchOwner.WORLD_INTERACT
 				_world_pend[touch.index] = {"pos": touch.position, "moved": false}
+				if world_press_probe.is_valid() and bool(world_press_probe.call(touch.position)):
+					_world_pend[touch.index]["consumed"] = true
+					_flash(touch.position)
 		else:
 			var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and touch.index == _touch_idx:
@@ -474,9 +532,12 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_release_action(touch.index)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
 				var world_data: Dictionary = _world_pend[touch.index]
-				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
 					world_touched.emit(touch.position)
 					_flash(touch.position)
+				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
+					world_press_release.call()
+				_world_swipe(world_data, touch.position)
 				_world_pend.erase(touch.index)
 			touch_owners.erase(touch.index)
 	elif ev is InputEventScreenDrag:
@@ -484,9 +545,17 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 		var owner: int = int(touch_owners.get(drag.index, TouchOwner.NONE))
 		if owner == TouchOwner.STICK and drag.index == _touch_idx:
 			_drag(drag.position)
-		elif owner == TouchOwner.WORLD_INTERACT and _world_pend.has(drag.index):
+		elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) \
+				and _world_pend.has(drag.index):
 			var world_data: Dictionary = _world_pend[drag.index]
+			world_data["last"] = drag.position
 			if (drag.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
+				# only the finger that press-fired may cancel its own charge —
+				# a sibling finger wobbling 22px elsewhere must not (alpha
+				# audit 2026-08-05: any second finger killed every held charge)
+				if not bool(world_data.get("moved", false)) and bool(world_data.get("consumed", false)) \
+						and world_press_drag.is_valid():
+					world_press_drag.call()   # a travelling finger is not a charge
 				world_data["moved"] = true
 				touch_owners[drag.index] = TouchOwner.WORLD_MOVE
 	elif ev is InputEventMouseButton:
@@ -502,6 +571,9 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			else:
 				touch_owners[99] = TouchOwner.WORLD_INTERACT
 				_world_pend[99] = {"pos": mouse_button.position, "moved": false}
+				if world_press_probe.is_valid() and bool(world_press_probe.call(mouse_button.position)):
+					_world_pend[99]["consumed"] = true
+					_flash(mouse_button.position)
 		else:
 			var owner: int = int(touch_owners.get(99, TouchOwner.NONE))
 			if owner == TouchOwner.STICK and _touch_idx == 99:
@@ -510,22 +582,42 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_release_action(99)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
 				var world_data: Dictionary = _world_pend[99]
-				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
 					world_touched.emit(mouse_button.position)
 					_flash(mouse_button.position)
+				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
+					world_press_release.call()
+				_world_swipe(world_data, mouse_button.position)
 				_world_pend.erase(99)
 			touch_owners.erase(99)
 	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
 		var mouse_motion := ev as InputEventMouseMotion
 		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
 			_drag(mouse_motion.position)
-	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.WORLD_INTERACT:
+	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) in \
+			[TouchOwner.WORLD_INTERACT, TouchOwner.WORLD_MOVE]:
 		var world_motion := ev as InputEventMouseMotion
 		if world_motion.device != InputEvent.DEVICE_ID_EMULATION and _world_pend.has(99):
 			var world_data: Dictionary = _world_pend[99]
+			world_data["last"] = world_motion.position
 			if (world_motion.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
+				if not bool(world_data.get("moved", false)) and world_press_drag.is_valid():
+					world_press_drag.call()
 				world_data["moved"] = true
 				touch_owners[99] = TouchOwner.WORLD_MOVE
+
+# A world touch that travelled is reported to the combat layer as a swipe.
+# Non-combat drags simply find no hit engine listening and cost nothing.
+# A stroke that press-fired on an enemy already spent itself as tap+charge —
+# it never doubles as a slash on lift (one stroke, one verb; without this a
+# single drag over an enemy dealt tap 1 + slice 2 in one gesture).
+func _world_swipe(world_data: Dictionary, end_pos: Vector2) -> void:
+	if not bool(world_data.get("moved", false)) or not world_drag_end.is_valid():
+		return
+	if bool(world_data.get("consumed", false)):
+		return
+	world_drag_end.call(world_data.get("pos", end_pos) as Vector2,
+		world_data.get("last", end_pos) as Vector2)
 
 # Reversible shipped input path. Keep behavioral edits to this method out of the
 # hybrid experiment so selecting Classic is a genuine runtime rollback.
@@ -636,11 +728,7 @@ func _input(ev: InputEvent) -> void:
 					_claim_action(touch.index)
 					get_viewport().set_input_as_handled()
 					return
-				if _touch_idx == -1 and movement_zone().has_point(touch.position):
-					touch_owners[touch.index] = TouchOwner.STICK
-					_press(touch.position, touch.index)
-					get_viewport().set_input_as_handled()
-					return
+
 			else:
 				var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
 				if owner == TouchOwner.STICK and touch.index == _touch_idx:
@@ -672,12 +760,6 @@ func _input(ev: InputEvent) -> void:
 			if control_mode == "hybrid" and world_controls_enabled:
 				if mouse_button.pressed and _action_hit(mouse_button.position):
 					_claim_action(99)
-					get_viewport().set_input_as_handled()
-					return
-				if mouse_button.pressed and _touch_idx == -1 \
-						and movement_zone().has_point(mouse_button.position):
-					touch_owners[99] = TouchOwner.STICK
-					_press(mouse_button.position, 99)
 					get_viewport().set_input_as_handled()
 					return
 				if not mouse_button.pressed and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:

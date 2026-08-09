@@ -223,9 +223,13 @@ func _run() -> void:
 		and is_equal_approx(promenade._wind_gust_at(23.0), 1.0))
 	var day_signature: String = _ambient_signature(cards)
 	var stage_root: Node3D = main.g.get("ss_root") as Node3D
+	_check("day_fireflies_absent",
+		not main.g.has("lagoon_night_fireflies"))
 	var inventory: Dictionary = _inventory(stage_root)
 	_check("node_type_inventory",
-		int(inventory["sprites"]) == 33
+		# Permanent reef shuttle = one hovering plane and one pulse, with no
+		# ground shadow in the otter/frog corridor.
+		int(inventory["sprites"]) == 36
 		and int(inventory["meshes"]) == 0
 		and int(inventory["canvas"]) == 0
 		and int(inventory["shaded"]) == 0
@@ -334,6 +338,16 @@ func _run() -> void:
 	await _frames(30)
 	var night_cards: Array = main.g.get("lagoon_ambient_cards", [])
 	var night_root: Node3D = main.g.get("ss_root") as Node3D
+	var night_fireflies: CPUParticles3D = main.g.get(
+		"lagoon_night_fireflies") as CPUParticles3D
+	_check("night_outdoor_fireflies",
+		night_fireflies != null
+		and is_instance_valid(night_fireflies)
+		and night_fireflies.emitting
+		and night_fireflies.amount == SkyLagoonPromenade.FIREFLY_COUNT
+		and night_fireflies.mesh is QuadMesh
+		and bool(night_fireflies.get_meta("night_only", false))
+		and bool(night_fireflies.get_meta("outdoor_only", false)))
 	var night_tint_ok: bool = night_cards.size() == 5
 	var night_backdrops: int = 0
 	for child: Node in night_root.get_children():
@@ -358,6 +372,7 @@ func _run() -> void:
 
 	var old_root: Node3D = night_root
 	var old_cards: Array = night_cards.duplicate()
+	var old_fireflies: CPUParticles3D = night_fireflies
 	main._exit_level2_now()
 	await _frames(5)
 	var old_cards_freed: bool = true
@@ -366,7 +381,9 @@ func _run() -> void:
 	_check("lifecycle_teardown",
 		not is_instance_valid(old_root)
 		and old_cards_freed
+		and not is_instance_valid(old_fireflies)
 		and not main.g.has("lagoon_ambient_cards")
+		and not main.g.has("lagoon_night_fireflies")
 		and not main.g.has("lagoon_ambient_t")
 		and not main.g.has("lagoon_wind_gust")
 		and not main.g.has("lagoon_wind_distance")
@@ -377,6 +394,7 @@ func _run() -> void:
 	_check("lifecycle_rebuild",
 		(main.g.get("lagoon_ambient_cards", []) as Array).size() == 5
 		and main.g.has("lagoon_wind_distance")
+		and not main.g.has("lagoon_night_fireflies")
 		and not main.g.has("lagoon_center_chimney_card"))
 
 	if failures == 0:

@@ -3,7 +3,7 @@
   "generation_method": "deterministic offline NumPy/SciPy synthesis; no sampled or downloaded audio",
   "generator": "tools/build_castle_interaction_audio.py",
   "generator_version": 1,
-  "generator_sha256": "e756cb0fd71d9b65569d81bf08c63c3b51297d778f7db459b26c9ac8fd9c09d5",
+  "generator_sha256": "4647487b4f01fcdeab07a0bf50958abf3e9771bdf805c4135378a5fe6717ff26",
   "ffmpeg": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
   "target": {
     "codec": "Ogg Vorbis",
@@ -83,6 +83,51 @@
       "pcm_sha256": "63c7f81e356f034a9c959a10ab8309cf6bf571968d0b08d23e7c27d2734668c1",
       "file_bytes": 7125,
       "sha256": "3c7a174eb33a045569c6c928048c46523d4a36f2161518c4b39a1ed5ba07812a"
+    },
+    {
+      "id": "fridge_open",
+      "path": "assets/audio/castle/fridge_open.ogg",
+      "semantic_action": "latch releases, fridge door opens, interior chimes",
+      "events_ms": {
+        "latch": 40,
+        "door_open": 100,
+        "chime": 430
+      },
+      "codec": "Ogg Vorbis",
+      "channels": 1,
+      "sample_rate_hz": 24000,
+      "vorbis_quality": 4,
+      "ogg_stream_serial": 936288230,
+      "sample_count": 17280,
+      "duration_ms": 720,
+      "pcm_peak": 23197,
+      "peak_dbfs": -3.0,
+      "rms_dbfs": -16.356,
+      "pcm_sha256": "30550d736727ec31f632d6633883516a6a02552ab17ddc223df6c44cdd9212f4",
+      "file_bytes": 5497,
+      "sha256": "67e038c848f30b4e5275e312f1ec9f058b66d13f25a77732cd9d93eafcf3299c"
+    },
+    {
+      "id": "fridge_close",
+      "path": "assets/audio/castle/fridge_close.ogg",
+      "semantic_action": "fridge door swings shut and latch catches",
+      "events_ms": {
+        "door_close": 40,
+        "latch": 290
+      },
+      "codec": "Ogg Vorbis",
+      "channels": 1,
+      "sample_rate_hz": 24000,
+      "vorbis_quality": 4,
+      "ogg_stream_serial": 1900802404,
+      "sample_count": 12480,
+      "duration_ms": 520,
+      "pcm_peak": 23197,
+      "peak_dbfs": -3.0,
+      "rms_dbfs": -21.482,
+      "pcm_sha256": "5ca9bc7645626ea1f951365f5977365f3a9b9ed6ba2ddd96acd74643bbea2a15",
+      "file_bytes": 5143,
+      "sha256": "756c7da714d2634d8a41781b3f69f17c3f3d842c0f7910f7353d29afc33d825a"
     },
     {
       "id": "oven_door",

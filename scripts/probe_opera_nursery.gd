@@ -47,8 +47,7 @@ func _init() -> void:
 			return String(phase.get("name", "")) not in ["X-RAY", "CAST", "BANDAGE"]))
 	_check("Roshan and Faron use authored nursery actors",
 		world.player_actor.texture != null and world.rival_actor.texture != null
-		and world.player_name_label.text == "NURSE ROSHAN"
-		and world.rival_name_label.text == "NURSE FARON")
+		and act.competition.is_cooperative())
 	_check("Nurse Faron stays beside Roshan as a cooperative partner",
 		world.rival_actor.visible and act.competition.is_cooperative())
 	_check("the care story keeps its beats inside the five-beat arc",
@@ -57,10 +56,13 @@ func _init() -> void:
 	_check("the imp scuffle opens with no passive progress",
 		world.phase_index == 0 and is_equal_approx(world.progress(), 0.0)
 		and String((world.phases[0] as Dictionary).get("mode", "")) == "bop")
+	_check_all_phase_reprompts(world)
+	_check_timed_reprompt(world, "open-task re-prompt")
 
 	_pump(world)
 	_check("washing follows the scuffle with the basin tableau",
-		world.phase_index == 1 and world.surface.visual_context == "nursery_wash")
+		world.phase_index == 1 and world.surface.visual_context == "basin_nursery")
+	_check_timed_reprompt(world, "waiting-at-station re-prompt")
 	_pump(world)
 	var catcher := world.nursery_catch
 	_check("catch phase reuses and expands the falling-baby grammar",
@@ -77,15 +79,20 @@ func _init() -> void:
 		catcher.active and catcher.goal == 5 and catcher.missed >= 2)
 
 	var catch_guard := 0
-	while world.phase_index == 2 and catch_guard < 360:
+	while catcher.caught < 5 and catch_guard < 360:
 		var target := catcher.lowest_baby_x()
 		catcher.steer_to(target if target >= 0.0 else 0.5)
 		catcher._process(0.12)
 		catch_guard += 1
+	# the cozy full-cradle scene holds before the next station arms
+	var hold_guard := 0
+	while world.phase_index == 2 and hold_guard < 40:
+		world._process(0.1)
+		hold_guard += 1
 	_check("one-finger steering catches all five babies after safe misses",
 		catcher.caught == 5 and world.phase_index == 3)
 	world.phase_gap = 0.0
-	_check("feeding uses a bottle hold tableau", world.surface.visual_context == "nursery_feed")
+	_check("feeding uses a bottle hold tableau", world.surface.visual_context == "pour_nursery")
 	_pump(world)
 	var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
 	_check("the imp captain's peek-a-boo chase happens at the stage door",
@@ -93,20 +100,33 @@ func _init() -> void:
 		and backdrop != null and backdrop.stage_mode)
 	_pump(world)
 	_check("the chase clears into the gentle burp-pat beat",
-		world.phase_index == 5 and world.surface.visual_context == "nursery_burp")
-	for index in range(4):
-		world._on_gesture("probe", 1.0, 1.0)
+		world.phase_index == 5 and String((world.phases[5] as Dictionary).get("name", "")) == "BURP")
+	# gentle pats: a pat inside the pace window pays nothing, so a drumming
+	# finger cannot rush the baby — the probe waits between pats like a child
+	var pat_guard := 0
+	while world.phase_index == 5 and pat_guard < 40:
+		world._on_gesture("tap", 1.0, 1.0)
+		world._process(0.6)
+		pat_guard += 1
+	if world.phase_advance_pending:
+		world._on_gesture("probe", 0.0, 1.0)
 	_check("four gentle pats advance to bedtime",
-		world.phase_index == 6 and world.surface.visual_context == "nursery_bedtime")
+		world.phase_index == 6 and world.surface.visual_context == "push_nursery")
 	world.phase_gap = 0.0
 	world._on_gesture("probe", 100.0, 1.0)
+	# the tucked-in blanket holds on screen before the curtain call — let
+	# that beat elapse the way a watching child would
+	var tuck_guard := 0
+	while act.state == "play" and tuck_guard < 40:
+		world._process(0.1)
+		tuck_guard += 1
 	await process_frame
 	_check("blanket tuck completes the cooperative nursery show",
 		act.state == "won" and bool(act.performance_result.get("cooperative", false))
 		and is_equal_approx(act.competition.player_progress, 1.0)
 		and is_equal_approx(act.competition.rival_progress, 1.0))
 	_check("curtain call celebrates cozy babies, not beating Faron",
-		world.title_label.text == "THE BABIES ARE COZY!")
+		world.last_cheer == "THE BABIES ARE COZY!")
 	act.cancel()
 	await process_frame
 	if main.touch_ui != null:
@@ -117,6 +137,8 @@ func _init() -> void:
 func _pump(world: OperaCareerWorld2D) -> void:
 	# complete the current phase, then swallow the between-phase sparkle sting
 	world._on_gesture("probe", 100.0, 1.0)
+	if world.phase_advance_pending:
+		world._on_gesture("probe", 0.0, 1.0)
 	world.phase_gap = 0.0
 
 
@@ -125,6 +147,59 @@ func _phase_names(world: OperaCareerWorld2D) -> Array[String]:
 	for phase: Dictionary in world.phases:
 		names.append(String(phase.get("name", "")))
 	return names
+
+
+func _check_all_phase_reprompts(world: OperaCareerWorld2D) -> void:
+	var saved_phase_index: int = world.phase_index
+	for index: int in range(world.phases.size()):
+		var phase := world.phases[index] as Dictionary
+		var speaker: String = String(phase.get("speaker", "Roshan"))
+		var speaker_key: String = main._speaker_key(speaker)
+		var vo: String = String(phase.get("vo", "hint"))
+		var cue_key := "%s_%s" % [speaker_key, vo]
+		var expected_path := "res://assets/audio/voices/%s.ogg" % cue_key
+		main.clear_dialogue()
+		main.said_cool.erase(cue_key)
+		var before: int = main.voice_i
+		world.phase_index = index
+		world._repeat_phase_prompt()
+		var actual_path := _last_voice_path()
+		_check("%s re-prompt preserves speaker and cue" % String(phase.get("name", index)),
+			main.voice_i == before + 1 and actual_path == expected_path)
+		if speaker == "Faron":
+			_check("%s re-prompt selects exact Faron clip" % String(phase.get("name", index)),
+				actual_path == expected_path and expected_path.begins_with(
+					"res://assets/audio/voices/faron_op_nursery_"))
+	world.phase_index = saved_phase_index
+	main.clear_dialogue()
+
+
+func _check_timed_reprompt(world: OperaCareerWorld2D, label: String) -> void:
+	var phase := world.phases[world.phase_index] as Dictionary
+	var speaker_key: String = main._speaker_key(String(phase.get("speaker", "Roshan")))
+	var vo: String = String(phase.get("vo", "hint"))
+	var cue_key := "%s_%s" % [speaker_key, vo]
+	main.clear_dialogue()
+	main.said_cool.erase(cue_key)
+	world.reveal_t = 0.0
+	world.phase_advance_pending = false
+	world.idle_t = 8.95
+	var before: int = main.voice_i
+	world._process(0.1)
+	_check(label + " uses active phase identity",
+		main.voice_i == before + 1
+		and _last_voice_path() == "res://assets/audio/voices/%s.ogg" % cue_key)
+	main.clear_dialogue()
+
+
+func _last_voice_path() -> String:
+	if main.voice_i <= 0 or main.voice_pool.is_empty():
+		return "missing"
+	var index := posmod(main.voice_i - 1, main.voice_pool.size())
+	var player := main.voice_pool[index] as AudioStreamPlayer
+	if player == null or player.stream == null:
+		return "missing"
+	return player.stream.resource_path
 
 
 func _check(label: String, condition: bool) -> void:

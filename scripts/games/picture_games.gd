@@ -54,7 +54,13 @@ func _mg2d_open(kind: String) -> void:
 	m.mg2d_stage.scale = Vector2(sc, sc)
 	m.mg2d_stage.position = (vp - Vector2(1280, 720) * sc) * 0.5
 	m.mg2d_root.add_child(m.mg2d_stage)
-	m.mg["hud"] = _mg_label("", 40, Vector2(40, 26))
+	var header := StorybookUI.add_hud_panel(m.mg2d_stage,
+		Rect2(24, 18, 880, 112), StorybookUI.PURPLE,
+		Color(0.94, 0.98, 1.0, 0.97), 34)
+	header.name = "PictureGameStorybookHeader"
+	StorybookUI.add_shell_crest(header, Rect2(20, 27, 82, 60),
+		"PictureGameShellCrest")
+	m.mg["hud"] = _mg_label("", 34, Vector2(124, 34))
 	# A neutral doorway/back affordance so leaving never reads as failure.
 	var xb := Button.new()
 	xb.name = "PictureGameBackButton"
@@ -73,9 +79,7 @@ func _mg2d_open(kind: String) -> void:
 func _mg_label(txt: String, size: int, pos: Vector2) -> Label:
 	var l := Label.new()
 	l.text = txt
-	l.add_theme_font_size_override("font_size", size)
-	l.add_theme_color_override("font_outline_color", Color(0.05, 0.05, 0.15, 0.95))
-	l.add_theme_constant_override("outline_size", 12)
+	StorybookUI.style_hud_label(l, size, StorybookUI.INK, 4)
 	l.position = pos
 	m.mg2d_stage.add_child(l)
 	return l
@@ -124,7 +128,8 @@ func _mg_artbtn(path: String, pos: Vector2, sz: Vector2) -> Button:
 	b.position = pos - sz * 0.5
 	b.custom_minimum_size = sz
 	b.size = sz
-	b.flat = true
+	StorybookUI.style_picture_button(b, Color(0.94, 0.98, 1.0, 0.90),
+		StorybookUI.PURPLE, maxi(24, int(minf(sz.x, sz.y) * 0.22)))
 	var t := TextureRect.new()
 	t.texture = load(path)
 	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -144,14 +149,7 @@ func _mg_roundbtn(pos: Vector2, r: float, col: Color, txt: String = "") -> Butto
 	b.size = Vector2(r * 2.0, r * 2.0)
 	b.text = txt
 	b.add_theme_font_size_override("font_size", 44)
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = col
-	sb.set_corner_radius_all(int(r))
-	b.add_theme_stylebox_override("normal", sb)
-	var sb2: StyleBoxFlat = sb.duplicate()
-	sb2.bg_color = col.lightened(0.3)
-	b.add_theme_stylebox_override("pressed", sb2)
-	b.add_theme_stylebox_override("hover", sb)
+	StorybookUI.style_picture_button(b, col, StorybookUI.PURPLE, int(r))
 	m.mg2d_stage.add_child(b)
 	(m.mg["btns"] as Array).append(b)
 	return b
@@ -291,7 +289,8 @@ func _mg_snow_face_phase() -> void:
 	var carrot := _mg_artbtn("res://assets/mg/carrot.png", Vector2(360, 600), Vector2(150, 110))
 	carrot.pressed.connect(func(): _mg_snow_face("carrot", carrot))
 	for i in range(2):
-		var coal := _mg_artbtn("res://assets/mg/coal.png", Vector2(250 + float(i) * 220, 600), Vector2(90, 90))
+		var coal := _mg_artbtn("res://assets/mg/coal.png",
+			Vector2(220 + float(i) * 280, 600), StorybookUI.MIN_TOUCH)
 		var idx := i
 		coal.pressed.connect(func(): _mg_snow_face("coal" + str(idx), coal))
 

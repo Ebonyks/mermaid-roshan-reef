@@ -170,9 +170,9 @@ EXPECTED_ASSETS: dict[str, tuple[str, str, str, str, tuple[str, ...]]] = {
 		"mermaid_pool", "flower_float", "open_flower_and_make_ripples", "bubble_water.ogg",
 		("flower_float",),
 	),
-	"mermaid_pool_bubble_fountain": (
-		"mermaid_pool", "bubble_fountain", "raise_and_pop_bubbles", "bubble_water.ogg",
-		("bubble_fountain",),
+	"mermaid_pool_seahorse_fountain": (
+		"mermaid_pool", "seahorse_fountain", "spray_seahorse_fountain", "bubble_water.ogg",
+		("seahorse_fountain",),
 	),
 	"bubble_bath_rubber_duck": (
 		"bubble_bath", "rubber_duck", "squeak_dive_and_pop_up", "duck_squeak.ogg",
@@ -202,6 +202,12 @@ REPEATED_ACTION_ALLOWLIST = {
 
 def _sha256(path: Path) -> str:
 	return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _text_sha256(path: Path) -> str:
+	"""Hash repository text consistently across LF/CRLF working trees."""
+	data = path.read_bytes().replace(b"\r\n", b"\n")
+	return hashlib.sha256(data).hexdigest()
 
 
 def _check(condition: bool, message: str, failures: list[str]) -> None:
@@ -268,8 +274,15 @@ def _audit_current_sconce_contract(
 		if path is None or not path.is_file():
 			failures.append(f"Current sconce {key} file is missing")
 			continue
-		_check(fixture.get(hash_key) == _sha256(path),
-			f"Current sconce {hash_key} does not match file bytes", failures)
+		# Name both hashes and the file. A bare "does not match" cost an hour
+		# of git archaeology on 2026-08-02 to establish that the RECORD was
+		# wrong rather than the artifact; the values make that a ten-second
+		# check against `sha256sum <path>` and `git log -- <path>`.
+		recorded = fixture.get(hash_key)
+		actual = _text_sha256(path) if key == "bloom_shader" else _sha256(path)
+		_check(recorded == actual,
+			f"Current sconce {hash_key} does not match file bytes "
+			f"({path}: recorded {recorded}, actual {actual})", failures)
 
 
 def _audio_durations(
@@ -282,7 +295,8 @@ def _audio_durations(
 	if generator_path is None or not generator_path.is_file():
 		failures.append("Castle SFX generator file is missing")
 	else:
-		_check(audio_manifest.get("generator_sha256") == _sha256(generator_path),
+		_check(audio_manifest.get("generator_sha256")
+			== _text_sha256(generator_path),
 			"Castle SFX generator_sha256 does not match generator bytes", failures)
 	files = audio_manifest.get("files")
 	if not isinstance(files, list):

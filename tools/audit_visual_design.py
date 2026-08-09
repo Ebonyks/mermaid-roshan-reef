@@ -3,13 +3,13 @@
 
 Why this exists
 ---------------
-The 2026-07-27 redesign charter turned the game into a set of 2.5D promenade
-stages whose look is carried by Codex-painted flats.  That charter and its
-work order contain a dozen numeric, checkable promises — parallax layer
-counts, depth spread, alpha-layer overdraw budgets, the contrast rule that
-keeps backgrounds recessive, texture legality, reversibility toggles.  Written
-promises rot silently.  This tool turns each of them into a check that fails
-out loud.
+The game is authored as polished 2D storybook art. Godot may stage that art on
+Sprite3D cards, but the final 2026-08-09 owner decision retires modelled Roshan
+and the old 3D-migration/rollback campaign. The current design language still
+contains numeric, checkable promises — parallax layer counts, depth spread,
+alpha-layer overdraw budgets, the contrast rule that keeps backgrounds
+recessive, and texture legality. Written promises rot silently. This tool
+turns each of them into a check that fails out loud.
 
 Design contract (read before extending)
 ---------------------------------------
@@ -18,7 +18,8 @@ Design contract (read before extending)
 2.  Every check is a pure function of (zone, repo, runtime_facts) -> findings.
     No check may mutate the repo.
 3.  A check that cannot run (missing runtime facts, missing asset class)
-    reports SKIP with a reason.  Silence is never a pass.
+    reports COVERAGE_GAP with a reason. A rule that genuinely does not apply
+    reports NOT_APPLICABLE explicitly. Silence is never a pass.
 4.  Every check must be provably falsifiable: ``--stress`` builds a synthetic
     zone engineered to violate it and asserts the check fires.  A check that
     survives the stress pass unfired is a broken check and the stress run
@@ -28,14 +29,14 @@ Usage
 -----
     python3 tools/audit_visual_design.py                 # advisory, all zones
     python3 tools/audit_visual_design.py --zone sky_lagoon
-    python3 tools/audit_visual_design.py --strict        # nonzero on ERROR
+    python3 tools/audit_visual_design.py --strict        # complete audit gate
     python3 tools/audit_visual_design.py --list-checks
     python3 tools/audit_visual_design.py --stress        # self-test the checks
     python3 tools/audit_visual_design.py --format json
 
-Runtime facts (optional, produced by scripts/probe_visual_audit.gd) are read
+Runtime facts (produced by scripts/probe_visual_audit.gd) are read
 from ``audit/visual_runtime_facts.json``.  Static checks run without them;
-scene-graph checks SKIP without them.
+scene-graph checks report COVERAGE_GAP without them, and strict mode fails.
 """
 
 from __future__ import annotations
@@ -62,17 +63,37 @@ LICENSES = os.path.join(REPO, "ASSET_LICENSES.md")
 ERROR, WARN, INFO, MANUAL, SKIP = "ERROR", "WARN", "INFO", "MANUAL", "SKIP"
 SEVERITY_ORDER = {ERROR: 0, WARN: 1, MANUAL: 2, INFO: 3, SKIP: 4}
 
-# Media that are expected to carry a painted flat stack.  Layering and palette
-# checks only mean something for these; a free-swim 3D zone is not failing the
-# mural rules, it simply has not migrated yet.
-FLAT_MEDIA = {"promenade_2p5d", "staged_2d", "overhead_2d"}
+# Lifecycle disposition is independent from severity. Severity describes the
+# impact; disposition says whether the audit has enough evidence to close it.
+PASS = "PASS"
+FAIL = "FAIL"
+REVIEW_OPEN = "REVIEW_OPEN"
+MANUAL_OPEN = "MANUAL_OPEN"
+COVERAGE_GAP = "COVERAGE_GAP"
+WAIVED = "WAIVED"
+NOT_APPLICABLE = "NOT_APPLICABLE"
+DISPOSITIONS = (FAIL, REVIEW_OPEN, MANUAL_OPEN, COVERAGE_GAP,
+                WAIVED, PASS, NOT_APPLICABLE)
+DISPOSITION_ORDER = {state: index for index, state in enumerate(DISPOSITIONS)}
+DEFAULT_DISPOSITION = {
+    ERROR: FAIL,
+    WARN: REVIEW_OPEN,
+    MANUAL: MANUAL_OPEN,
+    SKIP: COVERAGE_GAP,
+    INFO: PASS,
+}
+STRICT_BLOCKING_DISPOSITIONS = {FAIL, REVIEW_OPEN, MANUAL_OPEN, COVERAGE_GAP}
+WAIVABLE_DISPOSITIONS = {FAIL, REVIEW_OPEN}
+
+# Presentations that are expected to carry a painted flat stack. The names
+# describe staging, not art medium: every active row declares flattened_2d.
+FLAT_PRESENTATIONS = {"panning_depth_cards", "fixed_depth_cards", "overhead_canvas"}
 
 # The parallax/occlusion rules are specific to the side-on promenade: it is the
-# only medium where the camera pans across a set and the player moves through a
-# depth band.  The charter (§2 'Minigame inventory') declares overhead and
-# staged fixed-camera modes already compliant, so holding them to a layer stack
-# would be the tool inventing a rule nobody wrote.
-PARALLAX_MEDIA = {"promenade_2p5d"}
+# only presentation where the camera pans across a set and the player moves
+# through a depth band. Fixed-camera stages are explicitly exempt from
+# parallax, but not readability, touch, ownership, or hierarchy rules.
+PARALLAX_PRESENTATIONS = {"panning_depth_cards"}
 
 
 # --------------------------------------------------------------------------
@@ -87,9 +108,17 @@ class Finding:
     message: str
     rule: str = ""
     evidence: dict = field(default_factory=dict)
+    disposition: str = ""
+
+    def __post_init__(self) -> None:
+        if not self.disposition:
+            self.disposition = DEFAULT_DISPOSITION.get(self.severity, FAIL)
+        if self.disposition not in DISPOSITIONS:
+            raise ValueError(f"unknown audit disposition: {self.disposition}")
 
     def key(self) -> tuple:
-        return (SEVERITY_ORDER.get(self.severity, 9), self.check, self.zone)
+        return (DISPOSITION_ORDER.get(self.disposition, 99),
+                SEVERITY_ORDER.get(self.severity, 9), self.check, self.zone)
 
 
 @dataclass
@@ -99,14 +128,15 @@ class Check:
     rule: str
     doc: str
     fn: Callable
-    media: set | None = None     # None = every medium
+    presentations: set | None = None  # None = every presentation
     stressable: bool = True      # False only for checks with no synthetic form
 
 
 REGISTRY: dict[str, Check] = {}
 
 
-def check(check_id: str, category: str, rule: str, media: Iterable[str] | None = None,
+def check(check_id: str, category: str, rule: str,
+          presentations: Iterable[str] | None = None,
           stressable: bool = True):
     """Register an audit check.  ``rule`` must name a key in spec['rules']."""
 
@@ -114,7 +144,8 @@ def check(check_id: str, category: str, rule: str, media: Iterable[str] | None =
         REGISTRY[check_id] = Check(
             id=check_id, category=category, rule=rule,
             doc=(fn.__doc__ or "").strip().split("\n")[0],
-            fn=fn, media=set(media) if media else None, stressable=stressable,
+            fn=fn, presentations=set(presentations) if presentations else None,
+            stressable=stressable,
         )
         return fn
 
@@ -290,11 +321,9 @@ class Zone:
         self.repo = repo
         self.id = raw["id"]
         self.name = raw.get("name", raw["id"])
-        self.medium = raw.get("medium", "unknown")
-        self.status = raw.get("status", "unknown")
-        self.charter_order = raw.get("charter_order")
-        self.supersedes = raw.get("supersedes")
-        self.reversibility_key = raw.get("reversibility_key")
+        self.art_medium = raw.get("art_medium", "unknown")
+        self.presentation = raw.get("presentation", "unknown")
+        self.lifecycle = raw.get("lifecycle", "unknown")
         self.builders = raw.get("builders", [])
         self.probes = raw.get("probes", [])
         self.murals = repo.expand(raw.get("murals", []))
@@ -420,7 +449,8 @@ def _texture_budget(zone: Zone) -> Iterator[Finding]:
 # CHECKS — the layering rule (the heart of the redesign)
 # --------------------------------------------------------------------------
 
-@check("layering.mural_is_a_stack", "layering", "mural_layer_stack", media=PARALLAX_MEDIA)
+@check("layering.mural_is_a_stack", "layering", "mural_layer_stack",
+       presentations=PARALLAX_PRESENTATIONS)
 def _mural_stack(zone: Zone) -> Iterator[Finding]:
     """A promenade's background is a parallax stack, never a single painting."""
     if not zone.murals:
@@ -446,7 +476,8 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
                   evidence={"layers": sorted(layers), "files": zone.murals})
 
 
-@check("layering.engine_layer_api", "layering", "mural_layer_stack", media=PARALLAX_MEDIA)
+@check("layering.engine_layer_api", "layering", "mural_layer_stack",
+       presentations=PARALLAX_PRESENTATIONS)
 def _engine_layers(zone: Zone) -> Iterator[Finding]:
     """A flat-medium zone feeds its murals through SideScrollStage's layers stack."""
     if not zone.builders:
@@ -473,7 +504,8 @@ def _engine_layers(zone: Zone) -> Iterator[Finding]:
                   evidence={"builders": zone.builders})
 
 
-@check("layering.depth_spread", "layering", "layering_rule", media=PARALLAX_MEDIA)
+@check("layering.depth_spread", "layering", "layering_rule",
+       presentations=PARALLAX_PRESENTATIONS)
 def _depth_spread(zone: Zone) -> Iterator[Finding]:
     """World cards occupy distinct depths, not one welded plane."""
     if not zone.builders:
@@ -506,7 +538,8 @@ def _depth_spread(zone: Zone) -> Iterator[Finding]:
                   evidence={"depths": depths, "spread": round(spread, 3)})
 
 
-@check("layering.occlusion_band", "layering", "layering_rule", media=PARALLAX_MEDIA)
+@check("layering.occlusion_band", "layering", "layering_rule",
+       presentations=PARALLAX_PRESENTATIONS)
 def _occlusion(zone: Zone) -> Iterator[Finding]:
     """The walk band overlaps the standee depths so Roshan can pass BEHIND things."""
     if not zone.builders:
@@ -542,7 +575,8 @@ def _occlusion(zone: Zone) -> Iterator[Finding]:
                             "band_y": band_y, "band_h": band_h})
 
 
-@check("layering.standee_alpha", "layering", "standee_not_mural", media=FLAT_MEDIA)
+@check("layering.standee_alpha", "layering", "standee_not_mural",
+       presentations=FLAT_PRESENTATIONS)
 def _standee_alpha(zone: Zone) -> Iterator[Finding]:
     """Standees are cutouts: mostly transparent frames, never full-bleed rectangles."""
     if not zone.standees:
@@ -573,7 +607,8 @@ def _standee_alpha(zone: Zone) -> Iterator[Finding]:
 # CHECKS — palette and readability
 # --------------------------------------------------------------------------
 
-@check("palette.background_recessive", "palette", "background_recessive", media=FLAT_MEDIA)
+@check("palette.background_recessive", "palette", "background_recessive",
+       presentations=FLAT_PRESENTATIONS)
 def _background_recessive(zone: Zone) -> Iterator[Finding]:
     """Backgrounds frame; they never out-saturate the things a finger should find."""
     if not zone.murals or not zone.foreground:
@@ -608,7 +643,8 @@ def _background_recessive(zone: Zone) -> Iterator[Finding]:
                             "murals": zone.murals, "foreground": zone.foreground})
 
 
-@check("palette.figure_ground_luminance", "palette", "background_recessive", media=FLAT_MEDIA)
+@check("palette.figure_ground_luminance", "palette", "background_recessive",
+       presentations=FLAT_PRESENTATIONS)
 def _luminance(zone: Zone) -> Iterator[Finding]:
     """Foreground art separates from the mural in luminance, not just in hue."""
     if not zone.murals or not zone.foreground:
@@ -639,7 +675,8 @@ def _luminance(zone: Zone) -> Iterator[Finding]:
                             "delta": round(delta, 4)})
 
 
-@check("overdraw.alpha_layers", "overdraw", "alpha_layer_budget", media=FLAT_MEDIA)
+@check("overdraw.alpha_layers", "overdraw", "alpha_layer_budget",
+       presentations=FLAT_PRESENTATIONS)
 def _alpha_layers(zone: Zone) -> Iterator[Finding]:
     """At most two alpha-carrying full-width layers per stage (Mali overdraw)."""
     if not zone.murals:
@@ -658,7 +695,7 @@ def _alpha_layers(zone: Zone) -> Iterator[Finding]:
                   evidence={"alpha_layers": alpha_layers, "cap": cap})
 
 
-@check("readability.tap_target_size", "readability", "layering_rule", stressable=False)
+@check("readability.tap_target_size", "readability", "tap_target_size", stressable=False)
 def _tap_targets(zone: Zone) -> Iterator[Finding]:
     """Every tap target clears the 110px minimum touch size at 1280x720 base."""
     facts = zone.runtime_facts()
@@ -667,72 +704,35 @@ def _tap_targets(zone: Zone) -> Iterator[Finding]:
                       "needs runtime facts — run scripts/probe_visual_audit.gd "
                       f"to produce {os.path.relpath(RUNTIME_FACTS_PATH, REPO)}")
         return
-    small = [t for t in facts["targets"] if float(t.get("screen_px", 0)) < 110.0]
+    targets = facts["targets"]
+    if not isinstance(targets, list) or not targets:
+        yield Finding("readability.tap_target_size", zone.id, SKIP,
+                      "runtime facts contain no tap targets; empty evidence cannot prove "
+                      "the 110px touch contract")
+        return
+    small = [t for t in targets if float(t.get("screen_px", 0)) < 110.0]
     for t in small:
         yield Finding("readability.tap_target_size", zone.id, WARN,
-                      f"target '{t.get('id')}' projects to {float(t.get('screen_px', 0)):.0f}px "
+                      f"target '{t.get('id')}' has a {float(t.get('screen_px', 0)):.0f}px "
+                      "touch diameter "
                       f"— under the 110px storybook minimum",
                       evidence=t)
     if not small:
         yield Finding("readability.tap_target_size", zone.id, INFO,
-                      f"{len(facts['targets'])} tap targets clear 110px")
+                      f"{len(targets)} tap targets clear 110px")
 
 
 # --------------------------------------------------------------------------
-# CHECKS — charter compliance
+# CHECKS — current release evidence
 # --------------------------------------------------------------------------
 
-@check("charter.reversibility_toggle", "charter", "reversibility")
-def _reversibility(zone: Zone) -> Iterator[Finding]:
-    """A zone that replaced a shipped mode is reachable behind a save-key toggle."""
-    if not zone.supersedes:
-        yield Finding("charter.reversibility_toggle", zone.id, SKIP,
-                      "zone supersedes nothing")
-        return
-    key = zone.reversibility_key
-    if key and re.search(rf'["\']{re.escape(key)}["\']', zone.repo.all_source()):
-        yield Finding("charter.reversibility_toggle", zone.id, INFO,
-                      f"gated behind save key '{key}'")
-        return
-    still_there = zone.repo.exists(zone.supersedes)
-    yield Finding("charter.reversibility_toggle", zone.id, ERROR,
-                  f"replaced {zone.supersedes} with no reversibility save key. The charter "
-                  f"requires the new world behind an additive key defaulting to classic until "
-                  f"device sign-off; there is no runtime way back to the superseded mode"
-                  + ("" if still_there else " and the superseded builder is gone"),
-                  evidence={"supersedes": zone.supersedes,
-                            "superseded_file_present": still_there,
-                            "declared_key": key})
-
-
-@check("charter.migration_order", "charter", "pilot_first")
-def _migration_order(zone: Zone) -> Iterator[Finding]:
-    """Zones migrate in charter order; the pilot proves the rig before the rest."""
-    if zone.medium not in FLAT_MEDIA or zone.charter_order is None:
-        yield Finding("charter.migration_order", zone.id, SKIP,
-                      "zone is not a charter-ordered migration")
-        return
-    earlier = [z for z in zone.repo.spec["zones"]
-               if z.get("charter_order") is not None
-               and z["charter_order"] < zone.charter_order
-               and z.get("status") == "not_migrated"]
-    if not earlier:
-        yield Finding("charter.migration_order", zone.id, INFO, "migrated in charter order")
-        return
-    names = ", ".join(f"#{z['charter_order']} {z['id']}" for z in earlier)
-    yield Finding("charter.migration_order", zone.id, WARN,
-                  f"zone #{zone.charter_order} shipped while {names} have not migrated — "
-                  f"the layer spec was meant to be revised by the pilot's device test before "
-                  f"later zones committed to it",
-                  evidence={"zone_order": zone.charter_order,
-                            "unmigrated_earlier": [z["id"] for z in earlier]})
-
-
-@check("charter.probe_gated", "charter", "reversibility")
+@check("charter.probe_gated", "charter", "probe_gate")
 def _probe_gated(zone: Zone) -> Iterator[Finding]:
     """Every shipped zone has at least one probe in the trusted CI list."""
-    if zone.status != "shipped":
-        yield Finding("charter.probe_gated", zone.id, SKIP, "zone is not shipped")
+    if zone.lifecycle != "active_shipped":
+        yield Finding("charter.probe_gated", zone.id, INFO,
+                      f"lifecycle '{zone.lifecycle}' does not ship",
+                      disposition=NOT_APPLICABLE)
         return
     if not zone.probes:
         yield Finding("charter.probe_gated", zone.id, ERROR,
@@ -755,7 +755,7 @@ def _probe_gated(zone: Zone) -> Iterator[Finding]:
 # CHECKS — asset hygiene
 # --------------------------------------------------------------------------
 
-@check("hygiene.orphan_art", "hygiene", "licenses")
+@check("hygiene.orphan_art", "hygiene", "orphan_art")
 def _orphans(zone: Zone) -> Iterator[Finding]:
     """Shipped PNGs under a zone's roots are referenced by something."""
     if not zone.asset_roots:
@@ -779,7 +779,7 @@ def _orphans(zone: Zone) -> Iterator[Finding]:
                   evidence={"orphans": orphans, "bytes": total})
 
 
-@check("hygiene.superseded_generations", "hygiene", "licenses")
+@check("hygiene.superseded_generations", "hygiene", "asset_generations")
 def _generations(zone: Zone) -> Iterator[Finding]:
     """Only one generation of each named asset ships."""
     if not zone.asset_roots:
@@ -789,16 +789,23 @@ def _generations(zone: Zone) -> Iterator[Finding]:
     if not pngs:
         yield Finding("hygiene.superseded_generations", zone.id, SKIP, "no PNGs")
         return
-    families: dict[str, list[str]] = {}
+    families: dict[str, list[tuple[str, str]]] = {}
     for p in pngs:
         stem = os.path.basename(p).removesuffix(".png")
-        # strip trailing generation/qualifier suffixes: _v3, _v4_compact, _audited
-        base = re.sub(r"(_v\d+)?(_compact|_audited(_\d+)?|_drift|_sway)*$", "", stem)
-        base = re.sub(r"_\d+$", "", base)            # frame numbers
-        families.setdefault(base, []).append(p)
-    multi = {k: v for k, v in families.items() if len(v) > 1
-             and len({re.search(r"_v(\d+)", os.path.basename(x)).group(1)
-                      if re.search(r"_v(\d+)", os.path.basename(x)) else "0" for x in v}) > 1}
+        # Only an explicit _vN token denotes a generation. Numeric animation
+        # frame suffixes are identity: slide_0/slide_1/slide_2_v2 are three
+        # poses, not three competing versions of one file.
+        match = re.match(
+            r"^(.*)_v(\d+)(?:_(?:compact|audited(?:_\d+)?|drift|sway))*$",
+            stem,
+        )
+        base, generation = (match.group(1), match.group(2)) if match else (stem, "0")
+        families.setdefault(base, []).append((p, generation))
+    multi = {
+        key: [path for path, _generation in values]
+        for key, values in families.items()
+        if len({generation for _path, generation in values}) > 1
+    }
     if not multi:
         yield Finding("hygiene.superseded_generations", zone.id, INFO,
                       "one generation per asset family")
@@ -847,7 +854,8 @@ def _licenses(zone: Zone) -> Iterator[Finding]:
                   evidence={"missing": missing})
 
 
-@check("hygiene.manual_squint_test", "hygiene", "no_text_in_art", media=FLAT_MEDIA,
+@check("hygiene.manual_squint_test", "hygiene", "no_text_in_art",
+       presentations=FLAT_PRESENTATIONS,
        stressable=False)
 def _manual(zone: Zone) -> Iterator[Finding]:
     """Flags what only a human can judge: no text, nothing scary, squint test."""
@@ -871,11 +879,75 @@ def load_spec(path: str = SPEC_PATH) -> dict:
         return json.load(fh)
 
 
+WAIVER_REQUIRED_FIELDS = {
+    "check", "zone", "rule", "scope", "reason", "owner", "date",
+    "review_trigger", "residual_risk",
+}
+
+
+def waiver_contract_issues(spec: dict) -> list[str]:
+    """Return owner-actionable errors for incomplete or dangling waivers."""
+    issues: list[str] = []
+    zone_ids = {z.get("id") for z in spec.get("zones", [])}
+    seen: set[tuple[str, str]] = set()
+    for index, waiver in enumerate(spec.get("waivers", [])):
+        missing = sorted(field for field in WAIVER_REQUIRED_FIELDS
+                         if not str(waiver.get(field, "")).strip())
+        if missing:
+            issues.append(f"waiver #{index + 1} missing required fields: {', '.join(missing)}")
+        check_id = waiver.get("check")
+        zone_id = waiver.get("zone")
+        if check_id not in REGISTRY:
+            issues.append(f"waiver #{index + 1} references unknown check '{waiver.get('check')}'")
+        elif waiver.get("rule") != REGISTRY[check_id].rule:
+            issues.append(
+                f"waiver #{index + 1} rule '{waiver.get('rule')}' does not match "
+                f"{check_id}'s rule '{REGISTRY[check_id].rule}'"
+            )
+        if zone_id not in zone_ids:
+            issues.append(f"waiver #{index + 1} references unknown zone '{waiver.get('zone')}'")
+        pair = (str(check_id), str(zone_id))
+        if pair in seen:
+            issues.append(f"waiver #{index + 1} duplicates {pair[0]}/{pair[1]}")
+        seen.add(pair)
+        if waiver.get("date") and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(waiver["date"])):
+            issues.append(f"waiver #{index + 1} date must use YYYY-MM-DD")
+    return issues
+
+
+def strict_blockers(findings: Iterable[Finding]) -> list[Finding]:
+    """Find unresolved results that prevent a complete audit from passing."""
+    return [f for f in findings if f.disposition in STRICT_BLOCKING_DISPOSITIONS]
+
+
+def strict_passes(findings: Iterable[Finding]) -> bool:
+    """True only when the requested audit produced evidence and closed it all."""
+    rows = list(findings)
+    return bool(rows) and not strict_blockers(rows)
+
+
+def satisfaction(findings: Iterable[Finding]) -> str:
+    """Return the audit-level lifecycle state represented by the findings."""
+    rows = list(findings)
+    if not strict_passes(rows):
+        return "UNSATISFIED"
+    if any(f.disposition == WAIVED for f in rows):
+        return "SATISFIED_WITH_WAIVERS"
+    return "SATISFIED"
+
+
 def run(repo: Repo, zone_ids: list[str] | None = None,
         check_ids: list[str] | None = None) -> list[Finding]:
-    waivers = {(w["check"], w["zone"]): w.get("reason", "")
-               for w in repo.spec.get("waivers", [])}
+    waiver_issues = waiver_contract_issues(repo.spec)
+    waivers = {} if waiver_issues else {
+        (w["check"], w["zone"]): w for w in repo.spec.get("waivers", [])
+    }
     findings: list[Finding] = []
+    for issue in waiver_issues:
+        findings.append(Finding(
+            "audit.waiver_contract", "_audit", ERROR, issue,
+            rule=repo.spec.get("rules", {}).get("waiver_contract", "waiver_contract"),
+        ))
     for raw in repo.spec["zones"]:
         if zone_ids and raw["id"] not in zone_ids:
             continue
@@ -883,7 +955,16 @@ def run(repo: Repo, zone_ids: list[str] | None = None,
         for cid, chk in REGISTRY.items():
             if check_ids and cid not in check_ids:
                 continue
-            if chk.media is not None and zone.medium not in chk.media:
+            if (chk.presentations is not None
+                    and zone.presentation not in chk.presentations):
+                findings.append(Finding(
+                    cid, zone.id, INFO,
+                    f"presentation '{zone.presentation}' is outside this check's scope",
+                    rule=repo.spec.get("rules", {}).get(chk.rule, chk.rule),
+                    evidence={"presentation": zone.presentation,
+                              "applies_to": sorted(chk.presentations)},
+                    disposition=NOT_APPLICABLE,
+                ))
                 continue
             try:
                 produced = list(chk.fn(zone))
@@ -892,9 +973,17 @@ def run(repo: Repo, zone_ids: list[str] | None = None,
                                     f"check crashed: {type(exc).__name__}: {exc}")]
             for f in produced:
                 f.rule = f.rule or repo.spec.get("rules", {}).get(chk.rule, chk.rule)
-                if (cid, zone.id) in waivers and f.severity in (ERROR, WARN):
-                    f.severity = INFO
-                    f.message = f"[WAIVED: {waivers[(cid, zone.id)]}] " + f.message
+                waiver = waivers.get((cid, zone.id))
+                if waiver is not None and f.disposition in WAIVABLE_DISPOSITIONS:
+                    f.disposition = WAIVED
+                    f.message = f"[WAIVED: {waiver['reason']}] " + f.message
+                    f.evidence = dict(f.evidence)
+                    f.evidence["waiver"] = waiver
+                elif waiver is not None and f.disposition in (MANUAL_OPEN, COVERAGE_GAP):
+                    f.message = (f"[WAIVER CANNOT REPLACE {f.disposition} EVIDENCE] "
+                                 + f.message)
+                    f.evidence = dict(f.evidence)
+                    f.evidence["rejected_waiver"] = waiver
                 findings.append(f)
     findings.sort(key=Finding.key)
     return findings
@@ -909,6 +998,16 @@ COLORS = {ERROR: "\033[31m", WARN: "\033[33m", MANUAL: "\033[35m",
 RESET = "\033[0m"
 
 
+def configure_console() -> None:
+    """Keep direct Windows runs usable when stdout is strict cp1252."""
+    reconfigure = getattr(sys.stdout, "reconfigure", None)
+    if callable(reconfigure):
+        try:
+            reconfigure(errors="backslashreplace")
+        except (OSError, ValueError):
+            pass
+
+
 def _tint(sev: str, text: str, use_color: bool) -> str:
     return f"{COLORS.get(sev, '')}{text}{RESET}" if use_color else text
 
@@ -916,20 +1015,26 @@ def _tint(sev: str, text: str, use_color: bool) -> str:
 def print_console(findings: list[Finding], verbose: bool) -> None:
     use_color = sys.stdout.isatty()
     shown = [f for f in findings
-             if verbose or f.severity in (ERROR, WARN, MANUAL)]
+             if verbose or f.disposition not in (PASS, NOT_APPLICABLE)]
     by_zone: dict[str, list[Finding]] = {}
     for f in shown:
         by_zone.setdefault(f.zone, []).append(f)
     for zone_id in sorted(by_zone):
-        print(f"\n── {zone_id} " + "─" * max(0, 60 - len(zone_id)))
+        print(f"\n-- {zone_id} " + "-" * max(0, 60 - len(zone_id)))
         for f in by_zone[zone_id]:
-            print(f"  {_tint(f.severity, f.severity.ljust(6), use_color)} "
-                  f"{f.check}\n         {f.message}")
+            label = f"{f.severity}/{f.disposition}"
+            print(f"  {_tint(f.severity, label.ljust(22), use_color)} "
+                  f"{f.check}\n                         {f.message}")
     counts = {s: sum(1 for f in findings if f.severity == s)
               for s in (ERROR, WARN, MANUAL, INFO, SKIP)}
-    print("\n" + "═" * 62)
+    print("\n" + "=" * 62)
     print("VISUALAUDIT| " + "  ".join(
         f"{s}={counts[s]}" for s in (ERROR, WARN, MANUAL, INFO, SKIP)))
+    states = {state: sum(1 for f in findings if f.disposition == state)
+              for state in DISPOSITIONS}
+    print("VISUALAUDIT| STATE " + "  ".join(
+        f"{state}={states[state]}" for state in DISPOSITIONS)
+        + f"  RESULT={satisfaction(findings)}")
 
 
 def write_reports(findings: list[Finding], repo: Repo) -> None:
@@ -940,7 +1045,10 @@ def write_reports(findings: list[Finding], repo: Repo) -> None:
                    for c in REGISTRY.values()},
         "findings": [asdict(f) for f in findings],
         "summary": {s: sum(1 for f in findings if f.severity == s)
-                    for s in (ERROR, WARN, MANUAL, INFO, SKIP)},
+                     for s in (ERROR, WARN, MANUAL, INFO, SKIP)},
+        "dispositions": {state: sum(1 for f in findings if f.disposition == state)
+                         for state in DISPOSITIONS},
+        "satisfaction": satisfaction(findings),
     }
     with open(REPORT_JSON, "w", encoding="utf-8") as fh:
         json.dump(payload, fh, indent=2, sort_keys=False)
@@ -953,14 +1061,18 @@ def write_reports(findings: list[Finding], repo: Repo) -> None:
     lines += ["| Severity | Count |", "|---|---:|"]
     lines += [f"| {s} | {summary[s]} |" for s in (ERROR, WARN, MANUAL, INFO, SKIP)]
     lines.append("")
-    for sev in (ERROR, WARN, MANUAL):
-        rows = [f for f in findings if f.severity == sev]
+    lines += ["| Disposition | Count |", "|---|---:|"]
+    lines += [f"| {state} | {payload['dispositions'][state]} |" for state in DISPOSITIONS]
+    lines += ["", f"**Result:** `{payload['satisfaction']}`", ""]
+    for state in (FAIL, REVIEW_OPEN, MANUAL_OPEN, COVERAGE_GAP, WAIVED):
+        rows = [f for f in findings if f.disposition == state]
         if not rows:
             continue
-        lines += [f"## {sev}", "", "| Zone | Check | Finding |", "|---|---|---|"]
+        lines += [f"## {state}", "",
+                  "| Severity | Zone | Check | Finding |", "|---|---|---|---|"]
         for f in rows:
             msg = f.message.replace("|", "\\|").replace("\n", " ")
-            lines.append(f"| `{f.zone}` | `{f.check}` | {msg} |")
+            lines.append(f"| {f.severity} | `{f.zone}` | `{f.check}` | {msg} |")
         lines.append("")
     with open(REPORT_MD, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
@@ -981,11 +1093,12 @@ def _write_png(path: str, w: int, h: int, rgb: tuple, alpha_coverage: float = 1.
     Image.fromarray(arr, "RGBA").save(path)
 
 
-def _fixture(root: str, *, medium="promenade_2p5d", murals=1, mural_rgb=(60, 200, 255),
+def _fixture(root: str, *, presentation="panning_depth_cards", murals=1,
+             mural_rgb=(60, 200, 255),
              fg_rgb=(150, 170, 190),
              depths=(("BACKDROP_Z", -18.0), ("DRESS_Z", -6.0), ("PLAY_Z", 0.5)),
              band=True, layers_api=False,
-             supersedes=None, key=None, status="shipped", order=1,
+             lifecycle="active_shipped",
              licensed=True, extra_generation=False, alpha_murals=0,
              fg_coverage=0.4, mural_layer_names=("L0",), huge_texture=False,
              zone_budgets=None) -> dict:
@@ -1039,13 +1152,12 @@ func build() -> void:
             fh.write("(intentionally empty)\n")
 
     return {
-        "version": 2,
+        "version": 3,
         "rules": load_spec().get("rules", {}),
         "budgets": load_spec().get("budgets", {}),
         "zones": [{
-            "id": "fx", "name": "Fixture", "medium": medium, "status": status,
-            "charter_order": order, "supersedes": supersedes,
-            "reversibility_key": key,
+            "id": "fx", "name": "Fixture", "art_medium": "flattened_2d",
+            "presentation": presentation, "lifecycle": lifecycle,
             "builders": ["scripts/fx_stage.gd"], "probes": ["scripts/probe_fx.gd"],
             "murals": mural_files, "standees": standee_files, "characters": [],
             "asset_roots": ["assets/flats/fx", "assets/sprites/fx"],
@@ -1071,8 +1183,6 @@ STRESS_CASES: list[tuple[str, dict, str]] = [
     ("palette.figure_ground_luminance", {"mural_rgb": (128, 128, 128), "fg_rgb": (128, 128, 128)}, WARN),
     ("overdraw.alpha_layers", {"murals": 4, "alpha_murals": 4,
                                "mural_layer_names": ("L0", "L1", "L2", "L3")}, ERROR),
-    ("charter.reversibility_toggle", {"supersedes": "scripts/old_stage.gd", "key": None}, ERROR),
-    ("charter.migration_order", {"order": 4}, WARN),
     ("charter.probe_gated", {}, WARN),
     ("hygiene.orphan_art", {"extra_generation": True}, INFO),
     ("hygiene.superseded_generations", {"extra_generation": True}, WARN),
@@ -1095,13 +1205,6 @@ def stress(fuzz: int = 0, verbose: bool = False) -> int:
             continue
         with tempfile.TemporaryDirectory() as tmp:
             spec = _fixture(tmp, **kwargs)
-            # the migration-order case needs an unmigrated earlier zone to point at
-            if cid == "charter.migration_order":
-                spec["zones"].append({"id": "pilot", "name": "Pilot", "medium": "free_swim_3d",
-                                      "status": "not_migrated", "charter_order": 1,
-                                      "supersedes": None, "reversibility_key": None,
-                                      "builders": [], "probes": [], "murals": [],
-                                      "standees": [], "characters": [], "asset_roots": []})
             if cid == "charter.probe_gated":
                 with open(os.path.join(tmp, "scripts", "ci.sh"), "w", encoding="utf-8") as fh:
                     fh.write("for p in probe_other; do :; done\n")
@@ -1144,7 +1247,7 @@ def stress(fuzz: int = 0, verbose: bool = False) -> int:
                 band=rng.random() < 0.8,
                 fg_coverage=rng.random(),
                 alpha_murals=rng.randint(0, 5),
-                medium=rng.choice(sorted(FLAT_MEDIA) + ["free_swim_3d", "ui"]),
+                presentation=rng.choice(sorted(FLAT_PRESENTATIONS) + ["free_swim", "ui"]),
             )
             try:
                 crashes = [f for f in run(Repo(tmp, spec)) if "check crashed" in f.message]
@@ -1168,13 +1271,17 @@ def stress(fuzz: int = 0, verbose: bool = False) -> int:
 # --------------------------------------------------------------------------
 
 def main(argv: list[str] | None = None) -> int:
+    configure_console()
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--spec", default=SPEC_PATH)
     ap.add_argument("--zone", action="append", help="limit to zone id (repeatable)")
     ap.add_argument("--check", action="append", help="limit to check id (repeatable)")
     ap.add_argument("--category", action="append", help="limit to a check category")
-    ap.add_argument("--strict", action="store_true", help="exit nonzero on any ERROR")
+    ap.add_argument(
+        "--strict", action="store_true",
+        help="require a complete audit: no fail, review, manual-open, or coverage-gap result",
+    )
     ap.add_argument("--max-warn", type=int, default=None,
                     help="exit nonzero above this many WARNs")
     ap.add_argument("--format", choices=("console", "json", "md"), default="console")
@@ -1188,8 +1295,10 @@ def main(argv: list[str] | None = None) -> int:
     if args.list_checks:
         for cid in sorted(REGISTRY):
             c = REGISTRY[cid]
-            media = ",".join(sorted(c.media)) if c.media else "all"
-            print(f"{cid:38s} [{c.category:10s}] media={media:34s} {c.doc}")
+            presentations = (",".join(sorted(c.presentations))
+                             if c.presentations else "all")
+            print(f"{cid:38s} [{c.category:10s}] "
+                  f"presentations={presentations:38s} {c.doc}")
         return 0
 
     if args.stress:
@@ -1202,7 +1311,8 @@ def main(argv: list[str] | None = None) -> int:
             with open(RUNTIME_FACTS_PATH, "r", encoding="utf-8") as fh:
                 runtime = json.load(fh)
         except (OSError, json.JSONDecodeError) as exc:
-            print(f"warning: runtime facts unreadable ({exc}); scene checks will SKIP",
+            print(f"warning: runtime facts unreadable ({exc}); "
+                  "scene checks will report COVERAGE_GAP",
                   file=sys.stderr)
 
     repo = Repo(REPO, spec, runtime)
@@ -1217,15 +1327,16 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps([asdict(f) for f in findings], indent=2))
     else:
         for f in findings:
-            if f.severity in (ERROR, WARN, MANUAL) or args.verbose:
-                print(f"- **{f.severity}** `{f.zone}` `{f.check}` — {f.message}")
+            if f.disposition not in (PASS, NOT_APPLICABLE) or args.verbose:
+                print(f"- **{f.severity}/{f.disposition}** `{f.zone}` "
+                      f"`{f.check}` — {f.message}")
 
     if not args.no_report:
         write_reports(findings, repo)
 
-    errors = sum(1 for f in findings if f.severity == ERROR)
-    warns = sum(1 for f in findings if f.severity == WARN)
-    if args.strict and errors:
+    warns = sum(1 for f in findings
+                if f.severity == WARN and f.disposition == REVIEW_OPEN)
+    if args.strict and not strict_passes(findings):
         return 1
     if args.max_warn is not None and warns > args.max_warn:
         return 1

@@ -31,7 +31,7 @@ jobs:
     # Green runs now take ~24 min (probes ~14 min + visual captures); at 30
     # the slow-runner tail dies mid-capture and GitHub reports the timeout as
     # "cancelled", which reads like a phantom cancel. Keep ~20 min headroom.
-    timeout-minutes: 45
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
@@ -49,24 +49,57 @@ jobs:
         # and the job dies at the 30m ceiling as an opaque 'cancelled' -
         # catch it here in seconds instead (incidents: tnode, sm2 2026-07-11)
         run: |
-          pip install --quiet gdtoolkit==4.5.0 numpy==2.5.1 Pillow==12.3.0
+          pip install --quiet gdtoolkit==4.5.0 numpy==2.5.1 Pillow==12.3.0 scipy==1.18.0
           python3 -m gdtoolkit.parser $(find scripts -name '*.gd')
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
+          # Owner decision 2026-08-09: Mermaid Roshan is 2D-only. The stress
+          # pass proves every rule can fail before the real project is gated.
+          python3 tools/audit_roshan_2d.py --stress
+          python3 tools/audit_roshan_2d.py
+          python3 -m unittest tools.tests.test_audit_roshan_sprite_clipping
+          python3 tools/audit_roshan_sprite_clipping.py
+          python3 tools/audit_probe_parity.py --stress
+          python3 tools/audit_probe_parity.py
           python3 tools/audit_fairy_art_v2.py
           python3 tools/audit_sky_lagoon_kit.py
           python3 tools/audit_scene_congruency.py
+          # Painted 2.5D flats are drawn unshaded, so the Environment grade is
+          # the only thing between an approved PNG and the child's screen. This
+          # replays the shipped grade over the real art and fails when a profile
+          # clips or crushes pixels the source did not
+          # (LIGHTING_2P5D_AUDIT_2026-08-02 §1.7/§E1). Needs no Godot binary,
+          # so it belongs here with the other seconds-long static gates.
+          python3 -m unittest tools.tests.test_check_grade_headroom
+          python3 tools/check_grade_headroom.py
+          # Castle V4 delivery is source-owned and frame-reviewed. Keep these
+          # release gates in the protected probe workflow as well as ci.sh so
+          # promotion cannot accept stale healing, cutouts, or approvals.
+          python3 tools/build_castle_interaction_v4_delivery.py --check
+          python3 tools/audit_castle_native_interactions.py
+          python3 tools/repair_castle_room_native_backgrounds.py --check
+          python3 tools/refine_castle_depth_cards.py --check
+          python3 tools/audit_castle_static_depth_cards.py
+          python3 -m unittest \
+            tools.test_audit_castle_native_interactions \
+            tools.test_build_castle_interaction_v4_delivery \
+            tools.test_castle_interaction_frame_qa \
+            tools.test_review_castle_interaction_frames_v4 \
+            tools.test_refine_castle_depth_cards \
+            tools.test_audit_castle_static_depth_cards \
+            tools.test_repair_castle_room_native_backgrounds
+          python3 tools/review_castle_interaction_frames_v4.py check
 
       - name: Import (deadlock-guarded)
         run: |
           set -o pipefail
-          timeout 12m godot --headless --path . --import 2>&1 | tee /tmp/import.out || (echo "IMPORT FAIL (hang or error)" && exit 1)
+          # 12m -> 20m (alpha polish 2026-08-05): 586 tracked .import sidecars
+          # now request VRAM compression, adding a cold ETC2/ASTC encode pass
+          # (~32s on a 16-core dev box; headroom for the 2-core runner).
+          timeout 20m godot --headless --path . --import 2>&1 | tee /tmp/import.out || (echo "IMPORT FAIL (hang or error)" && exit 1)
           if grep -qE 'SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource' /tmp/import.out; then
             echo "IMPORT FAIL (resource or script error)"
             exit 1
           fi
-
-      - name: Roshan full motion cage
-        run: python3 tools/audit_motions.py --glb assets/characters/roshan_v4.glb
 
       - name: Compile-check every script (real analyzer, catches what parse-only cannot)
         # probes only compile scripts the run actually loads; lazily-loaded
@@ -91,7 +124,7 @@ jobs:
           # no assertions; under --headless it prints "HEADLESS SKIP" and exits 0,
           # so gating it here only manufactured false confidence. It runs under the
           # xvfb visual-review step below instead.
-          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_reenter probe_crown probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_stuffie probe_dungeon probe_ember probe_opera probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
+          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_pipe probe_opera_nursery probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1
@@ -103,7 +136,7 @@ jobs:
             mkdir -p "$PROBE_HOME/data" "$PROBE_HOME/config"
             TOUCH_TEST_MODE="--classic-touch-test"
             case "$p" in
-              probe_passive|probe_touch_router|probe_interaction|probe_touch_adversary)
+              probe_passive|probe_touch_router|probe_touch_stress|probe_interaction|probe_touch_adversary)
                 TOUCH_TEST_MODE="--hybrid-touch-test"
                 ;;
             esac
@@ -177,6 +210,23 @@ jobs:
             echo "BOOT GATE FAILED — assertion or script error during boot"
             exit 1
           fi
+
+      # Advisory boss stress test: 25 simulated-child encounters against the
+      # Dust Bunny Boss plus 5 control extremes (asleep / never-looks-at-the-
+      # tell / perfect / very slow / never-moves), fixed-timestep and driven
+      # through real touch_ui taps. Prints DUSTBAL| metrics and a verdict
+      # against the 45-120s fun band. Review-only — never gates the build.
+      # (DUST_BUNNY_BOSS_STRESS_TEST_2026-08-02.md)
+      - name: Dust boss balance playtest (advisory)
+        continue-on-error: true
+        run: |
+          DB_HOME="/tmp/reef-dustbal"
+          rm -rf "$DB_HOME"
+          mkdir -p "$DB_HOME/data" "$DB_HOME/config"
+          XDG_DATA_HOME="$DB_HOME/data" XDG_CONFIG_HOME="$DB_HOME/config" \
+            timeout 10m godot --headless -s scripts/probe_dust_boss_balance.gd -- --touch 2>&1 | grep -E "^DUSTBAL\|" || true
+          XDG_DATA_HOME="$DB_HOME/data" XDG_CONFIG_HOME="$DB_HOME/config" \
+            timeout 6m godot --headless -s scripts/probe_dust_boss_balance.gd -- --touch --controls 2>&1 | grep -E "^DUSTBAL\|" || true
 
       # Advisory balance playtest: ten simulated-child runs per opera act
       # (personas with reaction delays, travel, wandering, wrong taps) via
@@ -253,7 +303,7 @@ jobs:
       - name: Upload Sky Lagoon visual review
         if: always()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: sky-lagoon-review
           path: /tmp/sky-lagoon-shots/*.png
@@ -277,6 +327,28 @@ jobs:
           path: /tmp/northern-shots/*.png
           if-no-files-found: warn
 
+      # The boss arena, one frame per beat. The 2026-08-02 stress test found
+      # three defects NO headless probe could see (the chase cam stealing the
+      # lens, the tell cropped off the top of the phone, a shadow that flew
+      # with the boss), so a boss ships with a capture pass from now on.
+      - name: Capture dust-boss arena review
+        continue-on-error: true
+        env:
+          DUSTBOSS_SHOT_OUT: /tmp/dust-boss-shots
+          LIBGL_ALWAYS_SOFTWARE: 1
+        run: |
+          mkdir -p "$DUSTBOSS_SHOT_OUT"
+          timeout 8m xvfb-run -a godot --rendering-method mobile --resolution 1280x720 -s scripts/probe_dust_boss_shots.gd
+
+      - name: Upload dust-boss arena review
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dust-boss-arena-review
+          path: /tmp/dust-boss-shots/*.png
+          if-no-files-found: warn
+
       - name: Capture pearl-castle visual review
         continue-on-error: true
         env:
@@ -289,7 +361,7 @@ jobs:
       - name: Upload pearl-castle visual review
         if: always()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: pearl-castle-review
           path: /tmp/castle-pearl-shots/*.png

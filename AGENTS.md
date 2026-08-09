@@ -1,12 +1,17 @@
 # AGENTS.md — Mermaid Roshan: Reef of Light
 
 ## What this is
-A Godot 4.4 game for one specific 4-year-old, playable on a 3–4-year-old
+A Godot 4.7.1 game for one specific 4-year-old, playable on a 3–4-year-old
 Android phone by touch. Every decision is weighed against: non-reader,
 one finger, short sessions, zero tolerance for lost progress or fail states.
 The book art and recorded family voices are irreplaceable — never modify,
 recompress destructively, or substitute anything in assets/book/,
 assets/audio/voices/, or assets/characters/friends/ without being asked.
+
+Runtime/editor baseline: exactly Godot 4.7.1-stable (owner decision
+2026-07-29). The `project.godot` feature tag is `"4.7"` because Godot records
+the engine series there; it does not lower the required patch baseline. Do not
+validate releases with Godot 4.4 or a 4.7 development build.
 
 ## ART REUSE AND GENERATION BUDGET (owner decision 2026-07-28)
 The project is in art finalization, not open-ended redesign. Conserve the

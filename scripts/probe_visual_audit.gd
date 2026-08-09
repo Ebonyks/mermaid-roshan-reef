@@ -38,6 +38,10 @@ func _frames(count: int) -> void:
 
 
 func _init() -> void:
+	# Authoring and touch budgets are defined in the 1280x720 base canvas.
+	# Pin this generator to that viewport so projected visual sizes are directly
+	# comparable and do not depend on a headless runner's default square window.
+	get_root().size = Vector2i(1280, 720)
 	var packed: PackedScene = load("res://scenes/main.tscn")
 	var main: ReefMain = packed.instantiate()
 	get_root().add_child(main)
@@ -162,14 +166,18 @@ func _targets(main: ReefMain, cam: Camera3D) -> Array:
 				height = float(sprite.texture.get_height()) * sprite.pixel_size
 		var top: Vector2 = cam.unproject_position(origin + Vector3.UP * height * 0.5)
 		var bottom: Vector2 = cam.unproject_position(origin - Vector3.UP * height * 0.5)
-		# report in 1280x720 base-canvas pixels so the number is comparable to
-		# StorybookUI.MIN_TOUCH regardless of the probe's window size
-		var px: float = absf(top.y - bottom.y) * (720.0 / vp_h)
+		# The interaction director hits a radius around the projected centre; the
+		# visible art can be smaller than that forgiving preschool touch region.
+		# Keep both facts, but apply the 110px contract to the real hit diameter.
+		var visual_px: float = absf(top.y - bottom.y) * (720.0 / vp_h)
+		var hit_diameter_px: float = float(target.get("radius_px", 0.0)) * 2.0
 		out.append({
 			"id": String(target.get("id", "")),
-			"screen_px": snappedf(px, 0.1),
+			"screen_px": snappedf(hit_diameter_px, 0.1),
+			"hit_diameter_px": snappedf(hit_diameter_px, 0.1),
+			"visual_screen_px": snappedf(visual_px, 0.1),
 			"world_z": snappedf(origin.z, 0.01),
-			"meets_min_touch": px >= MIN_TOUCH_PX,
+			"meets_min_touch": hit_diameter_px >= MIN_TOUCH_PX,
 		})
 	return out
 

@@ -179,6 +179,9 @@ func _playthrough(run_index: int) -> void:
 			main._enter_level2_now(true, false, false)
 			await _frames(8)
 			main.level2_done_once = false
+			# This scenario audits the Crown route only; companion re-offer behavior
+			# has dedicated coverage in probe_throne.
+			main.companion_id = "eagle"
 			main._enter_castle_interior_now(false)
 			await _frames(12)
 			main._populate_touch_interactables()
@@ -187,21 +190,48 @@ func _playthrough(run_index: int) -> void:
 				issues.append("castle Sprite3D stage did not open")
 			if not main.touch_interactables.is_empty():
 				issues.append("retired 3D hall targets were registered")
-			if main.castle_room_buttons.size() != 7 \
+			if main.castle_room_buttons.size() != 8 \
+					or not main.castle_room_buttons.has("family_gallery") \
 					or not main.castle_room_buttons.has("opera_hall") \
 					or main.castle_room_stage.get_node_or_null(
-						"ElevatorButton") != null:
+						"ElevatorButton") == null \
+					or main.castle_room_menu_buttons.size() != 12 \
+					or not main.castle_room_menu_buttons.has("dining_room") \
+					or not main.castle_room_menu_buttons.has("movie_lounge"):
 				issues.append("castle room routes were missing or redundant")
 			if main.castle_room_world_root == null \
 					or main.castle_room_camera == null \
 					or main.castle_room_camera.projection \
 						!= Camera3D.PROJECTION_PERSPECTIVE:
 				issues.append("castle lacks perspective Sprite3D stage")
+			var elevator_button: Button = main.castle_room_stage.get_node_or_null(
+				"ElevatorButton") as Button
+			if elevator_button != null and main.castle_room_player_sprite != null:
+				var elevator_foot_before: Vector2 = \
+					main.castle_room_player_sprite.get_meta(
+						"stage_foot", Vector2.ZERO) as Vector2
+				elevator_button.pressed.emit()
+				var blocked_tap := InputEventScreenTouch.new()
+				blocked_tap.position = Vector2(640.0, 640.0)
+				blocked_tap.pressed = true
+				rooms._on_room_input(blocked_tap)
+				await _frames(2)
+				var elevator_foot_after: Vector2 = \
+					main.castle_room_player_sprite.get_meta(
+						"stage_foot", Vector2.ZERO) as Vector2
+				if not main.castle_room_menu_open \
+						or not elevator_foot_after.is_equal_approx(
+							elevator_foot_before):
+					issues.append("open castle elevator leaked taps into world travel")
+				rooms._set_elevator_menu_open(false, false)
 			rooms.show_room("main_hall", false)
 			rooms.activate_current_room()
-			await _frames(3)
+			var royal_hall_deadline_ms: int = Time.get_ticks_msec() + 3000
+			while not bool(main.g.get("crown_won", false)) \
+					and Time.get_ticks_msec() < royal_hall_deadline_ms:
+				await process_frame
 			if not bool(main.g.get("crown_won", false)):
-				issues.append("Main Hall Crown action did not award")
+				issues.append("eligible Royal Hall Crown event did not award")
 			rooms._exit_to_courtyard()
 			await _frames(10)
 			if main.game != "level2" or String(main.g.get("phase", "")) != "promenade":

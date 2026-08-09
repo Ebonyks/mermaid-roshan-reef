@@ -1,0 +1,78 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "flee",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    34,
+    19,
+    452,
+    503
+  ],
+  "visible_bbox": [
+    34,
+    19,
+    452,
+    503
+  ],
+  "solid_height": 485,
+  "gaps": {
+    "left": 34,
+    "right": 59,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 20,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 87106,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    147,
+    10,
+    10,
+    9,
+    8,
+    4,
+    3,
+    3,
+    3,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    216
+  ],
+  "dominant_purple_distance_from_d070f0": 26.533,
+  "silhouette_iou_against_idle": 0.578674,
+  "solid_centroid_x": 257.225,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_chef_flee_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "562d3c6ec6139fe8bfbc7d0d06cdaf96cdbf20e5a9d1cca537e2c5f35505178e",
+  "output": "assets\\opera\\worlds\\actors\\rival_chef_flee.png",
+  "output_sha256": "58d7f6ad4578908fb974e426b970162658053603d38870d9be411e2f88080490",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_chef.png",
+  "idle_sha256": "84b855248ce55a424d9781608ebc35e5b94317d5961354e8d0d2977ff47ecf76",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 485,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 256
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_flee\\rival_chef_flee_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_flee\\rival_chef_flee_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_flee\\rival_chef_flee_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_chef_flee\\rival_chef_flee_idle_comparison.png"
+  }
+}

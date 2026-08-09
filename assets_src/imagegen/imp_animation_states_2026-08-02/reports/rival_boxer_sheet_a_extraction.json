@@ -1,0 +1,168 @@
+{
+  "pass": true,
+  "method": "8-connected alpha component isolation; 3px matte support; 8px crop padding",
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_sheet_a_attempt01_alpha_native.png",
+  "input_sha256": "02227d1fac321b1f1d0e09b6b39859a6dfa38ff067a6317b267a4c1a7c90eb63",
+  "sheet": "a",
+  "states": [
+    "idle",
+    "windup",
+    "charge",
+    "slash",
+    "recover",
+    "guard"
+  ],
+  "component_count": 6,
+  "outputs": [
+    {
+      "state": "idle",
+      "source_component": {
+        "label": 1,
+        "area": 74799,
+        "bbox": [
+          149,
+          32,
+          431,
+          492
+        ],
+        "centroid": [
+          293.1342130242383,
+          245.85164240163638
+        ]
+      },
+      "crop_bbox": [
+        141,
+        24,
+        440,
+        500
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "dc5211eba41f86857083a29dd09df7d76a4d81743aaa38e023bcc468a8302f36"
+    },
+    {
+      "state": "windup",
+      "source_component": {
+        "label": 3,
+        "area": 61366,
+        "bbox": [
+          590,
+          143,
+          910,
+          482
+        ],
+        "centroid": [
+          727.1121793827201,
+          308.8050386207346
+        ]
+      },
+      "crop_bbox": [
+        582,
+        135,
+        918,
+        491
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_windup_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "6e26eaec64f909dd7b7db06a7b027730aa4f885e298a4c105daff9b36bbee08b"
+    },
+    {
+      "state": "charge",
+      "source_component": {
+        "label": 2,
+        "area": 71598,
+        "bbox": [
+          1014,
+          64,
+          1409,
+          463
+        ],
+        "centroid": [
+          1220.5939551384117,
+          248.18376211626023
+        ]
+      },
+      "crop_bbox": [
+        1006,
+        56,
+        1417,
+        471
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_charge_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "44676bef957faa434b0a2bc4249ec150fdaaed99d15d6480ff72823b6da9c5a2"
+    },
+    {
+      "state": "slash",
+      "source_component": {
+        "label": 5,
+        "area": 57526,
+        "bbox": [
+          155,
+          519,
+          445,
+          930
+        ],
+        "centroid": [
+          286.7655321072211,
+          719.5895073531968
+        ]
+      },
+      "crop_bbox": [
+        147,
+        511,
+        453,
+        938
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_slash_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "13245f0f58b0de5b7fc49db8ec73c148fcd5f0853fb9f66974f4d01d294729a4"
+    },
+    {
+      "state": "recover",
+      "source_component": {
+        "label": 6,
+        "area": 58295,
+        "bbox": [
+          606,
+          557,
+          921,
+          930
+        ],
+        "centroid": [
+          738.5005918174801,
+          746.3738056437087
+        ]
+      },
+      "crop_bbox": [
+        598,
+        549,
+        929,
+        938
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_recover_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "e3f3d283f1b89ff7314c689d47e6f49dbe6ab8f70334d6a7f99232d33a9f80df"
+    },
+    {
+      "state": "guard",
+      "source_component": {
+        "label": 4,
+        "area": 53203,
+        "bbox": [
+          1101,
+          518,
+          1365,
+          946
+        ],
+        "centroid": [
+          1212.6723305076782,
+          714.3621600285699
+        ]
+      },
+      "crop_bbox": [
+        1093,
+        510,
+        1373,
+        954
+      ],
+      "output": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\codex-imp-animation-states-20260802\\assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_boxer_guard_sheet_a_attempt01_alpha_crop_native.png",
+      "output_sha256": "c272aba0bb6b0e02d804d848009f3e94935d628a49ca7c86d41e57a42a5025f8"
+    }
+  ]
+}

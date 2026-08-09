@@ -1,10 +1,13 @@
 class_name SkyLagoonPromenade
 extends RefCounted
-# The Sky Lagoon's three-page 2.5D promenade. The painted PNW flats and
-# transparent Codex sprites do the visual work; the real Roshan rig walks in
-# one shallow band in front of them. All mutable state remains on ReefMain.
+# The Sky Lagoon's three-page 2.5D promenade. Painted PNW flats and transparent
+# sprites do the visual work; Roshan's animated 2D card walks in one shallow
+# band in front of them. All mutable state remains on ReefMain.
 
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const Affordance := preload("res://scripts/interaction_affordance.gd")
+const OPAQUE_STORYBOOK_CUTOUT_SHADER := preload(
+	"res://assets/shaders/opaque_storybook_cutout.gdshader")
 const HALF_W := 72.0
 const HALF_D := 2.6
 const BACKDROP_TILE_SIZE := Vector2(24.0, 24.0)
@@ -13,6 +16,8 @@ const BACKDROP_ROWS := 2
 const BACKDROP_Z := -18.0
 const CONTACT_SHADOW_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png"
 const SMOKE_WISP_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
+const FIREFLY_TEX := "res://assets/fairy/sprites/bug_firefly.png"
+const FIREFLY_COUNT := 18
 # THE PAINTING IS THE SCREEN. The 6x2 lossless Sprite3D grid reconstructs one
 # native 6144x2048, 144x48-world-unit mural. Each 1024px square is a separate
 # unshaded depth card, retaining the higher detail generated per square.
@@ -224,13 +229,22 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 const NIGHT_WORLD_TINT := Color(0.72, 0.78, 0.96, 1.0)
 const NIGHT_BACKDROP_TINT := Color(0.48, 0.56, 0.82, 1.0)
 const PLANE_DEPARTURE_S := 7.0
+const REEF_ROUTE_MARKER_H := 5.2
 const SLIDE_H := 11.4
-const SWING_H := 11.8
+const SWING_H := 10.8
 const SEESAW_H := 4.5
 const SLIDE_ANIM_SCALE := SLIDE_H / 19.1
-const SWING_ANIM_SCALE := SWING_H / 18.4
 const SEESAW_ANIM_SCALE := SEESAW_H / 11.35
 const PLAY_ROSHAN_H := 8.34
+const SWING_FRAME_TEX := "res://assets/props/story/play_swing_frame.png"
+const SWING_SEAT_TEX := "res://assets/props/story/play_swing_seat.png"
+const SWING_ARM_H := 7.55
+const SWING_SEAT_W := 4.6
+const SWING_GRIP_ARM := 5.05
+const SWING_SEAT_CONTACT_ANCHOR := Vector2(200.0, 360.0)
+const SWING_PERIOD_S := 1.72
+const SWING_MAX_ANGLE := 0.20
+const OPAQUE_CUTOUT_ALPHA_THRESHOLD := 0.24
 # The generated play frames do not share a consistent transparent-canvas
 # origin. Anchor the visible action point instead of the 512x512 canvas centre,
 # or Roshan jumps several world units between poses.
@@ -238,9 +252,10 @@ const SWING_HAND_ANCHORS := [
 	Vector2(264.5, 204.5),
 	Vector2(168.0, 205.0),
 	Vector2(322.5, 186.0),
-	Vector2(186.0, 184.5),
+	# The accepted v2 frame preserves the grip pose but shifts the complete
+	# figure right/down on its safe-margin canvas.
+	Vector2(222.0, 190.0),
 ]
-const SWING_HAND_SOCKET := Vector2(0.0, -1.47)
 const SEESAW_SEAT_ANCHORS := [
 	Vector2(300.0, 420.0),
 	Vector2(225.0, 400.0),
@@ -255,14 +270,14 @@ const PLAY_FRAME_PATHS := {
 	"swing": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2_v2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3_v2.png",
 	],
 	"slide": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
 	],
 	"seesaw": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png",
@@ -272,6 +287,8 @@ const PLAY_FRAME_PATHS := {
 	],
 }
 const PLAY_DURATIONS := {"swing": 5.6, "slide": 5.4, "seesaw": 5.8}
+const PLAY_SETTLE_S := 0.34
+const PLAY_SETTLE_HOP := 0.26
 
 # THE ROUTE THROUGH THE LEVEL (owner request 2026-07-27: "she should have a
 # clear routing path through the level as well"). The promenade is a path, not
@@ -317,6 +334,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_promenade_focus"] = ""
 	m.g["lagoon_promenade_focus_t"] = 0.0
 	m.g["lagoon_play_anim"] = {}
+	m.g["lagoon_reef_guidance_pending"] = false
 	m.lagoon_floor = false
 	m.northern_floor = false
 	m.arena_center = m.LEVEL2_POS
@@ -363,6 +381,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 				row,
 				column)
 	_build_ambient_life()
+	_build_night_fireflies()
 	_build_animals()
 	_build_runway_screen()
 	_build_playground_screen()
@@ -378,14 +397,20 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	_sync_target_mural_anchors()
 	if from_castle:
 		m.show_msg("Roshan", "Back outside! Tap a playground toy or the castle door once to light it up, then tap it again to play.")
-	elif m.g.get("lagoon_plane_card") is Sprite3D:
-		m.show_msg("Roshan", "Our pearl plane landed! Tap the plane or a playground toy to explore.", "intro")
+	elif m.first_session and at_ocean_gate_hub:
+		# The four-page story opens after this stage is built. Defer the route
+		# prompt so its five-second banner cannot expire invisibly behind it.
+		m.g["lagoon_reef_guidance_pending"] = true
 	else:
-		m.show_msg("Roshan", "The Sky Lagoon is ready! Tap a playground toy once to light it up, then tap it again to play.", "intro")
+		_show_reef_route_guidance()
 
 func tick(delta: float) -> void:
 	if m.mg_kind != "":
 		return
+	if bool(m.g.get("lagoon_reef_guidance_pending", false)) \
+			and not m.intro_active:
+		m.g["lagoon_reef_guidance_pending"] = false
+		_show_reef_route_guidance()
 	_refresh_route()
 	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
 		m.g["ss_walk_goal"] = null
@@ -409,22 +434,35 @@ func tick(delta: float) -> void:
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
 	var focus_t: float = float(m.g.get("lagoon_promenade_focus_t", 0.0)) + delta
 	m.g["lagoon_promenade_focus_t"] = focus_t
+	_tick_target_affordances(focus_id, focus_t)
+
+func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
 		var glow: Sprite3D = target.get("highlight") as Sprite3D
 		if glow == null or not is_instance_valid(glow):
 			continue
-		var selected: bool = String(target.get("id", "")) == focus_id
-		glow.visible = selected
-		if selected:
-			if String(target.get("id", "")) == "castle_gate":
-				# The door itself breathes brighter in place. Scaling the full
-				# castle made a loose gold ghost around every tower and window.
-				glow.scale = Vector3.ONE
-				glow.modulate.a = 0.58 + sin(focus_t * 5.2) * 0.12
-			else:
-				var pulse: float = 1.08 + sin(focus_t * 5.2) * 0.035
-				glow.scale = Vector3.ONE * pulse
+		var target_id: String = String(target.get("id", ""))
+		var selected: bool = target_id == focus_id
+		var affordance_kind: String = String(target.get(
+			"affordance_kind", Affordance.INTERACTION))
+		var phase: float = float(absi(target_id.hash()) % 127) * 0.037
+		var wave: float = sin(
+			focus_t * Affordance.pulse_speed(affordance_kind, selected) + phase)
+		var tint: Color = Affordance.color(affordance_kind, selected)
+		var opacity_floor: float = Affordance.opacity_floor(affordance_kind)
+		tint.a *= lerpf(opacity_floor, 1.0, wave * 0.5 + 0.5)
+		glow.modulate = tint
+		if target_id == "castle_gate":
+			# The plot door beacons through opacity. Scaling a facade-shaped
+			# signal would make a loose ghost around every tower and window.
+			glow.scale = Vector3.ONE
+		else:
+			var base_scale: float = float(target.get("highlight_scale", 1.0))
+			var pulse: float = 1.0 + wave * Affordance.pulse_amount(
+				affordance_kind, selected)
+			glow.scale = Vector3.ONE * base_scale * pulse
+		glow.visible = true
 
 func action_label() -> String:
 	var focus_id: String = String(m.g.get("lagoon_promenade_focus", ""))
@@ -433,7 +471,12 @@ func action_label() -> String:
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
 		if String(target.get("id", "")) == focus_id:
-			return "ENTER" if String(target.get("kind", "")) == "castle" else "PLAY"
+			var kind: String = String(target.get("kind", ""))
+			if kind == "castle":
+				return "ENTER"
+			if kind == "reef":
+				return "FLY"
+			return "PLAY"
 	return "JUMP"
 
 func _handle_action() -> bool:
@@ -470,6 +513,11 @@ func _tick_hold_travel(delta: float) -> void:
 	if held < HOLD_TRAVEL_S:
 		return
 	var press: Vector2 = vp.get_mouse_position()
+	# The emulated pointer is blind to touch ownership: without this the child
+	# holding the PLAY medallion or resting a thumb in the movement bay also
+	# commanded travel toward that corner of the screen.
+	if m.touch_ui != null and m.touch_ui.reserved_zone_hit(press):
+		return
 	if not _animal_at(press).is_empty() or not _target_at(press).is_empty():
 		return
 	_set_walk_goal(press)
@@ -488,6 +536,13 @@ func handle_touch(screen_pos: Vector2) -> bool:
 		return true
 	m.g["ss_walk_goal"] = null
 	var target_id: String = String(target.get("id", ""))
+	# The plane is the promenade's child-visible world route, not a toy setup.
+	# One deliberate tap on its artwork travels immediately; requiring a second
+	# tap made the only non-Pause exit undiscoverable for a four-year-old.
+	if String(target.get("kind", "")) == "reef":
+		_activate(target)
+		_clear_focus()
+		return true
 	if String(m.g.get("lagoon_promenade_focus", "")) == target_id:
 		_activate(target)
 		_clear_focus()
@@ -498,16 +553,41 @@ func handle_touch(screen_pos: Vector2) -> bool:
 func _build_runway_screen() -> void:
 	if bool(m.save_data.get("lagoon_plane_departed", false)):
 		m.g["lagoon_plane_card"] = null
+		_build_reef_route_marker()
 		return
 	var plane := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
 		Vector3(-58.0, 5.341, LANDMARK_Z), 10.732)   # fully inside the painted dock
 	m.g["lagoon_plane_card"] = plane
 	m.g["lagoon_plane_base"] = plane.position
-	_register_target("plane", plane, "plane", "", 118.0, 1.12)
+	_register_target("reef_route", plane, "reef", "reef", 132.0, 1.12)
 	var targets: Array = m.g.get("lagoon_promenade_targets", [])
 	var plane_target: Dictionary = targets.back() as Dictionary
 	m.g["lagoon_plane_highlight"] = plane_target.get("highlight")
+
+func _build_reef_route_marker() -> void:
+	# The full arrival card clears the shoreline after its opening beat, but a
+	# smaller permanent shuttle remains above the west dock. Reusing the
+	# approved plane art adds a visible route without another generated asset;
+	# its high, left placement clears the otter/frog ground corridor.
+	var plane := _add_sprite(
+		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+		Vector3(-66.0, 8.6, LANDMARK_Z), REEF_ROUTE_MARKER_H, false)
+	plane.name = "SkyLagoonReefPlane"
+	m.g["lagoon_reef_route_card"] = plane
+	m.g["lagoon_reef_route_base"] = plane.position
+	_register_target("reef_route", plane, "reef", "reef", 132.0, 1.14)
+	var targets: Array = m.g.get("lagoon_promenade_targets", [])
+	var plane_target: Dictionary = targets.back() as Dictionary
+	m.g["lagoon_reef_route_highlight"] = plane_target.get("highlight")
+
+func _show_reef_route_guidance() -> void:
+	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == "reef_route":
+			_focus(target)
+			break
+	m.show_msg("Roshan", "Tap the pearl plane to visit the Reef!", "intro4")
 
 func _build_playground_screen() -> void:
 	# Alpha-silhouette placement, not nominal sprite rectangles: there is
@@ -517,9 +597,7 @@ func _build_playground_screen() -> void:
 	var slide := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
 		Vector3(-11.5, 6.61, PLAY_Z), SLIDE_H)
-	var swing := _add_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
-		Vector3(3.0, 6.80, PLAY_Z), SWING_H)
+	var swing := _build_promenade_swing(Vector3(3.0, 6.30, PLAY_Z))
 	var seesaw := _add_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
 		Vector3(17.0, 1.20, PLAY_Z), SEESAW_H)
@@ -536,6 +614,66 @@ func _build_playground_screen() -> void:
 		GROUND_SOCKET_LOCK)
 	_register_target("seesaw", seesaw, "playground", "seesaw", 112.0, 1.12,
 		GROUND_SOCKET_LOCK)
+
+func _opaque_storybook_cutout(sprite: Sprite3D) -> void:
+	var material := ShaderMaterial.new()
+	material.shader = OPAQUE_STORYBOOK_CUTOUT_SHADER
+	material.set_shader_parameter("albedo_texture", sprite.texture)
+	material.set_shader_parameter("tint", sprite.modulate)
+	material.set_shader_parameter(
+		"alpha_threshold", OPAQUE_CUTOUT_ALPHA_THRESHOLD)
+	sprite.material_override = material
+	sprite.modulate = Color.WHITE
+	sprite.transparency = 0.0
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+
+func _build_promenade_swing(pos: Vector3) -> Sprite3D:
+	# The former swing was one flattened frame/rope/seat card. Roshan could
+	# change poses, but no part of the equipment could follow a pendulum arc.
+	# Reuse the approved separated playground layers so the ropes and seat own
+	# a real top-bar pivot and Roshan can share that exact motion.
+	var frame := _add_sprite(SWING_FRAME_TEX, pos, SWING_H)
+	frame.name = "SkyLagoonPromenadeSwingFrame"
+	_opaque_storybook_cutout(frame)
+
+	var pivot := Node3D.new()
+	pivot.name = "SwingSeatPivot"
+	pivot.position = Vector3(0.0, SWING_H * 0.5, 0.02)
+	frame.add_child(pivot)
+
+	var seat_texture: Texture2D = load(SWING_SEAT_TEX) as Texture2D
+	var seat := Sprite3D.new()
+	seat.name = "SwingSeatAndRopes"
+	seat.texture = seat_texture
+	seat.pixel_size = 1.0
+	seat.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	seat.shaded = false
+	seat.double_sided = true
+	seat.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	seat.modulate = NIGHT_WORLD_TINT if m.is_night else Color.WHITE
+	var seat_y_scale: float = SWING_ARM_H / 860.0
+	var seat_visual_h: float = float(seat_texture.get_height()) * seat_y_scale
+	seat.scale = Vector3(
+		SWING_SEAT_W / float(seat_texture.get_width()), seat_y_scale, 1.0)
+	seat.position = Vector3(0.0, -seat_visual_h * 0.5, 0.03)
+	pivot.add_child(seat)
+	_opaque_storybook_cutout(seat)
+
+	frame.set_meta("swing_seat_pivot", pivot)
+	frame.set_meta("swing_seat_sprite", seat)
+	return frame
+
+func _set_promenade_swing_angle(swing: Node3D, angle: float) -> void:
+	var pivot: Node3D = swing.get_meta("swing_seat_pivot", null) as Node3D
+	if pivot != null and is_instance_valid(pivot):
+		pivot.rotation.z = angle
+
+func _swing_grip_socket(swing: Node3D, angle: float) -> Vector2:
+	var pivot: Node3D = swing.get_meta("swing_seat_pivot", null) as Node3D
+	if pivot == null or not is_instance_valid(pivot):
+		return Vector2(0.0, -SWING_GRIP_ARM).rotated(angle)
+	return Vector2(pivot.position.x, pivot.position.y) \
+		+ Vector2(0.0, -SWING_GRIP_ARM).rotated(angle)
 
 func _build_castle_screen() -> void:
 	# The four-tower castle remains one neutral, unshaded depth card. Its world
@@ -624,6 +762,72 @@ func _build_ambient_life() -> void:
 		_add_ambient_card("smoke", SMOKE_WISP_TEX,
 			CABIN_SMOKE_ANCHORS[index], SMOKE_CARD_HEIGHT,
 			0.0, 0.0, "smoke", "quiet", false, index)
+
+func _build_night_fireflies() -> void:
+	# A single low-count particle draw scatters a few readable fireflies across
+	# each outdoor page. Reuse the approved Fairy Pond subject instead of adding
+	# new art or lights; the lifetime ramp supplies independent-looking blinks
+	# once preprocess has distributed the particles through their cycle.
+	if not m.is_night:
+		return
+	var root_node: Node3D = stage.root()
+	if root_node == null:
+		return
+	var fireflies := CPUParticles3D.new()
+	fireflies.name = "SkyLagoonNightFireflies"
+	fireflies.amount = FIREFLY_COUNT
+	fireflies.lifetime = 5.4
+	fireflies.preprocess = fireflies.lifetime
+	fireflies.randomness = 0.78
+	fireflies.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	fireflies.emission_box_extents = Vector3(HALF_W - 5.0, 4.6, 0.45)
+	fireflies.direction = Vector3(0.45, 0.25, 0.0)
+	fireflies.spread = 180.0
+	fireflies.gravity = Vector3.ZERO
+	fireflies.initial_velocity_min = 0.08
+	fireflies.initial_velocity_max = 0.34
+	fireflies.damping_min = 0.03
+	fireflies.damping_max = 0.10
+	fireflies.angular_velocity_min = -24.0
+	fireflies.angular_velocity_max = 24.0
+	fireflies.scale_amount_min = 0.72
+	fireflies.scale_amount_max = 1.16
+
+	var blink := Gradient.new()
+	blink.offsets = PackedFloat32Array([
+		0.0, 0.10, 0.34, 0.50, 0.66, 0.88, 1.0,
+	])
+	blink.colors = PackedColorArray([
+		Color(1.0, 0.88, 0.34, 0.0),
+		Color(1.0, 0.94, 0.52, 1.0),
+		Color(1.0, 0.82, 0.24, 0.72),
+		Color(1.0, 0.88, 0.34, 0.08),
+		Color(1.0, 0.96, 0.58, 1.0),
+		Color(1.0, 0.84, 0.28, 0.68),
+		Color(1.0, 0.88, 0.34, 0.0),
+	])
+	fireflies.color_ramp = blink
+
+	var quad := QuadMesh.new()
+	quad.size = Vector2(0.92, 0.92)
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	material.vertex_color_use_as_albedo = true
+	material.albedo_texture = load(FIREFLY_TEX)
+	material.emission_enabled = true
+	material.emission = Color(1.0, 0.78, 0.18)
+	material.emission_energy_multiplier = 1.45
+	quad.material = material
+	fireflies.mesh = quad
+	fireflies.position = Vector3(0.0, 7.0, PLAY_Z + 0.4)
+	fireflies.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	fireflies.set_meta("ambient_kind", "fireflies")
+	fireflies.set_meta("night_only", true)
+	fireflies.set_meta("outdoor_only", true)
+	root_node.add_child(fireflies)
+	m.g["lagoon_night_fireflies"] = fireflies
 
 func _build_animals() -> void:
 	# All five authored definitions stay available, but one Sprite3D actor is
@@ -846,7 +1050,7 @@ func _startle_animal(animal: Dictionary) -> void:
 	_clear_focus()
 	m._sparkle_burst(node.global_position + Vector3(0.0,
 		float(definition["height"]) * 0.25, 0.0), Color(1.0, 0.78, 0.42))
-	m.player.play_verb("giggle")
+	_celebrate_visible_roshan()
 
 func _animal_is_offscreen(node: Sprite3D) -> bool:
 	var cam: Camera3D = m.player.cam
@@ -1089,6 +1293,24 @@ func _tick_ambient_life(delta: float) -> void:
 			plane_glow.rotation.z = plane.rotation.z
 		if ambient_t >= PLANE_DEPARTURE_S:
 			_finish_plane_arrival()
+	var reef_route: Sprite3D = m.g.get("lagoon_reef_route_card") as Sprite3D
+	if reef_route != null and is_instance_valid(reef_route):
+		var route_base: Vector3 = m.g.get(
+			"lagoon_reef_route_base", reef_route.position) as Vector3
+		var anchored_route_base: Vector3 = _mural_anchored_position(
+			route_base,
+			float(reef_route.get_meta("mural_reference_camera_x",
+				_mural_reference_camera_x(route_base.x))),
+			float(reef_route.get_meta("mural_socket_lock",
+				DEFAULT_MURAL_SOCKET_LOCK)))
+		reef_route.position = anchored_route_base + Vector3(
+			0.0, sin(ambient_t * 1.05) * 0.12, 0.0)
+		reef_route.rotation.z = sin(ambient_t * 0.72) * 0.010
+		var route_glow: Sprite3D = m.g.get(
+			"lagoon_reef_route_highlight") as Sprite3D
+		if route_glow != null and is_instance_valid(route_glow):
+			route_glow.position = reef_route.position + Vector3(0.0, 0.0, -0.05)
+			route_glow.rotation.z = reef_route.rotation.z
 
 func teardown() -> void:
 	# Mutable stage state belongs to ReefMain by project architecture, so the
@@ -1097,9 +1319,11 @@ func teardown() -> void:
 	m.g.erase("lagoon_ambient_t")
 	m.g.erase("lagoon_wind_gust")
 	m.g.erase("lagoon_wind_distance")
+	m.g.erase("lagoon_night_fireflies")
 	m.g.erase("lagoon_animals")
 	m.g.erase("lagoon_animal_actor")
 	m.g.erase("lagoon_animal_cycles")
+	m.g.erase("lagoon_reef_guidance_pending")
 
 func _finish_plane_arrival() -> void:
 	var plane: Sprite3D = m.g.get("lagoon_plane_card") as Sprite3D
@@ -1119,11 +1343,12 @@ func _finish_plane_arrival() -> void:
 	var retained: Array = []
 	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = value as Dictionary
-		if String(target.get("id", "")) != "plane":
+		if String(target.get("id", "")) != "reef_route":
 			retained.append(target)
 	m.g["lagoon_promenade_targets"] = retained
 	m.save_data["lagoon_plane_departed"] = true
 	m._write_save()
+	_build_reef_route_marker()
 
 func _add_backdrop(path: String, x: float, y: float, row: int, column: int) -> void:
 	var root_node: Node3D = stage.root()
@@ -1323,6 +1548,8 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		socket_lock: float = DEFAULT_MURAL_SOCKET_LOCK,
 		highlight_path: String = "", highlight_pixel_size: float = 0.0) -> void:
 	_register_mural_socket(node, socket_lock)
+	var affordance_kind: String = Affordance.PLOT if kind == "castle" \
+		else Affordance.INTERACTION if kind == "reef" else Affordance.ANIMATION
 	var glow: Sprite3D
 	glow = Sprite3D.new()
 	if not highlight_path.is_empty():
@@ -1331,7 +1558,7 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		glow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 		glow.shaded = false
 		glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		glow.modulate = Color(1.0, 0.82, 0.25, 0.72)
+		glow.modulate = Affordance.color(affordance_kind, false)
 		glow.position = node.position + Vector3(0, 0, -0.05)
 		var root_node: Node3D = stage.root()
 		root_node.add_child(glow)
@@ -1342,12 +1569,12 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		glow.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 		glow.shaded = false
 		glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		glow.modulate = Color(1.0, 0.82, 0.25, 0.72)
+		glow.modulate = Affordance.color(affordance_kind, false)
 		glow.position = source.position + Vector3(0, 0, -0.05)
 		var root_node: Node3D = stage.root()
 		root_node.add_child(glow)
 	glow.scale = Vector3.ONE * highlight_scale
-	glow.visible = false
+	glow.visible = true
 	var targets: Array = m.g.get("lagoon_promenade_targets", [])
 	targets.append({
 		"id": id,
@@ -1355,6 +1582,7 @@ func _register_target(id: String, node: Node3D, kind: String, payload: String,
 		"kind": kind,
 		"payload": payload,
 		"radius_px": radius_px,
+		"affordance_kind": affordance_kind,
 		"highlight": glow,
 		"highlight_scale": highlight_scale,
 	})
@@ -1381,30 +1609,23 @@ func _focus(target: Dictionary) -> void:
 	var target_id: String = String(target.get("id", ""))
 	m.g["lagoon_promenade_focus"] = target_id
 	m.g["lagoon_promenade_focus_t"] = 0.0
-	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
-		var item: Dictionary = value as Dictionary
-		var glow: Sprite3D = item.get("highlight") as Sprite3D
-		if glow != null and is_instance_valid(glow):
-			glow.visible = String(item.get("id", "")) == target_id
+	_tick_target_affordances(target_id, 0.0)
 	var node: Node3D = target.get("node") as Node3D
 	if node != null and is_instance_valid(node):
-		m._sparkle_burst(node.global_position, Color(1.0, 0.84, 0.30))
+		m._sparkle_burst(node.global_position, Affordance.sparkle_color(
+			String(target.get("affordance_kind", Affordance.INTERACTION))))
 
 func _clear_focus() -> void:
 	m.g["lagoon_promenade_focus"] = ""
-	for value in (m.g.get("lagoon_promenade_targets", []) as Array):
-		var target: Dictionary = value as Dictionary
-		var glow: Sprite3D = target.get("highlight") as Sprite3D
-		if glow != null and is_instance_valid(glow):
-			glow.visible = false
+	_tick_target_affordances(
+		"", float(m.g.get("lagoon_promenade_focus_t", 0.0)))
 
 func _activate(target: Dictionary) -> void:
 	var node: Node3D = target.get("node") as Node3D
 	match String(target.get("kind", "")):
-		"plane":
-			_bounce(node, 0.20)
+		"reef":
 			m._sparkle_burst(node.global_position, Color(0.65, 0.94, 1.0))
-			m.show_msg("Roshan", "The pearl plane is ready for another sky adventure!")
+			m._exit_level2()
 		"playground":
 			_start_playground_animation(String(target.get("payload", "")), node)
 			m._sparkle_burst(node.global_position, Color(1.0, 0.65, 0.88))
@@ -1427,6 +1648,7 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	var root_node: Node3D = stage.root()
 	if card == null or not is_instance_valid(card) or root_node == null:
 		return
+	_stop_visible_roshan_celebration()
 	var frames: Array[Texture2D] = []
 	for path_value in PLAY_FRAME_PATHS[kind]:
 		var frame: Texture2D = load(String(path_value)) as Texture2D
@@ -1440,6 +1662,7 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	m.player.position.x = root_node.position.x + _walk_x(equipment_reference_x)
 	m.g["lagoon_play_anim"] = {
 		"kind": kind,
+		"phase": "action",
 		"t": 0.0,
 		"dur": float(PLAY_DURATIONS[kind]),
 		"equipment": equipment,
@@ -1456,6 +1679,10 @@ func _start_playground_animation(kind: String, equipment: Node3D) -> void:
 	card.hframes = 1
 	card.vframes = 1
 	card.frame = 0
+	# The authored playground poses are whole PNGs, not atlas cells. Drop any
+	# sampling window RoshanSpriteLoop left on the card, or the pose is sliced
+	# by a window measured for a different sheet.
+	card.region_enabled = false
 	card.offset = Vector2.ZERO
 	card.position.z = PLAY_Z + 0.12
 	card.rotation.z = 0.0
@@ -1504,12 +1731,16 @@ func _place_play_anchor(card: Sprite3D, equipment: Node3D,
 func _tick_playground_animation(delta: float) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})
 	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
-	var equipment: Node3D = play.get("equipment") as Node3D
 	if play.is_empty() or card == null or not is_instance_valid(card):
 		return
-	if equipment == null or not is_instance_valid(equipment):
+	if String(play.get("phase", "action")) == "settle":
+		_tick_playground_settle(card, play, delta)
+		return
+	var equipment_value: Variant = play.get("equipment")
+	if equipment_value == null or not is_instance_valid(equipment_value):
 		_finish_playground_animation()
 		return
+	var equipment: Node3D = equipment_value as Node3D
 	var t: float = float(play.get("t", 0.0)) + delta
 	play["t"] = t
 	var kind: String = String(play.get("kind", ""))
@@ -1525,13 +1756,12 @@ func _tick_playground_animation(delta: float) -> void:
 		_finish_playground_animation()
 
 func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
-	# Three readable pumps. The hands stay near the two painted ropes while
-	# the authored frames supply the lean, tail follow-through and seated pose.
-	# The purpose-built chair is centered (unlike the old two-seat prop), and a
-	# restrained horizontal pose scale brings the authored fist centers onto
-	# its two inward ropes without making Roshan too tall for the frame.
-	var phase: float = t * TAU / 1.72
+	# Three readable pumps. The separated seat-and-rope layer and Roshan now
+	# share one top-bar pivot; the authored frames add the pumping lean without
+	# pretending that a static chair is moving.
+	var phase: float = t * TAU / SWING_PERIOD_S
 	var arc: float = sin(phase)
+	var angle: float = arc * SWING_MAX_ANGLE
 	var frame_index := 0
 	if arc > 0.34:
 		frame_index = 1
@@ -1541,10 +1771,9 @@ func _tick_swing_animation(card: Sprite3D, swing: Node3D, t: float) -> void:
 		frame_index = 3
 	_set_play_frame(frame_index)
 	card.scale = Vector3(1.38, 1.0, 1.0)
-	card.rotation.z = -arc * 0.055
-	var hand_socket := SWING_HAND_SOCKET + Vector2(
-		arc * 0.08 * SWING_ANIM_SCALE,
-		(1.0 - cos(phase)) * 0.12 * SWING_ANIM_SCALE)
+	card.rotation.z = angle * 0.65
+	_set_promenade_swing_angle(swing, angle)
+	var hand_socket: Vector2 = _swing_grip_socket(swing, angle)
 	_place_play_anchor(
 		card, swing, SWING_HAND_ANCHORS[frame_index], hand_socket)
 
@@ -1616,22 +1845,95 @@ func _tick_seesaw_animation(card: Sprite3D, seesaw: Node3D, t: float) -> void:
 func _finish_playground_animation() -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {})
 	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
-	var equipment: Node3D = play.get("equipment") as Node3D
-	if equipment != null and is_instance_valid(equipment):
+	if play.is_empty() or card == null or not is_instance_valid(card) \
+			or String(play.get("phase", "action")) == "settle":
+		return
+	var equipment: Node3D = null
+	var equipment_value: Variant = play.get("equipment")
+	if equipment_value != null and is_instance_valid(equipment_value):
+		equipment = equipment_value as Node3D
+	if equipment != null:
 		equipment.rotation.z = float(play.get("equipment_rotation", 0.0))
-	m.g["lagoon_play_anim"] = {}
+		if String(play.get("kind", "")) == "swing":
+			_set_promenade_swing_angle(equipment, 0.0)
+	play["phase"] = "settle"
+	play["settle_t"] = 0.0
+	play["settle_start_position"] = card.position
+	play["settle_start_rotation"] = card.rotation.z
+	play["settle_start_scale"] = card.scale
 	var animator: RoshanSpriteLoop = m.g.get(
 		"lagoon_roshan_animator") as RoshanSpriteLoop
-	if card != null and is_instance_valid(card):
-		card.pixel_size = float(m.g.get("lagoon_roshan_idle_pixel_size", card.pixel_size))
-		card.rotation.z = 0.0
-		card.scale = Vector3.ONE
-		card.flip_h = false
-		card.set_meta("walking", false)
+	card.pixel_size = float(m.g.get("lagoon_roshan_idle_pixel_size", card.pixel_size))
+	card.flip_h = false
+	card.set_meta("walking", false)
 	if animator != null and is_instance_valid(animator):
 		animator.set_paused(false)
+	m.g["lagoon_visible_roshan_celebrations"] = int(
+		m.g.get("lagoon_visible_roshan_celebrations", 0)) + 1
+
+func _roshan_route_card_position(card: Sprite3D) -> Vector3:
+	var root_node: Node3D = stage.root()
+	if root_node == null:
+		return card.position
+	var local_player: Vector3 = m.player.position - root_node.position
+	return Vector3(local_player.x, local_player.y + 1.0, local_player.z + 0.2)
+
+func _tick_playground_settle(card: Sprite3D, play: Dictionary,
+		delta: float) -> void:
+	var settle_t: float = minf(
+		float(play.get("settle_t", 0.0)) + delta, PLAY_SETTLE_S)
+	play["settle_t"] = settle_t
+	var progress: float = settle_t / PLAY_SETTLE_S
+	var eased: float = smoothstep(0.0, 1.0, progress)
+	var start_position: Vector3 = play.get(
+		"settle_start_position", card.position) as Vector3
+	var target_position: Vector3 = _roshan_route_card_position(card)
+	card.position = start_position.lerp(target_position, eased) + Vector3(
+		0.0, sin(progress * PI) * PLAY_SETTLE_HOP, 0.0)
+	card.rotation.z = lerp_angle(
+		float(play.get("settle_start_rotation", 0.0)), 0.0, eased)
+	var start_scale: Vector3 = play.get(
+		"settle_start_scale", Vector3.ONE) as Vector3
+	var base_scale: Vector3 = start_scale.lerp(Vector3.ONE, eased)
+	var squash: float = sin(progress * PI) * 0.07
+	card.scale = Vector3(
+		base_scale.x * (1.0 + squash * 0.45),
+		base_scale.y * (1.0 - squash),
+		base_scale.z)
+	if settle_t < PLAY_SETTLE_S:
+		return
+	m.g["lagoon_play_anim"] = {}
+	card.position = target_position
+	card.rotation.z = 0.0
+	card.scale = Vector3.ONE
 	_sync_roshan_card()
-	m.player.play_verb("giggle")
+
+func _celebrate_visible_roshan() -> void:
+	# The promenade hides the primary Player renderer. Celebrate on the one card
+	# the child can actually see instead of playing a gesture on the hidden node.
+	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
+		return
+	var card: Sprite3D = m.g.get("lagoon_roshan_card") as Sprite3D
+	if card == null or not is_instance_valid(card):
+		return
+	_stop_visible_roshan_celebration()
+	m.g["lagoon_visible_roshan_celebrations"] = int(
+		m.g.get("lagoon_visible_roshan_celebrations", 0)) + 1
+	card.scale = Vector3(1.07, 0.93, 1.0)
+	var tween: Tween = m.create_tween()
+	m.g["lagoon_visible_roshan_tween"] = tween
+	tween.tween_property(card, "scale", Vector3(0.97, 1.06, 1.0), 0.12) \
+		.set_trans(Tween.TRANS_SINE)
+	tween.tween_property(card, "scale", Vector3.ONE, 0.16) \
+		.set_trans(Tween.TRANS_BACK)
+
+func _stop_visible_roshan_celebration() -> void:
+	var tween_value: Variant = m.g.get("lagoon_visible_roshan_tween")
+	if tween_value is Tween:
+		var tween: Tween = tween_value as Tween
+		if tween.is_valid():
+			tween.kill()
+	m.g.erase("lagoon_visible_roshan_tween")
 
 func _depth_ratio() -> float:
 	# her plane sits at z 0, the painting at BACKDROP_Z: everything painted is

@@ -234,6 +234,9 @@ var _finish_cb: Callable
 var _cam: Camera3D = null
 var _prev_env: Environment = null
 var _hud: CanvasLayer = null
+var _hud_root: Control = null
+var _ride_choice_buttons: Array[Button] = []
+var _paint_choice_buttons: Array[Button] = []
 var _lbl_place: Label = null
 var _lbl_lap: Label = null
 var _lbl_big: Label = null
@@ -319,6 +322,11 @@ func configure(overrides: Dictionary) -> void:
 
 func _cv(key: String, dflt):
 	return cfg[key] if cfg.has(key) else dflt
+
+func _minimal() -> bool:
+	# opera career races run wordless: the child cannot read, and the career
+	# worlds are full-screen art — icons and sparkle FX carry everything
+	return bool(_cv("minimal_hud", false))
 
 func _laps() -> int:
 	return int(_cv("laps", LAPS))
@@ -486,7 +494,9 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_main = main
 	_finish_cb = finish_cb
 	_rev = reversed_track
-	_player_acted = false
+	# opera runs pre-credit the race verb: a watching child still wins the
+	# story beat, and the kart's own "YOUR TURN!" podium branch never shows
+	_player_acted = bool(_cv("assume_acted", false))
 	_payout_banked = 0
 	_payout_dirty = false
 	_completion_committed = false
@@ -509,6 +519,7 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_build_camera()
 	_build_hud()
 	_build_select()
+	_build_select_controls()
 	_clear_corridor()
 	_state = "select"
 	_sel_t = 0.0
@@ -2156,8 +2167,8 @@ func _build_select() -> void:
 		halo.visible = not _speedy()
 		slot.add_child(halo)
 		_sel_nodes.append({"slot": slot, "halo": halo, "body": body})
-	_lbl_big.text = "Pick your ride!"
-	_lbl_hint.text = ("slide a finger to choose  •  TAP to GO!" if _touch_device() else "LEFT/RIGHT to choose  •  SPACE or A to GO!")
+	_lbl_big.text = "" if _minimal() else "Pick your ride!"
+	_lbl_hint.text = "" if _minimal() else ("slide a finger to choose  •  TAP to GO!" if _touch_device() else "LEFT/RIGHT to choose  •  SPACE or A to GO!")
 	_set_guide_mode("steer")
 	if _main != null and _main.has_method("_say"):
 		_main._say("roshan", "intro4", 10.0)
@@ -2170,6 +2181,75 @@ func _build_select() -> void:
 		else:
 			_cam.position = mid + Vector3(0, 7.0, 26.0)
 		_cam.look_at(mid + Vector3(0, 3.0, 0), Vector3.UP)
+
+func _build_select_controls() -> void:
+	if _hud_root == null:
+		return
+	var order := _vehicle_keys()
+	for i in range(order.size()):
+		var vehicle_key: String = String(order[i])
+		var vehicle: Dictionary = _vehicles_table()[vehicle_key]
+		var button := Button.new()
+		button.name = "KartRideChoice_" + vehicle_key
+		button.text = "" if _minimal() else String(vehicle["label"])
+		button.position = Vector2(188.0 + float(i) * 302.0, 570.0)
+		button.custom_minimum_size = Vector2(278.0, 124.0)
+		button.size = Vector2(278.0, 124.0)
+		button.pressed.connect(_choose_ride_by_touch.bind(i))
+		_hud_root.add_child(button)
+		_ride_choice_buttons.append(button)
+	for i in range(PAINTS.size()):
+		var paint: Dictionary = PAINTS[i]
+		var swatch := Button.new()
+		swatch.name = "KartPaintChoice_%d" % i
+		swatch.position = Vector2(132.0 + float(i) * 126.0, 574.0)
+		swatch.custom_minimum_size = Vector2(112.0, 112.0)
+		swatch.size = Vector2(112.0, 112.0)
+		swatch.tooltip_text = String(paint["label"])
+		swatch.text = "*" if bool(paint.get("rainbow", false)) else ""
+		swatch.add_theme_font_size_override("font_size", 58)
+		swatch.pressed.connect(_choose_paint_by_touch.bind(i))
+		_hud_root.add_child(swatch)
+		_paint_choice_buttons.append(swatch)
+	_refresh_select_controls()
+
+func _choose_ride_by_touch(index: int) -> void:
+	if _state != "select" or _sel_phase != "ride":
+		return
+	_sel_idx = clampi(index, 0, _vehicle_keys().size() - 1)
+	_select_confirm_queued = true
+	_refresh_select_controls()
+
+func _choose_paint_by_touch(index: int) -> void:
+	if _state != "select" or _sel_phase != "paint":
+		return
+	_paint_idx = clampi(index, 0, PAINTS.size() - 1)
+	_select_confirm_queued = true
+	_refresh_select_controls()
+
+func _paint_choice_fill(index: int) -> Color:
+	var paint: Dictionary = PAINTS[index]
+	if bool(paint.get("rainbow", false)):
+		return StorybookUI.LILAC
+	var color_value: Variant = paint.get("col")
+	return StorybookUI.PAPER if color_value == null else Color(color_value)
+
+func _refresh_select_controls() -> void:
+	for i in range(_ride_choice_buttons.size()):
+		var selected: bool = i == _sel_idx
+		var ride_button: Button = _ride_choice_buttons[i]
+		ride_button.visible = _state == "select" and _sel_phase == "ride"
+		StorybookUI.style_button(ride_button,
+			"selected" if selected else "secondary", 25, 30)
+		ride_button.set_meta("selected", selected)
+		ride_button.set_meta("picture_context", "live_3d_vehicle")
+	for i in range(_paint_choice_buttons.size()):
+		var paint_selected: bool = i == _paint_idx
+		var paint_button: Button = _paint_choice_buttons[i]
+		paint_button.visible = _state == "select" and _sel_phase == "paint"
+		StorybookUI.style_picture_button(paint_button, _paint_choice_fill(i),
+			StorybookUI.GOLD if paint_selected else StorybookUI.PURPLE, 52)
+		paint_button.set_meta("selected", paint_selected)
 
 func _sel_move() -> int:
 	var mv := 0
@@ -2218,6 +2298,7 @@ func _build_paint_row() -> void:
 
 func _tick_select(delta: float) -> void:
 	_sel_t += delta
+	_refresh_select_controls()
 	for i in range(_sel_nodes.size()):
 		var sn: Dictionary = _sel_nodes[i]
 		var chosen: bool = (i == _sel_idx)
@@ -2243,7 +2324,7 @@ func _tick_select(delta: float) -> void:
 			_sel_t = 0.0
 			_paint_prev = -1
 			_build_paint_row()
-			_lbl_big.text = "Pick your paint!"
+			_lbl_big.text = "" if _minimal() else "Pick your paint!"
 		return
 	# ---- paint phase ----
 	var np := PAINTS.size()
@@ -2267,7 +2348,7 @@ func _tick_select(delta: float) -> void:
 		_paint_prev = _paint_idx
 		_apply_paint((_sel_nodes[_sel_idx] as Dictionary)["body"], PAINTS[_paint_idx])
 		var confirm_hint := "TAP to GO!" if _touch_device() else "SPACE or A to GO!"
-		_lbl_hint.text = String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  " + confirm_hint
+		_lbl_hint.text = "" if _minimal() else (String((PAINTS[_paint_idx] as Dictionary)["label"]) + "  •  " + confirm_hint)
 	if confirm or _sel_t > SELECT_TIMEOUT:
 		var vkey: String = String(_vehicle_keys()[_sel_idx])
 		var paint: Dictionary = PAINTS[_paint_idx]
@@ -2277,9 +2358,10 @@ func _tick_select(delta: float) -> void:
 		_paint_orbs.clear()
 		_build_karts(vkey, paint)
 		_state = "countdown"
+		_refresh_select_controls()
 		_clock = 3.999
 		_lbl_big.text = ""
-		_lbl_hint.text = ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  SPACE or A = TURBO!")
+		_lbl_hint.text = "" if _minimal() else ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  SPACE or A = TURBO!")
 		_meter_bg.visible = true
 		_set_guide_mode("action")
 		# put the whole pack ON the grid right now (nodes used to sit at the
@@ -2783,6 +2865,8 @@ func _drift_cancel(k: Dictionary) -> void:
 			_spray.emitting = false
 
 func _flash_big(txt: String) -> void:
+	if _minimal():
+		return
 	if _lbl_big != null and _state == "race":
 		_lbl_big.text = txt
 		_flash_t = 1.1
@@ -3099,6 +3183,7 @@ func _build_hud() -> void:
 	_hud.layer = 18
 	add_child(_hud)
 	var root := Control.new()
+	_hud_root = root
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	# a plain Control defaults to MOUSE_FILTER_STOP — full-rect, that swallows
 	# every tap/drag before touch_ui's stick can see it. Display only: IGNORE.
@@ -3237,6 +3322,11 @@ func _update_hud() -> void:
 	_meter_fill.color = (Color(1.0, 0.85, 0.2) if rdy else Color(0.3, 0.95, 1.0))
 	var ready_hint := "TAP for TURBO!!" if _touch_device() else "SPACE or A for TURBO!!"
 	_lbl_hint.text = ready_hint if rdy else ("TURBO!" if float(_pl["boost_t"]) > 0.0 else "shells & stars charge turbo • bubbles ZIP • rainbow star = FULL power!")
+	if _minimal():
+		_lbl_lap.text = ""
+		_lbl_place.text = ""
+		_lbl_pearls.text = ""
+		_lbl_hint.text = ""
 	if rdy:
 		_set_guide_mode("action")
 	elif _race_t < 7.0:
@@ -3264,6 +3354,9 @@ func _finish() -> void:
 	_set_guide_mode("")
 	_lbl_big.text = "YOU DID IT!" if _player_acted else "YOUR TURN!"
 	_lbl_hint.text = (("%d%s place  •  +%d pearls!" % [place, suffix, payout]) if bool(_cv("pearl_payout", true)) else ("Great racing — %d%s place!" % [place, suffix])) if _player_acted else "Steer or tap TURBO next race to join in!"
+	if _minimal():
+		_lbl_big.text = ""
+		_lbl_hint.text = ""
 	if _main != null and _main.has_method("_say"):
 		_main._say("roshan", "win", 2.0)
 	# podium: top 3 by distance

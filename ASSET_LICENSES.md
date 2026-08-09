@@ -14,7 +14,7 @@
 | backups/art_pre_landmarks_2026-07-15/** | Archival copies of previously licensed project assets | same licenses as live originals | — | Unmodified rollback copies; not loaded at runtime |
 | assets/book/** (incl. hall/) | Mermaid Roshan storybook scans | **Original work © Mermaid Roshan LLC, all rights reserved** | — | cropped/resized for in-game frames |
 | assets/characters/friends/* | book character art (family) | **© Mermaid Roshan LLC, all rights reserved** | — | background removal only — SACRED, never restyle |
-| assets/characters/roshan.glb, huluu.glb, lamb.glb | plushie meshes generated from the book art (tools/build_plushie.py) | derivative of © book art — all rights reserved | — | silhouette-extruded, rigged |
+| assets/characters/huluu.glb, lamb.glb | plushie meshes generated from the book art (tools/build_plushie.py) | derivative of © book art — all rights reserved | — | silhouette-extruded, rigged |
 | assets/characters/roshan_sprite.png, roshan_tex_2k.webp, lamb_0.png, skins/* | book-art derivatives | © Mermaid Roshan LLC, all rights reserved | — | palette/skin variants |
 | assets/ui/boot_splash_mermaid_roshan.png | OpenAI built-in image generation using project-owned Mermaid Roshan character references and approved project environment/style art | **Project-generated derivative of (c) Mermaid Roshan LLC - all rights reserved** | assets_src/imagegen/boot_splash_2026-08-01/PROMPTS.md | Selected Rainbow Bridge candidate; native 1672x941 full frame normalized as one whole canvas to 1024x576 PNG; no protected original modified or overwritten; generated 2026-08-01 |
 | assets_src/imagegen/boot_splash_2026-08-01/** | OpenAI built-in image-generation candidates plus non-destructive project-reference boards and derived review contact sheet | **Project-generated review/source art; protected character sources remain (c) Mermaid Roshan LLC - all rights reserved** | assets_src/imagegen/boot_splash_2026-08-01/README.md; assets_src/imagegen/boot_splash_2026-08-01/PROMPTS.md | Three native full-frame candidates, selected/rejection audit, exact prompts, hashes, and reference layouts; review/source only under assets_src; no protected original changed; generated 2026-08-01 |
@@ -75,6 +75,15 @@
 | assets/terrain/up_cliffwall_col.jpg | nano-banana generation (gemini-3-pro-image, 2026-07-13, bare-stone regen same day) | project-owned | — | painted cliff-wall tile: terrain steep-slope blend; BARE stone by rule - 3D coral props decorate surfaces |
 | assets/terrain/backdrop_seamounts.jpg | nano-banana generation (gemini-3-pro-image, 2026-07-13) | project-owned | — | seamount silhouette panorama: world-edge backdrop ring |
 | assets/audio/purr.wav | synthesized cat purr (numpy: 55/110/165 Hz body, 25 Hz AM pulse, seamless 2s loop) | project-owned | — | craft kitty nuzzle loop; WAV not OGG (no vorbis encoder available in build env); loop set in code |
+
+> **Retired provenance (owner decision 2026-08-09):** the Roshan GLB rows
+> below are historical license records, not active asset paths or shipping
+> recommendations. The exact v3/v4 models, raw Meshy bundles, textures,
+> importer records, rig tools, and QA renders are preserved with checksum
+> manifests on `codex/deprecated-resources-roshan-20260809` at `8d9c69b6`.
+> Mermaid Roshan is 2D-only in the active game; restoring a model requires a
+> new explicit owner decision.
+
 | assets/characters/roshan_v4.glb | ROSHAN V5 replacement sculpt: owner-supplied Meshy rainbow mermaid generation → in-house 57-bone game rig | © Mermaid Roshan LLC — generated for this project | `Downloads/Meshy_AI_Rainbow_Mermaid_Princ_0716022221_texture.glb` (source SHA-256 `aeca483bd15d84b1c957ebfddd6ce8f55d3d8e27e44c593d169b93bd6baeefa`) | Source has both complete native hands and cohesive visible arm sculpts; `tools/shrink_glb.py` + `tools/_decimate_keep.py` reduce 409,082→39,999 triangles and both embedded maps to 1024²; `tools/fit_roshan_rig.py` fits/symmetrizes the 57-bone rig with analytic region weights and five topology-smoothing passes; `tools/rebuild_roshan_arm_surfaces.mjs` preserves every visible triangle and adds 728 narrow hidden safety triangles spanning torso→shoulder→elbow→wrist→palm; `tools/rebuild_roshan_hair_physics.mjs` replaces the temporary static-hair bind with eight monotonic three-bone chains weighted only to 7,745 texture-verified disconnected hair-lock vertices (no geometry or texture changes); `tools/smooth_shoulder_weights.py` harmonically re-solves the chest↔armU blend band (252 crease vertices, weights only — no geometry, joints, or textures) after the 2026-07-18 human review flagged shoulder stretching: worst arm-verb edge opening 0.073→0.056. Shipping total: 40,727 triangles; SHA-256 `bb758b98c1720615951131046598f87d1146ed473fd3a520222eaac9bcc47a5e` |
 | assets/characters/roshan_v2.glb | ROSHAN V2: owner-spec turnarounds (Gemini) → Meshy multi-image i23d → weight transfer onto her original 26-bone rig | © Mermaid Roshan LLC — generated for this project | gen2/turnarounds/roshan_v2/, gen2/ROSHAN_V2_WORKORDER.md | shrink pass ≤1024, tools/roshan_v2_retarget.py |
 | assets/characters/chuck_poodle_rigged.glb | CHUCK 3D: Meshy image-to-3D poodle → in-house 20-bone quadruped rig + 5 clips (sit_idle/sit_excited/run/pickup/wag), built headless in Blender (reef2/tools/build_chuck_rig.py + animate_chuck.py) | © Mermaid Roshan LLC — generated for this project | reef2/tools/, reef2/tools/out/chuck_rig.blend | glTF-Transform weld+simplify 603k→72k tris; proxy-bind weight transfer; 2048 POT textures |
@@ -399,16 +408,17 @@ ambientCG (all CC0).
   alpha-extracted, and resized to 1024px.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; centered two-hand grip pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; back-pump seated pose; local chroma extraction and 512px crop.
-- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; forward-pump seated pose; local chroma extraction and 512px crop.
-- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; high-arc seated pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2_v2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; forward-pump seated pose; the 2026-08-09 revision removes only a detached right-edge generation artifact and preserves the complete original figure pixels.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3_v2.png` — project-original OpenAI built-in image generation derived from the approved clipped swing frame; high-arc two-fist pose regenerated as a complete 2D storybook cutout, chroma-extracted and whole-canvas resized to 512px. Native source, prompt record, and hashes are under `assets_src/imagegen/roshan_playground_cutoff_2026-08-09/`.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; compressed ladder-step pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; extended ladder-step pose; local chroma extraction and 512px crop.
-- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; seated-at-lip pose; local chroma extraction and 512px crop.
-- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; seated chute-ride pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; seated-at-lip pose; the 2026-08-09 revision removes only a detached right-edge generation artifact and preserves the complete original figure pixels.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png` — project-original OpenAI built-in image generation derived from the approved clipped slide frame; seated chute-ride pose regenerated as a complete 2D storybook cutout, chroma-extracted and whole-canvas resized to 512px. Native source, prompt record, and hashes are under `assets_src/imagegen/roshan_playground_cutoff_2026-08-09/`.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; low-seat two-hand pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; rising two-hand pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; high-seat two-hand pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_3.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; descending two-hand pose; local chroma extraction and 512px crop.
+- `assets_src/imagegen/roshan_playground_cutoff_2026-08-09/roshan_slide_3_native_chroma.png` and `roshan_swing_3_native_chroma.png` — project-original OpenAI built-in image-generation preservation masters for the accepted 2D playground cutoff repairs; excluded from export. Exact prompts, processing, and SHA-256 provenance are in the adjacent `PROMPTS.md`.
 - `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png` —
   project-original OpenAI image generation; native 2172×724 exact-3:1 master
   flowing from the blocked-water runway shore, through a bounded playground
@@ -428,6 +438,63 @@ ambientCG (all CC0).
 - Style references for every new asset: project-owned
   `sky_lagoon_pnw_tree_prototypes_flat_2026-07-21.png` and
   `sky_lagoon_pnw_shrub_variants_flat_2026-07-21.png`; no external assets.
+
+## Animated dust-bunny enemy (Codex sprite pass, 2026-07-27)
+
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/references/*.png` —
+  exact lossless copies of the project-original dust-bunny `curl_ears` and
+  `hop` sprites recovered from commit `32eba2ea` on
+  `origin/codex/dirty-castle-2d`; no modification.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/chroma/*.png` —
+  project-original OpenAI built-in image generations derived only from those
+  approved project references and generated dust-bunny atlas continuity;
+  six-frame idle, hop, and accepted cleaning-poof atlases normalized to
+  768x512; rejected soft-dissolve iteration retained under `rejected/`;
+  exact prompts retained beside the sources.
+- `assets/sprites/dust_bunnies/*.png` — locally chroma-keyed transparent
+  derivatives of those generated atlases; three mobile runtime textures,
+  768x512 with six 256x256 frames each.
+- `assets/sprites/dust_bunnies/dust_bunny_clean_bubbles.png` — exact lossless
+  copy of project-original
+  `assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png` recovered from
+  commit `32eba2ea` on `origin/codex/dirty-castle-2d`; used as the unshaded
+  CLEAN projectile in the live Pearl Castle dungeon encounter; no modification.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/rainbow_dust_bunny_concept.png`
+  — project-original OpenAI built-in image generation derived only from the
+  approved project curl-ear dust-bunny identity; pastel rainbow color-variant
+  concept with prismatic forehead sparkle, locally resized to 1024x1024; exact
+  prompt retained beside the source; not used by the runtime.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/dust_bunny_first_boss_concept.png`
+  — project-original OpenAI built-in image generation derived only from the
+  approved project curl-ear dust-bunny identity; large grey-purple first-boss
+  concept with layered storm-cloud curls, oversized spiral ears, and a
+  lavender curl-crest sparkle, locally resized to 1024x1024; exact prompt
+  retained beside the source; not used by the runtime.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/dust_bunny_first_boss_concept_v2_teeth.png`
+  — project-original OpenAI built-in image edit of the grey-purple first-boss
+  concept; preserves the complete boss design while adding a compact plum grin
+  with exactly two short pointed pearl teeth, locally resized to 1024x1024;
+  exact prompt retained beside the source; preferred concept, not used by the
+  runtime.
+- `assets_src/concepts/dust_bunny_animated_2026-07-27/boss_chroma/*.png`
+  - project-original OpenAI built-in image generations derived only from the
+  approved grey-purple toothed dust-bunny boss and the same generated animation
+  continuity; five four-frame sheets (jump, vulnerable laugh, flinch, angry,
+  implosion) normalized to mobile-safe 1024x1024; exact prompts and frame intent
+  retained in `BOSS_ANIMATION_DESIGN.md`.
+- `assets/sprites/dust_bunnies/boss/*.png` - locally chroma-keyed transparent
+  RGBA derivatives of the five boss animation sheets; 1024x1024 with four
+  512x512 frames each; used only by the unshaded `DustBunnyBossSprite` 2D card.
+- `DustBunnyBossSprite.angry_jump_final` - project-original runtime-only atlas
+  sequence assembled without new pixels from approved angry frames 3-4 and
+  jump frames 2 and 4. It is the more powerful final-round jump presentation;
+  no new generated source, external asset, duplicated texture, or additional
+  license applies.
+- `tools/process_dust_bunny_boss_animation.py` - project-original deterministic
+  source normalization and alpha-validation utility for those sheets; no
+  external assets or code.
+- License: project original derivative art for this personal game,
+  CC0-equivalent.
 
 ## Sky Lagoon congruency rebuild (Codex sprite pass, 2026-07-27)
 - `assets_src/sky_lagoon/congruency_rebuild_2026-07-27/*.png` — project-original
@@ -653,7 +720,9 @@ generator output is present in this directory or connected to runtime art.
 - `assets_src/castle/room_regenerations/room_kitchen_fullframe_v2_1672x941.png` — original complete full-frame OpenAI built-in ImageGen regeneration for Mermaid Roshan: Reef of Light, using the prior Royal Kitchen composite as the composition/style reference; removes the two incompatible ocean-view windows, retains one small opaque shell light inset, and adds the gameplay-critical mint refrigerator; native generation preserved at 1672×941 with SHA-256 `8faa4e15e60503cb0303434b77461fa559a81c3d021eb6c3165e9ed176bfbf3e`; prompt and audit record retained beside it in `room_kitchen_fullframe_v2_provenance.md`; generated 2026-07-29.
 - `assets_src/castle/room_regenerations/room_kitchen_kettle_single_spout_chroma.png`, `room_kitchen_kettle_single_spout.png`, and `room_kitchen_fullframe_v3_1672x941.png` — project-original OpenAI built-in ImageGen single-object correction of the v2 stove-kettle defect; the accepted isolated golden kettle has exactly one right-side spout, was hard-key alpha extracted with despill and one-pixel contraction, and was composited only over the restored old-kettle footprint by `tools/repair_kitchen_kettle.py`; native source, exact prompt, hashes, rejected-method note, and production method are recorded in `room_kitchen_fullframe_v3_provenance.md`; generated and integrated 2026-07-29.
 - `assets/flats/castle/rooms/room_kitchen.png`, `room_kitchen_background.png`, `room_kitchen_front_left.png`, `room_kitchen_front_right.png`, `room_kitchen_item_sink.png`, `room_kitchen_item_oven.png`, `room_kitchen_item_pan_1.png` through `room_kitchen_item_pan_4.png`, `room_kitchen_item_fridge.png`, `assets_src/castle/room_backgrounds_2k/room_kitchen_background_2k.png`, and `assets/flats/castle/rooms/background_tiles/room_kitchen_background_r*_c*.png` — deterministic derivatives of the preserved Kitchen v3 full-frame source; normalized to the 1024×576 logical stage, separated into outline-refined Sprite3D cards, and whole-canvas Lanczos enlarged to a 4096×2304 background master split into twelve non-overlapping 1024×768 runtime tiles; generated 2026-07-29 by `tools/build_castle_room_layers.py` and `tools/build_castle_room_2k_tiles.py`.
-- `assets/flats/castle/rooms/room_mermaid_pool.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light; prompt-authored Pearl Castle mermaid pool; resized to 1024×576 for mobile runtime use.
+- `assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v2_native.png`, `room_mermaid_pool_fullframe_v3_native.png`, `room_mermaid_pool_fullframe_v3_prompt.txt`, and adjacent `PROVENANCE.md` — project-original OpenAI built-in ImageGen full-frame Mermaid Pool regenerations; v2 restores the continuously visible rainbow waterfall, removes the dry shell-gate device and ambiguous pipe fixture, and introduces one coherent seahorse fountain; v3 preserves those accepted interaction subjects while enlarging the pool into a broad rounded foreground lagoon. Native sources, exact prompts, references, methods, and SHA-256 values are preserved; generated 2026-08-02.
+- `assets/flats/castle/rooms/room_mermaid_pool.png`, `room_mermaid_pool_background.png`, `room_mermaid_pool_{front_left,front_right,mid_pool}.png`, `room_mermaid_pool_item_{waterfall,flower_float,star_float,seahorse_fountain}.png`, `assets_src/castle/room_backgrounds_2k/room_mermaid_pool_background_2k.png`, and `assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r*_c*.png` — deterministic normalized, outline-refined, healed-plate, depth-card, 3640x2048 master, and eight non-overlapping 910x1024 runtime-tile derivatives of the accepted 2026-08-02 v3 full-frame source; built by `tools/build_castle_room_layers.py` and `tools/build_castle_room_2k_tiles.py`.
+- The superseded original Mermaid Pool composite and its dry v2 generated fixture sheets remain in Git/provenance history for audit only; runtime uses the accepted 2026-08-02 complete room and room-derived interaction atlases.
 - `assets/flats/castle/rooms/room_bubble_bath.png` — original OpenAI ImageGen artwork generated for Mermaid Roshan: Reef of Light from the Mermaid Pool, Kitchen, and Main Hall style references; authored as a wide room with separated bathtub, sink, and toilet; resized to 1024×576.
 - `assets/flats/castle/rooms/room_*_front_*.png` and `room_*_mid_*.png` — exact-pixel alpha crops derived from the corresponding licensed room backdrops by `tools/build_castle_room_layers.py`; no new source artwork.
 - `assets/flats/castle/rooms/room_*_item_*.png` — exact-pixel alpha touch-prop crops derived from the corresponding licensed room backdrops by `tools/build_castle_room_layers.py`; no new source artwork.
@@ -689,6 +758,273 @@ generator output is present in this directory or connected to runtime art.
   image generation under project storybook direction, with local alpha cleanup
   documented by the original Dirty Castle manifest. Reused unchanged as
   unshaded Sprite3D interaction cards; license remains project original.
+- `assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png`
+  — project-original transparent 512x512 RGBA cutout
+  (sha256 `d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f`),
+  the large front-facing spiral-eared pose from the same codex dust-bunny cast
+  atlas as the four cards above (prompt and chroma/alpha process recorded in
+  `assets_src/concepts/dirty_castle_cleanup_2026-07-22/PROMPTS.md`, "Sprite
+  atlas 04 — dust-bunny cast"); source was OpenAI built-in image generation
+  under project storybook direction. Brought forward unchanged from
+  `codex/dirty-castle-2d` — no scaling, recolour, or repaint — and used as the
+  Dust Bunny Boss cutout (`scripts/games/dust_boss.gd`,
+  `DUST_BUNNY_BOSS_2026-08-02.md`). License: project original.
+
+## Pearl Castle clean two-screen Main Hall redraw (2026-08-03)
+
+All OpenAI ImageGen files in this section are project-owned original art made
+only from already approved Mermaid Roshan project references. There is no
+external source or URL. Exact prompts, generator-cache paths, reference hashes,
+acceptance decisions, and the owner-authorized production transform are in
+`assets_src/imagegen/castle_main_hall_redraw_2026-08-03/PROMPTS.md`.
+
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/concept_reference_1774x887.png`
+  - project-original OpenAI built-in ImageGen two-screen composition reference;
+    review-only because its 2:1 canvas is not the playable two-screen ratio;
+    SHA-256 `734a26f8ae41157a0a3f070e6cfdd61ed927462ba21f9071c880d46bab1ac618`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/concept_left_reference_887x887.png`
+  - deterministic unscaled left-half crop of the project-owned concept above;
+    reference-only; SHA-256
+    `73de6e4983d2e0cfc9725190836cc7952d41e8c821faa020f9e908a4edb87716`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/concept_right_reference_887x887.png`
+  - deterministic unscaled right-half crop of the project-owned concept above;
+    reference-only; SHA-256
+    `ea728541fd57934a7b973cdf6bb12e77d676cf244dc613004e3ad33a638c60ad`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/rejected_screen_a_square_1254x1254.png`
+  - project-original OpenAI built-in ImageGen candidate; rejected for its 1:1
+    playable-screen ratio and retained only for provenance; SHA-256
+    `1e2b2d8016ac7f3f811755747aec9ca5c4dd8a03bebcf11c884c66385f47d8e5`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/superseded_decorated_screen_a_native_1672x941.png`
+  - project-original OpenAI built-in ImageGen left-screen architectural
+    intermediate; composition-approved but superseded because detachable props
+    were baked into the plate; SHA-256
+    `80a8f6d0a01bda6908c1763462acecf5ca96068bdc0a20a133aa31a711bc6a5a`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/superseded_decorated_screen_b_native_1672x941.png`
+  - project-original OpenAI built-in ImageGen right-screen architectural
+    intermediate; composition-approved but superseded because detachable props
+    were baked into the plate; SHA-256
+    `2416cd4475b02c31399ed9c7fa6718e779b33d2bb4c6cb3d5fdac2bd70128381`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_a_native_1672x941.png`
+  - accepted project-original OpenAI built-in ImageGen clean left architectural
+    plate, with detachable props removed and healed in the same approved castle
+    style; native generator file preserved unchanged; SHA-256
+    `6e840715f1ff580a21e8df3406b5c23733bf584d5046345f7239d72913c04c5d`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/accepted_screen_b_native_1672x941.png`
+  - accepted project-original OpenAI built-in ImageGen clean right architectural
+    plate, generated against the accepted clean left plate for continuity;
+    native generator file preserved unchanged; SHA-256
+    `7e77e4c29bbbdcaf2230031a760137a28371532debefda971ab1b251df3ee2ad`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_a_production_master_2048x1152.png`
+  - deterministic owner-authorized whole-canvas Pillow Lanczos enlargement of
+    `accepted_screen_a_native_1672x941.png`; no crop, padding, local edit, seam
+    blend, AI upscale, or new artwork; SHA-256
+    `577acdf482afb923e888189351501d3db69fcc9e8ae5d5bd401f64aafd76069a`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_b_production_master_2048x1152.png`
+  - deterministic owner-authorized whole-canvas Pillow Lanczos enlargement of
+    `accepted_screen_b_native_1672x941.png`; no crop, padding, local edit, seam
+    blend, AI upscale, or new artwork; SHA-256
+    `8726f60df470dacd34ed3bf8d1ea40dba0d374f1f1b0fb1504a99c134e12e885`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_4096x1152.png`
+  - preserved intermediate lossless side-by-side stitch of the two 2048x1152
+    production masters above; no overlap, scaling, interpolation, or seam
+    repair; SHA-256
+  `0bed0ed409c966a2bae7505788f91b86725227b16a46054d85aa672963bfc54c`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_a_production_master_3641x2048.png`
+  - superseded whole-canvas Pillow Lanczos Screen A attempt retained for
+    provenance; rejected because its cumulative native-ratio rounding error was
+    1.151 pixels; SHA-256
+    `f8b3af85316f0c3e549227a31fe378b83a3500c3379808657c7eac9662fc2c4d`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_b_production_master_3641x2048.png`
+  - matching superseded whole-canvas Screen B attempt, retained only for the
+    same rejected transform's provenance; SHA-256
+    `89915458278908ef9ed105386ad205227496edad828ce97ffe92e9ab9ed02637`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7282x2048.png`
+  - superseded lossless stitch of the two rejected 3641x2048 attempts; retained
+    for provenance and never loaded by Godot; SHA-256
+    `e3d91bc5119016c5a1c8bd6fe08a4c1d1964cc16497df3f31515d4bdc1f10d31`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_a_production_master_3640x2048.png`
+  - accepted final per-screen whole-canvas Pillow Lanczos enlargement of the
+    preserved 2048x1152 Screen A intermediate; all native, intermediate, and
+    cumulative aspect-ratio steps remain within one-pixel rounding tolerance;
+    no crop, padding, local edit, AI upscale, or new artwork; SHA-256
+    `46c0a3443029a5699bf440e9abb8289046bd42d4e62195b2d36ce261883eb948`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/screen_b_production_master_3640x2048.png`
+  - accepted final Screen B whole-canvas enlargement under the same method,
+    authorization, ratio gates, and restrictions; SHA-256
+    `ff8b69b80acda82d156086a33c74ae8f5cc8699ed1cf4d6b69239b7058962f46`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7280x2048.png`
+  - accepted final lossless side-by-side stitch of the two 3640x2048 strict
+    per-screen 2K masters; no overlap, scaling, interpolation, or seam repair;
+    SHA-256 `297cd6d181288ef6cc364a71a89fdb4da168f688249ca910995e71f6f769a9dd`.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_strict_2k_build_manifest.json`
+  - project-authored deterministic transform, dimension, aspect-ratio, hash,
+    tile-rectangle, and invariance ledger for the native, intermediate, final,
+    and runtime files in this section; provenance data, not runtime art.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/PROMPTS.md`
+  - project-authored generation and acceptance ledger; records prompts, methods,
+    source/cache paths, dimensions, hashes, references, rejection reasons, and
+    the production resize authorization; provenance data, not runtime art.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/sign_reuse_manifest.json`
+  - project-authored deterministic reuse ledger for every sign card below;
+    records output hashes, approved source hashes and crop rectangles, alpha
+    treatment, the one whole-card Lanczos resize, and the Family Gallery
+    badge's exact collection-palette samples and outline radii; it also keeps
+    the eight-sign 4.5/5 compatibility scorecard and acceptance decisions;
+    provenance data, not art.
+- `assets_src/imagegen/castle_main_hall_redraw_2026-08-03/throne_reuse_manifest.json`
+  - project-authored deterministic reuse ledger for the retained throne card;
+    records its approved source rectangle, hashes, alpha audit, unchanged RGB
+    pixels, and no-upscale status; provenance data, not art.
+
+The sixteen runtime background cards below are non-overlapping crops of the
+licensed 7280x2048 production master. Every card is 910x1024, so each texture
+remains within the
+1024-pixel runtime limit. They add no pixels and reconstruct the master exactly.
+Source rectangles, hashes, and zero-difference evidence are recorded in the
+strict 2K build and audit manifests.
+
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png`
+  - deterministic 910x1024 crop; SHA-256
+    `317cdef9249c73bae64d8b0e7c6590a78b5a4f71d3187a2c32e5fa435150c1cb`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png`
+  - deterministic 910x1024 crop; SHA-256
+    `2584ed2636652871e5a7eeb3400243a61a2676cf966b9e9f652463f424467e22`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png`
+  - deterministic 910x1024 crop; SHA-256
+    `ee46dfa20f4de0140c8dbfb56eacba2d59acdb8eff684c0c45422fd34862b892`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png`
+  - deterministic 910x1024 crop ending exactly at the Screen A boundary;
+    SHA-256 `802731a92762c849f9c0597b2e75a6dbc0336dbf60032ee9290867cd4ce7d1a1`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png`
+  - deterministic 910x1024 crop; SHA-256
+    `9bfa44736244ae50fda10461c48cc0ee0cf35f195dd6e3b59364c6c9756cfc82`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png`
+  - deterministic 910x1024 crop; SHA-256
+    `d1e4652e644bd5354c5bd779242f885cc58ad0f2a6adc61dff4105d7417fc0ae`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png`
+  - deterministic 910x1024 crop; SHA-256
+    `17e74663ad7b95414453e106265258642f51b820001a99e0f1882352a96012da`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c7.png`
+  - deterministic 910x1024 crop ending at the panorama edge; SHA-256
+    `0fa83e2c10c68d7c86e97b8d6a8ef19eebc7a01fa8f87a05aeb8a312037209b0`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png`
+  - deterministic 910x1024 crop; SHA-256
+    `d1e3eab5aa9ce34c9b136343c03709b707e775883177c51244fe1b1dc56d74ec`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png`
+  - deterministic 910x1024 crop; SHA-256
+    `e775495278b8fbcadca429dececa5445fe6dc5d8327f9758966ac4a5ae615129`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png`
+  - deterministic 910x1024 crop; SHA-256
+    `c2abbd83f3fce093addd9250c1930ee57d86f4c21e170b2d454121d12b723ea5`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png`
+  - deterministic 910x1024 crop ending exactly at the Screen A boundary;
+    SHA-256 `3b5ba5dd85ba1bf5969be08a191957e2eb476e741b717aa0e7fb843eb0aee40d`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png`
+  - deterministic 910x1024 crop; SHA-256
+    `9e180247910d843b535998ad1167371b1990834279a26119714743af59a11203`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png`
+  - deterministic 910x1024 crop; SHA-256
+    `31b6d8a5dfef47c575b63f953c98240c826f5007ef1fa406ef17a853630ff808`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png`
+  - deterministic 910x1024 crop; SHA-256
+    `0068537a79a205fa50f3747b37735c591f876ceac92d685abaa3d6f57605c92c`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c7.png`
+  - deterministic 910x1024 crop ending at the panorama edge; SHA-256
+    `24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41`.
+
+The eight 256x256 sign cards below reuse only already licensed, approved
+project art. Each source crop, source hash, alpha treatment, and whole-card
+Lanczos resize is recorded in `sign_reuse_manifest.json`; the Dream House sign
+uses a hand-traced semantic alpha to exclude its portal architecture, plus a
+deterministic navy keyline and gold edge sampled from the approved Library
+badge. No external or AI-generated RGB artwork was introduced.
+
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png`
+  - approved Main Hall Screen B badge reuse; SHA-256
+    `3a43e1fc23f95f9f3a2ec256861d418017d783bbf0d30f7b85fee677838aa3c4`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_craft_room.png`
+  - approved Main Hall Screen B badge reuse; SHA-256
+    `17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png`
+  - approved Family Wing hall crest re-extracted from the full existing source
+    so its formerly clipped right edge and adjacent portal scroll are absent;
+    semantic alpha, visible-bounds centering, and a deterministic
+    collection-sampled keyline only, with no repaint or new RGB artwork;
+    SHA-256
+    `222d5a5a4c590b6ae951ff5d7f4431bd35ed539e48cf0346a2e31fd83a09a0dd`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png`
+  - approved Main Hall Screen A badge reuse; SHA-256
+    `7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png`
+  - approved Main Hall Screen A badge reuse; SHA-256
+    `7aa633b17cd655f5bf340636555fab1406fc86030e9de38e667f9e701dd764b0`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png`
+  - approved Main Hall Screen B badge reuse; SHA-256
+    `8ae6239cc8d01eecaa741842b591b2388659ff92929b9dec336e62ffa7ab4033`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png`
+  - approved Main Hall Screen A badge reuse; SHA-256
+    `7378b84c037fc6c5fe21880577f6eba2214d3c5e990b726bfaf67d83e8c03fd1`.
+- `assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png`
+  - approved Main Hall Screen B badge reuse, accepted and preserved
+    byte-for-byte after review found that removing its minor source-arch cap
+    would also cut valid teddy/rim pixels; SHA-256
+    `22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df`.
+
+The twelve 256x256 elevator crests below are project-authored deterministic
+derivatives of the already licensed physical-door art above and the four
+approved Dream House portal cards. `tools/build_castle_elevator_picture_icons.py`
+alpha-crops the existing crest, applies one aspect-preserving Lanczos fit into
+a shared 256x256 transparent canvas with audited optical-size normalization,
+and centers it without repainting, stretching, AI generation, or alteration
+of any source. Exact source/output
+dimensions, crop rectangles, hashes, and transforms are recorded in
+`assets/ui/castle_room_buttons_v2/elevator_picture_icon_manifest.json`.
+
+- `assets/ui/castle_room_buttons_v2/room_main_hall.png`
+- `assets/ui/castle_room_buttons_v2/room_opera_hall.png`
+- `assets/ui/castle_room_buttons_v2/room_kitchen.png`
+- `assets/ui/castle_room_buttons_v2/room_library.png`
+- `assets/ui/castle_room_buttons_v2/room_playroom.png`
+- `assets/ui/castle_room_buttons_v2/room_craft_room.png`
+- `assets/ui/castle_room_buttons_v2/room_mermaid_pool.png`
+- `assets/ui/castle_room_buttons_v2/room_bubble_bath.png`
+- `assets/ui/castle_room_buttons_v2/room_dining_room.png`
+- `assets/ui/castle_room_buttons_v2/room_royal_bedroom.png`
+- `assets/ui/castle_room_buttons_v2/room_sleepover_bedroom.png`
+- `assets/ui/castle_room_buttons_v2/room_movie_lounge.png`
+
+The Royal Hall veil reuses
+`assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png` under its existing
+project-original license. Five narrow, low-alpha unshaded `Sprite3D` cards use
+that exact byte-unchanged texture at separate real depths; this introduces no
+new art and does not alter the accepted Main Hall background.
+
+- `assets/flats/castle/main_hall_redraw_2026-08-03/props/main_hall_retained_shell_throne.png`
+  - exact RGB crop of the approved Regen-01 pearl-shell throne's orthographic
+    front view, with only border-connected studio-matte removal and exclusion
+    of its source-sheet floor shadow; no upscale, external source, new RGB
+    pixels, or redesign; SHA-256
+    `91a8edcb91492d699e228cb4048fa346825f2a9e034ca3c9693f69a98933bcff`.
+
+- `audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_audit.json`
+  and `castle_main_hall_redraw_2026-08-04_2k_{transform_overlay,grid_proof,seam_proof,reconstruction_proof}.png`
+  - deterministic project-authored transform-invariance, strict-resolution,
+  tile-grid, seam, and exact-reconstruction evidence derived solely from the
+  licensed masters and runtime crops above; not additional runtime art. A
+  rejected 1025px NPOT bleed experiment and its derivatives are intentionally
+  excluded from delivery and do not feed Godot.
+- `audit/castle_sprite3d/castle_main_hall_redraw_2026-08-03_node_inventory.json`,
+  `castle_main_hall_redraw_2026-08-03_render_audit.json`, and
+  `castle_main_hall_redraw_2026-08-03_render_proof.png` - deterministic
+  project-authored structural and rendered-scene validation derived only from
+  the licensed runtime cards above; these files record Sprite3D node types,
+  lighting deltas, and seam measurements and are not runtime art.
+- `audit/castle_sprite3d/main_hall.png`, `main_hall_screen_a.png`,
+  `main_hall_screen_b.png`, `main_hall_seam_bridge.png`,
+  `main_hall_lights_off.png`, and `elevator_menu.png` - project-authored
+  Godot 4.7.1 runtime QA captures of the licensed scene, retained as visual
+  evidence for door-sign placement, left-end access, two-screen continuity,
+  lighting state, and the Storybook travel menu; not runtime art.
 
 ## Pearl Castle touch lighting and continuity cards (2026-07-29)
 
@@ -753,14 +1089,26 @@ generator output is present in this directory or connected to runtime art.
 ## Pearl Castle 2K room cards and final junction derivatives (2026-07-29)
 
 - `assets_src/castle/room_backgrounds_2k/room_*_background_2k.png` —
-  seven project-original 2048 x 1152 preservation masters derived from the
-  already licensed 1024 x 576 clean room plates with Pillow Lanczos under the
-  owner's explicit authorization to upscale for this pass. Originals and
-  aspect ratios are preserved; no external source or new object design.
+  six project-original 3640 x 2048 preservation masters plus the Kitchen's
+  4096 x 2304 master, derived from the already licensed 1024 x 576 clean room
+  plates with whole-canvas Pillow Lanczos under the owner's explicit
+  authorization to upscale for this pass. Originals and aspect ratios are
+  preserved; no external source or new object design.
 - `assets/flats/castle/rooms/background_tiles/room_*_background_r*_c*.png`
-  — 28 non-overlapping 1024 x 576 runtime crops of the seven masters above,
-  produced by `tools/build_castle_room_2k_tiles.py`. Every four-card group
-  reconstructs its master pixel-exactly; no scaling occurs during slicing.
+  — 48 non-overlapping 910 x 1024 runtime crops of the six native masters plus
+  twelve non-overlapping 1024 x 768 Kitchen crops, produced by
+  `tools/build_castle_room_2k_tiles.py`. Each tile group reconstructs its
+  master pixel-exactly; no scaling occurs during slicing.
+- `assets_src/castle/room_backgrounds_2k/castle_live_alpha_baseline_repair.json`
+  — project-authored 2026-08-04 provenance and hash ledger for the
+  non-destructive seven-room baseline repair. The approved whole-room image is
+  restored outside the exact union of active V2/V4 animation-frame alpha and
+  static depth-card alpha at the runtime scissor threshold of 128; prior hidden
+  fill is retained only beneath that live union. The logical binary union is
+  scaled to the native canvas with nearest-neighbor while the approved image
+  uses the existing whole-canvas Lanczos transform. All seven repaired masters
+  report zero changed native pixels outside the live union; protected originals
+  are unchanged; no new art or external source is introduced.
 - `assets_src/castle/main_hall_alignment/generated_cleanup_candidate_{a,b}.png`
   — project-original OpenAI built-in ImageGen precision-removal candidates
   made from the two already licensed Main Hall masters. The request removed
@@ -969,6 +1317,7 @@ frame grids, action names, and review state are recorded in
 - `assets/flats/castle/interactions/mermaid_pool_waterfall_atlas.png` - eight-frame fixed-pivot deterministic waterfall-flow atlas.
 - `assets/flats/castle/interactions/mermaid_pool_flower_float_atlas.png` - eight-frame fixed-pivot deterministic petal/ripple atlas using the preservation master below.
 - `assets/flats/castle/interactions/mermaid_pool_bubble_fountain_atlas.png` - eight-frame fixed-pivot deterministic jet/bubble atlas using the preservation master below.
+- `assets/flats/castle/interactions/mermaid_pool_seahorse_fountain_atlas.png` - eight-frame fixed-pivot deterministic water-spray atlas derived from the accepted 2026-08-02 room card; project-original, no external URL.
 - `assets/flats/castle/interactions/bubble_bath_rubber_duck_atlas.png` - eight-frame fixed-pivot deterministic squeak/dive atlas color-isolated from the accepted tub preservation master.
 - `assets/flats/castle/interactions/bubble_bath_bathtub_atlas.png` - eight-frame fixed-pivot deterministic tap/water/bubble atlas using the preservation master below.
 - `assets/flats/castle/interactions/bubble_bath_sink_atlas.png` - eight-frame fixed-pivot deterministic faucet/water atlas using the preservation master below.
@@ -1033,3 +1382,1000 @@ used. Exact PCM/file hashes and cue timing are in the audio manifest.
   derivatives built by `tools/build_castle_room_button_thumbnails.py` as
   400 x 224 center-crop/resamples of the registered masters. No external art
   or additional generated pixels. License remains project original.
+
+## Imp combat animation art (2026-08-02)
+
+One row per accepted runtime file; all native generations, prompt bindings, hashes, rejection notes, per-file acceptance reports, QA renders, and Mobile-renderer captures are retained in the linked source packet.
+
+| Path | Source | License | URL | Modifications |
+|---|---|---|---|---|
+| assets/opera/worlds/actors/imp_mischief_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_mischief_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_mischief_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_mischief_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_mischief_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_mischief_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_mischief_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_mischief_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_captain_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_captain_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_captain_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_captain_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_captain_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_captain_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_captain_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_captain_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/imp_captain_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_chef_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_detective_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_ballerina_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_candymaker_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_doctor_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_farmer_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_boxer_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_magician_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_painter_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_astronaut_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_racer_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_windup.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_charge.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_slash.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_recover.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_guard.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_stagger.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_flee.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_taunt.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_hop_a.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_hop_b.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_bopped.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/actors/rival_popstar_bow.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/props/fx_telegraph_ring.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/props/fx_telegraph_bang.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 128x256; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/props/fx_slash_arc.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x256; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/props/fx_dust_puff.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 256x256; prompt, hashes and QA in the linked packet |
+| assets/opera/worlds/props/fx_stolen_sparkle.png | Non-destructive derivative of approved project art `assets/mg/star.png` | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Uniform whole-star resize and transparent-canvas padding to 128x128; no generated pixels |
+| assets/opera/worlds/props/fx_dizzy_stars.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 256x256; prompt, hashes and QA in the linked packet |
+## Pearl Castle dream-house rooms — 2D repair (2026-08-02)
+
+- `assets_src/imagegen/castle_dream_house_2026-08-01/dining_room_reference_1254.png` — OpenAI built-in ImageGen from approved project-local Castle references; project-original composition reference, all rights reserved; below native background requirements and contributes no runtime pixels; prompt in the adjacent `PROMPTS.md`.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_chroma.png` — OpenAI built-in ImageGen using approved project-local Castle doorway/room references; project-original production sheet, all rights reserved; native accepted chroma master, no post-generation resize.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png` — derivative of the adjacent project-original door chroma master; flat chroma removed with the installed ImageGen helper using border auto-key, soft matte, thresholds 12/220, and despill; no resize or redraw.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_chroma.png` — OpenAI built-in ImageGen using approved project-local Castle art plus rejected Blender renders only as identity/gameplay-purpose references; project-original production sheet, all rights reserved; native accepted chroma master, no post-generation resize.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png` — derivative of the adjacent project-original furnishing chroma master; flat chroma removed with the installed ImageGen helper using border auto-key, soft matte, thresholds 12/220, and despill; no resize or redraw.
+- `assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/PROMPTS.md` — project provenance ledger containing exact accepted prompts, reference roles, methods, dimensions, and hashes.
+
+The following runtime cards are project-original deterministic crops of the accepted alpha sheets above. Modifications are transparent-bound cropping only (largest connected component for furnishings except the deliberately disconnected place setting); no generated card is enlarged, warped, repainted, or sourced from Blender:
+
+- `assets/flats/castle/dream_house/family_wing_portal.png`
+- `assets/flats/castle/dream_house/family_wing_hall_insert.png`
+- `assets/flats/castle/dream_house/family_portal_dining.png`
+- `assets/flats/castle/dream_house/family_portal_royal_bedroom.png`
+- `assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png`
+- `assets/flats/castle/dream_house/family_portal_movie_lounge.png`
+- `assets/flats/castle/dream_house/dining_table.png`
+- `assets/flats/castle/dream_house/dining_seat.png`
+- `assets/flats/castle/dream_house/provisions_hutch.png`
+- `assets/flats/castle/dream_house/meal_plate.png`
+- `assets/flats/castle/dream_house/canopy_bed.png`
+- `assets/flats/castle/dream_house/shell_wardrobe.png`
+- `assets/flats/castle/dream_house/bedside_table.png`
+- `assets/flats/castle/dream_house/story_cushion.png`
+- `assets/flats/castle/dream_house/dream_bed_0.png`
+- `assets/flats/castle/dream_house/dream_bed_1.png`
+- `assets/flats/castle/dream_house/dream_bed_2.png`
+- `assets/flats/castle/dream_house/shell_chandelier.png`
+- `assets/flats/castle/dream_house/cloud_settee.png`
+- `assets/flats/castle/dream_house/cloud_pouf.png`
+- `assets/flats/castle/dream_house/movie_screen_frame.png`
+- `assets/flats/castle/dream_house/shell_popcorn_bowl.png`
+
+The following retained project-authored background assets are deterministic compositions by `tools/build_castle_dream_house_rooms.py` from already-licensed Castle wall/floor textures. The Movie Lounge master removes its obsolete second screen frame; no protected original is modified:
+
+- `assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png`
+- `assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png`
+- `assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png`
+- `assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png`
+- `assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png`
+- `assets/flats/castle/rooms/room_{family_gallery,dining_room,royal_bedroom,sleepover_bedroom,movie_lounge}_background.png` — 1024×576 review previews only.
+- `assets/flats/castle/rooms/background_tiles/room_{family_gallery,dining_room,royal_bedroom,sleepover_bedroom,movie_lounge}_background_r{0,1}_c{0,1}.png` — exact non-overlapping runtime crops; 1024×576 each.
+
+- `audit/castle_dream_house/dream_house_room_art_manifest.json` — deterministic source, hash, crop, node-type, placement, and tile-reconstruction evidence.
+- `audit/castle_dream_house/dream_house_room_shells_contact.png` — five-room native-shell review contact; project audit evidence.
+- `audit/castle_dream_house/dream_house_layout_contact.png` — physical four-door gallery and Main Hall entry contact; project audit evidence.
+- `audit/castle_dream_house/dream_house_hall_entry_contact.png` — Main Hall integration contact; project audit evidence.
+- `audit/castle_dream_house/dream_house_furnished_rooms_contact.png` — four-room furnished placement contact; project audit evidence; protected family movie pixels deliberately omitted.
+- `CASTLE_DREAM_HOUSE_2D_REPAIR_AUDIT_2026-08-02.md` — project audit documentation.
+
+`assets/book/hall/p_slide.jpg`, `p_trampoline.jpg`, `p_garden.jpg`, `p_snowman.jpg`, and `p_xmas.jpg` remain protected originals displayed directly and unchanged on the movie Sprite3D card. They are not copied into a derivative runtime or audit image.
+
+## Shared water-FX atlas vocabulary (2026-08-02)
+
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_small_chroma_native.png` ? Source: OpenAI built-in ImageGen using only approved project-local castle water atlas references; License: project original, all rights reserved; URL: N/A (generated in-project); Modifications: none, preserved native flat-chroma small-splash generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_small_alpha_native.png` ? Source: adjacent project-original small-splash chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_medium_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original small splash as continuity reference; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma medium-splash generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_medium_alpha_native.png` ? Source: adjacent project-original medium-splash chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_breach_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original small/medium splash family as continuity references; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma hero-breach generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_splash_breach_alpha_native.png` ? Source: adjacent project-original breach chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_ripple_ring_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original splash family as continuity references; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma ripple generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_ripple_ring_alpha_native.png` ? Source: adjacent project-original ripple chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_bubble_burst_chroma_native.png` ? Source: OpenAI built-in ImageGen using approved project-local castle bubbles and the accepted project-original water-FX family as references; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma bubble-burst generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_bubble_burst_alpha_native.png` ? Source: adjacent project-original bubble-burst chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_foamline_chroma_native.png` ? Source: OpenAI built-in ImageGen using the accepted project-original water-FX family as reference; License: project original, all rights reserved; URL: N/A; Modifications: none, preserved native flat-chroma foamline generation.
+- `assets_src/imagegen/water_fx_2026-08-02/fx_water_foamline_alpha_native.png` ? Source: adjacent project-original foamline chroma master; License: project original, all rights reserved; URL: N/A; Modifications: flat chroma removed with the installed ImageGen helper, soft matte, and despill.
+- `assets/sprites/fx_water/fx_water_splash_small_atlas.png` ? Source: accepted project-original small-splash alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512, 4?2 packing, and fixed bottom-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_splash_medium_atlas.png` ? Source: accepted project-original medium-splash alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?1024, reviewed eight-cell selection, transparent trailing cell, and fixed bottom-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_splash_breach_atlas.png` ? Source: accepted project-original breach alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?1024, transparent trailing cell, and fixed bottom-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_ripple_ring_atlas.png` ? Source: accepted project-original ripple alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512, uniform 0.94 cell scale, 4?2 packing, and fixed-center alignment by `tools/build_water_fx_atlases.py`.
+- `assets/sprites/fx_water/fx_water_bubble_burst_atlas.png` ? Source: accepted project-original bubble-burst alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512 and 4?2 packing by `tools/build_water_fx_atlases.py`, preserving the drawn rise relative to fixed cell center.
+- `assets/sprites/fx_water/fx_water_foamline_strip.png` ? Source: accepted project-original foamline alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-canvas normalization to 1024?256 and top-edge waterline alignment by `tools/build_water_fx_atlases.py`; no motion painted or synthesized.
+## Pearl Castle authored object interactions v2 (2026-08-01)
+
+All artwork in this v2 interaction pass is project-original OpenAI built-in
+ImageGen output made from the approved project-local Pearl Castle cutouts.
+No third-party visual source or external URL was used. Raw chroma masters are
+preserved under `assets_src/` (excluded from runtime export). Runtime sheets
+are non-destructive RGBA derivatives: chroma matte/despill, whole-state
+registration to a fixed pivot, interior-alpha recovery, transparent padding,
+and at most one uniform whole-sheet downscale. No tweened, composited, or
+interpolated pixels were used to author an object state. License: project-owned
+original, all rights reserved; source URL: N/A.
+
+Runtime generated full-object state sheets (4 x 2, eight authored states each):
+
+- `assets/flats/castle/interactions_v2/bubble_bath_bathtub_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/bubble_bath_rubber_duck_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/bubble_bath_sink_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/bubble_bath_toilet_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/craft_room_paint_table_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/craft_room_palette_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/craft_room_ribbon_rack_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/kitchen_fridge_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/kitchen_oven_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/kitchen_sink_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/library_book_stack_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/library_magic_book_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/library_pearl_table_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/main_hall_tapestry_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/mermaid_pool_bubble_fountain_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/mermaid_pool_flower_float_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/mermaid_pool_star_float_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/mermaid_pool_waterfall_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/playroom_blocks_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png` - generated full-object animation states; project-owned original.
+- `assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png` - generated full-object animation states; project-owned original.
+
+Preserved generated chroma/source masters:
+
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_book_stack_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_magic_book_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_pearl_lamp_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/library_pearl_table_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/main_hall_sconce_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/main_hall_tapestry_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_chandelier_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_curtains_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_footlights_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_stage_star_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/kitchen_fridge_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_1_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_2_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_3_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_4_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_idea_board_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_paint_table_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_palette_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_ribbon_rack_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/mermaid_pool_flower_float_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/mermaid_pool_star_float_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_blocks_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_play_tent_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_stacking_toy_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_stuffie_nook_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/wet_rooms/bubble_bath_bathtub_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/wet_rooms/bubble_bath_rubber_duck_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/wet_rooms/bubble_bath_sink_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/wet_rooms/bubble_bath_toilet_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/wet_rooms/kitchen_oven_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/wet_rooms/kitchen_sink_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/wet_rooms/mermaid_pool_bubble_fountain_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+- `assets_src/imagegen/castle_object_animations_v2/wet_rooms/mermaid_pool_waterfall_sheet_chroma.png` - accepted generated chroma master and provenance source; project-owned original.
+
+Runtime fluid, audio, review, and provenance artifacts:
+
+- `assets/shaders/castle_fixture_water.gdshader` - project-authored masked fixture-water shader; reuses already licensed in-repo ripple/caustic textures; no external source.
+- `assets/audio/castle/fridge_open.ogg` - project-original deterministic latch/open/interior-chime synthesis; no samples or external source.
+- `assets/audio/castle/fridge_close.ogg` - project-original deterministic door-close/latch synthesis; no samples or external source.
+- `assets/flats/castle/interactions_v2/castle_interactions_v2.json` - project-authored runtime state, placement, water, physics, hash, and review manifest.
+- `assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json` - project-authored fixed-pivot and alpha-normalization evidence ledger.
+- `audit/castle_interactions_v2/castle_interaction_frames_v2.png` - project-authored all-state visual review contact sheet; development evidence, not runtime art.
+- `assets_src/imagegen/castle_object_animations_v2/provenance.json` - exact refrigerator prompt, hashes, generation method, alpha QA, and Codex visual-review evidence (not owner/human approval).
+- `assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json` - exact Main Hall, Opera Hall, and Library prompt/hash/review evidence.
+- `assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json` - exact kitchen/bath/pool prompt/hash/review evidence.
+- `assets_src/imagegen/castle_object_animations_v2/play_craft_pool/provenance.json` - exact playroom/craft/pool prompt/hash/review evidence.
+- `assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json` - exact four-pan prompt/hash/rejection/review evidence.
+
+## Pearl Castle native-object interactions V4 (2026-08-04)
+
+This corrective pass isolates and animates only objects already present in the
+approved Pearl Castle rooms. All files in this section are project-owned
+originals or non-destructive derivatives of already licensed project art; no
+third-party visual source or external URL was used. Approved parent room images
+remain unchanged. Exact source, native-generation, derivative, delivery, and
+rejection hashes are recorded in the V4 runtime and ImageGen provenance
+manifests. Rejected and superseded generations are non-runtime evidence only.
+
+Runtime healed background tiles:
+
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c0.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c1.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c2.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c3.png` - project-authored non-destructive runtime tile of the V4 healed Kitchen plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c0.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c1.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c2.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+- `assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c3.png` - project-authored non-destructive runtime tile of the V4 healed room plate; project-owned derivative; no external source.
+
+Full healed room plates:
+
+- `assets/flats/castle/interactions_v4/backgrounds/room_bubble_bath_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_craft_room_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_kitchen_background.png` - project-authored non-destructive healed derivative of the approved Kitchen art, limited to the cleaned refrigerator's source-owned/live-frame union; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_library_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_opera_hall_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+- `assets/flats/castle/interactions_v4/backgrounds/room_playroom_background.png` - project-authored non-destructive healed derivative of the approved room art; protected parent unchanged; no external source.
+
+Exact source-owned resting cards:
+
+- `assets/flats/castle/interactions_v4/rest_cards/bubble_bath_vanity_mirror_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/craft_room_supply_cupboard_left_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png` - exact-RGB derivative of the approved pre-existing teal Kitchen refrigerator card with contaminated purple-wall, neighboring-cabinet, sub-16-alpha, and sub-eight-pixel alpha components removed; no RGB repaint; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/library_ceiling_chandelier_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/library_pearl_lamp_right_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_flower_float_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_star_float_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_waterfall_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_left_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_right_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/playroom_shelf_sailboat_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+- `assets/flats/castle/interactions_v4/rest_cards/playroom_tent_flaps_right_rest.png` - exact-pixel, alpha-isolated derivative of the approved pre-existing room object; project-owned; no external source.
+
+Eight-state runtime atlases:
+
+- `assets/flats/castle/interactions_v4/sheets/bubble_bath_vanity_mirror_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/craft_room_supply_cupboard_left_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png` - project-authored RGBA 3-by-3 runtime derivative containing eight fixed-base refrigerator states and one unused cell; exact cleaned source-owned rest state replaces frame 0; generated-state segmentation, edge cleanup, method, and hash are recorded in the V4 runtime and ImageGen provenance manifests.
+- `assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/mermaid_pool_flower_float_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/mermaid_pool_seahorse_fountain_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/mermaid_pool_star_float_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/mermaid_pool_waterfall_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+- `assets/flats/castle/interactions_v4/sheets/playroom_tent_flaps_right_sheet.png` - project-authored RGBA 4-by-2 runtime derivative with exact rest state and fixed pivot; project-owned; exact source/method/hash in the V4 runtime manifest.
+
+Ownership masks:
+
+- `assets_src/castle/interactions_v4/masks/bubble_bath_vanity_mirror_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/craft_room_supply_cupboard_left_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/kitchen_fridge_existing_mask.png` - project-authored alpha ownership mask for the cleaned pre-existing Kitchen refrigerator; purple wall and neighboring cabinet are excluded; no external source.
+- `assets_src/castle/interactions_v4/masks/library_ceiling_chandelier_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/library_pearl_lamp_right_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/mermaid_pool_flower_float_existing_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/mermaid_pool_seahorse_fountain_existing_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/mermaid_pool_star_float_existing_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/mermaid_pool_waterfall_existing_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_left_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_right_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/playroom_shelf_sailboat_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+- `assets_src/castle/interactions_v4/masks/playroom_tent_flaps_right_mask.png` - project-authored ownership mask for a pre-existing approved room object; no external source.
+
+Accepted built-in ImageGen sources and alpha derivatives used by runtime:
+
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/craft_room_supply_cupboard_left_sheet_alpha.png` - project-authored alpha derivative of an accepted project-owned OpenAI built-in ImageGen source; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/craft_room_supply_cupboard_left_sheet_chroma.png` - hash-verified repository copy of accepted project-owned OpenAI built-in ImageGen output; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/kitchen_fridge_sheet_checkerboard.png` - hash-verified byte-identical repository copy of the accepted 1536x1024 RGB OpenAI built-in ImageGen refrigerator source; its baked pale checker field is not true alpha/chroma and is removed only by the fully recorded deterministic segmentation in `PROVENANCE.json`; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_flower_float_sheet_alpha.png` - project-authored alpha derivative of an accepted project-owned OpenAI built-in ImageGen source; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_flower_float_sheet_chroma.png` - hash-verified repository copy of accepted project-owned OpenAI built-in ImageGen output; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_star_float_sheet_alpha.png` - project-authored alpha derivative of an accepted project-owned OpenAI built-in ImageGen source; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_star_float_sheet_chroma.png` - hash-verified repository copy of accepted project-owned OpenAI built-in ImageGen output; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/playroom_shelf_sailboat_sheet_alpha.png` - project-authored alpha derivative of an accepted project-owned OpenAI built-in ImageGen source; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/playroom_shelf_sailboat_sheet_chroma.png` - hash-verified repository copy of accepted project-owned OpenAI built-in ImageGen output; no external source.
+
+Source-review pass superseded by the final ownership gate:
+
+- `assets_src/imagegen/castle_object_animations_v4/playroom/playroom_tent_flaps_right_sheet_alpha.png` - project-authored alpha derivative that passed source review but is non-runtime because the tent outer canopy/knob is not source-owned.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/playroom_tent_flaps_right_sheet_chroma.png` - hash-verified project-owned OpenAI built-in ImageGen output that passed source review but is non-runtime because the tent outer canopy/knob is not source-owned.
+
+Rejected built-in ImageGen evidence and alpha derivatives:
+
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_seahorse_fountain_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence after the final room review found body-color and silhouette drift.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/mermaid_pool_seahorse_fountain_sheet_chroma.png` - rejected hash-verified project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence after the final room review found body-color and silhouette drift.
+- `assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/rejected_source_ownership_bubble_bath_toilet_roll_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/rejected_source_ownership_bubble_bath_toilet_roll_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/bubble_bath/rejected/toilet_roll_attempt1_includes_baked_holder.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/craft_room_ribbon_rack_right_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/craft_room_ribbon_rack_right_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/craft_room/rejected/supply_cupboard_attempt1_merged_layout.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/attempt2_kitchen_tea_service_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/attempt2_kitchen_tea_service_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_lid_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_lid_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/rejected_source_ownership_kitchen_stove_pot_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/tea_service_attempt1_spout_away_from_cup.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/tea_service_attempt2_duplicate_baked_cup.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/kitchen/rejected/teapot_attempt3_clean_but_source_extraction_failed.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/attempt1_magenta_sheet_alpha_failed.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/attempt1_magenta_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/bubble_fountain_attempt1_design_drift.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/rejected_design_drift_mermaid_pool_waterfall_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/mermaid_pool/rejected/rejected_design_drift_mermaid_pool_waterfall_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/rejected/full_arch_playroom_play_tent_right_sheet_alpha.png` - rejected project-authored alpha derivative of project-owned ImageGen output; retained only as non-runtime provenance evidence.
+- `assets_src/imagegen/castle_object_animations_v4/playroom/rejected/full_arch_playroom_play_tent_right_sheet_chroma.png` - rejected project-owned OpenAI built-in ImageGen output/repository copy; retained only as non-runtime provenance evidence.
+
+Runtime and provenance records:
+
+- `assets/flats/castle/interactions_v4/castle_interactions_v4.json` - project-authored runtime delivery, frame, placement, ownership, water, physics, and hash manifest.
+- `assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json` - project-authored exact-hash Codex visual-review ledger for all 104 authored runtime states and every measured static-card occlusion relation; no external source.
+- `assets_src/imagegen/castle_object_animations_v4/PROVENANCE.json` - project-authored built-in generation attempt, native-path/ID, source, derivative, status, reason, and hash ledger.
+- `CASTLE_NATIVE_INTERACTIONS_V4_AUDIT_2026-08-04.md` - project-authored comprehensive placement, blending, child-interest, animation-semantics, rejection, and duplication audit.
+
+## Pearl Castle static depth-card alpha repair (2026-08-04)
+
+The existing room foreground cards retain their approved source RGB wherever
+visible. This pass only tightens alpha to reviewed physical subjects, clears RGB
+beneath fully transparent pixels, and retires the Pool's full-water-oval mid card
+from runtime; no object or background art was generated or repainted.
+
+- `assets_src/castle/depth_cards/source_alpha/room_bubble_bath_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Bubble Bath foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_bubble_bath_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Bubble Bath foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_craft_room_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Craft Room foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_craft_room_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Craft Room foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_kitchen_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Kitchen foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_kitchen_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Kitchen foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_library_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Library foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_library_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Library foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_main_hall_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Main Hall foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_main_hall_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Main Hall foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_mermaid_pool_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Mermaid Pool foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_mermaid_pool_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Mermaid Pool foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_opera_hall_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Opera Hall foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_opera_hall_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Opera Hall foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_playroom_front_left_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Playroom foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/source_alpha/room_playroom_front_right_alpha.png` - lossless pre-repair alpha channel preserved from the project-owned Playroom foreground card; audit/rebuild source only.
+- `assets_src/castle/depth_cards/static_depth_card_refinement.json` - project-authored exact source/output hash, reviewed keep-shape, alpha/RGB metric, placement, retirement, and contact-sheet provenance ledger; no external source.
+- `audit/castle_static_depth_cards/static_depth_card_refinement_contact.png` - deterministic project-authored before/after checkerboard review sheet for all sixteen retained static depth cards; generated only from the licensed card/source pixels and alpha evidence above; no external source.
+
+## Opera Codex art regeneration - 2026-08-02
+
+OpenAI built-in ImageGen natives and project-authored non-destructive derivatives/composites. Copyright Mermaid Roshan LLC; no external asset license. Approved in-repo Opera cards used by Path-A widget compositions retain their existing provenance and licenses.
+
+- `assets/opera/worlds/backdrops/stage_astronaut_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_astronaut_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_astronaut_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_astronaut_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_ballerina_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_ballerina_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_ballerina_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_ballerina_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_boxer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_boxer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_boxer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_boxer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_candymaker_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_candymaker_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_candymaker_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_candymaker_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_chef_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_chef_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_chef_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_chef_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_detective_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_detective_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_detective_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_detective_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_doctor_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_doctor_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_doctor_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_doctor_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_farmer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_farmer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_farmer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_farmer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_magician_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_magician_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_magician_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_magician_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_nursery_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_nursery_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_nursery_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_nursery_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_painter_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_painter_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_painter_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_painter_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_popstar_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_popstar_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_popstar_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_popstar_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_racer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_racer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_racer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/stage_racer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_astronaut_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_astronaut_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_astronaut_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_astronaut_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_ballerina_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_ballerina_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_ballerina_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_ballerina_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_boxer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_boxer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_boxer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_boxer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_candymaker_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_candymaker_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_candymaker_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_candymaker_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_chef_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_chef_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_chef_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_chef_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_detective_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_detective_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_detective_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_detective_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_doctor_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_doctor_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_doctor_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_doctor_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_farmer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_farmer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_farmer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_farmer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_magician_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_magician_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_magician_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_magician_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_nursery_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_nursery_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_nursery_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_nursery_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_painter_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_painter_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_painter_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_painter_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_popstar_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_popstar_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_popstar_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_popstar_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_racer_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_racer_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_racer_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/backdrops/world_racer_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/props/goal_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/stage/finale_stage_c0r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/stage/finale_stage_c0r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/stage/finale_stage_c1r0.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/stage/finale_stage_c1r1.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/ui/magnifier.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/ui/station_marker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/ui/task_card_frame.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_doctor_bubbles.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_nursery_bubbles.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_basin_shared_shine.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_catch_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_catch_nursery_cradle.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_catch_nursery_pillows.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_astronaut_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_astronaut_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_ballerina_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_ballerina_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_farmer_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_farmer_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_magician_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_magician_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_popstar.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_popstar_full.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_charge_popstar_glow.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_astronaut_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_astronaut_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_ballerina_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_ballerina_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_candymaker_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_candymaker_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_chef_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_chef_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_doctor_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_doctor_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_magician_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_magician_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_painter_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_painter_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_popstar.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_popstar_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_popstar_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_racer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_racer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_crank_racer_progress.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_astronaut_success.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_chef_success.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_racer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_racer_success.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_gauge_shared_needle.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_astronaut_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_ballerina_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_boxer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_boxer_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_candymaker_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_detective.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_detective_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_doctor_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_farmer_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_magician_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_painter_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_popstar.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_popstar_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_lanes_shared_pick.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_candymaker_fill.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_candymaker_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_chef_fill.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_chef_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_nursery_fill.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_nursery_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_painter_fill.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_pour_painter_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_boxer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_boxer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_farmer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_nursery_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_racer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_racer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_shared_arrow_down.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_push_shared_arrow_lr.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_astronaut.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_astronaut_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_astronaut_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_boxer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_boxer_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_boxer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_boxer_success.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_candymaker_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_candymaker_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_chef_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_chef_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_doctor_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_doctor_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_farmer_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_farmer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_painter_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_painter_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_racer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_racer_mark.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_target_racer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_ballerina_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_chef.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_chef_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_detective.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_detective_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_doctor.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_doctor_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_magician_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_painter.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_trace_painter_lit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_ballerina.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_ballerina_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_boxer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_boxer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_candymaker.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_candymaker_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_detective.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_detective_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_farmer.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_farmer_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_magician.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_magician_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_nursery.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_nursery_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_popstar.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_popstar_mover.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets/opera/worlds/widgets/widget_track_shared_hit.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_finale_master_2048.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_basin_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_basin_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_catch_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_charge_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_gauge_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_gauge_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_gauge_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_lanes_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_push_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_push_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_push_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_push_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_astronaut.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_target_racer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_chef.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_doctor.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_trace_painter.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_ballerina.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_boxer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_candymaker.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_detective.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_farmer.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_magician.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_nursery.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_track_popstar.png` - project-authored staging master or Path-A composition derived from project-owned Opera art; non-destructive; no external source.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_p7_gameplay_scale_1280x720.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_01.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_02.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_03.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_04.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_05.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_06.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/concepts/opera_regeneration_2026-08-01/contact_sheets/opera_widgets_contact_07.png` - project-authored visual QA evidence derived from the licensed Opera delivery; not runtime art.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/candymaker_chutes_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/doctor_xray_viewer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/goal_nursery_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/magician_rope_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/magnifier_alpha_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/magnifier_chroma_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/opera_stage_finale_master_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_astronaut_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_ballerina_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_boxer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_candymaker_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_chef_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_detective_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_doctor_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_farmer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_magician_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_nursery_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_painter_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_popstar_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/stage_racer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/station_marker_alpha_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/station_marker_chroma_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/task_card_frame_alpha_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/task_card_frame_chroma_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_astronaut_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_ballerina_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_boxer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_candymaker_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_chef_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_detective_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_doctor_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_farmer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_magician_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_nursery_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_painter_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_popstar_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+- `assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png` - accepted OpenAI ImageGen native or transparent derived native; project-owned original; source/prompt/hash in OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json.
+
+## Fable Opera animation review kit (2026-08-04)
+
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_imp_family_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_60_widget_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_12_rival_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_selected_scuffles_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03/review_masters/opera_stress_master_contact.png` - project-authored Godot 4.7.1 Mobile-render visual QA evidence copied byte-for-byte from the ignored Opera capture tree; not runtime art; source and SHA-256 in the adjacent manifest.
+- `assets/audio/sfx/combat_*.wav` (combat_pop, combat_bonk, combat_poof,
+  combat_freeze, combat_charge_ring, combat_fizzle) — synthesized entirely
+  by `tools/gen_combat_sfx.py` in this repository (deterministic
+  pure-stdlib waveforms, seeded noise, no external sources, no recordings).
+  The combat feel-stack reaction voices: hit pop, harm bonk, death poof,
+  freeze tinkle, charge-ring shimmer, kind-miss fizzle. Owner-recorded
+  replacements can drop in at the same paths (all callers check
+  ResourceLoader.exists). License: project code.
+
+## Combat tutorial training art (2026-08-01)
+
+- `assets/castle/training/training_grotto_backdrop.png`,
+  `ghost_hand.png`, `verb_chip_tap.png`, `verb_chip_hold.png`, and their
+  preservation masters under
+  `assets_src/imagegen/combat_tutorial_2026-08-01/` are project-original art
+  generated with OpenAI built-in image generation on 2026-08-01. License:
+  project original. URL: none (project-local generation). The backdrop was
+  whole-canvas resized to 2048x1024. The three simple opaque subjects were
+  generated on flat green, converted to alpha with the installed Codex chroma
+  helper using soft matte and despill, then whole-canvas resized to 512x512 or
+  256x256. Exact prompts, generation identifiers, dimensions, hashes, reuse
+  audit, and processing notes are recorded in the adjacent `PROMPTS.md`.

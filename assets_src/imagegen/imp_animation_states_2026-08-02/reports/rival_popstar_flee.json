@@ -1,0 +1,63 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "flee",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    14,
+    24,
+    463,
+    503
+  ],
+  "visible_bbox": [
+    14,
+    24,
+    463,
+    503
+  ],
+  "solid_height": 480,
+  "gaps": {
+    "left": 14,
+    "right": 48,
+    "bottom": 8
+  },
+  "bottom_row_longest_solid_run": 12,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 115036,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    638
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.528061,
+  "solid_centroid_x": 260.447,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_popstar_flee_sheet_b_attempt01_alpha_crop_native.png",
+  "input_sha256": "0af5766ebc67108d552da5da79054ef116735f4df79b7427fd74e6c0c0916add",
+  "output": "assets\\opera\\worlds\\actors\\rival_popstar_flee.png",
+  "output_sha256": "486de9d51fea8b9cbee65fa9fa8375ffe7f79ea39622b1c2a4be121eda0a7be1",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_popstar.png",
+  "idle_sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 480,
+    "target_bottom_gap": 8,
+    "target_solid_centroid_x": 261.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_popstar_flee\\rival_popstar_flee_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_popstar_flee\\rival_popstar_flee_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_popstar_flee\\rival_popstar_flee_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_popstar_flee\\rival_popstar_flee_idle_comparison.png"
+  }
+}

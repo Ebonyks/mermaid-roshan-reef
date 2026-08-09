@@ -263,20 +263,28 @@ func _init() -> void:
 				and not main.g.has(retired_key)
 		print("AUDIT|retired 3D castle absent: ",
 			("OK" if legacy_hall_absent else "FAIL"))
-		var room_routes_ok: bool = main.castle_room_buttons.size() == 7 \
+		var room_routes_ok: bool = main.castle_room_buttons.size() == 8 \
+			and main.castle_room_buttons.has("family_gallery") \
 			and main.castle_room_buttons.has("opera_hall") \
 			and main.castle_room_buttons.has("bubble_bath") \
 			and main.castle_room_back_button != null \
-			and main.castle_room_stage.get_node_or_null("ElevatorButton") == null
-		print("AUDIT|castle has one physical route per room: ",
+			and main.castle_room_stage.get_node_or_null("ElevatorButton") != null \
+			and main.castle_room_menu_buttons.size() == 12 \
+			and main.castle_room_menu_buttons.has("dining_room") \
+			and main.castle_room_menu_buttons.has("movie_lounge") \
+			and not main.castle_room_menu_buttons.has("family_gallery")
+		print("AUDIT|castle physical doors plus direct elevator routes: ",
 			("OK" if room_routes_ok else "FAIL"))
-		# The Main Hall action celebrates in place and records the win without
-		# switching back to the free-roaming world.
+		# The eligible Royal Hall event celebrates in place and records the win
+		# without switching back to the free-roaming world.
 		if stage_ok:
 			rooms_a.show_room("main_hall", false)
 			rooms_a.activate_current_room()
-			await _frames(4)
-		print("AUDIT|Level 2 finish: ", ("OK" if bool(main.g.get("crown_won", false)) and bool(main.save_data.get("level2", false)) else "FAIL"))
+			var royal_hall_deadline_msec: int = Time.get_ticks_msec() + 3000
+			while not bool(main.g.get("crown_won", false)) \
+					and Time.get_ticks_msec() < royal_hall_deadline_msec:
+				await process_frame
+		print("AUDIT|Royal Hall Crown finish: ", ("OK" if bool(main.g.get("crown_won", false)) and bool(main.save_data.get("level2", false)) else "FAIL"))
 	for i2 in range(60):
 		await process_frame
 	print("AUDIT|save file: ", ("OK" if FileAccess.file_exists("user://reef_save.json") else "MISSING"))
@@ -328,6 +336,14 @@ func _audit_storybook_ui() -> bool:
 	ok = _ui_named_count(main.craft_layer, "CraftSwatch_*") == 8 and ok
 	ok = _ui_named_count(main.craft_layer, "CraftRainbowSwatch") == 1 and ok
 	main._close_craft()
+
+	main._open_castle_logo()
+	await process_frame
+	ok = _ui_target_ok(main.castle_logo_layer, "CastleLogoBackButton") and ok
+	ok = _ui_target_ok(main.castle_logo_layer, "CastleLogoFinishButton", Vector2(150, 150)) and ok
+	ok = _ui_named_count(main.castle_logo_layer, "CastleLogoColor_*") == 6 and ok
+	ok = _ui_named_count(main.castle_logo_layer, "CastleLogoSymbol_*") == 8 and ok
+	main._close_castle_logo()
 
 	main._open_wardrobe()
 	await process_frame

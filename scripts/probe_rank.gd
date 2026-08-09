@@ -50,6 +50,7 @@ func _init() -> void:
 		["dungeon", {"rooms": 10}, 3], ["dungeon", {"rooms": 5}, 2], ["dungeon", {"rooms": 1}, 1],
 		["bells", {"oops": 0}, 3], ["bells", {"oops": 2}, 2], ["bells", {"oops": 5}, 1],
 		["dance", {"combo": 12, "hits": 20}, 3], ["dance", {"combo": 6, "hits": 9}, 2], ["dance", {"combo": 1, "hits": 1}, 1],
+		["dustboss", {"wasted": 0}, 3], ["dustboss", {"wasted": 2}, 2], ["dustboss", {"wasted": 9}, 1],
 		["shop", {}, 0],
 	]
 	var tiers_bad := 0

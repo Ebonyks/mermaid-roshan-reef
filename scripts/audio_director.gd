@@ -38,6 +38,73 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		m.voice.play()
 
 
+# ===================== STORY DIALOGUE =====================
+# Sequenced spoken exchanges: two or more characters trading lines while the
+# game keeps running. There is ONE caption slot, so a burst of show_msg calls
+# overwrites itself; story lines queue here instead and advance on a TIMER —
+# never on audio-finished, because headless probe runs have no audio device.
+# Any touch skips to the next line, so neither an impatient child nor a probe
+# pump is ever blocked. Queue state lives on ReefMain per the satellite rule.
+
+func say_sequence(lines: Array, opening_hold: float = 0.0) -> void:
+	if lines.is_empty():
+		return
+	m.dialogue_queue = lines.duplicate(true)
+	m.dialogue_t = opening_hold
+	m.dialogue_active = true
+	if opening_hold <= 0.0:
+		_advance_dialogue()
+
+
+func _stop_active_speech() -> void:
+	# Dialogue owns one audible voice at a time. Stop both exact-line players
+	# and the generic fallback before a line changes or its location tears down.
+	for voice_player_value: Variant in m.voice_pool:
+		var voice_player: AudioStreamPlayer = voice_player_value as AudioStreamPlayer
+		if voice_player != null:
+			voice_player.stop()
+	if m.voice != null:
+		m.voice.stop()
+
+
+func _advance_dialogue() -> void:
+	_stop_active_speech()
+	if m.dialogue_queue.is_empty():
+		m.dialogue_active = false
+		m.dialogue_t = 0.0
+		return
+	var line: Dictionary = m.dialogue_queue.pop_front()
+	show_msg(
+		String(line.get("who", "Roshan")),
+		String(line.get("text", "")),
+		String(line.get("vo", "talk"))
+	)
+	m.dialogue_t = maxf(0.8, float(line.get("hold", 3.2)))
+
+
+## A touch consumed a story line? (callers use this to swallow the tap)
+func skip_dialogue() -> bool:
+	if not m.dialogue_active:
+		return false
+	_advance_dialogue()
+	return true
+
+
+func tick_dialogue(delta: float) -> void:
+	if not m.dialogue_active:
+		return
+	m.dialogue_t -= delta
+	if m.dialogue_t <= 0.0:
+		_advance_dialogue()
+
+
+func clear_dialogue() -> void:
+	_stop_active_speech()
+	m.dialogue_queue = []
+	m.dialogue_t = 0.0
+	m.dialogue_active = false
+
+
 func _speaker_key(who: String) -> String:
 	var w := who.to_lower()
 	if "rosalina" in w: return "rosalina"
@@ -53,11 +120,33 @@ func _speaker_key(who: String) -> String:
 	if "sparkle" in w or "eagle" in w: return "sparkle"
 	if "mewsha" in w or "kitty" in w: return "mewsha"
 	if "everyone" in w: return "everyone"
+	if "maestro" in w: return "maestro"
+	if "kareem" in w: return "shop"
 	if "imp" in w: return "imp"
 	return "roshan"
 
 
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:
+	# owner 2026-08-04: opera career worlds are full-screen art with no text.
+	# The spoken line IS the message there; the caption strip stays empty.
+	# ALPHA MERCY (2026-08-05): that rule assumed every line had a recording.
+	# 14 career vo keys have none (all of detective's dialogue among them) —
+	# with the caption ALSO hidden the instruction collapsed to a pitched
+	# "yay" and the child was left with nothing. When the exact clip is
+	# missing the caption comes back, so the grown-up sitting beside her can
+	# read the line aloud. The moment a recording lands, the text hides again.
+	if m.game == "opera":
+		var speaker := _speaker_key(who)
+		var has_exact := ResourceLoader.exists(
+			"res://assets/audio/voices/" + speaker + "_" + vo + ".ogg")
+		m.hud_msg.visible = false
+		if not has_exact and txt != "":
+			m.hud_msg.text = txt
+			m.hud_msg.visible = true
+			m.msg_timer = 5.0
+		if who != "":
+			_say(speaker, vo, 0.5)
+		return
 	m.hud_msg.text = txt
 	m.hud_msg.visible = txt != ""
 	m.msg_timer = 5.0
@@ -74,16 +163,22 @@ func _fanfare() -> void:
 	# assets/audio/voices/<speaker>_win.ogg and they play automatically.)
 	if m.chime == null:
 		return
-	m.chime.pitch_scale = 0.9
-	m.chime.play()
-	m.get_tree().create_timer(0.16).timeout.connect(func():
-		if m.chime != null:
-			m.chime.pitch_scale = 1.12
-			m.chime.play())
-	m.get_tree().create_timer(0.34).timeout.connect(func():
-		if m.chime != null:
-			m.chime.pitch_scale = 1.35
-			m.chime.play())
+	var chime: AudioStreamPlayer = m.chime
+	var chime_ref: WeakRef = weakref(chime)
+	chime.pitch_scale = 0.9
+	chime.play()
+	m.get_tree().create_timer(0.16).timeout.connect(
+		_play_fanfare_step.bind(chime_ref, 1.12))
+	m.get_tree().create_timer(0.34).timeout.connect(
+		_play_fanfare_step.bind(chime_ref, 1.35))
+
+
+func _play_fanfare_step(chime_ref: WeakRef, pitch: float) -> void:
+	var chime: AudioStreamPlayer = chime_ref.get_ref() as AudioStreamPlayer
+	if chime == null or not is_instance_valid(chime):
+		return
+	chime.pitch_scale = pitch
+	chime.play()
 
 
 func _set_ambience(track: String) -> void:
@@ -131,6 +226,55 @@ func _tick_ambience_duck(delta: float) -> void:
 		return
 	var want: float = -16.0 if talking else -10.0
 	m.ambience.volume_db = lerpf(m.ambience.volume_db, want, minf(1.0, delta * 6.0))
+
+
+# Combat pop with the chain pitch ladder (COMBO_SYSTEM): chain 1/2/3 climb
+# a step each, 4 is the SUPER top. A dedicated player so combo pitch never
+# fights the global button-tap hook. Combat has its own pop voice
+# (synthesized pack, tools/gen_combat_sfx.py); ui_tap remains the fallback
+# so a missing pack degrades to the old sound, never to silence.
+const POP_PITCH: Array[float] = [1.0, 1.15, 1.3, 1.4]
+const SFX_ROOT := "res://assets/audio/sfx/"
+
+
+func pop(level: int) -> void:
+	if m._pop_player == null:
+		m._pop_player = AudioStreamPlayer.new()
+		m._pop_player.bus = "UI"
+		var pop_path: String = SFX_ROOT + "combat_pop.wav"
+		if ResourceLoader.exists(pop_path):
+			m._pop_player.stream = load(pop_path)
+		else:
+			m._pop_player.stream = load("res://assets/audio/ui_tap.ogg")
+		m._pop_player.volume_db = -6.0
+		m._pop_player.process_mode = Node.PROCESS_MODE_ALWAYS
+		m.add_child(m._pop_player)
+	m._pop_player.pitch_scale = POP_PITCH[clampi(level - 1, 0, POP_PITCH.size() - 1)]
+	m._pop_player.play()
+
+
+# The combat reaction voice: bonks, poofs, tinkles, fizzles. A tiny
+# rotating pool so rapid hits never cut each other off; every call degrades
+# to silence gracefully when a file is absent, so owner-recorded
+# replacements can drop in at the same paths any time.
+func sfx(name: String, pitch: float = 1.0, volume_db: float = -6.0) -> void:
+	var path: String = SFX_ROOT + name + ".wav"
+	if not ResourceLoader.exists(path):
+		return
+	if m._sfx_pool.is_empty():
+		for _i in range(4):
+			var ap := AudioStreamPlayer.new()
+			ap.bus = "SFX"
+			ap.process_mode = Node.PROCESS_MODE_ALWAYS
+			m.add_child(ap)
+			m._sfx_pool.append(ap)
+	var player: AudioStreamPlayer = m._sfx_pool[m._sfx_i % m._sfx_pool.size()]
+	m._sfx_i += 1
+	if player.stream == null or player.stream.resource_path != path:
+		player.stream = load(path)
+	player.pitch_scale = pitch
+	player.volume_db = volume_db
+	player.play()
 
 
 func _ui_tap() -> void:

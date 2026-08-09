@@ -11,7 +11,7 @@ const CATEGORY_ORDER := ["fish", "insect", "bird"]
 const CATEGORY_ICON := {"fish": "🐟", "insect": "🦋", "bird": "🐦"}
 const HABITAT_ICON := {"reef": "🌊", "meadow": "🌸", "river": "💧", "alpine": "❄"}
 const HABITAT_LABEL := {
-	"reef": "Reef Garden",
+	"reef": "Ocean Garden",
 	"meadow": "Lagoon Meadow",
 	"river": "Lagoon River",
 	"alpine": "Alpine Ridge",
@@ -278,7 +278,7 @@ func _catch(id: String) -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 1.2
 		m.chime.play()
-	var habitat := String(HABITAT_LABEL.get(String(d["habitat"]), "the reef"))
+	var habitat := String(HABITAT_LABEL.get(String(d["habitat"]), "the ocean"))
 	m.show_msg("Roshan", "I found a %s! It lives in %s. Into our Critter Book!" % [String(d["name"]), habitat], "")
 	m._update_hud()
 	m._write_save()
@@ -363,7 +363,7 @@ func _draw_book() -> void:
 
 	var close := Button.new()
 	close.name = "CritterBookBackButton"
-	StorybookUI.style_back_button(close, "Back to the reef")
+	StorybookUI.style_back_button(close, "Back to the castle")
 	close.position = Vector2(1110, 32)
 	close.pressed.connect(close_book)
 	stage.add_child(close)

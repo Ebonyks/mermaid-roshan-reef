@@ -1,0 +1,71 @@
+{
+  "pass": true,
+  "failures": [],
+  "state": "bopped",
+  "canvas": [
+    512,
+    512
+  ],
+  "mode": "RGBA",
+  "solid_bbox": [
+    118,
+    47,
+    388,
+    456
+  ],
+  "visible_bbox": [
+    118,
+    47,
+    388,
+    456
+  ],
+  "solid_height": 410,
+  "gaps": {
+    "left": 118,
+    "right": 123,
+    "bottom": 55
+  },
+  "bottom_row_longest_solid_run": 11,
+  "semi_alpha_pixels": 0,
+  "solid_pixels": 56357,
+  "semi_alpha_to_solid_ratio": 0.0,
+  "solid_connected_components": 1,
+  "interior_hole_areas": [
+    87,
+    22,
+    19,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "reviewed_large_hole_exemptions": 5,
+  "dominant_purple_rgb": [
+    200,
+    120,
+    232
+  ],
+  "dominant_purple_distance_from_d070f0": 13.856,
+  "silhouette_iou_against_idle": 0.493631,
+  "solid_centroid_x": 256.038,
+  "input": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\candidates\\rival_farmer_bopped_attempt02_alpha_native.png",
+  "input_sha256": "ffd9858b4de1ab39067a42b0f9168ec56ce25e61a07d589b7fd3b2dc1f0aa00e",
+  "output": "assets\\opera\\worlds\\actors\\rival_farmer_bopped.png",
+  "output_sha256": "6cff8f9bca7ef2733525d4011fae7bb87a5190df445a2ce9cc3adeac7690502e",
+  "idle_reference": "assets\\opera\\worlds\\actors\\rival_farmer.png",
+  "idle_sha256": "399bfc65195d4fd959865620d206d6c115fac79b5c8921b3102277d8b416c9e9",
+  "normalization": {
+    "method": "uniform whole-subject Lanczos scale and translation on transparent canvas",
+    "target_solid_height": 410,
+    "target_bottom_gap": 55,
+    "target_solid_centroid_x": 256.0
+  },
+  "qa_renders": {
+    "checker": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_farmer_bopped\\rival_farmer_bopped_checker.png",
+    "silhouette": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_farmer_bopped\\rival_farmer_bopped_silhouette.png",
+    "phone_25pct": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_farmer_bopped\\rival_farmer_bopped_phone_25pct.png",
+    "idle_comparison": "assets_src\\imagegen\\imp_animation_states_2026-08-02\\qa\\rival_farmer_bopped\\rival_farmer_bopped_idle_comparison.png"
+  }
+}

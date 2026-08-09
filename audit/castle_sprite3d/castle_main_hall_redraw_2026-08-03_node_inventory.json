@@ -1,0 +1,898 @@
+{
+	"schema": 1,
+	"purpose": "Castle Main Hall runtime Sprite3D node-type inventory",
+	"engine": {
+		"major": 4,
+		"minor": 7,
+		"patch": 1,
+		"hex": 263937,
+		"status": "stable",
+		"build": "official",
+		"hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+		"timestamp": 0,
+		"string": "4.7.1-stable (official)"
+	},
+	"rendering_method": "mobile",
+	"room": "main_hall",
+	"node_types": {
+		"Node3D": 5,
+		"Sprite3D": 49,
+		"Camera3D": 1,
+		"DirectionalLight3D": 1,
+		"SpotLight3D": 4,
+		"Node": 1
+	},
+	"world_art_roles": {
+		"unspecified_sprite3d": 1,
+		"clean_background": 1,
+		"clean_background_tile": 16,
+		"unique_object": 16,
+		"room_door_sign": 8,
+		"royal_hall_mist": 5,
+		"actor_shadow": 1,
+		"character": 1
+	},
+	"sprite3d": {
+		"total": 49,
+		"visible": 27,
+		"unshaded": 49,
+		"shaded": 0,
+		"depth_tested": 49,
+		"missing_texture": 0
+	},
+	"sprite3d_cards": [
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/CastleTouchAffordance",
+			"role": "unspecified_sprite3d",
+			"source_object_id": "",
+			"texture": "",
+			"texture_dimensions": [
+				128,
+				128
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.685000002384186
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomBackdrop",
+			"role": "clean_background",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/rooms/room_main_hall_background_v2.png",
+			"texture_dimensions": [
+				1024,
+				576
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 1,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r0_c0",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r0_c1",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r0_c2",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r0_c3",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r0_c4",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r0_c5",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r0_c6",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r0_c7",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c7.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r1_c0",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r1_c1",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r1_c2",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r1_c3",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r1_c4",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r1_c5",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r1_c6",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/MainHallTile_r1_c7",
+			"role": "clean_background_tile",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c7.png",
+			"texture_dimensions": [
+				910,
+				1024
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": false,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.0
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_a0",
+			"role": "unique_object",
+			"source_object_id": "main_hall:sconce_a0",
+			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
+			"texture_dimensions": [
+				1024,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.720000028610229
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_a1",
+			"role": "unique_object",
+			"source_object_id": "main_hall:sconce_a1",
+			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
+			"texture_dimensions": [
+				1024,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.720000028610229
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_a2",
+			"role": "unique_object",
+			"source_object_id": "main_hall:sconce_a2",
+			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
+			"texture_dimensions": [
+				1024,
+				1024
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.720000028610229
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_b0",
+			"role": "unique_object",
+			"source_object_id": "main_hall:sconce_b0",
+			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
+			"texture_dimensions": [
+				1024,
+				1024
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.720000028610229
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_b1",
+			"role": "unique_object",
+			"source_object_id": "main_hall:sconce_b1",
+			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
+			"texture_dimensions": [
+				1024,
+				1024
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.720000028610229
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sconce_b2",
+			"role": "unique_object",
+			"source_object_id": "main_hall:sconce_b2",
+			"texture": "res://assets/flats/castle/interactions_v2/main_hall_sconce_sheet.png",
+			"texture_dimensions": [
+				1024,
+				1024
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.720000028610229
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_sleepy_bunny",
+			"role": "unique_object",
+			"source_object_id": "main_hall:sleepy_bunny",
+			"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+			"texture_dimensions": [
+				512,
+				512
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 2.65000009536743
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_shell_bunny",
+			"role": "unique_object",
+			"source_object_id": "main_hall:shell_bunny",
+			"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+			"texture_dimensions": [
+				512,
+				512
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 3.04999995231628
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_runner_bunny",
+			"role": "unique_object",
+			"source_object_id": "main_hall:runner_bunny",
+			"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+			"texture_dimensions": [
+				512,
+				512
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 2.84999990463257
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_shell_clock",
+			"role": "unique_object",
+			"source_object_id": "main_hall:shell_clock",
+			"texture": "res://assets/flats/castle/interactions_v3/main_hall_shell_clock_sheet.png",
+			"texture_dimensions": [
+				768,
+				384
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 0.699999988079071
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_visitor_bell",
+			"role": "unique_object",
+			"source_object_id": "main_hall:visitor_bell",
+			"texture": "res://assets/flats/castle/interactions_v3/main_hall_visitor_bell_sheet.png",
+			"texture_dimensions": [
+				768,
+				384
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 0.709999978542328
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_left_pearl_vitrine",
+			"role": "unique_object",
+			"source_object_id": "main_hall:left_pearl_vitrine",
+			"texture": "res://assets/flats/castle/interactions_v3/main_hall_left_pearl_vitrine_sheet.png",
+			"texture_dimensions": [
+				768,
+				384
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 0.689999997615814
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_right_pearl_vitrine",
+			"role": "unique_object",
+			"source_object_id": "main_hall:right_pearl_vitrine",
+			"texture": "res://assets/flats/castle/interactions_v3/main_hall_right_pearl_vitrine_sheet.png",
+			"texture_dimensions": [
+				768,
+				384
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 0.689999997615814
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_banner_left",
+			"role": "unique_object",
+			"source_object_id": "main_hall:banner_left",
+			"texture": "res://assets/flats/castle/interactions_v3/main_hall_banner_left_sheet.png",
+			"texture_dimensions": [
+				768,
+				384
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 0.680000007152557
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_fern_planter",
+			"role": "unique_object",
+			"source_object_id": "main_hall:fern_planter",
+			"texture": "res://assets/flats/castle/interactions_v3/main_hall_fern_planter_sheet.png",
+			"texture_dimensions": [
+				768,
+				384
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 2.82999992370605
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/TouchableRoomProps/Animated_chest_bench",
+			"role": "unique_object",
+			"source_object_id": "main_hall:chest_bench",
+			"texture": "res://assets/flats/castle/interactions_v3/main_hall_chest_bench_sheet.png",
+			"texture_dimensions": [
+				768,
+				384
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 2.88000011444092
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallDoorSign_family_gallery",
+			"role": "room_door_sign",
+			"source_object_id": "main_hall_sign:family_gallery",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+			"texture_dimensions": [
+				256,
+				256
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.680000007152557
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallDoorSign_opera_hall",
+			"role": "room_door_sign",
+			"source_object_id": "main_hall_sign:opera_hall",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+			"texture_dimensions": [
+				256,
+				256
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.680000007152557
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallDoorSign_library",
+			"role": "room_door_sign",
+			"source_object_id": "main_hall_sign:library",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+			"texture_dimensions": [
+				256,
+				256
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.680000007152557
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallDoorSign_kitchen",
+			"role": "room_door_sign",
+			"source_object_id": "main_hall_sign:kitchen",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+			"texture_dimensions": [
+				256,
+				256
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.680000007152557
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallDoorSign_playroom",
+			"role": "room_door_sign",
+			"source_object_id": "main_hall_sign:playroom",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png",
+			"texture_dimensions": [
+				256,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.680000007152557
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallDoorSign_craft_room",
+			"role": "room_door_sign",
+			"source_object_id": "main_hall_sign:craft_room",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_craft_room.png",
+			"texture_dimensions": [
+				256,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.680000007152557
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallDoorSign_mermaid_pool",
+			"role": "room_door_sign",
+			"source_object_id": "main_hall_sign:mermaid_pool",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png",
+			"texture_dimensions": [
+				256,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.680000007152557
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/HallDoorSign_bubble_bath",
+			"role": "room_door_sign",
+			"source_object_id": "main_hall_sign:bubble_bath",
+			"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png",
+			"texture_dimensions": [
+				256,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.680000007152557
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_0",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_0",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+			"texture_dimensions": [
+				46,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.400000005960464
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_1",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_1",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+			"texture_dimensions": [
+				46,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.419999986886978
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_2",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_2",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+			"texture_dimensions": [
+				46,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.439999997615814
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_3",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_3",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+			"texture_dimensions": [
+				46,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.46000000834465
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoomMidground/RoyalHallMist_4",
+			"role": "royal_hall_mist",
+			"source_object_id": "main_hall:royal_hall_mist_4",
+			"texture": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+			"texture_dimensions": [
+				46,
+				256
+			],
+			"visible": false,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 0,
+			"cast_shadow_mode": 0,
+			"depth_z": 0.479999989271164
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoshanContactShadow",
+			"role": "actor_shadow",
+			"source_object_id": "",
+			"texture": "res://assets/flats/castle/rooms/room_actor_shadow.png",
+			"texture_dimensions": [
+				256,
+				64
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 0,
+			"depth_z": 1.24166667461395
+		},
+		{
+			"node_path": "/root/Main/CastleRoomsSprite3DWorld/RoshanCutout",
+			"role": "character",
+			"source_object_id": "",
+			"texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+			"texture_dimensions": [
+				1024,
+				512
+			],
+			"visible": true,
+			"unshaded": true,
+			"depth_tested": true,
+			"transparent": true,
+			"alpha_cut_mode": 1,
+			"cast_shadow_mode": 2,
+			"depth_z": 1.28166663646698
+		}
+	],
+	"validation": {
+		"registered_background_cards": 16,
+		"door_sign_cards": 8,
+		"royal_hall_mist_cards": 5,
+		"retained_throne_cards": 0,
+		"forbidden_world_art_nodes": {
+			"Sprite2D": 0,
+			"AnimatedSprite2D": 0,
+			"TextureRect": 0,
+			"Polygon2D": 0,
+			"MeshInstance3D": 0,
+			"MultiMeshInstance3D": 0,
+			"CSGShape3D": 0
+		},
+		"forbidden_world_art_total": 0,
+		"all_sprite3d_unshaded": true,
+		"all_sprite3d_depth_tested": true,
+		"all_sprite3d_textured": true,
+		"structural_pass": true
+	}
+}

@@ -33,6 +33,8 @@ var stage_mode := false
 ## the 1024x576 scene keys ARE the career backdrops — same 16:9 aspect as
 ## the 1280x720 viewport). The vector set below remains the fallback.
 var painting: Texture2D = null
+var world_tiles: Array[Texture2D] = []
+var stage_tiles: Array[Texture2D] = []
 
 
 func setup(id: String) -> void:
@@ -40,7 +42,37 @@ func setup(id: String) -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var path := "res://assets/opera/worlds/backdrops/world_%s.png" % id
 	painting = load(path) as Texture2D if ResourceLoader.exists(path) else null
+	world_tiles = _load_tile_set("world")
+	stage_tiles = _load_tile_set("stage")
 	queue_redraw()
+
+
+func _load_tile_set(kind: String) -> Array[Texture2D]:
+	var textures: Array[Texture2D] = []
+	for row in range(2):
+		for column in range(2):
+			var path := "res://assets/opera/worlds/backdrops/%s_%s_c%dr%d.png" % [
+				kind, career_id, column, row,
+			]
+			if not ResourceLoader.exists(path):
+				return []
+			var texture := load(path) as Texture2D
+			if texture == null:
+				return []
+			textures.append(texture)
+	return textures
+
+
+func _draw_tile_set(textures: Array[Texture2D]) -> void:
+	# The authored 16:9 playfield occupies y=448..1600 of the 2048-square
+	# master. Draw the central 576px from each POT row into a screen quadrant.
+	var half := size * 0.5
+	for row in range(2):
+		for column in range(2):
+			var source_y := 448.0 if row == 0 else 0.0
+			var source := Rect2(0.0, source_y, 1024.0, 576.0)
+			var destination := Rect2(Vector2(float(column) * half.x, float(row) * half.y), half)
+			draw_texture_rect_region(textures[row * 2 + column], destination, source)
 
 
 func set_stage(on_stage: bool) -> void:
@@ -63,9 +95,17 @@ func _draw() -> void:
 	var sky := Color(palette[0])
 	var mid := Color(palette[1])
 	var accent := Color(palette[2])
+	var active_tiles: Array[Texture2D] = stage_tiles if stage_mode and stage_tiles.size() == 4 else world_tiles
+	if active_tiles.size() == 4:
+		_draw_tile_set(active_tiles)
+		_draw_spotlights(accent)
+		return
 	if painting != null:
 		draw_texture_rect(painting, Rect2(Vector2.ZERO, size), false)
-		_draw_spotlights(accent)
+		# spotlights are stage lighting — over a painted district they fight
+		# the art's own light sources
+		if stage_mode:
+			_draw_spotlights(accent)
 		if stage_mode:
 			_draw_stage_frame(accent)
 		return

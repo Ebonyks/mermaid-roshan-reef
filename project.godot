@@ -1,6 +1,7 @@
 ; Engine configuration file.
 ; It's best edited using the editor UI and not directly,
 ; since the parameters that go here are not all obvious.
+; Runtime/editor baseline: Godot 4.7.1-stable (owner decision 2026-07-29).
 ;
 ; Format:
 ;   [section] ; section goes between []
@@ -23,6 +24,14 @@ boot_splash/use_filter=true
 config/name="Mermaid Roshan Reef of Light"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
+
+[audio]
+
+; Spoken spells (MIC_SPELLS.md). This only PERMITS capture — Godot opens the
+; input device when an AudioStreamMicrophone actually starts playing, which
+; scripts/mic_input.gd does on entering a battle and undoes on leaving it.
+; Nothing is captured at boot.
+driver/enable_input=true
 
 [display]
 

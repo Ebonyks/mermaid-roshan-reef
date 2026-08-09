@@ -14,6 +14,14 @@ func _init() -> void:
 	sd["custom_fish"] = [[0.9, 0.3, 0.3, 1.0, 0.8, 0.2]]   # one crafted fish in the save
 	sd["animals"] = {"turtle": true}   # one tank friend already set free
 	sd["critters"] = {"coral_clownfish": true}   # one Critter Book discovery
+	sd["castle_logo_color"] = "purple"
+	sd["castle_logo_symbol"] = "dog"
+	# A pre-audit build could persist a friend as "resting" after its care
+	# countdown expired. The key must remain readable, but loading it must
+	# immediately return the friend with boo-boos/progress intact.
+	sd["companion"] = "eagle"
+	sd["companion_resting"] = true
+	sd["companion_bruises"] = 2
 	var w := FileAccess.open("user://reef_save.json", FileAccess.WRITE)
 	w.store_string(JSON.stringify(sd))
 	w.close()
@@ -24,7 +32,8 @@ func _init() -> void:
 	var main: Node = root.get_child(root.get_child_count() - 1)
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
-	await process_frame
+	for i in range(12):
+		await process_frame
 	print("loaded trophies: ", main.trophies, "/5  finale_done: ", main.finale_done)
 	var stars := 0
 	for f in main.friends:
@@ -57,4 +66,16 @@ func _init() -> void:
 		print("FAIL: Critter Book discovery missing after reload")
 	else:
 		print("Critter Book restored: coral_clownfish")
+	if main.castle_logo_color != "purple" or main.castle_logo_symbol != "dog":
+		print("FAIL: castle logo choice missing after reload")
+	else:
+		print("castle logo restored: purple puppy")
+	if main.companion_resting or bool(main.save_data.get("companion_resting", true)):
+		print("FAIL: legacy resting companion remained unavailable after reload")
+	elif main.companion_id != "eagle" or main.companion_bruises != 2:
+		print("FAIL: legacy companion recovery lost identity or pending care")
+	elif main.companion_node == null or not is_instance_valid(main.companion_node):
+		print("FAIL: legacy resting companion did not return beside Roshan")
+	else:
+		print("legacy resting companion recovered with patient care intact")
 	quit()

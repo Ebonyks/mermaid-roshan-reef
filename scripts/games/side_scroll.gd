@@ -1,8 +1,8 @@
 class_name SideScrollStage
 extends RefCounted
-# Phase 8: the SIDE-SCROLL STAGE engine — one shared 2.5D rig for "flat
-# stage" minigames. It puts the REAL player node (the rigged 3D Roshan with
-# whatever wardrobe skin she is wearing) on a left/right line in front of a
+# Phase 8: the SIDE-SCROLL STAGE engine — one shared 2.5D layout for "flat
+# stage" minigames. It puts Roshan's animated 2D player card, with the selected
+# wardrobe skin, on a left/right line in front of a
 # side-on camera, and owns the one-finger composite input read
 # (drag-to-point ∥ virtual stick ∥ arrows/AD ∥ gamepad axis). Games built on
 # it own only their objective logic and set dressing.
@@ -49,8 +49,8 @@ func open(cfg: Dictionary) -> void:
 	# optical axis perpendicular to the stage while its position eases. Without
 	# that lock, look-at snaps to the goal while position lags, briefly yawing
 	# the lens and making real-depth cards skate against painted sockets.
-	# Scale note: the v4 Roshan is ~7 world units tall (3.7× model scale in
-	# player.gd) — size stages against HER, not against a 2-unit toy.
+	# Scale note: the player card is about 7 world units tall. Size stages
+	# against her on-screen silhouette, not against a 2-unit toy.
 	m.g["ss_cfg"] = cfg
 	m.g["ss_bob"] = 0.0
 	m.g["ss_run_x"] = 0.0
@@ -268,7 +268,14 @@ func walk_tick(delta: float) -> Dictionary:
 			# plane_goal() for the presses its director judges to be travel.
 			var vp := m.get_viewport()
 			if vp != null:
-				var goal_here: Variant = plane_goal(vp.get_mouse_position())
+				# ownership first: the emulated pointer cannot tell a press on
+				# the action medallion or in the thumb bay from a press on open
+				# ground, and travelling toward a held BUTTON is never what the
+				# child asked for
+				var press: Vector2 = vp.get_mouse_position()
+				var reserved: bool = m.touch_ui != null \
+					and m.touch_ui.reserved_zone_hit(press)
+				var goal_here: Variant = null if reserved else plane_goal(press)
 				if goal_here is Vector2:
 					m.g["ss_walk_goal"] = goal_here
 					pointing = true
@@ -846,6 +853,14 @@ func props_tick(delta: float) -> Dictionary:
 	var awake := 0
 	var amp := swell_amp()
 	var t: float = float(m.g.get("ss_swell_t", 0.0))
+	# opt-in waterline (cfg "water_y", stage-local): an awake body crossing
+	# it with real vertical speed procs the shared splash vocabulary
+	# (fx_water.gd) — a discrete transition event, never the ambient tide
+	var cfgd: Dictionary = m.g.get("ss_cfg", {})
+	var water_y: float = float(cfgd.get("water_y", -1e18))
+	var r0 := root()
+	if water_y > -1e17 and r0 != null:
+		water_y += r0.global_position.y   # bodies compare in global space
 	var ppos: Vector3 = m.player.global_position
 	var pvel: Vector3 = m.player.vel
 	for p_v in fleet:
@@ -872,6 +887,12 @@ func props_tick(delta: float) -> Dictionary:
 				q.rotation.z = sw.y
 		else:
 			awake += 1
+			if water_y > -1e17:
+				var below: bool = b.global_position.y < water_y
+				if below != bool(b.get_meta("fxw_below", below)) and absf(b.linear_velocity.y) > 2.0:
+					m.fx_splash(Vector3(b.global_position.x, water_y, b.global_position.z),
+						absf(b.linear_velocity.y), "prop_%d" % b.get_instance_id())
+				b.set_meta("fxw_below", below)
 			if amp > 0.0:
 				var fade: float = clampf(1.0 - (t - float(b.get_meta("ss_stir", 0.0))) / 6.0, 0.0, 1.0)
 				if fade > 0.0:
