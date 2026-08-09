@@ -40,6 +40,8 @@ REQUIRED_SCORES = ("construction", "identity", "motion", "contact", "style", "pe
 FRAME_REGENERATION_SCORES = ("identity", "topology", "style", "neighbor_continuity")
 FRAME_REGENERATION_FLOOR = 4.9
 ANALYSIS_SIZE = (320, 180)
+PRODUCTION_DELIVERY_SIZE = (1280, 720)
+VIDEO_GEOMETRY_TOLERANCE = 1e-6
 BOIL_THRESHOLD = 8
 SHA256_PATTERN = re.compile(r"^[0-9a-fA-F]{64}$")
 FULL_FRAME_GENERATION_METHOD = "full_frame_image_generation"
@@ -86,14 +88,48 @@ def parse_rate(value: Any) -> float:
         return 0.0
 
 
-def video_info(video: Path) -> tuple[float, int]:
+def parse_aspect_ratio(value: Any) -> tuple[int, int] | None:
+    if not isinstance(value, str):
+        return None
+    separator = ":" if ":" in value else "/" if "/" in value else None
+    if separator is None:
+        return None
+    numerator, denominator = value.split(separator, 1)
+    try:
+        parsed_numerator = int(numerator)
+        parsed_denominator = int(denominator)
+    except ValueError:
+        return None
+    if parsed_numerator <= 0 or parsed_denominator <= 0:
+        return None
+    common = math.gcd(parsed_numerator, parsed_denominator)
+    return parsed_numerator // common, parsed_denominator // common
+
+
+def normalized_rotation(value: Any) -> float | None:
+    try:
+        rotation = float(value) % 360.0
+    except (TypeError, ValueError):
+        return None
+    if not math.isfinite(rotation):
+        return None
+    if math.isclose(rotation, 0.0, abs_tol=VIDEO_GEOMETRY_TOLERANCE) or math.isclose(
+        rotation, 360.0, abs_tol=VIDEO_GEOMETRY_TOLERANCE
+    ):
+        return 0.0
+    return rotation
+
+
+def video_info(video: Path) -> dict[str, Any]:
     data = json.loads(run([
         command("ffprobe"),
         "-v", "error",
         "-count_frames",
         "-select_streams", "v:0",
         "-show_entries",
-        "stream=avg_frame_rate,r_frame_rate,nb_frames,nb_read_frames,duration:format=duration",
+        "stream=avg_frame_rate,r_frame_rate,nb_frames,nb_read_frames,duration,"
+        "width,height,sample_aspect_ratio,display_aspect_ratio:"
+        "stream_tags=rotate:stream_side_data=rotation:format=duration",
         "-of", "json",
         str(video),
     ]))
@@ -114,7 +150,155 @@ def video_info(video: Path) -> tuple[float, int]:
     count = encoded_count or displayed_count or packet_count
     if fps <= 0 or count <= 0:
         fail("video must expose a positive frame rate and frame count")
-    return fps, count
+    width = int(stream.get("width") or 0)
+    height = int(stream.get("height") or 0)
+    if width <= 0 or height <= 0:
+        fail("video must expose positive coded width and height")
+
+    sample_aspect_text = stream.get("sample_aspect_ratio")
+    sample_aspect = parse_aspect_ratio(sample_aspect_text)
+    reported_display_aspect_text = stream.get("display_aspect_ratio")
+    reported_display_aspect = parse_aspect_ratio(reported_display_aspect_text)
+
+    raw_rotations: list[Any] = []
+    tags = stream.get("tags")
+    if isinstance(tags, dict) and "rotate" in tags:
+        raw_rotations.append(tags["rotate"])
+    side_data = stream.get("side_data_list")
+    if isinstance(side_data, list):
+        for item in side_data:
+            if isinstance(item, dict) and "rotation" in item:
+                raw_rotations.append(item["rotation"])
+    rotations = [normalized_rotation(value) for value in raw_rotations]
+    rotation_metadata_valid = all(value is not None for value in rotations)
+    valid_rotations = [value for value in rotations if value is not None]
+    rotation = valid_rotations[0] if valid_rotations else 0.0
+    rotation_conflict = any(
+        not math.isclose(value, rotation, abs_tol=VIDEO_GEOMETRY_TOLERANCE)
+        for value in valid_rotations[1:]
+    )
+
+    display_size: tuple[float, float] | None = None
+    effective_display_aspect: float | None = None
+    if sample_aspect is not None and rotation_metadata_valid and not rotation_conflict:
+        display_width = width * sample_aspect[0] / sample_aspect[1]
+        display_height = float(height)
+        if math.isclose(rotation, 90.0, abs_tol=VIDEO_GEOMETRY_TOLERANCE) or math.isclose(
+            rotation, 270.0, abs_tol=VIDEO_GEOMETRY_TOLERANCE
+        ):
+            display_width, display_height = display_height, display_width
+        display_size = display_width, display_height
+        effective_display_aspect = display_width / display_height
+
+    reported_effective_aspect: float | None = None
+    if reported_display_aspect is not None:
+        reported_effective_aspect = (
+            reported_display_aspect[0] / reported_display_aspect[1]
+        )
+        if math.isclose(rotation, 90.0, abs_tol=VIDEO_GEOMETRY_TOLERANCE) or math.isclose(
+            rotation, 270.0, abs_tol=VIDEO_GEOMETRY_TOLERANCE
+        ):
+            reported_effective_aspect = 1.0 / reported_effective_aspect
+
+    return {
+        "fps": fps,
+        "frame_count": count,
+        "coded_size": (width, height),
+        "sample_aspect_ratio": sample_aspect,
+        "sample_aspect_ratio_text": sample_aspect_text,
+        "reported_display_aspect_ratio": reported_display_aspect,
+        "reported_display_aspect_ratio_text": reported_display_aspect_text,
+        "reported_effective_aspect_ratio": reported_effective_aspect,
+        "rotation_degrees": rotation,
+        "rotation_metadata_valid": rotation_metadata_valid,
+        "rotation_conflict": rotation_conflict,
+        "display_size": display_size,
+        "effective_display_aspect_ratio": effective_display_aspect,
+    }
+
+
+def validate_video_delivery(info: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    expected_width, expected_height = PRODUCTION_DELIVERY_SIZE
+    coded_width, coded_height = info["coded_size"]
+    if (coded_width, coded_height) != PRODUCTION_DELIVERY_SIZE:
+        errors.append(
+            f"video coded size {coded_width}x{coded_height} does not match required "
+            f"{expected_width}x{expected_height} landscape delivery"
+        )
+
+    sample_aspect = info.get("sample_aspect_ratio")
+    if sample_aspect != (1, 1):
+        errors.append(
+            "video sample aspect ratio must be explicit square pixels (1:1); "
+            f"found {info.get('sample_aspect_ratio_text')!r}"
+        )
+
+    rotation = info.get("rotation_degrees")
+    if not info.get("rotation_metadata_valid", False):
+        errors.append("video contains unreadable rotation metadata")
+    elif info.get("rotation_conflict", False):
+        errors.append("video contains conflicting rotation metadata")
+    elif not isinstance(rotation, (int, float)) or not math.isclose(
+        float(rotation), 0.0, abs_tol=VIDEO_GEOMETRY_TOLERANCE
+    ):
+        rotation_text = (
+            f"{rotation:g}" if isinstance(rotation, (int, float)) else repr(rotation)
+        )
+        errors.append(
+            f"video rotation metadata is {rotation_text} degrees; delivery must be "
+            "encoded in native landscape orientation"
+        )
+
+    display_size = info.get("display_size")
+    if display_size is None:
+        errors.append("video displayed dimensions cannot be derived from its metadata")
+    else:
+        display_width, display_height = display_size
+        if display_width <= display_height:
+            errors.append(
+                f"video displayed orientation is not landscape ({display_width:g}x{display_height:g})"
+            )
+        if not (
+            math.isclose(display_width, expected_width, abs_tol=VIDEO_GEOMETRY_TOLERANCE)
+            and math.isclose(display_height, expected_height, abs_tol=VIDEO_GEOMETRY_TOLERANCE)
+        ):
+            errors.append(
+                f"video displayed size {display_width:g}x{display_height:g} does not "
+                f"match required {expected_width}x{expected_height} delivery"
+            )
+
+    reported_aspect = info.get("reported_effective_aspect_ratio")
+    derived_aspect = info.get("effective_display_aspect_ratio")
+    if reported_aspect is not None and derived_aspect is not None and not math.isclose(
+        float(reported_aspect), float(derived_aspect), rel_tol=VIDEO_GEOMETRY_TOLERANCE
+    ):
+        errors.append(
+            "video display-aspect metadata conflicts with coded dimensions and "
+            "sample aspect ratio"
+        )
+    return errors
+
+
+def video_geometry_report(info: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "coded_size": list(info["coded_size"]),
+        "sample_aspect_ratio": list(info["sample_aspect_ratio"])
+        if info.get("sample_aspect_ratio") is not None
+        else None,
+        "sample_aspect_ratio_text": info.get("sample_aspect_ratio_text"),
+        "reported_display_aspect_ratio": list(info["reported_display_aspect_ratio"])
+        if info.get("reported_display_aspect_ratio") is not None
+        else None,
+        "reported_display_aspect_ratio_text": info.get("reported_display_aspect_ratio_text"),
+        "rotation_degrees": info.get("rotation_degrees"),
+        "rotation_metadata_valid": info.get("rotation_metadata_valid"),
+        "rotation_conflict": info.get("rotation_conflict"),
+        "display_size": list(info["display_size"])
+        if info.get("display_size") is not None
+        else None,
+        "effective_display_aspect_ratio": info.get("effective_display_aspect_ratio"),
+    }
 
 
 def extract_frames(
@@ -264,7 +448,9 @@ def analyze_frames(frames: list[Path], lattice: int) -> dict[str, Any]:
 
 
 def analyze(video: Path, report_path: Path | None, lattice: int) -> None:
-    fps, count = video_info(video)
+    info = video_info(video)
+    fps = float(info["fps"])
+    count = int(info["frame_count"])
     with tempfile.TemporaryDirectory(prefix="cinematic-analysis-") as temp:
         frames = extract_frames(video, Path(temp), fps, count)
         if len(frames) != count:
@@ -276,6 +462,7 @@ def analyze(video: Path, report_path: Path | None, lattice: int) -> None:
         "fps": fps,
         "frame_count": count,
         "duration": count / fps,
+        "geometry": video_geometry_report(info),
         "metrics": metrics,
         "limitations": [
             "Automatic pixel metrics do not judge character identity, anatomy, contact, emotion, or story intent.",
@@ -345,6 +532,34 @@ def image_size(path: Path, label: str, errors: list[str]) -> tuple[int, int] | N
     except (OSError, ValueError) as error:
         errors.append(f"{label}: unreadable image: {error}")
         return None
+
+
+def validate_native_canvas_aspect(
+    size: tuple[int, int],
+    delivery_size: list[int],
+    maximum_aspect_error: float,
+    label: str,
+    errors: list[str],
+) -> None:
+    native_width, native_height = size
+    delivery_width, delivery_height = delivery_size
+    native_orientation = (native_width > native_height) - (native_width < native_height)
+    delivery_orientation = (delivery_width > delivery_height) - (
+        delivery_width < delivery_height
+    )
+    if native_orientation != delivery_orientation:
+        errors.append(
+            f"{label}: native canvas orientation {native_width}x{native_height} does not "
+            f"match delivery orientation {delivery_width}x{delivery_height}"
+        )
+        return
+    delivery_aspect = delivery_width / delivery_height
+    aspect_error = abs(native_width / native_height / delivery_aspect - 1)
+    if aspect_error > maximum_aspect_error:
+        errors.append(
+            f"{label}: native canvas aspect error {aspect_error:.6f} exceeds "
+            f"{maximum_aspect_error:.6f} for required delivery"
+        )
 
 
 def mask_position(
@@ -499,6 +714,8 @@ def validate_frame_regeneration_manifest(
         canvas_policy = "exact_native_size"
     delivery_size = manifest.get("delivery_size")
     maximum_aspect_error = manifest.get("maximum_native_aspect_error", 0.002)
+    aspect_delivery_size = list(PRODUCTION_DELIVERY_SIZE)
+    aspect_error_tolerance = 0.002
     if canvas_policy == "uniform_full_canvas_normalization":
         if (
             not isinstance(delivery_size, list)
@@ -510,6 +727,11 @@ def validate_frame_regeneration_manifest(
                 "delivery_size [width, height]"
             )
             delivery_size = None
+        elif tuple(delivery_size) != PRODUCTION_DELIVERY_SIZE:
+            errors.append(
+                "uniform_full_canvas_normalization delivery_size must be "
+                f"{list(PRODUCTION_DELIVERY_SIZE)} for production"
+            )
         if (
             not isinstance(maximum_aspect_error, (int, float))
             or maximum_aspect_error < 0
@@ -517,6 +739,7 @@ def validate_frame_regeneration_manifest(
         ):
             errors.append("maximum_native_aspect_error must be in [0, 0.1]")
             maximum_aspect_error = 0.002
+        aspect_error_tolerance = maximum_aspect_error
     frames = manifest.get("frames")
     if not isinstance(frames, list) or not frames:
         return errors + ["frame regeneration manifest requires at least one frame"], reports
@@ -640,34 +863,33 @@ def validate_frame_regeneration_manifest(
             else None
         )
         candidate_size = image_size(candidate, f"{label} candidate", errors) if candidate else None
+        if candidate_size is not None:
+            validate_native_canvas_aspect(
+                candidate_size,
+                aspect_delivery_size,
+                aspect_error_tolerance,
+                f"{label} candidate",
+                errors,
+            )
         for reference_name, reference in (
             ("previous_reference", previous),
             ("next_reference", following),
         ):
             if reference and candidate_size:
                 reference_size = image_size(reference, f"{label} {reference_name}", errors)
-                if reference_size is not None and reference_size != candidate_size:
-                    if canvas_policy == "exact_native_size":
+                if reference_size is not None:
+                    if canvas_policy == "exact_native_size" and reference_size != candidate_size:
                         errors.append(
                             f"{label}: {reference_name} size {reference_size} does not "
                             f"match candidate size {candidate_size}"
                         )
-                    elif delivery_size is not None:
-                        delivery_aspect = delivery_size[0] / delivery_size[1]
-                        candidate_aspect_error = abs(
-                            candidate_size[0] / candidate_size[1] / delivery_aspect - 1
-                        )
-                        reference_aspect_error = abs(
-                            reference_size[0] / reference_size[1] / delivery_aspect - 1
-                        )
-                        if max(
-                            candidate_aspect_error,
-                            reference_aspect_error,
-                        ) > maximum_aspect_error:
-                            errors.append(
-                                f"{label}: native canvas aspect error exceeds "
-                                f"{maximum_aspect_error:.6f} for uniform normalization"
-                            )
+                    validate_native_canvas_aspect(
+                        reference_size,
+                        aspect_delivery_size,
+                        aspect_error_tolerance,
+                        f"{label} {reference_name}",
+                        errors,
+                    )
 
         guide = frame.get("position_guide")
         guide_path: Path | None = None
@@ -1192,7 +1414,9 @@ def validate_manifest(
 
 
 def bootstrap(video: Path, output: Path) -> None:
-    fps, count = video_info(video)
+    info = video_info(video)
+    fps = float(info["fps"])
+    count = int(info["frame_count"])
     with tempfile.TemporaryDirectory(prefix="cinematic-audit-") as temp:
         cut_frames = cuts(extract_frames(video, Path(temp), fps, count))
     starts = [0] + cut_frames
@@ -1201,7 +1425,12 @@ def bootstrap(video: Path, output: Path) -> None:
     manifest = {
         "schema": "cinematic-quality-v2",
         "frame_index_origin": 0,
-        "video": {"path": str(video), "fps": fps, "frame_count": count},
+        "video": {
+            "path": str(video),
+            "fps": fps,
+            "frame_count": count,
+            "geometry": video_geometry_report(info),
+        },
         "character_passports": {
             "REPLACE_WITH_CHARACTER_ID": {
                 "reference_image": "REPLACE_WITH_APPROVED_TURNAROUND.png",
@@ -1276,19 +1505,24 @@ def main() -> int:
         bootstrap(args.video, args.bootstrap)
         return 0
     if args.frame_regeneration_manifest:
-        fps, count = video_info(args.video)
+        info = video_info(args.video)
+        fps = float(info["fps"])
+        count = int(info["frame_count"])
         manifest_path = args.frame_regeneration_manifest.resolve()
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        errors, frame_reports = validate_frame_regeneration_manifest(
+        errors = validate_video_delivery(info)
+        frame_errors, frame_reports = validate_frame_regeneration_manifest(
             manifest,
             count,
             manifest_path.parent,
         )
+        errors.extend(frame_errors)
         report = {
             "schema": "cinematic-frame-regeneration-report-v1",
             "video": str(args.video),
             "fps": fps,
             "frame_count": count,
+            "geometry": video_geometry_report(info),
             "passed": not errors,
             "errors": errors,
             "frames": frame_reports,
@@ -1313,11 +1547,15 @@ def main() -> int:
     for name, value in (("scene", scene_floor), ("identity", identity_floor)):
         if not 0.0 <= value <= 5.0:
             parser.error(f"{name} floor must be between 0 and 5")
-    fps, count = video_info(args.video)
+    info = video_info(args.video)
+    fps = float(info["fps"])
+    count = int(info["frame_count"])
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
-    errors = validate_manifest(manifest, count, scene_floor, identity_floor)
+    errors = validate_video_delivery(info)
+    errors.extend(validate_manifest(manifest, count, scene_floor, identity_floor))
     report = {"schema": "cinematic-quality-report-v1", "video": str(args.video), "fps": fps,
-              "frame_count": count, "threshold_profile": args.profile,
+              "frame_count": count, "geometry": video_geometry_report(info),
+              "threshold_profile": args.profile,
               "thresholds": {"scene_floor": scene_floor, "identity_floor": identity_floor},
               "passed": not errors, "errors": errors}
     if args.report:

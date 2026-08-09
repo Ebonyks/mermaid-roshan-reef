@@ -1,7 +1,9 @@
 """Regression tests for the cinematic quality-gate manifest validator."""
 import importlib.util
+import json
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 TOOL = Path(__file__).parents[1] / "audit_cinematic.py"
@@ -30,7 +32,73 @@ def manifest():
     }
 
 
+def probed_video_info(
+    width=1280,
+    height=720,
+    sample_aspect_ratio="1:1",
+    display_aspect_ratio="16:9",
+    rotation=None,
+):
+    stream = {
+        "avg_frame_rate": "24/1",
+        "r_frame_rate": "24/1",
+        "nb_frames": "48",
+        "nb_read_frames": "48",
+        "duration": "2.0",
+        "width": width,
+        "height": height,
+        "sample_aspect_ratio": sample_aspect_ratio,
+        "display_aspect_ratio": display_aspect_ratio,
+    }
+    if rotation is not None:
+        stream["side_data_list"] = [{"rotation": rotation}]
+    payload = json.dumps({"streams": [stream], "format": {"duration": "2.0"}})
+    with mock.patch.object(AUDIT, "command", return_value="ffprobe"), mock.patch.object(
+        AUDIT, "run", return_value=payload
+    ):
+        return AUDIT.video_info(Path("candidate.ogv"))
+
+
 class CinematicAuditTests(unittest.TestCase):
+    def test_accepts_required_landscape_video_delivery(self):
+        info = probed_video_info()
+        self.assertEqual(AUDIT.validate_video_delivery(info), [])
+        self.assertEqual(info["coded_size"], (1280, 720))
+        self.assertEqual(info["display_size"], (1280.0, 720.0))
+
+    def test_rejects_portrait_video_delivery(self):
+        info = probed_video_info(
+            width=720,
+            height=1280,
+            display_aspect_ratio="9:16",
+        )
+        errors = AUDIT.validate_video_delivery(info)
+        self.assertTrue(any("coded size 720x1280" in error for error in errors))
+        self.assertTrue(any("orientation is not landscape" in error for error in errors))
+
+    def test_rejects_rotated_portrait_coding_even_if_display_is_landscape(self):
+        info = probed_video_info(
+            width=720,
+            height=1280,
+            display_aspect_ratio="9:16",
+            rotation=90,
+        )
+        self.assertEqual(info["display_size"], (1280.0, 720.0))
+        errors = AUDIT.validate_video_delivery(info)
+        self.assertTrue(any("coded size 720x1280" in error for error in errors))
+        self.assertTrue(any("rotation metadata is 90" in error for error in errors))
+
+    def test_rejects_non_square_sample_aspect_ratio(self):
+        info = probed_video_info(
+            width=960,
+            height=720,
+            sample_aspect_ratio="4:3",
+            display_aspect_ratio="16:9",
+        )
+        self.assertEqual(info["display_size"], (1280.0, 720.0))
+        errors = AUDIT.validate_video_delivery(info)
+        self.assertTrue(any("sample aspect ratio" in error for error in errors))
+
     def test_accepts_complete_high_quality_manifest(self):
         self.assertEqual(AUDIT.validate_manifest(manifest(), 2), [])
 

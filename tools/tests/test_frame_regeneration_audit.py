@@ -177,6 +177,24 @@ class FrameRegenerationAuditTests(unittest.TestCase):
             "uniform_full_canvas_normalization",
         )
 
+    def test_rejects_equal_sized_wrong_aspect_for_uniform_normalization(self):
+        for path in (
+            self.previous,
+            self.candidate,
+            self.following,
+            self.guide,
+            self.candidate_mask,
+            self.guide_mask,
+        ):
+            with Image.open(path) as image:
+                image.resize((32, 20)).save(path)
+        candidate = self.manifest()
+        candidate["canvas_policy"] = "uniform_full_canvas_normalization"
+        candidate["delivery_size"] = [1280, 720]
+        candidate["maximum_native_aspect_error"] = 0.002
+        errors, _ = self.validate(candidate)
+        self.assertTrue(any("native canvas aspect error" in error for error in errors))
+
     def test_rejects_native_canvas_mismatch_without_normalization_policy(self):
         with Image.open(self.following).convert("RGB") as image:
             image.resize((33, 18)).save(self.following)
