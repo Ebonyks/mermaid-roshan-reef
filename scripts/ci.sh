@@ -27,6 +27,10 @@ python3 tools/audit_roshan_2d.py --stress \
 	|| { echo "ROSHAN 2D AUDIT SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_roshan_2d.py \
 	|| { echo "ROSHAN 2D-ONLY CONTRACT FAIL"; exit 1; }
+python3 tools/audit_probe_parity.py --stress \
+	|| { echo "PROBE PARITY SELF-TEST FAIL"; exit 1; }
+python3 tools/audit_probe_parity.py \
+	|| { echo "LOCAL/REMOTE TRUSTED PROBE PARITY FAIL"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
 python3 tools/prepare_opera_nursery_art.py --check-only \
