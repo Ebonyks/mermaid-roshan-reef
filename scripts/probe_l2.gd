@@ -137,7 +137,7 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
+		"res://assets/characters/roshan_25d/roshan_base.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",

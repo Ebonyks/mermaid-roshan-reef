@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 
 import audit_visual_design as ava  # noqa: E402
+import audit_scene_congruency as asc  # noqa: E402
 
 
 class BraceExpansionTests(unittest.TestCase):
@@ -86,6 +87,46 @@ class RegistryContractTests(unittest.TestCase):
 		for zone in ava.load_spec()["zones"]:
 			for rel in zone.get("builders", []) + zone.get("probes", []):
 				self.assertTrue((ROOT / rel).is_file(), f"{zone['id']} declares missing {rel}")
+
+	def test_sky_lagoon_evidence_names_active_runtime_2d_assets(self) -> None:
+		sky_lagoon = next(
+			zone for zone in ava.load_spec()["zones"]
+			if zone["id"] == "sky_lagoon"
+		)
+		expected = {
+			"assets/props/story/play_swing_frame.png",
+			"assets/props/story/play_swing_seat.png",
+			"assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+			"assets/characters/roshan_25d/roshan_base.png",
+		}
+		retired = {
+			"assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+			"assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png",
+			"assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
+		}
+		manifest_paths = set(
+			sky_lagoon.get("murals", [])
+			+ sky_lagoon.get("standees", [])
+			+ sky_lagoon.get("characters", [])
+		)
+		congruency_paths = {
+			path
+			for element in asc.ELEMENTS
+			for path in (element.path, *element.runtime_paths)
+		}
+		congruency_paths.add(
+			asc.ROSHAN_PALETTE_REFERENCE.relative_to(ROOT).as_posix()
+		)
+		probe_source = (ROOT / "scripts/probe_l2.gd").read_text(encoding="utf-8")
+
+		self.assertLessEqual(expected, manifest_paths)
+		self.assertTrue(retired.isdisjoint(manifest_paths))
+		self.assertLessEqual(expected, congruency_paths)
+		self.assertTrue(retired.isdisjoint(congruency_paths))
+		for path in expected:
+			self.assertIn(f"res://{path}", probe_source)
+		for path in retired:
+			self.assertNotIn(f"res://{path}", probe_source)
 
 	def test_waivers_satisfy_full_contract(self) -> None:
 		spec = ava.load_spec()
