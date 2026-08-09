@@ -1,5 +1,16 @@
 # Mermaid Roshan sprite placement & cutoff audit — 2026-08-02
 
+> **Lifecycle update — 2026-08-09:** Defect A remains closed and its atlas
+> audit is now a blocking gate. The four playground-file findings are also
+> closed by the versioned `_v2` runtime frames: the `_2` files were re-triaged
+> as detached edge debris and cleaned without changing Roshan; the genuinely
+> clipped `_3` hair silhouettes were regenerated as complete 2D cutouts.
+> `tools/audit_roshan_sprite_clipping.py` now verifies all twelve active
+> playground frames, their exact runtime roster, margins, canvas size, alpha,
+> and single-component silhouettes. The old four files were removed from the
+> export pool. Atlas repacking and optional costume layers are design backlog,
+> not current bugs, and are excluded from master-audit closure.
+
 Game-wide audit of where Roshan's 2.5D sprite renders cut off, why, and what
 was fixed conservatively in this pass. Every number here is measured from the
 shipped art by `tools/audit_roshan_sprite_clipping.py`; nothing is estimated.

@@ -20,6 +20,16 @@ func _frames(count: int) -> void:
 	for _i in range(count):
 		await process_frame
 
+func _capture_playground_frame(name: String) -> void:
+	var out_dir: String = OS.get_environment("PLAYGROUND_SHOT_OUT")
+	if out_dir == "":
+		return
+	DirAccess.make_dir_recursive_absolute(out_dir)
+	await RenderingServer.frame_post_draw
+	var image: Image = get_root().get_viewport().get_texture().get_image()
+	var error: Error = image.save_png(out_dir.path_join(name + ".png"))
+	_check("capture_%s" % name, error == OK)
+
 func _opaque_world_rect(sprite: Sprite3D) -> Rect2:
 	var image: Image = sprite.texture.get_image()
 	var used: Rect2i = image.get_used_rect()
@@ -135,12 +145,12 @@ func _init() -> void:
 		"res://assets/fairy/sprites/bug_firefly.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2_v2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3_v2.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png",
@@ -659,6 +669,27 @@ func _init() -> void:
 		and swing_frame == 1
 		and absf(swing_seat_delta.y) < 0.18
 		and absf(swing_seat_delta.x) < SkyLagoonPromenade.SWING_SEAT_W * 0.5)
+	if OS.get_environment("PLAYGROUND_SHOT_OUT") != "":
+		# Render all four real equipment/card compositions for human acceptance.
+		# This path is opt-in so the trusted headless probe remains deterministic.
+		var main_was_processing: bool = main.is_processing()
+		var main_was_physics_processing: bool = main.is_physics_processing()
+		main.set_process(false)
+		main.set_physics_process(false)
+		var swing_samples: Array[float] = [
+			0.0,
+			SkyLagoonPromenade.SWING_PERIOD_S * 0.25,
+			SkyLagoonPromenade.SWING_PERIOD_S * 0.75,
+			SkyLagoonPromenade.SWING_PERIOD_S * 0.5,
+		]
+		for frame_index: int in range(swing_samples.size()):
+			promenade._tick_swing_animation(
+				roshan_card, swing_node, swing_samples[frame_index])
+			await _capture_playground_frame("swing_%d" % frame_index)
+		promenade._tick_swing_animation(
+			roshan_card, swing_node, float(swing_play.get("t", 0.0)))
+		main.set_process(main_was_processing)
+		main.set_physics_process(main_was_physics_processing)
 	# The authored ride poses are whole PNGs. A sampling window left on the card
 	# by the swim loop would slice one of them down to an atlas cell measured
 	# for a different sheet, so the takeover must clear it.
@@ -689,9 +720,22 @@ func _init() -> void:
 	var slide_animates: bool = (
 		rung_bounce_y > ladder_start.y
 		and climbed_step_y > rung_bounce_y
-		and seated_texture.ends_with("roshan_slide_2.png")
-		and riding_texture.ends_with("roshan_slide_3.png")
+		and seated_texture.ends_with("roshan_slide_2_v2.png")
+		and riding_texture.ends_with("roshan_slide_3_v2.png")
 		and roshan_card.rotation.z < -0.1)
+	if OS.get_environment("PLAYGROUND_SHOT_OUT") != "":
+		var main_was_processing: bool = main.is_processing()
+		var main_was_physics_processing: bool = main.is_physics_processing()
+		main.set_process(false)
+		main.set_physics_process(false)
+		promenade._tick_slide_animation(
+			roshan_card, toy_nodes.get("slide") as Node3D, 2.80)
+		await _capture_playground_frame("slide_2")
+		promenade._tick_slide_animation(
+			roshan_card, toy_nodes.get("slide") as Node3D, 3.70)
+		await _capture_playground_frame("slide_3")
+		main.set_process(main_was_processing)
+		main.set_physics_process(main_was_physics_processing)
 	var slide_settle: Dictionary = _complete_playground_action(
 		main, promenade, roshan_card)
 	_check("slide_has_bouncy_steps_and_seated_ride", slide_animates)

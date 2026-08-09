@@ -15,6 +15,10 @@ that table still holds.
 Run this after ANY regeneration of the sheets in assets/characters/roshan_25d/:
 new art means new packing, which means the table must be re-emitted.
 
+The same command also audits the twelve standalone Sky Lagoon playground
+poses.  Those cutouts do not use the atlas-window table, so they need their
+own edge-margin and disconnected-fragment checks.
+
 SCOPE: this tool measures the art and the table's INTENT. It cannot see how
 Sprite3D consumes the table -- that blind spot is what shipped an invisible
 Roshan on 2026-08-02 (audit section 8). The engine-side half is asserted by
@@ -24,6 +28,7 @@ probe_castle_pearl_art (roshan_frames_sample_their_own_window) and probe_l2.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 import sys
 from pathlib import Path
@@ -36,6 +41,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SHEET_ROOT = ROOT / "assets" / "characters" / "roshan_25d"
 TABLE_GD = ROOT / "scripts" / "roshan_sprite_frames.gd"
 CONTACT = ROOT / "audit" / "roshan_sprite" / "roshan_frame_windows.png"
+PLAYGROUND_ROOT = ROOT / "assets" / "sprites" / "sky_lagoon" / "roshan_playground"
+PROMENADE_GD = ROOT / "scripts" / "arena" / "sky_lagoon_promenade.gd"
 
 CELL = 256
 ALPHA = 8
@@ -44,6 +51,35 @@ SEARCH = 80
 # ghost pixels (another frame's art leaking in) cost double a lost own pixel,
 # so the search prefers a window that both keeps her whole and stays clean
 GHOST_WEIGHT = 2
+PLAYGROUND_ALPHA = 8
+PLAYGROUND_MIN_COMPONENT = 16
+
+PLAYGROUND_FRAMES = {
+	"roshan_swing_0.png": 1,
+	"roshan_swing_1.png": 1,
+	"roshan_swing_2_v2.png": 8,
+	"roshan_swing_3_v2.png": 8,
+	"roshan_slide_0.png": 1,
+	"roshan_slide_1.png": 1,
+	"roshan_slide_2_v2.png": 8,
+	"roshan_slide_3_v2.png": 8,
+	"roshan_seesaw_0.png": 1,
+	"roshan_seesaw_1.png": 1,
+	"roshan_seesaw_2.png": 1,
+	"roshan_seesaw_3.png": 1,
+}
+SUPERSEDED_PLAYGROUND_FRAMES = {
+	"roshan_swing_2.png",
+	"roshan_swing_3.png",
+	"roshan_slide_2.png",
+	"roshan_slide_3.png",
+}
+PLAYGROUND_REVIEWED_HASHES = {
+	"roshan_slide_2_v2.png": "cb6cd27d5357bb59542bbdf95ef3fbf751759ce07046ea3607ec449c6a5d9613",
+	"roshan_slide_3_v2.png": "8ec11afaf899b21548e4fdeeabc945cb90f5b62e6410a6319afaf22834e03271",
+	"roshan_swing_2_v2.png": "211868892df1963e70300f71a02eb076b401d0af2dc2549ac229806cb99b7598",
+	"roshan_swing_3_v2.png": "07cf65c0cc32189ca704a321e08ed9f90a6db04c666f6f086d4e8f99f33eb4be",
+}
 
 SHEETS = {
 	"directional": ("roshan_directional.png", 4, 2),
@@ -56,6 +92,97 @@ SHEETS = {
 	"play_a": ("roshan_play_a.png", 4, 4),
 	"play_b": ("roshan_play_b.png", 4, 4),
 }
+
+
+def inspect_playground_frame(path: Path, min_margin: int) -> list[str]:
+	"""Return production defects for one standalone 512px action cutout."""
+	failures: list[str] = []
+	if not path.is_file():
+		return [f"missing {path.name}"]
+	with Image.open(path) as source:
+		if source.size != (512, 512):
+			failures.append(f"{path.name}: expected 512x512, got {source.size[0]}x{source.size[1]}")
+		if "A" not in source.getbands():
+			failures.append(f"{path.name}: missing alpha channel")
+		alpha = np.array(source.convert("RGBA"))[:, :, 3]
+	mask = alpha > PLAYGROUND_ALPHA
+	if not mask.any():
+		failures.append(f"{path.name}: empty alpha silhouette")
+		return failures
+
+	ys, xs = np.where(mask)
+	margins = (
+		int(xs.min()),
+		int(ys.min()),
+		int(mask.shape[1] - 1 - xs.max()),
+		int(mask.shape[0] - 1 - ys.max()),
+	)
+	if min(margins) < min_margin:
+		failures.append(
+			f"{path.name}: silhouette margins L/T/R/B={margins}, "
+			f"minimum is {min_margin}px"
+		)
+
+	labels, count = ndimage.label(mask)
+	components = sorted(
+		(int((labels == label).sum()), label)
+		for label in range(1, count + 1)
+		if int((labels == label).sum()) >= PLAYGROUND_MIN_COMPONENT
+	)
+	if len(components) > 1:
+		sizes = sorted((size for size, _label in components), reverse=True)
+		failures.append(
+			f"{path.name}: {len(components)} disconnected visible components "
+			f"({sizes} pixels); expected one complete Roshan silhouette"
+		)
+	return failures
+
+
+def audit_playground_frames(root: Path = PLAYGROUND_ROOT) -> list[str]:
+	"""Bind the runtime roster to the reviewed, unclipped standalone frames."""
+	failures: list[str] = []
+	for name, min_margin in PLAYGROUND_FRAMES.items():
+		path = root / name
+		failures.extend(inspect_playground_frame(path, min_margin))
+		if path.is_file() and name in PLAYGROUND_REVIEWED_HASHES:
+			digest = hashlib.sha256(path.read_bytes()).hexdigest()
+			if digest != PLAYGROUND_REVIEWED_HASHES[name]:
+				failures.append(
+					f"{name}: reviewed pixel hash changed; expected "
+					f"{PLAYGROUND_REVIEWED_HASHES[name]}, got {digest}"
+				)
+		if root == PLAYGROUND_ROOT:
+			sidecar = Path(str(path) + ".import")
+			if not sidecar.is_file():
+				failures.append(f"{name}: missing Godot import sidecar")
+			elif "compress/mode=2" not in sidecar.read_text(encoding="utf-8"):
+				failures.append(f"{name}: 512px POT cutout is not VRAM compressed")
+	for name in sorted(SUPERSEDED_PLAYGROUND_FRAMES):
+		if (root / name).exists():
+			failures.append(f"superseded clipped playground frame still active: {name}")
+
+	if root == PLAYGROUND_ROOT:
+		text = PROMENADE_GD.read_text(encoding="utf-8")
+		block = text.split("const PLAY_FRAME_PATHS := {", 1)[1].split(
+			"const PLAY_DURATIONS", 1
+		)[0]
+		shipped_names = {
+			Path(value).name
+			for value in re.findall(
+				r'"res://assets/sprites/sky_lagoon/roshan_playground/([^\"]+\.png)"',
+				block,
+			)
+		}
+		expected_names = set(PLAYGROUND_FRAMES)
+		if shipped_names != expected_names:
+			failures.append(
+				"PLAY_FRAME_PATHS roster mismatch: missing=%s extra=%s"
+				% (
+					sorted(expected_names - shipped_names),
+					sorted(shipped_names - expected_names),
+				)
+			)
+	return failures
 
 
 def ownership_map(alpha: np.ndarray, cols: int, rows: int) -> np.ndarray:
@@ -260,6 +387,16 @@ def main() -> int:
 			f"{100.0 * ship_lost / total:.2f}% of her art lost)")
 	for line in failures:
 		print(line)
+	playground_failures = audit_playground_frames()
+	if playground_failures:
+		for line in playground_failures:
+			print(f"FAIL playground: {line}")
+		failures.extend(playground_failures)
+	else:
+		print(
+			f"playground poses : {len(PLAYGROUND_FRAMES):6} whole, "
+			"single-silhouette 512px frames"
+		)
 	if failures:
 		return 1
 	print("OK: every Roshan frame renders whole")

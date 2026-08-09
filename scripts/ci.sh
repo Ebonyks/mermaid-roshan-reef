@@ -27,6 +27,10 @@ python3 tools/audit_roshan_2d.py --stress \
 	|| { echo "ROSHAN 2D AUDIT SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_roshan_2d.py \
 	|| { echo "ROSHAN 2D-ONLY CONTRACT FAIL"; exit 1; }
+python3 -m unittest tools.tests.test_audit_roshan_sprite_clipping \
+	|| { echo "ROSHAN SPRITE FRAME AUDIT TEST FAIL"; exit 1; }
+python3 tools/audit_roshan_sprite_clipping.py \
+	|| { echo "ROSHAN SPRITE CLIPPING/GHOST FAIL"; exit 1; }
 python3 tools/audit_probe_parity.py --stress \
 	|| { echo "PROBE PARITY SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_probe_parity.py \

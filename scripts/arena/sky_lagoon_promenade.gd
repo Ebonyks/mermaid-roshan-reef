@@ -252,7 +252,9 @@ const SWING_HAND_ANCHORS := [
 	Vector2(264.5, 204.5),
 	Vector2(168.0, 205.0),
 	Vector2(322.5, 186.0),
-	Vector2(186.0, 184.5),
+	# The accepted v2 frame preserves the grip pose but shifts the complete
+	# figure right/down on its safe-margin canvas.
+	Vector2(222.0, 190.0),
 ]
 const SEESAW_SEAT_ANCHORS := [
 	Vector2(300.0, 420.0),
@@ -268,14 +270,14 @@ const PLAY_FRAME_PATHS := {
 	"swing": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2_v2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3_v2.png",
 	],
 	"slide": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
 	],
 	"seesaw": [
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png",
