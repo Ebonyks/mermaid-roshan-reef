@@ -35,10 +35,12 @@ python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
 python3 tools/prepare_opera_nursery_art.py --check-only \
 	|| { echo "OPERA NURSERY ART FAIL"; exit 1; }
-# Game-wide visual design audit (VISUAL_AUDIT_TOOL.md). The self-test is a
-# HARD gate - a check that can no longer fail is worse than no check, and that
-# failure is silent by nature. The audit itself is advisory until the
-# 2026-07-28 findings are fixed or waived; flip it to --strict then.
+# Game-wide visual design audit (VISUAL_AUDIT_TOOL.md). Lifecycle-contract and
+# stress tests are HARD gates: strict must never accept an unresolved review,
+# manual item, or coverage gap, and every check must remain falsifiable. The
+# repository run stays advisory while its report says UNSATISFIED.
+python3 -m unittest tools.tests.test_audit_visual_design \
+	|| { echo "VISUAL AUDIT CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_visual_design.py --stress \
 	|| { echo "VISUAL AUDIT SELF-TEST FAIL (a check can no longer fail)"; exit 1; }
 python3 tools/audit_visual_design.py || true

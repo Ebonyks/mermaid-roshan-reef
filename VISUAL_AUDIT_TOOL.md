@@ -1,9 +1,13 @@
 # The game-wide visual design audit tool
 
-`tools/audit_visual_design.py` turns the redesign's written promises into
+`tools/audit_visual_design.py` turns the current design language's written promises into
 checks that fail out loud. It is built to be **expanded and stress-tested by
 Codex** — the expansion surface is a JSON file, and the tool refuses to pass
 its own stress run if a check has never been proven capable of failing.
+
+The final owner decision on 2026-08-09 makes Mermaid Roshan a 2D-authored
+character. Godot may stage flattened art with `Sprite3D`, but the old
+3D-migration order and dimensional rollback are not current audit rules.
 
 First findings from it: `VISUAL_DESIGN_AUDIT_2026-07-28.md`.
 
@@ -19,7 +23,7 @@ python3 tools/audit_visual_design.py -v         # include INFO and SKIP
 python3 tools/audit_visual_design.py --zone sky_lagoon
 python3 tools/audit_visual_design.py --category layering
 python3 tools/audit_visual_design.py --list-checks
-python3 tools/audit_visual_design.py --strict   # exit 1 on any ERROR
+python3 tools/audit_visual_design.py --strict   # complete-evidence gate
 python3 tools/audit_visual_design.py --stress   # prove every check can fail
 python3 -m unittest tools.tests.test_audit_visual_design
 ```
@@ -36,20 +40,35 @@ Codex) and `audit/visual_design_report.md` (human-readable, for the owner).
 | `scripts/probe_visual_audit.gd` | the assembled scene: real depths, real sprite counts, tap targets projected through the live lens | needs Godot; writes `audit/visual_runtime_facts.json` |
 
 The Python tool ingests the facts file when it exists. Checks that need it
-report `SKIP` with a reason when it does not — **a check that cannot run never
-reports a pass.** That is the rule that keeps the tool from manufacturing
-confidence, and it is the same discipline `probes.yml` applies to
-`probe_human_art_audit`.
+report `SKIP/COVERAGE_GAP` with a reason when it does not — **a check that
+cannot run never reports a pass, and it blocks `--strict`.** A presentation
+outside a rule's declared scope reports `INFO/NOT_APPLICABLE` explicitly.
 
 ## Severities
 
 | | Meaning |
 |---|---|
-| `ERROR` | Violates a written rule in the charter, the work order, or CLAUDE.md. Fails `--strict`. |
-| `WARN` | Real cost — perf, APK size, process — but not a rule violation. |
-| `MANUAL` | The tool knows it cannot judge this. Names the files a human must look at. |
-| `INFO` | The check ran and found nothing wrong. Evidence that it ran. |
-| `SKIP` | The check could not run, plus the reason. |
+| `ERROR` | Violates a written rule. |
+| `WARN` | A real cost or unresolved review finding. |
+| `MANUAL` | The tool knows it cannot judge this; a human review remains open. |
+| `INFO` | The check ran successfully or is explicitly not applicable. |
+| `SKIP` | The check could not run; this is missing coverage, never a pass. |
+
+Severity describes impact. Disposition describes whether the audit can close:
+
+| Disposition | Meaning in strict mode |
+|---|---|
+| `PASS` | Check ran and accepted its evidence. |
+| `FAIL` | Rule violation; blocks. |
+| `REVIEW_OPEN` | Warning still needs disposition; blocks. |
+| `MANUAL_OPEN` | Required human evidence is missing; blocks. |
+| `COVERAGE_GAP` | Required check could not run; blocks. |
+| `WAIVED` | Complete owner-approved disposition of a failure/review; visible, never rewritten as PASS. |
+| `NOT_APPLICABLE` | Spec explicitly excludes this presentation from the rule. |
+
+The audit-level result is `UNSATISFIED`, `SATISFIED_WITH_WAIVERS`, or
+`SATISFIED`. `--strict` returns nonzero for every unresolved disposition, not
+only for `ERROR` severity.
 
 ## Design contract
 
@@ -62,8 +81,9 @@ noise that everybody mutes.
    do not gate. Enforced by `test_every_check_names_a_rule_in_the_spec`.
 2. **Checks are pure.** `(zone, repo, runtime_facts) -> findings`. No check
    writes to the repo.
-3. **Silence is never a pass.** Emit `SKIP` with a reason instead of returning
-   nothing. Enforced by `test_every_zone_produces_at_least_one_finding`.
+3. **Silence is never a pass.** Emit `SKIP/COVERAGE_GAP` with a reason, or an
+   explicit `NOT_APPLICABLE`, instead of returning nothing. Enforced for every
+   zone/check pair by `test_every_zone_check_pair_has_a_disposition`.
 4. **Every check is provably falsifiable.** `--stress` builds a synthetic repo
    engineered to violate the check and asserts it fires — *and* asserts it
    stays quiet on a clean fixture. A check with no stress case fails the
@@ -81,11 +101,9 @@ Append to `zones` in `tools/visual_audit_spec.json`:
 {
   "id": "reef_promenade",
   "name": "Reef Promenade",
-  "medium": "promenade_2p5d",
-  "status": "shipped",
-  "charter_order": 1,
-  "supersedes": "scripts/reef_districts.gd",
-  "reversibility_key": "world_style",
+  "art_medium": "flattened_2d",
+  "presentation": "panning_depth_cards",
+  "lifecycle": "active_shipped",
   "builders": ["scripts/promenade.gd"],
   "probes": ["scripts/probe_promenade.gd"],
   "murals":   ["assets/flats/reef/main/flat_reef_main_L*.png"],
@@ -96,13 +114,14 @@ Append to `zones` in `tools/visual_audit_spec.json`:
 }
 ```
 
-`medium` decides which checks apply:
+`presentation` decides which checks apply. It describes runtime staging, not
+the authored art medium:
 
-| medium | Gets |
+| presentation | Gets |
 |---|---|
-| `promenade_2p5d` | everything — parallax, occlusion, palette, overdraw, texture, charter, hygiene |
-| `staged_2d`, `overhead_2d` | palette, overdraw, standee, texture, charter, hygiene (**no** parallax/occlusion — the charter declares fixed-camera stages compliant) |
-| `free_swim_3d`, `rail_3d`, `canvas_2d`, `ui`, `screen_overlay` | texture, charter, hygiene |
+| `panning_depth_cards` | parallax, occlusion, palette, overdraw, texture, release evidence, hygiene |
+| `fixed_depth_cards`, `overhead_canvas` | palette, overdraw, standee, texture, release evidence, hygiene; no promenade parallax requirement |
+| `free_swim`, `rail`, `canvas`, `ui`, `overlay` | common texture, release-evidence, readability, and hygiene checks; presentation-specific flat checks are explicitly `NOT_APPLICABLE` |
 
 `budgets` on a zone overrides the global `budgets` block for that zone only.
 
@@ -110,7 +129,7 @@ Append to `zones` in `tools/visual_audit_spec.json`:
 
 ```python
 @check("layering.foreground_sparse", "layering", "layering_rule",
-       media=PARALLAX_MEDIA)
+       presentations=PARALLAX_PRESENTATIONS)
 def _fore_sparse(zone: Zone):
     """L4 foreground vignettes stay under 15% painted pixels."""
     fore = [r for r in zone.murals if "_L4_" in r]
@@ -149,13 +168,23 @@ saturation, luminance, contrast, has_alpha, rgba_bytes),
 ```json
 "waivers": [
   { "check": "texture.import_sidecar", "zone": "fairy_pond",
-    "reason": "sidecars land with the batch-2 import pass; owner aware 2026-07-28" }
+    "rule": "texture_max_side_or_pot",
+    "scope": "Fairy pond runtime PNG import sidecars",
+    "reason": "accepted source-only review build",
+    "owner": "project owner",
+    "date": "2026-08-09",
+    "review_trigger": "next Fairy art revision",
+    "residual_risk": "device import settings remain unverified" }
 ]
 ```
 
-A waived finding drops to `INFO` with `[WAIVED: reason]` prepended — it stays
-visible in every report. Waivers without a reason fail the test suite. A
-silenced finding nobody can see is how a redesign rots.
+A valid waiver preserves the original severity, changes only the disposition
+to `WAIVED`, embeds the complete waiver in evidence, and stays visible in JSON,
+Markdown, and console reports. A missing or mismatched rule, exact scope,
+owner, date, review trigger, or residual risk creates an
+`audit.waiver_contract` failure. A waiver cannot replace missing automated
+coverage or a required human review: `COVERAGE_GAP` and `MANUAL_OPEN` remain
+blocking until their evidence exists.
 
 ---
 
@@ -163,7 +192,7 @@ silenced finding nobody can see is how a redesign rots.
 
 ```
 $ python3 tools/audit_visual_design.py --stress
-VISUALAUDIT| stress: 18 cases, 18 stressable checks, 24 fuzz rounds
+VISUALAUDIT| stress: 16 cases, 16 stressable checks, 24 fuzz rounds
 VISUALAUDIT| stress: ALL OK
 ```
 
@@ -191,27 +220,28 @@ python3 tools/audit_visual_design.py --stress --fuzz 500
 
 ### The self-test suite
 
-`tools/tests/test_audit_visual_design.py` (14 tests) additionally asserts the
+`tools/tests/test_audit_visual_design.py` (26 tests) additionally asserts the
 contract itself: every check cites a real rule, every check has a docstring,
 every stressable check has a case, no case names a removed check, zone ids are
-unique, waivers reference real checks and zones, no check crashes on the real
-repository, every zone produces at least one finding, and reports round-trip.
+unique, declared builders/probes exist, waivers satisfy their complete
+contract, strict blocks every unresolved lifecycle state, no zone/check pair
+is silent, no check crashes on the real repository, and reports round-trip.
 
 ---
 
 ## Wiring it into CI
 
-The tool is deliberately **not** wired into `.github/workflows/` — workflow
-changes are explicit-task-only under SECURITY.md, and this was not that task.
-The additions below are ready to apply when the owner wants them.
+`scripts/ci.sh` hard-gates the unit/stress contract and runs the repository
+audit as advisory while current findings and coverage gaps remain open. The
+GitHub workflow must preserve the same order when the owner enables the full
+gate: unit contract, stress proof, runtime-fact capture, then strict audit.
 
-Advisory (recommended first — surfaces findings without blocking the APK):
+Advisory repository run — surfaces findings without claiming satisfaction:
 
 ```yaml
       - name: Visual design audit (advisory)
         continue-on-error: true
         run: |
-          python3 tools/audit_visual_design.py --stress
           python3 tools/audit_visual_design.py
 
       - name: Upload visual design report
@@ -224,20 +254,20 @@ Advisory (recommended first — surfaces findings without blocking the APK):
           if-no-files-found: warn
 ```
 
-Gating (once the current `ERROR`s are fixed or waived), in the static-gates
-step of `probes.yml` and in `scripts/ci.sh` beside the other `tools/audit_*`
-gates:
+Gating is appropriate only after failures, reviews, manual evidence, and
+coverage gaps have explicit dispositions. In `probes.yml` and `scripts/ci.sh`:
 
 ```bash
+python3 -m unittest tools.tests.test_audit_visual_design \
+	|| { echo "VISUAL AUDIT CONTRACT FAIL"; exit 1; }
 python3 tools/audit_visual_design.py --stress \
 	|| { echo "VISUAL AUDIT SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_visual_design.py --strict \
 	|| { echo "VISUAL DESIGN FAIL"; exit 1; }
 ```
 
-Run `--stress` before `--strict` in CI, always. A green audit from a tool
-whose checks cannot fail is the failure mode this whole design exists to
-prevent.
+Run the unit contract and `--stress` before `--strict`, always. A green audit
+from a tool whose lifecycle semantics or checks cannot fail is not evidence.
 
 The runtime half belongs in the xvfb visual-review block, not the headless
 gate:
@@ -260,15 +290,13 @@ execution will be its first full compile check.
 
 ## Current state
 
-```
-VISUALAUDIT| ERROR=6  WARN=17  MANUAL=2  INFO=23  SKIP=109
-```
+Run `python3 tools/audit_visual_design.py -v --no-report` for the exact current
+counts. They are intentionally not copied into this hand-maintained guide;
+`audit/visual_design_report.json` is the machine-readable snapshot.
 
-18 checks across 7 categories, 12 zones. All 6 `ERROR`s and the bulk of the
-`WARN`s are the 48-hour findings written up in
-`VISUAL_DESIGN_AUDIT_2026-07-28.md`; `--strict` will pass once they are fixed
-or explicitly waived.
-
-The 109 `SKIP`s are honest: most are unmigrated 3D zones that declare no flat
-art yet, plus `readability.tap_target_size` waiting on runtime facts. As zones
-migrate, SKIPs become INFOs — that count is itself a migration progress bar.
+There are 18 checks (16 stressable) across 7 categories and 12 declared zones. The obsolete dimensional
+rollback error and migration-order warning are gone. The remaining failures,
+reviews, manual items, and coverage gaps are current work; none is represented
+as pass. The high INFO count includes explicit `NOT_APPLICABLE` rows because
+every zone/check pair now receives a disposition instead of disappearing
+behind a presentation filter.
