@@ -115,7 +115,7 @@ func award_stats(id: String, stats: Dictionary) -> int:
 	return tier
 
 func award_from_end_game(game_id: String, g2: Dictionary) -> void:
-	# Central hook inside main._end_game(win=true): every 3D arena game's
+	# Central hook inside main._end_game(win=true): every arena game's
 	# scratch dict already carries its performance signals — no per-game
 	# call-site changes needed here.
 	match game_id:
@@ -167,23 +167,22 @@ func hud_suffix() -> String:
 	return "\n🥇 %d  🥈 %d  🥉 %d" % [int(c[3]), int(c[2]), int(c[1])]
 
 func refresh_friend_glyphs() -> void:
-	# a floating medal under each won friend's star — the in-world scoreboard
-	for f in m.friends:
-		var tier: int = int(m.medals.get(String(f.get("game", "")), 0))
-		if tier <= 0:
+	# Compatibility hook for callers and live sessions that predate the Canvas
+	# medal display. Friend dictionaries never persist scene nodes, but a hot
+	# session can still cache the retired in-world badge under `medal_lab`.
+	# Detach it synchronously so refresh is idempotent from the active tree's
+	# perspective; the non-reading tally above and centered award remain the
+	# sole medal displays.
+	for friend: Dictionary in m.friends:
+		if not friend.has("medal_lab"):
 			continue
-		var lab: Label3D = null
-		if f.has("medal_lab") and is_instance_valid(f["medal_lab"]):
-			lab = f["medal_lab"]
-		else:
-			lab = Label3D.new()
-			lab.font_size = 150
-			lab.outline_size = 16
-			lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			lab.position = (f["node"] as Sprite3D).position + Vector3(0, 5.6, 0)
-			m.add_child(lab)
-			f["medal_lab"] = lab
-		lab.text = String(GLYPH[tier])
+		var legacy_value: Variant = friend.get("medal_lab")
+		if legacy_value is Node and is_instance_valid(legacy_value):
+			var legacy_node := legacy_value as Node
+			if legacy_node.get_parent() != null:
+				legacy_node.get_parent().remove_child(legacy_node)
+			legacy_node.queue_free()
+		friend.erase("medal_lab")
 
 func _celebrate(tier: int) -> void:
 	# The centered tier card owns one bounded Canvas celebration. A rapid replay

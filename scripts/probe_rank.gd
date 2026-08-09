@@ -36,6 +36,13 @@ func _direct_child_ids() -> Dictionary:
 	return ids
 
 
+func _friend_medal_cache_empty() -> bool:
+	for friend: Dictionary in main.friends:
+		if friend.has("medal_lab"):
+			return false
+	return true
+
+
 func _only_celebration_added(
 		baseline: Dictionary, layer: CanvasLayer) -> bool:
 	if layer == null or not is_instance_valid(layer) \
@@ -163,6 +170,67 @@ func _init() -> void:
 		print("RANK|evaluate purity: FAIL evaluate() wrote state ", main.medals)
 		bad += 1
 
+	# ---- retired friend-badge compatibility + canonical Canvas tally ----
+	var compatibility_ok := false
+	if not main.friends.is_empty():
+		var compatibility_friend := main.friends[0] as Dictionary
+		var compatibility_game := String(
+			compatibility_friend.get("game", "compatibility_fixture"))
+		var medal_state_before: Dictionary = (
+			main.medals as Dictionary).duplicate(true)
+		var direct_before_legacy: Dictionary = _direct_child_ids()
+		var legacy_badge := Node.new()
+		legacy_badge.name = "LegacyFriendMedalFixture"
+		main.add_child(legacy_badge)
+		var legacy_instance_id := legacy_badge.get_instance_id()
+		var legacy_ref: WeakRef = weakref(legacy_badge)
+		compatibility_friend["medal_lab"] = legacy_badge
+		main.medals[compatibility_game] = MedalSystem.GOLD
+		var legacy_attached: bool = legacy_badge.get_parent() == main \
+			and _direct_child_ids().has(legacy_instance_id)
+		ranker.refresh_friend_glyphs()
+		var detached_synchronously: bool = legacy_badge.get_parent() == null \
+			and not compatibility_friend.has("medal_lab") \
+			and _direct_child_ids() == direct_before_legacy
+		var medals_preserved: bool = int(main.medals.get(
+			compatibility_game, 0)) == MedalSystem.GOLD
+		ranker.refresh_friend_glyphs()
+		var repeat_is_idempotent: bool = not compatibility_friend.has(
+			"medal_lab") and _direct_child_ids() == direct_before_legacy
+		await process_frame
+		compatibility_ok = legacy_attached and detached_synchronously \
+			and medals_preserved and repeat_is_idempotent \
+			and legacy_ref.get_ref() == null and _friend_medal_cache_empty()
+		main.medals = medal_state_before
+	if compatibility_ok:
+		print("RANK|legacy friend badge: OK detach + free + idempotent cleanup")
+	else:
+		print("RANK|legacy friend badge: FAIL compatibility cleanup")
+		bad += 1
+
+	var tally_state_before: Dictionary = (
+		main.medals as Dictionary).duplicate(true)
+	main.medals = {
+		"tally_bronze": MedalSystem.BRONZE,
+		"tally_silver": MedalSystem.SILVER,
+		"tally_gold": MedalSystem.GOLD,
+	}
+	var expected_tally := "\n🥇 1  🥈 1  🥉 1"
+	var tally_direct_before: Dictionary = _direct_child_ids()
+	main._update_hud()
+	ranker.refresh_friend_glyphs()
+	var tally_ok: bool = ranker.hud_suffix() == expected_tally \
+		and String(main.hud_stars.text).ends_with(expected_tally) \
+		and _direct_child_ids() == tally_direct_before \
+		and _friend_medal_cache_empty()
+	main.medals = tally_state_before
+	main._update_hud()
+	if tally_ok:
+		print("RANK|Canvas medal tally: OK exact non-reading glyph counts")
+	else:
+		print("RANK|Canvas medal tally: FAIL suffix='", ranker.hud_suffix(), "'")
+		bad += 1
+
 	# ---- upgrade-only persistence + bounded award feedback ----
 	var direct_child_baseline: Dictionary = _direct_child_ids()
 	ranker.award_stats("bells", {"oops": 5})
@@ -176,6 +244,7 @@ func _init() -> void:
 	var bronze_feedback_ok: bool = _active_celebration_count() == 1 \
 		and _celebration_contract(bronze_layer, MedalSystem.BRONZE) \
 		and _only_celebration_added(direct_child_baseline, bronze_layer) \
+		and _friend_medal_cache_empty() \
 		and main.chime != null \
 		and is_equal_approx(float(main.chime.pitch_scale), 1.15)
 	ranker.award_stats("bells", {"oops": 0})
@@ -194,6 +263,7 @@ func _init() -> void:
 	var gold_feedback_ok: bool = _active_celebration_count() == 1 \
 		and _celebration_contract(gold_layer, MedalSystem.GOLD) \
 		and _only_celebration_added(direct_child_baseline, gold_layer) \
+		and _friend_medal_cache_empty() \
 		and main.chime != null \
 		and is_equal_approx(float(main.chime.pitch_scale), 1.45)
 	ranker.award_stats("bells", {"oops": 5})
@@ -214,6 +284,7 @@ func _init() -> void:
 	var replay_feedback_ok: bool = _active_celebration_count() == 1 \
 		and _celebration_contract(replay_layer, MedalSystem.BRONZE) \
 		and _only_celebration_added(direct_child_baseline, replay_layer) \
+		and _friend_medal_cache_empty() \
 		and t3 == MedalSystem.GOLD \
 		and main.chime != null \
 		and is_equal_approx(float(main.chime.pitch_scale), 1.15)
@@ -256,6 +327,7 @@ func _init() -> void:
 		and _active_celebration_count() == 1 \
 		and _celebration_contract(fresh_layer, MedalSystem.BRONZE) \
 		and _only_celebration_added(fresh_child_baseline, fresh_layer) \
+		and _friend_medal_cache_empty() \
 		and int(main.medals.get("bells", 0)) == MedalSystem.GOLD \
 		and main.chime != null \
 		and is_equal_approx(float(main.chime.pitch_scale), 1.15)
