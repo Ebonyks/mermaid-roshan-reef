@@ -27,6 +27,14 @@ python3 tools/audit_roshan_2d.py --stress \
 	|| { echo "ROSHAN 2D AUDIT SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_roshan_2d.py \
 	|| { echo "ROSHAN 2D-ONLY CONTRACT FAIL"; exit 1; }
+# The character audit above remains the narrow atlas/identity invariant.  The
+# game-wide owner contract is a shrinking migration gate: its self-tests run
+# before import, while the exact inventory runs after import has recreated the
+# deterministic Godot 4.7.1 sidecars recorded by the baseline.
+python3 -m unittest tools.tests.test_audit_game_2d \
+	|| { echo "GAME-WIDE 2D AUDIT CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_game_2d.py --stress \
+	|| { echo "GAME-WIDE 2D AUDIT SELF-TEST FAIL"; exit 1; }
 python3 -m unittest tools.tests.test_audit_roshan_sprite_clipping \
 	|| { echo "ROSHAN SPRITE FRAME AUDIT TEST FAIL"; exit 1; }
 python3 tools/audit_roshan_sprite_clipping.py \
@@ -94,6 +102,8 @@ timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 	|| { echo "IMPORT FAIL"; exit 1; }
 grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
+python3 tools/audit_game_2d.py --regression-gate \
+	|| { echo "GAME-WIDE 2D MIGRATION REGRESSION (debt may only shrink)"; exit 1; }
 rc=0
 for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_pipe probe_opera_nursery probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
 	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }

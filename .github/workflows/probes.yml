@@ -35,6 +35,9 @@ jobs:
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
+          # The 2D migration gate verifies its immutable ceiling against full
+          # reachable history; a depth-1 clone could hide reintroduced debt.
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Download Godot (checksum-verified)
@@ -56,6 +59,11 @@ jobs:
           # pass proves every rule can fail before the real project is gated.
           python3 tools/audit_roshan_2d.py --stress
           python3 tools/audit_roshan_2d.py
+          # The Roshan audit remains the narrow atlas/identity invariant. The
+          # authoritative game-wide migration contract must also prove that
+          # its debt ceiling and falsification checks cannot be laundered.
+          python3 -m unittest tools.tests.test_audit_game_2d
+          python3 tools/audit_game_2d.py --stress
           python3 -m unittest tools.tests.test_audit_roshan_sprite_clipping
           python3 tools/audit_roshan_sprite_clipping.py
           python3 tools/audit_probe_parity.py --stress
@@ -100,6 +108,10 @@ jobs:
             echo "IMPORT FAIL (resource or script error)"
             exit 1
           fi
+          # Run the exact inventory only after the required 4.7.1 import has
+          # recreated the generated sidecars captured by the shrinking debt
+          # baseline. Green means NO_REGRESSION, never that migration is done.
+          python3 tools/audit_game_2d.py --regression-gate
 
       - name: Compile-check every script (real analyzer, catches what parse-only cannot)
         # probes only compile scripts the run actually loads; lazily-loaded
