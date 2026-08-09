@@ -60,6 +60,32 @@ func _count_named(from: Node, pattern: String) -> int:
 			count += 1
 	return count
 
+func _world_particle_count(node: Node, particle_class: String) -> int:
+	var total := 1 if node.get_class() == particle_class else 0
+	for child_value in node.get_children():
+		var child := child_value as Node
+		if child != null:
+			total += _world_particle_count(child, particle_class)
+	return total
+
+func _wardrobe_feedback_is_visible(wardrobe_layer: CanvasLayer,
+		preview: TextureRect) -> bool:
+	if wardrobe_layer == null or preview == null:
+		return false
+	var feedback_layer := _find(wardrobe_layer, "WardrobeFeedbackLayer") as Control
+	var burst := _find(wardrobe_layer, "WardrobePreviewFeedbackBurst") as Control
+	if feedback_layer == null or burst == null or not burst.visible \
+			or feedback_layer.get_child_count() != 1 \
+			or int(burst.get_meta("visible_elements", 0)) != 14 \
+			or burst.position.distance_to(preview.position + preview.size * 0.5) > 0.1:
+		return false
+	var visible_elements := 0
+	for child_value in burst.get_children():
+		var element := child_value as CanvasItem
+		if element != null and element.visible and element.modulate.a > 0.05:
+			visible_elements += 1
+	return visible_elements == 14
+
 func _check_storybook_coverage() -> void:
 	for path: String in GAMEPLAY_HUD_SURFACES:
 		var source: String = FileAccess.get_file_as_string(path)
@@ -90,6 +116,9 @@ func _check_storybook_coverage() -> void:
 		and wardrobe_source.contains("style_picture_button")
 		and kart_source.contains("style_picture_button"),
 		"former flat picture choices share physical button states")
+	_check(wardrobe_source.find("_sparkle_burst") < 0
+		and wardrobe_source.find("Vector" + str(3)) < 0,
+		"wardrobe try-on feedback stays on its storybook stage")
 	_check(kart_source.contains("KartPaintChoice_"),
 		"kart garage exposes direct ride and paint choices")
 	_check(not pause_source.contains("PauseTouchModeButton")
@@ -235,6 +264,66 @@ func _init() -> void:
 		"wardrobe carries the shared shell-and-pearl frame")
 	_check(_count_named(main.wardrobe_layer, "WardrobeLookPreview_*") == 3,
 		"wardrobe choices are backed by three existing character previews")
+	var original_skin: String = main.skin_id
+	var first_skin := "classic" if original_skin != "classic" else "huluu"
+	var first_button := _find(main.wardrobe_layer,
+		"WardrobeLook_" + first_skin) as Button
+	var preview := main.wd.get("preview") as TextureRect
+	var particle_class := "CPU" + "Particles" + str(3) + "D"
+	var particle_baseline := _world_particle_count(main, particle_class)
+	if first_button != null:
+		first_button.pressed.emit()
+	var first_burst := _find(main.wardrobe_layer,
+		"WardrobePreviewFeedbackBurst") as Control
+	var first_burst_ref: WeakRef = weakref(first_burst)
+	var first_tween := main.wd.get("feedback_tween") as Tween
+	var expected_preview: String = String(main._skin_def(first_skin)["preview"])
+	_check(first_button != null and main.skin_id == first_skin
+		and preview != null and preview.texture != null
+		and preview.texture.resource_path == expected_preview
+		and bool(first_button.get_meta("selected", false))
+		and String(main.player.verb) == "twirl",
+		"real look pick refreshes the preview, selection, skin, and twirl")
+	_check(_wardrobe_feedback_is_visible(main.wardrobe_layer, preview),
+		"look pick shows one 14-element burst centred on the preview")
+	_check(_world_particle_count(main, particle_class) == particle_baseline,
+		"look pick adds no off-overlay particle request")
+	var second_skin := "huluu" if first_skin == "classic" else "classic"
+	var second_button := _find(main.wardrobe_layer,
+		"WardrobeLook_" + second_skin) as Button
+	if second_button != null:
+		second_button.pressed.emit()
+	var active_burst := _find(main.wardrobe_layer,
+		"WardrobePreviewFeedbackBurst") as Control
+	var active_burst_ref: WeakRef = weakref(active_burst)
+	var active_tween := main.wd.get("feedback_tween") as Tween
+	_check(second_button != null and main.skin_id == second_skin
+		and _wardrobe_feedback_is_visible(main.wardrobe_layer, preview)
+		and (first_tween == null or not first_tween.is_valid()
+			or not first_tween.is_running()),
+		"rapid look pick replaces the prior burst without overdraw growth")
+	var wardrobe_ref: WeakRef = weakref(main.wardrobe_layer)
+	var feedback_layer_ref: WeakRef = weakref(
+		_find(main.wardrobe_layer, "WardrobeFeedbackLayer"))
+	main._close_wardrobe()
+	await process_frame
+	await process_frame
+	_check(main.wardrobe_layer == null and wardrobe_ref.get_ref() == null
+		and feedback_layer_ref.get_ref() == null
+		and first_burst_ref.get_ref() == null
+		and active_burst_ref.get_ref() == null
+		and (active_tween == null or not active_tween.is_valid()
+			or not active_tween.is_running()),
+		"wardrobe close frees feedback nodes and stops its tween")
+	main.skin_id = original_skin
+	main._apply_skin()
+	main._open_wardrobe()
+	await process_frame
+	var fresh_feedback := _find(main.wardrobe_layer,
+		"WardrobeFeedbackLayer") as Control
+	_check(fresh_feedback != null and fresh_feedback.get_child_count() == 0
+		and not main.wd.has("feedback_tween"),
+		"wardrobe re-entry starts with a clean feedback layer")
 	main._close_wardrobe()
 	main._open_stickers()
 	await process_frame
