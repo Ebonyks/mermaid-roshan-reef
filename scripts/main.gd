@@ -982,20 +982,17 @@ func _tick_roshan_reactions(delta: float, ppos: Vector3) -> void:
 	# the great whale
 	if whale_node != null and is_instance_valid(whale_node) and whale_node.position.distance_to(ppos) < 34.0:
 		roshan_spot_cool = 14.0
-		_say("roshan", "whale", 12.0)
-		show_msg("Roshan", "Wow! A GIANT whale! Hello, big friend!")
+		show_msg("Roshan", "Wow! A GIANT whale! Hello, big friend!", "whale")
 		return
 	# the floating ghost ship on the water
 	if manta != null and is_instance_valid(manta) and manta.position.distance_to(ppos) < 26.0:
 		roshan_spot_cool = 14.0
-		_say("roshan", "ship", 12.0)
-		show_msg("Roshan", "A magic ship on the water! I wonder what is inside...")
+		show_msg("Roshan", "A magic ship on the water! I wonder what is inside...", "ship")
 		return
 	# the sunken pirate ship
 	if wreck_pos != Vector3.ZERO and wreck_pos.distance_to(ppos) < 24.0:
 		roshan_spot_cool = 14.0
-		_say("roshan", "wreck", 12.0)
-		show_msg("Roshan", "Ooh, a sunken ship! Maybe there is treasure down there!")
+		show_msg("Roshan", "Ooh, a sunken ship! Maybe there is treasure down there!", "wreck")
 		return
 
 func _apply_time_of_day() -> void:
@@ -6098,8 +6095,7 @@ func _beans_go() -> void:
 	fart_t = 0.7
 	if beans_sfx != null and not beans_sfx.playing:
 		beans_sfx.play()
-	_say("roshan", "beans")
-	show_msg("Roshan", "Yummy, beans! ...toot!")
+	show_msg("Roshan", "Yummy, beans! ...toot!", "beans")
 	_beans_bubbles()
 
 func _beans_bubbles() -> void:
