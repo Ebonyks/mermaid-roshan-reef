@@ -8,6 +8,7 @@ extends CanvasLayer
 ## parallel score/progress, audience energy and a graded curtain call.
 
 const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
+const BoxingSurface := preload("res://scripts/opera_boxing_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
@@ -262,9 +263,11 @@ const PHASES := {
 		{"name": "PICNIC", "mode": "tap", "goal": 3.0, "vo": "op_farmer_picnic", "voice": "Set one picnic snack beside every piggy!"},
 	],
 	"boxer": [
-		{"name": "COMBO", "mode": "boxer_rhythm", "goal": 6.0, "vo": "op_boxer_jab", "voice": "Punch the glowing left and right focus mitts!"},
-		{"name": "TITLE ROUND", "mode": "bop", "goal": 6.0, "combat": {"count": 4, "captain": true}, "vo": "op_boxer_bell_chase", "voice": "One friendly title round: tap each padded partner after the bell!"},
-		{"name": "BELT", "mode": "tap", "goal": 1.0, "vo": "op_boxer_belt", "voice": "Tap the championship belt for the curtain call!"},
+		{"name": "GLOVE GUIDE", "mode": "boxing_guide", "widget": "", "goal": 2.0, "vo": "op_boxer_work", "voice": "Put a finger on a glove and push it toward the glowing mitt!"},
+		{"name": "JAB PRACTICE", "mode": "boxing_jab", "widget": "", "goal": 4.0, "vo": "op_boxer_jab", "voice": "Jab practice! Punch each glowing training pad!"},
+		{"name": "SOFT GUARD", "mode": "boxing_guard", "widget": "", "goal": 3.0, "vo": "op_boxer_duck", "voice": "Bring a glove into the glowing guard bubble!"},
+		{"name": "TITLE IMP", "mode": "boxing_imp", "widget": "", "goal": 6.0, "vo": "op_boxer_bell_chase", "voice": "The boxer imp rang the bell! Punch when the bright star opens!"},
+		{"name": "BELT", "mode": "boxing_belt", "widget": "", "goal": 1.0, "vo": "op_boxer_belt", "voice": "Punch the glowing championship belt for the curtain call!"},
 	],
 	"magician": [
 		{"name": "VANISH", "mode": "hold", "widget": "", "visual_context": "magic_vanish", "goal": 3.8, "vo": "op_magician_vanish", "voice": "Hold the wand to hide Lamba under a hat!"},
@@ -311,7 +314,7 @@ const FINALE_START := {
 	"candymaker": 3,
 	"doctor": 3,
 	"farmer": 2,
-	"boxer": 1,
+	"boxer": 3,
 	"magician": 3,
 	"painter": 2,
 	"astronaut": 3,
@@ -329,7 +332,7 @@ const PHASE_STATIONS := {
 	"candymaker": {"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart"},
 	"doctor": {"WASH": "stethoscope_clinic", "FIND": "starfish_triage", "X-RAY": "exam_booth", "CAST": "exam_booth", "BANDAGE": "recovery_bed"},
 	"farmer": {"PLANT": "seed_beds", "TOSS": "hay_bales", "HERD": "barn_doors", "PICNIC": "pearl_clam"},
-	"boxer": {"COMBO": "purple_sparring_mat", "BELT": "shell_pavilion_stage"},
+	"boxer": {},
 	"magician": {"VANISH": "violet_shell_stage", "TRACK": "pearl_tide_pool", "ROPE": "teal_shell_stage", "CABINET": "rose_shell_stage", "PORTAL": "rose_shell_stage"},
 	"painter": {"PAINT": "gazebo_easel", "STAMPS": "rainbow_brush", "GALLERY": "arch_easel"},
 	"astronaut": {"PATCH": "pipe_arch_planter", "VALVE": "periscope_elbow", "LAUNCH": "rocket_launch_dais"},
@@ -590,6 +593,11 @@ func _build_world() -> void:
 
 	stage_points = StagePaths.path_points(career_id)
 	station_list = StagePaths.stations(career_id)
+	# The boxer is a continuous first-person glove lesson and title bout. Its
+	# specialist surface owns the full ring, so wandering stations would only
+	# pull the gloves away between drills.
+	if career_id == "boxer":
+		station_list = []
 	_assign_stations()
 	_build_station_markers()
 
@@ -649,7 +657,12 @@ func _build_world() -> void:
 	action_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	action_panel.draw.connect(_draw_task_card)
 	root.add_child(action_panel)
-	surface = GestureSurface.new()
+	if career_id == "boxer":
+		surface = BoxingSurface.new() as OperaGestureSurface
+	else:
+		surface = GestureSurface.new() as OperaGestureSurface
+	surface.name = "BoxingGloveSurface" if career_id == "boxer" \
+		else "CareerGestureSurface"
 	surface.position = Vector2(24, 78)
 	surface.size = Vector2(372, 266)
 	surface.gesture.connect(_on_gesture)
@@ -686,6 +699,7 @@ func _build_world() -> void:
 	phase_fill.size = Vector2(372, 40)
 	phase_fill.show_percentage = false
 	phase_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	phase_fill.visible = career_id != "boxer"
 	action_panel.add_child(phase_fill)
 
 	combat_layer = Control.new()
@@ -962,6 +976,10 @@ func _build_station_markers() -> void:
 
 
 func _draw_task_card() -> void:
+	if career_id == "boxer":
+		# The ring painting is the card. A full-screen paper frame would cover the
+		# opponent, the punch lanes, and the second independently owned glove.
+		return
 	# the exact StorybookUI menu language (see the UI extraction report):
 	# paper fill, violet drop shadow, PURPLE->PURPLE_DEEP contour, gold
 	# title ribbon and corner pearls — a task card that matches the menus
@@ -1065,6 +1083,8 @@ func _widget_template(phase: Dictionary) -> String:
 			return ""
 		"kart":
 			return ""
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt":
+			return ""
 		"echo":
 			# draws its own three singing stars; star-pad art is ledgered P2
 			return ""
@@ -1136,13 +1156,13 @@ func _arm_phase() -> void:
 		competition.begin()
 		_set_finale_visible(true)
 		# a longer sting as the proscenium curtain rises; any touch skips it
-		phase_gap = 2.6
+		phase_gap = 0.0 if career_id == "boxer" else 2.6
 	elif phase_index < _finale_start():
 		_set_finale_visible(false)
 		if phase_index > 0:
-			phase_gap = 1.0
+			phase_gap = 0.0 if career_id == "boxer" else 1.0
 	else:
-		phase_gap = 1.0
+		phase_gap = 0.0 if career_id == "boxer" else 1.0
 	if backdrop_node != null:
 		# the captain scuffle already happens at the stage door, so the
 		# proscenium frames both the big battle and the finale contest
@@ -1178,7 +1198,7 @@ func _arm_phase() -> void:
 		else:
 			prop_rect.visible = prop_rect.texture != null and phase_index > 0 \
 				and (steal_index < 0 or phase_index < steal_index) \
-				and career_id != "detective"
+				and career_id not in ["detective", "boxer"]
 	var defer_detective_intro := career_id == "detective" and phase_index == 0 \
 		and mode_name == "lens" and not detective_intro_played
 	if m != null and not defer_detective_intro:
@@ -1268,6 +1288,17 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
 	var mode := String(phase.get("mode", "tap"))
+	if career_id == "boxer":
+		# Both glove fingers share the frozen 1280x720 Opera coordinate space.
+		# The transparent host preserves the approved 2K training/stage painting.
+		action_panel.visible = true
+		action_panel.position = Vector2.ZERO
+		action_panel.size = StagePaths.SCREEN
+		surface.position = Vector2.ZERO
+		surface.size = StagePaths.SCREEN
+		phase_fill.visible = false
+		action_panel.queue_redraw()
+		return
 	if mode == "bop" or mode == "lens" or mode == "talk" or mode == "kart":
 		# stage-wide beats play on the painting itself — no card at all
 		action_panel.visible = false
@@ -1598,6 +1629,18 @@ func competition_progress() -> float:
 
 
 func _set_finale_visible(show_finale: bool) -> void:
+	if career_id == "boxer":
+		# The specialist draws exactly one approved padded imp and its own round
+		# pearls. Generic rival art and score bars would duplicate that opponent.
+		if player_bar != null:
+			player_bar.visible = false
+		if rival_bar != null:
+			rival_bar.visible = false
+		if player_actor != null:
+			player_actor.visible = false
+		if rival_actor != null:
+			rival_actor.visible = false
+		return
 	var cooperative := competition != null and competition.is_cooperative()
 	if player_bar != null:
 		player_bar.visible = show_finale
@@ -1607,8 +1650,51 @@ func _set_finale_visible(show_finale: bool) -> void:
 		rival_actor.visible = show_finale or cooperative
 
 
+func _on_boxing_gesture(kind: String, amount: float, quality: float) -> void:
+	# Cosmetic contact is deliberately outside scoring. It cannot become a
+	# miss, change a high-water mark, or consume the next accepted punch.
+	if kind == "boxing_contact":
+		idle_t = 0.0
+		return
+	if kind not in [
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
+	]:
+		return
+	if phase_advance_pending:
+		return
+	if not task_open:
+		_open_task()
+	if amount <= 0.0:
+		# A short, sideways, guarded, or out-of-bounds try is a fresh wordless
+		# cue. Crucially, competition.note_miss() is never called here.
+		idle_t = 0.0
+		surface.note_result(false)
+		surface.restart_demo()
+		return
+	idle_t = 0.0
+	surface.note_input()
+	surface.note_result(quality >= 0.5)
+	var phase := phases[phase_index] as Dictionary
+	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+	phase_progress = minf(goal, phase_progress + amount)
+	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+	phase_fill.value = progress * 100.0
+	surface.set_fill(progress)
+	if competition != null and competition.active and score_cool <= 0.0:
+		competition.note_success(10)
+		score_cool = 0.5
+	if phase_progress < goal:
+		return
+	surface.accept_completion()
+	phase_complete_t = 2.2 if kind == "boxing_belt" else 1.1
+	phase_advance_pending = true
+
+
 func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if not active or reveal_t > 0.0 or phase_index >= phases.size():
+		return
+	if career_id == "boxer":
+		_on_boxing_gesture(_kind, amount, quality)
 		return
 	if _kind == "echo_note":
 		if m != null and m.chime != null:
@@ -1874,6 +1960,15 @@ func update_competition() -> void:
 func celebrate(result: Dictionary) -> void:
 	active = false
 	_restore_stage_actors()
+	if career_id == "boxer":
+		# Return from first-person gloves to the existing actor-and-belt curtain
+		# call only after the title imp has bowed.
+		if action_panel != null:
+			action_panel.visible = false
+		if player_actor != null:
+			player_actor.visible = true
+		if rival_actor != null:
+			rival_actor.visible = true
 	_play_roshan_animation("cheer")
 	var tier := int(result.get("tier", 1))
 	last_cheer = (
@@ -2695,6 +2790,8 @@ func _process(delta: float) -> void:
 
 func close() -> void:
 	active = false
+	if career_id == "boxer" and surface is OperaBoxingSurface:
+		(surface as OperaBoxingSurface).cancel_all_touches()
 	if m != null:
 		# story lines queued by talk beats must not drain into the lagoon
 		m.clear_dialogue()

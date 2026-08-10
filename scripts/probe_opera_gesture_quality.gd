@@ -3,6 +3,8 @@ extends SceneTree
 ## follows the real control geometry, and a stationary tap cannot impersonate
 ## a hold, swipe, or circle. This probe deliberately owns no career state.
 
+const BOXING_SURFACE_SCRIPT := preload("res://scripts/opera_boxing_surface.gd")
+
 var checks := 0
 var failed := 0
 var events: Array[Dictionary] = []
@@ -61,17 +63,60 @@ func _rotation_safe_square(rect: Rect2) -> Rect2:
 	return Rect2(rect.get_center() - Vector2.ONE * side * 0.5, Vector2.ONE * side)
 
 
-func _finish_after_render(surface: OperaGestureSurface) -> void:
+func _boxing_touch_event(boxing: OperaBoxingSurface, finger: int,
+		pressed: bool, at: Vector2) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = finger
+	event.pressed = pressed
+	event.position = at
+	boxing._gui_input(event)
+
+
+func _boxing_drag_event(boxing: OperaBoxingSurface, finger: int,
+		at: Vector2) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = finger
+	event.position = at
+	boxing._gui_input(event)
+
+
+func _boxing_mouse_button(boxing: OperaBoxingSurface, pressed: bool,
+		at: Vector2, device_id: int = 0) -> void:
+	var event := InputEventMouseButton.new()
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.pressed = pressed
+	event.position = at
+	event.device = device_id
+	boxing._gui_input(event)
+
+
+func _boxing_mouse_motion(boxing: OperaBoxingSurface, at: Vector2,
+		device_id: int = 0) -> void:
+	var event := InputEventMouseMotion.new()
+	event.position = at
+	event.device = device_id
+	boxing._gui_input(event)
+
+
+func _finish_after_render(surface: OperaGestureSurface,
+		boxing: OperaBoxingSurface) -> void:
 	# Let CanvasItem execute each custom draw path once. Analyzer-only tests do
 	# not catch invalid draw geometry or texture-region calls.
 	for specialist_mode: String in [
 		"xray_scan", "dance_sequence", "candy_sort", "paint_reveal", "farm_lob",
-		"boxer_rhythm", "clue_board", "crown_chest", "garden_plant",
+		"clue_board", "crown_chest", "garden_plant",
 		"magic_cabinet",
 	]:
 		surface.configure(specialist_mode, Color.WHITE)
 		surface.queue_redraw()
 		await process_frame
+	for boxing_mode: String in [
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
+	]:
+		boxing.configure(boxing_mode, Color.WHITE)
+		boxing.queue_redraw()
+		await process_frame
+	_ck("boxing glove guide, drills, imp finale, and belt paths render", true)
 	for causal: Dictionary in [
 		{"mode": "hold", "context": "nursery_feed"},
 		{"mode": "tap", "context": "nursery_burp"},
@@ -173,6 +218,11 @@ func _init() -> void:
 	get_root().add_child(surface)
 	surface.set_process(false)
 	surface.gesture.connect(_record_gesture)
+	var boxing: OperaBoxingSurface = BOXING_SURFACE_SCRIPT.new()
+	boxing.size = Vector2(852, 560)
+	get_root().add_child(boxing)
+	boxing.set_process(false)
+	boxing.gesture.connect(_record_gesture)
 
 	# Directional demos use the same vector as the input gate.
 	surface.configure("swipe", Color.WHITE)
@@ -1210,58 +1260,239 @@ func _init() -> void:
 		and _paid_count("farm_lob") == OperaGestureSurface.FARM_LOB_GOAL
 		and seen_farm_foods.size() == 3 and surface.farm_munch_t > 0.0)
 
-	# Boxer rhythm has no timing gate: follow the highlighted alternating mitt.
-	# The midpoint duck is a demonstrated downward state transition, not a hit.
-	events.clear()
-	surface.configure("boxer_rhythm", Color.WHITE)
-	_ck("boxer rhythm binds approved focus-pad art and starts left",
-		surface.visual_context == "lanes_boxer" and surface.widget_backdrop != null
-		and surface.widget_mover != null and surface.boxer_expected == 0)
-	var boxer_pose := _pose_at(surface, 1.15)
-	_ck("boxer hand points at the highlighted real mitt",
-		_pose_point(boxer_pose).distance_to(surface._boxer_mitt_rect(0).get_center()) < 1.0
-		and bool(boxer_pose.get("pressing", false)))
-	var boxer_wrong := surface._boxer_mitt_rect(1).get_center()
-	surface._press(boxer_wrong)
-	surface._release(boxer_wrong)
-	_ck("wrong boxer mitt pays zero and reflashes without advancing",
-		surface.boxer_hit_index == 0 and surface.boxer_expected == 0
-		and not _paid("boxer_rhythm") and surface.boxer_flash > 1.0
-		and surface.demo_active)
-	for hit in range(OperaGestureSurface.BOXER_DUCK_AFTER):
-		var mitt := surface._boxer_mitt_rect(surface.boxer_expected).get_center()
-		surface._press(mitt)
-		surface._release(mitt)
-	_ck("first three alternating mitts bank exactly three hits",
-		surface.boxer_hit_index == OperaGestureSurface.BOXER_DUCK_AFTER
-		and _paid_count("boxer_rhythm") == OperaGestureSurface.BOXER_DUCK_AFTER
-		and surface.boxer_duck_pending)
-	var duck_demo_start := _pose_point(_pose_at(surface, 0.0))
-	var duck_demo_end := _pose_point(_pose_at(surface, 1.55))
-	_ck("boxer interlude clearly demonstrates a downward duck",
-		duck_demo_end.y > duck_demo_start.y + surface.size.y * 0.50
-		and absf(duck_demo_end.x - duck_demo_start.x) < 1.0)
-	surface._press(center)
-	surface._release(center)
-	_ck("tapping through the duck cannot bank another hit",
-		surface.boxer_duck_pending
-		and surface.boxer_hit_index == OperaGestureSurface.BOXER_DUCK_AFTER
-		and _paid_count("boxer_rhythm") == OperaGestureSurface.BOXER_DUCK_AFTER)
-	var duck_start := Vector2(center.x, surface.size.y * 0.20)
-	var duck_finish := Vector2(center.x, surface.size.y * 0.82)
-	surface._press(duck_start)
-	surface._drag(duck_finish)
-	surface._release(duck_finish)
-	_ck("real downward duck resumes phrase with zero scalar payout",
-		surface.boxer_duck_done and not surface.boxer_duck_pending
-		and surface.boxer_hit_index == OperaGestureSurface.BOXER_DUCK_AFTER
-		and _paid_count("boxer_rhythm") == OperaGestureSurface.BOXER_DUCK_AFTER)
-	while not surface.boxer_complete:
-		var next_mitt := surface._boxer_mitt_rect(surface.boxer_expected).get_center()
-		surface._press(next_mitt)
-		surface._release(next_mitt)
-	_ck("six alternating mitts complete with six payouts",
-		surface.boxer_hit_index == OperaGestureSurface.BOXER_SEQUENCE.size()
-		and _paid_count("boxer_rhythm") == OperaGestureSurface.BOXER_SEQUENCE.size())
+	# The dedicated boxing surface owns two floating gloves. Its five modes do
+	# not progress themselves: only a real owned touch transition may emit work.
+	var boxing_modes: Array[String] = [
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
+	]
+	var passive_boxing_safe := true
+	for boxing_mode: String in boxing_modes:
+		events.clear()
+		boxing.configure(boxing_mode, Color.WHITE)
+		for passive_tick in range(128):
+			boxing._process(0.10)
+		passive_boxing_safe = passive_boxing_safe \
+			and boxing.landed_count() == 0 and boxing.round_index() == 0 \
+			and not _paid(boxing_mode)
+	_ck("all boxing modes wait indefinitely with zero passive progress",
+		passive_boxing_safe)
 
-	call_deferred("_finish_after_render", surface)
+	# A jab must travel forward from the glove's owned origin into the target.
+	# Once accepted, its per-hand latch rejects drag spam until release.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	var jab_finger := 7
+	var jab_hand := 0
+	var jab_start := boxing.glove_rest(jab_hand)
+	var jab_target := boxing.active_target_position()
+	boxing._handle_press(jab_finger, jab_start)
+	boxing._handle_drag(jab_finger, jab_target)
+	_ck("real forward glove drag banks one jab",
+		boxing.landed_count() == 1 and boxing.round_index() == 1
+		and _paid_count("boxing_jab") == 1)
+	boxing._handle_drag(jab_finger, jab_target)
+	boxing._handle_drag(jab_finger, jab_target + Vector2(2.0, 0.0))
+	boxing._handle_release(jab_finger, jab_target)
+	_ck("accepted jab latches and cannot duplicate before release",
+		boxing.landed_count() == 1 and boxing.round_index() == 1
+		and _paid_count("boxing_jab") == 1
+		and boxing.touch_owner_snapshot().is_empty())
+
+	# Friendly counter-contact is feedback only. It cannot rewind either the
+	# career-owned fill synchronization or the locally accepted punch count.
+	boxing.set_fill(0.25)
+	var punches_before_hit := boxing.landed_count()
+	var round_before_hit := boxing.round_index()
+	var fill_before_hit := boxing.widget_fill
+	var payouts_before_hit := _paid_count("boxing_jab")
+	boxing.receive_friendly_hit()
+	_ck("friendly hit is cosmetic and preserves all accepted boxing state",
+		boxing.has_friendly_hit_feedback()
+		and boxing.landed_count() == punches_before_hit
+		and boxing.round_index() == round_before_hit
+		and is_equal_approx(boxing.widget_fill, fill_before_hit)
+		and _paid_count("boxing_jab") == payouts_before_hit
+		and not _paid("boxing_contact") and not boxing.finished)
+
+	# A child with one finger can operate both gloves in sequence. The guide
+	# excludes the completed hand and gives the same released finger the other.
+	events.clear()
+	boxing.configure("boxing_guide", Color.WHITE)
+	var solo_finger := 12
+	for guide_hand in range(2):
+		var guide_start := boxing.glove_rest(guide_hand)
+		var guide_target := boxing.guide_target_position(guide_hand)
+		boxing._handle_press(solo_finger, guide_start)
+		boxing._handle_drag(solo_finger, guide_target)
+		boxing._handle_release(solo_finger, guide_target)
+	_ck("one finger can finish both floating-glove guide punches",
+		boxing.landed_count() == 2 and boxing.round_index() == 2
+		and _paid_count("boxing_guide") == 2
+		and boxing.touch_owner_snapshot().is_empty() and not boxing.held)
+
+	# Two simultaneous touches must own different hands. Releasing one finger
+	# leaves the other owner live and draggable until that exact finger releases.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	var left_finger := 21
+	var right_finger := 22
+	var left_rest := boxing.glove_rest(0)
+	var right_rest := boxing.glove_rest(1)
+	boxing._handle_press(left_finger, left_rest)
+	boxing._handle_press(right_finger, right_rest)
+	var dual_owners := boxing.touch_owner_snapshot()
+	_ck("two touches own two distinct floating gloves",
+		dual_owners.size() == 2 and int(dual_owners.get(left_finger, -1)) == 0
+		and int(dual_owners.get(right_finger, -1)) == 1)
+	boxing._handle_release(left_finger, left_rest)
+	var isolated_owner := boxing.touch_owner_snapshot()
+	var right_drag := right_rest + Vector2(0.0, -42.0)
+	boxing._handle_drag(right_finger, right_drag)
+	_ck("releasing one glove preserves the other finger owner",
+		isolated_owner.size() == 1 and not isolated_owner.has(left_finger)
+		and int(isolated_owner.get(right_finger, -1)) == 1 and boxing.held
+		and boxing.glove_positions[1].distance_to(right_drag) < 1.0)
+	boxing._handle_release(right_finger, right_drag)
+	_ck("last owned glove release clears held state",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held)
+
+	# Desktop/headless fallback uses the same forward travel, while its explicit
+	# sentinel remains a real owner if a touch arrives before mouse release.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	var mouse_start := boxing.glove_rest(0)
+	var mouse_target := boxing.active_target_position()
+	_boxing_mouse_button(boxing, true, mouse_start)
+	_boxing_mouse_motion(boxing, mouse_target)
+	_boxing_mouse_button(boxing, false, mouse_target)
+	_ck("mouse fallback performs the same causal forward jab",
+		boxing.landed_count() == 1 and _paid_count("boxing_jab") == 1
+		and boxing.touch_owner_snapshot().is_empty())
+	var mouse_all_modes := boxing.landed_count() == 1 \
+		and _paid_count("boxing_jab") == 1
+	events.clear()
+	boxing.configure("boxing_guide", Color.WHITE)
+	for guide_hand in range(2):
+		_boxing_mouse_button(boxing, true, boxing.glove_rest(guide_hand))
+		var guide_target := boxing.guide_target_position(guide_hand)
+		_boxing_mouse_motion(boxing, guide_target)
+		_boxing_mouse_button(boxing, false, guide_target)
+	var mouse_guide_ok := boxing.landed_count() == 2 \
+		and _paid_count("boxing_guide") == 2
+	_ck("mouse fallback completes the two-glove guide", mouse_guide_ok)
+	mouse_all_modes = mouse_all_modes and mouse_guide_ok
+	events.clear()
+	boxing.configure("boxing_guard", Color.WHITE)
+	for guard_round in range(3):
+		var guard_hand := boxing.round_index() % 2
+		_boxing_mouse_button(boxing, true, boxing.glove_rest(guard_hand))
+		var guard_target := boxing.active_target_position()
+		_boxing_mouse_motion(boxing, guard_target)
+		boxing._process(boxing._counter_t + 0.01)
+		_boxing_mouse_button(boxing, false, guard_target)
+		boxing._process(0.5)
+	var mouse_guard_ok := boxing.round_index() == 3 \
+		and _paid_count("boxing_guard") == 3
+	_ck("mouse fallback completes all soft guard counters", mouse_guard_ok)
+	mouse_all_modes = mouse_all_modes and mouse_guard_ok
+	events.clear()
+	boxing.configure("boxing_imp", Color.WHITE)
+	for imp_round in range(6):
+		var imp_ticks := 0
+		while not boxing.imp_is_open() and imp_ticks < 20:
+			boxing._process(0.4)
+			imp_ticks += 1
+		if not boxing.imp_is_open():
+			mouse_all_modes = false
+			break
+		var imp_hand := boxing.round_index() % 2
+		_boxing_mouse_button(boxing, true, boxing.glove_rest(imp_hand))
+		var imp_target := boxing.active_target_position()
+		_boxing_mouse_motion(boxing, imp_target)
+		_boxing_mouse_button(boxing, false, imp_target)
+		boxing._process(0.5)
+	var mouse_imp_ok := boxing.landed_count() == 6 \
+		and _paid_count("boxing_imp") == 6
+	_ck("mouse fallback completes the friendly imp title round", mouse_imp_ok)
+	mouse_all_modes = mouse_all_modes and mouse_imp_ok
+	events.clear()
+	boxing.configure("boxing_belt", Color.WHITE)
+	_boxing_mouse_button(boxing, true, boxing.glove_rest(0))
+	var belt_target := boxing.active_target_position()
+	_boxing_mouse_motion(boxing, belt_target)
+	_boxing_mouse_button(boxing, false, belt_target)
+	var mouse_belt_ok := boxing.landed_count() == 1 \
+		and _paid_count("boxing_belt") == 1
+	_ck("mouse fallback earns the belt with a forward punch", mouse_belt_ok)
+	mouse_all_modes = mouse_all_modes and mouse_belt_ok
+	_ck("mouse fallback can finish every dedicated boxing phase",
+		mouse_all_modes and boxing.touch_owner_snapshot().is_empty())
+
+	boxing.configure("boxing_jab", Color.WHITE)
+	_boxing_mouse_button(boxing, true, boxing.glove_rest(0))
+	_boxing_touch_event(boxing, 51, true, boxing.glove_rest(0))
+	var mixed_owners := boxing.touch_owner_snapshot()
+	_ck("mouse sentinel and touch cannot claim the same glove",
+		int(mixed_owners.get(OperaBoxingSurface.MOUSE_FINGER, -1)) == 0
+		and int(mixed_owners.get(51, -1)) == 1)
+	_boxing_mouse_button(boxing, false, boxing.glove_rest(0))
+	_ck("mouse release preserves the concurrently owned touch glove",
+		boxing.touch_owner_snapshot().size() == 1
+		and int(boxing.touch_owner_snapshot().get(51, -1)) == 1)
+	_boxing_touch_event(boxing, 51, false, boxing.glove_rest(0))
+
+	# Android may synthesize a mouse packet for the same touch. Once any screen
+	# touch has been seen, those emulated packets and stray releases are no-ops.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	var dedupe_start := boxing.glove_rest(0)
+	var dedupe_target := boxing.active_target_position()
+	_boxing_touch_event(boxing, 61, true, dedupe_start)
+	_boxing_drag_event(boxing, 61, dedupe_target)
+	var dedupe_count := boxing.landed_count()
+	_boxing_mouse_button(boxing, true, boxing.glove_rest(1),
+		InputEvent.DEVICE_ID_EMULATION)
+	_boxing_mouse_motion(boxing, dedupe_target, InputEvent.DEVICE_ID_EMULATION)
+	_boxing_mouse_button(boxing, false, dedupe_target,
+		InputEvent.DEVICE_ID_EMULATION)
+	_boxing_touch_event(boxing, 999, false, Vector2.ZERO)
+	_ck("emulated mouse and unknown release cannot duplicate a touch punch",
+		boxing.landed_count() == dedupe_count and dedupe_count == 1
+		and _paid_count("boxing_jab") == 1
+		and boxing.touch_owner_snapshot().size() == 1
+		and boxing.touch_owner_snapshot().has(61))
+	_boxing_touch_event(boxing, 61, false, dedupe_target)
+	_boxing_touch_event(boxing, 61, false, dedupe_target)
+	_ck("duplicate release is harmless after the real owner clears",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held
+		and boxing.landed_count() == 1)
+
+	boxing.configure("boxing_jab", Color.WHITE)
+	_boxing_mouse_button(boxing, true, boxing.glove_rest(0))
+	boxing.configure("boxing_guard", Color.WHITE)
+	_ck("phase reconfiguration clears every mouse and touch claim",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held
+		and boxing.glove_positions[0].distance_to(boxing.glove_rest(0)) < 1.0
+		and boxing.glove_positions[1].distance_to(boxing.glove_rest(1)) < 1.0)
+
+	# Explicit cancellation and application focus loss share the same hard reset:
+	# no stale owner, latch, or displaced glove may survive a scene transition.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	boxing._handle_press(31, boxing.glove_rest(0))
+	boxing._handle_press(32, boxing.glove_rest(1))
+	boxing.cancel_all_touches()
+	_ck("boxing cancel resets both touch owners and glove rests",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held
+		and boxing.glove_positions[0].distance_to(boxing.glove_rest(0)) < 1.0
+		and boxing.glove_positions[1].distance_to(boxing.glove_rest(1)) < 1.0)
+	boxing._handle_press(41, boxing.glove_rest(0))
+	boxing._handle_drag(41, boxing.glove_rest(0) + Vector2(0.0, -48.0))
+	boxing._notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	_ck("boxing focus loss cancels every owned touch without progress",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held
+		and boxing.glove_positions[0].distance_to(boxing.glove_rest(0)) < 1.0
+		and boxing.glove_positions[1].distance_to(boxing.glove_rest(1)) < 1.0
+		and boxing.landed_count() == 0 and not _paid("boxing_jab"))
+
+	call_deferred("_finish_after_render", surface, boxing)
