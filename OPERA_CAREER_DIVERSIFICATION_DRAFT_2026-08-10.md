@@ -167,6 +167,38 @@ Prince sighted once, wordless, before his climax crash. This is the one
 genuinely new *content* item in the draft (encounter staging + the
 Prince's design), and it is flagged as such in §8.
 
+**4d. Where the antagonist lives during the acts — the gap this draft
+must close.** Under §17 the mischief imps are deliberately *not* the
+antagonists: they are redeemable apprentices, and the dress-up mirror is
+the sympathy engine that earns the invitation payoff. But that leaves a
+hole the plan has to answer honestly: for most of the chapter the only
+opposition on screen is designed to be funny and forgivable, while the
+actual antagonist appears once, wordless, plus two boss fights. Played
+straight, that is thirteen acts with no bad guy and then a climax crash
+from a stranger. The fix is to make the imps legible as **the Prince's
+hands** in every act — the antagonist constantly felt, never on screen:
+
+- **The arrival line names the boss, every act.** *"The Prince says I
+  have to learn the cake!"* Thirteen repetitions build the unseen Prince
+  into the chapter's standing presence — and they are the same 13 clips
+  §20 already recommends, doing double duty.
+- **The copy escalates across acts** (§18's own ladder): early
+  imitations are funny — wrong hats, upside-down tools; late ones are
+  nearly convincing. The threat grows as *competence*, not meanness —
+  the only kind of menace that is safe at 4.
+- **The shadow table is visible.** The imps' crate table accumulates
+  their copies of the stolen pieces, glimpsed in the rooms they have
+  raided. The duplicate party assembling is the antagonist's progress
+  bar, told as set dressing.
+- **The ember henchmen are the enforcement.** When an ember encounter
+  is staged (§4c), the mischief imps are visibly nervous around them —
+  one shipped `_stagger`/`_flee` pose covers it. Showing who the funny
+  imps are scared of tells the child who the real villain is without
+  anyone ever being mean to *her*.
+- **The stolen piece goes to the Prince's table, not into a sack** — the
+  theft keeps its edge because its destination is the antagonist's
+  project (§18 already assumes the piece is displayed, never destroyed).
+
 ## 5. Dress-up, given a context
 
 The costume element becomes meaningful the moment the job happens where
@@ -293,3 +325,12 @@ scheduling:
 - **Q6 — Lobby afterlife:** when the lobby shrinks, do the floor names
   (Lagoon Lights / Starlight Balcony / Grand Gallery) survive anywhere,
   or retire with the floors?
+- **Q7 — Are the imps meant to be the antagonists?** This draft keeps
+  them sympathetic per §17–19, with the Prince carrying the menace
+  through them (§4d). The other direction — restoring the imps as true
+  antagonists, closer to what ships today — is available, but it
+  reverses three recorded rulings, forfeits the invitation payoff and
+  Chapter 5's fancy-dress inheritance, and re-reads the mirror costumes
+  as imposters-in-her-clothes. *Recommendation: keep them sympathetic;
+  close the felt-antagonist gap with §4d rather than by making the imps
+  mean.*
