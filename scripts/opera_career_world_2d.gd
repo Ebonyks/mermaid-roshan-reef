@@ -1720,10 +1720,6 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 			var ribbon_frames: Array[int] = [2, 1, 0]
 			var ribbon_band := mini(ribbon_frames.size() - 1, int(floor(progress * 3.0)))
 			player_animator.show_pose("work", ribbon_frames[ribbon_band])
-		elif mode == "ballet_twirl":
-			var twirl_frames: Array[int] = [0, 1, 2, 1]
-			var twirl_band := mini(twirl_frames.size() - 1, int(floor(progress * 4.0)))
-			player_animator.show_pose("work", twirl_frames[twirl_band])
 	if phase_progress < goal:
 		return
 	surface.accept_completion()
