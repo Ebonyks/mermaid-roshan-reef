@@ -30,11 +30,12 @@ const ACTS := [
 		"voice": "Detective Roshan and the detective imp are solving the SAME case! Find five clues before the timer; if the imp gets there first, watch the answer and race the remembered mystery again!",
 		"win_line": "Case closed! Roshan solved the Two-Detective Mystery!",
 		"floor_col": Color(0.42, 0.46, 0.62), "trim": Color(0.72, 0.85, 1.0), "curtain": Color(0.3, 0.35, 0.6)},
-	{"name": "The Twin-Ribbon Recital", "career": "Ballerina", "costume": "ballerina", "emoji": "🩰", "story": 1, "type": "show",
-		"kind": "echo", "pads": 4, "rounds": [3, 4, 5], "pitch": 0.6,
+	{"name": "The Mermaid Pearl Ballet Party", "career": "Ballerina", "costume": "ballerina", "emoji": "🩰", "story": 1, "type": "show",
+		"kind": "echo", "pads": 3, "rounds": [2, 3, 3], "pitch": 0.6,
+		"silence_entry_voice": true,
 		"rescue": "dancers", "gift": "ribbons", "rescue_imps": 4,
-		"voice": "Ballerina twirl! Match the glowing dance steps while the ribbon imp dances the other side of the stage. Make the crowd clap louder!",
-		"win_line": "Roshan wins the Twin-Ribbon Recital with a beautiful final twirl!",
+		"voice": "Mermaid ballet party! Hold pearl poses, guide the glowing ribbon, and finish with one beautiful grand twirl!",
+		"win_line": "Roshan's pearl-ribbon ballet ends with a beautiful grand twirl!",
 		"floor_col": Color(0.62, 0.45, 0.72), "trim": Color(1.0, 0.72, 0.86), "curtain": Color(0.55, 0.3, 0.62)},
 	{"name": "The Candy Workshop Cup", "career": "Candy Maker", "costume": "candymaker", "emoji": "🍬", "story": 1, "type": "show",
 		"kind": "press", "candies": 9,
@@ -624,6 +625,13 @@ func _start_act(i: int) -> void:
 	act_index = i
 	var cfg: Dictionary = (ACTS[i] as Dictionary).duplicate()
 	cfg["act_tag"] = String(cfg["name"]) + "  "
+	if bool(cfg.get("silence_entry_voice", false)):
+		# A quick lobby tap can arrive while its generic welcome clip is still
+		# playing. Clear that pool before the exact ballet teaching line begins.
+		for voice_player: AudioStreamPlayer in m.voice_pool:
+			voice_player.stop()
+		if m.voice != null:
+			m.voice.stop()
 	if use_lobby_2d:
 		if lobby_2d != null and is_instance_valid(lobby_2d):
 			lobby_2d.hide_lobby()

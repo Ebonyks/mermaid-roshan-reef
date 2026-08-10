@@ -51,9 +51,13 @@ func _load_tile_set(kind: String) -> Array[Texture2D]:
 	var textures: Array[Texture2D] = []
 	for row in range(2):
 		for column in range(2):
-			var path := "res://assets/opera/worlds/backdrops/%s_%s_c%dr%d.png" % [
-				kind, career_id, column, row,
-			]
+			var path: String
+			if career_id == "ballerina" and kind == "stage":
+				path = "res://assets/opera/worlds/stage/finale_stage_c%dr%d.png" % [column, row]
+			else:
+				path = "res://assets/opera/worlds/backdrops/%s_%s_c%dr%d.png" % [
+					kind, career_id, column, row,
+				]
 			if not ResourceLoader.exists(path):
 				return []
 			var texture := load(path) as Texture2D
