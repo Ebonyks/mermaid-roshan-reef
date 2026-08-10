@@ -224,6 +224,7 @@ const LEGACY_FINALE_START := {
 ## teaching and curtain call. The playable verb belongs to the job. Boxer is
 ## deliberately the only career that resolves its complication with combat.
 ## The old five-beat tables remain above for audit comparison only.
+const BALLET_PHASE_HOLD_SECONDS := 1.75
 const PHASES := {
 	"chef": [
 		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Tip the sparkling batter into the bowl!"},
@@ -383,6 +384,8 @@ var bop_time := 0.0
 var steal_index := -1
 var captain_pending := false
 var idle_t := 0.0
+## Testable count of spoken ballet re-prompts. Initial phase VO is separate.
+var ballet_instruction_repeats := 0
 ## WANDER (owner 2026-08-04, the curiosity layer): between tasks the world
 ## is HERS — tap-to-walk along the painted route while the armed station
 ## breathes and invites. The task opens when she arrives (150px + 0.35s
@@ -1659,6 +1662,7 @@ func _set_finale_visible(show_finale: bool) -> void:
 func _repeat_ballet_instruction() -> void:
 	if m == null or phase_index >= phases.size():
 		return
+	ballet_instruction_repeats += 1
 	var phase := phases[phase_index] as Dictionary
 	if String(phase.get("mode", "")) == "ballet_pose":
 		# The first line asks her to watch; once a portrait is tappable, the
@@ -1685,6 +1689,8 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 		return
 	if kind == "ballet_ready":
 		idle_t = 0.0
+		# Only Pearl Mirror emits this event: its 2.15-second watch demo has
+		# finished, so the shorter "your turn" recording can now play alone.
 		_repeat_ballet_instruction()
 		return
 	if kind not in ["ballet_pose", "ballet_ribbon", "ballet_twirl", "probe"]:
@@ -1697,7 +1703,6 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 		if surface != null:
 			surface.note_result(false)
 			surface.restart_demo()
-		_repeat_ballet_instruction()
 		return
 	idle_t = 0.0
 	if surface != null:
@@ -1727,7 +1732,8 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 		_play_roshan_animation("cheer")
 		phase_complete_t = 2.2
 	else:
-		phase_complete_t = 1.1
+		# Let the current instruction/pose settle before the next phase speaks.
+		phase_complete_t = BALLET_PHASE_HOLD_SECONDS
 	phase_advance_pending = true
 
 
@@ -2783,7 +2789,11 @@ func _process(delta: float) -> void:
 			else:
 				surface.restart_demo()
 			if career_id == "ballerina":
-				_repeat_ballet_instruction()
+				# Mirror speaks only after its watch demo emits ballet_ready.
+				# Ribbon and Twirl have no ready echo, so their quiet-time replay
+				# uses the phase line here at the seven-second rehint.
+				if idle_mode != "ballet_pose":
+					_repeat_ballet_instruction()
 			elif m != null:
 				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
 					String((phases[phase_index] as Dictionary).get("vo", "hint")))

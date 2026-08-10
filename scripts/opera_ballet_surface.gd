@@ -19,12 +19,13 @@ const WORK_ROW := 2
 ## Values are the zero-based atlas columns emitted to the career-world actor.
 const POSE_FRAMES: Array[int] = [3, 2, 1]
 const POSE_OPTIONS: Array = [
-	[3, 1],
-	[2, 3, 1],
+	[1, 3],
+	[3, 2, 1],
 	[1, 2, 3],
 ]
 const POSE_ROUNDS := 3
-const DEMO_SECONDS := 1.55
+const ACTION_DEMO_SECONDS := 1.55
+const POSE_DEMO_SECONDS := 2.15
 const DEMO_CUE_SECONDS := 0.12
 const FIRST_ASSIST_SECONDS := 5.0
 const STRONG_ASSIST_SECONDS := 10.0
@@ -171,6 +172,18 @@ func ribbon_resume_rect() -> Rect2:
 		Vector2.ONE * diameter)
 
 
+func ribbon_resume_radius() -> float:
+	return ribbon_resume_rect().size.x * 0.5
+
+
+func ribbon_resume_hit(at: Vector2) -> bool:
+	return at.distance_to(ribbon_point(ribbon_progress)) <= ribbon_resume_radius()
+
+
+func demo_duration() -> float:
+	return POSE_DEMO_SECONDS if mode == "ballet_pose" else ACTION_DEMO_SECONDS
+
+
 func twirl_center() -> Vector2:
 	return Vector2(size.x * 0.66, size.y * 0.50)
 
@@ -208,9 +221,13 @@ func _begin_demo() -> void:
 func _finish_demo() -> void:
 	if not _ready_emitted:
 		_ready_emitted = true
-		gesture.emit("ballet_ready", 0.0, 1.0)
+		# Mirror needs a distinct spoken handoff after the longer "watch" line.
+		# Ribbon and Twirl already announce their verb on phase entry; replaying
+		# that same clip here would create an immediate echo.
+		if mode == "ballet_pose":
+			gesture.emit("ballet_ready", 0.0, 1.0)
 	demo_active = false
-	demo_t = DEMO_SECONDS
+	demo_t = demo_duration()
 	queue_redraw()
 
 
@@ -238,20 +255,23 @@ func _process(delta: float) -> void:
 			queue_redraw()
 		return
 
-	_stuck_t += maxf(0.0, delta)
-	if _stuck_t >= STRONG_ASSIST_SECONDS and _assist_level < 2:
-		_assist_level = 2
-		_begin_demo()
-	elif _stuck_t >= FIRST_ASSIST_SECONDS and _assist_level < 1:
-		_assist_level = 1
-		_begin_demo()
-
 	if demo_active:
 		demo_t += maxf(0.0, delta)
 		if demo_t >= DEMO_CUE_SECONDS:
 			_emit_demo_cue()
-		if demo_t >= DEMO_SECONDS:
+		if demo_t >= demo_duration():
 			_finish_demo()
+	else:
+		# Assist clocks measure the child's available turn, never time during
+		# which the demonstration owns input. First and strong help therefore
+		# arrive after five and ten full seconds without meaningful progress.
+		_stuck_t += maxf(0.0, delta)
+		if _stuck_t >= STRONG_ASSIST_SECONDS and _assist_level < 2:
+			_assist_level = 2
+			_begin_demo()
+		elif _stuck_t >= FIRST_ASSIST_SECONDS and _assist_level < 1:
+			_assist_level = 1
+			_begin_demo()
 
 	_redraw_t += maxf(0.0, delta)
 	if _redraw_t >= REDRAW_STEP:
@@ -411,7 +431,7 @@ func _pose_press(at: Vector2) -> void:
 
 
 func _ribbon_press(at: Vector2) -> void:
-	_ribbon_engaged = ribbon_resume_rect().has_point(at)
+	_ribbon_engaged = ribbon_resume_hit(at)
 	if not _ribbon_engaged:
 		_note_wrong("ballet_ribbon", at, true)
 		return
@@ -650,12 +670,14 @@ func _draw_ribbon_game() -> void:
 		draw_circle(center, 16.0,
 			Color("#fff4bd") if reached else Color("#d5f5ff"))
 	var resume := ribbon_point(ribbon_progress)
-	var resume_radius := ribbon_resume_rect().size.x * 0.5
+	var resume_radius := ribbon_resume_radius()
 	var pulse := 0.5 + 0.5 * sin(_elapsed * 5.0)
-	draw_circle(resume, resume_radius * (0.82 + pulse * 0.12),
+	draw_circle(resume, resume_radius * (1.02 + pulse * 0.12),
 		Color(1.0, 0.88, 0.45, 0.25 + pulse * 0.22))
-	draw_circle(resume, 31.0, Color("#fff0a8"))
-	draw_circle(resume - Vector2(8.0, 8.0), 8.0, Color.WHITE)
+	draw_circle(resume, resume_radius, Color("#fff0a8"))
+	draw_circle(resume, resume_radius * 0.72, Color("#fff7d5"))
+	draw_circle(resume - Vector2.ONE * resume_radius * 0.24,
+		resume_radius * 0.14, Color.WHITE)
 
 
 func _draw_twirl_game() -> void:

@@ -44,6 +44,14 @@ func _paid_total(kind: String) -> float:
 	return total
 
 
+func _event_count(kind: String) -> int:
+	var count := 0
+	for event: Dictionary in events:
+		if String(event.get("kind", "")) == kind:
+			count += 1
+	return count
+
+
 func _cue_frames(kind: String) -> Array[int]:
 	var result: Array[int] = []
 	for event: Dictionary in events:
@@ -105,7 +113,13 @@ func _test_ballet_surface() -> void:
 	var first_target_index: int = _pose_choice_index(ballet, first_target)
 	_ck("ballet phrase uses atlas heart, open, and crown in that order",
 		BalletSurface.POSE_FRAMES == [3, 2, 1]
-		and first_target == 3 and first_frames == [3, 1])
+		and first_target == 3 and first_frames == [1, 3])
+	var watch_stream := load(
+		"res://assets/audio/voices/roshan_op_ballerina_watch.ogg") as AudioStream
+	_ck("mirror demo lets the complete watch recording finish before handoff",
+		watch_stream != null
+		and ballet.demo_duration() >= watch_stream.get_length() + 0.05
+		and ballet.demo_duration() <= 2.5)
 	_ck("ballet mirror begins with two 180px-or-larger portrait targets",
 		first_rects.size() == 2 and first_target_index >= 0
 		and first_rects[0].size.x >= 180.0 and first_rects[0].size.y >= 180.0
@@ -114,21 +128,25 @@ func _test_ballet_surface() -> void:
 	ballet._release(first_rects[first_target_index].get_center())
 	_ck("touching during mirror demonstration cannot progress",
 		ballet.pose_round == 0 and not _paid("ballet_pose"))
+	ballet._process(ballet.demo_duration() + 0.1)
+	_ck("mirror emits one your-turn cue after its initial watch demo",
+		_event_count("ballet_ready") == 1)
 	ballet._process(4.9)
-	_ck("ballet assist does not trigger before five seconds",
+	_ck("ballet assist waits for five playable seconds after the demo",
 		ballet.assist_level() == 0 and ballet.pose_round == 0)
 	ballet._process(0.2)
 	_ck("ballet first assist appears at five seconds without auto-progress",
 		ballet.assist_level() == 1 and ballet.pose_round == 0
 		and not _paid("ballet_pose"))
+	ballet._process(ballet.demo_duration() + 0.1)
 	ballet._process(4.8)
-	_ck("ballet strong assist waits until ten seconds",
+	_ck("ballet strong assist waits for ten cumulative playable seconds",
 		ballet.assist_level() == 1 and ballet.pose_round == 0)
 	ballet._process(0.2)
 	_ck("ballet strong assist enlarges guidance at ten seconds without winning",
 		ballet.assist_level() == 2 and ballet.pose_round == 0
 		and not _paid("ballet_pose"))
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	var wrong_index := 0 if first_frames[0] != first_target else 1
 	ballet._press(first_rects[wrong_index].get_center())
 	ballet._release(first_rects[wrong_index].get_center())
@@ -136,19 +154,23 @@ func _test_ballet_surface() -> void:
 		ballet.pose_round == 0 and ballet.demo_active and not _paid("ballet_pose"))
 	ballet.restart_demo()
 	_ck("mirror replay preserves its unresolved round", ballet.pose_round == 0)
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	ballet._press(first_rects[first_target_index].get_center())
 	ballet._release(first_rects[first_target_index].get_center())
 	_ck("real matching portrait banks exactly one mirror round",
 		ballet.pose_round == 1 and _paid_count("ballet_pose") == 1)
 	var mirror_targets: Array[int] = [first_target]
+	var mirror_target_xs: Array[float] = [
+		first_rects[first_target_index].get_center().x,
+	]
 	var pose_guard := 0
 	while ballet.pose_round < int(BalletSurface.POSE_ROUNDS) and pose_guard < 6:
-		ballet._process(1.7)
+		ballet._process(ballet.demo_duration() + 0.1)
 		var target: int = ballet.pose_target_frame()
 		mirror_targets.append(target)
 		var option_index: int = _pose_choice_index(ballet, target)
 		var rects: Array[Rect2] = ballet.pose_option_rects()
+		mirror_target_xs.append(rects[option_index].get_center().x)
 		ballet._press(rects[option_index].get_center())
 		ballet._release(rects[option_index].get_center())
 		pose_guard += 1
@@ -157,17 +179,30 @@ func _test_ballet_surface() -> void:
 		and _paid_count("ballet_pose") == int(BalletSurface.POSE_ROUNDS))
 	_ck("mirror presents the complete low-open-crown pose phrase exactly once",
 		mirror_targets == [3, 2, 1])
+	_ck("mirror moves the correct portrait right, centre, then left",
+		mirror_target_xs.size() == 3
+		and mirror_target_xs[0] > ballet.size.x * 0.55
+		and absf(mirror_target_xs[1] - ballet.size.x * 0.5) <= 2.0
+		and mirror_target_xs[2] < ballet.size.x * 0.40)
 
 	# RIBBON: one curve owns painting and collision. A coarse path with a lift
 	# completes; a direct chord cannot skip across distant sine crossings.
 	events.clear()
 	ballet.configure("ballet_ribbon", Color("#ff8fc8"))
 	ballet.set_process(false)
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	_ck("ribbon start pearl and corridor exceed the one-finger minimum",
 		ballet.ribbon_resume_rect().size.x >= 110.0
 		and ballet.ribbon_resume_rect().size.y >= 110.0
 		and ballet.ribbon_corridor_width() >= 90.0)
+	var ribbon_corner: Vector2 = ballet.ribbon_resume_rect().position + Vector2.ONE * 2.0
+	_ck("ribbon visible pearl and accepted start share one circular geometry",
+		ballet.ribbon_resume_hit(ballet.ribbon_resume_rect().get_center())
+		and not ballet.ribbon_resume_hit(ribbon_corner)
+		and is_equal_approx(ballet.ribbon_resume_radius() * 2.0,
+			ballet.ribbon_resume_rect().size.x))
+	_ck("ribbon demo never echoes its phase instruction as a ready cue",
+		_event_count("ballet_ready") == 0)
 	ballet._press(ballet.ribbon_resume_rect().get_center())
 	ballet._drag(ballet.ribbon_point(1.0))
 	ballet._release(ballet.ribbon_point(1.0))
@@ -177,7 +212,7 @@ func _test_ballet_surface() -> void:
 	ballet.restart_demo()
 	_ck("ribbon replay preserves every accepted fraction",
 		is_equal_approx(ballet.ribbon_progress, chord_progress))
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	ballet._press(ballet.ribbon_resume_rect().get_center())
 	var ribbon_guard := 0
 	while ballet.ribbon_progress < 0.50 and ribbon_guard < 24:
@@ -189,7 +224,7 @@ func _test_ballet_surface() -> void:
 	ballet.restart_demo()
 	_ck("lifting halfway banks ribbon progress for resume",
 		lifted_progress >= 0.49 and is_equal_approx(ballet.ribbon_progress, lifted_progress))
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	ballet._press(ballet.ribbon_resume_rect().get_center())
 	ribbon_guard = 0
 	while ballet.ribbon_progress < 0.999 and ribbon_guard < 24:
@@ -205,13 +240,15 @@ func _test_ballet_surface() -> void:
 	events.clear()
 	ballet.configure("ballet_twirl", Color("#ff8fc8"))
 	ballet.set_process(false)
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	_ck("twirl ring and pearl handle meet the one-finger minimum",
 		ballet.twirl_ring_width() >= 110.0
 		and float(BalletSurface.TWIRL_HANDLE_DIAMETER) >= 110.0)
+	_ck("twirl demo never echoes its phase instruction as a ready cue",
+		_event_count("ballet_ready") == 0)
 	ballet._press(ballet.twirl_center())
 	ballet._release(ballet.twirl_center())
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	var top_handle: Vector2 = ballet.twirl_handle_position()
 	ballet._press(top_handle)
 	ballet._drag(ballet.twirl_center())
@@ -219,7 +256,7 @@ func _test_ballet_surface() -> void:
 	ballet._release(ballet.twirl_center() + Vector2.DOWN * ballet.twirl_radius())
 	_ck("centre scrub and straight diameter cannot pay for a twirl",
 		is_zero_approx(ballet.twirl_progress) and not _paid("ballet_twirl"))
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	ballet._press(ballet.twirl_handle_position())
 	for sector in range(1, 9):
 		var angle: float = -PI * 0.5 + float(sector) * TAU / 16.0
@@ -231,7 +268,7 @@ func _test_ballet_surface() -> void:
 	_ck("half twirl remains banked across lift and replay",
 		half_turn > 0.45 and half_turn < 0.55
 		and is_equal_approx(ballet.twirl_progress, half_turn))
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	ballet._press(ballet.twirl_handle_position())
 	for sector in range(9, 17):
 		var angle: float = -PI * 0.5 + float(sector) * TAU / 16.0
@@ -247,7 +284,7 @@ func _test_ballet_surface() -> void:
 	events.clear()
 	ballet.configure("ballet_twirl", Color("#ff8fc8"))
 	ballet.set_process(false)
-	ballet._process(1.7)
+	ballet._process(ballet.demo_duration() + 0.1)
 	ballet._press(ballet.twirl_handle_position())
 	for sector in range(1, 17):
 		var angle: float = -PI * 0.5 - float(sector) * TAU / 16.0

@@ -78,9 +78,10 @@ change is part of this implementation.
 - Each act begins with a short visual demonstration and its exact spoken cue.
   Pearl Mirror changes from the `watch` cue to the `steps` cue when control is
   handed to the child.
-- After **5 seconds** without meaningful progress, replay only the unresolved
-  pose, remaining ribbon segment, or remaining orbit. After **10 seconds**,
-  replay again and enlarge the relevant target/corridor. This satisfies the
+- After **5 playable seconds** without meaningful progress, replay only the
+  unresolved pose, remaining ribbon segment, or remaining orbit. Demonstration
+  time does not count against the child. After **10 playable seconds**, replay
+  again and enlarge the relevant target/corridor. This satisfies the
   requested 5–10 second recovery window without creating a timeout.
 - Correct work is monotonic and banked. Replays, pauses, release/re-grab,
   incorrect touches, or a stronger assist may never reduce pose round,
@@ -105,8 +106,15 @@ change is part of this implementation.
   **128 px** across, the base ribbon corridor is **116 px** wide, the twirl
   handle is **112 px** across, and the twirl ring corridor is **116 px** wide.
   Strong assist increases rather than decreases these tolerances.
+- Pearl Mirror moves the answer from right to centre to left across its three
+  rounds, so location alone can never replace looking at Roshan's held pose.
 - Every actionable object pulses or demonstrates before input is expected. The
   visible object, demonstrated object, and accepted hit geometry are identical.
+- Entry audio is serialized: any generic lobby clip stops before the 2.08-second
+  watch cue, and the Mirror "your turn" cue waits for a 2.15-second demo. Ribbon
+  and Twirl do not immediately echo their phase instruction when a demo ends.
+  A near miss replays visually without stacking another recording; the quiet
+  timer repeats the spoken instruction at seven seconds.
 - All prompts have an exact Ballerina VO. Text may support an adult but cannot
   be required to discover the goal.
 

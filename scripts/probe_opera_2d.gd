@@ -448,6 +448,11 @@ func _init() -> void:
 		if career == "ballerina":
 			var pearl_mirror_watch_count := 0
 			var retired_generic_ballet_mode := false
+			var ballet_silences_entry_voice := false
+			for opera_cfg: Dictionary in OperaHouse.ACTS:
+				if String(opera_cfg.get("costume", "")) == "ballerina":
+					ballet_silences_entry_voice = bool(opera_cfg.get(
+						"silence_entry_voice", false))
 			for ballerina_phase: Dictionary in world.phases:
 				var ballerina_mode := String(ballerina_phase.get("mode", ""))
 				if String(ballerina_phase.get("name", "")) == "PEARL MIRROR" \
@@ -458,6 +463,17 @@ func _init() -> void:
 					or ballerina_mode in ["dance_sequence", "hold"]
 			_check("ballerina watch cue belongs only to the specialist pearl mirror",
 				pearl_mirror_watch_count == 1 and not retired_generic_ballet_mode)
+			_check("ballerina clears any lobby voice before its watch instruction",
+				ballet_silences_entry_voice)
+			var ballet_steps_stream := load(
+				"res://assets/audio/voices/roshan_op_ballerina_steps.ogg") as AudioStream
+			var ballet_ribbon_stream := load(
+				"res://assets/audio/voices/roshan_op_ballerina_ribbon.ogg") as AudioStream
+			_check("ballerina lets each your-turn cue finish before the next phase",
+				ballet_steps_stream != null and ballet_ribbon_stream != null
+				and OperaCareerWorld2D.BALLET_PHASE_HOLD_SECONDS \
+					>= maxf(ballet_steps_stream.get_length(),
+						ballet_ribbon_stream.get_length()) + 0.05)
 		if career == "candymaker":
 			var syrup_goal := 0.0
 			for candy_phase: Dictionary in world.phases:
@@ -588,7 +604,20 @@ func _init() -> void:
 			_check("ballerina recital maps heart, open, and crown atlas poses in order",
 				BalletSurface.POSE_FRAMES == [3, 2, 1]
 				and ballet_surface.pose_target_frame() == 3
-				and ballet_surface.pose_option_frames() == [3, 1])
+				and ballet_surface.pose_option_frames() == [1, 3])
+			ballet_surface.configure("ballet_pose", Color.WHITE)
+			ballet_surface.armed_only = false
+			var mirror_repeat_before := world.ballet_instruction_repeats
+			world.reveal_t = 0.0
+			world.idle_t = 6.95
+			world._process(0.10)
+			var mirror_idle_demo_silent: bool = \
+				world.ballet_instruction_repeats == mirror_repeat_before \
+				and ballet_surface.demo_active
+			ballet_surface._process(ballet_surface.demo_duration() + 0.1)
+			_check("ballerina idle replay waits until Mirror hands the turn back",
+				mirror_idle_demo_silent
+				and world.ballet_instruction_repeats == mirror_repeat_before + 1)
 			_check("ballerina hides progress chrome, race bars, and the rival",
 				world.phase_fill != null and not world.phase_fill.visible
 				and world.player_bar != null and not world.player_bar.visible
