@@ -2,7 +2,7 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "8ed978be",
+    "inventory_head": "fea916a8",
     "inventory_date": "2026-08-09",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
@@ -7573,14 +7573,14 @@
     ]
   },
   "declared_counts": {
-    "model_files": 513,
+    "model_files": 509,
     "model_scan_coverage_files": 0,
-    "active_export_model_files": 513,
+    "active_export_model_files": 509,
     "model_import_sidecars": 157,
-    "active_untracked_model_import_sidecars": 356,
+    "active_untracked_model_import_sidecars": 352,
     "model_archive_files": 0,
-    "production_3d_files": 70,
-    "probe_3d_files": 80,
+    "production_3d_files": 68,
+    "probe_3d_files": 77,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
     "archive_now_model_files": 0
@@ -7641,10 +7641,6 @@
     "assets/aquatic2/StingRay.glb",
     "assets/aquatic2/Turtle.glb",
     "assets/aquatic2/Whale.glb",
-    "assets/art35/arena/meadow_bush_0.glb",
-    "assets/art35/arena/meadow_bush_1.glb",
-    "assets/art35/arena/meadow_bush_2.glb",
-    "assets/art35/arena/meadow_bush_3.glb",
     "assets/art35/arena/shop_interior.glb",
     "assets/art35/arena/slide_finish_arch.glb",
     "assets/art35/arena/slide_snowbank_0.glb",
@@ -8320,22 +8316,6 @@
     "assets/aquatic2/Whale.glb": {
       "size": 4570068,
       "sha256": "c285ede62e58dcfdab2d731db3ee7cce0406ed3d5258df86d6b75139b7144086"
-    },
-    "assets/art35/arena/meadow_bush_0.glb": {
-      "size": 122900,
-      "sha256": "03bd4ef1a0bf900a3cfa26a7224a9448e7818c8935d5c097dd4018ec43eb806f"
-    },
-    "assets/art35/arena/meadow_bush_1.glb": {
-      "size": 123060,
-      "sha256": "cccbedffa7bed2f68b92429177ad459253f2c8bc74edd6ffa807f4f2fabc31d9"
-    },
-    "assets/art35/arena/meadow_bush_2.glb": {
-      "size": 123076,
-      "sha256": "6dd773b5308a5dccc2cb0bba0f664beec6970c735f511d1d7f670cb2b17bd0bb"
-    },
-    "assets/art35/arena/meadow_bush_3.glb": {
-      "size": 123048,
-      "sha256": "14d46d73be5440c33e94844a0c686d413545ce297553953510d27a2e16ad9fdb"
     },
     "assets/art35/arena/shop_interior.glb": {
       "size": 240468,
@@ -10211,10 +10191,6 @@
     "assets/aquatic2/StingRay.glb",
     "assets/aquatic2/Turtle.glb",
     "assets/aquatic2/Whale.glb",
-    "assets/art35/arena/meadow_bush_0.glb",
-    "assets/art35/arena/meadow_bush_1.glb",
-    "assets/art35/arena/meadow_bush_2.glb",
-    "assets/art35/arena/meadow_bush_3.glb",
     "assets/art35/arena/shop_interior.glb",
     "assets/art35/arena/slide_finish_arch.glb",
     "assets/art35/arena/slide_snowbank_0.glb",
@@ -10830,10 +10806,6 @@
     "assets/vehicles/motorcycle.glb.import"
   ],
   "active_untracked_model_import_sidecars": [
-    "assets/art35/arena/meadow_bush_0.glb.import",
-    "assets/art35/arena/meadow_bush_1.glb.import",
-    "assets/art35/arena/meadow_bush_2.glb.import",
-    "assets/art35/arena/meadow_bush_3.glb.import",
     "assets/art35/arena/shop_interior.glb.import",
     "assets/art35/arena/slide_finish_arch.glb.import",
     "assets/art35/arena/slide_snowbank_0.glb.import",
@@ -12155,15 +12127,6 @@
       "TorusMesh": 1,
       "Vector3": 38
     },
-    "scripts/games/dolls.gd": {
-      "BoxMesh": 3,
-      "CapsuleMesh": 1,
-      "CylinderMesh": 1,
-      "MeshInstance3D": 8,
-      "Node3D": 5,
-      "SphereMesh": 3,
-      "Vector3": 23
-    },
     "scripts/games/dust_boss.gd": {
       "BaseMaterial3D": 2,
       "BoxMesh": 3,
@@ -12233,15 +12196,6 @@
       "QuadMesh": 3,
       "StandardMaterial3D": 3,
       "Vector3": 22
-    },
-    "scripts/games/seek.gd": {
-      "<model-reference>": 2,
-      "MeshInstance3D": 1,
-      "Node3D": 8,
-      "OmniLight3D": 1,
-      "SphereMesh": 1,
-      "StandardMaterial3D": 1,
-      "Vector3": 19
     },
     "scripts/games/shop.gd": {
       "<model-reference>": 1,
@@ -12443,7 +12397,7 @@
       "TRANSFORM_3D": 2,
       "TorusMesh": 4,
       "Transform3D": 6,
-      "Vector3": 477,
+      "Vector3": 472,
       "VisualInstance3D": 5,
       "WorldEnvironment": 2
     },
@@ -12599,20 +12553,19 @@
       "<model-reference>": 3,
       "Camera3D": 3,
       "Node3D": 5,
-      "Vector3": 133
+      "Vector3": 131
     },
     "scripts/probe_art_manifest.gd": {
       "<model-reference>": 1
     },
     "scripts/probe_audit.gd": {
       "Camera3D": 1,
-      "Node3D": 13,
-      "Node3Ds": 1,
+      "Node3D": 10,
       "Quaternion": 1,
       "RainbowTheater3D": 1,
       "Skeleton3D": 1,
       "Sprite3D": 1,
-      "Vector3": 22
+      "Vector3": 21
     },
     "scripts/probe_basement.gd": {
       "Camera3D": 2,
@@ -12698,10 +12651,6 @@
     },
     "scripts/probe_dance.gd": {
       "Vector3": 1
-    },
-    "scripts/probe_dolls.gd": {
-      "Node3D": 2,
-      "Node3Ds": 1
     },
     "scripts/probe_dungeon.gd": {
       "MeshInstance3D": 1,
@@ -12936,10 +12885,6 @@
       "Camera3D": 2,
       "Vector3": 17
     },
-    "scripts/probe_seek.gd": {
-      "Node3D": 2,
-      "Vector3": 3
-    },
     "scripts/probe_skins.gd": {
       "Skeleton3D": 1
     },
@@ -13010,14 +12955,6 @@
       "Skeleton3D": 1,
       "Sprite3D": 1,
       "Vector3": 2
-    },
-    "scripts/probe_visual_audit.gd": {
-      "<lowercase-3d-marker>": 1,
-      "Camera3D": 2,
-      "Node3D": 3,
-      "Sprite3D": 8,
-      "SpriteBase3D": 1,
-      "Vector3": 3
     },
     "scripts/probe_voice.gd": {
       "Node3D": 4,
