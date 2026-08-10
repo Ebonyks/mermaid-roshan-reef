@@ -134,7 +134,7 @@ const PHASES := {
 		{"name": "TUNE UP", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_racer_tune_up", "voice": "Turn the wrench in big circles — tighten every wheel before the race!"},
 		{"name": "TO THE LINE", "icon": "↔", "mode": "swipe", "goal": 6.0, "vo": "op_racer_to_the_line", "voice": "Push the kart all the way out to the starting line!"},
 		{"name": "TROPHY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_racer_trophy_chase", "voice": "The imp captain grabbed the shell trophy and jumped into his kart! Clear the track!"},
-		{"name": "RACE!", "icon": "★", "mode": "circle", "widget": "", "goal": 1.0, "vo": "op_racer_race", "voice": "After him! Pick your ride and race through the rainbow!"},
+		{"name": "RACE!", "icon": "★", "mode": "circle", "widget": "", "goal": 1.0, "vo": "op_racer_lap_two", "voice": "Loop the loop! Draw big racing circles!"},
 	],
 	"nursery": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_nursery_imps", "voice": "Mischief imps are tickling the babies awake! Tap each imp!"},

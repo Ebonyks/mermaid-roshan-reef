@@ -140,7 +140,13 @@ func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 		var has_exact := ResourceLoader.exists(
 			"res://assets/audio/voices/" + speaker + "_" + vo + ".ogg")
 		m.hud_msg.visible = false
-		if not has_exact and txt != "":
+		if has_exact:
+			# The main HUD loop derives visibility from text every frame. Clear both
+			# fields so an earlier reading-aid caption cannot reappear underneath
+			# this exact recording on the following frame.
+			m.hud_msg.text = ""
+			m.msg_timer = 0.0
+		elif txt != "":
 			m.hud_msg.text = txt
 			m.hud_msg.visible = true
 			m.msg_timer = 5.0

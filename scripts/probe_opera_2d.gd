@@ -398,17 +398,43 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 		post_build_bound: int, direct_main_before: Array[int]) -> void:
 	var finale := world.phases[world._finale_start()] as Dictionary
 	_check("racer keeps the authored five-beat career arc", world.phases.size() == 5)
-	_check("racer finale keeps its recorded instruction and trophy beat",
-		String(finale.get("vo", "")) == "op_racer_race"
-		and String(finale.get("voice", "")).begins_with("After him!"))
+	_check("racer finale uses the exact recorded circle instruction",
+		String(finale.get("vo", "")) == "op_racer_lap_two"
+		and String(finale.get("voice", "")) \
+			== "Loop the loop! Draw big racing circles!")
 	_check("racer finale is a code-native one-finger steering turn",
 		String(finale.get("mode", "")) == "circle"
 		and finale.has("widget") and String(finale.get("widget", "x")).is_empty())
 
 	# Enter the finale synchronously, then let ten seconds of normal update time
 	# pass with no input. The ghost finger may teach, but it must never play.
+	main.clear_dialogue()
+	main.said_cool.erase("roshan_op_racer_lap_two")
+	var voice_before: int = main.voice_i
 	world._show_phase()
 	await process_frame
+	var voice_player: AudioStreamPlayer = null
+	if main.voice_i > 0 and not main.voice_pool.is_empty():
+		var voice_index := posmod(main.voice_i - 1, main.voice_pool.size())
+		voice_player = main.voice_pool[voice_index] as AudioStreamPlayer
+	var voice_path := "missing"
+	if voice_player != null and voice_player.stream != null:
+		voice_path = voice_player.stream.resource_path
+	_check("racer finale makes one exact pooled speech request",
+		main.voice_i == voice_before + 1
+		and voice_path \
+			== "res://assets/audio/voices/roshan_op_racer_lap_two.ogg")
+	var racer_caption_hidden := not main.hud_msg.visible \
+		and main.hud_msg.text.is_empty() and main.msg_timer <= 0.0
+	var racer_fallback_quiet := main.voice == null or not main.voice.playing
+	if not racer_caption_hidden or not racer_fallback_quiet:
+		print("OPERA2D|racer voice detail|caption_visible=",
+			main.hud_msg.visible, " caption=", main.hud_msg.text,
+			" timer=", main.msg_timer,
+			" fallback_playing=", main.voice != null and main.voice.playing,
+			" exact_path=", voice_path)
+	_check("recorded racer instruction needs no caption or yay fallback",
+		racer_caption_hidden and racer_fallback_quiet)
 	await create_timer(0.40).timeout
 	var passive_progress := world.phase_progress
 	for _second in range(10):
