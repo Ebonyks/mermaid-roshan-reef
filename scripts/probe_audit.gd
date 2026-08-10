@@ -201,17 +201,50 @@ func _init() -> void:
 	main._check_level2_unlock(player.position, 0.1)
 	print("AUDIT|Level 2 portal stays unlocked after spending: ", ("OK" if main.portal_unlocked and main.portal_node != null else "FAIL"))
 	if main.portal_node != null:
-		var rf := 0
-		while main.game == "" and rf < 600:
-			rf += 1
-			if not main.portal_armed:
-				player.position = main.portal_node.position + Vector3(20, 6, 20)
-			else:
-				player.position = main.portal_node.position
-			player.vel = Vector3.ZERO
+		var portal_route_ok := true
+		if main.touch_uses_explicit_interactions():
+			# Hybrid uses the visible ENTER affordance; walking into its ring must
+			# remain safe and must never bypass the child's deliberate tap.
+			player.position = main.portal_node.position
+			player.position.x += 20.0
+			player.position.y += 6.0
+			player.position.z += 20.0
+			player.vel *= 0.0
 			main._check_level2_unlock(player.position, 0.1)
 			await process_frame
-		print("AUDIT|Level 2 courtyard: ", ("OK" if main.game == "level2" else "FAIL"))
+			player.position = main.portal_node.position
+			player.vel *= 0.0
+			main._check_level2_unlock(player.position, 0.1)
+			await process_frame
+			var hybrid_proximity_safe: bool = main.game == ""
+			main._populate_touch_interactables()
+			var lagoon_route_registered := false
+			for item_value: Variant in main.touch_interactables:
+				var item: Dictionary = item_value as Dictionary
+				if String(item.get("id", "")) == "reef:lagoon" \
+						and bool(item.get("enabled", false)):
+					lagoon_route_registered = true
+					break
+			portal_route_ok = hybrid_proximity_safe \
+				and lagoon_route_registered
+			if portal_route_ok:
+				main._activate_touch_interactable("reef:lagoon")
+		else:
+			# Classic/no-touch keep the original leave-to-arm, return-to-enter
+			# proximity route.
+			var rf := 0
+			while main.game == "" and rf < 600:
+				rf += 1
+				if not main.portal_armed:
+					player.position = main.portal_node.position + Vector3(20, 6, 20)
+				else:
+					player.position = main.portal_node.position
+				player.vel = Vector3.ZERO
+				main._check_level2_unlock(player.position, 0.1)
+				await process_frame
+			portal_route_ok = main.game == "level2"
+		print("AUDIT|Level 2 courtyard: ",
+			("OK" if portal_route_ok and main.game == "level2" else "FAIL"))
 		var targets: Array = main.g.get("lagoon_promenade_targets", [])
 		var target_ids: Dictionary = {}
 		for target_value in targets:
