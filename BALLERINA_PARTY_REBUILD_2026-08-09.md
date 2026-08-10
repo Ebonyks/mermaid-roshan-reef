@@ -1,7 +1,8 @@
 # Ballerina Party Rebuild — Design and Implementation Record
 
 Date: 2026-08-09  
-Status: implementation contract and audit record; not a release-completion claim.
+Status: implementation complete on the task branch; targeted local gates green;
+full CI and target-device play-test still pending.
 
 ## Decision
 
@@ -175,9 +176,22 @@ Before calling the rebuild complete:
 5. Play-test on the target Android device for one-finger reach, VO clarity,
    visual contrast, stable 30 fps, and comprehension without adult explanation.
 
-The Ballerina-only backdrop routing has received parser and inference-lint
-checks separately. This record does not claim that the specialist surface,
-career integration, updated probes, full CI, or device play-test is complete.
+### Local validation snapshot
+
+Using exactly Godot `4.7.1.stable.official.a13da4feb` on 2026-08-09:
+
+- `gdtoolkit.parser` and the project inference lint pass for every changed
+  GDScript file.
+- `probe_opera_gesture_quality.gd` reports `ALL OK (235 checks)`, including
+  zero passive payout, 5/10-second assists, wrong-pose replay, monotonic coarse
+  ribbon tracing with lift/resume, straight-chord rejection, centre-scrub
+  rejection, and both twirl directions.
+- `probe_opera_2d.gd` reports `ALL OK`, including the exact three-phase route,
+  underwater stage from phase one, large specialist surface, hidden race UI,
+  stable atlas poses, one-shot cheer, full act completion, and reward flow.
+
+The full trusted suite, CI result, and Lenovo Tab M11 play-test are recorded
+separately when they complete; this document does not pre-certify them.
 
 ## Optional future art gap — not part of this rebuild
 

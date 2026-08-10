@@ -15,7 +15,6 @@ var scuffle_capture_career := ""
 var stress_shot_out := ""
 var lobby_shot_out := ""
 var detective_shot_out := ""
-var ballet_shot_out := ""
 
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 
@@ -68,7 +67,6 @@ func _init() -> void:
 	stress_shot_out = OS.get_environment("OPERA_STRESS_SHOT_OUT").strip_edges()
 	lobby_shot_out = OS.get_environment("OPERA_LOBBY_SHOT_OUT").strip_edges()
 	detective_shot_out = OS.get_environment("OPERA_DETECTIVE_SHOT_OUT").strip_edges()
-	ballet_shot_out = OS.get_environment("OPERA_BALLET_SHOT_OUT").strip_edges()
 	if not widget_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(widget_shot_out)
 	if not rival_shot_out.is_empty():
@@ -81,8 +79,6 @@ func _init() -> void:
 		DirAccess.make_dir_recursive_absolute(lobby_shot_out)
 	if not detective_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(detective_shot_out)
-	if not ballet_shot_out.is_empty():
-		DirAccess.make_dir_recursive_absolute(ballet_shot_out)
 	var scene := load("res://scenes/main.tscn") as PackedScene
 	main = scene.instantiate() as ReefMain
 	get_root().add_child(main)
@@ -593,8 +589,6 @@ func _init() -> void:
 				and world.player_bar != null and not world.player_bar.visible
 				and world.rival_bar != null and not world.rival_bar.visible
 				and world.rival_actor != null and not world.rival_actor.visible)
-			if not ballet_shot_out.is_empty():
-				await _capture_ballet_states(world)
 		else:
 			_check("%s starts in its job world, off the proscenium" % career,
 				backdrop != null and not backdrop.stage_mode)
@@ -1024,42 +1018,6 @@ func _capture_widget_states(world: OperaCareerWorld2D, career: String,
 	surface.set_fill(1.0)
 	surface.accept_completion()
 	await _capture_control(surface, widget_shot_out.path_join("%s_accepted_completion.png" % prefix))
-
-
-func _capture_ballet_states(world: OperaCareerWorld2D) -> void:
-	var phase_was := world.phase_index
-	var competition_was := world.competition.active
-	for phase_number in range(world.phases.size()):
-		world.phase_index = phase_number
-		world._show_phase()
-		var ballet: Variant = world.surface
-		ballet.set_process(false)
-		ballet._process(0.80)
-		await process_frame
-		await _capture_viewport(ballet_shot_out.path_join(
-			"%02d_%s_demo.png" % [phase_number + 1,
-			String((world.phases[phase_number] as Dictionary).get("mode", "ballet"))]))
-		ballet._process(1.0)
-		match String((world.phases[phase_number] as Dictionary).get("mode", "")):
-			"ballet_pose":
-				var target_index: int = ballet.pose_option_frames().find(
-					ballet.pose_target_frame())
-				var target_rects: Array[Rect2] = ballet.pose_option_rects()
-				ballet._press(target_rects[target_index].get_center())
-				ballet._release(target_rects[target_index].get_center())
-			"ballet_ribbon":
-				world._on_ballet_gesture("ballet_ribbon", 0.56, 1.0)
-			"ballet_twirl":
-				world._on_ballet_gesture("ballet_twirl", 0.58, 1.0)
-		await process_frame
-		await _capture_viewport(ballet_shot_out.path_join(
-			"%02d_%s_active.png" % [phase_number + 1,
-			String((world.phases[phase_number] as Dictionary).get("mode", "ballet"))]))
-	world.phase_advance_pending = false
-	world.phase_complete_t = 0.0
-	world.phase_index = phase_was
-	world.competition.active = competition_was
-	world._show_phase()
 
 
 func _visible_card_count(cards: Array) -> int:
