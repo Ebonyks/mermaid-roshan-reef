@@ -172,6 +172,68 @@ const PATHS: Dictionary = {
 	},
 }
 
+## Stations normally sit within one child-sized step of the authored spine, so
+## their legacy `pos` is a safe approach and a short direct spur is sufficient.
+## These landmarks are materially off the spine (measured at > 55 screen px) or
+## sit above a raised/sunken feature. Their explicit spurs keep player travel on
+## painted stairs, lanes and apron space instead of cutting a chord through the
+## scenery. Coordinates remain normalized to the sharp painting and therefore
+## receive the same BLEED transform as every other Opera landmark.
+##
+## `object` is the visual/hit-test anchor. The final `spur` point is Roshan's
+## safe feet position; it intentionally differs from the object centre where the
+## landmark itself is not standing room. The first point is on PATHS[path].
+const STATION_NAV: Dictionary = {
+	"farmer": {
+		"pearl_clam": {
+			"object": [0.1035, 0.75],
+			"hotspot_size": [196.0, 176.0],
+			"spur": [[0.0795, 0.4833], [0.09, 0.58], [0.115, 0.69]],
+		},
+		"blossom_arch": {
+			"object": [0.4585, 0.4417],
+			"hotspot_size": [188.0, 184.0],
+			"spur": [[0.4528, 0.6111], [0.4585, 0.54]],
+		},
+		"seed_beds": {
+			"object": [0.7092, 0.6764],
+			"hotspot_size": [184.0, 148.0],
+			"spur": [[0.6824, 0.7542], [0.7092, 0.735]],
+		},
+		"hay_bales": {
+			"object": [0.8929, 0.3889],
+			"hotspot_size": [196.0, 216.0],
+			"spur": [[0.9236, 0.6361], [0.91, 0.56], [0.895, 0.51]],
+		},
+	},
+	"boxer": {
+		"shell_pavilion_stage": {
+			"object": [0.6488, 0.611],
+			"hotspot_size": [216.0, 188.0],
+			"spur": [[0.6297, 0.833], [0.64, 0.75], [0.6488, 0.70]],
+		},
+	},
+	"painter": {
+		"gazebo_easel": {
+			"object": [0.3744, 0.4583],
+			"hotspot_size": [196.0, 208.0],
+			"spur": [[0.3237, 0.675], [0.35, 0.59], [0.3744, 0.535]],
+		},
+		"rainbow_brush": {
+			"object": [0.6709, 0.4069],
+			"hotspot_size": [192.0, 224.0],
+			"spur": [[0.6326, 0.6667], [0.65, 0.56], [0.6709, 0.50]],
+		},
+	},
+	"astronaut": {
+		"pipe_arch_planter": {
+			"object": [0.3237, 0.5486],
+			"hotspot_size": [196.0, 184.0],
+			"spur": [[0.3094, 0.6667], [0.3237, 0.61]],
+		},
+	},
+}
+
 ## Walkable roam envelope per career, as [t_min, t_max] along the route.
 ## The route's extreme ends are the painted entry and destination (arches,
 ## daises, carts) — scenery, not standing room — and several careers have
@@ -265,18 +327,46 @@ static func stations(career: String) -> Array[Dictionary]:
 	if raw.is_empty():
 		var points := path_points(career)
 		for index in range(FALLBACK_STATION_T.size()):
+			var station_id := "station_%d" % index
+			var legacy_pos := point_along(
+				points, float(FALLBACK_STATION_T[index]))
+			var navigation := _station_navigation(
+				career, station_id, legacy_pos)
 			out.append({
-				"id": "station_%d" % index,
-				"pos": point_along(points, float(FALLBACK_STATION_T[index])),
+				"id": station_id,
+				# Compatibility contract: `pos` remains the exact value returned by
+				# this API before station navigation was added.
+				"pos": legacy_pos,
 				"landmark": "stage landmark",
+				"approach_pos": navigation["approach_pos"],
+				"object_pos": navigation["object_pos"],
+				"hotspot_size": navigation["hotspot_size"],
+				"spine_t": navigation["spine_t"],
+				"spur": navigation["spur"],
+				"route": navigation["spur"],
+				"authored_spur": navigation["authored_spur"],
 			})
 		return out
 	for entry: Dictionary in raw:
 		var pos: Array = entry.get("pos", [0.5, 0.68])
+		var station_id := String(entry.get("id", "station"))
+		var legacy_pos := to_screen(
+			career, Vector2(float(pos[0]), float(pos[1])))
+		var navigation := _station_navigation(
+			career, station_id, legacy_pos)
 		out.append({
-			"id": String(entry.get("id", "station")),
-			"pos": to_screen(career, Vector2(float(pos[0]), float(pos[1]))),
+			"id": station_id,
+			# Keep existing callers stable while new movement uses approach_pos
+			# and new hotspot art uses object_pos.
+			"pos": legacy_pos,
 			"landmark": String(entry.get("landmark", "")),
+			"approach_pos": navigation["approach_pos"],
+			"object_pos": navigation["object_pos"],
+			"hotspot_size": navigation["hotspot_size"],
+			"spine_t": navigation["spine_t"],
+			"spur": navigation["spur"],
+			"route": navigation["spur"],
+			"authored_spur": navigation["authored_spur"],
 		})
 	return out
 
