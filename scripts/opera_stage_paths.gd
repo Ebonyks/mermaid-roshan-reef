@@ -172,6 +172,68 @@ const PATHS: Dictionary = {
 	},
 }
 
+## Stations normally sit within one child-sized step of the authored spine, so
+## their legacy `pos` is a safe approach and a short direct spur is sufficient.
+## These landmarks are materially off the spine (measured at > 55 screen px) or
+## sit above a raised/sunken feature. Their explicit spurs keep player travel on
+## painted stairs, lanes and apron space instead of cutting a chord through the
+## scenery. Coordinates remain normalized to the sharp painting and therefore
+## receive the same BLEED transform as every other Opera landmark.
+##
+## `object` is the visual/hit-test anchor. The final `spur` point is Roshan's
+## safe feet position; it intentionally differs from the object centre where the
+## landmark itself is not standing room. The first point is on PATHS[path].
+const STATION_NAV: Dictionary = {
+	"farmer": {
+		"pearl_clam": {
+			"object": [0.1035, 0.75],
+			"hotspot_size": [196.0, 176.0],
+			"spur": [[0.0795, 0.4833], [0.09, 0.58], [0.115, 0.69]],
+		},
+		"blossom_arch": {
+			"object": [0.4585, 0.4417],
+			"hotspot_size": [188.0, 184.0],
+			"spur": [[0.4528, 0.6111], [0.4585, 0.54]],
+		},
+		"seed_beds": {
+			"object": [0.7092, 0.6764],
+			"hotspot_size": [184.0, 148.0],
+			"spur": [[0.6824, 0.7542], [0.7092, 0.735]],
+		},
+		"hay_bales": {
+			"object": [0.8929, 0.3889],
+			"hotspot_size": [196.0, 216.0],
+			"spur": [[0.9236, 0.6361], [0.91, 0.56], [0.895, 0.51]],
+		},
+	},
+	"boxer": {
+		"shell_pavilion_stage": {
+			"object": [0.6488, 0.611],
+			"hotspot_size": [216.0, 188.0],
+			"spur": [[0.6297, 0.833], [0.64, 0.75], [0.6488, 0.70]],
+		},
+	},
+	"painter": {
+		"gazebo_easel": {
+			"object": [0.3744, 0.4583],
+			"hotspot_size": [196.0, 208.0],
+			"spur": [[0.3237, 0.675], [0.35, 0.59], [0.3744, 0.535]],
+		},
+		"rainbow_brush": {
+			"object": [0.6709, 0.4069],
+			"hotspot_size": [192.0, 224.0],
+			"spur": [[0.6326, 0.6667], [0.65, 0.56], [0.6709, 0.50]],
+		},
+	},
+	"astronaut": {
+		"pipe_arch_planter": {
+			"object": [0.3237, 0.5486],
+			"hotspot_size": [196.0, 184.0],
+			"spur": [[0.3094, 0.6667], [0.3237, 0.61]],
+		},
+	},
+}
+
 ## Walkable roam envelope per career, as [t_min, t_max] along the route.
 ## The route's extreme ends are the painted entry and destination (arches,
 ## daises, carts) — scenery, not standing room — and several careers have
@@ -263,20 +325,48 @@ static func stations(career: String) -> Array[Dictionary]:
 	var out: Array[Dictionary] = []
 	var raw: Array = (PATHS.get(career, {}) as Dictionary).get("stations", [])
 	if raw.is_empty():
-		var points := path_points(career)
+		var points: PackedVector2Array = path_points(career)
 		for index in range(FALLBACK_STATION_T.size()):
+			var station_id := "station_%d" % index
+			var legacy_pos := point_along(
+				points, float(FALLBACK_STATION_T[index]))
+			var navigation := _station_navigation(
+				career, station_id, legacy_pos)
 			out.append({
-				"id": "station_%d" % index,
-				"pos": point_along(points, float(FALLBACK_STATION_T[index])),
+				"id": station_id,
+				# Compatibility contract: `pos` remains the exact value returned by
+				# this API before station navigation was added.
+				"pos": legacy_pos,
 				"landmark": "stage landmark",
+				"approach_pos": navigation["approach_pos"],
+				"object_pos": navigation["object_pos"],
+				"hotspot_size": navigation["hotspot_size"],
+				"spine_t": navigation["spine_t"],
+				"spur": navigation["spur"],
+				"route": navigation["spur"],
+				"authored_spur": navigation["authored_spur"],
 			})
 		return out
 	for entry: Dictionary in raw:
 		var pos: Array = entry.get("pos", [0.5, 0.68])
+		var station_id := String(entry.get("id", "station"))
+		var legacy_pos := to_screen(
+			career, Vector2(float(pos[0]), float(pos[1])))
+		var navigation := _station_navigation(
+			career, station_id, legacy_pos)
 		out.append({
-			"id": String(entry.get("id", "station")),
-			"pos": to_screen(career, Vector2(float(pos[0]), float(pos[1]))),
+			"id": station_id,
+			# Keep existing callers stable while new movement uses approach_pos
+			# and new hotspot art uses object_pos.
+			"pos": legacy_pos,
 			"landmark": String(entry.get("landmark", "")),
+			"approach_pos": navigation["approach_pos"],
+			"object_pos": navigation["object_pos"],
+			"hotspot_size": navigation["hotspot_size"],
+			"spine_t": navigation["spine_t"],
+			"spur": navigation["spur"],
+			"route": navigation["spur"],
+			"authored_spur": navigation["authored_spur"],
 		})
 	return out
 
@@ -341,3 +431,316 @@ static func nearest_t(points: PackedVector2Array, pos: Vector2) -> float:
 			best = (walked + local * seg) / total
 		walked += seg
 	return best
+
+
+## Complete navigation record for one station. This is deliberately generated
+## from the same fixed-space data as `stations()` so gameplay, hit-testing and
+## probes cannot quietly disagree about a landmark's coordinate transform.
+static func _station_navigation(career: String, station_id: String,
+		legacy_pos: Vector2) -> Dictionary:
+	var career_navigation: Dictionary = STATION_NAV.get(career, {})
+	var authored: Dictionary = career_navigation.get(station_id, {})
+	var object_pos := legacy_pos
+	var raw_object: Array = authored.get("object", [])
+	if raw_object.size() >= 2:
+		object_pos = to_screen(career, Vector2(
+			float(raw_object[0]), float(raw_object[1])))
+	var hotspot_size := Vector2(156.0, 156.0)
+	var raw_hotspot: Array = authored.get("hotspot_size", [])
+	if raw_hotspot.size() >= 2:
+		hotspot_size = Vector2(
+			maxf(112.0, float(raw_hotspot[0])),
+			maxf(112.0, float(raw_hotspot[1])))
+
+	var spine := path_points(career)
+	var spur := PackedVector2Array()
+	var raw_spur: Array = authored.get("spur", [])
+	for raw_point: Array in raw_spur:
+		if raw_point.size() >= 2:
+			spur.append(to_screen(career, Vector2(
+				float(raw_point[0]), float(raw_point[1]))))
+	var authored_spur := not spur.is_empty()
+	if authored_spur:
+		# Lock the connection to the mathematical spine. Authored values name an
+		# existing spine point, but this projection also absorbs decimal/export
+		# noise and makes the probe invariant exact.
+		var connection_t := nearest_t(spine, spur[0])
+		spur[0] = point_along(spine, connection_t)
+	else:
+		var connection_t := nearest_t(spine, legacy_pos)
+		var connection := point_along(spine, connection_t)
+		spur.append(connection)
+		if connection.distance_to(legacy_pos) > 0.01:
+			spur.append(legacy_pos)
+	if spur.is_empty():
+		spur.append(legacy_pos)
+	var approach_pos: Vector2 = spur[spur.size() - 1]
+	var spine_t := nearest_t(spine, spur[0])
+	return {
+		"approach_pos": approach_pos,
+		"object_pos": object_pos,
+		"hotspot_size": hotspot_size,
+		"spine_t": spine_t,
+		"spur": spur,
+		"authored_spur": authored_spur,
+	}
+
+
+static func station_by_id(career: String, station_id: String) -> Dictionary:
+	for entry: Dictionary in stations(career):
+		if String(entry.get("id", "")) == station_id:
+			return entry
+	return {}
+
+
+static func station_approach(career: String, station_id: String) -> Vector2:
+	var entry := station_by_id(career, station_id)
+	return entry.get("approach_pos", SCREEN * 0.5) as Vector2 \
+		if not entry.is_empty() else SCREEN * 0.5
+
+
+static func station_object_position(career: String,
+		station_id: String) -> Vector2:
+	var entry := station_by_id(career, station_id)
+	return entry.get("object_pos", SCREEN * 0.5) as Vector2 \
+		if not entry.is_empty() else SCREEN * 0.5
+
+
+static func station_spur(career: String,
+		station_id: String) -> PackedVector2Array:
+	var entry := station_by_id(career, station_id)
+	return entry.get("spur", PackedVector2Array()) as PackedVector2Array \
+		if not entry.is_empty() else PackedVector2Array()
+
+
+## Approved network branches in screen space. The first branch is always the
+## ordered promenade spine; every following branch begins exactly on that spine
+## and ends at a station's safe approach.
+static func approved_route_branches(career: String) -> Array[Dictionary]:
+	var branches: Array[Dictionary] = [{
+		"id": "__spine",
+		"points": path_points(career),
+		"spine_t": 0.0,
+	}]
+	for entry: Dictionary in stations(career):
+		var spur: PackedVector2Array = entry.get(
+			"spur", PackedVector2Array()) as PackedVector2Array
+		if spur.size() < 2:
+			continue
+		branches.append({
+			"id": String(entry.get("id", "")),
+			"points": spur,
+			"spine_t": float(entry.get("spine_t", 0.0)),
+		})
+	return branches
+
+
+## Point, parameter and branch nearest to an arbitrary screen-space touch.
+## Callers should move to the returned point instead of to the untrusted touch.
+static func nearest_approved_point(career: String,
+		position: Vector2) -> Dictionary:
+	var best: Dictionary = {}
+	var best_distance := INF
+	for branch: Dictionary in approved_route_branches(career):
+		var points: PackedVector2Array = branch.get(
+			"points", PackedVector2Array()) as PackedVector2Array
+		var candidate := _nearest_on_polyline(points, position)
+		var distance := float(candidate.get("distance", INF))
+		if distance < best_distance:
+			best_distance = distance
+			best = candidate
+			best["branch_id"] = String(branch.get("id", "__spine"))
+			best["points"] = points
+			best["spine_t"] = float(branch.get("spine_t", 0.0))
+	return best
+
+
+## Deterministic player route for an empty-floor touch. Both endpoints are
+## projected to the approved network, then connected through the full ordered
+## spine and any required station spurs. No direct start/end chord is emitted.
+static func player_route_to_point(career: String, from: Vector2,
+		target: Vector2) -> PackedVector2Array:
+	var source := nearest_approved_point(career, from)
+	var destination := nearest_approved_point(career, target)
+	if source.is_empty() or destination.is_empty():
+		return PackedVector2Array()
+	return _route_between(career, source, destination)
+
+
+## Deterministic route to a station's safe feet position. The object centre is
+## never used as a walk target because many landmarks are raised scenery.
+static func player_route_to_station(career: String, from: Vector2,
+		station_id: String) -> PackedVector2Array:
+	var entry := station_by_id(career, station_id)
+	if entry.is_empty():
+		return PackedVector2Array()
+	var source := nearest_approved_point(career, from)
+	if source.is_empty():
+		return PackedVector2Array()
+	var spur: PackedVector2Array = entry.get(
+		"spur", PackedVector2Array()) as PackedVector2Array
+	var destination: Dictionary
+	if spur.size() >= 2:
+		destination = {
+			"branch_id": station_id,
+			"points": spur,
+			"point": spur[spur.size() - 1],
+			"t": 1.0,
+			"distance": 0.0,
+			"spine_t": float(entry.get("spine_t", 0.0)),
+		}
+	else:
+		destination = nearest_approved_point(
+			career, entry.get("approach_pos", entry["pos"]) as Vector2)
+	return _route_between(career, source, destination)
+
+
+## Probe helper: a point passes only when it lies on a declared spine/spur
+## edge, within the supplied screen-pixel tolerance.
+static func point_is_on_approved_route(career: String, point: Vector2,
+		tolerance: float = 1.0) -> bool:
+	var nearest := nearest_approved_point(career, point)
+	return not nearest.is_empty() \
+		and float(nearest.get("distance", INF)) <= maxf(0.01, tolerance)
+
+
+## Probe helper: samples every emitted segment, not just its endpoints. This
+## catches the old failure where two valid route points were joined by an
+## invalid chord across a curved bridge or pool.
+static func route_is_approved(career: String, route: PackedVector2Array,
+		tolerance: float = 1.0) -> bool:
+	if route.is_empty():
+		return false
+	if not point_is_on_approved_route(career, route[0], tolerance):
+		return false
+	for index in range(1, route.size()):
+		var start := route[index - 1]
+		var finish := route[index]
+		var samples := maxi(1, int(ceilf(start.distance_to(finish) / 12.0)))
+		for sample_index in range(1, samples + 1):
+			var sample := start.lerp(
+				finish, float(sample_index) / float(samples))
+			if not point_is_on_approved_route(career, sample, tolerance):
+				return false
+	return true
+
+
+static func _nearest_on_polyline(points: PackedVector2Array,
+		position: Vector2) -> Dictionary:
+	if points.is_empty():
+		return {}
+	if points.size() == 1:
+		return {
+			"point": points[0],
+			"t": 0.0,
+			"distance": points[0].distance_to(position),
+			"segment": 0,
+		}
+	var best_point := points[0]
+	var best_t := 0.0
+	var best_distance := INF
+	var best_segment := 0
+	var walked := 0.0
+	var total := path_length(points)
+	for index in range(1, points.size()):
+		var start := points[index - 1]
+		var finish := points[index]
+		var segment_length := start.distance_to(finish)
+		var local_t := 0.0
+		if segment_length > 0.0:
+			local_t = clampf(
+				(position - start).dot(finish - start)
+					/ (segment_length * segment_length), 0.0, 1.0)
+		var candidate := start.lerp(finish, local_t)
+		var distance := candidate.distance_to(position)
+		if distance < best_distance:
+			best_point = candidate
+			best_distance = distance
+			best_t = (walked + local_t * segment_length) / total
+			best_segment = index - 1
+		walked += segment_length
+	return {
+		"point": best_point,
+		"t": best_t,
+		"distance": best_distance,
+		"segment": best_segment,
+	}
+
+
+static func _route_between(career: String, source: Dictionary,
+		destination: Dictionary) -> PackedVector2Array:
+	var source_id := String(source.get("branch_id", "__spine"))
+	var destination_id := String(destination.get("branch_id", "__spine"))
+	var source_points: PackedVector2Array = source.get(
+		"points", PackedVector2Array()) as PackedVector2Array
+	var destination_points: PackedVector2Array = destination.get(
+		"points", PackedVector2Array()) as PackedVector2Array
+	if source_points.is_empty() or destination_points.is_empty():
+		return PackedVector2Array()
+	if source_id == destination_id:
+		return _polyline_slice(source_points,
+			float(source.get("t", 0.0)), float(destination.get("t", 0.0)))
+
+	var route_points: Array[Vector2] = []
+	var source_spine_t: float
+	if source_id == "__spine":
+		source_spine_t = float(source.get("t", 0.0))
+	else:
+		_append_route_points(route_points, _polyline_slice(
+			source_points, float(source.get("t", 0.0)), 0.0))
+		source_spine_t = float(source.get("spine_t", 0.0))
+
+	var destination_spine_t: float
+	if destination_id == "__spine":
+		destination_spine_t = float(destination.get("t", 0.0))
+	else:
+		destination_spine_t = float(destination.get("spine_t", 0.0))
+	_append_route_points(route_points, _polyline_slice(
+		path_points(career), source_spine_t, destination_spine_t))
+	if destination_id != "__spine":
+		_append_route_points(route_points, _polyline_slice(
+			destination_points, 0.0, float(destination.get("t", 0.0))))
+	return PackedVector2Array(route_points)
+
+
+## Ordered slice of a polyline. Intermediate authored vertices are retained in
+## both directions, which is the invariant that prevents corner-cutting.
+static func _polyline_slice(points: PackedVector2Array, from_t: float,
+		to_t: float) -> PackedVector2Array:
+	if points.is_empty():
+		return PackedVector2Array()
+	if points.size() == 1:
+		return PackedVector2Array([points[0]])
+	var start_t := clampf(from_t, 0.0, 1.0)
+	var finish_t := clampf(to_t, 0.0, 1.0)
+	var total := path_length(points)
+	var vertex_t: Array[float] = [0.0]
+	var walked := 0.0
+	for index in range(1, points.size()):
+		walked += points[index - 1].distance_to(points[index])
+		vertex_t.append(walked / total)
+	var ordered: Array[Vector2] = []
+	_push_unique(ordered, point_along(points, start_t))
+	if start_t < finish_t:
+		for index in range(1, points.size() - 1):
+			if vertex_t[index] > start_t + 0.000001 \
+					and vertex_t[index] < finish_t - 0.000001:
+				_push_unique(ordered, points[index])
+	elif start_t > finish_t:
+		for index in range(points.size() - 2, 0, -1):
+			if vertex_t[index] < start_t - 0.000001 \
+					and vertex_t[index] > finish_t + 0.000001:
+				_push_unique(ordered, points[index])
+	_push_unique(ordered, point_along(points, finish_t))
+	return PackedVector2Array(ordered)
+
+
+static func _append_route_points(target: Array[Vector2],
+		points: PackedVector2Array) -> void:
+	for point: Vector2 in points:
+		_push_unique(target, point)
+
+
+static func _push_unique(points: Array[Vector2], point: Vector2) -> void:
+	if points.is_empty() or points[points.size() - 1].distance_to(point) > 0.01:
+		points.append(point)
