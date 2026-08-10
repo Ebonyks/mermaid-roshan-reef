@@ -808,6 +808,8 @@ func _init() -> void:
 		surface.clue_complete
 		and surface.clue_index == OperaGestureSurface.CLUE_BOARD_COUNT
 		and _paid_count("clue_board") == OperaGestureSurface.CLUE_BOARD_COUNT)
+	_ck("each matched clue arms a visible snap-and-ring lock animation",
+		surface.clue_glow >= OperaGestureSurface.CLUE_LOCK_ANIMATION_DURATION - 0.01)
 
 	# The crown chest is one generous diegetic target and remains open.
 	events.clear()
@@ -819,12 +821,18 @@ func _init() -> void:
 	var crown_handle := surface._crown_handle_rect().get_center()
 	surface._press(crown_handle)
 	surface._release(crown_handle)
-	surface._crown_tick(0.50)
+	var crown_open_start := surface.crown_open_t
+	surface._crown_tick(0.36)
+	var crown_open_mid := surface.crown_open_t
+	surface._crown_tick(0.40)
 	surface._press(crown_handle)
 	surface._release(crown_handle)
 	_ck("crown handle opens once and holds its reveal",
 		surface.crown_opened and surface.crown_open_t > 0.9
 		and _paid_count("crown_chest") == 1)
+	_ck("crown reveal has a readable animated middle instead of a texture cut",
+		crown_open_start > 0.0 and crown_open_start < 0.10
+		and crown_open_mid > 0.40 and crown_open_mid < 0.75)
 
 	# Five planting holes accept either the carried seed or an accessible direct
 	# tap. A seed dropped elsewhere simply returns; there is no fail state.

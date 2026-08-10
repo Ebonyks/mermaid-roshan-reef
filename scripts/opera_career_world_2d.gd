@@ -24,6 +24,8 @@ const LENS_ART_GLASS_CENTER := Vector2(0.354, 0.354)
 const LENS_MAGNIFICATION := 1.75
 const LENS_HINT_DELAY := 12.0
 const LENS_TRAIL_DURATION := 2.4
+const LENS_TRAIL_AFTER_FIND_DELAY := 0.92
+const LENS_FOUND_ANIMATION_DURATION := 1.18
 
 ## The mystery begins in voices the child already knows: the off-screen imp
 ## gives away the theft, then Roshan turns that event into a concrete search.
@@ -475,9 +477,12 @@ var lens_find_count := 0
 var lens_trail_from := Vector2.ZERO
 var lens_trail_to := Vector2.ZERO
 var lens_trail_t := 0.0
+var lens_trail_delay := 0.0
+var lens_found_animations: Array[Dictionary] = []
 var task_frame_texture: Texture2D = null
 var station_marker_texture: Texture2D = null
 var magnifier_texture: Texture2D = null
+var detective_clue_tokens_texture: Texture2D = null
 
 var root: Control
 var stage_bleed: ColorRect
@@ -575,6 +580,9 @@ func _build_world() -> void:
 	task_frame_texture = _load_if_exists("res://assets/opera/worlds/ui/task_card_frame.png")
 	station_marker_texture = _load_if_exists("res://assets/opera/worlds/ui/station_marker.png")
 	magnifier_texture = _load_if_exists("res://assets/opera/worlds/ui/magnifier.png")
+	if career_id == "detective":
+		detective_clue_tokens_texture = _load_if_exists(
+			"res://assets/opera/worlds/widgets/widget_clue_board_tokens.png")
 
 	backdrop_node = WorldBackdrop.new() as OperaWorldBackdrop2D
 	backdrop_node.name = "CareerWorldBackdrop"
@@ -2309,6 +2317,8 @@ func _start_lens_phase(phase: Dictionary) -> void:
 	lens_object_sound_cool = 0.0
 	lens_find_count = 0
 	lens_trail_t = 0.0
+	lens_trail_delay = 0.0
+	lens_found_animations.clear()
 	lens_object_pulses.clear()
 	lens_room_objects.clear()
 	for source: Dictionary in DETECTIVE_ROOM_OBJECTS:
@@ -2336,6 +2346,7 @@ func _start_lens_phase(phase: Dictionary) -> void:
 		lens_trail_to = lens_clues[0] if not lens_clues.is_empty() \
 			else Vector2(0.20, 0.56) * StagePaths.SCREEN
 		lens_trail_t = LENS_TRAIL_DURATION
+		lens_trail_delay = 0.0
 		if m != null:
 			m.say_sequence(DETECTIVE_INTRO_LINES)
 
@@ -2438,12 +2449,48 @@ func _next_lens_story_target() -> Vector2:
 	return Vector2(0.20, 0.56) * StagePaths.SCREEN
 
 
+func _lens_evidence_slot(index: int) -> Vector2:
+	var count := maxi(1, lens_clues.size())
+	var spacing := 92.0
+	var start_x := StagePaths.SCREEN.x * 0.5 - spacing * float(count - 1) * 0.5
+	return Vector2(start_x + spacing * float(index), StagePaths.SCREEN.y - 58.0)
+
+
+func _draw_lens_clue_token(index: int, center: Vector2, side: float,
+		alpha := 1.0) -> void:
+	if detective_clue_tokens_texture != null:
+		var texture_size := detective_clue_tokens_texture.get_size()
+		var source_width := texture_size.x / 3.0
+		var source := Rect2(source_width * float(clampi(index, 0, 2)), 0.0,
+			source_width, texture_size.y)
+		lens_layer.draw_texture_rect_region(
+			detective_clue_tokens_texture,
+			Rect2(center - Vector2.ONE * side * 0.5, Vector2.ONE * side),
+			source, Color(1.0, 1.0, 1.0, alpha))
+		return
+	var fallback_colours: Array[Color] = [
+		Color("#ff9d8f"), Color("#c7a8ff"), Color("#ffbf72")]
+	lens_layer.draw_circle(center, side * 0.34,
+		Color(fallback_colours[index % fallback_colours.size()], alpha))
+	lens_layer.draw_arc(center, side * 0.34, 0.0, TAU, 28,
+		Color(1.0, 0.88, 0.52, alpha), 5.0)
+
+
 func _tick_lens(delta: float) -> void:
 	if lens_layer == null or not lens_layer.visible:
 		return
 	lens_since_find += delta
 	lens_object_sound_cool = maxf(0.0, lens_object_sound_cool - delta)
-	lens_trail_t = maxf(0.0, lens_trail_t - delta)
+	if lens_trail_delay > 0.0:
+		lens_trail_delay = maxf(0.0, lens_trail_delay - delta)
+	else:
+		lens_trail_t = maxf(0.0, lens_trail_t - delta)
+	for found_animation_index in range(lens_found_animations.size() - 1, -1, -1):
+		var found_animation: Dictionary = lens_found_animations[found_animation_index]
+		found_animation["t"] = float(found_animation.get("t", 0.0)) + delta
+		lens_found_animations[found_animation_index] = found_animation
+		if float(found_animation["t"]) >= LENS_FOUND_ANIMATION_DURATION:
+			lens_found_animations.remove_at(found_animation_index)
 	for pulse_index in range(lens_object_pulses.size() - 1, -1, -1):
 		var pulse: Dictionary = lens_object_pulses[pulse_index]
 		pulse["t"] = float(pulse.get("t", 0.0)) + delta
@@ -2486,6 +2533,12 @@ func _tick_lens(delta: float) -> void:
 			lens_trail_from = found_spot
 			lens_trail_to = _next_lens_story_target()
 			lens_trail_t = LENS_TRAIL_DURATION
+			lens_trail_delay = LENS_TRAIL_AFTER_FIND_DELAY
+			lens_found_animations.append({
+				"pos": found_spot,
+				"index": found_index,
+				"t": 0.0,
+			})
 			_bop_burst_at(found_spot, false)
 			if m != null and not m.dialogue_active:
 				m.show_msg("Roshan", "A clue! Right there, hiding where nobody looked!",
@@ -2499,7 +2552,7 @@ func _draw_lens_layer() -> void:
 	# Every accepted clue launches a short directional evidence trail. A faint
 	# chain shows the route; a brighter travelling star makes its direction
 	# readable without arrows or text.
-	if lens_trail_t > 0.0:
+	if lens_trail_t > 0.0 and lens_trail_delay <= 0.0:
 		var trail_age := 1.0 - lens_trail_t / LENS_TRAIL_DURATION
 		var trail_fade := clampf(lens_trail_t / 0.55, 0.0, 1.0)
 		var trail_vector := lens_trail_to - lens_trail_from
@@ -2589,6 +2642,57 @@ func _draw_lens_layer() -> void:
 		lens_layer.draw_arc(lens_pos, LENS_RADIUS - 12.0, 0.0, TAU, 48, Color(1.0, 1.0, 1.0, 0.35), 3.0)
 		var handle_dir := Vector2(0.72, 0.72)
 		lens_layer.draw_line(lens_pos + handle_dir * LENS_RADIUS, lens_pos + handle_dir * (LENS_RADIUS + 88.0), Color("#8a5f3c"), 19.0)
+	# The evidence tray is persistent progress. On success the actual clue badge
+	# first pops at the discovered object, then follows a high arc into its slot;
+	# this cannot be mistaken for the later hint trail.
+	for evidence_index in range(lens_clues.size()):
+		var slot := _lens_evidence_slot(evidence_index)
+		lens_layer.draw_circle(slot + Vector2(3.0, 5.0), 36.0,
+			Color(0.19, 0.12, 0.30, 0.34))
+		lens_layer.draw_circle(slot, 34.0, Color(1.0, 0.91, 0.69, 0.72))
+		lens_layer.draw_arc(slot, 34.0, 0.0, TAU, 28,
+			Color(0.38, 0.22, 0.47, 0.86), 4.0)
+		if lens_found[evidence_index]:
+			var arrived_alpha := 1.0
+			for animation: Dictionary in lens_found_animations:
+				if int(animation.get("index", -1)) == evidence_index:
+					var animation_age := float(animation.get("t", 0.0)) \
+						/ LENS_FOUND_ANIMATION_DURATION
+					arrived_alpha = clampf((animation_age - 0.72) / 0.18, 0.0, 1.0)
+					break
+			if arrived_alpha > 0.0:
+				_draw_lens_clue_token(evidence_index, slot, 66.0, arrived_alpha)
+	for animation: Dictionary in lens_found_animations:
+		var animation_index := int(animation.get("index", 0))
+		var animation_age := clampf(float(animation.get("t", 0.0)) \
+			/ LENS_FOUND_ANIMATION_DURATION, 0.0, 1.0)
+		var source_pos: Vector2 = animation.get("pos", Vector2.ZERO)
+		var token_pos := source_pos
+		var token_scale := 1.0
+		if animation_age < 0.38:
+			var pop_progress := animation_age / 0.38
+			var pop_eased := pop_progress * pop_progress * (3.0 - 2.0 * pop_progress)
+			token_scale = lerpf(0.28, 1.34, pop_eased)
+			var ring_radius := lerpf(24.0, 88.0, pop_progress)
+			lens_layer.draw_circle(source_pos, 34.0 + pop_progress * 18.0,
+				Color(1.0, 0.92, 0.40, (1.0 - pop_progress) * 0.28))
+			lens_layer.draw_arc(source_pos, ring_radius, 0.0, TAU, 36,
+				Color(1.0, 0.86, 0.25, 1.0 - pop_progress), 7.0)
+			for found_ray in range(8):
+				var found_direction := Vector2.from_angle(float(found_ray) * TAU / 8.0)
+				lens_layer.draw_line(source_pos + found_direction * ring_radius * 0.70,
+					source_pos + found_direction * ring_radius,
+					Color(1.0, 0.96, 0.66, 1.0 - pop_progress), 5.0)
+		else:
+			var flight_progress := clampf((animation_age - 0.38) / 0.62, 0.0, 1.0)
+			var flight_eased := flight_progress * flight_progress \
+				* (3.0 - 2.0 * flight_progress)
+			token_pos = source_pos.lerp(_lens_evidence_slot(animation_index), flight_eased)
+			token_pos.y -= sin(flight_progress * PI) * 92.0
+			token_scale = lerpf(1.28, 0.70, flight_eased)
+			lens_layer.draw_circle(token_pos, 38.0 * token_scale,
+				Color(1.0, 0.90, 0.35, 0.22))
+		_draw_lens_clue_token(animation_index, token_pos, 112.0 * token_scale)
 	if lens_target >= 0:
 		lens_layer.draw_arc(lens_pos, LENS_RADIUS - 8.0, -PI * 0.5, -PI * 0.5 + TAU * clampf(lens_dwell / 0.45, 0.0, 1.0), 40, Color(1.0, 0.9, 0.4), 7.0)
 

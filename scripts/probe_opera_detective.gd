@@ -58,6 +58,8 @@ func _init() -> void:
 		and world.lens_zoom_material.shader.code.contains("hint_screen_texture"))
 	_check("painted room has many optional inspection targets",
 		world.lens_room_objects.size() >= 16)
+	_check("search loads the same paw-feather-ribbon evidence art as the board",
+		world.detective_clue_tokens_texture != null)
 	var every_clue_reachable := not world.lens_clues.is_empty()
 	for clue: Vector2 in world.lens_clues:
 		every_clue_reachable = every_clue_reachable \
@@ -92,6 +94,15 @@ func _init() -> void:
 		and world.lens_trail_from == world.lens_clues[first_clue]
 		and (expected_next == Vector2.ZERO
 			or world.lens_trail_to == expected_next))
+	_check("found clue pops as a badge before the next hint starts",
+		world.lens_found_animations.size() == 1
+		and int(world.lens_found_animations[0].get("index", -1)) == first_clue
+		and world.lens_trail_delay > 0.0
+		and world._lens_evidence_slot(first_clue).y < StorybookUI.CANVAS_SIZE.y)
+	# Execute the success draw path once even when no optional review frame is
+	# requested; invalid texture regions or geometry must fail this probe.
+	world.lens_layer.queue_redraw()
+	await process_frame
 	var capture_path := OS.get_environment("OPERA_DETECTIVE_SHOT_OUT").strip_edges()
 	if not capture_path.is_empty():
 		DirAccess.make_dir_recursive_absolute(capture_path)

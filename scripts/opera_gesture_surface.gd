@@ -226,6 +226,7 @@ var boxer_redraw := 0.0
 ## its matching silhouette.  The three accepted clues remain on the board;
 ## a miss returns the live token and replays the same wordless demonstration.
 const CLUE_BOARD_COUNT := 3
+const CLUE_LOCK_ANIMATION_DURATION := 0.72
 var clue_index := 0
 var clue_token_pos := Vector2.ZERO
 var clue_dragging := false
@@ -2990,7 +2991,7 @@ func _clue_release(at: Vector2) -> void:
 		feedback_positive = true
 		feedback_t = 0.32
 		feedback_anchor = _clue_target_rect(clue_index).get_center()
-		clue_glow = 0.48
+		clue_glow = CLUE_LOCK_ANIMATION_DURATION
 		clue_index += 1
 		clue_complete = clue_index >= CLUE_BOARD_COUNT
 		clue_token_pos = _clue_home_point()
@@ -3083,7 +3084,13 @@ func _draw_clue_board() -> void:
 		draw_rect(target, Color(0.25, 0.18, 0.34, 0.13 if not accepted else 0.24), true)
 		draw_rect(target, Color(0.31, 0.24, 0.38, 0.52), false, 4.0)
 		if accepted:
-			_draw_clue_token(index, target.get_center(), token_side)
+			var lock_scale := 1.0
+			if index == clue_index - 1 and clue_glow > 0.0:
+				var lock_progress := 1.0 - clue_glow / CLUE_LOCK_ANIMATION_DURATION
+				# Snap small, overshoot, then settle at its permanent board size.
+				lock_scale = lerpf(0.68, 1.0, lock_progress) \
+					+ sin(lock_progress * PI) * 0.36
+			_draw_clue_token(index, target.get_center(), token_side * lock_scale)
 		elif index == clue_index:
 			_draw_clue_token(index, target.get_center(), token_side * 0.68, 0.20)
 	if not clue_complete:
@@ -3092,9 +3099,17 @@ func _draw_clue_board() -> void:
 			Color(accent, 0.32), 5.0)
 	if clue_glow > 0.0:
 		var accepted_index := clampi(clue_index - 1, 0, CLUE_BOARD_COUNT - 1)
-		draw_arc(_clue_target_rect(accepted_index).get_center(),
-			token_side * (0.45 + (0.48 - clue_glow) * 0.34), 0.0, TAU, 32,
-			Color(1.0, 0.86, 0.34, clue_glow / 0.48), 7.0)
+		var lock_center := _clue_target_rect(accepted_index).get_center()
+		var lock_progress := 1.0 - clue_glow / CLUE_LOCK_ANIMATION_DURATION
+		var lock_alpha := clue_glow / CLUE_LOCK_ANIMATION_DURATION
+		var lock_radius := token_side * lerpf(0.44, 0.82, lock_progress)
+		draw_arc(lock_center, lock_radius, 0.0, TAU, 32,
+			Color(1.0, 0.86, 0.34, lock_alpha), 7.0)
+		for lock_ray in range(8):
+			var lock_direction := Vector2.from_angle(float(lock_ray) * TAU / 8.0)
+			draw_line(lock_center + lock_direction * lock_radius * 0.78,
+				lock_center + lock_direction * lock_radius,
+				Color(1.0, 0.96, 0.68, lock_alpha), 5.0)
 
 
 func _crown_handle_rect() -> Rect2:
@@ -3123,7 +3138,9 @@ func _crown_press(at: Vector2) -> void:
 func _crown_tick(delta: float) -> void:
 	if not crown_opened or crown_open_t >= 1.0:
 		return
-	crown_open_t = minf(1.0, crown_open_t + delta * 2.25)
+	# Give the authored lid/crown change time to read as a reveal rather than a
+	# near-instant texture swap on a 30 fps phone.
+	crown_open_t = minf(1.0, crown_open_t + delta * 1.35)
 	queue_redraw()
 
 
@@ -3173,10 +3190,24 @@ func _draw_crown_chest() -> void:
 		draw_arc(handle.get_center(), handle.size.y * 0.62 + sin(demo_t * 4.0) * 5.0,
 			0.0, TAU, 32, Color(1.0, 0.86, 0.34, 0.55), 6.0)
 	else:
-		for sparkle_index in range(6):
-			var angle := float(sparkle_index) / 6.0 * TAU
-			var sparkle := Vector2(size.x * 0.5, size.y * 0.29) \
-				+ Vector2.from_angle(angle) * (42.0 + crown_open_t * 22.0)
+		var crown_center := Vector2(size.x * 0.5, size.y * 0.29)
+		var reveal_burst := sin(clampf(crown_open_t, 0.0, 1.0) * PI)
+		# A warm beam, expanding ring and orbiting sparks separate the answer
+		# reveal from an ordinary tap or panel transition.
+		draw_colored_polygon(PackedVector2Array([
+			Vector2(size.x * 0.35, 0.0),
+			Vector2(size.x * 0.65, 0.0),
+			crown_center + Vector2(95.0, 78.0),
+			crown_center + Vector2(-95.0, 78.0),
+		]), Color(1.0, 0.93, 0.55, crown_open_t * 0.18))
+		draw_circle(crown_center, 46.0 + reveal_burst * 32.0,
+			Color(1.0, 0.91, 0.40, 0.12 + reveal_burst * 0.18))
+		draw_arc(crown_center, 52.0 + crown_open_t * 46.0, 0.0, TAU, 36,
+			Color(1.0, 0.86, 0.28, reveal_burst * 0.88), 7.0)
+		for sparkle_index in range(10):
+			var angle := float(sparkle_index) / 10.0 * TAU + demo_t * 0.45
+			var sparkle := crown_center \
+				+ Vector2.from_angle(angle) * (42.0 + crown_open_t * 38.0)
 			draw_circle(sparkle, 4.0 + float(sparkle_index % 2) * 2.0,
 				Color(1.0, 0.87, 0.34, crown_open_t))
 
