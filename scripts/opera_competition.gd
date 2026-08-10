@@ -28,10 +28,10 @@ const CAREERS := {
 		"accent": Color(0.58, 0.78, 1.0),
 	},
 	"ballerina": {
-		"world": "TWIN-RIBBON RECITAL",
-		"contest": "Win the crowd with rhythm and grace",
+		"world": "MERMAID PEARL BALLET PARTY",
+		"contest": "Complete the pearl-ribbon ballet with grace",
 		"rival_verb": "turns",
-		"par_time": 36.0,
+		"par_time": 54.0,
 		"rival_cap": 0.84,
 		"accent": Color(1.0, 0.58, 0.82),
 	},
