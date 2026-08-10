@@ -1671,7 +1671,14 @@ func _repeat_ballet_instruction() -> void:
 
 func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 	if phase_advance_pending:
-		return
+		# Trusted probes may skip the celebratory hold just as the shared gesture
+		# path does. Real touch remains locked until the held pose has been seen.
+		if kind == "probe":
+			_advance_completed_phase()
+			if phase_index >= phases.size():
+				return
+		else:
+			return
 	if kind == "ballet_pose_cue":
 		if player_animator != null:
 			player_animator.show_pose("work", clampi(int(round(amount)), 0, 3))

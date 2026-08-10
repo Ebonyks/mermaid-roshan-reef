@@ -30,7 +30,8 @@ const FIRST_ASSIST_SECONDS := 5.0
 const STRONG_ASSIST_SECONDS := 10.0
 const REDRAW_STEP := 0.05
 const RIBBON_SAMPLES := 64
-const RIBBON_NEAREST_SAMPLES := 96
+const RIBBON_NEAREST_SAMPLES := 64
+const RIBBON_MAX_FORWARD_STEP := 0.16
 const RIBBON_BASE_WIDTH := 116.0
 const RIBBON_COLOR_WIDTH := 88.0
 const RIBBON_RESUME_DIAMETER := 128.0
@@ -430,7 +431,8 @@ func _ribbon_drag(at: Vector2) -> void:
 		var nearest_progress := nearest.x
 		var nearest_distance := nearest.y
 		if nearest_distance <= ribbon_corridor_width() * 0.5 \
-				and nearest_progress > candidate + 0.0005:
+				and nearest_progress > candidate + 0.0005 \
+				and nearest_progress <= candidate + RIBBON_MAX_FORWARD_STEP:
 			candidate = nearest_progress
 	if candidate <= ribbon_progress + 0.0005:
 		if travel >= 18.0:
