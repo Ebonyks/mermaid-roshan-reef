@@ -7,19 +7,27 @@
     "VISUAL_AUDIT_TOOL.md).",
     "",
     "Every budget below traces to a stable rule in the comprehensive design",
-    "language. The final 2026-08-09 owner decision makes Roshan 2D-only;",
-    "Sprite3D is staging for flat art, not permission for a modelled character."
+    "language. The final 2026-08-09 owner decision makes the shipped game",
+    "Canvas-based 2D. Every active presentation is subject to the same builder",
+    "gate: the hash-bound canonical tools/audit_game_2d.py taxonomy classifies",
+    "every reachable executable spatial class/resource/model reference; any",
+    "proven 3D debt is an explicit failure and never satisfies acceptance. Runtime",
+    "claims, including touch sizes, require a same-process fresh probe response",
+    "to a cryptographically random one-use audit challenge. The audit snapshots",
+    "returned capture bytes into private memory and removes the temporary response",
+    "before checks run. Saved/manual facts remain diagnostic COVERAGE_GAP evidence",
+    "and never have PASS authority."
   ],
-  "version": 3,
+  "version": 6,
 
   "rules": {
     "texture_max_side_or_pot": "DL-PERF-04: new textures are <=1024px longest side or power-of-two",
-    "mural_layer_stack": "DL-LAY-02: a panning promenade uses at least two independently staged background layers",
-    "layering_rule": "DL-LAY-01/DL-LAY-03/DL-LAY-04/DL-LAY-08: named depth roles, owned interaction cards, per-card occlusion, sparse foreground",
-    "background_recessive": "DL-READ-01/DL-READ-02: backgrounds frame play and interactive silhouettes remain identifiable at phone size",
+    "mural_layer_stack": "DL-LAY-02: a panning promenade uses at least two independently instantiated, visibly rendered Canvas layers with distinct canonical decoded source pixels and distinct effective 64x36 viewport RGBA composites, verified contributing-visual draw order, meaningful effective-alpha viewport coverage, and measured differential movement; materials, groups, alternate viewports/cull masks, global modulation/Canvas lighting, or unsupported clipping/order remain a coverage gap until flattened evidence exists",
+    "layering_rule": "DL-LAY-01/DL-LAY-03/DL-LAY-04/DL-LAY-08: every active presentation has Canvas-only staging, named live Canvas draw-order roles, owned interaction cards, live_canvas_alpha_overlap_samples_v2 per-card occlusion over effective decoded painted alpha rather than rectangles, and sparse foreground; overlap requires alpha >=0.50, at least four painted samples, and >=5% of target painted area; source alpha is multiplied by effective Canvas opacity and Control clipping is honored, while materials/CanvasGroup/unsupported clipping, viewport, cull, or draw-order effects remain COVERAGE_GAP; the exact hash-bound tools/audit_game_2d.py taxonomy classifies every reachable active source dependency, model/resource load, dynamic ClassDB call, autoload, and scene transition; low-level spatial RenderingServer RID families fail, aliased/Callable/singleton calls are classified, and unresolved server calls gap; bound/Callable/escaped loaders plus UID/external/opaque/native executable resources remain a coverage gap rather than silently severing the source closure",
+    "background_recessive": "DL-READ-01/DL-READ-02: backgrounds frame play and interactive silhouettes remain identifiable in current, asymmetrically sampled visible/hidden state-local composites whose exact target difference agrees with independent_source_alpha_inverse_canvas_v1 projection from current source alpha, strict live Canvas metadata, bound instance paths, and an explicit implemented adapter that enters/asserts the named live state; duplicate/relabelled state captures do not establish coverage; source-image averages are risk triage only",
     "alpha_layer_budget": "DL-PERF-03: transparent overdraw stays inside the Speedy-tier budget",
-    "tap_target_size": "DL-UI-03: required child-facing touch targets should be at least 110x110 base-canvas pixels",
-    "probe_gate": "DL-QA-02/DL-QA-07: active shipped surfaces have automated evidence and missing coverage never becomes pass",
+    "tap_target_size": "DL-UI-03/DL-QA-07: required child-facing touch targets bind the exact live interaction registry node (never a highlight fallback), a resolver centre near source-alpha-painted visible art, and nine calls through the production hit resolver proving the target owns the centre plus eight 55px cardinal/diagonal boundary points (>=110px actual diameter); visible Canvas art is at least 64px in each dimension in the audited root viewport, proven by the same-process response to the audit's random one-use challenge and current provenance",
+    "probe_gate": "DL-QA-02/DL-QA-07: active shipped surfaces have fresh same-process automated evidence responding to a cryptographically random one-use challenge, snapshotted into private memory before its temporary output is consumed, and bound to exactly Godot 4.7.1-stable, Mobile, 1280x720 canvas_items/expand, the current clean whole Git worktree/HEAD/tree/source revision, the PASS-producing auditor and canonical 2D taxonomy hashes, and a project-wide path/hash manifest of runtime source candidates including ignored/custom-root code; saved, replayed, missing, stale, dirty, external, UID, opaque, or unbound executable coverage never becomes pass",
     "licenses": "DL-ASSET-04: every new asset gets an ASSET_LICENSES.md entry in the same commit",
     "no_text_in_art": "DL-AGE-08/DL-READ-04: no scary imagery and no reading-dependent words, letters, or digits in world art",
     "standee_not_mural": "DL-LAY-03: anything Roshan can tap, approach, pass, or stand behind is an independent owned card",
@@ -32,13 +40,27 @@
     "texture_max_side": 1024,
     "zone_runtime_texture_mb": 24.0,
     "mural_min_layers": 2,
-    "mural_min_lock_spread": 0.3,
-    "world_card_min_depth_spread": 2.0,
+    "canvas_layer_min_coverage_ratio": 0.50,
+    "canvas_layer_min_camera_sample_px": 120.0,
+    "canvas_layer_min_differential_px": 8.0,
+    "canvas_layer_min_z_index_spread": 1,
+    "canvas_occlusion_min_samples": 1,
+    "canvas_occlusion_min_effective_alpha": 0.50,
+    "canvas_occlusion_min_target_overlap_ratio": 0.05,
+    "canvas_occlusion_min_painted_samples": 4,
+    "tap_target_min_visible_px": 64,
     "standee_alpha_coverage_min": 0.05,
     "standee_alpha_coverage_max": 0.90,
     "alpha_layers_max": 2,
     "background_saturation_ratio_max": 0.90,
     "foreground_luminance_delta_min": 0.04,
+    "rendered_color_distance_min": 0.10,
+    "rendered_boundary_contrast_min": 0.08,
+    "rendered_projection_precision_min": 0.90,
+    "rendered_projection_visible_fraction_min": 0.35,
+    "rendered_projection_contour_precision_min": 0.20,
+    "rendered_projection_contour_recall_min": 0.20,
+    "rendered_readability_min_sample_pixels": 64,
     "orphan_bytes_warn": 1048576
   },
 
@@ -52,6 +74,20 @@
       "builders": ["scripts/arena/sky_lagoon_promenade.gd"],
       "probes": ["scripts/probe_l2.gd", "scripts/probe_l2_reenter.gd"],
       "murals": ["assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_*.png"],
+      "canvas_layers": [
+        {
+          "id": "L0",
+          "role": "current_single_panorama",
+          "assets": ["assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_*.png"]
+        }
+      ],
+      "rendered_readability_states": [
+        {
+          "id": "promenade_idle",
+          "capture_adapter": "probe_visual_audit:sky_lagoon_promenade_idle",
+          "required_targets": ["reef_route", "slide", "swing", "seesaw", "castle_gate"]
+        }
+      ],
       "standees": [
         "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
         "assets/props/story/play_swing_frame.png",
@@ -117,13 +153,28 @@
       "id": "fairy_pond",
       "name": "Fairy pond",
       "art_medium": "flattened_2d",
-      "presentation": "overhead_canvas",
+      "presentation": "legacy_3d_debt",
+      "target_presentation": "overhead_canvas",
       "lifecycle": "active_shipped",
       "builders": ["scripts/games/fairy.gd"],
       "probes": ["scripts/probe_fairy_art.gd"],
       "murals": ["assets/fairy/pond_panorama.png"],
       "standees": ["assets/fairy/sprites/*.png"],
       "characters": [],
+      "rendered_readability_states": [
+        {
+          "id": "fairy_intro",
+          "capture_adapter": "not_implemented",
+          "coverage_gap_reason": "probe_visual_audit does not yet enter and freeze the Fairy intro state or bind its live Canvas targets",
+          "min_samples": 1
+        },
+        {
+          "id": "fairy_boss",
+          "capture_adapter": "not_implemented",
+          "coverage_gap_reason": "probe_visual_audit does not yet enter and freeze the Fairy boss state or bind its live Canvas targets",
+          "min_samples": 1
+        }
+      ],
       "asset_roots": ["assets/fairy"]
     },
     {
