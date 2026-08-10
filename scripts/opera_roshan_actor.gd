@@ -20,6 +20,12 @@ const ANIMATION_FPS := {
 	"work": 7.0,
 	"cheer": 6.0,
 }
+const BALLERINA_POSE_FRAMES := {
+	"idle": 2,
+	"travel": 1,
+	"work": 1,
+}
+const BALLERINA_CHEER_FPS := 2.0
 
 var has_animation: bool = false
 var current_animation: String = "stopped"
@@ -31,6 +37,8 @@ var _sheet: Texture2D = null
 var _frame_texture: AtlasTexture = null
 var _frame_elapsed: float = 0.0
 var _playing: bool = false
+var _one_shot: bool = false
+var _career_key: String = ""
 
 
 static func idle_frame(career: String, fallback: Texture2D = null) -> Texture2D:
@@ -67,15 +75,17 @@ func setup(target: TextureRect, career: String, fallback: Texture2D) -> void:
 	current_frame = 0
 	_frame_elapsed = 0.0
 	_playing = false
+	_one_shot = false
+	_career_key = ""
 	set_process(false)
 	if not _has_target():
 		return
 
-	var career_key: String = career.strip_edges().to_lower()
-	if not _valid_career_key(career_key):
+	_career_key = career.strip_edges().to_lower()
+	if not _valid_career_key(_career_key):
 		_restore_fallback()
 		return
-	var sheet_path: String = ATLAS_PATH % career_key
+	var sheet_path: String = ATLAS_PATH % _career_key
 	if ResourceLoader.exists(sheet_path):
 		var loaded: Resource = ResourceLoader.load(sheet_path)
 		_sheet = loaded as Texture2D
@@ -98,9 +108,16 @@ func play(animation: String) -> void:
 	if not ANIMATION_ROWS.has(requested):
 		stop()
 		return
+	if _career_key == "ballerina":
+		if requested == "cheer":
+			_play_ballerina_cheer()
+		else:
+			show_pose(requested, int(BALLERINA_POSE_FRAMES.get(requested, 0)))
+		return
 	current_animation = requested
 	current_frame = 0
 	_frame_elapsed = 0.0
+	_one_shot = false
 	if not has_animation or not _has_target() or _frame_texture == null:
 		_playing = false
 		set_process(false)
@@ -111,8 +128,26 @@ func play(animation: String) -> void:
 	set_process(true)
 
 
+func show_pose(animation: String, frame: int) -> void:
+	var requested: String = animation.strip_edges().to_lower()
+	if not ANIMATION_ROWS.has(requested):
+		stop()
+		return
+	current_animation = requested
+	current_frame = clampi(frame, 0, FRAME_COUNT - 1)
+	_frame_elapsed = 0.0
+	_playing = false
+	_one_shot = false
+	set_process(false)
+	if not has_animation or not _has_target() or _frame_texture == null:
+		_restore_fallback()
+		return
+	_apply_frame()
+
+
 func stop() -> void:
 	_playing = false
+	_one_shot = false
 	current_animation = "stopped"
 	current_frame = 0
 	_frame_elapsed = 0.0
@@ -132,7 +167,8 @@ func _process(delta: float) -> void:
 		_playing = false
 		set_process(false)
 		return
-	var fps: float = float(ANIMATION_FPS.get(current_animation, 0.0))
+	var fps: float = BALLERINA_CHEER_FPS if _one_shot \
+		else float(ANIMATION_FPS.get(current_animation, 0.0))
 	if fps <= 0.0:
 		stop()
 		return
@@ -142,8 +178,32 @@ func _process(delta: float) -> void:
 	if advance <= 0:
 		return
 	_frame_elapsed = fposmod(_frame_elapsed, frame_seconds)
+	if _one_shot:
+		current_frame = mini(current_frame + advance, FRAME_COUNT - 1)
+		_apply_frame()
+		if current_frame >= FRAME_COUNT - 1:
+			_playing = false
+			_one_shot = false
+			set_process(false)
+		return
 	current_frame = posmod(current_frame + advance, FRAME_COUNT)
 	_apply_frame()
+
+
+func _play_ballerina_cheer() -> void:
+	current_animation = "cheer"
+	current_frame = 0
+	_frame_elapsed = 0.0
+	if not has_animation or not _has_target() or _frame_texture == null:
+		_playing = false
+		_one_shot = false
+		set_process(false)
+		_restore_fallback()
+		return
+	_playing = true
+	_one_shot = true
+	_apply_frame()
+	set_process(true)
 
 
 func _apply_frame() -> void:
