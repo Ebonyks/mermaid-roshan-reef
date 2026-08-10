@@ -305,6 +305,8 @@ class Repo:
         self._builder_stage_cache: dict[str, dict] = {}
         self._active_3d_classification_cache: dict[tuple[str, ...], tuple] = {}
         self._global_class_source_cache: dict[str, tuple[str, ...]] | None = None
+        self._head_tracked_files_cache: frozenset[str] | None = None
+        self._head_tracked_files_loaded = False
         self._all_source: str | None = None
 
     # -- files ------------------------------------------------------------
@@ -860,6 +862,40 @@ def _global_class_sources(repo: Repo) -> dict[str, tuple[str, ...]]:
     return result
 
 
+def _head_tracked_files(repo: Repo) -> frozenset[str] | None:
+    """Return paths committed at HEAD, or ``None`` when Git cannot prove them."""
+    if repo._head_tracked_files_loaded:
+        return repo._head_tracked_files_cache
+    repo._head_tracked_files_loaded = True
+    try:
+        result = subprocess.run(
+            ["git", "-C", repo.root, "ls-tree", "-r", "--name-only", "-z", "HEAD"],
+            check=False, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+    except OSError:
+        return None
+    if result.returncode != 0:
+        return None
+    repo._head_tracked_files_cache = frozenset(
+        value.decode("utf-8", errors="replace").replace("\\", "/")
+        for value in result.stdout.split(b"\0") if value
+    )
+    return repo._head_tracked_files_cache
+
+
+def _active_source_tracking_gap(repo: Repo, path: str) -> str:
+    """Fail closed when executable closure reaches bytes not bound at HEAD."""
+    normalized = path.replace("\\", "/")
+    while normalized.startswith("./"):
+        normalized = normalized[2:]
+    tracked = _head_tracked_files(repo)
+    if tracked is None:
+        return "unverifiable-active-source:" + normalized
+    if normalized not in tracked:
+        return "untracked-active-source:" + normalized
+    return ""
+
+
 def _source_closure(zone: "Zone", root_values: Iterable[str]) \
         -> tuple[dict[str, str], list[str], list[str], int]:
     """Resolve a cycle-safe text-source closure from explicit runtime roots."""
@@ -884,6 +920,9 @@ def _source_closure(zone: "Zone", root_values: Iterable[str]) \
         if not zone.repo.exists(path):
             missing.append(path)
             continue
+        tracking_gap = _active_source_tracking_gap(zone.repo, path)
+        if tracking_gap:
+            missing.append(tracking_gap)
         source = zone.repo.read(path)
         sources[path] = source
         call_values, unresolved_calls = _runtime_call_references(source)

@@ -204,12 +204,17 @@ taxonomy/spec/main-scene/project/main/player
 and zone-builder hashes, a project-wide sorted path-and-byte-hash manifest of
 runtime `.gd`/`.cs`/native-extension declarations, `.tscn`, `.tres`,
 `.gdshader`, and runtime `.json` candidates (including Git-ignored/custom-root
-files),
+files outside generated evidence roots),
 the current source revision, a nonce-derived per-run identity, and the exact
 current clean whole Git worktree, HEAD, and tree. Whole-worktree cleanliness
 prevents ordinary untracked changes from passing, while the project-wide
 manifest independently invalidates an ignored autoload/helper under a custom
-root. Those bindings are necessary stale-source checks, but
+root. In addition, every file reached by the active source closure must exist
+in the bound HEAD tree. An explicitly loaded ignored or untracked helper under
+`audit/`, `tmp/`, or any other location is therefore `COVERAGE_GAP`, even
+though Godot can load it and Git status may remain clean; an unreferenced
+ignored review/build file is not active dependency debt. Those bindings are
+necessary stale-source checks, but
 renewable hashes are not authorship. PASS additionally requires the private
 same-process capability produced by a new random challenge. The audit snapshots
 all challenged capture bytes, consumes and removes the temporary files, and

@@ -1478,6 +1478,78 @@ class VisualEvidenceContractTests(unittest.TestCase):
 				ava.builder_stage_evidence(ava.Zone(spec["zones"][0], repo_after))
 				["backend"], "legacy_3d")
 
+	def test_active_ignored_tmp_and_audit_helpers_never_mint_pass(self) -> None:
+		for ignored_root in ("tmp", "audit"):
+			with self.subTest(ignored_root=ignored_root), \
+					tempfile.TemporaryDirectory() as raw_root:
+				root = Path(raw_root)
+				spec = ava._fixture(str(root), presentation="free_swim", layers_api=True)
+				(root / ".gitignore").write_text(
+					f"/audit/\n/{ignored_root}/\n", encoding="utf-8")
+				(root / "scripts" / "fx_stage.gd").write_text(
+					"extends RefCounted\nconst Helper = load("
+					f"\"res://{ignored_root}/helper.gd\")\n"
+					"func build(parent: Node) -> void:\n"
+					"\tparent.add_child(Node2D.new())\n\tHelper.make(parent)\n",
+					encoding="utf-8")
+				ava.subprocess.run(
+					["git", "-C", str(root), "add", "-f", "--", ".gitignore",
+					 "scripts/fx_stage.gd"], check=True,
+					stdout=ava.subprocess.DEVNULL, stderr=ava.subprocess.DEVNULL)
+				ava.subprocess.run(
+					["git", "-C", str(root), "commit", "-q", "-m",
+					 "active ignored helper edge"], check=True,
+					stdout=ava.subprocess.DEVNULL, stderr=ava.subprocess.DEVNULL)
+				helper = root / ignored_root / "helper.gd"
+				helper.parent.mkdir(parents=True, exist_ok=True)
+				(helper.parent / ".gdignore").write_text("", encoding="utf-8")
+				helper.write_text(
+					"extends RefCounted\nstatic func make(parent: Node) -> void:\n"
+					"\tparent.add_child(Node2D.new())\n", encoding="utf-8")
+				repo_before = ava.Repo(str(root), spec)
+				identity_before = ava.git_source_identity(repo_before)
+				revision_before = ava.source_revision_signature(repo_before)
+				self.assertTrue(identity_before["dependencies_clean"])
+				row = self._rows(root, spec, "layering.legacy_3d_debt")[0]
+				self.assertEqual(row.disposition, ava.COVERAGE_GAP)
+				self.assertIn(
+					f"untracked-active-source:{ignored_root}/helper.gd",
+					row.evidence["dependency_gaps"])
+				helper.write_text(
+					"extends RefCounted\nstatic func make(parent: Node) -> void:\n"
+					"\tvar mesh := RenderingServer.mesh_create()\n", encoding="utf-8")
+				repo_after = ava.Repo(str(root), spec)
+				self.assertTrue(ava.git_source_identity(repo_after)["dependencies_clean"])
+				self.assertEqual(revision_before,
+					ava.source_revision_signature(repo_after))
+				row = self._rows(root, spec, "layering.legacy_3d_debt")[0]
+				self.assertEqual(row.disposition, ava.FAIL)
+				self.assertIn(f"{ignored_root}/helper.gd",
+					row.evidence["source"]["source_dependencies"])
+
+	def test_inactive_ignored_source_does_not_create_dependency_debt(self) -> None:
+		with tempfile.TemporaryDirectory() as raw_root:
+			root = Path(raw_root)
+			spec = ava._fixture(str(root), presentation="free_swim", layers_api=True)
+			(root / ".gitignore").write_text("/audit/\n/tmp/\n", encoding="utf-8")
+			ava.subprocess.run(
+				["git", "-C", str(root), "add", "--", ".gitignore"], check=True,
+				stdout=ava.subprocess.DEVNULL, stderr=ava.subprocess.DEVNULL)
+			ava.subprocess.run(
+				["git", "-C", str(root), "commit", "-q", "-m",
+				 "ignore non-runtime output"], check=True,
+				stdout=ava.subprocess.DEVNULL, stderr=ava.subprocess.DEVNULL)
+			helper = root / "tmp" / "inactive_helper.gd"
+			helper.parent.mkdir(parents=True)
+			(helper.parent / ".gdignore").write_text("", encoding="utf-8")
+			helper.write_text(
+				"extends RefCounted\nfunc make() -> Object:\n"
+				"\treturn MeshInstance3D.new()\n", encoding="utf-8")
+			self.assertTrue(ava.git_source_identity(
+				ava.Repo(str(root), spec))["dependencies_clean"])
+			row = self._rows(root, spec, "layering.legacy_3d_debt")[0]
+			self.assertEqual(row.disposition, ava.PASS)
+
 	def test_clean_cyclic_canvas_helper_closure_terminates_and_passes(self) -> None:
 		with tempfile.TemporaryDirectory() as raw_root:
 			root = Path(raw_root)
@@ -1493,6 +1565,14 @@ class VisualEvidenceContractTests(unittest.TestCase):
 				"extends RefCounted\nconst A = preload(\"res://scripts/canvas_a.gd\")\n"
 				"func build(parent: Node) -> void:\n\tparent.add_child(A.spawn())\n",
 				encoding="utf-8")
+			ava.subprocess.run(
+				["git", "-C", str(root), "add", "--", "scripts/canvas_a.gd",
+				 "scripts/canvas_b.gd", "scripts/fx_stage.gd"], check=True,
+				stdout=ava.subprocess.DEVNULL, stderr=ava.subprocess.DEVNULL)
+			ava.subprocess.run(
+				["git", "-C", str(root), "commit", "-q", "-m",
+				 "tracked Canvas helper closure"], check=True,
+				stdout=ava.subprocess.DEVNULL, stderr=ava.subprocess.DEVNULL)
 			row = self._rows(root, spec, "layering.legacy_3d_debt")[0]
 			self.assertEqual(row.disposition, ava.PASS)
 
