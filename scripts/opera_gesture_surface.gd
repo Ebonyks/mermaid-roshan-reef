@@ -114,6 +114,10 @@ var echo_glow := 0.0
 ## Tilt-pour (chef POUR / candymaker SYRUP): grab the pitcher and it TILTS;
 ## the stream follows, the bowl fills only while the stream lands in it,
 ## and the pitcher visibly drains. The child controls the pour, not a clock.
+const CANDYMAKER_POUR_SECONDS := 3.0
+const CANDYMAKER_PITCHER_SPOUT_UV := Vector2(0.125, 0.2421875)
+const CANDYMAKER_MOLD_PATH := \
+	"res://assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png"
 var pour_tilt := 0.0
 var pour_x := 0.0
 var pour_level := 0.0
@@ -121,6 +125,7 @@ var pour_reserve := 1.2
 var pour_hold := false
 var pour_emit_acc := 0.0
 var pour_redraw := 0.0
+var pour_mold_texture: Texture2D = null
 
 ## Plushy Doctor X-ray: drag one scanner beam over two deterministic sore
 ## spots on the approved X-ray-machine card. A stationary tap cannot diagnose;
@@ -416,6 +421,11 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	input_started = false
 	crank_rotation = 0.0
 	_load_widget_set()
+	pour_mold_texture = null
+	if visual_context == "pour_candymaker":
+		# Reuse the accepted complete shell candy as the mold/fill target. The
+		# old pour backdrop's copper molds are amputated at their source edge.
+		pour_mold_texture = _load_widget_texture(CANDYMAKER_MOLD_PATH)
 	charge_astronaut_texture = null
 	charge_popstar_texture = null
 	if visual_context == "charge_astronaut":
@@ -680,7 +690,7 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 		echo_glow = 0.0
 	if next_mode == "pourt":
 		pour_tilt = 0.0
-		pour_x = size.x * 0.34
+		pour_x = _pour_home_x()
 		pour_level = 0.0
 		pour_reserve = 1.2
 		pour_hold = false
@@ -793,7 +803,7 @@ func _process(delta: float) -> void:
 		_pipe_tick(delta)
 	if mode == "echo" and not completion_accepted and not armed_only:
 		_echo_tick(delta)
-	if mode == "pourt" and not completion_accepted:
+	if mode == "pourt" and not armed_only:
 		_pour_tick(delta)
 	if mode == "xray_scan" and not completion_accepted and not armed_only:
 		_xray_tick(delta)
@@ -912,11 +922,17 @@ func _press(at: Vector2) -> void:
 			else:
 				_echo_press(at)
 		"pourt":
-			if _pour_pitcher_rect().has_point(at):
+			if _pour_pitcher_hit_rect().has_point(at):
 				pour_hold = true
-				pour_x = clampf(at.x, size.x * 0.12, size.x * 0.88)
+				# Candymaker keeps the jug registered over its pictured mold when the
+				# child grabs any part of the generous target. Dragging can still move
+				# it, but never into a visible-yet-nonpaying dead zone.
+				if not _is_candymaker_pour():
+					var bounds := _pour_x_bounds()
+					pour_x = clampf(at.x, bounds.x, bounds.y)
 			else:
 				# a tap on the bowl answers with a friendly ripple
+				pour_hold = false
 				gesture.emit("pourt", 0.0, 0.6)
 		"oven":
 			if oven_done or completion_accepted:
@@ -1095,7 +1111,8 @@ func _drag(at: Vector2) -> void:
 		return
 	if mode == "pourt":
 		if pour_hold:
-			pour_x = clampf(at.x, size.x * 0.12, size.x * 0.88)
+			var bounds := _pour_x_bounds()
+			pour_x = clampf(at.x, bounds.x, bounds.y)
 		queue_redraw()
 		previous_pos = at
 		return
@@ -5407,30 +5424,115 @@ func _draw_echo(_center: Vector2) -> void:
 		draw_arc(next_center, 88.0, 0.0, TAU, 36, Color(accent, 0.35), 5.0)
 
 
-func _pour_pitcher_rect() -> Rect2:
-	return Rect2(pour_x - 70.0, size.y * 0.10, 140.0, 120.0)
+func _is_candymaker_pour() -> bool:
+	return mode == "pourt" and visual_context == "pour_candymaker"
 
 
 func _pour_bowl_rect() -> Rect2:
+	if _is_candymaker_pour():
+		# One complete shell is the single source of truth for picture, fill,
+		# stream landing and completion. Keep it wholly inside the 392x232
+		# shipping surface instead of pointing at three conflicting old molds.
+		var side := minf(size.x * 0.34, size.y * 0.47)
+		return Rect2(Vector2(size.x * 0.30, size.y - side - 8.0), Vector2.ONE * side)
 	return Rect2(size.x * 0.20, size.y * 0.62, size.x * 0.60, size.y * 0.30)
 
 
+func _pour_home_x() -> float:
+	if _is_candymaker_pour():
+		return _pour_bowl_rect().end.x + 26.0
+	return size.x * 0.34
+
+
+func _pour_x_bounds() -> Vector2:
+	if _is_candymaker_pour():
+		var bowl := _pour_bowl_rect()
+		# At either extreme the physical left-facing spout remains over the
+		# shell throughout its whole rotation arc. The anchor's radius is the
+		# worst-case left reach, plus a small landing margin.
+		var left_reach := _candymaker_spout_local_anchor(_pour_pitcher_rect()).length()
+		return Vector2(bowl.position.x + left_reach + 2.0, bowl.end.x + 26.0)
+	return Vector2(size.x * 0.12, size.x * 0.88)
+
+
+func _pour_pitcher_rect() -> Rect2:
+	if _is_candymaker_pour():
+		var side := minf(132.0, size.y * 0.54)
+		return Rect2(Vector2(pour_x - side * 0.5, maxf(10.0, size.y * 0.12)),
+			Vector2.ONE * side)
+	return Rect2(pour_x - 70.0, size.y * 0.10, 140.0, 120.0)
+
+
+func _pour_pitcher_hit_rect() -> Rect2:
+	return _pour_pitcher_rect().grow(22.0 if _is_candymaker_pour() else 0.0)
+
+
+func _pour_pitcher_rotation() -> float:
+	return -pour_tilt * 1.05 if _is_candymaker_pour() else pour_tilt * 1.05
+
+
+func _candymaker_spout_local_anchor(pitcher: Rect2) -> Vector2:
+	return (CANDYMAKER_PITCHER_SPOUT_UV - Vector2.ONE * 0.5) * pitcher.size
+
+
+func _pour_spout_point() -> Vector2:
+	var pitcher := _pour_pitcher_rect()
+	if _is_candymaker_pour():
+		# Both approved pitcher sprites have a LEFT spout. Transform its measured
+		# art anchor with the same rotation as the rendered jug so the stream stays
+		# attached to the painted lip throughout the tilt.
+		var local_anchor := _candymaker_spout_local_anchor(pitcher)
+		return pitcher.get_center() + local_anchor.rotated(_pour_pitcher_rotation())
+	return Vector2(pour_x + 52.0 + 26.0 * pour_tilt,
+		pitcher.position.y + 58.0 + 30.0 * pour_tilt)
+
+
+func _pour_landing_point() -> Vector2:
+	var bowl := _pour_bowl_rect()
+	var spout := _pour_spout_point()
+	return Vector2(spout.x if _is_candymaker_pour() else spout.x + 10.0,
+		bowl.position.y + 16.0)
+
+
+func _pour_stream_active() -> bool:
+	return pour_tilt > 0.36 and (pour_hold or not _is_candymaker_pour())
+
+
 func _pour_tick(delta: float) -> void:
+	if completion_accepted:
+		# The final payout is synchronous: the owning world accepts completion
+		# before this frame returns. Keep animating only the polite tilt-down;
+		# never leave an empty jug frozen sideways during the success hold.
+		pour_hold = false
+		var settled_tilt := move_toward(pour_tilt, 0.0, delta / 0.35)
+		if not is_equal_approx(settled_tilt, pour_tilt):
+			pour_tilt = settled_tilt
+			queue_redraw()
+		return
 	var want := 1.0 if pour_hold else 0.0
 	var rate := delta / 0.8 if pour_hold else delta / 0.35
 	pour_tilt = move_toward(pour_tilt, want, rate)
-	var stream := pour_tilt > 0.36
+	var stream := _pour_stream_active()
 	if stream:
-		var spout_x := pour_x + 52.0 + 26.0 * pour_tilt
+		var spout_x := _pour_spout_point().x
 		var bowl := _pour_bowl_rect()
 		var on_target := spout_x >= bowl.position.x and spout_x <= bowl.end.x
-		var flow := maxf(pour_reserve, 0.12) / 1.2
 		if on_target and pour_level < 1.0:
-			var fill := (pour_tilt - 0.36) / 0.64 * delta / 4.6 * flow
-			pour_level = minf(1.0, pour_level + fill)
-			pour_reserve = maxf(0.0, pour_reserve - fill)
+			var tilt_flow := (pour_tilt - 0.36) / 0.64
+			var fill := 0.0
+			if _is_candymaker_pour():
+				# Roughly 3.5 seconds including the visible tilt-in: short enough to
+				# read as responsive, long enough to see the shell fill.
+				fill = tilt_flow * delta / CANDYMAKER_POUR_SECONDS
+			else:
+				var reserve_flow := maxf(pour_reserve, 0.12) / 1.2
+				fill = tilt_flow * delta / 4.6 * reserve_flow
+			var applied_fill := minf(fill, 1.0 - pour_level)
+			pour_level += applied_fill
+			var drain_scale := 1.2 if _is_candymaker_pour() else 1.0
+			pour_reserve = maxf(0.0, pour_reserve - applied_fill * drain_scale)
 			# the child controls the pour, not a clock: progress IS the fill
-			pour_emit_acc += fill
+			pour_emit_acc += applied_fill
 			if pour_emit_acc >= 0.04 or pour_level >= 1.0:
 				gesture.emit("pourt", pour_emit_acc * 5.0, 1.0)
 				pour_emit_acc = 0.0
@@ -5444,12 +5546,36 @@ func _pour_tick(delta: float) -> void:
 		queue_redraw()
 
 
+func _draw_candymaker_pour_mold(bowl: Rect2) -> void:
+	# A quiet glow makes the one destination obvious without words. The accepted
+	# teal shell remains the artwork at every state; this is a non-destructive
+	# dim-to-colour reveal, not a replacement design.
+	draw_circle(bowl.get_center(), bowl.size.x * 0.52, Color(accent, 0.12))
+	if pour_mold_texture == null:
+		draw_circle(bowl.get_center(), bowl.size.x * 0.42, Color("#74d8d2"))
+		return
+	draw_texture_rect(pour_mold_texture, bowl, false, Color(0.48, 0.48, 0.62, 0.28))
+	if pour_level > 0.0:
+		var texture_size := pour_mold_texture.get_size()
+		var source_y := texture_size.y * (1.0 - pour_level)
+		var source_h := texture_size.y - source_y
+		var destination_y := bowl.position.y + bowl.size.y * (1.0 - pour_level)
+		var destination_h := bowl.end.y - destination_y
+		draw_texture_rect_region(pour_mold_texture,
+			Rect2(bowl.position.x, destination_y, bowl.size.x, destination_h),
+			Rect2(0.0, source_y, texture_size.x, source_h))
+	draw_arc(bowl.get_center(), bowl.size.x * 0.48, 0.0, TAU, 36,
+		Color(accent, 0.46 + 0.18 * sin(demo_t * 4.0)), 5.0)
+
+
 func _draw_pour_scene(_center: Vector2) -> void:
-	if widget_backdrop != null:
+	if not _is_candymaker_pour() and widget_backdrop != null:
 		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
 	var bowl := _pour_bowl_rect()
 	# the bowl and its rising batter (authored fill strip when present)
-	if widget_overlay != null:
+	if _is_candymaker_pour():
+		_draw_candymaker_pour_mold(bowl)
+	elif widget_overlay != null:
 		_draw_progress_overlay(widget_overlay, pour_level, false)
 	else:
 		draw_rect(bowl, Color(0.90, 0.94, 1.0, 0.55), true)
@@ -5457,11 +5583,12 @@ func _draw_pour_scene(_center: Vector2) -> void:
 		var surface_y := bowl.end.y - 8.0 - level_height
 		var wobble := sin(pour_tilt * 20.0 + pour_level * 30.0) * 2.0
 		draw_rect(Rect2(bowl.position.x + 8.0, surface_y + wobble, bowl.size.x - 16.0, level_height), Color("#f2c66d"), true)
-	draw_rect(bowl, Color("#7a5a34"), false, 5.0)
+	if not _is_candymaker_pour():
+		draw_rect(bowl, Color("#7a5a34"), false, 5.0)
 	# the pitcher: tilts in the hand, visibly drains as it pours
 	var pitcher := _pour_pitcher_rect()
 	var pitcher_center := pitcher.get_center()
-	draw_set_transform(pitcher_center, pour_tilt * 1.05)
+	draw_set_transform(pitcher_center, _pour_pitcher_rotation())
 	if widget_mover != null:
 		draw_texture_rect(widget_mover, Rect2(-pitcher.size * 0.5, pitcher.size), false)
 	else:
@@ -5471,9 +5598,9 @@ func _draw_pour_scene(_center: Vector2) -> void:
 		draw_rect(Rect2(-pitcher.size * 0.5, pitcher.size), Color("#4a5a7a"), false, 4.0)
 	draw_set_transform(Vector2.ZERO)
 	# the stream: it follows the spout, thick with the tilt, and lands
-	if pour_tilt > 0.36 and pour_level < 1.0:
-		var spout := Vector2(pour_x + 52.0 + 26.0 * pour_tilt, pitcher.position.y + 58.0 + 30.0 * pour_tilt)
-		var landing := Vector2(spout.x + 10.0, bowl.position.y + 16.0)
+	if _pour_stream_active() and pour_level < 1.0:
+		var spout := _pour_spout_point()
+		var landing := _pour_landing_point()
 		var thickness := 5.0 + 9.0 * (pour_tilt - 0.36) / 0.64
 		var mid := Vector2(lerpf(spout.x, landing.x, 0.5) + 6.0, lerpf(spout.y, landing.y, 0.5))
 		draw_line(spout, mid, Color("#f2c66d"), thickness)
@@ -5484,5 +5611,5 @@ func _draw_pour_scene(_center: Vector2) -> void:
 		# a bulge where the stream lands
 		draw_circle(landing, thickness * 0.9, Color(0.95, 0.80, 0.45, 0.7))
 	# near-empty: fat last drips
-	if pour_reserve < 0.18 and pour_tilt > 0.36:
-		draw_circle(Vector2(pour_x + 58.0, pitcher.end.y + 14.0), 6.0, Color("#f2c66d"))
+	if pour_reserve < 0.18 and _pour_stream_active():
+		draw_circle(_pour_spout_point() + Vector2(0.0, 14.0), 6.0, Color("#f2c66d"))

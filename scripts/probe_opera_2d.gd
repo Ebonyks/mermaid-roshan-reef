@@ -9,6 +9,7 @@ extends SceneTree
 var main: ReefMain
 var bad := 0
 var widget_shot_out := ""
+var widget_capture_career := ""
 var rival_shot_out := ""
 var scuffle_shot_out := ""
 var scuffle_capture_career := ""
@@ -61,6 +62,7 @@ const BALLERINA_PHASE_CONTRACTS := [
 
 func _init() -> void:
 	widget_shot_out = OS.get_environment("OPERA_WIDGET_SHOT_OUT").strip_edges()
+	widget_capture_career = OS.get_environment("OPERA_WIDGET_CAPTURE_CAREER").strip_edges()
 	rival_shot_out = OS.get_environment("OPERA_RIVAL_SHOT_OUT").strip_edges()
 	scuffle_shot_out = OS.get_environment("OPERA_SCUFFLE_SHOT_OUT").strip_edges()
 	scuffle_capture_career = OS.get_environment("OPERA_SCUFFLE_CAPTURE_CAREER").strip_edges()
@@ -476,11 +478,68 @@ func _init() -> void:
 						ballet_ribbon_stream.get_length()) + 0.05)
 		if career == "candymaker":
 			var syrup_goal := 0.0
-			for candy_phase: Dictionary in world.phases:
+			var syrup_phase_index := -1
+			for candy_phase_i in range(world.phases.size()):
+				var candy_phase: Dictionary = world.phases[candy_phase_i]
 				if String(candy_phase.get("name", "")) == "SYRUP":
 					syrup_goal = float(candy_phase.get("goal", 0.0))
+					syrup_phase_index = candy_phase_i
 			_check("candymaker SYRUP requires the full five-point pour",
-				is_equal_approx(syrup_goal, 5.0))
+				is_equal_approx(syrup_goal, 5.0) and syrup_phase_index >= 0)
+			world.phase_index = syrup_phase_index
+			world.phase_progress = 0.0
+			world.phase_gap = 0.0
+			world.reveal_t = 0.0
+			world.phase_advance_pending = false
+			world._show_phase()
+			# Pixel 10's 2424x1080 framebuffer maps to a 1616x720 logical
+			# canvas. Prove the fixed stage, actual right-docked card, shipping
+			# touch surface and its real pitcher grab all survive that transform.
+			var pixel_canvas := Vector2(1616.0, 720.0)
+			var fit_scale := minf(pixel_canvas.x / OperaStagePaths.SCREEN.x,
+				pixel_canvas.y / OperaStagePaths.SCREEN.y)
+			var fit_offset := (pixel_canvas - OperaStagePaths.SCREEN * fit_scale) * 0.5
+			var pixel_view := Rect2(Vector2.ZERO, pixel_canvas)
+			var fitted_stage := Rect2(fit_offset, OperaStagePaths.SCREEN * fit_scale)
+			var fitted_card := Rect2(fit_offset + world.action_panel.position * fit_scale,
+				world.action_panel.size * fit_scale)
+			var fitted_surface := Rect2(
+				fit_offset + (world.action_panel.position + world.surface.position) * fit_scale,
+				world.surface.size * fit_scale)
+			var fitted_grab := fit_offset \
+				+ (world.action_panel.position + world.surface.position
+				+ world.surface._pour_pitcher_rect().get_center()) * fit_scale
+			_check("Pixel 10 keeps candymaker SYRUP card and grab inside the fitted stage",
+				pixel_view.encloses(fitted_stage) and fitted_stage.encloses(fitted_card)
+				and fitted_card.encloses(fitted_surface)
+				and fitted_surface.has_point(fitted_grab))
+			# Drive the shipping signal path: the real surface pays the real world,
+			# which owns the five-point goal and accepts the completed picture.
+			var pour_step := 1.0 / 30.0
+			var pour_seconds := 0.0
+			var pour_grab := world.surface._pour_pitcher_rect().get_center()
+			world.surface._press(pour_grab)
+			while not world.phase_advance_pending and pour_seconds < 4.2:
+				world.surface._process(pour_step)
+				pour_seconds += pour_step
+			world.surface._release(pour_grab)
+			_check("candymaker real SYRUP hold completes its connected world",
+				world.phase_advance_pending and world.surface.completion_accepted
+				and is_equal_approx(world.phase_progress, syrup_goal)
+				and is_equal_approx(world.surface.pour_level, 1.0)
+				and pour_seconds < 4.2)
+			world.surface._process(0.36)
+			_check("candymaker success hold rights its empty pitcher",
+				is_zero_approx(world.surface.pour_tilt)
+				and not world.surface._pour_stream_active())
+			# Leave the per-career probe at the same fresh opening state expected by
+			# the generic widget contracts below.
+			world.phase_progress = 0.0
+			world.phase_advance_pending = false
+			world.phase_complete_t = 0.0
+			world.phase_gap = 0.0
+			world.reveal_t = 0.0
+			world._show_phase()
 		if career in ["doctor", "farmer"]:
 			var station_phase_name := "X-RAY" if career == "doctor" else "TOSS"
 			var expected_station_id := "exam_booth" if career == "doctor" else "hay_bales"
@@ -729,7 +788,8 @@ func _init() -> void:
 				world.surface._farm_tick(OperaGestureSurface.FARM_FLIGHT_DURATION + 0.01)
 				widgets_causal = widgets_causal and world.surface.farm_landed == 1
 				world.surface.set_block_signals(false)
-			if not widget_shot_out.is_empty():
+			if not widget_shot_out.is_empty() \
+					and (widget_capture_career.is_empty() or widget_capture_career == career):
 				await _capture_widget_states(world, career, phase_number, phase_dict, template)
 		# Direct specialist surfaces deliberately have no generic widget family;
 		# those contracts are exercised above instead of requiring reskin assets.
@@ -1031,6 +1091,11 @@ func _capture_widget_states(world: OperaCareerWorld2D, career: String,
 	surface.note_input()
 	surface.held = mode == "hold"
 	surface.set_fill(0.45)
+	if mode == "pourt":
+		surface.pour_hold = true
+		surface.pour_tilt = 0.58
+		surface.pour_level = 0.45
+		surface.pour_reserve = 0.66
 	surface.set_timing_position(0.50)
 	surface.crank_rotation = 0.72
 	surface.feedback_anchor = surface.size * Vector2(0.5, 0.68)
@@ -1044,13 +1109,26 @@ func _capture_widget_states(world: OperaCareerWorld2D, career: String,
 	surface.feedback_t = 0.0
 	surface.held = mode == "hold"
 	surface.set_fill(0.90)
+	if mode == "pourt":
+		surface.pour_hold = true
+		surface.pour_tilt = 0.92
+		surface.pour_level = 0.90
+		surface.pour_reserve = 0.12
 	surface.set_timing_position(0.68)
 	surface.crank_rotation = 1.34
 	await _capture_control(surface, widget_shot_out.path_join("%s_near_completion.png" % prefix))
 
 	surface.held = false
 	surface.set_fill(1.0)
+	if mode == "pourt":
+		surface.pour_level = 1.0
+		surface.pour_reserve = 0.0
+		surface.pour_hold = false
 	surface.accept_completion()
+	if mode == "pourt":
+		# Review the real success transition rather than fabricating an upright
+		# pitcher that runtime completion could not previously reach.
+		surface._pour_tick(0.36)
 	await _capture_control(surface, widget_shot_out.path_join("%s_accepted_completion.png" % prefix))
 
 
