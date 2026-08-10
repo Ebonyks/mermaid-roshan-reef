@@ -174,13 +174,17 @@ preserve a useful measurement while its 3D recommendation is `SUPERSEDED`.
 
 ### 3.1 Current precedence
 
-1. Direct owner decision, 2026-08-09: remove 3D Mermaid Roshan; the game is
-   true 2D; active 3D resources belong only on the deprecated-resources branch.
-2. `SECURITY.md`, protected-asset/save rules, exact Godot 4.7.1-stable rules,
-   and release workflow in `AGENTS.md`, excluding its stale 3D clauses.
-3. `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` once tracked and reconciled.
-4. A current domain document within its explicitly retained scope.
-5. Historical audits and work orders as evidence only.
+1. Binding `SECURITY.md`, protected-asset/save rules, credential and filesystem
+   safeguards, and the release workflow in `AGENTS.md`. A content or design
+   decision never weakens these boundaries.
+2. Direct owner product decision, 2026-08-09, within those boundaries: remove
+   3D Mermaid Roshan; the game is true 2D; active 3D resources belong only on
+   the deprecated-resources branch.
+3. Exact Godot 4.7.1-stable requirements and the remaining current operational
+   rules in `AGENTS.md`, excluding its stale 3D clauses.
+4. `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` once tracked and reconciled.
+5. A current domain document within its explicitly retained scope.
+6. Historical audits and work orders as evidence only.
 
 ### 3.2 Current authority map
 

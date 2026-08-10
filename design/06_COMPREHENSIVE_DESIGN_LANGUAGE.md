@@ -45,12 +45,15 @@ Normative terms:
 
 Rule precedence:
 
-1. A direct, dated owner decision.
-2. `SECURITY.md`, protected-asset rules, save-compatibility rules, and exact
-   engine/release requirements in `AGENTS.md`.
-3. This design language.
-4. A current domain document explicitly named by this document.
-5. Historical audits and work orders, used only as evidence.
+1. Binding `SECURITY.md`, protected-asset/save rules, credential and filesystem
+   safeguards, and release requirements. A content or design decision never
+   weakens these boundaries.
+2. A direct, dated owner product decision within those boundaries.
+3. Exact engine requirements and the remaining current operational rules in
+   `AGENTS.md`.
+4. This design language.
+5. A current domain document explicitly named by this document.
+6. Historical audits and work orders, used only as evidence.
 
 `DL-AUTH-01` — A later owner decision supersedes an earlier recommendation,
 even if the earlier recommendation remains in a file labelled authoritative.
