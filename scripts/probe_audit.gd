@@ -419,21 +419,38 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 			else:
 				main.touch_ui.action_down = false
 		elif gname == "dolls":
-			# Phase 6: perform the VERB — steer the catcher through the touch
-			# stick like a real hand (teleporting the node no longer scores;
-			# catches require live input inside the last 2s). Phase 8: the
-			# catcher is the real 3D player on the side-scroll stage, babies
-			# are Node3Ds falling toward stage-local y=0 — chase the LOWEST.
-			var dolls: Array = g.get("dolls", [])
-			if dolls.size() > 0:
-				var lowest: Node3D = dolls[0]
-				for d in dolls:
-					if is_instance_valid(d) and (d as Node3D).global_position.y < lowest.global_position.y:
-						lowest = d
-				var want_x: float = lowest.global_position.x
-				main.touch_ui.stick_vec = Vector2(clampf((want_x - main.player.global_position.x) / 3.6, -1.0, 1.0), 0.0)
-			else:
-				main.touch_ui.stick_vec = Vector2(0.3, 0.0)   # keep the hand 'live' between spawns
+			# Perform the real one-finger Canvas verb. A complete press/drag/release
+			# gesture each frame follows the lowest baby and keeps the two-second
+			# live-input memory honest without calling the surface's steering API.
+			var dolls_surface := g.get("dolls_surface") as OperaNurseryCatch
+			if dolls_surface != null and is_instance_valid(dolls_surface):
+				var want_x: float = dolls_surface.lowest_baby_x()
+				if want_x < 0.0:
+					want_x = 0.5
+				var local_point := Vector2(
+					clampf(want_x, 0.1, 0.9) * dolls_surface.size.x,
+					dolls_surface.size.y * 0.72)
+				var drag_local := local_point + Vector2(0.5, 0.0)
+				var screen_point: Vector2 = \
+					dolls_surface.get_screen_transform() * local_point
+				var drag_screen: Vector2 = \
+					dolls_surface.get_screen_transform() * drag_local
+				var viewport := dolls_surface.get_viewport()
+				var touch_down := InputEventScreenTouch.new()
+				touch_down.index = 51
+				touch_down.position = screen_point
+				touch_down.pressed = true
+				viewport.push_input(touch_down, true)
+				var touch_drag := InputEventScreenDrag.new()
+				touch_drag.index = 51
+				touch_drag.position = drag_screen
+				touch_drag.relative = drag_screen - screen_point
+				viewport.push_input(touch_drag, true)
+				var touch_up := InputEventScreenTouch.new()
+				touch_up.index = 51
+				touch_up.position = drag_screen
+				touch_up.pressed = false
+				viewport.push_input(touch_up, true)
 		elif gname == "brawl":
 			# walk the plane to the nearest live imp (stick x AND depth y),
 			# pulse fresh tap edges inside pop range — Huluu's AI stuns are

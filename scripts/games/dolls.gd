@@ -1,216 +1,344 @@
 class_name DollsGame
 extends RefCounted
-# Phase 7.4 extraction, rebuilt Phase 8 on the SideScrollStage engine: the
-# catch-the-babies game is a 2.5D nursery diorama. Roshan's animated 2D card
-# (wardrobe skin and all) slides under a side-on camera catching 3D swaddled
-# babies that drift down in front of the floating nursery book page. Caught
-# babies tuck into a cradle; missed ones land safely on pillows (no fail).
-# All state stays on main (m.*); received by reference.
-# Scale: Roshan's player card is about 7 world units tall; the geometry maps
-# at 25 px per unit (1160 px playfield → 46.4 units).
+## Faron's sleepy-dolls catcher, presented on one bounded Canvas stage.
+##
+## The proven Opera nursery surface owns the one-finger catch grammar: press or
+## drag the broad cradle beneath a falling baby, keep input live for the catch,
+## and let every miss settle safely. Dolls supplies an approved world-tile
+## presentation because the Opera widget placeholders are not shippable art.
+## State remains on ReefMain so medals, saving, rewards, and callers stay intact.
 
-const BLANKETS := [Color(0.62, 0.90, 0.78), Color(1.0, 0.72, 0.82), Color(0.78, 0.72, 0.98)]
-const HALF_W := 23.2       # stage half-width
-const SPAWN_Y := 28.0      # babies drift down from here (stage-local)
-const CATCH_Y := 8.8       # below this they can land in her arms…
-const FLOOR_Y := 1.2       # …and at this height they missed (soft pillow landing)
-const CATCH_W := 5.4       # horizontal catch forgiveness
-const CRADLE_SLOTS := [Vector3(17.8, 3.1, -2), Vector3(20.0, 3.1, -2), Vector3(22.2, 3.1, -2)]
+const GOAL := 3
+const PANEL_SIZE := Vector2(1024.0, 608.0)
+const PANEL_MARGIN := 24.0
+const CONTROL_REASON := "dolls_game"
+
+
+class DollsNurserySurface extends OperaNurseryCatch:
+	## Reuse OperaNurseryCatch's input, bounded faller state, mercy and no-fail
+	## rules, while drawing only approved baby art over the accepted nursery
+	## world tiles. The three P3/REPLACE widget files are never loaded here.
+	const CATCH_RADIUS := 50.0
+	const FOCUS_RADIUS := 59.0
+	const FOCUS_PULSE := 2.0
+	const FOCUS_BOB := 4.0
+	const SAFE_BABY_EXTENT := 48.0
+	const SAFE_HALO_RADIUS := 22.0
+	const SAFE_VISUAL_EXTENT := 50.0
+	const SAFE_Y := 0.956
+
+	var safe_mat_style: StyleBoxFlat = null
+
+	func _ready() -> void:
+		mouse_filter = Control.MOUSE_FILTER_STOP
+		clip_contents = true
+		set_process(false)
+		for path: String in BABY_PATHS:
+			var texture := load(path) as Texture2D
+			if texture != null:
+				textures.append(texture)
+		backdrop_texture = null
+		cradle_texture = null
+		pillows_texture = null
+		set_meta("no_fail", true)
+		set_meta("live_input_gate_seconds", INPUT_MEMORY)
+		set_meta("presentation", "approved_world_nursery_tiles")
+		set_meta("placeholder_widgets_loaded", false)
+		safe_mat_style = StyleBoxFlat.new()
+		safe_mat_style.bg_color = Color(0.27, 0.20, 0.49, 0.90)
+		safe_mat_style.border_color = Color(0.75, 0.66, 0.92, 0.96)
+		safe_mat_style.set_border_width_all(7)
+		safe_mat_style.set_corner_radius_all(38)
+
+	func focus_rect_at(at_elapsed: float) -> Rect2:
+		var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
+		var focus_radius := FOCUS_RADIUS \
+			+ sin(at_elapsed * 3.2) * FOCUS_PULSE
+		var focus_y := catch_point.y - FOCUS_BOB \
+			+ sin(at_elapsed * 4.6) * FOCUS_BOB
+		return Rect2(
+			Vector2(catch_point.x - focus_radius - 4.0, focus_y - 4.0),
+			Vector2((focus_radius + 4.0) * 2.0, focus_radius + 8.0))
+
+	func focus_envelope_rect() -> Rect2:
+		var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
+		var outer_radius := FOCUS_RADIUS + FOCUS_PULSE + 4.0
+		return Rect2(
+			Vector2(catch_point.x - outer_radius,
+				catch_point.y - FOCUS_BOB * 2.0 - 4.0),
+			Vector2(outer_radius * 2.0,
+				FOCUS_BOB * 2.0 + 4.0 + outer_radius))
+
+	func bowl_rect() -> Rect2:
+		var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
+		var outer_radius := minf(CATCH_RADIUS, size.x * 0.15) + 11.0
+		return Rect2(catch_point + Vector2(-outer_radius, -11.0),
+			Vector2(outer_radius * 2.0, outer_radius + 11.0))
+
+	func safe_mat_rect() -> Rect2:
+		return Rect2(
+			Vector2(size.x * 0.035, size.y * 0.775),
+			Vector2(size.x * 0.93, size.y * 0.225))
+
+	func safe_landing_point(entry: Dictionary) -> Vector2:
+		return Vector2(float(entry.get("x", 0.5)) * size.x,
+			size.y * SAFE_Y)
+
+	func safe_landing_rect(entry: Dictionary) -> Rect2:
+		var center := safe_landing_point(entry)
+		return Rect2(center - Vector2.ONE * SAFE_VISUAL_EXTENT * 0.5,
+			Vector2.ONE * SAFE_VISUAL_EXTENT)
+
+	func faller_rect(entry: Dictionary) -> Rect2:
+		var extent := minf(86.0, size.x * 0.23)
+		var center := Vector2(float(entry.get("x", 0.5)) * size.x,
+			float(entry.get("y", 0.0)) * size.y)
+		return Rect2(center - Vector2.ONE * extent * 0.5,
+			Vector2.ONE * extent)
+
+	func _draw() -> void:
+		var panel := Rect2(Vector2.ZERO, size)
+		draw_rect(panel.grow(-4.0), Color(0.66, 0.90, 0.88), false, 5.0)
+		# Three large picture pips stay inside this layer (the legacy text HUD is
+		# deliberately below it). Filled picture dots plus the babies resting in the
+		# cradle communicate progress without reading.
+		for index in range(goal):
+			var pip_x := size.x * 0.5 + (float(index) - float(goal - 1) * 0.5) * 48.0
+			draw_circle(Vector2(pip_x, 34.0), 18.0,
+				Color(0.20, 0.14, 0.34, 0.92))
+			draw_circle(Vector2(pip_x, 34.0), 12.0,
+				Color(1.0, 0.72, 0.76) if index < caught
+				else Color(0.94, 0.90, 1.0, 0.62))
+
+		# A single padded safety mat is the honest code-native fallback for the
+		# rejected flat pillow strip. Quilt seams and tufts keep the landing zone
+		# legible without adding transparent sprite layers or scene nodes.
+		var mat_rect := safe_mat_rect()
+		if safe_mat_style != null:
+			draw_style_box(safe_mat_style, mat_rect)
+		for index in range(7):
+			var seam_x := mat_rect.position.x + 28.0 + float(index) * mat_rect.size.x / 7.0
+			draw_line(
+				Vector2(seam_x, mat_rect.position.y + 14.0),
+				Vector2(seam_x + 46.0, mat_rect.end.y - 14.0),
+				Color(0.88, 0.80, 1.0, 0.25), 3.0, true)
+			draw_circle(
+				Vector2(seam_x + 23.0, mat_rect.get_center().y), 4.5,
+				Color(1.0, 0.87, 0.66, 0.82))
+
+		# The selected-skin child is explicitly drawn behind this parent. A pulsing
+		# U-shaped focus halo belongs to the cradle itself: it bobs without a node
+		# or tween and stays below Roshan's visible body instead of covering her.
+		var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
+		if input_live_t <= 0.0:
+			var focus_radius := FOCUS_RADIUS \
+				+ sin(elapsed * 3.2) * FOCUS_PULSE
+			var focus_center := catch_point + Vector2(
+				0.0, -FOCUS_BOB + sin(elapsed * 4.6) * FOCUS_BOB)
+			var focus_alpha := 0.72 + (sin(elapsed * 3.2) + 1.0) * 0.10
+			draw_arc(focus_center, focus_radius, 0.0, PI, 36,
+				Color(1.0, 0.78, 0.28, focus_alpha), 6.0, true)
+			draw_arc(focus_center, focus_radius - 9.0, 0.04, PI - 0.04, 36,
+				Color(0.62, 0.95, 0.84, focus_alpha), 3.0, true)
+
+		# Three layered lower semicircles read as one rounded open sling. There is
+		# no concave fill or limb-like line work, and babies draw afterward so the
+		# target can never paint over them.
+		var catch_radius := minf(CATCH_RADIUS, size.x * 0.15)
+		draw_arc(catch_point, catch_radius, 0.0, PI, 40,
+			Color(0.20, 0.14, 0.34, 0.98), 22.0, true)
+		draw_arc(catch_point, catch_radius, 0.0, PI, 40,
+			Color(0.96, 0.79, 0.43, 0.98), 14.0, true)
+		draw_arc(catch_point, catch_radius, 0.02, PI - 0.02, 40,
+			Color(0.69, 0.94, 0.85, 0.98), 7.0, true)
+
+		for landing: Dictionary in safe_landings:
+			var landing_point := safe_landing_point(landing)
+			var fade := clampf(float(landing.get("time", 0.0)) / 0.35, 0.0, 1.0)
+			draw_arc(landing_point, SAFE_HALO_RADIUS, 0.0, TAU, 28,
+				Color(0.74, 0.95, 0.93, fade * 0.75), 5.0, true)
+			_draw_baby(int(landing.get("texture", 0)), landing_point,
+				minf(SAFE_BABY_EXTENT, size.x * 0.21), fade)
+
+		for entry: Dictionary in fallers:
+			_draw_baby(
+				int(entry.get("texture", 0)),
+				Vector2(float(entry.get("x", 0.5)) * size.x,
+					float(entry.get("y", 0.0)) * size.y),
+				minf(86.0, size.x * 0.23))
+
+		var shown := mini(settled.size(), 3)
+		for index in range(shown):
+			var spread := float(index) - float(shown - 1) * 0.5
+			_draw_baby(settled[index],
+				Vector2(catch_point.x + spread * 25.0, size.y * 0.89), 42.0)
 
 var m: ReefMain
-var stage: SideScrollStage
+var layer: CanvasLayer = null
+var backdrop: ColorRect = null
+var world_backdrop: OperaWorldBackdrop2D = null
+var surface: DollsNurserySurface = null
+var catcher_card: TextureRect = null
+var controls_owned := false
+
 
 func _init(main: ReefMain) -> void:
 	m = main
-	stage = SideScrollStage.new(main)
 
-func build(fr: Dictionary, _origin: Vector3) -> void:
+
+func build(fr: Dictionary) -> void:
+	# A defensive close makes rapid/manual re-entry an exact replacement, never
+	# a second live layer. The normal path is a no-op here.
+	stage_close()
 	m.g["spawned"] = 0
 	m.g["caught"] = 0
 	m.g["resolved"] = 0
 	m.g["missed"] = 0
-	m.g["next"] = 0.6
+	m.g["next"] = 0.18
 	m.g["dolls"] = []
+	m.g["verb_t"] = 0.0
 	m.g["timer"] = -1.0
-	_stage_open()
+	m._set_world_controls_enabled(false, CONTROL_REASON)
+	controls_owned = true
+
+	layer = CanvasLayer.new()
+	layer.name = "DollsCatchLayer"
+	layer.layer = 7
+	m.add_child(layer)
+
+	# One opaque Canvas fill prevents the still-migrating world from contributing
+	# pixels through the authored inset's soft translucent edge.
+	backdrop = ColorRect.new()
+	backdrop.name = "DollsCanvasBacking"
+	backdrop.color = Color(0.055, 0.04, 0.12, 1.0)
+	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	layer.add_child(backdrop)
+
+	world_backdrop = OperaWorldBackdrop2D.new()
+	world_backdrop.name = "DollsApprovedNurseryBackdrop"
+	world_backdrop.size = PANEL_SIZE
+	world_backdrop.setup("nursery")
+	layer.add_child(world_backdrop)
+
+	surface = DollsNurserySurface.new()
+	surface.name = "DollsCatchSurface"
+	surface.size = PANEL_SIZE
+	surface.baby_caught.connect(_on_baby_caught)
+	surface.baby_missed.connect(_on_baby_missed)
+	layer.add_child(surface)
+
+	# The selected, approved Roshan appearance moves with the cradle. Drawing it
+	# behind its parent surface makes the arms, cradle and every baby structurally
+	# unable to be occluded by the character art.
+	catcher_card = TextureRect.new()
+	catcher_card.name = "DollsSelectedSkinCatcher"
+	var skin_path: String = m.skin_sprite_path()
+	if ResourceLoader.exists(skin_path):
+		catcher_card.texture = load(skin_path) as Texture2D
+	catcher_card.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	catcher_card.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	catcher_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	catcher_card.size = Vector2(200.0, 245.0)
+	catcher_card.show_behind_parent = true
+	surface.add_child(catcher_card)
+
+	_layout_surface()
+	surface.start(GOAL)
+	_layout_catcher_card()
+	# Accessibility debt is explicit: the available Faron nursery catch clip
+	# says five, while this legacy activity's fixed goal is three. Keep the live
+	# pointer and generic spoken greeting; do not play a semantically false clip.
+	surface.set_meta("objective_recording_gap", "faron_catch_three")
+	surface.set_meta("visual_pointer", true)
+	m.g["dolls_layer"] = layer
+	m.g["dolls_backdrop"] = world_backdrop
+	m.g["dolls_surface"] = surface
+	m.g["dolls_catcher"] = catcher_card
+	_sync_state()
 	m.show_msg(fr["fname"], "Catch 3 sleepy dolls in your arms!")
 
-func _tick_dolls(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
-	var r := stage.root()
-	if r == null:
+
+func _layout_surface() -> void:
+	if surface == null or not is_instance_valid(surface):
 		return
-	var s: Dictionary = stage.tick(delta)
-	# Phase 6 verb gate, unchanged from the 2D era: catching needs a live hand
-	# on the controls inside the last 2s — a passive run must never fluke 3
-	# catches, even with the mercy drops steering toward her.
-	if bool(s["moved"]):
-		m.g["verb_t"] = 2.0
-	else:
-		m.g["verb_t"] = maxf(0.0, float(m.g.get("verb_t", 0.0)) - delta)
-	var hands_on: bool = float(m.g.get("verb_t", 0.0)) > 0.0
-	m.g["next"] = float(m.g["next"]) - delta
-	if float(m.g["next"]) <= 0.0 and int(m.g["caught"]) < 3:
-		m.g["spawned"] = int(m.g["spawned"]) + 1
-		m.g["next"] = 1.2
-		var missed: int = int(m.g["missed"])
-		var drop_x: float = -HALF_W + 3.2 + randf() * (HALF_W * 2.0 - 6.4)
-		if missed >= 2:
-			# mercy: later babies drift down nearer Roshan, and slower
-			var spread: float = maxf(1.4, 8.8 - float(missed - 2) * 1.4)
-			drop_x = clampf(float(s["px"]) + randf_range(-spread, spread), -HALF_W, HALF_W)
-		var baby := _make_baby(int(m.g["spawned"]))
-		baby.position = Vector3(drop_x, SPAWN_Y, 0)
-		baby.set_meta("fall_speed", maxf(4.2, 7.6 - float(missed) * 0.6))
-		r.add_child(baby)
-		(m.g["dolls"] as Array).append(baby)
-	var dolls: Array = m.g["dolls"]
-	for i in range(dolls.size() - 1, -1, -1):
-		var baby: Node3D = dolls[i]
-		baby.position.y -= float(baby.get_meta("fall_speed", 7.6)) * delta
-		baby.position.x += sin(float(m.g["t"]) * 1.6 + float(i) * 2.0) * 2.4 * delta
-		baby.rotation.z = sin(float(m.g["t"]) * 2.0 + float(i)) * 0.25
-		var caught: bool = hands_on and baby.position.y < CATCH_Y and absf(baby.position.x - float(s["px"])) < CATCH_W
-		if caught:
-			m.g["caught"] = int(m.g["caught"]) + 1
-			m.g["resolved"] = int(m.g["resolved"]) + 1
-			dolls.remove_at(i)
-			m._sparkle_burst(baby.global_position, Color(1.0, 0.75, 0.9))
-			_tuck_in(baby, int(m.g["caught"]) - 1)
-			if m.voice != null:
-				m.voice.pitch_scale = 1.0 + randf() * 0.25
-				m.voice.play()
-		elif baby.position.y < FLOOR_Y:
-			m.g["resolved"] = int(m.g["resolved"]) + 1
-			m.g["missed"] = int(m.g["missed"]) + 1
-			# a baby got away! Faron gasps (min-gap so two misses don't overlap)
-			m._say("faron", "miss", 3.0)
-			dolls.remove_at(i)
-			_land_on_pillow(baby)
-	m.hud_game.text = "Sleepy dolls  " + m._pips(int(m.g["caught"]), 3, "🎎")
-	if int(m.g["caught"]) >= 3:
-		m._end_game(true, fr, "You tucked in %d dolls! All cozy now." % int(m.g["caught"]))
+	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
+	var available := Vector2(
+		maxf(1.0, viewport_size.x - PANEL_MARGIN * 2.0),
+		maxf(1.0, viewport_size.y - PANEL_MARGIN * 2.0))
+	var panel_scale := minf(1.0, minf(
+		available.x / PANEL_SIZE.x, available.y / PANEL_SIZE.y))
+	panel_scale = maxf(0.1, panel_scale)
+	surface.scale = Vector2.ONE * panel_scale
+	surface.position = (viewport_size - PANEL_SIZE * panel_scale) * 0.5
+	if world_backdrop != null and is_instance_valid(world_backdrop):
+		world_backdrop.scale = surface.scale
+		world_backdrop.position = surface.position
+	if backdrop != null and is_instance_valid(backdrop):
+		backdrop.position = Vector2.ZERO
+		backdrop.size = viewport_size
+	_layout_catcher_card()
+
+
+func _layout_catcher_card() -> void:
+	if surface == null or not is_instance_valid(surface) \
+			or catcher_card == null or not is_instance_valid(catcher_card):
+		return
+	catcher_card.position = Vector2(
+		surface.catcher_x * PANEL_SIZE.x - catcher_card.size.x * 0.5,
+		PANEL_SIZE.y * 0.36)
+
+
+func _sync_state() -> void:
+	if surface == null or not is_instance_valid(surface):
+		return
+	m.g["spawned"] = surface.spawned
+	m.g["caught"] = surface.caught
+	m.g["resolved"] = surface.caught + surface.missed
+	m.g["missed"] = surface.missed
+	m.g["next"] = surface.spawn_t
+	m.g["verb_t"] = surface.input_live_t
+	m.g["dolls"] = surface.fallers
+
+
+func _on_baby_caught(_quality: float) -> void:
+	_sync_state()
+	if m.voice != null:
+		m.voice.pitch_scale = 1.0 + randf() * 0.25
+		m.voice.play()
+
+
+func _on_baby_missed() -> void:
+	_sync_state()
+	# The exact recorded Faron miss stays rate-limited so close landings never
+	# talk over one another.
+	m._say("faron", "miss", 3.0)
+
+
+func _tick_dolls(_delta: float, fr: Dictionary) -> void:
+	if surface == null or not is_instance_valid(surface) \
+			or not surface.is_inside_tree():
+		return
+	_sync_state()
+	_layout_catcher_card()
+	m.hud_game.text = "Sleepy dolls  " + m._pips(surface.caught, GOAL, "🎎")
+	if surface.caught >= GOAL:
+		m._end_game(true, fr,
+			"You tucked in %d dolls! All cozy now." % surface.caught)
+
 
 func stage_close() -> void:
-	stage.close()
-
-# ---- the nursery diorama ---------------------------------------------------
-func _stage_open() -> void:
-	stage.open({
-		"origin": m.ARENA_POS + Vector3(0, 2.5, 0),
-		"half_w": HALF_W,
-		"hover": 3.0,
-		"bob_amp": 0.5,
-		"steer_speed": 24.8,
-		"cam_h": 12.0,
-		"cam_dist": 20.5,
-		"look_h": 10.5,
-		"cam_follow": 0.25,
-		"backdrop": "res://assets/book/nursery_bg.jpg",
-		"backdrop_size": Vector2(36.0, 49.8),   # the book page at its true portrait aspect
-		"backdrop_z": -28.0,
-	})
-	var r := stage.root()
-	# soft pillow row where missed babies land
-	for i in range(7):
-		var p := MeshInstance3D.new()
-		var pmesh := SphereMesh.new()
-		pmesh.radius = 3.4
-		pmesh.height = 6.8
-		p.mesh = pmesh
-		p.scale = Vector3(1.25, 0.42, 0.9)
-		p.position = Vector3(-21.0 + float(i) * 7.0, 0.5, 0.0)
-		p.material_override = m._soft_mat((BLANKETS[i % BLANKETS.size()] as Color).lightened(0.25), 0.08)
-		r.add_child(p)
-	# the cradle caught babies tuck into (screen right, just behind the play line)
-	var base := MeshInstance3D.new()
-	var bmesh := BoxMesh.new()
-	bmesh.size = Vector3(8.4, 2.0, 4.0)
-	base.mesh = bmesh
-	base.position = Vector3(20.0, 1.0, -2.0)
-	base.material_override = m._soft_mat(Color(0.85, 0.72, 0.58), 0.08)
-	r.add_child(base)
-	for ex in [15.9, 24.1]:
-		var board := MeshInstance3D.new()
-		var bomesh := BoxMesh.new()
-		bomesh.size = Vector3(0.6, 4.0, 4.0)
-		board.mesh = bomesh
-		board.position = Vector3(float(ex), 2.0, -2.0)
-		board.material_override = m._soft_mat(Color(0.85, 0.72, 0.58), 0.08)
-		r.add_child(board)
-	# toy blocks (screen left) + dream sky: moon and stars around the book page
-	for k in range(3):
-		var blk := MeshInstance3D.new()
-		var blmesh := BoxMesh.new()
-		blmesh.size = Vector3.ONE * 2.2
-		blk.mesh = blmesh
-		blk.position = [Vector3(-20.5, 1.1, 0), Vector3(-18.3, 1.1, 1.0), Vector3(-19.5, 3.3, 0.4)][k]
-		blk.rotation.y = float(k) * 0.4
-		blk.material_override = m._soft_mat(BLANKETS[k], 0.14)
-		r.add_child(blk)
-	var moon := stage.glow(Color(1.0, 0.92, 0.7), 12.8)
-	moon.position = Vector3(-26.0, 43.0, -26.5)
-	r.add_child(moon)
-	for sp in [Vector2(-32, 36), Vector2(-26, 49), Vector2(8, 52), Vector2(24, 41), Vector2(34, 30), Vector2(28, 50)]:
-		var star := stage.glow(Color(0.92, 0.9, 1.0), 3.6)
-		star.position = Vector3((sp as Vector2).x, (sp as Vector2).y, -27.0)
-		r.add_child(star)
-
-func _make_baby(idx: int) -> Node3D:
-	# a swaddled 3D baby doll: blanket capsule, head, sleep cap, pompom, halo.
-	# Built at doll-scale then×2.6 so it reads about half Roshan's height,
-	# matching the book-art dolls' proportion in the 2D era.
-	var b := Node3D.new()
-	b.scale = Vector3.ONE * 2.6
-	var blanket: Color = BLANKETS[idx % BLANKETS.size()]
-	var swaddle := MeshInstance3D.new()
-	var cmesh := CapsuleMesh.new()
-	cmesh.radius = 0.34
-	cmesh.height = 0.95
-	swaddle.mesh = cmesh
-	swaddle.material_override = m._soft_mat(blanket, 0.18)
-	b.add_child(swaddle)
-	var head := MeshInstance3D.new()
-	var hmesh := SphereMesh.new()
-	hmesh.radius = 0.24
-	hmesh.height = 0.48
-	head.mesh = hmesh
-	head.position.y = 0.52
-	head.material_override = m._soft_mat(Color(1.0, 0.86, 0.72), 0.10)
-	b.add_child(head)
-	var cap := MeshInstance3D.new()
-	var cymesh := CylinderMesh.new()
-	cymesh.top_radius = 0.03
-	cymesh.bottom_radius = 0.20
-	cymesh.height = 0.26
-	cap.mesh = cymesh
-	cap.position.y = 0.74
-	cap.material_override = m._soft_mat(blanket.darkened(0.25), 0.15)
-	b.add_child(cap)
-	var pom := MeshInstance3D.new()
-	var pommesh := SphereMesh.new()
-	pommesh.radius = 0.06
-	pommesh.height = 0.12
-	pom.mesh = pommesh
-	pom.position.y = 0.89
-	pom.material_override = m._soft_mat(Color(1, 1, 1), 0.5)
-	b.add_child(pom)
-	var halo := stage.glow(Color(0.8, 0.75, 1.0), 2.0)
-	halo.position.y = 0.3
-	b.add_child(halo)
-	return b
-
-func _tuck_in(baby: Node3D, slot: int) -> void:
-	var tw := baby.create_tween()
-	tw.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tw.tween_property(baby, "position", CRADLE_SLOTS[clampi(slot, 0, 2)] as Vector3, 0.7)
-	tw.parallel().tween_property(baby, "rotation", Vector3.ZERO, 0.7)
-
-func _land_on_pillow(baby: Node3D) -> void:
-	# no-fail kindness: the baby flops safely onto the pillows, then Faron
-	# quietly scoops it away off-screen
-	var tw := baby.create_tween()
-	tw.tween_property(baby, "position:y", 1.5, 0.35).set_ease(Tween.EASE_OUT)
-	tw.parallel().tween_property(baby, "rotation:z", 1.35, 0.35)
-	tw.tween_interval(1.1)
-	tw.tween_property(baby, "scale", Vector3.ONE * 0.01, 0.45).set_ease(Tween.EASE_IN)
-	tw.tween_callback(baby.queue_free)
+	if surface != null and is_instance_valid(surface):
+		surface.stop()
+	var old_layer: CanvasLayer = layer
+	if old_layer != null and is_instance_valid(old_layer):
+		if old_layer.get_parent() != null:
+			old_layer.get_parent().remove_child(old_layer)
+		old_layer.queue_free()
+	catcher_card = null
+	surface = null
+	world_backdrop = null
+	backdrop = null
+	layer = null
+	if m != null and controls_owned:
+		m._set_world_controls_enabled(true, CONTROL_REASON)
+	controls_owned = false

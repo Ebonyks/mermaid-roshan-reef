@@ -3933,8 +3933,8 @@ func _game_obj(key: String, cls: Variant) -> Variant:
 func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	_game_obj("fetch", FetchGame)._tick_fetch(delta, fr, ppos)
 
-func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	_game_obj("dolls", DollsGame)._tick_dolls(delta, fr, ppos)
+func _tick_dolls(delta: float, fr: Dictionary) -> void:
+	_game_obj("dolls", DollsGame)._tick_dolls(delta, fr)
 
 func _tick_brawl(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	_game_obj("brawl", BrawlGame)._tick_brawl(delta, fr, ppos)
@@ -6673,7 +6673,7 @@ func _start_game_now(fr: Dictionary) -> void:
 	if game == "fetch":
 		_game_obj("fetch", FetchGame).build(fr, origin)
 	elif game == "dolls":
-		_game_obj("dolls", DollsGame).build(fr, origin)
+		_game_obj("dolls", DollsGame).build(fr)
 	elif game == "brawl":
 		_game_obj("brawl", BrawlGame).build(fr, origin)
 	elif game == "dustboss":
@@ -6792,7 +6792,7 @@ func _tick_game(delta: float) -> void:
 	if game == "fetch":
 		_tick_fetch(delta, fr, ppos)
 	elif game == "dolls":
-		_tick_dolls(delta, fr, ppos)
+		_tick_dolls(delta, fr)
 	elif game == "brawl":
 		_tick_brawl(delta, fr, ppos)
 	elif game == "dustboss":
@@ -6813,7 +6813,7 @@ func _tick_game(delta: float) -> void:
 func skin_sprite_path() -> String:
 	# the flat art matching the wardrobe skin — used by the kart driver and
 	# the 2D minigame mermaid so the chosen look follows Roshan into every
-	# game, not just the ocean (the dolls nursery uses the real 3D player now)
+	# game, not just the ocean (the Dolls Canvas catcher uses this path too)
 	if skin_id == "huluu":
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
@@ -8249,6 +8249,11 @@ func _enter_arena(kind: String) -> void:
 	# lets a game hand her back to the promenade or the castle she came from.
 	return_env = we_node.environment
 	return_track = cur_track
+	# Dolls is an opaque true-Canvas activity. Preserve the shared return/music
+	# lifecycle, but do not construct or teleport into a hidden arena beneath it.
+	if kind == "dolls":
+		_play_music(kind)
+		return
 	arena_solids.clear()
 	arena_zones.clear()
 	fade_walls.clear()
@@ -8268,11 +8273,6 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.58   # snow bounces plenty; higher ambient + the world sun pushed the floor past ACES white
 		arena_env.glow_bloom = 0.05             # near-zero whole-frame haze: on an already-white scene the WW haze clips everything
 		_arena_floor(Color(0.68, 0.74, 0.82), GTA + "up_snowsoft_col.jpg", GTA + "up_snow_nrm.jpg", 0.06)   # fresh snow; tint keeps it under ACES clip so the surface stays readable
-	elif kind == "dolls":        # starry dream nursery
-		arena_env.background_color = Color(0.10, 0.06, 0.22)
-		arena_env.ambient_light_color = Color(0.7, 0.6, 1.0)
-		arena_env.ambient_light_energy = 0.7
-		_arena_floor(Color(0.85, 0.78, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "brawl":        # toy castle courtyard, warm afternoon
 		grade_profile = "warm_pastel"
 		arena_env.background_color = Color(0.62, 0.72, 0.92)
