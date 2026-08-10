@@ -14,6 +14,51 @@ const StagePaths := preload("res://scripts/opera_stage_paths.gd")
 const ImpClips := preload("res://scripts/opera_imp_clips.gd")
 const RoshanAnimator := preload("res://scripts/opera_roshan_actor.gd")
 
+## Detective search geometry. The authored magnifier is a 512px square with
+## its glass centred near (181, 181); anchoring the art by that point keeps the
+## actual zoom, clue capture and visible glass on the same spot under a finger.
+const LENS_RADIUS := 130.0
+const LENS_CLUE_CAPTURE_RADIUS := 112.0
+const LENS_GRAPHIC_SIZE := Vector2(420.0, 420.0)
+const LENS_ART_GLASS_CENTER := Vector2(0.354, 0.354)
+const LENS_MAGNIFICATION := 1.75
+const LENS_HINT_DELAY := 12.0
+const LENS_TRAIL_DURATION := 2.4
+
+## The mystery begins in voices the child already knows: the off-screen imp
+## gives away the theft, then Roshan turns that event into a concrete search.
+## These are existing protected family recordings; runtime code only queues
+## them and never edits or substitutes their source assets.
+const DETECTIVE_INTRO_LINES: Array[Dictionary] = [
+	{"who": "Mischief Imp", "text": "The sparkly crown! Now everyone will look at ME!", "vo": "op_detective_steal", "hold": 2.8},
+	{"who": "Roshan", "text": "Search the whole stage! Sweep your magnifying glass to find every hidden sparkle!", "vo": "op_detective_search", "hold": 3.8},
+]
+
+## The detective painting is deliberately dense. These are safe inspection
+## targets, not extra objectives: every landmark gives a satisfying response,
+## while only lens_clues advance the case. Positions are normalized to the
+## frozen 1280x720 stage so they survive phone/tablet letterboxing unchanged.
+const DETECTIVE_ROOM_OBJECTS: Array[Dictionary] = [
+	{"id": "moon", "at": Vector2(0.35, 0.10), "radius": 68.0, "colour": Color("#fff0a8")},
+	{"id": "curtain_door", "at": Vector2(0.055, 0.31), "radius": 76.0, "colour": Color("#ffb7dc")},
+	{"id": "left_lantern", "at": Vector2(0.085, 0.43), "radius": 52.0, "colour": Color("#ffd36e")},
+	{"id": "lockbox_shelf", "at": Vector2(0.16, 0.34), "radius": 72.0, "colour": Color("#75e6dc")},
+	{"id": "round_case_shelf", "at": Vector2(0.29, 0.35), "radius": 72.0, "colour": Color("#ff9fb8")},
+	{"id": "evidence_shelf", "at": Vector2(0.40, 0.34), "radius": 72.0, "colour": Color("#8cd8ff")},
+	{"id": "hatbox_table", "at": Vector2(0.50, 0.35), "radius": 72.0, "colour": Color("#d6a8ff")},
+	{"id": "magnifier_tower", "at": Vector2(0.49, 0.12), "radius": 78.0, "colour": Color("#ffe27a")},
+	{"id": "arched_bridge", "at": Vector2(0.64, 0.30), "radius": 74.0, "colour": Color("#80e7ff")},
+	{"id": "mirror_gallery", "at": Vector2(0.58, 0.43), "radius": 78.0, "colour": Color("#b8f4ff")},
+	{"id": "crown_chest", "at": Vector2(0.88, 0.34), "radius": 84.0, "colour": Color("#ffe27a")},
+	{"id": "glowing_footprints", "at": Vector2(0.42, 0.49), "radius": 76.0, "colour": Color("#a8fff3")},
+	{"id": "round_hatbox", "at": Vector2(0.25, 0.63), "radius": 64.0, "colour": Color("#ffb0c7")},
+	{"id": "coral_case", "at": Vector2(0.39, 0.63), "radius": 64.0, "colour": Color("#ffab8f")},
+	{"id": "pearl_case", "at": Vector2(0.51, 0.63), "radius": 64.0, "colour": Color("#e0b4ff")},
+	{"id": "fish_display", "at": Vector2(0.63, 0.63), "radius": 68.0, "colour": Color("#70e5ff")},
+	{"id": "feather_chest", "at": Vector2(0.76, 0.63), "radius": 70.0, "colour": Color("#ffd482")},
+	{"id": "curved_stairs", "at": Vector2(0.84, 0.61), "radius": 82.0, "colour": Color("#a9e8ff")},
+]
+
 const SLUGS := {
 	"chef": "chef",
 	"detective": "detective",
@@ -181,40 +226,40 @@ const LEGACY_FINALE_START := {
 const PHASES := {
 	"chef": [
 		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Tip the sparkling batter into the bowl!"},
-		{"name": "STIR", "mode": "circle", "goal": 4.0, "vo": "op_chef_stir", "voice": "Draw big circles to stir the batter!"},
+		{"name": "STIR", "mode": "circle", "goal": 2.0, "vo": "op_chef_stir", "voice": "Draw big circles to stir the batter!"},
 		{"name": "BAKE", "mode": "oven", "goal": 6.0, "vo": "op_chef_bake", "voice": "Watch for golden, then take the cake out with the mitt!"},
 		{"name": "FROST", "mode": "swipe", "goal": 6.0, "vo": "op_chef_pipe", "voice": "Trace the frosting ribbon across the cake!"},
 		{"name": "TOP", "mode": "tap", "goal": 7.0, "vo": "op_chef_top", "voice": "Place the bright toppings on the finished cake!"},
 	],
 	"detective": [
 		{"name": "SEARCH", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens", "voice": "Sweep the magnifying glass across the painted clues!"},
-		{"name": "CASE BOARD", "mode": "choice", "goal": 3.0, "vo": "op_detective_search", "voice": "Match each glowing clue to the case board!"},
-		{"name": "CROWN", "mode": "tap", "widget": "track", "goal": 1.0, "vo": "op_detective_tiara_chase", "voice": "Open the clue chest and return the mermaid crown!"},
+		{"name": "CASE BOARD", "mode": "clue_board", "widget": "", "goal": 3.0, "vo": "op_detective_match", "voice": "Match each glowing clue to the case board!"},
+		{"name": "CROWN", "mode": "crown_chest", "widget": "", "goal": 1.0, "vo": "op_detective_name", "voice": "Tap when the spotlight shines on the answer!"},
 	],
 	"ballerina": [
-		{"name": "PHRASE", "mode": "dance_sequence", "goal": 1.0, "vo": "op_ballerina_steps", "voice": "Watch the four glowing steps, then dance them back!"},
-		{"name": "POSE", "mode": "hold", "goal": 2.8, "vo": "op_ballerina_steps", "voice": "Hold the glowing pose while the stage blossom opens!"},
+		{"name": "PHRASE", "mode": "dance_sequence", "goal": 1.0, "vo": "op_ballerina_watch", "voice": "Watch the four glowing steps, then dance them back!"},
+		{"name": "POSE", "mode": "hold", "goal": 2.8, "vo": "op_ballerina_watch", "voice": "Hold the glowing pose while the stage blossom opens!"},
 		{"name": "RIBBON", "mode": "swipe", "goal": 5.5, "vo": "op_ballerina_ribbon", "voice": "Trace one long ribbon arc across the floor!"},
-		{"name": "TWIRL", "mode": "circle", "goal": 3.2, "vo": "op_ballerina_twirl", "voice": "Draw a big circle for the grand twirl!"},
+		{"name": "TWIRL", "mode": "circle", "goal": 1.5, "vo": "op_ballerina_twirl", "voice": "Draw a big circle for the grand twirl!"},
 	],
 	"candymaker": [
-		{"name": "SYRUP", "mode": "pourt", "goal": 4.5, "vo": "op_candymaker_syrup", "voice": "Tip the syrup into the candy mold!"},
+		{"name": "SYRUP", "mode": "pourt", "goal": 5.0, "vo": "op_candymaker_syrup", "voice": "Tip the syrup into the candy mold!"},
 		{"name": "SORT", "mode": "candy_sort", "goal": 6.0, "vo": "op_candymaker_sort", "voice": "Drag each candy into its matching shape box!"},
-		{"name": "WRAP", "mode": "circle", "goal": 3.6, "vo": "op_candymaker_wrap", "voice": "Twist the finished wrappers in circles!"},
+		{"name": "WRAP", "mode": "circle", "goal": 1.8, "vo": "op_candymaker_wrap", "voice": "Twist the finished wrappers in circles!"},
 		{"name": "SHARE", "mode": "tap", "goal": 6.0, "vo": "op_candymaker_share", "voice": "Give one finished candy to every waving friend!"},
 	],
 	"doctor": [
 		{"name": "WASH", "mode": "hold", "goal": 3.6, "vo": "op_doctor_wash", "voice": "Hold the bubbly basin to wash Doctor Roshan's hands!"},
 		{"name": "FIND", "mode": "choice", "goal": 4.0, "vo": "op_doctor_find", "voice": "Choose the plushy with the glowing ouch!"},
 		{"name": "X-RAY", "mode": "xray_scan", "goal": 2.0, "vo": "op_doctor_x_ray", "voice": "Slide the scanner over the plushy to find the sore spots!"},
-		{"name": "CAST", "mode": "circle", "goal": 3.2, "vo": "op_doctor_cast", "voice": "Draw gentle circles to wrap the soft cast!"},
+		{"name": "CAST", "mode": "circle", "goal": 1.8, "vo": "op_doctor_cast", "voice": "Draw gentle circles to wrap the soft cast!"},
 		{"name": "BANDAGE", "mode": "swipe", "goal": 5.0, "vo": "op_doctor_bandage", "voice": "Swipe the stretchy bandage around the plushy!"},
 	],
 	"farmer": [
-		{"name": "PLANT", "mode": "choice", "goal": 5.0, "vo": "op_farmer_plant", "voice": "Plant each seed in the glowing garden bed!"},
+		{"name": "PLANT", "mode": "garden_plant", "widget": "", "goal": 5.0, "vo": "op_farmer_plant", "voice": "Plant each seed in the glowing garden bed!"},
 		{"name": "TOSS", "mode": "farm_lob", "goal": 4.0, "vo": "op_farmer_feed", "voice": "Pull back a vegetable and toss it gently to a piggy!"},
 		{"name": "HERD", "mode": "swipe", "goal": 6.0, "vo": "op_farmer_herd", "voice": "Sweep the happy piggies through the barn gate!"},
-		{"name": "PICNIC", "mode": "tap", "goal": 6.0, "vo": "op_farmer_picnic", "voice": "Set one picnic snack beside every piggy!"},
+		{"name": "PICNIC", "mode": "tap", "goal": 3.0, "vo": "op_farmer_picnic", "voice": "Set one picnic snack beside every piggy!"},
 	],
 	"boxer": [
 		{"name": "COMBO", "mode": "boxer_rhythm", "goal": 6.0, "vo": "op_boxer_jab", "voice": "Punch the glowing left and right focus mitts!"},
@@ -222,11 +267,11 @@ const PHASES := {
 		{"name": "BELT", "mode": "tap", "goal": 1.0, "vo": "op_boxer_belt", "voice": "Tap the championship belt for the curtain call!"},
 	],
 	"magician": [
-		{"name": "VANISH", "mode": "hold", "goal": 3.8, "vo": "op_magician_vanish", "voice": "Hold the wand to hide Lamba under a hat!"},
+		{"name": "VANISH", "mode": "hold", "widget": "", "visual_context": "magic_vanish", "goal": 3.8, "vo": "op_magician_vanish", "voice": "Hold the wand to hide Lamba under a hat!"},
 		{"name": "TRACK", "mode": "choice", "goal": 5.0, "vo": "op_magician_track", "voice": "Follow the glowing hat through the shuffle!"},
 		{"name": "ROPE", "mode": "swipe", "goal": 5.0, "vo": "op_magician_rope", "voice": "Swipe the knotted rope into one long ribbon!"},
-		{"name": "CABINET", "mode": "swipe", "dir": "down", "goal": 5.0, "vo": "op_magician_cabinet", "voice": "Swipe down to open the magic cabinet!"},
-		{"name": "PORTAL", "mode": "circle", "goal": 3.6, "vo": "op_magician_portal", "voice": "Draw circles to open the star portal!"},
+		{"name": "CABINET", "mode": "magic_cabinet", "widget": "", "goal": 1.0, "vo": "op_magician_cabinet", "voice": "Swipe down to open the magic cabinet!"},
+		{"name": "PORTAL", "mode": "circle", "goal": 2.0, "vo": "op_magician_portal", "voice": "Draw circles to open the star portal!"},
 	],
 	"painter": [
 		{"name": "PAINT", "mode": "paint_reveal", "goal": 1.0, "vo": "op_painter_sketch", "voice": "Paint across the cloudy canvas to reveal the sunrise!"},
@@ -236,26 +281,26 @@ const PHASES := {
 	"astronaut": [
 		{"name": "PIPES", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes", "voice": "Connect the fuel tank to the rocket through three pipe boards!"},
 		{"name": "PATCH", "mode": "tap", "goal": 5.0, "vo": "op_astronaut_patch", "voice": "Patch every sparkling leak on the rocket!"},
-		{"name": "VALVE", "mode": "circle", "goal": 3.2, "vo": "op_astronaut_valve", "voice": "Draw circles to turn the launch valve!"},
+		{"name": "VALVE", "mode": "circle", "goal": 1.8, "vo": "op_astronaut_valve", "voice": "Draw circles to turn the launch valve!"},
 		{"name": "LAUNCH", "mode": "hold", "goal": 4.5, "vo": "op_astronaut_launch", "voice": "Hold through the countdown and launch!"},
 	],
 	"racer": [
-		{"name": "TUNE", "mode": "circle", "goal": 3.2, "vo": "op_racer_tune_up", "voice": "Turn the wrench to finish the pit stop!"},
+		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_tune_up", "voice": "Turn the wrench to finish the pit stop!"},
 		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_to_the_line", "voice": "Push the kart to the pearl starting arch!"},
 		{"name": "RACE", "mode": "kart", "goal": 1.0, "vo": "op_racer_race", "voice": "Race one short rainbow lap to the finish arch!"},
 	],
 	"nursery": [
-		{"name": "WASH HANDS", "mode": "hold", "goal": 3.4, "vo": "op_nursery_wash", "voice": "Hold the bubbly basin to wash your hands first!"},
+		{"name": "WASH HANDS", "mode": "hold", "widget": "", "visual_context": "nursery_wash", "goal": 3.4, "vo": "op_nursery_wash", "voice": "Hold the bubbly basin to wash your hands first!"},
 		{"name": "CATCH BABIES", "mode": "catch", "goal": 5.0, "speaker": "Faron", "vo": "op_nursery_catch", "voice": "Slide the soft cradle under five babies. Pillows keep every miss safe!"},
-		{"name": "FEED", "mode": "hold", "goal": 4.0, "speaker": "Faron", "vo": "op_nursery_feed", "voice": "Hold the warm bottle while Roshan and Faron feed each baby!"},
+		{"name": "FEED", "mode": "hold", "widget": "", "visual_context": "nursery_feed", "goal": 4.0, "speaker": "Faron", "vo": "op_nursery_feed", "voice": "Hold the warm bottle while Roshan and Faron feed each baby!"},
 		{"name": "BURP", "mode": "tap", "widget": "", "visual_context": "nursery_burp", "pace": 0.55, "goal": 4.0, "vo": "op_nursery_burp", "voice": "Pat the baby's back gently and slowly: pat, pat, pat!"},
-		{"name": "BEDTIME", "mode": "swipe", "dir": "down", "goal": 5.0, "speaker": "Faron", "vo": "op_nursery_bedtime", "voice": "Swipe the blankets down and tuck every baby into bed!"},
+		{"name": "BEDTIME", "mode": "swipe", "widget": "", "visual_context": "nursery_bedtime", "dir": "down", "goal": 3.0, "speaker": "Faron", "vo": "op_nursery_bedtime", "voice": "Swipe each blanket down and tuck every baby into bed!"},
 	],
 	"popstar": [
 		{"name": "SOUND CHECK", "mode": "hold", "goal": 3.8, "vo": "op_popstar_sound_check", "voice": "Hold the microphone while the rainbow note grows!"},
 		{"name": "DANCE", "mode": "choice", "goal": 6.0, "vo": "op_popstar_dance", "voice": "Tap the glowing dance arrow!"},
 		{"name": "RHYTHM", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm", "voice": "Listen to the three stars, then sing their song back!"},
-		{"name": "ENCORE", "mode": "circle", "goal": 3.8, "vo": "op_popstar_encore", "voice": "Draw one big encore spin for the crowd!"},
+		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore", "voice": "Draw one big encore spin for the crowd!"},
 	],
 }
 
@@ -282,8 +327,8 @@ const PHASE_STATIONS := {
 	"detective": {"CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
 	"ballerina": {"PHRASE": "shell_bandstand", "POSE": "trifold_mirror", "RIBBON": "wave_tuffets", "TWIRL": "rose_finale_stage"},
 	"candymaker": {"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart"},
-	"doctor": {"WASH": "stethoscope_clinic", "FIND": "starfish_triage", "X-RAY": "thermometer_garden", "CAST": "exam_booth", "BANDAGE": "recovery_bed"},
-	"farmer": {"PLANT": "seed_beds", "TOSS": "blossom_arch", "HERD": "barn_doors", "PICNIC": "pearl_clam"},
+	"doctor": {"WASH": "stethoscope_clinic", "FIND": "starfish_triage", "X-RAY": "exam_booth", "CAST": "exam_booth", "BANDAGE": "recovery_bed"},
+	"farmer": {"PLANT": "seed_beds", "TOSS": "hay_bales", "HERD": "barn_doors", "PICNIC": "pearl_clam"},
 	"boxer": {"COMBO": "purple_sparring_mat", "BELT": "shell_pavilion_stage"},
 	"magician": {"VANISH": "violet_shell_stage", "TRACK": "pearl_tide_pool", "ROPE": "teal_shell_stage", "CABINET": "rose_shell_stage", "PORTAL": "rose_shell_stage"},
 	"painter": {"PAINT": "gazebo_easel", "STAMPS": "rainbow_brush", "GALLERY": "arch_easel"},
@@ -417,6 +462,19 @@ var lens_found: Array[bool] = []
 var lens_dwell := 0.0
 var lens_target := -1
 var lens_demo := true
+var lens_zoom_surface: ColorRect = null
+var lens_zoom_material: ShaderMaterial = null
+var lens_since_find := 0.0
+var lens_hint_target := -1
+var lens_room_objects: Array[Dictionary] = []
+var lens_object_pulses: Array[Dictionary] = []
+var lens_room_reactions := 0
+var lens_object_sound_cool := 0.0
+var detective_intro_played := false
+var lens_find_count := 0
+var lens_trail_from := Vector2.ZERO
+var lens_trail_to := Vector2.ZERO
+var lens_trail_t := 0.0
 var task_frame_texture: Texture2D = null
 var station_marker_texture: Texture2D = null
 var magnifier_texture: Texture2D = null
@@ -474,6 +532,7 @@ func _sync_root_scale() -> void:
 	if stage_bleed != null and is_instance_valid(stage_bleed):
 		stage_bleed.position = Vector2.ZERO
 		stage_bleed.size = vs
+	_sync_lens_zoom_surface()
 
 
 func _label(text: String, font_size: int, colour: Color = Color.WHITE) -> Label:
@@ -671,6 +730,7 @@ func _build_world() -> void:
 		captain_bopped_texture = imp_bopped_texture
 	_prewarm_imp_textures()
 
+	_build_lens_zoom_surface()
 	lens_layer = Control.new()
 	lens_layer.name = "MagnifierLensLayer"
 	_full_rect(lens_layer)
@@ -704,6 +764,56 @@ func _actor(path: String) -> TextureRect:
 
 func _load_if_exists(path: String) -> Texture2D:
 	return load(path) as Texture2D if ResourceLoader.exists(path) else null
+
+
+func _build_lens_zoom_surface() -> void:
+	# Mobile has no CompositorEffect path, but its Canvas renderer supports a
+	# screen-texture sample. One small circular ColorRect therefore gives the
+	# glass honest optical zoom without duplicating the 2048px tiled backdrop.
+	var shader := Shader.new()
+	shader.code = """shader_type canvas_item;
+uniform sampler2D screen_texture : hint_screen_texture, filter_linear;
+uniform vec2 lens_center_screen = vec2(0.5, 0.5);
+uniform float magnification = 1.75;
+
+void fragment() {
+	float distance_from_center = distance(UV, vec2(0.5));
+	if (distance_from_center > 0.5) {
+		discard;
+	}
+	vec2 sample_uv = lens_center_screen
+		+ (SCREEN_UV - lens_center_screen) / magnification;
+	sample_uv = clamp(sample_uv, vec2(0.001), vec2(0.999));
+	vec4 sampled = texture(screen_texture, sample_uv);
+	float feather = 1.0 - smoothstep(0.465, 0.5, distance_from_center);
+	COLOR = vec4(sampled.rgb * 1.045, sampled.a * feather);
+} """
+	lens_zoom_material = ShaderMaterial.new()
+	lens_zoom_material.shader = shader
+	lens_zoom_material.set_shader_parameter("magnification", LENS_MAGNIFICATION)
+	lens_zoom_surface = ColorRect.new()
+	lens_zoom_surface.name = "MagnifierOpticalZoom"
+	lens_zoom_surface.color = Color.WHITE
+	lens_zoom_surface.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	lens_zoom_surface.material = lens_zoom_material
+	lens_zoom_surface.visible = false
+	root.add_child(lens_zoom_surface)
+	_sync_lens_zoom_surface()
+
+
+func _sync_lens_zoom_surface() -> void:
+	if lens_zoom_surface == null or not is_instance_valid(lens_zoom_surface):
+		return
+	lens_zoom_surface.position = lens_pos - Vector2.ONE * LENS_RADIUS
+	lens_zoom_surface.size = Vector2.ONE * LENS_RADIUS * 2.0
+	if lens_zoom_material == null or root == null or not is_instance_valid(root):
+		return
+	var viewport_size := get_viewport().get_visible_rect().size
+	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
+		return
+	var screen_center := root.position + lens_pos * root.scale
+	lens_zoom_material.set_shader_parameter(
+		"lens_center_screen", screen_center / viewport_size)
 
 
 func _place_on_stage(actor: Control, feet: Vector2) -> void:
@@ -945,8 +1055,9 @@ func _play_roshan_animation(animation: String) -> void:
 func _widget_template(phase: Dictionary) -> String:
 	var mode := String(phase.get("mode", ""))
 	var name := String(phase.get("name", ""))
-	# a rebuilt beat can name its own family, or opt out of the card art
-	# entirely with "widget": "" (nursery BURP draws its own pat scene)
+	# A rebuilt beat can name its own family, or opt out of the generic card-art
+	# family entirely. Direct specialist surfaces and contextual nursery/magic
+	# scenes use "widget": "" so retired reskins cannot leak back in.
 	if phase.has("widget"):
 		return String(phase["widget"])
 	match mode:
@@ -1050,6 +1161,8 @@ func _arm_phase() -> void:
 	if lens_layer != null and mode_name != "lens":
 		lens_layer.visible = false
 		lens_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if lens_zoom_surface != null and mode_name != "lens":
+		lens_zoom_surface.visible = false
 	for marker in station_nodes:
 		marker.queue_redraw()
 	if prop_rect != null:
@@ -1066,7 +1179,9 @@ func _arm_phase() -> void:
 			prop_rect.visible = prop_rect.texture != null and phase_index > 0 \
 				and (steal_index < 0 or phase_index < steal_index) \
 				and career_id != "detective"
-	if m != null:
+	var defer_detective_intro := career_id == "detective" and phase_index == 0 \
+		and mode_name == "lens" and not detective_intro_played
+	if m != null and not defer_detective_intro:
 		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
 	# combat and lens beats come to HER; widget tasks wait for her to walk up
 	# bind the job's own art now: the armed station already knows its trade
@@ -1176,6 +1291,11 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	surface.size = Vector2(392, 232)
 	phase_fill.position = Vector2(24, 318)
 	phase_fill.size = Vector2(392, 34)
+	if mode == "catch" and nursery_catch != null:
+		# The catch surface owns the same card viewport as every other verb.
+		# Its previous 266px height extended 26px underneath this progress bar.
+		nursery_catch.position = surface.position
+		nursery_catch.size = surface.size
 	action_panel.queue_redraw()
 
 
@@ -1561,13 +1681,18 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
 		if quality >= 0.5:
+			var previous_choice := choice_target
 			# never rotate by a multiple of three — that froze the target
 			choice_target = (choice_target + 1 + (phase_index % 2)) % 3
 			surface.target_choice = choice_target
-			surface.queue_redraw()
+			# Every success immediately teaches the next answer. TRACK spends
+			# that same cue time on a fresh, visible hat shuffle.
+			if career_id == "magician":
+				surface.start_shuffle(previous_choice)
+			else:
+				surface.reflash_choice()
 		else:
-			# the answer re-flashes as mercy for a WRONG pick only — a
-			# correct pick must not reveal the next answer for free
+			# A wrong pick keeps the same answer and gently repeats its cue.
 			surface.reflash_choice()
 	elif mode == "bop":
 		if quality >= 0.5 and captain_pending and _combat_remaining() <= 2 and phase_progress < goal:
@@ -2173,10 +2298,27 @@ func _draw_combat_fx() -> void:
 func _start_lens_phase(phase: Dictionary) -> void:
 	lens_layer.visible = true
 	lens_layer.mouse_filter = Control.MOUSE_FILTER_STOP
-	lens_pos = Vector2(640, 420)
+	lens_zoom_surface.visible = true
+	_set_lens_position(Vector2(640, 400))
 	lens_demo = true
 	lens_dwell = 0.0
 	lens_target = -1
+	lens_since_find = 0.0
+	lens_hint_target = -1
+	lens_room_reactions = 0
+	lens_object_sound_cool = 0.0
+	lens_find_count = 0
+	lens_trail_t = 0.0
+	lens_object_pulses.clear()
+	lens_room_objects.clear()
+	for source: Dictionary in DETECTIVE_ROOM_OBJECTS:
+		var entry := source.duplicate(true)
+		var normalized: Vector2 = entry.get("at", Vector2.ZERO)
+		entry["pos"] = Vector2(
+			normalized.x * StagePaths.SCREEN.x,
+			normalized.y * StagePaths.SCREEN.y)
+		entry["ready_at"] = -1.0
+		lens_room_objects.append(entry)
 	var spots := StagePaths.clue_spots(career_id)
 	var goal := mini(int(ceilf(float(phase.get("goal", 5.0)))), spots.size())
 	# rotate which painted details hide sparkles so the two lens phases differ
@@ -2186,6 +2328,16 @@ func _start_lens_phase(phase: Dictionary) -> void:
 	for index in range(goal):
 		lens_clues.append(spots[(index + offset) % spots.size()])
 		lens_found.append(false)
+	if career_id == "detective" and phase_index == 0 and not detective_intro_played:
+		detective_intro_played = true
+		# A moving chain of light carries the stolen crown's energy to the first
+		# clue while the two-line setup plays. It is guidance, never progress.
+		lens_trail_from = Vector2(0.88, 0.34) * StagePaths.SCREEN
+		lens_trail_to = lens_clues[0] if not lens_clues.is_empty() \
+			else Vector2(0.20, 0.56) * StagePaths.SCREEN
+		lens_trail_t = LENS_TRAIL_DURATION
+		if m != null:
+			m.say_sequence(DETECTIVE_INTRO_LINES)
 
 
 func _lens_input(event: InputEvent) -> void:
@@ -2194,36 +2346,128 @@ func _lens_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and (event as InputEventMouseMotion).device == InputEvent.DEVICE_ID_EMULATION:
 		return
 	if event is InputEventScreenTouch and (event as InputEventScreenTouch).pressed:
-		lens_pos = (event as InputEventScreenTouch).position
-		lens_demo = false
-		idle_t = 0.0
+		_move_lens_to((event as InputEventScreenTouch).position, true)
 	elif event is InputEventScreenDrag:
-		lens_pos = (event as InputEventScreenDrag).position
-		lens_demo = false
-		idle_t = 0.0
+		_move_lens_to((event as InputEventScreenDrag).position, true)
 	elif event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT and (event as InputEventMouseButton).pressed:
-		lens_pos = (event as InputEventMouseButton).position
-		lens_demo = false
-		idle_t = 0.0
+		_move_lens_to((event as InputEventMouseButton).position, true)
 	elif event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		lens_pos = (event as InputEventMouseMotion).position
-		lens_demo = false
-		idle_t = 0.0
+		_move_lens_to((event as InputEventMouseMotion).position, true)
 	lens_layer.queue_redraw()
+
+
+func _clamped_lens_position(point: Vector2) -> Vector2:
+	# The functional glass always stays visible. The diagonal decorative handle
+	# may cross an edge; forcing all 420px of it on-screen would leave the
+	# required far-right clue outside the glass's capture radius.
+	return Vector2(
+		clampf(point.x, LENS_RADIUS + 4.0,
+			StagePaths.SCREEN.x - LENS_RADIUS - 4.0),
+		clampf(point.y, LENS_RADIUS + 4.0,
+			StagePaths.SCREEN.y - LENS_RADIUS - 4.0))
+
+
+func _lens_graphic_rect() -> Rect2:
+	return Rect2(lens_pos - LENS_GRAPHIC_SIZE * LENS_ART_GLASS_CENTER,
+		LENS_GRAPHIC_SIZE)
+
+
+func _set_lens_position(point: Vector2) -> void:
+	lens_pos = _clamped_lens_position(point)
+	_sync_lens_zoom_surface()
+
+
+func _move_lens_to(point: Vector2, inspect_room: bool) -> void:
+	_set_lens_position(point)
+	lens_demo = false
+	idle_t = 0.0
+	if inspect_room:
+		_try_lens_room_object(lens_pos)
+
+
+func _try_lens_room_object(point: Vector2) -> bool:
+	var nearest := -1
+	var nearest_distance := INF
+	for index in range(lens_room_objects.size()):
+		var room_object: Dictionary = lens_room_objects[index]
+		var object_pos: Vector2 = room_object.get("pos", Vector2.ZERO)
+		var distance := point.distance_to(object_pos)
+		if distance <= float(room_object.get("radius", 64.0)) and distance < nearest_distance:
+			nearest = index
+			nearest_distance = distance
+	if nearest < 0:
+		return false
+	var target: Dictionary = lens_room_objects[nearest]
+	if elapsed < float(target.get("ready_at", -1.0)):
+		return true
+	target["ready_at"] = elapsed + 0.55
+	lens_room_objects[nearest] = target
+	lens_room_reactions += 1
+	var object_pos: Vector2 = target.get("pos", point)
+	lens_object_pulses.append({
+		"pos": object_pos,
+		"colour": target.get("colour", Color("#fff0a8")),
+		"t": 0.0,
+	})
+	_bop_burst_at(object_pos, true)
+	if m != null and m.chime != null and lens_object_sound_cool <= 0.0:
+		m.chime.pitch_scale = 0.88 + float(nearest % 5) * 0.08
+		m.chime.play()
+		lens_object_sound_cool = 0.22
+	return true
+
+
+func _next_unfound_lens_clue() -> int:
+	for index in range(lens_found.size()):
+		if not lens_found[index]:
+			return index
+	return -1
+
+
+func _next_lens_story_target() -> Vector2:
+	var next_clue := _next_unfound_lens_clue()
+	if next_clue >= 0:
+		return lens_clues[next_clue]
+	# The last clue points into the next verb instead of leaving the child at
+	# a dead end: the evidence-shelf station owns the case-board task.
+	var next_phase := phase_index + 1
+	var station_index := int(station_for_phase.get(next_phase, -1))
+	if station_index >= 0 and station_index < station_list.size():
+		return station_list[station_index].get(
+			"pos", Vector2(0.20, 0.56) * StagePaths.SCREEN) as Vector2
+	return Vector2(0.20, 0.56) * StagePaths.SCREEN
 
 
 func _tick_lens(delta: float) -> void:
 	if lens_layer == null or not lens_layer.visible:
 		return
+	lens_since_find += delta
+	lens_object_sound_cool = maxf(0.0, lens_object_sound_cool - delta)
+	lens_trail_t = maxf(0.0, lens_trail_t - delta)
+	for pulse_index in range(lens_object_pulses.size() - 1, -1, -1):
+		var pulse: Dictionary = lens_object_pulses[pulse_index]
+		pulse["t"] = float(pulse.get("t", 0.0)) + delta
+		if float(pulse["t"]) >= 0.8:
+			lens_object_pulses.remove_at(pulse_index)
+	if lens_since_find >= LENS_HINT_DELAY and lens_hint_target < 0:
+		lens_hint_target = _next_unfound_lens_clue()
+		if lens_hint_target >= 0:
+			# One soft burst announces where to look; the continuing glisten is
+			# drawn below and never completes the clue on the child's behalf.
+			_bop_burst_at(lens_clues[lens_hint_target], true)
+			if m != null:
+				m.show_msg("Roshan", "Hold the magnifier over the glowing clue!",
+					"op_detective_peek")
 	if lens_demo:
-		# the ghost lens drifts along the stage until the child grabs it
-		lens_pos = Vector2(
-			640.0 + sin(elapsed * 0.9) * 420.0,
-			410.0 + sin(elapsed * 1.7) * 130.0
-		)
+		# The wordless ghost goes to the actual next clue, not an unrelated
+		# decorative sweep. Demo motion never accrues dwell or progress.
+		var demo_clue := _next_unfound_lens_clue()
+		if demo_clue >= 0:
+			var demo_target := _clamped_lens_position(lens_clues[demo_clue])
+			_set_lens_position(lens_pos.move_toward(demo_target, delta * 320.0))
 	var found_index := -1
 	for index in range(lens_clues.size()):
-		if not lens_found[index] and lens_pos.distance_to(lens_clues[index]) <= 96.0:
+		if not lens_found[index] and lens_pos.distance_to(lens_clues[index]) <= LENS_CLUE_CAPTURE_RADIUS:
 			found_index = index
 			break
 	if found_index != lens_target:
@@ -2232,15 +2476,94 @@ func _tick_lens(delta: float) -> void:
 	elif found_index >= 0 and not lens_demo:
 		lens_dwell += delta
 		if lens_dwell >= 0.45:
+			var found_spot := lens_clues[found_index]
 			lens_found[found_index] = true
+			lens_find_count += 1
 			lens_target = -1
 			lens_dwell = 0.0
-			_bop_burst_at(lens_clues[found_index], false)
+			lens_since_find = 0.0
+			lens_hint_target = -1
+			lens_trail_from = found_spot
+			lens_trail_to = _next_lens_story_target()
+			lens_trail_t = LENS_TRAIL_DURATION
+			_bop_burst_at(found_spot, false)
+			if m != null and not m.dialogue_active:
+				m.show_msg("Roshan", "A clue! Right there, hiding where nobody looked!",
+					"op_detective_work")
 			_on_gesture("lens", 1.0, 1.0)
+	_sync_lens_zoom_surface()
 	lens_layer.queue_redraw()
 
 
 func _draw_lens_layer() -> void:
+	# Every accepted clue launches a short directional evidence trail. A faint
+	# chain shows the route; a brighter travelling star makes its direction
+	# readable without arrows or text.
+	if lens_trail_t > 0.0:
+		var trail_age := 1.0 - lens_trail_t / LENS_TRAIL_DURATION
+		var trail_fade := clampf(lens_trail_t / 0.55, 0.0, 1.0)
+		var trail_vector := lens_trail_to - lens_trail_from
+		var trail_normal := trail_vector.normalized().orthogonal()
+		for trail_index in range(11):
+			var trail_amount := float(trail_index) / 10.0
+			var trail_pos := lens_trail_from.lerp(lens_trail_to, trail_amount)
+			trail_pos += trail_normal * sin(trail_amount * PI * 3.0) * 7.0
+			var head_glow := clampf(1.0 - absf(trail_amount - trail_age) * 5.5,
+				0.0, 1.0)
+			var dot_alpha := trail_fade * (0.28 + head_glow * 0.72)
+			lens_layer.draw_circle(trail_pos, 5.0 + head_glow * 7.0,
+				Color(1.0, 0.90, 0.32, dot_alpha))
+			if head_glow > 0.45:
+				lens_layer.draw_line(trail_pos - Vector2(15.0, 0.0) * head_glow,
+					trail_pos + Vector2(15.0, 0.0) * head_glow,
+					Color(1.0, 0.97, 0.72, trail_fade * head_glow), 3.5)
+				lens_layer.draw_line(trail_pos - Vector2(0.0, 15.0) * head_glow,
+					trail_pos + Vector2(0.0, 15.0) * head_glow,
+					Color(1.0, 0.97, 0.72, trail_fade * head_glow), 3.5)
+	# Every authored landmark responds under the glass, even when it is not a
+	# clue. That makes the dense room feel inspectable instead of decorative.
+	for room_object: Dictionary in lens_room_objects:
+		var object_pos: Vector2 = room_object.get("pos", Vector2.ZERO)
+		var distance := lens_pos.distance_to(object_pos)
+		if distance > LENS_RADIUS:
+			continue
+		var closeness := clampf(1.0 - distance / LENS_RADIUS, 0.0, 1.0)
+		var object_colour: Color = room_object.get("colour", Color("#fff0a8"))
+		var shimmer := 0.45 + (sin(elapsed * 7.0 + object_pos.x * 0.02) + 1.0) * 0.22
+		lens_layer.draw_circle(object_pos, 5.0 + closeness * 5.0,
+			Color(object_colour, closeness * shimmer))
+		lens_layer.draw_line(object_pos - Vector2(13.0, 0.0) * closeness,
+			object_pos + Vector2(13.0, 0.0) * closeness,
+			Color(object_colour, closeness * 0.72), 2.5)
+		lens_layer.draw_line(object_pos - Vector2(0.0, 13.0) * closeness,
+			object_pos + Vector2(0.0, 13.0) * closeness,
+			Color(object_colour, closeness * 0.72), 2.5)
+	for pulse: Dictionary in lens_object_pulses:
+		var pulse_t := clampf(float(pulse.get("t", 0.0)) / 0.8, 0.0, 1.0)
+		var pulse_pos: Vector2 = pulse.get("pos", Vector2.ZERO)
+		var pulse_colour: Color = pulse.get("colour", Color("#fff0a8"))
+		lens_layer.draw_arc(pulse_pos, 20.0 + pulse_t * 52.0, 0.0, TAU, 32,
+			Color(pulse_colour, (1.0 - pulse_t) * 0.9), 5.0)
+		for ray_index in range(4):
+			var direction := Vector2.from_angle(float(ray_index) * PI * 0.5 + pulse_t)
+			lens_layer.draw_line(pulse_pos + direction * (16.0 + pulse_t * 18.0),
+				pulse_pos + direction * (32.0 + pulse_t * 34.0),
+				Color(pulse_colour, 1.0 - pulse_t), 4.0)
+	# After twelve seconds without a find, one remaining clue glistens in the
+	# room itself. It is a directional kindness, not automatic progress.
+	if lens_hint_target >= 0 and lens_hint_target < lens_clues.size():
+		var hint_pos := lens_clues[lens_hint_target]
+		var hint_age := maxf(0.0, lens_since_find - LENS_HINT_DELAY)
+		var hint_pulse := (sin(hint_age * 4.8) + 1.0) * 0.5
+		lens_layer.draw_circle(hint_pos, 18.0 + hint_pulse * 10.0,
+			Color(1.0, 0.91, 0.35, 0.16 + hint_pulse * 0.20))
+		lens_layer.draw_arc(hint_pos, 32.0 + hint_pulse * 12.0, 0.0, TAU, 28,
+			Color(1.0, 0.86, 0.24, 0.55 + hint_pulse * 0.40), 4.5)
+		for hint_ray in range(4):
+			var hint_direction := Vector2.from_angle(float(hint_ray) * PI * 0.5)
+			lens_layer.draw_line(hint_pos + hint_direction * 16.0,
+				hint_pos + hint_direction * (34.0 + hint_pulse * 14.0),
+				Color(1.0, 0.96, 0.66, 0.65 + hint_pulse * 0.35), 4.0)
 	# sparkles hide in the painting and only glow under the magic lens
 	for index in range(lens_clues.size()):
 		var spot := lens_clues[index]
@@ -2248,8 +2571,8 @@ func _draw_lens_layer() -> void:
 			lens_layer.draw_circle(spot, 10.0, Color(1.0, 0.9, 0.5, 0.9))
 			continue
 		var d := lens_pos.distance_to(spot)
-		if d <= 118.0:
-			var reveal := clampf(1.0 - d / 118.0, 0.0, 1.0)
+		if d <= LENS_RADIUS:
+			var reveal := clampf(1.0 - d / LENS_RADIUS, 0.0, 1.0)
 			var twinkle := 0.6 + (sin(elapsed * 6.0 + float(index)) + 1.0) * 0.2
 			lens_layer.draw_circle(spot, 13.0 * reveal, Color(1.0, 0.95, 0.55, reveal * twinkle))
 			lens_layer.draw_arc(spot, 19.0 * reveal, 0.0, TAU, 20, Color(1.0, 0.85, 0.3, reveal * 0.8), 3.0)
@@ -2257,17 +2580,17 @@ func _draw_lens_layer() -> void:
 	if magnifier_texture != null:
 		lens_layer.draw_texture_rect(
 			magnifier_texture,
-			Rect2(lens_pos - Vector2(128.0, 128.0), Vector2(256.0, 256.0)),
+			_lens_graphic_rect(),
 			false
 		)
 	else:
-		lens_layer.draw_circle(lens_pos, 92.0, Color(0.75, 0.92, 1.0, 0.14))
-		lens_layer.draw_arc(lens_pos, 92.0, 0.0, TAU, 48, Color("#c88b3c"), 9.0)
-		lens_layer.draw_arc(lens_pos, 80.0, 0.0, TAU, 48, Color(1.0, 1.0, 1.0, 0.35), 3.0)
+		lens_layer.draw_circle(lens_pos, LENS_RADIUS, Color(0.75, 0.92, 1.0, 0.14))
+		lens_layer.draw_arc(lens_pos, LENS_RADIUS, 0.0, TAU, 48, Color("#c88b3c"), 11.0)
+		lens_layer.draw_arc(lens_pos, LENS_RADIUS - 12.0, 0.0, TAU, 48, Color(1.0, 1.0, 1.0, 0.35), 3.0)
 		var handle_dir := Vector2(0.72, 0.72)
-		lens_layer.draw_line(lens_pos + handle_dir * 92.0, lens_pos + handle_dir * 158.0, Color("#8a5f3c"), 16.0)
+		lens_layer.draw_line(lens_pos + handle_dir * LENS_RADIUS, lens_pos + handle_dir * (LENS_RADIUS + 88.0), Color("#8a5f3c"), 19.0)
 	if lens_target >= 0:
-		lens_layer.draw_arc(lens_pos, 100.0, -PI * 0.5, -PI * 0.5 + TAU * clampf(lens_dwell / 0.45, 0.0, 1.0), 40, Color(1.0, 0.9, 0.4), 6.0)
+		lens_layer.draw_arc(lens_pos, LENS_RADIUS - 8.0, -PI * 0.5, -PI * 0.5 + TAU * clampf(lens_dwell / 0.45, 0.0, 1.0), 40, Color(1.0, 0.9, 0.4), 7.0)
 
 
 func _process(delta: float) -> void:

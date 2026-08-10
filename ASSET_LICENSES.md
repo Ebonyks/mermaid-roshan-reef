@@ -2451,3 +2451,53 @@ helper; this changes alpha only and preserves the approved RGB crest artwork.
 - `assets/opera/worlds/ui/crests/opera_crest_phantom.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_phantom.png`; no external source or new RGB artwork.
 - `assets/opera/worlds/ui/crests/opera_crest_racer.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_racer.png`; no external source or new RGB artwork.
 - `assets/opera/worlds/ui/crests/opera_crest_singer.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_singer.png`; no external source or new RGB artwork.
+
+## Opera minigame quality art (2026-08-09)
+
+All files in this section are project-original art or non-destructive derivatives
+of approved project-original Opera art; license: project original; URL: none.
+`assets_src/imagegen/opera_minigame_quality_2026-08-09/PROVENANCE.json`
+records every exact source path and SHA-256, runtime SHA-256, crop/composite/matte/
+resize operation, generated-source prompt and result identifier, and artifact QA
+result. Derivatives were built deterministically by
+`tools/prepare_opera_minigame_art.py`; all approved source masters are preserved.
+
+- `assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png` - project-owned OpenAI built-in ImageGen source board generated 2026-08-09; exact prompt, result ID, original result path, and SHA-256 are in `PROVENANCE.json`.
+- `assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png` - non-destructive alpha derivative of the preserved native board made with installed `remove_chroma_key.py`; exact command, matte report, and hashes are in `PROVENANCE.json`.
+- `assets/opera/worlds/widgets/widget_pour_chef_mover.png` - 256x256 alpha batter-pitcher cell derived from the reviewed generated board.
+- `assets/opera/worlds/widgets/widget_pour_candymaker_mover.png` - 256x256 alpha candy-syrup-jug cell derived from the reviewed generated board.
+- `assets/opera/worlds/widgets/widget_pour_nursery_mover.png` - 256x256 alpha feeding-bottle cell derived from the reviewed generated board.
+- `assets/opera/worlds/widgets/widget_crank_racer_mover.png` - 256x256 alpha mechanic-wrench cell derived from the reviewed generated board.
+- `assets/opera/worlds/widgets/widget_clue_board_empty.png` - full 1024x608 Detective case-board state derived from the approved empty case-board source.
+- `assets/opera/worlds/widgets/widget_clue_board_complete.png` - full 1024x608 Detective case-board state derived from the approved complete case-board source.
+- `assets/opera/worlds/widgets/widget_clue_board_tokens.png` - 3x256 paw/feather/ribbon strip derived from the three approved Detective clue sources.
+- `assets/opera/worlds/widgets/widget_crown_chest_closed.png` - 512x512 alpha object derived from the approved closed clue-chest source.
+- `assets/opera/worlds/widgets/widget_crown_chest_open.png` - 512x512 alpha object derived from the approved open clue-chest/tiara source.
+- `assets/opera/worlds/widgets/widget_magic_cabinet_closed.png` - 512x512 alpha cabinet derived from the approved closed trick-cabinet source.
+- `assets/opera/worlds/widgets/widget_magic_cabinet_reveal.png` - 512x512 open-door reveal composite derived from the approved cabinet shell and approved Lamba reveal, with the reveal clipped inside the transparent cabinet opening.
+- `assets/opera/worlds/widgets/widget_magic_vanish_hat.png` - 512x512 alpha prop derived from the approved open magic-hat source.
+- `assets/opera/worlds/widgets/widget_magic_vanish_wand.png` - 512x512 alpha prop derived from the approved pearl-wand source.
+- `assets/opera/worlds/widgets/widget_magic_vanish_reveal.png` - 512x512 coherent Lamba-over-hat reveal derived from approved Lamba and open-hat sources.
+- `assets/opera/worlds/widgets/widget_portal_magician_mover.png` - 256x256 portal-only alpha mover derived from the approved Opera upper-access open-portal source.
+- `assets/opera/worlds/widgets/widget_crank_racer.png` - 1024x608 pit-tune card derived from the established Racer widget frame and approved side-kart/toolkit sources.
+- `assets/opera/worlds/widgets/widget_crank_racer_wheel.png` - 256x256 installable wheel derived from the approved side-kart source.
+- `assets/opera/worlds/widgets/widget_crank_popstar_mover.png` - 256x256 finale mover derived from the approved active microphone/sound-wave source.
+- `assets/opera/worlds/widgets/widget_gauge_chef_success.png` - 1024x608 achieved overlay derived from the approved finished-cake source.
+- `assets/opera/worlds/widgets/widget_target_chef_mark.png` - 128x128 thematic target mark derived from the approved Chef badge source.
+- `assets/opera/worlds/widgets/widget_target_chef_piece_0.png` - 256x256 isolated cherry topping derived from the approved Chef placement-glows source; serving display and shadow excluded by connected colour matte.
+- `assets/opera/worlds/widgets/widget_target_chef_piece_1.png` - 256x256 isolated cream topping derived from the approved Chef placement-glows source; serving display and shadow excluded by connected colour matte.
+- `assets/opera/worlds/widgets/widget_target_chef_piece_2.png` - 256x256 isolated chocolate topping derived from the approved Chef placement-glows source; serving display and shadow excluded by connected colour matte.
+- `assets/opera/worlds/widgets/widget_target_candymaker_mark.png` - 128x128 thematic target mark derived from the approved Candy Maker badge source.
+- `assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png` - 256x256 candy token derived from the approved coral-flower artwork stored in the audited `teal_spiral_candy` source export.
+- `assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png` - 256x256 candy token derived from the approved teal-shell artwork stored in the audited `plum_wrapped_candy` source export.
+- `assets/opera/worlds/widgets/widget_target_candymaker_piece_2.png` - 256x256 candy token derived from the approved plum-wrapped artwork stored in the audited `cream_heart_candy` source export.
+- `assets/opera/worlds/widgets/widget_target_farmer_mark.png` - 128x128 thematic target mark derived from the approved Farmer badge source.
+- `assets/opera/worlds/widgets/widget_target_farmer_piece_0.png` - 256x256 carrot token derived from the approved carrot artwork stored in the audited Farmer `hay_bale` source export.
+- `assets/opera/worlds/widgets/widget_target_farmer_piece_1.png` - 256x256 corn token derived from the approved corn artwork stored in the audited Farmer `piggy_fed` source export.
+- `assets/opera/worlds/widgets/widget_target_farmer_piece_2.png` - 256x256 pumpkin token derived from the approved pumpkin artwork stored in the audited Farmer `piggy_munch` source export.
+- `assets/opera/worlds/widgets/widget_target_astronaut_mark.png` - 128x128 project-original code-drawn thematic target mark using the established Opera palette and approved Astronaut widget source reference.
+- `assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png` - 256x256 project-original code-drawn shell patch using the established Opera palette and approved Astronaut widget source reference.
+- `assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png` - 256x256 project-original code-drawn rivet patch using the established Opera palette and approved Astronaut widget source reference.
+- `assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png` - 256x256 project-original code-drawn repair patch using the established Opera palette and approved Astronaut widget source reference.
+- `assets/opera/worlds/widgets/widget_target_painter_mark.png` - 128x128 literal paint-splat mark cropped from the approved Painter splat-state source.
+- `assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png` - deterministic project-authored visual-QA contact sheet of every runtime derivative above; not runtime art.

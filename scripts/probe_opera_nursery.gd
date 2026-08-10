@@ -55,7 +55,8 @@ func _init() -> void:
 	_check("hand washing opens with no passive progress or copied combat",
 		world.phase_index == 0 and is_equal_approx(world.progress(), 0.0)
 		and String((world.phases[0] as Dictionary).get("mode", "")) == "hold"
-		and world.surface.visual_context == "basin_nursery")
+		and String((world.phases[0] as Dictionary).get("widget", "missing")).is_empty()
+		and world.surface.visual_context == "nursery_wash")
 
 	_pump(world)
 	var catcher := world.nursery_catch
@@ -86,7 +87,14 @@ func _init() -> void:
 	_check("one-finger steering catches all five babies after safe misses",
 		catcher.caught == 5 and world.phase_index == 2)
 	world.phase_gap = 0.0
-	_check("feeding uses a bottle hold tableau", world.surface.visual_context == "pour_nursery")
+	# Opening the freshly armed task configures its direct causal surface without
+	# crediting progress. This proves the approved bottle is the runtime branch,
+	# rather than the old copied baby card or the code fallback.
+	world._on_gesture("probe", 0.0, 1.0)
+	_check("feeding uses the approved bottle hold tableau",
+		world.surface.visual_context == "nursery_feed"
+		and world.surface._nursery_bottle_art_ready()
+		and is_equal_approx(world.phase_progress, 0.0))
 	_pump(world)
 	_check("feeding clears into the gentle burp-pat beat without an imp chase",
 		world.phase_index == 3 and world.steal_index < 0
@@ -100,10 +108,26 @@ func _init() -> void:
 		pat_guard += 1
 	if world.phase_advance_pending:
 		world._on_gesture("probe", 0.0, 1.0)
-	_check("four gentle pats advance to bedtime",
-		world.phase_index == 4 and world.surface.visual_context == "push_nursery")
 	world.phase_gap = 0.0
-	world._on_gesture("probe", 100.0, 1.0)
+	world._on_gesture("probe", 0.0, 1.0)
+	_check("four gentle pats advance to the direct blanket scene",
+		world.phase_index == 4 and world.surface.visual_context == "nursery_bedtime"
+		and is_equal_approx(world.phase_progress, 0.0))
+	world.phase_gap = 0.0
+	# BEDTIME is no longer an aggregate repeated swipe. Tuck each visible blanket
+	# once at its own crib and retain all three achieved states.
+	for blanket_index in range(3):
+		var blanket_start := world.surface._nursery_bedtime_grab_point(blanket_index)
+		var blanket_end := blanket_start + Vector2(0.0,
+			world.surface._nursery_bedtime_required_travel() + 8.0)
+		world.surface._press(blanket_start)
+		world.surface._drag(blanket_end)
+		world.surface._release(blanket_end)
+	_check("three one-use blanket tucks complete bedtime",
+		world.surface.nursery_blankets_tucked == [true, true, true]
+		and is_equal_approx(world.phase_progress, 3.0)
+		and world.phase_advance_pending)
+	world._on_gesture("probe", 0.0, 1.0)
 	# the tucked-in blanket holds on screen before the curtain call — let
 	# that beat elapse the way a watching child would
 	var tuck_guard := 0

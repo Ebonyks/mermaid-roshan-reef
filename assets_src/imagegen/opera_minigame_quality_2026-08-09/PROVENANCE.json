@@ -1,0 +1,1086 @@
+{
+  "alpha_native_sha256": "65b8cf1d123abce4f0a0cac0cc7d91a0595690b06de6fec25be9ba0ca62eb903",
+  "artifacts": {
+    "widget_clue_board_complete.png": {
+      "alpha_bbox": [
+        114,
+        19,
+        911,
+        589
+      ],
+      "artifact_qa": "complete frame and all three left-to-right silhouettes visible; no grid/frame bleed or crop",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "margins": [
+        114,
+        19,
+        113,
+        19
+      ],
+      "operation": "_remove_edge_field, retain largest ornate board component, aspect-preserving Lanczos fit on 1024x608 alpha card",
+      "runtime_path": "assets/opera/worlds/widgets/widget_clue_board_complete.png",
+      "runtime_sha256": "ab99b95239d8d5026ceb4d712752ccdf4972f9d437758737e357975c9aaf1a80",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_stage_states_case_board_complete.png": "9c718999e2b6ecbc52b6c09d4f2b40e73176fd105186857df6d0dd11e82831ed"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_stage_states_case_board_complete.png"
+      ]
+    },
+    "widget_clue_board_empty.png": {
+      "alpha_bbox": [
+        113,
+        20,
+        911,
+        588
+      ],
+      "artifact_qa": "complete frame and all three left-to-right silhouettes visible; no grid/frame bleed or crop",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "margins": [
+        113,
+        20,
+        113,
+        20
+      ],
+      "operation": "_remove_edge_field, retain largest ornate board component, aspect-preserving Lanczos fit on 1024x608 alpha card",
+      "runtime_path": "assets/opera/worlds/widgets/widget_clue_board_empty.png",
+      "runtime_sha256": "ef1b914d8db485aa4e7d275628b62711ade9caa49aae02c08cf79f52cee8e191",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_stage_states_case_board_empty.png": "8c0088bb06c5f724a404ed73f0f1fcc7906e7cfd10c937b44ef424e92c63f92f"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_stage_states_case_board_empty.png"
+      ]
+    },
+    "widget_clue_board_tokens.png": {
+      "alpha_bbox": [
+        20,
+        20,
+        748,
+        237
+      ],
+      "artifact_qa": "three distinct complete tokens; no cross-cell bleed or clipping",
+      "dimensions": [
+        768,
+        256
+      ],
+      "margins": [
+        20,
+        20,
+        20,
+        19
+      ],
+      "operation": "_remove_edge_field per source; paw/feather/ribbon preserved in silhouette order; each fit to one 256px cell",
+      "runtime_path": "assets/opera/worlds/widgets/widget_clue_board_tokens.png",
+      "runtime_sha256": "45fd838284dcf230b1ca5059b3fb1e913bc90f13c37cf215107f76c73fc7f002",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_feather_clue.png": "26da1b140716c1c1a6f3f5cee037f60fb856475dcff1ff303d1a98a3a6581872",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_paw_clue.png": "c19442d3967e9cdf0ea3eca9175d7857887359429ece7fc461759743d5ae3ce8",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_ribbon_clue.png": "c32420b97e55b736eac137fa3c8554725c537458b1192a2294c666ee822308e2"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_paw_clue.png",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_feather_clue.png",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_ribbon_clue.png"
+      ]
+    },
+    "widget_crank_popstar_mover.png": {
+      "alpha_bbox": [
+        16,
+        30,
+        240,
+        227
+      ],
+      "artifact_qa": "single finale microphone identity, not whole stage; complete mic with intentional sound pulses and no frame bleed",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        16,
+        30,
+        16,
+        29
+      ],
+      "operation": "_remove_edge_field; retain approved handheld microphone plus authored sound-wave/pearl pulse components; fit on 256x256",
+      "runtime_path": "assets/opera/worlds/widgets/widget_crank_popstar_mover.png",
+      "runtime_sha256": "696d54de173370a0beb349c20ba7f18c5e239461d72f966f1517a8089228ca5d",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pop_star_gameplay_microphone_active.png": "da66402f24671af66adaa85790d2cf6f29edbdfaa0f1da3e7a211eac12fc93db"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pop_star_gameplay_microphone_active.png"
+      ]
+    },
+    "widget_crank_racer.png": {
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        608
+      ],
+      "artifact_qa": "no racetrack curve; clear pre-repair state has one complete front wheel, one open rear hub, and a non-overlapping toolkit",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "margins": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "operation": "reuse established opaque Racer widget frame; clear central illustration field only; _remove_edge_field on approved side kart/toolkit; aspect-preserving fit as a stationary pit tune-up tableau; restore approved front wheel behind fender while leaving rear hub open",
+      "runtime_path": "assets/opera/worlds/widgets/widget_crank_racer.png",
+      "runtime_sha256": "a96e898057e7c5114211dd9ad61bc0f7c4a726bcbeeec0d3e9d25a4e3e448347",
+      "source_sha256": {
+        "assets/opera/worlds/widgets/widget_push_racer.png": "848906b6158462037a9a7cf7939b8e3665c84431e4ba14627d55afd9b76be9c2",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_opera_kart_side.png": "c76ce471bf8b625dbd31b363a4a67fbf00cf25c9a399cfc3169f286cfa701f0a",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_pit_toolkit.png": "3538b0c1887402f5d62777b8b0a5e543f35d8ed6fea58909d07029671f2641fb"
+      },
+      "sources": [
+        "assets/opera/worlds/widgets/widget_push_racer.png",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_opera_kart_side.png",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_pit_toolkit.png"
+      ]
+    },
+    "widget_crank_racer_mover.png": {
+      "alpha_bbox": [
+        35,
+        37,
+        221,
+        219
+      ],
+      "alpha_components_over_24": 1,
+      "artifact_qa": "accepted source topology preserved; one complete object; no crop, detached part, or visible green spill",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        35,
+        37,
+        35,
+        37
+      ],
+      "operation": "crop reviewed 2x2 cell (bottom-right mechanic wrench), trim shared alpha, apply one shared scale, Lanczos fit on 256x256 transparent canvas; alpha<=3 cleared",
+      "runtime_path": "assets/opera/worlds/widgets/widget_crank_racer_mover.png",
+      "runtime_sha256": "871b67c9e69d63b743bc1f08db6f4a4ba53d00d8a478ac8a86e8a05ec4c4f99f",
+      "source_sha256": {
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png": "65b8cf1d123abce4f0a0cac0cc7d91a0595690b06de6fec25be9ba0ca62eb903",
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png": "ba1c0892f521899dd18aaa653c3a645f80fa7a210517688ea51801aaafffa02a"
+      },
+      "sources": [
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png",
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png"
+      ],
+      "visible_green_spill_pixels": 0
+    },
+    "widget_crank_racer_wheel.png": {
+      "alpha_bbox": [
+        22,
+        22,
+        234,
+        234
+      ],
+      "artifact_qa": "complete isolated wheel with tire, rim, and shell hub; no fender, body fragment, crop, or presentation field",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        22,
+        22,
+        22,
+        22
+      ],
+      "operation": "crop approved rear wheel from side-kart master, _remove_edge_field while retaining tire/rim/hub components, aspect-preserving fit on 256x256 alpha canvas",
+      "runtime_path": "assets/opera/worlds/widgets/widget_crank_racer_wheel.png",
+      "runtime_sha256": "3203d9bc5297fccfb3ee86fddab6c3a217de577943a063ef37404e5276c7e003",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_opera_kart_side.png": "c76ce471bf8b625dbd31b363a4a67fbf00cf25c9a399cfc3169f286cfa701f0a"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_opera_kart_side.png"
+      ]
+    },
+    "widget_crown_chest_closed.png": {
+      "alpha_bbox": [
+        55,
+        66,
+        457,
+        446
+      ],
+      "artifact_qa": "closed/open topology coherent; open tiara remains connected and fully visible; no crop",
+      "dimensions": [
+        512,
+        512
+      ],
+      "margins": [
+        55,
+        66,
+        55,
+        66
+      ],
+      "operation": "_remove_edge_field, retain full chest state, aspect-preserving Lanczos fit with cover-safe vertical margins",
+      "runtime_path": "assets/opera/worlds/widgets/widget_crown_chest_closed.png",
+      "runtime_sha256": "80cb8378d48663b862ee14e018b1371f2d294a8a2fd50edc8cf5476b9cb2e870",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_chest_closed.png": "5e61968ee90d3e473a8f00edb326d18ab7932f1ed0269f3f44f53ce75aef9074"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_chest_closed.png"
+      ]
+    },
+    "widget_crown_chest_open.png": {
+      "alpha_bbox": [
+        71,
+        65,
+        440,
+        446
+      ],
+      "artifact_qa": "closed/open topology coherent; open tiara remains connected and fully visible; no crop",
+      "dimensions": [
+        512,
+        512
+      ],
+      "margins": [
+        71,
+        65,
+        72,
+        66
+      ],
+      "operation": "_remove_edge_field, retain full chest state, aspect-preserving Lanczos fit with cover-safe vertical margins",
+      "runtime_path": "assets/opera/worlds/widgets/widget_crown_chest_open.png",
+      "runtime_sha256": "5b448bbbe3df87d7bf042acdcf7f52eedf7bb9a76a2a9e8f5f58b58fb72ba5ff",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_chest_open.png": "e0680fc785fe658e2b9497fd923e25a8a70f1ad3029190b8547176fc81c65763"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_detective_gameplay_chest_open.png"
+      ]
+    },
+    "widget_gauge_chef_success.png": {
+      "alpha_bbox": [
+        247,
+        51,
+        778,
+        569
+      ],
+      "artifact_qa": "finished cake replaces generic green disk; plate, tiers, fruit, and frosting fully visible",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "margins": [
+        247,
+        51,
+        246,
+        39
+      ],
+      "operation": "_remove_edge_field; preserve complete finished cake; fit as centered 1024x608 transparent achieved overlay",
+      "runtime_path": "assets/opera/worlds/widgets/widget_gauge_chef_success.png",
+      "runtime_sha256": "9aac570dc68d96aeb29b140d7d9f3fc806be7f55b1f2c75fb6121f43612e144c",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_finished_cake.png": "c42dea558e500b7ab6195dede76f3c486f282493ca6dcec607a8a28929245c1e"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_finished_cake.png"
+      ]
+    },
+    "widget_magic_cabinet_closed.png": {
+      "alpha_bbox": [
+        83,
+        62,
+        429,
+        450
+      ],
+      "artifact_qa": "complete cabinet, hinges, shell crest, feet, and handles visible",
+      "dimensions": [
+        512,
+        512
+      ],
+      "margins": [
+        83,
+        62,
+        83,
+        62
+      ],
+      "operation": "_remove_edge_field; preserve closed cabinet as one component; fit on 512x512 with cover-safe margins",
+      "runtime_path": "assets/opera/worlds/widgets/widget_magic_cabinet_closed.png",
+      "runtime_sha256": "f0829a82157b1e1671fdca165dac68a8385645d648ec77604287e95a59796fcf",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_stage_states_trick_cabinet.png": "f7d1cd15cff4c19f36a0261daa89863eafa139378e84ad369acd6d3502f0933d"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_stage_states_trick_cabinet.png"
+      ]
+    },
+    "widget_magic_cabinet_reveal.png": {
+      "alpha_bbox": [
+        83,
+        62,
+        429,
+        450
+      ],
+      "artifact_qa": "Lamba is fully contained behind the approved open cabinet shell; no opaque plate, hard rectangular seam, floating hat, crop, or source repaint",
+      "dimensions": [
+        512,
+        512
+      ],
+      "margins": [
+        83,
+        62,
+        83,
+        62
+      ],
+      "operation": "_remove_edge_field; leave the door-panel opening transparent; fit approved alpha Lamba behind restored approved cabinet header/side-rail/base crops; flatten to 512x512",
+      "runtime_path": "assets/opera/worlds/widgets/widget_magic_cabinet_reveal.png",
+      "runtime_sha256": "6e8764bc8031f9d09c360ba749f2c8fea89bf08b9316ad8b131ec255545cc2d9",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_stage_states_bunny_fish_reveal.png": "8068df6aca6ec1941bf6829f2fa7cab4e5a186305b969813db4cc7838f774cfa",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_stage_states_trick_cabinet.png": "f7d1cd15cff4c19f36a0261daa89863eafa139378e84ad369acd6d3502f0933d"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_stage_states_trick_cabinet.png",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_stage_states_bunny_fish_reveal.png"
+      ]
+    },
+    "widget_magic_vanish_hat.png": {
+      "alpha_bbox": [
+        51,
+        77,
+        460,
+        435
+      ],
+      "artifact_qa": "magic prop/reveal complete and contained; no labels, presentation frame, or clipped silhouette",
+      "dimensions": [
+        512,
+        512
+      ],
+      "margins": [
+        51,
+        77,
+        52,
+        77
+      ],
+      "operation": "_remove_edge_field; retain 1 reviewed subject/effect component(s); Lanczos fit on 512x512",
+      "runtime_path": "assets/opera/worlds/widgets/widget_magic_vanish_hat.png",
+      "runtime_sha256": "489b47f7ad9f534cbc243b1d8b67a35a33c7d14b4c67b1fe9fb5f154144e4316",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_gameplay_hat_open.png": "3ada463fc68e983bf81e94733b2f2eb1dbca044bf0d0fe79b3fc5f4642fcdc71"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_gameplay_hat_open.png"
+      ]
+    },
+    "widget_magic_vanish_reveal.png": {
+      "alpha_bbox": [
+        112,
+        20,
+        400,
+        491
+      ],
+      "artifact_qa": "clean Lamba-over-hat reveal; both silhouettes complete and contained; no presentation field, blob, hard seam, labels, or crop",
+      "dimensions": [
+        512,
+        512
+      ],
+      "margins": [
+        112,
+        20,
+        112,
+        21
+      ],
+      "operation": "reuse the clean alpha Lamba crop accepted for the cabinet and the approved open hat; aspect-preserving fit in a coherent Lamba-over-hat reveal on 512x512",
+      "runtime_path": "assets/opera/worlds/widgets/widget_magic_vanish_reveal.png",
+      "runtime_sha256": "6de26751d387d8d811adc911cae430f8b637bfcef228f4c77ebf4d07a6317124",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_gameplay_hat_open.png": "3ada463fc68e983bf81e94733b2f2eb1dbca044bf0d0fe79b3fc5f4642fcdc71",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_stage_states_bunny_fish_reveal.png": "8068df6aca6ec1941bf6829f2fa7cab4e5a186305b969813db4cc7838f774cfa"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_stage_states_bunny_fish_reveal.png",
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_gameplay_hat_open.png"
+      ]
+    },
+    "widget_magic_vanish_wand.png": {
+      "alpha_bbox": [
+        69,
+        50,
+        442,
+        462
+      ],
+      "artifact_qa": "magic prop/reveal complete and contained; no labels, presentation frame, or clipped silhouette",
+      "dimensions": [
+        512,
+        512
+      ],
+      "margins": [
+        69,
+        50,
+        70,
+        50
+      ],
+      "operation": "_remove_edge_field; retain 1 reviewed subject/effect component(s); Lanczos fit on 512x512",
+      "runtime_path": "assets/opera/worlds/widgets/widget_magic_vanish_wand.png",
+      "runtime_sha256": "6d5dc285df51e32c937034d0afa4c8d9f6e070fbe1e8d293ec869b2e7906318c",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_gameplay_pearl_wand.png": "d14753adc156cf0cf7c432cadd7f0d0ab13a43409df07d0f61ac0329a5269c01"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_magician_gameplay_pearl_wand.png"
+      ]
+    },
+    "widget_portal_magician_mover.png": {
+      "alpha_bbox": [
+        19,
+        20,
+        237,
+        233
+      ],
+      "artifact_qa": "complete open portal frame, curtains, threshold, and warm opening; no Lamba, hat, stage tableau, or crop",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        19,
+        20,
+        19,
+        23
+      ],
+      "operation": "_remove_edge_field on approved open Opera portal; retain portal only; aspect-preserving fit on 256x256 alpha canvas",
+      "runtime_path": "assets/opera/worlds/widgets/widget_portal_magician_mover.png",
+      "runtime_sha256": "a39c8b805ab0f8c771798921900011f7b09b7ba1ddee4d7d2849dd752a5330a0",
+      "source_sha256": {
+        "assets_src/concepts/opera_house_flat/cards/opera_upper_access_act_portal_open.png": "d77600a0da0f4585fbe6e33bc457c70e6859b95ce283852428390fdcea33b350"
+      },
+      "sources": [
+        "assets_src/concepts/opera_house_flat/cards/opera_upper_access_act_portal_open.png"
+      ]
+    },
+    "widget_pour_candymaker_mover.png": {
+      "alpha_bbox": [
+        31,
+        41,
+        225,
+        214
+      ],
+      "alpha_components_over_24": 1,
+      "artifact_qa": "accepted source topology preserved; one complete object; no crop, detached part, or visible green spill",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        31,
+        41,
+        31,
+        42
+      ],
+      "operation": "crop reviewed 2x2 cell (top-right candy syrup jug), trim shared alpha, apply one shared scale, Lanczos fit on 256x256 transparent canvas; alpha<=3 cleared",
+      "runtime_path": "assets/opera/worlds/widgets/widget_pour_candymaker_mover.png",
+      "runtime_sha256": "e3ef8f04b3926c1513c50dcef110d00221941a4acb91b644bd2d8363849360dd",
+      "source_sha256": {
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png": "65b8cf1d123abce4f0a0cac0cc7d91a0595690b06de6fec25be9ba0ca62eb903",
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png": "ba1c0892f521899dd18aaa653c3a645f80fa7a210517688ea51801aaafffa02a"
+      },
+      "sources": [
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png",
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png"
+      ],
+      "visible_green_spill_pixels": 0
+    },
+    "widget_pour_chef_mover.png": {
+      "alpha_bbox": [
+        21,
+        46,
+        234,
+        209
+      ],
+      "alpha_components_over_24": 1,
+      "artifact_qa": "accepted source topology preserved; one complete object; no crop, detached part, or visible green spill",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        21,
+        46,
+        22,
+        47
+      ],
+      "operation": "crop reviewed 2x2 cell (top-left batter pitcher), trim shared alpha, apply one shared scale, Lanczos fit on 256x256 transparent canvas; alpha<=3 cleared",
+      "runtime_path": "assets/opera/worlds/widgets/widget_pour_chef_mover.png",
+      "runtime_sha256": "8473620074731467a9a77c94abddc465a4ac47081343443bc802605c5696882b",
+      "source_sha256": {
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png": "65b8cf1d123abce4f0a0cac0cc7d91a0595690b06de6fec25be9ba0ca62eb903",
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png": "ba1c0892f521899dd18aaa653c3a645f80fa7a210517688ea51801aaafffa02a"
+      },
+      "sources": [
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png",
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png"
+      ],
+      "visible_green_spill_pixels": 0
+    },
+    "widget_pour_nursery_mover.png": {
+      "alpha_bbox": [
+        75,
+        22,
+        181,
+        234
+      ],
+      "alpha_components_over_24": 1,
+      "artifact_qa": "accepted source topology preserved; one complete object; no crop, detached part, or visible green spill",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        75,
+        22,
+        75,
+        22
+      ],
+      "operation": "crop reviewed 2x2 cell (bottom-left feeding bottle), trim shared alpha, apply one shared scale, Lanczos fit on 256x256 transparent canvas; alpha<=3 cleared",
+      "runtime_path": "assets/opera/worlds/widgets/widget_pour_nursery_mover.png",
+      "runtime_sha256": "5b05584e0c0bdecd6e2f623c77738b4eaf4ea8dd908d04230b1214339604b901",
+      "source_sha256": {
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png": "65b8cf1d123abce4f0a0cac0cc7d91a0595690b06de6fec25be9ba0ca62eb903",
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png": "ba1c0892f521899dd18aaa653c3a645f80fa7a210517688ea51801aaafffa02a"
+      },
+      "sources": [
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png",
+        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png"
+      ],
+      "visible_green_spill_pixels": 0
+    },
+    "widget_target_astronaut_mark.png": {
+      "alpha_bbox": [
+        9,
+        9,
+        119,
+        119
+      ],
+      "artifact_qa": "thematic filled stamp remains distinct from hollow invitation ring",
+      "dimensions": [
+        128,
+        128
+      ],
+      "margins": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "operation": "derive fallback from the career's reviewed target piece; aspect-preserving fit on existing 128x128 mark contract",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_astronaut_mark.png",
+      "runtime_sha256": "7d59037930640802711ae0eebf0bca933c4be7a0fa74a7a645cc2341e4b538ad",
+      "source_sha256": {
+        "assets/opera/worlds/widgets/widget_target_astronaut.png": "c2002aba59114f75228b3221876bad002e0e2bb0a261bdc826e3e34064583c30"
+      },
+      "sources": [
+        "assets/opera/worlds/widgets/widget_target_astronaut.png"
+      ]
+    },
+    "widget_target_astronaut_piece_0.png": {
+      "alpha_bbox": [
+        27,
+        27,
+        229,
+        229
+      ],
+      "artifact_qa": "unique shell/rivet patch silhouette; complete outline and >=24px transparent margin",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        27,
+        27,
+        27,
+        27
+      ],
+      "operation": "project-original Pillow vector construction at 4x antialias scale using established Opera coral/teal/cream/gold/navy palette; whole-canvas Lanczos downscale to 256x256",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png",
+      "runtime_sha256": "bfafdf432e4e0cd42bef4c436bc50839e0ecb48f322e84da2cbb2a312afefe04",
+      "source_sha256": {
+        "assets/opera/worlds/widgets/widget_target_astronaut.png": "c2002aba59114f75228b3221876bad002e0e2bb0a261bdc826e3e34064583c30"
+      },
+      "sources": [
+        "assets/opera/worlds/widgets/widget_target_astronaut.png"
+      ]
+    },
+    "widget_target_astronaut_piece_1.png": {
+      "alpha_bbox": [
+        27,
+        23,
+        229,
+        234
+      ],
+      "artifact_qa": "unique shell/rivet patch silhouette; complete outline and >=24px transparent margin",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        27,
+        23,
+        27,
+        22
+      ],
+      "operation": "project-original Pillow vector construction at 4x antialias scale using established Opera coral/teal/cream/gold/navy palette; whole-canvas Lanczos downscale to 256x256",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
+      "runtime_sha256": "218c33235451de371a7644e18629a636955edc27722fc41de1d5167edf4cfd5d",
+      "source_sha256": {
+        "assets/opera/worlds/widgets/widget_target_astronaut.png": "c2002aba59114f75228b3221876bad002e0e2bb0a261bdc826e3e34064583c30"
+      },
+      "sources": [
+        "assets/opera/worlds/widgets/widget_target_astronaut.png"
+      ]
+    },
+    "widget_target_astronaut_piece_2.png": {
+      "alpha_bbox": [
+        31,
+        42,
+        226,
+        214
+      ],
+      "artifact_qa": "unique shell/rivet patch silhouette; complete outline and >=24px transparent margin",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        31,
+        42,
+        30,
+        42
+      ],
+      "operation": "project-original Pillow vector construction at 4x antialias scale using established Opera coral/teal/cream/gold/navy palette; whole-canvas Lanczos downscale to 256x256",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+      "runtime_sha256": "b2ac73c372b40b53914a3146c9c5c036ed9df0db898e699d64499d1b17d00b52",
+      "source_sha256": {
+        "assets/opera/worlds/widgets/widget_target_astronaut.png": "c2002aba59114f75228b3221876bad002e0e2bb0a261bdc826e3e34064583c30"
+      },
+      "sources": [
+        "assets/opera/worlds/widgets/widget_target_astronaut.png"
+      ]
+    },
+    "widget_target_candymaker_mark.png": {
+      "alpha_bbox": [
+        13,
+        9,
+        115,
+        119
+      ],
+      "artifact_qa": "thematic filled stamp remains distinct from hollow invitation ring",
+      "dimensions": [
+        128,
+        128
+      ],
+      "margins": [
+        13,
+        9,
+        13,
+        9
+      ],
+      "operation": "derive fallback from the career's reviewed target piece; aspect-preserving fit on existing 128x128 mark contract",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_candymaker_mark.png",
+      "runtime_sha256": "83eb2d6df59ca684fe4f909392cba364838417b74a02c2ae8ee716ea037207b2",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_candy_maker_gameplay_teal_spiral_candy.png": "98c5d3a91d5ac34d7c5505474e7259cf2129e6e75aa7cf2f151f8fa2d4314f25"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_candy_maker_gameplay_teal_spiral_candy.png"
+      ]
+    },
+    "widget_target_candymaker_piece_0.png": {
+      "alpha_bbox": [
+        27,
+        18,
+        230,
+        238
+      ],
+      "artifact_qa": "one child-readable complete target prop; no frame bleed, crop, or detached part",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        27,
+        18,
+        26,
+        18
+      ],
+      "operation": "_remove_edge_field, retain reviewed visible prop despite shifted export labels, fit on 256x256 alpha canvas",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png",
+      "runtime_sha256": "6265a6fa3bba2a55b29764dff19556dd11f631218b9081507575d46ef10cc60d",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_candy_maker_gameplay_teal_spiral_candy.png": "98c5d3a91d5ac34d7c5505474e7259cf2129e6e75aa7cf2f151f8fa2d4314f25"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_candy_maker_gameplay_teal_spiral_candy.png"
+      ]
+    },
+    "widget_target_candymaker_piece_1.png": {
+      "alpha_bbox": [
+        18,
+        23,
+        238,
+        234
+      ],
+      "artifact_qa": "one child-readable complete target prop; no frame bleed, crop, or detached part",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        18,
+        23,
+        18,
+        22
+      ],
+      "operation": "_remove_edge_field, retain reviewed visible prop despite shifted export labels, fit on 256x256 alpha canvas",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png",
+      "runtime_sha256": "baeaaf52b3d8dcae643888e4a3665d3f555df80514bafa3988ae1f1365b90cbb",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_candy_maker_gameplay_plum_wrapped_candy.png": "866335374c5f4d8f45232728c5f8c14ec75c718c7fabaae9609c0d49d0e818e1"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_candy_maker_gameplay_plum_wrapped_candy.png"
+      ]
+    },
+    "widget_target_candymaker_piece_2.png": {
+      "alpha_bbox": [
+        17,
+        59,
+        239,
+        197
+      ],
+      "artifact_qa": "one child-readable complete target prop; no frame bleed, crop, or detached part",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        17,
+        59,
+        17,
+        59
+      ],
+      "operation": "_remove_edge_field, retain reviewed visible prop despite shifted export labels, fit on 256x256 alpha canvas",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_2.png",
+      "runtime_sha256": "f65229623f611d59cf4b5fb180e976e7956c065a66ae622bc6996d2a77dfa63e",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_candy_maker_gameplay_cream_heart_candy.png": "d32f8a613da1d672470bb41835b3d9735fe8e75219552d8883db42525dcc9325"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_candy_maker_gameplay_cream_heart_candy.png"
+      ]
+    },
+    "widget_target_chef_mark.png": {
+      "alpha_bbox": [
+        9,
+        15,
+        120,
+        114
+      ],
+      "artifact_qa": "thematic filled stamp remains distinct from hollow invitation ring",
+      "dimensions": [
+        128,
+        128
+      ],
+      "margins": [
+        9,
+        15,
+        8,
+        14
+      ],
+      "operation": "derive fallback from the career's reviewed target piece; aspect-preserving fit on existing 128x128 mark contract",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_chef_mark.png",
+      "runtime_sha256": "db34bd5d997b9f7cd4bbed1bf264b0cef0e13a7d95bbf18c645f85b16284fdfd",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png": "a43d77ba3dffb3bd000a53bec942c91a5886991a3ee713cdf8e03cc4ed24b2ff"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png"
+      ]
+    },
+    "widget_target_chef_piece_0.png": {
+      "alpha_bbox": [
+        20,
+        23,
+        236,
+        233
+      ],
+      "artifact_qa": "one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        20,
+        23,
+        20,
+        23
+      ],
+      "operation": "_remove_edge_field, isolate the approved visible topping by colour and connected alpha, retain its authored lower outline while excluding every pedestal/plate/base pixel, fit on 256x256",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_chef_piece_0.png",
+      "runtime_sha256": "d895245f614554072d31550587be2c8aab37b2f5acc37d68772b5e890116a6aa",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png": "a43d77ba3dffb3bd000a53bec942c91a5886991a3ee713cdf8e03cc4ed24b2ff"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png"
+      ]
+    },
+    "widget_target_chef_piece_1.png": {
+      "alpha_bbox": [
+        20,
+        31,
+        236,
+        226
+      ],
+      "artifact_qa": "one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        20,
+        31,
+        20,
+        30
+      ],
+      "operation": "_remove_edge_field, isolate the approved visible topping by colour and connected alpha, retain its authored lower outline while excluding every pedestal/plate/base pixel, fit on 256x256",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_chef_piece_1.png",
+      "runtime_sha256": "85bfb1a21b1903c2d0abee00d11fc5ae7bcc929864f280442770f6f011b870de",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png": "a43d77ba3dffb3bd000a53bec942c91a5886991a3ee713cdf8e03cc4ed24b2ff"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png"
+      ]
+    },
+    "widget_target_chef_piece_2.png": {
+      "alpha_bbox": [
+        21,
+        31,
+        231,
+        224
+      ],
+      "artifact_qa": "one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        21,
+        31,
+        25,
+        32
+      ],
+      "operation": "_remove_edge_field, isolate the approved visible topping by colour and connected alpha, retain its authored lower outline while excluding every pedestal/plate/base pixel, fit on 256x256; clear reviewed detached plate-remnant corner ROIs x=0..26/y=182..255 and x=226..255/y=186..255",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_chef_piece_2.png",
+      "runtime_sha256": "956cd6df923115f830099d65cdb8526fa5482cbb46e387d8e599721a81440c61",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png": "a43d77ba3dffb3bd000a53bec942c91a5886991a3ee713cdf8e03cc4ed24b2ff"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_stage_states_placement_glows.png"
+      ]
+    },
+    "widget_target_farmer_mark.png": {
+      "alpha_bbox": [
+        15,
+        9,
+        113,
+        119
+      ],
+      "artifact_qa": "thematic filled stamp remains distinct from hollow invitation ring",
+      "dimensions": [
+        128,
+        128
+      ],
+      "margins": [
+        15,
+        9,
+        15,
+        9
+      ],
+      "operation": "derive fallback from the career's reviewed target piece; aspect-preserving fit on existing 128x128 mark contract",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_farmer_mark.png",
+      "runtime_sha256": "66395cd8cdbb49da7d669be972019e8aacc473ec5b5b39d8df07e60add5dea9e",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_hay_bale.png": "6b731756690b29acd563487481de87ed388910c9b1a035817a6cda1e85664ee6"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_hay_bale.png"
+      ]
+    },
+    "widget_target_farmer_piece_0.png": {
+      "alpha_bbox": [
+        29,
+        17,
+        227,
+        239
+      ],
+      "artifact_qa": "one child-readable complete target prop; no frame bleed, crop, or detached part",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        29,
+        17,
+        29,
+        17
+      ],
+      "operation": "_remove_edge_field, retain reviewed visible prop despite shifted export labels, fit on 256x256 alpha canvas",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+      "runtime_sha256": "9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_hay_bale.png": "6b731756690b29acd563487481de87ed388910c9b1a035817a6cda1e85664ee6"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_hay_bale.png"
+      ]
+    },
+    "widget_target_farmer_piece_1.png": {
+      "alpha_bbox": [
+        24,
+        17,
+        233,
+        239
+      ],
+      "artifact_qa": "one child-readable complete target prop; no frame bleed, crop, or detached part",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        24,
+        17,
+        23,
+        17
+      ],
+      "operation": "_remove_edge_field, retain reviewed visible prop despite shifted export labels, fit on 256x256 alpha canvas",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_farmer_piece_1.png",
+      "runtime_sha256": "502cb951a540ca9beec4c5481a7fbf621595bde3a6e22b77edf0f94799615b82",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_piggy_fed.png": "d28273fee11aa46f34bf7d7e51d7b1a38bda76984ad5a4587ab8024a79754018"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_piggy_fed.png"
+      ]
+    },
+    "widget_target_farmer_piece_2.png": {
+      "alpha_bbox": [
+        18,
+        25,
+        238,
+        232
+      ],
+      "artifact_qa": "one child-readable complete target prop; no frame bleed, crop, or detached part",
+      "dimensions": [
+        256,
+        256
+      ],
+      "margins": [
+        18,
+        25,
+        18,
+        24
+      ],
+      "operation": "_remove_edge_field, retain reviewed visible prop despite shifted export labels, fit on 256x256 alpha canvas",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_farmer_piece_2.png",
+      "runtime_sha256": "a1244a1a21d62cbbe404e17667a2fafe1044a8ee5864f3e3cb98b0929ab1584c",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_piggy_munch.png": "7bf0aa63a6ac47323f29e9afea53f1ac51423d1f9f6df9d50ea67c5bf68edc85"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_piggy_munch.png"
+      ]
+    },
+    "widget_target_painter_mark.png": {
+      "alpha_bbox": [
+        18,
+        8,
+        111,
+        120
+      ],
+      "artifact_qa": "literal coral paint splat replaces generic ring; main splash and intentional droplets fully contained",
+      "dimensions": [
+        128,
+        128
+      ],
+      "margins": [
+        18,
+        8,
+        17,
+        8
+      ],
+      "operation": "crop approved center coral paint splat and droplets, _remove_edge_field, fit on existing 128x128 mark contract",
+      "runtime_path": "assets/opera/worlds/widgets/widget_target_painter_mark.png",
+      "runtime_sha256": "c99725e335ee4d49c76768a8dbea3f215c496021ca58a0f3282566325a775e66",
+      "source_sha256": {
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_painter_stage_states_splat_state.png": "40052a8e52819f9a965f8983e2018c4fdb307b47e6a31beb5d82ec65a0d88470"
+      },
+      "sources": [
+        "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_painter_stage_states_splat_state.png"
+      ]
+    }
+  },
+  "contact_sheet": {
+    "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png",
+    "sha256": "f2db5572c122371c36ae67be1f76bd6f1b0272d921fc89d681fc9781db32e206"
+  },
+  "derivation_tool": "tools/prepare_opera_minigame_art.py",
+  "determinism_gate": "python tools/prepare_opera_minigame_art.py --check-only",
+  "generation": {
+    "alpha_command": "remove_chroma_key.py --auto-key border --soft-matte --transparent-threshold 22 --opaque-threshold 105 --edge-feather 0.6 --spill-cleanup --force",
+    "alpha_report": {
+      "detected_key": "#05f70c",
+      "partial_alpha_pixels": 39522,
+      "total_pixels": 1572516,
+      "transparent_pixels": 1197210
+    },
+    "date": "2026-08-09",
+    "method": "OpenAI built-in ImageGen",
+    "original_result_path": "C:\\Users\\Peter\\.codex\\generated_images\\019fe6fd-6f77-7353-86b6-d32b930bea1a\\exec-36bd6833-2769-4631-b95b-6bc016511f87.png",
+    "preserved_alpha_path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png",
+    "preserved_native_path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png",
+    "prompt": "Create a production sprite-board source for the Mermaid Roshan Pearl Opera minigames, matching the supplied polished 2D storybook props: warm ivory/cream, coral, teal, pearl and brass, softly painted texture, clean dark navy-purple outline, child-readable silhouette. Exactly four isolated props in a strict 2x2 grid on a perfectly flat, uniform pure chroma green #00FF00 background. Wide empty green gutters between quadrants. Top-left: one small cream-and-coral handled batter pitcher in side three-quarter view, with a clear spout and pale sparkling cake batter visibly inside; no bowl. Top-right: one whimsical teal-and-coral shell-trimmed candy syrup jug in side three-quarter view, with a clear spout and pink syrup visibly inside; no candy and no molds. Bottom-left: one warm ivory merbaby feeding bottle with coral shell cap and golden milk, upright, no baby and no hand. Bottom-right: one cream/coral/brass open-end racing mechanic wrench with a tiny shell crest, diagonal but fully contained; no toolbox and no kart. Every prop complete and anatomically/structurally coherent, centered within its own quadrant, same apparent scale, at least 18 percent green margin on all sides. No cast shadows, no floor, no glow, no labels, no letters, no numbers, no characters, no extra objects, no detached or floating pieces, no cropping, no overlap across cells. Crisp edges suitable for chroma-key extraction and downscaling to 256x256.",
+    "references_supplied": [
+      "assets/opera/worlds/widgets/widget_pour_chef.png",
+      "assets/opera/worlds/widgets/widget_pour_candymaker.png",
+      "assets/opera/worlds/widgets/widget_pour_nursery.png",
+      "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_pit_toolkit.png"
+    ],
+    "result_id": "exec-36bd6833-2769-4631-b95b-6bc016511f87.png"
+  },
+  "native_sha256": "ba1c0892f521899dd18aaa653c3a645f80fa7a210517688ea51801aaafffa02a",
+  "qa_summary": {
+    "alpha_margin": "pass",
+    "codex_visual_review": "accepted",
+    "crop": "pass",
+    "dimensions": "pass",
+    "floating_parts": "pass",
+    "green_spill": "pass",
+    "owner_human_review": "pending"
+  },
+  "schema": 1,
+  "source_role_notes": [
+    "Source export labels were audited visually. Candy and Farmer source names are shifted; mappings above follow visible art.",
+    "Chef pieces retain only each topping's approved visible silhouette/lower outline; every serving pedestal/plate/base pixel is excluded.",
+    "Magician cabinet reveal continues VANISH by placing the approved Lamba reveal inside a cabinet shell derived only from approved crops.",
+    "Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order."
+  ]
+}

@@ -14,6 +14,34 @@ var scuffle_shot_out := ""
 var scuffle_capture_career := ""
 var stress_shot_out := ""
 var lobby_shot_out := ""
+var detective_shot_out := ""
+
+const DIRECT_SURFACE_CONTRACTS := {
+	"detective": {
+		"CASE BOARD": {"mode": "clue_board", "goal": 3.0, "context": "clue_board"},
+		"CROWN": {"mode": "crown_chest", "goal": 1.0, "context": "crown_chest"},
+	},
+	"farmer": {
+		"PLANT": {"mode": "garden_plant", "goal": 5.0, "context": "garden_plant"},
+	},
+	"magician": {
+		"VANISH": {"mode": "hold", "goal": 3.8, "context": "magic_vanish"},
+		"CABINET": {"mode": "magic_cabinet", "goal": 1.0, "context": "magic_cabinet"},
+	},
+	"nursery": {
+		"WASH HANDS": {"mode": "hold", "goal": 3.4, "context": "nursery_wash"},
+		"FEED": {"mode": "hold", "goal": 4.0, "context": "nursery_feed"},
+		"BURP": {"mode": "tap", "goal": 4.0, "context": "nursery_burp"},
+		"BEDTIME": {"mode": "swipe", "goal": 3.0, "context": "nursery_bedtime"},
+	},
+}
+
+const RETAINED_ROTATIONS := {
+	"chef": "STIR",
+	"ballerina": "TWIRL",
+	"astronaut": "VALVE",
+	"magician": "PORTAL",
+}
 
 
 func _init() -> void:
@@ -23,6 +51,7 @@ func _init() -> void:
 	scuffle_capture_career = OS.get_environment("OPERA_SCUFFLE_CAPTURE_CAREER").strip_edges()
 	stress_shot_out = OS.get_environment("OPERA_STRESS_SHOT_OUT").strip_edges()
 	lobby_shot_out = OS.get_environment("OPERA_LOBBY_SHOT_OUT").strip_edges()
+	detective_shot_out = OS.get_environment("OPERA_DETECTIVE_SHOT_OUT").strip_edges()
 	if not widget_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(widget_shot_out)
 	if not rival_shot_out.is_empty():
@@ -33,6 +62,8 @@ func _init() -> void:
 		DirAccess.make_dir_recursive_absolute(stress_shot_out)
 	if not lobby_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(lobby_shot_out)
+	if not detective_shot_out.is_empty():
+		DirAccess.make_dir_recursive_absolute(detective_shot_out)
 	var scene := load("res://scenes/main.tscn") as PackedScene
 	main = scene.instantiate() as ReefMain
 	get_root().add_child(main)
@@ -138,6 +169,8 @@ func _init() -> void:
 		_check("2D lobby restores the touch layer on exit", main.touch_ui.visible == lobby_touch_before)
 	var show_count := 0
 	var total_widget_count := 0
+	var direct_surface_count := 0
+	var total_circle_count := 0
 	for source: Dictionary in OperaHouse.ACTS:
 		if String(source.get("type", "show")) == "boss":
 			continue
@@ -213,11 +246,163 @@ func _init() -> void:
 		var expected_signature := {
 			"chef": "oven", "detective": "lens", "ballerina": "dance_sequence",
 			"candymaker": "candy_sort", "doctor": "xray_scan", "farmer": "farm_lob",
-			"boxer": "boxer_rhythm", "magician": "choice", "painter": "paint_reveal",
+			"boxer": "boxer_rhythm", "magician": "magic_cabinet", "painter": "paint_reveal",
 			"astronaut": "pipe", "racer": "kart", "nursery": "catch", "popstar": "echo",
 		}
 		_check("%s contains its signature mechanic" % career,
 			modes.has(String(expected_signature.get(career, ""))))
+		if career == "farmer":
+			var picnic_phase: Dictionary = world.phases[3]
+			var picnic_anchors: Array = OperaGestureSurface.TARGET_ANCHORS.get(
+				"target_farmer", [])
+			_check("farmer PICNIC gives one unique snack to each of three piggies",
+				String(picnic_phase.get("name", "")) == "PICNIC"
+				and is_equal_approx(float(picnic_phase.get("goal", 0.0)), 3.0)
+				and picnic_anchors.size() == 3)
+		var direct_contracts: Dictionary = DIRECT_SURFACE_CONTRACTS.get(career, {})
+		for direct_phase: Dictionary in world.phases:
+			var direct_name := String(direct_phase.get("name", ""))
+			if not direct_contracts.has(direct_name):
+				continue
+			var direct_contract: Dictionary = direct_contracts[direct_name]
+			var direct_mode := String(direct_phase.get("mode", ""))
+			var requested_context := String(direct_phase.get("visual_context", ""))
+			world.surface.configure(direct_mode, Color.WHITE,
+				world.choice_target, requested_context)
+			var direct_ok := direct_phase.has("widget") \
+				and String(direct_phase.get("widget", "missing")).is_empty() \
+				and world._widget_template(direct_phase).is_empty() \
+				and direct_mode == String(direct_contract.get("mode", "")) \
+				and is_equal_approx(float(direct_phase.get("goal", 0.0)),
+					float(direct_contract.get("goal", -1.0))) \
+				and world.surface.mode == direct_mode \
+				and world.surface.visual_context == String(direct_contract.get("context", ""))
+			if direct_name == "BEDTIME":
+				direct_ok = direct_ok and String(direct_phase.get("dir", "")) == "down"
+			_check("%s %s uses its direct specialist surface" % [career, direct_name],
+				direct_ok)
+			direct_surface_count += 1
+		var retained_rotation_ok := not RETAINED_ROTATIONS.has(career)
+		for pacing_phase: Dictionary in world.phases:
+			if String(pacing_phase.get("mode", "")) != "circle":
+				continue
+			total_circle_count += 1
+			var rotations := float(pacing_phase.get("goal", 0.0))
+			_check("%s %s finishes in 1.5 to 2.2 rotations" \
+				% [career, String(pacing_phase.get("name", "circle"))],
+				rotations >= 1.5 and rotations <= 2.2)
+			if String(pacing_phase.get("name", "")) \
+					== String(RETAINED_ROTATIONS.get(career, "")):
+				retained_rotation_ok = true
+		if RETAINED_ROTATIONS.has(career):
+			_check("%s retains its thematic rotation verb" % career,
+				retained_rotation_ok)
+		# Every accepted generic choice must immediately cue its newly selected
+		# answer. Magician TRACK spends the same cue on a fresh hat shuffle.
+		for choice_phase_index in range(world.phases.size()):
+			var choice_phase: Dictionary = world.phases[choice_phase_index]
+			if String(choice_phase.get("mode", "")) != "choice":
+				continue
+			world.phase_index = choice_phase_index
+			world.phase_progress = 0.0
+			world.phase_gap = 0.0
+			world.phase_advance_pending = false
+			world.reveal_t = 0.0
+			world.task_open = true
+			world.choice_target = 0
+			var choice_template := world._widget_template(choice_phase)
+			var choice_context := "%s_%s" % [choice_template, career] \
+				if not choice_template.is_empty() else ""
+			if choice_phase.has("visual_context"):
+				choice_context = String(choice_phase.get("visual_context", choice_context))
+			world.surface.configure("choice", Color.WHITE, 0, choice_context)
+			world.surface.choice_flash = 0.0
+			world.surface.shuffle_t = 0.0
+			var previous_choice := world.choice_target
+			world._on_gesture("choice", 1.0, 1.0)
+			_check("%s %s visibly cues its next correct choice" \
+				% [career, String(choice_phase.get("name", "choice"))],
+				world.choice_target != previous_choice
+				and world.surface.target_choice == world.choice_target
+				and world.surface.choice_flash > 0.0)
+			if career == "magician":
+				_check("magician TRACK starts a fresh shuffle after every accepted hat",
+					world.surface.shuffle_t > 0.0
+					and world.surface.shuffle_from == previous_choice)
+		world.phase_index = 0
+		world.phase_progress = 0.0
+		world.phase_advance_pending = false
+		world.phase_complete_t = 0.0
+		if career == "detective":
+			var case_voice_ok := false
+			var crown_voice_ok := false
+			for detective_phase: Dictionary in world.phases:
+				if String(detective_phase.get("name", "")) == "CASE BOARD":
+					case_voice_ok = String(detective_phase.get("vo", "")) \
+						== "op_detective_match"
+				if String(detective_phase.get("name", "")) == "CROWN":
+					crown_voice_ok = String(detective_phase.get("vo", "")) \
+						== "op_detective_name"
+			_check("detective CASE BOARD reuses the exact matching voice cue",
+				case_voice_ok)
+			_check("detective CROWN uses its exact spotlight voice cue",
+				crown_voice_ok)
+			_check("detective opens with theft then search voice recordings",
+				OperaCareerWorld2D.DETECTIVE_INTRO_LINES.size() == 2
+				and String(OperaCareerWorld2D.DETECTIVE_INTRO_LINES[0].get("vo", ""))
+					== "op_detective_steal"
+				and String(OperaCareerWorld2D.DETECTIVE_INTRO_LINES[1].get("vo", ""))
+					== "op_detective_search")
+		if career == "ballerina":
+			var watch_voice_count := 0
+			for ballerina_phase: Dictionary in world.phases:
+				if String(ballerina_phase.get("name", "")) in ["PHRASE", "POSE"] \
+						and String(ballerina_phase.get("vo", "")) == "op_ballerina_watch":
+					watch_voice_count += 1
+			_check("ballerina demonstration and hold reuse the watch voice cue",
+				watch_voice_count == 2)
+		if career == "candymaker":
+			var syrup_goal := 0.0
+			for candy_phase: Dictionary in world.phases:
+				if String(candy_phase.get("name", "")) == "SYRUP":
+					syrup_goal = float(candy_phase.get("goal", 0.0))
+			_check("candymaker SYRUP requires the full five-point pour",
+				is_equal_approx(syrup_goal, 5.0))
+		if career in ["doctor", "farmer"]:
+			var station_phase_name := "X-RAY" if career == "doctor" else "TOSS"
+			var expected_station_id := "exam_booth" if career == "doctor" else "hay_bales"
+			var station_phase_index := -1
+			for station_phase_i in range(world.phases.size()):
+				if String((world.phases[station_phase_i] as Dictionary).get("name", "")) \
+						== station_phase_name:
+					station_phase_index = station_phase_i
+					break
+			var resolved_station_id := ""
+			var resolved_station_index := int(world.station_for_phase.get(
+				station_phase_index, -1))
+			if resolved_station_index >= 0 \
+					and resolved_station_index < world.station_list.size():
+				resolved_station_id = String(world.station_list[resolved_station_index].get(
+					"id", ""))
+			_check("%s %s resolves to the thematic %s landmark" \
+				% [career, station_phase_name, expected_station_id],
+				resolved_station_id == expected_station_id)
+		if career == "nursery":
+			var catch_phase: Dictionary = {}
+			for nursery_phase: Dictionary in world.phases:
+				if String(nursery_phase.get("name", "")) == "CATCH BABIES":
+					catch_phase = nursery_phase
+					break
+			world._apply_panel_layout(catch_phase)
+			var catch_rect := Rect2(world.nursery_catch.position,
+				world.nursery_catch.size)
+			var fill_rect := Rect2(world.phase_fill.position, world.phase_fill.size)
+			_check("nursery catch surface stays above and clear of its progress bar",
+				not catch_phase.is_empty()
+				and catch_rect.intersection(fill_rect).get_area() <= 0.01
+				and catch_rect.position.x >= 0.0 and catch_rect.position.y >= 0.0
+				and catch_rect.end.x <= world.action_panel.size.x
+				and catch_rect.end.y <= world.action_panel.size.y)
 		_check("%s avoids copied combat phases" % career,
 			modes.count("bop") == (1 if career == "boxer" else 0))
 		# Costume identity lock: bopping a dressed crew imp must never swap her
@@ -296,7 +481,6 @@ func _init() -> void:
 			await _capture_rival_states(world, career, backdrop)
 		var widgets_complete := true
 		var widgets_causal := true
-		var target_lock_checked := false
 		var widget_count := 0
 		for phase_number in range(world.phases.size()):
 			var phase_dict: Dictionary = world.phases[phase_number]
@@ -324,17 +508,39 @@ func _init() -> void:
 			world.surface.note_input()
 			widgets_causal = widgets_causal and not world.surface.demo_active \
 				and world.surface.input_started
-			if template == "target" and phase_mode == "tap" and not target_lock_checked:
+			if template == "target" and phase_mode == "tap":
+				# The owner-gate check above intentionally leaves the surface in its
+				# achieved hold. Re-arm the phase before driving its real target so
+				# completion_accepted cannot make this input assertion a false failure.
+				world.surface.configure(phase_mode, Color.WHITE,
+					world.choice_target, context)
 				world.surface.set_block_signals(true)
-				var stamp_at := world.surface.size * Vector2(0.31, 0.62)
-				var marks_before := world.surface.tap_marks.size()
-				world.surface._press(stamp_at)
-				world.surface._release(stamp_at)
-				widgets_causal = widgets_causal \
-					and world.surface.tap_marks.size() == marks_before + 1 \
-					and (world.surface.tap_marks.back() as Vector2).is_equal_approx(stamp_at)
+				if career == "painter":
+					var stamp_at := world.surface.size * Vector2(0.31, 0.62)
+					var marks_before := world.surface.tap_marks.size()
+					world.surface._press(stamp_at)
+					world.surface._release(stamp_at)
+					var painter_free := not OperaGestureSurface.TARGET_ANCHORS.has(context) \
+						and world.surface.tap_marks.size() == marks_before + 1 \
+						and (world.surface.tap_marks.back() as Vector2).is_equal_approx(stamp_at)
+					_check("painter STAMPS preserves true free finger placement",
+						painter_free)
+					widgets_causal = widgets_causal and painter_free
+				else:
+					var anchors: Array = OperaGestureSurface.TARGET_ANCHORS.get(context, [])
+					var anchored_ok := not anchors.is_empty() \
+						and world.surface.target_placed.size() == anchors.size()
+					if anchored_ok:
+						var anchor: Vector2 = anchors[0]
+						var target_at := world.surface.size * anchor
+						world.surface._press(target_at)
+						world.surface._release(target_at)
+						anchored_ok = bool(world.surface.target_placed[0])
+					_check("%s %s places pieces on authored surface anchors" \
+						% [career, String(phase_dict.get("name", "target"))],
+						anchored_ok)
+					widgets_causal = widgets_causal and anchored_ok
 				world.surface.set_block_signals(false)
-				target_lock_checked = true
 			elif phase_mode == "xray_scan":
 				# A target-family backdrop no longer implies free-placement taps.
 				# Drive Doctor's actual drag grammar with signals blocked so this
@@ -372,8 +578,8 @@ func _init() -> void:
 				world.surface.set_block_signals(false)
 			if not widget_shot_out.is_empty():
 				await _capture_widget_states(world, career, phase_number, phase_dict, template)
-		# detective (wander-and-talk crown hunt) and racer (3D kart lap) have
-		# no card widgets by design — their beats play on the stage itself
+		# Direct specialist surfaces deliberately have no generic widget family;
+		# those contracts are exercised above instead of requiring reskin assets.
 		_check("%s loads every diegetic phase widget" % career,
 			widgets_complete and (widget_count > 0 or career in ["detective", "racer"]))
 		_check("%s widgets remain input-causal with owner-gated completion" % career,
@@ -391,6 +597,67 @@ func _init() -> void:
 				panel_rect.intersection(actor_rect).get_area() <= 0.01)
 		var captain_stage_seen := false
 		if career == "detective":
+			_check("detective lens is enlarged around its real glass centre",
+				OperaCareerWorld2D.LENS_GRAPHIC_SIZE.x >= 400.0
+				and OperaCareerWorld2D.LENS_RADIUS >= 125.0)
+			_check("detective lens samples the painted room at true magnification",
+				world.lens_zoom_surface != null and world.lens_zoom_surface.visible
+				and world.lens_zoom_material != null
+				and float(world.lens_zoom_material.get_shader_parameter("magnification")) >= 1.7
+				and world.lens_zoom_material.shader.code.contains("hint_screen_texture"))
+			_check("detective room exposes many safe inspection targets",
+				world.lens_room_objects.size() >= 16)
+			var full_glass_on_screen := true
+			for requested_lens: Vector2 in [Vector2(-1000.0, -1000.0),
+					Vector2(10000.0, 10000.0)]:
+				world._set_lens_position(requested_lens)
+				full_glass_on_screen = full_glass_on_screen \
+					and world.lens_pos.x - OperaCareerWorld2D.LENS_RADIUS >= 0.0 \
+					and world.lens_pos.y - OperaCareerWorld2D.LENS_RADIUS >= 0.0 \
+					and world.lens_pos.x + OperaCareerWorld2D.LENS_RADIUS \
+						<= StorybookUI.CANVAS_SIZE.x \
+					and world.lens_pos.y + OperaCareerWorld2D.LENS_RADIUS \
+						<= StorybookUI.CANVAS_SIZE.y
+			_check("detective clamp keeps the complete functional glass onscreen",
+				full_glass_on_screen)
+			var every_clue_reachable := not world.lens_clues.is_empty()
+			for clue: Vector2 in world.lens_clues:
+				every_clue_reachable = every_clue_reachable \
+					and world._clamped_lens_position(clue).distance_to(clue) \
+					<= OperaCareerWorld2D.LENS_CLUE_CAPTURE_RADIUS
+			_check("detective glass clamp reaches every shipping clue",
+				every_clue_reachable)
+			world._set_lens_position(Vector2(640.0, 400.0))
+			world.lens_demo = true
+			var demo_clue_index := world._next_unfound_lens_clue()
+			var demo_distance_before := INF
+			var demo_target := Vector2.ZERO
+			if demo_clue_index >= 0:
+				demo_target = world._clamped_lens_position(
+					world.lens_clues[demo_clue_index])
+				demo_distance_before = world.lens_pos.distance_to(demo_target)
+			world._tick_lens(0.25)
+			_check("detective wordless demo travels toward the next unresolved clue",
+				demo_clue_index >= 0
+				and world.lens_pos.distance_to(demo_target) < demo_distance_before)
+			var search_progress_before := world.phase_progress
+			var room_reactions_before := world.lens_room_reactions
+			var first_room_object: Dictionary = world.lens_room_objects[0]
+			_check("ordinary detective props react without solving the case",
+				world._try_lens_room_object(first_room_object.get("pos", Vector2.ZERO))
+				and world.lens_room_reactions == room_reactions_before + 1
+				and is_equal_approx(world.phase_progress, search_progress_before))
+			world.lens_demo = false
+			world.lens_since_find = OperaCareerWorld2D.LENS_HINT_DELAY - 0.05
+			world._tick_lens(0.10)
+			_check("detective glistens one unfound clue after twelve quiet seconds",
+				world.lens_hint_target >= 0
+				and not world.lens_found[world.lens_hint_target])
+			if not detective_shot_out.is_empty():
+				world._set_lens_position(Vector2(518.0, 248.0))
+				await process_frame
+				await process_frame
+				await _capture_viewport(detective_shot_out.path_join("detective_search_zoom_and_hint.png"))
 			var original_phase_count := world.phases.size()
 			while world.phase_index < world._finale_start():
 				if world.phase_index == world.steal_index and backdrop != null:
@@ -479,11 +746,15 @@ func _init() -> void:
 		reentry_clean)
 
 	_check("all thirteen career jobs were exercised", show_count == 13)
-	# 46 after the 2026-08-04 logical rebuild: the ping-pong meters, the
-	# scatter-tap boards and the racer widget set were retired in favour of
-	# grammars that ARE the job (oven, tilt-pour, pipe dream, crown hunt,
-	# echo song, 3D kart lap). Detective and the kart beat carry no card.
-	_check("every art-backed career widget was exercised", total_widget_count >= 40)
+	# The 52 shipping phases now comprise 38 shared art-family cards, nine
+	# direct specialist/context surfaces, and five stage/custom beats (lens,
+	# boxing scuffle, pipe board, kart and echo song) that need no generic card.
+	_check("all thirty-eight art-family career widgets were exercised",
+		total_widget_count == 38)
+	_check("all nine direct specialist/context surfaces were exercised",
+		direct_surface_count == 9)
+	_check("all eight retained circle phases use the shortened rotation pacing",
+		total_circle_count == 8)
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()
