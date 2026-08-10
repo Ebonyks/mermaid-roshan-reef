@@ -341,6 +341,7 @@ This document was prepared on branch `codex/unique-area-music-20260809`, based o
 - the owner’s 2026-08-09 request and Craft Room reference, especially the request for sneaky Detective music, classical/homey Baker music, and bluegrass Farmer music within one child-friendly family;
 - `ffprobe` stream inspection and FFmpeg EBU R128/true-peak analysis for the 15 legacy files;
 - the renderer’s complete build and `--check` run with pinned FFmpeg 8.1.2, plus independent catalog, hash, codec, bitrate, loudness, decode, seam, and import-metadata review.
+- exact Godot 4.7.1 branch CI at commit `27c2c95d`, including static gates, import, the real script analyzer, every trusted probe, boot gate, balance checks, and visual captures: [run 31354631664](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/31354631664).
 
 ## 10. Acceptance criteria
 
@@ -383,4 +384,4 @@ The music pass is complete only when all of the following are true.
 24. `ASSET_LICENSES.md` records the score source, renderer, outputs, project-owned license, and the fact that no samples, soundfonts, downloaded audio, or protected recordings were used.
 25. Source score, renderer, native render if distinct, production OGG, import metadata, and hashes are preserved together so the 42 cues are reproducible and reviewable.
 
-Criteria 1–7 and 14–16, 20, and 23–25 now have automated evidence. Criteria 8–13, 17–19, 21, and 22 include human listening, in-game mix, full-engine, or target-device judgment and remain open until those reviews are recorded; no automated measurement is presented as a substitute for a child-facing listen.
+Criteria 1–7, 14–16, 20, 21, and 23–25 now have automated evidence. Criteria 8–13, 17–19, and 22 include human listening, in-game mix, or target-device judgment and remain open until those reviews are recorded; no automated measurement is presented as a substitute for a child-facing listen.
