@@ -1,6 +1,6 @@
 # Ballerina Party Rebuild — Design and Implementation Record
 
-Date: 2026-08-09  
+Date: 2026-08-09
 Status: implementation complete on the task branch; targeted local gates green;
 full CI and target-device play-test still pending.
 

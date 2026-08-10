@@ -52,14 +52,6 @@ func _paid_total(kind: String) -> float:
 	return total
 
 
-func _event_count(kind: String) -> int:
-	var count := 0
-	for event: Dictionary in events:
-		if String(event.get("kind", "")) == kind:
-			count += 1
-	return count
-
-
 func _cue_frames(kind: String) -> Array[int]:
 	var result: Array[int] = []
 	for event: Dictionary in events:
