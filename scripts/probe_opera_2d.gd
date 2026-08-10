@@ -584,6 +584,11 @@ func _init() -> void:
 				world.surface != null and world.surface.get_script() == BalletSurface
 				and world.action_panel.visible
 				and world.surface.size.x >= 800.0 and world.surface.size.y >= 600.0)
+			var ballet_surface: Variant = world.surface
+			_check("ballerina recital maps heart, open, and crown atlas poses in order",
+				BalletSurface.POSE_FRAMES == [3, 2, 1]
+				and ballet_surface.pose_target_frame() == 3
+				and ballet_surface.pose_option_frames() == [3, 1])
 			_check("ballerina hides progress chrome, race bars, and the rival",
 				world.phase_fill != null and not world.phase_fill.visible
 				and world.player_bar != null and not world.player_bar.visible

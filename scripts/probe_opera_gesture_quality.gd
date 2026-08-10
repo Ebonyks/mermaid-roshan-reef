@@ -44,6 +44,22 @@ func _paid_total(kind: String) -> float:
 	return total
 
 
+func _cue_frames(kind: String) -> Array[int]:
+	var result: Array[int] = []
+	for event: Dictionary in events:
+		if String(event.get("kind", "")) == kind:
+			result.append(int(round(float(event.get("amount", -1.0)))))
+	return result
+
+
+func _collapse_held_cues(source: Array[int]) -> Array[int]:
+	var result: Array[int] = []
+	for frame: int in source:
+		if result.is_empty() or result[-1] != frame:
+			result.append(frame)
+	return result
+
+
 func _pose_at(surface: OperaGestureSurface, time: float) -> Dictionary:
 	surface.demo_t = time
 	return surface._demo_finger_pose()
@@ -87,6 +103,9 @@ func _test_ballet_surface() -> void:
 	var first_frames: Array[int] = ballet.pose_option_frames()
 	var first_target: int = ballet.pose_target_frame()
 	var first_target_index: int = _pose_choice_index(ballet, first_target)
+	_ck("ballet phrase uses atlas heart, open, and crown in that order",
+		BalletSurface.POSE_FRAMES == [3, 2, 1]
+		and first_target == 3 and first_frames == [3, 1])
 	_ck("ballet mirror begins with two 180px-or-larger portrait targets",
 		first_rects.size() == 2 and first_target_index >= 0
 		and first_rects[0].size.x >= 180.0 and first_rects[0].size.y >= 180.0
@@ -122,10 +141,12 @@ func _test_ballet_surface() -> void:
 	ballet._release(first_rects[first_target_index].get_center())
 	_ck("real matching portrait banks exactly one mirror round",
 		ballet.pose_round == 1 and _paid_count("ballet_pose") == 1)
+	var mirror_targets: Array[int] = [first_target]
 	var pose_guard := 0
 	while ballet.pose_round < int(BalletSurface.POSE_ROUNDS) and pose_guard < 6:
 		ballet._process(1.7)
 		var target: int = ballet.pose_target_frame()
+		mirror_targets.append(target)
 		var option_index: int = _pose_choice_index(ballet, target)
 		var rects: Array[Rect2] = ballet.pose_option_rects()
 		ballet._press(rects[option_index].get_center())
@@ -134,6 +155,8 @@ func _test_ballet_surface() -> void:
 	_ck("three deliberate portrait matches complete Mirror with three payouts",
 		ballet.pose_round == int(BalletSurface.POSE_ROUNDS)
 		and _paid_count("ballet_pose") == int(BalletSurface.POSE_ROUNDS))
+	_ck("mirror presents the complete low-open-crown pose phrase exactly once",
+		mirror_targets == [3, 2, 1])
 
 	# RIBBON: one curve owns painting and collision. A coarse path with a lift
 	# completes; a direct chord cannot skip across distant sine crossings.
@@ -218,6 +241,9 @@ func _test_ballet_surface() -> void:
 	_ck("counter-clockwise adjacent sectors complete one resumed grand twirl",
 		ballet.twirl_progress >= 0.999 and ballet.twirl_direction == 1
 		and _paid("ballet_twirl"))
+	var resumed_twirl_cues: Array[int] = _cue_frames("ballet_pose_cue")
+	_ck("twirl replay may re-hold a pose but cannot scramble the phrase",
+		_collapse_held_cues(resumed_twirl_cues) == [3, 2, 1])
 	events.clear()
 	ballet.configure("ballet_twirl", Color("#ff8fc8"))
 	ballet.set_process(false)
@@ -231,6 +257,8 @@ func _test_ballet_surface() -> void:
 	_ck("clockwise adjacent sectors are equally valid",
 		ballet.twirl_progress >= 0.999 and ballet.twirl_direction == -1
 		and _paid("ballet_twirl"))
+	_ck("uninterrupted twirl cues low-open-crown exactly once",
+		_cue_frames("ballet_pose_cue") == [3, 2, 1])
 	ballet.queue_free()
 
 

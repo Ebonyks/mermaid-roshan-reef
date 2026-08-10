@@ -17,11 +17,11 @@ const ATLAS_CELL := Vector2(256.0, 256.0)
 const WORK_ROW := 2
 ## Deliberate port-de-bras phrase: heart/low, open/second, crown/fifth.
 ## Values are the zero-based atlas columns emitted to the career-world actor.
-const POSE_FRAMES: Array[int] = [2, 1, 0]
+const POSE_FRAMES: Array[int] = [3, 2, 1]
 const POSE_OPTIONS: Array = [
-	[2, 0],
-	[1, 2, 0],
-	[0, 1, 2],
+	[3, 1],
+	[2, 3, 1],
+	[1, 2, 3],
 ]
 const POSE_ROUNDS := 3
 const DEMO_SECONDS := 1.55

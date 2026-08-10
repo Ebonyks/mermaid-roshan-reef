@@ -1717,9 +1717,9 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 	if player_animator != null:
 		var mode := String(phase.get("mode", ""))
 		if mode == "ballet_ribbon":
-			var ribbon_frames: Array[int] = [2, 1, 0]
-			var ribbon_band := mini(ribbon_frames.size() - 1, int(floor(progress * 3.0)))
-			player_animator.show_pose("work", ribbon_frames[ribbon_band])
+			var ribbon_band := mini(BalletSurface.POSE_FRAMES.size() - 1,
+				int(floor(progress * 3.0)))
+			player_animator.show_pose("work", int(BalletSurface.POSE_FRAMES[ribbon_band]))
 	if phase_progress < goal:
 		return
 	surface.accept_completion()
