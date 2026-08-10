@@ -2,10 +2,13 @@
 
 - **Document ID:** CDL-2026-08-09
 - **Status:** `PROPOSED_CANONICAL`; direct owner decisions remain controlling
-  until this file is tracked, indexed, ledgered, and gated
+  while the exhaustive ledger, complete finding records, and documentation gate
+  remain open
 - **Decision baseline:** owner direction through 2026-08-09
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
-- **Last synchronized audit commit:** `e4528b27e2552f669de2b65c37da0243fb924eac`
+- **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
+- **Last synchronized audit commit:** `a3d3bce18dd73d0ac87f2fb4bac397e2b4396180`
+- **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
   reference
@@ -19,11 +22,24 @@ It is intentionally a rulebook, not a claim that the current build already
 meets every rule. Current compliance, exceptions, dismissed audit items, and
 closure evidence live in `audit/MASTER_AUDIT_2026-08-09.md`.
 
-The existing `design/00_MASTER_INDEX.md` and `design/05_DOC_LEDGER.md` predate
-this document. Until they are reconciled, a direct owner decision and the
-operational/security rules in `AGENTS.md` remain higher authority. Where an
-older art or design document conflicts with a rule here, the dated
-supersession table in section 15 controls for this audit.
+Commit `9289dd81` reconciled `AGENTS.md`, `CLAUDE.md`, `design/00` through
+`design/05`, and the named Roshan authority surface to the owner's final 2D
+decision. The ledger is still incomplete across the current 299 tracked
+Markdown files, so a direct owner decision and binding operational/security
+rules remain higher authority. Where an older art or design document conflicts
+with a rule here, the dated supersession table in section 15 controls.
+
+At synchronized code commit `a3d3bce1`, this remains an acceptance target, not
+a compliance claim. Exact local full CI is green after 1434.3 seconds with
+fresh import, all static gates, GAME2D `NO_REGRESSION`, and all 61 trusted
+probes under Godot 4.7.1-stable. Repeated nonfatal invalid-UID fallback warnings
+for the retained `sponge_tubes.glb` and `starfish.glb` resources remain open 3D
+migration/resource-hygiene debt, so the run is not warning-free or
+release-clean. GAME2D is exact but strict-unsatisfied at 509 models, 68
+production 3D files, and 77 probe 3D files. Fresh-runtime visual strict is also
+unsatisfied at 16 failures, 17 reviews, two manual items, and 86 coverage gaps;
+no live Canvas capture output was accepted. Commits `3b7a7e66` and `fea916a8`
+are the approved visual-evidence implementation baseline for `DL-QA-11`.
 
 ---
 
@@ -209,6 +225,13 @@ frame and ignores compositing, HUD, viewport, and device presentation. Do not
 recolor or regenerate approved art merely to satisfy that metric. First measure
 the true state-local Canvas composite and review it in runtime and on device.
 
+`DL-VIS-09` — When an accepted frame-animated 2D counterpart exists for a
+gameplay character, an older vinyl/sticker card MUST NOT remain that activity's
+active actor unless the activity is explicitly a sticker-book interface. Trees,
+bushes, and other environment art in the same activity meet the surrounding
+game's silhouette, contour, value, and phone-readability quality; preview drafts
+do not become production merely because they are already imported.
+
 ---
 
 ## 5. Composition and child-readable hierarchy
@@ -365,6 +388,13 @@ zero input or a stale timer.
 `DL-MOT-06` — Camera motion is gentle, predictable, and subordinate to the
 action. Avoid abrupt lens yaw, pose/camera disagreement, and framing that loses
 the active object or Roshan.
+
+`DL-MOT-07` — If a character is described as animated, the runtime MUST visibly
+advance accepted authored frames or equivalent approved 2D states. Translating,
+scaling, rotating, fading, or wobbling one static sticker is feedback motion,
+not a fully animated character replacement. Hide/peek/reveal sequences also
+MUST preserve opacity and framing so an actor cannot leak or clip before the
+authored reveal.
 
 ---
 
@@ -572,6 +602,7 @@ These states prevent an old recommendation from silently becoming a new bug.
 | Sparkle guide-fish implementation | **DISMISSED_NOT_IN_PROJECT** | Current wayfinding uses landmarks, voice, pointers, and helping-current behavior; the underlying wayfinding need remains valid |
 | Visible virtual stick as the primary curriculum | **SUPERSEDED** | Direct touch is primary; stick is fallback under `DL-UI-01` and `DL-UI-02` |
 | Whole-card bounce/spin as an object's meaningful action | **DISMISSED_NOT_IN_PROJECT** | It is not an approved interaction solution under `DL-INT-02` |
+| Use Seek's vinyl `characters/stickers/pearl_friend.png` pair card or `assets/mg/k_bush2.png` preview art in place of the accepted animated activity | **SUPERSEDED for Seek** | `DL-VIS-09` and `DL-MOT-07`; `8fa90111`/`27bda85d` provide the accepted animated Evie/Lamb-a' actors and high-grade tree cards. Protected/reference originals remain untouched and are not globally reclassified by this bounded runtime decision. |
 | Build new 3D construction before or after approved 2D direction | **DISMISSED_NOT_IN_PROJECT** | Final 2D medium; migration work only removes measured debt |
 | 3D Opera, companion, path, or `Curve3D` presentation as a retained fallback | **SUPERSEDED** | The 3D prescriptions are superseded; any currently reachable companion/path/Opera implementation remains measured migration debt until a tested 2D replacement owns it |
 | Cinematic tween/morph/interpolation shortcuts or portrait/rotated delivery | **DISMISSED_NOT_IN_PROJECT** | `DL-CIN-01` through `DL-CIN-12` |
@@ -595,7 +626,9 @@ controls. A probe that writes state directly around the interaction it claims
 to test is diagnostic, not closure evidence.
 
 `DL-QA-03` — Runtime capture proves composition, cutoff, coordinate alignment,
-animation, hierarchy, and visible feedback at supported aspect ratios.
+animation, hierarchy, and visible feedback at supported aspect ratios only when
+its provenance and state transition are bound to the audited build. An image or
+facts file detached from that runtime may guide review but cannot prove it.
 
 `DL-QA-04` — Target-device evidence proves frame pacing, latency, thermal/memory
 behavior, touch geometry, audio audibility, and the phone-size squint test.
@@ -640,12 +673,28 @@ branch alone is not completion.
    with evidence;
 4. exact Godot 4.7.1-stable import/analyzer and all trusted probes green at the
    audited commit;
-5. all applicable visual/runtime checks run, with manual items reviewed;
+5. all applicable visual/runtime checks run under `DL-QA-11`, with no
+   unresolved failure/review/manual/coverage gap;
 6. target-device performance and touch gates met;
 7. an observed five-minute golden-path child session completed without adult
    verbal instruction, reading, trapped state, accidental reward, lost
    progress, obvious presentation break, or frame-time breach; and
 8. a clean re-audit after repairs finds no new P0/P1 issue.
+
+`DL-QA-11` — Authoritative visual-runtime PASS requires the approved
+same-process `--fresh-runtime` contract: a new random one-use challenge, exact
+Godot 4.7.1-stable/Mobile/1280×720/stretch binding, clean current Git and full
+active source dependency closure, implemented closed state transition, and
+immutable visible/hidden/restored capture bytes tied to unique live Canvas
+targets. The verifier independently checks decoded layer identity,
+source-projected target shape, alpha-aware coverage/occlusion, effective draw
+order, and real touch reach. Saved JSON/PNGs, manual facts, copied or re-encoded
+layers, renewed hashes, presentation labels, and stale captures are diagnostic
+only: they MUST NOT grant PASS, suppress a static risk, or replace missing live
+evidence. Active 3D or unresolved dynamic/native reachability is `FAIL` or
+`COVERAGE_GAP`, never accepted Canvas evidence. Any absent/invalid challenge,
+capture, adapter, source binding, or target proof fails closed, and every such
+gap blocks strict satisfaction.
 
 ---
 
