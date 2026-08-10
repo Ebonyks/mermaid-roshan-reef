@@ -2379,3 +2379,34 @@ OpenAI built-in ImageGen natives and project-authored non-destructive derivative
   helper using soft matte and despill, then whole-canvas resized to 512x512 or
   256x256. Exact prompts, generation identifiers, dimensions, hashes, reuse
   audit, and processing notes are recorded in the adjacent `PROMPTS.md`.
+
+## Seek animated Evie and Lamb-a' actors (2026-08-09)
+
+- `assets_src/imagegen/seek_animated_2026-08-09/evie_atlas_chroma.png` -
+  project-original eight-frame Evie animation source generated with OpenAI
+  built-in image generation on 2026-08-09. License: project original. URL:
+  none (project-local generation). The protected
+  `assets/characters/friends/pearl_friend.png` was used read-only as an
+  identity reference and was not modified or copied into the delivery.
+  Source SHA-256:
+  `2b1cd2703388f14525603146545d7b9299e53d68e0d0ead449b3a5d85fe40597`.
+- `assets_src/imagegen/seek_animated_2026-08-09/lamma_atlas_chroma.png` -
+  project-original eight-frame Lamb-a' animation source generated with OpenAI
+  built-in image generation on 2026-08-09. License: project original. URL:
+  none (project-local generation). Existing Lamb-a' art was used read-only as
+  identity reference; no protected original was modified. Source SHA-256:
+  `7f38bb41209073f38aaec2cd4a99ed609154da71b02a383e89bfa58548a051fa`.
+- `assets/minigames/seek/evie_animation.png`,
+  `assets/minigames/seek/lamma_animation.png`, and
+  `assets/minigames/seek/evie_portrait.png` - project-authored deterministic
+  transparent derivatives of the two project-original sources above. The
+  repository builder removes border-connected chroma, removes bounded
+  cross-cell fragments, normalizes complete drawings into a 4x2 grid of
+  256x256 cells, and decontaminates residual chroma only in a narrow
+  transparent-edge shell; it does not alter the protected reference art.
+  Runtime SHA-256 values are recorded in the adjacent build manifest.
+- `assets_src/imagegen/seek_animated_2026-08-09/PROMPTS.md` and
+  `build_manifest.json` - project-authored provenance records containing the
+  exact prompts, declared references, source/output hashes, frame semantics,
+  and deterministic processing evidence. `tools/build_seek_animation_assets.py`
+  is the binding reproducible builder and `--check` validator.
