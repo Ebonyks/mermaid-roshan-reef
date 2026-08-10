@@ -28,10 +28,12 @@ func _init() -> void:
 		and patrol_y <= main.WATER_TOP - 3.0
 		and is_equal_approx(main._aquatic_patrol_height(0.0, 0.0, 20.0), 20.0))
 	print("AUDIT|Aquatic patrol terrain clearance: ", "OK" if aquatic_continuity else "FAIL")
-	var lamb_continuity: bool = (not main._game_obj("seek", SeekGame)._lamb_meadow_placement_allowed(Vector2(0.0, 9.0), "tree_fat")
-		and main._game_obj("seek", SeekGame)._lamb_meadow_placement_allowed(Vector2(25.0, 25.0), "tree_fat")
-		and not main._game_obj("seek", SeekGame)._lamb_meadow_placement_allowed(Vector2(25.0, 25.0), "tree_palm"))
-	print("AUDIT|Lamb meadow hide zones and climate: ", "OK" if lamb_continuity else "FAIL")
+	var seek_art_ready := true
+	for seek_art_path: String in SeekGame.runtime_art_paths():
+		seek_art_ready = seek_art_ready \
+			and ResourceLoader.exists(seek_art_path)
+	print("AUDIT|Seek Canvas authored atlas and v5 meadow art: ",
+		"OK" if seek_art_ready else "FAIL")
 	print("AUDIT|Penguin floe at water surface: ",
 		"OK" if absf(main.slide_portal_pos.y - (main.WATER_TOP + 0.5)) < 0.01 else "FAIL")
 	var t_start := Time.get_ticks_msec()
@@ -476,10 +478,22 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 				main.touch_ui.stick_vec = Vector2(0.5, 0.0)   # walk to the next gate
 				main.touch_ui.action_down = false
 		elif gname == "seek":
-			if g.has("bushes") and g.has("which"):
-				var bush: Node3D = (g["bushes"] as Array)[int(g["which"])]
-				player.position = player.position.lerp(bush.position, 0.15)
-				player.vel = Vector3.ZERO
+			var seek_surface := g.get("seek_surface") \
+				as SeekGame.SeekMeadowSurface
+			if seek_surface != null and is_instance_valid(seek_surface) \
+					and not seek_surface.revealing:
+				var seek_target := seek_surface.bush_hit_rect(
+					int(g.get("which", 0))).get_center()
+				var seek_touch := InputEventScreenTouch.new()
+				seek_touch.index = 52
+				var seek_viewport: Viewport = seek_surface.get_viewport()
+				var seek_screen: Vector2 = seek_viewport.get_screen_transform() \
+					* (seek_surface.get_screen_transform() * seek_target)
+				seek_touch.position = seek_screen
+				seek_touch.pressed = true
+				seek_viewport.push_input(seek_touch, false)
+				seek_touch.pressed = false
+				seek_viewport.push_input(seek_touch, false)
 		elif gname == "slide":
 			# Exercise the deliberate lean that the downhill ride requires.
 			var weave: float = 0.65 if int(fcount / 45) % 2 == 0 else -0.65

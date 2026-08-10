@@ -644,7 +644,6 @@ var intro_art: TextureRect
 var intro_art2: TextureRect
 var intro_text: Label
 const BTN_COLS := [Color(0.35, 0.95, 0.4), Color(1.0, 0.35, 0.35), Color(0.4, 0.55, 1.0), Color(1.0, 0.9, 0.35)]  # A B X Y
-const BTN_OFFS := [Vector3(0, 0, 9), Vector3(9, 0, 0), Vector3(-9, 0, 0), Vector3(0, 0, -9)]                     # bottom right left top
 
 const FRIEND_DEFS := [
 	{"tex": "pearl_friend",  "fname": "Evie and Lamb-a'",      "msg": "You found us! Swim close again to play hide and seek!", "game": "seek"},
@@ -3215,7 +3214,7 @@ var speech_t := 0.0
 const SPEAKER_PORTRAIT := {
 	"roshan": "res://assets/characters/roshan_25d/roshan_base.png",
 	"huluu": "res://assets/characters/friends/huluu.png",
-	"evie": "res://assets/characters/friends/mama_baby.png",
+	"evie": "res://assets/minigames/seek/evie_portrait.png",
 	"harper": "res://assets/characters/friends/two_friends.png",
 	"faron": "res://assets/characters/friends/mama_baby.png",
 	"daddy": "res://assets/characters/friends/daddy.webp",
@@ -6277,6 +6276,7 @@ func _tick_hints(delta: float) -> void:
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
 	_game_obj("dolls", DollsGame).stage_close()
+	_game_obj("seek", SeekGame).stage_close()
 	_game_obj("brawl", BrawlGame).stage_close()
 	_game_obj("dustboss", DustBossGame).stage_close()
 	# safety net (alpha audit 2026-08-05): any tween a minigame stashed in g
@@ -6679,7 +6679,7 @@ func _start_game_now(fr: Dictionary) -> void:
 	elif game == "dustboss":
 		_game_obj("dustboss", DustBossGame).build(fr, origin)
 	elif game == "seek":
-		_game_obj("seek", SeekGame).build(fr, origin)
+		_game_obj("seek", SeekGame).build(fr)
 	elif game == "race":
 		_game_obj("race", SlideRaceGame).build(fr, origin)
 	elif game == "shop":
@@ -6798,7 +6798,7 @@ func _tick_game(delta: float) -> void:
 	elif game == "dustboss":
 		_game_obj("dustboss", DustBossGame).tick(delta, fr, ppos)
 	elif game == "seek":
-		_game_obj("seek", SeekGame).tick(delta, fr, ppos)
+		_game_obj("seek", SeekGame).tick(delta, fr)
 	elif game == "race" or game == "treasure":
 		_tick_course(delta, fr, ppos)
 	elif game == "shop":
@@ -8249,9 +8249,9 @@ func _enter_arena(kind: String) -> void:
 	# lets a game hand her back to the promenade or the castle she came from.
 	return_env = we_node.environment
 	return_track = cur_track
-	# Dolls is an opaque true-Canvas activity. Preserve the shared return/music
-	# lifecycle, but do not construct or teleport into a hidden arena beneath it.
-	if kind == "dolls":
+	# Opaque true-Canvas activities preserve the shared return/music lifecycle,
+	# but never construct or teleport into a hidden arena beneath their pixels.
+	if kind == "dolls" or kind == "seek":
 		_play_music(kind)
 		return
 	arena_solids.clear()
