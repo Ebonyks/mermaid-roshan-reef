@@ -179,13 +179,23 @@ func _set_ambience(track: String) -> void:
 		m.ambience.bus = "Ambience"
 		m.add_child(m.ambience)
 	var amb := ""
-	match track:
-		"world", "finale":
-			amb = "res://assets/audio/ambience_reef.ogg"
-		"level2", "castle_open":
-			amb = "res://assets/audio/ambience_lagoon.ogg"
-		"hall", "home":
-			amb = "res://assets/audio/ambience_hall.ogg"
+	if track in ["world", "finale"]:
+		amb = "res://assets/audio/ambience_reef.ogg"
+	elif track in ["level2", "castle_open", "northern", "galaxy", "ember",
+			"dungeon_ice", "dungeon_ember", "combat_ice"] \
+			or track.begins_with("picture_"):
+		amb = "res://assets/audio/ambience_lagoon.ogg"
+	elif track in ["hall", "home", "combat_tutorial", "combat_fire"] \
+			or track.begins_with("castle_") \
+			or track.begins_with("opera_"):
+		# The Castle rooms and Opera are musical subspaces of the same pearl
+		# interior. Their bespoke score must not accidentally silence the airy
+		# room tone that used to ride beneath the shared hall cue.
+		amb = "res://assets/audio/ambience_hall.ogg"
+	elif track == "stuffie_battle":
+		# Companion sparring can start from the reef, lagoon, or Castle. Keep
+		# the source area's bed beneath its portable play-session cue.
+		return
 	if amb == "" or not ResourceLoader.exists(amb):
 		m.ambience.stop()
 		return
@@ -286,15 +296,23 @@ func _hook_button_taps(n: Node) -> void:
 
 
 func _play_music(track: String, loop: bool = true) -> void:
-	m.cur_track = track
 	# night flips the reef to its dreamier track (Prairie Nights)
 	var fname := track
 	if track == "world" and m.is_night and ResourceLoader.exists("res://assets/audio/music/world_night.ogg"):
 		fname = "world_night"
-	_set_ambience(track)
 	var mpath := "res://assets/audio/music/" + fname + ".ogg"
 	if not ResourceLoader.exists(mpath):
 		return   # no track for this kind (e.g. transient arena setup) — keep current music
+	if m.cur_track == track and m.music != null and m.music.playing \
+			and m.music.stream != null \
+			and m.music.stream.resource_path == mpath:
+		_set_ambience(track)
+		return
+	# cur_track describes what can actually be restored. Setting it before the
+	# existence check made a missing transient cue poison nested return paths
+	# even though the audible stream correctly kept playing.
+	m.cur_track = track
+	_set_ambience(track)
 	var st: AudioStream = load(mpath)
 	if st is AudioStreamOggVorbis:
 		# loop=false for one-shot stingers (finale, castle_open) so a short

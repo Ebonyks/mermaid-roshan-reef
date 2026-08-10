@@ -19,94 +19,94 @@ const Lobby2D := preload("res://scripts/opera_lobby_2d.gd")
 const ACTS := [
 	# ---------- FLOOR 1: the Lagoon Lights Stage ----------
 	{"name": "The Castle Bake-Off", "career": "Pastry Chef", "costume": "chef", "emoji": "🍰", "story": 1, "type": "show",
-		"kind": "order", "props": "cake", "order": [0, 2, 1, 0, 2], "finale": "stir", "decorate": 4, "imps": 6, "shell": true,
+		"kind": "order", "music": "opera_chef", "props": "cake", "order": [0, 2, 1, 0, 2], "finale": "stir", "decorate": 4, "imps": 6, "shell": true,
 		"rescue": "farmers", "gift": "carrots", "uses": "carrots",
 		"voice": "Chef hat on! You and the pastry imp each have a kitchen. Sift, pour, stir, bake, pipe and decorate the brightest celebration cake for the crowd!",
 		"win_line": "Roshan's celebration cake wins the Castle Bake-Off!",
 		"floor_col": Color(0.72, 0.5, 0.62), "trim": Color(1.0, 0.78, 0.86), "curtain": Color(0.85, 0.3, 0.4)},
 	{"name": "The Two-Detective Mystery", "career": "Detective", "costume": "detective", "emoji": "🔍", "story": 1, "type": "show",
-		"kind": "sleuth", "props_n": 12, "clues": 5, "imps": 6, "shell": true,
+		"kind": "sleuth", "music": "opera_detective", "props_n": 12, "clues": 5, "imps": 6, "shell": true,
 		"rescue": "stagehands", "gift": "lanterns", "uses": "lanterns",
 		"voice": "Detective Roshan and the detective imp are solving the SAME case! Find five clues before the timer; if the imp gets there first, watch the answer and race the remembered mystery again!",
 		"win_line": "Case closed! Roshan solved the Two-Detective Mystery!",
 		"floor_col": Color(0.42, 0.46, 0.62), "trim": Color(0.72, 0.85, 1.0), "curtain": Color(0.3, 0.35, 0.6)},
 	{"name": "The Twin-Ribbon Recital", "career": "Ballerina", "costume": "ballerina", "emoji": "🩰", "story": 1, "type": "show",
-		"kind": "echo", "pads": 4, "rounds": [3, 4, 5], "pitch": 0.6,
+		"kind": "echo", "music": "opera_ballerina", "pads": 4, "rounds": [3, 4, 5], "pitch": 0.6,
 		"rescue": "dancers", "gift": "ribbons", "rescue_imps": 4,
 		"voice": "Ballerina twirl! Match the glowing dance steps while the ribbon imp dances the other side of the stage. Make the crowd clap louder!",
 		"win_line": "Roshan wins the Twin-Ribbon Recital with a beautiful final twirl!",
 		"floor_col": Color(0.62, 0.45, 0.72), "trim": Color(1.0, 0.72, 0.86), "curtain": Color(0.55, 0.3, 0.62)},
 	{"name": "The Candy Workshop Cup", "career": "Candy Maker", "costume": "candymaker", "emoji": "🍬", "story": 1, "type": "show",
-		"kind": "press", "candies": 9,
+		"kind": "press", "music": "opera_candymaker", "candies": 9,
 		"rescue": "sweet-shop mice", "gift": "sugar", "rescue_imps": 4,
 		"voice": "Candy Maker Roshan! Mix, sort, wrap and load your parade candies while the candy imp runs the rival workshop!",
 		"win_line": "Roshan's smiling sweets win the Candy Workshop Cup!",
 		"floor_col": Color(0.78, 0.5, 0.58), "trim": Color(1.0, 0.75, 0.82), "curtain": Color(0.82, 0.35, 0.5)},
 	{"name": "The Curtain Dragon", "career": "Curtain Dragon", "costume": "", "emoji": "🐉", "story": 1, "type": "boss",
-		"kind": "boss", "boss_hp": 15, "peek_time": 5.0, "hide_time": 5.0,
+		"kind": "boss", "music": "opera_boss_dragon", "boss_hp": 15, "peek_time": 5.0, "hide_time": 5.0,
 		"voice": "A grumbly dragon is hiding in the curtains! Be brave — tap SPARKLE when he peeks out!",
 		"win_line": "The dragon isn't grumbly anymore — he just wanted to be in the show!",
 		"floor_col": Color(0.45, 0.3, 0.4), "trim": Color(1.0, 0.65, 0.4), "curtain": Color(0.62, 0.2, 0.28)},
 	# ---------- FLOOR 2: the Starlight Balcony ----------
 	{"name": "The Stuffie Surgeon Relay", "career": "Stuffie Surgeon", "costume": "doctor", "emoji": "🩺", "story": 2, "type": "show",
-		"kind": "doctor", "imps": 6, "shell": true, "patients": 4,
+		"kind": "doctor", "music": "opera_doctor", "imps": 6, "shell": true, "patients": 4,
 		"voice": "Stuffie Surgeon Roshan and the surgeon imp each have a plushy-care station. Find each ouch, check the X-ray and wrap every soft cast with care!",
 		"win_line": "Every stuffie is wiggling again — Roshan wins the surgeon relay!",
 		"floor_col": Color(0.75, 0.82, 0.9), "trim": Color(0.7, 0.95, 1.0), "curtain": Color(0.4, 0.55, 0.75)},
 	{"name": "The Piggy Picnic Challenge", "career": "Farmer", "costume": "farmer", "emoji": "🐷", "story": 2, "type": "show",
-		"kind": "scroll", "piggies": 12,
+		"kind": "scroll", "music": "opera_farmer", "piggies": 12,
 		"rescue": "farmers", "gift": "carrots", "rescue_imps": 5,
 		"voice": "Farmer Roshan! Plant, feed and guide your piggies while the farmer imp tends the next meadow lane. Make the happiest herd!",
 		"win_line": "Roshan's happy herd wins the Piggy Picnic Challenge!",
 		"floor_col": Color(0.55, 0.75, 0.5), "trim": Color(0.95, 0.9, 0.55), "curtain": Color(0.4, 0.6, 0.35)},
 	{"name": "The Friendly Championship Bout", "career": "Boxer", "costume": "boxer", "emoji": "🥊", "story": 2, "type": "show",
-		"kind": "box", "rounds": [4, 5, 6], "warmup": 5,
+		"kind": "box", "music": "opera_boxer", "rounds": [4, 5, 6], "warmup": 5,
 		"rescue": "the ring crew", "gift": "gloves", "rescue_imps": 4,
 		"voice": "Boxer Roshan, into the ring! Warm up, then fight one padded boxer imp for three friendly rounds. Punch on the beat and duck the counter-glove!",
 		"win_line": "And the winner of the friendly championship is... ROSHAN!",
 		"floor_col": Color(0.55, 0.32, 0.3), "trim": Color(1.0, 0.82, 0.45), "curtain": Color(0.72, 0.2, 0.24)},
 	{"name": "The Grand Illusion Duel", "career": "Magician", "costume": "magician", "emoji": "🎩", "story": 2, "type": "show",
-		"kind": "shuffle", "rounds": 6, "imps": 5, "shell": true,
+		"kind": "shuffle", "music": "opera_magician", "rounds": 6, "imps": 5, "shell": true,
 		"rescue": "usher crabs", "gift": "silk scarves", "uses": "silk scarves",
 		"voice": "Abracadabra! Face the magician imp in a whole illusion duel: hide and track the bunny-fish, melt the rope, open the cabinet and charge the giant star portal!",
 		"win_line": "Roshan's star portal wins the Grand Illusion Duel!",
 		"floor_col": Color(0.36, 0.3, 0.55), "trim": Color(0.85, 0.7, 1.0), "curtain": Color(0.4, 0.22, 0.6)},
 	{"name": "The Shadow Phantom", "career": "Shadow Phantom", "costume": "", "emoji": "🌙", "story": 2, "type": "boss",
-		"kind": "boss", "dual": true, "boss_hp": 12, "lanterns": 5, "peek_time": 5.0, "hide_time": 4.0,
+		"kind": "boss", "music": "opera_boss_phantom", "dual": true, "boss_hp": 12, "lanterns": 5, "peek_time": 5.0, "hide_time": 4.0,
 		"voice": "A shy shadow is hiding on the stage! Light the twinkling lantern with SHINE, then tap SPARKLE when he peeks!",
 		"win_line": "The shadow was a lonely little phantom — now he's the star of the curtain call!",
 		"floor_col": Color(0.24, 0.22, 0.42), "trim": Color(0.95, 0.9, 0.6), "curtain": Color(0.16, 0.14, 0.34)},
 	# ---------- FLOOR 3: the Grand Gallery ----------
 	{"name": "The Sunrise Paint-Off", "career": "Painter", "costume": "painter", "emoji": "🎨", "story": 3, "type": "show",
-		"kind": "paint", "props": "paint", "order": [2, 0, 1, 2, 0], "flow": "carry_paint", "decorate": 5, "decorate_theme": "splatter", "imps": 5, "shell": true,
+		"kind": "paint", "music": "opera_painter", "props": "paint", "order": [2, 0, 1, 2, 0], "flow": "carry_paint", "decorate": 5, "decorate_theme": "splatter", "imps": 5, "shell": true,
 		"rescue": "painter", "gift": "paints", "uses": "paints",
 		"voice": "Painter Roshan! You and the painter imp have matching easels. Trace, fill and paint your sunrise before the gallery reveal!",
 		"win_line": "Roshan's sunrise wins the paint-off and hangs in the gallery!",
 		"floor_col": Color(0.65, 0.5, 0.42), "trim": Color(1.0, 0.82, 0.55), "curtain": Color(0.75, 0.42, 0.3)},
 	{"name": "The Rocket Repair Race", "career": "Astronaut Engineer", "costume": "astronaut", "emoji": "🚀", "story": 3, "type": "show",
-		"kind": "fix", "imps": 6, "shell": true,
+		"kind": "fix", "music": "opera_astronaut", "imps": 6, "shell": true,
 		"rescue": "bubble engineers", "gift": "spare pipes", "uses": "spare pipes",
 		"voice": "Astronaut Engineer Roshan! Route your bubble pipes while the astronaut imp repairs the rival launch lane, then spin the valve and launch first!",
 		"win_line": "Roshan routes the bubbles and wins the Rocket Repair Race!",
 		"floor_col": Color(0.3, 0.34, 0.55), "trim": Color(0.7, 0.9, 1.0), "curtain": Color(0.22, 0.26, 0.5)},
 	{"name": "The Opera Grand Prix", "career": "Racecar Driver", "costume": "racer", "emoji": "🏎", "story": 3, "type": "show",
-		"kind": "race", "laps": 2,
+		"kind": "race", "music": "opera_racer", "laps": 2,
 		"rescue": "pit crew", "gift": "spare wheels", "rescue_imps": 4,
 		"voice": "Racecar Driver Roshan! TWO laps against the helmeted rival imp — steer, grab the zoom strips and tap TURBO to fly!",
 		"win_line": "Roshan takes the Opera Grand Prix as the audience waves checkered flags!",
 		"floor_col": Color(0.4, 0.4, 0.48), "trim": Color(1.0, 0.95, 0.95), "curtain": Color(0.85, 0.25, 0.3)},
 	{"name": "The Starlight Sound-Off", "career": "Pop Star", "costume": "popstar", "emoji": "🎤", "story": 3, "type": "show",
-		"kind": "dance", "rescue": "the band", "gift": "instruments", "rescue_imps": 4,
+		"kind": "dance", "music": "opera_popstar", "rescue": "the band", "gift": "instruments", "rescue_imps": 4,
 		"voice": "Pop Star Roshan! The pop-star imp has the other microphone. Dance the floating arrows and lift the crowd higher with every rainbow phrase!",
 		"win_line": "Roshan wins the Starlight Sound-Off and the crowd sings along!",
 		"floor_col": Color(0.5, 0.3, 0.6), "trim": Color(1.0, 0.7, 0.95), "curtain": Color(0.45, 0.2, 0.55)},
 	{"name": "The Grand Finale", "career": "Midnight Maestro", "costume": "", "emoji": "🎼", "story": 3, "type": "boss",
-		"kind": "boss", "finale": true, "boss_hp": 15, "peek_time": 5.0, "hide_time": 3.2,
+		"kind": "boss", "music": "opera_boss_maestro", "finale": true, "boss_hp": 15, "peek_time": 5.0, "hide_time": 3.2,
 		"voice": "The Midnight Maestro wants to steal the whole show! Use everything you've learned — SHINE the lanterns and SPARKLE when he peeks!",
 		"win_line": "The Maestro just wanted to conduct the grand finale — now the whole opera sings together!",
 		"floor_col": Color(0.16, 0.14, 0.3), "trim": Color(1.0, 0.88, 0.45), "curtain": Color(0.1, 0.09, 0.24)},
 	{"name": "The Moonbeam Nursery", "career": "Nursery Nurse", "costume": "nursery", "emoji": "🍼", "story": 3, "type": "show",
-		"kind": "nursery",
+		"kind": "nursery", "music": "opera_nursery",
 		"voice": "Nursery Nurse Roshan! Work with Nurse Faron to catch the babies, feed them, burp them and tuck every little one into bed!",
 		"win_line": "Roshan and Faron tucked every cozy baby into the Moonbeam Nursery!",
 		"floor_col": Color(0.45, 0.68, 0.66), "trim": Color(1.0, 0.82, 0.70), "curtain": Color(0.48, 0.38, 0.68)},
@@ -143,10 +143,13 @@ var materials := {}
 var use_lobby_2d := false
 var lobby_2d: OperaLobby2D = null
 var touch_was_visible := true
+var previous_music := ""
 
 func start(main: ReefMain, checkpoint: int, done_cb: Callable) -> void:
 	m = main
 	finish_cb = done_cb
+	previous_music = m.cur_track
+	m._play_music("opera_lobby")
 	use_lobby_2d = (
 		DisplayServer.get_name() != "headless"
 		or OS.get_environment("OPERA_FORCE_2D_LOBBY") == "1"
@@ -667,6 +670,8 @@ func _act_won() -> void:
 	_return_to_lobby(finished)
 
 func _return_to_lobby(finished: int) -> void:
+	if m.cur_track != "opera_lobby":
+		m._play_music("opera_lobby")
 	if use_lobby_2d:
 		if m.touch_ui != null:
 			m.touch_ui.visible = false
@@ -912,6 +917,9 @@ func _finish(completed: bool) -> void:
 			m.touch_ui.visible = touch_was_visible
 	if prev_env != null:
 		m.we_node.environment = prev_env
+	if previous_music != "":
+		m._play_music(previous_music)
+	previous_music = ""
 	if finish_cb.is_valid():
 		finish_cb.call(completed)
 	queue_free()
