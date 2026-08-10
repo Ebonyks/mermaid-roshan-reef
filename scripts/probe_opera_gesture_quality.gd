@@ -34,6 +34,14 @@ func _paid_count(kind: String) -> int:
 	return count
 
 
+func _event_count(kind: String) -> int:
+	var count := 0
+	for event: Dictionary in events:
+		if String(event.get("kind", "")) == kind:
+			count += 1
+	return count
+
+
 func _paid_total(kind: String) -> float:
 	var total := 0.0
 	for event: Dictionary in events:
@@ -188,6 +196,78 @@ func _init() -> void:
 	_ck("pour hand grabs the real pitcher",
 		_pose_point(pour_pose).distance_to(surface._pour_pitcher_rect().get_center()) < 16.0
 		and bool(pour_pose.get("pressing", false)))
+
+	# Pixel 10 does not crop the outer 16:9 stage; the reported first-game
+	# failure is inside this exact 392x232 shipping surface. Exercise its real
+	# press/hold/release path at phone frame rates instead of awarding synthetic
+	# progress or checking only the ghost hand.
+	surface.size = Vector2(392.0, 232.0)
+	for frame_rate: int in [30, 60]:
+		events.clear()
+		surface.configure("pourt", Color.WHITE, 1, "pour_candymaker")
+		var shipping_bounds := Rect2(Vector2.ZERO, surface.size)
+		var bowl := surface._pour_bowl_rect()
+		var x_bounds := surface._pour_x_bounds()
+		var geometry_ok := _rect_inside(shipping_bounds, bowl) \
+			and surface.pour_mold_texture != null
+		for pitcher_x: float in [x_bounds.x, x_bounds.y]:
+			surface.pour_x = pitcher_x
+			geometry_ok = geometry_ok \
+				and _rect_inside(shipping_bounds,
+					_rotation_safe_square(surface._pour_pitcher_rect())) \
+				and _rect_inside(shipping_bounds, surface._pour_pitcher_hit_rect())
+			for tilt: float in [0.0, 0.25, 0.5, 0.75, 1.0]:
+				surface.pour_tilt = tilt
+				var spout_x := surface._pour_spout_point().x
+				geometry_ok = geometry_ok \
+					and spout_x >= bowl.position.x and spout_x <= bowl.end.x
+		_ck("candymaker pour geometry stays registered and touchable at %d fps" % frame_rate,
+			geometry_ok)
+
+		surface.pour_x = surface._pour_home_x()
+		surface.pour_tilt = 0.0
+		surface._process(1.0)
+		_ck("candymaker pour demo pays no passive progress at %d fps" % frame_rate,
+			is_zero_approx(surface.pour_level) and not _paid("pourt"))
+		surface._press(Vector2(8.0, 8.0))
+		surface._process(0.8)
+		surface._release(Vector2(8.0, 8.0))
+		_ck("off-pitcher touch cannot fill candymaker mold at %d fps" % frame_rate,
+			is_zero_approx(surface.pour_level) and not _paid("pourt"))
+
+		var step := 1.0 / float(frame_rate)
+		var active_seconds := 0.0
+		var grab := surface._pour_pitcher_rect().get_center()
+		surface._press(grab)
+		while active_seconds < 0.9:
+			surface._process(step)
+			active_seconds += step
+		surface._release(grab)
+		var paused_level := surface.pour_level
+		for _pause_frame in range(frame_rate):
+			surface._process(step)
+		_ck("releasing candymaker pitcher pauses without losing syrup at %d fps" % frame_rate,
+			is_equal_approx(surface.pour_level, paused_level) and paused_level > 0.0)
+
+		grab = surface._pour_pitcher_rect().get_center()
+		surface._press(grab)
+		# The deliberate release above incurs a second visible tilt-in. Even with
+		# that interruption the cumulative finger time stays preschool-short;
+		# one uninterrupted hold completes in roughly 3.5 seconds.
+		while surface.pour_level < 1.0 and active_seconds < 4.5:
+			surface._process(step)
+			active_seconds += step
+		surface._release(grab)
+		_ck("real candymaker hold completes a full five-point pour by %d fps" % frame_rate,
+			is_equal_approx(surface.pour_level, 1.0)
+			and is_equal_approx(_paid_total("pourt"), 5.0)
+			and _event_count("pour_ding") == 1 and active_seconds < 4.5)
+		surface.accept_completion()
+		for _settle_frame in range(frame_rate):
+			surface._process(step)
+		_ck("completed candymaker pitcher settles upright at %d fps" % frame_rate,
+			is_zero_approx(surface.pour_tilt) and not surface._pour_stream_active())
+	surface.size = Vector2(852.0, 560.0)
 
 	events.clear()
 	surface.configure("oven", Color.WHITE)
