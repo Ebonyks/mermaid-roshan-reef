@@ -8,8 +8,10 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 
-from tools.build_castle_interaction_v4_delivery import audit_upstream_provenance
-from tools.build_castle_native_interactions_v4 import _repository_text_sha256
+from tools.build_castle_interaction_v4_delivery import (
+    audit_upstream_provenance,
+    repository_text_sha256,
+)
 
 
 class UpstreamProvenanceTests(unittest.TestCase):
@@ -63,12 +65,12 @@ class UpstreamProvenanceTests(unittest.TestCase):
                 and "generator_sha256" in error
                 for error in errors))
 
-    def test_native_generator_records_repository_text_hash(self) -> None:
+    def test_delivery_uses_repository_text_hash(self) -> None:
         with TemporaryDirectory() as directory:
             path = Path(directory) / "source.json"
             path.write_bytes(b'{\r\n  "value": true\r\n}\r\n')
             self.assertEqual(
-                _repository_text_sha256(path),
+                repository_text_sha256(path),
                 hashlib.sha256(b'{\n  "value": true\n}\n').hexdigest(),
             )
 
