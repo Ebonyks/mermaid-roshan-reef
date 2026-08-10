@@ -26,6 +26,20 @@ const RAINBOW_COLORS: Array[Color] = [
 	Color(1.0, 0.87, 0.30), Color(0.38, 0.86, 0.54),
 	Color(0.30, 0.73, 1.0), Color(0.68, 0.46, 0.94),
 ]
+# Stage-space rectangles cover every baked purple shell banner in the active
+# castle room art. The other rooms were audited and contain no copies of this
+# design; keeping the registry here makes a future room addition explicit.
+const ROOM_BANNER_RECTS: Dictionary = {
+	"craft_room": [
+		Rect2(140.0, 115.0, 95.0, 185.0),
+		Rect2(1047.0, 115.0, 95.0, 185.0),
+	],
+	"playroom": [
+		Rect2(122.0, 145.0, 86.0, 176.0),
+		Rect2(1074.0, 145.0, 86.0, 176.0),
+	],
+}
+const CRAFT_BOARD_BADGE_RECT := Rect2(578.0, 158.0, 88.0, 88.0)
 
 class LogoPreview extends Control:
 	var color_id := "rainbow"
@@ -91,6 +105,83 @@ class LogoPreview extends Control:
 		inner_outline.append(inner_outline[0])
 		draw_polyline(inner_outline, Color(1.0, 0.94, 0.72, 0.92),
 			maxf(3.0, minf(size.x, size.y) * 0.022), true)
+
+class BannerPreview extends Control:
+	var color_id := "rainbow"
+	var symbol_id := "rainbow"
+	var symbol_label: Label
+
+	func _init() -> void:
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+		symbol_label = Label.new()
+		symbol_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		symbol_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		symbol_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		add_child(symbol_label)
+		resized.connect(_layout_symbol)
+
+	func configure(next_color_id: String, next_symbol_id: String) -> void:
+		color_id = next_color_id
+		symbol_id = next_symbol_id
+		set_meta("color_id", color_id)
+		set_meta("symbol_id", symbol_id)
+		symbol_label.text = CastleLogoStudio.symbol_icon(symbol_id)
+		_layout_symbol()
+		queue_redraw()
+
+	func _layout_symbol() -> void:
+		if symbol_label == null:
+			return
+		symbol_label.position = Vector2(size.x * 0.14, size.y * 0.22)
+		symbol_label.size = Vector2(size.x * 0.72, size.y * 0.43)
+		var font_size: int = maxi(24, int(minf(
+			size.x * 0.46, size.y * 0.22)))
+		StorybookUI.style_label(symbol_label, font_size, Color.WHITE,
+			maxi(3, int(float(font_size) / 11.0)))
+
+	func _draw() -> void:
+		var points := PackedVector2Array([
+			Vector2(size.x * 0.17, size.y * 0.12),
+			Vector2(size.x * 0.83, size.y * 0.12),
+			Vector2(size.x * 0.83, size.y * 0.84),
+			Vector2(size.x * 0.76, size.y * 0.96),
+			Vector2(size.x * 0.67, size.y * 0.89),
+			Vector2(size.x * 0.58, size.y * 0.97),
+			Vector2(size.x * 0.50, size.y * 0.90),
+			Vector2(size.x * 0.42, size.y * 0.97),
+			Vector2(size.x * 0.33, size.y * 0.89),
+			Vector2(size.x * 0.24, size.y * 0.96),
+			Vector2(size.x * 0.17, size.y * 0.84),
+		])
+		var cloth_center := Vector2(size.x * 0.50, size.y * 0.51)
+		if color_id == "rainbow":
+			for i in range(points.size()):
+				var triangle := PackedVector2Array([
+					cloth_center, points[i],
+					points[(i + 1) % points.size()]])
+				draw_colored_polygon(triangle,
+					CastleLogoStudio.RAINBOW_COLORS[
+						i % CastleLogoStudio.RAINBOW_COLORS.size()])
+		else:
+			draw_colored_polygon(points,
+				CastleLogoStudio.color_value(color_id))
+		var outline := points.duplicate()
+		outline.append(points[0])
+		draw_polyline(outline, StorybookUI.PURPLE_DEEP,
+			maxf(6.0, size.x * 0.075), true)
+		draw_polyline(outline, StorybookUI.GOLD,
+			maxf(3.0, size.x * 0.038), true)
+		var rod_y := size.y * 0.105
+		var rod_start := Vector2(size.x * 0.06, rod_y)
+		var rod_end := Vector2(size.x * 0.94, rod_y)
+		draw_line(rod_start, rod_end, StorybookUI.PURPLE_DEEP,
+			maxf(8.0, size.x * 0.10), true)
+		draw_line(rod_start, rod_end, StorybookUI.GOLD,
+			maxf(4.0, size.x * 0.055), true)
+		var finial_radius := maxf(5.0, size.x * 0.065)
+		for finial: Vector2 in [rod_start, rod_end]:
+			draw_circle(finial, finial_radius, StorybookUI.PURPLE_DEEP)
+			draw_circle(finial, finial_radius * 0.62, StorybookUI.GOLD)
 
 var m: ReefMain
 
@@ -256,6 +347,15 @@ func _make_preview(preview_name: String, preview_size: Vector2) -> LogoPreview:
 	preview.configure(m.castle_logo_color, m.castle_logo_symbol)
 	return preview
 
+func _make_banner(preview_name: String,
+		preview_size: Vector2) -> BannerPreview:
+	var preview := BannerPreview.new()
+	preview.name = preview_name
+	preview.custom_minimum_size = preview_size
+	preview.size = preview_size
+	preview.configure(m.castle_logo_color, m.castle_logo_symbol)
+	return preview
+
 func _pulse_pointer(pointer: Label) -> void:
 	pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var start_y: float = pointer.position.y
@@ -373,19 +473,43 @@ func close(committed: bool = false) -> void:
 func clear_room_display() -> void:
 	if m.castle_logo_room_display != null \
 			and is_instance_valid(m.castle_logo_room_display):
-		m.castle_logo_room_display.queue_free()
+		m.castle_logo_room_display.free()
 	m.castle_logo_room_display = null
 
 func refresh_room_display() -> void:
 	clear_room_display()
-	if m.castle_room_stage == null or m.castle_room_id != "craft_room":
+	if m.castle_room_stage == null:
 		return
-	var display := _make_preview(
-		"CastleLogoRoomDisplay", Vector2(88.0, 88.0))
-	# Keep the personalized logo as a small pinned badge on the painted board.
-	# It is UI-only and ignores input, so the board keeps its full hotspot.
-	display.position = Vector2(578.0, 158.0)
+	var banner_rects: Array = ROOM_BANNER_RECTS.get(m.castle_room_id, [])
+	if banner_rects.is_empty() and m.castle_room_id != "craft_room":
+		return
+	var display := Control.new()
+	display.name = "CastleLogoRoomDisplay"
+	display.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	display.position = Vector2.ZERO
+	display.size = Vector2(1280.0, 720.0)
 	display.z_index = 22
-	display.set_meta("display_location", "craft_room_idea_board_pinned_badge")
+	display.set_meta("display_location", "castle_room_personalized_banners")
+	display.set_meta("castle_room_id", m.castle_room_id)
+	display.set_meta("replaces_design", "purple_shell_banner")
 	m.castle_room_stage.add_child(display)
+	for index: int in range(banner_rects.size()):
+		var banner_rect: Rect2 = banner_rects[index] as Rect2
+		var banner := _make_banner(
+			"CastleLogoBanner_%d" % index, banner_rect.size)
+		banner.position = banner_rect.position
+		banner.set_meta("display_location",
+			m.castle_room_id + "_purple_shell_banner_replacement")
+		banner.set_meta("replaces_design", "purple_shell_banner")
+		banner.set_meta("banner_index", index)
+		display.add_child(banner)
+	if m.castle_room_id == "craft_room":
+		# Keep the personalized logo as a small pinned badge on the painted board.
+		# It remains input-transparent, so the board keeps its full hotspot.
+		var badge := _make_preview(
+			"CastleLogoCraftBoardBadge", CRAFT_BOARD_BADGE_RECT.size)
+		badge.position = CRAFT_BOARD_BADGE_RECT.position
+		badge.set_meta("display_location",
+			"craft_room_idea_board_pinned_badge")
+		display.add_child(badge)
 	m.castle_logo_room_display = display
