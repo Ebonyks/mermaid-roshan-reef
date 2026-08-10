@@ -227,7 +227,6 @@ func _tick_ambience_duck(delta: float) -> void:
 	var want: float = -16.0 if talking else -10.0
 	m.ambience.volume_db = lerpf(m.ambience.volume_db, want, minf(1.0, delta * 6.0))
 
-
 # Combat pop with the chain pitch ladder (COMBO_SYSTEM): chain 1/2/3 climb
 # a step each, 4 is the SUPER top. A dedicated player so combo pitch never
 # fights the global button-tap hook. Combat has its own pop voice

@@ -192,7 +192,7 @@ All 42 rows below are **NEW — RENDERED**. Tempo, meter, bars, mode, instrument
 
 ### 7.1 Pearl Castle side rooms — 12 cues
 
-The Main Hall is deliberately absent from this table because it retains `hall.ogg` (*Sand Castles*). Moving through `show_room()` selects the destination room’s cue, including returning to `hall` for `main_hall`.
+The Main Hall is deliberately absent from this table because it retains `hall.ogg` (*Sand Castles*). Moving through `show_room()` changes the authoritative room state; the Level 2 soundtrack owner observes the live Castle stage and selects the destination cue, including returning to `hall` for `main_hall`.
 
 | Slug and title | Authored form | Palette | Individual composition brief |
 |---|---|---|---|
@@ -267,7 +267,7 @@ The owner of a temporary musical state must capture the cue before changing it a
 | Reef day/night | `AudioDirector` resolves logical `world` to `world_night` at night while keeping `cur_track == "world"` restorable | Reef bed for `world`; reef bed for `finale` |
 | Sky Lagoon | Main selects `level2` on entry | Lagoon bed |
 | Castle door reveal | Main saves `prev_track`, plays `castle_open` once, and restores only while that stinger still owns the player | Lagoon bed |
-| Castle rooms | `CastleRooms25D.show_room()` maps `main_hall` to retained `hall` and every side room to its unique `castle_*` cue | Hall room tone for `hall`, `home`, and every `castle_*` cue |
+| Castle rooms | The Level 2 owner observes `castle_room_id` while the Castle stage is visible, mapping `main_hall` to retained `hall` and each side-room ID to its matching `castle_*` cue | Hall room tone for `hall`, `home`, and every `castle_*` cue |
 | Castle sleep | Legacy full sleep selects `home` and currently returns to `hall`; any future sleep entry from a side-room context must capture and restore its caller rather than assume Main Hall | Hall room tone |
 | Opera House | `OperaHouse.start()` captures the incoming Castle cue, owns `opera_lobby`, returns to it after each act, then restores the captured cue on exit | Hall room tone for `opera_lobby` and all `opera_*` cues |
 | Opera act | `OperaAct` captures lobby music, owns the act cue, and restores its captured cue on completion or cancellation | Hall room tone |

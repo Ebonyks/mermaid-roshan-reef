@@ -56,11 +56,40 @@ func _init() -> void:
 			opera_tracks[cue] = true
 	_check("every Opera act owns a unique cue",
 		opera_tracks.size() == OperaHouse.ACTS.size())
+	var castle_tracks: Dictionary = {}
+	var castle_mapping_ok := true
+	for room_config: Dictionary in CastleRooms25D.ROOMS:
+		var room_id := String(room_config.get("id", ""))
+		var room_cue: String = main._castle_room_music_track(room_id)
+		castle_tracks[room_cue] = true
+		if room_id == "main_hall":
+			castle_mapping_ok = castle_mapping_ok and room_cue == "hall"
+		else:
+			castle_mapping_ok = castle_mapping_ok \
+				and room_cue == "castle_" + room_id \
+				and REQUIRED_AREA_MUSIC.has(room_cue)
 	_check("every Castle room owns a cue",
-		CastleRooms25D.ROOM_MUSIC.size() == CastleRooms25D.ROOMS.size())
+		castle_mapping_ok and castle_tracks.size() == CastleRooms25D.ROOMS.size())
 	var before_missing := main.cur_track
 	main._play_music("definitely_missing_audio_probe")
 	_check("missing cue does not poison return track", main.cur_track == before_missing)
+	var castle_probe_layer := CanvasLayer.new()
+	main.add_child(castle_probe_layer)
+	main.castle_room_layer = castle_probe_layer
+	var castle_probe_previous_kind: String = main.mg_kind
+	main.castle_room_id = "craft_room"
+	main._sync_castle_room_music()
+	_check("visible Castle room state selects its cue",
+		main.cur_track == "castle_craft_room")
+	main.mg_kind = "garden"
+	main._play_music("picture_garden")
+	main.castle_room_id = "library"
+	main._sync_castle_room_music()
+	_check("Castle observer yields to a covered activity",
+		main.cur_track == "picture_garden")
+	main.mg_kind = castle_probe_previous_kind
+	main.castle_room_layer = null
+	castle_probe_layer.queue_free()
 	main._play_music("castle_craft_room")
 	await process_frame
 	_check("area cue routes through Music", main.cur_track == "castle_craft_room"

@@ -5410,12 +5410,29 @@ func _castle_rooms_ref() -> CastleRooms25D:
 		_castle_rooms_25d = CastleRooms25D.new(self)
 	return _castle_rooms_25d
 
+func _castle_room_music_track(room_id: String) -> String:
+	# CastleRooms25D is protected by a hash-backed visual approval ledger, so
+	# its soundtrack follows the room-state naming contract from this owner.
+	return "hall" if room_id == "main_hall" else "castle_" + room_id
+
+func _sync_castle_room_music() -> void:
+	# Suspended Castle cutaways hide the layer; picture games set mg_kind. Both
+	# own their temporary cue and must be allowed to restore it before the live
+	# room resumes soundtrack ownership.
+	if castle_room_layer == null or not is_instance_valid(castle_room_layer) \
+			or not castle_room_layer.visible or mg_kind != "":
+		return
+	var room_track: String = _castle_room_music_track(castle_room_id)
+	if cur_track != room_track:
+		_play_music(room_track)
+
 func _tick_castle_rooms(delta: float) -> void:
 	# Phase "hall" now means the sprite-card castle exclusively. If an
 	# activity teardown returned without resuming its overlay, restore it here
 	# instead of falling back to the retired free-roaming 3D hall.
 	if not _castle_rooms_ref().is_open():
 		_castle_rooms_ref().open("main_hall")
+	_sync_castle_room_music()
 	_castle_rooms_ref().tick(delta)
 
 func _seg_box(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3) -> bool:

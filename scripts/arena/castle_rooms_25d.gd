@@ -301,25 +301,6 @@ const ROOMS: Array[Dictionary] = [
 		"tex": "room_family_gallery_background.png", "action": "",
 		"action_icon": "\u2302"},
 ]
-
-# Every illustrated room owns a cue. Main Hall keeps the established castle
-# theme; each destination switches quickly enough for a non-reader to hear that
-# a new play space has opened, then restores naturally through show_room().
-const ROOM_MUSIC := {
-	"main_hall": "hall",
-	"opera_hall": "castle_opera_hall",
-	"kitchen": "castle_kitchen",
-	"library": "castle_library",
-	"playroom": "castle_playroom",
-	"craft_room": "castle_craft_room",
-	"mermaid_pool": "castle_mermaid_pool",
-	"bubble_bath": "castle_bubble_bath",
-	"dining_room": "castle_dining_room",
-	"royal_bedroom": "castle_royal_bedroom",
-	"sleepover_bedroom": "castle_sleepover_bedroom",
-	"movie_lounge": "castle_movie_lounge",
-	"family_gallery": "castle_family_gallery",
-}
 const ELEVATOR_ROOM_IDS: Array[String] = [
 	# Stable 4 x 3 picture grid. The Family Gallery remains a walkable physical
 	# hall, while its four actual rooms are direct one-tap destinations here.
@@ -1763,9 +1744,6 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)
 	if room.is_empty() or m.castle_room_background == null:
 		return
-	var room_track: String = String(ROOM_MUSIC.get(room_id, "hall"))
-	if m.cur_track != room_track:
-		m._play_music(room_track)
 	_invalidate_royal_hall_arrival()
 	m.castle_room_id = room_id
 	_set_elevator_menu_open(false, false)
