@@ -13,6 +13,37 @@ Runtime/editor baseline: exactly Godot 4.7.1-stable (owner decision
 the engine series there; it does not lower the required patch baseline. Do not
 validate releases with Godot 4.4 or a 4.7 development build.
 
+## FINAL MEDIUM (owner decision 2026-08-09): TRUE 2D GAME-WIDE
+
+The accepted final game is a Canvas/Node2D 2D game. New and converted gameplay
+uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`, `TextureRect`, `Camera2D`,
+2D particles and 2D collision where collision is needed. A flat image mounted
+on `Sprite3D` is migration debt, not a finished 2D implementation.
+
+- Mermaid Roshan uses the approved RGBA atlas/cutout family under
+  `assets/characters/roshan_25d/` on the 2D canvas. She has no accepted GLB,
+  mesh, armature, skeleton, rig, skin-weight, or model fallback. Current
+  `Node3D`/`Sprite3D` player staging is measured debt and must be converted.
+- The 2026-07-19 Meshy migration and every 3D character/world work order,
+  including the Roshan v2/v3/v4 model hierarchy, are **superseded**, not
+  paused. Never submit or revive those batches.
+- `Node3D`, `Sprite3D`, `Camera3D`, meshes, 3D materials/lights/physics,
+  spatial shaders, and `Vector3`/`Transform3D` world logic are exact shrinking
+  transition debt. Do not add to that debt or describe it as accepted
+  scaffolding.
+- Retired 3D resources live only on archive branch
+  `codex/deprecated-resources-roshan-20260809` at verified archive head
+  `9329d9a6`. That branch is preservation evidence, never a runtime fallback,
+  rollback target, merge source, or alternate production authority.
+- `tools/audit_game_2d.py` owns the inventory. `NO_REGRESSION` means only that
+  debt did not grow. Satisfaction requires its strict zero-debt state.
+
+The synchronized committed audit snapshot is **`UNSATISFIED`** at 513 model
+files and 70 production 3D files. See
+`design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` and
+`audit/MASTER_AUDIT_2026-08-09.md` for the rule IDs, full inventory and
+individual repair protocol.
+
 ## ART REUSE AND GENERATION BUDGET (owner decision 2026-07-28)
 The project is in art finalization, not open-ended redesign. Conserve the
 generation budget by reusing approved art that already exists whenever it
@@ -111,7 +142,8 @@ forbidden methods, guide-pixel reuse, unreviewed identity, position drift, or a
 failed neighboring-frame comparison is a hard failure.
 
 ## Layout
-- scenes/main.tscn → scripts/main.gd (~6.8k lines as of 2026-07-18; still
+- scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized
+  2026-08-09 audit snapshot; still
   the state owner — see Refactor rules. Target <2.5k; remaining bulk is
   the HUD, environment/terrain, aquatic-life builders, galaxy/kart glue
   and level-2 flow; `class_name ReefMain`. The intro, craft studio,
@@ -124,13 +156,13 @@ failed neighboring-frame comparison is a hard failure.
   scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,
   picture_games}.gd
 - scripts/player.gd (swim controller), scripts/touch_ui.gd (virtual stick)
-- scripts/physics.gd — ReefPhysics (analytic). Jolt runs the dev-mode
-  Physics Lab and the E2 physical-standee prop fleet (capped garnish,
-  owner direction 2026-07-27 — see MINIGAME_ENGINES.md §8); objectives
-  and mass gameplay/foliage must never become bodies.
+- scripts/physics.gd — ReefPhysics (analytic). Legacy Jolt, physical-standee,
+  and spatial gameplay paths remain measured 3D migration debt. Preserve
+  behavior while converting them; do not add new 3D bodies or garnish.
 - scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
   probe_passive.gd is the zero-input negative test (Phase 6).
-- assets/ — aquatic GLBs, terrain PBR (ambientCG), book art, voices, music
+- assets/ — 2D runtime art, protected book art/voices/friend portraits, and
+  remaining measured model/PBR migration debt. Do not add 3D resources.
 - disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
 - Target device: Lenovo Tab M11 (Helio G88 / Mali-G52) — Speedy tier is the
   mobile default; treat 30 fps and transparent-overdraw budget as hard limits.
@@ -180,14 +212,15 @@ installs it in place (save data kept).
   1280×720 canvas_items/expand. Anything new must run under the Mobile
   renderer; Forward+-only effects (the cel post grade) are dormant
   behind a rendering-method guard.
-- No new OmniLights beyond current counts without a Speedy-tier cull path.
+- Do not add 3D lights. Existing OmniLights are migration debt to remove while
+  preserving the Mobile-rendered composition and Speedy-tier budget.
 - All new textures: ≤1024px longest side OR power-of-two; VRAM compress ok
   only if POT. New audio: OGG, music ≥64kbps, loop-tagged.
 - Multi-screen background resolution is measured PER PLAYABLE SCREEN, not
   across the whole panorama. Every screen must have at least 2048×2048 native
   background coverage before runtime slicing. A horizontal three-screen 3×1
   stage therefore requires a native master of at least 6144×2048 and is
-  reconstructed as a 6×2 grid of non-overlapping 1024×1024 Sprite3D cards.
+  reconstructed as a 6×2 grid of non-overlapping 1024×1024 `Sprite2D` cards.
   A 2048-wide (or similarly sized) three-screen panorama is reference-only
   and is not runtime-ready, even though its panorama long edge exceeds 2K.
   Preserve the approved panorama ratio and continuous composition.
@@ -195,8 +228,9 @@ installs it in place (save data kept).
   boundaries. If a tree, building, cloud, mountain feature, or other readable
   object sits ambiguously between two generated panels, remove it from the
   background, preserve/extract that same approved artwork as an unshaded
-  Sprite3D depth card, and heal the background behind it. Reinsert it once at
-  real scene depth. Do not add a second unrelated sticker over a painted copy.
+  `Sprite2D` canvas card, and heal the background behind it. Reinsert it once
+  at its intentional `z_index`/parallax layer. Do not add a second unrelated
+  sticker over a painted copy.
   Background tiles must join seam-free before the separated cards are added.
 - Every new asset gets a line in ASSET_LICENSES.md (source, license, URL,
   modifications) in the same commit that adds it.
@@ -262,7 +296,7 @@ masters and stale side-copies have repeatedly forced manual merge rescues.
 - `python tools/lint_inference.py <changed .gd files>`
 - CI also runs Godot's full analyzer (`--check-only`) on every script:
   `var x := <expr>` fails when the receiver is untyped — declare explicit
-  types (`var x: Node3D = ...`), and keep `var m: ReefMain` back-references
+  types (`var x: Node = ...`), and keep `var m: ReefMain` back-references
   typed in extracted classes.
 
 ## Refactor rules for main.gd
@@ -274,18 +308,17 @@ patch the probe to match new behavior unless the behavior change was the
 explicit goal of the task.
 
 ## Art direction (graphics fork)
-Static Mermaid Roshan storybook characters in a cel-shaded, Wind
-Waker-inspired diorama world. OWNER DECISION 2026-07-19: characters are
-migrating from sprite cutouts to gen2 Meshy 3D models (roster + staging in
-NPC_3D_WORKORDER_2026-07-19.md; Daddy Mermaid first). Until a character's
-.glb lands in assets/characters/friends/, its cutout remains the shipped
-fallback. Gabby is REMOVED (IP hold — assets preserved in attic/gabby/;
-do not reintroduce without an owner-approved redesign). Cutout rules while
-they remain: unshaded, pre-drawn outlines, idle bob, contact shadows,
-sparkle/bubble overlays; never re-lit, never redesigned. The world is a pastel toy
-playset: rounded geometry, toon materials, navy/purple outlines,
-aqua/lavender shadows, graphic water, oversized child-readable props.
-CC0 sources only for the world (Tiny Treats, KayKit, Quaternius, Kenney,
-curated OpenGameArt); every import is restyled through the _toonify
-pastel pipeline. Wind Waker is a rendering reference only — no Zelda
-assets, symbols, UI, music, or character designs.
+Static Mermaid Roshan storybook characters in a polished 2D, Wind
+Waker-inspired storybook world. Character and environment cutouts retain their
+authored contours, identity colours and light; restrained 2D idle motion,
+contact shadows, sparkles and bubbles are allowed, but never relight or
+redesign approved art to imitate a mesh. World layers are explicit Canvas
+background, playable and sparse foreground roles with child-readable
+`z_index`/parallax ownership. Gabby is REMOVED (IP hold — assets preserved in
+`attic/gabby/`; do not reintroduce without an owner-approved redesign). The
+world remains a pastel toy playset: rounded forms, broad painted value bands,
+navy/purple outlines, aqua/lavender shadows, graphic water, and oversized
+child-readable props. Reuse approved art first and replace named live CC0
+defects individually; do not start a speculative mass redesign. Wind Waker is
+a rendering reference only — no Zelda assets, symbols, UI, music, or character
+designs.

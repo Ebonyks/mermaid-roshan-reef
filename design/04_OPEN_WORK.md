@@ -1,323 +1,236 @@
-# Master design — consolidated open work
+# Master design — current work and historical triage
 
-_Every unresolved finding from all 149 documents, deduped and **re-verified
-against the tree at `claude/audit-consolidation-design-1m5yd2`, 2026-08-02.**_
+_Original consolidation: 2026-08-02. Re-triaged against
+`audit/MASTER_AUDIT_2026-08-09.md` on 2026-08-09._
 
-Each item states how it was checked. "Verified open" means I confirmed it in
-today's code or by running the repo's own gate. "Reported" means it comes from
-a document and I did not independently re-measure it.
+This is a navigation and lifecycle crosswalk, not a bug dump and not a set of
+canonical finding records. The complete current index, evidence limits,
+required finding fields, repair protocol and satisfaction gate live in the
+dated master audit. An older `OW-*` item survives below so existing links and
+decision history remain legible; it is actionable only where a current
+`MA-*` item explicitly owns it.
 
-| # | Item | Class | Status |
-|---|---|---|---|
-| [OW-1](#ow-1) | `CLAUDE.md` and `AGENTS.md` contradict each other | process | verified open |
-| [OW-2](#ow-2) | No `world_style` reversibility toggle | process | verified open |
-| [OW-3](#ow-3) | Promenade parallax never runs — one mural, not a stack | art/engine | verified open |
-| [OW-4](#ow-4) | Roshan can never pass behind anything | art/engine | verified open |
-| [OW-5](#ow-5) | Background out-saturates foreground | art | reported (tool needs PIL) |
-| [OW-6](#ow-6) | The world is not stitched; no reachability probe | design/code | verified open |
-| [OW-7](#ow-7) | The reef pilot was skipped | process | verified open |
-| [OW-8](#ow-8) | Engine consolidation backlog (steps 2–7) | code | verified open |
-| [OW-9](#ow-9) | Asset hygiene, orphans and APK weight | art/build | reported |
-| [OW-10](#ow-10) | Visual-design audit still advisory | process | verified open |
-| [OW-11](#ow-11) | Living-world layer has no depth | art | verified open |
-| [OW-12](#ow-12) | 45 probes exist outside the CI gate | test | verified open |
-| [OW-13](#ow-13) | World-map geography needs four owner decisions | owner-gated | open |
-| [OW-14](#ow-14) | Opera art requests P3-04 / P3-05 / P6 / P7 | art | verified open |
-| [OW-15](#ow-15) | Lamba voice lines still say "bunny-fish" | owner-gated | verified open |
-| [OW-16](#ow-16) | Dungeon lock-and-key redesign unbuilt | design | reported |
-| [OW-17](#ow-17) | Zelda-grammar verb set unbuilt | design | reported |
-| [OW-18](#ow-18) | CC0 → original art replacement in progress | art | ongoing |
-| [OW-19](#ow-19) | Meshy migration paused; API key absent | blocked | as designed |
-| [OW-20](#ow-20) | Structural code debt (7 items) | code | verified open |
-| [OW-21](#ow-21) | Quality is inferred headlessly, not measured on device | process | reported |
+Lifecycle words use the master-audit taxonomy. `HISTORICAL_EVIDENCE` is a
+document-authority state, not an open finding. Never turn a dated report into a
+current defect without reproducing its premise.
+
+At the synchronized committed runtime snapshot, GAME2D reports 513 model files
+and 70 production 3D files and remains **`UNSATISFIED`**. `NO_REGRESSION` is not
+completion. The overall master-audit cycle is `REPAIRING`.
 
 ---
 
-## OW-1 — `CLAUDE.md` and `AGENTS.md` contradict each other {#ow-1}
+## Current acceptance-blocking work
 
-**Both are read as authority at session start, and they disagree.**
-
-| Topic | `CLAUDE.md` | `AGENTS.md` |
+| Current owner | Lifecycle | Current scope |
 |---|---|---|
-| Art direction | 2.5D redesign is binding; **Meshy migration PAUSED** (2026-07-27) | "OWNER DECISION 2026-07-19: characters are **migrating** to gen2 Meshy 3D models" — the superseded directive, presented as current |
-| main.gd size | ~8.9 k lines | ~6.8 k lines |
-| Satellite roster | includes `companion`, `medal_system`, `games/{brawl, side_scroll}` | omits them; lists extractions `CLAUDE.md` does not |
-| Probe list | 7 probes named | 5 probes named |
-
-Actual main.gd: **8,144 lines**. An agent reading `AGENTS.md` first will start
-3D character conversions that the owner paused.
-
-**Fix:** reconcile the two files' "Art direction", "Layout" and "Build & test"
-sections to `AGENTS.md`'s (newer) text plus `CLAUDE.md`'s (current) art
-direction, and point both at `design/`. **Not done here:** edits to these
-files are explicit-task-only under `SECURITY.md`. This needs an owner
-instruction, and it is a ten-minute change.
-
-## OW-2 — No `world_style` reversibility toggle {#ow-2}
-
-The charter (§3 P2) requires the new world behind an additive save key,
-`"classic"` default until device sign-off, toggled from the pause menu.
-
-**Verified:** `grep -rn world_style scripts/` returns nothing.
-`tools/audit_visual_design.py` reports
-`ERROR charter.reversibility_toggle`. The promenade replaced the 3D Sky Lagoon
-live, in one commit, with no way back, stranding eight authored legacy stages
-(gatehouse, courtyard, playground, fairy pond, castle exterior, rainbow
-junction, alpine village, alpine mountain).
-
-This is the one finding that is a **process** failure rather than a craft one,
-and it should be fixed first because it is what makes every other fix safe to
-attempt.
-
-## OW-3 — Promenade parallax never runs {#ow-3}
-
-**Verified:** `tools/audit_visual_design.py` reports
-`ERROR layering.mural_is_a_stack — background is 1 layer(s) across 12 file(s)`.
-`grep '"layers"' scripts/arena/` returns nothing: the P1 parallax engine
-(`side_scroll.gd:80`, `:439`) has never once run in the shipped game. Every
-world card sits within 0.30 world units of a mural 18 units back.
-
-The cause is documented and honest — a standee 12 units in front of the mural
-parallaxes ~24 % faster than the art it stands on, which slid the playground
-across the painted lawn and drifted the castle-gate tap target 237 px. Both
-were real bugs. But the fix chosen paid for a tap-projection bug with the
-entire visual premise of the redesign.
-
-**Correct fix:** project tap targets through the live lens each frame (the
-machinery already exists in `_target_at`), and paint murals in separated
-layers so the playground belongs to a mid-ground that moves with it.
-
-## OW-4 — Roshan can never pass behind anything {#ow-4}
-
-**Verified:** `grep -rl '\.flat(' scripts/` returns nothing. The `flat()`
-primitive that exists precisely to make depth sorting work (alpha-scissor,
-depth-writing, contact shadow) is used by no zone. All world cards sit ~15
-units behind the deepest point of the walk band, so she passes in front of the
-slide, the swing, the seesaw, the plane, the firs and the castle gate — always.
-
-The result is a paper doll on a backdrop, not a diorama. This directly
-contradicts the owner's stated heart of the look (01 §2, the layering rule).
-
-## OW-5 — Background out-saturates foreground {#ow-5}
-
-Measured 2026-07-28: panorama tiles 0.551 saturation vs standees + Roshan
-0.412 (**1.34×**), luminance delta 0.010. Fairy pond the same, milder (1.12×,
-Δ 0.039). Both channels a four-year-old uses to find a tap target work against
-her.
-
-**Not re-verified today** — the container lacks PIL, so the tool's image
-checks degrade to warnings. Install Pillow to re-measure.
-
-This is the cheapest change with the biggest effect on the child: it is a
-repaint of the mural, not a rearchitecture.
-
-## OW-6 — The world is not stitched; no reachability probe {#ow-6}
-
-`_enter_level2_now` returns early into the Sky Lagoon promenade, so
-`_populate_courtyard_touch_interactables` never runs. Every destination the
-courtyard hub offered is unreachable in normal play: both ocean kingdoms, the
-Magic Cave, Butterfly World, Ember Fortress, both Rainbow Race legs, the Dream
-Stars, the wall picture games, the secret back door. The promenade registers
-four targets total.
-
-**No probe proves any door reaches its destination** — `probe_opera.gd` calls
-`_start_opera()` directly, and that blind spot is exactly how the Sky Lagoon
-opera entrance disappeared without CI noticing.
-
-A bot that walks every seam is the highest-value missing test in the project.
-Without it the next rewrite will silently unstitch the world again.
-
-## OW-7 — The reef pilot was skipped {#ow-7}
-
-**Verified:** `scripts/promenade.gd` does not exist. Zone #4 (Sky Lagoon)
-shipped before zones #1–#3. The tool reports
-`WARN charter.migration_order`.
-
-The pilot existed so its device test could **revise the layer spec** before
-other zones committed to it. OW-3, OW-4 and OW-5 are precisely the kind of
-spec revision the pilot was supposed to surface cheaply, on the smallest set.
-
-Everything learned from the Sky Lagoon should now flow into the reef set
-*before* it is painted, and batches 3–6 should not start speculatively.
-
-## OW-8 — Engine consolidation backlog {#ow-8}
-
-`MINIGAME_ENGINES.md` §7 lists seven migration steps. **Step 1 (E2 + dolls) is
-done; steps 2–7 are all open.** Verified: no `scripts/game_input.gd`, no
-`RoomStage` symbol anywhere in `scripts/`.
-
-| Step | Work | Effort |
-|---|---|---|
-| 2 | Snowman chase → E2 catch mode (deletes a duplicate mover) | small |
-| 3 | `GameInput` helper; adopt in Family-A games, then kart/galaxy's private `joy_axis` clones | small-medium |
-| 4 | Fairy → E3 `configure()` (behaviour-preserving parameterization) | small |
-| 5 | `RoomStage` base under combat + puzzle rooms (E1) | medium |
-| 6 | `Spline3` helper shared by kart + slide; evaluate an E4 `rail` preset | medium |
-| 7 | Formalize the K1 course/collect API; move melody orbs onto it | small |
-
-Step 3 is the one to do first: it is the largest duplication in the codebase
-(~12 copies), and it is where a future accessibility tweak — bigger dead
-zones, hold-assist — would land once for every game simultaneously.
-
-## OW-9 — Asset hygiene, orphans and APK weight {#ow-9}
-
-Measured 2026-07-28:
-
-- **8.6 MB** of orphaned Sky Lagoon PNGs referenced by no script or scene; 16
-  of 43. Seven families ship three generations at once (`slide` → `_v3` →
-  `_v3_compact`, etc.).
-- **11.7 MB** fully orphaned under Galaxy; **1.8 MB** under Castle.
-- 14 of 26 Sky Lagoon runtime textures are NPOT, so **11.2 MB ships
-  uncompressed** on the Mali GPU.
-- `*.import` is gitignored for new files while 1,451 historical sidecars stay
-  tracked — compression mode, mipmaps, and the NPOT + `compress mode=2`
-  importer deadlock are all unreviewable in-repo for new art.
-- `assets/terrain` alone is 61 MB of source (CODE_AUDIT §4.7).
-
-Galaxy's 11.7 MB is dead weight on a three-year-old phone, which makes the
-charter's "Galaxy last, or retired to a picture-game" call overdue.
-
-## OW-10 — Visual-design audit still advisory {#ow-10}
-
-`ci.sh` runs `audit_visual_design.py --stress` as a **hard** gate (correctly —
-a check that can no longer fail is worse than no check) but the audit itself
-with `|| true`. The comment says to flip it to `--strict` once the 2026-07-28
-findings are fixed or waived. That is OW-2 through OW-5. Flipping it is the
-step that stops those regressions from recurring.
-
-## OW-11 — Living-world layer has no depth {#ow-11}
-
-`living_world_canvas.gd` is a single full-rect `Control` on a `CanvasLayer`,
-drawing two accents per stage at fixed screen x≈48 and x≈(width−50), alpha
-0.25–0.30, across 111 stages.
-
-As engineering it is disciplined and cheap — one bounded renderer, no
-timers/tweens/particles, no gameplay state, probe-gated. As visual design it
-is screen-space in a depth-graded world: the accents cannot occlude, be
-occluded, or parallax; on a panning promenade they stay pinned to the screen
-edge and read as UI. The choreography is identical on all 111 stages, and it
-occupies exactly the corners the work order reserves for the L4 foreground
-vignette, so real L4 flats will collide with it.
-
-**Fix:** re-home into world space as `SideScrollStage.flat()` accents at real
-depth on staged zones, keeping the canvas only for genuinely screen-space
-moments. (The promenade's own `_tick_ambient_life()` fir sway, cloud drift and
-plane bob are real world-space motion — and are better.)
-
-## OW-12 — 45 probes exist outside the CI gate {#ow-12}
-
-**Verified:** 96 `scripts/probe_*.gd` on disk, 51 driven by the `ci.sh` loop
-(`probes.yml` runs the same set plus `probe_visual_audit`). Some are
-deliberately one-shot capture tools; others are real regression tests that
-silently stopped running. Each unlisted probe should be triaged into *gate*,
-*tool*, or *delete*.
-
-## OW-13 — World-map geography needs four owner decisions {#ow-13}
-
-`WORLD_MAP_2026-07-27.md` §6, unanswered since 2026-07-27:
-
-1. **Which mirror axis for the tropical set?** Midpoint mirror moves the home
-   district (and the start point, the Manta shop, the first friends) to the
-   far left; centroid mirror collides with the kelp district. A third option
-   is recommended over both: **mirror the art and dressing, leave district
-   coordinates untouched** — the zone reads flipped and no save, friend, pearl
-   or route moves. Mirroring coordinates touches the "zero tolerance for lost
-   progress" rule, so it needs an explicit call, not a default.
-2. **The kelp anomaly** — kelp is flagged Norwegian/frozen but sits at
-   (−35, 165), nowhere near the ice district. Move it east, or re-flag it
-   tropical?
-3. **Seam 6's form** — is the frozen ocean entered by swimming off the woods'
-   fjord shore (continuous, best for a non-reader) or by a gate card
-   (cheaper, consistent with every other seam)?
-4. **Preview scope** — a playable end-to-end walk, or a capture flythrough of
-   each zone in order?
-
-## OW-14 — Opera art requests still open {#ow-14}
-
-From `OPERA_STAGE_INTERACTION_2026-08-02.md` and
-`CODEX_OPERA_STAGE_COMPLETION_HANDOFF_2026-08-02.md`:
-
-- **P3-04** — twelve on-stage finale scenes. Until they land, stage phases
-  draw the code proscenium overlay on the district painting;
-  `OperaWorldBackdrop2D.set_stage` is already the swap point.
-- **P3-05** — the Moonbeam Nursery district painting. **Verified:**
-  `assets/opera/worlds/backdrops/` holds 12 `world_*.png`, no
-  `world_nursery.png`; nursery falls back to a safe route arc.
-- **P6** — the imp/rival animation-state program (60-file state manifest).
-- **P7** — Storybook task-card nine-patch frame, station marker, magnifier prop.
-
-Every consumer is already wired to load the real asset the moment it lands at
-the stated path.
-
-## OW-15 — Lamba voice lines still say "bunny-fish" {#ow-15}
-
-Owner decision 2026-08-01 replaced the rabbit-fish with Lamba in the magician
-act. Art, on-screen copy and probes were updated; **audio was deliberately not
-touched.** **Verified:** `roshan_op_magician_bunny_chase.ogg` still ships, and
-`op_magician_vanish` / `op_magician_bunny_chase` remain compatibility aliases.
-
-Owner-gated: the two live clips need re-recording (or re-rendering) before the
-name change is complete in the child's ears.
-
-## OW-16 — Dungeon lock-and-key redesign unbuilt {#ow-16}
-
-`DUNGEON_DIFFICULTY_AUDIT_2026-07-18.md` §4 contains a full room-by-room
-linear lock-and-key design with a difficulty curve sized for the player. None
-of it is implemented. It also answers "is 10 the right number of rooms" — read
-§3 before changing the count.
-
-## OW-17 — Zelda-grammar verb set unbuilt {#ow-17}
-
-`ZELDA_GAMEPLAY_WORKORDER_2026-07-18.md` tiers E (embodied verbs: grab, push,
-switch) and S (the loop itself) are unstarted. Tier E is the prerequisite for
-E1's "same room logic played embodied in real arenas" growth path. Jolt tier J
-is explicitly garnish-only and gated on an M11 grading run.
-
-## OW-18 — CC0 → original art replacement in progress {#ow-18}
-
-Owner directive 2026-07-22: replace all CC0/non-original art with original
-work — **as a handoff, not a deletion pass.** Codex generates 2D concept art
-per item, Claude converts it, and the old file is deleted only once its
-replacement is built, wired and probe-green. No mass deletion. Item list:
-`CC0_REPLACEMENT_WORKORDER_2026-07-22.md`.
-
-## OW-19 — Meshy migration paused; API key absent {#ow-19}
-
-Working as designed, recorded so it is not rediscovered: the gen2 Meshy
-character migration is **paused** by the 2.5D charter, and the Meshy key never
-lived in this repo (`.secrets/meshy_key`, gitignored). Remote containers start
-clean, so it must be re-supplied per session. If the migration is ever
-un-paused, `NPC_3D_WORKORDER_2026-07-19.md` has the staged batch ready to
-submit in one command.
-
-## OW-20 — Structural code debt {#ow-20}
-
-See [03 §9](03_TECHNICAL_ARCHITECTURE.md) for the full table. The seven items:
-main.gd size, stringly-typed state machines, duplicated input polling
-(= OW-8 step 3), accumulating dead code, per-instance material churn in
-`_dress_nature`, synchronous save on every pearl pickup, and asset weight
-(= OW-9).
-
-## OW-21 — Quality is inferred headlessly, not measured on device {#ow-21}
-
-`AUDIT_UPGRADE.md`'s first and most structural finding: every quality gate in
-this project is a headless inference. Nothing measures frame pacing, thermal
-behaviour, touch latency or actual comprehension **on the M11, by the child**.
-The 2.5D charter's own success criteria (§3, P3/P4) are device tests that have
-not been run.
-
-Everything else in this list is a guess about the phone until this is fixed.
+| `MA-2D-002` | `IN_PROGRESS` | Convert every remaining runtime/probe/scene/config/model category to strict-zero true Canvas/Node2D 2D; remaining 3D is shrinking debt, never scaffolding |
+| `MA-DOC-001` | `IN_PROGRESS` | Reconcile current-authority documents with the 2026-08-09 medium decision and exact Godot 4.7.1-stable |
+| `MA-DOC-002` | `CONFIRMED_OPEN` | Produce an exhaustive one-row-per-tracked-Markdown authority ledger with precise partial-supersession scope; this file does not pretend that is complete |
+| `MA-DOC-003` | `BLOCKED_EXTERNAL` | Obtain the off-repository Alpha journal or replace it with a fresh equally scoped audit; do not assume its unnamed entries are fixed or open |
+| `MA-DOC-004` | `IN_PROGRESS` | Track, index and gate the comprehensive design language and master audit |
+| `MA-DOC-005` | `CONFIRMED_OPEN` | Create linked full records for material active items before calling them canonical findings |
+| `MA-VIS-002` | `CONFIRMED_OPEN` | Replace Sky Lagoon's one mural layer with genuine Canvas/`Sprite2D` differential layers and prove seams, ownership, overdraw and runtime/device quality |
+| `MA-VIS-003` / `MA-VIS-004` | `REPORTED_UNCONFIRMED` | Replace source-average palette/figure-ground diagnostics with state-local Canvas + HUD evidence before changing approved art |
+| `MA-VIS-005` | `CONFIRMED_OPEN` | Validate occlusion for every relevant 2D card, not one aggregate role |
+| `MA-VIS-006` | `CONFIRMED_OPEN` | Resolve all applicable visual review/manual/coverage gaps with commit-pinned evidence |
+| `MA-PLAY-001` | `CONFIRMED_OPEN` | Prove every current child-visible destination from a fresh save without direct/debug entry, including return, re-entry, touch, voice and save behavior |
+| `MA-ACCESS-001` / `MA-ACCESS-002` | `BLOCKED_EXTERNAL` | Obtain authorized exact objective recordings/diegetic equivalents and the Lamba semantic recording; protected family audio must not be modified |
+| `MA-TOUCH-001` | `FIXED_PENDING_VERIFICATION` | Complete target-phone hold/drag/multitouch/focus-loss evidence |
+| `MA-OPERA-001` through `MA-OPERA-006` | `CONFIRMED_OPEN` | Repair only the named current art, capture, uniqueness and art-fiction items in the master audit; do not revive an older request list wholesale |
+| `MA-OPERA-007` | `OWNER_DECISION_REQUIRED` | Decide the above-water Farmer/Doctor setting before treating it as a defect or repair |
+| `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Establish same-SHA analyzer/import/full-suite/APK/device evidence; the full checkpoint at `344d8d5c` does not transfer to later commits |
+
+Current P2/owner-decision work remains indexed in the master audit: asset
+orphans/NPOT residency, probe classification, the standalone fire-arena role,
+combat device review, Opera gaps, and structural code debt. Roshan atlas
+repacking is `DEFERRED_WITH_REASON`; universal costume layers are
+`DISMISSED_NOT_A_DEFECT`.
 
 ---
 
-## Suggested order
+## Historical `OW-*` crosswalk
 
-1. **OW-1** — ten minutes, and it stops agents acting on a paused directive.
-2. **OW-2** — restore the way back before changing anything else.
-3. **OW-5** — cheapest art change, biggest effect on the child.
-4. **OW-4 + OW-3** — restore standee depth with per-frame tap projection, then
-   the layer stack.
-5. **OW-6** — restore reachability, then write the seam-walking probe.
-6. **OW-7** — paint the reef set with all of the above already learned, and
-   run its device test (**OW-21**) before batches 3–6.
-7. **OW-10** — flip the visual audit to `--strict` so none of it regresses.
+<a id="ow-1"></a>
+### OW-1 — authority-file contradiction
+
+`IN_PROGRESS` under `MA-DOC-001`. On 2026-08-02, `CLAUDE.md` described the
+2.5D/Meshy direction differently from `AGENTS.md`, and both quoted stale code
+counts. The authorized 2026-08-09 reconciliation replaces both current
+directions with true 2D. Closure still needs the documentation gate; editing
+the prose alone is not a verified fix.
+
+<a id="ow-2"></a>
+### OW-2 — missing `world_style` reversibility toggle
+
+`DISMISSED_NOT_IN_PROJECT`. The 2026-07-27 charter required a route back to the
+3D world. The 2026-08-09 final-medium decision supersedes dimensional rollback;
+adding this toggle would restore a rejected production direction. General
+feature flags may still protect unrelated risky behavior changes.
+
+<a id="ow-3"></a>
+### OW-3 — Sky Lagoon is one mural, not a layer stack
+
+`CONFIRMED_OPEN` as `MA-VIS-002`. The durable problem is the absence of
+differential visual layers. Closure must use true Canvas/`Sprite2D` layers;
+`SideScrollStage`, `Sprite3D`, a filename change or 3D tap projection cannot
+close it.
+
+<a id="ow-4"></a>
+### OW-4 — per-object occlusion is not proved
+
+`CONFIRMED_OPEN` as `MA-VIS-005`, with its old depth-buffer prescription
+`SUPERSEDED`. The current requirement is explicit 2D `z_index`/Canvas ordering
+for every relevant card while Roshan remains findable.
+
+<a id="ow-5"></a>
+### OW-5 — source-average palette/figure-ground report
+
+`REPORTED_UNCONFIRMED` as `MA-VIS-003`/`MA-VIS-004`. The 2026-07-28 values are
+historical diagnostics, not authority to repaint. The metric averages mutually
+exclusive and non-rendered files; reproduce a state-local Canvas/HUD composite
+first. Fairy is likely a false positive; Lagoon is a plausible but unconfirmed
+hierarchy risk.
+
+<a id="ow-6"></a>
+### OW-6 — world reachability lacks a full proof
+
+`CONFIRMED_OPEN` as `MA-PLAY-001`. A Lagoon-to-Reef route has focused evidence,
+but no current fresh-save no-cheat traversal covers the whole player-visible
+graph. The 2026-08-02 destination list is historical and must be freshly
+enumerated before repair.
+
+<a id="ow-7"></a>
+### OW-7 — reef pilot / migration-order violation
+
+`DISMISSED_NOT_A_DEFECT`. Sky Lagoon shipping before the proposed pilot is
+useful `HISTORICAL_EVIDENCE` about process, but cannot be repaired
+retroactively and does not authorize the old 2.5D migration order.
+
+<a id="ow-8"></a>
+### OW-8 — engine-consolidation backlog
+
+`SUPERSEDED` as a single queue. Duplicated input remains a current risk under
+`MA-CODE-002`; E1/Zelda expansion is `DEFERRED_WITH_REASON`; Spline3,
+physical-standee and other 3D prescriptions are superseded. Conversion work
+must be behavior-preserving true 2D, not speculative engine growth.
+
+<a id="ow-9"></a>
+### OW-9 — asset hygiene and weight
+
+The 2026-07-28 counts are `HISTORICAL_EVIDENCE`, superseded by current
+`MA-ASSET-001` and `MA-ASSET-004` measurements: Castle 2.1 MB, Galaxy 11.7 MB,
+Opera 163.7 MB (458/494 PNGs), Lagoon 47.3 MB, and Lagoon 10/41 NPOT textures
+with about 11.6 MB uncompressed simultaneous residency. Delete only after
+reachability, provenance, archive and surrounding tests.
+
+<a id="ow-10"></a>
+### OW-10 — incomplete visual-audit evidence
+
+`CONFIRMED_OPEN` as `MA-VIS-006`. The current issue is broader than flipping a
+command-line flag: every applicable review, manual item and coverage gap needs
+commit-pinned evidence, and the audit must measure the final Canvas runtime.
+
+<a id="ow-11"></a>
+### OW-11 — screen-space living-world overlay
+
+`SUPERSEDED` as a 3D-depth repair prescription. The 2026-08-02 observation is
+historical evidence. Any current overlay defect must be freshly reproduced
+against `DL-LAY-*`; retained ambient art belongs in intentional 2D Canvas/
+parallax roles and remaining spatial staging belongs to `MA-2D-002`.
+
+<a id="ow-12"></a>
+### OW-12 — old probe-count gap
+
+`SUPERSEDED` by `MA-CI-002`. The old “96 total / 45 outside” count is stale.
+The synchronized audit counts 103 probe scripts; every one requires exactly
+one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined
+classification.
+
+<a id="ow-13"></a>
+### OW-13 — proposed world-map geography
+
+`DEFERRED_WITH_REASON`. The mirror axis, kelp placement, seam form and preview
+scope were never approved. They are not current bugs. `MA-PLAY-001` owns the
+separate requirement to prove the graph that actually ships.
+
+<a id="ow-14"></a>
+### OW-14 — old Opera request inventory
+
+`SUPERSEDED` as a queue by the later August 3–5 Opera audits. Current work is
+limited to `MA-OPERA-001` through `MA-OPERA-007`; previously closed request
+symptoms must not be imported as stale findings.
+
+<a id="ow-15"></a>
+### OW-15 — Lamba audio still uses the legacy noun
+
+`BLOCKED_EXTERNAL` as `MA-ACCESS-002`. The visual/semantic role changed, but
+the protected recording still says “bunny-fish.” Closure requires an
+owner-approved recording or re-render plus exact-key and device-listening
+evidence. Do not edit or substitute protected audio without authorization.
+
+<a id="ow-16"></a>
+### OW-16 — dungeon lock-and-key redesign
+
+`DEFERRED_WITH_REASON`. This is optional future design, not a defect in the
+current game and not implementation authorization. Existing dungeon behavior,
+if retained, still requires true-2D conversion and normal no-fail testing.
+
+<a id="ow-17"></a>
+### OW-17 — Zelda-grammar verb expansion
+
+`DEFERRED_WITH_REASON`. Grab/push/switch and the proposed E1 growth path wait
+until the current game, conversion and device evidence are complete. Zelda
+remains a mechanics reference only; no Zelda content may enter the project.
+
+<a id="ow-18"></a>
+### OW-18 — broad CC0-to-original campaign
+
+`DEFERRED_WITH_REASON` as a broad campaign. Address named live defects one at a
+time, reuse approved art first, preserve provenance, and never mass-delete or
+redesign for novelty. An old asset is removed only after its replacement or
+non-reachability proof and surrounding gates are green.
+
+<a id="ow-19"></a>
+### OW-19 — Meshy migration and missing key
+
+`SUPERSEDED` / `DISMISSED_NOT_IN_PROJECT`. The migration is removed, not
+paused; the absent API key is not a blocker. `NPC_3D_WORKORDER_2026-07-19.md`
+and related batches are historical evidence and must never be submitted.
+
+<a id="ow-20"></a>
+### OW-20 — structural code debt
+
+`CONFIRMED_OPEN` only through fresh `MA-CODE-001`/`MA-CODE-002` evidence:
+`main.gd` is 8,465 lines, and string state, duplicated input, save frequency,
+material churn and remaining 3D glue are risks. Specific July dead-code claims
+are historical leads until reproduced.
+
+<a id="ow-21"></a>
+### OW-21 — device and child evidence absent
+
+`BLOCKED_EXTERNAL` as `MA-PERF-001`/`MA-CHILD-001`, with phone-only touch and
+combat review tracked separately. Headless inference cannot establish frame
+pacing, thermal behavior, touch latency, audio intelligibility, phone-size
+readability or child comprehension.
+
+---
+
+## Repair order
+
+Follow the current order in `audit/MASTER_AUDIT_2026-08-09.md`, not the 2026-08-02
+OW ordering:
+
+1. Finish authority/document controls and full finding records.
+2. Continue one tested true-2D gameplay family at a time until every GAME2D
+   category is zero.
+3. Close current Opera capture/art defects and the confirmed Lagoon Canvas
+   layering defect; establish state-local visual evidence before changing art.
+4. Resolve protected voice gaps through authorized sources.
+5. Re-enumerate and prove the child-visible world graph.
+6. Classify all probes; retire only proved obsolete assets/code.
+7. Run same-SHA full suite, capture, device and child gates, then repeat the
+   master audit from `INVENTORYING`.
+
+No state in this document permits calling the game or master audit satisfied.

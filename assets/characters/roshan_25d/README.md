@@ -1,10 +1,20 @@
-# Mermaid Roshan 2.5D sprite contract
+# Mermaid Roshan 2D atlas contract
 
-**Binding owner decision (2026-08-09): Mermaid Roshan is 2D-only.** Godot may
-stage these flat images on a `Sprite3D` card for depth, but Roshan must not use
-a mesh, GLB, armature, character skeleton, or model fallback. Retired 3D
-resources and pipeline evidence live only on
-`codex/deprecated-resources-roshan-20260809` (archive head `8d9c69b6`).
+**Binding owner decision (2026-08-09): Mermaid Roshan is 2D-only.** These flat
+images must be staged on the Canvas through `Node2D`/`Sprite2D` with explicit
+2D ordering. Roshan must not use a mesh, GLB, armature, character skeleton,
+rig, skin weights, or model fallback. The player's current
+`Node3D`/`Sprite3D` staging is measured migration debt, not an exception to
+this contract.
+
+Retired 3D **resource blobs** live only on archive branch
+`codex/deprecated-resources-roshan-20260809` (verified archive head
+`9329d9a6`). Ledger-classified textual pipeline, work-order, audit, and
+decision history remains tracked on the active branch as non-executable
+`HISTORICAL_EVIDENCE`; it preserves provenance and explains retired work but
+cannot authorize a model pipeline or runtime dependency. The archive branch is
+preservation evidence, not a runtime fallback, rollback target, merge source,
+or alternate production authority.
 
 All runtime textures are RGBA PNGs with power-of-two dimensions and 256x256
 cells. `scripts/player.gd` is the source of truth for frame selection.
@@ -29,12 +39,14 @@ Every verb and playground action now has four authored keyframes. Swimming
 has sixteen front and sixteen back keyframes, quadrupling the original
 four-phase loop in each view. The original `roshan_swim.png`,
 `roshan_gestures.png`, and `roshan_play.png` sheets are retained as generation
-provenance and rollback references but are not preloaded by the player.
+provenance/source references but are not preloaded by the player.
 
-The primary player is a `Sprite3D` billboard and no Roshan GLB or character
-skeleton is loaded. Direction is selected relative to the active camera, swim
-phase follows the established movement clock, verb frames advance across each
-verb's existing duration, and playground frames follow their choreography
-parameters. Opera costume ids remain gameplay state while the animated base
-sprite stays visible; dedicated 2D outfit layers can be added without restoring
-the retired model path.
+Current implementation note, not final authority: the primary player still
+uses a legacy `Sprite3D` billboard, although no Roshan GLB or character
+skeleton is loaded. Convert that staging to `Node2D`/`Sprite2D` while
+preserving direction selection, movement clock, verb timing, playground
+choreography, touch behavior, saves, and surrounding probes.
+
+Opera costume ids remain gameplay state while the animated base sprite stays
+visible. Dedicated 2D outfit layers are optional future design, not an audit
+requirement; they must never restore a model path.
