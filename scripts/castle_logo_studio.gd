@@ -21,6 +21,24 @@ const SYMBOL_CHOICES: Array[Dictionary] = [
 	{"id": "crown", "name": "Crown", "icon": "👑"},
 	{"id": "butterfly", "name": "Butterfly", "icon": "🦋"},
 ]
+const BANNER_TEXTURES: Dictionary = {
+	"pink": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_pink.png"),
+	"gold": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_gold.png"),
+	"mint": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_mint.png"),
+	"ocean": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_ocean.png"),
+	"purple": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_purple.png"),
+	"rainbow": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png"),
+}
+const SYMBOL_TEXTURES: Dictionary = {
+	"rainbow": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_motif_rainbow.png"),
+	"shell": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png"),
+	"kitty": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_motif_kitty.png"),
+	"dog": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_motif_dog.png"),
+	"star": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_motif_star.png"),
+	"heart": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_motif_heart.png"),
+	"crown": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png"),
+	"butterfly": preload("res://assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png"),
+}
 const RAINBOW_COLORS: Array[Color] = [
 	Color(1.0, 0.35, 0.42), Color(1.0, 0.67, 0.25),
 	Color(1.0, 0.87, 0.30), Color(0.38, 0.86, 0.54),
@@ -40,19 +58,22 @@ const ROOM_BANNER_RECTS: Dictionary = {
 	],
 }
 const CRAFT_BOARD_BADGE_RECT := Rect2(578.0, 158.0, 88.0, 88.0)
+const ROOM_ART_TO_STAGE := 1.25
+const BANNER_WORLD_DEPTH := 0.28
+const SYMBOL_WORLD_DEPTH := 0.30
 
 class LogoPreview extends Control:
 	var color_id := "rainbow"
 	var symbol_id := "rainbow"
-	var symbol_label: Label
+	var symbol_image: TextureRect
 
 	func _init() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
-		symbol_label = Label.new()
-		symbol_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		symbol_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		symbol_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		add_child(symbol_label)
+		symbol_image = TextureRect.new()
+		symbol_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		symbol_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		symbol_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		add_child(symbol_image)
 		resized.connect(_layout_symbol)
 
 	func configure(next_color_id: String, next_symbol_id: String) -> void:
@@ -60,18 +81,18 @@ class LogoPreview extends Control:
 		symbol_id = next_symbol_id
 		set_meta("color_id", color_id)
 		set_meta("symbol_id", symbol_id)
-		symbol_label.text = CastleLogoStudio.symbol_icon(symbol_id)
+		symbol_image.texture = CastleLogoStudio.SYMBOL_TEXTURES.get(
+			symbol_id, CastleLogoStudio.SYMBOL_TEXTURES["rainbow"]) as Texture2D
 		_layout_symbol()
 		queue_redraw()
 
 	func _layout_symbol() -> void:
-		if symbol_label == null:
+		if symbol_image == null:
 			return
-		symbol_label.position = Vector2(0.0, size.y * 0.10)
-		symbol_label.size = Vector2(size.x, size.y * 0.72)
-		var font_size: int = maxi(34, int(minf(size.x, size.y) * 0.46))
-		StorybookUI.style_label(symbol_label, font_size, Color.WHITE,
-			maxi(3, int(float(font_size) / 12.0)))
+		var symbol_side: float = minf(size.x, size.y) * 0.58
+		symbol_image.position = Vector2(
+			(size.x - symbol_side) * 0.5, size.y * 0.20)
+		symbol_image.size = Vector2(symbol_side, symbol_side)
 
 	func _draw() -> void:
 		var points := PackedVector2Array([
@@ -106,82 +127,74 @@ class LogoPreview extends Control:
 		draw_polyline(inner_outline, Color(1.0, 0.94, 0.72, 0.92),
 			maxf(3.0, minf(size.x, size.y) * 0.022), true)
 
-class BannerPreview extends Control:
+class BannerPreview extends Node3D:
 	var color_id := "rainbow"
 	var symbol_id := "rainbow"
-	var symbol_label: Label
+	var banner_image: Sprite3D
+	var symbol_image: Sprite3D
 
 	func _init() -> void:
-		mouse_filter = Control.MOUSE_FILTER_IGNORE
-		symbol_label = Label.new()
-		symbol_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		symbol_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		symbol_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		add_child(symbol_label)
-		resized.connect(_layout_symbol)
+		banner_image = _new_world_card()
+		banner_image.name = "AuthoredBannerArt"
+		add_child(banner_image)
+		symbol_image = _new_world_card()
+		symbol_image.name = "AuthoredBannerMotif"
+		add_child(symbol_image)
+
+	func _new_world_card() -> Sprite3D:
+		var card := Sprite3D.new()
+		card.centered = true
+		card.shaded = false
+		card.no_depth_test = false
+		card.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+		card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+		card.alpha_scissor_threshold = 0.5
+		card.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		card.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		card.set_meta("castle_world_sprite3d", true)
+		return card
 
 	func configure(next_color_id: String, next_symbol_id: String) -> void:
 		color_id = next_color_id
 		symbol_id = next_symbol_id
 		set_meta("color_id", color_id)
 		set_meta("symbol_id", symbol_id)
-		symbol_label.text = CastleLogoStudio.symbol_icon(symbol_id)
-		_layout_symbol()
-		queue_redraw()
+		set_meta("art_style", "pearl_castle_storybook_v2")
+		banner_image.texture = CastleLogoStudio.BANNER_TEXTURES.get(
+			color_id, CastleLogoStudio.BANNER_TEXTURES["rainbow"]) as Texture2D
+		symbol_image.texture = CastleLogoStudio.SYMBOL_TEXTURES.get(
+			symbol_id, CastleLogoStudio.SYMBOL_TEXTURES["rainbow"]) as Texture2D
 
-	func _layout_symbol() -> void:
-		if symbol_label == null:
+	func place(stage_rect: Rect2, rooms: CastleRooms25D) -> void:
+		if banner_image.texture == null or symbol_image.texture == null:
 			return
-		symbol_label.position = Vector2(size.x * 0.14, size.y * 0.22)
-		symbol_label.size = Vector2(size.x * 0.72, size.y * 0.43)
-		var font_size: int = maxi(24, int(minf(
-			size.x * 0.46, size.y * 0.22)))
-		StorybookUI.style_label(symbol_label, font_size, Color.WHITE,
-			maxi(3, int(float(font_size) / 11.0)))
-
-	func _draw() -> void:
-		var points := PackedVector2Array([
-			Vector2(size.x * 0.17, size.y * 0.12),
-			Vector2(size.x * 0.83, size.y * 0.12),
-			Vector2(size.x * 0.83, size.y * 0.84),
-			Vector2(size.x * 0.76, size.y * 0.96),
-			Vector2(size.x * 0.67, size.y * 0.89),
-			Vector2(size.x * 0.58, size.y * 0.97),
-			Vector2(size.x * 0.50, size.y * 0.90),
-			Vector2(size.x * 0.42, size.y * 0.97),
-			Vector2(size.x * 0.33, size.y * 0.89),
-			Vector2(size.x * 0.24, size.y * 0.96),
-			Vector2(size.x * 0.17, size.y * 0.84),
-		])
-		var cloth_center := Vector2(size.x * 0.50, size.y * 0.51)
-		if color_id == "rainbow":
-			for i in range(points.size()):
-				var triangle := PackedVector2Array([
-					cloth_center, points[i],
-					points[(i + 1) % points.size()]])
-				draw_colored_polygon(triangle,
-					CastleLogoStudio.RAINBOW_COLORS[
-						i % CastleLogoStudio.RAINBOW_COLORS.size()])
-		else:
-			draw_colored_polygon(points,
-				CastleLogoStudio.color_value(color_id))
-		var outline := points.duplicate()
-		outline.append(points[0])
-		draw_polyline(outline, StorybookUI.PURPLE_DEEP,
-			maxf(6.0, size.x * 0.075), true)
-		draw_polyline(outline, StorybookUI.GOLD,
-			maxf(3.0, size.x * 0.038), true)
-		var rod_y := size.y * 0.105
-		var rod_start := Vector2(size.x * 0.06, rod_y)
-		var rod_end := Vector2(size.x * 0.94, rod_y)
-		draw_line(rod_start, rod_end, StorybookUI.PURPLE_DEEP,
-			maxf(8.0, size.x * 0.10), true)
-		draw_line(rod_start, rod_end, StorybookUI.GOLD,
-			maxf(4.0, size.x * 0.055), true)
-		var finial_radius := maxf(5.0, size.x * 0.065)
-		for finial: Vector2 in [rod_start, rod_end]:
-			draw_circle(finial, finial_radius, StorybookUI.PURPLE_DEEP)
-			draw_circle(finial, finial_radius * 0.62, StorybookUI.GOLD)
+		set_meta("stage_rect", stage_rect)
+		banner_image.position = rooms._stage_to_world(
+			stage_rect.get_center(), CastleLogoStudio.BANNER_WORLD_DEPTH)
+		banner_image.pixel_size = rooms._pixel_size_for_depth(
+			CastleLogoStudio.BANNER_WORLD_DEPTH)
+		var banner_art_size: Vector2 = stage_rect.size \
+			/ CastleLogoStudio.ROOM_ART_TO_STAGE
+		var banner_texture_size: Vector2 = banner_image.texture.get_size()
+		banner_image.scale = Vector3(
+			banner_art_size.x / banner_texture_size.x,
+			banner_art_size.y / banner_texture_size.y, 1.0)
+		var symbol_side: float = stage_rect.size.x * 0.54
+		var symbol_rect := Rect2(
+			stage_rect.position + Vector2(
+				(stage_rect.size.x - symbol_side) * 0.5,
+				stage_rect.size.y * 0.275),
+			Vector2(symbol_side, symbol_side))
+		symbol_image.position = rooms._stage_to_world(
+			symbol_rect.get_center(), CastleLogoStudio.SYMBOL_WORLD_DEPTH)
+		symbol_image.pixel_size = rooms._pixel_size_for_depth(
+			CastleLogoStudio.SYMBOL_WORLD_DEPTH)
+		var symbol_art_size: Vector2 = symbol_rect.size \
+			/ CastleLogoStudio.ROOM_ART_TO_STAGE
+		var symbol_texture_size: Vector2 = symbol_image.texture.get_size()
+		symbol_image.scale = Vector3(
+			symbol_art_size.x / symbol_texture_size.x,
+			symbol_art_size.y / symbol_texture_size.y, 1.0)
 
 var m: ReefMain
 
@@ -348,12 +361,11 @@ func _make_preview(preview_name: String, preview_size: Vector2) -> LogoPreview:
 	return preview
 
 func _make_banner(preview_name: String,
-		preview_size: Vector2) -> BannerPreview:
+		stage_rect: Rect2, rooms: CastleRooms25D) -> BannerPreview:
 	var preview := BannerPreview.new()
 	preview.name = preview_name
-	preview.custom_minimum_size = preview_size
-	preview.size = preview_size
 	preview.configure(m.castle_logo_color, m.castle_logo_symbol)
+	preview.place(stage_rect, rooms)
 	return preview
 
 func _pulse_pointer(pointer: Label) -> void:
@@ -473,13 +485,18 @@ func close(committed: bool = false) -> void:
 func clear_room_display() -> void:
 	if m.castle_logo_room_display != null \
 			and is_instance_valid(m.castle_logo_room_display):
+		var world_display: Node3D = m.castle_logo_room_display.get_meta(
+			"world_display", null) as Node3D
+		if world_display != null and is_instance_valid(world_display):
+			world_display.free()
 		m.castle_logo_room_display.free()
 	m.castle_logo_room_display = null
 
 func refresh_room_display() -> void:
 	clear_room_display()
-	if m.castle_room_stage == null:
+	if m.castle_room_stage == null or m.castle_room_world_root == null:
 		return
+	var rooms: CastleRooms25D = m._castle_rooms_ref()
 	var banner_rects: Array = ROOM_BANNER_RECTS.get(m.castle_room_id, [])
 	if banner_rects.is_empty() and m.castle_room_id != "craft_room":
 		return
@@ -493,16 +510,22 @@ func refresh_room_display() -> void:
 	display.set_meta("castle_room_id", m.castle_room_id)
 	display.set_meta("replaces_design", "purple_shell_banner")
 	m.castle_room_stage.add_child(display)
+	var world_display := Node3D.new()
+	world_display.name = "CastleLogoWorldDisplay"
+	m.castle_room_world_root.add_child(world_display)
+	display.set_meta("world_display", world_display)
+	var banner_nodes: Array[Node] = []
 	for index: int in range(banner_rects.size()):
 		var banner_rect: Rect2 = banner_rects[index] as Rect2
 		var banner := _make_banner(
-			"CastleLogoBanner_%d" % index, banner_rect.size)
-		banner.position = banner_rect.position
+			"CastleLogoBanner_%d" % index, banner_rect, rooms)
 		banner.set_meta("display_location",
 			m.castle_room_id + "_purple_shell_banner_replacement")
 		banner.set_meta("replaces_design", "purple_shell_banner")
 		banner.set_meta("banner_index", index)
-		display.add_child(banner)
+		world_display.add_child(banner)
+		banner_nodes.append(banner)
+	display.set_meta("banner_nodes", banner_nodes)
 	if m.castle_room_id == "craft_room":
 		# Keep the personalized logo as a small pinned badge on the painted board.
 		# It remains input-transparent, so the board keeps its full hotspot.
