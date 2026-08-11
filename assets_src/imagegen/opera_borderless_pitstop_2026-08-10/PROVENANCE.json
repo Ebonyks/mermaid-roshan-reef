@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "date": "2026-08-10",
+  "generation": {
+    "method": "OpenAI built-in ImageGen",
+    "mode": "precise-object-edit",
+    "result_id": "exec-ad7e44f4-a4d9-4539-b841-5c7ae110ca2e.png",
+    "original_result_path": "C:/Users/Peter/.codex/generated_images/019fe6fd-6f77-7353-86b6-d32b930bea1a/exec-ad7e44f4-a4d9-4539-b841-5c7ae110ca2e.png",
+    "reference": "assets/opera/worlds/widgets/widget_crank_racer.png",
+    "prompt_path": "assets_src/imagegen/opera_borderless_pitstop_2026-08-10/PROMPT.md"
+  },
+  "artifacts": {
+    "chroma_native": {
+      "path": "assets_src/imagegen/opera_borderless_pitstop_2026-08-10/native/racer_pitstop_kart_chroma_native.png",
+      "dimensions": [1254, 1254],
+      "sha256": "1943f7ad22c69a66c7ea155e8c6422941b39f8e318dc0bf17ddfcee4ee3281e8"
+    },
+    "alpha_native": {
+      "path": "assets_src/imagegen/opera_borderless_pitstop_2026-08-10/racer_pitstop_kart_alpha_native.png",
+      "dimensions": [1254, 1254],
+      "sha256": "dfb56ac964fe91feadbeddbefa76bea38924291b819ddc0fa070a130dcdb6e84",
+      "derivation": "remove_chroma_key.py --auto-key border --soft-matte --transparent-threshold 12 --opaque-threshold 220 --despill",
+      "detected_key": "#07f813",
+      "transparent_pixels": 1221077,
+      "partial_alpha_pixels": 14268,
+      "total_pixels": 1572516
+    },
+    "runtime": {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+      "dimensions": [512, 512],
+      "sha256": "59ea76d8be40b604cbf3691e9c9508287334ddf6cf0f81fea08c7f68fd22fe8c",
+      "derivation": "ffmpeg 8.1.2 Lanczos whole-canvas scale to 512x512 RGBA",
+      "alpha_bbox": [14, 93, 483, 372],
+      "alpha_components_over_32": 1,
+      "visible_green_spill_pixels": 0
+    }
+  },
+  "qa_summary": {
+    "codex_visual_review": "accepted",
+    "owner_human_review": "pending",
+    "full_silhouette": "pass",
+    "rear_wheel_arch_empty": "pass",
+    "detached_parts": "pass",
+    "green_spill": "pass",
+    "runtime_dimensions": "pass"
+  }
+}
+

@@ -382,13 +382,26 @@ func _finish_after_render(surface: OperaGestureSurface,
 	# Let CanvasItem execute each custom draw path once. Analyzer-only tests do
 	# not catch invalid draw geometry or texture-region calls.
 	for specialist_mode: String in [
-		"xray_scan", "dance_sequence", "candy_sort", "paint_reveal", "farm_lob",
+		"xray_scan", "candy_sort", "paint_reveal", "farm_lob",
 		"clue_board", "crown_chest", "garden_plant",
 		"magic_cabinet",
 	]:
 		surface.configure(specialist_mode, Color.WHITE)
 		surface.queue_redraw()
 		await process_frame
+		if specialist_mode == "xray_scan":
+			_ck("X-ray renders its isolated machine beneath the scanner",
+				surface.last_target_subject_route == "target_doctor"
+				and surface.last_specialist_subject_route == "xray_device")
+		elif specialist_mode == "farm_lob":
+			_ck("farm lob renders its piggy target before the first landing",
+				surface.last_target_subject_route == "target_farmer"
+				and surface.last_specialist_subject_route == "farm_pig_target")
+	surface.configure("hold", Color.WHITE, 1, "basin_doctor")
+	surface.queue_redraw()
+	await process_frame
+	_ck("Doctor WASH renders a persistent sink, faucet, water, and hands",
+		surface.last_specialist_subject_route == "doctor_basin")
 	for boxing_mode: String in [
 		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
 	]:
@@ -409,7 +422,7 @@ func _finish_after_render(surface: OperaGestureSurface,
 		surface.queue_redraw()
 		await process_frame
 	for charge_context: String in [
-		"charge_ballerina", "charge_astronaut", "charge_popstar",
+		"charge_astronaut", "charge_popstar",
 	]:
 		surface.configure("hold", Color.WHITE, 1, charge_context)
 		surface.held = true
@@ -423,7 +436,7 @@ func _finish_after_render(surface: OperaGestureSurface,
 		surface.queue_redraw()
 		await process_frame
 	for crank_context: String in [
-		"crank_chef", "crank_ballerina", "crank_candymaker",
+		"crank_chef", "crank_candymaker",
 		"crank_doctor", "crank_astronaut", "crank_popstar",
 	]:
 		surface.configure("circle", Color.WHITE, 1, crank_context)
@@ -433,12 +446,16 @@ func _finish_after_render(surface: OperaGestureSurface,
 		await process_frame
 		_ck("%s dispatches diegetic crank draw" % crank_context,
 			surface.last_contextual_draw_route == "crank:%s" % crank_context)
+		if crank_context == "crank_doctor":
+			_ck("Doctor CAST uses the reviewed starfish plush patient",
+				surface.doctor_patient_texture != null
+				and surface.last_specialist_subject_route == "doctor_starfish_patient")
 		surface.set_fill(1.0)
 		surface.accept_completion()
 		surface.queue_redraw()
 		await process_frame
 	for trace_context: String in [
-		"trace_chef", "trace_ballerina", "trace_doctor", "trace_magician",
+		"trace_chef", "trace_doctor", "trace_magician",
 	]:
 		surface.configure("swipe", Color.WHITE, 1, trace_context)
 		surface.trace_points = [
@@ -446,6 +463,17 @@ func _finish_after_render(surface: OperaGestureSurface,
 		]
 		surface.queue_redraw()
 		await process_frame
+		_ck("%s renders its own object and authored result path" % trace_context,
+			surface.last_trace_subject_route == trace_context)
+	for target_context: String in [
+		"target_chef", "target_candymaker", "target_farmer",
+		"target_astronaut", "target_painter",
+	]:
+		surface.configure("tap", Color.WHITE, 1, target_context)
+		surface.queue_redraw()
+		await process_frame
+		_ck("%s keeps its isolated subject under the interaction" % target_context,
+			surface.last_target_subject_route == target_context)
 	for push_context: String in ["push_farmer", "push_racer"]:
 		surface.configure("swipe", Color.WHITE, 1, push_context)
 		surface.set_fill(0.58)
@@ -473,6 +501,9 @@ func _finish_after_render(surface: OperaGestureSurface,
 	surface.set_fill(0.55)
 	surface.queue_redraw()
 	await process_frame
+	_ck("racer tune uses the reviewed borderless kart under wheel and wrench",
+		surface.last_specialist_subject_route == "racer_kart_asset"
+		and surface.racer_kart_texture != null)
 	surface.set_fill(1.0)
 	surface.accept_completion()
 	surface.queue_redraw()
@@ -507,6 +538,8 @@ func _init() -> void:
 	get_root().add_child(surface)
 	surface.set_process(false)
 	surface.gesture.connect(_record_gesture)
+	_ck("direct specialist scenes never paint opaque rectangular backdrops",
+		not OperaGestureSurface.DRAWS_CAUSAL_RECTANGLE_BACKDROPS)
 	var boxing: OperaBoxingSurface = BOXING_SURFACE_SCRIPT.new()
 	boxing.size = Vector2(852, 560)
 	get_root().add_child(boxing)
@@ -537,15 +570,16 @@ func _init() -> void:
 	for frame_rate: int in [30, 60]:
 		events.clear()
 		surface.configure("pourt", Color.WHITE, 1, "pour_candymaker")
-		var art_set_ok := surface.widget_backdrop != null \
+		var art_set_ok := surface.widget_backdrop == null \
+			and surface.pour_scene_texture != null \
 			and surface.widget_overlay != null and surface.widget_mover != null \
 			and surface.pour_empty_mover_texture != null \
 			and surface.pour_demo_hand_texture != null \
-			and surface.widget_backdrop.get_size() == Vector2(1024.0, 576.0) \
+			and surface.pour_scene_texture.get_size() == Vector2(1024.0, 576.0) \
 			and surface.widget_overlay.get_size() == Vector2(1024.0, 576.0) \
 			and surface.widget_mover.get_size() == Vector2(512.0, 256.0) \
 			and surface.pour_empty_mover_texture.get_size() == Vector2(512.0, 256.0) \
-			and surface.widget_backdrop.resource_path.ends_with(
+			and surface.pour_scene_texture.resource_path.ends_with(
 				"widget_pour_candymaker.png") \
 			and surface.widget_overlay.resource_path.ends_with(
 				"widget_pour_candymaker_fill.png") \
@@ -740,15 +774,17 @@ func _init() -> void:
 	_ck("echo listening glow keeps decaying between input frames",
 		is_equal_approx(surface.echo_glow, 0.25) and surface.echo_listening)
 
-	# Doctor uses the approved X-ray-machine card and a square scanner sweep,
+	# Doctor uses the approved isolated X-ray machine and a square scanner sweep,
 	# not Detective's stage-wide magnifying glass. Only crossing a new sore spot
 	# changes state; taps and unrelated motion are harmless.
 	events.clear()
 	surface.size = Vector2(392, 232)
 	surface.configure("xray_scan", Color.WHITE)
-	_ck("X-ray scan binds the approved Doctor machine card",
-		surface.visual_context == "target_doctor" and surface.widget_backdrop != null
-		and surface.widget_backdrop.resource_path.ends_with("widget_target_doctor.png"))
+	_ck("X-ray scan binds the approved Doctor machine without framed pixels",
+		surface.visual_context == "target_doctor" and surface.widget_backdrop == null
+		and surface.retired_widget_backdrop_path.ends_with("widget_target_doctor.png")
+		and surface.widget_mover != null
+		and surface.widget_mover.resource_path.ends_with("widget_target_doctor_mover.png"))
 	var first_xray_target := surface._xray_target_center(0)
 	var first_xray_demo := _pose_at(surface, 1.65)
 	_ck("X-ray rehint sweeps to the current real sore spot",
@@ -874,7 +910,7 @@ func _init() -> void:
 	# the actual phase goal; misses/reverse scrubs cannot bank or exhaust budget.
 	var trace_midpoints: Array[Vector2] = []
 	for trace_context: String in [
-		"trace_chef", "trace_ballerina", "trace_doctor", "trace_magician",
+		"trace_chef", "trace_doctor", "trace_magician",
 	]:
 		events.clear()
 		surface.configure("swipe", Color.WHITE, 1, trace_context)
@@ -934,6 +970,12 @@ func _init() -> void:
 			and is_equal_approx(_paid_total("swipe"), trace_goal)
 			and surface.trace_points.size() >= 10
 			and is_equal_approx(surface.swipe_budget, trace_budget_before))
+		var revealed_path := surface._trace_path_points(surface.trace_journey)
+		_ck("%s feedback ends on the exact authored gesture endpoint" % trace_context,
+			revealed_path.size() >= 2
+			and revealed_path[0].distance_to(surface._trace_demo_point(0.0)) < 1.0
+			and revealed_path[revealed_path.size() - 1].distance_to(
+				surface._trace_demo_point(1.0)) < 1.0)
 		var completed_total := _paid_total("swipe")
 		surface._press(surface._trace_demo_point(1.0))
 		surface._drag(surface._trace_demo_point(0.10))
@@ -996,12 +1038,15 @@ func _init() -> void:
 		and surface._portal_rotating_texture() != stationary_portal_doorway
 		and is_zero_approx(surface._portal_doorway_rotation()))
 
-	# Revised Racer TUNE art already owns its front wheel. Runtime installs only
+	# The borderless runtime kart owns its front wheel. Interaction installs only
 	# the missing rear wheel under the rotating wrench.
 	surface.configure("circle", Color.WHITE, 1, "crank_racer")
 	var rear_wheel_start := surface._racer_wheel_rect(true, 0.0)
 	var rear_wheel_done := surface._racer_wheel_rect(true, 1.0)
 	var runtime_wheels := surface._racer_runtime_wheel_rects(1.0)
+	_ck("racer pit-stop kart visible alpha remains inside shipping surface",
+		surface.racer_kart_texture != null
+		and _rect_inside(shipping_bounds, surface._racer_kart_content_rect()))
 	_ck("racer tune draws only the missing rear wheel and visibly grows it",
 		runtime_wheels.size() == 1
 		and runtime_wheels[0].get_center().distance_to(surface._racer_rear_hub()) < 1.0
@@ -1011,6 +1056,18 @@ func _init() -> void:
 		and _rect_inside(shipping_bounds, rear_wheel_done)
 		and _rect_inside(shipping_bounds,
 			_rotation_safe_square(surface._racer_wrench_rect())))
+	_ck("racer circle input and ghost share the visible rear-wheel hub",
+		surface._circle_pivot().distance_to(surface._racer_rear_hub()) < 1.0
+		and _pose_point(_pose_at(surface, 0.0)).distance_to(
+			surface._racer_rear_hub()) > 40.0)
+	events.clear()
+	var racer_pivot := surface._circle_pivot()
+	var racer_circle_radius := 58.0
+	surface._press(racer_pivot + Vector2.RIGHT * racer_circle_radius)
+	surface._drag(racer_pivot + Vector2.from_angle(0.32) * racer_circle_radius)
+	surface._drag(racer_pivot + Vector2.from_angle(0.64) * racer_circle_radius)
+	surface._release(racer_pivot + Vector2.from_angle(0.64) * racer_circle_radius)
+	_ck("circling the visible racer hub advances the wrench", _paid("circle"))
 	surface.set_fill(1.0)
 	surface.accept_completion()
 	_ck("racer tune completion holds rear install without overlaying authored front",
@@ -1019,11 +1076,24 @@ func _init() -> void:
 		and is_equal_approx(rear_wheel_done.size.x,
 			surface._racer_runtime_wheel_rects(surface.widget_fill)[0].size.x))
 
+	events.clear()
+	surface.configure("circle", Color.WHITE, 1, "crank_astronaut")
+	var valve_pivot := surface._circle_pivot()
+	_ck("astronaut valve input and ghost share the visible valve hub",
+		valve_pivot.distance_to(surface._crank_action_rect().get_center()) < 1.0
+		and _pose_point(_pose_at(surface, 0.0)).distance_to(valve_pivot) > 40.0)
+	var valve_circle_radius := 52.0
+	surface._press(valve_pivot + Vector2.RIGHT * valve_circle_radius)
+	surface._drag(valve_pivot + Vector2.from_angle(0.32) * valve_circle_radius)
+	surface._drag(valve_pivot + Vector2.from_angle(0.64) * valve_circle_radius)
+	surface._release(valve_pivot + Vector2.from_angle(0.64) * valve_circle_radius)
+	_ck("circling the visible astronaut valve advances it", _paid("circle"))
+
 	# POSE / LAUNCH / SOUND CHECK are causal holds, not the same cyan disk and
 	# meter. The two old static-subject cards are fully occluded before their
 	# approved isolated prop animates.
 	for charge_context: String in [
-		"charge_ballerina", "charge_astronaut", "charge_popstar",
+		"charge_astronaut", "charge_popstar",
 	]:
 		events.clear()
 		surface.configure("hold", Color.WHITE, 1, charge_context)
@@ -1031,14 +1101,8 @@ func _init() -> void:
 		_ck("%s uses a shipping-safe causal action ROI" % charge_context,
 			surface._uses_contextual_charge()
 			and _rect_inside(shipping_bounds, charge_action))
-		if charge_context == "charge_ballerina":
-			_ck("ballerina pose clean stage covers the floating floor remnant",
-				_rect_inside(shipping_bounds, surface._clean_widget_playfield_rect())
-				and surface._clean_widget_playfield_rect().encloses(
-					surface._charge_legacy_subject_rect()))
-		else:
-			_ck("%s clean patch encloses its complete old static subject" % charge_context,
-				charge_action.encloses(surface._charge_legacy_subject_rect()))
+		_ck("%s clean patch encloses its complete old static subject" % charge_context,
+			charge_action.encloses(surface._charge_legacy_subject_rect()))
 		surface._press(charge_action.get_center())
 		surface._release(charge_action.get_center())
 		_ck("%s stationary press cannot impersonate a sustained hold" % charge_context,
@@ -1059,7 +1123,7 @@ func _init() -> void:
 	# movers are never selected for ballerina/candy/doctor, while clean isolated
 	# whisk, valve, and microphone props may be used in their local scene.
 	for crank_context: String in [
-		"crank_chef", "crank_ballerina", "crank_candymaker",
+		"crank_chef", "crank_candymaker",
 		"crank_doctor", "crank_astronaut", "crank_popstar",
 	]:
 		surface.configure("circle", Color.WHITE, 1, crank_context)
@@ -1093,6 +1157,10 @@ func _init() -> void:
 	surface.configure("crown_chest", Color.WHITE)
 	var crown_geometry_inside := _rect_inside(shipping_bounds,
 		surface._crown_handle_rect().grow(22.0))
+	if surface.crown_chest_closed_texture != null:
+		crown_geometry_inside = crown_geometry_inside and _rect_inside(
+			shipping_bounds, surface._contain_rect(
+				surface.crown_chest_closed_texture, surface._crown_prop_bounds()))
 	for crown_demo_time: float in [0.0, 1.0]:
 		crown_geometry_inside = crown_geometry_inside and shipping_bounds.has_point(
 			_pose_point(_pose_at(surface, crown_demo_time)))
@@ -1116,6 +1184,10 @@ func _init() -> void:
 		cabinet_base_handle.size)
 	var cabinet_geometry_inside := _rect_inside(shipping_bounds,
 		cabinet_base_handle.grow(22.0)) and _rect_inside(shipping_bounds, cabinet_pulled_handle)
+	if surface.magic_cabinet_closed_texture != null:
+		cabinet_geometry_inside = cabinet_geometry_inside and _rect_inside(
+			shipping_bounds, surface._contain_rect(
+				surface.magic_cabinet_closed_texture, surface._cabinet_prop_bounds()))
 	for cabinet_demo_time: float in [0.0, 1.65]:
 		cabinet_geometry_inside = cabinet_geometry_inside and shipping_bounds.has_point(
 			_pose_point(_pose_at(surface, cabinet_demo_time)))
@@ -1124,7 +1196,7 @@ func _init() -> void:
 	var every_target_inside := true
 	for target_context: String in [
 		"target_chef", "target_candymaker", "target_farmer",
-		"target_astronaut", "target_boxer",
+		"target_astronaut",
 	]:
 		surface.configure("tap", Color.WHITE, 1, target_context)
 		var target_reach := maxf(46.0, minf(surface.size.x, surface.size.y) * 0.15)
@@ -1210,11 +1282,9 @@ func _init() -> void:
 		vanish_geometry_inside = vanish_geometry_inside and _rect_inside(
 			shipping_bounds,
 			_rotation_safe_square(surface._magic_vanish_wand_rect(vanish_progress)))
-		vanish_geometry_inside = vanish_geometry_inside and _rect_inside(
-			shipping_bounds, surface._magic_vanish_reveal_rect(vanish_progress))
 	vanish_geometry_inside = vanish_geometry_inside and shipping_bounds.has_point(
 		_pose_point(_pose_at(surface, 1.2)))
-	_ck("shipping vanish hat, wand, reveal, and demo remain fully inside card",
+	_ck("shipping vanish hat, wand, and demo remain fully inside card",
 		vanish_geometry_inside)
 	surface.size = Vector2(852, 560)
 	center = surface.size * 0.5
@@ -1339,7 +1409,7 @@ func _init() -> void:
 	# intentionally the exception: her canvas keeps free stamping at the finger.
 	for target_context: String in [
 		"target_chef", "target_candymaker", "target_farmer",
-		"target_astronaut", "target_boxer",
+		"target_astronaut",
 	]:
 		events.clear()
 		surface.configure("tap", Color.WHITE, 1, target_context)
@@ -1449,16 +1519,17 @@ func _init() -> void:
 	events.clear()
 	surface.configure("hold", Color.WHITE, 1, "magic_vanish")
 	var vanish_layers_loaded := surface.magic_vanish_hat_texture != null \
-		and surface.magic_vanish_wand_texture != null \
-		and surface.magic_vanish_reveal_texture != null
+		and surface.magic_vanish_wand_texture != null
 	var vanish_sources_waiting_for_import := FileAccess.file_exists(
 		"res://assets/opera/worlds/widgets/widget_magic_vanish_hat.png") \
 		and FileAccess.file_exists(
-			"res://assets/opera/worlds/widgets/widget_magic_vanish_wand.png") \
-		and FileAccess.file_exists(
-			"res://assets/opera/worlds/widgets/widget_magic_vanish_reveal.png")
+			"res://assets/opera/worlds/widgets/widget_magic_vanish_wand.png")
 	_ck("magic vanish binds delivered layers or retains fallback before import",
 		vanish_layers_loaded or vanish_sources_waiting_for_import)
+	_ck("magic vanish retires the reversed pop-back-out success plate",
+		surface.magic_vanish_reveal_texture == null
+		and surface.retired_magic_vanish_reveal_path.ends_with(
+			"widget_magic_vanish_reveal.png"))
 	var vanish_hat_start := surface._magic_vanish_hat_position(0.0)
 	var vanish_hat_cover := surface._magic_vanish_hat_position(0.70)
 	var vanish_wand_start := surface._magic_vanish_wand_position(0.0)
@@ -1468,70 +1539,38 @@ func _init() -> void:
 		and vanish_wand_start.distance_to(vanish_wand_cast) > surface.size.y * 0.08
 		and not is_equal_approx(surface._magic_vanish_wand_rotation(0.0),
 			surface._magic_vanish_wand_rotation(0.70)))
-	_ck("bunny-fish reveal stays hidden until hat contact",
-		is_zero_approx(surface._magic_vanish_reveal_amount(0.50))
-		and surface._magic_vanish_reveal_amount(0.70) > 0.0)
-	surface._press(center)
+	_ck("Lamba fades fully under the hat and stays hidden at success",
+		surface._magic_vanish_lamba_alpha(0.0) > 0.99
+		and is_zero_approx(surface._magic_vanish_lamba_alpha(1.0))
+		and is_equal_approx(surface._magic_vanish_success_amount(1.0), 1.0))
+	var wand_hit := surface._magic_vanish_wand_hit_rect()
+	var wand_demo := _pose_point(_pose_at(surface, 1.15))
+	_ck("vanish finger demonstrates the real wand control",
+		wand_hit.has_point(wand_demo))
+	surface._press(Vector2(6.0, 6.0))
+	_ck("empty-space hold cannot arm the wand trick", not surface.held)
+	surface._release(Vector2(6.0, 6.0))
+	surface._press(wand_hit.get_center())
 	surface.set_fill(0.70)
 	_ck("magic vanish uses its causal hat scene, not charge-meter art",
 		surface._is_magic_vanish_context() and surface.widget_mover == null
-		and surface.widget_overlay == null and not _paid("hold"))
-	surface._release(center)
+		and surface.widget_overlay == null and surface.held and not _paid("hold"))
+	surface._release(wand_hit.get_center())
 	surface.set_fill(1.0)
 	surface.accept_completion()
-	_ck("magic vanish completion holds the authored full reveal",
-		is_equal_approx(surface._magic_vanish_reveal_amount(surface.widget_fill), 1.0)
+	_ck("magic vanish completion holds the empty sparkling hat",
+		is_equal_approx(surface._magic_vanish_success_amount(surface.widget_fill), 1.0)
+		and is_zero_approx(surface._magic_vanish_lamba_alpha(surface.widget_fill))
+		and surface.magic_vanish_reveal_texture == null
 		and surface.completion_accepted)
-
-	# Four-pad dance is a true call-and-response state machine. A wrong tap
-	# preserves the correct prefix and replays only the remaining suffix.
-	events.clear()
-	surface.configure("dance_sequence", Color.WHITE)
-	_ck("dance defaults to the approved ballerina context",
-		surface.visual_context == "lanes_ballerina" and surface.widget_backdrop != null)
-	for tick in range(28):
-		surface._dance_tick(0.15)
-	_ck("dance demonstrates before accepting input",
-		surface.dance_listening and surface.dance_input_index == 0)
-	var dance_pose := _pose_at(surface, 1.25)
-	_ck("dance rehint points to the next real floor pad",
-		_pose_point(dance_pose).distance_to(surface._dance_pad_rect(
-			int(OperaGestureSurface.DANCE_SEQUENCE[0])).get_center()) < 1.0
-		and bool(dance_pose.get("pressing", false)))
-	var first_dance_pad := int(OperaGestureSurface.DANCE_SEQUENCE[0])
-	surface._press(surface._dance_pad_rect(first_dance_pad).get_center())
-	surface._release(surface._dance_pad_rect(first_dance_pad).get_center())
-	_ck("first correct dance pad banks a prefix without scalar payout",
-		surface.dance_input_index == 1 and not _paid("dance_sequence"))
-	var expected_second := int(OperaGestureSurface.DANCE_SEQUENCE[1])
-	var wrong_pad := (expected_second + 1) % 4
-	surface._press(surface._dance_pad_rect(wrong_pad).get_center())
-	surface._release(surface._dance_pad_rect(wrong_pad).get_center())
-	_ck("wrong dance pad preserves prefix and gently re-shows only suffix",
-		not _paid("dance_sequence") and surface.dance_input_index == 1
-		and not surface.dance_listening and surface.demo_active)
-	for tick in range(28):
-		surface._dance_tick(0.15)
-	_ck("suffix replay resumes listening at the preserved prefix",
-		surface.dance_listening and surface.dance_input_index == 1)
-	events.clear()
-	for step in range(1, OperaGestureSurface.DANCE_SEQUENCE.size()):
-		var pad := int(OperaGestureSurface.DANCE_SEQUENCE[step])
-		var pad_center := surface._dance_pad_rect(pad).get_center()
-		surface._press(pad_center)
-		surface._release(pad_center)
-		if step < OperaGestureSurface.DANCE_SEQUENCE.size() - 1:
-			_ck("dance prefix %d is state, not scalar payout" % step,
-				not _paid("dance_sequence"))
-	_ck("exact dance phrase completes once",
-		surface.dance_complete and _paid_count("dance_sequence") == 1)
 
 	# Candies move slowly but never expire. Only a matching silhouette changes
 	# the deterministic queue; a wrong bin resets the same piece.
 	events.clear()
 	surface.configure("candy_sort", Color.WHITE)
-	_ck("candy sort binds its three-bin authored card",
-		surface.visual_context == "lanes_candymaker" and surface.widget_backdrop != null
+	_ck("candy sort binds its three-bin art without framed pixels",
+		surface.visual_context == "lanes_candymaker" and surface.widget_backdrop == null
+		and surface.retired_widget_backdrop_path.ends_with("widget_lanes_candymaker.png")
 		and surface.candy_type == int(OperaGestureSurface.CANDY_SEQUENCE[0]))
 	var candy_start_type := surface.candy_type
 	for tick in range(160):
@@ -1612,8 +1651,10 @@ func _init() -> void:
 	var farm_food_paths: Dictionary = {}
 	for farm_food_texture: Texture2D in surface.farm_vegetable_textures:
 		farm_food_paths[farm_food_texture.resource_path] = true
-	_ck("farm lob binds three distinct approved food pieces",
-		surface.visual_context == "target_farmer" and surface.widget_backdrop != null
+	_ck("farm lob binds three distinct foods and a borderless piggy subject",
+		surface.visual_context == "target_farmer" and surface.widget_backdrop == null
+		and surface.retired_widget_backdrop_path.ends_with("widget_target_farmer.png")
+		and surface.widget_mover != null
 		and surface.farm_vegetable_textures.size() == 3
 		and farm_food_paths.size() == 3)
 	var seen_farm_foods: Dictionary = {surface.farm_food_index: true}

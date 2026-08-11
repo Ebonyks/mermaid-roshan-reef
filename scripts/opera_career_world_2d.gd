@@ -15,6 +15,8 @@ const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
 const ImpClips := preload("res://scripts/opera_imp_clips.gd")
 const RoshanAnimator := preload("res://scripts/opera_roshan_actor.gd")
+const WorldHotspot := preload("res://scripts/opera_world_hotspot_2d.gd")
+const HotspotCatalog := preload("res://scripts/opera_hotspot_catalog.gd")
 
 ## Detective search geometry. The authored magnifier is a 512px square with
 ## its glass centred near (181, 181); anchoring the art by that point keeps the
@@ -289,9 +291,9 @@ const PHASES := {
 		{"name": "LAUNCH", "mode": "hold", "goal": 4.5, "vo": "op_astronaut_launch", "voice": "Hold through the countdown and launch!"},
 	],
 	"racer": [
-		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_tune_up", "voice": "Turn the wrench to finish the pit stop!"},
-		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_to_the_line", "voice": "Push the kart to the pearl starting arch!"},
-		{"name": "RACE", "mode": "kart", "goal": 1.0, "vo": "op_racer_race", "voice": "Race one short rainbow lap to the finish arch!"},
+		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_lap_two", "voice": "Draw big racing circles to turn the wrench!"},
+		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_steer", "voice": "Swipe the kart toward the pearl starting arch!"},
+		{"name": "RACE", "mode": "kart", "goal": 1.0, "vo": "op_racer_finish", "voice": "Race through the zoom strips and cross the finish line!"},
 	],
 	"nursery": [
 		{"name": "WASH HANDS", "mode": "hold", "widget": "", "visual_context": "nursery_wash", "goal": 3.4, "vo": "op_nursery_wash", "voice": "Hold the bubbly basin to wash your hands first!"},
@@ -324,22 +326,41 @@ const FINALE_START := {
 	"popstar": 2,
 }
 
-## Stable landmark IDs keep each task attached to the painted object that
-## explains it. Bop/lens/kart beats are stage-wide and do not need a station.
+## Stable landmark IDs keep every task attached to the painted object that
+## explains it. Even lens/combat/kart/catch beats begin from a physical room
+## object; their stage-wide play only starts after Roshan reaches it.
 const PHASE_STATIONS := {
 	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
-	"detective": {"CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
-	"ballerina": {},
+	"detective": {"SEARCH": "magnifier_tower", "CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
+	"ballerina": {"PEARL MIRROR": "trifold_mirror", "RIBBON TRAIL": "wave_tuffets", "GRAND TWIRL": "rose_finale_stage"},
 	"candymaker": {"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart"},
 	"doctor": {"WASH": "stethoscope_clinic", "FIND": "starfish_triage", "X-RAY": "exam_booth", "CAST": "exam_booth", "BANDAGE": "recovery_bed"},
-	"farmer": {"PLANT": "seed_beds", "TOSS": "hay_bales", "HERD": "barn_doors", "PICNIC": "pearl_clam"},
-	"boxer": {},
+	"farmer": {"PLANT": "seed_beds", "TOSS": "hay_bales", "HERD": "barn_doors", "PICNIC": "blossom_arch"},
+	"boxer": {"GLOVE GUIDE": "glove_wall_shelf", "JAB PRACTICE": "purple_sparring_mat", "SOFT GUARD": "teal_heavy_bag", "TITLE IMP": "shell_pavilion_stage", "BELT": "shell_pavilion_stage"},
 	"magician": {"VANISH": "violet_shell_stage", "TRACK": "pearl_tide_pool", "ROPE": "teal_shell_stage", "CABINET": "rose_shell_stage", "PORTAL": "rose_shell_stage"},
 	"painter": {"PAINT": "gazebo_easel", "STAMPS": "rainbow_brush", "GALLERY": "arch_easel"},
-	"astronaut": {"PATCH": "pipe_arch_planter", "VALVE": "periscope_elbow", "LAUNCH": "rocket_launch_dais"},
-	"racer": {"TUNE": "pearl_dome_pavilion", "TO THE LINE": "pearl_start_arch"},
-	"nursery": {"WASH HANDS": "wash_basin", "FEED": "bottle_nook", "BURP": "cuddle_cushions", "BEDTIME": "moon_bed"},
-	"popstar": {"SOUND CHECK": "mic_gazebo", "DANCE": "record_dais", "ENCORE": "shell_stage"},
+	"astronaut": {"PIPES": "coolant_tank_pad", "PATCH": "pipe_arch_planter", "VALVE": "periscope_elbow", "LAUNCH": "rocket_launch_dais"},
+	"racer": {"TUNE": "pearl_dome_pavilion", "TO THE LINE": "pearl_start_arch", "RACE": "ribbon_finish_arch"},
+	"nursery": {"WASH HANDS": "wash_basin", "CATCH BABIES": "cuddle_cushions", "FEED": "bottle_nook", "BURP": "cuddle_cushions", "BEDTIME": "moon_bed"},
+	"popstar": {"SOUND CHECK": "mic_gazebo", "DANCE": "record_dais", "RHYTHM": "shell_stage", "ENCORE": "shell_stage"},
+}
+
+## The specialist rebuild renamed its phases but intentionally reuses the
+## already-approved isolated invitation art. Keeping that translation here
+## lets the new ballet/boxing surfaces enter through the room's physical
+## objects without duplicating or silently dropping the diegetic hotspot.
+const HOTSPOT_PHASE_ALIASES := {
+	"ballerina": {
+		"PEARL MIRROR": "POSE",
+		"RIBBON TRAIL": "RIBBON",
+		"GRAND TWIRL": "TWIRL",
+	},
+	"boxer": {
+		"GLOVE GUIDE": "COMBO",
+		"JAB PRACTICE": "COMBO",
+		"SOFT GUARD": "COMBO",
+		"TITLE IMP": "TITLE ROUND",
+	},
 }
 
 ## Career goal prop shown at the workbench until the imp captain steals it in
@@ -424,6 +445,11 @@ var wander_feet := Vector2.ZERO
 var wander_stride := 0.0
 var wander_lean := 0.0
 var wander_layer: Control
+var wander_route := PackedVector2Array()
+var wander_route_index := 0
+var interaction_station := -1
+var interaction_requested := false
+var hotspot_opening := false
 var score_cool := 0.0
 var bounce_cool := 0.0
 var bop_puff_texture: Texture2D = null
@@ -481,6 +507,8 @@ var lens_find_count := 0
 var lens_trail_from := Vector2.ZERO
 var lens_trail_to := Vector2.ZERO
 var lens_trail_t := 0.0
+## Compatibility-only handles for the retired easel/beacon draw helpers below.
+## Runtime never loads or connects either asset in the diegetic room flow.
 var task_frame_texture: Texture2D = null
 var station_marker_texture: Texture2D = null
 var magnifier_texture: Texture2D = null
@@ -519,7 +547,9 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition, o
 			steal_index = index
 	layer = 38
 	_build_world()
-	_show_phase()
+	# The room is part of every activity. Setup arms the first physical object;
+	# it never bypasses discovery by opening a minigame synchronously.
+	_arm_phase()
 
 
 func _full_rect(control: Control) -> void:
@@ -578,8 +608,6 @@ func _build_world() -> void:
 	add_child(root)
 	_sync_root_scale()
 	get_viewport().size_changed.connect(_sync_root_scale)
-	task_frame_texture = _load_if_exists("res://assets/opera/worlds/ui/task_card_frame.png")
-	station_marker_texture = _load_if_exists("res://assets/opera/worlds/ui/station_marker.png")
 	magnifier_texture = _load_if_exists("res://assets/opera/worlds/ui/magnifier.png")
 
 	backdrop_node = WorldBackdrop.new() as OperaWorldBackdrop2D
@@ -594,12 +622,22 @@ func _build_world() -> void:
 	_full_rect(shade)
 	root.add_child(shade)
 
+	# Floor input sits below diegetic object buttons. Empty floor moves Roshan;
+	# an object button receives the same touch first and creates activity intent.
+	wander_layer = Control.new()
+	wander_layer.name = "WalkableRoomInput"
+	wander_layer.position = Vector2.ZERO
+	wander_layer.size = StagePaths.SCREEN
+	wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	wander_layer.visible = false
+	wander_layer.gui_input.connect(_wander_input)
+	root.add_child(wander_layer)
+
 	stage_points = StagePaths.path_points(career_id)
 	station_list = StagePaths.stations(career_id)
-	# These specialist careers are continuous performances on one open stage.
-	# Wandering stations would interrupt their full-canvas glove/dance lessons.
-	if career_id in ["boxer", "ballerina"]:
-		station_list = []
+	# Specialist ballet and boxing surfaces still begin at authored room objects.
+	# The full-canvas lesson starts only after Roshan follows the painted route
+	# and opens that object's invitation, just like every other career.
 	_assign_stations()
 	_build_station_markers()
 
@@ -626,10 +664,9 @@ func _build_world() -> void:
 	# The ballet silhouette gets a little more room, while staying below the
 	# established 1.5x costumed-imp scale ceiling (280 / 190 = 1.47).
 	player_actor.size = Vector2(280, 280) if career_id == "ballerina" else Vector2(250, 250)
-	if career_id == "ballerina":
-		_place_on_stage(player_actor, Vector2(190, 684))
-	else:
-		_place_on_stage(player_actor, StagePaths.point_along(stage_points, 0.08))
+	# Every career begins on its room route. Ballet moves to its recital mark
+	# only after Roshan has walked to and opened the glowing rehearsal object.
+	_place_on_stage(player_actor, StagePaths.point_along(stage_points, 0.08))
 	root.add_child(player_actor)
 	player_animator = RoshanAnimator.new() as OperaRoshanActor
 	player_animator.name = "RoshanAtlasAnimator"
@@ -651,18 +688,19 @@ func _build_world() -> void:
 	prop_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	prop_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	prop_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	prop_rect.position = Vector2(890, 330)
+	prop_rect.position = Vector2.ZERO
 	prop_rect.size = Vector2(280, 230)
 	prop_rect.visible = false
 	root.add_child(prop_rect)
+	_anchor_goal_prop()
 
 	action_panel = ColorRect.new()
-	# transparent host; the storybook card frame is drawn in _draw_task_card
+	# Transparent host for the borderless activity focus; no clipboard/easel.
 	action_panel.color = Color(0, 0, 0, 0)
 	action_panel.position = Vector2(430, 160)
 	action_panel.size = Vector2(420, 430)
 	action_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	action_panel.draw.connect(_draw_task_card)
+	action_panel.draw.connect(_draw_activity_focus)
 	root.add_child(action_panel)
 	if career_id == "boxer":
 		surface = BoxingSurface.new() as OperaGestureSurface
@@ -712,7 +750,7 @@ func _build_world() -> void:
 	phase_fill.size = Vector2(372, 40)
 	phase_fill.show_percentage = false
 	phase_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	phase_fill.visible = career_id not in ["boxer", "ballerina"]
+	phase_fill.visible = false
 	action_panel.add_child(phase_fill)
 
 	combat_layer = Control.new()
@@ -766,14 +804,6 @@ func _build_world() -> void:
 	lens_layer.gui_input.connect(_lens_input)
 	lens_layer.draw.connect(_draw_lens_layer)
 	root.add_child(lens_layer)
-
-	wander_layer = Control.new()
-	wander_layer.position = Vector2.ZERO
-	wander_layer.size = Vector2(1280, 720)
-	wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	wander_layer.visible = false
-	wander_layer.gui_input.connect(_wander_input)
-	root.add_child(wander_layer)
 
 	_capture_actor_rest("player", player_actor)
 	_capture_actor_rest("rival", rival_actor)
@@ -843,9 +873,10 @@ func _sync_lens_zoom_surface() -> void:
 		"lens_center_screen", screen_center / viewport_size)
 
 
-func _place_on_stage(actor: Control, feet: Vector2) -> void:
+func _place_on_stage(actor: Control, feet: Vector2, depth_factor: float = 1.0) -> void:
 	# anchor a stage character by its feet with gentle painted-depth scaling
-	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
+	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1) \
+		* clampf(depth_factor, 0.68, 1.0)
 	actor.scale = Vector2(depth, depth)
 	var visual_size := actor.size * depth
 	var placed := feet - Vector2(visual_size.x * 0.5, visual_size.y - 12.0)
@@ -948,27 +979,124 @@ func _actor_key(actor: Control) -> String:
 	return ""
 
 
+func _anchor_goal_prop(curtain_call := false) -> void:
+	if prop_rect == null or phases.is_empty():
+		return
+	prop_rect.size = Vector2(220.0, 220.0)
+	if curtain_call:
+		# The completed work gets the centre spotlight only after every room
+		# activity is over. This is a stage composition, not a room hotspot.
+		var curtain_anchor := Vector2(StagePaths.SCREEN.x * 0.5,
+			StagePaths.SCREEN.y * 0.56)
+		prop_rect.position = curtain_anchor - prop_rect.size * 0.5
+		prop_rect.set_meta("anchor_station", "curtain_call_spotlight")
+		return
+	var final_station := int(station_for_phase.get(phases.size() - 1, -1))
+	if final_station < 0 or final_station >= station_list.size():
+		prop_rect.visible = false
+		return
+	var station: Dictionary = station_list[final_station]
+	var anchor: Vector2 = station.get(
+		"object_pos", station.get("pos", StagePaths.SCREEN * 0.5)) as Vector2
+	prop_rect.position = Vector2(
+		clampf(anchor.x - prop_rect.size.x * 0.5, 12.0,
+			StagePaths.SCREEN.x - prop_rect.size.x - 12.0),
+		clampf(anchor.y - prop_rect.size.y * 0.5, 12.0,
+			StagePaths.SCREEN.y - prop_rect.size.y - 12.0))
+	prop_rect.set_meta("anchor_station", String(station.get("id", "")))
+
+
+func _stage_room_finale_partner() -> void:
+	# Room finales keep Roshan beside the object she deliberately reached. Pick
+	# a route rest that clears both Roshan and the already-laid-out activity;
+	# the old simple "opposite side" rule put the rival directly under that UI.
+	if player_actor == null or rival_actor == null or stage_points.is_empty():
+		return
+	_restore_actor("rival", rival_actor)
+	var player_centre := player_actor.position \
+		+ player_actor.size * player_actor.scale * 0.5
+	var player_rect := Rect2(player_actor.position,
+		player_actor.size * player_actor.scale).grow(8.0)
+	var panel_rect := Rect2(action_panel.position, action_panel.size).grow(8.0) \
+		if action_panel != null and action_panel.visible else Rect2()
+	var best_feet := StagePaths.point_along(stage_points, 0.88)
+	var best_depth_factor := 1.0
+	var best_score := -INF
+	# The route is continuous but its landmark spacing differs by career. Sample
+	# it densely rather than assuming five universal rests; this guarantees the
+	# narrow actor/panel gap is considered in every painted room.
+	var found_clear := false
+	# A few rooms have no full-size route slot between Roshan and the 416px
+	# activity focus. In those rooms the background partner takes one authored
+	# depth step smaller; she remains >130px tall on the shipping surface and is
+	# never hidden behind the interaction she is meant to demonstrate.
+	for depth_factor: float in [1.0, 0.86, 0.70]:
+		for sample_index in range(101):
+			var candidate_t := float(sample_index) / 100.0
+			var candidate_feet := StagePaths.point_along(stage_points, candidate_t)
+			_place_on_stage(rival_actor, candidate_feet, depth_factor)
+			var candidate_rect := Rect2(rival_actor.position,
+				rival_actor.size * rival_actor.scale).grow(8.0)
+			var player_overlap := candidate_rect.intersection(player_rect).get_area()
+			var panel_overlap := candidate_rect.intersection(panel_rect).get_area() \
+				if action_panel != null and action_panel.visible else 0.0
+			var clear := is_zero_approx(player_overlap) and is_zero_approx(panel_overlap)
+			var score := candidate_rect.get_center().distance_to(player_centre) * 0.05 \
+				- player_overlap * 20.0 - panel_overlap * 20.0
+			if clear:
+				score += 100000.0
+			if score > best_score:
+				best_score = score
+				best_feet = candidate_feet
+				best_depth_factor = depth_factor
+			found_clear = found_clear or clear
+		if found_clear:
+			break
+	_place_on_stage(rival_actor, best_feet, best_depth_factor)
+	rival_actor.flip_h = best_feet.x > player_centre.x
+	rival_actor.rotation = 0.0
+	rival_actor.modulate = Color.WHITE
+	_capture_actor_rest("rival", rival_actor)
+
+
+func _position_curtain_call_cast() -> void:
+	# The proscenium has its own composition. It must not inherit any room
+	# approach/rest transform captured while opening the final activity.
+	if player_actor != null:
+		_place_on_stage(player_actor, Vector2(360.0, 570.0))
+		player_actor.flip_h = false
+		player_actor.rotation = 0.0
+		player_actor.modulate = Color.WHITE
+	if rival_actor != null:
+		_place_on_stage(rival_actor, Vector2(920.0, 570.0))
+		rival_actor.flip_h = true
+		rival_actor.rotation = 0.0
+		rival_actor.modulate = Color.WHITE
+	if prop_rect != null:
+		_anchor_goal_prop(true)
+		prop_rect.scale = Vector2.ONE
+		prop_rect.rotation = 0.0
+		prop_rect.modulate = Color.WHITE
+
+
 func _assign_stations() -> void:
-	# Resolve every task by its authored landmark ID. Sequential fallback is
-	# retained only for a future phase that has not yet received a mapping.
+	# Resolve every task by its authored landmark ID. A sequential fallback can
+	# silently put an activity on an unrelated object, so unmapped phases remain
+	# visibly unarmed and fail the focused probe instead.
 	station_for_phase = {}
 	if station_list.is_empty():
 		return
 	var preferred: Dictionary = PHASE_STATIONS.get(career_id, {}) as Dictionary
-	var station_index := 0
 	for index in range(phases.size()):
 		var phase := phases[index] as Dictionary
-		var mode := String(phase.get("mode", ""))
-		if mode in ["bop", "lens", "kart", "catch"]:
-			continue
 		var station_id := String(preferred.get(String(phase.get("name", "")), ""))
 		if not station_id.is_empty():
 			var resolved := _station_index_for_id(station_id)
 			if resolved >= 0:
 				station_for_phase[index] = resolved
 				continue
-		station_for_phase[index] = mini(station_index, station_list.size() - 1)
-		station_index += 1
+		push_warning("Opera phase has no authored room object: %s/%s" % [
+			career_id, String(phase.get("name", "phase_%d" % index))])
 
 
 func _station_index_for_id(station_id: String) -> int:
@@ -979,13 +1107,134 @@ func _station_index_for_id(station_id: String) -> int:
 
 
 func _build_station_markers() -> void:
-	for station: Dictionary in station_list:
-		var marker := Control.new()
-		marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		marker.position = station.get("pos", Vector2(640, 480)) as Vector2
-		marker.draw.connect(_draw_station_marker.bind(marker))
-		root.add_child(marker)
-		station_nodes.append(marker)
+	for index in range(station_list.size()):
+		var station: Dictionary = station_list[index]
+		var hotspot := WorldHotspot.new() as OperaWorldHotspot2D
+		hotspot.name = "ActivityHotspot_%s" % String(station.get("id", index))
+		var object_pos: Vector2 = station.get(
+			"object_pos", (station.get("pos", Vector2(640, 480)) as Vector2)
+				- Vector2(0.0, 96.0)) as Vector2
+		var hit_size: Vector2 = station.get("hotspot_size", Vector2(136, 136)) as Vector2
+		hotspot.setup(index, String(station.get("id", "station_%d" % index)),
+			object_pos, "", "breathe", Vector2(124, 124), hit_size)
+		hotspot.pressed.connect(_on_hotspot_pressed)
+		hotspot.opening_finished.connect(_on_hotspot_opening_finished)
+		root.add_child(hotspot)
+		station_nodes.append(hotspot)
+
+
+func _active_hotspot() -> OperaWorldHotspot2D:
+	if armed_station < 0 or armed_station >= station_nodes.size():
+		return null
+	return station_nodes[armed_station] as OperaWorldHotspot2D
+
+
+func _refresh_hotspots() -> void:
+	var phase_name := ""
+	if phase_index >= 0 and phase_index < phases.size():
+		phase_name = String((phases[phase_index] as Dictionary).get("name", ""))
+	var invitation_name := phase_name
+	var aliases: Dictionary = HOTSPOT_PHASE_ALIASES.get(career_id, {}) as Dictionary
+	if aliases.has(phase_name):
+		invitation_name = String(aliases[phase_name])
+	var spec: Dictionary = HotspotCatalog.spec(career_id, invitation_name)
+	for index in range(station_nodes.size()):
+		var hotspot := station_nodes[index] as OperaWorldHotspot2D
+		var is_current := index == armed_station and not task_open \
+			and active and not phase_name.is_empty()
+		if is_current:
+			var texture_path := String(spec.get("path", ""))
+			var motion_name := String(spec.get("motion", "breathe"))
+			var presentation_name := String(spec.get("presentation", "overlay"))
+			var visual_size: Vector2 = spec.get("size", Vector2(124, 124)) as Vector2
+			var visual_offset: Vector2 = spec.get("offset", Vector2.ZERO) as Vector2
+			hotspot.configure_object(texture_path, motion_name, visual_size,
+				presentation_name, visual_offset)
+			hotspot.set_meta("phase_name", phase_name)
+			hotspot.set_meta("approach_pos",
+				station_list[index].get("approach_pos", station_list[index]["pos"]))
+		hotspot.set_armed(is_current)
+
+
+func _clear_hotspot_intent() -> void:
+	interaction_requested = false
+	interaction_station = -1
+	hotspot_opening = false
+	var hotspot := _active_hotspot()
+	if hotspot != null:
+		hotspot.set_focused(false)
+
+
+func _begin_wander_route(route: PackedVector2Array) -> void:
+	wander_route = route
+	wander_route_index = 0
+	wander_walking = not wander_route.is_empty()
+	if wander_walking:
+		wander_dest = wander_route[wander_route.size() - 1]
+		_play_roshan_animation("travel")
+
+
+func _on_hotspot_pressed(station_index: int) -> void:
+	if task_open or not active or reveal_t > 0.0 \
+			or station_index != armed_station \
+			or station_index < 0 or station_index >= station_list.size():
+		return
+	if phase_gap > 0.0:
+		phase_gap = 0.0
+	idle_t = 0.0
+	interaction_requested = true
+	interaction_station = station_index
+	hotspot_opening = false
+	for index in range(station_nodes.size()):
+		var hotspot := station_nodes[index] as OperaWorldHotspot2D
+		hotspot.set_focused(index == station_index)
+	var station_id := String(station_list[station_index].get("id", ""))
+	var route := StagePaths.player_route_to_station(
+		career_id, wander_feet, station_id)
+	if route.is_empty():
+		push_warning("No approved Opera route to %s/%s" % [career_id, station_id])
+		_clear_hotspot_intent()
+		return
+	_begin_wander_route(route)
+
+
+func _on_hotspot_opening_finished(station_index: int) -> void:
+	if task_open or not active or not hotspot_opening \
+			or not interaction_requested or station_index != interaction_station \
+			or station_index != armed_station:
+		return
+	hotspot_opening = false
+	_open_task()
+
+
+func _draw_activity_focus() -> void:
+	# No clipboard, easel, title ribbon, or reading chrome. The existing themed
+	# minigame art floats in a soft theatre-light bloom, with a tiny pearl trail
+	# carrying the only generic progress information.
+	var centre := action_panel.size * Vector2(0.5, 0.48)
+	var radius := maxf(action_panel.size.x, action_panel.size.y) * 0.52
+	action_panel.draw_set_transform(centre, 0.0, Vector2(1.0, 0.62))
+	action_panel.draw_circle(Vector2.ZERO, radius,
+		Color(0.04, 0.08, 0.24, 0.32))
+	action_panel.draw_circle(Vector2.ZERO, radius * 0.88,
+		Color(0.18, 0.46, 0.92, 0.12))
+	action_panel.draw_arc(Vector2.ZERO, radius * 0.94, -PI * 0.84,
+		-PI * 0.16, 42, Color(0.44, 0.78, 1.0, 0.48), 5.0)
+	action_panel.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	if phase_fill == null:
+		return
+	var progress := clampf(float(phase_fill.value) / 100.0, 0.0, 1.0)
+	var pearl_count := 7
+	var span := minf(action_panel.size.x - 52.0, 350.0)
+	var start_x := (action_panel.size.x - span) * 0.5
+	var y := action_panel.size.y - 24.0
+	for index in range(pearl_count):
+		var at := Vector2(start_x + span * float(index) / float(pearl_count - 1), y)
+		var filled := progress + 0.001 >= float(index + 1) / float(pearl_count)
+		var colour := Color("#fff1b2") if filled else Color(0.34, 0.55, 0.86, 0.42)
+		action_panel.draw_circle(at, 8.5 if filled else 6.5, colour)
+		if filled:
+			action_panel.draw_circle(at - Vector2(2.0, 2.0), 2.2, Color.WHITE)
 
 
 func _draw_task_card() -> void:
@@ -1145,20 +1394,28 @@ func _widget_template(phase: Dictionary) -> String:
 
 
 func _show_phase() -> void:
-	# direct (probe and setup) path: arm and open in one synchronous step,
-	# exactly the pre-wander behaviour every probe drive was written against
+	# Trusted probe compatibility only. Shipping setup and retries call
+	# _arm_phase(), preserving room discovery and physical-object handoff.
 	_arm_phase()
 	_open_task()
 
 
 func _arm_phase() -> void:
 	_restore_stage_actors()
+	competition.pause()
 	phase_complete_t = 0.0
 	phase_advance_pending = false
 	task_open = false
+	for hotspot_node in station_nodes:
+		(hotspot_node as OperaWorldHotspot2D).set_armed(false)
 	armed_station = -1
 	wander_dwell = 0.0
 	wander_walking = false
+	wander_route.clear()
+	wander_route_index = 0
+	interaction_station = -1
+	interaction_requested = false
+	hotspot_opening = false
 	wander_lean = 0.0
 	wander_stride = 0.0
 	wander_feet = _hero_feet() if player_actor != null else Vector2.ZERO
@@ -1168,25 +1425,27 @@ func _arm_phase() -> void:
 			win_callback.call()
 		return
 	if phase_index == _finale_start():
-		competition.begin()
-		_set_finale_visible(true)
-		# a longer sting as the proscenium curtain rises; any touch skips it
+		# A longer sting marks the contest, but the rival clock and bars stay
+		# paused until Roshan reaches the physical activity object.
 		phase_gap = 0.0 if career_id == "boxer" else 2.6
 	elif phase_index < _finale_start():
-		_set_finale_visible(false)
 		if phase_index > 0:
 			phase_gap = 0.0 if career_id == "boxer" else 1.0
 	else:
 		phase_gap = 0.0 if career_id == "boxer" else 1.0
 	if career_id == "ballerina":
-		# Every act is already on the recital stage; no competitive curtain sting
-		# or dead input window interrupts the three-part ballet.
+		# The recital stays responsive between its three specialist lessons.
 		phase_gap = 0.0
+	# Discovery/navigation time is never counted as competition time.
+	_set_finale_visible(false)
+	# Boxing switches to first-person gloves only after the invitation opens;
+	# Roshan must remain visible while she walks to the physical training prop.
+	if career_id == "boxer" and player_actor != null:
+		player_actor.visible = true
 	if backdrop_node != null:
-		# the captain scuffle already happens at the stage door, so the
-		# proscenium frames both the big battle and the finale contest
-		var stage_from := steal_index if steal_index >= 0 else _finale_start()
-		backdrop_node.set_stage(career_id == "ballerina" or phase_index >= stage_from)
+		# The navigable room owns every interaction. Stage masters use different
+		# landmark geometry and cannot share room hotspots without floating art.
+		backdrop_node.set_stage(false)
 	phase_progress = 0.0
 	idle_t = 0.0
 	var phase := phases[phase_index] as Dictionary
@@ -1202,38 +1461,26 @@ func _arm_phase() -> void:
 		lens_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if lens_zoom_surface != null and mode_name != "lens":
 		lens_zoom_surface.visible = false
-	for marker in station_nodes:
-		marker.queue_redraw()
 	if prop_rect != null:
-		if phase_index == steal_index and prop_rect.visible:
-			# the theft is a visible event: the captain hauls the prop away
-			var flee := _claim_actor_tween("prop", prop_rect)
-			flee.tween_property(prop_rect, "position", Vector2(1210.0, -180.0), 0.9).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-			# Scale the complete prop so its accepted aspect ratio cannot change.
-			flee.parallel().tween_property(prop_rect, "scale", Vector2(0.5, 0.5), 0.9)
-			flee.tween_callback(func() -> void:
-				prop_rect.visible = false
-				_finish_actor_motion("prop", prop_rect))
-		else:
-			prop_rect.visible = prop_rect.texture != null and phase_index > 0 \
-				and (steal_index < 0 or phase_index < steal_index) \
-				and career_id not in ["detective", "boxer", "ballerina"]
+		# A separate unlit goal overlay competes with the one active blue object
+		# and looked like a floating sticker. It returns only for celebration.
+		prop_rect.visible = false
 	var defer_detective_intro := career_id == "detective" and phase_index == 0 \
 		and mode_name == "lens" and not detective_intro_played
 	if m != null and not defer_detective_intro:
 		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
-	# combat and lens beats come to HER; widget tasks wait for her to walk up
-	# bind the job's own art now: the armed station already knows its trade
+	# Bind static game art while clocks are held. The activity itself stays
+	# closed until the corresponding room object has been selected and reached.
 	if mode_name != "bop" and mode_name != "lens":
 		_bind_widget(phase, mode_name,
 			Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8))), true)
-	if mode_name == "bop" or mode_name == "lens" or mode_name == "kart" \
-			or (career_id == "nursery" and mode_name == "catch") \
-			or armed_station < 0 or armed_station >= station_list.size():
-		_open_task()
-	else:
+	_refresh_hotspots()
+	if armed_station >= 0 and armed_station < station_list.size():
 		wander_layer.visible = true
 		wander_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	else:
+		wander_layer.visible = false
+		wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
 func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := false) -> void:
@@ -1252,17 +1499,44 @@ func _open_task() -> void:
 		return
 	task_open = true
 	wander_walking = false
+	wander_route.clear()
+	wander_route_index = 0
+	interaction_requested = false
+	interaction_station = -1
+	hotspot_opening = false
+	for hotspot_node in station_nodes:
+		(hotspot_node as OperaWorldHotspot2D).set_armed(false)
 	if wander_layer != null:
 		wander_layer.visible = false
 		wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var phase := phases[phase_index] as Dictionary
 	var mode_name := String(phase.get("mode", "tap"))
+	if phase_index >= _finale_start():
+		competition.begin()
+		_set_finale_visible(true)
 	_play_roshan_animation("idle" if mode_name == "talk" else "work")
 	var is_bop := mode_name == "bop"
 	var is_lens := mode_name == "lens"
 	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
 	choice_target = (phase_index + int(competition.rival_step)) % 3
 	_apply_panel_layout(phase)
+	if career_id == "boxer" and player_actor != null:
+		# The walk-in is third person; the opened lesson is the specialist's
+		# first-person two-glove view.
+		player_actor.visible = false
+	if phase_index >= _finale_start() or competition.is_cooperative():
+		_stage_room_finale_partner()
+	if action_panel.visible:
+		# The activity grows out of the room object Roshan just opened instead
+		# of appearing as an unrelated card at screen centre.
+		action_panel.pivot_offset = _activity_reveal_pivot()
+		action_panel.scale = Vector2(0.78, 0.78)
+		action_panel.modulate.a = 0.0
+		var reveal := action_panel.create_tween()
+		reveal.set_parallel(true)
+		reveal.tween_property(action_panel, "scale", Vector2.ONE, 0.28) \
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		reveal.tween_property(action_panel, "modulate:a", 1.0, 0.20)
 	if is_bop:
 		_start_stage_combat(phase.get("combat", {}) as Dictionary)
 	if is_lens:
@@ -1301,6 +1575,19 @@ func _open_task() -> void:
 			surface.swipe_dir = Vector2.UP
 			surface.swipe_require_dir = true
 	phase_fill.value = 0.0
+	action_panel.queue_redraw()
+
+
+func _activity_reveal_pivot() -> Vector2:
+	var stage_anchor := action_panel.position + action_panel.size * 0.5
+	var station_index := int(station_for_phase.get(phase_index, -1))
+	if station_index >= 0 and station_index < station_list.size():
+		stage_anchor = station_list[station_index].get(
+			"object_pos", station_list[station_index].get("pos", stage_anchor)) as Vector2
+	var local_anchor := stage_anchor - action_panel.position
+	return Vector2(
+		clampf(local_anchor.x, 18.0, action_panel.size.x - 18.0),
+		clampf(local_anchor.y, 18.0, action_panel.size.y - 18.0))
 
 
 func _apply_panel_layout(phase: Dictionary) -> void:
@@ -1326,6 +1613,8 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 		surface.size = Vector2(854, 660)
 	if career_id in ["boxer", "ballerina"]:
 		phase_fill.visible = false
+		if career_id == "ballerina":
+			_stage_player_clear_of_activity()
 		action_panel.queue_redraw()
 		return
 	if mode == "bop" or mode == "lens" or mode == "talk" or mode == "kart":
@@ -1334,26 +1623,25 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 		return
 	action_panel.visible = true
 	if mode == "pipe":
-		# The pipe board remains large but docks wholly away from Roshan.
-		action_panel.size = Vector2(760, 648)
+		# The pipe board remains large, but the ornate outer card is gone.
+		action_panel.size = Vector2(736, 608)
 		var left_pipe := Rect2(Vector2(24, 36), action_panel.size)
-		var right_pipe := Rect2(Vector2(496, 36), action_panel.size)
+		var right_pipe := Rect2(Vector2(520, 36), action_panel.size)
 		action_panel.position = _safer_panel_rect(left_pipe, right_pipe).position
-		surface.position = Vector2(24, 24)
+		# The board occupies most of the phone canvas. Once Roshan has physically
+		# reached the coolant fixture, give her a nearby route-side watching mark
+		# opposite the board so neither her tail nor hands sit underneath it.
+		_stage_player_clear_of_activity()
+		surface.position = Vector2(12, 12)
 		surface.size = Vector2(712, 560)
-		phase_fill.position = Vector2(24, 596)
-		phase_fill.size = Vector2(712, 30)
 		action_panel.queue_redraw()
 		return
 	action_panel.position = _card_position_near_station()
-	action_panel.size = Vector2(440, 384)
-	surface.position = Vector2(24, 70)
+	action_panel.size = Vector2(416, 292)
+	surface.position = Vector2(12, 12)
 	surface.size = Vector2(392, 232)
-	phase_fill.position = Vector2(24, 318)
-	phase_fill.size = Vector2(392, 34)
 	if mode == "catch" and nursery_catch != null:
-		# The catch surface owns the same card viewport as every other verb.
-		# Its previous 266px height extended 26px underneath this progress bar.
+		# The catch surface owns the same borderless viewport as every other verb.
 		nursery_catch.position = surface.position
 		nursery_catch.size = surface.size
 	action_panel.queue_redraw()
@@ -1365,10 +1653,11 @@ func _card_position_near_station() -> Vector2:
 	var station_index := int(station_for_phase.get(phase_index, -1))
 	var anchor := Vector2(640, 430)
 	if station_index >= 0 and station_index < station_list.size():
-		anchor = station_list[station_index].get("pos", anchor) as Vector2
-	var y := clampf(anchor.y - 300.0, 24.0, 312.0)
-	var left := Rect2(Vector2(24, y), Vector2(440, 384))
-	var right := Rect2(Vector2(816, y), Vector2(440, 384))
+		anchor = station_list[station_index].get(
+			"approach_pos", station_list[station_index].get("pos", anchor)) as Vector2
+	var y := clampf(anchor.y - 238.0, 24.0, 404.0)
+	var left := Rect2(Vector2(24, y), Vector2(416, 292))
+	var right := Rect2(Vector2(840, y), Vector2(416, 292))
 	return _safer_panel_rect(left, right).position
 
 
@@ -1376,9 +1665,66 @@ func _safer_panel_rect(first: Rect2, second: Rect2) -> Rect2:
 	if player_actor == null:
 		return first
 	var actor_rect := Rect2(player_actor.position, player_actor.size * player_actor.scale).grow(28.0)
-	var first_overlap := first.intersection(actor_rect).get_area()
-	var second_overlap := second.intersection(actor_rect).get_area()
-	return first if first_overlap <= second_overlap else second
+	var candidates: Array[Rect2] = [first, second]
+	# Phone-sized activity focuses can move vertically as well as switching
+	# sides. This closes the last tight-room cases where both same-height docks
+	# intersect Roshan even though a clear upper/lower berth exists.
+	if first.size.y <= 320.0 and second.size.y <= 320.0:
+		for candidate_y: float in [24.0, 214.0, 404.0]:
+			candidates.append(Rect2(Vector2(first.position.x, candidate_y), first.size))
+			candidates.append(Rect2(Vector2(second.position.x, candidate_y), second.size))
+	var best := candidates[0]
+	var best_overlap := INF
+	var best_travel := INF
+	for candidate: Rect2 in candidates:
+		var overlap := candidate.intersection(actor_rect).get_area()
+		var travel := candidate.position.distance_squared_to(first.position)
+		if overlap < best_overlap - 0.01 \
+				or (is_equal_approx(overlap, best_overlap) and travel < best_travel):
+			best = candidate
+			best_overlap = overlap
+			best_travel = travel
+	return best
+
+
+func _stage_player_clear_of_activity() -> void:
+	if player_actor == null or not player_actor.visible or action_panel == null \
+			or not action_panel.visible or stage_points.is_empty() or career_id == "boxer":
+		return
+	var panel_rect := Rect2(action_panel.position, action_panel.size).grow(24.0)
+	var current_rect := Rect2(player_actor.position,
+		player_actor.size * player_actor.scale).grow(24.0)
+	if current_rect.intersection(panel_rect).get_area() <= 0.01:
+		return
+	var current_feet := _hero_feet()
+	var best_feet := current_feet
+	var best_overlap := INF
+	var best_travel := INF
+	for sample_index in range(101):
+		var candidate_feet := StagePaths.point_along(stage_points,
+			float(sample_index) / 100.0)
+		var depth := clampf(0.62 + (candidate_feet.y / 720.0) * 0.55, 0.62, 1.1)
+		var visual_size := player_actor.size * depth
+		var candidate_position := candidate_feet \
+			- Vector2(visual_size.x * 0.5, visual_size.y - 12.0)
+		candidate_position.x = clampf(candidate_position.x, 16.0,
+			StagePaths.SCREEN.x - visual_size.x - 16.0)
+		candidate_position.y = clampf(candidate_position.y, 16.0,
+			StagePaths.SCREEN.y - visual_size.y - 16.0)
+		var candidate_rect := Rect2(candidate_position, visual_size).grow(24.0)
+		var overlap := candidate_rect.intersection(panel_rect).get_area()
+		var travel := candidate_feet.distance_squared_to(current_feet)
+		if overlap < best_overlap - 0.01 \
+				or (is_equal_approx(overlap, best_overlap) and travel < best_travel):
+			best_feet = candidate_feet
+			best_overlap = overlap
+			best_travel = travel
+			if is_zero_approx(overlap) and travel <= 1.0:
+				break
+	_place_on_stage(player_actor, best_feet)
+	player_actor.rotation = 0.0
+	wander_feet = best_feet
+	_capture_actor_rest("player", player_actor)
 
 
 ## Screen-space tuning for the shared imp brain. The brain thinks in the
@@ -1832,9 +2178,13 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			prop_rect.visible = false
 		return
 	if not task_open:
-		# WANDER: any card gesture opens the armed task at once — the
-		# probes' pump path, and no child is left poking a sleeping card
+		# WANDER: real gestures never bypass the physical room object. The
+		# trusted probe event preserves deterministic headless drivers only.
+		if _kind != "probe":
+			return
 		_open_task()
+		if not task_open:
+			return
 	var phase := phases[phase_index] as Dictionary
 	var mode := String(phase.get("mode", ""))
 	_play_roshan_animation("work")
@@ -1864,6 +2214,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	phase_fill.value = progress * 100.0
+	action_panel.queue_redraw()
 	# the widget's own art fills with the work: the bowl actually pours,
 	# the basin actually fills. Without this the delivered _fill/_bubbles/
 	# _full overlays never move and the child gets no feedback at all.
@@ -1979,6 +2330,7 @@ func _on_nursery_baby_caught(quality: float) -> void:
 	var goal := maxf(1.0, float(phase.get("goal", 5.0)))
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	phase_fill.value = progress * 100.0
+	action_panel.queue_redraw()
 	# the widget's own art fills with the work: the bowl actually pours,
 	# the basin actually fills. Without this the delivered _fill/_bubbles/
 	# _full overlays never move and the child gets no feedback at all.
@@ -2077,17 +2429,51 @@ func update_competition() -> void:
 
 func celebrate(result: Dictionary) -> void:
 	active = false
+	competition.pause()
 	_restore_stage_actors()
-	if career_id == "boxer":
-		# Return from first-person gloves to the existing actor-and-belt curtain
-		# call only after the title imp has bowed.
-		if action_panel != null:
-			action_panel.visible = false
-		if player_actor != null:
-			player_actor.visible = true
-		if rival_actor != null:
-			rival_actor.visible = true
+	if backdrop_node != null:
+		# Room objects own every playable beat; the proscenium returns only for
+		# this non-interactive curtain call, after hotspot geometry is irrelevant.
+		backdrop_node.set_stage(true)
+	# The last activity must leave with the room. Otherwise its surface survives
+	# over the proscenium and obscures the cast we just staged there.
+	task_open = false
+	if action_panel != null:
+		action_panel.visible = false
+	if surface != null:
+		surface.visible = false
+	if lens_layer != null:
+		lens_layer.visible = false
+		lens_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if lens_zoom_surface != null:
+		lens_zoom_surface.visible = false
+	_clear_stage_combat()
+	if nursery_catch != null:
+		nursery_catch.stop()
+		nursery_catch.visible = false
+	# Specialist surfaces deliberately hide some cast members during play.
+	# Restore both actors before applying the shared curtain-call composition.
+	if player_actor != null:
+		player_actor.visible = true
+	if rival_actor != null:
+		# The pearl ballet is a recital, not a rival contest. Keep its accepted
+		# solo curtain composition while every competitive/co-op career restores
+		# its partner for the bow.
+		rival_actor.visible = career_id != "ballerina"
+	_position_curtain_call_cast()
 	_play_roshan_animation("cheer")
+	_capture_actor_rest("player", player_actor)
+	if wander_layer != null:
+		wander_layer.visible = false
+		wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for hotspot_node in station_nodes:
+		(hotspot_node as OperaWorldHotspot2D).set_armed(false)
+	if player_bar != null:
+		player_bar.visible = false
+	if rival_bar != null:
+		rival_bar.visible = false
+	if rival_actor != null:
+		rival_actor.visible = career_id != "ballerina"
 	var tier := int(result.get("tier", 1))
 	if career_id == "ballerina":
 		last_cheer = "A BEAUTIFUL PEARL BALLET!"
@@ -2097,14 +2483,18 @@ func celebrate(result: Dictionary) -> void:
 			else "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
 		)
 	if prop_rect != null and prop_rect.texture != null:
-		# the stolen goal prop comes home for the curtain call
+		# The finished object shares the centre spotlight instead of floating at
+		# the old universal right-edge overlay position.
 		prop_rect.visible = true
+		_capture_actor_rest("prop", prop_rect)
 		_bounce_actor(prop_rect, 26.0, 0.48)
 	_bounce_actor(player_actor, 34.0 + float(tier) * 4.0, 0.52)
-	if not _set_rival_pose("bow"):
-		# Faron keeps her one accepted cutout and answers with a gentle nod.
-		rival_actor.rotation = -0.045
-	_bounce_actor(rival_actor, 10.0, 0.58)
+	if rival_actor != null and rival_actor.visible:
+		if not _set_rival_pose("bow"):
+			# Faron keeps her one accepted cutout and answers with a gentle nod.
+			rival_actor.rotation = -0.045
+		_capture_actor_rest("rival", rival_actor)
+		_bounce_actor(rival_actor, 10.0, 0.58)
 	for index in range(24):
 		var bit := ColorRect.new()
 		bit.color = Color.from_hsv(float(index) / 24.0, 0.58, 1.0)
@@ -2853,14 +3243,16 @@ func _process(delta: float) -> void:
 				# is what the arrival dwell reads, so she really arrives.
 				idle_t = 8.0
 				if armed_station >= 0 and armed_station < station_list.size():
-					wander_dest = station_list[armed_station].get("pos", Vector2(640, 480)) as Vector2
-					wander_walking = true
+					_on_hotspot_pressed(armed_station)
 			elif idle_t >= 9.0 and idle_t - delta < 9.0 and m != null:
 				# re-prompt with the phase's OWN recorded line — the hardcoded
 				# "hint" event has no recording, so a quiet child used to get
 				# a content-free pitched yay instead of her instruction again
 				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
 					String((phases[phase_index] as Dictionary).get("vo", "hint")))
+				var hotspot := _active_hotspot()
+				if hotspot != null:
+					hotspot.restart_invitation()
 		elif idle_t >= task_hint_delay:
 			idle_t = 0.0
 			var idle_mode := String((phases[phase_index] as Dictionary).get("mode", ""))
@@ -2894,8 +3286,6 @@ func _process(delta: float) -> void:
 			_tick_stage_combat(delta)
 		elif mode == "lens":
 			_tick_lens(delta)
-	for marker_node in station_nodes:
-		marker_node.queue_redraw()
 	if reveal_t > 0.0:
 		reveal_t -= delta
 		# the reveal shows the ACTUAL answer, steady — recognition, not a light show
@@ -2908,7 +3298,10 @@ func _process(delta: float) -> void:
 			phase_progress = 0.0
 			active = true
 			competition.guided_retry()
-			_show_phase()
+			# A guided retry keeps the no-fail clue memory, but still returns to
+			# the room's glowing object. It must not resurrect the old auto-open
+			# card flow after the reveal.
+			_arm_phase()
 			if String((phases[phase_index] as Dictionary).get("mode", "")) == "choice":
 				# remembered clues earn a head start on a MEMORY rematch;
 				# a bop finale credits no hits she never landed
@@ -2918,6 +3311,12 @@ func _process(delta: float) -> void:
 
 func close() -> void:
 	active = false
+	wander_walking = false
+	wander_route.clear()
+	interaction_requested = false
+	hotspot_opening = false
+	for hotspot_node in station_nodes:
+		(hotspot_node as OperaWorldHotspot2D).set_armed(false)
 	if career_id == "boxer" and surface is OperaBoxingSurface:
 		(surface as OperaBoxingSurface).cancel_all_touches()
 	if m != null:
@@ -2948,7 +3347,9 @@ func close() -> void:
 
 
 func _wander_input(event: InputEvent) -> void:
-	if task_open or not active:
+	# A second toddler tap during the object's short opening flourish must not
+	# fall through its disabled Button, cancel intent, and strand the invitation.
+	if task_open or not active or hotspot_opening:
 		return
 	var point := Vector2(-1.0, -1.0)
 	if event is InputEventScreenTouch:
@@ -2965,6 +3366,7 @@ func _wander_input(event: InputEvent) -> void:
 	if point.x < 0.0:
 		return
 	idle_t = 0.0
+	_clear_hotspot_intent()
 	if phase_gap > 0.0:
 		phase_gap = 0.0
 	var old := actor_tweens.get("player") as Tween
@@ -2974,17 +3376,10 @@ func _wander_input(event: InputEvent) -> void:
 	if not wander_walking:
 		# start from where she actually stands, never from a bobbed frame
 		wander_feet = _hero_feet()
-	if armed_station >= 0 and armed_station < station_list.size():
-		var station_pos: Vector2 = station_list[armed_station].get("pos", Vector2.ZERO)
-		if point.distance_to(station_pos) <= 120.0:
-			# a tap on the lit marker sends her straight to the job
-			wander_dest = station_pos
-			wander_walking = true
-			return
-	# everywhere else: walk the painted route to under the finger — the
-	# identical clamp the imps live by, so she can never leave the walkway
-	wander_dest = _stage_feet_at_x(point.x)
-	wander_walking = true
+	# Empty-room input only changes travel. Hotspot buttons sit above this
+	# layer and are the sole source of activity intent.
+	var route := StagePaths.player_route_to_point(career_id, wander_feet, point)
+	_begin_wander_route(route)
 
 
 func _wander_step(delta: float) -> void:
@@ -2992,21 +3387,32 @@ func _wander_step(delta: float) -> void:
 		return
 	if wander_walking:
 		_play_roshan_animation("travel")
+		while wander_route_index < wander_route.size() \
+				and wander_feet.distance_to(wander_route[wander_route_index]) <= 2.0:
+			wander_feet = wander_route[wander_route_index]
+			wander_route_index += 1
+		if wander_route_index >= wander_route.size():
+			_finish_wander_route()
+			return
 		var previous := wander_feet
-		wander_feet = wander_feet.move_toward(wander_dest, 250.0 * delta)
-		var step := wander_feet.x - previous.x
-		if absf(step) > 0.5:
-			player_actor.flip_h = step < 0.0
-		# B2: a shallow vertical arc (the bob of a step) and a slight lean
-		# into the travel direction — both purely visual, both easing to
-		# rest the moment she stops
-		wander_stride += absf(step)
-		wander_lean = move_toward(wander_lean, signf(step) * 0.05, delta * 0.9)
+		var target := wander_route[wander_route_index]
+		wander_feet = wander_feet.move_toward(target, 250.0 * delta)
+		var movement := wander_feet - previous
+		if absf(movement.x) > 0.5:
+			player_actor.flip_h = movement.x < 0.0
+		# A shallow step-bob and lean are visual children of the approved route;
+		# neither feeds back into the clean feet coordinate.
+		wander_stride += movement.length()
+		var travel_sign := signf(movement.x) if absf(movement.x) > 0.1 else 0.0
+		wander_lean = move_toward(wander_lean, travel_sign * 0.05, delta * 0.9)
 		_place_on_stage(player_actor, wander_feet)
 		player_actor.position.y -= absf(sin(wander_stride * 0.035)) * 7.0
 		player_actor.rotation = wander_lean
-		if wander_feet.distance_to(wander_dest) <= 3.0:
-			wander_walking = false
+		if wander_feet.distance_to(target) <= 2.0:
+			wander_feet = target
+			wander_route_index += 1
+			if wander_route_index >= wander_route.size():
+				_finish_wander_route()
 	elif absf(wander_lean) > 0.001 or absf(player_actor.rotation) > 0.001:
 		# settle: she straightens up and comes down off the last step
 		wander_lean = move_toward(wander_lean, 0.0, delta * 2.4)
@@ -3019,21 +3425,34 @@ func _wander_step(delta: float) -> void:
 			_play_roshan_animation("idle")
 	else:
 		_play_roshan_animation("idle")
-	if armed_station >= 0 and armed_station < station_list.size():
-		var station_pos: Vector2 = station_list[armed_station].get("pos", Vector2.ZERO)
-		if wander_feet.distance_to(station_pos) <= 150.0:
-			wander_dwell += delta
-			if wander_dwell >= 0.35:
-				# arrive clean: no bob, no lean, then bank the rest transform
-				wander_walking = false
-				wander_lean = 0.0
-				wander_stride = 0.0
-				_place_on_stage(player_actor, wander_feet)
-				player_actor.rotation = 0.0
-				_capture_actor_rest("player", player_actor)
-				_open_task()
-		else:
-			wander_dwell = 0.0
+
+
+func _finish_wander_route() -> void:
+	wander_walking = false
+	wander_route.clear()
+	wander_route_index = 0
+	wander_lean = 0.0
+	wander_stride = 0.0
+	_place_on_stage(player_actor, wander_feet)
+	player_actor.rotation = 0.0
+	_capture_actor_rest("player", player_actor)
+	_play_roshan_animation("idle")
+	if not interaction_requested or interaction_station != armed_station:
+		return
+	if armed_station < 0 or armed_station >= station_list.size():
+		_clear_hotspot_intent()
+		return
+	var approach: Vector2 = station_list[armed_station].get(
+		"approach_pos", station_list[armed_station].get("pos", wander_feet)) as Vector2
+	if wander_feet.distance_to(approach) > 4.0:
+		_clear_hotspot_intent()
+		return
+	var hotspot := _active_hotspot()
+	if hotspot == null:
+		_clear_hotspot_intent()
+		return
+	hotspot_opening = true
+	hotspot.play_opening()
 
 
 func _start_kart_race() -> void:

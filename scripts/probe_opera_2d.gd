@@ -14,6 +14,13 @@ var rival_shot_out := ""
 var stress_shot_out := ""
 var lobby_shot_out := ""
 var detective_shot_out := ""
+var diegetic_shot_out := ""
+var diegetic_shot_count := 0
+var diegetic_shot_expected := 0
+
+const StagePaths := preload("res://scripts/opera_stage_paths.gd")
+const WorldHotspot := preload("res://scripts/opera_world_hotspot_2d.gd")
+const HotspotCatalog := preload("res://scripts/opera_hotspot_catalog.gd")
 
 const BOXING_MODES: Array[String] = [
 	"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
@@ -60,19 +67,51 @@ const RETAINED_ROTATIONS := {
 	"popstar": "ENCORE",
 }
 const BALLERINA_PHASE_CONTRACTS := [
-	{"name": "PEARL MIRROR", "mode": "ballet_pose", "goal": 3.0},
-	{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "goal": 1.0},
-	{"name": "GRAND TWIRL", "mode": "ballet_twirl", "goal": 1.0},
+	{"name": "PEARL MIRROR", "mode": "ballet_pose", "goal": 3.0,
+		"vo": "op_ballerina_watch"},
+	{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "goal": 1.0,
+		"vo": "op_ballerina_ribbon"},
+	{"name": "GRAND TWIRL", "mode": "ballet_twirl", "goal": 1.0,
+		"vo": "op_ballerina_twirl"},
 ]
 
 
+func _audit_shipping_hotspot_specs() -> void:
+	var shipping_phase_count := 0
+	var missing_specs := PackedStringArray()
+	for career: String in OperaCareerWorld2D.PHASES:
+		var aliases: Dictionary = OperaCareerWorld2D.HOTSPOT_PHASE_ALIASES.get(
+			career, {}) as Dictionary
+		var career_phases: Array = OperaCareerWorld2D.PHASES.get(career, []) as Array
+		for phase_value: Variant in career_phases:
+			shipping_phase_count += 1
+			var phase: Dictionary = phase_value as Dictionary
+			var phase_name := String(phase.get("name", ""))
+			var catalog_name := String(aliases.get(phase_name, phase_name))
+			if HotspotCatalog.spec(career, catalog_name).is_empty():
+				missing_specs.append("%s/%s -> %s" % [
+					career, phase_name, catalog_name,
+				])
+	_check("all 53 shipping phases resolve through aliases to hotspot art specs",
+		shipping_phase_count == 53 and missing_specs.is_empty())
+	for missing_spec: String in missing_specs:
+		print("OPERA2D|shipping_hotspot: missing %s" % missing_spec)
+
+
 func _init() -> void:
+	var catalog_errors: PackedStringArray = HotspotCatalog.validate_specs()
+	_check("all cataloged diegetic object art passes resource, alpha, and aspect QA",
+		catalog_errors.is_empty())
+	for catalog_error: String in catalog_errors:
+		print("OPERA2D|hotspot_catalog: %s" % catalog_error)
+	_audit_shipping_hotspot_specs()
 	widget_shot_out = OS.get_environment("OPERA_WIDGET_SHOT_OUT").strip_edges()
 	widget_capture_career = OS.get_environment("OPERA_WIDGET_CAPTURE_CAREER").strip_edges()
 	rival_shot_out = OS.get_environment("OPERA_RIVAL_SHOT_OUT").strip_edges()
 	stress_shot_out = OS.get_environment("OPERA_STRESS_SHOT_OUT").strip_edges()
 	lobby_shot_out = OS.get_environment("OPERA_LOBBY_SHOT_OUT").strip_edges()
 	detective_shot_out = OS.get_environment("OPERA_DETECTIVE_SHOT_OUT").strip_edges()
+	diegetic_shot_out = OS.get_environment("OPERA_DIEGETIC_SHOT_OUT").strip_edges()
 	if not widget_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(widget_shot_out)
 	if not rival_shot_out.is_empty():
@@ -83,6 +122,8 @@ func _init() -> void:
 		DirAccess.make_dir_recursive_absolute(lobby_shot_out)
 	if not detective_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(detective_shot_out)
+	if not diegetic_shot_out.is_empty():
+		DirAccess.make_dir_recursive_absolute(diegetic_shot_out)
 	var scene := load("res://scenes/main.tscn") as PackedScene
 	main = scene.instantiate() as ReefMain
 	get_root().add_child(main)
@@ -214,6 +255,10 @@ func _init() -> void:
 			act.queue_free()
 			continue
 		var world := act.career_world_2d
+		diegetic_shot_expected += world.phases.size()
+		if not diegetic_shot_out.is_empty():
+			diegetic_shot_count += await _capture_diegetic_phase_rooms(
+				world, career, show_count)
 		_check("%s uses no 3D children in career play" % career,
 			act.find_children("*", "Node3D", true, false).is_empty())
 		_check("%s builds a scalable code-native career world" % career,
@@ -256,14 +301,19 @@ func _init() -> void:
 						== String(expected_ballet_phase.get("mode", "")) \
 					and is_equal_approx(float(actual_ballet_phase.get("goal", 0.0)),
 						float(expected_ballet_phase.get("goal", -1.0))) \
+					and String(actual_ballet_phase.get("vo", "")) \
+						== String(expected_ballet_phase.get("vo", "")) \
+					and ResourceLoader.exists(
+						"res://assets/audio/voices/roshan_%s.ogg" \
+						% String(expected_ballet_phase.get("vo", ""))) \
 					and actual_ballet_phase.has("widget") \
 					and String(actual_ballet_phase.get("widget", "missing")).is_empty() \
 					and world._widget_template(actual_ballet_phase).is_empty()
 			_check("ballerina has exactly PEARL MIRROR, RIBBON TRAIL, and GRAND TWIRL",
 				ballet_phase_contract_ok)
-		_check("%s uses real costume-frame animation" % career,
+		_check("%s waits at the room entrance in its costume idle" % career,
 			world.player_animator != null and world.player_animator.has_animation
-			and world.player_animator.current_animation == "work")
+			and world.player_animator.current_animation == "idle")
 		if world.player_animator != null and world.player_animator.has_animation:
 			if career == "ballerina":
 				world.player_animator.play("idle")
@@ -305,10 +355,9 @@ func _init() -> void:
 				world.player_animator.play("work")
 			else:
 				var frame_before := world.player_animator.current_frame
-				# Work runs at 7 fps. A 0.5s sample can advance 3 or 4 frames
-				# depending on the accumulated fraction and wrap onto the same cell.
-				# 0.2s always crosses at least one boundary and cannot wrap four.
-				world.player_animator._process(0.2)
+				# Idle runs at 4 fps. This crosses at least one frame boundary and
+				# cannot wrap the four-frame atlas back onto the sampled cell.
+				world.player_animator._process(0.3)
 				_check("%s costume atlas advances frames" % career,
 					world.player_animator.current_frame != frame_before)
 		var expected_signature := {
@@ -616,57 +665,6 @@ func _init() -> void:
 		_check("%s avoids copied combat phases" % career,
 			modes.count("bop") == 0 and world.steal_index < 0
 			and world.combat_imps.is_empty())
-		# Costume identity lock: bopping a dressed crew imp must never swap her
-		# back to the base purple imp — that reads as a different character
-		# every time she is bopped.
-		#
-		# The invariant is "never a base imp", NOT "always exactly the idle
-		# costume texture". Painted per-pose art (rival_<costume>_windup.png and
-		# friends) landed on dev, and _apply_imp_pose swaps to it by design, so
-		# a crew imp legitimately wears a different texture depending on which
-		# pose her brain is in on the frame this runs. Asserting equality with
-		# the idle texture would pass or fail on tick timing rather than on the
-		# thing that actually matters.
-		if not cooperative and not world.combat_imps.is_empty():
-			var base_imp := load("res://assets/opera/worlds/actors/imp_mischief.png") as Texture2D
-			var base_captain := load("res://assets/opera/worlds/actors/imp_captain.png") as Texture2D
-			var crew_dressed := true
-			for imp_entry: Dictionary in world.combat_imps:
-				var crew_node := imp_entry.get("node") as TextureRect
-				crew_dressed = crew_dressed and crew_node != null \
-					and crew_node.texture != null \
-					and crew_node.texture != base_imp \
-					and crew_node.texture != base_captain
-			_check("%s scuffle crew wears the career costume" % career, crew_dressed)
-			var victim: Dictionary = world.combat_imps[0]
-			var victim_node := victim.get("node") as TextureRect
-			world._hit_stage_imp(victim, Vector2(100.0, 100.0))
-			_check("%s keeps its costume through the shoo-off" % career,
-				victim_node != null and is_instance_valid(victim_node)
-				and victim_node.texture != base_imp
-				and victim_node.texture != base_captain)
-			_check("%s plays the shoo-off clip about the imp" % career,
-				victim_node != null and is_instance_valid(victim_node)
-				and victim_node.pivot_offset.is_equal_approx(victim_node.size * 0.5))
-			var authored_exact := true
-			for state: String in OperaCareerWorld2D.IMP_PREWARM_STATES:
-				var resolution := world._imp_texture_resolution({"captain": false}, state)
-				authored_exact = authored_exact \
-					and String(resolution.get("family", "")) == "rival_%s" % career \
-					and String(resolution.get("resolution", "")) == "exact"
-			_check("%s resolves every delivered state exactly within its costume family" % career,
-				authored_exact)
-			var idle_texture := world.rival_actor.texture
-			_check("%s finale rival exposes authored taunt" % career,
-				world._set_rival_pose("taunt")
-				and world.rival_actor.texture.resource_path.ends_with("rival_%s_taunt.png" % career))
-			world._restore_actor("rival", world.rival_actor)
-			_check("%s finale rival exposes authored bow" % career,
-				world._set_rival_pose("bow")
-				and world.rival_actor.texture.resource_path.ends_with("rival_%s_bow.png" % career))
-			world._restore_actor("rival", world.rival_actor)
-			_check("%s rival pose restores the idle texture" % career,
-				world.rival_actor.texture == idle_texture)
 		if career == "chef":
 			var player_rest: Dictionary = (world.actor_rests.get("player", {}) as Dictionary).duplicate()
 			for _tap in range(20):
@@ -689,15 +687,16 @@ func _init() -> void:
 					finale_stage_tiles_ok = finale_stage_tiles_ok \
 						and stage_tile != null \
 						and stage_tile.resource_path.contains("/stage/finale_stage_c")
-			_check("ballerina starts its first beat on the dedicated finale stage tiles",
-				world.phase_index == 0 and backdrop != null and backdrop.stage_mode
+			_check("ballerina begins in its navigable rehearsal room with finale art ready",
+				world.phase_index == 0 and backdrop != null and not backdrop.stage_mode
 				and finale_stage_tiles_ok)
-			_check("ballerina recital has no garden station mapping",
-				world.station_list.is_empty() and world.station_for_phase.is_empty())
-			_check("ballerina uses one specialist full-stage touch surface",
+			_check("ballerina maps every recital lesson to a painted room object",
+				world.station_list.size() >= 3
+				and world.station_for_phase.size() == world.phases.size())
+			_check("ballerina arms one dedicated surface while its room object waits",
 				world.surface != null and world.surface.get_script() == BalletSurface
-				and world.action_panel.visible
-				and world.surface.size.x >= 800.0 and world.surface.size.y >= 600.0)
+				and not world.action_panel.visible and world.surface.armed_only
+				and world.player_actor.visible)
 			var ballet_surface: Variant = world.surface
 			_check("ballerina recital maps heart, open, and crown atlas poses in order",
 				BalletSurface.POSE_FRAMES == [3, 2, 1]
@@ -733,6 +732,8 @@ func _init() -> void:
 			await _capture_rival_states(world, career, backdrop)
 		var widgets_complete := true
 		var widgets_causal := true
+		var widgets_borderless := true
+		var widgets_grounded := true
 		var widget_count := 0
 		for phase_number in range(world.phases.size()):
 			var phase_dict: Dictionary = world.phases[phase_number]
@@ -748,6 +749,21 @@ func _init() -> void:
 			var before_progress := world.phase_progress
 			world.surface.configure(phase_mode, Color.WHITE,
 				world.choice_target, context)
+			world.action_panel.visible = true
+			world.surface.visible = true
+			world.surface.queue_redraw()
+			await process_frame
+			var specialist_mode := phase_mode in [
+				"pourt", "oven", "xray_scan", "dance_sequence",
+				"candy_sort", "paint_reveal", "farm_lob",
+			]
+			widgets_borderless = widgets_borderless \
+				and not OperaGestureSurface.DRAWS_FRAMED_WIDGET_BACKDROPS \
+				and world.surface.widget_backdrop == null \
+				and world.surface.retired_widget_backdrop_path == widget_path
+			widgets_grounded = widgets_grounded \
+				and (specialist_mode
+					or world.surface.last_widget_ground_route == template)
 			world.surface._process(0.8)
 			widgets_causal = widgets_causal and is_equal_approx(world.phase_progress, before_progress) \
 				and is_equal_approx(world.surface.widget_fill, 0.0) \
@@ -810,7 +826,7 @@ func _init() -> void:
 				widgets_causal = widgets_causal and world.surface.xray_found_count == 1
 				world.surface.set_block_signals(false)
 			elif phase_mode == "farm_lob":
-				# The farmer card is release-driven: a weak release loops safely;
+				# The farmer surface is release-driven: a weak release loops safely;
 				# only the completed arc changes its deterministic landing state.
 				world.surface.configure(phase_mode, Color.WHITE,
 					world.choice_target, context)
@@ -842,16 +858,29 @@ func _init() -> void:
 			and career_widget_contract_complete
 		_check("%s widgets remain input-causal with owner-gated completion" % career,
 			widgets_causal)
-		world._show_phase()
-		_check("%s loads the Storybook task frame and station beacon" % career,
-			world.task_frame_texture != null and world.station_marker_texture != null)
+		_check("%s suppresses every retired framed widget backdrop" % career,
+			widgets_borderless)
+		_check("%s keeps a persistent borderless play affordance" % career,
+			widgets_grounded)
+		_audit_diegetic_room_flow(world, career)
+		if career == "ballerina":
+			_check("ballerina object opens its large borderless recital surface",
+				world.task_open and world.action_panel.visible
+				and world.surface is OperaBalletSurface
+				and world.surface.size.x >= 800.0 and world.surface.size.y >= 600.0)
+		elif career == "boxer":
+			_check("boxer object opens its full-room two-glove view",
+				world.task_open and world.action_panel.visible
+				and world.surface is OperaBoxingSurface
+				and world.surface.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
+				and not world.player_actor.visible)
 		_check("%s loads the authored magnifier prop" % career,
 			world.magnifier_texture != null)
 		if world.action_panel.visible and world.player_actor.visible:
 			var panel_rect := Rect2(world.action_panel.position, world.action_panel.size)
 			var actor_rect := Rect2(world.player_actor.position,
 				world.player_actor.size * world.player_actor.scale).grow(24.0)
-			_check("%s task card never covers animated Roshan" % career,
+			_check("%s borderless activity focus never covers animated Roshan" % career,
 				panel_rect.intersection(actor_rect).get_area() <= 0.01)
 		if career == "detective":
 			_check("detective lens is enlarged around its real glass centre",
@@ -919,6 +948,13 @@ func _init() -> void:
 			while world.phase_index < world._finale_start():
 				world._on_gesture("probe", 100.0, 1.0)
 				act._process(0.05)
+			# Reaching a finale now arms its room object instead of auto-opening it.
+			# The trusted probe path still has to perform that explicit open before
+			# auditing the rival clock.
+			for _open_attempt in range(3):
+				if world.task_open:
+					break
+				world._on_gesture("probe", 0.0, 1.0)
 			_check("detective imp enters only for the final shared mystery",
 				world.rival_actor.visible and world.in_competition_finale() and act.competition.active)
 			act.competition.round_elapsed = float(act.competition.spec.get("par_time", 40.0)) * 1.2
@@ -934,6 +970,7 @@ func _init() -> void:
 
 		var saw_finale_imp := _finale_partner_present(world, career)
 		var rival_hidden_before_finale := true
+		var finale_cast_separated := career in ["ballerina", "boxer"]
 		var guard := 0
 		while act.state == "play" and guard < 80:
 			rival_hidden_before_finale = rival_hidden_before_finale \
@@ -946,6 +983,19 @@ func _init() -> void:
 			await process_frame
 			guard += 1
 			saw_finale_imp = saw_finale_imp or _finale_partner_present(world, career)
+			if world.task_open and world.in_competition_finale() \
+					and world.player_actor.visible and world.rival_actor.visible:
+				var player_rect := _actor_visual_rect(world.player_actor)
+				var rival_rect := _actor_visual_rect(world.rival_actor)
+				var activity_rect := Rect2(world.action_panel.position,
+					world.action_panel.size)
+				finale_cast_separated = _rect_inside(player_rect,
+					Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)) \
+					and _rect_inside(rival_rect,
+						Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)) \
+					and not player_rect.intersects(rival_rect) \
+					and (not world.action_panel.visible
+						or not rival_rect.intersects(activity_rect))
 		_check("%s keeps the rival hidden before its stage contest" % career,
 			rival_hidden_before_finale)
 		if career == "ballerina":
@@ -957,6 +1007,8 @@ func _init() -> void:
 				and world.rival_actor.visible and not world.action_panel.visible)
 		else:
 			_check("%s brings in its dressed finale partner" % career, saw_finale_imp)
+			_check("%s stages the room-finale partner clear of Roshan and the activity" % career,
+				finale_cast_separated)
 		if career == "nursery":
 			_check("nursery curtain call records cooperative care",
 				bool(act.performance_result.get("cooperative", false)))
@@ -968,6 +1020,21 @@ func _init() -> void:
 			not act.performance_result.is_empty()
 			and int(act.performance_result.get("tier", 0)) >= 1
 			and int(act.performance_result.get("tier", 0)) <= 3)
+		var curtain_canvas := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
+		var curtain_player := _actor_rest_rect(world, "player")
+		var curtain_rival := _actor_rest_rect(world, "rival")
+		var curtain_prop := _actor_rest_rect(world, "prop")
+		var prop_spotlight_ok := world.prop_rect.texture == null \
+			or (_rect_inside(curtain_prop, curtain_canvas)
+				and absf(curtain_prop.get_center().x
+					- StorybookUI.CANVAS_SIZE.x * 0.5) <= 4.0)
+		_check("%s gives the curtain-call cast distinct stage-local rests" % career,
+			not world.action_panel.visible and not world.surface.visible
+			and _rect_inside(curtain_player, curtain_canvas)
+			and _rect_inside(curtain_rival, curtain_canvas)
+			and curtain_player.get_center().x < curtain_rival.get_center().x
+			and not curtain_player.intersects(curtain_rival)
+			and prop_spotlight_ok)
 		var closing_boxing: OperaBoxingSurface = null
 		var close_claim_started := true
 		if career == "boxer" and world.surface is OperaBoxingSurface:
@@ -1026,6 +1093,9 @@ func _init() -> void:
 		direct_surface_contracts_complete)
 	_check("every retained generic rotation uses the shortened pacing",
 		circle_pacing_complete and retained_rotations_seen == RETAINED_ROTATIONS.size())
+	if not diegetic_shot_out.is_empty():
+		_check("diegetic review capture contains every shipping phase room state",
+			diegetic_shot_count == diegetic_shot_expected)
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()
@@ -1034,6 +1104,373 @@ func _init() -> void:
 		quit(1)
 
 
+func _capture_diegetic_phase_rooms(world: OperaCareerWorld2D, career: String,
+		career_number: int) -> int:
+	# Capture discovery, not an already-open minigame: Roshan idles at the
+	# room entrance and exactly one phase-specific physical object invites her.
+	# Every mutation below is probe-local and the ordinary phase-one lifecycle
+	# is reconstructed before the broad gameplay checks resume.
+	var captured := 0
+	for phase_number in range(world.phases.size()):
+		world.phase_index = phase_number
+		world.phase_progress = 0.0
+		world.phase_advance_pending = false
+		world.phase_complete_t = 0.0
+		world.reveal_t = 0.0
+		world.active = true
+		world._arm_phase()
+		if world.m != null:
+			world.m.clear_dialogue()
+			world.m.hud_msg.visible = false
+			world.m.msg_timer = 0.0
+		var phase: Dictionary = world.phases[phase_number]
+		var phase_name := String(phase.get("name", "phase_%d" % (phase_number + 1)))
+		var filename := "%02d_%s_p%02d_%s_room.png" % [
+			career_number, career, phase_number + 1, phase_name.to_snake_case()]
+		await _capture_viewport(diegetic_shot_out.path_join(filename))
+		captured += 1
+
+	world.competition.pause()
+	world.phase_index = 0
+	world.phase_progress = 0.0
+	world.phase_advance_pending = false
+	world.phase_complete_t = 0.0
+	world.reveal_t = 0.0
+	world.active = true
+	for hotspot: OperaWorldHotspot2D in _opera_hotspots(world):
+		hotspot.elapsed = 0.0
+	world._arm_phase()
+	_check("%s capture restores the closed phase-one room lifecycle" % career,
+		world.phase_index == 0 and world.active and not world.task_open
+		and is_equal_approx(world.phase_progress, 0.0)
+		and not world.competition.active and _armed_hotspots(world).size() == 1)
+	return captured
+
+
+func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> void:
+	# Earlier mechanic-specific assertions deliberately configure arbitrary
+	# phases. Restore the actual entry state before auditing room discovery.
+	world.phase_index = 0
+	world.phase_progress = 0.0
+	world.phase_advance_pending = false
+	world.phase_complete_t = 0.0
+	world.reveal_t = 0.0
+	world._arm_phase()
+	var canvas_rect := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
+	var wander_input := world.root.get_node_or_null("WalkableRoomInput") as Control
+	_check("%s replaces clipboard and beacon textures with the room itself" % career,
+		world.task_frame_texture == null and world.station_marker_texture == null)
+	_check("%s exposes one full-room constrained touch layer" % career,
+		wander_input != null and wander_input == world.wander_layer
+		and wander_input.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
+		and not wander_input.clip_contents)
+	_check("%s starts with the room available and its task closed" % career,
+		not world.task_open and not world.action_panel.visible
+		and wander_input != null and wander_input.visible
+		and wander_input.mouse_filter == Control.MOUSE_FILTER_STOP)
+
+	var hotspots := _opera_hotspots(world)
+	var hotspot_structure_ok := hotspots.size() == world.station_list.size() \
+		and not hotspots.is_empty()
+	var hotspot_text_free := true
+	for hotspot: OperaWorldHotspot2D in hotspots:
+		hotspot_structure_ok = hotspot_structure_ok \
+			and hotspot.name == "ActivityHotspot_%s" % hotspot.station_id \
+			and hotspot.get_parent() == world.root
+		hotspot_text_free = hotspot_text_free and hotspot.touch_button != null \
+			and hotspot.touch_button.text.is_empty() \
+			and bool(hotspot.touch_button.get_meta("physical_object", false))
+	_check("%s builds only named physical ActivityHotspot objects" % career,
+		hotspot_structure_ok)
+	_check("%s hotspot invitations are pictorial and never reading-dependent" % career,
+		hotspot_text_free)
+
+	var active := _audit_phase_hotspot_rearming(world, career, canvas_rect)
+	if active == null:
+		# Keep the rest of the broad career probe diagnostic after a focused
+		# contract failure; this direct path is not accepted as a passing flow.
+		world._show_phase()
+		return
+
+	var inactive := _first_inactive_hotspot(hotspots, active)
+	if inactive != null:
+		var inactive_phase := world.phase_index
+		var inactive_progress := world.phase_progress
+		var inactive_score := world.competition.player_score
+		inactive.touch_button.pressed.emit()
+		_check("%s blocks every inactive room object" % career,
+			world.phase_index == inactive_phase
+			and is_equal_approx(world.phase_progress, inactive_progress)
+			and world.competition.player_score == inactive_score
+			and not world.wander_walking and not world.hotspot_opening
+			and not world.task_open)
+	else:
+		_check("%s blocks every inactive room object" % career, false)
+
+	var phase_before := world.phase_index
+	var progress_before := world.phase_progress
+	var score_before := world.competition.player_score
+	var competition_before := world.competition.player_progress
+	var glow_elapsed_before := active.elapsed
+	for _passive_tick in range(4):
+		world._process(0.1)
+		active._process(0.1)
+	_check("%s animates its invitation without passive game progress" % career,
+		active.elapsed > glow_elapsed_before
+		and world.phase_index == phase_before
+		and is_equal_approx(world.phase_progress, progress_before)
+		and world.competition.player_score == score_before
+		and is_equal_approx(world.competition.player_progress, competition_before)
+		and not world.task_open)
+
+	# Every real minigame gesture is inert until Roshan reaches the object.
+	# `probe` remains the explicit trusted fast-forward path used later below.
+	for real_gesture: String in ["tap", "hold", "swipe", "circle", "choice"]:
+		world._on_gesture(real_gesture, 1.0, 1.0)
+	_check("%s cannot open or score a closed task with real gestures" % career,
+		world.phase_index == phase_before
+		and is_equal_approx(world.phase_progress, progress_before)
+		and world.competition.player_score == score_before
+		and is_equal_approx(world.competition.player_progress, competition_before)
+		and not world.task_open)
+
+	var activation_before := active.activation_count
+	active.touch_button.pressed.emit()
+	var emitted_route := world.wander_route.duplicate()
+	var expected_approach := StagePaths.station_approach(career, active.station_id)
+	_check("%s hotspot tap starts an authored route, never the task" % career,
+		not world.task_open and not world.hotspot_opening
+		and active.activation_count == activation_before
+		and world.wander_walking and not emitted_route.is_empty()
+		and StagePaths.route_is_approved(career, emitted_route, 2.0)
+		and emitted_route[emitted_route.size() - 1].distance_to(expected_approach) <= 2.0)
+	_check("%s hotspot tap cannot award immediate progress" % career,
+		world.phase_index == phase_before
+		and is_equal_approx(world.phase_progress, progress_before)
+		and world.competition.player_score == score_before
+		and is_equal_approx(world.competition.player_progress, competition_before))
+
+	var route_stayed_safe := true
+	var progress_stayed_safe := true
+	var saw_arrival := false
+	var saw_opening := false
+	var tested_opening_touch := false
+	var opening_touch_ignored := true
+	var route_ticks := 0
+	while not world.task_open and route_ticks < 320:
+		world._process(0.05)
+		route_stayed_safe = route_stayed_safe \
+			and StagePaths.point_is_on_approved_route(career, world.wander_feet, 3.0)
+		saw_arrival = saw_arrival \
+			or world.wander_feet.distance_to(expected_approach) <= 4.0
+		saw_opening = saw_opening or world.hotspot_opening or active.opening \
+			or active.activation_count > activation_before
+		if world.hotspot_opening and not tested_opening_touch:
+			var intent_before := world.interaction_requested
+			var station_before := world.interaction_station
+			var second_touch := InputEventScreenTouch.new()
+			second_touch.pressed = true
+			second_touch.position = Vector2(640.0, 560.0)
+			world._wander_input(second_touch)
+			opening_touch_ignored = world.hotspot_opening \
+				and world.interaction_requested == intent_before \
+				and world.interaction_station == station_before \
+				and active.opening and active.touch_button.disabled
+			tested_opening_touch = true
+		progress_stayed_safe = progress_stayed_safe \
+			and world.phase_index == phase_before \
+			and is_equal_approx(world.phase_progress, progress_before) \
+			and world.competition.player_score == score_before \
+			and is_equal_approx(world.competition.player_progress, competition_before)
+		active._process(0.05)
+		saw_opening = saw_opening or world.hotspot_opening or active.opening \
+			or active.activation_count > activation_before
+		route_ticks += 1
+	_check("%s stays on authored walkways from tap through arrival" % career,
+		route_stayed_safe and saw_arrival)
+	_check("%s arrives, plays one object opening, then opens the task" % career,
+		world.task_open and saw_opening
+		and active.activation_count == activation_before + 1
+		and not world.wander_walking)
+	_check("%s ignores an extra touch during the object opening flourish" % career,
+		tested_opening_touch and opening_touch_ignored and world.task_open)
+	_check("%s approach and opening remain passive-safe" % career,
+		progress_stayed_safe
+		and world.phase_index == phase_before
+		and is_equal_approx(world.phase_progress, progress_before)
+		and world.competition.player_score == score_before
+		and is_equal_approx(world.competition.player_progress, competition_before))
+	_check("%s hands input safely from the room to the minigame" % career,
+		wander_input != null and not wander_input.visible
+		and wander_input.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+
+	var panel_rect := Rect2(world.action_panel.position, world.action_panel.size)
+	var panel_inside := not world.action_panel.visible \
+		or _rect_inside(panel_rect, canvas_rect)
+	var contents_inside := true
+	if world.action_panel.visible:
+		contents_inside = _rect_inside(
+			Rect2(world.surface.position, world.surface.size),
+			Rect2(Vector2.ZERO, world.action_panel.size))
+		if world.nursery_catch != null and world.nursery_catch.visible:
+			contents_inside = contents_inside and _rect_inside(
+				Rect2(world.nursery_catch.position, world.nursery_catch.size),
+				Rect2(Vector2.ZERO, world.action_panel.size))
+	var actor_rect := Rect2(world.player_actor.position,
+		world.player_actor.size * world.player_actor.scale)
+	var visible_partner_clear := true
+	if world.rival_actor != null and world.rival_actor.visible:
+		var partner_rect := _actor_visual_rect(world.rival_actor)
+		visible_partner_clear = _rect_inside(partner_rect, canvas_rect) \
+			and not partner_rect.intersects(actor_rect) \
+			and (not world.action_panel.visible
+				or not partner_rect.intersects(panel_rect))
+	_check("%s uses a transparent borderless activity focus" % career,
+		world.task_frame_texture == null and world.station_marker_texture == null
+		and not OperaGestureSurface.DRAWS_CARD_BACKING
+		and world.action_panel.color.a <= 0.001
+		and not world.action_panel.clip_contents
+		and world.action_panel.find_children("*", "Label", true, false).is_empty())
+	_check("%s keeps the opened activity and full Mermaid Roshan onscreen" % career,
+		panel_inside and contents_inside and _rect_inside(actor_rect, canvas_rect)
+		and not world.player_actor.clip_contents)
+	_check("%s keeps every visible partner clear of Roshan and the activity" % career,
+		visible_partner_clear)
+
+
+func _audit_phase_hotspot_rearming(world: OperaCareerWorld2D, career: String,
+		canvas_rect: Rect2) -> OperaWorldHotspot2D:
+	var declared: Dictionary = OperaCareerWorld2D.PHASE_STATIONS.get(career, {}) \
+		as Dictionary
+	var previous_active: OperaWorldHotspot2D = null
+	var every_transition_rearmed := true
+	for phase_number in range(world.phases.size()):
+		world.phase_index = phase_number
+		world.phase_progress = 0.0
+		world.phase_advance_pending = false
+		world.phase_complete_t = 0.0
+		world.reveal_t = 0.0
+		world._arm_phase()
+		var phase: Dictionary = world.phases[phase_number]
+		var phase_name := String(phase.get("name", "phase_%d" % phase_number))
+		var expected_id := String(declared.get(phase_name, ""))
+		var expected_index := int(world.station_for_phase.get(phase_number, -1))
+		var armed := _armed_hotspots(world)
+		var active: OperaWorldHotspot2D = armed[0] if armed.size() == 1 else null
+		var exact_mapping := active != null and not expected_id.is_empty() \
+			and active.station_index == expected_index \
+			and active.station_id == expected_id
+		_check("%s %s arms exactly its themed room object" % [career, phase_name],
+			armed.size() == 1 and exact_mapping
+			and not world.task_open and not world.action_panel.visible)
+
+		var themed_and_safe := active != null and active.object_texture != null \
+			and not active.source_path.is_empty() \
+			and not active.source_path.ends_with("station_marker.png") \
+			and active.touch_button != null and active.touch_button.text.is_empty() \
+			and not active.touch_button.disabled \
+			and active.hit_size.x >= WorldHotspot.MIN_TOUCH.x \
+			and active.hit_size.y >= WorldHotspot.MIN_TOUCH.y \
+			and not active.clip_contents \
+			and _rect_inside(active.stage_hit_rect(), canvas_rect) \
+			and _rect_inside(active.stage_glow_rect(), canvas_rect)
+		_check("%s %s hotspot art, glow, and touch target do not clip" \
+			% [career, phase_name], themed_and_safe)
+		var actor_object_overlap := INF
+		if active != null:
+			actor_object_overlap = _roshan_idle_semantic_rect(world).intersection(
+				active.stage_object_rect()).get_area()
+		_check("%s %s keeps its idle object clear of Roshan's body" \
+			% [career, phase_name], actor_object_overlap <= 1.0)
+
+		for hotspot: OperaWorldHotspot2D in _opera_hotspots(world):
+			if hotspot == active:
+				continue
+			every_transition_rearmed = every_transition_rearmed \
+				and not hotspot.armed and not hotspot.visible \
+				and hotspot.touch_button != null and hotspot.touch_button.disabled
+		if previous_active != null and previous_active != active:
+			every_transition_rearmed = every_transition_rearmed \
+				and not previous_active.armed \
+				and previous_active.touch_button != null \
+				and previous_active.touch_button.disabled
+		if active != null:
+			previous_active = active
+
+	_check("%s re-arms only the next phase object and blocks all others" % career,
+		every_transition_rearmed)
+	world.competition.pause()
+	world.phase_index = 0
+	world.phase_progress = 0.0
+	world.phase_advance_pending = false
+	world.phase_complete_t = 0.0
+	world.reveal_t = 0.0
+	if world.m != null:
+		world.m.clear_dialogue()
+	world._arm_phase()
+	var reset_armed := _armed_hotspots(world)
+	_check("%s safely returns the phase-one invitation after rearm audit" % career,
+		reset_armed.size() == 1 and not world.task_open
+		and not world.action_panel.visible and not world.competition.active)
+	return reset_armed[0] if reset_armed.size() == 1 else null
+
+
+func _opera_hotspots(world: OperaCareerWorld2D) -> Array[OperaWorldHotspot2D]:
+	var hotspots: Array[OperaWorldHotspot2D] = []
+	for node: Control in world.station_nodes:
+		var hotspot := node as OperaWorldHotspot2D
+		if hotspot != null:
+			hotspots.append(hotspot)
+	return hotspots
+
+
+func _armed_hotspots(world: OperaCareerWorld2D) -> Array[OperaWorldHotspot2D]:
+	var armed: Array[OperaWorldHotspot2D] = []
+	for hotspot: OperaWorldHotspot2D in _opera_hotspots(world):
+		if hotspot.armed:
+			armed.append(hotspot)
+	return armed
+
+
+func _first_inactive_hotspot(hotspots: Array[OperaWorldHotspot2D],
+		active: OperaWorldHotspot2D) -> OperaWorldHotspot2D:
+	for hotspot: OperaWorldHotspot2D in hotspots:
+		if hotspot != active:
+			return hotspot
+	return null
+
+
+func _rect_inside(inner: Rect2, outer: Rect2, slack: float = 0.1) -> bool:
+	return inner.position.x >= outer.position.x - slack \
+		and inner.position.y >= outer.position.y - slack \
+		and inner.end.x <= outer.end.x + slack \
+		and inner.end.y <= outer.end.y + slack
+
+
+func _actor_visual_rect(actor: Control) -> Rect2:
+	if actor == null:
+		return Rect2()
+	return Rect2(actor.position, actor.size * actor.scale)
+
+
+func _actor_rest_rect(world: OperaCareerWorld2D, key: String) -> Rect2:
+	var rest: Dictionary = world.actor_rests.get(key, {}) as Dictionary
+	if rest.is_empty():
+		return Rect2()
+	var position: Vector2 = rest.get("position", Vector2.ZERO) as Vector2
+	var size: Vector2 = rest.get("size", Vector2.ZERO) as Vector2
+	var scale: Vector2 = rest.get("scale", Vector2.ONE) as Vector2
+	return Rect2(position, size * scale)
+
+
+func _roshan_idle_semantic_rect(world: OperaCareerWorld2D) -> Rect2:
+	# Atlas cells include transparent breathing room plus expressive hair, hand,
+	# and tail-tip flourishes. Those may cross a glow harmlessly. This central
+	# body/tail-root footprint is the conservative semantic collision region.
+	var visual_size := world.player_actor.size * world.player_actor.scale
+	return Rect2(
+		world.player_actor.position + visual_size * Vector2(0.27, 0.11),
+		visual_size * Vector2(0.45, 0.82))
 func _boxing_touch(surface: OperaBoxingSurface, finger: int, pressed: bool,
 		position: Vector2) -> void:
 	var event := InputEventScreenTouch.new()
@@ -1054,16 +1491,33 @@ func _boxing_drag(surface: OperaBoxingSurface, finger: int,
 func _exercise_boxing_surface(world: OperaCareerWorld2D, act: OperaAct,
 		modes: Array[String]) -> void:
 	var exact_modes := modes.size() == BOXING_MODES.size()
+	var exact_goals := world.phases.size() == BOXING_GOALS.size()
+	var exact_voices := world.phases.size() == BOXING_VOICES.size()
+	var surface_goals_match := world.phases.size() == BOXING_MODES.size()
 	for index in range(mini(modes.size(), BOXING_MODES.size())):
 		exact_modes = exact_modes and modes[index] == BOXING_MODES[index]
+		var phase: Dictionary = world.phases[index] as Dictionary
+		var phase_goal := float(phase.get("goal", -1.0))
+		exact_goals = exact_goals \
+			and is_equal_approx(phase_goal, BOXING_GOALS[index])
+		exact_voices = exact_voices \
+			and String(phase.get("vo", "")) == BOXING_VOICES[index]
+		surface_goals_match = surface_goals_match \
+			and int(OperaBoxingSurface.MODE_GOALS.get(modes[index], -1)) \
+				== int(round(phase_goal))
 	_check("boxer replaces every generic card and brawl with five glove modes",
 		exact_modes and not modes.has("boxer_rhythm") and not modes.has("bop"))
-	_check("boxer owns a full-stage dedicated two-glove surface",
+	_check("boxer phase goals match every specialist glove round",
+		exact_goals and surface_goals_match)
+	_check("boxer preserves the exact five recorded instruction cues",
+		exact_voices)
+	_check("boxer waits in its room with a dedicated two-glove surface armed",
 		world.surface is OperaBoxingSurface
 		and world.surface.name == "BoxingGloveSurface"
-		and world.surface.position.is_equal_approx(Vector2.ZERO)
-		and world.surface.size.is_equal_approx(Vector2(1280.0, 720.0))
-		and world.station_list.is_empty() and not world.player_actor.visible
+		and world.station_list.size() >= BOXING_MODES.size()
+		and world.station_for_phase.size() == world.phases.size()
+		and not world.action_panel.visible and world.surface.armed_only
+		and world.player_actor.visible
 		and not world.rival_actor.visible)
 	_check("boxer teaches three drills before its one-imp finale",
 		world._finale_start() == 3 and world.phases.size() == 5
@@ -1171,6 +1625,11 @@ func _drive_boxer_phase(world: OperaCareerWorld2D) -> void:
 	if world.phase_index >= world.phases.size() \
 			or not (world.surface is OperaBoxingSurface):
 		return
+	if not world.task_open:
+		# The shipping flow reaches and opens the next glowing room object. The
+		# trusted driver performs that handoff explicitly before touching gloves.
+		world._open_task()
+		return
 	var boxing := world.surface as OperaBoxingSurface
 	var mode := String((world.phases[world.phase_index] as Dictionary).get(
 		"mode", ""))
@@ -1231,8 +1690,15 @@ func _finale_partner_present(world: OperaCareerWorld2D, career: String) -> bool:
 func _capture_viewport(path: String) -> void:
 	await process_frame
 	await process_frame
-	await RenderingServer.frame_post_draw
+	# The headless display driver never emits frame_post_draw on Windows 4.7.1;
+	# waiting for it made optional CI review captures hang forever even though
+	# the viewport texture was already readable.
+	if DisplayServer.get_name() != "headless":
+		await RenderingServer.frame_post_draw
 	var image: Image = get_root().get_viewport().get_texture().get_image()
+	if image == null:
+		_check("saved review capture %s" % path.get_file(), false)
+		return
 	var error := image.save_png(path)
 	_check("saved review capture %s" % path.get_file(), error == OK)
 
@@ -1240,9 +1706,13 @@ func _capture_viewport(path: String) -> void:
 func _capture_control(control: Control, path: String) -> void:
 	await process_frame
 	await process_frame
-	await RenderingServer.frame_post_draw
+	if DisplayServer.get_name() != "headless":
+		await RenderingServer.frame_post_draw
 	var viewport := get_root().get_viewport()
 	var image: Image = viewport.get_texture().get_image()
+	if image == null:
+		_check("saved review capture %s" % path.get_file(), false)
+		return
 	var visible_size := viewport.get_visible_rect().size
 	var image_scale := Vector2(image.get_width(), image.get_height()) / visible_size
 	var global_rect := control.get_global_rect()

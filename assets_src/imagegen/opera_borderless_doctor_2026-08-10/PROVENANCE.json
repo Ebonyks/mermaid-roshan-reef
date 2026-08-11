@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "date": "2026-08-10",
+  "generation": {
+    "method": "OpenAI built-in ImageGen",
+    "mode": "precise-object-edit",
+    "result_id": "exec-594ef882-a66c-4c5a-b652-cc5e26be25cc.png",
+    "original_result_path": "C:/Users/Peter/.codex/generated_images/019fe6fd-6f77-7353-86b6-d32b930bea1a/exec-594ef882-a66c-4c5a-b652-cc5e26be25cc.png",
+    "reference": "assets/opera/worlds/widgets/widget_crank_doctor.png",
+    "prompt_path": "assets_src/imagegen/opera_borderless_doctor_2026-08-10/PROMPT.md"
+  },
+  "artifacts": {
+    "chroma_native": {
+      "path": "assets_src/imagegen/opera_borderless_doctor_2026-08-10/native/doctor_starfish_patient_chroma_native.png",
+      "dimensions": [1254, 1254],
+      "sha256": "b563608b0f9152bd2174ea2cb7b0c4e9fc408680c993137c98db0c148c70a403"
+    },
+    "alpha_native": {
+      "path": "assets_src/imagegen/opera_borderless_doctor_2026-08-10/doctor_starfish_patient_alpha_native.png",
+      "dimensions": [1254, 1254],
+      "sha256": "dcbe51506d132c4796e4e1c32936d5bb9a5f5e76aae2827647b2cec66879003a",
+      "derivation": "remove_chroma_key.py --auto-key border --soft-matte --transparent-threshold 12 --opaque-threshold 220 --despill",
+      "detected_key": "#03f90a",
+      "transparent_pixels": 879477,
+      "partial_alpha_pixels": 3451,
+      "total_pixels": 1572516
+    },
+    "runtime": {
+      "path": "assets/opera/worlds/widgets/widget_crank_doctor_patient.png",
+      "dimensions": [512, 512],
+      "sha256": "ecf354fd812decbae250078cc2dc7bce8b8bb5c403afe5016bdabedbe0c8ffc9",
+      "derivation": "ffmpeg 8.1.2 Lanczos whole-canvas scale to 512x512 RGBA",
+      "alpha_bbox": [46, 24, 466, 452],
+      "alpha_components_over_32": 1,
+      "visible_green_spill_pixels": 0
+    }
+  },
+  "qa_summary": {
+    "codex_visual_review": "accepted",
+    "owner_human_review": "pending",
+    "five_arms": "pass",
+    "full_silhouette": "pass",
+    "detached_parts": "pass",
+    "green_spill": "pass",
+    "runtime_dimensions": "pass"
+  }
+}
+

@@ -765,9 +765,14 @@ def build() -> tuple[dict[Path, Image.Image], dict[str, dict[str, Any]], list[st
 
     pop_source = CARDS / "opera_job_pop_star_gameplay_microphone_active.png"
     pop_mic = _source(pop_source.name, components=12, min_area=55)
+    # The approved export contains one accidental 13px-wide vertical field
+    # remnant flush against its far-right canvas edge. It is disconnected from
+    # every mic/wave/pearl component and becomes a conspicuous floating bar after
+    # fitting. Clear only that edge strip; all authored sound pulses remain.
+    ImageDraw.Draw(pop_mic).rectangle((1000, 0, 1024, 1024), fill=(0, 0, 0, 0))
     add("widget_crank_popstar_mover.png", _fit(pop_mic, (256, 256), (224, 224)), [pop_source],
-        "_remove_edge_field; retain approved handheld microphone plus authored sound-wave/pearl pulse components; fit on 256x256",
-        "single finale microphone identity, not whole stage; complete mic with intentional sound pulses and no frame bleed")
+        "_remove_edge_field; clear disconnected far-right vertical export remnant; retain approved handheld microphone plus authored sound-wave/pearl pulse components; fit on 256x256",
+        "single finale microphone identity, not whole stage; complete mic with intentional sound pulses and no frame bleed or detached edge bar")
 
     notes.extend([
         "Source export labels were audited visually. Candy and Farmer source names are shifted; mappings above follow visible art.",

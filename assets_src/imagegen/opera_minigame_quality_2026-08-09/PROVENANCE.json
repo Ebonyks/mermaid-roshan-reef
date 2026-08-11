@@ -92,24 +92,24 @@
     "widget_crank_popstar_mover.png": {
       "alpha_bbox": [
         16,
-        30,
+        16,
         240,
-        227
+        240
       ],
-      "artifact_qa": "single finale microphone identity, not whole stage; complete mic with intentional sound pulses and no frame bleed",
+      "artifact_qa": "single finale microphone identity, not whole stage; complete mic with intentional sound pulses and no frame bleed or detached edge bar",
       "dimensions": [
         256,
         256
       ],
       "margins": [
         16,
-        30,
         16,
-        29
+        16,
+        16
       ],
-      "operation": "_remove_edge_field; retain approved handheld microphone plus authored sound-wave/pearl pulse components; fit on 256x256",
+      "operation": "_remove_edge_field; clear disconnected far-right vertical export remnant; retain approved handheld microphone plus authored sound-wave/pearl pulse components; fit on 256x256",
       "runtime_path": "assets/opera/worlds/widgets/widget_crank_popstar_mover.png",
-      "runtime_sha256": "696d54de173370a0beb349c20ba7f18c5e239461d72f966f1517a8089228ca5d",
+      "runtime_sha256": "e337cd24da2ac37bb2c3cfe60bb9d28b41d19fde87c4cb5ddd450903659937ab",
       "source_sha256": {
         "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pop_star_gameplay_microphone_active.png": "da66402f24671af66adaa85790d2cf6f29edbdfaa0f1da3e7a211eac12fc93db"
       },
@@ -1233,7 +1233,7 @@
   },
   "contact_sheet": {
     "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png",
-    "sha256": "21e0a46034fec0f83a1a1823480b500d9c4e2cd69583d0f4f10a8e9d68cd0da2"
+    "sha256": "974f3d5e78053bec6208ae51acb4781e0209d28555cf667142da679cd3879182"
   },
   "derivation_tool": "tools/prepare_opera_minigame_art.py",
   "determinism_gate": "python tools/prepare_opera_minigame_art.py --check-only",
