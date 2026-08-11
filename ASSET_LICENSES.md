@@ -2527,3 +2527,32 @@ normalization, and Codex artifact review. Owner/human review remains pending.
 - `assets_src/imagegen/opera_borderless_doctor_2026-08-10/native/doctor_starfish_patient_chroma_native.png` - project-owned OpenAI built-in ImageGen source, generated from the approved Opera Doctor card as a character/style reference; exact prompt, result path, review state, and SHA-256 are in the adjacent `PROMPT.md`, `REVIEW.md`, and `PROVENANCE.json`.
 - `assets_src/imagegen/opera_borderless_doctor_2026-08-10/doctor_starfish_patient_alpha_native.png` - non-destructive alpha derivative made with the installed `remove_chroma_key.py` helper; source native preserved; exact matte command and metrics are in `PROVENANCE.json`.
 - `assets/opera/worlds/widgets/widget_crank_doctor_patient.png` - 512×512 RGBA/POT whole-canvas Lanczos runtime derivative; one connected five-armed starfish plush with no pre-painted bandage, allowing the minigame to animate the wrap causally; project-owned, no external source.
+
+## Personalized pearl-castle banner art (2026-08-10)
+
+All files in this section are project-original OpenAI built-in ImageGen art or
+non-destructive derivatives of it; license: project original; URL: none. The
+exact prompts, reference paths, generation-result identifiers, SHA-256 hashes,
+chroma-matte commands, and derivation method are recorded in
+`assets_src/castle/logo_studio_v2/PROVENANCE.md`. Runtime derivatives were built
+deterministically by `tools/build_castle_banner_art.py`; both native keyed
+generations and transparent source masters remain preserved.
+
+- `assets_src/castle/logo_studio_v2/castle_personal_banner_keyed.png` - native project-owned ImageGen banner generation on a magenta key field.
+- `assets_src/castle/logo_studio_v2/castle_personal_banner_master.png` - transparent source master derived from the preserved keyed banner with the installed chroma-key helper.
+- `assets_src/castle/logo_studio_v2/castle_banner_motifs_keyed.png` - native project-owned ImageGen eight-motif generation on a magenta key field.
+- `assets_src/castle/logo_studio_v2/castle_banner_motifs_master.png` - transparent source master derived from the preserved keyed motif sheet with the installed chroma-key helper.
+- `assets/flats/castle/logo_studio_v2/castle_banner_pink.png` - 256x512 high-key pink cloth derivative of the transparent banner master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_gold.png` - 256x512 high-key gold cloth derivative of the transparent banner master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_mint.png` - 256x512 high-key mint cloth derivative of the transparent banner master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_ocean.png` - 256x512 high-key ocean-blue cloth derivative of the transparent banner master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_purple.png` - 256x512 high-key purple cloth derivative of the transparent banner master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png` - 256x512 muted-rainbow cloth derivative of the transparent banner master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_motif_rainbow.png` - 256x256 transparent rainbow emblem cell from the authored motif master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png` - 256x256 transparent fan-shell emblem cell from the authored motif master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_motif_kitty.png` - 256x256 transparent plush-kitty emblem cell from the authored motif master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_motif_dog.png` - 256x256 transparent plush-puppy emblem cell from the authored motif master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_motif_star.png` - 256x256 transparent star emblem cell from the authored motif master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_motif_heart.png` - 256x256 transparent heart emblem cell from the authored motif master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png` - 256x256 transparent pearl-crown emblem cell from the authored motif master.
+- `assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png` - 256x256 transparent complete-butterfly emblem cell from the authored motif master.
