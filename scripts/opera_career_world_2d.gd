@@ -8,6 +8,8 @@ extends CanvasLayer
 ## parallel score/progress, audience energy and a graded curtain call.
 
 const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
+const BoxingSurface := preload("res://scripts/opera_boxing_surface.gd")
+const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
@@ -223,6 +225,7 @@ const LEGACY_FINALE_START := {
 ## teaching and curtain call. The playable verb belongs to the job. Boxer is
 ## deliberately the only career that resolves its complication with combat.
 ## The old five-beat tables remain above for audit comparison only.
+const BALLET_PHASE_HOLD_SECONDS := 1.75
 const PHASES := {
 	"chef": [
 		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Tip the sparkling batter into the bowl!"},
@@ -237,10 +240,9 @@ const PHASES := {
 		{"name": "CROWN", "mode": "crown_chest", "widget": "", "goal": 1.0, "vo": "op_detective_name", "voice": "Tap when the spotlight shines on the answer!"},
 	],
 	"ballerina": [
-		{"name": "PHRASE", "mode": "dance_sequence", "goal": 1.0, "vo": "op_ballerina_watch", "voice": "Watch the four glowing steps, then dance them back!"},
-		{"name": "POSE", "mode": "hold", "goal": 2.8, "vo": "op_ballerina_watch", "voice": "Hold the glowing pose while the stage blossom opens!"},
-		{"name": "RIBBON", "mode": "swipe", "goal": 5.5, "vo": "op_ballerina_ribbon", "voice": "Trace one long ribbon arc across the floor!"},
-		{"name": "TWIRL", "mode": "circle", "goal": 1.5, "vo": "op_ballerina_twirl", "voice": "Draw a big circle for the grand twirl!"},
+		{"name": "PEARL MIRROR", "mode": "ballet_pose", "widget": "", "goal": 3.0, "vo": "op_ballerina_watch", "voice": "Watch Roshan hold each ballet pose, then tap the matching pearl mirror!"},
+		{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "widget": "", "goal": 1.0, "vo": "op_ballerina_ribbon", "voice": "Guide the pearl along the glowing ribbon current!"},
+		{"name": "GRAND TWIRL", "mode": "ballet_twirl", "widget": "", "goal": 1.0, "vo": "op_ballerina_twirl", "voice": "Turn the pearl around the shell for the grand twirl!"},
 	],
 	"candymaker": [
 		{"name": "SYRUP", "mode": "pourt", "goal": 5.0, "vo": "op_candymaker_syrup", "voice": "Tip the syrup into the candy mold!"},
@@ -262,9 +264,11 @@ const PHASES := {
 		{"name": "PICNIC", "mode": "tap", "goal": 3.0, "vo": "op_farmer_picnic", "voice": "Set one picnic snack beside every piggy!"},
 	],
 	"boxer": [
-		{"name": "COMBO", "mode": "boxer_rhythm", "goal": 6.0, "vo": "op_boxer_jab", "voice": "Punch the glowing left and right focus mitts!"},
-		{"name": "TITLE ROUND", "mode": "bop", "goal": 6.0, "combat": {"count": 4, "captain": true}, "vo": "op_boxer_bell_chase", "voice": "One friendly title round: tap each padded partner after the bell!"},
-		{"name": "BELT", "mode": "tap", "goal": 1.0, "vo": "op_boxer_belt", "voice": "Tap the championship belt for the curtain call!"},
+		{"name": "GLOVE GUIDE", "mode": "boxing_guide", "widget": "", "goal": 2.0, "vo": "op_boxer_work", "voice": "Put a finger on a glove and push it toward the glowing mitt!"},
+		{"name": "JAB PRACTICE", "mode": "boxing_jab", "widget": "", "goal": 4.0, "vo": "op_boxer_jab", "voice": "Jab practice! Punch each glowing training pad!"},
+		{"name": "SOFT GUARD", "mode": "boxing_guard", "widget": "", "goal": 3.0, "vo": "op_boxer_duck", "voice": "Bring a glove into the glowing guard bubble!"},
+		{"name": "TITLE IMP", "mode": "boxing_imp", "widget": "", "goal": 6.0, "vo": "op_boxer_bell_chase", "voice": "The boxer imp rang the bell! Punch when the bright star opens!"},
+		{"name": "BELT", "mode": "boxing_belt", "widget": "", "goal": 1.0, "vo": "op_boxer_belt", "voice": "Punch the glowing championship belt for the curtain call!"},
 	],
 	"magician": [
 		{"name": "VANISH", "mode": "hold", "widget": "", "visual_context": "magic_vanish", "goal": 3.8, "vo": "op_magician_vanish", "voice": "Hold the wand to hide Lamba under a hat!"},
@@ -307,11 +311,11 @@ const PHASES := {
 const FINALE_START := {
 	"chef": 3,
 	"detective": 1,
-	"ballerina": 3,
+	"ballerina": 2,
 	"candymaker": 3,
 	"doctor": 3,
 	"farmer": 2,
-	"boxer": 1,
+	"boxer": 3,
 	"magician": 3,
 	"painter": 2,
 	"astronaut": 3,
@@ -325,11 +329,11 @@ const FINALE_START := {
 const PHASE_STATIONS := {
 	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
 	"detective": {"CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
-	"ballerina": {"PHRASE": "shell_bandstand", "POSE": "trifold_mirror", "RIBBON": "wave_tuffets", "TWIRL": "rose_finale_stage"},
+	"ballerina": {},
 	"candymaker": {"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart"},
 	"doctor": {"WASH": "stethoscope_clinic", "FIND": "starfish_triage", "X-RAY": "exam_booth", "CAST": "exam_booth", "BANDAGE": "recovery_bed"},
 	"farmer": {"PLANT": "seed_beds", "TOSS": "hay_bales", "HERD": "barn_doors", "PICNIC": "pearl_clam"},
-	"boxer": {"COMBO": "purple_sparring_mat", "BELT": "shell_pavilion_stage"},
+	"boxer": {},
 	"magician": {"VANISH": "violet_shell_stage", "TRACK": "pearl_tide_pool", "ROPE": "teal_shell_stage", "CABINET": "rose_shell_stage", "PORTAL": "rose_shell_stage"},
 	"painter": {"PAINT": "gazebo_easel", "STAMPS": "rainbow_brush", "GALLERY": "arch_easel"},
 	"astronaut": {"PATCH": "pipe_arch_planter", "VALVE": "periscope_elbow", "LAUNCH": "rocket_launch_dais"},
@@ -383,6 +387,8 @@ var bop_time := 0.0
 var steal_index := -1
 var captain_pending := false
 var idle_t := 0.0
+## Testable count of spoken ballet re-prompts. Initial phase VO is separate.
+var ballet_instruction_repeats := 0
 ## WANDER (owner 2026-08-04, the curiosity layer): between tasks the world
 ## is HERS — tap-to-walk along the painted route while the armed station
 ## breathes and invites. The task opens when she arrives (150px + 0.35s
@@ -590,6 +596,10 @@ func _build_world() -> void:
 
 	stage_points = StagePaths.path_points(career_id)
 	station_list = StagePaths.stations(career_id)
+	# These specialist careers are continuous performances on one open stage.
+	# Wandering stations would interrupt their full-canvas glove/dance lessons.
+	if career_id in ["boxer", "ballerina"]:
+		station_list = []
 	_assign_stations()
 	_build_station_markers()
 
@@ -613,8 +623,13 @@ func _build_world() -> void:
 	player_actor = _actor("res://assets/opera/worlds/actors/roshan_%s.png" % career_id)
 	# scale contract: Roshan is ~1.3x a crew imp, ~1.2x the captain —
 	# a small bit taller, never more than 1.5x (owner 2026-08-03)
-	player_actor.size = Vector2(250, 250)
-	_place_on_stage(player_actor, StagePaths.point_along(stage_points, 0.08))
+	# The ballet silhouette gets a little more room, while staying below the
+	# established 1.5x costumed-imp scale ceiling (280 / 190 = 1.47).
+	player_actor.size = Vector2(280, 280) if career_id == "ballerina" else Vector2(250, 250)
+	if career_id == "ballerina":
+		_place_on_stage(player_actor, Vector2(190, 684))
+	else:
+		_place_on_stage(player_actor, StagePaths.point_along(stage_points, 0.08))
 	root.add_child(player_actor)
 	player_animator = RoshanAnimator.new() as OperaRoshanActor
 	player_animator.name = "RoshanAtlasAnimator"
@@ -649,7 +664,18 @@ func _build_world() -> void:
 	action_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	action_panel.draw.connect(_draw_task_card)
 	root.add_child(action_panel)
-	surface = GestureSurface.new()
+	if career_id == "boxer":
+		surface = BoxingSurface.new() as OperaGestureSurface
+	elif career_id == "ballerina":
+		surface = BalletSurface.new() as OperaGestureSurface
+	else:
+		surface = GestureSurface.new() as OperaGestureSurface
+	if career_id == "boxer":
+		surface.name = "BoxingGloveSurface"
+	elif career_id == "ballerina":
+		surface.name = "BalletPartySurface"
+	else:
+		surface.name = "CareerGestureSurface"
 	surface.position = Vector2(24, 78)
 	surface.size = Vector2(372, 266)
 	surface.gesture.connect(_on_gesture)
@@ -686,6 +712,7 @@ func _build_world() -> void:
 	phase_fill.size = Vector2(372, 40)
 	phase_fill.show_percentage = false
 	phase_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	phase_fill.visible = career_id not in ["boxer", "ballerina"]
 	action_panel.add_child(phase_fill)
 
 	combat_layer = Control.new()
@@ -962,6 +989,10 @@ func _build_station_markers() -> void:
 
 
 func _draw_task_card() -> void:
+	if career_id in ["boxer", "ballerina"]:
+		# Specialist surfaces draw directly over their stage paintings. An opaque
+		# generic card would cover the glove lanes or shrink the recital canvas.
+		return
 	# the exact StorybookUI menu language (see the UI extraction report):
 	# paper fill, violet drop shadow, PURPLE->PURPLE_DEEP contour, gold
 	# title ribbon and corner pearls — a task card that matches the menus
@@ -1061,9 +1092,13 @@ func _widget_template(phase: Dictionary) -> String:
 	if phase.has("widget"):
 		return String(phase["widget"])
 	match mode:
+		"ballet_pose", "ballet_ribbon", "ballet_twirl":
+			return ""
 		"talk":
 			return ""
 		"kart":
+			return ""
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt":
 			return ""
 		"echo":
 			# draws its own three singing stars; star-pad art is ledgered P2
@@ -1136,18 +1171,22 @@ func _arm_phase() -> void:
 		competition.begin()
 		_set_finale_visible(true)
 		# a longer sting as the proscenium curtain rises; any touch skips it
-		phase_gap = 2.6
+		phase_gap = 0.0 if career_id == "boxer" else 2.6
 	elif phase_index < _finale_start():
 		_set_finale_visible(false)
 		if phase_index > 0:
-			phase_gap = 1.0
+			phase_gap = 0.0 if career_id == "boxer" else 1.0
 	else:
-		phase_gap = 1.0
+		phase_gap = 0.0 if career_id == "boxer" else 1.0
+	if career_id == "ballerina":
+		# Every act is already on the recital stage; no competitive curtain sting
+		# or dead input window interrupts the three-part ballet.
+		phase_gap = 0.0
 	if backdrop_node != null:
 		# the captain scuffle already happens at the stage door, so the
 		# proscenium frames both the big battle and the finale contest
 		var stage_from := steal_index if steal_index >= 0 else _finale_start()
-		backdrop_node.set_stage(phase_index >= stage_from)
+		backdrop_node.set_stage(career_id == "ballerina" or phase_index >= stage_from)
 	phase_progress = 0.0
 	idle_t = 0.0
 	var phase := phases[phase_index] as Dictionary
@@ -1178,7 +1217,7 @@ func _arm_phase() -> void:
 		else:
 			prop_rect.visible = prop_rect.texture != null and phase_index > 0 \
 				and (steal_index < 0 or phase_index < steal_index) \
-				and career_id != "detective"
+				and career_id not in ["detective", "boxer", "ballerina"]
 	var defer_detective_intro := career_id == "detective" and phase_index == 0 \
 		and mode_name == "lens" and not detective_intro_played
 	if m != null and not defer_detective_intro:
@@ -1268,6 +1307,27 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
 	var mode := String(phase.get("mode", "tap"))
+	if career_id == "boxer":
+		# Both glove fingers share the frozen 1280x720 Opera coordinate space.
+		# The transparent host preserves the approved 2K training/stage painting.
+		action_panel.visible = true
+		action_panel.position = Vector2.ZERO
+		action_panel.size = StagePaths.SCREEN
+		surface.position = Vector2.ZERO
+		surface.size = StagePaths.SCREEN
+	elif career_id == "ballerina":
+		# Roshan owns the left third of the proscenium; the entire remaining
+		# two-thirds are a touch canvas. This is roughly six times the area of
+		# the retired 392x232 card and keeps every target clear of her silhouette.
+		action_panel.visible = true
+		action_panel.position = Vector2(382, 20)
+		action_panel.size = Vector2(874, 680)
+		surface.position = Vector2(10, 10)
+		surface.size = Vector2(854, 660)
+	if career_id in ["boxer", "ballerina"]:
+		phase_fill.visible = false
+		action_panel.queue_redraw()
+		return
 	if mode == "bop" or mode == "lens" or mode == "talk" or mode == "kart":
 		# stage-wide beats play on the painting itself — no card at all
 		action_panel.visible = false
@@ -1598,6 +1658,18 @@ func competition_progress() -> float:
 
 
 func _set_finale_visible(show_finale: bool) -> void:
+	if career_id in ["boxer", "ballerina"]:
+		# Specialist surfaces own their feedback. The boxer draws exactly one
+		# padded imp; ballet uses held poses and pearls instead of race meters.
+		if player_bar != null:
+			player_bar.visible = false
+		if rival_bar != null:
+			rival_bar.visible = false
+		if player_actor != null:
+			player_actor.visible = career_id == "ballerina"
+		if rival_actor != null:
+			rival_actor.visible = false
+		return
 	var cooperative := competition != null and competition.is_cooperative()
 	if player_bar != null:
 		player_bar.visible = show_finale
@@ -1606,9 +1678,132 @@ func _set_finale_visible(show_finale: bool) -> void:
 	if rival_actor != null:
 		rival_actor.visible = show_finale or cooperative
 
+func _on_boxing_gesture(kind: String, amount: float, quality: float) -> void:
+	# Cosmetic contact is deliberately outside scoring. It cannot become a
+	# miss, change a high-water mark, or consume the next accepted punch.
+	if kind == "boxing_contact":
+		idle_t = 0.0
+		return
+	if kind not in [
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
+	]:
+		return
+	if phase_advance_pending:
+		return
+	if not task_open:
+		_open_task()
+	if amount <= 0.0:
+		# A short, sideways, guarded, or out-of-bounds try is a fresh wordless
+		# cue. Crucially, competition.note_miss() is never called here.
+		idle_t = 0.0
+		surface.note_result(false)
+		surface.restart_demo()
+		return
+	idle_t = 0.0
+	surface.note_input()
+	surface.note_result(quality >= 0.5)
+	var phase := phases[phase_index] as Dictionary
+	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+	phase_progress = minf(goal, phase_progress + amount)
+	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+	phase_fill.value = progress * 100.0
+	surface.set_fill(progress)
+	if competition != null and competition.active and score_cool <= 0.0:
+		competition.note_success(10)
+		score_cool = 0.5
+	if phase_progress < goal:
+		return
+	surface.accept_completion()
+	phase_complete_t = 2.2 if kind == "boxing_belt" else 1.1
+	phase_advance_pending = true
+
+
+func _repeat_ballet_instruction() -> void:
+	if m == null or phase_index >= phases.size():
+		return
+	ballet_instruction_repeats += 1
+	var phase := phases[phase_index] as Dictionary
+	if String(phase.get("mode", "")) == "ballet_pose":
+		# The first line asks her to watch; once a portrait is tappable, the
+		# existing family recording clearly hands the turn to the child.
+		m.show_msg("Roshan", "Tap the glowing dance pose!", "op_ballerina_steps")
+		return
+	m.show_msg("Roshan", String(phase.get("voice", "Follow the glowing pearl!")),
+		String(phase.get("vo", "hint")))
+
+
+func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
+	if phase_advance_pending:
+		# Trusted probes may skip the celebratory hold just as the shared gesture
+		# path does. Real touch remains locked until the held pose has been seen.
+		if kind == "probe":
+			_advance_completed_phase()
+			if phase_index >= phases.size():
+				return
+		else:
+			return
+	if kind == "ballet_pose_cue":
+		if player_animator != null:
+			player_animator.show_pose("work", clampi(int(round(amount)), 0, 3))
+		return
+	if kind == "ballet_ready":
+		idle_t = 0.0
+		# Only Pearl Mirror emits this event: its 2.15-second watch demo has
+		# finished, so the shorter "your turn" recording can now play alone.
+		_repeat_ballet_instruction()
+		return
+	if kind not in ["ballet_pose", "ballet_ribbon", "ballet_twirl", "probe"]:
+		return
+	if not task_open:
+		_open_task()
+	if amount <= 0.0:
+		# A near miss is a cue, never a penalty. The specialist surface keeps the
+		# accepted portrait/checkpoints and replays only the unresolved part.
+		if surface != null:
+			surface.note_result(false)
+			surface.restart_demo()
+		return
+	idle_t = 0.0
+	if surface != null:
+		surface.note_input()
+		surface.note_result(true)
+	var phase := phases[phase_index] as Dictionary
+	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+	phase_progress = minf(goal, phase_progress + amount)
+	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+	phase_fill.value = progress * 100.0
+	surface.set_fill(progress)
+	if competition != null and competition.active and score_cool <= 0.0:
+		competition.note_success(10)
+		score_cool = 0.5
+	# A real accepted unit may change her pose; finger samples and mistakes may
+	# not. Three broad arm-shape holds read as port de bras instead of flailing.
+	if player_animator != null:
+		var mode := String(phase.get("mode", ""))
+		if mode == "ballet_ribbon":
+			var ribbon_band := mini(BalletSurface.POSE_FRAMES.size() - 1,
+				int(floor(progress * 3.0)))
+			player_animator.show_pose("work", int(BalletSurface.POSE_FRAMES[ribbon_band]))
+	if phase_progress < goal:
+		return
+	surface.accept_completion()
+	if phase_index == phases.size() - 1:
+		_play_roshan_animation("cheer")
+		phase_complete_t = 2.2
+	else:
+		# Let the current instruction/pose settle before the next phase speaks.
+		phase_complete_t = BALLET_PHASE_HOLD_SECONDS
+	phase_advance_pending = true
+
 
 func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if not active or reveal_t > 0.0 or phase_index >= phases.size():
+		return
+	if career_id == "boxer":
+		_on_boxing_gesture(_kind, amount, quality)
+		return
+	if career_id == "ballerina":
+		_on_ballet_gesture(_kind, amount, quality)
 		return
 	if _kind == "echo_note":
 		if m != null and m.chime != null:
@@ -1883,12 +2078,24 @@ func update_competition() -> void:
 func celebrate(result: Dictionary) -> void:
 	active = false
 	_restore_stage_actors()
+	if career_id == "boxer":
+		# Return from first-person gloves to the existing actor-and-belt curtain
+		# call only after the title imp has bowed.
+		if action_panel != null:
+			action_panel.visible = false
+		if player_actor != null:
+			player_actor.visible = true
+		if rival_actor != null:
+			rival_actor.visible = true
 	_play_roshan_animation("cheer")
 	var tier := int(result.get("tier", 1))
-	last_cheer = (
-		"THE BABIES ARE COZY!" if competition.is_cooperative()
-		else "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
-	)
+	if career_id == "ballerina":
+		last_cheer = "A BEAUTIFUL PEARL BALLET!"
+	else:
+		last_cheer = (
+			"THE BABIES ARE COZY!" if competition.is_cooperative()
+			else "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
+		)
 	if prop_rect != null and prop_rect.texture != null:
 		# the stolen goal prop comes home for the curtain call
 		prop_rect.visible = true
@@ -2638,6 +2845,7 @@ func _process(delta: float) -> void:
 	if active and not phase_advance_pending and reveal_t <= 0.0 and phase_index < phases.size():
 		# quiet children get the prompt again plus a fresh finger demo
 		idle_t += delta
+		var task_hint_delay := 7.0 if career_id == "ballerina" else 9.0
 		if not task_open:
 			if idle_t >= 20.0:
 				# the kind assist: she walks herself to the waiting station.
@@ -2653,14 +2861,20 @@ func _process(delta: float) -> void:
 				# a content-free pitched yay instead of her instruction again
 				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
 					String((phases[phase_index] as Dictionary).get("vo", "hint")))
-		elif idle_t >= 9.0:
+		elif idle_t >= task_hint_delay:
 			idle_t = 0.0
 			var idle_mode := String((phases[phase_index] as Dictionary).get("mode", ""))
 			if idle_mode == "lens":
 				lens_demo = true
 			else:
 				surface.restart_demo()
-			if m != null:
+			if career_id == "ballerina":
+				# Mirror speaks only after its watch demo emits ballet_ready.
+				# Ribbon and Twirl have no ready echo, so their quiet-time replay
+				# uses the phase line here at the seven-second rehint.
+				if idle_mode != "ballet_pose":
+					_repeat_ballet_instruction()
+			elif m != null:
 				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
 					String((phases[phase_index] as Dictionary).get("vo", "hint")))
 	timing_phase = fmod(timing_phase + delta * minf(0.70, 0.55 + 0.02 * float(phase_index)), 2.0)
@@ -2704,6 +2918,8 @@ func _process(delta: float) -> void:
 
 func close() -> void:
 	active = false
+	if career_id == "boxer" and surface is OperaBoxingSurface:
+		(surface as OperaBoxingSurface).cancel_all_touches()
 	if m != null:
 		# story lines queued by talk beats must not drain into the lagoon
 		m.clear_dialogue()
