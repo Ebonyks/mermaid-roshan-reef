@@ -29,6 +29,20 @@ HOUSE_CARDS = ROOT / "assets_src" / "concepts" / "opera_house_flat" / "cards"
 SOURCE_DIR = ROOT / "assets_src" / "imagegen" / "opera_minigame_quality_2026-08-09"
 ALPHA_BOARD = SOURCE_DIR / "opera_minigame_prop_sheet_alpha_native.png"
 NATIVE_BOARD = SOURCE_DIR / "opera_minigame_prop_sheet_native.png"
+CANDY_SOURCE_DIR = ROOT / "assets_src" / "imagegen" / "opera_candymaker_syrup_2026-08-10"
+CANDY_WORLD_REFERENCE = ROOT / "assets" / "opera" / "worlds" / "backdrops" / "world_candymaker.png"
+CANDY_EMPTY_DRAFT_NATIVE = CANDY_SOURCE_DIR / "candymaker_syrup_empty_draft_native.png"
+CANDY_EMPTY_NATIVE = CANDY_SOURCE_DIR / "candymaker_syrup_empty_native.png"
+CANDY_FULL_NATIVE = CANDY_SOURCE_DIR / "candymaker_syrup_full_native.png"
+CANDY_FILL_CHROMA = CANDY_SOURCE_DIR / "candymaker_syrup_fill_chroma_native.png"
+CANDY_FILL_ALPHA = CANDY_SOURCE_DIR / "candymaker_syrup_fill_alpha_native.png"
+CANDY_LADLE_STYLE_REFERENCE = CANDY_SOURCE_DIR / "candymaker_syrup_ladle_style_reference.png"
+CANDY_LADLE_CHROMA = CANDY_SOURCE_DIR / "candymaker_syrup_ladle_chroma_native.png"
+CANDY_LADLE_ALPHA = CANDY_SOURCE_DIR / "candymaker_syrup_ladle_alpha_native.png"
+CANDY_LADLE_EMPTY_CHROMA = CANDY_SOURCE_DIR / "candymaker_syrup_ladle_empty_chroma_native.png"
+CANDY_LADLE_EMPTY_ALPHA = CANDY_SOURCE_DIR / "candymaker_syrup_ladle_empty_alpha_native.png"
+CANDY_CAVITY_MASK = CANDY_SOURCE_DIR / "candymaker_syrup_cavity_mask.png"
+CANDY_GENERATION = CANDY_SOURCE_DIR / "GENERATION.json"
 
 PROMPT = (
     "Create a production sprite-board source for the Mermaid Roshan Pearl Opera "
@@ -376,6 +390,40 @@ def _generated_prop_cells() -> dict[str, Image.Image]:
     return outputs
 
 
+def _candymaker_syrup_assets() -> dict[str, Image.Image]:
+    """Build the registered empty-mold, syrup-fill, and full/empty ladle set."""
+    empty = Image.open(CANDY_EMPTY_NATIVE).convert("RGBA").resize(
+        (1024, 576), Image.Resampling.LANCZOS)
+    empty.putalpha(255)
+
+    mask = Image.open(CANDY_CAVITY_MASK).convert("L")
+    if mask.size != (1024, 576):
+        raise RuntimeError(
+            f"candymaker cavity mask dimensions {mask.size}, expected (1024, 576)")
+
+    # The direct full-scene edit changed the outer shell by a few pixels, so it is
+    # retained only as a texture reference. Runtime uses the separately generated
+    # cavity-only alpha source, intersected with the empty scene's reviewed mask.
+    syrup_source = _trim(Image.open(CANDY_FILL_ALPHA).convert("RGBA"), 3).resize(
+        (618, 370), Image.Resampling.LANCZOS)
+    fill = Image.new("RGBA", (1024, 576), (0, 0, 0, 0))
+    fill.alpha_composite(syrup_source, (320, 192))
+    source_alpha = np.asarray(fill.getchannel("A"), dtype=np.uint8)
+    cavity_alpha = np.asarray(mask, dtype=np.uint8)
+    fill.putalpha(Image.fromarray(np.minimum(source_alpha, cavity_alpha), mode="L"))
+
+    ladle_native = Image.open(CANDY_LADLE_ALPHA).convert("RGBA")
+    ladle = _fit(ladle_native, (512, 256), (488, 216))
+    empty_ladle_native = Image.open(CANDY_LADLE_EMPTY_ALPHA).convert("RGBA")
+    empty_ladle = _fit(empty_ladle_native, (512, 256), (488, 216))
+    return {
+        "widget_pour_candymaker.png": empty,
+        "widget_pour_candymaker_fill.png": fill,
+        "widget_pour_candymaker_mover.png": ladle,
+        "widget_pour_candymaker_mover_empty.png": empty_ladle,
+    }
+
+
 def _astronaut_patch(index: int) -> Image.Image:
     scale = 4
     size = 256 * scale
@@ -500,6 +548,25 @@ def build() -> tuple[dict[Path, Image.Image], dict[str, dict[str, Any]], list[st
             f"crop reviewed 2x2 cell ({generated_roles[name]}), trim shared alpha, apply one shared scale, "
             "Lanczos fit on 256x256 transparent canvas; alpha<=3 cleared",
             "accepted source topology preserved; one complete object; no crop, detached part, or visible green spill")
+
+    candy_assets = _candymaker_syrup_assets()
+    add("widget_pour_candymaker.png", candy_assets["widget_pour_candymaker.png"],
+        [CANDY_EMPTY_NATIVE, CANDY_GENERATION],
+        "resize accepted empty full-bleed native to 1024x576 with Lanczos; force opaque alpha",
+        "one unmistakably empty cream/brass shell mold; no finished candy, card, ring, tab, pill, or debug shape")
+    add("widget_pour_candymaker_fill.png", candy_assets["widget_pour_candymaker_fill.png"],
+        [CANDY_EMPTY_NATIVE, CANDY_FILL_ALPHA, CANDY_CAVITY_MASK, CANDY_GENERATION],
+        "trim accepted cavity-only syrup alpha, fit it to the reviewed empty-state cavity mask, intersect both alpha fields, and preserve transparent pixels outside the mold",
+        "amber/raspberry/mint/violet syrup only; alpha stays inside the empty mold and reveals bottom-up")
+    add("widget_pour_candymaker_mover.png", candy_assets["widget_pour_candymaker_mover.png"],
+        [CANDY_LADLE_ALPHA, CANDY_GENERATION],
+        "trim reviewed alpha ladle and aspect-fit inside a 512x256 transparent canvas with shared Lanczos filtering",
+        "one complete syrup-bearing copper ladle, handle left and pouring lip right; no pitcher, stream, crop, or green spill")
+    add("widget_pour_candymaker_mover_empty.png",
+        candy_assets["widget_pour_candymaker_mover_empty.png"],
+        [CANDY_LADLE_EMPTY_ALPHA, CANDY_GENERATION],
+        "trim reviewed empty alpha ladle and aspect-fit inside the same 512x256 transparent canvas with shared Lanczos filtering",
+        "one complete visibly dry copper ladle matching the full state's direction and silhouette; no stream, crop, or green spill")
 
     # Detective case board, tokens, and crown chest.
     detective_empty = CARDS / "opera_job_detective_stage_states_case_board_empty.png"
@@ -707,6 +774,9 @@ def build() -> tuple[dict[Path, Image.Image], dict[str, dict[str, Any]], list[st
         "Chef pieces retain only each topping's approved visible silhouette/lower outline; every serving pedestal/plate/base pixel is excluded.",
         "Magician cabinet reveal continues VANISH by placing the approved Lamba reveal inside a cabinet shell derived only from approved crops.",
         "Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order.",
+        "Candymaker SYRUP uses a scoped generated replacement because the binding art ledger marks all three prior layers REPLACE and no registered empty-mold/fill set exists.",
+        "The candymaker full-state edit is retained only as a visual reference; the cavity-only fill alpha and reviewed cavity mask supply the runtime texture and geometry.",
+        "A matching empty-ladle state prevents the vessel from remaining visibly full beside the completed brim-full mold.",
     ])
     return images, records, notes
 
@@ -716,7 +786,7 @@ def _validate(images: dict[Path, Image.Image]) -> dict[str, Any]:
     metrics: dict[str, Any] = {}
     transparent_margin_names = {
         name for name in (path.name for path in images)
-        if name not in {"widget_crank_racer.png"}
+        if name not in {"widget_crank_racer.png", "widget_pour_candymaker.png"}
     }
     expected_dims: dict[str, tuple[int, int]] = {}
     for path in images:
@@ -724,6 +794,11 @@ def _validate(images: dict[Path, Image.Image]) -> dict[str, Any]:
         if name in {"widget_clue_board_empty.png", "widget_clue_board_complete.png",
                     "widget_crank_racer.png", "widget_gauge_chef_success.png"}:
             expected_dims[name] = (1024, 608)
+        elif name in {"widget_pour_candymaker.png", "widget_pour_candymaker_fill.png"}:
+            expected_dims[name] = (1024, 576)
+        elif name in {"widget_pour_candymaker_mover.png",
+                      "widget_pour_candymaker_mover_empty.png"}:
+            expected_dims[name] = (512, 256)
         elif name == "widget_clue_board_tokens.png":
             expected_dims[name] = (768, 256)
         elif name.startswith("widget_crown_chest_") or name.startswith("widget_magic_"):
@@ -735,6 +810,7 @@ def _validate(images: dict[Path, Image.Image]) -> dict[str, Any]:
 
     generated_names = {
         "widget_pour_chef_mover.png", "widget_pour_candymaker_mover.png",
+        "widget_pour_candymaker_mover_empty.png",
         "widget_pour_nursery_mover.png", "widget_crank_racer_mover.png",
     }
     for path, image in sorted(images.items(), key=lambda item: item[0].name):
@@ -767,6 +843,45 @@ def _validate(images: dict[Path, Image.Image]) -> dict[str, Any]:
             metrics[name]["alpha_components_over_24"] = components
             if components != 1:
                 failures.append(f"{name}: expected one connected prop, found {components}")
+
+    candy_backdrop = images[WIDGETS / "widget_pour_candymaker.png"]
+    candy_fill = images[WIDGETS / "widget_pour_candymaker_fill.png"]
+    candy_ladle = images[WIDGETS / "widget_pour_candymaker_mover.png"]
+    candy_empty_ladle = images[WIDGETS / "widget_pour_candymaker_mover_empty.png"]
+    backdrop_alpha = np.asarray(candy_backdrop.getchannel("A"), dtype=np.uint8)
+    if int(backdrop_alpha.min()) != 255:
+        failures.append("widget_pour_candymaker.png: backdrop must be fully opaque")
+    expected_fill_alpha = np.asarray(Image.open(CANDY_CAVITY_MASK).convert("L"), dtype=np.uint8)
+    actual_fill_alpha = np.asarray(candy_fill.getchannel("A"), dtype=np.uint8)
+    outside_fill = int(((actual_fill_alpha > 0) & (expected_fill_alpha == 0)).sum())
+    fill_coverage = float((actual_fill_alpha > 16).sum()) / float((expected_fill_alpha > 16).sum())
+    metrics["widget_pour_candymaker_fill.png"]["outside_cavity_pixels"] = outside_fill
+    metrics["widget_pour_candymaker_fill.png"]["cavity_coverage"] = fill_coverage
+    if outside_fill:
+        failures.append(f"widget_pour_candymaker_fill.png: {outside_fill} pixels outside reviewed cavity")
+    if fill_coverage < 0.82:
+        failures.append(f"widget_pour_candymaker_fill.png: cavity coverage {fill_coverage:.3f} below 0.82")
+    fill_bbox = _alpha_bbox(candy_fill)
+    if fill_bbox is None or fill_bbox[0] < 300 or fill_bbox[1] < 180 or \
+            fill_bbox[2] > 950 or fill_bbox[3] > 570:
+        failures.append(f"widget_pour_candymaker_fill.png: unsafe mold registration {fill_bbox}")
+    ladle_bbox = _alpha_bbox(candy_ladle)
+    if ladle_bbox is None or (ladle_bbox[2] - ladle_bbox[0]) < \
+            2.8 * (ladle_bbox[3] - ladle_bbox[1]):
+        failures.append(f"widget_pour_candymaker_mover.png: ladle silhouette is not left-to-right {ladle_bbox}")
+    empty_ladle_bbox = _alpha_bbox(candy_empty_ladle)
+    if empty_ladle_bbox is None or (empty_ladle_bbox[2] - empty_ladle_bbox[0]) < \
+            2.8 * (empty_ladle_bbox[3] - empty_ladle_bbox[1]):
+        failures.append(
+            "widget_pour_candymaker_mover_empty.png: empty ladle silhouette "
+            f"is not left-to-right {empty_ladle_bbox}")
+    if ladle_bbox is not None and empty_ladle_bbox is not None:
+        bbox_delta = max(abs(a - b) for a, b in zip(ladle_bbox, empty_ladle_bbox))
+        metrics["widget_pour_candymaker_mover_empty.png"]["full_state_bbox_delta"] = bbox_delta
+        if bbox_delta > 2:
+            failures.append(
+                "widget_pour_candymaker_mover_empty.png: full/empty silhouettes "
+                f"drift by {bbox_delta}px")
     if failures:
         raise RuntimeError("asset validation failed:\n- " + "\n- ".join(failures))
     return metrics
@@ -778,14 +893,15 @@ def _review_markdown(
     metrics: dict[str, Any],
 ) -> str:
     lines = [
-        "# Opera minigame art review — 2026-08-09",
+        "# Opera minigame art review — 2026-08-10",
         "",
-        "Status: **Codex visual QA accepted; owner/human review pending**. The four-cell ImageGen board was visually inspected by Codex before runtime derivation.",
-        "All other art is a non-destructive derivative of approved project sources.",
+        "Status: **Codex visual QA accepted; owner/human review pending**. The generated source boards and scoped candymaker SYRUP replacement were visually inspected before runtime derivation.",
+        "All approved source and native generated inputs are preserved; runtime transforms are non-destructive and byte-exact.",
         "",
         "## Artifact QA",
         "",
-        "- Four generated movers: one connected prop each, complete silhouette, no crop, floating part, text, or visible chroma spill.",
+        "- Generated movers: one connected prop each, complete silhouette, no crop, floating part, text, or visible chroma spill.",
+        "- Candymaker SYRUP: opaque empty-mold scene, reviewed cavity-only fill, and registered full/empty right-facing copper ladles; no card geometry or finished candy in the pour state.",
         "- Approved-card derivatives: dark presentation field and contact-sheet rules removed with `_remove_edge_field`; source RGB subjects were not repainted.",
         "- Every transparent runtime derivative has a nonzero safe alpha gutter; every output obeys the <=1024/POT texture rule.",
         "- Exact dimensions, alpha bounds, hashes, source hashes, transforms, and the exact generation prompt are in `PROVENANCE.json`.",
@@ -812,8 +928,17 @@ def main() -> int:
                         help="rebuild in memory and fail if any checked-in derivative differs")
     args = parser.parse_args()
 
-    if not NATIVE_BOARD.is_file() or not ALPHA_BOARD.is_file():
-        raise SystemExit("missing reviewed native or alpha ImageGen board")
+    required_sources = [
+        NATIVE_BOARD, ALPHA_BOARD, CANDY_WORLD_REFERENCE, CANDY_EMPTY_DRAFT_NATIVE,
+        CANDY_FULL_NATIVE, CANDY_FILL_CHROMA, CANDY_FILL_ALPHA,
+        CANDY_LADLE_STYLE_REFERENCE, CANDY_LADLE_CHROMA, CANDY_LADLE_ALPHA,
+        CANDY_LADLE_EMPTY_CHROMA, CANDY_LADLE_EMPTY_ALPHA, CANDY_CAVITY_MASK,
+        CANDY_GENERATION,
+    ]
+    missing_sources = [path for path in required_sources if not path.is_file()]
+    if missing_sources:
+        missing = ", ".join(str(path.relative_to(ROOT)) for path in missing_sources)
+        raise SystemExit(f"missing reviewed ImageGen source: {missing}")
 
     images, records, notes = build()
     metrics = _validate(images)
@@ -835,6 +960,19 @@ def main() -> int:
     provenance = {
         "schema": 1,
         "generation": GENERATION,
+        "candymaker_syrup_generation": {
+            "path": str(CANDY_GENERATION.relative_to(ROOT)).replace("\\", "/"),
+            "sha256": _sha256_file(CANDY_GENERATION),
+            "manifest": json.loads(CANDY_GENERATION.read_text("utf-8")),
+            "package_sha256": {
+                str(path.relative_to(ROOT)).replace("\\", "/"): _sha256_file(path)
+                for path in sorted(CANDY_SOURCE_DIR.iterdir()) if path.is_file()
+            },
+            "reference_sha256": {
+                str(CANDY_WORLD_REFERENCE.relative_to(ROOT)).replace("\\", "/"):
+                    _sha256_file(CANDY_WORLD_REFERENCE),
+            },
+        },
         "native_sha256": _sha256_file(NATIVE_BOARD),
         "alpha_native_sha256": _sha256_file(ALPHA_BOARD),
         "derivation_tool": "tools/prepare_opera_minigame_art.py",

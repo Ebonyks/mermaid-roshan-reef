@@ -1708,10 +1708,19 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		# child never saw the thing she had just made
 		surface.accept_completion()
 		_play_roshan_animation("cheer")
-		if action_panel != null and surface != null:
+		# The authored syrup-at-the-brim picture is already the reward. The
+		# shared boxer impact puff covered its mold with an unrelated abstract
+		# blob, so this one picture holds cleanly while Roshan still cheers.
+		if action_panel != null and surface != null \
+				and not _uses_authored_completion_picture(mode):
 			_bop_burst_at(action_panel.position + surface.position + surface.size * 0.5, false)
 		phase_complete_t = 2.2
 		phase_advance_pending = true
+
+
+func _uses_authored_completion_picture(mode: String) -> bool:
+	return career_id == "candymaker" and mode == "pourt" \
+		and surface != null and surface.visual_context == "pour_candymaker"
 
 
 func _advance_completed_phase() -> void:

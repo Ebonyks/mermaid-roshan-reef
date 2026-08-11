@@ -69,6 +69,47 @@ func _rotation_safe_square(rect: Rect2) -> Rect2:
 	return Rect2(rect.get_center() - Vector2.ONE * side * 0.5, Vector2.ONE * side)
 
 
+func _texture_alpha_used_rect(texture: Texture2D) -> Rect2:
+	if texture == null:
+		return Rect2()
+	var image := texture.get_image()
+	if image == null or image.is_empty():
+		return Rect2()
+	if image.is_compressed() and image.decompress() != OK:
+		return Rect2()
+	var minimum := Vector2i(image.get_width(), image.get_height())
+	var maximum := Vector2i(-1, -1)
+	for y in range(image.get_height()):
+		for x in range(image.get_width()):
+			if image.get_pixel(x, y).a > 0.01:
+				minimum.x = mini(minimum.x, x)
+				minimum.y = mini(minimum.y, y)
+				maximum.x = maxi(maximum.x, x)
+				maximum.y = maxi(maximum.y, y)
+	if maximum.x < minimum.x:
+		return Rect2()
+	return Rect2(Vector2(minimum), Vector2(maximum - minimum + Vector2i.ONE))
+
+
+func _rotated_texture_ink_bounds(texture_size: Vector2, used: Rect2,
+		draw_rect: Rect2, rotation: float) -> Rect2:
+	var pixel_corners: Array[Vector2] = [
+		used.position,
+		Vector2(used.end.x, used.position.y),
+		used.end,
+		Vector2(used.position.x, used.end.y),
+	]
+	var minimum: Vector2 = Vector2(INF, INF)
+	var maximum: Vector2 = Vector2(-INF, -INF)
+	for pixel_corner: Vector2 in pixel_corners:
+		var uv := pixel_corner / texture_size
+		var local := (uv - Vector2.ONE * 0.5) * draw_rect.size
+		var transformed := draw_rect.get_center() + local.rotated(rotation)
+		minimum = minimum.min(transformed)
+		maximum = maximum.max(transformed)
+	return Rect2(minimum, maximum - minimum)
+
+
 func _finish_after_render(surface: OperaGestureSurface) -> void:
 	# Let CanvasItem execute each custom draw path once. Analyzer-only tests do
 	# not catch invalid draw geometry or texture-region calls.
@@ -205,23 +246,53 @@ func _init() -> void:
 	for frame_rate: int in [30, 60]:
 		events.clear()
 		surface.configure("pourt", Color.WHITE, 1, "pour_candymaker")
+		var art_set_ok := surface.widget_backdrop != null \
+			and surface.widget_overlay != null and surface.widget_mover != null \
+			and surface.pour_empty_mover_texture != null \
+			and surface.pour_demo_hand_texture != null \
+			and surface.widget_backdrop.get_size() == Vector2(1024.0, 576.0) \
+			and surface.widget_overlay.get_size() == Vector2(1024.0, 576.0) \
+			and surface.widget_mover.get_size() == Vector2(512.0, 256.0) \
+			and surface.pour_empty_mover_texture.get_size() == Vector2(512.0, 256.0) \
+			and surface.widget_backdrop.resource_path.ends_with(
+				"widget_pour_candymaker.png") \
+			and surface.widget_overlay.resource_path.ends_with(
+				"widget_pour_candymaker_fill.png") \
+			and surface.widget_mover.resource_path.ends_with(
+				"widget_pour_candymaker_mover.png") \
+			and surface.pour_empty_mover_texture.resource_path.ends_with(
+				"widget_pour_candymaker_mover_empty.png") \
+			and surface.pour_demo_hand_texture.resource_path.ends_with("ghost_hand.png") \
+			and surface.target_piece_textures.is_empty()
+		_ck("candymaker pour uses only its authored empty-mold, fill, and ladle states at %d fps"
+			% frame_rate, art_set_ok)
 		var shipping_bounds := Rect2(Vector2.ZERO, surface.size)
 		var bowl := surface._pour_bowl_rect()
 		var x_bounds := surface._pour_x_bounds()
+		var ladle_used := _texture_alpha_used_rect(surface.widget_mover)
 		var geometry_ok := _rect_inside(shipping_bounds, bowl) \
-			and surface.pour_mold_texture != null
-		for pitcher_x: float in [x_bounds.x, x_bounds.y]:
+			and ladle_used.has_area() \
+			and x_bounds.x <= surface._pour_home_x() \
+			and surface._pour_home_x() <= x_bounds.y
+		for pitcher_x: float in [x_bounds.x, surface._pour_home_x(), x_bounds.y]:
 			surface.pour_x = pitcher_x
 			geometry_ok = geometry_ok \
-				and _rect_inside(shipping_bounds,
-					_rotation_safe_square(surface._pour_pitcher_rect())) \
 				and _rect_inside(shipping_bounds, surface._pour_pitcher_hit_rect())
-			for tilt: float in [0.0, 0.25, 0.5, 0.75, 1.0]:
+			for tilt: float in [0.0, 0.37, 0.5, 0.75, 1.0]:
 				surface.pour_tilt = tilt
-				var spout_x := surface._pour_spout_point().x
-				geometry_ok = geometry_ok \
-					and spout_x >= bowl.position.x and spout_x <= bowl.end.x
-		_ck("candymaker pour geometry stays registered and touchable at %d fps" % frame_rate,
+				var spout := surface._pour_spout_point()
+				var landing := surface._pour_landing_point()
+				var ink_bounds := _rotated_texture_ink_bounds(
+					surface.widget_mover.get_size(), ladle_used,
+					surface._pour_pitcher_rect(), surface._pour_pitcher_rotation())
+				geometry_ok = geometry_ok and _rect_inside(shipping_bounds, ink_bounds) \
+					and spout.x >= bowl.position.x and spout.x <= bowl.end.x
+				if tilt > 0.36:
+					geometry_ok = geometry_ok and surface._pour_pitcher_rotation() > 0.0 \
+						and landing.x >= spout.x + 8.0 \
+						and landing.y >= spout.y + 8.0 and bowl.has_point(landing)
+		_ck("candymaker ladle and down-right pour stay registered and visible at %d fps"
+			% frame_rate,
 			geometry_ok)
 
 		surface.pour_x = surface._pour_home_x()
@@ -232,7 +303,7 @@ func _init() -> void:
 		surface._press(Vector2(8.0, 8.0))
 		surface._process(0.8)
 		surface._release(Vector2(8.0, 8.0))
-		_ck("off-pitcher touch cannot fill candymaker mold at %d fps" % frame_rate,
+		_ck("off-ladle touch cannot fill candymaker mold at %d fps" % frame_rate,
 			is_zero_approx(surface.pour_level) and not _paid("pourt"))
 
 		var step := 1.0 / float(frame_rate)
@@ -246,7 +317,7 @@ func _init() -> void:
 		var paused_level := surface.pour_level
 		for _pause_frame in range(frame_rate):
 			surface._process(step)
-		_ck("releasing candymaker pitcher pauses without losing syrup at %d fps" % frame_rate,
+		_ck("releasing candymaker ladle pauses without losing syrup at %d fps" % frame_rate,
 			is_equal_approx(surface.pour_level, paused_level) and paused_level > 0.0)
 
 		grab = surface._pour_pitcher_rect().get_center()
@@ -265,8 +336,16 @@ func _init() -> void:
 		surface.accept_completion()
 		for _settle_frame in range(frame_rate):
 			surface._process(step)
-		_ck("completed candymaker pitcher settles upright at %d fps" % frame_rate,
-			is_zero_approx(surface.pour_tilt) and not surface._pour_stream_active())
+		_ck("completed candymaker ladle settles upright and visibly empty at %d fps"
+			% frame_rate,
+			is_zero_approx(surface.pour_tilt) and not surface._pour_stream_active()
+			and surface.pour_empty_mover_texture != null
+			and is_zero_approx(surface._candymaker_full_ladle_alpha()))
+	var retired_pour_source := FileAccess.get_file_as_string(
+		"res://scripts/opera_gesture_surface.gd")
+	_ck("candymaker pour cannot reuse the retired finished-candy target or ring helper",
+		not retired_pour_source.contains("CANDYMAKER_MOLD_PATH")
+		and not retired_pour_source.contains("_draw_candymaker_pour_mold"))
 	surface.size = Vector2(852.0, 560.0)
 
 	events.clear()

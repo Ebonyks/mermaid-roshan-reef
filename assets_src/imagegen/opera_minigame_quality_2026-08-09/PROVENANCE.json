@@ -465,35 +465,134 @@
         "assets_src/concepts/opera_house_flat/cards/opera_upper_access_act_portal_open.png"
       ]
     },
+    "widget_pour_candymaker.png": {
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        576
+      ],
+      "artifact_qa": "one unmistakably empty cream/brass shell mold; no finished candy, card, ring, tab, pill, or debug shape",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "margins": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "operation": "resize accepted empty full-bleed native to 1024x576 with Lanczos; force opaque alpha",
+      "runtime_path": "assets/opera/worlds/widgets/widget_pour_candymaker.png",
+      "runtime_sha256": "61edcafc22daf96ef520bff323af96e4201a6495ec2616cd8205d07da605f4bf",
+      "source_sha256": {
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json": "97f38a30ef796846c9f8592816c76c06724806e62d47f2588e4cee3adf83abfc",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_native.png": "abde0894045a494c6d9d76315a3f1cd17463e92487bd0ae921c3418575f72677"
+      },
+      "sources": [
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_native.png",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json"
+      ]
+    },
+    "widget_pour_candymaker_fill.png": {
+      "alpha_bbox": [
+        330,
+        202,
+        928,
+        550
+      ],
+      "artifact_qa": "amber/raspberry/mint/violet syrup only; alpha stays inside the empty mold and reveals bottom-up",
+      "cavity_coverage": 0.9805642714519098,
+      "dimensions": [
+        1024,
+        576
+      ],
+      "margins": [
+        330,
+        202,
+        96,
+        26
+      ],
+      "operation": "trim accepted cavity-only syrup alpha, fit it to the reviewed empty-state cavity mask, intersect both alpha fields, and preserve transparent pixels outside the mold",
+      "outside_cavity_pixels": 0,
+      "runtime_path": "assets/opera/worlds/widgets/widget_pour_candymaker_fill.png",
+      "runtime_sha256": "e4f974c8c8a285fd0c17922060d9bec8e4a2f83a9cfc4e69e1af378037eafa89",
+      "source_sha256": {
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json": "97f38a30ef796846c9f8592816c76c06724806e62d47f2588e4cee3adf83abfc",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_cavity_mask.png": "4a628176773cdcec9b6a6c7de3d14754f4ae090f2bc1ca89c36b8c6483675e79",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_native.png": "abde0894045a494c6d9d76315a3f1cd17463e92487bd0ae921c3418575f72677",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png": "8a6668bb1cae753c8d2cd0e6dbd34f81cde32fec9ee47305ac3f03287a44702d"
+      },
+      "sources": [
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_native.png",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_cavity_mask.png",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json"
+      ]
+    },
     "widget_pour_candymaker_mover.png": {
       "alpha_bbox": [
-        31,
-        41,
-        225,
-        214
+        13,
+        57,
+        499,
+        200
       ],
       "alpha_components_over_24": 1,
-      "artifact_qa": "accepted source topology preserved; one complete object; no crop, detached part, or visible green spill",
+      "artifact_qa": "one complete syrup-bearing copper ladle, handle left and pouring lip right; no pitcher, stream, crop, or green spill",
       "dimensions": [
-        256,
+        512,
         256
       ],
       "margins": [
-        31,
-        41,
-        31,
-        42
+        13,
+        57,
+        13,
+        56
       ],
-      "operation": "crop reviewed 2x2 cell (top-right candy syrup jug), trim shared alpha, apply one shared scale, Lanczos fit on 256x256 transparent canvas; alpha<=3 cleared",
+      "operation": "trim reviewed alpha ladle and aspect-fit inside a 512x256 transparent canvas with shared Lanczos filtering",
       "runtime_path": "assets/opera/worlds/widgets/widget_pour_candymaker_mover.png",
-      "runtime_sha256": "e3ef8f04b3926c1513c50dcef110d00221941a4acb91b644bd2d8363849360dd",
+      "runtime_sha256": "0a89ed399b46856e1fc70dd8da51b0541301866a36b0a8867ca82c5b0e8edb9e",
       "source_sha256": {
-        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png": "65b8cf1d123abce4f0a0cac0cc7d91a0595690b06de6fec25be9ba0ca62eb903",
-        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png": "ba1c0892f521899dd18aaa653c3a645f80fa7a210517688ea51801aaafffa02a"
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json": "97f38a30ef796846c9f8592816c76c06724806e62d47f2588e4cee3adf83abfc",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_alpha_native.png": "15d190c0eb13a8cf2b2ad36f4e5cae2f9fa2906dac0740706daf057ad83fdf5c"
       },
       "sources": [
-        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png",
-        "assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png"
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_alpha_native.png",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json"
+      ],
+      "visible_green_spill_pixels": 0
+    },
+    "widget_pour_candymaker_mover_empty.png": {
+      "alpha_bbox": [
+        13,
+        57,
+        499,
+        200
+      ],
+      "alpha_components_over_24": 1,
+      "artifact_qa": "one complete visibly dry copper ladle matching the full state's direction and silhouette; no stream, crop, or green spill",
+      "dimensions": [
+        512,
+        256
+      ],
+      "full_state_bbox_delta": 0,
+      "margins": [
+        13,
+        57,
+        13,
+        56
+      ],
+      "operation": "trim reviewed empty alpha ladle and aspect-fit inside the same 512x256 transparent canvas with shared Lanczos filtering",
+      "runtime_path": "assets/opera/worlds/widgets/widget_pour_candymaker_mover_empty.png",
+      "runtime_sha256": "3d67f08d00dc521c8c9ad3abe47d7bfdafc7c36f81c56386317887e299f21062",
+      "source_sha256": {
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json": "97f38a30ef796846c9f8592816c76c06724806e62d47f2588e4cee3adf83abfc",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_alpha_native.png": "050c935816c7042e6af6c34ee7886448682fced47dca462a47f00f71d573b5a1"
+      },
+      "sources": [
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_alpha_native.png",
+        "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json"
       ],
       "visible_green_spill_pixels": 0
     },
@@ -1038,9 +1137,103 @@
       ]
     }
   },
+  "candymaker_syrup_generation": {
+    "manifest": {
+      "date": "2026-08-10",
+      "method": "OpenAI built-in image_gen.imagegen",
+      "postprocessing": {
+        "cavity_mask": "Reviewed source-registration mask derived at 512x288 from the accepted empty backdrop with morphological geodesic active contour, eroded 13px, hole-filled, feathered 0.6px, then Lanczos-upscaled to 1024x576. Runtime derivation uses the preserved mask byte-for-byte and does not require scikit-image.",
+        "chroma_tool_path": "C:/Users/Peter/.codex/skills/.system/imagegen/scripts/remove_chroma_key.py",
+        "chroma_tool_sha256": "7e51236919203b61d07ddffdc6e0b5f501a28661003f5851f26ffbb64bdec1ea",
+        "empty_ladle_alpha_command": "python C:/Users/Peter/.codex/skills/.system/imagegen/scripts/remove_chroma_key.py --input assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_chroma_native.png --out assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_alpha_native.png --auto-key border --soft-matte --transparent-threshold 12 --opaque-threshold 220 --despill --force",
+        "fill_alpha_command": "python C:/Users/Peter/.codex/skills/.system/imagegen/scripts/remove_chroma_key.py --input assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_chroma_native.png --out assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png --auto-key border --soft-matte --transparent-threshold 12 --opaque-threshold 220 --despill",
+        "ladle_alpha_command": "python C:/Users/Peter/.codex/skills/.system/imagegen/scripts/remove_chroma_key.py --input assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_chroma_native.png --out assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_alpha_native.png --auto-key border --soft-matte --transparent-threshold 12 --opaque-threshold 220 --despill"
+      },
+      "purpose": "Replace only the documented candymaker SYRUP backdrop, fill, and pouring-tool art gap.",
+      "schema": 1,
+      "stages": [
+        {
+          "preserved_path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_draft_native.png",
+          "prompt": "Use case: stylized-concept\nAsset type: production 16:9 game minigame backdrop for a preschool touch game\nPrimary request: Create a polished full-bleed 2D storybook candy workshop close-up for the Mermaid Roshan Pearl Opera candymaker SYRUP game.\nScene/backdrop: A warm marble candy-workbench scene, viewed three-quarter from above. The hero is one enormous EMPTY fluted scallop-shell candy mold in cream ceramic with an antique-brass rim. The mold spans most of the lower half and intentionally continues beyond the left and right frame edges, while its complete shell-shaped hollow remains fully readable and unmistakably empty. Put the shell hollow slightly right of center, around 64% of the frame width, and keep the upper-left quadrant comparatively open for a separate animated pouring tool.\nMeaningful secondary props only: a copper syrup pan on a brass trivet with a wooden spoon and one hardened amber drip; four squat glass color-sugar jars in raspberry, mint, violet, and lemon with tiny brass scoops; a brass candy thermometer with a red bead; marble dusted with icing sugar; a hooked scraper; a tidy bundle of mint-striped twist wrappers; two cooled candy ribbons near the margins. Keep all props away from the mold hollow and do not crop any secondary prop mid-object.\nStyle/medium: polished painterly 2D children's storybook game art; warm dark plum variable outlines; softly modeled materials; established pearl-and-shell ornament language; coral, plum, teal, cream and antique gold palette; richly detailed but instantly readable for a four-year-old.\nComposition/framing: exact landscape 16:9 composition, full bleed edge to edge, close workbench view; mold is the clear destination; no empty generic card area.\nLighting/mood: warm upper-left key light, cool lavender bounce, inviting and magical, gentle heat shimmer only above the copper pan.\nMaterials/textures: glazed cream ceramic, brushed antique brass, translucent glass sugar jars, veined marble, glossy hardened sugar.\nConstraints: The shell mold is EMPTY with no liquid and no candy inside. No character, hand, vessel, pitcher, jug, ladle, stream, text, letters, numbers, logos, or watermark.\nAvoid: finished candy; smiling candy; face in the mold; floating shapes; circles; glow rings; target rings; progress bars; rounded rectangles; tabs; badges; pills; inset cards; borders; frames; UI decoration; unexplained geometric marks; cropped mold plates; duplicated objects; photorealism; 3D render.",
+          "references": [],
+          "result_id": "exec-8279243c-c885-467a-9450-74be3a874190.png",
+          "role": "composition_draft"
+        },
+        {
+          "preserved_path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_native.png",
+          "prompt": "Use case: style-transfer\nAsset type: production 16:9 game minigame backdrop\nInput images: Image 1 is the edit target and exact composition/geometry reference. Image 2 is the shipped Mermaid Roshan candymaker world and is the authoritative style, palette, outline, material, and lighting reference.\nPrimary request: Restyle Image 1 into the same polished 2D children's storybook illustration language as Image 2. Preserve Image 1's exact camera, object layout, huge empty shell-mold placement, open upper-left gameplay space, and meaningful candymaking props. Simplify the too-realistic rendering into the toy-like hand-painted forms of Image 2.\nStyle/medium: polished flattened 2D storybook game art; warm dark plum varied outlines around readable objects; rounded toy-like shapes; softly painted coral, teal, cream, lavender and antique-gold materials; gentle texture and highlights matching Image 2; not photorealistic and not a 3D render.\nCritical invariants: The large fluted cream-and-brass scallop shell mold remains unmistakably EMPTY. No liquid, candy, face, vessel, pitcher, jug, ladle, stream, character, hand, text, logo, or watermark. Keep the upper-left quadrant free for a separate animated tool.\nAvoid: changing the composition; adding any UI; circles; glow rings; target rings; rectangles; tabs; badges; pills; inset cards; borders; frames; progress bars; floating geometric marks; cropped secondary props; excessive realism; plastic 3D rendering.",
+          "references": [
+            "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_draft_native.png",
+            "assets/opera/worlds/backdrops/world_candymaker.png"
+          ],
+          "result_id": "exec-046e4481-30ed-464f-8f47-ea218ddac536.png",
+          "role": "accepted_empty_backdrop"
+        },
+        {
+          "preserved_path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_full_native.png",
+          "prompt": "Use case: precise-object-edit\nAsset type: pixel-registered full state for a 16:9 game minigame backdrop\nInput images: Image 1 is the exact edit target and must remain geometrically identical.\nPrimary request: Change ONLY the inside hollow of the large scallop-shell candy mold from empty cream ceramic to brim-full molten candy syrup. Fill the cavity with translucent glowing amber sugar, a mirror-gloss surface, two gentle boil bubbles, and three restrained marbling ribbons in raspberry, mint, and violet. The syrup must sit physically inside the existing fluted shell hollow and stop exactly at the existing inner brass rim.\nCritical invariants: Preserve the exact canvas, camera, crop, shell mold geometry, brass rim, highlights, jars, thermometer, scraper, wrappers, ribbons, marble background, lighting, palette, outlines, and every pixel outside the shell hollow. Do not move, resize, redraw, add, remove, or duplicate any object outside the hollow. Keep the same polished 2D storybook style.\nConstraints: no vessel, pitcher, jug, ladle, stream, hand, character, face, finished candy, text, logo, watermark, UI, glow ring, target ring, circle, rectangle, tab, badge, pill, card, border, frame, progress bar, or floating geometric mark.\nAvoid: changing the shell outline or rim; syrup outside the hollow; overflowing; splashes; photorealism; 3D rendering; composition drift.",
+          "references": [
+            "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_native.png"
+          ],
+          "result_id": "exec-5bd40e23-1a1f-4688-a463-f1c5b2855a03.png",
+          "role": "full_state_texture_reference_not_runtime_registered"
+        },
+        {
+          "alpha_path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png",
+          "preserved_path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_chroma_native.png",
+          "prompt": "Use case: precise-object-edit\nAsset type: registered transparent-overlay source for a 16:9 game minigame\nInput images: Image 1 is the geometry reference for the exact inner hollow of the large scallop-shell mold.\nPrimary request: Produce a cavity-only molten syrup layer. Paint the exact shell-shaped INNER HOLLOW footprint from Image 1 as translucent glowing amber candy syrup with mirror gloss, two gentle bubbles, and restrained raspberry, mint, and violet marbling. The syrup shape must match the inner edge of Image 1's thin inner brass rim and must not include any ceramic, brass, mold edge, background prop, or frame.\nScene/backdrop: Replace every pixel outside the syrup body with one perfectly flat, uniform pure chroma green #00ff00 for local removal.\nStyle/medium: polished flattened 2D children's storybook game art matching Image 1; painted syrup texture with warm highlights and child-readable shape.\nComposition/framing: exact same landscape canvas and camera registration as Image 1; syrup appears only where the empty shell hollow was; no object outside that footprint.\nCritical invariants: Do not change the syrup footprint away from Image 1's cavity. The background must be uniform #00ff00 with no shadow, gradient, texture, floor, reflection, vignette, or lighting variation. Do not use #00ff00 inside the syrup; use pale mint rather than green for the mint ribbon.\nConstraints: no mold, rim, ceramic, brass, jars, tools, candy, face, vessel, ladle, stream, hand, character, text, logo, watermark, UI, ring, target, circle, rectangle, tab, badge, pill, card, border, frame, progress bar, detached pixels, or cast shadow.\nAvoid: painting the original scene behind the syrup; including shell rim pixels; opaque finished-candy appearance; overflowing syrup; splashes; smoke; steam; photorealism; 3D rendering.",
+          "references": [
+            "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_native.png"
+          ],
+          "result_id": "exec-a5edcc52-fa2f-4110-b63e-a0359b380203.png",
+          "role": "accepted_cavity_fill_chroma"
+        },
+        {
+          "alpha_path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_alpha_native.png",
+          "preserved_path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_chroma_native.png",
+          "prompt": "Use case: style-transfer\nAsset type: isolated production game sprite for the Mermaid Roshan candymaker SYRUP minigame\nInput images: Image 1 is the existing candymaker syrup jug and defines the painted prop detail, outline weight, coral/teal/brass finish, and sprite polish. Image 2 is the shipped candymaker world and defines the authoritative 2D storybook style. They are style references only; do not preserve the jug's shape.\nPrimary request: Create ONE complete long-handled copper candy-syrup ladle, seen in side three-quarter view. The handle extends horizontally to the LEFT; the round ladle bowl is on the RIGHT; a clear small pouring lip is the far-rightmost point. The neutral sprite is nearly horizontal and slightly nose-up so that a separate clockwise runtime rotation will visibly tip the right lip downward. The bowl contains a shallow amount of glossy amber molten sugar, clearly below the rim, with one warm highlight. No stream is painted into this sprite.\nScene/backdrop: perfectly flat uniform pure chroma green #00ff00 for local background removal.\nStyle/medium: polished flattened 2D children's storybook game sprite matching the references; rounded toy-like form; warm dark plum variable outline; hammered copper, antique brass shell ornament, one small cream pearl detail; softly painted highlights; child-readable silhouette.\nComposition/framing: square canvas; single ladle centered; full object fully contained; generous green padding on every side; right pouring lip clearly separated from the background.\nConstraints: The background must be one uniform #00ff00 with no shadows, gradients, texture, floor, reflections, lighting variation, or vignette. Do not use #00ff00 in the ladle. No cast shadow, contact shadow, glow, text, logo, watermark, hand, character, pitcher, jug, mold, candy, extra tool, detached part, or stream.\nAvoid: left-facing pouring lip; handle on the right; vertical composition; cropping; duplicate ladles; floating ornaments; photorealism; 3D render; transparent glass; smoke; steam; splashes.",
+          "references": [
+            "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_style_reference.png",
+            "assets/opera/worlds/backdrops/world_candymaker.png"
+          ],
+          "result_id": "exec-82acb0a3-586d-4b2f-ad19-664a0fcd09c9.png",
+          "role": "accepted_ladle_chroma"
+        },
+        {
+          "alpha_path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_alpha_native.png",
+          "preserved_path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_chroma_native.png",
+          "prompt": "EDIT the provided isolated object image. Preserve the exact same single right-facing copper candy-maker ladle: same silhouette, scale, position, horizontal orientation, long pink handle on the left, copper bowl and pointed pouring lip on the right, pearl-and-shell ornament, storybook rendering, navy outline, lighting, and flat chroma-green background. Change ONLY the bowl contents: remove every trace of amber syrup/liquid and show the ladle bowl visibly empty, with a clean polished copper interior and a slightly darker dry inner basin. Do not add a stream, droplets, candy, mold, UI, text, symbols, circles, rings, extra props, shadows outside the object, or a second object. The output remains an isolated asset on the same flat uniform chroma-green background, with generous clear margin around the complete uncropped ladle.",
+          "references": [
+            "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_chroma_native.png"
+          ],
+          "result_id": "exec-f660e4ea-08e7-4cd2-ac27-366e007160aa.png",
+          "role": "accepted_empty_ladle_chroma"
+        }
+      ]
+    },
+    "package_sha256": {
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json": "97f38a30ef796846c9f8592816c76c06724806e62d47f2588e4cee3adf83abfc",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_cavity_mask.png": "4a628176773cdcec9b6a6c7de3d14754f4ae090f2bc1ca89c36b8c6483675e79",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_draft_native.png": "6adfe399031da1f45f7750dacd39a906453cb3f1358e7c1f91d80291d06db02a",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_native.png": "abde0894045a494c6d9d76315a3f1cd17463e92487bd0ae921c3418575f72677",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png": "8a6668bb1cae753c8d2cd0e6dbd34f81cde32fec9ee47305ac3f03287a44702d",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_chroma_native.png": "841fbd57c08ed5080bc5181d07241a87c4cc67baeee40247db2702205c6830ee",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_full_native.png": "06ee3007247906ab5a7476f6787e6a28558f48bd83329f8b77e5cc4a0858e5d4",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_alpha_native.png": "15d190c0eb13a8cf2b2ad36f4e5cae2f9fa2906dac0740706daf057ad83fdf5c",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_chroma_native.png": "99d1246ad01dcd58c10e5a4344e7bf425848a83c6d46238b4ecad0c64c5e1eb3",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_alpha_native.png": "050c935816c7042e6af6c34ee7886448682fced47dca462a47f00f71d573b5a1",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_chroma_native.png": "2d73328e70e0010a2e4c41d407512bc723751007f726090da63a93b043406a49",
+      "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_style_reference.png": "e3ef8f04b3926c1513c50dcef110d00221941a4acb91b644bd2d8363849360dd"
+    },
+    "path": "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json",
+    "reference_sha256": {
+      "assets/opera/worlds/backdrops/world_candymaker.png": "19ac984638fea33e0f0cb649b7d51b1364f13c36f0e5c5dd4e883dc283ef5d48"
+    },
+    "sha256": "97f38a30ef796846c9f8592816c76c06724806e62d47f2588e4cee3adf83abfc"
+  },
   "contact_sheet": {
     "path": "assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png",
-    "sha256": "f2db5572c122371c36ae67be1f76bd6f1b0272d921fc89d681fc9781db32e206"
+    "sha256": "21e0a46034fec0f83a1a1823480b500d9c4e2cd69583d0f4f10a8e9d68cd0da2"
   },
   "derivation_tool": "tools/prepare_opera_minigame_art.py",
   "determinism_gate": "python tools/prepare_opera_minigame_art.py --check-only",
@@ -1081,6 +1274,9 @@
     "Source export labels were audited visually. Candy and Farmer source names are shifted; mappings above follow visible art.",
     "Chef pieces retain only each topping's approved visible silhouette/lower outline; every serving pedestal/plate/base pixel is excluded.",
     "Magician cabinet reveal continues VANISH by placing the approved Lamba reveal inside a cabinet shell derived only from approved crops.",
-    "Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order."
+    "Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order.",
+    "Candymaker SYRUP uses a scoped generated replacement because the binding art ledger marks all three prior layers REPLACE and no registered empty-mold/fill set exists.",
+    "The candymaker full-state edit is retained only as a visual reference; the cavity-only fill alpha and reviewed cavity mask supply the runtime texture and geometry.",
+    "A matching empty-ladle state prevents the vessel from remaining visibly full beside the completed brim-full mold."
   ]
 }

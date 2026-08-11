@@ -400,11 +400,36 @@ func _init() -> void:
 				pixel_view.encloses(fitted_stage) and fitted_stage.encloses(fitted_card)
 				and fitted_card.encloses(fitted_surface)
 				and fitted_surface.has_point(fitted_grab))
+			var is_pixel_capture := OS.get_environment("OPERA_PIXEL10_CAPTURE") == "1"
+			if is_pixel_capture and not widget_shot_out.is_empty() \
+					and (widget_capture_career.is_empty()
+						or widget_capture_career == "candymaker"):
+				await _capture_viewport(widget_shot_out.path_join(
+					"candymaker_pixel10_00_empty_world.png"))
 			# Drive the shipping signal path: the real surface pays the real world,
 			# which owns the five-point goal and accepts the completed picture.
 			var pour_step := 1.0 / 30.0
 			var pour_seconds := 0.0
 			var pour_grab := world.surface._pour_pitcher_rect().get_center()
+			world.surface._press(pour_grab)
+			while world.surface.pour_level < 0.97 and pour_seconds < 4.0:
+				world.surface._process(pour_step)
+				pour_seconds += pour_step
+			world.surface._release(pour_grab)
+			_check("candymaker remains an empty-mold pour until the actual brim",
+				world.surface.pour_level > 0.94 and world.surface.pour_level < 1.0
+				and world.phase_progress < syrup_goal
+				and not world.phase_advance_pending
+				and not world.surface.completion_accepted)
+			if is_pixel_capture and not widget_shot_out.is_empty() \
+					and (widget_capture_career.is_empty()
+						or widget_capture_career == "candymaker"):
+				await _capture_viewport(widget_shot_out.path_join(
+					"candymaker_pixel10_04_just_under_full_world.png"))
+			var root_children_before_completion := world.root.get_child_count()
+			_check("candymaker SYRUP selects its authored completion picture",
+				world._uses_authored_completion_picture("pourt"))
+			pour_grab = world.surface._pour_pitcher_rect().get_center()
 			world.surface._press(pour_grab)
 			while not world.phase_advance_pending and pour_seconds < 4.2:
 				world.surface._process(pour_step)
@@ -415,12 +440,35 @@ func _init() -> void:
 				and is_equal_approx(world.phase_progress, syrup_goal)
 				and is_equal_approx(world.surface.pour_level, 1.0)
 				and pour_seconds < 4.2)
+			_check("candymaker authored completion spawns no shared abstract burst",
+				world.root.get_child_count() == root_children_before_completion)
 			world.surface._process(0.36)
-			_check("candymaker success hold rights its empty pitcher",
+			_check("candymaker success hold rights its visibly empty ladle",
 				is_zero_approx(world.surface.pour_tilt)
-				and not world.surface._pour_stream_active())
+				and not world.surface._pour_stream_active()
+				and is_zero_approx(world.surface._candymaker_full_ladle_alpha()))
+			if is_pixel_capture and not widget_shot_out.is_empty() \
+					and (widget_capture_career.is_empty()
+						or widget_capture_career == "candymaker"):
+				await _capture_viewport(widget_shot_out.path_join(
+					"candymaker_pixel10_05_success_world.png"))
+			world._advance_completed_phase()
+			world._show_phase()
+			var sort_phase: Dictionary = world.phases[world.phase_index]
+			_check("candymaker brim advances cleanly to SORT without a stale ladle",
+				String(sort_phase.get("name", "")) == "SORT"
+				and world.surface.mode == "candy_sort"
+				and world.surface.visual_context == "lanes_candymaker"
+				and not world.surface.completion_accepted
+				and world.surface.pour_empty_mover_texture == null)
+			if not widget_shot_out.is_empty() \
+					and (widget_capture_career.is_empty()
+						or widget_capture_career == "candymaker"):
+				await _capture_control(world.surface,
+					widget_shot_out.path_join("candymaker_06_sort_transition.png"))
 			# Leave the per-career probe at the same fresh opening state expected by
 			# the generic widget contracts below.
+			world.phase_index = syrup_phase_index
 			world.phase_progress = 0.0
 			world.phase_advance_pending = false
 			world.phase_complete_t = 0.0
@@ -926,6 +974,9 @@ func _capture_widget_states(world: OperaCareerWorld2D, career: String,
 		"down": surface.swipe_dir = Vector2.DOWN
 		"up": surface.swipe_dir = Vector2.UP
 	var prefix := "%s_%02d_%s" % [career, phase_number + 1, template]
+	if career == "candymaker" and mode == "pourt":
+		await _capture_candymaker_pour_states(surface, prefix)
+		return
 	surface.demo_t = 0.92
 	surface.set_timing_position(0.18)
 	await _capture_control(surface, widget_shot_out.path_join("%s_idle_demo.png" % prefix))
@@ -972,6 +1023,51 @@ func _capture_widget_states(world: OperaCareerWorld2D, career: String,
 		# pitcher that runtime completion could not previously reach.
 		surface._pour_tick(0.36)
 	await _capture_control(surface, widget_shot_out.path_join("%s_accepted_completion.png" % prefix))
+
+
+func _capture_candymaker_pour_states(surface: OperaGestureSurface, prefix: String) -> void:
+	# Explicit story states make the visual contract reviewable: no finished candy
+	# or stray target geometry can hide between the generic 45% and 90% samples.
+	surface.note_input()
+	surface.pour_tilt = 0.0
+	surface.pour_level = 0.0
+	surface.pour_reserve = 1.2
+	surface.pour_hold = false
+	await _capture_control(surface,
+		widget_shot_out.path_join("%s_00_empty_no_demo.png" % prefix))
+
+	surface.configure("pourt", Color(0.92, 0.58, 0.82), 1, "pour_candymaker")
+	surface.demo_t = 0.92
+	await _capture_control(surface,
+		widget_shot_out.path_join("%s_01_idle_hint.png" % prefix))
+
+	surface.note_input()
+	surface.pour_tilt = 0.42
+	surface.pour_level = 0.10
+	surface.pour_reserve = 1.08
+	surface.pour_hold = true
+	await _capture_control(surface,
+		widget_shot_out.path_join("%s_02_stream_start.png" % prefix))
+
+	surface.pour_tilt = 0.72
+	surface.pour_level = 0.50
+	surface.pour_reserve = 0.60
+	await _capture_control(surface,
+		widget_shot_out.path_join("%s_03_half_fill.png" % prefix))
+
+	surface.pour_tilt = 1.0
+	surface.pour_level = 0.99
+	surface.pour_reserve = 0.012
+	await _capture_control(surface,
+		widget_shot_out.path_join("%s_04_just_under_full.png" % prefix))
+
+	surface.pour_level = 1.0
+	surface.pour_reserve = 0.0
+	surface.pour_hold = false
+	surface.accept_completion()
+	surface._pour_tick(0.36)
+	await _capture_control(surface,
+		widget_shot_out.path_join("%s_05_success_hold.png" % prefix))
 
 
 func _visible_card_count(cards: Array) -> int:

@@ -2452,7 +2452,7 @@ helper; this changes alpha only and preserves the approved RGB crest artwork.
 - `assets/opera/worlds/ui/crests/opera_crest_racer.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_racer.png`; no external source or new RGB artwork.
 - `assets/opera/worlds/ui/crests/opera_crest_singer.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_singer.png`; no external source or new RGB artwork.
 
-## Opera minigame quality art (2026-08-09)
+## Opera minigame quality art (2026-08-09 through 2026-08-10)
 
 All files in this section are project-original art or non-destructive derivatives
 of approved project-original Opera art; license: project original; URL: none.
@@ -2464,8 +2464,23 @@ result. Derivatives were built deterministically by
 
 - `assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png` - project-owned OpenAI built-in ImageGen source board generated 2026-08-09; exact prompt, result ID, original result path, and SHA-256 are in `PROVENANCE.json`.
 - `assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png` - non-destructive alpha derivative of the preserved native board made with installed `remove_chroma_key.py`; exact command, matte report, and hashes are in `PROVENANCE.json`.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json` - project-authored generation/provenance manifest for the scoped Candy Maker SYRUP replacement; records every exact prompt, result ID, project-local reference, accepted role, and local alpha/mask operation; no external source or URL.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_draft_native.png` - project-owned OpenAI built-in ImageGen full-frame composition source; preserved as the input to the accepted project-style transfer; no external source or URL.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_empty_native.png` - accepted project-owned OpenAI built-in ImageGen full-bleed empty-mold backdrop, restyled using only the shipped project-owned Candy Maker world as visual reference; no external source or URL.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_full_native.png` - project-owned OpenAI built-in ImageGen full-syrup visual reference; preserved for provenance but not used as registered runtime geometry because the edit changed the shell outline slightly; no external source or URL.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_chroma_native.png` - project-owned OpenAI built-in ImageGen cavity-only amber/marbled syrup source on flat chroma, generated from the accepted empty mold reference; no external source or URL.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png` - non-destructive alpha derivative of the preserved cavity-only syrup source made with the installed `remove_chroma_key.py`; exact command is in `GENERATION.json`.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_style_reference.png` - immutable project-owned copy of the pre-replacement Candy Maker syrup jug supplied to ImageGen only as a style/detail reference; preserved from repository commit `39746756`; no external source or URL.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_chroma_native.png` - project-owned OpenAI built-in ImageGen right-facing copper candy-syrup ladle source on flat chroma, styled only from approved project-owned Opera art; no external source or URL.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_alpha_native.png` - non-destructive alpha derivative of the preserved copper-ladle source made with the installed `remove_chroma_key.py`; exact command is in `GENERATION.json`.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_chroma_native.png` - project-owned OpenAI built-in ImageGen edit of the accepted right-facing ladle on flat chroma; changes only the bowl from syrup-bearing to visibly dry; no external source or URL.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_empty_alpha_native.png` - non-destructive alpha derivative of the preserved empty-ladle source made with the installed `remove_chroma_key.py`; exact prompt, result ID, command, and project-local reference are in `GENERATION.json`.
+- `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_cavity_mask.png` - reviewed non-runtime registration mask derived from the accepted empty backdrop; used byte-for-byte to keep syrup inside the authored shell hollow; derivation parameters are in `GENERATION.json`.
 - `assets/opera/worlds/widgets/widget_pour_chef_mover.png` - 256x256 alpha batter-pitcher cell derived from the reviewed generated board.
-- `assets/opera/worlds/widgets/widget_pour_candymaker_mover.png` - 256x256 alpha candy-syrup-jug cell derived from the reviewed generated board.
+- `assets/opera/worlds/widgets/widget_pour_candymaker.png` - 1024x576 opaque full-bleed Candy Maker workspace derived by whole-canvas Lanczos resize from the accepted empty-mold native; replaces the card, finished candy, cropped plates, tab, and pill.
+- `assets/opera/worlds/widgets/widget_pour_candymaker_fill.png` - 1024x576 transparent cavity-only molten-syrup derivative; accepted alpha source is fitted to and intersected with the reviewed empty-mold mask, with no pixels outside the receiver.
+- `assets/opera/worlds/widgets/widget_pour_candymaker_mover.png` - 512x256 transparent right-facing copper-ladle derivative, aspect-fitted from the accepted alpha native with safe padding and no chroma spill.
+- `assets/opera/worlds/widgets/widget_pour_candymaker_mover_empty.png` - 512x256 transparent matching dry-ladle derivative shown as the syrup reserve empties and throughout accepted completion.
 - `assets/opera/worlds/widgets/widget_pour_nursery_mover.png` - 256x256 alpha feeding-bottle cell derived from the reviewed generated board.
 - `assets/opera/worlds/widgets/widget_crank_racer_mover.png` - 256x256 alpha mechanic-wrench cell derived from the reviewed generated board.
 - `assets/opera/worlds/widgets/widget_clue_board_empty.png` - full 1024x608 Detective case-board state derived from the approved empty case-board source.

@@ -1,11 +1,12 @@
-# Opera minigame art review — 2026-08-09
+# Opera minigame art review — 2026-08-10
 
-Status: **Codex visual QA accepted; owner/human review pending**. The four-cell ImageGen board was visually inspected by Codex before runtime derivation.
-All other art is a non-destructive derivative of approved project sources.
+Status: **Codex visual QA accepted; owner/human review pending**. The generated source boards and scoped candymaker SYRUP replacement were visually inspected before runtime derivation.
+All approved source and native generated inputs are preserved; runtime transforms are non-destructive and byte-exact.
 
 ## Artifact QA
 
-- Four generated movers: one connected prop each, complete silhouette, no crop, floating part, text, or visible chroma spill.
+- Generated movers: one connected prop each, complete silhouette, no crop, floating part, text, or visible chroma spill.
+- Candymaker SYRUP: opaque empty-mold scene, reviewed cavity-only fill, and registered full/empty right-facing copper ladles; no card geometry or finished candy in the pour state.
 - Approved-card derivatives: dark presentation field and contact-sheet rules removed with `_remove_edge_field`; source RGB subjects were not repainted.
 - Every transparent runtime derivative has a nonzero safe alpha gutter; every output obeys the <=1024/POT texture rule.
 - Exact dimensions, alpha bounds, hashes, source hashes, transforms, and the exact generation prompt are in `PROVENANCE.json`.
@@ -17,6 +18,9 @@ All other art is a non-destructive derivative of approved project sources.
 - Chef pieces retain only each topping's approved visible silhouette/lower outline; every serving pedestal/plate/base pixel is excluded.
 - Magician cabinet reveal continues VANISH by placing the approved Lamba reveal inside a cabinet shell derived only from approved crops.
 - Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order.
+- Candymaker SYRUP uses a scoped generated replacement because the binding art ledger marks all three prior layers REPLACE and no registered empty-mold/fill set exists.
+- The candymaker full-state edit is retained only as a visual reference; the cavity-only fill alpha and reviewed cavity mask supply the runtime texture and geometry.
+- A matching empty-ladle state prevents the vessel from remaining visibly full beside the completed brim-full mold.
 
 ## Runtime derivatives
 
@@ -36,7 +40,10 @@ All other art is a non-destructive derivative of approved project sources.
 - `widget_magic_vanish_reveal.png` — 512x512; alpha bbox `[112, 20, 400, 491]`; clean Lamba-over-hat reveal; both silhouettes complete and contained; no presentation field, blob, hard seam, labels, or crop.
 - `widget_magic_vanish_wand.png` — 512x512; alpha bbox `[69, 50, 442, 462]`; magic prop/reveal complete and contained; no labels, presentation frame, or clipped silhouette.
 - `widget_portal_magician_mover.png` — 256x256; alpha bbox `[19, 20, 237, 233]`; complete open portal frame, curtains, threshold, and warm opening; no Lamba, hat, stage tableau, or crop.
-- `widget_pour_candymaker_mover.png` — 256x256; alpha bbox `[31, 41, 225, 214]`; accepted source topology preserved; one complete object; no crop, detached part, or visible green spill.
+- `widget_pour_candymaker.png` — 1024x576; alpha bbox `[0, 0, 1024, 576]`; one unmistakably empty cream/brass shell mold; no finished candy, card, ring, tab, pill, or debug shape.
+- `widget_pour_candymaker_fill.png` — 1024x576; alpha bbox `[330, 202, 928, 550]`; amber/raspberry/mint/violet syrup only; alpha stays inside the empty mold and reveals bottom-up.
+- `widget_pour_candymaker_mover.png` — 512x256; alpha bbox `[13, 57, 499, 200]`; one complete syrup-bearing copper ladle, handle left and pouring lip right; no pitcher, stream, crop, or green spill.
+- `widget_pour_candymaker_mover_empty.png` — 512x256; alpha bbox `[13, 57, 499, 200]`; one complete visibly dry copper ladle matching the full state's direction and silhouette; no stream, crop, or green spill.
 - `widget_pour_chef_mover.png` — 256x256; alpha bbox `[21, 46, 234, 209]`; accepted source topology preserved; one complete object; no crop, detached part, or visible green spill.
 - `widget_pour_nursery_mover.png` — 256x256; alpha bbox `[75, 22, 181, 234]`; accepted source topology preserved; one complete object; no crop, detached part, or visible green spill.
 - `widget_target_astronaut_mark.png` — 128x128; alpha bbox `[9, 9, 119, 119]`; thematic filled stamp remains distinct from hollow invitation ring.
