@@ -372,9 +372,8 @@ func _init() -> void:
 				_bad("confirmed castle logo was not saved")
 			else:
 				var craft_display: Control = main.castle_logo_room_display
-				var craft_banners: Array[Node] = craft_display.find_children(
-					"CastleLogoBanner_*", "Control", true, false) \
-					if craft_display != null else []
+				var craft_banners: Array = craft_display.get_meta(
+					"banner_nodes", []) if craft_display != null else []
 				var board_badge: Control = craft_display.find_child(
 					"CastleLogoCraftBoardBadge", true, false) as Control \
 					if craft_display != null else null
@@ -387,20 +386,32 @@ func _init() -> void:
 	rooms.show_room("playroom", false)
 	await _frames(2)
 	var playroom_display: Control = main.castle_logo_room_display
-	var playroom_banners: Array[Node] = playroom_display.find_children(
-		"CastleLogoBanner_*", "Control", true, false) \
-		if playroom_display != null else []
+	var playroom_banners: Array = playroom_display.get_meta(
+		"banner_nodes", []) if playroom_display != null else []
 	if playroom_display == null or playroom_banners.size() != 2 \
 			or String(playroom_display.get_meta(
 				"castle_room_id", "")) != "playroom":
 		_bad("custom logo did not replace both Stuffie Playroom shell banners")
 	else:
-		for banner: Node in playroom_banners:
+		for banner_value: Variant in playroom_banners:
+			var banner: Node3D = banner_value as Node3D
 			if String(banner.get_meta("symbol_id", "")) != "dog" \
 					or String(banner.get_meta("color_id", "")) != "purple" \
 					or String(banner.get_meta(
 						"replaces_design", "")) != "purple_shell_banner":
 				_bad("Stuffie Playroom banner did not use the saved custom logo")
+				break
+			var authored_art: Sprite3D = banner.find_child(
+				"AuthoredBannerArt", false, false) as Sprite3D
+			var authored_motif: Sprite3D = banner.find_child(
+				"AuthoredBannerMotif", false, false) as Sprite3D
+			if authored_art == null or authored_art.texture == null \
+					or authored_motif == null or authored_motif.texture == null \
+					or not authored_art.texture.resource_path.contains(
+						"logo_studio_v2/castle_banner_purple.png") \
+					or not authored_motif.texture.resource_path.contains(
+						"logo_studio_v2/castle_banner_motif_dog.png"):
+				_bad("Stuffie Playroom banner did not use authored V2 art")
 				break
 
 	rooms.show_room("dining_room", false)
