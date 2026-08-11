@@ -16,7 +16,7 @@ current defect without reproducing its premise.
 
 At the synchronized merged working-tree snapshot, GAME2D reports 509
 model/export files, 68 production 3D files and 77 probe 3D files and remains
-**`UNSATISFIED`**. The same inventory has 306 tracked Markdown paths, 192
+**`UNSATISFIED`**. The same inventory has 307 tracked Markdown paths, 192
 GDScript files under `scripts/`, 105 probe scripts and an 8,519-line
 `scripts/main.gd`. `NO_REGRESSION` is not completion. The overall master-audit
 cycle is `REPAIRING`.
@@ -45,15 +45,16 @@ cycle is `REPAIRING`.
 | `MA-OPERA-001` | `FIXED_PENDING_VERIFICATION` | Chef behavior/art routing and the resolved merged-worktree local full suite are green; final-SHA two-aspect capture, device and owner review still decide closure |
 | `MA-OPERA-002` / `MA-OPERA-004` | `CONFIRMED_OPEN` | Detective's painted crown is not proved healed, and no complete accepted all-career capture matrix exists |
 | `MA-OPERA-003` / `MA-OPERA-006` | `CONFIRMED_OPEN` | Split and re-audit the remaining fallback/art-fiction/voice subclaims; several subclaims changed, so the older grouped wording cannot be closed or imported wholesale |
-| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas, three-act specialist and resolved merged-worktree local full suite are green; final-SHA remote, device, child and owner review remain |
+| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas, three-act specialist and integration-commit local full suite are green; remote exact-head, device, child and owner review remain |
 | `MA-OPERA-007` | `OWNER_DECISION_REQUIRED` | Decide the above-water Farmer/Doctor setting before treating it as a defect or repair |
 | `MA-OPERA-008` | `VERIFIED_FIXED` | Racer uses one true-Canvas Tune / To the Line / racing-circle path and exact lap-two cue; the rejected device-only 3D kart branch is superseded |
-| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer and resolved merged-worktree local full suite are green; final-SHA remote, device, child and owner review remain |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer and integration-commit local full suite are green; remote exact-head, device, child and owner review remain |
 | `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues and the resolved merged-worktree local full suite pass machine gates; human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
 | `MA-CI-002` | `FIXED_PENDING_VERIFICATION` | 105 probes now map to 63 local / 62 remote trusted entries with only the human-art display probe local; exact merged-head remote workflow remains |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 105 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
+| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–023 cover all 71 reachable audit commits; the written ledger and read-only planner agree exactly, only three guarded diagnostics emit scripts, and 14 unit plus independent adversarial checks are green |
 | `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
-| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Resolved merged-worktree exact Godot 4.7.1 local `scripts/ci.sh` exits 0 in 826.4 seconds; final merge-SHA remote CI, APK and device evidence still must match |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Resolved integration content committed as `ad36ee9f` completes exact Godot 4.7.1 local `scripts/ci.sh` in 826.4 seconds; remote exact-head CI, APK and device evidence still must match |
 
 Current P2/owner-decision work remains indexed in the master audit: asset
 orphans/NPOT residency, exact-head probe-workflow verification, exhaustive

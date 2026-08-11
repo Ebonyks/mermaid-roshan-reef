@@ -3,12 +3,14 @@
 - **Audit ID:** `MA-2026-08-09`
 - **Audit date:** 2026-08-09
 - **Audited branch:** `codex/master-audit-20260809`
-- **Integration snapshot:** audit `HEAD`
-  `7b5d1209b4c4823fbf9ed39193c8b1700a288497` plus `MERGE_HEAD`
-  `245c16137fae82271dabac456d5ab04d843463a8`; final merge commit pending
+- **Integration commit:**
+  `ad36ee9f` (parents `7b5d1209b4c4823fbf9ed39193c8b1700a288497`
+  and `245c16137fae82271dabac456d5ab04d843463a8`)
 - **Last completed full local checkpoint:**
   `a3d3bce18dd73d0ac87f2fb4bac397e2b4396180`
 - **Proposed design authority:** `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`
+- **Change and rollback ledger:**
+  `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`
 - **Document authority:** `PROPOSED_CANONICAL`
 - **Audit program status:** `IN_PROGRESS`
 - **Overall cycle state:** `REPAIRING` with concurrent focused `VERIFYING`
@@ -35,7 +37,7 @@ storybook identity, and many verified child-safety repairs. Mermaid Roshan's
 3D model and model pipeline are retired from the active tree. The whole game,
 however, is not yet a true-2D runtime.
 
-At the current integration snapshot (`7b5d1209` plus `245c1613`), the exact
+At integration commit `ad36ee9f`, the exact
 game-wide scanner measures:
 
 ```text
@@ -120,10 +122,10 @@ does not appear in rooms with no registered banner. This is a bounded Canvas
 overlay repair, not evidence that the still-spatial Castle rooms satisfy the
 game-wide 2D contract.
 
-The resolved staged merged tree completes exact Godot 4.7.1-stable local
+The resolved integration content committed as `ad36ee9f` completes exact Godot 4.7.1-stable local
 `scripts/ci.sh` in 826.4 seconds with all 63 trusted probes green. This is a
-strong content-exact integration result, but the final merge commit and remote
-exact-head run do not yet exist. It does not close strict 2D, live visual
+strong integration result, but a remote exact-head run does not yet exist. It
+does not close strict 2D, live visual
 capture, APK, audio-listening, device, child, protected-voice, or owner gates.
 
 No P0 audit item is currently indexed from the repository evidence reviewed for
@@ -237,6 +239,7 @@ preserve a useful measurement while its 3D recommendation is `SUPERSEDED`.
 | Owner's 2026-08-09 true-2D directions | `OWNER_DECISION` | Highest-precedence medium and resource-retirement decision |
 | This audit | `PROPOSED_CANONICAL` | Audit-item states, evidence, closure, and history for this round; section 5 remains an index until full records exist |
 | `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` | `PROPOSED_CANONICAL` | Stable `DL-*` rules and acceptance contract |
+| `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` | `BINDING_OPERATIONAL` | Stable `CHG-*` change groups, benefit/risk/dependency evidence, and guarded per-change rollback plans; never permission to bypass protected-asset, save, security, medium, or release gates |
 | `AGENTS.md` except named stale 3D passages | `BINDING_OPERATIONAL` | Engine, security, save, protected art, workflow, and release rules |
 | `SECURITY.md` | `BINDING_OPERATIONAL` | Threat model and protected data |
 | `WORKFLOW_BRANCHING_2026-07-18.md` | `BINDING_OPERATIONAL` | Dev/master promotion process |
@@ -286,7 +289,7 @@ completed repository-wide documentation control.
 
 | Fact | Result |
 |---|---:|
-| Tracked Markdown files | 306 |
+| Tracked Markdown files | 307 |
 | `scripts/main.gd` | 8,519 lines |
 | GDScript files under `scripts/` | 192 |
 | `scripts/probe_*.gd` files | 105 |
@@ -367,12 +370,12 @@ and all trusted probes; it does not satisfy strict 2D, visual, warning-free,
 APK, device, voice, child, or owner acceptance gates. Any later code, art,
 import, probe, or audit-tool change must earn a new exact full checkpoint.
 
-#### 4.2.3 Current integration checkpoint pending a final merge SHA
+#### 4.2.3 Integration commit `ad36ee9f` pending remote exact-head verification
 
-The integration snapshot is not assigned a synthetic commit identity. It is
-the staged merge of audit `HEAD` `7b5d1209` and `MERGE_HEAD` `245c1613`; the
-eventual merge commit must rerun the complete same-SHA gate. Current focused
-evidence is:
+The resolved integration now has the real merge identity `ad36ee9f`, with
+parents `7b5d1209` and `245c1613`. Its runtime/static content completed the
+local full gate below; remote exact-head execution and matching APK/device
+evidence remain pending. Current focused evidence is:
 
 ```text
 GAME2D unit contract: 73 tests OK
@@ -383,20 +386,19 @@ Opera deterministic art: 39 governed files match
 Opera Roshan animation audit: 13 careers / 208 reviewed frames ALL OK
 Area-music deterministic build check: 42/42 ALL OK
 Probe parity audit (default and stress): ALL OK
-Exact merged-tree scripts/ci.sh: exit 0 after 826.4 seconds
+Exact integration-content scripts/ci.sh: exit 0 after 826.4 seconds
 All 63 trusted local probes reached accepted verdicts
 ```
 
-The complete local merged-tree gate uses exact Godot 4.7.1-stable, performs the
+The complete local integration gate uses exact Godot 4.7.1-stable, performs the
 fresh import, static gates, GAME2D regression check, analyzer, and all 63
 trusted local probes, and exits zero after 826.4 seconds. Parser and inference
 lint are also green for all 22 changed/new GDScripts. Focused exact runtime
 probes independently remain green for Opera2D, Nursery, Detective, Opera
 gesture quality (271 checks), audio, picture games, interaction, passive play,
-voice, and the surrounding Opera path. Because the merge commit does not yet
-exist, this is content-exact merged-tree evidence, not a fabricated same-commit
-SHA. The final merge commit and remote exact-head CI remain pending, as do
-Mobile capture, APK, device, child, and owner gates.
+voice, and the surrounding Opera path. The resolved content is integration
+commit `ad36ee9f`; remote exact-head CI remains pending, as do Mobile capture,
+APK, device, child, and owner gates.
 
 ### 4.3 Archive and resource-retirement evidence
 
@@ -442,11 +444,11 @@ warning: fresh Godot probe unavailable (fresh runtime response contains no
 rendered capture outputs); runtime checks will report COVERAGE_GAP
 ```
 
-The current `7b5d1209` + `245c1613` integration audit reproduces the same
+The current `ad36ee9f` integration audit reproduces the same
 state totals: **16 FAIL, 17 REVIEW_OPEN, two MANUAL_OPEN, 86 COVERAGE_GAP,
 32 PASS, and 94 NOT_APPLICABLE**. The unchanged totals are not evidence that
 the merge is visually accepted; the missing live Canvas capture matrix still
-fails closed and the final merge SHA still requires its own strict run.
+fails closed and remote fresh-runtime strict evidence remains open.
 
 Commits `3b7a7e66` and `fea916a8` are the approved current visual-evidence
 contract. They require a same-process random 256-bit one-use challenge, exact
@@ -478,11 +480,10 @@ explicitly unimplemented coverage gaps.
 
 - Exact local `scripts/ci.sh` is historically green at runtime commit
   `a3d3bce1`, after 1434.3 seconds with fresh import, static gates, GAME2D
-  `NO_REGRESSION`, and all 61 then-trusted probes. The current staged
-  integration also completes the exact local merged-tree `scripts/ci.sh` gate
-  in 826.4 seconds with all 63 current trusted probes. It still has no final
-  merge commit identity or remote exact-head result; neither is inferred from
-  the content-exact local run.
+  `NO_REGRESSION`, and all 61 then-trusted probes. Integration commit
+  `ad36ee9f` also completes the exact local `scripts/ci.sh` gate in 826.4
+  seconds with all 63 current trusted probes. It still has no remote exact-head
+  result; that is not inferred from the local run.
 - The earlier two invalid-UID warnings were reproduced as stale ignored local
   `.godot/imported` cache artifacts. Source GLBs and tracked sidecars are valid,
   and an isolated fresh project import is warning-free. Their reachable 3D
@@ -525,13 +526,13 @@ contains every mandatory field. No abbreviated row is closure evidence.
 | `MA-ACCESS-002` | P1 | `BLOCKED_EXTERNAL` | V1 | Lamba's current semantic role still maps to legacy “bunny-fish” recordings | Owner-approved re-record/re-render and exact-key/device listening evidence |
 | `MA-ACCESS-003` | P1 | `BLOCKED_EXTERNAL` | V1/V3 partial | Seek has an accurate visual wiggle/U-cue/peek and an available Evie hide-and-seek recording, but no exact protected Evie recording says “tap the wiggly tree” | Owner-authorized exact Evie objective recording plus queue, device-listening, and child-comprehension evidence; do not modify protected audio |
 | `MA-TOUCH-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 reported | Held travel/medallion path lacks real-phone hold/drag/multitouch/focus-loss evidence | Recorded target-phone pass |
-| `MA-OPERA-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Chef now uses the accepted batter pitcher, source-true stream/fill behavior, mitt-gated oven, achieved cake, and deterministic topping art; the old cutoff/fallback/wrong-object report is not a current code premise | Final merge SHA and remote exact-head gate (plus local rerun if committed content differs), then accepted two-aspect/device/owner art review |
+| `MA-OPERA-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Chef now uses the accepted batter pitcher, source-true stream/fill behavior, mitt-gated oven, achieved cake, and deterministic topping art; the old cutoff/fallback/wrong-object report is not a current code premise | Remote exact-head gate for the integrated branch, then accepted two-aspect/device/owner art review |
 | `MA-OPERA-002` | P1 | `CONFIRMED_OPEN` | V4 partial | Detective's “missing” crown remains painted into the scene evidence | Healed owned source, narrative/capture verification |
 | `MA-OPERA-004` | P1 | `CONFIRMED_OPEN` | V1 | Opera capture harness has not produced accepted evidence for all careers | Repair harness; capture and human-review all careers/widgets/scuffles/stress states |
-| `MA-OPERA-009` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Boxer now has a full-stage five-phase two-glove specialist with optional multitouch, sequential one-finger completion, no health/loss, passive rejection, touch-owner cleanup, and stable existing save bit | Final merge SHA and remote exact-head gate (plus local rerun if committed content differs), two-aspect and target-device touch/performance review, child comprehension, and owner visual acceptance |
+| `MA-OPERA-009` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Boxer now has a full-stage five-phase two-glove specialist with optional multitouch, sequential one-finger completion, no health/loss, passive rejection, touch-owner cleanup, and stable existing save bit | Remote exact-head gate for the integrated branch, two-aspect and target-device touch/performance review, child comprehension, and owner visual acceptance |
 | `MA-PERF-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current target-device frame-time, hitch, memory, thermal, or latency matrix | U0 device matrix at exact release candidate meets design thresholds |
 | `MA-CHILD-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current observed five-minute child golden-path record | Private/safe observed session meets section 12 |
-| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 current merged tree | Exact local full CI is green at historical `a3d3bce1` and the staged `7b5d1209` + `245c1613` merged tree exits zero after 826.4 seconds with all 63 current trusted probes; there is still no final merge SHA, remote exact-head run, matching APK, or device acceptance | Final merge SHA with remote exact-head probes, matching build, and device evidence at the eventual release candidate; rerun locally if the committed tree differs |
+| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 integration commit | Exact local full CI is green at historical `a3d3bce1`, and the resolved integration content now committed as `ad36ee9f` exits zero after 826.4 seconds with all 63 current trusted probes; there is still no remote exact-head run, matching APK, or device acceptance | Remote exact-head probes for the current audit-branch commit, matching build, and device evidence at the eventual release candidate; rerun locally if runtime/static content changes |
 
 ### 5.2 P2/P3 and owner-decision indexed items
 
@@ -547,10 +548,11 @@ contains every mandatory field. No abbreviated row is closure evidence.
 | `MA-PLAY-002` | P2 | `OWNER_DECISION_REQUIRED` | V1 | Standalone fire-arena reward/flag/medal role needs a truthful home or retirement |
 | `MA-COMBAT-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 reported | Phone-only wave count, slash-band scale, and tutorial discoverability remain for device review |
 | `MA-OPERA-003` | P2 | `CONFIRMED_OPEN` | V1/V4 partial | The grouped old pipe/echo/Nursery fallback claim is partially repaired by current authored pipe, echo, bottle, pat, and blanket behavior, but its unresolved subclaims have not yet been split and re-audited against accepted captures |
-| `MA-OPERA-005` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | The old Ballerina art/mechanic is superseded by the accepted 1024×1024 4×4 mermaid atlas and dedicated three-act full-stage recital; focused probes and the complete local merged-tree gate are green. Closure still requires the final merge SHA and remote exact-head gate (plus local rerun if committed content differs), two-aspect capture, M11/child play, and owner identity/style acceptance |
+| `MA-OPERA-005` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | The old Ballerina art/mechanic is superseded by the accepted 1024×1024 4×4 mermaid atlas and dedicated three-act full-stage recital; focused probes and the complete local integration gate are green. Closure still requires the remote exact-head gate, two-aspect capture, M11/child play, and owner identity/style acceptance |
 | `MA-OPERA-006` | P2 | `CONFIRMED_OPEN` | V1/V3 partial | Nursery, Farmer, and Racer received material art-fiction repairs, but the grouped historical claim must be split and re-audited; remaining protected-voice mismatches stay open rather than being inferred fixed |
 | `MA-OPERA-007` | P2 | `OWNER_DECISION_REQUIRED` | V1 | Farmer/Doctor above-water setting differs from the other Opera backdrops |
 | `MA-AUDIO-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | Forty-two unique deterministic area cues have complete score/render hashes, 48 kHz stereo OGG delivery, loop/import metadata, loudness/peak/seam measurements, routing ownership, and focused audio/full-branch evidence. Human style and two-wrap listening, voice-over intelligibility and ducking, mono fold-down, music-off transition review, and Lenovo Tab M11 start/loop/performance acceptance remain open |
+| `MA-CHANGE-001` | P2 | `VERIFIED_FIXED` | V2/V3 process evidence | Twenty-three stable `CHG-*` records now partition 64 owned source commits and document seven merge-topology commits, covering all 71 reachable audit commits. Every record names paths, benefit, plausible harm, dependencies, evidence, gates, and rollback class. The planner imports no Git/filesystem mutation API; only CHG-020/021/022 can emit guarded stdout scripts, while the other 20 refuse automation. | Fourteen unit tests, exact ledger/catalog source parity, clean non-mutation CLI replay, Git-history checks, GAME2D no-regression, and independent adversarial approval are green. Future material changes must append under the stable ID or add the next ID; drift reopens this finding. |
 | `MA-CODE-001` | P2 | `CONFIRMED_OPEN` | V1 | `main.gd` is 8,519 lines against the extraction-only <2,500 target |
 | `MA-CODE-002` | P2 | `CONFIRMED_OPEN` | V1 | String state, duplicated input, save frequency, material churn, and remaining 3D glue are structural risks |
 
@@ -621,7 +623,8 @@ source, fallback, rollback target, or claim that reachable 3D debt is retired.
 | `EV-TOUCH-001` | `MA-TOUCH-001` | Snowman coal touch controls meet `StorybookUI.MIN_TOUCH` | `82f9828c`; `probe_mg2d` |
 | `EV-CI-001` | `MA-CI-002` | Trusted local/remote probe parity and Opera-pipe coverage | `7e6d699d`; clean plus drift mutations |
 | `EV-CI-002` | `MA-RELEASE-001`, `MA-2D-002`, `MA-ASSET-005` | Preserve the last exact local full gate without conflating regression control with strict satisfaction or stale local cache | Runtime commit `a3d3bce1`; exact Godot 4.7.1-stable, fresh import, all static gates, GAME2D 509/68 `NO_REGRESSION`, and all 61 then-trusted probes green; exit 0 after 1434.3 seconds. Later isolated-import evidence classifies its UID warnings as stale ignored cache, while the GLBs remain medium debt. |
-| `EV-CI-003` | `MA-CI-002`, `MA-RELEASE-001` | Integrate new Opera/art/music gates into both blocking environments | Current integration; local loop 63, remote headless loop 62, display-only human-art probe is the sole intended difference, and default/stress parity checks are green. The merged-tree local full gate exits zero after 826.4 seconds with all 63; remote exact-merge execution remains pending. |
+| `EV-CI-003` | `MA-CI-002`, `MA-RELEASE-001` | Integrate new Opera/art/music gates into both blocking environments | Integration commit `ad36ee9f`; local loop 63, remote headless loop 62, display-only human-art probe is the sole intended difference, and default/stress parity checks are green. The local full gate exits zero after 826.4 seconds with all 63; remote exact-head execution remains pending. |
+| `EV-CHANGE-001` | `MA-CHANGE-001` | Make the large audit program reviewable and reversions granular | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`, `tools/plan_audit_rollback.py`, and 14 unit tests; CHG-001–023 cover 64 uniquely owned source commits plus seven explicit topology commits, only CHG-020/021/022 emit guarded stdout scripts, all other groups refuse automation, CLI execution leaves Git status byte-identical, and independent adversarial review approves the catalog/history/safety contract |
 | `EV-AUDIO-001` | `MA-AUDIO-001` | Compose, render, route, and deterministically verify every newly authored area cue | `0da07e24`, `27c2c95d`, and current integration; 42/42 scores and OGGs have unique hashes, loop/import metadata, measured codec/loudness/peak/seam evidence, routing probes, license entries, and exact build checks. Human listening, mono, voice mix, and M11 evidence remain open. |
 | `EV-PLAY-003` | `MA-PLAY-001` | Visible, voiced Lagoon→Reef route and Pause fallback | `986010c0`; focused/re-entry/sibling probes |
 | `EV-PLAY-004` | `MA-PLAY-001` | Exercise the default Hybrid Lagoon portal through the actual explicit interaction route | `e6e56f8b`; proves proximity alone does not enter, selects enabled `reef:lagoon`, activates it through the touch-interactable path, and keeps Classic/no-touch proximity behavior green |
@@ -641,7 +644,7 @@ source, fallback, rollback target, or claim that reachable 3D debt is retired.
 | `EV-VOICE-005` | `MA-ACCESS-001` | Brawl prompts bind to one Huluu cue | `e8485d54` |
 | `EV-ASSET-003` | `DL-ASSET-04` | Castle delivery provenance is newline-stable | `df5b4cf7` |
 | `EV-CASTLE-001` | `DL-VIS-10`, `DL-SAVE-01`, `DL-INT-01` | Apply the child's saved Castle logo to every matching purple shell banner without stealing room input | `9e75e8e3` plus current integration; two Craft Room and two Stuffie Playroom replacements, Craft badge, saved color/symbol, no overlay in unregistered rooms, and focused interaction coverage |
-| `EV-AUTH-001` | `MA-DOC-001`, `MA-DOC-002` | Reconcile current authority to true 2D while preserving the incomplete-ledger state | `9289dd81`; operational/design authorities updated; exhaustive 306-document classification remains open |
+| `EV-AUTH-001` | `MA-DOC-001`, `MA-DOC-002` | Reconcile current authority to true 2D while preserving the incomplete-ledger state | `9289dd81`; operational/design authorities updated; exhaustive 307-document classification remains open |
 | `EV-HYGIENE-001` | `MA-DOC-004`, `MA-VIS-006` | Keep local captures/profiles/review builds out of production Git status | `96317f8b`; `/tmp/*` ignored while existing tracked fixtures remain tracked; ignored evidence never gains PASS authority |
 
 These rows are bounded supporting evidence. None is inflated into a current-HEAD
@@ -777,7 +780,8 @@ finding records; section 10 controls that designation.
   optional two-touch but complete sequential one-finger play, no health/lives/
   damage/lost progress, one padded imp state machine, no generic combat layer,
   passive rejection, focus/close cleanup, and unchanged existing save bit 128.
-- **Acceptance:** final merged-SHA local and remote gates, authoritative
+- **Acceptance:** remote exact-head gate for the integrated audit branch,
+  authoritative
   two-aspect Mobile capture, one-finger target-device comfort/performance and
   voice review, child comprehension, and owner identity/style acceptance.
   Boxer's three retained GLBs are separate `MA-2D-002` debt and cannot become a
@@ -982,11 +986,11 @@ exact commit. This is the operational checklist for `DL-QA-09` and
 - [ ] Visual stress is green and every applicable failure, review, manual item,
       and coverage gap has an explicit accepted disposition.
 - [ ] Exact Godot 4.7.1-stable parser, lint, analyzer, fresh import, static
-      gates, and all 63 current trusted local probes are green at one final
-      merged commit. Historical `a3d3bce1` remains green for its then-current
-      61-probe suite; the staged merged tree completes the current full local
-      gate in 826.4 seconds, but no final merge SHA or remote exact-head run
-      exists yet.
+      gates, and all 63 current trusted local probes are green at one integrated
+      commit. Historical `a3d3bce1` remains green for its then-current 61-probe
+      suite; the resolved content committed as `ad36ee9f` completes the current
+      full local gate in 826.4 seconds, but the remote exact-head run remains
+      open.
 - [ ] Full runtime capture covers every activity at 1280×720 and a representative
       wide-phone aspect ratio.
 - [ ] Target phone and M11 meet P95 ≤33.3 ms, P99 ≤50 ms, no normal-path hitch
@@ -1007,7 +1011,7 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 ## 13. Current repair order
 
 1. Keep the dedicated `codex/master-audit-20260809` branch synchronized; create
-   the missing complete item records and finish the exhaustive 306-document
+   the missing complete item records and finish the exhaustive 307-document
    ledger/document-control gate. Authority reconciliation itself is complete at
    `9289dd81`.
 2. Continue one tested true-2D gameplay family from the exact 509-model/
@@ -1015,8 +1019,8 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
    category is zero; archive exact resources before active deletion.
 3. Implement live fresh-runtime Canvas adapters, beginning with converted
    surfaces and then Fairy/Lagoon; keep every missing capture as a gap.
-4. Verify the merged Ballerina, Boxer, Candymaker, and 42-cue music slices at
-   the final merge SHA, then repair remaining Opera capture coverage and split
+4. Verify the merged Ballerina, Boxer, Candymaker, and 42-cue music slices on
+   the remote exact audit-branch head, then repair remaining Opera capture coverage and split
    the stale grouped Opera art claims. Continue with the confirmed Lagoon
    Canvas-layer defect. Confirm or dismiss palette risks only from current
    state-local evidence.
@@ -1025,8 +1029,8 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 6. Rebuild and prove the complete child-visible world graph.
 7. Classify all probes and remove only proved obsolete assets/code.
 8. Preserve both the exact `a3d3bce1` historical full gate and the 826.4-second
-   current merged-tree local gate; finish the merge, run the 62-probe remote
-   suite at its exact final SHA (and rerun local if committed content changes),
+   `ad36ee9f` integration local gate; run the 62-probe remote suite at the exact
+   current audit-branch SHA (and rerun local if runtime/static content changes),
    then produce the capture matrix, matching APK, target-device U0 pass, audio
    listening matrix, and child golden path.
 9. Repeat the master audit from `INVENTORYING`; satisfaction cannot come from
@@ -1062,11 +1066,12 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-08-09 | `IN_PROGRESS` | Clean fresh-runtime visual strict at `a3d3bce1` fails closed at 16 FAIL/17 REVIEW_OPEN/2 MANUAL_OPEN/86 COVERAGE_GAP/32 PASS/94 NOT_APPLICABLE because no live Canvas capture output was accepted; strict 2D, voice, device, child, owner, and clean re-audit closure remain open |
 | 2026-08-10 | `CONFIRMING` | All newer `origin/dev` documents and runtime through `245c1613` are reviewed against audit `HEAD` `7b5d1209`. Current Opera authority is 13 careers/53 phases/27 modes/208 frames; older 52-phase, generic Ballerina/Boxer, looping-Ballerina, and nested-kart descriptions are partially superseded rather than silently retained. |
 | 2026-08-10 | focused `VERIFYING` | `MA-OPERA-005` moves to `FIXED_PENDING_VERIFICATION`: current Ballerina uses the accepted `c829784d…003995` one-tail atlas, held pose keys, one-shot curtain call, and dedicated Pearl Mirror/Ribbon Trail/Grand Twirl specialist with focused exact-Godot probes green; capture/device/child/owner acceptance remains open. |
-| 2026-08-10 | focused `VERIFYING` | `MA-OPERA-009` is created as `FIXED_PENDING_VERIFICATION` for the five-phase two-glove Boxer specialist; `39746756`'s phone-safe Candymaker pour is integrated; exact merged Opera/Nursery/Detective/gesture/passive/voice probes are green while final merge identity, remote exact-head, and device gates remain open. |
+| 2026-08-10 | focused `VERIFYING` | `MA-OPERA-009` is created as `FIXED_PENDING_VERIFICATION` for the five-phase two-glove Boxer specialist; `39746756`'s phone-safe Candymaker pour is integrated; exact merged Opera/Nursery/Detective/gesture/passive/voice probes are green while remote exact-head and device gates remain open. |
 | 2026-08-10 | focused `VERIFYING` | `MA-AUDIO-001` is created as `FIXED_PENDING_VERIFICATION`: deterministic score/render/import/routing evidence is complete for 42 new cues, while human two-wrap/style/voice/mono and Lenovo Tab M11 listening remain open. |
 | 2026-08-10 | focused `VERIFYING` | `MA-CI-002` moves to `FIXED_PENDING_VERIFICATION` after the 63-local/62-remote roster and default/stress parity gates include the new Opera probes; final remote exact-head execution remains open. Exhaustive classification of all 105 probes is preserved separately as new `MA-CI-003`, `CONFIRMED_OPEN`. |
 | 2026-08-10 | `CONFIRMING` | `MA-ASSET-005` is dismissed as a source defect after valid tracked GLBs/sidecars and a warning-free isolated fresh import prove four ignored local import-cache files caused the UID warnings; the GLBs remain separate GAME2D medium debt. |
-| 2026-08-10 | `REPAIRING` | Reconciliation rejects the upstream device-only real-3D kart path and preserves the one-implementation Canvas Racer with exact `op_racer_lap_two` speech. The staged `7b5d1209` + `245c1613` integration remains `IN_PROGRESS` until a merge commit earns full local and remote gates. |
-| 2026-08-10 | focused `VERIFYING` | The resolved staged merged tree completes exact Godot 4.7.1 `scripts/ci.sh` in 826.4 seconds with fresh import, all static gates, GAME2D `NO_REGRESSION`, and all 63 current trusted local probes green. A final merge SHA and remote exact-head CI remain pending; strict 2D, visual, audio-listening, device, child, and owner gates stay open. |
+| 2026-08-10 | `VERIFIED_FIXED` | `MA-CHANGE-001` adds the append-only CHG-001–023 change/rollback ledger and read-only planner: 64 owned source commits plus seven merge-topology commits cover all 71 reachable audit commits; 14 tests, non-mutation replay, exact Git-history checks, GAME2D no-regression, and independent adversarial review are green. |
+| 2026-08-10 | `REPAIRING` | Reconciliation rejects the upstream device-only real-3D kart path and preserves the one-implementation Canvas Racer with exact `op_racer_lap_two` speech. Merge commit `ad36ee9f` integrates `7b5d1209` and `245c1613`; remote exact-head verification remains open. |
+| 2026-08-10 | focused `VERIFYING` | The resolved integration content committed as `ad36ee9f` completes exact Godot 4.7.1 `scripts/ci.sh` in 826.4 seconds with fresh import, all static gates, GAME2D `NO_REGRESSION`, and all 63 current trusted local probes green. Remote exact-head CI remains pending; strict 2D, visual, audio-listening, device, child, and owner gates stay open. |
 
 No later state is added without its required evidence.

@@ -3,7 +3,7 @@
 _Initial 149-document index: 2026-08-02. Targeted authority reconciliation:
 2026-08-09._
 
-This ledger is **not exhaustive** for the repository's current set of **306
+This ledger is **not exhaustive** for the repository's current set of **307
 tracked Markdown paths**. It preserves the original index and adds the
 documents/partial-supersession decisions needed for the 2026-08-09 medium and
 merged Opera/audio rulings. `MA-DOC-002` remains `CONFIRMED_OPEN` until a gate
@@ -42,6 +42,7 @@ Absence from this file grants no authority.
 | `design/05_DOC_LEDGER.md` | 🔵 | `SUPPORTING_CURRENT`; this partial index. Exhaustive ledger closure remains `MA-DOC-002`. |
 | `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` | 🟣 | `PROPOSED_CANONICAL`; tracked and indexed, pending the remaining documentation gate. Stable `DL-*` rule authority within its declared state. |
 | `audit/MASTER_AUDIT_2026-08-09.md` | 🟣 | `PROPOSED_CANONICAL`; synchronized audit-cycle/evidence/lifecycle record. Overall state `REPAIRING`, satisfaction `NOT SATISFIED`. |
+| `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` | 🟢 | `BINDING_OPERATIONAL` for stable `CHG-*` scope, risk/evidence logging, dependency-aware rollback planning, and the clean-branch/gate-before-merge revert workflow. It never authorizes a rollback that violates protected-asset, security, save, or final-medium rules. |
 | `ASSET_AUDIT.md` | ⚪ | `HISTORICAL_EVIDENCE`; 2026-06-25 CC0 audit/network decision. Current named-defect discipline comes from design 06; its stale music inventory is superseded by `MUSIC_AUDIT_2026-08-09.md`. |
 
 ## Game design lineage
@@ -155,8 +156,8 @@ Absence from this file grants no authority.
 
 | Doc | | Note |
 |---|---|---|
-| `BALLERINA_PARTY_REBUILD_2026-08-09.md` | 🟢 | `BINDING_DOMAIN`, latest Ballerina authority: three-act full-stage Pearl Mirror / Ribbon Trail / Grand Twirl, monotonic 5/10-second assistance, held pose keys and one-shot curtain call. It supersedes every older Ballerina phase/playback section and old atlas recommendation. The resolved merged-worktree local full suite is green; final merge-SHA remote CI, device, child and owner review remain. |
-| `design/BOXING_GAME_PROJECT_2026-08-09.md` | 🟠 | `BINDING_DOMAIN` for Boxer's five one-finger Canvas phases, touch ownership, friendly/no-loss behavior, save/reward ownership and probe contract. Its three retained GLBs are `SUPERSEDED` measured debt, never fallback or implementation resources. The local merged-worktree full suite is green; final-SHA remote/device/child/owner review remains under `MA-OPERA-009`. |
+| `BALLERINA_PARTY_REBUILD_2026-08-09.md` | 🟢 | `BINDING_DOMAIN`, latest Ballerina authority: three-act full-stage Pearl Mirror / Ribbon Trail / Grand Twirl, monotonic 5/10-second assistance, held pose keys and one-shot curtain call. It supersedes every older Ballerina phase/playback section and old atlas recommendation. The resolved content is integrated at `ad36ee9f` and its local full suite is green; remote exact-head CI, device, child and owner review remain. |
+| `design/BOXING_GAME_PROJECT_2026-08-09.md` | 🟠 | `BINDING_DOMAIN` for Boxer's five one-finger Canvas phases, touch ownership, friendly/no-loss behavior, save/reward ownership and probe contract. Its three retained GLBs are `SUPERSEDED` measured debt, never fallback or implementation resources. The resolved content is integrated at `ad36ee9f` and its local full suite is green; remote exact-head/device/child/owner review remains under `MA-OPERA-009`. |
 | `OPERA_QUALITY_OVERHAUL_2026-08-09.md` | 🟠 | `SUPPORTING_CURRENT` for career-specific causal verbs, Canvas layout/input corrections and the 13-atlas/208-frame audit. Its 52-phase count, universal descriptions of the later Ballerina/Boxer specialists, and real-kart Racer payoff are historical and `SUPERSEDED`. |
 | `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md` | 🟠 | `SUPPORTING_CURRENT` for the seven-part quality rubric, reuse discipline and non-overridden career/art corrections. Its 52-phase baseline plus Ballerina, Boxer and nested-kart prescriptions are `SUPERSEDED` by the later scoped authorities and Canvas Racer reconciliation. |
 | `assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md` | 🔵 | `PROVENANCE_ONLY` / `SUPPORTING_CURRENT` for minigame-sheet derivation and review notes. It grants no 5/5 or runtime acceptance; owner/context/device review remains separate. |

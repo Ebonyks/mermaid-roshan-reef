@@ -6,7 +6,7 @@ _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09._
 
 The project accumulated hundreds of design documents, audits, work orders and
 handoffs. The original consolidation counted 149 Markdown documents; the
-merged 2026-08-09 audit working tree contains **306 tracked Markdown paths**.
+merged 2026-08-09 audit working tree contains **307 tracked Markdown paths**.
 Both are dated inventory facts, not stable design constants. The documents are
 individually useful and collectively difficult to navigate:
 the same rule is restated in six places with three different dates, several
@@ -28,6 +28,7 @@ index, not proof that every tracked Markdown file has been classified.
 | 05 | [DOC_LEDGER.md](05_DOC_LEDGER.md) | Partial authority/status index for the original document set plus targeted later additions; not yet exhaustive |
 | 06 | [COMPREHENSIVE_DESIGN_LANGUAGE.md](06_COMPREHENSIVE_DESIGN_LANGUAGE.md) | Stable `DL-*` rules, including the owner's 2026-08-09 true-2D decision and the complete audit contract |
 | audit | [MASTER_AUDIT_2026-08-09.md](../audit/MASTER_AUDIT_2026-08-09.md) | Current audit-cycle state, synchronized evidence, lifecycle triage, and satisfaction gate |
+| changes | [MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md](../audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md) | Stable `CHG-*` change groups, benefits/risks, dependencies, evidence, and guarded per-change rollback plans |
 
 `06_COMPREHENSIVE_DESIGN_LANGUAGE.md` is tracked and recognized here, but its
 own status remains `PROPOSED_CANONICAL` until the documentation gate described
@@ -86,8 +87,9 @@ probe 3D files. The same snapshot contains 192 GDScript files under `scripts/`,
 105 `scripts/probe_*.gd` files, and an 8,519-line `scripts/main.gd`. A
 no-regression result is not 2D completion, and these counts must be measured
 again after later integrations. Exact Godot 4.7.1-stable local `scripts/ci.sh`
-is green on this resolved working tree (826.4 seconds), while final merge-SHA
-remote, APK, device, child and strict-zero evidence remain open.
+is green on the resolved content committed as integration merge `ad36ee9f`
+(826.4 seconds), while remote exact-head, APK, device, child and strict-zero
+evidence remain open.
 
 ## Maintaining this
 

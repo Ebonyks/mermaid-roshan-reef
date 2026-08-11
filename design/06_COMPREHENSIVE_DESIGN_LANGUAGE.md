@@ -7,9 +7,9 @@
 - **Decision baseline:** owner direction through 2026-08-09
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
-- **Current integration snapshot:** audit `HEAD`
-  `7b5d1209b4c4823fbf9ed39193c8b1700a288497` plus `MERGE_HEAD`
-  `245c16137fae82271dabac456d5ab04d843463a8`; final merge commit pending
+- **Current integration commit:**
+  `ad36ee9f` (parents `7b5d1209b4c4823fbf9ed39193c8b1700a288497`
+  and `245c16137fae82271dabac456d5ab04d843463a8`)
 - **Last completed full local checkpoint:**
   `a3d3bce18dd73d0ac87f2fb4bac397e2b4396180`
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
@@ -30,19 +30,19 @@ closure evidence live in `audit/MASTER_AUDIT_2026-08-09.md`.
 
 Commit `9289dd81` reconciled `AGENTS.md`, `CLAUDE.md`, `design/00` through
 `design/05`, and the named Roshan authority surface to the owner's final 2D
-decision. The ledger is still incomplete across the current 306 tracked
+decision. The ledger is still incomplete across the current 307 tracked
 Markdown files, so a direct owner decision and binding operational/security
 rules remain higher authority. Where an older art or design document conflicts
 with a rule here, the dated supersession table in section 15 controls.
 
-At the staged `7b5d1209` + `245c1613` integration, this remains an acceptance
+At integration commit `ad36ee9f`, this remains an acceptance
 target, not a compliance claim. Historical exact local full CI is green at
 `a3d3bce1`; the current integration has exact Godot 4.7.1 import/editor startup,
 changed-script parser/lint, GAME2D unit/stress/regression, deterministic Opera
 art/animation/music gates, and focused Opera/audio/passive/voice probes green.
-The resolved merged tree also completes full local `scripts/ci.sh` in 826.4
-seconds with all 63 current trusted probes, but has no final merge SHA or remote
-exact-head run yet. GAME2D is
+The resolved integration content committed as `ad36ee9f` also completes full
+local `scripts/ci.sh` in 826.4 seconds with all 63 current trusted probes, but
+has no remote exact-head run yet. GAME2D is
 exact but strict-unsatisfied at 509 models, 68 production 3D files, and 77 probe
 3D files. Fresh-runtime visual strict is also unsatisfied at 16 failures, 17
 reviews, two manual items, 86 coverage gaps, 32 passes, and 94 not-applicable
@@ -828,6 +828,18 @@ listening evidence. All 42 new cues must keep exact source/render/import hashes
 and route coverage green, and all must pass the human two-wrap, voice/ducking,
 music-off, mono, and Lenovo Tab M11 checks in `DL-SND-09`. A complete manifest
 or branch CI result cannot fill an unperformed listen.
+
+`DL-QA-14` — Every material audit or repair change MUST have a stable `CHG-*`
+record in `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` naming exact
+commits and paths, intended benefit, plausible negative effects, dependencies,
+evidence, and rollback class. Rollback planning starts from a clean dedicated
+`codex/rollback-<change-id>` branch. The planner is read-only; any printed
+`git revert --no-commit` sequence is inspected before execution, conflicts stop
+the operation, and the resulting diff earns the named focused and full gates
+before commit, push, or merge. Mixed, policy-sensitive, protected-asset, save,
+security, or final-medium changes never receive an unsafe one-line rollback.
+`git revert -m 1 ad36ee9f` is emergency all-or-nothing recovery for that merge,
+not an individual-change shortcut.
 
 ---
 

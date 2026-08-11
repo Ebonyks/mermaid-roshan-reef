@@ -247,8 +247,8 @@ The earlier exact full-suite checkpoint `344d8d5c` remains historical evidence:
 exit 0 with 61 trusted local probes and GAME2D `NO_REGRESSION` at 513 models /
 70 production files. The resolved merged 63-probe, 509/68/77 working tree now
 also passes the complete local `scripts/ci.sh` under exact Godot 4.7.1-stable
-(exit 0 in 826.4 seconds). That validates the merged worktree, not a final
-merge commit: final-SHA remote CI, APK/device, visual and child evidence remain
+(exit 0 in 826.4 seconds). That resolved content is now integration merge
+`ad36ee9f`; remote exact-head CI, APK/device, visual and child evidence remain
 open. Neither checkpoint is true-2D satisfaction.
 
 Two subtleties worth preserving:
