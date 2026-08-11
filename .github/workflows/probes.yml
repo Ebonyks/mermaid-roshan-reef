@@ -42,10 +42,13 @@ jobs:
 
       - name: Download Godot (checksum-verified)
         run: |
-          curl -sSL -o godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_linux.x86_64.zip"
-          echo "${GODOT_ZIP_SHA512}  godot.zip" | sha512sum -c -
-          unzip -q godot.zip
-          sudo mv "Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot
+          godot_archive="${RUNNER_TEMP}/godot.zip"
+          godot_extract="${RUNNER_TEMP}/godot"
+          curl -sSL -o "${godot_archive}" "https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_linux.x86_64.zip"
+          echo "${GODOT_ZIP_SHA512}  ${godot_archive}" | sha512sum -c -
+          mkdir -p "${godot_extract}"
+          unzip -q "${godot_archive}" -d "${godot_extract}"
+          sudo mv "${godot_extract}/Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot
 
       - name: Static gates (parse + Variant-inference lint)
         # a parse error in main.gd makes every probe idle to its 8m timeout
