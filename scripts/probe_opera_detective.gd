@@ -1,5 +1,5 @@
 extends SceneTree
-## Focused runtime contract for Detective's painted-room search.
+## Focused runtime contract for Detective's diegetic painted-room search.
 ##
 ## The broad Opera probe exercises every career. This one stays deliberately
 ## small so lens geometry, true magnification, safe prop reactions and the
@@ -7,6 +7,8 @@ extends SceneTree
 
 var bad := 0
 var main: ReefMain
+
+const StagePaths := preload("res://scripts/opera_stage_paths.gd")
 
 
 func _init() -> void:
@@ -24,10 +26,35 @@ func _init() -> void:
 	act.start(main, config, Callable())
 	await process_frame
 	var world := act.career_world_2d
-	_check("detective opens directly into the painted search",
+	_check("detective begins in the navigable painted room",
 		act.use_career_world_2d and world != null
-		and world.lens_layer.visible and world.lens_zoom_surface.visible)
-	_check("missing-crown setup begins as a two-voice story",
+		and not world.task_open and not world.action_panel.visible
+		and not world.lens_layer.visible and not world.lens_zoom_surface.visible)
+	var hotspot := world._active_hotspot()
+	var starts_at_magnifier := hotspot != null \
+		and hotspot.station_id == "magnifier_tower" \
+		and hotspot.presentation == "painted" \
+		and hotspot.touch_button != null and not hotspot.touch_button.disabled
+	_check("painted magnifier tower invites the first search", starts_at_magnifier)
+	var route_safe := starts_at_magnifier
+	if hotspot != null and hotspot.touch_button != null:
+		hotspot.touch_button.pressed.emit()
+		route_safe = route_safe and world.wander_walking \
+			and StagePaths.route_is_approved("detective", world.wander_route, 2.0)
+		var route_ticks := 0
+		while not world.task_open and route_ticks < 320:
+			world._process(0.05)
+			hotspot._process(0.05)
+			route_safe = route_safe and StagePaths.point_is_on_approved_route(
+				"detective", world.wander_feet, 3.0)
+			route_ticks += 1
+	_check("Roshan follows the authored route before search opens",
+		route_safe and world.task_open and hotspot != null
+		and hotspot.activation_count == 1)
+	_check("arrival opens the painted search and optical glass",
+		world.task_open and world.lens_layer.visible
+		and world.lens_zoom_surface.visible)
+	_check("missing-crown setup begins on arrival as a two-voice story",
 		world.detective_intro_played and main.dialogue_active
 		and OperaCareerWorld2D.DETECTIVE_INTRO_LINES.size() == 2
 		and String(OperaCareerWorld2D.DETECTIVE_INTRO_LINES[0].get("vo", ""))
@@ -67,11 +94,15 @@ func _init() -> void:
 		every_clue_reachable)
 	var progress_before := world.phase_progress
 	var reactions_before := world.lens_room_reactions
-	var first_object: Dictionary = world.lens_room_objects[0]
+	var prop_reacts_safely := false
+	if not world.lens_room_objects.is_empty():
+		var first_object: Dictionary = world.lens_room_objects[0]
+		prop_reacts_safely = world._try_lens_room_object(
+			first_object.get("pos", Vector2.ZERO)) \
+			and world.lens_room_reactions == reactions_before + 1 \
+			and is_equal_approx(world.phase_progress, progress_before)
 	_check("an ordinary prop responds without changing case progress",
-		world._try_lens_room_object(first_object.get("pos", Vector2.ZERO))
-		and world.lens_room_reactions == reactions_before + 1
-		and is_equal_approx(world.phase_progress, progress_before))
+		prop_reacts_safely)
 	world.lens_demo = false
 	world.lens_since_find = OperaCareerWorld2D.LENS_HINT_DELAY - 0.05
 	world._tick_lens(0.10)

@@ -23,7 +23,7 @@ All other art is a non-destructive derivative of approved project sources.
 - `widget_clue_board_complete.png` — 1024x608; alpha bbox `[114, 19, 911, 589]`; complete frame and all three left-to-right silhouettes visible; no grid/frame bleed or crop.
 - `widget_clue_board_empty.png` — 1024x608; alpha bbox `[113, 20, 911, 588]`; complete frame and all three left-to-right silhouettes visible; no grid/frame bleed or crop.
 - `widget_clue_board_tokens.png` — 768x256; alpha bbox `[20, 20, 748, 237]`; three distinct complete tokens; no cross-cell bleed or clipping.
-- `widget_crank_popstar_mover.png` — 256x256; alpha bbox `[16, 30, 240, 227]`; single finale microphone identity, not whole stage; complete mic with intentional sound pulses and no frame bleed.
+- `widget_crank_popstar_mover.png` — 256x256; alpha bbox `[16, 16, 240, 240]`; single finale microphone identity, not whole stage; complete mic with intentional sound pulses and no frame bleed or detached edge bar.
 - `widget_crank_racer.png` — 1024x608; alpha bbox `[0, 0, 1024, 608]`; no racetrack curve; clear pre-repair state has one complete front wheel, one open rear hub, and a non-overlapping toolkit.
 - `widget_crank_racer_mover.png` — 256x256; alpha bbox `[35, 37, 221, 219]`; accepted source topology preserved; one complete object; no crop, detached part, or visible green spill.
 - `widget_crank_racer_wheel.png` — 256x256; alpha bbox `[22, 22, 234, 234]`; complete isolated wheel with tire, rim, and shell hub; no fender, body fragment, crop, or presentation field.

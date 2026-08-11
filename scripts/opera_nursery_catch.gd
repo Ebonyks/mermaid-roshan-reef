@@ -20,6 +20,7 @@ const SPAWN_LANES: Array[float] = [0.17, 0.50, 0.83, 0.32, 0.68, 0.22, 0.77]
 const CATCH_Y := 0.74
 const PILLOW_Y := 0.91
 const INPUT_MEMORY := 2.0
+const DRAWS_CARD_BACKING := false
 
 var active := false
 var goal := 5
@@ -35,6 +36,7 @@ var safe_landings: Array[Dictionary] = []
 var settled: Array[int] = []
 var textures: Array[Texture2D] = []
 var backdrop_texture: Texture2D = null
+var retired_backdrop_path := ""
 var cradle_texture: Texture2D = null
 var pillows_texture: Texture2D = null
 
@@ -42,7 +44,9 @@ var pillows_texture: Texture2D = null
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	set_process(false)
-	backdrop_texture = _load_if_exists("res://assets/opera/worlds/widgets/widget_catch_nursery.png")
+	# Keep the path as audit evidence, but never paint the framed legacy card.
+	retired_backdrop_path = "res://assets/opera/worlds/widgets/widget_catch_nursery.png"
+	backdrop_texture = null
 	cradle_texture = _load_if_exists("res://assets/opera/worlds/widgets/widget_catch_nursery_cradle.png")
 	pillows_texture = _load_if_exists("res://assets/opera/worlds/widgets/widget_catch_nursery_pillows.png")
 	for path: String in BABY_PATHS:
@@ -225,22 +229,14 @@ func _draw_baby(texture_index: int, point: Vector2, extent: float, opacity: floa
 
 
 func _draw() -> void:
-	var panel := Rect2(Vector2.ZERO, size)
-	if backdrop_texture != null:
-		draw_texture_rect(backdrop_texture, panel, false)
-	else:
-		draw_rect(panel, Color(0.035, 0.04, 0.11, 0.86), true)
-	draw_rect(panel.grow(-4.0), Color(0.66, 0.90, 0.88), false, 5.0)
-	# The authored backdrop carries the mobile band; keep the vector mobile as
-	# a graceful fallback when the raster set is unavailable.
-	if backdrop_texture == null:
-		var mobile_y := size.y * 0.12
-		draw_line(Vector2(size.x * 0.50, 0), Vector2(size.x * 0.50, mobile_y), Color(0.94, 0.83, 0.55), 4.0)
-		for index in range(3):
-			var mobile_x := size.x * (0.34 + float(index) * 0.16)
-			var bob := sin(elapsed * (1.4 + float(index) * 0.13) + float(index)) * 5.0
-			draw_line(Vector2(size.x * 0.50, mobile_y), Vector2(mobile_x, mobile_y + 22.0 + bob), Color(0.78, 0.72, 0.92), 3.0)
-			draw_circle(Vector2(mobile_x, mobile_y + 29.0 + bob), 7.0, Color(1.0, 0.88, 0.42))
+	# Borderless room-grown mobile. The room remains visible through every gap.
+	var mobile_y := size.y * 0.12
+	draw_line(Vector2(size.x * 0.50, 0), Vector2(size.x * 0.50, mobile_y), Color(0.94, 0.83, 0.55), 4.0)
+	for index in range(3):
+		var mobile_x := size.x * (0.34 + float(index) * 0.16)
+		var bob := sin(elapsed * (1.4 + float(index) * 0.13) + float(index)) * 5.0
+		draw_line(Vector2(size.x * 0.50, mobile_y), Vector2(mobile_x, mobile_y + 22.0 + bob), Color(0.78, 0.72, 0.92), 3.0)
+		draw_circle(Vector2(mobile_x, mobile_y + 29.0 + bob), 7.0, Color(1.0, 0.88, 0.42))
 
 	# Pillow-safe floor. A miss rests here while Faron gently returns the baby.
 	if pillows_texture != null:

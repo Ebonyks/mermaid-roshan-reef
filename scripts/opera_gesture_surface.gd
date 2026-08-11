@@ -9,6 +9,13 @@ extends Control
 
 signal gesture(kind: String, amount: float, quality: float)
 
+## The room and career-world focus supply the visual ground. This surface owns
+## only themed play objects/effects; it must never recreate the retired pale
+## clipboard/easel card underneath them.
+const DRAWS_CARD_BACKING := false
+const DRAWS_FRAMED_WIDGET_BACKDROPS := false
+const DRAWS_CAUSAL_RECTANGLE_BACKDROPS := false
+
 var mode := "tap"
 var accent := Color(1.0, 0.62, 0.8)
 var target_choice := 1
@@ -320,6 +327,8 @@ var nursery_textures: Array[Texture2D] = []
 var widget_template := ""
 var widget_fill := 0.0
 var widget_backdrop: Texture2D = null
+var retired_widget_backdrop_path := ""
+var last_widget_ground_route := ""
 var widget_mover: Texture2D = null
 var widget_overlay: Texture2D = null
 var widget_stamp: Texture2D = null
@@ -331,6 +340,8 @@ var portal_mover_texture: Texture2D = null
 var portal_ring_texture: Texture2D = null
 var portal_overlay_texture: Texture2D = null
 var racer_wheel_texture: Texture2D = null
+var racer_kart_texture: Texture2D = null
+var doctor_patient_texture: Texture2D = null
 var charge_astronaut_texture: Texture2D = null
 var charge_popstar_texture: Texture2D = null
 ## Focused probes read the route last exercised by CanvasItem._draw(). Keeping
@@ -352,6 +363,11 @@ var pipe_intake_texture: Texture2D = null
 var echo_unlit_texture: Texture2D = null
 var echo_lit_texture: Texture2D = null
 var crank_rotation := 0.0
+## Probe-readable draw ownership. These record the object-local scene actually
+## composited after the framed widget bases were retired.
+var last_target_subject_route := ""
+var last_trace_subject_route := ""
+var last_specialist_subject_route := ""
 ## Trickle-by-assist (house pattern from fetch/melody/dolls): wrong input
 ## always celebrates but pays ~nothing, and repeat misses inside the
 ## cooldown pay zero — correct play must strictly beat mashing.
@@ -415,6 +431,9 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	feedback_anchor = Vector2.ZERO
 	input_started = false
 	crank_rotation = 0.0
+	last_target_subject_route = ""
+	last_trace_subject_route = ""
+	last_specialist_subject_route = ""
 	_load_widget_set()
 	charge_astronaut_texture = null
 	charge_popstar_texture = null
@@ -606,6 +625,8 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	portal_ring_texture = null
 	portal_overlay_texture = null
 	racer_wheel_texture = null
+	racer_kart_texture = null
+	doctor_patient_texture = null
 	if _is_magician_portal_context():
 		for portal_mover_path: String in [
 			"res://assets/opera/worlds/widgets/widget_portal_magician_mover.png",
@@ -635,6 +656,11 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	if _is_racer_tune_context():
 		racer_wheel_texture = _load_widget_texture(
 			"res://assets/opera/worlds/widgets/widget_crank_racer_wheel.png")
+		racer_kart_texture = _load_widget_texture(
+			"res://assets/opera/worlds/widgets/widget_crank_racer_kart.png")
+	if next_mode == "circle" and visual_context == "crank_doctor":
+		doctor_patient_texture = _load_widget_texture(
+			"res://assets/opera/worlds/widgets/widget_crank_doctor_patient.png")
 	if next_mode == "dance_sequence":
 		_dance_restart_show(0.32)
 	if next_mode == "candy_sort":
@@ -697,6 +723,7 @@ func _load_widget_texture(path: String) -> Texture2D:
 func _load_widget_set() -> void:
 	widget_template = visual_context.get_slice("_", 0) if not visual_context.is_empty() else ""
 	widget_backdrop = null
+	retired_widget_backdrop_path = ""
 	widget_mover = null
 	widget_overlay = null
 	widget_stamp = null
@@ -704,7 +731,12 @@ func _load_widget_set() -> void:
 	if widget_template.is_empty():
 		return
 	var prefix := "res://assets/opera/worlds/widgets/widget_%s" % visual_context
-	widget_backdrop = _load_widget_texture("%s.png" % prefix)
+	# The legacy family base is a pale clipboard/easel card. Keep its path only
+	# for audit/provenance; runtime composes isolated role art and code-native
+	# themed scenery directly over the room focus instead of loading its pixels.
+	var legacy_backdrop_path := "%s.png" % prefix
+	if ResourceLoader.exists(legacy_backdrop_path):
+		retired_widget_backdrop_path = legacy_backdrop_path
 	match widget_template:
 		"gauge":
 			widget_mover = _load_widget_texture("res://assets/opera/worlds/widgets/widget_gauge_shared_needle.png")
@@ -872,7 +904,7 @@ func _press(at: Vector2) -> void:
 	held = true
 	pointer_pos = at
 	previous_pos = at
-	previous_angle = (at - size * 0.5).angle()
+	previous_angle = (at - _circle_pivot()).angle()
 	have_angle = true
 	_last_spin = 0.0
 	feedback_anchor = at
@@ -1108,7 +1140,7 @@ func _drag(at: Vector2) -> void:
 			if at.distance_to(trace_points[trace_points.size() - 1]) > 24.0:
 				trace_points.append(at)
 	elif mode == "circle":
-		var center := size * 0.5
+		var center := _circle_pivot()
 		var radius := at.distance_to(center)
 		if radius > minf(size.x, size.y) * 0.13:
 			var angle := (at - center).angle()
@@ -1193,10 +1225,9 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _draw() -> void:
-	var panel := Rect2(Vector2.ZERO, size)
-	# light paper inset window per the StorybookUI language
-	draw_rect(panel, Color(0.94, 0.97, 1.0, 0.96), true)
-	draw_rect(panel.grow(-3.0), accent.lerp(Color("#382485"), 0.62), false, 4.0)
+	# No generic paper/card rectangle: each activity now grows out of the room
+	# object over the career-world theatre-light focus.
+	last_widget_ground_route = ""
 	var center := size * 0.5
 	if mode == "pipe":
 		_draw_pipe()
@@ -1272,10 +1303,8 @@ func _draw() -> void:
 		if demo_active:
 			_draw_demo_finger()
 		return
-	if widget_backdrop != null:
-		# authored at 1024x608 (1.684); the panel is not that aspect, so a plain
-		# stretch squashed every round object into an egg. Cover-fit instead.
-		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
+	if not widget_template.is_empty():
+		_draw_widget_family_ground(center)
 		_draw_widget_layers(center)
 		if demo_active:
 			_draw_demo_finger()
@@ -1385,6 +1414,17 @@ func _cover_rect(texture: Texture2D) -> Rect2:
 	var scale := maxf(size.x / tex.x, size.y / tex.y)
 	var drawn := tex * scale
 	return Rect2((size - drawn) * 0.5, drawn)
+
+
+## Aspect-preserving containment for isolated props. Unlike `_cover_rect`, this
+## never crops a square object to fill the wide activity surface.
+func _contain_rect(texture: Texture2D, bounds: Rect2) -> Rect2:
+	var tex := texture.get_size()
+	if tex.x <= 0.0 or tex.y <= 0.0:
+		return bounds
+	var scale := minf(bounds.size.x / tex.x, bounds.size.y / tex.y)
+	var drawn := tex * scale
+	return Rect2(bounds.get_center() - drawn * 0.5, drawn)
 
 
 func _draw_progress_overlay(texture: Texture2D, progress: float, horizontal: bool) -> void:
@@ -1504,38 +1544,48 @@ func _draw_farmer_pig_group(progress: float) -> void:
 
 func _draw_long_push() -> void:
 	last_contextual_draw_route = "push:%s" % visual_context
-	var playfield := Rect2(size.x * 0.055, size.y * 0.13,
-		size.x * 0.89, size.y * 0.76)
 	var farmer := visual_context == "push_farmer"
-	var paper := Color("#eef7e8") if farmer else Color("#edf3ff")
-	var ground := Color("#a7cf83") if farmer else Color("#b5c9e8")
-	# The old backdrops paint a second static pig/kart in the middle. A clean
-	# themed playfield over the card interior makes the approved isolated mover
-	# the sole game object and gives its 68%-width journey a readable start/end.
-	draw_rect(playfield, paper, true)
-	draw_rect(playfield, Color("#3b2a68"), false, 4.0)
-	draw_rect(Rect2(playfield.position.x, size.y * 0.59,
-		playfield.size.x, size.y * 0.30), ground, true)
 	var start := _long_push_start()
 	var finish := _long_push_end()
 	var position := _long_push_position(widget_fill)
-	draw_line(start, finish, Color(0.28, 0.25, 0.46, 0.25), 14.0, true)
-	draw_line(start, position, accent, 12.0, true)
+	# Object-sized stepping stones make the route visible without laying a
+	# rectangular UI strip across the painted room.
+	for step_index in range(7):
+		var step_amount := float(step_index) / 6.0
+		var step := start.lerp(finish, step_amount)
+		step.y += sin(step_amount * PI) * size.y * 0.035
+		draw_set_transform(step, 0.0, Vector2(1.7, 0.52))
+		draw_circle(Vector2.ZERO, 8.0,
+			Color("#d9b976") if farmer else Color("#c7d9ec"))
+		draw_set_transform(Vector2.ZERO)
+	draw_line(start, position, Color(accent, 0.72), 8.0, true)
 	draw_circle(start, 13.0, Color(1.0, 1.0, 1.0, 0.88))
 	draw_arc(start, 20.0, 0.0, TAU, 28, accent, 4.0)
 	if farmer:
-		# Barn gate destination.
-		var post_color := Color("#9b613e")
+		# Pearl-and-coral barn gate destination, shaped like a room prop rather
+		# than a blocky meter end-stop.
+		var post_color := Color("#b86f58")
+		var trim_color := Color("#f2cf78")
+		var gate_half := size.x * 0.075
+		var gate_top := size.y * 0.32
+		var gate_bottom := size.y * 0.73
 		for post_sign: float in [-1.0, 1.0]:
-			var post_x := finish.x + post_sign * size.x * 0.075
-			draw_rect(Rect2(post_x - 8.0, size.y * 0.28, 16.0, size.y * 0.43),
-				post_color, true)
-		draw_line(Vector2(finish.x - size.x * 0.075, size.y * 0.31),
-			Vector2(finish.x + size.x * 0.075, size.y * 0.31), post_color, 16.0, true)
+			var post_x := finish.x + post_sign * gate_half
+			draw_line(Vector2(post_x, gate_top), Vector2(post_x, gate_bottom),
+				post_color, 12.0, true)
+			draw_circle(Vector2(post_x, gate_top), 10.0, trim_color)
+			draw_circle(Vector2(post_x, gate_top), 4.0, Color("#fff3c5"))
+		draw_set_transform(Vector2(finish.x, gate_top + 4.0), 0.0, Vector2(1.35, 1.0))
+		draw_arc(Vector2.ZERO, gate_half * 0.78, PI, TAU, 28, post_color, 10.0)
+		draw_set_transform(Vector2.ZERO)
 		if widget_fill < 0.98:
-			draw_line(Vector2(finish.x - size.x * 0.065, size.y * 0.50),
-				Vector2(finish.x + size.x * 0.065, size.y * 0.50),
-				Color("#d39a60"), 11.0, true)
+			var open_angle := widget_fill * 0.72
+			for rail_sign: float in [-1.0, 1.0]:
+				var hinge := Vector2(finish.x + rail_sign * (gate_half - 5.0),
+					size.y * 0.53)
+				var rail_end := hinge + Vector2(-rail_sign * gate_half * cos(open_angle),
+					-gate_half * sin(open_angle))
+				draw_line(hinge, rail_end, trim_color, 9.0, true)
 	else:
 		# Pearl starting arch destination.
 		var arch_color := Color("#f2d57a")
@@ -1702,12 +1752,143 @@ func _trace_segment_on_corridor(from: Vector2, to: Vector2) -> bool:
 
 
 func _draw_authored_trace_corridor() -> void:
-	var previous := _trace_demo_point(0.0)
-	for point_index in range(1, 33):
-		var point := _trace_demo_point(float(point_index) / 32.0)
-		draw_line(previous, point, Color(accent, 0.38), 12.0, true)
-		draw_line(previous, point, Color(1.0, 1.0, 1.0, 0.38), 4.0, true)
-		previous = point
+	_draw_authored_trace_subject()
+	var whole_path := _trace_path_points(1.0)
+	if whole_path.size() >= 2:
+		draw_polyline(whole_path, Color(0.16, 0.12, 0.30, 0.38), 18.0, true)
+		draw_polyline(whole_path, Color(accent, 0.36), 11.0, true)
+	var revealed := _trace_path_points(trace_journey)
+	if revealed.size() >= 2:
+		var active_colour := _trace_active_colour()
+		draw_polyline(revealed, Color(active_colour, 0.46), _trace_active_width() + 8.0, true)
+		draw_polyline(revealed, active_colour, _trace_active_width(), true)
+		draw_polyline(revealed, Color(1.0, 0.98, 0.86, 0.72), 3.0, true)
+		var tip := revealed[revealed.size() - 1]
+		draw_circle(tip, 8.0 + 3.0 * sin(demo_t * 5.0), Color("#ffe47d"))
+	if completion_accepted or trace_journey >= 0.999:
+		for sparkle_index in range(8):
+			var amount := float(sparkle_index) / 7.0
+			var sparkle := _trace_demo_point(amount)
+			draw_circle(sparkle, 4.0 + float(sparkle_index % 3),
+				Color(1.0, 0.89, 0.38, 0.78))
+	last_trace_subject_route = visual_context
+
+
+func _trace_path_points(up_to: float) -> PackedVector2Array:
+	var amount := clampf(up_to, 0.0, 1.0)
+	var points := PackedVector2Array()
+	points.append(_trace_demo_point(0.0))
+	if amount <= 0.001:
+		return points
+	var sample_count := maxi(2, ceili(48.0 * amount))
+	for sample_index in range(1, sample_count + 1):
+		points.append(_trace_demo_point(amount * float(sample_index) / float(sample_count)))
+	return points
+
+
+func _trace_active_colour() -> Color:
+	match visual_context:
+		"trace_chef":
+			return Color("#f49bb0")
+		"trace_ballerina":
+			return Color("#f17bac")
+		"trace_doctor":
+			return Color("#f8e3c2")
+		"trace_magician":
+			return Color("#c995e8")
+	return accent
+
+
+func _trace_active_width() -> float:
+	match visual_context:
+		"trace_chef":
+			return 14.0
+		"trace_ballerina":
+			return 10.0
+		"trace_doctor":
+			return 18.0
+		"trace_magician":
+			return 13.0
+	return 12.0
+
+
+func _draw_authored_trace_subject() -> void:
+	match visual_context:
+		"trace_chef":
+			_draw_trace_chef_subject()
+		"trace_ballerina":
+			_draw_trace_ballerina_subject()
+		"trace_doctor":
+			_draw_trace_doctor_subject()
+		"trace_magician":
+			_draw_trace_magician_subject()
+
+
+func _draw_trace_chef_subject() -> void:
+	var cake_center := Vector2(size.x * 0.50, size.y * 0.58)
+	var cake_radius := minf(size.x, size.y) * 0.24
+	draw_set_transform(cake_center + Vector2(0.0, cake_radius * 0.70),
+		0.0, Vector2(1.65, 0.38))
+	draw_circle(Vector2.ZERO, cake_radius, Color("#e7a7af"))
+	draw_arc(Vector2.ZERO, cake_radius, 0.0, TAU, 40, Color("#8a4c71"), 5.0)
+	draw_set_transform(Vector2.ZERO)
+	draw_rect(Rect2(cake_center - Vector2(cake_radius * 1.05, cake_radius * 0.58),
+		Vector2(cake_radius * 2.10, cake_radius * 1.18)), Color("#f3d7a1"), true)
+	draw_arc(cake_center - Vector2(0.0, cake_radius * 0.56), cake_radius * 1.04,
+		0.0, PI, 32, Color("#fff0c4"), 7.0)
+	var bag := _trace_demo_point(0.0)
+	var tangent := (_trace_demo_point(0.04) - bag).normalized()
+	draw_set_transform(bag - tangent * 24.0, tangent.angle(), Vector2.ONE)
+	draw_colored_polygon(PackedVector2Array([
+		Vector2(-45.0, -24.0), Vector2(18.0, -13.0),
+		Vector2(34.0, 0.0), Vector2(18.0, 13.0), Vector2(-45.0, 24.0),
+	]), Color("#f7e5c1"))
+	draw_line(Vector2(-38.0, -20.0), Vector2(-38.0, 20.0), Color("#8f5e79"), 6.0)
+	draw_set_transform(Vector2.ZERO)
+
+
+func _draw_trace_ballerina_subject() -> void:
+	var start := _trace_demo_point(0.0)
+	draw_set_transform(start - Vector2(18.0, 0.0), -0.18, Vector2.ONE)
+	draw_line(Vector2(-46.0, 0.0), Vector2(8.0, 0.0), Color("#f1c66f"), 11.0, true)
+	draw_circle(Vector2(13.0, 0.0), 15.0, Color("#f6a8c4"))
+	draw_circle(Vector2(13.0, 0.0), 6.0, Color("#fff0a5"))
+	draw_set_transform(Vector2.ZERO)
+	var floor_y := size.y * 0.82
+	draw_line(Vector2(size.x * 0.10, floor_y), Vector2(size.x * 0.90, floor_y),
+		Color(0.82, 0.62, 0.88, 0.42), 8.0, true)
+
+
+func _draw_trace_doctor_subject() -> void:
+	var plush := Vector2(size.x * 0.50, size.y * 0.56)
+	var body := Vector2(size.x * 0.38, size.y * 0.46)
+	draw_set_transform(plush, -0.08, Vector2(1.0, 0.78))
+	draw_circle(Vector2.ZERO, body.y * 0.50, Color("#d59a70"))
+	draw_circle(Vector2(0.0, -body.y * 0.37), body.y * 0.27, Color("#efb88a"))
+	draw_circle(Vector2(-body.y * 0.09, -body.y * 0.41), 5.0, Color("#47354d"))
+	draw_circle(Vector2(body.y * 0.09, -body.y * 0.41), 5.0, Color("#47354d"))
+	draw_set_transform(Vector2.ZERO)
+	draw_line(plush - Vector2(body.x * 0.56, 0.0),
+		plush + Vector2(body.x * 0.56, 0.0), Color(0.60, 0.45, 0.38, 0.38), 5.0, true)
+	var roll := _trace_demo_point(0.0)
+	draw_circle(roll, 25.0, Color("#f7ead4"))
+	draw_circle(roll, 10.0, Color("#9d7b74"))
+	draw_arc(roll, 25.0, 0.0, TAU, 28, Color("#6f5369"), 4.0)
+
+
+func _draw_trace_magician_subject() -> void:
+	var start := _trace_demo_point(0.0)
+	var finish := _trace_demo_point(1.0)
+	for knot: Vector2 in [start, finish]:
+		draw_circle(knot, 18.0, Color("#77518c"))
+		draw_circle(knot, 10.0, Color("#f0c873"))
+		draw_arc(knot, 23.0, 0.0, TAU, 28, Color(0.77, 0.53, 0.93, 0.58), 5.0)
+	for mote_index in range(5):
+		var amount := float(mote_index + 1) / 6.0
+		var mote := _trace_demo_point(amount) + Vector2(0.0,
+			sin(demo_t * 2.4 + float(mote_index)) * 8.0)
+		draw_circle(mote, 3.5 + float(mote_index % 2) * 2.0,
+			Color(1.0, 0.88, 0.38, 0.62))
 
 
 func _is_magician_portal_context() -> bool:
@@ -1722,10 +1903,21 @@ func _clean_widget_playfield_rect() -> Rect2:
 
 func _draw_clean_widget_playfield(top: Color, bottom: Color) -> void:
 	var field := _clean_widget_playfield_rect()
-	draw_rect(field, top, true)
-	draw_rect(Rect2(field.position.x, field.position.y + field.size.y * 0.53,
-		field.size.x, field.size.y * 0.47), bottom, true)
-	draw_rect(field, Color("#463963"), false, 4.0)
+	# Borderless object-local pool: a soft oval light and grounded shadow, never
+	# a rectangular sheet of paper or clipboard contour.
+	var glow := top
+	glow.a = 0.24
+	draw_set_transform(field.get_center(), 0.0,
+		Vector2(1.0, field.size.y / field.size.x * 0.82))
+	draw_circle(Vector2.ZERO, field.size.x * 0.48, glow)
+	draw_set_transform(Vector2.ZERO)
+	var ground := bottom
+	ground.a = 0.42
+	draw_line(Vector2(field.position.x + field.size.x * 0.10,
+		field.position.y + field.size.y * 0.76),
+		Vector2(field.end.x - field.size.x * 0.10,
+			field.position.y + field.size.y * 0.76),
+		ground, field.size.y * 0.18, true)
 
 
 func _portal_center() -> Vector2:
@@ -1816,12 +2008,41 @@ func _is_racer_tune_context() -> bool:
 	return mode == "circle" and visual_context == "crank_racer"
 
 
+func _circle_pivot() -> Vector2:
+	# The finger, ghost and animated object share one semantic hub. This keeps
+	# the child from circling an invisible card centre while a remote valve or
+	# wheel turns elsewhere.
+	if _is_racer_tune_context():
+		return _racer_rear_hub()
+	if _is_magician_portal_context():
+		return _portal_center()
+	if _uses_contextual_crank():
+		return _crank_action_rect().get_center()
+	return size * 0.5
+
+
 func _racer_front_hub() -> Vector2:
-	return Vector2(size.x * 0.215, size.y * 0.735)
+	var rect := _racer_kart_rect()
+	return rect.position + rect.size * Vector2(0.236, 0.642)
 
 
 func _racer_rear_hub() -> Vector2:
-	return Vector2(size.x * 0.580, size.y * 0.725)
+	var rect := _racer_kart_rect()
+	return rect.position + rect.size * Vector2(0.748, 0.605)
+
+
+func _racer_kart_rect() -> Rect2:
+	var side := minf(size.x * 0.84, size.y * 1.42)
+	return Rect2(Vector2((size.x - side) * 0.5, -side * 0.075), Vector2.ONE * side)
+
+
+func _racer_kart_content_rect() -> Rect2:
+	# Alpha bbox of the reviewed 512px runtime derivative. The texture canvas may
+	# extend above the Control, but every visible kart pixel must remain inside.
+	var texture_rect := _racer_kart_rect()
+	return Rect2(
+		texture_rect.position + texture_rect.size * Vector2(14.0 / 512.0, 93.0 / 512.0),
+		texture_rect.size * Vector2(470.0 / 512.0, 280.0 / 512.0))
 
 
 func _racer_wheel_rect(rear: bool, progress: float = 1.0) -> Rect2:
@@ -1856,11 +2077,58 @@ func _draw_racer_wheel(rect: Rect2) -> void:
 	draw_arc(center, radius, 0.0, TAU, 28, Color("#271f38"), 4.0)
 
 
+func _draw_racer_kart_body() -> void:
+	# Borderless side-view kart body. The front wheel is already installed; the
+	# rear arch is visibly empty until the child turns the wrench.
+	if racer_kart_texture != null:
+		draw_texture_rect(racer_kart_texture, _racer_kart_rect(), false)
+		last_specialist_subject_route = "racer_kart_asset"
+		return
+	var front := _racer_front_hub()
+	var rear := _racer_rear_hub()
+	draw_set_transform(Vector2((front.x + rear.x) * 0.5, size.y * 0.81),
+		0.0, Vector2(1.0, 0.30))
+	draw_circle(Vector2.ZERO, (rear.x - front.x) * 0.72, Color(0.12, 0.10, 0.24, 0.28))
+	draw_set_transform(Vector2.ZERO)
+	var body := PackedVector2Array([
+		Vector2(size.x * 0.10, size.y * 0.70),
+		Vector2(size.x * 0.16, size.y * 0.43),
+		Vector2(size.x * 0.31, size.y * 0.38),
+		Vector2(size.x * 0.39, size.y * 0.62),
+		Vector2(size.x * 0.51, size.y * 0.62),
+		Vector2(size.x * 0.58, size.y * 0.42),
+		Vector2(size.x * 0.70, size.y * 0.48),
+		Vector2(size.x * 0.75, size.y * 0.70),
+		Vector2(size.x * 0.68, size.y * 0.77),
+		Vector2(size.x * 0.16, size.y * 0.77),
+	])
+	draw_colored_polygon(body, Color("#e9796f"))
+	draw_polyline(body, Color("#6c4165"), 6.0, true)
+	var seat := Rect2(size.x * 0.39, size.y * 0.42, size.x * 0.17, size.y * 0.22)
+	draw_rect(seat, Color("#67b9b5"), true)
+	draw_rect(seat, Color("#6c4165"), false, 5.0)
+	draw_line(Vector2(size.x * 0.32, size.y * 0.48),
+		Vector2(size.x * 0.27, size.y * 0.30), Color("#d6a65f"), 8.0, true)
+	draw_circle(Vector2(size.x * 0.26, size.y * 0.28), 19.0, Color("#7d5a70"))
+	# Mermaid-tail spoiler keeps the Opera kart unmistakably career-specific.
+	var tail_root := Vector2(size.x * 0.61, size.y * 0.43)
+	draw_colored_polygon(PackedVector2Array([
+		tail_root,
+		tail_root + Vector2(26.0, -72.0),
+		tail_root + Vector2(51.0, -43.0),
+		tail_root + Vector2(72.0, -66.0),
+		tail_root + Vector2(65.0, -18.0),
+	]), Color("#b582d5"))
+	draw_line(tail_root, tail_root + Vector2(60.0, -27.0), Color("#66c8ca"), 7.0, true)
+	_draw_racer_wheel(_racer_wheel_rect(false, 1.0))
+	last_specialist_subject_route = "racer_kart_body"
+
+
 func _draw_racer_tune() -> void:
 	last_contextual_draw_route = "racer_tune:%s" % visual_context
 	var progress := clampf(widget_fill, 0.0, 1.0)
-	# The revised base contains its front wheel; only the rear grows and settles
-	# into the remaining empty arch as the wrench turns.
+	_draw_racer_kart_body()
+	# Only the rear wheel grows and settles into the remaining empty arch.
 	for wheel_rect: Rect2 in _racer_runtime_wheel_rects(progress):
 		_draw_racer_wheel(wheel_rect)
 	var rear_hub := _racer_rear_hub()
@@ -1995,8 +2263,10 @@ func _draw_candymaker_crank(progress: float) -> void:
 	var center := rect.get_center()
 	# The candy stays still while its wrapper ends twist in opposite directions.
 	# The rejected mover duplicated both the candy and most of the backdrop.
-	draw_rect(rect, Color("#fff0df"), true)
-	draw_rect(rect, Color("#9c567b"), false, 4.0)
+	draw_set_transform(center + Vector2(0.0, rect.size.y * 0.27), 0.0,
+		Vector2(1.6, 0.38))
+	draw_circle(Vector2.ZERO, rect.size.x * 0.23, Color(0.30, 0.18, 0.38, 0.20))
+	draw_set_transform(Vector2.ZERO)
 	var candy_half := rect.size.x * 0.18
 	draw_set_transform(center, -0.10, Vector2(1.35, 0.72))
 	draw_circle(Vector2.ZERO, candy_half, Color("#ed8c9c"))
@@ -2023,32 +2293,64 @@ func _draw_doctor_crank(progress: float) -> void:
 	_draw_clean_widget_playfield(Color("#ebfaf6"), Color("#bcded9"))
 	var rect := _crank_action_rect()
 	var center := rect.get_center()
-	# Redraw the patient on a clean exam pad so the base's already-complete
-	# bandage cannot leak through. The wrap itself grows across the plush.
-	draw_rect(rect, Color("#e9f8f4"), true)
-	draw_rect(rect, Color("#557497"), false, 4.0)
+	# A clamshell examination berth grounds the patient directly in the room;
+	# it deliberately avoids the square exam-card silhouette used by the old UI.
+	var berth_center := center + Vector2(0.0, rect.size.y * 0.20)
+	for petal_index in range(7):
+		var petal_angle := lerpf(PI * 1.08, PI * 1.92, float(petal_index) / 6.0)
+		var petal_center := berth_center + Vector2.from_angle(petal_angle) \
+			* rect.size.y * 0.30
+		draw_set_transform(petal_center, petal_angle + PI * 0.5, Vector2(0.72, 1.28))
+		draw_circle(Vector2.ZERO, rect.size.y * 0.16, Color("#b9e2dc"))
+		draw_set_transform(Vector2.ZERO)
+	draw_set_transform(berth_center + Vector2(0.0, rect.size.y * 0.19),
+		0.0, Vector2(1.75, 0.45))
+	draw_circle(Vector2.ZERO, rect.size.y * 0.27, Color("#7f6aa0"))
+	draw_circle(Vector2(0.0, -4.0), rect.size.y * 0.22, Color("#d9cef0"))
+	draw_set_transform(Vector2.ZERO)
 	var plush := center + Vector2(0.0, rect.size.y * 0.05)
-	draw_circle(plush - Vector2(0.0, rect.size.y * 0.18), rect.size.y * 0.19,
-		Color("#d59a70"))
-	draw_circle(plush + Vector2(-rect.size.x * 0.12, -rect.size.y * 0.29),
-		rect.size.y * 0.075, Color("#c38561"))
-	draw_circle(plush + Vector2(rect.size.x * 0.12, -rect.size.y * 0.29),
-		rect.size.y * 0.075, Color("#c38561"))
-	draw_circle(plush, rect.size.y * 0.23, Color("#d59a70"))
-	var wrap_left := plush.x - rect.size.x * 0.25
-	var wrap_width := rect.size.x * 0.50 * progress
-	for strip_index in range(4):
-		var strip_y := plush.y - rect.size.y * 0.16 + float(strip_index) * rect.size.y * 0.095
+	if doctor_patient_texture != null:
+		var patient_side := rect.size.y * 0.91
+		draw_texture_rect(doctor_patient_texture,
+			Rect2(plush - Vector2.ONE * patient_side * 0.5,
+				Vector2.ONE * patient_side), false)
+		last_specialist_subject_route = "doctor_starfish_patient"
+	else:
+		# Five soft arms retain a readable starfish fallback if an export ever
+		# loses the reviewed sprite.
+		for arm_index in range(5):
+			var arm_angle := -PI * 0.5 + float(arm_index) / 5.0 * TAU
+			var arm := plush + Vector2.from_angle(arm_angle) * rect.size.y * 0.20
+			draw_set_transform(arm, arm_angle, Vector2(1.35, 0.68))
+			draw_circle(Vector2.ZERO, rect.size.y * 0.13, Color("#e87f72"))
+			draw_set_transform(Vector2.ZERO)
+		draw_circle(plush, rect.size.y * 0.18, Color("#e87f72"))
+	# Wrap the lower-left arm/body while keeping the patient's eyes and smile
+	# visible. The real roll rides the growing edge so rotation causes the result.
+	var wrap_left := plush.x - rect.size.x * 0.34
+	var wrap_width := rect.size.x * 0.42 * progress
+	var wrap_top := plush.y + rect.size.y * 0.10
+	for strip_index in range(3):
+		var strip_y := wrap_top + float(strip_index) * rect.size.y * 0.10
 		draw_line(Vector2(wrap_left, strip_y), Vector2(wrap_left + wrap_width, strip_y),
 			Color("#fff4dc"), 12.0, true)
 		if progress > 0.06:
-			draw_line(Vector2(wrap_left, strip_y - 3.0),
+				draw_line(Vector2(wrap_left, strip_y - 3.0),
 				Vector2(wrap_left + wrap_width, strip_y - 3.0),
 				Color(0.75, 0.60, 0.52, 0.32), 2.0, true)
+	if widget_mover != null and progress > 0.02:
+		var roll_center := Vector2(wrap_left + wrap_width,
+			wrap_top + rect.size.y * 0.10)
+		var roll_side := minf(rect.size.x, rect.size.y) * 0.34
+		draw_set_transform(roll_center, crank_rotation, Vector2.ONE)
+		draw_texture_rect(widget_mover,
+			Rect2(Vector2.ONE * -roll_side * 0.5, Vector2.ONE * roll_side), false)
+		draw_set_transform(Vector2.ZERO)
 	if progress >= 0.95:
-		draw_line(plush - Vector2(10.0, 0.0), plush + Vector2(10.0, 0.0),
+		var badge := plush + Vector2(-rect.size.x * 0.18, rect.size.y * 0.23)
+		draw_line(badge - Vector2(10.0, 0.0), badge + Vector2(10.0, 0.0),
 			Color("#e16e78"), 5.0, true)
-		draw_line(plush - Vector2(0.0, 10.0), plush + Vector2(0.0, 10.0),
+		draw_line(badge - Vector2(0.0, 10.0), badge + Vector2(0.0, 10.0),
 			Color("#e16e78"), 5.0, true)
 
 
@@ -2189,11 +2491,14 @@ func _draw_ballerina_blossom(progress: float) -> void:
 
 func _draw_astronaut_launch(progress: float) -> void:
 	var action := _charge_action_rect()
-	# Replace the old card's static rocket inside a clean launch bay before the
-	# isolated approved rocket moves. This prevents a second rocket remaining
-	# underneath the lifting one.
-	draw_rect(action, Color("#263963"), true)
-	draw_rect(action, Color("#739dc0"), false, 4.0)
+	# A transparent launch pool and star halo sit directly over the painted room;
+	# the retired static-rocket card is never drawn, so no opaque mask is needed.
+	draw_set_transform(Vector2(action.get_center().x, action.end.y - action.size.y * 0.08),
+		0.0, Vector2(1.7, 0.42))
+	draw_circle(Vector2.ZERO, action.size.x * 0.28, Color(0.30, 0.55, 0.72, 0.28))
+	draw_arc(Vector2.ZERO, action.size.x * 0.28, 0.0, TAU, 36,
+		Color(0.57, 0.84, 0.91, 0.66), 5.0)
+	draw_set_transform(Vector2.ZERO)
 	for star_index in range(5):
 		var star := action.position + Vector2(
 			action.size.x * (0.12 + float(star_index) * 0.19),
@@ -2235,12 +2540,15 @@ func _draw_astronaut_launch(progress: float) -> void:
 
 func _draw_popstar_soundcheck(progress: float) -> void:
 	var action := _charge_action_rect()
-	# A clean stage patch removes the meter card's already-painted microphone;
-	# the approved isolated prop below is the sole sounding object.
-	draw_rect(action, Color("#342451"), true)
-	draw_rect(action, Color("#8e65a5"), false, 4.0)
-	draw_line(Vector2(action.position.x, action.end.y - 13.0),
-		Vector2(action.end.x, action.end.y - 13.0), Color("#e6ad65"), 7.0, true)
+	# The room remains visible. A soft stage pool and sound waves frame the one
+	# approved microphone without recreating the rejected dark rectangular card.
+	draw_set_transform(action.get_center(), 0.0,
+		Vector2(1.0, action.size.y / action.size.x * 0.72))
+	draw_circle(Vector2.ZERO, action.size.x * 0.47, Color(0.25, 0.16, 0.42, 0.22))
+	draw_set_transform(Vector2.ZERO)
+	draw_line(Vector2(action.position.x + action.size.x * 0.14, action.end.y - 13.0),
+		Vector2(action.end.x - action.size.x * 0.14, action.end.y - 13.0),
+		Color(0.90, 0.68, 0.40, 0.72), 7.0, true)
 	var center := Vector2(size.x * 0.50, size.y * 0.56)
 	var pulse := 1.0 + sin(progress * PI * 6.0) * 0.06
 	draw_set_transform(center, -0.32, Vector2.ONE * pulse)
@@ -2277,6 +2585,113 @@ func _draw_contextual_charge() -> void:
 			_draw_astronaut_launch(progress)
 		"charge_popstar":
 			_draw_popstar_soundcheck(progress)
+
+
+func _draw_widget_family_ground(center: Vector2) -> void:
+	# Persistent, object-shaped affordances replace the useful geometry that was
+	# formerly baked into the rejected pale cards. Nothing here draws a panel.
+	last_widget_ground_route = widget_template
+	match widget_template:
+		"gauge":
+			var pivot := Vector2(size.x * 0.5, size.y * 0.82)
+			var radius := minf(size.x * 0.34, size.y * 0.62)
+			draw_arc(pivot, radius, PI * 1.08, PI * 1.92, 48,
+				Color(0.18, 0.15, 0.34, 0.72), 18.0)
+			var good_start := lerpf(PI * 1.08, PI * 1.92, timing_zone.x)
+			var good_end := lerpf(PI * 1.08, PI * 1.92, timing_zone.y)
+			draw_arc(pivot, radius, good_start, good_end, 24,
+				Color(1.0, 0.82, 0.28, 0.90), 12.0)
+			for tick_index in range(7):
+				var angle := lerpf(PI * 1.08, PI * 1.92, float(tick_index) / 6.0)
+				var outer := pivot + Vector2.from_angle(angle) * (radius + 11.0)
+				var inner := pivot + Vector2.from_angle(angle) * (radius - 11.0)
+				draw_line(inner, outer, Color.WHITE, 3.0)
+		"track":
+			var y := size.y * 0.66
+			var start_x := size.x * 0.12
+			var end_x := size.x * 0.88
+			draw_line(Vector2(start_x, y), Vector2(end_x, y),
+				Color(0.20, 0.17, 0.36, 0.70), 18.0, true)
+			var zone_start := lerpf(start_x, end_x, timing_zone.x)
+			var zone_end := lerpf(start_x, end_x, timing_zone.y)
+			draw_line(Vector2(zone_start, y), Vector2(zone_end, y),
+				Color(1.0, 0.82, 0.28, 0.84), 12.0, true)
+		"pour":
+			var bowl := _pour_bowl_rect()
+			draw_set_transform(bowl.get_center(), 0.0, Vector2(1.0, 0.52))
+			draw_circle(Vector2.ZERO, bowl.size.x * 0.50,
+				Color(0.48, 0.74, 0.88, 0.30))
+			draw_arc(Vector2.ZERO, bowl.size.x * 0.48, 0.0, TAU, 40,
+				Color("#7a5a34"), 6.0)
+			draw_set_transform(Vector2.ZERO)
+		"basin":
+			_draw_doctor_basin_subject()
+		"lanes":
+			for lane in range(choice_count):
+				var lane_point := Vector2(
+					size.x * (float(lane) + 0.5) / float(choice_count),
+					size.y * 0.70)
+				if widget_mover != null:
+					var source := Rect2(float(lane) * 256.0, 0.0, 256.0, 256.0)
+					draw_texture_rect_region(widget_mover,
+						Rect2(lane_point - Vector2(54.0, 54.0), Vector2(108.0, 108.0)),
+						source, Color(1.0, 1.0, 1.0, 0.60))
+				else:
+					draw_circle(lane_point, 48.0, Color(accent, 0.30))
+				draw_arc(lane_point, 50.0, 0.0, TAU, 32,
+					Color(accent, 0.78), 5.0)
+		"push":
+			if not _uses_long_push_context():
+				draw_line(center - swipe_dir * size.x * 0.28,
+					center + swipe_dir * size.x * 0.28,
+					Color(accent, 0.42), 12.0, true)
+		"charge":
+			if not _uses_contextual_charge():
+				draw_circle(center, minf(size.x, size.y) * 0.22,
+					Color(accent, 0.18))
+				draw_arc(center, minf(size.x, size.y) * 0.24,
+					0.0, TAU, 40, Color(accent, 0.72), 6.0)
+		"crank":
+			if not _is_magician_portal_context() and not _is_racer_tune_context() \
+					and not _uses_contextual_crank():
+				draw_arc(center, minf(size.x, size.y) * 0.30,
+					0.0, TAU, 40, Color(accent, 0.68), 8.0)
+		"target":
+			if not _uses_anchored_targets():
+				draw_circle(center, minf(size.x, size.y) * 0.32,
+					Color(accent, 0.10))
+				draw_arc(center, minf(size.x, size.y) * 0.32,
+					0.0, TAU, 40, Color(accent, 0.45), 5.0)
+
+
+func _draw_doctor_basin_subject() -> void:
+	# A literal shell sink and faucet replace the retired card's abstract meter.
+	# Hands sit in the water so the sustained hold has an obvious causal object.
+	var basin_center := Vector2(size.x * 0.50, size.y * 0.67)
+	var basin_radius := minf(size.x * 0.30, size.y * 0.29)
+	draw_set_transform(basin_center, 0.0, Vector2(1.36, 0.66))
+	draw_circle(Vector2.ZERO, basin_radius, Color("#7ad4dd"))
+	draw_circle(Vector2.ZERO, basin_radius * 0.72, Color(0.78, 0.96, 1.0, 0.82))
+	draw_arc(Vector2.ZERO, basin_radius, 0.0, TAU, 40, Color("#744f75"), 6.0)
+	draw_set_transform(Vector2.ZERO)
+	var faucet_top := Vector2(basin_center.x, size.y * 0.27)
+	draw_line(Vector2(faucet_top.x - 44.0, basin_center.y - 18.0),
+		Vector2(faucet_top.x - 44.0, faucet_top.y), Color("#e4c17a"), 14.0, true)
+	draw_arc(faucet_top, 44.0, PI, TAU, 24, Color("#e4c17a"), 14.0)
+	draw_line(Vector2(faucet_top.x + 44.0, faucet_top.y),
+		Vector2(faucet_top.x + 44.0, faucet_top.y + 30.0), Color("#e4c17a"), 14.0, true)
+	draw_circle(Vector2(faucet_top.x - 72.0, faucet_top.y + 12.0), 16.0, Color("#f1a5ad"))
+	draw_circle(Vector2(faucet_top.x + 72.0, faucet_top.y + 12.0), 16.0, Color("#88c8d0"))
+	var water_alpha := 0.34 + widget_fill * 0.50
+	draw_line(Vector2(faucet_top.x + 44.0, faucet_top.y + 30.0),
+		Vector2(faucet_top.x + 44.0, basin_center.y - 16.0),
+		Color(0.70, 0.96, 1.0, water_alpha), 7.0, true)
+	for hand_sign: float in [-1.0, 1.0]:
+		var hand := basin_center + Vector2(hand_sign * 34.0, -8.0)
+		draw_circle(hand, 18.0, Color("#ffd4b8"))
+		draw_line(hand + Vector2(hand_sign * 5.0, 12.0),
+			hand + Vector2(hand_sign * 18.0, 30.0), Color("#ffd4b8"), 15.0, true)
+	last_specialist_subject_route = "doctor_basin"
 
 
 func _draw_widget_layers(center: Vector2) -> void:
@@ -2334,9 +2749,9 @@ func _draw_widget_layers(center: Vector2) -> void:
 				if widget_overlay != null:
 					draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false, Color(1.0, 1.0, 1.0, widget_fill))
 		"trace":
-			if _uses_authored_trace_context() and not completion_accepted:
+			if _uses_authored_trace_context():
 				_draw_authored_trace_corridor()
-			if widget_overlay != null:
+			elif widget_overlay != null:
 				if completion_accepted or widget_fill >= 0.999:
 					draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
 				else:
@@ -2352,11 +2767,13 @@ func _draw_widget_layers(center: Vector2) -> void:
 			if _uses_anchored_targets():
 				_draw_anchored_targets()
 			else:
+				# Painter's easels are the stationary work surface. Only the small
+				# stamp follows the finger; the whole stage never floats as a cursor.
+				_draw_target_subject()
 				for mark: Vector2 in tap_marks:
 					_draw_widget_sprite(widget_stamp, mark, 76.0)
 				if held:
-					# Painter's next free stamp rides the finger until placement.
-					_draw_widget_sprite(widget_mover, pointer_pos, 142.0)
+					_draw_widget_sprite(widget_stamp, pointer_pos, 76.0)
 			if widget_overlay != null and completion_accepted and not _uses_anchored_targets():
 				draw_texture_rect(widget_overlay, Rect2(Vector2.ZERO, size), false)
 		"lanes":
@@ -2494,9 +2911,46 @@ func _draw_candymaker_recipients() -> void:
 				color.lightened(0.12), side * 0.035, true)
 
 
+func _target_subject_pose() -> Dictionary:
+	var centre := size * 0.5
+	var extent := minf(size.y * 0.94, size.x * 0.62)
+	match visual_context:
+		"target_chef":
+			centre.y = size.y * 0.55
+		"target_candymaker":
+			centre = Vector2(size.x * 0.50, size.y * 0.86)
+			extent = minf(size.x, size.y) * 0.34
+		"target_farmer":
+			centre.y = size.y * 0.54
+		"target_astronaut":
+			centre.y = size.y * 0.51
+			extent = minf(size.y * 0.98, size.x * 0.64)
+		"target_boxer":
+			centre.y = size.y * 0.52
+			extent = minf(size.y * 0.98, size.x * 0.70)
+		"target_painter":
+			centre.y = size.y * 0.54
+			extent = minf(size.y * 0.98, size.x * 0.68)
+		"target_doctor":
+			centre.y = size.y * 0.53
+			extent = minf(size.y * 0.96, size.x * 0.64)
+	return {"centre": centre, "extent": extent}
+
+
+func _draw_target_subject() -> void:
+	if widget_mover == null:
+		return
+	var pose := _target_subject_pose()
+	var centre: Vector2 = pose.get("centre", size * 0.5)
+	var extent := float(pose.get("extent", minf(size.x, size.y) * 0.88))
+	_draw_widget_sprite(widget_mover, centre, extent)
+	last_target_subject_route = visual_context
+
+
 func _draw_anchored_targets() -> void:
 	var next_index := _target_next_unplaced()
 	var base_side := _target_piece_rect(0).size.x
+	_draw_target_subject()
 	if visual_context == "target_candymaker":
 		_draw_candymaker_recipients()
 	for index in range(target_placed.size()):
@@ -2568,8 +3022,18 @@ func _draw_causal_context(center: Vector2) -> bool:
 
 
 func _draw_causal_backdrop(top: Color, bottom: Color) -> void:
-	draw_rect(Rect2(Vector2.ZERO, size), top, true)
-	draw_rect(Rect2(0.0, size.y * 0.56, size.x, size.y * 0.44), bottom, true)
+	# Direct scenes grow out of the painted room. Use only a low-alpha oval
+	# spotlight and a rounded grounding pool—never an opaque full-panel inset.
+	var glow := top
+	glow.a = 0.17
+	draw_set_transform(Vector2(size.x * 0.50, size.y * 0.47), 0.0,
+		Vector2(1.0, 0.47))
+	draw_circle(Vector2.ZERO, size.x * 0.46, glow)
+	draw_set_transform(Vector2.ZERO)
+	var ground := bottom
+	ground.a = 0.28
+	draw_line(Vector2(size.x * 0.14, size.y * 0.79),
+		Vector2(size.x * 0.86, size.y * 0.79), ground, size.y * 0.14, true)
 	for sparkle_index in range(6):
 		var sparkle := Vector2(
 			size.x * (0.10 + 0.16 * float(sparkle_index)),
@@ -3097,8 +3561,12 @@ func _draw_clue_board() -> void:
 			Color(1.0, 0.86, 0.34, clue_glow / 0.48), 7.0)
 
 
+func _crown_prop_bounds() -> Rect2:
+	return Rect2(size.x * 0.16, size.y * 0.04, size.x * 0.68, size.y * 0.92)
+
+
 func _crown_handle_rect() -> Rect2:
-	return Rect2(size.x * 0.35, size.y * 0.63, size.x * 0.30, size.y * 0.16)
+	return Rect2(size.x * 0.24, size.y * 0.45, size.x * 0.30, size.y * 0.20)
 
 
 func _crown_press(at: Vector2) -> void:
@@ -3129,13 +3597,14 @@ func _crown_tick(delta: float) -> void:
 
 func _draw_crown_chest() -> void:
 	_draw_causal_backdrop(Color("#e7f6f2"), Color("#bfded3"))
+	var prop_bounds := _crown_prop_bounds()
 	if crown_chest_closed_texture != null:
 		draw_texture_rect(crown_chest_closed_texture,
-			_cover_rect(crown_chest_closed_texture), false,
+			_contain_rect(crown_chest_closed_texture, prop_bounds), false,
 			Color(1.0, 1.0, 1.0, 1.0 - crown_open_t))
 	if crown_chest_open_texture != null and crown_open_t > 0.0:
 		draw_texture_rect(crown_chest_open_texture,
-			_cover_rect(crown_chest_open_texture), false,
+			_contain_rect(crown_chest_open_texture, prop_bounds), false,
 			Color(1.0, 1.0, 1.0, crown_open_t))
 	if crown_chest_closed_texture == null or crown_chest_open_texture == null:
 		var chest := Rect2(size.x * 0.22, size.y * 0.43, size.x * 0.56, size.y * 0.36)
@@ -3299,8 +3768,12 @@ func _draw_garden_plant() -> void:
 			draw_set_transform(Vector2.ZERO)
 
 
+func _cabinet_prop_bounds() -> Rect2:
+	return Rect2(size.x * 0.16, size.y * 0.03, size.x * 0.68, size.y * 0.94)
+
+
 func _cabinet_handle_rect() -> Rect2:
-	return Rect2(size.x * 0.38, size.y * 0.25, size.x * 0.24, size.y * 0.15)
+	return Rect2(size.x * 0.38, size.y * 0.44, size.x * 0.24, size.y * 0.18)
 
 
 func _cabinet_required_travel() -> float:
@@ -3367,14 +3840,15 @@ func _cabinet_tick(delta: float) -> void:
 
 func _draw_magic_cabinet() -> void:
 	_draw_causal_backdrop(Color("#221943"), Color("#4b2a62"))
+	var prop_bounds := _cabinet_prop_bounds()
 	if magic_cabinet_closed_texture != null:
 		draw_texture_rect(magic_cabinet_closed_texture,
-			_cover_rect(magic_cabinet_closed_texture), false,
+			_contain_rect(magic_cabinet_closed_texture, prop_bounds), false,
 			Color(1.0, 1.0, 1.0, 1.0 - cabinet_open_t * 0.92))
 	if magic_cabinet_reveal_texture != null and cabinet_complete:
 		var reveal_alpha := clampf((cabinet_open_t - 0.55) / 0.45, 0.0, 1.0)
 		draw_texture_rect(magic_cabinet_reveal_texture,
-			_cover_rect(magic_cabinet_reveal_texture), false,
+			_contain_rect(magic_cabinet_reveal_texture, prop_bounds), false,
 			Color(1.0, 1.0, 1.0, reveal_alpha))
 	if magic_cabinet_closed_texture == null or magic_cabinet_reveal_texture == null:
 		var body := Rect2(size.x * 0.22, size.y * 0.08, size.x * 0.56, size.y * 0.80)
@@ -3538,6 +4012,7 @@ func _demo_finger_pose() -> Dictionary:
 				at = center + direction * lerpf(-span, span, travel)
 				pressing = true
 		"circle":
+			center = _circle_pivot()
 			var radius := minf(size.x, size.y) * 0.26
 			at = center + Vector2.from_angle(-2.7 + cycle * 2.0) * radius
 			pressing = true
@@ -3794,10 +4269,10 @@ func _xray_tick(delta: float) -> void:
 
 
 func _draw_xray_scan() -> void:
-	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
-	else:
-		draw_rect(Rect2(Vector2.ZERO, size), Color("#dff4f5"), true)
+	# The isolated X-ray machine and plush patient remain visible beneath the
+	# moving scanner; the retired pale card supplied no runtime pixels.
+	_draw_target_subject()
+	last_specialist_subject_route = "xray_device"
 	var scan_at := xray_scanner_pos
 	if demo_active and not xray_complete:
 		scan_at = _demo_finger_pose().get("at", scan_at) as Vector2
@@ -3946,14 +4421,8 @@ func _draw_dance_capsule(rect: Rect2, color: Color, lit: bool) -> void:
 
 
 func _draw_dance_sequence() -> void:
-	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
-	var pad_area := Rect2(size.x * 0.055, size.y * 0.10, size.x * 0.89, size.y * 0.82)
-	# The approved ballerina card currently has three pads. This soft stage
-	# inset keeps its context visible while four large hit shapes supply the
-	# requested call-and-response grammar without fabricating replacement art.
-	draw_rect(pad_area, Color(0.95, 0.97, 1.0, 0.86), true)
-	draw_rect(pad_area, Color("#382485"), false, 3.0)
+	# Four independent dance lights float over the room focus; there is no pale
+	# card or generic inset behind the call-and-response phrase.
 	for pad in range(4):
 		var lit := (pad == dance_last_pad and dance_glow > 0.0) or dance_complete
 		_draw_dance_capsule(_dance_pad_rect(pad), _dance_pad_color(pad), lit)
@@ -4114,10 +4583,6 @@ func _draw_candy_shape(center: Vector2, kind: int, radius: float, color: Color) 
 
 
 func _draw_candy_sort() -> void:
-	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
-	else:
-		draw_rect(Rect2(Vector2.ZERO, size), Color("#f7eafa"), true)
 	# A slow belt gives every piece unlimited chances; crossing the right edge
 	# loops it with no penalty and no queue advance.
 	var belt_y := size.y * 0.24
@@ -4226,10 +4691,6 @@ func _paint_release() -> void:
 
 
 func _draw_paint_reveal() -> void:
-	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
-	else:
-		draw_rect(Rect2(Vector2.ZERO, size), Color("#eee9df"), true)
 	var canvas := _paint_canvas_rect()
 	draw_rect(canvas.grow(7.0), Color("#8b633d"), true)
 	if paint_reveal_texture != null:
@@ -4446,10 +4907,10 @@ func _draw_farm_munch_reaction() -> void:
 
 
 func _draw_farm_lob() -> void:
-	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
-	else:
-		draw_rect(Rect2(Vector2.ZERO, size), Color("#edf2cf"), true)
+	# Keep the approved piggy picnic tableau visible before the first success;
+	# the short code face below is now a reaction layer, never the first reveal.
+	_draw_target_subject()
+	last_specialist_subject_route = "farm_pig_target"
 	var anchor := _farm_anchor_point()
 	var target := _farm_target_center()
 	var target_radius := _farm_target_radius()
@@ -4458,8 +4919,13 @@ func _draw_farm_lob() -> void:
 	draw_arc(target, target_radius * target_pulse, 0.0, TAU, 40,
 		Color("#ffd75e") if farm_land_glow > 0.0 else Color("#6e4c78"),
 		8.0 if farm_land_glow > 0.0 else 5.0)
-	# Basket anchor and backward-pull cue. The authored basket remains visible
-	# beneath these translucent control rings.
+	# Basket anchor and backward-pull cue, drawn as a grounded woven target now
+	# that the retired framed backdrop is intentionally absent.
+	draw_set_transform(anchor, 0.0, Vector2(1.0, 0.62))
+	draw_circle(Vector2.ZERO, _farm_piece_radius() * 1.08, Color("#bd7d48"))
+	draw_arc(Vector2.ZERO, _farm_piece_radius() * 0.92,
+		0.0, TAU, 28, Color("#f0c77a"), 5.0)
+	draw_set_transform(Vector2.ZERO)
 	draw_circle(anchor, _farm_piece_radius() * 1.34, Color(0.35, 0.24, 0.24, 0.16))
 	draw_arc(anchor, _farm_piece_radius() * 1.34, 0.0, TAU, 30,
 		Color("#8b633d"), 4.0)
@@ -4600,13 +5066,7 @@ func _draw_boxer_mitt(rect: Rect2, side: int, highlighted: bool) -> void:
 
 
 func _draw_boxer_rhythm() -> void:
-	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
-	else:
-		draw_rect(Rect2(Vector2.ZERO, size), Color("#f3e6eb"), true)
 	var mitt_panel := Rect2(size.x * 0.045, size.y * 0.12, size.x * 0.91, size.y * 0.78)
-	draw_rect(mitt_panel, Color(0.96, 0.97, 1.0, 0.78), true)
-	draw_rect(mitt_panel, Color("#382485"), false, 3.0)
 	# The approved lane overlay's first square is the boxer focus-pad pair.
 	# It remains visible as thematic art beneath the oversized touch geometry.
 	if widget_mover != null:
@@ -4760,11 +5220,8 @@ func _draw_oven(_center: Vector2) -> void:
 	# authored oven backdrop when present (gauge_chef ledger redirect);
 	# a warm code-drawn oven face otherwise. NO green anywhere — the green
 	# lock belongs to the retired ping-pong zones.
-	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
-	else:
-		draw_rect(Rect2(size.x * 0.08, size.y * 0.08, size.x * 0.68, size.y * 0.84), Color("#8a5a4a"), true)
-		draw_rect(Rect2(size.x * 0.08, size.y * 0.08, size.x * 0.68, size.y * 0.84), Color("#5c3a30"), false, 6.0)
+	draw_rect(Rect2(size.x * 0.08, size.y * 0.08, size.x * 0.68, size.y * 0.84), Color("#8a5a4a"), true)
+	draw_rect(Rect2(size.x * 0.08, size.y * 0.08, size.x * 0.68, size.y * 0.84), Color("#5c3a30"), false, 6.0)
 	# the window, and the cake tinting with the heat
 	var window := Rect2(size.x * 0.16, size.y * 0.16, size.x * 0.52, size.y * 0.44)
 	draw_rect(window, Color(0.23, 0.13, 0.10, 0.90), true)
@@ -5445,19 +5902,32 @@ func _pour_tick(delta: float) -> void:
 
 
 func _draw_pour_scene(_center: Vector2) -> void:
-	if widget_backdrop != null:
-		draw_texture_rect(widget_backdrop, _cover_rect(widget_backdrop), false)
 	var bowl := _pour_bowl_rect()
-	# the bowl and its rising batter (authored fill strip when present)
-	if widget_overlay != null:
-		_draw_progress_overlay(widget_overlay, pour_level, false)
+	# The receptacle is an object, never a fill bar. Chef gets a mixing bowl;
+	# Candy Maker gets three visible molds that fill together under the syrup.
+	if visual_context == "pour_candymaker":
+		draw_rect(bowl, Color("#7d5b88"), true)
+		draw_rect(bowl, Color("#f1c6db"), false, 6.0)
+		for mold_index in range(3):
+			var mold_center := Vector2(
+				lerpf(bowl.position.x + bowl.size.x * 0.20,
+					bowl.end.x - bowl.size.x * 0.20, float(mold_index) / 2.0),
+				bowl.get_center().y)
+			var mold_radius := bowl.size.y * 0.27
+			draw_circle(mold_center, mold_radius, Color("#4c385e"))
+			draw_circle(mold_center, mold_radius * clampf(pour_level, 0.08, 1.0),
+				Color("#ef91a7"))
+			draw_arc(mold_center, mold_radius, 0.0, TAU, 28, Color("#ffe0a1"), 4.0)
+		last_specialist_subject_route = "candy_molds"
 	else:
-		draw_rect(bowl, Color(0.90, 0.94, 1.0, 0.55), true)
-		var level_height := bowl.size.y * 0.8 * pour_level
-		var surface_y := bowl.end.y - 8.0 - level_height
-		var wobble := sin(pour_tilt * 20.0 + pour_level * 30.0) * 2.0
-		draw_rect(Rect2(bowl.position.x + 8.0, surface_y + wobble, bowl.size.x - 16.0, level_height), Color("#f2c66d"), true)
-	draw_rect(bowl, Color("#7a5a34"), false, 5.0)
+		draw_set_transform(bowl.get_center(), 0.0, Vector2(1.0, 0.50))
+		draw_circle(Vector2.ZERO, bowl.size.x * 0.50, Color("#e8b77d"))
+		draw_circle(Vector2(0.0, bowl.size.y * 0.22),
+			bowl.size.x * 0.42 * clampf(pour_level, 0.08, 1.0), Color("#f2c66d"))
+		draw_arc(Vector2.ZERO, bowl.size.x * 0.49, 0.0, TAU, 40,
+			Color("#7a5a34"), 6.0)
+		draw_set_transform(Vector2.ZERO)
+		last_specialist_subject_route = "chef_mixing_bowl"
 	# the pitcher: tilts in the hand, visibly drains as it pours
 	var pitcher := _pour_pitcher_rect()
 	var pitcher_center := pitcher.get_center()

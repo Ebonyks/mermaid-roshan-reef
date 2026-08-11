@@ -72,6 +72,19 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 		surface.configure(specialist_mode, Color.WHITE)
 		surface.queue_redraw()
 		await process_frame
+		if specialist_mode == "xray_scan":
+			_ck("X-ray renders its isolated machine beneath the scanner",
+				surface.last_target_subject_route == "target_doctor"
+				and surface.last_specialist_subject_route == "xray_device")
+		elif specialist_mode == "farm_lob":
+			_ck("farm lob renders its piggy target before the first landing",
+				surface.last_target_subject_route == "target_farmer"
+				and surface.last_specialist_subject_route == "farm_pig_target")
+	surface.configure("hold", Color.WHITE, 1, "basin_doctor")
+	surface.queue_redraw()
+	await process_frame
+	_ck("Doctor WASH renders a persistent sink, faucet, water, and hands",
+		surface.last_specialist_subject_route == "doctor_basin")
 	for causal: Dictionary in [
 		{"mode": "hold", "context": "nursery_feed"},
 		{"mode": "tap", "context": "nursery_burp"},
@@ -109,6 +122,10 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 		await process_frame
 		_ck("%s dispatches diegetic crank draw" % crank_context,
 			surface.last_contextual_draw_route == "crank:%s" % crank_context)
+		if crank_context == "crank_doctor":
+			_ck("Doctor CAST uses the reviewed starfish plush patient",
+				surface.doctor_patient_texture != null
+				and surface.last_specialist_subject_route == "doctor_starfish_patient")
 		surface.set_fill(1.0)
 		surface.accept_completion()
 		surface.queue_redraw()
@@ -122,6 +139,17 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 		]
 		surface.queue_redraw()
 		await process_frame
+		_ck("%s renders its own object and authored result path" % trace_context,
+			surface.last_trace_subject_route == trace_context)
+	for target_context: String in [
+		"target_chef", "target_candymaker", "target_farmer",
+		"target_astronaut", "target_boxer", "target_painter",
+	]:
+		surface.configure("tap", Color.WHITE, 1, target_context)
+		surface.queue_redraw()
+		await process_frame
+		_ck("%s keeps its isolated subject under the interaction" % target_context,
+			surface.last_target_subject_route == target_context)
 	for push_context: String in ["push_farmer", "push_racer"]:
 		surface.configure("swipe", Color.WHITE, 1, push_context)
 		surface.set_fill(0.58)
@@ -149,6 +177,9 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 	surface.set_fill(0.55)
 	surface.queue_redraw()
 	await process_frame
+	_ck("racer tune uses the reviewed borderless kart under wheel and wrench",
+		surface.last_specialist_subject_route == "racer_kart_asset"
+		and surface.racer_kart_texture != null)
 	surface.set_fill(1.0)
 	surface.accept_completion()
 	surface.queue_redraw()
@@ -173,6 +204,8 @@ func _init() -> void:
 	get_root().add_child(surface)
 	surface.set_process(false)
 	surface.gesture.connect(_record_gesture)
+	_ck("direct specialist scenes never paint opaque rectangular backdrops",
+		not OperaGestureSurface.DRAWS_CAUSAL_RECTANGLE_BACKDROPS)
 
 	# Directional demos use the same vector as the input gate.
 	surface.configure("swipe", Color.WHITE)
@@ -290,15 +323,17 @@ func _init() -> void:
 	_ck("echo listening glow keeps decaying between input frames",
 		is_equal_approx(surface.echo_glow, 0.25) and surface.echo_listening)
 
-	# Doctor uses the approved X-ray-machine card and a square scanner sweep,
+	# Doctor uses the approved isolated X-ray machine and a square scanner sweep,
 	# not Detective's stage-wide magnifying glass. Only crossing a new sore spot
 	# changes state; taps and unrelated motion are harmless.
 	events.clear()
 	surface.size = Vector2(392, 232)
 	surface.configure("xray_scan", Color.WHITE)
-	_ck("X-ray scan binds the approved Doctor machine card",
-		surface.visual_context == "target_doctor" and surface.widget_backdrop != null
-		and surface.widget_backdrop.resource_path.ends_with("widget_target_doctor.png"))
+	_ck("X-ray scan binds the approved Doctor machine without framed pixels",
+		surface.visual_context == "target_doctor" and surface.widget_backdrop == null
+		and surface.retired_widget_backdrop_path.ends_with("widget_target_doctor.png")
+		and surface.widget_mover != null
+		and surface.widget_mover.resource_path.ends_with("widget_target_doctor_mover.png"))
 	var first_xray_target := surface._xray_target_center(0)
 	var first_xray_demo := _pose_at(surface, 1.65)
 	_ck("X-ray rehint sweeps to the current real sore spot",
@@ -484,6 +519,12 @@ func _init() -> void:
 			and is_equal_approx(_paid_total("swipe"), trace_goal)
 			and surface.trace_points.size() >= 10
 			and is_equal_approx(surface.swipe_budget, trace_budget_before))
+		var revealed_path := surface._trace_path_points(surface.trace_journey)
+		_ck("%s feedback ends on the exact authored gesture endpoint" % trace_context,
+			revealed_path.size() >= 2
+			and revealed_path[0].distance_to(surface._trace_demo_point(0.0)) < 1.0
+			and revealed_path[revealed_path.size() - 1].distance_to(
+				surface._trace_demo_point(1.0)) < 1.0)
 		var completed_total := _paid_total("swipe")
 		surface._press(surface._trace_demo_point(1.0))
 		surface._drag(surface._trace_demo_point(0.10))
@@ -546,12 +587,15 @@ func _init() -> void:
 		and surface._portal_rotating_texture() != stationary_portal_doorway
 		and is_zero_approx(surface._portal_doorway_rotation()))
 
-	# Revised Racer TUNE art already owns its front wheel. Runtime installs only
+	# The borderless runtime kart owns its front wheel. Interaction installs only
 	# the missing rear wheel under the rotating wrench.
 	surface.configure("circle", Color.WHITE, 1, "crank_racer")
 	var rear_wheel_start := surface._racer_wheel_rect(true, 0.0)
 	var rear_wheel_done := surface._racer_wheel_rect(true, 1.0)
 	var runtime_wheels := surface._racer_runtime_wheel_rects(1.0)
+	_ck("racer pit-stop kart visible alpha remains inside shipping surface",
+		surface.racer_kart_texture != null
+		and _rect_inside(shipping_bounds, surface._racer_kart_content_rect()))
 	_ck("racer tune draws only the missing rear wheel and visibly grows it",
 		runtime_wheels.size() == 1
 		and runtime_wheels[0].get_center().distance_to(surface._racer_rear_hub()) < 1.0
@@ -561,6 +605,18 @@ func _init() -> void:
 		and _rect_inside(shipping_bounds, rear_wheel_done)
 		and _rect_inside(shipping_bounds,
 			_rotation_safe_square(surface._racer_wrench_rect())))
+	_ck("racer circle input and ghost share the visible rear-wheel hub",
+		surface._circle_pivot().distance_to(surface._racer_rear_hub()) < 1.0
+		and _pose_point(_pose_at(surface, 0.0)).distance_to(
+			surface._racer_rear_hub()) > 40.0)
+	events.clear()
+	var racer_pivot := surface._circle_pivot()
+	var racer_circle_radius := 58.0
+	surface._press(racer_pivot + Vector2.RIGHT * racer_circle_radius)
+	surface._drag(racer_pivot + Vector2.from_angle(0.32) * racer_circle_radius)
+	surface._drag(racer_pivot + Vector2.from_angle(0.64) * racer_circle_radius)
+	surface._release(racer_pivot + Vector2.from_angle(0.64) * racer_circle_radius)
+	_ck("circling the visible racer hub advances the wrench", _paid("circle"))
 	surface.set_fill(1.0)
 	surface.accept_completion()
 	_ck("racer tune completion holds rear install without overlaying authored front",
@@ -568,6 +624,19 @@ func _init() -> void:
 		and surface._racer_runtime_wheel_rects(surface.widget_fill).size() == 1
 		and is_equal_approx(rear_wheel_done.size.x,
 			surface._racer_runtime_wheel_rects(surface.widget_fill)[0].size.x))
+
+	events.clear()
+	surface.configure("circle", Color.WHITE, 1, "crank_astronaut")
+	var valve_pivot := surface._circle_pivot()
+	_ck("astronaut valve input and ghost share the visible valve hub",
+		valve_pivot.distance_to(surface._crank_action_rect().get_center()) < 1.0
+		and _pose_point(_pose_at(surface, 0.0)).distance_to(valve_pivot) > 40.0)
+	var valve_circle_radius := 52.0
+	surface._press(valve_pivot + Vector2.RIGHT * valve_circle_radius)
+	surface._drag(valve_pivot + Vector2.from_angle(0.32) * valve_circle_radius)
+	surface._drag(valve_pivot + Vector2.from_angle(0.64) * valve_circle_radius)
+	surface._release(valve_pivot + Vector2.from_angle(0.64) * valve_circle_radius)
+	_ck("circling the visible astronaut valve advances it", _paid("circle"))
 
 	# POSE / LAUNCH / SOUND CHECK are causal holds, not the same cyan disk and
 	# meter. The two old static-subject cards are fully occluded before their
@@ -643,6 +712,10 @@ func _init() -> void:
 	surface.configure("crown_chest", Color.WHITE)
 	var crown_geometry_inside := _rect_inside(shipping_bounds,
 		surface._crown_handle_rect().grow(22.0))
+	if surface.crown_chest_closed_texture != null:
+		crown_geometry_inside = crown_geometry_inside and _rect_inside(
+			shipping_bounds, surface._contain_rect(
+				surface.crown_chest_closed_texture, surface._crown_prop_bounds()))
 	for crown_demo_time: float in [0.0, 1.0]:
 		crown_geometry_inside = crown_geometry_inside and shipping_bounds.has_point(
 			_pose_point(_pose_at(surface, crown_demo_time)))
@@ -666,6 +739,10 @@ func _init() -> void:
 		cabinet_base_handle.size)
 	var cabinet_geometry_inside := _rect_inside(shipping_bounds,
 		cabinet_base_handle.grow(22.0)) and _rect_inside(shipping_bounds, cabinet_pulled_handle)
+	if surface.magic_cabinet_closed_texture != null:
+		cabinet_geometry_inside = cabinet_geometry_inside and _rect_inside(
+			shipping_bounds, surface._contain_rect(
+				surface.magic_cabinet_closed_texture, surface._cabinet_prop_bounds()))
 	for cabinet_demo_time: float in [0.0, 1.65]:
 		cabinet_geometry_inside = cabinet_geometry_inside and shipping_bounds.has_point(
 			_pose_point(_pose_at(surface, cabinet_demo_time)))
@@ -1038,7 +1115,9 @@ func _init() -> void:
 	events.clear()
 	surface.configure("dance_sequence", Color.WHITE)
 	_ck("dance defaults to the approved ballerina context",
-		surface.visual_context == "lanes_ballerina" and surface.widget_backdrop != null)
+		surface.visual_context == "lanes_ballerina" and surface.widget_backdrop == null
+		and surface.retired_widget_backdrop_path.ends_with("widget_lanes_ballerina.png")
+		and surface.widget_mover != null)
 	for tick in range(28):
 		surface._dance_tick(0.15)
 	_ck("dance demonstrates before accepting input",
@@ -1080,8 +1159,9 @@ func _init() -> void:
 	# the deterministic queue; a wrong bin resets the same piece.
 	events.clear()
 	surface.configure("candy_sort", Color.WHITE)
-	_ck("candy sort binds its three-bin authored card",
-		surface.visual_context == "lanes_candymaker" and surface.widget_backdrop != null
+	_ck("candy sort binds its three-bin art without framed pixels",
+		surface.visual_context == "lanes_candymaker" and surface.widget_backdrop == null
+		and surface.retired_widget_backdrop_path.ends_with("widget_lanes_candymaker.png")
 		and surface.candy_type == int(OperaGestureSurface.CANDY_SEQUENCE[0]))
 	var candy_start_type := surface.candy_type
 	for tick in range(160):
@@ -1162,8 +1242,10 @@ func _init() -> void:
 	var farm_food_paths: Dictionary = {}
 	for farm_food_texture: Texture2D in surface.farm_vegetable_textures:
 		farm_food_paths[farm_food_texture.resource_path] = true
-	_ck("farm lob binds three distinct approved food pieces",
-		surface.visual_context == "target_farmer" and surface.widget_backdrop != null
+	_ck("farm lob binds three distinct foods and a borderless piggy subject",
+		surface.visual_context == "target_farmer" and surface.widget_backdrop == null
+		and surface.retired_widget_backdrop_path.ends_with("widget_target_farmer.png")
+		and surface.widget_mover != null
 		and surface.farm_vegetable_textures.size() == 3
 		and farm_food_paths.size() == 3)
 	var seen_farm_foods: Dictionary = {surface.farm_food_index: true}
@@ -1214,8 +1296,9 @@ func _init() -> void:
 	# The midpoint duck is a demonstrated downward state transition, not a hit.
 	events.clear()
 	surface.configure("boxer_rhythm", Color.WHITE)
-	_ck("boxer rhythm binds approved focus-pad art and starts left",
-		surface.visual_context == "lanes_boxer" and surface.widget_backdrop != null
+	_ck("boxer rhythm binds approved focus-pad art without framed pixels and starts left",
+		surface.visual_context == "lanes_boxer" and surface.widget_backdrop == null
+		and surface.retired_widget_backdrop_path.ends_with("widget_lanes_boxer.png")
 		and surface.widget_mover != null and surface.boxer_expected == 0)
 	var boxer_pose := _pose_at(surface, 1.15)
 	_ck("boxer hand points at the highlighted real mitt",

@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "date": "2026-08-09",
+  "scope": "One isolated Magician ROPE hotspot; all other Opera hotspots reuse approved project art.",
+  "generation_method": "OpenAI built-in ImageGen",
+  "reference": {
+    "path": "assets/opera/worlds/widgets/widget_trace_magician.png",
+    "sha256": "7999afc7ea691a47dbd8b7d175e1f902a6d21ed8947f30da548e7f1bea37d1cd"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "result_id": "exec-21e14c4c-d66c-40be-9c12-c41133917125.png",
+      "sha256": "58dd1e28ddd2b06dcbe00b0840038f8f5a46eb6099ef5cec4304b5559fd9b9ed",
+      "status": "rejected",
+      "reason": "RGB-only baked checkerboard plus detached purple cap droplets; never copied into the project."
+    },
+    {
+      "attempt": 2,
+      "result_id": "exec-53dd92c7-cbcc-4dbf-8543-2e7fbe72e365.png",
+      "original_result_path": "C:/Users/Peter/.codex/generated_images/019fe6fd-6f77-7353-86b6-d32b930bea1a/exec-53dd92c7-cbcc-4dbf-8543-2e7fbe72e365.png",
+      "status": "codex_visual_review_accepted_owner_review_pending",
+      "native_path": "assets_src/imagegen/opera_diegetic_hotspots_2026-08-09/native/magician_rope_native.png",
+      "native_sha256": "00dc8d2ecba5f42720b883f0271baecd75c943a56f09f745c93635325bbed953",
+      "native_dimensions": [1254, 1254]
+    }
+  ],
+  "alpha_derivative": {
+    "path": "assets_src/imagegen/opera_diegetic_hotspots_2026-08-09/magician_rope_alpha_native.png",
+    "sha256": "89b39db5e096fd5cd1fda4bcd496deadf147d74c509bdff6cd510b44f553bed3",
+    "command": "python C:/Users/Peter/.codex/skills/.system/imagegen/scripts/remove_chroma_key.py --input native/magician_rope_native.png --out magician_rope_alpha_native.png --auto-key border --soft-matte --transparent-threshold 22 --opaque-threshold 105 --edge-feather 0.6 --spill-cleanup --force",
+    "detected_key": "#05f807",
+    "transparent_pixels": 1467130,
+    "partial_alpha_pixels": 11184,
+    "connected_components_alpha_gte_16": 1
+  },
+  "runtime_derivative": {
+    "path": "assets/opera/worlds/hotspots/magician_rope.png",
+    "sha256": "f38205f3e00ab8de0b1dd176a52c7535abcfa369eafa1fe1032eacb003fc9843",
+    "dimensions": [512, 128],
+    "command": "ffmpeg 8.1.2 -i magician_rope_alpha_native.png -vf crop=1254:314:0:455,scale=512:128:flags=lanczos,format=rgba -frames:v 1 magician_rope.png",
+    "alpha_bbox": [16, 22, 496, 106],
+    "alpha_margins": [16, 22, 16, 22],
+    "connected_components_alpha_gte_16": 1,
+    "opaque_green_spill_pixels": 0
+  },
+  "prompt_record": "assets_src/imagegen/opera_diegetic_hotspots_2026-08-09/PROMPTS.md",
+  "review_record": "assets_src/imagegen/opera_diegetic_hotspots_2026-08-09/REVIEW.md",
+  "qa_summary": {
+    "codex_visual_review": "accepted",
+    "owner_human_review": "pending",
+    "topology": "pass",
+    "crop": "pass",
+    "floating_parts": "pass",
+    "alpha_components": "pass",
+    "green_spill": "pass",
+    "runtime_dimensions": "pass"
+  }
+}

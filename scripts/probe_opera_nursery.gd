@@ -59,11 +59,19 @@ func _init() -> void:
 		and world.surface.visual_context == "nursery_wash")
 
 	_pump(world)
+	# Each new care beat now waits behind its own lit room object. The broad
+	# shipping probe walks the full route; this focused engine probe uses the
+	# explicit trusted open without awarding progress.
+	_open_armed_task(world)
 	var catcher := world.nursery_catch
 	_check("catch phase reuses and expands the falling-baby grammar",
 		world.phase_index == 1 and catcher != null and catcher.active
 		and catcher.goal == 5 and catcher.textures.size() == 3
 		and bool(catcher.get_meta("no_fail", false)))
+	_check("catch phase keeps the painted nursery visible behind its mobile",
+		not OperaNurseryCatch.DRAWS_CARD_BACKING
+		and catcher.backdrop_texture == null
+		and catcher.retired_backdrop_path.ends_with("widget_catch_nursery.png"))
 	var passive_guard := 0
 	while catcher.missed < 2 and passive_guard < 140:
 		catcher._process(0.20)
@@ -86,11 +94,10 @@ func _init() -> void:
 		hold_guard += 1
 	_check("one-finger steering catches all five babies after safe misses",
 		catcher.caught == 5 and world.phase_index == 2)
-	world.phase_gap = 0.0
 	# Opening the freshly armed task configures its direct causal surface without
 	# crediting progress. This proves the approved bottle is the runtime branch,
 	# rather than the old copied baby card or the code fallback.
-	world._on_gesture("probe", 0.0, 1.0)
+	_open_armed_task(world)
 	_check("feeding uses the approved bottle hold tableau",
 		world.surface.visual_context == "nursery_feed"
 		and world.surface._nursery_bottle_art_ready()
@@ -99,6 +106,7 @@ func _init() -> void:
 	_check("feeding clears into the gentle burp-pat beat without an imp chase",
 		world.phase_index == 3 and world.steal_index < 0
 		and String((world.phases[3] as Dictionary).get("name", "")) == "BURP")
+	_open_armed_task(world)
 	# gentle pats: a pat inside the pace window pays nothing, so a drumming
 	# finger cannot rush the baby — the probe waits between pats like a child
 	var pat_guard := 0
@@ -154,6 +162,12 @@ func _pump(world: OperaCareerWorld2D) -> void:
 	if world.phase_advance_pending:
 		world._on_gesture("probe", 0.0, 1.0)
 	world.phase_gap = 0.0
+
+
+func _open_armed_task(world: OperaCareerWorld2D) -> void:
+	world.phase_gap = 0.0
+	if not world.task_open:
+		world._on_gesture("probe", 0.0, 1.0)
 
 
 func _phase_names(world: OperaCareerWorld2D) -> Array[String]:

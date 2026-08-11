@@ -2501,3 +2501,28 @@ result. Derivatives were built deterministically by
 - `assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png` - 256x256 project-original code-drawn repair patch using the established Opera palette and approved Astronaut widget source reference.
 - `assets/opera/worlds/widgets/widget_target_painter_mark.png` - 128x128 literal paint-splat mark cropped from the approved Painter splat-state source.
 - `assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png` - deterministic project-authored visual-QA contact sheet of every runtime derivative above; not runtime art.
+
+## Opera diegetic hotspot gap art (2026-08-09)
+
+Project-original OpenAI built-in ImageGen art; license: project original; URL:
+none. Generation was limited to the single verified gap: an isolated Magician
+`ROPE` object. `assets_src/imagegen/opera_diegetic_hotspots_2026-08-09/`
+records the exact reference, two attempts (including the rejected artifact
+attempt), prompts, result IDs, hashes, alpha command, deterministic runtime
+normalization, and Codex artifact review. Owner/human review remains pending.
+
+- `assets_src/imagegen/opera_diegetic_hotspots_2026-08-09/native/magician_rope_native.png` - preserved 1254×1254 chroma native generated from the approved Magician trace-card reference; no external source.
+- `assets_src/imagegen/opera_diegetic_hotspots_2026-08-09/magician_rope_alpha_native.png` - 1254×1254 non-destructive alpha derivative made with the installed `remove_chroma_key.py`; source native preserved.
+- `assets/opera/worlds/hotspots/magician_rope.png` - 512×128 POT Lanczos runtime derivative of the accepted alpha native; whole rope retained with 16/22/16/22-pixel alpha margins.
+
+## Opera borderless pit-stop kart (2026-08-10)
+
+- `assets_src/imagegen/opera_borderless_pitstop_2026-08-10/native/racer_pitstop_kart_chroma_native.png` - project-owned OpenAI built-in ImageGen source, generated from the approved Opera Racer card as a design/style reference; exact prompt, result path, review state, and SHA-256 are in the adjacent `PROMPT.md`, `REVIEW.md`, and `PROVENANCE.json`.
+- `assets_src/imagegen/opera_borderless_pitstop_2026-08-10/racer_pitstop_kart_alpha_native.png` - non-destructive alpha derivative made with the installed `remove_chroma_key.py` helper; source native preserved; exact matte command and metrics are in `PROVENANCE.json`.
+- `assets/opera/worlds/widgets/widget_crank_racer_kart.png` - 512×512 RGBA/POT whole-canvas Lanczos runtime derivative; one connected borderless side-view kart with its approved front wheel and intentional empty rear wheel arch; project-owned, no external source.
+
+## Opera borderless Doctor patient (2026-08-10)
+
+- `assets_src/imagegen/opera_borderless_doctor_2026-08-10/native/doctor_starfish_patient_chroma_native.png` - project-owned OpenAI built-in ImageGen source, generated from the approved Opera Doctor card as a character/style reference; exact prompt, result path, review state, and SHA-256 are in the adjacent `PROMPT.md`, `REVIEW.md`, and `PROVENANCE.json`.
+- `assets_src/imagegen/opera_borderless_doctor_2026-08-10/doctor_starfish_patient_alpha_native.png` - non-destructive alpha derivative made with the installed `remove_chroma_key.py` helper; source native preserved; exact matte command and metrics are in `PROVENANCE.json`.
+- `assets/opera/worlds/widgets/widget_crank_doctor_patient.png` - 512×512 RGBA/POT whole-canvas Lanczos runtime derivative; one connected five-armed starfish plush with no pre-painted bandage, allowing the minigame to animate the wrap causally; project-owned, no external source.
