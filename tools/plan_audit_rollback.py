@@ -20,6 +20,7 @@ AUDIT_BASELINE_COMMIT = "4ba20414a3fdbb771c3635a43cee66c850a49515"
 AUDIT_INTEGRATION_COMMIT = "ad36ee9ffe4eae4d5c4183d0546d775de0218213"
 AUDIT_INTEGRATION_PARENT = "7b5d1209063a22002118c364767d537b34b3dc6f"
 AUDIT_UPSTREAM_PARENT = "245c16137fae82271dabac456d5ab04d843463a8"
+AUDIT_CATALOG_COMMIT = "dacef1405b6a8cb470117e824aebac3a8ca500af"
 GODOT_REQUIREMENT = "exact Godot 4.7.1-stable (not 4.4 or a development build)"
 
 MANUAL = "MANUAL_RECONSTRUCTION_REQUIRED"
@@ -37,6 +38,7 @@ class ChangeGroup:
 	paths: tuple[str, ...]
 	dependencies: tuple[str, ...]
 	gates: tuple[str, ...]
+	rollback_start: str = AUDIT_INTEGRATION_COMMIT
 	warnings: tuple[str, ...] = ()
 	safety: str = MANUAL
 	manual_reason: str = ""
@@ -60,6 +62,7 @@ def _group(
 	dependencies: Sequence[str],
 	gates: Sequence[str],
 	*,
+	rollback_start: str = AUDIT_INTEGRATION_COMMIT,
 	warnings: Sequence[str] = (),
 	safety: str = MANUAL,
 	manual_reason: str = "",
@@ -77,6 +80,7 @@ def _group(
 		paths=tuple(paths),
 		dependencies=tuple(dependencies),
 		gates=tuple(gates),
+		rollback_start=rollback_start,
 		warnings=tuple(warnings),
 		safety=safety,
 		manual_reason=manual_reason,
@@ -205,12 +209,14 @@ CATALOG: tuple[ChangeGroup, ...] = (
 			"7e6d699dcad4e8e37e0fd8e47583354d77cd1876",
 			"5c4b34f0f50693ce79d12fb455936453c324ae0c",
 			"7b5d1209063a22002118c364767d537b34b3dc6f",
+			"dacef1405b6a8cb470117e824aebac3a8ca500af",
 		),
 		(
 			".github/workflows/probes.yml",
+			"audit/MASTER_AUDIT_2026-08-09.md",
+			"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
 			"scripts/ci.sh",
 			"tools/audit_probe_parity.py",
-			"tools/tests/test_audit_probe_parity.py",
 			"tools/check_grade_headroom.py",
 			"tools/tests/test_check_grade_headroom.py",
 		),
@@ -218,7 +224,9 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		(
 			"python tools/audit_probe_parity.py",
 			"python tools/audit_probe_parity.py --stress",
+			"python -m unittest tools.tests.test_check_grade_headroom",
 		),
+		rollback_start=AUDIT_CATALOG_COMMIT,
 		manual_reason="This is a high-risk workflow/CI enforcement change. Removing it can silently reduce remote coverage and must be replaced, not simply reverted.",
 	),
 	_group(
@@ -463,13 +471,28 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		(
 			"df5b4cf7f98cd1ce09468b2551cd3bd5bb8ddf4c",
 			"5961fd968066e4644e2b77f73c72e990c4bef4ac",
+			"fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08",
 		),
 		(
-			"tools/audit_castle_delivery.py",
-			"tools/tests/test_audit_castle_delivery.py",
+			"assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+			"assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+			"assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md",
+			"audit/MASTER_AUDIT_2026-08-09.md",
+			"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+			"tools/build_castle_interaction_v4_delivery.py",
+			"tools/build_castle_native_interactions_v4.py",
+			"tools/plan_audit_rollback.py",
+			"tools/prepare_opera_minigame_art.py",
+			"tools/test_build_castle_interaction_v4_delivery.py",
+			"tools/tests/test_prepare_opera_minigame_art.py",
 		),
 		(),
-		("python -m unittest tools.tests.test_audit_castle_delivery",),
+		(
+			"python -m unittest tools.test_build_castle_interaction_v4_delivery tools.tests.test_prepare_opera_minigame_art",
+			"python tools/build_castle_interaction_v4_delivery.py --check",
+			"python tools/prepare_opera_minigame_art.py --check-only",
+		),
+		rollback_start=AUDIT_CATALOG_COMMIT,
 		manual_reason="Although bounded, reverting a portability fix has no safe automatic benefit and could make Windows and CI disagree.",
 	),
 	_group(
@@ -657,7 +680,7 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		"Written change log and rollback process",
 		"Adds the stable change catalog, conservative planning helper, validation tests, and central written rollback instructions requested after ad36.",
 		AUDIT_INTEGRATION_COMMIT,
-		(),
+		("57bc08d1220594fbabcab15362b5685a9f8514e6",),
 		(
 			".gitignore",
 			"audit/MASTER_AUDIT_2026-08-09.md",
@@ -675,8 +698,8 @@ CATALOG: tuple[ChangeGroup, ...] = (
 			"python -m py_compile tools/plan_audit_rollback.py tools/tests/test_plan_audit_rollback.py",
 			"python -m unittest tools.tests.test_plan_audit_rollback",
 		),
-		manual_reason="This follow-up is not yet represented by a committed SHA in the catalog snapshot. Record its final commit before constructing any inverse.",
-		pending_commit=True,
+		rollback_start=AUDIT_CATALOG_COMMIT,
+		manual_reason="The introduction anchor is known, but the ledger and planner are append-only operational controls. Reverse 57bc only on a dedicated branch after reviewing later CHG-023 maintenance and preserving any still-required rollback evidence.",
 	),
 )
 
@@ -718,6 +741,8 @@ def validate_catalog(groups: Sequence[ChangeGroup] = CATALOG) -> None:
 		ids.add(group.change_id)
 		if not _COMMIT_RE.fullmatch(group.baseline_commit):
 			raise CatalogError(f"invalid baseline commit for {group.change_id}")
+		if not _COMMIT_RE.fullmatch(group.rollback_start):
+			raise CatalogError(f"invalid rollback start for {group.change_id}")
 		if group.pending_commit:
 			if group.commits or group.safety != MANUAL:
 				raise CatalogError(f"pending group {group.change_id} must be manual with no commits")
@@ -789,7 +814,7 @@ def render_plan(group: ChangeGroup) -> str:
 		"  - The inverse must preserve protected originals and all save keys.",
 		"",
 		"Exact current/start requirements:",
-		f"  - Use exactly {AUDIT_INTEGRATION_COMMIT} as the rollback branch start.",
+		f"  - Use exactly {group.rollback_start} as the rollback branch start.",
 		"  - Index, tracked worktree, and untracked set must all be empty before creating the branch.",
 		f"  - Use {GODOT_REQUIREMENT} for every Godot gate.",
 		f"  - The new branch name is {group.branch_name}; it must not already exist.",
@@ -812,7 +837,7 @@ def render_plan(group: ChangeGroup) -> str:
 	if group.safety == MANUAL:
 		lines.extend((
 			f"  1. Inspect the owned commits and coupled IDs without changing Git state.",
-			f"  2. From a clean tree, create {group.branch_name} at exact start {AUDIT_INTEGRATION_COMMIT}.",
+			f"  2. From a clean tree, create {group.branch_name} at exact start {group.rollback_start}.",
 			"  3. Hand-author the smallest inverse; do not bulk-restore the listed selectors.",
 			"  4. Review protected assets, save compatibility, child safety, and medium authority before staging.",
 			"  5. Run every listed gate, review the staged diff, then commit only with owner approval.",
@@ -821,7 +846,7 @@ def render_plan(group: ChangeGroup) -> str:
 		))
 	elif group.safety == MERGE_ALL:
 		lines.extend((
-			f"  1. The emitted script creates {group.branch_name} at {AUDIT_INTEGRATION_COMMIT}.",
+			f"  1. The emitted script creates {group.branch_name} at {group.rollback_start}.",
 			f"  2. It stages only `git revert --no-commit -m 1 {AUDIT_INTEGRATION_COMMIT}`.",
 			f"  3. It requires the staged result to equal parent-1 baseline {AUDIT_INTEGRATION_PARENT} exactly.",
 			"  4. It runs the full gate and stops with changes staged for human review; it does not commit.",
@@ -834,7 +859,7 @@ def render_plan(group: ChangeGroup) -> str:
 			else "the owned commits in reverse order with `git revert --no-commit`"
 		)
 		lines.extend((
-			f"  1. The emitted script creates {group.branch_name} at {AUDIT_INTEGRATION_COMMIT}.",
+			f"  1. The emitted script creates {group.branch_name} at {group.rollback_start}.",
 			f"  2. It applies {inverse}.",
 			"  3. It runs the listed gates and stops with changes staged for human review; it does not commit.",
 			"  4. Inspect all coupled IDs and the complete staged diff before committing.",
@@ -850,7 +875,7 @@ def render_script(group: ChangeGroup) -> str:
 	lines = [
 		"#!/usr/bin/env sh",
 		"set -eu",
-		f"CURRENT='{AUDIT_INTEGRATION_COMMIT}'",
+		f"CURRENT='{group.rollback_start}'",
 		f"BRANCH='{group.branch_name}'",
 		"if [ -n \"$(git status --porcelain=v1 --untracked-files=all)\" ]; then",
 		"  echo 'STOP: working tree, index, and untracked set must be clean.' >&2",

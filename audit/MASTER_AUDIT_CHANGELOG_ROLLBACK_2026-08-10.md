@@ -64,15 +64,25 @@ changes:
 
 ### 2.1 Non-negotiable preparation
 
-Every experiment starts from a clean, current branch. Replace `<change-id>`
-with the lowercase ID, for example `chg-021`.
+Every experiment starts from a clean, catalog-pinned commit. Replace
+`<change-id>` with the lowercase ID, for example `chg-021`, and replace
+`<exact-start-from-plan>` with the exact start printed for that stable ID by
+the planner. Do not assume one start SHA for every group.
 
 ```powershell
 git status --short
 git fetch origin --prune
-git switch -c codex/rollback-<change-id> ad36ee9ffe4eae4d5c4183d0546d775de0218213
+python -B tools/plan_audit_rollback.py CHG-021
+git switch -c codex/rollback-<change-id> <exact-start-from-plan>
 git rev-parse HEAD
 ```
+
+The current catalog pins post-integration CHG-005, CHG-015, and CHG-023
+experiments to `dacef1405b6a8cb470117e824aebac3a8ca500af`, which contains their
+recorded follow-up commits. Other groups remain pinned to integration commit
+`ad36ee9ffe4eae4d5c4183d0546d775de0218213`; in particular, the three emitted
+CHG-020/021/022 scripts intentionally start there. The planner output is the
+authority if a later append-only maintenance revision changes this mapping.
 
 If `git status --short` was not empty, stop. Preserve the work under the
 repository rescue workflow before creating a rollback branch. Never use
@@ -193,11 +203,11 @@ That does not make the audit satisfied. The game-wide inventory remains 509
 model files, 68 production-3D files, 77 probe-3D files, one scene-3D file, and
 one configuration-3D file. Strict fresh visual attestation remains
 `UNSATISFIED` with 16 failures, 17 review-open items, two manual-open items,
-and 86 coverage gaps. No remote exact-head, complete Mobile capture matrix,
-Lenovo Tab M11 acceptance, intended-child session, complete audio listening
-pass, protected-voice review, or owner visual/identity acceptance closes those
-gaps. Every change record below inherits these common gaps unless it says
-otherwise.
+and 86 coverage gaps. Exact-head remote run `31457593351` is green, but no
+complete Mobile acceptance matrix, Lenovo Tab M11 acceptance, intended-child
+session, complete audio listening pass, protected-voice review, or owner
+visual/identity acceptance closes those gaps. Every change record below
+inherits these common gaps unless it says otherwise.
 
 ### 3.1 Merge scaffolding is topology, not source ownership
 
@@ -323,9 +333,11 @@ exclusive and must never be applied on the same rollback branch.
 - **Sources:** `7e6d699dcad4e8e37e0fd8e47583354d77cd1876`,
   Windows grade portability `5c4b34f0f50693ce79d12fb455936453c324ae0c`,
   and runner-temp archive containment
-  `7b5d1209063a22002118c364767d537b34b3dc6f`.
-- **Paths:** `scripts/ci.sh`, `.github/workflows/probes.yml`, and
-  probe-parity and grade-headroom tools/tests.
+  `7b5d1209063a22002118c364767d537b34b3dc6f`; focused pinned music-verifier
+  repair `dacef1405b6a8cb470117e824aebac3a8ca500af`.
+- **Paths:** `scripts/ci.sh`, `.github/workflows/probes.yml`, probe-parity and
+  grade-headroom tools/tests, plus the central audit/rollback checkpoint rows
+  updated by the exact-head workflow repair.
 - **Outcome / positive effect:** local and remote trusted-loop drift is detected
   rather than allowing CI to imply coverage it does not execute; Windows text
   encoding no longer creates a false grade failure; the downloaded Godot ZIP
@@ -342,11 +354,23 @@ exclusive and must never be applied on the same rollback branch.
   music check to a parallel `windows-2025` job using pinned
   `actions/setup-python` commit `5fda3b95`, Python 3.13.14, NumPy 2.5.1,
   SciPy 1.18.0, and the existing checksum-pinned FFmpeg 8.1.2 installer. It
-  removes no gate and changes no music or protected audio. Its introducing
-  commit and replacement exact-head result must be appended after they exist.
-- **Rollback:** `guarded_mixed`: these are three CI protections, and the current
+  removes no gate and changes no music or protected audio.
+- **2026-08-10 verified follow-up:** introducing commit
+  `dacef1405b6a8cb470117e824aebac3a8ca500af` completes exact-head GitHub run
+  `31457593351` successfully in 34m19s. The Windows job passes 42/42 music
+  deliveries; Ubuntu passes Opera 39/39, GAME2D 509/68/77
+  `NO_REGRESSION`/`UNSATISFIED`, import, analyzer, all 62 trusted headless
+  probes, boot, balance, and all capture/upload pairs. Parity default plus eight
+  falsification cases are green and `PRB007` detects removal of either verifier.
+- **Rollback:** `guarded_mixed`: these are coupled CI protections, and the current
   CI/workflow files were later reconciled by CHG-022. Inverse only the proven
   faulty sub-change, preserve the other two, and stop on shared-file conflict.
+  For this focused verifier move, create a clean dedicated rollback branch at
+  or after `dacef140`, run `git revert --no-commit
+  dacef1405b6a8cb470117e824aebac3a8ca500af`, and inspect the four-file inverse
+  before committing. A raw reversal deliberately restores the known
+  Ubuntu-without-FFmpeg failure, so use it only to replace the verifier design,
+  never to remove the 42-delivery gate.
   Run parity stress/default, grade tests, GAME2D, and full CI. Removing parity
   or moving the engine archive back into the workspace merely to make CI green
   is not acceptable.
@@ -556,7 +580,8 @@ exclusive and must never be applied on the same rollback branch.
 ### CHG-015 — Castle and Opera cross-platform generated-art stability
 
 - **Sources:** `df5b4cf7f98cd1ce09468b2551cd3bd5bb8ddf4c` and dependency-light
-  test follow-up `5961fd968066e4644e2b77f73c72e990c4bef4ac`.
+  test follow-up `5961fd968066e4644e2b77f73c72e990c4bef4ac`; Opera PNG portability
+  follow-up `fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08`.
 - **Paths:** Castle interaction manifest/approval ledger, delivery/native build
   tools and tests; Opera minigame-art generator/checker, focused tests, and its
   governed `PROVENANCE.json`/`REVIEW.md` evidence.
@@ -711,6 +736,8 @@ exclusive and must never be applied on the same rollback branch.
   NumPy 2.5.1, SciPy 1.18.0, and FFmpeg 8.1.2. Remote verification therefore
   runs in the parallel checksum-pinned Windows job described in CHG-005 rather
   than falsely claiming an Ubuntu decoder reproduced the render toolchain.
+  Exact-head run `31457593351` at `dacef140` proves this job green for all
+  42 deliveries while the parallel Ubuntu gameplay/static job also succeeds.
 - **Rollback:** `guarded_mixed`. Refuse a one-line revert of `0da07e24`: later
   fixes and merge resolutions share its routing files. For one objectionable
   cue, first route that area to the prior valid state, prove voice/music-off
@@ -763,7 +790,7 @@ exclusive and must never be applied on the same rollback branch.
 - **Possible negative effect / unknown:** this large merge can contain subtle
   behavioral or art regressions despite green probes; workflow changes are
   high-risk; 33,299 first-parent insertions make causal isolation difficult;
-  remote exact-head and external acceptance gates remain open.
+  external acceptance gates remain open.
 - **Dependencies and evidence:** every CHG-016–021 record, CHG-005/008/014,
   parser/lint/import/editor checks, deterministic art/music audits, focused
   Opera/audio probes, exact local full CI.
@@ -773,12 +800,10 @@ exclusive and must never be applied on the same rollback branch.
 
 ### CHG-023 — Change-log and rollback process
 
-- **Source:** pending introducing commit. A tracked file cannot contain its own
-  Git object ID without a self-reference loop. After this file is committed,
-  locate its immutable introduction anchor with `git log --diff-filter=A
-  --format=%H -- audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` and record
-  that anchor in the next normal append-only audit synchronization. Until then,
-  the planner deliberately refuses a CHG-023 inverse rather than guessing.
+- **Source:** introduction commit
+  `57bc08d1220594fbabcab15362b5685a9f8514e6`. Later append-only evidence
+  synchronizations remain CHG-023 maintenance and do not create new product
+  change IDs merely to record their own otherwise self-referential hashes.
 - **Paths:** this ledger, master audit, design index/architecture/open-work/
   ledger/design-language records, `.gitignore`, the read-only planner, and its
   tests.
@@ -791,8 +816,13 @@ exclusive and must never be applied on the same rollback branch.
   clean.
 - **Dependencies and evidence:** CHG-011 authority, current master audit/design
   language, clean UTF-8/table/fence/link/diff validation.
-- **Rollback:** `documentation_migration`. Supersede with an additive dated
-  ledger and update the document index. Never delete the historical mapping or
+- **Rollback:** `documentation_migration`. On a clean dedicated branch at or
+  after the introduction anchor, preview `git revert --no-commit
+  57bc08d1220594fbabcab15362b5685a9f8514e6`; stop on any overlap with later
+  CHG-023 maintenance. Keep a copy of this ledger outside the worktree, preserve
+  any still-required rollback evidence, and confirm the inverse does not alter
+  runtime, protected assets, save schema, authority, or workflow security.
+  Prefer superseding the ledger/tool over deleting the audit trail, and never
   reuse a `CHG-*` ID.
 
 ## 5. Per-group gate matrix

@@ -8,10 +8,13 @@
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
 - **Current integration commit:**
-  `ad36ee9f` (parents `7b5d1209b4c4823fbf9ed39193c8b1700a288497`
+  `ad36ee9f` (parents `7b5d1209063a22002118c364767d537b34b3dc6f`
   and `245c16137fae82271dabac456d5ab04d843463a8`)
+- **Latest completed exact-head verification:**
+  `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
+  succeeds in 34m19s
 - **Last completed full local checkpoint:**
-  `a3d3bce18dd73d0ac87f2fb4bac397e2b4396180`
+  `ad36ee9ffe4eae4d5c4183d0546d775de0218213`
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
@@ -41,23 +44,32 @@ target, not a compliance claim. Historical exact local full CI is green at
 changed-script parser/lint, GAME2D unit/stress/regression, deterministic Opera
 art/animation/music gates, and focused Opera/audio/passive/voice probes green.
 The resolved integration content committed as `ad36ee9f` also completes full
-local `scripts/ci.sh` in 826.4 seconds with all 63 current trusted probes, but
-has no remote exact-head run yet. GAME2D is
-exact but strict-unsatisfied at 509 models, 68 production 3D files, and 77 probe
-3D files. Fresh-runtime visual strict is also unsatisfied at 16 failures, 17
-reviews, two manual items, 86 coverage gaps, 32 passes, and 94 not-applicable
-checks; no live Canvas capture output was accepted. The earlier GLB UID warnings
-are diagnosed as stale ignored local import cache, while the GLBs remain
-separate GAME2D debt. Commits `3b7a7e66` and `fea916a8` are the approved
-visual-evidence implementation baseline for `DL-QA-11`.
+local `scripts/ci.sh` in 826.4 seconds with all 63 current trusted probes.
+Exact audit/CI head `dacef1405b6a8cb470117e824aebac3a8ca500af`
+completes GitHub run `31457593351` successfully in 34m19s: the pinned Windows
+job verifies 42/42 deterministic music deliveries; Ubuntu passes static gates,
+import, analyzer, all 62 trusted probes, boot, balance and five capture/upload
+pairs. This makes `MA-CI-002` `VERIFIED_FIXED` at V3 exact-head; exhaustive
+one-class-per-probe classification remains `CONFIRMED_OPEN` as `MA-CI-003`.
+
+The overall game remains `UNSATISFIED`. GAME2D is exact but strict-unsatisfied
+at 509 models, 68 production 3D files, and 77 probe 3D files. Fresh-runtime
+visual strict is also unsatisfied at 16 failures, 17 reviews, two manual items,
+86 coverage gaps, 32 passes, and 94 not-applicable checks; the workflow's five
+diagnostic captures do not constitute accepted live Canvas evidence. The
+earlier GLB UID warnings are diagnosed as stale ignored local import cache,
+while the GLBs remain separate GAME2D debt. Commits `3b7a7e66` and `fea916a8`
+are the approved visual-evidence implementation baseline for `DL-QA-11`.
 
 The current Opera shipping snapshot is 13 careers, 53 phases, 27 distinct
 modes, zero generic `bop` phases, and 208 reviewed Roshan costume frames. That
 snapshot includes the dedicated three-act Ballerina recital, the five-phase
 two-glove Boxer specialist, the phone-safe Candymaker pour, and one true-Canvas
-Racer implementation. The 42-cue deterministic area-music rollout has complete
-machine evidence; human listening, mono/voice review, and Lenovo Tab M11
-acceptance remain open.
+Racer implementation. Ballerina and Boxer pass the exact-head remote gate, but
+authoritative capture, device, child and owner acceptance remain open. The
+42-cue deterministic area-music rollout has complete local and pinned-Windows
+remote machine evidence; human listening, mono/voice review, and Lenovo Tab M11
+acceptance remain open. APK and strict-zero 2D gates also remain open.
 
 ---
 

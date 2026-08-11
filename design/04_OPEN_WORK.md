@@ -45,20 +45,20 @@ cycle is `REPAIRING`.
 | `MA-OPERA-001` | `FIXED_PENDING_VERIFICATION` | Chef behavior/art routing and the resolved merged-worktree local full suite are green; final-SHA two-aspect capture, device and owner review still decide closure |
 | `MA-OPERA-002` / `MA-OPERA-004` | `CONFIRMED_OPEN` | Detective's painted crown is not proved healed, and no complete accepted all-career capture matrix exists |
 | `MA-OPERA-003` / `MA-OPERA-006` | `CONFIRMED_OPEN` | Split and re-audit the remaining fallback/art-fiction/voice subclaims; several subclaims changed, so the older grouped wording cannot be closed or imported wholesale |
-| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas, three-act specialist and integration-commit local full suite are green; remote exact-head, device, child and owner review remain |
+| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas and three-act specialist pass the local full suite and exact-head remote gate; authoritative capture, device, child and owner review remain |
 | `MA-OPERA-007` | `OWNER_DECISION_REQUIRED` | Decide the above-water Farmer/Doctor setting before treating it as a defect or repair |
 | `MA-OPERA-008` | `VERIFIED_FIXED` | Racer uses one true-Canvas Tune / To the Line / racing-circle path and exact lap-two cue; the rejected device-only 3D kart branch is superseded |
-| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer and integration-commit local full suite are green; remote exact-head, device, child and owner review remain |
-| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues and the resolved merged-worktree local full suite pass machine gates; human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
-| `MA-CI-002` | `FIXED_PENDING_VERIFICATION` | 105 probes now map to 63 local / 62 remote trusted entries with only the human-art display probe local; exact merged-head remote workflow remains |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes the local full suite and exact-head remote gate; authoritative capture, device, child and owner review remain |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates and the pinned-Windows exact-head job verifies 42/42 deliveries; human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
+| `MA-CI-002` | `VERIFIED_FIXED` | V3 exact-head at `dacef1405b6a8cb470117e824aebac3a8ca500af`, GitHub run `31457593351`, succeeds in 34m19s: 63 local / 62 remote trusted entries differ only by the human-art display probe, and all 62 remote entries pass |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 105 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
-| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–023 cover all 71 reachable audit commits; the written ledger and read-only planner agree exactly, only three guarded diagnostics emit scripts, and 14 unit plus independent adversarial checks are green |
+| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–023 assign 67 owned source commits plus seven topology commits, all 74 reachable audit commits through `dacef140`; the written ledger and read-only planner agree exactly, only three guarded diagnostics emit scripts, and 15 unit plus independent adversarial checks are green |
 | `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
-| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Resolved integration content committed as `ad36ee9f` completes exact Godot 4.7.1 local `scripts/ci.sh` in 826.4 seconds; remote exact-head CI, APK and device evidence still must match |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Resolved integration content at `ad36ee9f` completes exact Godot 4.7.1 local `scripts/ci.sh` in 826.4 seconds; exact audit/CI head `dacef140` completes remote run `31457593351` in 34m19s with Windows music 42/42 and Ubuntu static/import/analyzer/62 trusted probes/boot/balance/five diagnostic capture-upload pairs green. Matching APK, authoritative visual, listening, device, child, owner and strict-2D evidence remain open |
 
 Current P2/owner-decision work remains indexed in the master audit: asset
-orphans/NPOT residency, exact-head probe-workflow verification, exhaustive
-probe classification, the standalone fire-arena role, combat/device review,
+orphans/NPOT residency, exhaustive probe classification, the standalone
+fire-arena role, combat/device review,
 remaining Opera gaps, audio listening, and structural code debt. Roshan atlas
 repacking is `DEFERRED_WITH_REASON`; universal costume layers are
 `DISMISSED_NOT_A_DEFECT`.
@@ -170,7 +170,9 @@ parallax roles and remaining spatial staging belongs to `MA-2D-002`.
 total / 45 outside” count is stale. The merged tree counts 105 probe scripts,
 with 63 local and 62 remote trusted entries; the sole intended loop difference
 is display-only `probe_human_art_audit`. Blocking-loop parity is fixed locally
-under `MA-CI-002` and remains pending exact merged-head remote verification.
+and `VERIFIED_FIXED` remotely under `MA-CI-002`: exact head
+`dacef1405b6a8cb470117e824aebac3a8ca500af` completes GitHub run
+`31457593351` successfully in 34m19s with all 62 remote trusted probes green.
 Exhaustive one-class-per-probe disposition remains `CONFIRMED_OPEN` under
 `MA-CI-003`.
 
@@ -254,15 +256,17 @@ OW ordering:
 1. Finish authority/document controls and full finding records.
 2. Continue one tested true-2D gameplay family at a time until every GAME2D
    category is zero.
-3. Verify the merged Ballerina/Boxer/Racer repairs, close current Opera
-   capture/art defects and the confirmed Lagoon Canvas layering defect;
+3. Complete capture/device/child/owner acceptance for the merged
+   Ballerina/Boxer/Racer repairs, close current Opera art defects and the
+   confirmed Lagoon Canvas layering defect;
    establish state-local visual evidence before changing art.
 4. Resolve protected voice gaps through authorized sources.
 5. Re-enumerate and prove the child-visible world graph.
-6. Verify blocking-loop parity remotely and classify every probe; retire only
-   proved obsolete assets/code.
-7. Complete music listening/voice/mono/device review, then run same-SHA full
-   suite, capture, device and child gates and repeat the
+6. Preserve the verified blocking-loop parity guard and classify every probe;
+   retire only with explicit evidence.
+7. Complete music listening/voice/mono/device review, keep the same-SHA full
+   suite green after changes, then complete capture, device and child gates and
+   repeat the
    master audit from `INVENTORYING`.
 
 No state in this document permits calling the game or master audit satisfied.

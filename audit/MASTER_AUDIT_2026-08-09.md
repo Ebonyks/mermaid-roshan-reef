@@ -4,10 +4,12 @@
 - **Audit date:** 2026-08-09
 - **Audited branch:** `codex/master-audit-20260809`
 - **Integration commit:**
-  `ad36ee9f` (parents `7b5d1209b4c4823fbf9ed39193c8b1700a288497`
+  `ad36ee9f` (parents `7b5d1209063a22002118c364767d537b34b3dc6f`
   and `245c16137fae82271dabac456d5ab04d843463a8`)
 - **Last completed full local checkpoint:**
-  `a3d3bce18dd73d0ac87f2fb4bac397e2b4396180`
+  `ad36ee9ffe4eae4d5c4183d0546d775de0218213`
+- **Last completed exact-head remote checkpoint:**
+  `dacef1405b6a8cb470117e824aebac3a8ca500af`, GitHub run `31457593351`
 - **Proposed design authority:** `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`
 - **Change and rollback ledger:**
   `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`
@@ -124,9 +126,10 @@ game-wide 2D contract.
 
 The resolved integration content committed as `ad36ee9f` completes exact Godot 4.7.1-stable local
 `scripts/ci.sh` in 826.4 seconds with all 63 trusted probes green. This is a
-strong integration result, but a remote exact-head run does not yet exist. It
-does not close strict 2D, live visual
-capture, APK, audio-listening, device, child, protected-voice, or owner gates.
+strong integration result. Workflow/parity commit `dacef140` also completes
+exact-head GitHub run `31457593351` successfully with both required jobs. These
+gates do not close strict 2D, live visual capture, APK, audio-listening, device,
+child, protected-voice, or owner gates.
 
 No P0 audit item is currently indexed from the repository evidence reviewed for
 this round. Missing runtime, device, child, manual-art, and off-repository
@@ -370,12 +373,13 @@ and all trusted probes; it does not satisfy strict 2D, visual, warning-free,
 APK, device, voice, child, or owner acceptance gates. Any later code, art,
 import, probe, or audit-tool change must earn a new exact full checkpoint.
 
-#### 4.2.3 Integration commit `ad36ee9f` pending remote exact-head verification
+#### 4.2.3 Integration and exact-head remote verification
 
 The resolved integration now has the real merge identity `ad36ee9f`, with
 parents `7b5d1209` and `245c1613`. Its runtime/static content completed the
-local full gate below; remote exact-head execution and matching APK/device
-evidence remain pending. Current focused evidence is:
+local full gate below. Workflow/parity repair `dacef140` then completed the
+exact-head remote gate; matching APK/device evidence remains pending. Current
+focused evidence is:
 
 ```text
 GAME2D unit contract: 73 tests OK
@@ -397,8 +401,10 @@ lint are also green for all 22 changed/new GDScripts. Focused exact runtime
 probes independently remain green for Opera2D, Nursery, Detective, Opera
 gesture quality (271 checks), audio, picture games, interaction, passive play,
 voice, and the surrounding Opera path. The resolved content is integration
-commit `ad36ee9f`; remote exact-head CI remains pending, as do Mobile capture,
-APK, device, child, and owner gates.
+commit `ad36ee9f`. Exact-head GitHub run `31457593351` at `dacef140` completes
+successfully in 34m19s with all 62 headless trusted probes and the parallel
+42/42 music job. Complete Mobile acceptance capture, APK, device, child, and
+owner gates remain pending.
 
 ### 4.3 Archive and resource-retirement evidence
 
@@ -482,8 +488,9 @@ explicitly unimplemented coverage gaps.
   `a3d3bce1`, after 1434.3 seconds with fresh import, static gates, GAME2D
   `NO_REGRESSION`, and all 61 then-trusted probes. Integration commit
   `ad36ee9f` also completes the exact local `scripts/ci.sh` gate in 826.4
-  seconds with all 63 current trusted probes. It still has no remote exact-head
-  result; that is not inferred from the local run.
+  seconds with all 63 current trusted probes. Exact-head remote run
+  `31457593351` at `dacef140` independently completes both required jobs; it is
+  recorded separately rather than inferred from the local run.
 - The earlier two invalid-UID warnings were reproduced as stale ignored local
   `.godot/imported` cache artifacts. Source GLBs and tracked sidecars are valid,
   and an isolated fresh project import is warning-free. Their reachable 3D
@@ -526,13 +533,13 @@ contains every mandatory field. No abbreviated row is closure evidence.
 | `MA-ACCESS-002` | P1 | `BLOCKED_EXTERNAL` | V1 | Lamba's current semantic role still maps to legacy “bunny-fish” recordings | Owner-approved re-record/re-render and exact-key/device listening evidence |
 | `MA-ACCESS-003` | P1 | `BLOCKED_EXTERNAL` | V1/V3 partial | Seek has an accurate visual wiggle/U-cue/peek and an available Evie hide-and-seek recording, but no exact protected Evie recording says “tap the wiggly tree” | Owner-authorized exact Evie objective recording plus queue, device-listening, and child-comprehension evidence; do not modify protected audio |
 | `MA-TOUCH-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 reported | Held travel/medallion path lacks real-phone hold/drag/multitouch/focus-loss evidence | Recorded target-phone pass |
-| `MA-OPERA-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Chef now uses the accepted batter pitcher, source-true stream/fill behavior, mitt-gated oven, achieved cake, and deterministic topping art; the old cutoff/fallback/wrong-object report is not a current code premise | Remote exact-head gate for the integrated branch, then accepted two-aspect/device/owner art review |
+| `MA-OPERA-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Chef now uses the accepted batter pitcher, source-true stream/fill behavior, mitt-gated oven, achieved cake, and deterministic topping art; the old cutoff/fallback/wrong-object report is not a current code premise | Accepted two-aspect/device/owner art review |
 | `MA-OPERA-002` | P1 | `CONFIRMED_OPEN` | V4 partial | Detective's “missing” crown remains painted into the scene evidence | Healed owned source, narrative/capture verification |
 | `MA-OPERA-004` | P1 | `CONFIRMED_OPEN` | V1 | Opera capture harness has not produced accepted evidence for all careers | Repair harness; capture and human-review all careers/widgets/scuffles/stress states |
-| `MA-OPERA-009` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Boxer now has a full-stage five-phase two-glove specialist with optional multitouch, sequential one-finger completion, no health/loss, passive rejection, touch-owner cleanup, and stable existing save bit | Remote exact-head gate for the integrated branch, two-aspect and target-device touch/performance review, child comprehension, and owner visual acceptance |
+| `MA-OPERA-009` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Boxer now has a full-stage five-phase two-glove specialist with optional multitouch, sequential one-finger completion, no health/loss, passive rejection, touch-owner cleanup, and stable existing save bit | Two-aspect and target-device touch/performance review, child comprehension, and owner visual acceptance |
 | `MA-PERF-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current target-device frame-time, hitch, memory, thermal, or latency matrix | U0 device matrix at exact release candidate meets design thresholds |
 | `MA-CHILD-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current observed five-minute child golden-path record | Private/safe observed session meets section 12 |
-| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 integration commit plus two failed remote static gates | Exact local full CI is green at historical `a3d3bce1`, and the resolved integration content committed as `ad36ee9f` exits zero after 826.4 seconds with all 63 current trusted probes. Exact-head run `31455723446` at `57bc08d1` first exposed a cross-platform Opera PNG false rejection. Repair commit `fe10ffd2` then passes all 39 Opera artifacts on Linux in run `31456633826`, which reaches the next command and fails because the Ubuntu runner has no FFmpeg. Neither run reports a gameplay/probe failure. A parallel checksum-pinned Windows music-verification job is prepared but still needs a committed replacement run, matching APK, and device acceptance | Commit the scoped workflow/log repair, obtain one green remote exact-head workflow with both probe and music jobs, then require matching build and device evidence at the eventual release candidate; rerun locally if runtime/static content changes |
+| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 local integration and exact-head remote gates green | The resolved integration content committed as `ad36ee9f` exits exact local Godot 4.7.1 CI after 826.4 seconds with all 63 trusted probes. Exact-head commit `dacef140` then completes GitHub run `31457593351` successfully in 34m19s: the Ubuntu job passes static gates, fresh import, all-script analyzer, all 62 headless trusted probes, real-viewport boot, advisory balance runs, and five capture/upload pairs; the parallel pinned Windows job passes all 42 deterministic music deliveries. Historical failed runs `31455723446` and `31456633826` remain diagnostic evidence for the repaired Opera-PNG and FFmpeg-environment faults, not gameplay failures | Require a matching APK and target-device matrix at the eventual release candidate, plus the still-open child, owner, visual, listening, and strict-2D gates; rerun local and remote exact-head gates whenever runtime/static content changes |
 
 ### 5.2 P2/P3 and owner-decision indexed items
 
@@ -541,18 +548,18 @@ contains every mandatory field. No abbreviated row is closure evidence.
 | `MA-VIS-004` | P2 | `REPORTED_UNCONFIRMED` | V1; `COVERAGE_GAP` | Current source-average figure/ground values are Fairy 0.039 vs 0.040 and Lagoon about 0.004, but the metric does not measure the rendered local state and cannot confirm an art defect. Closure requires true state-local Canvas/HUD/viewport/device evidence, not recoloring approved art to satisfy the average |
 | `MA-ASSET-001` | P2 | `CONFIRMED_OPEN` | V1 | Current orphan PNG reports: Castle 9/15 at 2.1 MB, Galaxy 32/32 at 11.7 MB, Opera 453/548 at 166.5 MB, Lagoon 48/90 at 41.9 MB |
 | `MA-ASSET-004` | P2 | `CONFIRMED_OPEN` | V1 | Lagoon has 10/41 NPOT textures, about 11.6 MB uncompressed residency cost |
-| `MA-CI-002` | P2 | `FIXED_PENDING_VERIFICATION` | V2/current static | Local/remote blocking-loop parity now covers the new Opera Detective and gesture-quality probes: 63 local names versus 62 remote names, with display-only `probe_human_art_audit` the intended difference; default and stress parity audits are green |
+| `MA-CI-002` | P2 | `VERIFIED_FIXED` | V3 exact-head | Local/remote blocking-loop parity covers the Opera Detective and gesture-quality probes: 63 local names versus 62 remote names, with display-only `probe_human_art_audit` the intended difference. Default plus eight falsification cases are green, and exact-head run `31457593351` executes all 62 remote probes successfully |
 | `MA-CI-003` | P2 | `CONFIRMED_OPEN` | V1 | All 105 probe scripts still need exactly one trusted/runtime-visual/advisory/diagnostic/obsolete/quarantined classification |
 | `MA-ROSHAN-003` | P2 | `DEFERRED_WITH_REASON` | V1/V3 reported | Atlas repacking is an optimization; current owned-pixel windows and engine sampling probes are green |
 | `MA-ROSHAN-004` | P2 | `DISMISSED_NOT_A_DEFECT` | V1 | Universal 2D costume layers are optional future design, not a missing required feature |
 | `MA-PLAY-002` | P2 | `OWNER_DECISION_REQUIRED` | V1 | Standalone fire-arena reward/flag/medal role needs a truthful home or retirement |
 | `MA-COMBAT-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 reported | Phone-only wave count, slash-band scale, and tutorial discoverability remain for device review |
 | `MA-OPERA-003` | P2 | `CONFIRMED_OPEN` | V1/V4 partial | The grouped old pipe/echo/Nursery fallback claim is partially repaired by current authored pipe, echo, bottle, pat, and blanket behavior, but its unresolved subclaims have not yet been split and re-audited against accepted captures |
-| `MA-OPERA-005` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | The old Ballerina art/mechanic is superseded by the accepted 1024×1024 4×4 mermaid atlas and dedicated three-act full-stage recital; focused probes and the complete local integration gate are green. Closure still requires the remote exact-head gate, two-aspect capture, M11/child play, and owner identity/style acceptance |
+| `MA-OPERA-005` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | The old Ballerina art/mechanic is superseded by the accepted 1024×1024 4×4 mermaid atlas and dedicated three-act full-stage recital; focused, complete local integration, and exact-head remote probes are green. Closure still requires two-aspect capture, M11/child play, and owner identity/style acceptance |
 | `MA-OPERA-006` | P2 | `CONFIRMED_OPEN` | V1/V3 partial | Nursery, Farmer, and Racer received material art-fiction repairs, but the grouped historical claim must be split and re-audited; remaining protected-voice mismatches stay open rather than being inferred fixed |
 | `MA-OPERA-007` | P2 | `OWNER_DECISION_REQUIRED` | V1 | Farmer/Doctor above-water setting differs from the other Opera backdrops |
 | `MA-AUDIO-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | Forty-two unique deterministic area cues have complete score/render hashes, 48 kHz stereo OGG delivery, loop/import metadata, loudness/peak/seam measurements, routing ownership, and focused audio/full-branch evidence. Human style and two-wrap listening, voice-over intelligibility and ducking, mono fold-down, music-off transition review, and Lenovo Tab M11 start/loop/performance acceptance remain open |
-| `MA-CHANGE-001` | P2 | `VERIFIED_FIXED` | V2/V3 process evidence | Twenty-three stable `CHG-*` records now partition 64 owned source commits and document seven merge-topology commits, covering all 71 reachable audit commits. Every record names paths, benefit, plausible harm, dependencies, evidence, gates, and rollback class. The planner imports no Git/filesystem mutation API; only CHG-020/021/022 can emit guarded stdout scripts, while the other 20 refuse automation. | Fourteen unit tests, exact ledger/catalog source parity, clean non-mutation CLI replay, Git-history checks, GAME2D no-regression, and independent adversarial approval are green. Future material changes must append under the stable ID or add the next ID; drift reopens this finding. |
+| `MA-CHANGE-001` | P2 | `VERIFIED_FIXED` | V2/V3 process evidence | Twenty-three stable `CHG-*` records now partition 67 owned source commits through `dacef140` and document seven merge-topology commits. Every record names paths, benefit, plausible harm, dependencies, evidence, gates, and rollback class. The planner imports no Git/filesystem mutation API; only CHG-020/021/022 can emit guarded stdout scripts, while the other 20 refuse automation. Later append-only CHG-023 evidence synchronization does not invent product change IDs merely to self-reference its own commit. Fifteen unit tests, exact ledger/catalog source parity, clean non-mutation CLI replay, Git-history checks, GAME2D no-regression, and independent adversarial approval are green. Future material changes must append under the stable ID or add the next ID; drift reopens this finding. |
 | `MA-CODE-001` | P2 | `CONFIRMED_OPEN` | V1 | `main.gd` is 8,519 lines against the extraction-only <2,500 target |
 | `MA-CODE-002` | P2 | `CONFIRMED_OPEN` | V1 | String state, duplicated input, save frequency, material churn, and remaining 3D glue are structural risks |
 
@@ -623,10 +630,10 @@ source, fallback, rollback target, or claim that reachable 3D debt is retired.
 | `EV-TOUCH-001` | `MA-TOUCH-001` | Snowman coal touch controls meet `StorybookUI.MIN_TOUCH` | `82f9828c`; `probe_mg2d` |
 | `EV-CI-001` | `MA-CI-002` | Trusted local/remote probe parity and Opera-pipe coverage | `7e6d699d`; clean plus drift mutations |
 | `EV-CI-002` | `MA-RELEASE-001`, `MA-2D-002`, `MA-ASSET-005` | Preserve the last exact local full gate without conflating regression control with strict satisfaction or stale local cache | Runtime commit `a3d3bce1`; exact Godot 4.7.1-stable, fresh import, all static gates, GAME2D 509/68 `NO_REGRESSION`, and all 61 then-trusted probes green; exit 0 after 1434.3 seconds. Later isolated-import evidence classifies its UID warnings as stale ignored cache, while the GLBs remain medium debt. |
-| `EV-CI-003` | `MA-CI-002`, `MA-RELEASE-001` | Integrate new Opera/art/music gates into both blocking environments | Integration commit `ad36ee9f`; local loop 63, remote headless loop 62, display-only human-art probe is the sole intended difference, and default/stress parity checks are green. The local full gate exits zero after 826.4 seconds with all 63. First exact-head execution `31455723446` at `57bc08d1` reached the shared static gate and failed there on cross-platform Opera PNG compression, so replacement exact-head verification remains open. |
+| `EV-CI-003` | `MA-CI-002`, `MA-RELEASE-001` | Integrate new Opera/art/music gates into both blocking environments | Integration commit `ad36ee9f`; local loop 63, remote headless loop 62, display-only human-art probe is the sole intended difference, and default/stress parity checks are green. The local full gate exits zero after 826.4 seconds with all 63. First exact-head execution `31455723446` at `57bc08d1` exposed the cross-platform Opera PNG compression defect later repaired by `EV-CI-004`; final replacement evidence is `EV-CI-005`. |
 | `EV-CI-004` | `MA-RELEASE-001`, `MA-CHANGE-001` | Diagnose and constrain the remote-only Opera generated-art false rejection | Repair commit `fe10ffd2`; GitHub run `31456633826` proves `CHECK OK: 39` on Linux. Focused mutations permit only recompression of an identical PNG scanline stream; CRC-checked structure, all other chunks, mode, dimensions, pixels, semantic text, and checked-in delivery-byte provenance remain strict. Eight focused gate tests plus 14 rollback tests are green. |
-| `EV-CI-005` | `MA-RELEASE-001`, `MA-CI-002`, `MA-AUDIO-001` | Keep deterministic music verification blocking without misrepresenting its render environment | Run `31456633826` proves the integrated Ubuntu command has no FFmpeg. The prepared replacement keeps the check blocking in a parallel `windows-2025` job with pinned `actions/setup-python` commit `5fda3b95`, Python 3.13.14, NumPy 2.5.1, SciPy 1.18.0, and the existing SHA-256-pinned FFmpeg 8.1.2 installer, exactly matching the manifest's recorded render dependencies. Introducing commit and replacement remote result remain pending. |
-| `EV-CHANGE-001` | `MA-CHANGE-001` | Make the large audit program reviewable and reversions granular | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`, `tools/plan_audit_rollback.py`, and 14 unit tests; CHG-001–023 cover 64 uniquely owned source commits plus seven explicit topology commits, only CHG-020/021/022 emit guarded stdout scripts, all other groups refuse automation, CLI execution leaves Git status byte-identical, and independent adversarial review approves the catalog/history/safety contract |
+| `EV-CI-005` | `MA-RELEASE-001`, `MA-CI-002`, `MA-AUDIO-001` | Keep deterministic music verification blocking without misrepresenting its render environment | Repair commit `dacef140`; run `31457593351` succeeds on the exact SHA with two required jobs. The pinned `windows-2025` job uses `actions/setup-python` commit `5fda3b95`, Python 3.13.14, NumPy 2.5.1, SciPy 1.18.0, and the existing SHA-256-pinned FFmpeg 8.1.2 installer, exactly matching the manifest's recorded render dependencies, and reports all 42 deliveries green. The Ubuntu job independently passes Opera 39/39, GAME2D 509/68/77 `NO_REGRESSION`/`UNSATISFIED`, all 62 headless trusted probes and boot; five diagnostic capture/upload pairs also complete successfully without being promoted to blocking or accepted visual evidence. Parity now fails with `PRB007` if either local or remote music verifier disappears. |
+| `EV-CHANGE-001` | `MA-CHANGE-001` | Make the large audit program reviewable and reversions granular | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`, `tools/plan_audit_rollback.py`, and 15 unit tests; CHG-001–023 cover 67 uniquely owned source commits through `dacef140` plus seven explicit topology commits, only CHG-020/021/022 emit guarded stdout scripts, all other groups refuse automation, CLI execution leaves Git status byte-identical, and independent adversarial review approves the catalog/history/safety contract |
 | `EV-AUDIO-001` | `MA-AUDIO-001` | Compose, render, route, and deterministically verify every newly authored area cue | `0da07e24`, `27c2c95d`, and current integration; 42/42 scores and OGGs have unique hashes, loop/import metadata, measured codec/loudness/peak/seam evidence, routing probes, license entries, and exact build checks. Human listening, mono, voice mix, and M11 evidence remain open. |
 | `EV-PLAY-003` | `MA-PLAY-001` | Visible, voiced Lagoon→Reef route and Pause fallback | `986010c0`; focused/re-entry/sibling probes |
 | `EV-PLAY-004` | `MA-PLAY-001` | Exercise the default Hybrid Lagoon portal through the actual explicit interaction route | `e6e56f8b`; proves proximity alone does not enter, selects enabled `reef:lagoon`, activates it through the touch-interactable path, and keeps Classic/no-touch proximity behavior green |
@@ -782,9 +789,8 @@ finding records; section 10 controls that designation.
   optional two-touch but complete sequential one-finger play, no health/lives/
   damage/lost progress, one padded imp state machine, no generic combat layer,
   passive rejection, focus/close cleanup, and unchanged existing save bit 128.
-- **Acceptance:** remote exact-head gate for the integrated audit branch,
-  authoritative
-  two-aspect Mobile capture, one-finger target-device comfort/performance and
+- **Acceptance:** authoritative two-aspect Mobile capture, one-finger
+  target-device comfort/performance and
   voice review, child comprehension, and owner identity/style acceptance.
   Boxer's three retained GLBs are separate `MA-2D-002` debt and cannot become a
   fallback for the Canvas specialist.
@@ -929,9 +935,9 @@ Every one of the current 105 probe scripts receives exactly one state:
 - `OBSOLETE_DELETE`
 - `QUARANTINED_WITH_REASON`
 
-Local/remote blocking-loop parity is fixed locally under `MA-CI-002` and awaits
-the exact-merge remote run; exhaustive classification remains separately open
-as `MA-CI-003`.
+Local/remote blocking-loop parity is `VERIFIED_FIXED` under `MA-CI-002` by
+exact-head run `31457593351`; exhaustive classification remains separately
+open as `MA-CI-003`.
 
 ### 11.3 Documentation control
 
@@ -991,8 +997,9 @@ exact commit. This is the operational checklist for `DL-QA-09` and
       gates, and all 63 current trusted local probes are green at one integrated
       commit. Historical `a3d3bce1` remains green for its then-current 61-probe
       suite; the resolved content committed as `ad36ee9f` completes the current
-      full local gate in 826.4 seconds, but the remote exact-head run remains
-      open.
+      full local gate in 826.4 seconds, and `dacef140` completes exact-head
+      remote run `31457593351`. This full matrix must repeat at the eventual
+      release candidate, so release satisfaction remains unchecked.
 - [ ] Full runtime capture covers every activity at 1280×720 and a representative
       wide-phone aspect ratio.
 - [ ] Target phone and M11 meet P95 ≤33.3 ms, P99 ≤50 ms, no normal-path hitch
@@ -1021,19 +1028,20 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
    category is zero; archive exact resources before active deletion.
 3. Implement live fresh-runtime Canvas adapters, beginning with converted
    surfaces and then Fairy/Lagoon; keep every missing capture as a gap.
-4. Verify the merged Ballerina, Boxer, Candymaker, and 42-cue music slices on
-   the remote exact audit-branch head, then repair remaining Opera capture coverage and split
-   the stale grouped Opera art claims. Continue with the confirmed Lagoon
-   Canvas-layer defect. Confirm or dismiss palette risks only from current
-   state-local evidence.
+4. Preserve the completed exact-head remote verification for the merged
+   Ballerina, Boxer, Candymaker, and 42-cue music slices; repair remaining
+   Opera capture coverage and split the stale grouped Opera art claims.
+   Continue with the confirmed Lagoon Canvas-layer defect. Confirm or dismiss
+   palette risks only from current state-local evidence.
 5. Reconcile protected voice gaps, including Evie's exact Seek tap-tree cue,
    through owner-authorized sources.
 6. Rebuild and prove the complete child-visible world graph.
 7. Classify all probes and remove only proved obsolete assets/code.
-8. Preserve both the exact `a3d3bce1` historical full gate and the 826.4-second
-   `ad36ee9f` integration local gate; run the 62-probe remote suite at the exact
-   current audit-branch SHA (and rerun local if runtime/static content changes),
-   then produce the capture matrix, matching APK, target-device U0 pass, audio
+8. Preserve the exact `a3d3bce1` historical full gate, the 826.4-second
+   `ad36ee9f` integration local gate, and successful exact-head remote run
+   `31457593351` at `dacef140`; rerun local and remote gates whenever
+   runtime/static content changes and at the eventual release candidate, then
+   produce the capture matrix, matching APK, target-device U0 pass, audio
    listening matrix, and child golden path.
 9. Repeat the master audit from `INVENTORYING`; satisfaction cannot come from
     closing only the first list.
@@ -1077,5 +1085,6 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-08-10 | focused `VERIFYING` | The resolved integration content committed as `ad36ee9f` completes exact Godot 4.7.1 `scripts/ci.sh` in 826.4 seconds with fresh import, all static gates, GAME2D `NO_REGRESSION`, and all 63 current trusted local probes green. Remote exact-head CI remains pending; strict 2D, visual, audio-listening, device, child, and owner gates stay open. |
 | 2026-08-10 | `REPAIRING` | Exact-head GitHub run `31455723446` at process commit `57bc08d1` fails before import in `prepare_opera_minigame_art.py --check-only`: Linux and Windows reproduce identical RGBA pixels but not identical PNG compression bytes. CHG-015 is widened with an IDAT-only comparison repair and strict chunk/mode/size/scanline/pixel/delivery-hash negative controls; the replacement exact-head run remains pending. |
 | 2026-08-10 | focused `VERIFYING` | `fe10ffd2` and exact-head run `31456633826` prove all 39 governed Opera minigame artifacts green on Linux. The same run then exposes a separate missing-FFmpeg integration error before import; music verification is moved, not removed, to a parallel checksum-pinned Windows job matching its recorded render toolchain. Replacement exact-head evidence remains pending. |
+| 2026-08-10 | focused `VERIFIED_FIXED` | Workflow/parity repair `dacef140` completes exact-head run `31457593351` successfully in 34m19s. The pinned Windows job verifies 42/42 deterministic music deliveries; Ubuntu passes static gates, import, analyzer, GAME2D 509/68/77 `NO_REGRESSION`/`UNSATISFIED`, all 62 trusted probes, boot, advisory balance, and all five capture/upload pairs. This closes the two CI integration defects only; release, strict-2D, visual, listening, device, child, and owner gates remain open. |
 
 No later state is added without its required evidence.

@@ -88,8 +88,15 @@ probe 3D files. The same snapshot contains 192 GDScript files under `scripts/`,
 no-regression result is not 2D completion, and these counts must be measured
 again after later integrations. Exact Godot 4.7.1-stable local `scripts/ci.sh`
 is green on the resolved content committed as integration merge `ad36ee9f`
-(826.4 seconds), while remote exact-head, APK, device, child and strict-zero
-evidence remain open.
+(826.4 seconds). Exact audit/CI head
+`dacef1405b6a8cb470117e824aebac3a8ca500af` then completed GitHub run
+`31457593351` successfully in 34m19s: the pinned Windows job verified 42/42
+music deliveries, while Ubuntu passed static gates, import, analyzer, all 62
+trusted probes, boot, balance and five capture/upload pairs. `MA-CI-002` is
+therefore `VERIFIED_FIXED` at V3 exact-head; exhaustive probe classification
+remains `CONFIRMED_OPEN` as `MA-CI-003`. The game remains `UNSATISFIED`; APK,
+authoritative visual capture, strict-zero 2D, human listening, device, child
+and owner evidence remain open.
 
 ## Maintaining this
 

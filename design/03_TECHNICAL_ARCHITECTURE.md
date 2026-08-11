@@ -221,9 +221,11 @@ At the synchronized merged working-tree snapshot, **192 GDScript files exist
 under `scripts/`, including 105 `scripts/probe_*.gd` files; 63 names run in the
 local trusted loop and 62 in the remote headless loop.** The intended and only
 loop difference is the display-only `probe_human_art_audit`. Blocking-loop
-parity is `FIXED_PENDING_VERIFICATION` under `MA-CI-002`; the merged exact-head
-remote workflow still has to prove it. Exhaustive classification of all 105
-probe scripts remains `CONFIRMED_OPEN` separately under `MA-CI-003`.
+parity is `VERIFIED_FIXED` at V3 exact-head under `MA-CI-002`: audit/CI head
+`dacef1405b6a8cb470117e824aebac3a8ca500af` completed GitHub run
+`31457593351` successfully in 34m19s with all 62 remote trusted probes green.
+Exhaustive classification of all 105 probe scripts remains `CONFIRMED_OPEN`
+separately under `MA-CI-003`.
 `probe_audit.gd` is the source of truth (full-game bot);
 `probe_passive.gd` is the zero-input negative test — *nothing may be won by
 watching*, and it is what keeps every "mercy" and "assist" feature honest.
@@ -248,8 +250,14 @@ exit 0 with 61 trusted local probes and GAME2D `NO_REGRESSION` at 513 models /
 70 production files. The resolved merged 63-probe, 509/68/77 working tree now
 also passes the complete local `scripts/ci.sh` under exact Godot 4.7.1-stable
 (exit 0 in 826.4 seconds). That resolved content is now integration merge
-`ad36ee9f`; remote exact-head CI, APK/device, visual and child evidence remain
-open. Neither checkpoint is true-2D satisfaction.
+`ad36ee9f`. Exact audit/CI head
+`dacef1405b6a8cb470117e824aebac3a8ca500af` completes GitHub run
+`31457593351` successfully in 34m19s: Windows verifies all 42 music deliveries;
+Ubuntu passes static gates, import, analyzer, all 62 trusted probes, boot,
+balance and five capture/upload pairs. This closes Ballerina's and Boxer's
+remote exact-head gate, but not their authoritative capture, device, child or
+owner gates. APK, broader visual, human-listening and strict-zero 2D evidence
+also remain open; neither checkpoint is true-2D satisfaction.
 
 Two subtleties worth preserving:
 
@@ -364,13 +372,13 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 | `MA-2D-002` | `IN_PROGRESS` | GAME2D: 509 model/export files, 157 tracked model sidecars, 352 active untracked model sidecars, 68 production and 77 probe 3D files, one 3D scene and one 3D configuration; strict remains unsatisfied |
 | `MA-CODE-001` | `CONFIRMED_OPEN` | `main.gd` is 8,519 lines against the extraction-only <2,500 target |
 | `MA-CODE-002` | `CONFIRMED_OPEN` | String state, duplicated input, save frequency, material churn and remaining 3D glue are structural risks; repair individually with surrounding tests |
-| `MA-CI-002` | `FIXED_PENDING_VERIFICATION` | 105 probe scripts; local/remote trusted loops are 63/62 with only `probe_human_art_audit` intentionally local; exact merged-head remote proof remains |
+| `MA-CI-002` | `VERIFIED_FIXED` | V3 exact-head at `dacef1405b6a8cb470117e824aebac3a8ca500af`, GitHub run `31457593351`: 63/62 local/remote trusted loops, with only `probe_human_art_audit` intentionally local; all 62 remote entries pass |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 105 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-DOLLS-001` | `VERIFIED_FIXED` | Faron's catcher is one bounded Canvas activity with real one-finger input, passive/save/medal/replay and weakref teardown evidence |
 | `MA-SEEK-001` | `VERIFIED_FIXED` | Seek is a fourteen-node animated Canvas meadow; its former vinyl/preview presentation and four meadow GLBs are retired from that runtime role |
 | `MA-OPERA-008` | `VERIFIED_FIXED` | Racer uses the exact lap-two cue and one Canvas racing-circle lifecycle on headless and device code paths; no external kart child or 3D fallback |
-| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated one-finger Canvas Boxer surface and five-phase no-loss lifecycle are locally green; target-device, child and owner review remain |
-| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates; human listening, voice/mono mix and target-device review remain |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated one-finger Canvas Boxer surface and five-phase no-loss lifecycle pass the exact-head remote gate; authoritative capture, target-device, child and owner review remain |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates and the pinned-Windows exact-head job verifies 42/42 deliveries; human listening, voice/mono mix and target-device review remain |
 | `MA-ASSET-001` | `CONFIRMED_OPEN` | Current orphan reports: Castle 2.1 MB (9/15 PNGs), Galaxy 11.7 MB (32/32), Opera 166.5 MB (453/548), Lagoon 41.9 MB (48/90); each requires reachability/provenance proof before deletion |
 | `MA-ASSET-004` | `CONFIRMED_OPEN` | Lagoon has 10/41 NPOT textures and about 11.6 MB uncompressed simultaneous residency cost |
 | `MA-ASSET-005` | `DISMISSED_NOT_A_DEFECT` | Sponge/starfish invalid-UID warnings came from four stale ignored local `.godot/imported` files; tracked GLBs/sidecars and isolated import are valid. The GLBs remain separate 3D medium debt under `MA-2D-002` |

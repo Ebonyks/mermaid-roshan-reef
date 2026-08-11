@@ -42,6 +42,77 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			[f"CHG-{number:03d}" for number in range(1, 24)],
 		)
 
+	def test_followup_commit_anchors_are_catalogued(self) -> None:
+		self.assertIn(
+			"dacef1405b6a8cb470117e824aebac3a8ca500af",
+			planner.select_group("CHG-005").commits,
+		)
+		self.assertIn(
+			"fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08",
+			planner.select_group("CHG-015").commits,
+		)
+		for change_id in ("CHG-005", "CHG-015", "CHG-023"):
+			with self.subTest(rollback_start=change_id):
+				self.assertEqual(
+					planner.select_group(change_id).rollback_start,
+					planner.AUDIT_CATALOG_COMMIT,
+				)
+		for change_id in ("CHG-020", "CHG-021", "CHG-022"):
+			with self.subTest(integration_start=change_id):
+				self.assertEqual(
+					planner.select_group(change_id).rollback_start,
+					planner.AUDIT_INTEGRATION_COMMIT,
+				)
+		repo_root = Path(__file__).resolve().parents[2]
+		expected_followup_paths = {
+			"CHG-005": {
+				".github/workflows/probes.yml",
+				"audit/MASTER_AUDIT_2026-08-09.md",
+				"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+				"scripts/ci.sh",
+				"tools/audit_probe_parity.py",
+				"tools/check_grade_headroom.py",
+				"tools/tests/test_check_grade_headroom.py",
+			},
+			"CHG-015": {
+				"assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+				"assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+				"assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md",
+				"audit/MASTER_AUDIT_2026-08-09.md",
+				"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+				"tools/build_castle_interaction_v4_delivery.py",
+				"tools/build_castle_native_interactions_v4.py",
+				"tools/plan_audit_rollback.py",
+				"tools/prepare_opera_minigame_art.py",
+				"tools/test_build_castle_interaction_v4_delivery.py",
+				"tools/tests/test_prepare_opera_minigame_art.py",
+			},
+		}
+		for change_id, expected_paths in expected_followup_paths.items():
+			self.assertEqual(set(planner.select_group(change_id).paths), expected_paths)
+			for path in planner.select_group(change_id).paths:
+				with self.subTest(existing_path=change_id, path=path):
+					self.assertTrue((repo_root / path).exists(), path)
+		self.assertNotIn(
+			"tools/tests/test_audit_probe_parity.py",
+			planner.select_group("CHG-005").paths,
+		)
+		self.assertIn(
+			"python -m unittest tools.tests.test_check_grade_headroom",
+			planner.select_group("CHG-005").gates,
+		)
+		self.assertIn(
+			"python tools/prepare_opera_minigame_art.py --check-only",
+			planner.select_group("CHG-015").gates,
+		)
+		process = planner.select_group("CHG-023")
+		self.assertEqual(process.commits, ("57bc08d1220594fbabcab15362b5685a9f8514e6",))
+		self.assertFalse(process.pending_commit)
+		self.assertIn(
+			f"Use exactly {planner.AUDIT_CATALOG_COMMIT} as the rollback branch start.",
+			planner.render_plan(process),
+		)
+
 	def test_catalog_rejects_duplicate_ids(self) -> None:
 		duplicate = replace(planner.CATALOG[1], change_id=planner.CATALOG[0].change_id)
 		with self.assertRaisesRegex(planner.CatalogError, "duplicate change ID"):
