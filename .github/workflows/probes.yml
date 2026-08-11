@@ -26,6 +26,25 @@ env:
   GODOT_ZIP_SHA512: "4ccdab7a48eeccbe8819a2fc1f6262f8d72065d98601bcb3743fcbd7ebd39f373758a788ee3293a05ec5b2c48538266c437404312e372225cd2df273945a2de9"
 
 jobs:
+  area-music-provenance:
+    runs-on: windows-2025
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13.14"
+
+      - name: Verify deterministic area-music delivery
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check --quiet numpy==2.5.1 scipy==1.18.0
+          & ./tools/setup_video_tools.ps1
+          python -B tools/build_area_music.py --check
+
   probes:
     runs-on: ubuntu-latest
     # Green runs now take ~24 min (probes ~14 min + visual captures); at 30
@@ -75,7 +94,6 @@ jobs:
           python3 tools/prepare_opera_nursery_art.py --check-only
           python3 tools/prepare_opera_minigame_art.py --check-only
           python3 tools/audit_opera_roshan_animation.py
-          python3 tools/build_area_music.py --check
           python3 tools/audit_sky_lagoon_kit.py
           python3 tools/audit_scene_congruency.py
           # Painted 2.5D flats are drawn unshaded, so the Environment grade is

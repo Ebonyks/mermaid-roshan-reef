@@ -22,6 +22,15 @@ GATE_COMMANDS = (
 	"python3 tools/audit_probe_parity.py --stress",
 	"python3 tools/audit_probe_parity.py",
 )
+AREA_MUSIC_LOCAL_COMMAND = "python3 tools/build_area_music.py --check"
+AREA_MUSIC_WORKFLOW_TOKENS = (
+	"runs-on: windows-2025",
+	"actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+	'python-version: "3.13.14"',
+	"numpy==2.5.1 scipy==1.18.0",
+	"& ./tools/setup_video_tools.ps1",
+	"python -B tools/build_area_music.py --check",
+)
 
 
 @dataclass(frozen=True)
@@ -86,6 +95,11 @@ def audit(root: Path, require_gate: bool = True) -> list[Issue]:
 			for command in GATE_COMMANDS:
 				if command not in text:
 					issues.append(Issue("PRB006", relative, f"probe-parity gate is missing: {command}"))
+		if AREA_MUSIC_LOCAL_COMMAND not in ci_text:
+			issues.append(Issue("PRB007", "scripts/ci.sh", "deterministic area-music gate is missing locally"))
+		for token in AREA_MUSIC_WORKFLOW_TOKENS:
+			if token not in workflow_text:
+				issues.append(Issue("PRB007", ".github/workflows/probes.yml", f"pinned area-music verifier is missing: {token}"))
 
 	return sorted(issues, key=lambda issue: (issue.check_id, issue.path, issue.detail))
 
@@ -97,12 +111,15 @@ def _write_fixture(root: Path) -> None:
 		(root / f"scripts/{name}.gd").write_text("extends SceneTree\n", encoding="utf-8")
 	gate_text = "\n".join(GATE_COMMANDS)
 	(root / "scripts/ci.sh").write_text(
-		f"{gate_text}\nfor p in probe_a probe_human_art_audit; do\n\ttrue\ndone\n",
+		f"{gate_text}\n{AREA_MUSIC_LOCAL_COMMAND}\n"
+		"for p in probe_a probe_human_art_audit; do\n\ttrue\ndone\n",
 		encoding="utf-8",
 	)
 	(root / ".github/workflows/probes.yml").write_text(
 		f"{gate_text}\nfor p in probe_a; do\n  true\ndone\n"
-		"godot -s scripts/probe_human_art_audit.gd\n",
+		"godot -s scripts/probe_human_art_audit.gd\n"
+		+ "\n".join(AREA_MUSIC_WORKFLOW_TOKENS)
+		+ "\n",
 		encoding="utf-8",
 	)
 
@@ -152,6 +169,14 @@ def stress() -> int:
 		path = root / ".github/workflows/probes.yml"
 		path.write_text(_read(path).replace(GATE_COMMANDS[0], "true"), encoding="utf-8")
 
+	def lose_music_toolchain(root: Path) -> None:
+		path = root / ".github/workflows/probes.yml"
+		path.write_text(_read(path).replace(AREA_MUSIC_WORKFLOW_TOKENS[1], "actions/setup-python@unpinned"), encoding="utf-8")
+
+	def lose_local_music_gate(root: Path) -> None:
+		path = root / "scripts/ci.sh"
+		path.write_text(_read(path).replace(AREA_MUSIC_LOCAL_COMMAND, "true"), encoding="utf-8")
+
 	cases = (
 		("missing loop", "PRB001", remove_loop),
 		("duplicate probe", "PRB002", duplicate_probe),
@@ -159,6 +184,8 @@ def stress() -> int:
 		("missing probe file", "PRB004", list_missing_file),
 		("missing separate invocation", "PRB005", lose_separate_invocation),
 		("missing parity gate", "PRB006", lose_gate),
+		("missing local music verifier", "PRB007", lose_local_music_gate),
+		("missing pinned music verifier", "PRB007", lose_music_toolchain),
 	)
 	failed = 0
 	for name, expected, mutate in cases:

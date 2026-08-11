@@ -335,6 +335,15 @@ exclusive and must never be applied on the same rollback branch.
   parser bug could block good work.
 - **Dependencies and evidence:** parity unit/stress/default runs; current
   intended difference is the display-only human-art probe.
+- **2026-08-10 follow-up checkpoint:** exact-head run `31456633826` at
+  `fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08` proves CHG-015's Opera
+  repair green on Linux, then stops at the next static command because Ubuntu
+  has no FFmpeg. The proposed CHG-005/020 repair moves only the deterministic
+  music check to a parallel `windows-2025` job using pinned
+  `actions/setup-python` commit `5fda3b95`, Python 3.13.14, NumPy 2.5.1,
+  SciPy 1.18.0, and the existing checksum-pinned FFmpeg 8.1.2 installer. It
+  removes no gate and changes no music or protected audio. Its introducing
+  commit and replacement exact-head result must be appended after they exist.
 - **Rollback:** `guarded_mixed`: these are three CI protections, and the current
   CI/workflow files were later reconciled by CHG-022. Inverse only the proven
   faulty sub-change, preserve the other two, and stop on shared-file conflict.
@@ -569,14 +578,17 @@ exclusive and must never be applied on the same rollback branch.
   `57bc08d1220594fbabcab15362b5685a9f8514e6` exposed the defect in GitHub run
   `31455723446`: Linux stopped before import because valid PNG compression
   bytes differed from Windows for governed Opera outputs. The focused repair
-  above passes locally for all 39 artifacts without rewriting any runtime PNG;
-  its introducing commit and replacement remote run are pending and must be
-  appended after they exist. This checkpoint is failure evidence, not a green
-  release claim.
+  above passes locally for all 39 artifacts without rewriting any runtime PNG.
+  Introducing commit `fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08` then proves
+  `CHECK OK: 39` on Linux in run `31456633826`; that run later fails at the
+  separate missing-FFmpeg music gate recorded under CHG-005/020. This is exact
+  focused evidence, not a green full-workflow or release claim.
 - **Rollback:** `guarded_chain`; attempt `5961fd96` then `df5b4cf7` only for a
-  reproduced Castle false acceptance/rejection. The Opera follow-up is manual
-  until its introducing commit is recorded: reverse only its checker/tests and
-  generated review wording, never regenerate or replace accepted delivery PNGs.
+  reproduced Castle false acceptance/rejection. Reverse Opera follow-up commit
+  `fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08` only on a dedicated rollback
+  branch and only after reviewing conflicts from later workflow/log changes.
+  Reverse its checker/tests and generated review wording; never regenerate or
+  replace accepted delivery PNGs.
   Preserve delivery-hash strictness and run both Castle builders/checks, the
   Opera 39-artifact check, interaction probe, cross-platform tests, and full CI.
 
@@ -694,6 +706,11 @@ exclusive and must never be applied on the same rollback branch.
   lifecycle, CHG-016 Opera routing, CHG-022 conflict resolution;
   `build_area_music.py --check`, audio/voice/interaction probes, full CI. Human
   two-wrap, voice/ducking, music-off, mono, and M11 listening remain open.
+- **Verifier environment:** the 42 deliveries remain provenance-bound to the
+  original Windows render stack recorded in their manifest: Python 3.13.14,
+  NumPy 2.5.1, SciPy 1.18.0, and FFmpeg 8.1.2. Remote verification therefore
+  runs in the parallel checksum-pinned Windows job described in CHG-005 rather
+  than falsely claiming an Ubuntu decoder reproduced the render toolchain.
 - **Rollback:** `guarded_mixed`. Refuse a one-line revert of `0da07e24`: later
   fixes and merge resolutions share its routing files. For one objectionable
   cue, first route that area to the prior valid state, prove voice/music-off
