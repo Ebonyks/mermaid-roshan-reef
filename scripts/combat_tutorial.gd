@@ -51,6 +51,8 @@ var charge_seen := 0
 var state := "play"
 var win_t := 0.0
 var elapsed := 0.0
+var prior_music := ""
+var owns_music := false
 
 # The looping ghost-finger demonstration (opera_gesture_surface's beat:
 # 2.4 s cycle, halo 30/20 px, 13 px core dot), drawn at the live screen
@@ -107,6 +109,9 @@ class DemoFinger:
 func start(main: ReefMain, done_cb: Callable) -> void:
 	m = main
 	finish_cb = done_cb
+	prior_music = m.cur_track
+	m._play_music("combat_tutorial")
+	owns_music = m.cur_track == "combat_tutorial"
 	_build_environment()
 	_build_stage()
 	he = HitEngine.new(m)
@@ -381,6 +386,7 @@ func _finish() -> void:
 		demo_layer.queue_free()
 	if prev_env != null:
 		m.we_node.environment = prev_env
+	_restore_music()
 	if finish_cb.is_valid():
 		finish_cb.call()
 	queue_free()
@@ -400,6 +406,17 @@ func cancel() -> void:
 		demo_layer.queue_free()
 	if prev_env != null:
 		m.we_node.environment = prev_env
+	_restore_music()
 	if finish_cb.is_valid():
 		finish_cb.call()
 	queue_free()
+
+
+func _restore_music() -> void:
+	if not owns_music:
+		return
+	owns_music = false
+	var restore_track: String = prior_music
+	prior_music = ""
+	if restore_track != "":
+		m._play_music(restore_track)

@@ -6,17 +6,22 @@ extends RefCounted
 # state stays on main (m.*); received by reference.
 
 var m: ReefMain
+var open_generation := 0
 
 func _init(main: ReefMain) -> void:
 	m = main
 
 func _mg2d_open(kind: String) -> void:
+	if m.mg_kind != "":
+		return
 	if kind == "slide":
 		m._l2_start_slide()   # the rainbow slide is always the 3D play-place, never the old 2D screen
 		return
+	open_generation += 1
 	m._set_world_controls_enabled(false, "picture_game")
 	m.mg_kind = kind
-	m.mg = {"t": 0.0, "btns": []}
+	m.mg = {"t": 0.0, "btns": [], "music_return": m.cur_track}
+	m._play_music("picture_" + kind)
 	if m.mg2d_layer == null:
 		m.mg2d_layer = CanvasLayer.new()
 		m.mg2d_layer.layer = 7
@@ -188,10 +193,20 @@ func _mg2d_win(msg: String) -> void:
 			m.mg2d_stage.add_child(conf)
 			var tw = m.create_tween()
 			tw.tween_property(conf, "position:y", 760.0, 1.3 + randf() * 0.5).set_delay(randf() * 0.3)
-	m.get_tree().create_timer(1.6).timeout.connect(_mg2d_close)
+	var winning_generation: int = open_generation
+	m.get_tree().create_timer(1.6).timeout.connect(
+		_mg2d_close.bind(winning_generation))
 
 
-func _mg2d_close() -> void:
+func _mg2d_close(expected_generation: int = -1) -> void:
+	# A win schedules this close after its celebration. The child may use Back
+	# (or Pause -> Leave) and open another picture first. A delayed callback may
+	# only close the exact opening that won, never the child's newer activity.
+	if expected_generation >= 0 and expected_generation != open_generation:
+		return
+	open_generation += 1
+	var owns_music_return: bool = m.mg.has("music_return")
+	var music_return: String = String(m.mg.get("music_return", ""))
 	if m.mg2d_root != null and is_instance_valid(m.mg2d_root):
 		m.mg2d_root.queue_free()
 	m.mg2d_root = null
@@ -200,6 +215,8 @@ func _mg2d_close() -> void:
 		m.mg2d_layer.visible = false
 	m.mg_kind = ""
 	m.mg = {}
+	if owns_music_return:
+		m._play_music(music_return if music_return != "" else "level2")
 	m.mg_cool = 8.0
 	m._set_world_controls_enabled(true, "picture_game")
 

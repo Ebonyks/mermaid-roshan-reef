@@ -60,7 +60,7 @@ const EXPECTED_STATIONS: Dictionary = {
 }
 
 ## Mirrors the shipping PHASE_STATIONS bindings by station ID. Repeated IDs
-## are intentional: this is the full 52-phase playable contract, not merely a
+## are intentional: this is the full 53-phase playable contract, not merely a
 ## set of the 45 physical landmarks those phases share.
 const PLAYABLE_PHASE_STATIONS: Dictionary = {
 	"chef": [
@@ -71,8 +71,7 @@ const PLAYABLE_PHASE_STATIONS: Dictionary = {
 		"magnifier_tower", "evidence_shelves", "treasure_dais",
 	],
 	"ballerina": [
-		"shell_bandstand", "trifold_mirror", "wave_tuffets",
-		"rose_finale_stage",
+		"trifold_mirror", "wave_tuffets", "rose_finale_stage",
 	],
 	"candymaker": [
 		"gumball_vat", "taffy_press", "candy_bag_cottage", "candy_cart",
@@ -83,8 +82,8 @@ const PLAYABLE_PHASE_STATIONS: Dictionary = {
 	],
 	"farmer": ["seed_beds", "hay_bales", "barn_doors", "blossom_arch"],
 	"boxer": [
-		"purple_sparring_mat", "shell_pavilion_stage",
-		"shell_pavilion_stage",
+		"glove_wall_shelf", "purple_sparring_mat", "teal_heavy_bag",
+		"shell_pavilion_stage", "shell_pavilion_stage",
 	],
 	"magician": [
 		"violet_shell_stage", "pearl_tide_pool", "teal_shell_stage",
@@ -406,8 +405,8 @@ func _init() -> void:
 	_ck("all raised-landmark exceptions exercised",
 		authored_spur_count >= 8,
 		"actual=%d" % authored_spur_count)
-	_ck("all 52 playable phase anchors exercised",
-		playable_phase_count == 52,
+	_ck("all 53 playable phase anchors exercised",
+		playable_phase_count == 53,
 		"actual=%d" % playable_phase_count)
 	var result := "ALL OK" if failed == 0 else "%d FAIL" % failed
 	print(("OPERA_DIEGETIC_PATHS|result: %s (%d checks, %d careers, " \

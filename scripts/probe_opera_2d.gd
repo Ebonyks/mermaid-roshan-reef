@@ -9,18 +9,28 @@ extends SceneTree
 var main: ReefMain
 var bad := 0
 var widget_shot_out := ""
+var widget_capture_career := ""
 var rival_shot_out := ""
-var scuffle_shot_out := ""
-var scuffle_capture_career := ""
 var stress_shot_out := ""
 var lobby_shot_out := ""
 var detective_shot_out := ""
 var diegetic_shot_out := ""
 var diegetic_shot_count := 0
+var diegetic_shot_expected := 0
 
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
 const WorldHotspot := preload("res://scripts/opera_world_hotspot_2d.gd")
 const HotspotCatalog := preload("res://scripts/opera_hotspot_catalog.gd")
+
+const BOXING_MODES: Array[String] = [
+	"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
+]
+const BOXING_GOALS: Array[float] = [2.0, 4.0, 3.0, 6.0, 1.0]
+const BOXING_VOICES: Array[String] = [
+	"op_boxer_work", "op_boxer_jab", "op_boxer_duck",
+	"op_boxer_bell_chase", "op_boxer_belt",
+]
+const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 
 const DIRECT_SURFACE_CONTRACTS := {
 	"detective": {
@@ -29,6 +39,11 @@ const DIRECT_SURFACE_CONTRACTS := {
 	},
 	"farmer": {
 		"PLANT": {"mode": "garden_plant", "goal": 5.0, "context": "garden_plant"},
+	},
+	"ballerina": {
+		"PEARL MIRROR": {"mode": "ballet_pose", "goal": 3.0, "context": ""},
+		"RIBBON TRAIL": {"mode": "ballet_ribbon", "goal": 1.0, "context": ""},
+		"GRAND TWIRL": {"mode": "ballet_twirl", "goal": 1.0, "context": ""},
 	},
 	"magician": {
 		"VANISH": {"mode": "hold", "goal": 3.8, "context": "magic_vanish"},
@@ -44,22 +59,55 @@ const DIRECT_SURFACE_CONTRACTS := {
 
 const RETAINED_ROTATIONS := {
 	"chef": "STIR",
-	"ballerina": "TWIRL",
+	"candymaker": "WRAP",
+	"doctor": "CAST",
 	"astronaut": "VALVE",
 	"magician": "PORTAL",
+	"racer": "TUNE",
+	"popstar": "ENCORE",
 }
+const BALLERINA_PHASE_CONTRACTS := [
+	{"name": "PEARL MIRROR", "mode": "ballet_pose", "goal": 3.0,
+		"vo": "op_ballerina_watch"},
+	{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "goal": 1.0,
+		"vo": "op_ballerina_ribbon"},
+	{"name": "GRAND TWIRL", "mode": "ballet_twirl", "goal": 1.0,
+		"vo": "op_ballerina_twirl"},
+]
+
+
+func _audit_shipping_hotspot_specs() -> void:
+	var shipping_phase_count := 0
+	var missing_specs := PackedStringArray()
+	for career: String in OperaCareerWorld2D.PHASES:
+		var aliases: Dictionary = OperaCareerWorld2D.HOTSPOT_PHASE_ALIASES.get(
+			career, {}) as Dictionary
+		var career_phases: Array = OperaCareerWorld2D.PHASES.get(career, []) as Array
+		for phase_value: Variant in career_phases:
+			shipping_phase_count += 1
+			var phase: Dictionary = phase_value as Dictionary
+			var phase_name := String(phase.get("name", ""))
+			var catalog_name := String(aliases.get(phase_name, phase_name))
+			if HotspotCatalog.spec(career, catalog_name).is_empty():
+				missing_specs.append("%s/%s -> %s" % [
+					career, phase_name, catalog_name,
+				])
+	_check("all 53 shipping phases resolve through aliases to hotspot art specs",
+		shipping_phase_count == 53 and missing_specs.is_empty())
+	for missing_spec: String in missing_specs:
+		print("OPERA2D|shipping_hotspot: missing %s" % missing_spec)
 
 
 func _init() -> void:
 	var catalog_errors: PackedStringArray = HotspotCatalog.validate_specs()
-	_check("all fifty-two diegetic phase objects pass resource, alpha, and aspect QA",
+	_check("all cataloged diegetic object art passes resource, alpha, and aspect QA",
 		catalog_errors.is_empty())
 	for catalog_error: String in catalog_errors:
 		print("OPERA2D|hotspot_catalog: %s" % catalog_error)
+	_audit_shipping_hotspot_specs()
 	widget_shot_out = OS.get_environment("OPERA_WIDGET_SHOT_OUT").strip_edges()
+	widget_capture_career = OS.get_environment("OPERA_WIDGET_CAPTURE_CAREER").strip_edges()
 	rival_shot_out = OS.get_environment("OPERA_RIVAL_SHOT_OUT").strip_edges()
-	scuffle_shot_out = OS.get_environment("OPERA_SCUFFLE_SHOT_OUT").strip_edges()
-	scuffle_capture_career = OS.get_environment("OPERA_SCUFFLE_CAPTURE_CAREER").strip_edges()
 	stress_shot_out = OS.get_environment("OPERA_STRESS_SHOT_OUT").strip_edges()
 	lobby_shot_out = OS.get_environment("OPERA_LOBBY_SHOT_OUT").strip_edges()
 	detective_shot_out = OS.get_environment("OPERA_DETECTIVE_SHOT_OUT").strip_edges()
@@ -68,8 +116,6 @@ func _init() -> void:
 		DirAccess.make_dir_recursive_absolute(widget_shot_out)
 	if not rival_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(rival_shot_out)
-	if not scuffle_shot_out.is_empty():
-		DirAccess.make_dir_recursive_absolute(scuffle_shot_out)
 	if not stress_shot_out.is_empty():
 		DirAccess.make_dir_recursive_absolute(stress_shot_out)
 	if not lobby_shot_out.is_empty():
@@ -181,10 +227,16 @@ func _init() -> void:
 	OS.set_environment("OPERA_FORCE_2D_LOBBY", "0")
 	if main.touch_ui != null:
 		_check("2D lobby restores the touch layer on exit", main.touch_ui.visible == lobby_touch_before)
+	_check("boxer keeps stable Opera save bit 128",
+		OperaHouse.ACTS.size() > 7
+		and String((OperaHouse.ACTS[7] as Dictionary).get("costume", "")) == "boxer"
+		and (1 << 7) == 128)
 	var show_count := 0
 	var total_widget_count := 0
-	var direct_surface_count := 0
-	var total_circle_count := 0
+	var widget_contracts_complete := true
+	var direct_surface_contracts_complete := true
+	var circle_pacing_complete := true
+	var retained_rotations_seen := 0
 	for source: Dictionary in OperaHouse.ACTS:
 		if String(source.get("type", "show")) == "boss":
 			continue
@@ -203,24 +255,10 @@ func _init() -> void:
 			act.queue_free()
 			continue
 		var world := act.career_world_2d
+		diegetic_shot_expected += world.phases.size()
 		if not diegetic_shot_out.is_empty():
 			diegetic_shot_count += await _capture_diegetic_phase_rooms(
 				world, career, show_count)
-		if not scuffle_shot_out.is_empty() and not scuffle_capture_career.is_empty():
-			if career != scuffle_capture_career:
-				act.cancel()
-				await process_frame
-				continue
-			await _capture_scuffle_sequences(world, career)
-			act.cancel()
-			await process_frame
-			if bad == 0:
-				print("OPERA2D|result: ALL OK (scuffle capture)")
-				quit()
-			else:
-				print("OPERA2D|result: %d FAIL" % bad)
-				quit(1)
-			return
 		_check("%s uses no 3D children in career play" % career,
 			act.find_children("*", "Node3D", true, false).is_empty())
 		_check("%s builds a scalable code-native career world" % career,
@@ -238,9 +276,6 @@ func _init() -> void:
 				not world.rival_actor.visible and not world.in_competition_finale())
 		_check("%s pauses competition scoring before the finale" % career,
 			not act.competition.active)
-		if not scuffle_shot_out.is_empty() and scuffle_capture_career.is_empty() \
-				and career == "boxer":
-			await _capture_scuffle_sequences(world, career)
 		_check("%s has a multi-phase job game" % career, world.phases.size() >= 3)
 		_check("%s starts without passive progress" % career,
 			is_equal_approx(world.progress(), 0.0))
@@ -249,24 +284,92 @@ func _init() -> void:
 			modes.append(String(phase_dict.get("mode", "")))
 		_check("%s opens with its job verb, not the shared brawl" % career,
 			modes.size() > 0 and modes[0] != "bop")
-		_check("%s waits at the room entrance in its animated idle" % career,
+		if career == "ballerina":
+			var ballet_phase_contract_ok := world.phases.size() \
+				== BALLERINA_PHASE_CONTRACTS.size()
+			for ballet_phase_index in range(BALLERINA_PHASE_CONTRACTS.size()):
+				if ballet_phase_index >= world.phases.size():
+					ballet_phase_contract_ok = false
+					continue
+				var actual_ballet_phase: Dictionary = world.phases[ballet_phase_index]
+				var expected_ballet_phase: Dictionary = \
+					BALLERINA_PHASE_CONTRACTS[ballet_phase_index]
+				ballet_phase_contract_ok = ballet_phase_contract_ok \
+					and String(actual_ballet_phase.get("name", "")) \
+						== String(expected_ballet_phase.get("name", "")) \
+					and String(actual_ballet_phase.get("mode", "")) \
+						== String(expected_ballet_phase.get("mode", "")) \
+					and is_equal_approx(float(actual_ballet_phase.get("goal", 0.0)),
+						float(expected_ballet_phase.get("goal", -1.0))) \
+					and String(actual_ballet_phase.get("vo", "")) \
+						== String(expected_ballet_phase.get("vo", "")) \
+					and ResourceLoader.exists(
+						"res://assets/audio/voices/roshan_%s.ogg" \
+						% String(expected_ballet_phase.get("vo", ""))) \
+					and actual_ballet_phase.has("widget") \
+					and String(actual_ballet_phase.get("widget", "missing")).is_empty() \
+					and world._widget_template(actual_ballet_phase).is_empty()
+			_check("ballerina has exactly PEARL MIRROR, RIBBON TRAIL, and GRAND TWIRL",
+				ballet_phase_contract_ok)
+		_check("%s waits at the room entrance in its costume idle" % career,
 			world.player_animator != null and world.player_animator.has_animation
 			and world.player_animator.current_animation == "idle")
 		if world.player_animator != null and world.player_animator.has_animation:
-			var frame_before := world.player_animator.current_frame
-			# Idle runs at 4 fps. This crosses at least one frame boundary and
-			# cannot wrap the four-frame atlas back onto the sampled cell.
-			world.player_animator._process(0.3)
-			_check("%s costume atlas advances frames" % career,
-				world.player_animator.current_frame != frame_before)
+			if career == "ballerina":
+				world.player_animator.play("idle")
+				var idle_frame_before := world.player_animator.current_frame
+				world.player_animator._process(0.2)
+				_check("ballerina idle is a deliberate held atlas pose",
+					idle_frame_before == 2
+					and world.player_animator.current_animation == "idle"
+					and world.player_animator.current_frame == idle_frame_before)
+				world.player_animator.play("work")
+				var work_frame_before := world.player_animator.current_frame
+				world.player_animator._process(0.2)
+				_check("ballerina work is a deliberate held atlas pose",
+					work_frame_before == 1
+					and world.player_animator.current_animation == "work"
+					and world.player_animator.current_frame == work_frame_before)
+				var exact_pose_selection := true
+				for selected_pose_frame in range(4):
+					world.player_animator.show_pose("work", selected_pose_frame)
+					world.player_animator._process(0.2)
+					exact_pose_selection = exact_pose_selection \
+						and world.player_animator.current_animation == "work" \
+						and world.player_animator.current_frame == selected_pose_frame
+				_check("ballerina show_pose holds the exact requested atlas cell",
+					exact_pose_selection)
+				world.player_animator.play("cheer")
+				world.player_animator._process(0.4)
+				var cheer_holds_bow := world.player_animator.current_frame == 0
+				world.player_animator._process(0.2)
+				var cheer_rises_slowly := world.player_animator.current_frame == 1
+				world.player_animator._process(1.0)
+				var cheer_reached_final := world.player_animator.current_frame == 3
+				world.player_animator._process(5.0)
+				_check("ballerina cheer bows once, rises, and holds its arms-up frame",
+					cheer_holds_bow and cheer_rises_slowly and cheer_reached_final
+					and world.player_animator.current_animation == "cheer"
+					and world.player_animator.current_frame == 3
+					and not world.player_animator.is_processing())
+				world.player_animator.play("work")
+			else:
+				var frame_before := world.player_animator.current_frame
+				# Idle runs at 4 fps. This crosses at least one frame boundary and
+				# cannot wrap the four-frame atlas back onto the sampled cell.
+				world.player_animator._process(0.3)
+				_check("%s costume atlas advances frames" % career,
+					world.player_animator.current_frame != frame_before)
 		var expected_signature := {
-			"chef": "oven", "detective": "lens", "ballerina": "dance_sequence",
+			"chef": "oven", "detective": "lens", "ballerina": "ballet_pose",
 			"candymaker": "candy_sort", "doctor": "xray_scan", "farmer": "farm_lob",
-			"boxer": "boxer_rhythm", "magician": "magic_cabinet", "painter": "paint_reveal",
+			"boxer": "boxing_guide", "magician": "magic_cabinet", "painter": "paint_reveal",
 			"astronaut": "pipe", "racer": "kart", "nursery": "catch", "popstar": "echo",
 		}
 		_check("%s contains its signature mechanic" % career,
 			modes.has(String(expected_signature.get(career, ""))))
+		if career == "boxer":
+			_exercise_boxing_surface(world, act, modes)
 		if career == "farmer":
 			var picnic_phase: Dictionary = world.phases[3]
 			var picnic_anchors: Array = OperaGestureSurface.TARGET_ANCHORS.get(
@@ -276,6 +379,7 @@ func _init() -> void:
 				and is_equal_approx(float(picnic_phase.get("goal", 0.0)), 3.0)
 				and picnic_anchors.size() == 3)
 		var direct_contracts: Dictionary = DIRECT_SURFACE_CONTRACTS.get(career, {})
+		var direct_names_seen: Array[String] = []
 		for direct_phase: Dictionary in world.phases:
 			var direct_name := String(direct_phase.get("name", ""))
 			if not direct_contracts.has(direct_name):
@@ -297,13 +401,24 @@ func _init() -> void:
 				direct_ok = direct_ok and String(direct_phase.get("dir", "")) == "down"
 			_check("%s %s uses its direct specialist surface" % [career, direct_name],
 				direct_ok)
-			direct_surface_count += 1
+			direct_names_seen.append(direct_name)
+		var career_direct_contracts_complete := direct_names_seen.size() \
+			== direct_contracts.size()
+		for expected_direct_name: String in direct_contracts.keys():
+			career_direct_contracts_complete = career_direct_contracts_complete \
+				and direct_names_seen.has(expected_direct_name)
+		if not direct_contracts.is_empty():
+			_check("%s exposes every declared direct specialist phase" % career,
+				career_direct_contracts_complete)
+		direct_surface_contracts_complete = direct_surface_contracts_complete \
+			and career_direct_contracts_complete
 		var retained_rotation_ok := not RETAINED_ROTATIONS.has(career)
 		for pacing_phase: Dictionary in world.phases:
 			if String(pacing_phase.get("mode", "")) != "circle":
 				continue
-			total_circle_count += 1
 			var rotations := float(pacing_phase.get("goal", 0.0))
+			circle_pacing_complete = circle_pacing_complete \
+				and rotations >= 1.5 and rotations <= 2.2
 			_check("%s %s finishes in 1.5 to 2.2 rotations" \
 				% [career, String(pacing_phase.get("name", "circle"))],
 				rotations >= 1.5 and rotations <= 2.2)
@@ -313,6 +428,8 @@ func _init() -> void:
 		if RETAINED_ROTATIONS.has(career):
 			_check("%s retains its thematic rotation verb" % career,
 				retained_rotation_ok)
+			if retained_rotation_ok:
+				retained_rotations_seen += 1
 		# Every accepted generic choice must immediately cue its newly selected
 		# answer. Magician TRACK spends the same cue on a fresh hat shuffle.
 		for choice_phase_index in range(world.phases.size()):
@@ -370,20 +487,98 @@ func _init() -> void:
 				and String(OperaCareerWorld2D.DETECTIVE_INTRO_LINES[1].get("vo", ""))
 					== "op_detective_search")
 		if career == "ballerina":
-			var watch_voice_count := 0
+			var pearl_mirror_watch_count := 0
+			var retired_generic_ballet_mode := false
+			var ballet_silences_entry_voice := false
+			for opera_cfg: Dictionary in OperaHouse.ACTS:
+				if String(opera_cfg.get("costume", "")) == "ballerina":
+					ballet_silences_entry_voice = bool(opera_cfg.get(
+						"silence_entry_voice", false))
 			for ballerina_phase: Dictionary in world.phases:
-				if String(ballerina_phase.get("name", "")) in ["PHRASE", "POSE"] \
+				var ballerina_mode := String(ballerina_phase.get("mode", ""))
+				if String(ballerina_phase.get("name", "")) == "PEARL MIRROR" \
+						and ballerina_mode == "ballet_pose" \
 						and String(ballerina_phase.get("vo", "")) == "op_ballerina_watch":
-					watch_voice_count += 1
-			_check("ballerina demonstration and hold reuse the watch voice cue",
-				watch_voice_count == 2)
+					pearl_mirror_watch_count += 1
+				retired_generic_ballet_mode = retired_generic_ballet_mode \
+					or ballerina_mode in ["dance_sequence", "hold"]
+			_check("ballerina watch cue belongs only to the specialist pearl mirror",
+				pearl_mirror_watch_count == 1 and not retired_generic_ballet_mode)
+			_check("ballerina clears any lobby voice before its watch instruction",
+				ballet_silences_entry_voice)
+			var ballet_steps_stream := load(
+				"res://assets/audio/voices/roshan_op_ballerina_steps.ogg") as AudioStream
+			var ballet_ribbon_stream := load(
+				"res://assets/audio/voices/roshan_op_ballerina_ribbon.ogg") as AudioStream
+			_check("ballerina lets each your-turn cue finish before the next phase",
+				ballet_steps_stream != null and ballet_ribbon_stream != null
+				and OperaCareerWorld2D.BALLET_PHASE_HOLD_SECONDS \
+					>= maxf(ballet_steps_stream.get_length(),
+						ballet_ribbon_stream.get_length()) + 0.05)
 		if career == "candymaker":
 			var syrup_goal := 0.0
-			for candy_phase: Dictionary in world.phases:
+			var syrup_phase_index := -1
+			for candy_phase_i in range(world.phases.size()):
+				var candy_phase: Dictionary = world.phases[candy_phase_i]
 				if String(candy_phase.get("name", "")) == "SYRUP":
 					syrup_goal = float(candy_phase.get("goal", 0.0))
+					syrup_phase_index = candy_phase_i
 			_check("candymaker SYRUP requires the full five-point pour",
-				is_equal_approx(syrup_goal, 5.0))
+				is_equal_approx(syrup_goal, 5.0) and syrup_phase_index >= 0)
+			world.phase_index = syrup_phase_index
+			world.phase_progress = 0.0
+			world.phase_gap = 0.0
+			world.reveal_t = 0.0
+			world.phase_advance_pending = false
+			world._show_phase()
+			# Pixel 10's 2424x1080 framebuffer maps to a 1616x720 logical
+			# canvas. Prove the fixed stage, actual right-docked card, shipping
+			# touch surface and its real pitcher grab all survive that transform.
+			var pixel_canvas := Vector2(1616.0, 720.0)
+			var fit_scale := minf(pixel_canvas.x / OperaStagePaths.SCREEN.x,
+				pixel_canvas.y / OperaStagePaths.SCREEN.y)
+			var fit_offset := (pixel_canvas - OperaStagePaths.SCREEN * fit_scale) * 0.5
+			var pixel_view := Rect2(Vector2.ZERO, pixel_canvas)
+			var fitted_stage := Rect2(fit_offset, OperaStagePaths.SCREEN * fit_scale)
+			var fitted_card := Rect2(fit_offset + world.action_panel.position * fit_scale,
+				world.action_panel.size * fit_scale)
+			var fitted_surface := Rect2(
+				fit_offset + (world.action_panel.position + world.surface.position) * fit_scale,
+				world.surface.size * fit_scale)
+			var fitted_grab := fit_offset \
+				+ (world.action_panel.position + world.surface.position
+				+ world.surface._pour_pitcher_rect().get_center()) * fit_scale
+			_check("Pixel 10 keeps candymaker SYRUP card and grab inside the fitted stage",
+				pixel_view.encloses(fitted_stage) and fitted_stage.encloses(fitted_card)
+				and fitted_card.encloses(fitted_surface)
+				and fitted_surface.has_point(fitted_grab))
+			# Drive the shipping signal path: the real surface pays the real world,
+			# which owns the five-point goal and accepts the completed picture.
+			var pour_step := 1.0 / 30.0
+			var pour_seconds := 0.0
+			var pour_grab := world.surface._pour_pitcher_rect().get_center()
+			world.surface._press(pour_grab)
+			while not world.phase_advance_pending and pour_seconds < 4.2:
+				world.surface._process(pour_step)
+				pour_seconds += pour_step
+			world.surface._release(pour_grab)
+			_check("candymaker real SYRUP hold completes its connected world",
+				world.phase_advance_pending and world.surface.completion_accepted
+				and is_equal_approx(world.phase_progress, syrup_goal)
+				and is_equal_approx(world.surface.pour_level, 1.0)
+				and pour_seconds < 4.2)
+			world.surface._process(0.36)
+			_check("candymaker success hold rights its empty pitcher",
+				is_zero_approx(world.surface.pour_tilt)
+				and not world.surface._pour_stream_active())
+			# Leave the per-career probe at the same fresh opening state expected by
+			# the generic widget contracts below.
+			world.phase_progress = 0.0
+			world.phase_advance_pending = false
+			world.phase_complete_t = 0.0
+			world.phase_gap = 0.0
+			world.reveal_t = 0.0
+			world._show_phase()
 		if career in ["doctor", "farmer"]:
 			var station_phase_name := "X-RAY" if career == "doctor" else "TOSS"
 			var expected_station_id := "exam_booth" if career == "doctor" else "hay_bales"
@@ -420,58 +615,8 @@ func _init() -> void:
 				and catch_rect.end.x <= world.action_panel.size.x
 				and catch_rect.end.y <= world.action_panel.size.y)
 		_check("%s avoids copied combat phases" % career,
-			modes.count("bop") == (1 if career == "boxer" else 0))
-		# Costume identity lock: bopping a dressed crew imp must never swap her
-		# back to the base purple imp — that reads as a different character
-		# every time she is bopped.
-		#
-		# The invariant is "never a base imp", NOT "always exactly the idle
-		# costume texture". Painted per-pose art (rival_<costume>_windup.png and
-		# friends) landed on dev, and _apply_imp_pose swaps to it by design, so
-		# a crew imp legitimately wears a different texture depending on which
-		# pose her brain is in on the frame this runs. Asserting equality with
-		# the idle texture would pass or fail on tick timing rather than on the
-		# thing that actually matters.
-		if not cooperative and not world.combat_imps.is_empty():
-			var base_imp := load("res://assets/opera/worlds/actors/imp_mischief.png") as Texture2D
-			var base_captain := load("res://assets/opera/worlds/actors/imp_captain.png") as Texture2D
-			var crew_dressed := true
-			for imp_entry: Dictionary in world.combat_imps:
-				var crew_node := imp_entry.get("node") as TextureRect
-				crew_dressed = crew_dressed and crew_node != null \
-					and crew_node.texture != null \
-					and crew_node.texture != base_imp \
-					and crew_node.texture != base_captain
-			_check("%s scuffle crew wears the career costume" % career, crew_dressed)
-			var victim: Dictionary = world.combat_imps[0]
-			var victim_node := victim.get("node") as TextureRect
-			world._hit_stage_imp(victim, Vector2(100.0, 100.0))
-			_check("%s keeps its costume through the shoo-off" % career,
-				victim_node != null and is_instance_valid(victim_node)
-				and victim_node.texture != base_imp
-				and victim_node.texture != base_captain)
-			_check("%s plays the shoo-off clip about the imp" % career,
-				victim_node != null and is_instance_valid(victim_node)
-				and victim_node.pivot_offset.is_equal_approx(victim_node.size * 0.5))
-			var authored_exact := true
-			for state: String in OperaCareerWorld2D.IMP_PREWARM_STATES:
-				var resolution := world._imp_texture_resolution({"captain": false}, state)
-				authored_exact = authored_exact \
-					and String(resolution.get("family", "")) == "rival_%s" % career \
-					and String(resolution.get("resolution", "")) == "exact"
-			_check("%s resolves every delivered state exactly within its costume family" % career,
-				authored_exact)
-			var idle_texture := world.rival_actor.texture
-			_check("%s finale rival exposes authored taunt" % career,
-				world._set_rival_pose("taunt")
-				and world.rival_actor.texture.resource_path.ends_with("rival_%s_taunt.png" % career))
-			world._restore_actor("rival", world.rival_actor)
-			_check("%s finale rival exposes authored bow" % career,
-				world._set_rival_pose("bow")
-				and world.rival_actor.texture.resource_path.ends_with("rival_%s_bow.png" % career))
-			world._restore_actor("rival", world.rival_actor)
-			_check("%s rival pose restores the idle texture" % career,
-				world.rival_actor.texture == idle_texture)
+			modes.count("bop") == 0 and world.steal_index < 0
+			and world.combat_imps.is_empty())
 		if career == "chef":
 			var player_rest: Dictionary = (world.actor_rests.get("player", {}) as Dictionary).duplicate()
 			for _tap in range(20):
@@ -481,19 +626,61 @@ func _init() -> void:
 				_actor_matches_rest(world.player_actor, player_rest))
 			if not stress_shot_out.is_empty():
 				await _capture_viewport(stress_shot_out.path_join("rapid_input_rest.png"))
-		var scuffle_free_finale := true
+		var copied_combat_free_finale := true
 		for mode_i in range(world._finale_start(), modes.size()):
-			scuffle_free_finale = scuffle_free_finale and modes[mode_i] != "bop"
+			copied_combat_free_finale = copied_combat_free_finale and modes[mode_i] != "bop"
 		_check("%s keeps the stage finale for the job contest" % career,
-			scuffle_free_finale or career == "boxer")
+			copied_combat_free_finale)
 		var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
-		_check("%s starts in its job world, off the proscenium" % career,
-			backdrop != null and not backdrop.stage_mode)
+		if career == "ballerina":
+			var finale_stage_tiles_ok := backdrop != null and backdrop.stage_tiles.size() == 4
+			if backdrop != null:
+				for stage_tile: Texture2D in backdrop.stage_tiles:
+					finale_stage_tiles_ok = finale_stage_tiles_ok \
+						and stage_tile != null \
+						and stage_tile.resource_path.contains("/stage/finale_stage_c")
+			_check("ballerina begins in its navigable rehearsal room with finale art ready",
+				world.phase_index == 0 and backdrop != null and not backdrop.stage_mode
+				and finale_stage_tiles_ok)
+			_check("ballerina maps every recital lesson to a painted room object",
+				world.station_list.size() >= 3
+				and world.station_for_phase.size() == world.phases.size())
+			_check("ballerina arms one dedicated surface while its room object waits",
+				world.surface != null and world.surface.get_script() == BalletSurface
+				and not world.action_panel.visible and world.surface.armed_only
+				and world.player_actor.visible)
+			var ballet_surface: Variant = world.surface
+			_check("ballerina recital maps heart, open, and crown atlas poses in order",
+				BalletSurface.POSE_FRAMES == [3, 2, 1]
+				and ballet_surface.pose_target_frame() == 3
+				and ballet_surface.pose_option_frames() == [1, 3])
+			ballet_surface.configure("ballet_pose", Color.WHITE)
+			ballet_surface.armed_only = false
+			var mirror_repeat_before := world.ballet_instruction_repeats
+			world.reveal_t = 0.0
+			world.idle_t = 6.95
+			world._process(0.10)
+			var mirror_idle_demo_silent: bool = \
+				world.ballet_instruction_repeats == mirror_repeat_before \
+				and ballet_surface.demo_active
+			ballet_surface._process(ballet_surface.demo_duration() + 0.1)
+			_check("ballerina idle replay waits until Mirror hands the turn back",
+				mirror_idle_demo_silent
+				and world.ballet_instruction_repeats == mirror_repeat_before + 1)
+			_check("ballerina hides progress chrome, race bars, and the rival",
+				world.phase_fill != null and not world.phase_fill.visible
+				and world.player_bar != null and not world.player_bar.visible
+				and world.rival_bar != null and not world.rival_bar.visible
+				and world.rival_actor != null and not world.rival_actor.visible)
+		else:
+			_check("%s starts in its job world, off the proscenium" % career,
+				backdrop != null and not backdrop.stage_mode)
 		_check("%s paints the supplied codex career world" % career,
 			backdrop != null and backdrop.world_tiles.size() == 4)
 		_check("%s owns a complete on-stage tile set" % career,
 			backdrop != null and backdrop.stage_tiles.size() == 4)
-		if not rival_shot_out.is_empty() and not cooperative:
+		if not rival_shot_out.is_empty() and not cooperative \
+				and career not in ["ballerina", "boxer"]:
 			await _capture_rival_states(world, career, backdrop)
 		var widgets_complete := true
 		var widgets_causal := true
@@ -520,7 +707,7 @@ func _init() -> void:
 			await process_frame
 			var specialist_mode := phase_mode in [
 				"pourt", "oven", "xray_scan", "dance_sequence",
-				"candy_sort", "paint_reveal", "farm_lob", "boxer_rhythm",
+				"candy_sort", "paint_reveal", "farm_lob",
 			]
 			widgets_borderless = widgets_borderless \
 				and not OperaGestureSurface.DRAWS_FRAMED_WIDGET_BACKDROPS \
@@ -609,12 +796,18 @@ func _init() -> void:
 				world.surface._farm_tick(OperaGestureSurface.FARM_FLIGHT_DURATION + 0.01)
 				widgets_causal = widgets_causal and world.surface.farm_landed == 1
 				world.surface.set_block_signals(false)
-			if not widget_shot_out.is_empty():
+			if not widget_shot_out.is_empty() \
+					and (widget_capture_career.is_empty() or widget_capture_career == career):
 				await _capture_widget_states(world, career, phase_number, phase_dict, template)
 		# Direct specialist surfaces deliberately have no generic widget family;
 		# those contracts are exercised above instead of requiring reskin assets.
+		var career_widget_contract_complete := widgets_complete \
+			and (widget_count > 0 \
+				or career in ["ballerina", "boxer", "detective", "racer"])
 		_check("%s loads every diegetic phase widget" % career,
-			widgets_complete and (widget_count > 0 or career in ["detective", "racer"]))
+			career_widget_contract_complete)
+		widget_contracts_complete = widget_contracts_complete \
+			and career_widget_contract_complete
 		_check("%s widgets remain input-causal with owner-gated completion" % career,
 			widgets_causal)
 		_check("%s suppresses every retired framed widget backdrop" % career,
@@ -622,9 +815,25 @@ func _init() -> void:
 		_check("%s keeps a persistent borderless play affordance" % career,
 			widgets_grounded)
 		_audit_diegetic_room_flow(world, career)
+		if career == "ballerina":
+			_check("ballerina object opens its large borderless recital surface",
+				world.task_open and world.action_panel.visible
+				and world.surface is OperaBalletSurface
+				and world.surface.size.x >= 800.0 and world.surface.size.y >= 600.0)
+		elif career == "boxer":
+			_check("boxer object opens its full-room two-glove view",
+				world.task_open and world.action_panel.visible
+				and world.surface is OperaBoxingSurface
+				and world.surface.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
+				and not world.player_actor.visible)
 		_check("%s loads the authored magnifier prop" % career,
 			world.magnifier_texture != null)
-		var boxer_combat_seen := false
+		if world.action_panel.visible and world.player_actor.visible:
+			var panel_rect := Rect2(world.action_panel.position, world.action_panel.size)
+			var actor_rect := Rect2(world.player_actor.position,
+				world.player_actor.size * world.player_actor.scale).grow(24.0)
+			_check("%s borderless activity focus never covers animated Roshan" % career,
+				panel_rect.intersection(actor_rect).get_area() <= 0.01)
 		if career == "detective":
 			_check("detective lens is enlarged around its real glass centre",
 				OperaCareerWorld2D.LENS_GRAPHIC_SIZE.x >= 400.0
@@ -711,21 +920,21 @@ func _init() -> void:
 				and world.phases.size() == original_phase_count
 				and act.competition.retries == 1)
 
-		var saw_finale_imp := world.rival_actor.visible and world.in_competition_finale()
-		var finale_cast_separated := false
-		var rival_hid_through_scuffles := true
+		var saw_finale_imp := _finale_partner_present(world, career)
+		var rival_hidden_before_finale := true
+		var finale_cast_separated := career in ["ballerina", "boxer"]
 		var guard := 0
 		while act.state == "play" and guard < 80:
-			rival_hid_through_scuffles = rival_hid_through_scuffles \
+			rival_hidden_before_finale = rival_hidden_before_finale \
 				and (cooperative or world.in_competition_finale() or not world.rival_actor.visible)
-			world._on_gesture("probe", 100.0, 1.0)
-			if career == "boxer" and world.phase_index == world.steal_index:
-				boxer_combat_seen = boxer_combat_seen or not world.combat_imps.is_empty() \
-					or world.captain_pending
+			if career == "boxer":
+				_drive_boxer_phase(world)
+			else:
+				world._on_gesture("probe", 100.0, 1.0)
 			act._process(0.05)
 			await process_frame
 			guard += 1
-			saw_finale_imp = saw_finale_imp or (world.rival_actor.visible and world.in_competition_finale())
+			saw_finale_imp = saw_finale_imp or _finale_partner_present(world, career)
 			if world.task_open and world.in_competition_finale() \
 					and world.player_actor.visible and world.rival_actor.visible:
 				var player_rect := _actor_visual_rect(world.player_actor)
@@ -739,12 +948,19 @@ func _init() -> void:
 					and not player_rect.intersects(rival_rect) \
 					and (not world.action_panel.visible
 						or not rival_rect.intersects(activity_rect))
-		_check("%s brings in its dressed finale partner" % career, saw_finale_imp)
-		_check("%s stages the room-finale partner clear of Roshan" % career,
-			finale_cast_separated)
-		_check("%s keeps the rival away from both imp scuffles" % career, rival_hid_through_scuffles)
-		_check("%s uses combat only when the job is boxing" % career,
-			boxer_combat_seen if career == "boxer" else world.steal_index < 0)
+		_check("%s keeps the rival hidden before its stage contest" % career,
+			rival_hidden_before_finale)
+		if career == "ballerina":
+			_check("ballerina keeps the recital rival-free through the curtain call",
+				not saw_finale_imp and not world.rival_actor.visible)
+		elif career == "boxer":
+			_check("boxer finale uses one specialist padded imp, then a safe curtain call",
+				saw_finale_imp and world.combat_imps.is_empty()
+				and world.rival_actor.visible and not world.action_panel.visible)
+		else:
+			_check("%s brings in its dressed finale partner" % career, saw_finale_imp)
+			_check("%s stages the room-finale partner clear of Roshan and the activity" % career,
+				finale_cast_separated)
 		if career == "nursery":
 			_check("nursery curtain call records cooperative care",
 				bool(act.performance_result.get("cooperative", false)))
@@ -771,7 +987,18 @@ func _init() -> void:
 			and curtain_player.get_center().x < curtain_rival.get_center().x
 			and not curtain_player.intersects(curtain_rival)
 			and prop_spotlight_ok)
+		var closing_boxing: OperaBoxingSurface = null
+		var close_claim_started := true
+		if career == "boxer" and world.surface is OperaBoxingSurface:
+			closing_boxing = world.surface as OperaBoxingSurface
+			closing_boxing.configure("boxing_jab", Color.WHITE)
+			_boxing_touch(closing_boxing, 73, true, closing_boxing.glove_rest(0))
+			close_claim_started = closing_boxing.touch_owner_snapshot().has(73)
 		act.cancel()
+		if closing_boxing != null:
+			_check("boxer close clears live finger claims before freeing its surface",
+				close_claim_started and closing_boxing.touch_owner_snapshot().is_empty()
+				and not closing_boxing.held)
 		await process_frame
 		if main.touch_ui != null:
 			_check("%s restores the touch layer on exit" % career,
@@ -812,18 +1039,15 @@ func _init() -> void:
 		reentry_clean)
 
 	_check("all thirteen career jobs were exercised", show_count == 13)
-	# The 52 shipping phases now comprise 38 shared art-family cards, nine
-	# direct specialist/context surfaces, and five stage/custom beats (lens,
-	# boxing scuffle, pipe board, kart and echo song) that need no shared widget.
-	_check("all thirty-eight art-family career widgets were exercised",
-		total_widget_count == 38)
-	_check("all nine direct specialist/context surfaces were exercised",
-		direct_surface_count == 9)
-	_check("all eight retained circle phases use the shortened rotation pacing",
-		total_circle_count == 8)
+	_check("all shared art-family career widget contracts were exercised",
+		widget_contracts_complete and total_widget_count > 0)
+	_check("every declared direct specialist surface was exercised",
+		direct_surface_contracts_complete)
+	_check("every retained generic rotation uses the shortened pacing",
+		circle_pacing_complete and retained_rotations_seen == RETAINED_ROTATIONS.size())
 	if not diegetic_shot_out.is_empty():
-		_check("diegetic review capture contains all fifty-two phase room states",
-			diegetic_shot_count == 52)
+		_check("diegetic review capture contains every shipping phase room state",
+			diegetic_shot_count == diegetic_shot_expected)
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()
@@ -1199,6 +1423,220 @@ func _roshan_idle_semantic_rect(world: OperaCareerWorld2D) -> Rect2:
 	return Rect2(
 		world.player_actor.position + visual_size * Vector2(0.27, 0.11),
 		visual_size * Vector2(0.45, 0.82))
+func _boxing_touch(surface: OperaBoxingSurface, finger: int, pressed: bool,
+		position: Vector2) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = finger
+	event.position = position
+	event.pressed = pressed
+	surface._gui_input(event)
+
+
+func _boxing_drag(surface: OperaBoxingSurface, finger: int,
+		position: Vector2) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = finger
+	event.position = position
+	surface._gui_input(event)
+
+
+func _exercise_boxing_surface(world: OperaCareerWorld2D, act: OperaAct,
+		modes: Array[String]) -> void:
+	var exact_modes := modes.size() == BOXING_MODES.size()
+	var exact_goals := world.phases.size() == BOXING_GOALS.size()
+	var exact_voices := world.phases.size() == BOXING_VOICES.size()
+	var surface_goals_match := world.phases.size() == BOXING_MODES.size()
+	for index in range(mini(modes.size(), BOXING_MODES.size())):
+		exact_modes = exact_modes and modes[index] == BOXING_MODES[index]
+		var phase: Dictionary = world.phases[index] as Dictionary
+		var phase_goal := float(phase.get("goal", -1.0))
+		exact_goals = exact_goals \
+			and is_equal_approx(phase_goal, BOXING_GOALS[index])
+		exact_voices = exact_voices \
+			and String(phase.get("vo", "")) == BOXING_VOICES[index]
+		surface_goals_match = surface_goals_match \
+			and int(OperaBoxingSurface.MODE_GOALS.get(modes[index], -1)) \
+				== int(round(phase_goal))
+	_check("boxer replaces every generic card and brawl with five glove modes",
+		exact_modes and not modes.has("boxer_rhythm") and not modes.has("bop"))
+	_check("boxer phase goals match every specialist glove round",
+		exact_goals and surface_goals_match)
+	_check("boxer preserves the exact five recorded instruction cues",
+		exact_voices)
+	_check("boxer waits in its room with a dedicated two-glove surface armed",
+		world.surface is OperaBoxingSurface
+		and world.surface.name == "BoxingGloveSurface"
+		and world.station_list.size() >= BOXING_MODES.size()
+		and world.station_for_phase.size() == world.phases.size()
+		and not world.action_panel.visible and world.surface.armed_only
+		and world.player_actor.visible
+		and not world.rival_actor.visible)
+	_check("boxer teaches three drills before its one-imp finale",
+		world._finale_start() == 3 and world.phases.size() == 5
+		and ResourceLoader.exists(
+			"res://assets/opera/worlds/actors/rival_boxer.png")
+		and world.combat_imps.is_empty())
+	var voices_complete := true
+	for phase: Dictionary in world.phases:
+		var voice_id := String(phase.get("vo", ""))
+		voices_complete = voices_complete and not voice_id.is_empty() \
+			and not String(phase.get("voice", "")).is_empty() \
+			and ResourceLoader.exists(
+				"res://assets/audio/voices/roshan_%s.ogg" % voice_id)
+	_check("every boxer drill and finale has recorded and visible instruction",
+		voices_complete)
+
+	var boxing := OperaBoxingSurface.new()
+	boxing.size = Vector2(1280.0, 720.0)
+	get_root().add_child(boxing)
+	boxing.set_process(false)
+	var passive_safe := true
+	for mode_name: String in BOXING_MODES:
+		boxing.configure(mode_name, Color.WHITE)
+		for tick in range(60):
+			boxing._process(0.5)
+		passive_safe = passive_safe and boxing.landed_count() == 0 \
+			and boxing.round_index() == 0 and not boxing.finished
+	_check("thirty idle seconds never land a glove or finish a boxing mode",
+		passive_safe)
+
+	boxing.configure("boxing_guide", Color.WHITE)
+	_boxing_touch(boxing, 7, true, boxing.glove_rest(0))
+	_boxing_touch(boxing, 13, true, boxing.glove_rest(1))
+	var owners := boxing.touch_owner_snapshot()
+	_boxing_drag(boxing, 7, Vector2(700.0, 610.0))
+	_boxing_drag(boxing, 13, Vector2(580.0, 610.0))
+	var crossed_owners := boxing.touch_owner_snapshot()
+	_check("crossed fingers keep independent left and right glove ownership",
+		owners.size() == 2 and int(owners.get(7, -1)) == 0
+		and int(owners.get(13, -1)) == 1
+		and int(crossed_owners.get(7, -1)) == 0
+		and int(crossed_owners.get(13, -1)) == 1)
+	_boxing_touch(boxing, 7, false, Vector2(700.0, 610.0))
+	var one_owner := boxing.touch_owner_snapshot()
+	_check("releasing one glove leaves the other finger in control",
+		one_owner.size() == 1 and int(one_owner.get(13, -1)) == 1
+		and boxing.held)
+	_boxing_touch(boxing, 13, false, Vector2(580.0, 610.0))
+
+	boxing.configure("boxing_guide", Color.WHITE)
+	for hand in range(2):
+		_boxing_touch(boxing, 0, true, boxing.glove_rest(hand))
+		_boxing_drag(boxing, 0, boxing.guide_target_position(hand))
+		_boxing_touch(boxing, 0, false, boxing.guide_target_position(hand))
+	_check("one finger can alternate and finish both floating glove lessons",
+		boxing.landed_count() == 2 and boxing.round_index() == 2
+		and boxing.touch_owner_snapshot().is_empty())
+
+	boxing.configure("boxing_jab", Color.WHITE)
+	_boxing_touch(boxing, 0, true, boxing.glove_rest(0))
+	var jab_target := boxing.active_target_position()
+	_boxing_drag(boxing, 0, jab_target)
+	_boxing_drag(boxing, 0, jab_target)
+	_boxing_drag(boxing, 0, jab_target + Vector2(1.0, 0.0))
+	_boxing_touch(boxing, 0, false, jab_target)
+	_check("one forward extension latches to exactly one accepted jab",
+		boxing.landed_count() == 1 and boxing.round_index() == 1)
+	var landed_before := boxing.landed_count()
+	var round_before := boxing.round_index()
+	var fill_before := boxing.widget_fill
+	var phase_before := world.phase_progress
+	var competition_before := act.competition.player_progress
+	var score_before := act.competition.player_score
+	var mistakes_before := act.competition.mistakes
+	var stars_before := main.opera_stars
+	var progress_before := main.opera_progress
+	var done_before := main.opera_done
+	for hit in range(8):
+		boxing.receive_friendly_hit()
+		world._on_gesture("boxing_contact", 0.0, 1.0)
+	_check("friendly hits are cosmetic across surface, career, contest, and save state",
+		boxing.has_friendly_hit_feedback()
+		and boxing.landed_count() == landed_before
+		and boxing.round_index() == round_before
+		and is_equal_approx(boxing.widget_fill, fill_before)
+		and is_equal_approx(world.phase_progress, phase_before)
+		and is_equal_approx(act.competition.player_progress, competition_before)
+		and act.competition.player_score == score_before
+		and act.competition.mistakes == mistakes_before
+		and main.opera_stars == stars_before
+		and main.opera_progress == progress_before
+		and main.opera_done == done_before)
+	boxing.cancel_all_touches()
+	_check("boxing cancellation returns both gloves to guard with no owner",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held
+		and boxing.glove_positions[0].is_equal_approx(boxing.glove_rest(0))
+		and boxing.glove_positions[1].is_equal_approx(boxing.glove_rest(1)))
+	boxing.queue_free()
+
+
+func _drive_boxer_phase(world: OperaCareerWorld2D) -> void:
+	if world.phase_advance_pending:
+		world._advance_completed_phase()
+		return
+	if world.phase_index >= world.phases.size() \
+			or not (world.surface is OperaBoxingSurface):
+		return
+	if not world.task_open:
+		# The shipping flow reaches and opens the next glowing room object. The
+		# trusted driver performs that handoff explicitly before touching gloves.
+		world._open_task()
+		return
+	var boxing := world.surface as OperaBoxingSurface
+	var mode := String((world.phases[world.phase_index] as Dictionary).get(
+		"mode", ""))
+	var hand := boxing.round_index() % 2
+	match mode:
+		"boxing_guide":
+			if boxing.round_index() < 2:
+				hand = boxing.round_index()
+				_boxing_touch(boxing, 0, true, boxing.glove_rest(hand))
+				_boxing_drag(boxing, 0, boxing.guide_target_position(hand))
+				_boxing_touch(boxing, 0, false, boxing.guide_target_position(hand))
+		"boxing_jab":
+			_boxing_touch(boxing, 0, true, boxing.glove_rest(hand))
+			var target := boxing.active_target_position()
+			_boxing_drag(boxing, 0, target)
+			_boxing_touch(boxing, 0, false, target)
+			boxing._process(0.5)
+		"boxing_guard":
+			_boxing_touch(boxing, 0, true, boxing.glove_rest(hand))
+			var target := boxing.active_target_position()
+			_boxing_drag(boxing, 0, target)
+			boxing._process(boxing._counter_t + 0.01)
+			_boxing_touch(boxing, 0, false, target)
+			boxing._process(0.5)
+		"boxing_imp":
+			var ticks := 0
+			while not boxing.imp_is_open() and ticks < 20:
+				boxing._process(0.4)
+				ticks += 1
+			if boxing.imp_is_open():
+				_boxing_touch(boxing, 0, true, boxing.glove_rest(hand))
+				var target := boxing.active_target_position()
+				_boxing_drag(boxing, 0, target)
+				_boxing_touch(boxing, 0, false, target)
+				boxing._process(0.5)
+		"boxing_belt":
+			_boxing_touch(boxing, 0, true, boxing.glove_rest(hand))
+			var target := boxing.active_target_position()
+			_boxing_drag(boxing, 0, target)
+			_boxing_touch(boxing, 0, false, target)
+			boxing._process(0.5)
+
+
+func _finale_partner_present(world: OperaCareerWorld2D, career: String) -> bool:
+	if career != "boxer":
+		return world.rival_actor.visible and world.in_competition_finale()
+	if world.phase_index >= world.phases.size() \
+			or not (world.surface is OperaBoxingSurface):
+		return false
+	var mode := String((world.phases[world.phase_index] as Dictionary).get(
+		"mode", ""))
+	var boxing := world.surface as OperaBoxingSurface
+	return mode == "boxing_imp" and world.in_competition_finale() \
+		and not world.rival_actor.visible \
+		and (boxing._imp_textures.get("idle") as Texture2D) != null
 
 
 func _capture_viewport(path: String) -> void:
@@ -1261,47 +1699,6 @@ func _capture_rival_states(world: OperaCareerWorld2D, career: String,
 	world._set_finale_visible(false)
 
 
-func _capture_scuffle_sequences(world: OperaCareerWorld2D, career: String) -> void:
-	await _capture_one_scuffle(world, career, false)
-	await _capture_one_scuffle(world, career, true)
-	world.phase_index = 0
-	world.phase_progress = 0.0
-	world._show_phase()
-	world.phase_gap = 0.0
-
-
-func _capture_one_scuffle(world: OperaCareerWorld2D, career: String,
-		captain_scuffle: bool) -> void:
-	var target_phase := world.steal_index if captain_scuffle else 0
-	world.phase_index = target_phase
-	world.phase_progress = 0.0
-	world._show_phase()
-	world.phase_gap = 0.0
-	var label := "captain" if captain_scuffle else "opening"
-	var shot := 0
-	while shot < 24 and world.phase_index == target_phase:
-		await create_timer(0.16).timeout
-		await _capture_viewport(scuffle_shot_out.path_join(
-			"%s_%s_%02d.png" % [career, label, shot + 1]))
-		var live_imp: Dictionary = {}
-		for imp: Dictionary in world.combat_imps:
-			if not bool(imp.get("popped", false)):
-				live_imp = imp
-				break
-		if live_imp.is_empty():
-			if world.phase_advance_pending:
-				world._advance_completed_phase()
-			break
-		var center: Vector2 = live_imp.get("center", Vector2(640.0, 440.0))
-		world.swipe_stroke += 1
-		world._combat_strike(center, center)
-		shot += 1
-	if world.phase_advance_pending:
-		await _capture_viewport(scuffle_shot_out.path_join(
-			"%s_%s_%02d.png" % [career, label, shot + 1]))
-		world._advance_completed_phase()
-
-
 func _capture_widget_states(world: OperaCareerWorld2D, career: String,
 		phase_number: int, phase: Dictionary, template: String) -> void:
 	var surface := world.surface
@@ -1322,6 +1719,11 @@ func _capture_widget_states(world: OperaCareerWorld2D, career: String,
 	surface.note_input()
 	surface.held = mode == "hold"
 	surface.set_fill(0.45)
+	if mode == "pourt":
+		surface.pour_hold = true
+		surface.pour_tilt = 0.58
+		surface.pour_level = 0.45
+		surface.pour_reserve = 0.66
 	surface.set_timing_position(0.50)
 	surface.crank_rotation = 0.72
 	surface.feedback_anchor = surface.size * Vector2(0.5, 0.68)
@@ -1335,13 +1737,26 @@ func _capture_widget_states(world: OperaCareerWorld2D, career: String,
 	surface.feedback_t = 0.0
 	surface.held = mode == "hold"
 	surface.set_fill(0.90)
+	if mode == "pourt":
+		surface.pour_hold = true
+		surface.pour_tilt = 0.92
+		surface.pour_level = 0.90
+		surface.pour_reserve = 0.12
 	surface.set_timing_position(0.68)
 	surface.crank_rotation = 1.34
 	await _capture_control(surface, widget_shot_out.path_join("%s_near_completion.png" % prefix))
 
 	surface.held = false
 	surface.set_fill(1.0)
+	if mode == "pourt":
+		surface.pour_level = 1.0
+		surface.pour_reserve = 0.0
+		surface.pour_hold = false
 	surface.accept_completion()
+	if mode == "pourt":
+		# Review the real success transition rather than fabricating an upright
+		# pitcher that runtime completion could not previously reach.
+		surface._pour_tick(0.36)
 	await _capture_control(surface, widget_shot_out.path_join("%s_accepted_completion.png" % prefix))
 
 

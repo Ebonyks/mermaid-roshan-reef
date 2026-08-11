@@ -3,9 +3,13 @@ extends SceneTree
 ## follows the real control geometry, and a stationary tap cannot impersonate
 ## a hold, swipe, or circle. This probe deliberately owns no career state.
 
+const BOXING_SURFACE_SCRIPT := preload("res://scripts/opera_boxing_surface.gd")
+
 var checks := 0
 var failed := 0
 var events: Array[Dictionary] = []
+
+const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 
 
 func _ck(name: String, ok: bool) -> void:
@@ -34,12 +38,36 @@ func _paid_count(kind: String) -> int:
 	return count
 
 
+func _event_count(kind: String) -> int:
+	var count := 0
+	for event: Dictionary in events:
+		if String(event.get("kind", "")) == kind:
+			count += 1
+	return count
+
+
 func _paid_total(kind: String) -> float:
 	var total := 0.0
 	for event: Dictionary in events:
 		if String(event.get("kind", "")) == kind:
 			total += maxf(0.0, float(event.get("amount", 0.0)))
 	return total
+
+
+func _cue_frames(kind: String) -> Array[int]:
+	var result: Array[int] = []
+	for event: Dictionary in events:
+		if String(event.get("kind", "")) == kind:
+			result.append(int(round(float(event.get("amount", -1.0)))))
+	return result
+
+
+func _collapse_held_cues(source: Array[int]) -> Array[int]:
+	var result: Array[int] = []
+	for frame: int in source:
+		if result.is_empty() or result[-1] != frame:
+			result.append(frame)
+	return result
 
 
 func _pose_at(surface: OperaGestureSurface, time: float) -> Dictionary:
@@ -61,12 +89,260 @@ func _rotation_safe_square(rect: Rect2) -> Rect2:
 	return Rect2(rect.get_center() - Vector2.ONE * side * 0.5, Vector2.ONE * side)
 
 
-func _finish_after_render(surface: OperaGestureSurface) -> void:
+func _boxing_touch_event(boxing: OperaBoxingSurface, finger: int,
+		pressed: bool, at: Vector2) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = finger
+	event.pressed = pressed
+	event.position = at
+	boxing._gui_input(event)
+
+
+func _boxing_drag_event(boxing: OperaBoxingSurface, finger: int,
+		at: Vector2) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = finger
+	event.position = at
+	boxing._gui_input(event)
+
+
+func _boxing_mouse_button(boxing: OperaBoxingSurface, pressed: bool,
+		at: Vector2, device_id: int = 0) -> void:
+	var event := InputEventMouseButton.new()
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.pressed = pressed
+	event.position = at
+	event.device = device_id
+	boxing._gui_input(event)
+
+
+func _boxing_mouse_motion(boxing: OperaBoxingSurface, at: Vector2,
+		device_id: int = 0) -> void:
+	var event := InputEventMouseMotion.new()
+	event.position = at
+	event.device = device_id
+	boxing._gui_input(event)
+
+
+func _pose_choice_index(surface: Variant, wanted_frame: int) -> int:
+	var frames: Array[int] = surface.pose_option_frames()
+	for index in range(frames.size()):
+		if frames[index] == wanted_frame:
+			return index
+	return -1
+
+
+func _test_ballet_surface() -> void:
+	var ballet: Variant = BalletSurface.new()
+	ballet.size = Vector2(854, 660)
+	get_root().add_child(ballet)
+	ballet.set_process(false)
+	ballet.gesture.connect(_record_gesture)
+
+	# MIRROR: the first turn is two huge portraits; demonstrations and assists
+	# may teach forever but only a real matching touch can bank a round.
+	events.clear()
+	ballet.configure("ballet_pose", Color("#ff8fc8"))
+	ballet.set_process(false)
+	var first_rects: Array[Rect2] = ballet.pose_option_rects()
+	var first_frames: Array[int] = ballet.pose_option_frames()
+	var first_target: int = ballet.pose_target_frame()
+	var first_target_index: int = _pose_choice_index(ballet, first_target)
+	_ck("ballet phrase uses atlas heart, open, and crown in that order",
+		BalletSurface.POSE_FRAMES == [3, 2, 1]
+		and first_target == 3 and first_frames == [1, 3])
+	var watch_stream := load(
+		"res://assets/audio/voices/roshan_op_ballerina_watch.ogg") as AudioStream
+	_ck("mirror demo lets the complete watch recording finish before handoff",
+		watch_stream != null
+		and ballet.demo_duration() >= watch_stream.get_length() + 0.05
+		and ballet.demo_duration() <= 2.5)
+	_ck("ballet mirror begins with two 180px-or-larger portrait targets",
+		first_rects.size() == 2 and first_target_index >= 0
+		and first_rects[0].size.x >= 180.0 and first_rects[0].size.y >= 180.0
+		and first_rects[1].size.x >= 180.0 and first_rects[1].size.y >= 180.0)
+	ballet._press(first_rects[first_target_index].get_center())
+	ballet._release(first_rects[first_target_index].get_center())
+	_ck("touching during mirror demonstration cannot progress",
+		ballet.pose_round == 0 and not _paid("ballet_pose"))
+	ballet._process(ballet.demo_duration() + 0.1)
+	_ck("mirror emits one your-turn cue after its initial watch demo",
+		_event_count("ballet_ready") == 1)
+	ballet._process(4.9)
+	_ck("ballet assist waits for five playable seconds after the demo",
+		ballet.assist_level() == 0 and ballet.pose_round == 0)
+	ballet._process(0.2)
+	_ck("ballet first assist appears at five seconds without auto-progress",
+		ballet.assist_level() == 1 and ballet.pose_round == 0
+		and not _paid("ballet_pose"))
+	ballet._process(ballet.demo_duration() + 0.1)
+	ballet._process(4.8)
+	_ck("ballet strong assist waits for ten cumulative playable seconds",
+		ballet.assist_level() == 1 and ballet.pose_round == 0)
+	ballet._process(0.2)
+	_ck("ballet strong assist enlarges guidance at ten seconds without winning",
+		ballet.assist_level() == 2 and ballet.pose_round == 0
+		and not _paid("ballet_pose"))
+	ballet._process(ballet.demo_duration() + 0.1)
+	var wrong_index := 0 if first_frames[0] != first_target else 1
+	ballet._press(first_rects[wrong_index].get_center())
+	ballet._release(first_rects[wrong_index].get_center())
+	_ck("wrong ballet portrait replays the same round with zero loss or payout",
+		ballet.pose_round == 0 and ballet.demo_active and not _paid("ballet_pose"))
+	ballet.restart_demo()
+	_ck("mirror replay preserves its unresolved round", ballet.pose_round == 0)
+	ballet._process(ballet.demo_duration() + 0.1)
+	ballet._press(first_rects[first_target_index].get_center())
+	ballet._release(first_rects[first_target_index].get_center())
+	_ck("real matching portrait banks exactly one mirror round",
+		ballet.pose_round == 1 and _paid_count("ballet_pose") == 1)
+	var mirror_targets: Array[int] = [first_target]
+	var mirror_target_xs: Array[float] = [
+		first_rects[first_target_index].get_center().x,
+	]
+	var pose_guard := 0
+	while ballet.pose_round < int(BalletSurface.POSE_ROUNDS) and pose_guard < 6:
+		ballet._process(ballet.demo_duration() + 0.1)
+		var target: int = ballet.pose_target_frame()
+		mirror_targets.append(target)
+		var option_index: int = _pose_choice_index(ballet, target)
+		var rects: Array[Rect2] = ballet.pose_option_rects()
+		mirror_target_xs.append(rects[option_index].get_center().x)
+		ballet._press(rects[option_index].get_center())
+		ballet._release(rects[option_index].get_center())
+		pose_guard += 1
+	_ck("three deliberate portrait matches complete Mirror with three payouts",
+		ballet.pose_round == int(BalletSurface.POSE_ROUNDS)
+		and _paid_count("ballet_pose") == int(BalletSurface.POSE_ROUNDS))
+	_ck("mirror presents the complete low-open-crown pose phrase exactly once",
+		mirror_targets == [3, 2, 1])
+	_ck("mirror moves the correct portrait right, centre, then left",
+		mirror_target_xs.size() == 3
+		and mirror_target_xs[0] > ballet.size.x * 0.55
+		and absf(mirror_target_xs[1] - ballet.size.x * 0.5) <= 2.0
+		and mirror_target_xs[2] < ballet.size.x * 0.40)
+
+	# RIBBON: one curve owns painting and collision. A coarse path with a lift
+	# completes; a direct chord cannot skip across distant sine crossings.
+	events.clear()
+	ballet.configure("ballet_ribbon", Color("#ff8fc8"))
+	ballet.set_process(false)
+	ballet._process(ballet.demo_duration() + 0.1)
+	_ck("ribbon start pearl and corridor exceed the one-finger minimum",
+		ballet.ribbon_resume_rect().size.x >= 110.0
+		and ballet.ribbon_resume_rect().size.y >= 110.0
+		and ballet.ribbon_corridor_width() >= 90.0)
+	var ribbon_corner: Vector2 = ballet.ribbon_resume_rect().position + Vector2.ONE * 2.0
+	_ck("ribbon visible pearl and accepted start share one circular geometry",
+		ballet.ribbon_resume_hit(ballet.ribbon_resume_rect().get_center())
+		and not ballet.ribbon_resume_hit(ribbon_corner)
+		and is_equal_approx(ballet.ribbon_resume_radius() * 2.0,
+			ballet.ribbon_resume_rect().size.x))
+	_ck("ribbon demo never echoes its phase instruction as a ready cue",
+		_event_count("ballet_ready") == 0)
+	ballet._press(ballet.ribbon_resume_rect().get_center())
+	ballet._drag(ballet.ribbon_point(1.0))
+	ballet._release(ballet.ribbon_point(1.0))
+	var chord_progress: float = ballet.ribbon_progress
+	_ck("straight ribbon chord cannot skip the visible S current",
+		chord_progress < 0.25 and chord_progress >= 0.0)
+	ballet.restart_demo()
+	_ck("ribbon replay preserves every accepted fraction",
+		is_equal_approx(ballet.ribbon_progress, chord_progress))
+	ballet._process(ballet.demo_duration() + 0.1)
+	ballet._press(ballet.ribbon_resume_rect().get_center())
+	var ribbon_guard := 0
+	while ballet.ribbon_progress < 0.50 and ribbon_guard < 24:
+		var next_ribbon: float = minf(0.50, ballet.ribbon_progress + 0.075)
+		ballet._drag(ballet.ribbon_point(next_ribbon))
+		ribbon_guard += 1
+	ballet._release(ballet.ribbon_point(ballet.ribbon_progress))
+	var lifted_progress: float = ballet.ribbon_progress
+	ballet.restart_demo()
+	_ck("lifting halfway banks ribbon progress for resume",
+		lifted_progress >= 0.49 and is_equal_approx(ballet.ribbon_progress, lifted_progress))
+	ballet._process(ballet.demo_duration() + 0.1)
+	ballet._press(ballet.ribbon_resume_rect().get_center())
+	ribbon_guard = 0
+	while ballet.ribbon_progress < 0.999 and ribbon_guard < 24:
+		var next_ribbon: float = minf(1.0, ballet.ribbon_progress + 0.075)
+		ballet._drag(ballet.ribbon_point(next_ribbon))
+		ribbon_guard += 1
+	ballet._release(ballet.ribbon_point(1.0))
+	_ck("coarse twelve-hertz ribbon samples with a lift complete monotonically",
+		ballet.ribbon_progress >= 0.999 and _paid("ballet_ribbon"))
+
+	# TWIRL: the visible annulus and pearl handle own the orbit. Centre scrubs
+	# pay nothing; an orbit can be resumed and works in either direction.
+	events.clear()
+	ballet.configure("ballet_twirl", Color("#ff8fc8"))
+	ballet.set_process(false)
+	ballet._process(ballet.demo_duration() + 0.1)
+	_ck("twirl ring and pearl handle meet the one-finger minimum",
+		ballet.twirl_ring_width() >= 110.0
+		and float(BalletSurface.TWIRL_HANDLE_DIAMETER) >= 110.0)
+	_ck("twirl demo never echoes its phase instruction as a ready cue",
+		_event_count("ballet_ready") == 0)
+	ballet._press(ballet.twirl_center())
+	ballet._release(ballet.twirl_center())
+	ballet._process(ballet.demo_duration() + 0.1)
+	var top_handle: Vector2 = ballet.twirl_handle_position()
+	ballet._press(top_handle)
+	ballet._drag(ballet.twirl_center())
+	ballet._drag(ballet.twirl_center() + Vector2.DOWN * ballet.twirl_radius())
+	ballet._release(ballet.twirl_center() + Vector2.DOWN * ballet.twirl_radius())
+	_ck("centre scrub and straight diameter cannot pay for a twirl",
+		is_zero_approx(ballet.twirl_progress) and not _paid("ballet_twirl"))
+	ballet._process(ballet.demo_duration() + 0.1)
+	ballet._press(ballet.twirl_handle_position())
+	for sector in range(1, 9):
+		var angle: float = -PI * 0.5 + float(sector) * TAU / 16.0
+		ballet._drag(ballet.twirl_center()
+			+ Vector2.from_angle(angle) * ballet.twirl_radius())
+	ballet._release(ballet.twirl_handle_position())
+	var half_turn: float = ballet.twirl_progress
+	ballet.restart_demo()
+	_ck("half twirl remains banked across lift and replay",
+		half_turn > 0.45 and half_turn < 0.55
+		and is_equal_approx(ballet.twirl_progress, half_turn))
+	ballet._process(ballet.demo_duration() + 0.1)
+	ballet._press(ballet.twirl_handle_position())
+	for sector in range(9, 17):
+		var angle: float = -PI * 0.5 + float(sector) * TAU / 16.0
+		ballet._drag(ballet.twirl_center()
+			+ Vector2.from_angle(angle) * ballet.twirl_radius())
+	ballet._release(ballet.twirl_handle_position())
+	_ck("counter-clockwise adjacent sectors complete one resumed grand twirl",
+		ballet.twirl_progress >= 0.999 and ballet.twirl_direction == 1
+		and _paid("ballet_twirl"))
+	var resumed_twirl_cues: Array[int] = _cue_frames("ballet_pose_cue")
+	_ck("twirl replay may re-hold a pose but cannot scramble the phrase",
+		_collapse_held_cues(resumed_twirl_cues) == [3, 2, 1])
+	events.clear()
+	ballet.configure("ballet_twirl", Color("#ff8fc8"))
+	ballet.set_process(false)
+	ballet._process(ballet.demo_duration() + 0.1)
+	ballet._press(ballet.twirl_handle_position())
+	for sector in range(1, 17):
+		var angle: float = -PI * 0.5 - float(sector) * TAU / 16.0
+		ballet._drag(ballet.twirl_center()
+			+ Vector2.from_angle(angle) * ballet.twirl_radius())
+	ballet._release(ballet.twirl_handle_position())
+	_ck("clockwise adjacent sectors are equally valid",
+		ballet.twirl_progress >= 0.999 and ballet.twirl_direction == -1
+		and _paid("ballet_twirl"))
+	_ck("uninterrupted twirl cues low-open-crown exactly once",
+		_cue_frames("ballet_pose_cue") == [3, 2, 1])
+	ballet.queue_free()
+
+
+func _finish_after_render(surface: OperaGestureSurface,
+		boxing: OperaBoxingSurface) -> void:
 	# Let CanvasItem execute each custom draw path once. Analyzer-only tests do
 	# not catch invalid draw geometry or texture-region calls.
 	for specialist_mode: String in [
-		"xray_scan", "dance_sequence", "candy_sort", "paint_reveal", "farm_lob",
-		"boxer_rhythm", "clue_board", "crown_chest", "garden_plant",
+		"xray_scan", "candy_sort", "paint_reveal", "farm_lob",
+		"clue_board", "crown_chest", "garden_plant",
 		"magic_cabinet",
 	]:
 		surface.configure(specialist_mode, Color.WHITE)
@@ -85,6 +361,13 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 	await process_frame
 	_ck("Doctor WASH renders a persistent sink, faucet, water, and hands",
 		surface.last_specialist_subject_route == "doctor_basin")
+	for boxing_mode: String in [
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
+	]:
+		boxing.configure(boxing_mode, Color.WHITE)
+		boxing.queue_redraw()
+		await process_frame
+	_ck("boxing glove guide, drills, imp finale, and belt paths render", true)
 	for causal: Dictionary in [
 		{"mode": "hold", "context": "nursery_feed"},
 		{"mode": "tap", "context": "nursery_burp"},
@@ -98,7 +381,7 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 		surface.queue_redraw()
 		await process_frame
 	for charge_context: String in [
-		"charge_ballerina", "charge_astronaut", "charge_popstar",
+		"charge_astronaut", "charge_popstar",
 	]:
 		surface.configure("hold", Color.WHITE, 1, charge_context)
 		surface.held = true
@@ -112,7 +395,7 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 		surface.queue_redraw()
 		await process_frame
 	for crank_context: String in [
-		"crank_chef", "crank_ballerina", "crank_candymaker",
+		"crank_chef", "crank_candymaker",
 		"crank_doctor", "crank_astronaut", "crank_popstar",
 	]:
 		surface.configure("circle", Color.WHITE, 1, crank_context)
@@ -131,7 +414,7 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 		surface.queue_redraw()
 		await process_frame
 	for trace_context: String in [
-		"trace_chef", "trace_ballerina", "trace_doctor", "trace_magician",
+		"trace_chef", "trace_doctor", "trace_magician",
 	]:
 		surface.configure("swipe", Color.WHITE, 1, trace_context)
 		surface.trace_points = [
@@ -143,7 +426,7 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 			surface.last_trace_subject_route == trace_context)
 	for target_context: String in [
 		"target_chef", "target_candymaker", "target_farmer",
-		"target_astronaut", "target_boxer", "target_painter",
+		"target_astronaut", "target_painter",
 	]:
 		surface.configure("tap", Color.WHITE, 1, target_context)
 		surface.queue_redraw()
@@ -190,6 +473,16 @@ func _finish_after_render(surface: OperaGestureSurface) -> void:
 	surface.accept_completion()
 	surface.queue_redraw()
 	await process_frame
+	var ballet: Variant = BalletSurface.new()
+	ballet.size = Vector2(854, 660)
+	get_root().add_child(ballet)
+	for ballet_mode: String in ["ballet_pose", "ballet_ribbon", "ballet_twirl"]:
+		ballet.configure(ballet_mode, Color("#ff8fc8"))
+		ballet.set_process(false)
+		ballet.queue_redraw()
+		await process_frame
+	_ck("all three full-stage ballet draw routes render headlessly", true)
+	ballet.queue_free()
 	_ck("specialist, contextual charge/crank/trace, long-push, portal, wheel-install, causal, and oven paths render", true)
 	print("GESTURE_QUALITY|result: %s (%d checks)" % [
 		"ALL OK" if failed == 0 else "%d FAIL" % failed,
@@ -206,6 +499,12 @@ func _init() -> void:
 	surface.gesture.connect(_record_gesture)
 	_ck("direct specialist scenes never paint opaque rectangular backdrops",
 		not OperaGestureSurface.DRAWS_CAUSAL_RECTANGLE_BACKDROPS)
+	var boxing: OperaBoxingSurface = BOXING_SURFACE_SCRIPT.new()
+	boxing.size = Vector2(852, 560)
+	get_root().add_child(boxing)
+	boxing.set_process(false)
+	boxing.gesture.connect(_record_gesture)
+	_test_ballet_surface()
 
 	# Directional demos use the same vector as the input gate.
 	surface.configure("swipe", Color.WHITE)
@@ -221,6 +520,78 @@ func _init() -> void:
 	_ck("pour hand grabs the real pitcher",
 		_pose_point(pour_pose).distance_to(surface._pour_pitcher_rect().get_center()) < 16.0
 		and bool(pour_pose.get("pressing", false)))
+
+	# Pixel 10 does not crop the outer 16:9 stage; the reported first-game
+	# failure is inside this exact 392x232 shipping surface. Exercise its real
+	# press/hold/release path at phone frame rates instead of awarding synthetic
+	# progress or checking only the ghost hand.
+	surface.size = Vector2(392.0, 232.0)
+	for frame_rate: int in [30, 60]:
+		events.clear()
+		surface.configure("pourt", Color.WHITE, 1, "pour_candymaker")
+		var shipping_bounds := Rect2(Vector2.ZERO, surface.size)
+		var bowl := surface._pour_bowl_rect()
+		var x_bounds := surface._pour_x_bounds()
+		var geometry_ok := _rect_inside(shipping_bounds, bowl) \
+			and surface.pour_mold_texture != null
+		for pitcher_x: float in [x_bounds.x, x_bounds.y]:
+			surface.pour_x = pitcher_x
+			geometry_ok = geometry_ok \
+				and _rect_inside(shipping_bounds,
+					_rotation_safe_square(surface._pour_pitcher_rect())) \
+				and _rect_inside(shipping_bounds, surface._pour_pitcher_hit_rect())
+			for tilt: float in [0.0, 0.25, 0.5, 0.75, 1.0]:
+				surface.pour_tilt = tilt
+				var spout_x := surface._pour_spout_point().x
+				geometry_ok = geometry_ok \
+					and spout_x >= bowl.position.x and spout_x <= bowl.end.x
+		_ck("candymaker pour geometry stays registered and touchable at %d fps" % frame_rate,
+			geometry_ok)
+
+		surface.pour_x = surface._pour_home_x()
+		surface.pour_tilt = 0.0
+		surface._process(1.0)
+		_ck("candymaker pour demo pays no passive progress at %d fps" % frame_rate,
+			is_zero_approx(surface.pour_level) and not _paid("pourt"))
+		surface._press(Vector2(8.0, 8.0))
+		surface._process(0.8)
+		surface._release(Vector2(8.0, 8.0))
+		_ck("off-pitcher touch cannot fill candymaker mold at %d fps" % frame_rate,
+			is_zero_approx(surface.pour_level) and not _paid("pourt"))
+
+		var step := 1.0 / float(frame_rate)
+		var active_seconds := 0.0
+		var grab := surface._pour_pitcher_rect().get_center()
+		surface._press(grab)
+		while active_seconds < 0.9:
+			surface._process(step)
+			active_seconds += step
+		surface._release(grab)
+		var paused_level := surface.pour_level
+		for _pause_frame in range(frame_rate):
+			surface._process(step)
+		_ck("releasing candymaker pitcher pauses without losing syrup at %d fps" % frame_rate,
+			is_equal_approx(surface.pour_level, paused_level) and paused_level > 0.0)
+
+		grab = surface._pour_pitcher_rect().get_center()
+		surface._press(grab)
+		# The deliberate release above incurs a second visible tilt-in. Even with
+		# that interruption the cumulative finger time stays preschool-short;
+		# one uninterrupted hold completes in roughly 3.5 seconds.
+		while surface.pour_level < 1.0 and active_seconds < 4.5:
+			surface._process(step)
+			active_seconds += step
+		surface._release(grab)
+		_ck("real candymaker hold completes a full five-point pour by %d fps" % frame_rate,
+			is_equal_approx(surface.pour_level, 1.0)
+			and is_equal_approx(_paid_total("pourt"), 5.0)
+			and _event_count("pour_ding") == 1 and active_seconds < 4.5)
+		surface.accept_completion()
+		for _settle_frame in range(frame_rate):
+			surface._process(step)
+		_ck("completed candymaker pitcher settles upright at %d fps" % frame_rate,
+			is_zero_approx(surface.pour_tilt) and not surface._pour_stream_active())
+	surface.size = Vector2(852.0, 560.0)
 
 	events.clear()
 	surface.configure("oven", Color.WHITE)
@@ -459,7 +830,7 @@ func _init() -> void:
 	# the actual phase goal; misses/reverse scrubs cannot bank or exhaust budget.
 	var trace_midpoints: Array[Vector2] = []
 	for trace_context: String in [
-		"trace_chef", "trace_ballerina", "trace_doctor", "trace_magician",
+		"trace_chef", "trace_doctor", "trace_magician",
 	]:
 		events.clear()
 		surface.configure("swipe", Color.WHITE, 1, trace_context)
@@ -642,7 +1013,7 @@ func _init() -> void:
 	# meter. The two old static-subject cards are fully occluded before their
 	# approved isolated prop animates.
 	for charge_context: String in [
-		"charge_ballerina", "charge_astronaut", "charge_popstar",
+		"charge_astronaut", "charge_popstar",
 	]:
 		events.clear()
 		surface.configure("hold", Color.WHITE, 1, charge_context)
@@ -650,14 +1021,8 @@ func _init() -> void:
 		_ck("%s uses a shipping-safe causal action ROI" % charge_context,
 			surface._uses_contextual_charge()
 			and _rect_inside(shipping_bounds, charge_action))
-		if charge_context == "charge_ballerina":
-			_ck("ballerina pose clean stage covers the floating floor remnant",
-				_rect_inside(shipping_bounds, surface._clean_widget_playfield_rect())
-				and surface._clean_widget_playfield_rect().encloses(
-					surface._charge_legacy_subject_rect()))
-		else:
-			_ck("%s clean patch encloses its complete old static subject" % charge_context,
-				charge_action.encloses(surface._charge_legacy_subject_rect()))
+		_ck("%s clean patch encloses its complete old static subject" % charge_context,
+			charge_action.encloses(surface._charge_legacy_subject_rect()))
 		surface._press(charge_action.get_center())
 		surface._release(charge_action.get_center())
 		_ck("%s stationary press cannot impersonate a sustained hold" % charge_context,
@@ -678,7 +1043,7 @@ func _init() -> void:
 	# movers are never selected for ballerina/candy/doctor, while clean isolated
 	# whisk, valve, and microphone props may be used in their local scene.
 	for crank_context: String in [
-		"crank_chef", "crank_ballerina", "crank_candymaker",
+		"crank_chef", "crank_candymaker",
 		"crank_doctor", "crank_astronaut", "crank_popstar",
 	]:
 		surface.configure("circle", Color.WHITE, 1, crank_context)
@@ -751,7 +1116,7 @@ func _init() -> void:
 	var every_target_inside := true
 	for target_context: String in [
 		"target_chef", "target_candymaker", "target_farmer",
-		"target_astronaut", "target_boxer",
+		"target_astronaut",
 	]:
 		surface.configure("tap", Color.WHITE, 1, target_context)
 		var target_reach := maxf(46.0, minf(surface.size.x, surface.size.y) * 0.15)
@@ -837,11 +1202,9 @@ func _init() -> void:
 		vanish_geometry_inside = vanish_geometry_inside and _rect_inside(
 			shipping_bounds,
 			_rotation_safe_square(surface._magic_vanish_wand_rect(vanish_progress)))
-		vanish_geometry_inside = vanish_geometry_inside and _rect_inside(
-			shipping_bounds, surface._magic_vanish_reveal_rect(vanish_progress))
 	vanish_geometry_inside = vanish_geometry_inside and shipping_bounds.has_point(
 		_pose_point(_pose_at(surface, 1.2)))
-	_ck("shipping vanish hat, wand, reveal, and demo remain fully inside card",
+	_ck("shipping vanish hat, wand, and demo remain fully inside card",
 		vanish_geometry_inside)
 	surface.size = Vector2(852, 560)
 	center = surface.size * 0.5
@@ -966,7 +1329,7 @@ func _init() -> void:
 	# intentionally the exception: her canvas keeps free stamping at the finger.
 	for target_context: String in [
 		"target_chef", "target_candymaker", "target_farmer",
-		"target_astronaut", "target_boxer",
+		"target_astronaut",
 	]:
 		events.clear()
 		surface.configure("tap", Color.WHITE, 1, target_context)
@@ -1076,16 +1439,17 @@ func _init() -> void:
 	events.clear()
 	surface.configure("hold", Color.WHITE, 1, "magic_vanish")
 	var vanish_layers_loaded := surface.magic_vanish_hat_texture != null \
-		and surface.magic_vanish_wand_texture != null \
-		and surface.magic_vanish_reveal_texture != null
+		and surface.magic_vanish_wand_texture != null
 	var vanish_sources_waiting_for_import := FileAccess.file_exists(
 		"res://assets/opera/worlds/widgets/widget_magic_vanish_hat.png") \
 		and FileAccess.file_exists(
-			"res://assets/opera/worlds/widgets/widget_magic_vanish_wand.png") \
-		and FileAccess.file_exists(
-			"res://assets/opera/worlds/widgets/widget_magic_vanish_reveal.png")
+			"res://assets/opera/worlds/widgets/widget_magic_vanish_wand.png")
 	_ck("magic vanish binds delivered layers or retains fallback before import",
 		vanish_layers_loaded or vanish_sources_waiting_for_import)
+	_ck("magic vanish retires the reversed pop-back-out success plate",
+		surface.magic_vanish_reveal_texture == null
+		and surface.retired_magic_vanish_reveal_path.ends_with(
+			"widget_magic_vanish_reveal.png"))
 	var vanish_hat_start := surface._magic_vanish_hat_position(0.0)
 	var vanish_hat_cover := surface._magic_vanish_hat_position(0.70)
 	var vanish_wand_start := surface._magic_vanish_wand_position(0.0)
@@ -1095,65 +1459,30 @@ func _init() -> void:
 		and vanish_wand_start.distance_to(vanish_wand_cast) > surface.size.y * 0.08
 		and not is_equal_approx(surface._magic_vanish_wand_rotation(0.0),
 			surface._magic_vanish_wand_rotation(0.70)))
-	_ck("bunny-fish reveal stays hidden until hat contact",
-		is_zero_approx(surface._magic_vanish_reveal_amount(0.50))
-		and surface._magic_vanish_reveal_amount(0.70) > 0.0)
-	surface._press(center)
+	_ck("Lamba fades fully under the hat and stays hidden at success",
+		surface._magic_vanish_lamba_alpha(0.0) > 0.99
+		and is_zero_approx(surface._magic_vanish_lamba_alpha(1.0))
+		and is_equal_approx(surface._magic_vanish_success_amount(1.0), 1.0))
+	var wand_hit := surface._magic_vanish_wand_hit_rect()
+	var wand_demo := _pose_point(_pose_at(surface, 1.15))
+	_ck("vanish finger demonstrates the real wand control",
+		wand_hit.has_point(wand_demo))
+	surface._press(Vector2(6.0, 6.0))
+	_ck("empty-space hold cannot arm the wand trick", not surface.held)
+	surface._release(Vector2(6.0, 6.0))
+	surface._press(wand_hit.get_center())
 	surface.set_fill(0.70)
 	_ck("magic vanish uses its causal hat scene, not charge-meter art",
 		surface._is_magic_vanish_context() and surface.widget_mover == null
-		and surface.widget_overlay == null and not _paid("hold"))
-	surface._release(center)
+		and surface.widget_overlay == null and surface.held and not _paid("hold"))
+	surface._release(wand_hit.get_center())
 	surface.set_fill(1.0)
 	surface.accept_completion()
-	_ck("magic vanish completion holds the authored full reveal",
-		is_equal_approx(surface._magic_vanish_reveal_amount(surface.widget_fill), 1.0)
+	_ck("magic vanish completion holds the empty sparkling hat",
+		is_equal_approx(surface._magic_vanish_success_amount(surface.widget_fill), 1.0)
+		and is_zero_approx(surface._magic_vanish_lamba_alpha(surface.widget_fill))
+		and surface.magic_vanish_reveal_texture == null
 		and surface.completion_accepted)
-
-	# Four-pad dance is a true call-and-response state machine. A wrong tap
-	# preserves the correct prefix and replays only the remaining suffix.
-	events.clear()
-	surface.configure("dance_sequence", Color.WHITE)
-	_ck("dance defaults to the approved ballerina context",
-		surface.visual_context == "lanes_ballerina" and surface.widget_backdrop == null
-		and surface.retired_widget_backdrop_path.ends_with("widget_lanes_ballerina.png")
-		and surface.widget_mover != null)
-	for tick in range(28):
-		surface._dance_tick(0.15)
-	_ck("dance demonstrates before accepting input",
-		surface.dance_listening and surface.dance_input_index == 0)
-	var dance_pose := _pose_at(surface, 1.25)
-	_ck("dance rehint points to the next real floor pad",
-		_pose_point(dance_pose).distance_to(surface._dance_pad_rect(
-			int(OperaGestureSurface.DANCE_SEQUENCE[0])).get_center()) < 1.0
-		and bool(dance_pose.get("pressing", false)))
-	var first_dance_pad := int(OperaGestureSurface.DANCE_SEQUENCE[0])
-	surface._press(surface._dance_pad_rect(first_dance_pad).get_center())
-	surface._release(surface._dance_pad_rect(first_dance_pad).get_center())
-	_ck("first correct dance pad banks a prefix without scalar payout",
-		surface.dance_input_index == 1 and not _paid("dance_sequence"))
-	var expected_second := int(OperaGestureSurface.DANCE_SEQUENCE[1])
-	var wrong_pad := (expected_second + 1) % 4
-	surface._press(surface._dance_pad_rect(wrong_pad).get_center())
-	surface._release(surface._dance_pad_rect(wrong_pad).get_center())
-	_ck("wrong dance pad preserves prefix and gently re-shows only suffix",
-		not _paid("dance_sequence") and surface.dance_input_index == 1
-		and not surface.dance_listening and surface.demo_active)
-	for tick in range(28):
-		surface._dance_tick(0.15)
-	_ck("suffix replay resumes listening at the preserved prefix",
-		surface.dance_listening and surface.dance_input_index == 1)
-	events.clear()
-	for step in range(1, OperaGestureSurface.DANCE_SEQUENCE.size()):
-		var pad := int(OperaGestureSurface.DANCE_SEQUENCE[step])
-		var pad_center := surface._dance_pad_rect(pad).get_center()
-		surface._press(pad_center)
-		surface._release(pad_center)
-		if step < OperaGestureSurface.DANCE_SEQUENCE.size() - 1:
-			_ck("dance prefix %d is state, not scalar payout" % step,
-				not _paid("dance_sequence"))
-	_ck("exact dance phrase completes once",
-		surface.dance_complete and _paid_count("dance_sequence") == 1)
 
 	# Candies move slowly but never expire. Only a matching silhouette changes
 	# the deterministic queue; a wrong bin resets the same piece.
@@ -1292,59 +1621,239 @@ func _init() -> void:
 		and _paid_count("farm_lob") == OperaGestureSurface.FARM_LOB_GOAL
 		and seen_farm_foods.size() == 3 and surface.farm_munch_t > 0.0)
 
-	# Boxer rhythm has no timing gate: follow the highlighted alternating mitt.
-	# The midpoint duck is a demonstrated downward state transition, not a hit.
-	events.clear()
-	surface.configure("boxer_rhythm", Color.WHITE)
-	_ck("boxer rhythm binds approved focus-pad art without framed pixels and starts left",
-		surface.visual_context == "lanes_boxer" and surface.widget_backdrop == null
-		and surface.retired_widget_backdrop_path.ends_with("widget_lanes_boxer.png")
-		and surface.widget_mover != null and surface.boxer_expected == 0)
-	var boxer_pose := _pose_at(surface, 1.15)
-	_ck("boxer hand points at the highlighted real mitt",
-		_pose_point(boxer_pose).distance_to(surface._boxer_mitt_rect(0).get_center()) < 1.0
-		and bool(boxer_pose.get("pressing", false)))
-	var boxer_wrong := surface._boxer_mitt_rect(1).get_center()
-	surface._press(boxer_wrong)
-	surface._release(boxer_wrong)
-	_ck("wrong boxer mitt pays zero and reflashes without advancing",
-		surface.boxer_hit_index == 0 and surface.boxer_expected == 0
-		and not _paid("boxer_rhythm") and surface.boxer_flash > 1.0
-		and surface.demo_active)
-	for hit in range(OperaGestureSurface.BOXER_DUCK_AFTER):
-		var mitt := surface._boxer_mitt_rect(surface.boxer_expected).get_center()
-		surface._press(mitt)
-		surface._release(mitt)
-	_ck("first three alternating mitts bank exactly three hits",
-		surface.boxer_hit_index == OperaGestureSurface.BOXER_DUCK_AFTER
-		and _paid_count("boxer_rhythm") == OperaGestureSurface.BOXER_DUCK_AFTER
-		and surface.boxer_duck_pending)
-	var duck_demo_start := _pose_point(_pose_at(surface, 0.0))
-	var duck_demo_end := _pose_point(_pose_at(surface, 1.55))
-	_ck("boxer interlude clearly demonstrates a downward duck",
-		duck_demo_end.y > duck_demo_start.y + surface.size.y * 0.50
-		and absf(duck_demo_end.x - duck_demo_start.x) < 1.0)
-	surface._press(center)
-	surface._release(center)
-	_ck("tapping through the duck cannot bank another hit",
-		surface.boxer_duck_pending
-		and surface.boxer_hit_index == OperaGestureSurface.BOXER_DUCK_AFTER
-		and _paid_count("boxer_rhythm") == OperaGestureSurface.BOXER_DUCK_AFTER)
-	var duck_start := Vector2(center.x, surface.size.y * 0.20)
-	var duck_finish := Vector2(center.x, surface.size.y * 0.82)
-	surface._press(duck_start)
-	surface._drag(duck_finish)
-	surface._release(duck_finish)
-	_ck("real downward duck resumes phrase with zero scalar payout",
-		surface.boxer_duck_done and not surface.boxer_duck_pending
-		and surface.boxer_hit_index == OperaGestureSurface.BOXER_DUCK_AFTER
-		and _paid_count("boxer_rhythm") == OperaGestureSurface.BOXER_DUCK_AFTER)
-	while not surface.boxer_complete:
-		var next_mitt := surface._boxer_mitt_rect(surface.boxer_expected).get_center()
-		surface._press(next_mitt)
-		surface._release(next_mitt)
-	_ck("six alternating mitts complete with six payouts",
-		surface.boxer_hit_index == OperaGestureSurface.BOXER_SEQUENCE.size()
-		and _paid_count("boxer_rhythm") == OperaGestureSurface.BOXER_SEQUENCE.size())
+	# The dedicated boxing surface owns two floating gloves. Its five modes do
+	# not progress themselves: only a real owned touch transition may emit work.
+	var boxing_modes: Array[String] = [
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
+	]
+	var passive_boxing_safe := true
+	for boxing_mode: String in boxing_modes:
+		events.clear()
+		boxing.configure(boxing_mode, Color.WHITE)
+		for passive_tick in range(128):
+			boxing._process(0.10)
+		passive_boxing_safe = passive_boxing_safe \
+			and boxing.landed_count() == 0 and boxing.round_index() == 0 \
+			and not _paid(boxing_mode)
+	_ck("all boxing modes wait indefinitely with zero passive progress",
+		passive_boxing_safe)
 
-	call_deferred("_finish_after_render", surface)
+	# A jab must travel forward from the glove's owned origin into the target.
+	# Once accepted, its per-hand latch rejects drag spam until release.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	var jab_finger := 7
+	var jab_hand := 0
+	var jab_start := boxing.glove_rest(jab_hand)
+	var jab_target := boxing.active_target_position()
+	boxing._handle_press(jab_finger, jab_start)
+	boxing._handle_drag(jab_finger, jab_target)
+	_ck("real forward glove drag banks one jab",
+		boxing.landed_count() == 1 and boxing.round_index() == 1
+		and _paid_count("boxing_jab") == 1)
+	boxing._handle_drag(jab_finger, jab_target)
+	boxing._handle_drag(jab_finger, jab_target + Vector2(2.0, 0.0))
+	boxing._handle_release(jab_finger, jab_target)
+	_ck("accepted jab latches and cannot duplicate before release",
+		boxing.landed_count() == 1 and boxing.round_index() == 1
+		and _paid_count("boxing_jab") == 1
+		and boxing.touch_owner_snapshot().is_empty())
+
+	# Friendly counter-contact is feedback only. It cannot rewind either the
+	# career-owned fill synchronization or the locally accepted punch count.
+	boxing.set_fill(0.25)
+	var punches_before_hit := boxing.landed_count()
+	var round_before_hit := boxing.round_index()
+	var fill_before_hit := boxing.widget_fill
+	var payouts_before_hit := _paid_count("boxing_jab")
+	boxing.receive_friendly_hit()
+	_ck("friendly hit is cosmetic and preserves all accepted boxing state",
+		boxing.has_friendly_hit_feedback()
+		and boxing.landed_count() == punches_before_hit
+		and boxing.round_index() == round_before_hit
+		and is_equal_approx(boxing.widget_fill, fill_before_hit)
+		and _paid_count("boxing_jab") == payouts_before_hit
+		and not _paid("boxing_contact") and not boxing.finished)
+
+	# A child with one finger can operate both gloves in sequence. The guide
+	# excludes the completed hand and gives the same released finger the other.
+	events.clear()
+	boxing.configure("boxing_guide", Color.WHITE)
+	var solo_finger := 12
+	for guide_hand in range(2):
+		var guide_start := boxing.glove_rest(guide_hand)
+		var guide_target := boxing.guide_target_position(guide_hand)
+		boxing._handle_press(solo_finger, guide_start)
+		boxing._handle_drag(solo_finger, guide_target)
+		boxing._handle_release(solo_finger, guide_target)
+	_ck("one finger can finish both floating-glove guide punches",
+		boxing.landed_count() == 2 and boxing.round_index() == 2
+		and _paid_count("boxing_guide") == 2
+		and boxing.touch_owner_snapshot().is_empty() and not boxing.held)
+
+	# Two simultaneous touches must own different hands. Releasing one finger
+	# leaves the other owner live and draggable until that exact finger releases.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	var left_finger := 21
+	var right_finger := 22
+	var left_rest := boxing.glove_rest(0)
+	var right_rest := boxing.glove_rest(1)
+	boxing._handle_press(left_finger, left_rest)
+	boxing._handle_press(right_finger, right_rest)
+	var dual_owners := boxing.touch_owner_snapshot()
+	_ck("two touches own two distinct floating gloves",
+		dual_owners.size() == 2 and int(dual_owners.get(left_finger, -1)) == 0
+		and int(dual_owners.get(right_finger, -1)) == 1)
+	boxing._handle_release(left_finger, left_rest)
+	var isolated_owner := boxing.touch_owner_snapshot()
+	var right_drag := right_rest + Vector2(0.0, -42.0)
+	boxing._handle_drag(right_finger, right_drag)
+	_ck("releasing one glove preserves the other finger owner",
+		isolated_owner.size() == 1 and not isolated_owner.has(left_finger)
+		and int(isolated_owner.get(right_finger, -1)) == 1 and boxing.held
+		and boxing.glove_positions[1].distance_to(right_drag) < 1.0)
+	boxing._handle_release(right_finger, right_drag)
+	_ck("last owned glove release clears held state",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held)
+
+	# Desktop/headless fallback uses the same forward travel, while its explicit
+	# sentinel remains a real owner if a touch arrives before mouse release.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	var mouse_start := boxing.glove_rest(0)
+	var mouse_target := boxing.active_target_position()
+	_boxing_mouse_button(boxing, true, mouse_start)
+	_boxing_mouse_motion(boxing, mouse_target)
+	_boxing_mouse_button(boxing, false, mouse_target)
+	_ck("mouse fallback performs the same causal forward jab",
+		boxing.landed_count() == 1 and _paid_count("boxing_jab") == 1
+		and boxing.touch_owner_snapshot().is_empty())
+	var mouse_all_modes := boxing.landed_count() == 1 \
+		and _paid_count("boxing_jab") == 1
+	events.clear()
+	boxing.configure("boxing_guide", Color.WHITE)
+	for guide_hand in range(2):
+		_boxing_mouse_button(boxing, true, boxing.glove_rest(guide_hand))
+		var guide_target := boxing.guide_target_position(guide_hand)
+		_boxing_mouse_motion(boxing, guide_target)
+		_boxing_mouse_button(boxing, false, guide_target)
+	var mouse_guide_ok := boxing.landed_count() == 2 \
+		and _paid_count("boxing_guide") == 2
+	_ck("mouse fallback completes the two-glove guide", mouse_guide_ok)
+	mouse_all_modes = mouse_all_modes and mouse_guide_ok
+	events.clear()
+	boxing.configure("boxing_guard", Color.WHITE)
+	for guard_round in range(3):
+		var guard_hand := boxing.round_index() % 2
+		_boxing_mouse_button(boxing, true, boxing.glove_rest(guard_hand))
+		var guard_target := boxing.active_target_position()
+		_boxing_mouse_motion(boxing, guard_target)
+		boxing._process(boxing._counter_t + 0.01)
+		_boxing_mouse_button(boxing, false, guard_target)
+		boxing._process(0.5)
+	var mouse_guard_ok := boxing.round_index() == 3 \
+		and _paid_count("boxing_guard") == 3
+	_ck("mouse fallback completes all soft guard counters", mouse_guard_ok)
+	mouse_all_modes = mouse_all_modes and mouse_guard_ok
+	events.clear()
+	boxing.configure("boxing_imp", Color.WHITE)
+	for imp_round in range(6):
+		var imp_ticks := 0
+		while not boxing.imp_is_open() and imp_ticks < 20:
+			boxing._process(0.4)
+			imp_ticks += 1
+		if not boxing.imp_is_open():
+			mouse_all_modes = false
+			break
+		var imp_hand := boxing.round_index() % 2
+		_boxing_mouse_button(boxing, true, boxing.glove_rest(imp_hand))
+		var imp_target := boxing.active_target_position()
+		_boxing_mouse_motion(boxing, imp_target)
+		_boxing_mouse_button(boxing, false, imp_target)
+		boxing._process(0.5)
+	var mouse_imp_ok := boxing.landed_count() == 6 \
+		and _paid_count("boxing_imp") == 6
+	_ck("mouse fallback completes the friendly imp title round", mouse_imp_ok)
+	mouse_all_modes = mouse_all_modes and mouse_imp_ok
+	events.clear()
+	boxing.configure("boxing_belt", Color.WHITE)
+	_boxing_mouse_button(boxing, true, boxing.glove_rest(0))
+	var belt_target := boxing.active_target_position()
+	_boxing_mouse_motion(boxing, belt_target)
+	_boxing_mouse_button(boxing, false, belt_target)
+	var mouse_belt_ok := boxing.landed_count() == 1 \
+		and _paid_count("boxing_belt") == 1
+	_ck("mouse fallback earns the belt with a forward punch", mouse_belt_ok)
+	mouse_all_modes = mouse_all_modes and mouse_belt_ok
+	_ck("mouse fallback can finish every dedicated boxing phase",
+		mouse_all_modes and boxing.touch_owner_snapshot().is_empty())
+
+	boxing.configure("boxing_jab", Color.WHITE)
+	_boxing_mouse_button(boxing, true, boxing.glove_rest(0))
+	_boxing_touch_event(boxing, 51, true, boxing.glove_rest(0))
+	var mixed_owners := boxing.touch_owner_snapshot()
+	_ck("mouse sentinel and touch cannot claim the same glove",
+		int(mixed_owners.get(OperaBoxingSurface.MOUSE_FINGER, -1)) == 0
+		and int(mixed_owners.get(51, -1)) == 1)
+	_boxing_mouse_button(boxing, false, boxing.glove_rest(0))
+	_ck("mouse release preserves the concurrently owned touch glove",
+		boxing.touch_owner_snapshot().size() == 1
+		and int(boxing.touch_owner_snapshot().get(51, -1)) == 1)
+	_boxing_touch_event(boxing, 51, false, boxing.glove_rest(0))
+
+	# Android may synthesize a mouse packet for the same touch. Once any screen
+	# touch has been seen, those emulated packets and stray releases are no-ops.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	var dedupe_start := boxing.glove_rest(0)
+	var dedupe_target := boxing.active_target_position()
+	_boxing_touch_event(boxing, 61, true, dedupe_start)
+	_boxing_drag_event(boxing, 61, dedupe_target)
+	var dedupe_count := boxing.landed_count()
+	_boxing_mouse_button(boxing, true, boxing.glove_rest(1),
+		InputEvent.DEVICE_ID_EMULATION)
+	_boxing_mouse_motion(boxing, dedupe_target, InputEvent.DEVICE_ID_EMULATION)
+	_boxing_mouse_button(boxing, false, dedupe_target,
+		InputEvent.DEVICE_ID_EMULATION)
+	_boxing_touch_event(boxing, 999, false, Vector2.ZERO)
+	_ck("emulated mouse and unknown release cannot duplicate a touch punch",
+		boxing.landed_count() == dedupe_count and dedupe_count == 1
+		and _paid_count("boxing_jab") == 1
+		and boxing.touch_owner_snapshot().size() == 1
+		and boxing.touch_owner_snapshot().has(61))
+	_boxing_touch_event(boxing, 61, false, dedupe_target)
+	_boxing_touch_event(boxing, 61, false, dedupe_target)
+	_ck("duplicate release is harmless after the real owner clears",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held
+		and boxing.landed_count() == 1)
+
+	boxing.configure("boxing_jab", Color.WHITE)
+	_boxing_mouse_button(boxing, true, boxing.glove_rest(0))
+	boxing.configure("boxing_guard", Color.WHITE)
+	_ck("phase reconfiguration clears every mouse and touch claim",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held
+		and boxing.glove_positions[0].distance_to(boxing.glove_rest(0)) < 1.0
+		and boxing.glove_positions[1].distance_to(boxing.glove_rest(1)) < 1.0)
+
+	# Explicit cancellation and application focus loss share the same hard reset:
+	# no stale owner, latch, or displaced glove may survive a scene transition.
+	events.clear()
+	boxing.configure("boxing_jab", Color.WHITE)
+	boxing._handle_press(31, boxing.glove_rest(0))
+	boxing._handle_press(32, boxing.glove_rest(1))
+	boxing.cancel_all_touches()
+	_ck("boxing cancel resets both touch owners and glove rests",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held
+		and boxing.glove_positions[0].distance_to(boxing.glove_rest(0)) < 1.0
+		and boxing.glove_positions[1].distance_to(boxing.glove_rest(1)) < 1.0)
+	boxing._handle_press(41, boxing.glove_rest(0))
+	boxing._handle_drag(41, boxing.glove_rest(0) + Vector2(0.0, -48.0))
+	boxing._notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	_ck("boxing focus loss cancels every owned touch without progress",
+		boxing.touch_owner_snapshot().is_empty() and not boxing.held
+		and boxing.glove_positions[0].distance_to(boxing.glove_rest(0)) < 1.0
+		and boxing.glove_positions[1].distance_to(boxing.glove_rest(1)) < 1.0
+		and boxing.landed_count() == 0 and not _paid("boxing_jab"))
+
+	call_deferred("_finish_after_render", surface, boxing)

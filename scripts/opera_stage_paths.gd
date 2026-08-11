@@ -173,7 +173,7 @@ const PATHS: Dictionary = {
 }
 
 ## Explicit diegetic anchors audited against all thirteen painted rooms at
-## 1280x720 (2026-08-09). PHASE_STATIONS has 52 playable phase bindings sharing
+## 1280x720 (2026-08-09). PHASE_STATIONS has 53 playable phase bindings sharing
 ## 45 physical landmarks; every one of those landmarks has an authored object
 ## centre, conservative maximum hotspot-art size, and safe feet approach here.
 ## This prevents a bowl, bed, stage, arch, or raised machine from inheriting the
@@ -299,9 +299,21 @@ const STATION_NAV: Dictionary = {
 		},
 	},
 	"boxer": {
+		"glove_wall_shelf": {
+			"object": [0.075, 0.50],
+			"visual_size": [154.0, 176.0],
+			"hotspot_size": [196.0, 216.0],
+			"spur": [[0.3189, 0.889], [0.29, 0.86]],
+		},
 		"purple_sparring_mat": {
 			"object": [0.1755, 0.64], "visual_size": [128.0, 128.0],
 			"spur": [[0.3189, 0.889], [0.32, 0.86]],
+		},
+		"teal_heavy_bag": {
+			"object": [0.5102, 0.62],
+			"visual_size": [116.0, 176.0],
+			"hotspot_size": [176.0, 212.0],
+			"spur": [[0.7397, 0.84], [0.72, 0.82]],
 		},
 		"shell_pavilion_stage": {
 			"object": [0.6488, 0.40],

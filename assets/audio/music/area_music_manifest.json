@@ -1,0 +1,5295 @@
+{
+  "schema": "reef.area-music-manifest.v1",
+  "generation_method": "Deterministic offline NumPy additive/physical-style synthesis; no samples, soundfonts, downloaded audio, protected recordings, or network services",
+  "seed_derivation": "All noise and micro-variation use SHA-256-derived NumPy PCG64 seeds namespaced by cue ID and event; no unseeded random state",
+  "license": "Project-owned original composition and synthesis",
+  "generator": "tools/build_area_music.py",
+  "generator_version": 1,
+  "generator_sha256": "49578229e57a7f5143013dc83044d5e4418a8e6e39591ba3abb0098c9728509d",
+  "score_catalog": "assets_src/audio/music/area_music_scores.json",
+  "score_schema": "reef.area-music-scores.v1",
+  "score_catalog_sha256": "a85bb8604e5138358a776663a41a8b151fde15e8cc21b298e0a07709fe8c575a",
+  "dependencies": {
+    "python": "3.13.14",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "ffmpeg": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers"
+  },
+  "target": {
+    "codec": "Ogg Vorbis",
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "integrated_lufs": -18.0,
+    "true_peak_ceiling_dbtp": -3.0,
+    "vorbis_target_bitrate": "96k",
+    "vorbis_minimum_bitrate": "80k",
+    "vorbis_maximum_bitrate": "128k",
+    "minimum_measured_bitrate_bps": 64000,
+    "bpm_unit": "notated_denominator",
+    "minimum_loop_seconds": 24.0,
+    "maximum_loop_seconds": 40.0,
+    "loop_tags": [
+      "CUE_ID",
+      "BPM",
+      "BPM_UNIT",
+      "METER",
+      "LOOPSTART",
+      "LOOPEND",
+      "LOOPLENGTH"
+    ]
+  },
+  "roshan_motif": {
+    "scale_degrees": [
+      0,
+      2,
+      4,
+      5,
+      4,
+      2
+    ],
+    "rhythm_units": [
+      1,
+      1,
+      2,
+      1,
+      1,
+      2
+    ],
+    "description": "A six-note rise, brave crest, and gentle return. Every cue states this contour once and restates it in the room's own articulation."
+  },
+  "complete_catalog": true,
+  "files": [
+    {
+      "id": "castle_opera_hall",
+      "title": "Pearl Curtain Promenade",
+      "family": "castle_room",
+      "area": "Opera Hall",
+      "brief": "A poised 6/8 theatre promenade: harp footsteps, clarinet curtain calls, and pearl-bell glints create anticipation without rushing the child toward a door.",
+      "cue_score_sha256": "9d401bf11ea78729739c35aace2d77c7607cba1fa9630038c0dafc2972fde21b",
+      "path": "assets/audio/music/castle_opera_hall.ogg",
+      "import_path": "assets/audio/music/castle_opera_hall.ogg.import",
+      "tempo_bpm": 92,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 62,
+      "mode": "lydian",
+      "texture": "theatre",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "curtain_call",
+      "progression": [
+        0,
+        3,
+        1,
+        4,
+        0,
+        5,
+        3,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        5,
+        4,
+        2,
+        1,
+        null,
+        2,
+        4,
+        6,
+        5
+      ],
+      "energy": 0.42,
+      "seed_namespace": "castle_opera_hall",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 566160894,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 6
+      },
+      "sample_count": 1502609,
+      "duration_seconds": 31.304354,
+      "samples_per_beat": 31304.35416667,
+      "raw_seam": {
+        "boundary_jump": 0.00076013,
+        "adjacent_p999": 0.07283117,
+        "jump_ratio": 0.01044
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.55,
+      "peak_limited": false,
+      "pcm_peak": 12244,
+      "pcm_peak_dbfs": -8.5503,
+      "pcm_rms_dbfs": -20.4997,
+      "pcm_loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -8.51,
+        "loudness_range_lu": 4.2,
+        "threshold_lufs": -28.13
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 383596,
+      "average_bitrate_bps": 98030,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Pearl Curtain Promenade",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_opera_hall",
+        "BPM": "92",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1502609",
+        "LOOPLENGTH": "1502609",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1502609,
+      "decoded_seam": {
+        "boundary_jump": 0.00137333,
+        "adjacent_p999": 0.05255287,
+        "jump_ratio": 0.02613
+      },
+      "loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -8.66,
+        "loudness_range_lu": 4.2,
+        "threshold_lufs": -28.11
+      },
+      "pcm_sha256": "e9f18a3fdfea03462817f152d7dc4f4d975b31c6a2bfc2086e65ccdc0391e404",
+      "sha256": "c6f509938dcb590e8d2d28672e627352d934ad11385ac15de221db234d2b8518"
+    },
+    {
+      "id": "castle_kitchen",
+      "title": "Copper Kettle Waltz",
+      "family": "castle_room",
+      "area": "Royal Kitchen",
+      "brief": "A homey little classical waltz with toy-piano flourishes, pizzicato stirring motions, and a clarinet melody that leaves generous room for cooking voices.",
+      "cue_score_sha256": "38a558ec6c75e63ad6aafc448f6e4ed08b04eb8a287fbaf026a0243530692d0c",
+      "path": "assets/audio/music/castle_kitchen.ogg",
+      "import_path": "assets/audio/music/castle_kitchen.ogg.import",
+      "tempo_bpm": 90,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "toy_piano",
+        "bass": "warm_bass",
+        "accent": "pizzicato"
+      },
+      "motif_treatment": "homey_waltz",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        1,
+        4,
+        0,
+        3,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        3,
+        2,
+        1,
+        0,
+        null,
+        2,
+        3,
+        5,
+        4
+      ],
+      "energy": 0.38,
+      "seed_namespace": "castle_kitchen",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 2115703347,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 36,
+        "bar_beats": 3
+      },
+      "sample_count": 1152000,
+      "duration_seconds": 24.0,
+      "samples_per_beat": 32000.0,
+      "raw_seam": {
+        "boundary_jump": 1.024e-05,
+        "adjacent_p999": 0.05361869,
+        "jump_ratio": 0.00019
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.21,
+      "peak_limited": false,
+      "pcm_peak": 16030,
+      "pcm_peak_dbfs": -6.2101,
+      "pcm_rms_dbfs": -20.2175,
+      "pcm_loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -6.21,
+        "loudness_range_lu": 3.8,
+        "threshold_lufs": -28.12
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 295388,
+      "average_bitrate_bps": 98462,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Copper Kettle Waltz",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_kitchen",
+        "BPM": "90",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "3/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1152000",
+        "LOOPLENGTH": "1152000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1152000,
+      "decoded_seam": {
+        "boundary_jump": 3.052e-05,
+        "adjacent_p999": 0.04654073,
+        "jump_ratio": 0.00066
+      },
+      "loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -6.07,
+        "loudness_range_lu": 3.8,
+        "threshold_lufs": -28.12
+      },
+      "pcm_sha256": "f0434ea1c7f4006742d70026b1db765a59b6dc10cf67701702f537dcdfe93362",
+      "sha256": "d8c6c808bf46a8009a96bef4d1cda01ba9e665cc555920b16a695915b2f530d1"
+    },
+    {
+      "id": "castle_library",
+      "title": "Lanterns Between Pages",
+      "family": "castle_room",
+      "area": "Royal Library",
+      "brief": "Flute phrases open like picture-book pages over soft harp arpeggios; long rests and warm sustained harmony keep the library curious rather than sleepy.",
+      "cue_score_sha256": "4efa25b7cbadfc170a2ef64fc66e414f238e818e0c2ec3a03d7cdfd522ecf255",
+      "path": "assets/audio/music/castle_library.ogg",
+      "import_path": "assets/audio/music/castle_library.ogg.import",
+      "tempo_bpm": 76,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 8,
+      "tonic_midi": 65,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "none",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "music_box"
+      },
+      "motif_treatment": "page_turn",
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        null,
+        2,
+        4,
+        3,
+        null,
+        1,
+        2,
+        5,
+        4,
+        2,
+        null
+      ],
+      "energy": 0.24,
+      "seed_namespace": "castle_library",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 60966243,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 32,
+        "bar_beats": 4
+      },
+      "sample_count": 1212632,
+      "duration_seconds": 25.263167,
+      "samples_per_beat": 37894.75,
+      "raw_seam": {
+        "boundary_jump": 0.00159469,
+        "adjacent_p999": 0.06014474,
+        "jump_ratio": 0.02651
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.63,
+      "peak_limited": false,
+      "pcm_peak": 12132,
+      "pcm_peak_dbfs": -8.6301,
+      "pcm_rms_dbfs": -20.3768,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.63,
+        "loudness_range_lu": 3.7,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 310321,
+      "average_bitrate_bps": 98268,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Lanterns Between Pages",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_library",
+        "BPM": "76",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1212632",
+        "LOOPLENGTH": "1212632",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1212632,
+      "decoded_seam": {
+        "boundary_jump": 0.00064089,
+        "adjacent_p999": 0.04425184,
+        "jump_ratio": 0.01448
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -8.66,
+        "loudness_range_lu": 3.7,
+        "threshold_lufs": -27.98
+      },
+      "pcm_sha256": "59651ff0abfab58f212641e66223b2d9a945f24ec936ca8cf686007219456bea",
+      "sha256": "abf79433746b6322c0a2cbc3e1dd4cc4ad1c1622ad146a33ee02617d3f983d03"
+    },
+    {
+      "id": "castle_playroom",
+      "title": "Stuffie Parade",
+      "family": "castle_room",
+      "area": "Stuffie Playroom",
+      "brief": "A soft toy march with marimba feet and rounded brass answers; the steady pulse invites make-believe marching but never sounds military or dangerous.",
+      "cue_score_sha256": "4b4fb51a12e5e58718374a2d5a13df85bcd3474afeec32b2da6e91a8ff6ad423",
+      "path": "assets/audio/music/castle_playroom.ogg",
+      "import_path": "assets/audio/music/castle_playroom.ogg.import",
+      "tempo_bpm": 108,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 58,
+      "mode": "major",
+      "texture": "march",
+      "percussion": "soft_march",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_brass",
+        "bass": "warm_bass",
+        "accent": "toy_piano"
+      },
+      "motif_treatment": "stuffie_march",
+      "progression": [
+        0,
+        4,
+        3,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        null,
+        3,
+        3,
+        1,
+        0
+      ],
+      "energy": 0.55,
+      "seed_namespace": "castle_playroom",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1891600834,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1280000,
+      "duration_seconds": 26.666667,
+      "samples_per_beat": 26666.66666667,
+      "raw_seam": {
+        "boundary_jump": 0.00014479,
+        "adjacent_p999": 0.0422649,
+        "jump_ratio": 0.00343
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": 0.46,
+      "peak_limited": false,
+      "pcm_peak": 17316,
+      "pcm_peak_dbfs": -5.5398,
+      "pcm_rms_dbfs": -20.0449,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -5.54,
+        "loudness_range_lu": 1.9,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 327754,
+      "average_bitrate_bps": 98326,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Stuffie Parade",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_playroom",
+        "BPM": "108",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1280000",
+        "LOOPLENGTH": "1280000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1280000,
+      "decoded_seam": {
+        "boundary_jump": 0.00103763,
+        "adjacent_p999": 0.03823969,
+        "jump_ratio": 0.02713
+      },
+      "loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -5.53,
+        "loudness_range_lu": 1.9,
+        "threshold_lufs": -28.01
+      },
+      "pcm_sha256": "f14dcd0bdf733291bdfcb0306d9f592b4ea99ab48afcba093d3850a8b0306701",
+      "sha256": "7b36c83abee3633bfcb975e507e867a9aff2e962d692d5fa8cbb2e7e48639510"
+    },
+    {
+      "id": "castle_craft_room",
+      "title": "Paintbox Polka",
+      "family": "castle_room",
+      "area": "Craft Room",
+      "brief": "Bright accordion-like chords and plucked dots trade colors in a compact polka, with bell accents placed like stickers rather than constant sparkle noise.",
+      "cue_score_sha256": "e58286af7f93c02349e710cc0e906531aef5db86362f5cd93749a6b6a8a197f3",
+      "path": "assets/audio/music/castle_craft_room.ogg",
+      "import_path": "assets/audio/music/castle_craft_room.ogg.import",
+      "tempo_bpm": 112,
+      "meter": [
+        2,
+        4
+      ],
+      "bars": 24,
+      "tonic_midi": 67,
+      "mode": "mixolydian",
+      "texture": "polka",
+      "percussion": "shaker",
+      "instruments": {
+        "lead": "pizzicato",
+        "harmony": "accordion",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "paint_dabs",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        0,
+        5,
+        4,
+        0,
+        3,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        5,
+        4,
+        3,
+        1
+      ],
+      "energy": 0.58,
+      "seed_namespace": "castle_craft_room",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1567878940,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 2
+      },
+      "sample_count": 1234286,
+      "duration_seconds": 25.714292,
+      "samples_per_beat": 25714.29166667,
+      "raw_seam": {
+        "boundary_jump": 0.00188123,
+        "adjacent_p999": 0.09798927,
+        "jump_ratio": 0.0192
+      },
+      "development": {
+        "midpoint_bar": 12,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.54,
+      "peak_limited": false,
+      "pcm_peak": 15433,
+      "pcm_peak_dbfs": -6.5397,
+      "pcm_rms_dbfs": -20.4656,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -6.54,
+        "loudness_range_lu": 1.5,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 316774,
+      "average_bitrate_bps": 98551,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Paintbox Polka",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_craft_room",
+        "BPM": "112",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "2/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1234286",
+        "LOOPLENGTH": "1234286",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1234286,
+      "decoded_seam": {
+        "boundary_jump": 0.00103763,
+        "adjacent_p999": 0.06213569,
+        "jump_ratio": 0.0167
+      },
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -6.8,
+        "loudness_range_lu": 1.5,
+        "threshold_lufs": -28.0
+      },
+      "pcm_sha256": "ab29a8d837490508504863b49fd1bb97db5d81470cd34a3040d4aec98a45d4e9",
+      "sha256": "6c8953196a490fbe4d19a1ea0472054d0e49c838b31a2be61b2cec4797f3bc71"
+    },
+    {
+      "id": "castle_mermaid_pool",
+      "title": "Moonpool Ripples",
+      "family": "castle_room",
+      "area": "Mermaid Pool",
+      "brief": "A slow aquatic 6/8 made from flute bubbles, harp ripples, and a glassy pad; phrases rise to the surface and settle before repeating.",
+      "cue_score_sha256": "f783d794cb7afaa7d5dfa3b3c9a7fcf881cace61ddf154e60435cf789dddcdfa",
+      "path": "assets/audio/music/castle_mermaid_pool.ogg",
+      "import_path": "assets/audio/music/castle_mermaid_pool.ogg.import",
+      "tempo_bpm": 82,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 57,
+      "mode": "lydian",
+      "texture": "aquatic",
+      "percussion": "none",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "harp",
+        "bass": "warm_pad",
+        "accent": "chime"
+      },
+      "motif_treatment": "underwater_echo",
+      "progression": [
+        0,
+        1,
+        3,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        4,
+        2,
+        null,
+        1,
+        3,
+        5,
+        4,
+        2
+      ],
+      "energy": 0.25,
+      "seed_namespace": "castle_mermaid_pool",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 377030782,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 6
+      },
+      "sample_count": 1685854,
+      "duration_seconds": 35.121958,
+      "samples_per_beat": 35121.95833333,
+      "raw_seam": {
+        "boundary_jump": 0.00134576,
+        "adjacent_p999": 0.03905968,
+        "jump_ratio": 0.03445
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.31,
+      "peak_limited": false,
+      "pcm_peak": 12587,
+      "pcm_peak_dbfs": -8.3103,
+      "pcm_rms_dbfs": -20.1654,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.31,
+        "loudness_range_lu": 5.9,
+        "threshold_lufs": -28.21
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 429448,
+      "average_bitrate_bps": 97818,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Moonpool Ripples",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_mermaid_pool",
+        "BPM": "82",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1685854",
+        "LOOPLENGTH": "1685854",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1685854,
+      "decoded_seam": {
+        "boundary_jump": 0.00042726,
+        "adjacent_p999": 0.02990814,
+        "jump_ratio": 0.01429
+      },
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.09,
+        "loudness_range_lu": 5.9,
+        "threshold_lufs": -28.19
+      },
+      "pcm_sha256": "3e67d3feed7a5233b49612eecea49d9e72382571f2a94abd7c2641e057dd8ff2",
+      "sha256": "9b20725437a1258dcae59a2b42e76ae7e8e81be010b2dfee1920429d98b9f605"
+    },
+    {
+      "id": "castle_bubble_bath",
+      "title": "Bubble Duck Bounce",
+      "family": "castle_room",
+      "area": "Bubble Bath",
+      "brief": "Rounded marimba bubbles pop over buoyant plucks and a tiny bath-toy bass line; playful syncopation suggests splashing without becoming busy.",
+      "cue_score_sha256": "478e0bfd76b13fb566ada021638f62b046bcbbf79b27ae2d9cabd54e0bd4c3fa",
+      "path": "assets/audio/music/castle_bubble_bath.ogg",
+      "import_path": "assets/audio/music/castle_bubble_bath.ogg.import",
+      "tempo_bpm": 104,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "bounce",
+      "percussion": "bubble",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "bubble_bounce",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        1,
+        4
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        null,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4
+      ],
+      "energy": 0.54,
+      "seed_namespace": "castle_bubble_bath",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 956619999,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1329231,
+      "duration_seconds": 27.692313,
+      "samples_per_beat": 27692.3125,
+      "raw_seam": {
+        "boundary_jump": 7.058e-05,
+        "adjacent_p999": 0.04002113,
+        "jump_ratio": 0.00176
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.13,
+      "peak_limited": false,
+      "pcm_peak": 16178,
+      "pcm_peak_dbfs": -6.1302,
+      "pcm_rms_dbfs": -20.0942,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -6.13,
+        "loudness_range_lu": 2.0,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 312640,
+      "average_bitrate_bps": 90318,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Bubble Duck Bounce",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_bubble_bath",
+        "BPM": "104",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1329231",
+        "LOOPLENGTH": "1329231",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1329231,
+      "decoded_seam": {
+        "boundary_jump": 0.00167852,
+        "adjacent_p999": 0.0392468,
+        "jump_ratio": 0.04277
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -6.04,
+        "loudness_range_lu": 2.0,
+        "threshold_lufs": -27.98
+      },
+      "pcm_sha256": "3ca503935ed0ddafb7707acc1e423753ec37b3d4bebe206baf02790d582f801c",
+      "sha256": "44b9c0c46bcb20f58dc20a7ec13fa91425ddc4487814bb273c11fac47bab9eab"
+    },
+    {
+      "id": "castle_dining_room",
+      "title": "Supper Table Grace",
+      "family": "castle_room",
+      "area": "Family Dining Room",
+      "brief": "A warm chamber waltz with piano, strings, and clarinet passing one polite melody around the table; stable cadences make arrivals feel like coming home.",
+      "cue_score_sha256": "c061b6c379f7e057ac64147ea6801d46aabe01031cc2c2c3836f2ddcb12dd3bc",
+      "path": "assets/audio/music/castle_dining_room.ogg",
+      "import_path": "assets/audio/music/castle_dining_room.ogg.import",
+      "tempo_bpm": 84,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 65,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "none",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "piano",
+        "bass": "warm_bass",
+        "accent": "warm_strings"
+      },
+      "motif_treatment": "family_round",
+      "progression": [
+        0,
+        3,
+        0,
+        4,
+        5,
+        1,
+        4,
+        0,
+        3,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        3,
+        1,
+        2,
+        0,
+        null,
+        4,
+        5,
+        3,
+        2
+      ],
+      "energy": 0.31,
+      "seed_namespace": "castle_dining_room",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1616784297,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 36,
+        "bar_beats": 3
+      },
+      "sample_count": 1234286,
+      "duration_seconds": 25.714292,
+      "samples_per_beat": 34285.72222222,
+      "raw_seam": {
+        "boundary_jump": 7.066e-05,
+        "adjacent_p999": 0.07577818,
+        "jump_ratio": 0.00093
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.61,
+      "peak_limited": false,
+      "pcm_peak": 13644,
+      "pcm_peak_dbfs": -7.6099,
+      "pcm_rms_dbfs": -20.4655,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.61,
+        "loudness_range_lu": 2.9,
+        "threshold_lufs": -28.09
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 315510,
+      "average_bitrate_bps": 98158,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Supper Table Grace",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_dining_room",
+        "BPM": "84",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "3/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1234286",
+        "LOOPLENGTH": "1234286",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1234286,
+      "decoded_seam": {
+        "boundary_jump": 0.00036622,
+        "adjacent_p999": 0.0629205,
+        "jump_ratio": 0.00582
+      },
+      "loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -7.71,
+        "loudness_range_lu": 2.9,
+        "threshold_lufs": -28.08
+      },
+      "pcm_sha256": "924e8ac8a4be7000c902fa6052bcb14d98aa3e4b49a45dffd4c5285da3e7272c",
+      "sha256": "3849ff41ff7aa32bc359297ea267d8bc2ae8cc46ee414185c83342726484d303"
+    },
+    {
+      "id": "castle_royal_bedroom",
+      "title": "Crown of Dreams",
+      "family": "castle_room",
+      "area": "Royal Bedroom",
+      "brief": "A spacious music-box lullaby where each high note has time to fade into warm harp and pad harmony; the motif becomes a reassuring good-night phrase.",
+      "cue_score_sha256": "bafb3d3cb32dd5c5d15d41e84eee97bb57e7bbbf3fe7be7c583640b24b254996",
+      "path": "assets/audio/music/castle_royal_bedroom.ogg",
+      "import_path": "assets/audio/music/castle_royal_bedroom.ogg.import",
+      "tempo_bpm": 68,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 6,
+      "tonic_midi": 62,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "none",
+      "instruments": {
+        "lead": "music_box",
+        "harmony": "harp",
+        "bass": "warm_pad",
+        "accent": "flute"
+      },
+      "motif_treatment": "royal_lullaby",
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        null,
+        4,
+        3,
+        2,
+        null,
+        1,
+        2,
+        4,
+        5,
+        4,
+        null
+      ],
+      "energy": 0.18,
+      "seed_namespace": "castle_royal_bedroom",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 494473661,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 36,
+        "bar_beats": 6
+      },
+      "sample_count": 1524706,
+      "duration_seconds": 31.764708,
+      "samples_per_beat": 42352.94444444,
+      "raw_seam": {
+        "boundary_jump": 0.00019809,
+        "adjacent_p999": 0.06155478,
+        "jump_ratio": 0.00322
+      },
+      "development": {
+        "midpoint_bar": 3,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.61,
+      "peak_limited": false,
+      "pcm_peak": 13644,
+      "pcm_peak_dbfs": -7.6099,
+      "pcm_rms_dbfs": -20.8616,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.61,
+        "loudness_range_lu": 4.2,
+        "threshold_lufs": -28.35
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 388785,
+      "average_bitrate_bps": 97916,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Crown of Dreams",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_royal_bedroom",
+        "BPM": "68",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1524706",
+        "LOOPLENGTH": "1524706",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1524706,
+      "decoded_seam": {
+        "boundary_jump": 0.00088504,
+        "adjacent_p999": 0.05114902,
+        "jump_ratio": 0.0173
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -7.67,
+        "loudness_range_lu": 4.2,
+        "threshold_lufs": -28.33
+      },
+      "pcm_sha256": "db6fe7fd34da49d501aec5ae43ac032f389b697c704519d89ca5d1d32fb7e54b",
+      "sha256": "adbdf9631a8be6b133887763ef492b8a7b903c81523189c1a2e820fe8010183f"
+    },
+    {
+      "id": "castle_sleepover_bedroom",
+      "title": "Whispered Pillow Fort",
+      "family": "castle_room",
+      "area": "Sleepover Bedroom",
+      "brief": "A hushed but mischievous 6/8: music-box whispers and pizzicato tiptoes suggest friends trying not to giggle after bedtime.",
+      "cue_score_sha256": "875c8678e503e8889ee3a9c115a89296941bad651e152f4767b4b87e2accfcd4",
+      "path": "assets/audio/music/castle_sleepover_bedroom.ogg",
+      "import_path": "assets/audio/music/castle_sleepover_bedroom.ogg.import",
+      "tempo_bpm": 74,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 58,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "music_box",
+        "harmony": "pizzicato",
+        "bass": "warm_pad",
+        "accent": "bell"
+      },
+      "motif_treatment": "pillow_whisper",
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        null,
+        4,
+        3,
+        2,
+        1,
+        null,
+        3,
+        5,
+        4,
+        2
+      ],
+      "energy": 0.22,
+      "seed_namespace": "castle_sleepover_bedroom",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1100225017,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 6
+      },
+      "sample_count": 1868108,
+      "duration_seconds": 38.918917,
+      "samples_per_beat": 38918.91666667,
+      "raw_seam": {
+        "boundary_jump": 0.00014733,
+        "adjacent_p999": 0.03654137,
+        "jump_ratio": 0.00403
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.47,
+      "peak_limited": false,
+      "pcm_peak": 15557,
+      "pcm_peak_dbfs": -6.4702,
+      "pcm_rms_dbfs": -20.5903,
+      "pcm_loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -6.47,
+        "loudness_range_lu": 2.2,
+        "threshold_lufs": -28.56
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 476114,
+      "average_bitrate_bps": 97867,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Whispered Pillow Fort",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_sleepover_bedroom",
+        "BPM": "74",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1868108",
+        "LOOPLENGTH": "1868108",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1868108,
+      "decoded_seam": {
+        "boundary_jump": 0.00064089,
+        "adjacent_p999": 0.0345132,
+        "jump_ratio": 0.01857
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -6.23,
+        "loudness_range_lu": 2.1,
+        "threshold_lufs": -28.54
+      },
+      "pcm_sha256": "c6f720fdc382572a5e4fee92af3256d67e0e80543ebd97a047b8d4edb4103dd9",
+      "sha256": "47f6bf50a7b203bc2736bae23962d3382c51438bf1637b74385ace4b70d8e0a1"
+    },
+    {
+      "id": "castle_movie_lounge",
+      "title": "Cloud-Reel Matinee",
+      "family": "castle_room",
+      "area": "Cloud Movie Lounge",
+      "brief": "A miniature storybook film score: clarinet introduces the scene, piano turns the reel, and strings widen briefly before returning to a cozy couch-sized theme.",
+      "cue_score_sha256": "8cfbbcf8ce78213a5a6c9c21aa78067e43d43c7d678592b47991da596e561982",
+      "path": "assets/audio/music/castle_movie_lounge.ogg",
+      "import_path": "assets/audio/music/castle_movie_lounge.ogg.import",
+      "tempo_bpm": 96,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 63,
+      "mode": "major",
+      "texture": "cinematic",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "piano",
+        "bass": "warm_strings",
+        "accent": "bell"
+      },
+      "motif_treatment": "movie_reel",
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        5,
+        4
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        null,
+        4,
+        3,
+        1,
+        2,
+        5,
+        6,
+        4
+      ],
+      "energy": 0.39,
+      "seed_namespace": "castle_movie_lounge",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 492220682,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1440000,
+      "duration_seconds": 30.0,
+      "samples_per_beat": 30000.0,
+      "raw_seam": {
+        "boundary_jump": 0.00016865,
+        "adjacent_p999": 0.06349576,
+        "jump_ratio": 0.00266
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.5,
+      "peak_limited": false,
+      "pcm_peak": 15504,
+      "pcm_peak_dbfs": -6.4999,
+      "pcm_rms_dbfs": -20.4293,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -6.49,
+        "loudness_range_lu": 3.6,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 367455,
+      "average_bitrate_bps": 97988,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Cloud-Reel Matinee",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_movie_lounge",
+        "BPM": "96",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1440000",
+        "LOOPLENGTH": "1440000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1440000,
+      "decoded_seam": {
+        "boundary_jump": 0.00057985,
+        "adjacent_p999": 0.05731376,
+        "jump_ratio": 0.01012
+      },
+      "loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -6.61,
+        "loudness_range_lu": 3.6,
+        "threshold_lufs": -28.01
+      },
+      "pcm_sha256": "7f906701aa646eacb1019ce20885205c4e03348902c2b0c2f3f27fd33ab48faf",
+      "sha256": "1398595a3382bc5c1fcab9ab8036cdddbd0cd0bbd844526af5c2518ee3119efd"
+    },
+    {
+      "id": "castle_family_gallery",
+      "title": "Portraits Come Home",
+      "family": "castle_room",
+      "area": "Dream House Wing",
+      "brief": "Piano and warm strings unfold a gentle family-album waltz; bell highlights mark remembered adventures while every phrase resolves safely home.",
+      "cue_score_sha256": "b42d9365748c0d4d240e09dccb4c92b82763814be97216bd15e9c567cb4e56dc",
+      "path": "assets/audio/music/castle_family_gallery.ogg",
+      "import_path": "assets/audio/music/castle_family_gallery.ogg.import",
+      "tempo_bpm": 80,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 67,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "none",
+      "instruments": {
+        "lead": "piano",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "memory_album",
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        0,
+        null,
+        3,
+        5,
+        4,
+        1
+      ],
+      "energy": 0.29,
+      "seed_namespace": "castle_family_gallery",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 882386956,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 36,
+        "bar_beats": 3
+      },
+      "sample_count": 1296000,
+      "duration_seconds": 27.0,
+      "samples_per_beat": 36000.0,
+      "raw_seam": {
+        "boundary_jump": 0.00010842,
+        "adjacent_p999": 0.0681433,
+        "jump_ratio": 0.00159
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.63,
+      "peak_limited": false,
+      "pcm_peak": 13612,
+      "pcm_peak_dbfs": -7.6303,
+      "pcm_rms_dbfs": -20.6029,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.63,
+        "loudness_range_lu": 2.6,
+        "threshold_lufs": -28.07
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 331601,
+      "average_bitrate_bps": 98252,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Portraits Come Home",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "castle_family_gallery",
+        "BPM": "80",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "3/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1296000",
+        "LOOPLENGTH": "1296000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1296000,
+      "decoded_seam": {
+        "boundary_jump": 0.00012207,
+        "adjacent_p999": 0.0560625,
+        "jump_ratio": 0.00218
+      },
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.6,
+        "loudness_range_lu": 2.7,
+        "threshold_lufs": -28.06
+      },
+      "pcm_sha256": "0b43b501d84b80d3975c117607f83a4255c3b69004efb1dcda824aef6d3155bc",
+      "sha256": "1eba4992dacf7851e103275cddbb7a9d147b3afa54cf58fa3f33b6ad90fc118e"
+    },
+    {
+      "id": "opera_lobby",
+      "title": "Marquee of Many Dreams",
+      "family": "opera",
+      "area": "Opera Lobby",
+      "brief": "A welcoming theatrical 6/8 whose harp ostinato links all three floors; clarinet and warm brass preview many careers without favoring one door.",
+      "cue_score_sha256": "0a86c12c8acb53d875faaf7e5e392f058cda4d1468bdf61f63a7688109471cb6",
+      "path": "assets/audio/music/opera_lobby.ogg",
+      "import_path": "assets/audio/music/opera_lobby.ogg.import",
+      "tempo_bpm": 96,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 63,
+      "mode": "lydian",
+      "texture": "theatre",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "harp",
+        "bass": "warm_brass",
+        "accent": "bell"
+      },
+      "motif_treatment": "marquee",
+      "progression": [
+        0,
+        3,
+        1,
+        4,
+        0,
+        5,
+        3,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        5,
+        4,
+        2,
+        null,
+        1,
+        3,
+        5,
+        4
+      ],
+      "energy": 0.46,
+      "seed_namespace": "opera_lobby",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 942410878,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 6
+      },
+      "sample_count": 1440000,
+      "duration_seconds": 30.0,
+      "samples_per_beat": 30000.0,
+      "raw_seam": {
+        "boundary_jump": 0.0007452,
+        "adjacent_p999": 0.07742843,
+        "jump_ratio": 0.00962
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.26,
+      "peak_limited": false,
+      "pcm_peak": 12660,
+      "pcm_peak_dbfs": -8.2601,
+      "pcm_rms_dbfs": -20.5892,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.26,
+        "loudness_range_lu": 5.6,
+        "threshold_lufs": -28.12
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 368053,
+      "average_bitrate_bps": 98147,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Marquee of Many Dreams",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_lobby",
+        "BPM": "96",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1440000",
+        "LOOPLENGTH": "1440000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1440000,
+      "decoded_seam": {
+        "boundary_jump": 0.0021363,
+        "adjacent_p999": 0.05829035,
+        "jump_ratio": 0.03665
+      },
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.67,
+        "loudness_range_lu": 5.6,
+        "threshold_lufs": -28.11
+      },
+      "pcm_sha256": "018eb405fea5c2a007de5e03c163fc3b5ea3409cde6dfe5199cc63a542ba6a22",
+      "sha256": "6d7d4bb3457e90cbacb8c302d679bbd11fcb37f41d0fdd551129d6df443874ec"
+    },
+    {
+      "id": "opera_chef",
+      "title": "Flour-Dusted Overture",
+      "family": "opera_career",
+      "area": "Pastry Chef",
+      "brief": "A classical kitchen waltz: piano measures ingredients, pizzicato stirs, and clarinet presents a proud cake melody with unhurried space for instructions.",
+      "cue_score_sha256": "49c6f0d1d5c78db3a363585a8a394d244b5bc84daa11be5f06403b01e5547095",
+      "path": "assets/audio/music/opera_chef.ogg",
+      "import_path": "assets/audio/music/opera_chef.ogg.import",
+      "tempo_bpm": 92,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "piano",
+        "bass": "warm_bass",
+        "accent": "pizzicato"
+      },
+      "motif_treatment": "measured_waltz",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        1,
+        4,
+        0,
+        3,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        3,
+        5,
+        4,
+        2,
+        1,
+        0,
+        3,
+        4,
+        2
+      ],
+      "energy": 0.48,
+      "seed_namespace": "opera_chef",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 130606818,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 3
+      },
+      "sample_count": 1502609,
+      "duration_seconds": 31.304354,
+      "samples_per_beat": 31304.35416667,
+      "raw_seam": {
+        "boundary_jump": 9.234e-05,
+        "adjacent_p999": 0.05636192,
+        "jump_ratio": 0.00164
+      },
+      "development": {
+        "midpoint_bar": 8,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.11,
+      "peak_limited": false,
+      "pcm_peak": 14452,
+      "pcm_peak_dbfs": -7.1102,
+      "pcm_rms_dbfs": -20.2315,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.1,
+        "loudness_range_lu": 2.7,
+        "threshold_lufs": -28.07
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 383635,
+      "average_bitrate_bps": 98040,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Flour-Dusted Overture",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_chef",
+        "BPM": "92",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "3/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1502609",
+        "LOOPLENGTH": "1502609",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1502609,
+      "decoded_seam": {
+        "boundary_jump": 6.104e-05,
+        "adjacent_p999": 0.04361095,
+        "jump_ratio": 0.0014
+      },
+      "loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -6.99,
+        "loudness_range_lu": 2.7,
+        "threshold_lufs": -28.08
+      },
+      "pcm_sha256": "a72c8b97427dab4984adf3a7ec2cf913009fdca51add3de8056cefa0b6965c5d",
+      "sha256": "8871b72dc0dab0e467b9aaa1e98c8e1b9f044c5aaa658b04653b60354890bb75"
+    },
+    {
+      "id": "opera_detective",
+      "title": "The Tiptoe Clue",
+      "family": "opera_career",
+      "area": "Detective",
+      "brief": "Sneaky clarinet questions and muted plucked answers move in a soft Dorian tiptoe; pauses act like searching corners, never turning mystery into fear.",
+      "cue_score_sha256": "728019b1b4ec9d091b64729e0706274e09c7d4ba73030f3bfe647efc361df774",
+      "path": "assets/audio/music/opera_detective.ogg",
+      "import_path": "assets/audio/music/opera_detective.ogg.import",
+      "tempo_bpm": 88,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "dorian",
+      "texture": "tiptoe",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "marimba"
+      },
+      "motif_treatment": "magnifying_glass",
+      "progression": [
+        0,
+        1,
+        0,
+        4,
+        0,
+        5,
+        1,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        null,
+        3,
+        1,
+        4,
+        null,
+        2,
+        5,
+        4,
+        1,
+        0
+      ],
+      "energy": 0.43,
+      "seed_namespace": "opera_detective",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 2040543753,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1570909,
+      "duration_seconds": 32.727271,
+      "samples_per_beat": 32727.27083333,
+      "raw_seam": {
+        "boundary_jump": 8.308e-05,
+        "adjacent_p999": 0.05910572,
+        "jump_ratio": 0.00141
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.43,
+      "peak_limited": false,
+      "pcm_peak": 13930,
+      "pcm_peak_dbfs": -7.4297,
+      "pcm_rms_dbfs": -20.2129,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.43,
+        "loudness_range_lu": 2.7,
+        "threshold_lufs": -28.01
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 395132,
+      "average_bitrate_bps": 96587,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "The Tiptoe Clue",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_detective",
+        "BPM": "88",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1570909",
+        "LOOPLENGTH": "1570909",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1570909,
+      "decoded_seam": {
+        "boundary_jump": 0.00030519,
+        "adjacent_p999": 0.04983673,
+        "jump_ratio": 0.00612
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -7.35,
+        "loudness_range_lu": 2.6,
+        "threshold_lufs": -27.99
+      },
+      "pcm_sha256": "273750872b499675355d25326b81de694f2807a5f1b23bc5f5416b65c76e0544",
+      "sha256": "690c8210f3762b0d6920cc2d4f89dcb0a3a54451a3b9868c506383a4351c662b"
+    },
+    {
+      "id": "opera_ballerina",
+      "title": "Ribbon Arabesque",
+      "family": "opera_career",
+      "area": "Ballerina",
+      "brief": "A graceful three-step waltz with legato strings, flute turns, and music-box landing points that support watching and repeating dance patterns.",
+      "cue_score_sha256": "5fe8ccf72ac81d7d111ae2a7b41dea95ca076fbc10e2a9eb59e11a22b43452db",
+      "path": "assets/audio/music/opera_ballerina.ogg",
+      "import_path": "assets/audio/music/opera_ballerina.ogg.import",
+      "tempo_bpm": 84,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "major",
+      "texture": "waltz",
+      "percussion": "none",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "music_box"
+      },
+      "motif_treatment": "ribbon_legato",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        1,
+        4,
+        0,
+        3,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        4,
+        3,
+        2,
+        1,
+        3,
+        5,
+        4
+      ],
+      "energy": 0.37,
+      "seed_namespace": "opera_ballerina",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 565524441,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 36,
+        "bar_beats": 3
+      },
+      "sample_count": 1234286,
+      "duration_seconds": 25.714292,
+      "samples_per_beat": 34285.72222222,
+      "raw_seam": {
+        "boundary_jump": 0.00016424,
+        "adjacent_p999": 0.0492592,
+        "jump_ratio": 0.00333
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.33,
+      "peak_limited": false,
+      "pcm_peak": 14091,
+      "pcm_peak_dbfs": -7.3299,
+      "pcm_rms_dbfs": -20.2864,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.33,
+        "loudness_range_lu": 4.0,
+        "threshold_lufs": -28.06
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 316441,
+      "average_bitrate_bps": 98448,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Ribbon Arabesque",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_ballerina",
+        "BPM": "84",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "3/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1234286",
+        "LOOPLENGTH": "1234286",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1234286,
+      "decoded_seam": {
+        "boundary_jump": 0.00024415,
+        "adjacent_p999": 0.0419848,
+        "jump_ratio": 0.00582
+      },
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.19,
+        "loudness_range_lu": 4.0,
+        "threshold_lufs": -28.05
+      },
+      "pcm_sha256": "86ef6d0b9fc9cead2d1c1235ca1aac4d025d9cf4e1fbdec5e405aaf37f9f751e",
+      "sha256": "19f1ea64de92cdf0f5ba313b8b1b3283e67a2e0cf6a18501212884771e35067c"
+    },
+    {
+      "id": "opera_candymaker",
+      "title": "Sugar-Spun Clockwork",
+      "family": "opera_career",
+      "area": "Candy Maker",
+      "brief": "Toy piano and marimba interlock like a friendly candy machine while bell sprinkles brighten the ends of phrases; quick, precise, and never frantic.",
+      "cue_score_sha256": "3d78b4ba8195202cc226e8414e1bf01165f57671282ef3d4d9229f02a85b915c",
+      "path": "assets/audio/music/opera_candymaker.ogg",
+      "import_path": "assets/audio/music/opera_candymaker.ogg.import",
+      "tempo_bpm": 116,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 65,
+      "mode": "lydian",
+      "texture": "polka",
+      "percussion": "shaker",
+      "instruments": {
+        "lead": "toy_piano",
+        "harmony": "marimba",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "candy_clock",
+      "progression": [
+        0,
+        1,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        5,
+        3,
+        2,
+        4,
+        1,
+        3,
+        5,
+        4
+      ],
+      "energy": 0.62,
+      "seed_namespace": "opera_candymaker",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 479504678,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1191724,
+      "duration_seconds": 24.827583,
+      "samples_per_beat": 24827.58333333,
+      "raw_seam": {
+        "boundary_jump": 0.00247461,
+        "adjacent_p999": 0.08277393,
+        "jump_ratio": 0.0299
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.87,
+      "peak_limited": false,
+      "pcm_peak": 14857,
+      "pcm_peak_dbfs": -6.8701,
+      "pcm_rms_dbfs": -20.272,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -6.87,
+        "loudness_range_lu": 2.8,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 305326,
+      "average_bitrate_bps": 98382,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Sugar-Spun Clockwork",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_candymaker",
+        "BPM": "116",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1191724",
+        "LOOPLENGTH": "1191724",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1191724,
+      "decoded_seam": {
+        "boundary_jump": 0.00347911,
+        "adjacent_p999": 0.04788354,
+        "jump_ratio": 0.07266
+      },
+      "loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -7.06,
+        "loudness_range_lu": 2.8,
+        "threshold_lufs": -27.99
+      },
+      "pcm_sha256": "9f0e92c6f0179ba3d92a6acb8f1fdfa4e81caa1c98538b371a42139dc599e73f",
+      "sha256": "52af3551a5645f231c363c0fd5049acb67c7fd25a11e6c007b6dc6c496b52372"
+    },
+    {
+      "id": "opera_doctor",
+      "title": "Gentle Hands Relay",
+      "family": "opera_career",
+      "area": "Stuffie Surgeon",
+      "brief": "A calm practice pulse with piano, clarinet, and tiny bell checkmarks; even phrases and soft cadences communicate care, order, and reassurance.",
+      "cue_score_sha256": "175c5ac4d32fdbd6e6195f5740200348ce30950d4f3f4550684d518039125220",
+      "path": "assets/audio/music/opera_doctor.ogg",
+      "import_path": "assets/audio/music/opera_doctor.ogg.import",
+      "tempo_bpm": 86,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "gentle",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "piano",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "careful_hands",
+      "progression": [
+        0,
+        3,
+        1,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        2,
+        null,
+        4,
+        5,
+        3,
+        1,
+        2,
+        4,
+        0
+      ],
+      "energy": 0.34,
+      "seed_namespace": "opera_doctor",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 903408978,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1607442,
+      "duration_seconds": 33.488375,
+      "samples_per_beat": 33488.375,
+      "raw_seam": {
+        "boundary_jump": 0.00018083,
+        "adjacent_p999": 0.05226052,
+        "jump_ratio": 0.00346
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.63,
+      "peak_limited": false,
+      "pcm_peak": 15273,
+      "pcm_peak_dbfs": -6.6302,
+      "pcm_rms_dbfs": -20.1844,
+      "pcm_loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -6.63,
+        "loudness_range_lu": 3.2,
+        "threshold_lufs": -28.02
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 410220,
+      "average_bitrate_bps": 97996,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Gentle Hands Relay",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_doctor",
+        "BPM": "86",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1607442",
+        "LOOPLENGTH": "1607442",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1607442,
+      "decoded_seam": {
+        "boundary_jump": 3.052e-05,
+        "adjacent_p999": 0.04321421,
+        "jump_ratio": 0.00071
+      },
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -6.55,
+        "loudness_range_lu": 3.2,
+        "threshold_lufs": -28.01
+      },
+      "pcm_sha256": "74ec1bebf1264f58711b0242eb0d2ef821ec3d151de6172979b0a4c7312e0d44",
+      "sha256": "cee8ed6ff385057a189253f56066b8010fc24b3c0177d7c65c3044638bb32ed1"
+    },
+    {
+      "id": "opera_farmer",
+      "title": "Piggy Picnic Reel",
+      "family": "opera_career",
+      "area": "Farmer",
+      "brief": "Child-friendly bluegrass built from bright banjo plucks, fiddle replies, and root-fifth bass; the reel trots happily while leaving voice-sized gaps.",
+      "cue_score_sha256": "1b974d9a58b16ebbe54926260a93f1677508cd73be3cf9e51cbf4387fabc8ee9",
+      "path": "assets/audio/music/opera_farmer.ogg",
+      "import_path": "assets/audio/music/opera_farmer.ogg.import",
+      "tempo_bpm": 112,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 67,
+      "mode": "mixolydian",
+      "texture": "bluegrass",
+      "percussion": "bluegrass",
+      "instruments": {
+        "lead": "banjo",
+        "harmony": "fiddle",
+        "bass": "warm_bass",
+        "accent": "pizzicato"
+      },
+      "motif_treatment": "porch_reel",
+      "progression": [
+        0,
+        3,
+        0,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        5,
+        4,
+        2,
+        1,
+        0,
+        3,
+        5,
+        4
+      ],
+      "energy": 0.59,
+      "seed_namespace": "opera_farmer",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 45193007,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1234286,
+      "duration_seconds": 25.714292,
+      "samples_per_beat": 25714.29166667,
+      "raw_seam": {
+        "boundary_jump": 0.00283861,
+        "adjacent_p999": 0.12576692,
+        "jump_ratio": 0.02257
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.05,
+      "peak_limited": false,
+      "pcm_peak": 12970,
+      "pcm_peak_dbfs": -8.0499,
+      "pcm_rms_dbfs": -20.4773,
+      "pcm_loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -8.05,
+        "loudness_range_lu": 1.3,
+        "threshold_lufs": -27.99
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 316600,
+      "average_bitrate_bps": 98497,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Piggy Picnic Reel",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_farmer",
+        "BPM": "112",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1234286",
+        "LOOPLENGTH": "1234286",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1234286,
+      "decoded_seam": {
+        "boundary_jump": 0.00024415,
+        "adjacent_p999": 0.06920731,
+        "jump_ratio": 0.00353
+      },
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.28,
+        "loudness_range_lu": 1.2,
+        "threshold_lufs": -28.0
+      },
+      "pcm_sha256": "4b0adfbdf72ff52b1cb665b9a19a7c271a1e386d54edc5ce831657c3d7acbb85",
+      "sha256": "cc45b636ca5ba151614c61a9c835dd8c1607a2353fe3052ac5bf3cf82c4c8c44"
+    },
+    {
+      "id": "opera_boxer",
+      "title": "Pillow-Glove Shuffle",
+      "family": "opera_career",
+      "area": "Boxer",
+      "brief": "A bouncy swing with warm toy brass calls, marimba mitt replies, and an unmistakable two-and-four practice beat; sporty but soft-edged.",
+      "cue_score_sha256": "5815436c98af8843625fa0350cfec07c65def60d154247411891e63df297115a",
+      "path": "assets/audio/music/opera_boxer.ogg",
+      "import_path": "assets/audio/music/opera_boxer.ogg.import",
+      "tempo_bpm": 120,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 63,
+      "mode": "mixolydian",
+      "texture": "swing",
+      "percussion": "soft_march",
+      "instruments": {
+        "lead": "warm_brass",
+        "harmony": "marimba",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "focus_mitts",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        0,
+        2,
+        3,
+        4,
+        null,
+        3,
+        2,
+        5,
+        4,
+        2,
+        0
+      ],
+      "energy": 0.68,
+      "seed_namespace": "opera_boxer",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1605358006,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1152000,
+      "duration_seconds": 24.0,
+      "samples_per_beat": 24000.0,
+      "raw_seam": {
+        "boundary_jump": 0.00070386,
+        "adjacent_p999": 0.05486927,
+        "jump_ratio": 0.01283
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.44,
+      "peak_limited": false,
+      "pcm_peak": 15611,
+      "pcm_peak_dbfs": -6.4401,
+      "pcm_rms_dbfs": -20.3134,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -6.43,
+        "loudness_range_lu": 2.4,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 295352,
+      "average_bitrate_bps": 98450,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Pillow-Glove Shuffle",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_boxer",
+        "BPM": "120",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1152000",
+        "LOOPLENGTH": "1152000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1152000,
+      "decoded_seam": {
+        "boundary_jump": 0.00201422,
+        "adjacent_p999": 0.04779199,
+        "jump_ratio": 0.04215
+      },
+      "loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -6.43,
+        "loudness_range_lu": 2.4,
+        "threshold_lufs": -27.99
+      },
+      "pcm_sha256": "d98c8ddd9dc36af3adb28d253ff855aedf4025f7e9d1c71f25c8063088b08b97",
+      "sha256": "c3674029450d9ffc9df386917e2263389b8a259da03e805777ee4aa5cb7d26b2"
+    },
+    {
+      "id": "opera_magician",
+      "title": "Silk Hat Starlight",
+      "family": "opera_career",
+      "area": "Magician",
+      "brief": "Harp misdirection, low clarinet questions, and chime reveals float through a friendly Dorian 6/8; magical suspense resolves with a smile each bar.",
+      "cue_score_sha256": "65376705631f6412b6f2f2f4987cbff4c99f2a4eb7f3888351a7898ec4795ef5",
+      "path": "assets/audio/music/opera_magician.ogg",
+      "import_path": "assets/audio/music/opera_magician.ogg.import",
+      "tempo_bpm": 92,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 57,
+      "mode": "dorian",
+      "texture": "tiptoe",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "chime"
+      },
+      "motif_treatment": "vanish_reveal",
+      "progression": [
+        0,
+        1,
+        3,
+        0,
+        5,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        null,
+        5,
+        4,
+        2,
+        1,
+        4,
+        6,
+        5,
+        3
+      ],
+      "energy": 0.45,
+      "seed_namespace": "opera_magician",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1815370724,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 6
+      },
+      "sample_count": 1502609,
+      "duration_seconds": 31.304354,
+      "samples_per_beat": 31304.35416667,
+      "raw_seam": {
+        "boundary_jump": 0.0,
+        "adjacent_p999": 0.03411036,
+        "jump_ratio": 0.0
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": 1.88,
+      "peak_limited": false,
+      "pcm_peak": 20391,
+      "pcm_peak_dbfs": -4.12,
+      "pcm_rms_dbfs": -20.5173,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.12,
+        "loudness_range_lu": 5.3,
+        "threshold_lufs": -28.41
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 376804,
+      "average_bitrate_bps": 96294,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Silk Hat Starlight",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_magician",
+        "BPM": "92",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1502609",
+        "LOOPLENGTH": "1502609",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1502609,
+      "decoded_seam": {
+        "boundary_jump": 3.052e-05,
+        "adjacent_p999": 0.04235969,
+        "jump_ratio": 0.00072
+      },
+      "loudness": {
+        "integrated_lufs": -17.97,
+        "true_peak_dbtp": -4.43,
+        "loudness_range_lu": 5.4,
+        "threshold_lufs": -28.38
+      },
+      "pcm_sha256": "f288494bc7f7d94859a1d512abc6dd83fce12db929fd3038e3d0033d90250780",
+      "sha256": "889f27b438ba41b0584025f3d520215180e7f23b71fec0ec739cb6f3b85c1a49"
+    },
+    {
+      "id": "opera_painter",
+      "title": "Sunrise in Seven Colors",
+      "family": "opera_career",
+      "area": "Painter",
+      "brief": "A flowing Lydian melody adds color one note at a time over piano brushstrokes and flute arcs, blooming only at the gallery reveal.",
+      "cue_score_sha256": "3a97b19560f3a1cbaf926286aeaf65302e2c6e86e56eee0ff14923bbc6530431",
+      "path": "assets/audio/music/opera_painter.ogg",
+      "import_path": "assets/audio/music/opera_painter.ogg.import",
+      "tempo_bpm": 88,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "lydian",
+      "texture": "flowing",
+      "percussion": "brush",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "piano",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "brush_arc",
+      "progression": [
+        0,
+        1,
+        3,
+        4,
+        0,
+        5,
+        3,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        5,
+        3,
+        1,
+        2,
+        4,
+        5,
+        6,
+        4
+      ],
+      "energy": 0.41,
+      "seed_namespace": "opera_painter",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 264596778,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1570909,
+      "duration_seconds": 32.727271,
+      "samples_per_beat": 32727.27083333,
+      "raw_seam": {
+        "boundary_jump": 0.00779107,
+        "adjacent_p999": 0.05829562,
+        "jump_ratio": 0.13365
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.03,
+      "peak_limited": false,
+      "pcm_peak": 13000,
+      "pcm_peak_dbfs": -8.0299,
+      "pcm_rms_dbfs": -20.2703,
+      "pcm_loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -7.96,
+        "loudness_range_lu": 3.3,
+        "threshold_lufs": -27.99
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 400219,
+      "average_bitrate_bps": 97831,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Sunrise in Seven Colors",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_painter",
+        "BPM": "88",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1570909",
+        "LOOPLENGTH": "1570909",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1570909,
+      "decoded_seam": {
+        "boundary_jump": 0.00344859,
+        "adjacent_p999": 0.04040651,
+        "jump_ratio": 0.08535
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -7.94,
+        "loudness_range_lu": 3.3,
+        "threshold_lufs": -27.98
+      },
+      "pcm_sha256": "85fed673bf208bc5ac57cbfc99213fa609cb5896adfcc4597fcba03c12d97aa1",
+      "sha256": "dd86846e70eace3d6e99547913fb67f85d20e88b8056d485b00241c96b8b5f81"
+    },
+    {
+      "id": "opera_astronaut",
+      "title": "Bubble-Rocket Workshop",
+      "family": "opera_career",
+      "area": "Astronaut Engineer",
+      "brief": "A clean electronic pulse and rounded marimba tools orbit a warm pad; upward sequences imply launch while the harmony stays playful and grounded.",
+      "cue_score_sha256": "ca1270dd234492e64fb7865bcd39ed6c247ba7b86b0a3218a661517835681bf9",
+      "path": "assets/audio/music/opera_astronaut.ogg",
+      "import_path": "assets/audio/music/opera_astronaut.ogg.import",
+      "tempo_bpm": 110,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 64,
+      "mode": "lydian",
+      "texture": "space",
+      "percussion": "pulse",
+      "instruments": {
+        "lead": "soft_synth",
+        "harmony": "marimba",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "countdown",
+      "progression": [
+        0,
+        1,
+        4,
+        0,
+        5,
+        3,
+        1,
+        4
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        7,
+        6,
+        4,
+        2,
+        3,
+        5,
+        7,
+        6
+      ],
+      "energy": 0.61,
+      "seed_namespace": "opera_astronaut",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 715544649,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1256727,
+      "duration_seconds": 26.181813,
+      "samples_per_beat": 26181.8125,
+      "raw_seam": {
+        "boundary_jump": 0.00045935,
+        "adjacent_p999": 0.05829075,
+        "jump_ratio": 0.00788
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.04,
+      "peak_limited": false,
+      "pcm_peak": 16347,
+      "pcm_peak_dbfs": -6.04,
+      "pcm_rms_dbfs": -20.4782,
+      "pcm_loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -6.04,
+        "loudness_range_lu": 3.5,
+        "threshold_lufs": -28.01
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 321382,
+      "average_bitrate_bps": 98200,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Bubble-Rocket Workshop",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_astronaut",
+        "BPM": "110",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1256727",
+        "LOOPLENGTH": "1256727",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1256727,
+      "decoded_seam": {
+        "boundary_jump": 0.0036317,
+        "adjacent_p999": 0.0560625,
+        "jump_ratio": 0.06478
+      },
+      "loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -6.02,
+        "loudness_range_lu": 3.5,
+        "threshold_lufs": -28.01
+      },
+      "pcm_sha256": "9158b075cc027eae5919b1ef02d67998d19a8cc016ec4c8007a552fef371e506",
+      "sha256": "05ca3cff00ad98f2a7efe9c21a0fd8eff199d7843ad4e8952932b314af3d08c1"
+    },
+    {
+      "id": "opera_racer",
+      "title": "Pearl Grand Prix",
+      "family": "opera_career",
+      "area": "Racecar Driver",
+      "brief": "A bright four-on-the-floor drive with plucked engine rhythm and short synth fanfares; forward motion is clear but the loop avoids sirens or aggressive timbres.",
+      "cue_score_sha256": "e20b121519e1e9b7e572b2c8df97e004eea14a6c9d099d339a0e52df8f70c58a",
+      "path": "assets/audio/music/opera_racer.ogg",
+      "import_path": "assets/audio/music/opera_racer.ogg.import",
+      "tempo_bpm": 128,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 67,
+      "mode": "mixolydian",
+      "texture": "drive",
+      "percussion": "pulse",
+      "instruments": {
+        "lead": "soft_synth",
+        "harmony": "pizzicato",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "starting_lights",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        5,
+        6,
+        7,
+        5,
+        4,
+        2
+      ],
+      "energy": 0.76,
+      "seed_namespace": "opera_racer",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1544621336,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 64,
+        "bar_beats": 4
+      },
+      "sample_count": 1440000,
+      "duration_seconds": 30.0,
+      "samples_per_beat": 22500.0,
+      "raw_seam": {
+        "boundary_jump": 0.00018298,
+        "adjacent_p999": 0.05993169,
+        "jump_ratio": 0.00305
+      },
+      "development": {
+        "midpoint_bar": 8,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": 1.56,
+      "peak_limited": false,
+      "pcm_peak": 19653,
+      "pcm_peak_dbfs": -4.4402,
+      "pcm_rms_dbfs": -20.6167,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.43,
+        "loudness_range_lu": 4.2,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 368283,
+      "average_bitrate_bps": 98208,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Pearl Grand Prix",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_racer",
+        "BPM": "128",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1440000",
+        "LOOPLENGTH": "1440000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1440000,
+      "decoded_seam": {
+        "boundary_jump": 0.00106815,
+        "adjacent_p999": 0.06982635,
+        "jump_ratio": 0.0153
+      },
+      "loudness": {
+        "integrated_lufs": -18.02,
+        "true_peak_dbtp": -4.49,
+        "loudness_range_lu": 4.2,
+        "threshold_lufs": -28.02
+      },
+      "pcm_sha256": "54e065a2c2c67b09de4674c48e1442955d2166fde1812c51882b780a696cf805",
+      "sha256": "c3e442c3c23d6f70011b7195be947321c48c207e2404a2fc523fcbd76d5304a4"
+    },
+    {
+      "id": "opera_popstar",
+      "title": "Starlight Singalong",
+      "family": "opera_career",
+      "area": "Pop Star",
+      "brief": "A simple child-pop groove with a singable synth lead, toy-piano chords, and bell stars; repeated call-and-answer shapes support rhythm play.",
+      "cue_score_sha256": "a0fca95222f6bc24da2ec638ac66329650af73eb6f6ea8883b91d06ba579d593",
+      "path": "assets/audio/music/opera_popstar.ogg",
+      "import_path": "assets/audio/music/opera_popstar.ogg.import",
+      "tempo_bpm": 118,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 69,
+      "mode": "major",
+      "texture": "pop",
+      "percussion": "pop",
+      "instruments": {
+        "lead": "soft_synth",
+        "harmony": "toy_piano",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "call_and_answer",
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        null,
+        4,
+        5,
+        4,
+        2,
+        3,
+        5,
+        7
+      ],
+      "energy": 0.72,
+      "seed_namespace": "opera_popstar",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 2042714554,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1171525,
+      "duration_seconds": 24.406771,
+      "samples_per_beat": 24406.77083333,
+      "raw_seam": {
+        "boundary_jump": 0.00036423,
+        "adjacent_p999": 0.06449678,
+        "jump_ratio": 0.00565
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": 1.82,
+      "peak_limited": false,
+      "pcm_peak": 20251,
+      "pcm_peak_dbfs": -4.1798,
+      "pcm_rms_dbfs": -20.78,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.18,
+        "loudness_range_lu": 4.1,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 300174,
+      "average_bitrate_bps": 98390,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Starlight Singalong",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_popstar",
+        "BPM": "118",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1171525",
+        "LOOPLENGTH": "1171525",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1171525,
+      "decoded_seam": {
+        "boundary_jump": 0.00412,
+        "adjacent_p999": 0.06994842,
+        "jump_ratio": 0.0589
+      },
+      "loudness": {
+        "integrated_lufs": -18.04,
+        "true_peak_dbtp": -4.1,
+        "loudness_range_lu": 4.0,
+        "threshold_lufs": -28.04
+      },
+      "pcm_sha256": "df75290bc00941ff8cf7f442675bc1bafe2cc73ebcb0cbd543d34ac266b68428",
+      "sha256": "afde1ee8eccb97288f4375e5fd8eb433ea209b90ee7881c44f7f2ff4c5c9c59b"
+    },
+    {
+      "id": "opera_nursery",
+      "title": "Moonbeam Tuck-In",
+      "family": "opera_career",
+      "area": "Nursery Nurse",
+      "brief": "A rocking 6/8 lullaby with music box, flute breath, and warm pad; its pulse is clear enough for gentle care actions and quiet enough for bedtime voices.",
+      "cue_score_sha256": "ee4048bbcdbdd1f53115bb9b1fea44869287cad348f984a4679aaa5f2d90171b",
+      "path": "assets/audio/music/opera_nursery.ogg",
+      "import_path": "assets/audio/music/opera_nursery.ogg.import",
+      "tempo_bpm": 70,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 7,
+      "tonic_midi": 65,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "none",
+      "instruments": {
+        "lead": "music_box",
+        "harmony": "flute",
+        "bass": "warm_pad",
+        "accent": "harp"
+      },
+      "motif_treatment": "rocking_cradle",
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        null,
+        2,
+        4,
+        3,
+        null,
+        1,
+        2,
+        4,
+        5,
+        4,
+        2
+      ],
+      "energy": 0.17,
+      "seed_namespace": "opera_nursery",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1905582690,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 42,
+        "bar_beats": 6
+      },
+      "sample_count": 1728000,
+      "duration_seconds": 36.0,
+      "samples_per_beat": 41142.85714286,
+      "raw_seam": {
+        "boundary_jump": 0.00404133,
+        "adjacent_p999": 0.05680643,
+        "jump_ratio": 0.07114
+      },
+      "development": {
+        "midpoint_bar": 3,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.6,
+      "peak_limited": false,
+      "pcm_peak": 13660,
+      "pcm_peak_dbfs": -7.5997,
+      "pcm_rms_dbfs": -20.3934,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.6,
+        "loudness_range_lu": 1.1,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 440192,
+      "average_bitrate_bps": 97820,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Moonbeam Tuck-In",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_nursery",
+        "BPM": "70",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1728000",
+        "LOOPLENGTH": "1728000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1728000,
+      "decoded_seam": {
+        "boundary_jump": 0.0052797,
+        "adjacent_p999": 0.0471511,
+        "jump_ratio": 0.11197
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -7.56,
+        "loudness_range_lu": 1.1,
+        "threshold_lufs": -27.98
+      },
+      "pcm_sha256": "5577e6854f077372566454c0540224ff4fe06a28da6038267463bfa47973e350",
+      "sha256": "1301e99f908ee6d391fb2c16a88cff51970031df261e965fa8484670f1196072"
+    },
+    {
+      "id": "opera_boss_dragon",
+      "title": "Curtain Dragon's Stomp",
+      "family": "opera_boss",
+      "area": "Curtain Dragon",
+      "brief": "Warm brass and low strings make a large but friendly stage-puppet stomp; bell openings mark safe peek moments and every dark chord turns bright.",
+      "cue_score_sha256": "4c7416f6e6df339a8125525187435a5c017040663b0ea7aff7d5ea88630569b4",
+      "path": "assets/audio/music/opera_boss_dragon.ogg",
+      "import_path": "assets/audio/music/opera_boss_dragon.ogg.import",
+      "tempo_bpm": 112,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "minor",
+      "texture": "boss",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "warm_brass",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "dragon_peek",
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        0,
+        2,
+        3,
+        4,
+        3,
+        1,
+        null,
+        5,
+        4,
+        2,
+        0
+      ],
+      "energy": 0.72,
+      "seed_namespace": "opera_boss_dragon",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1438366220,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1234286,
+      "duration_seconds": 25.714292,
+      "samples_per_beat": 25714.29166667,
+      "raw_seam": {
+        "boundary_jump": 0.00123758,
+        "adjacent_p999": 0.06821211,
+        "jump_ratio": 0.01814
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.26,
+      "peak_limited": false,
+      "pcm_peak": 14205,
+      "pcm_peak_dbfs": -7.2599,
+      "pcm_rms_dbfs": -20.2815,
+      "pcm_loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -7.25,
+        "loudness_range_lu": 2.3,
+        "threshold_lufs": -28.01
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 316378,
+      "average_bitrate_bps": 98428,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Curtain Dragon's Stomp",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_boss_dragon",
+        "BPM": "112",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1234286",
+        "LOOPLENGTH": "1234286",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1234286,
+      "decoded_seam": {
+        "boundary_jump": 0.00061037,
+        "adjacent_p999": 0.0452808,
+        "jump_ratio": 0.01348
+      },
+      "loudness": {
+        "integrated_lufs": -18.03,
+        "true_peak_dbtp": -7.14,
+        "loudness_range_lu": 2.3,
+        "threshold_lufs": -28.03
+      },
+      "pcm_sha256": "af19c0646b1be8fe941483bcbd4e71b7b12c120af284fbf649c6f2ef6df94ce0",
+      "sha256": "a8f895d7ea8de1c2708a35bfdcc5fd5415efdaf7dc1c19d5f951edcbfce5d310"
+    },
+    {
+      "id": "opera_boss_phantom",
+      "title": "Lanterns in the Wings",
+      "family": "opera_boss",
+      "area": "Shadow Phantom",
+      "brief": "A shy 6/8 shadow dance with low clarinet and harp; chimes appear like lanterns, turning uncertainty into a gentle hide-and-seek rhythm.",
+      "cue_score_sha256": "4a0943cb2a689ebcfcbb250828ec79cb81454590278f837daf1759fc10971bab",
+      "path": "assets/audio/music/opera_boss_phantom.ogg",
+      "import_path": "assets/audio/music/opera_boss_phantom.ogg.import",
+      "tempo_bpm": 96,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 64,
+      "mode": "dorian",
+      "texture": "tiptoe",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "chime"
+      },
+      "motif_treatment": "lantern_search",
+      "progression": [
+        0,
+        1,
+        3,
+        0,
+        5,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        null,
+        4,
+        3,
+        1,
+        2,
+        null,
+        5,
+        4,
+        2,
+        0
+      ],
+      "energy": 0.54,
+      "seed_namespace": "opera_boss_phantom",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 727016330,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 6
+      },
+      "sample_count": 1440000,
+      "duration_seconds": 30.0,
+      "samples_per_beat": 30000.0,
+      "raw_seam": {
+        "boundary_jump": 0.0,
+        "adjacent_p999": 0.05787339,
+        "jump_ratio": 0.0
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.17,
+      "peak_limited": false,
+      "pcm_peak": 16104,
+      "pcm_peak_dbfs": -6.1701,
+      "pcm_rms_dbfs": -21.0026,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -6.17,
+        "loudness_range_lu": 5.1,
+        "threshold_lufs": -28.42
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 360733,
+      "average_bitrate_bps": 96195,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Lanterns in the Wings",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_boss_phantom",
+        "BPM": "96",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1440000",
+        "LOOPLENGTH": "1440000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1440000,
+      "decoded_seam": {
+        "boundary_jump": 3.052e-05,
+        "adjacent_p999": 0.05682546,
+        "jump_ratio": 0.00054
+      },
+      "loudness": {
+        "integrated_lufs": -17.97,
+        "true_peak_dbtp": -6.41,
+        "loudness_range_lu": 5.2,
+        "threshold_lufs": -28.39
+      },
+      "pcm_sha256": "6ba08f54a8fd550b586703846277be7404f93a1ec16d9c56cdbd0940fe6d4751",
+      "sha256": "67572c0ed346a32fbe07db834e31e1aa366d686aa24d1366439a7156399b6e09"
+    },
+    {
+      "id": "opera_boss_maestro",
+      "title": "The Kind Midnight Baton",
+      "family": "opera_boss",
+      "area": "Midnight Maestro",
+      "brief": "The largest opera cue combines strings, warm brass, bass ostinato, and bell baton taps; grand gestures remain consonant and end in a welcoming ensemble cadence.",
+      "cue_score_sha256": "1d5e2d18ee1dd78e854f76a510bf2601247d7c0ee6eb3bd47305a6ae84da7deb",
+      "path": "assets/audio/music/opera_boss_maestro.ogg",
+      "import_path": "assets/audio/music/opera_boss_maestro.ogg.import",
+      "tempo_bpm": 124,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 60,
+      "mode": "minor",
+      "texture": "boss",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "warm_brass",
+        "harmony": "warm_strings",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "grand_baton",
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        5,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        5,
+        4,
+        2,
+        3,
+        5,
+        6,
+        4
+      ],
+      "energy": 0.82,
+      "seed_namespace": "opera_boss_maestro",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1217350332,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 64,
+        "bar_beats": 4
+      },
+      "sample_count": 1486452,
+      "duration_seconds": 30.96775,
+      "samples_per_beat": 23225.8125,
+      "raw_seam": {
+        "boundary_jump": 1.85e-05,
+        "adjacent_p999": 0.07254388,
+        "jump_ratio": 0.00025
+      },
+      "development": {
+        "midpoint_bar": 8,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.79,
+      "peak_limited": false,
+      "pcm_peak": 14995,
+      "pcm_peak_dbfs": -6.7898,
+      "pcm_rms_dbfs": -20.2719,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -6.79,
+        "loudness_range_lu": 2.8,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 379813,
+      "average_bitrate_bps": 98118,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "The Kind Midnight Baton",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "opera_boss_maestro",
+        "BPM": "124",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1486452",
+        "LOOPLENGTH": "1486452",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1486452,
+      "decoded_seam": {
+        "boundary_jump": 0.00045778,
+        "adjacent_p999": 0.04892117,
+        "jump_ratio": 0.00936
+      },
+      "loudness": {
+        "integrated_lufs": -18.05,
+        "true_peak_dbtp": -6.76,
+        "loudness_range_lu": 2.8,
+        "threshold_lufs": -28.05
+      },
+      "pcm_sha256": "098c048f0c8cdb7b17d858799c4bd90cd8f072fa730099b2fcd32183344de416",
+      "sha256": "0aeb0c6579401436bfa02867f8999453e6eed603957b811ea245e5ec002dcfe7"
+    },
+    {
+      "id": "northern",
+      "title": "Snowcap Lantern Trail",
+      "family": "world",
+      "area": "Northern Kingdom",
+      "brief": "Open flute calls cross a snowy 6/8 over harp and warm bass; bell points feel like trail lanterns, with broad rests preserving the quiet landscape.",
+      "cue_score_sha256": "b448410e912af50a94197c919f2af19687bb6aeea2b6f7834f95a55d83b436b8",
+      "path": "assets/audio/music/northern.ogg",
+      "import_path": "assets/audio/music/northern.ogg.import",
+      "tempo_bpm": 84,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 62,
+      "mode": "major",
+      "texture": "folk",
+      "percussion": "shaker",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "harp",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "snow_echo",
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        null,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        4,
+        2
+      ],
+      "energy": 0.34,
+      "seed_namespace": "northern",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1982714831,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 6
+      },
+      "sample_count": 1645714,
+      "duration_seconds": 34.285708,
+      "samples_per_beat": 34285.70833333,
+      "raw_seam": {
+        "boundary_jump": 0.0,
+        "adjacent_p999": 0.10241807,
+        "jump_ratio": 0.0
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.57,
+      "peak_limited": false,
+      "pcm_peak": 12216,
+      "pcm_peak_dbfs": -8.5702,
+      "pcm_rms_dbfs": -20.7206,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.56,
+        "loudness_range_lu": 6.2,
+        "threshold_lufs": -28.47
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 418897,
+      "average_bitrate_bps": 97742,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Snowcap Lantern Trail",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "northern",
+        "BPM": "84",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1645714",
+        "LOOPLENGTH": "1645714",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1645714,
+      "decoded_seam": {
+        "boundary_jump": 9.156e-05,
+        "adjacent_p999": 0.04342784,
+        "jump_ratio": 0.00211
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -8.36,
+        "loudness_range_lu": 6.1,
+        "threshold_lufs": -28.46
+      },
+      "pcm_sha256": "24a67dea7cc833064a76866943871e06a0fc31e9f468f091eaa6c7f8ec22c32e",
+      "sha256": "74b59bf3ed5cd47128f3530da8c84028826a9935f42cc2c3d699d63eaec49d2a"
+    },
+    {
+      "id": "galaxy",
+      "title": "Pocket Constellation Waltz",
+      "family": "world",
+      "area": "Galaxy",
+      "brief": "Celesta stars orbit a soft synth pad in a slow three-count; the motif hops between constellations while a grounded bass keeps space cozy.",
+      "cue_score_sha256": "cdbf3b4ec1271c76557fecb9fb9f7ca818e2422eed2ab2e6afa7b92d2933ffde",
+      "path": "assets/audio/music/galaxy.ogg",
+      "import_path": "assets/audio/music/galaxy.ogg.import",
+      "tempo_bpm": 96,
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 69,
+      "mode": "lydian",
+      "texture": "space",
+      "percussion": "pulse",
+      "instruments": {
+        "lead": "celesta",
+        "harmony": "soft_synth",
+        "bass": "warm_pad",
+        "accent": "bell"
+      },
+      "motif_treatment": "orbit",
+      "progression": [
+        0,
+        1,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        6,
+        5,
+        3,
+        1,
+        null,
+        4,
+        6,
+        7,
+        5
+      ],
+      "energy": 0.43,
+      "seed_namespace": "galaxy",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1003333921,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 3
+      },
+      "sample_count": 1440000,
+      "duration_seconds": 30.0,
+      "samples_per_beat": 30000.0,
+      "raw_seam": {
+        "boundary_jump": 0.0044226,
+        "adjacent_p999": 0.06947471,
+        "jump_ratio": 0.06366
+      },
+      "development": {
+        "midpoint_bar": 8,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.1,
+      "peak_limited": false,
+      "pcm_peak": 12895,
+      "pcm_peak_dbfs": -8.1003,
+      "pcm_rms_dbfs": -20.639,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.08,
+        "loudness_range_lu": 2.1,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 339312,
+      "average_bitrate_bps": 90483,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Pocket Constellation Waltz",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "galaxy",
+        "BPM": "96",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "3/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1440000",
+        "LOOPLENGTH": "1440000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1440000,
+      "decoded_seam": {
+        "boundary_jump": 0.00412,
+        "adjacent_p999": 0.05426191,
+        "jump_ratio": 0.07593
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -7.97,
+        "loudness_range_lu": 2.0,
+        "threshold_lufs": -27.98
+      },
+      "pcm_sha256": "f35219626a6125c50ffcc41545076d74693990e110b86cd814a9a9a29cb9b489",
+      "sha256": "82c26ce12daab47683ab903142b27affa0d325c4b276a0d5796d8dd7b51e6444"
+    },
+    {
+      "id": "ember",
+      "title": "Warm-Coal Courage",
+      "family": "world",
+      "area": "Ember Fortress Approach",
+      "brief": "Low marimba and strings step steadily through glowing terrain; upward bell answers frame ember light as warmth and courage rather than danger.",
+      "cue_score_sha256": "e38fec2bc66494b6d2db7f4fb3b54286d120f0c62cb5d06b8616380b14037cd4",
+      "path": "assets/audio/music/ember.ogg",
+      "import_path": "assets/audio/music/ember.ogg.import",
+      "tempo_bpm": 104,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 64,
+      "mode": "minor",
+      "texture": "cinematic",
+      "percussion": "soft_march",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "ember_glow",
+      "progression": [
+        0,
+        5,
+        3,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4,
+        2
+      ],
+      "energy": 0.57,
+      "seed_namespace": "ember",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 605955275,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1329231,
+      "duration_seconds": 27.692313,
+      "samples_per_beat": 27692.3125,
+      "raw_seam": {
+        "boundary_jump": 0.00043871,
+        "adjacent_p999": 0.05670223,
+        "jump_ratio": 0.00774
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.71,
+      "peak_limited": false,
+      "pcm_peak": 13488,
+      "pcm_peak_dbfs": -7.7098,
+      "pcm_rms_dbfs": -20.3821,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -7.7,
+        "loudness_range_lu": 1.7,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 340159,
+      "average_bitrate_bps": 98268,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Warm-Coal Courage",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "ember",
+        "BPM": "104",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1329231",
+        "LOOPLENGTH": "1329231",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1329231,
+      "decoded_seam": {
+        "boundary_jump": 0.00186163,
+        "adjacent_p999": 0.04290902,
+        "jump_ratio": 0.04339
+      },
+      "loudness": {
+        "integrated_lufs": -18.02,
+        "true_peak_dbtp": -7.63,
+        "loudness_range_lu": 1.7,
+        "threshold_lufs": -28.02
+      },
+      "pcm_sha256": "0c3050b62583a2249787a532a0035dc74347253b2ab0ea59b596ce89c4acd726",
+      "sha256": "af75dc1df8bafece02b7384c594031f420fea5def16b496d7c19ae4d4b8aff4a"
+    },
+    {
+      "id": "dungeon_ice",
+      "title": "Crystal Footsteps",
+      "family": "dungeon",
+      "area": "Ice Dungeon",
+      "brief": "Music-box crystals answer muted plucked footsteps in Dorian harmony; a patient bass pulse supports exploration without implying a fail timer.",
+      "cue_score_sha256": "42c5fe6b635562da186f8dc4ade9c9d0d66e83de422d037c2b25de924f47b7c5",
+      "path": "assets/audio/music/dungeon_ice.ogg",
+      "import_path": "assets/audio/music/dungeon_ice.ogg.import",
+      "tempo_bpm": 90,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 62,
+      "mode": "dorian",
+      "texture": "tiptoe",
+      "percussion": "tiptoe",
+      "instruments": {
+        "lead": "music_box",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "chime"
+      },
+      "motif_treatment": "ice_facets",
+      "progression": [
+        0,
+        1,
+        3,
+        0,
+        5,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        null,
+        2,
+        4,
+        3,
+        1,
+        null,
+        2,
+        5,
+        4,
+        2,
+        0
+      ],
+      "energy": 0.39,
+      "seed_namespace": "dungeon_ice",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 381244924,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1536000,
+      "duration_seconds": 32.0,
+      "samples_per_beat": 32000.0,
+      "raw_seam": {
+        "boundary_jump": 0.00014005,
+        "adjacent_p999": 0.04578465,
+        "jump_ratio": 0.00306
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": 0.44,
+      "peak_limited": false,
+      "pcm_peak": 17276,
+      "pcm_peak_dbfs": -5.5599,
+      "pcm_rms_dbfs": -20.1956,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -5.55,
+        "loudness_range_lu": 1.7,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 359066,
+      "average_bitrate_bps": 89766,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Crystal Footsteps",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "dungeon_ice",
+        "BPM": "90",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1536000",
+        "LOOPLENGTH": "1536000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1536000,
+      "decoded_seam": {
+        "boundary_jump": 0.00354015,
+        "adjacent_p999": 0.04803613,
+        "jump_ratio": 0.0737
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -5.31,
+        "loudness_range_lu": 1.7,
+        "threshold_lufs": -27.98
+      },
+      "pcm_sha256": "8b3bab7c713246ba56f4cc5175d1fde47cc8b78f630f9cad5b634e41190ea1ad",
+      "sha256": "92f94834e0fa255e5ac2ccc6da704e4dc997028ceb0cb1f65d3d66ac163768b5"
+    },
+    {
+      "id": "dungeon_ember",
+      "title": "Lanterns Under the Mountain",
+      "family": "dungeon",
+      "area": "Ember Dungeon",
+      "brief": "Plucked lantern notes and warm strings travel in a measured march; minor color gives depth, while frequent major inflections keep the route reassuring.",
+      "cue_score_sha256": "6f5ddd8fa6ba7a3e0ea7a3c6c922232278e3408e69ff4448e872b846739ba6fd",
+      "path": "assets/audio/music/dungeon_ember.ogg",
+      "import_path": "assets/audio/music/dungeon_ember.ogg.import",
+      "tempo_bpm": 100,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 64,
+      "mode": "minor",
+      "texture": "march",
+      "percussion": "soft_march",
+      "instruments": {
+        "lead": "pizzicato",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "lantern_march",
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        2,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        4,
+        0
+      ],
+      "energy": 0.55,
+      "seed_namespace": "dungeon_ember",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1378308163,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1382400,
+      "duration_seconds": 28.8,
+      "samples_per_beat": 28800.0,
+      "raw_seam": {
+        "boundary_jump": 0.00013455,
+        "adjacent_p999": 0.05606145,
+        "jump_ratio": 0.0024
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.56,
+      "peak_limited": false,
+      "pcm_peak": 15397,
+      "pcm_peak_dbfs": -6.56,
+      "pcm_rms_dbfs": -20.2794,
+      "pcm_loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -6.54,
+        "loudness_range_lu": 1.7,
+        "threshold_lufs": -27.99
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 353538,
+      "average_bitrate_bps": 98205,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Lanterns Under the Mountain",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "dungeon_ember",
+        "BPM": "100",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1382400",
+        "LOOPLENGTH": "1382400",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1382400,
+      "decoded_seam": {
+        "boundary_jump": 0.00521867,
+        "adjacent_p999": 0.0477188,
+        "jump_ratio": 0.10936
+      },
+      "loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -6.4,
+        "loudness_range_lu": 1.8,
+        "threshold_lufs": -27.99
+      },
+      "pcm_sha256": "deefddd4e1db897649da6c5ccc9d9cbb0c2762c5dd3fddd3f277d586345dda28",
+      "sha256": "d606e4951f85135403153748ed9a83acbf96f04dabddf11c3964f4bbfe3b1db6"
+    },
+    {
+      "id": "combat_ice",
+      "title": "Snowball Sparkle Scramble",
+      "family": "combat",
+      "area": "Ice Combat",
+      "brief": "Fast marimba snowballs, warm strings, and chime hit markers create readable action energy without harsh cymbals, alarm tones, or menace.",
+      "cue_score_sha256": "5bfc3c51270598729a90bf24baf6592aae0fae9f64c262faac4c14ba1b1764cc",
+      "path": "assets/audio/music/combat_ice.ogg",
+      "import_path": "assets/audio/music/combat_ice.ogg.import",
+      "tempo_bpm": 124,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 62,
+      "mode": "dorian",
+      "texture": "combat",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_strings",
+        "bass": "synth_bass",
+        "accent": "chime"
+      },
+      "motif_treatment": "snowball_dash",
+      "progression": [
+        0,
+        1,
+        3,
+        4,
+        0,
+        5,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4,
+        2
+      ],
+      "energy": 0.76,
+      "seed_namespace": "combat_ice",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1178439034,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 64,
+        "bar_beats": 4
+      },
+      "sample_count": 1486452,
+      "duration_seconds": 30.96775,
+      "samples_per_beat": 23225.8125,
+      "raw_seam": {
+        "boundary_jump": 7.91e-05,
+        "adjacent_p999": 0.07510542,
+        "jump_ratio": 0.00105
+      },
+      "development": {
+        "midpoint_bar": 8,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.22,
+      "peak_limited": false,
+      "pcm_peak": 16012,
+      "pcm_peak_dbfs": -6.2198,
+      "pcm_rms_dbfs": -20.2838,
+      "pcm_loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -6.18,
+        "loudness_range_lu": 2.1,
+        "threshold_lufs": -28.01
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 379998,
+      "average_bitrate_bps": 98166,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Snowball Sparkle Scramble",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "combat_ice",
+        "BPM": "124",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1486452",
+        "LOOPLENGTH": "1486452",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1486452,
+      "decoded_seam": {
+        "boundary_jump": 0.00170904,
+        "adjacent_p999": 0.05218665,
+        "jump_ratio": 0.03275
+      },
+      "loudness": {
+        "integrated_lufs": -18.04,
+        "true_peak_dbtp": -5.97,
+        "loudness_range_lu": 2.2,
+        "threshold_lufs": -28.04
+      },
+      "pcm_sha256": "34c838b3e6245ab398e6efe42f793ab3b9e619cae21d13098eda07989e51ee89",
+      "sha256": "1558a37c17858f380892474306a08ce74e9f874222ce2a7d93528287ac978511"
+    },
+    {
+      "id": "combat_fire",
+      "title": "Pepper-Pop Parade",
+      "family": "combat",
+      "area": "Fire Combat",
+      "brief": "Warm brass pops and bright plucks ride a clear action pulse; the mixolydian tune sounds cheeky and brave, never hot, threatening, or punishing.",
+      "cue_score_sha256": "014d72d5e03993464bdea2503d53bc724ef3f1927640861e0506b89f2b319bd2",
+      "path": "assets/audio/music/combat_fire.ogg",
+      "import_path": "assets/audio/music/combat_fire.ogg.import",
+      "tempo_bpm": 128,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 16,
+      "tonic_midi": 64,
+      "mode": "mixolydian",
+      "texture": "combat",
+      "percussion": "soft_combat",
+      "instruments": {
+        "lead": "warm_brass",
+        "harmony": "pizzicato",
+        "bass": "synth_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "pepper_pop",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        5,
+        4,
+        2,
+        3,
+        5,
+        6,
+        4
+      ],
+      "energy": 0.79,
+      "seed_namespace": "combat_fire",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1428442190,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 64,
+        "bar_beats": 4
+      },
+      "sample_count": 1440000,
+      "duration_seconds": 30.0,
+      "samples_per_beat": 22500.0,
+      "raw_seam": {
+        "boundary_jump": 0.00024477,
+        "adjacent_p999": 0.06770244,
+        "jump_ratio": 0.00362
+      },
+      "development": {
+        "midpoint_bar": 8,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": 1.62,
+      "peak_limited": false,
+      "pcm_peak": 19790,
+      "pcm_peak_dbfs": -4.3798,
+      "pcm_rms_dbfs": -20.4272,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.38,
+        "loudness_range_lu": 3.6,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 368032,
+      "average_bitrate_bps": 98141,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Pepper-Pop Parade",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "combat_fire",
+        "BPM": "128",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1440000",
+        "LOOPLENGTH": "1440000",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1440000,
+      "decoded_seam": {
+        "boundary_jump": 0.000824,
+        "adjacent_p999": 0.0656148,
+        "jump_ratio": 0.01256
+      },
+      "loudness": {
+        "integrated_lufs": -18.03,
+        "true_peak_dbtp": -4.57,
+        "loudness_range_lu": 3.6,
+        "threshold_lufs": -28.03
+      },
+      "pcm_sha256": "dcf772d817c57f5ee34d1618795eb35c2a8b6f8337f5becb1fe75e5263edbf02",
+      "sha256": "3c57b2f3fab42b3ce707d3e3d699459b904285772e66313a1861d80b15b35895"
+    },
+    {
+      "id": "combat_tutorial",
+      "title": "Royal Hall Practice Pals",
+      "family": "combat",
+      "area": "Royal Hall Friendly Sparring Lesson",
+      "brief": "A clear 104 BPM practice pulse led by marimba, brushed snare, and warm toy brass; every accent teaches timing while the harmony says play, not danger.",
+      "cue_score_sha256": "1e2f05cc1506fa0b695eb22d197ee841668382138561c84222243cc5e6982ef4",
+      "path": "assets/audio/music/combat_tutorial.ogg",
+      "import_path": "assets/audio/music/combat_tutorial.ogg.import",
+      "tempo_bpm": 104,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "march",
+      "percussion": "tutorial_brush",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "warm_brass",
+        "bass": "warm_bass",
+        "accent": "toy_piano"
+      },
+      "motif_treatment": "practice_count",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        0,
+        2,
+        4,
+        null,
+        4,
+        2,
+        1,
+        3,
+        3,
+        2,
+        0
+      ],
+      "energy": 0.5,
+      "seed_namespace": "combat_tutorial",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1586200811,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1329231,
+      "duration_seconds": 27.692313,
+      "samples_per_beat": 27692.3125,
+      "raw_seam": {
+        "boundary_jump": 8.682e-05,
+        "adjacent_p999": 0.03773875,
+        "jump_ratio": 0.0023
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": 1.14,
+      "peak_limited": false,
+      "pcm_peak": 18726,
+      "pcm_peak_dbfs": -4.8598,
+      "pcm_rms_dbfs": -20.1453,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.85,
+        "loudness_range_lu": 1.8,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 339912,
+      "average_bitrate_bps": 98196,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Royal Hall Practice Pals",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "combat_tutorial",
+        "BPM": "104",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1329231",
+        "LOOPLENGTH": "1329231",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1329231,
+      "decoded_seam": {
+        "boundary_jump": 0.00015259,
+        "adjacent_p999": 0.04031495,
+        "jump_ratio": 0.00379
+      },
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -4.76,
+        "loudness_range_lu": 1.8,
+        "threshold_lufs": -28.0
+      },
+      "pcm_sha256": "c59ba306f3110cf9e3c4644f6e08e8acdd3c6c681e3cf96cf9d4e8a1cccb0175",
+      "sha256": "2ebac2dbcc0fecef7088ca37fbbe41985dd1f552c071b788d7004d46f04cc108"
+    },
+    {
+      "id": "stuffie_battle",
+      "title": "Hug-It-Out Hoedown",
+      "family": "combat",
+      "area": "Stuffie Battle",
+      "brief": "Banjo and fiddle trade a friendly hoedown over a soft root-fifth bounce; playful marimba taps frame befriending a stuffie, never defeating one.",
+      "cue_score_sha256": "a6b1983b110f122087a17a3b1092a7eea40ac2c546b06ede4f5d8699db5a1578",
+      "path": "assets/audio/music/stuffie_battle.ogg",
+      "import_path": "assets/audio/music/stuffie_battle.ogg.import",
+      "tempo_bpm": 116,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 67,
+      "mode": "major",
+      "texture": "bluegrass",
+      "percussion": "bluegrass",
+      "instruments": {
+        "lead": "banjo",
+        "harmony": "fiddle",
+        "bass": "warm_bass",
+        "accent": "marimba"
+      },
+      "motif_treatment": "hug_hoedown",
+      "progression": [
+        0,
+        3,
+        0,
+        4,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        5,
+        4,
+        3,
+        1,
+        0,
+        3,
+        5,
+        4
+      ],
+      "energy": 0.66,
+      "seed_namespace": "stuffie_battle",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 771799501,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1191724,
+      "duration_seconds": 24.827583,
+      "samples_per_beat": 24827.58333333,
+      "raw_seam": {
+        "boundary_jump": 0.00071783,
+        "adjacent_p999": 0.13328428,
+        "jump_ratio": 0.00539
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.57,
+      "peak_limited": false,
+      "pcm_peak": 12216,
+      "pcm_peak_dbfs": -8.5702,
+      "pcm_rms_dbfs": -20.5605,
+      "pcm_loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -8.55,
+        "loudness_range_lu": 1.4,
+        "threshold_lufs": -27.99
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 305464,
+      "average_bitrate_bps": 98427,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Hug-It-Out Hoedown",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "stuffie_battle",
+        "BPM": "116",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1191724",
+        "LOOPLENGTH": "1191724",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1191724,
+      "decoded_seam": {
+        "boundary_jump": 0.00463881,
+        "adjacent_p999": 0.07003998,
+        "jump_ratio": 0.06623
+      },
+      "loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.5,
+        "loudness_range_lu": 1.4,
+        "threshold_lufs": -28.0
+      },
+      "pcm_sha256": "76be778394978211fec56683cf33eb6377cf1574d77bd1970bc80a79aac905b4",
+      "sha256": "91d4e3c53cc89d51a0926b43e6d2e36a9995a21afd0ecaad34ba8bd172115f52"
+    },
+    {
+      "id": "picture_snowman",
+      "title": "Roll a Round Snow Friend",
+      "family": "picture_game",
+      "area": "Snowman Picture Game",
+      "brief": "Cheery rolling 6/8 with bell snowflakes and clarinet circles; phrases grow from small to large like the three safe snowballs.",
+      "cue_score_sha256": "1b8002d270af8f8881474653e6ce940cdb0afc90f79fbccae0bb6637aa696231",
+      "path": "assets/audio/music/picture_snowman.ogg",
+      "import_path": "assets/audio/music/picture_snowman.ogg.import",
+      "tempo_bpm": 104,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 62,
+      "mode": "major",
+      "texture": "bounce",
+      "percussion": "sleigh",
+      "instruments": {
+        "lead": "clarinet",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "rolling_snow",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        2,
+        4,
+        5,
+        3,
+        1,
+        2,
+        4,
+        6,
+        5
+      ],
+      "energy": 0.57,
+      "seed_namespace": "picture_snowman",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1739204127,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 6
+      },
+      "sample_count": 1329231,
+      "duration_seconds": 27.692313,
+      "samples_per_beat": 27692.3125,
+      "raw_seam": {
+        "boundary_jump": 0.0,
+        "adjacent_p999": 0.11487354,
+        "jump_ratio": 0.0
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.3,
+      "peak_limited": false,
+      "pcm_peak": 12602,
+      "pcm_peak_dbfs": -8.2999,
+      "pcm_rms_dbfs": -20.837,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.08,
+        "loudness_range_lu": 4.8,
+        "threshold_lufs": -28.46
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 338092,
+      "average_bitrate_bps": 97671,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Roll a Round Snow Friend",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "picture_snowman",
+        "BPM": "104",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1329231",
+        "LOOPLENGTH": "1329231",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1329231,
+      "decoded_seam": {
+        "boundary_jump": 0.00073244,
+        "adjacent_p999": 0.05731376,
+        "jump_ratio": 0.01278
+      },
+      "loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -8.76,
+        "loudness_range_lu": 4.8,
+        "threshold_lufs": -28.46
+      },
+      "pcm_sha256": "fefb76adff6f8a17e9fd8573387c7a001a802b60103f9e5926fc0aa6ca66ef10",
+      "sha256": "f802f21b9c78615489c54e280e0dab0c7c14483213be4d43c207f8282d204f4e"
+    },
+    {
+      "id": "picture_garden",
+      "title": "Little Garden, Big Sun",
+      "family": "picture_game",
+      "area": "Garden Picture Game",
+      "brief": "Sunny ukulele planting strokes and flute sprouts unfold at an easy walking pace; each four-bar phrase grows upward and settles in warm soil.",
+      "cue_score_sha256": "5b22cbb8b69cd5e1a4d2add68cca74d01637b58b5ff180959b3d51c776f4dfa3",
+      "path": "assets/audio/music/picture_garden.ogg",
+      "import_path": "assets/audio/music/picture_garden.ogg.import",
+      "tempo_bpm": 92,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 65,
+      "mode": "major",
+      "texture": "folk",
+      "percussion": "shaker",
+      "instruments": {
+        "lead": "flute",
+        "harmony": "ukulele",
+        "bass": "warm_bass",
+        "accent": "pizzicato"
+      },
+      "motif_treatment": "seed_to_sun",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        4,
+        2,
+        1,
+        3,
+        5,
+        6,
+        4
+      ],
+      "energy": 0.45,
+      "seed_namespace": "picture_garden",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 1134517182,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1502609,
+      "duration_seconds": 31.304354,
+      "samples_per_beat": 31304.35416667,
+      "raw_seam": {
+        "boundary_jump": 5.157e-05,
+        "adjacent_p999": 0.10507481,
+        "jump_ratio": 0.00049
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -2.36,
+      "peak_limited": false,
+      "pcm_peak": 12515,
+      "pcm_peak_dbfs": -8.3601,
+      "pcm_rms_dbfs": -20.3961,
+      "pcm_loudness": {
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -8.36,
+        "loudness_range_lu": 4.3,
+        "threshold_lufs": -28.0
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 384033,
+      "average_bitrate_bps": 98141,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Little Garden, Big Sun",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "picture_garden",
+        "BPM": "92",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1502609",
+        "LOOPLENGTH": "1502609",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1502609,
+      "decoded_seam": {
+        "boundary_jump": 0.00073244,
+        "adjacent_p999": 0.05252235,
+        "jump_ratio": 0.01395
+      },
+      "loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -8.42,
+        "loudness_range_lu": 4.3,
+        "threshold_lufs": -27.99
+      },
+      "pcm_sha256": "87f86237b5c647fa406d8fad220f3b40ce687d04132ee6a7b605309b1bb71032",
+      "sha256": "a19946e8521b1db45a90e01ac80f49b383a8cc26934907f5b81ad0aaf4419145"
+    },
+    {
+      "id": "picture_trampoline",
+      "title": "Up, Up, Soft Landing",
+      "family": "picture_game",
+      "area": "Trampoline Picture Game",
+      "brief": "Buoyant marimba jumps and pizzicato landings trace a predictable up-down arc; the beat stays spacious enough for touch timing and giggles.",
+      "cue_score_sha256": "fc3473b27678737aea9ce169e0f420ef0a7612810743f0d7b36ffb3ece09185a",
+      "path": "assets/audio/music/picture_trampoline.ogg",
+      "import_path": "assets/audio/music/picture_trampoline.ogg.import",
+      "tempo_bpm": 116,
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 12,
+      "tonic_midi": 60,
+      "mode": "major",
+      "texture": "bounce",
+      "percussion": "bubble",
+      "instruments": {
+        "lead": "marimba",
+        "harmony": "pizzicato",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "bounce_arc",
+      "progression": [
+        0,
+        3,
+        4,
+        0,
+        5,
+        3,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        5,
+        2,
+        0,
+        null,
+        3,
+        6,
+        3,
+        1,
+        4,
+        2
+      ],
+      "energy": 0.64,
+      "seed_namespace": "picture_trampoline",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 551876666,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 4
+      },
+      "sample_count": 1191724,
+      "duration_seconds": 24.827583,
+      "samples_per_beat": 24827.58333333,
+      "raw_seam": {
+        "boundary_jump": 9.69e-06,
+        "adjacent_p999": 0.04229874,
+        "jump_ratio": 0.00023
+      },
+      "development": {
+        "midpoint_bar": 6,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -0.82,
+      "peak_limited": false,
+      "pcm_peak": 14943,
+      "pcm_peak_dbfs": -6.82,
+      "pcm_rms_dbfs": -20.0787,
+      "pcm_loudness": {
+        "integrated_lufs": -17.99,
+        "true_peak_dbtp": -6.81,
+        "loudness_range_lu": 2.2,
+        "threshold_lufs": -27.99
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 285798,
+      "average_bitrate_bps": 92090,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Up, Up, Soft Landing",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "picture_trampoline",
+        "BPM": "116",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "4/4",
+        "LOOPSTART": "0",
+        "LOOPEND": "1191724",
+        "LOOPLENGTH": "1191724",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1191724,
+      "decoded_seam": {
+        "boundary_jump": 0.00149541,
+        "adjacent_p999": 0.03830073,
+        "jump_ratio": 0.03904
+      },
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -6.82,
+        "loudness_range_lu": 2.2,
+        "threshold_lufs": -27.98
+      },
+      "pcm_sha256": "985ad5f9a61c43c8ee43bc2b99f24752d40a56cc50c0cddeb7d22a2fd6b3b15e",
+      "sha256": "ea5f0c700c627642a26f2261a2238934b05f98114357df9a4a4d363901667a8a"
+    },
+    {
+      "id": "picture_xmas",
+      "title": "Cozy Winter Decorating",
+      "family": "picture_game",
+      "area": "Winter Decorating Picture Game",
+      "brief": "A non-religious cozy winter 6/8 with sleigh bells, celesta ornaments, and warm strings; it celebrates decorating, snowlight, and family togetherness.",
+      "cue_score_sha256": "df8d39adc88dc5bacf5bd41fbb4c082b0f2edd145d9d79aeb91ad9eea24b06e9",
+      "path": "assets/audio/music/picture_xmas.ogg",
+      "import_path": "assets/audio/music/picture_xmas.ogg.import",
+      "tempo_bpm": 84,
+      "meter": [
+        6,
+        8
+      ],
+      "bars": 8,
+      "tonic_midi": 67,
+      "mode": "major",
+      "texture": "lullaby",
+      "percussion": "sleigh",
+      "instruments": {
+        "lead": "celesta",
+        "harmony": "warm_strings",
+        "bass": "warm_bass",
+        "accent": "bell"
+      },
+      "motif_treatment": "winter_lights",
+      "progression": [
+        0,
+        3,
+        5,
+        4,
+        0,
+        1,
+        4,
+        0
+      ],
+      "melody": [
+        0,
+        2,
+        4,
+        5,
+        4,
+        2,
+        null,
+        1,
+        3,
+        5,
+        4,
+        2
+      ],
+      "energy": 0.32,
+      "seed_namespace": "picture_xmas",
+      "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
+      "ogg_stream_serial": 807641579,
+      "loop_import": {
+        "enabled": true,
+        "offset_seconds": 0.0,
+        "beat_count": 48,
+        "bar_beats": 6
+      },
+      "sample_count": 1645714,
+      "duration_seconds": 34.285708,
+      "samples_per_beat": 34285.70833333,
+      "raw_seam": {
+        "boundary_jump": 0.01405318,
+        "adjacent_p999": 0.10578602,
+        "jump_ratio": 0.13285
+      },
+      "development": {
+        "midpoint_bar": 4,
+        "changes": [
+          "progression_order",
+          "alternating_inversion",
+          "melody_rotation",
+          "answer_note_lifts",
+          "motif_instrument_and_register"
+        ]
+      },
+      "normalization_gain_db": -1.44,
+      "peak_limited": false,
+      "pcm_peak": 13914,
+      "pcm_peak_dbfs": -7.4397,
+      "pcm_rms_dbfs": -20.6383,
+      "pcm_loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -7.44,
+        "loudness_range_lu": 2.6,
+        "threshold_lufs": -28.01
+      },
+      "codec": "vorbis",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "file_bytes": 418642,
+      "average_bitrate_bps": 97683,
+      "tags": {
+        "ENCODER": "Lavc libvorbis",
+        "TITLE": "Cozy Winter Decorating",
+        "ARTIST": "Mermaid Roshan",
+        "ALBUM": "Reef of Light Area Music",
+        "CUE_ID": "picture_xmas",
+        "BPM": "84",
+        "BPM_UNIT": "notated_denominator",
+        "METER": "6/8",
+        "LOOPSTART": "0",
+        "LOOPEND": "1645714",
+        "LOOPLENGTH": "1645714",
+        "LICENSE": "Project-owned original composition and synthesis",
+        "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
+      },
+      "decoded_sample_count": 1645714,
+      "decoded_seam": {
+        "boundary_jump": 0.01208533,
+        "adjacent_p999": 0.06091494,
+        "jump_ratio": 0.1984
+      },
+      "loudness": {
+        "integrated_lufs": -18.01,
+        "true_peak_dbtp": -7.38,
+        "loudness_range_lu": 2.6,
+        "threshold_lufs": -28.01
+      },
+      "pcm_sha256": "285abac65daf64d824ddd60d3444f2087c9a93084b724f9a082a13685f3123fe",
+      "sha256": "e14b07a5200ff279d3cb912b9ea42636b478d151fd0c7f4192e6977f23938010"
+    }
+  ]
+}
