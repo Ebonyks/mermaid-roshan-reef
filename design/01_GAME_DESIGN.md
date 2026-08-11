@@ -4,7 +4,8 @@ _Consolidated 2026-08-02 and authority-reconciled 2026-08-09 from AUDIT_3_0, DES
 GAME_AUDIT_v3_49, AUDIT_REPAIR, AUDIT_UPGRADE, GAME_REDESIGN_2P5D_2026-07-27,
 WORLD_MAP_2026-07-27, MINIGAME_ENGINES, MEDALS, STUFFIE_COMPANIONS,
 DUNGEON_DIFFICULTY_AUDIT, the eleven-document Opera chain, FABLE_INTERACTION
-_HANDOFF_2026-07-25 and TOUCH_CENTRIC_REVERSIBLE_HANDOFF_2026-07-25._
+_HANDOFF_2026-07-25, TOUCH_CENTRIC_REVERSIBLE_HANDOFF_2026-07-25, and the
+2026-08-09 Ballerina, Boxer, Opera-quality and music reconciliations._
 
 ---
 
@@ -117,10 +118,11 @@ no-fail behavior; archive retired 3D resources; run focused, passive,
 teardown, re-entry, save/load, sibling and full-suite tests. Delete a legacy
 resource only after its replacement or non-reachability proof is green.
 
-At the synchronized committed snapshot, the exact GAME2D inventory remains
-513 model files and 70 production 3D files and is **`UNSATISFIED`**. The old
-zone table is preserved in `GAME_REDESIGN_2P5D_2026-07-27.md` as history; it
-is not a current implementation queue.
+At the synchronized merged working-tree snapshot, the exact GAME2D inventory
+remains 509 model/export files, 68 production 3D files and 77 probe 3D files
+and is **`UNSATISFIED`**. The old zone table is preserved in
+`GAME_REDESIGN_2P5D_2026-07-27.md` as history; it is not a current
+implementation queue.
 
 ### Geography — the world line (PROPOSAL, unapproved)
 
@@ -154,9 +156,9 @@ inventory/debt, never authorization to preserve or extend 3D.
 | Mode | Verb | Current family / final presentation |
 |---|---|---|
 | Fetch (Chuck) | timed aim + throw | legacy arena → Canvas/Node2D |
-| Dolls / catch babies | catch fallers | legacy stage → Canvas/Node2D |
+| Dolls / catch babies | one-finger press/drag catch | bounded Canvas/Node2D activity |
 | Toy-castle brawler (co-op) | move + bop | legacy stage → Canvas/Node2D |
-| Seek (Lamb-a') | hide & seek | legacy arena → Canvas/Node2D |
+| Seek (Lamb-a') | hide & seek with animated clues/reveal | fourteen-node Canvas meadow with animated Evie/Lamb-a' actors |
 | Treasure | checkpoint chain | legacy arena/course → Canvas/Node2D |
 | Melody | collect 7 orbs | legacy theater → Canvas/Node2D |
 | Shop | browse / buy | legacy cabin → Canvas/Control |
@@ -171,39 +173,73 @@ inventory/debt, never authorization to preserve or extend 3D.
 | Dance | tap lanes on beat | Canvas/Control |
 | Critter collection | approach + catch | 2D world cards |
 | Stuffie battle | one-button attack + DODGE QTE | legacy arena → Canvas/Node2D |
-| Opera careers ×13 | five-beat job performance | `OperaCareerWorld2D` / Canvas |
+| Opera careers ×13 | 53 career-specific phases across 27 shipping modes | `OperaCareerWorld2D` / Canvas specialist surfaces |
 
 ### The Pearl Opera — the largest wing
 
-Thirteen careers, each a self-contained two-minute performance. Architecture
-authority: `OPERA_CAREER_COMPETITION_SYSTEM_2026-07-29.md`; structure
-authority: `OPERA_2D_REBUILD_2026-08-01.md`; interaction authority:
-`OPERA_STAGE_INTERACTION_2026-08-02.md`.
+Thirteen careers, 53 shipping phases and 27 unique shipping modes form a set
+of short, career-specific performances.
+`OPERA_CAREER_COMPETITION_SYSTEM_2026-07-29.md`,
+`OPERA_2D_REBUILD_2026-08-01.md`, and
+`OPERA_STAGE_INTERACTION_2026-08-02.md` still define the shared Canvas shell.
+The later `BALLERINA_PARTY_REBUILD_2026-08-09.md` and
+`design/BOXING_GAME_PROJECT_2026-08-09.md` are binding specialist overrides.
+`OPERA_QUALITY_OVERHAUL_2026-08-09.md` and
+`OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md` support the remaining career-
+specific quality work, but their dated 52-phase count and their superseded
+Ballerina, Boxer, or real-kart prescriptions are not current authority.
 
 - Entry opens a **native 2D lobby** (`OperaLobby2D`) — three floor tabs,
   picture-first job cards, star progress, spoken hints. No 3D lobby, avatar,
   camera or lift is built in normal play.
 - Selecting a job instantiates `OperaCareerWorld2D` over the career's
-  **painted world**. The paintings are not backdrops — they **are** the
-  stages: each carries a walkable route of normalized waypoints tracing the
-  painted walkways, 4–5 task stations anchored to real painted landmarks, and
-  8 magnifier clue spots (`opera_stage_paths.gd`).
-- **Every career runs the same five-beat arc:** short imp scuffle (~10 s) →
-  learn the job, one gentle verb (~8 s) → do the job, 2–3 distinct verbs, no
-  verb repeated (~30 s) → big scuffle, the imp captain steals the career's
-  goal prop (~15 s) → stage finale, the dressed rival enters, winning wins the
-  prop back (~35 s).
-- **The rival stays hidden until the finale.** Score bars, timer and rival
-  movement are paused and invisible for the first four beats. The finale is
-  normalized to the last 2 phases (~30 %) of every act.
-- **Combat is kid-safe.** Imps are friendly mischief; taps anywhere fizzle
-  sparkles and still trickle progress; nothing can be lost. The captain's two
-  bops are reserved so he can never be mashed past.
+  **painted world**. The paintings are not decorative backdrops — they **are**
+  the stages. Default career routes use normalized painted-walkway waypoints,
+  task stations anchored to real landmarks, and magnifier clue spots
+  (`opera_stage_paths.gd`). Full-stage specialists such as Ballerina and Boxer
+  intentionally bypass station wandering without bypassing the Canvas stage.
+- **The career owns the verb.** The earlier universal five-beat template is no
+  longer a requirement. Shared routing, rewards, assistance and curtain-call
+  ownership survive, but generic `bop` filler does not: the current table has
+  zero generic `bop` phases.
+- **Ballerina is a three-act full-stage recital:** Pearl Mirror watch-and-
+  match, Ribbon Trail pearl guidance, and Grand Twirl around the shell music
+  box. It has no station wandering, rival score, imp fight, generic task card,
+  or looping four-cell pose row. Progress is monotonic; held pose keys and a
+  one-shot curtain call preserve readable mermaid anatomy.
+- **Boxer is a five-phase padded touch game:** Glove Guide, Jab Practice, Soft
+  Guard, Title Imp, and Belt. It is completable with one finger, has no health,
+  damage, fail state, lost combo, or lost progress, and uses its dedicated
+  Canvas boxing surface rather than a generic combat engine.
+- **Racer is a three-phase true-Canvas act:** Tune, To the Line, and a child-
+  driven racing-circle finale using the exact `op_racer_lap_two` cue. The
+  rejected device-only 3D kart route is superseded; headless and device builds
+  must run the same Canvas implementation.
+- **Competition is scoped, not assumed.** Where a career retains a rival or
+  finale meter, it stays hidden until its declared finale and cannot create a
+  loss. Friendly contact is harmless; zero input never earns progress.
 - **Nursery Nurse (job 13) is cooperative,** not competitive: Nurse Faron is a
   visible partner from the first beat, never framed as an opponent.
 - Completing a performance yields Warm Cheers / Big Cheers / Standing Ovation
   by pace, accuracy and guided retries. Every completed career earns its star
   regardless.
+
+### Music and spoken guidance
+
+`MUSIC_AUDIT_2026-08-09.md` is the binding music-domain authority. Every
+meaningful room, world or self-contained activity should sound like itself,
+while remaining part of one gentle storybook score. The current catalog adds
+42 deterministic area cues to 15 legacy music-directory files; 14 legacy
+files are score and `banjo.ogg` is an SFX. Hard cuts are the current child-
+readable transition language, and intentional minigame reuse is allowed only
+when the activity is genuinely the same musical idea and restores its caller.
+
+Music supports family voice, never competes with it: objective VO and a visual
+cue still carry the non-reader contract, music ducks while a family
+voice speaks, and music-off remains absolute. Composition/render/hash/loop and
+routing checks are green in the merged work, but two-wrap listening, voice
+intelligibility, mono fold-down and Lenovo Tab M11 start/loop/mix review remain
+open. No machine metric pre-certifies those human or device judgments.
 
 ### The stuffed-friend companions
 
@@ -233,7 +269,7 @@ assets, symbols, names, UI or music, ever.
 | Activity class | Standard | Source |
 |---|---|---|
 | Opera career act | ~2 minutes of real play; advisory sim band 70–150 s median | OPERA_2D_REBUILD_2026-08-01 |
-| Opera act beats | 3–4 distinct beats with **different verbs**; no verb twice in one act | OPERA_ACT_REDESIGN_2026-07-25 |
+| Opera phase set | 3–5 career-specific beats with distinct causal verbs; no generic combat filler | Current 53-phase table plus binding specialist documents |
 | Arena minigame | enterable → winnable → exitable in a few minutes | AUDIT_REPAIR |
 | Any objective | voiced within ~2 s of becoming active, pointer visible | hard rule |
 
@@ -314,6 +350,8 @@ controls; an older work order is never implementation authority by itself.
   `world_style` return-to-3D work, the old promenade pilot/order as a repair
   item, Meshy/Blender/model migration, 3D Opera bosses/companions/worlds, and
   landed-model retention. These remain dated history, not paused work.
-- **Targeted polish:** slide-racer feel or kart parity may be considered only
-  as a bounded current-mode defect with evidence; the old work orders do not
-  authorize feature expansion or 3D implementation.
+- **Targeted polish:** legacy slide/kart feel outside the Opera may be
+  considered only as a bounded current-mode defect with evidence. Opera Racer
+  is already a Canvas circle activity; "parity" cannot restore its rejected
+  device-only 3D kart branch. Old work orders never authorize feature
+  expansion or 3D implementation.

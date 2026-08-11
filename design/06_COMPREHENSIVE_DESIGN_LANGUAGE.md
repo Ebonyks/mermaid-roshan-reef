@@ -7,7 +7,11 @@
 - **Decision baseline:** owner direction through 2026-08-09
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
-- **Last synchronized audit commit:** `a3d3bce18dd73d0ac87f2fb4bac397e2b4396180`
+- **Current integration snapshot:** audit `HEAD`
+  `7b5d1209b4c4823fbf9ed39193c8b1700a288497` plus `MERGE_HEAD`
+  `245c16137fae82271dabac456d5ab04d843463a8`; final merge commit pending
+- **Last completed full local checkpoint:**
+  `a3d3bce18dd73d0ac87f2fb4bac397e2b4396180`
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
@@ -16,7 +20,9 @@
 This document consolidates the durable rules from the existing master design
 documents, `ART_STYLE_GUIDE.md`, `LIVING_CARD_DESIGN_LANGUAGE_2026-07-29.md`,
 `AUDIT_UPGRADE.md`, the touch/combat/menu/castle/Opera audits, the visual-audit
-contract, and the owner's final 2026-08-09 game-wide true-2D decision.
+contract, `BALLERINA_PARTY_REBUILD_2026-08-09.md`,
+`MUSIC_AUDIT_2026-08-09.md`, the current Boxer specialist brief, and the
+owner's final 2026-08-09 game-wide true-2D decision.
 
 It is intentionally a rulebook, not a claim that the current build already
 meets every rule. Current compliance, exceptions, dismissed audit items, and
@@ -24,22 +30,34 @@ closure evidence live in `audit/MASTER_AUDIT_2026-08-09.md`.
 
 Commit `9289dd81` reconciled `AGENTS.md`, `CLAUDE.md`, `design/00` through
 `design/05`, and the named Roshan authority surface to the owner's final 2D
-decision. The ledger is still incomplete across the current 299 tracked
+decision. The ledger is still incomplete across the current 306 tracked
 Markdown files, so a direct owner decision and binding operational/security
 rules remain higher authority. Where an older art or design document conflicts
 with a rule here, the dated supersession table in section 15 controls.
 
-At synchronized code commit `a3d3bce1`, this remains an acceptance target, not
-a compliance claim. Exact local full CI is green after 1434.3 seconds with
-fresh import, all static gates, GAME2D `NO_REGRESSION`, and all 61 trusted
-probes under Godot 4.7.1-stable. Repeated nonfatal invalid-UID fallback warnings
-for the retained `sponge_tubes.glb` and `starfish.glb` resources remain open 3D
-migration/resource-hygiene debt, so the run is not warning-free or
-release-clean. GAME2D is exact but strict-unsatisfied at 509 models, 68
-production 3D files, and 77 probe 3D files. Fresh-runtime visual strict is also
-unsatisfied at 16 failures, 17 reviews, two manual items, and 86 coverage gaps;
-no live Canvas capture output was accepted. Commits `3b7a7e66` and `fea916a8`
-are the approved visual-evidence implementation baseline for `DL-QA-11`.
+At the staged `7b5d1209` + `245c1613` integration, this remains an acceptance
+target, not a compliance claim. Historical exact local full CI is green at
+`a3d3bce1`; the current integration has exact Godot 4.7.1 import/editor startup,
+changed-script parser/lint, GAME2D unit/stress/regression, deterministic Opera
+art/animation/music gates, and focused Opera/audio/passive/voice probes green.
+The resolved merged tree also completes full local `scripts/ci.sh` in 826.4
+seconds with all 63 current trusted probes, but has no final merge SHA or remote
+exact-head run yet. GAME2D is
+exact but strict-unsatisfied at 509 models, 68 production 3D files, and 77 probe
+3D files. Fresh-runtime visual strict is also unsatisfied at 16 failures, 17
+reviews, two manual items, 86 coverage gaps, 32 passes, and 94 not-applicable
+checks; no live Canvas capture output was accepted. The earlier GLB UID warnings
+are diagnosed as stale ignored local import cache, while the GLBs remain
+separate GAME2D debt. Commits `3b7a7e66` and `fea916a8` are the approved
+visual-evidence implementation baseline for `DL-QA-11`.
+
+The current Opera shipping snapshot is 13 careers, 53 phases, 27 distinct
+modes, zero generic `bop` phases, and 208 reviewed Roshan costume frames. That
+snapshot includes the dedicated three-act Ballerina recital, the five-phase
+two-glove Boxer specialist, the phone-safe Candymaker pour, and one true-Canvas
+Racer implementation. The 42-cue deterministic area-music rollout has complete
+machine evidence; human listening, mono/voice review, and Lenovo Tab M11
+acceptance remain open.
 
 ---
 
@@ -79,6 +97,12 @@ dismissed, or fixed. Closing a finding does not erase why it existed.
 
 `DL-AUTH-03` — Severity, lifecycle state, and verification level are separate.
 A severe finding can be superseded; a low-severity fix can remain unverified.
+
+`DL-AUTH-04` — When a broad audit and a later, narrower accepted implementation
+record conflict, the later domain record controls only its named scope. Preserve
+the broad document's non-conflicting provenance and findings, but label stale
+counts, mechanics, playback assumptions, or resource recommendations as
+partially superseded; never average the two into an invented requirement.
 
 ---
 
@@ -126,8 +150,10 @@ Gameplay uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`, `TextureRect`,
 2D draw/z ordering. A flat image mounted on a 3D node is migration debt, not a
 finished 2D implementation.
 
-`DL-MED-02` — Mermaid Roshan's only approved final representation is the RGBA
-atlas/cutout family under `assets/characters/roshan_25d/`, staged through
+`DL-MED-02` — Mermaid Roshan's approved final representation is a
+provenance-locked, audit-accepted RGBA atlas/cutout family: the base-world art
+under `assets/characters/roshan_25d/` plus accepted career-specific atlases
+under `assets/opera/worlds/actors/animation/`. Every instance is staged through
 `Node2D`/`Sprite2D` and explicit 2D ordering. The current player still contains
 legacy `Node3D`/`Sprite3D` staging, which is measured migration debt rather than
 evidence that this target is complete. Her final animation, costumes, contact,
@@ -232,6 +258,14 @@ bushes, and other environment art in the same activity meet the surrounding
 game's silhouette, contour, value, and phone-readability quality; preview drafts
 do not become production merely because they are already imported.
 
+`DL-VIS-10` — A saved child-authored identity mark appears on every explicitly
+registered copy of the design it claims to replace, and nowhere else. Castle
+logo overlays therefore replace both purple shell banners in the Craft Room and
+both in the Stuffie Playroom, preserve the Craft board badge, share the saved
+color/symbol, ignore input, and stay absent from rooms with no registered
+banner. A decorative duplicate cannot keep the old generic mark beside the
+child's chosen one.
+
 ---
 
 ## 5. Composition and child-readable hierarchy
@@ -330,6 +364,41 @@ unrecoverable.
 `DL-INT-06` — A demonstration may show a verb but MUST NOT collect, score,
 damage, solve, or cross the final completion threshold.
 
+`DL-INT-07` — The current Pearl Opera contract is 13 careers, 53 shipping
+phases, and 27 distinct modes with no generic `bop` phase. Shared one-finger
+motor primitives may repeat, but each career's visible object and signature
+engine MUST express that job. A count change is a design change that requires
+updated routing, voice, passive, teardown, save, capture, and document evidence;
+an older 52-phase/19-mode table is not a fallback.
+
+`DL-INT-08` — Ballerina is the full-stage three-act recital: Pearl Mirror asks
+the child to watch one held mermaid pose and choose its matching large portrait;
+Ribbon Trail paints, demonstrates, and tests one identical luminous curve; Grand
+Twirl accepts either starting direction around the shell music box and then
+banks monotonic progress in that direction. It is not a race, combat encounter,
+generic task card, or restored PHRASE/POSE/RIBBON/TWIRL reskin. Five- and
+ten-second assistance re-demonstrates or widens only the unresolved action and
+MUST NOT pay progress.
+
+`DL-INT-09` — Boxer is one full-stage five-phase two-glove specialist: Glove
+Guide, Jab Practice, Soft Guard, Title Imp, and Belt. Separate touch indices may
+own separate gloves, but simultaneous two-finger play is optional; one finger
+MUST complete every phase sequentially. Touch ownership stays stable until
+release and clears on phase change, focus loss, close, and teardown. There is no
+health, life, damage score, lost progress, knockout, fail screen, required
+reaction time, or generic combat-layer payout.
+
+`DL-INT-10` — Opera Racer remains inside the true-Canvas career world for TUNE,
+TO THE LINE, and RACE. RACE uses the large painted circle/steering grammar and
+exact `op_racer_lap_two` cue. It MUST NOT launch an external 3D kart, select a
+different device-only implementation, or give probes a simpler Canvas bypass.
+
+`DL-INT-11` — Candymaker SYRUP uses one complete phone-legible mold and one
+generous pitcher grab region. The painted left spout, transformed stream origin,
+landing target, fill, and accepted hit geometry derive from the same measured
+anchors. A visible pour cannot enter a non-paying dead zone, completion cannot
+occur below the brim, and progress remains child-controlled and monotonic.
+
 ---
 
 ## 8. Touch and interface grammar
@@ -396,6 +465,21 @@ not a fully animated character replacement. Hide/peek/reveal sequences also
 MUST preserve opacity and framing so an actor cannot leak or clip before the
 authored reveal.
 
+`DL-MOT-08` — The current 13 Opera career atlases contain 208 reviewed runtime
+cells. `tools/audit_opera_roshan_animation.py` is a blocking source/pack/runtime
+hash, alpha-padding, duplicate-frame, identity, costume, one-tail anatomy, and
+human-semantic-review gate. A green atlas audit proves those recorded facts; it
+does not replace in-context capture, target-device, child, or owner review.
+
+`DL-MOT-09` — Ballerina's current accepted runtime atlas is
+`assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png`, SHA-256
+`c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995`.
+Its cells are pose keys, not ordinary temporal in-betweens: audited neighboring
+silhouette jumps of 41.6–47.3% make row looping a visible pose snap. Runtime
+therefore holds the required low/heart, open/second, or crown/fifth pose and
+plays only the authored curtain call once, holding its final frame. Earlier
+leg-, foot-, streamer-, extra-tail-, or crop-like candidates remain rejected.
+
 ---
 
 ## 10. Voice, music, and non-reader communication
@@ -417,6 +501,35 @@ transition sounds have consistent loudness and meaning across activities.
 `DL-SND-05` — Protected family recordings under `assets/audio/voices/` are
 irreplaceable. Do not modify, recompress destructively, or substitute them
 without explicit owner authorization.
+
+`DL-SND-06` — The current music inventory is 42 new deterministic area cues
+plus 15 legacy directory files: 56 score assets in total and `banjo.ogg` as an
+SFX, not score. `assets_src/audio/music/area_music_scores.json` owns the new
+declarative compositions; `assets/audio/music/area_music_manifest.json` owns
+their rendered hashes and measurements; `ASSET_LICENSES.md` owns provenance.
+The new cues are project-original synthesis with no samples, soundfonts,
+downloaded audio, or protected recordings.
+
+`DL-SND-07` — Every new area cue is an Ogg Vorbis, 48 kHz stereo, integer-bar
+24–40-second loop at managed 96 kbps within the allowed 80–128 kbps range. It
+carries exact-sample loop, BPM, meter, beat, and cue metadata, measures from
+−18.5 to −17.5 LUFS-I and no higher than −3.0 dBTP, and reproduces through
+`tools/build_area_music.py --check`. Legacy exceptions are retained masters,
+not permission to lower the new-asset standard.
+
+`DL-SND-08` — A room or self-contained activity owns a named cue; a temporary
+owner captures and restores the exact caller cue on success, cancel, Back,
+pause-leave, and delayed close. A stale callback cannot overwrite newer music.
+A missing file changes neither the audible stream nor restorable track state,
+and requesting an already active cue does not restart it. Opera Racer has no
+nested kart owner in the current Canvas implementation, so the older temporary
+`race`-cue routing note is superseded for that career.
+
+`DL-SND-09` — Machine hashes, loudness, codec, loop tags, seam metrics, and
+routing probes do not grant subjective audio acceptance. Every new cue still
+requires human style and two-wrap listening, voice-over/ducking intelligibility,
+music-off persistence, mono fold-down, and Lenovo Tab M11 start/loop/performance
+review. No score identity may rely only on stereo width or mask a family voice.
 
 ---
 
@@ -605,6 +718,12 @@ These states prevent an old recommendation from silently becoming a new bug.
 | Use Seek's vinyl `characters/stickers/pearl_friend.png` pair card or `assets/mg/k_bush2.png` preview art in place of the accepted animated activity | **SUPERSEDED for Seek** | `DL-VIS-09` and `DL-MOT-07`; `8fa90111`/`27bda85d` provide the accepted animated Evie/Lamb-a' actors and high-grade tree cards. Protected/reference originals remain untouched and are not globally reclassified by this bounded runtime decision. |
 | Build new 3D construction before or after approved 2D direction | **DISMISSED_NOT_IN_PROJECT** | Final 2D medium; migration work only removes measured debt |
 | 3D Opera, companion, path, or `Curve3D` presentation as a retained fallback | **SUPERSEDED** | The 3D prescriptions are superseded; any currently reachable companion/path/Opera implementation remains measured migration debt until a tested 2D replacement owns it |
+| Old generic Ballerina PHRASE/POSE/RIBBON/TWIRL route, looped chronological-atlas premise, or earlier leg/feet-like atlas candidate | **SUPERSEDED** | Current authority is Pearl Mirror/Ribbon Trail/Grand Twirl with held pose keys and one-shot curtain call under `DL-INT-08` and `DL-MOT-09`; earlier leg/feet-like candidates remain rejected evidence, and the accepted runtime hash is `c829784d…003995` |
+| Nested or device-only real-3D Opera kart with a Canvas-only headless/probe path | **SUPERSEDED** | Racer is one true-Canvas circle implementation everywhere under `DL-INT-10`; no external kart child or device/headless medium split |
+| Boxer GLBs retained as useful resources for the rebuilt career | **SUPERSEDED** | `opera_boxer_outfit.glb`, `opera_boxer_dressing.glb`, and `opera_rival_boxer.glb` are not required by the Canvas specialist and remain exact archive/removal debt under `DL-MED-03`, `DL-MED-04`, and `DL-MED-08`. `opera_rival_boxer_match.png` remains valid 2D identity/source art despite the source heading; any legacy `Sprite3D` consumer is callsite debt, not a defect in the PNG. |
+| `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md`'s 52-phase count and old Ballerina/Boxer/kart sections | **SUPERSEDED in named scopes; remainder supporting** | Preserve non-conflicting prop provenance and repairs; current shipping authority is 13 careers/53 phases/27 modes plus the later specialist records |
+| `OPERA_QUALITY_OVERHAUL_2026-08-09.md`'s 52-phase/19-mode/single-`bop` snapshot and universal chronological-loop claim | **SUPERSEDED in named scopes; remainder supporting** | Preserve its 208-frame audit rationale and non-conflicting fixes; current Opera has no generic `bop`, and Ballerina follows the held-pose exception |
+| Music audit's temporary `race` cue for an Opera nested kart | **SUPERSEDED for current Racer** | Current Canvas Racer remains under its Opera career cue; the other 42-cue composition, delivery, and routing rules remain current |
 | Cinematic tween/morph/interpolation shortcuts or portrait/rotated delivery | **DISMISSED_NOT_IN_PROJECT** | `DL-CIN-01` through `DL-CIN-12` |
 | Repack Roshan into a smaller runtime atlas during the migration audit | **DEFERRED_WITH_REASON** | It may be a later measured optimization; it is not required to prove true 2D and must not risk protected pixels or identity |
 | Add bone-driven or per-costume runtime costume layers to replace the current atlas | **DISMISSED_NOT_A_DEFECT** | The owner chose the approved 2D atlas family; absent costume layering is not a current bug |
@@ -695,6 +814,20 @@ evidence. Active 3D or unresolved dynamic/native reachability is `FAIL` or
 `COVERAGE_GAP`, never accepted Canvas evidence. Any absent/invalid challenge,
 capture, adapter, source binding, or target proof fails closed, and every such
 gap blocks strict satisfaction.
+
+`DL-QA-12` — Opera integration acceptance binds the shipping 13-career,
+53-phase, 27-mode table to deterministic minigame-art, 208-frame animation,
+focused interaction/passive/voice/teardown probes, the complete trusted suite,
+Mobile captures at two supported aspects, target-device touch/performance, an
+observed child session, and owner art/identity review. A focused green specialist
+probe moves Ballerina or Boxer only to `FIXED_PENDING_VERIFICATION`; it cannot
+silently close capture, device, child, owner, or retained-3D debt.
+
+`DL-QA-13` — Area-music acceptance separates deterministic build evidence from
+listening evidence. All 42 new cues must keep exact source/render/import hashes
+and route coverage green, and all must pass the human two-wrap, voice/ducking,
+music-off, mono, and Lenovo Tab M11 checks in `DL-SND-09`. A complete manifest
+or branch CI result cannot fill an unperformed listen.
 
 ---
 

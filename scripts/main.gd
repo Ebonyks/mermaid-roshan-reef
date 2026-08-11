@@ -204,6 +204,7 @@ var combat_tutorial_done := false  # the Royal Hall sparring class, finished onc
 var combat_game: CombatArena = null
 var combat_tutorial_game: CombatTutorial = null
 var combat_from := ""
+var combat_prev_track := ""
 # ---- STUFFED-FRIEND COMPANION (Pokemon-style wing): mutable state stays here;
 # ---- CompanionSystem (scripts/companion.gd) owns the logic, StuffieBattle
 # ---- (scripts/stuffie_battle.gd) owns the sparring arena ----
@@ -294,8 +295,10 @@ var companion_action_prev := false
 var companion_p2 := false                 # true while a pad holds R1 — P2 steers the stuffie
 var stuffie_game: StuffieBattle = null
 var stuffie_from := ""
+var stuffie_prev_track := ""
 var stuffie_cool := 0.0
 var dungeon_game: DungeonLevel = null
+var dungeon_prev_track := ""
 var dungeon_progress := 0          # cleared rooms, 0..10; next visit resumes here
 var dungeon_done := false
 var ember_game: Node = null        # the Ember Fortress (scripts/ember_fortress.gd)
@@ -680,6 +683,23 @@ func _refresh_joy_mapped() -> void:
 			joy_has_unmapped = true
 
 func _input(ev: InputEvent) -> void:
+	# Story exchanges advance on the next deliberate press and consume that
+	# press, so skipping a witness line never also scores the task underneath.
+	var dialogue_press := false
+	if ev is InputEventScreenTouch:
+		dialogue_press = (ev as InputEventScreenTouch).pressed
+	elif ev is InputEventMouseButton:
+		var mouse_event := ev as InputEventMouseButton
+		dialogue_press = mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT \
+			and mouse_event.device != InputEvent.DEVICE_ID_EMULATION
+	elif ev is InputEventJoypadButton:
+		dialogue_press = (ev as InputEventJoypadButton).pressed
+	elif ev is InputEventKey:
+		var key_event := ev as InputEventKey
+		dialogue_press = key_event.pressed and not key_event.echo
+	if game == "opera" and dialogue_press and skip_dialogue():
+		get_viewport().set_input_as_handled()
+		return
 	_living_world_ref().note_input(ev)
 	# record raw joypad events: unmapped pads never show up through the polled
 	# Input.get_joy_axis / is_joy_button_pressed API, but they DO send events
@@ -2660,6 +2680,7 @@ func _start_galaxy_now() -> void:
 		galaxy_unlocked = true
 		_write_save()
 	game = "galaxy"
+	_play_music("galaxy")
 	hud_game.text = ""
 	player.visible = false   # the galaxy has its own avatar
 	galaxy_game = GalaxyLevel.new()
@@ -2717,6 +2738,8 @@ func _start_combat(battle_kind: String) -> void:
 		return
 	_prepare_touch_transition()
 	combat_from = game
+	combat_prev_track = cur_track
+	_play_music("combat_" + battle_kind)
 	game = "combat"
 	_populate_touch_interactables()
 	if hud_layer != null:
@@ -2760,6 +2783,8 @@ func _end_combat(battle_kind: String) -> void:
 			player.position = toilet_pos + Vector3(5.5, 1.0, 0)
 			player.vel = Vector3.ZERO
 		player.snap_cam()   # resume the chase lens in place, no cross-world swoop
+	_play_music(combat_prev_track if combat_prev_track != "" else "world")
+	combat_prev_track = ""
 	combat_from = ""
 
 func _start_stuffie_battle() -> void:
@@ -2777,6 +2802,8 @@ func _start_stuffie_battle() -> void:
 			break
 		ladder_index = (int(stuffie_wins.get("_replays", 0)) + i + 1) % StuffieBattle.LADDER.size()
 	stuffie_from = game
+	stuffie_prev_track = cur_track
+	_play_music("stuffie_battle")
 	game = "stuffie"
 	if hud_layer != null:
 		hud_layer.visible = false
@@ -2809,6 +2836,8 @@ func _end_stuffie_battle(round_tag: String) -> void:
 		_update_hud()
 	game = stuffie_from
 	stuffie_from = ""
+	_play_music(stuffie_prev_track if stuffie_prev_track != "" else "world")
+	stuffie_prev_track = ""
 	stuffie_cool = 12.0
 	player.visible = true
 	if player.cam != null:
@@ -2828,6 +2857,8 @@ func _start_dungeon_now() -> void:
 	# optional overworld encounters here made a fresh save impossible to progress.
 	if dungeon_game != null:
 		return
+	dungeon_prev_track = cur_track
+	_play_music("dungeon_ice")
 	game = "dungeon"
 	if hud_layer != null:
 		hud_layer.visible = false
@@ -2850,6 +2881,8 @@ func _end_dungeon(completed: bool) -> void:
 		player.vel = Vector3.ZERO
 		gate["armed"] = false
 	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
+	_play_music(dungeon_prev_track if dungeon_prev_track != "" else "northern")
+	dungeon_prev_track = ""
 	show_msg("Roshan", "Ten-room dungeon complete!" if completed else "Checkpoint safe — come back whenever you want!", "win" if completed else "home")
 
 func _ember_open() -> bool:
@@ -2876,7 +2909,7 @@ func _start_ember() -> void:
 	game = "ember"
 	hud_game.text = ""
 	player.visible = false   # the fortress has its own avatar
-	_play_music("castle_open")
+	_play_music("ember")
 	ember_game = EmberFortressLevel.new()
 	add_child(ember_game)
 	(ember_game as EmberFortressLevel).start(self, Callable(self, "_end_ember"))
@@ -2915,6 +2948,8 @@ func _start_ember_dungeon() -> void:
 	# the five lanterns that opened the gate.
 	if dungeon_game != null or ember_game == null:
 		return
+	dungeon_prev_track = cur_track
+	_play_music("dungeon_ember")
 	game = "emberdun"
 	var ember_level := ember_game as EmberFortressLevel
 	ember_level.visible = false
@@ -2927,6 +2962,8 @@ func _start_ember_dungeon() -> void:
 func _end_ember_dungeon(completed: bool) -> void:
 	dungeon_game = null
 	game = "ember"
+	_play_music(dungeon_prev_track if dungeon_prev_track != "" else "ember")
+	dungeon_prev_track = ""
 	if completed:
 		award_sticker("volcano")
 	if ember_game != null:
@@ -4236,7 +4273,7 @@ func _enter_northern_kingdom_now() -> void:
 	fade_walls.clear()
 	lagoon_floor = false
 	northern_floor = true
-	_play_music("level2")
+	_play_music("northern")
 	arena_center = NORTHERN_POS
 	arena_dome = 430.0   # the redesigned kingdom is a LONG strip, not a disc
 	# Low sky: Roshan can hop over the canopy but not helicopter above the
@@ -5368,12 +5405,29 @@ func _castle_rooms_ref() -> CastleRooms25D:
 		_castle_rooms_25d = CastleRooms25D.new(self)
 	return _castle_rooms_25d
 
+func _castle_room_music_track(room_id: String) -> String:
+	# CastleRooms25D is protected by a hash-backed visual approval ledger, so
+	# its soundtrack follows the room-state naming contract from this owner.
+	return "hall" if room_id == "main_hall" else "castle_" + room_id
+
+func _sync_castle_room_music() -> void:
+	# Suspended Castle cutaways hide the layer; picture games set mg_kind. Both
+	# own their temporary cue and must be allowed to restore it before the live
+	# room resumes soundtrack ownership.
+	if castle_room_layer == null or not is_instance_valid(castle_room_layer) \
+			or not castle_room_layer.visible or mg_kind != "":
+		return
+	var room_track: String = _castle_room_music_track(castle_room_id)
+	if cur_track != room_track:
+		_play_music(room_track)
+
 func _tick_castle_rooms(delta: float) -> void:
 	# Phase "hall" now means the sprite-card castle exclusively. If an
 	# activity teardown returned without resuming its overlay, restore it here
 	# instead of falling back to the retired free-roaming 3D hall.
 	if not _castle_rooms_ref().is_open():
 		_castle_rooms_ref().open("main_hall")
+	_sync_castle_room_music()
 	_castle_rooms_ref().tick(delta)
 
 func _seg_box(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3) -> bool:

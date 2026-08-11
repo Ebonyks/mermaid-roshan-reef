@@ -24,6 +24,7 @@
 | assets/audio/voices/chuck_whimper.ogg | original numpy synthesis | project original | — | -16 LUFS |
 | assets/audio/music/world, world_night, level2, hall, home (.ogg) | Juhani Junkala JRPG Packs 1/2/4 | **CC0** | opengameart.org/content/jrpg-pack-1-exploration (+pack-2-towns, +pack-4-calm) | -18 LUFS loudnorm |
 | assets/audio/music/* (finale + minigame stingers) | synthesized for this project | project original | — | — |
+| assets/audio/music/castle_{opera_hall,kitchen,library,playroom,craft_room,mermaid_pool,bubble_bath,dining_room,royal_bedroom,sleepover_bedroom,movie_lounge,family_gallery}.ogg; assets/audio/music/opera_*.ogg; assets/audio/music/{northern,galaxy,ember,dungeon_ice,dungeon_ember,combat_ice,combat_fire,combat_tutorial,stuffie_battle,picture_snowman,picture_garden,picture_trampoline,picture_xmas}.ogg | `assets_src/audio/music/area_music_scores.json` + deterministic project renderer `tools/build_area_music.py`; provenance in `assets/audio/music/area_music_manifest.json` | **project-owned original composition and synthesis** | — | 42 unique 24–40 s integer-bar loops; 48 kHz stereo; -18 LUFS; managed Vorbis 96k target / 80k floor; sample-exact loop, BPM, meter, and cue tags; no samples, soundfonts, downloads, network services, protected voices, or protected art used |
 | assets/audio/ambience_*.ogg, ui_tap.ogg | original numpy synthesis | project original (CC0-equivalent) | — | seamless loops |
 | assets/audio/buy, buzz, chime, fart (.ogg) | synthesized for this project | project original | — | — |
 | assets/audio/hop_boing.ogg | original numpy synthesis (pitch-wobbled decaying twang) | project original | — | 0.5s one-shot, quiet-normalized for per-hop playback |
@@ -2410,3 +2411,135 @@ OpenAI built-in ImageGen natives and project-authored non-destructive derivative
   exact prompts, declared references, source/output hashes, frame semantics,
   and deterministic processing evidence. `tools/build_seek_animation_assets.py`
   is the binding reproducible builder and `--check` validator.
+
+## Opera Roshan career animation atlases (2026-08-09)
+
+All accepted-generation, identity, costume, topology, row-contract, native-hash,
+and runtime-hash review evidence is recorded in
+`assets_src/imagegen/opera_roshan_animation_2026-08-09/OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+Each adjacent per-career `*_pack_report.json` records the exact alpha input,
+4x4 component assignment, shared scale, 256px-cell packing, output path, and
+input/output hashes.
+
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_astronaut_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_astronaut_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_ballerina_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_ballerina_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_boxer_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_boxer_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_candymaker_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_candymaker_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_chef_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_chef_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_detective_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_detective_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_doctor_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_doctor_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_farmer_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_farmer_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_magician_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_magician_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_nursery_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_nursery_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_painter_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_painter_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_popstar_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_popstar_sheet_a_pack_report.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_racer_sheet_a_native.png` - project-owned original generated with built-in OpenAI ImageGen; URL none; acceptance and hash recorded in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json` and `roshan_racer_sheet_a_pack_report.json`.
+
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_astronaut_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_astronaut_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_astronaut_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_ballerina_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_ballerina_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_ballerina_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_boxer_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_boxer_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_boxer_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_candymaker_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_candymaker_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_candymaker_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_chef_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_chef_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_chef_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_detective_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_detective_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_detective_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_doctor_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_doctor_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_doctor_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_farmer_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_farmer_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_farmer_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_magician_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_magician_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_magician_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_nursery_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_nursery_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_nursery_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_painter_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_painter_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_painter_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_popstar_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_popstar_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_popstar_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_racer_sheet_a_alpha_native.png` - non-destructive transparency derivative of `roshan_racer_sheet_a_native.png` made with the installed `remove_chroma_key.py`; original preserved; alpha-input hash recorded in `roshan_racer_sheet_a_pack_report.json` and review chain in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+
+- `assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_astronaut_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_astronaut_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_ballerina_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_ballerina_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_boxer_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_boxer_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_candymaker_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_candymaker_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_chef_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_chef_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_detective_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_detective_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_doctor_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_doctor_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_farmer_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_farmer_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_magician_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_magician_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_nursery_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_nursery_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_nursery_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_painter_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_painter_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_popstar_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_popstar_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+- `assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png` - non-destructive 4x4 runtime atlas packed from `roshan_racer_sheet_a_alpha_native.png` by `tools/prepare_opera_roshan_animation.py`; exact cell transforms and hashes in `roshan_racer_sheet_a_pack_report.json` and acceptance in `OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json`.
+
+## Opera lobby crest runtime derivatives (2026-08-09)
+
+Each file below is a non-destructive whole-image 256x256 derivative of the
+named approved project source, made without repainting by
+`ffmpeg -i SOURCE -vf scale=256:256:flags=lanczos -frames:v 1 OUTPUT`; the
+approved source remains preserved and its existing project license carries
+through to the runtime derivative. For the sixteen `opera_crest_*` files, the
+connected navy square outside the oval was then converted to transparency with
+the installed `remove_chroma_key.py --auto-key border --soft-matte
+--transparent-threshold 18 --opaque-threshold 72 --edge-feather 0.7 --despill`
+helper; this changes alpha only and preserves the approved RGB crest artwork.
+`goal_nursery.png` already had authored alpha and received only the resize.
+
+- `assets/opera/worlds/ui/crests/goal_nursery.png` - 256x256 Lanczos derivative of approved source `assets/opera/worlds/props/goal_nursery.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_ballerina.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_ballerina.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_boxer.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_boxer.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_candy.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_candy.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_chef.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_chef.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_detective.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_detective.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_doctor.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_doctor.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_dragon.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_dragon.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_engineer.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_engineer.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_farmer.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_farmer.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_house.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_house.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_maestro.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_maestro.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_magician.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_magician.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_painter.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_painter.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_phantom.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_phantom.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_racer.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_racer.png`; no external source or new RGB artwork.
+- `assets/opera/worlds/ui/crests/opera_crest_singer.png` - 256x256 Lanczos derivative of approved source `assets_src/concepts/opera_house_flat/cards/opera_crest_singer.png`; no external source or new RGB artwork.
+
+## Opera minigame quality art (2026-08-09)
+
+All files in this section are project-original art or non-destructive derivatives
+of approved project-original Opera art; license: project original; URL: none.
+`assets_src/imagegen/opera_minigame_quality_2026-08-09/PROVENANCE.json`
+records every exact source path and SHA-256, runtime SHA-256, crop/composite/matte/
+resize operation, generated-source prompt and result identifier, and artifact QA
+result. Derivatives were built deterministically by
+`tools/prepare_opera_minigame_art.py`; all approved source masters are preserved.
+
+- `assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_native.png` - project-owned OpenAI built-in ImageGen source board generated 2026-08-09; exact prompt, result ID, original result path, and SHA-256 are in `PROVENANCE.json`.
+- `assets_src/imagegen/opera_minigame_quality_2026-08-09/opera_minigame_prop_sheet_alpha_native.png` - non-destructive alpha derivative of the preserved native board made with installed `remove_chroma_key.py`; exact command, matte report, and hashes are in `PROVENANCE.json`.
+- `assets/opera/worlds/widgets/widget_pour_chef_mover.png` - 256x256 alpha batter-pitcher cell derived from the reviewed generated board.
+- `assets/opera/worlds/widgets/widget_pour_candymaker_mover.png` - 256x256 alpha candy-syrup-jug cell derived from the reviewed generated board.
+- `assets/opera/worlds/widgets/widget_pour_nursery_mover.png` - 256x256 alpha feeding-bottle cell derived from the reviewed generated board.
+- `assets/opera/worlds/widgets/widget_crank_racer_mover.png` - 256x256 alpha mechanic-wrench cell derived from the reviewed generated board.
+- `assets/opera/worlds/widgets/widget_clue_board_empty.png` - full 1024x608 Detective case-board state derived from the approved empty case-board source.
+- `assets/opera/worlds/widgets/widget_clue_board_complete.png` - full 1024x608 Detective case-board state derived from the approved complete case-board source.
+- `assets/opera/worlds/widgets/widget_clue_board_tokens.png` - 3x256 paw/feather/ribbon strip derived from the three approved Detective clue sources.
+- `assets/opera/worlds/widgets/widget_crown_chest_closed.png` - 512x512 alpha object derived from the approved closed clue-chest source.
+- `assets/opera/worlds/widgets/widget_crown_chest_open.png` - 512x512 alpha object derived from the approved open clue-chest/tiara source.
+- `assets/opera/worlds/widgets/widget_magic_cabinet_closed.png` - 512x512 alpha cabinet derived from the approved closed trick-cabinet source.
+- `assets/opera/worlds/widgets/widget_magic_cabinet_reveal.png` - 512x512 open-door reveal composite derived from the approved cabinet shell and approved Lamba reveal, with the reveal clipped inside the transparent cabinet opening.
+- `assets/opera/worlds/widgets/widget_magic_vanish_hat.png` - 512x512 alpha prop derived from the approved open magic-hat source.
+- `assets/opera/worlds/widgets/widget_magic_vanish_wand.png` - 512x512 alpha prop derived from the approved pearl-wand source.
+- `assets/opera/worlds/widgets/widget_magic_vanish_reveal.png` - 512x512 coherent Lamba-over-hat reveal derived from approved Lamba and open-hat sources.
+- `assets/opera/worlds/widgets/widget_portal_magician_mover.png` - 256x256 portal-only alpha mover derived from the approved Opera upper-access open-portal source.
+- `assets/opera/worlds/widgets/widget_crank_racer.png` - 1024x608 pit-tune card derived from the established Racer widget frame and approved side-kart/toolkit sources.
+- `assets/opera/worlds/widgets/widget_crank_racer_wheel.png` - 256x256 installable wheel derived from the approved side-kart source.
+- `assets/opera/worlds/widgets/widget_crank_popstar_mover.png` - 256x256 finale mover derived from the approved active microphone/sound-wave source.
+- `assets/opera/worlds/widgets/widget_gauge_chef_success.png` - 1024x608 achieved overlay derived from the approved finished-cake source.
+- `assets/opera/worlds/widgets/widget_target_chef_mark.png` - 128x128 thematic target mark derived from the approved Chef badge source.
+- `assets/opera/worlds/widgets/widget_target_chef_piece_0.png` - 256x256 isolated cherry topping derived from the approved Chef placement-glows source; serving display and shadow excluded by connected colour matte.
+- `assets/opera/worlds/widgets/widget_target_chef_piece_1.png` - 256x256 isolated cream topping derived from the approved Chef placement-glows source; serving display and shadow excluded by connected colour matte.
+- `assets/opera/worlds/widgets/widget_target_chef_piece_2.png` - 256x256 isolated chocolate topping derived from the approved Chef placement-glows source; serving display and shadow excluded by connected colour matte.
+- `assets/opera/worlds/widgets/widget_target_candymaker_mark.png` - 128x128 thematic target mark derived from the approved Candy Maker badge source.
+- `assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png` - 256x256 candy token derived from the approved coral-flower artwork stored in the audited `teal_spiral_candy` source export.
+- `assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png` - 256x256 candy token derived from the approved teal-shell artwork stored in the audited `plum_wrapped_candy` source export.
+- `assets/opera/worlds/widgets/widget_target_candymaker_piece_2.png` - 256x256 candy token derived from the approved plum-wrapped artwork stored in the audited `cream_heart_candy` source export.
+- `assets/opera/worlds/widgets/widget_target_farmer_mark.png` - 128x128 thematic target mark derived from the approved Farmer badge source.
+- `assets/opera/worlds/widgets/widget_target_farmer_piece_0.png` - 256x256 carrot token derived from the approved carrot artwork stored in the audited Farmer `hay_bale` source export.
+- `assets/opera/worlds/widgets/widget_target_farmer_piece_1.png` - 256x256 corn token derived from the approved corn artwork stored in the audited Farmer `piggy_fed` source export.
+- `assets/opera/worlds/widgets/widget_target_farmer_piece_2.png` - 256x256 pumpkin token derived from the approved pumpkin artwork stored in the audited Farmer `piggy_munch` source export.
+- `assets/opera/worlds/widgets/widget_target_astronaut_mark.png` - 128x128 project-original code-drawn thematic target mark using the established Opera palette and approved Astronaut widget source reference.
+- `assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png` - 256x256 project-original code-drawn shell patch using the established Opera palette and approved Astronaut widget source reference.
+- `assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png` - 256x256 project-original code-drawn rivet patch using the established Opera palette and approved Astronaut widget source reference.
+- `assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png` - 256x256 project-original code-drawn repair patch using the established Opera palette and approved Astronaut widget source reference.
+- `assets/opera/worlds/widgets/widget_target_painter_mark.png` - 128x128 literal paint-splat mark cropped from the approved Painter splat-state source.
+- `assets_src/imagegen/opera_minigame_quality_2026-08-09/OPERA_MINIGAME_ART_CONTACT_SHEET_2026-08-09.png` - deterministic project-authored visual-QA contact sheet of every runtime derivative above; not runtime art.

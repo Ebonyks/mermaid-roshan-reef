@@ -369,19 +369,46 @@ func _init() -> void:
 					or main.castle_logo_color != "purple" \
 					or main.castle_logo_symbol != "dog":
 				_bad("confirmed castle logo did not close and keep its choice")
-			elif main.castle_logo_room_display == null \
-					or String(main.castle_logo_room_display.get_meta(
-						"display_location", "")) \
-						!= "craft_room_idea_board_pinned_badge" \
-					or not main.castle_logo_room_display.size.is_equal_approx(
-						Vector2(88.0, 88.0)) \
-					or not main.castle_logo_room_display.position.is_equal_approx(
-						Vector2(578.0, 158.0)) \
-					or String(main.save_data.get("castle_logo_symbol", "")) != "dog":
-				_bad("confirmed castle logo was not saved and displayed in the room")
+			elif String(main.save_data.get(
+					"castle_logo_symbol", "")) != "dog":
+				_bad("confirmed castle logo was not saved")
+			else:
+				var craft_display: Control = main.castle_logo_room_display
+				var craft_banners: Array[Node] = craft_display.find_children(
+					"CastleLogoBanner_*", "Control", true, false) \
+					if craft_display != null else []
+				var board_badge: Control = craft_display.find_child(
+					"CastleLogoCraftBoardBadge", true, false) as Control \
+					if craft_display != null else null
+				if craft_display == null or craft_banners.size() != 2 \
+						or board_badge == null \
+						or String(craft_display.get_meta(
+							"replaces_design", "")) != "purple_shell_banner":
+					_bad("custom logo did not replace both Craft Room shell banners")
+
+	rooms.show_room("playroom", false)
+	await _frames(2)
+	var playroom_display: Control = main.castle_logo_room_display
+	var playroom_banners: Array[Node] = playroom_display.find_children(
+		"CastleLogoBanner_*", "Control", true, false) \
+		if playroom_display != null else []
+	if playroom_display == null or playroom_banners.size() != 2 \
+			or String(playroom_display.get_meta(
+				"castle_room_id", "")) != "playroom":
+		_bad("custom logo did not replace both Stuffie Playroom shell banners")
+	else:
+		for banner: Node in playroom_banners:
+			if String(banner.get_meta("symbol_id", "")) != "dog" \
+					or String(banner.get_meta("color_id", "")) != "purple" \
+					or String(banner.get_meta(
+						"replaces_design", "")) != "purple_shell_banner":
+				_bad("Stuffie Playroom banner did not use the saved custom logo")
+				break
 
 	rooms.show_room("dining_room", false)
 	await _frames(2)
+	if main.castle_logo_room_display != null:
+		_bad("custom banners appeared in a room with no purple shell banners")
 	if main.castle_room_detail_tiles.size() != 4 \
 			or not main.castle_room_item_sprites.has("dining_table") \
 			or not main.castle_room_item_sprites.has("provisions_hutch"):

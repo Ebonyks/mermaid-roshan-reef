@@ -8,10 +8,58 @@ extends CanvasLayer
 ## parallel score/progress, audience energy and a graded curtain call.
 
 const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
+const BoxingSurface := preload("res://scripts/opera_boxing_surface.gd")
+const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
 const ImpClips := preload("res://scripts/opera_imp_clips.gd")
+const RoshanAnimator := preload("res://scripts/opera_roshan_actor.gd")
+
+## Detective search geometry. The authored magnifier is a 512px square with
+## its glass centred near (181, 181); anchoring the art by that point keeps the
+## actual zoom, clue capture and visible glass on the same spot under a finger.
+const LENS_RADIUS := 130.0
+const LENS_CLUE_CAPTURE_RADIUS := 112.0
+const LENS_GRAPHIC_SIZE := Vector2(420.0, 420.0)
+const LENS_ART_GLASS_CENTER := Vector2(0.354, 0.354)
+const LENS_MAGNIFICATION := 1.75
+const LENS_HINT_DELAY := 12.0
+const LENS_TRAIL_DURATION := 2.4
+
+## The mystery begins in voices the child already knows: the off-screen imp
+## gives away the theft, then Roshan turns that event into a concrete search.
+## These are existing protected family recordings; runtime code only queues
+## them and never edits or substitutes their source assets.
+const DETECTIVE_INTRO_LINES: Array[Dictionary] = [
+	{"who": "Mischief Imp", "text": "The sparkly crown! Now everyone will look at ME!", "vo": "op_detective_steal", "hold": 2.8},
+	{"who": "Roshan", "text": "Search the whole stage! Sweep your magnifying glass to find every hidden sparkle!", "vo": "op_detective_search", "hold": 3.8},
+]
+
+## The detective painting is deliberately dense. These are safe inspection
+## targets, not extra objectives: every landmark gives a satisfying response,
+## while only lens_clues advance the case. Positions are normalized to the
+## frozen 1280x720 stage so they survive phone/tablet letterboxing unchanged.
+const DETECTIVE_ROOM_OBJECTS: Array[Dictionary] = [
+	{"id": "moon", "at": Vector2(0.35, 0.10), "radius": 68.0, "colour": Color("#fff0a8")},
+	{"id": "curtain_door", "at": Vector2(0.055, 0.31), "radius": 76.0, "colour": Color("#ffb7dc")},
+	{"id": "left_lantern", "at": Vector2(0.085, 0.43), "radius": 52.0, "colour": Color("#ffd36e")},
+	{"id": "lockbox_shelf", "at": Vector2(0.16, 0.34), "radius": 72.0, "colour": Color("#75e6dc")},
+	{"id": "round_case_shelf", "at": Vector2(0.29, 0.35), "radius": 72.0, "colour": Color("#ff9fb8")},
+	{"id": "evidence_shelf", "at": Vector2(0.40, 0.34), "radius": 72.0, "colour": Color("#8cd8ff")},
+	{"id": "hatbox_table", "at": Vector2(0.50, 0.35), "radius": 72.0, "colour": Color("#d6a8ff")},
+	{"id": "magnifier_tower", "at": Vector2(0.49, 0.12), "radius": 78.0, "colour": Color("#ffe27a")},
+	{"id": "arched_bridge", "at": Vector2(0.64, 0.30), "radius": 74.0, "colour": Color("#80e7ff")},
+	{"id": "mirror_gallery", "at": Vector2(0.58, 0.43), "radius": 78.0, "colour": Color("#b8f4ff")},
+	{"id": "crown_chest", "at": Vector2(0.88, 0.34), "radius": 84.0, "colour": Color("#ffe27a")},
+	{"id": "glowing_footprints", "at": Vector2(0.42, 0.49), "radius": 76.0, "colour": Color("#a8fff3")},
+	{"id": "round_hatbox", "at": Vector2(0.25, 0.63), "radius": 64.0, "colour": Color("#ffb0c7")},
+	{"id": "coral_case", "at": Vector2(0.39, 0.63), "radius": 64.0, "colour": Color("#ffab8f")},
+	{"id": "pearl_case", "at": Vector2(0.51, 0.63), "radius": 64.0, "colour": Color("#e0b4ff")},
+	{"id": "fish_display", "at": Vector2(0.63, 0.63), "radius": 68.0, "colour": Color("#70e5ff")},
+	{"id": "feather_chest", "at": Vector2(0.76, 0.63), "radius": 70.0, "colour": Color("#ffd482")},
+	{"id": "curved_stairs", "at": Vector2(0.84, 0.61), "radius": 82.0, "colour": Color("#a9e8ff")},
+]
 
 const SLUGS := {
 	"chef": "chef",
@@ -34,7 +82,7 @@ const SLUGS := {
 ## the goal prop -> two-phase finale on the proscenium stage against the
 ## dressed rival. "bop" phases carry a "combat" dict; FINALE_START is always
 ## the first on-stage phase.
-const PHASES := {
+const LEGACY_PHASES := {
 	"chef": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_chef_imps", "voice": "Mischief imps grabbed the spoons! Tap each imp to shoo them off!"},
 		{"name": "POUR", "icon": "●", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Grab the pitcher and TIP it — pour the sparkling batter into the bowl!"},
@@ -155,7 +203,7 @@ const PHASES := {
 	],
 }
 
-const FINALE_START := {
+const LEGACY_FINALE_START := {
 	"chef": 5,
 	"detective": 9,
 	"ballerina": 4,
@@ -169,6 +217,129 @@ const FINALE_START := {
 	"racer": 4,
 	"popstar": 4,
 	"nursery": 5,
+}
+
+## Shipping career structure (2026-08-09 quality overhaul).
+##
+## Similarity now comes from the theatre framing, helpers, imps, wordless
+## teaching and curtain call. The playable verb belongs to the job. Boxer is
+## deliberately the only career that resolves its complication with combat.
+## The old five-beat tables remain above for audit comparison only.
+const BALLET_PHASE_HOLD_SECONDS := 1.75
+const PHASES := {
+	"chef": [
+		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Tip the sparkling batter into the bowl!"},
+		{"name": "STIR", "mode": "circle", "goal": 2.0, "vo": "op_chef_stir", "voice": "Draw big circles to stir the batter!"},
+		{"name": "BAKE", "mode": "oven", "goal": 6.0, "vo": "op_chef_bake", "voice": "Watch for golden, then take the cake out with the mitt!"},
+		{"name": "FROST", "mode": "swipe", "goal": 6.0, "vo": "op_chef_pipe", "voice": "Trace the frosting ribbon across the cake!"},
+		{"name": "TOP", "mode": "tap", "goal": 7.0, "vo": "op_chef_top", "voice": "Place the bright toppings on the finished cake!"},
+	],
+	"detective": [
+		{"name": "SEARCH", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens", "voice": "Sweep the magnifying glass across the painted clues!"},
+		{"name": "CASE BOARD", "mode": "clue_board", "widget": "", "goal": 3.0, "vo": "op_detective_match", "voice": "Match each glowing clue to the case board!"},
+		{"name": "CROWN", "mode": "crown_chest", "widget": "", "goal": 1.0, "vo": "op_detective_name", "voice": "Tap when the spotlight shines on the answer!"},
+	],
+	"ballerina": [
+		{"name": "PEARL MIRROR", "mode": "ballet_pose", "widget": "", "goal": 3.0, "vo": "op_ballerina_watch", "voice": "Watch Roshan hold each ballet pose, then tap the matching pearl mirror!"},
+		{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "widget": "", "goal": 1.0, "vo": "op_ballerina_ribbon", "voice": "Guide the pearl along the glowing ribbon current!"},
+		{"name": "GRAND TWIRL", "mode": "ballet_twirl", "widget": "", "goal": 1.0, "vo": "op_ballerina_twirl", "voice": "Turn the pearl around the shell for the grand twirl!"},
+	],
+	"candymaker": [
+		{"name": "SYRUP", "mode": "pourt", "goal": 5.0, "vo": "op_candymaker_syrup", "voice": "Tip the syrup into the candy mold!"},
+		{"name": "SORT", "mode": "candy_sort", "goal": 6.0, "vo": "op_candymaker_sort", "voice": "Drag each candy into its matching shape box!"},
+		{"name": "WRAP", "mode": "circle", "goal": 1.8, "vo": "op_candymaker_wrap", "voice": "Twist the finished wrappers in circles!"},
+		{"name": "SHARE", "mode": "tap", "goal": 6.0, "vo": "op_candymaker_share", "voice": "Give one finished candy to every waving friend!"},
+	],
+	"doctor": [
+		{"name": "WASH", "mode": "hold", "goal": 3.6, "vo": "op_doctor_wash", "voice": "Hold the bubbly basin to wash Doctor Roshan's hands!"},
+		{"name": "FIND", "mode": "choice", "goal": 4.0, "vo": "op_doctor_find", "voice": "Choose the plushy with the glowing ouch!"},
+		{"name": "X-RAY", "mode": "xray_scan", "goal": 2.0, "vo": "op_doctor_x_ray", "voice": "Slide the scanner over the plushy to find the sore spots!"},
+		{"name": "CAST", "mode": "circle", "goal": 1.8, "vo": "op_doctor_cast", "voice": "Draw gentle circles to wrap the soft cast!"},
+		{"name": "BANDAGE", "mode": "swipe", "goal": 5.0, "vo": "op_doctor_bandage", "voice": "Swipe the stretchy bandage around the plushy!"},
+	],
+	"farmer": [
+		{"name": "PLANT", "mode": "garden_plant", "widget": "", "goal": 5.0, "vo": "op_farmer_plant", "voice": "Plant each seed in the glowing garden bed!"},
+		{"name": "TOSS", "mode": "farm_lob", "goal": 4.0, "vo": "op_farmer_feed", "voice": "Pull back a vegetable and toss it gently to a piggy!"},
+		{"name": "HERD", "mode": "swipe", "goal": 6.0, "vo": "op_farmer_herd", "voice": "Sweep the happy piggies through the barn gate!"},
+		{"name": "PICNIC", "mode": "tap", "goal": 3.0, "vo": "op_farmer_picnic", "voice": "Set one picnic snack beside every piggy!"},
+	],
+	"boxer": [
+		{"name": "GLOVE GUIDE", "mode": "boxing_guide", "widget": "", "goal": 2.0, "vo": "op_boxer_work", "voice": "Put a finger on a glove and push it toward the glowing mitt!"},
+		{"name": "JAB PRACTICE", "mode": "boxing_jab", "widget": "", "goal": 4.0, "vo": "op_boxer_jab", "voice": "Jab practice! Punch each glowing training pad!"},
+		{"name": "SOFT GUARD", "mode": "boxing_guard", "widget": "", "goal": 3.0, "vo": "op_boxer_duck", "voice": "Bring a glove into the glowing guard bubble!"},
+		{"name": "TITLE IMP", "mode": "boxing_imp", "widget": "", "goal": 6.0, "vo": "op_boxer_bell_chase", "voice": "The boxer imp rang the bell! Punch when the bright star opens!"},
+		{"name": "BELT", "mode": "boxing_belt", "widget": "", "goal": 1.0, "vo": "op_boxer_belt", "voice": "Punch the glowing championship belt for the curtain call!"},
+	],
+	"magician": [
+		{"name": "VANISH", "mode": "hold", "widget": "", "visual_context": "magic_vanish", "goal": 3.8, "vo": "op_magician_vanish", "voice": "Hold the wand to hide Lamba under a hat!"},
+		{"name": "TRACK", "mode": "choice", "goal": 5.0, "vo": "op_magician_track", "voice": "Follow the glowing hat through the shuffle!"},
+		{"name": "ROPE", "mode": "swipe", "goal": 5.0, "vo": "op_magician_rope", "voice": "Swipe the knotted rope into one long ribbon!"},
+		{"name": "CABINET", "mode": "magic_cabinet", "widget": "", "goal": 1.0, "vo": "op_magician_cabinet", "voice": "Swipe down to open the magic cabinet!"},
+		{"name": "PORTAL", "mode": "circle", "goal": 2.0, "vo": "op_magician_portal", "voice": "Draw circles to open the star portal!"},
+	],
+	"painter": [
+		{"name": "PAINT", "mode": "paint_reveal", "goal": 1.0, "vo": "op_painter_sketch", "voice": "Paint across the cloudy canvas to reveal the sunrise!"},
+		{"name": "STAMPS", "mode": "tap", "goal": 5.0, "vo": "op_painter_splat", "voice": "Add any five bright finishing stamps!"},
+		{"name": "GALLERY", "mode": "choice", "goal": 1.0, "vo": "op_painter_reveal", "voice": "Choose the glowing frame and hang your sunrise!"},
+	],
+	"astronaut": [
+		{"name": "PIPES", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes", "voice": "Connect the fuel tank to the rocket through three pipe boards!"},
+		{"name": "PATCH", "mode": "tap", "goal": 5.0, "vo": "op_astronaut_patch", "voice": "Patch every sparkling leak on the rocket!"},
+		{"name": "VALVE", "mode": "circle", "goal": 1.8, "vo": "op_astronaut_valve", "voice": "Draw circles to turn the launch valve!"},
+		{"name": "LAUNCH", "mode": "hold", "goal": 4.5, "vo": "op_astronaut_launch", "voice": "Hold through the countdown and launch!"},
+	],
+	"racer": [
+		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_tune_up", "voice": "Turn the wrench to finish the pit stop!"},
+		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_to_the_line", "voice": "Push the kart to the pearl starting arch!"},
+		{"name": "RACE", "mode": "circle", "widget": "", "goal": 0.9, "vo": "op_racer_lap_two", "voice": "Loop the loop! Draw big racing circles!"},
+	],
+	"nursery": [
+		{"name": "WASH HANDS", "mode": "hold", "widget": "", "visual_context": "nursery_wash", "goal": 3.4, "vo": "op_nursery_wash", "voice": "Hold the bubbly basin to wash your hands first!"},
+		{"name": "CATCH BABIES", "mode": "catch", "goal": 5.0, "speaker": "Faron", "vo": "op_nursery_catch", "voice": "Slide the soft cradle under five babies. Pillows keep every miss safe!"},
+		{"name": "FEED", "mode": "hold", "widget": "", "visual_context": "nursery_feed", "goal": 4.0, "speaker": "Faron", "vo": "op_nursery_feed", "voice": "Hold the warm bottle while Roshan and Faron feed each baby!"},
+		{"name": "BURP", "mode": "tap", "widget": "", "visual_context": "nursery_burp", "pace": 0.55, "goal": 4.0, "vo": "op_nursery_burp", "voice": "Pat the baby's back gently and slowly: pat, pat, pat!"},
+		{"name": "BEDTIME", "mode": "swipe", "widget": "", "visual_context": "nursery_bedtime", "dir": "down", "goal": 3.0, "speaker": "Faron", "vo": "op_nursery_bedtime", "voice": "Swipe each blanket down and tuck every baby into bed!"},
+	],
+	"popstar": [
+		{"name": "SOUND CHECK", "mode": "hold", "goal": 3.8, "vo": "op_popstar_sound_check", "voice": "Hold the microphone while the rainbow note grows!"},
+		{"name": "DANCE", "mode": "choice", "goal": 6.0, "vo": "op_popstar_dance", "voice": "Tap the glowing dance arrow!"},
+		{"name": "RHYTHM", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm", "voice": "Listen to the three stars, then sing their song back!"},
+		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore", "voice": "Draw one big encore spin for the crowd!"},
+	],
+}
+
+const FINALE_START := {
+	"chef": 3,
+	"detective": 1,
+	"ballerina": 2,
+	"candymaker": 3,
+	"doctor": 3,
+	"farmer": 2,
+	"boxer": 3,
+	"magician": 3,
+	"painter": 2,
+	"astronaut": 3,
+	"racer": 2,
+	"nursery": 4,
+	"popstar": 2,
+}
+
+## Stable landmark IDs keep each task attached to the painted object that
+## explains it. Bop and lens beats are stage-wide; Nursery catch opens directly.
+const PHASE_STATIONS := {
+	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
+	"detective": {"CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
+	"ballerina": {},
+	"candymaker": {"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart"},
+	"doctor": {"WASH": "stethoscope_clinic", "FIND": "starfish_triage", "X-RAY": "exam_booth", "CAST": "exam_booth", "BANDAGE": "recovery_bed"},
+	"farmer": {"PLANT": "seed_beds", "TOSS": "hay_bales", "HERD": "barn_doors", "PICNIC": "pearl_clam"},
+	"boxer": {},
+	"magician": {"VANISH": "violet_shell_stage", "TRACK": "pearl_tide_pool", "ROPE": "teal_shell_stage", "CABINET": "rose_shell_stage", "PORTAL": "rose_shell_stage"},
+	"painter": {"PAINT": "gazebo_easel", "STAMPS": "rainbow_brush", "GALLERY": "arch_easel"},
+	"astronaut": {"PATCH": "pipe_arch_planter", "VALVE": "periscope_elbow", "LAUNCH": "rocket_launch_dais"},
+	"racer": {"TUNE": "pearl_dome_pavilion", "TO THE LINE": "pearl_start_arch"},
+	"nursery": {"WASH HANDS": "wash_basin", "FEED": "bottle_nook", "BURP": "cuddle_cushions", "BEDTIME": "moon_bed"},
+	"popstar": {"SOUND CHECK": "mic_gazebo", "DANCE": "record_dais", "ENCORE": "shell_stage"},
 }
 
 ## Career goal prop shown at the workbench until the imp captain steals it in
@@ -216,6 +387,8 @@ var bop_time := 0.0
 var steal_index := -1
 var captain_pending := false
 var idle_t := 0.0
+## Testable count of spoken ballet re-prompts. Initial phase VO is separate.
+var ballet_instruction_repeats := 0
 ## WANDER (owner 2026-08-04, the curiosity layer): between tasks the world
 ## is HERS — tap-to-walk along the painted route while the armed station
 ## breathes and invites. The task opens when she arrives (150px + 0.35s
@@ -287,15 +460,30 @@ var lens_found: Array[bool] = []
 var lens_dwell := 0.0
 var lens_target := -1
 var lens_demo := true
+var lens_zoom_surface: ColorRect = null
+var lens_zoom_material: ShaderMaterial = null
+var lens_since_find := 0.0
+var lens_hint_target := -1
+var lens_room_objects: Array[Dictionary] = []
+var lens_object_pulses: Array[Dictionary] = []
+var lens_room_reactions := 0
+var lens_object_sound_cool := 0.0
+var detective_intro_played := false
+var lens_find_count := 0
+var lens_trail_from := Vector2.ZERO
+var lens_trail_to := Vector2.ZERO
+var lens_trail_t := 0.0
 var task_frame_texture: Texture2D = null
 var station_marker_texture: Texture2D = null
 var magnifier_texture: Texture2D = null
 
 var root: Control
+var stage_bleed: ColorRect
 var backdrop_node: OperaWorldBackdrop2D
 var action_panel: ColorRect
 var prop_rect: TextureRect
 var player_actor: TextureRect
+var player_animator: OperaRoshanActor
 var rival_actor: TextureRect
 var player_bar: ProgressBar
 var rival_bar: ProgressBar
@@ -336,7 +524,13 @@ func _sync_root_scale() -> void:
 	var vs: Vector2 = get_viewport().get_visible_rect().size
 	if vs.x <= 0.0 or vs.y <= 0.0:
 		return
-	root.scale = vs / StagePaths.SCREEN
+	var uniform_scale := minf(vs.x / StagePaths.SCREEN.x, vs.y / StagePaths.SCREEN.y)
+	root.scale = Vector2.ONE * uniform_scale
+	root.position = (vs - StagePaths.SCREEN * uniform_scale) * 0.5
+	if stage_bleed != null and is_instance_valid(stage_bleed):
+		stage_bleed.position = Vector2.ZERO
+		stage_bleed.size = vs
+	_sync_lens_zoom_surface()
 
 
 func _label(text: String, font_size: int, colour: Color = Color.WHITE) -> Label:
@@ -353,6 +547,11 @@ func _label(text: String, font_size: int, colour: Color = Color.WHITE) -> Label:
 
 
 func _build_world() -> void:
+	stage_bleed = ColorRect.new()
+	stage_bleed.name = "OperaStageBleed"
+	stage_bleed.color = Color("#16214d")
+	stage_bleed.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(stage_bleed)
 	root = Control.new()
 	root.name = "OperaCareerWorld2D"
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -389,6 +588,10 @@ func _build_world() -> void:
 
 	stage_points = StagePaths.path_points(career_id)
 	station_list = StagePaths.stations(career_id)
+	# These specialist careers are continuous performances on one open stage.
+	# Wandering stations would interrupt their full-canvas glove/dance lessons.
+	if career_id in ["boxer", "ballerina"]:
+		station_list = []
 	_assign_stations()
 	_build_station_markers()
 
@@ -412,9 +615,18 @@ func _build_world() -> void:
 	player_actor = _actor("res://assets/opera/worlds/actors/roshan_%s.png" % career_id)
 	# scale contract: Roshan is ~1.3x a crew imp, ~1.2x the captain —
 	# a small bit taller, never more than 1.5x (owner 2026-08-03)
-	player_actor.size = Vector2(250, 250)
-	_place_on_stage(player_actor, StagePaths.point_along(stage_points, 0.08))
+	# The ballet silhouette gets a little more room, while staying below the
+	# established 1.5x costumed-imp scale ceiling (280 / 190 = 1.47).
+	player_actor.size = Vector2(280, 280) if career_id == "ballerina" else Vector2(250, 250)
+	if career_id == "ballerina":
+		_place_on_stage(player_actor, Vector2(190, 684))
+	else:
+		_place_on_stage(player_actor, StagePaths.point_along(stage_points, 0.08))
 	root.add_child(player_actor)
+	player_animator = RoshanAnimator.new() as OperaRoshanActor
+	player_animator.name = "RoshanAtlasAnimator"
+	player_actor.add_child(player_animator)
+	player_animator.setup(player_actor, career_id, player_actor.texture)
 	var partner_path := "res://assets/opera/worlds/actors/rival_%s.png" % career_id
 	if career_id == "nursery":
 		partner_path = "res://assets/opera/worlds/actors/faron_nursery.png"
@@ -444,7 +656,18 @@ func _build_world() -> void:
 	action_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	action_panel.draw.connect(_draw_task_card)
 	root.add_child(action_panel)
-	surface = GestureSurface.new()
+	if career_id == "boxer":
+		surface = BoxingSurface.new() as OperaGestureSurface
+	elif career_id == "ballerina":
+		surface = BalletSurface.new() as OperaGestureSurface
+	else:
+		surface = GestureSurface.new() as OperaGestureSurface
+	if career_id == "boxer":
+		surface.name = "BoxingGloveSurface"
+	elif career_id == "ballerina":
+		surface.name = "BalletPartySurface"
+	else:
+		surface.name = "CareerGestureSurface"
 	surface.position = Vector2(24, 78)
 	surface.size = Vector2(372, 266)
 	surface.gesture.connect(_on_gesture)
@@ -481,6 +704,7 @@ func _build_world() -> void:
 	phase_fill.size = Vector2(372, 40)
 	phase_fill.show_percentage = false
 	phase_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	phase_fill.visible = career_id not in ["boxer", "ballerina"]
 	action_panel.add_child(phase_fill)
 
 	combat_layer = Control.new()
@@ -525,6 +749,7 @@ func _build_world() -> void:
 		captain_bopped_texture = imp_bopped_texture
 	_prewarm_imp_textures()
 
+	_build_lens_zoom_surface()
 	lens_layer = Control.new()
 	lens_layer.name = "MagnifierLensLayer"
 	_full_rect(lens_layer)
@@ -560,11 +785,65 @@ func _load_if_exists(path: String) -> Texture2D:
 	return load(path) as Texture2D if ResourceLoader.exists(path) else null
 
 
+func _build_lens_zoom_surface() -> void:
+	# Mobile has no spatial post-process path, but its Canvas renderer supports a
+	# screen-texture sample. One small circular ColorRect therefore gives the
+	# glass honest optical zoom without duplicating the 2048px tiled backdrop.
+	var shader := Shader.new()
+	shader.code = """shader_type canvas_item;
+uniform sampler2D screen_texture : hint_screen_texture, filter_linear;
+uniform vec2 lens_center_screen = vec2(0.5, 0.5);
+uniform float magnification = 1.75;
+
+void fragment() {
+	float distance_from_center = distance(UV, vec2(0.5));
+	if (distance_from_center > 0.5) {
+		discard;
+	}
+	vec2 sample_uv = lens_center_screen
+		+ (SCREEN_UV - lens_center_screen) / magnification;
+	sample_uv = clamp(sample_uv, vec2(0.001), vec2(0.999));
+	vec4 sampled = texture(screen_texture, sample_uv);
+	float feather = 1.0 - smoothstep(0.465, 0.5, distance_from_center);
+	COLOR = vec4(sampled.rgb * 1.045, sampled.a * feather);
+} """
+	lens_zoom_material = ShaderMaterial.new()
+	lens_zoom_material.shader = shader
+	lens_zoom_material.set_shader_parameter("magnification", LENS_MAGNIFICATION)
+	lens_zoom_surface = ColorRect.new()
+	lens_zoom_surface.name = "MagnifierOpticalZoom"
+	lens_zoom_surface.color = Color.WHITE
+	lens_zoom_surface.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	lens_zoom_surface.material = lens_zoom_material
+	lens_zoom_surface.visible = false
+	root.add_child(lens_zoom_surface)
+	_sync_lens_zoom_surface()
+
+
+func _sync_lens_zoom_surface() -> void:
+	if lens_zoom_surface == null or not is_instance_valid(lens_zoom_surface):
+		return
+	lens_zoom_surface.position = lens_pos - Vector2.ONE * LENS_RADIUS
+	lens_zoom_surface.size = Vector2.ONE * LENS_RADIUS * 2.0
+	if lens_zoom_material == null or root == null or not is_instance_valid(root):
+		return
+	var viewport_size := get_viewport().get_visible_rect().size
+	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
+		return
+	var screen_center := root.position + lens_pos * root.scale
+	lens_zoom_material.set_shader_parameter(
+		"lens_center_screen", screen_center / viewport_size)
+
+
 func _place_on_stage(actor: Control, feet: Vector2) -> void:
 	# anchor a stage character by its feet with gentle painted-depth scaling
 	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
 	actor.scale = Vector2(depth, depth)
-	actor.position = feet - Vector2(actor.size.x * 0.5 * depth, actor.size.y * depth - 12.0)
+	var visual_size := actor.size * depth
+	var placed := feet - Vector2(visual_size.x * 0.5, visual_size.y - 12.0)
+	placed.x = clampf(placed.x, 16.0, StagePaths.SCREEN.x - visual_size.x - 16.0)
+	placed.y = clampf(placed.y, 16.0, StagePaths.SCREEN.y - visual_size.y - 16.0)
+	actor.position = placed
 
 
 func _capture_actor_rest(key: String, actor: Control) -> void:
@@ -662,17 +941,33 @@ func _actor_key(actor: Control) -> String:
 
 
 func _assign_stations() -> void:
-	# non-combat phases visit the painted stations left-to-right in order
+	# Resolve every task by its authored landmark ID. Sequential fallback is
+	# retained only for a future phase that has not yet received a mapping.
 	station_for_phase = {}
 	if station_list.is_empty():
 		return
+	var preferred: Dictionary = PHASE_STATIONS.get(career_id, {}) as Dictionary
 	var station_index := 0
 	for index in range(phases.size()):
-		var mode := String((phases[index] as Dictionary).get("mode", ""))
-		if mode == "bop":
+		var phase := phases[index] as Dictionary
+		var mode := String(phase.get("mode", ""))
+		if mode in ["bop", "lens", "catch"]:
 			continue
+		var station_id := String(preferred.get(String(phase.get("name", "")), ""))
+		if not station_id.is_empty():
+			var resolved := _station_index_for_id(station_id)
+			if resolved >= 0:
+				station_for_phase[index] = resolved
+				continue
 		station_for_phase[index] = mini(station_index, station_list.size() - 1)
 		station_index += 1
+
+
+func _station_index_for_id(station_id: String) -> int:
+	for index in range(station_list.size()):
+		if String(station_list[index].get("id", "")) == station_id:
+			return index
+	return -1
 
 
 func _build_station_markers() -> void:
@@ -686,6 +981,10 @@ func _build_station_markers() -> void:
 
 
 func _draw_task_card() -> void:
+	if career_id in ["boxer", "ballerina"]:
+		# Specialist surfaces draw directly over their stage paintings. An opaque
+		# generic card would cover the glove lanes or shrink the recital canvas.
+		return
 	# the exact StorybookUI menu language (see the UI extraction report):
 	# paper fill, violet drop shadow, PURPLE->PURPLE_DEEP contour, gold
 	# title ribbon and corner pearls — a task card that matches the menus
@@ -737,7 +1036,10 @@ func _draw_station_marker(marker: Control) -> void:
 
 func _glide_roshan_to(feet: Vector2, duration: float = 1.3) -> void:
 	var depth := clampf(0.62 + (feet.y / 720.0) * 0.55, 0.62, 1.1)
-	var target := feet - Vector2(player_actor.size.x * 0.5 * depth, player_actor.size.y * depth - 12.0)
+	var visual_size := player_actor.size * depth
+	var target := feet - Vector2(visual_size.x * 0.5, visual_size.y - 12.0)
+	target.x = clampf(target.x, 16.0, StagePaths.SCREEN.x - visual_size.x - 16.0)
+	target.y = clampf(target.y, 16.0, StagePaths.SCREEN.y - visual_size.y - 16.0)
 	var start := player_actor.position
 	var moving_left := target.x < start.x
 	var rest: Dictionary = actor_rests.get("player", {})
@@ -747,6 +1049,7 @@ func _glide_roshan_to(feet: Vector2, duration: float = 1.3) -> void:
 	rest["flip_h"] = moving_left
 	actor_rests["player"] = rest
 	player_actor.flip_h = moving_left
+	_play_roshan_animation("travel")
 	var tween := _claim_actor_tween("player", player_actor)
 	tween.set_parallel(true)
 	tween.tween_method(_set_actor_arc.bind(player_actor, start, target, 12.0),
@@ -757,18 +1060,35 @@ func _glide_roshan_to(feet: Vector2, duration: float = 1.3) -> void:
 	tween.tween_method(_set_glide_rotation.bind(player_actor, player_actor.rotation, lean),
 		0.0, 1.0, duration) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.chain().tween_callback(_finish_actor_motion.bind("player", player_actor))
+	tween.chain().tween_callback(_finish_player_glide)
+
+
+func _finish_player_glide() -> void:
+	_finish_actor_motion("player", player_actor)
+	_play_roshan_animation("idle")
+
+
+func _play_roshan_animation(animation: String) -> void:
+	if player_animator == null or not is_instance_valid(player_animator):
+		return
+	if player_animator.current_animation != animation:
+		player_animator.play(animation)
 
 
 func _widget_template(phase: Dictionary) -> String:
 	var mode := String(phase.get("mode", ""))
 	var name := String(phase.get("name", ""))
-	# a rebuilt beat can name its own family, or opt out of the card art
-	# entirely with "widget": "" (nursery BURP draws its own pat scene)
+	# A rebuilt beat can name its own family, or opt out of the generic card-art
+	# family entirely. Direct specialist surfaces and contextual nursery/magic
+	# scenes use "widget": "" so retired reskins cannot leak back in.
 	if phase.has("widget"):
 		return String(phase["widget"])
 	match mode:
+		"ballet_pose", "ballet_ribbon", "ballet_twirl":
+			return ""
 		"talk":
+			return ""
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt":
 			return ""
 		"echo":
 			# draws its own three singing stars; star-pad art is ledgered P2
@@ -801,6 +1121,16 @@ func _widget_template(phase: Dictionary) -> String:
 			return "lanes"
 		"catch":
 			return "catch"
+		"dance_sequence", "boxer_rhythm":
+			return "lanes"
+		"candy_sort":
+			return "lanes"
+		"paint_reveal":
+			return "trace"
+		"farm_lob":
+			return "target"
+		"xray_scan":
+			return "target"
 	return ""
 
 
@@ -831,22 +1161,27 @@ func _arm_phase() -> void:
 		competition.begin()
 		_set_finale_visible(true)
 		# a longer sting as the proscenium curtain rises; any touch skips it
-		phase_gap = 2.6
+		phase_gap = 0.0 if career_id == "boxer" else 2.6
 	elif phase_index < _finale_start():
 		_set_finale_visible(false)
 		if phase_index > 0:
-			phase_gap = 1.0
+			phase_gap = 0.0 if career_id == "boxer" else 1.0
 	else:
-		phase_gap = 1.0
+		phase_gap = 0.0 if career_id == "boxer" else 1.0
+	if career_id == "ballerina":
+		# Every act is already on the recital stage; no competitive curtain sting
+		# or dead input window interrupts the three-part ballet.
+		phase_gap = 0.0
 	if backdrop_node != null:
 		# the captain scuffle already happens at the stage door, so the
 		# proscenium frames both the big battle and the finale contest
 		var stage_from := steal_index if steal_index >= 0 else _finale_start()
-		backdrop_node.set_stage(phase_index >= stage_from)
+		backdrop_node.set_stage(career_id == "ballerina" or phase_index >= stage_from)
 	phase_progress = 0.0
 	idle_t = 0.0
 	var phase := phases[phase_index] as Dictionary
 	var mode_name := String(phase.get("mode", "tap"))
+	_play_roshan_animation("idle")
 	if mode_name != "bop":
 		_clear_stage_combat()
 	armed_station = int(station_for_phase.get(phase_index, -1))
@@ -855,6 +1190,8 @@ func _arm_phase() -> void:
 	if lens_layer != null and mode_name != "lens":
 		lens_layer.visible = false
 		lens_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if lens_zoom_surface != null and mode_name != "lens":
+		lens_zoom_surface.visible = false
 	for marker in station_nodes:
 		marker.queue_redraw()
 	if prop_rect != null:
@@ -870,8 +1207,10 @@ func _arm_phase() -> void:
 		else:
 			prop_rect.visible = prop_rect.texture != null and phase_index > 0 \
 				and (steal_index < 0 or phase_index < steal_index) \
-				and career_id != "detective"
-	if m != null:
+				and career_id not in ["detective", "boxer", "ballerina"]
+	var defer_detective_intro := career_id == "detective" and phase_index == 0 \
+		and mode_name == "lens" and not detective_intro_played
+	if m != null and not defer_detective_intro:
 		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
 	# combat and lens beats come to HER; widget tasks wait for her to walk up
 	# bind the job's own art now: the armed station already knows its trade
@@ -890,6 +1229,8 @@ func _arm_phase() -> void:
 func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := false) -> void:
 	var template := _widget_template(phase)
 	var context := "%s_%s" % [template, career_id] if not template.is_empty() else ""
+	if phase.has("visual_context"):
+		context = String(phase.get("visual_context", context))
 	surface.configure(mode_name, accent, choice_target, context)
 	# while she is still wandering, the bound widget shows but its clocks
 	# (oven heat, pipe fuel, echo song) hold still until she arrives
@@ -906,6 +1247,7 @@ func _open_task() -> void:
 		wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var phase := phases[phase_index] as Dictionary
 	var mode_name := String(phase.get("mode", "tap"))
+	_play_roshan_animation("idle" if mode_name == "talk" else "work")
 	var is_bop := mode_name == "bop"
 	var is_lens := mode_name == "lens"
 	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
@@ -964,19 +1306,42 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
 	var mode := String(phase.get("mode", "tap"))
+	if career_id == "boxer":
+		# Both glove fingers share the frozen 1280x720 Opera coordinate space.
+		# The transparent host preserves the approved 2K training/stage painting.
+		action_panel.visible = true
+		action_panel.position = Vector2.ZERO
+		action_panel.size = StagePaths.SCREEN
+		surface.position = Vector2.ZERO
+		surface.size = StagePaths.SCREEN
+	elif career_id == "ballerina":
+		# Roshan owns the left third of the proscenium; the entire remaining
+		# two-thirds are a touch canvas. This is roughly six times the area of
+		# the retired 392x232 card and keeps every target clear of her silhouette.
+		action_panel.visible = true
+		action_panel.position = Vector2(382, 20)
+		action_panel.size = Vector2(874, 680)
+		surface.position = Vector2(10, 10)
+		surface.size = Vector2(854, 660)
+	if career_id in ["boxer", "ballerina"]:
+		phase_fill.visible = false
+		action_panel.queue_redraw()
+		return
 	if mode == "bop" or mode == "lens" or mode == "talk":
 		# stage-wide beats play on the painting itself — no card at all
 		action_panel.visible = false
 		return
 	action_panel.visible = true
 	if mode == "pipe":
-		# the pipe board earns the big stage: a full-width workbench card
-		action_panel.position = Vector2(190, 36)
-		action_panel.size = Vector2(900, 648)
+		# The pipe board remains large but docks wholly away from Roshan.
+		action_panel.size = Vector2(760, 648)
+		var left_pipe := Rect2(Vector2(24, 36), action_panel.size)
+		var right_pipe := Rect2(Vector2(496, 36), action_panel.size)
+		action_panel.position = _safer_panel_rect(left_pipe, right_pipe).position
 		surface.position = Vector2(24, 24)
-		surface.size = Vector2(852, 560)
+		surface.size = Vector2(712, 560)
 		phase_fill.position = Vector2(24, 596)
-		phase_fill.size = Vector2(852, 30)
+		phase_fill.size = Vector2(712, 30)
 		action_panel.queue_redraw()
 		return
 	action_panel.position = _card_position_near_station()
@@ -985,19 +1350,34 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	surface.size = Vector2(392, 232)
 	phase_fill.position = Vector2(24, 318)
 	phase_fill.size = Vector2(392, 34)
+	if mode == "catch" and nursery_catch != null:
+		# The catch surface owns the same card viewport as every other verb.
+		# Its previous 266px height extended 26px underneath this progress bar.
+		nursery_catch.position = surface.position
+		nursery_catch.size = surface.size
 	action_panel.queue_redraw()
 
 
 func _card_position_near_station() -> Vector2:
-	# dock the task card beside the phase's station, clamped on screen
+	# Dock left or right according to Roshan's actual visual rectangle. The
+	# card must never cover the actor, regardless of station order or depth.
 	var station_index := int(station_for_phase.get(phase_index, -1))
 	var anchor := Vector2(640, 430)
 	if station_index >= 0 and station_index < station_list.size():
 		anchor = station_list[station_index].get("pos", anchor) as Vector2
-	var pos := anchor + Vector2(60.0 if anchor.x < 640.0 else -500.0, -260.0)
-	pos.x = clampf(pos.x, 24.0, 1280.0 - 464.0)
-	pos.y = clampf(pos.y, 150.0, 720.0 - 384.0 - 130.0)
-	return pos
+	var y := clampf(anchor.y - 300.0, 24.0, 312.0)
+	var left := Rect2(Vector2(24, y), Vector2(440, 384))
+	var right := Rect2(Vector2(816, y), Vector2(440, 384))
+	return _safer_panel_rect(left, right).position
+
+
+func _safer_panel_rect(first: Rect2, second: Rect2) -> Rect2:
+	if player_actor == null:
+		return first
+	var actor_rect := Rect2(player_actor.position, player_actor.size * player_actor.scale).grow(28.0)
+	var first_overlap := first.intersection(actor_rect).get_area()
+	var second_overlap := second.intersection(actor_rect).get_area()
+	return first if first_overlap <= second_overlap else second
 
 
 ## Screen-space tuning for the shared imp brain. The brain thinks in the
@@ -1277,6 +1657,18 @@ func competition_progress() -> float:
 
 
 func _set_finale_visible(show_finale: bool) -> void:
+	if career_id in ["boxer", "ballerina"]:
+		# Specialist surfaces own their feedback. The boxer draws exactly one
+		# padded imp; ballet uses held poses and pearls instead of race meters.
+		if player_bar != null:
+			player_bar.visible = false
+		if rival_bar != null:
+			rival_bar.visible = false
+		if player_actor != null:
+			player_actor.visible = career_id == "ballerina"
+		if rival_actor != null:
+			rival_actor.visible = false
+		return
 	var cooperative := competition != null and competition.is_cooperative()
 	if player_bar != null:
 		player_bar.visible = show_finale
@@ -1285,9 +1677,131 @@ func _set_finale_visible(show_finale: bool) -> void:
 	if rival_actor != null:
 		rival_actor.visible = show_finale or cooperative
 
+func _on_boxing_gesture(kind: String, amount: float, quality: float) -> void:
+	# Cosmetic contact is deliberately outside scoring. It cannot become a
+	# miss, change a high-water mark, or consume the next accepted punch.
+	if kind == "boxing_contact":
+		idle_t = 0.0
+		return
+	if kind not in [
+		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt",
+	]:
+		return
+	if phase_advance_pending:
+		return
+	if not task_open:
+		_open_task()
+	if amount <= 0.0:
+		# A short, sideways, guarded, or out-of-bounds try is a fresh wordless
+		# cue. Crucially, competition.note_miss() is never called here.
+		idle_t = 0.0
+		surface.note_result(false)
+		surface.restart_demo()
+		return
+	idle_t = 0.0
+	surface.note_input()
+	surface.note_result(quality >= 0.5)
+	var phase := phases[phase_index] as Dictionary
+	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+	phase_progress = minf(goal, phase_progress + amount)
+	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+	phase_fill.value = progress * 100.0
+	surface.set_fill(progress)
+	if competition != null and competition.active and score_cool <= 0.0:
+		competition.note_success(10)
+		score_cool = 0.5
+	if phase_progress < goal:
+		return
+	surface.accept_completion()
+	phase_complete_t = 2.2 if kind == "boxing_belt" else 1.1
+	phase_advance_pending = true
+
+
+func _repeat_ballet_instruction() -> void:
+	if m == null or phase_index >= phases.size():
+		return
+	ballet_instruction_repeats += 1
+	var phase := phases[phase_index] as Dictionary
+	if String(phase.get("mode", "")) == "ballet_pose":
+		# The first line asks her to watch; once a portrait is tappable, the
+		# existing family recording clearly hands the turn to the child.
+		m.show_msg("Roshan", "Tap the glowing dance pose!", "op_ballerina_steps")
+		return
+	_repeat_phase_prompt()
+
+
+func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
+	if phase_advance_pending:
+		# Trusted probes may skip the celebratory hold just as the shared gesture
+		# path does. Real touch remains locked until the held pose has been seen.
+		if kind == "probe":
+			_advance_completed_phase()
+			if phase_index >= phases.size():
+				return
+		else:
+			return
+	if kind == "ballet_pose_cue":
+		if player_animator != null:
+			player_animator.show_pose("work", clampi(int(round(amount)), 0, 3))
+		return
+	if kind == "ballet_ready":
+		idle_t = 0.0
+		# Only Pearl Mirror emits this event: its 2.15-second watch demo has
+		# finished, so the shorter "your turn" recording can now play alone.
+		_repeat_ballet_instruction()
+		return
+	if kind not in ["ballet_pose", "ballet_ribbon", "ballet_twirl", "probe"]:
+		return
+	if not task_open:
+		_open_task()
+	if amount <= 0.0:
+		# A near miss is a cue, never a penalty. The specialist surface keeps the
+		# accepted portrait/checkpoints and replays only the unresolved part.
+		if surface != null:
+			surface.note_result(false)
+			surface.restart_demo()
+		return
+	idle_t = 0.0
+	if surface != null:
+		surface.note_input()
+		surface.note_result(true)
+	var phase := phases[phase_index] as Dictionary
+	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+	phase_progress = minf(goal, phase_progress + amount)
+	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+	phase_fill.value = progress * 100.0
+	surface.set_fill(progress)
+	if competition != null and competition.active and score_cool <= 0.0:
+		competition.note_success(10)
+		score_cool = 0.5
+	# A real accepted unit may change her pose; finger samples and mistakes may
+	# not. Three broad arm-shape holds read as port de bras instead of flailing.
+	if player_animator != null:
+		var mode := String(phase.get("mode", ""))
+		if mode == "ballet_ribbon":
+			var ribbon_band := mini(BalletSurface.POSE_FRAMES.size() - 1,
+				int(floor(progress * 3.0)))
+			player_animator.show_pose("work", int(BalletSurface.POSE_FRAMES[ribbon_band]))
+	if phase_progress < goal:
+		return
+	surface.accept_completion()
+	if phase_index == phases.size() - 1:
+		_play_roshan_animation("cheer")
+		phase_complete_t = 2.2
+	else:
+		# Let the current instruction/pose settle before the next phase speaks.
+		phase_complete_t = BALLET_PHASE_HOLD_SECONDS
+	phase_advance_pending = true
+
 
 func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if not active or reveal_t > 0.0 or phase_index >= phases.size():
+		return
+	if career_id == "boxer":
+		_on_boxing_gesture(_kind, amount, quality)
+		return
+	if career_id == "ballerina":
+		_on_ballet_gesture(_kind, amount, quality)
 		return
 	if _kind == "echo_note":
 		if m != null and m.chime != null:
@@ -1321,6 +1835,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		_open_task()
 	var phase := phases[phase_index] as Dictionary
 	var mode := String(phase.get("mode", ""))
+	_play_roshan_animation("work")
 	if mode == "catch" and amount < 5.0:
 		return
 	idle_t = 0.0
@@ -1359,13 +1874,18 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
 		if quality >= 0.5:
+			var previous_choice := choice_target
 			# never rotate by a multiple of three — that froze the target
 			choice_target = (choice_target + 1 + (phase_index % 2)) % 3
 			surface.target_choice = choice_target
-			surface.queue_redraw()
+			# Every success immediately teaches the next answer. TRACK spends
+			# that same cue time on a fresh, visible hat shuffle.
+			if career_id == "magician":
+				surface.start_shuffle(previous_choice)
+			else:
+				surface.reflash_choice()
 		else:
-			# the answer re-flashes as mercy for a WRONG pick only — a
-			# correct pick must not reveal the next answer for free
+			# A wrong pick keeps the same answer and gently repeats its cue.
 			surface.reflash_choice()
 	elif mode == "bop":
 		if quality >= 0.5 and captain_pending and _combat_remaining() <= 2 and phase_progress < goal:
@@ -1380,6 +1900,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		# used to exist for ~0.18s before the next phase wiped it, so the
 		# child never saw the thing she had just made
 		surface.accept_completion()
+		_play_roshan_animation("cheer")
 		if action_panel != null and surface != null:
 			_bop_burst_at(action_panel.position + surface.position + surface.size * 0.5, false)
 		phase_complete_t = 2.2
@@ -1451,7 +1972,6 @@ func _on_nursery_baby_caught(quality: float) -> void:
 	# the basin actually fills. Without this the delivered _fill/_bubbles/
 	# _full overlays never move and the child gets no feedback at all.
 	surface.set_fill(progress)
-	surface.set_fill(progress)
 	surface.note_result(true)
 	_bounce_actor(player_actor, 14.0)
 	_bounce_actor(rival_actor, 9.0)
@@ -1459,6 +1979,7 @@ func _on_nursery_baby_caught(quality: float) -> void:
 		# join the shared advance rhythm: hold the cozy scene, then arm
 		phase_complete_t = 0.8
 		phase_advance_pending = true
+		_play_roshan_animation("cheer")
 
 
 func _on_nursery_baby_missed() -> void:
@@ -1546,11 +2067,24 @@ func update_competition() -> void:
 func celebrate(result: Dictionary) -> void:
 	active = false
 	_restore_stage_actors()
+	if career_id == "boxer":
+		# Return from first-person gloves to the existing actor-and-belt curtain
+		# call only after the title imp has bowed.
+		if action_panel != null:
+			action_panel.visible = false
+		if player_actor != null:
+			player_actor.visible = true
+		if rival_actor != null:
+			rival_actor.visible = true
+	_play_roshan_animation("cheer")
 	var tier := int(result.get("tier", 1))
-	last_cheer = (
-		"THE BABIES ARE COZY!" if competition.is_cooperative()
-		else "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
-	)
+	if career_id == "ballerina":
+		last_cheer = "A BEAUTIFUL PEARL BALLET!"
+	else:
+		last_cheer = (
+			"THE BABIES ARE COZY!" if competition.is_cooperative()
+			else "%s — ROSHAN WINS!" % String(result.get("cheer", "BIG CHEERS"))
+		)
 	if prop_rect != null and prop_rect.texture != null:
 		# the stolen goal prop comes home for the curtain call
 		prop_rect.visible = true
@@ -1969,10 +2503,27 @@ func _draw_combat_fx() -> void:
 func _start_lens_phase(phase: Dictionary) -> void:
 	lens_layer.visible = true
 	lens_layer.mouse_filter = Control.MOUSE_FILTER_STOP
-	lens_pos = Vector2(640, 420)
+	lens_zoom_surface.visible = true
+	_set_lens_position(Vector2(640, 400))
 	lens_demo = true
 	lens_dwell = 0.0
 	lens_target = -1
+	lens_since_find = 0.0
+	lens_hint_target = -1
+	lens_room_reactions = 0
+	lens_object_sound_cool = 0.0
+	lens_find_count = 0
+	lens_trail_t = 0.0
+	lens_object_pulses.clear()
+	lens_room_objects.clear()
+	for source: Dictionary in DETECTIVE_ROOM_OBJECTS:
+		var entry := source.duplicate(true)
+		var normalized: Vector2 = entry.get("at", Vector2.ZERO)
+		entry["pos"] = Vector2(
+			normalized.x * StagePaths.SCREEN.x,
+			normalized.y * StagePaths.SCREEN.y)
+		entry["ready_at"] = -1.0
+		lens_room_objects.append(entry)
 	var spots := StagePaths.clue_spots(career_id)
 	var goal := mini(int(ceilf(float(phase.get("goal", 5.0)))), spots.size())
 	# rotate which painted details hide sparkles so the two lens phases differ
@@ -1982,6 +2533,16 @@ func _start_lens_phase(phase: Dictionary) -> void:
 	for index in range(goal):
 		lens_clues.append(spots[(index + offset) % spots.size()])
 		lens_found.append(false)
+	if career_id == "detective" and phase_index == 0 and not detective_intro_played:
+		detective_intro_played = true
+		# A moving chain of light carries the stolen crown's energy to the first
+		# clue while the two-line setup plays. It is guidance, never progress.
+		lens_trail_from = Vector2(0.88, 0.34) * StagePaths.SCREEN
+		lens_trail_to = lens_clues[0] if not lens_clues.is_empty() \
+			else Vector2(0.20, 0.56) * StagePaths.SCREEN
+		lens_trail_t = LENS_TRAIL_DURATION
+		if m != null:
+			m.say_sequence(DETECTIVE_INTRO_LINES)
 
 
 func _lens_input(event: InputEvent) -> void:
@@ -1990,32 +2551,128 @@ func _lens_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and (event as InputEventMouseMotion).device == InputEvent.DEVICE_ID_EMULATION:
 		return
 	if event is InputEventScreenTouch and (event as InputEventScreenTouch).pressed:
-		lens_pos = (event as InputEventScreenTouch).position
-		lens_demo = false
+		_move_lens_to((event as InputEventScreenTouch).position, true)
 	elif event is InputEventScreenDrag:
-		lens_pos = (event as InputEventScreenDrag).position
-		lens_demo = false
+		_move_lens_to((event as InputEventScreenDrag).position, true)
 	elif event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT and (event as InputEventMouseButton).pressed:
-		lens_pos = (event as InputEventMouseButton).position
-		lens_demo = false
+		_move_lens_to((event as InputEventMouseButton).position, true)
 	elif event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		lens_pos = (event as InputEventMouseMotion).position
-		lens_demo = false
+		_move_lens_to((event as InputEventMouseMotion).position, true)
 	lens_layer.queue_redraw()
+
+
+func _clamped_lens_position(point: Vector2) -> Vector2:
+	# The functional glass always stays visible. The diagonal decorative handle
+	# may cross an edge; forcing all 420px of it on-screen would leave the
+	# required far-right clue outside the glass's capture radius.
+	return Vector2(
+		clampf(point.x, LENS_RADIUS + 4.0,
+			StagePaths.SCREEN.x - LENS_RADIUS - 4.0),
+		clampf(point.y, LENS_RADIUS + 4.0,
+			StagePaths.SCREEN.y - LENS_RADIUS - 4.0))
+
+
+func _lens_graphic_rect() -> Rect2:
+	return Rect2(lens_pos - LENS_GRAPHIC_SIZE * LENS_ART_GLASS_CENTER,
+		LENS_GRAPHIC_SIZE)
+
+
+func _set_lens_position(point: Vector2) -> void:
+	lens_pos = _clamped_lens_position(point)
+	_sync_lens_zoom_surface()
+
+
+func _move_lens_to(point: Vector2, inspect_room: bool) -> void:
+	_set_lens_position(point)
+	lens_demo = false
+	idle_t = 0.0
+	if inspect_room:
+		_try_lens_room_object(lens_pos)
+
+
+func _try_lens_room_object(point: Vector2) -> bool:
+	var nearest := -1
+	var nearest_distance := INF
+	for index in range(lens_room_objects.size()):
+		var room_object: Dictionary = lens_room_objects[index]
+		var object_pos: Vector2 = room_object.get("pos", Vector2.ZERO)
+		var distance := point.distance_to(object_pos)
+		if distance <= float(room_object.get("radius", 64.0)) and distance < nearest_distance:
+			nearest = index
+			nearest_distance = distance
+	if nearest < 0:
+		return false
+	var target: Dictionary = lens_room_objects[nearest]
+	if elapsed < float(target.get("ready_at", -1.0)):
+		return true
+	target["ready_at"] = elapsed + 0.55
+	lens_room_objects[nearest] = target
+	lens_room_reactions += 1
+	var object_pos: Vector2 = target.get("pos", point)
+	lens_object_pulses.append({
+		"pos": object_pos,
+		"colour": target.get("colour", Color("#fff0a8")),
+		"t": 0.0,
+	})
+	_bop_burst_at(object_pos, true)
+	if m != null and m.chime != null and lens_object_sound_cool <= 0.0:
+		m.chime.pitch_scale = 0.88 + float(nearest % 5) * 0.08
+		m.chime.play()
+		lens_object_sound_cool = 0.22
+	return true
+
+
+func _next_unfound_lens_clue() -> int:
+	for index in range(lens_found.size()):
+		if not lens_found[index]:
+			return index
+	return -1
+
+
+func _next_lens_story_target() -> Vector2:
+	var next_clue := _next_unfound_lens_clue()
+	if next_clue >= 0:
+		return lens_clues[next_clue]
+	# The last clue points into the next verb instead of leaving the child at
+	# a dead end: the evidence-shelf station owns the case-board task.
+	var next_phase := phase_index + 1
+	var station_index := int(station_for_phase.get(next_phase, -1))
+	if station_index >= 0 and station_index < station_list.size():
+		return station_list[station_index].get(
+			"pos", Vector2(0.20, 0.56) * StagePaths.SCREEN) as Vector2
+	return Vector2(0.20, 0.56) * StagePaths.SCREEN
 
 
 func _tick_lens(delta: float) -> void:
 	if lens_layer == null or not lens_layer.visible:
 		return
+	lens_since_find += delta
+	lens_object_sound_cool = maxf(0.0, lens_object_sound_cool - delta)
+	lens_trail_t = maxf(0.0, lens_trail_t - delta)
+	for pulse_index in range(lens_object_pulses.size() - 1, -1, -1):
+		var pulse: Dictionary = lens_object_pulses[pulse_index]
+		pulse["t"] = float(pulse.get("t", 0.0)) + delta
+		if float(pulse["t"]) >= 0.8:
+			lens_object_pulses.remove_at(pulse_index)
+	if lens_since_find >= LENS_HINT_DELAY and lens_hint_target < 0:
+		lens_hint_target = _next_unfound_lens_clue()
+		if lens_hint_target >= 0:
+			# One soft burst announces where to look; the continuing glisten is
+			# drawn below and never completes the clue on the child's behalf.
+			_bop_burst_at(lens_clues[lens_hint_target], true)
+			if m != null:
+				m.show_msg("Roshan", "Hold the magnifier over the glowing clue!",
+					"op_detective_peek")
 	if lens_demo:
-		# the ghost lens drifts along the stage until the child grabs it
-		lens_pos = Vector2(
-			640.0 + sin(elapsed * 0.9) * 420.0,
-			410.0 + sin(elapsed * 1.7) * 130.0
-		)
+		# The wordless ghost goes to the actual next clue, not an unrelated
+		# decorative sweep. Demo motion never accrues dwell or progress.
+		var demo_clue := _next_unfound_lens_clue()
+		if demo_clue >= 0:
+			var demo_target := _clamped_lens_position(lens_clues[demo_clue])
+			_set_lens_position(lens_pos.move_toward(demo_target, delta * 320.0))
 	var found_index := -1
 	for index in range(lens_clues.size()):
-		if not lens_found[index] and lens_pos.distance_to(lens_clues[index]) <= 96.0:
+		if not lens_found[index] and lens_pos.distance_to(lens_clues[index]) <= LENS_CLUE_CAPTURE_RADIUS:
 			found_index = index
 			break
 	if found_index != lens_target:
@@ -2024,15 +2681,94 @@ func _tick_lens(delta: float) -> void:
 	elif found_index >= 0 and not lens_demo:
 		lens_dwell += delta
 		if lens_dwell >= 0.45:
+			var found_spot := lens_clues[found_index]
 			lens_found[found_index] = true
+			lens_find_count += 1
 			lens_target = -1
 			lens_dwell = 0.0
-			_bop_burst_at(lens_clues[found_index], false)
+			lens_since_find = 0.0
+			lens_hint_target = -1
+			lens_trail_from = found_spot
+			lens_trail_to = _next_lens_story_target()
+			lens_trail_t = LENS_TRAIL_DURATION
+			_bop_burst_at(found_spot, false)
+			if m != null and not m.dialogue_active:
+				m.show_msg("Roshan", "A clue! Right there, hiding where nobody looked!",
+					"op_detective_work")
 			_on_gesture("lens", 1.0, 1.0)
+	_sync_lens_zoom_surface()
 	lens_layer.queue_redraw()
 
 
 func _draw_lens_layer() -> void:
+	# Every accepted clue launches a short directional evidence trail. A faint
+	# chain shows the route; a brighter travelling star makes its direction
+	# readable without arrows or text.
+	if lens_trail_t > 0.0:
+		var trail_age := 1.0 - lens_trail_t / LENS_TRAIL_DURATION
+		var trail_fade := clampf(lens_trail_t / 0.55, 0.0, 1.0)
+		var trail_vector := lens_trail_to - lens_trail_from
+		var trail_normal := trail_vector.normalized().orthogonal()
+		for trail_index in range(11):
+			var trail_amount := float(trail_index) / 10.0
+			var trail_pos := lens_trail_from.lerp(lens_trail_to, trail_amount)
+			trail_pos += trail_normal * sin(trail_amount * PI * 3.0) * 7.0
+			var head_glow := clampf(1.0 - absf(trail_amount - trail_age) * 5.5,
+				0.0, 1.0)
+			var dot_alpha := trail_fade * (0.28 + head_glow * 0.72)
+			lens_layer.draw_circle(trail_pos, 5.0 + head_glow * 7.0,
+				Color(1.0, 0.90, 0.32, dot_alpha))
+			if head_glow > 0.45:
+				lens_layer.draw_line(trail_pos - Vector2(15.0, 0.0) * head_glow,
+					trail_pos + Vector2(15.0, 0.0) * head_glow,
+					Color(1.0, 0.97, 0.72, trail_fade * head_glow), 3.5)
+				lens_layer.draw_line(trail_pos - Vector2(0.0, 15.0) * head_glow,
+					trail_pos + Vector2(0.0, 15.0) * head_glow,
+					Color(1.0, 0.97, 0.72, trail_fade * head_glow), 3.5)
+	# Every authored landmark responds under the glass, even when it is not a
+	# clue. That makes the dense room feel inspectable instead of decorative.
+	for room_object: Dictionary in lens_room_objects:
+		var object_pos: Vector2 = room_object.get("pos", Vector2.ZERO)
+		var distance := lens_pos.distance_to(object_pos)
+		if distance > LENS_RADIUS:
+			continue
+		var closeness := clampf(1.0 - distance / LENS_RADIUS, 0.0, 1.0)
+		var object_colour: Color = room_object.get("colour", Color("#fff0a8"))
+		var shimmer := 0.45 + (sin(elapsed * 7.0 + object_pos.x * 0.02) + 1.0) * 0.22
+		lens_layer.draw_circle(object_pos, 5.0 + closeness * 5.0,
+			Color(object_colour, closeness * shimmer))
+		lens_layer.draw_line(object_pos - Vector2(13.0, 0.0) * closeness,
+			object_pos + Vector2(13.0, 0.0) * closeness,
+			Color(object_colour, closeness * 0.72), 2.5)
+		lens_layer.draw_line(object_pos - Vector2(0.0, 13.0) * closeness,
+			object_pos + Vector2(0.0, 13.0) * closeness,
+			Color(object_colour, closeness * 0.72), 2.5)
+	for pulse: Dictionary in lens_object_pulses:
+		var pulse_t := clampf(float(pulse.get("t", 0.0)) / 0.8, 0.0, 1.0)
+		var pulse_pos: Vector2 = pulse.get("pos", Vector2.ZERO)
+		var pulse_colour: Color = pulse.get("colour", Color("#fff0a8"))
+		lens_layer.draw_arc(pulse_pos, 20.0 + pulse_t * 52.0, 0.0, TAU, 32,
+			Color(pulse_colour, (1.0 - pulse_t) * 0.9), 5.0)
+		for ray_index in range(4):
+			var direction := Vector2.from_angle(float(ray_index) * PI * 0.5 + pulse_t)
+			lens_layer.draw_line(pulse_pos + direction * (16.0 + pulse_t * 18.0),
+				pulse_pos + direction * (32.0 + pulse_t * 34.0),
+				Color(pulse_colour, 1.0 - pulse_t), 4.0)
+	# After twelve seconds without a find, one remaining clue glistens in the
+	# room itself. It is a directional kindness, not automatic progress.
+	if lens_hint_target >= 0 and lens_hint_target < lens_clues.size():
+		var hint_pos := lens_clues[lens_hint_target]
+		var hint_age := maxf(0.0, lens_since_find - LENS_HINT_DELAY)
+		var hint_pulse := (sin(hint_age * 4.8) + 1.0) * 0.5
+		lens_layer.draw_circle(hint_pos, 18.0 + hint_pulse * 10.0,
+			Color(1.0, 0.91, 0.35, 0.16 + hint_pulse * 0.20))
+		lens_layer.draw_arc(hint_pos, 32.0 + hint_pulse * 12.0, 0.0, TAU, 28,
+			Color(1.0, 0.86, 0.24, 0.55 + hint_pulse * 0.40), 4.5)
+		for hint_ray in range(4):
+			var hint_direction := Vector2.from_angle(float(hint_ray) * PI * 0.5)
+			lens_layer.draw_line(hint_pos + hint_direction * 16.0,
+				hint_pos + hint_direction * (34.0 + hint_pulse * 14.0),
+				Color(1.0, 0.96, 0.66, 0.65 + hint_pulse * 0.35), 4.0)
 	# sparkles hide in the painting and only glow under the magic lens
 	for index in range(lens_clues.size()):
 		var spot := lens_clues[index]
@@ -2040,8 +2776,8 @@ func _draw_lens_layer() -> void:
 			lens_layer.draw_circle(spot, 10.0, Color(1.0, 0.9, 0.5, 0.9))
 			continue
 		var d := lens_pos.distance_to(spot)
-		if d <= 118.0:
-			var reveal := clampf(1.0 - d / 118.0, 0.0, 1.0)
+		if d <= LENS_RADIUS:
+			var reveal := clampf(1.0 - d / LENS_RADIUS, 0.0, 1.0)
 			var twinkle := 0.6 + (sin(elapsed * 6.0 + float(index)) + 1.0) * 0.2
 			lens_layer.draw_circle(spot, 13.0 * reveal, Color(1.0, 0.95, 0.55, reveal * twinkle))
 			lens_layer.draw_arc(spot, 19.0 * reveal, 0.0, TAU, 20, Color(1.0, 0.85, 0.3, reveal * 0.8), 3.0)
@@ -2049,17 +2785,17 @@ func _draw_lens_layer() -> void:
 	if magnifier_texture != null:
 		lens_layer.draw_texture_rect(
 			magnifier_texture,
-			Rect2(lens_pos - Vector2(128.0, 128.0), Vector2(256.0, 256.0)),
+			_lens_graphic_rect(),
 			false
 		)
 	else:
-		lens_layer.draw_circle(lens_pos, 92.0, Color(0.75, 0.92, 1.0, 0.14))
-		lens_layer.draw_arc(lens_pos, 92.0, 0.0, TAU, 48, Color("#c88b3c"), 9.0)
-		lens_layer.draw_arc(lens_pos, 80.0, 0.0, TAU, 48, Color(1.0, 1.0, 1.0, 0.35), 3.0)
+		lens_layer.draw_circle(lens_pos, LENS_RADIUS, Color(0.75, 0.92, 1.0, 0.14))
+		lens_layer.draw_arc(lens_pos, LENS_RADIUS, 0.0, TAU, 48, Color("#c88b3c"), 11.0)
+		lens_layer.draw_arc(lens_pos, LENS_RADIUS - 12.0, 0.0, TAU, 48, Color(1.0, 1.0, 1.0, 0.35), 3.0)
 		var handle_dir := Vector2(0.72, 0.72)
-		lens_layer.draw_line(lens_pos + handle_dir * 92.0, lens_pos + handle_dir * 158.0, Color("#8a5f3c"), 16.0)
+		lens_layer.draw_line(lens_pos + handle_dir * LENS_RADIUS, lens_pos + handle_dir * (LENS_RADIUS + 88.0), Color("#8a5f3c"), 19.0)
 	if lens_target >= 0:
-		lens_layer.draw_arc(lens_pos, 100.0, -PI * 0.5, -PI * 0.5 + TAU * clampf(lens_dwell / 0.45, 0.0, 1.0), 40, Color(1.0, 0.9, 0.4), 6.0)
+		lens_layer.draw_arc(lens_pos, LENS_RADIUS - 8.0, -PI * 0.5, -PI * 0.5 + TAU * clampf(lens_dwell / 0.45, 0.0, 1.0), 40, Color(1.0, 0.9, 0.4), 7.0)
 
 
 func _process(delta: float) -> void:
@@ -2095,6 +2831,7 @@ func _process(delta: float) -> void:
 	if active and not phase_advance_pending and reveal_t <= 0.0 and phase_index < phases.size():
 		# quiet children get the prompt again plus a fresh finger demo
 		idle_t += delta
+		var task_hint_delay := 7.0 if career_id == "ballerina" else 9.0
 		if not task_open:
 			if idle_t >= 20.0:
 				# the kind assist: she walks herself to the waiting station.
@@ -2109,10 +2846,21 @@ func _process(delta: float) -> void:
 				# "hint" event has no recording, so a quiet child used to get
 				# a content-free pitched yay instead of her instruction again
 				_repeat_phase_prompt()
-		elif idle_t >= 9.0:
+		elif idle_t >= task_hint_delay:
 			idle_t = 0.0
-			surface.restart_demo()
-			_repeat_phase_prompt()
+			var idle_mode := String((phases[phase_index] as Dictionary).get("mode", ""))
+			if idle_mode == "lens":
+				lens_demo = true
+			else:
+				surface.restart_demo()
+			if career_id == "ballerina":
+				# Mirror speaks only after its watch demo emits ballet_ready.
+				# Ribbon and Twirl have no ready echo, so their quiet-time replay
+				# uses the phase line here at the seven-second rehint.
+				if idle_mode != "ballet_pose":
+					_repeat_ballet_instruction()
+			else:
+				_repeat_phase_prompt()
 	timing_phase = fmod(timing_phase + delta * minf(0.70, 0.55 + 0.02 * float(phase_index)), 2.0)
 	var marker := timing_phase if timing_phase <= 1.0 else 2.0 - timing_phase
 	surface.set_timing_position(marker)
@@ -2154,6 +2902,8 @@ func _process(delta: float) -> void:
 
 func close() -> void:
 	active = false
+	if career_id == "boxer" and surface is OperaBoxingSurface:
+		(surface as OperaBoxingSurface).cancel_all_touches()
 	if m != null:
 		# story lines queued by talk beats must not drain into the lagoon
 		m.clear_dialogue()
@@ -2211,6 +2961,7 @@ func _wander_step(delta: float) -> void:
 	if player_actor == null:
 		return
 	if wander_walking:
+		_play_roshan_animation("travel")
 		var previous := wander_feet
 		wander_feet = wander_feet.move_toward(wander_dest, 250.0 * delta)
 		var step := wander_feet.x - previous.x
@@ -2235,6 +2986,9 @@ func _wander_step(delta: float) -> void:
 			player_actor.rotation = 0.0
 			wander_stride = 0.0
 			_capture_actor_rest("player", player_actor)
+			_play_roshan_animation("idle")
+	else:
+		_play_roshan_animation("idle")
 	if armed_station >= 0 and armed_station < station_list.size():
 		var station_pos: Vector2 = station_list[armed_station].get("pos", Vector2.ZERO)
 		if wander_feet.distance_to(station_pos) <= 150.0:

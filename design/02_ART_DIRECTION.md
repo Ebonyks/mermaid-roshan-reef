@@ -6,7 +6,8 @@ LIVING_CARD_DESIGN_LANGUAGE_2026-07-29, GAME_REDESIGN_2P5D_2026-07-27,
 CODEX_BACKGROUND_FLATS_WORKORDER_2026-07-27, CEL_SHADING, the 24-document
 ART_*/audit chain, the Sky Lagoon, Castle, Opera, Ember and Northern art
 audits, VISUAL_DESIGN_AUDIT_2026-07-28, and the cinematic protocol pair
-under `docs/`._
+under `docs/`, plus the 2026-08-09 Opera animation, Ballerina and Boxer
+reconciliations._
 
 ---
 
@@ -117,6 +118,52 @@ reactive foliage, a second cloud, glints or leaves merely to satisfy a list.
 
 ---
 
+### Current character-animation authority
+
+The merged Opera delivery contains 13 runtime costume atlases, each a 4×4
+1024×1024 sheet with 256 px cells: **208 reviewed frames** in total. Native,
+alpha-derived, pack and runtime hashes plus identity, costume, tail topology,
+padding and prop-attachment review live in the tracked animation evidence;
+`python tools/audit_opera_roshan_animation.py` is the blocking deterministic
+gate. Passing that gate proves the recorded delivery contract, not owner 5/5
+acceptance or phone-size readability.
+
+`assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png` is the
+current Ballerina atlas (SHA-256
+`c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995`). It
+supersedes every earlier Ballerina sheet or recommendation. Its cells are pose
+keys, not smooth temporal in-betweens: audited adjacent-pose silhouette changes
+of 41.6–47.3% make a looping row unacceptable. Runtime holds the chosen ballet
+pose and plays the curtain call once, then holds its final frame. The binding
+details are in `BALLERINA_PARTY_REBUILD_2026-08-09.md`; older Ballerina sections
+in the Opera quality documents cannot restore the four-pad phrase, generic
+crank or old animation playback.
+
+Boxer similarly ships through its illustrated actor/rival frames and dedicated
+Canvas surface. The three retained Boxer GLBs
+(`opera_boxer_outfit.glb`, `opera_boxer_dressing.glb`, and
+`opera_rival_boxer.glb`) are measured removal debt under `MA-2D-002`, not an
+approved fallback, staging intermediate, or resource library for the 2D game.
+
+`assets_src/imagegen/opera_roshan_animation_2026-08-09/PROMPTS.md` and
+`assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md` record
+generation/derivation provenance. A prompt, review sheet, or source hash never
+overrules runtime-context review, the later specialist documents, device
+evidence, or explicit owner acceptance.
+
+Seek has an equally explicit bounded override. Its current Canvas meadow uses
+frame-animated Roshan, Evie and Lamb-a' actors, four large routed tree targets,
+and fourteen high-grade environment/actor nodes. The vinyl
+`assets/characters/stickers/pearl_friend.png` pair card, `assets/mg/k_bush2.png`
+preview draft and transform-only sticker wobble are **superseded for Seek**;
+they may not be restored as its active characters or environment. Four former
+meadow GLBs were byte-verified on the deprecated-resources branch before
+retirement. The protected Evie/Lamb-a' reference pixels remain untouched, and
+the missing exact Evie “tap the wiggly tree” recording remains separately open
+under `MA-ACCESS-003`.
+
+---
+
 ## 3. Technical art gates (hard limits)
 
 | Gate | Rule |
@@ -200,6 +247,7 @@ reintroduced.
 |---|---|
 | **Codex-painted 2D flats / Canvas cards** | **PRIMARY**; reuse approved work before generating a named gap |
 | Illustrated character cutouts | **FINAL MEDIUM.** `Node2D`/`Sprite2D`, unshaded authored contours, restrained 2D idle motion/contact shadow/sparkles; never relit or redesigned to imitate a mesh |
+| Opera costume atlases | **CURRENT 2D DELIVERY.** Thirteen hash-audited 4×4 sheets; Ballerina uses held pose keys and a one-shot curtain call. Earlier sheets remain rejected provenance, never fallback |
 | gen2 Meshy / any 3D character migration | `SUPERSEDED`; removed, not paused. Work orders are history and landed models are removal debt, never fallback |
 | Deterministic Blender/3D kits | `SUPERSEDED` as runtime direction; remaining reachable resources are exact shrinking debt, retired resources live only on the archive branch |
 | CC0 imports (Tiny Treats, KayKit, Quaternius, Kenney, curated OpenGameArt) | Legacy. The broad replacement campaign is `DEFERRED_WITH_REASON`; repair named live defects individually, preserving provenance and deleting an old file only after its replacement/non-reachability proof is green. No speculative mass redesign. |
@@ -270,9 +318,11 @@ finished work read as deliberate animation).
 4. **Deterministic gates where they exist** — `audit_visual_design.py`,
    `audit_scene_congruency.py`, `audit_castle_card_alpha.py`,
    `audit_castle_interactions.py`, `audit_fairy_art_v2.py`,
-   `audit_cinematic.py`. All but the visual-design audit are hard CI gates
-   at the synchronized audit snapshot; the visual-design result remains
-   unsatisfied with explicit review/manual/coverage gaps (`MA-VIS-006`).
+   `prepare_opera_minigame_art.py --check-only`,
+   `audit_opera_roshan_animation.py`, and `audit_cinematic.py`. All but the
+   visual-design audit are hard CI gates at the synchronized audit snapshot;
+   the visual-design result remains unsatisfied with explicit
+   review/manual/coverage gaps (`MA-VIS-006`).
 5. **Licence line in the same commit.**
 6. **The human pass no tool can do:** no words / letters / digits in world
    art, nothing frightening at child eye level, and the M11 squint test —

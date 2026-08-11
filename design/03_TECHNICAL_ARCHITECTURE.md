@@ -15,9 +15,10 @@ platform. GDScript uses tabs and typed variables where present.
 Final runtime medium (owner 2026-08-09): true Canvas/Node2D 2D game-wide.
 `Node3D`, `Sprite3D`, `Camera3D`, models, spatial shaders, 3D lights/physics and
 `Vector3`/`Transform3D` world logic are exact shrinking migration debt, never
-accepted architecture for new or converted work. The synchronized committed
-snapshot is **`UNSATISFIED`** at 513 model files and 70 production 3D files;
-`tools/audit_game_2d.py --strict` must reach zero in every category.
+accepted architecture for new or converted work. The synchronized merged
+working-tree snapshot is **`UNSATISFIED`** at 509 model/export files, 68
+production 3D files and 77 probe 3D files; `tools/audit_game_2d.py --strict`
+must reach zero in every category.
 
 ---
 
@@ -25,9 +26,9 @@ snapshot is **`UNSATISFIED`** at 513 model files and 70 production 3D files;
 
 `scenes/main.tscn` → `scripts/main.gd` (`class_name ReefMain`). Main is the
 **state owner**: two scratch dictionaries `g` (per-activity) and `mg`
-(minigame 2D), plus the save-backed fields. It is 8,465 lines at the
-synchronized 2026-08-09 audit snapshot; the extraction-only standing target
-is <2,500 (`MA-CODE-001`).
+(minigame 2D), plus the save-backed fields. It is 8,519 lines at the
+synchronized merged 2026-08-09 working-tree snapshot; the extraction-only
+standing target is <2,500 (`MA-CODE-001`).
 
 **The Phase-7 satellite mold** — the pattern every extraction follows:
 
@@ -57,6 +58,14 @@ save-restore, report through a `finish_cb`): `kart`, `galaxy`, `combat_arena`,
 `opera_*`. This is a current code inventory, not final-medium approval; each
 remaining spatial mode migrates to Canvas/Node2D while preserving lifecycle
 and behavior.
+
+The current Opera inventory is 13 careers, 53 phases and 27 unique shipping
+modes under `OperaCareerWorld2D`. Ballerina routes to
+`opera_ballet_surface.gd`, Boxer to `opera_boxing_surface.gd`, and Racer stays
+inside the Canvas gesture surface for Tune, To the Line and its racing-circle
+finale. The upstream device-only real-kart branch is explicitly rejected and
+superseded: no device/headless fork, external `kart` child, `Node3D` kart, or
+3D fallback is part of the current Opera architecture.
 
 ### Refactor rules (binding)
 
@@ -107,9 +116,9 @@ engines.**
 | **K1** | Course / collect behavior kit | `games/slide_race.gd::_tick_course` | “spawn set → assist → count to N → reward” may survive as 2D logic; no spatial host is implied. |
 | **K2** | Canvas kit ✅ | `games/picture_games.gd`, `games/dance_engine.gd` | Letterboxed 2D stage, widget factories, `_mg2d_win` reward flow. |
 
-Existing one-offs include `galaxy.gd`, `shop.gd`, `seek.gd`, and `fetch.gd`.
-Convert each as a bounded tested Canvas slice; do not use conversion as an
-excuse for unrelated engine consolidation or redesign.
+Seek is now a bounded tested Canvas slice. Remaining one-offs include
+`galaxy.gd`, `shop.gd`, and `fetch.gd`; convert each independently, without
+using conversion as an excuse for unrelated engine consolidation or redesign.
 
 ### Shared engines outside the minigame set
 
@@ -137,6 +146,30 @@ excuse for unrelated engine consolidation or redesign.
   44, violet drop shadow, gold ribbon title, corner pearls, and
   `MIN_TOUCH := Vector2(110, 110)` as an explicit constant. Use it for new
   child-facing Canvas interface work.
+
+### Music and audio ownership
+
+`MUSIC_AUDIT_2026-08-09.md` is binding for the score, routing and mix
+contract. The current directory has 57 OGG files: 15 legacy files (14 score
+plus `banjo.ogg` as an SFX) and 42 new deterministic area cues. The declarative
+scores in `assets_src/audio/music/area_music_scores.json` and the rendered
+hash/codec/loudness/loop records in
+`assets/audio/music/area_music_manifest.json` are the machine authorities for
+those 42 cues; `python tools/build_area_music.py --check` is the deterministic
+gate.
+
+Runtime deliberately uses one Music player and hard cuts. A temporary owner
+captures the exact prior cue and restores it on every normal, cancel, back and
+stale-callback exit. `AudioDirector` verifies a requested OGG exists before it
+changes either the audible stream or `cur_track`; music-off stays below the
+mute floor through transitions and voice ducking. Family voice owns the mix
+hierarchy. Human two-wrap listening, voice intelligibility, mono fold-down and
+Lenovo Tab M11 start/loop/mix review remain open under `MA-AUDIO-001`.
+
+The Music Audit's dated reference to a nested real kart during Opera Racer is
+superseded by the reconciled Canvas Racer. `opera_racer` remains the act cue
+through that Canvas finale; restoring a device-only `race`/kart branch is not
+an audio or gameplay fallback.
 
 ---
 
@@ -184,11 +217,13 @@ under `MA-CODE-002`.
 
 ## 5. Testing — the probe culture
 
-At the synchronized audit snapshot, **103 `scripts/probe_*.gd` files exist;
-61 names run in the local trusted loop and 60 in the remote headless loop.**
-The intended difference is the display-only `probe_human_art_audit`.
-`MA-CI-002` remains open until every probe has exactly one trusted, runtime-
-visual, advisory, diagnostic, obsolete or quarantined classification.
+At the synchronized merged working-tree snapshot, **192 GDScript files exist
+under `scripts/`, including 105 `scripts/probe_*.gd` files; 63 names run in the
+local trusted loop and 62 in the remote headless loop.** The intended and only
+loop difference is the display-only `probe_human_art_audit`. Blocking-loop
+parity is `FIXED_PENDING_VERIFICATION` under `MA-CI-002`; the merged exact-head
+remote workflow still has to prove it. Exhaustive classification of all 105
+probe scripts remains `CONFIRMED_OPEN` separately under `MA-CI-003`.
 `probe_audit.gd` is the source of truth (full-game bot);
 `probe_passive.gd` is the zero-input negative test — *nothing may be won by
 watching*, and it is what keeps every "mercy" and "assist" feature honest.
@@ -200,17 +235,21 @@ GODOT=$GODOT scripts/ci.sh          # import + every trusted probe; nonzero on a
 ```
 
 `ci.sh` runs gdtoolkit parsing, `lint_inference.py`, static gates, exact import
-and the trusted probe loop. Its deterministic art gates include fairy art,
-Opera nursery art, the visual-design **self-test**, scene congruency, castle
-card alpha and castle interactions. Probes run with isolated state so one bot
-cannot pre-win content for the next. The game-wide 2D unit, stress and
-shrink-only regression gates also run; only strict zero debt can claim medium
-satisfaction.
+and the trusted probe loop. Its deterministic content gates include fairy and
+Opera Nursery art, Opera minigame-art reproducibility, all 13 Opera Roshan
+atlases/208 reviewed frames, the 42-cue area-music build, the visual-design
+**self-test**, scene congruency, castle card alpha and castle interactions.
+Probes run with isolated state so one bot cannot pre-win content for the next.
+The game-wide 2D unit, stress and shrink-only regression gates also run; only
+strict zero debt can claim medium satisfaction.
 
-The latest exact full-suite checkpoint recorded by the master audit is
-`344d8d5c`: exit 0 with 61 trusted local probes and GAME2D
-`NO_REGRESSION` at 513 models / 70 production files. It is not a current-HEAD
-full-suite claim and it is not true-2D satisfaction.
+The earlier exact full-suite checkpoint `344d8d5c` remains historical evidence:
+exit 0 with 61 trusted local probes and GAME2D `NO_REGRESSION` at 513 models /
+70 production files. The resolved merged 63-probe, 509/68/77 working tree now
+also passes the complete local `scripts/ci.sh` under exact Godot 4.7.1-stable
+(exit 0 in 826.4 seconds). That validates the merged worktree, not a final
+merge commit: final-SHA remote CI, APK/device, visual and child evidence remain
+open. Neither checkpoint is true-2D satisfaction.
 
 Two subtleties worth preserving:
 
@@ -322,12 +361,19 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 
 | Audit item | Lifecycle | Current bounded evidence |
 |---|---|---|
-| `MA-2D-002` | `IN_PROGRESS` | GAME2D: 513 model/export files, 157 tracked model sidecars, 356 active untracked model sidecars, 70 production and 80 probe 3D files, one 3D scene and one 3D configuration; strict remains unsatisfied |
-| `MA-CODE-001` | `CONFIRMED_OPEN` | `main.gd` is 8,465 lines against the extraction-only <2,500 target |
+| `MA-2D-002` | `IN_PROGRESS` | GAME2D: 509 model/export files, 157 tracked model sidecars, 352 active untracked model sidecars, 68 production and 77 probe 3D files, one 3D scene and one 3D configuration; strict remains unsatisfied |
+| `MA-CODE-001` | `CONFIRMED_OPEN` | `main.gd` is 8,519 lines against the extraction-only <2,500 target |
 | `MA-CODE-002` | `CONFIRMED_OPEN` | String state, duplicated input, save frequency, material churn and remaining 3D glue are structural risks; repair individually with surrounding tests |
-| `MA-CI-002` | `CONFIRMED_OPEN` | All 103 probe scripts need an explicit trusted/advisory/diagnostic/obsolete/quarantined classification |
-| `MA-ASSET-001` | `CONFIRMED_OPEN` | Current orphan reports: Castle 2.1 MB, Galaxy 11.7 MB, Opera 163.7 MB (458/494 PNGs), Lagoon 47.3 MB; each requires reachability/provenance proof before deletion |
+| `MA-CI-002` | `FIXED_PENDING_VERIFICATION` | 105 probe scripts; local/remote trusted loops are 63/62 with only `probe_human_art_audit` intentionally local; exact merged-head remote proof remains |
+| `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 105 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
+| `MA-DOLLS-001` | `VERIFIED_FIXED` | Faron's catcher is one bounded Canvas activity with real one-finger input, passive/save/medal/replay and weakref teardown evidence |
+| `MA-SEEK-001` | `VERIFIED_FIXED` | Seek is a fourteen-node animated Canvas meadow; its former vinyl/preview presentation and four meadow GLBs are retired from that runtime role |
+| `MA-OPERA-008` | `VERIFIED_FIXED` | Racer uses the exact lap-two cue and one Canvas racing-circle lifecycle on headless and device code paths; no external kart child or 3D fallback |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated one-finger Canvas Boxer surface and five-phase no-loss lifecycle are locally green; target-device, child and owner review remain |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates; human listening, voice/mono mix and target-device review remain |
+| `MA-ASSET-001` | `CONFIRMED_OPEN` | Current orphan reports: Castle 2.1 MB (9/15 PNGs), Galaxy 11.7 MB (32/32), Opera 166.5 MB (453/548), Lagoon 41.9 MB (48/90); each requires reachability/provenance proof before deletion |
 | `MA-ASSET-004` | `CONFIRMED_OPEN` | Lagoon has 10/41 NPOT textures and about 11.6 MB uncompressed simultaneous residency cost |
+| `MA-ASSET-005` | `DISMISSED_NOT_A_DEFECT` | Sponge/starfish invalid-UID warnings came from four stale ignored local `.godot/imported` files; tracked GLBs/sidecars and isolated import are valid. The GLBs remain separate 3D medium debt under `MA-2D-002` |
 
 The disabled oceanfft and specific dead-code examples from earlier audits are
 historical leads until freshly reproduced. Never convert an old inventory row

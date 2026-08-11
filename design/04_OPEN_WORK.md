@@ -14,13 +14,16 @@ Lifecycle words use the master-audit taxonomy. `HISTORICAL_EVIDENCE` is a
 document-authority state, not an open finding. Never turn a dated report into a
 current defect without reproducing its premise.
 
-At the synchronized committed runtime snapshot, GAME2D reports 513 model files
-and 70 production 3D files and remains **`UNSATISFIED`**. `NO_REGRESSION` is not
-completion. The overall master-audit cycle is `REPAIRING`.
+At the synchronized merged working-tree snapshot, GAME2D reports 509
+model/export files, 68 production 3D files and 77 probe 3D files and remains
+**`UNSATISFIED`**. The same inventory has 306 tracked Markdown paths, 192
+GDScript files under `scripts/`, 105 probe scripts and an 8,519-line
+`scripts/main.gd`. `NO_REGRESSION` is not completion. The overall master-audit
+cycle is `REPAIRING`.
 
 ---
 
-## Current acceptance-blocking work
+## Current lifecycle and acceptance-blocking work
 
 | Current owner | Lifecycle | Current scope |
 |---|---|---|
@@ -35,18 +38,35 @@ completion. The overall master-audit cycle is `REPAIRING`.
 | `MA-VIS-005` | `CONFIRMED_OPEN` | Validate occlusion for every relevant 2D card, not one aggregate role |
 | `MA-VIS-006` | `CONFIRMED_OPEN` | Resolve all applicable visual review/manual/coverage gaps with commit-pinned evidence |
 | `MA-PLAY-001` | `CONFIRMED_OPEN` | Prove every current child-visible destination from a fresh save without direct/debug entry, including return, re-entry, touch, voice and save behavior |
-| `MA-ACCESS-001` / `MA-ACCESS-002` | `BLOCKED_EXTERNAL` | Obtain authorized exact objective recordings/diegetic equivalents and the Lamba semantic recording; protected family audio must not be modified |
+| `MA-ACCESS-001` / `MA-ACCESS-002` / `MA-ACCESS-003` | `BLOCKED_EXTERNAL` | Obtain authorized exact objective recordings/diegetic equivalents, the Lamba semantic recording, and Evie's exact Seek tap-tree cue; protected family audio must not be modified |
 | `MA-TOUCH-001` | `FIXED_PENDING_VERIFICATION` | Complete target-phone hold/drag/multitouch/focus-loss evidence |
-| `MA-OPERA-001` through `MA-OPERA-006` | `CONFIRMED_OPEN` | Repair only the named current art, capture, uniqueness and art-fiction items in the master audit; do not revive an older request list wholesale |
+| `MA-DOLLS-001` | `VERIFIED_FIXED` | Faron's catcher is a bounded Canvas activity with real touch, passive safety, save/medal/replay and teardown evidence |
+| `MA-SEEK-001` | `VERIFIED_FIXED` | Animated Evie/Lamb-a' Canvas meadow supersedes the vinyl pair card, low-grade preview bush and four retired meadow GLBs; exact Evie objective speech remains `MA-ACCESS-003` |
+| `MA-OPERA-001` | `FIXED_PENDING_VERIFICATION` | Chef behavior/art routing and the resolved merged-worktree local full suite are green; final-SHA two-aspect capture, device and owner review still decide closure |
+| `MA-OPERA-002` / `MA-OPERA-004` | `CONFIRMED_OPEN` | Detective's painted crown is not proved healed, and no complete accepted all-career capture matrix exists |
+| `MA-OPERA-003` / `MA-OPERA-006` | `CONFIRMED_OPEN` | Split and re-audit the remaining fallback/art-fiction/voice subclaims; several subclaims changed, so the older grouped wording cannot be closed or imported wholesale |
+| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas, three-act specialist and resolved merged-worktree local full suite are green; final-SHA remote, device, child and owner review remain |
 | `MA-OPERA-007` | `OWNER_DECISION_REQUIRED` | Decide the above-water Farmer/Doctor setting before treating it as a defect or repair |
+| `MA-OPERA-008` | `VERIFIED_FIXED` | Racer uses one true-Canvas Tune / To the Line / racing-circle path and exact lap-two cue; the rejected device-only 3D kart branch is superseded |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer and resolved merged-worktree local full suite are green; final-SHA remote, device, child and owner review remain |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues and the resolved merged-worktree local full suite pass machine gates; human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
+| `MA-CI-002` | `FIXED_PENDING_VERIFICATION` | 105 probes now map to 63 local / 62 remote trusted entries with only the human-art display probe local; exact merged-head remote workflow remains |
+| `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 105 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
-| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Establish same-SHA analyzer/import/full-suite/APK/device evidence; the full checkpoint at `344d8d5c` does not transfer to later commits |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Resolved merged-worktree exact Godot 4.7.1 local `scripts/ci.sh` exits 0 in 826.4 seconds; final merge-SHA remote CI, APK and device evidence still must match |
 
 Current P2/owner-decision work remains indexed in the master audit: asset
-orphans/NPOT residency, probe classification, the standalone fire-arena role,
-combat device review, Opera gaps, and structural code debt. Roshan atlas
+orphans/NPOT residency, exact-head probe-workflow verification, exhaustive
+probe classification, the standalone fire-arena role, combat/device review,
+remaining Opera gaps, audio listening, and structural code debt. Roshan atlas
 repacking is `DEFERRED_WITH_REASON`; universal costume layers are
 `DISMISSED_NOT_A_DEFECT`.
+
+`MA-ASSET-005` is also `DISMISSED_NOT_A_DEFECT` as a source-UID finding:
+tracked sponge/starfish GLBs and sidecars validate, and an isolated fresh import
+is warning-free. Four stale ignored local `.godot/imported` cache files caused
+the warnings. Those GLBs remain ordinary 3D-removal debt under `MA-2D-002`;
+the cache diagnosis does not approve them for the final medium.
 
 ---
 
@@ -120,10 +140,12 @@ must be behavior-preserving true 2D, not speculative engine growth.
 ### OW-9 — asset hygiene and weight
 
 The 2026-07-28 counts are `HISTORICAL_EVIDENCE`, superseded by current
-`MA-ASSET-001` and `MA-ASSET-004` measurements: Castle 2.1 MB, Galaxy 11.7 MB,
-Opera 163.7 MB (458/494 PNGs), Lagoon 47.3 MB, and Lagoon 10/41 NPOT textures
-with about 11.6 MB uncompressed simultaneous residency. Delete only after
-reachability, provenance, archive and surrounding tests.
+`MA-ASSET-001` and `MA-ASSET-004` measurements: Castle 2.1 MB (9/15 PNGs),
+Galaxy 11.7 MB (32/32), Opera 166.5 MB (453/548), Lagoon 41.9 MB (48/90), and
+Lagoon 10/41 NPOT textures with about 11.6 MB uncompressed simultaneous
+residency. Delete only after reachability, provenance, archive and surrounding
+tests. A string-reference orphan report is review evidence, not proof that a
+dynamically loaded atlas is unreachable.
 
 <a id="ow-10"></a>
 ### OW-10 — incomplete visual-audit evidence
@@ -143,10 +165,13 @@ parallax roles and remaining spatial staging belongs to `MA-2D-002`.
 <a id="ow-12"></a>
 ### OW-12 — old probe-count gap
 
-`SUPERSEDED` by `MA-CI-002`. The old “96 total / 45 outside” count is stale.
-The synchronized audit counts 103 probe scripts; every one requires exactly
-one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined
-classification.
+`SUPERSEDED` by the split `MA-CI-002` / `MA-CI-003` lifecycle. The old “96
+total / 45 outside” count is stale. The merged tree counts 105 probe scripts,
+with 63 local and 62 remote trusted entries; the sole intended loop difference
+is display-only `probe_human_art_audit`. Blocking-loop parity is fixed locally
+under `MA-CI-002` and remains pending exact merged-head remote verification.
+Exhaustive one-class-per-probe disposition remains `CONFIRMED_OPEN` under
+`MA-CI-003`.
 
 <a id="ow-13"></a>
 ### OW-13 — proposed world-map geography
@@ -158,8 +183,11 @@ separate requirement to prove the graph that actually ships.
 <a id="ow-14"></a>
 ### OW-14 — old Opera request inventory
 
-`SUPERSEDED` as a queue by the later August 3–5 Opera audits. Current work is
-limited to `MA-OPERA-001` through `MA-OPERA-007`; previously closed request
+`SUPERSEDED` as a queue by the later August 3–9 Opera audits and scoped
+specialist documents. `BALLERINA_PARTY_REBUILD_2026-08-09.md` now controls
+Ballerina, `design/BOXING_GAME_PROJECT_2026-08-09.md` controls Boxer, and
+`MA-OPERA-008` controls the reconciled Canvas Racer. Their earlier Ballerina,
+Boxer and real-kart sections are historical; previously closed request
 symptoms must not be imported as stale findings.
 
 <a id="ow-15"></a>
@@ -203,7 +231,7 @@ and related batches are historical evidence and must never be submitted.
 ### OW-20 — structural code debt
 
 `CONFIRMED_OPEN` only through fresh `MA-CODE-001`/`MA-CODE-002` evidence:
-`main.gd` is 8,465 lines, and string state, duplicated input, save frequency,
+`main.gd` is 8,519 lines, and string state, duplicated input, save frequency,
 material churn and remaining 3D glue are risks. Specific July dead-code claims
 are historical leads until reproduced.
 
@@ -225,12 +253,15 @@ OW ordering:
 1. Finish authority/document controls and full finding records.
 2. Continue one tested true-2D gameplay family at a time until every GAME2D
    category is zero.
-3. Close current Opera capture/art defects and the confirmed Lagoon Canvas
-   layering defect; establish state-local visual evidence before changing art.
+3. Verify the merged Ballerina/Boxer/Racer repairs, close current Opera
+   capture/art defects and the confirmed Lagoon Canvas layering defect;
+   establish state-local visual evidence before changing art.
 4. Resolve protected voice gaps through authorized sources.
 5. Re-enumerate and prove the child-visible world graph.
-6. Classify all probes; retire only proved obsolete assets/code.
-7. Run same-SHA full suite, capture, device and child gates, then repeat the
+6. Verify blocking-loop parity remotely and classify every probe; retire only
+   proved obsolete assets/code.
+7. Complete music listening/voice/mono/device review, then run same-SHA full
+   suite, capture, device and child gates and repeat the
    master audit from `INVENTORYING`.
 
 No state in this document permits calling the game or master audit satisfied.

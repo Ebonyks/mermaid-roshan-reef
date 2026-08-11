@@ -1,9 +1,8 @@
 extends SceneTree
 ## Focused contract for Opera job #12: Nurse Roshan and Nurse Faron care for
-## babies together on the five-beat arc (imp scuffle, care beats, the imp
-## captain's peek-a-boo chase, then a cooperative stage finale). Falling
+## babies together on a five-beat care arc with no pasted-in combat. Falling
 ## babies require fresh input, misses are pillow-safe, mercy converges, and
-## the care verbs stay distinct one-finger gestures.
+## every beat remains a distinct one-finger nursery verb.
 
 var main: ReefMain
 var bad := 0
@@ -51,22 +50,20 @@ func _init() -> void:
 	_check("Nurse Faron stays beside Roshan as a cooperative partner",
 		world.rival_actor.visible and act.competition.is_cooperative())
 	_check("the care story keeps its beats inside the five-beat arc",
-		world.phases.size() == 7
-		and _phase_names(world) == ["IMPS!", "WASH HANDS", "CATCH BABIES", "FEED", "BABY CHASE", "BURP", "BEDTIME"])
-	_check("the imp scuffle opens with no passive progress",
+		world.phases.size() == 5
+		and _phase_names(world) == ["WASH HANDS", "CATCH BABIES", "FEED", "BURP", "BEDTIME"])
+	_check("hand washing opens with no passive progress or copied combat",
 		world.phase_index == 0 and is_equal_approx(world.progress(), 0.0)
-		and String((world.phases[0] as Dictionary).get("mode", "")) == "bop")
+		and String((world.phases[0] as Dictionary).get("mode", "")) == "hold"
+		and String((world.phases[0] as Dictionary).get("widget", "missing")).is_empty()
+		and world.surface.visual_context == "nursery_wash")
 	_check_all_phase_reprompts(world)
-	_check_timed_reprompt(world, "open-task re-prompt")
+	_check_timed_reprompt(world, "open-task re-prompt", true)
 
-	_pump(world)
-	_check("washing follows the scuffle with the basin tableau",
-		world.phase_index == 1 and world.surface.visual_context == "basin_nursery")
-	_check_timed_reprompt(world, "waiting-at-station re-prompt")
 	_pump(world)
 	var catcher := world.nursery_catch
 	_check("catch phase reuses and expands the falling-baby grammar",
-		world.phase_index == 2 and catcher != null and catcher.active
+		world.phase_index == 1 and catcher != null and catcher.active
 		and catcher.goal == 5 and catcher.textures.size() == 3
 		and bool(catcher.get_meta("no_fail", false)))
 	var passive_guard := 0
@@ -74,7 +71,7 @@ func _init() -> void:
 		catcher._process(0.20)
 		passive_guard += 1
 	_check("falling babies never catch themselves without fresh touch",
-		catcher.caught == 0 and catcher.missed >= 2 and world.phase_index == 2)
+		catcher.caught == 0 and catcher.missed >= 2 and world.phase_index == 1)
 	_check("misses remain safe and invoke the mercy path",
 		catcher.active and catcher.goal == 5 and catcher.missed >= 2)
 
@@ -86,34 +83,58 @@ func _init() -> void:
 		catch_guard += 1
 	# the cozy full-cradle scene holds before the next station arms
 	var hold_guard := 0
-	while world.phase_index == 2 and hold_guard < 40:
+	while world.phase_index == 1 and hold_guard < 40:
 		world._process(0.1)
 		hold_guard += 1
 	_check("one-finger steering catches all five babies after safe misses",
-		catcher.caught == 5 and world.phase_index == 3)
+		catcher.caught == 5 and world.phase_index == 2)
 	world.phase_gap = 0.0
-	_check("feeding uses a bottle hold tableau", world.surface.visual_context == "pour_nursery")
+	_check("feeding waits at its painted station before the bottle opens",
+		not world.task_open
+		and String((world.phases[world.phase_index] as Dictionary).get(
+			"name", "")) == "FEED")
+	_check_timed_reprompt(world, "waiting-at-station re-prompt", false)
+	# Opening the freshly armed task configures its direct causal surface without
+	# crediting progress. This proves the approved bottle is the runtime branch,
+	# rather than the old copied baby card or the code fallback.
+	world._on_gesture("probe", 0.0, 1.0)
+	_check("feeding uses the approved bottle hold tableau",
+		world.surface.visual_context == "nursery_feed"
+		and world.surface._nursery_bottle_art_ready()
+		and is_equal_approx(world.phase_progress, 0.0))
 	_pump(world)
-	var backdrop := world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") as OperaWorldBackdrop2D
-	_check("the imp captain's peek-a-boo chase happens at the stage door",
-		world.phase_index == 4 and world.phase_index == world.steal_index
-		and backdrop != null and backdrop.stage_mode)
-	_pump(world)
-	_check("the chase clears into the gentle burp-pat beat",
-		world.phase_index == 5 and String((world.phases[5] as Dictionary).get("name", "")) == "BURP")
+	_check("feeding clears into the gentle burp-pat beat without an imp chase",
+		world.phase_index == 3 and world.steal_index < 0
+		and String((world.phases[3] as Dictionary).get("name", "")) == "BURP")
 	# gentle pats: a pat inside the pace window pays nothing, so a drumming
 	# finger cannot rush the baby — the probe waits between pats like a child
 	var pat_guard := 0
-	while world.phase_index == 5 and pat_guard < 40:
+	while world.phase_index == 3 and pat_guard < 40:
 		world._on_gesture("tap", 1.0, 1.0)
 		world._process(0.6)
 		pat_guard += 1
 	if world.phase_advance_pending:
 		world._on_gesture("probe", 0.0, 1.0)
-	_check("four gentle pats advance to bedtime",
-		world.phase_index == 6 and world.surface.visual_context == "push_nursery")
 	world.phase_gap = 0.0
-	world._on_gesture("probe", 100.0, 1.0)
+	world._on_gesture("probe", 0.0, 1.0)
+	_check("four gentle pats advance to the direct blanket scene",
+		world.phase_index == 4 and world.surface.visual_context == "nursery_bedtime"
+		and is_equal_approx(world.phase_progress, 0.0))
+	world.phase_gap = 0.0
+	# BEDTIME is no longer an aggregate repeated swipe. Tuck each visible blanket
+	# once at its own crib and retain all three achieved states.
+	for blanket_index in range(3):
+		var blanket_start := world.surface._nursery_bedtime_grab_point(blanket_index)
+		var blanket_end := blanket_start + Vector2(0.0,
+			world.surface._nursery_bedtime_required_travel() + 8.0)
+		world.surface._press(blanket_start)
+		world.surface._drag(blanket_end)
+		world.surface._release(blanket_end)
+	_check("three one-use blanket tucks complete bedtime",
+		world.surface.nursery_blankets_tucked == [true, true, true]
+		and is_equal_approx(world.phase_progress, 3.0)
+		and world.phase_advance_pending)
+	world._on_gesture("probe", 0.0, 1.0)
 	# the tucked-in blanket holds on screen before the curtain call — let
 	# that beat elapse the way a watching child would
 	var tuck_guard := 0
@@ -174,7 +195,8 @@ func _check_all_phase_reprompts(world: OperaCareerWorld2D) -> void:
 	main.clear_dialogue()
 
 
-func _check_timed_reprompt(world: OperaCareerWorld2D, label: String) -> void:
+func _check_timed_reprompt(world: OperaCareerWorld2D, label: String,
+		expected_task_open: bool) -> void:
 	var phase := world.phases[world.phase_index] as Dictionary
 	var speaker_key: String = main._speaker_key(String(phase.get("speaker", "Roshan")))
 	var vo: String = String(phase.get("vo", "hint"))
@@ -186,7 +208,9 @@ func _check_timed_reprompt(world: OperaCareerWorld2D, label: String) -> void:
 	world.idle_t = 8.95
 	var before: int = main.voice_i
 	world._process(0.1)
-	_check(label + " uses active phase identity",
+	_check(label + " exercises the intended idle branch",
+		world.task_open == expected_task_open)
+	_check(label + " uses active phase identity and exact cue",
 		main.voice_i == before + 1
 		and _last_voice_path() == "res://assets/audio/voices/%s.ogg" % cue_key)
 	main.clear_dialogue()

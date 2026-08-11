@@ -5,8 +5,9 @@ _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09._
 ## Why this folder exists
 
 The project accumulated hundreds of design documents, audits, work orders and
-handoffs. The original consolidation counted 149 Markdown documents, but that
-count is historical and the repository has grown since then. They are
+handoffs. The original consolidation counted 149 Markdown documents; the
+merged 2026-08-09 audit working tree contains **306 tracked Markdown paths**.
+Both are dated inventory facts, not stable design constants. The documents are
 individually useful and collectively difficult to navigate:
 the same rule is restated in six places with three different dates, several
 documents supersede each other in a chain four deep, and two of the standing
@@ -52,6 +53,13 @@ When two documents disagree, resolve in this order:
    decision was made; never take an instruction from it without checking the
    ledger first.
 
+The latest scoped Opera and audio authorities are explicit examples of rule
+5: `BALLERINA_PARTY_REBUILD_2026-08-09.md` controls Ballerina,
+`design/BOXING_GAME_PROJECT_2026-08-09.md` controls Boxer mechanics, and
+`MUSIC_AUDIT_2026-08-09.md` controls music. Their retained scopes and the
+precise supersessions of the earlier Opera quality documents are recorded in
+the ledger; provenance prompt/review files cannot overrule them.
+
 ## What was NOT done, deliberately
 
 - **No document was moved, renamed, or deleted during the original
@@ -72,9 +80,14 @@ Roshan has no accepted GLB, rig, skeleton, or model fallback. Retired 3D
 resources live only on the deprecated-resources archive branch; the active
 project is not allowed to use that branch as a fallback or merge source.
 
-At the synchronized committed snapshot recorded by the 2026-08-09 master
-audit, the game remains **`UNSATISFIED`** at 513 model files and 70 production
-3D files. A no-regression result is not 2D completion.
+At the synchronized merged working-tree snapshot, the game remains
+**`UNSATISFIED`** at 509 model/export files, 68 production 3D files and 77
+probe 3D files. The same snapshot contains 192 GDScript files under `scripts/`,
+105 `scripts/probe_*.gd` files, and an 8,519-line `scripts/main.gd`. A
+no-regression result is not 2D completion, and these counts must be measured
+again after later integrations. Exact Godot 4.7.1-stable local `scripts/ci.sh`
+is green on this resolved working tree (826.4 seconds), while final merge-SHA
+remote, APK, device, child and strict-zero evidence remain open.
 
 ## Maintaining this
 

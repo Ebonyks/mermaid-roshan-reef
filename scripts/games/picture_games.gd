@@ -6,17 +6,22 @@ extends RefCounted
 # state stays on main (m.*); received by reference.
 
 var m: ReefMain
+var open_generation := 0
 
 func _init(main: ReefMain) -> void:
 	m = main
 
 func _mg2d_open(kind: String) -> void:
+	if m.mg_kind != "":
+		return
 	if kind == "slide":
 		m._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen
 		return
+	open_generation += 1
 	m._set_world_controls_enabled(false, "picture_game")
 	m.mg_kind = kind
-	m.mg = {"t": 0.0, "btns": []}
+	m.mg = {"t": 0.0, "btns": [], "music_return": m.cur_track}
+	m._play_music("picture_" + kind)
 	if m.mg2d_layer == null:
 		m.mg2d_layer = CanvasLayer.new()
 		m.mg2d_layer.layer = 7
@@ -274,23 +279,34 @@ func _mg2d_win(msg: String) -> void:
 		banner.add_theme_color_override("font_color", Color(1.0, 0.95, 0.4))
 		_mg2d_feedback_burst(Vector2(640, 345), Color(1.0, 0.9, 0.35),
 			"win", 18, 300.0, 0.9)
-		# Binding the delayed close to this stage prevents an old win callback
-		# from closing a newly opened picture game.
+		# The close tween belongs to the stage, and both identifiers bind its
+		# callback to this exact opening. It cannot outlive the stage or close a
+		# newer picture game after Back/Pause and re-entry.
 		var winning_root: Control = m.mg2d_root
+		var winning_generation: int = open_generation
 		var close_tween := m.mg2d_stage.create_tween()
 		close_tween.tween_interval(1.6)
-		close_tween.tween_callback(func(): _mg2d_finish_win(winning_root))
+		close_tween.tween_callback(
+			_mg2d_finish_win.bind(winning_root, winning_generation))
 		m.mg["close_tween"] = close_tween
 
 
-func _mg2d_finish_win(expected_root: Control) -> void:
-	if m.mg2d_root != expected_root:
+func _mg2d_finish_win(expected_root: Control, expected_generation: int) -> void:
+	if expected_generation != open_generation or m.mg2d_root != expected_root:
 		return
 	m.mg.erase("close_tween")
-	_mg2d_close()
+	_mg2d_close(expected_generation)
 
 
-func _mg2d_close() -> void:
+func _mg2d_close(expected_generation: int = -1) -> void:
+	# A win schedules this close after its celebration. The child may use Back
+	# (or Pause -> Leave) and open another picture first. A delayed callback may
+	# only close the exact opening that won, never the child's newer activity.
+	if expected_generation >= 0 and expected_generation != open_generation:
+		return
+	open_generation += 1
+	var owns_music_return: bool = m.mg.has("music_return")
+	var music_return: String = String(m.mg.get("music_return", ""))
 	var close_tween := m.mg.get("close_tween") as Tween
 	if close_tween != null and close_tween.is_valid():
 		close_tween.kill()
@@ -306,6 +322,8 @@ func _mg2d_close() -> void:
 		m.mg2d_layer.visible = false
 	m.mg_kind = ""
 	m.mg = {}
+	if owns_music_return:
+		m._play_music(music_return if music_return != "" else "level2")
 	m.mg_cool = 8.0
 	m._set_world_controls_enabled(true, "picture_game")
 

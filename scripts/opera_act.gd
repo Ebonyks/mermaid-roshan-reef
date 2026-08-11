@@ -464,6 +464,8 @@ var piggies: Array[Dictionary] = []
 var kart: Node = null
 var race_flag: Node3D = null
 var race_prev_track := ""
+var prior_music := ""
+var owns_music := false
 
 # ---- "dance" engine (DanceEngine guest spot) ----
 var dance: CanvasLayer = null
@@ -516,6 +518,11 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> void:
 	m = main
 	config = act_config
 	finish_cb = done_cb
+	prior_music = m.cur_track
+	var cue: String = String(config.get("music", ""))
+	if cue != "" and cue != prior_music:
+		m._play_music(cue)
+		owns_music = m.cur_track == cue
 	kind = String(config.get("kind", "order"))
 	reveal_one = bool(config.get("reveal_one", false))
 	act_tag = String(config.get("act_tag", ""))
@@ -600,8 +607,10 @@ func _start_career_world_2d() -> void:
 	if not competition.is_valid():
 		use_career_world_2d = false
 		return
+	# The Canvas career world owns the finale start. Mark the director as
+	# installed for OperaAct's shared tick, but leave it paused until the
+	# career-specific finale is actually visible.
 	competition_started = true
-	competition.begin()
 	if m.touch_ui != null:
 		touch_was_visible = m.touch_ui.visible
 		m.touch_ui.visible = false
@@ -7092,6 +7101,7 @@ func _finish() -> void:
 			career_world_2d = null
 		if m.touch_ui != null:
 			m.touch_ui.visible = touch_was_visible
+		_restore_act_music()
 		if finish_cb.is_valid():
 			finish_cb.call()
 		queue_free()
@@ -7109,6 +7119,7 @@ func _finish() -> void:
 	_release_avatar()
 	if prev_env != null:
 		m.we_node.environment = prev_env
+	_restore_act_music()
 	if finish_cb.is_valid():
 		finish_cb.call()
 	queue_free()
@@ -7126,6 +7137,7 @@ func cancel() -> void:
 			career_world_2d = null
 		if m.touch_ui != null:
 			m.touch_ui.visible = touch_was_visible
+		_restore_act_music()
 		queue_free()
 		return
 	_leave_easel()
@@ -7154,7 +7166,18 @@ func cancel() -> void:
 		dance.call("close_demo")
 	if prev_env != null:
 		m.we_node.environment = prev_env
+	_restore_act_music()
 	queue_free()
+
+
+func _restore_act_music() -> void:
+	if not owns_music:
+		return
+	owns_music = false
+	var restore_track: String = prior_music
+	prior_music = ""
+	if restore_track != "":
+		m._play_music(restore_track)
 
 func action_label() -> String:
 	if stage_phase == "brawl" or stage_phase == "rescue":

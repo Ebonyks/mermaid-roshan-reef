@@ -3,7 +3,11 @@
 - **Audit ID:** `MA-2026-08-09`
 - **Audit date:** 2026-08-09
 - **Audited branch:** `codex/master-audit-20260809`
-- **Synchronized code commit:** `a3d3bce18dd73d0ac87f2fb4bac397e2b4396180`
+- **Integration snapshot:** audit `HEAD`
+  `7b5d1209b4c4823fbf9ed39193c8b1700a288497` plus `MERGE_HEAD`
+  `245c16137fae82271dabac456d5ab04d843463a8`; final merge commit pending
+- **Last completed full local checkpoint:**
+  `a3d3bce18dd73d0ac87f2fb4bac397e2b4396180`
 - **Proposed design authority:** `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`
 - **Document authority:** `PROPOSED_CANONICAL`
 - **Audit program status:** `IN_PROGRESS`
@@ -31,7 +35,8 @@ storybook identity, and many verified child-safety repairs. Mermaid Roshan's
 3D model and model pipeline are retired from the active tree. The whole game,
 however, is not yet a true-2D runtime.
 
-At synchronized commit `a3d3bce1`, the exact game-wide scanner measures:
+At the current integration snapshot (`7b5d1209` plus `245c1613`), the exact
+game-wide scanner measures:
 
 ```text
 GAME2D| model_files=509
@@ -82,6 +87,44 @@ The former dimensional-rollback error, four playground-license errors, four
 clipped/debris playground frames, the Dolls spatial catcher, and Seek's vinyl
 pair/low-quality meadow presentation are no longer current failures. They stay
 in history and anti-regression coverage rather than returning to active triage.
+
+The same integration review incorporates every newer 2026-08-09 Opera and
+music change instead of preserving the audit's earlier Ballerina premise. The
+shipping Opera table now contains **13 careers, 53 phases, and 27 distinct
+modes**, with no generic `bop` phase. All 13 Roshan career atlases account for
+**208 reviewed runtime frames**. The current Ballerina is the dedicated
+three-act Pearl Mirror → Ribbon Trail → Grand Twirl recital documented by
+`BALLERINA_PARTY_REBUILD_2026-08-09.md`; it uses the accepted
+`roshan_ballerina_sheet_a.png` hash
+`c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995`
+as held pose keys and a one-shot curtain call, not the old looping Ballerina
+art or generic phase set. Boxer now owns a five-phase, full-stage two-glove
+specialist surface. Candymaker's syrup pour now has one complete, phone-legible
+mold, a generous pitcher target, and one shared painted-spout/stream/hit
+geometry.
+
+Racer remains a true-Canvas three-phase activity. The upstream device-only 3D
+kart restoration was rejected during reconciliation: shipping `RACE` uses the
+same Canvas surface, a `circle` gesture, no widget, goal `0.9`, and exact
+`op_racer_lap_two` speech. There is no device/headless implementation split and
+no external kart child. The music program adds **42 deterministic area cues**
+on top of the 15 legacy files (14 score files plus the `banjo.ogg` SFX); its
+machine composition, hash, codec, loop, loudness, and routing evidence is
+green, while human two-wrap/style listening, voice intelligibility, mono
+fold-down, and Lenovo Tab M11 review remain open.
+
+The Castle personalization update is also integrated: the saved logo now
+replaces both painted purple shell banners in the Craft Room and both in the
+Stuffie Playroom, retains the Craft board badge, remains input-transparent, and
+does not appear in rooms with no registered banner. This is a bounded Canvas
+overlay repair, not evidence that the still-spatial Castle rooms satisfy the
+game-wide 2D contract.
+
+The resolved staged merged tree completes exact Godot 4.7.1-stable local
+`scripts/ci.sh` in 826.4 seconds with all 63 trusted probes green. This is a
+strong content-exact integration result, but the final merge commit and remote
+exact-head run do not yet exist. It does not close strict 2D, live visual
+capture, APK, audio-listening, device, child, protected-voice, or owner gates.
 
 No P0 audit item is currently indexed from the repository evidence reviewed for
 this round. Missing runtime, device, child, manual-art, and off-repository
@@ -198,6 +241,13 @@ preserve a useful measurement while its 3D recommendation is `SUPERSEDED`.
 | `SECURITY.md` | `BINDING_OPERATIONAL` | Threat model and protected data |
 | `WORKFLOW_BRANCHING_2026-07-18.md` | `BINDING_OPERATIONAL` | Dev/master promotion process |
 | `ASSET_LICENSES.md` | `BINDING_LEDGER` | Current and historical asset provenance |
+| `BALLERINA_PARTY_REBUILD_2026-08-09.md` | `BINDING_DOMAIN` | Current three-act Ballerina interaction, held-pose playback, assistance, and verification contract; supersedes older Ballerina mechanics and atlas-playback claims |
+| `MUSIC_AUDIT_2026-08-09.md` | `BINDING_DOMAIN` | Current 42-cue composition, delivery, routing, and human/device listening contract, except its nested 3D-kart row is superseded by the current Canvas Racer |
+| `design/BOXING_GAME_PROJECT_2026-08-09.md` | `BINDING_DOMAIN` | Current five-phase Boxer specialist and no-loss/save contract; partially superseded only where its three retained GLBs are transition debt rather than accepted dependencies. `opera_rival_boxer_match.png` remains valid 2D identity/source art and provenance despite the source document's misleading “3D resources” heading; any legacy `Sprite3D` consumer is `MA-2D-002` callsite debt, not a defect in the PNG. |
+| `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md` | `SUPPORTING_CURRENT` | Current non-destructive prop provenance and non-conflicting interaction repairs; partially superseded where its 52-phase count and old Ballerina, Boxer, and kart Racer descriptions are historical |
+| `OPERA_QUALITY_OVERHAUL_2026-08-09.md` | `SUPPORTING_CURRENT` | Current career-quality rationale and 208-frame audit evidence; partially superseded where its 52-phase/19-mode baseline, single-`bop` Boxer, kart Racer, and chronological-loop claim for Ballerina are historical |
+| `assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md` | `SUPPORTING_CURRENT` | Codex visual/provenance review of 39 governed art outputs; owner review remains pending |
+| `assets_src/imagegen/opera_roshan_animation_2026-08-09/PROMPTS.md` | `HISTORICAL_EVIDENCE` | Exact accepted generation prompts and hashes; provenance, not runtime direction |
 | `tools/audit_game_2d.py`, manifest, and tests | `BINDING_DOMAIN` | Exact shrinking-debt inventory and zero-debt enforcement |
 | `tools/audit_roshan_2d.py` and tests | `BINDING_DOMAIN` | Narrow no-model Roshan enforcement; not whole-game 2D satisfaction |
 | `tools/audit_roshan_sprite_clipping.py` and current frame roster | `BINDING_DOMAIN` | 2D source-frame cutoff/ghost/import contract |
@@ -230,18 +280,18 @@ completed repository-wide documentation control.
 
 ---
 
-## 4. Evidence at synchronized commit
+## 4. Evidence at the integration snapshot and named historical commits
 
 ### 4.1 Repository snapshot
 
 | Fact | Result |
 |---|---:|
-| Tracked Markdown files | 299 |
-| `scripts/main.gd` | 8,016 lines |
-| GDScript files under `scripts/` | 187 |
-| `scripts/probe_*.gd` files | 103 |
-| Names in the local trusted loop | 61 |
-| Names in the remote headless trusted loop | 60 |
+| Tracked Markdown files | 306 |
+| `scripts/main.gd` | 8,519 lines |
+| GDScript files under `scripts/` | 192 |
+| `scripts/probe_*.gd` files | 105 |
+| Names in the local trusted loop | 63 |
+| Names in the remote headless trusted loop | 62 |
 
 The sole intended loop difference is the display-only
 `probe_human_art_audit`; `probe_opera_pipe` remains in both blocking loops.
@@ -269,7 +319,7 @@ The self-tests prove the scanner can fail for model payloads, disguised files,
 archives, sidecars, runtime APIs, dynamic loaders, custom data, native/plugin
 sources, scene/config debt, incomplete history, and dishonest refreshes.
 
-#### 4.2.2 Current full and manifest checkpoint at `a3d3bce1`
+#### 4.2.2 Last completed full and manifest checkpoint at `a3d3bce1`
 
 The synchronized runtime HEAD completed the exact local full gate:
 
@@ -284,10 +334,11 @@ all 61 trusted local probes reached accepted verdicts
 
 The run repeatedly emitted nonfatal invalid-UID fallback warnings for
 `assets/props/gen2/sponge_tubes.glb` and
-`assets/props/gen2/starfish.glb`. They did not fail the gate and do not erase
-its exit-zero result, but they remain open 3D migration/resource-hygiene debt
-under `MA-ASSET-005`; this checkpoint is green, not warning-free or
-release-clean.
+`assets/props/gen2/starfish.glb`. They did not fail the gate. Later source and
+isolated-import review proved the warnings came from four stale ignored local
+`.godot/imported` cache files rather than the tracked GLBs or sidecars, so
+`MA-ASSET-005` is dismissed as a source defect. The GLBs themselves remain
+unrelated game-wide 3D medium debt under `MA-2D-002`.
 
 The same synchronized clean HEAD was also checked in all three GAME2D modes:
 
@@ -315,6 +366,37 @@ remains red. The exact `a3d3bce1` full run proves current import, static gates,
 and all trusted probes; it does not satisfy strict 2D, visual, warning-free,
 APK, device, voice, child, or owner acceptance gates. Any later code, art,
 import, probe, or audit-tool change must earn a new exact full checkpoint.
+
+#### 4.2.3 Current integration checkpoint pending a final merge SHA
+
+The integration snapshot is not assigned a synthetic commit identity. It is
+the staged merge of audit `HEAD` `7b5d1209` and `MERGE_HEAD` `245c1613`; the
+eventual merge commit must rerun the complete same-SHA gate. Current focused
+evidence is:
+
+```text
+GAME2D unit contract: 73 tests OK
+GAME2D stress contract: 14 falsification/control assertions ALL OK
+GAME2D regression: NO_REGRESSION at 509 models / 68 production files
+GAME2D strict/default inventory state: UNSATISFIED
+Opera deterministic art: 39 governed files match
+Opera Roshan animation audit: 13 careers / 208 reviewed frames ALL OK
+Area-music deterministic build check: 42/42 ALL OK
+Probe parity audit (default and stress): ALL OK
+Exact merged-tree scripts/ci.sh: exit 0 after 826.4 seconds
+All 63 trusted local probes reached accepted verdicts
+```
+
+The complete local merged-tree gate uses exact Godot 4.7.1-stable, performs the
+fresh import, static gates, GAME2D regression check, analyzer, and all 63
+trusted local probes, and exits zero after 826.4 seconds. Parser and inference
+lint are also green for all 22 changed/new GDScripts. Focused exact runtime
+probes independently remain green for Opera2D, Nursery, Detective, Opera
+gesture quality (271 checks), audio, picture games, interaction, passive play,
+voice, and the surrounding Opera path. Because the merge commit does not yet
+exist, this is content-exact merged-tree evidence, not a fabricated same-commit
+SHA. The final merge commit and remote exact-head CI remain pending, as do
+Mobile capture, APK, device, child, and owner gates.
 
 ### 4.3 Archive and resource-retirement evidence
 
@@ -360,6 +442,12 @@ warning: fresh Godot probe unavailable (fresh runtime response contains no
 rendered capture outputs); runtime checks will report COVERAGE_GAP
 ```
 
+The current `7b5d1209` + `245c1613` integration audit reproduces the same
+state totals: **16 FAIL, 17 REVIEW_OPEN, two MANUAL_OPEN, 86 COVERAGE_GAP,
+32 PASS, and 94 NOT_APPLICABLE**. The unchanged totals are not evidence that
+the merge is visually accepted; the missing live Canvas capture matrix still
+fails closed and the final merge SHA still requires its own strict run.
+
 Commits `3b7a7e66` and `fea916a8` are the approved current visual-evidence
 contract. They require a same-process random 256-bit one-use challenge, exact
 Godot/Mobile/1280×720/stretch and clean-Git/source bindings, private immutable
@@ -388,10 +476,18 @@ explicitly unimplemented coverage gaps.
 
 ### 4.5 Evidence boundaries
 
-- Exact local `scripts/ci.sh` is green at synchronized runtime HEAD
+- Exact local `scripts/ci.sh` is historically green at runtime commit
   `a3d3bce1`, after 1434.3 seconds with fresh import, static gates, GAME2D
-  `NO_REGRESSION`, and all 61 trusted probes. It is not warning-free because
-  the two invalid-UID GLB fallback families in section 4.2.2 remain open.
+  `NO_REGRESSION`, and all 61 then-trusted probes. The current staged
+  integration also completes the exact local merged-tree `scripts/ci.sh` gate
+  in 826.4 seconds with all 63 current trusted probes. It still has no final
+  merge commit identity or remote exact-head result; neither is inferred from
+  the content-exact local run.
+- The earlier two invalid-UID warnings were reproduced as stale ignored local
+  `.godot/imported` cache artifacts. Source GLBs and tracked sidecars are valid,
+  and an isolated fresh project import is warning-free. Their reachable 3D
+  resources remain medium debt under `MA-2D-002`, but no source-UID defect is
+  inferred from that local cache.
 - Current-HEAD strict GAME2D was run and failed as required; no zero-debt result
   is claimed.
 - No complete live visual-runtime capture matrix is claimed; fresh-runtime
@@ -429,31 +525,33 @@ contains every mandatory field. No abbreviated row is closure evidence.
 | `MA-ACCESS-002` | P1 | `BLOCKED_EXTERNAL` | V1 | Lamba's current semantic role still maps to legacy “bunny-fish” recordings | Owner-approved re-record/re-render and exact-key/device listening evidence |
 | `MA-ACCESS-003` | P1 | `BLOCKED_EXTERNAL` | V1/V3 partial | Seek has an accurate visual wiggle/U-cue/peek and an available Evie hide-and-seek recording, but no exact protected Evie recording says “tap the wiggly tree” | Owner-authorized exact Evie objective recording plus queue, device-listening, and child-comprehension evidence; do not modify protected audio |
 | `MA-TOUCH-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 reported | Held travel/medallion path lacks real-phone hold/drag/multitouch/focus-loss evidence | Recorded target-phone pass |
-| `MA-OPERA-001` | P1 | `CONFIRMED_OPEN` | V4 partial | Chef BAKE/POUR art retains named cutoff/fallback/wrong-object defects | Approved art and full two-aspect capture matrix |
+| `MA-OPERA-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Chef now uses the accepted batter pitcher, source-true stream/fill behavior, mitt-gated oven, achieved cake, and deterministic topping art; the old cutoff/fallback/wrong-object report is not a current code premise | Final merge SHA and remote exact-head gate (plus local rerun if committed content differs), then accepted two-aspect/device/owner art review |
 | `MA-OPERA-002` | P1 | `CONFIRMED_OPEN` | V4 partial | Detective's “missing” crown remains painted into the scene evidence | Healed owned source, narrative/capture verification |
 | `MA-OPERA-004` | P1 | `CONFIRMED_OPEN` | V1 | Opera capture harness has not produced accepted evidence for all careers | Repair harness; capture and human-review all careers/widgets/scuffles/stress states |
+| `MA-OPERA-009` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Boxer now has a full-stage five-phase two-glove specialist with optional multitouch, sequential one-finger completion, no health/loss, passive rejection, touch-owner cleanup, and stable existing save bit | Final merge SHA and remote exact-head gate (plus local rerun if committed content differs), two-aspect and target-device touch/performance review, child comprehension, and owner visual acceptance |
 | `MA-PERF-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current target-device frame-time, hitch, memory, thermal, or latency matrix | U0 device matrix at exact release candidate meets design thresholds |
 | `MA-CHILD-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current observed five-minute child golden-path record | Private/safe observed session meets section 12 |
-| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 current checkpoint | Exact local full CI is green at `a3d3bce1`, but it carries the nonfatal `MA-ASSET-005` UID warnings and has no matching APK or device acceptance | Warning-clean same-SHA analyzer/import/full probes plus matching build/device evidence at the eventual release candidate |
+| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 current merged tree | Exact local full CI is green at historical `a3d3bce1` and the staged `7b5d1209` + `245c1613` merged tree exits zero after 826.4 seconds with all 63 current trusted probes; there is still no final merge SHA, remote exact-head run, matching APK, or device acceptance | Final merge SHA with remote exact-head probes, matching build, and device evidence at the eventual release candidate; rerun locally if the committed tree differs |
 
 ### 5.2 P2/P3 and owner-decision indexed items
 
 | ID | Severity | Lifecycle | Verification | Indexed issue / decision |
 |---|---|---|---|---|
 | `MA-VIS-004` | P2 | `REPORTED_UNCONFIRMED` | V1; `COVERAGE_GAP` | Current source-average figure/ground values are Fairy 0.039 vs 0.040 and Lagoon about 0.004, but the metric does not measure the rendered local state and cannot confirm an art defect. Closure requires true state-local Canvas/HUD/viewport/device evidence, not recoloring approved art to satisfy the average |
-| `MA-ASSET-001` | P2 | `CONFIRMED_OPEN` | V1 | Current orphan PNG reports: Castle 9/15 at 2.1 MB, Galaxy 32/32 at 11.7 MB, Opera 454/494 at 160.5 MB, Lagoon 48/90 at 41.9 MB |
+| `MA-ASSET-001` | P2 | `CONFIRMED_OPEN` | V1 | Current orphan PNG reports: Castle 9/15 at 2.1 MB, Galaxy 32/32 at 11.7 MB, Opera 453/548 at 166.5 MB, Lagoon 48/90 at 41.9 MB |
 | `MA-ASSET-004` | P2 | `CONFIRMED_OPEN` | V1 | Lagoon has 10/41 NPOT textures, about 11.6 MB uncompressed residency cost |
-| `MA-ASSET-005` | P2 | `CONFIRMED_OPEN` | V3 | Exact `a3d3bce1` full CI repeatedly reports invalid-UID fallback warnings for `assets/props/gen2/sponge_tubes.glb` and `assets/props/gen2/starfish.glb`; they are retained 3D migration/resource-hygiene debt even though the gate exits zero. Closure requires converting/removing the active model dependency or repairing its UID/resource references through the tested 2D slice, followed by an exact fresh import/full gate with no warning for either path. |
-| `MA-CI-002` | P2 | `CONFIRMED_OPEN` | V1 | All 103 probe scripts need one trusted/advisory/diagnostic/obsolete/quarantined classification |
+| `MA-CI-002` | P2 | `FIXED_PENDING_VERIFICATION` | V2/current static | Local/remote blocking-loop parity now covers the new Opera Detective and gesture-quality probes: 63 local names versus 62 remote names, with display-only `probe_human_art_audit` the intended difference; default and stress parity audits are green |
+| `MA-CI-003` | P2 | `CONFIRMED_OPEN` | V1 | All 105 probe scripts still need exactly one trusted/runtime-visual/advisory/diagnostic/obsolete/quarantined classification |
 | `MA-ROSHAN-003` | P2 | `DEFERRED_WITH_REASON` | V1/V3 reported | Atlas repacking is an optimization; current owned-pixel windows and engine sampling probes are green |
 | `MA-ROSHAN-004` | P2 | `DISMISSED_NOT_A_DEFECT` | V1 | Universal 2D costume layers are optional future design, not a missing required feature |
 | `MA-PLAY-002` | P2 | `OWNER_DECISION_REQUIRED` | V1 | Standalone fire-arena reward/flag/medal role needs a truthful home or retirement |
 | `MA-COMBAT-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 reported | Phone-only wave count, slash-band scale, and tutorial discoverability remain for device review |
-| `MA-OPERA-003` | P2 | `CONFIRMED_OPEN` | V1/V4 partial | Authored pipe/echo/Nursery-care art gaps still use fallbacks |
-| `MA-OPERA-005` | P2 | `CONFIRMED_OPEN` | V1 | Ballerina remains the named uniqueness outlier pending full capture |
-| `MA-OPERA-006` | P2 | `CONFIRMED_OPEN` | V1 | Named Nursery/Farmer/Racer/voice-oval art-fiction mismatches remain |
+| `MA-OPERA-003` | P2 | `CONFIRMED_OPEN` | V1/V4 partial | The grouped old pipe/echo/Nursery fallback claim is partially repaired by current authored pipe, echo, bottle, pat, and blanket behavior, but its unresolved subclaims have not yet been split and re-audited against accepted captures |
+| `MA-OPERA-005` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | The old Ballerina art/mechanic is superseded by the accepted 1024×1024 4×4 mermaid atlas and dedicated three-act full-stage recital; focused probes and the complete local merged-tree gate are green. Closure still requires the final merge SHA and remote exact-head gate (plus local rerun if committed content differs), two-aspect capture, M11/child play, and owner identity/style acceptance |
+| `MA-OPERA-006` | P2 | `CONFIRMED_OPEN` | V1/V3 partial | Nursery, Farmer, and Racer received material art-fiction repairs, but the grouped historical claim must be split and re-audited; remaining protected-voice mismatches stay open rather than being inferred fixed |
 | `MA-OPERA-007` | P2 | `OWNER_DECISION_REQUIRED` | V1 | Farmer/Doctor above-water setting differs from the other Opera backdrops |
-| `MA-CODE-001` | P2 | `CONFIRMED_OPEN` | V1 | `main.gd` is 8,016 lines against the extraction-only <2,500 target |
+| `MA-AUDIO-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | Forty-two unique deterministic area cues have complete score/render hashes, 48 kHz stereo OGG delivery, loop/import metadata, loudness/peak/seam measurements, routing ownership, and focused audio/full-branch evidence. Human style and two-wrap listening, voice-over intelligibility and ducking, mono fold-down, music-off transition review, and Lenovo Tab M11 start/loop/performance acceptance remain open |
+| `MA-CODE-001` | P2 | `CONFIRMED_OPEN` | V1 | `main.gd` is 8,519 lines against the extraction-only <2,500 target |
 | `MA-CODE-002` | P2 | `CONFIRMED_OPEN` | V1 | String state, duplicated input, save frequency, material churn, and remaining 3D glue are structural risks |
 
 ### 5.3 Resolved indexed items retained for anti-regression history
@@ -467,6 +565,7 @@ contains every mandatory field. No abbreviated row is closure evidence.
 | `MA-SEEK-001` | P1 | `VERIFIED_FIXED` | V3/V4 focused | Seek used a vinyl pair card, low-quality `k_bush2` draft, static-transform acting, and four meadow GLBs below the surrounding game's quality/medium bar | `8fa90111` plus `27bda85d`; provenance-locked animated Evie/Lamb-a' kit, fourteen-node Canvas meadow, frame-swapped actors, four large routed targets, no-fail/passive/save/replay/teardown coverage, reviewed 16:9/16:10/20:9/4:3 captures, and four byte-verified GLBs retired; exact Evie objective speech remains separately open as `MA-ACCESS-003` |
 | `MA-VIS-005` | P2 | `VERIFIED_FIXED` | V2/V3 focused | The visual tool could credit aggregate/bounding-box occlusion without proving each live target and painted overlap | `3b7a7e66` plus `fea916a8`; unique target ownership, effective descendant Canvas order, decoded-alpha overlap, transparent-hole/low-alpha rejection, source closure, and fail-closed fresh-runtime behavior; missing live product evidence remains `MA-VIS-006`, not a false PASS |
 | `MA-ASSET-003` | P1 | `VERIFIED_FIXED` | V1/V3 reported | Four current Sky Lagoon playground assets lacked complete license-ledger coverage | `a1be9a1e`; all 41 current Lagoon runtime assets licensed and roster/audit gates updated |
+| `MA-ASSET-005` | P2 | `DISMISSED_NOT_A_DEFECT` | V1/V3 diagnostic | Local runs warned that `sponge_tubes.glb` and `starfish.glb` referenced invalid texture UIDs | Source GLBs and tracked sidecars validate, while an isolated fresh project import is warning-free; the warnings came from four stale ignored `.godot/imported` cache artifacts. The resources remain separate 3D medium debt under `MA-2D-002`, not a source-UID defect. |
 | `MA-ROSHAN-002` | P1 | `VERIFIED_FIXED` | V1/V3 reported | Two playground poses were genuinely clipped and two intact poses retained detached edge debris | `a1be9a1e`; exact replacements, pixel/import/runtime/Mobile-render checks, and clipping-audit tests |
 | `MA-OPERA-008` | P1 | `VERIFIED_FIXED` | V3 partial: focused runtime only | Racer finale requested a ride-selection recording for a circle gesture and could leave stale caption/fallback output | `e4528b27`; exact `op_racer_lap_two` pooled recording, hidden caption, quiet fallback, parser/lint, and focused Opera2D/voice/Opera probes; full CI at that checkpoint is not claimed |
 
@@ -500,10 +599,15 @@ remains in section 10.
 | `EV-2D-009` | `MA-2D-002` | Retire medal legacy spatial scoreboard | `8ed978be`; production 3D-file debt 71→70; `probe_rank` adds legacy cleanup, Canvas tally, bounded-node, save, and idempotence assertions, followed by the `344d8d5c` full checkpoint |
 | `EV-2D-010` | `MA-2D-002`, `MA-2D-003` | Record Opera/medal shrink and remove stale manifest entries | `344d8d5c`; exact full CI exit 0, 61 trusted probes, GAME2D 513/70 `NO_REGRESSION` |
 | `EV-OPERA-001` | `MA-OPERA-008`, `MA-RELEASE-001` | Use exact racer circle recording and prevent stale caption/yay fallback | `e4528b27`; parser/lint plus exact Godot 4.7.1 Opera2D, voice, and Opera probes all green; full CI at that checkpoint was not run |
+| `EV-OPERA-002` | `MA-OPERA-001`, `003`, `006` | Replace wrong semantic props and generic object motion with causal job actions | `2119ab39` plus current integration; 39 governed files reproduce byte-for-byte, including four generated missing-tool roles and 35 reviewed derived/source outputs; owner visual/device review remains open |
+| `EV-OPERA-003` | `MA-OPERA-005` | Replace the old Ballerina art/phase premise with the three-act recital and accepted atlas | `3dd98fbe`, `7d9e6c5f`, `0447188f`, and current integration; accepted runtime atlas SHA-256 `c829784d…003995`, held-pose keys, one-shot curtain call, 5/10-second assists, passive rejection, and exact focused Opera/Ballerina probes green |
+| `EV-OPERA-004` | `MA-OPERA-009` | Rebuild Boxer as a full-stage two-glove specialist | `8d67c2bd` plus current integration; five exact phases, independent touch ownership, sequential one-finger completion, no-loss contact, passive rejection, teardown/re-entry, and stable save-bit coverage in focused probes |
+| `EV-OPERA-005` | `MA-OPERA-006` | Make Candymaker's syrup pour phone-playable and semantically coherent | `39746756` plus current integration; complete shell mold, generous pitcher hit target, measured left-spout transform shared by drawing/stream/hit logic, monotonic fill, and focused quality/probe coverage |
 | `EV-2D-011` | `MA-2D-002`, `MA-DOLLS-001` | Convert Faron's Dolls catcher to one bounded true-Canvas activity | `5df75427`; approved nursery world tiles, real one-finger input, passive/wrong/safe-landing behavior, progress/save/medal/replay, control ownership, teardown/weakrefs, and Mobile capture checks |
 | `EV-ASSET-004` | `MA-SEEK-001`, `DL-ASSET-01`, `DL-ASSET-02` | Fill the proved animated Evie/Lamb-a' gap without modifying protected references | `8fa90111`; source atlases, prompts, manifest, exact hashes, deterministic alpha/despill builder, runtime animation atlases/portrait, licence entries, and six builder tests |
 | `EV-2D-012` | `MA-2D-002`, `MA-SEEK-001`, `MA-ACCESS-003` | Rebuild Seek as the animated Canvas meadow and retire its spatial/vinyl presentation | `27bda85d`; four real routed targets, animated hide/peek/reveal/celebrate states, persistent non-reading cues, kind wrong input, passive no-award, save/replay/re-entry/teardown, reviewed multi-aspect captures, and four exact archived GLBs removed; exact Evie tap-tree recording remains open |
 | `EV-2D-013` | `MA-2D-002`, `MA-2D-003` | Record the Dolls/Seek/visual-probe shrink without relaxing the baseline | `a3d3bce1`; default exact and regression modes green at 509 models/68 production files/77 probe files; strict remains `UNSATISFIED` |
+| `EV-2D-014` | `MA-2D-002`, `MA-OPERA-008` | Reject the upstream device-only 3D kart restoration while retaining all newer Opera work | Current `7b5d1209` + `245c1613` reconciliation; shipping Racer has three Canvas phases, no external kart node/device split, exact `op_racer_lap_two` speech, passive rejection, completion, teardown, and re-entry coverage |
 
 The archive branch name retains “roshan” for history but is the preservation
 authority only for resources already archived there. It is never an active
@@ -516,7 +620,9 @@ source, fallback, rollback target, or claim that reachable 3D debt is retired.
 | `EV-PLAY-002` | `MA-PLAY-001` | Companion boo-boos wait without removal, blocking, or lost legacy progress | `0522d1fa`; stuffie/load coverage |
 | `EV-TOUCH-001` | `MA-TOUCH-001` | Snowman coal touch controls meet `StorybookUI.MIN_TOUCH` | `82f9828c`; `probe_mg2d` |
 | `EV-CI-001` | `MA-CI-002` | Trusted local/remote probe parity and Opera-pipe coverage | `7e6d699d`; clean plus drift mutations |
-| `EV-CI-002` | `MA-RELEASE-001`, `MA-2D-002`, `MA-ASSET-005` | Run the exact current local full gate without conflating regression control with strict satisfaction | Runtime HEAD `a3d3bce1`; exact Godot 4.7.1-stable, fresh import, all static gates, GAME2D 509/68 `NO_REGRESSION`, and all 61 trusted probes green; exit 0 after 1434.3 seconds. Repeated invalid-UID fallback warnings for `sponge_tubes.glb` and `starfish.glb` remain open and make the run non-release-clean. |
+| `EV-CI-002` | `MA-RELEASE-001`, `MA-2D-002`, `MA-ASSET-005` | Preserve the last exact local full gate without conflating regression control with strict satisfaction or stale local cache | Runtime commit `a3d3bce1`; exact Godot 4.7.1-stable, fresh import, all static gates, GAME2D 509/68 `NO_REGRESSION`, and all 61 then-trusted probes green; exit 0 after 1434.3 seconds. Later isolated-import evidence classifies its UID warnings as stale ignored cache, while the GLBs remain medium debt. |
+| `EV-CI-003` | `MA-CI-002`, `MA-RELEASE-001` | Integrate new Opera/art/music gates into both blocking environments | Current integration; local loop 63, remote headless loop 62, display-only human-art probe is the sole intended difference, and default/stress parity checks are green. The merged-tree local full gate exits zero after 826.4 seconds with all 63; remote exact-merge execution remains pending. |
+| `EV-AUDIO-001` | `MA-AUDIO-001` | Compose, render, route, and deterministically verify every newly authored area cue | `0da07e24`, `27c2c95d`, and current integration; 42/42 scores and OGGs have unique hashes, loop/import metadata, measured codec/loudness/peak/seam evidence, routing probes, license entries, and exact build checks. Human listening, mono, voice mix, and M11 evidence remain open. |
 | `EV-PLAY-003` | `MA-PLAY-001` | Visible, voiced Lagoon→Reef route and Pause fallback | `986010c0`; focused/re-entry/sibling probes |
 | `EV-PLAY-004` | `MA-PLAY-001` | Exercise the default Hybrid Lagoon portal through the actual explicit interaction route | `e6e56f8b`; proves proximity alone does not enter, selects enabled `reef:lagoon`, activates it through the touch-interactable path, and keeps Classic/no-touch proximity behavior green |
 | `EV-ROSHAN-001` | `MA-ROSHAN-002` | Playground/animal completion settles visible Roshan art | `711879ec`; Lagoon probes |
@@ -534,7 +640,8 @@ source, fallback, rollback target, or claim that reachable 3D debt is retired.
 | `EV-VOICE-004` | `MA-ACCESS-001` | Shadowed duplicate voice-generator keys rejected | `1c6e0c24` |
 | `EV-VOICE-005` | `MA-ACCESS-001` | Brawl prompts bind to one Huluu cue | `e8485d54` |
 | `EV-ASSET-003` | `DL-ASSET-04` | Castle delivery provenance is newline-stable | `df5b4cf7` |
-| `EV-AUTH-001` | `MA-DOC-001`, `MA-DOC-002` | Reconcile current authority to true 2D while preserving the incomplete-ledger state | `9289dd81`; operational/design authorities updated; exhaustive 299-document classification remains open |
+| `EV-CASTLE-001` | `DL-VIS-10`, `DL-SAVE-01`, `DL-INT-01` | Apply the child's saved Castle logo to every matching purple shell banner without stealing room input | `9e75e8e3` plus current integration; two Craft Room and two Stuffie Playroom replacements, Craft badge, saved color/symbol, no overlay in unregistered rooms, and focused interaction coverage |
+| `EV-AUTH-001` | `MA-DOC-001`, `MA-DOC-002` | Reconcile current authority to true 2D while preserving the incomplete-ledger state | `9289dd81`; operational/design authorities updated; exhaustive 306-document classification remains open |
 | `EV-HYGIENE-001` | `MA-DOC-004`, `MA-VIS-006` | Keep local captures/profiles/review builds out of production Git status | `96317f8b`; `/tmp/*` ignored while existing tracked fixtures remain tracked; ignored evidence never gains PASS authority |
 
 These rows are bounded supporting evidence. None is inflated into a current-HEAD
@@ -554,6 +661,12 @@ full release pass or a complete record for a broader indexed item.
 | Historical Sky Lagoon migration order/pilot violation | `DISMISSED_NOT_A_DEFECT` | Process lesson; cannot be repaired retroactively |
 | Jolt physical standees, 3D garnish, lights, spatial shaders, or particles as future direction | `DISMISSED_NOT_IN_PROJECT` | Convert/remove; no new 3D runtime work |
 | 3D Opera bosses/outfits/rivals, 3D companion bodies, or Curve3D/Spline3 presentation prescriptions | `SUPERSEDED` | Preserve gameplay goals during tested 2D conversion |
+| Device-only real-3D Opera kart with a headless/probe Canvas bypass | `SUPERSEDED` | Current Racer is one true-Canvas implementation on device and in probes; no external kart child or device-dependent medium split is accepted |
+| `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md`'s 52-phase total and its old Ballerina, generic Boxer, and nested-kart Racer descriptions | `SUPERSEDED` in those scopes | Current shipping table is 13 careers/53 phases/27 modes; latest Ballerina, Boxer, and Canvas Racer authorities control while non-conflicting prop provenance/repairs remain supporting evidence |
+| `OPERA_QUALITY_OVERHAUL_2026-08-09.md`'s 52-phase/19-mode/single-`bop` snapshot and requirement to loop every Ballerina row chronologically | `SUPERSEDED` in those scopes | Current Opera has 53 phases/27 modes/no generic `bop`; Ballerina frames are held pose keys because adjacent silhouette jumps are 41.6–47.3%, with only a one-shot curtain call |
+| Earlier Ballerina atlas attempts, generic PHRASE/POSE/RIBBON/TWIRL route, or any leg/feet-like candidate | `SUPERSEDED` | `BALLERINA_PARTY_REBUILD_2026-08-09.md` and accepted generation `exec-a4dfa550-5374-43b6-a5e0-16a9d3d4b81c.png` control; prior leg/feet-like candidates remain rejected evidence, and the runtime atlas remains a one-tail mermaid at exact hash `c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995` |
+| Boxer manifest's retained `opera_boxer_outfit.glb`, `opera_boxer_dressing.glb`, and `opera_rival_boxer.glb` as useful runtime resources | `SUPERSEDED` | The Canvas specialist does not require them; while active they remain exact GAME2D transition debt and must retire through the normal tested archive path |
+| Music audit's temporary retained `race` cue for an Opera nested kart | `SUPERSEDED` for current Opera Racer | There is no nested kart segment to own that cue; the Canvas Racer stays under its Opera career music unless a future separately approved Canvas transition says otherwise |
 | Roshan 2D atlas repacking | `DEFERRED_WITH_REASON` | Optimization; current sampling contract is green |
 | Universal costume layers | `DISMISSED_NOT_A_DEFECT` | Optional feature, not audit closure work |
 | Gabby | `DISMISSED_NOT_IN_PROJECT` | IP hold under `attic/gabby/` only |
@@ -647,6 +760,42 @@ finding records; section 10 controls that designation.
   is closed without modifying protected originals. Overall 2D, device, child,
   and exact Evie “tap the wiggly tree” voice gates remain open and prevent a
   broader satisfaction claim.
+
+### MA-OPERA-005/009 — current Ballerina and Boxer specialists
+
+- **State:** both are `FIXED_PENDING_VERIFICATION`, V3 partial. The old
+  Ballerina uniqueness premise and generic Boxer route are not current
+  implementations, but neither specialist has final device/child/owner
+  acceptance.
+- **Ballerina evidence:** three full-stage acts, exact existing protected cues,
+  5/10-second non-paying assists, monotonic progress, shared paint/hit geometry,
+  both twirl directions, no generic card/combat/race, accepted 4×4 atlas hash
+  `c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995`,
+  held pose keys, and a non-looping curtain call. The 41.6–47.3% neighboring
+  silhouette jumps forbid treating each row as a normal temporal loop.
+- **Boxer evidence:** five specialist modes, two independently owned gloves,
+  optional two-touch but complete sequential one-finger play, no health/lives/
+  damage/lost progress, one padded imp state machine, no generic combat layer,
+  passive rejection, focus/close cleanup, and unchanged existing save bit 128.
+- **Acceptance:** final merged-SHA local and remote gates, authoritative
+  two-aspect Mobile capture, one-finger target-device comfort/performance and
+  voice review, child comprehension, and owner identity/style acceptance.
+  Boxer's three retained GLBs are separate `MA-2D-002` debt and cannot become a
+  fallback for the Canvas specialist.
+
+### MA-AUDIO-001 — deterministic area-music rollout
+
+- **State:** P2, `FIXED_PENDING_VERIFICATION`, V3 partial.
+- **Machine evidence:** 42 unique declarative scores and production OGGs,
+  complete score/renderer/PCM/OGG hashes, 48 kHz stereo delivery, exact loop
+  tags and Godot imports, −18.05 to −17.97 LUFS-I, −8.76 to −4.10 dBTP,
+  deterministic `--check`, route ownership, stale-close protection, and focused
+  audio/probe evidence. Fifteen legacy directory files remain: 14 score assets
+  and `banjo.ogg` as SFX.
+- **Open human/device evidence:** two-wrap musical and seam listening, every
+  cue's style/area identity, speech intelligibility and ducking, music-off
+  persistence, mono fold-down, and Lenovo Tab M11 start/loop/memory review.
+  No automated measurement grants those passes.
 
 ### MA-PLAY-001 — normal-play reachability
 
@@ -765,7 +914,7 @@ explicitly as missing or blocked; a field is never omitted.
 
 ### 11.2 Probe classification
 
-Every one of the current 103 probe scripts receives exactly one state:
+Every one of the current 105 probe scripts receives exactly one state:
 
 - `TRUSTED_BLOCKING`
 - `RUNTIME_VISUAL_BLOCKING`
@@ -774,14 +923,21 @@ Every one of the current 103 probe scripts receives exactly one state:
 - `OBSOLETE_DELETE`
 - `QUARANTINED_WITH_REASON`
 
-Local/remote blocking-loop parity is verified; exhaustive classification is
-still `MA-CI-002`.
+Local/remote blocking-loop parity is fixed locally under `MA-CI-002` and awaits
+the exact-merge remote run; exhaustive classification remains separately open
+as `MA-CI-003`.
 
 ### 11.3 Documentation control
 
 Commit `9289dd81` completed the authorized `AGENTS.md`/`CLAUDE.md` and
 `design/00` through `design/05` medium reconciliation without weakening valid
-security/save/protected-art/workflow/cinematic rules. The remaining gate must:
+security/save/protected-art/workflow/cinematic rules. This integration adds
+seven new Markdown sources plus the updated asset ledger. Their exact partial
+authority is recorded in section 3.2: the Ballerina and music briefs are
+current domain authorities; the Boxer brief is current except for retained-3D
+resource language; the two general Opera audits retain non-conflicting repair
+and provenance evidence but not their older counts, Ballerina/Boxer/Racer
+mechanics, or Ballerina playback premise. The remaining gate must:
 
 - give every tracked Markdown file one authority row and explicit valid scope;
 - flag partial supersession rather than marking a mixed document wholly current;
@@ -825,10 +981,12 @@ exact commit. This is the operational checklist for `DL-QA-09` and
       equally scoped audit; unnamed reports are not assumed fixed or open.
 - [ ] Visual stress is green and every applicable failure, review, manual item,
       and coverage gap has an explicit accepted disposition.
-- [x] Exact Godot 4.7.1-stable parser, lint, analyzer, fresh import, static
-      gates, and all 61 trusted probes are green at synchronized runtime commit
-      `a3d3bce1`; the nonfatal UID warnings remain separately open as
-      `MA-ASSET-005`, and any later runtime-affecting change reopens this item.
+- [ ] Exact Godot 4.7.1-stable parser, lint, analyzer, fresh import, static
+      gates, and all 63 current trusted local probes are green at one final
+      merged commit. Historical `a3d3bce1` remains green for its then-current
+      61-probe suite; the staged merged tree completes the current full local
+      gate in 826.4 seconds, but no final merge SHA or remote exact-head run
+      exists yet.
 - [ ] Full runtime capture covers every activity at 1280×720 and a representative
       wide-phone aspect ratio.
 - [ ] Target phone and M11 meet P95 ≤33.3 ms, P99 ≤50 ms, no normal-path hitch
@@ -849,7 +1007,7 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 ## 13. Current repair order
 
 1. Keep the dedicated `codex/master-audit-20260809` branch synchronized; create
-   the missing complete item records and finish the exhaustive 299-document
+   the missing complete item records and finish the exhaustive 306-document
    ledger/document-control gate. Authority reconciliation itself is complete at
    `9289dd81`.
 2. Continue one tested true-2D gameplay family from the exact 509-model/
@@ -857,16 +1015,20 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
    category is zero; archive exact resources before active deletion.
 3. Implement live fresh-runtime Canvas adapters, beginning with converted
    surfaces and then Fairy/Lagoon; keep every missing capture as a gap.
-4. Repair Opera capture coverage and named current art defects, then the
-   confirmed Lagoon Canvas-layer defect. Confirm or dismiss palette risks only
-   from current state-local evidence.
+4. Verify the merged Ballerina, Boxer, Candymaker, and 42-cue music slices at
+   the final merge SHA, then repair remaining Opera capture coverage and split
+   the stale grouped Opera art claims. Continue with the confirmed Lagoon
+   Canvas-layer defect. Confirm or dismiss palette risks only from current
+   state-local evidence.
 5. Reconcile protected voice gaps, including Evie's exact Seek tap-tree cue,
    through owner-authorized sources.
 6. Rebuild and prove the complete child-visible world graph.
 7. Classify all probes and remove only proved obsolete assets/code.
-8. Preserve the exact `a3d3bce1` full-gate evidence; after any further
-   runtime-affecting slice, rerun the same-SHA suite. Produce the capture matrix,
-   matching APK, target-device U0 pass, and child golden path.
+8. Preserve both the exact `a3d3bce1` historical full gate and the 826.4-second
+   current merged-tree local gate; finish the merge, run the 62-probe remote
+   suite at its exact final SHA (and rerun local if committed content changes),
+   then produce the capture matrix, matching APK, target-device U0 pass, audio
+   listening matrix, and child golden path.
 9. Repeat the master audit from `INVENTORYING`; satisfaction cannot come from
     closing only the first list.
 
@@ -898,5 +1060,13 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-08-09 | `REPAIRING` | `a3d3bce1` records the exact 509-model/68-production/77-probe GAME2D shrink; default and regression modes are green while strict remains `UNSATISFIED` |
 | 2026-08-09 | focused `VERIFYING` | Exact local full `scripts/ci.sh` at runtime HEAD `a3d3bce1` exits 0 after 1434.3 seconds: exact Godot 4.7.1-stable, fresh import, all static gates, GAME2D `NO_REGRESSION`, and all 61 trusted probes green. Repeated invalid-UID fallbacks for `sponge_tubes.glb` and `starfish.glb` remain nonfatal open 3D/resource-hygiene debt under `MA-ASSET-005`; the run is not warning-free or release-clean. |
 | 2026-08-09 | `IN_PROGRESS` | Clean fresh-runtime visual strict at `a3d3bce1` fails closed at 16 FAIL/17 REVIEW_OPEN/2 MANUAL_OPEN/86 COVERAGE_GAP/32 PASS/94 NOT_APPLICABLE because no live Canvas capture output was accepted; strict 2D, voice, device, child, owner, and clean re-audit closure remain open |
+| 2026-08-10 | `CONFIRMING` | All newer `origin/dev` documents and runtime through `245c1613` are reviewed against audit `HEAD` `7b5d1209`. Current Opera authority is 13 careers/53 phases/27 modes/208 frames; older 52-phase, generic Ballerina/Boxer, looping-Ballerina, and nested-kart descriptions are partially superseded rather than silently retained. |
+| 2026-08-10 | focused `VERIFYING` | `MA-OPERA-005` moves to `FIXED_PENDING_VERIFICATION`: current Ballerina uses the accepted `c829784d…003995` one-tail atlas, held pose keys, one-shot curtain call, and dedicated Pearl Mirror/Ribbon Trail/Grand Twirl specialist with focused exact-Godot probes green; capture/device/child/owner acceptance remains open. |
+| 2026-08-10 | focused `VERIFYING` | `MA-OPERA-009` is created as `FIXED_PENDING_VERIFICATION` for the five-phase two-glove Boxer specialist; `39746756`'s phone-safe Candymaker pour is integrated; exact merged Opera/Nursery/Detective/gesture/passive/voice probes are green while final merge identity, remote exact-head, and device gates remain open. |
+| 2026-08-10 | focused `VERIFYING` | `MA-AUDIO-001` is created as `FIXED_PENDING_VERIFICATION`: deterministic score/render/import/routing evidence is complete for 42 new cues, while human two-wrap/style/voice/mono and Lenovo Tab M11 listening remain open. |
+| 2026-08-10 | focused `VERIFYING` | `MA-CI-002` moves to `FIXED_PENDING_VERIFICATION` after the 63-local/62-remote roster and default/stress parity gates include the new Opera probes; final remote exact-head execution remains open. Exhaustive classification of all 105 probes is preserved separately as new `MA-CI-003`, `CONFIRMED_OPEN`. |
+| 2026-08-10 | `CONFIRMING` | `MA-ASSET-005` is dismissed as a source defect after valid tracked GLBs/sidecars and a warning-free isolated fresh import prove four ignored local import-cache files caused the UID warnings; the GLBs remain separate GAME2D medium debt. |
+| 2026-08-10 | `REPAIRING` | Reconciliation rejects the upstream device-only real-3D kart path and preserves the one-implementation Canvas Racer with exact `op_racer_lap_two` speech. The staged `7b5d1209` + `245c1613` integration remains `IN_PROGRESS` until a merge commit earns full local and remote gates. |
+| 2026-08-10 | focused `VERIFYING` | The resolved staged merged tree completes exact Godot 4.7.1 `scripts/ci.sh` in 826.4 seconds with fresh import, all static gates, GAME2D `NO_REGRESSION`, and all 63 current trusted local probes green. A final merge SHA and remote exact-head CI remain pending; strict 2D, visual, audio-listening, device, child, and owner gates stay open. |
 
 No later state is added without its required evidence.

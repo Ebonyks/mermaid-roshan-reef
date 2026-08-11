@@ -160,6 +160,16 @@ const PATHS: Dictionary = {
 		],
 		"clue_spots": [[0.035, 0.285], [0.192, 0.82], [0.262, 0.226], [0.319, 0.824], [0.504, 0.257], [0.635, 0.86], [0.833, 0.256], [0.962, 0.286]],
 	},
+	"nursery": {
+		"path": [[0.07, 0.73], [0.16, 0.70], [0.28, 0.68], [0.42, 0.69], [0.55, 0.70], [0.68, 0.67], [0.80, 0.69], [0.91, 0.72]],
+		"stations": [
+			{"id": "wash_basin", "pos": [0.18, 0.70], "landmark": "pearl wash basin beside the small moon-shell nursery"},
+			{"id": "cuddle_cushions", "pos": [0.43, 0.69], "landmark": "soft moon and star cushions in the open central play space"},
+			{"id": "bottle_nook", "pos": [0.66, 0.67], "landmark": "round bottle nook with four warm bottles under its lavender canopy"},
+			{"id": "moon_bed", "pos": [0.88, 0.70], "landmark": "large moon-and-star bed inside the right shell room"},
+		],
+		"clue_spots": [[0.12, 0.28], [0.28, 0.43], [0.42, 0.35], [0.56, 0.24], [0.66, 0.50], [0.79, 0.32], [0.88, 0.52], [0.93, 0.78]],
+	},
 }
 
 ## Walkable roam envelope per career, as [t_min, t_max] along the route.
