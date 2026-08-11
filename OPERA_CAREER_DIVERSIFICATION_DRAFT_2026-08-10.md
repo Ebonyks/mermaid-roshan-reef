@@ -6,6 +6,11 @@
 > element gets a context worth dressing for. It is built strictly from
 > resources already in the repo and from owner rulings already on record;
 > where it goes beyond a ruling it says so and asks.
+>
+> **Companion:** `OPERA_DIVERSIFICATION_STORY_THREAD_2026-08-11.md`
+> supplies the connective story — the hub loop, the "why this room, why
+> now" clockwork, and the per-act story cards that tie these venues into
+> one birthday-day narrative.
 
 ---
 
