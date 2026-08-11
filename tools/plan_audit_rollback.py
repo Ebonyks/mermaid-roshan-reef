@@ -457,8 +457,8 @@ CATALOG: tuple[ChangeGroup, ...] = (
 	),
 	_group(
 		"CHG-015",
-		"Castle provenance newline stability",
-		"Made Castle delivery provenance checks stable across LF/CRLF checkouts and kept their tests dependency-light.",
+		"Castle and Opera cross-platform generated-art stability",
+		"Made Castle text provenance and Opera generated-art checks stable across platforms without weakening semantic, scanline, pixel, or delivery-hash controls.",
 		"86d0c2434579c1b0e226414a9601dcce4d5b9e22",
 		(
 			"df5b4cf7f98cd1ce09468b2551cd3bd5bb8ddf4c",

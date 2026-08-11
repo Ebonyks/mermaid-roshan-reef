@@ -3,8 +3,9 @@
 
 This tool is intentionally deterministic and reuse-first.  It never modifies
 the approved concept cards or ImageGen native boards.  Default mode writes the
-runtime PNGs and adjacent review evidence; ``--check-only`` rebuilds every byte
-in memory and fails if the checked-in derivatives differ.
+runtime PNGs and adjacent review evidence; ``--check-only`` rebuilds every
+artifact in memory, permits only PNG compression of an identical scanline
+stream to differ, and preserves strict delivery-byte hashes in provenance.
 """
 
 from __future__ import annotations
@@ -14,6 +15,8 @@ import hashlib
 import io
 import json
 import math
+import struct
+import zlib
 from collections import deque
 from pathlib import Path
 from typing import Any, Iterable
@@ -33,6 +36,7 @@ GENERATED_TEXT_ARTIFACTS = frozenset({
     SOURCE_DIR / "PROVENANCE.json",
     SOURCE_DIR / "REVIEW.md",
 })
+MAX_PNG_SCANLINE_BYTES = 256 * 1024 * 1024
 
 PROMPT = (
     "Create a production sprite-board source for the Mermaid Roshan Pearl Opera "
@@ -98,12 +102,95 @@ def _sha256_file(path: Path) -> str:
     return _sha256_bytes(path.read_bytes())
 
 
+def _png_semantics(payload: bytes) -> tuple[tuple[tuple[bytes, bytes], ...], bytes]:
+    """Return strict PNG structure plus the exact decompressed scanline stream."""
+    if not payload.startswith(b"\x89PNG\r\n\x1a\n"):
+        raise ValueError("invalid PNG signature")
+    offset = 8
+    chunks: list[tuple[bytes, bytes]] = []
+    idat_parts: list[bytes] = []
+    saw_idat = False
+    ended_idat = False
+    saw_iend = False
+    while offset < len(payload):
+        if offset + 12 > len(payload):
+            raise ValueError("truncated PNG chunk")
+        length = struct.unpack(">I", payload[offset:offset + 4])[0]
+        chunk_end = offset + 12 + length
+        if chunk_end > len(payload):
+            raise ValueError("truncated PNG payload")
+        chunk_type = payload[offset + 4:offset + 8]
+        chunk_data = payload[offset + 8:offset + 8 + length]
+        expected_crc = struct.unpack(">I", payload[offset + 8 + length:chunk_end])[0]
+        actual_crc = zlib.crc32(chunk_type)
+        actual_crc = zlib.crc32(chunk_data, actual_crc) & 0xFFFFFFFF
+        if expected_crc != actual_crc:
+            raise ValueError("invalid PNG chunk CRC")
+        if chunk_type == b"IDAT":
+            if ended_idat:
+                raise ValueError("non-contiguous PNG IDAT chunks")
+            saw_idat = True
+            idat_parts.append(chunk_data)
+        else:
+            if saw_idat:
+                ended_idat = True
+            chunks.append((chunk_type, chunk_data))
+        offset = chunk_end
+        if chunk_type == b"IEND":
+            saw_iend = True
+            break
+    if not saw_idat or not saw_iend or offset != len(payload):
+        raise ValueError("incomplete PNG structure")
+    decompressor = zlib.decompressobj()
+    scanlines = decompressor.decompress(
+        b"".join(idat_parts),
+        MAX_PNG_SCANLINE_BYTES + 1,
+    )
+    if len(scanlines) > MAX_PNG_SCANLINE_BYTES:
+        raise ValueError("PNG scanline stream exceeds audit bound")
+    if not decompressor.eof or decompressor.unused_data or decompressor.unconsumed_tail:
+        raise ValueError("PNG IDAT is not exactly one complete zlib stream")
+    flushed = decompressor.flush()
+    if flushed:
+        scanlines += flushed
+    if len(scanlines) > MAX_PNG_SCANLINE_BYTES:
+        raise ValueError("PNG scanline stream exceeds audit bound")
+    return tuple(chunks), scanlines
+
+
 def _check_bytes_match(path: Path, checked_in: bytes, generated: bytes) -> bool:
-    """Compare deterministic outputs, tolerating only text newline checkout policy."""
+    """Compare outputs while allowing only platform PNG IDAT re-encoding."""
     if path in GENERATED_TEXT_ARTIFACTS:
         checked_in = checked_in.replace(b"\r\n", b"\n")
         generated = generated.replace(b"\r\n", b"\n")
+    if path.suffix.lower() == ".png":
+        try:
+            if _png_semantics(checked_in) != _png_semantics(generated):
+                return False
+            with Image.open(io.BytesIO(checked_in)) as checked_image:
+                checked_image.load()
+                checked_mode = checked_image.mode
+                checked_size = checked_image.size
+                checked_pixels = checked_image.tobytes()
+            with Image.open(io.BytesIO(generated)) as generated_image:
+                generated_image.load()
+                return (
+                    generated_image.mode == checked_mode
+                    and generated_image.size == checked_size
+                    and generated_image.tobytes() == checked_pixels
+                )
+        except (OSError, ValueError, zlib.error):
+            return False
     return checked_in == generated
+
+
+def _delivery_bytes_for_provenance(path: Path, generated: bytes, check_only: bool) -> bytes:
+    """Bind provenance to accepted delivery bytes when PNG semantics reproduce."""
+    if check_only and path.is_file():
+        checked_in = path.read_bytes()
+        if _check_bytes_match(path, checked_in, generated):
+            return checked_in
+    return generated
 
 
 def _png_bytes(image: Image.Image) -> bytes:
@@ -801,7 +888,7 @@ def _review_markdown(
         "- Approved-card derivatives: dark presentation field and contact-sheet rules removed with `_remove_edge_field`; source RGB subjects were not repainted.",
         "- Every transparent runtime derivative has a nonzero safe alpha gutter; every output obeys the <=1024/POT texture rule.",
         "- Exact dimensions, alpha bounds, hashes, source hashes, transforms, and the exact generation prompt are in `PROVENANCE.json`.",
-        "- `python tools/prepare_opera_minigame_art.py --check-only` is the byte-exact reproducibility gate.",
+        "- `python tools/prepare_opera_minigame_art.py --check-only` permits only PNG compression of an identical scanline stream to differ; structure, pixels, and delivery hashes/provenance remain strict.",
         "",
         "## Source-role audit notes",
         "",
@@ -821,7 +908,7 @@ def _review_markdown(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check-only", action="store_true",
-                        help="rebuild in memory and fail if any checked-in derivative differs")
+                        help="rebuild in memory and fail on pixel, text, or delivery-provenance drift")
     args = parser.parse_args()
 
     if not NATIVE_BOARD.is_file() or not ALPHA_BOARD.is_file():
@@ -835,10 +922,14 @@ def main() -> int:
 
     encoded: dict[Path, bytes] = {path: _png_bytes(image) for path, image in images.items()}
     encoded[contact_path] = _png_bytes(contact)
+    delivery_bytes = {
+        path: _delivery_bytes_for_provenance(path, data, args.check_only)
+        for path, data in encoded.items()
+    }
     for name, record in records.items():
         path = WIDGETS / name
         record["runtime_path"] = str(path.relative_to(ROOT)).replace("\\", "/")
-        record["runtime_sha256"] = _sha256_bytes(encoded[path])
+        record["runtime_sha256"] = _sha256_bytes(delivery_bytes[path])
         record.update(metrics[name])
         record["source_sha256"] = {
             source: _sha256_file(ROOT / source) for source in record["sources"]
@@ -853,7 +944,7 @@ def main() -> int:
         "determinism_gate": "python tools/prepare_opera_minigame_art.py --check-only",
         "contact_sheet": {
             "path": str(contact_path.relative_to(ROOT)).replace("\\", "/"),
-            "sha256": _sha256_bytes(encoded[contact_path]),
+            "sha256": _sha256_bytes(delivery_bytes[contact_path]),
         },
         "source_role_notes": notes,
         "artifacts": {name: records[name] for name in sorted(records)},

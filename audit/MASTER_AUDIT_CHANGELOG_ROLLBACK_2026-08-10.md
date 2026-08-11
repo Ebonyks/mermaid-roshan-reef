@@ -49,7 +49,7 @@ changes:
   - {id: CHG-012, name: dolls-canvas-catcher, rollback_mode: guarded_single}
   - {id: CHG-013, name: seek-animated-kit-and-runtime, rollback_mode: owner_blocked_mixed}
   - {id: CHG-014, name: fresh-visual-attestation-and-cinematic-orientation, rollback_mode: owner_blocked_mixed}
-  - {id: CHG-015, name: castle-provenance-newline-stability, rollback_mode: guarded_chain}
+  - {id: CHG-015, name: cross-platform-generated-art-stability, rollback_mode: guarded_chain}
   - {id: CHG-016, name: opera-careers-atlases-and-minigame-art, rollback_mode: guarded_mixed}
   - {id: CHG-017, name: ballerina-specialist, rollback_mode: guarded_mixed}
   - {id: CHG-018, name: boxer-specialist, rollback_mode: guarded_single}
@@ -544,23 +544,41 @@ exclusive and must never be applied on the same rollback branch.
   falsification test. Any proposed contract change requires old-vs-new negative
   controls and must not reduce failure observability.
 
-### CHG-015 — Castle provenance newline stability
+### CHG-015 — Castle and Opera cross-platform generated-art stability
 
 - **Sources:** `df5b4cf7f98cd1ce09468b2551cd3bd5bb8ddf4c` and dependency-light
   test follow-up `5961fd968066e4644e2b77f73c72e990c4bef4ac`.
 - **Paths:** Castle interaction manifest/approval ledger, delivery/native build
-  tools and tests.
+  tools and tests; Opera minigame-art generator/checker, focused tests, and its
+  governed `PROVENANCE.json`/`REVIEW.md` evidence.
 - **Outcome / positive effect:** deterministic Castle provenance checks are
-  stable across Windows/Linux newline conventions and do not require an
-  unnecessary image dependency for the narrow test.
+  stable across Windows/Linux newline conventions. Opera's checker now accepts
+  only a platform-dependent PNG `IDAT` recompression when CRC-checked PNG
+  structure, non-`IDAT` chunks, color mode, dimensions, exact decompressed
+  scanlines, and every decoded pixel are identical; provenance remains bound
+  to the exact accepted delivery bytes.
 - **Possible negative effect / unknown:** over-normalization could conceal a
-  meaningful byte change if applied beyond exact text outputs; runtime image
-  bytes must remain strict.
-- **Dependencies and evidence:** Castle provenance builders/tests and full CI.
+  meaningful change. The relaxation is therefore limited to compression of an
+  identical generated scanline stream; text meaning, metadata/chunks, color
+  mode, dimensions, decoded pixels, and checked-in delivery hashes stay strict.
+- **Dependencies and evidence:** Castle provenance builders/tests; Opera
+  minigame-art unit/check-only gates with same-scanline/different-compression,
+  pixel-drift, metadata-drift, mode-drift, invalid/trailing-payload PNG, CRLF,
+  and semantic-text controls; full local and exact-head remote CI.
+- **2026-08-10 follow-up checkpoint:** pushed process commit
+  `57bc08d1220594fbabcab15362b5685a9f8514e6` exposed the defect in GitHub run
+  `31455723446`: Linux stopped before import because valid PNG compression
+  bytes differed from Windows for governed Opera outputs. The focused repair
+  above passes locally for all 39 artifacts without rewriting any runtime PNG;
+  its introducing commit and replacement remote run are pending and must be
+  appended after they exist. This checkpoint is failure evidence, not a green
+  release claim.
 - **Rollback:** `guarded_chain`; attempt `5961fd96` then `df5b4cf7` only for a
-  reproduced false acceptance/rejection. Preserve binary/hash strictness and
-  run both Castle builders/checks, interaction probe, cross-platform test, and
-  full CI.
+  reproduced Castle false acceptance/rejection. The Opera follow-up is manual
+  until its introducing commit is recorded: reverse only its checker/tests and
+  generated review wording, never regenerate or replace accepted delivery PNGs.
+  Preserve delivery-hash strictness and run both Castle builders/checks, the
+  Opera 39-artifact check, interaction probe, cross-platform tests, and full CI.
 
 ### CHG-016 — General Opera careers, 13 atlases, and minigame art
 
@@ -770,7 +788,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-005, 008, 009 | parity stress/default, GAME2D unit+stress+default/regression, import | clean remote exact-head |
 | CHG-007, 012 | mg2d/UI/rank/Dolls/passive, GAME2D | capture, device touch, child |
 | CHG-010, 016–019 | Opera 2D, Nursery, Detective, gesture quality, passive, voice, teardown, animation/minigame-art audits | capture, device performance/touch, child, owner |
-| CHG-015, 021 | Castle provenance builders/tests, interaction, load/save | Castle captures and owner review |
+| CHG-015, 021 | Castle provenance builders/tests, Opera generated-art gate, interaction, load/save | Cross-platform generated-art checks, Castle captures, and owner review |
 | CHG-020 | deterministic music check, audio, voice, picture games, Opera | two-wrap/ducking/off/mono/M11 listening |
 | CHG-011, 023 | UTF-8, unique IDs, links, ledger coverage, table/fence and forbidden-claim checks | owner authority confirmation where changed |
 | CHG-022 | every applicable gate above and exact `scripts/ci.sh` | remote exact-head plus all applicable external gates |
