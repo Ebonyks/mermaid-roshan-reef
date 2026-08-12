@@ -1,9 +1,9 @@
 # Master design — document ledger
 
 _Initial 149-document index: 2026-08-02. Targeted authority reconciliation:
-2026-08-09._
+2026-08-09. Merge synchronization: 2026-08-12._
 
-This ledger is **not exhaustive** for the repository's current set of **307
+This ledger is **not exhaustive** for the repository's current set of **315
 tracked Markdown paths**. It preserves the original index and adds the
 documents/partial-supersession decisions needed for the 2026-08-09 medium and
 merged Opera/audio rulings. `MA-DOC-002` remains `CONFIRMED_OPEN` until a gate
@@ -41,7 +41,7 @@ Absence from this file grants no authority.
 | `design/04_OPEN_WORK.md` | 🔵 | `SUPPORTING_CURRENT`; current lifecycle crosswalk, not canonical finding records. |
 | `design/05_DOC_LEDGER.md` | 🔵 | `SUPPORTING_CURRENT`; this partial index. Exhaustive ledger closure remains `MA-DOC-002`. |
 | `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` | 🟣 | `PROPOSED_CANONICAL`; tracked and indexed, pending the remaining documentation gate. Stable `DL-*` rule authority within its declared state. |
-| `audit/MASTER_AUDIT_2026-08-09.md` | 🟣 | `PROPOSED_CANONICAL`; synchronized audit-cycle/evidence/lifecycle record. Overall state `REPAIRING`, satisfaction `UNSATISFIED`. Latest completed exact-head evidence is commit `dacef1405b6a8cb470117e824aebac3a8ca500af`, GitHub run `31457593351`, successful in 34m19s: Windows music 42/42 and Ubuntu static/import/analyzer/62 trusted probes/boot/balance/five diagnostic capture-upload pairs are green. `MA-CI-002` is `VERIFIED_FIXED` at V3 exact-head; `MA-CI-003` remains `CONFIRMED_OPEN`. APK, authoritative visual, listening, device, child, owner and strict-2D gates remain open. |
+| `audit/MASTER_AUDIT_2026-08-09.md` | 🟣 | `PROPOSED_CANONICAL`; synchronized audit-cycle/evidence/lifecycle record. Overall state `REPAIRING`, satisfaction `UNSATISFIED`. Current merge `f3b0de07` (parents `ea6185fd` and `5f58ef0a`) passes exact local Godot 4.7.1 CI in 1437.1 seconds with 64 trusted probes. Historical remote run `31457593351` at `dacef140` remains evidence only for that older SHA. Current exact-head remote, APK, authoritative visual, listening, device, child, owner and strict-2D gates remain open. |
 | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` | 🟢 | `BINDING_OPERATIONAL` for stable `CHG-*` scope, risk/evidence logging, dependency-aware rollback planning, and the clean-branch/gate-before-merge revert workflow. It never authorizes a rollback that violates protected-asset, security, save, or final-medium rules. |
 | `ASSET_AUDIT.md` | ⚪ | `HISTORICAL_EVIDENCE`; 2026-06-25 CC0 audit/network decision. Current named-defect discipline comes from design 06; its stale music inventory is superseded by `MUSIC_AUDIT_2026-08-09.md`. |
 
@@ -86,7 +86,7 @@ Absence from this file grants no authority.
 
 | Doc | | Note |
 |---|---|---|
-| `MUSIC_AUDIT_2026-08-09.md` | 🟢 | `BINDING_DOMAIN` for the 15-file legacy inventory, 42 deterministic new cues, shared musical language, one-player/hard-cut ownership, voice ducking, loop/mix targets, transition restoration and machine evidence. Exact-head run `31457593351` verifies 42/42 deliveries in the pinned Windows job. Human two-wrap listening, voice intelligibility, mono fold-down and Lenovo Tab M11 review remain open under `MA-AUDIO-001`. Its dated Opera nested-real-kart routing is `SUPERSEDED`; current Racer remains one Canvas act under `opera_racer`. |
+| `MUSIC_AUDIT_2026-08-09.md` | 🟢 | `BINDING_DOMAIN` for the 15-file legacy inventory, 42 deterministic new cues, shared musical language, one-player/hard-cut ownership, voice ducking, loop/mix targets, transition restoration and machine evidence. Historical run `31457593351` verifies 42/42 deliveries at `dacef140`; current local deterministic gates are green. Human two-wrap listening, voice intelligibility, mono fold-down and Lenovo Tab M11 review remain open. Its dated nested-real-kart routing is superseded as direction; exact `f3b0de07` ordinary-headless kart source remains `MA-OPERA-010` debt, not audio authority. |
 | `assets_src/audio/music/area_music_scores.json` | 🟢 | `BINDING_MACHINE_DATA` for the 42 declarative compositions; it cannot certify subjective listening. |
 | `assets/audio/music/area_music_manifest.json` | 🟢 | `BINDING_MACHINE_EVIDENCE` for rendered hashes, codec, duration, loudness, peak and loop measurements of the 42 new cues. |
 
@@ -156,15 +156,17 @@ Absence from this file grants no authority.
 
 | Doc | | Note |
 |---|---|---|
-| `BALLERINA_PARTY_REBUILD_2026-08-09.md` | 🟢 | `BINDING_DOMAIN`, latest Ballerina authority: three-act full-stage Pearl Mirror / Ribbon Trail / Grand Twirl, monotonic 5/10-second assistance, held pose keys and one-shot curtain call. It supersedes every older Ballerina phase/playback section and old atlas recommendation. The resolved content is integrated at `ad36ee9f`; its local full suite and exact-head remote run `31457593351` at `dacef1405b6a8cb470117e824aebac3a8ca500af` succeed, the latter in 34m19s. Authoritative capture, device, child and owner review remain. |
-| `design/BOXING_GAME_PROJECT_2026-08-09.md` | 🟠 | `BINDING_DOMAIN` for Boxer's five one-finger Canvas phases, touch ownership, friendly/no-loss behavior, save/reward ownership and probe contract. Its three retained GLBs are `SUPERSEDED` measured debt, never fallback or implementation resources. The resolved content is integrated at `ad36ee9f`; its local full suite and exact-head remote run `31457593351` at `dacef1405b6a8cb470117e824aebac3a8ca500af` succeed, the latter in 34m19s. Authoritative capture, device, child and owner review remain under `MA-OPERA-009`. |
+| `BALLERINA_PARTY_REBUILD_2026-08-09.md` | 🟢 | `BINDING_DOMAIN`, latest integrated Ballerina authority: three-act full-stage Pearl Mirror / Ribbon Trail / Grand Twirl, monotonic 5/10-second assistance, held pose keys and one-shot curtain call. It supersedes every older Ballerina phase/playback section and old atlas recommendation. Current merge `f3b0de07` passes the local full suite; current exact-head remote, authoritative capture, device, child and owner review remain. |
+| `design/BOXING_GAME_PROJECT_2026-08-09.md` | 🟠 | `BINDING_DOMAIN` for the integrated Boxer's five one-finger Canvas phases, touch ownership, friendly/no-loss behavior, save/reward ownership and probe contract. Its three retained GLBs are `SUPERSEDED` measured debt, never fallback or implementation resources. Current merge `f3b0de07` passes the local full suite; current exact-head remote, authoritative capture, device, child and owner review remain under `MA-OPERA-009`. A newer Boxer V2 document exists only on a separate docs branch and has not superseded this authority. |
+| Painter-purpose worktree | ⚪ | `UNCOMMITTED_CANDIDATE`; purpose-focused Painter edits are not part of `f3b0de07` and grant no current runtime or design authority. |
+| Arborist worktree | ⚪ | `UNCOMMITTED_CANDIDATE`; proposed art, career surface, save/lobby/probe changes are not part of `f3b0de07`; Arborist is not a current fourteenth career or integrated base model. |
 | `OPERA_QUALITY_OVERHAUL_2026-08-09.md` | 🟠 | `SUPPORTING_CURRENT` for career-specific causal verbs, Canvas layout/input corrections and the 13-atlas/208-frame audit. Its 52-phase count, universal descriptions of the later Ballerina/Boxer specialists, and real-kart Racer payoff are historical and `SUPERSEDED`. |
 | `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md` | 🟠 | `SUPPORTING_CURRENT` for the seven-part quality rubric, reuse discipline and non-overridden career/art corrections. Its 52-phase baseline plus Ballerina, Boxer and nested-kart prescriptions are `SUPERSEDED` by the later scoped authorities and Canvas Racer reconciliation. |
 | `assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md` | 🔵 | `PROVENANCE_ONLY` / `SUPPORTING_CURRENT` for minigame-sheet derivation and review notes. It grants no 5/5 or runtime acceptance; owner/context/device review remains separate. |
 | `assets_src/imagegen/opera_roshan_animation_2026-08-09/PROMPTS.md` | 🔵 | `PROVENANCE_ONLY`; accepted-generation IDs, prompt hashes and derivation commands for the 13 atlases. It cannot override the review JSON, runtime hashes, specialist documents or owner acceptance. |
 | `OPERA_STAGE_INTERACTION_2026-08-02.md` | 🟠 | `BINDING_DOMAIN` for paintings-as-Canvas-stages, routes, stations, magnifier and Storybook task cards where the current career table uses them. Ballerina/Boxer specialist surfaces override those defaults; generic roaming combat is not universal. Later current defects are owned by `MA-OPERA-*`. |
 | `OPERA_2D_REBUILD_2026-08-01.md` | 🟠 | `BINDING_DOMAIN` for the shared Canvas career shell and dated owner corrections, not a universal five-beat template. “3D floor bosses unchanged,” rival GLBs and legacy-3D fallback are `SUPERSEDED`; later specialist documents control their careers. |
-| `OPERA_CAREER_COMPETITION_SYSTEM_2026-07-29.md` | 🟠 | `BINDING_DOMAIN` for the 2D lobby, `OperaCareerWorld2D`, and scoped competition behavior. It does not force rivals/meters into cooperative or specialist careers; 3D boss/outfit/presentation prescriptions are `SUPERSEDED`. |
+| `OPERA_CAREER_COMPETITION_SYSTEM_2026-07-29.md` | 🟠 | `BINDING_DOMAIN` for the 2D lobby, `OperaCareerWorld2D`, and scoped competition behavior. It does not force rivals/meters into cooperative or specialist careers; 3D boss/outfit/presentation prescriptions are `SUPERSEDED`. Exact `f3b0de07` still retains an ordinary-headless legacy lobby/racer source split under `MA-OPERA-010`; display/device UI remains on Canvas. |
 | `OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md` | 🟡 | `HISTORICAL_EVIDENCE`; its request-list scope is superseded by the later August 3–9 audits/current `MA-OPERA-*` index. |
 | `CODEX_OPERA_STAGE_COMPLETION_HANDOFF_2026-08-02.md` | 🟠 | `HISTORICAL_EVIDENCE` for source gaps/consumer paths; reproduce against current `MA-OPERA-*` items before generating or wiring art. |
 | `OPERA_NURSERY_JOB_12_2026-08-01.md` | 🟠 | `BINDING_DOMAIN` for Job 13's cooperative Canvas behavior and save migration; its 3D player/SideScroll parent description is migration history. |

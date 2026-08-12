@@ -144,6 +144,12 @@ Canvas surface. The three retained Boxer GLBs
 (`opera_boxer_outfit.glb`, `opera_boxer_dressing.glb`, and
 `opera_rival_boxer.glb`) are measured removal debt under `MA-2D-002`, not an
 approved fallback, staging intermediate, or resource library for the 2D game.
+A separate Boxer V2 branch currently adds documentation only; it has not
+replaced this integrated art/runtime authority. Painter-purpose and Arborist
+worktrees are uncommitted candidates, so their edited/generated art is not part
+of the current accepted runtime roster. Candymaker's current illustrated art
+and phone-safe pour are integrated. Branch or worktree presence alone never
+grants source, runtime, device, or owner acceptance.
 
 `assets_src/imagegen/opera_roshan_animation_2026-08-09/PROMPTS.md` and
 `assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md` record

@@ -1,9 +1,13 @@
 # Mermaid Roshan master-audit change and rollback ledger
 
 - **Ledger ID:** `MA-CHANGELOG-2026-08-10`
-- **Change-ID namespace:** `CHG-001` through `CHG-023`; IDs are permanent and
+- **Change-ID namespace:** `CHG-001` through `CHG-024`; IDs are permanent and
   are never reassigned or renumbered
 - **Audit branch:** `codex/master-audit-20260809`
+- **Current-dev reconciliation snapshot:**
+  `f3b0de078898a8b4faddb2c738c4403180eff928`, with current-dev parent
+  `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and master-audit parent
+  `5f58ef0a9db7aa9593f85131e1b855e51b84aea8`
 - **Integration snapshot:**
   `ad36ee9ffe4eae4d5c4183d0546d775de0218213`
 - **Integration parents:** audit parent
@@ -33,7 +37,7 @@ primary `CHG-*` record. A later group may name it only as a dependency.
 
 ```yaml
 schema: mermaid-roshan/master-audit-change-log/v1
-snapshot: ad36ee9ffe4eae4d5c4183d0546d775de0218213
+snapshot: f3b0de078898a8b4faddb2c738c4403180eff928
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -58,6 +62,7 @@ changes:
   - {id: CHG-021, name: castle-logo-personalization, rollback_mode: guarded_single}
   - {id: CHG-022, name: ad36-integration-reconciliation, rollback_mode: whole_merge_only}
   - {id: CHG-023, name: change-log-and-rollback-process, rollback_mode: documentation_migration}
+  - {id: CHG-024, name: f3b0-current-dev-master-audit-reconciliation, rollback_mode: whole_merge_only}
 ```
 
 ## 2. Safe rollback protocol
@@ -77,9 +82,12 @@ git switch -c codex/rollback-<change-id> <exact-start-from-plan>
 git rev-parse HEAD
 ```
 
-The current catalog pins post-integration CHG-005, CHG-015, and CHG-023
-experiments to `dacef1405b6a8cb470117e824aebac3a8ca500af`, which contains their
-recorded follow-up commits. Other groups remain pinned to integration commit
+The current catalog pins CHG-024 to its exact two-parent reconciliation merge
+`f3b0de078898a8b4faddb2c738c4403180eff928`. Its guarded script starts there
+and recovers the exact current-dev parent tree. The catalog pins post-
+integration CHG-005, CHG-015, and CHG-023 experiments to
+`dacef1405b6a8cb470117e824aebac3a8ca500af`, which contains their recorded
+follow-up commits. Other groups remain pinned to integration commit
 `ad36ee9ffe4eae4d5c4183d0546d775de0218213`; in particular, the three emitted
 CHG-020/021/022 scripts intentionally start there. The planner output is the
 authority if a later append-only maintenance revision changes this mapping.
@@ -118,11 +126,13 @@ python -B tools/plan_audit_rollback.py CHG-013
 python -B tools/plan_audit_rollback.py CHG-021 --emit-script
 ```
 
-Only CHG-020, CHG-021, and the all-or-nothing CHG-022 can emit a script. Every
+Only CHG-020 and CHG-021, plus all-or-nothing CHG-022 and CHG-024, can emit a
+script. Every
 other ID refuses automation even when its human ledger mode says
 `guarded_single`: shared-path, product-policy, or not-yet-committed context
 still requires a reviewed manual inverse. Emitted scripts create a dedicated
-branch at exact `ad36ee9f`, run gates, and stop before commit.
+branch at the exact start named by that record, run gates, and stop before
+commit.
 
 For an allowed exact revert, the required form is:
 
@@ -466,25 +476,30 @@ exclusive and must never be applied on the same rollback branch.
   active branch requires a new owner decision, provenance review, reachability
   proof, and a fresh 2D plan.
 
-### CHG-010 — True-Canvas Opera Racer and exact cue
+### CHG-010 — Display/device Canvas Opera Racer and exact cue
 
 - **Sources:** `82124b3a03426985afa9ff5d03447b8807d37f12`,
   and `e4528b27e2552f669de2b65c37da0243fb924eac`.
 - **Paths:** Opera career world/2D probe and audio cue routing.
-- **Outcome / positive effect:** Racer uses one Canvas implementation on device
-  and headless, with `TUNE` → `TO THE LINE` → `RACE`, circle goal `0.9`, exact
-  `op_racer_lap_two`, no external kart child, and no probe-only medium split.
-- **Possible negative effect / unknown:** circle recognition may be too lenient
-  or too difficult on the actual phone; removal of the 3D kart changes the
-  spectacle and physical feel. The resulting measured debt shrink is owned by
-  CHG-008 and cannot be blindly reversed with the runtime.
+- **Outcome / positive effect:** normal display/device production UI and the
+  forced-2D probe route use the Canvas Racer with `TUNE` → `TO THE LINE` →
+  `RACE`, circle goal `0.9`, exact `op_racer_lap_two`, and no external kart
+  child on that route. The display/device production selection cannot reach
+  the legacy `_build_race` path.
+- **Possible negative effect / unknown:** ordinary unforced headless startup
+  still retains the legacy lobby/Racer route, and `opera_act.gd` can load
+  `scripts/kart.gd` and attach its external kart child. This source/headless
+  split remains open [MA-OPERA-010](MASTER_AUDIT_2026-08-09.md) and
+  `MA-2D-002` debt; forced-2D probe success does not close it. On the Canvas
+  route, circle recognition may also be too lenient or difficult on the phone.
 - **Dependencies and evidence:** CHG-004 cue integrity, CHG-016 current career
   table, CHG-022 conflict resolution; Opera 2D/passive/voice/teardown probes,
-  GAME2D, full CI. Device touch, child comprehension, capture, and owner feel
-  remain open.
+  GAME2D, full CI. Ordinary-headless parity, device touch, child comprehension,
+  capture, and owner feel remain open.
 - **Rollback:** `guarded_chain`, but only for a Canvas-to-Canvas replacement.
-  Refuse any revert that restores the upstream nested 3D kart. Reverse exact
-  cue and Racer commits only after a replacement owns the same save/lifecycle;
+  Refuse any revert that expands the retained legacy/external-kart path into
+  display/device production UI. Reverse exact cue and Canvas-Racer commits only
+  after a replacement owns the same save/lifecycle;
   update the CHG-008 manifest only from a fresh measured scan. Run Opera 2D,
   audio, voice, passive, GAME2D, full CI,
   Mobile capture, and device circle tests.
@@ -784,9 +799,11 @@ exclusive and must never be applied on the same rollback branch.
   `prepare_opera_minigame_art.py` plus its test; central audit/design docs.
 - **Outcome / positive effect:** current upstream Opera, Ballerina, Boxer,
   Candymaker, Detective, Nursery, animation, music, and Castle-logo work is
-  integrated without accepting the upstream device-only 3D kart. Local/remote
-  static and trusted-probe coverage gains current Opera checks. Deterministic
-  text comparison is CRLF/LF-stable while PNG bytes remain exact.
+  integrated without routing display/device production UI to the upstream
+  device-only 3D kart. Local/remote static and trusted-probe coverage gains
+  current Opera checks. Deterministic text comparison is CRLF/LF-stable while
+  PNG bytes remain exact. Ordinary unforced headless retained a legacy
+  lobby/Racer/kart source path, now explicitly open as `MA-OPERA-010`.
 - **Possible negative effect / unknown:** this large merge can contain subtle
   behavioral or art regressions despite green probes; workflow changes are
   high-risk; 33,299 first-parent insertions make causal isolation difficult;
@@ -825,6 +842,71 @@ exclusive and must never be applied on the same rollback branch.
   Prefer superseding the ledger/tool over deleting the audit trail, and never
   reuse a `CHG-*` ID.
 
+### CHG-024 — `f3b0de07` current-dev master-audit reconciliation
+
+- **Source:** merge `f3b0de078898a8b4faddb2c738c4403180eff928` with
+  current-dev parent `ea6185fdb1a687a20a6d118bdc368400e2c30f60` (mainline 1)
+  and master-audit parent
+  `5f58ef0a9db7aa9593f85131e1b855e51b84aea8` (parent 2).
+- **Paths:** all 522 first-parent changed files. The merge imported the master
+  audit documents, 2D audit/toolchain, generated evidence, provenance, and
+  intentional archived-resource removals into current dev. It also reconciled
+  current Opera, Castle, CI, and cross-platform tooling. The planner records
+  the complete top-level path family; the exact first-parent Git delta is the
+  file authority. No source delta exists below `assets/book/`,
+  `assets/audio/voices/`, or `assets/characters/friends/`.
+- **What changed, in plain English:** the old audit did not replace the newer
+  game work. Newer borderless/diegetic Opera rooms, Candymaker, Ballerina, and
+  Boxer revisions were preserved. Normal display/device production UI kept the
+  Canvas three-phase Racer and exact cue, and cannot reach legacy
+  `_build_race`. However, ordinary unforced headless still retains the legacy
+  lobby/Racer route and can load `scripts/kart.gd`; CHG-024 did **not** remove
+  that source/headless split, which remains open
+  [MA-OPERA-010](MASTER_AUDIT_2026-08-09.md). The V2 Castle personalized-logo
+  banners now render as Canvas `Control`/`TextureRect` content instead of
+  `Node3D`/`Sprite3D`. Remote CI now runs the diegetic path probe and both
+  borderless/diegetic static art gates. GAME2D text-sidecar fingerprints treat
+  LF and CRLF checkouts identically while still detecting semantic edits.
+  Nursery and Racer probes now sample their intended live states, so they prove
+  the open-task idle reprompt and live Canvas-finale separation instead of
+  relying on stale or post-close state.
+- **Outcome / positive effect:** one exact merge now carries the central audit,
+  retired-resource evidence, bounded Canvas conversions, current game work,
+  and local/remote coverage forward together. It avoids silently regressing
+  Candy/Ballerina/Boxer/diegetic Opera while preserving the display/device
+  Canvas Racer and removing the V2 Castle banner 3D nodes. It does not certify
+  ordinary-headless medium parity.
+- **Possible negative effect / unknown:** this is a very broad change (522
+  first-parent files, 44,758 insertions, and 15,377 deletions). It deliberately
+  removes retired GLB/source/tool content from active repository paths, so a
+  whole inverse would put that debt back. Green machine checks cannot prove
+  child comprehension, owner art/identity acceptance, phone layout, touch,
+  performance, audio mix, or every subtle behavior. The strict visual audit
+  remains `UNSATISFIED`, and the ordinary-headless legacy Opera kart lifecycle
+  remains open; this entry is reconciliation evidence, not a claim that the
+  game-wide audit or final-2D migration is complete.
+- **Evidence at the merge:** exact Godot
+  `4.7.1.stable.official.a13da4feb` `scripts/ci.sh` exited 0 after 1,437.1
+  seconds with all 64 trusted local probes green. Machine checks also passed
+  74 GAME2D unit tests plus 14 falsification controls, 93 visual-contract
+  tests, all 42 music deliveries, 42 deterministic Opera minigame files, and
+  13 career atlases/208 frames. The local transcript was
+  `tmp/audit_reconcile_full_ci_final.log` (ephemeral evidence, not a governed
+  rollback path). Exact-head remote CI was still pending at this checkpoint.
+- **Rollback:** `whole_merge_only`, and only for a confirmed integration-wide
+  regression. On a clean, dedicated branch created at exact `f3b0de07`, use
+  `git revert --no-commit -m 1
+  f3b0de078898a8b4faddb2c738c4403180eff928`. This removes the **entire** audit
+  reconciliation, including its useful Canvas/CI/tooling work, and reverses
+  intentional archive removals. It cannot be combined with an individual
+  CHG-001–023 inverse or mined for selected paths. Treat any restored retired
+  resource as unapproved diagnostic content, not production art. The planner
+  verifies the exact start, exact two parents, mainline 1, exact selected-parent
+  tree, and absence of protected paths before and after the inverse. Stop on
+  any mismatch or conflict, rerun every focused and exact-4.7.1 full gate, then
+  require remote exact-head CI and applicable external acceptance before any
+  rollback commit can move forward.
+
 ## 5. Per-group gate matrix
 
 | Change IDs | Minimum focused gates before full CI | External gates that remain material |
@@ -839,6 +921,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-020 | deterministic music check, audio, voice, picture games, Opera | two-wrap/ducking/off/mono/M11 listening |
 | CHG-011, 023 | UTF-8, unique IDs, links, ledger coverage, table/fence and forbidden-claim checks | owner authority confirmation where changed |
 | CHG-022 | every applicable gate above and exact `scripts/ci.sh` | remote exact-head plus all applicable external gates |
+| CHG-024 | exact parent/path guards, GAME2D/parity/generated-art checks, every applicable focused gate, and exact `scripts/ci.sh` | remote exact-head plus all applicable capture, M11, child, audio, and owner gates |
 
 ## 6. Required rollback record
 
@@ -850,7 +933,7 @@ rollback_attempt:
   branch: codex/rollback-chg-000
   start_commit: <40-hex>
   source_commits: [<40-hex>]
-  method: guarded_single | guarded_chain | guarded_mixed | archive_recovery_only
+  method: guarded_single | guarded_chain | guarded_mixed | archive_recovery_only | whole_merge_only
   reason: <falsifiable regression>
   expected_paths: []
   actual_paths: []
@@ -864,7 +947,7 @@ rollback_attempt:
   rollback_commit: null
 ```
 
-## 7. Full-integration emergency fallback
+## 7. Full-integration emergency fallbacks
 
 The conventional all-or-nothing merge inverse is
 `git revert -m 1 ad36ee9f`. It is **not** a per-change rollback tool. It discards
@@ -887,6 +970,34 @@ inverse, confirm protected paths remain unchanged, run every gate in section 5
 and the complete exact-4.7.1 suite, then commit the recovery. Never push or
 merge it until remote CI and every applicable external gate are green. If only
 one change is objectionable, abort and use its `CHG-*` pathway instead.
+
+### 7.1 Current-dev reconciliation fallback (`CHG-024`)
+
+The newer all-or-nothing inverse is the exact `f3b0de07` merge back to its
+current-dev parent `ea6185fd`. It removes the entire master-audit integration,
+including beneficial current-dev reconciliation, Canvas conversions, CI gates,
+and tool hardening. It also reverses intentional archive removals and can put
+retired resources back into active repository paths. It is therefore an
+integration-emergency mechanism, never a way to undo one career, art asset,
+probe assertion, or older `CHG-*` group.
+
+Start from the merge itself on a clean dedicated branch and keep mainline 1:
+
+```powershell
+git switch -c codex/rollback-chg-024 f3b0de078898a8b4faddb2c738c4403180eff928
+git revert --no-commit -m 1 f3b0de078898a8b4faddb2c738c4403180eff928
+git status --short
+git diff --stat
+git diff --check
+```
+
+Do not mix this branch with CHG-001–023, do not overwrite a protected original,
+and do not treat restored archived content as approved runtime art. Prefer the
+planner's guarded `--emit-script` form because it verifies the exact two-parent
+topology, selected parent tree, and protected-path absence. Stop on any
+conflict or mismatch. Run every applicable focused gate and the complete exact
+Godot 4.7.1 suite; require green remote exact-head CI and every relevant
+external acceptance gate before committing or integrating the recovery.
 
 ## 8. Maintenance rule
 

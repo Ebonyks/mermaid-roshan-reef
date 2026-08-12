@@ -7,14 +7,15 @@
 - **Decision baseline:** owner direction through 2026-08-09
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
-- **Current integration commit:**
-  `ad36ee9f` (parents `7b5d1209063a22002118c364767d537b34b3dc6f`
-  and `245c16137fae82271dabac456d5ab04d843463a8`)
-- **Latest completed exact-head verification:**
+- **Current local merge-integration commit:**
+  `f3b0de078898a8b4faddb2c738c4403180eff928` (parents
+  `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and
+  `5f58ef0a9db7aa9593f85131e1b855e51b84aea8`)
+- **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
-  succeeds in 34m19s
+  succeeds in 34m19s for that older SHA
 - **Last completed full local checkpoint:**
-  `ad36ee9ffe4eae4d5c4183d0546d775de0218213`
+  `f3b0de078898a8b4faddb2c738c4403180eff928`
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
@@ -33,27 +34,25 @@ closure evidence live in `audit/MASTER_AUDIT_2026-08-09.md`.
 
 Commit `9289dd81` reconciled `AGENTS.md`, `CLAUDE.md`, `design/00` through
 `design/05`, and the named Roshan authority surface to the owner's final 2D
-decision. The ledger is still incomplete across the current 307 tracked
+decision. The ledger is still incomplete across the current 315 tracked
 Markdown files, so a direct owner decision and binding operational/security
 rules remain higher authority. Where an older art or design document conflicts
 with a rule here, the dated supersession table in section 15 controls.
 
-At integration commit `ad36ee9f`, this remains an acceptance
-target, not a compliance claim. Historical exact local full CI is green at
-`a3d3bce1`; the current integration has exact Godot 4.7.1 import/editor startup,
-changed-script parser/lint, GAME2D unit/stress/regression, deterministic Opera
-art/animation/music gates, and focused Opera/audio/passive/voice probes green.
-The resolved integration content committed as `ad36ee9f` also completes full
-local `scripts/ci.sh` in 826.4 seconds with all 63 current trusted probes.
-Exact audit/CI head `dacef1405b6a8cb470117e824aebac3a8ca500af`
-completes GitHub run `31457593351` successfully in 34m19s: the pinned Windows
-job verifies 42/42 deterministic music deliveries; Ubuntu passes static gates,
-import, analyzer, all 62 trusted probes, boot, balance and five capture/upload
-pairs. This makes `MA-CI-002` `VERIFIED_FIXED` at V3 exact-head; exhaustive
-one-class-per-probe classification remains `CONFIRMED_OPEN` as `MA-CI-003`.
+At merge `f3b0de07`, this remains an acceptance target, not a compliance claim.
+Exact Godot 4.7.1 local `scripts/ci.sh` exits 0 after 1437.1 seconds with all 64
+current trusted probes. GAME2D unit/stress/regression, deterministic Opera
+art/provenance/animation/music gates, diegetic-hotspot and borderless-art gates,
+and probe parity are green. Historical audit/CI head `dacef140` completes
+GitHub run `31457593351` for that older SHA; it is not exact-head remote
+evidence for this merge. `MA-CI-002` remains fixed as a parity mechanism, while
+exhaustive one-class-per-probe classification remains `CONFIRMED_OPEN` as
+`MA-CI-003`.
 
-The overall game remains `UNSATISFIED`. GAME2D is exact but strict-unsatisfied
-at 509 models, 68 production 3D files, and 77 probe 3D files. Fresh-runtime
+The overall game remains `UNSATISFIED`. GAME2D is exact `NO_REGRESSION` but
+strict-unsatisfied at 509 models/509 active exports, 157 tracked and 352
+active-untracked generated sidecars, 68 production 3D files, 77 probe 3D
+files, one scene, and one configuration. Fresh-runtime
 visual strict is also unsatisfied at 16 failures, 17 reviews, two manual items,
 86 coverage gaps, 32 passes, and 94 not-applicable checks; the workflow's five
 diagnostic captures do not constitute accepted live Canvas evidence. The
@@ -64,12 +63,18 @@ are the approved visual-evidence implementation baseline for `DL-QA-11`.
 The current Opera shipping snapshot is 13 careers, 53 phases, 27 distinct
 modes, zero generic `bop` phases, and 208 reviewed Roshan costume frames. That
 snapshot includes the dedicated three-act Ballerina recital, the five-phase
-two-glove Boxer specialist, the phone-safe Candymaker pour, and one true-Canvas
-Racer implementation. Ballerina and Boxer pass the exact-head remote gate, but
-authoritative capture, device, child and owner acceptance remain open. The
-42-cue deterministic area-music rollout has complete local and pinned-Windows
-remote machine evidence; human listening, mono/voice review, and Lenovo Tab M11
-acceptance remain open. APK and strict-zero 2D gates also remain open.
+two-glove Boxer specialist, the phone-safe integrated Candymaker pour, and a
+true-Canvas Racer on the display/forced-2D path. Display/device UI does not
+reach the legacy kart, but ordinary unforced headless source still retains a
+legacy lobby/racer route that may attach `scripts/kart.gd`; `MA-OPERA-010` and
+`MA-2D-002` keep that source/test-medium split open. Ballerina and Boxer pass
+the current local gate, but current exact-head remote, authoritative capture,
+device, child and owner acceptance remain open. Painter-purpose and Arborist
+worktrees are uncommitted candidates; Boxer V2 is a docs-only branch proposal.
+The 42-cue deterministic area-music rollout has current local machine evidence
+and historical pinned-Windows evidence at `dacef140`; human listening,
+mono/voice review, and Lenovo Tab M11 acceptance remain open. APK and
+strict-zero 2D gates also remain open.
 
 ---
 
@@ -404,6 +409,10 @@ reaction time, or generic combat-layer payout.
 TO THE LINE, and RACE. RACE uses the large painted circle/steering grammar and
 exact `op_racer_lap_two` cue. It MUST NOT launch an external 3D kart, select a
 different device-only implementation, or give probes a simpler Canvas bypass.
+This is the required target. Exact `f3b0de07` display/device UI follows it, but
+ordinary unforced headless source still selects a legacy lobby/racer path that
+can attach `scripts/kart.gd`; `MA-OPERA-010` keeps that binding medium/test-path
+violation open until the source split is removed and directly tested.
 
 `DL-INT-11` — Candymaker SYRUP uses one complete phone-legible mold and one
 generous pitcher grab region. The painted left spout, transformed stream origin,
@@ -731,8 +740,11 @@ These states prevent an old recommendation from silently becoming a new bug.
 | Build new 3D construction before or after approved 2D direction | **DISMISSED_NOT_IN_PROJECT** | Final 2D medium; migration work only removes measured debt |
 | 3D Opera, companion, path, or `Curve3D` presentation as a retained fallback | **SUPERSEDED** | The 3D prescriptions are superseded; any currently reachable companion/path/Opera implementation remains measured migration debt until a tested 2D replacement owns it |
 | Old generic Ballerina PHRASE/POSE/RIBBON/TWIRL route, looped chronological-atlas premise, or earlier leg/feet-like atlas candidate | **SUPERSEDED** | Current authority is Pearl Mirror/Ribbon Trail/Grand Twirl with held pose keys and one-shot curtain call under `DL-INT-08` and `DL-MOT-09`; earlier leg/feet-like candidates remain rejected evidence, and the accepted runtime hash is `c829784d…003995` |
-| Nested or device-only real-3D Opera kart with a Canvas-only headless/probe path | **SUPERSEDED** | Racer is one true-Canvas circle implementation everywhere under `DL-INT-10`; no external kart child or device/headless medium split |
+| Nested or device-only real-3D Opera kart with a different Canvas probe path | **SUPERSEDED as authority; retained source is open debt** | `DL-INT-10` requires one Canvas implementation. Display/device UI is Canvas, but exact `f3b0de07` ordinary unforced headless source can still attach `scripts/kart.gd`; `MA-OPERA-010`/`MA-2D-002` own removal, and forced-2D probes cannot certify it away |
 | Boxer GLBs retained as useful resources for the rebuilt career | **SUPERSEDED** | `opera_boxer_outfit.glb`, `opera_boxer_dressing.glb`, and `opera_rival_boxer.glb` are not required by the Canvas specialist and remain exact archive/removal debt under `DL-MED-03`, `DL-MED-04`, and `DL-MED-08`. `opera_rival_boxer_match.png` remains valid 2D identity/source art despite the source heading; any legacy `Sprite3D` consumer is callsite debt, not a defect in the PNG. |
+| Painter-purpose worktree | **UNCOMMITTED_CANDIDATE** | Purpose-focused Painter edits are not in `f3b0de07`; branch/worktree presence grants no runtime or authority change |
+| Arborist worktree | **UNCOMMITTED_CANDIDATE** | Proposed Arborist art/surface/save/lobby/probe files are not in `f3b0de07`; it is not a current fourteenth career or integrated base model |
+| Boxer V2 branch document | **DOCS_ONLY_CANDIDATE** | Separate commit `ed4851a0` is a proposal, not current integrated mechanics or art authority; current five-phase Boxer remains controlling until explicit review/adoption |
 | `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md`'s 52-phase count and old Ballerina/Boxer/kart sections | **SUPERSEDED in named scopes; remainder supporting** | Preserve non-conflicting prop provenance and repairs; current shipping authority is 13 careers/53 phases/27 modes plus the later specialist records |
 | `OPERA_QUALITY_OVERHAUL_2026-08-09.md`'s 52-phase/19-mode/single-`bop` snapshot and universal chronological-loop claim | **SUPERSEDED in named scopes; remainder supporting** | Preserve its 208-frame audit rationale and non-conflicting fixes; current Opera has no generic `bop`, and Ballerina follows the held-pose exception |
 | Music audit's temporary `race` cue for an Opera nested kart | **SUPERSEDED for current Racer** | Current Canvas Racer remains under its Opera career cue; the other 42-cue composition, delivery, and routing rules remain current |
@@ -834,6 +846,9 @@ Mobile captures at two supported aspects, target-device touch/performance, an
 observed child session, and owner art/identity review. A focused green specialist
 probe moves Ballerina or Boxer only to `FIXED_PENDING_VERIFICATION`; it cannot
 silently close capture, device, child, owner, or retained-3D debt.
+Ordinary unforced headless and display/device lifecycle selection MUST also
+resolve to the same Canvas Opera implementation; a force-2D test setting does
+not close a retained alternate source path.
 
 `DL-QA-13` — Area-music acceptance separates deterministic build evidence from
 listening evidence. All 42 new cues must keep exact source/render/import hashes

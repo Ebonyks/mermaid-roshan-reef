@@ -1,7 +1,8 @@
 # Master design — current work and historical triage
 
 _Original consolidation: 2026-08-02. Re-triaged against
-`audit/MASTER_AUDIT_2026-08-09.md` on 2026-08-09._
+`audit/MASTER_AUDIT_2026-08-09.md` on 2026-08-09; synchronized to merge
+`f3b0de07` on 2026-08-12._
 
 This is a navigation and lifecycle crosswalk, not a bug dump and not a set of
 canonical finding records. The complete current index, evidence limits,
@@ -14,10 +15,11 @@ Lifecycle words use the master-audit taxonomy. `HISTORICAL_EVIDENCE` is a
 document-authority state, not an open finding. Never turn a dated report into a
 current defect without reproducing its premise.
 
-At the synchronized merged working-tree snapshot, GAME2D reports 509
-model/export files, 68 production 3D files and 77 probe 3D files and remains
-**`UNSATISFIED`**. The same inventory has 307 tracked Markdown paths, 192
-GDScript files under `scripts/`, 105 probe scripts and an 8,519-line
+At exact merge `f3b0de07`, GAME2D reports 509 model files/509 active exports,
+157 tracked sidecars, 352 active-untracked generated sidecars, 68 production
+3D files, 77 probe 3D files, one scene, and one configuration and remains
+**`UNSATISFIED`**. The same inventory has 315 tracked Markdown paths, 195
+GDScript files under `scripts/`, 106 probe scripts and an 8,519-line
 `scripts/main.gd`. `NO_REGRESSION` is not completion. The overall master-audit
 cycle is `REPAIRING`.
 
@@ -28,14 +30,14 @@ cycle is `REPAIRING`.
 | Current owner | Lifecycle | Current scope |
 |---|---|---|
 | `MA-2D-002` | `IN_PROGRESS` | Convert every remaining runtime/probe/scene/config/model category to strict-zero true Canvas/Node2D 2D; remaining 3D is shrinking debt, never scaffolding |
-| `MA-DOC-001` | `IN_PROGRESS` | Reconcile current-authority documents with the 2026-08-09 medium decision and exact Godot 4.7.1-stable |
+| `MA-DOC-001` | `VERIFIED_FIXED` | Current authority documents are reconciled to the 2026-08-09 true-2D decision and exact Godot 4.7.1-stable; exhaustive per-document classification remains separately open as `MA-DOC-002` |
 | `MA-DOC-002` | `CONFIRMED_OPEN` | Produce an exhaustive one-row-per-tracked-Markdown authority ledger with precise partial-supersession scope; this file does not pretend that is complete |
 | `MA-DOC-003` | `BLOCKED_EXTERNAL` | Obtain the off-repository Alpha journal or replace it with a fresh equally scoped audit; do not assume its unnamed entries are fixed or open |
-| `MA-DOC-004` | `IN_PROGRESS` | Track, index and gate the comprehensive design language and master audit |
+| `MA-DOC-004` | `VERIFIED_FIXED` | The comprehensive design language and master audit are tracked, indexed and admitted through the narrow audit-source exception; later synchronization drift reopens this finding |
 | `MA-DOC-005` | `CONFIRMED_OPEN` | Create linked full records for material active items before calling them canonical findings |
 | `MA-VIS-002` | `CONFIRMED_OPEN` | Replace Sky Lagoon's one mural layer with genuine Canvas/`Sprite2D` differential layers and prove seams, ownership, overdraw and runtime/device quality |
 | `MA-VIS-003` / `MA-VIS-004` | `REPORTED_UNCONFIRMED` | Replace source-average palette/figure-ground diagnostics with state-local Canvas + HUD evidence before changing approved art |
-| `MA-VIS-005` | `CONFIRMED_OPEN` | Validate occlusion for every relevant 2D card, not one aggregate role |
+| `MA-VIS-005` | `VERIFIED_FIXED` | The visual contract now proves unique target ownership, effective descendant Canvas order and decoded-alpha overlap per relevant card; missing live product evidence remains open as `MA-VIS-006` |
 | `MA-VIS-006` | `CONFIRMED_OPEN` | Resolve all applicable visual review/manual/coverage gaps with commit-pinned evidence |
 | `MA-PLAY-001` | `CONFIRMED_OPEN` | Prove every current child-visible destination from a fresh save without direct/debug entry, including return, re-entry, touch, voice and save behavior |
 | `MA-ACCESS-001` / `MA-ACCESS-002` / `MA-ACCESS-003` | `BLOCKED_EXTERNAL` | Obtain authorized exact objective recordings/diegetic equivalents, the Lamba semantic recording, and Evie's exact Seek tap-tree cue; protected family audio must not be modified |
@@ -45,16 +47,17 @@ cycle is `REPAIRING`.
 | `MA-OPERA-001` | `FIXED_PENDING_VERIFICATION` | Chef behavior/art routing and the resolved merged-worktree local full suite are green; final-SHA two-aspect capture, device and owner review still decide closure |
 | `MA-OPERA-002` / `MA-OPERA-004` | `CONFIRMED_OPEN` | Detective's painted crown is not proved healed, and no complete accepted all-career capture matrix exists |
 | `MA-OPERA-003` / `MA-OPERA-006` | `CONFIRMED_OPEN` | Split and re-audit the remaining fallback/art-fiction/voice subclaims; several subclaims changed, so the older grouped wording cannot be closed or imported wholesale |
-| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas and three-act specialist pass the local full suite and exact-head remote gate; authoritative capture, device, child and owner review remain |
+| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas and three-act specialist pass the current local full suite; current exact-head remote, authoritative capture, device, child and owner review remain |
 | `MA-OPERA-007` | `OWNER_DECISION_REQUIRED` | Decide the above-water Farmer/Doctor setting before treating it as a defect or repair |
-| `MA-OPERA-008` | `VERIFIED_FIXED` | Racer uses one true-Canvas Tune / To the Line / racing-circle path and exact lap-two cue; the rejected device-only 3D kart branch is superseded |
-| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes the local full suite and exact-head remote gate; authoritative capture, device, child and owner review remain |
+| `MA-OPERA-008` | `VERIFIED_FIXED` | The display/forced-2D Canvas Racer's lap-two cue and finale defect are fixed; this bounded closure does not cover the ordinary-headless source split |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes the current local full suite; current exact-head remote, authoritative capture, device, child and owner review remain. Boxer V2 is only a separate docs-branch proposal |
+| `MA-OPERA-010` | `CONFIRMED_OPEN` | Display/device UI stays on Canvas, but ordinary unforced headless still selects a legacy Opera lobby/racer path that may attach `scripts/kart.gd`; remove the source/test-medium split and prove the unforced lifecycle |
 | `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates and the pinned-Windows exact-head job verifies 42/42 deliveries; human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
-| `MA-CI-002` | `VERIFIED_FIXED` | V3 exact-head at `dacef1405b6a8cb470117e824aebac3a8ca500af`, GitHub run `31457593351`, succeeds in 34m19s: 63 local / 62 remote trusted entries differ only by the human-art display probe, and all 62 remote entries pass |
-| `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 105 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
-| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–023 assign 67 owned source commits plus seven topology commits, all 74 reachable audit commits through `dacef140`; the written ledger and read-only planner agree exactly, only three guarded diagnostics emit scripts, and 15 unit plus independent adversarial checks are green |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64 local / 63 remote trusted entries with only the human-art display probe local; historical `dacef140` run passed its then-current 62 remote entries, while current exact-head remote execution remains open under `MA-RELEASE-001` |
+| `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 106 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
+| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–024 cover 68 unique catalog-owned commit references; the written ledger and read-only planner agree exactly, only CHG-020/021/022/024 emit guarded scripts, and 18 unit plus independent adversarial checks are green |
 | `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
-| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Resolved integration content at `ad36ee9f` completes exact Godot 4.7.1 local `scripts/ci.sh` in 826.4 seconds; exact audit/CI head `dacef140` completes remote run `31457593351` in 34m19s with Windows music 42/42 and Ubuntu static/import/analyzer/62 trusted probes/boot/balance/five diagnostic capture-upload pairs green. Matching APK, authoritative visual, listening, device, child, owner and strict-2D evidence remain open |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Current merge `f3b0de07` completes exact Godot 4.7.1 local `scripts/ci.sh` in 1437.1 seconds with 64 trusted probes and static/provenance gates green. Historical `dacef140` remote run does not certify this merge. Exact-head remote, matching APK, authoritative visual, listening, device, child, owner and strict-2D evidence remain open |
 
 Current P2/owner-decision work remains indexed in the master audit: asset
 orphans/NPOT residency, exhaustive probe classification, the standalone
@@ -62,6 +65,10 @@ fire-arena role, combat/device review,
 remaining Opera gaps, audio listening, and structural code debt. Roshan atlas
 repacking is `DEFERRED_WITH_REASON`; universal costume layers are
 `DISMISSED_NOT_A_DEFECT`.
+
+Branch status is not implementation status: current Candymaker is integrated;
+Painter-purpose and Arborist worktrees are uncommitted candidates; Boxer V2 is
+docs-only on a separate branch. None expands the current 13-career table.
 
 `MA-ASSET-005` is also `DISMISSED_NOT_A_DEFECT` as a source-UID finding:
 tracked sponge/starfish GLBs and sidecars validate, and an isolated fresh import
@@ -76,11 +83,12 @@ the cache diagnosis does not approve them for the final medium.
 <a id="ow-1"></a>
 ### OW-1 — authority-file contradiction
 
-`IN_PROGRESS` under `MA-DOC-001`. On 2026-08-02, `CLAUDE.md` described the
+`VERIFIED_FIXED` under `MA-DOC-001`. On 2026-08-02, `CLAUDE.md` described the
 2.5D/Meshy direction differently from `AGENTS.md`, and both quoted stale code
 counts. The authorized 2026-08-09 reconciliation replaces both current
-directions with true 2D. Closure still needs the documentation gate; editing
-the prose alone is not a verified fix.
+directions with true 2D, and the tracked/indexed authority gate now verifies
+that repair. Exhaustive classification of every Markdown file remains the
+separate open `MA-DOC-002` scope.
 
 <a id="ow-2"></a>
 ### OW-2 — missing `world_style` reversibility toggle
@@ -101,9 +109,10 @@ close it.
 <a id="ow-4"></a>
 ### OW-4 — per-object occlusion is not proved
 
-`CONFIRMED_OPEN` as `MA-VIS-005`, with its old depth-buffer prescription
-`SUPERSEDED`. The current requirement is explicit 2D `z_index`/Canvas ordering
-for every relevant card while Roshan remains findable.
+`VERIFIED_FIXED` as `MA-VIS-005`, with its old depth-buffer prescription
+`SUPERSEDED`. The visual contract now validates unique target ownership,
+effective descendant Canvas order and decoded-alpha overlap for each relevant
+card. Missing live product evidence remains separately open as `MA-VIS-006`.
 
 <a id="ow-5"></a>
 ### OW-5 — source-average palette/figure-ground report
@@ -167,8 +176,8 @@ parallax roles and remaining spatial staging belongs to `MA-2D-002`.
 ### OW-12 — old probe-count gap
 
 `SUPERSEDED` by the split `MA-CI-002` / `MA-CI-003` lifecycle. The old “96
-total / 45 outside” count is stale. The merged tree counts 105 probe scripts,
-with 63 local and 62 remote trusted entries; the sole intended loop difference
+total / 45 outside” count is stale. The merged tree counts 106 probe scripts,
+with 64 local and 63 remote trusted entries; the sole intended loop difference
 is display-only `probe_human_art_audit`. Blocking-loop parity is fixed locally
 and `VERIFIED_FIXED` remotely under `MA-CI-002`: exact head
 `dacef1405b6a8cb470117e824aebac3a8ca500af` completes GitHub run

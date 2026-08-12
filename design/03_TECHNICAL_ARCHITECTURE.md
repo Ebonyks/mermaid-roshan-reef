@@ -17,8 +17,10 @@ Final runtime medium (owner 2026-08-09): true Canvas/Node2D 2D game-wide.
 `Vector3`/`Transform3D` world logic are exact shrinking migration debt, never
 accepted architecture for new or converted work. The synchronized merged
 working-tree snapshot is **`UNSATISFIED`** at 509 model/export files, 68
-production 3D files and 77 probe 3D files; `tools/audit_game_2d.py --strict`
-must reach zero in every category.
+production 3D files and 77 probe 3D files. The complete exact inventory is 509
+model files/509 active exports, 157 tracked sidecars, 352 active-untracked
+generated sidecars, one 3D scene, and one 3D configuration;
+`tools/audit_game_2d.py --strict` must reach zero in every category.
 
 ---
 
@@ -63,9 +65,12 @@ The current Opera inventory is 13 careers, 53 phases and 27 unique shipping
 modes under `OperaCareerWorld2D`. Ballerina routes to
 `opera_ballet_surface.gd`, Boxer to `opera_boxing_surface.gd`, and Racer stays
 inside the Canvas gesture surface for Tune, To the Line and its racing-circle
-finale. The upstream device-only real-kart branch is explicitly rejected and
-superseded: no device/headless fork, external `kart` child, `Node3D` kart, or
-3D fallback is part of the current Opera architecture.
+finale on the display/forced-2D path. Display/device UI does not reach the
+legacy kart, but exact `f3b0de07` source still has a path split: ordinary
+unforced headless startup selects a legacy Opera lobby, and `opera_act.gd` can
+load `scripts/kart.gd` and attach an external kart child. Final authority
+rejects that source/test-medium split. `MA-OPERA-010` and `MA-2D-002` keep it
+open; `OPERA_FORCE_2D_LOBBY` probe coverage cannot certify the unforced path.
 
 ### Refactor rules (binding)
 
@@ -167,9 +172,9 @@ hierarchy. Human two-wrap listening, voice intelligibility, mono fold-down and
 Lenovo Tab M11 start/loop/mix review remain open under `MA-AUDIO-001`.
 
 The Music Audit's dated reference to a nested real kart during Opera Racer is
-superseded by the reconciled Canvas Racer. `opera_racer` remains the act cue
-through that Canvas finale; restoring a device-only `race`/kart branch is not
-an audio or gameplay fallback.
+superseded as final direction. `opera_racer` remains the act cue through the
+Canvas finale. The retained ordinary-headless kart source is implementation
+debt under `MA-OPERA-010`, not an audio or gameplay fallback.
 
 ---
 
@@ -217,14 +222,14 @@ under `MA-CODE-002`.
 
 ## 5. Testing — the probe culture
 
-At the synchronized merged working-tree snapshot, **192 GDScript files exist
-under `scripts/`, including 105 `scripts/probe_*.gd` files; 63 names run in the
-local trusted loop and 62 in the remote headless loop.** The intended and only
+At exact merge `f3b0de07`, **195 GDScript files exist under `scripts/`,
+including 106 `scripts/probe_*.gd` files; 64 names run in the
+local trusted loop and 63 in the remote headless loop.** The intended and only
 loop difference is the display-only `probe_human_art_audit`. Blocking-loop
 parity is `VERIFIED_FIXED` at V3 exact-head under `MA-CI-002`: audit/CI head
 `dacef1405b6a8cb470117e824aebac3a8ca500af` completed GitHub run
 `31457593351` successfully in 34m19s with all 62 remote trusted probes green.
-Exhaustive classification of all 105 probe scripts remains `CONFIRMED_OPEN`
+Exhaustive classification of all 106 probe scripts remains `CONFIRMED_OPEN`
 separately under `MA-CI-003`.
 `probe_audit.gd` is the source of truth (full-game bot);
 `probe_passive.gd` is the zero-input negative test — *nothing may be won by
@@ -247,17 +252,14 @@ strict zero debt can claim medium satisfaction.
 
 The earlier exact full-suite checkpoint `344d8d5c` remains historical evidence:
 exit 0 with 61 trusted local probes and GAME2D `NO_REGRESSION` at 513 models /
-70 production files. The resolved merged 63-probe, 509/68/77 working tree now
-also passes the complete local `scripts/ci.sh` under exact Godot 4.7.1-stable
-(exit 0 in 826.4 seconds). That resolved content is now integration merge
-`ad36ee9f`. Exact audit/CI head
-`dacef1405b6a8cb470117e824aebac3a8ca500af` completes GitHub run
-`31457593351` successfully in 34m19s: Windows verifies all 42 music deliveries;
-Ubuntu passes static gates, import, analyzer, all 62 trusted probes, boot,
-balance and five capture/upload pairs. This closes Ballerina's and Boxer's
-remote exact-head gate, but not their authoritative capture, device, child or
-owner gates. APK, broader visual, human-listening and strict-zero 2D evidence
-also remain open; neither checkpoint is true-2D satisfaction.
+70 production files. Current merge `f3b0de07` (parents `ea6185fd` and
+`5f58ef0a`) passes the complete local `scripts/ci.sh` under exact Godot
+4.7.1-stable with exit 0 after 1437.1 seconds and all 64 trusted probes.
+The current GAME2D contract has 74 unit tests plus 14 falsification controls.
+Historical audit/CI head `dacef140` completed GitHub run `31457593351` for that
+older SHA; it is not an exact-head remote pass for this merge. Current remote,
+APK, authoritative capture, ordinary-headless Opera lifecycle, device, child,
+owner, listening and strict-zero 2D evidence remain open.
 
 Two subtleties worth preserving:
 
@@ -372,12 +374,13 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 | `MA-2D-002` | `IN_PROGRESS` | GAME2D: 509 model/export files, 157 tracked model sidecars, 352 active untracked model sidecars, 68 production and 77 probe 3D files, one 3D scene and one 3D configuration; strict remains unsatisfied |
 | `MA-CODE-001` | `CONFIRMED_OPEN` | `main.gd` is 8,519 lines against the extraction-only <2,500 target |
 | `MA-CODE-002` | `CONFIRMED_OPEN` | String state, duplicated input, save frequency, material churn and remaining 3D glue are structural risks; repair individually with surrounding tests |
-| `MA-CI-002` | `VERIFIED_FIXED` | V3 exact-head at `dacef1405b6a8cb470117e824aebac3a8ca500af`, GitHub run `31457593351`: 63/62 local/remote trusted loops, with only `probe_human_art_audit` intentionally local; all 62 remote entries pass |
-| `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 105 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local; historical run `31457593351` at `dacef140` passed the then-current 62 remote entries, while current exact-head remote execution remains open under `MA-RELEASE-001` |
+| `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 106 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-DOLLS-001` | `VERIFIED_FIXED` | Faron's catcher is one bounded Canvas activity with real one-finger input, passive/save/medal/replay and weakref teardown evidence |
 | `MA-SEEK-001` | `VERIFIED_FIXED` | Seek is a fourteen-node animated Canvas meadow; its former vinyl/preview presentation and four meadow GLBs are retired from that runtime role |
-| `MA-OPERA-008` | `VERIFIED_FIXED` | Racer uses the exact lap-two cue and one Canvas racing-circle lifecycle on headless and device code paths; no external kart child or 3D fallback |
-| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated one-finger Canvas Boxer surface and five-phase no-loss lifecycle pass the exact-head remote gate; authoritative capture, target-device, child and owner review remain |
+| `MA-OPERA-008` | `VERIFIED_FIXED` | Exact lap-two cue and Canvas racing-circle defect are fixed on the display/forced-2D path; this bounded closure does not cover the retained ordinary-headless source split |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated one-finger Canvas Boxer surface and five-phase no-loss lifecycle pass current local gates; authoritative capture, current exact-head remote, target-device, child and owner review remain |
+| `MA-OPERA-010` | `CONFIRMED_OPEN` | Ordinary unforced headless still selects a legacy Opera lobby/racer route that may attach `scripts/kart.gd`; display/device UI does not reach it, but the source/test-medium split violates the binding architecture |
 | `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates and the pinned-Windows exact-head job verifies 42/42 deliveries; human listening, voice/mono mix and target-device review remain |
 | `MA-ASSET-001` | `CONFIRMED_OPEN` | Current orphan reports: Castle 2.1 MB (9/15 PNGs), Galaxy 11.7 MB (32/32), Opera 166.5 MB (453/548), Lagoon 41.9 MB (48/90); each requires reachability/provenance proof before deletion |
 | `MA-ASSET-004` | `CONFIRMED_OPEN` | Lagoon has 10/41 NPOT textures and about 11.6 MB uncompressed simultaneous residency cost |

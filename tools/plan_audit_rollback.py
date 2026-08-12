@@ -21,7 +21,15 @@ AUDIT_INTEGRATION_COMMIT = "ad36ee9ffe4eae4d5c4183d0546d775de0218213"
 AUDIT_INTEGRATION_PARENT = "7b5d1209063a22002118c364767d537b34b3dc6f"
 AUDIT_UPSTREAM_PARENT = "245c16137fae82271dabac456d5ab04d843463a8"
 AUDIT_CATALOG_COMMIT = "dacef1405b6a8cb470117e824aebac3a8ca500af"
+AUDIT_RECONCILIATION_COMMIT = "f3b0de078898a8b4faddb2c738c4403180eff928"
+AUDIT_RECONCILIATION_PARENT = "ea6185fdb1a687a20a6d118bdc368400e2c30f60"
+AUDIT_RECONCILIATION_AUDIT_PARENT = "5f58ef0a9db7aa9593f85131e1b855e51b84aea8"
 GODOT_REQUIREMENT = "exact Godot 4.7.1-stable (not 4.4 or a development build)"
+PROTECTED_PATHS = (
+	"assets/book/",
+	"assets/audio/voices/",
+	"assets/characters/friends/",
+)
 
 MANUAL = "MANUAL_RECONSTRUCTION_REQUIRED"
 REVIEWABLE = "REVIEWABLE_COMMIT_INVERSE"
@@ -46,6 +54,7 @@ class ChangeGroup:
 	all_or_nothing: bool = False
 	revert_target: str = ""
 	revert_mainline: int | None = None
+	merge_parents: tuple[str, ...] = ()
 
 	@property
 	def branch_name(self) -> str:
@@ -70,6 +79,7 @@ def _group(
 	all_or_nothing: bool = False,
 	revert_target: str = "",
 	revert_mainline: int | None = None,
+	merge_parents: Sequence[str] = (),
 ) -> ChangeGroup:
 	return ChangeGroup(
 		change_id=change_id,
@@ -88,12 +98,14 @@ def _group(
 		all_or_nothing=all_or_nothing,
 		revert_target=revert_target,
 		revert_mainline=revert_mainline,
+		merge_parents=tuple(merge_parents),
 	)
 
 
-# Stable catalog shared with the written change log.  Commit ownership is
-# intentionally unique: a commit belongs to one partial group only.  CHG-022 is
-# the umbrella merge inverse and owns only the merge commit itself.
+# Stable catalog shared with the written change log. Commit ownership is
+# intentionally unique: a commit belongs to one partial group only. CHG-022 and
+# CHG-024 are separate historical umbrella merge inverses and each owns only its
+# exact merge commit.
 CATALOG: tuple[ChangeGroup, ...] = (
 	_group(
 		"CHG-001",
@@ -339,8 +351,8 @@ CATALOG: tuple[ChangeGroup, ...] = (
 	),
 	_group(
 		"CHG-010",
-		"Canvas Racer and exact cue",
-		"Kept Racer as one true-Canvas implementation, removed the external kart lifecycle, and spoke the exact circle cue.",
+		"Display/device Canvas Racer and exact cue",
+		"Made normal display/device production UI and the forced-2D probe route use the Canvas Racer with the exact circle cue; ordinary unforced headless still retains the legacy lobby/Racer path and may load scripts/kart.gd.",
 		"0b75c60cdd16d670bc8366f7d3aeaaf426f682e9",
 		(
 			"82124b3a03426985afa9ff5d03447b8807d37f12",
@@ -357,7 +369,7 @@ CATALOG: tuple[ChangeGroup, ...] = (
 			"\"$GODOT\" --headless -s scripts/probe_voice.gd",
 			"python tools/audit_game_2d.py --regression",
 		),
-		manual_reason="The current file contains manual ad36 conflict resolution that rejected a later device-only 3D kart. Reverting old commits cannot safely reconstruct the current mixed file.",
+		manual_reason="The current file contains manual reconciliation that protects the display/device Canvas route but does not remove the ordinary-headless legacy lobby/kart source path tracked by MA-OPERA-010. Reverting old commits cannot safely reconstruct the current mixed file or expand that debt into production UI.",
 	),
 	_group(
 		"CHG-011",
@@ -649,7 +661,7 @@ CATALOG: tuple[ChangeGroup, ...] = (
 	_group(
 		"CHG-022",
 		"ad36 integration reconciliation and full recovery",
-		"Merged current Opera/art/music work while preserving the Canvas Racer, reconciled CI/workflow parity and CRLF checks, and synchronized the central audit. Recovery is the entire merge delta or nothing.",
+		"Merged current Opera/art/music work while preserving the display/device Canvas Racer, reconciled CI/workflow parity and CRLF checks, and synchronized the central audit; ordinary unforced headless still retained a legacy lobby/kart path. Recovery is the entire merge delta or nothing.",
 		AUDIT_INTEGRATION_PARENT,
 		(AUDIT_INTEGRATION_COMMIT,),
 		(
@@ -674,6 +686,7 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		all_or_nothing=True,
 		revert_target=AUDIT_INTEGRATION_COMMIT,
 		revert_mainline=1,
+		merge_parents=(AUDIT_INTEGRATION_PARENT, AUDIT_UPSTREAM_PARENT),
 	),
 	_group(
 		"CHG-023",
@@ -700,6 +713,52 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		),
 		rollback_start=AUDIT_CATALOG_COMMIT,
 		manual_reason="The introduction anchor is known, but the ledger and planner are append-only operational controls. Reverse 57bc only on a dedicated branch after reviewing later CHG-023 maintenance and preserving any still-required rollback evidence.",
+	),
+	_group(
+		"CHG-024",
+		"f3b0 current-dev master-audit reconciliation and full recovery",
+		"Imported the master audit, toolchain, intentional archive removals, and bounded Canvas conversions onto current dev while preserving newer diegetic Opera, Candy, Ballerina, and Boxer work; preserved the display/device Canvas Racer without removing the ordinary unforced headless legacy kart split, moved V2 Castle logo banners to Canvas, added remote diegetic parity gates, canonicalized CRLF text fingerprints, and corrected truthful Nursery/Racer probe sampling.",
+		AUDIT_RECONCILIATION_PARENT,
+		(AUDIT_RECONCILIATION_COMMIT,),
+		(
+			".github/",
+			".gitignore",
+			"AGENTS.md",
+			"art_library/",
+			"ASSET_LICENSES.md",
+			"assets/",
+			"assets_src/",
+			"audit/",
+			"backups/",
+			"CLAUDE.md",
+			"CODEX_ROSHAN_SPRITE_REGENERATION_2026-08-02.md",
+			"design/",
+			"gen2/",
+			"ROSHAN_SPRITE_CUTOFF_AUDIT_2026-08-02.md",
+			"scripts/",
+			"STUFFIE_COMPANIONS.md",
+			"tools/",
+			"VISUAL_AUDIT_TOOL.md",
+		),
+		tuple(f"CHG-{number:03d}" for number in range(1, 24)),
+		(
+			f"git diff --cached --exit-code {AUDIT_RECONCILIATION_PARENT} --",
+			"python -B tools/prepare_opera_minigame_art.py --check-only",
+			"GODOT=\"$GODOT\" scripts/ci.sh",
+		),
+		rollback_start=AUDIT_RECONCILIATION_COMMIT,
+		warnings=(
+			"This all-or-nothing inverse removes the entire f3b0 reconciliation; it is not a per-change rollback.",
+			"It reverses intentional archive removals and can restore retired 3D or source resources to active repository paths; restored payloads are not approved production content.",
+			"Never combine CHG-024 with any CHG-001 through CHG-023 inverse on the same branch.",
+			"The source delta must contain no assets/book/, assets/audio/voices/, or assets/characters/friends/ paths; stop before mutation if the protected-path guard fails.",
+			"Run the exact Godot 4.7.1 full gate suite and remote exact-head CI before considering the rollback.",
+		),
+		safety=MERGE_ALL,
+		all_or_nothing=True,
+		revert_target=AUDIT_RECONCILIATION_COMMIT,
+		revert_mainline=1,
+		merge_parents=(AUDIT_RECONCILIATION_PARENT, AUDIT_RECONCILIATION_AUDIT_PARENT),
 	),
 )
 
@@ -775,6 +834,22 @@ def validate_catalog(groups: Sequence[ChangeGroup] = CATALOG) -> None:
 				raise CatalogError(f"invalid merge mainline for {group.change_id}")
 		elif group.revert_mainline is not None:
 			raise CatalogError(f"mainline without revert target in {group.change_id}")
+		if group.safety == MERGE_ALL:
+			if len(group.merge_parents) != 2:
+				raise CatalogError(f"whole-merge group {group.change_id} must record exactly two parents")
+			for parent in group.merge_parents:
+				if not _COMMIT_RE.fullmatch(parent):
+					raise CatalogError(f"invalid merge parent in {group.change_id}")
+			if group.rollback_start != group.revert_target:
+				raise CatalogError(f"whole-merge group {group.change_id} must start at its revert target")
+			assert group.revert_mainline is not None
+			if group.baseline_commit != group.merge_parents[group.revert_mainline - 1]:
+				raise CatalogError(f"whole-merge baseline/mainline mismatch for {group.change_id}")
+			exact_tree_gate = f"git diff --cached --exit-code {group.baseline_commit} --"
+			if exact_tree_gate not in group.gates:
+				raise CatalogError(f"whole-merge group {group.change_id} lacks exact parent-tree gate")
+		elif group.merge_parents:
+			raise CatalogError(f"non-whole-merge group {group.change_id} records merge parents")
 
 	for group in groups:
 		for dependency in group.dependencies:
@@ -810,8 +885,16 @@ def render_plan(group: ChangeGroup) -> str:
 		"Exact baseline requirements:",
 		f"  - Audit branch began at {AUDIT_BASELINE_COMMIT}.",
 		f"  - This group's comparison baseline is {group.baseline_commit}.",
-		f"  - ad36 parent 1 is {AUDIT_INTEGRATION_PARENT}; parent 2 is {AUDIT_UPSTREAM_PARENT}.",
+		f"  - Historical ad36 parent 1 is {AUDIT_INTEGRATION_PARENT}; parent 2 is {AUDIT_UPSTREAM_PARENT}.",
 		"  - The inverse must preserve protected originals and all save keys.",
+	]
+	if group.merge_parents:
+		lines.extend((
+			f"  - Exact merge source is {group.revert_target}.",
+			f"  - Parent 1 is {group.merge_parents[0]}; parent 2 is {group.merge_parents[1]}.",
+			f"  - Mainline {group.revert_mainline} selects exact recovery tree {group.baseline_commit}.",
+		))
+	lines.extend((
 		"",
 		"Exact current/start requirements:",
 		f"  - Use exactly {group.rollback_start} as the rollback branch start.",
@@ -820,7 +903,7 @@ def render_plan(group: ChangeGroup) -> str:
 		f"  - The new branch name is {group.branch_name}; it must not already exist.",
 		"",
 		"Owned commits (recorded oldest to newest):",
-	]
+	))
 	if group.pending_commit:
 		lines.extend(_bullets((), "PENDING: record the final CHG-023 commit before planning an inverse"))
 	else:
@@ -847,9 +930,10 @@ def render_plan(group: ChangeGroup) -> str:
 	elif group.safety == MERGE_ALL:
 		lines.extend((
 			f"  1. The emitted script creates {group.branch_name} at {group.rollback_start}.",
-			f"  2. It stages only `git revert --no-commit -m 1 {AUDIT_INTEGRATION_COMMIT}`.",
-			f"  3. It requires the staged result to equal parent-1 baseline {AUDIT_INTEGRATION_PARENT} exactly.",
-			"  4. It runs the full gate and stops with changes staged for human review; it does not commit.",
+			f"  2. It verifies the exact two-parent topology, then stages only `git revert --no-commit -m {group.revert_mainline} {group.revert_target}`.",
+			f"  3. It requires the staged result to equal selected-parent baseline {group.baseline_commit} exactly.",
+			"  4. It refuses a source delta or staged inverse that touches a protected path.",
+			"  5. It runs the complete listed gates and stops with changes staged for human review; it does not commit.",
 			"  This is explicit all-or-nothing recovery. Do not copy selected paths from the merge inverse.",
 		))
 	else:
@@ -882,19 +966,48 @@ def render_script(group: ChangeGroup) -> str:
 		"  exit 1",
 		"fi",
 		"git cat-file -e \"${CURRENT}^{commit}\"",
+	]
+	if group.safety == MERGE_ALL:
+		protected_paths = " ".join(PROTECTED_PATHS)
+		lines.extend((
+			f"SOURCE='{group.revert_target}'",
+			f"BASELINE='{group.baseline_commit}'",
+			f"EXPECTED_PARENTS='{group.merge_parents[0]} {group.merge_parents[1]}'",
+			"git cat-file -e \"${SOURCE}^{commit}\"",
+			"if [ \"$(git show -s --format=%P \"${SOURCE}\")\" != \"${EXPECTED_PARENTS}\" ]; then",
+			"  echo 'STOP: merge topology does not match the catalog.' >&2",
+			"  exit 1",
+			"fi",
+			f"if ! git diff --quiet \"${{BASELINE}}\" \"${{SOURCE}}\" -- {protected_paths}; then",
+			"  echo 'STOP: source merge changes a protected asset path.' >&2",
+			"  exit 1",
+			"fi",
+		))
+	lines.extend((
 		"if git show-ref --verify --quiet \"refs/heads/${BRANCH}\"; then",
 		"  echo \"STOP: branch already exists: ${BRANCH}\" >&2",
 		"  exit 1",
 		"fi",
-		"git switch -c \"${BRANCH}\" \"${CURRENT}\"",
-	]
+	))
 	for warning in group.warnings:
 		lines.append(f"# WARNING: {warning}")
+	if group.warnings:
+		lines.append("echo 'WARNING: review every catalog warning above before accepting this inverse.' >&2")
+	lines.append("git switch -c \"${BRANCH}\" \"${CURRENT}\"")
 	if group.revert_target:
 		lines.append(f"git revert --no-commit -m {group.revert_mainline} {group.revert_target}")
 	else:
 		lines.append(f"git revert --no-commit {commits}")
+	if group.safety == MERGE_ALL:
+		protected_paths = " ".join(PROTECTED_PATHS)
+		lines.extend((
+			f"if [ -n \"$(git diff --cached --name-only -- {protected_paths})\" ]; then",
+			"  echo 'STOP: staged inverse changes a protected asset path.' >&2",
+			"  exit 1",
+			"fi",
+		))
 	lines.append("git diff --check")
+	lines.append("git diff --cached --check")
 	lines.append(": \"${GODOT:?Set GODOT to the exact Godot 4.7.1-stable binary}\"")
 	lines.extend(group.gates)
 	lines.extend((

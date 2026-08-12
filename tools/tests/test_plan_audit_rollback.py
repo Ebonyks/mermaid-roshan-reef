@@ -27,6 +27,9 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_INTEGRATION_COMMIT,
 			planner.AUDIT_INTEGRATION_PARENT,
 			planner.AUDIT_UPSTREAM_PARENT,
+			planner.AUDIT_RECONCILIATION_COMMIT,
+			planner.AUDIT_RECONCILIATION_PARENT,
+			planner.AUDIT_RECONCILIATION_AUDIT_PARENT,
 		}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
@@ -35,11 +38,13 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 				expected_refs = set(group.commits)
 				self.assertTrue(expected_refs.issubset(source_refs))
 				self.assertEqual(source_refs - expected_refs - constant_refs, set())
+		self.assertIn("all 64 trusted local probes green", sections["CHG-024"])
+		self.assertIn("Exact-head remote CI was still pending", sections["CHG-024"])
 	def test_catalog_has_fixed_change_log_ids(self) -> None:
 		planner.validate_catalog()
 		self.assertEqual(
 			[group.change_id for group in planner.CATALOG],
-			[f"CHG-{number:03d}" for number in range(1, 24)],
+			[f"CHG-{number:03d}" for number in range(1, 25)],
 		)
 
 	def test_followup_commit_anchors_are_catalogued(self) -> None:
@@ -154,13 +159,23 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		):
 			self.assertIn(marker, first)
 
+	def test_racer_records_do_not_overclaim_headless_canvas_parity(self) -> None:
+		for change_id in ("CHG-010", "CHG-022", "CHG-024"):
+			with self.subTest(change_id=change_id):
+				summary = planner.select_group(change_id).summary
+				self.assertIn("display/device", summary)
+				self.assertIn("ordinary unforced headless", summary)
+				self.assertIn("legacy", summary)
+		self.assertIn("scripts/kart.gd", planner.select_group("CHG-010").summary)
+		self.assertIn("without removing", planner.select_group("CHG-024").summary)
+
 	def test_manual_group_refuses_command_emission(self) -> None:
 		group = planner.select_group("CHG-009")
 		with self.assertRaisesRegex(planner.UnsafePlanError, "policy-sensitive"):
 			planner.render_script(group)
 
-	def test_only_three_explicit_groups_emit_scripts(self) -> None:
-		emittable = {"CHG-020", "CHG-021", "CHG-022"}
+	def test_only_four_explicit_groups_emit_scripts(self) -> None:
+		emittable = {"CHG-020", "CHG-021", "CHG-022", "CHG-024"}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
 				if group.change_id in emittable:
@@ -210,6 +225,103 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		self.assertEqual(planner.AUDIT_INTEGRATION_COMMIT, "ad36ee9ffe4eae4d5c4183d0546d775de0218213")
 		self.assertEqual(planner.AUDIT_INTEGRATION_PARENT, "7b5d1209063a22002118c364767d537b34b3dc6f")
 		self.assertEqual(planner.AUDIT_UPSTREAM_PARENT, "245c16137fae82271dabac456d5ab04d843463a8")
+
+	def test_current_dev_reconciliation_script_guards_exact_merge_and_scope(self) -> None:
+		group = planner.select_group("CHG-024")
+		self.assertTrue(group.all_or_nothing)
+		self.assertEqual(group.rollback_start, planner.AUDIT_RECONCILIATION_COMMIT)
+		self.assertEqual(group.revert_target, planner.AUDIT_RECONCILIATION_COMMIT)
+		self.assertEqual(group.revert_mainline, 1)
+		self.assertEqual(group.baseline_commit, planner.AUDIT_RECONCILIATION_PARENT)
+		self.assertEqual(
+			group.merge_parents,
+			(
+				planner.AUDIT_RECONCILIATION_PARENT,
+				planner.AUDIT_RECONCILIATION_AUDIT_PARENT,
+			),
+		)
+		self.assertEqual(
+			set(group.paths),
+			{
+				".github/",
+				".gitignore",
+				"AGENTS.md",
+				"art_library/",
+				"ASSET_LICENSES.md",
+				"assets/",
+				"assets_src/",
+				"audit/",
+				"backups/",
+				"CLAUDE.md",
+				"CODEX_ROSHAN_SPRITE_REGENERATION_2026-08-02.md",
+				"design/",
+				"gen2/",
+				"ROSHAN_SPRITE_CUTOFF_AUDIT_2026-08-02.md",
+				"scripts/",
+				"STUFFIE_COMPANIONS.md",
+				"tools/",
+				"VISUAL_AUDIT_TOOL.md",
+			},
+		)
+		self.assertEqual(
+			group.dependencies,
+			tuple(f"CHG-{number:03d}" for number in range(1, 24)),
+		)
+		self.assertEqual(
+			planner.AUDIT_RECONCILIATION_COMMIT,
+			"f3b0de078898a8b4faddb2c738c4403180eff928",
+		)
+		self.assertEqual(
+			planner.AUDIT_RECONCILIATION_PARENT,
+			"ea6185fdb1a687a20a6d118bdc368400e2c30f60",
+		)
+		self.assertEqual(
+			planner.AUDIT_RECONCILIATION_AUDIT_PARENT,
+			"5f58ef0a9db7aa9593f85131e1b855e51b84aea8",
+		)
+
+		script = planner.render_script(group)
+		self.assertIn(f"CURRENT='{planner.AUDIT_RECONCILIATION_COMMIT}'", script)
+		self.assertIn("BRANCH='codex/rollback-chg-024'", script)
+		self.assertIn(
+			f"EXPECTED_PARENTS='{planner.AUDIT_RECONCILIATION_PARENT} {planner.AUDIT_RECONCILIATION_AUDIT_PARENT}'",
+			script,
+		)
+		self.assertIn(
+			f"git revert --no-commit -m 1 {planner.AUDIT_RECONCILIATION_COMMIT}",
+			script,
+		)
+		self.assertIn(
+			f"git diff --cached --exit-code {planner.AUDIT_RECONCILIATION_PARENT} --",
+			script,
+		)
+		for path in planner.PROTECTED_PATHS:
+			with self.subTest(protected_path=path):
+				self.assertIn(path, script)
+		for warning in (
+			"removes the entire f3b0 reconciliation",
+			"intentional archive removals",
+			"Never combine CHG-024 with any CHG-001 through CHG-023",
+		):
+			with self.subTest(warning=warning):
+				self.assertIn(warning, script)
+				self.assertIn(warning, planner.render_plan(group))
+		self.assertNotIn("git commit -m", script)
+		self.assertNotIn("git reset", script)
+		self.assertIn("git diff --cached --check", script)
+
+	def test_whole_merge_validation_rejects_wrong_topology_mainline_start_and_tree_gate(self) -> None:
+		group = planner.select_group("CHG-024")
+		mutations = (
+			(replace(group, merge_parents=group.merge_parents[:1]), "exactly two parents"),
+			(replace(group, revert_mainline=2), "baseline/mainline mismatch"),
+			(replace(group, rollback_start=planner.AUDIT_RECONCILIATION_PARENT), "start at its revert target"),
+			(replace(group, gates=group.gates[1:]), "exact parent-tree gate"),
+		)
+		for bad_group, message in mutations:
+			with self.subTest(message=message):
+				with self.assertRaisesRegex(planner.CatalogError, message):
+					planner.validate_catalog((bad_group,))
 
 	def test_planner_imports_no_git_or_filesystem_mutation_api(self) -> None:
 		tree = ast.parse(inspect.getsource(planner))

@@ -119,8 +119,9 @@ teardown, re-entry, save/load, sibling and full-suite tests. Delete a legacy
 resource only after its replacement or non-reachability proof is green.
 
 At the synchronized merged working-tree snapshot, the exact GAME2D inventory
-remains 509 model/export files, 68 production 3D files and 77 probe 3D files
-and is **`UNSATISFIED`**. The old zone table is preserved in
+remains **`UNSATISFIED`**: 509 model files/509 active exports, 157 tracked and
+352 active-untracked generated model sidecars, 68 production 3D files, 77
+probe 3D files, one scene, and one configuration. The old zone table is preserved in
 `GAME_REDESIGN_2P5D_2026-07-27.md` as history; it is not a current
 implementation queue.
 
@@ -211,10 +212,13 @@ Ballerina, Boxer, or real-kart prescriptions are not current authority.
   Guard, Title Imp, and Belt. It is completable with one finger, has no health,
   damage, fail state, lost combo, or lost progress, and uses its dedicated
   Canvas boxing surface rather than a generic combat engine.
-- **Racer is a three-phase true-Canvas act:** Tune, To the Line, and a child-
-  driven racing-circle finale using the exact `op_racer_lap_two` cue. The
-  rejected device-only 3D kart route is superseded; headless and device builds
-  must run the same Canvas implementation.
+- **Racer's display/forced-2D path is a three-phase true-Canvas act:** Tune, To
+  the Line, and a child-driven racing-circle finale using the exact
+  `op_racer_lap_two` cue. Final authority requires the same Canvas
+  implementation everywhere. Exact `f3b0de07` source still retains an
+  ordinary-headless legacy lobby/racer path that can attach `scripts/kart.gd`;
+  it is open `MA-OPERA-010`/`MA-2D-002` debt, not a valid fallback and not
+  covered away by the forced-2D probes.
 - **Competition is scoped, not assumed.** Where a career retains a rival or
   finale meter, it stays hidden until its declared finale and cannot create a
   loss. Friendly contact is harmless; zero input never earns progress.
@@ -351,7 +355,12 @@ controls; an older work order is never implementation authority by itself.
   item, Meshy/Blender/model migration, 3D Opera bosses/companions/worlds, and
   landed-model retention. These remain dated history, not paused work.
 - **Targeted polish:** legacy slide/kart feel outside the Opera may be
-  considered only as a bounded current-mode defect with evidence. Opera Racer
-  is already a Canvas circle activity; "parity" cannot restore its rejected
-  device-only 3D kart branch. Old work orders never authorize feature
-  expansion or 3D implementation.
+  considered only as a bounded current-mode defect with evidence. Opera
+  Racer's intended path is the Canvas circle activity; the retained ordinary-
+  headless kart source is conversion/lifecycle debt, not parity or approval.
+  Old work orders never authorize feature expansion or 3D implementation.
+
+The current branch-status boundary is equally strict: Candymaker is integrated;
+Painter-purpose and Arborist worktrees remain uncommitted candidates; Boxer V2
+is a docs-only branch proposal. None changes the 13-career/53-phase/27-mode
+shipping table until independently reviewed and integrated.

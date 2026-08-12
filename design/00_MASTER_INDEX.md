@@ -1,12 +1,13 @@
 # Master design documents — index
 
-_Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09._
+_Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
+Runtime/audit merge synchronization: 2026-08-12._
 
 ## Why this folder exists
 
 The project accumulated hundreds of design documents, audits, work orders and
 handoffs. The original consolidation counted 149 Markdown documents; the
-merged 2026-08-09 audit working tree contains **307 tracked Markdown paths**.
+current `f3b0de07` merge tree contains **315 tracked Markdown paths**.
 Both are dated inventory facts, not stable design constants. The documents are
 individually useful and collectively difficult to navigate:
 the same rule is restated in six places with three different dates, several
@@ -81,22 +82,29 @@ Roshan has no accepted GLB, rig, skeleton, or model fallback. Retired 3D
 resources live only on the deprecated-resources archive branch; the active
 project is not allowed to use that branch as a fallback or merge source.
 
-At the synchronized merged working-tree snapshot, the game remains
-**`UNSATISFIED`** at 509 model/export files, 68 production 3D files and 77
-probe 3D files. The same snapshot contains 192 GDScript files under `scripts/`,
-105 `scripts/probe_*.gd` files, and an 8,519-line `scripts/main.gd`. A
-no-regression result is not 2D completion, and these counts must be measured
-again after later integrations. Exact Godot 4.7.1-stable local `scripts/ci.sh`
-is green on the resolved content committed as integration merge `ad36ee9f`
-(826.4 seconds). Exact audit/CI head
-`dacef1405b6a8cb470117e824aebac3a8ca500af` then completed GitHub run
-`31457593351` successfully in 34m19s: the pinned Windows job verified 42/42
-music deliveries, while Ubuntu passed static gates, import, analyzer, all 62
-trusted probes, boot, balance and five capture/upload pairs. `MA-CI-002` is
-therefore `VERIFIED_FIXED` at V3 exact-head; exhaustive probe classification
-remains `CONFIRMED_OPEN` as `MA-CI-003`. The game remains `UNSATISFIED`; APK,
-authoritative visual capture, strict-zero 2D, human listening, device, child
-and owner evidence remain open.
+At merge `f3b0de078898a8b4faddb2c738c4403180eff928` (parents `ea6185fd`
+and `5f58ef0a`), the game remains **`UNSATISFIED`**. GAME2D reports 509 model
+files, all 509 active/export, 157 tracked sidecars, 352 active-untracked
+generated sidecars, 68 production 3D files, 77 probe 3D files, one scene, and
+one configuration: exact `NO_REGRESSION`, not strict completion. The tree has
+195 GDScript files under `scripts/`, 106 `scripts/probe_*.gd` files, and an
+8,519-line `scripts/main.gd`.
+
+Exact Godot 4.7.1-stable local `scripts/ci.sh` exits 0 at `f3b0de07` after
+1437.1 seconds with all 64 trusted probes, 74 GAME2D unit tests plus 14
+falsification controls, and current static/provenance gates green. Visual
+advisory remains `UNSATISFIED`: 16 FAIL, 17 REVIEW_OPEN, two
+MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE. Historical
+remote run `31457593351` at `dacef140` remains evidence for that older SHA; no
+exact-`f3b0de07` remote, APK, device, child, owner, listening, strict-2D, or
+authoritative visual-evidence result is claimed.
+
+Current Opera is 13 careers, 53 phases, and 27 modes with newer diegetic rooms,
+the integrated Candymaker, current Ballerina/Boxer, and the Canvas Racer on the
+display/forced-2D path. Ordinary headless source still retains a legacy lobby
+and external-kart route, open as `MA-OPERA-010`/`MA-2D-002`. Painter purpose
+and Arborist remain uncommitted candidates; Boxer V2 is docs-only on a separate
+branch and does not supersede the integrated Boxer.
 
 ## Maintaining this
 
