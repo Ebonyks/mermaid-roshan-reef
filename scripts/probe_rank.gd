@@ -10,6 +10,106 @@ extends SceneTree
 var main: Node3D
 var player: Node3D
 
+const CELEBRATION_BOUNDS := Rect2(Vector2.ZERO, Vector2(1280.0, 720.0))
+const CELEBRATION_MAX_SUBTREE_NODES := 16
+
+
+func _celebration_layer() -> CanvasLayer:
+	return main.get_node_or_null("MedalCelebrationLayer") as CanvasLayer
+
+
+func _active_celebration_count() -> int:
+	var total := 0
+	for child_value in main.get_children():
+		var child := child_value as Node
+		if child != null and child.name == &"MedalCelebrationLayer":
+			total += 1
+	return total
+
+
+func _direct_child_ids() -> Dictionary:
+	var ids: Dictionary = {}
+	for child_value in main.get_children():
+		var child := child_value as Node
+		if child != null:
+			ids[child.get_instance_id()] = true
+	return ids
+
+
+func _friend_medal_cache_empty() -> bool:
+	for friend: Dictionary in main.friends:
+		if friend.has("medal_lab"):
+			return false
+	return true
+
+
+func _only_celebration_added(
+		baseline: Dictionary, layer: CanvasLayer) -> bool:
+	if layer == null or not is_instance_valid(layer) \
+			or baseline.has(layer.get_instance_id()):
+		return false
+	var current: Dictionary = _direct_child_ids()
+	if current.size() != baseline.size() + 1 \
+			or not current.has(layer.get_instance_id()):
+		return false
+	for instance_id: Variant in baseline:
+		if not current.has(instance_id):
+			return false
+	return true
+
+
+func _subtree_node_count(node: Node) -> int:
+	var total := 1
+	for child_value in node.get_children():
+		var child := child_value as Node
+		if child != null:
+			total += _subtree_node_count(child)
+	return total
+
+
+func _tween_stopped(tween: Tween) -> bool:
+	return tween == null or not tween.is_valid() or not tween.is_running()
+
+
+func _celebration_contract(layer: CanvasLayer, tier: int) -> bool:
+	if layer == null or not is_instance_valid(layer) or not layer.visible \
+			or layer.layer != 23 or int(layer.get_meta("celebration_tier", 0)) != tier:
+		return false
+	var card := layer.get_node_or_null("MedalCelebrationCard") as Panel
+	var glyph := layer.get_node_or_null(
+		"MedalCelebrationCard/MedalCelebrationGlyph") as Label
+	var burst := layer.get_node_or_null("MedalCelebrationBurst") as Control
+	if card == null or glyph == null or burst == null \
+			or card.position != Vector2(490.0, 140.0) \
+			or card.size != Vector2(300.0, 230.0) \
+			or glyph.text != String(MedalSystem.GLYPH[tier]) \
+			or burst.position != Vector2(640.0, 255.0) \
+			or not CELEBRATION_BOUNDS.has_point(burst.position):
+		return false
+	var expected_elements: int = int(MedalSystem.CELEBRATION_ELEMENTS[tier])
+	if int(burst.get_meta("visible_elements", 0)) != expected_elements \
+			or burst.get_child_count() != expected_elements \
+			or _subtree_node_count(layer) > CELEBRATION_MAX_SUBTREE_NODES:
+		return false
+	var style := card.get_theme_stylebox("panel") as StyleBoxFlat
+	var tier_color: Color = MedalSystem.TIER_COLOR[tier]
+	if style == null or not style.border_color.is_equal_approx(
+			tier_color.lerp(StorybookUI.PURPLE_DEEP, 0.62)):
+		return false
+	for element_value in burst.get_children():
+		var element := element_value as Polygon2D
+		if element == null or not element.visible or element.modulate.a <= 0.95 \
+				or element.polygon.size() != 8 \
+				or not CELEBRATION_BOUNDS.has_point(
+					burst.position + element.position):
+			return false
+		var endpoint: Vector2 = element.get_meta(
+			"feedback_endpoint", Vector2.ZERO) as Vector2
+		if not CELEBRATION_BOUNDS.has_point(burst.position + endpoint):
+			return false
+	return true
+
+
 func _init() -> void:
 	seed(20260718)
 	Engine.time_scale = 6.0
@@ -70,17 +170,181 @@ func _init() -> void:
 		print("RANK|evaluate purity: FAIL evaluate() wrote state ", main.medals)
 		bad += 1
 
-	# ---- upgrade-only persistence rule ----
+	# ---- retired friend-badge compatibility + canonical Canvas tally ----
+	var compatibility_ok := false
+	if not main.friends.is_empty():
+		var compatibility_friend := main.friends[0] as Dictionary
+		var compatibility_game := String(
+			compatibility_friend.get("game", "compatibility_fixture"))
+		var medal_state_before: Dictionary = (
+			main.medals as Dictionary).duplicate(true)
+		var direct_before_legacy: Dictionary = _direct_child_ids()
+		var legacy_badge := Node.new()
+		legacy_badge.name = "LegacyFriendMedalFixture"
+		main.add_child(legacy_badge)
+		var legacy_instance_id := legacy_badge.get_instance_id()
+		var legacy_ref: WeakRef = weakref(legacy_badge)
+		compatibility_friend["medal_lab"] = legacy_badge
+		main.medals[compatibility_game] = MedalSystem.GOLD
+		var legacy_attached: bool = legacy_badge.get_parent() == main \
+			and _direct_child_ids().has(legacy_instance_id)
+		ranker.refresh_friend_glyphs()
+		var detached_synchronously: bool = legacy_badge.get_parent() == null \
+			and not compatibility_friend.has("medal_lab") \
+			and _direct_child_ids() == direct_before_legacy
+		var medals_preserved: bool = int(main.medals.get(
+			compatibility_game, 0)) == MedalSystem.GOLD
+		ranker.refresh_friend_glyphs()
+		var repeat_is_idempotent: bool = not compatibility_friend.has(
+			"medal_lab") and _direct_child_ids() == direct_before_legacy
+		await process_frame
+		compatibility_ok = legacy_attached and detached_synchronously \
+			and medals_preserved and repeat_is_idempotent \
+			and legacy_ref.get_ref() == null and _friend_medal_cache_empty()
+		main.medals = medal_state_before
+	if compatibility_ok:
+		print("RANK|legacy friend badge: OK detach + free + idempotent cleanup")
+	else:
+		print("RANK|legacy friend badge: FAIL compatibility cleanup")
+		bad += 1
+
+	var tally_state_before: Dictionary = (
+		main.medals as Dictionary).duplicate(true)
+	main.medals = {
+		"tally_bronze": MedalSystem.BRONZE,
+		"tally_silver": MedalSystem.SILVER,
+		"tally_gold": MedalSystem.GOLD,
+	}
+	var expected_tally := "\n🥇 1  🥈 1  🥉 1"
+	var tally_direct_before: Dictionary = _direct_child_ids()
+	main._update_hud()
+	ranker.refresh_friend_glyphs()
+	var tally_ok: bool = ranker.hud_suffix() == expected_tally \
+		and String(main.hud_stars.text).ends_with(expected_tally) \
+		and _direct_child_ids() == tally_direct_before \
+		and _friend_medal_cache_empty()
+	main.medals = tally_state_before
+	main._update_hud()
+	if tally_ok:
+		print("RANK|Canvas medal tally: OK exact non-reading glyph counts")
+	else:
+		print("RANK|Canvas medal tally: FAIL suffix='", ranker.hud_suffix(), "'")
+		bad += 1
+
+	# ---- upgrade-only persistence + bounded award feedback ----
+	var direct_child_baseline: Dictionary = _direct_child_ids()
 	ranker.award_stats("bells", {"oops": 5})
 	var t1: int = int(main.medals.get("bells", 0))
+	var bronze_layer: CanvasLayer = _celebration_layer()
+	var bronze_layer_ref: WeakRef = weakref(bronze_layer)
+	var bronze_feedback_tween: Tween = bronze_layer.get_meta(
+		"feedback_tween") as Tween if bronze_layer != null else null
+	var bronze_teardown_tween: Tween = bronze_layer.get_meta(
+		"teardown_tween") as Tween if bronze_layer != null else null
+	var bronze_feedback_ok: bool = _active_celebration_count() == 1 \
+		and _celebration_contract(bronze_layer, MedalSystem.BRONZE) \
+		and _only_celebration_added(direct_child_baseline, bronze_layer) \
+		and _friend_medal_cache_empty() \
+		and main.chime != null \
+		and is_equal_approx(float(main.chime.pitch_scale), 1.15)
 	ranker.award_stats("bells", {"oops": 0})
 	var t2: int = int(main.medals.get("bells", 0))
+	var gold_layer: CanvasLayer = _celebration_layer()
+	var gold_layer_ref: WeakRef = weakref(gold_layer)
+	var gold_feedback_tween: Tween = gold_layer.get_meta(
+		"feedback_tween") as Tween if gold_layer != null else null
+	var gold_teardown_tween: Tween = gold_layer.get_meta(
+		"teardown_tween") as Tween if gold_layer != null else null
+	var bronze_replaced: bool = bronze_layer != null and gold_layer != null \
+		and bronze_layer != gold_layer and bronze_layer.get_parent() == null \
+		and not bronze_layer.visible \
+		and _tween_stopped(bronze_feedback_tween) \
+		and _tween_stopped(bronze_teardown_tween)
+	var gold_feedback_ok: bool = _active_celebration_count() == 1 \
+		and _celebration_contract(gold_layer, MedalSystem.GOLD) \
+		and _only_celebration_added(direct_child_baseline, gold_layer) \
+		and _friend_medal_cache_empty() \
+		and main.chime != null \
+		and is_equal_approx(float(main.chime.pitch_scale), 1.45)
 	ranker.award_stats("bells", {"oops": 5})
 	var t3: int = int(main.medals.get("bells", 0))
+	var replay_layer: CanvasLayer = _celebration_layer()
+	var replay_layer_ref: WeakRef = weakref(replay_layer)
+	var replay_instance_id: int = replay_layer.get_instance_id() \
+		if replay_layer != null else -1
+	var replay_feedback_tween: Tween = replay_layer.get_meta(
+		"feedback_tween") as Tween if replay_layer != null else null
+	var replay_teardown_tween: Tween = replay_layer.get_meta(
+		"teardown_tween") as Tween if replay_layer != null else null
+	var gold_replaced: bool = gold_layer != null and replay_layer != null \
+		and gold_layer != replay_layer and gold_layer.get_parent() == null \
+		and not gold_layer.visible \
+		and _tween_stopped(gold_feedback_tween) \
+		and _tween_stopped(gold_teardown_tween)
+	var replay_feedback_ok: bool = _active_celebration_count() == 1 \
+		and _celebration_contract(replay_layer, MedalSystem.BRONZE) \
+		and _only_celebration_added(direct_child_baseline, replay_layer) \
+		and _friend_medal_cache_empty() \
+		and t3 == MedalSystem.GOLD \
+		and main.chime != null \
+		and is_equal_approx(float(main.chime.pitch_scale), 1.15)
 	if t1 == 1 and t2 == 3 and t3 == 3:
 		print("RANK|upgrade-only: OK bronze->gold sticks through a worse replay")
 	else:
 		print("RANK|upgrade-only: FAIL tiers ", [t1, t2, t3], " expected [1, 3, 3]")
+		bad += 1
+	await process_frame
+	await process_frame
+	var rapid_cleanup_ok: bool = bronze_layer_ref.get_ref() == null \
+		and gold_layer_ref.get_ref() == null
+	if bronze_feedback_ok and gold_feedback_ok and replay_feedback_ok \
+			and bronze_replaced and gold_replaced and rapid_cleanup_ok:
+		print("RANK|award feedback: OK bounded Canvas burst + rapid replacement")
+	else:
+		print("RANK|award feedback: FAIL bronze=", bronze_feedback_ok,
+			" gold=", gold_feedback_ok, " replay=", replay_feedback_ok,
+			" replace=", [bronze_replaced, gold_replaced],
+			" old_freed=", rapid_cleanup_ok)
+		bad += 1
+	var teardown_guard := 0
+	while replay_layer_ref.get_ref() != null and teardown_guard < 240:
+		teardown_guard += 1
+		await process_frame
+	var teardown_ok: bool = replay_layer_ref.get_ref() == null \
+		and _active_celebration_count() == 0 \
+		and _tween_stopped(replay_feedback_tween) \
+		and _tween_stopped(replay_teardown_tween)
+	var fresh_child_baseline: Dictionary = _direct_child_ids()
+	ranker.award_stats("bells", {"oops": 5})
+	var fresh_layer: CanvasLayer = _celebration_layer()
+	var fresh_layer_ref: WeakRef = weakref(fresh_layer)
+	var fresh_feedback_tween: Tween = fresh_layer.get_meta(
+		"feedback_tween") as Tween if fresh_layer != null else null
+	var fresh_teardown_tween: Tween = fresh_layer.get_meta(
+		"teardown_tween") as Tween if fresh_layer != null else null
+	var fresh_ok: bool = teardown_ok and fresh_layer != null \
+		and fresh_layer.get_instance_id() != replay_instance_id \
+		and _active_celebration_count() == 1 \
+		and _celebration_contract(fresh_layer, MedalSystem.BRONZE) \
+		and _only_celebration_added(fresh_child_baseline, fresh_layer) \
+		and _friend_medal_cache_empty() \
+		and int(main.medals.get("bells", 0)) == MedalSystem.GOLD \
+		and main.chime != null \
+		and is_equal_approx(float(main.chime.pitch_scale), 1.15)
+	var fresh_guard := 0
+	while fresh_layer_ref.get_ref() != null and fresh_guard < 240:
+		fresh_guard += 1
+		await process_frame
+	var fresh_cleanup_ok: bool = fresh_layer_ref.get_ref() == null \
+		and _active_celebration_count() == 0 \
+		and _tween_stopped(fresh_feedback_tween) \
+		and _tween_stopped(fresh_teardown_tween)
+	if fresh_ok and fresh_cleanup_ok:
+		print("RANK|award feedback lifecycle: OK teardown + clean re-entry")
+	else:
+		print("RANK|award feedback lifecycle: FAIL teardown=", teardown_ok,
+			" fresh=", fresh_ok, " fresh_cleanup=", fresh_cleanup_ok,
+			" guards=", [teardown_guard, fresh_guard])
 		bad += 1
 
 	# ---- integration: win fetch with real verbs, medal must follow ----

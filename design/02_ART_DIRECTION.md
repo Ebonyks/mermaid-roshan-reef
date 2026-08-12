@@ -1,11 +1,13 @@
 # Master design — art direction
 
-_Consolidated 2026-08-02 from ART_STYLE_GUIDE, ART_SCORING_GOVERNANCE_2026-07-18,
+_Consolidated 2026-08-02 and authority-reconciled 2026-08-09 from
+ART_STYLE_GUIDE, ART_SCORING_GOVERNANCE_2026-07-18,
 LIVING_CARD_DESIGN_LANGUAGE_2026-07-29, GAME_REDESIGN_2P5D_2026-07-27,
 CODEX_BACKGROUND_FLATS_WORKORDER_2026-07-27, CEL_SHADING, the 24-document
 ART_*/audit chain, the Sky Lagoon, Castle, Opera, Ember and Northern art
 audits, VISUAL_DESIGN_AUDIT_2026-07-28, and the cinematic protocol pair
-under `docs/`._
+under `docs/`, plus the 2026-08-09 Opera animation, Ballerina and Boxer
+reconciliations._
 
 ---
 
@@ -44,42 +46,44 @@ Condensed DNA:
 ### The readability rule that outranks beauty
 
 **Backgrounds frame; they never compete with the things a finger should find.**
-The play plane stays lower in detail and saturation than characters and tap
-targets. This is measured, not judged: `tools/audit_visual_design.py` compares
-mean opaque-pixel saturation and luminance of background vs foreground. As of
-2026-07-28 the Sky Lagoon shipped **inverted** — background 1.34× the
-foreground saturation, luminance delta 0.010 — which turns both channels the
-child uses to find a target against her. See [04 OW-6](04_OPEN_WORK.md).
+The play band stays calmer than characters and tap targets, and the actionable
+object must survive a phone-size squint test with the HUD present. The old
+source-file mean-saturation/luminance comparison is only a diagnostic: it
+equally weights mutually exclusive frames and decorative files and ignores the
+rendered composite. It cannot by itself authorize recolouring or regeneration.
+`MA-VIS-003`/`MA-VIS-004` require commit-pinned, state-local Canvas + HUD +
+viewport evidence and runtime/device review. Fairy is likely a false positive;
+Lagoon remains an unconfirmed hierarchy risk.
 
 ---
 
-## 2. The medium — Living Cards (binding)
+## 2. The medium — true-2D living cards (binding)
 
-**Owner direction 2026-07-27:** Codex-painted 2D art is the primary art
-channel. It outranks Blender/Meshy 3D in both quality and priority.
+**Owner direction 2026-08-09:** the final game is true Canvas/Node2D 2D
+game-wide. Codex-painted flats and approved illustrated cutouts remain the
+primary art channel, but they are staged through `Node2D`, `CanvasItem`,
+`Sprite2D`, `TextureRect`, `Camera2D`, 2D particles and explicit 2D ordering.
+A flat image on `Sprite3D` is migration debt, not a final living card.
 
-**Structural contract** (`LIVING_CARD_DESIGN_LANGUAGE_2026-07-29.md`):
+The Sprite3D structural prescription in
+`LIVING_CARD_DESIGN_LANGUAGE_2026-07-29.md` is `SUPERSEDED` for runtime
+structure. Its durable art lessons survive: independently owned cards, stable
+pivots, declared motion/intensity, restrained motion budgets, measured touch
+footprints, unique source-pixel ownership, and explicit background/playable/
+foreground roles.
 
-> World art is an unshaded `Sprite3D` card at intentional scene depth. No world
-> character, creature, prop, foreground, midground or background may be a
-> `Sprite2D`, `AnimatedSprite2D`, `TextureRect`, custom `CanvasItem`,
-> `MeshInstance3D`, particle system, model, GLB or procedural mesh. HUD and
-> full-screen interface/story overlays are exempt.
-
-Every animated card records `living_card = true`, its `motion_class` and
-`intensity_class`, source aspect and measured opaque content-height fraction,
-target world height and touch footprint, a deterministic coordinate phase
-`wrapf(pos.x * 0.73 + pos.z * 1.31, 0.0, TAU)`, and a contact-shadow Sprite3D
-when grounded. **The crop is the rig:** grounded art uses a bottom-center root
-and keeps it visually pinned; non-grounded ornaments declare their semantic
-anchor (a chimney mouth, say).
+Every animated card keeps a stable 2D anchor and named ordering/parallax role.
+A grounded card uses a bottom-center pivot and a restrained `Sprite2D`/Canvas
+contact shadow; non-grounded ornaments declare their semantic anchor (a
+chimney mouth, for example). **The crop is the rig** means stable authored
+pixel ownership, never permission to introduce a character skeleton or mesh.
 
 ### Two valid art lanes — and the rule that separates them
 
 1. **Extraction lane.** Preserve the exact approved object pixels: remove them
    from a preserved master copy, heal only inside a declared mask, verify zero
    out-of-mask pixel change, re-slice without scaling, reinsert the original
-   cutout at real depth.
+   cutout at its owned `z_index`/parallax role.
 2. **Ornament lane.** Generate a genuinely new object that does not duplicate a
    painted silhouette — smoke, a glint, a drifting leaf.
 
@@ -90,26 +94,73 @@ match the working master, stop the extraction rather than guess.
 The same rule governs multi-tile backgrounds: do not independently regenerate
 an object across tile boundaries. If a readable object sits ambiguously
 between two panels, remove it from the background, extract that same approved
-artwork as a depth card, heal behind it, and reinsert it **once** at real
-depth. Tiles must join seam-free before separated cards are added.
+artwork as a Canvas card, heal behind it, and reinsert it **once** at its
+intentional 2D layer. Tiles must join seam-free before separated cards are
+added.
 
 ### Motion hierarchy
 
 - **Ambient** establishes weather and depth: restrained far-foliage sway, one
   clear-corridor cloud, thin chimney smoke.
-- **Reactive** acknowledges Roshan only when an approved near-depth card
+- **Reactive** acknowledges Roshan only when an approved foreground/play-band card
   already exists, and never moves collision or touch bounds.
 - **Authored staging** owns the strongest timing: a plane arriving, equipment
   playing, a castle inviting.
 
 Budget per playable screen: **at most one dominant moving landmark plus three
 quiet support loops.** Staggered cards forming one smoke column count as one
-loop. The walk lane and touch targets stay calm. One bounded stage tick owns
+loop. The walk lane and touch targets stay calm. One bounded 2D stage tick owns
 all ambient cards, performs no random calls, allocates no per-frame
 collections, and clears its state on teardown.
 
 Capabilities are conditional, not decoration quotas. Do not add a sway shader,
 reactive foliage, a second cloud, glints or leaves merely to satisfy a list.
+
+---
+
+### Current character-animation authority
+
+The merged Opera delivery contains 13 runtime costume atlases, each a 4×4
+1024×1024 sheet with 256 px cells: **208 reviewed frames** in total. Native,
+alpha-derived, pack and runtime hashes plus identity, costume, tail topology,
+padding and prop-attachment review live in the tracked animation evidence;
+`python tools/audit_opera_roshan_animation.py` is the blocking deterministic
+gate. Passing that gate proves the recorded delivery contract, not owner 5/5
+acceptance or phone-size readability.
+
+`assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png` is the
+current Ballerina atlas (SHA-256
+`c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995`). It
+supersedes every earlier Ballerina sheet or recommendation. Its cells are pose
+keys, not smooth temporal in-betweens: audited adjacent-pose silhouette changes
+of 41.6–47.3% make a looping row unacceptable. Runtime holds the chosen ballet
+pose and plays the curtain call once, then holds its final frame. The binding
+details are in `BALLERINA_PARTY_REBUILD_2026-08-09.md`; older Ballerina sections
+in the Opera quality documents cannot restore the four-pad phrase, generic
+crank or old animation playback.
+
+Boxer similarly ships through its illustrated actor/rival frames and dedicated
+Canvas surface. The three retained Boxer GLBs
+(`opera_boxer_outfit.glb`, `opera_boxer_dressing.glb`, and
+`opera_rival_boxer.glb`) are measured removal debt under `MA-2D-002`, not an
+approved fallback, staging intermediate, or resource library for the 2D game.
+
+`assets_src/imagegen/opera_roshan_animation_2026-08-09/PROMPTS.md` and
+`assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md` record
+generation/derivation provenance. A prompt, review sheet, or source hash never
+overrules runtime-context review, the later specialist documents, device
+evidence, or explicit owner acceptance.
+
+Seek has an equally explicit bounded override. Its current Canvas meadow uses
+frame-animated Roshan, Evie and Lamb-a' actors, four large routed tree targets,
+and fourteen high-grade environment/actor nodes. The vinyl
+`assets/characters/stickers/pearl_friend.png` pair card, `assets/mg/k_bush2.png`
+preview draft and transform-only sticker wobble are **superseded for Seek**;
+they may not be restored as its active characters or environment. Four former
+meadow GLBs were byte-verified on the deprecated-resources branch before
+retirement. The protected Evie/Lamb-a' reference pixels remain untouched, and
+the missing exact Evie “tap the wiggly tree” recording remains separately open
+under `MA-ACCESS-003`.
 
 ---
 
@@ -123,12 +174,12 @@ reactive foliage, a second cloud, glints or leaves merely to satisfy a list.
 | Generated ornaments | normally ≤256 px |
 | Import | Fix Alpha Border + mipmaps on; NPOT uses lossless compression mode |
 | ⚠ Deadlock | NPOT + `compress/mode=2` hangs the headless importer at 0 % CPU |
-| Background resolution | **≥2048×2048 native coverage per playable screen**, measured per screen, not across the panorama. A 3×1 stage therefore needs a ≥6144×2048 master, reconstructed as a 6×2 grid of non-overlapping 1024×1024 cards. A 2048-wide three-screen panorama is reference-only. |
+| Background resolution | **≥2048×2048 native coverage per playable screen**, measured per screen, not across the panorama. A 3×1 stage therefore needs a ≥6144×2048 master, reconstructed as a 6×2 grid of non-overlapping 1024×1024 `Sprite2D` cards. A 2048-wide three-screen panorama is reference-only. |
 | Overdraw | ≤8 cards individually covering >10 % of screen; ≤150 % cumulative transparent coverage |
 | Ambient tick | <1 ms/frame on the Speedy proxy |
-| Lights | No new OmniLights beyond current counts without a Speedy-tier cull path |
+| Lights | Do not add 3D lights; existing OmniLights are measured migration debt to remove while preserving composition and the Speedy-tier budget |
 | Audio | OGG, music ≥64 kbps, loop-tagged |
-| Day/night | Day and night builds share card placement and phase signatures; backdrop and depth cards get coordinated night tint |
+| Day/night | Day and night builds share 2D card placement and phase signatures; backdrop and foreground cards get coordinated night tint |
 | Licensing | Every new asset gets an `ASSET_LICENSES.md` line (source, license, URL, modifications) **in the same commit** |
 
 ---
@@ -192,18 +243,18 @@ reintroduced.
 
 ## 6. Pipeline status — what channel art comes from now
 
-| Channel | Status 2026-08-02 |
+| Channel | Lifecycle / status 2026-08-09 |
 |---|---|
-| **Codex-painted 2D flats / cards** | **PRIMARY** (owner 2026-07-27) |
-| Illustrated cutouts / billboards for characters | **The character medium.** Unshaded, pre-drawn outlines, idle bob, contact shadows, sparkle/bubble overlays. Never re-lit, never redesigned. |
-| gen2 Meshy 3D character migration | **PAUSED** (owner 2026-07-27, supersedes the 2026-07-19 directive in `NPC_3D_WORKORDER_2026-07-19.md`). No new conversions. Landed `.glb` characters stay until their zone migrates. |
-| Deterministic Blender kits (Northern, Ember, dungeon, castle props) | Shipped and retained; not the growth channel |
-| CC0 imports (Tiny Treats, KayKit, Quaternius, Kenney, curated OpenGameArt) | Legacy. Owner directive 2026-07-22: replace with original art, **one item at a time**, old file deleted only once its replacement is built, wired and probe-green. No mass deletion. |
+| **Codex-painted 2D flats / Canvas cards** | **PRIMARY**; reuse approved work before generating a named gap |
+| Illustrated character cutouts | **FINAL MEDIUM.** `Node2D`/`Sprite2D`, unshaded authored contours, restrained 2D idle motion/contact shadow/sparkles; never relit or redesigned to imitate a mesh |
+| Opera costume atlases | **CURRENT 2D DELIVERY.** Thirteen hash-audited 4×4 sheets; Ballerina uses held pose keys and a one-shot curtain call. Earlier sheets remain rejected provenance, never fallback |
+| gen2 Meshy / any 3D character migration | `SUPERSEDED`; removed, not paused. Work orders are history and landed models are removal debt, never fallback |
+| Deterministic Blender/3D kits | `SUPERSEDED` as runtime direction; remaining reachable resources are exact shrinking debt, retired resources live only on the archive branch |
+| CC0 imports (Tiny Treats, KayKit, Quaternius, Kenney, curated OpenGameArt) | Legacy. The broad replacement campaign is `DEFERRED_WITH_REASON`; repair named live defects individually, preserving provenance and deleting an old file only after its replacement/non-reachability proof is green. No speculative mass redesign. |
 | Nano-banana / AI Studio texture generation | Historical; superseded by the flats pipeline |
 
-> The `CLAUDE.md` and `AGENTS.md` art-direction paragraphs disagree on this
-> table — `AGENTS.md` still describes the Meshy migration as current. See
-> [04 OW-1](04_OPEN_WORK.md).
+The authority files were reconciled on 2026-08-09. Older 2.5D/3D documents
+retain explicit historical or superseded labels in the ledger.
 
 ### Approaches already tried and rejected — do not repeat
 
@@ -216,10 +267,9 @@ reintroduced.
 | Downscaled 1024×341 runtime panorama | Violates the per-screen native resolution rule | SKY_LAGOON_BACKGROUND_RESOLUTION_AUDIT_2026-07-27 |
 | Whole-card bounce / spin / hover interaction FX | Reads as UI, not as the world; interactions must change a meaningful part of a prop while the card pivot stays fixed | CASTLE_INTERACTION_AUDIT_2026-08-01 |
 
-**The generalized lesson, paid for twice:** approved 2D design comes before
-any 3D construction. A technically valid mesh built from species facts or
-reference photos, with green gates, is still rejected if no 2D art direction
-was approved first.
+**The generalized lesson, paid for twice:** source facts and green technical
+gates cannot substitute for approved art direction. The final runtime medium
+is 2D; do not start mesh construction at all.
 
 ---
 
@@ -261,15 +311,18 @@ finished work read as deliberate animation).
 
 1. **Inventory first.** Name every affected runtime role and its current
    score. Machine-readable ledgers live in `audit/*.csv`.
-2. **Design stage before construction.** For anything 3D, an approved 2D board
-   comes first.
+2. **Construct in the final medium.** Inventory approved 2D art, then build the
+   Canvas/Node2D role; no model or spatial staging is an accepted intermediate.
 3. **Runtime evidence, not isolated renders.** Near / mid / gameplay-distance
    captures under the Mobile renderer at 1280×720, Speedy tier.
 4. **Deterministic gates where they exist** — `audit_visual_design.py`,
    `audit_scene_congruency.py`, `audit_castle_card_alpha.py`,
    `audit_castle_interactions.py`, `audit_fairy_art_v2.py`,
-   `audit_cinematic.py`. All but the visual-design audit are hard CI gates
-   today; that one is advisory pending the 2026-07-28 findings ([04 OW-8](04_OPEN_WORK.md)).
+   `prepare_opera_minigame_art.py --check-only`,
+   `audit_opera_roshan_animation.py`, and `audit_cinematic.py`. All but the
+   visual-design audit are hard CI gates at the synchronized audit snapshot;
+   the visual-design result remains unsatisfied with explicit
+   review/manual/coverage gaps (`MA-VIS-006`).
 5. **Licence line in the same commit.**
 6. **The human pass no tool can do:** no words / letters / digits in world
    art, nothing frightening at child eye level, and the M11 squint test —

@@ -16,17 +16,28 @@ func _init() -> void:
 	sd["critters"] = {"coral_clownfish": true}   # one Critter Book discovery
 	sd["castle_logo_color"] = "purple"
 	sd["castle_logo_symbol"] = "dog"
+	# A pre-audit build could persist a friend as "resting" after its care
+	# countdown expired. The key must remain readable, but loading it must
+	# immediately return the friend with boo-boos/progress intact.
+	sd["companion"] = "eagle"
+	sd["companion_colors"] = ["f7b77f", "ffd86b", "fff2a0"]
+	sd["fish_tokens"] = 2
+	sd["care_points"] = 7
+	sd["stuffie_wins"] = {"round1": true, "friend_lamma": true}
+	sd["companion_resting"] = true
+	sd["companion_bruises"] = 2
 	var w := FileAccess.open("user://reef_save.json", FileAccess.WRITE)
 	w.store_string(JSON.stringify(sd))
 	w.close()
 	var ps: PackedScene = load("res://scenes/main.tscn")
-	root.add_child(ps.instantiate())
+	var main := ps.instantiate() as ReefMain
+	root.add_child(main)
 	await process_frame
 	await process_frame
-	var main: Node = root.get_child(root.get_child_count() - 1)
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
-	await process_frame
+	for i in range(12):
+		await process_frame
 	print("loaded trophies: ", main.trophies, "/5  finale_done: ", main.finale_done)
 	var stars := 0
 	for f in main.friends:
@@ -63,4 +74,65 @@ func _init() -> void:
 		print("FAIL: castle logo choice missing after reload")
 	else:
 		print("castle logo restored: purple puppy")
-	quit()
+	var first_companion_ok: bool = _legacy_companion_ok(main, "first launch")
+	var first_write_ok: bool = main._write_save()
+	var saved_healed: bool = first_write_ok \
+		and not bool(main.save_data.get("companion_resting", true)) \
+		and String(main.save_data.get("companion", "")) == "eagle" \
+		and (main.save_data.get("companion_colors", []) as Array) \
+			== ["f7b77f", "ffd86b", "fff2a0"] \
+		and int(main.save_data.get("fish_tokens", -1)) == 2 \
+		and int(main.save_data.get("care_points", -1)) == 7 \
+		and int(main.save_data.get("companion_bruises", -1)) == 2 \
+		and bool((main.save_data.get("stuffie_wins", {}) as Dictionary).get(
+			"round1", false)) \
+		and bool((main.save_data.get("stuffie_wins", {}) as Dictionary).get(
+			"friend_lamma", false))
+	if saved_healed:
+		print("legacy companion save rewrote only the retired resting flag")
+	else:
+		print("FAIL: healed legacy companion did not persist intact")
+	main.queue_free()
+	for _frame: int in range(3):
+		await process_frame
+	var relaunched := ps.instantiate() as ReefMain
+	root.add_child(relaunched)
+	await process_frame
+	await process_frame
+	relaunched._skip_intro()
+	for _frame: int in range(12):
+		await process_frame
+	var second_companion_ok: bool = _legacy_companion_ok(
+		relaunched, "second launch")
+	quit(0 if first_companion_ok and saved_healed and second_companion_ok else 1)
+
+func _legacy_companion_ok(main: ReefMain, label: String) -> bool:
+	var colors_ok: bool = main.companion_colors \
+		== ["f7b77f", "ffd86b", "fff2a0"]
+	var wins_ok: bool = bool(main.stuffie_wins.get("round1", false)) \
+		and bool(main.stuffie_wins.get("friend_lamma", false))
+	var pending_care: bool = main.companion_rest_timer > 0.0 \
+		and (main.companion_want != "" \
+			or not main.companion_want_queue.is_empty())
+	var ok: bool = not main.companion_resting \
+		and not bool(main.save_data.get("companion_resting", true)) \
+		and main.companion_id == "eagle" and colors_ok \
+		and main.fish_tokens == 2 and main.care_points == 7 \
+		and main.companion_bruises == 2 \
+		and wins_ok and pending_care \
+		and main.companion_node != null \
+		and is_instance_valid(main.companion_node)
+	if ok:
+		print("legacy resting companion recovered intact on ", label)
+	else:
+		print("FAIL: legacy companion recovery mismatch on %s " % label,
+			"resting=", main.companion_resting,
+			" id=", main.companion_id,
+			" colors=", main.companion_colors,
+			" tokens=", main.fish_tokens,
+			" care=", main.care_points,
+			" bruises=", main.companion_bruises,
+			" wins=", main.stuffie_wins,
+			" pending=", pending_care,
+			" follower=", main.companion_node)
+	return ok

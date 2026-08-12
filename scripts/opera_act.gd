@@ -2515,12 +2515,9 @@ func _tick_brawl(delta: float) -> void:
 				m.show_msg("Roshan", "My bubble shield! Tap SPARKLE to pop those silly mischief imps!", "talk")
 
 func _build_avatar() -> void:
-	# The stage Roshan is the REAL rigged 3D player in puppet mode: the act
-	# drives her position/yaw while player.gd's procedural swim keeps her
-	# alive, and the career costume rides her bones (BoneAttachment3D) — so
-	# every career look reuses the one animation set, exactly like the
-	# plushie skins do. The lobby's cutout stays a cutout; walking through a
-	# door is the transformation moment.
+	# The stage uses the same animated 2D Roshan player as the rest of the game.
+	# Puppet mode lets the act drive her position, facing, and animation speed;
+	# career choice remains gameplay state for the authored 2D presentation.
 	m.player.visible = true
 	m.player.puppet = true
 	m.player.puppet_speed = 0.0
@@ -2530,8 +2527,8 @@ func _build_avatar() -> void:
 	m.player.set_costume(String(config.get("costume", "")))
 
 func _release_avatar() -> void:
-	# hand Roshan back: costume off, puppet strings cut, hidden again until
-	# the lobby (cutout) or the reef (main._end_opera flips her visible)
+	# Hand Roshan back: clear career state, cut the puppet controls, and keep her
+	# hidden until the lobby or reef owns visibility again.
 	if m == null or m.player == null or not is_instance_valid(m.player):
 		return
 	m.player.puppet = false

@@ -1,8 +1,8 @@
 class_name SideScrollStage
 extends RefCounted
-# Phase 8: the SIDE-SCROLL STAGE engine — one shared 2.5D rig for "flat
-# stage" minigames. It puts the REAL player node (the rigged 3D Roshan with
-# whatever wardrobe skin she is wearing) on a left/right line in front of a
+# Phase 8: the SIDE-SCROLL STAGE engine — one shared 2.5D layout for "flat
+# stage" minigames. It puts Roshan's animated 2D player card, with the selected
+# wardrobe skin, on a left/right line in front of a
 # side-on camera, and owns the one-finger composite input read
 # (drag-to-point ∥ virtual stick ∥ arrows/AD ∥ gamepad axis). Games built on
 # it own only their objective logic and set dressing.
@@ -49,8 +49,8 @@ func open(cfg: Dictionary) -> void:
 	# optical axis perpendicular to the stage while its position eases. Without
 	# that lock, look-at snaps to the goal while position lags, briefly yawing
 	# the lens and making real-depth cards skate against painted sockets.
-	# Scale note: the v4 Roshan is ~7 world units tall (3.7× model scale in
-	# player.gd) — size stages against HER, not against a 2-unit toy.
+	# Scale note: the player card is about 7 world units tall. Size stages
+	# against her on-screen silhouette, not against a 2-unit toy.
 	m.g["ss_cfg"] = cfg
 	m.g["ss_bob"] = 0.0
 	m.g["ss_run_x"] = 0.0

@@ -58,9 +58,6 @@ const ROOM_BANNER_RECTS: Dictionary = {
 	],
 }
 const CRAFT_BOARD_BADGE_RECT := Rect2(578.0, 158.0, 88.0, 88.0)
-const ROOM_ART_TO_STAGE := 1.25
-const BANNER_WORLD_DEPTH := 0.28
-const SYMBOL_WORLD_DEPTH := 0.30
 
 class LogoPreview extends Control:
 	var color_id := "rainbow"
@@ -127,31 +124,26 @@ class LogoPreview extends Control:
 		draw_polyline(inner_outline, Color(1.0, 0.94, 0.72, 0.92),
 			maxf(3.0, minf(size.x, size.y) * 0.022), true)
 
-class BannerPreview extends Node3D:
+class BannerPreview extends Control:
 	var color_id := "rainbow"
 	var symbol_id := "rainbow"
-	var banner_image: Sprite3D
-	var symbol_image: Sprite3D
+	var banner_image: TextureRect
+	var symbol_image: TextureRect
 
 	func _init() -> void:
-		banner_image = _new_world_card()
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+		banner_image = _new_canvas_card()
 		banner_image.name = "AuthoredBannerArt"
 		add_child(banner_image)
-		symbol_image = _new_world_card()
+		symbol_image = _new_canvas_card()
 		symbol_image.name = "AuthoredBannerMotif"
 		add_child(symbol_image)
 
-	func _new_world_card() -> Sprite3D:
-		var card := Sprite3D.new()
-		card.centered = true
-		card.shaded = false
-		card.no_depth_test = false
-		card.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-		card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-		card.alpha_scissor_threshold = 0.5
-		card.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-		card.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		card.set_meta("castle_world_sprite3d", true)
+	func _new_canvas_card() -> TextureRect:
+		var card := TextureRect.new()
+		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		card.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		card.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		return card
 
 	func configure(next_color_id: String, next_symbol_id: String) -> void:
@@ -165,36 +157,19 @@ class BannerPreview extends Node3D:
 		symbol_image.texture = CastleLogoStudio.SYMBOL_TEXTURES.get(
 			symbol_id, CastleLogoStudio.SYMBOL_TEXTURES["rainbow"]) as Texture2D
 
-	func place(stage_rect: Rect2, rooms: CastleRooms25D) -> void:
+	func place(stage_rect: Rect2) -> void:
 		if banner_image.texture == null or symbol_image.texture == null:
 			return
 		set_meta("stage_rect", stage_rect)
-		banner_image.position = rooms._stage_to_world(
-			stage_rect.get_center(), CastleLogoStudio.BANNER_WORLD_DEPTH)
-		banner_image.pixel_size = rooms._pixel_size_for_depth(
-			CastleLogoStudio.BANNER_WORLD_DEPTH)
-		var banner_art_size: Vector2 = stage_rect.size \
-			/ CastleLogoStudio.ROOM_ART_TO_STAGE
-		var banner_texture_size: Vector2 = banner_image.texture.get_size()
-		banner_image.scale = Vector3(
-			banner_art_size.x / banner_texture_size.x,
-			banner_art_size.y / banner_texture_size.y, 1.0)
+		position = stage_rect.position
+		size = stage_rect.size
+		banner_image.position = Vector2.ZERO
+		banner_image.size = stage_rect.size
 		var symbol_side: float = stage_rect.size.x * 0.54
-		var symbol_rect := Rect2(
-			stage_rect.position + Vector2(
-				(stage_rect.size.x - symbol_side) * 0.5,
-				stage_rect.size.y * 0.275),
-			Vector2(symbol_side, symbol_side))
-		symbol_image.position = rooms._stage_to_world(
-			symbol_rect.get_center(), CastleLogoStudio.SYMBOL_WORLD_DEPTH)
-		symbol_image.pixel_size = rooms._pixel_size_for_depth(
-			CastleLogoStudio.SYMBOL_WORLD_DEPTH)
-		var symbol_art_size: Vector2 = symbol_rect.size \
-			/ CastleLogoStudio.ROOM_ART_TO_STAGE
-		var symbol_texture_size: Vector2 = symbol_image.texture.get_size()
-		symbol_image.scale = Vector3(
-			symbol_art_size.x / symbol_texture_size.x,
-			symbol_art_size.y / symbol_texture_size.y, 1.0)
+		symbol_image.position = Vector2(
+			(stage_rect.size.x - symbol_side) * 0.5,
+			stage_rect.size.y * 0.275)
+		symbol_image.size = Vector2(symbol_side, symbol_side)
 
 var m: ReefMain
 
@@ -361,11 +336,11 @@ func _make_preview(preview_name: String, preview_size: Vector2) -> LogoPreview:
 	return preview
 
 func _make_banner(preview_name: String,
-		stage_rect: Rect2, rooms: CastleRooms25D) -> BannerPreview:
+		stage_rect: Rect2) -> BannerPreview:
 	var preview := BannerPreview.new()
 	preview.name = preview_name
 	preview.configure(m.castle_logo_color, m.castle_logo_symbol)
-	preview.place(stage_rect, rooms)
+	preview.place(stage_rect)
 	return preview
 
 func _pulse_pointer(pointer: Label) -> void:
@@ -485,18 +460,13 @@ func close(committed: bool = false) -> void:
 func clear_room_display() -> void:
 	if m.castle_logo_room_display != null \
 			and is_instance_valid(m.castle_logo_room_display):
-		var world_display: Node3D = m.castle_logo_room_display.get_meta(
-			"world_display", null) as Node3D
-		if world_display != null and is_instance_valid(world_display):
-			world_display.free()
 		m.castle_logo_room_display.free()
 	m.castle_logo_room_display = null
 
 func refresh_room_display() -> void:
 	clear_room_display()
-	if m.castle_room_stage == null or m.castle_room_world_root == null:
+	if m.castle_room_stage == null:
 		return
-	var rooms: CastleRooms25D = m._castle_rooms_ref()
 	var banner_rects: Array = ROOM_BANNER_RECTS.get(m.castle_room_id, [])
 	if banner_rects.is_empty() and m.castle_room_id != "craft_room":
 		return
@@ -510,20 +480,16 @@ func refresh_room_display() -> void:
 	display.set_meta("castle_room_id", m.castle_room_id)
 	display.set_meta("replaces_design", "purple_shell_banner")
 	m.castle_room_stage.add_child(display)
-	var world_display := Node3D.new()
-	world_display.name = "CastleLogoWorldDisplay"
-	m.castle_room_world_root.add_child(world_display)
-	display.set_meta("world_display", world_display)
 	var banner_nodes: Array[Node] = []
 	for index: int in range(banner_rects.size()):
 		var banner_rect: Rect2 = banner_rects[index] as Rect2
 		var banner := _make_banner(
-			"CastleLogoBanner_%d" % index, banner_rect, rooms)
+			"CastleLogoBanner_%d" % index, banner_rect)
 		banner.set_meta("display_location",
 			m.castle_room_id + "_purple_shell_banner_replacement")
 		banner.set_meta("replaces_design", "purple_shell_banner")
 		banner.set_meta("banner_index", index)
-		world_display.add_child(banner)
+		display.add_child(banner)
 		banner_nodes.append(banner)
 	display.set_meta("banner_nodes", banner_nodes)
 	if m.castle_room_id == "craft_room":

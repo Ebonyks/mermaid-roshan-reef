@@ -76,7 +76,7 @@ func _build_pause() -> void:
 		m.music.volume_db = -8.0 if m.music_on else -60.0
 		_sync_labels()
 		m._write_save())
-	m.pause_leave_btn = _pause_btn("↩   CASTLE", Rect2(650, 420, 280, 132), "secondary")
+	m.pause_leave_btn = _pause_btn(leave_label(), Rect2(650, 420, 280, 132), "secondary")
 	m.pause_leave_btn.name = "PauseLeaveButton"
 	m.pause_leave_btn.set_meta("neutral_exit", true)
 	m.pause_leave_btn.visible = false
@@ -129,6 +129,19 @@ func mic_label() -> String:
 		return "🎤̸   SPELLS OFF"
 	return "🎤   SAY SPELLS" if m.mic_on else "🎤̸   SPELLS OFF"
 
+func leave_label() -> String:
+	# Name the branch the button will actually execute. Local overlays and the
+	# castle class close first; only a bare Sky Lagoon/castle state returns to
+	# the Reef.
+	var local_level2_activity: bool = m.mg_kind != "" \
+		or m.wardrobe_layer != null or m.craft_layer != null \
+		or m.castle_logo_layer != null or m.stickers_layer != null \
+		or m.collection_layer != null or m.companion_layer != null \
+		or m.companion_care_layer != null or m.combat_tutorial_game != null
+	if m.game == "level2" and not local_level2_activity:
+		return "🌊   REEF"
+	return "↩   BACK"
+
 func _pause_btn(txt: String, rect: Rect2, kind: String) -> Button:
 	var button := Button.new()
 	button.text = txt
@@ -149,6 +162,8 @@ func _sync_labels() -> void:
 	if m.mic_btn != null:
 		m.mic_btn.text = mic_label()
 		m.mic_btn.set_meta("toggle_on", m.mic_on and not m.mic_permission_denied)
+	if m.pause_leave_btn != null:
+		m.pause_leave_btn.text = leave_label()
 
 func toggle_pause() -> void:
 	var paused: bool = not m.get_tree().paused

@@ -81,7 +81,6 @@ LINES = {
     "faron":      ("faron", "Shhh... the babies are getting sleepy."),
     "faron_win":  ("faron", "All the babies are tucked in! Thank you!"),
     "faron_fail": ("faron", "Oh no, the babies! Let's try once more."),
-    "faron_miss": ("faron", "Oh NO! The baby! Catch them, catch them!"),
     "wacky":      ("wacky", "Ho ho! Hello there, little mermaid!"),
     "wacky_win":  ("wacky", "Great throwing! Chuck says woof! Ho ho ho!"),
     "wacky_fail": ("wacky", "Ho ho! Chuck got all wet! Try again!"),

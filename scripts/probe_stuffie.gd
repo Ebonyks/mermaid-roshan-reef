@@ -29,7 +29,7 @@ func _init() -> void:
 	await _award_case()
 	await _lamma_case()
 	await _zone_case()
-	await _rest_case()
+	await _patient_care_case()
 	print("STUFFIE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
 
@@ -483,14 +483,14 @@ func _zone_case() -> void:
 	_ck("follows into new levels and arena games by default", follows_ember and follows_arena)
 	_ck("hides only inside camera-owning engines", hides_kart)
 
-func _rest_case() -> void:
-	# THE GENTLE FAILURE (owner 2026-07-21): battle bumps leave boo-boos; the
-	# stuffie asks for its post-battle hug + bath. Tended boo-boos heal;
-	# ignored ones send it home to its Studio shelf, and Roshan picks a friend
-	# again at the castle (the same one included). Nothing else is lost.
+func _patient_care_case() -> void:
+	# Battle bumps leave boo-boos and invite a hug + bath. Tending both heals;
+	# waiting through any number of reminder cycles never removes the friend,
+	# blocks play, or loses progress.
 	var comp: CompanionSystem = main._companion_ref()
 	var care_before: int = main.care_points
 	var friend_before: String = main.companion_id
+	var colors_before: Array = main.companion_colors.duplicate(true)
 	# --- heal path: get bumped, win anyway, then tend the hug + bath
 	main.stuffie_cool = 0.0
 	main._start_stuffie_battle()
@@ -531,13 +531,13 @@ func _rest_case() -> void:
 		await _settle(4)
 	_ck("hug + bath heal every boo-boo", main.companion_bruises == 0
 		and main.companion_rest_timer < 0.0 and not main.companion_resting)
-	# --- rest path: hurt again, then let the patience clock run out
+	# --- patient path: hurt again, then cross the retired timeout repeatedly
 	main.stuffie_cool = 0.0
 	main._start_stuffie_battle()
 	await process_frame
 	battle = main.stuffie_game
 	if battle == null:
-		_ck("rest-path battle starts", false)
+		_ck("patient-care battle starts", false)
 		return
 	battle._bump_pal(battle.pal_pos + Vector3(0, 0, 3.0))
 	battle.cancel()
@@ -545,18 +545,129 @@ func _rest_case() -> void:
 	await process_frame
 	_ck("leaving early keeps the boo-boo", main.companion_bruises >= 1
 		and main.game == "")
+	var bruises_before: int = main.companion_bruises
+	var tokens_at_wait: int = main.fish_tokens
+	var care_at_wait: int = main.care_points
+	var follower_before: int = main.companion_node.get_instance_id()
+	for reminder in range(4):
+		main.companion_rest_timer = 0.01
+		await _settle(4)
+	_ck("uncared boo-boos wait without removing the friend",
+		not main.companion_resting
+		and main.companion_node != null and is_instance_valid(main.companion_node)
+		and main.companion_node.get_instance_id() == follower_before
+		and main.companion_bruises >= bruises_before
+		and main.companion_rest_timer > 0.0
+		and (main.companion_want_queue.size() >= 1 or main.companion_want != ""))
+	# A reminder remains voiced and picture-first without escalating into a
+	# threat or destination-dependent objective.
+	if main.companion_want == "":
+		main.companion_want_cool = 0.0
+		comp._tick_care(0.0)
+	main.said_cool.clear()
+	var voice_before: int = main.voice_i
 	main.companion_rest_timer = 0.01
-	await _settle(4)
-	_ck("uncared boo-boos send the stuffie home to rest", main.companion_resting
-		and (main.companion_node == null or not is_instance_valid(main.companion_node)))
+	comp._tick_care(0.02)
+	comp._sync_menu_button()
+	var reminder_copy: String = main.hud_msg.text.to_lower()
+	var reminder_is_kind: bool = reminder_copy == \
+		"whenever you're ready, tap me for a hug and bubble bath!" \
+		and not reminder_copy.contains("home") \
+		and not reminder_copy.contains("last chance") \
+		and not reminder_copy.contains("one more minute") \
+		and not reminder_copy.contains("hurt too much")
+	var reminder_pointer_ok: bool = main.companion_want_bubble != null \
+		and is_instance_valid(main.companion_want_bubble)
+	var reminder_hud_ok: bool = main.companion_menu_button != null \
+		and main.companion_menu_button.visible \
+		and main.companion_menu_button.text == "🩹" \
+		and String(main.companion_menu_button.get_meta(
+			"storybook_kind", "")) == "action"
+	var reminder_voice_ok: bool = main.voice_i == voice_before + 1
+	if not (reminder_voice_ok and reminder_is_kind \
+			and reminder_pointer_ok and reminder_hud_ok):
+		print("STUFFIE|patient reminder detail: voice=", reminder_voice_ok,
+			" copy=", reminder_copy, " kind=", reminder_is_kind,
+			" pointer=", reminder_pointer_ok, " hud=", reminder_hud_ok)
+	_ck("patient reminder stays voiced, kind, and picture-first",
+		reminder_voice_ok and reminder_is_kind \
+		and reminder_pointer_ok and reminder_hud_ok)
+	# Keep the retired key in the schema but prove it cannot be written true or
+	# resurrect either runtime gate. The following raw screen taps run while the
+	# in-memory sentinel is deliberately true.
+	main.companion_resting = true
+	main._write_save()
+	var saved_patient_state: bool = not bool(main.save_data.get(
+		"companion_resting", true)) \
+		and String(main.save_data.get("companion", "")) == friend_before \
+		and (main.save_data.get("companion_colors", []) as Array) == colors_before \
+		and int(main.save_data.get("companion_bruises", -1)) == bruises_before \
+		and int(main.save_data.get("fish_tokens", -1)) == tokens_at_wait \
+		and int(main.save_data.get("care_points", -1)) == care_at_wait \
+		and bool((main.save_data.get("stuffie_wins", {}) as Dictionary).get(
+			"friend_lamma", false))
+	_ck("retired resting flag saves healed without changing progress",
+		saved_patient_state and main.companion_resting)
+	main._set_touch_mode("hybrid", false)
+	main.stuffie_cool = 0.0
+	if main.companion_den == null or not is_instance_valid(main.companion_den):
+		comp._tick_den(0.0)
+	var den = main.companion_den
+	if den == null:
+		_ck("patient friend keeps a raw-touch den route", false)
+		main.companion_resting = false
+		return
+	var near_den = den.position
+	near_den.x += 1.0
+	near_den.y += 1.0
+	main.player.position = near_den
+	main.player.vel *= 0.0
+	main.player.snap_cam()
+	await _settle(3)
+	main._populate_touch_interactables()
+	var den_registered: bool = false
+	for item_value: Variant in main.touch_interactables:
+		var item: Dictionary = item_value as Dictionary
+		if String(item.get("id", "")) == "reef:den":
+			den_registered = true
+			break
+	var camera = main.player.cam
+	var first_tap_focused := false
+	if den_registered and camera != null and not camera.is_position_behind(
+			den.global_position):
+		var den_screen: Vector2 = camera.unproject_position(den.global_position)
+		_touch_tap(40, den_screen)
+		await process_frame
+		first_tap_focused = main.game == "" \
+			and main.touch_focus_id == "reef:den" and main.touch_focus_ready
+		_touch_tap(41, den_screen)
+		await _settle(4)
+	_ck("patient friend keeps a raw-touch den route",
+		den_registered and first_tap_focused \
+		and main.game == "stuffie" and main.stuffie_game != null)
+	if main.stuffie_game != null:
+		main.stuffie_game.cancel()
+		await _settle(2)
+	main.companion_resting = false
 	main._start_stuffie_battle()
-	_ck("no battles while resting", main.stuffie_game == null)
-	_ck("rest loses no progress", main.care_points >= care_before
-		and bool(main.stuffie_wins.get("friend_lamma", false)))
-	# picking again at the Studio (the same friend included) wakes it up
-	comp.open_picker(false, friend_before)
-	comp._confirm_pick()
-	await _settle(12)
-	_ck("re-picking at the Studio wakes the stuffie", not main.companion_resting
+	await process_frame
+	_ck("waiting for care never blocks another battle",
+		main.stuffie_game != null and main.game == "stuffie")
+	if main.stuffie_game != null:
+		main.stuffie_game.cancel()
+		await _settle(2)
+	_ck("patient care loses no progress", main.care_points >= care_before
 		and main.companion_id == friend_before
-		and main.companion_node != null and is_instance_valid(main.companion_node))
+		and bool(main.stuffie_wins.get("friend_lamma", false)))
+
+func _touch_tap(index: int, pos: Vector2) -> void:
+	var down := InputEventScreenTouch.new()
+	down.index = index
+	down.position = pos
+	down.pressed = true
+	main.touch_ui._unhandled_input(down)
+	var up := InputEventScreenTouch.new()
+	up.index = index
+	up.position = pos
+	up.pressed = false
+	main.touch_ui._unhandled_input(up)

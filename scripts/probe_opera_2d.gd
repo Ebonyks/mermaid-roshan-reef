@@ -1,10 +1,10 @@
 extends SceneTree
 ## Runtime contract for the thirteen Canvas-based Pearl Opera career worlds.
 ##
-## This intentionally forces the 2D path under headless Godot. The older
-## probe_opera.gd continues to regression-test the detailed legacy mechanics,
-## while this probe proves the shipping door path uses supplied paintings,
-## 2D actors, one-finger phases, competition progress and clean teardown.
+## This selects the same Canvas career path used on the shipping device. The
+## older probe_opera.gd continues to regression-test detailed legacy mechanics,
+## while this probe proves the door path uses supplied paintings, 2D actors,
+## one-finger phases, competition progress and clean teardown.
 
 var main: ReefMain
 var bad := 0
@@ -54,6 +54,9 @@ const DIRECT_SURFACE_CONTRACTS := {
 		"FEED": {"mode": "hold", "goal": 4.0, "context": "nursery_feed"},
 		"BURP": {"mode": "tap", "goal": 4.0, "context": "nursery_burp"},
 		"BEDTIME": {"mode": "swipe", "goal": 3.0, "context": "nursery_bedtime"},
+	},
+	"racer": {
+		"RACE": {"mode": "circle", "goal": 0.9, "context": ""},
 	},
 }
 
@@ -232,6 +235,7 @@ func _init() -> void:
 		and String((OperaHouse.ACTS[7] as Dictionary).get("costume", "")) == "boxer"
 		and (1 << 7) == 128)
 	var show_count := 0
+	var total_phase_count := 0
 	var total_widget_count := 0
 	var widget_contracts_complete := true
 	var direct_surface_contracts_complete := true
@@ -259,6 +263,21 @@ func _init() -> void:
 		if not diegetic_shot_out.is_empty():
 			diegetic_shot_count += await _capture_diegetic_phase_rooms(
 				world, career, show_count)
+		var racer_node_bound := 0
+		var racer_main_children_before: Array[int] = []
+		if career == "racer":
+			racer_node_bound = _subtree_node_count(world)
+			racer_main_children_before = _direct_child_instance_ids(main)
+			_check("racer Canvas world has a bounded post-build subtree",
+				racer_node_bound <= 32)
+			var racer_frame := world.player_actor.texture as AtlasTexture
+			_check("racer uses the current animated Roshan atlas, rival and trophy art",
+				racer_frame != null and racer_frame.atlas != null
+				and racer_frame.atlas.resource_path.ends_with(
+					"/animation/roshan_racer_sheet_a.png")
+				and world.rival_actor.texture.resource_path.ends_with("/rival_racer.png")
+				and world.prop_rect.texture.resource_path.ends_with("/goal_racer.png"))
+		total_phase_count += world.phases.size()
 		_check("%s uses no 3D children in career play" % career,
 			act.find_children("*", "Node3D", true, false).is_empty())
 		_check("%s builds a scalable code-native career world" % career,
@@ -364,7 +383,7 @@ func _init() -> void:
 			"chef": "oven", "detective": "lens", "ballerina": "ballet_pose",
 			"candymaker": "candy_sort", "doctor": "xray_scan", "farmer": "farm_lob",
 			"boxer": "boxing_guide", "magician": "magic_cabinet", "painter": "paint_reveal",
-			"astronaut": "pipe", "racer": "kart", "nursery": "catch", "popstar": "echo",
+			"astronaut": "pipe", "racer": "circle", "nursery": "catch", "popstar": "echo",
 		}
 		_check("%s contains its signature mechanic" % career,
 			modes.has(String(expected_signature.get(career, ""))))
@@ -415,6 +434,11 @@ func _init() -> void:
 		var retained_rotation_ok := not RETAINED_ROTATIONS.has(career)
 		for pacing_phase: Dictionary in world.phases:
 			if String(pacing_phase.get("mode", "")) != "circle":
+				continue
+			# The Racer finale emits one accepted full loop from its specialist
+			# steering surface. Its goal is a completed turn, not a rotation count.
+			if career == "racer" \
+					and String(pacing_phase.get("vo", "")) == "op_racer_lap_two":
 				continue
 			var rotations := float(pacing_phase.get("goal", 0.0))
 			circle_pacing_complete = circle_pacing_complete \
@@ -971,11 +995,17 @@ func _init() -> void:
 		var saw_finale_imp := _finale_partner_present(world, career)
 		var rival_hidden_before_finale := true
 		var finale_cast_separated := career in ["ballerina", "boxer"]
+		var racer_finale_exercised := false
 		var guard := 0
 		while act.state == "play" and guard < 80:
 			rival_hidden_before_finale = rival_hidden_before_finale \
 				and (cooperative or world.in_competition_finale() or not world.rival_actor.visible)
-			if career == "boxer":
+			if career == "racer" and world.phase_index == world._finale_start():
+				if not racer_finale_exercised:
+					finale_cast_separated = await _exercise_racer_finale(
+						act, world, racer_node_bound, racer_main_children_before)
+					racer_finale_exercised = true
+			elif career == "boxer":
 				_drive_boxer_phase(world)
 			else:
 				world._on_gesture("probe", 100.0, 1.0)
@@ -1009,6 +1039,9 @@ func _init() -> void:
 			_check("%s brings in its dressed finale partner" % career, saw_finale_imp)
 			_check("%s stages the room-finale partner clear of Roshan and the activity" % career,
 				finale_cast_separated)
+		if career == "racer":
+			_check("racer finale was completed only through the real steering surface",
+				racer_finale_exercised)
 		if career == "nursery":
 			_check("nursery curtain call records cooperative care",
 				bool(act.performance_result.get("cooperative", false)))
@@ -1052,6 +1085,8 @@ func _init() -> void:
 			_check("%s restores the touch layer on exit" % career,
 				main.touch_ui.visible == touch_before)
 
+	await _exercise_racer_cancel_and_reentry()
+
 	var reentry_config: Dictionary = {}
 	for source: Dictionary in OperaHouse.ACTS:
 		if String(source.get("costume", "")) == "chef":
@@ -1087,6 +1122,8 @@ func _init() -> void:
 		reentry_clean)
 
 	_check("all thirteen career jobs were exercised", show_count == 13)
+	_check("the current thirteen careers expose exactly fifty-three phases",
+		total_phase_count == 53)
 	_check("all shared art-family career widget contracts were exercised",
 		widget_contracts_complete and total_widget_count > 0)
 	_check("every declared direct specialist surface was exercised",
@@ -1471,6 +1508,240 @@ func _roshan_idle_semantic_rect(world: OperaCareerWorld2D) -> Rect2:
 	return Rect2(
 		world.player_actor.position + visual_size * Vector2(0.27, 0.11),
 		visual_size * Vector2(0.45, 0.82))
+
+
+func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
+		post_build_bound: int, direct_main_before: Array[int]) -> bool:
+	var finale := world.phases[world._finale_start()] as Dictionary
+	var racer_names: Array[String] = []
+	for phase: Dictionary in world.phases:
+		racer_names.append(String(phase.get("name", "")))
+	_check("racer keeps the current three-beat career arc",
+		world.phases.size() == 3
+		and racer_names == ["TUNE", "TO THE LINE", "RACE"])
+	_check("racer finale uses the exact recorded circle instruction",
+		String(finale.get("vo", "")) == "op_racer_lap_two"
+		and String(finale.get("voice", "")) \
+			== "Loop the loop! Draw big racing circles!")
+	_check("racer finale is a code-native one-finger steering turn",
+		String(finale.get("mode", "")) == "circle"
+		and finale.has("widget") and String(finale.get("widget", "x")).is_empty())
+
+	# Enter the finale synchronously, then let ten seconds of normal update time
+	# pass with no input. The ghost finger may teach, but it must never play.
+	main.clear_dialogue()
+	main.said_cool.erase("roshan_op_racer_lap_two")
+	var voice_before: int = main.voice_i
+	world._show_phase()
+	await process_frame
+	var open_player_rect := _actor_visual_rect(world.player_actor)
+	var open_rival_rect := _actor_visual_rect(world.rival_actor)
+	var open_activity_rect := Rect2(world.action_panel.position,
+		world.action_panel.size)
+	var open_finale_cast_separated := world.task_open \
+		and world.player_actor.visible and world.rival_actor.visible \
+		and _rect_inside(open_player_rect,
+			Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)) \
+		and _rect_inside(open_rival_rect,
+			Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)) \
+		and not open_player_rect.intersects(open_rival_rect) \
+		and (not world.action_panel.visible \
+			or not open_rival_rect.intersects(open_activity_rect))
+	var voice_player: AudioStreamPlayer = null
+	if main.voice_i > 0 and not main.voice_pool.is_empty():
+		var voice_index := posmod(main.voice_i - 1, main.voice_pool.size())
+		voice_player = main.voice_pool[voice_index] as AudioStreamPlayer
+	var voice_path := "missing"
+	if voice_player != null and voice_player.stream != null:
+		voice_path = voice_player.stream.resource_path
+	_check("racer finale makes one exact pooled speech request",
+		main.voice_i == voice_before + 1
+		and voice_path \
+			== "res://assets/audio/voices/roshan_op_racer_lap_two.ogg")
+	var racer_caption_hidden := not main.hud_msg.visible \
+		and main.hud_msg.text.is_empty() and main.msg_timer <= 0.0
+	var racer_fallback_quiet := main.voice == null or not main.voice.playing
+	if not racer_caption_hidden or not racer_fallback_quiet:
+		print("OPERA2D|racer voice detail|caption_visible=",
+			main.hud_msg.visible, " caption=", main.hud_msg.text,
+			" timer=", main.msg_timer,
+			" fallback_playing=", main.voice != null and main.voice.playing,
+			" exact_path=", voice_path)
+	_check("recorded racer instruction needs no caption or yay fallback",
+		racer_caption_hidden and racer_fallback_quiet)
+	await create_timer(0.40).timeout
+	var passive_progress := world.phase_progress
+	for _second in range(10):
+		world._process(1.0)
+		world.surface._process(1.0)
+	_check("ten quiet racer seconds award no progress or curtain call",
+		is_equal_approx(world.phase_progress, passive_progress)
+		and is_equal_approx(passive_progress, 0.0)
+		and act.state == "play" and act.performance_result.is_empty())
+	_check("racer finale stays visible inside the Opera Canvas world",
+		world.root.visible and main.game == "opera"
+		and main.kart_game == null and world.surface.mode == "circle"
+		and world.action_panel.visible and world.surface.visible)
+	_check("racer steering surface is large and contained by the 1280x720 stage",
+		world.surface.size.x >= 176.0 and world.surface.size.y >= 176.0
+		and _control_inside_stage(world.action_panel))
+	_check("racer finale adds no nodes beyond its post-build Canvas bound",
+		_subtree_node_count(world) <= post_build_bound)
+	_check("racer owns exactly one active Canvas career world",
+		get_root().find_children("*", "OperaCareerWorld2D", true, false).size() == 1)
+	_check("racer finale launches no external main child",
+		_direct_child_instance_ids(main) == direct_main_before)
+
+	_drive_racer_turn(world.surface)
+	_check("one honest steering turn owns the racer completion",
+		world.surface.input_started and not world.surface.demo_active
+		and world.surface.completion_accepted
+		and (world.phase_advance_pending or act.state == "won"))
+	act._process(0.05)
+	world._process(2.21)
+	await process_frame
+	_check("racer turn returns the trophy with no placement fail branch",
+		act.state == "won" and world.prop_rect.visible
+		and not act.performance_result.is_empty())
+	_check("racer completion never leaves Opera or adds an external runtime",
+		main.game == "opera" and main.kart_game == null
+		and world.root.visible and world.surface.mode == "circle"
+		and _direct_child_instance_ids(main) == direct_main_before)
+	return open_finale_cast_separated
+
+
+func _exercise_racer_cancel_and_reentry() -> void:
+	var config := _career_config("racer")
+	_check("racer lifecycle fixture exists", not config.is_empty())
+	if config.is_empty():
+		return
+	var touch_before := main.touch_ui.visible if main.touch_ui != null else false
+	var direct_main_before := _direct_child_instance_ids(main)
+	var interrupted_act := OperaAct.new()
+	get_root().add_child(interrupted_act)
+	interrupted_act.start(main, config, Callable())
+	await process_frame
+	var interrupted_world := interrupted_act.career_world_2d
+	_check("racer lifecycle enters one Canvas world", interrupted_world != null)
+	if interrupted_world == null:
+		interrupted_act.cancel()
+		await process_frame
+		return
+	interrupted_world.phase_index = interrupted_world._finale_start()
+	interrupted_world.phase_progress = 0.0
+	interrupted_world._show_phase()
+	interrupted_world._process(3.0)
+	var center := interrupted_world.surface.size * 0.5
+	var radius := minf(interrupted_world.surface.size.x,
+		interrupted_world.surface.size.y) * 0.32
+	interrupted_world.surface._press(center + Vector2(radius, 0.0))
+	interrupted_world.surface._drag(center + Vector2.from_angle(0.25) * radius)
+	interrupted_world.surface._drag(center + Vector2.from_angle(0.50) * radius)
+	_check("racer can be cancelled during a live one-finger turn",
+		interrupted_world.surface.held and interrupted_world.phase_progress > 0.0
+		and not interrupted_world.phase_advance_pending)
+	var interrupted_act_ref: WeakRef = weakref(interrupted_act)
+	var interrupted_world_ref: WeakRef = weakref(interrupted_world)
+	var interrupted_surface_ref: WeakRef = weakref(interrupted_world.surface)
+	interrupted_act.cancel()
+	await process_frame
+	await process_frame
+	_check("mid-turn cancel frees the act, world and steering surface",
+		interrupted_act_ref.get_ref() == null
+		and interrupted_world_ref.get_ref() == null
+		and interrupted_surface_ref.get_ref() == null)
+	_check("mid-turn cancel restores touch and leaves no Opera world",
+		(main.touch_ui == null or main.touch_ui.visible == touch_before)
+		and get_root().find_children("*", "OperaCareerWorld2D", true, false).is_empty())
+	_check("mid-turn cancel changes no direct main children",
+		_direct_child_instance_ids(main) == direct_main_before)
+
+	var fresh_act := OperaAct.new()
+	get_root().add_child(fresh_act)
+	fresh_act.start(main, config, Callable())
+	await process_frame
+	var fresh_world := fresh_act.career_world_2d
+	_check("racer immediately re-enters one fresh Canvas world",
+		fresh_world != null
+		and get_root().find_children("*", "OperaCareerWorld2D", true, false).size() == 1)
+	if fresh_world == null:
+		fresh_act.cancel()
+		await process_frame
+		return
+	fresh_world.phase_index = fresh_world._finale_start()
+	fresh_world.phase_progress = 0.0
+	fresh_world._show_phase()
+	fresh_world._process(3.0)
+	_check("fresh racer re-entry resets steering and progress",
+		is_equal_approx(fresh_world.phase_progress, 0.0)
+		and not fresh_world.surface.held
+		and not fresh_world.surface.completion_accepted
+		and fresh_world.surface.mode == "circle"
+		and fresh_world.root.visible and main.game == "opera"
+		and main.kart_game == null)
+	_drive_racer_turn(fresh_world.surface)
+	fresh_act._process(0.05)
+	fresh_world._process(2.21)
+	await process_frame
+	_check("fresh racer re-entry can win and recover the approved trophy",
+		fresh_act.state == "won" and fresh_world.prop_rect.visible
+		and fresh_world.prop_rect.texture.resource_path.ends_with("/goal_racer.png")
+		and not fresh_act.performance_result.is_empty())
+	_check("fresh racer award adds no direct main child",
+		main.kart_game == null and fresh_world.surface.mode == "circle"
+		and _direct_child_instance_ids(main) == direct_main_before)
+	var fresh_act_ref: WeakRef = weakref(fresh_act)
+	var fresh_world_ref: WeakRef = weakref(fresh_world)
+	fresh_act.cancel()
+	await process_frame
+	await process_frame
+	_check("completed racer re-entry tears down cleanly and restores touch",
+		fresh_act_ref.get_ref() == null and fresh_world_ref.get_ref() == null
+		and (main.touch_ui == null or main.touch_ui.visible == touch_before)
+		and get_root().find_children("*", "OperaCareerWorld2D", true, false).is_empty())
+
+
+func _drive_racer_turn(surface: OperaGestureSurface) -> void:
+	var center := surface.size * 0.5
+	var radius := minf(surface.size.x, surface.size.y) * 0.32
+	var start := center + Vector2(radius, 0.0)
+	surface._press(start)
+	for sample in range(1, 25):
+		var angle := TAU * float(sample) / 24.0
+		surface._drag(center + Vector2.from_angle(angle) * radius)
+	surface._release(start)
+
+
+func _career_config(costume: String) -> Dictionary:
+	for source: Dictionary in OperaHouse.ACTS:
+		if String(source.get("costume", "")) == costume:
+			var config := source.duplicate(true)
+			config["force_2d"] = true
+			return config
+	return {}
+
+
+func _direct_child_instance_ids(node: Node) -> Array[int]:
+	var ids: Array[int] = []
+	for child: Node in node.get_children():
+		ids.append(int(child.get_instance_id()))
+	ids.sort()
+	return ids
+
+
+func _subtree_node_count(node: Node) -> int:
+	var count := 1
+	for child: Node in node.get_children():
+		count += _subtree_node_count(child)
+	return count
+
+
+func _control_inside_stage(control: Control) -> bool:
+	var rect := Rect2(control.position, control.size)
+	return rect.position.x >= 0.0 and rect.position.y >= 0.0 \
+		and rect.end.x <= 1280.0 and rect.end.y <= 720.0
+
+
 func _boxing_touch(surface: OperaBoxingSurface, finger: int, pressed: bool,
 		position: Vector2) -> void:
 	var event := InputEventScreenTouch.new()

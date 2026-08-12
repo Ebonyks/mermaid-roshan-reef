@@ -1,5 +1,14 @@
 # Codex handoff — Mermaid Roshan sprite regeneration requests (2026-08-02)
 
+> **Lifecycle update — 2026-08-09:** R1 is **CLOSED** by the reviewed `_v2`
+> frames and the new blocking standalone-frame audit. The source measurements
+> below remain historical evidence; later component analysis corrected the
+> `_2` rows from “missing hair” to detached generation debris. R2/R3 are
+> **DEFERRED OPTIMIZATION**, because the shipped 2D atlas-window table preserves
+> every owned pixel and passes its engine-side probes. R4 is **DISMISSED FROM
+> THE BUGLIST**: costumes are an optional future design feature, not a defect.
+> This handoff is no longer an active work order.
+
 Source audit: `ROSHAN_SPRITE_CUTOFF_AUDIT_2026-08-02.md`.
 Measurement tool: `python3 tools/audit_roshan_sprite_clipping.py`.
 

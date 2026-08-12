@@ -149,21 +149,23 @@ func _init() -> void:
 		var promenade_id: String = String(promenade_target.get("id", ""))
 		promenade_ids[promenade_id] = true
 		var expected_affordance: String = Affordance.PLOT \
-			if promenade_id == "castle_gate" else Affordance.ANIMATION
+			if promenade_id == "castle_gate" \
+			else Affordance.INTERACTION if promenade_id == "reef_route" \
+			else Affordance.ANIMATION
 		var highlight: Sprite3D = promenade_target.get("highlight") as Sprite3D
 		if String(promenade_target.get(
 				"affordance_kind", "")) != expected_affordance:
 			_bad("promenade affordance category wrong for %s" % promenade_id)
 		elif highlight == null or not highlight.visible:
 			_bad("promenade idle affordance hidden for %s" % promenade_id)
-	for expected: String in ["slide", "swing", "seesaw", "castle_gate"]:
+	for expected: String in ["reef_route", "slide", "swing", "seesaw", "castle_gate"]:
 		if not promenade_ids.has(expected):
 			_bad("promenade interaction missing %s" % expected)
 	for removed_frame: String in ["runway_frame", "playground_frame", "castle_frame"]:
 		if promenade_ids.has(removed_frame):
 			_bad("removed lawn picture still interactive: %s" % removed_frame)
-	if promenade_targets.size() < 4 or promenade_targets.size() > 5:
-		_bad("promenade roster must be four permanent toys/landmarks plus optional Day One plane")
+	if promenade_targets.size() != 5:
+		_bad("promenade roster must contain the permanent Reef route and four toys/landmarks")
 
 	# Exercise the first-visit Crown Star target, not the already-won keepsake.
 	# The castle is one picture-first Sprite3D stage, not a second free-roaming
@@ -394,17 +396,26 @@ func _init() -> void:
 		_bad("custom logo did not replace both Stuffie Playroom shell banners")
 	else:
 		for banner_value: Variant in playroom_banners:
-			var banner: Node3D = banner_value as Node3D
+			var banner: Control = banner_value as Control
+			var stage_rect: Rect2 = banner.get_meta("stage_rect", Rect2())
 			if String(banner.get_meta("symbol_id", "")) != "dog" \
 					or String(banner.get_meta("color_id", "")) != "purple" \
 					or String(banner.get_meta(
 						"replaces_design", "")) != "purple_shell_banner":
 				_bad("Stuffie Playroom banner did not use the saved custom logo")
 				break
-			var authored_art: Sprite3D = banner.find_child(
-				"AuthoredBannerArt", false, false) as Sprite3D
-			var authored_motif: Sprite3D = banner.find_child(
-				"AuthoredBannerMotif", false, false) as Sprite3D
+			if banner.get_parent() != playroom_display \
+					or banner.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+					or playroom_display.z_index != 22 \
+					or not Rect2(banner.position, banner.size).is_equal_approx(
+						stage_rect) \
+					or not playroom_display.get_rect().encloses(stage_rect):
+				_bad("Stuffie Playroom banner was not owned by the bounded Canvas display")
+				break
+			var authored_art: TextureRect = banner.find_child(
+				"AuthoredBannerArt", false, false) as TextureRect
+			var authored_motif: TextureRect = banner.find_child(
+				"AuthoredBannerMotif", false, false) as TextureRect
 			if authored_art == null or authored_art.texture == null \
 					or authored_motif == null or authored_motif.texture == null \
 					or not authored_art.texture.resource_path.contains(
@@ -412,6 +423,15 @@ func _init() -> void:
 					or not authored_motif.texture.resource_path.contains(
 						"logo_studio_v2/castle_banner_motif_dog.png"):
 				_bad("Stuffie Playroom banner did not use authored V2 art")
+				break
+			var local_bounds := Rect2(Vector2.ZERO, banner.size)
+			if authored_art.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+					or authored_motif.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+					or not authored_art.position.is_equal_approx(Vector2.ZERO) \
+					or not authored_art.size.is_equal_approx(banner.size) \
+					or not local_bounds.encloses(Rect2(
+						authored_motif.position, authored_motif.size)):
+				_bad("Stuffie Playroom authored banner art escaped its Canvas bounds")
 				break
 
 	rooms.show_room("dining_room", false)

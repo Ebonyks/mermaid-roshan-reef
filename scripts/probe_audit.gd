@@ -28,10 +28,12 @@ func _init() -> void:
 		and patrol_y <= main.WATER_TOP - 3.0
 		and is_equal_approx(main._aquatic_patrol_height(0.0, 0.0, 20.0), 20.0))
 	print("AUDIT|Aquatic patrol terrain clearance: ", "OK" if aquatic_continuity else "FAIL")
-	var lamb_continuity: bool = (not main._game_obj("seek", SeekGame)._lamb_meadow_placement_allowed(Vector2(0.0, 9.0), "tree_fat")
-		and main._game_obj("seek", SeekGame)._lamb_meadow_placement_allowed(Vector2(25.0, 25.0), "tree_fat")
-		and not main._game_obj("seek", SeekGame)._lamb_meadow_placement_allowed(Vector2(25.0, 25.0), "tree_palm"))
-	print("AUDIT|Lamb meadow hide zones and climate: ", "OK" if lamb_continuity else "FAIL")
+	var seek_art_ready := true
+	for seek_art_path: String in SeekGame.runtime_art_paths():
+		seek_art_ready = seek_art_ready \
+			and ResourceLoader.exists(seek_art_path)
+	print("AUDIT|Seek Canvas authored atlas and v5 meadow art: ",
+		"OK" if seek_art_ready else "FAIL")
 	print("AUDIT|Penguin floe at water surface: ",
 		"OK" if absf(main.slide_portal_pos.y - (main.WATER_TOP + 0.5)) < 0.01 else "FAIL")
 	var t_start := Time.get_ticks_msec()
@@ -199,17 +201,50 @@ func _init() -> void:
 	main._check_level2_unlock(player.position, 0.1)
 	print("AUDIT|Level 2 portal stays unlocked after spending: ", ("OK" if main.portal_unlocked and main.portal_node != null else "FAIL"))
 	if main.portal_node != null:
-		var rf := 0
-		while main.game == "" and rf < 600:
-			rf += 1
-			if not main.portal_armed:
-				player.position = main.portal_node.position + Vector3(20, 6, 20)
-			else:
-				player.position = main.portal_node.position
-			player.vel = Vector3.ZERO
+		var portal_route_ok := true
+		if main.touch_uses_explicit_interactions():
+			# Hybrid uses the visible ENTER affordance; walking into its ring must
+			# remain safe and must never bypass the child's deliberate tap.
+			player.position = main.portal_node.position
+			player.position.x += 20.0
+			player.position.y += 6.0
+			player.position.z += 20.0
+			player.vel *= 0.0
 			main._check_level2_unlock(player.position, 0.1)
 			await process_frame
-		print("AUDIT|Level 2 courtyard: ", ("OK" if main.game == "level2" else "FAIL"))
+			player.position = main.portal_node.position
+			player.vel *= 0.0
+			main._check_level2_unlock(player.position, 0.1)
+			await process_frame
+			var hybrid_proximity_safe: bool = main.game == ""
+			main._populate_touch_interactables()
+			var lagoon_route_registered := false
+			for item_value: Variant in main.touch_interactables:
+				var item: Dictionary = item_value as Dictionary
+				if String(item.get("id", "")) == "reef:lagoon" \
+						and bool(item.get("enabled", false)):
+					lagoon_route_registered = true
+					break
+			portal_route_ok = hybrid_proximity_safe \
+				and lagoon_route_registered
+			if portal_route_ok:
+				main._activate_touch_interactable("reef:lagoon")
+		else:
+			# Classic/no-touch keep the original leave-to-arm, return-to-enter
+			# proximity route.
+			var rf := 0
+			while main.game == "" and rf < 600:
+				rf += 1
+				if not main.portal_armed:
+					player.position = main.portal_node.position + Vector3(20, 6, 20)
+				else:
+					player.position = main.portal_node.position
+				player.vel = Vector3.ZERO
+				main._check_level2_unlock(player.position, 0.1)
+				await process_frame
+			portal_route_ok = main.game == "level2"
+		print("AUDIT|Level 2 courtyard: ",
+			("OK" if portal_route_ok and main.game == "level2" else "FAIL"))
 		var targets: Array = main.g.get("lagoon_promenade_targets", [])
 		var target_ids: Dictionary = {}
 		for target_value in targets:
@@ -419,21 +454,38 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 			else:
 				main.touch_ui.action_down = false
 		elif gname == "dolls":
-			# Phase 6: perform the VERB — steer the catcher through the touch
-			# stick like a real hand (teleporting the node no longer scores;
-			# catches require live input inside the last 2s). Phase 8: the
-			# catcher is the real 3D player on the side-scroll stage, babies
-			# are Node3Ds falling toward stage-local y=0 — chase the LOWEST.
-			var dolls: Array = g.get("dolls", [])
-			if dolls.size() > 0:
-				var lowest: Node3D = dolls[0]
-				for d in dolls:
-					if is_instance_valid(d) and (d as Node3D).global_position.y < lowest.global_position.y:
-						lowest = d
-				var want_x: float = lowest.global_position.x
-				main.touch_ui.stick_vec = Vector2(clampf((want_x - main.player.global_position.x) / 3.6, -1.0, 1.0), 0.0)
-			else:
-				main.touch_ui.stick_vec = Vector2(0.3, 0.0)   # keep the hand 'live' between spawns
+			# Perform the real one-finger Canvas verb. A complete press/drag/release
+			# gesture each frame follows the lowest baby and keeps the two-second
+			# live-input memory honest without calling the surface's steering API.
+			var dolls_surface := g.get("dolls_surface") as OperaNurseryCatch
+			if dolls_surface != null and is_instance_valid(dolls_surface):
+				var want_x: float = dolls_surface.lowest_baby_x()
+				if want_x < 0.0:
+					want_x = 0.5
+				var local_point := Vector2(
+					clampf(want_x, 0.1, 0.9) * dolls_surface.size.x,
+					dolls_surface.size.y * 0.72)
+				var drag_local := local_point + Vector2(0.5, 0.0)
+				var screen_point: Vector2 = \
+					dolls_surface.get_screen_transform() * local_point
+				var drag_screen: Vector2 = \
+					dolls_surface.get_screen_transform() * drag_local
+				var viewport := dolls_surface.get_viewport()
+				var touch_down := InputEventScreenTouch.new()
+				touch_down.index = 51
+				touch_down.position = screen_point
+				touch_down.pressed = true
+				viewport.push_input(touch_down, true)
+				var touch_drag := InputEventScreenDrag.new()
+				touch_drag.index = 51
+				touch_drag.position = drag_screen
+				touch_drag.relative = drag_screen - screen_point
+				viewport.push_input(touch_drag, true)
+				var touch_up := InputEventScreenTouch.new()
+				touch_up.index = 51
+				touch_up.position = drag_screen
+				touch_up.pressed = false
+				viewport.push_input(touch_up, true)
 		elif gname == "brawl":
 			# walk the plane to the nearest live imp (stick x AND depth y),
 			# pulse fresh tap edges inside pop range — Huluu's AI stuns are
@@ -459,10 +511,22 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 				main.touch_ui.stick_vec = Vector2(0.5, 0.0)   # walk to the next gate
 				main.touch_ui.action_down = false
 		elif gname == "seek":
-			if g.has("bushes") and g.has("which"):
-				var bush: Node3D = (g["bushes"] as Array)[int(g["which"])]
-				player.position = player.position.lerp(bush.position, 0.15)
-				player.vel = Vector3.ZERO
+			var seek_surface := g.get("seek_surface") \
+				as SeekGame.SeekMeadowSurface
+			if seek_surface != null and is_instance_valid(seek_surface) \
+					and not seek_surface.revealing:
+				var seek_target := seek_surface.bush_hit_rect(
+					int(g.get("which", 0))).get_center()
+				var seek_touch := InputEventScreenTouch.new()
+				seek_touch.index = 52
+				var seek_viewport: Viewport = seek_surface.get_viewport()
+				var seek_screen: Vector2 = seek_viewport.get_screen_transform() \
+					* (seek_surface.get_screen_transform() * seek_target)
+				seek_touch.position = seek_screen
+				seek_touch.pressed = true
+				seek_viewport.push_input(seek_touch, false)
+				seek_touch.pressed = false
+				seek_viewport.push_input(seek_touch, false)
 		elif gname == "slide":
 			# Exercise the deliberate lean that the downhill ride requires.
 			var weave: float = 0.65 if int(fcount / 45) % 2 == 0 else -0.65

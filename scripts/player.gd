@@ -179,7 +179,7 @@ var speed_lines: GPUParticles3D
 var speed_pm: ParticleProcessMaterial
 
 func _ready() -> void:
-	# Sprite3D is the only Roshan renderer. The retired GLB rig is never loaded.
+	# Sprite3D atlas frames are the only Roshan renderer.
 	classic_motion_root = Node3D.new()
 	classic_motion_root.name = "AlwaysAliveMotion"
 	add_child(classic_motion_root)
@@ -576,8 +576,8 @@ func _process(delta: float) -> void:
 		vel = Vector3.ZERO
 		return   # the icon-led Critter Book is a full-screen touch overlay
 	if "game" in _m0 and (String(_m0.game) == "slide" or String(_m0.game) == "fairyshoot" or String(_m0.game) == "kart" or String(_m0.game) == "galaxy" or String(_m0.game) == "combat" or String(_m0.game) == "stuffie" or String(_m0.game) == "dungeon" or String(_m0.game) == "dolls" or String(_m0.game) == "brawl" or String(_m0.game) == "dustboss"):
-		return   # these modes drive the player + camera themselves (dolls: the side-scroll
-		# stage; dustboss: the octagon boss arena). A stage-driven mode MISSING from this
+		return   # these modes own presentation or motion (dolls: its Canvas catcher
+		# freezes the hidden world; dustboss: the octagon boss arena). A mode MISSING from this
 		# list looks fine to every headless probe and is broken on the phone: the free-swim
 		# chase cam keeps re-aiming the lens after the stage has framed the ring
 		# (found by the 2026-08-02 boss stress test's visual pass).

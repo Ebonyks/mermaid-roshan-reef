@@ -57,6 +57,12 @@ func _init() -> void:
 		and String((world.phases[0] as Dictionary).get("mode", "")) == "hold"
 		and String((world.phases[0] as Dictionary).get("widget", "missing")).is_empty()
 		and world.surface.visual_context == "nursery_wash")
+	_check_all_phase_reprompts(world)
+	# The diegetic-room build now starts WASH HANDS behind its lit basin.
+	# Open that task explicitly before exercising the distinct task-open idle
+	# branch; the later FEED check intentionally remains station-closed.
+	_open_armed_task(world)
+	_check_timed_reprompt(world, "open-task re-prompt", true)
 
 	_pump(world)
 	# Each new care beat now waits behind its own lit room object. The broad
@@ -94,6 +100,12 @@ func _init() -> void:
 		hold_guard += 1
 	_check("one-finger steering catches all five babies after safe misses",
 		catcher.caught == 5 and world.phase_index == 2)
+	world.phase_gap = 0.0
+	_check("feeding waits at its painted station before the bottle opens",
+		not world.task_open
+		and String((world.phases[world.phase_index] as Dictionary).get(
+			"name", "")) == "FEED")
+	_check_timed_reprompt(world, "waiting-at-station re-prompt", false)
 	# Opening the freshly armed task configures its direct causal surface without
 	# crediting progress. This proves the approved bottle is the runtime branch,
 	# rather than the old copied baby card or the code fallback.
@@ -175,6 +187,62 @@ func _phase_names(world: OperaCareerWorld2D) -> Array[String]:
 	for phase: Dictionary in world.phases:
 		names.append(String(phase.get("name", "")))
 	return names
+
+
+func _check_all_phase_reprompts(world: OperaCareerWorld2D) -> void:
+	var saved_phase_index: int = world.phase_index
+	for index: int in range(world.phases.size()):
+		var phase := world.phases[index] as Dictionary
+		var speaker: String = String(phase.get("speaker", "Roshan"))
+		var speaker_key: String = main._speaker_key(speaker)
+		var vo: String = String(phase.get("vo", "hint"))
+		var cue_key := "%s_%s" % [speaker_key, vo]
+		var expected_path := "res://assets/audio/voices/%s.ogg" % cue_key
+		main.clear_dialogue()
+		main.said_cool.erase(cue_key)
+		var before: int = main.voice_i
+		world.phase_index = index
+		world._repeat_phase_prompt()
+		var actual_path := _last_voice_path()
+		_check("%s re-prompt preserves speaker and cue" % String(phase.get("name", index)),
+			main.voice_i == before + 1 and actual_path == expected_path)
+		if speaker == "Faron":
+			_check("%s re-prompt selects exact Faron clip" % String(phase.get("name", index)),
+				actual_path == expected_path and expected_path.begins_with(
+					"res://assets/audio/voices/faron_op_nursery_"))
+	world.phase_index = saved_phase_index
+	main.clear_dialogue()
+
+
+func _check_timed_reprompt(world: OperaCareerWorld2D, label: String,
+		expected_task_open: bool) -> void:
+	var phase := world.phases[world.phase_index] as Dictionary
+	var speaker_key: String = main._speaker_key(String(phase.get("speaker", "Roshan")))
+	var vo: String = String(phase.get("vo", "hint"))
+	var cue_key := "%s_%s" % [speaker_key, vo]
+	main.clear_dialogue()
+	main.said_cool.erase(cue_key)
+	world.reveal_t = 0.0
+	world.phase_advance_pending = false
+	world.idle_t = 8.95
+	var before: int = main.voice_i
+	world._process(0.1)
+	_check(label + " exercises the intended idle branch",
+		world.task_open == expected_task_open)
+	_check(label + " uses active phase identity and exact cue",
+		main.voice_i == before + 1
+		and _last_voice_path() == "res://assets/audio/voices/%s.ogg" % cue_key)
+	main.clear_dialogue()
+
+
+func _last_voice_path() -> String:
+	if main.voice_i <= 0 or main.voice_pool.is_empty():
+		return "missing"
+	var index := posmod(main.voice_i - 1, main.voice_pool.size())
+	var player := main.voice_pool[index] as AudioStreamPlayer
+	if player == null or player.stream == null:
+		return "missing"
+	return player.stream.resource_path
 
 
 func _check(label: String, condition: bool) -> void:

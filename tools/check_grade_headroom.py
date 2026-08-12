@@ -195,7 +195,9 @@ def main(argv):
 
 	table = build_profile_table()
 	failures = []
-	print(f"{'zone':16s} {'n':>4s} | {'clip% in→out':>16s} | {'crush% in→out':>16s} | budget")
+	# Keep gate output ASCII-safe: Windows automation commonly inherits a
+	# cp1252 console, where the Unicode arrow raises before any audit can run.
+	print(f"{'zone':16s} {'n':>4s} | {'clip% in->out':>16s} | {'crush% in->out':>16s} | budget")
 	print("-" * 78)
 	for zone, (profile, globs, max_clip, max_crush) in ZONES.items():
 		if profile not in table:
@@ -212,8 +214,8 @@ def main(argv):
 		ok_clip = r[1] <= max_clip
 		ok_crush = r[3] <= max_crush
 		flag = "" if (ok_clip and ok_crush) else "   <-- OVER BUDGET"
-		print(f"{zone:16s} {min(len(paths),80):4d} | {r[0]:6.2f} → {r[1]:6.2f}   | "
-			f"{r[2]:6.2f} → {r[3]:6.2f}   | clip<={max_clip} crush<={max_crush}{flag}")
+		print(f"{zone:16s} {min(len(paths),80):4d} | {r[0]:6.2f} -> {r[1]:6.2f}   | "
+			f"{r[2]:6.2f} -> {r[3]:6.2f}   | clip<={max_clip} crush<={max_crush}{flag}")
 		if not ok_clip:
 			failures.append(
 				f"{zone}: {r[1]:.2f}% of pixels clip a channel on screen "
@@ -225,14 +227,14 @@ def main(argv):
 
 	for zone in REPORT_ONLY:
 		if zone in table:
-			print(f"{zone:16s}    - | (report only — deliberate art direction, "
+			print(f"{zone:16s}    - | (report only -- deliberate art direction, "
 				f"probe-locked)")
 
 	if failures:
 		print("\nGRADE HEADROOM FAIL")
 		for f in failures:
 			print(f"  - {f}")
-		print("\nSee LIGHTING_2P5D_AUDIT_2026-08-02.md §1.7 / §E1.")
+		print("\nSee LIGHTING_2P5D_AUDIT_2026-08-02.md sections 1.7 / E1.")
 		return 0 if a.report else 1
 	print("\nGRADE HEADROOM OK")
 	return 0

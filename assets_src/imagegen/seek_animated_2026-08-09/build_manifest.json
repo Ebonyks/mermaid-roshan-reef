@@ -1,0 +1,372 @@
+{
+  "actors": {
+    "evie": {
+      "atlas": {
+        "cell_size": [
+          256,
+          256
+        ],
+        "edge_despill": {
+          "maximum_removed_channel_value": 255,
+          "pixels": 3461,
+          "radius": 8
+        },
+        "grid": [
+          4,
+          2
+        ],
+        "removed_fragment_pixels": [
+          6,
+          92,
+          644,
+          1580,
+          4,
+          380,
+          1507,
+          32
+        ],
+        "runtime_cell_boxes": [
+          [
+            69,
+            10,
+            197,
+            240
+          ],
+          [
+            64,
+            10,
+            197,
+            239
+          ],
+          [
+            59,
+            10,
+            197,
+            239
+          ],
+          [
+            59,
+            10,
+            194,
+            246
+          ],
+          [
+            68,
+            10,
+            197,
+            246
+          ],
+          [
+            71,
+            10,
+            197,
+            245
+          ],
+          [
+            59,
+            10,
+            197,
+            246
+          ],
+          [
+            59,
+            10,
+            189,
+            246
+          ]
+        ],
+        "scale": 0.43947858,
+        "source_cell_boxes": [
+          [
+            27,
+            82,
+            314,
+            599
+          ],
+          [
+            16,
+            83,
+            313,
+            597
+          ],
+          [
+            0,
+            83,
+            313,
+            597
+          ],
+          [
+            6,
+            85,
+            303,
+            618
+          ],
+          [
+            25,
+            27,
+            314,
+            562
+          ],
+          [
+            32,
+            27,
+            313,
+            556
+          ],
+          [
+            6,
+            27,
+            313,
+            563
+          ],
+          [
+            0,
+            29,
+            291,
+            564
+          ]
+        ],
+        "source_row_unions": [
+          [
+            0,
+            82,
+            314,
+            618
+          ],
+          [
+            0,
+            27,
+            314,
+            564
+          ]
+        ]
+      },
+      "chroma": {
+        "border_connected_pixels": 1007704,
+        "declared_key": [
+          0,
+          255,
+          0
+        ],
+        "partial_pixels": 39663,
+        "sampled_key": [
+          5,
+          248,
+          6
+        ],
+        "transparent_pixels": 968041
+      },
+      "output": "assets/minigames/seek/evie_animation.png",
+      "output_dimensions": [
+        1024,
+        512
+      ],
+      "output_sha256": "705cb95a4a1d0226f9554327947fd2956e131535f2e89f953a94970052030ce9",
+      "portrait": {
+        "output": "assets/minigames/seek/evie_portrait.png",
+        "output_dimensions": [
+          256,
+          256
+        ],
+        "output_sha256": "1db5672d3b16bb4b962ee7384a80d5f95984206e019d7e08d6758c37cbac1637"
+      },
+      "source": "assets_src/imagegen/seek_animated_2026-08-09/evie_atlas_chroma.png",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_sha256": "2b1cd2703388f14525603146545d7b9299e53d68e0d0ead449b3a5d85fe40597"
+    },
+    "lamma": {
+      "atlas": {
+        "cell_size": [
+          256,
+          256
+        ],
+        "edge_despill": {
+          "maximum_removed_channel_value": 255,
+          "pixels": 2527,
+          "radius": 8
+        },
+        "grid": [
+          4,
+          2
+        ],
+        "removed_fragment_pixels": [
+          45,
+          29,
+          14,
+          27,
+          57,
+          65,
+          112,
+          30
+        ],
+        "runtime_cell_boxes": [
+          [
+            49,
+            50,
+            206,
+            246
+          ],
+          [
+            49,
+            50,
+            205,
+            246
+          ],
+          [
+            49,
+            50,
+            205,
+            246
+          ],
+          [
+            49,
+            50,
+            206,
+            246
+          ],
+          [
+            50,
+            77,
+            211,
+            240
+          ],
+          [
+            46,
+            19,
+            204,
+            215
+          ],
+          [
+            44,
+            10,
+            203,
+            207
+          ],
+          [
+            44,
+            68,
+            211,
+            246
+          ]
+        ],
+        "scale": 0.5437788,
+        "source_cell_boxes": [
+          [
+            14,
+            196,
+            297,
+            554
+          ],
+          [
+            11,
+            198,
+            295,
+            552
+          ],
+          [
+            11,
+            197,
+            292,
+            554
+          ],
+          [
+            9,
+            199,
+            294,
+            556
+          ],
+          [
+            15,
+            155,
+            308,
+            448
+          ],
+          [
+            8,
+            50,
+            293,
+            402
+          ],
+          [
+            4,
+            29,
+            291,
+            387
+          ],
+          [
+            0,
+            139,
+            308,
+            463
+          ]
+        ],
+        "source_row_unions": [
+          [
+            9,
+            196,
+            297,
+            556
+          ],
+          [
+            0,
+            29,
+            308,
+            463
+          ]
+        ]
+      },
+      "chroma": {
+        "border_connected_pixels": 996936,
+        "declared_key": [
+          255,
+          0,
+          255
+        ],
+        "partial_pixels": 40200,
+        "sampled_key": [
+          238,
+          22,
+          232
+        ],
+        "transparent_pixels": 956736
+      },
+      "output": "assets/minigames/seek/lamma_animation.png",
+      "output_dimensions": [
+        1024,
+        512
+      ],
+      "output_sha256": "4ff1c9748e68853879211c825ffc8c45b7388c8da7b17cf0a44c6cd320dd7f8c",
+      "source": "assets_src/imagegen/seek_animated_2026-08-09/lamma_atlas_chroma.png",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_sha256": "7f38bb41209073f38aaec2cd4a99ed609154da71b02a383e89bfa58548a051fa"
+    }
+  },
+  "cell_size": [
+    256,
+    256
+  ],
+  "frame_rows": {
+    "evie": [
+      "idle_hover",
+      "point_giggle_cheer"
+    ],
+    "lamma": [
+      "idle_breathe",
+      "peek_hop_celebrate"
+    ]
+  },
+  "grid": [
+    4,
+    2
+  ],
+  "prompt_record": "assets_src/imagegen/seek_animated_2026-08-09/PROMPTS.md",
+  "prompt_record_sha256": "f8afccaca16a3019d2c6fb0045f6b98887e8a222f707140ccc13d59f6d0d7ab0",
+  "purpose": "true_canvas_seek_animated_actors",
+  "schema_version": 1
+}

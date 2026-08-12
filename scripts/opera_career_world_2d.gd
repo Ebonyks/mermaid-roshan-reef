@@ -184,7 +184,7 @@ const LEGACY_PHASES := {
 		{"name": "TUNE UP", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_racer_tune_up", "voice": "Turn the wrench in big circles — tighten every wheel before the race!"},
 		{"name": "TO THE LINE", "icon": "↔", "mode": "swipe", "goal": 6.0, "vo": "op_racer_to_the_line", "voice": "Push the kart all the way out to the starting line!"},
 		{"name": "TROPHY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_racer_trophy_chase", "voice": "The imp captain grabbed the shell trophy and jumped into his kart! Clear the track!"},
-		{"name": "RACE!", "icon": "★", "mode": "kart", "goal": 1.0, "vo": "op_racer_race", "voice": "After him! Pick your ride and race through the rainbow!"},
+		{"name": "RACE!", "icon": "★", "mode": "circle", "widget": "", "goal": 1.0, "vo": "op_racer_lap_two", "voice": "Loop the loop! Draw big racing circles!"},
 	],
 	"nursery": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_nursery_imps", "voice": "Mischief imps are tickling the babies awake! Tap each imp!"},
@@ -291,9 +291,9 @@ const PHASES := {
 		{"name": "LAUNCH", "mode": "hold", "goal": 4.5, "vo": "op_astronaut_launch", "voice": "Hold through the countdown and launch!"},
 	],
 	"racer": [
-		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_lap_two", "voice": "Draw big racing circles to turn the wrench!"},
-		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_steer", "voice": "Swipe the kart toward the pearl starting arch!"},
-		{"name": "RACE", "mode": "kart", "goal": 1.0, "vo": "op_racer_finish", "voice": "Race through the zoom strips and cross the finish line!"},
+		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_tune_up", "voice": "Turn the wrench to finish the pit stop!"},
+		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_to_the_line", "voice": "Push the kart to the pearl starting arch!"},
+		{"name": "RACE", "mode": "circle", "widget": "", "goal": 0.9, "vo": "op_racer_lap_two", "voice": "Loop the loop! Draw big racing circles!"},
 	],
 	"nursery": [
 		{"name": "WASH HANDS", "mode": "hold", "widget": "", "visual_context": "nursery_wash", "goal": 3.4, "vo": "op_nursery_wash", "voice": "Hold the bubbly basin to wash your hands first!"},
@@ -327,7 +327,7 @@ const FINALE_START := {
 }
 
 ## Stable landmark IDs keep every task attached to the painted object that
-## explains it. Even lens/combat/kart/catch beats begin from a physical room
+## explains it. Even specialist full-stage beats begin from a physical room
 ## object; their stage-wide play only starts after Roshan reaches it.
 const PHASE_STATIONS := {
 	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
@@ -416,18 +416,10 @@ var ballet_instruction_repeats := 0
 ## dwell), when she taps the lit marker, or on any card gesture (which is
 ## also the probes' pump path, so every existing drive still works).
 var task_open := true
-## The racer finale rides the game's own 3D kart engine (owner 2026-08-04).
-## Headless probes get a pump-completable 2D beat instead; on device the
-## 2D world pauses, the kart runs a one-lap pursuit, and EVERY finishing
-## place — including a watching child's — wins the trophy back.
-const OPERA_SPRINT_CTRL := [
-	Vector3(0, 6, 150), Vector3(105, 10, 105), Vector3(150, 22, 0),
-	Vector3(105, 34, -105), Vector3(0, 26, -150), Vector3(-105, 14, -105),
-	Vector3(-150, 10, 0), Vector3(-105, 6, 105),
-]
-var race_active := false
-var kart_node: Node = null
-var race_touch_was := false
+## The racer finale stays inside this Canvas world. The same large circle
+## grammar used by TUNE UP becomes a steering turn on the supplied painted
+## race stage; every honest turn wins the stolen trophy back, with no timer,
+## placement requirement, or fail branch.
 ## Gentle-pace gate (nursery BURP): taps faster than the phase "pace" pay
 ## nothing — the baby just bounces. Restraint is the skill being taught.
 var pace_cool := 0.0
@@ -824,7 +816,7 @@ func _load_if_exists(path: String) -> Texture2D:
 
 
 func _build_lens_zoom_surface() -> void:
-	# Mobile has no CompositorEffect path, but its Canvas renderer supports a
+	# Mobile has no spatial post-process path, but its Canvas renderer supports a
 	# screen-texture sample. One small circular ColorRect therefore gives the
 	# glass honest optical zoom without duplicating the 2048px tiled backdrop.
 	var shader := Shader.new()
@@ -1345,8 +1337,6 @@ func _widget_template(phase: Dictionary) -> String:
 			return ""
 		"talk":
 			return ""
-		"kart":
-			return ""
 		"boxing_guide", "boxing_jab", "boxing_guard", "boxing_imp", "boxing_belt":
 			return ""
 		"echo":
@@ -1553,8 +1543,6 @@ func _open_task() -> void:
 	if career_id == "magician" and mode_name == "choice":
 		# the shuffle the fiction always promised: glow glides into its lane
 		surface.start_shuffle((choice_target + 1 + (phase_index % 2)) % 3)
-	if mode_name == "kart":
-		_start_kart_race()
 	if mode_name == "talk":
 		var lines: Array = phase.get("lines", [])
 		talk_t = 0.6
@@ -1590,6 +1578,17 @@ func _activity_reveal_pivot() -> Vector2:
 		clampf(local_anchor.y, 18.0, action_panel.size.y - 18.0))
 
 
+func _repeat_phase_prompt() -> void:
+	if m == null or phase_index < 0 or phase_index >= phases.size():
+		return
+	var phase := phases[phase_index] as Dictionary
+	m.show_msg(
+		String(phase.get("speaker", "Roshan")),
+		String(phase.get("voice", "Follow the golden sparkle!")),
+		String(phase.get("vo", "hint"))
+	)
+
+
 func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
@@ -1617,7 +1616,7 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 			_stage_player_clear_of_activity()
 		action_panel.queue_redraw()
 		return
-	if mode == "bop" or mode == "lens" or mode == "talk" or mode == "kart":
+	if mode == "bop" or mode == "lens" or mode == "talk":
 		# stage-wide beats play on the painting itself — no card at all
 		action_panel.visible = false
 		return
@@ -2074,8 +2073,7 @@ func _repeat_ballet_instruction() -> void:
 		# existing family recording clearly hands the turn to the child.
 		m.show_msg("Roshan", "Tap the glowing dance pose!", "op_ballerina_steps")
 		return
-	m.show_msg("Roshan", String(phase.get("voice", "Follow the glowing pearl!")),
-		String(phase.get("vo", "hint")))
+	_repeat_phase_prompt()
 
 
 func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
@@ -3201,9 +3199,6 @@ func _draw_lens_layer() -> void:
 
 func _process(delta: float) -> void:
 	elapsed += delta
-	if race_active:
-		# the 2D world sleeps while the 3D lap runs
-		return
 	if phase_advance_pending:
 		phase_complete_t = maxf(0.0, phase_complete_t - delta)
 		if phase_complete_t <= 0.0:
@@ -3248,11 +3243,7 @@ func _process(delta: float) -> void:
 				# re-prompt with the phase's OWN recorded line — the hardcoded
 				# "hint" event has no recording, so a quiet child used to get
 				# a content-free pitched yay instead of her instruction again
-				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
-					String((phases[phase_index] as Dictionary).get("vo", "hint")))
-				var hotspot := _active_hotspot()
-				if hotspot != null:
-					hotspot.restart_invitation()
+				_repeat_phase_prompt()
 		elif idle_t >= task_hint_delay:
 			idle_t = 0.0
 			var idle_mode := String((phases[phase_index] as Dictionary).get("mode", ""))
@@ -3266,9 +3257,8 @@ func _process(delta: float) -> void:
 				# uses the phase line here at the seven-second rehint.
 				if idle_mode != "ballet_pose":
 					_repeat_ballet_instruction()
-			elif m != null:
-				m.show_msg("Roshan", String((phases[phase_index] as Dictionary).get("voice", "Follow the golden sparkle!")),
-					String((phases[phase_index] as Dictionary).get("vo", "hint")))
+			else:
+				_repeat_phase_prompt()
 	timing_phase = fmod(timing_phase + delta * minf(0.70, 0.55 + 0.02 * float(phase_index)), 2.0)
 	var marker := timing_phase if timing_phase <= 1.0 else 2.0 - timing_phase
 	surface.set_timing_position(marker)
@@ -3322,20 +3312,6 @@ func close() -> void:
 	if m != null:
 		# story lines queued by talk beats must not drain into the lagoon
 		m.clear_dialogue()
-	if kart_node != null and is_instance_valid(kart_node):
-		# the kart's own teardown restores environment and camera and fires
-		# the finish callback (harmless here: active is already false)
-		kart_node._teardown(-1)
-		kart_node = null
-	if race_active:
-		race_active = false
-		root.visible = true
-		if m != null:
-			if m.game == "kart":
-				m.game = "opera"
-			m.kart_game = null
-			if m.touch_ui != null:
-				m.touch_ui.visible = race_touch_was
 	if wander_layer != null:
 		wander_layer.visible = false
 		wander_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -3453,64 +3429,3 @@ func _finish_wander_route() -> void:
 		return
 	hotspot_opening = true
 	hotspot.play_opening()
-
-
-func _start_kart_race() -> void:
-	# PROBE-ONLY path: headless (or OPERA_FORCE_2D) skips the 3D lap and the
-	# beat completes through the normal gesture pump. There is NO separate
-	# 2D race minigame — on a real tablet the kart always runs.
-	if m == null or DisplayServer.get_name() == "headless" \
-			or OS.get_environment("OPERA_FORCE_2D") == "1":
-		return
-	race_touch_was = m.touch_ui != null and m.touch_ui.visible
-	# pre-commit so the reef's kart medals, stickers and Galaxy unlock can
-	# never double-award from an opera race (guard verified in main.gd)
-	m.kart_completion_committed = true
-	kart_node = (load("res://scripts/kart.gd") as GDScript).new()
-	m.add_child(kart_node)
-	kart_node.configure({
-		"theme": "rainbow",
-		"ground": "float",
-		"laps": 1,
-		"lap_target_sec": 40.0,
-		"road_half": 13.2,
-		"ctrl": OPERA_SPRINT_CTRL,
-		"origin": Vector3(0.0, 3300.0, 0.0),
-		"pearl_payout": false,
-		"minimal_hud": true,
-		"assume_acted": true,
-	})
-	kart_node.start(m, _opera_race_done)
-	# only after the kart is running does the 2D world step aside — nothing
-	# above may leave the child on a blank, unresponsive screen
-	race_active = true
-	root.visible = false
-	if m.touch_ui != null:
-		m.touch_ui.visible = true
-	# main.gd suspends the reef/lagoon simulation ONLY for game == "kart" —
-	# the heaviest frame in the game must not tick the whole world under it
-	m.game = "kart"
-	m.kart_game = kart_node
-
-
-func _opera_race_done(_place: int) -> void:
-	# EVERY child wins the trophy — fast children also win the race. Back in
-	# 2D the captain's kart-cart wobbles and the trophy bounces free to her.
-	kart_node = null
-	race_active = false
-	root.visible = true
-	if m != null:
-		m.game = "opera"
-		m.kart_game = null
-		if m.touch_ui != null:
-			m.touch_ui.visible = race_touch_was
-	if prop_rect != null and prop_rect.texture != null:
-		prop_rect.visible = true
-		prop_rect.scale = Vector2.ONE
-		_bounce_actor(prop_rect, 30.0, 0.5)
-	if active and phase_index < phases.size():
-		phase_progress = maxf(phase_progress, float((phases[phase_index] as Dictionary).get("goal", 1.0)))
-		surface.accept_completion()
-		_play_roshan_animation("cheer")
-		phase_complete_t = 1.2
-		phase_advance_pending = true

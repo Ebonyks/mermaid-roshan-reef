@@ -69,14 +69,10 @@ const WANTS := [
 const WANT_GAP_MIN := 45.0        # quiet time between fulfilled want and the next ask
 const WANT_GAP_MAX := 75.0
 const LEVEL_EVERY := 4            # care points per level-up celebration
-# THE GENTLE FAILURE (owner 2026-07-21): a big battle earns a hug + bubble
-# bath. If the stuffie came home with boo-boos and that care never arrives,
-# it eventually goes home to its Studio shelf to rest — Roshan walks back to
-# the castle and picks a friend again (the same one included). Nothing else
-# is ever lost: care points, captures and colours all keep.
-const REST_PATIENCE := 120.0      # generous seconds of free-roam before an injured stuffie heads home
-const REST_WARN_1 := 60.0         # first "needs care" reminder
-const REST_WARN_2 := 25.0         # last-chance reminder
+# Post-battle care is an invitation, never a countdown. A gentle reminder may
+# repeat while boo-boos remain, but waiting can never remove the friend, block
+# play, erase progress, or add emotional pressure.
+const CARE_REMINDER_GAP := 60.0
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -209,8 +205,6 @@ func tick(delta: float) -> void:
 	# action instead, so no companion world geometry is built in the hall phase.
 	if m.companion_id == "":
 		return
-	if m.companion_resting:
-		return   # tuckered out: home on its Studio shelf until re-picked there
 	# ZONE WATCH (owner 2026-07-20: "sometimes gets lost"): whenever the game
 	# context flips (reef ↔ lagoon ↔ castle ↔ north ↔ any engine and back),
 	# snap the stuffie straight to Roshan's side — never left behind, never
@@ -255,9 +249,7 @@ func _sync_menu_button() -> void:
 		return
 	var icon := "🧸"
 	var kind := "secondary"
-	if m.companion_resting:
-		icon = "💤"
-	elif m.companion_bruises > 0:
+	if m.companion_bruises > 0:
 		icon = "🩹"
 		kind = "action"
 	elif m.companion_want != "":
@@ -294,9 +286,7 @@ func open_care_menu() -> void:
 		m.player.vel = Vector3.ZERO
 	_draw_care_menu()
 	var d := active_def()
-	if m.companion_resting:
-		m.show_msg(String(d["name"]), "I'm cozy at home on my castle shelf. Come pick me up when you're ready!", "talk")
-	elif m.companion_want != "":
+	if m.companion_want != "":
 		var w := want_def(m.companion_want)
 		m.show_msg(String(d["name"]), String(w.get("ask", "Tap what I need!")) % String(d["name"]), "talk")
 	elif not m.companion_want_queue.is_empty():
@@ -368,7 +358,7 @@ func _draw_care_menu() -> void:
 	paint.custom_minimum_size = Vector2(310, 112)
 	paint.size = Vector2(310, 112)
 	StorybookUI.style_button(paint, "secondary", 28, 30)
-	paint.disabled = m.companion_resting or m.companion_care_t > 0.0 \
+	paint.disabled = m.companion_care_t > 0.0 \
 		or not bool(d.get("paintable", true))
 	paint.pressed.connect(_care_open_studio)
 	stage_control.add_child(paint)
@@ -389,9 +379,6 @@ func _draw_care_menu() -> void:
 	if m.companion_care_t > 0.0:
 		need_icon = "✨"
 		need_text = "A happy care moment is happening!"
-	elif m.companion_resting:
-		need_icon = "💤"
-		need_text = "Cozy at home on the castle shelf"
 	elif m.companion_bruises > 0:
 		need_icon = "🩹"
 		need_text = "A hug and bubbles make boo-boos better"
@@ -414,7 +401,7 @@ func _draw_care_menu() -> void:
 		StorybookUI.style_icon_button(care, String(want["emoji"]),
 			"primary" if String(want["id"]) == asked else "secondary",
 			Vector2(126, 132), String(want["id"]))
-		care.disabled = m.companion_resting or m.companion_care_t > 0.0
+		care.disabled = m.companion_care_t > 0.0
 		care.pressed.connect(_choose_menu_care.bind(String(want["id"])))
 		stage_control.add_child(care)
 	var hint := Label.new()
@@ -439,9 +426,6 @@ func _choose_menu_care(id: String) -> void:
 		return
 	close_care_menu()
 	var d := active_def()
-	if m.companion_resting:
-		m.show_msg("Roshan", "%s is resting at the castle! Let's visit the Stuffie Studio." % String(d["name"]), "talk")
-		return
 	if not _follow_ctx():
 		m.show_msg(String(d["name"]), "I'll come out to play after this game!", "talk")
 		return
@@ -469,7 +453,7 @@ func _choose_menu_care(id: String) -> void:
 		m.show_msg(String(d["name"]), "I love that! You're the best!", "talk")
 
 func _care_open_studio() -> void:
-	if m.companion_resting or m.companion_care_t > 0.0:
+	if m.companion_care_t > 0.0:
 		return
 	close_care_menu()
 	open_picker(true, m.companion_id, "studio")
@@ -692,8 +676,7 @@ func _confirm_pick() -> void:
 		m.companion_room_rows = []
 	if not studio_change:
 		# A chest swap resets pending wants (care progress itself is shared —
-		# Roshan's nurturing grows whichever friend she carries). Re-picking
-		# the resting friend from the chest wakes it without losing progress.
+		# Roshan's nurturing grows whichever friend she carries).
 		m.companion_want = ""
 		m.companion_care_t = -1.0
 		if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
@@ -703,7 +686,6 @@ func _confirm_pick() -> void:
 		m.companion_want_queue = []
 		m.companion_bruises = 0
 		m.companion_rest_timer = -1.0
-		m.companion_rest_warned = 0
 		m.companion_resting = false
 		m.companion_greeted = false
 	m._write_save()
@@ -1000,7 +982,7 @@ func _tick_room(_delta: float) -> void:
 			marker.modulate.a = 0.72 + sin(now * 3.0 + float(row["phase"])) * 0.22
 		if is_instance_valid(heart):
 			heart.visible = mine
-			heart.text = "💤" if (mine and m.companion_resting) else "💗"
+			heart.text = "💗"
 		var dist: float = node.global_position.distance_to(m.player.position)
 		if dist < best_d:
 			best_d = dist
@@ -1317,9 +1299,9 @@ func want_def(id: String) -> Dictionary:
 	return {}
 
 func after_battle(announce: bool = true) -> void:
-	# every big battle earns a hug + bubble bath; while boo-boos remain the
-	# patience clock runs — care heals them, silence sends the stuffie home
-	if m.companion_id == "" or m.companion_resting:
+	# Every big battle earns a hug + bubble bath. Boo-boos wait patiently until
+	# the child chooses care; the timer below only schedules gentle reminders.
+	if m.companion_id == "":
 		return
 	m.companion_want = ""
 	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
@@ -1329,8 +1311,7 @@ func after_battle(announce: bool = true) -> void:
 	m.companion_want_queue = ["cuddle", "bath"]
 	m.companion_want_cool = 1.5
 	if m.companion_bruises > 0:
-		m.companion_rest_timer = REST_PATIENCE
-		m.companion_rest_warned = 0
+		m.companion_rest_timer = CARE_REMINDER_GAP
 		if announce:
 			var d := active_def()
 			m.show_msg(String(d["name"]), "What a big battle! I have boo-boos... I need a hug and a bubble bath!", "talk")
@@ -1348,26 +1329,21 @@ func _tick_care(delta: float) -> void:
 	var tapped: bool = action and not m.companion_care_action_prev
 	m.companion_care_action_prev = action
 	# Opening the care sheet is already an attempt to help. Freeze asks and the
-	# post-battle patience clock until a choice is made or the sheet is closed.
+	# reminder clock until a choice is made or the sheet is closed.
 	if m.companion_care_layer != null:
 		return
 	# reloaded mid-injury (or came back before the queue ran): re-ask kindly
 	if m.companion_bruises > 0 and m.companion_want_queue.is_empty() \
 			and m.companion_want == "" and m.companion_rest_timer < 0.0:
 		after_battle(false)
-	# the injured patience clock — only ticks while she can actually help
+	# A reminder clock only ticks while she can actually help. It loops forever;
+	# it never changes availability, progress, bruises, or companion presence.
 	if m.companion_bruises > 0 and m.companion_rest_timer > 0.0 and m.companion_care_t <= 0.0:
 		m.companion_rest_timer -= delta
-		var d := active_def()
-		if m.companion_rest_timer <= REST_WARN_2 and m.companion_rest_warned < 2:
-			m.companion_rest_warned = 2
-			m.show_msg(String(d["name"]), "I'm really hurting... one more minute and I'll go home to rest. Please tap me for care!", "talk")
-		elif m.companion_rest_timer <= REST_WARN_1 and m.companion_rest_warned < 1:
-			m.companion_rest_warned = 1
-			m.show_msg(String(d["name"]), "My boo-boos still hurt... I need my hug and bath, please!", "talk")
 		if m.companion_rest_timer <= 0.0:
-			_go_home_to_rest()
-			return
+			m.companion_rest_timer = CARE_REMINDER_GAP
+			var d := active_def()
+			m.show_msg(String(d["name"]), "Whenever you're ready, tap me for a hug and bubble bath!", "talk")
 	# a care moment in progress owns the stuffie for a beat
 	if m.companion_care_t > 0.0:
 		m.companion_care_t -= delta
@@ -1486,25 +1462,6 @@ func _pal_bounce(peak: float) -> void:
 	tw.tween_property(pal, "scale", base * peak, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tw.tween_property(pal, "scale", base, 0.45).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
-func _go_home_to_rest() -> void:
-	# the gentle failure lands: sparkle-poof home to the Studio shelf
-	var d := active_def()
-	if m.companion_node != null and is_instance_valid(m.companion_node):
-		m._sparkle_burst(m.companion_node.position + Vector3(0, 2.0, 0), Color(0.75, 0.8, 1.0))
-		m.companion_node.queue_free()
-	m.companion_node = null
-	if m.companion_want_bubble != null and is_instance_valid(m.companion_want_bubble):
-		m.companion_want_bubble.queue_free()
-	m.companion_want_bubble = null
-	m.companion_want = ""
-	m.companion_want_queue = []
-	m.companion_care_t = -1.0
-	m.companion_rest_timer = -1.0
-	m.companion_bruises = 0
-	m.companion_resting = true
-	m.show_msg(String(d["name"]), "My boo-boos hurt too much... I'm going home to my shelf to rest. Come get me at the castle!", "talk")
-	m._write_save()
-
 func _finish_care() -> void:
 	var w := want_def(m.companion_want)
 	var d := active_def()
@@ -1517,7 +1474,6 @@ func _finish_care() -> void:
 	if m.companion_bruises > 0 and m.companion_want_queue.is_empty():
 		m.companion_bruises = 0
 		m.companion_rest_timer = -1.0
-		m.companion_rest_warned = 0
 		if m.companion_node != null and is_instance_valid(m.companion_node):
 			for i in range(6):
 				var a: float = TAU * float(i) / 6.0

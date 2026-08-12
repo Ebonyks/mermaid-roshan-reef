@@ -3,6 +3,7 @@ extends SceneTree
 
 const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
 const ROSHAN_FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
+const Affordance := preload("res://scripts/interaction_affordance.gd")
 
 var failed := false
 
@@ -18,6 +19,16 @@ func _check(label: String, ok: bool, detail: String = "") -> void:
 func _frames(count: int) -> void:
 	for _i in range(count):
 		await process_frame
+
+func _capture_playground_frame(name: String) -> void:
+	var out_dir: String = OS.get_environment("PLAYGROUND_SHOT_OUT")
+	if out_dir == "":
+		return
+	DirAccess.make_dir_recursive_absolute(out_dir)
+	await RenderingServer.frame_post_draw
+	var image: Image = get_root().get_viewport().get_texture().get_image()
+	var error: Error = image.save_png(out_dir.path_join(name + ".png"))
+	_check("capture_%s" % name, error == OK)
 
 func _opaque_world_rect(sprite: Sprite3D) -> Rect2:
 	var image: Image = sprite.texture.get_image()
@@ -36,6 +47,68 @@ func _sprite_pixel_world(sprite: Sprite3D, pixel: Vector2) -> Vector2:
 		(size.y * 0.5 - pixel.y) * sprite.pixel_size * sprite.scale.y)
 	return Vector2(sprite.position.x, sprite.position.y) + local.rotated(
 		sprite.rotation.z)
+
+
+func _unique_texture_bytes(texture: Texture2D, seen: Dictionary) -> int:
+	if texture == null:
+		return 0
+	var key: String = texture.resource_path
+	if key == "":
+		key = str(texture.get_rid())
+	if seen.has(key):
+		return 0
+	seen[key] = true
+	var image: Image = texture.get_image()
+	return image.get_data_size() if image != null else 0
+
+func _complete_playground_action(main: ReefMain,
+		promenade: SkyLagoonPromenade, card: Sprite3D) -> Dictionary:
+	# Cross the real duration boundary in two close samples, then follow the
+	# visible card through its short settle. This catches the former same-frame
+	# teleport and the giggle mistakenly played on the hidden Player renderer.
+	var play: Dictionary = main.g.get("lagoon_play_anim", {}) as Dictionary
+	var remaining: float = float(play.get("dur", 0.0)) \
+		- float(play.get("t", 0.0)) - 0.01
+	if remaining > 0.0:
+		promenade._tick_playground_animation(remaining)
+	var before_boundary: Vector3 = card.position
+	var card_id: int = card.get_instance_id()
+	var celebration_count: int = int(
+		main.g.get("lagoon_visible_roshan_celebrations", 0))
+	main.player.verb = ""
+	promenade._tick_playground_animation(0.02)
+	play = main.g.get("lagoon_play_anim", {}) as Dictionary
+	var settle_start: Vector3 = card.position
+	var started: bool = String(play.get("phase", "")) == "settle"
+	var continuous: bool = before_boundary.distance_to(settle_start) < 0.75
+	var visible_owner: bool = card.get_instance_id() == card_id \
+		and card.visible and not main.player.visible
+	var visible_celebration: bool = int(
+		main.g.get("lagoon_visible_roshan_celebrations", 0)) \
+		== celebration_count + 1 and main.player.verb != "giggle"
+	promenade._tick_playground_animation(
+		SkyLagoonPromenade.PLAY_SETTLE_S * 0.5)
+	var halfway: Vector3 = card.position
+	var moved_during_settle: bool = halfway.distance_to(settle_start) > 0.01
+	promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
+	var root_node: Node3D = promenade.stage.root()
+	var local_player: Vector3 = main.player.position - root_node.position
+	var expected_position := Vector3(
+		local_player.x, local_player.y + 1.0, local_player.z + 0.2)
+	var shadow: Sprite3D = card.get_meta("contact_shadow") as Sprite3D
+	return {
+		"started": started,
+		"continuous": continuous,
+		"visible_owner": visible_owner,
+		"visible_celebration": visible_celebration,
+		"moved": moved_during_settle,
+		"completed": (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty(),
+		"position": card.position.distance_to(expected_position) < 0.01,
+		"transform": card.rotation.is_zero_approx()
+			and card.scale.is_equal_approx(Vector3.ONE),
+		"shadow": shadow != null and shadow.visible
+			and absf(shadow.position.x - card.position.x) < 0.01,
+	}
 
 func _init() -> void:
 	var packed: PackedScene = load("res://scenes/main.tscn")
@@ -77,7 +150,7 @@ func _init() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
+		"res://assets/characters/roshan_25d/roshan_base.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
 		"res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
@@ -85,12 +158,12 @@ func _init() -> void:
 		"res://assets/fairy/sprites/bug_firefly.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2_v2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3_v2.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png",
+		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png",
 		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png",
@@ -180,10 +253,14 @@ func _init() -> void:
 	var tree_cards: Array[Sprite3D] = []
 	var cloud_card: Sprite3D = null
 	var smoke_cards: Array[Sprite3D] = []
+	var resident_texture_paths: Dictionary = {}
+	var resident_texture_bytes := 0
 	while not node_stack.is_empty():
 		var stage_node: Node = node_stack.pop_back()
 		if stage_node is Sprite3D:
 			var stage_sprite := stage_node as Sprite3D
+			resident_texture_bytes += _unique_texture_bytes(
+				stage_sprite.texture, resident_texture_paths)
 			sprite_count += 1
 			visible_sprite_count += 1 if stage_sprite.visible else 0
 			shaded_count += 1 if stage_sprite.shaded else 0
@@ -211,6 +288,17 @@ func _init() -> void:
 			canvas_count += 1
 		for child: Node in stage_node.get_children():
 			node_stack.append(child)
+	# The Lagoon animator keeps all three atlases resident even while its card
+	# displays only one. Night fireflies are the larger day/night alternative,
+	# so include their texture even when this probe starts in daytime.
+	for resident_texture: Texture2D in [
+			RoshanSpriteLoop.DIRECTIONAL,
+			RoshanSpriteLoop.SWIM_FRONT,
+			RoshanSpriteLoop.SWIM_BACK,
+			load(SkyLagoonPromenade.FIREFLY_TEX) as Texture2D,
+	]:
+		resident_texture_bytes += _unique_texture_bytes(
+			resident_texture, resident_texture_paths)
 	_check("world_art_is_unshaded_sprite3d",
 		sprite_count == 37 and mesh_count == 0 and canvas_count == 0
 		and shaded_count == 0 and bad_scale_count == 0,
@@ -248,10 +336,29 @@ func _init() -> void:
 			and cloud_card.position.y >= 28.2)
 	_check("single_cloud_uses_clear_sky_corridor", cloud_clear_ok,
 		"position=%s" % (cloud_card.position if cloud_card != null else Vector3.ZERO))
-	_check("day_one_plane_departs_and_stays_gone",
-		main.g.get("lagoon_plane_card") == null
-		and bool(main.save_data.get("lagoon_plane_departed", false)),
-		"departed=%s" % main.save_data.get("lagoon_plane_departed", false))
+	var reef_plane: Sprite3D = main.g.get("lagoon_reef_route_card") as Sprite3D
+	var reef_plane_base: Vector3 = main.g.get(
+		"lagoon_reef_route_base", Vector3.ZERO) as Vector3
+	var reef_route_target: Dictionary = {}
+	for target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = target_value as Dictionary
+		if String(target.get("id", "")) == "reef_route":
+			reef_route_target = target
+			break
+	_check("day_one_arrival_becomes_a_permanent_reef_shuttle",
+		reef_plane != null and is_instance_valid(reef_plane)
+		and reef_plane.name == "SkyLagoonReefPlane"
+		and main.g.get("lagoon_plane_card") == null
+		and bool(main.save_data.get("lagoon_plane_departed", false))
+		and reef_plane_base.x <= -66.0 and reef_plane_base.y >= 8.0
+		and not reef_plane.has_meta("contact_shadow")
+		and float(reef_route_target.get("radius_px", 0.0)) >= 128.0
+		and String(reef_route_target.get("affordance_kind", "")) \
+			== Affordance.INTERACTION,
+		"plane=%s base=%s arrival_done=%s" % [
+			reef_plane.name if reef_plane != null else "missing",
+			reef_plane_base,
+			main.save_data.get("lagoon_plane_departed", false)])
 	var seamless_cards_ok := backdrop_positions.size() == 12
 	for row: int in range(2):
 		for column: int in range(6):
@@ -284,16 +391,21 @@ func _init() -> void:
 		"jump_y=%.3f" % float(main.g.get("ss_walk_jump_y", 0.0)))
 	var play_label_ok := false
 	var enter_label_ok := false
+	var fly_label_ok := false
 	for action_target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
 		var action_target: Dictionary = action_target_value as Dictionary
 		if String(action_target.get("id", "")) == "swing":
 			promenade._focus(action_target)
 			play_label_ok = promenade.action_label() == "PLAY"
+		elif String(action_target.get("kind", "")) == "reef":
+			promenade._focus(action_target)
+			fly_label_ok = promenade.action_label() == "FLY"
 		elif String(action_target.get("kind", "")) == "castle":
 			promenade._focus(action_target)
 			enter_label_ok = promenade.action_label() == "ENTER"
 	promenade._clear_focus()
-	_check("promenade_action_label_matches_focus", play_label_ok and enter_label_ok)
+	_check("promenade_action_label_matches_focus",
+		play_label_ok and enter_label_ok and fly_label_ok)
 	var lens: Camera3D = main.player.cam
 	var origin: Vector3 = main.LEVEL2_POS
 	_check("stage_owns_the_lens",
@@ -482,8 +594,17 @@ func _init() -> void:
 		var target: Dictionary = value as Dictionary
 		var id: String = String(target.get("id", ""))
 		ids[id] = true
-	_check("interactive_roster", targets.size() == 4
-		and not ids.has("plane") and ids.has("slide") and ids.has("swing")
+	var preschool_hit_areas_ok := true
+	var smallest_hit_diameter := INF
+	for value in targets:
+		var target: Dictionary = value as Dictionary
+		var hit_diameter: float = float(target.get("radius_px", 0.0)) * 2.0
+		preschool_hit_areas_ok = preschool_hit_areas_ok and hit_diameter >= 110.0
+		smallest_hit_diameter = minf(smallest_hit_diameter, hit_diameter)
+	_check("promenade_targets_have_preschool_hit_areas", preschool_hit_areas_ok,
+		"smallest_diameter=%.1f" % smallest_hit_diameter)
+	_check("interactive_roster", targets.size() == 5
+		and ids.has("reef_route") and ids.has("slide") and ids.has("swing")
 		and ids.has("seesaw") and ids.has("castle_gate"))
 	_check("mismatched_lawn_picture_frames_removed",
 		not ids.has("runway_frame")
@@ -502,6 +623,25 @@ func _init() -> void:
 	var slide_node: Sprite3D = toy_nodes.get("slide") as Sprite3D
 	var swing_node: Sprite3D = toy_nodes.get("swing") as Sprite3D
 	var compact_seesaw: Sprite3D = toy_nodes.get("seesaw") as Sprite3D
+	var action_peak_extra_bytes := 0
+	var action_peak_kind := ""
+	for action_kind: String in ["swing", "slide", "seesaw"]:
+		var action_paths: Dictionary = resident_texture_paths.duplicate()
+		var action_extra_bytes := 0
+		for frame_path_value: Variant in (
+				SkyLagoonPromenade.PLAY_FRAME_PATHS[action_kind] as Array):
+			action_extra_bytes += _unique_texture_bytes(
+				load(String(frame_path_value)) as Texture2D, action_paths)
+		if action_extra_bytes > action_peak_extra_bytes:
+			action_peak_extra_bytes = action_extra_bytes
+			action_peak_kind = action_kind
+	var texture_peak_bytes: int = resident_texture_bytes + action_peak_extra_bytes
+	_check("sky_lagoon_texture_peak_stays_inside_m11_budget",
+		texture_peak_bytes <= 24 * 1024 * 1024,
+		"resident=%.2fMiB action=%s peak=%.2fMiB textures=%d+4" % [
+			float(resident_texture_bytes) / 1048576.0, action_peak_kind,
+			float(texture_peak_bytes) / 1048576.0,
+			resident_texture_paths.size()])
 	var swing_pivot: Node3D = null
 	var swing_seat: Sprite3D = null
 	if swing_node != null:
@@ -549,6 +689,9 @@ func _init() -> void:
 			seesaw_rect.position.x - swing_rect.end.x])
 	var roshan_card: Sprite3D = main.g.get("lagoon_roshan_card") as Sprite3D
 	var idle_texture: Texture2D = roshan_card.texture
+	promenade._celebrate_visible_roshan()
+	var celebration_pending: bool = not roshan_card.scale.is_equal_approx(
+		Vector3.ONE) and main.g.has("lagoon_visible_roshan_tween")
 	promenade._start_playground_animation("swing", toy_nodes.get("swing") as Node3D)
 	var swing_start: Vector3 = roshan_card.position
 	promenade._tick_playground_animation(0.55)
@@ -576,11 +719,33 @@ func _init() -> void:
 		and roshan_card.position != swing_start
 		and roshan_card.position.z > SkyLagoonPromenade.PLAY_Z
 		and is_equal_approx(roshan_card.scale.x, 1.38)
+		and celebration_pending and not main.g.has("lagoon_visible_roshan_tween")
 		and is_equal_approx(swing_pivot.rotation.z, swing_angle)
 		and swing_hand_world.distance_to(expected_swing_hand) < 0.02
 		and swing_frame == 1
 		and absf(swing_seat_delta.y) < 0.18
 		and absf(swing_seat_delta.x) < SkyLagoonPromenade.SWING_SEAT_W * 0.5)
+	if OS.get_environment("PLAYGROUND_SHOT_OUT") != "":
+		# Render all four real equipment/card compositions for human acceptance.
+		# This path is opt-in so the trusted headless probe remains deterministic.
+		var main_was_processing: bool = main.is_processing()
+		var main_was_physics_processing: bool = main.is_physics_processing()
+		main.set_process(false)
+		main.set_physics_process(false)
+		var swing_samples: Array[float] = [
+			0.0,
+			SkyLagoonPromenade.SWING_PERIOD_S * 0.25,
+			SkyLagoonPromenade.SWING_PERIOD_S * 0.75,
+			SkyLagoonPromenade.SWING_PERIOD_S * 0.5,
+		]
+		for frame_index: int in range(swing_samples.size()):
+			promenade._tick_swing_animation(
+				roshan_card, swing_node, swing_samples[frame_index])
+			await _capture_playground_frame("swing_%d" % frame_index)
+		promenade._tick_swing_animation(
+			roshan_card, swing_node, float(swing_play.get("t", 0.0)))
+		main.set_process(main_was_processing)
+		main.set_physics_process(main_was_physics_processing)
 	# The authored ride poses are whole PNGs. A sampling window left on the card
 	# by the swim loop would slice one of them down to an atlas cell measured
 	# for a different sheet, so the takeover must clear it.
@@ -589,7 +754,8 @@ func _init() -> void:
 		and roshan_card.hframes == 1 and roshan_card.vframes == 1,
 		"region_enabled=%s grid=%dx%d" % [roshan_card.region_enabled,
 			roshan_card.hframes, roshan_card.vframes])
-	promenade._finish_playground_animation()
+	var swing_settle: Dictionary = _complete_playground_action(
+		main, promenade, roshan_card)
 	_check("swing_seat_ropes_and_rider_share_pendulum_pivot",
 		swing_animates and is_zero_approx(swing_pivot.rotation.z),
 		"frame=%d angle=%.3f grip_error=%.3f" % [swing_frame, swing_angle,
@@ -610,10 +776,24 @@ func _init() -> void:
 	var slide_animates: bool = (
 		rung_bounce_y > ladder_start.y
 		and climbed_step_y > rung_bounce_y
-		and seated_texture.ends_with("roshan_slide_2.png")
-		and riding_texture.ends_with("roshan_slide_3.png")
+		and seated_texture.ends_with("roshan_slide_2_v2.png")
+		and riding_texture.ends_with("roshan_slide_3_v2.png")
 		and roshan_card.rotation.z < -0.1)
-	promenade._finish_playground_animation()
+	if OS.get_environment("PLAYGROUND_SHOT_OUT") != "":
+		var main_was_processing: bool = main.is_processing()
+		var main_was_physics_processing: bool = main.is_physics_processing()
+		main.set_process(false)
+		main.set_physics_process(false)
+		promenade._tick_slide_animation(
+			roshan_card, toy_nodes.get("slide") as Node3D, 2.80)
+		await _capture_playground_frame("slide_2")
+		promenade._tick_slide_animation(
+			roshan_card, toy_nodes.get("slide") as Node3D, 3.70)
+		await _capture_playground_frame("slide_3")
+		main.set_process(main_was_processing)
+		main.set_physics_process(main_was_physics_processing)
+	var slide_settle: Dictionary = _complete_playground_action(
+		main, promenade, roshan_card)
 	_check("slide_has_bouncy_steps_and_seated_ride", slide_animates)
 
 	var seesaw_node: Node3D = toy_nodes.get("seesaw") as Node3D
@@ -648,10 +828,23 @@ func _init() -> void:
 	var seesaw_animates: bool = (
 		saw_high and saw_low and saw_motion_samples >= 5
 		and roshan_card.texture != idle_texture)
-	promenade._finish_playground_animation()
+	var seesaw_settle: Dictionary = _complete_playground_action(
+		main, promenade, roshan_card)
 	_check("seesaw_rocks_back_and_forth_three_times", seesaw_animates)
+	var settle_contract_ok := true
+	for settle_value in [swing_settle, slide_settle, seesaw_settle]:
+		var settle: Dictionary = settle_value as Dictionary
+		for key in ["started", "continuous", "visible_owner",
+				"visible_celebration", "moved", "completed", "position",
+				"transform", "shadow"]:
+			settle_contract_ok = settle_contract_ok and bool(settle.get(key, false))
+	_check("playground_completion_settles_the_visible_roshan_card",
+		settle_contract_ok, JSON.stringify([
+			swing_settle, slide_settle, seesaw_settle]))
 	_check("playground_animation_reuses_one_sprite3d",
 		roshan_card.texture == idle_texture
+		and roshan_card.hframes == 4 and roshan_card.vframes == 2
+		and ROSHAN_FRAMES.sampled_rect(roshan_card).size == Vector2(256.0, 256.0)
 		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty())
 
 	var swing_screen: Vector2 = lens.unproject_position(swing_node.global_position)
@@ -666,7 +859,20 @@ func _init() -> void:
 		String((main.g.get("lagoon_play_anim", {}) as Dictionary).get(
 			"kind", "")) == "swing")
 	promenade._finish_playground_animation()
+	promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
 	await _frames(2)
+	var invalid_equipment := Node3D.new()
+	promenade.stage.root().add_child(invalid_equipment)
+	promenade._start_playground_animation("slide", invalid_equipment)
+	invalid_equipment.free()
+	promenade._tick_playground_animation(0.01)
+	var invalid_cleanup_started: bool = String((main.g.get(
+		"lagoon_play_anim", {}) as Dictionary).get("phase", "")) == "settle"
+	promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
+	_check("invalid_playground_equipment_settles_without_stranding_input",
+		invalid_cleanup_started
+		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty()
+		and not main.player.visible and roshan_card.visible)
 
 	# Walk to the castle end and enter it THE WAY THE CHILD DOES: two taps at
 	# the door's own place on screen. The old probe called _focus/_activate
@@ -767,6 +973,26 @@ func _init() -> void:
 	_check("day_return_has_no_fireflies",
 		String(main.g.get("phase", "")) == "promenade"
 		and not main.g.has("lagoon_night_fireflies"))
+
+	# The child-visible plane is the normal route out of the promenade. Exercise
+	# its real single-tap screen target, not the hidden Pause fallback or a direct
+	# internal call, and verify the transition lands in free-swim Reef state.
+	var travel_target: Dictionary = {}
+	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == "reef_route":
+			travel_target = target
+			break
+	var travel_node: Node3D = travel_target.get("node") as Node3D
+	var travel_ready: bool = travel_node != null and is_instance_valid(travel_node)
+	if travel_ready:
+		var travel_screen: Vector2 = main.player.cam.unproject_position(
+			travel_node.global_position)
+		main._lagoon_promenade_ref().handle_touch(travel_screen)
+		await _frames(2)
+	_check("one_tap_plane_route_returns_to_the_reef",
+		travel_ready and main.game == "" and main.player.visible
+		and main.we_node.environment == main.world_env)
 
 	if failed:
 		print("FAIL|Sky Lagoon 2.5D promenade regression")

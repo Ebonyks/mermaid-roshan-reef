@@ -26,6 +26,25 @@ env:
   GODOT_ZIP_SHA512: "4ccdab7a48eeccbe8819a2fc1f6262f8d72065d98601bcb3743fcbd7ebd39f373758a788ee3293a05ec5b2c48538266c437404312e372225cd2df273945a2de9"
 
 jobs:
+  area-music-provenance:
+    runs-on: windows-2025
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13.14"
+
+      - name: Verify deterministic area-music delivery
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check --quiet numpy==2.5.1 scipy==1.18.0
+          & ./tools/setup_video_tools.ps1
+          python -B tools/build_area_music.py --check
+
   probes:
     runs-on: ubuntu-latest
     # Green runs now take ~24 min (probes ~14 min + visual captures); at 30
@@ -35,14 +54,20 @@ jobs:
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
+          # The 2D migration gate verifies its immutable ceiling against full
+          # reachable history; a depth-1 clone could hide reintroduced debt.
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Download Godot (checksum-verified)
         run: |
-          curl -sSL -o godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_linux.x86_64.zip"
-          echo "${GODOT_ZIP_SHA512}  godot.zip" | sha512sum -c -
-          unzip -q godot.zip
-          sudo mv "Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot
+          godot_archive="${RUNNER_TEMP}/godot.zip"
+          godot_extract="${RUNNER_TEMP}/godot"
+          curl -sSL -o "${godot_archive}" "https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_linux.x86_64.zip"
+          echo "${GODOT_ZIP_SHA512}  ${godot_archive}" | sha512sum -c -
+          mkdir -p "${godot_extract}"
+          unzip -q "${godot_archive}" -d "${godot_extract}"
+          sudo mv "${godot_extract}/Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot
 
       - name: Static gates (parse + Variant-inference lint)
         # a parse error in main.gd makes every probe idle to its 8m timeout
@@ -52,7 +77,25 @@ jobs:
           pip install --quiet gdtoolkit==4.5.0 numpy==2.5.1 Pillow==12.3.0 scipy==1.18.0
           python3 -m gdtoolkit.parser $(find scripts -name '*.gd')
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
+          # Owner decision 2026-08-09: Mermaid Roshan is 2D-only. The stress
+          # pass proves every rule can fail before the real project is gated.
+          python3 tools/audit_roshan_2d.py --stress
+          python3 tools/audit_roshan_2d.py
+          # The Roshan audit remains the narrow atlas/identity invariant. The
+          # authoritative game-wide migration contract must also prove that
+          # its debt ceiling and falsification checks cannot be laundered.
+          python3 -m unittest tools.tests.test_audit_game_2d
+          python3 tools/audit_game_2d.py --stress
+          python3 -m unittest tools.tests.test_audit_roshan_sprite_clipping
+          python3 tools/audit_roshan_sprite_clipping.py
+          python3 tools/audit_probe_parity.py --stress
+          python3 tools/audit_probe_parity.py
           python3 tools/audit_fairy_art_v2.py
+          python3 tools/prepare_opera_nursery_art.py --check-only
+          python3 tools/prepare_opera_minigame_art.py --check-only
+          python3 tools/audit_opera_diegetic_hotspot_art.py
+          python3 tools/audit_opera_borderless_minigame_art.py
+          python3 tools/audit_opera_roshan_animation.py
           python3 tools/audit_sky_lagoon_kit.py
           python3 tools/audit_scene_congruency.py
           # Painted 2.5D flats are drawn unshaded, so the Environment grade is
@@ -61,6 +104,7 @@ jobs:
           # clips or crushes pixels the source did not
           # (LIGHTING_2P5D_AUDIT_2026-08-02 §1.7/§E1). Needs no Godot binary,
           # so it belongs here with the other seconds-long static gates.
+          python3 -m unittest tools.tests.test_check_grade_headroom
           python3 tools/check_grade_headroom.py
           # Castle V4 delivery is source-owned and frame-reviewed. Keep these
           # release gates in the protected probe workflow as well as ci.sh so
@@ -91,9 +135,10 @@ jobs:
             echo "IMPORT FAIL (resource or script error)"
             exit 1
           fi
-
-      - name: Roshan full motion cage
-        run: python3 tools/audit_motions.py --glb assets/characters/roshan_v4.glb
+          # Run the exact inventory only after the required 4.7.1 import has
+          # recreated the generated sidecars captured by the shrinking debt
+          # baseline. Green means NO_REGRESSION, never that migration is done.
+          python3 tools/audit_game_2d.py --regression-gate
 
       - name: Compile-check every script (real analyzer, catches what parse-only cannot)
         # probes only compile scripts the run actually loads; lazily-loaded
@@ -118,7 +163,7 @@ jobs:
           # no assertions; under --headless it prints "HEADLESS SKIP" and exits 0,
           # so gating it here only manufactured false confidence. It runs under the
           # xvfb visual-review step below instead.
-          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_nursery probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
+          for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_diegetic_paths probe_opera_detective probe_opera_pipe probe_opera_nursery probe_opera_gesture_quality probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
             if [ ! -f "scripts/$p.gd" ]; then
               echo "PROBE $p MISSING: scripts/$p.gd is required"
               FAILED=1

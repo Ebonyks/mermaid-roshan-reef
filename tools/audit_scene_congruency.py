@@ -67,21 +67,23 @@ class Element:
 	atlas_rows: int = 1
 	runtime_paths: tuple[str, ...] = ()
 	runtime_sha256: tuple[str, ...] = ()
+	density_max_override: float | None = None
 
 
 ELEMENTS = (
 	Element("cloud_single_drift", "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", 3.104, -16.0, "sky", "painted_underside"),
 	Element("plane", "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", 10.732, -11.0),
-	# Owner-reviewed 2026-08-01: the accepted runtime swing is a two-card
-	# assembly. Keep the approved single-chair art as its palette/value
-	# reference, and exact-hash lock both runtime layers so this exception
-	# cannot silently authorize different art.
+	# Owner-reviewed 2026-08-01: the accepted runtime swing is this two-card
+	# assembly. Measure the active frame in Roshan's foreground play band and
+	# exact-hash lock both runtime layers so the density exception cannot
+	# silently authorize different art. The 1024x719 frame displays at 3.375x
+	# source density on the 720p lens, hence the narrow 3.4x ceiling.
 	Element(
 		"swing",
-		"assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
-		11.8,
+		"assets/props/story/play_swing_frame.png",
+		10.8,
 		-6.0,
-		"castle",
+		"roshan",
 		"card",
 		"accent",
 		1,
@@ -93,9 +95,10 @@ ELEMENTS = (
 			"a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
 			"b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
 		),
+		3.4,
 	),
 	Element("slide", "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", 11.4, -6.0),
-	Element("castle_four_tower", "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v3.png", 28.431, -11.0, "castle", "painted_underside", "castle"),
+	Element("castle_four_tower", "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png", 28.431, -11.0, "castle", "painted_underside", "castle"),
 	Element("roshan_idle_directional", "assets/characters/roshan_25d/roshan_directional.png", 7.8, 0.2, "roshan", "card", "roshan", 2),
 	Element("roshan_swim_front", "assets/characters/roshan_25d/roshan_swim_front.png", 7.8, 0.2, "roshan", "card", "roshan", 4),
 	Element("seesaw", "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png", 4.5, -6.0),
@@ -243,7 +246,11 @@ def evaluate(element: Element, bands: dict[str, dict[str, float]],
 	with Image.open(path) as authored:
 		authored_height = authored.height / max(1, element.atlas_rows)
 	density = authored_height / displayed
-	density_max = min(TOL["c6_ratio_max"], plate_ratio * TOL["c6_plate_multiplier"])
+	density_max = (
+		element.density_max_override
+		if element.density_max_override is not None
+		else min(TOL["c6_ratio_max"], plate_ratio * TOL["c6_plate_multiplier"])
+	)
 	criteria = {
 		"C1": delta_lab <= TOL["c1_delta_lab"],
 		"C2": (

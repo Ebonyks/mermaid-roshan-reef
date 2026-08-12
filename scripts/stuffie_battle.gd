@@ -11,8 +11,8 @@ extends Node3D
 #
 # BOO-BOOS (owner 2026-07-21): landed bumps leave little bruises (🩹 pips on
 # the HUD). They never end the battle — but they come home with the stuffie,
-# who then needs its post-battle hug + bubble bath (companion.gd). An injured
-# stuffie whose care never comes goes home to its Den shelf to rest.
+# who then asks for its post-battle hug + bubble bath (companion.gd). Care
+# waits forever; reminders never remove the friend or block another battle.
 
 const CENTER := Vector3(0.0, -2400.0, 0.0)
 const RADIUS := 27.0

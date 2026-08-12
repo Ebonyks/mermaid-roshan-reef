@@ -273,11 +273,10 @@ var companion_want_bubble: Label3D = null # the emoji thought bubble over the st
 var companion_want_cool := 25.0           # first ask lands soon after adoption
 var companion_care_t := -1.0              # >0 while a care moment animation plays
 var companion_care_action_prev := false
-var companion_resting := false            # went home to rest (persisted) — on its Studio shelf until re-picked
+var companion_resting := false            # retired save flag; always normalized false (compatibility only)
 var companion_bruises := 0                # battle boo-boos awaiting care (persisted)
 var companion_want_queue: Array = []      # queued wants (post-battle hug + bath)
-var companion_rest_timer := -1.0          # >0 while injured: patience left before it goes home
-var companion_rest_warned := 0            # escalating "needs care" reminders fired
+var companion_rest_timer := -1.0          # >0 while injured: time until the next gentle reminder
 var companion_layer: CanvasLayer = null   # picker overlay
 var companion_stage: Control = null
 var companion_care_layer: CanvasLayer = null # Tamagotchi care overlay
@@ -648,7 +647,6 @@ var intro_art: TextureRect
 var intro_art2: TextureRect
 var intro_text: Label
 const BTN_COLS := [Color(0.35, 0.95, 0.4), Color(1.0, 0.35, 0.35), Color(0.4, 0.55, 1.0), Color(1.0, 0.9, 0.35)]  # A B X Y
-const BTN_OFFS := [Vector3(0, 0, 9), Vector3(9, 0, 0), Vector3(-9, 0, 0), Vector3(0, 0, -9)]                     # bottom right left top
 
 const FRIEND_DEFS := [
 	{"tex": "pearl_friend",  "fname": "Evie and Lamb-a'",      "msg": "You found us! Swim close again to play hide and seek!", "game": "seek"},
@@ -1003,20 +1001,17 @@ func _tick_roshan_reactions(delta: float, ppos: Vector3) -> void:
 	# the great whale
 	if whale_node != null and is_instance_valid(whale_node) and whale_node.position.distance_to(ppos) < 34.0:
 		roshan_spot_cool = 14.0
-		_say("roshan", "whale", 12.0)
-		show_msg("Roshan", "Wow! A GIANT whale! Hello, big friend!")
+		show_msg("Roshan", "Wow! A GIANT whale! Hello, big friend!", "whale")
 		return
 	# the floating ghost ship on the water
 	if manta != null and is_instance_valid(manta) and manta.position.distance_to(ppos) < 26.0:
 		roshan_spot_cool = 14.0
-		_say("roshan", "ship", 12.0)
-		show_msg("Roshan", "A magic ship on the water! I wonder what is inside...")
+		show_msg("Roshan", "A magic ship on the water! I wonder what is inside...", "ship")
 		return
 	# the sunken pirate ship
 	if wreck_pos != Vector3.ZERO and wreck_pos.distance_to(ppos) < 24.0:
 		roshan_spot_cool = 14.0
-		_say("roshan", "wreck", 12.0)
-		show_msg("Roshan", "Ooh, a sunken ship! Maybe there is treasure down there!")
+		show_msg("Roshan", "Ooh, a sunken ship! Maybe there is treasure down there!", "wreck")
 		return
 
 func _apply_time_of_day() -> void:
@@ -2795,7 +2790,7 @@ func _end_combat(battle_kind: String) -> void:
 func _start_stuffie_battle() -> void:
 	# the sparring-den ladder: one round per visit; once all three are won the
 	# den keeps serving rounds in rotation (replayable, no dead end)
-	if stuffie_game != null or companion_id == "" or companion_resting:
+	if stuffie_game != null or companion_id == "":
 		return
 	# The battle swaps the mode with no fade, so stale focus/assisted travel
 	# must not survive into (or past) it.
@@ -2850,8 +2845,8 @@ func _end_stuffie_battle(round_tag: String) -> void:
 		player.snap_cam()   # resume the chase lens in place, no cross-world swoop
 	if hud_layer != null:
 		hud_layer.visible = true
-	# post-battle care (owner 2026-07-21): a big battle earns a hug + bath;
-	# boo-boos that never get that care send the stuffie home to rest
+	# Post-battle care is a patient hug + bath invitation. Boo-boos wait until
+	# the child is ready; the reminder clock never removes or blocks the friend.
 	_companion_ref().after_battle()
 
 func _start_dungeon() -> void:
@@ -3256,7 +3251,7 @@ var speech_t := 0.0
 const SPEAKER_PORTRAIT := {
 	"roshan": "res://assets/characters/roshan_25d/roshan_base.png",
 	"huluu": "res://assets/characters/friends/huluu.png",
-	"evie": "res://assets/characters/friends/mama_baby.png",
+	"evie": "res://assets/minigames/seek/evie_portrait.png",
 	"harper": "res://assets/characters/friends/two_friends.png",
 	"faron": "res://assets/characters/friends/mama_baby.png",
 	"daddy": "res://assets/characters/friends/daddy.webp",
@@ -3784,7 +3779,7 @@ func _populate_touch_interactables() -> void:
 		if kart_portal_pos != Vector3.ZERO:
 			_touch_add_item("reef:kart", "Ocean Race", kart_portal_pos, null, 12.0, 42.0, "RACE")
 		if companion_den != null and is_instance_valid(companion_den) \
-				and companion_id != "" and not companion_resting \
+				and companion_id != "" \
 				and stuffie_game == null and stuffie_cool <= 0.0:
 			# 9.0 matches companion.gd DEN_RADIUS (the Classic walk-in ring)
 			_touch_add_item("reef:den", "Sparring Den", companion_den.position,
@@ -3974,8 +3969,8 @@ func _game_obj(key: String, cls: Variant) -> Variant:
 func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	_game_obj("fetch", FetchGame)._tick_fetch(delta, fr, ppos)
 
-func _tick_dolls(delta: float, fr: Dictionary, ppos: Vector3) -> void:
-	_game_obj("dolls", DollsGame)._tick_dolls(delta, fr, ppos)
+func _tick_dolls(delta: float, fr: Dictionary) -> void:
+	_game_obj("dolls", DollsGame)._tick_dolls(delta, fr)
 
 func _tick_brawl(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 	_game_obj("brawl", BrawlGame)._tick_brawl(delta, fr, ppos)
@@ -6101,7 +6096,7 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
 		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
 	else:
-		show_msg("Roshan", "Back to the ocean! Wheee!")
+		show_msg("Roshan", "Back in the Reef! I love swimming!", "idle2")
 
 func _finish_level2() -> void:
 	_do_finish_level2()
@@ -6153,8 +6148,7 @@ func _beans_go() -> void:
 	fart_t = 0.7
 	if beans_sfx != null and not beans_sfx.playing:
 		beans_sfx.play()
-	_say("roshan", "beans")
-	show_msg("Roshan", "Yummy, beans! ...toot!")
+	show_msg("Roshan", "Yummy, beans! ...toot!", "beans")
 	_beans_bubbles()
 
 func _beans_bubbles() -> void:
@@ -6336,6 +6330,7 @@ func _tick_hints(delta: float) -> void:
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
 	_game_obj("dolls", DollsGame).stage_close()
+	_game_obj("seek", SeekGame).stage_close()
 	_game_obj("brawl", BrawlGame).stage_close()
 	_game_obj("dustboss", DustBossGame).stage_close()
 	# safety net (alpha audit 2026-08-05): any tween a minigame stashed in g
@@ -6732,13 +6727,13 @@ func _start_game_now(fr: Dictionary) -> void:
 	if game == "fetch":
 		_game_obj("fetch", FetchGame).build(fr, origin)
 	elif game == "dolls":
-		_game_obj("dolls", DollsGame).build(fr, origin)
+		_game_obj("dolls", DollsGame).build(fr)
 	elif game == "brawl":
 		_game_obj("brawl", BrawlGame).build(fr, origin)
 	elif game == "dustboss":
 		_game_obj("dustboss", DustBossGame).build(fr, origin)
 	elif game == "seek":
-		_game_obj("seek", SeekGame).build(fr, origin)
+		_game_obj("seek", SeekGame).build(fr)
 	elif game == "race":
 		_game_obj("race", SlideRaceGame).build(fr, origin)
 	elif game == "shop":
@@ -6851,13 +6846,13 @@ func _tick_game(delta: float) -> void:
 	if game == "fetch":
 		_tick_fetch(delta, fr, ppos)
 	elif game == "dolls":
-		_tick_dolls(delta, fr, ppos)
+		_tick_dolls(delta, fr)
 	elif game == "brawl":
 		_tick_brawl(delta, fr, ppos)
 	elif game == "dustboss":
 		_game_obj("dustboss", DustBossGame).tick(delta, fr, ppos)
 	elif game == "seek":
-		_game_obj("seek", SeekGame).tick(delta, fr, ppos)
+		_game_obj("seek", SeekGame).tick(delta, fr)
 	elif game == "race" or game == "treasure":
 		_tick_course(delta, fr, ppos)
 	elif game == "shop":
@@ -6872,7 +6867,7 @@ func _tick_game(delta: float) -> void:
 func skin_sprite_path() -> String:
 	# the flat art matching the wardrobe skin — used by the kart driver and
 	# the 2D minigame mermaid so the chosen look follows Roshan into every
-	# game, not just the ocean (the dolls nursery uses the real 3D player now)
+	# game, not just the ocean (the Dolls Canvas catcher uses this path too)
 	if skin_id == "huluu":
 		return "res://assets/characters/friends/huluu.png"
 	if skin_id == "fairy":
@@ -8308,6 +8303,11 @@ func _enter_arena(kind: String) -> void:
 	# lets a game hand her back to the promenade or the castle she came from.
 	return_env = we_node.environment
 	return_track = cur_track
+	# Opaque true-Canvas activities preserve the shared return/music lifecycle,
+	# but never construct or teleport into a hidden arena beneath their pixels.
+	if kind == "dolls" or kind == "seek":
+		_play_music(kind)
+		return
 	arena_solids.clear()
 	arena_zones.clear()
 	fade_walls.clear()
@@ -8327,11 +8327,6 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.58   # snow bounces plenty; higher ambient + the world sun pushed the floor past ACES white
 		arena_env.glow_bloom = 0.05             # near-zero whole-frame haze: on an already-white scene the WW haze clips everything
 		_arena_floor(Color(0.68, 0.74, 0.82), GTA + "up_snowsoft_col.jpg", GTA + "up_snow_nrm.jpg", 0.06)   # fresh snow; tint keeps it under ACES clip so the surface stays readable
-	elif kind == "dolls":        # starry dream nursery
-		arena_env.background_color = Color(0.10, 0.06, 0.22)
-		arena_env.ambient_light_color = Color(0.7, 0.6, 1.0)
-		arena_env.ambient_light_energy = 0.7
-		_arena_floor(Color(0.85, 0.78, 0.72), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "brawl":        # toy castle courtyard, warm afternoon
 		grade_profile = "warm_pastel"
 		arena_env.background_color = Color(0.62, 0.72, 0.92)

@@ -52,8 +52,7 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["brawl_reach_ring"] = null   # rebuilt on the fresh stage root
 	_stage_open()
 	stage.set_bounds(X0, X0 + SEG_W)
-	m.show_msg(fr["fname"], "Mischief imps are in Huluu's toy castle! Tap to POP them — Huluu helps!")
-	m._say("huluu", "greet", 2.0)
+	m.show_msg("Huluu", "Mischief imps are in Huluu's toy castle! Tap to POP them — Huluu helps!", "greet")
 
 func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var r := stage.root()
@@ -195,8 +194,7 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			# extend the right wall; the cleared courtyard stays walkable so
 			# nobody ever gets snapped forward when a gate opens
 			stage.set_bounds(X0, X0 + float(seg + 2) * SEG_W)
-			m.show_msg("Huluu", "This way! More imps ahead! ➜")
-			m._say("huluu", "talk", 4.0)
+			m.show_msg("Huluu", "This way! More imps ahead! ➜", "talk")
 		else:
 			m.pearl_count += 3   # portal payout, same size as the treasure chest
 			m._say("huluu", "hero", 0.0)
@@ -398,8 +396,7 @@ func _brawl_brain_events(brain: ImpAI, r: Node3D, hero: Vector2) -> void:
 				m._sparkle_burst(world_at + Vector3(0, 1.4, 0), Color(1.0, 0.82, 0.3))
 				if not bool(m.g.get("imp_warned", false)):
 					m.g["imp_warned"] = true
-					m.show_msg("Huluu", "Look out — that imp is winding up! POP it quick!")
-					m._say("huluu", "talk", 3.0)
+					m.show_msg("Huluu", "Look out — that imp is winding up! POP it quick!", "talk")
 			"charge":
 				m._sparkle_burst(world_at, Color(1.0, 0.72, 0.45))
 			"contact":

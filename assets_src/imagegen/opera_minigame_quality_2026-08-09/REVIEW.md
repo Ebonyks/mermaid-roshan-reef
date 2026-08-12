@@ -10,7 +10,7 @@ All approved source and native generated inputs are preserved; runtime transform
 - Approved-card derivatives: dark presentation field and contact-sheet rules removed with `_remove_edge_field`; source RGB subjects were not repainted.
 - Every transparent runtime derivative has a nonzero safe alpha gutter; every output obeys the <=1024/POT texture rule.
 - Exact dimensions, alpha bounds, hashes, source hashes, transforms, and the exact generation prompt are in `PROVENANCE.json`.
-- `python tools/prepare_opera_minigame_art.py --check-only` is the byte-exact reproducibility gate.
+- `python tools/prepare_opera_minigame_art.py --check-only` permits only PNG compression of an identical scanline stream to differ; structure, pixels, and delivery hashes/provenance remain strict.
 
 ## Source-role audit notes
 

@@ -25,6 +25,10 @@ const TIER_COLOR := {
 	2: Color(0.88, 0.91, 0.98),
 	3: Color(1.0, 0.85, 0.25),
 }
+const CELEBRATION_ELEMENTS := {BRONZE: 8, SILVER: 10, GOLD: 12}
+const CELEBRATION_CENTER := Vector2(640.0, 255.0)
+const CELEBRATION_SECONDS := 2.2
+const CELEBRATION_LAYER_NAME := "MedalCelebrationLayer"
 
 # Threshold table. kind "fewer": stat <= gold -> gold, <= silver -> silver
 # (misses, seconds, race placement — lower is better). kind "more": stat >=
@@ -111,7 +115,7 @@ func award_stats(id: String, stats: Dictionary) -> int:
 	return tier
 
 func award_from_end_game(game_id: String, g2: Dictionary) -> void:
-	# Central hook inside main._end_game(win=true): every 3D arena game's
+	# Central hook inside main._end_game(win=true): every arena game's
 	# scratch dict already carries its performance signals — no per-game
 	# call-site changes needed here.
 	match game_id:
@@ -163,33 +167,37 @@ func hud_suffix() -> String:
 	return "\n🥇 %d  🥈 %d  🥉 %d" % [int(c[3]), int(c[2]), int(c[1])]
 
 func refresh_friend_glyphs() -> void:
-	# a floating medal under each won friend's star — the in-world scoreboard
-	for f in m.friends:
-		var tier: int = int(m.medals.get(String(f.get("game", "")), 0))
-		if tier <= 0:
+	# Compatibility hook for callers and live sessions that predate the Canvas
+	# medal display. Friend dictionaries never persist scene nodes, but a hot
+	# session can still cache the retired in-world badge under `medal_lab`.
+	# Detach it synchronously so refresh is idempotent from the active tree's
+	# perspective; the non-reading tally above and centered award remain the
+	# sole medal displays.
+	for friend: Dictionary in m.friends:
+		if not friend.has("medal_lab"):
 			continue
-		var lab: Label3D = null
-		if f.has("medal_lab") and is_instance_valid(f["medal_lab"]):
-			lab = f["medal_lab"]
-		else:
-			lab = Label3D.new()
-			lab.font_size = 150
-			lab.outline_size = 16
-			lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			lab.position = (f["node"] as Sprite3D).position + Vector3(0, 5.6, 0)
-			m.add_child(lab)
-			f["medal_lab"] = lab
-		lab.text = String(GLYPH[tier])
+		var legacy_value: Variant = friend.get("medal_lab")
+		if legacy_value is Node and is_instance_valid(legacy_value):
+			var legacy_node := legacy_value as Node
+			if legacy_node.get_parent() != null:
+				legacy_node.get_parent().remove_child(legacy_node)
+			legacy_node.queue_free()
+		friend.erase("medal_lab")
 
 func _celebrate(tier: int) -> void:
-	# tier banner + tier-colored sparkles + a chime that rises with the medal.
-	# Kept lighter than _celebrate_pose (which still owns first-time trophies).
+	# The centered tier card owns one bounded Canvas celebration. A rapid replay
+	# replaces it synchronously, so neither transparent elements nor tweens can
+	# accumulate while the child keeps tapping through completion screens.
+	_retire_celebration()
 	var cl := CanvasLayer.new()
+	cl.name = CELEBRATION_LAYER_NAME
 	cl.layer = 23
+	cl.set_meta("celebration_tier", tier)
 	m.add_child(cl)
 	var card := StorybookUI.add_hud_panel(cl, Rect2(490, 140, 300, 230), Color(TIER_COLOR[tier]), Color(1.0, 0.97, 0.90, 0.97), 48)
 	card.name = "MedalCelebrationCard"
 	var big := Label.new()
+	big.name = "MedalCelebrationGlyph"
 	big.text = String(GLYPH[tier])
 	big.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	StorybookUI.style_hud_label(big, 96, StorybookUI.INK, 8)
@@ -197,11 +205,63 @@ func _celebrate(tier: int) -> void:
 	big.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	card.add_child(big)
 	var col: Color = TIER_COLOR[tier]
-	if m.player != null:
-		for si in range(2 + tier * 2):
-			var sa: float = TAU * float(si) / float(2 + tier * 2)
-			m._sparkle_burst(m.player.position + Vector3(cos(sa) * 2.0, 1.2, sin(sa) * 2.0), col)
+	var element_count: int = int(CELEBRATION_ELEMENTS[tier])
+	var burst := Control.new()
+	burst.name = "MedalCelebrationBurst"
+	burst.position = CELEBRATION_CENTER
+	burst.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	burst.set_meta("feedback_kind", "medal")
+	burst.set_meta("visible_elements", element_count)
+	cl.add_child(burst)
+	var star_points := PackedVector2Array([
+		Vector2(0, -14), Vector2(4, -4), Vector2(14, 0), Vector2(4, 4),
+		Vector2(0, 14), Vector2(-4, 4), Vector2(-14, 0), Vector2(-4, -4)])
+	for i in range(element_count):
+		var angle: float = TAU * float(i) / float(element_count) \
+			+ 0.09 * float(i % 2)
+		var direction := Vector2(cos(angle), sin(angle))
+		var sparkle := Polygon2D.new()
+		sparkle.polygon = star_points
+		sparkle.color = col.lerp(Color.WHITE, 0.12 * float(i % 3))
+		sparkle.position = direction * 10.0
+		sparkle.rotation = angle
+		sparkle.scale = Vector2.ONE * (0.78 + 0.10 * float(i % 3))
+		sparkle.set_meta("feedback_endpoint",
+			direction * (112.0 + 12.0 * float(i % 3)))
+		burst.add_child(sparkle)
+	var feedback_tween := burst.create_tween()
+	feedback_tween.set_parallel(true)
+	for child_value in burst.get_children():
+		var sparkle := child_value as Polygon2D
+		if sparkle == null:
+			continue
+		var endpoint: Vector2 = sparkle.get_meta(
+			"feedback_endpoint", Vector2.ZERO) as Vector2
+		feedback_tween.tween_property(sparkle, "position", endpoint, 0.78) \
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		feedback_tween.tween_property(
+			sparkle, "scale", Vector2(0.18, 0.18), 0.78)
+		feedback_tween.tween_property(sparkle, "modulate:a", 0.0, 0.78)
+	cl.set_meta("feedback_tween", feedback_tween)
 	if m.chime != null:
 		m.chime.pitch_scale = 1.0 + 0.15 * float(tier)
 		m.chime.play()
-	m.get_tree().create_timer(2.2).timeout.connect(cl.queue_free)
+	var teardown_tween := cl.create_tween()
+	teardown_tween.tween_interval(CELEBRATION_SECONDS)
+	teardown_tween.tween_callback(cl.queue_free)
+	cl.set_meta("teardown_tween", teardown_tween)
+
+func _retire_celebration() -> void:
+	var previous := m.get_node_or_null(CELEBRATION_LAYER_NAME) as CanvasLayer
+	if previous == null or not is_instance_valid(previous):
+		return
+	previous.visible = false
+	for meta_key: StringName in [&"feedback_tween", &"teardown_tween"]:
+		var previous_tween: Tween = previous.get_meta(meta_key) as Tween
+		if previous_tween != null and previous_tween.is_valid():
+			previous_tween.kill()
+	# Removing before queueing makes replacement synchronous from the active
+	# tree's perspective; the old layer cannot overlap the new award for a frame.
+	if previous.get_parent() != null:
+		previous.get_parent().remove_child(previous)
+	previous.queue_free()

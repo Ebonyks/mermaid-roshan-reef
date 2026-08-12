@@ -1,16 +1,25 @@
 # Master design — document ledger
 
-_Status of all 149 markdown documents, 2026-08-02. No file was moved,
-renamed or deleted; this table is the index that makes them navigable._
+_Initial 149-document index: 2026-08-02. Targeted authority reconciliation:
+2026-08-09._
+
+This ledger is **not exhaustive** for the repository's current set of **307
+tracked Markdown paths**. It preserves the original index and adds the
+documents/partial-supersession decisions needed for the 2026-08-09 medium and
+merged Opera/audio rulings. `MA-DOC-002` remains `CONFIRMED_OPEN` until a gate
+proves exactly one scoped authority row for every tracked Markdown path.
+Absence from this file grants no authority.
 
 **Legend**
 
 | | Meaning |
 |---|---|
-| 🟢 | **AUTHORITATIVE** — still binding. Read it before acting in its area. |
-| 🔵 | **SUPPORTING** — a living reference, ledger or runbook. Not a design decision. |
-| 🟡 | **SUPERSEDED** — a later document replaced its conclusions. Named. |
-| ⚪ | **HISTORICAL RECORD** — a completed pass, inventory or one-time analysis. Read for *why*, never for *what to do next*. |
+| 🟢 | **BINDING/CURRENT** — `BINDING_OPERATIONAL`, `BINDING_DOMAIN`, or current canonical scope; the note names it. |
+| 🟣 | **PROPOSED_CANONICAL** — tracked and recognized, but still pending its declared gate. |
+| 🔵 | **SUPPORTING_CURRENT** — useful detail/runbook, unable to redefine the canonical rule. |
+| 🟠 | **MIXED / PARTIALLY SUPERSEDED** — the note states exactly what survives and what is history. |
+| 🟡 | **SUPERSEDED** — a later decision replaced the relevant conclusion; evidence only. |
+| ⚪ | **HISTORICAL_EVIDENCE** or **PROPOSAL_DEFERRED** — the note names which; never take it as current implementation authority. |
 
 ---
 
@@ -18,64 +27,80 @@ renamed or deleted; this table is the index that makes them navigable._
 
 | Doc | | Note |
 |---|---|---|
-| `CLAUDE.md` | 🟢 | Session contract. **Conflicts with `AGENTS.md` — [OW-1](04_OPEN_WORK.md#ow-1).** |
-| `AGENTS.md` | 🟢 | Session contract. Newer layout/build sections, **stale art direction**. |
-| `SECURITY.md` | 🟢 | Threat model and binding agent rules. Summarized in 03 §8. |
-| `BACKUP.md` | 🟢 | Four backup layers and every restore recipe. |
-| `ASSET_LICENSES.md` | 🟢 | The licence ledger. One line per asset, same commit. 1,035 rows. |
-| `WORKFLOW_BRANCHING_2026-07-18.md` | 🟢 | The dev/master promotion rule. Summarized in 03 §6. |
-| `docs/ANDROID_RELEASE.md` | 🟢 | Signing key safety — a key change destroys the child's save. |
-| `ASSET_AUDIT.md` | ⚪ | 2026-06-25 CC0 audit + the network-blocker decision. Superseded in direction by `CC0_REPLACEMENT_WORKORDER_2026-07-22.md`. |
+| `CLAUDE.md` | 🟢 | `BINDING_OPERATIONAL`; reconciled 2026-08-09 to exact Godot 4.7.1 and true-2D medium. The complete `AGENTS.md` cinematic rule remains controlling. |
+| `AGENTS.md` | 🟢 | `BINDING_OPERATIONAL`; security/protected/save/release workflow and full-frame cinematic rules remain binding; 3D direction replaced by the 2026-08-09 true-2D decision. |
+| `SECURITY.md` | 🟢 | `BINDING_OPERATIONAL`; threat model and agent rules. A content/design decision cannot weaken it. Summarized in 03 §8. |
+| `BACKUP.md` | 🟢 | `BINDING_OPERATIONAL`; four backup layers and restore recipes. |
+| `ASSET_LICENSES.md` | 🟢 | `BINDING_LEDGER`; one provenance/licence entry per new asset in the same commit, including the merged Opera/minigame/atlas and 42-cue music deliveries. Provenance does not grant art acceptance. Row count not asserted here. |
+| `WORKFLOW_BRANCHING_2026-07-18.md` | 🟢 | `BINDING_OPERATIONAL`; the dev/master promotion rule. Summarized in 03 §6. |
+| `docs/ANDROID_RELEASE.md` | 🟢 | `BINDING_OPERATIONAL`; signing-key safety — a key change destroys the child's save. |
+| `design/00_MASTER_INDEX.md` | 🔵 | `SUPPORTING_CURRENT`; authority navigation and precedence, explicitly not an exhaustive ledger. |
+| `design/01_GAME_DESIGN.md` | 🟢 | `BINDING_DOMAIN` within the newer owner decision/design-language scope; 2.5D/3D history explicitly superseded. |
+| `design/02_ART_DIRECTION.md` | 🟢 | `BINDING_DOMAIN`; true-2D visual medium plus the protected-content and absolute cinematic rules. |
+| `design/03_TECHNICAL_ARCHITECTURE.md` | 🟢 | `BINDING_DOMAIN`; exact engine/build/save/security/release rules plus explicitly measured 3D debt. |
+| `design/04_OPEN_WORK.md` | 🔵 | `SUPPORTING_CURRENT`; current lifecycle crosswalk, not canonical finding records. |
+| `design/05_DOC_LEDGER.md` | 🔵 | `SUPPORTING_CURRENT`; this partial index. Exhaustive ledger closure remains `MA-DOC-002`. |
+| `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` | 🟣 | `PROPOSED_CANONICAL`; tracked and indexed, pending the remaining documentation gate. Stable `DL-*` rule authority within its declared state. |
+| `audit/MASTER_AUDIT_2026-08-09.md` | 🟣 | `PROPOSED_CANONICAL`; synchronized audit-cycle/evidence/lifecycle record. Overall state `REPAIRING`, satisfaction `UNSATISFIED`. Latest completed exact-head evidence is commit `dacef1405b6a8cb470117e824aebac3a8ca500af`, GitHub run `31457593351`, successful in 34m19s: Windows music 42/42 and Ubuntu static/import/analyzer/62 trusted probes/boot/balance/five diagnostic capture-upload pairs are green. `MA-CI-002` is `VERIFIED_FIXED` at V3 exact-head; `MA-CI-003` remains `CONFIRMED_OPEN`. APK, authoritative visual, listening, device, child, owner and strict-2D gates remain open. |
+| `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` | 🟢 | `BINDING_OPERATIONAL` for stable `CHG-*` scope, risk/evidence logging, dependency-aware rollback planning, and the clean-branch/gate-before-merge revert workflow. It never authorizes a rollback that violates protected-asset, security, save, or final-medium rules. |
+| `ASSET_AUDIT.md` | ⚪ | `HISTORICAL_EVIDENCE`; 2026-06-25 CC0 audit/network decision. Current named-defect discipline comes from design 06; its stale music inventory is superseded by `MUSIC_AUDIT_2026-08-09.md`. |
 
 ## Game design lineage
 
 | Doc | | Note |
 |---|---|---|
-| `GAME_REDESIGN_2P5D_2026-07-27.md` | 🟢 | **The current charter.** Everything in 01 §2 comes from here. |
-| `WORLD_MAP_2026-07-27.md` | 🟢 | Geography **proposal**; four owner decisions open ([OW-13](04_OPEN_WORK.md#ow-13)). Its "the world is not stitched" finding stands regardless. |
-| `MINIGAME_ENGINES.md` | 🟢 | The MiniGame contract + engine set E1–E4/K1/K2. Steps 2–7 open. |
-| `MEDALS.md` | 🟢 | Bronze/silver/gold rules and the full tier table. |
-| `STUFFIE_COMPANIONS.md` | 🟢 | The companion wing: roster, unlock, care loop, battles. |
-| `STUFFIE_PLAYROOM_RESCUE_GUIDE_2026-07-29.md` | 🟢 | The wordless stuffie tutorial (Baby Eagle rescue). |
-| `DUNGEON_DIFFICULTY_AUDIT_2026-07-18.md` | 🟢 | Age-4 difficulty read + the unbuilt lock-and-key design ([OW-16](04_OPEN_WORK.md#ow-16)). |
-| `ZELDA_GAMEPLAY_WORKORDER_2026-07-18.md` | 🟢 | Unbuilt verb/structure roadmap ([OW-17](04_OPEN_WORK.md#ow-17)). |
-| `FABLE_INTERACTION_HANDOFF_2026-07-25.md` | 🟢 | The interactable state machine and data contract. Long but current. |
-| `TOUCH_CENTRIC_REVERSIBLE_HANDOFF_2026-07-25.md` | 🟢 | Hybrid/Classic touch modes; the grammar the charter kept. |
-| `RACE_FEEL_WORKORDER.md` | 🟢 | Slide-racer feel diagnosis + iterate-until-green protocol. |
-| `KART_FEEL.md` | 🟢 | Kart-class comparative rubric; gated by `probe_kart_feel`. |
-| `AUDIT_UPGRADE.md` | 🟢 | The production-quality intervention plan. Its finding #1 is [OW-21](04_OPEN_WORK.md#ow-21). |
+| `GAME_REDESIGN_2P5D_2026-07-27.md` | 🟠 | `HISTORICAL_EVIDENCE` for child-readable linear navigation, touch-the-world, independent cards and differential layers. Its 2.5D/SideScrollStage/depth-buffer/reversibility/migration-order prescriptions are `SUPERSEDED`. |
+| `WORLD_MAP_2026-07-27.md` | ⚪ | `PROPOSAL_DEFERRED`; geography is unapproved. Its old reachability report is historical; current `MA-PLAY-001` requires fresh enumeration. |
+| `MINIGAME_ENGINES.md` | 🟠 | `SUPPORTING_CURRENT` for lifecycle/input/reward/mercy/voice/probe contracts. E1 expansion is deferred; E2/E4 spatial, Jolt-standee and Spline3 prescriptions are `SUPERSEDED`. |
+| `MEDALS.md` | 🟠 | `BINDING_DOMAIN` for bronze/silver/gold, upgrade-only and passive-no-award rules. Its “3D play place” venue label is historical debt, not medium authority. |
+| `STUFFIE_COMPANIONS.md` | 🟠 | `BINDING_DOMAIN` for roster, unlock, care, control and no-fail behavior. GLB bodies, Meshy creation and 3D arena prescriptions are `SUPERSEDED`. |
+| `STUFFIE_PLAYROOM_RESCUE_GUIDE_2026-07-29.md` | 🟠 | `BINDING_DOMAIN` for wordless tutorial intent/no-fail flow. Sprite3D/depth/effect implementation is `SUPERSEDED`. |
+| `DUNGEON_DIFFICULTY_AUDIT_2026-07-18.md` | ⚪ | `PROPOSAL_DEFERRED`; age-4 analysis is historical evidence, lock/key expansion is not current work. |
+| `ZELDA_GAMEPLAY_WORKORDER_2026-07-18.md` | ⚪ | `PROPOSAL_DEFERRED`; verb/structure expansion is not current work or 3D authorization. |
+| `FABLE_INTERACTION_HANDOFF_2026-07-25.md` | 🟠 | `BINDING_DOMAIN` only for touch ownership, explicit activation, cancel/teardown and semantic interaction. Every 2.5D/Sprite3D/Camera3D/light/depth contract is `SUPERSEDED`. |
+| `TOUCH_CENTRIC_REVERSIBLE_HANDOFF_2026-07-25.md` | 🟠 | `BINDING_DOMAIN` for retained Hybrid/Classic input grammar and cancellation. Keeping a 3D world or dimensional rollback is `SUPERSEDED`; ordinary input fallback is not. |
+| `RACE_FEEL_WORKORDER.md` | 🟠 | `SUPPORTING_CURRENT` only for measured feel criteria; any spatial implementation prescription is `SUPERSEDED`. |
+| `KART_FEEL.md` | 🟠 | `SUPPORTING_CURRENT` comparative feel rubric; spline/3D implementation is `SUPERSEDED`. |
+| `AUDIT_UPGRADE.md` | 🟠 | `SUPPORTING_CURRENT` for evidence quality/device gaps, including [OW-21](04_OPEN_WORK.md#ow-21). Its 3D product framing and generic rollback link are historical. |
 | `AUDIT_3_0.md` | ⚪ | June 2026 pre-3.0 critical audit. Its criticals (no save, no ending) are long fixed. |
 | `DESIGN_3_0.md` | ⚪ | What 3.0 changed and why. Origin of the Mobile-renderer and stretch decisions. |
 | `CONVERSATION_AUDIT.md` | ⚪ | June 2026 discussed-vs-shipped checklist. |
 | `GAME_AUDIT_v3_49.md` | ⚪ | Comprehensive v3_49 design+code audit with an emulated playthrough. |
 | `AUDIT_REPAIR.md` | ⚪ | Closes the 2026-07-15 repair phase (agency, no-fail, touch, save safety). |
-| `CODE_AUDIT_2026_07.md` | 🔵 | Bugs B1–B9 all closed; **§4 structural debt is still live** (03 §9). |
-| `CAMERA_AUDIT_2026_07.md` | 🔵 | Camera inventory + the `camera_kit.gd` redesign. Largely landed. |
-| `JOLT_PHYSICS_AUDIT_2026-07-18.md` | 🔵 | Why Jolt stays garnish-only; overworld feel tiers. |
-| `LIGHTING_SHADER_AUDIT_2026-07-18.md` | 🔵 | Mobile-renderer shader inventory + the Lighting Lab; ranked look shifts. |
+| `CODE_AUDIT_2026_07.md` | ⚪ | `HISTORICAL_EVIDENCE`; B1–B9 are closed. Current structural debt is re-owned by `MA-CODE-001`/`MA-CODE-002`, not imported wholesale from §4. |
+| `CAMERA_AUDIT_2026_07.md` | 🟡 | `HISTORICAL_EVIDENCE`; its 3D boom/Vector3 resolver explains legacy behavior but is `SUPERSEDED` by final `Camera2D` composition. |
+| `JOLT_PHYSICS_AUDIT_2026-07-18.md` | 🟡 | `HISTORICAL_EVIDENCE`; the former garnish-only rationale is superseded because all 3D physics is removal debt. |
+| `LIGHTING_SHADER_AUDIT_2026-07-18.md` | 🟠 | `SUPPORTING_CURRENT` for Mobile-renderer evidence only; 3D light/spatial-shader growth and Lighting Lab direction are `SUPERSEDED`. |
 | `COLOR_CONSISTENCY_AUDIT.md` | ⚪ | 2026-07-15 overexposure findings in six bright contexts. |
 
 ## Engine references
 
 | Doc | | Note |
 |---|---|---|
-| `PHYSICS_ENGINE.md` | 🟢 | `ReefPhysics` — the analytic engine everything moves through. |
+| `PHYSICS_ENGINE.md` | 🟠 | `SUPPORTING_CURRENT` for tested feel/analytic behavior; `Vector3`, heightfield and spatial-solid contracts are migration debt. |
 | `HIT_ENGINE.md` | 🟢 | The shared enemies-get-hit pipeline. |
-| `RACE_ENGINE.md` | 🟢 | `kart.gd` as a reusable config-driven racer (E4). |
-| `VISUAL_AUDIT_TOOL.md` | 🟢 | The audit tool's contract, expansion rules and stress protocol. |
-| `MEDALS.md`, `MINIGAME_ENGINES.md` | 🟢 | (listed above) |
+| `RACE_ENGINE.md` | 🟠 | `SUPPORTING_CURRENT` for config/assist/reward behavior; spline/spatial presentation is `SUPERSEDED`. |
+| `VISUAL_AUDIT_TOOL.md` | 🟠 | `SUPPORTING_CURRENT` only for stress-first falsifiability, honest evidence/lifecycle states, complete-evidence gating and reproducible visual provenance. Its Sprite3D-as-2D allowance is `SUPERSEDED` by the current true-Canvas reconciliation. All 3D/Blender/Meshy/rig/model-conversion prescriptions are non-executable history. |
+
+## Audio and music
+
+| Doc | | Note |
+|---|---|---|
+| `MUSIC_AUDIT_2026-08-09.md` | 🟢 | `BINDING_DOMAIN` for the 15-file legacy inventory, 42 deterministic new cues, shared musical language, one-player/hard-cut ownership, voice ducking, loop/mix targets, transition restoration and machine evidence. Exact-head run `31457593351` verifies 42/42 deliveries in the pinned Windows job. Human two-wrap listening, voice intelligibility, mono fold-down and Lenovo Tab M11 review remain open under `MA-AUDIO-001`. Its dated Opera nested-real-kart routing is `SUPERSEDED`; current Racer remains one Canvas act under `opera_racer`. |
+| `assets_src/audio/music/area_music_scores.json` | 🟢 | `BINDING_MACHINE_DATA` for the 42 declarative compositions; it cannot certify subjective listening. |
+| `assets/audio/music/area_music_manifest.json` | 🟢 | `BINDING_MACHINE_EVIDENCE` for rendered hashes, codec, duration, loudness, peak and loop measurements of the 42 new cues. |
 
 ## Art doctrine
 
 | Doc | | Note |
 |---|---|---|
-| `ART_STYLE_GUIDE.md` | 🟢 | **The style law.** Shape/line/value/colour language + the sampled palette. |
-| `ART_SCORING_GOVERNANCE_2026-07-18.md` | 🟢 | What a score means; supersedes "book art = automatic 5/5". |
-| `LIVING_CARD_DESIGN_LANGUAGE_2026-07-29.md` | 🟢 | The Sprite3D structural contract and motion budget. |
-| `CODEX_BACKGROUND_FLATS_WORKORDER_2026-07-27.md` | 🟢 | The layer format and per-zone shot lists. Batches 3–6 not yet started. |
-| `ART_ASSET_LIBRARY.md` | 🔵 | Where art lives: `assets/`, `assets_src/`, `gen2/`, `attic/`. |
-| `CC0_REPLACEMENT_WORKORDER_2026-07-22.md` | 🟢 | The one-at-a-time original-art replacement handoff ([OW-18](04_OPEN_WORK.md#ow-18)). |
-| `VISUAL_DESIGN_AUDIT_2026-07-28.md` | 🟢 | The redesign's first-48-hours audit. Its four ERRORs are OW-2..OW-5. |
+| `ART_STYLE_GUIDE.md` | 🟠 | `BINDING_DOMAIN` only for shape/line/value/colour, sampled palette, identity/protected-source rules, child readability, complete anatomy/silhouette, and licence/provenance discipline. Its 2D-to-3D translation, Blender, Meshy, GLB, rig, model-texture, turnaround and conversion-contract prescriptions are `SUPERSEDED`. |
+| `ART_SCORING_GOVERNANCE_2026-07-18.md` | 🟠 | `BINDING_DOMAIN` only for runtime-context scoring, stress/rejection iteration, explicit owner acceptance for 5/5, no automatic score from provenance, protected originals, and recorded provenance. Its 3D-diorama, deterministic-Blender, Meshy, rig/model and image-to-3D workflow prescriptions are `SUPERSEDED`. |
+| `LIVING_CARD_DESIGN_LANGUAGE_2026-07-29.md` | 🟠 | `SUPPORTING_CURRENT` for stable pivots, unique pixel ownership, motion budgets and card roles. Its exclusive Sprite3D/depth-buffer structure is `SUPERSEDED`. |
+| `CODEX_BACKGROUND_FLATS_WORKORDER_2026-07-27.md` | 🟠 | `SUPPORTING_CURRENT` for approved source art, layer intent and shot evidence. Sprite3D/2.5D formats and speculative batch queue are `SUPERSEDED`/deferred. |
+| `ART_ASSET_LIBRARY.md` | 🟠 | `SUPPORTING_CURRENT` for protected/current 2D paths and provenance. Any `gen2` model or active-3D placement direction is `SUPERSEDED`. |
+| `CC0_REPLACEMENT_WORKORDER_2026-07-22.md` | 🟠 | `PROPOSAL_DEFERRED` as a broad campaign; reuse/provenance and one-at-a-time proof survive for named current defects ([OW-18](04_OPEN_WORK.md#ow-18)). |
+| `VISUAL_DESIGN_AUDIT_2026-07-28.md` | 🟠 | `HISTORICAL_EVIDENCE`: Lagoon one-layer report survives as `MA-VIS-002`; rollback/pilot premises are dismissed and palette reports require new state-local evidence. |
 | `CEL_SHADING.md` | ⚪ | The 2026-06-26 Wind Waker decision that set the rendering register. |
 | `ART_STYLE_AUDIT.md` | ⚪ | 2026-07-13 baseline style audit ("strong heart, uneven perimeter"). |
 | `ART_FULL_INVENTORY.md` | ⚪ | 2026-07-14 directory-level inventory of 487 visual files. |
@@ -84,10 +109,10 @@ renamed or deleted; this table is the index that makes them navigable._
 | `ART_PASS35_PROMPTS.md` | ⚪ | Generation provenance for that pass. |
 | `ART_RESIDUAL_LOW_SCORE_AUDIT.md` | 🟡 | Its "no remaining 0–2/5 roles" conclusion was corrected by `ART_HUMAN_REVIEW_AUDIT_2026-07-16.md`. |
 | `ART_REMEDIATION_BATCH_04.md`, `ART_RUNTIME_REMEDIATION_BATCH_03.md`, `ART_SCORE3_REBUILD_AUDIT.md`, `ART_LANDMARK_REBUILD.md` | ⚪ | Completed 2026-07-14/15 remediation passes. |
-| `ART_3D_BATCH_01.md`, `ART_3D_BATCH_02.md`, `ART_3D_CONVERSION_MANIFEST.md` | ⚪ | Blender mesh passes. Channel deprioritized by the 2026-07-27 decision. |
+| `ART_3D_BATCH_01.md`, `ART_3D_BATCH_02.md`, `ART_3D_CONVERSION_MANIFEST.md` | 🟡 | `HISTORICAL_EVIDENCE`; every Blender/model conversion direction is `SUPERSEDED`, not merely deprioritized. |
 | `ART_GENERATION_BATCH_01.md`, `ART_GENERATION_BATCH_02.md` | ⚪ | Review blocks, never automatic runtime replacements. |
 | `ART_AUDIT_2026-07-18.md` | ⚪ | Four-day-window repeat audit. |
-| `ART_GAP_WORKORDER_2026-07-18.md` | 🔵 | What does NOT exist yet — still a useful gap list, line refs stale. |
+| `ART_GAP_WORKORDER_2026-07-18.md` | ⚪ | `HISTORICAL_EVIDENCE`; gap claims and line references require fresh reproduction before becoming work. |
 | `ART_NON5_MAX_POTENTIAL_CRITIQUE_2026-07-18.md` | ⚪ | Cross-history critique of everything below 5/5. |
 | `CODEX_IMPROVEMENT_AUDIT_2026-07-18.md` | ⚪ | Directive audit for the regen-pack iteration; P0 was a QA-integrity fix. |
 | `FULL_TEXTURE_REGEN_FAILURE_ANALYSIS_2026-07-18.md`, `FULL_TEXTURE_REGEN_IMPLEMENTATION_REVIEW_2026-07-18.md`, `FULL_TEXTURE_REGEN_POST_STRESS_ANALYSIS_2026-07-18.md` | ⚪ | The isolated 167-candidate regeneration pack: baseline, independent review, post-stress result. |
@@ -95,58 +120,63 @@ renamed or deleted; this table is the index that makes them navigable._
 | `OBJECT_PLACEMENT_AUDIT_2026-07-17.md` | 🔵 | Ecosystem placement rules (right biome, believable support, reserved footprints). Still a good check. |
 | `PARALLEL_ART_WORK_REVIEW_2026-07-16.md` | ⚪ | One-time overlap arbitration between concurrent art branches. |
 | `REEF_FLORA.md` | 🔵 | The marine-first flora roster and its licensing record. |
-| `COLOR_CONSISTENCY_AUDIT.md` | ⚪ | (listed above) |
 
 ## Zone: Pearl Castle
 
 | Doc | | Note |
 |---|---|---|
-| `CASTLE_INTERACTION_AUDIT_2026-08-01.md` | 🟢 | **Current castle interaction authority.** 38 props, 8 rooms, semantic (not whole-card) interactions, alpha/depth repair, blocking audit contract. |
-| `CASTLE_ROOM_LED_CODEX_IMPLEMENTATION_2026-07-28.md` | 🟢 | Room-led hub; **2026-08-01 correction: storybook doors are the sole room route, the elevator is removed.** |
-| `FABLE_CASTLE_ANIMATION_INTERACTIVITY_HANDOFF_2026-07-29.md` | 🟢 | The ambient-motion + interactivity brief the castle work executes. |
-| `CASTLE_DUST_BUNNY_SPAWN_GUIDE_2026-07-29.md` | 🟢 | The Main Hall dust-bunny spawn table and clear rules. |
-| `FABLE_CASTLE_ITEM_STYLE_AUDIT_2026-07-28.md` | 🔵 | The 4.5/5 item-style gate and the 28-item inventory. |
-| `FABLE_CASTLE_2P5D_LAYER_AUDIT_2026-07-26.md` | 🔵 | Layer/navigation audit; **resolution-nonconforming** under the native-2K amendment. |
-| `FABLE_CASTLE_2K_REGEN_HANDOFF_2026-07-26.md` | 🔵 | The native-2K regeneration contract; **blocked at the generator's long-edge gate.** |
+| `CASTLE_INTERACTION_AUDIT_2026-08-01.md` | 🟠 | `BINDING_DOMAIN` for truthful semantic interactions and owned alpha; Sprite3D/depth implementation is `SUPERSEDED` and must migrate to Canvas ordering. |
+| `CASTLE_ROOM_LED_CODEX_IMPLEMENTATION_2026-07-28.md` | 🟠 | `SUPPORTING_CURRENT` for room/door narrative and approved art; 2.5D/Sprite3D structure is `SUPERSEDED`. The 2026-08-01 elevator removal remains current. |
+| `FABLE_CASTLE_ANIMATION_INTERACTIVITY_HANDOFF_2026-07-29.md` | 🟠 | `SUPPORTING_CURRENT` for authored motion/interaction intent; spatial-card implementation is `SUPERSEDED`. |
+| `CASTLE_DUST_BUNNY_SPAWN_GUIDE_2026-07-29.md` | 🟠 | `BINDING_DOMAIN` for distinct bunnies, contact/no-fail behavior and cleanup; Sprite3D/Camera3D/depth/effect directions are `SUPERSEDED`. |
+| `FABLE_CASTLE_ITEM_STYLE_AUDIT_2026-07-28.md` | 🟠 | `SUPPORTING_CURRENT` for approved source-pixel/style evidence; Sprite3D inventory/presentation is `SUPERSEDED`. Its dated item count is historical. |
+| `FABLE_CASTLE_2P5D_LAYER_AUDIT_2026-07-26.md` | ⚪ | `HISTORICAL_EVIDENCE`; source-layer/navigation observations may inform 2D work, but 2.5D structure is superseded and the set was resolution-nonconforming. |
+| `FABLE_CASTLE_2K_REGEN_HANDOFF_2026-07-26.md` | 🟠 | `SUPPORTING_CURRENT` only for native-per-screen resolution and approved source continuity; spatial staging is superseded. |
 | `FABLE_CASTLE_MAIN_HALL_PROP_COMPATIBILITY_AUDIT_2026-07-28.md` | ⚪ | Rejects the doorway-vignette pass; one hub vocabulary. |
 | `FABLE_CASTLE_VISUAL_POLISH_INTERVENTION_2026-07-28.md` | ⚪ | Hierarchy-not-topology polish direction. |
-| `CASTLE_PEARL_ART_AUDIT_2026-07-18.md` | ⚪ | The 3D-era castle art rebuild. Predates the 2.5D castle. |
-| `audit/castle_sprite3d/CASTLE_SEAM_TONE_OVERLAP_AUDIT_2026-07-29.md` | 🔵 | Corrected 2026-08-01: seam/tone/registration evidence for the Main Hall tiles. |
-| `audit/castle_sprite3d/CASTLE_LIGHTING_CONTINUITY_AUDIT_2026-07-29.md` | 🟡 | Superseded by the seam/tone audit above for fixtures, junctions and tone. |
+| `CASTLE_PEARL_ART_AUDIT_2026-07-18.md` | ⚪ | `HISTORICAL_EVIDENCE`; the 3D-era castle rebuild cannot direct final Canvas work. |
+| `audit/castle_sprite3d/CASTLE_SEAM_TONE_OVERLAP_AUDIT_2026-07-29.md` | 🟠 | `SUPPORTING_CURRENT` for source seam/tone/registration evidence; Sprite3D delivery structure is `SUPERSEDED`. |
+| `audit/castle_sprite3d/CASTLE_LIGHTING_CONTINUITY_AUDIT_2026-07-29.md` | 🟡 | `HISTORICAL_EVIDENCE`; superseded by the seam/tone evidence for fixtures/junctions/tone and by true 2D for runtime structure. |
 
 ## Zone: Sky Lagoon
 
 | Doc | | Note |
 |---|---|---|
-| `SKY_LAGOON_CONGRUENCY_REBUILD_2026-07-27.md` | 🟢 | The 3×1 promenade rebuild; `SCENE_CONGRUENCY 10/10` gate. |
-| `SKY_LAGOON_REDUCTIVE_HANDOFF_2026-07-28.md` | 🟢 | The 6144×2048 clean plate reconstructed as a 6×2 card grid — the per-screen resolution rule in practice. |
-| `SKY_LAGOON_BACKGROUND_RESOLUTION_AUDIT_2026-07-27.md` | 🟢 | Why the 1024×341 downscale was removed; native-master preservation. |
-| `SKY_LAGOON_LIVING_CARD_V3_IMPLEMENTATION_AUDIT_2026-07-29.md` | 🔵 | The living-card pilot that produced the design language. |
-| `docs/audits/SKY_LAGOON_ANIMALS_2026-08-01.md` | 🔵 | Ambient-animal implementation; a good worked example of *scene*-complete vs *asset*-complete. |
+| `SKY_LAGOON_CONGRUENCY_REBUILD_2026-07-27.md` | 🟠 | `SUPPORTING_CURRENT` for approved 3×1 source composition/congruency; promenade/spatial runtime structure is `SUPERSEDED`. |
+| `SKY_LAGOON_REDUCTIVE_HANDOFF_2026-07-28.md` | 🟠 | `BINDING_DOMAIN` for the 6144×2048 clean plate, unique object ownership and 6×2 slicing; final reconstruction uses Canvas/`Sprite2D`, not Sprite3D. |
+| `SKY_LAGOON_BACKGROUND_RESOLUTION_AUDIT_2026-07-27.md` | 🟠 | `BINDING_DOMAIN` for native-master preservation/resolution. Sprite3D/camera/touch validation is `HISTORICAL_EVIDENCE`, not final structure. |
+| `SKY_LAGOON_LIVING_CARD_V3_IMPLEMENTATION_AUDIT_2026-07-29.md` | 🟠 | `HISTORICAL_EVIDENCE` for the pilot and durable card lessons; Sprite3D/depth implementation is `SUPERSEDED`. |
+| `docs/audits/SKY_LAGOON_ANIMALS_2026-08-01.md` | 🟠 | `SUPPORTING_CURRENT` for habitat, continuity and scene-complete evidence; Sprite3D/shadow staging is `SUPERSEDED`. |
 | `SKY_LAGOON_PNW_FLAT_PROTOTYPE_AUDIT_2026-07-21.md` | ⚪ | **Rejects** the realistic/procedural PNW attempts; sets flat art as the source. |
 | `SKY_LAGOON_PNW_RUNTIME_IMPLEMENTATION_2026-07-21.md` | ⚪ | Why the accepted 2D set stalled before runtime. |
-| `SKY_LAGOON_QUALITY_AUDIT_2026-07-20.md`, `SKY_LAGOON_ART_AUDIT_2026-07-19.md`, `SKY_LAGOON_STYLE_COHESION_AUDIT_2026-07-19.md` | ⚪ | The 3D-era lagoon audits. Contains the **binding botanical rule** (a detached leaf may never represent a whole plant). |
-| `CLAUDE_SKY_LAGOON_DESIGN_HANDOFF_2026-07-19.md`, `CLAUDE_SKY_LAGOON_BLENDER_CONTINUATION_2026-07-20.md` | 🟡 | Blender-era handoffs; superseded by the flat/2.5D direction. |
+| `SKY_LAGOON_QUALITY_AUDIT_2026-07-20.md`, `SKY_LAGOON_ART_AUDIT_2026-07-19.md`, `SKY_LAGOON_STYLE_COHESION_AUDIT_2026-07-19.md` | 🟠 | `HISTORICAL_EVIDENCE`; 3D prescriptions are `SUPERSEDED`. The detached-leaf botanical rule survives as current art doctrine. |
+| `CLAUDE_SKY_LAGOON_DESIGN_HANDOFF_2026-07-19.md`, `CLAUDE_SKY_LAGOON_BLENDER_CONTINUATION_2026-07-20.md` | 🟡 | `HISTORICAL_EVIDENCE`; Blender/3D directions are `SUPERSEDED` by final true 2D. |
 
 ## Zone: Pearl Opera (the largest chain — read top to bottom)
 
 | Doc | | Note |
 |---|---|---|
-| `OPERA_STAGE_INTERACTION_2026-08-02.md` | 🟢 | **Newest.** The paintings ARE the stages: routes, stations, roaming combat, the magnifier, Storybook task cards. |
-| `OPERA_2D_REBUILD_2026-08-01.md` | 🟢 | The five-beat arc for all 12 careers + the four same-day owner corrections. |
-| `OPERA_CAREER_COMPETITION_SYSTEM_2026-07-29.md` | 🟢 | Architecture authority: 2D lobby, `OperaCareerWorld2D`, hidden rival, 3D floor bosses. |
-| `OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md` | 🟢 | The live art request queue (P1–P7). P3-04/05, P6, P7 open. |
-| `CODEX_OPERA_STAGE_COMPLETION_HANDOFF_2026-08-02.md` | 🟢 | The five art sets that complete the stage build. |
-| `OPERA_NURSERY_JOB_12_2026-08-01.md` | 🟢 | Job 13 (Moonbeam Nursery), cooperative, save-migration guarded. |
-| `FABLE_OPERA_LAMBA_TAKEOVER_HANDOFF_2026-08-01.md`, `FABLE_OPERA_LAMBA_TAKEOVER_STATUS_2026-08-01.md` | 🟢 | Lamba replaces the rabbit-fish. Two owner-gated tasks remain ([OW-15](04_OPEN_WORK.md#ow-15)). |
+| `BALLERINA_PARTY_REBUILD_2026-08-09.md` | 🟢 | `BINDING_DOMAIN`, latest Ballerina authority: three-act full-stage Pearl Mirror / Ribbon Trail / Grand Twirl, monotonic 5/10-second assistance, held pose keys and one-shot curtain call. It supersedes every older Ballerina phase/playback section and old atlas recommendation. The resolved content is integrated at `ad36ee9f`; its local full suite and exact-head remote run `31457593351` at `dacef1405b6a8cb470117e824aebac3a8ca500af` succeed, the latter in 34m19s. Authoritative capture, device, child and owner review remain. |
+| `design/BOXING_GAME_PROJECT_2026-08-09.md` | 🟠 | `BINDING_DOMAIN` for Boxer's five one-finger Canvas phases, touch ownership, friendly/no-loss behavior, save/reward ownership and probe contract. Its three retained GLBs are `SUPERSEDED` measured debt, never fallback or implementation resources. The resolved content is integrated at `ad36ee9f`; its local full suite and exact-head remote run `31457593351` at `dacef1405b6a8cb470117e824aebac3a8ca500af` succeed, the latter in 34m19s. Authoritative capture, device, child and owner review remain under `MA-OPERA-009`. |
+| `OPERA_QUALITY_OVERHAUL_2026-08-09.md` | 🟠 | `SUPPORTING_CURRENT` for career-specific causal verbs, Canvas layout/input corrections and the 13-atlas/208-frame audit. Its 52-phase count, universal descriptions of the later Ballerina/Boxer specialists, and real-kart Racer payoff are historical and `SUPERSEDED`. |
+| `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md` | 🟠 | `SUPPORTING_CURRENT` for the seven-part quality rubric, reuse discipline and non-overridden career/art corrections. Its 52-phase baseline plus Ballerina, Boxer and nested-kart prescriptions are `SUPERSEDED` by the later scoped authorities and Canvas Racer reconciliation. |
+| `assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md` | 🔵 | `PROVENANCE_ONLY` / `SUPPORTING_CURRENT` for minigame-sheet derivation and review notes. It grants no 5/5 or runtime acceptance; owner/context/device review remains separate. |
+| `assets_src/imagegen/opera_roshan_animation_2026-08-09/PROMPTS.md` | 🔵 | `PROVENANCE_ONLY`; accepted-generation IDs, prompt hashes and derivation commands for the 13 atlases. It cannot override the review JSON, runtime hashes, specialist documents or owner acceptance. |
+| `OPERA_STAGE_INTERACTION_2026-08-02.md` | 🟠 | `BINDING_DOMAIN` for paintings-as-Canvas-stages, routes, stations, magnifier and Storybook task cards where the current career table uses them. Ballerina/Boxer specialist surfaces override those defaults; generic roaming combat is not universal. Later current defects are owned by `MA-OPERA-*`. |
+| `OPERA_2D_REBUILD_2026-08-01.md` | 🟠 | `BINDING_DOMAIN` for the shared Canvas career shell and dated owner corrections, not a universal five-beat template. “3D floor bosses unchanged,” rival GLBs and legacy-3D fallback are `SUPERSEDED`; later specialist documents control their careers. |
+| `OPERA_CAREER_COMPETITION_SYSTEM_2026-07-29.md` | 🟠 | `BINDING_DOMAIN` for the 2D lobby, `OperaCareerWorld2D`, and scoped competition behavior. It does not force rivals/meters into cooperative or specialist careers; 3D boss/outfit/presentation prescriptions are `SUPERSEDED`. |
+| `OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md` | 🟡 | `HISTORICAL_EVIDENCE`; its request-list scope is superseded by the later August 3–9 audits/current `MA-OPERA-*` index. |
+| `CODEX_OPERA_STAGE_COMPLETION_HANDOFF_2026-08-02.md` | 🟠 | `HISTORICAL_EVIDENCE` for source gaps/consumer paths; reproduce against current `MA-OPERA-*` items before generating or wiring art. |
+| `OPERA_NURSERY_JOB_12_2026-08-01.md` | 🟠 | `BINDING_DOMAIN` for Job 13's cooperative Canvas behavior and save migration; its 3D player/SideScroll parent description is migration history. |
+| `FABLE_OPERA_LAMBA_TAKEOVER_HANDOFF_2026-08-01.md`, `FABLE_OPERA_LAMBA_TAKEOVER_STATUS_2026-08-01.md` | 🟠 | `SUPPORTING_CURRENT` for the approved Lamba semantic role; old implementation queue is historical. Protected recording gap remains `MA-ACCESS-002`. |
 | `OPERA_ACT_PACING_2026-07-25.md` | 🟢 | The 2–4 minute standard and "longer must not mean more of the same". |
-| `OPERA_ACT_REDESIGN_2026-07-25.md` | 🟡 | Superseded by the five-beat rebuild; its *standard* (design the game the career implies) survives. |
+| `OPERA_ACT_REDESIGN_2026-07-25.md` | 🟡 | Superseded first by the five-beat rebuild and now by the career-specific 53-phase table; its *standard* (design the game the career implies) survives. |
 | `OPERA_JOB_GIMMICKS_2026-07-25.md` | 🟡 | Superseded by `OPERA_ACT_REDESIGN`. Its finding — nine of twelve acts were the same verb — is why the arc exists. |
 | `CODEX_ART_WORKORDER_2026-07-25.md` | 🟡 | Superseded by `CODEX_NEXTGEN_OBJECTS_2026-07-25.md`. |
-| `CODEX_NEXTGEN_OBJECTS_2026-07-25.md` | 🔵 | *How* an opera object is constructed, driven by a regenerated file rather than a hand-typed list. |
+| `CODEX_NEXTGEN_OBJECTS_2026-07-25.md` | 🟡 | `HISTORICAL_EVIDENCE`; its generated-file discipline may explain provenance, but all one-object-per-GLB/model construction is `SUPERSEDED`. |
 | `CODEX_ASSET_REQUESTS_2026-07-21.md`, `OPERA_ASSET_REQUESTS_2026-07-19.md` | 🟡 | Early prop lists; superseded by the work orders above. |
-| `CLAUDE_OPERA_HYBRID_LEVELS_2026-07-24.md` | 🟡 | The two-act hybrid design; superseded by the 2D five-beat rebuild. |
-| `CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md`, `CLAUDE_OPERA_JOB_3D_CONTINUATION_2026-07-21.md`, `CLAUDE_OPERA_HOUSE_3D_CONTINUATION_2026-07-21.md`, `CLAUDE_START_HERE_OPERA_JOB_ASSET_REGENERATION_2026-07-24.md` | 🟡 | The 3D/hybrid era. Superseded by the 2D shipping path. |
+| `CLAUDE_OPERA_HYBRID_LEVELS_2026-07-24.md` | 🟡 | The two-act hybrid design; superseded by the shared Canvas career shell and current specialist documents. |
+| `CLAUDE_OPERA_JOB_2P5D_CONTINUATION_2026-07-24.md`, `CLAUDE_OPERA_JOB_3D_CONTINUATION_2026-07-21.md`, `CLAUDE_OPERA_HOUSE_3D_CONTINUATION_2026-07-21.md`, `CLAUDE_START_HERE_OPERA_JOB_ASSET_REGENERATION_2026-07-24.md` | 🟡 | `HISTORICAL_EVIDENCE`; all 3D/hybrid runtime directions are `SUPERSEDED` by true 2D. |
 | `OPERA_JOB_FLAT_PROTOTYPE_PLAN_2026-07-21.md` | ⚪ | The 36-sheet / 576-card plan. |
 | `OPERA_JOB_FLAT_ART_AUDIT_2026-07-21.md`, `OPERA_HOUSE_FLAT_ART_AUDIT_2026-07-21.md`, `OPERA_JOB_2P5D_ART_AUDIT_2026-07-24.md`, `OPERA_JOB_HYBRID_FINALE_ART_AUDIT_2026-07-24.md` | ⚪ | Acceptance audits for those packages. The art they accepted is still in use. |
 | `audit/opera_regeneration_audit_2026-08-01.md` | 🔵 | 74 accepted / 8 rejected candidates with SHA evidence. |
@@ -155,26 +185,33 @@ renamed or deleted; this table is the index that makes them navigable._
 
 | Doc | | Note |
 |---|---|---|
-| `NORTHERN_KINGDOM_QUALITY_AUDIT_2026-07-19.md` | 🔵 | The 25-family authored kit at a 4.5 floor / 4.9 ceiling. |
-| `NORTHERN_BLENDER_HANDOFF_FOR_CLAUDE_2026-07-20.md` | 🔵 | Continuation rules; do not restore removed primitives. |
+| `NORTHERN_KINGDOM_QUALITY_AUDIT_2026-07-19.md` | 🟡 | `HISTORICAL_EVIDENCE`; its 3D/GLB kit and build directions are `SUPERSEDED`. Dated style measurements may inform review but cannot authorize model work. |
+| `NORTHERN_BLENDER_HANDOFF_FOR_CLAUDE_2026-07-20.md` | 🟡 | `HISTORICAL_EVIDENCE`; Blender/model continuation is `SUPERSEDED`. Its rejected-primitive history does not authorize rebuilding them in 2D. |
 | `NORTHERN_WORLD_ART_AUDIT_2026-07-17.md`, `NORTHERN_ASSET_BATCH_02.md` | ⚪ | Earlier northern audit and request list. |
-| `EMBER_FORTRESS_2D_CONCEPT_AUDIT_2026-07-22.md` | 🟢 | **Rejects the procedural mesh chain**; the six 2D boards are the design input. |
-| `EMBER_FORTRESS_EXPANSION_40_AUDIT_2026-07-22.md` | 🔵 | 40 further concept cards (39 → 79 exports). |
-| `CLAUDE_EMBER_FORTRESS_BLENDER_HANDOFF_2026-07-22.md` | 🔵 | The Blender build order from those boards. IP-safety rules restated. |
+| `EMBER_FORTRESS_2D_CONCEPT_AUDIT_2026-07-22.md` | 🟠 | `SUPPORTING_CURRENT` for the six approved 2D boards and rejection evidence; it does not authorize a later mesh conversion. |
+| `EMBER_FORTRESS_EXPANSION_40_AUDIT_2026-07-22.md` | 🟠 | `SUPPORTING_CURRENT` for accepted 2D concept-card evidence only; `.blend`/GLB conversion and measured-model output are `SUPERSEDED`. |
+| `CLAUDE_EMBER_FORTRESS_BLENDER_HANDOFF_2026-07-22.md` | 🟡 | `HISTORICAL_EVIDENCE`; Blender build order is `SUPERSEDED`. Independently binding IP-safety rules remain in current authority docs. |
 | `EMBER_FORTRESS_GRAPHICS_AUDIT_2026-07-21.md`, `CLAUDE_EMBER_FORTRESS_GRAPHICS_HANDOFF_2026-07-21.md` | 🟡 | The rejected earlier chain. Keep for the IP-safety framing only. |
 | `DUNGEON_ART_REBUILD_AUDIT_2026-07-16.md` | ⚪ | Ten authored dungeon assets replacing primitives. |
 | `REEF_REDESIGN_AUDIT_2026-07-16.md` | ⚪ | Records the **failed** first district redesign — read before redesigning the reef. |
-| `LIVING_WORLD_STAGE_AUDIT_2026-07-27.md` | 🔵 | The 111-stage inventory. Its overlay is critiqued in [OW-11](04_OPEN_WORK.md#ow-11); its **stranded-legacy-stage list** is the evidence for [OW-2](04_OPEN_WORK.md#ow-2). |
+| `LIVING_WORLD_STAGE_AUDIT_2026-07-27.md` | 🟠 | `HISTORICAL_EVIDENCE` for its dated stage inventory. Screen-space overlay claims require fresh reproduction; its dimensional rollback prescription is dismissed. |
 
-## Characters and models
+## Characters and retired model history
 
 | Doc | | Note |
 |---|---|---|
-| `NPC_3D_WORKORDER_2026-07-19.md` | 🟡 | **PAUSED** by the 2026-07-27 charter. Batch stays staged; key never lives in-repo. |
-| `CHARACTER_PIPELINE.md`, `CHARACTER_CUSTOMIZATION.md`, `CHARACTER_RUNBOOK.md` | ⚪ | The June 2026 3D-character/cosmetics plan. Cutouts are the medium again. |
-| `docs/ROSHAN_RIG_AUDIT.md` | 🔵 | v4 rig defects (the underbound +X arm). Method for all later rig checks. |
-| `docs/ROSHAN_FINAL_MODEL_2026-07-18.md` | 🟢 | The shipping-model recommendation. |
-| `docs/ROSHAN_POSE_STRESS_2026-07-18.md` | 🔵 | Held-pose range-of-motion results; harness `tools/audit_pose_stress.py`. |
+| `assets/characters/roshan_25d/README.md` | 🟢 | `BINDING_DOMAIN`; approved RGBA atlas ownership and true Canvas/`Sprite2D` target. Its current `Sprite3D` implementation note is explicitly migration debt. |
+| `CODEX_ROSHAN_SPRITE_REGENERATION_2026-08-02.md` | 🟠 | `SUPPORTING_CURRENT` for approved atlas/source-gap evidence. Atlas repacking is deferred and its 3D-standee staging is `SUPERSEDED`. |
+| `ROSHAN_SPRITE_CUTOFF_AUDIT_2026-08-02.md` | 🟠 | `HISTORICAL_EVIDENCE` for clipping diagnosis/verified replacements; Sprite3D sampling implementation is migration history, not final structure. |
+| `CODEX_OPERA_ROSHAN_ANIMATION_HANDOFF_2026-08-03.md` | 🟡 | `HISTORICAL_EVIDENCE`; its earlier 2D frames and “2.5D” staging are superseded by the 13 current hash-audited atlases and true-Canvas runtime. |
+| `assets_src/imagegen/seek_animated_2026-08-09/PROMPTS.md` | 🔵 | `PROVENANCE_ONLY` for the accepted-generation IDs, prompt hashes and derivation commands behind the animated Evie/Lamb-a' kit. Current runtime authority/evidence is `MA-SEEK-001`; the prompt cannot modify protected friend sources or close `MA-ACCESS-003`. |
+| `NPC_3D_WORKORDER_2026-07-19.md` | 🟡 | `HISTORICAL_EVIDENCE`; Meshy/3D batch is `SUPERSEDED`, removed rather than paused. Never submit it; the missing key is not a blocker. |
+| `CHARACTER_PIPELINE.md`, `CHARACTER_CUSTOMIZATION.md`, `CHARACTER_RUNBOOK.md` | 🟡 | `HISTORICAL_EVIDENCE`; all model/rig/skeleton/cosmetics prescriptions are `SUPERSEDED`. |
+| `gen2/ROSHAN_V2_WORKORDER.md` | 🟡 | `HISTORICAL_EVIDENCE`; true-3D Roshan, Meshy submission, rig reuse and model fallback hierarchy are `SUPERSEDED`. |
+| `docs/ROSHAN_RIG_AUDIT.md` | 🟡 | `HISTORICAL_EVIDENCE`; v4 rig measurements are retained only to explain retired work. No later rig work is authorized. |
+| `docs/ROSHAN_FINAL_MODEL_2026-07-18.md` | 🟡 | `HISTORICAL_EVIDENCE`; shipping-model recommendation is `SUPERSEDED` by the 2026-08-09 2D-only decision. |
+| `docs/ROSHAN_POSE_STRESS_2026-07-18.md` | 🟡 | `HISTORICAL_EVIDENCE`; model held-pose/harness work is `SUPERSEDED`, not an active QA requirement. |
+| `gen2/generated/MEASURED_INTERFACE_SHEET_2026-07-19.md` | 🟡 | `HISTORICAL_EVIDENCE`; GLB/model interface measurements cannot direct current runtime work. |
 | `CLAUDE_FABLE_ORNATE_SHELL_UI_HANDOFF_2026-07-29.md`, `CLAUDE_FABLE_UI_HANDOFF_2026-07-21.md` | 🔵 | The UI lineage that produced `StorybookUI`. |
 
 ## Cinematics
@@ -192,7 +229,6 @@ renamed or deleted; this table is the index that makes them navigable._
 
 | Doc | | Note |
 |---|---|---|
-| `VISUAL_AUDIT_TOOL.md` | 🟢 | (listed above) |
 | `audit/visual_design_report.md` | 🔵 | Generated output — regenerate, never hand-edit. |
 
 ---
@@ -209,3 +245,7 @@ Kept as-is; noted so a future edit updates every copy.
 | Wind Waker / Zelda is a rendering reference only | `CLAUDE.md`, `AGENTS.md`, `CEL_SHADING`, `ZELDA_GAMEPLAY_WORKORDER`, both Ember handoffs |
 | Mobile renderer everywhere | `CLAUDE.md`, `AGENTS.md`, `DESIGN_3_0`, `LIGHTING_SHADER_AUDIT`, `ART_SCORING_GOVERNANCE` |
 | 2048 px native background per playable screen | `AGENTS.md`, `SKY_LAGOON_REDUCTIVE_HANDOFF`, `FABLE_CASTLE_2K_REGEN_HANDOFF`, `OPERA_CAREER_COMPETITION_SYSTEM`, `FABLE_INTERACTION_HANDOFF` |
+| True Canvas/Node2D medium; all remaining 3D is shrinking debt | owner decision 2026-08-09, `AGENTS.md`, `CLAUDE.md`, design 00–06, `audit/MASTER_AUDIT_2026-08-09.md`, `assets/characters/roshan_25d/README.md` |
+| Seek uses animated Evie/Lamb-a' and high-grade Canvas meadow art, never its superseded vinyl/preview pair | `MA-SEEK-001`, design 01/02/04/05/06, `assets_src/imagegen/seek_animated_2026-08-09/PROMPTS.md` for provenance only |
+| Current Ballerina/Boxer specialist authority | `BALLERINA_PARTY_REBUILD_2026-08-09.md`, `design/BOXING_GAME_PROJECT_2026-08-09.md`, design 01–05, `audit/MASTER_AUDIT_2026-08-09.md` |
+| Music inventory, authorship, routing and open listening gates | `MUSIC_AUDIT_2026-08-09.md`, design 01/03/05, `ASSET_LICENSES.md`, score and manifest machine data |

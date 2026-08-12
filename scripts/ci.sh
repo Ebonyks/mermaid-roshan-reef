@@ -20,6 +20,29 @@ python3 -m gdtoolkit.parser $(find scripts -name '*.gd') \
 	|| { echo "PARSE FAIL (gdtoolkit)"; exit 1; }
 python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd \
 	|| { echo "LINT FAIL (:= from Variant)"; exit 1; }
+# Owner decision 2026-08-09: Mermaid Roshan is 2D-only. Prove the guard can
+# fail before trusting it, then reject model assets, rig APIs, missing atlases,
+# or a future CI bypass before Godot imports anything.
+python3 tools/audit_roshan_2d.py --stress \
+	|| { echo "ROSHAN 2D AUDIT SELF-TEST FAIL"; exit 1; }
+python3 tools/audit_roshan_2d.py \
+	|| { echo "ROSHAN 2D-ONLY CONTRACT FAIL"; exit 1; }
+# The character audit above remains the narrow atlas/identity invariant.  The
+# game-wide owner contract is a shrinking migration gate: its self-tests run
+# before import, while the exact inventory runs after import has recreated the
+# deterministic Godot 4.7.1 sidecars recorded by the baseline.
+python3 -m unittest tools.tests.test_audit_game_2d \
+	|| { echo "GAME-WIDE 2D AUDIT CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_game_2d.py --stress \
+	|| { echo "GAME-WIDE 2D AUDIT SELF-TEST FAIL"; exit 1; }
+python3 -m unittest tools.tests.test_audit_roshan_sprite_clipping \
+	|| { echo "ROSHAN SPRITE FRAME AUDIT TEST FAIL"; exit 1; }
+python3 tools/audit_roshan_sprite_clipping.py \
+	|| { echo "ROSHAN SPRITE CLIPPING/GHOST FAIL"; exit 1; }
+python3 tools/audit_probe_parity.py --stress \
+	|| { echo "PROBE PARITY SELF-TEST FAIL"; exit 1; }
+python3 tools/audit_probe_parity.py \
+	|| { echo "LOCAL/REMOTE TRUSTED PROBE PARITY FAIL"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
 python3 tools/prepare_opera_nursery_art.py --check-only \
@@ -32,10 +55,14 @@ python3 tools/audit_opera_borderless_minigame_art.py \
 	|| { echo "OPERA BORDERLESS MINIGAME ART FAIL"; exit 1; }
 python3 tools/audit_opera_roshan_animation.py \
 	|| { echo "OPERA ROSHAN ANIMATION ART FAIL"; exit 1; }
-# Game-wide visual design audit (VISUAL_AUDIT_TOOL.md). The self-test is a
-# HARD gate - a check that can no longer fail is worse than no check, and that
-# failure is silent by nature. The audit itself is advisory until the
-# 2026-07-28 findings are fixed or waived; flip it to --strict then.
+python3 tools/build_area_music.py --check \
+	|| { echo "AREA MUSIC BUILD/PROVENANCE DRIFT"; exit 1; }
+# Game-wide visual design audit (VISUAL_AUDIT_TOOL.md). Lifecycle-contract and
+# stress tests are HARD gates: strict must never accept an unresolved review,
+# manual item, or coverage gap, and every check must remain falsifiable. The
+# repository run stays advisory while its report says UNSATISFIED.
+python3 -m unittest tools.tests.test_audit_visual_design \
+	|| { echo "VISUAL AUDIT CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_visual_design.py --stress \
 	|| { echo "VISUAL AUDIT SELF-TEST FAIL (a check can no longer fail)"; exit 1; }
 python3 tools/audit_visual_design.py || true
@@ -47,6 +74,8 @@ python3 tools/audit_castle_card_alpha.py \
 # between an approved PNG and the child. This replays the shipped grade over
 # the real art and fails when a profile clips or crushes pixels the source did
 # not (LIGHTING_2P5D_AUDIT_2026-08-02 §1.7/§E1).
+python3 -m unittest tools.tests.test_check_grade_headroom \
+	|| { echo "GRADE HEADROOM CONSOLE TEST FAIL"; exit 1; }
 python3 tools/check_grade_headroom.py \
 	|| { echo "GRADE HEADROOM FAIL (Environment grade is clipping painted art)"; exit 1; }
 python3 tools/audit_castle_interactions.py \
@@ -83,6 +112,8 @@ timeout 12m "$GODOT" --headless --path . --import 2>&1 | tee "$import_log" \
 	|| { echo "IMPORT FAIL"; exit 1; }
 grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource" "$import_log" \
 	&& { echo "IMPORT FAIL (resource or script error)"; exit 1; }
+python3 tools/audit_game_2d.py --regression-gate \
+	|| { echo "GAME-WIDE 2D MIGRATION REGRESSION (debt may only shrink)"; exit 1; }
 rc=0
 for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_human_art_audit probe_train probe_verbs probe_carry probe_grotto probe_flow probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_diegetic_paths probe_opera_detective probe_opera_pipe probe_opera_nursery probe_opera_gesture_quality probe_kitchen_props probe_bathroom_props probe_bathroom_integration probe_castle_pearl_art probe_fairy_art probe_props; do
 	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }

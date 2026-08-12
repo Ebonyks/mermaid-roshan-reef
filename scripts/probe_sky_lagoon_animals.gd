@@ -194,6 +194,29 @@ func _validate_day_actor(promenade: SkyLagoonPromenade) -> void:
 
 func _validate_continuity(promenade: SkyLagoonPromenade) -> void:
 	await _move_to_page(0)
+	var reef_route: Sprite3D = main.g.get("lagoon_reef_route_card") as Sprite3D
+	var route_base: Vector3 = main.g.get(
+		"lagoon_reef_route_base", Vector3.ZERO) as Vector3
+	var route_bottom: float = route_base.y \
+		- SkyLagoonPromenade.REEF_ROUTE_MARKER_H * 0.5 - 0.12
+	var shore_top := -INF
+	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
+		if int(definition["page"]) != 0:
+			continue
+		for point_value in (definition["path"] as Array):
+			var point: Vector3 = point_value as Vector3
+			shore_top = maxf(shore_top, point.y
+				+ float(definition["height"]) * 0.5
+				+ float(definition["bob"]))
+	_check("reef_route_clears_shore_animals",
+		reef_route != null and is_instance_valid(reef_route)
+		and route_base.x >= -66.0 and route_bottom - shore_top >= 0.5,
+		"route_base=%s vertical_gap=%.2f" % [route_base, route_bottom - shore_top])
+	var route_screen: Vector2 = main.player.cam.unproject_position(
+		reef_route.global_position) if reef_route != null else Vector2(-1.0, -1.0)
+	_check("reef_route_visible_from_arrival_page",
+		Rect2(Vector2.ZERO, main.get_viewport().get_visible_rect().size).has_point(
+			route_screen), "screen=%s" % route_screen)
 	var actor: Dictionary = main.g.get("lagoon_animal_actor", {}) as Dictionary
 	_check("shore_starts_with_otter", promenade._bind_next_animal(0) \
 		and String((actor["definition"] as Dictionary)["id"]) == "otter")
@@ -209,7 +232,17 @@ func _validate_continuity(promenade: SkyLagoonPromenade) -> void:
 	_check("shore_returns_after_plane_departure",
 		String(actor["state"]) in ["idle", "pause"] \
 		and (actor["node"] as Sprite3D).visible)
+	var roshan_card: Sprite3D = main.g.get("lagoon_roshan_card") as Sprite3D
+	var celebration_count: int = int(
+		main.g.get("lagoon_visible_roshan_celebrations", 0))
+	main.player.verb = ""
 	promenade._startle_animal(actor)
+	_check("animal_celebrates_on_visible_roshan_card",
+		roshan_card != null and roshan_card.visible and not main.player.visible
+		and not roshan_card.scale.is_equal_approx(Vector3.ONE)
+		and int(main.g.get("lagoon_visible_roshan_celebrations", 0)) \
+			== celebration_count + 1
+		and main.player.verb != "giggle")
 	for _step: int in range(240):
 		promenade._tick_animal_startle(actor, 0.05)
 		if String(actor["state"]) == "hidden":

@@ -14,7 +14,7 @@
 | backups/art_pre_landmarks_2026-07-15/** | Archival copies of previously licensed project assets | same licenses as live originals | — | Unmodified rollback copies; not loaded at runtime |
 | assets/book/** (incl. hall/) | Mermaid Roshan storybook scans | **Original work © Mermaid Roshan LLC, all rights reserved** | — | cropped/resized for in-game frames |
 | assets/characters/friends/* | book character art (family) | **© Mermaid Roshan LLC, all rights reserved** | — | background removal only — SACRED, never restyle |
-| assets/characters/roshan.glb, huluu.glb, lamb.glb | plushie meshes generated from the book art (tools/build_plushie.py) | derivative of © book art — all rights reserved | — | silhouette-extruded, rigged |
+| assets/characters/huluu.glb, lamb.glb | plushie meshes generated from the book art (tools/build_plushie.py) | derivative of © book art — all rights reserved | — | silhouette-extruded, rigged |
 | assets/characters/roshan_sprite.png, roshan_tex_2k.webp, lamb_0.png, skins/* | book-art derivatives | © Mermaid Roshan LLC, all rights reserved | — | palette/skin variants |
 | assets/ui/boot_splash_mermaid_roshan.png | OpenAI built-in image generation using project-owned Mermaid Roshan character references and approved project environment/style art | **Project-generated derivative of (c) Mermaid Roshan LLC - all rights reserved** | assets_src/imagegen/boot_splash_2026-08-01/PROMPTS.md | Selected Rainbow Bridge candidate; native 1672x941 full frame normalized as one whole canvas to 1024x576 PNG; no protected original modified or overwritten; generated 2026-08-01 |
 | assets_src/imagegen/boot_splash_2026-08-01/** | OpenAI built-in image-generation candidates plus non-destructive project-reference boards and derived review contact sheet | **Project-generated review/source art; protected character sources remain (c) Mermaid Roshan LLC - all rights reserved** | assets_src/imagegen/boot_splash_2026-08-01/README.md; assets_src/imagegen/boot_splash_2026-08-01/PROMPTS.md | Three native full-frame candidates, selected/rejection audit, exact prompts, hashes, and reference layouts; review/source only under assets_src; no protected original changed; generated 2026-08-01 |
@@ -76,6 +76,15 @@
 | assets/terrain/up_cliffwall_col.jpg | nano-banana generation (gemini-3-pro-image, 2026-07-13, bare-stone regen same day) | project-owned | — | painted cliff-wall tile: terrain steep-slope blend; BARE stone by rule - 3D coral props decorate surfaces |
 | assets/terrain/backdrop_seamounts.jpg | nano-banana generation (gemini-3-pro-image, 2026-07-13) | project-owned | — | seamount silhouette panorama: world-edge backdrop ring |
 | assets/audio/purr.wav | synthesized cat purr (numpy: 55/110/165 Hz body, 25 Hz AM pulse, seamless 2s loop) | project-owned | — | craft kitty nuzzle loop; WAV not OGG (no vorbis encoder available in build env); loop set in code |
+
+> **Retired provenance (owner decision 2026-08-09):** the Roshan GLB rows
+> below are historical license records, not active asset paths or shipping
+> recommendations. The exact v3/v4 models, raw Meshy bundles, textures,
+> importer records, rig tools, and QA renders are preserved with checksum
+> manifests on `codex/deprecated-resources-roshan-20260809` at `8d9c69b6`.
+> Mermaid Roshan is 2D-only in the active game; restoring a model requires a
+> new explicit owner decision.
+
 | assets/characters/roshan_v4.glb | ROSHAN V5 replacement sculpt: owner-supplied Meshy rainbow mermaid generation → in-house 57-bone game rig | © Mermaid Roshan LLC — generated for this project | `Downloads/Meshy_AI_Rainbow_Mermaid_Princ_0716022221_texture.glb` (source SHA-256 `aeca483bd15d84b1c957ebfddd6ce8f55d3d8e27e44c593d169b93bd6baeefa`) | Source has both complete native hands and cohesive visible arm sculpts; `tools/shrink_glb.py` + `tools/_decimate_keep.py` reduce 409,082→39,999 triangles and both embedded maps to 1024²; `tools/fit_roshan_rig.py` fits/symmetrizes the 57-bone rig with analytic region weights and five topology-smoothing passes; `tools/rebuild_roshan_arm_surfaces.mjs` preserves every visible triangle and adds 728 narrow hidden safety triangles spanning torso→shoulder→elbow→wrist→palm; `tools/rebuild_roshan_hair_physics.mjs` replaces the temporary static-hair bind with eight monotonic three-bone chains weighted only to 7,745 texture-verified disconnected hair-lock vertices (no geometry or texture changes); `tools/smooth_shoulder_weights.py` harmonically re-solves the chest↔armU blend band (252 crease vertices, weights only — no geometry, joints, or textures) after the 2026-07-18 human review flagged shoulder stretching: worst arm-verb edge opening 0.073→0.056. Shipping total: 40,727 triangles; SHA-256 `bb758b98c1720615951131046598f87d1146ed473fd3a520222eaac9bcc47a5e` |
 | assets/characters/roshan_v2.glb | ROSHAN V2: owner-spec turnarounds (Gemini) → Meshy multi-image i23d → weight transfer onto her original 26-bone rig | © Mermaid Roshan LLC — generated for this project | gen2/turnarounds/roshan_v2/, gen2/ROSHAN_V2_WORKORDER.md | shrink pass ≤1024, tools/roshan_v2_retarget.py |
 | assets/characters/chuck_poodle_rigged.glb | CHUCK 3D: Meshy image-to-3D poodle → in-house 20-bone quadruped rig + 5 clips (sit_idle/sit_excited/run/pickup/wag), built headless in Blender (reef2/tools/build_chuck_rig.py + animate_chuck.py) | © Mermaid Roshan LLC — generated for this project | reef2/tools/, reef2/tools/out/chuck_rig.blend | glTF-Transform weld+simplify 603k→72k tris; proxy-bind weight transfer; 2048 POT textures |
@@ -400,16 +409,17 @@ ambientCG (all CC0).
   alpha-extracted, and resized to 1024px.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; centered two-hand grip pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; back-pump seated pose; local chroma extraction and 512px crop.
-- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; forward-pump seated pose; local chroma extraction and 512px crop.
-- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; high-arc seated pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2_v2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon swing references; forward-pump seated pose; the 2026-08-09 revision removes only a detached right-edge generation artifact and preserves the complete original figure pixels.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3_v2.png` — project-original OpenAI built-in image generation derived from the approved clipped swing frame; high-arc two-fist pose regenerated as a complete 2D storybook cutout, chroma-extracted and whole-canvas resized to 512px. Native source, prompt record, and hashes are under `assets_src/imagegen/roshan_playground_cutoff_2026-08-09/`.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; compressed ladder-step pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; extended ladder-step pose; local chroma extraction and 512px crop.
-- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; seated-at-lip pose; local chroma extraction and 512px crop.
-- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; seated chute-ride pose; local chroma extraction and 512px crop.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon slide references; seated-at-lip pose; the 2026-08-09 revision removes only a detached right-edge generation artifact and preserves the complete original figure pixels.
+- `assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png` — project-original OpenAI built-in image generation derived from the approved clipped slide frame; seated chute-ride pose regenerated as a complete 2D storybook cutout, chroma-extracted and whole-canvas resized to 512px. Native source, prompt record, and hashes are under `assets_src/imagegen/roshan_playground_cutoff_2026-08-09/`.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; low-seat two-hand pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; rising two-hand pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; high-seat two-hand pose; local chroma extraction and 512px crop.
 - `assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_3.png` — project-original OpenAI image generation derived from the project Mermaid Roshan and Sky Lagoon seesaw references; descending two-hand pose; local chroma extraction and 512px crop.
+- `assets_src/imagegen/roshan_playground_cutoff_2026-08-09/roshan_slide_3_native_chroma.png` and `roshan_swing_3_native_chroma.png` — project-original OpenAI built-in image-generation preservation masters for the accepted 2D playground cutoff repairs; excluded from export. Exact prompts, processing, and SHA-256 provenance are in the adjacent `PROMPTS.md`.
 - `assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_3x1.png` —
   project-original OpenAI image generation; native 2172×724 exact-3:1 master
   flowing from the blocked-water runway shore, through a bounded playground
@@ -2370,6 +2380,37 @@ OpenAI built-in ImageGen natives and project-authored non-destructive derivative
   helper using soft matte and despill, then whole-canvas resized to 512x512 or
   256x256. Exact prompts, generation identifiers, dimensions, hashes, reuse
   audit, and processing notes are recorded in the adjacent `PROMPTS.md`.
+
+## Seek animated Evie and Lamb-a' actors (2026-08-09)
+
+- `assets_src/imagegen/seek_animated_2026-08-09/evie_atlas_chroma.png` -
+  project-original eight-frame Evie animation source generated with OpenAI
+  built-in image generation on 2026-08-09. License: project original. URL:
+  none (project-local generation). The protected
+  `assets/characters/friends/pearl_friend.png` was used read-only as an
+  identity reference and was not modified or copied into the delivery.
+  Source SHA-256:
+  `2b1cd2703388f14525603146545d7b9299e53d68e0d0ead449b3a5d85fe40597`.
+- `assets_src/imagegen/seek_animated_2026-08-09/lamma_atlas_chroma.png` -
+  project-original eight-frame Lamb-a' animation source generated with OpenAI
+  built-in image generation on 2026-08-09. License: project original. URL:
+  none (project-local generation). Existing Lamb-a' art was used read-only as
+  identity reference; no protected original was modified. Source SHA-256:
+  `7f38bb41209073f38aaec2cd4a99ed609154da71b02a383e89bfa58548a051fa`.
+- `assets/minigames/seek/evie_animation.png`,
+  `assets/minigames/seek/lamma_animation.png`, and
+  `assets/minigames/seek/evie_portrait.png` - project-authored deterministic
+  transparent derivatives of the two project-original sources above. The
+  repository builder removes border-connected chroma, removes bounded
+  cross-cell fragments, normalizes complete drawings into a 4x2 grid of
+  256x256 cells, and decontaminates residual chroma only in a narrow
+  transparent-edge shell; it does not alter the protected reference art.
+  Runtime SHA-256 values are recorded in the adjacent build manifest.
+- `assets_src/imagegen/seek_animated_2026-08-09/PROMPTS.md` and
+  `build_manifest.json` - project-authored provenance records containing the
+  exact prompts, declared references, source/output hashes, frame semantics,
+  and deterministic processing evidence. `tools/build_seek_animation_assets.py`
+  is the binding reproducible builder and `--check` validator.
 
 ## Opera Roshan career animation atlases (2026-08-09)
 

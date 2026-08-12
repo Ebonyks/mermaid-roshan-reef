@@ -13,8 +13,39 @@ Runtime/editor baseline: exactly Godot 4.7.1-stable (owner decision
 the engine series there; it does not lower the required patch baseline. Do not
 validate releases with Godot 4.4 or a 4.7 development build.
 
+## Final medium (owner decision 2026-08-09): true 2D game-wide
+
+The accepted final game uses Canvas/`Node2D` structure throughout. New and
+converted gameplay uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`,
+`TextureRect`, `Camera2D`, 2D particles and 2D collision where needed. A flat
+image on a 3D node is migration debt, not final 2D.
+
+Mermaid Roshan's only approved representation is the RGBA atlas/cutout family
+under `assets/characters/roshan_25d/`, staged on the 2D canvas. She has no
+accepted GLB, mesh, armature, skeleton, rig, skin-weight or model fallback.
+The 2026-07-19 Meshy migration, the Roshan model hierarchy, every other 3D
+character/world work order, and the old dimensional rollback direction are
+**superseded or dismissed**, not paused.
+
+All remaining `Node3D`/`Sprite3D`/`Camera3D`, model, spatial-shader, 3D-light,
+3D-physics and `Vector3`/`Transform3D` paths are exact shrinking debt. Retired
+resources are preserved only on
+`codex/deprecated-resources-roshan-20260809` at verified archive head
+`9329d9a6`; that branch is not a fallback, rollback target, merge source or
+alternate production authority. `tools/audit_game_2d.py` owns the inventory;
+`NO_REGRESSION` is not satisfaction. The synchronized committed snapshot is
+**`UNSATISFIED`** at 513 model files and 70 production 3D files.
+
+Current cross-domain rules and audit state:
+`design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` and
+`audit/MASTER_AUDIT_2026-08-09.md`.
+
+The complete full-frame cinematic rule in `AGENTS.md` remains binding without
+relaxation; no summary here or elsewhere may narrow it.
+
 ## Layout
-- scenes/main.tscn → scripts/main.gd (~8.9k lines as of 2026-07-18; still
+- scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized
+  2026-08-09 audit snapshot; still
   the state owner — see Refactor rules. Target <2.5k; remaining bulk is the
   intro, HUD, craft studio, wardrobe, galaxy/kart glue, arena builders, and
   several half-finished extractions whose builder bodies still live here)
@@ -26,15 +57,16 @@ validate releases with Godot 4.4 or a 4.7 development build.
   scripts/arena/castle_hall.gd, scripts/arena/sky_lagoon.gd,
   scripts/arena/courtyard_train.gd,
   scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,
-  picture_games,side_scroll,brawl}.gd (side_scroll = the shared 2.5D stage
-  engine, brawl = the co-op toy-castle brawler on it — see
-  MINIGAME_ENGINES.md)
+  picture_games,side_scroll,brawl}.gd (`side_scroll` and its spatial staging
+  remain legacy migration debt, not the accepted final engine — see
+  `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`)
 - scripts/stuffie_battle.gd — Family-B battle node (control the stuffie,
   one attack button + DODGE QTE, no fail states), paired with companion.gd
 - scripts/player.gd (swim controller), scripts/touch_ui.gd (virtual stick)
 - scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
   probe_passive.gd is the zero-input negative test (Phase 6).
-- assets/ — aquatic GLBs, terrain PBR (ambientCG), book art, voices, music
+- assets/ — 2D runtime art, protected book art/voices/friend portraits, and
+  remaining measured model/PBR migration debt. Do not add 3D resources.
 - disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
 
 ## Build & test (headless, no display needed)
@@ -85,7 +117,8 @@ All restore recipes: BACKUP.md.
   1280×720 canvas_items/expand. Anything new must run under the Mobile
   renderer; Forward+-only effects (the cel post grade) are dormant
   behind a rendering-method guard.
-- No new OmniLights beyond current counts without a Speedy-tier cull path.
+- Do not add 3D lights. Existing OmniLights are migration debt to remove while
+  preserving the Mobile-rendered composition and Speedy-tier budget.
 - All new textures: ≤1024px longest side OR power-of-two; VRAM compress ok
   only if POT. New audio: OGG, music ≥64kbps, loop-tagged.
 - Every new asset gets a line in ASSET_LICENSES.md (source, license, URL,
@@ -142,30 +175,25 @@ patch the probe to match new behavior unless the behavior change was the
 explicit goal of the task.
 
 ## Art direction (graphics fork)
-OWNER DECISION 2026-07-27 (charter: GAME_REDESIGN_2P5D_2026-07-27.md): the
-game is being fundamentally redesigned as a **2.5D promenade world** built
-on the E2 SideScrollStage engine — zone by zone, probe-gated, reversible —
-with **Codex-painted background sprite sets as the primary art channel**
-(specs: CODEX_BACKGROUND_FLATS_WORKORDER_2026-07-27.md); Codex 2D art
-outranks Blender/Meshy 3D in quality and priority. Touch-the-world
-(tap/hold-to-travel + tap targets) is the primary control; the analog
-stick is demoted to an accessibility/pad fallback. The gen2 Meshy 3D
-character migration (2026-07-19) is PAUSED — cutouts/billboards are the
-character medium again; landed .glbs stay until their zone migrates.
+Static Mermaid Roshan storybook characters in a polished 2D,
+Wind-Waker-inspired storybook world. The 2026-07-27 2.5D promenade charter is
+useful historical evidence for touch-the-world, linear child-readable
+navigation, independently owned cards and differential layers, but its
+`SideScrollStage`, depth-buffer, reversibility and landed-GLB prescriptions
+are superseded by the 2026-08-09 true-2D decision.
 
-Static Mermaid Roshan storybook characters in a cel-shaded, Wind
-Waker-inspired diorama world. SUPERSEDED 2026-07-27 (paused, see above) —
-owner decision 2026-07-19: characters are
-migrating from sprite cutouts to gen2 Meshy 3D models (roster + staging in
-NPC_3D_WORKORDER_2026-07-19.md; Daddy Mermaid first). Until a character's
-.glb lands in assets/characters/friends/, its cutout remains the shipped
-fallback. Gabby is REMOVED (IP hold — assets preserved in attic/gabby/;
-do not reintroduce without an owner-approved redesign). Cutout rules while
-they remain: unshaded, pre-drawn outlines, idle bob, contact shadows,
-sparkle/bubble overlays; never re-lit, never redesigned. The world is a pastel toy
-playset: rounded geometry, toon materials, navy/purple outlines,
-aqua/lavender shadows, graphic water, oversized child-readable props.
-CC0 sources only for the world (Tiny Treats, KayKit, Quaternius, Kenney,
-curated OpenGameArt); every import is restyled through the _toonify
-pastel pipeline. Wind Waker is a rendering reference only — no Zelda
-assets, symbols, UI, music, or character designs.
+Codex-painted flats and approved illustrated cutouts remain the primary art
+channel. Stage them as explicit Canvas background, playable and sparse
+foreground layers with `Sprite2D`, `z_index` and 2D parallax. Preserve drawn
+contours, identity colours and authored light; restrained 2D idle motion,
+contact shadows, sparkles and bubbles are allowed, but never relight or
+redesign approved art to imitate a mesh. Touch-the-world is primary and the
+analog stick is an accessibility/desktop fallback.
+
+Gabby is REMOVED (IP hold — assets preserved in `attic/gabby/`; do not
+reintroduce without an owner-approved redesign). Reuse approved art first and
+replace named live CC0 defects individually; do not start a speculative mass
+redesign. The world remains a pastel toy playset: rounded forms, broad painted
+value bands, navy/purple outlines, aqua/lavender shadows, graphic water and
+oversized child-readable props. Wind Waker is a rendering reference only — no
+Zelda assets, symbols, UI, music or character designs.
