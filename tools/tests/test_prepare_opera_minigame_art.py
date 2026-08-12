@@ -6,6 +6,7 @@ import tempfile
 import unittest
 import zlib
 from pathlib import Path
+from unittest.mock import patch
 
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
@@ -14,6 +15,27 @@ from tools import prepare_opera_minigame_art as gate
 
 
 class OperaMinigameArtCheckTests(unittest.TestCase):
+	def test_declared_text_source_hash_is_checkout_newline_stable(self) -> None:
+		lf = b'{\n  "schema": 1\n}\n'
+		crlf = lf.replace(b"\n", b"\r\n")
+		with patch.object(Path, "read_bytes", return_value=lf):
+			lf_hash = gate._sha256_file(gate.CANDY_GENERATION)
+		with patch.object(Path, "read_bytes", return_value=crlf):
+			crlf_hash = gate._sha256_file(gate.CANDY_GENERATION)
+		self.assertEqual(lf_hash, crlf_hash)
+		with patch.object(Path, "read_bytes", return_value=lf.replace(b"1", b"2")):
+			changed_hash = gate._sha256_file(gate.CANDY_GENERATION)
+		self.assertNotEqual(lf_hash, changed_hash)
+
+	def test_binary_source_hash_remains_byte_exact(self) -> None:
+		lf = b"binary\nbytes\x00"
+		crlf = lf.replace(b"\n", b"\r\n")
+		with patch.object(Path, "read_bytes", return_value=lf):
+			lf_hash = gate._sha256_file(gate.CANDY_FILL_ALPHA)
+		with patch.object(Path, "read_bytes", return_value=crlf):
+			crlf_hash = gate._sha256_file(gate.CANDY_FILL_ALPHA)
+		self.assertNotEqual(lf_hash, crlf_hash)
+
 	def test_generated_text_artifacts_tolerate_crlf_checkout(self) -> None:
 		for name in ("PROVENANCE.json", "REVIEW.md"):
 			with self.subTest(name=name):

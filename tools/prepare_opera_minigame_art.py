@@ -50,6 +50,9 @@ GENERATED_TEXT_ARTIFACTS = frozenset({
     SOURCE_DIR / "PROVENANCE.json",
     SOURCE_DIR / "REVIEW.md",
 })
+CANONICAL_TEXT_HASH_INPUTS = frozenset({
+    CANDY_GENERATION,
+})
 MAX_PNG_SCANLINE_BYTES = 256 * 1024 * 1024
 
 PROMPT = (
@@ -113,7 +116,11 @@ def _sha256_bytes(data: bytes) -> str:
 
 
 def _sha256_file(path: Path) -> str:
-    return _sha256_bytes(path.read_bytes())
+    """Hash binary inputs exactly and declared text inputs as LF-canonical bytes."""
+    data = path.read_bytes()
+    if path in CANONICAL_TEXT_HASH_INPUTS:
+        data = data.replace(b"\r\n", b"\n")
+    return _sha256_bytes(data)
 
 
 def _png_semantics(payload: bytes) -> tuple[tuple[tuple[bytes, bytes], ...], bytes]:
