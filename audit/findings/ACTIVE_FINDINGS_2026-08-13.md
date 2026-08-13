@@ -36,23 +36,23 @@ the master audit.
 | Field | Value |
 |---|---|
 | id | `MA-DOC-002` |
-| title | The sealed exhaustive document ledger still needs exact-chain-head full-local and remote verification before closure. |
+| title | The sealed exhaustive document ledger required exact-head full-local and remote verification before closure. |
 | rule_ids | `DL-AUTH-01`, `DL-AUTH-02`, `DL-AUTH-04`, `DL-MED-10` |
 | domain / zone | Documentation authority / repository-wide Markdown |
 | source | Repository documentation audit and comparison of tracked Markdown paths with `design/05_DOC_LEDGER.md`. |
 | severity | P1 |
-| lifecycle | `FIXED_PENDING_VERIFICATION` |
-| verification | V2/V3 sealed-chain local: at exact hardening head `7eb94595`, the Git-declared inventory, one-row-per-path ledger, 36 focused tests, and six mutation controls are green; first source `5ed0c754` has exact official-Godot full-local evidence, while exact-chain-head full-local and remote verification are pending. |
-| reproduction | From exact chain head `7eb94595`, run `python -B tools/audit_document_authority.py`, its focused unit suite, and stress mode; independently enumerate the Git-declared `*.md` inventory and compare each path with `design/05_DOC_LEDGER.md`. Device and aspect ratio are not applicable. |
+| lifecycle | `VERIFIED_FIXED` |
+| verification | V2/V3 verified at exact CHG-023 maintenance head `51887315`: the Git-declared inventory, one-row-per-path ledger, 36 focused tests, six mutation controls, exact official-Godot full-local suite, and exact-head remote Probe Suite are green. |
+| reproduction | From exact verification checkpoint `51887315`, run `python -B tools/audit_document_authority.py`, its focused unit suite, and stress mode; independently enumerate the Git-declared `*.md` inventory and compare each path with `design/05_DOC_LEDGER.md`. Device and aspect ratio are not applicable. |
 | child_impact | Conflicting or stale instructions can steer repairs toward the wrong art, mechanics, or engine baseline and indirectly degrade the child's game. |
-| evidence | Contiguous sources `5ed0c75460c9afd5ab574ff2c4a907c1075964f0` (parent `18b6150c01e1587100dca97c85ebad03f369825a`) and `7eb945957776ab3458a9de71c8be9937e2354720` (parent `5ed0c754`); master audit sections 3.2, 5.1, 6.2 (`EV-DOC-001`), and 11.3; exact 316 paths/316 rows; `tools/audit_document_authority.py`; 36 focused tests; six mutation controls. Exact official Godot 4.7.1 full local CI is green at the first source in 1,359.8 seconds/all 64. No exact-chain-head full-local or remote closure result is claimed. |
+| evidence | Contiguous CHG-029 sources `5ed0c75460c9afd5ab574ff2c4a907c1075964f0` (parent `18b6150c01e1587100dca97c85ebad03f369825a`) and `7eb945957776ab3458a9de71c8be9937e2354720` (parent `5ed0c754`) establish and harden the exact 316 paths/316 rows. Exact CHG-023 verification checkpoint `51887315bd537db2d16bdafcac1bbfa808352351`, parent `7eb94595`, passes official Godot 4.7.1 `scripts/ci.sh` in 1,435.2 seconds with all 64 trusted local probes and exact-head Probe Suite run `31710377034`; its static document gate reports 36 tests, six/six stress, 316/316 inventory/ledger, and then-current 36/36 active-record parity, all green. After the two verified document findings transition terminal, the current validator reports 34 active items and retains all 36 records. |
 | owner_decision | Direct owner decisions through 2026-08-09 remain controlling; no decision permits an incomplete ledger to imply authority. |
 | fix | Implemented at first source `5ed0c754` and hardened at `7eb94595`: one unique ledger row per Git-declared Markdown path with exact current, historical, superseded, partial, or candidate scope, enforced by a fail-closed validator including wrapped stale-claim controls. |
 | surrounding_tests | Unique-path and duplicate-row checks; relative-link and anchor checks; stale 3D/Godot-baseline rejection; Markdown table/fence validation; diff check. |
 | acceptance | Every Git-declared Markdown path has exactly one resolvable row, mixed documents state exact partial-supersession scope without contradicting binding decisions, and the exact sealed commit passes local and remote authority gates. |
-| closure | Pending as of 2026-08-13: sealed-chain focused evidence covers 316 inventory paths and 316 unique rows, and first-source full local is green, but exact-chain-head full-local and remote results do not yet exist. |
+| closure | Verified 2026-08-13 at exact `51887315`: official Godot 4.7.1 full local exits zero after 1,435.2 seconds/all 64, and remote run `31710377034` succeeds at the same SHA after executing the document gate, exact import/analyzer, and all 63 remote trusted probe headings. |
 | relationships | Supports `MA-DOC-005`; follows the authority reconciliation closed under `MA-DOC-001` and tracking repair closed under `MA-DOC-004`. |
-| history | 2026-08-09: confirmed incomplete by the master audit. 2026-08-13: source `5ed0c754` expands the ledger and passes full local CI in 1,359.8 seconds/all 64; contiguous `7eb94595` hardens multiline stale-claim detection and keeps the item `FIXED_PENDING_VERIFICATION`. Exact-chain-head full-local and remote verification remain pending. |
+| history | 2026-08-09: confirmed incomplete by the master audit. 2026-08-13: source `5ed0c754` expands the ledger and passes full local CI in 1,359.8 seconds/all 64; contiguous `7eb94595` hardens multiline stale-claim detection and leaves the source checkpoint `FIXED_PENDING_VERIFICATION`. Later CHG-023 maintenance head `51887315` passes exact local and remote V3 gates, moving the item to `VERIFIED_FIXED` without changing the CHG-029 source boundary. |
 
 ## MA-DOC-003
 
@@ -82,23 +82,23 @@ the master audit.
 | Field | Value |
 |---|---|
 | id | `MA-DOC-005` |
-| title | The sealed complete linked finding register still needs exact-chain-head full-local and remote verification before closure. |
+| title | The sealed complete linked finding register required exact-head full-local and remote verification before closure. |
 | rule_ids | `DL-AUTH-02`, `DL-AUTH-03`, `DL-QA-07`, `DL-QA-10` |
 | domain / zone | Audit governance / active master-audit findings |
 | source | Master audit sections 5 and 10; section 5 rows are explicitly non-canonical indexes. |
 | severity | P1 |
-| lifecycle | `FIXED_PENDING_VERIFICATION` |
-| verification | V2/V3 sealed-chain local: at exact hardening head `7eb94595`, all 36 material records, exact required fields, index links, lifecycle/severity parity, rule resolution, 36 focused tests, and six mutation controls are green; first source `5ed0c754` has exact official-Godot full-local evidence, while exact-chain-head full-local and remote verification are pending. |
-| reproduction | From exact chain head `7eb94595`, run `python -B tools/audit_document_authority.py`, its focused unit suite, and stress mode; compare every material section-5 ID with this stable record path and its required fields. Device and aspect ratio are not applicable. |
+| lifecycle | `VERIFIED_FIXED` |
+| verification | V2/V3 verified at exact CHG-023 maintenance head `51887315`: all 36 material records, exact required fields, index links, lifecycle/severity parity, rule resolution, 36 focused tests, six mutation controls, exact official-Godot full-local, and exact-head remote Probe Suite are green. |
+| reproduction | From exact verification checkpoint `51887315`, run `python -B tools/audit_document_authority.py`, its focused unit suite, and stress mode; compare every material section-5 ID with this stable record path and its required fields. Device and aspect ratio are not applicable. |
 | child_impact | Repairs can start from abbreviated or ambiguous evidence, increasing the chance of changing the wrong feature in a child-specific game. |
-| evidence | Contiguous sources `5ed0c75460c9afd5ab574ff2c4a907c1075964f0` (parent `18b6150c01e1587100dca97c85ebad03f369825a`) and `7eb945957776ab3458a9de71c8be9937e2354720` (parent `5ed0c754`); master audit sections 5, 6.2 (`EV-DOC-001`), and 10; 36 linked complete stable records; 36 focused tests; six mutation controls. Exact official Godot 4.7.1 full local CI is green at the first source in 1,359.8 seconds/all 64. No exact-chain-head full-local or remote closure result is claimed. |
+| evidence | Contiguous CHG-029 sources `5ed0c75460c9afd5ab574ff2c4a907c1075964f0` (parent `18b6150c01e1587100dca97c85ebad03f369825a`) and `7eb945957776ab3458a9de71c8be9937e2354720` (parent `5ed0c754`) establish and harden 36 linked complete stable records. Exact CHG-023 verification checkpoint `51887315bd537db2d16bdafcac1bbfa808352351`, parent `7eb94595`, passes official Godot 4.7.1 `scripts/ci.sh` in 1,435.2 seconds/all 64 and exact-head Probe Suite run `31710377034`; its static document gate reports 36 tests, six/six stress, 316/316 inventory/ledger, and then-current 36/36 active-record parity, all green. After the two verified document findings transition terminal, the current validator reports 34 active items and retains all 36 records. |
 | owner_decision | No waiver permits abbreviated index rows to serve as canonical findings; unknown evidence must be explicit. |
 | fix | Implemented at first source `5ed0c754` and hardened at `7eb94595`: maintain one stable complete record for every material item, link it from the authoritative section-5 matrix/ledger, and enforce parity plus wrapped stale-claim checks with a fail-closed validator. |
 | surrounding_tests | Exact 36-ID set; unique headings and IDs; exact 18 field keys; severity/lifecycle parity; resolvable `DL-*` rules; Markdown tables/fences/links; diff check. |
 | acceptance | Every material section-5 item resolves to exactly one complete stable record, validators pass locally and remotely at the exact sealed commit, and the master index/ledger records the canonical path without lifecycle drift. |
-| closure | Pending as of 2026-08-13: sealed-chain focused evidence covers all 36 records and links, and first-source full local is green, but exact-chain-head full-local and remote results do not yet exist. |
+| closure | Verified 2026-08-13 at exact `51887315`: official Godot 4.7.1 full local exits zero after 1,435.2 seconds/all 64, and remote run `31710377034` succeeds at the same SHA after executing the canonical-record gate, exact import/analyzer, and all 63 remote trusted probe headings. |
 | relationships | Depends on `MA-DOC-002`; complements external-source reconciliation `MA-DOC-003`; does not reopen terminal index items. |
-| history | 2026-08-09: gap identified. 2026-08-13: source `5ed0c754` adds 36 complete stable records and passes full local CI in 1,359.8 seconds/all 64; contiguous `7eb94595` hardens stale-claim enforcement and keeps the item `FIXED_PENDING_VERIFICATION`. Exact-chain-head full-local and remote verification remain pending. |
+| history | 2026-08-09: gap identified. 2026-08-13: source `5ed0c754` adds 36 complete stable records and passes full local CI in 1,359.8 seconds/all 64; contiguous `7eb94595` hardens stale-claim enforcement and leaves the source checkpoint `FIXED_PENDING_VERIFICATION`. Later CHG-023 maintenance head `51887315` passes exact local and remote V3 gates, moving the item to `VERIFIED_FIXED` without changing the CHG-029 source boundary. |
 
 ## MA-VIS-002
 
@@ -114,7 +114,7 @@ the master audit.
 | verification | V1: source/runtime structure confirms one mural spread across twelve tiles; runtime/device acceptance is missing. |
 | reproduction | In the current Sky Lagoon entry and promenade at the audited runtime, pan across the full stage at Mobile 1280×720; inspect Canvas ownership and note the single mural treatment. Target-phone and M11 captures are missing. |
 | child_impact | Flat staging weakens depth, route readability, and visual quality in a major area of the child's game. |
-| evidence | Master audit sections 1.4, 4, and 5.1; current twelve-tile Lagoon source/runtime. Exact dev-head run `31693492735` is workflow-green but its raw Sky Lagoon capture output has 21 OK and 44 FAIL lines, and the upload contains only 20 images; those diagnostics are non-authoritative. |
+| evidence | Master audit sections 1.4, 4, and 5.1; current twelve-tile Lagoon source/runtime. Predecessor dev-head run `31693492735` and current maintenance-head run `31710377034` are workflow-green, but the latter's raw Sky Lagoon capture output remains 66 diagnostic lines: 21 OK, 44 FAIL, and one DONE. Workflow success/upload is non-authoritative and does not close this visual finding. |
 | owner_decision | Owner decision 2026-08-09 requires game-wide true 2D; `Sprite3D`, `SideScrollStage`, or filename-only relabeling cannot close the finding. |
 | fix | Rebuild the promenade as owned `Sprite2D`/Canvas background, midground, interactive, character, and sparse foreground layers using approved art non-destructively. |
 | surrounding_tests | Seam and per-screen coverage; unique pixel ownership; per-card occlusion; touch/world alignment; overdraw and Speedy budget; entry/exit/re-entry; sibling Lagoon routes; Mobile captures and device run. |
@@ -427,23 +427,23 @@ the master audit.
 | Field | Value |
 |---|---|
 | id | `MA-OPERA-012` |
-| title | The thirteen Castle-room career routes have a matching dev APK but still lack external acceptance, and route cards obscure Roshan. |
+| title | The thirteen Castle-room career routes pass current machine gates but lack a matching current APK and external acceptance, and route cards obscure Roshan. |
 | rule_ids | `DL-INT-12`, `DL-READ-05`, `DL-UI-03`, `DL-QA-12` |
 | domain / zone | Navigation, composition, and release evidence / Castle rooms and all Opera careers |
-| source | Runtime commit `09e5e356`, probe repair `ff068db`, local suites, diagnostic captures, Probe Suite runs `31678156887`/`31686380560`/`31693492735`, and Android dev run `31695675866`. |
+| source | Runtime commit `09e5e356`, probe repair `ff068db`, local suites, diagnostic captures, current Probe Suite run `31710377034`, predecessor Probe Suite evidence, and predecessor Android dev run `31695675866`. |
 | severity | P1 |
 | lifecycle | `FIXED_PENDING_VERIFICATION` |
 | verification | V3 full local plus exact-head remote and V4 diagnostic; external open. Runtime and readiness gates are green, while captures and external acceptance are not. |
-| reproduction | From exact dev head `18b6150c`, install the APK produced by Android dev run `31695675866`; launch each of 13 careers only from its assigned Castle room, return to that room, test save/reward/pause/re-entry, and inspect nine route screens at native Mobile aspect. The prior 154×154 lower-center-card diagnostics obscure Roshan's lower body/tail; accepted device review is still missing. |
+| reproduction | From current verification head `51887315`, build and hash a matching APK before device testing; predecessor `18b6150c` APK run `31695675866` may be used only to reproduce the prior route-card diagnostic. Launch each of 13 careers only from its assigned Castle room, return to that room, test save/reward/pause/re-entry, and inspect nine route screens at native Mobile aspect. The prior 154×154 lower-center-card diagnostics obscure Roshan's lower body/tail; accepted device review is still missing. |
 | child_impact | The new routes remove a reading-heavy hub, but card occlusion can hide Roshan and external gaps leave child discovery and phone usability unproved. |
-| evidence | Runtime full local: 1463.4 seconds/64 probes; `ff068db` full local: 1379.3 seconds/64; pre-fix run `31678156887` remains red from four-frame reveal sampling. Current dev-head Probe Suite run `31693492735` is green at exact `18b6150c` with 63 remote headings and a 29m41s probes job, but its raw Sky Lagoon capture output contains 44 FAIL/21 OK lines and only 20 uploaded images. Android dev run `31695675866` checks out exact `18b6150c` and publishes a 596,041,412-byte APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`. |
+| evidence | Runtime full local: 1463.4 seconds/64 probes; `ff068db` full local: 1379.3 seconds/64; pre-fix run `31678156887` remains red from four-frame reveal sampling. Exact CHG-023 maintenance head `51887315` preserves the runtime and passes full local in 1,435.2 seconds/all 64 plus Probe Suite run `31710377034` with exactly 63 remote headings; its raw Sky Lagoon output remains 21 OK/44 FAIL/one DONE and non-authoritative. Predecessor Android dev run `31695675866` checks out exact `18b6150c` and publishes a 596,041,412-byte APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`; no matching `51887315` APK is claimed. |
 | owner_decision | Owner direction 2026-08-02 assigns all thirteen careers to exact thematic Castle rooms, makes Movie Lounge Racer's sole home, and forbids a central or hidden all-career lobby. |
-| fix | Preserve exact room ownership and direct return; reposition/compose route cards without shrinking child-safe targets; exercise the existing exact-head APK and complete external review. |
+| fix | Preserve exact room ownership and direct return; reposition/compose route cards without shrinking child-safe targets; build a matching current APK and complete external review. |
 | surrounding_tests | Exact room mapping; hidden/off-room negatives; launch/return; save/reward/tombstones; voice/pointer; passive; pause/layers/focus; teardown/re-entry; sibling rooms; two aspects; APK/device/child/owner. |
-| acceptance | The exact-head APK and machine gates remain green; route cards keep large targets without obscuring Roshan; phone/M11, child, owner, voice/listening, strict-2D, and authoritative visual gates pass. |
-| closure | Pending as of 2026-08-13; an exact-head dev APK exists, but phone/M11, child, owner, voice/listening, strict-2D, and accepted-visual evidence are missing, warning/capture diagnostics remain, and P2 card composition is unresolved. |
+| acceptance | A matching current APK and machine gates are green; route cards keep large targets without obscuring Roshan; phone/M11, child, owner, voice/listening, strict-2D, and authoritative visual gates pass. |
+| closure | Pending as of 2026-08-13; current exact-head local/remote machine gates are green, but no matching `51887315` APK exists. Phone/M11, child, owner, voice/listening, strict-2D, and accepted-visual evidence are missing, warning/capture diagnostics remain, and P2 card composition is unresolved. |
 | relationships | Builds on `MA-OPERA-010` and `MA-OPERA-011`; visual capture gap `MA-OPERA-004`; release gate `MA-RELEASE-001`; rollback `CHG-027`. |
-| history | 2026-08-12: `09e5e356` implemented exact room routes and local evidence. 2026-08-13: `ff068db` repaired readiness sampling; historical run `31686380560` passed its exact authority head. Exact dev head `18b6150c` then passed Probe Suite `31693492735` and Android dev `31695675866`, producing the matching APK; external/visual gates remain open. |
+| history | 2026-08-12: `09e5e356` implemented exact room routes and local evidence. 2026-08-13: `ff068db` repaired readiness sampling; historical run `31686380560` passed its exact authority head. Predecessor `18b6150c` then passed Probe Suite `31693492735` and Android dev `31695675866`, producing its matching APK. Current verification head `51887315` later passed exact local and remote machine gates without a matching APK; external/visual gates remain open. |
 
 ## MA-PERF-001
 
@@ -457,16 +457,16 @@ the master audit.
 | severity | P1 |
 | lifecycle | `BLOCKED_EXTERNAL` |
 | verification | V0: no current exact-candidate target-device performance matrix exists. |
-| reproduction | Install the exact `18b6150c` APK from Android dev run `31695675866` on the intended older Android phone and Lenovo Tab M11; run representative cold load, traversal, Castle/Opera, Lagoon, combat, particles, pause/re-entry, and touch-latency traces at native aspect. The APK exists; measurements are missing. |
+| reproduction | Build and hash an APK from current verification head `51887315`, then install it on the intended older Android phone and Lenovo Tab M11 and run representative cold load, traversal, Castle/Opera, Lagoon, combat, particles, pause/re-entry, and touch-latency traces at native aspect. The available `18b6150c` APK is predecessor-only; current matching build and measurements are missing. |
 | child_impact | Hitches, heat, memory pressure, slow loads, or delayed touch can make the game unusable for its only intended player. |
-| evidence | Probe Suite run `31693492735` is green at exact dev head `18b6150c`; Android dev run `31695675866` publishes the matching 596,041,412-byte APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`. Speedy/mobile budgets exist, but P50/P95/P99 frame time, hitch, memory, thermal, load, and touch-latency data are missing. |
+| evidence | Current verification head `51887315` passes exact local and remote machine gates, but no matching APK exists. Predecessor Probe Suite run `31693492735` is green at `18b6150c`, and Android dev run `31695675866` publishes that predecessor's matching 596,041,412-byte APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`. Speedy/mobile budgets exist, but P50/P95/P99 frame time, hitch, memory, thermal, load, and touch-latency data are missing. |
 | owner_decision | Mobile renderer is authoritative; Speedy is default; stable 30 fps and transparent-overdraw limits are binding for the target hardware. |
-| fix | Measure the existing exact-head APK and optimize only the bounded hotspots demonstrated by traces while preserving art and behavior. |
+| fix | Produce and measure a matching current APK, then optimize only the bounded hotspots demonstrated by traces while preserving art and behavior. |
 | surrounding_tests | Cold/warm load; long session; representative high-cost zones; frame-time percentiles; hitches; RAM/VRAM; thermal; touch latency; focus/pause/re-entry; save integrity; visual comparison. |
 | acceptance | The exact release candidate meets documented design thresholds on required devices with retained touch, save, visual, and gameplay behavior. |
-| closure | Blocked as of 2026-08-13; the exact-head APK is available, but device matrix, measurements, accepted result, closure commit, and date are missing. |
+| closure | Blocked as of 2026-08-13; no matching `51887315` APK, device matrix, measurements, accepted result, closure commit, or date exists. |
 | relationships | Blocks `MA-RELEASE-001`; device touch overlaps `MA-TOUCH-001`; asset/performance risks include `MA-ASSET-004` and `MA-2D-002`. |
-| history | 2026-08-09: V0 device gap indexed. 2026-08-13: exact-head CI and matching dev APK exist, but no target-device matrix does; remains `BLOCKED_EXTERNAL`. |
+| history | 2026-08-09: V0 device gap indexed. 2026-08-13: predecessor `18b6150c` gained a matching dev APK; current `51887315` passed local/remote machine gates without a matching APK or target-device matrix, so the item remains `BLOCKED_EXTERNAL`. |
 
 ## MA-CHILD-001
 
@@ -480,14 +480,14 @@ the master audit.
 | severity | P1 |
 | lifecycle | `BLOCKED_EXTERNAL` |
 | verification | V0: no current observed child session exists for the exact candidate. |
-| reproduction | Install the exact `18b6150c` APK from Android dev run `31695675866` on the target device and start a private fresh-save five-minute session; give no reading or route instructions and record only safe, consented observations of discovery, touch, recovery, exit, and progress. Session evidence is missing. |
+| reproduction | Build and hash a matching APK from current verification head `51887315`, install it on the target device, and start a private fresh-save five-minute session; give no reading or route instructions and record only safe, consented observations of discovery, touch, recovery, exit, and progress. The available `18b6150c` APK is predecessor-only; current build and session evidence are missing. |
 | child_impact | Machine-green mechanics may still be undiscoverable, confusing, tiring, or dependent on adult help for the intended child. |
-| evidence | Exact dev-head Probe Suite run `31693492735` is green and Android dev run `31695675866` publishes the matching APK (596,041,412 bytes; SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`). No current observed session, behavior log, comprehension result, or installed-device record exists. |
+| evidence | Current verification head `51887315` passes exact local and remote machine gates, but no matching APK exists. Predecessor Probe Suite run `31693492735` is green at `18b6150c`, and Android dev run `31695675866` publishes that predecessor's matching APK (596,041,412 bytes; SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`). No current observed session, behavior log, comprehension result, or installed-device record exists. |
 | owner_decision | The game is designed for one specific non-reading four-year-old, one finger, short sessions, no fail states, and no lost progress. |
 | fix | After machine/device readiness, conduct the smallest safe private observation and repair only concrete comprehension or trapping defects it reveals. |
 | surrounding_tests | Fresh save; visible/spoken objective; passive no-win; wrong-action recovery; one-finger navigation; reward; pause/exit; save/re-entry; sibling route; no adult/debug intervention. |
 | acceptance | The observed child independently discovers, acts, recovers, receives feedback, exits, and retains progress during the defined session without distress or reading. |
-| closure | Blocked as of 2026-08-13; the exact-head APK exists, but consented session, observation record, accepted result, closure commit, and date are missing. |
+| closure | Blocked as of 2026-08-13; no matching `51887315` APK, consented session, observation record, accepted result, closure commit, or date exists. |
 | relationships | Depends on `MA-PLAY-001`, `MA-ACCESS-001`, `MA-TOUCH-001`, and `MA-PERF-001`; blocks `MA-RELEASE-001`. |
 | history | 2026-08-09: V0 child-evidence gap indexed. 2026-08-13: no observed exact-candidate session; lifecycle remains `BLOCKED_EXTERNAL`. |
 
@@ -496,23 +496,23 @@ the master audit.
 | Field | Value |
 |---|---|
 | id | `MA-RELEASE-001` |
-| title | The current audited chain head has focused green evidence but lacks exact-head full-local, remote, APK, and external release evidence. |
+| title | The current audited verification head has exact full-local and remote evidence but lacks a matching APK and external release evidence. |
 | rule_ids | `DL-SAVE-05`, `DL-QA-04`, `DL-QA-05`, `DL-QA-10` |
 | domain / zone | Release readiness / whole game |
 | source | Full local CI, GitHub Actions history, exact-head Android dev build, audit scorecard, and missing external-gate inventory. |
 | severity | P1 |
 | lifecycle | `FIXED_PENDING_VERIFICATION` |
-| verification | V3 full-local at first document-authority source `5ed0c754`; current hardening head `7eb94595` has focused green evidence but exact-head full-local, remote, APK, and release acceptance remain open. |
-| reproduction | From chain head `7eb94595`, rerun exact full-local and remote gates. Separately inspect predecessor `18b6150c` Probe Suite run `31693492735` and Android dev run `31695675866`, install that published APK, and execute device, child, owner, voice/listening, visual, strict-2D, and re-audit gates. The predecessor build exists; exact-chain-head full-local/remote/APK and external execution are missing. |
+| verification | V3 exact full-local and exact-head remote are green at CHG-023 maintenance checkpoint `51887315`; a matching exact-head APK and release acceptance remain open. |
+| reproduction | From exact verification checkpoint `51887315`, preserve the completed local/remote logs, build and hash a matching APK, then execute device, child, owner, voice/listening, visual, strict-2D, and re-audit gates. Predecessor `18b6150c` Probe Suite run `31693492735` and Android dev run `31695675866` remain historical evidence, not a matching current build. |
 | child_impact | Shipping without these gates risks performance, comprehension, identity, audio, visual, or save defects on the child's actual device. |
-| evidence | Runtime `09e5e356` full local 1463.4 seconds/64; `ff068db` full local 1379.3 seconds/64; failed run `31678156887` retained. First source `5ed0c754` is the latest completed full-local checkpoint at 1,359.8 seconds/all 64. Chain head `7eb94595` has 36 focused tests/six mutation controls green but no claimed exact-head full-local, remote, or APK. Predecessor Probe Suite run `31693492735` is green at exact dev head `18b6150c` with 63 remote headings, a 29m41s probes job, and green 42/42 music, but raw Sky Lagoon has 44 FAIL/21 OK and only 20 images. Android run `31695675866` publishes the 596,041,412-byte predecessor APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`. External acceptance is absent. |
+| evidence | Runtime `09e5e356` full local 1463.4 seconds/64; `ff068db` full local 1379.3 seconds/64; failed run `31678156887` retained. Exact CHG-023 maintenance checkpoint `51887315` passes official Godot 4.7.1 full local in 1,435.2 seconds/all 64 and exact-head Probe Suite run `31710377034`: probes run 41m12s with 18m02s in the 63-heading trusted loop, and Windows music is 42/42 ALL OK in 4m08s. Runner warnings and legacy resource diagnostics remain. Raw Sky Lagoon remains non-authoritative at 21 OK/44 FAIL/one DONE. Predecessor Android run `31695675866` publishes the 596,041,412-byte `18b6150c` APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`; no matching `51887315` APK or external acceptance exists. |
 | owner_decision | Release requires exact Godot 4.7.1-stable, green integration, save compatibility, protected-asset compliance, and applicable external acceptance; diagnostic captures do not authorize release. |
-| fix | Preserve exact-head build provenance, resolve warning/capture diagnostics, complete all external gates using the published APK, and repair only concrete failures before promotion. |
+| fix | Preserve exact-head build provenance, resolve warning/capture diagnostics, build/hash/publish an APK for the current candidate, then complete all external gates with that matching APK and repair only concrete failures before promotion. |
 | surrounding_tests | Exact local/remote CI; import/analyzer; all trusted probes; GAME2D; visual audit; APK install/upgrade/save; device matrix; child session; owner art/authority; exact voice/listening; clean status and re-audit. |
 | acceptance | One exact candidate has green required machine gates, matching APK, resolved diagnostic classification, target-device performance/touch, child comprehension, owner/visual/audio acceptance, strict-2D satisfaction, and clean re-audit. |
-| closure | Pending as of 2026-08-13; chain head `7eb94595` lacks exact-head full-local/remote/APK evidence. First source `5ed0c754` has full-local and earlier `18b6150c` has remote/APK evidence, but device/child/owner/listening/strict-2D/accepted-visual evidence is missing, capture debt remains, and no release closure commit/date is recorded. |
+| closure | Pending as of 2026-08-13: exact `51887315` full-local and remote machine gates are green, but its matching APK plus device/child/owner/listening/strict-2D/accepted-visual evidence are missing, capture debt remains, and no release closure commit/date is recorded. |
 | relationships | Aggregate blocker for `MA-2D-002`, `MA-VIS-006`, `MA-PLAY-001`, `MA-ACCESS-001`, `MA-TOUCH-001`, `MA-OPERA-012`, `MA-PERF-001`, `MA-CHILD-001`, and `MA-AUDIO-001`. |
-| history | 2026-08-12: runtime and predecessor local/remote evidence improved. 2026-08-13: `18b6150c` passed Probe Suite/Android dev; source `5ed0c754` passed full local in 1,359.8 seconds/all 64; contiguous `7eb94595` hardened document controls without exact-head full-local/remote/APK evidence. Release remains `FIXED_PENDING_VERIFICATION`. |
+| history | 2026-08-12: runtime and predecessor local/remote evidence improved. 2026-08-13: `18b6150c` passed Probe Suite/Android dev; CHG-029 sources `5ed0c754`/`7eb94595` established and hardened document controls; CHG-023 maintenance head `51887315` then passed exact local and remote machine gates. No matching current APK or external acceptance followed, so release remains `FIXED_PENDING_VERIFICATION`. |
 
 ## MA-VIS-004
 
@@ -781,7 +781,7 @@ the master audit.
 | verification | V3 partial: hashes, codec, loop/import, loudness, peak, seam, routing, and 42/42 machine delivery pass; listening/device evidence is open. |
 | reproduction | On the exact candidate with matching APK, listen to two wraps of every cue, transitions, speech ducking, music-off restoration, and mono fold-down on headphones/speaker and Lenovo Tab M11. The human/device matrix is missing. |
 | child_impact | A technically valid loop can still be tiring, mask family voices, click at transitions, disappear in mono, or play poorly on the child's hardware. |
-| evidence | `assets_src/audio/music/area_music_scores.json`; `assets/audio/music/area_music_manifest.json`; 48 kHz stereo OGG and measured manifests; historical runs `31649113587`, `31661887863`, and `31686380560`, plus current exact-dev-head run `31693492735`, all preserve music 42/42. Human two-wrap/style, intelligibility/ducking, mono, music-off, and M11 evidence is missing. |
+| evidence | `assets_src/audio/music/area_music_scores.json`; `assets/audio/music/area_music_manifest.json`; 48 kHz stereo OGG and measured manifests; historical runs `31649113587`, `31661887863`, `31686380560`, and `31693492735`, plus exact maintenance-head run `31710377034`, all preserve music 42/42. The latest Windows job finishes in 4m08s with raw 42/42 ALL OK. Human two-wrap/style, intelligibility/ducking, mono, music-off, and M11 evidence is missing. |
 | owner_decision | Machine evidence never substitutes for human listening; protected voices remain authoritative and must stay intelligible. |
 | fix | Complete the listening matrix and make only bounded score/mix/transition repairs demonstrated by it, preserving deterministic sources and manifests. |
 | surrounding_tests | 42/42 deterministic rebuild; source/render/import hashes; codec/loop/seam/loudness/peak; named routing; hard cuts; voice ducking; music-off/on; mono; two wraps; M11 start/loop/performance. |

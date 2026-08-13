@@ -40,6 +40,8 @@ AUDIT_DOCUMENT_AUTHORITY_COMMIT = "5ed0c75460c9afd5ab574ff2c4a907c1075964f0"
 AUDIT_DOCUMENT_AUTHORITY_PARENT = "18b6150c01e1587100dca97c85ebad03f369825a"
 AUDIT_DOCUMENT_AUTHORITY_HARDENING_COMMIT = "7eb945957776ab3458a9de71c8be9937e2354720"
 AUDIT_DOCUMENT_AUTHORITY_HARDENING_PARENT = AUDIT_DOCUMENT_AUTHORITY_COMMIT
+AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_COMMIT = "51887315bd537db2d16bdafcac1bbfa808352351"
+AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_PARENT = AUDIT_DOCUMENT_AUTHORITY_HARDENING_COMMIT
 GODOT_REQUIREMENT = "exact Godot 4.7.1-stable (not 4.4 or a development build)"
 PROTECTED_PATHS = (
 	"assets/book/",
@@ -717,7 +719,9 @@ CATALOG: tuple[ChangeGroup, ...] = (
 			".gitignore",
 			"audit/MASTER_AUDIT_2026-08-09.md",
 			"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+			"audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
 			"design/00_MASTER_INDEX.md",
+			"design/01_GAME_DESIGN.md",
 			"design/03_TECHNICAL_ARCHITECTURE.md",
 			"design/04_OPEN_WORK.md",
 			"design/05_DOC_LEDGER.md",
@@ -729,8 +733,15 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		(
 			"python -m py_compile tools/plan_audit_rollback.py tools/tests/test_plan_audit_rollback.py",
 			"python -m unittest tools.tests.test_plan_audit_rollback",
+			"python -B -m unittest tools.tests.test_audit_document_authority -v",
+			"python -B tools/audit_document_authority.py --stress",
+			"python -B tools/audit_document_authority.py",
+			"git diff --check",
 		),
 		rollback_start=AUDIT_CATALOG_COMMIT,
+		warnings=(
+			"Exact 51887315bd537db2d16bdafcac1bbfa808352351, parent 7eb945957776ab3458a9de71c8be9937e2354720, is a CHG-023 verification-maintenance checkpoint, not a catalog-owned source commit. It passes exact official Godot 4.7.1 local scripts/ci.sh in 1,435.2 seconds with all 64 trusted probes and exact-head Probe Suite run 31710377034; later prose synchronization remains CHG-023 maintenance and must not create a recursive source hash.",
+		),
 		manual_reason="The introduction anchor is known, but the ledger and planner are append-only operational controls. Reverse 57bc only on a dedicated branch after reviewing later CHG-023 maintenance and preserving any still-required rollback evidence.",
 	),
 	_group(
@@ -1044,10 +1055,10 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		warnings=(
 			"The first source 5ed0c75460c9afd5ab574ff2c4a907c1075964f0 has exact parent 18b6150c01e1587100dca97c85ebad03f369825a and changes exactly 19 paths with 2,645 insertions and 232 deletions. The contiguous hardening source 7eb945957776ab3458a9de71c8be9937e2354720 has exact parent 5ed0c75460c9afd5ab574ff2c4a907c1075964f0 and changes exactly 13 paths with 479 insertions and 160 deletions. Their combined union is exactly 22 paths; cumulative per-commit churn is 3,124 insertions/392 deletions and the exact baseline-to-head diff is 3,024 insertions/292 deletions.",
 			"The first source changes .github/workflows/probes.yml, a high-risk workflow path. Its change is limited to three read-only Python document-authority commands under the existing contents: read permission; it adds no action, package, credential, secret, network, publication, or write permission. The second source changes no workflow path.",
-			"Exact official Godot 4.7.1 local scripts/ci.sh is green at first source 5ed0c754 after 1,359.8 seconds with all 64 trusted local probes. The chain head has 36 green focused document-authority tests and six mutation controls, but no exact-head full local or remote result is claimed for 7eb94595. MA-DOC-002 and MA-DOC-005 remain FIXED_PENDING_VERIFICATION and the master audit remains IN_PROGRESS / UNSATISFIED.",
-			"The validator reports exact inventory/ledger 316/316 and active-record parity 36/36; these are sealed-source repository facts, not runtime, device, child, owner, visual, voice, listening, strict-2D, or release acceptance.",
+			"At the historical source boundary, exact official Godot 4.7.1 local scripts/ci.sh is green at first source 5ed0c754 after 1,359.8 seconds with all 64 trusted local probes, while no direct full-local or remote result was recorded for source head 7eb94595. Exact CHG-023 verification-maintenance head 51887315bd537db2d16bdafcac1bbfa808352351, whose parent is 7eb945957776ab3458a9de71c8be9937e2354720, is now green locally after 1,435.2 seconds/all 64 and remotely in Probe Suite run 31710377034: 36 document-authority tests, six mutation controls, 316/316 inventory/ledger parity, and then-current 36/36 active-record parity are green. MA-DOC-002 and MA-DOC-005 are VERIFIED_FIXED; after those terminal transitions the current validator reports 34 active items and retains all 36 records, while the master audit remains IN_PROGRESS / UNSATISFIED.",
+			"The exact verification checkpoint reports inventory/ledger 316/316 and then-current active-record parity 36/36; the post-transition validator reports 34 active items and 36 retained records. These are repository facts, not runtime, device, child, owner, visual, voice, listening, strict-2D, or release acceptance.",
 			"Neither source changes a runtime script, scene, save key, protected original, asset, audio, generated-art payload, or gameplay behavior. The first source repairs historical Markdown structure and scopes superseded spatial claims; the second adds fail-closed multiline stale-claim regressions and synchronizes sealed evidence.",
-			"The post-7eb planner/catalog/count update that records the exact second-source hash and two-source boundary is CHG-023 maintenance, not a third CHG-029 source or CHG-030.",
+			"The post-7eb planner/catalog/count update, exact 51887315 verification checkpoint, and later terminal-lifecycle/current-authority prose synchronization are CHG-023 maintenance, not a third CHG-029 source, a 78th catalog-owned reference, or CHG-030.",
 			"A partial inverse can leave CI invoking deleted tooling, hide the canonical register behind .gitignore while master links still target it, remove required ledger rows, restore unscoped legacy-3D/stale evidence claims, or remove hardening tests while retaining their authority claims. Do not raw-revert or selectively restore either source.",
 		),
 		manual_reason="Automation is refused because the exact two-source chain couples a high-risk workflow gate, local CI, Git visibility, exhaustive authority inventory, canonical records, multiline falsification controls, and synchronized audit/design/rollback claims. Correct a disputed rule or fact through one reviewed superseding documentation migration across every affected validator/test/CI/master/findings/ledger/current-authority path. A complete owner-approved inverse must start at exact chain head 7eb945957776ab3458a9de71c8be9937e2354720, preserve every later truthful record, cover the exact 22-path union, and pass every listed gate; no rollback script may be emitted.",

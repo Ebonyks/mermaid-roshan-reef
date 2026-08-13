@@ -7,14 +7,17 @@ DUNGEON_DIFFICULTY_AUDIT, the eleven-document Opera chain, FABLE_INTERACTION
 _HANDOFF_2026-07-25, TOUCH_CENTRIC_REVERSIBLE_HANDOFF_2026-07-25, and the
 2026-08-09 Ballerina, Boxer, Opera-quality and music reconciliations._
 
-_Current document-authority synchronization is hardened at chain head
-`7eb945957776ab3458a9de71c8be9937e2354720` (exact parent `5ed0c754`, whose
-exact parent is `18b6150c01e1587100dca97c85ebad03f369825a`). First source
-`5ed0c754` passes exact official-Godot full local CI in 1,359.8 seconds/all 64;
-the chain head has 36 focused tests/six mutation controls green but no exact-
-head full-local or remote result. `MA-DOC-002` and `MA-DOC-005` remain
-`FIXED_PENDING_VERIFICATION`, and the master audit remains
-`IN_PROGRESS` / `UNSATISFIED`._
+_Document-authority sources `5ed0c754`/`7eb94595` remain the exact CHG-029
+chain. CHG-023 verification-maintenance head
+`51887315bd537db2d16bdafcac1bbfa808352351`, exact parent `7eb94595`, passes
+official Godot 4.7.1 full local CI in 1,435.2 seconds/all 64 and exact-head
+Probe Suite run `31710377034`; its static gate has 36 tests, six/six mutation
+controls, 316/316 inventory/ledger, and then-current 36/36 active/records green.
+After `MA-DOC-002` and `MA-DOC-005` transition `VERIFIED_FIXED`, the current
+validator correctly reports 34 active items and retains all 36 records. The
+master audit/design language are
+`CANONICAL_CURRENT`; the game-wide audit remains `IN_PROGRESS` /
+`UNSATISFIED`._
 
 ---
 
@@ -168,17 +171,20 @@ layer 15 settled to Opera layer 11; their routes, passive behavior, saves,
 rewards, exact-room returns, dedicated probes, every other executed gate/probe,
 and Windows passed. Probe-only commit `ff068db` preserves runtime `09e5e356`,
 replaces that guess with a bounded fail-closed semantic wait, and passes exact
-local full CI in 1379.3 seconds with all 64 probes. Current integrated dev/audit
-head `18b6150c01e1587100dca97c85ebad03f369825a` passes Probe Suite run
-`31693492735`: the probes job completes in 29m41s with exactly 63 remote trusted
-headings and the Windows music gate ends 42/42. All five capture/upload pairs
-completed at the workflow level and uploaded diagnostic artifacts, not capture
-gates or visual passes. Raw Sky Lagoon `LAGOONSHOT` output has 21 `OK`, 44
-`FAIL`, and `DONE` (66 diagnostic lines), with 20 PNGs, so that diagnostic
-internally fails. The run is not warning-clean. Android run `31695675866`
-succeeds from exact `18b6150c` and publishes the matching dev APK
+local full CI in 1379.3 seconds with all 64 probes. Current verification head
+`51887315bd537db2d16bdafcac1bbfa808352351` passes exact official-Godot full
+local CI in 1,435.2 seconds/all 64 and exact-head Probe Suite run
+`31710377034`: the probes job is 41m12s, trusted loop 18m02 with exactly 63
+headings, and Windows music job 4m08s with raw 42/42 `ALL OK`. All five capture/
+upload pairs completed at the workflow level and uploaded diagnostic artifacts,
+not capture gates or visual passes. Raw Sky Lagoon `LAGOONSHOT` output has 21
+`OK`, 44 `FAIL`, and one `DONE` (66 diagnostic lines), so that diagnostic
+internally fails. Runner warnings and legacy resource diagnostics remain.
+Predecessor Android run `31695675866` succeeds from exact `18b6150c` and
+publishes that predecessor's matching dev APK
 (596,041,412 bytes; SHA-256
 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
+No matching APK is claimed for `51887315`.
 Device, child, owner, exact-voice, listening, strict-2D, and accepted-visual
 gates remain open.
 
@@ -273,7 +279,8 @@ local suites are green, moving
 `MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`. The 22 captures are diagnostic;
 the nine room captures show a residual P2 composition defect because the
 154×154 lower-center cards obscure Roshan's lower body/tail. Exact-head remote
-machine evidence and an exact-SHA dev APK are green at `18b6150c`; device,
+machine evidence is green at current verification head `51887315`; the
+available exact-SHA dev APK belongs to predecessor `18b6150c`. Device,
 child, owner, exact-voice, listening, strict-2D, and accepted-visual evidence
 remain open.
 
@@ -451,12 +458,14 @@ The dated lifecycle in [04_OPEN_WORK.md](04_OPEN_WORK.md) and the master audit
 controls; an older work order is never implementation authority by itself.
 
 Contiguous CHG-029 sources `5ed0c754`/`7eb94595` inventory and harden all 316
-tracked Markdown paths exactly once and record all 36 material active findings in
+tracked Markdown paths exactly once and record all 36 material findings,
+including retained terminal history, in
 [`ACTIVE_FINDINGS_2026-08-13.md`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md).
 The chain's fail-closed validator has 36 focused tests and six mutation controls
-green; first source full local is green in 1,359.8 seconds/all 64. No exact-head
-full-local or remote result is claimed for `7eb94595`, so `MA-DOC-002` and
-`MA-DOC-005` remain `FIXED_PENDING_VERIFICATION` until both gates pass.
+green. Exact CHG-023 maintenance checkpoint `51887315`, parent `7eb94595`,
+passes official Godot full local in 1,435.2 seconds/all 64 and exact-head run
+`31710377034`, moving `MA-DOC-002` and `MA-DOC-005` to `VERIFIED_FIXED`.
+`51887315` is verification evidence, not a third CHG-029 source or CHG-030.
 
 - **`CONFIRMED_OPEN`:** game-wide true-2D conversion, fresh-save no-cheat
   reachability proof, exact voice gaps, visual evidence and remaining layering

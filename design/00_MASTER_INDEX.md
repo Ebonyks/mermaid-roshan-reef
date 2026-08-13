@@ -3,18 +3,21 @@
 _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
 Runtime/audit merge synchronization: 2026-08-13._
 
-The current sealed document-authority chain head is
-`7eb945957776ab3458a9de71c8be9937e2354720`, with exact parent
-`5ed0c75460c9afd5ab574ff2c4a907c1075964f0`; that first source has exact parent
-`18b6150c01e1587100dca97c85ebad03f369825a`. Exact official Godot
-`4.7.1.stable.official.a13da4feb` `scripts/ci.sh` is green at the first source in
-1,359.8 seconds with all 64 trusted probes. Chain head `7eb94595` has 36 focused
-authority tests and six mutation controls green, but no exact-head full-local,
-remote, or APK result is claimed. The current Opera product/runtime commit
+The sealed document-authority sources are
+`5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, exact parent `18b6150c`, and
+contiguous hardening source `7eb945957776ab3458a9de71c8be9937e2354720`,
+exact parent `5ed0c754`. Current CHG-023 verification-maintenance head
+`51887315bd537db2d16bdafcac1bbfa808352351`, exact parent `7eb94595`, passes
+official Godot `4.7.1.stable.official.a13da4feb` `scripts/ci.sh` in 1,435.2
+seconds with all 64 trusted probes and exact-head Probe Suite run `31710377034`.
+The exact-`51887315` remote document gate is 36 tests, six/six stress, 316/316
+inventory/ledger, and then-current 36/36 active/records, all green. After the
+two verified document findings transition terminal, the current validator
+correctly reports 34 active items and retains all 36 records. The current Opera product/runtime commit
 remains `09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its exact local suite is
 green in 1463.4 seconds/all 64, while predecessor probe-readiness head
 `ff068db002202839f920a6f9fb78c942788a3034` is green in 1379.3 seconds/all 64.
-Predecessor integrated dev/audit authority head
+Predecessor integrated product/dev audit baseline
 `18b6150c01e1587100dca97c85ebad03f369825a` passes exact-head Probe Suite run
 `31693492735`: the probes job completes in 29m41s with exactly 63 remote trusted
 headings, and the Windows music gate ends 42/42. Android run `31695675866`
@@ -24,7 +27,8 @@ Historical predecessor run `31661887863` remains green at
 `e0677ae4`; later pre-fix run `31678156887` at `3fc151c8` remains red because
 Ubuntu sampled the 0.25-second Opera reveal after four frames. The APK gate is
 now commit-bound; device, child, owner, exact-voice, listening, strict-2D, and
-accepted-visual gates remain open.
+accepted-visual gates remain open. The `18b6150c` APK is not a matching
+`51887315` build.
 
 ## Why this folder exists
 
@@ -44,11 +48,11 @@ carry the cross-domain rule and evidence layers. Contiguous sources `5ed0c754`
 and `7eb94595` establish and harden the **316 tracked Markdown path** inventory,
 give each
 path exactly one row in `05_DOC_LEDGER.md`, and provides full records for all 36
-material active findings in
-`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Its fail-closed validator and CI
-wiring are committed and focused-local green. `MA-DOC-002` and `MA-DOC-005`
-remain `FIXED_PENDING_VERIFICATION` until exact-chain-head full-local and remote
-gates pass.
+material findings, including retained terminal history, in
+`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Exact maintenance head
+`51887315` passes both local and remote V3 gates, so `MA-DOC-002` and
+`MA-DOC-005` are `VERIFIED_FIXED`; the stable records remain present after
+terminal transition.
 
 | # | Document | Answers |
 |---|---|---|
@@ -56,15 +60,15 @@ gates pass.
 | 02 | [ART_DIRECTION.md](02_ART_DIRECTION.md) | What it looks like, what medium world art ships in, what the quality bar is, what may never be touched |
 | 03 | [TECHNICAL_ARCHITECTURE.md](03_TECHNICAL_ARCHITECTURE.md) | How it is built, which engines exist, how it is tested, how it ships |
 | 04 | [OPEN_WORK.md](04_OPEN_WORK.md) | Current `MA-*` work navigation plus an explicit lifecycle crosswalk for the historical `OW-*` list |
-| 05 | [DOC_LEDGER.md](05_DOC_LEDGER.md) | Exhaustive sealed-chain authority/status index: one row for each of 316 tracked Markdown paths; exact-chain-head full-local and remote verification remain pending |
+| 05 | [DOC_LEDGER.md](05_DOC_LEDGER.md) | Exhaustive verified authority/status index: one row for each of 316 Git-declared Markdown paths |
 | 06 | [COMPREHENSIVE_DESIGN_LANGUAGE.md](06_COMPREHENSIVE_DESIGN_LANGUAGE.md) | Stable `DL-*` rules, including the owner's 2026-08-09 true-2D decision and the complete audit contract |
 | audit | [MASTER_AUDIT_2026-08-09.md](../audit/MASTER_AUDIT_2026-08-09.md) | Current audit-cycle state, synchronized evidence, lifecycle triage, and satisfaction gate |
-| findings | [ACTIVE_FINDINGS_2026-08-13.md](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md) | Full canonical records for all 36 material active `MA-*` items; pending exact-chain-head full-local and remote verification |
+| findings | [ACTIVE_FINDINGS_2026-08-13.md](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md) | Full canonical records for all 36 material `MA-*` items, including retained terminal history |
 | changes | [MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md](../audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md) | Stable `CHG-*` change groups, benefits/risks, dependencies, evidence, and guarded per-change rollback plans |
 
-`06_COMPREHENSIVE_DESIGN_LANGUAGE.md` is tracked and recognized here, but its
-own status remains `PROPOSED_CANONICAL` until the documentation gate described
-by the master audit is complete.
+`06_COMPREHENSIVE_DESIGN_LANGUAGE.md` is tracked, verified, and
+`CANONICAL_CURRENT` under the precedence below. Direct owner decisions and
+binding operational/security rules remain higher authority.
 
 ## Precedence
 
@@ -179,7 +183,7 @@ acceptance. Run `31678156887` at pre-fix head `3fc151c8` is retained as red: its
 only probe failures are Detective/Nursery stable-Canvas checks sampled during
 the 0.25-second reveal after four frames; all other executed gates/probes and
 Windows pass. `ff068db` replaces that guess with bounded fail-closed semantic
-readiness. Current integrated dev/audit head `18b6150c` passes Probe Suite run
+readiness. Predecessor integrated dev/audit head `18b6150c` passes Probe Suite run
 `31693492735`: the probes job completes in 29m41s with exactly 63 remote trusted
 headings and the Windows music gate ends 42/42. Static/import/analyzer/probe/
 boot/advisory/manifest gates are green. All five capture/upload pairs completed
@@ -190,8 +194,13 @@ diagnostic internally fails and cannot support visual acceptance. The run is
 also not warning-clean. Android run `31695675866` succeeds from exact
 `18b6150c` and publishes the matching dev APK (596,041,412 bytes; SHA-256
 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
-Authoritative visual, exact voice, human listening, device, child, owner, and
-strict-zero 2D evidence remain open.
+Current maintenance head `51887315` passes exact-head Probe Suite run
+`31710377034`: Ubuntu takes 41m12s, its 63-heading trusted loop takes 18m02s,
+and Windows music is raw 42/42 ALL OK in 4m08s. Raw Sky Lagoon remains 66
+diagnostic lines—21 OK, 44 FAIL, one DONE—and workflow success/upload remains
+non-authoritative; runner warnings and legacy resource diagnostics persist.
+No matching current APK is claimed. Authoritative visual, exact voice, human
+listening, device, child, owner, and strict-zero 2D evidence remain open.
 
 Current Opera content is 13 careers, 53 phases, and 27 modes with newer
 diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the

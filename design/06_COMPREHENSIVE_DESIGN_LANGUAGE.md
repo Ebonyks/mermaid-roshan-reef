@@ -1,11 +1,12 @@
 # Mermaid Roshan: Reef of Light — comprehensive design language
 
 - **Document ID:** CDL-2026-08-09
-- **Status:** `PROPOSED_CANONICAL`; the exhaustive ledger and complete finding
-  records are hardened at chain head
-  `7eb945957776ab3458a9de71c8be9937e2354720` and focused-local green, but direct
-  owner decisions remain controlling until exact-chain-head full-local and
-  remote gates pass
+- **Status:** `CANONICAL_CURRENT`; the exhaustive ledger and complete finding
+  records are sealed at source-chain head
+  `7eb945957776ab3458a9de71c8be9937e2354720` and exact-head verified at
+  `51887315bd537db2d16bdafcac1bbfa808352351`. Direct owner decisions and
+  binding operational, security, protected-asset, save, and final-medium rules
+  remain higher authority
 - **Decision baseline:** owner direction through 2026-08-09
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
@@ -20,15 +21,20 @@
 - **Current probe/evidence head:**
   `ff068db002202839f920a6f9fb78c942788a3034`; only
   `scripts/probe_opera.gd` differs from the documented runtime
-- **Current integrated dev/audit authority head:**
+- **Predecessor integrated dev/audit runtime head:**
   `18b6150c01e1587100dca97c85ebad03f369825a`
 - **Current sealed document-authority chain:** head
   `7eb945957776ab3458a9de71c8be9937e2354720`, exact parent `5ed0c754`, whose
-  exact parent is `18b6150c01e1587100dca97c85ebad03f369825a`. First source
-  `5ed0c754` is the latest completed full-local checkpoint: exact official Godot
-  4.7.1 `scripts/ci.sh` is green in 1,359.8 seconds/all 64. The head has 36
-  focused tests/six mutation controls green but no exact-head full-local or
-  remote result
+  exact parent is `18b6150c01e1587100dca97c85ebad03f369825a`
+- **Current CHG-023 maintenance/verification head:**
+  `51887315bd537db2d16bdafcac1bbfa808352351`, exact parent `7eb94595`; exact
+  official Godot 4.7.1 `scripts/ci.sh` is green in 1,435.2 seconds/all 64, and
+  exact-head Probe Suite run `31710377034` is green. Its probes job is 41m12s,
+  trusted loop 18m02/exactly 63 headings, and Windows music job 4m08s/raw 42/42
+  `ALL OK`. That run's document static reports 36 tests, six of six stress
+  controls, 316/316 inventory/ledger, and then-current 36/36 active/records,
+  all `OK`; after the two verified document findings transition terminal, the
+  current validator reports 34 active items and retains all 36 records
 - **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
   succeeds in 34m19s for that older SHA
@@ -39,11 +45,11 @@
   1463.4 seconds/all 64; probe-only `ff068db` passes its gameplay-bearing full local in
   1379.3 seconds/all 64 under exact official Godot
   `4.7.1.stable.official.a13da4feb`. Run `31678156887` at pre-fix head
-  `3fc151c8` is red only for fixed-four-frame reveal sampling. Integrated head
-  `18b6150c` passes Probe Suite run `31693492735` (29m41s probes job, exactly 63
-  remote trusted headings, music 42/42). Android run `31695675866` succeeds from
-  that exact checkout and publishes the matching dev APK; external/visual
-  acceptance remains open
+  `3fc151c8` is red only for fixed-four-frame reveal sampling. Current
+  verification head `51887315` passes exact-head Probe Suite run `31710377034`.
+  Predecessor Android run `31695675866` succeeds from exact `18b6150c` and
+  publishes that predecessor's matching dev APK; no matching APK is claimed
+  for `51887315`. External/visual acceptance remains open
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
@@ -64,10 +70,11 @@ Commit `9289dd81` reconciled `AGENTS.md`, `CLAUDE.md`, `design/00` through
 `design/05`, and the named Roshan authority surface to the owner's final 2D
 decision. Contiguous sources `5ed0c754`/`7eb94595` establish and harden one row
 for all 316 Markdown paths and full records for all 36 material findings. At
-chain head, 36 focused tests/six mutation controls are green; first-source exact
-official-Godot full local is green. No exact-head full-local or remote result is
-claimed for `7eb94595`, so `MA-DOC-002` and `MA-DOC-005` remain
-`FIXED_PENDING_VERIFICATION`. Direct owner decisions and
+CHG-023 maintenance/verification head `51887315`, 36 focused tests/six mutation
+controls, exact official-Godot full local in 1,435.2 seconds/all 64, and exact-
+head remote run `31710377034` are green. `MA-DOC-002` and `MA-DOC-005` are
+`VERIFIED_FIXED`; the CHG-029 source chain and exact 22-path boundary remain
+unchanged. Direct owner decisions and
 binding operational/security rules remain higher authority. Where an older art
 or design document conflicts with a rule here, the dated supersession table in
 section 15 controls.
@@ -111,17 +118,19 @@ Castle ambient layer 15 settles to Opera layer 11. Their raw launches, passive
 safety, saves/rewards, exact-room returns, dedicated probes, every other
 executed gate/probe, and Windows pass. Probe-only `ff068db` replaces the frame
 guess with a bounded fail-closed wait for exact instance/reveal/stage/layer
-readiness and passes full local CI in 1379.3 seconds/all 64. Current integrated
-dev/audit head `18b6150c` passes Probe Suite run `31693492735`: the probes job
-completes in 29m41s with exactly 63 remote trusted headings and the Windows music
-gate ends 42/42. The five capture/upload pairs completed at the workflow level
-and uploaded diagnostic artifacts, not capture gates or visual passes. Raw Sky
-Lagoon `LAGOONSHOT` output has 21 `OK`, 44 `FAIL`, and `DONE` (66 diagnostic
-lines), with 20 PNGs, so that diagnostic internally fails. Existing Vulkan
-fallback and resource-leak diagnostics also remain. Android run `31695675866`
-checks out exact `18b6150c` and publishes the matching dev APK (596,041,412
-bytes; SHA-256
+readiness and passes full local CI in 1379.3 seconds/all 64. Current verification
+head `51887315` passes exact official-Godot full local CI in 1,435.2 seconds/all
+64 and exact-head Probe Suite run `31710377034`: the probes job is 41m12s, its
+trusted loop is 18m02 with exactly 63 remote headings, and the Windows music job
+is 4m08s with raw 42/42 `ALL OK`. The five capture/upload pairs completed at the
+workflow level and uploaded diagnostic artifacts, not capture gates or visual
+passes. Raw Sky Lagoon `LAGOONSHOT` output has 21 `OK`, 44 `FAIL`, and one
+`DONE` (66 diagnostic lines), so that diagnostic internally fails. Existing
+runner warnings, Vulkan fallback, and resource-leak diagnostics also remain.
+Predecessor Android run `31695675866` checks out exact `18b6150c` and publishes
+that predecessor's matching dev APK (596,041,412 bytes; SHA-256
 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
+No matching APK is claimed for `51887315`.
 External acceptance stays open.
 
 The overall game remains `UNSATISFIED`. GAME2D is exact `NO_REGRESSION`, all 14
@@ -155,8 +164,8 @@ Ballerina and Boxer pass runtime `09e5e356` and gameplay-bearing probe head
 `ff068db`; their earlier
 state also passes exact-head remote run `31649113587` at `af4189a9`. Exact-head
 run `31661887863` verifies the predecessor integrated head; run `31678156887`
-is red only for fixed-frame route readiness sampling, and current integrated
-head `18b6150c` passes Probe Suite run `31693492735`. Authoritative capture,
+is red only for fixed-frame route readiness sampling. Current verification head
+`51887315` passes exact-head Probe Suite run `31710377034`. Authoritative capture,
 exact voice, device, child and owner acceptance remain open. Painter-purpose and Arborist
 worktrees are uncommitted candidates; Boxer V2 is a docs-only branch proposal.
 The 42-cue deterministic area-music rollout has local machine evidence,
@@ -171,11 +180,12 @@ result in successful run `31649113587`; human listening, mono/voice review,
   acceptance. Twenty-two current 1280×720 Mobile renders were visually inspected
   only for diagnostic/review purposes; the five predecessor remote capture/upload
   pairs are likewise diagnostic. The current route cards obscure Roshan's lower
-  body/tail in all nine room captures. Integrated head `18b6150c` passes Probe
-  Suite run `31693492735`; all five capture/upload pairs completed at the
-  workflow level and uploaded diagnostic artifacts, and raw Sky Lagoon output
-  internally fails 21 `OK` / 44 `FAIL` / `DONE` while producing 20 PNGs. Android
-  run `31695675866` publishes the matching exact-SHA dev APK. Authoritative
+  body/tail in all nine room captures. Verification head `51887315` passes
+  exact-head Probe Suite run `31710377034`; all five capture/upload pairs
+  completed at the workflow level and uploaded diagnostic artifacts, and raw
+  Sky Lagoon output internally emits 66 lines (21 `OK`, 44 `FAIL`, one `DONE`).
+  Predecessor Android run `31695675866` publishes the matching `18b6150c` dev
+  APK; no `51887315` APK is claimed. Authoritative
   visual, exact voice, human listening, device, child, owner, and strict-zero 2D
   gates remain open.
   Probe-only `ff068db` preserves that runtime and completes the newer full-local
@@ -559,7 +569,9 @@ mapping with local focused/full-suite evidence; probe-only `ff068db` adds
 bounded fail-closed route readiness without changing runtime. `MA-OPERA-012`
 remains `FIXED_PENDING_VERIFICATION` until device/child/owner/voice/
 accepted-visual gates complete; exact-head remote machine evidence is green at
-`18b6150c`, with matching dev-APK evidence from Android run `31695675866`.
+current verification head `51887315`. Dev-APK evidence from Android run
+`31695675866` belongs to predecessor `18b6150c`; no matching `51887315` APK is
+claimed.
 Route cards MUST preserve their large touch targets without obscuring Roshan's
 lower body/tail.
 
@@ -1015,9 +1027,10 @@ prove convergence, boss/save retirement, all thirteen exact Castle
 routes, Movie Lounge Racer, no hidden lobby, exact-room return, and explicit
 layer ownership. Its 22 inspected 1280×720 Mobile renders remain diagnostic;
 the nine room captures expose lower-body/tail card occlusion. Run `31678156887`
-is retained red for fixed-frame readiness sampling; current integrated head
-`18b6150c` passes Probe Suite run `31693492735`, and Android run `31695675866`
-publishes its matching dev APK. Exact voice, accepted visual, target-device,
+is retained red for fixed-frame readiness sampling; current verification head
+`51887315` passes exact-head Probe Suite run `31710377034`. Predecessor Android
+run `31695675866` publishes the matching `18b6150c` dev APK; no `51887315` APK
+is claimed. Exact voice, accepted visual, target-device,
 child, and owner gates still block closure.
 
 `DL-QA-13` — Area-music acceptance separates deterministic build evidence from
@@ -1050,12 +1063,13 @@ every field below; unknown values are written explicitly as missing or blocked,
 never omitted.
 
 Contiguous document-authority sources `5ed0c754`/`7eb94595` apply and harden this schema for all 36
-material active findings in
+material findings, including retained terminal history, in
 [`ACTIVE_FINDINGS_2026-08-13.md`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md).
-The record set and exhaustive 316-path ledger remain
-`FIXED_PENDING_VERIFICATION`: 36 focused tests and six mutation controls are
-green at the chain head, and first-source full local is green, but exact-chain-
-head full-local and remote results are unclaimed.
+The record set and exhaustive 316-path ledger are `VERIFIED_FIXED`: CHG-023
+maintenance/verification head `51887315` passes 36 focused tests, six mutation
+controls, exact official-Godot full local in 1,435.2 seconds/all 64, and exact-
+head remote run `31710377034`. The CHG-029 sources and exact 22-path boundary
+remain unchanged.
 
 | Field | Requirement |
 |---|---|

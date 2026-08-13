@@ -26,8 +26,16 @@
   `7eb945957776ab3458a9de71c8be9937e2354720`, whose exact parent is
   `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`. Exact official Godot 4.7.1
   local `scripts/ci.sh` is green at the first source in 1,359.8 seconds with all
-  64 trusted probes; no exact-head full-local or remote result is claimed for
-  chain head `7eb94595`
+  64 trusted probes; at that source checkpoint no direct full-local or remote
+  result was recorded for hardening source `7eb94595`
+- **Current document-authority verification checkpoint:** CHG-023 maintenance
+  commit `51887315bd537db2d16bdafcac1bbfa808352351`, exact parent `7eb94595`,
+  passes official Godot 4.7.1 full local in 1,435.2 seconds/all 64 and exact-head
+  Probe Suite run `31710377034`. That run's document static gate is 36 tests,
+  six/six stress, 316/316 inventory/ledger, and then-current 36/36 active/
+  records, all green. After `MA-DOC-002` and `MA-DOC-005` transition
+  `VERIFIED_FIXED`, the current validator reports 34 active items and retains
+  all 36 records
 - **Historical authority-head remote verification:** GitHub Actions run `31686380560`
   succeeds at exact `9befc0f838f40eead2f42088a91206257fe217a8`;
   machine-workflow success is not warning-clean or external/visual acceptance,
@@ -77,6 +85,7 @@ audit_evidence_rollback_sync_snapshot: d991fdf3fbdb229de8685c3e52917b280942adb5
 audit_evidence_authority_sync_snapshot: 9befc0f838f40eead2f42088a91206257fe217a8
 document_authority_snapshot: 5ed0c75460c9afd5ab574ff2c4a907c1075964f0
 document_authority_hardening_snapshot: 7eb945957776ab3458a9de71c8be9937e2354720
+document_authority_verification_checkpoint: 51887315bd537db2d16bdafcac1bbfa808352351
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -931,11 +940,14 @@ exclusive and must never be applied on the same rollback branch.
   ten-path authority synchronization. CHG-029 separately owns the later
   contiguous two-source fail-closed document-authority/hardening chain. The
   post-`7eb94595` catalog/count update that records its exact second-source hash
-  and boundary remains CHG-023 maintenance rather than a third CHG-029 source
-  or CHG-030. Routine future bookkeeping remains CHG-023.
-- **Paths:** this ledger, master audit, design index/architecture/open-work/
-  ledger/design-language records, `.gitignore`, the read-only planner, and its
-  tests.
+  and boundary, exact verification checkpoint
+  `51887315bd537db2d16bdafcac1bbfa808352351`, and this later terminal-lifecycle
+  synchronization remain CHG-023 maintenance rather than a third CHG-029
+  source, a 78th owned reference, or CHG-030. Routine future bookkeeping
+  remains CHG-023 and does not recursively catalog its own prose-sync hash.
+- **Paths:** this ledger, master audit, canonical findings register, design
+  index/game-design/architecture/open-work/ledger/design-language records,
+  `.gitignore`, the read-only planner, and its tests.
 - **Outcome / positive effect:** material work has stable IDs, explicit upside/
   downside, dependencies, evidence gaps, and bounded rollback paths; future
   regressions can be isolated without erasing audit history.
@@ -944,7 +956,16 @@ exclusive and must never be applied on the same rollback branch.
   dependency entry. Commands are safeguards, not proof that an inverse remains
   clean.
 - **Dependencies and evidence:** CHG-011 authority, current master audit/design
-  language, clean UTF-8/table/fence/link/diff validation.
+  language, clean UTF-8/table/fence/link/diff validation. Exact maintenance
+  checkpoint `51887315`, parent `7eb94595`, changes 11 documentation/planner
+  paths with 298 insertions/213 deletions and no runtime or workflow path. It
+  passes official Godot 4.7.1 full local in 1,435.2 seconds/all 64 and exact-head
+  run `31710377034`: Ubuntu 41m12s, trusted loop 18m02s/63 headings, document
+  gate 36 tests/six stress/316/316/36/36 ALL OK, and Windows 42/42 ALL OK in
+  4m08s. After the two terminal transitions, the current validator reports 34
+  active items and retains all 36 records. Raw Sky Lagoon remains 21 OK/44
+  FAIL/one DONE and non-authoritative;
+  runner warnings, legacy resource diagnostics, APK, and external gates remain.
 - **Rollback:** `documentation_migration`. On a clean dedicated branch at or
   after the introduction anchor, preview `git revert --no-commit
   57bc08d1220594fbabcab15362b5685a9f8514e6`; stop on any overlap with later
@@ -1442,9 +1463,10 @@ exclusive and must never be applied on the same rollback branch.
   The exact combined union is 22 paths. Summed per-commit churn is 3,124
   insertions and 392 deletions; the exact baseline-to-head diff from `18b6150c`
   through `7eb94595` is 3,024 insertions and 292 deletions. These measurements
-  are distinct and must not be conflated. The post-`7eb94595` metadata update
-  that records the exact second-source hash/boundary is CHG-023 maintenance,
-  not a third CHG-029 source or CHG-030.
+  are distinct and must not be conflated. The post-`7eb94595` metadata update,
+  exact `51887315` verification checkpoint, and later terminal-lifecycle prose
+  sync are CHG-023 maintenance, not a third CHG-029 source, a 78th owned
+  reference, or CHG-030.
 - **Exact 22-path union:** `.github/workflows/probes.yml`; `.gitignore`;
   `AUDIT_3_0.md`; `CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md`;
   `MINIGAME_ENGINES.md`; `OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md`;
@@ -1494,15 +1516,26 @@ exclusive and must never be applied on the same rollback branch.
   validator, tests, ledger, findings, planner, and authority claims.
 - **Dependencies and evidence:** CHG-005, CHG-008, CHG-011, CHG-023, CHG-025,
   and CHG-028. Exact official Godot 4.7.1 local `scripts/ci.sh` at first source
-  `5ed0c754` is green after **1,359.8 seconds with all 64 trusted local probes**.
-  At chain head `7eb94595`, focused evidence is 36/36 document-authority tests,
-  six/six mutation controls, 316/316 inventory/ledger parity, 36/36 active-
-  record parity, Python compilation, probe-parity stress/default, GAME2D
-  stress/default/regression, planner tests, and `git diff --check`. **No exact-
-  head full-local or remote result is claimed for `7eb94595`**. `MA-DOC-002`
-  and `MA-DOC-005` therefore remain `FIXED_PENDING_VERIFICATION`, and the
-  master audit remains `IN_PROGRESS / UNSATISFIED`. No runtime, device, child,
-  owner, visual, voice, listening, strict-2D, APK, or release acceptance follows.
+  `5ed0c754` is historically green after **1,359.8 seconds with all 64 trusted
+  local probes**. At source head `7eb94595`, focused evidence is 36/36
+  document-authority tests, six/six mutation controls, 316/316 inventory/ledger
+  parity, 36/36 active-record parity, Python compilation, probe-parity
+  stress/default, GAME2D stress/default/regression, planner tests, and `git diff
+  --check`; no direct full-local or remote result was recorded at that source
+  checkpoint. Exact CHG-023 maintenance head `51887315`, parent `7eb94595`,
+  then passes official Godot 4.7.1 full local after **1,435.2 seconds with all
+  64 trusted local probes** and exact-head Probe Suite run `31710377034`.
+  Ubuntu runs 14:28:33–15:09:45 UTC (41m12s), including an 18m02s trusted loop
+  with exactly 63 headings; its document static gate is 36 tests, six/six
+  stress, 316/316 inventory/ledger, and then-current 36/36 active/records, all
+  green. Windows completes in 4m08s with raw 42/42 ALL OK. `MA-DOC-002` and
+  `MA-DOC-005` are therefore `VERIFIED_FIXED`; the current validator reports
+  34 active items and retains all 36 records. The master audit and design 06 are
+  `CANONICAL_CURRENT`, while the game-wide audit remains
+  `IN_PROGRESS / UNSATISFIED`. Raw Sky Lagoon remains 21 OK/44 FAIL/one DONE,
+  workflow-success/upload only; runner warnings, legacy resource diagnostics,
+  runtime, device, child, owner, visual, voice, listening, strict-2D, APK, and
+  release acceptance remain separate.
 - **Rollback:** `documentation_migration`; the planner is
   `MANUAL_RECONSTRUCTION_REQUIRED` and refuses `--emit-script`. Do not raw-
   revert or selectively restore either source: a partial inverse can leave CI
@@ -1533,7 +1566,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-026 | exact commit-parent/path parity, parser/lint, Opera/load/recovery/living-world/audio/UI, GAME2D default+regression+stress, fresh Mobile captures, and exact `scripts/ci.sh` | remote exact-head, M11 touch/performance, child comprehension, owner art/authority, and MA-OPERA-012 Castle-room distribution |
 | CHG-027 | exact two-commit/parent/15-path-union parity, parser/lint, bounded route-readiness, room-route/Opera/Opera-2D/load/living-world/UI, GAME2D default+regression-gate+stress, 22 fresh Mobile diagnostics, exact `scripts/ci.sh`, and successor authority-head remote run `31686380560` | repeat exact-head remote at the eventual integrated release candidate; bounded P2 card-overlap repair, M11 touch/performance, child comprehension, owner art/authority, and authoritative visual acceptance |
 | CHG-028 | exact two-commit/parent/10-path-union parity, 22 planner tests, Python compilation, ledger/catalog source parity, probe parity, GAME2D regression gate, diff check, and exact-head run `31686380560` with warning diagnostics and internally failed Sky Lagoon diagnostic retained | matching APK and external evidence; supersede facts as CHG-023 maintenance after later product/evidence changes and never promote documentation synchronization into acceptance |
-| CHG-029 | exact two-source parent/path parity, exact 22-path union, 23 planner tests, 36 document-authority tests, six mutation stress controls, 316/316 inventory/ledger and 36/36 active-record parity, Python compilation, probe parity, GAME2D stress/default/regression, diff check, and first-source exact local `scripts/ci.sh` in 1,359.8 seconds/all 64 | exact-chain-head full local and remote Probe Suite; all device, child, owner, voice, listening, strict-2D, visual, APK, and release acceptance |
+| CHG-029 | exact two-source parent/path parity, exact 22-path union, 23 planner tests, 36 document-authority tests, six mutation stress controls, 316/316 inventory/ledger and 36/36 active-record parity, Python compilation, probe parity, GAME2D stress/default/regression, diff check, first-source local `scripts/ci.sh` in 1,359.8 seconds/all 64, and exact CHG-023 maintenance-head local 1,435.2 seconds/all 64 plus Probe Suite run `31710377034` | repeat exact-head machine gates for any rollback candidate; all device, child, owner, voice, listening, strict-2D, visual, matching APK, and release acceptance |
 
 ## 6. Required rollback record
 

@@ -35,6 +35,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_PARENT,
 			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT,
 			planner.AUDIT_DOCUMENT_AUTHORITY_PARENT,
+			planner.AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_COMMIT,
 		}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
@@ -142,6 +143,9 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		process = planner.select_group("CHG-023")
 		self.assertEqual(process.commits, ("57bc08d1220594fbabcab15362b5685a9f8514e6",))
 		self.assertFalse(process.pending_commit)
+		self.assertIn("audit/findings/ACTIVE_FINDINGS_2026-08-13.md", process.paths)
+		self.assertIn("design/01_GAME_DESIGN.md", process.paths)
+		self.assertIn("51887315bd537db2d16bdafcac1bbfa808352351", planner.render_plan(process))
 		self.assertIn(
 			f"Use exactly {planner.AUDIT_CATALOG_COMMIT} as the rollback branch start.",
 			planner.render_plan(process),
@@ -550,6 +554,14 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_DOCUMENT_AUTHORITY_COMMIT,
 		)
 		self.assertEqual(
+			planner.AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_COMMIT,
+			"51887315bd537db2d16bdafcac1bbfa808352351",
+		)
+		self.assertEqual(
+			planner.AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_PARENT,
+			planner.AUDIT_DOCUMENT_AUTHORITY_HARDENING_COMMIT,
+		)
+		self.assertEqual(
 			group.commits,
 			(
 				planner.AUDIT_DOCUMENT_AUTHORITY_COMMIT,
@@ -558,6 +570,11 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		)
 		self.assertEqual(group.baseline_commit, planner.AUDIT_DOCUMENT_AUTHORITY_PARENT)
 		self.assertEqual(group.rollback_start, planner.AUDIT_DOCUMENT_AUTHORITY_HARDENING_COMMIT)
+		self.assertNotIn(planner.AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_COMMIT, group.commits)
+		self.assertNotIn(
+			planner.AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_COMMIT,
+			[commit for item in planner.CATALOG for commit in item.commits],
+		)
 		self.assertEqual(
 			set(group.paths),
 			{
@@ -614,12 +631,16 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"second source changes no workflow path",
 			"existing contents: read permission",
 			"first source 5ed0c754 after 1,359.8 seconds with all 64 trusted local probes",
-			"36 green focused document-authority tests",
-			"no exact-head full local or remote result is claimed for 7eb94595",
-			"MA-DOC-002 and MA-DOC-005 remain FIXED_PENDING_VERIFICATION",
+			"36 document-authority tests",
+			"verification-maintenance head 51887315bd537db2d16bdafcac1bbfa808352351",
+			"1,435.2 seconds/all 64",
+			"Probe Suite run 31710377034",
+			"MA-DOC-002 and MA-DOC-005 are VERIFIED_FIXED",
 			"IN_PROGRESS / UNSATISFIED",
-			"inventory/ledger 316/316 and active-record parity 36/36",
-			"not a third CHG-029 source or CHG-030",
+			"inventory/ledger 316/316",
+			"post-transition validator reports 34 active items and 36 retained records",
+			"not a third CHG-029 source",
+			"or CHG-030",
 			"exact 22-path union",
 			"no rollback script may be emitted",
 		):
@@ -633,6 +654,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			/ "MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
 		).read_text(encoding="utf-8")
 		section = ledger.split("### CHG-029", 1)[1].split("## 5.", 1)[0]
+		normalized_section = re.sub(r"\s+", " ", section)
 		for marker in (
 			"5ed0c75460c9afd5ab574ff2c4a907c1075964f0",
 			"18b6150c01e1587100dca97c85ebad03f369825a",
@@ -647,13 +669,15 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"insertions and 392 deletions",
 			"high-risk workflow",
 			"1,359.8 seconds with all 64 trusted local probes",
+			"1,435.2 seconds with all 64 trusted local probes",
+			"31710377034",
 			"36/36 document-authority tests",
-			"head full-local or remote result is claimed",
-			"FIXED_PENDING_VERIFICATION",
+			"34 active items and retains all 36 records",
+			"VERIFIED_FIXED",
 			"IN_PROGRESS / UNSATISFIED",
 			"MANUAL_RECONSTRUCTION_REQUIRED",
 		):
-			self.assertIn(marker, section)
+			self.assertIn(marker, normalized_section)
 
 	def test_catalog_rejects_duplicate_ids(self) -> None:
 		duplicate = replace(planner.CATALOG[1], change_id=planner.CATALOG[0].change_id)
