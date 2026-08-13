@@ -13,6 +13,9 @@
 - **Castle-room Opera career-distribution snapshot:**
   `09e5e35665fd8d1bd782693e10fc0198f756d2c8`, with exact parent
   `f0b4f5e03fabbdcb3792f492f6cbd926afff0e2e`
+- **Opera distribution probe-readiness repair snapshot:**
+  `ff068db002202839f920a6f9fb78c942788a3034`, with exact parent
+  `3fc151c8b3b6c054d0f6e6ab89f84a9f464f3f20`
 - **Current-dev reconciliation snapshot:**
   `f3b0de078898a8b4faddb2c738c4403180eff928`, with current-dev parent
   `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and master-audit parent
@@ -31,7 +34,7 @@
   engine, [master-audit](MASTER_AUDIT_2026-08-09.md), and
   [comprehensive-design-language](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md)
 - **Program state:** `IN_PROGRESS / UNSATISFIED`
-- **Catalog inventory:** 27 permanent change IDs, 72 uniquely owned source-
+- **Catalog inventory:** 27 permanent change IDs, 73 uniquely owned source-
   commit references, four guarded-script emitters, and 21 planner unit tests
 
 This is the durable answer to the fact that a long audit can produce both
@@ -52,6 +55,7 @@ snapshot: f3b0de078898a8b4faddb2c738c4403180eff928
 evidence_snapshot: a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2
 opera_retirement_snapshot: e2c25878f6b9c64526d0686c426a9f29c5f1b3da
 opera_distribution_snapshot: 09e5e35665fd8d1bd782693e10fc0198f756d2c8
+opera_distribution_probe_fix_snapshot: ff068db002202839f920a6f9fb78c942788a3034
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -114,9 +118,11 @@ CHG-026 starts at exact Opera product commit
 `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`; its planner entry records the
 whole-commit diagnostic inverse but refuses to emit a script because save,
 runtime, probes, the migration manifest, and authority documents are coupled.
-CHG-027 starts at exact Castle-room Opera distribution commit
-`09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its planner entry records a
-whole-commit diagnostic preview but refuses to emit a script because route,
+CHG-027 starts at exact probe-repaired head
+`ff068db002202839f920a6f9fb78c942788a3034`. It owns both the Castle-room
+Opera distribution commit `09e5e35665fd8d1bd782693e10fc0198f756d2c8`
+and the follow-up readiness repair. Its planner records a reverse-order,
+two-commit diagnostic preview but refuses to emit a script because route,
 save, reward, return, layer, probe, and migration-manifest ownership are
 coupled.
 The planner output is the authority if a later append-only maintenance revision
@@ -1127,11 +1133,16 @@ exclusive and must never be applied on the same rollback branch.
 
 ### CHG-027 — Castle-room Opera career distribution and direct return lifecycle
 
-- **Source and exact boundary:** product commit
+- **Sources and exact boundary:** product commit
   `09e5e35665fd8d1bd782693e10fc0198f756d2c8`, whose single parent is
   `f0b4f5e03fabbdcb3792f492f6cbd926afff0e2e`. Its first-parent delta is
-  exactly 15 paths (1,144 insertions and 1,333 deletions). The path set was
-  checked with `git diff-tree`; none is below a protected-original directory.
+  exactly 15 paths (1,144 insertions and 1,333 deletions). Follow-up probe-
+  readiness commit `ff068db002202839f920a6f9fb78c942788a3034`, whose single
+  parent is `3fc151c8b3b6c054d0f6e6ab89f84a9f464f3f20`, changes only the already-
+  owned `scripts/probe_opera.gd` (30 insertions and one deletion). The two
+  owned deltas therefore retain an exact 15-path union. Both deltas and their
+  union were checked with `git diff-tree`; none is below a protected-original
+  directory.
 - **Paths:** the exact 15-path scope is new
   `scripts/castle_career_routes.gd`; modified `scripts/living_world.gd`,
   `scripts/living_world_catalog.gd`, `scripts/main.gd`,
@@ -1210,6 +1221,37 @@ exclusive and must never be applied on the same rollback branch.
   it does not reopen or repurpose the three retired boss slots. Route code,
   shared main state, living-world catalog, pause/HUD layering, Opera lifecycle,
   probes, and the shrink-only GAME2D manifest therefore form one review unit.
+- **Failed remote run and exact root cause:** GitHub Actions run `31678156887`
+  at pre-fix head `3fc151c8b3b6c054d0f6e6ab89f84a9f464f3f20` passed import, static checks,
+  the analyzer, and the surrounding career/lifecycle coverage, but the trusted
+  Opera probe reported exactly
+  `OPERA|detective starts only its stable Canvas career: FAIL` and
+  `OPERA|nursery starts only its stable Canvas career: FAIL`, then
+  `OPERA|result: 2 check(s) FAILED`. Raw viewport-touch launch, passive safety,
+  save/reward, exact-room return, Opera 2D, all 2,247 diegetic-path checks, the
+  Detective, Nursery, and Pipe probes, and all 273 gesture-quality checks were
+  green. At that failed head, the compound stable-Canvas assertion was
+  `scripts/probe_opera.gd:282–293`; its stale term at line 287 required living-
+  world layer 11 after `_start_via_room_touch()` had waited only four frames
+  at `scripts/probe_opera.gd:379–398` (the wait was line 390). Production starts
+  the activity synchronously beneath the reveal, but `scripts/main.gd:3318`
+  gives that reveal 0.25 seconds and `scripts/living_world.gd:269` deliberately
+  suspends its layer change while fade alpha exceeds 0.02. Runner-dependent
+  fast frames could therefore still observe the previous Castle layer 15.
+  This was a probe-sampling defect, not evidence of a production launch,
+  lifecycle, save, or return defect. Boot/capture work correctly remained
+  skipped after the trusted-probe failure; the historical run remains red.
+- **Probe-readiness repair and exact-head local evidence:** follow-up
+  `ff068db002202839f920a6f9fb78c942788a3034` replaces the four-frame guess
+  with bounded `_await_route_ready()` evidence. Its 120-frame limit waits for
+  the Opera instance, completed and input-transparent reveal, exact
+  `opera.act.NN` living-stage identity, and career living-world layer 11; a
+  timeout prints the observed act, stage, layer, and fade instead of silently
+  sampling too early. It changes no production runtime file or behavior. At
+  this exact repaired head, official Godot `4.7.1.stable.official.a13da4feb`
+  full local `scripts/ci.sh` exited 0 after 1,379.3 seconds with all 64 trusted
+  local probes green. This local pass does not erase run `31678156887` or
+  substitute for a new exact-head remote run, which remains pending evidence.
 - **Evidence at the product commit:** exact official Godot
   `4.7.1.stable.official.a13da4feb` full local `scripts/ci.sh` exited 0 after
   1,463.4 seconds with all 64 trusted local probes green. Parser, inference
@@ -1225,15 +1267,20 @@ exclusive and must never be applied on the same rollback branch.
 - **Rollback:** `owner_blocked_mixed`; the planner is deliberately `MANUAL` and
   refuses `--emit-script`. For diagnosis only, start a clean isolated
   `codex/rollback-chg-027` branch at exact
-  `09e5e35665fd8d1bd782693e10fc0198f756d2c8`, verify its parent and exact
-  15-path delta, then preview `git revert --no-commit
-  09e5e35665fd8d1bd782693e10fc0198f756d2c8`. Stop on any conflict, unexpected
-  path, protected original, save-key change, bit reindexing, reward change,
-  layer inversion, wrong-room return, or parent-tree mismatch. Inspect all 15
-  paths together. The raw inverse restores the rejected all-career hub and
-  deletes the owner-directed room routes, so it is not production-approved and
-  must never be automated or applied over a later head. Prefer a narrow fix to
-  a specific P2 card anchor or lifecycle defect. Before any candidate inverse,
+  `ff068db002202839f920a6f9fb78c942788a3034`, verify both owned commit-parent
+  pairs and their exact 15-path union, then preview the owned commits in reverse
+  order: first `git revert --no-commit
+  ff068db002202839f920a6f9fb78c942788a3034`, then `git revert --no-commit
+  09e5e35665fd8d1bd782693e10fc0198f756d2c8`. The intervening audit-document
+  commits are not owned by CHG-027 and must not be swept into its inverse. Stop
+  on any conflict, unexpected path, protected original, save-key change, bit
+  reindexing, reward change, layer inversion, wrong-room return, lost bounded-
+  readiness evidence, or parent-tree mismatch. Inspect the exact 15-path union
+  together. The raw inverse restores the rejected all-career hub, deletes the
+  owner-directed room routes, and removes the probe-readiness repair, so it is
+  not production-approved and must never be automated or applied over a later
+  head. Prefer a narrow fix to a specific P2 card anchor or lifecycle defect.
+  Before any candidate inverse,
   rerun planner tests, parser/lint, probe parity, GAME2D default plus exact
   `python -B tools/audit_game_2d.py --regression-gate` and stress, the focused
   route/save/reward/layer probes, diagnostic captures, and exact Godot 4.7.1
@@ -1257,7 +1304,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-024 | exact parent/path guards, GAME2D/parity/generated-art checks, every applicable focused gate, and exact `scripts/ci.sh` | remote exact-head plus all applicable capture, M11, child, audio, and owner gates |
 | CHG-025 | rollback catalog tests, document structure/links, probe parity, GAME2D regression, and diff check | re-audit ratings and branch facts whenever a candidate becomes committed or integrated |
 | CHG-026 | exact commit-parent/path parity, parser/lint, Opera/load/recovery/living-world/audio/UI, GAME2D default+regression+stress, fresh Mobile captures, and exact `scripts/ci.sh` | remote exact-head, M11 touch/performance, child comprehension, owner art/authority, and MA-OPERA-012 Castle-room distribution |
-| CHG-027 | exact commit-parent/15-path parity, parser/lint, room-route/Opera/Opera-2D/load/living-world/UI, GAME2D default+regression-gate+stress, 22 fresh Mobile diagnostics, and exact `scripts/ci.sh` | remote exact-head, bounded P2 card-overlap repair, M11 touch/performance, child comprehension, owner art/authority, and authoritative visual acceptance |
+| CHG-027 | exact two-commit/parent/15-path-union parity, parser/lint, bounded route-readiness, room-route/Opera/Opera-2D/load/living-world/UI, GAME2D default+regression-gate+stress, 22 fresh Mobile diagnostics, and exact `scripts/ci.sh` | repaired-head remote rerun, bounded P2 card-overlap repair, M11 touch/performance, child comprehension, owner art/authority, and authoritative visual acceptance |
 
 ## 6. Required rollback record
 

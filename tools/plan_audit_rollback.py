@@ -30,6 +30,8 @@ AUDIT_OPERA_RETIREMENT_COMMIT = "e2c25878f6b9c64526d0686c426a9f29c5f1b3da"
 AUDIT_OPERA_RETIREMENT_PARENT = "41087f6634a416540b23a984d1f445b0bdab5f2f"
 AUDIT_OPERA_DISTRIBUTION_COMMIT = "09e5e35665fd8d1bd782693e10fc0198f756d2c8"
 AUDIT_OPERA_DISTRIBUTION_PARENT = "f0b4f5e03fabbdcb3792f492f6cbd926afff0e2e"
+AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT = "ff068db002202839f920a6f9fb78c942788a3034"
+AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_PARENT = "3fc151c8b3b6c054d0f6e6ab89f84a9f464f3f20"
 GODOT_REQUIREMENT = "exact Godot 4.7.1-stable (not 4.4 or a development build)"
 PROTECTED_PATHS = (
 	"assets/book/",
@@ -876,9 +878,12 @@ CATALOG: tuple[ChangeGroup, ...] = (
 	_group(
 		"CHG-027",
 		"Castle-room Opera career distribution and direct return lifecycle",
-		"Removes the rejected central all-career lobby, distributes all thirteen live careers across nine themed Castle rooms, launches one Canvas career directly from its room-owned picture, and returns to that exact room while preserving the sparse 16-bit save contract and retirement tombstones.",
+		"Removes the rejected central all-career lobby, distributes all thirteen live careers across nine themed Castle rooms, launches one Canvas career directly from its room-owned picture, and returns to that exact room while preserving the sparse 16-bit save contract and retirement tombstones; its probe now waits for bounded semantic route readiness instead of assuming four frames outlive the reveal.",
 		AUDIT_OPERA_DISTRIBUTION_PARENT,
-		(AUDIT_OPERA_DISTRIBUTION_COMMIT,),
+		(
+			AUDIT_OPERA_DISTRIBUTION_COMMIT,
+			AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT,
+		),
 		(
 			"scripts/castle_career_routes.gd",
 			"scripts/living_world.gd",
@@ -926,14 +931,15 @@ CATALOG: tuple[ChangeGroup, ...] = (
 			"GODOT=\"$GODOT\" scripts/ci.sh",
 			"git diff --check",
 		),
-		rollback_start=AUDIT_OPERA_DISTRIBUTION_COMMIT,
+		rollback_start=AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT,
 		warnings=(
 			"The inverse restores the rejected central all-career lobby and removes the owner-directed Castle-room routes, direct one-act lifecycle, and exact-room return ownership.",
 			"The raw opera_stars namespace remains 16 bits with live mask 0xBDEF, retired mask 0x4210, and permanent tombstones at slots 4, 9, and 14; never clear, compact, reindex, or repurpose those bits during an inverse.",
 			"Residual P2 card overlap/occlusion remains: the lower-center career-card row obscures Roshan's lower body or tail in reviewed room captures and can also compete with room props or other affordances.",
+			"Remote run 31678156887 failed only because the old probe sampled LivingWorld layer 11 after four runner-dependent frames while the 0.25-second reveal still intentionally held Castle layer 15; do not remove the bounded readiness evidence or misclassify that historical probe-timing failure as a production lifecycle defect.",
 			"The 22 fresh captures are diagnostic only, not M11, child, owner, or authoritative visual acceptance; GAME2D remains UNSATISFIED at 509 models, 66 production files, and 74 probe files.",
 		),
-		manual_reason="Automation is refused because this exact commit couples nine Castle route owners, thirteen direct Canvas career lifecycles, stable save bits and rewards, exact-room restoration, HUD/caption/pause/living-world layer ownership, probes, and the GAME2D manifest. For diagnosis only, use `git revert --no-commit 09e5e35665fd8d1bd782693e10fc0198f756d2c8` on a clean isolated branch created at that exact commit, inspect all 15 paths, and preserve the 0xBDEF/0x4210/tombstone contract; the raw inverse is not production-approved and no rollback script may be emitted.",
+		manual_reason="Automation is refused because these two owned commits couple nine Castle route owners, thirteen direct Canvas career lifecycles, stable save bits and rewards, exact-room restoration, HUD/caption/pause/living-world layer ownership, bounded probe-readiness evidence, and the GAME2D manifest. For diagnosis only, start a clean isolated branch at `ff068db002202839f920a6f9fb78c942788a3034`, preview the owned commits in reverse order with `git revert --no-commit ff068db002202839f920a6f9fb78c942788a3034` followed by `git revert --no-commit 09e5e35665fd8d1bd782693e10fc0198f756d2c8`, inspect the exact 15-path union, and preserve the 0xBDEF/0x4210/tombstone contract; the raw inverse is not production-approved and no rollback script may be emitted.",
 	),
 )
 

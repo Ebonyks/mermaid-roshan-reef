@@ -32,6 +32,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_RECONCILIATION_AUDIT_PARENT,
 			planner.AUDIT_OPERA_RETIREMENT_PARENT,
 			planner.AUDIT_OPERA_DISTRIBUTION_PARENT,
+			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_PARENT,
 		}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
@@ -49,8 +50,8 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			[f"CHG-{number:03d}" for number in range(1, 28)],
 		)
 		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
-		self.assertEqual(len(owned_refs), 72)
-		self.assertEqual(len(set(owned_refs)), 72)
+		self.assertEqual(len(owned_refs), 73)
+		self.assertEqual(len(set(owned_refs)), 73)
 		self.assertEqual(
 			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
 			4,
@@ -304,9 +305,18 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 
 	def test_opera_distribution_record_is_exact_manual_and_bounded(self) -> None:
 		group = planner.select_group("CHG-027")
-		self.assertEqual(group.commits, (planner.AUDIT_OPERA_DISTRIBUTION_COMMIT,))
+		self.assertEqual(
+			group.commits,
+			(
+				planner.AUDIT_OPERA_DISTRIBUTION_COMMIT,
+				planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT,
+			),
+		)
 		self.assertEqual(group.baseline_commit, planner.AUDIT_OPERA_DISTRIBUTION_PARENT)
-		self.assertEqual(group.rollback_start, planner.AUDIT_OPERA_DISTRIBUTION_COMMIT)
+		self.assertEqual(
+			group.rollback_start,
+			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT,
+		)
 		self.assertEqual(
 			planner.AUDIT_OPERA_DISTRIBUTION_COMMIT,
 			"09e5e35665fd8d1bd782693e10fc0198f756d2c8",
@@ -314,6 +324,14 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		self.assertEqual(
 			planner.AUDIT_OPERA_DISTRIBUTION_PARENT,
 			"f0b4f5e03fabbdcb3792f492f6cbd926afff0e2e",
+		)
+		self.assertEqual(
+			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT,
+			"ff068db002202839f920a6f9fb78c942788a3034",
+		)
+		self.assertEqual(
+			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_PARENT,
+			"3fc151c8b3b6c054d0f6e6ab89f84a9f464f3f20",
 		)
 		self.assertEqual(
 			set(group.paths),
@@ -348,12 +366,19 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"nine Castle route owners",
 			"stable save bits and rewards",
 			"exact-room restoration",
+			"bounded probe-readiness evidence",
 			"Residual P2 card overlap/occlusion",
+			"Remote run 31678156887 failed only",
+			"git revert --no-commit ff068db002202839f920a6f9fb78c942788a3034",
 			"git revert --no-commit 09e5e35665fd8d1bd782693e10fc0198f756d2c8",
-			"inspect all 15 paths",
+			"inspect the exact 15-path union",
 			"GODOT=\"$GODOT\" scripts/ci.sh",
 		):
 			self.assertIn(marker, plan)
+		self.assertLess(
+			plan.index("git revert --no-commit ff068db002202839f920a6f9fb78c942788a3034"),
+			plan.index("git revert --no-commit 09e5e35665fd8d1bd782693e10fc0198f756d2c8"),
+		)
 		with self.assertRaises(planner.UnsafePlanError):
 			planner.render_script(group)
 
@@ -364,9 +389,16 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		section = ledger.split("### CHG-027", 1)[1].split("## 5.", 1)[0]
 		for marker in (
 			"1,463.4 seconds",
+			"1,379.3 seconds",
 			"all 64 trusted local probes green",
 			"22 fresh 1280×720 diagnostic captures",
 			"509 models, 66 production files, and 74 probe files",
+			"31678156887",
+			"detective starts only its stable Canvas career: FAIL",
+			"nursery starts only its stable Canvas career: FAIL",
+			"scripts/probe_opera.gd:282–293",
+			"120-frame",
+			"ff068db002202839f920a6f9fb78c942788a3034",
 			"Residual P2 card overlap/occlusion",
 			"owner_blocked_mixed",
 		):
@@ -375,7 +407,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		for marker in (
 			"27 permanent change IDs",
 			"`CHG-001` through `CHG-027`",
-			"72 uniquely owned source-",
+			"73 uniquely owned source-",
 			"four guarded-script emitters",
 			"21 planner unit tests",
 			"The other 23 groups refuse",
