@@ -40,7 +40,13 @@ func _init() -> void:
 	_probe_long_idle_bounds()
 	_probe_exit_cleanup()
 	print("LIVING|result: ", "FAIL" if failed else "ALL OK")
-	quit(1 if failed else 0)
+	var exit_code := 1 if failed else 0
+	if main != null and is_instance_valid(main):
+		main.queue_free()
+	director = null
+	main = null
+	await _frames(4)
+	quit(exit_code)
 
 
 func _probe_inventory() -> void:
@@ -65,7 +71,7 @@ func _probe_inventory() -> void:
 		"sky_promenade": 3,
 		"sky_legacy": 8,
 		"north": 7,
-		"castle": 21,
+		"castle_room": 13,
 		"overlay": 6,
 		"minigame": 12,
 		"picture_game": 4,
@@ -77,7 +83,6 @@ func _probe_inventory() -> void:
 		"ember": 1,
 		"ice_dungeon": 10,
 		"ember_dungeon": 6,
-		"opera_lobby": 3,
 		"opera_act": 13,
 	}
 	var actual_groups: Dictionary = {}
@@ -132,28 +137,38 @@ func _probe_inventory() -> void:
 
 
 func _probe_opera_sparse_stage_routing() -> void:
-	main._start_opera_now()
+	main._enter_castle_interior_now()
+	# `_enter_castle_interior_now()` is normally called from an already-active
+	# Level-2 hall. This structural fixture must establish that same route owner
+	# explicitly before it may exercise a room-owned career card.
+	main.game = "level2"
+	main.g["phase"] = "hall"
+	main.g["t"] = 0.0
+	await _frames(2)
+	var room_routes_ok := true
+	for room_id: String in CastleCareerRoutes.ROOM_ACT_INDICES.keys():
+		main._castle_rooms_ref().show_room(room_id, false)
+		await _frames(1)
+		room_routes_ok = room_routes_ok and director._castle_stage_id() \
+			== "castle.room.%s" % room_id
+	_check("living-world Castle identity follows every real career room",
+		room_routes_ok)
+	main._castle_rooms_ref().show_room("bubble_bath", false)
+	main._start_opera_from_room(15, "bubble_bath")
 	await _frames(2)
 	var house := main.opera_game as OperaHouse
-	_check("living-world Opera fixture uses the production entry",
-		house != null and main.game == "opera")
+	_check("living-world Opera fixture uses the room-owned production entry",
+		house != null and main.game == "opera"
+		and main.opera_return_room == "bubble_bath")
 	if house == null:
 		return
-	var floor_routes_ok := house.lobby_2d != null
-	if house.lobby_2d != null:
-		for floor_index: int in range(3):
-			house.lobby_2d.refresh(0, floor_index)
-			floor_routes_ok = floor_routes_ok and director._opera_stage_id() \
-				== "opera.lobby_floor_%d" % (floor_index + 1)
-	_check("living-world Opera lobby follows the real Canvas floor tabs",
-		floor_routes_ok)
-	house._start_act(15)
-	await _frames(2)
 	_check("sparse Nursery save slot routes to opera act fifteen",
 		house.act_index == 15 and house.act != null
 		and director._opera_stage_id() == "opera.act.15")
 	house._leave_early()
-	var product_returned := main.opera_game == null and main.game == "level2"
+	var product_returned := main.opera_game == null and main.game == "level2" \
+		and main.castle_room_id == "bubble_bath" \
+		and director._castle_stage_id() == "castle.room.bubble_bath"
 	# This structural probe did not construct the Level-2 arena dictionary.
 	# Leave the real return state immediately after observing it so unrelated
 	# world ticking cannot read a deliberately absent fixture.
@@ -349,14 +364,13 @@ func _expected_stage_ids() -> Array[String]:
 		"north.mountain_pass", "north.magic_forest", "north.spirit_clearing_a",
 		"north.spirit_clearing_b", "north.riverside_town",
 		"north.ice_castle_exterior", "north.grand_hall",
-		"castle.grand_hall", "castle.music_room", "castle.royal_bedroom",
-		"castle.upper_star_chamber", "castle.upper_cloud_lounge",
-		"castle.upper_library", "castle.upper_toy_gallery", "castle.upper_gallery",
-		"castle.dreaming_corridor", "castle.dream_huluu", "castle.dream_daddy",
-		"castle.dream_mama_baby", "castle.dream_kareem", "castle.dream_evie",
-		"castle.undercroft", "castle.basement_corridor", "castle.pantry",
-		"castle.kitchen", "castle.bubble_bath", "castle.craft_room",
-		"castle.royal_loo",
+		"castle.room.main_hall", "castle.room.opera_hall",
+		"castle.room.kitchen", "castle.room.library",
+		"castle.room.playroom", "castle.room.craft_room",
+		"castle.room.mermaid_pool", "castle.room.bubble_bath",
+		"castle.room.family_gallery", "castle.room.dining_room",
+		"castle.room.royal_bedroom", "castle.room.sleepover_bedroom",
+		"castle.room.movie_lounge",
 		"overlay.craft_studio", "overlay.wardrobe", "overlay.sticker_book",
 		"overlay.critter_book", "overlay.companion_picker",
 		"overlay.companion_care",
@@ -370,7 +384,6 @@ func _expected_stage_ids() -> Array[String]:
 		"galaxy.butterfly_garden", "galaxy.star_hall",
 		"combat.ice_berry", "combat.pepper",
 		"stuffie.sparring_den", "ember.fortress_planet",
-		"opera.lobby_floor_1", "opera.lobby_floor_2", "opera.lobby_floor_3",
 	]
 	for index in range(10):
 		ids.append("dungeon.ice.%02d" % index)

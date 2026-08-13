@@ -364,48 +364,18 @@ func _north_stage_id() -> String:
 
 
 func _castle_stage_id() -> String:
-	if m.player == null:
-		return "castle.grand_hall"
-	var local: Vector3 = m.player.position - m.CASTLE_POS
-	if local.y >= 48.0:
-		if local.z > -51.0:
-			return "castle.dreaming_corridor"
-		if local.x < -27.0:
-			return "castle.dream_huluu"
-		if local.x < -9.0:
-			return "castle.dream_daddy"
-		if local.x < 9.0:
-			return "castle.dream_mama_baby"
-		if local.x < 27.0:
-			return "castle.dream_kareem"
-		return "castle.dream_evie"
-	if local.y >= 30.0:
-		if local.z < -36.0:
-			return "castle.upper_star_chamber" if local.x < 0.0 else "castle.upper_cloud_lounge"
-		if local.x < -35.0:
-			return "castle.upper_library"
-		if local.x > 35.0:
-			return "castle.upper_toy_gallery"
-		return "castle.upper_gallery"
-	if local.y < -8.0:
-		if local.x < -25.0 and local.z < -20.0:
-			return "castle.royal_loo"
-		if local.x < -8.0 and local.z > -15.0:
-			return "castle.pantry"
-		if local.x > 8.0 and local.z > -15.0:
-			return "castle.kitchen"
-		if local.x < -8.0 and local.z <= -15.0:
-			return "castle.bubble_bath"
-		if local.x > 8.0 and local.z <= -15.0:
-			return "castle.craft_room"
-		return "castle.basement_corridor"
-	if local.z > 8.0:
-		return "castle.undercroft"
-	if local.x < -34.0 and local.z > -27.0 and local.z < 17.0:
-		return "castle.music_room"
-	if local.x > 34.0 and local.z > -30.0 and local.z < -4.0:
-		return "castle.royal_bedroom"
-	return "castle.grand_hall"
+	# The shipped Castle is a room-owned sprite-card cutaway. Its hidden world
+	# player stays at one legacy coordinate, so position can never identify the
+	# visible room. The retired spatial Castle stages are no longer catalogued.
+	var room_id := m.castle_room_id
+	var valid_room := false
+	for room_value: Dictionary in CastleRooms25D.ROOMS:
+		if String(room_value.get("id", "")) == room_id:
+			valid_room = true
+			break
+	if not valid_room:
+		room_id = "main_hall"
+	return "castle.room.%s" % room_id
 
 
 func _picture_stage_id(kind: String) -> String:
@@ -451,14 +421,10 @@ func _dungeon_stage_id(prefix: String, room_count: int) -> String:
 
 
 func _opera_stage_id() -> String:
-	if m.opera_game == null or not is_instance_valid(m.opera_game):
-		return "opera.lobby_floor_1"
-	if m.opera_game.act != null and m.opera_game.act_index >= 0:
-		var act_index: int = clampi(m.opera_game.act_index, 0, 15)
-		if OperaHouse.is_live_act_index(act_index):
-			return "opera.act.%02d" % act_index
-	var floor_index := 0
-	var lobby: OperaLobby2D = m.opera_game.lobby_2d
-	if lobby != null and is_instance_valid(lobby):
-		floor_index = clampi(lobby.floor_index, 0, 2)
-	return "opera.lobby_floor_%d" % (floor_index + 1)
+	var act_index := m.opera_active_act_index
+	if m.opera_game != null and is_instance_valid(m.opera_game) \
+			and m.opera_game.act_index >= 0:
+		act_index = m.opera_game.act_index
+	if OperaHouse.is_live_act_index(act_index):
+		return "opera.act.%02d" % act_index
+	return ""

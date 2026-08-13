@@ -171,7 +171,10 @@ func toggle_pause() -> void:
 	m.pause_panel.visible = paused
 	# Activity overlays normally cover the corner button. Start/Escape raises
 	# the pause sheet above them, while layer 30 still owns transition fades.
-	m.pause_layer.layer = 29 if paused else 12
+	if paused:
+		m.pause_layer.layer = 29
+	else:
+		m._sync_pause_surface_layer()
 	_sync_labels()
 	if m.pause_leave_btn != null:
 		m.pause_leave_btn.visible = paused and _has_leave_context()
@@ -199,7 +202,7 @@ func _leave_current_activity() -> void:
 	# This is a voluntary, neutral exit -- never a loss and never a free win.
 	m.get_tree().paused = false
 	m.pause_panel.visible = false
-	m.pause_layer.layer = 12
+	m._sync_pause_surface_layer()
 	if m.stickers_layer != null:
 		m._close_stickers()
 		return

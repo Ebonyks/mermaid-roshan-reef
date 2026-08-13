@@ -2,7 +2,7 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "41087f66",
+    "inventory_head": "f0b4f5e0",
     "inventory_date": "2026-08-12",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
@@ -12348,7 +12348,7 @@
       "Sprite3D": 1
     },
     "scripts/living_world.gd": {
-      "Vector3": 10
+      "Vector3": 9
     },
     "scripts/main.gd": {
       "<3d-multimesh>": 2,
@@ -12754,7 +12754,7 @@
       "Vector3": 3
     },
     "scripts/probe_opera_2d.gd": {
-      "Node3D": 2
+      "Node3D": 1
     },
     "scripts/probe_passive.gd": {
       "Node3D": 3,

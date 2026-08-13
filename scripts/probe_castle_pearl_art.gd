@@ -3460,9 +3460,20 @@ func _run() -> void:
 	_ck("opera_opens_from_physical_hall_door",
 		main.castle_room_id == "opera_hall")
 	rooms.activate_current_room()
+	await _frames(4)
+	var career_routes: CastleCareerRoutes = main._castle_career_routes_ref()
+	var ballerina_card := career_routes.button_for_act(2)
+	_ck("opera_stage_action_guides_the_room_owned_career_pictures",
+		main.game == "level2" and main.opera_game == null
+		and main.castle_room_layer.visible
+		and ballerina_card != null and ballerina_card.visible
+		and ballerina_card.has_focus())
+	await _capture("opera_hall_career_routes")
+	if ballerina_card != null:
+		ballerina_card.pressed.emit()
 	await _frames(40)
 	var opera_opened: bool = main.game == "opera" and main.opera_game != null
-	_ck("opera_activity_opens_from_sprite_room", opera_opened)
+	_ck("opera_activity_opens_from_its_sprite_room_picture", opera_opened)
 	if opera_opened:
 		main.opera_game._leave_early()
 		await _frames(6)

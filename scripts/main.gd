@@ -313,6 +313,14 @@ var ember_portal_pos := Vector3.ZERO   # the dark gateway at the rainbow junctio
 var ember_gateway_armed := true        # same leave-before-refire latch as the galaxy gate
 var kart_float_dest := "galaxy"    # where the floating rainbow race lands ("galaxy" | "ember")
 var opera_game: OperaHouse = null
+var opera_pending_act_index := -1
+var opera_active_act_index := -1
+var opera_return_room := ""
+var opera_hud_was_visible := true
+var opera_hud_previous_layer := 0
+var opera_hud_game_was_visible := false
+var opera_obj_was_visible := false
+var opera_player_was_visible := true
 var opera_progress := 0            # cleared live Opera careers, 0..13
 var opera_stars := 0               # stable 16-bit mask; retired bits stay preserved
 var opera_done := false
@@ -2973,33 +2981,128 @@ func _end_ember_dungeon(completed: bool) -> void:
 		ember_level.resume_from_dungeon(completed)
 
 func _start_opera() -> void:
+	# Compatibility action for the Opera Hall's large stage button: point to
+	# its room-owned pictures, but never provide a second generic launch route.
+	# CastleRooms25D historically suspends before calling this method, so undo
+	# that cover immediately; otherwise the highlighted pictures stay hidden.
+	if _castle_rooms_ref().is_open() and castle_room_id != "" \
+			and (castle_room_layer == null or not castle_room_layer.visible):
+		_castle_rooms_ref().resume(castle_room_id)
+	if _castle_career_routes_ref().guide_current_room():
+		show_msg("Roshan", "Pick one bright career picture!", "hint")
+
+
+func _start_opera_from_room(act_index: int, room_id: String) -> void:
+	if opera_game != null or opera_pending_act_index >= 0:
+		return
+	# The route owner is authoritative too: a matching tuple cannot be used as
+	# a programmatic backdoor while another world, Castle room, or transition is
+	# active. Clear all transient route state before rejecting it.
+	var castle_rooms := _castle_rooms_ref()
+	var castle_visible := castle_room_layer != null \
+		and is_instance_valid(castle_room_layer) and castle_room_layer.visible
+	var current_castle_route := game == "level2" \
+		and String(g.get("phase", "")) == "hall" \
+		and castle_rooms.is_open() and castle_visible \
+		and castle_room_id == room_id
+	if not current_castle_route \
+			or not CastleCareerRoutes.route_matches(room_id, act_index):
+		opera_pending_act_index = -1
+		opera_return_room = ""
+		return
+	opera_pending_act_index = act_index
+	opera_return_room = room_id
+	castle_rooms.suspend()
 	_fade_cut(_start_opera_now)
 
 func _start_opera_now() -> void:
-	# The opera teaches each show inside its own act, so the stage door is open
-	# on a fresh save — nothing elsewhere is ever a prerequisite.
-	if opera_game != null:
+	# Every career is launched from its one owner-approved Castle-room picture.
+	# There is deliberately no no-argument picker or hidden all-career backdoor.
+	var act_index := opera_pending_act_index
+	var return_room := opera_return_room
+	var castle_rooms := _castle_rooms_ref()
+	var route_still_owned := game == "level2" \
+		and String(g.get("phase", "")) == "hall" \
+		and castle_rooms.is_open() and castle_room_id == return_room \
+		and CastleCareerRoutes.route_matches(return_room, act_index)
+	if opera_game != null or not route_still_owned:
+		opera_pending_act_index = -1
+		opera_return_room = ""
+		if return_room != "" and castle_rooms.is_open():
+			castle_rooms.resume(return_room)
 		return
+	opera_pending_act_index = -1
 	game = "opera"
 	if hud_layer != null:
-		hud_layer.visible = false
-	player.visible = false
-	opera_game = OperaHouse.new()
-	add_child(opera_game)
-	opera_game.start(self, opera_progress, Callable(self, "_end_opera"))
+		opera_hud_was_visible = hud_layer.visible
+		opera_hud_previous_layer = hud_layer.layer
+		opera_hud_game_was_visible = hud_game != null and hud_game.visible
+		opera_obj_was_visible = obj_card != null and obj_card.visible
+		hud_layer.layer = 12
+		hud_layer.visible = true
+		if hud_game != null:
+			hud_game.visible = false
+		if obj_card != null:
+			obj_card.visible = false
+	if hud_msg != null:
+		hud_msg.text = ""
+		hud_msg.visible = false
+	opera_player_was_visible = player != null and player.visible
+	if player != null:
+		player.visible = false
+	_sync_pause_surface_layer()
+	var next_house := OperaHouse.new()
+	add_child(next_house)
+	if not next_house.start(
+			self, act_index, Callable(self, "_end_opera")):
+		next_house.queue_free()
+		opera_active_act_index = -1
+		opera_return_room = ""
+		_restore_opera_route_state(return_room)
+		show_msg("Roshan",
+			"That career picture is resting. We are safely back in the room!",
+			"hint")
+		return
+	opera_active_act_index = act_index
+	opera_game = next_house
 
 func _end_opera(completed: bool) -> void:
 	opera_game = null
+	var return_room := opera_return_room
+	var finished_act := opera_active_act_index
+	opera_active_act_index = -1
+	opera_return_room = ""
+	_restore_opera_route_state(return_room)
+	var career_name := "career"
+	if OperaHouse.is_live_act_index(finished_act):
+		career_name = String((OperaHouse.ACTS[finished_act] as Dictionary).get(
+			"career", "career"))
+	show_msg(
+		"Roshan",
+		("%s star saved! Back to our room!" % career_name)
+			if completed else "Back to the room - every career star is safe!",
+		"win" if completed else "home")
+
+
+func _restore_opera_route_state(return_room: String) -> void:
 	game = "level2"
-	player.visible = true
-	if player.cam != null:
-		player.cam.make_current()
+	if player != null:
+		player.visible = opera_player_was_visible
+		if player.cam != null:
+			player.cam.make_current()
 	if hud_layer != null:
-		hud_layer.visible = true
-	player.snap_cam()   # resume the chase lens in place, no cross-world swoop
-	show_msg("Roshan", "The whole opera show is complete!" if completed else "Checkpoint safe — the stage will wait for our next show!", "win" if completed else "home")
-	if String(g.get("phase", "")) == "hall":
-		_castle_rooms_ref().resume("opera_hall")
+		hud_layer.layer = opera_hud_previous_layer
+		hud_layer.visible = opera_hud_was_visible
+		if hud_game != null:
+			hud_game.visible = opera_hud_game_was_visible
+		if obj_card != null:
+			obj_card.visible = opera_obj_was_visible
+	if player != null:
+		player.snap_cam()   # resume the chase lens in place, no cross-world swoop
+	if String(g.get("phase", "")) == "hall" and return_room != "":
+		_castle_rooms_ref().resume(return_room)
+		_castle_career_routes_ref().sync()
+	_sync_pause_surface_layer()
 
 const CEL_SHADING := true   # Wind Waker cel post-process (Forward+). Flip false to disable.
 
@@ -3499,6 +3602,23 @@ func toggle_pause() -> void:
 	if touch_ui != null:
 		touch_ui.cancel_all_touches()
 	_pause_ref().toggle_pause()
+
+
+func _sync_pause_surface_layer() -> void:
+	# The shipped Castle owns opaque CanvasLayer 14. Keep the phone's pause
+	# affordance above its layer-15 ambient accents. During Opera it sits above
+	# the layer-10 career, layer-11 ambient accents and layer-12 caption HUD.
+	# An opened pause sheet still owns layer 29 beneath the layer-30 fade.
+	if pause_layer == null or get_tree().paused:
+		return
+	var castle_front := castle_room_layer != null \
+		and is_instance_valid(castle_room_layer) and castle_room_layer.visible
+	if castle_front:
+		pause_layer.layer = 16
+	elif game == "opera":
+		pause_layer.layer = 13
+	else:
+		pause_layer.layer = 12
 
 # ===================== REVERSIBLE TOUCH-CENTRIC EXPERIMENT =====================
 
@@ -5399,11 +5519,17 @@ func light_rig() -> LightRig:
 	return _light_rig
 
 var _castle_rooms_25d: CastleRooms25D = null
+var _castle_career_routes: CastleCareerRoutes = null
 
 func _castle_rooms_ref() -> CastleRooms25D:
 	if _castle_rooms_25d == null:
 		_castle_rooms_25d = CastleRooms25D.new(self)
 	return _castle_rooms_25d
+
+func _castle_career_routes_ref() -> CastleCareerRoutes:
+	if _castle_career_routes == null:
+		_castle_career_routes = CastleCareerRoutes.new(self)
+	return _castle_career_routes
 
 func _castle_room_music_track(room_id: String) -> String:
 	# CastleRooms25D is protected by a hash-backed visual approval ledger, so
@@ -5429,6 +5555,7 @@ func _tick_castle_rooms(delta: float) -> void:
 		_castle_rooms_ref().open("main_hall")
 	_sync_castle_room_music()
 	_castle_rooms_ref().tick(delta)
+	_castle_career_routes_ref().sync()
 
 func _seg_box(p0: Vector3, p1: Vector3, c: Vector3, h: Vector3) -> bool:
 	# does the segment p0->p1 pass through the axis-aligned box (center c, half-extents h)?
@@ -7117,6 +7244,7 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 	return false
 
 func _process(delta: float) -> void:
+	_sync_pause_surface_layer()
 	_living_world_ref().tick(delta)
 	if _fx_water != null:
 		_fx_water.tick(delta)   # water-FX cards animate everywhere, even mid-cutaway

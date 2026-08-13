@@ -30,7 +30,7 @@ const CHILD_MENU_SYSTEMS := [
 	{"id": "picture_games", "path": "res://scripts/games/picture_games.gd", "token": "PictureGameStorybookHeader"},
 	{"id": "dance", "path": "res://scripts/games/dance_engine.gd", "token": "StorybookUI.add_panel"},
 	{"id": "kart_garage", "path": "res://scripts/kart.gd", "token": "KartRideChoice_"},
-	{"id": "opera_lobby", "path": "res://scripts/opera_lobby_2d.gd", "token": "CareerCard"}]
+	{"id": "castle_careers", "path": "res://scripts/castle_career_routes.gd", "token": "RoomCareer_"}]
 
 func _check(ok: bool, label: String) -> void:
 	if ok:

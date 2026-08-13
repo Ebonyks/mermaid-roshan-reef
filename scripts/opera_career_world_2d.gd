@@ -537,7 +537,9 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition, o
 		var phase := phases[index] as Dictionary
 		if String(phase.get("mode", "")) == "bop" and bool((phase.get("combat", {}) as Dictionary).get("captain", false)):
 			steal_index = index
-	layer = 38
+	# Stay below layer-11 ambient accents, the layer-12 missing-voice caption,
+	# the always-reachable pause surface (13/29), and transition fade (30).
+	layer = 10
 	_build_world()
 	# The room is part of every activity. Setup arms the first physical object;
 	# it never bypasses discovery by opening a minigame synchronously.

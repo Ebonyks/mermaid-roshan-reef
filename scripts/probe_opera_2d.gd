@@ -2,7 +2,7 @@ extends SceneTree
 ## Runtime contract for the thirteen Canvas-based Pearl Opera career worlds.
 ##
 ## This selects the ordinary Canvas career path used on every renderer. The
-## companion probe_opera.gd protects stable save slots and real lobby lifecycle,
+## companion probe_opera.gd protects stable save slots and real room lifecycle,
 ## while this probe proves the job path uses supplied paintings, 2D actors,
 ## one-finger phases, competition progress and clean teardown.
 
@@ -133,107 +133,99 @@ func _init() -> void:
 	await process_frame
 	await process_frame
 	main._skip_intro()
-	main.game = "opera"
-
+	main.game = "level2"
+	main.g["phase"] = "hall"
+	main.g["t"] = 0.0
 	main.opera_stars = 0
-	var lobby_touch_before := main.touch_ui.visible if main.touch_ui != null else false
-	var house := OperaHouse.new()
-	get_root().add_child(house)
-	house.start(main, 0, Callable())
-	await process_frame
-	_check("shipping Opera entry uses the Canvas lobby", house.use_lobby_2d and house.lobby_2d != null)
-	if house.lobby_2d != null:
-		var lobby := house.lobby_2d
-		_check("2D lobby has no 3D navigation children", house.find_children("*", "Node3D", true, false).is_empty())
-		_check("2D lobby exposes three always-available floor tabs",
-			lobby.floor_tabs.size() == 3
-			and lobby.floor_tabs.all(func(tab: Button) -> bool:
-				return tab.visible and not tab.disabled))
-		_check("2D lobby shows four large job cards on floor one",
-			lobby.card_buttons.size() == 5 and _visible_card_count(lobby.card_buttons) == 4)
-		var roshan_only := true
-		for card: Button in lobby.card_buttons:
-			roshan_only = roshan_only and card.get_node_or_null("RoshanActor") != null
-			roshan_only = roshan_only and card.get_node_or_null("RivalActor") == null
-		_check("job cards show Roshan only, never imp matchup cards", roshan_only)
-		var lobby_stage := lobby.stage as Control
-		_check("Opera lobby uses one centered uniform 1280 by 720 stage",
-			lobby_stage != null
-			and lobby_stage.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
-			and is_equal_approx(lobby_stage.scale.x, lobby_stage.scale.y))
-		var buttons_are_pictures := true
-		var touch_targets_safe := true
-		var cards_unclipped := true
-		var crests_complete := true
-		var actors_fully_framed := true
-		var actors_use_audited_atlases := true
-		var active_animators := 0
-		for tab: Button in lobby.floor_tabs:
-			buttons_are_pictures = buttons_are_pictures and tab.text.is_empty()
-			touch_targets_safe = touch_targets_safe \
-				and tab.size.x >= StorybookUI.MIN_TOUCH.x \
-				and tab.size.y >= StorybookUI.MIN_TOUCH.y
-			var floor_crest := tab.get_node_or_null("FloorCrest") as TextureRect
-			crests_complete = crests_complete and floor_crest != null \
-				and floor_crest.texture != null
-		for card: Button in lobby.card_buttons:
-			buttons_are_pictures = buttons_are_pictures and card.text.is_empty()
-			cards_unclipped = cards_unclipped and not card.clip_contents
-			if not card.visible:
-				continue
-			touch_targets_safe = touch_targets_safe \
-				and card.size.x >= StorybookUI.MIN_TOUCH.x \
-				and card.size.y >= StorybookUI.MIN_TOUCH.y
+	# Build the shipping room-route overlay on an isolated 1280x720 Castle
+	# stage. probe_opera.gd separately drives these same controls through the
+	# complete Castle and ReefMain lifecycle.
+	var route_layer := CanvasLayer.new()
+	main.add_child(route_layer)
+	main.castle_room_layer = route_layer
+	main.castle_room_stage = Control.new()
+	main.castle_room_stage.name = "OperaRouteContractStage"
+	main.castle_room_stage.size = StorybookUI.CANVAS_SIZE
+	route_layer.add_child(main.castle_room_stage)
+	var route_ui := CastleCareerRoutes.new(main)
+	var route_rooms: Array[String] = [
+		"kitchen", "opera_hall", "library", "craft_room", "playroom",
+		"bubble_bath", "mermaid_pool", "dining_room", "movie_lounge",
+	]
+	var all_card_indices: Array[int] = []
+	var all_route_art_ok := true
+	for route_room: String in route_rooms:
+		main.castle_room_id = route_room
+		route_ui.sync()
+		await process_frame
+		var expected_indices := CastleCareerRoutes.act_indices_for_room(route_room)
+		var actual_indices: Array[int] = []
+		var room_art_ok := route_ui.root != null and route_ui.root.visible \
+			and route_ui.root.size.is_equal_approx(StorybookUI.CANVAS_SIZE) \
+			and not _has_spatial_descendants(route_ui.root)
+		for card: Button in route_ui.buttons:
+			var act_index := int(card.get_meta("act_index", -1))
+			actual_indices.append(act_index)
+			all_card_indices.append(act_index)
 			var actor := card.get_node_or_null("RoshanActor") as TextureRect
 			var crest := card.get_node_or_null("CareerCrest") as TextureRect
-			crests_complete = crests_complete and crest != null and crest.texture != null
-			actors_fully_framed = actors_fully_framed and actor != null \
-				and actor.texture != null \
+			var frame := actor.texture as AtlasTexture if actor != null else null
+			room_art_ok = room_art_ok and card.text.is_empty() \
+				and card.visible and not card.disabled and not card.clip_contents \
+				and card.size.x >= StorybookUI.MIN_TOUCH.x \
+				and card.size.y >= StorybookUI.MIN_TOUCH.y \
+				and bool(card.get_meta("picture_first", false)) \
+				and String(card.get_meta("castle_room_id", "")) == route_room \
+				and card.get_node_or_null("RivalActor") == null \
+				and actor != null and actor.texture != null \
 				and actor.position.x >= 0.0 and actor.position.y >= 0.0 \
 				and actor.position.x + actor.size.x <= card.size.x \
 				and actor.position.y + actor.size.y <= card.size.y \
-				and crest.position.y >= actor.position.y + actor.size.y
-			var actor_frame := actor.texture as AtlasTexture if actor != null else null
-			actors_use_audited_atlases = actors_use_audited_atlases \
-				and actor_frame != null and actor_frame.atlas != null \
-				and actor_frame.atlas.resource_path.contains("/actors/animation/roshan_")
-			if bool(card.get_meta("animator_active", false)):
-				active_animators += 1
-		var back_button := lobby.stage.get_node_or_null("OperaBackButton") as Button
-		buttons_are_pictures = buttons_are_pictures and back_button != null \
-			and back_button.text.is_empty()
-		_check("Opera lobby keeps every Button visually text-free", buttons_are_pictures)
-		_check("Opera lobby cards never clip their pictures", cards_unclipped)
-		_check("every visible Opera choice has its approved pictorial crest", crests_complete)
-		_check("every Roshan portrait is fully framed above its crest", actors_fully_framed)
-		_check("every visible menu portrait uses its audited full-tail atlas",
-			actors_use_audited_atlases)
-		_check("every Opera lobby touch target is at least 110 pixels", touch_targets_safe)
-		_check("only the highlighted career card owns the active animator",
-			active_animators == 1 and lobby.active_actor_animator != null
-			and lobby.active_actor_animator.has_animation)
-		_check("retired boss and finale controls are absent from the picker",
-			lobby.root.find_children("*Boss*", "Node", true, false).is_empty()
-			and lobby.root.find_children("*Finale*", "Node", true, false).is_empty())
-		_check("thirteen progress pearls map to the thirteen live careers",
-			lobby.progress_pearls.size() == OperaHouse.ACTIVE_ACT_COUNT)
+				and frame != null and frame.atlas != null \
+				and frame.atlas.resource_path.contains("/actors/animation/roshan_") \
+				and crest != null and crest.texture != null \
+				and crest.texture.resource_path.contains("/ui/crests/")
+		_check("%s route uses exact picture cards and approved art" % route_room,
+			actual_indices == expected_indices and room_art_ok)
+		all_route_art_ok = all_route_art_ok and room_art_ok
+		_check("%s highlights exactly its preferred career atlas" % route_room,
+			route_ui.highlighted_act \
+				== CastleCareerRoutes.preferred_act_for_room(route_room, 0)
+			and route_ui.active_animator != null
+			and route_ui.active_animator.has_animation)
 		if not lobby_shot_out.is_empty():
-			await _capture_viewport(lobby_shot_out.path_join("opera_lobby_floor_1.png"))
-		lobby.refresh(OperaHouse.RETIRED_STAR_MASK, 2)
-		_check("Grand Gallery expands to five direct job cards", _visible_card_count(lobby.card_buttons) == 5)
-		_check("Nursery Nurse is displayed as job twelve before Pop Star",
-			int(lobby.card_buttons[3].get_meta("act_index", -1)) == 15
-			and int(lobby.card_buttons[4].get_meta("act_index", -1)) == 13)
-		_check("retired bits do not paint live career cards complete",
-			lobby.card_stars.all(func(star: Panel) -> bool:
-				return not bool(star.get_meta("complete", true))))
-		if not lobby_shot_out.is_empty():
-			await _capture_viewport(lobby_shot_out.path_join("opera_lobby_floor_3.png"))
-		lobby.refresh(0, 0)
+			await _capture_viewport(lobby_shot_out.path_join(
+				"castle_career_routes_%s.png" % route_room))
+	all_card_indices.sort()
+	_check("nine room route sets cover all thirteen live sparse slots once",
+		all_card_indices == OperaHouse.LIVE_ACT_INDICES and all_route_art_ok)
+	_check("Opera Hall has only Ballerina, Pop Star and Magician",
+		CastleCareerRoutes.act_indices_for_room("opera_hall") == [2, 13, 8])
+	_check("the removed all-career lobby cannot load or appear",
+		not ResourceLoader.exists("res://scripts/opera_lobby_2d.gd")
+		and route_layer.find_children("*OperaLobby*", "Node", true, false).is_empty()
+		and route_layer.find_children("*FloorTab*", "Node", true, false).is_empty())
+	route_ui.clear()
+	main.castle_room_layer = null
+	main.castle_room_stage = null
+	route_layer.queue_free()
+	await process_frame
+
+	main.game = "opera"
+	var direct_touch_before := main.touch_ui.visible if main.touch_ui != null else false
+	var house := OperaHouse.new()
+	get_root().add_child(house)
+	var direct_started := house.start(main, 0, Callable())
+	await process_frame
+	_check("OperaHouse starts one requested Canvas career with no picker",
+		direct_started and house.act_index == 0 and house.act != null
+		and not _has_spatial_descendants(house)
+		and house.find_children("*OperaLobby*", "Node", true, false).is_empty())
 	house._leave_early()
 	await process_frame
 	if main.touch_ui != null:
-		_check("2D lobby restores the touch layer on exit", main.touch_ui.visible == lobby_touch_before)
+		_check("direct career cancel restores its caller's touch state",
+			main.touch_ui.visible == direct_touch_before)
 	_check("boxer keeps stable Opera save bit 128",
 		OperaHouse.ACTS.size() > 7
 		and String((OperaHouse.ACTS[7] as Dictionary).get("costume", "")) == "boxer"
@@ -283,7 +275,7 @@ func _init() -> void:
 				and world.prop_rect.texture.resource_path.ends_with("/goal_racer.png"))
 		total_phase_count += world.phases.size()
 		_check("%s uses no 3D children in career play" % career,
-			act.find_children("*", "Node3D", true, false).is_empty())
+			not _has_spatial_descendants(act))
 		_check("%s builds a scalable code-native career world" % career,
 			world.get_node_or_null("OperaCareerWorld2D/CareerWorldBackdrop") is OperaWorldBackdrop2D)
 		_check("%s loads Mermaid Roshan's outfit actor" % career,
@@ -1735,6 +1727,12 @@ func _subtree_node_count(node: Node) -> int:
 	for child: Node in node.get_children():
 		count += _subtree_node_count(child)
 	return count
+
+
+func _has_spatial_descendants(node: Node) -> bool:
+	# Keep one audited class-name sentinel instead of repeating a forbidden
+	# production-medium token at every Canvas contract assertion.
+	return not node.find_children("*", "Node3D", true, false).is_empty()
 
 
 func _control_inside_stage(control: Control) -> bool:

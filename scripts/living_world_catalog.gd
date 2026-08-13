@@ -5,7 +5,7 @@ extends RefCounted
 # quiet continuous accents and one passive-only surprise. The runtime renderer
 # consumes these rows and the trusted probe audits them independently.
 
-const EXPECTED_STAGE_COUNT := 109
+const EXPECTED_STAGE_COUNT := 98
 
 
 static func build() -> Dictionary:
@@ -120,92 +120,7 @@ static func build() -> Dictionary:
 			"High banners move almost imperceptibly.", "curtain",
 			"A small snow-star descends once from the mezzanine.", "snow"],
 	])
-	_add_rows(specs, "castle", 6, [
-		["castle.grand_hall", "Pearl Castle Grand Hall", "scripts/arena/castle_hall.gd:build",
-			"Pearl chandeliers shimmer in a gentle alternation.", "shell",
-			"Throne-room curtains breathe beside the walls.", "curtain",
-			"A tiny crown glides once above the throne edge.", "crown"],
-		["castle.music_room", "Pearl Castle Music Room", "scripts/arena/castle_hall.gd:build_music_room",
-			"Xylophone notes drift upward one by one.", "note",
-			"Star-bell glints pulse at another tempo.", "sparkle",
-			"One music note bounces along the rail and fades.", "note"],
-		["castle.royal_bedroom", "Pearl Castle Royal Bedroom", "scripts/arena/castle_hall.gd:build_bedroom",
-			"Canopy cloth moves in a slow sleepy rhythm.", "curtain",
-			"Bedside-lamp stars breathe very softly.", "sparkle",
-			"A small dream moon peeks over the bed margin.", "moon"],
-		["castle.upper_star_chamber", "Upper Star Chamber", "scripts/arena/castle_hall.gd:build_expansion; upper west/rear room",
-			"Star-chamber points rotate almost imperceptibly.", "sparkle",
-			"Pearl dust drifts across the chamber edge.", "bubble",
-			"A larger star traces one quiet orbit.", "sparkle"],
-		["castle.upper_cloud_lounge", "Upper Cloud Lounge", "scripts/arena/castle_hall.gd:build_expansion; upper east/rear room",
-			"Cloud-pouf wisps rise and curl continuously.", "cloud",
-			"Window bubbles drift at a second pace.", "bubble",
-			"A tiny cloud floats once across the lounge opening.", "cloud"],
-		["castle.upper_library", "Upper Library", "scripts/arena/castle_hall.gd:build_expansion; upper west room",
-			"Book-page corners breathe in a quiet draft.", "book",
-			"Shelf dust glints slowly near the margin.", "sparkle",
-			"A small book opens once, gives a star, and closes.", "book"],
-		["castle.upper_toy_gallery", "Upper Toy Gallery", "scripts/arena/castle_hall.gd:build_expansion; upper east room",
-			"Toy-gallery ribbons rock gently.", "ribbon",
-			"Display stars pulse without calling attention.", "sparkle",
-			"A tiny gear makes one playful turn.", "gear"],
-		["castle.upper_gallery", "Upper Gallery and Balcony Hub", "scripts/arena/castle_hall.gd:build_expansion; stair/gallery circulation",
-			"Balcony banners sway at a long period.", "flag",
-			"Pearl rail highlights travel very slowly.", "sparkle",
-			"A shell glint rises once through the stairwell.", "shell"],
-		["castle.dreaming_corridor", "Dreaming Floor Corridor", "scripts/arena/castle_hall.gd:build_dreaming_floor; front corridor",
-			"Low shell chandeliers breathe along the corridor.", "shell",
-			"Pet-basket dream bubbles drift at another pace.", "bubble",
-			"A tiny sleepy moon glides once past the bedroom doors.", "moon"],
-		["castle.dream_huluu", "Dreaming Floor — Princess Huluu Room", "scripts/arena/castle_hall.gd:build_dreaming_floor; bedrooms[0]",
-			"Rose canopy cloth moves in a sleepy arc.", "curtain",
-			"Tiara glints alternate beside the keepsake.", "crown",
-			"A tiny heart floats once from Huluu's bedside.", "heart"],
-		["castle.dream_daddy", "Dreaming Floor — Daddy Mermaid Room", "scripts/arena/castle_hall.gd:build_dreaming_floor; bedrooms[1]",
-			"Blue bed curtains breathe softly.", "curtain",
-			"Toy-chest stars pulse at a separate pace.", "sparkle",
-			"A little treasure shell peeks from the chest once.", "shell"],
-		["castle.dream_mama_baby", "Dreaming Floor — Mama and Baby Room", "scripts/arena/castle_hall.gd:build_dreaming_floor; bedrooms[2]",
-			"Lilac cradle ribbons rock continuously.", "ribbon",
-			"Bedside bubbles rise in a sleepy pair.", "bubble",
-			"A tiny dream moon bobs once over the cradle.", "moon"],
-		["castle.dream_kareem", "Dreaming Floor — Kareem Room", "scripts/arena/castle_hall.gd:build_dreaming_floor; bedrooms[3]",
-			"Green room stars breathe along the rug edge.", "sparkle",
-			"Canopy cloth sways at another period.", "curtain",
-			"The keepsake star makes one slow orbit.", "sparkle"],
-		["castle.dream_evie", "Dreaming Floor — Evie and Lamb-a' Room", "scripts/arena/castle_hall.gd:build_dreaming_floor; bedrooms[4]",
-			"Music-box notes drift near the bed.", "note",
-			"Pearl window bubbles climb quietly.", "bubble",
-			"A heart-shaped note bounces once and settles.", "heart"],
-		["castle.undercroft", "Pearl Castle Undercroft", "scripts/arena/castle_hall.gd:build_expansion; undercroft",
-			"Undercroft dust glints in a slow diagonal drift.", "sparkle",
-			"Old shell carvings breathe with dim pearl light.", "shell",
-			"A shy basement fish peeks around the stone edge.", "fish"],
-		["castle.basement_corridor", "Pearl Castle Basement Corridor", "scripts/arena/castle_hall.gd:build_basement_wing; central corridor",
-			"Corridor lanterns breathe in a staggered rhythm.", "lantern",
-			"Cobble dust drifts close to the floor.", "sparkle",
-			"A small lantern mote travels once toward the dungeon gate.", "lantern"],
-		["castle.pantry", "Pearl Castle Pantry", "scripts/arena/castle_hall.gd:build_basement_wing; pantry center (-17,-18,-2)",
-			"Jar highlights shimmer along the stocked shelf.", "sparkle",
-			"Barrel-side dust floats at a second slow pace.", "bubble",
-			"A tiny candy rolls into view once, then back.", "candy"],
-		["castle.kitchen", "Pearl Castle Royal Kitchen", "scripts/arena/castle_hall.gd:build_basement_wing; kitchen center (17,-18,-2)",
-			"Soup-pot steam curls upward continuously.", "steam",
-			"Kettle highlights breathe beside the counter.", "sparkle",
-			"A warm steam heart rises once from the soup pot.", "heart"],
-		["castle.bubble_bath", "Pearl Castle Bubble Bath", "scripts/arena/castle_hall.gd:build_basement_wing; bath center (-17,-18,-28)",
-			"Bath bubbles rise in a gentle uneven pair.", "bubble",
-			"Tub-water rings expand at a second rhythm.", "ripple",
-			"A little bath bubble carries a heart upward once.", "heart"],
-		["castle.craft_room", "Pearl Castle Craft Room", "scripts/arena/castle_hall.gd:build_basement_wing; craft center (17,-18,-28)",
-			"Paint-rack glints move between the color pots.", "paint",
-			"Easel ribbons rock lightly in the studio air.", "ribbon",
-			"A tiny painted star pops up once from the easel.", "sparkle"],
-		["castle.royal_loo", "Hidden Royal Loo", "scripts/arena/castle_hall.gd:build_basement_wing/build_toilet",
-			"Tile highlights breathe very softly.", "sparkle",
-			"A discreet little water ripple expands near the edge.", "ripple",
-			"One tiny clean bubble rises and pops.", "bubble"],
-	])
+	_add_castle_room_rows(specs)
 	_add_rows(specs, "overlay", 19, [
 		["overlay.craft_studio", "Creature Craft Studio", "scripts/craft_studio.gd; ReefMain.craft_layer",
 			"Paint-palette spots breathe at the screen margin.", "paint",
@@ -352,20 +267,6 @@ static func build() -> Dictionary:
 	])
 	_add_ice_dungeon(specs)
 	_add_ember_dungeon(specs)
-	_add_rows(specs, "opera_lobby", 6, [
-		["opera.lobby_floor_1", "Opera Show Page - Lagoon Lights", "scripts/opera_lobby_2d.gd:SHOW_INDICES[0]",
-			"Floor-one velvet curtains breathe beside the doors.", "curtain",
-			"Marquee stars pulse gently out of phase.", "sparkle",
-			"A little ticket ribbon crosses the balcony edge once.", "ribbon"],
-		["opera.lobby_floor_2", "Opera Show Page - Starlight Balcony", "scripts/opera_lobby_2d.gd:SHOW_INDICES[1]",
-			"Balcony banners sway at a long calm period.", "flag",
-			"Starlight sconces shimmer independently.", "sparkle",
-			"A tiny moon glides once behind the balcony rail.", "moon"],
-		["opera.lobby_floor_3", "Opera Show Page - Moonbeam Gallery", "scripts/opera_lobby_2d.gd:SHOW_INDICES[2]",
-			"Moon-gallery curtains drift very slightly.", "curtain",
-			"High stars breathe along the ceiling edge.", "sparkle",
-			"A music note floats once above the career cards.", "note"],
-	])
 	_add_opera_acts(specs)
 	return specs
 
@@ -444,8 +345,70 @@ static func _add_ember_dungeon(specs: Dictionary) -> void:
 	])
 
 
+static func _add_castle_room_rows(specs: Dictionary) -> void:
+	var source := "scripts/arena/castle_rooms_25d.gd:ROOMS/ROOM_ITEMS"
+	# Castle's opaque picture stage owns layer 14. Ambient accents must paint
+	# above it, while the phone pause control remains authoritative on layer 16.
+	_add_rows(specs, "castle_room", 15, [
+		["castle.room.main_hall", "Pearl Castle Main Hall", source,
+			"Pearl lights breathe beside the royal doors.", "shell",
+			"High banners sway at a second slow rhythm.", "flag",
+			"A tiny crown glint crosses the hall once.", "crown"],
+		["castle.room.opera_hall", "Pearl Castle Opera Hall", source,
+			"Stage curtains breathe around the career pictures.", "curtain",
+			"Footlight stars pulse softly out of phase.", "sparkle",
+			"A music note floats once above the stage.", "note"],
+		["castle.room.kitchen", "Pearl Castle Royal Kitchen", source,
+			"Soup-pot steam curls beside the career pictures.", "steam",
+			"Copper-pan glints breathe at another pace.", "sparkle",
+			"A tiny candy rolls once along the counter.", "candy"],
+		["castle.room.library", "Pearl Castle Royal Library", source,
+			"Book corners move in the quiet room air.", "book",
+			"Reading-pearl stars breathe near the table.", "sparkle",
+			"A clue ribbon peeks once from a storybook.", "ribbon"],
+		["castle.room.playroom", "Pearl Castle Stuffie Playroom", source,
+			"Stuffie hearts breathe beside the toy nook.", "heart",
+			"Play-tent ribbons rock at a second pace.", "ribbon",
+			"A padded glove bounces once by the blocks.", "paw"],
+		["castle.room.craft_room", "Pearl Castle Craft Room", source,
+			"Palette colors shimmer beside the easel.", "paint",
+			"Craft ribbons sway at a second rhythm.", "ribbon",
+			"A painted star pops up once from the table.", "sparkle"],
+		["castle.room.mermaid_pool", "Pearl Castle Mermaid Pool", source,
+			"Pool rings spread slowly beneath the waterfall.", "ripple",
+			"Floating flowers breathe at another cadence.", "flower",
+			"A rocket bubble rises once from the fountain.", "bubble"],
+		["castle.room.bubble_bath", "Pearl Castle Bubble Bath", source,
+			"Bath bubbles rise in a gentle uneven pair.", "bubble",
+			"Tub-water rings expand at a second rhythm.", "ripple",
+			"A tiny bedtime moon peeks over the tub.", "moon"],
+		["castle.room.family_gallery", "Pearl Castle Family Gallery", source,
+			"Doorway ribbons drift along the family wing.", "ribbon",
+			"Portrait stars breathe beside the room portals.", "sparkle",
+			"A tiny home heart crosses the gallery once.", "heart"],
+		["castle.room.dining_room", "Pearl Castle Family Dining Room", source,
+			"Table highlights breathe beside the feast.", "sparkle",
+			"Chandelier pearls sway at a second pace.", "shell",
+			"A little farm flower rises once by a plate.", "flower"],
+		["castle.room.royal_bedroom", "Pearl Castle Royal Bedroom", source,
+			"Canopy cloth moves in a sleepy rhythm.", "curtain",
+			"Bedside stars breathe very softly.", "sparkle",
+			"A dream moon peeks over the bed once.", "moon"],
+		["castle.room.sleepover_bedroom", "Pearl Castle Sleepover Bedroom", source,
+			"Dream-bed ribbons rock continuously.", "ribbon",
+			"Sleepy bubbles rise at another pace.", "bubble",
+			"A tiny heart floats once between the beds.", "heart"],
+		["castle.room.movie_lounge", "Pearl Castle Cloud Movie Lounge", source,
+			"Cloud-settee wisps breathe beside the screen.", "cloud",
+			"Movie-frame stars pulse at a second rhythm.", "sparkle",
+			"A checkered ribbon crosses the screen once.", "flag"],
+	])
+
+
 static func _add_opera_acts(specs: Dictionary) -> void:
-	_add_rows(specs, "opera_act", 6, [
+	# Career worlds own opaque layer 10; their ambient/idle accents paint above
+	# that world and below the layer-12 caption HUD and layer-13 pause control.
+	_add_rows(specs, "opera_act", 11, [
 		["opera.act.00", "The Great Cake Show", "scripts/opera_house.gd:ACTS[0]; scripts/opera_career_world_2d.gd",
 			"Cake-show steam curls beyond the worktable.", "steam",
 			"Frosting sparkles breathe near the curtains.", "sparkle",
@@ -559,7 +522,7 @@ static func _palette(group: String) -> Array:
 			return [Color(0.72, 0.92, 1.0), Color(0.78, 0.72, 0.96), Color(1.0, 0.9, 0.68)]
 		"ember", "ember_dungeon":
 			return [Color(1.0, 0.54, 0.26), Color(0.72, 0.42, 0.58), Color(1.0, 0.78, 0.38)]
-		"castle", "opera_lobby", "opera_act":
+		"castle", "castle_room", "opera_act":
 			return [Color(0.86, 0.72, 0.96), Color(0.58, 0.9, 0.94), Color(1.0, 0.82, 0.5)]
 		"overlay", "entry", "picture_game", "dance":
 			return [Color(0.72, 0.9, 1.0), Color(0.94, 0.7, 0.92), Color(1.0, 0.86, 0.52)]

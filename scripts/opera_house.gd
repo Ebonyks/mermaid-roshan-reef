@@ -1,12 +1,10 @@
 class_name OperaHouse
 extends Node
-## Canvas-only Pearl Opera show picker and stable save-bit authority.
+## Canvas-only Opera career lifecycle and stable save-bit authority.
 ##
 ## The roster deliberately remains a sixteen-slot table. The three retired
 ## floor finales are inert tombstones so every surviving career keeps the bit
 ## it has always owned in `opera_stars`.
-
-const Lobby2D := preload("res://scripts/opera_lobby_2d.gd")
 
 const RETIRED_ACT_INDICES: Array[int] = [4, 9, 14]
 const LIVE_ACT_INDICES: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15]
@@ -14,8 +12,6 @@ const RETIRED_STAR_MASK := 0x4210
 const ACTIVE_STAR_MASK := 0xBDEF
 const ALL_STARS := ACTIVE_STAR_MASK
 const ACTIVE_ACT_COUNT := 13
-const FLOOR_ACT_INDICES := [[0, 1, 2, 3], [5, 6, 7, 8], [10, 11, 12, 15, 13]]
-const FLOOR_STAR_MASKS := [0x000F, 0x01E0, 0xBC00]
 
 const ACTS := [
 	{
@@ -140,13 +136,9 @@ const ACTS := [
 
 var m: ReefMain
 var finish_cb: Callable
-var state := "lobby"
+var state := "idle"
 var act: OperaAct = null
 var act_index := -1
-var use_lobby_2d := true
-var lobby_2d: OperaLobby2D = null
-var touch_was_visible := true
-var previous_music := ""
 
 
 static func is_live_act_index(index: int) -> bool:
@@ -167,62 +159,18 @@ static func has_all_live_stars(star_mask: int) -> bool:
 	return (star_mask & ACTIVE_STAR_MASK) == ACTIVE_STAR_MASK
 
 
-static func first_incomplete_floor(star_mask: int) -> int:
-	for floor_index in range(FLOOR_STAR_MASKS.size()):
-		var mask: int = int(FLOOR_STAR_MASKS[floor_index])
-		if (star_mask & mask) != mask:
-			return floor_index
-	return -1
-
-
-func start(main: ReefMain, _checkpoint: int, done_cb: Callable) -> void:
-	m = main
-	finish_cb = done_cb
-	previous_music = m.cur_track
-	m._play_music("opera_lobby")
-	if m.touch_ui != null:
-		touch_was_visible = m.touch_ui.visible
-		m.touch_ui.visible = false
-	lobby_2d = Lobby2D.new() as OperaLobby2D
-	add_child(lobby_2d)
-	lobby_2d.setup(
-		m,
-		ACTS,
-		m.opera_stars,
-		first_incomplete_floor(m.opera_stars),
-		Callable(self, "_start_act"),
-		Callable(self, "_lobby_locked_hint"),
-		Callable(self, "_leave_early")
-	)
-	m.show_msg("Roshan", "Welcome to the Pearl Opera! Tap a picture to choose our next show!", "talk")
-
-
-func _lobby_locked_hint(_story: int) -> void:
-	# Kept as a compatibility callback for the transitional three-page picker.
-	# No page is locked and retired bits never gate navigation.
-	m.show_msg("Roshan", "Every show page is open - pick any bright picture!", "hint")
-
-
-func _start_act(index: int) -> void:
-	if state != "lobby" or act != null:
-		return
-	if not is_live_act_index(index):
-		_reject_act("retired or unknown Opera slot %d" % index)
-		return
+func start(main: ReefMain, index: int, done_cb: Callable) -> bool:
+	if state != "idle" or not is_live_act_index(index):
+		push_error("OperaHouse: retired or unknown Opera slot %d" % index)
+		return false
 	var next_config: Dictionary = (ACTS[index] as Dictionary).duplicate(true)
 	if not OperaAct.supports_config(next_config):
-		_reject_act("invalid Canvas career mapping at Opera slot %d" % index)
-		return
-	if bool(next_config.get("silence_entry_voice", false)):
-		for voice_player: AudioStreamPlayer in m.voice_pool:
-			voice_player.stop()
-		if m.voice != null:
-			m.voice.stop()
-	if lobby_2d != null and is_instance_valid(lobby_2d):
-		lobby_2d.hide_lobby()
-	if m.touch_ui != null:
-		m.touch_ui.visible = touch_was_visible
+		push_error("OperaHouse: invalid Canvas career mapping at slot %d" % index)
+		return false
+	m = main
+	finish_cb = done_cb
 	act_index = index
+	state = "playing"
 	next_config["act_tag"] = String(next_config.get("name", "")) + "  "
 	act = OperaAct.new()
 	add_child(act)
@@ -230,22 +178,11 @@ func _start_act(index: int) -> void:
 		act.queue_free()
 		act = null
 		act_index = -1
-		if m.touch_ui != null:
-			m.touch_ui.visible = false
-		if lobby_2d != null and is_instance_valid(lobby_2d):
-			lobby_2d.show_lobby(first_incomplete_floor(m.opera_stars), m.opera_stars)
-		_reject_act("Opera slot %d failed to start its Canvas career" % index)
-
-
-func _reject_act(reason: String) -> void:
-	push_error("OperaHouse: %s" % reason)
-	if m != null:
-		if m.touch_ui != null:
-			m.touch_ui.visible = false
-		if state == "lobby" and act == null \
-				and lobby_2d != null and is_instance_valid(lobby_2d):
-			lobby_2d.show_lobby(lobby_2d.floor_index, m.opera_stars)
-		m.show_msg("Roshan", "That show is resting. Pick another bright picture!", "hint")
+		state = "idle"
+		finish_cb = Callable()
+		push_error("OperaHouse: slot %d failed to start its Canvas career" % index)
+		return false
+	return true
 
 
 func _act_won() -> void:
@@ -253,8 +190,8 @@ func _act_won() -> void:
 	act = null
 	act_index = -1
 	if not is_live_act_index(finished):
-		_reject_act("win callback had no live Opera slot")
-		_return_to_lobby(-1)
+		push_error("OperaHouse: win callback had no live Opera slot")
+		_finish(false)
 		return
 	var bit := 1 << finished
 	var first_time := (m.opera_stars & bit) == 0
@@ -267,67 +204,36 @@ func _act_won() -> void:
 		m.award_sticker("showtime")
 	m._write_save()
 	m._update_hud()
-	_return_to_lobby(finished)
-
-
-func _return_to_lobby(finished: int) -> void:
-	if state != "lobby":
-		return
-	if m.cur_track != "opera_lobby":
-		m._play_music("opera_lobby")
-	if m.touch_ui != null:
-		m.touch_ui.visible = false
-	var return_floor := first_incomplete_floor(m.opera_stars)
-	if is_live_act_index(finished):
-		return_floor = clampi(int((ACTS[finished] as Dictionary).get("story", 1)) - 1, 0, 2)
-	if lobby_2d != null and is_instance_valid(lobby_2d):
-		lobby_2d.show_lobby(return_floor, m.opera_stars)
-	if has_all_live_stars(m.opera_stars):
-		m.show_msg("Roshan", "Every career show sparkles! Take a bow, Opera Star Roshan!", "win")
-	else:
-		m.show_msg("Roshan", "A gold pearl for that show! Pick the next sparkling picture!", "win")
+	_finish(true)
 
 
 func _leave_early() -> void:
-	if state != "lobby":
+	if state == "done" or state == "idle":
 		return
-	state = "leaving"
 	if act != null:
 		var current_act := act
 		current_act.cancel()
 		# A won act completes synchronously from cancel(), so keep its stable
 		# index available until _act_won() has committed the reward. A still-
 		# playing act has no callback and is cleared here after cancellation.
+		if state == "done":
+			return
 		if act == current_act:
 			act = null
 			act_index = -1
-	var completed := m.opera_done
-	m.show_msg(
-		"Roshan",
-		"The whole opera sparkles!" if completed else "Every career star is safe. Come back for another show!",
-		"win" if completed else "home"
-	)
-	_finish(completed)
+	_finish(false)
 
 
 func _finish(completed: bool) -> void:
 	if state == "done":
 		return
 	state = "done"
-	if lobby_2d != null and is_instance_valid(lobby_2d):
-		lobby_2d.close()
-		lobby_2d = null
-	if m.touch_ui != null:
-		m.touch_ui.visible = touch_was_visible
-	if previous_music != "":
-		m._play_music(previous_music)
-	previous_music = ""
-	if finish_cb.is_valid():
-		finish_cb.call(completed)
+	var completed_cb := finish_cb
+	finish_cb = Callable()
+	if completed_cb.is_valid():
+		completed_cb.call(completed)
 	queue_free()
 
 
 func action_label() -> String:
-	if act != null:
-		return act.action_label()
-	return "PICK A SHOW"
+	return act.action_label() if act != null else "PLAY"
