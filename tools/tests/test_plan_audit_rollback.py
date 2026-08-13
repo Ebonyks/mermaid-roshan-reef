@@ -52,8 +52,8 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			[f"CHG-{number:03d}" for number in range(1, 30)],
 		)
 		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
-		self.assertEqual(len(owned_refs), 76)
-		self.assertEqual(len(set(owned_refs)), 76)
+		self.assertEqual(len(owned_refs), 77)
+		self.assertEqual(len(set(owned_refs)), 77)
 		self.assertEqual(
 			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
 			4,
@@ -409,7 +409,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		for marker in (
 			"29 permanent change IDs",
 			"`CHG-001` through `CHG-029`",
-			"76 uniquely owned source-",
+			"77 uniquely owned source-",
 			"four guarded-script emitters",
 			"23 planner unit tests",
 			"The other 25 groups refuse",
@@ -492,7 +492,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"not capture gates or visual passes",
 			"Sky Lagoon LAGOONSHOT output has 21 OK, 44 FAIL, and DONE (66 diagnostic lines)",
 			"later 18b6150c evidence-truthfulness synchronization remains CHG-023 maintenance",
-			"CHG-029 is separately bounded to the later sealed fail-closed document-authority source",
+			"CHG-029 is separately bounded to the later contiguous 5ed0c754/7eb94595 fail-closed document-authority chain",
 			"APK/device/child/owner/exact-voice/listening/strict-2D/accepted-visual gates remain open",
 			"no runtime, save, protected-asset, audio, workflow, or generated-art path",
 			"Do not raw-revert either source commit",
@@ -541,9 +541,23 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_DOCUMENT_AUTHORITY_PARENT,
 			"18b6150c01e1587100dca97c85ebad03f369825a",
 		)
-		self.assertEqual(group.commits, (planner.AUDIT_DOCUMENT_AUTHORITY_COMMIT,))
+		self.assertEqual(
+			planner.AUDIT_DOCUMENT_AUTHORITY_HARDENING_COMMIT,
+			"7eb945957776ab3458a9de71c8be9937e2354720",
+		)
+		self.assertEqual(
+			planner.AUDIT_DOCUMENT_AUTHORITY_HARDENING_PARENT,
+			planner.AUDIT_DOCUMENT_AUTHORITY_COMMIT,
+		)
+		self.assertEqual(
+			group.commits,
+			(
+				planner.AUDIT_DOCUMENT_AUTHORITY_COMMIT,
+				planner.AUDIT_DOCUMENT_AUTHORITY_HARDENING_COMMIT,
+			),
+		)
 		self.assertEqual(group.baseline_commit, planner.AUDIT_DOCUMENT_AUTHORITY_PARENT)
-		self.assertEqual(group.rollback_start, planner.AUDIT_DOCUMENT_AUTHORITY_COMMIT)
+		self.assertEqual(group.rollback_start, planner.AUDIT_DOCUMENT_AUTHORITY_HARDENING_COMMIT)
 		self.assertEqual(
 			set(group.paths),
 			{
@@ -555,6 +569,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 				"OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md",
 				"OPERA_WIDGET_INPUT_AUDIT_2026-08-02.md",
 				"audit/MASTER_AUDIT_2026-08-09.md",
+				"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
 				"audit/castle_sprite3d/CASTLE_LIGHTING_CONTINUITY_AUDIT_2026-07-29.md",
 				"audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
 				"design/00_MASTER_INDEX.md",
@@ -565,10 +580,12 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 				"design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
 				"scripts/ci.sh",
 				"tools/audit_document_authority.py",
+				"tools/plan_audit_rollback.py",
 				"tools/tests/test_audit_document_authority.py",
+				"tools/tests/test_plan_audit_rollback.py",
 			},
 		)
-		self.assertEqual(len(group.paths), 19)
+		self.assertEqual(len(group.paths), 22)
 		self.assertEqual(
 			group.dependencies,
 			("CHG-005", "CHG-008", "CHG-011", "CHG-023", "CHG-025", "CHG-028"),
@@ -585,15 +602,25 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 
 		plan = planner.render_plan(group)
 		for marker in (
-			"exact 19-path boundary with 2,645 insertions and 232 deletions",
+			"first source 5ed0c75460c9afd5ab574ff2c4a907c1075964f0",
+			"exactly 19 paths with 2,645 insertions and 232 deletions",
+			"hardening source 7eb945957776ab3458a9de71c8be9937e2354720",
+			"exact parent 5ed0c75460c9afd5ab574ff2c4a907c1075964f0",
+			"exactly 13 paths with 479 insertions and 160 deletions",
+			"combined union is exactly 22 paths",
+			"cumulative per-commit churn is 3,124 insertions/392 deletions",
+			"exact baseline-to-head diff is 3,024 insertions/292 deletions",
 			".github/workflows/probes.yml, a high-risk workflow path",
+			"second source changes no workflow path",
 			"existing contents: read permission",
-			"1,359.8 seconds with all 64 trusted local probes",
-			"No exact-head remote result is claimed for 5ed0c754",
+			"first source 5ed0c754 after 1,359.8 seconds with all 64 trusted local probes",
+			"36 green focused document-authority tests",
+			"no exact-head full local or remote result is claimed for 7eb94595",
 			"MA-DOC-002 and MA-DOC-005 remain FIXED_PENDING_VERIFICATION",
 			"IN_PROGRESS / UNSATISFIED",
 			"inventory/ledger 316/316 and active-record parity 36/36",
-			"exact 19-path boundary",
+			"not a third CHG-029 source or CHG-030",
+			"exact 22-path union",
 			"no rollback script may be emitted",
 		):
 			self.assertIn(marker, plan)
@@ -609,11 +636,19 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		for marker in (
 			"5ed0c75460c9afd5ab574ff2c4a907c1075964f0",
 			"18b6150c01e1587100dca97c85ebad03f369825a",
+			"7eb945957776ab3458a9de71c8be9937e2354720",
 			"exactly 19 paths",
 			"2,645 insertions and 232 deletions",
+			"exactly 13 paths",
+			"479 insertions and 160 deletions",
+			"exact 22-path union",
+			"3,024 insertions and 292 deletions",
+			"Summed per-commit churn is 3,124",
+			"insertions and 392 deletions",
 			"high-risk workflow",
 			"1,359.8 seconds with all 64 trusted local probes",
-			"No exact-head remote",
+			"36/36 document-authority tests",
+			"head full-local or remote result is claimed",
 			"FIXED_PENDING_VERIFICATION",
 			"IN_PROGRESS / UNSATISFIED",
 			"MANUAL_RECONSTRUCTION_REQUIRED",

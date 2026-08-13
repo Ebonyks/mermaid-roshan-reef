@@ -7,11 +7,12 @@ DUNGEON_DIFFICULTY_AUDIT, the eleven-document Opera chain, FABLE_INTERACTION
 _HANDOFF_2026-07-25, TOUCH_CENTRIC_REVERSIBLE_HANDOFF_2026-07-25, and the
 2026-08-09 Ballerina, Boxer, Opera-quality and music reconciliations._
 
-_Current document-authority synchronization is sealed at
-`5ed0c75460c9afd5ab574ff2c4a907c1075964f0` (exact parent
-`18b6150c01e1587100dca97c85ebad03f369825a`) and passes exact official-Godot
-full local CI in 1,359.8 seconds/all 64. No exact-source-head remote result is
-claimed; `MA-DOC-002` and `MA-DOC-005` remain
+_Current document-authority synchronization is hardened at chain head
+`7eb945957776ab3458a9de71c8be9937e2354720` (exact parent `5ed0c754`, whose
+exact parent is `18b6150c01e1587100dca97c85ebad03f369825a`). First source
+`5ed0c754` passes exact official-Godot full local CI in 1,359.8 seconds/all 64;
+the chain head has 36 focused tests/six mutation controls green but no exact-
+head full-local or remote result. `MA-DOC-002` and `MA-DOC-005` remain
 `FIXED_PENDING_VERIFICATION`, and the master audit remains
 `IN_PROGRESS` / `UNSATISFIED`._
 
@@ -449,13 +450,13 @@ The opening cinematic is produced under a separate, stricter regime — see
 The dated lifecycle in [04_OPEN_WORK.md](04_OPEN_WORK.md) and the master audit
 controls; an older work order is never implementation authority by itself.
 
-Sealed source `5ed0c754` inventories all 316 tracked Markdown paths exactly
-once and records all 36 material active findings in
+Contiguous CHG-029 sources `5ed0c754`/`7eb94595` inventory and harden all 316
+tracked Markdown paths exactly once and record all 36 material active findings in
 [`ACTIVE_FINDINGS_2026-08-13.md`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md).
-Its fail-closed validator, 35 focused tests, six mutation controls, and exact
-official-Godot full local CI are green in 1,359.8 seconds/all 64. No exact-
-source-head remote result is claimed, so `MA-DOC-002` and `MA-DOC-005` remain
-`FIXED_PENDING_VERIFICATION` until that remote gate passes.
+The chain's fail-closed validator has 36 focused tests and six mutation controls
+green; first source full local is green in 1,359.8 seconds/all 64. No exact-head
+full-local or remote result is claimed for `7eb94595`, so `MA-DOC-002` and
+`MA-DOC-005` remain `FIXED_PENDING_VERIFICATION` until both gates pass.
 
 - **`CONFIRMED_OPEN`:** game-wide true-2D conversion, fresh-save no-cheat
   reachability proof, exact voice gaps, visual evidence and remaining layering

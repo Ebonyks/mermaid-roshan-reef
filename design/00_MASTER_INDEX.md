@@ -3,12 +3,14 @@
 _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
 Runtime/audit merge synchronization: 2026-08-13._
 
-The current sealed document-authority source and latest completed full-local
-checkpoint is `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, with exact parent
+The current sealed document-authority chain head is
+`7eb945957776ab3458a9de71c8be9937e2354720`, with exact parent
+`5ed0c75460c9afd5ab574ff2c4a907c1075964f0`; that first source has exact parent
 `18b6150c01e1587100dca97c85ebad03f369825a`. Exact official Godot
-`4.7.1.stable.official.a13da4feb` `scripts/ci.sh` is green at the sealed source
-in 1,359.8 seconds with all 64 trusted probes. No exact-source-head remote or
-APK result is claimed for `5ed0c754`. The current Opera product/runtime commit
+`4.7.1.stable.official.a13da4feb` `scripts/ci.sh` is green at the first source in
+1,359.8 seconds with all 64 trusted probes. Chain head `7eb94595` has 36 focused
+authority tests and six mutation controls green, but no exact-head full-local,
+remote, or APK result is claimed. The current Opera product/runtime commit
 remains `09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its exact local suite is
 green in 1463.4 seconds/all 64, while predecessor probe-readiness head
 `ff068db002202839f920a6f9fb78c942788a3034` is green in 1379.3 seconds/all 64.
@@ -38,13 +40,15 @@ art direction before the 2026-08-09 reconciliation.
 
 This folder is the streamlined result. The first five masters remain concise
 domain summaries. The comprehensive design language and dated master audit now
-carry the cross-domain rule and evidence layers. Sealed source `5ed0c754`
-inventories **316 tracked Markdown paths**, gives each
+carry the cross-domain rule and evidence layers. Contiguous sources `5ed0c754`
+and `7eb94595` establish and harden the **316 tracked Markdown path** inventory,
+give each
 path exactly one row in `05_DOC_LEDGER.md`, and provides full records for all 36
 material active findings in
 `audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Its fail-closed validator and CI
-wiring are committed and locally green. `MA-DOC-002` and `MA-DOC-005` remain
-`FIXED_PENDING_VERIFICATION` until exact-source-head remote gates pass.
+wiring are committed and focused-local green. `MA-DOC-002` and `MA-DOC-005`
+remain `FIXED_PENDING_VERIFICATION` until exact-chain-head full-local and remote
+gates pass.
 
 | # | Document | Answers |
 |---|---|---|
@@ -52,10 +56,10 @@ wiring are committed and locally green. `MA-DOC-002` and `MA-DOC-005` remain
 | 02 | [ART_DIRECTION.md](02_ART_DIRECTION.md) | What it looks like, what medium world art ships in, what the quality bar is, what may never be touched |
 | 03 | [TECHNICAL_ARCHITECTURE.md](03_TECHNICAL_ARCHITECTURE.md) | How it is built, which engines exist, how it is tested, how it ships |
 | 04 | [OPEN_WORK.md](04_OPEN_WORK.md) | Current `MA-*` work navigation plus an explicit lifecycle crosswalk for the historical `OW-*` list |
-| 05 | [DOC_LEDGER.md](05_DOC_LEDGER.md) | Exhaustive sealed-source authority/status index: one row for each of 316 tracked Markdown paths; exact-source-head remote verification remains pending |
+| 05 | [DOC_LEDGER.md](05_DOC_LEDGER.md) | Exhaustive sealed-chain authority/status index: one row for each of 316 tracked Markdown paths; exact-chain-head full-local and remote verification remain pending |
 | 06 | [COMPREHENSIVE_DESIGN_LANGUAGE.md](06_COMPREHENSIVE_DESIGN_LANGUAGE.md) | Stable `DL-*` rules, including the owner's 2026-08-09 true-2D decision and the complete audit contract |
 | audit | [MASTER_AUDIT_2026-08-09.md](../audit/MASTER_AUDIT_2026-08-09.md) | Current audit-cycle state, synchronized evidence, lifecycle triage, and satisfaction gate |
-| findings | [ACTIVE_FINDINGS_2026-08-13.md](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md) | Full canonical records for all 36 material active `MA-*` items; pending exact-source-head remote verification |
+| findings | [ACTIVE_FINDINGS_2026-08-13.md](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md) | Full canonical records for all 36 material active `MA-*` items; pending exact-chain-head full-local and remote verification |
 | changes | [MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md](../audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md) | Stable `CHG-*` change groups, benefits/risks, dependencies, evidence, and guarded per-change rollback plans |
 
 `06_COMPREHENSIVE_DESIGN_LANGUAGE.md` is tracked and recognized here, but its

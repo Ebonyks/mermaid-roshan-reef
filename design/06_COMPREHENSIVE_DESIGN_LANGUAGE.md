@@ -2,9 +2,10 @@
 
 - **Document ID:** CDL-2026-08-09
 - **Status:** `PROPOSED_CANONICAL`; the exhaustive ledger and complete finding
-  records are sealed at `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`
-  and locally green, but direct owner decisions remain controlling until that
-  exact source head passes its fail-closed remote gate
+  records are hardened at chain head
+  `7eb945957776ab3458a9de71c8be9937e2354720` and focused-local green, but direct
+  owner decisions remain controlling until exact-chain-head full-local and
+  remote gates pass
 - **Decision baseline:** owner direction through 2026-08-09
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
@@ -21,11 +22,13 @@
   `scripts/probe_opera.gd` differs from the documented runtime
 - **Current integrated dev/audit authority head:**
   `18b6150c01e1587100dca97c85ebad03f369825a`
-- **Current sealed document-authority source and latest completed full-local
-  checkpoint:** `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, exact parent
-  `18b6150c01e1587100dca97c85ebad03f369825a`; exact official Godot 4.7.1
-  `scripts/ci.sh` is green in 1,359.8 seconds/all 64. No exact-source-head
-  remote result is claimed
+- **Current sealed document-authority chain:** head
+  `7eb945957776ab3458a9de71c8be9937e2354720`, exact parent `5ed0c754`, whose
+  exact parent is `18b6150c01e1587100dca97c85ebad03f369825a`. First source
+  `5ed0c754` is the latest completed full-local checkpoint: exact official Godot
+  4.7.1 `scripts/ci.sh` is green in 1,359.8 seconds/all 64. The head has 36
+  focused tests/six mutation controls green but no exact-head full-local or
+  remote result
 - **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
   succeeds in 34m19s for that older SHA
@@ -59,12 +62,12 @@ closure evidence live in `audit/MASTER_AUDIT_2026-08-09.md`.
 
 Commit `9289dd81` reconciled `AGENTS.md`, `CLAUDE.md`, `design/00` through
 `design/05`, and the named Roshan authority surface to the owner's final 2D
-decision. Sealed source `5ed0c754` gives all 316 tracked Markdown paths exactly
-one authority-ledger row and gives all 36 material active findings a full record
-in `audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Its fail-closed validator,
-focused tests, six mutation controls, and exact official-Godot full local CI are
-green; no exact-source-head remote result is claimed, so `MA-DOC-002` and
-`MA-DOC-005` remain `FIXED_PENDING_VERIFICATION`. Direct owner decisions and
+decision. Contiguous sources `5ed0c754`/`7eb94595` establish and harden one row
+for all 316 Markdown paths and full records for all 36 material findings. At
+chain head, 36 focused tests/six mutation controls are green; first-source exact
+official-Godot full local is green. No exact-head full-local or remote result is
+claimed for `7eb94595`, so `MA-DOC-002` and `MA-DOC-005` remain
+`FIXED_PENDING_VERIFICATION`. Direct owner decisions and
 binding operational/security rules remain higher authority. Where an older art
 or design document conflicts with a rule here, the dated supersession table in
 section 15 controls.
@@ -1046,13 +1049,13 @@ record. It may be called a finding only after a stable linked record contains
 every field below; unknown values are written explicitly as missing or blocked,
 never omitted.
 
-Sealed document-authority source `5ed0c754` applies this schema to all 36
+Contiguous document-authority sources `5ed0c754`/`7eb94595` apply and harden this schema for all 36
 material active findings in
 [`ACTIVE_FINDINGS_2026-08-13.md`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md).
 The record set and exhaustive 316-path ledger remain
-`FIXED_PENDING_VERIFICATION`: their fail-closed local gate and exact official-
-Godot full local CI are green, but the exact source head has no claimed remote
-result.
+`FIXED_PENDING_VERIFICATION`: 36 focused tests and six mutation controls are
+green at the chain head, and first-source full local is green, but exact-chain-
+head full-local and remote results are unclaimed.
 
 | Field | Requirement |
 |---|---|
