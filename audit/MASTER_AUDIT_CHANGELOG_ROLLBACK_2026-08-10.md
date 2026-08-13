@@ -1,10 +1,11 @@
 # Mermaid Roshan master-audit change and rollback ledger
 
 - **Ledger ID:** `MA-CHANGELOG-2026-08-10`
-- **Change-ID namespace:** `CHG-001` through `CHG-029`; IDs are permanent and
+- **Change-ID namespace:** `CHG-001` through `CHG-030`; IDs are permanent and
   are never reassigned or renumbered
 - **Audit lineage:** `codex/master-audit-20260809`
-- **Dedicated current audit branch:** `codex/audit-reconcile-20260812`
+- **Dedicated current audit branch:**
+  `codex/sky-lagoon-capture-audit-20260813`
 - **Human scorecard and repository-version snapshot:**
   `a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2`
 - **Opera retirement and Canvas-lifecycle snapshot:**
@@ -28,7 +29,7 @@
   local `scripts/ci.sh` is green at the first source in 1,359.8 seconds with all
   64 trusted probes; at that source checkpoint no direct full-local or remote
   result was recorded for hardening source `7eb94595`
-- **Current document-authority verification checkpoint:** CHG-023 maintenance
+- **Document-authority closure checkpoint:** CHG-023 maintenance
   commit `51887315bd537db2d16bdafcac1bbfa808352351`, exact parent `7eb94595`,
   passes official Godot 4.7.1 full local in 1,435.2 seconds/all 64 and exact-head
   Probe Suite run `31710377034`. That run's document static gate is 36 tests,
@@ -36,6 +37,15 @@
   records, all green. After `MA-DOC-002` and `MA-DOC-005` transition
   `VERIFIED_FIXED`, the current validator reports 34 active items and retains
   all 36 records
+- **Sky Lagoon fail-closed capture-audit snapshot:**
+  `7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, with exact parent and comparison
+  baseline `e6edf559af219edd4e5ce38cab0c5094483be5c6`. Exact-source local
+  `scripts/ci.sh` is green in 1,402.3 seconds/all 64 trusted probes; fresh local
+  Mobile rendering is 20/20 PASS with 1,078/1,078 assertions. Exact-head Probe
+  Suite run `31728755204` completes workflow-success at that SHA (probes 40m05s,
+  63/63 trusted headings; music 3m38s, 42/42), but its non-blocking Sky step
+  exits one after 20 PASS rows because the runner falls back to
+  `gl_compatibility`; it is not a remote diagnostic PASS
 - **Historical authority-head remote verification:** GitHub Actions run `31686380560`
   succeeds at exact `9befc0f838f40eead2f42088a91206257fe217a8`;
   machine-workflow success is not warning-clean or external/visual acceptance,
@@ -58,9 +68,9 @@
   engine, [master-audit](MASTER_AUDIT_2026-08-09.md), and
   [comprehensive-design-language](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md)
 - **Program state:** `IN_PROGRESS / UNSATISFIED`
-- **Catalog inventory:** 29 permanent change IDs, 77 uniquely owned source-
-  commit references, four guarded-script emitters, 25 manual/refusal groups,
-  and 23 planner unit tests
+- **Catalog inventory:** 30 permanent change IDs, 78 uniquely owned source-
+  commit references, four guarded-script emitters, 26 manual/refusal groups,
+  and 24 planner unit tests
 
 This is the durable answer to the fact that a long audit can produce both
 improvements and regressions. It records what changed, why the change may be
@@ -86,6 +96,7 @@ audit_evidence_authority_sync_snapshot: 9befc0f838f40eead2f42088a91206257fe217a8
 document_authority_snapshot: 5ed0c75460c9afd5ab574ff2c4a907c1075964f0
 document_authority_hardening_snapshot: 7eb945957776ab3458a9de71c8be9937e2354720
 document_authority_verification_checkpoint: 51887315bd537db2d16bdafcac1bbfa808352351
+sky_lagoon_capture_audit_snapshot: 7391c53cd6981a256bd8bfe40ccbb9f72fb723fe
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -116,6 +127,7 @@ changes:
   - {id: CHG-027, name: castle-room-opera-career-distribution-and-direct-return, rollback_mode: owner_blocked_mixed}
   - {id: CHG-028, name: audit-evidence-and-rollback-control-synchronization, rollback_mode: documentation_migration}
   - {id: CHG-029, name: exhaustive-document-authority-and-canonical-finding-gate, rollback_mode: documentation_migration}
+  - {id: CHG-030, name: fail-closed-sky-lagoon-promenade-capture-audit, rollback_mode: guarded_mixed}
 ```
 
 ## 2. Safe rollback protocol
@@ -169,6 +181,12 @@ document-authority source `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`
 and its hardening follow-up `7eb945957776ab3458a9de71c8be9937e2354720`.
 It is a manual documentation migration over their exact 22-path union, not an
 emitter.
+CHG-030 starts at exact fail-closed capture source
+`7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, whose exact parent and comparison
+baseline is `e6edf559af219edd4e5ce38cab0c5094483be5c6`. It owns exactly the Sky
+Lagoon capture probe and its synchronized GAME2D inventory entry. The planner
+refuses an emitter because restoring the obsolete probe or only one of the two
+paths would make evidence misleading or internally inconsistent.
 The planner output is the authority if a later append-only maintenance revision
 changes this mapping.
 
@@ -207,7 +225,7 @@ python -B tools/plan_audit_rollback.py CHG-021 --emit-script
 ```
 
 Only CHG-020 and CHG-021, plus all-or-nothing CHG-022 and CHG-024, can emit a
-script: four emitters across 29 stable IDs. The other 25 groups refuse
+script: four emitters across 30 stable IDs. The other 26 groups refuse
 automation even when their human ledger mode says
 `guarded_single`: shared-path, product-policy, or not-yet-committed context
 still requires a reviewed manual inverse. Emitted scripts create a dedicated
@@ -943,8 +961,11 @@ exclusive and must never be applied on the same rollback branch.
   and boundary, exact verification checkpoint
   `51887315bd537db2d16bdafcac1bbfa808352351`, and this later terminal-lifecycle
   synchronization remain CHG-023 maintenance rather than a third CHG-029
-  source, a 78th owned reference, or CHG-030. Routine future bookkeeping
-  remains CHG-023 and does not recursively catalog its own prose-sync hash.
+  source or part of CHG-030. CHG-030 separately owns the later material
+  executable-probe/GAME2D-manifest source `7391c53c`; this catalog/planner/prose
+  update remains CHG-023 maintenance and does not recursively own itself.
+  Routine future bookkeeping remains CHG-023 and does not recursively catalog
+  its own prose-sync hash.
 - **Paths:** this ledger, master audit, canonical findings register, design
   index/game-design/architecture/open-work/ledger/design-language records,
   `.gitignore`, the read-only planner, and its tests.
@@ -1465,8 +1486,8 @@ exclusive and must never be applied on the same rollback branch.
   through `7eb94595` is 3,024 insertions and 292 deletions. These measurements
   are distinct and must not be conflated. The post-`7eb94595` metadata update,
   exact `51887315` verification checkpoint, and later terminal-lifecycle prose
-  sync are CHG-023 maintenance, not a third CHG-029 source, a 78th owned
-  reference, or CHG-030.
+  sync are CHG-023 maintenance, not a third CHG-029 source and not part of the
+  separately bounded CHG-030 capture-audit source.
 - **Exact 22-path union:** `.github/workflows/probes.yml`; `.gitignore`;
   `AUDIT_3_0.md`; `CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md`;
   `MINIGAME_ENGINES.md`; `OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md`;
@@ -1547,6 +1568,100 @@ exclusive and must never be applied on the same rollback branch.
   record, cover the exact 22-path union, and pass every focused gate plus exact
   official-Godot full CI.
 
+### CHG-030 — Fail-closed Sky Lagoon promenade capture audit
+
+- **Source and exact boundary:** source
+  `7391c53cd6981a256bd8bfe40ccbb9f72fb723fe` has exact parent and comparison
+  baseline `e6edf559af219edd4e5ce38cab0c5094483be5c6`. It is a non-merge commit
+  that changes exactly two paths with 1,029 insertions and 357 deletions:
+  `scripts/probe_sky_lagoon_art.gd` has 1,025 insertions/348 deletions and
+  `tools/game_2d_migration_manifest.json` has 4 insertions/9 deletions. The
+  exact rollback start is the source itself, `7391c53c`.
+- **Exact two-path set:** `scripts/probe_sky_lagoon_art.gd`; and
+  `tools/game_2d_migration_manifest.json`. No workflow, production-runtime,
+  scene, save-schema, protected-original, voice/audio, generated-art, or
+  shipping-art path changes.
+- **What changed, in plain English:** the prior screenshot script followed
+  retired courtyard roles, created a second review `Camera3D`, used 1280×1024
+  framing, and could report dozens of false failures while still writing 20
+  pictures. The replacement audits the shipping promenade through the child's
+  active production camera and writes 20 exact 1280×720 PNGs for arrival,
+  Reef return, day/night overviews, all five live route/play targets, five
+  animals, three focus/action pairs, Castle focus, and the raccoon startle. It
+  fail-closes each row on current game/phase/route/focus/action state, active
+  camera, live target/card/highlight ownership, subject visibility and screen
+  position, animal texture/lighting, exact action frame, image dimensions and
+  nonblank/luma sampling, exact output membership, official 4.7.1 Mobile
+  renderer, and normal-save integrity. A root failure records a failed row and
+  marks later IDs skipped instead of silently presenting a partial set as
+  complete. The JSON manifest preserves capture IDs, expected/actual state,
+  every assertion, image hashes/quality metrics, probe hash, renderer/version,
+  source revision, save fingerprints, and the final result. The paired GAME2D
+  manifest edit updates its inventory head/date and the rewritten probe's exact
+  marker counts; it does not waive or close migration debt.
+- **Outcome / positive effect:** local review now distinguishes a current,
+  complete capture from a merely nonempty output directory. The fresh exact-
+  source Mobile-render run produced 20 PASS / 0 FAIL / 0 SKIPPED rows, 20 exact
+  PNGs, and 1,078/1,078 passing capture assertions; the normal save and all
+  enumerated sidecars were unchanged, temporary save paths were clean, and
+  in-memory plane/time state was restored. This is materially stronger,
+  reproducible evidence for locating Sky Lagoon regressions and for human art
+  review without changing the child's game.
+- **Possible negative effect / unknown:** the larger probe is more coupled to
+  current private promenade state, positions, atlas frames, and node names, so
+  legitimate scene evolution must update the probe and GAME2D fingerprint
+  together. Fixed-position and threshold checks can reject an intentional
+  redesign, while nonblank/luma and state assertions can still pass unattractive
+  composition. They do not prove layered depth, seam quality, target-device
+  legibility, touch behavior, child comprehension, owner art approval, or
+  runtime correctness outside the sampled moments. Fresh human review keeps
+  four new visual concerns open: small animals lose child-readable presence at
+  phone scale; overlapping silhouettes/props compete in some compositions; the
+  seesaw action is ambiguous; and subtle focus feedback may not clearly signal
+  the selected target. These are review findings, not machine-closed defects.
+  `MA-VIS-002` (the one-mural/layer-stack defect) and `MA-VIS-006` (live visual
+  review/manual/coverage gaps) remain open, as do applicable runtime, device,
+  child, strict-2D, art, matching-APK, and release defects or gates.
+- **Workflow limitation:** `.github/workflows/probes.yml` did not change. Its
+  Sky Lagoon capture and upload steps both remain `continue-on-error`, and the
+  artifact uses a PNG-only upload glob. The JSON manifest is not currently a
+  remote artifact; a failed capture therefore cannot fail the workflow. A
+  workflow-success badge, completed step, or uploaded PNG set is diagnostic
+  availability only—not capture PASS, visual acceptance, or release evidence.
+- **Dependencies and evidence:** CHG-005, CHG-006, CHG-008, CHG-011, CHG-023,
+  CHG-025, and CHG-029. Exact-source local evidence under official Godot
+  4.7.1 is green: parser, inference lint, full analyzer, two fresh rendered
+  capture runs including pre-existing-output/save-state adversaries, focused
+  `probe_l2`, `probe_l2_living_cards`, `probe_sky_lagoon_animals`,
+  `probe_l2_reenter`, and `probe_train`, GAME2D stress/default/regression, and
+  `git diff --check`. Exact `scripts/ci.sh` completed in **1,402.3 seconds with
+  all 64 trusted probes**; the capture manifest records **1,078/1,078** passing
+  assertions. Exact-head Probe Suite run `31728755204` for `7391c53c` completes
+  workflow-success: the 40m05s probes job has 63/63 trusted headings and the
+  3m38s music job is 42/42. Its Sky process is deliberately not accepted: all
+  20 ordered rows and the `20/20/0/0` summary pass, then the binding renderer
+  gate emits `GLOBAL|FAIL|rendering_method|gl_compatibility` and `RESULT|FAIL`
+  with exit one after the runner lacks `VK_KHR_surface` and falls back to
+  OpenGL. `continue-on-error` masks that process failure at workflow level and
+  the PNG-only artifact omits the JSON result. Integrated predecessor
+  `e6edf559` separately passes dev run `31722047536`; Android run `31724927769`
+  publishes its 596,041,412-byte APK at SHA-256
+  `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`.
+  No matching `7391c53c` APK, remote Mobile diagnostic PASS, or release gate is
+  claimed.
+- **Rollback:** `guarded_mixed`; the planner is
+  `MANUAL_RECONSTRUCTION_REQUIRED` and refuses `--emit-script`. Do not raw-
+  revert `7391c53c` or restore the old probe: that would restore obsolete
+  courtyard-role assumptions, a second review camera, misleading framing and
+  false-failure behavior. Do not reverse only one path, because the executable
+  probe and GAME2D inventory fingerprint would disagree. An owner-approved
+  inverse must start from a clean branch at exact
+  `7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, hand-construct a reviewed
+  two-path replacement that preserves the production camera, current-state,
+  exact-output, provenance, fail-closed, and save-integrity guarantees, keeps
+  the GAME2D inventory truthful, and passes every listed focused gate plus exact
+  official-Godot full CI. No automatic inverse is authorized.
+
 ## 5. Per-group gate matrix
 
 | Change IDs | Minimum focused gates before full CI | External gates that remain material |
@@ -1567,6 +1682,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-027 | exact two-commit/parent/15-path-union parity, parser/lint, bounded route-readiness, room-route/Opera/Opera-2D/load/living-world/UI, GAME2D default+regression-gate+stress, 22 fresh Mobile diagnostics, exact `scripts/ci.sh`, and successor authority-head remote run `31686380560` | repeat exact-head remote at the eventual integrated release candidate; bounded P2 card-overlap repair, M11 touch/performance, child comprehension, owner art/authority, and authoritative visual acceptance |
 | CHG-028 | exact two-commit/parent/10-path-union parity, 22 planner tests, Python compilation, ledger/catalog source parity, probe parity, GAME2D regression gate, diff check, and exact-head run `31686380560` with warning diagnostics and internally failed Sky Lagoon diagnostic retained | matching APK and external evidence; supersede facts as CHG-023 maintenance after later product/evidence changes and never promote documentation synchronization into acceptance |
 | CHG-029 | exact two-source parent/path parity, exact 22-path union, 23 planner tests, 36 document-authority tests, six mutation stress controls, 316/316 inventory/ledger and 36/36 active-record parity, Python compilation, probe parity, GAME2D stress/default/regression, diff check, first-source local `scripts/ci.sh` in 1,359.8 seconds/all 64, and exact CHG-023 maintenance-head local 1,435.2 seconds/all 64 plus Probe Suite run `31710377034` | repeat exact-head machine gates for any rollback candidate; all device, child, owner, voice, listening, strict-2D, visual, matching APK, and release acceptance |
+| CHG-030 | exact source/parent/two-path parity, parser/lint/full analyzer, two fresh 20-frame Mobile capture runs with exact output/save/provenance checks, 1,078/1,078 assertions, five focused Lagoon probes, GAME2D stress/default/regression, diff check, and exact local `scripts/ci.sh` in 1,402.3 seconds/all 64; exact-source workflow run `31728755204` completes with 63/63 headings and 42/42 music | remote Sky internally ends `GLOBAL FAIL rendering_method=gl_compatibility` / `RESULT FAIL` after 20 PASS rows because the runner falls back from Mobile/Vulkan; workflow remains non-blocking and PNG-only, while MA-VIS-002/006, small-animal readability, overlap, seesaw/focus clarity, M11, child, owner-art, strict-2D, matching APK, and release acceptance remain open |
 
 ## 6. Required rollback record
 

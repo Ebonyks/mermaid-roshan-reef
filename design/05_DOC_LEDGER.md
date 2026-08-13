@@ -16,14 +16,16 @@ repository-wide authority by omission. The ledger-side classification gate
 for `MA-DOC-002` is satisfied; the master audit remains the lifecycle owner.
 Sealed document-authority source chain head
 `7eb945957776ab3458a9de71c8be9937e2354720` preserves the classification.
-CHG-023 maintenance/verification head
-`51887315bd537db2d16bdafcac1bbfa808352351`, exact parent `7eb94595`, passes 36
-focused tests, six of six mutation controls, exact official-Godot 4.7.1 full
-local CI in 1,435.2 seconds/all 64, and exact-head Probe Suite run
-`31710377034`. That run's document static gate reports 316/316 inventory/ledger
-and then-current 36/36 active/records, all `OK`; after `MA-DOC-002` and
-`MA-DOC-005` transition `VERIFIED_FIXED`, the current validator reports 34
-active items and retains all 36 records.
+CHG-023 maintenance parent `e6edf559af219edd4e5ce38cab0c5094483be5c6`
+passes integrated dev Probe Suite run `31722047536`: probes 34m25s/63-of-63,
+36 focused document tests, six/six stress, 316/316 inventory/ledger, 34 active/
+36 retained records, and music 3m33s/42-of-42. Earlier branch run `31719143975`
+is corroborating e6 history. Current Sky diagnostic source
+`7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, exact parent `e6edf559`, passes
+official Godot 4.7.1 full local CI in 1,402.3 seconds/all 64. Exact-source run
+`31728755204` is overall green (40m05s probes/63 headings; music 3m38s/42-of-42),
+but its nonblocking Sky step internally fails required-Mobile renderer identity
+after 20 PASS rows; PNGs upload and JSON does not.
 Future tracked or unignored Markdown is
 unclassified until this ledger gains one new scoped row for it.
 
@@ -57,10 +59,10 @@ unclassified until this ledger gains one new scoped row for it.
 | `design/03_TECHNICAL_ARCHITECTURE.md` | 🟢 | `BINDING_DOMAIN`; exact engine/build/save/security/release rules plus explicitly measured 3D debt. |
 | `design/04_OPEN_WORK.md` | 🔵 | `SUPPORTING_CURRENT`; current lifecycle crosswalk, not canonical finding records. |
 | `design/05_DOC_LEDGER.md` | 🔵 | `SUPPORTING_CURRENT`; this exhaustive 316-path Git-declared authority index. It classifies documents but cannot override the higher-precedence operational/domain authorities it identifies. |
-| `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` | 🟢 | `CANONICAL_CURRENT`; tracked, indexed, and exact-head verified at `51887315`. Stable `DL-*` rule authority remains subordinate to direct owner, operational, security, protected-asset, and save rules. |
-| `audit/MASTER_AUDIT_2026-08-09.md` | 🟢 | `CANONICAL_CURRENT`; synchronized audit-cycle/evidence/lifecycle record. Overall state remains `REPAIRING`, satisfaction `UNSATISFIED`. Verification head `51887315` passes exact official-Godot full local CI in 1,435.2 seconds/all 64 and exact-head Probe Suite run `31710377034`; that run's document static is 36 tests, six of six stress controls, 316/316 inventory/ledger, and then-current 36/36 active/records, all `OK`. After `MA-DOC-002` and `MA-DOC-005` transition `VERIFIED_FIXED`, the current validator reports 34 active/36 retained records. Diagnostic/external gates remain open; `MA-OPERA-012` and `MA-RELEASE-001` remain `FIXED_PENDING_VERIFICATION`, and global visual remains 16/17/2/86/32/94. Predecessor Android run `31695675866` publishes an `18b6150c` APK; no `51887315` APK is claimed. |
-| `audit/findings/ACTIVE_FINDINGS_2026-08-13.md` | 🟢 | `BINDING_AUDIT_RECORD` for 36 complete field-level P1/P2 records, linked from section 5 and retained through terminal transitions. CHG-023 verification head `51887315` passes 36 focused tests, all six mutation controls, exact official-Godot full local, and exact-head remote run `31710377034`; `MA-DOC-005` is `VERIFIED_FIXED`. The file cannot silently add an item or change master severity/lifecycle; both surfaces move together under the validator. |
-| `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` | 🟢 | `BINDING_OPERATIONAL` for stable `CHG-*` scope and rollback. Current inventory is 29 IDs, 77 uniquely owned commit references, four guarded-script emitters, 23 tests, and 25 manual/refusal groups. CHG-027 owns `09e5e356`/`ff068db`; CHG-028 owns `d991fdf3`/`9befc0f8`; CHG-029 owns contiguous `5ed0c754`/`7eb94595` across the exact 22-path union. Verification head `51887315` and this post-run evidence synchronization are CHG-023 maintenance, not a third CHG-029 source, a 78th owned reference, or CHG-030. The ledger never authorizes a rollback violating protected-asset, security, save, or final-medium rules. |
+| `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` | 🟢 | `CANONICAL_CURRENT`; tracked, indexed, and document-authority verified through exact parent `e6edf559`. Stable `DL-*` rule authority remains subordinate to direct owner, operational, security, protected-asset, and save rules. |
+| `audit/MASTER_AUDIT_2026-08-09.md` | 🟢 | `CANONICAL_CURRENT`; synchronized audit-cycle/evidence/lifecycle record. Overall state remains `REPAIRING`, satisfaction `UNSATISFIED`. Parent `e6edf559` passes exact dev run `31722047536`; current source `7391c53c` passes exact local CI in 1,402.3 seconds/all 64 with 20/20 ordered Sky diagnostic captures and 1,078 assertions plus overall remote run `31728755204`. That run's Sky step internally fails required-Mobile renderer identity after 20 PASS rows, masked by continue-on-error/PNG-only; no JSON or remote Mobile diagnostic PASS exists. No matching current APK exists, and visual/external gates remain open. `MA-VIS-002`/`006` stay `CONFIRMED_OPEN`; global visual remains 16/17/2/86/32/94. |
+| `audit/findings/ACTIVE_FINDINGS_2026-08-13.md` | 🟢 | `BINDING_AUDIT_RECORD` for 36 complete field-level P1/P2 records, linked from section 5 and retained through terminal transitions. Exact parent `e6edf559` preserves the green 36-test/six-stress/316-parity document gate and 34 active/36 retained records; `MA-DOC-005` is `VERIFIED_FIXED`. The file cannot silently add an item or change master severity/lifecycle. |
+| `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` | 🟢 | `BINDING_OPERATIONAL` for stable `CHG-*` scope and rollback. Current inventory is 30 IDs, 78 uniquely owned commit references, four guarded-script emitters, 24 tests, and 26 manual/refusal groups. CHG-029 retains contiguous `5ed0c754`/`7eb94595` across the exact 22-path union; manual/non-emitting CHG-030 owns exact two-file diagnostic source `7391c53c` and all five live animal states. The ledger never authorizes rollback that violates protected-asset, security, save, or final-medium rules. |
 | `ASSET_AUDIT.md` | ⚪ | `HISTORICAL_EVIDENCE`; 2026-06-25 CC0 audit/network decision. Current named-defect discipline comes from design 06; its stale music inventory is superseded by `MUSIC_AUDIT_2026-08-09.md`. |
 
 ## Game design lineage

@@ -8,14 +8,15 @@ FABLE_INTERACTION_HANDOFF_2026-07-25, WORKFLOW_BRANCHING_2026-07-18,
 SECURITY, BACKUP, VISUAL_AUDIT_TOOL and AUDIT_UPGRADE._
 
 _Document-authority sources `5ed0c754`/`7eb94595` remain the exact CHG-029
-chain. CHG-023 verification-maintenance head
-`51887315bd537db2d16bdafcac1bbfa808352351`, exact parent `7eb94595`, passes
-official Godot 4.7.1 full local CI in 1,435.2 seconds/all 64 and exact-head
-Probe Suite run `31710377034`; its document gate reports 36 tests, six/six
-mutation controls, 316/316 inventory/ledger, and then-current 36/36 active/
-records green. After `MA-DOC-002` and `MA-DOC-005` transition
-`VERIFIED_FIXED`, the current validator correctly reports 34 active items and
-retains all 36 records._
+chain. Exact parent `e6edf559af219edd4e5ce38cab0c5094483be5c6` passes integrated
+dev Probe Suite run `31722047536` with probes 34m25s/63-of-63, 36 document
+tests, six/six stress, 316/316 inventory/ledger, 34 active/36 retained records,
+and music 3m33s/42-of-42. Earlier branch run `31719143975` is corroborating e6
+history. Current two-file Sky diagnostic source
+`7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, exact parent `e6edf559`, passes
+official Godot 4.7.1 full local CI in 1,402.3 seconds/all 64. Exact-source run
+`31728755204` completes overall SUCCESS/63 headings/music 42-of-42; its
+nonblocking Sky step internally fails required-Mobile renderer identity._
 
 Engine/editor/release validator: **exactly Godot 4.7.1-stable**. The
 `project.godot` feature tag `"4.7"` records the engine series and does not
@@ -94,11 +95,12 @@ at `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`. Distribution-head run
 Windows passed. Probe-only `ff068db` preserves runtime `09e5e356` and replaces
 that frame guess with a bounded, fail-closed semantic wait for the exact Opera
 instance, completed/input-transparent reveal, `opera.act.NN` stage, and ambient
-layer 11. Current verification head
-`51887315bd537db2d16bdafcac1bbfa808352351` passes exact-head Probe Suite run
-`31710377034`; predecessor Android run `31695675866` succeeds from exact
-`18b6150c01e1587100dca97c85ebad03f369825a` and publishes that predecessor's
-matching dev APK. No APK is claimed for `51887315`. Device/child/owner/voice/
+layer 11. Exact parent `e6edf559` passes dev Probe Suite run `31722047536`;
+current audit source `7391c53c` changes no Opera runtime and passes full-local
+plus overall exact-source remote run `31728755204`, though the Sky step fails
+renderer identity. Android run `31724927769` uses raw checkout/package source
+exact e6 and publishes that integrated predecessor's matching dev APK. No APK
+is claimed for `7391c53c`. Device/child/owner/voice/
 visual gates and game-wide 3D debt remain open.
 
 At `09e5e356`, every career launches only from its exact Castle room, Racer is
@@ -362,21 +364,33 @@ passive safety, save/reward, exact-room return, all surrounding probes, every
 other executed gate/probe, and Windows pass, with no script/resource/runtime
 error. `ff068db` changes only `scripts/probe_opera.gd`, makes readiness semantic
 and fail-closed, and completes exact local full CI in 1379.3 seconds with all 64
-trusted probes. Current verification head `51887315` passes exact local
-`scripts/ci.sh` under official Godot 4.7.1 in 1,435.2 seconds/all 64, then
-passes exact-head Probe Suite run `31710377034`: the probes job runs from
-14:28:33 through 15:09:45 UTC (41m12s), its trusted loop takes 18m02 and emits
-exactly 63 headings, and the Windows music job takes 4m08s and ends raw 42/42
-`ALL OK`. Static/import/analyzer/probe/boot/advisory/manifest gates are green.
-All five capture/upload pairs completed at the workflow level and uploaded
-diagnostic artifacts, not capture gates or visual passes; raw Sky Lagoon
-`LAGOONSHOT` output has 21 `OK`, 44 `FAIL`, and `DONE` (66 diagnostic lines),
-with 20 PNGs, so that diagnostic internally fails. Existing Vulkan fallback
-and resource-leak diagnostics also make the run not warning-clean. Predecessor
-Android run `31695675866` checks out exact `18b6150c` and publishes that
-predecessor's matching dev APK: 596,041,412 bytes, SHA-256
-`fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`.
-No matching APK is claimed for `51887315`.
+trusted probes. Historical checkpoints through exact parent `e6edf559` pass
+their bounded local/remote gates; the parent's Sky 21-OK/44-FAIL/DONE output is
+predecessor history. Current two-file source `7391c53c` passes exact official-
+Godot full local CI in 1,402.3 seconds/all 64. Its Mobile/Speedy 1280×720 local
+manifest is 20/20 ordered captures and 1,078 assertions, with isolated save and
+plane/time restoration; probe SHA-256 is
+`f28413263c0bedeed421fae6e9de4626095f03b6010bade8380ad7fb5aa07db9` and
+GAME2D manifest SHA-256 is
+`8c70b9aeaba5302322bdd44ca84d8a2b76fca053a091753e0e04676ee407fb00`.
+Exact-source run `31728755204` completes overall SUCCESS after a 40m05s probes
+job (17m50s trusted step/63 headings) and music 3m38s/42-of-42. The Sky step
+emits 20 PASS rows and a 20/20 summary, then `GLOBAL|FAIL|rendering_method|
+gl_compatibility`, `RESULT|FAIL`, and exit 1 because `VK_KHR_surface` is absent.
+Because the workflow remains continue-on-error/PNG-only, it masks that failure,
+uploads no JSON, and grants no remote Mobile capture gate. Integrated-
+predecessor Android run `31724927769` uses raw checkout/package source exact
+e6 and publishes its matching dev APK: 596,041,412 bytes, SHA-256
+`66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`.
+No matching APK is claimed for `7391c53c`.
+
+The passing harness does not make the captured runtime pass. Review still
+confirms the one-mural/spatial implementation (`MA-VIS-002`), tiny frog/otter
+and subtle non-castle focus cues (P1 child-readability risks), plus
+hare/squirrel/raccoon overlap or weak grounding and poor seesaw contact (P2
+composition). `MA-VIS-006` remains open. The main product slice is Canvas/depth
+and bounded art staging; a separate protected workflow slice must repair the
+runner/renderer, make Sky blocking, and upload/validate JSON.
 
 Two subtleties worth preserving:
 
@@ -394,20 +408,21 @@ unforced Canvas entry, no external kart/boss route, passive safety, exact
 reward ownership, pause/leave-after-win durability, teardown, and re-entry.
 That focused/full-local rewrite keeps `MA-OPERA-010`/`011` and moves
 `MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`; `ff068db` hardens only the
-readiness evidence. Exact-head remote machine evidence is green at current
-verification head `51887315`; the available exact-SHA dev APK belongs to
-predecessor `18b6150c`. External acceptance remains separate.
+readiness evidence. Parent `e6edf559` and current `7391c53c` have green overall
+remote machine evidence; the latter's Sky renderer proof fails, and the
+available exact-SHA dev APK belongs to integrated predecessor e6. External
+acceptance remains separate.
 
 Contiguous sources `5ed0c754`/`7eb94595` add and harden a fail-closed authority
 validator in local/remote CI, inventory all 316 tracked Markdown paths exactly
 once, and check all 36 complete material records, including retained terminal
 history, in
-`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Exact CHG-023 maintenance head
-`51887315`, parent `7eb94595`, passes the 36 focused tests, six mutation
-controls, official Godot full local suite in 1,435.2 seconds/all 64, and
-exact-head run `31710377034`. `MA-DOC-002` and `MA-DOC-005` are therefore
-`VERIFIED_FIXED`; the two CHG-029 sources and exact 22-path boundary are
-unchanged.
+`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Exact parent `e6edf559` passes
+integrated dev Probe Suite `31722047536` with the document gate green; earlier
+branch run `31719143975` is corroborating history. `MA-DOC-002` and
+`MA-DOC-005` remain `VERIFIED_FIXED`; the two CHG-029 sources and exact 22-path
+boundary are unchanged. Manual CHG-030 owns source `7391c53c` and all five live animal states; current catalog
+counts are 30 IDs/78 references/four emitters/24 tests/26 manual groups.
 
 When a session environment lacks the exact Godot binary, use CI
 (`.github/workflows/probes.yml`) rather than substituting a different engine
@@ -457,11 +472,12 @@ when the receiver is untyped — declare explicit types, and keep
 | stable | `android-test` | the phone's permanent bookmark; tapping always gets the newest promoted build |
 | dev | `android-dev` | pre-promotion play-testing |
 
-Latest available APK evidence is predecessor Android run `31695675866`: it
-checks out `18b6150c01e1587100dca97c85ebad03f369825a` and publishes the dev APK at
+Latest available APK evidence is integrated-predecessor Android run
+`31724927769`: its raw checkout/package source is exact
+`e6edf559af219edd4e5ce38cab0c5094483be5c6`, and it publishes the dev APK at
 596,041,412 bytes with SHA-256
-`fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`.
-No matching APK is claimed for current verification head `51887315`. This
+`66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`.
+No matching APK is claimed for current audit source `7391c53c`. This
 binds the predecessor package bytes to their audited head; it is not a target-
 device, child, owner, voice/listening, strict-2D, or accepted-visual result.
 
@@ -523,7 +539,7 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 | `MA-2D-002` | `IN_PROGRESS` | GAME2D: 509 model/export files, 157 tracked model sidecars, 352 active untracked model sidecars, 66 production and 74 probe 3D files, one 3D scene and one 3D configuration; exact regression and 14/14 stress controls are green, strict remains unsatisfied |
 | `MA-CODE-001` | `CONFIRMED_OPEN` | `main.gd` is 8,647 lines at current `09e5e356` against the extraction-only <2,500 target |
 | `MA-CODE-002` | `CONFIRMED_OPEN` | String state, duplicated input, save frequency, material churn and remaining 3D glue are structural risks. The sealed Castle Kitchen caller also lacks a speculative recovery branch for a future invalid Chef config; current config is valid/probed, and any caller change requires renewed owner visual approval. Repair individually with surrounding tests |
-| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local. Verification head `51887315` passes exact official-Godot 4.7.1 full local CI in 1,435.2 seconds/all 64 and exact-head Probe Suite run `31710377034`; its probes job is 41m12s, trusted loop 18m02 with exactly 63 headings, and music job 4m08s with raw 42/42 `ALL OK`. That run's document static gate reports 36 tests, six of six stress controls, 316/316 inventory/ledger, and then-current 36/36 active/records, all `OK`; after the two terminal transitions, current document authority is 34 active/36 retained records. Pre-fix run `31678156887` remains red. Diagnostic uploads are not visual passes; raw Sky Lagoon internally emits 66 lines (21 `OK`, 44 `FAIL`, one `DONE`), and runner warnings plus legacy resource diagnostics remain |
+| `MA-CI-002` | `VERIFIED_FIXED` | Trusted parity remains 64 local/63 remote, with only `probe_human_art_audit` intentionally local. Exact parent `e6edf559` passes dev Probe Suite `31722047536` with 63/63 headings, document controls 36 tests/six stress/316 parity/34 active and 36 retained records, and music 42/42. Current `7391c53c` passes exact full local in 1,402.3 seconds/all 64 and overall exact-source run `31728755204` with 63 headings/music 42/42. Historical Sky 21/44/DONE remains predecessor-only; current local diagnostic is 20/20 with 1,078 assertions, but the remote Sky step internally fails `gl_compatibility` renderer identity and is masked by continue-on-error/PNG-only |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 106 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-DOLLS-001` | `VERIFIED_FIXED` | Faron's catcher is one bounded Canvas activity with real one-finger input, passive/save/medal/replay and weakref teardown evidence |
 | `MA-SEEK-001` | `VERIFIED_FIXED` | Seek is a fourteen-node animated Canvas meadow; its former vinyl/preview presentation and four meadow GLBs are retired from that runtime role |
@@ -531,8 +547,8 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 | `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated one-finger Canvas Boxer surface and five-phase no-loss lifecycle pass local and exact-head remote gates; authoritative capture, target-device, child and owner review remain |
 | `MA-OPERA-010` | `FIXED_PENDING_VERIFICATION` | Current `opera_house.gd`/`opera_act.gd` use one Canvas lifecycle for ordinary unforced and display entry and contain no external-kart route. Focused, full local, and exact-head remote exact-Godot lifecycle/teardown/re-entry coverage is green; external acceptance remains |
 | `MA-OPERA-011` | `FIXED_PENDING_VERIFICATION` | Owner-cut Curtain Dragon/Shadow Phantom/Midnight Maestro are absent from cards, gates, completion, and runtime. Slots 4/9/14 remain raw-preserving tombstones, live mask is `0xBDEF`, and focused, full local, and exact-head remote migration/reward/passive/suspend/leave evidence is green; external acceptance remains |
-| `MA-OPERA-012` | `FIXED_PENDING_VERIFICATION` | Runtime `09e5e356` implements all thirteen exact Castle-room routes, Movie Lounge Racer, deleted/no-backdoor all-career lobby, stable save/reward ownership, exact-room returns, and explicit layers. Run `31678156887` is red only for four-frame reveal sampling; probe-only `ff068db` adds bounded fail-closed semantic readiness and passes the 1379.3-second/64-probe full-local gate. Current verification head `51887315` passes exact-head Probe Suite run `31710377034`; predecessor Android run `31695675866` publishes the matching `18b6150c` dev APK, not a `51887315` APK. Device, child, owner, exact voice, accepted visual, and residual P2 card-composition closure remain open |
-| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates; exact-head run `31710377034` completes the Windows music job in 4m08s with raw 42/42 `ALL OK`. Human listening, voice/mono mix and target-device review remain open |
+| `MA-OPERA-012` | `FIXED_PENDING_VERIFICATION` | Runtime `09e5e356` implements all thirteen exact Castle-room routes, Movie Lounge Racer, deleted/no-backdoor all-career lobby, stable save/reward ownership, exact-room returns, and explicit layers. Run `31678156887` is red only for four-frame reveal sampling; probe-only `ff068db` adds bounded fail-closed semantic readiness and passes the 1379.3-second/64-probe full-local gate. Parent `e6edf559` and current `7391c53c` are overall remote-machine green; current source changes no Opera runtime, while its remote Sky step fails renderer identity. Android run `31724927769` publishes only the matching e6 dev APK. Device, child, owner, exact voice, accepted visual, and residual P2 card-composition closure remain open |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates; integrated-parent run `31722047536` at `e6edf559` completes Windows music 42/42 in 3m33s, and current source-head run `31728755204` completes 42/42 in 3m38s. Earlier branch run `31719143975` is historical corroboration. Human listening, voice/mono mix and target-device review remain open |
 | `MA-ASSET-001` | `CONFIRMED_OPEN` | Current orphan reports: Castle 2.1 MB (9/15 PNGs), Galaxy 11.7 MB (32/32), Opera 166.5 MB (453/548), Lagoon 41.9 MB (48/90); each requires reachability/provenance proof before deletion |
 | `MA-ASSET-004` | `CONFIRMED_OPEN` | Lagoon has 10/41 NPOT textures and about 11.6 MB uncompressed simultaneous residency cost |
 | `MA-ASSET-005` | `DISMISSED_NOT_A_DEFECT` | Sponge/starfish invalid-UID warnings came from four stale ignored local `.godot/imported` files; tracked GLBs/sidecars and isolated import are valid. The GLBs remain separate 3D medium debt under `MA-2D-002` |

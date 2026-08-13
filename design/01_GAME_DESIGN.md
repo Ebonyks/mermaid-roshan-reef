@@ -8,13 +8,15 @@ _HANDOFF_2026-07-25, TOUCH_CENTRIC_REVERSIBLE_HANDOFF_2026-07-25, and the
 2026-08-09 Ballerina, Boxer, Opera-quality and music reconciliations._
 
 _Document-authority sources `5ed0c754`/`7eb94595` remain the exact CHG-029
-chain. CHG-023 verification-maintenance head
-`51887315bd537db2d16bdafcac1bbfa808352351`, exact parent `7eb94595`, passes
-official Godot 4.7.1 full local CI in 1,435.2 seconds/all 64 and exact-head
-Probe Suite run `31710377034`; its static gate has 36 tests, six/six mutation
-controls, 316/316 inventory/ledger, and then-current 36/36 active/records green.
-After `MA-DOC-002` and `MA-DOC-005` transition `VERIFIED_FIXED`, the current
-validator correctly reports 34 active items and retains all 36 records. The
+chain. Exact parent `e6edf559af219edd4e5ce38cab0c5094483be5c6` passes integrated
+dev Probe Suite run `31722047536` with probes 34m25s/63-of-63, 36 document
+tests, six/six stress, 316/316 inventory/ledger, 34 active/36 retained records,
+and music 3m33s/42-of-42. Earlier branch run `31719143975` is corroborating e6
+history. Current two-file Sky diagnostic source
+`7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, exact parent `e6edf559`, passes
+official Godot 4.7.1 full local CI in 1,402.3 seconds/all 64; exact-source run
+`31728755204` is overall green with 63 trusted headings and music 42/42, but
+its nonblocking Sky step internally fails required-Mobile renderer identity. The
 master audit/design language are
 `CANONICAL_CURRENT`; the game-wide audit remains `IN_PROGRESS` /
 `UNSATISFIED`._
@@ -98,7 +100,11 @@ mural. A mural that paints a "prop" at band depth is a layering bug.
 
 > Current audit state: Sky Lagoon's one-mural-layer defect is
 > `MA-VIS-002`; per-card occlusion coverage is `MA-VIS-005`. Closure requires
-> true Canvas/`Sprite2D` evidence, not a legacy depth-buffer repair.
+> true Canvas/`Sprite2D` evidence, not a legacy depth-buffer repair. Source
+> `7391c53c` fixes the capture diagnostic only: its 20/20 ordered Mobile frames
+> still show the mural/spatial runtime and expose tiny frog/otter, subtle focus,
+> animal/Roshan overlap and grounding, and seesaw-contact defects. `MA-VIS-002`
+> and `MA-VIS-006` therefore remain `CONFIRMED_OPEN`.
 
 ### Control grammar (replaces the stick)
 
@@ -171,20 +177,21 @@ layer 15 settled to Opera layer 11; their routes, passive behavior, saves,
 rewards, exact-room returns, dedicated probes, every other executed gate/probe,
 and Windows passed. Probe-only commit `ff068db` preserves runtime `09e5e356`,
 replaces that guess with a bounded fail-closed semantic wait, and passes exact
-local full CI in 1379.3 seconds with all 64 probes. Current verification head
-`51887315bd537db2d16bdafcac1bbfa808352351` passes exact official-Godot full
-local CI in 1,435.2 seconds/all 64 and exact-head Probe Suite run
-`31710377034`: the probes job is 41m12s, trusted loop 18m02 with exactly 63
-headings, and Windows music job 4m08s with raw 42/42 `ALL OK`. All five capture/
-upload pairs completed at the workflow level and uploaded diagnostic artifacts,
-not capture gates or visual passes. Raw Sky Lagoon `LAGOONSHOT` output has 21
-`OK`, 44 `FAIL`, and one `DONE` (66 diagnostic lines), so that diagnostic
-internally fails. Runner warnings and legacy resource diagnostics remain.
-Predecessor Android run `31695675866` succeeds from exact `18b6150c` and
-publishes that predecessor's matching dev APK
+local full CI in 1379.3 seconds with all 64 probes. Historical checkpoints
+through exact parent `e6edf559` pass their bounded local/remote machine gates;
+the parent's inherited Sky 21-OK/44-FAIL/DONE output remains predecessor
+history. Current source `7391c53c` changes only the Sky diagnostic and GAME2D
+manifest entry, passes full local in 1,402.3 seconds/all 64, and locally emits
+20/20 ordered Mobile frames with 1,078 assertions and save restoration. The
+source-head run `31728755204` completes overall SUCCESS; its continue-on-error/
+PNG-only Sky step emits 20 PASS rows and a 20/20 summary, then fails
+`rendering_method|gl_compatibility`/exit 1 because the runner lacks
+`VK_KHR_surface`. No remote JSON or blocking visual result is claimed.
+Integrated-predecessor Android run `31724927769` uses raw checkout/package
+source exact e6 and publishes that predecessor's matching dev APK
 (596,041,412 bytes; SHA-256
-`fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
-No matching APK is claimed for `51887315`.
+`66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`).
+No matching APK is claimed for `7391c53c`.
 Device, child, owner, exact-voice, listening, strict-2D, and accepted-visual
 gates remain open.
 
@@ -278,9 +285,11 @@ and the full runtime 1463.4-second plus repaired-head 1379.3-second/64-probe
 local suites are green, moving
 `MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`. The 22 captures are diagnostic;
 the nine room captures show a residual P2 composition defect because the
-154×154 lower-center cards obscure Roshan's lower body/tail. Exact-head remote
-machine evidence is green at current verification head `51887315`; the
-available exact-SHA dev APK belongs to predecessor `18b6150c`. Device,
+154×154 lower-center cards obscure Roshan's lower body/tail. Parent
+`e6edf559` is remote-green in dev run `31722047536`; current diagnostic source
+`7391c53c` is local- and overall-remote-machine green, though its remote Sky
+step fails renderer identity, and the available
+exact-SHA dev APK belongs to integrated predecessor e6. Device,
 child, owner, exact-voice, listening, strict-2D, and accepted-visual evidence
 remain open.
 
@@ -462,10 +471,12 @@ tracked Markdown paths exactly once and record all 36 material findings,
 including retained terminal history, in
 [`ACTIVE_FINDINGS_2026-08-13.md`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md).
 The chain's fail-closed validator has 36 focused tests and six mutation controls
-green. Exact CHG-023 maintenance checkpoint `51887315`, parent `7eb94595`,
-passes official Godot full local in 1,435.2 seconds/all 64 and exact-head run
-`31710377034`, moving `MA-DOC-002` and `MA-DOC-005` to `VERIFIED_FIXED`.
-`51887315` is verification evidence, not a third CHG-029 source or CHG-030.
+green. Exact parent `e6edf559` preserves that verified authority and passes
+integrated dev Probe Suite `31722047536`; earlier branch `31719143975` is
+historical corroboration, so `MA-DOC-002` and `MA-DOC-005` remain
+`VERIFIED_FIXED`. Manual CHG-030 separately owns two-file diagnostic source
+`7391c53c` and all five live animal states; current catalog counts are 30 IDs/78 references/four emitters/24
+tests/26 manual groups.
 
 - **`CONFIRMED_OPEN`:** game-wide true-2D conversion, fresh-save no-cheat
   reachability proof, exact voice gaps, visual evidence and remaining layering

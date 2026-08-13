@@ -6,29 +6,36 @@ Runtime/audit merge synchronization: 2026-08-13._
 The sealed document-authority sources are
 `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, exact parent `18b6150c`, and
 contiguous hardening source `7eb945957776ab3458a9de71c8be9937e2354720`,
-exact parent `5ed0c754`. Current CHG-023 verification-maintenance head
-`51887315bd537db2d16bdafcac1bbfa808352351`, exact parent `7eb94595`, passes
-official Godot `4.7.1.stable.official.a13da4feb` `scripts/ci.sh` in 1,435.2
-seconds with all 64 trusted probes and exact-head Probe Suite run `31710377034`.
-The exact-`51887315` remote document gate is 36 tests, six/six stress, 316/316
-inventory/ledger, and then-current 36/36 active/records, all green. After the
-two verified document findings transition terminal, the current validator
-correctly reports 34 active items and retains all 36 records. The current Opera product/runtime commit
+exact parent `5ed0c754`. CHG-023 maintenance parent
+`e6edf559af219edd4e5ce38cab0c5094483be5c6` passes integrated dev Probe Suite
+run `31722047536`: probes 34m25s/63-of-63, 36 document tests, six/six stress,
+316/316 inventory/ledger, 34 active/36 retained records, and music 3m33s/
+42-of-42. Earlier branch run `31719143975` is corroborating e6 history. The
+current audit source is two-file Sky diagnostic commit
+`7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, exact parent `e6edf559`; official
+Godot `4.7.1.stable.official.a13da4feb` full local CI is green in 1,402.3
+seconds/all 64. Its exact-source run `31728755204` is overall `SUCCESS` with a
+40m05s probes job/63 trusted headings and music 3m38s/42-of-42; the nonblocking
+Sky step itself fails required-Mobile renderer identity after 20 PASS rows. The current Opera product/runtime commit
 remains `09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its exact local suite is
 green in 1463.4 seconds/all 64, while predecessor probe-readiness head
 `ff068db002202839f920a6f9fb78c942788a3034` is green in 1379.3 seconds/all 64.
-Predecessor integrated product/dev audit baseline
+Historical integrated product/dev audit baseline
 `18b6150c01e1587100dca97c85ebad03f369825a` passes exact-head Probe Suite run
 `31693492735`: the probes job completes in 29m41s with exactly 63 remote trusted
 headings, and the Windows music gate ends 42/42. Android run `31695675866`
 checks out that exact SHA and publishes the matching dev APK (596,041,412 bytes;
 SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
+Latest integrated predecessor `e6edf559` also supplies the raw checkout/package
+source for successful workflow-run Android `31724927769`, which publishes a
+596,041,412-byte APK at SHA-256
+`66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`.
 Historical predecessor run `31661887863` remains green at
 `e0677ae4`; later pre-fix run `31678156887` at `3fc151c8` remains red because
 Ubuntu sampled the 0.25-second Opera reveal after four frames. The APK gate is
 now commit-bound; device, child, owner, exact-voice, listening, strict-2D, and
-accepted-visual gates remain open. The `18b6150c` APK is not a matching
-`51887315` build.
+accepted-visual gates remain open. Neither predecessor APK is a matching
+`7391c53c` build.
 
 ## Why this folder exists
 
@@ -49,10 +56,11 @@ and `7eb94595` establish and harden the **316 tracked Markdown path** inventory,
 give each
 path exactly one row in `05_DOC_LEDGER.md`, and provides full records for all 36
 material findings, including retained terminal history, in
-`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Exact maintenance head
-`51887315` passes both local and remote V3 gates, so `MA-DOC-002` and
-`MA-DOC-005` are `VERIFIED_FIXED`; the stable records remain present after
-terminal transition.
+`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Exact parent `e6edf559`
+preserves the verified document controls, so `MA-DOC-002` and `MA-DOC-005` are
+`VERIFIED_FIXED`; the stable records remain present after terminal transition.
+CHG-030 owns the current diagnostic source and all five live animal states; the catalog is 30 IDs/78 unique
+references/four emitters/24 tests/26 manual groups.
 
 | # | Document | Answers |
 |---|---|---|
@@ -194,12 +202,26 @@ diagnostic internally fails and cannot support visual acceptance. The run is
 also not warning-clean. Android run `31695675866` succeeds from exact
 `18b6150c` and publishes the matching dev APK (596,041,412 bytes; SHA-256
 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
-Current maintenance head `51887315` passes exact-head Probe Suite run
-`31710377034`: Ubuntu takes 41m12s, its 63-heading trusted loop takes 18m02s,
-and Windows music is raw 42/42 ALL OK in 4m08s. Raw Sky Lagoon remains 66
-diagnostic lines—21 OK, 44 FAIL, one DONE—and workflow success/upload remains
-non-authoritative; runner warnings and legacy resource diagnostics persist.
-No matching current APK is claimed. Authoritative visual, exact voice, human
+Later parent `e6edf559` passes integrated dev Probe Suite run `31722047536`
+with probes 34m25s/63-of-63, document controls green, and music 3m33s/42-of-42;
+earlier branch run `31719143975` is corroborating e6 history, and their inherited Sky
+21-OK/44-FAIL/DONE result is predecessor history. Current two-file source
+`7391c53c` passes exact official-Godot full local CI in 1,402.3 seconds/all 64
+and locally produces 20/20 ordered 1280×720 Mobile captures with 1,078
+assertions, isolated save restoration, probe SHA-256
+`f28413263c0bedeed421fae6e9de4626095f03b6010bade8380ad7fb5aa07db9`, and
+GAME2D manifest SHA-256
+`8c70b9aeaba5302322bdd44ca84d8a2b76fca053a091753e0e04676ee407fb00`.
+Workflow-run Android `31724927769` uses raw checkout/package source exact e6
+and publishes the latest integrated-predecessor APK (596,041,412 bytes;
+SHA-256 `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`).
+Exact-source run `31728755204` completes overall green, but the continue-on-
+error/PNG-only Sky step emits 20 PASS rows and its 20/20 summary, then
+`GLOBAL|FAIL|rendering_method|gl_compatibility`, `RESULT|FAIL`, and exit 1
+because `VK_KHR_surface` is missing. PNGs upload and JSON does not. Review exposes tiny frog/otter and subtle-focus P1
+risks plus animal/Roshan overlap, weak grounding, and seesaw-contact P2 defects;
+the one-mural/spatial runtime keeps `MA-VIS-002` and `MA-VIS-006` open. No
+matching current APK or remote JSON/art acceptance is claimed. Authoritative visual, exact voice, human
 listening, device, child, owner, and strict-zero 2D evidence remain open.
 
 Current Opera content is 13 careers, 53 phases, and 27 modes with newer

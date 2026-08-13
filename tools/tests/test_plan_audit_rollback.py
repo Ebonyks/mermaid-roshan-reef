@@ -36,6 +36,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT,
 			planner.AUDIT_DOCUMENT_AUTHORITY_PARENT,
 			planner.AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_COMMIT,
+			planner.AUDIT_SKY_LAGOON_CAPTURE_PARENT,
 		}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
@@ -50,11 +51,11 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		planner.validate_catalog()
 		self.assertEqual(
 			[group.change_id for group in planner.CATALOG],
-			[f"CHG-{number:03d}" for number in range(1, 30)],
+			[f"CHG-{number:03d}" for number in range(1, 31)],
 		)
 		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
-		self.assertEqual(len(owned_refs), 77)
-		self.assertEqual(len(set(owned_refs)), 77)
+		self.assertEqual(len(owned_refs), 78)
+		self.assertEqual(len(set(owned_refs)), 78)
 		self.assertEqual(
 			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
 			4,
@@ -262,7 +263,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 25)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -361,7 +362,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		)
 		self.assertEqual(len(group.paths), 15)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 25)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -411,12 +412,12 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			self.assertIn(marker, section)
 
 		for marker in (
-			"29 permanent change IDs",
-			"`CHG-001` through `CHG-029`",
-			"77 uniquely owned source-",
+			"30 permanent change IDs",
+			"`CHG-001` through `CHG-030`",
+			"78 uniquely owned source-",
 			"four guarded-script emitters",
-			"23 planner unit tests",
-			"The other 25 groups refuse",
+			"24 planner unit tests",
+			"The other 26 groups refuse",
 		):
 			self.assertIn(marker, ledger)
 
@@ -474,7 +475,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			("CHG-005", "CHG-011", "CHG-015", "CHG-023", "CHG-025", "CHG-027"),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 25)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -608,7 +609,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			("CHG-005", "CHG-008", "CHG-011", "CHG-023", "CHG-025", "CHG-028"),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 25)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
 		for gate in (
 			"python -B -m unittest tools.tests.test_audit_document_authority -v",
 			"python -B tools/audit_document_authority.py --stress",
@@ -640,7 +641,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"inventory/ledger 316/316",
 			"post-transition validator reports 34 active items and 36 retained records",
 			"not a third CHG-029 source",
-			"or CHG-030",
+			"or part of the separately bounded CHG-030 capture-audit source",
 			"exact 22-path union",
 			"no rollback script may be emitted",
 		):
@@ -675,6 +676,115 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"34 active items and retains all 36 records",
 			"VERIFIED_FIXED",
 			"IN_PROGRESS / UNSATISFIED",
+			"MANUAL_RECONSTRUCTION_REQUIRED",
+		):
+			self.assertIn(marker, normalized_section)
+
+	def test_sky_lagoon_capture_record_is_exact_manual_and_bounded(self) -> None:
+		group = planner.select_group("CHG-030")
+		self.assertEqual(
+			planner.AUDIT_SKY_LAGOON_CAPTURE_COMMIT,
+			"7391c53cd6981a256bd8bfe40ccbb9f72fb723fe",
+		)
+		self.assertEqual(
+			planner.AUDIT_SKY_LAGOON_CAPTURE_PARENT,
+			"e6edf559af219edd4e5ce38cab0c5094483be5c6",
+		)
+		self.assertEqual(group.commits, (planner.AUDIT_SKY_LAGOON_CAPTURE_COMMIT,))
+		self.assertEqual(group.baseline_commit, planner.AUDIT_SKY_LAGOON_CAPTURE_PARENT)
+		self.assertEqual(group.rollback_start, planner.AUDIT_SKY_LAGOON_CAPTURE_COMMIT)
+		self.assertEqual(
+			group.paths,
+			(
+				"scripts/probe_sky_lagoon_art.gd",
+				"tools/game_2d_migration_manifest.json",
+			),
+		)
+		self.assertEqual(
+			group.dependencies,
+			(
+				"CHG-005",
+				"CHG-006",
+				"CHG-008",
+				"CHG-011",
+				"CHG-023",
+				"CHG-025",
+				"CHG-029",
+			),
+		)
+		self.assertEqual(group.safety, planner.MANUAL)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
+		self.assertNotIn(".github/workflows/probes.yml", group.paths)
+		for gate in (
+			"python -m gdtoolkit.parser scripts/probe_sky_lagoon_art.gd",
+			"python tools/lint_inference.py scripts/probe_sky_lagoon_art.gd",
+			"python -B tools/audit_game_2d.py --regression-gate",
+			"GODOT=\"$GODOT\" scripts/ci.sh",
+		):
+			self.assertIn(gate, group.gates)
+
+		plan = planner.render_plan(group)
+		for marker in (
+			"exactly two paths with 1,029 insertions and 357 deletions",
+			"scripts/probe_sky_lagoon_art.gd is 1,025 insertions/348 deletions",
+			"tools/game_2d_migration_manifest.json is 4 insertions/9 deletions",
+			"production player camera at 1280x720",
+			"five animals",
+			"1,402.3 seconds with all 64 trusted probes",
+			"20/20 PASS rows",
+			"1,078/1,078 passing assertions",
+			"Probe Suite run 31728755204",
+			"40m05s probes job has 63/63 trusted headings",
+			"GLOBAL|FAIL|rendering_method|gl_compatibility",
+			"PNG-only artifact omits the JSON result",
+			"Android run 31724927769",
+			"66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c",
+			"capture and upload steps still use continue-on-error",
+			"upload glob includes PNG files only",
+			"JSON manifest is therefore local evidence",
+			"MA-VIS-002 and MA-VIS-006 remain open",
+			"animal subjects read small at phone scale",
+			"silhouettes overlap or compete",
+			"seesaw action is visually ambiguous",
+			"focus-state changes can be too subtle",
+			"Do not raw-revert 7391c53cd6981a256bd8bfe40ccbb9f72fb723fe",
+			"no rollback script may be emitted",
+		):
+			self.assertIn(marker, plan)
+		with self.assertRaises(planner.UnsafePlanError):
+			planner.render_script(group)
+
+		ledger = (
+			Path(__file__).resolve().parents[2]
+			/ "audit"
+			/ "MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+		).read_text(encoding="utf-8")
+		section = ledger.split("### CHG-030", 1)[1].split("## 5.", 1)[0]
+		normalized_section = re.sub(r"\s+", " ", section)
+		for marker in (
+			"7391c53cd6981a256bd8bfe40ccbb9f72fb723fe",
+			"e6edf559af219edd4e5ce38cab0c5094483be5c6",
+			"exactly two paths",
+			"1,029 insertions and 357 deletions",
+			"20 exact 1280×720 PNGs",
+			"five live route/play targets, five animals",
+			"1,078/1,078",
+			"1,402.3 seconds",
+			"all 64 trusted probes",
+			"31728755204",
+			"40m05s probes job",
+			"20/20/0/0",
+			"GLOBAL|FAIL|rendering_method|gl_compatibility",
+			"RESULT|FAIL",
+			"31724927769",
+			"continue-on-error",
+			"PNG-only upload glob",
+			"MA-VIS-002",
+			"MA-VIS-006",
+			"small animals",
+			"overlapping silhouettes",
+			"seesaw action is ambiguous",
+			"subtle focus feedback",
 			"MANUAL_RECONSTRUCTION_REQUIRED",
 		):
 			self.assertIn(marker, normalized_section)

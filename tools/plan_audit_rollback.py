@@ -42,6 +42,8 @@ AUDIT_DOCUMENT_AUTHORITY_HARDENING_COMMIT = "7eb945957776ab3458a9de71c8be9937e23
 AUDIT_DOCUMENT_AUTHORITY_HARDENING_PARENT = AUDIT_DOCUMENT_AUTHORITY_COMMIT
 AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_COMMIT = "51887315bd537db2d16bdafcac1bbfa808352351"
 AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_PARENT = AUDIT_DOCUMENT_AUTHORITY_HARDENING_COMMIT
+AUDIT_SKY_LAGOON_CAPTURE_COMMIT = "7391c53cd6981a256bd8bfe40ccbb9f72fb723fe"
+AUDIT_SKY_LAGOON_CAPTURE_PARENT = "e6edf559af219edd4e5ce38cab0c5094483be5c6"
 GODOT_REQUIREMENT = "exact Godot 4.7.1-stable (not 4.4 or a development build)"
 PROTECTED_PATHS = (
 	"assets/book/",
@@ -1058,10 +1060,61 @@ CATALOG: tuple[ChangeGroup, ...] = (
 			"At the historical source boundary, exact official Godot 4.7.1 local scripts/ci.sh is green at first source 5ed0c754 after 1,359.8 seconds with all 64 trusted local probes, while no direct full-local or remote result was recorded for source head 7eb94595. Exact CHG-023 verification-maintenance head 51887315bd537db2d16bdafcac1bbfa808352351, whose parent is 7eb945957776ab3458a9de71c8be9937e2354720, is now green locally after 1,435.2 seconds/all 64 and remotely in Probe Suite run 31710377034: 36 document-authority tests, six mutation controls, 316/316 inventory/ledger parity, and then-current 36/36 active-record parity are green. MA-DOC-002 and MA-DOC-005 are VERIFIED_FIXED; after those terminal transitions the current validator reports 34 active items and retains all 36 records, while the master audit remains IN_PROGRESS / UNSATISFIED.",
 			"The exact verification checkpoint reports inventory/ledger 316/316 and then-current active-record parity 36/36; the post-transition validator reports 34 active items and 36 retained records. These are repository facts, not runtime, device, child, owner, visual, voice, listening, strict-2D, or release acceptance.",
 			"Neither source changes a runtime script, scene, save key, protected original, asset, audio, generated-art payload, or gameplay behavior. The first source repairs historical Markdown structure and scopes superseded spatial claims; the second adds fail-closed multiline stale-claim regressions and synchronizes sealed evidence.",
-			"The post-7eb planner/catalog/count update, exact 51887315 verification checkpoint, and later terminal-lifecycle/current-authority prose synchronization are CHG-023 maintenance, not a third CHG-029 source, a 78th catalog-owned reference, or CHG-030.",
+			"The post-7eb planner/catalog/count update, exact 51887315 verification checkpoint, and later terminal-lifecycle/current-authority prose synchronization are CHG-023 maintenance, not a third CHG-029 source or part of the separately bounded CHG-030 capture-audit source.",
 			"A partial inverse can leave CI invoking deleted tooling, hide the canonical register behind .gitignore while master links still target it, remove required ledger rows, restore unscoped legacy-3D/stale evidence claims, or remove hardening tests while retaining their authority claims. Do not raw-revert or selectively restore either source.",
 		),
 		manual_reason="Automation is refused because the exact two-source chain couples a high-risk workflow gate, local CI, Git visibility, exhaustive authority inventory, canonical records, multiline falsification controls, and synchronized audit/design/rollback claims. Correct a disputed rule or fact through one reviewed superseding documentation migration across every affected validator/test/CI/master/findings/ledger/current-authority path. A complete owner-approved inverse must start at exact chain head 7eb945957776ab3458a9de71c8be9937e2354720, preserve every later truthful record, cover the exact 22-path union, and pass every listed gate; no rollback script may be emitted.",
+	),
+	_group(
+		"CHG-030",
+		"Fail-closed Sky Lagoon promenade capture audit",
+		"Replaces the obsolete courtyard-oriented Sky Lagoon screenshot diagnostic with a fail-closed 20-state audit of the shipping promenade through the child's production camera, writes hash/state/assertion provenance, protects save state, and synchronizes the exact GAME2D probe inventory without changing production runtime or art.",
+		AUDIT_SKY_LAGOON_CAPTURE_PARENT,
+		(AUDIT_SKY_LAGOON_CAPTURE_COMMIT,),
+		(
+			"scripts/probe_sky_lagoon_art.gd",
+			"tools/game_2d_migration_manifest.json",
+		),
+		(
+			"CHG-005",
+			"CHG-006",
+			"CHG-008",
+			"CHG-011",
+			"CHG-023",
+			"CHG-025",
+			"CHG-029",
+		),
+		(
+			"git diff-tree --no-commit-id --name-only -r 7391c53cd6981a256bd8bfe40ccbb9f72fb723fe",
+			"python -m gdtoolkit.parser scripts/probe_sky_lagoon_art.gd",
+			"python tools/lint_inference.py scripts/probe_sky_lagoon_art.gd",
+			"\"$GODOT\" --headless --check-only --script scripts/probe_sky_lagoon_art.gd",
+			"SKY_LAGOON_SHOT_OUT=\"<empty-temp-dir>\" \"$GODOT\" --headless --rendering-method mobile -s scripts/probe_sky_lagoon_art.gd",
+			"verify 20 exact PNGs plus sky_lagoon_review_manifest.json, 20 PASS / 0 FAIL / 0 SKIPPED, and 1,078 / 1,078 capture assertions",
+			"\"$GODOT\" --headless -s scripts/probe_l2.gd",
+			"\"$GODOT\" --headless -s scripts/probe_l2_living_cards.gd",
+			"\"$GODOT\" --headless -s scripts/probe_sky_lagoon_animals.gd",
+			"\"$GODOT\" --headless -s scripts/probe_l2_reenter.gd",
+			"\"$GODOT\" --headless -s scripts/probe_train.gd",
+			"python -B tools/audit_game_2d.py --stress",
+			"python -B tools/audit_game_2d.py",
+			"python -B tools/audit_game_2d.py --regression-gate",
+			"GODOT=\"$GODOT\" scripts/ci.sh",
+			"git diff --check",
+		),
+		rollback_start=AUDIT_SKY_LAGOON_CAPTURE_COMMIT,
+		warnings=(
+			"Exact source 7391c53cd6981a256bd8bfe40ccbb9f72fb723fe has exact parent and comparison baseline e6edf559af219edd4e5ce38cab0c5094483be5c6; it changes exactly two paths with 1,029 insertions and 357 deletions: scripts/probe_sky_lagoon_art.gd is 1,025 insertions/348 deletions and tools/game_2d_migration_manifest.json is 4 insertions/9 deletions.",
+			"The source changes no workflow, production runtime, scene, save schema, protected original, audio, generated-art payload, or shipping art. The GAME2D manifest edit only synchronizes inventory head/date and the rewritten probe's exact marker counts; migration debt remains debt, not a waiver.",
+			"The rewritten probe uses the active production player camera at 1280x720 and records exactly 20 current promenade states spanning arrival and Reef return, day/night overview and focus, five live targets, five animals, three playground actions, Castle focus, action frame identity, on-screen subject facts, image-quality samples, exact output membership, source hash, and normal-save before/after fingerprints.",
+			"Exact-source local evidence is green under official Godot 4.7.1: scripts/ci.sh completed in 1,402.3 seconds with all 64 trusted probes, and the fresh Mobile-render capture produced 20/20 PASS rows, 20 exact PNGs, no failed or skipped row, and 1,078/1,078 passing assertions while leaving the normal save unchanged.",
+			"Exact-head Probe Suite run 31728755204 for 7391c53cd6981a256bd8bfe40ccbb9f72fb723fe completes workflow-success: its 40m05s probes job has 63/63 trusted headings and its 3m38s music job is 42/42. The non-blocking Sky process is not a diagnostic PASS: 20 ordered rows and the 20/20/0/0 summary pass, then the binding renderer gate emits GLOBAL|FAIL|rendering_method|gl_compatibility and RESULT|FAIL with exit one because the runner lacks VK_KHR_surface and falls back to OpenGL. The PNG-only artifact omits the JSON result. Integrated predecessor e6edf559 separately passes dev run 31722047536, and Android run 31724927769 publishes its 596,041,412-byte APK at SHA-256 66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c; no matching 7391c53c APK, remote Mobile diagnostic PASS, or release result is claimed.",
+			"The existing workflow remains deliberately non-blocking: the capture and upload steps still use continue-on-error, and the upload glob includes PNG files only. The JSON manifest is therefore local evidence unless separately preserved, a probe failure cannot fail the workflow, and workflow success or artifact upload is not visual acceptance.",
+			"Threshold and state assertions establish deterministic nonblank/current-state evidence, not aesthetic quality, per-screen depth, seam freedom, child readability, owner art approval, target-phone behavior, or authoritative human review. MA-VIS-002 and MA-VIS-006 remain open, as do applicable runtime, device, child, strict-2D, art, APK, and release defects or gates.",
+			"Fresh human review identifies additional unresolved visual risks: the animal subjects read small at phone scale, some character/prop silhouettes overlap or compete, the seesaw action is visually ambiguous, and focus-state changes can be too subtle. These are findings to repair and re-review, not machine-closed defects and not reasons to relax capture assertions.",
+			"A raw inverse would restore the retired courtyard-role assumptions, second review camera, misleading 1280x1024 framing, false failure surface, and stale GAME2D probe counts. A partial one-file inverse would desynchronize the probe source from the manifest inventory.",
+		),
+		manual_reason="Automation is refused because this exact two-path source couples the fail-closed capture contract to its GAME2D inventory fingerprint, while its predecessor can report misleading failures against retired courtyard roles and does not protect the evidence/save boundary. Do not raw-revert 7391c53cd6981a256bd8bfe40ccbb9f72fb723fe or restore either old file wholesale. If an owner-approved inverse is necessary, start a clean branch at exact 7391c53cd6981a256bd8bfe40ccbb9f72fb723fe, hand-construct a two-path replacement that preserves the production camera, exact current-state/output/provenance/save guards and honest GAME2D inventory, then run every listed gate; no rollback script may be emitted.",
 	),
 )
 
