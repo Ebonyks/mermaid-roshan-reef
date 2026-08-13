@@ -22,6 +22,8 @@
   engine, [master-audit](MASTER_AUDIT_2026-08-09.md), and
   [comprehensive-design-language](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md)
 - **Program state:** `IN_PROGRESS / UNSATISFIED`
+- **Catalog inventory:** 24 permanent change IDs, 69 uniquely owned source-
+  commit references, four guarded-script emitters, and 18 planner unit tests
 
 This is the durable answer to the fact that a long audit can produce both
 improvements and regressions. It records what changed, why the change may be
@@ -85,9 +87,11 @@ git rev-parse HEAD
 The current catalog pins CHG-024 to its exact two-parent reconciliation merge
 `f3b0de078898a8b4faddb2c738c4403180eff928`. Its guarded script starts there
 and recovers the exact current-dev parent tree. The catalog pins post-
-integration CHG-005, CHG-015, and CHG-023 experiments to
+integration CHG-005 and CHG-023 experiments to
 `dacef1405b6a8cb470117e824aebac3a8ca500af`, which contains their recorded
-follow-up commits. Other groups remain pinned to integration commit
+follow-up commits. CHG-015 starts at its newer exact portability follow-up
+`af4189a99cfd5a32d0df0f75185f6912d3889399`. Other groups remain pinned to
+integration commit
 `ad36ee9ffe4eae4d5c4183d0546d775de0218213`; in particular, the three emitted
 CHG-020/021/022 scripts intentionally start there. The planner output is the
 authority if a later append-only maintenance revision changes this mapping.
@@ -127,7 +131,7 @@ python -B tools/plan_audit_rollback.py CHG-021 --emit-script
 ```
 
 Only CHG-020 and CHG-021, plus all-or-nothing CHG-022 and CHG-024, can emit a
-script. Every
+script: four emitters across 24 stable IDs. Every
 other ID refuses automation even when its human ledger mode says
 `guarded_single`: shared-path, product-policy, or not-yet-committed context
 still requires a reviewed manual inverse. Emitted scripts create a dedicated
@@ -596,10 +600,14 @@ exclusive and must never be applied on the same rollback branch.
 
 - **Sources:** `df5b4cf7f98cd1ce09468b2551cd3bd5bb8ddf4c` and dependency-light
   test follow-up `5961fd968066e4644e2b77f73c72e990c4bef4ac`; Opera PNG portability
-  follow-up `fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08`.
+  follow-up `fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08`; declared-text hashing
+  follow-up `af4189a99cfd5a32d0df0f75185f6912d3889399`.
 - **Paths:** Castle interaction manifest/approval ledger, delivery/native build
   tools and tests; Opera minigame-art generator/checker, focused tests, and its
-  governed `PROVENANCE.json`/`REVIEW.md` evidence.
+  governed `PROVENANCE.json`/`REVIEW.md` evidence. The `af4189a9` inverse is
+  exactly `assets_src/imagegen/opera_minigame_quality_2026-08-09/PROVENANCE.json`,
+  `tools/prepare_opera_minigame_art.py`, and
+  `tools/tests/test_prepare_opera_minigame_art.py`.
 - **Outcome / positive effect:** deterministic Castle provenance checks are
   stable across Windows/Linux newline conventions. Opera's checker now accepts
   only a platform-dependent PNG `IDAT` recompression when CRC-checked PNG
@@ -623,14 +631,42 @@ exclusive and must never be applied on the same rollback branch.
   `CHECK OK: 39` on Linux in run `31456633826`; that run later fails at the
   separate missing-FFmpeg music gate recorded under CHG-005/020. This is exact
   focused evidence, not a green full-workflow or release claim.
+- **2026-08-12 exact-head checkpoint and repair:** GitHub run `31648427712`
+  passed all 42 deterministic music deliveries on Windows. Ubuntu static
+  checking failed only because the checked-in Opera `PROVENANCE.json` retained
+  the raw CRLF-checkout hash for the declared text input
+  `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json`, while
+  the Linux checkout supplied LF bytes. Commit `af4189a9` makes hashing
+  LF-canonical only for that explicitly declared JSON text input; every binary
+  input remains byte-exact. It refreshes the governed provenance and passes all
+  10 focused `test_prepare_opera_minigame_art` tests plus a clean LF `git
+  archive` check of all 42 deterministic Opera files. This repairs the isolated
+  static false rejection; it does not turn failed run `31648427712` green or
+  close any capture, device, child, audio-listening, or owner gate.
+- **2026-08-12 replacement exact-head success:** GitHub run `31649113587` at
+  exact commit `af4189a99cfd5a32d0df0f75185f6912d3889399` completed successfully.
+  The Ubuntu probes job finished in 35m27s with static checks, import, analyzer,
+  all 63 trusted probes, boot, balance, the Opera manifest, and five diagnostic
+  capture/upload pairs green. The Windows music job finished in 3m55s with all
+  42 deliveries green. Those diagnostic captures prove that their CI
+  collection/upload paths ran; they are not accepted visual evidence and do
+  not close Mobile capture, device, child, audio-listening, protected-voice,
+  identity/art, or owner-acceptance gates.
 - **Rollback:** `guarded_chain`; attempt `5961fd96` then `df5b4cf7` only for a
   reproduced Castle false acceptance/rejection. Reverse Opera follow-up commit
   `fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08` only on a dedicated rollback
   branch and only after reviewing conflicts from later workflow/log changes.
-  Reverse its checker/tests and generated review wording; never regenerate or
-  replace accepted delivery PNGs.
+  To reverse the newer text-hash fix, start a clean dedicated branch at exact
+  `af4189a99cfd5a32d0df0f75185f6912d3889399`, run `git revert --no-commit
+  af4189a99cfd5a32d0df0f75185f6912d3889399`, and require the diff to contain
+  exactly the three `af4189a9` paths named above. A raw inverse restores the
+  known stale CRLF-sensitive provenance, so accept it only with a reviewed
+  replacement that still keeps binaries byte-exact. Reverse the older
+  checker's tests and generated review wording only when isolating its own
+  defect; never regenerate or replace accepted delivery PNGs.
   Preserve delivery-hash strictness and run both Castle builders/checks, the
-  Opera 39-artifact check, interaction probe, cross-platform tests, and full CI.
+  focused `python -B -m unittest tools.tests.test_prepare_opera_minigame_art
+  -v`, Opera 42-file check, interaction probe, cross-platform tests, and full CI.
 
 ### CHG-016 — General Opera careers, 13 atlases, and minigame art
 

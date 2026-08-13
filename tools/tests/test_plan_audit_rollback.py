@@ -46,6 +46,13 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			[group.change_id for group in planner.CATALOG],
 			[f"CHG-{number:03d}" for number in range(1, 25)],
 		)
+		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
+		self.assertEqual(len(owned_refs), 69)
+		self.assertEqual(len(set(owned_refs)), 69)
+		self.assertEqual(
+			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
+			4,
+		)
 
 	def test_followup_commit_anchors_are_catalogued(self) -> None:
 		self.assertIn(
@@ -56,12 +63,20 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08",
 			planner.select_group("CHG-015").commits,
 		)
-		for change_id in ("CHG-005", "CHG-015", "CHG-023"):
+		self.assertIn(
+			planner.AUDIT_CHG015_FOLLOWUP_COMMIT,
+			planner.select_group("CHG-015").commits,
+		)
+		for change_id in ("CHG-005", "CHG-023"):
 			with self.subTest(rollback_start=change_id):
 				self.assertEqual(
 					planner.select_group(change_id).rollback_start,
 					planner.AUDIT_CATALOG_COMMIT,
 				)
+		self.assertEqual(
+			planner.select_group("CHG-015").rollback_start,
+			planner.AUDIT_CHG015_FOLLOWUP_COMMIT,
+		)
 		for change_id in ("CHG-020", "CHG-021", "CHG-022"):
 			with self.subTest(integration_start=change_id):
 				self.assertEqual(
@@ -82,6 +97,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"CHG-015": {
 				"assets/flats/castle/interactions_v4/castle_interactions_v4.json",
 				"assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+				"assets_src/imagegen/opera_minigame_quality_2026-08-09/PROVENANCE.json",
 				"assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md",
 				"audit/MASTER_AUDIT_2026-08-09.md",
 				"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
@@ -108,6 +124,10 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		)
 		self.assertIn(
 			"python tools/prepare_opera_minigame_art.py --check-only",
+			planner.select_group("CHG-015").gates,
+		)
+		self.assertIn(
+			"python -B -m unittest tools.tests.test_prepare_opera_minigame_art -v",
 			planner.select_group("CHG-015").gates,
 		)
 		process = planner.select_group("CHG-023")

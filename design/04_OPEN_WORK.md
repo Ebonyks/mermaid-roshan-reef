@@ -2,7 +2,8 @@
 
 _Original consolidation: 2026-08-02. Re-triaged against
 `audit/MASTER_AUDIT_2026-08-09.md` on 2026-08-09; synchronized to merge
-`f3b0de07` on 2026-08-12._
+`f3b0de07` on 2026-08-12. Latest CI-repair checkpoint is `af4189a9`; the last
+complete local-suite checkpoint remains `f3b0de07`._
 
 This is a navigation and lifecycle crosswalk, not a bug dump and not a set of
 canonical finding records. The complete current index, evidence limits,
@@ -47,17 +48,17 @@ cycle is `REPAIRING`.
 | `MA-OPERA-001` | `FIXED_PENDING_VERIFICATION` | Chef behavior/art routing and the resolved merged-worktree local full suite are green; final-SHA two-aspect capture, device and owner review still decide closure |
 | `MA-OPERA-002` / `MA-OPERA-004` | `CONFIRMED_OPEN` | Detective's painted crown is not proved healed, and no complete accepted all-career capture matrix exists |
 | `MA-OPERA-003` / `MA-OPERA-006` | `CONFIRMED_OPEN` | Split and re-audit the remaining fallback/art-fiction/voice subclaims; several subclaims changed, so the older grouped wording cannot be closed or imported wholesale |
-| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas and three-act specialist pass the current local full suite; current exact-head remote, authoritative capture, device, child and owner review remain |
+| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas and three-act specialist pass the last complete local suite at `f3b0de07` and exact-head remote run `31649113587`; authoritative capture, device, child and owner review remain |
 | `MA-OPERA-007` | `OWNER_DECISION_REQUIRED` | Decide the above-water Farmer/Doctor setting before treating it as a defect or repair |
 | `MA-OPERA-008` | `VERIFIED_FIXED` | The display/forced-2D Canvas Racer's lap-two cue and finale defect are fixed; this bounded closure does not cover the ordinary-headless source split |
-| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes the current local full suite; current exact-head remote, authoritative capture, device, child and owner review remain. Boxer V2 is only a separate docs-branch proposal |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes the last complete local suite at `f3b0de07` and exact-head remote run `31649113587`; authoritative capture, device, child and owner review remain. Boxer V2 is only a separate docs-branch proposal |
 | `MA-OPERA-010` | `CONFIRMED_OPEN` | Display/device UI stays on Canvas, but ordinary unforced headless still selects a legacy Opera lobby/racer path that may attach `scripts/kart.gd`; remove the source/test-medium split and prove the unforced lifecycle |
-| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates and the pinned-Windows exact-head job verifies 42/42 deliveries; human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
-| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64 local / 63 remote trusted entries with only the human-art display probe local; historical `dacef140` run passed its then-current 62 remote entries, while current exact-head remote execution remains open under `MA-RELEASE-001` |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates, and successful replacement run `31649113587` verifies 42/42 on pinned Windows; human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64 local / 63 remote trusted entries with only the human-art display probe local; replacement run `31649113587` executes all current 63 remote entries at exact `af4189a9`, while `f3b0de07` remains the last full 64-probe local checkpoint |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 106 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
-| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–024 cover 68 unique catalog-owned commit references; the written ledger and read-only planner agree exactly, only CHG-020/021/022/024 emit guarded scripts, and 18 unit plus independent adversarial checks are green |
+| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–024 cover 69 unique catalog-owned commit references, including `af4189a9` under CHG-015; the written ledger and read-only planner agree exactly, only CHG-020/021/022/024 emit guarded scripts, and 18 unit plus independent adversarial checks are green |
 | `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
-| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Current merge `f3b0de07` completes exact Godot 4.7.1 local `scripts/ci.sh` in 1437.1 seconds with 64 trusted probes and static/provenance gates green. Historical `dacef140` remote run does not certify this merge. Exact-head remote, matching APK, authoritative visual, listening, device, child, owner and strict-2D evidence remain open |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Merge `f3b0de07` completes exact local CI in 1437.1 seconds with 64 probes. Failed run `31648427712` exposes the text newline hash; repair `af4189a9` preserves exact binary hashes. Replacement `31649113587` succeeds at exact `af4189a9`: Ubuntu static/import/full analyzer/63 probes/boot/advisory balance/Opera manifest/five diagnostic capture pairs are green in 35m27s, and Windows music 42/42 is green in 3m55s. The captures grant no visual acceptance. A full local suite after the repair, matching APK, authoritative visual, listening, device, child, owner and strict-2D evidence remain open |
 
 Current P2/owner-decision work remains indexed in the master audit: asset
 orphans/NPOT residency, exhaustive probe classification, the standalone

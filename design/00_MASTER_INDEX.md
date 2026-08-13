@@ -3,6 +3,10 @@
 _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
 Runtime/audit merge synchronization: 2026-08-12._
 
+The latest CI-repair checkpoint is
+`af4189a99cfd5a32d0df0f75185f6912d3889399`; the last complete local-suite
+checkpoint remains merge `f3b0de07`.
+
 ## Why this folder exists
 
 The project accumulated hundreds of design documents, audits, work orders and
@@ -95,9 +99,18 @@ Exact Godot 4.7.1-stable local `scripts/ci.sh` exits 0 at `f3b0de07` after
 falsification controls, and current static/provenance gates green. Visual
 advisory remains `UNSATISFIED`: 16 FAIL, 17 REVIEW_OPEN, two
 MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE. Historical
-remote run `31457593351` at `dacef140` remains evidence for that older SHA; no
-exact-`f3b0de07` remote, APK, device, child, owner, listening, strict-2D, or
-authoritative visual-evidence result is claimed.
+remote run `31457593351` at `dacef140` remains evidence for that older SHA.
+Run `31648427712` at `bbc817ef` proves the pinned Windows music job 42/42 but
+fails only the Ubuntu static Opera-art gate on a CRLF-vs-LF raw hash for the
+declared text input `GENERATION.json`; import, analyzer, and probes did not run.
+Repair checkpoint `af4189a9` LF-canonicalizes only that declared text hash, keeps
+binary hashes exact, and passes 10 focused tests plus Windows and LF-clean
+Opera checks at 42/42. Replacement run `31649113587` succeeds at exact
+`af4189a9`: the 35m27s Ubuntu job passes static/import/full analyzer/all 63
+remote probes/boot/advisory balance/Opera manifest and five diagnostic capture
+pairs; the 3m55s Windows job passes music 42/42. No full local suite at
+`af4189a9`, and no APK, device, child, owner, listening, strict-2D, or
+authoritative visual-evidence result, is claimed; the captures are diagnostic.
 
 Current Opera is 13 careers, 53 phases, and 27 modes with newer diegetic rooms,
 the integrated Candymaker, current Ballerina/Boxer, and the Canvas Racer on the

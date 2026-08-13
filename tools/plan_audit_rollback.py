@@ -21,6 +21,7 @@ AUDIT_INTEGRATION_COMMIT = "ad36ee9ffe4eae4d5c4183d0546d775de0218213"
 AUDIT_INTEGRATION_PARENT = "7b5d1209063a22002118c364767d537b34b3dc6f"
 AUDIT_UPSTREAM_PARENT = "245c16137fae82271dabac456d5ab04d843463a8"
 AUDIT_CATALOG_COMMIT = "dacef1405b6a8cb470117e824aebac3a8ca500af"
+AUDIT_CHG015_FOLLOWUP_COMMIT = "af4189a99cfd5a32d0df0f75185f6912d3889399"
 AUDIT_RECONCILIATION_COMMIT = "f3b0de078898a8b4faddb2c738c4403180eff928"
 AUDIT_RECONCILIATION_PARENT = "ea6185fdb1a687a20a6d118bdc368400e2c30f60"
 AUDIT_RECONCILIATION_AUDIT_PARENT = "5f58ef0a9db7aa9593f85131e1b855e51b84aea8"
@@ -478,16 +479,18 @@ CATALOG: tuple[ChangeGroup, ...] = (
 	_group(
 		"CHG-015",
 		"Castle and Opera cross-platform generated-art stability",
-		"Made Castle text provenance and Opera generated-art checks stable across platforms without weakening semantic, scanline, pixel, or delivery-hash controls.",
+		"Made Castle text provenance and Opera generated-art checks stable across platforms, including LF-canonical hashing for the one declared JSON text input, without weakening semantic, scanline, pixel, binary-byte, or delivery-hash controls.",
 		"86d0c2434579c1b0e226414a9601dcce4d5b9e22",
 		(
 			"df5b4cf7f98cd1ce09468b2551cd3bd5bb8ddf4c",
 			"5961fd968066e4644e2b77f73c72e990c4bef4ac",
 			"fe10ffd2f36606eaad99e1e8881c1c84ffc5fa08",
+			AUDIT_CHG015_FOLLOWUP_COMMIT,
 		),
 		(
 			"assets/flats/castle/interactions_v4/castle_interactions_v4.json",
 			"assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+			"assets_src/imagegen/opera_minigame_quality_2026-08-09/PROVENANCE.json",
 			"assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md",
 			"audit/MASTER_AUDIT_2026-08-09.md",
 			"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
@@ -501,11 +504,12 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		(),
 		(
 			"python -m unittest tools.test_build_castle_interaction_v4_delivery tools.tests.test_prepare_opera_minigame_art",
+			"python -B -m unittest tools.tests.test_prepare_opera_minigame_art -v",
 			"python tools/build_castle_interaction_v4_delivery.py --check",
 			"python tools/prepare_opera_minigame_art.py --check-only",
 		),
-		rollback_start=AUDIT_CATALOG_COMMIT,
-		manual_reason="Although bounded, reverting a portability fix has no safe automatic benefit and could make Windows and CI disagree.",
+		rollback_start=AUDIT_CHG015_FOLLOWUP_COMMIT,
+		manual_reason="Although bounded, reverting a portability fix has no safe automatic benefit and could make Windows and CI disagree; reversing af4189a9 raw also restores stale CRLF-sensitive provenance unless a replacement design is ready.",
 	),
 	_group(
 		"CHG-016",

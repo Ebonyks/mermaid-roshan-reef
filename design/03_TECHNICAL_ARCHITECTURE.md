@@ -229,6 +229,12 @@ loop difference is the display-only `probe_human_art_audit`. Blocking-loop
 parity is `VERIFIED_FIXED` at V3 exact-head under `MA-CI-002`: audit/CI head
 `dacef1405b6a8cb470117e824aebac3a8ca500af` completed GitHub run
 `31457593351` successfully in 34m19s with all 62 remote trusted probes green.
+Later exact-head run `31648427712` at `bbc817ef` stopped in the Ubuntu static
+gate before the current 63-probe loop, after its independent pinned-Windows
+music job passed 42/42. That interruption was a declared-text newline-hash
+defect, not probe-roster evidence. Replacement run `31649113587` succeeds at
+exact `af4189a9` and executes all current 63 remote probes; exact-head remote
+CI is green while remaining release acceptance stays under `MA-RELEASE-001`.
 Exhaustive classification of all 106 probe scripts remains `CONFIRMED_OPEN`
 separately under `MA-CI-003`.
 `probe_audit.gd` is the source of truth (full-game bot);
@@ -257,7 +263,17 @@ exit 0 with 61 trusted local probes and GAME2D `NO_REGRESSION` at 513 models /
 4.7.1-stable with exit 0 after 1437.1 seconds and all 64 trusted probes.
 The current GAME2D contract has 74 unit tests plus 14 falsification controls.
 Historical audit/CI head `dacef140` completed GitHub run `31457593351` for that
-older SHA; it is not an exact-head remote pass for this merge. Current remote,
+older SHA; it is not an exact-head remote pass for this branch. Run
+`31648427712` at `bbc817ef` passes Windows area music 42/42 and then fails only
+the Ubuntu static Opera-provenance check because a declared text source was
+hashed as raw CRLF on Windows and LF on Linux. The Ubuntu import, analyzer,
+probes, boot, and captures therefore remain unexecuted. Repair checkpoint
+`af4189a9` LF-canonicalizes only that declared text hash, retains byte-exact
+binary hashes, and passes 10 focused tests plus Windows and LF-clean Opera
+checks at 42/42. Replacement run `31649113587` then passes both required jobs:
+Ubuntu static/import/full analyzer/63 probes/boot/advisory balance/Opera
+manifest/five diagnostic capture pairs in 35m27s and Windows music 42/42 in
+3m55s. It has not run a full local suite; the captures grant no visual PASS.
 APK, authoritative capture, ordinary-headless Opera lifecycle, device, child,
 owner, listening and strict-zero 2D evidence remain open.
 
@@ -374,14 +390,14 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 | `MA-2D-002` | `IN_PROGRESS` | GAME2D: 509 model/export files, 157 tracked model sidecars, 352 active untracked model sidecars, 68 production and 77 probe 3D files, one 3D scene and one 3D configuration; strict remains unsatisfied |
 | `MA-CODE-001` | `CONFIRMED_OPEN` | `main.gd` is 8,519 lines against the extraction-only <2,500 target |
 | `MA-CODE-002` | `CONFIRMED_OPEN` | String state, duplicated input, save frequency, material churn and remaining 3D glue are structural risks; repair individually with surrounding tests |
-| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local; historical run `31457593351` at `dacef140` passed the then-current 62 remote entries, while current exact-head remote execution remains open under `MA-RELEASE-001` |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local; replacement run `31649113587` executes all current 63 remote entries at exact `af4189a9`. The last full local checkpoint remains `f3b0de07` with 64 |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 106 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-DOLLS-001` | `VERIFIED_FIXED` | Faron's catcher is one bounded Canvas activity with real one-finger input, passive/save/medal/replay and weakref teardown evidence |
 | `MA-SEEK-001` | `VERIFIED_FIXED` | Seek is a fourteen-node animated Canvas meadow; its former vinyl/preview presentation and four meadow GLBs are retired from that runtime role |
 | `MA-OPERA-008` | `VERIFIED_FIXED` | Exact lap-two cue and Canvas racing-circle defect are fixed on the display/forced-2D path; this bounded closure does not cover the retained ordinary-headless source split |
-| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated one-finger Canvas Boxer surface and five-phase no-loss lifecycle pass current local gates; authoritative capture, current exact-head remote, target-device, child and owner review remain |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated one-finger Canvas Boxer surface and five-phase no-loss lifecycle pass local and exact-head remote gates; authoritative capture, target-device, child and owner review remain |
 | `MA-OPERA-010` | `CONFIRMED_OPEN` | Ordinary unforced headless still selects a legacy Opera lobby/racer route that may attach `scripts/kart.gd`; display/device UI does not reach it, but the source/test-medium split violates the binding architecture |
-| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates and the pinned-Windows exact-head job verifies 42/42 deliveries; human listening, voice/mono mix and target-device review remain |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates; successful replacement run `31649113587` verifies 42/42 on pinned Windows. Human listening, voice/mono mix and target-device review remain |
 | `MA-ASSET-001` | `CONFIRMED_OPEN` | Current orphan reports: Castle 2.1 MB (9/15 PNGs), Galaxy 11.7 MB (32/32), Opera 166.5 MB (453/548), Lagoon 41.9 MB (48/90); each requires reachability/provenance proof before deletion |
 | `MA-ASSET-004` | `CONFIRMED_OPEN` | Lagoon has 10/41 NPOT textures and about 11.6 MB uncompressed simultaneous residency cost |
 | `MA-ASSET-005` | `DISMISSED_NOT_A_DEFECT` | Sponge/starfish invalid-UID warnings came from four stale ignored local `.godot/imported` files; tracked GLBs/sidecars and isolated import are valid. The GLBs remain separate 3D medium debt under `MA-2D-002` |

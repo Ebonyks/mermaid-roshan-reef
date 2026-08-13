@@ -7,6 +7,8 @@
 - **Decision baseline:** owner direction through 2026-08-09
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
+- **Latest CI-repair checkpoint:**
+  `af4189a99cfd5a32d0df0f75185f6912d3889399`
 - **Current local merge-integration commit:**
   `f3b0de078898a8b4faddb2c738c4403180eff928` (parents
   `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and
@@ -14,6 +16,9 @@
 - **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
   succeeds in 34m19s for that older SHA
+- **Latest exact-head remote verification:**
+  `af4189a99cfd5a32d0df0f75185f6912d3889399`; GitHub run `31649113587`
+  succeeds in both required jobs.
 - **Last completed full local checkpoint:**
   `f3b0de078898a8b4faddb2c738c4403180eff928`
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
@@ -45,9 +50,20 @@ current trusted probes. GAME2D unit/stress/regression, deterministic Opera
 art/provenance/animation/music gates, diegetic-hotspot and borderless-art gates,
 and probe parity are green. Historical audit/CI head `dacef140` completes
 GitHub run `31457593351` for that older SHA; it is not exact-head remote
-evidence for this merge. `MA-CI-002` remains fixed as a parity mechanism, while
-exhaustive one-class-per-probe classification remains `CONFIRMED_OPEN` as
-`MA-CI-003`.
+evidence for this branch. Run `31648427712` at `bbc817ef` passes its independent
+pinned-Windows area-music job 42/42, then stops only in the Ubuntu static gate:
+Opera provenance stored a raw CRLF checkout hash for declared text input
+`GENERATION.json`, while Linux read LF. Import, analyzer, and the current remote
+probe loop therefore did not run. Repair `af4189a9` LF-canonicalizes only that
+declared text hash, leaves binary hashes byte-exact, refreshes provenance, and
+passes 10 focused tests plus Windows and LF-clean Opera checks at 42/42.
+Replacement run `31649113587` succeeds at exact `af4189a9`: Ubuntu passes
+static/import/full analyzer/all 63 remote probes/boot/advisory balance/Opera
+manifest/five diagnostic capture pairs in 35m27s, and Windows passes music
+42/42 in 3m55s. No full local suite at `af4189a9` is claimed, and the captures
+grant no authoritative visual PASS. `MA-CI-002` remains fixed, while remaining
+release acceptance stays open under `MA-RELEASE-001` and exhaustive
+one-class-per-probe classification remains `CONFIRMED_OPEN` as `MA-CI-003`.
 
 The overall game remains `UNSATISFIED`. GAME2D is exact `NO_REGRESSION` but
 strict-unsatisfied at 509 models/509 active exports, 157 tracked and 352
@@ -68,13 +84,15 @@ true-Canvas Racer on the display/forced-2D path. Display/device UI does not
 reach the legacy kart, but ordinary unforced headless source still retains a
 legacy lobby/racer route that may attach `scripts/kart.gd`; `MA-OPERA-010` and
 `MA-2D-002` keep that source/test-medium split open. Ballerina and Boxer pass
-the current local gate, but current exact-head remote, authoritative capture,
-device, child and owner acceptance remain open. Painter-purpose and Arborist
+the last complete local gate at `f3b0de07` and exact-head remote run
+`31649113587`; authoritative capture, device, child and owner acceptance remain
+open. Painter-purpose and Arborist
 worktrees are uncommitted candidates; Boxer V2 is a docs-only branch proposal.
-The 42-cue deterministic area-music rollout has current local machine evidence
-and historical pinned-Windows evidence at `dacef140`; human listening,
-mono/voice review, and Lenovo Tab M11 acceptance remain open. APK and
-strict-zero 2D gates also remain open.
+The 42-cue deterministic area-music rollout has local machine evidence,
+historical pinned-Windows evidence at `dacef140`, and a 42/42 pinned-Windows
+result in successful run `31649113587`; human listening, mono/voice review,
+and Lenovo Tab M11 acceptance remain open. APK and strict-zero 2D gates also
+remain open.
 
 ---
 
