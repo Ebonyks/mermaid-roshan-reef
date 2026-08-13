@@ -279,6 +279,10 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"509 models, 66 production files, and 74 probe files",
 			"produced 17",
 			"fresh diagnostic captures",
+			"e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0",
+			"run `31661887863`",
+			"all 63 remote trusted probes",
+			"music completes 42/42 in 6m52s",
 			"strict global visual result remains `UNSATISFIED`",
 		):
 			self.assertIn(marker, ledger)

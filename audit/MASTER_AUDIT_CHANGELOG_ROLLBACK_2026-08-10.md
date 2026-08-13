@@ -1091,9 +1091,15 @@ exclusive and must never be applied on the same rollback branch.
   42-file Opera art gate passed. A Mobile-renderer 1280×720 run produced 17
   fresh diagnostic captures with zero capture stderr and no boss cards. The
   strict global visual result remains `UNSATISFIED` (`FAIL 16`, `REVIEW 17`,
-  `MANUAL 2`, `GAP 86`, `PASS 32`, `NA 94`). MA-OPERA-010 and MA-OPERA-011 are
-  fixed pending device/child/owner and exact-head remote verification;
-  MA-OPERA-012 remains open.
+  `MANUAL 2`, `GAP 86`, `PASS 32`, `NA 94`). Follow-up audit/rollback commit
+  `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0` then passes exact-head GitHub
+  run `31661887863`: Ubuntu completes static gates, import, the full analyzer,
+  all 63 remote trusted probes, boot, both balance advisories, the Opera
+  manifest, and five diagnostic capture/upload pairs in 33m8s; pinned Windows
+  music completes 42/42 in 6m52s. Those captures are review aids, not accepted
+  visual evidence. MA-OPERA-010 and MA-OPERA-011 remain fixed pending device,
+  child, owner, and authoritative visual verification; MA-OPERA-012 remains
+  open.
 - **Rollback:** `owner_blocked_mixed`; the planner is deliberately `MANUAL` and
   refuses `--emit-script`. For an isolated diagnostic only, begin with a clean
   tree and create `codex/rollback-chg-026` at exact

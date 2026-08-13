@@ -134,9 +134,17 @@ trusted local probes, 74 GAME2D units, 93 visual-contract units, and the Castle
 frame-review candidate
 `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
 (13 assets/104 frames) are green in their machine/review ledgers. Exact-head
-remote for `e2c25878` is pending. Seventeen V4 Mobile 1280×720 captures were visually inspected
-only as diagnostic/review evidence; neither the candidate nor those captures
-grant device, child, owner, or authoritative visual acceptance.
+verification run `31661887863` succeeds at full integrated SHA
+`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`: Ubuntu succeeds in 33m8s through
+checkout/checksum, exact Godot, static/import/full analyzer, all 63 trusted
+probes, boot, Dust/Opera advisories, Opera manifest, and five diagnostic
+capture/upload pairs; Windows succeeds in 6m52s with terminal result
+`MUSIC|check 42/42|picture_xmas`. Remote GAME2D remains exact 509/66/74
+`NO_REGRESSION`/`UNSATISFIED`. Seventeen V4 Mobile 1280×720 captures were
+visually inspected only as diagnostic/review evidence; neither the candidate,
+those captures, nor the five remote pairs grant device, child, owner, or
+authoritative visual acceptance. APK, human listening, and strict-zero 2D
+evidence remain open.
 
 ### Geography — the world line (PROPOSAL, unapproved)
 
@@ -252,8 +260,8 @@ is a useful transitional Canvas surface but a rejected final hub under
   child-driven racing-circle finale using the exact `op_racer_lap_two` cue. The
   current repair removes the ordinary-headless legacy lobby/kart split and
   proves ordinary unforced entry uses this same Canvas implementation. Focused
-  and full local exact-Godot coverage is green; `MA-OPERA-010` remains
-  `FIXED_PENDING_VERIFICATION` until exact-head remote and external acceptance
+  and full local exact-Godot coverage plus exact-head remote CI are green;
+  `MA-OPERA-010` remains `FIXED_PENDING_VERIFICATION` until external acceptance
   gates complete.
 - **Competition is scoped, not assumed.** Where a career retains a rival or
   finale meter, it stays hidden until its declared finale and cannot create a
@@ -269,7 +277,8 @@ is a useful transitional Canvas surface but a rejected final hub under
   stable save slots 4/9/14 as permanent tombstones. Raw legacy bits remain
   readable and completion masks only `0xBDEF`, the thirteen career slots.
   Focused and full local exact-Godot migration/reward/passive/teardown coverage
-  is green, so `MA-OPERA-011` is `FIXED_PENDING_VERIFICATION`; do not convert or rewrite the
+  plus exact-head remote CI are green, so `MA-OPERA-011` is
+  `FIXED_PENDING_VERIFICATION`; do not convert or rewrite the
   characters as Opera bosses. Existing art/music may remain inactive for future
   reuse. Section 17 / `ef2fd982` allows future Ember-henchman boss fights as
   separately justified content, never in the retired Opera slots.

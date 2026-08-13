@@ -8,8 +8,9 @@ The latest historical exact-head CI-repair checkpoint is
 commit and latest completed full-local checkpoint is
 `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`, built from audit checkpoint
 `41087f66`. Its exact local `scripts/ci.sh` is green under Godot
-`4.7.1.stable.official.a13da4feb`; exact-head remote, APK, device, child, and
-owner gates are not yet complete.
+`4.7.1.stable.official.a13da4feb`. Exact-head verification commit
+`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0` is green in GitHub run
+`31661887863`; APK, device, child, and owner gates are not yet complete.
 
 ## Why this folder exists
 
@@ -120,7 +121,7 @@ focused runtime matrix green. Castle frame-review candidate
 `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
 passes its machine/review ledger for 13 assets/104 frames; it is not owner
 acceptance. This is a commit-pinned full-local result; exact-head remote for
-`e2c25878` is pending. Visual advisory remains
+the integrated audit head is recorded separately below. Visual advisory remains
 `UNSATISFIED` and globally unchanged: 16 FAIL, 17 REVIEW_OPEN, two MANUAL_OPEN,
 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE. Historical
 remote run `31457593351` at `dacef140` remains evidence for that older SHA.
@@ -136,13 +137,24 @@ pairs; the 3m55s Windows job passes music 42/42. No full local suite at
 `af4189a9`, and no APK, device, child, owner, listening, strict-2D, or
 authoritative visual-evidence result, is claimed; the captures are diagnostic.
 
+Current exact-head run `31661887863` succeeds at full SHA
+`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`. The Ubuntu probes job succeeds in
+33m8s after checkout/checksum, exact Godot, static gates, import, the full
+analyzer, all 63 trusted probes, boot, Dust/Opera advisories, the Opera manifest,
+and five diagnostic capture/upload pairs. Remote GAME2D is exact
+509/66/74 `NO_REGRESSION`/`UNSATISFIED`. The Windows music job succeeds in
+6m52s and ends `MUSIC|check 42/42|picture_xmas`. The five capture pairs remain
+diagnostic and grant no authoritative visual, device, child, or owner
+acceptance; APK, human listening, and strict-zero 2D evidence also remain open.
+
 Current Opera content is 13 careers, 53 phases, and 27 modes with newer
 diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the
 Canvas Racer. The current repair removes the ordinary-headless legacy lobby,
 external-kart, and Opera-boss runtime paths. Save identity remains a stable
 16-slot namespace: slots 4/9/14 are inert tombstones, raw legacy bits survive,
 the live completion mask is `0xBDEF`, and effective progress is 0–13. The exact
-focused matrix and full local `e2c25878` gate are green, so `MA-OPERA-010`
+focused matrix, full local `e2c25878` gate, and exact-head remote run are green,
+so `MA-OPERA-010`
 and `MA-OPERA-011` are
 `FIXED_PENDING_VERIFICATION`, not closed. Seventeen 1280×720 Mobile captures
 were rendered and visually inspected as diagnostic/review evidence; they are

@@ -5,7 +5,8 @@ _Original consolidation: 2026-08-02. Re-triaged against
 product/audit commit `e2c25878f6b9c64526d0686c426a9f29c5f1b3da` on
 2026-08-12. Historical merge-integration checkpoint is `f3b0de07`; historical
 exact-head CI-repair checkpoint is `af4189a9`; latest completed full-local
-checkpoint is `e2c25878`._
+checkpoint is `e2c25878`; latest exact-head verification is
+`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`, run `31661887863`._
 
 This is a navigation and lifecycle crosswalk, not a bug dump and not a set of
 canonical finding records. The complete current index, evidence limits,
@@ -35,8 +36,15 @@ unit tests green. Its Castle interaction approval candidate
 covers 13 assets/104 frames in the machine/review ledger. Seventeen rendered
 1280×720 Mobile captures were visually inspected for diagnosis/review only;
 neither the candidate nor those V4 captures grant device, child, owner, or
-authoritative visual acceptance. Exact-head remote verification for `e2c25878` remains
-pending. The global visual result is unchanged at 16 FAIL, 17 REVIEW_OPEN, two
+authoritative visual acceptance. Exact-head run `31661887863` succeeds at full
+SHA `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`: Ubuntu succeeds in 33m8s
+through checkout/checksum, exact Godot, static/import/full analyzer, all 63
+trusted probes, boot, Dust/Opera advisories, Opera manifest, and five diagnostic
+capture/upload pairs; Windows succeeds in 6m52s and ends
+`MUSIC|check 42/42|picture_xmas`. Remote GAME2D is exact 509/66/74
+`NO_REGRESSION`/`UNSATISFIED`. The five pairs remain diagnostic, and APK,
+authoritative visual, listening, device, child, owner, and strict-zero 2D
+evidence remain open. The global visual result is unchanged at 16 FAIL, 17 REVIEW_OPEN, two
 MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE.
 
 ---
@@ -63,19 +71,19 @@ MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE.
 | `MA-OPERA-001` | `FIXED_PENDING_VERIFICATION` | Chef behavior/art routing and the committed `e2c25878` local full suite are green; final-SHA two-aspect capture, device and owner review still decide closure |
 | `MA-OPERA-002` / `MA-OPERA-004` | `CONFIRMED_OPEN` | Detective's painted crown is not proved healed, and no complete accepted all-career capture matrix exists |
 | `MA-OPERA-003` / `MA-OPERA-006` | `CONFIRMED_OPEN` | Split and re-audit the remaining fallback/art-fiction/voice subclaims; several subclaims changed, so the older grouped wording cannot be closed or imported wholesale |
-| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas and three-act specialist pass the current committed full-local suite at `e2c25878`; their earlier state also passes exact-head remote run `31649113587` at `af4189a9`. Exact-head remote for `e2c25878`, authoritative capture, device, child and owner review remain |
+| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas and three-act specialist pass the committed full-local suite at `e2c25878` and exact-head run `31661887863` at `e0677ae4`; authoritative capture, device, child and owner review remain |
 | `MA-OPERA-007` | `OWNER_DECISION_REQUIRED` | Decide the above-water Farmer/Doctor setting before treating it as a defect or repair |
 | `MA-OPERA-008` | `VERIFIED_FIXED` | The Canvas Racer's lap-two cue and finale defect are fixed. The formerly separate ordinary-headless source split is tracked independently as current `MA-OPERA-010` `FIXED_PENDING_VERIFICATION` evidence |
-| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes the current committed full-local suite at `e2c25878`; its earlier state also passes exact-head remote run `31649113587` at `af4189a9`. Exact-head remote for `e2c25878`, authoritative capture, device, child and owner review remain. Boxer V2 is only a separate docs-branch proposal |
-| `MA-OPERA-010` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` uses one Canvas lifecycle for ordinary unforced and display entry and contains no external-kart route. Exact focused and full local lifecycle/passive/teardown/re-entry evidence is green; exact-head remote and external acceptance remain |
-| `MA-OPERA-011` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` removes the three owner-cut bosses from cards, gates, completion, and runtime. Save slots 4/9/14 are permanent raw-preserving tombstones, live mask is `0xBDEF`, and focused plus full local migration/reward/suspend/leave evidence is green; exact-head remote and external acceptance remain |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes the committed full-local suite at `e2c25878` and exact-head run `31661887863` at `e0677ae4`; authoritative capture, device, child and owner review remain. Boxer V2 is only a separate docs-branch proposal |
+| `MA-OPERA-010` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` uses one Canvas lifecycle for ordinary unforced and display entry and contains no external-kart route. Exact focused, full local, and exact-head remote lifecycle/passive/teardown/re-entry evidence is green; external acceptance remains |
+| `MA-OPERA-011` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` removes the three owner-cut bosses from cards, gates, completion, and runtime. Save slots 4/9/14 are permanent raw-preserving tombstones, live mask is `0xBDEF`, and focused, full local, and exact-head remote migration/reward/suspend/leave evidence is green; external acceptance remains |
 | `MA-OPERA-012` | `CONFIRMED_OPEN` | The current three-floor Canvas picker is transitional/rejected final routing. Distribute all thirteen careers through thematic Castle rooms, with Opera Hall promoting only Ballerina/Pop Star/Magician, and prove every room launch/return/save/passive path |
-| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates, and successful replacement run `31649113587` verifies 42/42 on pinned Windows; human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
-| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64 local / 63 remote trusted entries with only the human-art display probe local; replacement run `31649113587` executes all current 63 remote entries at exact `af4189a9`. Committed Opera repair `e2c25878` is the latest full local checkpoint and completes all 64 locally in 1428.6 seconds under exact Godot 4.7.1; its exact-head remote run remains pending |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates; exact-head run `31661887863` ends `MUSIC|check 42/42|picture_xmas` on Windows. Human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64 local / 63 remote trusted entries with only the human-art display probe local. Committed Opera repair `e2c25878` is the latest full-local checkpoint and completes all 64 locally in 1428.6 seconds under exact Godot 4.7.1; run `31661887863` executes all 63 remote entries successfully at exact integrated SHA `e0677ae4` |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 106 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–026 cover 71 unique catalog-owned commit references, including `af4189a9` under CHG-015, human scorecard snapshot `a3d7580c` under CHG-025, and Opera retirement/lifecycle commit `e2c25878` under CHG-026; the written ledger and read-only planner agree exactly, only CHG-020/021/022/024 emit guarded scripts, and 20 unit plus independent adversarial checks are green |
 | `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
-| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Merge `f3b0de07` completes exact local CI in 1437.1 seconds with 64 probes. Failed run `31648427712` exposes the text newline hash; repair `af4189a9` preserves exact binary hashes. Replacement `31649113587` succeeds at exact `af4189a9`: Ubuntu static/import/full analyzer/63 probes/boot/advisory balance/Opera manifest/five diagnostic capture pairs are green in 35m27s, and Windows music 42/42 is green in 3m55s. Committed Opera repair `e2c25878` separately completes full local CI in 1428.6 seconds under exact official Godot with all 64 probes. The captures grant no visual acceptance. Exact-head remote for `e2c25878`, matching APK, authoritative visual, listening, device, child, owner and strict-2D evidence remain open |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Historical merge `f3b0de07` completes exact local CI in 1437.1 seconds with 64 probes; failed `31648427712` and repaired replacement `31649113587` preserve the newline-hash history. Product/audit commit `e2c25878` separately completes full local CI in 1428.6 seconds under exact official Godot with all 64 probes. Exact-head run `31661887863` succeeds at full integrated SHA `e0677ae4`: Ubuntu completes all 63 trusted probes and surrounding gates in 33m8s; Windows completes deterministic music 42/42 in 6m52s. The five capture/upload pairs grant no visual acceptance. Matching APK, authoritative visual, listening, device, child, owner and strict-2D evidence remain open |
 
 Current P2/owner-decision work remains indexed in the master audit: asset
 orphans/NPOT residency, exhaustive probe classification, the standalone
@@ -297,8 +305,8 @@ OW ordering:
    category is zero.
 3. Finish verification of the focused Opera lifecycle/boss-retirement repair:
    keep slots 4/9/14 as raw-preserving tombstones, the live mask at `0xBDEF`,
-   and one Canvas entry path while preserving the green full local gate and
-   completing exact-head remote and external acceptance.
+   and one Canvas entry path while preserving the green full-local and
+   exact-head remote gates and completing external acceptance.
    Then distribute the thirteen retained careers through their Castle rooms;
    Opera Hall promotes only Ballerina/Pop Star/Magician. Complete
    capture/device/child/owner acceptance for the merged Ballerina/Boxer/Racer
