@@ -44,11 +44,11 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		planner.validate_catalog()
 		self.assertEqual(
 			[group.change_id for group in planner.CATALOG],
-			[f"CHG-{number:03d}" for number in range(1, 25)],
+			[f"CHG-{number:03d}" for number in range(1, 26)],
 		)
 		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
-		self.assertEqual(len(owned_refs), 69)
-		self.assertEqual(len(set(owned_refs)), 69)
+		self.assertEqual(len(owned_refs), 70)
+		self.assertEqual(len(set(owned_refs)), 70)
 		self.assertEqual(
 			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
 			4,
@@ -76,6 +76,10 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		self.assertEqual(
 			planner.select_group("CHG-015").rollback_start,
 			planner.AUDIT_CHG015_FOLLOWUP_COMMIT,
+		)
+		self.assertEqual(
+			planner.select_group("CHG-025").rollback_start,
+			planner.AUDIT_SCORECARD_COMMIT,
 		)
 		for change_id in ("CHG-020", "CHG-021", "CHG-022"):
 			with self.subTest(integration_start=change_id):
@@ -137,6 +141,47 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			f"Use exactly {planner.AUDIT_CATALOG_COMMIT} as the rollback branch start.",
 			planner.render_plan(process),
 		)
+
+	def test_human_scorecard_record_is_bounded_and_complete(self) -> None:
+		group = planner.select_group("CHG-025")
+		self.assertEqual(group.commits, (planner.AUDIT_SCORECARD_COMMIT,))
+		self.assertEqual(group.baseline_commit, planner.AUDIT_CHG015_FOLLOWUP_COMMIT)
+		self.assertEqual(group.rollback_start, planner.AUDIT_SCORECARD_COMMIT)
+		self.assertEqual(
+			group.dependencies,
+			("CHG-005", "CHG-011", "CHG-015", "CHG-023", "CHG-024"),
+		)
+		self.assertEqual(group.safety, planner.MANUAL)
+		self.assertEqual(
+			set(group.paths),
+			{
+				"audit/MASTER_AUDIT_2026-08-09.md",
+				"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+				"design/00_MASTER_INDEX.md",
+				"design/03_TECHNICAL_ARCHITECTURE.md",
+				"design/04_OPEN_WORK.md",
+				"design/05_DOC_LEDGER.md",
+				"design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+				"tools/plan_audit_rollback.py",
+				"tools/tests/test_plan_audit_rollback.py",
+			},
+		)
+		root = Path(__file__).resolve().parents[2]
+		master = (root / "audit" / "MASTER_AUDIT_2026-08-09.md").read_text(encoding="utf-8")
+		for marker in (
+			"### 1.1 How to read the 1–5 ratings",
+			"### 1.3 Whole-game systems scorecard",
+			"### 1.5 Non-Opera activity scorecard",
+			"### 1.6 Current Opera career scorecard",
+			"### 1.7 Opera House version and branch comparison",
+			"Seek (Evie/Lamb-a')",
+			"Game-wide animation-doubling branch `20e9b1f2`",
+		):
+			self.assertIn(marker, master)
+		self.assertIn("1,132 findings", master)
+		self.assertIn("never merge wholesale", master)
+		with self.assertRaises(planner.UnsafePlanError):
+			planner.render_script(group)
 
 	def test_catalog_rejects_duplicate_ids(self) -> None:
 		duplicate = replace(planner.CATALOG[1], change_id=planner.CATALOG[0].change_id)

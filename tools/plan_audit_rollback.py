@@ -22,6 +22,7 @@ AUDIT_INTEGRATION_PARENT = "7b5d1209063a22002118c364767d537b34b3dc6f"
 AUDIT_UPSTREAM_PARENT = "245c16137fae82271dabac456d5ab04d843463a8"
 AUDIT_CATALOG_COMMIT = "dacef1405b6a8cb470117e824aebac3a8ca500af"
 AUDIT_CHG015_FOLLOWUP_COMMIT = "af4189a99cfd5a32d0df0f75185f6912d3889399"
+AUDIT_SCORECARD_COMMIT = "a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2"
 AUDIT_RECONCILIATION_COMMIT = "f3b0de078898a8b4faddb2c738c4403180eff928"
 AUDIT_RECONCILIATION_PARENT = "ea6185fdb1a687a20a6d118bdc368400e2c30f60"
 AUDIT_RECONCILIATION_AUDIT_PARENT = "5f58ef0a9db7aa9593f85131e1b855e51b84aea8"
@@ -763,6 +764,33 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		revert_target=AUDIT_RECONCILIATION_COMMIT,
 		revert_mainline=1,
 		merge_parents=(AUDIT_RECONCILIATION_PARENT, AUDIT_RECONCILIATION_AUDIT_PARENT),
+	),
+	_group(
+		"CHG-025",
+		"Human game-wide scorecard and repository-version reconciliation",
+		"Adds the human-readable 1-5 systems, world, activity, and Opera-career scorecards; compares materially distinct Opera branches and worktrees; records exact current local/remote evidence; and keeps candidate art branches separate from the audited integration baseline.",
+		AUDIT_CHG015_FOLLOWUP_COMMIT,
+		(AUDIT_SCORECARD_COMMIT,),
+		(
+			"audit/MASTER_AUDIT_2026-08-09.md",
+			"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+			"design/00_MASTER_INDEX.md",
+			"design/03_TECHNICAL_ARCHITECTURE.md",
+			"design/04_OPEN_WORK.md",
+			"design/05_DOC_LEDGER.md",
+			"design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+			"tools/plan_audit_rollback.py",
+			"tools/tests/test_plan_audit_rollback.py",
+		),
+		("CHG-005", "CHG-011", "CHG-015", "CHG-023", "CHG-024"),
+		(
+			"python -B -m unittest tools.tests.test_plan_audit_rollback -v",
+			"python -B tools/audit_probe_parity.py",
+			"python -B tools/audit_game_2d.py --regression",
+			"git diff --check",
+		),
+		rollback_start=AUDIT_SCORECARD_COMMIT,
+		manual_reason="The scorecard and evidence history are append-only authority. Reversing the source commit wholesale would erase reviewed branch comparisons and later evidence refinements; supersede a wrong rating or fact in a new record, or construct a reviewed path-limited documentation inverse that preserves still-valid audit and rollback evidence.",
 	),
 )
 

@@ -1,9 +1,12 @@
 # Mermaid Roshan master-audit change and rollback ledger
 
 - **Ledger ID:** `MA-CHANGELOG-2026-08-10`
-- **Change-ID namespace:** `CHG-001` through `CHG-024`; IDs are permanent and
+- **Change-ID namespace:** `CHG-001` through `CHG-025`; IDs are permanent and
   are never reassigned or renumbered
-- **Audit branch:** `codex/master-audit-20260809`
+- **Audit lineage:** `codex/master-audit-20260809`
+- **Dedicated current audit branch:** `codex/audit-reconcile-20260812`
+- **Human scorecard and repository-version snapshot:**
+  `a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2`
 - **Current-dev reconciliation snapshot:**
   `f3b0de078898a8b4faddb2c738c4403180eff928`, with current-dev parent
   `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and master-audit parent
@@ -22,8 +25,8 @@
   engine, [master-audit](MASTER_AUDIT_2026-08-09.md), and
   [comprehensive-design-language](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md)
 - **Program state:** `IN_PROGRESS / UNSATISFIED`
-- **Catalog inventory:** 24 permanent change IDs, 69 uniquely owned source-
-  commit references, four guarded-script emitters, and 18 planner unit tests
+- **Catalog inventory:** 25 permanent change IDs, 70 uniquely owned source-
+  commit references, four guarded-script emitters, and 19 planner unit tests
 
 This is the durable answer to the fact that a long audit can produce both
 improvements and regressions. It records what changed, why the change may be
@@ -40,6 +43,7 @@ primary `CHG-*` record. A later group may name it only as a dependency.
 ```yaml
 schema: mermaid-roshan/master-audit-change-log/v1
 snapshot: f3b0de078898a8b4faddb2c738c4403180eff928
+evidence_snapshot: a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -65,6 +69,7 @@ changes:
   - {id: CHG-022, name: ad36-integration-reconciliation, rollback_mode: whole_merge_only}
   - {id: CHG-023, name: change-log-and-rollback-process, rollback_mode: documentation_migration}
   - {id: CHG-024, name: f3b0-current-dev-master-audit-reconciliation, rollback_mode: whole_merge_only}
+  - {id: CHG-025, name: human-gamewide-scorecard-and-version-reconciliation, rollback_mode: documentation_migration}
 ```
 
 ## 2. Safe rollback protocol
@@ -93,8 +98,10 @@ follow-up commits. CHG-015 starts at its newer exact portability follow-up
 `af4189a99cfd5a32d0df0f75185f6912d3889399`. Other groups remain pinned to
 integration commit
 `ad36ee9ffe4eae4d5c4183d0546d775de0218213`; in particular, the three emitted
-CHG-020/021/022 scripts intentionally start there. The planner output is the
-authority if a later append-only maintenance revision changes this mapping.
+CHG-020/021/022 scripts intentionally start there. CHG-025 starts at its exact
+human-scorecard source commit `a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2`.
+The planner output is the authority if a later append-only maintenance revision
+changes this mapping.
 
 If `git status --short` was not empty, stop. Preserve the work under the
 repository rescue workflow before creating a rollback branch. Never use
@@ -131,7 +138,7 @@ python -B tools/plan_audit_rollback.py CHG-021 --emit-script
 ```
 
 Only CHG-020 and CHG-021, plus all-or-nothing CHG-022 and CHG-024, can emit a
-script: four emitters across 24 stable IDs. Every
+script: four emitters across 25 stable IDs. Every
 other ID refuses automation even when its human ledger mode says
 `guarded_single`: shared-path, product-policy, or not-yet-committed context
 still requires a reviewed manual inverse. Emitted scripts create a dedicated
@@ -943,6 +950,56 @@ exclusive and must never be applied on the same rollback branch.
   require remote exact-head CI and applicable external acceptance before any
   rollback commit can move forward.
 
+### CHG-025 — Human game-wide scorecard and repository-version reconciliation
+
+- **Source:** `a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2`.
+- **Paths:** the master audit, this rollback ledger, design index/architecture/
+  open-work/ledger/design-language documents, the read-only rollback planner,
+  and its tests. These are the exact nine paths changed by the source commit;
+  no runtime, save, workflow, protected source, generated art, or audio path is
+  part of CHG-025.
+- **What changed, in plain English:** the master audit gained a consistent 1–5
+  rubric; human-readable scorecards for whole-game systems, worlds, every
+  non-Opera activity, all 13 current Opera careers, and the three boss acts;
+  and a repository-version comparison that separates integrated runtime,
+  historical versions, docs-only proposals, dirty worktree candidates, shared-
+  SHA aliases, and rescue refs. It explicitly explains that Seek/Lamb-a' was
+  rebuilt as a bounded animated Canvas activity rather than importing the old
+  3D game wholesale. It identifies the reconciled `f3b0de07` plus `af4189a9`
+  line as the best audited base while quarantining the promising but
+  pre-audit `20e9b1f2` animation-doubling branch from wholesale integration.
+  The same commit also synchronized current local/remote evidence and the
+  preceding CHG-024/CHG-015 control record.
+- **Outcome / positive effect:** a human can now see what improved, what may
+  have regressed, why no area is rated 5/5, which Opera version is actually
+  implemented, and what should happen next without reconstructing dozens of
+  branches or machine-only findings. Every material row points back to stable
+  `CHG-*`, `MA-*`, commit, or branch evidence instead of presenting preference
+  as release proof.
+- **Possible negative effect / unknown:** 1–5 ratings contain bounded human
+  judgment and can become stale when Painter, Arborist, animation-doubling, or
+  another product branch advances. A reader could still mistake “best current
+  base” for release approval if the explicit `UNSATISFIED` and external-gate
+  warnings are removed. The scorecard does not itself test an APK, child,
+  device, owner acceptance, listening quality, or visual identity.
+- **Dependencies and evidence:** CHG-005, CHG-011, CHG-015, CHG-023, and
+  CHG-024; exact `af4189a9` remote success run `31649113587`; exact f3 local
+  64-probe evidence; GAME2D `509/68/77` `NO_REGRESSION / UNSATISFIED`;
+  19 rollback-planner tests; Opera generated-art 10-test/42-file checks; probe
+  parity; Markdown UTF-8/fence/table/link validation; and independent
+  adversarial review of the ratings and branch facts.
+- **Rollback:** `documentation_migration`. Start a clean branch at exact
+  `a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2`, run
+  `python -B tools/plan_audit_rollback.py CHG-025`, and inspect
+  `git show --stat --summary a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2`.
+  The planner intentionally refuses `--emit-script`. Do not erase the audit
+  trail or raw-revert the whole commit over later evidence. Correct a disputed
+  rating or branch fact with a superseding record, or construct a reviewed
+  inverse limited to the exact documentation/control paths while preserving
+  still-valid CHG-015/024 evidence. Rerun the 19 planner tests, document
+  validation, probe parity, GAME2D regression, and `git diff --check` before
+  recording any inverse.
+
 ## 5. Per-group gate matrix
 
 | Change IDs | Minimum focused gates before full CI | External gates that remain material |
@@ -958,6 +1015,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-011, 023 | UTF-8, unique IDs, links, ledger coverage, table/fence and forbidden-claim checks | owner authority confirmation where changed |
 | CHG-022 | every applicable gate above and exact `scripts/ci.sh` | remote exact-head plus all applicable external gates |
 | CHG-024 | exact parent/path guards, GAME2D/parity/generated-art checks, every applicable focused gate, and exact `scripts/ci.sh` | remote exact-head plus all applicable capture, M11, child, audio, and owner gates |
+| CHG-025 | rollback catalog tests, document structure/links, probe parity, GAME2D regression, and diff check | re-audit ratings and branch facts whenever a candidate becomes committed or integrated |
 
 ## 6. Required rollback record
 
