@@ -145,8 +145,20 @@ capture/upload pairs; Windows succeeds in 6m52s with terminal result
 1280×720 captures—nine room routes and thirteen career surfaces—inspected only
 as diagnostic/review evidence; neither the candidate, those captures, nor the
 five predecessor remote pairs grant device, child, owner, or authoritative
-visual acceptance. Current exact-head remote, matching APK, exact voice, human
-listening, and strict-zero 2D evidence remain open.
+visual acceptance. At that product-runtime checkpoint, exact-head remote,
+matching APK, exact voice, human listening, and strict-zero 2D evidence were
+open; the later attempt and probe repair are recorded next.
+
+Later GitHub run `31678156887` at pre-fix audit head `3fc151c8` is genuinely
+red, but not from production behavior or a regex false positive. Ubuntu
+`probe_opera` sampled the 0.25-second reveal after four frames, so only the
+Detective and Nursery stable-Canvas compound checks ran before Castle ambient
+layer 15 settled to Opera layer 11; their routes, passive behavior, saves,
+rewards, exact-room returns, dedicated probes, every other executed gate/probe,
+and Windows passed. Probe-only commit `ff068db` preserves runtime `09e5e356`,
+replaces that guess with a bounded fail-closed semantic wait, and passes exact
+local full CI in 1379.3 seconds with all 64 probes. Replacement exact-head
+remote and all external gates remain open.
 
 ### Geography — the world line (PROPOSAL, unapproved)
 
@@ -234,10 +246,11 @@ career activities and their stable sparse save/star identities. Opera Hall is
 one venue for the three performances, not the front door to every job. The
 native three-floor `OperaLobby2D` is deleted, no hidden/off-room route restores
 it, and every activity returns to its exact launching room. Exact focused probes
-and the full 1463.4-second/64-probe local suite are green, moving
+and the full runtime 1463.4-second plus repaired-head 1379.3-second/64-probe
+local suites are green, moving
 `MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`. The 22 captures are diagnostic;
 the nine room captures show a residual P2 composition defect because the
-154×154 lower-center cards obscure Roshan's lower body/tail. Remote exact-head,
+154×154 lower-center cards obscure Roshan's lower body/tail. Replacement remote exact-head,
 APK, device, child, owner, exact-voice, and accepted-visual evidence remain open.
 
 - Each room-owned picture entry instantiates the existing

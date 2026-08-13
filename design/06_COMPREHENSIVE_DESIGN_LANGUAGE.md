@@ -13,18 +13,23 @@
   `f3b0de078898a8b4faddb2c738c4403180eff928` (parents
   `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and
   `5f58ef0a9db7aa9593f85131e1b855e51b84aea8`)
-- **Current Opera product/audit commit and latest completed full-local
-  checkpoint:** `09e5e35665fd8d1bd782693e10fc0198f756d2c8`
+- **Current Opera product/runtime commit:**
+  `09e5e35665fd8d1bd782693e10fc0198f756d2c8`
+- **Current probe/evidence head and latest completed full-local checkpoint:**
+  `ff068db002202839f920a6f9fb78c942788a3034`; only
+  `scripts/probe_opera.gd` differs from the documented runtime
 - **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
   succeeds in 34m19s for that older SHA
 - **Last completed exact-head remote verification (predecessor runtime):**
   `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`; GitHub run `31661887863`
   succeeds in both required jobs
-- **Current Opera repair baseline:** commit `09e5e356`; focused and full local
-  evidence is green in 1463.4 seconds with all 64 trusted probes under exact
-  official Godot `4.7.1.stable.official.a13da4feb`; current exact-head remote
-  and matching APK remain open
+- **Current Opera repair baseline:** runtime `09e5e356` passes full local in
+  1463.4 seconds/all 64; probe-only `ff068db` passes the latest full local in
+  1379.3 seconds/all 64 under exact official Godot
+  `4.7.1.stable.official.a13da4feb`. Run `31678156887` at pre-fix head
+  `3fc151c8` is red only for fixed-four-frame reveal sampling; replacement
+  exact-head remote and matching APK remain open
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
@@ -66,7 +71,7 @@ static/import/full analyzer/all 63 remote probes/boot/advisory balance/Opera
 manifest/five diagnostic capture pairs in 35m27s, and Windows passes music
 42/42 in 3m55s. No full local suite at `af4189a9` is claimed, and the captures
 grant no authoritative visual PASS. Predecessor product/audit commit `e2c25878`
-separately completes its full local gate; current `09e5e356` completes the later
+separately completes its full local gate; runtime `09e5e356` completes the later
 full-local gate described below. Predecessor run `31661887863` succeeds at exact
 integrated SHA
 `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`: Ubuntu succeeds in 33m8s through
@@ -77,6 +82,16 @@ capture/upload pairs; remote GAME2D is 509/66/74 exact
 `MUSIC|check 42/42|picture_xmas`. `MA-CI-002` remains fixed, while remaining
 release acceptance stays open under `MA-RELEASE-001` and exhaustive
 one-class-per-probe classification remains `CONFIRMED_OPEN` as `MA-CI-003`.
+
+Later run `31678156887` at `3fc151c8` is genuinely red, not a workflow-regex
+false positive: Ubuntu `probe_opera` samples the 0.25-second reveal after only
+four frames, so Detective and Nursery reach the stable-Canvas compound before
+Castle ambient layer 15 settles to Opera layer 11. Their raw launches, passive
+safety, saves/rewards, exact-room returns, dedicated probes, every other
+executed gate/probe, and Windows pass. Probe-only `ff068db` replaces the frame
+guess with a bounded fail-closed wait for exact instance/reveal/stage/layer
+readiness and passes full local CI in 1379.3 seconds/all 64. Replacement remote
+evidence remains pending.
 
 The overall game remains `UNSATISFIED`. GAME2D is exact `NO_REGRESSION`, all 14
 falsification controls pass, but strict remains unsatisfied at 509 models/509
@@ -105,16 +120,18 @@ The current Opera shipping snapshot is 13 careers, 53 phases, 27 distinct
   save-migration, passive, reward, suspend/leave, teardown, and re-entry
   evidence is green;
   `MA-OPERA-010`/`011`/`012` are `FIXED_PENDING_VERIFICATION`, not closed.
-Ballerina and Boxer pass the latest completed full-local gate at `09e5e356`; their earlier
+Ballerina and Boxer pass runtime `09e5e356` and latest full-local probe head
+`ff068db`; their earlier
 state also passes exact-head remote run `31649113587` at `af4189a9`. Exact-head
-run `31661887863` verifies the predecessor integrated head; current exact-head,
+run `31661887863` verifies the predecessor integrated head; run `31678156887`
+is red only for fixed-frame route readiness sampling. Replacement exact-head,
 authoritative capture, exact voice, device, child and owner acceptance remain
 open. Painter-purpose and Arborist
 worktrees are uncommitted candidates; Boxer V2 is a docs-only branch proposal.
 The 42-cue deterministic area-music rollout has local machine evidence,
 historical pinned-Windows evidence at `dacef140`, and a 42/42 pinned-Windows
 result in successful run `31649113587`; human listening, mono/voice review,
-  and Lenovo Tab M11 acceptance remain open. Commit `09e5e356` completes
+  and Lenovo Tab M11 acceptance remain open. Runtime `09e5e356` completes
   `scripts/ci.sh` with exit 0 after 1463.4 seconds under exact official Godot:
   all 64 trusted local probes, 74 GAME2D unit tests, 14 stress controls, and 93
   visual-contract unit tests are green. Castle interaction approval candidate
@@ -123,9 +140,11 @@ result in successful run `31649113587`; human listening, mono/voice review,
   acceptance. Twenty-two current 1280×720 Mobile renders were visually inspected
   only for diagnostic/review purposes; the five predecessor remote capture/upload
   pairs are likewise diagnostic. The current route cards obscure Roshan's lower
-  body/tail in all nine room captures. Current exact-head remote, matching APK,
+  body/tail in all nine room captures. Replacement exact-head remote, matching APK,
   authoritative visual, exact voice, human listening, device, child, owner, and
-  strict-zero 2D gates remain open.
+  strict-zero 2D gates remain open. Probe-only `ff068db` preserves that runtime
+  and completes the newer full-local gate in 1379.3 seconds/all 64; its
+  replacement exact-head remote remains open.
 
 Direct owner direction in `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` §10 / commit
 `7426c187` distributes the thirteen careers through thematic Castle rooms and
@@ -501,8 +520,9 @@ Room owns Farmer; and Movie Lounge owns Racer. Each activity returns to its
 launching room and preserves its existing career/save identity. A central
 three-floor picker for all careers is forbidden, and Opera Hall MUST NOT expose
 the other ten jobs through a hidden back door. Commit `09e5e356` implements this
-mapping with local focused/full-suite evidence; `MA-OPERA-012` remains
-`FIXED_PENDING_VERIFICATION` until current remote/device/child/owner/voice/
+mapping with local focused/full-suite evidence; probe-only `ff068db` adds
+bounded fail-closed route readiness without changing runtime. `MA-OPERA-012`
+remains `FIXED_PENDING_VERIFICATION` until replacement remote/device/child/owner/voice/
 accepted-visual gates complete. Route cards MUST preserve their large touch
 targets without obscuring Roshan's lower body/tail.
 
@@ -952,11 +972,13 @@ probe moves Ballerina or Boxer only to `FIXED_PENDING_VERIFICATION`; it cannot
 silently close capture, device, child, owner, or retained-3D debt.
 Ordinary unforced headless and display/device lifecycle selection MUST also
 resolve to the same Canvas Opera implementation; a force-2D test setting does
-not close a retained alternate source path. Current `09e5e356` focused and full
-local gates prove convergence, boss/save retirement, all thirteen exact Castle
+not close a retained alternate source path. Runtime `09e5e356` focused/full
+local evidence plus probe-only `ff068db`'s fail-closed readiness/full-local gate
+prove convergence, boss/save retirement, all thirteen exact Castle
 routes, Movie Lounge Racer, no hidden lobby, exact-room return, and explicit
 layer ownership. Its 22 inspected 1280×720 Mobile renders remain diagnostic;
-the nine room captures expose lower-body/tail card occlusion. Current exact-head
+the nine room captures expose lower-body/tail card occlusion. Run `31678156887`
+is retained red for fixed-frame readiness sampling. Replacement exact-head
 remote, matching APK, exact voice, accepted visual, target-device, child, and
 owner gates still block closure.
 

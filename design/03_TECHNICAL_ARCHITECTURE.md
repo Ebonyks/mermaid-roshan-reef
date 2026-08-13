@@ -78,8 +78,14 @@ same Canvas-only lifecycle for ordinary unforced headless and display entry;
 neither controller loads the external kart or a boss engine. Exact focused and
 full local Godot 4.7.1 lifecycle coverage is green, so `MA-OPERA-010` is
 `FIXED_PENDING_VERIFICATION`. Predecessor exact-head run `31661887863` is green
-at `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`; current `09e5e356` exact-head,
-APK/device/child/owner gates and game-wide 3D debt remain open.
+at `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`. Distribution-head run
+`31678156887` at `3fc151c8` is red only because Ubuntu `probe_opera` sampled the
+0.25-second reveal after four frames; every other executed gate/probe and
+Windows passed. Probe-only `ff068db` preserves runtime `09e5e356` and replaces
+that frame guess with a bounded, fail-closed semantic wait for the exact Opera
+instance, completed/input-transparent reveal, `opera.act.NN` stage, and ambient
+layer 11. Replacement exact-head remote, APK/device/child/owner gates and
+game-wide 3D debt remain open.
 
 At `09e5e356`, every career launches only from its exact Castle room, Racer is
 owned by Movie Lounge, and the deleted `opera_lobby_2d.gd` has no hidden direct
@@ -322,13 +328,23 @@ checkout/checksum, exact Godot, static/import/full analyzer, all 63 trusted
 probes, boot, Dust/Opera advisories, the Opera manifest, and five diagnostic
 capture/upload pairs; remote GAME2D is 509/66/74 exact
 `NO_REGRESSION`/`UNSATISFIED`. Windows succeeds in 6m52s and ends
-`MUSIC|check 42/42|picture_xmas`. Current `09e5e356` produces twenty-two
+`MUSIC|check 42/42|picture_xmas`. Runtime `09e5e356` produces twenty-two
 1280×720 Mobile captures (nine room routes plus thirteen careers), inspected as
 diagnostic/review evidence; they grant no device, child, owner, or authoritative
 visual PASS, and the route cards obscure the lower body/tail. Neither do the
-five predecessor remote pairs. Current exact-head remote, matching APK,
+five predecessor remote pairs. Replacement exact-head remote, matching APK,
 authoritative capture, device, child, owner, exact voice, human listening and
 strict-zero 2D evidence remain open.
+
+The next audit head, `3fc151c8`, receives a genuine red result in run
+`31678156887`: only Detective and Nursery fail the compound stable-Canvas check
+because four process frames do not guarantee completion of the 0.25-second
+reveal that deliberately suspends LivingWorld at Castle layer 15. Raw launches,
+passive safety, save/reward, exact-room return, all surrounding probes, every
+other executed gate/probe, and Windows pass, with no script/resource/runtime
+error. `ff068db` changes only `scripts/probe_opera.gd`, makes readiness semantic
+and fail-closed, and completes exact local full CI in 1379.3 seconds with all 64
+trusted probes. A replacement exact-head remote run is still required.
 
 Two subtleties worth preserving:
 
@@ -345,8 +361,9 @@ tombstones 4/9/14, raw legacy-bit preservation, `0xBDEF` completion, ordinary
 unforced Canvas entry, no external kart/boss route, passive safety, exact
 reward ownership, pause/leave-after-win durability, teardown, and re-entry.
 That focused/full-local rewrite keeps `MA-OPERA-010`/`011` and moves
-`MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`; current exact-head and external
-acceptance remain separate gates.
+`MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`; `ff068db` hardens only the
+readiness evidence. Replacement exact-head and external acceptance remain
+separate gates.
 
 When a session environment lacks the exact Godot binary, use CI
 (`.github/workflows/probes.yml`) rather than substituting a different engine
@@ -454,7 +471,7 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 | `MA-2D-002` | `IN_PROGRESS` | GAME2D: 509 model/export files, 157 tracked model sidecars, 352 active untracked model sidecars, 66 production and 74 probe 3D files, one 3D scene and one 3D configuration; exact regression and 14/14 stress controls are green, strict remains unsatisfied |
 | `MA-CODE-001` | `CONFIRMED_OPEN` | `main.gd` is 8,647 lines at current `09e5e356` against the extraction-only <2,500 target |
 | `MA-CODE-002` | `CONFIRMED_OPEN` | String state, duplicated input, save frequency, material churn and remaining 3D glue are structural risks. The sealed Castle Kitchen caller also lacks a speculative recovery branch for a future invalid Chef config; current config is valid/probed, and any caller change requires renewed owner visual approval. Repair individually with surrounding tests |
-| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local. Historical replacement run `31649113587` executes all 63 remote entries at exact `af4189a9`. Product/audit commit `09e5e356` is the latest completed full-local checkpoint and runs all 64 locally in 1463.4 seconds under exact Godot `4.7.1.stable.official.a13da4feb`; predecessor exact-head run `31661887863` executes all 63 remotely at integrated SHA `e0677ae4`; current-head remote remains open |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local. Historical replacement run `31649113587` executes all 63 remote entries at exact `af4189a9`. Runtime `09e5e356` runs all 64 locally in 1463.4 seconds; current probe/evidence head `ff068db` preserves runtime and is the latest full-local checkpoint at 1379.3 seconds/all 64 under exact Godot `4.7.1.stable.official.a13da4feb`. Predecessor run `31661887863` executes all 63 remotely at `e0677ae4`; pre-fix run `31678156887` at `3fc151c8` is genuinely red only for fixed-frame Opera readiness sampling. Replacement current-head remote remains open |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 106 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-DOLLS-001` | `VERIFIED_FIXED` | Faron's catcher is one bounded Canvas activity with real one-finger input, passive/save/medal/replay and weakref teardown evidence |
 | `MA-SEEK-001` | `VERIFIED_FIXED` | Seek is a fourteen-node animated Canvas meadow; its former vinyl/preview presentation and four meadow GLBs are retired from that runtime role |
@@ -462,8 +479,8 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 | `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated one-finger Canvas Boxer surface and five-phase no-loss lifecycle pass local and exact-head remote gates; authoritative capture, target-device, child and owner review remain |
 | `MA-OPERA-010` | `FIXED_PENDING_VERIFICATION` | Current `opera_house.gd`/`opera_act.gd` use one Canvas lifecycle for ordinary unforced and display entry and contain no external-kart route. Focused, full local, and exact-head remote exact-Godot lifecycle/teardown/re-entry coverage is green; external acceptance remains |
 | `MA-OPERA-011` | `FIXED_PENDING_VERIFICATION` | Owner-cut Curtain Dragon/Shadow Phantom/Midnight Maestro are absent from cards, gates, completion, and runtime. Slots 4/9/14 remain raw-preserving tombstones, live mask is `0xBDEF`, and focused, full local, and exact-head remote migration/reward/passive/suspend/leave evidence is green; external acceptance remains |
-| `MA-OPERA-012` | `FIXED_PENDING_VERIFICATION` | Commit `09e5e356` implements all thirteen exact Castle-room routes, Movie Lounge Racer, deleted/no-backdoor all-career lobby, stable save/reward ownership, exact-room returns, and explicit layers; focused/full-local evidence is green. Remote exact-head, APK, device, child, owner, exact voice, accepted visual, and residual P2 card-composition closure remain open |
-| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates; historical replacement run `31649113587` verifies 42/42 on pinned Windows, and last completed exact-head run `31661887863` succeeds at predecessor SHA `e0677ae4` in 6m52s with terminal line `MUSIC|check 42/42|picture_xmas`. Current-head remote, human listening, voice/mono mix and target-device review remain |
+| `MA-OPERA-012` | `FIXED_PENDING_VERIFICATION` | Runtime `09e5e356` implements all thirteen exact Castle-room routes, Movie Lounge Racer, deleted/no-backdoor all-career lobby, stable save/reward ownership, exact-room returns, and explicit layers. Run `31678156887` is red only for four-frame reveal sampling; probe-only `ff068db` adds bounded fail-closed semantic readiness and passes the 1379.3-second/64-probe full-local gate. Replacement remote exact-head, APK, device, child, owner, exact voice, accepted visual, and residual P2 card-composition closure remain open |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass score/render/hash/codec/loop/routing gates; historical replacement run `31649113587` verifies 42/42 on pinned Windows, and last completed green exact-head run `31661887863` succeeds at predecessor SHA `e0677ae4` in 6m52s with terminal line `MUSIC|check 42/42|picture_xmas`. Windows also passes later Ubuntu-probe-red run `31678156887`. Replacement current-head remote, human listening, voice/mono mix and target-device review remain |
 | `MA-ASSET-001` | `CONFIRMED_OPEN` | Current orphan reports: Castle 2.1 MB (9/15 PNGs), Galaxy 11.7 MB (32/32), Opera 166.5 MB (453/548), Lagoon 41.9 MB (48/90); each requires reachability/provenance proof before deletion |
 | `MA-ASSET-004` | `CONFIRMED_OPEN` | Lagoon has 10/41 NPOT textures and about 11.6 MB uncompressed simultaneous residency cost |
 | `MA-ASSET-005` | `DISMISSED_NOT_A_DEFECT` | Sponge/starfish invalid-UID warnings came from four stale ignored local `.godot/imported` files; tracked GLBs/sidecars and isolated import are valid. The GLBs remain separate 3D medium debt under `MA-2D-002` |

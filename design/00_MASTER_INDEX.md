@@ -4,15 +4,20 @@ _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
 Runtime/audit merge synchronization: 2026-08-12._
 
 The latest historical exact-head CI-repair checkpoint is
-`af4189a99cfd5a32d0df0f75185f6912d3889399`. The current Opera product/audit
-commit and latest completed full-local checkpoint is
-`09e5e35665fd8d1bd782693e10fc0198f756d2c8`. Its exact local `scripts/ci.sh`
-is green in 1463.4 seconds with all 64 trusted probes under Godot
+`af4189a99cfd5a32d0df0f75185f6912d3889399`. The current Opera product/runtime
+commit remains `09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its exact local
+`scripts/ci.sh` is green in 1463.4 seconds with all 64 trusted probes. Current
+probe/evidence head `ff068db002202839f920a6f9fb78c942788a3034` changes only
+`scripts/probe_opera.gd` and is the latest full-local checkpoint, green in
+1379.3 seconds with all 64 trusted probes under Godot
 `4.7.1.stable.official.a13da4feb`. The last completed exact-head verification,
 for the predecessor runtime, is commit
 `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0` in green GitHub run
-`31661887863`. Current-commit exact-head remote, matching APK, device, child,
-owner, exact-voice, and accepted-visual gates are not yet complete.
+`31661887863`. Later run `31678156887` at pre-fix audit head `3fc151c8` is red
+only because Ubuntu sampled the 0.25-second Opera reveal after four frames;
+every other executed gate/probe and Windows passed. Replacement `ff068db`
+exact-head remote, matching APK, device, child, owner, exact-voice, and
+accepted-visual gates are not yet complete.
 
 ## Why this folder exists
 
@@ -119,14 +124,16 @@ completion. The `f3b0de07` tree had 195 GDScript files under `scripts/`, 106
 Exact Godot 4.7.1-stable local `scripts/ci.sh` exits 0 at `f3b0de07` after
 1437.1 seconds with all 64 then-current trusted probes. Predecessor product/audit
 commit `e2c25878` exits 0 in 1428.6 seconds under official build `a13da4feb`.
-Current commit `09e5e356` exits 0 in 1463.4 seconds, with all 64
+Runtime commit `09e5e356` exits 0 in 1463.4 seconds, with all 64
 trusted local probes, 74 GAME2D unit tests, all 14 falsification controls, 93
 visual-contract unit tests, parser/lint/analyzer/import/static gates, and its
 focused runtime matrix green. Castle frame-review candidate
 `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
 passes its machine/review ledger for 13 assets/104 frames; it is not owner
-acceptance. This is a commit-pinned full-local result; exact-head remote for
-the integrated audit head is recorded separately below. Visual advisory remains
+acceptance. Probe-only `ff068db` preserves those runtime bytes and completes a
+newer exact full-local run in 1379.3 seconds with all 64 probes green. These are
+commit-pinned local results; exact-head remote is recorded separately below.
+Visual advisory remains
 `UNSATISFIED` and globally unchanged: 16 FAIL, 17 REVIEW_OPEN, two MANUAL_OPEN,
 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE. Historical
 remote run `31457593351` at `dacef140` remains evidence for that older SHA.
@@ -150,8 +157,12 @@ and five diagnostic capture/upload pairs. Remote GAME2D is exact
 509/66/74 `NO_REGRESSION`/`UNSATISFIED`. The Windows music job succeeds in
 6m52s and ends `MUSIC|check 42/42|picture_xmas`. The five capture pairs remain
 diagnostic and grant no authoritative visual, device, child, or owner
-acceptance. No exact-head remote run or matching APK exists yet for current
-`09e5e356`; human listening and strict-zero 2D evidence also remain open.
+acceptance. Run `31678156887` at pre-fix head `3fc151c8` is retained as red: its
+only probe failures are Detective/Nursery stable-Canvas checks sampled during
+the 0.25-second reveal after four frames; all other executed gates/probes and
+Windows pass. `ff068db` replaces that guess with bounded fail-closed semantic
+readiness, but its replacement exact-head remote and matching APK remain open;
+human listening and strict-zero 2D evidence also remain open.
 
 Current Opera content is 13 careers, 53 phases, and 27 modes with newer
 diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the
@@ -161,8 +172,9 @@ lobby, blocks hidden/off-room routes, and returns each activity to its launching
 room. Save identity remains a stable
 16-slot namespace: slots 4/9/14 are inert tombstones, raw legacy bits survive,
 the live completion mask is `0xBDEF`, and effective progress is 0–13. The exact
-focused matrix and full local `09e5e356` gate are green, so `MA-OPERA-010`,
-`MA-OPERA-011`, and `MA-OPERA-012` are `FIXED_PENDING_VERIFICATION`, not closed.
+focused matrix plus full-local runtime `09e5e356` and probe-head `ff068db` gates
+are green, so `MA-OPERA-010`, `MA-OPERA-011`, and `MA-OPERA-012` are
+`FIXED_PENDING_VERIFICATION`, not closed.
 Twenty-two 1280×720 Mobile captures (nine room routes plus thirteen careers)
 were rendered and visually inspected as diagnostic/review evidence; they are
 not target-device, child, owner, or authoritative visual acceptance. The route
