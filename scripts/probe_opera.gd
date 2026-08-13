@@ -1,4 +1,6 @@
 extends SceneTree
+
+const ROUTE_READY_FRAME_LIMIT := 120
 ## MA-OPERA-012 product-route regression.
 ##
 ## The Opera is no longer an all-career destination. Each of the thirteen
@@ -387,7 +389,9 @@ func _start_via_room_touch(room_id: String, act_index: int) -> OperaHouse:
 	if button == null:
 		return null
 	_tap_control(button, 40 + act_index)
-	await _frames(4)
+	var route_ready := await _await_route_ready(act_index)
+	_check("slot %d reaches its routed career after the reveal" % act_index,
+		route_ready)
 	var house := main.opera_game as OperaHouse
 	_check("slot %d launches through raw viewport touch" % act_index,
 		house != null and main.game == "opera"
@@ -396,6 +400,31 @@ func _start_via_room_touch(room_id: String, act_index: int) -> OperaHouse:
 		and main.castle_room_id == room_id
 		and main.castle_room_layer != null and not main.castle_room_layer.visible)
 	return house
+
+
+func _await_route_ready(act_index: int) -> bool:
+	# A routed touch starts the career synchronously under the fade cover, but
+	# LivingWorld intentionally waits for the 0.25 s reveal to clear before it
+	# changes from Castle layer 15 to the career's layer 11. Frame duration is
+	# runner-dependent, so sample the production-ready state instead of assuming
+	# that four frames always outlive the tween.
+	var expected_stage := "opera.act.%02d" % act_index
+	for _frame: int in range(ROUTE_READY_FRAME_LIMIT):
+		var fade_ready := main.fade_rect == null \
+			or (main.fade_rect.modulate.a <= 0.02 \
+				and main.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+		if main.opera_game != null and fade_ready \
+				and main.living_stage_id == expected_stage \
+				and main.living_layer != null and main.living_layer.layer == 11:
+			return true
+		await process_frame
+	print("OPERA|route readiness evidence: act=%d stage=%s layer=%s fade=%s" % [
+		act_index,
+		main.living_stage_id,
+		str(main.living_layer.layer if main.living_layer != null else -1),
+		str(main.fade_rect.modulate.a if main.fade_rect != null else 0.0),
+	])
+	return false
 
 
 func _route_returned(room_id: String) -> bool:
