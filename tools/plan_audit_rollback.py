@@ -32,6 +32,10 @@ AUDIT_OPERA_DISTRIBUTION_COMMIT = "09e5e35665fd8d1bd782693e10fc0198f756d2c8"
 AUDIT_OPERA_DISTRIBUTION_PARENT = "f0b4f5e03fabbdcb3792f492f6cbd926afff0e2e"
 AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT = "ff068db002202839f920a6f9fb78c942788a3034"
 AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_PARENT = "3fc151c8b3b6c054d0f6e6ab89f84a9f464f3f20"
+AUDIT_EVIDENCE_ROLLBACK_SYNC_COMMIT = "d991fdf3fbdb229de8685c3e52917b280942adb5"
+AUDIT_EVIDENCE_AUTHORITY_SYNC_COMMIT = "9befc0f838f40eead2f42088a91206257fe217a8"
+AUDIT_EVIDENCE_ROLLBACK_SYNC_PARENT = AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT
+AUDIT_EVIDENCE_AUTHORITY_SYNC_PARENT = AUDIT_EVIDENCE_ROLLBACK_SYNC_COMMIT
 GODOT_REQUIREMENT = "exact Godot 4.7.1-stable (not 4.4 or a development build)"
 PROTECTED_PATHS = (
 	"assets/book/",
@@ -702,7 +706,7 @@ CATALOG: tuple[ChangeGroup, ...] = (
 	_group(
 		"CHG-023",
 		"Written change log and rollback process",
-		"Adds the stable change catalog, conservative planning helper, validation tests, and central written rollback instructions requested after ad36.",
+		"Adds the stable change catalog, conservative planning helper, validation tests, and central written rollback instructions requested after ad36; routine self-hash and count-only maintenance stays under this ID.",
 		AUDIT_INTEGRATION_COMMIT,
 		("57bc08d1220594fbabcab15362b5685a9f8514e6",),
 		(
@@ -940,6 +944,53 @@ CATALOG: tuple[ChangeGroup, ...] = (
 			"The 22 fresh captures are diagnostic only, not M11, child, owner, or authoritative visual acceptance; GAME2D remains UNSATISFIED at 509 models, 66 production files, and 74 probe files.",
 		),
 		manual_reason="Automation is refused because these two owned commits couple nine Castle route owners, thirteen direct Canvas career lifecycles, stable save bits and rewards, exact-room restoration, HUD/caption/pause/living-world layer ownership, bounded probe-readiness evidence, and the GAME2D manifest. For diagnosis only, start a clean isolated branch at `ff068db002202839f920a6f9fb78c942788a3034`, preview the owned commits in reverse order with `git revert --no-commit ff068db002202839f920a6f9fb78c942788a3034` followed by `git revert --no-commit 09e5e35665fd8d1bd782693e10fc0198f756d2c8`, inspect the exact 15-path union, and preserve the 0xBDEF/0x4210/tombstone contract; the raw inverse is not production-approved and no rollback script may be emitted.",
+	),
+	_group(
+		"CHG-028",
+		"Audit evidence and rollback-control synchronization",
+		"Synchronizes the append-only rollback controls and current audit/design authorities with the Opera route-readiness evidence: it materially changes the executable planner/tests and authority state across ten paths, preserves the failed remote run, distinguishes product runtime from the probe-only repair, records the exact local proof and remaining gates, and changes no runtime behavior.",
+		AUDIT_EVIDENCE_ROLLBACK_SYNC_PARENT,
+		(
+			AUDIT_EVIDENCE_ROLLBACK_SYNC_COMMIT,
+			AUDIT_EVIDENCE_AUTHORITY_SYNC_COMMIT,
+		),
+		(
+			"audit/MASTER_AUDIT_2026-08-09.md",
+			"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+			"design/00_MASTER_INDEX.md",
+			"design/01_GAME_DESIGN.md",
+			"design/03_TECHNICAL_ARCHITECTURE.md",
+			"design/04_OPEN_WORK.md",
+			"design/05_DOC_LEDGER.md",
+			"design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+			"tools/plan_audit_rollback.py",
+			"tools/tests/test_plan_audit_rollback.py",
+		),
+		(
+			"CHG-005",
+			"CHG-011",
+			"CHG-015",
+			"CHG-023",
+			"CHG-025",
+			"CHG-027",
+		),
+		(
+			"python -B -m unittest tools.tests.test_plan_audit_rollback -v",
+			"python -B -m py_compile tools/plan_audit_rollback.py tools/tests/test_plan_audit_rollback.py",
+			"python -B tools/audit_probe_parity.py",
+			"python -B tools/audit_game_2d.py --regression-gate",
+			"git diff --check",
+		),
+		rollback_start=AUDIT_EVIDENCE_AUTHORITY_SYNC_COMMIT,
+		warnings=(
+			"CHG-028 is a narrow exception to CHG-023 maintenance: routine self-hash or count-only upkeep still belongs to CHG-023 and must not generate another stable ID; these sources qualify because they materially change executable planner/tests and synchronized authority across ten paths.",
+			"The current uncommitted post-9bef evidence-truthfulness synchronization is CHG-023 maintenance, not a third CHG-028 source commit or CHG-029; it does not alter the historical exact two-commit/ten-path boundary.",
+			"These commits change audit authority, evidence interpretation, rollback controls, and their tests; they are material governance changes even though they contain no runtime, save, protected-asset, audio, workflow, or generated-art path.",
+			"Historical run 31678156887 remains red. Exact authority head 9befc0f838f40eead2f42088a91206257fe217a8 passes remote run 31686380560 with 63 trusted headings and Windows music 42/42, but the run is not warning-clean: existing Vulkan-to-OpenGL fallback and resource-leak diagnostics remain. All five capture/upload pairs completed at the workflow level and uploaded diagnostic artifacts, not capture gates or visual passes; raw Sky Lagoon LAGOONSHOT output has 21 OK, 44 FAIL, and DONE (66 diagnostic lines), so that diagnostic internally fails. APK/device/child/owner/exact-voice/listening/strict-2D/accepted-visual gates remain open; never rewrite those scopes to make the audit appear greener.",
+			"A broad inverse would remove CHG-027's second-commit ownership, root-cause record, MANUAL refusal, and synchronized authority claims while leaving the underlying product and probe commits reachable.",
+			"The two source commits form a contiguous chain and an exact ten-path union, but contiguity does not make an append-only authority rollback safe to automate.",
+		),
+		manual_reason="Automation is refused because this documentation migration synchronizes material evidence interpretation, authority documents, rollback ownership, refusal policy, and planner tests. Do not raw-revert either source commit or erase the failed remote run and still-valid local evidence. Correct a disputed fact through a new superseding record; if an owner-approved inverse is still required, construct and review it across the exact ten-path union while preserving every later truthful evidence and rollback-control update.",
 	),
 )
 

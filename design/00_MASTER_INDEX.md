@@ -10,14 +10,13 @@ commit remains `09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its exact local
 probe/evidence head `ff068db002202839f920a6f9fb78c942788a3034` changes only
 `scripts/probe_opera.gd` and is the latest full-local checkpoint, green in
 1379.3 seconds with all 64 trusted probes under Godot
-`4.7.1.stable.official.a13da4feb`. The last completed exact-head verification,
-for the predecessor runtime, is commit
-`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0` in green GitHub run
-`31661887863`. Later run `31678156887` at pre-fix audit head `3fc151c8` is red
-only because Ubuntu sampled the 0.25-second Opera reveal after four frames;
-every other executed gate/probe and Windows passed. Replacement `ff068db`
-exact-head remote, matching APK, device, child, owner, exact-voice, and
-accepted-visual gates are not yet complete.
+`4.7.1.stable.official.a13da4feb`. Current audit/evidence authority head
+`9befc0f838f40eead2f42088a91206257fe217a8` passes exact-head GitHub run
+`31686380560`. Historical predecessor run `31661887863` remains green at
+`e0677ae4`; later pre-fix run `31678156887` at `3fc151c8` remains red because
+Ubuntu sampled the 0.25-second Opera reveal after four frames. Matching APK,
+device, child, owner, exact-voice, listening, strict-2D, and accepted-visual
+gates remain open.
 
 ## Why this folder exists
 
@@ -144,25 +143,36 @@ Repair checkpoint `af4189a9` LF-canonicalizes only that declared text hash, keep
 binary hashes exact, and passes 10 focused tests plus Windows and LF-clean
 Opera checks at 42/42. Replacement run `31649113587` succeeds at exact
 `af4189a9`: the 35m27s Ubuntu job passes static/import/full analyzer/all 63
-remote probes/boot/advisory balance/Opera manifest and five diagnostic capture
-pairs; the 3m55s Windows job passes music 42/42. No full local suite at
+remote probes/boot/advisory balance/Opera manifest; all five capture/upload
+pairs completed at the workflow level and uploaded diagnostic artifacts. The
+3m55s Windows job passes
+music 42/42. No full local suite at
 `af4189a9`, and no APK, device, child, owner, listening, strict-2D, or
 authoritative visual-evidence result, is claimed; the captures are diagnostic.
 
-The last completed exact-head run, `31661887863`, succeeds at predecessor SHA
+Historical exact-head run `31661887863` succeeds at predecessor SHA
 `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`. The Ubuntu probes job succeeds in
 33m8s after checkout/checksum, exact Godot, static gates, import, the full
-analyzer, all 63 trusted probes, boot, Dust/Opera advisories, the Opera manifest,
-and five diagnostic capture/upload pairs. Remote GAME2D is exact
+analyzer, all 63 trusted probes, boot, Dust/Opera advisories, and the Opera
+manifest. All five capture/upload pairs completed at the workflow level and
+uploaded diagnostic artifacts. Remote GAME2D is exact
 509/66/74 `NO_REGRESSION`/`UNSATISFIED`. The Windows music job succeeds in
-6m52s and ends `MUSIC|check 42/42|picture_xmas`. The five capture pairs remain
+6m52s and ends `MUSIC|check 42/42|picture_xmas`. Those uploaded artifacts remain
 diagnostic and grant no authoritative visual, device, child, or owner
 acceptance. Run `31678156887` at pre-fix head `3fc151c8` is retained as red: its
 only probe failures are Detective/Nursery stable-Canvas checks sampled during
 the 0.25-second reveal after four frames; all other executed gates/probes and
 Windows pass. `ff068db` replaces that guess with bounded fail-closed semantic
-readiness, but its replacement exact-head remote and matching APK remain open;
-human listening and strict-zero 2D evidence also remain open.
+readiness. Current authority head `9befc0f8` passes run `31686380560`: Ubuntu
+runs 33m40s with exactly 63 remote trusted headings and Windows runs 3m47s,
+ending `MUSIC|check 42/42|picture_xmas`. Static/import/analyzer/probe/boot/
+advisory/manifest gates are green. All five capture/upload pairs completed at
+the workflow level and uploaded diagnostic artifacts; they are not capture gates or visual
+passes. Raw Sky Lagoon `LAGOONSHOT` output itself has 21 `OK`, 44 `FAIL`, and
+`DONE` (66 diagnostic lines), so the Sky Lagoon diagnostic internally fails and
+cannot support visual acceptance. The run is also not warning-clean. Matching
+APK, authoritative visual, exact voice, human listening, device, child, owner,
+and strict-zero 2D evidence remain open.
 
 Current Opera content is 13 careers, 53 phases, and 27 modes with newer
 diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the

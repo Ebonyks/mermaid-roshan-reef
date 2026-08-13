@@ -33,6 +33,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_OPERA_RETIREMENT_PARENT,
 			planner.AUDIT_OPERA_DISTRIBUTION_PARENT,
 			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_PARENT,
+			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT,
 		}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
@@ -47,11 +48,11 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		planner.validate_catalog()
 		self.assertEqual(
 			[group.change_id for group in planner.CATALOG],
-			[f"CHG-{number:03d}" for number in range(1, 28)],
+			[f"CHG-{number:03d}" for number in range(1, 29)],
 		)
 		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
-		self.assertEqual(len(owned_refs), 73)
-		self.assertEqual(len(set(owned_refs)), 73)
+		self.assertEqual(len(owned_refs), 75)
+		self.assertEqual(len(set(owned_refs)), 75)
 		self.assertEqual(
 			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
 			4,
@@ -256,7 +257,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 23)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 24)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -355,7 +356,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		)
 		self.assertEqual(len(group.paths), 15)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 23)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 24)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -405,14 +406,129 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			self.assertIn(marker, section)
 
 		for marker in (
-			"27 permanent change IDs",
-			"`CHG-001` through `CHG-027`",
-			"73 uniquely owned source-",
+			"28 permanent change IDs",
+			"`CHG-001` through `CHG-028`",
+			"75 uniquely owned source-",
 			"four guarded-script emitters",
-			"21 planner unit tests",
-			"The other 23 groups refuse",
+			"22 planner unit tests",
+			"The other 24 groups refuse",
 		):
 			self.assertIn(marker, ledger)
+
+	def test_audit_evidence_sync_record_is_exact_manual_and_bounded(self) -> None:
+		group = planner.select_group("CHG-028")
+		self.assertEqual(
+			group.commits,
+			(
+				planner.AUDIT_EVIDENCE_ROLLBACK_SYNC_COMMIT,
+				planner.AUDIT_EVIDENCE_AUTHORITY_SYNC_COMMIT,
+			),
+		)
+		self.assertEqual(
+			planner.AUDIT_EVIDENCE_ROLLBACK_SYNC_COMMIT,
+			"d991fdf3fbdb229de8685c3e52917b280942adb5",
+		)
+		self.assertEqual(
+			planner.AUDIT_EVIDENCE_AUTHORITY_SYNC_COMMIT,
+			"9befc0f838f40eead2f42088a91206257fe217a8",
+		)
+		self.assertEqual(
+			group.baseline_commit,
+			planner.AUDIT_EVIDENCE_ROLLBACK_SYNC_PARENT,
+		)
+		self.assertEqual(
+			planner.AUDIT_EVIDENCE_ROLLBACK_SYNC_PARENT,
+			"ff068db002202839f920a6f9fb78c942788a3034",
+		)
+		self.assertEqual(
+			planner.AUDIT_EVIDENCE_AUTHORITY_SYNC_PARENT,
+			planner.AUDIT_EVIDENCE_ROLLBACK_SYNC_COMMIT,
+		)
+		self.assertEqual(
+			group.rollback_start,
+			planner.AUDIT_EVIDENCE_AUTHORITY_SYNC_COMMIT,
+		)
+		self.assertEqual(
+			set(group.paths),
+			{
+				"audit/MASTER_AUDIT_2026-08-09.md",
+				"audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+				"design/00_MASTER_INDEX.md",
+				"design/01_GAME_DESIGN.md",
+				"design/03_TECHNICAL_ARCHITECTURE.md",
+				"design/04_OPEN_WORK.md",
+				"design/05_DOC_LEDGER.md",
+				"design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+				"tools/plan_audit_rollback.py",
+				"tools/tests/test_plan_audit_rollback.py",
+			},
+		)
+		self.assertEqual(len(group.paths), 10)
+		self.assertEqual(
+			group.dependencies,
+			("CHG-005", "CHG-011", "CHG-015", "CHG-023", "CHG-025", "CHG-027"),
+		)
+		self.assertEqual(group.safety, planner.MANUAL)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 24)
+		self.assertIn(
+			"python -B tools/audit_game_2d.py --regression-gate",
+			group.gates,
+		)
+		self.assertNotIn("python -B tools/audit_game_2d.py --regression", group.gates)
+		plan = planner.render_plan(group)
+		for marker in (
+			"materially changes the executable planner/tests",
+			"exact ten-path union",
+			"routine self-hash or count-only upkeep still belongs to CHG-023",
+			"Historical run 31678156887 remains red",
+			"remote run 31686380560",
+			"63 trusted headings",
+			"Windows music 42/42",
+			"not warning-clean",
+			"Vulkan-to-OpenGL fallback",
+			"resource-leak diagnostics",
+			"five capture/upload pairs completed at the workflow level and uploaded diagnostic artifacts",
+			"not capture gates or visual passes",
+			"Sky Lagoon LAGOONSHOT output has 21 OK, 44 FAIL, and DONE (66 diagnostic lines)",
+			"current uncommitted post-9bef evidence-truthfulness synchronization is CHG-023 maintenance",
+			"not a third CHG-028 source commit or CHG-029",
+			"APK/device/child/owner/exact-voice/listening/strict-2D/accepted-visual gates remain open",
+			"no runtime, save, protected-asset, audio, workflow, or generated-art path",
+			"Do not raw-revert either source commit",
+		):
+			self.assertIn(marker, plan)
+		with self.assertRaises(planner.UnsafePlanError):
+			planner.render_script(group)
+
+		root = Path(__file__).resolve().parents[2]
+		ledger = (
+			root / "audit" / "MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+		).read_text(encoding="utf-8")
+		section = ledger.split("### CHG-028", 1)[1].split("## 5.", 1)[0]
+		for marker in (
+			"d991fdf3fbdb229de8685c3e52917b280942adb5",
+			"9befc0f838f40eead2f42088a91206257fe217a8",
+			"ff068db002202839f920a6f9fb78c942788a3034",
+			"exact 10-path union",
+			"335 insertions and 137 deletions",
+			"documentation_migration",
+			"No runtime",
+			"22 planner unit tests",
+			"31686380560",
+			"33m40s",
+			"exactly 63 remote trusted probe headings",
+			"09:24:08–09:57:48",
+			"09:24:08–09:27:55",
+			"MUSIC|check 42/42|picture_xmas",
+			"not warning-clean",
+			"not capture gates or visual passes",
+			"Sky Lagoon `LAGOONSHOT` output has",
+			"21 `OK`, 44 `FAIL`, and `DONE` (66 diagnostic lines)",
+			"current uncommitted evidence-truthfulness synchronization after",
+			"CHG-023 maintenance",
+			"does not alter the historical two-commit/ten-path boundary",
+		):
+			self.assertIn(marker, section)
 
 	def test_catalog_rejects_duplicate_ids(self) -> None:
 		duplicate = replace(planner.CATALOG[1], change_id=planner.CATALOG[0].change_id)

@@ -133,13 +133,15 @@ Commit `09e5e356` completes exact local `scripts/ci.sh` under Godot
 trusted local probes, 74 GAME2D units, 93 visual-contract units, and the Castle
 frame-review candidate
 `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
-(13 assets/104 frames) are green in their machine/review ledgers. The last
-completed exact-head verification, run `31661887863`, succeeds at predecessor
+(13 assets/104 frames) are green in their machine/review ledgers. Historical
+exact-head verification run `31661887863` succeeds at predecessor
 integrated SHA
 `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`: Ubuntu succeeds in 33m8s through
 checkout/checksum, exact Godot, static/import/full analyzer, all 63 trusted
-probes, boot, Dust/Opera advisories, Opera manifest, and five diagnostic
-capture/upload pairs; Windows succeeds in 6m52s with terminal result
+probes, boot, Dust/Opera advisories, and Opera manifest. All five capture/upload
+pairs completed at the workflow level and uploaded diagnostic artifacts;
+Windows succeeds in
+6m52s with terminal result
 `MUSIC|check 42/42|picture_xmas`. Remote GAME2D remains exact 509/66/74
 `NO_REGRESSION`/`UNSATISFIED`. Current `09e5e356` produced twenty-two V4 Mobile
 1280×720 captures—nine room routes and thirteen career surfaces—inspected only
@@ -157,8 +159,15 @@ layer 15 settled to Opera layer 11; their routes, passive behavior, saves,
 rewards, exact-room returns, dedicated probes, every other executed gate/probe,
 and Windows passed. Probe-only commit `ff068db` preserves runtime `09e5e356`,
 replaces that guess with a bounded fail-closed semantic wait, and passes exact
-local full CI in 1379.3 seconds with all 64 probes. Replacement exact-head
-remote and all external gates remain open.
+local full CI in 1379.3 seconds with all 64 probes. Current authority head
+`9befc0f8` passes run `31686380560`: Ubuntu completes exactly 63 remote trusted
+headings in 33m40s and Windows completes in 3m47s with terminal
+`MUSIC|check 42/42|picture_xmas`. All five capture/upload pairs completed at the
+workflow level and uploaded diagnostic artifacts, not capture gates or visual passes.
+Raw Sky Lagoon `LAGOONSHOT` output has 21 `OK`, 44 `FAIL`, and `DONE` (66
+diagnostic lines), so that diagnostic internally fails. The run is not
+warning-clean; matching APK and every external/visual acceptance gate remain
+open.
 
 ### Geography — the world line (PROPOSAL, unapproved)
 
@@ -250,8 +259,9 @@ and the full runtime 1463.4-second plus repaired-head 1379.3-second/64-probe
 local suites are green, moving
 `MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`. The 22 captures are diagnostic;
 the nine room captures show a residual P2 composition defect because the
-154×154 lower-center cards obscure Roshan's lower body/tail. Replacement remote exact-head,
-APK, device, child, owner, exact-voice, and accepted-visual evidence remain open.
+154×154 lower-center cards obscure Roshan's lower body/tail. Exact-head remote
+machine evidence is green at `9befc0f8`; matching APK, device, child, owner,
+exact-voice, listening, strict-2D, and accepted-visual evidence remain open.
 
 - Each room-owned picture entry instantiates the existing
   `OperaCareerWorld2D`/specialist surface for its job and returns to that same

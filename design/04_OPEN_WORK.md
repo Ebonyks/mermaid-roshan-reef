@@ -2,14 +2,15 @@
 
 _Original consolidation: 2026-08-02. Re-triaged against
 `audit/MASTER_AUDIT_2026-08-09.md` on 2026-08-09; synchronized through product/
-runtime commit `09e5e35665fd8d1bd782693e10fc0198f756d2c8` and probe/evidence
-head `ff068db002202839f920a6f9fb78c942788a3034` on 2026-08-13. Historical
+runtime commit `09e5e35665fd8d1bd782693e10fc0198f756d2c8`, probe-readiness/full-local
+head `ff068db002202839f920a6f9fb78c942788a3034`, and audit/evidence authority
+head `9befc0f838f40eead2f42088a91206257fe217a8` on 2026-08-13. Historical
 merge-integration checkpoint is `f3b0de07`; historical exact-head CI-repair
 checkpoint is `af4189a9`; latest completed full-local checkpoint is `ff068db`;
-latest completed green exact-head verification belongs to predecessor
-`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`, run `31661887863`. Pre-fix run
-`31678156887` at `3fc151c8` is red only for fixed-frame Opera reveal sampling.
-Replacement current-head remote and matching APK are open._
+current exact-head verification is successful run `31686380560` at `9befc0f8`.
+Pre-fix run `31678156887` at `3fc151c8` remains historical red evidence for
+fixed-frame Opera reveal sampling. Matching APK and external acceptance remain
+open._
 
 This is a navigation and lifecycle crosswalk, not a bug dump and not a set of
 canonical finding records. The complete current index, evidence limits,
@@ -42,20 +43,24 @@ covers 13 assets/104 frames in the machine/review ledger. Twenty-two rendered
 1280×720 Mobile captures (nine routes and thirteen careers) were visually
 inspected for diagnosis/review only;
 neither the candidate nor those V4 captures grant device, child, owner, or
-authoritative visual acceptance. The last completed exact-head run,
-`31661887863`, succeeds at predecessor SHA
-`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`: Ubuntu succeeds in 33m8s
-through checkout/checksum, exact Godot, static/import/full analyzer, all 63
-trusted probes, boot, Dust/Opera advisories, Opera manifest, and five diagnostic
-capture/upload pairs; Windows succeeds in 6m52s and ends
+authoritative visual acceptance. Current exact-head run `31686380560` succeeds
+at authority SHA `9befc0f838f40eead2f42088a91206257fe217a8`: the probes job runs
+09:24:08–09:57:48 UTC (33m40s) with exactly 63 remote trusted probe headings,
+and static checks, import, full analyzer, trusted probes, boot, Dust and Opera
+advisories, and the Opera manifest are green. Windows runs
+09:24:08–09:27:55 UTC (3m47s) and ends
 `MUSIC|check 42/42|picture_xmas`. Remote GAME2D is exact 509/66/74
-`NO_REGRESSION`/`UNSATISFIED`. The five pairs remain diagnostic. Run
-`31678156887` at `3fc151c8` passes every other executed gate/probe and Windows
-but is red because Detective/Nursery were sampled four frames into the
-0.25-second reveal; `ff068db` replaces that guess with bounded fail-closed
-semantic readiness. Replacement current-head remote, matching APK,
-authoritative visual, exact voice, listening, device,
-child, owner, and strict-zero 2D evidence remain open. The nine current room
+`NO_REGRESSION`/`UNSATISFIED`. All five capture/upload pairs completed at the
+workflow level and uploaded diagnostic artifacts, not capture gates or visual passes. Raw Sky
+Lagoon `LAGOONSHOT` output has 21 `OK`, 44 `FAIL`, and `DONE` (66 diagnostic
+lines), so that diagnostic internally fails. The run is not warning-clean:
+existing Vulkan-surface
+fallback to OpenGL 3 and ObjectDB/resource/texture-leak diagnostics remain.
+Run `31678156887` at `3fc151c8` remains historical red evidence because
+Detective/Nursery were sampled four frames into the 0.25-second reveal;
+`ff068db` replaces that guess with bounded fail-closed semantic readiness.
+Matching APK, authoritative visual, exact voice, listening, device, child,
+owner, and strict-zero 2D evidence remain open. The nine current room
 captures also show residual P2 lower-body/tail occlusion from the route cards.
 The global visual result is unchanged at 16 FAIL, 17 REVIEW_OPEN, two
 MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE.
@@ -90,13 +95,13 @@ MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE.
 | `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes runtime `09e5e356` and latest full-local probe head `ff068db`; predecessor `e2c25878` and exact-head run `31661887863` at `e0677ae4` retain historical proof. Run `31678156887` is red only for route-readiness sampling, not Boxer behavior. Authoritative capture, device, child and owner review remain. Boxer V2 is only a separate docs-branch proposal |
 | `MA-OPERA-010` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` uses one Canvas lifecycle for ordinary unforced and display entry and contains no external-kart route. Exact focused, full local, and exact-head remote lifecycle/passive/teardown/re-entry evidence is green; external acceptance remains |
 | `MA-OPERA-011` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` removes the three owner-cut bosses from cards, gates, completion, and runtime. Save slots 4/9/14 are permanent raw-preserving tombstones, live mask is `0xBDEF`, and focused, full local, and exact-head remote migration/reward/suspend/leave evidence is green; external acceptance remains |
-| `MA-OPERA-012` | `FIXED_PENDING_VERIFICATION` | Runtime `09e5e356` distributes all thirteen careers through exact Castle rooms, resolves Racer to Movie Lounge, deletes the all-career lobby with no hidden backdoor, preserves sparse save/reward identity, restores the exact launching room, and fixes layers. Run `31678156887` is red only for fixed-four-frame reveal sampling; probe-only `ff068db` adds bounded fail-closed semantic readiness and passes the 1379.3-second/64-probe full-local gate. Replacement remote/APK/device/child/owner/exact-voice/accepted-visual gates and residual P2 card occlusion remain open |
-| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates; predecessor exact-head run `31661887863` ends `MUSIC|check 42/42|picture_xmas` on Windows, and Windows also passes later Ubuntu-probe-red run `31678156887`. Replacement current-head remote, human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
-| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64 local / 63 remote trusted entries with only the human-art display probe local. Runtime `09e5e356` completes all 64 locally in 1463.4 seconds; probe/evidence head `ff068db` preserves runtime and is the latest full-local checkpoint at 1379.3 seconds/all 64 under exact Godot 4.7.1. Run `31661887863` executes all 63 remotely at predecessor `e0677ae4`; run `31678156887` at `3fc151c8` is genuinely red only for Opera readiness sampling; replacement current-head remote remains open |
+| `MA-OPERA-012` | `FIXED_PENDING_VERIFICATION` | Runtime `09e5e356` distributes all thirteen careers through exact Castle rooms, resolves Racer to Movie Lounge, deletes the all-career lobby with no hidden backdoor, preserves sparse save/reward identity, restores the exact launching room, and fixes layers. Probe-only `ff068db` adds bounded fail-closed semantic readiness and passes the 1379.3-second/64-probe full-local gate. Exact authority head `9befc0f8` passes run `31686380560` with 63 remote trusted headings, but the run is not warning-clean; its five workflow-completed/uploaded diagnostic pairs are non-authoritative and raw Sky Lagoon output internally fails. APK/device/child/owner/exact-voice/accepted-visual gates and residual P2 card occlusion remain open |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates; exact authority-head run `31686380560` passes Windows in 3m47s and ends `MUSIC|check 42/42|picture_xmas`. Human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain open |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64 local / 63 remote trusted entries with only the human-art display probe local. Runtime `09e5e356` completes all 64 locally in 1463.4 seconds; probe/evidence head `ff068db` preserves runtime and is the latest full-local checkpoint at 1379.3 seconds/all 64 under exact Godot 4.7.1. Exact authority-head run `31686380560` executes exactly 63 remote trusted headings successfully at `9befc0f8`; machine gates are green, but existing Vulkan/resource-leak warnings and the internally failed Sky Lagoon diagnostic remain |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 106 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
-| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–027 cover 73 unique catalog-owned commit references, including Opera distribution runtime `09e5e356` and probe-readiness follow-up `ff068db` under CHG-027; the written ledger and read-only planner agree exactly, only CHG-020/021/022/024 emit guarded scripts, the other 23 refuse automation, and 21 unit plus independent adversarial checks are green |
+| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–028 cover 75 unique catalog-owned commit references. CHG-027 owns Opera distribution runtime `09e5e356` plus probe-readiness `ff068db`; CHG-028 owns material rollback-control `d991fdf3` plus authority `9befc0f8` synchronization as a narrow exception while routine self-hash/count maintenance remains CHG-023. The written ledger and read-only planner agree exactly, only CHG-020/021/022/024 emit guarded scripts, the other 24 refuse automation, and 22 unit plus independent adversarial checks are green |
 | `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
-| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Historical merge `f3b0de07` completes exact local CI in 1437.1 seconds with 64 probes; failed `31648427712` and repaired replacement `31649113587` preserve the newline-hash history. Runtime `09e5e356` completes full local CI in 1463.4 seconds/all 64; predecessor run `31661887863` is green at `e0677ae4`. Run `31678156887` is red only for fixed-frame readiness sampling; probe-only `ff068db` passes full local in 1379.3 seconds/all 64. Replacement exact-head remote, matching APK, authoritative visual, exact voice/listening, device, child, owner and strict-2D evidence remain open |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Historical merge `f3b0de07` completes exact local CI in 1437.1 seconds with 64 probes; failed `31648427712` and repaired replacement `31649113587` preserve the newline-hash history. Runtime `09e5e356` completes full local CI in 1463.4 seconds/all 64; probe-only `ff068db` passes full local in 1379.3 seconds/all 64. Exact authority head `9befc0f8` passes run `31686380560`; all five capture/upload pairs completed at the workflow level and uploaded diagnostic/non-authoritative artifacts, Sky Lagoon internally fails, and the run is not warning-clean. Matching APK, authoritative visual, exact voice/listening, device, child, owner and strict-2D evidence remain open |
 
 Current P2/owner-decision work remains indexed in the master audit: asset
 orphans/NPOT residency, exhaustive probe classification, the standalone
@@ -319,9 +324,9 @@ OW ordering:
 3. Finish verification of the focused Opera lifecycle/boss-retirement/
    Castle-distribution repair:
    keep slots 4/9/14 as raw-preserving tombstones, the live mask at `0xBDEF`,
-   and one Canvas entry path while preserving the green full-local and
-   predecessor exact-head evidence while running replacement exact-head remote and
-   completing external acceptance. Preserve all thirteen exact Castle-room
+   and one Canvas entry path while preserving the green full-local and exact
+   authority-head run `31686380560` evidence while completing matching APK and
+   external acceptance. Preserve all thirteen exact Castle-room
    owners, Movie Lounge Racer, the deleted all-career lobby, and exact-room
    return. Move/restage the route cards so Roshan's lower body/tail remains
    visible without shrinking touch targets. Complete
