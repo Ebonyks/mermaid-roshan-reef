@@ -91,7 +91,7 @@ Total 60. The nursery already proves the pattern in shipping code (section 13).
 | boxer (JAB) | Ring ropes and posts; punch run at glove height | swinging padded focus mitt | glowing punch medallion center | `opera_job_boxer_gameplay_focus_mitt.png`, `_punch_medallion.png`, `_ring_post_ropes.png`, `_padded_gloves.png` |
 | magician (CABINET) | Trick cabinet, star trail arcing across its doors | shooting-star sparkle (star-as-effect, allowed) | glow burst at the cabinet's pearl lock | `opera_job_magician_stage_states_trick_cabinet.png`, `opera_job_magician_gameplay_selector_glow.png` |
 | popstar (RHYTHM) | Rainbow rhythm ribbon across the stage | rainbow music note | glowing pearl frame on the ribbon | `opera_job_pop_star_gameplay_rainbow_rhythm_ribbon.png`, `_beat_pulse.png`, `opera_job_pop_star_stage_states_rainbow_rhythm_state.png`, `_pearl_light_frame.png` |
-| nursery (BURP) | **PROVEN** (`nursery_burp` context): baby over shoulder + patting hand + bar — art replacement at the same geometry; keep the bar as a blanket-trimmed track low in frame | existing `assets/opera/worlds/nursery/baby_1.png` stays runtime; hand-pat mover; P3-05 nursery palette |
+| nursery (BURP) | **PROVEN** (`nursery_burp` context): baby over shoulder plus patting hand and bar, replacing art at the same geometry | hand-pat mover | blanket-trimmed bar/track low in frame | existing `assets/opera/worlds/nursery/baby_1.png`; P3-05 nursery palette; existing baby art stays runtime |
 
 ## 4. T3 `pour` — hold: vessel pours while held, receiver visibly fills (4 skins)
 

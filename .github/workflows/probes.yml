@@ -90,6 +90,12 @@ jobs:
           python3 tools/audit_roshan_sprite_clipping.py
           python3 tools/audit_probe_parity.py --stress
           python3 tools/audit_probe_parity.py
+          # Current documentation controls runtime and repair authority. Prove
+          # exhaustive ledger/canonical-record checks can fail, then gate the
+          # exact repository Markdown inventory before accepting any repair.
+          python3 -m unittest tools.tests.test_audit_document_authority
+          python3 tools/audit_document_authority.py --stress
+          python3 tools/audit_document_authority.py
           python3 tools/audit_fairy_art_v2.py
           python3 tools/prepare_opera_nursery_art.py --check-only
           python3 tools/prepare_opera_minigame_art.py --check-only

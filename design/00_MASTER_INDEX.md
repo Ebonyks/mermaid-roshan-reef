@@ -1,7 +1,7 @@
 # Master design documents — index
 
 _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
-Runtime/audit merge synchronization: 2026-08-12._
+Runtime/audit merge synchronization: 2026-08-13._
 
 The latest historical exact-head CI-repair checkpoint is
 `af4189a99cfd5a32d0df0f75185f6912d3889399`. The current Opera product/runtime
@@ -10,13 +10,17 @@ commit remains `09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its exact local
 probe/evidence head `ff068db002202839f920a6f9fb78c942788a3034` changes only
 `scripts/probe_opera.gd` and is the latest full-local checkpoint, green in
 1379.3 seconds with all 64 trusted probes under Godot
-`4.7.1.stable.official.a13da4feb`. Current audit/evidence authority head
-`9befc0f838f40eead2f42088a91206257fe217a8` passes exact-head GitHub run
-`31686380560`. Historical predecessor run `31661887863` remains green at
+`4.7.1.stable.official.a13da4feb`. Current integrated dev/audit authority head
+`18b6150c01e1587100dca97c85ebad03f369825a` passes exact-head Probe Suite run
+`31693492735`: the probes job completes in 29m41s with exactly 63 remote trusted
+headings, and the Windows music gate ends 42/42. Android run `31695675866`
+checks out that exact SHA and publishes the matching dev APK (596,041,412 bytes;
+SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
+Historical predecessor run `31661887863` remains green at
 `e0677ae4`; later pre-fix run `31678156887` at `3fc151c8` remains red because
-Ubuntu sampled the 0.25-second Opera reveal after four frames. Matching APK,
-device, child, owner, exact-voice, listening, strict-2D, and accepted-visual
-gates remain open.
+Ubuntu sampled the 0.25-second Opera reveal after four frames. The APK gate is
+now commit-bound; device, child, owner, exact-voice, listening, strict-2D, and
+accepted-visual gates remain open.
 
 ## Why this folder exists
 
@@ -32,8 +36,13 @@ art direction before the 2026-08-09 reconciliation.
 
 This folder is the streamlined result. The first five masters remain concise
 domain summaries. The comprehensive design language and dated master audit now
-carry the cross-domain rule and evidence layers; the ledger is still a partial
-index, not proof that every tracked Markdown file has been classified.
+carry the cross-domain rule and evidence layers. The current documentation-
+control working slice inventories **316 tracked Markdown paths**, gives each
+path exactly one row in `05_DOC_LEDGER.md`, and provides full records for all 36
+material active findings in
+`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Its fail-closed validator and CI
+wiring are still uncommitted, so `MA-DOC-002` and `MA-DOC-005` are no farther
+than `FIXED_PENDING_VERIFICATION` until exact committed remote gates pass.
 
 | # | Document | Answers |
 |---|---|---|
@@ -41,9 +50,10 @@ index, not proof that every tracked Markdown file has been classified.
 | 02 | [ART_DIRECTION.md](02_ART_DIRECTION.md) | What it looks like, what medium world art ships in, what the quality bar is, what may never be touched |
 | 03 | [TECHNICAL_ARCHITECTURE.md](03_TECHNICAL_ARCHITECTURE.md) | How it is built, which engines exist, how it is tested, how it ships |
 | 04 | [OPEN_WORK.md](04_OPEN_WORK.md) | Current `MA-*` work navigation plus an explicit lifecycle crosswalk for the historical `OW-*` list |
-| 05 | [DOC_LEDGER.md](05_DOC_LEDGER.md) | Partial authority/status index for the original document set plus targeted later additions; not yet exhaustive |
+| 05 | [DOC_LEDGER.md](05_DOC_LEDGER.md) | Exhaustive working-slice authority/status index: one row for each of 316 tracked Markdown paths; exact committed remote verification remains pending |
 | 06 | [COMPREHENSIVE_DESIGN_LANGUAGE.md](06_COMPREHENSIVE_DESIGN_LANGUAGE.md) | Stable `DL-*` rules, including the owner's 2026-08-09 true-2D decision and the complete audit contract |
 | audit | [MASTER_AUDIT_2026-08-09.md](../audit/MASTER_AUDIT_2026-08-09.md) | Current audit-cycle state, synchronized evidence, lifecycle triage, and satisfaction gate |
+| findings | [ACTIVE_FINDINGS_2026-08-13.md](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md) | Full canonical working records for all 36 material active `MA-*` items; pending exact committed remote verification |
 | changes | [MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md](../audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md) | Stable `CHG-*` change groups, benefits/risks, dependencies, evidence, and guarded per-change rollback plans |
 
 `06_COMPREHENSIVE_DESIGN_LANGUAGE.md` is tracked and recognized here, but its
@@ -163,16 +173,19 @@ acceptance. Run `31678156887` at pre-fix head `3fc151c8` is retained as red: its
 only probe failures are Detective/Nursery stable-Canvas checks sampled during
 the 0.25-second reveal after four frames; all other executed gates/probes and
 Windows pass. `ff068db` replaces that guess with bounded fail-closed semantic
-readiness. Current authority head `9befc0f8` passes run `31686380560`: Ubuntu
-runs 33m40s with exactly 63 remote trusted headings and Windows runs 3m47s,
-ending `MUSIC|check 42/42|picture_xmas`. Static/import/analyzer/probe/boot/
-advisory/manifest gates are green. All five capture/upload pairs completed at
-the workflow level and uploaded diagnostic artifacts; they are not capture gates or visual
-passes. Raw Sky Lagoon `LAGOONSHOT` output itself has 21 `OK`, 44 `FAIL`, and
-`DONE` (66 diagnostic lines), so the Sky Lagoon diagnostic internally fails and
-cannot support visual acceptance. The run is also not warning-clean. Matching
-APK, authoritative visual, exact voice, human listening, device, child, owner,
-and strict-zero 2D evidence remain open.
+readiness. Current integrated dev/audit head `18b6150c` passes Probe Suite run
+`31693492735`: the probes job completes in 29m41s with exactly 63 remote trusted
+headings and the Windows music gate ends 42/42. Static/import/analyzer/probe/
+boot/advisory/manifest gates are green. All five capture/upload pairs completed
+at the workflow level and uploaded diagnostic artifacts; they are not capture
+gates or visual passes. Raw Sky Lagoon `LAGOONSHOT` output itself has 21 `OK`,
+44 `FAIL`, and `DONE` (66 diagnostic lines), with 20 PNGs, so the Sky Lagoon
+diagnostic internally fails and cannot support visual acceptance. The run is
+also not warning-clean. Android run `31695675866` succeeds from exact
+`18b6150c` and publishes the matching dev APK (596,041,412 bytes; SHA-256
+`fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
+Authoritative visual, exact voice, human listening, device, child, owner, and
+strict-zero 2D evidence remain open.
 
 Current Opera content is 13 careers, 53 phases, and 27 modes with newer
 diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the

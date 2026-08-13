@@ -159,15 +159,19 @@ layer 15 settled to Opera layer 11; their routes, passive behavior, saves,
 rewards, exact-room returns, dedicated probes, every other executed gate/probe,
 and Windows passed. Probe-only commit `ff068db` preserves runtime `09e5e356`,
 replaces that guess with a bounded fail-closed semantic wait, and passes exact
-local full CI in 1379.3 seconds with all 64 probes. Current authority head
-`9befc0f8` passes run `31686380560`: Ubuntu completes exactly 63 remote trusted
-headings in 33m40s and Windows completes in 3m47s with terminal
-`MUSIC|check 42/42|picture_xmas`. All five capture/upload pairs completed at the
-workflow level and uploaded diagnostic artifacts, not capture gates or visual passes.
-Raw Sky Lagoon `LAGOONSHOT` output has 21 `OK`, 44 `FAIL`, and `DONE` (66
-diagnostic lines), so that diagnostic internally fails. The run is not
-warning-clean; matching APK and every external/visual acceptance gate remain
-open.
+local full CI in 1379.3 seconds with all 64 probes. Current integrated dev/audit
+head `18b6150c01e1587100dca97c85ebad03f369825a` passes Probe Suite run
+`31693492735`: the probes job completes in 29m41s with exactly 63 remote trusted
+headings and the Windows music gate ends 42/42. All five capture/upload pairs
+completed at the workflow level and uploaded diagnostic artifacts, not capture
+gates or visual passes. Raw Sky Lagoon `LAGOONSHOT` output has 21 `OK`, 44
+`FAIL`, and `DONE` (66 diagnostic lines), with 20 PNGs, so that diagnostic
+internally fails. The run is not warning-clean. Android run `31695675866`
+succeeds from exact `18b6150c` and publishes the matching dev APK
+(596,041,412 bytes; SHA-256
+`fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
+Device, child, owner, exact-voice, listening, strict-2D, and accepted-visual
+gates remain open.
 
 ### Geography — the world line (PROPOSAL, unapproved)
 
@@ -260,8 +264,9 @@ local suites are green, moving
 `MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`. The 22 captures are diagnostic;
 the nine room captures show a residual P2 composition defect because the
 154×154 lower-center cards obscure Roshan's lower body/tail. Exact-head remote
-machine evidence is green at `9befc0f8`; matching APK, device, child, owner,
-exact-voice, listening, strict-2D, and accepted-visual evidence remain open.
+machine evidence and an exact-SHA dev APK are green at `18b6150c`; device,
+child, owner, exact-voice, listening, strict-2D, and accepted-visual evidence
+remain open.
 
 - Each room-owned picture entry instantiates the existing
   `OperaCareerWorld2D`/specialist surface for its job and returns to that same
@@ -435,6 +440,13 @@ The opening cinematic is produced under a separate, stricter regime — see
 
 The dated lifecycle in [04_OPEN_WORK.md](04_OPEN_WORK.md) and the master audit
 controls; an older work order is never implementation authority by itself.
+
+The current documentation-control working slice inventories all 316 tracked
+Markdown paths exactly once and records all 36 material active findings in
+[`ACTIVE_FINDINGS_2026-08-13.md`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md).
+Its fail-closed validator/CI wiring is not yet committed, so `MA-DOC-002` and
+`MA-DOC-005` remain no farther than `FIXED_PENDING_VERIFICATION` until exact
+committed remote gates pass.
 
 - **`CONFIRMED_OPEN`:** game-wide true-2D conversion, fresh-save no-cheat
   reachability proof, exact voice gaps, visual evidence and remaining layering

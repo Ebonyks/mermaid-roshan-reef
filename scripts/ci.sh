@@ -43,6 +43,15 @@ python3 tools/audit_probe_parity.py --stress \
 	|| { echo "PROBE PARITY SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_probe_parity.py \
 	|| { echo "LOCAL/REMOTE TRUSTED PROBE PARITY FAIL"; exit 1; }
+# Documentation is executable project authority: every tracked Markdown source
+# must have one scoped ledger row, and every active audit item must resolve to a
+# complete canonical record before another repair can be authorized.
+python3 -m unittest tools.tests.test_audit_document_authority \
+	|| { echo "DOCUMENT AUTHORITY CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_document_authority.py --stress \
+	|| { echo "DOCUMENT AUTHORITY SELF-TEST FAIL"; exit 1; }
+python3 tools/audit_document_authority.py \
+	|| { echo "DOCUMENT AUTHORITY / CANONICAL FINDING FAIL"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
 python3 tools/prepare_opera_nursery_art.py --check-only \

@@ -107,7 +107,7 @@ tier reduction.
 | Arena floors (all 5) | single flat color discs | themed PBR: snow (bright sand+normal), nursery & concert (wood planks), meadow (leaf), sunset (warm sand) |
 | Whole frame | neutral grade | color grading: saturation 1.18, contrast 1.06 — the "pop" |
 | Guide | (golden fish) | Baby Eagle from the book (P02b cutout, with her packed bag) |
-| Kept as-is | seagrass/kelp (already leaf-textured), Riley corals/creatures (phase-5 materials), pearls (rainbow shader), beacons, book-art sprites |
+| Kept as-is | seagrass/kelp, Riley corals/creatures, pearls, beacons, and book-art sprites | Unchanged; existing leaf textures, phase-5 materials, and rainbow shader remain. |
 
 ## Child-paced playtest (instrumented bot: 1.1-1.6s reactions, 30% wrong buttons, wandering swim)
 

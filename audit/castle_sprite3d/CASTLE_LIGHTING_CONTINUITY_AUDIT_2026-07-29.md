@@ -36,7 +36,7 @@ One final built-in ImageGen call was therefore used for the missing opaque
 fixture only. Everything else is same-source deterministic reuse.
 
 | Asset | Dimensions | SHA-256 | Provenance |
-| --- | ---: | --- |
+| --- | ---: | --- | --- |
 | `castle_shell_sconce_touchable.png` | 1024 x 1024 | `dd202d48ca3a9d142fbc7f1f0cc738e6ff7c0610f1018982e5223e7d002b761e` | One built-in ImageGen call; 1254 x 1254 chroma source, local alpha removal, then one downsample to the runtime limit |
 | `castle_shell_sconce_assembly.png` | 1024 x 1024 | `c3030be711c174cb1e2e9b071e53dee3b8961bbd4d8c87ec02798971e6a91332` | Deterministic architectural mount plus the accepted sconce, built by `tools/build_castle_lighting_assets.py` |
 | `castle_royal_tapestry_reuse.png` | 130 x 320 | `1bc0809edd3102dd0dcc0e4605a583078d0d91080b5cad5f84786ab743f83833` | Exact-alpha extraction from the approved 2 x 4 Main Hall reconstruction by the same tool |

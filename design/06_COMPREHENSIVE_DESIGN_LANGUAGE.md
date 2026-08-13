@@ -1,9 +1,10 @@
 # Mermaid Roshan: Reef of Light — comprehensive design language
 
 - **Document ID:** CDL-2026-08-09
-- **Status:** `PROPOSED_CANONICAL`; direct owner decisions remain controlling
-  while the exhaustive ledger, complete finding records, and documentation gate
-  remain open
+- **Status:** `PROPOSED_CANONICAL`; the exhaustive ledger and complete finding
+  records exist in the uncommitted documentation-control slice, but direct owner
+  decisions remain controlling until its fail-closed exact committed remote gate
+  passes
 - **Decision baseline:** owner direction through 2026-08-09
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
@@ -18,8 +19,8 @@
 - **Current probe/evidence head and latest completed full-local checkpoint:**
   `ff068db002202839f920a6f9fb78c942788a3034`; only
   `scripts/probe_opera.gd` differs from the documented runtime
-- **Current audit/evidence authority head:**
-  `9befc0f838f40eead2f42088a91206257fe217a8`
+- **Current integrated dev/audit authority head:**
+  `18b6150c01e1587100dca97c85ebad03f369825a`
 - **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
   succeeds in 34m19s for that older SHA
@@ -30,9 +31,11 @@
   1463.4 seconds/all 64; probe-only `ff068db` passes the latest full local in
   1379.3 seconds/all 64 under exact official Godot
   `4.7.1.stable.official.a13da4feb`. Run `31678156887` at pre-fix head
-  `3fc151c8` is red only for fixed-four-frame reveal sampling. Exact authority
-  head `9befc0f8` passes run `31686380560`; matching APK and external/visual
-  acceptance remain open
+  `3fc151c8` is red only for fixed-four-frame reveal sampling. Integrated head
+  `18b6150c` passes Probe Suite run `31693492735` (29m41s probes job, exactly 63
+  remote trusted headings, music 42/42). Android run `31695675866` succeeds from
+  that exact checkout and publishes the matching dev APK; external/visual
+  acceptance remains open
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
@@ -51,10 +54,14 @@ closure evidence live in `audit/MASTER_AUDIT_2026-08-09.md`.
 
 Commit `9289dd81` reconciled `AGENTS.md`, `CLAUDE.md`, `design/00` through
 `design/05`, and the named Roshan authority surface to the owner's final 2D
-decision. The ledger is still incomplete across the current 315 tracked
-Markdown files, so a direct owner decision and binding operational/security
-rules remain higher authority. Where an older art or design document conflicts
-with a rule here, the dated supersession table in section 15 controls.
+decision. The current documentation-control working slice gives all 316 tracked
+Markdown paths exactly one authority-ledger row and gives all 36 material active
+findings a full record in
+`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Its fail-closed validator and CI
+wiring remain uncommitted, so `MA-DOC-002` and `MA-DOC-005` are no farther than
+`FIXED_PENDING_VERIFICATION`; direct owner decisions and binding operational/
+security rules remain higher authority. Where an older art or design document
+conflicts with a rule here, the dated supersession table in section 15 controls.
 
 At historical merge `f3b0de07`, this remained an acceptance target, not a
 compliance claim. Exact Godot 4.7.1 local `scripts/ci.sh` exited 0 after 1437.1
@@ -95,14 +102,18 @@ Castle ambient layer 15 settles to Opera layer 11. Their raw launches, passive
 safety, saves/rewards, exact-room returns, dedicated probes, every other
 executed gate/probe, and Windows pass. Probe-only `ff068db` replaces the frame
 guess with a bounded fail-closed wait for exact instance/reveal/stage/layer
-readiness and passes full local CI in 1379.3 seconds/all 64. Exact authority
-head `9befc0f8` passes run `31686380560`: Ubuntu completes exactly 63 remote
-trusted headings in 33m40s and Windows completes music 42/42 in 3m47s. The five
-capture/upload pairs completed at the workflow level and uploaded diagnostic artifacts, not
-capture gates or visual passes. Raw Sky Lagoon `LAGOONSHOT` output has 21 `OK`,
-44 `FAIL`, and `DONE` (66 diagnostic lines), so that diagnostic internally
-fails. Existing Vulkan fallback and resource-leak diagnostics also remain;
-matching APK and external acceptance stay open.
+readiness and passes full local CI in 1379.3 seconds/all 64. Current integrated
+dev/audit head `18b6150c` passes Probe Suite run `31693492735`: the probes job
+completes in 29m41s with exactly 63 remote trusted headings and the Windows music
+gate ends 42/42. The five capture/upload pairs completed at the workflow level
+and uploaded diagnostic artifacts, not capture gates or visual passes. Raw Sky
+Lagoon `LAGOONSHOT` output has 21 `OK`, 44 `FAIL`, and `DONE` (66 diagnostic
+lines), with 20 PNGs, so that diagnostic internally fails. Existing Vulkan
+fallback and resource-leak diagnostics also remain. Android run `31695675866`
+checks out exact `18b6150c` and publishes the matching dev APK (596,041,412
+bytes; SHA-256
+`fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`).
+External acceptance stays open.
 
 The overall game remains `UNSATISFIED`. GAME2D is exact `NO_REGRESSION`, all 14
 falsification controls pass, but strict remains unsatisfied at 509 models/509
@@ -135,9 +146,9 @@ Ballerina and Boxer pass runtime `09e5e356` and latest full-local probe head
 `ff068db`; their earlier
 state also passes exact-head remote run `31649113587` at `af4189a9`. Exact-head
 run `31661887863` verifies the predecessor integrated head; run `31678156887`
-is red only for fixed-frame route readiness sampling, and current authority
-head `9befc0f8` passes run `31686380560`. Authoritative capture, exact voice,
-device, child and owner acceptance remain open. Painter-purpose and Arborist
+is red only for fixed-frame route readiness sampling, and current integrated
+head `18b6150c` passes Probe Suite run `31693492735`. Authoritative capture,
+exact voice, device, child and owner acceptance remain open. Painter-purpose and Arborist
 worktrees are uncommitted candidates; Boxer V2 is a docs-only branch proposal.
 The 42-cue deterministic area-music rollout has local machine evidence,
 historical pinned-Windows evidence at `dacef140`, and a 42/42 pinned-Windows
@@ -151,11 +162,13 @@ result in successful run `31649113587`; human listening, mono/voice review,
   acceptance. Twenty-two current 1280×720 Mobile renders were visually inspected
   only for diagnostic/review purposes; the five predecessor remote capture/upload
   pairs are likewise diagnostic. The current route cards obscure Roshan's lower
-  body/tail in all nine room captures. Exact authority head `9befc0f8` passes
-  remote run `31686380560`; all five capture/upload pairs completed at the
-  workflow level and uploaded diagnostic artifacts, and raw Sky Lagoon output internally fails 21
-  `OK` / 44 `FAIL` / `DONE`. Matching APK, authoritative visual, exact voice,
-  human listening, device, child, owner, and strict-zero 2D gates remain open.
+  body/tail in all nine room captures. Integrated head `18b6150c` passes Probe
+  Suite run `31693492735`; all five capture/upload pairs completed at the
+  workflow level and uploaded diagnostic artifacts, and raw Sky Lagoon output
+  internally fails 21 `OK` / 44 `FAIL` / `DONE` while producing 20 PNGs. Android
+  run `31695675866` publishes the matching exact-SHA dev APK. Authoritative
+  visual, exact voice, human listening, device, child, owner, and strict-zero 2D
+  gates remain open.
   Probe-only `ff068db` preserves that runtime and completes the newer full-local
   gate in 1379.3 seconds/all 64.
 
@@ -537,8 +550,9 @@ mapping with local focused/full-suite evidence; probe-only `ff068db` adds
 bounded fail-closed route readiness without changing runtime. `MA-OPERA-012`
 remains `FIXED_PENDING_VERIFICATION` until device/child/owner/voice/
 accepted-visual gates complete; exact-head remote machine evidence is green at
-`9befc0f8`. Route cards MUST preserve their large touch
-targets without obscuring Roshan's lower body/tail.
+`18b6150c`, with matching dev-APK evidence from Android run `31695675866`.
+Route cards MUST preserve their large touch targets without obscuring Roshan's
+lower body/tail.
 
 `DL-INT-13` — Curtain Dragon, Shadow Phantom, and Midnight Maestro are cut from
 the reachable product. They MUST NOT appear as Opera cards, floor gates,
@@ -992,9 +1006,10 @@ prove convergence, boss/save retirement, all thirteen exact Castle
 routes, Movie Lounge Racer, no hidden lobby, exact-room return, and explicit
 layer ownership. Its 22 inspected 1280×720 Mobile renders remain diagnostic;
 the nine room captures expose lower-body/tail card occlusion. Run `31678156887`
-is retained red for fixed-frame readiness sampling; exact authority head
-`9befc0f8` passes remote run `31686380560`. Matching APK, exact voice, accepted
-visual, target-device, child, and owner gates still block closure.
+is retained red for fixed-frame readiness sampling; current integrated head
+`18b6150c` passes Probe Suite run `31693492735`, and Android run `31695675866`
+publishes its matching dev APK. Exact voice, accepted visual, target-device,
+child, and owner gates still block closure.
 
 `DL-QA-13` — Area-music acceptance separates deterministic build evidence from
 listening evidence. All 42 new cues must keep exact source/render/import hashes
@@ -1024,6 +1039,13 @@ An abbreviated triage-index row is an audit item, not a canonical finding
 record. It may be called a finding only after a stable linked record contains
 every field below; unknown values are written explicitly as missing or blocked,
 never omitted.
+
+The current documentation-control working slice applies this schema to all 36
+material active findings in
+[`ACTIVE_FINDINGS_2026-08-13.md`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md).
+The record set and exhaustive 316-path ledger remain
+`FIXED_PENDING_VERIFICATION` until their fail-closed validator/CI wiring passes
+on an exact committed remote head.
 
 | Field | Requirement |
 |---|---|

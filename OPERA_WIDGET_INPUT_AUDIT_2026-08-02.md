@@ -48,8 +48,8 @@ Mode ranking, best to worst, with prescriptions (art dependencies in P8):
 | 5 | hold | RESKIN | motorically right; needs a continuously filling world (batter rises, bottle drains) instead of a growing dot |
 | 6 | tap | RESKIN | pattern fine, target abstract; make tap_marks the fiction (toppings stay on the cake) |
 | 7 | circle | RESKIN | hard under 5 but salvageable - something must visibly ROTATE with the finger |
-| 8 | choice | REPLACE -> drag-and-drop with always-visible pictured targets (recognition, not recall; structurally unmashable). Rhythm-fiction phases (STEPS/ROUND/DANCE) instead keep tap-while-lit with no dim timer |
-| 9 | timing | REPLACE -> watch-then-act on a big slow diegetic cue (>=2.5 s cycle, >=1.2 s open window, grows+glows+chimes; fetch pattern) - the D2 parameter fix is an interim step only |
+| 8 | choice | REPLACE | Drag-and-drop with always-visible pictured targets (recognition, not recall; structurally unmashable). Rhythm-fiction phases (STEPS/ROUND/DANCE) instead keep tap-while-lit with no dim timer. |
+| 9 | timing | REPLACE | Watch-then-act on a big slow diegetic cue (>=2.5 s cycle, >=1.2 s open window, grows+glows+chimes; fetch pattern); the D2 parameter fix is an interim step only. |
 
 Per-phase REPLACE mappings for both grammars and the full RESKIN
 prescriptions are in Appendix B; the P8 art handoff encodes the same

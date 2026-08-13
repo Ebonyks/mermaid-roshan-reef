@@ -143,10 +143,12 @@ camera rig, avatar, env save/restore, HUD strip, and the one-button verb read.
   grab/push/switch verb set. New "dungeon-type adventures" are then room
   tables + encounter dicts, not new code.
 
-### E2 — Side-scroll stage engine (SHIPPED: `scripts/games/side_scroll.gd`)
-The catch-babies interface, rebuilt per owner direction as a 2.5D stage: the
-**real 3D Roshan** (wardrobe skin included) on a left/right line before a
-side-on camera, 3D-meshed babies falling in front of the nursery book page.
+### E2 — Side-scroll stage engine (LEGACY SHIPPED SPATIAL DEBT: `scripts/games/side_scroll.gd`)
+This historical 2.5D prescription is superseded by the binding game-wide
+true-Canvas rule. The still-reachable legacy implementation places a spatial
+Roshan/player representation on a left/right line before a side-on camera with
+3D-meshed actors in front of a book page; that describes measured migration
+debt, not an approved final medium or a model-restoration direction.
 - **Modes:** `tick()` = steer-on-a-line (catch games); `run_tick()` = the
   Mario-run seam — auto-run + tap-to-hop, in the engine, no client yet;
   `brawl_tick()` = **walk-the-plane with depth** (Castle Crashers style):
