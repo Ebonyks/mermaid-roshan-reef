@@ -2,8 +2,8 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "f0b4f5e0",
-    "inventory_date": "2026-08-12",
+    "inventory_head": "e6edf559",
+    "inventory_date": "2026-08-13",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
@@ -12837,14 +12837,9 @@
       "Vector3": 12
     },
     "scripts/probe_sky_lagoon_art.gd": {
-      "<lowercase-3d-marker>": 9,
-      "AABB": 5,
-      "CPUParticles3D": 1,
+      "<lowercase-3d-marker>": 2,
       "Camera3D": 2,
-      "GPUParticles3D": 1,
-      "MeshInstance3D": 2,
-      "Node3D": 26,
-      "Vector3": 110
+      "Node3D": 19
     },
     "scripts/probe_stuffie.gd": {
       "MeshInstance3D": 2,
