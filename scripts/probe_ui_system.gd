@@ -14,8 +14,6 @@ const GAMEPLAY_HUD_SURFACES := [
 	"res://scripts/dungeon_puzzle_room.gd",
 	"res://scripts/galaxy.gd",
 	"res://scripts/ember_fortress.gd",
-	"res://scripts/opera_house.gd",
-	"res://scripts/opera_act.gd",
 	"res://scripts/medal_system.gd"]
 const CHILD_MENU_SYSTEMS := [
 	{"id": "intro", "path": "res://scripts/intro_overlay.gd", "token": "adorn_panel"},

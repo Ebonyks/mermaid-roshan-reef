@@ -334,6 +334,18 @@ func _room_detail_tile_ready(tile: Sprite3D) -> bool:
 			tile.scale.y, render_rect.size.y / native_size.y)
 	)
 
+
+func _descendants_are_canvas(node: Node) -> bool:
+	for child: Node in node.get_children():
+		# Plain Node children are nonvisual lifecycle/animation controllers. Any
+		# presentation-bearing descendant must belong to the Canvas hierarchy.
+		if not (child is CanvasItem or child is CanvasLayer \
+				or child is AudioStreamPlayer or child.get_class() == "Node"):
+			return false
+		if not _descendants_are_canvas(child):
+			return false
+	return true
+
 func _hall_native_column_x(column: int) -> float:
 	var x := 0.0
 	for prior_column: int in range(column):
@@ -2897,6 +2909,10 @@ func _run() -> void:
 				and kitchen_act.kind == "order"
 				and String(kitchen_act.config.get("uses", "")) == "carrots"
 				and kitchen_act.stage_phase == "puzzle"
+				and kitchen_act.use_career_world_2d
+				and kitchen_act.career_world_2d != null
+				and _descendants_are_canvas(kitchen_act)
+				and main.kart_game == null
 			)
 			if kitchen_act != null:
 				kitchen_act.cancel()

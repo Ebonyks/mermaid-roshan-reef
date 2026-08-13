@@ -26,6 +26,12 @@ func _init() -> void:
 	sd["stuffie_wins"] = {"round1": true, "friend_lamma": true}
 	sd["companion_resting"] = true
 	sd["companion_bruises"] = 2
+	# Stable Opera bits are deliberately sparse after boss retirement. Keep all
+	# three historical tombstone bits plus Chef, while ignoring the stale linear
+	# progress field a previous build may have written.
+	sd["opera_stars"] = 0x4211
+	sd["opera_progress"] = 16
+	sd["opera_done"] = false
 	var w := FileAccess.open("user://reef_save.json", FileAccess.WRITE)
 	w.store_string(JSON.stringify(sd))
 	w.close()
@@ -75,6 +81,7 @@ func _init() -> void:
 	else:
 		print("castle logo restored: purple puppy")
 	var first_companion_ok: bool = _legacy_companion_ok(main, "first launch")
+	var first_opera_ok: bool = _opera_mask_ok(main, "first launch")
 	var first_write_ok: bool = main._write_save()
 	var saved_healed: bool = first_write_ok \
 		and not bool(main.save_data.get("companion_resting", true)) \
@@ -87,7 +94,9 @@ func _init() -> void:
 		and bool((main.save_data.get("stuffie_wins", {}) as Dictionary).get(
 			"round1", false)) \
 		and bool((main.save_data.get("stuffie_wins", {}) as Dictionary).get(
-			"friend_lamma", false))
+			"friend_lamma", false)) \
+		and int(main.save_data.get("opera_stars", -1)) == 0x4211 \
+		and int(main.save_data.get("opera_progress", -1)) == 1
 	if saved_healed:
 		print("legacy companion save rewrote only the retired resting flag")
 	else:
@@ -104,7 +113,23 @@ func _init() -> void:
 		await process_frame
 	var second_companion_ok: bool = _legacy_companion_ok(
 		relaunched, "second launch")
-	quit(0 if first_companion_ok and saved_healed and second_companion_ok else 1)
+	var second_opera_ok: bool = _opera_mask_ok(relaunched, "second launch")
+	quit(0 if first_companion_ok and first_opera_ok and saved_healed \
+		and second_companion_ok and second_opera_ok else 1)
+
+
+func _opera_mask_ok(main: ReefMain, label: String) -> bool:
+	var ok: bool = main.opera_stars == 0x4211 \
+		and main.opera_progress == 1 and not main.opera_done \
+		and OperaHouse.live_star_count(main.opera_stars) == 1 \
+		and not OperaHouse.has_all_live_stars(main.opera_stars)
+	if ok:
+		print("sparse Opera mask restored intact on ", label)
+	else:
+		print("FAIL: sparse Opera save mismatch on %s stars=%04X progress=%d done=%s" % [
+			label, main.opera_stars, main.opera_progress, main.opera_done,
+		])
+	return ok
 
 func _legacy_companion_ok(main: ReefMain, label: String) -> bool:
 	var colors_ok: bool = main.companion_colors \

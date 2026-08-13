@@ -20,7 +20,6 @@ func _init() -> void:
 	main._skip_intro()
 	main.game = "opera"
 	var config := (OperaHouse.ACTS[1] as Dictionary).duplicate(true)
-	config["force_2d"] = true
 	var act := OperaAct.new()
 	get_root().add_child(act)
 	act.start(main, config, Callable())

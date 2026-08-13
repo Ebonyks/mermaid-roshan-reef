@@ -50,12 +50,13 @@ func _init() -> void:
 	_check("all authored area cues exist", missing.is_empty())
 	_check("all authored area cues import looped", not_import_looped.is_empty())
 	var opera_tracks: Dictionary = {}
-	for config: Dictionary in OperaHouse.ACTS:
+	for live_index: int in OperaHouse.LIVE_ACT_INDICES:
+		var config: Dictionary = OperaHouse.ACTS[live_index]
 		var cue := String(config.get("music", ""))
 		if cue != "":
 			opera_tracks[cue] = true
-	_check("every Opera act owns a unique cue",
-		opera_tracks.size() == OperaHouse.ACTS.size())
+	_check("every live Opera career owns a unique cue",
+		opera_tracks.size() == OperaHouse.ACTIVE_ACT_COUNT)
 	var castle_tracks: Dictionary = {}
 	var castle_mapping_ok := true
 	for room_config: Dictionary in CastleRooms25D.ROOMS:

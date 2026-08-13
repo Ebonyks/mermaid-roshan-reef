@@ -161,8 +161,8 @@ var skin_sprite: Sprite3D = null  # billboard used for alternative full skins
 var skin_sparkles: CPUParticles3D = null  # fairy sparkle trail for sparkly skins
 var skin_id := "classic"
 var skin_t := 0.0
-# OperaAct drives position/yaw and reports speed while this same sprite clock
-# keeps Roshan alive. Input, physics, and camera remain with the act.
+# Legacy puppet motion remains dormant migration debt. Current Opera careers
+# own their animated Canvas actors and never drive this swim-world seam.
 var puppet := false
 var puppet_speed := 0.0
 # Career selection remains gameplay state. Dedicated 2D outfit atlases can

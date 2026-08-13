@@ -2,8 +2,8 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "fea916a8",
-    "inventory_date": "2026-08-09",
+    "inventory_head": "41087f66",
+    "inventory_date": "2026-08-12",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
@@ -7579,8 +7579,8 @@
     "model_import_sidecars": 157,
     "active_untracked_model_import_sidecars": 352,
     "model_archive_files": 0,
-    "production_3d_files": 68,
-    "probe_3d_files": 77,
+    "production_3d_files": 66,
+    "probe_3d_files": 74,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
     "archive_now_model_files": 0
@@ -12401,53 +12401,6 @@
       "VisualInstance3D": 5,
       "WorldEnvironment": 2
     },
-    "scripts/opera_act.gd": {
-      "<3d-multimesh>": 1,
-      "<model-reference>": 27,
-      "BaseMaterial3D": 20,
-      "Basis": 5,
-      "BoxMesh": 1,
-      "CLAUDE_OPERA_JOB_3D_CONTINUATION_2026": 1,
-      "Camera3D": 2,
-      "CylinderMesh": 16,
-      "DirectionalLight3D": 1,
-      "Environment": 4,
-      "Label3D": 2,
-      "Mesh": 2,
-      "MeshInstance3D": 25,
-      "MultiMeshInstance3D": 2,
-      "Node3D": 213,
-      "Plane": 4,
-      "QuadMesh": 3,
-      "SphereMesh": 3,
-      "Sprite3D": 4,
-      "SpriteBase3D": 1,
-      "StandardMaterial3D": 20,
-      "TRANSFORM_3D": 1,
-      "TorusMesh": 7,
-      "Transform3D": 12,
-      "Vector3": 1001
-    },
-    "scripts/opera_house.gd": {
-      "<lowercase-3d-marker>": 1,
-      "<model-reference>": 12,
-      "BaseMaterial3D": 4,
-      "BoxMesh": 1,
-      "CLAUDE_OPERA_HOUSE_3D_CONTINUATION_2026": 1,
-      "Camera3D": 2,
-      "CylinderMesh": 1,
-      "DirectionalLight3D": 1,
-      "Environment": 4,
-      "Label3D": 5,
-      "Mesh": 1,
-      "MeshInstance3D": 10,
-      "Node3D": 19,
-      "SphereMesh": 1,
-      "Sprite3D": 2,
-      "StandardMaterial3D": 16,
-      "TorusMesh": 2,
-      "Vector3": 171
-    },
     "scripts/physics.gd": {
       "AABB": 1,
       "Node3D": 1,
@@ -12800,21 +12753,8 @@
       "Node3D": 3,
       "Vector3": 3
     },
-    "scripts/probe_opera.gd": {
-      "Node3D": 18,
-      "Vector3": 37
-    },
     "scripts/probe_opera_2d.gd": {
       "Node3D": 2
-    },
-    "scripts/probe_opera_art.gd": {
-      "Camera3D": 2,
-      "Node3D": 2,
-      "Vector3": 13
-    },
-    "scripts/probe_opera_balance.gd": {
-      "Node3D": 10,
-      "Vector3": 34
     },
     "scripts/probe_passive.gd": {
       "Node3D": 3,

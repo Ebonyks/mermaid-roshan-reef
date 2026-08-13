@@ -120,10 +120,22 @@ resource only after its replacement or non-reachability proof is green.
 
 At the synchronized merged working-tree snapshot, the exact GAME2D inventory
 remains **`UNSATISFIED`**: 509 model files/509 active exports, 157 tracked and
-352 active-untracked generated model sidecars, 68 production 3D files, 77
-probe 3D files, one scene, and one configuration. The old zone table is preserved in
+352 active-untracked generated model sidecars, 66 production 3D files, 74
+probe 3D files, one scene, and one configuration. Regression mode is exact
+`NO_REGRESSION` and all 14 falsification controls pass; strict remains open. The
+older `f3b0de07` 68/77 values remain historical evidence. The old zone table is preserved in
 `GAME_REDESIGN_2P5D_2026-07-27.md` as history; it is not a current
 implementation queue.
+
+The current working slice completes exact local `scripts/ci.sh` under Godot
+`4.7.1.stable.official.a13da4feb` with exit 0 after 1428.6 seconds: all 64
+trusted local probes, 74 GAME2D units, 93 visual-contract units, and the Castle
+frame-review candidate
+`1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
+(13 assets/104 frames) are green in their machine/review ledgers. Exact-head
+remote is pending. Seventeen V4 Mobile 1280×720 captures were visually inspected
+only as diagnostic/review evidence; neither the candidate nor those captures
+grant device, child, owner, or authoritative visual acceptance.
 
 ### Geography — the world line (PROPOSAL, unapproved)
 
@@ -176,7 +188,7 @@ inventory/debt, never authorization to preserve or extend 3D.
 | Stuffie battle | one-button attack + DODGE QTE | legacy arena → Canvas/Node2D |
 | Opera careers ×13 | 53 career-specific phases across 27 shipping modes | `OperaCareerWorld2D` / Canvas specialist surfaces |
 
-### The Pearl Opera — the largest wing
+### The thirteen careers — current content, distributed final home
 
 Thirteen careers, 53 shipping phases and 27 unique shipping modes form a set
 of short, career-specific performances.
@@ -190,9 +202,32 @@ The later `BALLERINA_PARTY_REBUILD_2026-08-09.md` and
 specific quality work, but their dated 52-phase count and their superseded
 Ballerina, Boxer, or real-kart prescriptions are not current authority.
 
-- Entry opens a **native 2D lobby** (`OperaLobby2D`) — three floor tabs,
-  picture-first job cards, star progress, spoken hints. No 3D lobby, avatar,
-  camera or lift is built in normal play.
+The careers do **not** all belong in one final Opera hub. Direct owner direction
+in `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` section 10 / `7426c187` assigns
+them to the Castle rooms whose pictures and objects explain the job:
+
+| Castle room | Career entry points |
+|---|---|
+| Royal Kitchen | Pastry Chef, Candy Maker |
+| Opera Hall | Ballerina, Pop Star, Magician |
+| Royal Library | Detective |
+| Craft Room | Painter |
+| Stuffie Playroom | Stuffie Doctor, Boxer |
+| Bubble Bath | Nursery Nurse |
+| Mermaid Pool | Astronaut Engineer |
+| Family Dining Room | Farmer |
+| Cloud Movie Lounge **or** Courtyard | Racer — choose one canonical home before implementation |
+
+This mapping preserves all thirteen current career activities and their stable
+star identities; it changes discovery, launch, and return ownership. Opera Hall
+is one venue for the three performances, not the front door to every job. The
+current native `OperaLobby2D` with three floor tabs and every live career card
+is a useful transitional Canvas surface but a rejected final hub under
+`MA-OPERA-012`. The retired finale cards are no longer present.
+
+- Each room-owned picture entry instantiates the existing
+  `OperaCareerWorld2D`/specialist surface for its job and returns to that same
+  launching room. There is no floor ladder or all-career back door.
 - Selecting a job instantiates `OperaCareerWorld2D` over the career's
   **painted world**. The paintings are not decorative backdrops — they **are**
   the stages. Default career routes use normalized painted-walkway waypoints,
@@ -212,13 +247,13 @@ Ballerina, Boxer, or real-kart prescriptions are not current authority.
   Guard, Title Imp, and Belt. It is completable with one finger, has no health,
   damage, fail state, lost combo, or lost progress, and uses its dedicated
   Canvas boxing surface rather than a generic combat engine.
-- **Racer's display/forced-2D path is a three-phase true-Canvas act:** Tune, To
-  the Line, and a child-driven racing-circle finale using the exact
-  `op_racer_lap_two` cue. Final authority requires the same Canvas
-  implementation everywhere. Exact `f3b0de07` source still retains an
-  ordinary-headless legacy lobby/racer path that can attach `scripts/kart.gd`;
-  it is open `MA-OPERA-010`/`MA-2D-002` debt, not a valid fallback and not
-  covered away by the forced-2D probes.
+- **Racer is a three-phase true-Canvas act:** Tune, To the Line, and a
+  child-driven racing-circle finale using the exact `op_racer_lap_two` cue. The
+  current repair removes the ordinary-headless legacy lobby/kart split and
+  proves ordinary unforced entry uses this same Canvas implementation. Focused
+  and full local exact-Godot coverage is green; `MA-OPERA-010` remains
+  `FIXED_PENDING_VERIFICATION` until exact-head remote and external acceptance
+  gates complete.
 - **Competition is scoped, not assumed.** Where a career retains a rival or
   finale meter, it stays hidden until its declared finale and cannot create a
   loss. Friendly contact is harmless; zero input never earns progress.
@@ -227,6 +262,22 @@ Ballerina, Boxer, or real-kart prescriptions are not current authority.
 - Completing a performance yields Warm Cheers / Big Cheers / Standing Ovation
   by pace, accuracy and guided retries. Every completed career earns its star
   regardless.
+- **Curtain Dragon, Shadow Phantom, and Midnight Maestro are not careers or
+  finales.** Owner ruling `3d1236fe` cuts all three. The current repair removes
+  their cards, gates, required completion bits, and boss runtime while keeping
+  stable save slots 4/9/14 as permanent tombstones. Raw legacy bits remain
+  readable and completion masks only `0xBDEF`, the thirteen career slots.
+  Focused and full local exact-Godot migration/reward/passive/teardown coverage
+  is green, so `MA-OPERA-011` is `FIXED_PENDING_VERIFICATION`; do not convert or rewrite the
+  characters as Opera bosses. Existing art/music may remain inactive for future
+  reuse. Section 17 / `ef2fd982` allows future Ember-henchman boss fights as
+  separately justified content, never in the retired Opera slots.
+- **Royal Kitchen Chef launch remains deliberately unchanged.** Its current
+  career configuration is valid and covered by the focused Opera/Castle probes,
+  so no child-facing failure is reproduced. A speculative recovery branch for a
+  future invalid configuration would change the sealed Castle controller and
+  requires renewed owner visual approval; that latent hardening belongs to
+  `MA-CODE-002`, not this Opera retirement slice.
 
 ### Music and spoken guidance
 
@@ -294,8 +345,12 @@ candies instead of seven is twice as long and half as good.
   Bronze = completion, always awarded, never denied. **Upgrade-only:** a
   slower replay keeps the better medal. **Win-path only:** `probe_passive`
   asserts that zero-input play can never touch `m.medals`.
-- **Opera stars** — a bitmask (`opera_stars`, 16-bit since job 13), with
-  floor gating on the lobby.
+- **Opera stars** — `opera_stars` keeps its stable 16-slot bit namespace so
+  existing saves never shift careers. The thirteen live career slots remain;
+  owner-cut boss slots 4, 9, and 14 are inert tombstones. Completion masks only
+  the live careers (`0xBDEF`), effective `opera_progress` is 0–13, and no floor
+  gate depends on a tombstone. Existing retired bits are preserved raw but never
+  reassigned to a new act.
 - **Companion growth** — `fish_tokens`, `care_points`, `stuffie_wins`.
 
 All of it funnels through one `_reward()` director; no mode may write pearls,
@@ -343,22 +398,27 @@ The dated lifecycle in [04_OPEN_WORK.md](04_OPEN_WORK.md) and the master audit
 controls; an older work order is never implementation authority by itself.
 
 - **`CONFIRMED_OPEN`:** game-wide true-2D conversion, fresh-save no-cheat
-  reachability proof, exact voice gaps, named Opera defects, visual evidence
-  and layering gaps, probe classification, device performance, and child
-  comprehension evidence.
+  reachability proof, exact voice gaps, the rejected three-page all-career Opera
+  hub (`MA-OPERA-012`), visual evidence and layering gaps, probe classification,
+  device performance, and child comprehension evidence. The legacy Opera
+  lifecycle and cut-boss retirement repairs are separately
+  `FIXED_PENDING_VERIFICATION` as `MA-OPERA-010`/`011`.
 - **`DEFERRED_WITH_REASON`:** the proposed world geography, dungeon lock/key
-  expansion, Zelda-grammar verb expansion, chapter/daily-rhythm/naming/gifting/
-  tending/decorating additions, and other new modes. Finish and prove the
-  current game first.
+  expansion, Zelda-grammar verb expansion, unadopted chapter/daily-rhythm/
+  naming/gifting/tending/decorating additions, and other new modes. This does
+  not defer the binding Castle-room career distribution or Opera-boss cut.
 - **`DISMISSED_NOT_IN_PROJECT` / `SUPERSEDED`:** dimensional rollback,
   `world_style` return-to-3D work, the old promenade pilot/order as a repair
-  item, Meshy/Blender/model migration, 3D Opera bosses/companions/worlds, and
-  landed-model retention. These remain dated history, not paused work.
+  item, Meshy/Blender/model migration, owner-cut Opera bosses, 3D companions/
+  worlds, the three-floor all-career hub as a final design, and landed-model
+  retention. Their still-reachable runtime forms remain named repair debt, not
+  permission to preserve the superseded product structure.
 - **Targeted polish:** legacy slide/kart feel outside the Opera may be
   considered only as a bounded current-mode defect with evidence. Opera
-  Racer's intended path is the Canvas circle activity; the retained ordinary-
-  headless kart source is conversion/lifecycle debt, not parity or approval.
-  Old work orders never authorize feature expansion or 3D implementation.
+  Racer's intended path is the Canvas circle activity; the current repair has
+  removed its ordinary-headless alternate path and awaits full/external
+  verification. Old work orders never authorize feature expansion or 3D
+  implementation.
 
 The current branch-status boundary is equally strict: Candymaker is integrated;
 Painter-purpose and Arborist worktrees remain uncommitted candidates; Boxer V2

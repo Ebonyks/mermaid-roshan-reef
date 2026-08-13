@@ -120,18 +120,14 @@ func _settle(frames: int) -> void:
 func _nursery_config() -> Dictionary:
 	for source: Dictionary in OperaHouse.ACTS:
 		if String(source.get("costume", "")) == "nursery":
-			var config := source.duplicate(true)
-			config["force_2d"] = true
-			return config
+			return source.duplicate(true)
 	return {}
 
 
 func _career_config(career: String) -> Dictionary:
 	for source: Dictionary in OperaHouse.ACTS:
 		if String(source.get("costume", "")) == career:
-			var config := source.duplicate(true)
-			config["force_2d"] = true
-			return config
+			return source.duplicate(true)
 	return {}
 
 

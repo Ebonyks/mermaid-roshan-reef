@@ -1,9 +1,9 @@
 extends SceneTree
 ## Runtime contract for the thirteen Canvas-based Pearl Opera career worlds.
 ##
-## This selects the same Canvas career path used on the shipping device. The
-## older probe_opera.gd continues to regression-test detailed legacy mechanics,
-## while this probe proves the door path uses supplied paintings, 2D actors,
+## This selects the ordinary Canvas career path used on every renderer. The
+## companion probe_opera.gd protects stable save slots and real lobby lifecycle,
+## while this probe proves the job path uses supplied paintings, 2D actors,
 ## one-finger phases, competition progress and clean teardown.
 
 var main: ReefMain
@@ -135,7 +135,6 @@ func _init() -> void:
 	main._skip_intro()
 	main.game = "opera"
 
-	OS.set_environment("OPERA_FORCE_2D_LOBBY", "1")
 	main.opera_stars = 0
 	var lobby_touch_before := main.touch_ui.visible if main.touch_ui != null else false
 	var house := OperaHouse.new()
@@ -146,7 +145,10 @@ func _init() -> void:
 	if house.lobby_2d != null:
 		var lobby := house.lobby_2d
 		_check("2D lobby has no 3D navigation children", house.find_children("*", "Node3D", true, false).is_empty())
-		_check("2D lobby exposes three direct floor tabs", lobby.floor_tabs.size() == 3)
+		_check("2D lobby exposes three always-available floor tabs",
+			lobby.floor_tabs.size() == 3
+			and lobby.floor_tabs.all(func(tab: Button) -> bool:
+				return tab.visible and not tab.disabled))
 		_check("2D lobby shows four large job cards on floor one",
 			lobby.card_buttons.size() == 5 and _visible_card_count(lobby.card_buttons) == 4)
 		var roshan_only := true
@@ -159,10 +161,9 @@ func _init() -> void:
 			lobby_stage != null
 			and lobby_stage.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
 			and is_equal_approx(lobby_stage.scale.x, lobby_stage.scale.y))
-		var buttons_are_pictures := lobby.boss_button.text.is_empty()
-		var touch_targets_safe := lobby.boss_button.size.x >= StorybookUI.MIN_TOUCH.x \
-			and lobby.boss_button.size.y >= StorybookUI.MIN_TOUCH.y
-		var cards_unclipped := not lobby.boss_button.clip_contents
+		var buttons_are_pictures := true
+		var touch_targets_safe := true
+		var cards_unclipped := true
 		var crests_complete := true
 		var actors_fully_framed := true
 		var actors_use_audited_atlases := true
@@ -175,8 +176,6 @@ func _init() -> void:
 			var floor_crest := tab.get_node_or_null("FloorCrest") as TextureRect
 			crests_complete = crests_complete and floor_crest != null \
 				and floor_crest.texture != null
-		var boss_crest := lobby.boss_button.get_node_or_null("BossCrest") as TextureRect
-		crests_complete = crests_complete and boss_crest != null and boss_crest.texture != null
 		for card: Button in lobby.card_buttons:
 			buttons_are_pictures = buttons_are_pictures and card.text.is_empty()
 			cards_unclipped = cards_unclipped and not card.clip_contents
@@ -204,7 +203,7 @@ func _init() -> void:
 		buttons_are_pictures = buttons_are_pictures and back_button != null \
 			and back_button.text.is_empty()
 		_check("Opera lobby keeps every Button visually text-free", buttons_are_pictures)
-		_check("Opera lobby cards and finale never clip their pictures", cards_unclipped)
+		_check("Opera lobby cards never clip their pictures", cards_unclipped)
 		_check("every visible Opera choice has its approved pictorial crest", crests_complete)
 		_check("every Roshan portrait is fully framed above its crest", actors_fully_framed)
 		_check("every visible menu portrait uses its audited full-tail atlas",
@@ -213,21 +212,26 @@ func _init() -> void:
 		_check("only the highlighted career card owns the active animator",
 			active_animators == 1 and lobby.active_actor_animator != null
 			and lobby.active_actor_animator.has_animation)
-		_check("floor finale is gated by the four job stars", bool(lobby.boss_button.get_meta("locked", false)))
+		_check("retired boss and finale controls are absent from the picker",
+			lobby.root.find_children("*Boss*", "Node", true, false).is_empty()
+			and lobby.root.find_children("*Finale*", "Node", true, false).is_empty())
+		_check("thirteen progress pearls map to the thirteen live careers",
+			lobby.progress_pearls.size() == OperaHouse.ACTIVE_ACT_COUNT)
 		if not lobby_shot_out.is_empty():
 			await _capture_viewport(lobby_shot_out.path_join("opera_lobby_floor_1.png"))
-		lobby.refresh((1 << 4) | (1 << 9), 2)
+		lobby.refresh(OperaHouse.RETIRED_STAR_MASK, 2)
 		_check("Grand Gallery expands to five direct job cards", _visible_card_count(lobby.card_buttons) == 5)
 		_check("Nursery Nurse is displayed as job twelve before Pop Star",
 			int(lobby.card_buttons[3].get_meta("act_index", -1)) == 15
 			and int(lobby.card_buttons[4].get_meta("act_index", -1)) == 13)
-		_check("five Grand Gallery jobs gate the finale", bool(lobby.boss_button.get_meta("locked", false)))
+		_check("retired bits do not paint live career cards complete",
+			lobby.card_stars.all(func(star: Panel) -> bool:
+				return not bool(star.get_meta("complete", true))))
 		if not lobby_shot_out.is_empty():
 			await _capture_viewport(lobby_shot_out.path_join("opera_lobby_floor_3.png"))
 		lobby.refresh(0, 0)
 	house._leave_early()
 	await process_frame
-	OS.set_environment("OPERA_FORCE_2D_LOBBY", "0")
 	if main.touch_ui != null:
 		_check("2D lobby restores the touch layer on exit", main.touch_ui.visible == lobby_touch_before)
 	_check("boxer keeps stable Opera save bit 128",
@@ -241,12 +245,12 @@ func _init() -> void:
 	var direct_surface_contracts_complete := true
 	var circle_pacing_complete := true
 	var retained_rotations_seen := 0
-	for source: Dictionary in OperaHouse.ACTS:
-		if String(source.get("type", "show")) == "boss":
+	for source_index: int in range(OperaHouse.ACTS.size()):
+		if not OperaHouse.is_live_act_index(source_index):
 			continue
+		var source: Dictionary = OperaHouse.ACTS[source_index]
 		show_count += 1
 		var config := source.duplicate(true)
-		config["force_2d"] = true
 		var touch_before := main.touch_ui.visible if main.touch_ui != null else false
 		var act := OperaAct.new()
 		get_root().add_child(act)
@@ -1091,7 +1095,6 @@ func _init() -> void:
 	for source: Dictionary in OperaHouse.ACTS:
 		if String(source.get("costume", "")) == "chef":
 			reentry_config = source.duplicate(true)
-			reentry_config["force_2d"] = true
 			break
 	var reentry_clean := not reentry_config.is_empty()
 	for cycle in range(5):
@@ -1715,9 +1718,7 @@ func _drive_racer_turn(surface: OperaGestureSurface) -> void:
 func _career_config(costume: String) -> Dictionary:
 	for source: Dictionary in OperaHouse.ACTS:
 		if String(source.get("costume", "")) == costume:
-			var config := source.duplicate(true)
-			config["force_2d"] = true
-			return config
+			return source.duplicate(true)
 	return {}
 
 

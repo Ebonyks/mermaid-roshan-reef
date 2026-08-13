@@ -6,6 +6,8 @@ extends RefCounted
 # child's progress.
 
 const SCHEMA_VERSION := 1
+const OPERA_ACTIVE_STAR_MASK := 0xBDEF
+const OPERA_ACTIVE_ACT_COUNT := 13
 const BACKUP_SUFFIX := ".bak"
 const TEMP_SUFFIX := ".tmp"
 const OLD_SUFFIX := ".old"
@@ -43,6 +45,15 @@ var m: ReefMain
 var save_path: String
 var future_schema_read_only := false
 var _warned_future_write_skip := false
+
+
+static func _opera_live_star_count(star_mask: int) -> int:
+	var total := 0
+	for bit_index in range(16):
+		var bit := 1 << bit_index
+		if (OPERA_ACTIVE_STAR_MASK & bit) != 0 and (star_mask & bit) != 0:
+			total += 1
+	return mini(total, OPERA_ACTIVE_ACT_COUNT)
 
 func _init(main: ReefMain, path_override: String = "") -> void:
 	m = main
@@ -134,11 +145,10 @@ func load_save() -> void:
 	m.ember_found = bool(m.save_data.get("ember_found", false))
 	m.ember_progress = clampi(int(m.save_data.get("ember_progress", 0)), 0, 6)
 	m.ember_done = bool(m.save_data.get("ember_done", false))
-	m.opera_progress = clampi(int(m.save_data.get("opera_progress", 0)), 0, 16)
-	m.opera_stars = clampi(int(m.save_data.get("opera_stars", -1)), -1, 65535)
-	if m.opera_stars < 0:
-		# pre-lobby saves stored a linear checkpoint: the first N doors were done
-		m.opera_stars = (1 << m.opera_progress) - 1
+	m.opera_stars = clampi(int(m.save_data.get("opera_stars", 0)), 0, 65535)
+	# Progress is an effective count of the thirteen live careers. The raw
+	# sixteen-bit mask remains authoritative and retains retired bits verbatim.
+	m.opera_progress = _opera_live_star_count(m.opera_stars)
 	m.opera_done = bool(m.save_data.get("opera_done", false))
 	# added 2026-07-25 with a {} default — never removed, per save compatibility
 	var pantry_raw: Variant = m.save_data.get("opera_pantry", {})
@@ -217,8 +227,10 @@ func write_save() -> bool:
 	next_data["ember_found"] = m.ember_found
 	next_data["ember_progress"] = clampi(m.ember_progress, 0, 6)
 	next_data["ember_done"] = m.ember_done
-	next_data["opera_progress"] = clampi(m.opera_progress, 0, 16)
-	next_data["opera_stars"] = clampi(m.opera_stars, 0, 65535)
+	m.opera_stars = clampi(m.opera_stars, 0, 65535)
+	m.opera_progress = _opera_live_star_count(m.opera_stars)
+	next_data["opera_progress"] = m.opera_progress
+	next_data["opera_stars"] = m.opera_stars
 	next_data["opera_done"] = m.opera_done
 	next_data["opera_pantry"] = m.opera_pantry.duplicate()
 	next_data["stickers"] = m.stickers
@@ -490,9 +502,16 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["combat_tutorial"] = _bool_or_default(raw, "combat_tutorial", false)
 	data["haptics"] = _bool_or_default(raw, "haptics", true)
 	var opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 16)
-	data["opera_progress"] = opera_prog
-	# migrate pre-lobby saves: a linear checkpoint means the first N doors starred
-	data["opera_stars"] = clampi(_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0, 65535)
+	# Migrate pre-lobby saves from their historical 0..16 linear checkpoint
+	# before normalising the effective count. This preserves the exact old mask,
+	# including retired slots, while future writes report only live progress.
+	var opera_stars: int = clampi(
+		_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1),
+		0,
+		65535
+	)
+	data["opera_stars"] = opera_stars
+	data["opera_progress"] = _opera_live_star_count(opera_stars)
 	data["opera_done"] = _bool_or_default(raw, "opera_done", false)
 	var pantry_in: Variant = raw.get("opera_pantry", {})
 	data["opera_pantry"] = (pantry_in as Dictionary) if pantry_in is Dictionary else {}

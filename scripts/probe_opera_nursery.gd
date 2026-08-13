@@ -18,17 +18,17 @@ func _init() -> void:
 	main.game = "opera"
 
 	var config := (OperaHouse.ACTS[15] as Dictionary).duplicate(true)
-	config["force_2d"] = true
 	var touch_before := main.touch_ui.visible if main.touch_ui != null else false
 	var old_save := SaveState.new(main)._normalise_save({
 		"opera_progress": 15,
 		"opera_stars": (1 << 15) - 1,
 	})
-	_check("old fifteen-bit Opera saves keep every historical star unchanged",
-		int(old_save["opera_progress"]) == 15
+	_check("old Opera saves preserve retired bits without counting them playable",
+		int(old_save["opera_progress"]) == 12
 		and int(old_save["opera_stars"]) == (1 << 15) - 1
 		and (int(old_save["opera_stars"]) & (1 << 15)) == 0
-		and OperaHouse.ALL_STARS == 65535)
+		and OperaHouse.ACTIVE_STAR_MASK == 0xBDEF
+		and OperaHouse.RETIRED_STAR_MASK == 0x4210)
 	var act := OperaAct.new()
 	get_root().add_child(act)
 	act.start(main, config, Callable())

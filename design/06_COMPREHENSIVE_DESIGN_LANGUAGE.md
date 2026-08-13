@@ -19,8 +19,11 @@
 - **Latest exact-head remote verification:**
   `af4189a99cfd5a32d0df0f75185f6912d3889399`; GitHub run `31649113587`
   succeeds in both required jobs.
-- **Last completed full local checkpoint:**
+- **Last completed committed full local checkpoint:**
   `f3b0de078898a8b4faddb2c738c4403180eff928`
+- **Current Opera repair baseline:** audit checkpoint `41087f66`; focused and
+  full local evidence is green under exact official Godot
+  `4.7.1.stable.official.a13da4feb`, while exact-head remote remains pending
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
@@ -65,25 +68,30 @@ grant no authoritative visual PASS. `MA-CI-002` remains fixed, while remaining
 release acceptance stays open under `MA-RELEASE-001` and exhaustive
 one-class-per-probe classification remains `CONFIRMED_OPEN` as `MA-CI-003`.
 
-The overall game remains `UNSATISFIED`. GAME2D is exact `NO_REGRESSION` but
-strict-unsatisfied at 509 models/509 active exports, 157 tracked and 352
-active-untracked generated sidecars, 68 production 3D files, 77 probe 3D
-files, one scene, and one configuration. Fresh-runtime
+The overall game remains `UNSATISFIED`. GAME2D is exact `NO_REGRESSION`, all 14
+falsification controls pass, but strict remains unsatisfied at 509 models/509
+active exports, 157 tracked and 352 active-untracked generated sidecars, 66
+production 3D files, 74 probe 3D files, one scene, and one configuration. The
+older `f3b0de07` 68/77 count remains historical evidence. Fresh-runtime
 visual strict is also unsatisfied at 16 failures, 17 reviews, two manual items,
 86 coverage gaps, 32 passes, and 94 not-applicable checks; the workflow's five
-diagnostic captures do not constitute accepted live Canvas evidence. The
+diagnostic captures and the current slice's 17 visually inspected 1280×720
+Mobile renders do not constitute accepted live Canvas/device/child/owner
+evidence. The
 earlier GLB UID warnings are diagnosed as stale ignored local import cache,
 while the GLBs remain separate GAME2D debt. Commits `3b7a7e66` and `fea916a8`
 are the approved visual-evidence implementation baseline for `DL-QA-11`.
 
 The current Opera shipping snapshot is 13 careers, 53 phases, 27 distinct
-modes, zero generic `bop` phases, and 208 reviewed Roshan costume frames. That
-snapshot includes the dedicated three-act Ballerina recital, the five-phase
-two-glove Boxer specialist, the phone-safe integrated Candymaker pour, and a
-true-Canvas Racer on the display/forced-2D path. Display/device UI does not
-reach the legacy kart, but ordinary unforced headless source still retains a
-legacy lobby/racer route that may attach `scripts/kart.gd`; `MA-OPERA-010` and
-`MA-2D-002` keep that source/test-medium split open. Ballerina and Boxer pass
+  modes, zero generic `bop` phases, and 208 reviewed Roshan costume frames. That
+  snapshot includes the dedicated three-act Ballerina recital, the five-phase
+  two-glove Boxer specialist, the phone-safe integrated Candymaker pour, and a
+  true-Canvas Racer. The current repair removes the ordinary-unforced legacy
+  lobby/kart path, leaving one Canvas lifecycle, and removes the retired Opera
+  boss runtime. Exact focused and full local Godot 4.7.1 lifecycle,
+  save-migration, passive, reward, suspend/leave, teardown, and re-entry
+  evidence is green;
+  `MA-OPERA-010`/`011` are `FIXED_PENDING_VERIFICATION`, not closed. Ballerina and Boxer pass
 the last complete local gate at `f3b0de07` and exact-head remote run
 `31649113587`; authoritative capture, device, child and owner acceptance remain
 open. Painter-purpose and Arborist
@@ -91,8 +99,33 @@ worktrees are uncommitted candidates; Boxer V2 is a docs-only branch proposal.
 The 42-cue deterministic area-music rollout has local machine evidence,
 historical pinned-Windows evidence at `dacef140`, and a 42/42 pinned-Windows
 result in successful run `31649113587`; human listening, mono/voice review,
-and Lenovo Tab M11 acceptance remain open. APK and strict-zero 2D gates also
-remain open.
+  and Lenovo Tab M11 acceptance remain open. The current working slice completes
+  `scripts/ci.sh` with exit 0 after 1428.6 seconds under exact official Godot:
+  all 64 trusted local probes, 74 GAME2D unit tests, 14 stress controls, and 93
+  visual-contract unit tests are green. Castle interaction approval candidate
+  `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
+  covers 13 assets/104 frames in the machine/review ledger, not owner
+  acceptance. Seventeen current 1280×720 Mobile renders were visually inspected
+  only for diagnostic/review purposes. Exact-head remote, APK, authoritative
+  visual, and strict-zero 2D gates remain open.
+
+That shipping snapshot is not final navigation authority. Direct owner
+direction in `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` §10 / commit `7426c187`
+distributes the thirteen careers through thematic Castle rooms and leaves Opera
+Hall as one venue for Ballerina, Pop Star, and Magician. The current three-floor
+all-career Canvas picker is transitional/rejected final routing under
+`MA-OPERA-012`. Owner ruling §16 / commit `3d1236fe` separately cuts Curtain
+Dragon, Shadow Phantom, and Midnight Maestro. The current repair removes their
+reachability while preserving raw legacy bits in inert save slots 4/9/14;
+`MA-OPERA-011` awaits full/external verification rather than moving any career.
+Section 17 / commit `ef2fd982` permits narratively earned
+Ember-henchman boss fights as separate content and never restores those Opera
+bosses.
+
+The sealed Castle Kitchen controller is not part of this repair. Its current
+Chef configuration is valid and probed; no child-facing failure is reproduced.
+A future invalid-config recovery branch at that caller requires renewed owner
+visual approval and remains separate `MA-CODE-002` hardening.
 
 ---
 
@@ -427,16 +460,35 @@ reaction time, or generic combat-layer payout.
 TO THE LINE, and RACE. RACE uses the large painted circle/steering grammar and
 exact `op_racer_lap_two` cue. It MUST NOT launch an external 3D kart, select a
 different device-only implementation, or give probes a simpler Canvas bypass.
-This is the required target. Exact `f3b0de07` display/device UI follows it, but
-ordinary unforced headless source still selects a legacy lobby/racer path that
-can attach `scripts/kart.gd`; `MA-OPERA-010` keeps that binding medium/test-path
-violation open until the source split is removed and directly tested.
+This is the required target. The current repair removes the `f3b0de07`
+ordinary-unforced alternate path and directly exercises the same Canvas route;
+`MA-OPERA-010` remains `FIXED_PENDING_VERIFICATION` after the green full local
+gate until exact-head remote and external acceptance complete.
 
 `DL-INT-11` — Candymaker SYRUP uses one complete phone-legible mold and one
 generous pitcher grab region. The painted left spout, transformed stream origin,
 landing target, fill, and accepted hit geometry derive from the same measured
 anchors. A visible pour cannot enter a non-paying dead zone, completion cannot
 occur below the brim, and progress remains child-controlled and monotonic.
+
+`DL-INT-12` — The thirteen current career activities are discovered and
+launched from the Castle rooms that explain their jobs: Royal Kitchen owns Chef
+and Candymaker; Opera Hall owns Ballerina, Pop Star, and Magician; Royal Library
+owns Detective; Craft Room owns Painter; Stuffie Playroom owns Stuffie Doctor
+and Boxer; Bubble Bath owns Nursery; Mermaid Pool owns Astronaut; Family Dining
+Room owns Farmer; and Racer owns one explicitly selected Movie Lounge-or-
+Courtyard entry. Each activity returns to its launching room and preserves its
+existing career/save identity. A central three-floor picker for all careers is
+a transitional migration surface, not an approved final hub, and Opera Hall
+MUST NOT expose the other ten jobs through a hidden back door.
+
+`DL-INT-13` — Curtain Dragon, Shadow Phantom, and Midnight Maestro are cut from
+the reachable product. They MUST NOT appear as Opera cards, floor gates,
+required stars, finales, voices, music routes, or boss-runtime entries. Existing
+art/music may remain inactive for possible later non-boss reuse; inactive asset
+reuse does not justify runtime reachability. Future boss fights, if separately
+authorized, belong to narratively relevant Ember-aligned henchmen and MUST NOT
+reuse the retired Opera slots or silently rehabilitate these characters.
 
 ---
 
@@ -701,6 +753,13 @@ trusted probes at the exact commit, save-upgrade evidence, matching APK hash,
 and device acceptance. A local green run does not authorize bypassing the
 dev-to-master promotion workflow.
 
+`DL-SAVE-06` — `opera_stars` keeps its stable 16-slot compatibility namespace.
+Owner-cut boss slots 4, 9, and 14 are permanent inert tombstones: never compact,
+clear for reuse, or reassign them, and never shift a surviving career's bit.
+Live Opera completion masks only the thirteen career slots. Legacy saves with
+any retired bit or historical `opera_progress` value remain readable and MUST
+NOT lose, invent, or misattribute career progress.
+
 ---
 
 ## 14. Art sourcing, reuse, and provenance
@@ -756,9 +815,12 @@ These states prevent an old recommendation from silently becoming a new bug.
 | Whole-card bounce/spin as an object's meaningful action | **DISMISSED_NOT_IN_PROJECT** | It is not an approved interaction solution under `DL-INT-02` |
 | Use Seek's vinyl `characters/stickers/pearl_friend.png` pair card or `assets/mg/k_bush2.png` preview art in place of the accepted animated activity | **SUPERSEDED for Seek** | `DL-VIS-09` and `DL-MOT-07`; `8fa90111`/`27bda85d` provide the accepted animated Evie/Lamb-a' actors and high-grade tree cards. Protected/reference originals remain untouched and are not globally reclassified by this bounded runtime decision. |
 | Build new 3D construction before or after approved 2D direction | **DISMISSED_NOT_IN_PROJECT** | Final 2D medium; migration work only removes measured debt |
-| 3D Opera, companion, path, or `Curve3D` presentation as a retained fallback | **SUPERSEDED** | The 3D prescriptions are superseded; any currently reachable companion/path/Opera implementation remains measured migration debt until a tested 2D replacement owns it |
+| 3D Opera career, companion, path, or `Curve3D` presentation as a retained fallback | **SUPERSEDED** | The 3D prescriptions are superseded; any currently reachable accepted-career/companion/path implementation remains measured migration debt until a tested 2D replacement owns it. The three cut Opera bosses are removed rather than converted. |
+| Curtain Dragon, Shadow Phantom, or Midnight Maestro as an Opera boss, floor gate, finale card, or required completion star | **DISMISSED_NOT_IN_PROJECT; runtime removal is pending verification** | Owner ruling `3d1236fe`, `DL-INT-13`, and `DL-SAVE-06` cut all three. The current repair removes their routes and makes slots 4/9/14 raw-preserving tombstones; `MA-OPERA-011` remains `FIXED_PENDING_VERIFICATION`. Existing art/music may stay inactive for possible non-boss reuse but cannot justify a route. |
+| No boss fights anywhere after cutting the three Opera bosses | **SUPERSEDED** | `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` §17 / `ef2fd982` permits separately justified Ember-henchman encounters. It does not restore the Opera characters, their engine, or their save slots. |
+| One three-floor Opera picker as the final hub for all thirteen careers | **SUPERSEDED; current Canvas picker is transitional debt** | Owner direction `7426c187` and `DL-INT-12` distribute jobs through Castle rooms. Opera Hall promotes Ballerina, Pop Star, and Magician only; `MA-OPERA-012` owns current routing migration. Being Canvas does not make the rejected information architecture final. |
 | Old generic Ballerina PHRASE/POSE/RIBBON/TWIRL route, looped chronological-atlas premise, or earlier leg/feet-like atlas candidate | **SUPERSEDED** | Current authority is Pearl Mirror/Ribbon Trail/Grand Twirl with held pose keys and one-shot curtain call under `DL-INT-08` and `DL-MOT-09`; earlier leg/feet-like candidates remain rejected evidence, and the accepted runtime hash is `c829784d…003995` |
-| Nested or device-only real-3D Opera kart with a different Canvas probe path | **SUPERSEDED as authority; retained source is open debt** | `DL-INT-10` requires one Canvas implementation. Display/device UI is Canvas, but exact `f3b0de07` ordinary unforced headless source can still attach `scripts/kart.gd`; `MA-OPERA-010`/`MA-2D-002` own removal, and forced-2D probes cannot certify it away |
+| Nested or device-only real-3D Opera kart with a different Canvas probe path | **SUPERSEDED as authority; source removal is pending verification** | `DL-INT-10` requires one Canvas implementation. The current repair removes the `f3b0de07` ordinary-unforced kart path and focused exact-Godot evidence exercises the single Canvas lifecycle; `MA-OPERA-010` remains `FIXED_PENDING_VERIFICATION`, and game-wide kart/3D debt outside Opera remains separate `MA-2D-002` work |
 | Boxer GLBs retained as useful resources for the rebuilt career | **SUPERSEDED** | `opera_boxer_outfit.glb`, `opera_boxer_dressing.glb`, and `opera_rival_boxer.glb` are not required by the Canvas specialist and remain exact archive/removal debt under `DL-MED-03`, `DL-MED-04`, and `DL-MED-08`. `opera_rival_boxer_match.png` remains valid 2D identity/source art despite the source heading; any legacy `Sprite3D` consumer is callsite debt, not a defect in the PNG. |
 | Painter-purpose worktree | **UNCOMMITTED_CANDIDATE** | Purpose-focused Painter edits are not in `f3b0de07`; branch/worktree presence grants no runtime or authority change |
 | Arborist worktree | **UNCOMMITTED_CANDIDATE** | Proposed Arborist art/surface/save/lobby/probe files are not in `f3b0de07`; it is not a current fourteenth career or integrated base model |
@@ -769,7 +831,7 @@ These states prevent an old recommendation from silently becoming a new bug.
 | Cinematic tween/morph/interpolation shortcuts or portrait/rotated delivery | **DISMISSED_NOT_IN_PROJECT** | `DL-CIN-01` through `DL-CIN-12` |
 | Repack Roshan into a smaller runtime atlas during the migration audit | **DEFERRED_WITH_REASON** | It may be a later measured optimization; it is not required to prove true 2D and must not risk protected pixels or identity |
 | Add bone-driven or per-costume runtime costume layers to replace the current atlas | **DISMISSED_NOT_A_DEFECT** | The owner chose the approved 2D atlas family; absent costume layering is not a current bug |
-| New Chapter 2 plot, daily rhythm, naming, gifting, tending, decorating, additional minigames | **DEFERRED_WITH_REASON** | Design proposals, not current defects; existing-game golden path, device evidence, and confirmed defects come first |
+| Unadopted Chapter 2 plot, daily rhythm, naming, gifting, tending, decorating, and additional-minigame proposals | **DEFERRED_WITH_REASON** | Design proposals, not current defects; existing-game golden path, device evidence, and confirmed defects come first. This deferral excludes the adopted §10 room distribution and §§16–17 Opera-boss/Ember-antagonist rulings. |
 | Dungeon lock-and-key redesign and Zelda-grammar verb roadmap | **DEFERRED_WITH_REASON** | Design proposals, not current defects; no implementation authorization implied |
 | Sky Lagoon's historical out-of-order migration | **DISMISSED_NOT_A_DEFECT** | It is not a current product defect and cannot be repaired retroactively; retain only as a process lesson |
 
@@ -866,7 +928,10 @@ probe moves Ballerina or Boxer only to `FIXED_PENDING_VERIFICATION`; it cannot
 silently close capture, device, child, owner, or retained-3D debt.
 Ordinary unforced headless and display/device lifecycle selection MUST also
 resolve to the same Canvas Opera implementation; a force-2D test setting does
-not close a retained alternate source path.
+not close a retained alternate source path. The current focused matrix and full
+local gate prove that convergence and the boss/save retirement behavior, but 17
+inspected 1280×720 Mobile renders remain diagnostic/review evidence and
+exact-head remote, target-device, child, and owner gates still block closure.
 
 `DL-QA-13` — Area-music acceptance separates deterministic build evidence from
 listening evidence. All 42 new cues must keep exact source/render/import hashes

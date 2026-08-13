@@ -1,7 +1,7 @@
 class_name HitEngine
 extends RefCounted
 # The shared enemies-get-hit pipeline. An encounter (CombatArena today;
-# StuffieBattle, BrawlGame, OperaAct by later migration) keeps its enemy
+# StuffieBattle or BrawlGame by later migration) keeps its enemy
 # dictionaries exactly as before and lends them to this engine, which adds one
 # uniform interface on top:
 #   tap_pick(screen_pos)        -> which enemy a screen tap landed on

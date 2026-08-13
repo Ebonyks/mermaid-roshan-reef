@@ -2039,9 +2039,9 @@ func _vehicles_table() -> Dictionary:
 
 func _vehicle_keys() -> Array:
 	# configure() documents `vehicles` as overridable, but VEHICLE_ORDER is a
-	# const, so a caller offering a SUBSET (the opera hands Roshan the one kart
-	# her pit crew built) made _build_select and the AI roster index a key the
-	# table does not have. Order by VEHICLE_ORDER where possible, then honour
+	# const, so a caller offering a subset could make _build_select and the AI
+	# roster index a key the table does not have. Order by VEHICLE_ORDER where
+	# possible, then honour
 	# whatever the table actually holds.
 	var table := _vehicles_table()
 	var keys: Array = []

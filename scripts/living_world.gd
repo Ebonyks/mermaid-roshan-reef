@@ -454,6 +454,11 @@ func _opera_stage_id() -> String:
 	if m.opera_game == null or not is_instance_valid(m.opera_game):
 		return "opera.lobby_floor_1"
 	if m.opera_game.act != null and m.opera_game.act_index >= 0:
-		return "opera.act.%02d" % clampi(m.opera_game.act_index, 0, 14)
-	var floor_index: int = clampi(roundi(m.opera_game.lobby_y / 13.0), 0, 2)
+		var act_index: int = clampi(m.opera_game.act_index, 0, 15)
+		if OperaHouse.is_live_act_index(act_index):
+			return "opera.act.%02d" % act_index
+	var floor_index := 0
+	var lobby: OperaLobby2D = m.opera_game.lobby_2d
+	if lobby != null and is_instance_valid(lobby):
+		floor_index = clampi(lobby.floor_index, 0, 2)
 	return "opera.lobby_floor_%d" % (floor_index + 1)

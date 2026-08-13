@@ -1,8 +1,8 @@
 extends SceneTree
 ## Advisory pacing playtest for the SHIPPING 2D opera career path.
 ##
-## probe_opera_balance.gd measures the legacy 3D engines; this probe drives
-## the twelve OperaCareerWorld2D acts with three simulated children and
+## This probe drives all thirteen OperaCareerWorld2D acts with three simulated
+## children and
 ## reports per-career durations against the rebuild target band (~2 minutes,
 ## OPERA_2D_REBUILD_2026-08-01.md). Advisory only: it never prints gate
 ## tokens and is not in the trusted probe lists.
@@ -36,15 +36,14 @@ func _init() -> void:
 	await process_frame
 	main._skip_intro()
 	main.game = "opera"
-	for source: Dictionary in OperaHouse.ACTS:
-		if String(source.get("type", "show")) == "boss":
-			continue
+	for live_index: int in OperaHouse.LIVE_ACT_INDICES:
+		var source: Dictionary = OperaHouse.ACTS[live_index]
 		var career := String(source.get("costume", ""))
 		var times: Array[float] = []
 		for persona: Dictionary in PERSONAS:
 			var outcome := await _play(source, persona)
 			times.append(float(outcome.get("time", TIME_CAP)))
-			print("BALANCE2D|act=%s|persona=%s|time=%.1f|clumsy=%d" % [
+			print("BALANCE|canvas|act=%s|persona=%s|time=%.1f|clumsy=%d" % [
 				career, String(persona.get("name", "?")), float(outcome.get("time", TIME_CAP)),
 				int(outcome.get("clumsy", 0)),
 			])
@@ -57,16 +56,15 @@ func _init() -> void:
 			verdict = "brisk"
 		if times[times.size() - 1] >= TIME_CAP:
 			verdict = "capped"
-		print("BALANCE2D|%s|summary med=%.1f lo=%.1f hi=%.1f verdict=%s" % [
+		print("BALANCE|canvas|%s|summary med=%.1f lo=%.1f hi=%.1f verdict=%s" % [
 			career, median, times[0], times[times.size() - 1], verdict,
 		])
-	print("BALANCE2D|done")
+	print("BALANCE|canvas|done")
 	quit()
 
 
 func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 	var config := source.duplicate(true)
-	config["force_2d"] = true
 	var act := OperaAct.new()
 	get_root().add_child(act)
 	act.process_mode = Node.PROCESS_MODE_DISABLED

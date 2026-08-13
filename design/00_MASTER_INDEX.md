@@ -4,8 +4,12 @@ _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
 Runtime/audit merge synchronization: 2026-08-12._
 
 The latest CI-repair checkpoint is
-`af4189a99cfd5a32d0df0f75185f6912d3889399`; the last complete local-suite
-checkpoint remains merge `f3b0de07`.
+`af4189a99cfd5a32d0df0f75185f6912d3889399`; the last committed complete
+local-suite checkpoint remains merge `f3b0de07`. The current Opera retirement/lifecycle
+repair is based on audit checkpoint `41087f66`. Its exact local working-slice
+`scripts/ci.sh` is green under Godot
+`4.7.1.stable.official.a13da4feb`; exact-head remote, APK, device, child, and
+owner gates are not yet complete.
 
 ## Why this folder exists
 
@@ -66,6 +70,17 @@ The latest scoped Opera and audio authorities are explicit examples of rule
 precise supersessions of the earlier Opera quality documents are recorded in
 the ledger; provenance prompt/review files cannot overrule them.
 
+`CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` is a mixed document, but three scopes
+are direct owner authority rather than deferred chapter brainstorming. Section
+10 / commit `7426c187` distributes the thirteen careers through Castle rooms
+and makes Opera Hall one venue. Section 16 / commit `3d1236fe` cuts Curtain
+Dragon, Shadow Phantom, and Midnight Maestro and retires save slots 4/9/14 in
+place; section 17 / commit `ef2fd982` clarifies that any future boss fights
+belong to Ember-aligned henchmen rather than restoring those Opera bosses. Later
+sections supersede the earlier
+section-10 mention of an Opera boss/finale card; they do not supersede room
+distribution.
+
 ## What was NOT done, deliberately
 
 - **No document was moved, renamed, or deleted during the original
@@ -87,18 +102,27 @@ resources live only on the deprecated-resources archive branch; the active
 project is not allowed to use that branch as a fallback or merge source.
 
 At merge `f3b0de078898a8b4faddb2c738c4403180eff928` (parents `ea6185fd`
-and `5f58ef0a`), the game remains **`UNSATISFIED`**. GAME2D reports 509 model
-files, all 509 active/export, 157 tracked sidecars, 352 active-untracked
-generated sidecars, 68 production 3D files, 77 probe 3D files, one scene, and
-one configuration: exact `NO_REGRESSION`, not strict completion. The tree has
-195 GDScript files under `scripts/`, 106 `scripts/probe_*.gd` files, and an
-8,519-line `scripts/main.gd`.
+and `5f58ef0a`), GAME2D recorded the historical 68-production/77-probe
+checkpoint. The current Opera repair remains **`UNSATISFIED`** but shrinks the
+exact inventory to 509 model files, all 509 active/export, 157 tracked
+sidecars, 352 active-untracked generated sidecars, 66 production 3D files, 74
+probe 3D files, one scene, and one configuration. Regression mode is exact
+`NO_REGRESSION` and all 14 falsification controls pass; neither result is strict
+completion. The `f3b0de07` tree had 195 GDScript files under `scripts/`, 106
+`scripts/probe_*.gd` files, and an 8,519-line `scripts/main.gd`.
 
 Exact Godot 4.7.1-stable local `scripts/ci.sh` exits 0 at `f3b0de07` after
-1437.1 seconds with all 64 trusted probes, 74 GAME2D unit tests plus 14
-falsification controls, and current static/provenance gates green. Visual
-advisory remains `UNSATISFIED`: 16 FAIL, 17 REVIEW_OPEN, two
-MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE. Historical
+1437.1 seconds with all 64 then-current trusted probes. The current Opera slice
+also exits 0 in 1428.6 seconds under official build `a13da4feb`, with all 64
+trusted local probes, 74 GAME2D unit tests, all 14 falsification controls, 93
+visual-contract unit tests, parser/lint/analyzer/import/static gates, and its
+focused runtime matrix green. Castle frame-review candidate
+`1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
+passes its machine/review ledger for 13 assets/104 frames; it is not owner
+acceptance. This is a local working-slice result; exact-head remote is pending.
+Visual advisory remains
+`UNSATISFIED` and globally unchanged: 16 FAIL, 17 REVIEW_OPEN, two MANUAL_OPEN,
+86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE. Historical
 remote run `31457593351` at `dacef140` remains evidence for that older SHA.
 Run `31648427712` at `bbc817ef` proves the pinned Windows music job 42/42 but
 fails only the Ubuntu static Opera-art gate on a CRLF-vs-LF raw hash for the
@@ -112,12 +136,21 @@ pairs; the 3m55s Windows job passes music 42/42. No full local suite at
 `af4189a9`, and no APK, device, child, owner, listening, strict-2D, or
 authoritative visual-evidence result, is claimed; the captures are diagnostic.
 
-Current Opera is 13 careers, 53 phases, and 27 modes with newer diegetic rooms,
-the integrated Candymaker, current Ballerina/Boxer, and the Canvas Racer on the
-display/forced-2D path. Ordinary headless source still retains a legacy lobby
-and external-kart route, open as `MA-OPERA-010`/`MA-2D-002`. Painter purpose
-and Arborist remain uncommitted candidates; Boxer V2 is docs-only on a separate
-branch and does not supersede the integrated Boxer.
+Current Opera content is 13 careers, 53 phases, and 27 modes with newer
+diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the
+Canvas Racer. The current repair removes the ordinary-headless legacy lobby,
+external-kart, and Opera-boss runtime paths. Save identity remains a stable
+16-slot namespace: slots 4/9/14 are inert tombstones, raw legacy bits survive,
+the live completion mask is `0xBDEF`, and effective progress is 0–13. The exact
+focused matrix and full local working-slice gate are green, so `MA-OPERA-010`
+and `MA-OPERA-011` are
+`FIXED_PENDING_VERIFICATION`, not closed. Seventeen 1280×720 Mobile captures
+were rendered and visually inspected as diagnostic/review evidence; they are
+not target-device, child, owner, or authoritative visual acceptance. Navigation
+is still not final authority: the three-page picker remains transitional and
+P1 `CONFIRMED_OPEN` under `MA-OPERA-012`. Painter purpose and Arborist remain
+uncommitted candidates; Boxer V2 is docs-only on a separate branch and does not
+supersede the integrated Boxer.
 
 ## Maintaining this
 

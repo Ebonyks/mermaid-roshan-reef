@@ -27,6 +27,8 @@ func _init() -> void:
 	main.plays = 4
 	main.dungeon_progress = 4
 	main.dungeon_done = false
+	main.opera_stars = 0x4211
+	main.opera_progress = 16
 	main.touch_mode = main.TOUCH_MODE_CLASSIC
 	var state: SaveState = SaveState.new(main, TEST_PATH)
 	state.write_save()
@@ -39,10 +41,14 @@ func _init() -> void:
 	var future_list: Array = first.get("future_list", [])
 	_expect(future_list.size() == 3 and int(future_list[0]) == 1 and int(future_list[2]) == 3, "unknown array preserved")
 	_expect(int(first.get("dungeon_progress", -1)) == 4 and not bool(first.get("dungeon_done", true)), "dungeon checkpoint serialized")
+	_expect(int(first.get("opera_stars", -1)) == 0x4211, "raw sparse Opera mask serialized")
+	_expect(int(first.get("opera_progress", -1)) == 1, "Opera progress counts only live bits")
 
 	main.pearl_count = 33
 	main.dungeon_progress = 99   # corrupt/out-of-range runtime state clamps at the ten-room boundary
 	main.dungeon_done = true
+	main.opera_stars = 0xFFFF
+	main.opera_progress = 0
 	main.touch_mode = main.TOUCH_MODE_HYBRID
 	state.write_save()
 	var second: Dictionary = _read_json(TEST_PATH)
@@ -53,10 +59,14 @@ func _init() -> void:
 	_expect(String(previous.get("touch_mode", "")) == "classic", "touch rollback preference survives in backup")
 	_expect(second.get("future_payload", {}) == {"kept": "yes"}, "unknown key survives another write")
 	_expect(int(second.get("dungeon_progress", -1)) == 10 and bool(second.get("dungeon_done", false)), "dungeon completion serialized and clamped")
+	_expect(int(second.get("opera_stars", -1)) == 0xFFFF, "retired Opera bits survive a rewrite")
+	_expect(int(second.get("opera_progress", -1)) == 13, "complete Opera progress is thirteen live careers")
+	_expect(int(previous.get("opera_stars", -1)) == 0x4211 and int(previous.get("opera_progress", -1)) == 1, "Opera backup retains prior sparse mask semantics")
 	var reload_state: SaveState = SaveState.new(main, TEST_PATH)
 	var reload_candidate: Dictionary = reload_state._select_load_candidate()
 	var reload_data: Dictionary = reload_candidate.get("data", {})
 	_expect(int(reload_data.get("dungeon_progress", -1)) == 10 and bool(reload_data.get("dungeon_done", false)), "fresh reader reloads dungeon completion")
+	_expect(int(reload_data.get("opera_stars", -1)) == 0xFFFF and int(reload_data.get("opera_progress", -1)) == 13, "fresh reader reloads effective Opera completion")
 	_expect(String(reload_data.get("touch_mode", "")) == "hybrid", "fresh reader reloads touch preference")
 
 	_write_text(TEST_PATH, "{truncated")

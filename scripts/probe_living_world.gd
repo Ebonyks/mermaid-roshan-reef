@@ -34,6 +34,7 @@ func _init() -> void:
 	director = main._living_world_ref()
 	director.setup()
 	_probe_inventory()
+	await _probe_opera_sparse_stage_routing()
 	_probe_all_stage_runtime()
 	_probe_real_input_reset()
 	_probe_long_idle_bounds()
@@ -55,6 +56,9 @@ func _probe_inventory() -> void:
 		and specs.size() == expected_ids.size(),
 		"catalog=%d expected=%d" % [specs.size(), expected_ids.size()])
 	_check("exact_stage_inventory", actual_ids == expected_ids)
+	_check("retired Opera boss stages are absent from the living-world catalog",
+		not specs.has("opera.act.04") and not specs.has("opera.act.09")
+		and not specs.has("opera.act.14"))
 	var expected_groups := {
 		"entry": 1,
 		"reef": 6,
@@ -74,7 +78,7 @@ func _probe_inventory() -> void:
 		"ice_dungeon": 10,
 		"ember_dungeon": 6,
 		"opera_lobby": 3,
-		"opera_act": 16,
+		"opera_act": 13,
 	}
 	var actual_groups: Dictionary = {}
 	var ambient_ids: Dictionary = {}
@@ -123,7 +127,40 @@ func _probe_inventory() -> void:
 		ReefDistricts.REGION_CENTERS.size() == 6
 		and DungeonLevel.ROOMS.size() == 10
 		and EmberFortressLevel.ROOMS.size() == 6
-		and OperaHouse.ACTS.size() == 16)
+		and OperaHouse.ACTS.size() == 16
+		and OperaHouse.ACTIVE_ACT_COUNT == 13)
+
+
+func _probe_opera_sparse_stage_routing() -> void:
+	main._start_opera_now()
+	await _frames(2)
+	var house := main.opera_game as OperaHouse
+	_check("living-world Opera fixture uses the production entry",
+		house != null and main.game == "opera")
+	if house == null:
+		return
+	var floor_routes_ok := house.lobby_2d != null
+	if house.lobby_2d != null:
+		for floor_index: int in range(3):
+			house.lobby_2d.refresh(0, floor_index)
+			floor_routes_ok = floor_routes_ok and director._opera_stage_id() \
+				== "opera.lobby_floor_%d" % (floor_index + 1)
+	_check("living-world Opera lobby follows the real Canvas floor tabs",
+		floor_routes_ok)
+	house._start_act(15)
+	await _frames(2)
+	_check("sparse Nursery save slot routes to opera act fifteen",
+		house.act_index == 15 and house.act != null
+		and director._opera_stage_id() == "opera.act.15")
+	house._leave_early()
+	var product_returned := main.opera_game == null and main.game == "level2"
+	# This structural probe did not construct the Level-2 arena dictionary.
+	# Leave the real return state immediately after observing it so unrelated
+	# world ticking cannot read a deliberately absent fixture.
+	main.game = ""
+	await _frames(3)
+	_check("living-world Opera route exits through product teardown",
+		product_returned and main.opera_game == null)
 
 
 func _probe_all_stage_runtime() -> void:
@@ -243,7 +280,7 @@ func _probe_long_idle_bounds() -> void:
 
 
 func _probe_exit_cleanup() -> void:
-	director.set_probe_stage("opera.act.14")
+	director.set_probe_stage("opera.act.15")
 	director.force_idle_event_for_probe()
 	director.tick(0.01)
 	director.clear_probe_stage()
@@ -339,6 +376,6 @@ func _expected_stage_ids() -> Array[String]:
 		ids.append("dungeon.ice.%02d" % index)
 	for index in range(6):
 		ids.append("dungeon.ember.%02d" % index)
-	for index in range(16):
+	for index: int in OperaHouse.LIVE_ACT_INDICES:
 		ids.append("opera.act.%02d" % index)
 	return ids
