@@ -1,12 +1,15 @@
 # Mermaid Roshan master-audit change and rollback ledger
 
 - **Ledger ID:** `MA-CHANGELOG-2026-08-10`
-- **Change-ID namespace:** `CHG-001` through `CHG-025`; IDs are permanent and
+- **Change-ID namespace:** `CHG-001` through `CHG-026`; IDs are permanent and
   are never reassigned or renumbered
 - **Audit lineage:** `codex/master-audit-20260809`
 - **Dedicated current audit branch:** `codex/audit-reconcile-20260812`
 - **Human scorecard and repository-version snapshot:**
   `a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2`
+- **Opera retirement and Canvas-lifecycle snapshot:**
+  `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`, with exact parent
+  `41087f6634a416540b23a984d1f445b0bdab5f2f`
 - **Current-dev reconciliation snapshot:**
   `f3b0de078898a8b4faddb2c738c4403180eff928`, with current-dev parent
   `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and master-audit parent
@@ -25,8 +28,8 @@
   engine, [master-audit](MASTER_AUDIT_2026-08-09.md), and
   [comprehensive-design-language](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md)
 - **Program state:** `IN_PROGRESS / UNSATISFIED`
-- **Catalog inventory:** 25 permanent change IDs, 70 uniquely owned source-
-  commit references, four guarded-script emitters, and 19 planner unit tests
+- **Catalog inventory:** 26 permanent change IDs, 71 uniquely owned source-
+  commit references, four guarded-script emitters, and 20 planner unit tests
 
 This is the durable answer to the fact that a long audit can produce both
 improvements and regressions. It records what changed, why the change may be
@@ -44,6 +47,7 @@ primary `CHG-*` record. A later group may name it only as a dependency.
 schema: mermaid-roshan/master-audit-change-log/v1
 snapshot: f3b0de078898a8b4faddb2c738c4403180eff928
 evidence_snapshot: a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2
+opera_retirement_snapshot: e2c25878f6b9c64526d0686c426a9f29c5f1b3da
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -70,6 +74,7 @@ changes:
   - {id: CHG-023, name: change-log-and-rollback-process, rollback_mode: documentation_migration}
   - {id: CHG-024, name: f3b0-current-dev-master-audit-reconciliation, rollback_mode: whole_merge_only}
   - {id: CHG-025, name: human-gamewide-scorecard-and-version-reconciliation, rollback_mode: documentation_migration}
+  - {id: CHG-026, name: opera-boss-retirement-save-tombstones-and-canvas-lifecycle, rollback_mode: owner_blocked_mixed}
 ```
 
 ## 2. Safe rollback protocol
@@ -100,6 +105,10 @@ integration commit
 `ad36ee9ffe4eae4d5c4183d0546d775de0218213`; in particular, the three emitted
 CHG-020/021/022 scripts intentionally start there. CHG-025 starts at its exact
 human-scorecard source commit `a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2`.
+CHG-026 starts at exact Opera product commit
+`e2c25878f6b9c64526d0686c426a9f29c5f1b3da`; its planner entry records the
+whole-commit diagnostic inverse but refuses to emit a script because save,
+runtime, probes, the migration manifest, and authority documents are coupled.
 The planner output is the authority if a later append-only maintenance revision
 changes this mapping.
 
@@ -138,8 +147,8 @@ python -B tools/plan_audit_rollback.py CHG-021 --emit-script
 ```
 
 Only CHG-020 and CHG-021, plus all-or-nothing CHG-022 and CHG-024, can emit a
-script: four emitters across 25 stable IDs. Every
-other ID refuses automation even when its human ledger mode says
+script: four emitters across 26 stable IDs. The other 22 groups refuse
+automation even when their human ledger mode says
 `guarded_single`: shared-path, product-policy, or not-yet-committed context
 still requires a reviewed manual inverse. Emitted scripts create a dedicated
 branch at the exact start named by that record, run gates, and stop before
@@ -996,9 +1005,109 @@ exclusive and must never be applied on the same rollback branch.
   trail or raw-revert the whole commit over later evidence. Correct a disputed
   rating or branch fact with a superseding record, or construct a reviewed
   inverse limited to the exact documentation/control paths while preserving
-  still-valid CHG-015/024 evidence. Rerun the 19 planner tests, document
+  still-valid CHG-015/024 evidence. Rerun the full current planner suite (20 tests), document
   validation, probe parity, GAME2D regression, and `git diff --check` before
   recording any inverse.
+
+### CHG-026 — Opera boss retirement, stable save tombstones, and unified Canvas lifecycle
+
+- **Source and exact boundary:** product commit
+  `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`, whose single parent is
+  `41087f6634a416540b23a984d1f445b0bdab5f2f`. Its first-parent delta is exactly
+  32 files (1,648 insertions and 10,548 deletions). `git diff-tree` parity was
+  checked against the planner path set; none of the 32 paths is under a
+  protected-original directory.
+- **Paths:** the exact 32-path scope is
+  `audit/MASTER_AUDIT_2026-08-09.md`;
+  `design/00_MASTER_INDEX.md`; `design/01_GAME_DESIGN.md`;
+  `design/03_TECHNICAL_ARCHITECTURE.md`; `design/04_OPEN_WORK.md`;
+  `design/05_DOC_LEDGER.md`; `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`;
+  `scripts/hit_engine.gd`; `scripts/kart.gd`; `scripts/living_world.gd`;
+  `scripts/living_world_catalog.gd`; `scripts/main.gd`;
+  `scripts/opera_act.gd`; `scripts/opera_house.gd`;
+  `scripts/opera_lobby_2d.gd`; `scripts/player.gd`;
+  `scripts/probe_audio.gd`; `scripts/probe_castle_pearl_art.gd`;
+  `scripts/probe_imp_animation_art.gd`; `scripts/probe_living_world.gd`;
+  `scripts/probe_load.gd`; `scripts/probe_opera.gd`;
+  `scripts/probe_opera_2d.gd`; `scripts/probe_opera_2d_balance.gd`;
+  `scripts/probe_opera_art.gd`; `scripts/probe_opera_balance.gd`;
+  `scripts/probe_opera_detective.gd`; `scripts/probe_opera_nursery.gd`;
+  `scripts/probe_save_recovery.gd`; `scripts/probe_ui_system.gd`;
+  `scripts/save_state.gd`; and `tools/game_2d_migration_manifest.json`.
+- **What changed, in plain English:** owner authority cut Curtain Dragon,
+  Shadow Phantom, and Midnight Maestro from the Opera. Their historical save
+  positions were not deleted or reassigned: the 16-slot `ACTS` table remains
+  stable, slots 4, 9, and 14 are permanent tombstones, and live careers remain
+  at indices 0–3, 5–8, 10–13, and 15. The three retired bits form mask
+  `0x4210`; the 13 live bits form `0xBDEF`. `opera_stars` preserves the complete
+  raw 16-bit legacy mask, including old retired-only bits and `0xFFFF`, while
+  effective `opera_progress` counts only live bits and caps at 13. Completion
+  requires every bit in `0xBDEF`; neither old boss stars nor a sparse legacy
+  progress value is allowed to shift or manufacture career credit.
+- **Canvas and world lifecycle:** the production display route and ordinary
+  unforced headless route now use the same Canvas lobby and Canvas career
+  wrapper. The 13 live careers appear as picture cards on 4/4/5 pages with 13
+  progress pearls; no boss card, finale gate, boss music, boss voice, or legacy
+  kart route is reachable. Invalid/tombstone starts fail closed without taking
+  visibility ownership. Earned results commit before a curtain-call leave or
+  application pause, and teardown restores player, touch UI, and area music.
+  Living-world boss entries were removed while the Nursery career at slot 15
+  remains live. Ember's henchmen remain separately planned future story
+  bosses; this change does not repurpose the three retired Opera slots for
+  them.
+- **Outcome / positive effect:** the owner-cut bosses can no longer leak back
+  through headless behavior, a finale card, ambient routing, or a stale save.
+  The much smaller lifecycle removes the duplicate legacy 3D lobby/boss/kart
+  implementation while retaining all 13 approved career games and their
+  existing art. Old saves keep their raw evidence and gain deterministic live
+  progress instead of losing bits or crediting the wrong career. Focused probes
+  now exercise real card taps, all 13 routes, no-idle-award behavior, first-win
+  and replay rewards, completion exactly once, save migration, suspend/leave
+  persistence, teardown, and re-entry.
+- **Possible negative effect / unknown:** the intentionally preserved raw mask
+  can look surprising because a save may contain retired bits that no longer
+  count toward progress. A later editor must not compact the table, reuse
+  slots 4/9/14, clear raw retired bits, or redefine `ALL_STARS` as `0xFFFF`.
+  The current centralized three-page picker is still a transitional layout:
+  owner direction ultimately distributes careers into Castle rooms and leaves
+  only Ballerina, Pop Star, and Magician in the Opera Hall. That unresolved
+  architecture remains P1 [MA-OPERA-012](MASTER_AUDIT_2026-08-09.md). Green
+  machine checks do not prove M11 performance/touch, child comprehension,
+  owner art acceptance, or release readiness; broad transitive 3D debt and the
+  game-wide visual audit remain open.
+- **Dependencies and coupling:** CHG-005, CHG-008, CHG-010, CHG-011, CHG-015,
+  CHG-016, CHG-017, CHG-018, CHG-019, CHG-020, CHG-023, CHG-024, and CHG-025.
+  In particular, this commit supersedes CHG-010's remaining ordinary-headless
+  split, consumes the current 13-career/atlas/music work, updates the CHG-008
+  shrink manifest, and synchronizes the master-audit authority built through
+  CHG-024/025. It does not close MA-OPERA-012.
+- **Evidence at the product commit:** exact Godot
+  `4.7.1.stable.official.a13da4feb` `scripts/ci.sh` exited 0 after 1,428.6
+  seconds with all 64 trusted local probes green. The current GAME2D inventory
+  is 509 models, 66 production files, and 74 probe files; default remains
+  `UNSATISFIED`, regression is `NO_REGRESSION`, and all 14 stress controls
+  passed. Parser, inference lint, import/analyzer, focused Opera/load/recovery/
+  living-world/audio/UI probes, 42 deterministic music deliveries, and the
+  42-file Opera art gate passed. A Mobile-renderer 1280×720 run produced 17
+  fresh diagnostic captures with zero capture stderr and no boss cards. The
+  strict global visual result remains `UNSATISFIED` (`FAIL 16`, `REVIEW 17`,
+  `MANUAL 2`, `GAP 86`, `PASS 32`, `NA 94`). MA-OPERA-010 and MA-OPERA-011 are
+  fixed pending device/child/owner and exact-head remote verification;
+  MA-OPERA-012 remains open.
+- **Rollback:** `owner_blocked_mixed`; the planner is deliberately `MANUAL` and
+  refuses `--emit-script`. For an isolated diagnostic only, begin with a clean
+  tree and create `codex/rollback-chg-026` at exact
+  `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`. After confirming its parent and
+  exact 32-path delta, preview only `git revert --no-commit
+  e2c25878f6b9c64526d0686c426a9f29c5f1b3da`. Stop on any conflict, unexpected
+  path, protected original, removed save key, tombstone reindexing, or mismatch
+  with the exact parent tree. The inverse restores owner-cut boss routing and
+  legacy lifecycle debt, so it is not production-approved. Inspect all coupled
+  IDs and the entire staged inverse, then rerun every focused gate, GAME2D
+  default/regression/stress, diagnostic captures, exact-4.7.1 full CI, and
+  remote exact-head CI before any rollback commit is considered. Never apply
+  this raw inverse over a later branch head or split the save/runtime/document
+  portions into independent reversions.
 
 ## 5. Per-group gate matrix
 
@@ -1016,6 +1125,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-022 | every applicable gate above and exact `scripts/ci.sh` | remote exact-head plus all applicable external gates |
 | CHG-024 | exact parent/path guards, GAME2D/parity/generated-art checks, every applicable focused gate, and exact `scripts/ci.sh` | remote exact-head plus all applicable capture, M11, child, audio, and owner gates |
 | CHG-025 | rollback catalog tests, document structure/links, probe parity, GAME2D regression, and diff check | re-audit ratings and branch facts whenever a candidate becomes committed or integrated |
+| CHG-026 | exact commit-parent/path parity, parser/lint, Opera/load/recovery/living-world/audio/UI, GAME2D default+regression+stress, fresh Mobile captures, and exact `scripts/ci.sh` | remote exact-head, M11 touch/performance, child comprehension, owner art/authority, and MA-OPERA-012 Castle-room distribution |
 
 ## 6. Required rollback record
 

@@ -9,20 +9,20 @@
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
 - **Latest CI-repair checkpoint:**
   `af4189a99cfd5a32d0df0f75185f6912d3889399`
-- **Current local merge-integration commit:**
+- **Historical local merge-integration commit:**
   `f3b0de078898a8b4faddb2c738c4403180eff928` (parents
   `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and
   `5f58ef0a9db7aa9593f85131e1b855e51b84aea8`)
+- **Current Opera product/audit commit and latest completed full-local
+  checkpoint:** `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`
 - **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
   succeeds in 34m19s for that older SHA
 - **Latest exact-head remote verification:**
   `af4189a99cfd5a32d0df0f75185f6912d3889399`; GitHub run `31649113587`
   succeeds in both required jobs.
-- **Last completed committed full local checkpoint:**
-  `f3b0de078898a8b4faddb2c738c4403180eff928`
-- **Current Opera repair baseline:** audit checkpoint `41087f66`; focused and
-  full local evidence is green under exact official Godot
+- **Current Opera repair baseline:** commit `e2c25878`, built from audit
+  checkpoint `41087f66`; focused and full local evidence is green under exact official Godot
   `4.7.1.stable.official.a13da4feb`, while exact-head remote remains pending
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
@@ -47,9 +47,9 @@ Markdown files, so a direct owner decision and binding operational/security
 rules remain higher authority. Where an older art or design document conflicts
 with a rule here, the dated supersession table in section 15 controls.
 
-At merge `f3b0de07`, this remains an acceptance target, not a compliance claim.
-Exact Godot 4.7.1 local `scripts/ci.sh` exits 0 after 1437.1 seconds with all 64
-current trusted probes. GAME2D unit/stress/regression, deterministic Opera
+At historical merge `f3b0de07`, this remained an acceptance target, not a
+compliance claim. Exact Godot 4.7.1 local `scripts/ci.sh` exited 0 after 1437.1
+seconds with all 64 then-current trusted probes. GAME2D unit/stress/regression, deterministic Opera
 art/provenance/animation/music gates, diegetic-hotspot and borderless-art gates,
 and probe parity are green. Historical audit/CI head `dacef140` completes
 GitHub run `31457593351` for that older SHA; it is not exact-head remote
@@ -64,7 +64,8 @@ Replacement run `31649113587` succeeds at exact `af4189a9`: Ubuntu passes
 static/import/full analyzer/all 63 remote probes/boot/advisory balance/Opera
 manifest/five diagnostic capture pairs in 35m27s, and Windows passes music
 42/42 in 3m55s. No full local suite at `af4189a9` is claimed, and the captures
-grant no authoritative visual PASS. `MA-CI-002` remains fixed, while remaining
+grant no authoritative visual PASS. Current product/audit commit `e2c25878`
+separately completes the full local gate described below. `MA-CI-002` remains fixed, while remaining
 release acceptance stays open under `MA-RELEASE-001` and exhaustive
 one-class-per-probe classification remains `CONFIRMED_OPEN` as `MA-CI-003`.
 
@@ -75,7 +76,7 @@ production 3D files, 74 probe 3D files, one scene, and one configuration. The
 older `f3b0de07` 68/77 count remains historical evidence. Fresh-runtime
 visual strict is also unsatisfied at 16 failures, 17 reviews, two manual items,
 86 coverage gaps, 32 passes, and 94 not-applicable checks; the workflow's five
-diagnostic captures and the current slice's 17 visually inspected 1280×720
+diagnostic captures and commit `e2c25878`'s 17 visually inspected 1280×720
 Mobile renders do not constitute accepted live Canvas/device/child/owner
 evidence. The
 earlier GLB UID warnings are diagnosed as stale ignored local import cache,
@@ -88,25 +89,26 @@ The current Opera shipping snapshot is 13 careers, 53 phases, 27 distinct
   two-glove Boxer specialist, the phone-safe integrated Candymaker pour, and a
   true-Canvas Racer. The current repair removes the ordinary-unforced legacy
   lobby/kart path, leaving one Canvas lifecycle, and removes the retired Opera
-  boss runtime. Exact focused and full local Godot 4.7.1 lifecycle,
+  boss runtime at commit `e2c25878`. Exact focused and full local Godot 4.7.1 lifecycle,
   save-migration, passive, reward, suspend/leave, teardown, and re-entry
   evidence is green;
-  `MA-OPERA-010`/`011` are `FIXED_PENDING_VERIFICATION`, not closed. Ballerina and Boxer pass
-the last complete local gate at `f3b0de07` and exact-head remote run
-`31649113587`; authoritative capture, device, child and owner acceptance remain
-open. Painter-purpose and Arborist
+  `MA-OPERA-010`/`011` are `FIXED_PENDING_VERIFICATION`, not closed. Ballerina
+and Boxer pass the latest completed full-local gate at `e2c25878`; their earlier
+state also passes exact-head remote run `31649113587` at `af4189a9`. Exact-head
+remote for `e2c25878`, authoritative capture, device, child and owner acceptance
+remain open. Painter-purpose and Arborist
 worktrees are uncommitted candidates; Boxer V2 is a docs-only branch proposal.
 The 42-cue deterministic area-music rollout has local machine evidence,
 historical pinned-Windows evidence at `dacef140`, and a 42/42 pinned-Windows
 result in successful run `31649113587`; human listening, mono/voice review,
-  and Lenovo Tab M11 acceptance remain open. The current working slice completes
+  and Lenovo Tab M11 acceptance remain open. Commit `e2c25878` completes
   `scripts/ci.sh` with exit 0 after 1428.6 seconds under exact official Godot:
   all 64 trusted local probes, 74 GAME2D unit tests, 14 stress controls, and 93
   visual-contract unit tests are green. Castle interaction approval candidate
   `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
   covers 13 assets/104 frames in the machine/review ledger, not owner
   acceptance. Seventeen current 1280×720 Mobile renders were visually inspected
-  only for diagnostic/review purposes. Exact-head remote, APK, authoritative
+  only for diagnostic/review purposes. Exact-head remote for `e2c25878`, APK, authoritative
   visual, and strict-zero 2D gates remain open.
 
 That shipping snapshot is not final navigation authority. Direct owner
@@ -460,7 +462,7 @@ reaction time, or generic combat-layer payout.
 TO THE LINE, and RACE. RACE uses the large painted circle/steering grammar and
 exact `op_racer_lap_two` cue. It MUST NOT launch an external 3D kart, select a
 different device-only implementation, or give probes a simpler Canvas bypass.
-This is the required target. The current repair removes the `f3b0de07`
+This is the required target. Commit `e2c25878` removes the `f3b0de07`
 ordinary-unforced alternate path and directly exercises the same Canvas route;
 `MA-OPERA-010` remains `FIXED_PENDING_VERIFICATION` after the green full local
 gate until exact-head remote and external acceptance complete.
@@ -820,10 +822,10 @@ These states prevent an old recommendation from silently becoming a new bug.
 | No boss fights anywhere after cutting the three Opera bosses | **SUPERSEDED** | `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` §17 / `ef2fd982` permits separately justified Ember-henchman encounters. It does not restore the Opera characters, their engine, or their save slots. |
 | One three-floor Opera picker as the final hub for all thirteen careers | **SUPERSEDED; current Canvas picker is transitional debt** | Owner direction `7426c187` and `DL-INT-12` distribute jobs through Castle rooms. Opera Hall promotes Ballerina, Pop Star, and Magician only; `MA-OPERA-012` owns current routing migration. Being Canvas does not make the rejected information architecture final. |
 | Old generic Ballerina PHRASE/POSE/RIBBON/TWIRL route, looped chronological-atlas premise, or earlier leg/feet-like atlas candidate | **SUPERSEDED** | Current authority is Pearl Mirror/Ribbon Trail/Grand Twirl with held pose keys and one-shot curtain call under `DL-INT-08` and `DL-MOT-09`; earlier leg/feet-like candidates remain rejected evidence, and the accepted runtime hash is `c829784d…003995` |
-| Nested or device-only real-3D Opera kart with a different Canvas probe path | **SUPERSEDED as authority; source removal is pending verification** | `DL-INT-10` requires one Canvas implementation. The current repair removes the `f3b0de07` ordinary-unforced kart path and focused exact-Godot evidence exercises the single Canvas lifecycle; `MA-OPERA-010` remains `FIXED_PENDING_VERIFICATION`, and game-wide kart/3D debt outside Opera remains separate `MA-2D-002` work |
+| Nested or device-only real-3D Opera kart with a different Canvas probe path | **SUPERSEDED as authority; source removal is pending verification** | `DL-INT-10` requires one Canvas implementation. Commit `e2c25878` removes the `f3b0de07` ordinary-unforced kart path and focused/full-local exact-Godot evidence exercises the single Canvas lifecycle; `MA-OPERA-010` remains `FIXED_PENDING_VERIFICATION`, and game-wide kart/3D debt outside Opera remains separate `MA-2D-002` work |
 | Boxer GLBs retained as useful resources for the rebuilt career | **SUPERSEDED** | `opera_boxer_outfit.glb`, `opera_boxer_dressing.glb`, and `opera_rival_boxer.glb` are not required by the Canvas specialist and remain exact archive/removal debt under `DL-MED-03`, `DL-MED-04`, and `DL-MED-08`. `opera_rival_boxer_match.png` remains valid 2D identity/source art despite the source heading; any legacy `Sprite3D` consumer is callsite debt, not a defect in the PNG. |
-| Painter-purpose worktree | **UNCOMMITTED_CANDIDATE** | Purpose-focused Painter edits are not in `f3b0de07`; branch/worktree presence grants no runtime or authority change |
-| Arborist worktree | **UNCOMMITTED_CANDIDATE** | Proposed Arborist art/surface/save/lobby/probe files are not in `f3b0de07`; it is not a current fourteenth career or integrated base model |
+| Painter-purpose worktree | **UNCOMMITTED_CANDIDATE** | Purpose-focused Painter edits are not in current product/audit commit `e2c25878`; branch/worktree presence grants no runtime or authority change |
+| Arborist worktree | **UNCOMMITTED_CANDIDATE** | Proposed Arborist art/surface/save/lobby/probe files are not in current product/audit commit `e2c25878`; it is not a current fourteenth career or integrated base model |
 | Boxer V2 branch document | **DOCS_ONLY_CANDIDATE** | Separate commit `ed4851a0` is a proposal, not current integrated mechanics or art authority; current five-phase Boxer remains controlling until explicit review/adoption |
 | `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md`'s 52-phase count and old Ballerina/Boxer/kart sections | **SUPERSEDED in named scopes; remainder supporting** | Preserve non-conflicting prop provenance and repairs; current shipping authority is 13 careers/53 phases/27 modes plus the later specialist records |
 | `OPERA_QUALITY_OVERHAUL_2026-08-09.md`'s 52-phase/19-mode/single-`bop` snapshot and universal chronological-loop claim | **SUPERSEDED in named scopes; remainder supporting** | Preserve its 208-frame audit rationale and non-conflicting fixes; current Opera has no generic `bop`, and Ballerina follows the held-pose exception |

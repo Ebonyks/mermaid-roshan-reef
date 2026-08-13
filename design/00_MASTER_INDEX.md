@@ -3,11 +3,11 @@
 _Initial consolidation: 2026-08-02. Authority reconciliation: 2026-08-09.
 Runtime/audit merge synchronization: 2026-08-12._
 
-The latest CI-repair checkpoint is
-`af4189a99cfd5a32d0df0f75185f6912d3889399`; the last committed complete
-local-suite checkpoint remains merge `f3b0de07`. The current Opera retirement/lifecycle
-repair is based on audit checkpoint `41087f66`. Its exact local working-slice
-`scripts/ci.sh` is green under Godot
+The latest historical exact-head CI-repair checkpoint is
+`af4189a99cfd5a32d0df0f75185f6912d3889399`. The current Opera product/audit
+commit and latest completed full-local checkpoint is
+`e2c25878f6b9c64526d0686c426a9f29c5f1b3da`, built from audit checkpoint
+`41087f66`. Its exact local `scripts/ci.sh` is green under Godot
 `4.7.1.stable.official.a13da4feb`; exact-head remote, APK, device, child, and
 owner gates are not yet complete.
 
@@ -15,7 +15,7 @@ owner gates are not yet complete.
 
 The project accumulated hundreds of design documents, audits, work orders and
 handoffs. The original consolidation counted 149 Markdown documents; the
-current `f3b0de07` merge tree contains **315 tracked Markdown paths**.
+historical `f3b0de07` merge tree contains **315 tracked Markdown paths**.
 Both are dated inventory facts, not stable design constants. The documents are
 individually useful and collectively difficult to navigate:
 the same rule is restated in six places with three different dates, several
@@ -112,15 +112,15 @@ completion. The `f3b0de07` tree had 195 GDScript files under `scripts/`, 106
 `scripts/probe_*.gd` files, and an 8,519-line `scripts/main.gd`.
 
 Exact Godot 4.7.1-stable local `scripts/ci.sh` exits 0 at `f3b0de07` after
-1437.1 seconds with all 64 then-current trusted probes. The current Opera slice
-also exits 0 in 1428.6 seconds under official build `a13da4feb`, with all 64
+1437.1 seconds with all 64 then-current trusted probes. Current product/audit
+commit `e2c25878` exits 0 in 1428.6 seconds under official build `a13da4feb`, with all 64
 trusted local probes, 74 GAME2D unit tests, all 14 falsification controls, 93
 visual-contract unit tests, parser/lint/analyzer/import/static gates, and its
 focused runtime matrix green. Castle frame-review candidate
 `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
 passes its machine/review ledger for 13 assets/104 frames; it is not owner
-acceptance. This is a local working-slice result; exact-head remote is pending.
-Visual advisory remains
+acceptance. This is a commit-pinned full-local result; exact-head remote for
+`e2c25878` is pending. Visual advisory remains
 `UNSATISFIED` and globally unchanged: 16 FAIL, 17 REVIEW_OPEN, two MANUAL_OPEN,
 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE. Historical
 remote run `31457593351` at `dacef140` remains evidence for that older SHA.
@@ -142,7 +142,7 @@ Canvas Racer. The current repair removes the ordinary-headless legacy lobby,
 external-kart, and Opera-boss runtime paths. Save identity remains a stable
 16-slot namespace: slots 4/9/14 are inert tombstones, raw legacy bits survive,
 the live completion mask is `0xBDEF`, and effective progress is 0–13. The exact
-focused matrix and full local working-slice gate are green, so `MA-OPERA-010`
+focused matrix and full local `e2c25878` gate are green, so `MA-OPERA-010`
 and `MA-OPERA-011` are
 `FIXED_PENDING_VERIFICATION`, not closed. Seventeen 1280×720 Mobile captures
 were rendered and visually inspected as diagnostic/review evidence; they are

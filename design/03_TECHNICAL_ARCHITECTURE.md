@@ -15,8 +15,9 @@ platform. GDScript uses tabs and typed variables where present.
 Final runtime medium (owner 2026-08-09): true Canvas/Node2D 2D game-wide.
 `Node3D`, `Sprite3D`, `Camera3D`, models, spatial shaders, 3D lights/physics and
 `Vector3`/`Transform3D` world logic are exact shrinking migration debt, never
-accepted architecture for new or converted work. The synchronized merged
-working-tree snapshot is **`UNSATISFIED`** at 509 model/export files, 66
+accepted architecture for new or converted work. Product/audit commit
+`e2c25878f6b9c64526d0686c426a9f29c5f1b3da` is **`UNSATISFIED`** at 509
+model/export files, 66
 production 3D files and 74 probe 3D files. The complete exact inventory is 509
 model files/509 active exports, 157 tracked sidecars, 352 active-untracked
 generated sidecars, one 3D scene, and one 3D configuration;
@@ -30,9 +31,9 @@ The older `f3b0de07` 68-production/77-probe count remains historical evidence.
 
 `scenes/main.tscn` → `scripts/main.gd` (`class_name ReefMain`). Main is the
 **state owner**: two scratch dictionaries `g` (per-activity) and `mg`
-(minigame 2D), plus the save-backed fields. It is 8,519 lines at the
-synchronized merged 2026-08-09 working-tree snapshot; the extraction-only
-standing target is <2,500 (`MA-CODE-001`).
+(minigame 2D), plus the save-backed fields. It is 8,519 lines at product/audit
+commit `e2c25878`; the extraction-only standing target is <2,500
+(`MA-CODE-001`).
 
 **The Phase-7 satellite mold** — the pattern every extraction follows:
 
@@ -274,7 +275,7 @@ strict zero debt can claim medium satisfaction.
 
 The earlier exact full-suite checkpoint `344d8d5c` remains historical evidence:
 exit 0 with 61 trusted local probes and GAME2D `NO_REGRESSION` at 513 models /
-70 production files. Current merge `f3b0de07` (parents `ea6185fd` and
+70 production files. Historical merge `f3b0de07` (parents `ea6185fd` and
 `5f58ef0a`) passes the complete local `scripts/ci.sh` under exact Godot
 4.7.1-stable with exit 0 after 1437.1 seconds and all 64 trusted probes.
 The current GAME2D contract has 74 unit tests plus 14 falsification controls.
@@ -290,8 +291,9 @@ checks at 42/42. Replacement run `31649113587` then passes both required jobs:
 Ubuntu static/import/full analyzer/63 probes/boot/advisory balance/Opera
 manifest/five diagnostic capture pairs in 35m27s and Windows music 42/42 in
 3m55s. It has not run a full local suite; the captures grant no visual PASS.
-The current working Opera slice separately completes `scripts/ci.sh` with exit
-0 after 1428.6 seconds under exact official Godot
+Current product/audit commit
+`e2c25878f6b9c64526d0686c426a9f29c5f1b3da` separately completes
+`scripts/ci.sh` with exit 0 after 1428.6 seconds under exact official Godot
 `4.7.1.stable.official.a13da4feb`: all 64 trusted local probes, 74 GAME2D unit
 tests, 14 falsification controls, 93 visual-contract unit tests, exact
 regression, parser/lint/analyzer, import, and static gates are green. Castle
@@ -300,7 +302,7 @@ interaction approval candidate
 passes the machine/review ledger at 13 assets and 104 frames; it is not owner
 acceptance. Seventeen 1280×720 Mobile captures were rendered and visually
 inspected as diagnostic/review evidence; they grant no device, child, owner,
-or authoritative visual PASS. Exact-head remote, APK, authoritative capture,
+or authoritative visual PASS. Exact-head remote for `e2c25878`, APK, authoritative capture,
 device, child, owner, listening and strict-zero 2D evidence remain open.
 
 Two subtleties worth preserving:
@@ -425,7 +427,7 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 | `MA-2D-002` | `IN_PROGRESS` | GAME2D: 509 model/export files, 157 tracked model sidecars, 352 active untracked model sidecars, 66 production and 74 probe 3D files, one 3D scene and one 3D configuration; exact regression and 14/14 stress controls are green, strict remains unsatisfied |
 | `MA-CODE-001` | `CONFIRMED_OPEN` | `main.gd` is 8,519 lines against the extraction-only <2,500 target |
 | `MA-CODE-002` | `CONFIRMED_OPEN` | String state, duplicated input, save frequency, material churn and remaining 3D glue are structural risks. The sealed Castle Kitchen caller also lacks a speculative recovery branch for a future invalid Chef config; current config is valid/probed, and any caller change requires renewed owner visual approval. Repair individually with surrounding tests |
-| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local; replacement run `31649113587` executes all current 63 remote entries at exact `af4189a9`. The last committed full local checkpoint is `f3b0de07`; the current working slice also completes all 64 locally under exact Godot `4.7.1.stable.official.a13da4feb`, while exact-head remote execution for that slice remains pending |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local. Historical replacement run `31649113587` executes all 63 remote entries at exact `af4189a9`. Current product/audit commit `e2c25878` is the latest completed full-local checkpoint and runs all 64 locally under exact Godot `4.7.1.stable.official.a13da4feb`; exact-head remote execution for `e2c25878` remains pending |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 106 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-DOLLS-001` | `VERIFIED_FIXED` | Faron's catcher is one bounded Canvas activity with real one-finger input, passive/save/medal/replay and weakref teardown evidence |
 | `MA-SEEK-001` | `VERIFIED_FIXED` | Seek is a fourteen-node animated Canvas meadow; its former vinyl/preview presentation and four meadow GLBs are retired from that runtime role |

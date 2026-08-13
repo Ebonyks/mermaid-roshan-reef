@@ -30,6 +30,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_RECONCILIATION_COMMIT,
 			planner.AUDIT_RECONCILIATION_PARENT,
 			planner.AUDIT_RECONCILIATION_AUDIT_PARENT,
+			planner.AUDIT_OPERA_RETIREMENT_PARENT,
 		}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
@@ -44,11 +45,11 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		planner.validate_catalog()
 		self.assertEqual(
 			[group.change_id for group in planner.CATALOG],
-			[f"CHG-{number:03d}" for number in range(1, 26)],
+			[f"CHG-{number:03d}" for number in range(1, 27)],
 		)
 		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
-		self.assertEqual(len(owned_refs), 70)
-		self.assertEqual(len(set(owned_refs)), 70)
+		self.assertEqual(len(owned_refs), 71)
+		self.assertEqual(len(set(owned_refs)), 71)
 		self.assertEqual(
 			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
 			4,
@@ -182,6 +183,121 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		self.assertIn("never merge wholesale", master)
 		with self.assertRaises(planner.UnsafePlanError):
 			planner.render_script(group)
+
+	def test_opera_retirement_record_is_exact_manual_and_save_safe(self) -> None:
+		group = planner.select_group("CHG-026")
+		self.assertEqual(group.commits, (planner.AUDIT_OPERA_RETIREMENT_COMMIT,))
+		self.assertEqual(group.baseline_commit, planner.AUDIT_OPERA_RETIREMENT_PARENT)
+		self.assertEqual(group.rollback_start, planner.AUDIT_OPERA_RETIREMENT_COMMIT)
+		self.assertEqual(
+			planner.AUDIT_OPERA_RETIREMENT_COMMIT,
+			"e2c25878f6b9c64526d0686c426a9f29c5f1b3da",
+		)
+		self.assertEqual(
+			planner.AUDIT_OPERA_RETIREMENT_PARENT,
+			"41087f6634a416540b23a984d1f445b0bdab5f2f",
+		)
+		self.assertEqual(
+			set(group.paths),
+			{
+				"audit/MASTER_AUDIT_2026-08-09.md",
+				"design/00_MASTER_INDEX.md",
+				"design/01_GAME_DESIGN.md",
+				"design/03_TECHNICAL_ARCHITECTURE.md",
+				"design/04_OPEN_WORK.md",
+				"design/05_DOC_LEDGER.md",
+				"design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+				"scripts/hit_engine.gd",
+				"scripts/kart.gd",
+				"scripts/living_world.gd",
+				"scripts/living_world_catalog.gd",
+				"scripts/main.gd",
+				"scripts/opera_act.gd",
+				"scripts/opera_house.gd",
+				"scripts/opera_lobby_2d.gd",
+				"scripts/player.gd",
+				"scripts/probe_audio.gd",
+				"scripts/probe_castle_pearl_art.gd",
+				"scripts/probe_imp_animation_art.gd",
+				"scripts/probe_living_world.gd",
+				"scripts/probe_load.gd",
+				"scripts/probe_opera.gd",
+				"scripts/probe_opera_2d.gd",
+				"scripts/probe_opera_2d_balance.gd",
+				"scripts/probe_opera_art.gd",
+				"scripts/probe_opera_balance.gd",
+				"scripts/probe_opera_detective.gd",
+				"scripts/probe_opera_nursery.gd",
+				"scripts/probe_save_recovery.gd",
+				"scripts/probe_ui_system.gd",
+				"scripts/save_state.gd",
+				"tools/game_2d_migration_manifest.json",
+			},
+		)
+		self.assertEqual(len(group.paths), 32)
+		self.assertEqual(
+			group.dependencies,
+			(
+				"CHG-005",
+				"CHG-008",
+				"CHG-010",
+				"CHG-011",
+				"CHG-015",
+				"CHG-016",
+				"CHG-017",
+				"CHG-018",
+				"CHG-019",
+				"CHG-020",
+				"CHG-023",
+				"CHG-024",
+				"CHG-025",
+			),
+		)
+		self.assertEqual(group.safety, planner.MANUAL)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 22)
+		plan = planner.render_plan(group)
+		for marker in (
+			"16-slot save/raw-mask contract",
+			"permanent tombstones",
+			"git revert --no-commit e2c25878f6b9c64526d0686c426a9f29c5f1b3da",
+			"inspect all 32 paths",
+			"MA-OPERA-012 remains open",
+			"GODOT=\"$GODOT\" scripts/ci.sh",
+		):
+			self.assertIn(marker, plan)
+		with self.assertRaises(planner.UnsafePlanError):
+			planner.render_script(group)
+
+		ledger = (
+			Path(__file__).resolve().parents[2]
+			/ "audit"
+			/ "MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+		).read_text(encoding="utf-8")
+		for marker in (
+			"all 64 trusted local probes green",
+			"after 1,428.6",
+			"509 models, 66 production files, and 74 probe files",
+			"produced 17",
+			"fresh diagnostic captures",
+			"strict global visual result remains `UNSATISFIED`",
+		):
+			self.assertIn(marker, ledger)
+
+		repository_root = Path(__file__).resolve().parents[2]
+		master = (repository_root / "audit" / "MASTER_AUDIT_2026-08-09.md").read_text(
+			encoding="utf-8"
+		)
+		open_work = (repository_root / "design" / "04_OPEN_WORK.md").read_text(
+			encoding="utf-8"
+		)
+		for text in (master, open_work):
+			self.assertIn("CHG-001", text)
+			self.assertIn("CHG-026", text)
+			self.assertIn("71 unique catalog-owned commit references", text)
+			self.assertIn("e2c25878", text)
+			self.assertIn("20 unit", text)
+		self.assertIn("other 22 refuse automation", master)
+		self.assertIn("rollback is recorded under `CHG-026`", master)
 
 	def test_catalog_rejects_duplicate_ids(self) -> None:
 		duplicate = replace(planner.CATALOG[1], change_id=planner.CATALOG[0].change_id)

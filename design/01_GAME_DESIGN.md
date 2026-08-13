@@ -118,7 +118,8 @@ no-fail behavior; archive retired 3D resources; run focused, passive,
 teardown, re-entry, save/load, sibling and full-suite tests. Delete a legacy
 resource only after its replacement or non-reachability proof is green.
 
-At the synchronized merged working-tree snapshot, the exact GAME2D inventory
+At product/audit commit
+`e2c25878f6b9c64526d0686c426a9f29c5f1b3da`, the exact GAME2D inventory
 remains **`UNSATISFIED`**: 509 model files/509 active exports, 157 tracked and
 352 active-untracked generated model sidecars, 66 production 3D files, 74
 probe 3D files, one scene, and one configuration. Regression mode is exact
@@ -127,13 +128,13 @@ older `f3b0de07` 68/77 values remain historical evidence. The old zone table is 
 `GAME_REDESIGN_2P5D_2026-07-27.md` as history; it is not a current
 implementation queue.
 
-The current working slice completes exact local `scripts/ci.sh` under Godot
+Commit `e2c25878` completes exact local `scripts/ci.sh` under Godot
 `4.7.1.stable.official.a13da4feb` with exit 0 after 1428.6 seconds: all 64
 trusted local probes, 74 GAME2D units, 93 visual-contract units, and the Castle
 frame-review candidate
 `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
 (13 assets/104 frames) are green in their machine/review ledgers. Exact-head
-remote is pending. Seventeen V4 Mobile 1280×720 captures were visually inspected
+remote for `e2c25878` is pending. Seventeen V4 Mobile 1280×720 captures were visually inspected
 only as diagnostic/review evidence; neither the candidate nor those captures
 grant device, child, owner, or authoritative visual acceptance.
 
