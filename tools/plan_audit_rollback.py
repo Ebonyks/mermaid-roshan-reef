@@ -36,6 +36,8 @@ AUDIT_EVIDENCE_ROLLBACK_SYNC_COMMIT = "d991fdf3fbdb229de8685c3e52917b280942adb5"
 AUDIT_EVIDENCE_AUTHORITY_SYNC_COMMIT = "9befc0f838f40eead2f42088a91206257fe217a8"
 AUDIT_EVIDENCE_ROLLBACK_SYNC_PARENT = AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT
 AUDIT_EVIDENCE_AUTHORITY_SYNC_PARENT = AUDIT_EVIDENCE_ROLLBACK_SYNC_COMMIT
+AUDIT_DOCUMENT_AUTHORITY_COMMIT = "5ed0c75460c9afd5ab574ff2c4a907c1075964f0"
+AUDIT_DOCUMENT_AUTHORITY_PARENT = "18b6150c01e1587100dca97c85ebad03f369825a"
 GODOT_REQUIREMENT = "exact Godot 4.7.1-stable (not 4.4 or a development build)"
 PROTECTED_PATHS = (
 	"assets/book/",
@@ -984,13 +986,65 @@ CATALOG: tuple[ChangeGroup, ...] = (
 		rollback_start=AUDIT_EVIDENCE_AUTHORITY_SYNC_COMMIT,
 		warnings=(
 			"CHG-028 is a narrow exception to CHG-023 maintenance: routine self-hash or count-only upkeep still belongs to CHG-023 and must not generate another stable ID; these sources qualify because they materially change executable planner/tests and synchronized authority across ten paths.",
-			"The current uncommitted post-9bef evidence-truthfulness synchronization is CHG-023 maintenance, not a third CHG-028 source commit or CHG-029; it does not alter the historical exact two-commit/ten-path boundary.",
+			"The later 18b6150c evidence-truthfulness synchronization remains CHG-023 maintenance, not a third CHG-028 source commit; it does not alter the historical exact two-commit/ten-path boundary. CHG-029 is separately bounded to the later sealed fail-closed document-authority source.",
 			"These commits change audit authority, evidence interpretation, rollback controls, and their tests; they are material governance changes even though they contain no runtime, save, protected-asset, audio, workflow, or generated-art path.",
 			"Historical run 31678156887 remains red. Exact authority head 9befc0f838f40eead2f42088a91206257fe217a8 passes remote run 31686380560 with 63 trusted headings and Windows music 42/42, but the run is not warning-clean: existing Vulkan-to-OpenGL fallback and resource-leak diagnostics remain. All five capture/upload pairs completed at the workflow level and uploaded diagnostic artifacts, not capture gates or visual passes; raw Sky Lagoon LAGOONSHOT output has 21 OK, 44 FAIL, and DONE (66 diagnostic lines), so that diagnostic internally fails. APK/device/child/owner/exact-voice/listening/strict-2D/accepted-visual gates remain open; never rewrite those scopes to make the audit appear greener.",
 			"A broad inverse would remove CHG-027's second-commit ownership, root-cause record, MANUAL refusal, and synchronized authority claims while leaving the underlying product and probe commits reachable.",
 			"The two source commits form a contiguous chain and an exact ten-path union, but contiguity does not make an append-only authority rollback safe to automate.",
 		),
 		manual_reason="Automation is refused because this documentation migration synchronizes material evidence interpretation, authority documents, rollback ownership, refusal policy, and planner tests. Do not raw-revert either source commit or erase the failed remote run and still-valid local evidence. Correct a disputed fact through a new superseding record; if an owner-approved inverse is still required, construct and review it across the exact ten-path union while preserving every later truthful evidence and rollback-control update.",
+	),
+	_group(
+		"CHG-029",
+		"Exhaustive document authority and canonical-finding gate",
+		"Seals the fail-closed document-control slice: one scoped ledger row for every Git-declared Markdown path, complete stable records for all material active audit items, falsifiable validator/tests, blocking local and read-only remote CI integration, and synchronized current authority without changing game runtime.",
+		AUDIT_DOCUMENT_AUTHORITY_PARENT,
+		(AUDIT_DOCUMENT_AUTHORITY_COMMIT,),
+		(
+			".github/workflows/probes.yml",
+			".gitignore",
+			"AUDIT_3_0.md",
+			"CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md",
+			"MINIGAME_ENGINES.md",
+			"OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md",
+			"OPERA_WIDGET_INPUT_AUDIT_2026-08-02.md",
+			"audit/MASTER_AUDIT_2026-08-09.md",
+			"audit/castle_sprite3d/CASTLE_LIGHTING_CONTINUITY_AUDIT_2026-07-29.md",
+			"audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+			"design/00_MASTER_INDEX.md",
+			"design/01_GAME_DESIGN.md",
+			"design/03_TECHNICAL_ARCHITECTURE.md",
+			"design/04_OPEN_WORK.md",
+			"design/05_DOC_LEDGER.md",
+			"design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+			"scripts/ci.sh",
+			"tools/audit_document_authority.py",
+			"tools/tests/test_audit_document_authority.py",
+		),
+		("CHG-005", "CHG-008", "CHG-011", "CHG-023", "CHG-025", "CHG-028"),
+		(
+			"python -B -m py_compile tools/audit_document_authority.py tools/tests/test_audit_document_authority.py",
+			"python -B -m unittest tools.tests.test_audit_document_authority -v",
+			"python -B tools/audit_document_authority.py --stress",
+			"python -B tools/audit_document_authority.py",
+			"python -B tools/audit_probe_parity.py --stress",
+			"python -B tools/audit_probe_parity.py",
+			"python -B tools/audit_game_2d.py --stress",
+			"python -B tools/audit_game_2d.py",
+			"python -B tools/audit_game_2d.py --regression-gate",
+			"GODOT=\"$GODOT\" scripts/ci.sh",
+			"git diff --check",
+		),
+		rollback_start=AUDIT_DOCUMENT_AUTHORITY_COMMIT,
+		warnings=(
+			"The sealed source has exact parent 18b6150c01e1587100dca97c85ebad03f369825a and an exact 19-path boundary with 2,645 insertions and 232 deletions; the planner/catalog maintenance that records CHG-029 belongs to CHG-023 and is not a second CHG-029 source.",
+			"The source changes .github/workflows/probes.yml, a high-risk workflow path. Its change is limited to three read-only Python document-authority commands under the existing contents: read permission; it adds no action, package, credential, secret, network, publication, or write permission.",
+			"Exact official Godot 4.7.1 local scripts/ci.sh is green at the sealed source after 1,359.8 seconds with all 64 trusted local probes. No exact-head remote result is claimed for 5ed0c754, so MA-DOC-002 and MA-DOC-005 remain FIXED_PENDING_VERIFICATION and the master audit remains IN_PROGRESS / UNSATISFIED.",
+			"The validator reports exact inventory/ledger 316/316 and active-record parity 36/36; these are sealed-source repository facts, not runtime, device, child, owner, visual, voice, listening, strict-2D, or release acceptance.",
+			"No runtime script, scene, save key, protected original, asset, audio, generated-art payload, or gameplay behavior changes in the source commit. The historical Markdown repairs only correct table structure and explicitly scope superseded spatial claims.",
+			"A partial inverse can leave CI invoking deleted tooling, hide the canonical register behind .gitignore while master links still target it, remove required ledger rows, or restore unscoped legacy-3D and stale evidence claims. Do not raw-revert or selectively restore this source.",
+		),
+		manual_reason="Automation is refused because the exact source couples a high-risk workflow gate, local CI, Git visibility, exhaustive authority inventory, canonical records, falsification controls, and synchronized audit/design claims. Correct a disputed rule or fact through one reviewed superseding documentation migration across every affected validator/test/CI/master/findings/ledger/current-authority path. A complete owner-approved inverse must start at the exact source commit, preserve every later truthful record, cover the exact 19-path boundary, and pass every listed gate; no rollback script may be emitted.",
 	),
 )
 

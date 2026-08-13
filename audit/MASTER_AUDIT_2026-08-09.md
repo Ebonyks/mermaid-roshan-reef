@@ -13,16 +13,21 @@
   `5f58ef0a9db7aa9593f85131e1b855e51b84aea8`)
 - **Current Opera product/runtime commit:**
   `09e5e35665fd8d1bd782693e10fc0198f756d2c8`
-- **Current probe-readiness and latest completed full-local checkpoint:**
+- **Current probe-readiness checkpoint:**
   `ff068db002202839f920a6f9fb78c942788a3034`; this changes only
   `scripts/probe_opera.gd` and preserves the `09e5e356` runtime
 - **Current integrated dev/audit head:**
   `18b6150c01e1587100dca97c85ebad03f369825a`; later audit/governance
   integration preserves the `09e5e356` product runtime and `ff068db` probe
   readiness behavior
+- **Current sealed document-authority source:**
+  `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, with exact parent
+  `18b6150c01e1587100dca97c85ebad03f369825a`; it changes an exact 19-path
+  document-control boundary and no game runtime
 - **Current committed full local verification:** exact official Godot
-  `4.7.1.stable.official.a13da4feb`; `scripts/ci.sh` exit 0 after 1379.3 seconds,
-  all 64 trusted local probes green
+  `4.7.1.stable.official.a13da4feb`; `scripts/ci.sh` at exact `5ed0c754` exits 0
+  after 1,359.8 seconds with all 64 trusted local probes green. No exact-head
+  remote result is claimed for `5ed0c754`
 - **Last historical exact-head remote checkpoint:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`, GitHub run `31457593351`
 - **Historical exact-head remote verification (predecessor runtime):**
@@ -332,7 +337,7 @@ the companion [change and rollback ledger](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-
 | Performance and device fitness | **2/5** | Mobile renderer is binding and several node/texture budgets are probed | Measure release-candidate P50/P95/P99 frame time, hitches, memory, thermal behavior, load time, and touch latency on target devices |
 | QA and release automation | **4/5** | Exact 4.7.1 analyzer, 64 local/63 remote probe roster, import/boot gates, deterministic art/music, regression and falsification controls are unusually strong; exact `18b6150c` has green probe and matching dev-APK builds | Classify all 106 probes, complete live visual adapters, exercise the matching APK on target devices, and keep final branch-head CI green |
 | Architecture and maintainability | **2/5** | Satellites, bounded surfaces, the collapsed Canvas-only Opera controllers, and the centralized Castle career-route registry demonstrate safer ownership | `main.gd` and string-owned state remain large; 66 production-3D files and broad game-wide spatial debt keep change risk high |
-| Provenance, protected assets, and rollback | **4/5** | Protected sources stayed untouched; licences, archive proof, 28 stable change groups, and guarded inverse plans exist | Append every later material branch/merge to the ledger and run its rollback gates before integration |
+| Provenance, protected assets, and rollback | **4/5** | Protected sources stayed untouched; licences, archive proof, 29 stable change groups, and guarded inverse plans exist | Append every later material branch/merge to the ledger and run its rollback gates before integration |
 
 ### 1.4 World and area scorecard
 
@@ -446,8 +451,9 @@ Android dev run `31695675866` publishes the matching 596,041,412-byte APK at
 SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`.
 Capture outputs remain diagnostic/nonaccepted; raw Sky Lagoon internally fails
 21 `OK` / 44 `FAIL` / `DONE` and the artifact contains 20 PNGs.
-Their product rollback record is `CHG-027` and authority synchronization is
-`CHG-028`; device, child, owner, exact-voice, listening, strict-2D, and
+Their product rollback record is `CHG-027`, authority synchronization is
+`CHG-028`, and the later sealed fail-closed document-control migration is
+`CHG-029`; device, child, owner, exact-voice, listening, strict-2D, and
 accepted-visual gates remain open, so the result is not verified or release-
 ready. Within
 the repair base, Dolls, Seek, the picture
@@ -1052,9 +1058,9 @@ the compact navigation view; these links open the complete section-10 records:
 | ID | Severity | Lifecycle | Verification | Indexed issue | Closure requirement |
 |---|---|---|---|---|---|
 | `MA-2D-002` | P1 | `IN_PROGRESS` | V2/V3 partial | Section 1 records 509 model/export files, 157 tracked model sidecars, 352 active untracked sidecars, 66 production 3D files, 74 probe 3D files, one 3D scene, and one 3D configuration; regression is exact `NO_REGRESSION`, all 14 stress controls pass, and scan-coverage/model-archive/archive-now counts are zero. Dolls, Seek, and the bounded Opera controller/boss source are converted or retired, but current player, Fairy, and other active surfaces still enforce legacy 3D | All eleven GAME2D categories reach zero; strict gate, import, focused/surrounding/full probes green |
-| `MA-DOC-002` | P1 | `FIXED_PENDING_VERIFICATION` | V2 local working-tree candidate | The document ledger now classifies the exact 316-path Git-declared Markdown inventory with 316 unique rows and explicit mixed/supersession scope; the fail-closed authority validator is locally green | Seal the candidate at one commit, pass the exact committed-head remote gate, and preserve one-row-per-path coverage as inventory changes |
+| `MA-DOC-002` | P1 | `FIXED_PENDING_VERIFICATION` | V2/V3 sealed-source local | Sealed source `5ed0c754` classifies the exact 316-path Git-declared Markdown inventory with 316 unique rows and explicit mixed/supersession scope; focused tests, six mutation controls, and exact official-Godot full local CI are green | Pass the exact-source-head remote gate and preserve one-row-per-path coverage as inventory changes |
 | `MA-DOC-003` | P1 | `BLOCKED_EXTERNAL` | V1 | An off-repository journal is said to hold 36 unnamed entries described as findings | Import source evidence or replace with fresh equal-scope audit; do not assume the entries are current |
-| `MA-DOC-005` | P1 | `FIXED_PENDING_VERIFICATION` | V2 local working-tree candidate | All 36 material non-terminal P1/P2 items now link from this section to complete stable records with the mandatory fields; local tests and the fail-closed authority validator are green | Seal the candidate at one commit, pass the exact committed-head remote gate, and keep the records stable through future lifecycle transitions |
+| `MA-DOC-005` | P1 | `FIXED_PENDING_VERIFICATION` | V2/V3 sealed-source local | At sealed source `5ed0c754`, all 36 material P1/P2 items link from this section to complete stable records with the mandatory exact field set; local tests, six mutation controls, and the fail-closed authority validator are green | Pass the exact-source-head remote gate and keep the records stable through future lifecycle transitions |
 | `MA-VIS-002` | P1 | `CONFIRMED_OPEN` | V1 | Sky Lagoon remains one mural layer across twelve tiles | True Canvas/`Sprite2D` differential layers with seams/ownership/overdraw green and runtime/device review; `SideScrollStage`, `Sprite3D`, or filename-only relabeling cannot close it |
 | `MA-VIS-003` | P1 | `REPORTED_UNCONFIRMED` | V1; `REVIEW_OPEN` | Reproduced source-average saturation diagnostics flag Fairy and Lagoon, but Fairy is probably a false positive/coverage gap and Lagoon is only a plausible hierarchy risk | True state-local Canvas composite with HUD/viewport/runtime/device evidence; do not recolor or regenerate approved art merely to satisfy the current average |
 | `MA-VIS-006` | P1 | `CONFIRMED_OPEN` | V2/V3 partial | Approved fresh-runtime contract is fail-closed, but clean HEAD has 16 failures, 17 reviews, two manual items, and 86 coverage gaps because no live Canvas capture output was accepted | Implement every required live state adapter/capture; every applicable FAIL/REVIEW/MANUAL/COVERAGE_GAP explicitly resolved |
@@ -1072,7 +1078,7 @@ the compact navigation view; these links open the complete section-10 records:
 | `MA-OPERA-012` | P1 | `FIXED_PENDING_VERIFICATION` | V3 full local plus exact-head remote/build and V4 diagnostic; external open | Runtime `09e5e356` distributes all thirteen careers through exact thematic Castle rooms, selects Movie Lounge as Racer's sole home, deletes the all-career lobby with no hidden backdoor, preserves stable sparse save bits/rewards, restores the exact launching room, and fixes Canvas layers. Its full 1463.4-second/64-probe local suite is green. Pre-fix run `31678156887` remains red from fixed-four-frame fade sampling; probe-only `ff068db` adds a bounded fail-closed semantic wait and passes the newer 1379.3-second/64-probe full-local suite. Exact dev head `18b6150c` passes Probe Suite run `31693492735` with 63 headings in 29m41s and music 42/42; Android run `31695675866` publishes its matching 596,041,412-byte APK. Capture output remains diagnostic/nonaccepted: raw Sky Lagoon is 21 OK/44 FAIL/DONE with 20 PNGs. Twenty-two local 1280×720 captures remain diagnostic; all nine room captures show residual P2 lower-body/tail occlusion | Exercise the matching APK; complete phone/M11, child navigation/comprehension, owner, exact-voice/listening, strict-2D, and accepted-visual gates; adjust route-card composition without weakening target size or reintroducing the hub |
 | `MA-PERF-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current target-device frame-time, hitch, memory, thermal, or latency matrix | U0 device matrix at exact release candidate meets design thresholds |
 | `MA-CHILD-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current observed five-minute child golden-path record | Private/safe observed session meets section 12 |
-| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 latest full-local, exact-head remote, and exact-head Android dev build green; release acceptance open | Historical merge `f3b0de07` exits exact local Godot 4.7.1 CI after 1437.1 seconds with all 64 trusted probes; failed `31648427712` and successful repair run `31649113587` preserve the newline-hash history. Predecessor Opera commit `e2c25878` completes full local CI in 1428.6 seconds and run `31661887863` succeeds at integrated SHA `e0677ae4`. Product/runtime commit `09e5e356` completes full local CI in 1463.4 seconds with all 64 probes and 22 diagnostic captures. Run `31678156887` remains red from the fixed-frame sample; probe-only `ff068db` adds the semantic wait and completes full local CI in 1379.3 seconds/all 64. Exact dev head `18b6150c` passes Probe Suite run `31693492735` with 63 remote headings in 29m41s and music 42/42. Android run `31695675866` publishes the matching 596,041,412-byte APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`. Capture output remains diagnostic/nonaccepted and raw Sky Lagoon is 21 OK/44 FAIL/DONE with 20 PNGs | Require target-device matrix, child, owner, authoritative visual, exact-voice/human-listening, strict-2D, clean warning/capture triage, and clean re-audit gates |
+| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 latest full-local; predecessor exact-head remote and Android dev build green; release acceptance open | Historical merge `f3b0de07` exits exact local Godot 4.7.1 CI after 1437.1 seconds with all 64 trusted probes; failed `31648427712` and successful repair run `31649113587` preserve the newline-hash history. Predecessor Opera commit `e2c25878` completes full local CI in 1428.6 seconds and run `31661887863` succeeds at integrated SHA `e0677ae4`. Product/runtime commit `09e5e356` completes full local CI in 1463.4 seconds with all 64 probes and 22 diagnostic captures. Run `31678156887` remains red from the fixed-frame sample; probe-only `ff068db` adds the semantic wait and completes full local CI in 1379.3 seconds/all 64. Exact dev head `18b6150c` passes Probe Suite run `31693492735` with 63 remote headings in 29m41s and music 42/42. Android run `31695675866` publishes the matching 596,041,412-byte APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`. Later sealed document-authority source `5ed0c754` preserves runtime and passes exact official-Godot full local CI in 1,359.8 seconds/all 64, but has no claimed exact-head remote or APK. Capture output remains diagnostic/nonaccepted and raw Sky Lagoon is 21 OK/44 FAIL/DONE with 20 PNGs | Require exact-source-head remote verification, target-device matrix, child, owner, authoritative visual, exact-voice/human-listening, strict-2D, clean warning/capture triage, and clean re-audit gates |
 
 ### 5.2 P2/P3 and owner-decision indexed items
 
@@ -1092,7 +1098,7 @@ the compact navigation view; these links open the complete section-10 records:
 | `MA-OPERA-006` | P2 | `CONFIRMED_OPEN` | V1/V3 partial | Nursery, Farmer, and Racer received material art-fiction repairs, but the grouped historical claim must be split and re-audited; remaining protected-voice mismatches stay open rather than being inferred fixed |
 | `MA-OPERA-007` | P2 | `OWNER_DECISION_REQUIRED` | V1 | Farmer/Doctor above-water setting differs from the other Opera backdrops |
 | `MA-AUDIO-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | Forty-two unique deterministic area cues have complete score/render hashes, 48 kHz stereo OGG delivery, loop/import metadata, loudness/peak/seam measurements, routing ownership, and focused audio/full-branch evidence. The pinned Windows jobs in failed run `31648427712` and successful repair run `31649113587` preserve the historical 42/42 record; run `31661887863` succeeds at predecessor SHA `e0677ae4` and ends `MUSIC|check 42/42|picture_xmas` in 6m52s. Windows also passes later red Ubuntu-probe run `31678156887`; exact authority-head run `31686380560` ends the same 42/42 terminal marker in 3m47s. Human style/two-wrap, voice-over intelligibility/ducking, mono fold-down, music-off transition, and Lenovo Tab M11 start/loop/performance gates remain open |
-| `MA-CHANGE-001` | P2 | `VERIFIED_FIXED` | V2/V3 process evidence | Twenty-eight stable records, `CHG-001` through `CHG-028`, cover 75 unique catalog-owned commit references. CHG-027 owns exact Opera distribution runtime `09e5e356` and probe-readiness follow-up `ff068db`; CHG-028 owns material rollback-control synchronization `d991fdf3` plus authority synchronization `9befc0f8` as a narrow exception to CHG-023 routine bookkeeping. Every record names paths, benefit, plausible harm, dependencies, evidence, gates, and rollback class. The planner imports no Git/filesystem mutation API; only CHG-020/021/022/024 can emit guarded stdout scripts, while the other 24 refuse automation. Twenty-two unit tests, exact ledger/catalog source parity, clean non-mutation CLI replay, Git-history checks, GAME2D no-regression, and independent adversarial approval are green. Future material changes must append under the stable ID or add the next ID; routine self-hash/count maintenance remains CHG-023 and drift reopens this finding. |
+| `MA-CHANGE-001` | P2 | `VERIFIED_FIXED` | V2/V3 process evidence | Twenty-nine stable records, `CHG-001` through `CHG-029`, cover 76 unique catalog-owned commit references. CHG-027 owns exact Opera distribution runtime `09e5e356` and probe-readiness follow-up `ff068db`; CHG-028 owns material rollback-control synchronization `d991fdf3` plus authority synchronization `9befc0f8`; CHG-029 owns sealed fail-closed document-authority source `5ed0c754` over its exact 19-path boundary. Every record names paths, benefit, plausible harm, dependencies, evidence, gates, and rollback class. The planner imports no Git/filesystem mutation API; only CHG-020/021/022/024 can emit guarded stdout scripts, while the other 25 refuse automation. Twenty-three unit tests, exact ledger/catalog source parity, clean non-mutation CLI replay, Git-history checks, GAME2D no-regression, and independent adversarial approval are green. Future material changes must append under the stable ID or add the next ID; routine self-hash/count maintenance remains CHG-023 and drift reopens this finding. |
 | `MA-CODE-001` | P2 | `CONFIRMED_OPEN` | V1 | `main.gd` is 8,647 lines at current `09e5e356` against the extraction-only <2,500 target |
 | `MA-CODE-002` | P2 | `CONFIRMED_OPEN` | V1 | String state, duplicated input, save frequency, material churn, and remaining 3D glue are structural risks |
 
@@ -1174,8 +1180,8 @@ source, fallback, rollback target, or claim that reachable 3D debt is retired.
 | `EV-CI-011` | `MA-RELEASE-001`, `MA-CI-002`, `MA-OPERA-012` | Preserve the failed distribution-head remote result and repair probe readiness without mislabeling runtime behavior | GitHub run `31678156887` at `3fc151c8b3b6c054d0f6e6ab89f84a9f464f3f20` is genuinely red: Ubuntu `probe_opera` reports only the Detective and Nursery stable-Canvas compound checks failed after a fixed four-frame sample of the 0.25-second reveal. Raw launches, passive safety, save/reward, exact-room return, all surrounding Opera probes, every other executed gate/probe, and Windows pass; no script/resource/runtime error occurs. Probe-only commit `ff068db002202839f920a6f9fb78c942788a3034` preserves runtime `09e5e356`, replaces the frame guess with a bounded fail-closed wait for the exact Opera instance/reveal/stage/layer state, and completes exact official Godot full local CI in 1379.3 seconds with all 64 trusted probes green. `EV-CI-012` records the successful exact-head replacement without rewriting this failed run. |
 | `EV-CI-012` | `MA-RELEASE-001`, `MA-CI-002`, `MA-AUDIO-001`, `MA-OPERA-010`, `MA-OPERA-011`, `MA-OPERA-012`, `MA-CHANGE-001` | Verify the synchronized distribution authority head remotely while preserving diagnostic limits | GitHub run `31686380560` succeeds at exact `9befc0f838f40eead2f42088a91206257fe217a8`. Ubuntu `probes` runs 09:24:08–09:57:48 UTC (33m40s): static gates, import, full analyzer, exactly 63 remote trusted probe headings, boot, Dust/Opera advisories, and Opera manifest are green. Windows runs 09:24:08–09:27:55 UTC (3m47s) and ends `MUSIC|check 42/42|picture_xmas`. All five capture/upload pairs completed at the workflow level and uploaded diagnostic artifacts; they are not capture gates or visual passes. Raw Sky Lagoon `LAGOONSHOT` output has 21 `OK`, 44 `FAIL`, and `DONE` (66 diagnostic lines), so the Sky Lagoon diagnostic internally fails. The run is not warning-clean: existing missing-Vulkan-surface/OpenGL fallback and ObjectDB/resource/texture-leak diagnostics remain. No matching APK, device, child, owner, exact-voice, listening, strict-2D satisfaction, or accepted-visual evidence is claimed. |
 | `EV-CI-013` | `MA-RELEASE-001`, `MA-CI-002`, `MA-AUDIO-001`, `MA-OPERA-012` | Verify the exact integrated dev/audit head and publish its matching dev APK without promoting diagnostics into acceptance | Probe Suite run `31693492735` succeeds at exact `18b6150c01e1587100dca97c85ebad03f369825a`: the probes job completes in 29m41s with exactly 63 remote trusted headings and music completes 42/42. Raw Sky Lagoon output remains diagnostic and internally reports 21 `OK`, 44 `FAIL`, and `DONE`; the artifact contains 20 PNGs, none accepted. Android dev run `31695675866` succeeds at the same exact head and publishes a 596,041,412-byte APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`. Device, child, owner, exact-voice, human-listening, strict-2D, and accepted-visual gates remain open. |
-| `EV-DOC-001` | `MA-DOC-002`, `MA-DOC-005` | Build a fail-closed exhaustive document-authority candidate without claiming committed-head closure | The 2026-08-13 working tree contains the exact 316-path Git-declared Markdown inventory, 316 unique ledger rows, 36 section-5-linked complete canonical records, `tools/audit_document_authority.py`, focused unit tests, and local/remote CI wiring. Local V2 comparison, field/parity/rule/link checks, mutation stress controls, Markdown link/table/fence checks, and diff checks are required to stay green. This is working-tree evidence only: the candidate is `FIXED_PENDING_VERIFICATION` until sealed at one commit and verified at that exact committed remote head. |
-| `EV-CHANGE-001` | `MA-CHANGE-001` | Make the large audit program reviewable and reversions granular | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`, `tools/plan_audit_rollback.py`, and 22 unit tests; CHG-001–028 cover 75 unique catalog-owned commit references, only CHG-020/021/022/024 emit guarded stdout scripts, all other 24 groups refuse automation, CHG-028 bounds the material `d991fdf3`/`9befc0f8` control-and-authority synchronization without changing CHG-023 routine-maintenance policy, CLI execution leaves Git status byte-identical, and independent adversarial review approves the catalog/history/safety contract |
+| `EV-DOC-001` | `MA-DOC-002`, `MA-DOC-005` | Seal a fail-closed exhaustive document-authority source without claiming exact-head remote closure | Exact source `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, parent `18b6150c01e1587100dca97c85ebad03f369825a`, contains the exact 316-path Git-declared Markdown inventory, 316 unique ledger rows, 36 section-5-linked complete canonical records, `tools/audit_document_authority.py`, 35 focused unit tests, six mutation stress controls, and blocking local/remote CI wiring. Exact official Godot 4.7.1 `scripts/ci.sh` is green locally in 1,359.8 seconds with all 64 trusted probes. The source touches high-risk `.github/workflows/probes.yml`, limited to three read-only Python gate commands under existing `contents: read`; it adds no action, package, credential, secret, network, publication, or write permission. No exact-head remote result is claimed for `5ed0c754`, so both findings remain `FIXED_PENDING_VERIFICATION`. |
+| `EV-CHANGE-001` | `MA-CHANGE-001` | Make the large audit program reviewable and reversions granular | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`, `tools/plan_audit_rollback.py`, and 23 unit tests; CHG-001–029 cover 76 unique catalog-owned commit references, only CHG-020/021/022/024 emit guarded stdout scripts, all other 25 groups refuse automation, CHG-028 bounds the material `d991fdf3`/`9befc0f8` synchronization, and CHG-029 bounds sealed source `5ed0c754` to its exact 19 document-control paths. The CHG-029 planner is manual and emits no script; CLI execution leaves Git status byte-identical, and independent adversarial review approves the catalog/history/safety contract. |
 | `EV-AUDIO-001` | `MA-AUDIO-001` | Compose, render, route, and deterministically verify every newly authored area cue | `0da07e24`, `27c2c95d`, and current integration; 42/42 scores and OGGs have unique hashes, loop/import metadata, measured codec/loudness/peak/seam evidence, routing probes, license entries, and exact build checks. Human listening, mono, voice mix, and M11 evidence remain open. |
 | `EV-PLAY-003` | `MA-PLAY-001` | Visible, voiced Lagoon→Reef route and Pause fallback | `986010c0`; focused/re-entry/sibling probes |
 | `EV-PLAY-004` | `MA-PLAY-001` | Exercise the default Hybrid Lagoon portal through the actual explicit interaction route | `e6e56f8b`; proves proximity alone does not enter, selects enabled `reef:lagoon`, activates it through the touch-interactable path, and keeps Classic/no-touch proximity behavior green |
@@ -1195,7 +1201,7 @@ source, fallback, rollback target, or claim that reachable 3D debt is retired.
 | `EV-VOICE-005` | `MA-ACCESS-001` | Brawl prompts bind to one Huluu cue | `e8485d54` |
 | `EV-ASSET-003` | `DL-ASSET-04` | Castle delivery provenance is newline-stable | `df5b4cf7` |
 | `EV-CASTLE-001` | `DL-VIS-10`, `DL-SAVE-01`, `DL-INT-01` | Apply the child's saved Castle logo to every matching purple shell banner without stealing room input | `9e75e8e3` plus current integration; two Craft Room and two Stuffie Playroom replacements, Craft badge, saved color/symbol, no overlay in unregistered rooms, and focused interaction coverage |
-| `EV-AUTH-001` | `MA-DOC-001`, `MA-DOC-002` | Reconcile current authority to true 2D while preserving the then-incomplete-ledger state | `9289dd81`; operational/design authorities updated. At that historical checkpoint, exhaustive classification remained open; current working-tree candidate evidence is `EV-DOC-001`. |
+| `EV-AUTH-001` | `MA-DOC-001`, `MA-DOC-002` | Reconcile current authority to true 2D while preserving the then-incomplete-ledger state | `9289dd81`; operational/design authorities updated. At that historical checkpoint, exhaustive classification remained open; later sealed-source local evidence is `EV-DOC-001`. |
 | `EV-HYGIENE-001` | `MA-DOC-004`, `MA-VIS-006` | Keep local captures/profiles/review builds out of production Git status | `96317f8b`; `/tmp/*` ignored while existing tracked fixtures remain tracked; ignored evidence never gains PASS authority |
 
 These rows are bounded supporting evidence. None is inflated into a current-HEAD
@@ -1582,17 +1588,20 @@ mechanics, or Ballerina playback premise. The remaining gate must:
 - reject Godot 4.4 as a release baseline;
 - verify unique IDs and resolvable `DL-*`/`MA-*` references.
 
-The 2026-08-13 working candidate now implements that remaining repository-side
-gate without claiming closure: `design/05_DOC_LEDGER.md` classifies the exact
-316-path Git-declared Markdown inventory with 316 unique rows; section 5 links
-all 36 material records in
+Sealed source `5ed0c75460c9afd5ab574ff2c4a907c1075964f0` now implements
+that remaining repository-side gate without claiming closure:
+`design/05_DOC_LEDGER.md` classifies the exact 316-path Git-declared Markdown
+inventory with 316 unique rows; section 5 links all 36 material records in
 `audit/findings/ACTIVE_FINDINGS_2026-08-13.md`; and
-`tools/audit_document_authority.py`, focused unit/stress controls, and local/
-remote CI wiring enforce inventory, field, lifecycle/severity, rule, link,
-table, fence, and current-authority claims fail closed. Local V2 evidence moves
-`MA-DOC-002` and `MA-DOC-005` to `FIXED_PENDING_VERIFICATION`. They remain open
-until the slice is sealed at one commit and the exact committed head passes the
-remote gate; later terminal transitions retain the stable records and history.
+`tools/audit_document_authority.py`, 35 focused unit tests, six mutation stress
+controls, and blocking local/remote CI wiring enforce inventory, exact fields,
+lifecycle/severity, rule, link, table, fence, and current-authority claims fail
+closed. Exact official Godot 4.7.1 full local CI is green at that source in
+1,359.8 seconds with all 64 trusted probes. This moves `MA-DOC-002` and
+`MA-DOC-005` to `FIXED_PENDING_VERIFICATION`, but **no exact-head remote result
+is claimed for `5ed0c754`**. They remain open until the exact source head passes
+the remote gate; later terminal transitions retain the stable records and
+history.
 
 ---
 
@@ -1652,8 +1661,11 @@ exact commit. This is the operational checklist for `DL-QA-09` and
       `31686380560` with exactly 63 remote headings in 33m40s and Windows 42/42
       in 3m47s. The run is not warning-clean. All five capture/upload pairs
       completed at the workflow level and uploaded diagnostic artifacts; raw Sky Lagoon output internally fails
-      21 `OK` / 44 `FAIL` / `DONE`. This full matrix must repeat at the eventual
-      release candidate, so release satisfaction remains unchecked.
+      21 `OK` / 44 `FAIL` / `DONE`. Exact sealed document-authority source
+      `5ed0c754` then completes official-Godot full local CI in 1,359.8 seconds
+      with all 64 trusted probes green, but no exact-source-head remote result
+      is claimed. This full matrix must repeat at the eventual release
+      candidate, so release satisfaction remains unchecked.
 - [ ] Full runtime capture covers every activity at 1280×720 and a representative
       wide-phone aspect ratio.
 - [ ] Target phone and M11 meet P95 ≤33.3 ms, P99 ≤50 ms, no normal-path hitch
@@ -1673,13 +1685,14 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 
 ## 13. Current repair order
 
-1. Seal and verify the current document-control candidate before using it to
+1. Verify sealed document-control source `5ed0c754` remotely before using it to
    authorize the next repair: preserve the exact 316-path Git-declared Markdown
    inventory, 316 unique ledger rows, 36 linked complete canonical records,
-   fail-closed authority tool/tests, and local/remote CI wiring. `MA-DOC-002`
-   and `MA-DOC-005` are `FIXED_PENDING_VERIFICATION`, not closed, until one
-   exact committed head passes the remote gate. Authority reconciliation itself
-   remains complete at `9289dd81`.
+   fail-closed authority tool/tests, and local/remote CI wiring. Exact official-
+   Godot full local CI is already green in 1,359.8 seconds/all 64, but
+   `MA-DOC-002` and `MA-DOC-005` are `FIXED_PENDING_VERIFICATION`, not closed,
+   until that exact source head passes the remote gate. Authority reconciliation
+   itself remains complete at `9289dd81`.
 2. Repair the Sky Lagoon diagnostic harness so its assertions observe the
    intended Lagoon states rather than unrelated transitions; preserve the raw
    21 `OK` / 44 `FAIL` / `DONE` and 20-PNG result as diagnostic history.
@@ -1777,6 +1790,6 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-08-13 | focused control `VERIFYING` | Contiguous commits `d991fdf3fbdb229de8685c3e52917b280942adb5` and `9befc0f838f40eead2f42088a91206257fe217a8` materially synchronize executable rollback controls/tests and the current audit/design authority across an exact ten-path union without changing runtime. CHG-028 owns this bounded documentation migration as a narrow exception; routine future self-hash/count maintenance remains CHG-023. The current catalog is 28 IDs/75 owned references/four emitters/22 tests/24 manual groups. The synchronization preserves red run `31678156887`, repaired-head local evidence, and every then-open remote/APK/external gate rather than claiming new acceptance. |
 | 2026-08-13 | focused `VERIFYING` | GitHub run `31686380560` succeeds at exact authority head `9befc0f838f40eead2f42088a91206257fe217a8`. Ubuntu runs 09:24:08–09:57:48 UTC (33m40s) and completes static/import/full analyzer, exactly 63 remote trusted headings, trusted probes, boot, Dust/Opera advisories, and Opera manifest green. Windows runs 09:24:08–09:27:55 UTC (3m47s) and ends `MUSIC|check 42/42|picture_xmas`. All five capture/upload pairs completed at the workflow level and uploaded diagnostic artifacts, not capture gates or visual passes. Raw Sky Lagoon `LAGOONSHOT` output has 21 `OK`, 44 `FAIL`, and `DONE` (66 diagnostic lines), so that diagnostic internally fails. The run is not warning-clean: existing Vulkan-to-OpenGL fallback and ObjectDB/resource/texture-leak diagnostics remain. No matching APK, device, child, owner, exact-voice, listening, strict-2D satisfaction, or accepted-visual evidence is claimed. |
 | 2026-08-13 | focused `VERIFYING` | Exact integrated dev/audit head `18b6150c01e1587100dca97c85ebad03f369825a` passes Probe Suite run `31693492735`: exactly 63 remote trusted headings complete in the 29m41s probes job and music completes 42/42. Capture output remains diagnostic/nonaccepted; raw Sky Lagoon reports 21 `OK`, 44 `FAIL`, and `DONE`, with 20 PNGs. Android dev run `31695675866` succeeds at the same exact head and publishes a 596,041,412-byte APK with SHA-256 `fb4979473441d416f7b07914b1396f5f883935d4c08bf077baed3dfb91b78941`. Device, child, owner, exact-voice, human-listening, strict-2D, accepted-visual, and residual P2 route-card gates remain open. |
-| 2026-08-13 | focused document control `VERIFYING` | The working candidate expands `design/05_DOC_LEDGER.md` to the exact 316-path Git-declared Markdown inventory with 316 unique rows, links 36 complete stable records from section 5, and adds a fail-closed document-authority tool, focused tests, mutation stress controls, and CI wiring. Local V2 checks move `MA-DOC-002` and `MA-DOC-005` to `FIXED_PENDING_VERIFICATION`; no closure commit or exact committed-head remote result is invented. The stable records remain after later terminal transitions so history is preserved. |
+| 2026-08-13 | focused document control `VERIFYING` | Sealed source `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, exact parent `18b6150c01e1587100dca97c85ebad03f369825a`, expands `design/05_DOC_LEDGER.md` to the exact 316-path Git-declared Markdown inventory with 316 unique rows, links 36 complete stable records from section 5, and adds a fail-closed document-authority tool, 35 focused tests, six mutation stress controls, and blocking local/remote CI wiring. It changes exactly 19 paths with 2,645 insertions/232 deletions and no runtime, save, protected-art, audio, asset, generated-art, or gameplay behavior. Exact official Godot 4.7.1 full local CI is green in 1,359.8 seconds with all 64 trusted probes. `.github/workflows/probes.yml` is a high-risk workflow scope; its change is limited to three read-only Python commands under existing `contents: read` and adds no action, package, credential, secret, network, publication, or write permission. CHG-029 owns this manual, non-emitting documentation migration; the catalog is now 29 IDs/76 owned references/four emitters/23 tests/25 manual groups. `MA-DOC-002` and `MA-DOC-005` remain `FIXED_PENDING_VERIFICATION`, and the audit remains `IN_PROGRESS` / `UNSATISFIED`, because no exact-head remote result is claimed for `5ed0c754`. Stable records remain after later terminal transitions so history is preserved. |
 
 No later state is added without its required evidence.

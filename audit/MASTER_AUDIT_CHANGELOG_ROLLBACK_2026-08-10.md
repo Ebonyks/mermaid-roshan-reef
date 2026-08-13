@@ -1,7 +1,7 @@
 # Mermaid Roshan master-audit change and rollback ledger
 
 - **Ledger ID:** `MA-CHANGELOG-2026-08-10`
-- **Change-ID namespace:** `CHG-001` through `CHG-028`; IDs are permanent and
+- **Change-ID namespace:** `CHG-001` through `CHG-029`; IDs are permanent and
   are never reassigned or renumbered
 - **Audit lineage:** `codex/master-audit-20260809`
 - **Dedicated current audit branch:** `codex/audit-reconcile-20260812`
@@ -20,7 +20,12 @@
   `d991fdf3fbdb229de8685c3e52917b280942adb5`, with exact parent
   `ff068db002202839f920a6f9fb78c942788a3034`, followed by
   `9befc0f838f40eead2f42088a91206257fe217a8`
-- **Current exact-head remote verification:** GitHub Actions run `31686380560`
+- **Fail-closed document-authority snapshot:**
+  `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, with exact parent
+  `18b6150c01e1587100dca97c85ebad03f369825a`; exact official Godot 4.7.1
+  local `scripts/ci.sh` is green in 1,359.8 seconds with all 64 trusted probes;
+  no exact-head remote result is claimed for this source
+- **Historical authority-head remote verification:** GitHub Actions run `31686380560`
   succeeds at exact `9befc0f838f40eead2f42088a91206257fe217a8`;
   machine-workflow success is not warning-clean or external/visual acceptance,
   and Sky Lagoon's uploaded diagnostic artifact internally fails
@@ -42,8 +47,9 @@
   engine, [master-audit](MASTER_AUDIT_2026-08-09.md), and
   [comprehensive-design-language](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md)
 - **Program state:** `IN_PROGRESS / UNSATISFIED`
-- **Catalog inventory:** 28 permanent change IDs, 75 uniquely owned source-
-  commit references, four guarded-script emitters, and 22 planner unit tests
+- **Catalog inventory:** 29 permanent change IDs, 76 uniquely owned source-
+  commit references, four guarded-script emitters, 25 manual/refusal groups,
+  and 23 planner unit tests
 
 This is the durable answer to the fact that a long audit can produce both
 improvements and regressions. It records what changed, why the change may be
@@ -66,6 +72,7 @@ opera_distribution_snapshot: 09e5e35665fd8d1bd782693e10fc0198f756d2c8
 opera_distribution_probe_fix_snapshot: ff068db002202839f920a6f9fb78c942788a3034
 audit_evidence_rollback_sync_snapshot: d991fdf3fbdb229de8685c3e52917b280942adb5
 audit_evidence_authority_sync_snapshot: 9befc0f838f40eead2f42088a91206257fe217a8
+document_authority_snapshot: 5ed0c75460c9afd5ab574ff2c4a907c1075964f0
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -95,6 +102,7 @@ changes:
   - {id: CHG-026, name: opera-boss-retirement-save-tombstones-and-canvas-lifecycle, rollback_mode: owner_blocked_mixed}
   - {id: CHG-027, name: castle-room-opera-career-distribution-and-direct-return, rollback_mode: owner_blocked_mixed}
   - {id: CHG-028, name: audit-evidence-and-rollback-control-synchronization, rollback_mode: documentation_migration}
+  - {id: CHG-029, name: exhaustive-document-authority-and-canonical-finding-gate, rollback_mode: documentation_migration}
 ```
 
 ## 2. Safe rollback protocol
@@ -142,6 +150,10 @@ rollback-control commit `d991fdf3fbdb229de8685c3e52917b280942adb5`
 and authority-document follow-up `9befc0f838f40eead2f42088a91206257fe217a8`.
 It is a manual documentation migration, not a raw two-commit revert or an
 emitter.
+CHG-029 starts at exact sealed document-authority source
+`5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, whose exact parent is
+`18b6150c01e1587100dca97c85ebad03f369825a`. It is a manual documentation
+migration over its exact 19-path boundary, not an emitter.
 The planner output is the authority if a later append-only maintenance revision
 changes this mapping.
 
@@ -180,7 +192,7 @@ python -B tools/plan_audit_rollback.py CHG-021 --emit-script
 ```
 
 Only CHG-020 and CHG-021, plus all-or-nothing CHG-022 and CHG-024, can emit a
-script: four emitters across 28 stable IDs. The other 24 groups refuse
+script: four emitters across 29 stable IDs. The other 25 groups refuse
 automation even when their human ledger mode says
 `guarded_single`: shared-path, product-policy, or not-yet-committed context
 still requires a reviewed manual inverse. Emitted scripts create a dedicated
@@ -909,9 +921,11 @@ exclusive and must never be applied on the same rollback branch.
   synchronizations, self-hash updates, and count-only updates normally remain
   CHG-023 maintenance and do not create new product change IDs merely to
   record their own otherwise self-referential hashes. CHG-028 is the narrow
-  exception: its first source materially changed executable planner/tests and
-  its contiguous follow-up synchronized authority state across the resulting
-  exact ten-path union. Routine future bookkeeping remains CHG-023.
+  material exception for its executable planner/test change and contiguous
+  ten-path authority synchronization. CHG-029 separately owns the later sealed
+  fail-closed document-authority source; the catalog/count update that records
+  CHG-029 remains CHG-023 maintenance rather than a second CHG-029 source.
+  Routine future bookkeeping remains CHG-023.
 - **Paths:** this ledger, master audit, design index/architecture/open-work/
   ledger/design-language records, `.gitignore`, the read-only planner, and its
   tests.
@@ -1044,7 +1058,7 @@ exclusive and must never be applied on the same rollback branch.
   trail or raw-revert the whole commit over later evidence. Correct a disputed
   rating or branch fact with a superseding record, or construct a reviewed
   inverse limited to the exact documentation/control paths while preserving
-  still-valid CHG-015/024 evidence. Rerun the full current planner suite (22 tests), document
+  still-valid CHG-015/024 evidence. Rerun the full current planner suite (23 tests), document
   validation, probe parity, GAME2D regression, and `git diff --check` before
   recording any inverse.
 
@@ -1350,10 +1364,11 @@ exclusive and must never be applied on the same rollback branch.
   CHG-028 is a narrow exception because `d991fdf3` materially changed the
   executable planner/tests and `9befc0f8` synchronized the resulting authority
   state across ten governed paths. Recording CHG-028 and its future routine
-  count/hash upkeep remains CHG-023 maintenance; it must not recursively create
-  CHG-029. The current uncommitted evidence-truthfulness synchronization after
-  `9befc0f8` is therefore CHG-023 maintenance, not a third CHG-028 source commit,
-  and does not alter the historical two-commit/ten-path boundary above.
+  count/hash upkeep remains CHG-023 maintenance. The later `18b6150c`
+  evidence-truthfulness synchronization is therefore CHG-023 maintenance, not
+  a third CHG-028 source commit, and does not alter the historical
+  two-commit/ten-path boundary above. CHG-029 is separately bounded to the
+  still-later sealed fail-closed document-authority source.
 - **Outcome / positive effect:** the human-facing audit, machine catalog, and
   refusal policy now tell the same story. Reviewers can distinguish a product
   defect from a runner-dependent probe sample, see which evidence is local or
@@ -1385,10 +1400,10 @@ exclusive and must never be applied on the same rollback branch.
   or accepted-visual evidence follows from this run; all remain open.
 - **Dependencies and evidence:** CHG-005, CHG-011, CHG-015, CHG-023, CHG-025,
   and CHG-027. Git parent checks, per-commit `diff-tree` checks, and the combined
-  path union establish the exact boundary. Current maintenance adds one
-  dedicated CHG-028 control, bringing the suite to 22 planner unit tests; the
-  planner remains read-only, four groups can emit guarded scripts, and all 24
-  manual groups refuse automation. Probe parity, exact GAME2D regression-gate
+  path union establish the exact boundary. At the CHG-028 checkpoint, its
+  dedicated control brought the suite to 22 planner unit tests; the planner
+  remained read-only, four groups could emit guarded scripts, and all 24
+  then-manual groups refused automation. Probe parity, exact GAME2D regression-gate
   syntax, Python compilation, catalog/ledger source parity, and `git diff
   --check` remain required. The recorded 1,379.3-second/64-probe pass is
   inherited evidence from the repaired head, not a result produced by these
@@ -1405,6 +1420,77 @@ exclusive and must never be applied on the same rollback branch.
   append-only record. Only an owner-approved, reviewed ten-path documentation
   inverse that preserves every later truthful authority and control update may
   be considered, followed by all listed gates.
+
+### CHG-029 — Exhaustive document authority and canonical-finding gate
+
+- **Source and exact boundary:** sealed source
+  `5ed0c75460c9afd5ab574ff2c4a907c1075964f0` has exact parent
+  `18b6150c01e1587100dca97c85ebad03f369825a` and changes exactly 19 paths with
+  2,645 insertions and 232 deletions. The later planner/catalog/count upkeep
+  that records this stable ID is CHG-023 maintenance, not a second CHG-029
+  source.
+- **Paths:** `.github/workflows/probes.yml`; `.gitignore`; `AUDIT_3_0.md`;
+  `CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md`; `MINIGAME_ENGINES.md`;
+  `OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md`;
+  `OPERA_WIDGET_INPUT_AUDIT_2026-08-02.md`;
+  `audit/MASTER_AUDIT_2026-08-09.md`;
+  `audit/castle_sprite3d/CASTLE_LIGHTING_CONTINUITY_AUDIT_2026-07-29.md`;
+  `audit/findings/ACTIVE_FINDINGS_2026-08-13.md`; `design/00_MASTER_INDEX.md`;
+  `design/01_GAME_DESIGN.md`; `design/03_TECHNICAL_ARCHITECTURE.md`;
+  `design/04_OPEN_WORK.md`; `design/05_DOC_LEDGER.md`;
+  `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`; `scripts/ci.sh`;
+  `tools/audit_document_authority.py`; and
+  `tools/tests/test_audit_document_authority.py`.
+- **What changed, in plain English:** the source replaces an incomplete
+  document inventory with one scoped authority-ledger row for every one of the
+  316 Git-declared Markdown paths and adds a stable, section-5-linked canonical
+  register for all 36 material P1/P2 records. A fail-closed validator and 35
+  focused unit tests reject inventory drift, missing or duplicate records,
+  malformed/escaped table rows, wrong finding anchors, incomplete exact field
+  sets, illegal lifecycle transitions, and unscoped current-vs-historical
+  authority claims; six mutation stress controls are green. Local CI and the
+  remote Probe Suite workflow invoke the focused tests, stress suite, and real
+  repository audit in that order. The same source repairs malformed historical
+  tables, scopes superseded spatial/3D passages, and synchronizes current
+  authority to the `18b6150c` runtime/evidence facts. It changes no runtime
+  script, scene, save key, protected original, asset, audio, generated-art
+  payload, or gameplay behavior.
+- **Outcome / positive effect:** document drift now fails visibly instead of
+  silently omitting a tracked file or material finding. Reviewers can trace
+  every current claim to a declared rule and every active P1/P2 item to a
+  complete stable record without treating a historical passage as current
+  authority. The source records 316/316 inventory/ledger parity and 36/36
+  active-record parity while retaining terminal records for durable history.
+- **Possible negative effect / unknown:** every future tracked Markdown path or
+  material finding now requires synchronized metadata, increasing maintenance
+  cost and the chance that a strict heuristic reports a false positive. The
+  source changes `.github/workflows/probes.yml`, which is a high-risk workflow
+  scope even though the exact diff only adds three read-only Python commands
+  under the existing `contents: read` permission and adds no action, package,
+  credential, secret, network, publication, or write permission. The extra
+  static work increases CI duration. Repeated authority facts can still drift,
+  and green structural checks do not prove gameplay or external acceptance.
+- **Dependencies and evidence:** CHG-005, CHG-008, CHG-011, CHG-023, CHG-025,
+  and CHG-028. Exact official Godot 4.7.1 local `scripts/ci.sh` at the sealed
+  source is green after **1,359.8 seconds with all 64 trusted local probes**.
+  Focused evidence is 35/35 document-authority tests, six/six mutation stress
+  controls, 316/316 inventory/ledger parity, 36/36 active-record parity,
+  Python compilation, probe-parity stress/default, GAME2D
+  stress/default/regression, and `git diff --check`. **No exact-head remote
+  result is claimed for `5ed0c754`**. `MA-DOC-002` and `MA-DOC-005` therefore
+  remain `FIXED_PENDING_VERIFICATION`, and the master audit remains
+  `IN_PROGRESS / UNSATISFIED`. No runtime, device, child, owner, visual, voice,
+  listening, strict-2D, APK, or release acceptance follows from the local pass.
+- **Rollback:** `documentation_migration`; the planner is
+  `MANUAL_RECONSTRUCTION_REQUIRED` and refuses `--emit-script`. Do not raw-
+  revert or selectively restore the source: a partial inverse can leave CI
+  invoking deleted tooling, hide the canonical register while master links
+  still target it, remove required ledger rows, or restore unscoped legacy-3D
+  and stale evidence claims. Correct a disputed rule or fact with one reviewed
+  superseding migration. Any owner-approved complete inverse must start at
+  exact `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, preserve every later truthful
+  record, cover the exact 19-path boundary, and pass every focused gate plus
+  exact official-Godot full CI.
 
 ## 5. Per-group gate matrix
 
@@ -1425,6 +1511,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-026 | exact commit-parent/path parity, parser/lint, Opera/load/recovery/living-world/audio/UI, GAME2D default+regression+stress, fresh Mobile captures, and exact `scripts/ci.sh` | remote exact-head, M11 touch/performance, child comprehension, owner art/authority, and MA-OPERA-012 Castle-room distribution |
 | CHG-027 | exact two-commit/parent/15-path-union parity, parser/lint, bounded route-readiness, room-route/Opera/Opera-2D/load/living-world/UI, GAME2D default+regression-gate+stress, 22 fresh Mobile diagnostics, exact `scripts/ci.sh`, and successor authority-head remote run `31686380560` | repeat exact-head remote at the eventual integrated release candidate; bounded P2 card-overlap repair, M11 touch/performance, child comprehension, owner art/authority, and authoritative visual acceptance |
 | CHG-028 | exact two-commit/parent/10-path-union parity, 22 planner tests, Python compilation, ledger/catalog source parity, probe parity, GAME2D regression gate, diff check, and exact-head run `31686380560` with warning diagnostics and internally failed Sky Lagoon diagnostic retained | matching APK and external evidence; supersede facts as CHG-023 maintenance after later product/evidence changes and never promote documentation synchronization into acceptance |
+| CHG-029 | exact source-parent/19-path parity, 23 planner tests, 35 document-authority tests, six mutation stress controls, 316/316 inventory/ledger and 36/36 active-record parity, Python compilation, probe parity, GAME2D stress/default/regression, diff check, and exact local `scripts/ci.sh` in 1,359.8 seconds/all 64 | exact-source-head remote Probe Suite; all device, child, owner, voice, listening, strict-2D, visual, APK, and release acceptance |
 
 ## 6. Required rollback record
 

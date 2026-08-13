@@ -362,6 +362,10 @@ class DocumentAuthorityTests(unittest.TestCase):
 			"The real-3D Mermaid Roshan is current.",
 			"Keep existing GLBs in the final product.",
 			"Meshy work is on hold.",
+			"The documentation-control working slice is still uncommitted.",
+			"ff068db is the latest full-local checkpoint.",
+			"V3 latest full-local, exact-head remote, and exact-head Android dev build green.",
+			"There are 28 stable change groups.",
 		)
 		with tempfile.TemporaryDirectory() as directory:
 			root = Path(directory)
@@ -373,7 +377,28 @@ class DocumentAuthorityTests(unittest.TestCase):
 			)
 			(root / "binding.md").write_text("\n".join(variants), encoding="utf-8")
 			issues = authority._authority_claim_issues(root)
-		self.assertEqual(3, sum(issue.check_id == "DOC060" for issue in issues))
+		self.assertEqual(7, sum(issue.check_id == "DOC060" for issue in issues))
+
+	def test_wrapped_preseal_and_latest_checkpoint_claims_are_detected(self) -> None:
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			(root / "design").mkdir()
+			(root / "design/05_DOC_LEDGER.md").write_text(
+				"| Doc | State | Note |\n|---|---|---|\n"
+				"| `binding.md` | 🔵 | `SUPPORTING_CURRENT`; current authority |\n",
+				encoding="utf-8",
+			)
+			(root / "binding.md").write_text(
+				"The current documentation-\n"
+				"control working slice inventories 316 paths. Its CI wiring is still uncommitted.\n\n"
+				"Probe head `ff068db002202839f920a6f9fb78c942788a3034` changes only\n"
+				"one probe and is the latest full-local checkpoint.\n",
+				encoding="utf-8",
+			)
+			issues = authority._authority_claim_issues(root)
+		labels = [issue.detail for issue in issues if issue.check_id == "DOC060"]
+		self.assertTrue(any("unsealed document-authority controls" in label for label in labels))
+		self.assertTrue(any("predecessor reported as latest full-local" in label for label in labels))
 
 	def test_stress_contract(self) -> None:
 		self.assertEqual(0, authority._stress())

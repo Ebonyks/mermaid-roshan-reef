@@ -104,6 +104,24 @@ FORBIDDEN_CURRENT_PATTERNS = (
 	("paused Meshy migration", re.compile(
 		r"\bmeshy\s+(?:migration|work)\b.{0,30}\b(?:paused|on\s+hold)\b",
 	)),
+	("unsealed document-authority controls", re.compile(
+		r"(?:\bdocumentation(?:\s*-\s*|\s+)control\b.{0,160}?\b"
+		r"(?:working(?:\s*-\s*|\s+)slice|still\s+uncommitted)\b|"
+		r"\bexhaustive\s+working(?:\s*-\s*|\s+)slice\s+authority\b)",
+	)),
+	("predecessor reported as latest full-local", re.compile(
+		r"(?:\bff068db[0-9a-f]*\b`?\s+"
+		r"(?:changes\s+only\s+(?:`?scripts/probe_opera\.gd`?|one\s+probe)\s+and\s+)?"
+		r"is\s+(?:the\s+)?latest\s+"
+		r"(?:completed\s+)?full[- ]local\s+checkpoint\b|"
+		r"\blatest\s+(?:completed\s+)?full[- ]local\s+checkpoint\b.{0,240}?"
+		r"\b(?:is|at)\s+`?ff068db[0-9a-f]*\b)",
+	)),
+	("cross-head release evidence presented as one candidate", re.compile(
+		r"\bv3\s+latest\s+full[- ]local,\s*exact[- ]head\s+remote,\s*and\s+"
+		r"exact[- ]head\s+android\s+dev\s+build\s+green\b",
+	)),
+	("stale stable-change-group count", re.compile(r"\b28\s+stable\s+change\s+groups\b")),
 )
 HISTORICAL_CONTEXT = (
 	"superseded",

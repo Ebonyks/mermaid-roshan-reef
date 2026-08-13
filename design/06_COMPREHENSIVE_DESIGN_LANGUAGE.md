@@ -2,9 +2,9 @@
 
 - **Document ID:** CDL-2026-08-09
 - **Status:** `PROPOSED_CANONICAL`; the exhaustive ledger and complete finding
-  records exist in the uncommitted documentation-control slice, but direct owner
-  decisions remain controlling until its fail-closed exact committed remote gate
-  passes
+  records are sealed at `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`
+  and locally green, but direct owner decisions remain controlling until that
+  exact source head passes its fail-closed remote gate
 - **Decision baseline:** owner direction through 2026-08-09
 - **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
@@ -16,11 +16,16 @@
   `5f58ef0a9db7aa9593f85131e1b855e51b84aea8`)
 - **Current Opera product/runtime commit:**
   `09e5e35665fd8d1bd782693e10fc0198f756d2c8`
-- **Current probe/evidence head and latest completed full-local checkpoint:**
+- **Current probe/evidence head:**
   `ff068db002202839f920a6f9fb78c942788a3034`; only
   `scripts/probe_opera.gd` differs from the documented runtime
 - **Current integrated dev/audit authority head:**
   `18b6150c01e1587100dca97c85ebad03f369825a`
+- **Current sealed document-authority source and latest completed full-local
+  checkpoint:** `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`, exact parent
+  `18b6150c01e1587100dca97c85ebad03f369825a`; exact official Godot 4.7.1
+  `scripts/ci.sh` is green in 1,359.8 seconds/all 64. No exact-source-head
+  remote result is claimed
 - **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
   succeeds in 34m19s for that older SHA
@@ -28,7 +33,7 @@
   `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`; GitHub run `31661887863`
   succeeds in both required jobs
 - **Current Opera repair baseline:** runtime `09e5e356` passes full local in
-  1463.4 seconds/all 64; probe-only `ff068db` passes the latest full local in
+  1463.4 seconds/all 64; probe-only `ff068db` passes its gameplay-bearing full local in
   1379.3 seconds/all 64 under exact official Godot
   `4.7.1.stable.official.a13da4feb`. Run `31678156887` at pre-fix head
   `3fc151c8` is red only for fixed-four-frame reveal sampling. Integrated head
@@ -54,14 +59,15 @@ closure evidence live in `audit/MASTER_AUDIT_2026-08-09.md`.
 
 Commit `9289dd81` reconciled `AGENTS.md`, `CLAUDE.md`, `design/00` through
 `design/05`, and the named Roshan authority surface to the owner's final 2D
-decision. The current documentation-control working slice gives all 316 tracked
-Markdown paths exactly one authority-ledger row and gives all 36 material active
-findings a full record in
-`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Its fail-closed validator and CI
-wiring remain uncommitted, so `MA-DOC-002` and `MA-DOC-005` are no farther than
-`FIXED_PENDING_VERIFICATION`; direct owner decisions and binding operational/
-security rules remain higher authority. Where an older art or design document
-conflicts with a rule here, the dated supersession table in section 15 controls.
+decision. Sealed source `5ed0c754` gives all 316 tracked Markdown paths exactly
+one authority-ledger row and gives all 36 material active findings a full record
+in `audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Its fail-closed validator,
+focused tests, six mutation controls, and exact official-Godot full local CI are
+green; no exact-source-head remote result is claimed, so `MA-DOC-002` and
+`MA-DOC-005` remain `FIXED_PENDING_VERIFICATION`. Direct owner decisions and
+binding operational/security rules remain higher authority. Where an older art
+or design document conflicts with a rule here, the dated supersession table in
+section 15 controls.
 
 At historical merge `f3b0de07`, this remained an acceptance target, not a
 compliance claim. Exact Godot 4.7.1 local `scripts/ci.sh` exited 0 after 1437.1
@@ -142,7 +148,7 @@ The current Opera shipping snapshot is 13 careers, 53 phases, 27 distinct
   save-migration, passive, reward, suspend/leave, teardown, and re-entry
   evidence is green;
   `MA-OPERA-010`/`011`/`012` are `FIXED_PENDING_VERIFICATION`, not closed.
-Ballerina and Boxer pass runtime `09e5e356` and latest full-local probe head
+Ballerina and Boxer pass runtime `09e5e356` and gameplay-bearing probe head
 `ff068db`; their earlier
 state also passes exact-head remote run `31649113587` at `af4189a9`. Exact-head
 run `31661887863` verifies the predecessor integrated head; run `31678156887`
@@ -1040,12 +1046,13 @@ record. It may be called a finding only after a stable linked record contains
 every field below; unknown values are written explicitly as missing or blocked,
 never omitted.
 
-The current documentation-control working slice applies this schema to all 36
+Sealed document-authority source `5ed0c754` applies this schema to all 36
 material active findings in
 [`ACTIVE_FINDINGS_2026-08-13.md`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md).
 The record set and exhaustive 316-path ledger remain
-`FIXED_PENDING_VERIFICATION` until their fail-closed validator/CI wiring passes
-on an exact committed remote head.
+`FIXED_PENDING_VERIFICATION`: their fail-closed local gate and exact official-
+Godot full local CI are green, but the exact source head has no claimed remote
+result.
 
 | Field | Requirement |
 |---|---|

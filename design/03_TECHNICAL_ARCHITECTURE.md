@@ -7,6 +7,12 @@ JOLT_PHYSICS_AUDIT_2026-07-18, LIGHTING_SHADER_AUDIT_2026-07-18,
 FABLE_INTERACTION_HANDOFF_2026-07-25, WORKFLOW_BRANCHING_2026-07-18,
 SECURITY, BACKUP, VISUAL_AUDIT_TOOL and AUDIT_UPGRADE._
 
+_Document authority is sealed at `5ed0c75460c9afd5ab574ff2c4a907c1075964f0`
+(exact parent `18b6150c01e1587100dca97c85ebad03f369825a`) and passes exact
+official-Godot full local CI in 1,359.8 seconds/all 64. No exact-source-head
+remote result is claimed; `MA-DOC-002` and `MA-DOC-005` remain
+`FIXED_PENDING_VERIFICATION`._
+
 Engine/editor/release validator: **exactly Godot 4.7.1-stable**. The
 `project.godot` feature tag `"4.7"` records the engine series and does not
 permit Godot 4.4 or a 4.7 development build. Renderer: **Mobile** on every
@@ -382,12 +388,14 @@ That focused/full-local rewrite keeps `MA-OPERA-010`/`011` and moves
 readiness evidence. Exact-head remote machine evidence and an exact-SHA dev APK
 are green at `18b6150c`; external acceptance remains separate.
 
-The current documentation-control working slice adds a fail-closed authority
-validator to local/remote CI, inventories all 316 tracked Markdown paths exactly
-once, and checks the 36 full material-active records in
-`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. That slice is still uncommitted;
-`MA-DOC-002` and `MA-DOC-005` therefore remain no farther than
-`FIXED_PENDING_VERIFICATION` until exact committed remote gates pass.
+Sealed source `5ed0c754` adds a fail-closed authority validator to local/remote
+CI, inventories all 316 tracked Markdown paths exactly once, and checks the 36
+full material-active records in
+`audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Focused tests, six mutation
+controls, and exact official-Godot full local CI are green in 1,359.8
+seconds/all 64. No exact-source-head remote result is claimed, so `MA-DOC-002`
+and `MA-DOC-005` remain `FIXED_PENDING_VERIFICATION` until that remote gate
+passes.
 
 When a session environment lacks the exact Godot binary, use CI
 (`.github/workflows/probes.yml`) rather than substituting a different engine
@@ -502,7 +510,7 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 | `MA-2D-002` | `IN_PROGRESS` | GAME2D: 509 model/export files, 157 tracked model sidecars, 352 active untracked model sidecars, 66 production and 74 probe 3D files, one 3D scene and one 3D configuration; exact regression and 14/14 stress controls are green, strict remains unsatisfied |
 | `MA-CODE-001` | `CONFIRMED_OPEN` | `main.gd` is 8,647 lines at current `09e5e356` against the extraction-only <2,500 target |
 | `MA-CODE-002` | `CONFIRMED_OPEN` | String state, duplicated input, save frequency, material churn and remaining 3D glue are structural risks. The sealed Castle Kitchen caller also lacks a speculative recovery branch for a future invalid Chef config; current config is valid/probed, and any caller change requires renewed owner visual approval. Repair individually with surrounding tests |
-| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local. Runtime `09e5e356` runs all 64 locally in 1463.4 seconds; probe-readiness head `ff068db` preserves runtime and is the latest full-local checkpoint at 1379.3 seconds/all 64 under exact Godot `4.7.1.stable.official.a13da4feb`. Pre-fix run `31678156887` at `3fc151c8` remains red only for fixed-frame Opera readiness sampling; current integrated head `18b6150c` executes exactly 63 remote trusted headings successfully in Probe Suite run `31693492735` (29m41s probes job; music 42/42). Its five diagnostic capture/upload pairs are not visual passes, and raw Sky Lagoon internally fails 21 `OK` / 44 `FAIL` / `DONE` while producing 20 PNGs |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64/63 local/remote with only `probe_human_art_audit` intentionally local. Runtime `09e5e356` runs all 64 locally in 1463.4 seconds; gameplay-bearing probe-readiness head `ff068db` preserves runtime and passes in 1379.3 seconds/all 64. Sealed document-authority source `5ed0c754` is the latest full-local checkpoint at 1,359.8 seconds/all 64 under exact Godot `4.7.1.stable.official.a13da4feb`, but has no claimed exact-source-head remote result. Pre-fix run `31678156887` at `3fc151c8` remains red only for fixed-frame Opera readiness sampling; predecessor integrated head `18b6150c` executes exactly 63 remote trusted headings successfully in Probe Suite run `31693492735` (29m41s probes job; music 42/42). Its five diagnostic capture/upload pairs are not visual passes, and raw Sky Lagoon internally fails 21 `OK` / 44 `FAIL` / `DONE` while producing 20 PNGs |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 106 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-DOLLS-001` | `VERIFIED_FIXED` | Faron's catcher is one bounded Canvas activity with real one-finger input, passive/save/medal/replay and weakref teardown evidence |
 | `MA-SEEK-001` | `VERIFIED_FIXED` | Seek is a fourteen-node animated Canvas meadow; its former vinyl/preview presentation and four meadow GLBs are retired from that runtime role |

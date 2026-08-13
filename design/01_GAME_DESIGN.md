@@ -7,6 +7,14 @@ DUNGEON_DIFFICULTY_AUDIT, the eleven-document Opera chain, FABLE_INTERACTION
 _HANDOFF_2026-07-25, TOUCH_CENTRIC_REVERSIBLE_HANDOFF_2026-07-25, and the
 2026-08-09 Ballerina, Boxer, Opera-quality and music reconciliations._
 
+_Current document-authority synchronization is sealed at
+`5ed0c75460c9afd5ab574ff2c4a907c1075964f0` (exact parent
+`18b6150c01e1587100dca97c85ebad03f369825a`) and passes exact official-Godot
+full local CI in 1,359.8 seconds/all 64. No exact-source-head remote result is
+claimed; `MA-DOC-002` and `MA-DOC-005` remain
+`FIXED_PENDING_VERIFICATION`, and the master audit remains
+`IN_PROGRESS` / `UNSATISFIED`._
+
 ---
 
 ## 1. The player, and the five rules that come from her
@@ -441,12 +449,13 @@ The opening cinematic is produced under a separate, stricter regime — see
 The dated lifecycle in [04_OPEN_WORK.md](04_OPEN_WORK.md) and the master audit
 controls; an older work order is never implementation authority by itself.
 
-The current documentation-control working slice inventories all 316 tracked
-Markdown paths exactly once and records all 36 material active findings in
+Sealed source `5ed0c754` inventories all 316 tracked Markdown paths exactly
+once and records all 36 material active findings in
 [`ACTIVE_FINDINGS_2026-08-13.md`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md).
-Its fail-closed validator/CI wiring is not yet committed, so `MA-DOC-002` and
-`MA-DOC-005` remain no farther than `FIXED_PENDING_VERIFICATION` until exact
-committed remote gates pass.
+Its fail-closed validator, 35 focused tests, six mutation controls, and exact
+official-Godot full local CI are green in 1,359.8 seconds/all 64. No exact-
+source-head remote result is claimed, so `MA-DOC-002` and `MA-DOC-005` remain
+`FIXED_PENDING_VERIFICATION` until that remote gate passes.
 
 - **`CONFIRMED_OPEN`:** game-wide true-2D conversion, fresh-save no-cheat
   reachability proof, exact voice gaps, visual evidence and remaining layering

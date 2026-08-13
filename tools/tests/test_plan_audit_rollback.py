@@ -34,6 +34,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_OPERA_DISTRIBUTION_PARENT,
 			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_PARENT,
 			planner.AUDIT_OPERA_DISTRIBUTION_PROBE_FIX_COMMIT,
+			planner.AUDIT_DOCUMENT_AUTHORITY_PARENT,
 		}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
@@ -48,11 +49,11 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		planner.validate_catalog()
 		self.assertEqual(
 			[group.change_id for group in planner.CATALOG],
-			[f"CHG-{number:03d}" for number in range(1, 29)],
+			[f"CHG-{number:03d}" for number in range(1, 30)],
 		)
 		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
-		self.assertEqual(len(owned_refs), 75)
-		self.assertEqual(len(set(owned_refs)), 75)
+		self.assertEqual(len(owned_refs), 76)
+		self.assertEqual(len(set(owned_refs)), 76)
 		self.assertEqual(
 			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
 			4,
@@ -257,7 +258,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 24)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 25)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -356,7 +357,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		)
 		self.assertEqual(len(group.paths), 15)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 24)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 25)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -406,12 +407,12 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			self.assertIn(marker, section)
 
 		for marker in (
-			"28 permanent change IDs",
-			"`CHG-001` through `CHG-028`",
-			"75 uniquely owned source-",
+			"29 permanent change IDs",
+			"`CHG-001` through `CHG-029`",
+			"76 uniquely owned source-",
 			"four guarded-script emitters",
-			"22 planner unit tests",
-			"The other 24 groups refuse",
+			"23 planner unit tests",
+			"The other 25 groups refuse",
 		):
 			self.assertIn(marker, ledger)
 
@@ -469,7 +470,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			("CHG-005", "CHG-011", "CHG-015", "CHG-023", "CHG-025", "CHG-027"),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 24)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 25)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -490,8 +491,8 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"five capture/upload pairs completed at the workflow level and uploaded diagnostic artifacts",
 			"not capture gates or visual passes",
 			"Sky Lagoon LAGOONSHOT output has 21 OK, 44 FAIL, and DONE (66 diagnostic lines)",
-			"current uncommitted post-9bef evidence-truthfulness synchronization is CHG-023 maintenance",
-			"not a third CHG-028 source commit or CHG-029",
+			"later 18b6150c evidence-truthfulness synchronization remains CHG-023 maintenance",
+			"CHG-029 is separately bounded to the later sealed fail-closed document-authority source",
 			"APK/device/child/owner/exact-voice/listening/strict-2D/accepted-visual gates remain open",
 			"no runtime, save, protected-asset, audio, workflow, or generated-art path",
 			"Do not raw-revert either source commit",
@@ -504,7 +505,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		ledger = (
 			root / "audit" / "MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
 		).read_text(encoding="utf-8")
-		section = ledger.split("### CHG-028", 1)[1].split("## 5.", 1)[0]
+		section = ledger.split("### CHG-028", 1)[1].split("### CHG-029", 1)[0]
 		for marker in (
 			"d991fdf3fbdb229de8685c3e52917b280942adb5",
 			"9befc0f838f40eead2f42088a91206257fe217a8",
@@ -524,9 +525,98 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"not capture gates or visual passes",
 			"Sky Lagoon `LAGOONSHOT` output has",
 			"21 `OK`, 44 `FAIL`, and `DONE` (66 diagnostic lines)",
-			"current uncommitted evidence-truthfulness synchronization after",
+			"later `18b6150c`",
 			"CHG-023 maintenance",
-			"does not alter the historical two-commit/ten-path boundary",
+			"two-commit/ten-path boundary above",
+		):
+			self.assertIn(marker, section)
+
+	def test_document_authority_record_is_exact_manual_and_bounded(self) -> None:
+		group = planner.select_group("CHG-029")
+		self.assertEqual(
+			planner.AUDIT_DOCUMENT_AUTHORITY_COMMIT,
+			"5ed0c75460c9afd5ab574ff2c4a907c1075964f0",
+		)
+		self.assertEqual(
+			planner.AUDIT_DOCUMENT_AUTHORITY_PARENT,
+			"18b6150c01e1587100dca97c85ebad03f369825a",
+		)
+		self.assertEqual(group.commits, (planner.AUDIT_DOCUMENT_AUTHORITY_COMMIT,))
+		self.assertEqual(group.baseline_commit, planner.AUDIT_DOCUMENT_AUTHORITY_PARENT)
+		self.assertEqual(group.rollback_start, planner.AUDIT_DOCUMENT_AUTHORITY_COMMIT)
+		self.assertEqual(
+			set(group.paths),
+			{
+				".github/workflows/probes.yml",
+				".gitignore",
+				"AUDIT_3_0.md",
+				"CODEX_OPERA_WIDGET_ART_HANDOFF_2026-08-02.md",
+				"MINIGAME_ENGINES.md",
+				"OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md",
+				"OPERA_WIDGET_INPUT_AUDIT_2026-08-02.md",
+				"audit/MASTER_AUDIT_2026-08-09.md",
+				"audit/castle_sprite3d/CASTLE_LIGHTING_CONTINUITY_AUDIT_2026-07-29.md",
+				"audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+				"design/00_MASTER_INDEX.md",
+				"design/01_GAME_DESIGN.md",
+				"design/03_TECHNICAL_ARCHITECTURE.md",
+				"design/04_OPEN_WORK.md",
+				"design/05_DOC_LEDGER.md",
+				"design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+				"scripts/ci.sh",
+				"tools/audit_document_authority.py",
+				"tools/tests/test_audit_document_authority.py",
+			},
+		)
+		self.assertEqual(len(group.paths), 19)
+		self.assertEqual(
+			group.dependencies,
+			("CHG-005", "CHG-008", "CHG-011", "CHG-023", "CHG-025", "CHG-028"),
+		)
+		self.assertEqual(group.safety, planner.MANUAL)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 25)
+		for gate in (
+			"python -B -m unittest tools.tests.test_audit_document_authority -v",
+			"python -B tools/audit_document_authority.py --stress",
+			"python -B tools/audit_document_authority.py",
+			"GODOT=\"$GODOT\" scripts/ci.sh",
+		):
+			self.assertIn(gate, group.gates)
+
+		plan = planner.render_plan(group)
+		for marker in (
+			"exact 19-path boundary with 2,645 insertions and 232 deletions",
+			".github/workflows/probes.yml, a high-risk workflow path",
+			"existing contents: read permission",
+			"1,359.8 seconds with all 64 trusted local probes",
+			"No exact-head remote result is claimed for 5ed0c754",
+			"MA-DOC-002 and MA-DOC-005 remain FIXED_PENDING_VERIFICATION",
+			"IN_PROGRESS / UNSATISFIED",
+			"inventory/ledger 316/316 and active-record parity 36/36",
+			"exact 19-path boundary",
+			"no rollback script may be emitted",
+		):
+			self.assertIn(marker, plan)
+		with self.assertRaises(planner.UnsafePlanError):
+			planner.render_script(group)
+
+		ledger = (
+			Path(__file__).resolve().parents[2]
+			/ "audit"
+			/ "MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+		).read_text(encoding="utf-8")
+		section = ledger.split("### CHG-029", 1)[1].split("## 5.", 1)[0]
+		for marker in (
+			"5ed0c75460c9afd5ab574ff2c4a907c1075964f0",
+			"18b6150c01e1587100dca97c85ebad03f369825a",
+			"exactly 19 paths",
+			"2,645 insertions and 232 deletions",
+			"high-risk workflow",
+			"1,359.8 seconds with all 64 trusted local probes",
+			"No exact-head remote",
+			"FIXED_PENDING_VERIFICATION",
+			"IN_PROGRESS / UNSATISFIED",
+			"MANUAL_RECONSTRUCTION_REQUIRED",
 		):
 			self.assertIn(marker, section)
 
