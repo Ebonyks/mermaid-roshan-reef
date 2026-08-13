@@ -28,6 +28,8 @@ AUDIT_RECONCILIATION_PARENT = "ea6185fdb1a687a20a6d118bdc368400e2c30f60"
 AUDIT_RECONCILIATION_AUDIT_PARENT = "5f58ef0a9db7aa9593f85131e1b855e51b84aea8"
 AUDIT_OPERA_RETIREMENT_COMMIT = "e2c25878f6b9c64526d0686c426a9f29c5f1b3da"
 AUDIT_OPERA_RETIREMENT_PARENT = "41087f6634a416540b23a984d1f445b0bdab5f2f"
+AUDIT_OPERA_DISTRIBUTION_COMMIT = "09e5e35665fd8d1bd782693e10fc0198f756d2c8"
+AUDIT_OPERA_DISTRIBUTION_PARENT = "f0b4f5e03fabbdcb3792f492f6cbd926afff0e2e"
 GODOT_REQUIREMENT = "exact Godot 4.7.1-stable (not 4.4 or a development build)"
 PROTECTED_PATHS = (
 	"assets/book/",
@@ -853,7 +855,7 @@ CATALOG: tuple[ChangeGroup, ...] = (
 			"python -B -m unittest tools.tests.test_plan_audit_rollback -v",
 			"python -B tools/audit_probe_parity.py",
 			"python -B tools/audit_game_2d.py",
-			"python -B tools/audit_game_2d.py --regression",
+			"python -B tools/audit_game_2d.py --regression-gate",
 			"python -B tools/audit_game_2d.py --stress",
 			"\"$GODOT\" --headless -s scripts/probe_opera.gd",
 			"\"$GODOT\" --headless -s scripts/probe_opera_2d.gd",
@@ -870,6 +872,68 @@ CATALOG: tuple[ChangeGroup, ...] = (
 			"The game-wide 2D and visual audits remain UNSATISFIED; green local probes and diagnostic captures are not phone, child, or owner acceptance.",
 		),
 		manual_reason="Automation is refused because this exact commit couples the 16-slot save/raw-mask contract, permanent tombstones, rewards, Canvas runtime ownership, living-world entries, probes, the GAME2D manifest, and authority documents. For diagnosis only, the bounded reversal is `git revert --no-commit e2c25878f6b9c64526d0686c426a9f29c5f1b3da` on a clean isolated branch created at that exact commit; inspect all 32 paths, preserve every save key and protected original, then rerun every focused and full exact-4.7.1 gate before considering a commit.",
+	),
+	_group(
+		"CHG-027",
+		"Castle-room Opera career distribution and direct return lifecycle",
+		"Removes the rejected central all-career lobby, distributes all thirteen live careers across nine themed Castle rooms, launches one Canvas career directly from its room-owned picture, and returns to that exact room while preserving the sparse 16-bit save contract and retirement tombstones.",
+		AUDIT_OPERA_DISTRIBUTION_PARENT,
+		(AUDIT_OPERA_DISTRIBUTION_COMMIT,),
+		(
+			"scripts/castle_career_routes.gd",
+			"scripts/living_world.gd",
+			"scripts/living_world_catalog.gd",
+			"scripts/main.gd",
+			"scripts/opera_career_world_2d.gd",
+			"scripts/opera_house.gd",
+			"scripts/opera_lobby_2d.gd",
+			"scripts/pause_menu.gd",
+			"scripts/probe_castle_pearl_art.gd",
+			"scripts/probe_living_world.gd",
+			"scripts/probe_opera.gd",
+			"scripts/probe_opera_2d.gd",
+			"scripts/probe_opera_art.gd",
+			"scripts/probe_ui_system.gd",
+			"tools/game_2d_migration_manifest.json",
+		),
+		(
+			"CHG-005",
+			"CHG-008",
+			"CHG-010",
+			"CHG-011",
+			"CHG-015",
+			"CHG-016",
+			"CHG-017",
+			"CHG-018",
+			"CHG-019",
+			"CHG-020",
+			"CHG-023",
+			"CHG-024",
+			"CHG-025",
+			"CHG-026",
+		),
+		(
+			"python -B -m unittest tools.tests.test_plan_audit_rollback -v",
+			"python -B tools/audit_probe_parity.py",
+			"python -B tools/audit_game_2d.py",
+			"python -B tools/audit_game_2d.py --regression-gate",
+			"python -B tools/audit_game_2d.py --stress",
+			"\"$GODOT\" --headless -s scripts/probe_opera.gd",
+			"\"$GODOT\" --headless -s scripts/probe_opera_2d.gd",
+			"\"$GODOT\" --headless -s scripts/probe_living_world.gd",
+			"\"$GODOT\" --headless -s scripts/probe_ui_system.gd",
+			"\"$GODOT\" --headless -s scripts/probe_load.gd",
+			"GODOT=\"$GODOT\" scripts/ci.sh",
+			"git diff --check",
+		),
+		rollback_start=AUDIT_OPERA_DISTRIBUTION_COMMIT,
+		warnings=(
+			"The inverse restores the rejected central all-career lobby and removes the owner-directed Castle-room routes, direct one-act lifecycle, and exact-room return ownership.",
+			"The raw opera_stars namespace remains 16 bits with live mask 0xBDEF, retired mask 0x4210, and permanent tombstones at slots 4, 9, and 14; never clear, compact, reindex, or repurpose those bits during an inverse.",
+			"Residual P2 card overlap/occlusion remains: the lower-center career-card row obscures Roshan's lower body or tail in reviewed room captures and can also compete with room props or other affordances.",
+			"The 22 fresh captures are diagnostic only, not M11, child, owner, or authoritative visual acceptance; GAME2D remains UNSATISFIED at 509 models, 66 production files, and 74 probe files.",
+		),
+		manual_reason="Automation is refused because this exact commit couples nine Castle route owners, thirteen direct Canvas career lifecycles, stable save bits and rewards, exact-room restoration, HUD/caption/pause/living-world layer ownership, probes, and the GAME2D manifest. For diagnosis only, use `git revert --no-commit 09e5e35665fd8d1bd782693e10fc0198f756d2c8` on a clean isolated branch created at that exact commit, inspect all 15 paths, and preserve the 0xBDEF/0x4210/tombstone contract; the raw inverse is not production-approved and no rollback script may be emitted.",
 	),
 )
 

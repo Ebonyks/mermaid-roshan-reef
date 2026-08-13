@@ -151,6 +151,15 @@ of the current accepted runtime roster. Candymaker's current illustrated art
 and phone-safe pour are integrated. Branch or worktree presence alone never
 grants source, runtime, device, or owner acceptance.
 
+Current Castle career-route cards at commit `09e5e356` reuse the governed
+career atlas imagery and preserve large, picture-first targets. Their 22
+1280×720 captures are diagnostic, not accepted art. In all nine room-route
+captures the 154×154 lower-center cards clear the control regions but obscure
+Roshan's lower body/tail. This is residual P2 composition debt: move or restage
+the card group while preserving touch size, face/upper-torso readability, exact
+room ownership, and the established art. Do not regenerate approved character
+art merely to work around a UI placement defect.
+
 `assets_src/imagegen/opera_roshan_animation_2026-08-09/PROMPTS.md` and
 `assets_src/imagegen/opera_minigame_quality_2026-08-09/REVIEW.md` record
 generation/derivation provenance. A prompt, review sheet, or source hash never

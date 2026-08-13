@@ -1,7 +1,7 @@
 # Mermaid Roshan master-audit change and rollback ledger
 
 - **Ledger ID:** `MA-CHANGELOG-2026-08-10`
-- **Change-ID namespace:** `CHG-001` through `CHG-026`; IDs are permanent and
+- **Change-ID namespace:** `CHG-001` through `CHG-027`; IDs are permanent and
   are never reassigned or renumbered
 - **Audit lineage:** `codex/master-audit-20260809`
 - **Dedicated current audit branch:** `codex/audit-reconcile-20260812`
@@ -10,6 +10,9 @@
 - **Opera retirement and Canvas-lifecycle snapshot:**
   `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`, with exact parent
   `41087f6634a416540b23a984d1f445b0bdab5f2f`
+- **Castle-room Opera career-distribution snapshot:**
+  `09e5e35665fd8d1bd782693e10fc0198f756d2c8`, with exact parent
+  `f0b4f5e03fabbdcb3792f492f6cbd926afff0e2e`
 - **Current-dev reconciliation snapshot:**
   `f3b0de078898a8b4faddb2c738c4403180eff928`, with current-dev parent
   `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and master-audit parent
@@ -28,8 +31,8 @@
   engine, [master-audit](MASTER_AUDIT_2026-08-09.md), and
   [comprehensive-design-language](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md)
 - **Program state:** `IN_PROGRESS / UNSATISFIED`
-- **Catalog inventory:** 26 permanent change IDs, 71 uniquely owned source-
-  commit references, four guarded-script emitters, and 20 planner unit tests
+- **Catalog inventory:** 27 permanent change IDs, 72 uniquely owned source-
+  commit references, four guarded-script emitters, and 21 planner unit tests
 
 This is the durable answer to the fact that a long audit can produce both
 improvements and regressions. It records what changed, why the change may be
@@ -48,6 +51,7 @@ schema: mermaid-roshan/master-audit-change-log/v1
 snapshot: f3b0de078898a8b4faddb2c738c4403180eff928
 evidence_snapshot: a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2
 opera_retirement_snapshot: e2c25878f6b9c64526d0686c426a9f29c5f1b3da
+opera_distribution_snapshot: 09e5e35665fd8d1bd782693e10fc0198f756d2c8
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -75,6 +79,7 @@ changes:
   - {id: CHG-024, name: f3b0-current-dev-master-audit-reconciliation, rollback_mode: whole_merge_only}
   - {id: CHG-025, name: human-gamewide-scorecard-and-version-reconciliation, rollback_mode: documentation_migration}
   - {id: CHG-026, name: opera-boss-retirement-save-tombstones-and-canvas-lifecycle, rollback_mode: owner_blocked_mixed}
+  - {id: CHG-027, name: castle-room-opera-career-distribution-and-direct-return, rollback_mode: owner_blocked_mixed}
 ```
 
 ## 2. Safe rollback protocol
@@ -109,6 +114,11 @@ CHG-026 starts at exact Opera product commit
 `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`; its planner entry records the
 whole-commit diagnostic inverse but refuses to emit a script because save,
 runtime, probes, the migration manifest, and authority documents are coupled.
+CHG-027 starts at exact Castle-room Opera distribution commit
+`09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its planner entry records a
+whole-commit diagnostic preview but refuses to emit a script because route,
+save, reward, return, layer, probe, and migration-manifest ownership are
+coupled.
 The planner output is the authority if a later append-only maintenance revision
 changes this mapping.
 
@@ -147,7 +157,7 @@ python -B tools/plan_audit_rollback.py CHG-021 --emit-script
 ```
 
 Only CHG-020 and CHG-021, plus all-or-nothing CHG-022 and CHG-024, can emit a
-script: four emitters across 26 stable IDs. The other 22 groups refuse
+script: four emitters across 27 stable IDs. The other 23 groups refuse
 automation even when their human ledger mode says
 `guarded_single`: shared-path, product-policy, or not-yet-committed context
 still requires a reviewed manual inverse. Emitted scripts create a dedicated
@@ -1005,7 +1015,7 @@ exclusive and must never be applied on the same rollback branch.
   trail or raw-revert the whole commit over later evidence. Correct a disputed
   rating or branch fact with a superseding record, or construct a reviewed
   inverse limited to the exact documentation/control paths while preserving
-  still-valid CHG-015/024 evidence. Rerun the full current planner suite (20 tests), document
+  still-valid CHG-015/024 evidence. Rerun the full current planner suite (21 tests), document
   validation, probe parity, GAME2D regression, and `git diff --check` before
   recording any inverse.
 
@@ -1115,6 +1125,121 @@ exclusive and must never be applied on the same rollback branch.
   this raw inverse over a later branch head or split the save/runtime/document
   portions into independent reversions.
 
+### CHG-027 — Castle-room Opera career distribution and direct return lifecycle
+
+- **Source and exact boundary:** product commit
+  `09e5e35665fd8d1bd782693e10fc0198f756d2c8`, whose single parent is
+  `f0b4f5e03fabbdcb3792f492f6cbd926afff0e2e`. Its first-parent delta is
+  exactly 15 paths (1,144 insertions and 1,333 deletions). The path set was
+  checked with `git diff-tree`; none is below a protected-original directory.
+- **Paths:** the exact 15-path scope is new
+  `scripts/castle_career_routes.gd`; modified `scripts/living_world.gd`,
+  `scripts/living_world_catalog.gd`, `scripts/main.gd`,
+  `scripts/opera_career_world_2d.gd`, `scripts/opera_house.gd`,
+  `scripts/pause_menu.gd`, `scripts/probe_castle_pearl_art.gd`,
+  `scripts/probe_living_world.gd`, `scripts/probe_opera.gd`,
+  `scripts/probe_opera_2d.gd`, `scripts/probe_opera_art.gd`,
+  `scripts/probe_ui_system.gd`, and
+  `tools/game_2d_migration_manifest.json`; plus deleted
+  `scripts/opera_lobby_2d.gd`.
+- **What changed, in plain English:** the three-page 4/4/5 all-career Opera
+  picker was removed. There is no generic picker route or hidden direct-launch
+  backdoor. Thirteen large picture cards now live in nine themed Castle rooms:
+  Kitchen has Chef (slot 0) and Candymaker (3); Opera Hall has exactly
+  Ballerina (2), Pop Star (13), and Magician (8); Library has Detective (1);
+  Craft Room has Painter (10); Playroom has Doctor (5) and Boxer (7); Bubble
+  Bath has Nursery Nurse (15); Mermaid Pool has Astronaut Engineer (11);
+  Dining Room has Farmer (6); and Movie Lounge has Racer (12). The old Opera
+  Hall stage action now only focuses the next room-owned picture; it cannot
+  launch a second all-career surface.
+- **Launch, return, and child-safety ownership:** a card can launch only while
+  its recorded room is the current visible Castle owner. A mismatched room,
+  retired slot, duplicate start, hidden room, or programmatic call fails
+  closed. A valid card suspends that room, starts exactly one existing Canvas
+  career, and records that same room for cancel, neutral pause exit, ordinary
+  curtain completion, replay, application pause, teardown, and failed-start
+  restoration. Each successful first play still owns its existing star bit
+  and three-pearl reward; a replay still awards one pearl; all-live completion
+  still awards its one-time 50-pearl/sticker result. Idle cards and rejected or
+  cancelled starts cannot manufacture stars or pearls.
+- **Save and retirement semantics:** this is a navigation/lifecycle change,
+  not a save migration. `opera_stars` remains a raw 16-bit namespace. The 13
+  live slots still form `0xBDEF`; retired slots 4, 9, and 14 still form
+  `0x4210` and remain permanent raw-preserving tombstones. No bit, save key,
+  completion condition, effective-progress rule, or reward identity was
+  removed or reindexed. The room route is transient runtime state and is not
+  allowed to rewrite historical star positions.
+- **Layer, caption, pause, and living-world ownership:** the visible Castle
+  cutaway remains opaque layer 14, its current-room living-world accents use
+  layer 15, and the phone pause affordance stays reachable on layer 16. Inside
+  a career, the opaque activity owns layer 10, living-world accents layer 11,
+  the existing HUD/missing-voice caption layer 12, and pause layer 13. An open
+  pause sheet rises to 29 below the transition fade at 30. HUD visibility and
+  its previous layer, player visibility, objective-card visibility, camera,
+  room music, and current room are captured and restored. Living-world stage
+  identity now follows the visible `castle_room_id`, not the hidden legacy
+  world-player coordinate; a live career reports only its stable act stage.
+- **Outcome / positive effect:** navigation now matches the owner-directed
+  storybook geography. A non-reader discovers a career beside a recognizable
+  room and character picture, plays one activity, and returns to the place
+  they touched. Opera Hall is a real three-career venue instead of a disguised
+  menu for every job. Reusing the accepted 13 Canvas careers, sparse save bits,
+  crests, actor art, and rewards avoided an unnecessary art or gameplay
+  redesign. Exact route guards and teardown coverage also make wrong-room,
+  passive, pause, and re-entry behavior more explicit than the removed hub.
+- **Possible negative effect / residual issue:** the room routes are a shared
+  overlay rather than individually composed diegetic props.
+  **Residual P2 card overlap/occlusion:** the lower-center row of one to three
+  154×154 cards visibly obscures Roshan's
+  lower body or tail in reviewed room captures and can also cover, crowd, or
+  compete with furniture, walk-space composition, or other affordances. The 22
+  reviewed
+  diagnostics show the current layouts and no blocking failure was found, but
+  they do not turn this known composition risk into a visual pass. Fix it with
+  bounded per-room card anchors/avoidance and renewed captures; do not restore
+  the rejected hub. The Opera Hall's large stage action is now a guide to the
+  pictures and may feel redundant. No new protected family voice was created;
+  Racer still exercises the missing-recording fallback, so existing speech and
+  the readable layer-12 caption carry accessibility where exact voice is absent.
+  Neither machine checks nor screenshots establish M11 touch/
+  performance, child comprehension, owner approval, or release readiness.
+- **Dependencies and coupling:** CHG-005, CHG-008, CHG-010, CHG-011, CHG-015,
+  CHG-016, CHG-017, CHG-018, CHG-019, CHG-020, CHG-023, CHG-024, CHG-025, and
+  CHG-026. In particular, the distribution consumes CHG-026's 13-live-career
+  Canvas/save baseline and closes the central-picker architecture it left open;
+  it does not reopen or repurpose the three retired boss slots. Route code,
+  shared main state, living-world catalog, pause/HUD layering, Opera lifecycle,
+  probes, and the shrink-only GAME2D manifest therefore form one review unit.
+- **Evidence at the product commit:** exact official Godot
+  `4.7.1.stable.official.a13da4feb` full local `scripts/ci.sh` exited 0 after
+  1,463.4 seconds with all 64 trusted local probes green. Parser, inference
+  lint, import, full analyzer/check-only, focused Opera/Opera-2D/living-world/
+  UI/load and surrounding lifecycle probes passed. A Mobile-renderer run
+  produced 22 fresh 1280×720 diagnostic captures: nine Castle-room route views
+  and thirteen direct career views. They are diagnostic/review aids, not
+  target-device, child, owner, or authoritative visual acceptance. GAME2D is
+  exactly 509 models, 66 production files, and 74 probe files; default remains
+  `UNSATISFIED`, regression gate remains `NO_REGRESSION`, and stress is green.
+  The residual P2 card overlap/occlusion above and the broader 2D/visual debt
+  remain open despite the green local gate.
+- **Rollback:** `owner_blocked_mixed`; the planner is deliberately `MANUAL` and
+  refuses `--emit-script`. For diagnosis only, start a clean isolated
+  `codex/rollback-chg-027` branch at exact
+  `09e5e35665fd8d1bd782693e10fc0198f756d2c8`, verify its parent and exact
+  15-path delta, then preview `git revert --no-commit
+  09e5e35665fd8d1bd782693e10fc0198f756d2c8`. Stop on any conflict, unexpected
+  path, protected original, save-key change, bit reindexing, reward change,
+  layer inversion, wrong-room return, or parent-tree mismatch. Inspect all 15
+  paths together. The raw inverse restores the rejected all-career hub and
+  deletes the owner-directed room routes, so it is not production-approved and
+  must never be automated or applied over a later head. Prefer a narrow fix to
+  a specific P2 card anchor or lifecycle defect. Before any candidate inverse,
+  rerun planner tests, parser/lint, probe parity, GAME2D default plus exact
+  `python -B tools/audit_game_2d.py --regression-gate` and stress, the focused
+  route/save/reward/layer probes, diagnostic captures, and exact Godot 4.7.1
+  full CI; then obtain the still-missing device, child, owner, and authoritative
+  visual decisions.
+
 ## 5. Per-group gate matrix
 
 | Change IDs | Minimum focused gates before full CI | External gates that remain material |
@@ -1132,6 +1257,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-024 | exact parent/path guards, GAME2D/parity/generated-art checks, every applicable focused gate, and exact `scripts/ci.sh` | remote exact-head plus all applicable capture, M11, child, audio, and owner gates |
 | CHG-025 | rollback catalog tests, document structure/links, probe parity, GAME2D regression, and diff check | re-audit ratings and branch facts whenever a candidate becomes committed or integrated |
 | CHG-026 | exact commit-parent/path parity, parser/lint, Opera/load/recovery/living-world/audio/UI, GAME2D default+regression+stress, fresh Mobile captures, and exact `scripts/ci.sh` | remote exact-head, M11 touch/performance, child comprehension, owner art/authority, and MA-OPERA-012 Castle-room distribution |
+| CHG-027 | exact commit-parent/15-path parity, parser/lint, room-route/Opera/Opera-2D/load/living-world/UI, GAME2D default+regression-gate+stress, 22 fresh Mobile diagnostics, and exact `scripts/ci.sh` | remote exact-head, bounded P2 card-overlap repair, M11 touch/performance, child comprehension, owner art/authority, and authoritative visual acceptance |
 
 ## 6. Required rollback record
 

@@ -119,7 +119,7 @@ teardown, re-entry, save/load, sibling and full-suite tests. Delete a legacy
 resource only after its replacement or non-reachability proof is green.
 
 At product/audit commit
-`e2c25878f6b9c64526d0686c426a9f29c5f1b3da`, the exact GAME2D inventory
+`09e5e35665fd8d1bd782693e10fc0198f756d2c8`, the exact GAME2D inventory
 remains **`UNSATISFIED`**: 509 model files/509 active exports, 157 tracked and
 352 active-untracked generated model sidecars, 66 production 3D files, 74
 probe 3D files, one scene, and one configuration. Regression mode is exact
@@ -128,23 +128,25 @@ older `f3b0de07` 68/77 values remain historical evidence. The old zone table is 
 `GAME_REDESIGN_2P5D_2026-07-27.md` as history; it is not a current
 implementation queue.
 
-Commit `e2c25878` completes exact local `scripts/ci.sh` under Godot
-`4.7.1.stable.official.a13da4feb` with exit 0 after 1428.6 seconds: all 64
+Commit `09e5e356` completes exact local `scripts/ci.sh` under Godot
+`4.7.1.stable.official.a13da4feb` with exit 0 after 1463.4 seconds: all 64
 trusted local probes, 74 GAME2D units, 93 visual-contract units, and the Castle
 frame-review candidate
 `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
-(13 assets/104 frames) are green in their machine/review ledgers. Exact-head
-verification run `31661887863` succeeds at full integrated SHA
+(13 assets/104 frames) are green in their machine/review ledgers. The last
+completed exact-head verification, run `31661887863`, succeeds at predecessor
+integrated SHA
 `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`: Ubuntu succeeds in 33m8s through
 checkout/checksum, exact Godot, static/import/full analyzer, all 63 trusted
 probes, boot, Dust/Opera advisories, Opera manifest, and five diagnostic
 capture/upload pairs; Windows succeeds in 6m52s with terminal result
 `MUSIC|check 42/42|picture_xmas`. Remote GAME2D remains exact 509/66/74
-`NO_REGRESSION`/`UNSATISFIED`. Seventeen V4 Mobile 1280×720 captures were
-visually inspected only as diagnostic/review evidence; neither the candidate,
-those captures, nor the five remote pairs grant device, child, owner, or
-authoritative visual acceptance. APK, human listening, and strict-zero 2D
-evidence remain open.
+`NO_REGRESSION`/`UNSATISFIED`. Current `09e5e356` produced twenty-two V4 Mobile
+1280×720 captures—nine room routes and thirteen career surfaces—inspected only
+as diagnostic/review evidence; neither the candidate, those captures, nor the
+five predecessor remote pairs grant device, child, owner, or authoritative
+visual acceptance. Current exact-head remote, matching APK, exact voice, human
+listening, and strict-zero 2D evidence remain open.
 
 ### Geography — the world line (PROPOSAL, unapproved)
 
@@ -225,14 +227,18 @@ them to the Castle rooms whose pictures and objects explain the job:
 | Bubble Bath | Nursery Nurse |
 | Mermaid Pool | Astronaut Engineer |
 | Family Dining Room | Farmer |
-| Cloud Movie Lounge **or** Courtyard | Racer — choose one canonical home before implementation |
+| Cloud Movie Lounge | Racer — canonical home selected at `09e5e356` |
 
-This mapping preserves all thirteen current career activities and their stable
-star identities; it changes discovery, launch, and return ownership. Opera Hall
-is one venue for the three performances, not the front door to every job. The
-current native `OperaLobby2D` with three floor tabs and every live career card
-is a useful transitional Canvas surface but a rejected final hub under
-`MA-OPERA-012`. The retired finale cards are no longer present.
+Commit `09e5e356` implements this mapping while preserving all thirteen current
+career activities and their stable sparse save/star identities. Opera Hall is
+one venue for the three performances, not the front door to every job. The
+native three-floor `OperaLobby2D` is deleted, no hidden/off-room route restores
+it, and every activity returns to its exact launching room. Exact focused probes
+and the full 1463.4-second/64-probe local suite are green, moving
+`MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`. The 22 captures are diagnostic;
+the nine room captures show a residual P2 composition defect because the
+154×154 lower-center cards obscure Roshan's lower body/tail. Remote exact-head,
+APK, device, child, owner, exact-voice, and accepted-visual evidence remain open.
 
 - Each room-owned picture entry instantiates the existing
   `OperaCareerWorld2D`/specialist surface for its job and returns to that same
@@ -408,11 +414,11 @@ The dated lifecycle in [04_OPEN_WORK.md](04_OPEN_WORK.md) and the master audit
 controls; an older work order is never implementation authority by itself.
 
 - **`CONFIRMED_OPEN`:** game-wide true-2D conversion, fresh-save no-cheat
-  reachability proof, exact voice gaps, the rejected three-page all-career Opera
-  hub (`MA-OPERA-012`), visual evidence and layering gaps, probe classification,
-  device performance, and child comprehension evidence. The legacy Opera
-  lifecycle and cut-boss retirement repairs are separately
-  `FIXED_PENDING_VERIFICATION` as `MA-OPERA-010`/`011`.
+  reachability proof, exact voice gaps, visual evidence and remaining layering
+  gaps, probe classification, device performance, and child comprehension
+  evidence. The single Opera lifecycle, cut-boss retirement, and implemented
+  Castle-room distribution are separately `FIXED_PENDING_VERIFICATION` as
+  `MA-OPERA-010`/`011`/`012`; none is closed by local diagnostics.
 - **`DEFERRED_WITH_REASON`:** the proposed world geography, dungeon lock/key
   expansion, Zelda-grammar verb expansion, unadopted chapter/daily-rhythm/
   naming/gifting/tending/decorating additions, and other new modes. This does

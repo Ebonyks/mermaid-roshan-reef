@@ -31,6 +31,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_RECONCILIATION_PARENT,
 			planner.AUDIT_RECONCILIATION_AUDIT_PARENT,
 			planner.AUDIT_OPERA_RETIREMENT_PARENT,
+			planner.AUDIT_OPERA_DISTRIBUTION_PARENT,
 		}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
@@ -45,11 +46,11 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		planner.validate_catalog()
 		self.assertEqual(
 			[group.change_id for group in planner.CATALOG],
-			[f"CHG-{number:03d}" for number in range(1, 27)],
+			[f"CHG-{number:03d}" for number in range(1, 28)],
 		)
 		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
-		self.assertEqual(len(owned_refs), 71)
-		self.assertEqual(len(set(owned_refs)), 71)
+		self.assertEqual(len(owned_refs), 72)
+		self.assertEqual(len(set(owned_refs)), 72)
 		self.assertEqual(
 			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
 			4,
@@ -254,7 +255,12 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 22)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 23)
+		self.assertIn(
+			"python -B tools/audit_game_2d.py --regression-gate",
+			group.gates,
+		)
+		self.assertNotIn("python -B tools/audit_game_2d.py --regression", group.gates)
 		plan = planner.render_plan(group)
 		for marker in (
 			"16-slot save/raw-mask contract",
@@ -291,17 +297,90 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		master = (repository_root / "audit" / "MASTER_AUDIT_2026-08-09.md").read_text(
 			encoding="utf-8"
 		)
-		open_work = (repository_root / "design" / "04_OPEN_WORK.md").read_text(
-			encoding="utf-8"
-		)
-		for text in (master, open_work):
-			self.assertIn("CHG-001", text)
-			self.assertIn("CHG-026", text)
-			self.assertIn("71 unique catalog-owned commit references", text)
-			self.assertIn("e2c25878", text)
-			self.assertIn("20 unit", text)
-		self.assertIn("other 22 refuse automation", master)
+		self.assertIn("CHG-001", master)
+		self.assertIn("CHG-026", master)
+		self.assertIn("e2c25878", master)
 		self.assertIn("rollback is recorded under `CHG-026`", master)
+
+	def test_opera_distribution_record_is_exact_manual_and_bounded(self) -> None:
+		group = planner.select_group("CHG-027")
+		self.assertEqual(group.commits, (planner.AUDIT_OPERA_DISTRIBUTION_COMMIT,))
+		self.assertEqual(group.baseline_commit, planner.AUDIT_OPERA_DISTRIBUTION_PARENT)
+		self.assertEqual(group.rollback_start, planner.AUDIT_OPERA_DISTRIBUTION_COMMIT)
+		self.assertEqual(
+			planner.AUDIT_OPERA_DISTRIBUTION_COMMIT,
+			"09e5e35665fd8d1bd782693e10fc0198f756d2c8",
+		)
+		self.assertEqual(
+			planner.AUDIT_OPERA_DISTRIBUTION_PARENT,
+			"f0b4f5e03fabbdcb3792f492f6cbd926afff0e2e",
+		)
+		self.assertEqual(
+			set(group.paths),
+			{
+				"scripts/castle_career_routes.gd",
+				"scripts/living_world.gd",
+				"scripts/living_world_catalog.gd",
+				"scripts/main.gd",
+				"scripts/opera_career_world_2d.gd",
+				"scripts/opera_house.gd",
+				"scripts/opera_lobby_2d.gd",
+				"scripts/pause_menu.gd",
+				"scripts/probe_castle_pearl_art.gd",
+				"scripts/probe_living_world.gd",
+				"scripts/probe_opera.gd",
+				"scripts/probe_opera_2d.gd",
+				"scripts/probe_opera_art.gd",
+				"scripts/probe_ui_system.gd",
+				"tools/game_2d_migration_manifest.json",
+			},
+		)
+		self.assertEqual(len(group.paths), 15)
+		self.assertEqual(group.safety, planner.MANUAL)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 23)
+		self.assertIn(
+			"python -B tools/audit_game_2d.py --regression-gate",
+			group.gates,
+		)
+		self.assertNotIn("python -B tools/audit_game_2d.py --regression", group.gates)
+		plan = planner.render_plan(group)
+		for marker in (
+			"nine Castle route owners",
+			"stable save bits and rewards",
+			"exact-room restoration",
+			"Residual P2 card overlap/occlusion",
+			"git revert --no-commit 09e5e35665fd8d1bd782693e10fc0198f756d2c8",
+			"inspect all 15 paths",
+			"GODOT=\"$GODOT\" scripts/ci.sh",
+		):
+			self.assertIn(marker, plan)
+		with self.assertRaises(planner.UnsafePlanError):
+			planner.render_script(group)
+
+		root = Path(__file__).resolve().parents[2]
+		ledger = (
+			root / "audit" / "MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+		).read_text(encoding="utf-8")
+		section = ledger.split("### CHG-027", 1)[1].split("## 5.", 1)[0]
+		for marker in (
+			"1,463.4 seconds",
+			"all 64 trusted local probes green",
+			"22 fresh 1280×720 diagnostic captures",
+			"509 models, 66 production files, and 74 probe files",
+			"Residual P2 card overlap/occlusion",
+			"owner_blocked_mixed",
+		):
+			self.assertIn(marker, section)
+
+		for marker in (
+			"27 permanent change IDs",
+			"`CHG-001` through `CHG-027`",
+			"72 uniquely owned source-",
+			"four guarded-script emitters",
+			"21 planner unit tests",
+			"The other 23 groups refuse",
+		):
+			self.assertIn(marker, ledger)
 
 	def test_catalog_rejects_duplicate_ids(self) -> None:
 		duplicate = replace(planner.CATALOG[1], change_id=planner.CATALOG[0].change_id)

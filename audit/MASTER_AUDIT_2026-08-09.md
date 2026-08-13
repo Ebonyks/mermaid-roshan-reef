@@ -10,16 +10,19 @@
   `ea6185fdb1a687a20a6d118bdc368400e2c30f60` and
   `5f58ef0a9db7aa9593f85131e1b855e51b84aea8`)
 - **Current Opera product/audit commit:**
-  `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`
+  `09e5e35665fd8d1bd782693e10fc0198f756d2c8`
 - **Last completed committed full local checkpoint:**
-  `e2c25878f6b9c64526d0686c426a9f29c5f1b3da`
+  `09e5e35665fd8d1bd782693e10fc0198f756d2c8`
 - **Current committed full local verification:** exact official Godot
-  `4.7.1.stable.official.a13da4feb`; `scripts/ci.sh` exit 0 after 1428.6 seconds
+  `4.7.1.stable.official.a13da4feb`; `scripts/ci.sh` exit 0 after 1463.4 seconds,
+  all 64 trusted local probes green
 - **Last historical exact-head remote checkpoint:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`, GitHub run `31457593351`
-- **Latest exact-head remote verification:**
+- **Last completed exact-head remote verification (predecessor runtime):**
   `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`, GitHub run `31661887863`;
   both required jobs succeed
+- **Current `09e5e356` exact-head remote verification:** open; no remote result or
+  matching APK is claimed for this commit
 - **Proposed design authority:** `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`
 - **Change and rollback ledger:**
   `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`
@@ -140,12 +143,20 @@ machine composition, hash, codec, loop, loudness, and routing evidence is
 green, while human two-wrap/style listening, voice intelligibility, mono
 fold-down, and Lenovo Tab M11 review remain open.
 
-Those career counts describe reusable current content, not the accepted final
-hub. Direct owner direction in `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` section
-10 / commit `7426c187` distributes the thirteen careers through the Castle
-rooms and makes the Opera Hall one venue, not the front door to every job. The
-current three-floor Canvas picker is therefore a transitional implementation,
-not an approved final navigation design (`MA-OPERA-012`). Section 16 / commit
+Those career counts now ship behind the owner-directed Castle-room
+distribution. Commit `09e5e356` gives every one of the thirteen live careers
+one exact room-owned picture route: Royal Kitchen owns Chef/Candymaker; Opera
+Hall owns Ballerina/Pop Star/Magician; Royal Library owns Detective; Craft Room
+owns Painter; Stuffie Playroom owns Doctor/Boxer; Bubble Bath owns Nursery;
+Mermaid Pool owns Astronaut; Family Dining Room owns Farmer; and Movie Lounge
+is the resolved sole home for Racer. The rejected three-floor all-career lobby
+and its source file are deleted, no hidden direct route reconstitutes it, and
+each activity returns to the exact room that launched it. This moves
+`MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`, not `VERIFIED_FIXED`: current
+remote exact-head, matching APK, device, child, owner, exact-voice, and accepted
+visual evidence remain open. The 9 room-route captures also expose a residual
+P2 composition issue: the 154×154 lower-center career cards clear controls but
+obscure Roshan's lower body/tail. Section 16 / commit
 `3d1236fe` also cuts the Curtain Dragon, Shadow Phantom, and Midnight Maestro;
 section 17 / commit `ef2fd982` retains any future boss-fight role for
 Ember-aligned henchmen, not those Opera characters. The current repair removes
@@ -153,29 +164,32 @@ the three Opera boss cards, gates, completion requirements, and runtime. Save
 slots 4/9/14 are permanent raw-preserving tombstones, the live completion mask
 is `0xBDEF`, and effective progress counts only the thirteen careers. Focused
 migration/reward/passive/suspend/leave evidence is green, so `MA-OPERA-011` is
-`FIXED_PENDING_VERIFICATION`, not closed. The three-page all-career hub remains
-P1 `CONFIRMED_OPEN` as `MA-OPERA-012`.
+`FIXED_PENDING_VERIFICATION`, not closed.
 
-The current Opera slice passes its exact focused matrix and a full local
+The current `09e5e356` Opera/Castle distribution slice passes its exact focused
+matrix and a full local
 `scripts/ci.sh` run under official Godot
-`4.7.1.stable.official.a13da4feb`: exit 0 after 1428.6 seconds, all 64 trusted
+`4.7.1.stable.official.a13da4feb`: exit 0 after 1463.4 seconds, all 64 trusted
 local probes, 74 GAME2D unit tests, all 14 falsification controls, 93
 visual-contract unit tests, and exact `NO_REGRESSION` are green. Castle
 interaction approval candidate
 `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
 covers 13 assets and 104 frames in the machine/review ledger. It is not owner
-acceptance. Seventeen 1280×720 Mobile captures were rendered and visually
-inspected as diagnostic/review evidence only; they are not target-device,
-child, owner, or authoritative visual acceptance. Exact-head remote
-run `31661887863` succeeds at full integrated SHA
+acceptance. Twenty-two 1280×720 Mobile captures—nine Castle room routes and
+thirteen career surfaces—were rendered and visually inspected as
+diagnostic/review evidence only; they are not target-device, child, owner, or
+authoritative visual acceptance. The latest completed exact-head remote run,
+`31661887863`, belongs to predecessor integrated SHA
 `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`: Ubuntu succeeds in 33m8s through
 checkout/checksum, exact Godot, static/import/full analyzer, all 63 trusted
 probes, boot, Dust/Opera advisories, Opera manifest, and five diagnostic
 capture/upload pairs; remote GAME2D is 509/66/74 exact
 `NO_REGRESSION`/`UNSATISFIED`. Windows succeeds in 6m52s and ends
 `MUSIC|check 42/42|picture_xmas`. The five pairs grant no authoritative visual,
-device, child, or owner acceptance. APK, human listening, and strict-zero 2D
-evidence remain open. The global visual audit remains unchanged and
+device, child, or owner acceptance. An exact-head remote run and matching APK
+for current commit `09e5e356` have not yet been produced. Device, child, owner,
+exact-voice, human-listening, accepted-visual, and strict-zero 2D evidence
+remain open. The global visual audit remains unchanged and
 `UNSATISFIED` at 16 FAIL, 17 REVIEW_OPEN, two
 MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE.
 
@@ -250,7 +264,7 @@ the companion [change and rollback ledger](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-
 | Dolls catcher | Rebuilt Faron's catcher as a bounded Canvas activity with real routed drag, safe misses, passive rejection, save, replay, and teardown | Exact objective voice, M11, observed child, and owner capture acceptance remain | `CHG-012` |
 | Seek / Evie and Lamb-a' | This was **not** a wholesale import of the old 3D game. The useful hide-and-seek loop was rebuilt as a fourteen-node Canvas meadow; vinyl/static actors and low-grade `k_bush2` presentation were replaced by frame-swapped Evie/Lamb-a' art and approved meadow/tree art; four meadow GLBs were retired | The exact Evie “tap the wiggly tree” recording is missing; generated identity/motion and device/child acceptance remain open | `CHG-013`; voice debt `MA-ACCESS-003` |
 | Opera Racer | Ordinary unforced and display entry now use the same three-phase Canvas circle activity and exact lap-two cue; no Opera controller attaches the external kart | Focused, full-local, and exact-head remote evidence is green, but device/child/owner verification remains under `MA-OPERA-010` | `CHG-010`, `CHG-024`, `CHG-026` |
-| Opera specialists and art | Integrated the current 13-career/53-phase/27-mode table, 208 reviewed Roshan cells, dedicated Ballerina and Boxer surfaces, phone-safe Candymaker, diegetic rooms, deterministic music, and stable retirement of the three owner-cut boss slots | The career content is reusable, but the central three-page picker is still not the accepted final hub; `MA-OPERA-011` awaits verification and `MA-OPERA-012` remains open | `CHG-016`–`CHG-020`, `CHG-024`, `CHG-026` |
+| Opera specialists, art, and Castle distribution | Integrated the current 13-career/53-phase/27-mode table, 208 reviewed Roshan cells, dedicated Ballerina and Boxer surfaces, phone-safe Candymaker, diegetic rooms, deterministic music, stable retirement of the three owner-cut boss slots, and one exact thematic Castle-room route per live career. Racer's sole home is Movie Lounge; the all-career lobby is deleted; each activity returns to its launching room | `MA-OPERA-011` and `MA-OPERA-012` await external verification. Current route cards obscure Roshan's lower body/tail (residual P2), exact voice gaps remain, and the 22 captures are diagnostic rather than accepted | `CHG-016`–`CHG-020`, `CHG-024`, `CHG-026`, `CHG-027` |
 | Castle logo presentation | Replaced the matching painted shell banners with the child's saved Canvas logo without stealing input | Castle rooms themselves remain spatial; personalization is not a Castle-wide 2D pass | `CHG-021`, `CHG-024` |
 | Visual evidence contract | Replaced easy-to-forge palette/capture claims with fresh runtime, source-bound, fail-closed evidence rules | Current live Canvas adapters are incomplete, so 16 failures and 86 coverage gaps remain rather than becoming false passes | `CHG-006`, `CHG-014` |
 | CI, master documents, and rollback control | Reconciled newer development work with the audit, ran exact 4.7.1 local/remote gates, and created stable `CHG-*` records with guarded rollback planning | This controls change; it does not itself prove APK, device, child, owner, listening, visual, or strict-2D acceptance | `CHG-005`, `CHG-011`, `CHG-015`, `CHG-022`–`CHG-026` |
@@ -267,8 +281,8 @@ the companion [change and rollback ledger](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-
 | Voice, music, and sound | **3/5** | Family voices are protected; 42 new deterministic cues pass hash/codec/loop/routing gates | Perform human two-wrap/style/ducking/mono checks, record authorized missing objective lines, and test M11 speakers |
 | Performance and device fitness | **2/5** | Mobile renderer is binding and several node/texture budgets are probed | Measure release-candidate P50/P95/P99 frame time, hitches, memory, thermal behavior, load time, and touch latency on target devices |
 | QA and release automation | **4/5** | Exact 4.7.1 analyzer, 64 local/63 remote probe roster, import/boot gates, deterministic art/music, regression and falsification controls are unusually strong | Classify all 106 probes, complete live visual adapters, build the matching APK, and keep final branch-head CI green |
-| Architecture and maintainability | **2/5** | Satellites, bounded surfaces, and the collapsed Canvas-only Opera controllers demonstrate safer ownership | `main.gd` and string-owned state remain large; 66 production-3D files and broad game-wide spatial debt keep change risk high |
-| Provenance, protected assets, and rollback | **4/5** | Protected sources stayed untouched; licences, archive proof, 26 stable change groups, and guarded inverse plans exist | Append every later material branch/merge to the ledger and run its rollback gates before integration |
+| Architecture and maintainability | **2/5** | Satellites, bounded surfaces, the collapsed Canvas-only Opera controllers, and the centralized Castle career-route registry demonstrate safer ownership | `main.gd` and string-owned state remain large; 66 production-3D files and broad game-wide spatial debt keep change risk high |
+| Provenance, protected assets, and rollback | **4/5** | Protected sources stayed untouched; licences, archive proof, 27 stable change groups, and guarded inverse plans exist | Append every later material branch/merge to the ledger and run its rollback gates before integration |
 
 ### 1.4 World and area scorecard
 
@@ -284,7 +298,7 @@ the companion [change and rollback ledger](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-
 | Fairy Pond | **3/5** | Complete declared 2D art family and a gentle no-fail fantasy loop | Runtime remains a spatial scroller and figure-ground review is open; port the existing verb to Canvas before recoloring approved art |
 | Galaxy | **2/5** | Bespoke concept and meaningful scripted content | Legacy rail/planet staging plus 32/32 orphan PNGs; owner must choose conversion or retirement before more asset work |
 | Living world and companions | **3/5** | Care, follow, collection, and no-fail repairs create a warm persistent world | Ambient shell is spatial and exact care speech/device evidence is incomplete; move ownership and cues into bounded Canvas surfaces |
-| Current central Opera hub and careers | **2/5** | Best content breadth: 13 reusable careers, current specialist games, diegetic rooms, career art, voices, music, and no reachable cut-boss ladder | The three-page all-career picker still conflicts with direct owner direction: distribute jobs through Castle rooms, keep Opera Hall as one venue, then finish authoritative capture/device evidence |
+| Current distributed Opera careers | **3/5** | Best content breadth: 13 reusable careers, current specialist games, exact thematic Castle-room ownership, Movie Lounge Racer, exact-room return, career art, voices, music, no all-career lobby, and no reachable cut-boss ladder | Full local evidence is green, but remote/device/child/owner/exact-voice/accepted-visual gates remain; move or restage the lower-center cards so Roshan's lower body/tail remains visible |
 | Picture-game wing | **4/5** | Multiple bounded Canvas games with simple input, shared teardown, rewards, and passive checks | Capture every state at phone ratios and verify timing/voice with the intended child |
 
 ### 1.5 Non-Opera activity scorecard
@@ -354,28 +368,29 @@ product versions.
 | Current development parent `origin/dev` `ea6185fd` | Best pre-audit content integration, **2/5** | 53 phases, no generic `bop`, current Candymaker, diegetic/borderless Opera, Ballerina/Boxer specialists | Retains the rejected all-career hub, reachable cut bosses, and additional 3D debt; lacks the master audit controls | Reuse bounded career content only through the audited reconciliation |
 | Reconciled runtime/audit merge `f3b0de07` plus CI repair `af4189a9` | **Best overall audited repair base, 2/5** | Combines current career content with shrink-only audit controls, Canvas display Racer, 64/63 probes, exact local/remote evidence, and granular rollback | Whole game remains UNSATISFIED; the all-career floor picker and cut bosses are not the accepted product, while ordinary-headless kart, 509 models, and external gates remain | Safest repair base, not an accepted Opera structure and not release-ready |
 | Opera retirement/lifecycle commit `e2c25878`, verified at integrated head `e0677ae4` | Committed and exact-head verified repair, **3/5 runtime / 2/5 hub** | One Canvas lifecycle, no external Opera kart/boss engine, 13 live careers, raw-preserving tombstones 4/9/14, `0xBDEF` completion, focused/full-local/exact-head gates green, 17 inspected diagnostic Mobile renders, and append-only `CHG-026` rollback coverage | The three-page all-career hub remains rejected; device, child, owner, and authoritative visual gates are pending | Best current machine-verified Opera runtime, but not accepted final navigation |
+| Castle-room distribution commit `09e5e356` | **Best current audited Opera runtime, 3/5**; `MA-OPERA-012` `FIXED_PENDING_VERIFICATION` | All 13 careers have exact thematic room owners; Movie Lounge is Racer's sole home; the central lobby is deleted with no hidden backdoor; exact-room return, stable sparse save bits, rewards, layer ownership, pause/re-entry, and teardown are locally proved. Full exact-Godot CI is green in 1463.4 seconds with all 64 trusted probes; 9 route plus 13 career captures exist | No exact-head remote run or matching APK exists for this commit. Device, child, owner, exact-voice, and accepted-visual review remain open; lower-center route cards obscure Roshan's lower body/tail in all nine room captures | Current implementation winner and correct navigation baseline; keep `FIXED_PENDING_VERIFICATION` and repair the residual P2 card composition before acceptance |
 | Old generic/incorrect Ballerina versions | Rejected/superseded, **1–2/5** | Demonstrated basic phase flow | Human legs/feet or old art, generic PHRASE/POSE/RIBBON/TWIRL logic, and misleading looped playback | Preserve only as rejection/history evidence |
-| Integrated Ballerina A-atlas and three-act specialist (`0447188f` lineage, retained in `e2c25878`) | **Best current Ballerina, 4/5** | One-tail accepted identity, Pearl Mirror/Ribbon Trail/Grand Twirl, held poses, one-shot cheer, assists and probes | Final two-aspect/M11/child/owner evidence remains | Keep as current authority |
+| Integrated Ballerina A-atlas and three-act specialist (`0447188f` lineage, retained in `09e5e356`) | **Best current Ballerina, 4/5** | One-tail accepted identity, Pearl Mirror/Ribbon Trail/Grand Twirl, held poses, one-shot cheer, assists and probes | Final two-aspect/M11/child/owner evidence remains | Keep as current authority |
 | Device-acceptance Ballerina branch `fd0f1813` | Diverged evidence branch, **3/5** | Adds dedicated Ballet shot sizing/device-review tooling | Four commits unique but seven commits behind current dev; not the current integrated runtime | Salvage focused probe/evidence ideas only after rebase |
 | Game-wide animation-doubling branch `20e9b1f2` | Clean committed post-snapshot candidate, **3/5 potential 4** | 159 compositions grow 921→1842 cels; focused audits pass 13 Opera careers/416 cells, 39 Castle fixtures/624 cells, playground 24 cells, and 14 imp families/302 cells | Based directly on pre-audit `ea6185fd`, changes 694 files, has no exact-head remote run, and a GAME2D comparison fails with 1,132 findings: 771 models, 76 production-3D and 85 probe-3D files; it retains the legacy 3D Racer path | Cherry-pick/rebase bounded art/runtime pieces onto the audit line only after identity, memory, M11, strict GAME2D, and full CI review; never merge wholesale |
 | Boxer V1 specialist (`8d67c2bd`, integrated) | **Best implemented Boxer, 4/5** | Five phases, true Canvas, two gloves, one-finger sequential completion, no loss | Device/child/owner acceptance and legacy GLB retirement remain | Keep and finish external acceptance |
 | Boxer V2 branch `ed4851a0` | Docs-only concept, **not implemented** | Strong deterministic counterboxing/mastery design without punishment | 782-line proposal only; added complexity and optional Jolt/3D language conflict with final medium | Review as a future design, not a game version |
 | Candymaker pre-`39746756` | Superseded, **2/5** | Core pour idea existed | Cropped/conflicting mold, small/poorly registered pour, weak phone causality | Do not restore |
 | Candymaker Pixel 10 repair `39746756` | Strong repair, **4/5** | Complete mold shell, generous target, measured spout, 30/60 fps monotonic tests | Earlier visual state set | Valid ancestor and fallback comparison, not the newest art |
-| Candymaker authored syrup rebuild `cd39cae4`, retained in `e2c25878` | **Best current Candymaker, 4/5** | Authored empty mold, cavity fill, full/empty ladle, provenance and expanded probes | Device/owner/child acceptance still open | Keep as current version |
-| Current generic Painter retained in `e2c25878` | Integrated development version, **3/5** | Functional sunrise paint/stamp/gallery route | Less purposeful artifact and continuity than the newer proposal | Current implemented Painter until a replacement is cleanly integrated |
+| Candymaker authored syrup rebuild `cd39cae4`, retained in `09e5e356` | **Best current Candymaker, 4/5** | Authored empty mold, cavity fill, full/empty ladle, provenance and expanded probes | Device/owner/child acceptance still open | Keep as current version |
+| Current generic Painter retained in `09e5e356` | Integrated development version, **3/5** | Functional sunrise paint/stamp/gallery route, now discovered from the Craft Room | Less purposeful artifact and continuity than the newer proposal | Current implemented Painter until a replacement is cleanly integrated |
 | `codex/painter-purpose-20260811` worktree | Uncommitted candidate, **potential 4/5** | Four continuous party-banner steps, helper, persistent result, one-finger purpose | Branch ref equals `ea6185fd`; actual 12-file plus untracked-surface implementation is dirty and unproven at an exact commit; save/logo coupling is broad | Review and rebuild as a bounded commit; do not credit or merge the worktree |
 | `codex/arborist-tree-doctor` worktree | Uncommitted fourteenth-career candidate, **potential 4/5; current 1/5 because absent** | True Canvas/PNG tree-care game with inspect, prune, root-water, wrap, bloom; coherent caregiving fiction and dedicated art/probe | Ref is stale `ecad384e`; implementation/art are dirty/untracked, five exact family voices are missing, and no exact-head full/device/owner evidence exists | There is no missing Arborist 3D “base model” to import; finish the Canvas career as a clean rebased feature if the owner accepts it |
 | Canvas Racer plus current lifecycle repair | **Best Opera Racer, 4/5** | Simple circle gesture, exact speech, one ordinary/display Canvas implementation, passive/replay/teardown/re-entry coverage, and green full-local/exact-head gates | Device/child/owner verification remains | Keep the current single Canvas path; never restore the split or external kart |
 | Unmerged Claude Opera story/diversification branch `55ba40d8` | Docs-only proposal, **not implemented** | Useful narrative/diversification ideas | Three documentation commits, no current runtime or accepted asset evidence | Review after current careers meet capture/device/child gates |
 
-The overall machine-verified repair-base winner is now the **`e2c25878` Opera
-product commit at exact integrated verification head `e0677ae4`**. Its
-full-local and exact-head gates are green and rollback is recorded under
-`CHG-026`; external acceptance remains.
-Neither current Opera navigation is the winner: the best final structure is the owner-directed Castle-room
-distribution, with only Ballerina, Pop Star, and Magician promoted from Opera
-Hall and no Opera boss cards. Within the repair base, Dolls, Seek, the picture
+The overall current implementation winner is **`09e5e356`**. It realizes the
+owner-directed Castle-room distribution, keeps only Ballerina, Pop Star, and
+Magician in Opera Hall, resolves Racer to Movie Lounge, deletes the all-career
+lobby, preserves the sparse save namespace, and passes the full local exact-
+Godot suite. Its rollback record is `CHG-027`; exact-head remote and all external
+acceptance gates remain open, so it is not verified or release-ready. Within
+the repair base, Dolls, Seek, the picture
 games, Ballerina, Boxer, Candymaker, Racer, Chef, and Nursery are the strongest
 individual activities. “Best” still means **best source to repair**, not 5/5
 or ready for promotion.
@@ -539,7 +554,7 @@ completed repository-wide documentation control.
 | Fact | Result |
 |---|---:|
 | Tracked Markdown files | 315 |
-| `scripts/main.gd` | 8,519 lines |
+| `scripts/main.gd` | 8,647 lines at current `09e5e356` |
 | GDScript files under `scripts/` | 195 |
 | `scripts/probe_*.gd` files | 106 |
 | Names in the local trusted loop | 64 |
@@ -681,7 +696,7 @@ repair checkpoint only. A full local suite at `af4189a9`, matching APK, Mobile
 acceptance capture, target device, child, owner, listening, strict-2D, and
 authoritative visual evidence remain pending.
 
-#### 4.2.4 Current Opera retirement/lifecycle slice — focused, full local, and exact-head remote green
+#### 4.2.4 Preceding Opera retirement/lifecycle slice — focused, full local, and exact-head remote green
 
 Commit `e2c25878`, built from audit checkpoint `41087f66`, has this bounded
 evidence:
@@ -723,21 +738,62 @@ The surrounding Opera2D, Nursery, Detective, living-world, audio, load,
 recovery, Castle-art, imp-animation, UI, and balance probes are green in the
 focused matrix.
 
-This evidence moves `MA-OPERA-010` and `MA-OPERA-011` to
+This predecessor evidence moves `MA-OPERA-010` and `MA-OPERA-011` to
 `FIXED_PENDING_VERIFICATION`. It does not close them: the full local gate for
 commit `e2c25878` and exact-head run `31661887863` at integrated SHA `e0677ae4`
 are green, but external acceptance remains. The Castle candidate is
 machine/review-ledger evidence, not
 owner approval, and the seventeen V4 renders are diagnostic/review evidence
 rather than target-device, child, owner, or authoritative visual acceptance.
-It also does not implement the Castle-room distribution in `MA-OPERA-012`, and
-the global audit remains `UNSATISFIED`.
+At that checkpoint it did not implement the Castle-room distribution in
+`MA-OPERA-012`. Current commit `09e5e356` does so in the following slice. The
+global audit remains `UNSATISFIED`.
 
 The Castle Kitchen controller was deliberately left unchanged. Its current
 Chef config is valid and covered by the focused path. A speculative recovery
 branch for a future invalid `OperaAct.start()` result would modify a sealed
 Castle visual controller and requires renewed owner visual approval; that
 latent hardening remains separate `MA-CODE-002` debt.
+
+#### 4.2.5 Current Castle-room career distribution — full local green; external verification open
+
+Commit `09e5e35665fd8d1bd782693e10fc0198f756d2c8` implements the owner-directed
+distribution without changing the thirteen live career identities or sparse
+16-bit save namespace:
+
+```text
+Exact Godot: 4.7.1.stable.official.a13da4feb
+Exact focused Castle/Opera/lifecycle/save/layer matrix: ALL OK
+Commit 09e5e356 scripts/ci.sh: exit 0 after 1463.4 seconds
+Trusted local probes: all 64 green
+GAME2D exact inventory: 509 models / 66 production / 74 probe / 1 scene / 1 configuration
+Castle room-route captures: 9 at 1280x720, diagnostic
+Opera career captures: 13 at 1280x720, diagnostic
+Current exact-head remote run: OPEN
+Matching current APK: OPEN
+```
+
+`scripts/castle_career_routes.gd` is the single mapping authority. Royal Kitchen
+owns Chef/Candymaker; Opera Hall Ballerina/Pop Star/Magician; Royal Library
+Detective; Craft Room Painter; Stuffie Playroom Doctor/Boxer; Bubble Bath
+Nursery; Mermaid Pool Astronaut; Family Dining Room Farmer; and Movie Lounge
+Racer. `scripts/opera_lobby_2d.gd` is deleted. The Opera Hall guide can activate
+only its current visible room card; stale or direct tuples are revalidated and
+cannot become a hidden all-career backdoor. Every launched activity restores
+the exact room, room music, HUD, player, and touch state that owned it.
+
+The probe contract also fixes the layer stack: career 10, Opera ambient 11,
+HUD/caption 12, Opera pause 13, Castle 14, Castle ambient 15, Castle pause 16,
+with the shared pause sheet/fade at 29/30. Stable live mask `0xBDEF`, permanent
+tombstones 4/9/14, first-win/replay rewards, passive rejection, pause, close,
+teardown, and re-entry remain green.
+
+This evidence moves `MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`; it does not
+close it. The 22 renders are diagnostic, and the nine route captures reveal a
+residual P2 composition defect: the 154×154 lower-center choice cards do not
+collide with controls, but they obscure Roshan's lower body/tail. Exact-head
+remote, matching APK, device, child comprehension/navigation, owner review,
+exact-voice closure, and accepted visual evidence are still required.
 
 ### 4.3 Archive and resource-retirement evidence
 
@@ -783,7 +839,7 @@ warning: fresh Godot probe unavailable (fresh runtime response contains no
 rendered capture outputs); runtime checks will report COVERAGE_GAP
 ```
 
-The historical `f3b0de07` local merge-integration audit and current commit
+The historical `f3b0de07` local merge-integration audit and predecessor commit
 `e2c25878` reproduce the same state totals: **16 FAIL, 17 REVIEW_OPEN, two
 MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE**. The unchanged
 totals are not evidence that either commit is visually accepted; they are an
@@ -796,6 +852,12 @@ Commit `e2c25878` additionally rendered and visually inspected seventeen
 They are useful diagnostic/review evidence only: they do not change the global
 16/17/2/86/32/94 totals and do not grant device, child, owner, identity/style,
 or authoritative visual acceptance.
+
+Current commit `09e5e356` retains those unchanged global
+**16/17/2/86/32/94** totals and adds twenty-two 1280×720 diagnostic captures:
+nine exact Castle room routes and thirteen career stages. They remain
+non-authoritative and expose residual P2 lower-body/tail occlusion from the
+route cards; they do not grant visual acceptance.
 
 Commits `3b7a7e66` and `fea916a8` are the approved current visual-evidence
 contract. They require a same-process random 256-bit one-use challenge, exact
@@ -845,8 +907,9 @@ explicitly unimplemented coverage gaps.
   resources remain medium debt under `MA-2D-002`, but no source-UID defect is
   inferred from that local cache.
 - Strict GAME2D at historical full checkpoint `f3b0de07` was run and failed as
-  required; current commit `e2c25878` remains `UNSATISFIED`, and no zero-debt
-  result or full-suite result at `af4189a9` is claimed.
+  required; predecessor commit `e2c25878` and current commit `09e5e356` remain
+  `UNSATISFIED`, and no zero-debt result or full-suite result at `af4189a9` is
+  claimed.
 - No complete live visual-runtime capture matrix is claimed; fresh-runtime
   strict produced no accepted Canvas captures and failed closed. The five
   green remote capture/upload pairs are diagnostic and cannot fill this gate.
@@ -896,10 +959,10 @@ contains every mandatory field. No abbreviated row is closure evidence.
 | `MA-OPERA-009` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Boxer now has a full-stage five-phase two-glove specialist with optional multitouch, sequential one-finger completion, no health/loss, passive rejection, touch-owner cleanup, and stable existing save bit. A newer Boxer V2 document exists only on an unmerged docs branch and is not current runtime authority | Two-aspect and target-device touch/performance review, child comprehension, and owner visual acceptance; separately review the V2 proposal before any authority or implementation change |
 | `MA-OPERA-010` | P1 | `FIXED_PENDING_VERIFICATION` | V3 full local plus exact-head remote | Commit `e2c25878` uses one Canvas lifecycle for ordinary unforced and display entry and contains no external-kart route. Exact focused coverage, the full local Godot 4.7.1 startup/Racer/idle/passive/close/suspend/reward/teardown/re-entry gate, and exact-head run `31661887863` at `e0677ae4` are green | Pass authoritative Mobile/device/child/owner acceptance before closure; rollback is recorded under `CHG-026` |
 | `MA-OPERA-011` | P1 | `FIXED_PENDING_VERIFICATION` | V3 full local plus exact-head remote | Commit `e2c25878` removes all three owner-cut bosses from cards, gates, completion, voices/music routes, and runtime. Slots 4/9/14 remain raw-preserving tombstones (`0x4210`), live mask/completion is `0xBDEF`, effective progress is 0–13, and focused/full-local/exact-head migration/reward/passive/suspend/leave/re-entry evidence is green | Pass authoritative visual/device/child/owner gates before closure; rollback is recorded under `CHG-026` |
-| `MA-OPERA-012` | P1 | `CONFIRMED_OPEN` | V1/V4 diagnostic | Direct owner direction distributes thirteen careers through thematic Castle rooms and makes Opera Hall one venue. Current source still opens a three-page Canvas picker for every live career, although the three retired boss cards and gates are gone. Seventeen 1280×720 Mobile renders confirm this transitional menu remains the final-facing hub; they do not grant acceptance | Add one truthful room-owned entry per career, preserve each existing career activity/star identity, reduce Opera Hall promotion to Ballerina/Pop Star/Magician, remove the central floor/page information architecture, prove every room route/back/re-entry/save/passive path, and complete phone/child navigation evidence |
+| `MA-OPERA-012` | P1 | `FIXED_PENDING_VERIFICATION` | V3 full local plus V4 diagnostic; current remote/external open | Commit `09e5e356` distributes all thirteen careers through exact thematic Castle rooms, selects Movie Lounge as Racer's sole home, deletes the all-career lobby with no hidden backdoor, preserves stable sparse save bits/rewards, restores the exact launching room, and fixes Canvas layers. Exact focused probes and the full 1463.4-second/64-probe local suite are green. Twenty-two 1280×720 captures are diagnostic; all nine room captures show a residual P2 lower-body/tail occlusion from the lower-center cards | Run exact-head remote and build the matching APK; complete phone/M11, child navigation/comprehension, owner, exact-voice, and accepted-visual gates; adjust route-card composition without weakening target size or reintroducing the hub |
 | `MA-PERF-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current target-device frame-time, hitch, memory, thermal, or latency matrix | U0 device matrix at exact release candidate meets design thresholds |
 | `MA-CHILD-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current observed five-minute child golden-path record | Private/safe observed session meets section 12 |
-| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 latest full-local and exact-head remote green; release acceptance open | Historical merge `f3b0de07` exits exact local Godot 4.7.1 CI after 1437.1 seconds with all 64 trusted probes; failed `31648427712` and successful repair run `31649113587` preserve the newline-hash history. Product/audit commit `e2c25878` completes full local CI in 1428.6 seconds under exact official Godot with all 64 probes, GAME2D 509/66/74 and 93 visual-contract units green. Current exact-head run `31661887863` succeeds at full SHA `e0677ae4`: Ubuntu completes all 63 trusted probes and surrounding gates in 33m8s; Windows completes deterministic music 42/42 in 6m52s. The five diagnostic capture/upload pairs grant no visual acceptance | Require a matching APK and target-device matrix at the eventual release candidate, plus the still-open child, owner, authoritative visual, human listening, strict-2D, and clean re-audit gates |
+| `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 latest full-local green; current exact-head remote and release acceptance open | Historical merge `f3b0de07` exits exact local Godot 4.7.1 CI after 1437.1 seconds with all 64 trusted probes; failed `31648427712` and successful repair run `31649113587` preserve the newline-hash history. Predecessor Opera commit `e2c25878` completes full local CI in 1428.6 seconds and run `31661887863` succeeds at integrated SHA `e0677ae4`. Current product/audit commit `09e5e356` completes full local CI in 1463.4 seconds under exact official Godot with all 64 probes and 22 diagnostic captures. No exact-head remote run or matching APK exists for `09e5e356` | Require current exact-head remote, matching APK, target-device matrix, child, owner, authoritative visual, exact-voice/human-listening, strict-2D, and clean re-audit gates |
 
 ### 5.2 P2/P3 and owner-decision indexed items
 
@@ -908,7 +971,7 @@ contains every mandatory field. No abbreviated row is closure evidence.
 | `MA-VIS-004` | P2 | `REPORTED_UNCONFIRMED` | V1; `COVERAGE_GAP` | Current source-average figure/ground values are Fairy 0.039 vs 0.040 and Lagoon about 0.004, but the metric does not measure the rendered local state and cannot confirm an art defect. Closure requires true state-local Canvas/HUD/viewport/device evidence, not recoloring approved art to satisfy the average |
 | `MA-ASSET-001` | P2 | `CONFIRMED_OPEN` | V1 | Current orphan PNG reports: Castle 9/15 at 2.1 MB, Galaxy 32/32 at 11.7 MB, Opera 453/548 at 166.5 MB, Lagoon 48/90 at 41.9 MB |
 | `MA-ASSET-004` | P2 | `CONFIRMED_OPEN` | V1 | Lagoon has 10/41 NPOT textures, about 11.6 MB uncompressed residency cost |
-| `MA-CI-002` | P2 | `VERIFIED_FIXED` | V3 current local/remote parity and execution | Current blocking-loop parity is 64 local names versus 63 remote names, with display-only `probe_human_art_audit` the intended difference; default and stress checks are green. Historical exact-head runs remain recorded. Product/audit commit `e2c25878` is the latest completed full-local checkpoint and executes all 64 locally in 1428.6 seconds under exact official Godot. Run `31661887863` executes exactly 63 trusted headings successfully at integrated SHA `e0677ae4`, including `OPERA`, `OPERA2D`, and `OPERA_DIEGETIC_PATHS` (2247 checks/13 careers/64 stations/53 phases/48 spurs) |
+| `MA-CI-002` | P2 | `VERIFIED_FIXED` | V3 current local parity and predecessor remote execution | Current blocking-loop parity is 64 local names versus 63 remote names, with display-only `probe_human_art_audit` the intended difference; default and stress checks are green. Current product/audit commit `09e5e356` is the latest completed full-local checkpoint and executes all 64 locally in 1463.4 seconds under exact official Godot. Run `31661887863` executes exactly 63 trusted headings successfully at predecessor integrated SHA `e0677ae4`; current-head remote execution remains open but does not undo the verified roster/parity contract |
 | `MA-CI-003` | P2 | `CONFIRMED_OPEN` | V1 | All 106 probe scripts still need exactly one trusted/runtime-visual/advisory/diagnostic/obsolete/quarantined classification |
 | `MA-ROSHAN-003` | P2 | `DEFERRED_WITH_REASON` | V1/V3 reported | Atlas repacking is an optimization; current owned-pixel windows and engine sampling probes are green |
 | `MA-ROSHAN-004` | P2 | `DISMISSED_NOT_A_DEFECT` | V1 | Universal 2D costume layers are optional future design, not a missing required feature |
@@ -918,9 +981,9 @@ contains every mandatory field. No abbreviated row is closure evidence.
 | `MA-OPERA-005` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | The old Ballerina art/mechanic is superseded by the accepted 1024×1024 4×4 mermaid atlas and dedicated three-act full-stage recital; focused, last-full-local, and exact-head remote gates are green. Closure still requires accepted two-aspect capture, M11/child play, and owner identity/style acceptance; the remote diagnostic captures do not fill that evidence |
 | `MA-OPERA-006` | P2 | `CONFIRMED_OPEN` | V1/V3 partial | Nursery, Farmer, and Racer received material art-fiction repairs, but the grouped historical claim must be split and re-audited; remaining protected-voice mismatches stay open rather than being inferred fixed |
 | `MA-OPERA-007` | P2 | `OWNER_DECISION_REQUIRED` | V1 | Farmer/Doctor above-water setting differs from the other Opera backdrops |
-| `MA-AUDIO-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | Forty-two unique deterministic area cues have complete score/render hashes, 48 kHz stereo OGG delivery, loop/import metadata, loudness/peak/seam measurements, routing ownership, and focused audio/full-branch evidence. The pinned Windows jobs in failed run `31648427712` and successful repair run `31649113587` preserve the historical 42/42 record; current exact-head run `31661887863` also succeeds and ends `MUSIC|check 42/42|picture_xmas` in 6m52s. None fills the human style/two-wrap, voice-over intelligibility/ducking, mono fold-down, music-off transition, or Lenovo Tab M11 start/loop/performance gates |
-| `MA-CHANGE-001` | P2 | `VERIFIED_FIXED` | V2/V3 process evidence | Twenty-six stable records, `CHG-001` through `CHG-026`, now cover 71 unique catalog-owned commit references, including the current reconciliation merge, focused `af4189a9` CI repair under `CHG-015`, human scorecard snapshot `a3d7580c` under `CHG-025`, and exact Opera retirement/lifecycle commit `e2c25878` under `CHG-026`. Every record names paths, benefit, plausible harm, dependencies, evidence, gates, and rollback class. The planner imports no Git/filesystem mutation API; only CHG-020/021/022/024 can emit guarded stdout scripts, while the other 22 refuse automation. Twenty unit tests, exact ledger/catalog source parity, clean non-mutation CLI replay, Git-history checks, GAME2D no-regression, and independent adversarial approval are green. Future material changes must append under the stable ID or add the next ID; drift reopens this finding. |
-| `MA-CODE-001` | P2 | `CONFIRMED_OPEN` | V1 | `main.gd` is 8,519 lines against the extraction-only <2,500 target |
+| `MA-AUDIO-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | Forty-two unique deterministic area cues have complete score/render hashes, 48 kHz stereo OGG delivery, loop/import metadata, loudness/peak/seam measurements, routing ownership, and focused audio/full-branch evidence. The pinned Windows jobs in failed run `31648427712` and successful repair run `31649113587` preserve the historical 42/42 record; last completed exact-head run `31661887863` also succeeds at predecessor SHA `e0677ae4` and ends `MUSIC|check 42/42|picture_xmas` in 6m52s. Current `09e5e356` remote and human style/two-wrap, voice-over intelligibility/ducking, mono fold-down, music-off transition, and Lenovo Tab M11 start/loop/performance gates remain open |
+| `MA-CHANGE-001` | P2 | `VERIFIED_FIXED` | V2/V3 process evidence | Twenty-seven stable records, `CHG-001` through `CHG-027`, cover 72 unique catalog-owned commit references, including exact Opera distribution commit `09e5e356` under `CHG-027`. Every record names paths, benefit, plausible harm, dependencies, evidence, gates, and rollback class. The planner imports no Git/filesystem mutation API; only CHG-020/021/022/024 can emit guarded stdout scripts, while the other 23 refuse automation. Twenty-one unit tests, exact ledger/catalog source parity, clean non-mutation CLI replay, Git-history checks, GAME2D no-regression, and independent adversarial approval are green. Future material changes must append under the stable ID or add the next ID; drift reopens this finding. |
+| `MA-CODE-001` | P2 | `CONFIRMED_OPEN` | V1 | `main.gd` is 8,647 lines at current `09e5e356` against the extraction-only <2,500 target |
 | `MA-CODE-002` | P2 | `CONFIRMED_OPEN` | V1 | String state, duplicated input, save frequency, material churn, and remaining 3D glue are structural risks |
 
 ### 5.3 Resolved indexed items retained for anti-regression history
@@ -993,11 +1056,12 @@ source, fallback, rollback target, or claim that reachable 3D debt is retired.
 | `EV-CI-003` | `MA-CI-002`, `MA-RELEASE-001` | Integrate new Opera/art/music gates into both blocking environments | Integration commit `ad36ee9f`; local loop 63, remote headless loop 62, display-only human-art probe is the sole intended difference, and default/stress parity checks are green. The local full gate exits zero after 826.4 seconds with all 63. First exact-head execution `31455723446` at `57bc08d1` exposed the cross-platform Opera PNG compression defect later repaired by `EV-CI-004`; final replacement evidence is `EV-CI-005`. |
 | `EV-CI-004` | `MA-RELEASE-001`, `MA-CHANGE-001` | Diagnose and constrain the remote-only Opera generated-art false rejection | Repair commit `fe10ffd2`; GitHub run `31456633826` proves `CHECK OK: 39` on Linux. Focused mutations permit only recompression of an identical PNG scanline stream; CRC-checked structure, all other chunks, mode, dimensions, pixels, semantic text, and checked-in delivery-byte provenance remain strict. Eight focused gate tests plus 14 rollback tests are green. |
 | `EV-CI-005` | `MA-RELEASE-001`, `MA-CI-002`, `MA-AUDIO-001` | Keep deterministic music verification blocking without misrepresenting its render environment | Repair commit `dacef140`; run `31457593351` succeeds on the exact SHA with two required jobs. The pinned `windows-2025` job uses `actions/setup-python` commit `5fda3b95`, Python 3.13.14, NumPy 2.5.1, SciPy 1.18.0, and the existing SHA-256-pinned FFmpeg 8.1.2 installer, exactly matching the manifest's recorded render dependencies, and reports all 42 deliveries green. The Ubuntu job independently passes Opera 39/39, GAME2D 509/68/77 `NO_REGRESSION`/`UNSATISFIED`, all 62 headless trusted probes and boot; five diagnostic capture/upload pairs also complete successfully without being promoted to blocking or accepted visual evidence. Parity now fails with `PRB007` if either local or remote music verifier disappears. |
-| `EV-CI-006` | `MA-RELEASE-001`, `MA-2D-002`, `MA-OPERA-010` | Reconcile the audit history with the newer development runtime without overstating closure | Merge `f3b0de07` (parents `ea6185fd` and `5f58ef0a`); exact Godot 4.7.1 local `scripts/ci.sh` exits 0 after 1437.1 seconds with 64 trusted probes, GAME2D 74 unit tests plus 14 falsification controls, 509 models/509 active, 157 tracked plus 352 generated sidecars, 68 production/77 probe/one scene/one config, and all then-current static/Opera provenance gates green. It was the committed full-local checkpoint for that reconciliation; current commit `e2c25878` supplies the later 66/74 full-local result. `EV-CI-008` supplies exact-head remote evidence for `af4189a9` only; APK/device/child/owner/listening/strict-2D/authoritative visual evidence remains open. |
+| `EV-CI-006` | `MA-RELEASE-001`, `MA-2D-002`, `MA-OPERA-010` | Reconcile the audit history with the newer development runtime without overstating closure | Merge `f3b0de07` (parents `ea6185fd` and `5f58ef0a`); exact Godot 4.7.1 local `scripts/ci.sh` exits 0 after 1437.1 seconds with 64 trusted probes, GAME2D 74 unit tests plus 14 falsification controls, 509 models/509 active, 157 tracked plus 352 generated sidecars, 68 production/77 probe/one scene/one config, and all then-current static/Opera provenance gates green. It was the committed full-local checkpoint for that reconciliation; later commit `e2c25878` supplies the 66/74 predecessor full-local result and current `09e5e356` retains that inventory while adding distribution evidence. `EV-CI-008` supplies exact-head remote evidence for `af4189a9` only; APK/device/child/owner/listening/strict-2D/authoritative visual evidence remains open. |
 | `EV-CI-007` | `MA-RELEASE-001`, `MA-CI-002`, `MA-AUDIO-001`, `MA-CHANGE-001` | Diagnose and narrowly repair the current cross-platform Opera provenance failure without weakening binary integrity | Exact-head run `31648427712` at `bbc817ef`: the pinned Windows area-music job succeeds 42/42; Ubuntu fails only in the static Opera-art gate because generated provenance held the raw CRLF checkout hash of declared text input `assets_src/imagegen/opera_candymaker_syrup_2026-08-10/GENERATION.json` while Linux read LF, so import/analyzer/63 probes never run. Repair `af4189a9` canonicalizes LF only for that declared text source, keeps every binary hash byte-exact, refreshes provenance, and passes 10 focused tests plus Windows and LF-clean Opera checks at 42/42. The failed run remains failed; `EV-CI-008` records its successful replacement. Full local CI at `af4189a9` remains unclaimed. |
 | `EV-CI-008` | `MA-RELEASE-001`, `MA-CI-002`, `MA-AUDIO-001` | Verify the newline-stable repair at the exact remote head without promoting diagnostics into acceptance | GitHub run `31649113587` succeeds at exact `af4189a9`. The Ubuntu probes job completes in 35m27s: static gates, import, full analyzer, all current 63 remote trusted probes, boot, Dust/Opera advisory balance, Opera manifest, and five diagnostic capture/upload pairs are green. The pinned Windows job completes in 3m55s with music 42/42. This closes exact-head remote CI only; the captures remain diagnostic, and APK/device/child/owner/listening/strict-2D/authoritative visual/full-local-at-`af4189a9` evidence remains open. |
-| `EV-CI-009` | `MA-RELEASE-001`, `MA-CI-002`, `MA-AUDIO-001`, `MA-OPERA-010`, `MA-OPERA-011` | Verify the integrated Opera retirement/lifecycle audit head without promoting diagnostics into acceptance | GitHub run `31661887863` succeeds at exact SHA `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`. Ubuntu succeeds in 33m8s after checkout/checksum, exact Godot, static gates, import, full analyzer, exactly 63 trusted probe headings, boot, Dust/Opera advisories, Opera manifest, and five diagnostic capture/upload pairs. `OPERA`, `OPERA2D`, Nursery, and Detective are green; `OPERA_DIEGETIC_PATHS` reports 2247 checks/13 careers/64 stations/53 phases/48 spurs. Remote GAME2D is exact 509/66/74 `NO_REGRESSION`/`UNSATISFIED`. Windows succeeds in 6m52s with terminal line `MUSIC|check 42/42|picture_xmas`. This closes current exact-head machine verification only; the capture pairs are non-authoritative, and APK/device/child/owner/human-listening/strict-2D/authoritative visual evidence remains open. |
-| `EV-CHANGE-001` | `MA-CHANGE-001` | Make the large audit program reviewable and reversions granular | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`, `tools/plan_audit_rollback.py`, and 20 unit tests; CHG-001–026 cover 71 unique catalog-owned commit references, only CHG-020/021/022/024 emit guarded stdout scripts, all other groups refuse automation, CLI execution leaves Git status byte-identical, and independent adversarial review approves the catalog/history/safety contract |
+| `EV-CI-009` | `MA-RELEASE-001`, `MA-CI-002`, `MA-AUDIO-001`, `MA-OPERA-010`, `MA-OPERA-011` | Verify the integrated Opera retirement/lifecycle predecessor head without promoting diagnostics into acceptance | GitHub run `31661887863` succeeds at exact SHA `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`. Ubuntu succeeds in 33m8s after checkout/checksum, exact Godot, static gates, import, full analyzer, exactly 63 trusted probe headings, boot, Dust/Opera advisories, Opera manifest, and five diagnostic capture/upload pairs. `OPERA`, `OPERA2D`, Nursery, and Detective are green; `OPERA_DIEGETIC_PATHS` reports 2247 checks/13 careers/64 stations/53 phases/48 spurs. Remote GAME2D is exact 509/66/74 `NO_REGRESSION`/`UNSATISFIED`. Windows succeeds in 6m52s with terminal line `MUSIC|check 42/42|picture_xmas`. This closes exact-head machine verification for that predecessor only; the capture pairs are non-authoritative, and current `09e5e356` exact-head/APK plus device/child/owner/human-listening/strict-2D/authoritative visual evidence remains open. |
+| `EV-CI-010` | `MA-RELEASE-001`, `MA-CI-002`, `MA-OPERA-010`, `MA-OPERA-011`, `MA-OPERA-012` | Verify the current Castle-room distribution locally without promoting diagnostic renders into acceptance | Commit `09e5e35665fd8d1bd782693e10fc0198f756d2c8` completes exact official Godot 4.7.1 `scripts/ci.sh` in 1463.4 seconds with all 64 trusted local probes green. Focused probes cover all 13 exact room mappings, Movie Lounge Racer, no all-career lobby/backdoor, exact-room return, sparse save bits/rewards, pause/layer ownership, teardown and re-entry. Twenty-two 1280×720 renders (9 routes + 13 careers) are diagnostic; route cards obscure the lower body/tail. Current exact-head remote/APK, device, child, owner, exact voice, and accepted visual evidence remain open. |
+| `EV-CHANGE-001` | `MA-CHANGE-001` | Make the large audit program reviewable and reversions granular | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`, `tools/plan_audit_rollback.py`, and 21 unit tests; CHG-001–027 cover 72 unique catalog-owned commit references, only CHG-020/021/022/024 emit guarded stdout scripts, all other 23 groups refuse automation, CLI execution leaves Git status byte-identical, and independent adversarial review approves the catalog/history/safety contract |
 | `EV-AUDIO-001` | `MA-AUDIO-001` | Compose, render, route, and deterministically verify every newly authored area cue | `0da07e24`, `27c2c95d`, and current integration; 42/42 scores and OGGs have unique hashes, loop/import metadata, measured codec/loudness/peak/seam evidence, routing probes, license entries, and exact build checks. Human listening, mono, voice mix, and M11 evidence remain open. |
 | `EV-PLAY-003` | `MA-PLAY-001` | Visible, voiced Lagoon→Reef route and Pause fallback | `986010c0`; focused/re-entry/sibling probes |
 | `EV-PLAY-004` | `MA-PLAY-001` | Exercise the default Hybrid Lagoon portal through the actual explicit interaction route | `e6e56f8b`; proves proximity alone does not enter, selects enabled `reef:lagoon`, activates it through the touch-interactable path, and keeps Classic/no-touch proximity behavior green |
@@ -1039,15 +1103,15 @@ full release pass or a complete record for a broader indexed item.
 | 3D Opera outfits/rivals, 3D companion bodies, or Curve3D/Spline3 presentation prescriptions | `SUPERSEDED` | Preserve accepted gameplay goals during tested 2D conversion; this does not preserve the separately cut Opera boss acts |
 | Curtain Dragon, Shadow Phantom, or Midnight Maestro as reachable Opera bosses, floor gates, finale cards, or required completion stars | `DISMISSED_NOT_IN_PROJECT`; runtime removal is machine-verified and external acceptance remains pending | Owner ruling `3d1236fe` cuts all three. Commit `e2c25878` removes their engine/UI/gates, preserves stable save bits 4/9/14 as raw tombstones, and passes focused/full-local/exact-head evidence; `MA-OPERA-011` remains `FIXED_PENDING_VERIFICATION` for authoritative visual/device/child/owner acceptance, while existing art remains unused historical/reuse material |
 | No boss fights anywhere after the three Opera bosses are cut | `SUPERSEDED` | `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` section 17 / `ef2fd982` keeps boss fights only where Ember-aligned henchmen earn a narrative role; it does not restore the three Opera bosses or their save bits |
-| One three-floor Opera picker as the final hub for all thirteen careers | `SUPERSEDED`; current runtime is open product debt | Owner direction `7426c187` distributes the jobs through thematic Castle rooms. Opera Hall is one venue for Ballerina, Pop Star, and Magician; the current Canvas picker is transitional under `MA-OPERA-012`, not approved merely because it is 2D |
+| One three-floor Opera picker as the final hub for all thirteen careers | `SUPERSEDED`; removed from current runtime | Owner direction `7426c187` distributes the jobs through thematic Castle rooms. Commit `09e5e356` implements that mapping, resolves Racer to Movie Lounge, deletes the picker, and guards against a hidden backdoor. `MA-OPERA-012` remains `FIXED_PENDING_VERIFICATION`, not closed, until remote and external acceptance complete |
 | Device-only real-3D Opera kart with a headless/probe Canvas bypass | `SUPERSEDED` as design authority; source removal is machine-verified and external acceptance remains pending | Final authority requires one true-Canvas implementation. Commit `e2c25878` removes the exact `f3b0de07` ordinary-headless legacy route, and focused/full-local/exact-head evidence exercises one Canvas path; `MA-OPERA-010` remains `FIXED_PENDING_VERIFICATION`, while kart/3D debt outside Opera remains separate `MA-2D-002` work |
 | `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md`'s 52-phase total and its old Ballerina, generic Boxer, and nested-kart Racer descriptions | `SUPERSEDED` in those scopes | Current shipping table is 13 careers/53 phases/27 modes; latest Ballerina, Boxer, and Canvas Racer authorities control while non-conflicting prop provenance/repairs remain supporting evidence |
 | `OPERA_QUALITY_OVERHAUL_2026-08-09.md`'s 52-phase/19-mode/single-`bop` snapshot and requirement to loop every Ballerina row chronologically | `SUPERSEDED` in those scopes | Current Opera has 53 phases/27 modes/no generic `bop`; Ballerina frames are held pose keys because adjacent silhouette jumps are 41.6–47.3%, with only a one-shot curtain call |
 | Earlier Ballerina atlas attempts, generic PHRASE/POSE/RIBBON/TWIRL route, or any leg/feet-like candidate | `SUPERSEDED` | `BALLERINA_PARTY_REBUILD_2026-08-09.md` and accepted generation `exec-a4dfa550-5374-43b6-a5e0-16a9d3d4b81c.png` control; prior leg/feet-like candidates remain rejected evidence, and the runtime atlas remains a one-tail mermaid at exact hash `c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995` |
 | Boxer manifest's retained `opera_boxer_outfit.glb`, `opera_boxer_dressing.glb`, and `opera_rival_boxer.glb` as useful runtime resources | `SUPERSEDED` | The Canvas specialist does not require them; while active they remain exact GAME2D transition debt and must retire through the normal tested archive path |
 | Music audit's temporary retained `race` cue for an Opera nested kart | `SUPERSEDED` as final direction | The Canvas Racer stays under its Opera career music. Commit `e2c25878` removes the former legacy headless kart route; the old music recommendation does not regain authority |
-| Painter-purpose worktree / branch | `UNCOMMITTED_CANDIDATE` | Purpose-focused Painter runtime edits are not part of current product/audit commit `e2c25878`; review, rebase, audit, and commit independently before any authority or shipping claim |
-| Arborist career worktree / branch | `UNCOMMITTED_CANDIDATE` | Arborist art, surface, save, lobby, probe, and audit files are not part of current product/audit commit `e2c25878`; it is not a fourteenth current career or base model |
+| Painter-purpose worktree / branch | `UNCOMMITTED_CANDIDATE` | Purpose-focused Painter runtime edits are not part of current product/audit commit `09e5e356`; review, rebase, audit, and commit independently before any authority or shipping claim |
+| Arborist career worktree / branch | `UNCOMMITTED_CANDIDATE` | Arborist art, surface, save, lobby, probe, and audit files are not part of current product/audit commit `09e5e356`; it is not a fourteenth current career or base model |
 | Boxer V2 branch document | `DOCS_ONLY_CANDIDATE` | `design/BOXING_GAME_V2_2026-08-12.md` exists on a separate branch only; current authority remains the integrated five-phase Boxer until that proposal is independently reviewed and adopted |
 | Roshan 2D atlas repacking | `DEFERRED_WITH_REASON` | Optimization; current sampling contract is green |
 | Universal costume layers | `DISMISSED_NOT_A_DEFECT` | Optional feature, not audit closure work |
@@ -1211,28 +1275,28 @@ finding records; section 10 controls that designation.
 | `relationships` | Implements the owner decision that supersedes old Opera-boss authority; related to `MA-2D-002`, `MA-OPERA-010`, `MA-OPERA-012`, and `MA-PLAY-001`; Ember henchman proposals are separate new content, not replacements in these save slots |
 | `history` | 2026-08-02: `3d1236fe` records the owner cut and in-place bit retirement; `ef2fd982` clarifies that Ember-aligned boss fights do not restore the Opera bosses. 2026-08-12: reachable boss/gating/probe source at `41087f66` reproduced; commit `e2c25878` retires it, passes focused and full local exact-Godot evidence, is recorded under `CHG-026`, and moves to `FIXED_PENDING_VERIFICATION`; run `31661887863` later verifies exact integrated head `e0677ae4` without filling external acceptance |
 
-### MA-OPERA-012 — rejected all-career hub remains the final-facing route
+### MA-OPERA-012 — Castle-room career distribution implemented; external and visual verification pending
 
 | Field | Record |
 |---|---|
 | `id` | `MA-OPERA-012` |
-| `title` | All thirteen careers still enter through one three-floor Opera picker instead of their thematic Castle rooms |
+| `title` | All thirteen careers now enter through their exact thematic Castle rooms; closure evidence remains incomplete |
 | `rule_ids` | `DL-INT-12`, `DL-UI-01`, `DL-UI-03`, `DL-SAVE-04` |
 | `domain` / `zone` | Pearl Castle rooms, Opera Hall, career discovery, routing, and return lifecycle |
 | `source` | `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` section 10; owner-direction commit `7426c187c49d8153174c6a72e4ed5b97ed14387b`; sections 16–17 later remove the proposed Opera finale card without reversing room distribution |
 | `severity` | P1 |
-| `lifecycle` | `CONFIRMED_OPEN` |
-| `verification` | V1 current source plus V4 diagnostic review of seventeen 1280×720 Mobile captures; no authoritative acceptance |
-| `reproduction` | Enter the current Opera Hall/Opera route. `OperaLobby2D` presents three page/floor tabs and every live career card in 4/4/5 groups. The retired boss/finale cards are gone, but other Castle rooms still do not each promote their assigned career set; the Royal Kitchen's separate Chef-adjacent recipe cutaway is not the complete thirteen-career distribution |
-| `child_impact` | A non-reader chooses abstract floor/card position instead of discovering jobs in the rooms whose pictures and objects explain them; the Castle is bypassed as a learned home and return destination |
-| `evidence` | Current `scripts/opera_lobby_2d.gd` three-page 4/4/5 card arrays, `scripts/opera_house.gd` centralized 13-career picker, unchanged `scripts/arena/castle_rooms_25d.gd` room catalog/action routing, `scripts/main.gd` Opera return path, and seventeen inspected diagnostic Mobile renders; owner commit `7426c187` |
-| `owner_decision` | Distribute all thirteen careers through thematic Castle rooms. Opera Hall is one venue, promoting Ballerina, Pop Star, and Magician only. Royal Kitchen promotes Chef/Candymaker; Library Detective; Craft Room Painter; Stuffie Playroom Doctor/Boxer; Bubble Bath Nursery; Mermaid Pool Astronaut; Dining Room Farmer; Racer belongs in one resolved Movie Lounge-or-Courtyard home. The current three-floor picker is transitional, not final |
-| `fix` | Reuse the existing career activities and stable star identities behind room-owned picture hotspots; reduce the Opera Hall selection surface to its three performance careers; remove floor-order and cut-boss navigation. Resolve Racer's one home explicitly before implementation rather than duplicating it or retaining the central hub |
+| `lifecycle` | `FIXED_PENDING_VERIFICATION` |
+| `verification` | V3 full local plus V4 diagnostic: exact focused paths and `scripts/ci.sh` at `09e5e356` are green in 1463.4 seconds with all 64 trusted local probes; 22 Mobile renders were inspected. Current exact-head remote, V5, V6, and authoritative visual acceptance are absent |
+| `reproduction` | From each Castle room, activate its current career picture card, complete or cancel the activity, and return. Royal Kitchen exposes Chef/Candymaker; Opera Hall Ballerina/Pop Star/Magician; Royal Library Detective; Craft Room Painter; Stuffie Playroom Doctor/Boxer; Bubble Bath Nursery; Mermaid Pool Astronaut; Family Dining Room Farmer; Movie Lounge Racer. Each path returns to that exact room. No all-career lobby or direct off-room tuple is reachable |
+| `child_impact` | The primary P1 navigation defect is implemented: a non-reader can discover each job through the room that explains it. Residual P2 visual impact remains because the 154×154 lower-center cards obscure Roshan's lower body/tail in all nine room captures, and child comprehension has not yet been observed |
+| `evidence` | Commit `09e5e356`; `scripts/castle_career_routes.gd`; deletion of `scripts/opera_lobby_2d.gd`; guarded room-card ownership in `scripts/main.gd`, `scripts/opera_house.gd`, and Castle routing; exact focused probes; full local 1463.4-second/64-probe gate; nine route plus thirteen career diagnostic captures |
+| `owner_decision` | Distribute all thirteen careers through thematic Castle rooms. Opera Hall promotes only Ballerina, Pop Star, and Magician. Royal Kitchen promotes Chef/Candymaker; Library Detective; Craft Room Painter; Stuffie Playroom Doctor/Boxer; Bubble Bath Nursery; Mermaid Pool Astronaut; Dining Room Farmer. Movie Lounge is the resolved sole home for Racer |
+| `fix` | Implemented at `09e5e356`: the shared route registry assigns one exact owner room per career; existing activities and sparse save bits remain stable; the all-career lobby is deleted; off-room/hidden routes are rejected; exact launching-room state, music, HUD, player, and touch ownership are restored; career/ambient/HUD/pause/Castle layers are explicit |
 | `surrounding_tests` | One canonical hotspot per career, all thirteen routes, wrong/idle/passive input, room close/back/re-entry, activity cancel/finish return to the launching room, save/load and existing stars, no duplicate rewards, no hidden central all-career route, Opera Hall exactly three promotions, smallest-phone target sizes, fresh-save no-debug reachability |
-| `acceptance` | V3 proves every assigned room route and stable save/reward lifecycle under exact Godot 4.7.1 with full trusted gates; V4 proves picture-first layouts and return states at supported aspects; V5/V6 confirm target-device touch/readability and child discovery without reading or adult route instructions |
-| `closure` | Open. Commit `e2c25878` removes cut-boss navigation but deliberately does not distribute careers through Castle rooms. The 17 captures confirm the transitional hub and grant no device/child/owner acceptance |
+| `acceptance` | Current exact-head remote and matching APK succeed; V4 accepted review confirms legible routes without lower-body/tail occlusion; V5/V6 confirm phone/M11 touch/readability and child discovery without reading or adult route instructions; owner and exact-voice gates complete |
+| `closure` | Not closed. Local implementation/runtime evidence is green, but no exact-head remote run or matching APK exists for `09e5e356`; device, child, owner, exact-voice, and accepted visual evidence remain open, and the residual P2 route-card composition needs correction |
 | `relationships` | Related to `MA-OPERA-011`, `MA-PLAY-001`, `MA-VIS-006`, and Castle `MA-2D-002` conversion; it preserves current career mechanics rather than superseding the specialist findings |
-| `history` | 2026-08-02: `7426c187` records the owner room-distribution direction. 2026-08-12: central-picker source reproduced and assigned this stable ID; current boss-retirement repair removes finale cards but leaves the all-career hub, so lifecycle remains `CONFIRMED_OPEN` |
+| `history` | 2026-08-02: `7426c187` records the owner room-distribution direction. 2026-08-12: central-picker source reproduced and assigned this stable ID. Commit `e2c25878` removes finale cards but leaves the all-career hub. Commit `09e5e356` then implements all thirteen exact room routes, resolves Racer to Movie Lounge, deletes the lobby, preserves save/reward identity, fixes return/layers, and passes focused plus full-local evidence; lifecycle moves to `FIXED_PENDING_VERIFICATION` while remote/external/visual gates remain open |
 
 ### MA-AUDIO-001 — deterministic area-music rollout
 
@@ -1448,12 +1512,14 @@ exact commit. This is the operational checklist for `DL-QA-09` and
       remains a failed run. Replacement `31649113587` succeeds at exact
       `af4189a9` with both required jobs, all 63 remote trusted probes, boot,
       and deterministic music 42/42 green. No full local suite at `af4189a9`
-      itself is claimed. Current Opera commit `e2c25878` separately completes
-      full local `scripts/ci.sh` under exact official Godot with exit 0 after
-      1428.6 seconds and all 64 trusted probes green. Run `31661887863`
-      succeeds at exact integrated SHA `e0677ae4` with all 63 remote probes and
-      deterministic music 42/42 green. This full matrix must repeat at the eventual
-      release candidate, so release satisfaction remains unchecked.
+      itself is claimed. Predecessor Opera commit `e2c25878` separately
+      completes full local `scripts/ci.sh` under exact official Godot with exit
+      0 after 1428.6 seconds; run `31661887863` succeeds at integrated SHA
+      `e0677ae4` with all 63 remote probes and deterministic music 42/42 green.
+      Current distribution commit `09e5e356` completes the full local suite in
+      1463.4 seconds with all 64 trusted probes green, but its exact-head remote
+      run remains open. This full matrix must repeat at the eventual release
+      candidate, so release satisfaction remains unchecked.
 - [ ] Full runtime capture covers every activity at 1280×720 and a representative
       wide-phone aspect ratio.
 - [ ] Target phone and M11 meet P95 ≤33.3 ms, P99 ≤50 ms, no normal-path hitch
@@ -1483,16 +1549,17 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 3. Implement live fresh-runtime Canvas adapters, beginning with converted
    surfaces and then Fairy/Lagoon; keep every missing capture as a gap.
 4. Preserve the verified current Ballerina, Boxer, Candymaker, and 42-cue
-   machine evidence, the green `e2c25878` full-local gate, and exact-head run
-   `31661887863`. Finish external verification of the
-   focused `MA-OPERA-010`/`011` repair: keep one Canvas lifecycle, no external
+   machine evidence, predecessor exact-head run `31661887863`, and the green
+   current `09e5e356` 1463.4-second full-local gate. Finish exact-head remote and
+   external verification of the focused `MA-OPERA-010`/`011`/`012` repair: keep
+   one Canvas lifecycle, no external
    Opera kart/boss engine, raw-preserving save tombstones 4/9/14, and live mask
    `0xBDEF`. Do not change the sealed Castle Kitchen caller without renewed
-   owner visual approval; its current Chef config is valid/probed. Then
-   distribute the thirteen retained career activities through the Castle
-   rooms under `MA-OPERA-012`, with Opera Hall promoting only Ballerina, Pop
-   Star, and Magician rather than remaining the all-career hub. Repair remaining
-   Opera capture coverage and split the stale grouped Opera art claims.
+   owner visual approval; its current Chef config is valid/probed. Preserve the
+   implemented exact Castle-room distribution, Movie Lounge Racer, deleted
+   all-career lobby, and exact-room returns. Move/restage the route cards so they
+   do not obscure Roshan's lower body/tail, repair remaining Opera capture and
+   exact-voice coverage, and split the stale grouped Opera art claims.
    Continue with the confirmed Lagoon Canvas-layer defect. Confirm or dismiss
    palette risks only from current state-local evidence.
 5. Reconcile protected voice gaps, including Evie's exact Seek tap-tree cue,
@@ -1551,11 +1618,12 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-08-10 | focused `VERIFIED_FIXED` | Workflow/parity repair `dacef140` completes exact-head run `31457593351` successfully in 34m19s. The pinned Windows job verifies 42/42 deterministic music deliveries; Ubuntu passes static gates, import, analyzer, GAME2D 509/68/77 `NO_REGRESSION`/`UNSATISFIED`, all 62 trusted probes, boot, advisory balance, and all five capture/upload pairs. This closes the two CI integration defects only; release, strict-2D, visual, listening, device, child, and owner gates remain open. |
 | 2026-08-12 | focused `VERIFYING` | Merge `f3b0de07` reconciles newer `origin/dev` parent `ea6185fd` with audit parent `5f58ef0a`. Exact Godot 4.7.1 local `scripts/ci.sh` exits 0 after 1437.1 seconds with all 64 trusted probes and current static/provenance gates green. GAME2D has 74 unit tests plus 14 falsification controls and remains exact `NO_REGRESSION`/`UNSATISFIED` at 509 models/509 active, 157 tracked plus 352 generated sidecars, 68 production/77 probe/one scene/one config. Visual advisory remains `UNSATISFIED` at 16 FAIL/17 REVIEW_OPEN/2 MANUAL_OPEN/86 COVERAGE_GAP/32 PASS/94 NOT_APPLICABLE. This closes local merge integration only; exact-head remote/APK/device/child/owner/listening/strict-2D/authoritative visual evidence remains open. |
 | 2026-08-12 | `CONFIRMING` | Exact source review narrows `MA-OPERA-008` to its display/forced-2D Canvas cue/finale repair. Ordinary headless startup still selects a legacy Opera lobby and may attach `scripts/kart.gd`; new `MA-OPERA-010` keeps that lifecycle and `MA-2D-002` debt open instead of allowing forced-2D probes to certify it away. Current Candymaker is integrated; Painter purpose and Arborist are uncommitted candidates, and Boxer V2 is docs-only on a separate branch. |
-| 2026-08-12 | `CONFIRMING` | Binding owner directions in `7426c187`, `3d1236fe`, and section-17 clarification `ef2fd982` are restored to the central authority chain. `MA-OPERA-011` keeps the still-reachable but owner-cut Curtain Dragon/Shadow Phantom/Midnight Maestro, their gates, and their boss runtime open while requiring stable save slots 4/9/14 to become inert tombstones. `MA-OPERA-012` separately keeps the current three-floor all-career Canvas picker open as transitional/rejected final routing until all thirteen careers are distributed through Castle rooms and Opera Hall promotes only Ballerina/Pop Star/Magician. No runtime fix is claimed. |
+| 2026-08-12 | `CONFIRMING` | At this historical checkpoint, binding owner directions in `7426c187`, `3d1236fe`, and section-17 clarification `ef2fd982` are restored to the central authority chain. `MA-OPERA-011` keeps the then-reachable but owner-cut Curtain Dragon/Shadow Phantom/Midnight Maestro, their gates, and their boss runtime open while requiring stable save slots 4/9/14 to become inert tombstones. `MA-OPERA-012` separately keeps that checkpoint's three-floor all-career Canvas picker open as transitional/rejected final routing until all thirteen careers are distributed through Castle rooms and Opera Hall promotes only Ballerina/Pop Star/Magician. No runtime fix is claimed in this row; later rows record both repairs. |
 | 2026-08-12 | `REPAIRING` / focused `VERIFYING` | Exact-head run `31648427712` at `bbc817ef` passes the pinned Windows area-music job 42/42 but fails only the Ubuntu static Opera-art gate: generated provenance held the raw CRLF checkout hash of declared text `GENERATION.json`, while Linux read LF. Import, analyzer, probes, boot, and captures did not run. Repair `af4189a9` canonicalizes only that declared text hash to LF, leaves binary hashes byte-exact, refreshes provenance, and passes 10 focused tests plus Windows and LF-clean archive checks at 42/42. At this historical point, replacement exact-head remote and a full local suite at `af4189a9` had not run. |
 | 2026-08-12 | focused `VERIFIED_FIXED` | Replacement exact-head run `31649113587` succeeds at `af4189a9`. Ubuntu completes static checks, import, the full analyzer, all current 63 remote trusted probes, boot, Dust/Opera advisory balance, Opera manifest, and five diagnostic capture/upload pairs in 35m27s; pinned Windows music completes 42/42 in 3m55s. This closes exact-head remote CI only. The captures remain diagnostic; at this historical point `f3b0de07` was still the last full local checkpoint, and APK/device/child/owner/listening/strict-2D/authoritative visual gates remained open. |
 | 2026-08-12 | focused `VERIFYING` | Opera retirement/lifecycle commit `e2c25878` removes the ordinary-unforced legacy lobby/kart split and the three owner-cut boss routes while preserving the 16-slot raw save namespace, tombstones 4/9/14 (`0x4210`), live mask `0xBDEF`, and thirteen-career effective progress. Exact focused Godot 4.7.1 startup/all-career/Racer/idle/save/reward/pause/leave/teardown/re-entry and surrounding matrices are green. GAME2D is exact `NO_REGRESSION` at 509 models, 157+352 sidecars, 66 production, 74 probes, one scene, one config; all 74 unit tests and 14 stress controls pass. Seventeen 1280×720 Mobile renders were visually inspected as diagnostic/review evidence, leaving global visual 16/17/2/86/32/94 unchanged. `MA-OPERA-010`/`011` move to `FIXED_PENDING_VERIFICATION`; `MA-OPERA-012` remains P1 `CONFIRMED_OPEN`. The sealed Castle Kitchen caller was deliberately unchanged because current Chef config is valid/probed and any speculative caller hardening requires renewed owner visual approval. This row records the focused phase; the following rows record its full-local and exact-head verification. `CHG-026` records the exact 32-path commit and manual inverse. At this focused-only point, external verification remained pending. |
 | 2026-08-12 | focused `VERIFYING` | Opera commit `e2c25878` completes `scripts/ci.sh` with exit 0 after 1428.6 seconds under exact official Godot `4.7.1.stable.official.a13da4feb`: all 64 trusted local probes, 74 GAME2D unit tests, 14 stress controls, and 93 visual-contract unit tests are green. Castle interaction approval candidate `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9` covers 13 assets/104 frames in the machine/review ledger. The 17 V4 Mobile renders remain diagnostic/review evidence, not device/child/owner or authoritative visual acceptance. At this local-only point exact-head remote had not yet run; the following row records it. The global audit remains `UNSATISFIED`; `MA-OPERA-010`/`011` remain `FIXED_PENDING_VERIFICATION`; `MA-OPERA-012` remains P1 `CONFIRMED_OPEN`; `CHG-026` records the exact commit and manual inverse. |
-| 2026-08-12 | focused `VERIFYING` | GitHub run `31661887863` succeeds at exact integrated SHA `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`. Ubuntu succeeds in 33m8s through checkout/checksum, exact Godot, static/import/full analyzer, exactly 63 trusted probe headings, boot, Dust/Opera advisories, Opera manifest, and five diagnostic capture/upload pairs. `OPERA`, `OPERA2D`, Nursery, and Detective are green; `OPERA_DIEGETIC_PATHS` reports 2247 checks/13 careers/64 stations/53 phases/48 spurs. Remote GAME2D remains 509/66/74 exact `NO_REGRESSION`/`UNSATISFIED`. Windows succeeds in 6m52s and ends `MUSIC|check 42/42|picture_xmas`. This closes current exact-head machine verification only; the five pairs remain non-authoritative and APK/device/child/owner/human-listening/strict-2D/authoritative visual evidence remains open. `MA-OPERA-010`/`011` remain `FIXED_PENDING_VERIFICATION`; `MA-OPERA-012` remains P1 `CONFIRMED_OPEN`. |
+| 2026-08-12 | focused `VERIFYING` | GitHub run `31661887863` succeeds at exact integrated SHA `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`. Ubuntu succeeds in 33m8s through checkout/checksum, exact Godot, static/import/full analyzer, exactly 63 trusted probe headings, boot, Dust/Opera advisories, Opera manifest, and five diagnostic capture/upload pairs. `OPERA`, `OPERA2D`, Nursery, and Detective are green; `OPERA_DIEGETIC_PATHS` reports 2247 checks/13 careers/64 stations/53 phases/48 spurs. Remote GAME2D remains 509/66/74 exact `NO_REGRESSION`/`UNSATISFIED`. Windows succeeds in 6m52s and ends `MUSIC|check 42/42|picture_xmas`. This closes exact-head machine verification for that predecessor only; the five pairs remain non-authoritative and APK/device/child/owner/human-listening/strict-2D/authoritative visual evidence remains open. At this checkpoint `MA-OPERA-010`/`011` remain `FIXED_PENDING_VERIFICATION` and `MA-OPERA-012` remains P1 `CONFIRMED_OPEN`; the next row records its later implementation. |
+| 2026-08-12 | focused `VERIFYING` | Current runtime commit `09e5e35665fd8d1bd782693e10fc0198f756d2c8` implements all thirteen exact Castle-room career routes, selects Movie Lounge as Racer's sole home, deletes the three-floor all-career lobby, rejects hidden/off-room routes, restores each exact launching room, preserves sparse bits/tombstones/live mask/rewards, and fixes explicit career/ambient/HUD/pause/Castle layers. Exact focused probes and full local official-Godot CI are green; `scripts/ci.sh` exits 0 after 1463.4 seconds with all 64 trusted probes. Twenty-two 1280×720 renders (nine routes plus thirteen careers) are diagnostic only; lower-center cards obscure Roshan's lower body/tail in all nine route captures (residual P2). `MA-OPERA-012` moves to `FIXED_PENDING_VERIFICATION`, not verified. `CHG-027` records the exact commit and manual inverse. Current exact-head remote, matching APK, device, child navigation/comprehension, owner, exact-voice, accepted-visual, listening, and strict-2D gates remain open. |
 
 No later state is added without its required evidence.

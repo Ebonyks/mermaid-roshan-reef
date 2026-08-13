@@ -2,11 +2,12 @@
 
 _Original consolidation: 2026-08-02. Re-triaged against
 `audit/MASTER_AUDIT_2026-08-09.md` on 2026-08-09; synchronized through current
-product/audit commit `e2c25878f6b9c64526d0686c426a9f29c5f1b3da` on
+product/audit commit `09e5e35665fd8d1bd782693e10fc0198f756d2c8` on
 2026-08-12. Historical merge-integration checkpoint is `f3b0de07`; historical
 exact-head CI-repair checkpoint is `af4189a9`; latest completed full-local
-checkpoint is `e2c25878`; latest exact-head verification is
-`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`, run `31661887863`._
+checkpoint is `09e5e356`; latest completed exact-head verification belongs to
+predecessor `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`, run `31661887863`.
+Current-head remote and matching APK are open._
 
 This is a navigation and lifecycle crosswalk, not a bug dump and not a set of
 canonical finding records. The complete current index, evidence limits,
@@ -26,25 +27,30 @@ production 3D files, 74 probe 3D files, one scene, and one configuration and
 remains **`UNSATISFIED`**. Exact regression is `NO_REGRESSION`, all 14 stress
 controls pass, and strict remains open. The `f3b0de07` inventory had 315 tracked Markdown paths, 195
 GDScript files under `scripts/`, 106 probe scripts and an 8,519-line
+`scripts/main.gd`; current `09e5e356` retains 195/106 and has an 8,647-line
 `scripts/main.gd`. `NO_REGRESSION` is not completion. The overall master-audit
-cycle is `REPAIRING`. Product/audit commit `e2c25878` passes its exact focused
+cycle is `REPAIRING`. Product/audit commit `09e5e356` passes its exact focused
 matrix and a full local `scripts/ci.sh` run under official Godot
-`4.7.1.stable.official.a13da4feb`: exit 0 after 1428.6 seconds, all 64 trusted
+`4.7.1.stable.official.a13da4feb`: exit 0 after 1463.4 seconds, all 64 trusted
 local probes, 74 GAME2D unit tests, 14 stress controls, and 93 visual-contract
 unit tests green. Its Castle interaction approval candidate
 `1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9`
-covers 13 assets/104 frames in the machine/review ledger. Seventeen rendered
-1280×720 Mobile captures were visually inspected for diagnosis/review only;
+covers 13 assets/104 frames in the machine/review ledger. Twenty-two rendered
+1280×720 Mobile captures (nine routes and thirteen careers) were visually
+inspected for diagnosis/review only;
 neither the candidate nor those V4 captures grant device, child, owner, or
-authoritative visual acceptance. Exact-head run `31661887863` succeeds at full
-SHA `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`: Ubuntu succeeds in 33m8s
+authoritative visual acceptance. The last completed exact-head run,
+`31661887863`, succeeds at predecessor SHA
+`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`: Ubuntu succeeds in 33m8s
 through checkout/checksum, exact Godot, static/import/full analyzer, all 63
 trusted probes, boot, Dust/Opera advisories, Opera manifest, and five diagnostic
 capture/upload pairs; Windows succeeds in 6m52s and ends
 `MUSIC|check 42/42|picture_xmas`. Remote GAME2D is exact 509/66/74
-`NO_REGRESSION`/`UNSATISFIED`. The five pairs remain diagnostic, and APK,
-authoritative visual, listening, device, child, owner, and strict-zero 2D
-evidence remain open. The global visual result is unchanged at 16 FAIL, 17 REVIEW_OPEN, two
+`NO_REGRESSION`/`UNSATISFIED`. The five pairs remain diagnostic. Current-head
+remote, matching APK, authoritative visual, exact voice, listening, device,
+child, owner, and strict-zero 2D evidence remain open. The nine current room
+captures also show residual P2 lower-body/tail occlusion from the route cards.
+The global visual result is unchanged at 16 FAIL, 17 REVIEW_OPEN, two
 MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE.
 
 ---
@@ -71,19 +77,19 @@ MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE.
 | `MA-OPERA-001` | `FIXED_PENDING_VERIFICATION` | Chef behavior/art routing and the committed `e2c25878` local full suite are green; final-SHA two-aspect capture, device and owner review still decide closure |
 | `MA-OPERA-002` / `MA-OPERA-004` | `CONFIRMED_OPEN` | Detective's painted crown is not proved healed, and no complete accepted all-career capture matrix exists |
 | `MA-OPERA-003` / `MA-OPERA-006` | `CONFIRMED_OPEN` | Split and re-audit the remaining fallback/art-fiction/voice subclaims; several subclaims changed, so the older grouped wording cannot be closed or imported wholesale |
-| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas and three-act specialist pass the committed full-local suite at `e2c25878` and exact-head run `31661887863` at `e0677ae4`; authoritative capture, device, child and owner review remain |
+| `MA-OPERA-005` | `FIXED_PENDING_VERIFICATION` | Latest Ballerina atlas and three-act specialist pass the latest full-local suite at `09e5e356`; predecessor `e2c25878` and exact-head run `31661887863` at `e0677ae4` retain historical proof. Authoritative capture, device, child and owner review remain |
 | `MA-OPERA-007` | `OWNER_DECISION_REQUIRED` | Decide the above-water Farmer/Doctor setting before treating it as a defect or repair |
 | `MA-OPERA-008` | `VERIFIED_FIXED` | The Canvas Racer's lap-two cue and finale defect are fixed. The formerly separate ordinary-headless source split is tracked independently as current `MA-OPERA-010` `FIXED_PENDING_VERIFICATION` evidence |
-| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes the committed full-local suite at `e2c25878` and exact-head run `31661887863` at `e0677ae4`; authoritative capture, device, child and owner review remain. Boxer V2 is only a separate docs-branch proposal |
+| `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes the latest full-local suite at `09e5e356`; predecessor `e2c25878` and exact-head run `31661887863` at `e0677ae4` retain historical proof. Authoritative capture, device, child and owner review remain. Boxer V2 is only a separate docs-branch proposal |
 | `MA-OPERA-010` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` uses one Canvas lifecycle for ordinary unforced and display entry and contains no external-kart route. Exact focused, full local, and exact-head remote lifecycle/passive/teardown/re-entry evidence is green; external acceptance remains |
 | `MA-OPERA-011` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` removes the three owner-cut bosses from cards, gates, completion, and runtime. Save slots 4/9/14 are permanent raw-preserving tombstones, live mask is `0xBDEF`, and focused, full local, and exact-head remote migration/reward/suspend/leave evidence is green; external acceptance remains |
-| `MA-OPERA-012` | `CONFIRMED_OPEN` | The current three-floor Canvas picker is transitional/rejected final routing. Distribute all thirteen careers through thematic Castle rooms, with Opera Hall promoting only Ballerina/Pop Star/Magician, and prove every room launch/return/save/passive path |
+| `MA-OPERA-012` | `FIXED_PENDING_VERIFICATION` | Commit `09e5e356` distributes all thirteen careers through exact Castle rooms, resolves Racer to Movie Lounge, deletes the all-career lobby with no hidden backdoor, preserves sparse save/reward identity, restores the exact launching room, and fixes layers. Focused/full-local evidence is green; current remote/APK/device/child/owner/exact-voice/accepted-visual gates and residual P2 card occlusion remain open |
 | `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates; exact-head run `31661887863` ends `MUSIC|check 42/42|picture_xmas` on Windows. Human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain |
-| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64 local / 63 remote trusted entries with only the human-art display probe local. Committed Opera repair `e2c25878` is the latest full-local checkpoint and completes all 64 locally in 1428.6 seconds under exact Godot 4.7.1; run `31661887863` executes all 63 remote entries successfully at exact integrated SHA `e0677ae4` |
+| `MA-CI-002` | `VERIFIED_FIXED` | Current parity is 64 local / 63 remote trusted entries with only the human-art display probe local. Current Opera distribution commit `09e5e356` is the latest full-local checkpoint and completes all 64 locally in 1463.4 seconds under exact Godot 4.7.1; run `31661887863` executes all 63 remote entries successfully at predecessor integrated SHA `e0677ae4`; current-head remote remains open |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 106 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
-| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–026 cover 71 unique catalog-owned commit references, including `af4189a9` under CHG-015, human scorecard snapshot `a3d7580c` under CHG-025, and Opera retirement/lifecycle commit `e2c25878` under CHG-026; the written ledger and read-only planner agree exactly, only CHG-020/021/022/024 emit guarded scripts, and 20 unit plus independent adversarial checks are green |
+| `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–027 cover 72 unique catalog-owned commit references, including Opera distribution commit `09e5e356` under CHG-027; the written ledger and read-only planner agree exactly, only CHG-020/021/022/024 emit guarded scripts, the other 23 refuse automation, and 21 unit plus independent adversarial checks are green |
 | `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
-| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Historical merge `f3b0de07` completes exact local CI in 1437.1 seconds with 64 probes; failed `31648427712` and repaired replacement `31649113587` preserve the newline-hash history. Product/audit commit `e2c25878` separately completes full local CI in 1428.6 seconds under exact official Godot with all 64 probes. Exact-head run `31661887863` succeeds at full integrated SHA `e0677ae4`: Ubuntu completes all 63 trusted probes and surrounding gates in 33m8s; Windows completes deterministic music 42/42 in 6m52s. The five capture/upload pairs grant no visual acceptance. Matching APK, authoritative visual, listening, device, child, owner and strict-2D evidence remain open |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Historical merge `f3b0de07` completes exact local CI in 1437.1 seconds with 64 probes; failed `31648427712` and repaired replacement `31649113587` preserve the newline-hash history. Current product/audit commit `09e5e356` completes full local CI in 1463.4 seconds under exact official Godot with all 64 probes. Exact-head run `31661887863` succeeds only for predecessor SHA `e0677ae4`. Current exact-head remote, matching APK, authoritative visual, exact voice/listening, device, child, owner and strict-2D evidence remain open |
 
 Current P2/owner-decision work remains indexed in the master audit: asset
 orphans/NPOT residency, exhaustive probe classification, the standalone
@@ -281,7 +287,7 @@ and related batches are historical evidence and must never be submitted.
 ### OW-20 — structural code debt
 
 `CONFIRMED_OPEN` only through fresh `MA-CODE-001`/`MA-CODE-002` evidence:
-`main.gd` is 8,519 lines, and string state, duplicated input, save frequency,
+`main.gd` is 8,647 lines at current `09e5e356`, and string state, duplicated input, save frequency,
 material churn and remaining 3D glue are risks. Specific July dead-code claims
 are historical leads until reproduced.
 
@@ -303,12 +309,15 @@ OW ordering:
 1. Finish authority/document controls and full finding records.
 2. Continue one tested true-2D gameplay family at a time until every GAME2D
    category is zero.
-3. Finish verification of the focused Opera lifecycle/boss-retirement repair:
+3. Finish verification of the focused Opera lifecycle/boss-retirement/
+   Castle-distribution repair:
    keep slots 4/9/14 as raw-preserving tombstones, the live mask at `0xBDEF`,
    and one Canvas entry path while preserving the green full-local and
-   exact-head remote gates and completing external acceptance.
-   Then distribute the thirteen retained careers through their Castle rooms;
-   Opera Hall promotes only Ballerina/Pop Star/Magician. Complete
+   predecessor exact-head evidence while running current exact-head remote and
+   completing external acceptance. Preserve all thirteen exact Castle-room
+   owners, Movie Lounge Racer, the deleted all-career lobby, and exact-room
+   return. Move/restage the route cards so Roshan's lower body/tail remains
+   visible without shrinking touch targets. Complete
    capture/device/child/owner acceptance for the merged Ballerina/Boxer/Racer
    repairs, close current Opera art defects and the confirmed Lagoon Canvas layering defect;
    establish state-local visual evidence before changing art.

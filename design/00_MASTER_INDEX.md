@@ -6,11 +6,13 @@ Runtime/audit merge synchronization: 2026-08-12._
 The latest historical exact-head CI-repair checkpoint is
 `af4189a99cfd5a32d0df0f75185f6912d3889399`. The current Opera product/audit
 commit and latest completed full-local checkpoint is
-`e2c25878f6b9c64526d0686c426a9f29c5f1b3da`, built from audit checkpoint
-`41087f66`. Its exact local `scripts/ci.sh` is green under Godot
-`4.7.1.stable.official.a13da4feb`. Exact-head verification commit
-`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0` is green in GitHub run
-`31661887863`; APK, device, child, and owner gates are not yet complete.
+`09e5e35665fd8d1bd782693e10fc0198f756d2c8`. Its exact local `scripts/ci.sh`
+is green in 1463.4 seconds with all 64 trusted probes under Godot
+`4.7.1.stable.official.a13da4feb`. The last completed exact-head verification,
+for the predecessor runtime, is commit
+`e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0` in green GitHub run
+`31661887863`. Current-commit exact-head remote, matching APK, device, child,
+owner, exact-voice, and accepted-visual gates are not yet complete.
 
 ## Why this folder exists
 
@@ -110,11 +112,14 @@ sidecars, 352 active-untracked generated sidecars, 66 production 3D files, 74
 probe 3D files, one scene, and one configuration. Regression mode is exact
 `NO_REGRESSION` and all 14 falsification controls pass; neither result is strict
 completion. The `f3b0de07` tree had 195 GDScript files under `scripts/`, 106
-`scripts/probe_*.gd` files, and an 8,519-line `scripts/main.gd`.
+  `scripts/probe_*.gd` files, and an 8,519-line `scripts/main.gd`. Current
+  `09e5e356` retains 195/106 script/probe files and has an 8,647-line
+  `scripts/main.gd`.
 
 Exact Godot 4.7.1-stable local `scripts/ci.sh` exits 0 at `f3b0de07` after
-1437.1 seconds with all 64 then-current trusted probes. Current product/audit
-commit `e2c25878` exits 0 in 1428.6 seconds under official build `a13da4feb`, with all 64
+1437.1 seconds with all 64 then-current trusted probes. Predecessor product/audit
+commit `e2c25878` exits 0 in 1428.6 seconds under official build `a13da4feb`.
+Current commit `09e5e356` exits 0 in 1463.4 seconds, with all 64
 trusted local probes, 74 GAME2D unit tests, all 14 falsification controls, 93
 visual-contract unit tests, parser/lint/analyzer/import/static gates, and its
 focused runtime matrix green. Castle frame-review candidate
@@ -137,7 +142,7 @@ pairs; the 3m55s Windows job passes music 42/42. No full local suite at
 `af4189a9`, and no APK, device, child, owner, listening, strict-2D, or
 authoritative visual-evidence result, is claimed; the captures are diagnostic.
 
-Current exact-head run `31661887863` succeeds at full SHA
+The last completed exact-head run, `31661887863`, succeeds at predecessor SHA
 `e0677ae4c4f5e48258ff57c38f82e25f2dc3d9d0`. The Ubuntu probes job succeeds in
 33m8s after checkout/checksum, exact Godot, static gates, import, the full
 analyzer, all 63 trusted probes, boot, Dust/Opera advisories, the Opera manifest,
@@ -145,22 +150,24 @@ and five diagnostic capture/upload pairs. Remote GAME2D is exact
 509/66/74 `NO_REGRESSION`/`UNSATISFIED`. The Windows music job succeeds in
 6m52s and ends `MUSIC|check 42/42|picture_xmas`. The five capture pairs remain
 diagnostic and grant no authoritative visual, device, child, or owner
-acceptance; APK, human listening, and strict-zero 2D evidence also remain open.
+acceptance. No exact-head remote run or matching APK exists yet for current
+`09e5e356`; human listening and strict-zero 2D evidence also remain open.
 
 Current Opera content is 13 careers, 53 phases, and 27 modes with newer
 diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the
-Canvas Racer. The current repair removes the ordinary-headless legacy lobby,
-external-kart, and Opera-boss runtime paths. Save identity remains a stable
+Canvas Racer. Commit `09e5e356` distributes every career to one exact thematic
+Castle room, selects Movie Lounge as Racer's sole home, deletes the all-career
+lobby, blocks hidden/off-room routes, and returns each activity to its launching
+room. Save identity remains a stable
 16-slot namespace: slots 4/9/14 are inert tombstones, raw legacy bits survive,
 the live completion mask is `0xBDEF`, and effective progress is 0–13. The exact
-focused matrix, full local `e2c25878` gate, and exact-head remote run are green,
-so `MA-OPERA-010`
-and `MA-OPERA-011` are
-`FIXED_PENDING_VERIFICATION`, not closed. Seventeen 1280×720 Mobile captures
+focused matrix and full local `09e5e356` gate are green, so `MA-OPERA-010`,
+`MA-OPERA-011`, and `MA-OPERA-012` are `FIXED_PENDING_VERIFICATION`, not closed.
+Twenty-two 1280×720 Mobile captures (nine room routes plus thirteen careers)
 were rendered and visually inspected as diagnostic/review evidence; they are
-not target-device, child, owner, or authoritative visual acceptance. Navigation
-is still not final authority: the three-page picker remains transitional and
-P1 `CONFIRMED_OPEN` under `MA-OPERA-012`. Painter purpose and Arborist remain
+not target-device, child, owner, or authoritative visual acceptance. The route
+cards obscure Roshan's lower body/tail in all nine room captures, a residual P2
+composition defect. Painter purpose and Arborist remain
 uncommitted candidates; Boxer V2 is docs-only on a separate branch and does not
 supersede the integrated Boxer.
 
