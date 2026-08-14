@@ -17,9 +17,13 @@ Sky true-Canvas source `51d0abc0d32855a8ba32932599fedd8f59b398b7`, exact
 parent `1b7d6bda`, changes 19 paths (+3,318/-3,517), passes official Godot
 4.7.1 full local CI in 1,404.5 seconds/all 64, and has run-14 local Mobile/
 Speedy 20/20 manifest/PNG/probe-hash evidence with an unknown source revision.
-No exact-source remote or APK is claimed.
-Historical `7391c53c` run `31728755204` retains the failed remote Sky renderer
-subprocess. Android run `31724927769` publishes only the e6 predecessor APK.
+Governance-only integrated head `441adf35f7dbdeb67d36fbf1a2217b87d3040d47`
+preserves unchanged source `51d0abc0`, passes exact local CI in 1,391.5
+seconds/all 64, passes topic/dev Probe runs `31760207048`/`31762132976`, and
+has exact-head Android run `31763879294`. Both current remote Sky subprocesses
+remain nonblocking renderer failures after 20 PASS rows and upload only PNGs,
+not JSON/Mobile PASS. Historical `7391c53c` run `31728755204` retains the
+earlier failed remote Sky renderer subprocess.
 Pre-fix run `31678156887` at `3fc151c8` remains
 historical red evidence for
 fixed-frame Opera reveal sampling. External acceptance remains open._
@@ -70,7 +74,12 @@ Detective/Nursery were sampled four frames into the 0.25-second reveal;
 Integrated-predecessor Android run `31724927769` uses raw checkout/package
 source exact e6 and publishes its matching dev APK (596,041,412 bytes; SHA-256
 `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`).
-No matching APK or remote result is claimed for `51d0abc0`.
+Current integrated head `441adf35` separately passes exact topic/dev machine
+runs and Android `31763879294` publishes its 596,033,220-byte APK at SHA-256
+`f04d0fef3b9bf097aa5b07e56e5726a1db9ff37e4be6ce35b495e31b9e4a72d8` over
+unchanged product source `51d0abc0`. The remote Sky visual proof remains failed
+because the runner falls back to `gl_compatibility` and produces no JSON/Mobile
+PASS.
 Authoritative visual, exact voice, listening, device, child, owner, and
 strict-zero 2D evidence remain open. The nine current room captures also show
 residual P2 lower-body/tail occlusion from the route cards.
@@ -80,7 +89,8 @@ MANUAL_OPEN, 86 COVERAGE_GAP, 32 PASS, and 94 NOT_APPLICABLE.
 Source `51d0abc0` repairs the Sky mural/spatial runtime and bounded readability,
 focus, grounding, contact, touch, and route lifecycle issues. `MA-VIS-002`
 moves to `FIXED_PENDING_VERIFICATION`; broader `MA-VIS-006` remains
-`CONFIRMED_OPEN` pending exact-source remote/device/owner/accepted evidence.
+`CONFIRMED_OPEN` pending a requested-Mobile remote Sky PASS plus device/owner/
+accepted evidence.
 
 Contiguous document-authority sources `5ed0c754`/`7eb94595` inventory and harden
 316 tracked Markdown paths, one ledger row per path, 36 full material records,
@@ -104,7 +114,7 @@ references/four emitters/25 planner tests/27 manual groups.
 | `MA-DOC-003` | `BLOCKED_EXTERNAL` | Obtain the off-repository Alpha journal or replace it with a fresh equally scoped audit; do not assume its unnamed entries are fixed or open |
 | `MA-DOC-004` | `VERIFIED_FIXED` | The comprehensive design language and master audit are tracked, indexed and admitted through the narrow audit-source exception; later synchronization drift reopens this finding |
 | `MA-DOC-005` | `VERIFIED_FIXED` | At sealed chain head `7eb94595`, `audit/findings/ACTIVE_FINDINGS_2026-08-13.md` supplies 36 linked full records; exact parent `e6edf559` preserves the verified document gate and 34 active/36 retained parity |
-| `MA-VIS-002` | `FIXED_PENDING_VERIFICATION` | Preserve source `51d0abc0`'s true-Canvas differential stage and complete exact-source remote, target-device, child, owner, and accepted-visual verification |
+| `MA-VIS-002` | `FIXED_PENDING_VERIFICATION` | Preserve source `51d0abc0`'s true-Canvas differential stage. Exact `441adf35` topic/dev machine runs and APK exist, but both remote Sky subprocesses fall back to `gl_compatibility` and lack JSON/Mobile PASS; complete target-device, child, owner, and accepted-visual verification |
 | `MA-VIS-003` / `MA-VIS-004` | `REPORTED_UNCONFIRMED` | Replace source-average palette/figure-ground diagnostics with state-local Canvas + HUD evidence before changing approved art |
 | `MA-VIS-005` | `VERIFIED_FIXED` | The visual contract now proves unique target ownership, effective descendant Canvas order and decoded-alpha overlap per relevant card; missing live product evidence remains open as `MA-VIS-006` |
 | `MA-VIS-006` | `CONFIRMED_OPEN` | Resolve all applicable visual review/manual/coverage gaps with commit-pinned evidence |
@@ -122,13 +132,13 @@ references/four emitters/25 planner tests/27 manual groups.
 | `MA-OPERA-009` | `FIXED_PENDING_VERIFICATION` | Dedicated five-phase one-finger Canvas Boxer passes runtime `09e5e356` and gameplay-bearing probe head `ff068db`; predecessor `e2c25878` and exact-head run `31661887863` at `e0677ae4` retain historical proof. Run `31678156887` is red only for route-readiness sampling, not Boxer behavior. Authoritative capture, device, child and owner review remain. Boxer V2 is only a separate docs-branch proposal |
 | `MA-OPERA-010` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` uses one Canvas lifecycle for ordinary unforced and display entry and contains no external-kart route. Exact focused, full local, and exact-head remote lifecycle/passive/teardown/re-entry evidence is green; external acceptance remains |
 | `MA-OPERA-011` | `FIXED_PENDING_VERIFICATION` | Commit `e2c25878` removes the three owner-cut bosses from cards, gates, completion, and runtime. Save slots 4/9/14 are permanent raw-preserving tombstones, live mask is `0xBDEF`, and focused, full local, and exact-head remote migration/reward/suspend/leave evidence is green; external acceptance remains |
-| `MA-OPERA-012` | `FIXED_PENDING_VERIFICATION` | Runtime `09e5e356` distributes all thirteen careers through exact Castle rooms, resolves Racer to Movie Lounge, deletes the all-career lobby with no hidden backdoor, preserves sparse save/reward identity, restores the exact launching room, and fixes layers. Probe-only `ff068db` adds bounded fail-closed readiness. Historical e6 and `7391c53c` retain remote evidence, including the latter's failed Sky renderer subprocess. Current `51d0abc0` preserves Opera and is exact-local green only. Android run `31724927769` publishes only the exact e6 APK. Device/child/owner/exact-voice/accepted-visual gates and residual P2 card occlusion remain open |
-| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass local machine gates; parent run `31722047536` at `e6edf559` completes Windows music 42/42 in 3m33s, and historical `7391c53c` run `31728755204` completes 42/42 in 3m38s. Earlier branch run `31719143975` is historical corroboration. Human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain open |
-| `MA-CI-002` | `VERIFIED_FIXED` | Trusted parity remains 64 local/63 remote. Historical e6 and `7391c53c` retain their remote evidence, including the latter's failed Sky renderer subprocess. Current `51d0abc0` passes local full CI in 1,404.5 seconds/all 64; no exact-source remote is claimed |
+| `MA-OPERA-012` | `FIXED_PENDING_VERIFICATION` | Runtime `09e5e356` distributes all thirteen careers through exact Castle rooms, resolves Racer to Movie Lounge, deletes the all-career lobby with no hidden backdoor, preserves sparse save/reward identity, restores the exact launching room, and fixes layers. Probe-only `ff068db` adds bounded fail-closed readiness. Integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior, passes local/topic/dev machine gates, and has exact-head Android `31763879294`. Device/child/owner/exact-voice/accepted-visual gates and residual P2 card occlusion remain open |
+| `MA-AUDIO-001` | `FIXED_PENDING_VERIFICATION` | 42 deterministic new cues pass machine gates; current topic/dev runs `31760207048`/`31762132976` at exact `441adf35` complete Windows music 42/42 in 3m18s/3m56s. Earlier e6, `7391c53c`, and branch runs are historical corroboration. Human two-wrap listening, voice intelligibility, mono fold-down and Lenovo M11 mix review remain open |
+| `MA-CI-002` | `VERIFIED_FIXED` | Trusted parity remains 64 local/63 remote. Exact `441adf35` passes local full CI in 1,391.5 seconds/all 64 and topic/dev Probe runs `31760207048`/`31762132976` with 63/63 remote loops and zero hard failures. Their nonblocking Sky subprocesses still fail requested-Mobile renderer identity after 20 PASS rows and provide PNGs only. Historical e6 and `7391c53c` remain time-scoped evidence |
 | `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 106 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined classification |
 | `MA-CHANGE-001` | `VERIFIED_FIXED` | CHG-001–031 cover 79 unique catalog-owned references. Manual/non-emitting CHG-031 owns exact 19-path source `51d0abc0`; only CHG-020/021/022/024 emit scripts, the other 27 refuse automation, and 25 planner tests plus adversarial checks are green |
 | `MA-PERF-001` / `MA-CHILD-001` | `BLOCKED_EXTERNAL` | Record exact-release device performance and an observed child golden path |
-| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Current source `51d0abc0` passes exact local in 1,404.5 seconds/all 64; separate run-14 manifest/PNG/probe-hash evidence is green but has an unknown source revision. No exact-source remote or matching APK exists. Android `31724927769` publishes only the e6 predecessor APK; visual/voice/listening/device/child/owner/strict-2D evidence remains open |
+| `MA-RELEASE-001` | `FIXED_PENDING_VERIFICATION` | Product source `51d0abc0` passes exact local in 1,404.5 seconds/all 64; separate run-14 manifest/PNG/probe-hash evidence is green but has an unknown source revision. Governance-only integrated head `441adf35` passes exact local/topic/dev machine gates and Android `31763879294` publishes its matching dev APK. Remote Sky requested-Mobile proof, visual/voice/listening/device/child/owner/strict-2D evidence remain open |
 
 Current P2/owner-decision work remains indexed in the master audit: asset
 orphans/NPOT residency, exhaustive probe classification, the standalone
@@ -187,8 +197,10 @@ feature flags may still protect unrelated risky behavior changes.
 true Canvas/`Sprite2D` differential stack, 6144×2048 master coordinates, real
 parallax, sole Camera2D, and repaired readability/focus/grounding/contact/touch
 lifecycle. Exact local CI and the separately hashed run-14 manifest/PNGs/probe
-are green, while the capture source revision remains unknown. Closure still needs
-exact-source remote, matching APK, target-device, child, owner, and accepted-
+are green, while the capture source revision remains unknown. Exact `441adf35`
+topic/dev machine runs and its matching APK now exist, but the remote Sky
+subprocess still falls back to `gl_compatibility`, uploads PNGs only, and lacks
+JSON/Mobile PASS. Closure still needs target-device, child, owner, and accepted-
 visual evidence; broader game-wide gaps remain `MA-VIS-006`.
 
 <a id="ow-4"></a>
@@ -358,7 +370,8 @@ OW ordering:
    result plus run-14 20/20 manifest/PNG/probe-hash evidence with its unknown
    source revision. Preserve historical
    `7391c53c` run `31728755204` as failed remote renderer evidence, not current
-   proof. Obtain exact-source remote evidence and a matching APK next.
+   proof. Preserve exact `441adf35` topic/dev machine runs and Android
+   `31763879294`; next obtain a requested-Mobile remote Sky PASS/JSON.
 3. Keep the Sky true-Canvas implementation intact while completing target-
    device, child, owner, and accepted-visual review. Then continue one tested
    true-2D gameplay family at a time from 509 models/65 production/70 probe
@@ -368,8 +381,8 @@ OW ordering:
    keep slots 4/9/14 as raw-preserving tombstones, the live mask at `0xBDEF`,
    and one Canvas entry path while preserving parent dev Probe Suite run
    `31722047536`, exact-e6 Android run `31724927769`, and historical
-   `18b6150c` evidence. Require a matching current-candidate
-   APK while completing external acceptance. Preserve all thirteen exact Castle-room
+   `18b6150c` evidence. Preserve matching current-candidate Android run
+   `31763879294` while completing external acceptance. Preserve all thirteen exact Castle-room
    owners, Movie Lounge Racer, the deleted all-career lobby, and exact-room
    return. Move/restage the route cards so Roshan's lower body/tail remains
    visible without shrinking touch targets. Complete

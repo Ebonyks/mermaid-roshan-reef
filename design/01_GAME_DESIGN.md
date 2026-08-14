@@ -17,9 +17,15 @@ history. Current Sky true-Canvas source
 19 paths (+3,318/-3,517) and passes official Godot 4.7.1 full local CI in
 1,404.5 seconds/all 64. Run-14 is local Mobile/Speedy 20/20 with manifest/PNG
 and probe hashes `AEAC7C72…DE34` and `B9EAF5E0…9C6C`; its source revision
-remains unknown, and no exact-source
-remote or APK is claimed. Historical `7391c53c` run `31728755204` retains the
-prior failed remote Sky renderer subprocess. The
+remains unknown. Governance-only integrated head
+`441adf35f7dbdeb67d36fbf1a2217b87d3040d47` preserves unchanged source
+`51d0abc0`, passes exact local CI in 1,391.5 seconds/all 64, passes topic/dev
+Probe runs `31760207048`/`31762132976`, and has exact-head Android run
+`31763879294`. Both remote Sky diagnostics remain renderer failures after 20
+PASS rows because missing `VK_KHR_surface` forces llvmpipe/
+`gl_compatibility`; they upload PNGs but no JSON or Mobile PASS. Historical
+`7391c53c` run `31728755204` retains the prior failed remote Sky renderer
+subprocess. The
 master audit/design language are
 `CANONICAL_CURRENT`; the game-wide audit remains `IN_PROGRESS` /
 `UNSATISFIED`._
@@ -106,9 +112,11 @@ mural. A mural that paints a "prop" at band depth is a layering bug.
 > differential layers/parallax, sole `Camera2D`, five readable animals, three
 > playground actions, and master-coordinate movement/touch/routes. It reuses
 > approved art unchanged. Exact local CI and run-14 are green, moving
-> `MA-VIS-002` to `FIXED_PENDING_VERIFICATION`; source-head remote, target-
-> device, child, owner, and accepted-visual evidence remain open, and broader
-> `MA-VIS-006` stays `CONFIRMED_OPEN`.
+> `MA-VIS-002` to `FIXED_PENDING_VERIFICATION`. Exact `441adf35` topic/dev
+> machine suites and APK now exist, but the remote Sky subprocess still lacks
+> a requested-Mobile renderer PASS/JSON. Target-device, child, owner, and
+> accepted-visual evidence remain open, and broader `MA-VIS-006` stays
+> `CONFIRMED_OPEN`.
 
 ### Control grammar (replaces the stick)
 
@@ -184,15 +192,22 @@ local full CI in 1379.3 seconds with all 64 probes. Historical checkpoints
 through exact parent `e6edf559` pass their bounded local/remote machine gates;
 the parent's inherited Sky 21-OK/44-FAIL/DONE output remains predecessor
 history. Historical source `7391c53c` and run `31728755204` preserve the prior
-failed remote Sky renderer subprocess. Current source `51d0abc0` passes full
-local in 1,404.5 seconds/all 64 and run-14 is local Mobile/Speedy 20/20 with
-manifest/PNG/probe hashes but an unknown source revision. No current-source
-remote result is claimed.
+failed remote Sky renderer subprocess. Current product source `51d0abc0`
+passes full local in 1,404.5 seconds/all 64 and run-14 is local Mobile/Speedy
+20/20 with manifest/PNG/probe hashes but an unknown source revision.
+Governance-only integrated head `441adf35` passes a separate exact local
+1,391.5-second/all-64 run plus topic/dev Probe runs `31760207048`/
+`31762132976`, each with 63/63 trusted headings and zero hard failures. Their
+nonblocking Sky subprocesses still fail renderer identity after 20 PASS rows,
+upload PNGs only, and provide no remote JSON/Mobile PASS.
 Integrated-predecessor Android run `31724927769` uses raw checkout/package
 source exact e6 and publishes that predecessor's matching dev APK
 (596,041,412 bytes; SHA-256
 `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`).
-No matching APK is claimed for `51d0abc0`.
+Exact-head Android run `31763879294` publishes the governance-integrated
+`441adf35` dev APK (596,033,220 bytes; SHA-256
+`f04d0fef3b9bf097aa5b07e56e5726a1db9ff37e4be6ce35b495e31b9e4a72d8`) over
+unchanged product source `51d0abc0`.
 Device, child, owner, exact-voice, listening, strict-2D, and accepted-visual
 gates remain open.
 
@@ -287,9 +302,10 @@ local suites are green, moving
 `MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`. The 22 captures are diagnostic;
 the nine room captures show a residual P2 composition defect because the
 154×154 lower-center cards obscure Roshan's lower body/tail. Parent
-`e6edf559` is remote-green in dev run `31722047536`; current source `51d0abc0`
-is exact-local green with no source-head remote, and the available exact-SHA
-dev APK belongs to integrated predecessor e6. Device,
+`e6edf559` is remote-green in dev run `31722047536`; current integrated head
+`441adf35` is local/topic/dev-machine green and has its exact-head dev APK.
+Its remote Sky diagnostic remains non-authoritative after falling back to
+`gl_compatibility`, with no JSON/Mobile PASS. Device,
 child, owner, exact-voice, listening, strict-2D, and accepted-visual evidence
 remain open.
 

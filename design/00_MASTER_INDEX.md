@@ -19,9 +19,22 @@ Run-14 is 20/20 local 1280×720 Mobile/Speedy with manifest hash
 `AEAC7C72E0A3BFF992713127261DD00ED69049947DFB6723AA66365F5712DE34` and
 visual-probe hash `B9EAF5E0738CFB61CCD3E34ACFEA420AEADAB4E3ADE80B40A2CFD1F227569C6C`;
 those hashes bind the manifest/PNGs and probe script, while `source_revision`
-remains unknown. No source-head remote
-or APK is claimed. Historical source `7391c53c` and run `31728755204` retain
-the prior failed remote Sky `gl_compatibility` subprocess. The current Opera product/runtime commit
+remains unknown. Governance-only integrated evidence head
+`441adf35f7dbdeb67d36fbf1a2217b87d3040d47` preserves unchanged product source
+`51d0abc0` and passes exact local full CI in 1,391.5 seconds/all 64. Topic Probe
+run `31760207048` and dev Probe run `31762132976` both succeed at exact
+`441adf35`: their required loops are 63/63 unique with zero hard failures,
+document authority is 36 tests/six stress/316/316 with 34 active/36 retained,
+and music is 42/42. Each nonblocking Sky subprocess nevertheless requests
+Mobile, misses `VK_KHR_surface`, falls back through llvmpipe to
+`gl_compatibility`, emits 20 PASS rows plus `20/20/20/20` summary, and then
+exits 1 on the renderer `GLOBAL`/`RESULT`; PNGs upload, but no remote JSON or
+Mobile-renderer PASS exists. Android run `31763879294` checks out exact
+`441adf35`, uses version code 1414 on `dev`/`android-dev`, and publishes the
+596,033,220-byte APK with SHA-256
+`f04d0fef3b9bf097aa5b07e56e5726a1db9ff37e4be6ce35b495e31b9e4a72d8`.
+Historical source `7391c53c` and run `31728755204` retain the prior failed
+remote Sky `gl_compatibility` subprocess. The current Opera product/runtime commit
 remains `09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its exact local suite is
 green in 1463.4 seconds/all 64, while predecessor probe-readiness head
 `ff068db002202839f920a6f9fb78c942788a3034` is green in 1379.3 seconds/all 64.
@@ -38,9 +51,9 @@ source for successful workflow-run Android `31724927769`, which publishes a
 Historical predecessor run `31661887863` remains green at
 `e0677ae4`; later pre-fix run `31678156887` at `3fc151c8` remains red because
 Ubuntu sampled the 0.25-second Opera reveal after four frames. The APK gate is
-now commit-bound; device, child, owner, exact-voice, listening, strict-2D, and
-accepted-visual gates remain open. Neither predecessor APK is a matching
-`51d0abc0` build.
+now commit-bound; the exact `441adf35` package preserves unchanged `51d0abc0`
+product bytes. Device, child, owner, exact-voice, listening, strict-2D, and
+accepted-visual gates remain open.
 
 ## Why this folder exists
 
@@ -218,14 +231,17 @@ Godot full local CI in 1,404.5 seconds/all 64 and run-14 locally produces 20/20
 ordered 1280×720 Mobile/Speedy captures, bound by manifest hash
 `AEAC7C72…DE34` and visual-probe hash `B9EAF5E0…9C6C`.
 Workflow-run Android `31724927769` uses raw checkout/package source exact e6
-and publishes the latest integrated-predecessor APK (596,041,412 bytes;
+and publishes the integrated-predecessor APK (596,041,412 bytes;
 SHA-256 `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`).
 Source `51d0abc0` replaces the mural/spatial promenade with an owned
 CanvasLayer/Node2D/Sprite2D/Camera2D stage and repairs the bounded readability,
 focus, grounding, contact, touch, and route-lifecycle defects. `MA-VIS-002`
-becomes `FIXED_PENDING_VERIFICATION`; `MA-VIS-006` remains open. No matching
-current APK, exact-source remote, or art acceptance is claimed. Authoritative visual, exact voice, human
-listening, device, child, owner, and strict-zero 2D evidence remain open.
+becomes `FIXED_PENDING_VERIFICATION`; `MA-VIS-006` remains open. No accepted-
+visual result is claimed. Exact governance head `441adf35` has successful
+topic/dev remote suites and a matching dev APK, but both Sky subprocesses still
+fail renderer identity after 20 PASS rows and provide PNGs only, not remote
+JSON/Mobile PASS. Authoritative visual, exact voice, human listening, device,
+child, owner, and strict-zero 2D evidence remain open.
 
 Current Opera content is 13 careers, 53 phases, and 27 modes with newer
 diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the

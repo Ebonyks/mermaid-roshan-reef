@@ -72,8 +72,18 @@ Those hashes bind the manifest/PNGs and probe script, not the full source
 revision, which remains `unknown`; and
 two independent human reviews approve the local candidate. This moves
 `MA-VIS-002` to `FIXED_PENDING_VERIFICATION`, not closed; `MA-VIS-006` remains
-open and no exact-source remote, device, child, owner, or accepted-art result is
-claimed. Historical `7391c53c`/`31728755204` retains the failed remote
+open. Integrated evidence head
+`441adf35f7dbdeb67d36fbf1a2217b87d3040d47` is a governance-only descendant
+of unchanged product source `51d0abc0`; exact local CI over its bytes exits 0
+in 1,391.5 seconds/all 64. Topic run `31760207048` and dev run `31762132976`
+both succeed at exact `441adf35`, but each Sky diagnostic requests Mobile,
+cannot create `VK_KHR_surface`, falls back through llvmpipe to
+`gl_compatibility`, emits 20 PASS rows plus summary `20/20/20/20` with zero
+failed/skipped rows, and then exits 1 on `GLOBAL`/`RESULT` renderer failure.
+Only PNGs upload: there is no remote JSON or remote Mobile-renderer PASS.
+Android run `31763879294` publishes the exact-head dev APK, but no device,
+child, owner, or accepted-art result is claimed. Historical
+`7391c53c`/`31728755204` retains the earlier failed remote
 `gl_compatibility` evidence.
 
 ---

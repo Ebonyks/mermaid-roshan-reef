@@ -57,6 +57,30 @@
   probe script, not the full `51d0abc0` tree;
   no exact-source remote, matching APK, M11, child, owner, or release evidence
   is claimed
+- **Sky Lagoon post-sealing integration-evidence checkpoint:** exact
+  `441adf35f7dbdeb67d36fbf1a2217b87d3040d47` is a CHG-023 maintenance
+  descendant, not a second CHG-031 source and not CHG-032. It passes exact-byte
+  official-Godot local `scripts/ci.sh` in 1,391.5 seconds/all 64. Topic Probe
+  Suite run `31760207048` succeeds at exact `441adf35` (probes 33m39s; music
+  3m18s), and integrated-dev run `31762132976` succeeds at the same exact head
+  (probes 33m39s; music 3m56s). Both retain 36 document-authority tests,
+  six/six stress controls, 316/316 inventory/ledger, 34 active items and 36
+  retained records, 63/63 remote trusted headings, 42/42 music checks, and zero
+  hard workflow failures. Both raw Sky steps request Mobile but lack
+  `VK_KHR_surface`, fall back through llvmpipe to `gl_compatibility`, record 20
+  ordered PASS rows and `20/20/20/20` summary counts with zero failed and zero
+  skipped, then emit
+  `GLOBAL|FAIL|rendering_method|gl_compatibility` and `RESULT|FAIL` with exit
+  one; the step is non-blocking, its artifact is PNG-only with no JSON, and it
+  is not a remote Mobile diagnostic PASS. Android run `31763879294` records raw
+  checkout and HEAD both at exact `441adf35`, then builds version 1414 for
+  `dev`/`android-dev`; its
+  596,033,220-byte APK has SHA-256
+  `f04d0fef3b9bf097aa5b07e56e5726a1db9ff37e4be6ce35b495e31b9e4a72d8`,
+  while the 82-byte sidecar has its own SHA-256
+  `43e892cfb6c9a3847e1a8760d5cad4dd8fb36719d63db0625ec8b2fa3ba8e651`.
+  M11 touch/performance, child play-test, owner acceptance, game-wide strict-2D
+  closure, remote Mobile diagnostic PASS, and release acceptance remain open
 - **Historical authority-head remote verification:** GitHub Actions run `31686380560`
   succeeds at exact `9befc0f838f40eead2f42088a91206257fe217a8`;
   machine-workflow success is not warning-clean or external/visual acceptance,
@@ -109,6 +133,7 @@ document_authority_hardening_snapshot: 7eb945957776ab3458a9de71c8be9937e2354720
 document_authority_verification_checkpoint: 51887315bd537db2d16bdafcac1bbfa808352351
 sky_lagoon_capture_audit_snapshot: 7391c53cd6981a256bd8bfe40ccbb9f72fb723fe
 sky_lagoon_true_canvas_snapshot: 51d0abc0d32855a8ba32932599fedd8f59b398b7
+sky_lagoon_true_canvas_integration_checkpoint: 441adf35f7dbdeb67d36fbf1a2217b87d3040d47
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -1760,6 +1785,35 @@ exclusive and must never be applied on the same rollback branch.
   APK, M11 touch/performance result, child play-test, owner acceptance, or
   release evidence. Local machine success and independent frame review must
   not be promoted into any of those external gates.
+- **Post-seal CHG-023 integration evidence:** exact integration head
+  `441adf35f7dbdeb67d36fbf1a2217b87d3040d47` is a CHG-023 maintenance
+  descendant of the sealed CHG-031 product source; CHG-031 still owns only
+  `51d0abc0`, its exact 19 paths, and that exact rollback start, and this
+  checkpoint does not create CHG-032. Exact-byte official-Godot local
+  `scripts/ci.sh` passes in **1,391.5 seconds with all 64 trusted probes**.
+  Topic run `31760207048` succeeds at exact `441adf35` with a 33m39s probes
+  job and 3m18s music job; integrated-dev run `31762132976` succeeds at that
+  same exact head with a 33m39s probes job and 3m56s music job. Both report 36
+  document-authority tests, six/six mutation-stress controls, 316/316
+  inventory/ledger, 34 active items and 36 retained records, 63/63 remote
+  trusted headings, 42/42 music checks, and zero hard workflow failures.
+  Neither raw Sky step is a Mobile diagnostic PASS: each requests Mobile,
+  cannot acquire `VK_KHR_surface`, uses llvmpipe and falls back to
+  `gl_compatibility`, records 20 ordered PASS rows and `20/20/20/20` summary
+  counts with zero failed and zero skipped, then emits
+  `GLOBAL|FAIL|rendering_method|gl_compatibility` and
+  `RESULT|FAIL` with exit one. That step remains non-blocking and its artifact
+  remains PNG-only with no JSON result. Android run `31763879294` records raw
+  checkout and HEAD both at exact `441adf35`, then builds version 1414 on
+  `dev` for `android-dev`; the
+  596,033,220-byte APK is SHA-256
+  `f04d0fef3b9bf097aa5b07e56e5726a1db9ff37e4be6ce35b495e31b9e4a72d8`,
+  and its 82-byte sidecar has its own SHA-256
+  `43e892cfb6c9a3847e1a8760d5cad4dd8fb36719d63db0625ec8b2fa3ba8e651`.
+  This proves exact integrated repository, workflow, and APK identity; it does
+  not close M11 touch/performance, child play-test, owner acceptance,
+  game-wide strict-2D closure, remote Mobile diagnostic PASS, or release
+  acceptance.
 - **Dependencies:** CHG-001, CHG-003, CHG-005, CHG-006, CHG-008, CHG-011,
   CHG-014, CHG-023, CHG-025, CHG-029, and CHG-030. CHG-030 remains the
   historical fail-closed capture-audit source; CHG-031 owns the later product,
@@ -1804,7 +1858,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-028 | exact two-commit/parent/10-path-union parity, 22 planner tests, Python compilation, ledger/catalog source parity, probe parity, GAME2D regression gate, diff check, and exact-head run `31686380560` with warning diagnostics and internally failed Sky Lagoon diagnostic retained | matching APK and external evidence; supersede facts as CHG-023 maintenance after later product/evidence changes and never promote documentation synchronization into acceptance |
 | CHG-029 | exact two-source parent/path parity, exact 22-path union, 23 planner tests, 36 document-authority tests, six mutation stress controls, 316/316 inventory/ledger and 36/36 active-record parity, Python compilation, probe parity, GAME2D stress/default/regression, diff check, first-source local `scripts/ci.sh` in 1,359.8 seconds/all 64, and exact CHG-023 maintenance-head local 1,435.2 seconds/all 64 plus Probe Suite run `31710377034` | repeat exact-head machine gates for any rollback candidate; all device, child, owner, voice, listening, strict-2D, visual, matching APK, and release acceptance |
 | CHG-030 | exact source/parent/two-path parity, parser/lint/full analyzer, two fresh 20-frame Mobile capture runs with exact output/save/provenance checks, 1,078/1,078 assertions, five focused Lagoon probes, GAME2D stress/default/regression, diff check, and exact local `scripts/ci.sh` in 1,402.3 seconds/all 64; exact-source workflow run `31728755204` completes with 63/63 headings and 42/42 music | remote Sky internally ends `GLOBAL FAIL rendering_method=gl_compatibility` / `RESULT FAIL` after 20 PASS rows because the runner falls back from Mobile/Vulkan; workflow remains non-blocking and PNG-only, while MA-VIS-002/006, small-animal readability, overlap, seesaw/focus clarity, M11, child, owner-art, strict-2D, matching APK, and release acceptance remain open |
-| CHG-031 | exact source/parent/19-path parity, parser/lint/full analyzer, natural-timing Lagoon actions, living cards, re-entry, northern/Galaxy/route return, five animals, interaction/train and physical touch/pause stress, separate run-14 20/20 Mobile evidence whose manifest/PNG identities and probe script are hashed while `source_revision` remains unknown, save integrity, probe parity, GAME2D stress/default/regression, diff check, and exact local `scripts/ci.sh` source-byte proof in 1,404.5 seconds/all 64 | no exact-source remote or matching APK yet; M11 touch/performance, child play-test, owner acceptance, game-wide strict-2D closure, and release acceptance remain open |
+| CHG-031 | exact source/parent/19-path parity, parser/lint/full analyzer, natural-timing Lagoon actions, living cards, re-entry, northern/Galaxy/route return, five animals, interaction/train and physical touch/pause stress, separate run-14 20/20 Mobile evidence whose manifest/PNG identities and probe script are hashed while `source_revision` remains unknown, save integrity, probe parity, GAME2D stress/default/regression, diff check, exact local `scripts/ci.sh` source-byte proof in 1,404.5 seconds/all 64, and post-seal CHG-023 checkpoint `441adf35` with exact-byte local 1,391.5 seconds/all 64, successful topic/dev Probe runs `31760207048`/`31762132976`, and exact-head Android run `31763879294` version 1414/APK SHA `f04d0fef…72d8` | both remote Sky steps remain non-blocking PNG-only `gl_compatibility` failures after 20 PASS rows rather than Mobile diagnostic passes; M11 touch/performance, child play-test, owner acceptance, game-wide strict-2D closure, and release acceptance remain open |
 
 ## 6. Required rollback record
 

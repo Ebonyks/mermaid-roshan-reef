@@ -37,8 +37,12 @@
   19 paths (+3,318/-3,517) and passes official Godot 4.7.1 full local CI in
   1,404.5 seconds/all 64. Run-14 is local Mobile/Speedy 20/20 with manifest/PNG
   and probe hashes `AEAC7C72…DE34` and `B9EAF5E0…9C6C`, while its source
-  revision remains unknown; no exact-source
-  remote or APK is claimed
+  revision remains unknown. Governance-only integrated evidence head
+  `441adf35f7dbdeb67d36fbf1a2217b87d3040d47` preserves unchanged product
+  source `51d0abc0`, passes exact local CI in 1,391.5 seconds/all 64, passes
+  topic/dev Probe runs `31760207048`/`31762132976`, and has exact-head Android
+  run `31763879294`. Both current remote Sky diagnostics remain renderer
+  failures after their 20 PASS rows and upload PNGs only, not JSON/Mobile PASS
 - **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
   succeeds in 34m19s for that older SHA
@@ -52,10 +56,9 @@
   `3fc151c8` is red only for fixed-four-frame reveal sampling. Parent
   `e6edf559` passes integrated dev Probe Suite run `31722047536`; historical
   source `7391c53c` retains its failed remote Sky renderer diagnostic. Current
-  source `51d0abc0` is exact-local green only. Android run `31724927769` uses raw checkout/
-  package source exact e6 and publishes that predecessor's matching dev APK;
-  no matching APK is claimed
-  for `51d0abc0`. External/visual acceptance remains open
+  integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior,
+  passes local/topic/dev machine gates, and has exact-head Android
+  `31763879294`. External/visual acceptance remains open
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
@@ -129,14 +132,23 @@ readiness and passes full local CI in 1379.3 seconds/all 64. Historical
 checkpoints through exact parent `e6edf559` pass their bounded machine gates;
 its inherited Sky 21-OK/44-FAIL/DONE output is predecessor history. Historical
 source `7391c53c` and run `31728755204` retain the failed remote renderer
-subprocess. Current source `51d0abc0` passes exact official-Godot full local CI
+subprocess. Product source `51d0abc0` passes exact official-Godot full local CI
 in 1,404.5 seconds/all 64 and run-14 produces 20/20 local Mobile/Speedy
 1280×720 captures with manifest/PNG/probe hashes `AEAC7C72…DE34` and
 `B9EAF5E0…9C6C`, while its source revision remains unknown.
 Integrated-predecessor Android run `31724927769` uses raw checkout/
 package source exact e6 and publishes its matching dev APK (596,041,412 bytes;
 SHA-256 `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`).
-No matching APK or exact-source remote is claimed for `51d0abc0`.
+Governance-only integrated head `441adf35` preserves unchanged `51d0abc0`
+product bytes and passes exact local CI in 1,391.5 seconds/all 64. Topic run
+`31760207048` and dev run `31762132976` both succeed at exact `441adf35` with
+63/63 unique remote headings, zero hard failures, document authority
+36/six/316/316/34/36, and music 42/42. Their Sky subprocesses remain
+nonblocking renderer failures after 20 PASS rows: missing `VK_KHR_surface`
+forces llvmpipe/`gl_compatibility`, only PNGs upload, and no remote JSON/Mobile
+PASS exists. Android run `31763879294` publishes the exact `441adf35` dev APK
+(596,033,220 bytes; SHA-256
+`f04d0fef3b9bf097aa5b07e56e5726a1db9ff37e4be6ce35b495e31b9e4a72d8`).
 External acceptance stays open.
 
 The overall game remains `UNSATISFIED`. GAME2D is exact `NO_REGRESSION`, all 14
@@ -159,8 +171,9 @@ CanvasLayer/Node2D/Sprite2D/Camera2D stage with 6144×2048 master space, 6×2
 backdrop, real parallax, readable animals, strong focus, grounded separation,
 seesaw contact, and shared movement/touch/route coordinates. It moves
 `MA-VIS-002` to `FIXED_PENDING_VERIFICATION`; `MA-VIS-006` remains
-`CONFIRMED_OPEN`. Exact-source remote, APK, device, child, owner, and accepted-
-visual gates remain open.
+`CONFIRMED_OPEN`. Exact machine integration and the matching dev APK now exist
+at `441adf35`, while requested-Mobile remote Sky proof, device, child, owner,
+and accepted-visual gates remain open.
 
 The current Opera shipping snapshot is 13 careers, 53 phases, 27 distinct
   modes, zero generic `bop` phases, and 208 reviewed Roshan costume frames. That
@@ -180,8 +193,10 @@ state also passes exact-head remote run `31649113587` at `af4189a9`. Exact-head
 run `31661887863` verifies the predecessor integrated head; run `31678156887`
 is red only for fixed-frame route readiness sampling. Parent `e6edf559` passes
 integrated dev Probe Suite run `31722047536`; historical `7391c53c` retains its
-failed remote Sky renderer step, while current `51d0abc0` is exact-local green
-only. Authoritative capture,
+failed remote Sky renderer step. Current integrated head `441adf35` preserves
+unchanged `51d0abc0`, passes local/topic/dev machine gates, and has exact-head
+Android `31763879294`; its remote Sky visual subprocess still fails requested-
+Mobile renderer identity. Authoritative capture,
 exact voice, device, child and owner acceptance remain open. Painter-purpose and Arborist
 worktrees are uncommitted candidates; Boxer V2 is a docs-only branch proposal.
 The 42-cue deterministic area-music rollout has local machine evidence,
@@ -201,8 +216,8 @@ result in successful run `31649113587`; human listening, mono/voice review,
   predecessor history. Run-14 produces separately hashed manifest/PNG/probe
   evidence for 20/20 local Sky frames but has an unknown source revision and
   remains non-device/non-owner/nonaccepted.
-  Android run `31724927769` publishes the matching exact-e6 dev APK; no
-  `51d0abc0` APK is claimed. Authoritative
+  Android run `31763879294` publishes the matching exact-`441adf35` dev APK
+  over unchanged `51d0abc0` product source. Authoritative
   visual, exact voice, human listening, device, child, owner, and strict-zero 2D
   gates remain open.
   Probe-only `ff068db` preserves that runtime and completes the newer full-local
@@ -587,9 +602,9 @@ bounded fail-closed route readiness without changing runtime. `MA-OPERA-012`
 remains `FIXED_PENDING_VERIFICATION` until device/child/owner/voice/
 accepted-visual gates complete. Parent `e6edf559` and historical `7391c53c`
 retain their remote machine evidence, including the latter's failed Sky
-renderer subprocess. Current `51d0abc0` changes no Opera runtime and is exact-
-local green only. Dev-APK evidence from Android run `31724927769` belongs to
-predecessor e6; no matching `51d0abc0` APK is claimed.
+renderer subprocess. Integrated head `441adf35` changes no Opera runtime,
+preserves product source `51d0abc0`, passes exact local/topic/dev machine
+gates, and has matching dev APK evidence from Android run `31763879294`.
 Route cards MUST preserve their large touch targets without obscuring Roshan's
 lower body/tail.
 
@@ -1047,9 +1062,10 @@ layer ownership. Its 22 inspected 1280×720 Mobile renders remain diagnostic;
 the nine room captures expose lower-body/tail card occlusion. Run `31678156887`
 is retained red for fixed-frame readiness sampling; parent `e6edf559` passes
 Probe Suite `31722047536`, while historical `7391c53c` retains the failed
-remote Sky renderer diagnostic. Current `51d0abc0` is exact-local green only.
-Android run `31724927769` publishes the matching e6 dev APK; no `51d0abc0` APK
-is claimed. Exact voice, accepted visual, target-device,
+remote Sky renderer diagnostic. Integrated head `441adf35` preserves unchanged
+`51d0abc0`, passes topic/dev Probe runs, and Android `31763879294` publishes
+its matching dev APK. The current remote Sky subprocess remains a requested-
+Mobile renderer failure with PNG-only output. Exact voice, accepted visual, target-device,
 child, and owner gates still block closure.
 
 `DL-QA-13` — Area-music acceptance separates deterministic build evidence from
