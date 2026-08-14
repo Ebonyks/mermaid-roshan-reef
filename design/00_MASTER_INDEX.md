@@ -10,13 +10,18 @@ exact parent `5ed0c754`. CHG-023 maintenance parent
 `e6edf559af219edd4e5ce38cab0c5094483be5c6` passes integrated dev Probe Suite
 run `31722047536`: probes 34m25s/63-of-63, 36 document tests, six/six stress,
 316/316 inventory/ledger, 34 active/36 retained records, and music 3m33s/
-42-of-42. Earlier branch run `31719143975` is corroborating e6 history. The
-current audit source is two-file Sky diagnostic commit
-`7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, exact parent `e6edf559`; official
-Godot `4.7.1.stable.official.a13da4feb` full local CI is green in 1,402.3
-seconds/all 64. Its exact-source run `31728755204` is overall `SUCCESS` with a
-40m05s probes job/63 trusted headings and music 3m38s/42-of-42; the nonblocking
-Sky step itself fails required-Mobile renderer identity after 20 PASS rows. The current Opera product/runtime commit
+42-of-42. Earlier branch run `31719143975` is corroborating e6 history.
+Current audit source `51d0abc0d32855a8ba32932599fedd8f59b398b7`, exact
+parent `1b7d6bdaf89ebc7c9bdeae16fbde0e14079fd8a8`, is the 19-path
+Sky true-Canvas repair (+3,318/-3,517). Exact source bytes pass official Godot
+`4.7.1.stable.official.a13da4feb` full local CI in 1,404.5 seconds/all 64.
+Run-14 is 20/20 local 1280×720 Mobile/Speedy with manifest hash
+`AEAC7C72E0A3BFF992713127261DD00ED69049947DFB6723AA66365F5712DE34` and
+visual-probe hash `B9EAF5E0738CFB61CCD3E34ACFEA420AEADAB4E3ADE80B40A2CFD1F227569C6C`;
+those hashes bind the manifest/PNGs and probe script, while `source_revision`
+remains unknown. No source-head remote
+or APK is claimed. Historical source `7391c53c` and run `31728755204` retain
+the prior failed remote Sky `gl_compatibility` subprocess. The current Opera product/runtime commit
 remains `09e5e35665fd8d1bd782693e10fc0198f756d2c8`; its exact local suite is
 green in 1463.4 seconds/all 64, while predecessor probe-readiness head
 `ff068db002202839f920a6f9fb78c942788a3034` is green in 1379.3 seconds/all 64.
@@ -35,7 +40,7 @@ Historical predecessor run `31661887863` remains green at
 Ubuntu sampled the 0.25-second Opera reveal after four frames. The APK gate is
 now commit-bound; device, child, owner, exact-voice, listening, strict-2D, and
 accepted-visual gates remain open. Neither predecessor APK is a matching
-`7391c53c` build.
+`51d0abc0` build.
 
 ## Why this folder exists
 
@@ -59,8 +64,9 @@ material findings, including retained terminal history, in
 `audit/findings/ACTIVE_FINDINGS_2026-08-13.md`. Exact parent `e6edf559`
 preserves the verified document controls, so `MA-DOC-002` and `MA-DOC-005` are
 `VERIFIED_FIXED`; the stable records remain present after terminal transition.
-CHG-030 owns the current diagnostic source and all five live animal states; the catalog is 30 IDs/78 unique
-references/four emitters/24 tests/26 manual groups.
+Manual/non-emitting CHG-031 owns the current 19-path source, including
+`scripts/probe_northern.gd`; the catalog is 31 IDs/79 unique references/four
+emitters/25 planner tests/27 manual groups.
 
 | # | Document | Answers |
 |---|---|---|
@@ -138,15 +144,15 @@ project is not allowed to use that branch as a fallback or merge source.
 
 At merge `f3b0de078898a8b4faddb2c738c4403180eff928` (parents `ea6185fd`
 and `5f58ef0a`), GAME2D recorded the historical 68-production/77-probe
-checkpoint. The current Opera repair remains **`UNSATISFIED`** but shrinks the
+checkpoint. The current audit remains **`UNSATISFIED`** while Sky shrinks the
 exact inventory to 509 model files, all 509 active/export, 157 tracked
-sidecars, 352 active-untracked generated sidecars, 66 production 3D files, 74
+sidecars, 352 active-untracked generated sidecars, 65 production 3D files, 70
 probe 3D files, one scene, and one configuration. Regression mode is exact
 `NO_REGRESSION` and all 14 falsification controls pass; neither result is strict
 completion. The `f3b0de07` tree had 195 GDScript files under `scripts/`, 106
-  `scripts/probe_*.gd` files, and an 8,519-line `scripts/main.gd`. Current
-  `09e5e356` retains 195/106 script/probe files and has an 8,647-line
-  `scripts/main.gd`.
+  `scripts/probe_*.gd` files, and an 8,519-line `scripts/main.gd`. Historical
+  `09e5e356` retained 195/106 script/probe files and had an 8,647-line
+  `scripts/main.gd`; current source `51d0abc0` has 8,734 lines.
 
 Exact Godot 4.7.1-stable local `scripts/ci.sh` exits 0 at `f3b0de07` after
 1437.1 seconds with all 64 then-current trusted probes. Predecessor product/audit
@@ -205,23 +211,20 @@ also not warning-clean. Android run `31695675866` succeeds from exact
 Later parent `e6edf559` passes integrated dev Probe Suite run `31722047536`
 with probes 34m25s/63-of-63, document controls green, and music 3m33s/42-of-42;
 earlier branch run `31719143975` is corroborating e6 history, and their inherited Sky
-21-OK/44-FAIL/DONE result is predecessor history. Current two-file source
-`7391c53c` passes exact official-Godot full local CI in 1,402.3 seconds/all 64
-and locally produces 20/20 ordered 1280×720 Mobile captures with 1,078
-assertions, isolated save restoration, probe SHA-256
-`f28413263c0bedeed421fae6e9de4626095f03b6010bade8380ad7fb5aa07db9`, and
-GAME2D manifest SHA-256
-`8c70b9aeaba5302322bdd44ca84d8a2b76fca053a091753e0e04676ee407fb00`.
+21-OK/44-FAIL/DONE result is predecessor history. Historical source `7391c53c`
+and exact-source run `31728755204` preserve its failed remote
+`gl_compatibility` subprocess. Current source `51d0abc0` passes exact official-
+Godot full local CI in 1,404.5 seconds/all 64 and run-14 locally produces 20/20
+ordered 1280×720 Mobile/Speedy captures, bound by manifest hash
+`AEAC7C72…DE34` and visual-probe hash `B9EAF5E0…9C6C`.
 Workflow-run Android `31724927769` uses raw checkout/package source exact e6
 and publishes the latest integrated-predecessor APK (596,041,412 bytes;
 SHA-256 `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`).
-Exact-source run `31728755204` completes overall green, but the continue-on-
-error/PNG-only Sky step emits 20 PASS rows and its 20/20 summary, then
-`GLOBAL|FAIL|rendering_method|gl_compatibility`, `RESULT|FAIL`, and exit 1
-because `VK_KHR_surface` is missing. PNGs upload and JSON does not. Review exposes tiny frog/otter and subtle-focus P1
-risks plus animal/Roshan overlap, weak grounding, and seesaw-contact P2 defects;
-the one-mural/spatial runtime keeps `MA-VIS-002` and `MA-VIS-006` open. No
-matching current APK or remote JSON/art acceptance is claimed. Authoritative visual, exact voice, human
+Source `51d0abc0` replaces the mural/spatial promenade with an owned
+CanvasLayer/Node2D/Sprite2D/Camera2D stage and repairs the bounded readability,
+focus, grounding, contact, touch, and route-lifecycle defects. `MA-VIS-002`
+becomes `FIXED_PENDING_VERIFICATION`; `MA-VIS-006` remains open. No matching
+current APK, exact-source remote, or art acceptance is claimed. Authoritative visual, exact voice, human
 listening, device, child, owner, and strict-zero 2D evidence remain open.
 
 Current Opera content is 13 careers, 53 phases, and 27 modes with newer

@@ -12,11 +12,14 @@ chain. Exact parent `e6edf559af219edd4e5ce38cab0c5094483be5c6` passes integrated
 dev Probe Suite run `31722047536` with probes 34m25s/63-of-63, 36 document
 tests, six/six stress, 316/316 inventory/ledger, 34 active/36 retained records,
 and music 3m33s/42-of-42. Earlier branch run `31719143975` is corroborating e6
-history. Current two-file Sky diagnostic source
-`7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, exact parent `e6edf559`, passes
-official Godot 4.7.1 full local CI in 1,402.3 seconds/all 64; exact-source run
-`31728755204` is overall green with 63 trusted headings and music 42/42, but
-its nonblocking Sky step internally fails required-Mobile renderer identity. The
+history. Current Sky true-Canvas source
+`51d0abc0d32855a8ba32932599fedd8f59b398b7`, exact parent `1b7d6bda`, changes
+19 paths (+3,318/-3,517) and passes official Godot 4.7.1 full local CI in
+1,404.5 seconds/all 64. Run-14 is local Mobile/Speedy 20/20 with manifest/PNG
+and probe hashes `AEAC7C72…DE34` and `B9EAF5E0…9C6C`; its source revision
+remains unknown, and no exact-source
+remote or APK is claimed. Historical `7391c53c` run `31728755204` retains the
+prior failed remote Sky renderer subprocess. The
 master audit/design language are
 `CANONICAL_CURRENT`; the game-wide audit remains `IN_PROGRESS` /
 `UNSATISFIED`._
@@ -98,13 +101,14 @@ pieces with a deliberate z home:
 stand behind ships as its own sprite with its own 2D ordering role — never baked into a
 mural. A mural that paints a "prop" at band depth is a layering bug.
 
-> Current audit state: Sky Lagoon's one-mural-layer defect is
-> `MA-VIS-002`; per-card occlusion coverage is `MA-VIS-005`. Closure requires
-> true Canvas/`Sprite2D` evidence, not a legacy depth-buffer repair. Source
-> `7391c53c` fixes the capture diagnostic only: its 20/20 ordered Mobile frames
-> still show the mural/spatial runtime and expose tiny frog/otter, subtle focus,
-> animal/Roshan overlap and grounding, and seesaw-contact defects. `MA-VIS-002`
-> and `MA-VIS-006` therefore remain `CONFIRMED_OPEN`.
+> Current audit state: source `51d0abc0` repairs Sky Lagoon as an owned
+> `CanvasLayer` -1 with a 6144×2048 `Node2D` master, 6×2 `Sprite2D` backdrop,
+> differential layers/parallax, sole `Camera2D`, five readable animals, three
+> playground actions, and master-coordinate movement/touch/routes. It reuses
+> approved art unchanged. Exact local CI and run-14 are green, moving
+> `MA-VIS-002` to `FIXED_PENDING_VERIFICATION`; source-head remote, target-
+> device, child, owner, and accepted-visual evidence remain open, and broader
+> `MA-VIS-006` stays `CONFIRMED_OPEN`.
 
 ### Control grammar (replaces the stick)
 
@@ -136,10 +140,9 @@ no-fail behavior; archive retired 3D resources; run focused, passive,
 teardown, re-entry, save/load, sibling and full-suite tests. Delete a legacy
 resource only after its replacement or non-reachability proof is green.
 
-At product/audit commit
-`09e5e35665fd8d1bd782693e10fc0198f756d2c8`, the exact GAME2D inventory
+At current source `51d0abc0d32855a8ba32932599fedd8f59b398b7`, the exact GAME2D inventory
 remains **`UNSATISFIED`**: 509 model files/509 active exports, 157 tracked and
-352 active-untracked generated model sidecars, 66 production 3D files, 74
+352 active-untracked generated model sidecars, 65 production 3D files, 70
 probe 3D files, one scene, and one configuration. Regression mode is exact
 `NO_REGRESSION` and all 14 falsification controls pass; strict remains open. The
 older `f3b0de07` 68/77 values remain historical evidence. The old zone table is preserved in
@@ -180,18 +183,16 @@ replaces that guess with a bounded fail-closed semantic wait, and passes exact
 local full CI in 1379.3 seconds with all 64 probes. Historical checkpoints
 through exact parent `e6edf559` pass their bounded local/remote machine gates;
 the parent's inherited Sky 21-OK/44-FAIL/DONE output remains predecessor
-history. Current source `7391c53c` changes only the Sky diagnostic and GAME2D
-manifest entry, passes full local in 1,402.3 seconds/all 64, and locally emits
-20/20 ordered Mobile frames with 1,078 assertions and save restoration. The
-source-head run `31728755204` completes overall SUCCESS; its continue-on-error/
-PNG-only Sky step emits 20 PASS rows and a 20/20 summary, then fails
-`rendering_method|gl_compatibility`/exit 1 because the runner lacks
-`VK_KHR_surface`. No remote JSON or blocking visual result is claimed.
+history. Historical source `7391c53c` and run `31728755204` preserve the prior
+failed remote Sky renderer subprocess. Current source `51d0abc0` passes full
+local in 1,404.5 seconds/all 64 and run-14 is local Mobile/Speedy 20/20 with
+manifest/PNG/probe hashes but an unknown source revision. No current-source
+remote result is claimed.
 Integrated-predecessor Android run `31724927769` uses raw checkout/package
 source exact e6 and publishes that predecessor's matching dev APK
 (596,041,412 bytes; SHA-256
 `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`).
-No matching APK is claimed for `7391c53c`.
+No matching APK is claimed for `51d0abc0`.
 Device, child, owner, exact-voice, listening, strict-2D, and accepted-visual
 gates remain open.
 
@@ -286,10 +287,9 @@ local suites are green, moving
 `MA-OPERA-012` to `FIXED_PENDING_VERIFICATION`. The 22 captures are diagnostic;
 the nine room captures show a residual P2 composition defect because the
 154×154 lower-center cards obscure Roshan's lower body/tail. Parent
-`e6edf559` is remote-green in dev run `31722047536`; current diagnostic source
-`7391c53c` is local- and overall-remote-machine green, though its remote Sky
-step fails renderer identity, and the available
-exact-SHA dev APK belongs to integrated predecessor e6. Device,
+`e6edf559` is remote-green in dev run `31722047536`; current source `51d0abc0`
+is exact-local green with no source-head remote, and the available exact-SHA
+dev APK belongs to integrated predecessor e6. Device,
 child, owner, exact-voice, listening, strict-2D, and accepted-visual evidence
 remain open.
 
@@ -474,9 +474,9 @@ The chain's fail-closed validator has 36 focused tests and six mutation controls
 green. Exact parent `e6edf559` preserves that verified authority and passes
 integrated dev Probe Suite `31722047536`; earlier branch `31719143975` is
 historical corroboration, so `MA-DOC-002` and `MA-DOC-005` remain
-`VERIFIED_FIXED`. Manual CHG-030 separately owns two-file diagnostic source
-`7391c53c` and all five live animal states; current catalog counts are 30 IDs/78 references/four emitters/24
-tests/26 manual groups.
+`VERIFIED_FIXED`. Manual/non-emitting CHG-031 owns exact 19-path source
+`51d0abc0`, including `scripts/probe_northern.gd`; current catalog counts are
+31 IDs/79 references/four emitters/25 planner tests/27 manual groups.
 
 - **`CONFIRMED_OPEN`:** game-wide true-2D conversion, fresh-save no-cheat
   reachability proof, exact voice gaps, visual evidence and remaining layering

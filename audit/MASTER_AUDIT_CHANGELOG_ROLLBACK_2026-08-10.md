@@ -1,11 +1,11 @@
 # Mermaid Roshan master-audit change and rollback ledger
 
 - **Ledger ID:** `MA-CHANGELOG-2026-08-10`
-- **Change-ID namespace:** `CHG-001` through `CHG-030`; IDs are permanent and
+- **Change-ID namespace:** `CHG-001` through `CHG-031`; IDs are permanent and
   are never reassigned or renumbered
 - **Audit lineage:** `codex/master-audit-20260809`
 - **Dedicated current audit branch:**
-  `codex/sky-lagoon-capture-audit-20260813`
+  `codex/sky-lagoon-canvas-repair-20260813`
 - **Human scorecard and repository-version snapshot:**
   `a3d7580cbea2ba071364bae7dc3e727e3d1c1eb2`
 - **Opera retirement and Canvas-lifecycle snapshot:**
@@ -46,6 +46,17 @@
   63/63 trusted headings; music 3m38s, 42/42), but its non-blocking Sky step
   exits one after 20 PASS rows because the runner falls back to
   `gl_compatibility`; it is not a remote diagnostic PASS
+- **Sky Lagoon true-Canvas promenade and touch-lifecycle snapshot:**
+  `51d0abc0d32855a8ba32932599fedd8f59b398b7`, with exact single parent and
+  comparison baseline `1b7d6bdaf89ebc7c9bdeae16fbde0e14079fd8a8`.
+  Exact-source official-Godot local `scripts/ci.sh` is green in 1,404.5
+  seconds/all 64 trusted probes. Separate local run-14 Mobile evidence is 20/20
+  PASS at 1280x720 with no failed, skipped, or global row and unchanged save.
+  Its manifest records `source_revision: unknown`; `AEAC7C72…DE34` binds the
+  manifest and embedded PNG identities, while `B9EAF5E0…9C6C` binds the visual-
+  probe script, not the full `51d0abc0` tree;
+  no exact-source remote, matching APK, M11, child, owner, or release evidence
+  is claimed
 - **Historical authority-head remote verification:** GitHub Actions run `31686380560`
   succeeds at exact `9befc0f838f40eead2f42088a91206257fe217a8`;
   machine-workflow success is not warning-clean or external/visual acceptance,
@@ -68,9 +79,9 @@
   engine, [master-audit](MASTER_AUDIT_2026-08-09.md), and
   [comprehensive-design-language](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md)
 - **Program state:** `IN_PROGRESS / UNSATISFIED`
-- **Catalog inventory:** 30 permanent change IDs, 78 uniquely owned source-
-  commit references, four guarded-script emitters, 26 manual/refusal groups,
-  and 24 planner unit tests
+- **Catalog inventory:** 31 permanent change IDs, 79 uniquely owned source-
+  commit references, four guarded-script emitters, 27 manual/refusal groups,
+  and 25 planner unit tests
 
 This is the durable answer to the fact that a long audit can produce both
 improvements and regressions. It records what changed, why the change may be
@@ -97,6 +108,7 @@ document_authority_snapshot: 5ed0c75460c9afd5ab574ff2c4a907c1075964f0
 document_authority_hardening_snapshot: 7eb945957776ab3458a9de71c8be9937e2354720
 document_authority_verification_checkpoint: 51887315bd537db2d16bdafcac1bbfa808352351
 sky_lagoon_capture_audit_snapshot: 7391c53cd6981a256bd8bfe40ccbb9f72fb723fe
+sky_lagoon_true_canvas_snapshot: 51d0abc0d32855a8ba32932599fedd8f59b398b7
 changes:
   - {id: CHG-001, name: roshan-2d-contract-and-frame-repair, rollback_mode: owner_blocked_mixed}
   - {id: CHG-002, name: companion-no-fail-and-verification, rollback_mode: guarded_chain}
@@ -128,6 +140,7 @@ changes:
   - {id: CHG-028, name: audit-evidence-and-rollback-control-synchronization, rollback_mode: documentation_migration}
   - {id: CHG-029, name: exhaustive-document-authority-and-canonical-finding-gate, rollback_mode: documentation_migration}
   - {id: CHG-030, name: fail-closed-sky-lagoon-promenade-capture-audit, rollback_mode: guarded_mixed}
+  - {id: CHG-031, name: sky-lagoon-true-canvas-promenade-and-touch-lifecycle, rollback_mode: owner_blocked_mixed}
 ```
 
 ## 2. Safe rollback protocol
@@ -187,6 +200,13 @@ baseline is `e6edf559af219edd4e5ce38cab0c5094483be5c6`. It owns exactly the Sky
 Lagoon capture probe and its synchronized GAME2D inventory entry. The planner
 refuses an emitter because restoring the obsolete probe or only one of the two
 paths would make evidence misleading or internally inconsistent.
+CHG-031 starts at exact true-Canvas product source
+`51d0abc0d32855a8ba32932599fedd8f59b398b7`, whose exact single parent and
+comparison baseline is `1b7d6bdaf89ebc7c9bdeae16fbde0e14079fd8a8`.
+It owns exactly the 19 catalogued runtime, touch, probe, and GAME2D paths. The
+planner refuses an emitter because the Canvas route, one-finger touch and pause
+lifecycle, return state, living-world layers, visual-evidence contract, and
+strict-2D inventory must be repaired or reviewed as one safety-sensitive unit.
 The planner output is the authority if a later append-only maintenance revision
 changes this mapping.
 
@@ -225,7 +245,7 @@ python -B tools/plan_audit_rollback.py CHG-021 --emit-script
 ```
 
 Only CHG-020 and CHG-021, plus all-or-nothing CHG-022 and CHG-024, can emit a
-script: four emitters across 30 stable IDs. The other 26 groups refuse
+script: four emitters across 31 stable IDs. The other 27 groups refuse
 automation even when their human ledger mode says
 `guarded_single`: shared-path, product-policy, or not-yet-committed context
 still requires a reviewed manual inverse. Emitted scripts create a dedicated
@@ -1662,6 +1682,107 @@ exclusive and must never be applied on the same rollback branch.
   the GAME2D inventory truthful, and passes every listed focused gate plus exact
   official-Godot full CI. No automatic inverse is authorized.
 
+### CHG-031 — Sky Lagoon true-Canvas promenade and touch lifecycle
+
+- **Source and exact boundary:** source
+  `51d0abc0d32855a8ba32932599fedd8f59b398b7` has exact single parent and
+  comparison baseline `1b7d6bdaf89ebc7c9bdeae16fbde0e14079fd8a8`.
+  It is a non-merge commit that changes exactly 19 paths with 3,318 insertions
+  and 3,517 deletions. The exact rollback start is the source itself,
+  `51d0abc0`.
+- **Paths:** `scripts/arena/sky_lagoon_promenade.gd`;
+  `scripts/living_world.gd`; `scripts/main.gd`; `scripts/pause_menu.gd`;
+  `scripts/probe_audit.gd`; `scripts/probe_boot_display.gd`;
+  `scripts/probe_galaxy_state.gd`; `scripts/probe_interaction.gd`;
+  `scripts/probe_l2.gd`; `scripts/probe_l2_living_cards.gd`;
+  `scripts/probe_l2_reenter.gd`; `scripts/probe_northern.gd`;
+  `scripts/probe_ocean_kingdoms.gd`;
+  `scripts/probe_sky_lagoon_animals.gd`;
+  `scripts/probe_sky_lagoon_art.gd`; `scripts/probe_touch_stress.gd`;
+  `scripts/probe_train.gd`; `scripts/touch_ui.gd`; and
+  `tools/game_2d_migration_manifest.json`. This boundary contains 18 GDScript
+  paths and one static inventory path. It changes no workflow, scene,
+  save-schema, protected-original, voice/audio, generated-art, or shipping-art
+  path.
+- **What changed, in plain English:** the Sky Lagoon promenade is now one true
+  Canvas route over the approved continuous 6144x2048, twelve-tile panorama.
+  `CanvasLayer -1`, `Node2D`/`Sprite2D`, and `Camera2D` own presentation and
+  travel. Canvas Roshan owns master-space movement, camera following, touch
+  navigation, focus, and the playground actions. Five live targets, five
+  animals, day/night state, real parallax layers, route exits, and living-world
+  cards follow the same master-space coordinates. The generic 3D Player stays
+  hidden, inert, and camera-disabled only as compatibility state while this
+  route is active. Reef, Castle, Galaxy, Ember, train, and northern transitions
+  now restore the semantic Canvas destination instead of reading the hidden
+  compatibility body.
+- **Touch and lifecycle repair:** Classic short release remains jump outside
+  the promenade and emits contextual world touch only inside it. A Classic
+  drag starts manual movement, while manual input, keyboard movement, route
+  transitions, overlays, and new goals clear stale hold/navigation/focus state.
+  Opening pause first cancels every active touch before pausing the tree, so a
+  held physical gear press cannot survive resume as movement or autowalk. The
+  action hot path avoids repeated per-frame alpha scans, the seesaw derives
+  rotation from its immutable rest pose, and invalid equipment input remains
+  safe.
+- **Outcome / positive effect:** Sky Lagoon no longer presents a 3D facade for
+  this playable screen. Movement, camera, actions, animals, and child-facing
+  one-finger input share one Canvas coordinate system, while the approved art,
+  save keys, external-route semantics, no-fail behavior, and Mobile renderer
+  contract are preserved. Probes now measure the visible master-space player
+  and semantic destinations instead of accidentally passing or failing against
+  the hidden 3D body.
+- **Exact local machine evidence:** at the exact source bytes, official Godot
+  4.7.1 `scripts/ci.sh` completed in **1,404.5 seconds with all 64 trusted
+  probes**. Parser, inference lint, full analyzer, focused natural-timing
+  Lagoon actions, living cards, re-entry, northern return, real Galaxy
+  outbound/return, five animals, train, interaction, and physical touch/pause
+  stress were green. Probe parity stress/default, `git diff --check`, and
+  GAME2D stress/default/regression were green. The migration gate reports
+  `NO_REGRESSION`; its default target remains `UNSATISFIED`.
+- **Fresh visual evidence:** local run-14 has manifest SHA-256
+  `AEAC7C72E0A3BFF992713127261DD00ED69049947DFB6723AA66365F5712DE34`
+  and exact visual-probe source SHA-256
+  `B9EAF5E0738CFB61CCD3E34ACFEA420AEADAB4E3ADE80B40A2CFD1F227569C6C`.
+  The manifest records `source_revision: unknown`; the first hash binds the
+  manifest and its embedded PNG identities, and the second binds only the
+  visual-probe script. They do not bind the full runtime tree. The separate
+  1,404.5-second local CI result above is the exact-`51d0abc0` source-byte proof.
+  It records 20/20 ordered full-frame PNG rows PASS, zero failed, skipped, or
+  global rows, exact 1280x720 output under official Godot 4.7.1 Mobile/Speedy,
+  unchanged normal save state, zero probe writes, and successful cleanup. Two
+  independent repository-side human reviewers approved all 20 frames. That
+  review is not a Lenovo Tab M11, child, or owner-art acceptance substitute.
+- **Remaining debt and unknowns:** GAME2D remains `UNSATISFIED` at 509
+  active/export model files, 65 production-3D files, 70 probe-3D files, one
+  scene dependency, one config dependency, and zero archive-now candidates.
+  The change fixes the Sky route but does not close game-wide strict-2D debt.
+  At sealing time there is no exact-source remote Probe Suite result, matching
+  APK, M11 touch/performance result, child play-test, owner acceptance, or
+  release evidence. Local machine success and independent frame review must
+  not be promoted into any of those external gates.
+- **Dependencies:** CHG-001, CHG-003, CHG-005, CHG-006, CHG-008, CHG-011,
+  CHG-014, CHG-023, CHG-025, CHG-029, and CHG-030. CHG-030 remains the
+  historical fail-closed capture-audit source; CHG-031 owns the later product,
+  touch, and synchronized probe/inventory change. Post-source count, hash,
+  evidence, and authority synchronization is CHG-023 maintenance, not a second
+  CHG-031 source and not CHG-032.
+- **Possible negative effect / unknown:** the route, touch lifecycle, shared
+  main/pause/living-world state, external transitions, probes, and GAME2D
+  inventory are coupled. A raw revert restores the rejected 3D facade and
+  stale Classic-touch/pause behavior. A partial inverse can strand camera or
+  route ownership, leave a held touch alive, disagree about visible player
+  coordinates, desynchronize probes from production, or make the inventory
+  fingerprint dishonest.
+- **Rollback:** `owner_blocked_mixed`; the planner is deliberately
+  `MANUAL_RECONSTRUCTION_REQUIRED` and refuses `--emit-script`. Do not raw-
+  revert `51d0abc0` or restore old whole files. Repair a defect forward. If the
+  owner explicitly requires a complete inverse, create a clean isolated branch
+  at exact `51d0abc0d32855a8ba32932599fedd8f59b398b7`, verify its exact parent,
+  hand-construct and review the full 19-path inverse, preserve every save key,
+  protected original, later truthful change, one-finger no-trap behavior, and
+  evidence contract, then rerun every focused and full exact-4.7.1 gate plus
+  remote, device, child, and owner review. No rollback script may be emitted.
+
 ## 5. Per-group gate matrix
 
 | Change IDs | Minimum focused gates before full CI | External gates that remain material |
@@ -1683,6 +1804,7 @@ exclusive and must never be applied on the same rollback branch.
 | CHG-028 | exact two-commit/parent/10-path-union parity, 22 planner tests, Python compilation, ledger/catalog source parity, probe parity, GAME2D regression gate, diff check, and exact-head run `31686380560` with warning diagnostics and internally failed Sky Lagoon diagnostic retained | matching APK and external evidence; supersede facts as CHG-023 maintenance after later product/evidence changes and never promote documentation synchronization into acceptance |
 | CHG-029 | exact two-source parent/path parity, exact 22-path union, 23 planner tests, 36 document-authority tests, six mutation stress controls, 316/316 inventory/ledger and 36/36 active-record parity, Python compilation, probe parity, GAME2D stress/default/regression, diff check, first-source local `scripts/ci.sh` in 1,359.8 seconds/all 64, and exact CHG-023 maintenance-head local 1,435.2 seconds/all 64 plus Probe Suite run `31710377034` | repeat exact-head machine gates for any rollback candidate; all device, child, owner, voice, listening, strict-2D, visual, matching APK, and release acceptance |
 | CHG-030 | exact source/parent/two-path parity, parser/lint/full analyzer, two fresh 20-frame Mobile capture runs with exact output/save/provenance checks, 1,078/1,078 assertions, five focused Lagoon probes, GAME2D stress/default/regression, diff check, and exact local `scripts/ci.sh` in 1,402.3 seconds/all 64; exact-source workflow run `31728755204` completes with 63/63 headings and 42/42 music | remote Sky internally ends `GLOBAL FAIL rendering_method=gl_compatibility` / `RESULT FAIL` after 20 PASS rows because the runner falls back from Mobile/Vulkan; workflow remains non-blocking and PNG-only, while MA-VIS-002/006, small-animal readability, overlap, seesaw/focus clarity, M11, child, owner-art, strict-2D, matching APK, and release acceptance remain open |
+| CHG-031 | exact source/parent/19-path parity, parser/lint/full analyzer, natural-timing Lagoon actions, living cards, re-entry, northern/Galaxy/route return, five animals, interaction/train and physical touch/pause stress, separate run-14 20/20 Mobile evidence whose manifest/PNG identities and probe script are hashed while `source_revision` remains unknown, save integrity, probe parity, GAME2D stress/default/regression, diff check, and exact local `scripts/ci.sh` source-byte proof in 1,404.5 seconds/all 64 | no exact-source remote or matching APK yet; M11 touch/performance, child play-test, owner acceptance, game-wide strict-2D closure, and release acceptance remain open |
 
 ## 6. Required rollback record
 

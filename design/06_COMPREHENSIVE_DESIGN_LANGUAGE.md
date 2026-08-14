@@ -26,16 +26,19 @@
 - **Current sealed document-authority chain:** head
   `7eb945957776ab3458a9de71c8be9937e2354720`, exact parent `5ed0c754`, whose
   exact parent is `18b6150c01e1587100dca97c85ebad03f369825a`
-- **Current audit parent and source:** CHG-023 maintenance parent
+- **Current audit predecessor and source:** CHG-023 maintenance parent
   `e6edf559af219edd4e5ce38cab0c5094483be5c6` passes integrated dev Probe Suite
   `31722047536` with probes 34m25s/63-of-63, 36 document tests, six/six stress,
   316/316 inventory/ledger, 34 active/36 retained records, and music 3m33s/
   42-of-42. Earlier branch run `31719143975` is corroborating e6 history.
-  Current two-file Sky diagnostic source
-  `7391c53cd6981a256bd8bfe40ccbb9f72fb723fe`, exact parent `e6edf559`, passes
-  official Godot 4.7.1 full local CI in 1,402.3 seconds/all 64. Exact-source run
-  `31728755204` completes overall SUCCESS/63 headings/music 42-of-42; its
-  nonblocking Sky step internally fails required-Mobile renderer identity
+  Historical Sky diagnostic source `7391c53c` and run `31728755204` retain the
+  failed remote renderer subprocess. Current true-Canvas source
+  `51d0abc0d32855a8ba32932599fedd8f59b398b7`, exact parent `1b7d6bda`, changes
+  19 paths (+3,318/-3,517) and passes official Godot 4.7.1 full local CI in
+  1,404.5 seconds/all 64. Run-14 is local Mobile/Speedy 20/20 with manifest/PNG
+  and probe hashes `AEAC7C72…DE34` and `B9EAF5E0…9C6C`, while its source
+  revision remains unknown; no exact-source
+  remote or APK is claimed
 - **Latest historical exact-head remote verification:**
   `dacef1405b6a8cb470117e824aebac3a8ca500af`; GitHub run `31457593351`
   succeeds in 34m19s for that older SHA
@@ -47,12 +50,12 @@
   1379.3 seconds/all 64 under exact official Godot
   `4.7.1.stable.official.a13da4feb`. Run `31678156887` at pre-fix head
   `3fc151c8` is red only for fixed-four-frame reveal sampling. Parent
-  `e6edf559` passes integrated dev Probe Suite run `31722047536`; current source
-  `7391c53c` is exact-local and overall-remote-machine green, with a failed
-  remote Sky renderer diagnostic. Android run `31724927769` uses raw checkout/
+  `e6edf559` passes integrated dev Probe Suite run `31722047536`; historical
+  source `7391c53c` retains its failed remote Sky renderer diagnostic. Current
+  source `51d0abc0` is exact-local green only. Android run `31724927769` uses raw checkout/
   package source exact e6 and publishes that predecessor's matching dev APK;
   no matching APK is claimed
-  for `7391c53c`. External/visual acceptance remains open
+  for `51d0abc0`. External/visual acceptance remains open
 - **Current audit state:** `IN_PROGRESS` / `UNSATISFIED`
 - **Audience:** one specific non-reading four-year-old, using one finger on a
   three-to-four-year-old Android phone; Lenovo Tab M11 is the performance
@@ -75,9 +78,10 @@ decision. Contiguous sources `5ed0c754`/`7eb94595` establish and harden one row
 for all 316 Markdown paths and full records for all 36 material findings.
 Exact parent `e6edf559` preserves and remotely verifies that authority.
 `MA-DOC-002` and `MA-DOC-005` are `VERIFIED_FIXED`; the CHG-029 source chain
-and exact 22-path boundary remain unchanged. Manual/non-emitting CHG-030 owns
-`7391c53c` and all five live animal states; current counts are 30 IDs/78 unique references/four emitters/24
-tests/26 manual groups. Direct owner decisions and
+and exact 22-path boundary remain unchanged. Manual/non-emitting CHG-031 owns
+exact 19-path source `51d0abc0`, including `scripts/probe_northern.gd`; current
+counts are 31 IDs/79 unique references/four emitters/25 planner tests/27 manual
+groups. Direct owner decisions and
 binding operational/security rules remain higher authority. Where an older art
 or design document conflicts with a rule here, the dated supersession table in
 section 15 controls.
@@ -123,28 +127,22 @@ executed gate/probe, and Windows pass. Probe-only `ff068db` replaces the frame
 guess with a bounded fail-closed wait for exact instance/reveal/stage/layer
 readiness and passes full local CI in 1379.3 seconds/all 64. Historical
 checkpoints through exact parent `e6edf559` pass their bounded machine gates;
-its inherited Sky 21-OK/44-FAIL/DONE output is predecessor history. Current
-source `7391c53c` passes exact official-Godot full local CI in 1,402.3
-seconds/all 64 and locally produces 20/20 ordered Mobile/Speedy 1280×720
-captures with 1,078 assertions and isolated save/plane/time restoration. Probe
-SHA-256 is `f28413263c0bedeed421fae6e9de4626095f03b6010bade8380ad7fb5aa07db9`;
-GAME2D manifest SHA-256 is
-`8c70b9aeaba5302322bdd44ca84d8a2b76fca053a091753e0e04676ee407fb00`.
-Exact-source run `31728755204` completes overall SUCCESS (40m05s probes/63
-headings, music 3m38s/42-of-42), but its continue-on-error/PNG-only Sky step
-emits 20 PASS rows and a 20/20 summary, then fails `rendering_method|
-gl_compatibility`/exit 1 because `VK_KHR_surface` is unavailable. PNGs upload,
-JSON does not, so no remote Mobile diagnostic PASS or blocking visual gate is
-claimed. Integrated-predecessor Android run `31724927769` uses raw checkout/
+its inherited Sky 21-OK/44-FAIL/DONE output is predecessor history. Historical
+source `7391c53c` and run `31728755204` retain the failed remote renderer
+subprocess. Current source `51d0abc0` passes exact official-Godot full local CI
+in 1,404.5 seconds/all 64 and run-14 produces 20/20 local Mobile/Speedy
+1280×720 captures with manifest/PNG/probe hashes `AEAC7C72…DE34` and
+`B9EAF5E0…9C6C`, while its source revision remains unknown.
+Integrated-predecessor Android run `31724927769` uses raw checkout/
 package source exact e6 and publishes its matching dev APK (596,041,412 bytes;
 SHA-256 `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`).
-No matching APK is claimed for `7391c53c`.
+No matching APK or exact-source remote is claimed for `51d0abc0`.
 External acceptance stays open.
 
 The overall game remains `UNSATISFIED`. GAME2D is exact `NO_REGRESSION`, all 14
 falsification controls pass, but strict remains unsatisfied at 509 models/509
-active exports, 157 tracked and 352 active-untracked generated sidecars, 66
-production 3D files, 74 probe 3D files, one scene, and one configuration. The
+active exports, 157 tracked and 352 active-untracked generated sidecars, 65
+production 3D files, 70 probe 3D files, one scene, and one configuration. The
 older `f3b0de07` 68/77 count remains historical evidence. Fresh-runtime
 visual strict is also unsatisfied at 16 failures, 17 reviews, two manual items,
 86 coverage gaps, 32 passes, and 94 not-applicable checks; the workflow's five
@@ -156,15 +154,13 @@ earlier GLB UID warnings are diagnosed as stale ignored local import cache,
 while the GLBs remain separate GAME2D debt. Commits `3b7a7e66` and `fea916a8`
 are the approved visual-evidence implementation baseline for `DL-QA-11`.
 
-The passing local Mobile Sky diagnostic is not a passing Sky product. Its frames retain the
-one-mural/spatial runtime (`MA-VIS-002` remains `CONFIRMED_OPEN`) and expose P1
-preschool-readability risks—especially tiny frog/otter and subtle non-castle
-focus cues—plus P2 hare/squirrel/raccoon overlap or weak grounding and poor
-seesaw contact. `MA-VIS-006` remains `CONFIRMED_OPEN`; next product work is the
-bounded Canvas/depth/art repair. A separate protected-workflow hardening slice
-must repair the runner/renderer, block on the Sky result, and upload/validate
-JSON, but cannot substitute for runtime
-repair or grant art acceptance.
+Source `51d0abc0` implements the Sky product repair as an owned
+CanvasLayer/Node2D/Sprite2D/Camera2D stage with 6144×2048 master space, 6×2
+backdrop, real parallax, readable animals, strong focus, grounded separation,
+seesaw contact, and shared movement/touch/route coordinates. It moves
+`MA-VIS-002` to `FIXED_PENDING_VERIFICATION`; `MA-VIS-006` remains
+`CONFIRMED_OPEN`. Exact-source remote, APK, device, child, owner, and accepted-
+visual gates remain open.
 
 The current Opera shipping snapshot is 13 careers, 53 phases, 27 distinct
   modes, zero generic `bop` phases, and 208 reviewed Roshan costume frames. That
@@ -183,9 +179,9 @@ Ballerina and Boxer pass runtime `09e5e356` and gameplay-bearing probe head
 state also passes exact-head remote run `31649113587` at `af4189a9`. Exact-head
 run `31661887863` verifies the predecessor integrated head; run `31678156887`
 is red only for fixed-frame route readiness sampling. Parent `e6edf559` passes
-integrated dev Probe Suite run `31722047536`; current source `7391c53c` is
-local- and overall-remote-machine green, while its remote Sky step fails
-renderer identity. Authoritative capture,
+integrated dev Probe Suite run `31722047536`; historical `7391c53c` retains its
+failed remote Sky renderer step, while current `51d0abc0` is exact-local green
+only. Authoritative capture,
 exact voice, device, child and owner acceptance remain open. Painter-purpose and Arborist
 worktrees are uncommitted candidates; Boxer V2 is a docs-only branch proposal.
 The 42-cue deterministic area-music rollout has local machine evidence,
@@ -202,10 +198,11 @@ result in successful run `31649113587`; human listening, mono/voice review,
   pairs are likewise diagnostic. The current route cards obscure Roshan's lower
   body/tail in all nine room captures. Parent `e6edf559` passes integrated dev
   Probe Suite run `31722047536`; its inherited Sky 21/44/DONE output is
-  predecessor history. Current local source `7391c53c` produces 20/20 ordered
-  Sky frames and 1,078 assertions, but remains diagnostic/nonaccepted.
+  predecessor history. Run-14 produces separately hashed manifest/PNG/probe
+  evidence for 20/20 local Sky frames but has an unknown source revision and
+  remains non-device/non-owner/nonaccepted.
   Android run `31724927769` publishes the matching exact-e6 dev APK; no
-  `7391c53c` APK is claimed. Authoritative
+  `51d0abc0` APK is claimed. Authoritative
   visual, exact voice, human listening, device, child, owner, and strict-zero 2D
   gates remain open.
   Probe-only `ff068db` preserves that runtime and completes the newer full-local
@@ -588,10 +585,11 @@ the other ten jobs through a hidden back door. Commit `09e5e356` implements this
 mapping with local focused/full-suite evidence; probe-only `ff068db` adds
 bounded fail-closed route readiness without changing runtime. `MA-OPERA-012`
 remains `FIXED_PENDING_VERIFICATION` until device/child/owner/voice/
-accepted-visual gates complete. Parent `e6edf559` and current `7391c53c` have
-green overall remote machine evidence; current changes no Opera runtime while
-its Sky step fails renderer identity. Dev-APK evidence from Android run
-`31724927769` belongs to predecessor e6; no matching `7391c53c` APK is claimed.
+accepted-visual gates complete. Parent `e6edf559` and historical `7391c53c`
+retain their remote machine evidence, including the latter's failed Sky
+renderer subprocess. Current `51d0abc0` changes no Opera runtime and is exact-
+local green only. Dev-APK evidence from Android run `31724927769` belongs to
+predecessor e6; no matching `51d0abc0` APK is claimed.
 Route cards MUST preserve their large touch targets without obscuring Roshan's
 lower body/tail.
 
@@ -1048,9 +1046,9 @@ routes, Movie Lounge Racer, no hidden lobby, exact-room return, and explicit
 layer ownership. Its 22 inspected 1280×720 Mobile renders remain diagnostic;
 the nine room captures expose lower-body/tail card occlusion. Run `31678156887`
 is retained red for fixed-frame readiness sampling; parent `e6edf559` passes
-Probe Suite `31722047536`, while current source `7391c53c` is local- and
-overall-remote-machine green with a failed remote Sky renderer diagnostic.
-Android run `31724927769` publishes the matching e6 dev APK; no `7391c53c` APK
+Probe Suite `31722047536`, while historical `7391c53c` retains the failed
+remote Sky renderer diagnostic. Current `51d0abc0` is exact-local green only.
+Android run `31724927769` publishes the matching e6 dev APK; no `51d0abc0` APK
 is claimed. Exact voice, accepted visual, target-device,
 child, and owner gates still block closure.
 
@@ -1099,9 +1097,10 @@ material findings, including retained terminal history, in
 The record set and exhaustive 316-path ledger are `VERIFIED_FIXED`: exact
 parent `e6edf559` preserves and remotely passes the 36 focused tests, six
 mutation controls, 316/316 ledger parity, and 34 active/36 retained records.
-The CHG-029 sources and exact 22-path boundary remain unchanged. Manual CHG-030
-owns the two-file Sky diagnostic source and all five live animal states; current catalog counts are 30 IDs/78
-references/four emitters/24 tests/26 manual groups.
+The CHG-029 sources and exact 22-path boundary remain unchanged. Manual/non-
+emitting CHG-031 owns exact 19-path source `51d0abc0`, including
+`scripts/probe_northern.gd`; current catalog counts are 31 IDs/79 references/
+four emitters/25 planner tests/27 manual groups.
 
 | Field | Requirement |
 |---|---|

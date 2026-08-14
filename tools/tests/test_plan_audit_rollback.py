@@ -37,6 +37,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			planner.AUDIT_DOCUMENT_AUTHORITY_PARENT,
 			planner.AUDIT_DOCUMENT_AUTHORITY_VERIFICATION_COMMIT,
 			planner.AUDIT_SKY_LAGOON_CAPTURE_PARENT,
+			planner.AUDIT_SKY_LAGOON_CANVAS_PARENT,
 		}
 		for group in planner.CATALOG:
 			with self.subTest(change_id=group.change_id):
@@ -51,11 +52,11 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		planner.validate_catalog()
 		self.assertEqual(
 			[group.change_id for group in planner.CATALOG],
-			[f"CHG-{number:03d}" for number in range(1, 31)],
+			[f"CHG-{number:03d}" for number in range(1, 32)],
 		)
 		owned_refs = [commit for group in planner.CATALOG for commit in group.commits]
-		self.assertEqual(len(owned_refs), 78)
-		self.assertEqual(len(set(owned_refs)), 78)
+		self.assertEqual(len(owned_refs), 79)
+		self.assertEqual(len(set(owned_refs)), 79)
 		self.assertEqual(
 			sum(group.safety != planner.MANUAL for group in planner.CATALOG),
 			4,
@@ -263,7 +264,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 27)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -362,7 +363,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 		)
 		self.assertEqual(len(group.paths), 15)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 27)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -412,12 +413,12 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			self.assertIn(marker, section)
 
 		for marker in (
-			"30 permanent change IDs",
-			"`CHG-001` through `CHG-030`",
-			"78 uniquely owned source-",
+			"31 permanent change IDs",
+			"`CHG-001` through `CHG-031`",
+			"79 uniquely owned source-",
 			"four guarded-script emitters",
-			"24 planner unit tests",
-			"The other 26 groups refuse",
+			"25 planner unit tests",
+			"The other 27 groups refuse",
 		):
 			self.assertIn(marker, ledger)
 
@@ -475,7 +476,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			("CHG-005", "CHG-011", "CHG-015", "CHG-023", "CHG-025", "CHG-027"),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 27)
 		self.assertIn(
 			"python -B tools/audit_game_2d.py --regression-gate",
 			group.gates,
@@ -609,7 +610,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			("CHG-005", "CHG-008", "CHG-011", "CHG-023", "CHG-025", "CHG-028"),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 27)
 		for gate in (
 			"python -B -m unittest tools.tests.test_audit_document_authority -v",
 			"python -B tools/audit_document_authority.py --stress",
@@ -713,7 +714,7 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			),
 		)
 		self.assertEqual(group.safety, planner.MANUAL)
-		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 26)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 27)
 		self.assertNotIn(".github/workflows/probes.yml", group.paths)
 		for gate in (
 			"python -m gdtoolkit.parser scripts/probe_sky_lagoon_art.gd",
@@ -785,6 +786,128 @@ class AuditRollbackPlannerTests(unittest.TestCase):
 			"overlapping silhouettes",
 			"seesaw action is ambiguous",
 			"subtle focus feedback",
+			"MANUAL_RECONSTRUCTION_REQUIRED",
+		):
+			self.assertIn(marker, normalized_section)
+
+	def test_sky_lagoon_true_canvas_record_is_exact_manual_and_bounded(self) -> None:
+		group = planner.select_group("CHG-031")
+		self.assertEqual(
+			planner.AUDIT_SKY_LAGOON_CANVAS_COMMIT,
+			"51d0abc0d32855a8ba32932599fedd8f59b398b7",
+		)
+		self.assertEqual(
+			planner.AUDIT_SKY_LAGOON_CANVAS_PARENT,
+			"1b7d6bdaf89ebc7c9bdeae16fbde0e14079fd8a8",
+		)
+		self.assertEqual(group.commits, (planner.AUDIT_SKY_LAGOON_CANVAS_COMMIT,))
+		self.assertEqual(group.baseline_commit, planner.AUDIT_SKY_LAGOON_CANVAS_PARENT)
+		self.assertEqual(group.rollback_start, planner.AUDIT_SKY_LAGOON_CANVAS_COMMIT)
+		self.assertEqual(
+			group.paths,
+			(
+				"scripts/arena/sky_lagoon_promenade.gd",
+				"scripts/living_world.gd",
+				"scripts/main.gd",
+				"scripts/pause_menu.gd",
+				"scripts/probe_audit.gd",
+				"scripts/probe_boot_display.gd",
+				"scripts/probe_galaxy_state.gd",
+				"scripts/probe_interaction.gd",
+				"scripts/probe_l2.gd",
+				"scripts/probe_l2_living_cards.gd",
+				"scripts/probe_l2_reenter.gd",
+				"scripts/probe_northern.gd",
+				"scripts/probe_ocean_kingdoms.gd",
+				"scripts/probe_sky_lagoon_animals.gd",
+				"scripts/probe_sky_lagoon_art.gd",
+				"scripts/probe_touch_stress.gd",
+				"scripts/probe_train.gd",
+				"scripts/touch_ui.gd",
+				"tools/game_2d_migration_manifest.json",
+			),
+		)
+		self.assertEqual(len(group.paths), 19)
+		self.assertEqual(
+			group.dependencies,
+			(
+				"CHG-001",
+				"CHG-003",
+				"CHG-005",
+				"CHG-006",
+				"CHG-008",
+				"CHG-011",
+				"CHG-014",
+				"CHG-023",
+				"CHG-025",
+				"CHG-029",
+				"CHG-030",
+			),
+		)
+		self.assertEqual(group.safety, planner.MANUAL)
+		self.assertEqual(sum(item.safety == planner.MANUAL for item in planner.CATALOG), 27)
+		self.assertNotIn(".github/workflows/probes.yml", group.paths)
+		for path in planner.PROTECTED_PATHS:
+			self.assertTrue(all(not item.startswith(path) for item in group.paths))
+		for gate in (
+			"git rev-list --parents -n 1 51d0abc0d32855a8ba32932599fedd8f59b398b7",
+			"python -m gdtoolkit.parser <all 18 changed .gd files>",
+			"python tools/lint_inference.py <all 18 changed .gd files>",
+			"python -B tools/audit_game_2d.py --regression-gate",
+			"GODOT=\"$GODOT\" scripts/ci.sh",
+		):
+			self.assertIn(gate, group.gates)
+
+		plan = planner.render_plan(group)
+		for marker in (
+			"exactly 19 paths with 3,318 insertions and 3,517 deletions",
+			"exact single parent and comparison baseline 1b7d6bdaf89ebc7c9bdeae16fbde0e14079fd8a8",
+			"one true Canvas route under CanvasLayer -1",
+			"generic 3D Player remains hidden and inert",
+			"Classic touch now emits contextual world touch only in the Sky promenade",
+			"held physical gear touch",
+			"1,404.5 seconds with all 64 trusted probes",
+			"AEAC7C72E0A3BFF992713127261DD00ED69049947DFB6723AA66365F5712DE34",
+			"B9EAF5E0738CFB61CCD3E34ACFEA420AEADAB4E3ADE80B40A2CFD1F227569C6C",
+			"manifest source_revision remains unknown",
+			"do not bind the full runtime tree",
+			"exact-51d0abc0 source-byte proof",
+			"20/20 ordered PNG rows PASS",
+			"509 active/export model files, 65 production-3D files, 70 probe-3D files",
+			"zero archive-now candidates",
+			"No exact-source remote Probe Suite, matching APK, Lenovo Tab M11 run, child play-test, owner acceptance, or release evidence",
+			"Do not raw-revert 51d0abc0d32855a8ba32932599fedd8f59b398b7",
+			"full 19-path inverse",
+			"No rollback script may be emitted",
+		):
+			self.assertIn(marker, plan)
+		with self.assertRaises(planner.UnsafePlanError):
+			planner.render_script(group)
+
+		ledger = (
+			Path(__file__).resolve().parents[2]
+			/ "audit"
+			/ "MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+		).read_text(encoding="utf-8")
+		section = ledger.split("### CHG-031", 1)[1].split("## 5.", 1)[0]
+		normalized_section = re.sub(r"\s+", " ", section)
+		for marker in (
+			"51d0abc0d32855a8ba32932599fedd8f59b398b7",
+			"1b7d6bdaf89ebc7c9bdeae16fbde0e14079fd8a8",
+			"exactly 19 paths with 3,318 insertions and 3,517 deletions",
+			"scripts/probe_northern.gd",
+			"approved continuous 6144x2048, twelve-tile panorama",
+			"held physical gear press cannot survive resume",
+			"1,404.5 seconds with all 64 trusted probes",
+			"20/20 ordered full-frame PNG rows PASS",
+			"zero failed, skipped, or global rows",
+			"509 active/export model files",
+			"65 production-3D files",
+			"70 probe-3D files",
+			"zero archive-now candidates",
+			"no exact-source remote Probe Suite result, matching APK, M11 touch/performance result, child play-test, owner acceptance, or release evidence",
+			"Post-source count, hash, evidence, and authority synchronization is CHG-023 maintenance, not a second CHG-031 source and not CHG-032",
+			"owner_blocked_mixed",
 			"MANUAL_RECONSTRUCTION_REQUIRED",
 		):
 			self.assertIn(marker, normalized_section)

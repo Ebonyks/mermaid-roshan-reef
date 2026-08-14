@@ -55,26 +55,26 @@ rendered composite. It cannot by itself authorize recolouring or regeneration.
 viewport evidence and runtime/device review. Fairy is likely a false positive;
 Lagoon remains an unconfirmed hierarchy risk.
 
-Current Sky diagnostic source `7391c53c`, exact parent `e6edf559`, is evidence
-tooling rather than art delivery. Under exact Godot 4.7.1 Mobile/Speedy it
-locally produces 20/20 ordered 1280×720 promenade frames and passes 1,078
-semantic/render/save assertions; the probe SHA-256 is
-`f28413263c0bedeed421fae6e9de4626095f03b6010bade8380ad7fb5aa07db9` and the
-updated GAME2D manifest SHA-256 is
-`8c70b9aeaba5302322bdd44ca84d8a2b76fca053a091753e0e04676ee407fb00`.
-Those frames do not accept the art. They expose P1 child-readability risks—frog
-and otter are especially too small, and non-castle focus cues are too subtle—
-plus P2 staging defects: hare/squirrel/raccoon overlap Roshan or feel weakly
-grounded, and seesaw contact is poor. The one-mural/spatial runtime remains
-`MA-VIS-002` `CONFIRMED_OPEN`, while the unaccepted frames and named defects keep
-`MA-VIS-006` open. Repair should preserve approved pixels where possible,
-separate true Canvas depth ownership, enlarge/reframe readability non-
-destructively, and correct contact/grounding. Exact-source remote run
-`31728755204` completes overall SUCCESS, but its continue-on-error/PNG-only Sky
-step emits 20 PASS rows and a 20/20 summary, then fails required-Mobile renderer
-identity as `gl_compatibility`/exit 1 because `VK_KHR_surface` is unavailable.
-PNGs upload, JSON does not, and there is no remote Mobile diagnostic PASS,
-device, child, owner, or art acceptance.
+Current Sky source `51d0abc0`, exact parent `1b7d6bda`, is a runtime staging
+repair, not new art delivery. It reuses the approved 6144×2048 panorama and
+existing character/animal/action art unchanged; no art, asset, protected
+original, audio, or workflow path changes. The stage is now an owned
+CanvasLayer/Node2D/Sprite2D/Camera2D composition with six differential layer
+roles, real parallax, larger frog/otter presentation, separated/grounded animal
+paths, stronger focus cues, and repaired seesaw contact.
+
+Exact source bytes pass official Godot 4.7.1 local CI in 1,404.5 seconds/all
+64. Run-14 locally produces 20/20 ordered 1280×720 Mobile/Speedy frames with
+manifest SHA-256 `AEAC7C72E0A3BFF992713127261DD00ED69049947DFB6723AA66365F5712DE34`
+and visual-probe SHA-256
+`B9EAF5E0738CFB61CCD3E34ACFEA420AEADAB4E3ADE80B40A2CFD1F227569C6C`.
+Those hashes bind the manifest/PNGs and probe script, not the full source
+revision, which remains `unknown`; and
+two independent human reviews approve the local candidate. This moves
+`MA-VIS-002` to `FIXED_PENDING_VERIFICATION`, not closed; `MA-VIS-006` remains
+open and no exact-source remote, device, child, owner, or accepted-art result is
+claimed. Historical `7391c53c`/`31728755204` retains the failed remote
+`gl_compatibility` evidence.
 
 ---
 
