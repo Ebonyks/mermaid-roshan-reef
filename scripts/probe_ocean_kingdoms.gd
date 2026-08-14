@@ -41,22 +41,22 @@ func _run() -> void:
 
 	var state: Dictionary = main.g
 	var player: Node3D = main.player
-	var level2_pos: Vector3 = main.LEVEL2_POS
 	_check(main.game == "level2", "castle_gate_hub_is_level2")
 	_check(bool(state.get("ocean_gate_hub", false)), "castle_gate_hub_flag")
 	# She used to spawn at a fixed x -48; the promenade now has a walkable route
 	# (owner request 2026-07-27) and she starts ON it, beside the pearl plane.
 	# The invariant that matters is that: screen one, standing on the path, not
 	# a magic coordinate that the route's projection legitimately moves.
-	var promenade := main._lagoon_promenade_ref()
-	var promenade_cfg: Dictionary = main.g.get("ss_cfg", {})
-	var spawn_x: float = player.position.x - level2_pos.x
-	var spawn_y: float = player.position.y - level2_pos.y
-	var route_span: Vector2 = promenade.stage.route_span(promenade_cfg)
-	_check(spawn_x < -24.0
-		and spawn_x >= route_span.x - 0.01
-		and absf(spawn_y - promenade.stage.route_y(promenade_cfg, spawn_x, -999.0)) < 0.05
-		and absf(player.position.z - level2_pos.z) < 0.5,
+	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+	var spawn_x: float = promenade.master_route_x()
+	var spawn_y: float = float(state.get("lagoon_master_y", -1.0))
+	var actor_screen: Vector2 = promenade.screen_from_master(Vector2(spawn_x, spawn_y))
+	var viewport_rect := Rect2(Vector2.ZERO,
+		root.get_viewport().get_visible_rect().size)
+	_check(spawn_x >= 0.0 and spawn_x < 2048.0 and spawn_y >= 0.0
+		and spawn_y <= 2048.0 and viewport_rect.has_point(actor_screen)
+		and promenade.root() is CanvasLayer and promenade.camera_2d() is Camera2D
+		and not player.visible,
 		"promenade_screen_one_spawn")
 	_check(String(state.get("phase", "")) == "promenade",
 		"castle_gate_hub_uses_promenade")
@@ -65,9 +65,8 @@ func _run() -> void:
 	for target_value in promenade_targets:
 		var target: Dictionary = target_value as Dictionary
 		promenade_ids[String(target.get("id", ""))] = true
-	var promenade_roster_ok: bool = promenade_targets.size() >= 4 \
-		and promenade_targets.size() <= 5
-	for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
+	var promenade_roster_ok: bool = promenade_targets.size() == 5
+	for required_id: String in ["reef_route", "slide", "swing", "seesaw", "castle_gate"]:
 		promenade_roster_ok = promenade_roster_ok and promenade_ids.has(required_id)
 	_check(promenade_roster_ok, "promenade_interactions_present")
 	_check(not state.has("ocean_kingdom_gates"),
@@ -83,7 +82,12 @@ func _run() -> void:
 	_check(main.ocean_routes_enabled, "caribbean_enables_kingdom_routes")
 	_check(_xz_distance(player.position, caribbean_entry) < 0.5, "caribbean_entry_position")
 	_check(ReefDistricts.kingdom_at(caribbean_entry) == ReefDistricts.KINGDOM_CARIBBEAN, "caribbean_entry_ecology")
-	_check(not main.ocean_return_gate_armed, "caribbean_return_gate_debounced")
+	var caribbean_before_game: String = main.game
+	var caribbean_cool: float = main.ocean_return_gate_cool
+	var caribbean_bounced: bool = main._tick_ocean_return_gate(0.0, player.position)
+	_check(caribbean_cool > 0.0 and not caribbean_bounced \
+		and main.game == caribbean_before_game,
+		"caribbean_return_gate_debounced")
 
 	main._enter_level2_now(false, false, true)
 	await process_frame
@@ -97,7 +101,12 @@ func _run() -> void:
 	_check(main.ocean_routes_enabled, "norway_enables_kingdom_routes")
 	_check(_xz_distance(player.position, norwegian_entry) < 0.5, "norway_entry_position")
 	_check(ReefDistricts.kingdom_at(norwegian_entry) == ReefDistricts.KINGDOM_NORWEGIAN, "norway_entry_ecology")
-	_check(not main.ocean_return_gate_armed, "norway_return_gate_debounced")
+	var norwegian_before_game: String = main.game
+	var norwegian_cool: float = main.ocean_return_gate_cool
+	var norwegian_bounced: bool = main._tick_ocean_return_gate(0.0, player.position)
+	_check(norwegian_cool > 0.0 and not norwegian_bounced \
+		and main.game == norwegian_before_game,
+		"norway_return_gate_debounced")
 
 	# The SceneTree coroutine can resume before ReefMain's next _process tick.
 	# Drive the patrol once explicitly so the assertion cannot mistake each

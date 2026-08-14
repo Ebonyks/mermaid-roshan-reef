@@ -15,6 +15,12 @@ func _frames(n: int) -> void:
 	for i in range(n):
 		await process_frame
 
+func _named_count(node: Node, wanted: StringName) -> int:
+	var count := 1 if node.name == wanted else 0
+	for child: Node in node.get_children():
+		count += _named_count(child, wanted)
+	return count
+
 func _bare_galaxy() -> GalaxyLevel:
 	var galaxy := GalaxyLevel.new()
 	galaxy.process_mode = Node.PROCESS_MODE_DISABLED
@@ -82,6 +88,8 @@ func _init() -> void:
 	# Individual rescued butterflies checkpoint through the compatible sticker
 	# map; only the six still missing are rebuilt next visit.
 	main.bwd_done = false
+	for shard_index: int in range(GalaxyLevel.SHARDS):
+		main.stickers.erase("_bwd_butterfly_%d" % shard_index)
 	main.stickers["_bwd_butterfly_0"] = true
 	var partial := GalaxyLevel.new()
 	partial.process_mode = Node.PROCESS_MODE_DISABLED
@@ -106,46 +114,89 @@ func _init() -> void:
 		and main.galaxy_return_pos == Vector3.ZERO
 		and not main.galaxy_level2_open)
 
-	# A Level-2 round trip rebuilds one clean lagoon, preserves closed/open state,
-	# and restores Roshan beside the exact doorway she entered.
+	# A REAL Level-2 departure must capture the Canvas coordinate before tearing
+	# down the stage, then a real Galaxy callback must rebuild exactly one clean
+	# lagoon and restore it. Injecting return fields here would miss the outbound
+	# half of the lifecycle—the defect this gate exists to catch.
 	main.process_mode = Node.PROCESS_MODE_DISABLED
 	var lagoon_origin: Vector3 = main.LEVEL2_POS + Vector3(42.0, 3.0, 35.0)
+	var closed_master_x := 4864.0
 	main.level2_done_once = false
 	main.l2_open = false
 	main.l2_star_progress = [true, false, false]
-	main.game = "galaxy"
-	main.galaxy_from = "level2"
-	main.galaxy_level2_open = false
-	main.galaxy_return_set = true
-	main.galaxy_return_pos = lagoon_origin
+	main.galaxy_unlocked = true
+	main.bwd_done = true
+	main._enter_level2_now(false, false, false)
+	main.player.position = lagoon_origin
+	var departing_promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+	departing_promenade.set_master_route_x(closed_master_x)
+	var departing_root: CanvasLayer = departing_promenade.root()
+	main.galaxy_return_set = false
+	main.galaxy_from = ""
 	main.bw_cool = 0.0
 	main.kart_cool = 0.0
-	main._end_galaxy(false)
-	await _frames(2)
+	main._start_galaxy()
+	var live_galaxy: GalaxyLevel = main.galaxy_game as GalaxyLevel
+	_ck("real_lagoon_departure_captures_and_tears_down",
+		main.game == "galaxy"
+		and main.galaxy_from == "level2"
+		and main.galaxy_return_set
+		and main.galaxy_return_pos.distance_to(lagoon_origin) < 0.1
+		and is_equal_approx(main.lagoon_trip_return_master_x, closed_master_x)
+		and not is_instance_valid(departing_root)
+		and departing_promenade.root() == null
+		and live_galaxy != null and is_instance_valid(live_galaxy),
+		"game=%s from=%s master=%.1f root=%s galaxy=%s" % [main.game,
+			main.galaxy_from, main.lagoon_trip_return_master_x,
+			str(is_instance_valid(departing_root)), str(live_galaxy)])
+	_ck("real_completed_galaxy_has_no_quest_rewards",
+		live_galaxy != null and live_galaxy._shards_got == GalaxyLevel.SHARDS
+		and live_galaxy._shard_nodes.is_empty() and live_galaxy._grand == null)
+	if live_galaxy != null:
+		live_galaxy._teardown(false)
+	await _frames(4)
 	_ck("returns_to_closed_lagoon", main.game == "level2" and not main.l2_open, "game=%s open=%s" % [main.game, str(main.l2_open)])
-	_ck("lagoon_position_restored", main.player.position.distance_to(lagoon_origin) < 0.1, "distance=%.2f" % main.player.position.distance_to(lagoon_origin))
+	var closed_promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+	_ck("lagoon_master_route_restored",
+		is_equal_approx(closed_promenade.master_route_x(), closed_master_x)
+		and is_equal_approx(float(main.g.get("lagoon_master_x", -1.0)), closed_master_x)
+		and not main.player.visible,
+		"master_x=%.1f" % closed_promenade.master_route_x())
 	_ck("partial_stars_preserved", main.l2_star_progress == [true, false, false], str(main.l2_star_progress))
-	_ck("lagoon_environment_restored", main.we_node.environment == main.arena_env)
+	_ck("lagoon_canvas_restored",
+		closed_promenade.root() is CanvasLayer
+		and closed_promenade.camera_2d() is Camera2D
+		and main.we_node.environment == null
+		and not main.player.cam.current)
 	_ck("closed_return_state_cleared",
 		not main.galaxy_return_set
 		and main.galaxy_from == ""
 		and main.galaxy_return_pos == Vector3.ZERO
 		and not main.galaxy_level2_open
+		and main.lagoon_trip_return_master_x < 0.0
+		and (main.galaxy_game == null or not is_instance_valid(main.galaxy_game))
+		and _named_count(get_root(), &"SkyLagoonCanvasLayer") == 1
 		and main.bw_cool >= 3.0
 		and main.kart_cool >= 3.0)
 
 	var open_origin: Vector3 = main.LEVEL2_POS + Vector3(-28.0, 4.0, -48.0)
+	var open_master_x := 1792.0
 	main.game = "galaxy"
 	main.l2_open = true
 	main.galaxy_from = "level2"
 	main.galaxy_level2_open = true
 	main.galaxy_return_set = true
 	main.galaxy_return_pos = open_origin
+	main.lagoon_trip_return_master_x = open_master_x
 	main.bw_cool = 0.0
 	main.kart_cool = 0.0
 	main._end_galaxy(false)
 	await _frames(2)
-	_ck("returns_to_open_lagoon", main.game == "level2" and main.l2_open and main.player.position.distance_to(open_origin) < 0.1, "open=%s distance=%.2f" % [str(main.l2_open), main.player.position.distance_to(open_origin)])
+	var open_promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+	_ck("returns_to_open_lagoon", main.game == "level2" and main.l2_open
+		and is_equal_approx(open_promenade.master_route_x(), open_master_x)
+		and not main.player.visible,
+		"open=%s master_x=%.1f" % [str(main.l2_open), open_promenade.master_route_x()])
 	_ck("open_return_state_cleared",
 		not main.galaxy_return_set
 		and main.galaxy_from == ""

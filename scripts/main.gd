@@ -15,6 +15,14 @@ const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
 const WATER_TOP := 58.0
 const WORLD_R := 270.0
 const PEARL_TOTAL := 10
+# Sky Lagoon is a full-screen Canvas stage. Keep its complete stack explicit so
+# the opaque world can never cover the child-facing HUD or steal camera/input
+# authority from the layers above it. The promenade and living-world director
+# share these values; speech, touch, pause and fade retain their existing 8/9/
+# 12/30 homes.
+const SKY_LAGOON_STAGE_CANVAS_LAYER := -1
+const SKY_LAGOON_HUD_CANVAS_LAYER := 0
+const SKY_LAGOON_LIVING_CANVAS_LAYER := 6
 # Phone builds now open at the authored gatehouse before Pearl Castle. Headless
 # probes keep the legacy ocean bootstrap unless they explicitly enter the hub,
 # so the existing trusted activity probes remain deterministic while the new
@@ -198,6 +206,9 @@ var galaxy_from := ""              # world to restore after Butterfly World ("" 
 var galaxy_return_set := false     # stays set across the optional fairy-flight round trip
 var galaxy_return_pos := Vector3.ZERO
 var galaxy_level2_open := false
+# Runtime-only Canvas route checkpoint shared by every off-lagoon trip. The
+# generic spatial return positions below remain for older/non-promenade callers.
+var lagoon_trip_return_master_x := -1.0
 var combat_ice_done := false       # Butterfly Castle ice-berry encounter completed
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
 var combat_tutorial_done := false  # the Royal Hall sparring class, finished once
@@ -2572,7 +2583,18 @@ func _kart_gateway(pos: Vector3, label: String, col: Color, show_ring: bool = tr
 func _start_kart_game(reversed: bool = false, ground: String = "terrain") -> void:
 	_fade_cut(_start_kart_game_now.bind(reversed, ground))
 
+func _capture_lagoon_trip_return() -> void:
+	if game != "level2" or String(g.get("phase", "")) != "promenade":
+		return
+	var promenade: SkyLagoonPromenade = _lagoon_promenade_ref()
+	lagoon_trip_return_master_x = promenade.master_route_x()
+	# External games own their own stage and input. Release the lagoon Canvas
+	# only after its canonical route coordinate has been captured.
+	_prepare_touch_transition()
+	promenade.teardown()
+
 func _start_kart_game_now(reversed: bool = false, ground: String = "terrain") -> void:
+	_capture_lagoon_trip_return()
 	if hud_layer != null:
 		hud_layer.visible = false   # the race draws its own HUD — no overlap
 	kart_from = game
@@ -2634,8 +2656,16 @@ func _end_kart_game(place: int) -> void:
 			hud_layer.visible = true
 		kart_game = null
 		kart_cool = 6.0
-		game = kart_from
+		var quit_world: String = kart_from
+		var rebuild_lagoon: bool = quit_world == "level2" and lagoon_trip_return_master_x >= 0.0
+		var saved_level2_open: bool = l2_open
+		var saved_level2_pos = player.position
+		game = quit_world
 		kart_from = ""
+		if rebuild_lagoon:
+			game = ""
+			call_deferred("_restore_level2_after_trip", saved_level2_open, saved_level2_pos)
+			return
 		_update_hud()
 		return
 	if hud_layer != null:
@@ -2659,7 +2689,7 @@ func _end_kart_game(place: int) -> void:
 	show_msg("Ocean Race", msg)
 	if kart_from == "level2":
 		var saved_level2_open: bool = l2_open
-		var saved_level2_pos: Vector3 = player.position
+		var saved_level2_pos = player.position
 		kart_from = ""
 		game = ""
 		call_deferred("_restore_level2_after_trip", saved_level2_open, saved_level2_pos)
@@ -2676,6 +2706,7 @@ func _start_galaxy_now() -> void:
 	# Remember the actual world underneath once, and keep it through the optional
 	# fairy-flight detour so Butterfly World always returns symmetrically.
 	if not galaxy_return_set:
+		_capture_lagoon_trip_return()
 		galaxy_from = kart_from if game == "kart" else game
 		galaxy_return_pos = player.position
 		galaxy_level2_open = l2_open
@@ -2732,12 +2763,17 @@ func _end_galaxy(completed: bool) -> void:
 	_play_music("world")
 
 func _restore_level2_after_trip(was_open: bool, saved_position: Vector3) -> void:
-	# Rebuild the lagoon cleanly, then put Roshan back beside the exact doorway
-	# she chose. The cooldown prevents that doorway from immediately swallowing
-	# her again on the first frame home.
+	# _fade_cut invokes its rebuild callback synchronously, so the promenade and
+	# its Canvas route controller exist again when _enter_level2 returns. Restore
+	# the canonical master coordinate after that build; keep the spatial write as
+	# compatibility for legacy callers and the generic hidden player node.
+	var saved_master_x: float = lagoon_trip_return_master_x
+	lagoon_trip_return_master_x = -1.0
 	_enter_level2(was_open)
 	player.position = saved_position
 	player.vel = Vector3.ZERO
+	if saved_master_x >= 0.0:
+		_lagoon_promenade_ref().set_master_route_x(saved_master_x)
 	bw_cool = maxf(bw_cool, 3.0)
 	kart_cool = maxf(kart_cool, 3.0)
 
@@ -2903,6 +2939,7 @@ func _start_ember() -> void:
 	# Reached through the rainbow junction's dark gate (via the float race) —
 	# same return-symmetry bookkeeping as the Butterfly World.
 	if not ember_return_set:
+		_capture_lagoon_trip_return()
 		ember_from = kart_from if game == "kart" else game
 		ember_return_pos = player.position
 		ember_level2_open = l2_open
@@ -3187,6 +3224,7 @@ func _build_player() -> void:
 
 func _build_hud() -> void:
 	var cl := CanvasLayer.new()
+	cl.layer = SKY_LAGOON_HUD_CANVAS_LAYER
 	add_child(cl)
 	hud_layer = cl
 	var status_panel := Panel.new()
@@ -3736,12 +3774,15 @@ func _live_hit_engines() -> Array:
 
 # The press-firing finger started travelling: it is a SLICE now, not a charge.
 func _on_world_press_drag() -> void:
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		return
 	for engine_value: Variant in _live_hit_engines():
 		(engine_value as HitEngine).cancel_charge_for_drag()
 
 # Focus loss / pause / touch-state reset: any held charge is thrown away
 # WITHOUT firing — opening the pause menu must never land a hit.
 func _on_world_press_cancel() -> void:
+	_cancel_lagoon_navigation()
 	for engine_value: Variant in _live_hit_engines():
 		(engine_value as HitEngine).cancel_charge_for_drag()
 
@@ -3750,6 +3791,9 @@ func _on_world_press_cancel() -> void:
 # has never emitted world_touched.
 func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
 	if _world_tap_gated():
+		return
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		_lagoon_promenade_ref().handle_drag(from, to)
 		return
 	for engine_value: Variant in _live_hit_engines():
 		var engine: HitEngine = engine_value as HitEngine
@@ -3803,7 +3847,12 @@ func _combat_arena_ref() -> CombatArena:
 
 func _on_touch_manual_move() -> void:
 	_living_world_ref().note_activity()
+	_cancel_lagoon_navigation()
 	_tap_move_ref().cancel("manual")
+
+func _cancel_lagoon_navigation() -> void:
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		_lagoon_promenade_ref().cancel_navigation()
 
 func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> void:
 	if enabled:
@@ -3814,6 +3863,7 @@ func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> v
 	if touch_ui != null:
 		touch_ui.set_world_controls_enabled(controls_enabled)
 	if not controls_enabled:
+		_cancel_lagoon_navigation()
 		_tap_move_ref().cancel("overlay")
 		_interaction_ref().clear_focus()
 		touch_interactables.clear()
@@ -3823,6 +3873,7 @@ func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> v
 func _prepare_touch_transition() -> void:
 	if touch_ui != null:
 		touch_ui.cancel_all_touches()
+	_cancel_lagoon_navigation()
 	_tap_move_ref().cancel("transition")
 	_interaction_ref().clear_focus()
 	touch_interactables.clear()
@@ -3836,12 +3887,14 @@ func _touch_interaction_ready(interactable_id: String) -> void:
 	_interaction_ref().mark_ready(interactable_id)
 
 func touch_auto_direction() -> Vector3:
-	if not touch_uses_explicit_interactions():
+	if not touch_uses_explicit_interactions() \
+			or (game == "level2" and String(g.get("phase", "")) == "promenade"):
 		return Vector3.ZERO
 	return _tap_move_ref().desired_direction()
 
 func touch_auto_vertical() -> float:
-	if not touch_uses_explicit_interactions():
+	if not touch_uses_explicit_interactions() \
+			or (game == "level2" and String(g.get("phase", "")) == "promenade"):
 		return 0.0
 	return _tap_move_ref().desired_vertical()
 
@@ -4299,6 +4352,13 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	northern_floor = false
 	_play_music("level2")
 	return_pos = player.position
+	# The Canvas promenade owns its visible Roshan, Camera2D and route state.
+	# Preserve the generic player only as a hidden return-position compatibility
+	# object; neither its renderer nor its compatibility camera may remain authoritative.
+	player.vel = player.vel * 0.0
+	player.visible = false
+	if player.cam != null and player.cam.is_inside_tree():
+		player.cam.clear_current(false)
 	arena_center = LEVEL2_POS
 	arena_dome = 235.0
 	arena_ceil = 120.0
@@ -4306,33 +4366,21 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	l2_open = false
 	g["phase"] = "court"
 	g["ocean_gate_hub"] = at_ocean_gate_hub
-	arena_env = Environment.new()
-	arena_env.background_mode = Environment.BG_SKY
-	var sky := Sky.new()
-	# Illustrated color bands stay seamless and identical under the Mobile renderer.
-	var psky := ProceduralSkyMaterial.new()
-	if is_night:
-		psky.sky_top_color = Color(0.09, 0.08, 0.28)
-		psky.sky_horizon_color = Color(0.48, 0.36, 0.66)
-		psky.ground_bottom_color = Color(0.08, 0.18, 0.30)
-		psky.ground_horizon_color = Color(0.34, 0.46, 0.64)
-	else:
-		psky.sky_top_color = Color(0.25, 0.72, 0.88)
-		psky.sky_horizon_color = Color(0.88, 0.96, 0.92)
-		psky.ground_bottom_color = Color(0.20, 0.55, 0.68)
-		psky.ground_horizon_color = Color(0.72, 0.90, 0.88)
-	psky.sky_curve = 0.12
-	psky.ground_curve = 0.18
-	sky.sky_material = psky
-	arena_env.sky = sky
-	arena_env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	arena_env.ambient_light_energy = 0.42 if is_night else 0.46
-	_wind_waker_bloom(arena_env, 0.36, 0.03, 1.24)   # retain emitters while pale castle/snow values stay below clipping
-	_apply_scene_grade(arena_env, "sky_lagoon")
-	we_node.environment = arena_env
+	# No spatial fallback sits behind the Canvas product. A missing Canvas layer
+	# must fail visibly instead of silently revealing the retired 3D sky grade.
+	arena_env = null
+	we_node.environment = null
 	if String(g.get("phase", "")) == "court":
 		_lagoon_promenade_ref().build(from_castle, from_north, at_ocean_gate_hub)
 		l2_open = from_castle or level2_done_once
+		# A prior world's assisted route, focus ring, objective or spatial
+		# critter must not survive underneath the Canvas product. These generic
+		# directors remain available elsewhere but have no active Sky authority.
+		_tap_move_ref().cancel("sky_canvas_entry")
+		_interaction_ref().clear_focus()
+		touch_interactables.clear()
+		_set_objective("", null, "")
+		_collection_ref().tick(0.0, player.position)
 		return
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
@@ -4381,7 +4429,12 @@ func _enter_northern_kingdom() -> void:
 	_fade_cut(_enter_northern_kingdom_now)
 
 func _enter_northern_kingdom_now() -> void:
+	if String(g.get("phase", "")) == "promenade" \
+			and _sky_lagoon_promenade != null:
+		_sky_lagoon_promenade.teardown()
 	player.visible = true
+	if player.cam != null and player.cam.is_inside_tree():
+		player.cam.make_current()
 	game = "north"
 	for n in game_nodes:
 		if is_instance_valid(n):
@@ -6161,6 +6214,8 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.close()
 	player.visible = true
+	if player.cam != null and player.cam.is_inside_tree():
+		player.cam.make_current()
 	if sleep_t >= 0.0:
 		# Leaving mid-tuck-in (pause -> Leave): _tick_sleep only runs in the
 		# hall, so nothing would ever release the "sleep" input block or the
@@ -6178,6 +6233,10 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 		_set_world_controls_enabled(true, "sleep")
 	player.cam_back = 25.0   # diorama lens default
 	player.cam_high = 6.5
+	_tap_move_ref().cancel("sky_canvas_exit")
+	_interaction_ref().clear_focus()
+	touch_interactables.clear()
+	lagoon_trip_return_master_x = -1.0
 	game = ""
 	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
 		_sky_lagoon_promenade.teardown()
@@ -6502,6 +6561,12 @@ var _shadow_disc: MeshInstance3D = null
 func _tick_contact_shadow() -> void:
 	# storybook readability: a soft aqua contact blob under Roshan grounds the
 	# cutout against the diorama (book pages do the same with painted shadows)
+	# Sky owns a Canvas contact shadow for its visible actor. Do not construct or
+	# expose the generic spatial disc behind that opaque stage.
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		if _shadow_disc != null:
+			_shadow_disc.visible = false
+		return
 	if _shadow_disc == null:
 		_shadow_disc = MeshInstance3D.new()
 		var qm := QuadMesh.new()
@@ -7252,7 +7317,16 @@ func _process(delta: float) -> void:
 	# current camera without restoring one (kart/galaxy teardown guards,
 	# cancel(false) paths), fall back to Roshan instead of a black screen
 	var vp_cam: Camera3D = get_viewport().get_camera_3d()
-	if vp_cam == null and player != null and player.cam != null and player.cam.is_inside_tree():
+	var sky_canvas_active: bool = game == "level2" \
+		and String(g.get("phase", "")) == "promenade"
+	# Player creates its compatibility camera deferred during boot. Direct phone
+	# entry can therefore reach Sky before that compatibility camera joins the tree; disarm
+	# the late arrival as well as the synchronous entry path above.
+	if sky_canvas_active and player != null and player.cam != null \
+			and player.cam.is_inside_tree() and player.cam.current:
+		player.cam.clear_current(false)
+	elif not sky_canvas_active and vp_cam == null \
+			and player != null and player.cam != null and player.cam.is_inside_tree():
 		player.snap_cam()
 		player.cam.make_current()
 	if save_dirty:
@@ -7280,7 +7354,7 @@ func _process(delta: float) -> void:
 	_tick_ambience_duck(delta)
 	if mic_sys != null:
 		mic_sys.tick(delta)   # no-op unless a battle armed the microphone
-	if player != null:
+	if player != null and not sky_canvas_active:
 		_tick_wayfinder(delta, player.position)
 	_tick_overlay_pads(delta)
 	_tick_pad_cursor(delta)
@@ -7295,6 +7369,17 @@ func _process(delta: float) -> void:
 	if intro_active:
 		return
 	var ppos: Vector3 = player.position
+	if sky_canvas_active:
+		# The opaque Canvas promenade is a complete world slice. Its controller
+		# is the sole movement, camera, interaction, collection and proximity
+		# owner; the hidden player is only a legacy return coordinate.
+		if caustics_plane != null and caustics_plane.visible:
+			caustics_plane.visible = false
+		g["t"] = float(g.get("t", 0.0)) + delta
+		_lagoon_promenade_ref().tick(delta)
+		if touch_ui != null:
+			touch_ui.set_action_label(_lagoon_promenade_ref().action_label())
+		return
 	if touch_uses_explicit_interactions():
 		_tap_move_ref().tick(delta)
 		_interaction_ref().tick(delta, ppos)
@@ -7604,6 +7689,8 @@ func _physlab_standees() -> void:
 func _physics_process(delta: float) -> void:
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.physics_tick(delta)
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		return
 	# Roshan -> Jolt coupling: firm contact push + softer swim-wake drag,
 	# at the physics tick so it is frame-rate independent.
 	if player == null or jolt_props.is_empty():

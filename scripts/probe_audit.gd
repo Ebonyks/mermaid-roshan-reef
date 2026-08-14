@@ -255,10 +255,13 @@ func _init() -> void:
 			core_roster_ok = core_roster_ok and target_ids.has(required_id)
 		var promenade_ok: bool = (
 			String(main.g.get("phase", "")) == "promenade"
-			and targets.size() >= 4
-			and targets.size() <= 5
+			and targets.size() == 5
 			and core_roster_ok
-			and is_equal_approx(float((main.g.get("ss_cfg", {}) as Dictionary).get("half_w", 0.0)), 72.0))
+			and main._lagoon_promenade_ref().root() is CanvasLayer
+			and main._lagoon_promenade_ref().camera_2d() is Camera2D
+			and float(main.g.get("lagoon_master_x", -1.0)) >= 0.0
+			and float(main.g.get("lagoon_master_x", -1.0)) <= 6144.0
+			and not main.player.visible)
 		print("AUDIT|Level 2 three-screen promenade: ",
 			("OK" if promenade_ok else "FAIL"), " targets=", targets.size())
 		# The castle drawbridge is an explicit two-press landmark in the new

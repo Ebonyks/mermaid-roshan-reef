@@ -2,12 +2,12 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "e6edf559",
+    "inventory_head": "1b7d6bda",
     "inventory_date": "2026-08-13",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
-    "archive_now_evidence": "124 active/export models have no exact, boundary-safe, wrapped/resolved, runtime-data, package/archive-member, directory-iterator, formatted-loader, or opaque production dependency evidence.",
+    "archive_now_evidence": "At the immutable initial ceiling, 124 active/export models lacked exact, boundary-safe, wrapped/resolved, runtime-data, package/archive-member, directory-iterator, formatted-loader, or opaque production dependency evidence; the current archive-now subset is recorded separately below and may only shrink.",
     "scanner_scope": "Bounded Godot 4.7.1 API/content coverage includes custom live data reachability, typed containers and cross-language ClassDB/VisualShader/MultiMesh dialects, active ignored files, complete plausible JSON/XML model inspection through 4 MiB with explicit fingerprinted coverage debt above that cap, namespace XML, compressed, self-extracting, disguised and nested archives, native/plugin sources, and opaque packages.",
     "refresh_contract": "shrink-only; immutable initial ceiling preserved"
   },
@@ -7579,8 +7579,8 @@
     "model_import_sidecars": 157,
     "active_untracked_model_import_sidecars": 352,
     "model_archive_files": 0,
-    "production_3d_files": 66,
-    "probe_3d_files": 74,
+    "production_3d_files": 65,
+    "probe_3d_files": 70,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
     "archive_now_model_files": 0
@@ -11923,19 +11923,6 @@
       "TorusMesh": 4,
       "Vector3": 501
     },
-    "scripts/arena/sky_lagoon_promenade.gd": {
-      "<lowercase-3d-marker>": 1,
-      "BaseMaterial3D": 9,
-      "CPUParticles3D": 2,
-      "Camera3D": 7,
-      "GeometryInstance3D": 7,
-      "Node3D": 44,
-      "QuadMesh": 1,
-      "Sprite3D": 81,
-      "SpriteBase3D": 6,
-      "StandardMaterial3D": 1,
-      "Vector3": 131
-    },
     "scripts/camera_kit.gd": {
       "AABB": 1,
       "SpringArm3D": 1,
@@ -12369,7 +12356,7 @@
       "CylinderMesh": 10,
       "CylinderShape3D": 1,
       "DirectionalLight3D": 3,
-      "Environment": 21,
+      "Environment": 18,
       "GPUParticles3D": 5,
       "GeometryInstance3D": 18,
       "Label3D": 8,
@@ -12381,13 +12368,13 @@
       "OmniLight3D": 17,
       "PackedVector3Array": 1,
       "PlaneMesh": 3,
-      "ProceduralSkyMaterial": 3,
+      "ProceduralSkyMaterial": 2,
       "QuadMesh": 13,
       "Quaternion": 12,
       "RigidBody3D": 7,
       "Skeleton3D": 7,
       "Skin": 2,
-      "Sky": 2,
+      "Sky": 1,
       "SphereMesh": 9,
       "SphereShape3D": 1,
       "Sprite3D": 16,
@@ -12397,7 +12384,7 @@
       "TRANSFORM_3D": 2,
       "TorusMesh": 4,
       "Transform3D": 6,
-      "Vector3": 472,
+      "Vector3": 471,
       "VisualInstance3D": 5,
       "WorldEnvironment": 2
     },
@@ -12532,10 +12519,6 @@
       "Vector3": 3
     },
     "scripts/probe_bathroom_props.gd": {
-      "Sprite3D": 1
-    },
-    "scripts/probe_boot_display.gd": {
-      "Node3D": 3,
       "Sprite3D": 1
     },
     "scripts/probe_camera.gd": {
@@ -12703,7 +12686,7 @@
       "<lowercase-3d-marker>": 1,
       "Camera3D": 2,
       "Node3D": 2,
-      "Sprite3D": 47,
+      "Sprite3D": 45,
       "SpriteBase3D": 2,
       "Transform3D": 12,
       "Vector3": 11
@@ -12715,26 +12698,8 @@
     "scripts/probe_kitchen_props.gd": {
       "Sprite3D": 1
     },
-    "scripts/probe_l2.gd": {
-      "BaseMaterial3D": 1,
-      "CPUParticles3D": 2,
-      "Camera3D": 1,
-      "GeometryInstance3D": 1,
-      "MeshInstance3D": 1,
-      "Node3D": 20,
-      "Sprite3D": 38,
-      "SpriteBase3D": 4,
-      "Vector3": 26
-    },
     "scripts/probe_l2_living_cards.gd": {
-      "<lowercase-3d-marker>": 1,
-      "CPUParticles3D": 3,
-      "Camera3D": 3,
-      "MeshInstance3D": 1,
-      "Node3D": 13,
-      "QuadMesh": 1,
-      "Sprite3D": 21,
-      "Vector3": 15
+      "Vector3": 2
     },
     "scripts/probe_melody.gd": {
       "Node3D": 2,
@@ -12751,7 +12716,7 @@
     },
     "scripts/probe_ocean_kingdoms.gd": {
       "Node3D": 3,
-      "Vector3": 3
+      "Vector3": 2
     },
     "scripts/probe_opera_2d.gd": {
       "Node3D": 1
@@ -12828,18 +12793,8 @@
     "scripts/probe_skins.gd": {
       "Skeleton3D": 1
     },
-    "scripts/probe_sky_lagoon_animals.gd": {
-      "<lowercase-3d-marker>": 1,
-      "Camera3D": 2,
-      "Node3D": 2,
-      "Sprite3D": 27,
-      "SpriteBase3D": 1,
-      "Vector3": 12
-    },
     "scripts/probe_sky_lagoon_art.gd": {
-      "<lowercase-3d-marker>": 2,
-      "Camera3D": 2,
-      "Node3D": 19
+      "<lowercase-3d-marker>": 2
     },
     "scripts/probe_stuffie.gd": {
       "MeshInstance3D": 2,
@@ -12876,9 +12831,6 @@
       "Camera3D": 2,
       "Node3D": 2,
       "Vector3": 4
-    },
-    "scripts/probe_train.gd": {
-      "Node3D": 2
     },
     "scripts/probe_upstairs.gd": {
       "Camera3D": 2,

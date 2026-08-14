@@ -142,6 +142,12 @@ func _init() -> void:
 	main.level2_done_once = true
 	main._enter_level2_now(true, false, false)
 	await _frames(24)
+	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+	var promenade_root: CanvasLayer = promenade.root()
+	if promenade_root == null or not is_instance_valid(promenade_root) \
+			or promenade_root.layer != main.SKY_LAGOON_STAGE_CANVAS_LAYER \
+			or not (promenade.camera_2d() is Camera2D) or main.player.visible:
+		_bad("promenade is not owned by the layer -1 Canvas/Camera2D stage")
 	var promenade_targets: Array = main.g.get("lagoon_promenade_targets", [])
 	var promenade_ids: Dictionary = {}
 	for target_value in promenade_targets:
@@ -152,12 +158,19 @@ func _init() -> void:
 			if promenade_id == "castle_gate" \
 			else Affordance.INTERACTION if promenade_id == "reef_route" \
 			else Affordance.ANIMATION
-		var highlight: Sprite3D = promenade_target.get("highlight") as Sprite3D
+		var target_node: CanvasItem = promenade_target.get("node") as CanvasItem
+		var highlight: CanvasItem = promenade_target.get("highlight") as CanvasItem
 		if String(promenade_target.get(
 				"affordance_kind", "")) != expected_affordance:
 			_bad("promenade affordance category wrong for %s" % promenade_id)
-		elif highlight == null or not highlight.visible:
+		elif target_node == null or highlight == null or not highlight.visible:
 			_bad("promenade idle affordance hidden for %s" % promenade_id)
+		elif String(target_node.get_meta("interaction_id", "")) != promenade_id \
+				or String(target_node.get_meta("canvas_layer_role", "")) == "" \
+				or not bool(target_node.get_meta("source_owned", false)) \
+				or float(target_node.get_meta("touch_footprint_px", 0.0)) < 220.0 \
+				or float(promenade_target.get("radius_px", 0.0)) < 110.0:
+			_bad("promenade Canvas target contract wrong for %s" % promenade_id)
 	for expected: String in ["reef_route", "slide", "swing", "seesaw", "castle_gate"]:
 		if not promenade_ids.has(expected):
 			_bad("promenade interaction missing %s" % expected)

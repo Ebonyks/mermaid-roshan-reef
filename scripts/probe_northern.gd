@@ -153,11 +153,22 @@ func _init() -> void:
 	_ck("return gate starts disarmed", main.game == "north")
 	main._tick_northern(0.0, return_gate + Vector3(0.0, 0.0, -24.0))
 	main._tick_northern(0.0, return_gate)
-	await process_frame
+	# The production route crosses the normal 0.25 s fade. One unlocked headless
+	# frame is not an elapsed-time guarantee, so wait for the semantic Canvas
+	# destination rather than sampling whichever side of the tween happens to run.
+	for _frame: int in range(120):
+		if main.game == "level2" and String(main.g.get("phase", "")) == "promenade":
+			break
+		await process_frame
 	_ck("return reaches castle-side promenade", main.game == "level2"
 		and String(main.g.get("phase", "")) == "promenade")
-	var local_x: float = main.player.position.x - main.LEVEL2_POS.x
-	_ck("return spawn is on screen three", local_x >= 24.0 and local_x < 72.0)
+	# The hidden generic Player is return-position compatibility only. The shipped
+	# Sky route is Canvas master space, so prove the child-visible spawn is on the
+	# 4096..6144 castle screen instead of inspecting an inert spatial coordinate.
+	var master_x: float = main._lagoon_promenade_ref().master_route_x()
+	_ck("return spawn is on Canvas screen three", master_x >= 4096.0 \
+		and master_x < 6144.0 and not main.player.visible \
+		and not main.player.cam.current)
 
 	print("NORTH|RESULT: %s" % ("OK" if ok else "FAIL"))
 	quit(0 if ok else 1)

@@ -239,7 +239,14 @@ func _switch_stage(stage_id: String) -> void:
 	m.living_cooldown = 0.0
 	m.living_event_time = -1.0
 	m.living_generation += 1
-	m.living_layer.layer = int(spec["canvas_layer"])
+	var canvas_layer: int = int(spec["canvas_layer"])
+	# Sky's opaque world is layer -1, the ordinary HUD stays at 0, and these
+	# quiet accents occupy 6. Speech/touch/pause/fade remain above at 8/9/12/30.
+	# Assert the shared contract at runtime rather than letting catalog drift put
+	# an ambient card underneath the stage or above child-facing controls.
+	if String(spec.get("group", "")) == "sky_promenade":
+		canvas_layer = m.SKY_LAGOON_LIVING_CANVAS_LAYER
+	m.living_layer.layer = canvas_layer
 	m.living_layer.visible = true
 	m.living_canvas.configure(spec)
 
@@ -291,12 +298,14 @@ func _reef_stage_id() -> String:
 func _level2_stage_id() -> String:
 	var phase: String = String(m.g.get("phase", "court"))
 	if phase == "promenade":
-		if m.player == null:
+		# The promenade's 6144x2048 master-pixel route is authoritative. The
+		# hidden generic player is only a save/return compatibility object
+		# and must not choose Canvas scenery or living-world state.
+		var master_x: float = clampf(float(
+			m.g.get("lagoon_master_x", 0.0)), 0.0, 6144.0)
+		if master_x < 2048.0:
 			return "sky.promenade_runway"
-		var local_x: float = m.player.position.x - m.LEVEL2_POS.x
-		if local_x < -25.0:
-			return "sky.promenade_runway"
-		if local_x < 25.0:
+		if master_x < 4096.0:
 			return "sky.promenade_playground"
 		return "sky.promenade_castle"
 	if phase == "hall":

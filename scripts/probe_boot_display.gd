@@ -61,13 +61,23 @@ func _run() -> void:
 	_check(main.game == "level2", "boot_leaves_the_reef")
 	_check(String(main.g.get("phase", "")) == "promenade", "boot_lands_on_the_promenade")
 
-	var promenade := main._lagoon_promenade_ref()
+	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
 	_check(promenade != null, "promenade_exists")
 	if promenade == null:
 		_finish()
 		return
-	var stage_root: Node3D = promenade.stage.root()
-	_check(stage_root != null, "promenade_stage_is_in_the_tree")
+	var stage_root: CanvasLayer = promenade.root()
+	var canvas_root: Control = promenade.canvas_root()
+	var camera: Camera2D = promenade.camera_2d()
+	_check(stage_root != null and is_instance_valid(stage_root)
+		and stage_root.layer == main.SKY_LAGOON_STAGE_CANVAS_LAYER,
+		"promenade_canvas_layer_is_in_the_tree")
+	_check(canvas_root != null and is_instance_valid(canvas_root)
+		and canvas_root.name == &"SkyLagoonViewport"
+		and camera != null and is_instance_valid(camera) and camera.enabled,
+		"promenade_owns_full_rect_canvas_and_camera2d")
+	_check(not main.player.cam.current,
+		"promenade_has_no_active_spatial_camera")
 
 	# A single failed texture load used to abort build() silently, half-way
 	# through, which is what put her back in the reef. Every painted tile of
@@ -76,15 +86,18 @@ func _run() -> void:
 	if stage_root != null:
 		for row in range(2):
 			for column in range(6):
-				var tile := stage_root.get_node_or_null(
-					"SkyLagoonBackdrop_r%d_c%d" % [row, column]) as Sprite3D
+				var tile := stage_root.find_child(
+					"SkyLagoonBackdrop_r%d_c%d" % [row, column], true, false) as Sprite2D
 				if tile != null and tile.texture != null:
 					painted += 1
 	_check(painted == 12, "mural_is_whole_%d_of_12" % painted)
 
-	# and she is standing on the promenade, not at the reef origin
-	var from_lagoon: float = main.player.position.distance_to(main.LEVEL2_POS)
-	_check(from_lagoon < 120.0, "player_spawns_on_the_promenade")
+	# The hidden generic player is not layout authority. The visible actor starts
+	# on page one in native master pixels and the Camera2D follows that route.
+	var spawn_x: float = promenade.master_route_x()
+	_check(spawn_x >= 0.0 and spawn_x < 2048.0
+		and is_equal_approx(spawn_x, float(main.g.get("lagoon_master_x", -1.0)))
+		and not main.player.visible, "canvas_actor_spawns_on_screen_one")
 
 	# The route already exists while the story is open, but its prompt must wait
 	# until the story is gone instead of expiring behind four full-screen pages.
@@ -115,11 +128,10 @@ func _run() -> void:
 
 	# One tap on the focused plane is enough: this is the normal visible return
 	# route, not a hidden Pause-menu escape hatch.
-	var route_node: Node3D = route_target.get("node") as Node3D
+	var route_node: CanvasItem = route_target.get("node") as CanvasItem
 	var route_ready: bool = route_node != null and is_instance_valid(route_node)
 	if route_ready:
-		var route_screen: Vector2 = main.player.cam.unproject_position(
-			route_node.global_position)
+		var route_screen: Vector2 = route_node.get_global_transform_with_canvas().origin
 		promenade.handle_touch(route_screen)
 		for _i in range(3):
 			await process_frame

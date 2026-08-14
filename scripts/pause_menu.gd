@@ -167,6 +167,12 @@ func _sync_labels() -> void:
 
 func toggle_pause() -> void:
 	var paused: bool = not m.get_tree().paused
+	# The corner gear is wired directly to this controller, so it must own the
+	# same cancellation contract as ReefMain.toggle_pause().  Clear the active
+	# finger before pausing: in Canvas Sky Lagoon this also drops any walk goal
+	# and PLAY/ENTER focus, preventing navigation from resuming behind the sheet.
+	if paused and m.touch_ui != null:
+		m.touch_ui.cancel_all_touches()
 	m.get_tree().paused = paused
 	m.pause_panel.visible = paused
 	# Activity overlays normally cover the corner button. Start/Escape raises

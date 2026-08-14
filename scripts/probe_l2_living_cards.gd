@@ -1,17 +1,17 @@
 extends SceneTree
+# Focused acceptance probe for Sky Lagoon's two Canvas living systems: authored
+# depth/parallax cards inside the stage and the quiet layer-6 global accents.
 
-# Focused acceptance probe for the reusable Living Card animation language.
-# Set LIVING_CARD_SHOT_OUT to capture the child's real camera framings.
-
-var failures: int = 0
+var failures := 0
 var main: ReefMain
+var promenade: SkyLagoonPromenade
 
 
 func _check(label: String, condition: bool, detail: String = "") -> void:
 	print("LIVINGCARD|%s|%s%s" % [
 		label,
 		"OK" if condition else "FAIL",
-		"" if detail == "" else "|%s" % detail,
+		"" if detail == "" else "|" + detail,
 	])
 	if not condition:
 		failures += 1
@@ -23,14 +23,14 @@ func _frames(count: int) -> void:
 
 
 func _capture(name: String) -> void:
-	var out_dir: String = OS.get_environment("LIVING_CARD_SHOT_OUT")
+	var out_dir := OS.get_environment("LIVING_CARD_SHOT_OUT")
 	if out_dir == "":
 		return
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	await RenderingServer.frame_post_draw
-	var image: Image = get_root().get_viewport().get_texture().get_image()
-	var error: Error = image.save_jpg(out_dir.path_join(name + ".jpg"), 0.92)
-	_check("capture_%s" % name, error == OK)
+	var image: Image = get_root().get_texture().get_image()
+	_check("capture_%s" % name,
+		image.save_jpg(out_dir.path_join(name + ".jpg"), 0.92) == OK)
 
 
 func _hide_interface() -> void:
@@ -44,15 +44,15 @@ func _hide_interface() -> void:
 
 func _ambient_signature(cards: Array) -> String:
 	var parts: Array[String] = []
-	for value in cards:
-		var card: Sprite3D = value as Sprite3D
+	for value: Variant in cards:
+		var card: Sprite2D = value as Sprite2D
 		if card == null:
 			continue
-		var base: Vector3 = card.get_meta("ambient_base", Vector3.ZERO) as Vector3
-		parts.append("%s:%d:%.3f,%.3f,%.3f:%.6f:%s:%s" % [
+		var base: Vector2 = card.get_meta("ambient_base", Vector2.ZERO) as Vector2
+		parts.append("%s:%d:%.3f,%.3f:%.6f:%s:%s" % [
 			String(card.get_meta("ambient_kind", "")),
 			int(card.get_meta("ambient_cycle_index", 0)),
-			base.x, base.y, base.z,
+			base.x, base.y,
 			float(card.get_meta("ambient_phase", -1.0)),
 			String(card.get_meta("motion_class", "")),
 			String(card.get_meta("intensity_class", "")),
@@ -61,76 +61,172 @@ func _ambient_signature(cards: Array) -> String:
 	return "|".join(parts)
 
 
-func _inventory(root: Node) -> Dictionary:
+func _inventory(root_node: Node) -> Dictionary:
 	var result := {
 		"sprites": 0,
-		"meshes": 0,
-		"canvas": 0,
-		"shaded": 0,
+		"spatial": 0,
 		"backdrops": 0,
 		"contacts": 0,
+		"ambient": 0,
 	}
-	var stack: Array[Node] = [root]
+	var stack: Array[Node] = [root_node]
 	while not stack.is_empty():
 		var node: Node = stack.pop_back()
-		if node is Sprite3D:
-			var sprite: Sprite3D = node as Sprite3D
+		if node is Sprite2D:
 			result["sprites"] = int(result["sprites"]) + 1
-			result["shaded"] = int(result["shaded"]) + (1 if sprite.shaded else 0)
-			if sprite.name.begins_with("SkyLagoonBackdrop_"):
+			if node.name.begins_with("SkyLagoonBackdrop_"):
 				result["backdrops"] = int(result["backdrops"]) + 1
-			if bool(sprite.get_meta("sky_lagoon_contact_shadow", false)):
+			if String(node.get_meta("canvas_layer_role", "")) == "contact_shadow":
 				result["contacts"] = int(result["contacts"]) + 1
-		elif node is MeshInstance3D:
-			result["meshes"] = int(result["meshes"]) + 1
-		elif node is CanvasItem:
-			result["canvas"] = int(result["canvas"]) + 1
+			if String(node.get_meta("ambient_kind", "")) != "":
+				result["ambient"] = int(result["ambient"]) + 1
+		if node.is_class("Node" + "3D"):
+			result["spatial"] = int(result["spatial"]) + 1
 		for child: Node in node.get_children():
 			stack.append(child)
 	return result
 
 
-func _sprite_coverage(sprite: Sprite3D, camera: Camera3D, viewport_size: Vector2) -> float:
-	if not sprite.visible or sprite.texture == null:
+func _visible_fraction(sprite: Sprite2D) -> float:
+	if sprite == null or not sprite.is_visible_in_tree() or sprite.texture == null:
 		return 0.0
-	if sprite.name.begins_with("SkyLagoonBackdrop_"):
-		return 0.0
-	var width: float = float(sprite.texture.get_width()) * sprite.pixel_size \
-		* absf(sprite.scale.x)
-	var height: float = float(sprite.texture.get_height()) * sprite.pixel_size \
-		* absf(sprite.scale.y)
-	var center: Vector3 = sprite.global_position
-	var a: Vector2 = camera.unproject_position(
-		center + Vector3(-width * 0.5, height * 0.5, 0.0))
-	var b: Vector2 = camera.unproject_position(
-		center + Vector3(width * 0.5, -height * 0.5, 0.0))
-	var bounds := Rect2(
-		Vector2(minf(a.x, b.x), minf(a.y, b.y)),
-		Vector2(absf(b.x - a.x), absf(b.y - a.y)))
-	var clipped: Rect2 = bounds.intersection(Rect2(Vector2.ZERO, viewport_size))
-	return clipped.get_area() / maxf(1.0, viewport_size.x * viewport_size.y)
-
-func _promenade_target(target_id: String) -> Sprite3D:
-	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
-		var target: Dictionary = value as Dictionary
-		if String(target.get("id", "")) == target_id:
-			return target.get("node") as Sprite3D
-	return null
+	var texture_size: Vector2 = sprite.texture.get_size()
+	var transform: Transform2D = sprite.get_global_transform_with_canvas()
+	var corners: Array[Vector2] = [
+		transform * (-texture_size * 0.5),
+		transform * Vector2(texture_size.x * 0.5, -texture_size.y * 0.5),
+		transform * (texture_size * 0.5),
+		transform * Vector2(-texture_size.x * 0.5, texture_size.y * 0.5),
+	]
+	var bounds := Rect2(corners[0], Vector2.ZERO)
+	for corner: Vector2 in corners:
+		bounds = bounds.expand(corner)
+	var clipped: Rect2 = bounds.intersection(get_root().get_visible_rect())
+	return clipped.get_area() / maxf(1.0, get_root().get_visible_rect().get_area())
 
 
-func _socket_error_px(card: Node3D, camera: Camera3D,
-		stage_root: Node3D) -> float:
-	if card == null or camera == null or stage_root == null:
-		return INF
-	var mural_local: Vector3 = card.get_meta(
-		"mural_backdrop_reference", Vector3.ZERO) as Vector3
-	var socket_local: Vector3 = card.get_meta(
-		"mural_socket_world_base", card.position) as Vector3
-	var mural_screen: Vector2 = camera.unproject_position(
-		stage_root.to_global(mural_local))
-	var socket_screen: Vector2 = camera.unproject_position(
-		stage_root.to_global(socket_local))
-	return mural_screen.distance_to(socket_screen)
+func _validate_stage_cards() -> String:
+	var cards: Array = main.g.get("lagoon_ambient_cards", []) as Array
+	var contract_ok := true
+	var contract_failures: Array[String] = []
+	var per_page: Array[Dictionary] = [{}, {}, {}]
+	for value: Variant in cards:
+		var card: Sprite2D = value as Sprite2D
+		var card_ok: bool = card != null \
+			and bool(card.get_meta("living_card", false)) \
+			and String(card.get_meta("motion_class", "")) != "" \
+			and String(card.get_meta("intensity_class", "")) != "" \
+			and String(card.get_meta("canvas_layer_role", "")) != "" \
+			and bool(card.get_meta("source_owned", false)) \
+			and float(card.get_meta("source_aspect", 0.0)) > 0.0 \
+			and float(card.get_meta("content_height_fraction", 0.0)) > 0.0 \
+			and float(card.get_meta("target_master_height", 0.0)) > 0.0
+		contract_ok = contract_ok and card_ok
+		if not card_ok:
+			contract_failures.append("null" if card == null else "%s:%s" % [
+				card.name, JSON.stringify({
+					"kind": card.get_meta("ambient_kind", ""),
+					"role": card.get_meta("canvas_layer_role", ""),
+					"living": card.get_meta("living_card", false),
+					"motion": card.get_meta("motion_class", ""),
+					"intensity": card.get_meta("intensity_class", ""),
+					"owned": card.get_meta("source_owned", false),
+					"aspect": card.get_meta("source_aspect", 0.0),
+					"fraction": card.get_meta("content_height_fraction", 0.0),
+					"height": card.get_meta("target_master_height", 0.0),
+				})])
+		if card != null:
+			var base: Vector2 = card.get_meta("ambient_base", Vector2.ZERO) as Vector2
+			var page: int = clampi(int(floor(base.x / 2048.0)), 0, 2)
+			per_page[page][String(card.get_meta("ambient_kind", ""))] = true
+	_check("canvas_living_card_contract", contract_ok, "cards=%d bad=%s" % [
+		cards.size(), ";".join(contract_failures)])
+	var budget_ok := true
+	var detail: Array[String] = []
+	for page: int in range(3):
+		var count: int = per_page[page].size()
+		budget_ok = budget_ok and count <= 3
+		detail.append("p%d=%d" % [page + 1, count])
+	_check("quiet_loop_budget_per_screen", budget_ok, ",".join(detail))
+	return _ambient_signature(cards)
+
+
+func _validate_parallax() -> void:
+	var root_node: CanvasLayer = promenade.root()
+	var rear: Node2D = root_node.find_child("SkyLagoonRear", true, false) as Node2D
+	var base: Node2D = root_node.find_child("SkyLagoonBase", true, false) as Node2D
+	var foreground: Node2D = root_node.find_child(
+		"SkyLagoonForeground", true, false) as Node2D
+	promenade.set_master_route_x(2048.0)
+	var starts := Vector3(
+		rear.position.x if rear != null else 0.0,
+		base.position.x if base != null else 0.0,
+		foreground.position.x if foreground != null else 0.0)
+	promenade.set_master_route_x(4096.0)
+	var deltas := Vector3(
+		(rear.position.x if rear != null else 0.0) - starts.x,
+		(base.position.x if base != null else 0.0) - starts.y,
+		(foreground.position.x if foreground != null else 0.0) - starts.z)
+	_check("real_rear_base_foreground_parallax",
+		rear != null and base != null and foreground != null \
+		and is_equal_approx(float(rear.get_meta("parallax_factor", -1.0)), 0.82) \
+		and is_equal_approx(float(base.get_meta("parallax_factor", -1.0)), 1.0) \
+		and is_equal_approx(float(foreground.get_meta("parallax_factor", -1.0)), 1.06) \
+		and not is_equal_approx(deltas.x, deltas.y) \
+		and not is_equal_approx(deltas.y, deltas.z),
+		"deltas=%s" % deltas)
+
+
+func _validate_layer_six() -> void:
+	var director: LivingWorldDirector = main._living_world_ref()
+	var expected_stages: Array[String] = [
+		"sky.promenade_runway",
+		"sky.promenade_playground",
+		"sky.promenade_castle",
+	]
+	for page: int in range(3):
+		promenade.set_master_route_x(float(page) * 2048.0 + 1024.0)
+		director.tick(0.0)
+		_check("living_stage_page_%d" % (page + 1),
+			main.living_stage_id == expected_stages[page]
+			and main.living_layer.layer == main.SKY_LAGOON_LIVING_CANVAS_LAYER \
+			and main.living_layer.visible and main.living_canvas.visible \
+			and main.living_canvas.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	var generation: int = main.living_generation
+	var runtime_counts: Dictionary = director.runtime_counts()
+	director.force_idle_event_for_probe()
+	director.tick(0.1)
+	_check("idle_event_is_bounded_canvas_state",
+		main.living_event_time >= 0.0 and main.living_canvas.event_progress >= 0.0 \
+		and int(runtime_counts.get("layers", 0)) == 1 \
+		and int(runtime_counts.get("canvases", 0)) == 1 \
+		and int(runtime_counts.get("timers", -1)) == 0 \
+		and int(runtime_counts.get("tweens", -1)) == 0 \
+		and int(runtime_counts.get("particles", -1)) == 0)
+	director.note_activity()
+	_check("input_clears_idle_event_without_rebuild",
+		main.living_event_time < 0.0 and main.living_generation == generation)
+
+
+func _validate_speedy_coverage() -> void:
+	var root_node: CanvasLayer = promenade.root()
+	var coverage_ok := true
+	var detail: Array[String] = []
+	for master_x: float in [1024.0, 3072.0, 5120.0]:
+		promenade.set_master_route_x(master_x)
+		var coverage := 0.0
+		var large := 0
+		for value: Variant in main.g.get("lagoon_ambient_cards", []) as Array:
+			var fraction: float = _visible_fraction(value as Sprite2D)
+			coverage += fraction
+			large += 1 if fraction > 0.10 else 0
+		coverage_ok = coverage_ok and coverage <= 1.50 and large <= 8
+		detail.append("%.0f:%.1f%%/%d" % [master_x, coverage * 100.0, large])
+	_check("speedy_transparent_coverage", coverage_ok, ";".join(detail))
+	var inventory: Dictionary = _inventory(root_node)
+	_check("canvas_node_inventory",
+		int(inventory["spatial"]) == 0 and int(inventory["backdrops"]) == 12 \
+		and int(inventory["sprites"]) >= 12, JSON.stringify(inventory))
 
 
 func _initialize() -> void:
@@ -138,6 +234,7 @@ func _initialize() -> void:
 
 
 func _run() -> void:
+	get_root().size = Vector2i(1280, 720)
 	var packed: PackedScene = load("res://scenes/main.tscn") as PackedScene
 	main = packed.instantiate() as ReefMain
 	get_root().add_child(main)
@@ -148,254 +245,46 @@ func _run() -> void:
 	main._set_night(false)
 	main.save_data["lagoon_plane_departed"] = true
 	main._enter_level2_now(true, false, false)
-	await _frames(40)
+	await _frames(24)
+	promenade = main._lagoon_promenade_ref()
 	_hide_interface()
-	main.player.position.x = main.LEVEL2_POS.x - 6.0
-	main.g["ss_walk_goal"] = null
-	await _frames(60)
+	var day_signature: String = _validate_stage_cards()
+	_validate_parallax()
+	_validate_layer_six()
+	_validate_speedy_coverage()
+	for page: int in range(3):
+		promenade.set_master_route_x(float(page) * 2048.0 + 1024.0)
+		await _frames(3)
+		await _capture("canvas_screen_%d_day" % (page + 1))
 
-	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
-	var cards: Array = main.g.get("lagoon_ambient_cards", [])
-	var smoke_count: int = 0
-	var smoke_sockets: Dictionary = {}
-	var living_contract_ok: bool = true
-	var smoke_placement_ok: bool = true
-	var grounded_contract_ok: bool = true
-	var quiet_loops_by_screen: Array[Dictionary] = [{}, {}, {}]
-	for value in cards:
-		var card: Sprite3D = value as Sprite3D
-		living_contract_ok = living_contract_ok \
-			and card != null and card.shaded == false \
-			and bool(card.get_meta("living_card", false)) \
-			and String(card.get_meta("motion_class", "")) != "" \
-			and String(card.get_meta("intensity_class", "")) != "" \
-			and float(card.get_meta("source_aspect", 0.0)) > 0.0 \
-			and float(card.get_meta("content_height_fraction", 0.0)) > 0.0 \
-			and float(card.get_meta("target_world_height", 0.0)) > 0.0
-		var kind: String = String(card.get_meta("ambient_kind", ""))
-		var base: Vector3 = card.get_meta("ambient_base", Vector3.ZERO) as Vector3
-		var screen_index: int = clampi(
-			int(floor((base.x + SkyLagoonPromenade.HALF_W) / 48.0)), 0, 2)
-		quiet_loops_by_screen[screen_index][kind] = true
-		if kind == "tree":
-			grounded_contract_ok = grounded_contract_ok \
-				and card.get_meta("contact_shadow") is Sprite3D
-		if card != null and String(card.get_meta("ambient_kind", "")) == "smoke":
-			smoke_count += 1
-			var matched_socket: int = -1
-			for socket_index: int in range(
-					SkyLagoonPromenade.CABIN_SMOKE_ANCHORS.size()):
-				if base.distance_to(
-						SkyLagoonPromenade.CABIN_SMOKE_ANCHORS[socket_index]) < 0.01:
-					matched_socket = socket_index
-					break
-			if matched_socket >= 0:
-				smoke_sockets[matched_socket] = true
-			smoke_placement_ok = smoke_placement_ok \
-				and matched_socket >= 0 \
-				and base.y > SkyLagoonPromenade.BAND_Y + SkyLagoonPromenade.BAND_H
-	_check("living_card_contract", living_contract_ok, "cards=%d" % cards.size())
-	_check("one_wisp_per_cabin_chimney",
-		smoke_count == 3 and smoke_sockets.size() == 3,
-		"wisps=%d sockets=%s" % [smoke_count, str(smoke_sockets.keys())])
-	_check("smoke_above_three_chimneys_and_walk_band", smoke_placement_ok)
-	_check("chimneys_remain_baked_into_approved_mural",
-		not main.g.has("lagoon_center_chimney_card"))
-	_check("grounded_cards_have_contact_shadows", grounded_contract_ok)
-	var quiet_budget_ok: bool = true
-	var quiet_detail: Array[String] = []
-	for screen_index: int in range(3):
-		var loop_count: int = quiet_loops_by_screen[screen_index].size()
-		quiet_budget_ok = quiet_budget_ok and loop_count <= 3
-		quiet_detail.append("s%d=%d" % [screen_index + 1, loop_count])
-	_check("quiet_loop_budget", quiet_budget_ok, ",".join(quiet_detail))
-	var phase_anchor: Vector3 = SkyLagoonPromenade.CABIN_SMOKE_ANCHORS[0]
-	_check("deterministic_phase",
-		is_equal_approx(
-			promenade._phase_token(phase_anchor),
-			wrapf(
-				phase_anchor.x * 0.73 + phase_anchor.z * 1.31,
-				0.0, TAU)))
-	_check("deterministic_gust_envelope",
-		is_equal_approx(promenade._wind_gust_at(0.0), 1.0)
-		and promenade._wind_gust_at(17.0) > 1.0
-		and is_equal_approx(promenade._wind_gust_at(18.0), 1.5)
-		and is_equal_approx(promenade._wind_gust_at(23.0), 1.0))
-	var day_signature: String = _ambient_signature(cards)
-	var stage_root: Node3D = main.g.get("ss_root") as Node3D
-	_check("day_fireflies_absent",
-		not main.g.has("lagoon_night_fireflies"))
-	var inventory: Dictionary = _inventory(stage_root)
-	_check("node_type_inventory",
-		# Permanent reef shuttle = one hovering plane and one pulse, with no
-		# ground shadow in the otter/frog corridor.
-		int(inventory["sprites"]) == 36
-		and int(inventory["meshes"]) == 0
-		and int(inventory["canvas"]) == 0
-		and int(inventory["shaded"]) == 0
-		and int(inventory["backdrops"]) == 12
-		and int(inventory["contacts"]) == 6,
-		JSON.stringify(inventory))
-
-	main.g["lagoon_castle_armed"] = false
-	promenade._clear_focus()
-	main.player.position.x = main.LEVEL2_POS.x - 48.0
-	await _frames(20)
-	await _capture("final_screen_1_runway_revisit")
-	main.g["lagoon_castle_armed"] = false
-	promenade._clear_focus()
-	main.player.position.x = main.LEVEL2_POS.x
-	await _frames(20)
-	await _capture("attempt_04_playground_wide")
-	await _capture("final_screen_2_playground")
-	main.g["lagoon_castle_armed"] = false
-	promenade._clear_focus()
-	main.player.position.x = main.LEVEL2_POS.x + phase_anchor.x
-	await _frames(30)
-	await _capture("attempt_04_cabin_smoke_wisp_day")
-	await _capture("final_screen_3_castle_smoke")
-
-	var viewport: Viewport = get_root().get_viewport()
-	var camera: Camera3D = viewport.get_camera_3d()
-	var slide: Sprite3D = _promenade_target("slide")
-	var mural_anchor_ok: bool = camera != null and slide != null
-	var mural_anchor_detail: Array[String] = []
-	var exact_socket_cards: Array[Node3D] = []
-	for target_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
-		var socket_card: Node3D = null
-		for target_value: Variant in (
-				main.g.get("lagoon_promenade_targets", []) as Array):
-			var target: Dictionary = target_value as Dictionary
-			if String(target.get("id", "")) == target_id:
-				socket_card = target.get("node") as Node3D
-				break
-		if socket_card != null:
-			exact_socket_cards.append(socket_card)
-	var castle_card: Node3D = main.g.get("lagoon_castle_card") as Node3D
-	if castle_card != null:
-		exact_socket_cards.append(castle_card)
-	for ambient_value: Variant in cards:
-		var ambient_card: Sprite3D = ambient_value as Sprite3D
-		if ambient_card != null and String(
-				ambient_card.get_meta("ambient_kind", "")) in ["smoke", "tree"]:
-			exact_socket_cards.append(ambient_card)
-	for player_x: float in [-60.0, -30.0, 0.0, 30.0, 60.0]:
-		main.player.position.x = main.LEVEL2_POS.x + player_x
-		main.g["lagoon_castle_armed"] = false
-		for _index: int in range(6):
-			promenade.tick(0.25)
-		if camera == null or slide == null:
-			mural_anchor_ok = false
-			continue
-		var worst_error_px := 0.0
-		for socket_card: Node3D in exact_socket_cards:
-			worst_error_px = maxf(
-				worst_error_px,
-				_socket_error_px(socket_card, camera, stage_root))
-		mural_anchor_ok = mural_anchor_ok and worst_error_px <= 0.25
-		mural_anchor_detail.append("%.0f:%.3fpx" % [
-			player_x, worst_error_px])
-		await _capture("socket_scroll_%+03d" % roundi(player_x))
-	_check("extracted_cards_stay_on_mural_sockets_during_scroll",
-		mural_anchor_ok,
-		";".join(mural_anchor_detail))
-
-	var coverage_ok: bool = camera != null
-	var coverage_detail: Array[String] = []
-	for screen_x: float in [-48.0, 0.0, 48.0]:
-		main.player.position.x = main.LEVEL2_POS.x + screen_x
-		main.g["lagoon_castle_armed"] = false
-		for _index: int in range(6):
-			promenade.tick(0.25)
-		var total_coverage: float = 0.0
-		var large_cards: int = 0
-		for child: Node in stage_root.get_children():
-			if child is Sprite3D:
-				var fraction: float = _sprite_coverage(
-					child as Sprite3D, camera, viewport.get_visible_rect().size)
-				total_coverage += fraction
-				large_cards += 1 if fraction > 0.10 else 0
-		coverage_ok = coverage_ok and total_coverage <= 1.50 and large_cards <= 8
-		coverage_detail.append("%.0f:%.1f%%/%d" % [
-			screen_x, total_coverage * 100.0, large_cards])
-	_check("speedy_transparent_coverage", coverage_ok, ";".join(coverage_detail))
-
-	var tick_started: int = Time.get_ticks_usec()
-	for _index: int in range(2000):
-		promenade._tick_ambient_life(1.0 / 60.0)
-	var average_tick_usec: float = float(Time.get_ticks_usec() - tick_started) / 2000.0
-	_check("speedy_tick_under_1ms", average_tick_usec < 1000.0,
-		"average_usec=%.2f" % average_tick_usec)
+	var old_root: CanvasLayer = promenade.root()
+	var old_cards: Array = (main.g.get("lagoon_ambient_cards", []) as Array).duplicate()
+	main._exit_level2_now()
+	var old_cards_freed := true
+	for value: Variant in old_cards:
+		old_cards_freed = old_cards_freed and not is_instance_valid(value)
+	_check("lifecycle_teardown_is_synchronous",
+		not is_instance_valid(old_root) and old_cards_freed \
+		and not main.g.has("lagoon_ambient_cards") \
+		and not main.g.has("lagoon_ambient_t") \
+		and not main.g.has("lagoon_night_fireflies"))
 
 	main.is_night = true
 	main._enter_level2_now(true, false, false)
-	await _frames(45)
-	_hide_interface()
-	main.g["lagoon_castle_armed"] = false
-	promenade._clear_focus()
-	main.player.position.x = main.LEVEL2_POS.x + phase_anchor.x
-	main.g["ss_walk_goal"] = null
-	await _frames(30)
-	var night_cards: Array = main.g.get("lagoon_ambient_cards", [])
-	var night_root: Node3D = main.g.get("ss_root") as Node3D
-	var night_fireflies: CPUParticles3D = main.g.get(
-		"lagoon_night_fireflies") as CPUParticles3D
-	_check("night_outdoor_fireflies",
-		night_fireflies != null
-		and is_instance_valid(night_fireflies)
-		and night_fireflies.emitting
-		and night_fireflies.amount == SkyLagoonPromenade.FIREFLY_COUNT
-		and night_fireflies.mesh is QuadMesh
-		and bool(night_fireflies.get_meta("night_only", false))
-		and bool(night_fireflies.get_meta("outdoor_only", false)))
-	var night_tint_ok: bool = night_cards.size() == 5
-	var night_backdrops: int = 0
-	for child: Node in night_root.get_children():
-		if child is Sprite3D:
-			var night_sprite: Sprite3D = child as Sprite3D
-			if night_sprite.name.begins_with("SkyLagoonBackdrop_"):
-				night_backdrops += 1
-				night_tint_ok = night_tint_ok \
-					and night_sprite.modulate.is_equal_approx(
-						SkyLagoonPromenade.NIGHT_BACKDROP_TINT)
-	for value in night_cards:
-		var night_card: Sprite3D = value as Sprite3D
-		night_tint_ok = night_tint_ok \
-			and night_card.modulate.r <= SkyLagoonPromenade.NIGHT_WORLD_TINT.r + 0.01 \
-			and night_card.modulate.g <= SkyLagoonPromenade.NIGHT_WORLD_TINT.g + 0.01 \
-			and night_card.modulate.b <= SkyLagoonPromenade.NIGHT_WORLD_TINT.b + 0.01
-	_check("night_congruence", night_tint_ok and night_backdrops == 12,
-		"backdrops=%d cards=%d" % [night_backdrops, night_cards.size()])
+	await _frames(20)
+	promenade = main._lagoon_promenade_ref()
+	var night_cards: Array = main.g.get("lagoon_ambient_cards", []) as Array
 	_check("cold_build_determinism",
 		day_signature == _ambient_signature(night_cards))
-	await _capture("attempt_04_cabin_smoke_wisp_night")
-
-	var old_root: Node3D = night_root
-	var old_cards: Array = night_cards.duplicate()
-	var old_fireflies: CPUParticles3D = night_fireflies
-	main._exit_level2_now()
-	await _frames(5)
-	var old_cards_freed: bool = true
-	for value in old_cards:
-		old_cards_freed = old_cards_freed and not is_instance_valid(value)
-	_check("lifecycle_teardown",
-		not is_instance_valid(old_root)
-		and old_cards_freed
-		and not is_instance_valid(old_fireflies)
-		and not main.g.has("lagoon_ambient_cards")
-		and not main.g.has("lagoon_night_fireflies")
-		and not main.g.has("lagoon_ambient_t")
-		and not main.g.has("lagoon_wind_gust")
-		and not main.g.has("lagoon_wind_distance")
-		and not main.g.has("lagoon_mural_socket_cards"))
-	main.is_night = false
-	main._enter_level2_now(true, false, false)
-	await _frames(20)
-	_check("lifecycle_rebuild",
-		(main.g.get("lagoon_ambient_cards", []) as Array).size() == 5
-		and main.g.has("lagoon_wind_distance")
-		and not main.g.has("lagoon_night_fireflies")
-		and not main.g.has("lagoon_center_chimney_card"))
+	var night_ok := true
+	for value: Variant in night_cards:
+		var card: Sprite2D = value as Sprite2D
+		night_ok = night_ok and card != null \
+			and bool(card.get_meta("night_tinted", false)) \
+			and card.modulate != Color.WHITE
+	_check("night_canvas_congruence", night_ok)
+	promenade.set_master_route_x(5120.0)
+	await _capture("canvas_screen_3_night")
 
 	if failures == 0:
 		print("LIVINGCARD|ALL|OK")

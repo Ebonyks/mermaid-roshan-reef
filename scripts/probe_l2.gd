@@ -1,1001 +1,876 @@
 extends SceneTree
-# Structural and interaction probe for the three-screen 2.5D Sky Lagoon.
+# Blocking Sky Lagoon Canvas product contract. The opaque 6144x2048 storybook
+# stage is the game here: no spatial fallback, hidden Player layout authority,
+# review-only camera, or metadata-only substitute may satisfy this probe.
 
-const ROSHAN_ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
-const ROSHAN_FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
+const MASTER_SIZE := Vector2(6144.0, 2048.0)
+const TILE_SIZE := Vector2(1024.0, 1024.0)
+const TARGET_IDS: Array[String] = [
+	"castle_gate", "reef_route", "seesaw", "slide", "swing",
+]
+const HOLDER_NAMES: Array[String] = [
+	"SkyLagoonBase",
+	"SkyLagoonRear",
+	"SkyLagoonLandmarks",
+	"SkyLagoonInteractive",
+	"SkyLagoonActors",
+	"SkyLagoonForeground",
+]
+const REQUIRED_ASSETS: Array[String] = [
+	"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+	"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+	"res://assets/props/story/play_swing_frame.png",
+	"res://assets/props/story/play_swing_seat.png",
+	"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+	"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+	"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+	"res://assets/characters/roshan_25d/roshan_base.png",
+	"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+	"res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+	"res://assets/fairy/sprites/bug_firefly.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2_v2.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3_v2.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png",
+	"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_3.png",
+]
 
 var failed := false
+var main: ReefMain
+var promenade: SkyLagoonPromenade
 
-func _check(label: String, ok: bool, detail: String = "") -> void:
-	print("LAGOON25D|%s: %s%s" % [
+
+func _check(label: String, condition: bool, detail: String = "") -> void:
+	print("LAGOONCANVAS|%s|%s%s" % [
 		label,
-		"OK" if ok else "FAIL",
-		"" if detail == "" else " " + detail,
+		"OK" if condition else "FAIL",
+		"" if detail == "" else "|" + detail,
 	])
-	if not ok:
+	if not condition:
 		failed = true
 
+
 func _frames(count: int) -> void:
-	for _i in range(count):
+	for _index: int in range(count):
 		await process_frame
 
-func _capture_playground_frame(name: String) -> void:
-	var out_dir: String = OS.get_environment("PLAYGROUND_SHOT_OUT")
-	if out_dir == "":
-		return
-	DirAccess.make_dir_recursive_absolute(out_dir)
-	await RenderingServer.frame_post_draw
-	var image: Image = get_root().get_viewport().get_texture().get_image()
-	var error: Error = image.save_png(out_dir.path_join(name + ".png"))
-	_check("capture_%s" % name, error == OK)
 
-func _opaque_world_rect(sprite: Sprite3D) -> Rect2:
+func _spatial_count(node: Node) -> int:
+	# Keep the migration probe itself free of the API family it is rejecting.
+	var result := 1 if node.is_class("Node" + "3D") else 0
+	for child: Node in node.get_children():
+		result += _spatial_count(child)
+	return result
+
+
+func _collect_sprites(node: Node, output: Array[Sprite2D]) -> void:
+	if node is Sprite2D:
+		output.append(node as Sprite2D)
+	for child: Node in node.get_children():
+		_collect_sprites(child, output)
+
+
+func _named_count(node: Node, wanted: StringName) -> int:
+	var result := 1 if node.name == wanted else 0
+	for child: Node in node.get_children():
+		result += _named_count(child, wanted)
+	return result
+
+
+func _target(target_id: String) -> Dictionary:
+	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == target_id:
+			return target
+	return {}
+
+
+func _target_ids() -> Array[String]:
+	var ids: Array[String] = []
+	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+		ids.append(String((value as Dictionary).get("id", "")))
+	ids.sort()
+	return ids
+
+
+func _screen_center(item: CanvasItem) -> Vector2:
+	return item.get_global_transform_with_canvas().origin
+
+
+func _sprite_screen_rect(sprite: Sprite2D) -> Rect2:
+	if sprite == null or not is_instance_valid(sprite) or sprite.texture == null:
+		return Rect2()
+	var draw_size: Vector2 = sprite.region_rect.size if sprite.region_enabled \
+		else sprite.texture.get_size()
+	var local_origin: Vector2 = sprite.offset
+	if sprite.centered:
+		local_origin -= draw_size * 0.5
+	var transform: Transform2D = sprite.get_global_transform_with_canvas()
+	var corners: Array[Vector2] = [
+		transform * local_origin,
+		transform * (local_origin + Vector2(draw_size.x, 0.0)),
+		transform * (local_origin + draw_size),
+		transform * (local_origin + Vector2(0.0, draw_size.y)),
+	]
+	var bounds := Rect2(corners[0], Vector2.ZERO)
+	for corner: Vector2 in corners:
+		bounds = bounds.expand(corner)
+	return bounds
+
+
+func _alpha_sprite_screen_rect(sprite: Sprite2D) -> Rect2:
+	if sprite == null or not is_instance_valid(sprite) or sprite.texture == null \
+			or not sprite.is_visible_in_tree():
+		return Rect2()
 	var image: Image = sprite.texture.get_image()
-	var used: Rect2i = image.get_used_rect()
-	var size := Vector2(image.get_width(), image.get_height())
-	var left: float = sprite.position.x + (float(used.position.x) - size.x * 0.5) * sprite.pixel_size
-	var right: float = sprite.position.x + (float(used.end.x) - size.x * 0.5) * sprite.pixel_size
-	var top: float = sprite.position.y + (size.y * 0.5 - float(used.position.y)) * sprite.pixel_size
-	var bottom: float = sprite.position.y + (size.y * 0.5 - float(used.end.y)) * sprite.pixel_size
-	return Rect2(left, bottom, right - left, top - bottom)
+	if image == null or image.is_empty():
+		return Rect2()
+	if image.is_compressed() and image.decompress() != OK:
+		return Rect2()
+	var source := Rect2i(Vector2i.ZERO, image.get_size())
+	if sprite.region_enabled:
+		source = Rect2i(sprite.region_rect)
+	var alpha_min := Vector2i(source.size)
+	var alpha_max := Vector2i(-1, -1)
+	for y: int in range(source.position.y, source.end.y):
+		for x: int in range(source.position.x, source.end.x):
+			if image.get_pixel(x, y).a < 0.10:
+				continue
+			var local := Vector2i(x, y) - source.position
+			alpha_min.x = mini(alpha_min.x, local.x)
+			alpha_min.y = mini(alpha_min.y, local.y)
+			alpha_max.x = maxi(alpha_max.x, local.x)
+			alpha_max.y = maxi(alpha_max.y, local.y)
+	if alpha_max.x < alpha_min.x or alpha_max.y < alpha_min.y:
+		return Rect2()
+	var used := Rect2i(alpha_min, alpha_max - alpha_min + Vector2i.ONE)
+	var local_origin := Vector2(used.position) + sprite.offset
+	if sprite.centered:
+		local_origin -= Vector2(source.size) * 0.5
+	var local_size := Vector2(used.size)
+	var transform: Transform2D = sprite.get_global_transform_with_canvas()
+	var corners: Array[Vector2] = [
+		transform * local_origin,
+		transform * (local_origin + Vector2(local_size.x, 0.0)),
+		transform * (local_origin + local_size),
+		transform * (local_origin + Vector2(0.0, local_size.y)),
+	]
+	var bounds := Rect2(corners[0], Vector2.ZERO)
+	for corner: Vector2 in corners:
+		bounds = bounds.expand(corner)
+	return bounds
 
-func _sprite_pixel_world(sprite: Sprite3D, pixel: Vector2) -> Vector2:
-	var size: Vector2 = sprite.texture.get_size()
-	var local := Vector2(
-		(pixel.x - size.x * 0.5) * sprite.pixel_size * sprite.scale.x,
-		(size.y * 0.5 - pixel.y) * sprite.pixel_size * sprite.scale.y)
-	return Vector2(sprite.position.x, sprite.position.y) + local.rotated(
-		sprite.rotation.z)
+
+func _polygon_screen_rect(polygon: Polygon2D) -> Rect2:
+	if polygon == null or not is_instance_valid(polygon) \
+			or not polygon.is_visible_in_tree() or polygon.polygon.is_empty():
+		return Rect2()
+	var transform: Transform2D = polygon.get_global_transform_with_canvas()
+	var bounds := Rect2(transform * polygon.polygon[0], Vector2.ZERO)
+	for point: Vector2 in polygon.polygon:
+		bounds = bounds.expand(transform * point)
+	return bounds
 
 
-func _unique_texture_bytes(texture: Texture2D, seen: Dictionary) -> int:
-	if texture == null:
-		return 0
-	var key: String = texture.resource_path
-	if key == "":
-		key = str(texture.get_rid())
-	if seen.has(key):
-		return 0
-	seen[key] = true
-	var image: Image = texture.get_image()
-	return image.get_data_size() if image != null else 0
+func _canvas_composite_screen_rect(node: Node) -> Rect2:
+	var bounds := Rect2()
+	var has_bounds := false
+	var own_bounds := Rect2()
+	if node is Sprite2D:
+		own_bounds = _sprite_screen_rect(node as Sprite2D)
+	elif node is Polygon2D:
+		own_bounds = _polygon_screen_rect(node as Polygon2D)
+	if own_bounds.get_area() > 0.0:
+		bounds = own_bounds
+		has_bounds = true
+	for child: Node in node.get_children():
+		var child_bounds: Rect2 = _canvas_composite_screen_rect(child)
+		if child_bounds.get_area() <= 0.0:
+			continue
+		bounds = child_bounds if not has_bounds else bounds.merge(child_bounds)
+		has_bounds = true
+	return bounds if has_bounds else Rect2()
 
-func _complete_playground_action(main: ReefMain,
-		promenade: SkyLagoonPromenade, card: Sprite3D) -> Dictionary:
-	# Cross the real duration boundary in two close samples, then follow the
-	# visible card through its short settle. This catches the former same-frame
-	# teleport and the giggle mistakenly played on the hidden Player renderer.
-	var play: Dictionary = main.g.get("lagoon_play_anim", {}) as Dictionary
-	var remaining: float = float(play.get("dur", 0.0)) \
-		- float(play.get("t", 0.0)) - 0.01
-	if remaining > 0.0:
-		promenade._tick_playground_animation(remaining)
-	var before_boundary: Vector3 = card.position
-	var card_id: int = card.get_instance_id()
-	var celebration_count: int = int(
-		main.g.get("lagoon_visible_roshan_celebrations", 0))
-	main.player.verb = ""
-	promenade._tick_playground_animation(0.02)
-	play = main.g.get("lagoon_play_anim", {}) as Dictionary
-	var settle_start: Vector3 = card.position
-	var started: bool = String(play.get("phase", "")) == "settle"
-	var continuous: bool = before_boundary.distance_to(settle_start) < 0.75
-	var visible_owner: bool = card.get_instance_id() == card_id \
-		and card.visible and not main.player.visible
-	var visible_celebration: bool = int(
-		main.g.get("lagoon_visible_roshan_celebrations", 0)) \
-		== celebration_count + 1 and main.player.verb != "giggle"
-	promenade._tick_playground_animation(
-		SkyLagoonPromenade.PLAY_SETTLE_S * 0.5)
-	var halfway: Vector3 = card.position
-	var moved_during_settle: bool = halfway.distance_to(settle_start) > 0.01
-	promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
-	var root_node: Node3D = promenade.stage.root()
-	var local_player: Vector3 = main.player.position - root_node.position
-	var expected_position := Vector3(
-		local_player.x, local_player.y + 1.0, local_player.z + 0.2)
-	var shadow: Sprite3D = card.get_meta("contact_shadow") as Sprite3D
+
+func _point_rect_distance(point: Vector2, bounds: Rect2) -> float:
+	if bounds.get_area() <= 0.0:
+		return INF
+	var nearest := Vector2(
+		clampf(point.x, bounds.position.x, bounds.end.x),
+		clampf(point.y, bounds.position.y, bounds.end.y))
+	return point.distance_to(nearest)
+
+
+func _color_luma(color: Color) -> float:
+	return color.r * 0.2126 + color.g * 0.7152 + color.b * 0.0722
+
+
+func _selected_tint_is_readable(highlight: Sprite2D) -> bool:
+	var tint: Color = highlight.modulate
+	var high: float = maxf(tint.r, maxf(tint.g, tint.b))
+	var low: float = minf(tint.r, minf(tint.g, tint.b))
+	return tint.a >= 0.80 and tint.a <= 1.001 \
+		and high >= 0.80 and high - low >= 0.35
+
+
+func _procedural_pointer_contrast(highlight: Sprite2D) -> bool:
+	var outline: Polygon2D = highlight.find_child(
+		"PointerOutline", false, false) as Polygon2D
+	var fill: Polygon2D = highlight.find_child(
+		"PointerFill", false, false) as Polygon2D
+	if outline == null or fill == null:
+		return false
+	var tint: Color = highlight.modulate
+	var outline_tinted := Color(
+		outline.color.r * tint.r, outline.color.g * tint.g,
+		outline.color.b * tint.b, outline.color.a * tint.a)
+	var fill_tinted := Color(
+		fill.color.r * tint.r, fill.color.g * tint.g,
+		fill.color.b * tint.b, fill.color.a * tint.a)
+	return absf(_color_luma(fill_tinted) - _color_luma(outline_tinted)) >= 0.35
+
+
+func _opaque_screen_cells(sprite: Sprite2D, output: Dictionary,
+		grid_px: float = 5.0) -> void:
+	if sprite == null or not is_instance_valid(sprite) or sprite.texture == null \
+			or not sprite.visible:
+		return
+	var image: Image = sprite.texture.get_image()
+	if image == null or image.is_empty():
+		return
+	if image.is_compressed() and image.decompress() != OK:
+		return
+	var source := Rect2i(Vector2i.ZERO, image.get_size())
+	if sprite.region_enabled:
+		source = Rect2i(sprite.region_rect)
+	var step: int = maxi(1, maxi(source.size.x, source.size.y) / 160)
+	var local_top_left: Vector2 = sprite.offset
+	if sprite.centered:
+		local_top_left -= Vector2(source.size) * 0.5
+	var transform: Transform2D = sprite.get_global_transform_with_canvas()
+	for y: int in range(source.position.y, source.end.y, step):
+		for x: int in range(source.position.x, source.end.x, step):
+			if image.get_pixel(x, y).a < 0.10:
+				continue
+			var relative := Vector2(x - source.position.x, y - source.position.y)
+			if sprite.flip_h:
+				relative.x = float(source.size.x) - relative.x
+			if sprite.flip_v:
+				relative.y = float(source.size.y) - relative.y
+			var screen: Vector2 = transform * (local_top_left + relative)
+			output[Vector2i(floori(screen.x / grid_px), floori(screen.y / grid_px))] = true
+	for child: Node in sprite.get_children():
+		if child is Sprite2D:
+			_opaque_screen_cells(child as Sprite2D, output, grid_px)
+
+
+func _opaque_geometry_contacts(actor: Sprite2D, equipment: Sprite2D) -> bool:
+	var actor_cells: Dictionary = {}
+	var equipment_cells: Dictionary = {}
+	_opaque_screen_cells(actor, actor_cells)
+	_opaque_screen_cells(equipment, equipment_cells)
+	if actor_cells.is_empty() or equipment_cells.is_empty():
+		return false
+	var contacts := 0
+	for value: Variant in actor_cells.keys():
+		var cell: Vector2i = value as Vector2i
+		for y: int in range(-2, 3):
+			for x: int in range(-2, 3):
+				if equipment_cells.has(cell + Vector2i(x, y)):
+					contacts += 1
+					if contacts >= 3:
+						return true
+	return false
+
+
+func _sprite_resource_count(root_node: Node, resource_path: String) -> int:
+	var count := 0
+	if root_node is Sprite2D:
+		var sprite := root_node as Sprite2D
+		if sprite.texture != null and sprite.texture.resource_path == resource_path:
+			count += 1
+	for child: Node in root_node.get_children():
+		count += _sprite_resource_count(child, resource_path)
+	return count
+
+
+func _real_sprite_content(holder: Node2D) -> Dictionary:
+	var sprites: Array[Sprite2D] = []
+	if holder != null:
+		_collect_sprites(holder, sprites)
+	var union := Rect2()
+	var has_union := false
+	var textured := 0
+	for sprite: Sprite2D in sprites:
+		if sprite.texture == null or not sprite.visible:
+			continue
+		textured += 1
+		var bounds: Rect2 = _sprite_screen_rect(sprite)
+		if bounds.get_area() <= 0.0:
+			continue
+		union = bounds if not has_union else union.merge(bounds)
+		has_union = true
+	return {"count": textured, "bounds": union}
+
+
+func _canvas_clip_contract() -> bool:
+	var viewport_root: Control = promenade.canvas_root()
+	if viewport_root == null or not is_instance_valid(viewport_root):
+		return false
+	if not viewport_root.clip_contents:
+		return true
+	var transform: Transform2D = viewport_root.get_global_transform_with_canvas()
+	var size: Vector2 = viewport_root.size
+	var corners: Array[Vector2] = [
+		transform * Vector2.ZERO,
+		transform * Vector2(size.x, 0.0),
+		transform * size,
+		transform * Vector2(0.0, size.y),
+	]
+	var bounds := Rect2(corners[0], Vector2.ZERO)
+	for corner: Vector2 in corners:
+		bounds = bounds.expand(corner)
+	var phone: Rect2 = get_root().get_visible_rect()
+	return bounds.position.x <= phone.position.x + 1.0 \
+		and bounds.position.y <= phone.position.y + 1.0 \
+		and bounds.end.x >= phone.end.x - 1.0 \
+		and bounds.end.y >= phone.end.y - 1.0
+
+
+func _backdrop_screen_coverage() -> Dictionary:
+	var stage_root: CanvasLayer = promenade.root()
+	var union := Rect2()
+	var has_union := false
+	var count := 0
+	for row: int in range(2):
+		for column: int in range(6):
+			var tile: Sprite2D = stage_root.find_child(
+				"SkyLagoonBackdrop_r%d_c%d" % [row, column], true, false) as Sprite2D
+			if tile == null:
+				continue
+			var bounds: Rect2 = _sprite_screen_rect(tile)
+			union = bounds if not has_union else union.merge(bounds)
+			has_union = true
+			count += 1
+	var phone: Rect2 = get_root().get_visible_rect()
+	var covered: Rect2 = union.intersection(phone) if has_union else Rect2()
 	return {
-		"started": started,
-		"continuous": continuous,
-		"visible_owner": visible_owner,
-		"visible_celebration": visible_celebration,
-		"moved": moved_during_settle,
-		"completed": (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty(),
-		"position": card.position.distance_to(expected_position) < 0.01,
-		"transform": card.rotation.is_zero_approx()
-			and card.scale.is_equal_approx(Vector3.ONE),
-		"shadow": shadow != null and shadow.visible
-			and absf(shadow.position.x - card.position.x) < 0.01,
+		"count": count,
+		"union": union,
+		"fraction": covered.get_area() / maxf(phone.get_area(), 1.0),
 	}
 
+
+func _rendered_frame_contract() -> bool:
+	# Rendered evidence catches otherwise-valid node trees whose Control clipping
+	# or camera transform leaves the storybook mural in a small corner.
+	if DisplayServer.get_name() == "headless":
+		return _canvas_clip_contract()
+	var viewport_texture: ViewportTexture = get_root().get_texture()
+	if viewport_texture == null:
+		return false
+	var image: Image = viewport_texture.get_image()
+	if image == null or image.is_empty():
+		return false
+	if image.is_compressed() and image.decompress() != OK:
+		return false
+	var size: Vector2i = image.get_size()
+	if size.x < 4 or size.y < 4:
+		return false
+	var edge_samples := [
+		Vector2i(2, 2), Vector2i(size.x - 3, 2),
+		Vector2i(2, size.y - 3), Vector2i(size.x - 3, size.y - 3),
+		Vector2i(size.x / 2, 2), Vector2i(size.x / 2, size.y - 3),
+	]
+	var opaque_edges := 0
+	for point: Vector2i in edge_samples:
+		opaque_edges += 1 if image.get_pixelv(point).a >= 0.98 else 0
+	var varied_cells := 0
+	var reference: Color = image.get_pixel(size.x / 2, size.y / 2)
+	for row: int in range(5):
+		for column: int in range(9):
+			var sample := Vector2i(
+				mini(size.x - 1, (column * 2 + 1) * size.x / 18),
+				mini(size.y - 1, (row * 2 + 1) * size.y / 10))
+			var color: Color = image.get_pixelv(sample)
+			var rgb_delta: float = absf(color.r - reference.r) \
+				+ absf(color.g - reference.g) + absf(color.b - reference.b)
+			if color.a >= 0.98 and rgb_delta >= 0.04:
+				varied_cells += 1
+	return opaque_edges == edge_samples.size() and varied_cells >= 12
+
+
+func _layer_contract() -> bool:
+	main._living_world_ref().tick(0.0)
+	main._flash_speaker_icon("roshan")
+	var fade_layer: CanvasLayer = main.fade_rect.get_parent() as CanvasLayer \
+		if main.fade_rect != null else null
+	var base_ok: bool = promenade.root().layer == -1 \
+		and main.hud_layer != null and main.hud_layer.layer == 0 \
+		and main.living_layer != null and main.living_layer.layer == 6 \
+		and main.speech_layer != null and main.speech_layer.layer == 8 \
+		and main.touch_ui != null and main.touch_ui.layer == 9 \
+		and main.pause_layer != null and main.pause_layer.layer == 12 \
+		and fade_layer != null and fade_layer.layer == 30
+	main.toggle_pause()
+	var open_ok: bool = paused and main.pause_layer.layer == 29
+	main.toggle_pause()
+	return base_ok and open_ok and not paused \
+		and main.pause_layer.layer == 12
+
+
+func _validate_stage() -> void:
+	var stage_root: CanvasLayer = promenade.root()
+	var viewport_root: Control = promenade.canvas_root()
+	var camera: Camera2D = promenade.camera_2d()
+	_check("canvas_stage_authority",
+		stage_root != null and is_instance_valid(stage_root)
+		and stage_root.name == &"SkyLagoonCanvasLayer"
+		and stage_root.layer == main.SKY_LAGOON_STAGE_CANVAS_LAYER
+		and viewport_root != null and is_instance_valid(viewport_root)
+		and viewport_root.name == &"SkyLagoonViewport"
+		and viewport_root.anchor_right == 1.0 and viewport_root.anchor_bottom == 1.0
+		and camera != null and is_instance_valid(camera) and camera.enabled
+		and camera.name == &"SkyLagoonCamera2D"
+		and get_root().get_viewport().get_camera_2d() == camera
+		and not main.player.cam.current
+		and not main.player.visible)
+	_check("lagoon_root_has_zero_spatial_descendants",
+		stage_root != null and _spatial_count(stage_root) == 0,
+		"count=%d" % (_spatial_count(stage_root) if stage_root != null else -1))
+	var holders_ok := true
+	for holder_name: String in HOLDER_NAMES:
+		var holder: Node = stage_root.find_child(holder_name, true, false)
+		holders_ok = holders_ok and holder is Node2D \
+			and _named_count(stage_root, StringName(holder_name)) == 1
+	_check("exact_canvas_holder_contract", holders_ok)
+	_check("full_layer_order_-1_0_6_8_9_12_29_30", _layer_contract())
+
+
+func _validate_assets_and_mural() -> void:
+	var assets_ok := true
+	for path: String in REQUIRED_ASSETS:
+		assets_ok = assets_ok and ResourceLoader.exists(path)
+	for row: int in range(2):
+		for column: int in range(6):
+			assets_ok = assets_ok and ResourceLoader.exists(
+				"res://assets/flats/sky_lagoon/main/"
+				+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png"
+				% [row, column])
+	_check("approved_source_assets_resolve", assets_ok)
+	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
+	var master: Image = Image.load_from_file(ProjectSettings.globalize_path(master_path))
+	_check("native_master_is_6144x2048",
+		master != null and not master.is_empty()
+		and master.get_size() == Vector2i(6144, 2048))
+
+	var root_node: CanvasLayer = promenade.root()
+	var positions: Dictionary = {}
+	var tiles_ok := true
+	var tile_count := 0
+	for row: int in range(2):
+		for column: int in range(6):
+			var tile_name := "SkyLagoonBackdrop_r%d_c%d" % [row, column]
+			var tile: Sprite2D = root_node.find_child(tile_name, true, false) as Sprite2D
+			var expected := Vector2(
+				float(column) * TILE_SIZE.x + TILE_SIZE.x * 0.5,
+				float(row) * TILE_SIZE.y + TILE_SIZE.y * 0.5)
+			var valid: bool = tile != null and tile.texture != null \
+				and tile.texture.get_size() == TILE_SIZE \
+				and tile.texture.resource_path == (
+					"res://assets/flats/sky_lagoon/main/"
+					+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png"
+					% [row, column]) \
+				and tile.centered and tile.position.is_equal_approx(expected) \
+				and tile.scale.is_equal_approx(Vector2.ONE)
+			tiles_ok = tiles_ok and valid
+			if tile != null:
+				tile_count += 1
+				positions[tile.position] = true
+	_check("twelve_native_seamless_canvas_tiles",
+		tiles_ok and tile_count == 12 and positions.size() == 12,
+		"tiles=%d positions=%d" % [tile_count, positions.size()])
+
+
+func _validate_parallax_and_coordinates() -> void:
+	var root_node: CanvasLayer = promenade.root()
+	var base: Node2D = root_node.find_child("SkyLagoonBase", true, false) as Node2D
+	var rear: Node2D = root_node.find_child("SkyLagoonRear", true, false) as Node2D
+	var foreground: Node2D = root_node.find_child(
+		"SkyLagoonForeground", true, false) as Node2D
+	var factors_ok: bool = base != null and rear != null and foreground != null \
+		and is_equal_approx(float(base.get_meta("parallax_factor", -1.0)), 1.0) \
+		and is_equal_approx(float(rear.get_meta("parallax_factor", -1.0)), 0.82) \
+		and is_equal_approx(float(foreground.get_meta("parallax_factor", -1.0)), 1.06)
+	promenade.set_master_route_x(2048.0)
+	var rear_before: float = rear.position.x if rear != null else 0.0
+	var foreground_before: float = foreground.position.x if foreground != null else 0.0
+	promenade.set_master_route_x(3072.0)
+	var rear_content: Dictionary = _real_sprite_content(rear)
+	var foreground_content: Dictionary = _real_sprite_content(foreground)
+	var rear_bounds: Rect2 = rear_content.get("bounds", Rect2()) as Rect2
+	var foreground_bounds: Rect2 = foreground_content.get("bounds", Rect2()) as Rect2
+	var rear_delta: float = rear.position.x - rear_before if rear != null else 0.0
+	var foreground_delta: float = foreground.position.x - foreground_before \
+		if foreground != null else 0.0
+	_check("two_real_parallax_motion_classes",
+		factors_ok and int(rear_content.get("count", 0)) > 0 \
+		and int(foreground_content.get("count", 0)) > 0 \
+		and maxf(rear_bounds.size.x, rear_bounds.size.y) >= 48.0 \
+		and maxf(foreground_bounds.size.x, foreground_bounds.size.y) >= 48.0 \
+		and not is_equal_approx(rear_delta, foreground_delta) \
+		and absf(rear_delta) > 0.01 and absf(foreground_delta) > 0.01,
+		"rear=%.3f foreground=%.3f" % [rear_delta, foreground_delta])
+	var master_points: Array[Vector2] = [
+		Vector2(2560.0, 1024.0), Vector2(3072.0, 1450.0),
+		Vector2(3584.0, 1800.0),
+	]
+	var roundtrip_ok := true
+	for master_point: Vector2 in master_points:
+		var screen: Vector2 = promenade.screen_from_master(master_point)
+		var restored: Vector2 = promenade.master_from_screen(screen)
+		roundtrip_ok = roundtrip_ok and restored.distance_to(master_point) <= 0.5
+	_check("master_screen_roundtrip_uses_production_camera2d", roundtrip_ok)
+	var coverage_ok := true
+	var coverage_detail: Array[String] = []
+	for master_x: float in [1024.0, 3072.0, 5120.0]:
+		promenade.set_master_route_x(master_x)
+		var coverage: Dictionary = _backdrop_screen_coverage()
+		coverage_ok = coverage_ok and int(coverage.get("count", 0)) == 12 \
+			and float(coverage.get("fraction", 0.0)) >= 0.995
+		coverage_detail.append("%.0f=%.3f/%s" % [master_x,
+			float(coverage.get("fraction", 0.0)), coverage.get("union", Rect2())])
+	_check("mural_transform_covers_each_phone_screen", coverage_ok,
+		";".join(coverage_detail))
+
+
+func _validate_targets_and_touch() -> void:
+	var roster_ok: bool = _target_ids() == TARGET_IDS
+	var reach_ok := true
+	var metadata_ok := true
+	var display_ok := true
+	var category_ok := true
+	var unique_focus_ok := true
+	var selected_cues_ok := true
+	var cue_detail: Array[String] = []
+	for target_id: String in TARGET_IDS:
+		var target: Dictionary = _target(target_id)
+		var node: CanvasItem = target.get("node") as CanvasItem
+		var highlight: CanvasItem = target.get("highlight") as CanvasItem
+		var expected_affordance: String = Affordance.PLOT \
+			if target_id == "castle_gate" else Affordance.INTERACTION \
+			if target_id == "reef_route" else Affordance.ANIMATION
+		category_ok = category_ok and String(target.get(
+			"affordance_kind", "")) == expected_affordance
+		metadata_ok = metadata_ok and node != null and highlight != null \
+			and node is Node2D and highlight is Sprite2D \
+			and String(node.get_meta("interaction_id", "")) == target_id \
+			and String(node.get_meta("canvas_layer_role", "")) != "" \
+			and bool(node.get_meta("source_owned", false)) \
+			and float(node.get_meta("touch_footprint_px", 0.0)) >= 220.0 \
+			and float(target.get("radius_px", 0.0)) >= 110.0
+		if highlight is Sprite2D:
+			var focus_sprite := highlight as Sprite2D
+			if target_id == "castle_gate":
+				unique_focus_ok = unique_focus_ok and not (node is Sprite2D) \
+					and focus_sprite.texture != null \
+					and focus_sprite.texture.resource_path \
+						== "res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png"
+			elif node is Sprite2D:
+				var source := node as Sprite2D
+				unique_focus_ok = unique_focus_ok and focus_sprite.texture != null \
+					and focus_sprite.texture != source.texture \
+					and focus_sprite.texture is GradientTexture2D
+		if node != null:
+			promenade.set_master_route_x(float(node.position.x))
+			var center: Vector2 = promenade.screen_from_master(node.position)
+			var radius: float = float(target.get("radius_px", 0.0))
+			for offset: Vector2 in [Vector2.ZERO, Vector2(55, 0), Vector2(-55, 0),
+					Vector2(0, 55), Vector2(0, -55)]:
+				var resolved: Dictionary = promenade._target_at(center + offset)
+				reach_ok = reach_ok and String(resolved.get("id", "")) == target_id
+			var visual: Sprite2D = node as Sprite2D if node is Sprite2D \
+				else highlight as Sprite2D
+			var bounds: Rect2 = _sprite_screen_rect(visual)
+			display_ok = display_ok and radius >= 110.0 \
+				and maxf(bounds.size.x, bounds.size.y) >= 64.0
+			if highlight is Sprite2D:
+				var focus_sprite := highlight as Sprite2D
+				promenade._focus(target)
+				var cue_bounds: Rect2 = _canvas_composite_screen_rect(focus_sprite)
+				var target_bounds: Rect2 = _alpha_sprite_screen_rect(node as Sprite2D) \
+					if node is Sprite2D else Rect2(center - Vector2(0.5, 0.5), Vector2.ONE)
+				var attachment_distance := _point_rect_distance(
+					cue_bounds.get_center(), target_bounds)
+				var cue_ok: bool = minf(cue_bounds.size.x, cue_bounds.size.y) >= 64.0 \
+					and _selected_tint_is_readable(focus_sprite) \
+					and attachment_distance <= 96.0
+				if target_id != "castle_gate":
+					var tip_local: Variant = focus_sprite.get_meta("pointer_tip_local")
+					var tip_screen := Vector2(INF, INF)
+					if tip_local is Vector2:
+						tip_screen = focus_sprite.get_global_transform_with_canvas() \
+							* (tip_local as Vector2)
+					var tip_distance: float = _point_rect_distance(tip_screen, target_bounds)
+					cue_ok = cue_ok and String(focus_sprite.get_meta(
+						"focus_cue_role", "")) == "procedural_ring_pointer" \
+						and tip_distance <= 4.0 \
+						and _procedural_pointer_contrast(focus_sprite)
+					cue_detail.append("%s=%.1fx%.1f tip=%.2f center=%.2f a=%.2f" % [
+						target_id, cue_bounds.size.x, cue_bounds.size.y,
+						tip_distance, attachment_distance, focus_sprite.modulate.a])
+				else:
+					cue_detail.append("%s=%.1fx%.1f center=%.2f a=%.2f" % [
+						target_id, cue_bounds.size.x, cue_bounds.size.y,
+						attachment_distance, focus_sprite.modulate.a])
+				selected_cues_ok = selected_cues_ok and cue_ok
+				promenade._clear_focus()
+	_check("exact_five_target_roster", roster_ok)
+	_check("target_canvas_metadata_and_touch_budget", metadata_ok)
+	_check("target_affordance_categories", category_ok)
+	_check("production_canvas_target_resolver", reach_ok)
+	_check("target_actual_display_footprints", display_ok)
+	_check("selected_focus_cues_are_readable_attached_and_contrasting",
+		selected_cues_ok, ";".join(cue_detail))
+	var idle_cues_ok := true
+	for target_id: String in TARGET_IDS:
+		var idle_highlight: Sprite2D = _target(target_id).get("highlight") as Sprite2D
+		idle_cues_ok = idle_cues_ok and idle_highlight != null \
+			and idle_highlight.modulate.a <= 0.06
+	_check("idle_focus_cues_leave_no_ghost_objects", idle_cues_ok)
+	_check("unique_focus_assets_do_not_clone_target_pixels",
+		unique_focus_ok and _sprite_resource_count(promenade.root(),
+			"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png") == 1)
+
+	var swing: Dictionary = _target("swing")
+	var swing_node: CanvasItem = swing.get("node") as CanvasItem
+	if swing_node != null:
+		promenade.set_master_route_x(3072.0)
+		var swing_screen: Vector2 = _screen_center(swing_node)
+		promenade.handle_touch(swing_screen)
+		var first_ok: bool = String(main.g.get(
+			"lagoon_promenade_focus", "")) == "swing" \
+			and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty() \
+			and promenade.action_label() == "PLAY"
+		promenade.handle_touch(swing_screen)
+		var second_ok: bool = String((main.g.get(
+			"lagoon_play_anim", {}) as Dictionary).get("kind", "")) == "swing"
+		_check("toy_first_touch_focus_second_touch_play", first_ok and second_ok)
+		promenade._finish_playground_animation()
+		promenade._tick_playground_animation(1.0)
+
+
+func _validate_play_contacts() -> void:
+	var actor: Sprite2D = main.g.get("lagoon_roshan_card") as Sprite2D
+	var contacts_ok: bool = actor != null and is_instance_valid(actor)
+	var temporal_ok := true
+	var natural_cleanup_ok := true
+	var performance_samples: Array[float] = []
+	var detail: Array[String] = []
+	for kind: String in ["slide", "swing", "seesaw"]:
+		var target: Dictionary = _target(kind)
+		promenade._activate(target)
+		promenade._clear_focus()
+		var play: Dictionary = main.g.get("lagoon_play_anim", {}) as Dictionary
+		var equipment: Sprite2D = play.get("equipment") as Sprite2D
+		var rest_rotation: float = equipment.rotation if equipment != null else 0.0
+		var frames_seen: Dictionary = {}
+		var positive_rotation := false
+		var negative_rotation := false
+		var max_rest_delta := 0.0
+		var representative_contact := false
+		var action_steps := 0
+		var start_usec: int = Time.get_ticks_usec()
+		while String((main.g.get("lagoon_play_anim", {}) as Dictionary).get(
+				"phase", "")) == "action" and action_steps < 220:
+			promenade._tick_playground_animation(1.0 / 30.0)
+			play = main.g.get("lagoon_play_anim", {}) as Dictionary
+			frames_seen[int(play.get("frame_index", -1))] = true
+			equipment = play.get("equipment") as Sprite2D
+			if equipment != null and is_instance_valid(equipment):
+				var sampled_rotation: float = equipment.rotation
+				if kind == "swing" and equipment.has_meta("swing_seat_pivot"):
+					var pivot: Node2D = equipment.get_meta("swing_seat_pivot") as Node2D
+					if pivot != null:
+						sampled_rotation = pivot.rotation
+				var delta_rotation: float = sampled_rotation - rest_rotation
+				positive_rotation = positive_rotation or delta_rotation > 0.02
+				negative_rotation = negative_rotation or delta_rotation < -0.02
+				max_rest_delta = maxf(max_rest_delta, absf(delta_rotation))
+				if action_steps == (111 if kind == "slide" else 14):
+					representative_contact = _opaque_geometry_contacts(actor, equipment)
+			action_steps += 1
+		var elapsed_usec: float = float(Time.get_ticks_usec() - start_usec)
+		performance_samples.append(elapsed_usec / maxf(float(action_steps), 1.0))
+		play = main.g.get("lagoon_play_anim", {}) as Dictionary
+		var action_temporal_ok: bool = action_steps >= 150 and action_steps <= 176 \
+			and frames_seen.size() == 4 and String(play.get("phase", "")) == "settle"
+		if kind == "swing":
+			action_temporal_ok = action_temporal_ok and positive_rotation \
+				and negative_rotation and max_rest_delta <= 0.205
+		elif kind == "seesaw":
+			action_temporal_ok = action_temporal_ok and positive_rotation \
+				and negative_rotation and max_rest_delta <= 0.135
+		temporal_ok = temporal_ok and action_temporal_ok
+		contacts_ok = contacts_ok and representative_contact
+		var settle_start: Vector2 = actor.position
+		promenade._tick_playground_animation(0.17)
+		var settle_moved: bool = actor.position.distance_to(settle_start) > 0.1
+		promenade._tick_playground_animation(0.20)
+		var cleaned: bool = (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty() \
+			and actor.visible and actor.region_enabled and is_zero_approx(actor.rotation)
+		natural_cleanup_ok = natural_cleanup_ok and settle_moved and cleaned
+		detail.append("%s=steps%d frames%d contact%s rot%.3f cleanup%s" % [
+			kind, action_steps, frames_seen.size(), str(representative_contact),
+			max_rest_delta, str(cleaned)])
+	performance_samples.sort()
+	var median_usec: float = performance_samples[performance_samples.size() / 2] \
+		if not performance_samples.is_empty() else INF
+	_check("play_actions_verify_visible_actor_equipment_contact",
+		contacts_ok, ",".join(detail))
+	_check("play_actions_run_full_temporal_cycle", temporal_ok, ",".join(detail))
+	_check("play_actions_naturally_settle_and_restore", natural_cleanup_ok)
+	_check("speedy_play_tick_median_under_1ms", median_usec < 1000.0,
+		"samples_usec=%s" % [performance_samples])
+	_check("play_cleanup_restores_single_canvas_actor",
+		(main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty()
+		and actor != null and actor.visible and not main.player.visible)
+	# A freed equipment node must fail safe into the same neutral settle path.
+	var invalid_equipment := Node2D.new()
+	(main.g.get("lagoon_master_space") as Node2D).add_child(invalid_equipment)
+	promenade._start_playground_animation("slide", invalid_equipment)
+	invalid_equipment.free()
+	promenade._tick_playground_animation(1.0 / 30.0)
+	var invalid_settled: bool = String((main.g.get(
+		"lagoon_play_anim", {}) as Dictionary).get("phase", "")) == "settle"
+	promenade._tick_playground_animation(1.0)
+	_check("invalid_play_equipment_recovers_without_stranding_input",
+		invalid_settled and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty())
+	# With no selected target, the same real action edge remains a visible happy
+	# hop on the Canvas actor; an equipment recovery must never strand that verb.
+	promenade._clear_focus()
+	main.g["lagoon_hop_t"] = 0.0
+	var base_y: float = actor.position.y
+	main.touch_ui._arm_action_edge()
+	promenade.tick(1.0 / 60.0)
+	var hop_armed: bool = promenade.action_label() == "JUMP" \
+		and float(main.g.get("lagoon_hop_t", 0.0)) > 0.0
+	_check("unfocused_action_remains_visible_canvas_jump",
+		hop_armed and actor.position.y < base_y)
+	main.g["lagoon_hop_t"] = 0.0
+	promenade._sync_roshan_card()
+
+
+func _validate_plane_save_and_teardown() -> void:
+	# Rebuild the first-arrival state and let the real arrival clock replace the
+	# plane with the permanent Reef shuttle while preserving the five-target ID.
+	main.save_data["lagoon_plane_departed"] = false
+	main._enter_level2_now(false, false, false)
+	promenade = main._lagoon_promenade_ref()
+	var arrival_plane: Sprite2D = main.g.get("lagoon_plane_card") as Sprite2D
+	var arrival_ok: bool = arrival_plane != null and is_instance_valid(arrival_plane) \
+		and not bool(main.save_data.get("lagoon_plane_departed", true)) \
+		and _target_ids() == TARGET_IDS
+	for _index: int in range(10):
+		promenade.tick(1.0)
+	var shuttle: Sprite2D = main.g.get("lagoon_reef_route_card") as Sprite2D
+	var departure_ok: bool = not is_instance_valid(arrival_plane) \
+		and bool(main.save_data.get("lagoon_plane_departed", false)) \
+		and shuttle != null and is_instance_valid(shuttle) \
+		and _target_ids() == TARGET_IDS
+	_check("arrival_plane_save_becomes_permanent_reef_route",
+		arrival_ok and departure_ok)
+
+	var old_root: CanvasLayer = promenade.root()
+	promenade.set_master_route_x(4096.0)
+	promenade.teardown()
+	var teardown_ok: bool = not is_instance_valid(old_root) \
+		and promenade.root() == null \
+		and not main.g.has("lagoon_promenade_targets") \
+		and not main.g.has("lagoon_walk_goal_master")
+	promenade.teardown()
+	_check("teardown_is_synchronous_complete_and_idempotent", teardown_ok)
+	main._enter_level2_now(true, false, false)
+	promenade = main._lagoon_promenade_ref()
+	_check("rebuild_after_teardown_has_one_canvas_stage",
+		promenade.root() != null and is_instance_valid(promenade.root()) \
+		and _named_count(get_root(), &"SkyLagoonCanvasLayer") == 1 \
+		and _target_ids() == TARGET_IDS)
+
+
+func _validate_door_and_reef_routes() -> void:
+	var gate: Dictionary = _target("castle_gate")
+	var gate_node: CanvasItem = gate.get("node") as CanvasItem
+	if gate_node != null:
+		promenade.set_master_route_x(5120.0)
+		var gate_screen: Vector2 = _screen_center(gate_node)
+		promenade.handle_touch(gate_screen)
+		var focus_ok: bool = String(main.g.get(
+			"lagoon_promenade_focus", "")) == "castle_gate" \
+			and promenade.action_label() == "ENTER"
+		promenade.handle_touch(gate_screen)
+		await _frames(8)
+		_check("castle_canvas_target_enters_existing_hall",
+			focus_ok and main.game == "level2" \
+			and String(main.g.get("phase", "")) == "hall")
+
+	main._enter_level2_now(true, false, false)
+	promenade = main._lagoon_promenade_ref()
+	var route: Dictionary = _target("reef_route")
+	var route_node: CanvasItem = route.get("node") as CanvasItem
+	var route_ready: bool = route_node != null
+	if route_ready:
+		promenade.set_master_route_x(1024.0)
+		promenade.handle_touch(_screen_center(route_node))
+		await _frames(4)
+	_check("one_touch_canvas_plane_returns_to_reef",
+		route_ready and main.game == "" and main.player.visible \
+		and main.we_node.environment == main.world_env)
+
+
 func _init() -> void:
-	var packed: PackedScene = load("res://scenes/main.tscn")
-	var main: ReefMain = packed.instantiate()
+	get_root().size = Vector2i(1280, 720)
+	var packed: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	main = packed.instantiate() as ReefMain
 	get_root().add_child(main)
-	await process_frame
-	if main.has_method("_skip_intro"):
+	await _frames(2)
+	if main.intro_active:
 		main._skip_intro()
-	await process_frame
+	await _frames(2)
 	main.pearl_count = main.PEARL_TOTAL
-	for friend_value in main.friends:
+	for friend_value: Variant in main.friends:
 		var friend: Dictionary = friend_value as Dictionary
 		friend["found"] = true
 		friend["won"] = true
 	main.trophies = 5
-	main.save_data["lagoon_plane_departed"] = false
+	main._apply_quality("speedy")
+	main.save_data["lagoon_plane_departed"] = true
 	main._enter_level2()
-	await _frames(8)
-
+	await _frames(12)
+	promenade = main._lagoon_promenade_ref()
 	_check("promenade_phase",
 		main.game == "level2" and String(main.g.get("phase", "")) == "promenade")
-	var cfg: Dictionary = main.g.get("ss_cfg", {})
-	_check("three_screen_width",
-		is_equal_approx(float(cfg.get("half_w", 0.0)), 72.0)
-		and is_equal_approx(float(cfg.get("cam_follow", 0.0)), 1.0)
-		and bool(cfg.get("side_on_axis_lock", false)))
-	_check("shallow_2_5d_band", float(cfg.get("half_d", 99.0)) <= 2.6)
-	_check("single_lagoon_light",
-		main.sun_light != null and not main.sun_light.visible
-		and main.arena_env != null
-		and String(main.arena_env.get_meta("scene_grade_profile", "")) == "sky_lagoon")
-
-	var required_assets: Array[String] = [
-		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
-		"res://assets/props/story/play_swing_frame.png",
-		"res://assets/props/story/play_swing_seat.png",
-		"res://assets/shaders/opaque_storybook_cutout.gdshader",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
-		"res://assets/characters/roshan_25d/roshan_base.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
-		"res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
-		"res://assets/fairy/sprites/bug_firefly.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_2_v2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_swing_3_v2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_0.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_1.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_2.png",
-		"res://assets/sprites/sky_lagoon/roshan_playground/roshan_seesaw_3.png",
-	]
-	for row: int in range(2):
-		for column: int in range(6):
-			required_assets.append(
-				"res://assets/flats/sky_lagoon/main/"
-				+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png"
-				% [row, column])
-	var assets_ok := true
-	for path: String in required_assets:
-		assets_ok = assets_ok and ResourceLoader.exists(path)
-	_check("codex_sprite_assets", assets_ok)
-	var castle_card: Sprite3D = main.g.get("lagoon_castle_card") as Sprite3D
-	var castle_fit_ok := castle_card != null
-	var castle_fit_detail := ""
-	if castle_card != null:
-		var castle_image: Image = castle_card.texture.get_image()
-		var castle_world_width := (
-			castle_image.get_width() * castle_card.pixel_size
-		)
-		var castle_reference_position: Vector3 = castle_card.get_meta(
-			"mural_reference_position", castle_card.position) as Vector3
-		var castle_base_y := castle_reference_position.y - (
-			castle_image.get_height() * castle_card.pixel_size * 0.5
-		)
-		# Interactive depth cards shift slightly as the camera pans so they stay
-		# socketed to their painted mural landmarks. Audit the authored socket,
-		# not the expected runtime parallax offset at this probe's camera x.
-		var castle_reference_x := float(
-			castle_card.get_meta("mural_reference_x", INF)
-		)
-		castle_fit_ok = (
-			not castle_card.shaded
-			and castle_card.cast_shadow
-				== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			and not castle_card.has_meta("contact_shadow")
-			and is_equal_approx(castle_reference_x, 51.572852)
-			and is_equal_approx(castle_world_width, 28.37504)
-			and is_equal_approx(castle_base_y, -3.193)
-		)
-		castle_fit_detail = "socket_x=%.5f width=%.5f base=%.5f" % [
-			castle_reference_x,
-			castle_world_width,
-			castle_base_y,
-		]
-	_check("four_tower_castle_neutral_fit_contract",
-		castle_fit_ok, castle_fit_detail)
-	var master_path := "res://assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
-	var panorama_master: Image = Image.load_from_file(
-		ProjectSettings.globalize_path(master_path))
-	var native_master_ok := panorama_master != null and not panorama_master.is_empty()
-	if native_master_ok:
-		native_master_ok = (
-			panorama_master.get_width() == 6144
-			and panorama_master.get_height() == 2048
-			and panorama_master.get_width() >= 2048
-			and absf(float(panorama_master.get_width())
-				/ float(panorama_master.get_height()) - 3.0) <= 0.000001)
-	_check("native_2k_exact_ratio_master", native_master_ok)
-	var runtime_tiles_ok := true
-	for row: int in range(2):
-		for column: int in range(6):
-			var tile: Texture2D = load(
-				"res://assets/flats/sky_lagoon/main/"
-				+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png"
-				% [row, column])
-			runtime_tiles_ok = (
-				runtime_tiles_ok and tile != null
-				and tile.get_size() == Vector2(1024, 1024))
-	_check("lossless_native_runtime_tiles", runtime_tiles_ok)
-	var stage_root: Node3D = main.g.get("ss_root") as Node3D
-	var node_stack: Array[Node] = [stage_root]
-	var sprite_count := 0
-	var mesh_count := 0
-	var canvas_count := 0
-	var shaded_count := 0
-	var bad_scale_count := 0
-	var visible_sprite_count := 0
-	var depth_layers: Dictionary = {}
-	var backdrop_positions: Array[Vector3] = []
-	var billboarded_backdrops := 0
-	var mural_card: Sprite3D = null
-	var contact_shadow_count := 0
-	var tree_cards: Array[Sprite3D] = []
-	var cloud_card: Sprite3D = null
-	var smoke_cards: Array[Sprite3D] = []
-	var resident_texture_paths: Dictionary = {}
-	var resident_texture_bytes := 0
-	while not node_stack.is_empty():
-		var stage_node: Node = node_stack.pop_back()
-		if stage_node is Sprite3D:
-			var stage_sprite := stage_node as Sprite3D
-			resident_texture_bytes += _unique_texture_bytes(
-				stage_sprite.texture, resident_texture_paths)
-			sprite_count += 1
-			visible_sprite_count += 1 if stage_sprite.visible else 0
-			shaded_count += 1 if stage_sprite.shaded else 0
-			bad_scale_count += 1 if stage_sprite.pixel_size <= 0.0 else 0
-			depth_layers[snappedf(stage_sprite.global_position.z, 0.1)] = true
-			if stage_sprite.name.begins_with("SkyLagoonBackdrop_"):
-				backdrop_positions.append(stage_sprite.position)
-				mural_card = stage_sprite
-				if stage_sprite.billboard != BaseMaterial3D.BILLBOARD_DISABLED:
-					billboarded_backdrops += 1
-			elif bool(stage_sprite.get_meta("sky_lagoon_contact_shadow", false)):
-				contact_shadow_count += 1
-			elif stage_sprite != main.g.get("lagoon_roshan_card"):
-				var ambient_kind: String = String(
-					stage_sprite.get_meta("ambient_kind", ""))
-				if ambient_kind == "tree":
-					tree_cards.append(stage_sprite)
-				elif ambient_kind == "cloud":
-					cloud_card = stage_sprite
-				elif ambient_kind == "smoke":
-					smoke_cards.append(stage_sprite)
-		elif stage_node is MeshInstance3D:
-			mesh_count += 1
-		elif stage_node is CanvasItem:
-			canvas_count += 1
-		for child: Node in stage_node.get_children():
-			node_stack.append(child)
-	# The Lagoon animator keeps all three atlases resident even while its card
-	# displays only one. Night fireflies are the larger day/night alternative,
-	# so include their texture even when this probe starts in daytime.
-	for resident_texture: Texture2D in [
-			RoshanSpriteLoop.DIRECTIONAL,
-			RoshanSpriteLoop.SWIM_FRONT,
-			RoshanSpriteLoop.SWIM_BACK,
-			load(SkyLagoonPromenade.FIREFLY_TEX) as Texture2D,
-	]:
-		resident_texture_bytes += _unique_texture_bytes(
-			resident_texture, resident_texture_paths)
-	_check("world_art_is_unshaded_sprite3d",
-		sprite_count == 37 and mesh_count == 0 and canvas_count == 0
-		and shaded_count == 0 and bad_scale_count == 0,
-		"sprites=%d meshes=%d canvas=%d shaded=%d bad_scale=%d" % [
-			sprite_count, mesh_count, canvas_count, shaded_count, bad_scale_count])
-	_check("real_depth_and_speedy_overdraw",
-		sprite_count == 37 and mesh_count == 0 and canvas_count == 0
-		and SkyLagoonPromenade.NEAR_Z > -SkyLagoonPromenade.HALF_D
-		and SkyLagoonPromenade.BACKDROP_Z - SkyLagoonPromenade.NEAR_Z < -16.0,
-		"depth_layers=%d visible_cards=%d contact_shadows=%d" % [
-			depth_layers.size(), visible_sprite_count, contact_shadow_count])
-	var tree_placement_ok := tree_cards.size() == 1
-	var tree_detail := "cards=%d" % tree_cards.size()
-	for index: int in range(tree_cards.size()):
-		var tree: Sprite3D = tree_cards[index]
-		var tree_rect: Rect2 = _opaque_world_rect(tree)
-		# The lagoon water is confined to the arrival apron. Every movable tree
-		# belongs on the dry rear lawn, to its right and above the play lane.
-		tree_placement_ok = (
-			tree_placement_ok and tree_rect.position.x > -38.0
-			and tree_rect.position.y > 1.0)
-		for other_index: int in range(index):
-			var other_rect: Rect2 = _opaque_world_rect(tree_cards[other_index])
-			tree_placement_ok = tree_placement_ok and not tree_rect.intersects(other_rect)
-		tree_detail += " %s=%s" % [tree.name, tree_rect]
-	_check("tree_stickers_are_dry_and_non_overlapping", tree_placement_ok, tree_detail)
-	var cloud_clear_ok := cloud_card != null
-	if cloud_card != null:
-		var cloud_probe_promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
-		for _i in range(90):
-			cloud_probe_promenade.tick(0.5)
-		cloud_clear_ok = (
-			cloud_card.position.x >= SkyLagoonPromenade.CLOUD_DRIFT_MIN_X
-			and cloud_card.position.x <= SkyLagoonPromenade.CLOUD_DRIFT_MAX_X
-			and cloud_card.position.y >= 28.2)
-	_check("single_cloud_uses_clear_sky_corridor", cloud_clear_ok,
-		"position=%s" % (cloud_card.position if cloud_card != null else Vector3.ZERO))
-	var reef_plane: Sprite3D = main.g.get("lagoon_reef_route_card") as Sprite3D
-	var reef_plane_base: Vector3 = main.g.get(
-		"lagoon_reef_route_base", Vector3.ZERO) as Vector3
-	var reef_route_target: Dictionary = {}
-	for target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
-		var target: Dictionary = target_value as Dictionary
-		if String(target.get("id", "")) == "reef_route":
-			reef_route_target = target
-			break
-	_check("day_one_arrival_becomes_a_permanent_reef_shuttle",
-		reef_plane != null and is_instance_valid(reef_plane)
-		and reef_plane.name == "SkyLagoonReefPlane"
-		and main.g.get("lagoon_plane_card") == null
-		and bool(main.save_data.get("lagoon_plane_departed", false))
-		and reef_plane_base.x <= -66.0 and reef_plane_base.y >= 8.0
-		and not reef_plane.has_meta("contact_shadow")
-		and float(reef_route_target.get("radius_px", 0.0)) >= 128.0
-		and String(reef_route_target.get("affordance_kind", "")) \
-			== Affordance.INTERACTION,
-		"plane=%s base=%s arrival_done=%s" % [
-			reef_plane.name if reef_plane != null else "missing",
-			reef_plane_base,
-			main.save_data.get("lagoon_plane_departed", false)])
-	var seamless_cards_ok := backdrop_positions.size() == 12
-	for row: int in range(2):
-		for column: int in range(6):
-			seamless_cards_ok = (
-				seamless_cards_ok
-				and backdrop_positions.has(Vector3(
-					-60.0 + float(column) * 24.0,
-					21.5 - float(row) * 24.0,
-					-18.0)))
-	_check("native_tiles_share_depth_and_meet_edges", seamless_cards_ok)
-	# A billboarded card swings about its own centre, so the mural tiles stop
-	# being coplanar the instant the lens is off-centre and the environment sky
-	# shows through the wedges between them. The wall must stay flat.
-	_check("mural_cards_never_billboard", billboarded_backdrops == 0,
-		"billboarded=%d" % billboarded_backdrops)
-
-	# THE MURAL IS THE SCREEN. The promenade — not the free-swim chase cam —
-	# must own the lens, and the frame it holds has to stay inside the painted
-	# rectangle at both ends of the walk.
-	var promenade := main._lagoon_promenade_ref()
-	var stage_cfg: Dictionary = main.g.get("ss_cfg", {})
-	# The lower-right medallion must perform the verb it displays. With no
-	# highlighted prop that verb is JUMP; focus changes it to PLAY/ENTER.
-	promenade._clear_focus()
-	main.touch_ui._arm_action_edge()
-	promenade.tick(1.0 / 60.0)
-	_check("promenade_jump_action_is_real",
-		promenade.action_label() == "JUMP"
-		and float(main.g.get("ss_walk_jump_y", 0.0)) > 0.1,
-		"jump_y=%.3f" % float(main.g.get("ss_walk_jump_y", 0.0)))
-	var play_label_ok := false
-	var enter_label_ok := false
-	var fly_label_ok := false
-	for action_target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
-		var action_target: Dictionary = action_target_value as Dictionary
-		if String(action_target.get("id", "")) == "swing":
-			promenade._focus(action_target)
-			play_label_ok = promenade.action_label() == "PLAY"
-		elif String(action_target.get("kind", "")) == "reef":
-			promenade._focus(action_target)
-			fly_label_ok = promenade.action_label() == "FLY"
-		elif String(action_target.get("kind", "")) == "castle":
-			promenade._focus(action_target)
-			enter_label_ok = promenade.action_label() == "ENTER"
-	promenade._clear_focus()
-	_check("promenade_action_label_matches_focus",
-		play_label_ok and enter_label_ok and fly_label_ok)
-	var lens: Camera3D = main.player.cam
-	var origin: Vector3 = main.LEVEL2_POS
-	_check("stage_owns_the_lens",
-		is_equal_approx(lens.fov, SkyLagoonPromenade.CAM_FOV)
-		and absf(lens.position.y - (origin.y + SkyLagoonPromenade.CAM_H)) <= 0.35
-		and absf(lens.position.z - (origin.z + SkyLagoonPromenade.CAM_DIST)) <= 0.35,
-		"fov=%.1f y=%.2f z=%.2f" % [lens.fov,
-			lens.position.y - origin.y, lens.position.z - origin.z])
-	# Reproduce the owner-reported left-edge bounce from a cold centre frame.
-	# The camera must approach its mural clamp monotonically and keep a
-	# perpendicular optical axis while its position is still easing.
-	var left_edge_stable := lens != null
-	var left_edge_detail := "no camera"
-	if lens != null:
-		lens.position = origin + Vector3(
-			0.0, SkyLagoonPromenade.CAM_H, SkyLagoonPromenade.CAM_DIST)
-		lens.look_at(origin + Vector3(
-			0.0, SkyLagoonPromenade.CAM_H, 0.0))
-		var pan_limit: float = promenade.stage.screen_pan_limit(stage_cfg, lens)
-		var previous_camera_x := 0.0
-		var worst_axis_x := 0.0
-		for _edge_frame: int in range(120):
-			promenade.stage._glide_camera(
-				1.0 / 60.0, stage_cfg, stage_root, -SkyLagoonPromenade.HALF_W)
-			var camera_x: float = lens.position.x - origin.x
-			var camera_forward: Vector3 = -lens.global_transform.basis.z.normalized()
-			worst_axis_x = maxf(worst_axis_x, absf(camera_forward.x))
-			left_edge_stable = left_edge_stable \
-				and camera_x <= previous_camera_x + 0.00001 \
-				and camera_x >= -pan_limit - 0.00001
-			previous_camera_x = camera_x
-		left_edge_stable = left_edge_stable \
-			and absf(previous_camera_x + pan_limit) <= 0.01 \
-			and worst_axis_x <= 0.00001
-		left_edge_detail = "x=%.3f clamp=%.3f axis_x=%.7f" % [
-			previous_camera_x, -pan_limit, worst_axis_x]
-	_check("left_edge_camera_has_no_bounce", left_edge_stable, left_edge_detail)
-	var mural_half_w: float = (
-		SkyLagoonPromenade.BACKDROP_TILE_SIZE.x
-		* float(SkyLagoonPromenade.BACKDROP_COLUMNS) * 0.5)
-	var mural_half_h: float = (
-		SkyLagoonPromenade.BACKDROP_TILE_SIZE.y
-		* float(SkyLagoonPromenade.BACKDROP_ROWS) * 0.5)
-	var mural_y: float = SkyLagoonPromenade.BACKDROP_CENTER_Y
-	var covered := true
-	var worst := ""
-	var drift_gaps: Array[float] = []
-	var slide_card: Node3D = null
-	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
-		if String((value as Dictionary).get("id", "")) == "slide":
-			slide_card = (value as Dictionary).get("node") as Node3D
-	# the framing sweep teleports her to both ends; disarm the castle doorstep
-	# for it, or arriving at the right-hand end walks her straight indoors
-	main.g["lagoon_castle_armed"] = false
-	var walk_edges: Array[float] = [72.0, -72.0]
-	for edge_x in walk_edges:
-		main.player.position.x = origin.x + edge_x
-		for _i in range(6):
-			promenade.tick(0.5)
-		var view: Vector2 = promenade.stage.view_half_size(
-			stage_cfg, lens, SkyLagoonPromenade.BACKDROP_Z)
-		var cam_x: float = lens.position.x - origin.x
-		var cam_y: float = lens.position.y - origin.y
-		var inside: bool = (
-			cam_x + view.x <= mural_half_w + 0.01
-			and cam_x - view.x >= -mural_half_w - 0.01
-			and cam_y + view.y <= mural_y + mural_half_h + 0.01
-			and cam_y - view.y >= mural_y - mural_half_h - 0.01)
-		if slide_card != null and mural_card != null:
-			# THE anchoring regression: a standee must travel across the screen
-			# at the same rate as the painting behind it. Measured as a RATIO,
-			# not in pixels — the headless viewport is square, so its lens pans
-			# more than twice as far as a phone's and the same geometry shows a
-			# proportionally larger pixel figure.
-			drift_gaps.append(lens.unproject_position(slide_card.global_position).x)
-			drift_gaps.append(lens.unproject_position(mural_card.global_position).x)
-		covered = covered and inside
-		if not inside:
-			worst = "at x=%.0f frame=[%.1f,%.1f]x[%.1f,%.1f]" % [edge_x,
-				cam_x - view.x, cam_x + view.x, cam_y - view.y, cam_y + view.y]
-	_check("mural_fills_the_frame_at_both_ends", covered, worst)
-	var drift: float = 1.0
-	if drift_gaps.size() == 4:
-		var standee_travel: float = absf(drift_gaps[0] - drift_gaps[2])
-		var mural_travel: float = absf(drift_gaps[1] - drift_gaps[3])
-		drift = absf(standee_travel - mural_travel) / maxf(1.0, mural_travel)
-	# Playground equipment was extracted from exact painted lawn sockets. It
-	# remains a real-depth Sprite3D for occlusion, but may not visibly skate
-	# against those sockets during a full three-page camera pan.
-	_check("playground_cards_stay_on_mural_sockets",
-		drift <= 0.01,
-		"slide travelled %.2f%% differently from the painting" % (drift * 100.0))
-	# THE ROUTE: the promenade is a path, and the path has to end at the door.
-	var route: Array = (main.g.get("ss_cfg", {}) as Dictionary).get("route", [])
-	var route_span: Vector2 = promenade.stage.route_span(main.g.get("ss_cfg", {}))
-	var door_walk_x: float = promenade._walk_x(SkyLagoonPromenade.CASTLE_DOOR_X)
-	var reach: float = promenade.stage.keep_on_screen(
-		main.g.get("ss_cfg", {}), door_walk_x)
-	_check("route_runs_the_level_and_ends_at_the_door",
-		route.size() == SkyLagoonPromenade.ROUTE_PAINTED.size()
-		and absf(route_span.y - door_walk_x) <= 0.01
-		and route_span.x < -40.0
-		and absf(reach - door_walk_x) <= 0.01,
-		"waypoints=%d span=%s door=%.1f reachable=%.1f" % [
-			route.size(), route_span, door_walk_x, reach])
-	main.player.position.x = origin.x - 48.0
-	for _i in range(6):
-		promenade.tick(0.5)
-	_check("roshan_is_sprite_card",
-		not main.player.visible
-		and main.g.get("lagoon_roshan_card") is Sprite3D
-		and main.g.get("lagoon_roshan_animator") is RoshanSpriteLoop)
-	var promenade_roshan: Sprite3D = main.g.get(
-		"lagoon_roshan_card") as Sprite3D
-	var promenade_animator: RoshanSpriteLoop = main.g.get(
-		"lagoon_roshan_animator") as RoshanSpriteLoop
-	var idle_offset: Vector2 = promenade_roshan.offset
-	promenade_animator._process(0.3)
-	_check("sky_lagoon_roshan_has_living_idle",
-		promenade_animator.animation_state() == "idle"
-		and promenade_roshan.texture.resource_path.ends_with(
-			"roshan_directional.png")
-		and promenade_roshan.offset != idle_offset)
-	promenade._sync_roshan_card(1.0, true)
-	promenade_animator._process(0.2)
-	# Rebase the cell-space anchor onto the corrected sampling window
-	# (RoshanSpriteFrames) before comparing torso positions across frames.
-	var sky_frame_anchor: Vector2 = ROSHAN_ANCHORS.anchor(
-		"swim_front", promenade_roshan.frame) \
-		- ROSHAN_FRAMES.shift("swim_front", promenade_roshan.frame)
-	var sky_frame_offset: Vector2 = promenade_roshan.get_meta(
-		"roshan_anchor_offset", Vector2.ZERO) as Vector2
-	var sky_corrected_anchor := Vector2(
-		sky_frame_anchor.x + sky_frame_offset.x,
-		sky_frame_anchor.y - sky_frame_offset.y)
-	var sky_swim_started: bool = (
-		promenade_animator.animation_state() == "swim"
-		and promenade_roshan.texture.resource_path.ends_with(
-			"roshan_swim_front.png")
-		and promenade_roshan.vframes == 4
-		and sky_corrected_anchor.distance_to(
-			ROSHAN_ANCHORS.anchor("directional", 2)) <= 0.11)
-	# What the engine will really sample, not what the table intends: Sprite3D
-	# re-divides region_rect by hframes/vframes, so a window handed over as a
-	# single cell shrank her to a rectangular sliver of hair here (2026-08-02).
-	_check("sky_lagoon_roshan_samples_her_own_window",
-		ROSHAN_FRAMES.sampled_rect(promenade_roshan).is_equal_approx(
-			ROSHAN_FRAMES.region(promenade_animator._sheet_key(),
-				promenade_roshan.frame, promenade_roshan.hframes)),
-		"sheet=%s frame=%d sampled=%s" % [
-			promenade_animator._sheet_key(), promenade_roshan.frame,
-			ROSHAN_FRAMES.sampled_rect(promenade_roshan)])
-	promenade._sync_roshan_card(0.0, false)
-	promenade_animator._process(0.2)
-	_check("sky_lagoon_swim_starts_and_finishes_with_motion",
-		sky_swim_started
-		and promenade_animator.animation_state() == "idle"
-		and promenade_roshan.texture.resource_path.ends_with(
-			"roshan_directional.png"),
-		"start=%s finish=%s" % [
-			"swim" if sky_swim_started else "missing",
-			promenade_animator.animation_state()])
-	var ambient_cards: Array = main.g.get("lagoon_ambient_cards", [])
-	var ambient_before := Vector3.ZERO
-	if ambient_cards.size() == 5:
-		ambient_before = (ambient_cards[0] as Sprite3D).position
-	promenade._tick_ambient_life(0.75)
-	var ambient_moves := (
-		ambient_cards.size() == 5
-		and (ambient_cards[0] as Sprite3D).position != ambient_before)
-	_check("low_cost_ambient_life",
-		ambient_moves and smoke_cards.size() == 3,
-		"cards=%d smoke_wisps=%d" % [ambient_cards.size(), smoke_cards.size()])
-	var shore_firs_ok := true
-	for ambient_value in ambient_cards:
-		var ambient_card: Sprite3D = ambient_value as Sprite3D
-		if String(ambient_card.get_meta("ambient_kind", "")) == "fir":
-			var fir_base: Vector3 = ambient_card.get_meta(
-				"ambient_base", ambient_card.position) as Vector3
-			shore_firs_ok = shore_firs_ok and fir_base.x >= -50.0
-	_check("pnw_firs_are_rooted_on_land", shore_firs_ok)
-
-	var targets: Array = main.g.get("lagoon_promenade_targets", [])
-	var ids: Dictionary = {}
-	for value in targets:
-		var target: Dictionary = value as Dictionary
-		var id: String = String(target.get("id", ""))
-		ids[id] = true
-	var preschool_hit_areas_ok := true
-	var smallest_hit_diameter := INF
-	for value in targets:
-		var target: Dictionary = value as Dictionary
-		var hit_diameter: float = float(target.get("radius_px", 0.0)) * 2.0
-		preschool_hit_areas_ok = preschool_hit_areas_ok and hit_diameter >= 110.0
-		smallest_hit_diameter = minf(smallest_hit_diameter, hit_diameter)
-	_check("promenade_targets_have_preschool_hit_areas", preschool_hit_areas_ok,
-		"smallest_diameter=%.1f" % smallest_hit_diameter)
-	_check("interactive_roster", targets.size() == 5
-		and ids.has("reef_route") and ids.has("slide") and ids.has("swing")
-		and ids.has("seesaw") and ids.has("castle_gate"))
-	_check("mismatched_lawn_picture_frames_removed",
-		not ids.has("runway_frame")
-		and not ids.has("playground_frame")
-		and not ids.has("castle_frame"))
-
-	# Each playground toy owns a purpose-built four-frame Roshan sequence.
-	# The one existing Roshan Sprite3D swaps textures, so the animation adds
-	# no world cards or overdraw. Exercise the real state machine, including
-	# rung bounce, seated chute frames, and repeated seesaw direction changes.
-	var toy_nodes: Dictionary = {}
-	for value in targets:
-		var toy_target: Dictionary = value as Dictionary
-		if String(toy_target.get("kind", "")) == "playground":
-			toy_nodes[String(toy_target.get("payload", ""))] = toy_target.get("node")
-	var slide_node: Sprite3D = toy_nodes.get("slide") as Sprite3D
-	var swing_node: Sprite3D = toy_nodes.get("swing") as Sprite3D
-	var compact_seesaw: Sprite3D = toy_nodes.get("seesaw") as Sprite3D
-	var action_peak_extra_bytes := 0
-	var action_peak_kind := ""
-	for action_kind: String in ["swing", "slide", "seesaw"]:
-		var action_paths: Dictionary = resident_texture_paths.duplicate()
-		var action_extra_bytes := 0
-		for frame_path_value: Variant in (
-				SkyLagoonPromenade.PLAY_FRAME_PATHS[action_kind] as Array):
-			action_extra_bytes += _unique_texture_bytes(
-				load(String(frame_path_value)) as Texture2D, action_paths)
-		if action_extra_bytes > action_peak_extra_bytes:
-			action_peak_extra_bytes = action_extra_bytes
-			action_peak_kind = action_kind
-	var texture_peak_bytes: int = resident_texture_bytes + action_peak_extra_bytes
-	_check("sky_lagoon_texture_peak_stays_inside_m11_budget",
-		texture_peak_bytes <= 24 * 1024 * 1024,
-		"resident=%.2fMiB action=%s peak=%.2fMiB textures=%d+4" % [
-			float(resident_texture_bytes) / 1048576.0, action_peak_kind,
-			float(texture_peak_bytes) / 1048576.0,
-			resident_texture_paths.size()])
-	var swing_pivot: Node3D = null
-	var swing_seat: Sprite3D = null
-	if swing_node != null:
-		swing_pivot = swing_node.get_meta("swing_seat_pivot", null) as Node3D
-		swing_seat = swing_node.get_meta("swing_seat_sprite", null) as Sprite3D
-	var equipment_fits_lawn := (
-		slide_node != null and swing_node != null and compact_seesaw != null
-		and slide_node.texture.get_height() * slide_node.pixel_size <= 11.41
-		and swing_node.texture.get_height() * swing_node.pixel_size <= 10.81
-		and compact_seesaw.texture.get_height() * compact_seesaw.pixel_size <= 4.51)
-	_check("playground_equipment_fits_center_lawn", equipment_fits_lawn)
-	var swing_frame_material: ShaderMaterial = null
-	var swing_seat_material: ShaderMaterial = null
-	if swing_node != null:
-		swing_frame_material = swing_node.material_override as ShaderMaterial
-	if swing_seat != null:
-		swing_seat_material = swing_seat.material_override as ShaderMaterial
-	_check("playground_cutouts_are_opaque_depth_cards",
-		slide_node.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
-		and swing_node.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
-		and is_zero_approx(swing_node.transparency)
-		and swing_frame_material != null
-		and swing_pivot != null and swing_seat != null
-		and swing_seat.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
-		and is_zero_approx(swing_seat.transparency)
-		and swing_seat_material != null
-		and is_equal_approx(float(swing_frame_material.get_shader_parameter(
-			"alpha_threshold")), SkyLagoonPromenade.OPAQUE_CUTOUT_ALPHA_THRESHOLD)
-		and is_equal_approx(float(swing_seat_material.get_shader_parameter(
-			"alpha_threshold")), SkyLagoonPromenade.OPAQUE_CUTOUT_ALPHA_THRESHOLD)
-		and compact_seesaw.alpha_cut == SpriteBase3D.ALPHA_CUT_DISCARD
-		and is_equal_approx(float(slide_node.get_meta("mural_socket_lock", 0.0)),
-			SkyLagoonPromenade.GROUND_SOCKET_LOCK)
-		and is_equal_approx(float(swing_node.get_meta("mural_socket_lock", 0.0)),
-			SkyLagoonPromenade.GROUND_SOCKET_LOCK))
-	var slide_rect: Rect2 = _opaque_world_rect(slide_node)
-	var swing_rect: Rect2 = _opaque_world_rect(swing_node)
-	var seesaw_rect: Rect2 = _opaque_world_rect(compact_seesaw)
-	var silhouette_gaps_ok := (
-		swing_rect.position.x - slide_rect.end.x >= 0.5
-		and seesaw_rect.position.x - swing_rect.end.x >= 0.5)
-	_check("playground_opaque_silhouettes_do_not_overlap", silhouette_gaps_ok,
-		"slide_swing_gap=%.2f swing_seesaw_gap=%.2f" % [
-			swing_rect.position.x - slide_rect.end.x,
-			seesaw_rect.position.x - swing_rect.end.x])
-	var roshan_card: Sprite3D = main.g.get("lagoon_roshan_card") as Sprite3D
-	var idle_texture: Texture2D = roshan_card.texture
-	promenade._celebrate_visible_roshan()
-	var celebration_pending: bool = not roshan_card.scale.is_equal_approx(
-		Vector3.ONE) and main.g.has("lagoon_visible_roshan_tween")
-	promenade._start_playground_animation("swing", toy_nodes.get("swing") as Node3D)
-	var swing_start: Vector3 = roshan_card.position
-	promenade._tick_playground_animation(0.55)
-	var swing_play: Dictionary = main.g.get("lagoon_play_anim", {})
-	var swing_frame: int = int(swing_play.get("frame_index", -1))
-	var swing_phase: float = float(swing_play.get("t", 0.0)) * TAU \
-		/ SkyLagoonPromenade.SWING_PERIOD_S
-	var swing_arc: float = sin(swing_phase)
-	var swing_angle: float = swing_arc * SkyLagoonPromenade.SWING_MAX_ANGLE
-	var swing_hand_world := _sprite_pixel_world(
-		roshan_card, SkyLagoonPromenade.SWING_HAND_ANCHORS[swing_frame])
-	var expected_swing_hand := Vector2(swing_node.position.x, swing_node.position.y) \
-		+ Vector2(swing_pivot.position.x, swing_pivot.position.y) \
-		+ Vector2(0.0, -SkyLagoonPromenade.SWING_GRIP_ARM).rotated(swing_angle)
-	var swing_seat_contact_world := _sprite_pixel_world(
-		roshan_card, SkyLagoonPromenade.SWING_SEAT_CONTACT_ANCHOR)
-	var swing_seat_surface := Vector2(swing_node.position.x, swing_node.position.y) \
-		+ Vector2(swing_pivot.position.x, swing_pivot.position.y) \
-		+ Vector2(0.0, -SkyLagoonPromenade.SWING_ARM_H).rotated(swing_angle)
-	var swing_seat_delta: Vector2 = (
-		swing_seat_contact_world - swing_seat_surface).rotated(-swing_angle)
-	var swing_animates: bool = (
-		not swing_play.is_empty()
-		and roshan_card.texture != idle_texture
-		and roshan_card.position != swing_start
-		and roshan_card.position.z > SkyLagoonPromenade.PLAY_Z
-		and is_equal_approx(roshan_card.scale.x, 1.38)
-		and celebration_pending and not main.g.has("lagoon_visible_roshan_tween")
-		and is_equal_approx(swing_pivot.rotation.z, swing_angle)
-		and swing_hand_world.distance_to(expected_swing_hand) < 0.02
-		and swing_frame == 1
-		and absf(swing_seat_delta.y) < 0.18
-		and absf(swing_seat_delta.x) < SkyLagoonPromenade.SWING_SEAT_W * 0.5)
-	if OS.get_environment("PLAYGROUND_SHOT_OUT") != "":
-		# Render all four real equipment/card compositions for human acceptance.
-		# This path is opt-in so the trusted headless probe remains deterministic.
-		var main_was_processing: bool = main.is_processing()
-		var main_was_physics_processing: bool = main.is_physics_processing()
-		main.set_process(false)
-		main.set_physics_process(false)
-		var swing_samples: Array[float] = [
-			0.0,
-			SkyLagoonPromenade.SWING_PERIOD_S * 0.25,
-			SkyLagoonPromenade.SWING_PERIOD_S * 0.75,
-			SkyLagoonPromenade.SWING_PERIOD_S * 0.5,
-		]
-		for frame_index: int in range(swing_samples.size()):
-			promenade._tick_swing_animation(
-				roshan_card, swing_node, swing_samples[frame_index])
-			await _capture_playground_frame("swing_%d" % frame_index)
-		promenade._tick_swing_animation(
-			roshan_card, swing_node, float(swing_play.get("t", 0.0)))
-		main.set_process(main_was_processing)
-		main.set_physics_process(main_was_physics_processing)
-	# The authored ride poses are whole PNGs. A sampling window left on the card
-	# by the swim loop would slice one of them down to an atlas cell measured
-	# for a different sheet, so the takeover must clear it.
-	_check("playground_pose_shows_the_whole_authored_png",
-		not roshan_card.region_enabled
-		and roshan_card.hframes == 1 and roshan_card.vframes == 1,
-		"region_enabled=%s grid=%dx%d" % [roshan_card.region_enabled,
-			roshan_card.hframes, roshan_card.vframes])
-	var swing_settle: Dictionary = _complete_playground_action(
-		main, promenade, roshan_card)
-	_check("swing_seat_ropes_and_rider_share_pendulum_pivot",
-		swing_animates and is_zero_approx(swing_pivot.rotation.z),
-		"frame=%d angle=%.3f grip_error=%.3f" % [swing_frame, swing_angle,
-			swing_hand_world.distance_to(expected_swing_hand)])
-
-	promenade._start_playground_animation("slide", toy_nodes.get("slide") as Node3D)
-	var ladder_start: Vector3 = roshan_card.position
-	promenade._tick_playground_animation(0.30)
-	var rung_bounce_y: float = roshan_card.position.y
-	promenade._tick_playground_animation(0.25)
-	var climbed_step_y: float = roshan_card.position.y
-	promenade._tick_slide_animation(
-		roshan_card, toy_nodes.get("slide") as Node3D, 2.80)
-	var seated_texture: String = roshan_card.texture.resource_path
-	promenade._tick_slide_animation(
-		roshan_card, toy_nodes.get("slide") as Node3D, 3.70)
-	var riding_texture: String = roshan_card.texture.resource_path
-	var slide_animates: bool = (
-		rung_bounce_y > ladder_start.y
-		and climbed_step_y > rung_bounce_y
-		and seated_texture.ends_with("roshan_slide_2_v2.png")
-		and riding_texture.ends_with("roshan_slide_3_v2.png")
-		and roshan_card.rotation.z < -0.1)
-	if OS.get_environment("PLAYGROUND_SHOT_OUT") != "":
-		var main_was_processing: bool = main.is_processing()
-		var main_was_physics_processing: bool = main.is_physics_processing()
-		main.set_process(false)
-		main.set_physics_process(false)
-		promenade._tick_slide_animation(
-			roshan_card, toy_nodes.get("slide") as Node3D, 2.80)
-		await _capture_playground_frame("slide_2")
-		promenade._tick_slide_animation(
-			roshan_card, toy_nodes.get("slide") as Node3D, 3.70)
-		await _capture_playground_frame("slide_3")
-		main.set_process(main_was_processing)
-		main.set_physics_process(main_was_physics_processing)
-	var slide_settle: Dictionary = _complete_playground_action(
-		main, promenade, roshan_card)
-	_check("slide_has_bouncy_steps_and_seated_ride", slide_animates)
-
-	var seesaw_node: Node3D = toy_nodes.get("seesaw") as Node3D
-	promenade._start_playground_animation("seesaw", seesaw_node)
-	var seesaw_play: Dictionary = main.g.get("lagoon_play_anim", {})
-	var initial_seesaw_frame: int = int(seesaw_play.get("frame_index", -1))
-	var initial_seat_world := _sprite_pixel_world(
-		roshan_card,
-		SkyLagoonPromenade.SEESAW_SEAT_ANCHORS[initial_seesaw_frame])
-	var expected_seesaw_seat := Vector2(
-		seesaw_node.position.x, seesaw_node.position.y) \
-		+ SkyLagoonPromenade.SEESAW_RIGHT_SEAT_SOCKET.rotated(
-			roshan_card.rotation.z)
-	_check("seesaw_rider_sits_on_right_shell_seat",
-		roshan_card.position.x > seesaw_node.position.x
-		and initial_seat_world.y > seesaw_node.position.y
-		and initial_seat_world.distance_to(expected_seesaw_seat) < 0.02,
-		"rider_x=%.2f beam_x=%.2f seat_error=%.3f" % [
-			roshan_card.position.x, seesaw_node.position.x,
-			initial_seat_world.distance_to(expected_seesaw_seat)])
-	var saw_high := false
-	var saw_low := false
-	var saw_motion_samples := 0
-	var prior_saw_rotation: float = seesaw_node.rotation.z
-	for _sample in range(8):
-		promenade._tick_playground_animation(0.48)
-		saw_high = saw_high or seesaw_node.rotation.z > 0.08
-		saw_low = saw_low or seesaw_node.rotation.z < -0.08
-		if not is_equal_approx(seesaw_node.rotation.z, prior_saw_rotation):
-			saw_motion_samples += 1
-		prior_saw_rotation = seesaw_node.rotation.z
-	var seesaw_animates: bool = (
-		saw_high and saw_low and saw_motion_samples >= 5
-		and roshan_card.texture != idle_texture)
-	var seesaw_settle: Dictionary = _complete_playground_action(
-		main, promenade, roshan_card)
-	_check("seesaw_rocks_back_and_forth_three_times", seesaw_animates)
-	var settle_contract_ok := true
-	for settle_value in [swing_settle, slide_settle, seesaw_settle]:
-		var settle: Dictionary = settle_value as Dictionary
-		for key in ["started", "continuous", "visible_owner",
-				"visible_celebration", "moved", "completed", "position",
-				"transform", "shadow"]:
-			settle_contract_ok = settle_contract_ok and bool(settle.get(key, false))
-	_check("playground_completion_settles_the_visible_roshan_card",
-		settle_contract_ok, JSON.stringify([
-			swing_settle, slide_settle, seesaw_settle]))
-	_check("playground_animation_reuses_one_sprite3d",
-		roshan_card.texture == idle_texture
-		and roshan_card.hframes == 4 and roshan_card.vframes == 2
-		and ROSHAN_FRAMES.sampled_rect(roshan_card).size == Vector2(256.0, 256.0)
-		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty())
-
-	var swing_screen: Vector2 = lens.unproject_position(swing_node.global_position)
-	main._lagoon_promenade_ref().handle_touch(swing_screen)
-	var first_press_ok: bool = (
-		String(main.g.get("lagoon_promenade_focus", "")) == "swing"
-		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty())
-	_check("toy_first_press_highlights", first_press_ok)
-	main._lagoon_promenade_ref().handle_touch(swing_screen)
-	await process_frame
-	_check("toy_second_press_plays",
-		String((main.g.get("lagoon_play_anim", {}) as Dictionary).get(
-			"kind", "")) == "swing")
-	promenade._finish_playground_animation()
-	promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
+	_validate_stage()
+	_validate_assets_and_mural()
+	_validate_parallax_and_coordinates()
+	_validate_targets_and_touch()
+	_validate_play_contacts()
 	await _frames(2)
-	var invalid_equipment := Node3D.new()
-	promenade.stage.root().add_child(invalid_equipment)
-	promenade._start_playground_animation("slide", invalid_equipment)
-	invalid_equipment.free()
-	promenade._tick_playground_animation(0.01)
-	var invalid_cleanup_started: bool = String((main.g.get(
-		"lagoon_play_anim", {}) as Dictionary).get("phase", "")) == "settle"
-	promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
-	_check("invalid_playground_equipment_settles_without_stranding_input",
-		invalid_cleanup_started
-		and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty()
-		and not main.player.visible and roshan_card.visible)
-
-	# Walk to the castle end and enter it THE WAY THE CHILD DOES: two taps at
-	# the door's own place on screen. The old probe called _focus/_activate
-	# directly, so it never noticed that the gate's tap target had drifted
-	# 237 px off the painted door and tapping the door did nothing at all.
-	var castle_target: Dictionary = {}
-	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
-		var target: Dictionary = value as Dictionary
-		if String(target.get("id", "")) == "castle_gate":
-			castle_target = target
-			break
-	var gate_node: Node3D = castle_target.get("node") as Node3D
-	var gate_highlight: Sprite3D = castle_target.get("highlight") as Sprite3D
-	main.player.position.x = origin.x + 40.0
-	for _i in range(6):
-		promenade.tick(0.5)
-	var gate_screen: Vector2 = lens.unproject_position(gate_node.global_position)
-	var view_rect := Rect2(Vector2.ZERO, main.get_viewport().get_visible_rect().size)
-	_check("castle_door_is_on_screen_from_the_walk", view_rect.has_point(gate_screen),
-		"gate at %s in a %s viewport" % [gate_screen, view_rect.size])
-	promenade.handle_touch(gate_screen)
-	var gate_focus_ok: bool = (
-		String(main.g.get("lagoon_promenade_focus", "")) == "castle_gate"
-		and gate_highlight != null and gate_highlight.visible)
-	_check("castle_door_first_tap_highlights", gate_focus_ok)
-	var door_only_highlight_ok: bool = (
-		gate_node == main.g.get("lagoon_castle_door_focus")
-		and gate_node != castle_card
-		and gate_highlight != null
-		and gate_highlight.texture != castle_card.texture
-		and gate_highlight.texture.get_size() == Vector2(199, 228)
-		and gate_node.position.y < castle_card.position.y
-		and gate_highlight.scale == Vector3.ONE)
-	_check("castle_focus_is_door_only_not_full_castle",
-		door_only_highlight_ok,
-		"focus_size=%s door_y=%.2f castle_y=%.2f scale=%s" % [
-			gate_highlight.texture.get_size() if gate_highlight != null
-				else Vector2.ZERO,
-			gate_node.position.y,
-			castle_card.position.y,
-			gate_highlight.scale if gate_highlight != null else Vector3.ZERO])
-	promenade.handle_touch(gate_screen)
-	await _frames(8)
-	_check("drawbridge_enters_castle",
-		main.game == "level2" and String(main.g.get("phase", "")) == "hall")
-	var castle_rooms: CastleRooms25D = main._castle_rooms_ref()
-	var expected_hall_tiles: int = CastleRooms25D.HALL_TILE_COLUMNS \
-		* CastleRooms25D.HALL_TILE_ROWS
-	_check("drawbridge_opens_visible_2_5d_castle_not_legacy_hall",
-		castle_rooms.is_open()
-		and main.castle_room_world_root != null
-		and main.castle_room_world_root.visible
-		and main.castle_room_camera != null
-		and main.castle_room_camera.current
-		and main.castle_room_background_tiles.size() == expected_hall_tiles
-		and main.arena_solids.is_empty()
-		and not main.g.has("hall_exit"),
-		"open=%s world=%s camera=%s tiles=%d/%d solids=%d" % [
-			str(castle_rooms.is_open()),
-			str(main.castle_room_world_root != null
-				and main.castle_room_world_root.visible),
-			str(main.castle_room_camera != null and main.castle_room_camera.current),
-			main.castle_room_background_tiles.size(),
-			expected_hall_tiles,
-			main.arena_solids.size()])
-
-	# ...and the other road in: follow the painted way to its end. Rebuild the
-	# promenade, walk to the far end of the route, and she should step inside
-	# without any tap at all ("she won't touch the drawbridge for the castle").
-	main._enter_level2()
-	await _frames(8)
-	var promenade2 := main._lagoon_promenade_ref()
-	var span2: Vector2 = promenade2.stage.route_span(main.g.get("ss_cfg", {}))
-	main.player.position.x = main.LEVEL2_POS.x + span2.y
-	for _i in range(4):
-		promenade2.tick(0.2)
-	await _frames(10)
-	_check("walking_the_path_enters_the_castle",
-		main.game == "level2" and String(main.g.get("phase", "")) == "hall",
-		"phase=%s" % String(main.g.get("phase", "?")))
-
-	# Bedtime can flip the world while Roshan is indoors. Returning to the
-	# promenade must add its fireflies at night and remove them again by day.
-	main.is_night = true
-	main._enter_level2()
-	await _frames(8)
-	var night_fireflies: CPUParticles3D = main.g.get(
-		"lagoon_night_fireflies") as CPUParticles3D
-	_check("night_return_has_outdoor_fireflies",
-		String(main.g.get("phase", "")) == "promenade"
-		and night_fireflies != null
-		and is_instance_valid(night_fireflies)
-		and night_fireflies.emitting
-		and night_fireflies.amount == SkyLagoonPromenade.FIREFLY_COUNT)
-	main.is_night = false
-	main._enter_level2()
-	await _frames(8)
-	_check("day_return_has_no_fireflies",
-		String(main.g.get("phase", "")) == "promenade"
-		and not main.g.has("lagoon_night_fireflies"))
-
-	# The child-visible plane is the normal route out of the promenade. Exercise
-	# its real single-tap screen target, not the hidden Pause fallback or a direct
-	# internal call, and verify the transition lands in free-swim Reef state.
-	var travel_target: Dictionary = {}
-	for value in (main.g.get("lagoon_promenade_targets", []) as Array):
-		var target: Dictionary = value as Dictionary
-		if String(target.get("id", "")) == "reef_route":
-			travel_target = target
-			break
-	var travel_node: Node3D = travel_target.get("node") as Node3D
-	var travel_ready: bool = travel_node != null and is_instance_valid(travel_node)
-	if travel_ready:
-		var travel_screen: Vector2 = main.player.cam.unproject_position(
-			travel_node.global_position)
-		main._lagoon_promenade_ref().handle_touch(travel_screen)
-		await _frames(2)
-	_check("one_tap_plane_route_returns_to_the_reef",
-		travel_ready and main.game == "" and main.player.visible
-		and main.we_node.environment == main.world_env)
-
+	_check("canvas_clip_cannot_crop_phone_frame", _canvas_clip_contract())
+	_check("rendered_mural_fills_phone_frame", _rendered_frame_contract())
+	_validate_plane_save_and_teardown()
+	await _validate_door_and_reef_routes()
 	if failed:
-		print("FAIL|Sky Lagoon 2.5D promenade regression")
+		print("FAIL|Sky Lagoon Canvas promenade regression")
+		quit(1)
 	else:
-		print("LAGOON25D|ALL: OK")
-	quit()
+		print("LAGOONCANVAS|ALL OK")
+		quit(0)

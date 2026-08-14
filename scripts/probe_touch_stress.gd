@@ -24,9 +24,10 @@ extends SceneTree
 
 const CHURN_EVENTS := 240
 const TRAVEL_FRAME_CAP := 400
-const TRAVEL_ENOUGH := 2.0     # stage units: stop sampling once clearly underway
-const TRAVEL_MIN := 0.5        # stage units: below this the gesture did nothing
-const WRONG_WAY_SLOP := 0.12   # stage units of tolerated bob/settle jitter
+const LEGACY_STAGE_TO_MASTER := 6144.0 / 144.0
+const TRAVEL_ENOUGH := 2.0 * LEGACY_STAGE_TO_MASTER
+const TRAVEL_MIN := 0.5 * LEGACY_STAGE_TO_MASTER
+const WRONG_WAY_SLOP := 0.12 * LEGACY_STAGE_TO_MASTER
 const OWNER_STICK := 2         # TouchUI.TouchOwner.STICK
 # Where to nudge a press when a wandering animal or a toy is standing on it.
 # Targets claim a 92 px pick radius, so the sweep has to clear that generously.
@@ -179,6 +180,8 @@ func _lagoon_gate() -> void:
 	await _travel_case("drag_left_in_bay", "drag_left", Vector2(screen.x * 0.25, low_y), -1)
 	await _travel_case("drag_right_in_bay", "drag_right", Vector2(screen.x * 0.25, low_y), 1)
 	await _held_medallion_case()
+	await _navigation_cancel_gate()
+	await _classic_lagoon_gate()
 
 func _travel_case(label: String, gesture: String, press: Vector2, expect: int) -> void:
 	var screen: Vector2 = get_root().get_viewport().get_visible_rect().size
@@ -195,14 +198,14 @@ func _travel_case(label: String, gesture: String, press: Vector2, expect: int) -
 		if not _press_is_open_ground(point):
 			continue
 		await _reset_promenade()
-		var start_x: float = prom.stage.px()
+		var start_x: float = prom.master_route_x()
 		var worst_wrong := 0.0
 		var moved := 0.0
 		if gesture == "hold":
 			_down(0, point)
 			for _hold_frame: int in range(40):
 				await process_frame
-				var wrong: float = float(-expect) * (prom.stage.px() - start_x)
+				var wrong: float = float(-expect) * (prom.master_route_x() - start_x)
 				worst_wrong = maxf(worst_wrong, wrong)
 			var still_open: bool = _press_is_open_ground(point)
 			_up(0, point)
@@ -215,9 +218,9 @@ func _travel_case(label: String, gesture: String, press: Vector2, expect: int) -
 			_drag(0, point + Vector2(slide, 0.0))
 			for _drag_frame: int in range(60):
 				await process_frame
-				var wrong: float = float(-expect) * (prom.stage.px() - start_x)
+				var wrong: float = float(-expect) * (prom.master_route_x() - start_x)
 				worst_wrong = maxf(worst_wrong, wrong)
-				moved = maxf(moved, float(expect) * (prom.stage.px() - start_x))
+				moved = maxf(moved, float(expect) * (prom.master_route_x() - start_x))
 				if moved >= TRAVEL_ENOUGH:
 					break
 			_up(0, fingers[0])
@@ -226,20 +229,20 @@ func _travel_case(label: String, gesture: String, press: Vector2, expect: int) -
 			_up(0, point)
 		for _travel_frame: int in range(TRAVEL_FRAME_CAP):
 			await process_frame
-			var delta_x: float = prom.stage.px() - start_x
+			var delta_x: float = prom.master_route_x() - start_x
 			worst_wrong = maxf(worst_wrong, float(-expect) * delta_x)
 			moved = maxf(moved, float(expect) * delta_x)
 			if moved >= TRAVEL_ENOUGH:
 				break
 		var way: String = "left" if expect < 0 else "right"
 		if worst_wrong > WRONG_WAY_SLOP:
-			_bad("%s: a %s-side gesture carried Roshan the wrong way by %.2f units" \
+			_bad("%s: a %s-side gesture carried Roshan the wrong way by %.2f master px" \
 				% [label, way, worst_wrong])
 		elif moved < TRAVEL_MIN:
-			_bad("%s: the gesture produced no travel at all (%.2f units, press %s, walk goal %s)" \
-				% [label, moved, point, main.g.get("ss_walk_goal")])
+			_bad("%s: the gesture produced no travel at all (%.2f master px, press %s, walk goal %s)" \
+				% [label, moved, point, main.g.get("lagoon_walk_goal_master")])
 		else:
-			_ok(label, "travelled %.2f units %s, wrong-way excursion %.3f" \
+			_ok(label, "travelled %.2f master px %s, wrong-way excursion %.3f" \
 				% [moved, way, worst_wrong])
 		return
 	_bad("%s: no open ground under any of the %d sample presses" \
@@ -250,29 +253,140 @@ func _held_medallion_case() -> void:
 	# corner of the screen. (The emulated-pointer hold-to-travel path used to read
 	# it as exactly that.)
 	await _reset_promenade()
-	var start_x: float = prom.stage.px()
+	var start_x: float = prom.master_route_x()
 	var drift := 0.0
 	var press: Vector2 = touch.action_zone().get_center()
 	_down(0, press)
 	for _hold_frame: int in range(90):
 		await process_frame
-		drift = maxf(drift, absf(prom.stage.px() - start_x))
+		drift = maxf(drift, absf(prom.master_route_x() - start_x))
 	_up(0, press)
 	await _frames(30)
-	drift = maxf(drift, absf(prom.stage.px() - start_x))
+	drift = maxf(drift, absf(prom.master_route_x() - start_x))
 	if drift > 1.0:
-		_bad("holding the action medallion walked Roshan %.2f units" % drift)
+		_bad("holding the action medallion walked Roshan %.2f master px" % drift)
 	else:
-		_ok("held_medallion", "stayed put (%.3f units of hop settle)" % drift)
+		_ok("held_medallion", "stayed put (%.3f master px of settle)" % drift)
 	touch.consume_action()
+
+func _target(target_id: String) -> Dictionary:
+	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id", "")) == target_id:
+			return target
+	return {}
+
+func _navigation_cancel_gate() -> void:
+	await _reset_promenade()
+	var swing: Dictionary = _target("swing")
+	var swing_node: Node2D = swing.get("node") as Node2D
+	if swing_node == null:
+		_bad("navigation cancellation could not find swing target")
+		return
+	var swing_screen: Vector2 = prom.screen_from_master(swing_node.position)
+	prom.handle_touch(swing_screen)
+	main.g["lagoon_walk_goal_master"] = Vector2(4300.0, 1600.0)
+	var bay: Rect2 = touch.movement_zone()
+	var press: Vector2 = bay.get_center()
+	_down(0, press)
+	_drag(0, press + Vector2(100.0, 0.0))
+	await process_frame
+	var manual_ok: bool = main.g.get("lagoon_walk_goal_master") == null \
+		and String(main.g.get("lagoon_promenade_focus", "")) == "" \
+		and prom.action_label() == "JUMP"
+	_up(0, fingers[0])
+	touch.consume_action()
+	prom.handle_touch(swing_screen)
+	main.g["lagoon_walk_goal_master"] = Vector2(4300.0, 1600.0)
+	var before_pause_x: float = prom.master_route_x()
+	# Exercise the shipped corner gear and resume button signals. The gear is
+	# connected directly to PauseMenu.toggle_pause(), so a call through
+	# ReefMain.toggle_pause() would miss a real child-visible cancellation bug.
+	var corner_button: Button = main.pause_layer.get_meta("corner_button") as Button
+	if corner_button == null or main.pause_resume_btn == null:
+		_bad("navigation cancellation could not find shipped pause controls")
+		return
+	corner_button.button_down.emit()
+	var paused_cancelled: bool = main.get_tree().paused \
+		and main.g.get("lagoon_walk_goal_master") == null \
+		and String(main.g.get("lagoon_promenade_focus", "")) == ""
+	main.pause_resume_btn.pressed.emit()
+	await _frames(4)
+	var did_not_resume: bool = absf(prom.master_route_x() - before_pause_x) <= 0.1
+	if manual_ok and paused_cancelled and did_not_resume:
+		_ok("navigation_cancel", "manual steer and pause clear goal/focus without resume")
+	else:
+		_bad("navigation cancel failed manual=%s pause=%s resume_drift=%.2f" \
+			% [str(manual_ok), str(paused_cancelled),
+			absf(prom.master_route_x() - before_pause_x)])
+
+func _classic_lagoon_gate() -> void:
+	await _reset_promenade()
+	main._set_touch_mode("classic", false)
+	var swing: Dictionary = _target("swing")
+	var swing_node: Node2D = swing.get("node") as Node2D
+	if swing_node == null:
+		_bad("Classic routing could not find swing target")
+		main._set_touch_mode("hybrid", false)
+		return
+	var swing_screen: Vector2 = prom.screen_from_master(swing_node.position)
+	_down(0, swing_screen)
+	_up(0, swing_screen)
+	await process_frame
+	var focus_ok: bool = String(main.g.get("lagoon_promenade_focus", "")) == "swing"
+	_down(0, swing_screen)
+	_up(0, swing_screen)
+	await process_frame
+	var play_ok: bool = String((main.g.get(
+		"lagoon_play_anim", {}) as Dictionary).get("kind", "")) == "swing"
+	prom._finish_playground_animation()
+	prom._tick_playground_animation(1.0)
+	await _reset_promenade()
+	var long_press: Vector2 = touch.movement_zone().get_center()
+	var start_x: float = prom.master_route_x()
+	_down(0, long_press)
+	await _frames(24)
+	var long_press_ok: bool = absf(prom.master_route_x() - start_x) <= 0.1 \
+		and main.g.get("lagoon_walk_goal_master") == null
+	_up(0, long_press)
+	await process_frame
+	# The release is a deliberate positional tap and may now request travel; the
+	# assertion above proves the held Classic stick was never a second autowalk.
+	main.g["lagoon_walk_goal_master"] = null
+	var route: Dictionary = _target("reef_route")
+	var route_node: Node2D = route.get("node") as Node2D
+	var reef_exit_ok := false
+	if route_node != null:
+		prom.set_master_route_x(1024.0)
+		var route_screen: Vector2 = prom.screen_from_master(route_node.position)
+		_down(0, route_screen)
+		_up(0, route_screen)
+		await _frames(8)
+		reef_exit_ok = main.game == ""
+	taps.clear()
+	touch.world_touched.connect(_record_tap)
+	var outside_press := Vector2(640.0, 360.0)
+	_down(0, outside_press)
+	_up(0, outside_press)
+	await process_frame
+	var outside_classic_jump_only: bool = taps.is_empty() \
+		and touch.consume_action_just()
+	touch.world_touched.disconnect(_record_tap)
+	main._set_touch_mode("hybrid", false)
+	if focus_ok and play_ok and long_press_ok and reef_exit_ok and outside_classic_jump_only:
+		_ok("classic_lagoon", "real taps focus/play/exit; held stick never autowalks; Reef keeps jump")
+	else:
+		_bad("Classic Lagoon failed focus=%s play=%s hold=%s exit=%s outside_jump=%s" \
+			% [str(focus_ok), str(play_ok), str(long_press_ok), str(reef_exit_ok),
+			str(outside_classic_jump_only)])
 
 func _reset_promenade() -> void:
 	touch.cancel_all_touches()
-	main.g["ss_walk_goal"] = null
+	main.g["lagoon_walk_goal_master"] = null
 	main.g["lagoon_play_anim"] = {}
 	main.g["lagoon_promenade_focus"] = ""
 	main._tap_move_ref().cancel("stress reset")
-	prom._set_spawn(prom._walk_x(0.0))
+	prom._set_spawn(3072.0)
 	await _frames(4)
 	await _await_input_ready()
 

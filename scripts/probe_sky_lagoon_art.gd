@@ -173,20 +173,226 @@ func _target_ids() -> Array[String]:
 
 
 func _node_on_screen(node: Variant) -> bool:
-	var camera: Camera3D = main.player.cam if main != null and main.player != null else null
-	if node == null or not is_instance_valid(node) or not node.visible \
-			or camera == null or not is_instance_valid(camera) \
-			or camera.is_position_behind(node.global_position):
+	if not (node is CanvasItem) or not is_instance_valid(node) \
+			or not (node as CanvasItem).is_visible_in_tree():
 		return false
+	var point: Vector2 = (node as CanvasItem).get_global_transform_with_canvas().origin
 	return Rect2(Vector2.ZERO, Vector2(VIEWPORT_SIZE)).has_point(
-		camera.unproject_position(node.global_position))
+		point)
+
+
+func _animal_atlas_frame(node: Sprite2D) -> int:
+	if node == null or not node.region_enabled \
+			or node.region_rect.size.x <= 0.0 or node.region_rect.size.y <= 0.0:
+		return node.frame if node != null else -1
+	var column: int = roundi(node.region_rect.position.x / node.region_rect.size.x)
+	var row: int = roundi(node.region_rect.position.y / node.region_rect.size.y)
+	return row * SkyLagoonPromenade.ANIMAL_ATLAS_COLUMNS + column
+
+
+func _sprite_screen_rect(sprite: Sprite2D) -> Rect2:
+	if sprite == null or not is_instance_valid(sprite) or sprite.texture == null \
+			or not sprite.is_visible_in_tree():
+		return Rect2()
+	var draw_size: Vector2 = sprite.region_rect.size if sprite.region_enabled \
+		else sprite.texture.get_size()
+	var local_origin: Vector2 = sprite.offset
+	if sprite.centered:
+		local_origin -= draw_size * 0.5
+	var transform: Transform2D = sprite.get_global_transform_with_canvas()
+	var corners: Array[Vector2] = [
+		transform * local_origin,
+		transform * (local_origin + Vector2(draw_size.x, 0.0)),
+		transform * (local_origin + draw_size),
+		transform * (local_origin + Vector2(0.0, draw_size.y)),
+	]
+	var bounds := Rect2(corners[0], Vector2.ZERO)
+	for corner: Vector2 in corners:
+		bounds = bounds.expand(corner)
+	return bounds
+
+
+func _alpha_sprite_screen_rect(sprite: Sprite2D) -> Rect2:
+	if sprite == null or not is_instance_valid(sprite) or sprite.texture == null \
+			or not sprite.is_visible_in_tree():
+		return Rect2()
+	var image: Image = sprite.texture.get_image()
+	if image == null or image.is_empty():
+		return Rect2()
+	if image.is_compressed() and image.decompress() != OK:
+		return Rect2()
+	var source := Rect2i(Vector2i.ZERO, image.get_size())
+	if sprite.region_enabled:
+		source = Rect2i(sprite.region_rect)
+	var alpha_min := Vector2i(source.size)
+	var alpha_max := Vector2i(-1, -1)
+	for y: int in range(source.position.y, source.end.y):
+		for x: int in range(source.position.x, source.end.x):
+			if image.get_pixel(x, y).a < 0.10:
+				continue
+			var local := Vector2i(x, y) - source.position
+			alpha_min.x = mini(alpha_min.x, local.x)
+			alpha_min.y = mini(alpha_min.y, local.y)
+			alpha_max.x = maxi(alpha_max.x, local.x)
+			alpha_max.y = maxi(alpha_max.y, local.y)
+	if alpha_max.x < alpha_min.x or alpha_max.y < alpha_min.y:
+		return Rect2()
+	var used := Rect2i(alpha_min, alpha_max - alpha_min + Vector2i.ONE)
+	var local_origin := Vector2(used.position) + sprite.offset
+	if sprite.centered:
+		local_origin -= Vector2(source.size) * 0.5
+	var local_size := Vector2(used.size)
+	var transform: Transform2D = sprite.get_global_transform_with_canvas()
+	var corners: Array[Vector2] = [
+		transform * local_origin,
+		transform * (local_origin + Vector2(local_size.x, 0.0)),
+		transform * (local_origin + local_size),
+		transform * (local_origin + Vector2(0.0, local_size.y)),
+	]
+	var bounds := Rect2(corners[0], Vector2.ZERO)
+	for corner: Vector2 in corners:
+		bounds = bounds.expand(corner)
+	return bounds
+
+
+func _polygon_screen_rect(polygon: Polygon2D) -> Rect2:
+	if polygon == null or not is_instance_valid(polygon) \
+			or not polygon.is_visible_in_tree() or polygon.polygon.is_empty():
+		return Rect2()
+	var transform: Transform2D = polygon.get_global_transform_with_canvas()
+	var bounds := Rect2(transform * polygon.polygon[0], Vector2.ZERO)
+	for point: Vector2 in polygon.polygon:
+		bounds = bounds.expand(transform * point)
+	return bounds
+
+
+func _canvas_composite_screen_rect(node: Node) -> Rect2:
+	var bounds := Rect2()
+	var has_bounds := false
+	var own_bounds := Rect2()
+	if node is Sprite2D:
+		own_bounds = _sprite_screen_rect(node as Sprite2D)
+	elif node is Polygon2D:
+		own_bounds = _polygon_screen_rect(node as Polygon2D)
+	if own_bounds.get_area() > 0.0:
+		bounds = own_bounds
+		has_bounds = true
+	for child: Node in node.get_children():
+		var child_bounds: Rect2 = _canvas_composite_screen_rect(child)
+		if child_bounds.get_area() <= 0.0:
+			continue
+		bounds = child_bounds if not has_bounds else bounds.merge(child_bounds)
+		has_bounds = true
+	return bounds if has_bounds else Rect2()
+
+
+func _point_rect_distance(point: Vector2, bounds: Rect2) -> float:
+	if bounds.get_area() <= 0.0:
+		return INF
+	var nearest := Vector2(
+		clampf(point.x, bounds.position.x, bounds.end.x),
+		clampf(point.y, bounds.position.y, bounds.end.y))
+	return point.distance_to(nearest)
+
+
+func _color_luma(color: Color) -> float:
+	return color.r * 0.2126 + color.g * 0.7152 + color.b * 0.0722
+
+
+func _selected_tint_is_readable(highlight: Sprite2D) -> bool:
+	var tint: Color = highlight.modulate
+	var high: float = maxf(tint.r, maxf(tint.g, tint.b))
+	var low: float = minf(tint.r, minf(tint.g, tint.b))
+	return tint.a >= 0.80 and tint.a <= 1.001 \
+		and high >= 0.80 and high - low >= 0.35
+
+
+func _procedural_pointer_contrast(highlight: Sprite2D) -> bool:
+	var outline: Polygon2D = highlight.find_child(
+		"PointerOutline", false, false) as Polygon2D
+	var fill: Polygon2D = highlight.find_child(
+		"PointerFill", false, false) as Polygon2D
+	if outline == null or fill == null:
+		return false
+	var tint: Color = highlight.modulate
+	var outline_tinted := Color(
+		outline.color.r * tint.r, outline.color.g * tint.g,
+		outline.color.b * tint.b, outline.color.a * tint.a)
+	var fill_tinted := Color(
+		fill.color.r * tint.r, fill.color.g * tint.g,
+		fill.color.b * tint.b, fill.color.a * tint.a)
+	return absf(_color_luma(fill_tinted) - _color_luma(outline_tinted)) >= 0.35
+
+
+func _animal_overlap_fraction() -> float:
+	var actor: Dictionary = main.g.get("lagoon_animal_actor", {}) as Dictionary
+	var animal: Sprite2D = actor.get("node") as Sprite2D
+	var animal_rect: Rect2 = _sprite_screen_rect(animal)
+	if animal_rect.get_area() <= 0.0:
+		return 0.0
+	var highest := 0.0
+	var roshan: Sprite2D = main.g.get("lagoon_roshan_card") as Sprite2D
+	for sprite: Sprite2D in [roshan]:
+		var other: Rect2 = _sprite_screen_rect(sprite)
+		if other.get_area() > 0.0:
+			highest = maxf(highest, animal_rect.intersection(other).get_area() \
+				/ minf(animal_rect.get_area(), other.get_area()))
+	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+		var prop: Sprite2D = (value as Dictionary).get("node") as Sprite2D
+		var other: Rect2 = _sprite_screen_rect(prop)
+		if other.get_area() > 0.0:
+			highest = maxf(highest, animal_rect.intersection(other).get_area() \
+				/ minf(animal_rect.get_area(), other.get_area()))
+	return highest
+
+
+func _highlight_contract() -> bool:
+	var focus_id: String = String(main.g.get("lagoon_promenade_focus", ""))
+	for target_id: String in EXPECTED_TARGET_IDS:
+		var target: Dictionary = _target_by_id(target_id)
+		var highlight: Sprite2D = target.get("highlight") as Sprite2D
+		if highlight == null or highlight.texture == null:
+			return false
+		var alpha: float = highlight.modulate.a
+		if target_id == focus_id:
+			var cue_bounds: Rect2 = _canvas_composite_screen_rect(highlight)
+			if minf(cue_bounds.size.x, cue_bounds.size.y) < 64.0 \
+					or not _selected_tint_is_readable(highlight):
+				return false
+			var node: CanvasItem = target.get("node") as CanvasItem
+			var target_anchor: Vector2 = (node as Node2D).get_global_transform_with_canvas().origin \
+				if node is Node2D else Vector2(INF, INF)
+			var target_bounds: Rect2 = _alpha_sprite_screen_rect(node as Sprite2D) \
+				if node is Sprite2D else Rect2(
+					target_anchor - Vector2(0.5, 0.5), Vector2.ONE)
+			if _point_rect_distance(cue_bounds.get_center(), target_bounds) > 96.0:
+				return false
+			if target_id != "castle_gate":
+				if String(highlight.get_meta("focus_cue_role", "")) \
+						!= "procedural_ring_pointer" \
+						or not _procedural_pointer_contrast(highlight):
+					return false
+				var tip_local: Variant = highlight.get_meta("pointer_tip_local")
+				if not (tip_local is Vector2):
+					return false
+				var tip_screen: Vector2 = highlight.get_global_transform_with_canvas() \
+					* (tip_local as Vector2)
+				if _point_rect_distance(tip_screen, target_bounds) > 4.0:
+					return false
+		elif alpha > 0.06:
+			return false
+		if target_id != "castle_gate" \
+				and String(highlight.get_meta("focus_cue_role", "")) \
+					!= "procedural_ring_pointer":
+			return false
+	return true
 
 
 func _target_screen_state() -> Dictionary:
 	var result := {}
 	for target_id: String in EXPECTED_TARGET_IDS:
 		var target := _target_by_id(target_id)
-		result[target_id] = _node_on_screen(target.get("node") as Node3D)
+		result[target_id] = _node_on_screen(target.get("node") as CanvasItem)
 	return result
 
 
@@ -212,19 +418,18 @@ func _actual_state() -> Dictionary:
 	var actor: Dictionary = main.g.get("lagoon_animal_actor", {}) as Dictionary
 	var animal_node: Node = actor.get("node") as Node
 	var play: Dictionary = main.g.get("lagoon_play_anim", {}) as Dictionary
-	var stage_root: Node3D = main.g.get("ss_root") as Node3D
-	var roshan_card: Node3D = main.g.get("lagoon_roshan_card") as Node3D
-	var camera: Camera3D = main.player.cam if main != null and main.player != null else null
-	var fireflies: Node = main.g.get("lagoon_night_fireflies") as Node
-	var camera_page := -1
-	if stage_root != null and camera != null and is_instance_valid(camera):
-		camera_page = clampi(roundi((camera.position.x - stage_root.position.x) / 48.0) + 1, 0, 2)
+	var stage_root: CanvasLayer = promenade.root() if promenade != null else null
+	var roshan_card: CanvasItem = main.g.get("lagoon_roshan_card") as CanvasItem
+	var camera: Camera2D = promenade.camera_2d() if promenade != null else null
+	var fireflies: Variant = main.g.get("lagoon_night_fireflies")
+	var camera_page := clampi(floori(float(
+		main.g.get("lagoon_camera_x", -1.0)) / 2048.0), 0, 2)
 	var target_nodes_valid := true
 	var target_highlights_valid := true
 	for target_id: String in EXPECTED_TARGET_IDS:
 		var target := _target_by_id(target_id)
-		var target_node: Node3D = target.get("node") as Node3D
-		var highlight: Node3D = target.get("highlight") as Node3D
+		var target_node: CanvasItem = target.get("node") as CanvasItem
+		var highlight: CanvasItem = target.get("highlight") as CanvasItem
 		target_nodes_valid = target_nodes_valid and target_node != null \
 			and is_instance_valid(target_node)
 		target_highlights_valid = target_highlights_valid and highlight != null \
@@ -235,15 +440,16 @@ func _actual_state() -> Dictionary:
 		var texture: Texture2D = animal_node.get("texture") as Texture2D
 		animal_texture = texture.resource_path if texture != null else ""
 		animal_lighting_profile = String(animal_node.get_meta("animal_lighting_profile", ""))
-	var equipment: Node3D = play.get("equipment") as Node3D
+	var equipment: CanvasItem = play.get("equipment") as CanvasItem
 	return {
 		"game": main.game,
 		"phase": String(main.g.get("phase", "")),
 		"mg_kind": main.mg_kind,
 		"time_of_day": "night" if main.is_night else "day",
 		"route_state": _route_state(),
-		"active_player_camera": camera != null and is_instance_valid(camera) \
-			and camera.current and get_root().get_viewport().get_camera_3d() == camera,
+		"active_canvas_camera": camera != null and is_instance_valid(camera) \
+			and camera.enabled and get_root().get_viewport().get_camera_2d() == camera \
+			and get_root().get_viewport().get_camera_3d() == null,
 		"target_ids": _target_ids(),
 		"target_nodes_valid": target_nodes_valid,
 		"target_highlights_valid": target_highlights_valid,
@@ -253,10 +459,8 @@ func _actual_state() -> Dictionary:
 		"roshan_card_visible": roshan_card != null and is_instance_valid(roshan_card) \
 			and roshan_card.visible,
 		"camera_page": camera_page,
-		"player_local_x": main.player.position.x - stage_root.position.x \
-			if main.player != null and stage_root != null else INF,
-		"camera_local_x": camera.position.x - stage_root.position.x \
-			if camera != null and stage_root != null else INF,
+		"master_x": float(main.g.get("lagoon_master_x", INF)),
+		"camera_master_x": float(main.g.get("lagoon_camera_x", INF)),
 		"focus": String(main.g.get("lagoon_promenade_focus", "")),
 		"action_label": promenade.action_label() if promenade != null else "",
 		"play_kind": String(play.get("kind", "")),
@@ -268,16 +472,18 @@ func _actual_state() -> Dictionary:
 		"animal_id": String((actor.get("definition", {}) as Dictionary).get("id", "")),
 		"animal_state": String(actor.get("state", "")),
 		"animal_page": int(actor.get("page", -1)),
-		"animal_frame": int(animal_node.get("frame")) \
-			if animal_node != null and is_instance_valid(animal_node) else -1,
+		"animal_frame": _animal_atlas_frame(animal_node as Sprite2D) \
+			if animal_node is Sprite2D and is_instance_valid(animal_node) else -1,
 		"animal_visible": animal_node != null and is_instance_valid(animal_node) \
 			and bool(animal_node.get("visible")),
 		"animal_on_screen": _node_on_screen(animal_node),
 		"animal_texture": animal_texture,
 		"animal_lighting_profile": animal_lighting_profile,
+		"animal_overlap_fraction": _animal_overlap_fraction(),
+		"highlight_contract": _highlight_contract(),
 		"castle_armed": bool(main.g.get("lagoon_castle_armed", false)),
-		"fireflies_present": fireflies != null and is_instance_valid(fireflies) \
-			and bool(fireflies.get("visible")) and bool(fireflies.get("emitting")),
+		"fireflies_present": main.g.get("lagoon_night_fireflies") is Array \
+			and not (main.g.get("lagoon_night_fireflies") as Array).is_empty(),
 		"review_layers_hidden": _review_layers_hidden(),
 		"dev_mode_neutralized": dev_mode_neutralized and main.dev_mode == null,
 	}
@@ -298,15 +504,15 @@ func _semantic_assertions(expected: Dictionary, actual: Dictionary) -> Array[Dic
 		if expected.has(key):
 			assertions.append(_assertion(key, actual.get(key) == expected[key],
 				expected[key], actual.get(key)))
-	assertions.append(_assertion("active_player_camera",
-		bool(actual.get("active_player_camera", false)), true,
-		actual.get("active_player_camera")))
+	assertions.append(_assertion("active_canvas_camera",
+		bool(actual.get("active_canvas_camera", false)), true,
+		actual.get("active_canvas_camera")))
 	assertions.append(_assertion("target_ids",
 		actual.get("target_ids") == EXPECTED_TARGET_IDS, EXPECTED_TARGET_IDS,
 		actual.get("target_ids")))
 	for integrity_key: String in ["target_nodes_valid", "target_highlights_valid",
 			"stage_root_valid", "roshan_card_valid", "roshan_card_visible",
-			"dev_mode_neutralized"]:
+			"dev_mode_neutralized", "highlight_contract"]:
 		assertions.append(_assertion(integrity_key,
 			bool(actual.get(integrity_key, false)), true, actual.get(integrity_key)))
 	assertions.append(_assertion("review_layers_hidden",
@@ -326,6 +532,10 @@ func _semantic_assertions(expected: Dictionary, actual: Dictionary) -> Array[Dic
 			assertions.append(_assertion("onscreen_target_%s" % target_id,
 				bool(target_screen.get(target_id, false)), true,
 				target_screen.get(target_id)))
+	if expected.get("animal_visible", false):
+		assertions.append(_assertion("animal_clear_of_roshan_and_props",
+			float(actual.get("animal_overlap_fraction", 1.0)) <= 0.20, "<=0.20",
+			actual.get("animal_overlap_fraction")))
 	return assertions
 
 
@@ -523,10 +733,10 @@ func _hide_interface() -> void:
 
 
 func _move_to_mural_x(mural_x: float, castle_guard := false) -> void:
-	main.g["ss_walk_goal"] = null
+	main.g["lagoon_walk_goal_master"] = null
 	if castle_guard:
 		main.g["lagoon_castle_armed"] = false
-	promenade._set_spawn(promenade._walk_x(mural_x))
+	promenade.set_master_route_x(mural_x)
 	await _frames(2)
 	if castle_guard:
 		main.g["lagoon_castle_armed"] = false
@@ -569,33 +779,34 @@ func _expect_animal(expected: Dictionary, animal_id: String,
 	expected["animal_frame"] = frame
 	expected["animal_visible"] = true
 	expected["animal_on_screen"] = true
-	expected["animal_lighting_profile"] = lighting
+	expected["animal_lighting_profile"] = "canvas_day_night_tint"
 	expected["animal_texture"] = String(definition.get(
 		"startle" if state == "startle" else "idle", ""))
 
 
 func _validate_scene(expect_departed: bool, night: bool) -> bool:
-	var stage_root: Node3D = main.g.get("ss_root") as Node3D
-	var card: Node3D = main.g.get("lagoon_roshan_card") as Node3D
+	var stage_root: CanvasLayer = promenade.root()
+	var card: CanvasItem = main.g.get("lagoon_roshan_card") as CanvasItem
 	var ok: bool = main.game == "level2" and String(main.g.get("phase", "")) == "promenade" \
 		and main.mg_kind == "" and main.quality == "speedy" \
 		and main.is_night == night and stage_root != null and is_instance_valid(stage_root) \
 		and card != null and is_instance_valid(card) and _target_ids() == EXPECTED_TARGET_IDS \
 		and _route_state() == ("reef_return" if expect_departed else "arrival_plane") \
-		and main.player != null and main.player.cam != null \
-		and get_root().get_viewport().get_camera_3d() == main.player.cam
+		and promenade.camera_2d() != null \
+		and get_root().get_viewport().get_camera_2d() == promenade.camera_2d() \
+		and get_root().get_viewport().get_camera_3d() == null \
+		and main.player != null and not main.player.visible
 	for target_id: String in EXPECTED_TARGET_IDS:
 		var target := _target_by_id(target_id)
-		var node: Node3D = target.get("node") as Node3D
-		var highlight: Node3D = target.get("highlight") as Node3D
+		var node: CanvasItem = target.get("node") as CanvasItem
+		var highlight: CanvasItem = target.get("highlight") as CanvasItem
 		ok = ok and not target.is_empty() and node != null and is_instance_valid(node) \
 			and highlight != null and is_instance_valid(highlight)
-	var fireflies: Node = main.g.get("lagoon_night_fireflies") as Node
+	var fireflies: Variant = main.g.get("lagoon_night_fireflies")
 	if night:
-		ok = ok and fireflies != null and is_instance_valid(fireflies) \
-			and bool(fireflies.get("visible")) and bool(fireflies.get("emitting"))
+		ok = ok and fireflies is Array and not (fireflies as Array).is_empty()
 	else:
-		ok = ok and (fireflies == null or not is_instance_valid(fireflies))
+		ok = ok and not main.g.has("lagoon_night_fireflies")
 	return ok
 
 
@@ -641,7 +852,7 @@ func _run_capture_sequence() -> void:
 		_record_root_failure(EXPECTED_CAPTURE_IDS[0], "scene_readiness",
 			"arrival promenade not ready")
 		return
-	await _move_to_mural_x(-60.0)
+	await _move_to_mural_x(610.0)
 	_suppress_animal()
 	promenade._clear_focus()
 	var expected := _base_expected("arrival_plane")
@@ -655,7 +866,7 @@ func _run_capture_sequence() -> void:
 		_record_root_failure(EXPECTED_CAPTURE_IDS[1], "scene_readiness",
 			"return promenade not ready")
 		return
-	await _move_to_mural_x(-60.0)
+	await _move_to_mural_x(610.0)
 	_suppress_animal()
 	promenade._clear_focus()
 	expected = _base_expected("reef_return")
@@ -679,7 +890,7 @@ func _run_capture_sequence() -> void:
 	promenade._clear_focus()
 
 	for animal_id: String in ["otter", "frog"]:
-		await _move_to_mural_x(-60.0)
+		await _move_to_mural_x(610.0)
 		if not promenade._bind_animal_id(animal_id):
 			_record_root_failure(EXPECTED_CAPTURE_IDS[current_expected_index],
 				"animal_bind", animal_id)
@@ -692,7 +903,7 @@ func _run_capture_sequence() -> void:
 			return
 
 	for animal_id: String in ["hare", "squirrel"]:
-		await _move_to_mural_x(-18.9)
+		await _move_to_mural_x(2300.0)
 		if not promenade._bind_animal_id(animal_id):
 			_record_root_failure(EXPECTED_CAPTURE_IDS[current_expected_index],
 				"animal_bind", animal_id)
@@ -704,7 +915,7 @@ func _run_capture_sequence() -> void:
 				["animal", animal_id, "idle", "day"]):
 			return
 
-	await _move_to_mural_x(0.0)
+	await _move_to_mural_x(3072.0)
 	_suppress_animal()
 	expected = _base_expected("reef_return")
 	expected["camera_page"] = 1
@@ -714,7 +925,7 @@ func _run_capture_sequence() -> void:
 		return
 
 	for play_id: String in ["slide", "swing", "seesaw"]:
-		var x := {"slide": -11.5, "swing": 3.0, "seesaw": 17.0}[play_id] as float
+		var x := {"slide": 2655.0, "swing": 3200.0, "seesaw": 3760.0}[play_id] as float
 		await _move_to_mural_x(x)
 		_suppress_animal()
 		if not _focus_target(play_id):
@@ -752,7 +963,7 @@ func _run_capture_sequence() -> void:
 			abort_remaining = true
 			return
 
-	await _move_to_mural_x(48.0, true)
+	await _move_to_mural_x(4905.0, true)
 	_suppress_animal()
 	promenade._clear_focus()
 	expected = _base_expected("reef_return")
@@ -774,7 +985,7 @@ func _run_capture_sequence() -> void:
 		return
 	promenade._clear_focus()
 
-	await _move_to_mural_x(31.4, true)
+	await _move_to_mural_x(4510.0, true)
 	if not promenade._bind_animal_id("raccoon"):
 		_record_root_failure(EXPECTED_CAPTURE_IDS[16], "animal_bind", "raccoon")
 		return
@@ -796,7 +1007,7 @@ func _run_capture_sequence() -> void:
 		_record_root_failure(EXPECTED_CAPTURE_IDS[18], "scene_readiness",
 			"night promenade not ready")
 		return
-	await _move_to_mural_x(0.0)
+	await _move_to_mural_x(3072.0)
 	_suppress_animal()
 	promenade._clear_focus()
 	expected = _base_expected("reef_return", true)
@@ -805,7 +1016,7 @@ func _run_capture_sequence() -> void:
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[18], expected,
 			["playground", "overview", "night", "fireflies"]):
 		return
-	await _move_to_mural_x(48.0, true)
+	await _move_to_mural_x(4905.0, true)
 	_suppress_animal()
 	if not _focus_target("castle_gate"):
 		_record_root_failure(EXPECTED_CAPTURE_IDS[19], "missing_target", "castle_gate")

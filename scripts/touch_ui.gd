@@ -44,8 +44,9 @@ var drag_started := false          # set for one read on touch-down
 # main installs a probe so hit engines can claim a world press the moment
 # the finger LANDS — an enemy pop must never wait out the release half of a
 # preschooler's grabby tap. A claimed press marks its pend record consumed,
-# which suppresses the release-side world_touched (no double fire). Hybrid
-# only; Classic has no world-tap concept and stays a genuine rollback.
+# which suppresses the release-side world_touched (no double fire). Hybrid owns
+# combat taps. Classic stays unchanged except that an active Sky Canvas short
+# tap supplies its visible target coordinate on release.
 var world_press_probe: Callable = Callable()
 # fires when a consumed (press-fired) world touch lifts, so a held CHARGE
 # attack knows to release; also fired defensively on _clear_touch_state
@@ -305,9 +306,23 @@ func _drag(pos: Vector2) -> void:
 	else:
 		stick_vec = Vector2.ZERO
 	_knob.position = _origin + off - _knob.size * 0.5
-	if control_mode == "hybrid" and not _manual_emitted and stick_vec.length() > 0.05:
+	# Both saved touch modes are real movement inputs. Emitting this only for
+	# Hybrid left Canvas navigation/focus armed when a returning Classic user
+	# took the stick, so an off-screen PLAY/ENTER could fire afterwards.
+	if not _manual_emitted and stick_vec.length() > 0.05:
 		_manual_emitted = true
 		manual_move_started.emit()
+
+func _classic_world_tap_active() -> bool:
+	# Classic remains unchanged throughout the spatial game. Sky Lagoon is the
+	# deliberate exception because its Canvas toys, castle and one-tap Reef route
+	# are selected by the released screen coordinate rather than a blind hop.
+	var main: Node = get_parent()
+	if main == null or String(main.get("game")) != "level2":
+		return false
+	var state: Variant = main.get("g")
+	return state is Dictionary and String((state as Dictionary).get("phase", "")) \
+		== "promenade"
 
 func _release_stick() -> void:
 	if drag_mode:
@@ -315,10 +330,17 @@ func _release_stick() -> void:
 		_touch_idx = -1
 		stick_vec = Vector2.ZERO
 		return
-	# a short press with no real drag = TAP -> jump/action
-	if control_mode == "classic" and not _moved and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
-		_jump_pulse()
-		_flash(_origin)
+	# A short Classic press normally remains the shipped jump/action. The Canvas
+	# promenade needs the actual target coordinate, so it receives the same
+	# unmoved release exactly once and decides between focus, play, Reef or travel.
+	if control_mode == "classic" and not _moved \
+			and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
+		if _classic_world_tap_active():
+			world_touched.emit(_press_pos)
+			_flash(_press_pos)
+		else:
+			_jump_pulse()
+			_flash(_origin)
 	elif control_mode == "hybrid" and not _moved:
 		# The thumb bay is an accessibility stick, not a hole in the world. A
 		# press that never became a drag is still a tap on whatever is painted
@@ -620,7 +642,10 @@ func _world_swipe(world_data: Dictionary, end_pos: Vector2) -> void:
 		world_data.get("last", end_pos) as Vector2)
 
 # Reversible shipped input path. Keep behavioral edits to this method out of the
-# hybrid experiment so selecting Classic is a genuine runtime rollback.
+# hybrid experiment so selecting Classic is a genuine runtime rollback outside
+# the Sky Lagoon. The Canvas promenade is the one intentional exception: its
+# visible toys and Reef route need the finger position, so an unmoved Classic
+# press is routed to that world on release instead of becoming a blind jump.
 func _classic_unhandled_input(ev: InputEvent) -> void:
 	if ev is InputEventScreenTouch:
 		var touch := ev as InputEventScreenTouch
