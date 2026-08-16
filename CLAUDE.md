@@ -141,6 +141,21 @@ suite before/after. Shared state stays on main; extracted files receive
 patch the probe to match new behavior unless the behavior change was the
 explicit goal of the task.
 
+## Music direction
+OWNER DECISION 2026-08-16 (spec: MUSIC_DIRECTION.md — binding): **Condard's
+beats are the primary musical inspiration** — chiptune hip-hop, all
+instrumentation from a single Game Boy running LSDJ. Beats only: no rap, no
+vocals, no lyrical content from the source. New music tracks are written for
+four voices (2 pulse, 1 wave, 1 noise), ≤112 BPM, swung, 4–8 bar seamless
+loops, bass at/above ~120 Hz and hook in 500–2000 Hz so a phone speaker
+reproduces them. Never sample, clone, or AI-generate from Condard's
+recordings — every shipped byte is originated here, by tracker session or by
+deterministic script (see tools/gen_combat_sfx.py conventions). Music never
+signals failure and never competes with the family voices. The existing
+Junkala CC0 JRPG beds stay until replaced track-by-track per the migration
+plan; `world` goes first, and a replacement that plays worse in her hands
+gets reverted.
+
 ## Art direction (graphics fork)
 OWNER DECISION 2026-07-27 (charter: GAME_REDESIGN_2P5D_2026-07-27.md): the
 game is being fundamentally redesigned as a **2.5D promenade world** built
