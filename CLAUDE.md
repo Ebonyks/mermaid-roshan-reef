@@ -148,9 +148,11 @@ instrumentation from a single Game Boy running LSDJ. Beats only: no rap, no
 vocals, no lyrical content from the source. New music tracks are written for
 four voices (2 pulse, 1 wave, 1 noise), ≤112 BPM, swung, 4–8 bar seamless
 loops, bass at/above ~120 Hz and hook in 500–2000 Hz so a phone speaker
-reproduces them. Never sample, clone, or AI-generate from Condard's
-recordings — every shipped byte is originated here, by tracker session or by
-deterministic script (see tools/gen_combat_sfx.py conventions). Music never
+reproduces them. Three authoring channels, all legitimate: tracker session,
+deterministic script (tools/gen_combat_sfx.py conventions), or AI generation
+— AI use here is a deliberate artistic statement, not a fallback (owner note
+in the spec). The one line that holds: no sampling, no stems, no track built
+to stand in for a specific Condard recording. Music never
 signals failure and never competes with the family voices. The existing
 Junkala CC0 JRPG beds stay until replaced track-by-track per the migration
 plan; `world` goes first, and a replacement that plays worse in her hands

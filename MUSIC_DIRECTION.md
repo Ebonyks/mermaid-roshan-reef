@@ -38,14 +38,28 @@ That constraint — not the artist's catalogue — is what we inherit.
   which the music must always duck under.
 - **No lyrical or thematic content.** The source album's subject matter is
   adult and political. It has no bearing on a 4-year-old's reef.
-- **No sampling, no stems, no clones.** We do not lift, reprocess, or
-  imitate-to-the-note any Condard recording, and we do not run any AI music
-  generator over their work to approximate it. Genre and technique are the
-  inspiration; every byte we ship is originated here. This keeps
-  ASSET_LICENSES.md honest and respects an artist whose album is, in his own
-  words, a love letter to hating on AI.
+- **No sampling, no stems, no specific-track reproduction.** We do not lift or
+  reprocess Condard audio, and we do not set out to recreate a particular
+  Condard track closely enough that it stands in for that track. The genre,
+  the groove and the hardware constraint are the reference — not any one
+  recording.
 - **No aggression.** Distorted noise slams, harsh transients, sub-bass drops
   and anything that reads as threat are out. See §4.
+
+### On AI generation — OWNER NOTE 2026-08-16
+
+AI is a permitted authoring channel here, and its use is deliberate rather
+than incidental. In the owner's framing: the source album takes a broad-handed
+oppositional stance toward AI, and making this soundtrack *with* AI, in that
+style, is the artistic statement — a contrasting vision from a future that
+understands the place and time of the tool rather than refusing it outright.
+Working in an established style has never been plagiarism, and nothing here
+passes itself off as Condard's work or competes with it: this is the score to
+a private game made for one child.
+
+The line that does hold is §1's — no sampling, no stems, no standing in for a
+specific track. Beyond that, use whichever channel in §3 produces the best
+result in her hands.
 
 ---
 
@@ -99,13 +113,30 @@ Rules:
   reverb tails baked into the music bed — the room tone is the ambience layer's
   job (`assets/audio/ambience_*.ogg`).
 
-**Authoring is allowed two ways** and no others:
-1. A real LSDJ (or equivalent tracker) session, recorded and rendered by the
-   owner — the preferred channel when a human wants to write the tune.
-2. Deterministic project synthesis, following `tools/gen_combat_sfx.py`
+**Three authoring channels**, all legitimate. Pick by what gets the best track,
+not by principle:
+
+1. **A real LSDJ (or equivalent tracker) session**, recorded and rendered by
+   the owner. Gives the genuine article by definition.
+2. **Deterministic project synthesis**, following `tools/gen_combat_sfx.py`
    conventions: pure-stdlib, seeded RNG, 44.1 kHz mono, explicit fades, one
-   script that regenerates the exact same bytes. Its output is project-original
-   and license-clean by construction.
+   script that regenerates the exact same bytes.
+3. **AI generation** (see the owner note in §1). Two sub-routes, and the second
+   is usually the better one:
+   - *Direct audio generation.* Fastest, but be aware that most music models
+     produce "chiptune-flavoured" synth — chip timbres over a modern
+     multi-track arrangement — rather than something a Game Boy could actually
+     play. Audition against §3's four-voice rule; if you can hear five things
+     at once or a bass note under 120 Hz, it missed the constraint that makes
+     this style sound like itself.
+   - *AI-composed, chip-rendered.* Have the model write the note data —
+     pattern, groove, swing, bassline, hook — and render it through a true
+     four-channel Game Boy synth (route 2's script, extended into
+     `tools/gen_music.py`). This keeps the hardware constraint exact while the
+     composition comes from the model, and it is reproducible from source: the
+     repo holds the pattern data and the renderer, not just an opaque WAV.
+     It is also the most literal form of the owner's statement — AI writing
+     inside the same four-channel box the reference venerates.
 
 ---
 
@@ -186,9 +217,18 @@ be authored to sit correctly inside them, not to require changes to them:
 ## 7. Licensing
 
 Every new track gets its line in `ASSET_LICENSES.md` **in the same commit that
-adds it** (CLAUDE.md hard rule), naming the generating script or the tracker
-session and stating "project original". No Condard recording, stem, or sample
-ever enters this repository.
+adds it** (CLAUDE.md hard rule). State the channel honestly, because the
+provenance differs by route:
+
+- **Tracker session** — "project original", name the session/instrument.
+- **Deterministic synthesis** — "project original", name the generating script.
+  Reproducible from source.
+- **AI generation** — name the model/service and the generation ID, the same
+  way the Codex and OpenAI concept-art entries already do further down that
+  file. For the AI-composed/chip-rendered route, also name the renderer script
+  and commit the pattern data, so the track rebuilds from the repo.
+
+No Condard recording, stem, or sample ever enters this repository.
 
 ---
 
