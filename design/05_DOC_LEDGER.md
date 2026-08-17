@@ -5,9 +5,11 @@ _Initial 149-document index: 2026-08-02. Targeted authority reconciliation:
 classification and exact-head closure verification: 2026-08-13._
 
 This ledger is exhaustive for the repository's current Git-declared inventory
-of **316 tracked or intended-tracked Markdown paths**: the 315-path base at
-`18b6150c01e1587100dca97c85ebad03f369825a` plus the newly unignored canonical
-findings register in this audit candidate. Every path reported by the
+of **317 tracked or intended-tracked Markdown paths**: the 315-path base at
+`18b6150c01e1587100dca97c85ebad03f369825a`, the newly unignored canonical
+findings register in this audit candidate, and the one
+`PROPOSED_CANDIDATE` branch-review/goals proposal added on 2026-08-17, which
+carries no lifecycle authority. Every path reported by the
 fail-closed cached/unignored inventory appears exactly once in the first column
 of a classification row. Grouped legacy rows were split without changing their
 curated rulings; the additional rows deliberately bound stale, mixed,
@@ -73,6 +75,7 @@ unclassified until this ledger gains one new scoped row for it.
 | `audit/MASTER_AUDIT_2026-08-09.md` | 🟢 | `CANONICAL_CURRENT`; synchronized audit-cycle/evidence/lifecycle record. Overall state remains `REPAIRING`, satisfaction `UNSATISFIED`. Unchanged product source `51d0abc0` passes exact local CI in 1,404.5 seconds/all 64; governance-only integrated head `441adf35` passes exact local CI in 1,391.5 seconds/all 64, topic/dev Probe runs `31760207048`/`31762132976`, and exact-head Android `31763879294`. Separate run-14 20/20 local Mobile/Speedy evidence has manifest/PNG/probe hashes but an unknown source revision. Both current remote Sky diagnostics remain non-authoritative renderer failures after their 20 PASS rows, with PNG-only upload and no remote JSON/Mobile PASS. No device/child/owner/accepted-visual evidence exists. Historical `7391c53c` run `31728755204` retains its earlier failed remote Sky renderer subprocess. `MA-VIS-002` is `FIXED_PENDING_VERIFICATION`; `MA-VIS-006` remains `CONFIRMED_OPEN`; global visual remains 16/17/2/86/32/94. |
 | `audit/findings/ACTIVE_FINDINGS_2026-08-13.md` | 🟢 | `BINDING_AUDIT_RECORD` for 36 complete field-level P1/P2 records, linked from section 5 and retained through terminal transitions. Exact integrated head `441adf35` preserves the green 36-test/six-stress/316-parity document gate and 34 active/36 retained records in both topic/dev remote runs; `MA-DOC-005` is `VERIFIED_FIXED`. The file cannot silently add an item or change master severity/lifecycle. |
 | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` | 🟢 | `BINDING_OPERATIONAL` for stable `CHG-*` scope and rollback. Current inventory is 31 IDs, 79 uniquely owned commit references, four guarded-script emitters, 25 planner tests, and 27 manual/refusal groups. Manual/non-emitting CHG-031 owns exact 19-path source `51d0abc0`, including `scripts/probe_northern.gd`, at +3,318/-3,517. The ledger never authorizes rollback that violates protected-asset, security, save, or final-medium rules. |
+| `audit/DEV_GOALS_AND_BUG_BACKLOG_2026-08-17.md` | 🟣 | `PROPOSED_CANDIDATE` planning proposal under the master-audit category, created at exact `origin/dev` `ac8ce918`. It reviews the master audit, dispositions all 85 unmerged branches of the 313-branch estate, and proposes `BF-*` bug fixes and `G-*` goals. It is not canonical, closes no finding, changes no `MA-*` severity or lifecycle, and grants no device, child, owner, voice, listening, strict-2D, or accepted-visual evidence; the master audit and the findings register stay the lifecycle owners. Its proposals become work only through the normal probe-gated repair protocol. |
 | `ASSET_AUDIT.md` | ⚪ | `HISTORICAL_EVIDENCE`; 2026-06-25 CC0 audit/network decision. Current named-defect discipline comes from design 06; its stale music inventory is superseded by `MUSIC_AUDIT_2026-08-09.md`. |
 
 ## Game design lineage
