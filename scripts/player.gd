@@ -30,6 +30,14 @@ var _mlook_dx := 0.0
 var _mlook_dy := 0.0
 
 func _input(ev: InputEvent) -> void:
+	var m: Node = get_parent()
+	if m != null and m.has_method("_slide_canvas_return_guard_active") \
+			and bool(m.call("_slide_canvas_return_guard_active")):
+		# Main owns the terminal census; Player only sinks look accumulation until
+		# the return fade and two neutral polls have established a fresh boundary.
+		_mlook_dx = 0.0
+		_mlook_dy = 0.0
+		return
 	if ev is InputEventMouseMotion and (ev.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
 		_mlook_dx += ev.relative.x
 		_mlook_dy += ev.relative.y
@@ -546,6 +554,17 @@ func _process(delta: float) -> void:
 	_mlook_dx = 0.0
 	_mlook_dy = 0.0
 	var _m0: Node = get_parent()
+	if _m0 != null and _m0.has_method("_slide_canvas_return_guard_active") \
+			and bool(_m0.call("_slide_canvas_return_guard_active")):
+		vel *= 0.0
+		return
+	if "game" in _m0 and "g" in _m0 and String(_m0.game) == "slide" \
+			and String((_m0.g as Dictionary).get("mode", "")) == "fish":
+		# The Harper/Fiona route hides this spatial actor behind a complete Canvas
+		# world. Suspend even its visual clock so no unseen Reef work continues;
+		# Penguin chase remains the externally-driven 3D slide below.
+		vel *= 0.0
+		return
 	# Visual life runs before every gameplay early-return. Overlays, cutscenes,
 	# externally-driven modes and puppet staging may suspend controls or physics,
 	# but a visible Roshan never suspends her atlas clock or breathing motion.

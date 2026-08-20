@@ -179,6 +179,9 @@ func toggle_pause() -> void:
 	# a held-source release latch without turning resume into a score.
 	if m.game == "melody":
 		(m._game_obj("melody", MelodyGame) as MelodyGame).on_pause_changed(paused)
+	if m.has_method("_slide_canvas_fish_route_active") \
+			and bool(m.call("_slide_canvas_fish_route_active")):
+		(m._game_obj("race", SlideRaceGame) as SlideRaceGame).on_pause_changed(paused)
 	m.get_tree().paused = paused
 	m.pause_panel.visible = paused
 	# Activity overlays normally cover the corner button. Start/Escape raises
@@ -278,13 +281,17 @@ func _leave_current_activity() -> void:
 	if m.game == "":
 		return
 	var leaving_game: String = m.game
+	var leaving_slide_canvas: bool = m.has_method("_slide_canvas_fish_route_active") \
+		and bool(m.call("_slide_canvas_fish_route_active"))
 	var friend_state: Dictionary = m.g.get("fr", {})
 	var leaving_name: String = String(friend_state.get("fname", ""))
 	m._leave_arena()
 	# Back to free swim at return_pos: shed any banking/pitch tilt frozen by
-	# the arena so she does not reappear mid-lean in the reef.
-	m.player.rotation.x = 0.0
-	m.player.rotation.z = 0.0
+	# a spatial arena so she does not reappear mid-lean in the reef. The opaque
+	# fish Canvas never changed that return pose, so preserve it exactly.
+	if not leaving_slide_canvas:
+		m.player.rotation.x = 0.0
+		m.player.rotation.z = 0.0
 	if not friend_state.is_empty():
 		friend_state["cool"] = 8.0
 	if leaving_game == "fairyshoot":

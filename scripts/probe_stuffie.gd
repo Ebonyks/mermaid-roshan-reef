@@ -564,6 +564,7 @@ func _patient_care_case() -> void:
 	if main.companion_want == "":
 		main.companion_want_cool = 0.0
 		comp._tick_care(0.0)
+	main.clear_dialogue()
 	main.said_cool.clear()
 	var voice_before: int = main.voice_i
 	main.companion_rest_timer = 0.01

@@ -62,23 +62,26 @@ func _init() -> void:
 			bad += 1
 			continue
 		var gname := String(main.game)
-		# Park spatial activities at their arena spawn. Melody's opaque Canvas
-		# must preserve the real Daddy-route return coordinate untouched.
-		if gname != "melody":
+		# Park arena activities at their spawn. Opaque Canvas routes must preserve
+		# their real friend-route return coordinate untouched.
+		if gname not in ["melody", "slide"]:
 			player.position = main.ARENA_POS + Vector3(0, 8, 18)
 			player.vel = Vector3.ZERO
-		main.touch_ui.stick_vec = Vector2.ZERO
-		main.touch_ui.action_down = false
+			main.touch_ui.stick_vec = Vector2.ZERO
+			main.touch_ui.action_down = false
 		var won_before := bool(f["won"])
 		var pearls_before: int = main.pearl_count
 		var trophies_before: int = main.trophies
 		var stickers_before: Dictionary = main.stickers.duplicate(true)
 		var medals_before: Dictionary = main.medals.duplicate(true)
+		var save_generation_before: int = main.save_generation
+		var save_fingerprint_before: String = _save_fingerprint()
 		while main.game != "" and float(main.g.get("t", 0.0)) < 60.0:
 			await process_frame
 		var still_running: bool = main.game != ""
 		var activity_progressed := false
 		var melody_passive_contract := true
+		var slide_passive_contract := true
 		if gname == "melody":
 			var melody := main._game_obj("melody", MelodyGame) as MelodyGame
 			activity_progressed = melody.progress_count() != 0
@@ -87,17 +90,32 @@ func _init() -> void:
 				and melody.active_note_id() >= 0 \
 				and int(main.g.get("caught", -1)) == 0 \
 				and float(main.g.get("t", 0.0)) >= 60.0
+		elif gname == "slide":
+			var slide := main._game_obj("race", SlideRaceGame) as SlideRaceGame
+			var snapshot: Dictionary = slide.audit_snapshot()
+			slide_passive_contract = slide.active_layer() != null \
+				and slide.stage_root() != null and slide.fish_count() == 5 \
+				and String(main.g.get("mode", "")) == "fish" \
+				and not bool(main.g.get("steered", true)) \
+				and slide.progress_count() < slide.fish_count() \
+				and not bool(snapshot.get("completed", true)) \
+				and bool(snapshot.get("no_fail_state", false)) \
+				and float(main.g.get("t", 0.0)) >= 60.0
+		var save_unchanged: bool = main.save_generation == save_generation_before \
+			and _save_fingerprint() == save_fingerprint_before
 		if still_running:
 			main._clear_game()
 			await _frames(5)
 		var won_passively: bool = bool(f["won"]) and not won_before
 		var progression_changed: bool = main.pearl_count != pearls_before or main.trophies != trophies_before or main.stickers != stickers_before or main.medals != medals_before
 		if won_passively or progression_changed or activity_progressed \
-				or not still_running or not melody_passive_contract:
+				or not still_running or not melody_passive_contract \
+				or not slide_passive_contract or not save_unchanged:
 			print("PASSIVE|", fname, " [", gname, "]: FAIL zero-input state won=", won_passively,
 				" progression=", progression_changed,
 				" activity_progress=", activity_progressed,
-				" surface=", melody_passive_contract,
+				" surface=", melody_passive_contract and slide_passive_contract,
+				" save=", save_unchanged,
 				" still_running=", still_running)
 			bad += 1
 		else:
@@ -126,6 +144,11 @@ func _init() -> void:
 func _frames(n: int):
 	for i in range(n):
 		await process_frame
+
+
+func _save_fingerprint() -> String:
+	var path := "user://reef_save.json"
+	return FileAccess.get_sha256(path) if FileAccess.file_exists(path) else "absent"
 
 func _progress_snapshot() -> Dictionary:
 	var stickers_now: Dictionary = main.stickers

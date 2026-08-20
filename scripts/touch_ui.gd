@@ -196,6 +196,11 @@ func _ready() -> void:
 	set_mode(control_mode)
 
 func _process(delta: float) -> void:
+	if get_tree().paused:
+		var main: Node = get_parent()
+		if main != null and main.has_method(
+				"_retire_paused_slide_canvas_restore_boundary"):
+			main.call("_retire_paused_slide_canvas_restore_boundary")
 	if _pulse > 0.0:
 		_pulse -= delta
 		if _pulse <= 0.0 and _jump_fingers.is_empty() and _action_fingers.is_empty():
@@ -405,6 +410,14 @@ func _pause_zone_owned_by_melody_overlay() -> bool:
 	return main != null and main.has_method("_melody_overlay_owns_input") \
 		and bool(main.call("_melody_overlay_owns_input"))
 
+
+func _pause_zone_owned_by_canvas_overlay() -> bool:
+	if _pause_zone_owned_by_melody_overlay():
+		return true
+	var main: Node = get_parent()
+	return main != null and main.has_method("_slide_canvas_overlay_owns_input") \
+		and bool(main.call("_slide_canvas_overlay_owns_input"))
+
 func _forward_paused_melody_release(ev: InputEvent) -> void:
 	# ReefMain does not process input while SceneTree.paused, but this persistent
 	# layer does. Relay only terminal source lifts so Main can retire its global
@@ -435,6 +448,27 @@ func _forward_paused_melody_release(ev: InputEvent) -> void:
 	if main != null and main.has_method("_retire_paused_melody_release"):
 		main.call("_retire_paused_melody_release", ev)
 
+
+func _forward_paused_slide_canvas_release(ev: InputEvent) -> void:
+	# Directional keys, d-pad and the left axis have a different terminal
+	# vocabulary than Melody's action buttons. Let Main classify the event and
+	# retire only its exact slide source; never claim it from the Pause GUI.
+	if not get_tree().paused:
+		return
+	var main: Node = get_parent()
+	if main != null and main.has_method("_retire_paused_slide_canvas_release"):
+		main.call("_retire_paused_slide_canvas_release", ev)
+
+
+func _retire_consumed_canvas_entry_release(ev: InputEvent) -> void:
+	# Hybrid stick/action terminals are handled here before ReefMain's _input can
+	# observe them. Retire only the matching pre-entry census tokens; live opaque
+	# controllers disable these world controls and keep their normal route.
+	var main: Node = get_parent()
+	if main != null and main.has_method(
+			"_retire_touch_ui_consumed_entry_release"):
+		main.call("_retire_touch_ui_consumed_entry_release", ev)
+
 func _consume_blocked_melody_context_input(ev: InputEvent) -> bool:
 	# Main is pausable, but this relay and the Pause Canvas are always-processing.
 	# While the OS context is absent, consume queued physical vocabulary before a
@@ -450,6 +484,73 @@ func _consume_blocked_melody_context_input(ev: InputEvent) -> bool:
 	var context_blocked: bool = bool(
 		main.call("_melody_input_context_blocks_input"))
 	if not os_context_lost and (not context_blocked or get_tree().paused):
+		return false
+	var physical_event: bool = ev is InputEventScreenTouch \
+		or ev is InputEventScreenDrag \
+		or ev is InputEventMouseButton \
+		or ev is InputEventMouseMotion \
+		or ev is InputEventKey \
+		or ev is InputEventJoypadButton \
+		or ev is InputEventJoypadMotion \
+		or ev is InputEventAction
+	if not physical_event:
+		return false
+	get_viewport().set_input_as_handled()
+	return true
+
+
+func _consume_blocked_slide_canvas_context_input(ev: InputEvent) -> bool:
+	# Main is pausable, so this always-processing layer owns the fail-closed seam
+	# while focus/background is absent and during the first restored active tick.
+	var main: Node = get_parent()
+	if main == null or not main.has_method("_slide_canvas_fish_route_active") \
+			or not bool(main.call("_slide_canvas_fish_route_active")) \
+			or not main.has_method("_slide_canvas_input_context_lost") \
+			or not main.has_method("_slide_canvas_input_context_blocks_input"):
+		return false
+	var os_context_lost: bool = bool(
+		main.call("_slide_canvas_input_context_lost"))
+	var context_blocked: bool = bool(
+		main.call("_slide_canvas_input_context_blocks_input"))
+	var poll_restore_waiting: bool = main.has_method(
+		"_slide_canvas_poll_restore_waiting") \
+		and bool(main.call("_slide_canvas_poll_restore_waiting"))
+	if not os_context_lost and not context_blocked \
+			and not poll_restore_waiting:
+		return false
+	var physical_event: bool = ev is InputEventScreenTouch \
+		or ev is InputEventScreenDrag \
+		or ev is InputEventMouseButton \
+		or ev is InputEventMouseMotion \
+		or ev is InputEventKey \
+		or ev is InputEventJoypadButton \
+		or ev is InputEventJoypadMotion \
+		or ev is InputEventAction
+	if not physical_event:
+		return false
+	if poll_restore_waiting and main.has_method(
+			"_record_slide_canvas_poll_level"):
+		main.call("_record_slide_canvas_poll_level", ev)
+	get_viewport().set_input_as_handled()
+	return true
+
+
+func _consume_slide_canvas_return_guard_input(ev: InputEvent) -> bool:
+	# This layer keeps receiving input while SceneTree is paused, so it mirrors
+	# Main's broad return census before sinking the held gameplay vocabulary.
+	# Duplicate observation while unpaused is idempotent; terminal releases win.
+	var main: Node = get_parent()
+	if main == null or not main.has_method("_slide_canvas_return_guard_active") \
+			or not main.has_method("_slide_canvas_fish_route_active"):
+		return false
+	var canvas_or_return: bool = bool(
+		main.call("_slide_canvas_fish_route_active")) \
+		or bool(main.call("_slide_canvas_return_guard_active"))
+	if not canvas_or_return:
+		return false
+	if main.has_method("_observe_slide_canvas_return_source"):
+		main.call("_observe_slide_canvas_return_source", ev)
+	if not bool(main.call("_slide_canvas_return_guard_active")):
 		return false
 	var physical_event: bool = ev is InputEventScreenTouch \
 		or ev is InputEventScreenDrag \
@@ -802,16 +903,21 @@ func consume_look() -> Vector2:
 	return look
 
 func _input(ev: InputEvent) -> void:
+	if _consume_slide_canvas_return_guard_input(ev):
+		return
 	if _consume_blocked_melody_context_input(ev):
 		return
+	if _consume_blocked_slide_canvas_context_input(ev):
+		return
 	_forward_paused_melody_release(ev)
+	_forward_paused_slide_canvas_release(ev)
 	# These fixed controls must win before ordinary GUI routing. Overlay
 	# builders disable world_controls_enabled, so their own buttons still keep
 	# the whole screen while open.
 	if wants_touch() and ev is InputEventScreenTouch:
 		var touch := ev as InputEventScreenTouch
 		if touch.pressed and pause_zone().has_point(touch.position) \
-				and not _pause_zone_owned_by_melody_overlay():
+				and not _pause_zone_owned_by_canvas_overlay():
 			_request_pause()
 			get_viewport().set_input_as_handled()
 			return
@@ -825,11 +931,13 @@ func _input(ev: InputEvent) -> void:
 			else:
 				var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
 				if owner == TouchOwner.STICK and touch.index == _touch_idx:
+					_retire_consumed_canvas_entry_release(touch)
 					_release_stick()
 					touch_owners.erase(touch.index)
 					get_viewport().set_input_as_handled()
 					return
 				if owner == TouchOwner.ACTION:
+					_retire_consumed_canvas_entry_release(touch)
 					_release_action(touch.index)
 					touch_owners.erase(touch.index)
 					get_viewport().set_input_as_handled()
@@ -847,7 +955,7 @@ func _input(ev: InputEvent) -> void:
 		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
 				and mouse_button.button_index == MOUSE_BUTTON_LEFT:
 			if mouse_button.pressed and pause_zone().has_point(mouse_button.position) \
-					and not _pause_zone_owned_by_melody_overlay():
+					and not _pause_zone_owned_by_canvas_overlay():
 				_request_pause()
 				get_viewport().set_input_as_handled()
 				return
@@ -857,11 +965,13 @@ func _input(ev: InputEvent) -> void:
 					get_viewport().set_input_as_handled()
 					return
 				if not mouse_button.pressed and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
+					_retire_consumed_canvas_entry_release(mouse_button)
 					_release_stick()
 					touch_owners.erase(99)
 					get_viewport().set_input_as_handled()
 					return
 				if not mouse_button.pressed and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.ACTION:
+					_retire_consumed_canvas_entry_release(mouse_button)
 					_release_action(99)
 					touch_owners.erase(99)
 					get_viewport().set_input_as_handled()

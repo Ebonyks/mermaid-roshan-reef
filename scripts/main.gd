@@ -32,6 +32,20 @@ const MELODY_LEGACY_TOUCH_SOURCE := &"legacy_world_touch"
 const MELODY_CONTEXT_FOCUS := &"focus"
 const MELODY_CONTEXT_APPLICATION := &"application"
 const MELODY_CONTEXT_CLOSE := &"window_close"
+const SLIDE_CANVAS_LEGACY_TOUCH_SOURCE := &"slide_canvas_legacy_world_touch"
+const SLIDE_CANVAS_CONTEXT_FOCUS := &"focus"
+const SLIDE_CANVAS_CONTEXT_APPLICATION := &"application"
+const SLIDE_CANVAS_CONTEXT_CLOSE := &"window_close"
+const SLIDE_CANVAS_RETURN_KEYS: Array[Key] = [
+	KEY_W, KEY_A, KEY_S, KEY_D,
+	KEY_UP, KEY_LEFT, KEY_DOWN, KEY_RIGHT,
+	KEY_SPACE, KEY_ENTER, KEY_KP_ENTER,
+]
+const SLIDE_CANVAS_RETURN_PAD_BUTTONS: Array[JoyButton] = [
+	JOY_BUTTON_A, JOY_BUTTON_B, JOY_BUTTON_X, JOY_BUTTON_Y,
+	JOY_BUTTON_DPAD_UP, JOY_BUTTON_DPAD_DOWN,
+	JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_RIGHT,
+]
 
 var player: Node3D
 var pearls: Array[Node3D] = []
@@ -109,6 +123,15 @@ var g := {}                 # per-game scratch
 var game_nodes: Array[Node3D] = []
 var _melody_held_sources: Dictionary = {}
 var _melody_input_context_losses: Dictionary = {}
+var _slide_canvas_held_sources: Dictionary = {}
+var _slide_canvas_input_context_losses: Dictionary = {}
+var _slide_canvas_overlay_axis_wait_neutral := false
+var _slide_canvas_overlay_poll_neutral_frames := 0
+var _slide_canvas_return_guard_armed := false
+var _slide_canvas_return_held_sources: Dictionary = {}
+var _slide_canvas_return_neutral_frames := 0
+var _slide_canvas_return_fade_clear := false
+var _slide_canvas_return_retire_pending := false
 var fs_fails := 0                  # boss attempts lost -> retry kindness (+6s each, max +12)
 var _fairy_art_cache: Dictionary = {}
 var world_env: Environment
@@ -712,12 +735,41 @@ func _input(ev: InputEvent) -> void:
 	# delayed platform traffic rebuild Melody's entry-source census, and never
 	# route a live Melody stage until every loss reason and its first-active-tick
 	# restoration guard have cleared.
+	if _slide_canvas_fish_route_active() or _slide_canvas_return_guard_active():
+		_observe_slide_canvas_return_source(ev)
+	if _slide_canvas_return_guard_active() \
+			and _slide_canvas_return_physical_event(ev):
+		# The return fade is still opaque or the pre-return physical levels have
+		# not established a trustworthy neutral boundary. Observe terminal levels
+		# above, then consume the whole gameplay vocabulary before Reef systems or
+		# a focused Control can turn a held source into a fresh action.
+		get_viewport().set_input_as_handled()
+		return
 	var melody_context_blocked: bool = _melody_input_context_blocks_input()
+	var slide_canvas_context_blocked: bool = _slide_canvas_input_context_blocks_input()
+	var slide_canvas_source: StringName = _slide_canvas_source_token(ev)
+	var slide_canvas_source_was_held: bool = not slide_canvas_source.is_empty() \
+		and _slide_canvas_held_sources.has(slide_canvas_source)
 	if not melody_context_blocked:
 		_track_melody_source_state(ev)
+	if not slide_canvas_context_blocked:
+		_track_slide_canvas_source_state(ev)
 	if game == "melody" and melody_context_blocked:
 		# Fail closed before TouchUI or a focused Pause Control can interpret stale
 		# queued actions. TouchUI repeats this sink while Main is SceneTree-paused.
+		get_viewport().set_input_as_handled()
+		return
+	if _slide_canvas_fish_route_active() and slide_canvas_context_blocked:
+		# The fish slide has the same source-free restoration boundary. Consume
+		# delayed platform traffic before it can steer or activate a Pause control.
+		get_viewport().set_input_as_handled()
+		return
+	if _slide_canvas_fish_route_active() \
+			and _slide_canvas_overlay_axis_wait_neutral:
+		# The controller guard has retired, but polled overlay sources still need
+		# two trustworthy neutral samples. Record their raw level only; consume the
+		# event before a focused GUI Button can reinterpret held A/B as ui_accept.
+		_record_slide_canvas_poll_level(ev)
 		get_viewport().set_input_as_handled()
 		return
 	# Story exchanges advance on the next deliberate press and consume that
@@ -737,7 +789,20 @@ func _input(ev: InputEvent) -> void:
 	if game == "opera" and dialogue_press and skip_dialogue():
 		get_viewport().set_input_as_handled()
 		return
-	_living_world_ref().note_input(ev)
+	if _route_slide_canvas_input(ev, slide_canvas_source_was_held):
+		# A claimed Canvas steer never reaches the hidden Reef activity census or
+		# seeds its raw-pad fallback state. A terminal axis/d-pad event may be the
+		# release of a level first observed by an overlay, so mirror only that neutral
+		# value to prevent a stale cursor on the next overlay opening.
+		if _slide_canvas_source_release(ev):
+			_record_slide_canvas_poll_level(ev)
+		get_viewport().set_input_as_handled()
+		return
+	if not _slide_canvas_fish_route_active():
+		# The opaque ride suspends the hidden Reef's living-world clock. Unclaimed
+		# controller traffic may still update the legacy raw-pad fallback below,
+		# but it must not cancel or cool down a passive Reef event behind the stage.
+		_living_world_ref().note_input(ev)
 	# record raw joypad events: unmapped pads never show up through the polled
 	# Input.get_joy_axis / is_joy_button_pressed API, but they DO send events
 	if ev is InputEventJoypadMotion:
@@ -854,6 +919,7 @@ func _ready() -> void:
 		joy_ev_btn.clear()
 		if not _conn:
 			_forget_melody_pad_device(_dev)
+			_forget_slide_canvas_pad_device(_dev)
 		_refresh_joy_mapped())
 	_refresh_joy_mapped()
 	_build_environment()
@@ -3356,7 +3422,7 @@ func _build_fade_cover() -> void:
 	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fade_rect.modulate.a = 0.0
 	cl.add_child(fade_rect)
-	fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	fade_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 func _fade_cut(cb: Callable) -> void:
 	# Visual cover for a synchronous heavy world rebuild. PROBE SAFETY: the
@@ -3666,18 +3732,330 @@ func _restore_melody_input_context(reason: StringName) -> void:
 		_melody_held_sources.clear()
 
 
+func _slide_canvas_fish_route_active() -> bool:
+	# Route scope is deliberately exact. Penguin Slide remains the legacy chase,
+	# and game="race" remains the shared 3D play-place course.
+	return game == "slide" and String(g.get("mode", "")) == "fish"
+
+
+func _slide_canvas_return_guard_active() -> bool:
+	return _slide_canvas_return_guard_armed
+
+
+func _slide_canvas_return_fade_is_clear() -> bool:
+	return fade_rect == null or (fade_rect.modulate.a <= 0.02 \
+		and fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+
+
+func _slide_canvas_return_guard_snapshot() -> Dictionary:
+	return {
+		"active": _slide_canvas_return_guard_armed,
+		"fade_clear": _slide_canvas_return_fade_is_clear(),
+		"neutral_frames": _slide_canvas_return_neutral_frames,
+		"held_sources": _slide_canvas_return_held_sources.size(),
+		"context_lost": _slide_canvas_input_context_lost(),
+		"physical_neutral": _slide_canvas_return_sources_neutral(),
+		"control_blocked": touch_control_blocks.has("slide_canvas_return"),
+		"retire_pending": _slide_canvas_return_retire_pending,
+	}
+
+
+func _slide_canvas_return_physical_event(ev: InputEvent) -> bool:
+	return ev is InputEventScreenTouch or ev is InputEventScreenDrag \
+		or ev is InputEventMouseButton or ev is InputEventMouseMotion \
+		or ev is InputEventKey or ev is InputEventJoypadButton \
+		or ev is InputEventJoypadMotion or ev is InputEventAction
+
+
+func _slide_canvas_return_source_token(ev: InputEvent) -> StringName:
+	# This deliberately has a broader vocabulary than the live slide source
+	# router. Never feed these tokens to arm_entry_sources(): the Canvas runtime
+	# owns only left/right steering and cannot retire A/B, vertical or look axes.
+	if ev is InputEventScreenTouch:
+		var touch := ev as InputEventScreenTouch
+		return StringName("return:touch:%d:%d" % [touch.device, touch.index])
+	if ev is InputEventScreenDrag:
+		var drag := ev as InputEventScreenDrag
+		return StringName("return:touch:%d:%d" % [drag.device, drag.index])
+	if ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index in [MOUSE_BUTTON_LEFT,
+				MOUSE_BUTTON_RIGHT]:
+			return StringName("return:mouse:%d:%d" % [mouse_button.device,
+				mouse_button.button_index])
+	if ev is InputEventMouseMotion:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
+			if (mouse_motion.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0:
+				return StringName("return:mouse:%d:%d" % [mouse_motion.device,
+					MOUSE_BUTTON_LEFT])
+			if (mouse_motion.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
+				return StringName("return:mouse:%d:%d" % [mouse_motion.device,
+					MOUSE_BUTTON_RIGHT])
+	if ev is InputEventKey:
+		var key := ev as InputEventKey
+		var key_code: int = int(key.physical_keycode)
+		if key_code == 0:
+			key_code = int(key.keycode)
+		if key_code in SLIDE_CANVAS_RETURN_KEYS:
+			return StringName("return:key:%d:%d" % [key.device, key_code])
+	if ev is InputEventJoypadButton:
+		var button := ev as InputEventJoypadButton
+		if button.button_index in SLIDE_CANVAS_RETURN_PAD_BUTTONS:
+			return StringName("return:pad:%d:button:%d" % [button.device,
+				button.button_index])
+	if ev is InputEventJoypadMotion:
+		var motion := ev as InputEventJoypadMotion
+		if motion.axis in [JOY_AXIS_LEFT_X, JOY_AXIS_LEFT_Y,
+				JOY_AXIS_RIGHT_X, JOY_AXIS_RIGHT_Y]:
+			return StringName("return:pad:%d:axis:%d" % [motion.device,
+				motion.axis])
+	return &""
+
+
+func _observe_slide_canvas_return_source(ev: InputEvent) -> void:
+	# During a context loss there is no trustworthy terminal stream. The loss
+	# hook clears this census; post-restore physical polling establishes the new
+	# baseline without reviving delayed events as owners.
+	if _slide_canvas_input_context_lost():
+		return
+	var source_token: StringName = _slide_canvas_return_source_token(ev)
+	if not source_token.is_empty():
+		var pressed := false
+		var released := false
+		if ev is InputEventScreenTouch:
+			pressed = (ev as InputEventScreenTouch).pressed
+			released = not pressed
+		elif ev is InputEventScreenDrag or ev is InputEventMouseMotion:
+			pressed = true
+		elif ev is InputEventMouseButton:
+			pressed = (ev as InputEventMouseButton).pressed
+			released = not pressed
+		elif ev is InputEventKey:
+			var key := ev as InputEventKey
+			pressed = key.pressed and not key.echo
+			released = not key.pressed
+		elif ev is InputEventJoypadButton:
+			pressed = (ev as InputEventJoypadButton).pressed
+			released = not pressed
+		elif ev is InputEventJoypadMotion:
+			pressed = absf((ev as InputEventJoypadMotion).axis_value) > 0.18
+			released = not pressed
+		if pressed:
+			_slide_canvas_return_held_sources[source_token] = true
+		elif released:
+			_slide_canvas_return_held_sources.erase(source_token)
+	if _slide_canvas_return_guard_armed:
+		# Guard traffic returns before the ordinary Melody census tracker. Retire
+		# only the exact terminal token here so a source held through the fish
+		# stage cannot poison a later Melody entry; never route or cancel a live
+		# Melody controller from this post-Canvas boundary.
+		if _melody_source_release(ev):
+			var melody_source: StringName = _melody_source_token(ev)
+			if not melody_source.is_empty():
+				_melody_held_sources.erase(melody_source)
+		var live_source: StringName = _slide_canvas_source_token(ev)
+		if not live_source.is_empty():
+			if _slide_canvas_source_press(ev):
+				_slide_canvas_held_sources[live_source] = true
+			elif _slide_canvas_source_release(ev):
+				_slide_canvas_held_sources.erase(live_source)
+		# Main consumes guard traffic before the ordinary raw fallback recorder.
+		# Mirror only pad levels here so an unmapped controller cannot disappear
+		# from the neutral oracle while its physical source remains held.
+		_record_slide_canvas_poll_level(ev)
+		_slide_canvas_return_neutral_frames = 0
+		_slide_canvas_return_retire_pending = false
+
+
+func _arm_slide_canvas_return_guard() -> void:
+	_slide_canvas_return_guard_armed = true
+	_slide_canvas_return_neutral_frames = 0
+	_slide_canvas_return_fade_clear = false
+	_slide_canvas_return_retire_pending = false
+	# The live router's touch/mouse-left/steering census is intentionally left
+	# intact. The return oracle checks it separately from this broader census.
+	_set_world_controls_enabled(false, "slide_canvas_return")
+	if player != null:
+		player.vel *= 0.0
+
+
+func _slide_canvas_return_sources_neutral() -> bool:
+	if not _slide_canvas_return_held_sources.is_empty() \
+			or not _slide_canvas_held_sources.is_empty():
+		return false
+	for key_code: Key in SLIDE_CANVAS_RETURN_KEYS:
+		if Input.is_physical_key_pressed(key_code):
+			return false
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) \
+			or Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		return false
+	for button: JoyButton in SLIDE_CANVAS_RETURN_PAD_BUTTONS:
+		if joy_pressed(button):
+			return false
+	for axis: JoyAxis in [JOY_AXIS_LEFT_X, JOY_AXIS_LEFT_Y,
+			JOY_AXIS_RIGHT_X, JOY_AXIS_RIGHT_Y]:
+		if absf(joy_axis(axis)) > 0.18:
+			return false
+	if touch_ui != null:
+		if (touch_ui.stick_vec as Vector2).length() > 0.05 \
+				or bool(touch_ui.action_down) or bool(touch_ui.action_just) \
+				or not (touch_ui.touch_owners as Dictionary).is_empty() \
+				or bool(touch_ui.drag_active):
+			return false
+	return true
+
+
+func _finish_slide_canvas_return_guard() -> void:
+	# Retirement is deferred until every Node has finished this process frame, so
+	# Player cannot observe a cleared guard on the second neutral quarantine frame.
+	# A terminal event or context loss may arrive after scheduling; fail closed and
+	# require two new trustworthy polls instead of honoring a stale callback.
+	if not _slide_canvas_return_retire_pending:
+		return
+	if not _slide_canvas_return_guard_armed \
+			or _slide_canvas_input_context_lost() \
+			or not _slide_canvas_return_fade_is_clear() \
+			or not _slide_canvas_return_sources_neutral() \
+			or _slide_canvas_return_neutral_frames < 2:
+		_slide_canvas_return_retire_pending = false
+		_slide_canvas_return_neutral_frames = 0
+		return
+	_slide_canvas_return_retire_pending = false
+	_slide_canvas_return_guard_armed = false
+	_slide_canvas_return_neutral_frames = 0
+	_slide_canvas_return_fade_clear = true
+	_slide_canvas_return_held_sources.clear()
+	_slide_canvas_held_sources.clear()
+	joy_ev_axis.clear()
+	joy_ev_btn.clear()
+	_pad_prev_a = false
+	_pad_prev_b = false
+	_pc_prev_a = false
+	pad_cursor_active = false
+	if pad_cursor_layer != null:
+		pad_cursor_layer.visible = false
+	if touch_ui != null:
+		touch_ui.cancel_all_touches()
+		touch_ui.consume_action()
+	if player != null:
+		player.vel *= 0.0
+	_set_world_controls_enabled(true, "slide_canvas_return")
+
+
+func _tick_slide_canvas_return_guard() -> void:
+	if not _slide_canvas_return_guard_armed:
+		return
+	if player != null:
+		player.vel *= 0.0
+	_slide_canvas_return_fade_clear = _slide_canvas_return_fade_is_clear()
+	if _slide_canvas_input_context_lost() or not _slide_canvas_return_fade_clear \
+			or not _slide_canvas_return_sources_neutral():
+		_slide_canvas_return_neutral_frames = 0
+		_slide_canvas_return_retire_pending = false
+		return
+	if _slide_canvas_return_retire_pending:
+		return
+	# Two trustworthy focused process polls cover delayed mapped-state republish.
+	_slide_canvas_return_neutral_frames += 1
+	if _slide_canvas_return_neutral_frames >= 2:
+		_slide_canvas_return_retire_pending = true
+		call_deferred("_finish_slide_canvas_return_guard")
+
+
+func active_viewport_camera() -> Camera3D:
+	# One typed public boundary keeps Canvas probes and lifecycle code honest
+	# without duplicating the renderer's lowercase spatial API throughout probes.
+	return get_viewport().get_camera_3d()
+
+
+func _slide_canvas_input_context_lost() -> bool:
+	return not _slide_canvas_input_context_losses.is_empty()
+
+
+func _slide_canvas_poll_restore_waiting() -> bool:
+	return _slide_canvas_fish_route_active() \
+		and _slide_canvas_overlay_axis_wait_neutral
+
+
+func _record_slide_canvas_poll_level(ev: InputEvent) -> void:
+	# TouchUI can run while Main is SceneTree-paused and can reach this same
+	# narrow seam first. Replaying a level is idempotent and never routes gameplay.
+	if ev is InputEventJoypadMotion:
+		var motion := ev as InputEventJoypadMotion
+		joy_ev_axis[int(motion.axis)] = motion.axis_value \
+			if absf(motion.axis_value) > 0.18 else 0.0
+	elif ev is InputEventJoypadButton:
+		var button := ev as InputEventJoypadButton
+		joy_ev_btn[int(button.button_index)] = button.pressed
+
+
+func _slide_canvas_input_context_blocks_input() -> bool:
+	if _slide_canvas_input_context_lost():
+		return true
+	if not _slide_canvas_fish_route_active():
+		return false
+	return (_game_obj("race", SlideRaceGame) as SlideRaceGame).input_context_blocks_input()
+
+
+func _lose_slide_canvas_input_context(reason: StringName) -> void:
+	if reason.is_empty() or _slide_canvas_input_context_losses.has(reason):
+		return
+	# Focus-out and app-paused can arrive in either order. Clear the process-wide
+	# census once on the first loss, then leave it untouched until every reason is
+	# restored; missing releases are not valid input owners after that boundary.
+	if _slide_canvas_input_context_losses.is_empty():
+		_slide_canvas_held_sources.clear()
+		_slide_canvas_return_held_sources.clear()
+	_slide_canvas_input_context_losses[reason] = true
+	_slide_canvas_return_neutral_frames = 0
+	_slide_canvas_return_retire_pending = false
+	if _slide_canvas_fish_route_active() or _slide_canvas_return_guard_active():
+		# A polled stick has no terminal event while the app is absent. Forget raw
+		# fallback levels and require mapped axes to return neutral before the
+		# overlay star cursor can wake again after restoration.
+		joy_ev_axis.clear()
+		joy_ev_btn.clear()
+	if _slide_canvas_fish_route_active():
+		_slide_canvas_overlay_axis_wait_neutral = true
+		_slide_canvas_overlay_poll_neutral_frames = 0
+		(_game_obj("race", SlideRaceGame) as SlideRaceGame).on_input_context_lost(
+			reason)
+
+
+func _restore_slide_canvas_input_context(reason: StringName) -> void:
+	if reason.is_empty() or not _slide_canvas_input_context_losses.has(reason):
+		return
+	_slide_canvas_input_context_losses.erase(reason)
+	if _slide_canvas_return_guard_active():
+		_slide_canvas_return_neutral_frames = 0
+	if _slide_canvas_fish_route_active():
+		(_game_obj("race", SlideRaceGame) as SlideRaceGame).on_input_context_restored(
+			reason)
+	if _slide_canvas_input_context_losses.is_empty():
+		# The runtime retains a source-free one-tick guard. Keep the entry census
+		# empty across the same restoration edge so delayed releases cannot seed it.
+		_slide_canvas_held_sources.clear()
+
+
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
 			_lose_melody_input_context(MELODY_CONTEXT_FOCUS)
+			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_FOCUS)
 		NOTIFICATION_APPLICATION_PAUSED:
 			_lose_melody_input_context(MELODY_CONTEXT_APPLICATION)
+			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
 		NOTIFICATION_APPLICATION_RESUMED:
 			_restore_melody_input_context(MELODY_CONTEXT_APPLICATION)
+			_restore_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
 		NOTIFICATION_APPLICATION_FOCUS_IN:
 			_restore_melody_input_context(MELODY_CONTEXT_FOCUS)
+			_restore_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_FOCUS)
 		NOTIFICATION_WM_CLOSE_REQUEST:
 			_lose_melody_input_context(MELODY_CONTEXT_CLOSE)
+			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_CLOSE)
 	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST:
 		# flush BOTH a failed write awaiting retry and a debounced pending
 		# write — going to the background must never drop queued progress
@@ -3899,6 +4277,22 @@ func _retire_paused_melody_release(ev: InputEvent) -> void:
 			_game_obj("melody", MelodyGame) as MelodyGame)
 
 
+func _retire_touch_ui_consumed_entry_release(ev: InputEvent) -> void:
+	# Hybrid stick/action releases are consumed by TouchUI's early _input path.
+	# Main sees the matching press before TouchUI claims the control in
+	# _unhandled_input, so retire both process-wide pre-entry censuses here before
+	# TouchUI marks the terminal handled. Opaque games disable world controls and
+	# therefore never reach this seam; their live controller routing is unchanged.
+	if _melody_source_release(ev):
+		var melody_source: StringName = _melody_source_token(ev)
+		if not melody_source.is_empty():
+			_melody_held_sources.erase(melody_source)
+	if _slide_canvas_source_release(ev):
+		var slide_source: StringName = _slide_canvas_source_token(ev)
+		if not slide_source.is_empty():
+			_slide_canvas_held_sources.erase(slide_source)
+
+
 func _forget_melody_pad_device(device: int) -> void:
 	if _melody_input_context_blocks_input():
 		return
@@ -4069,6 +4463,327 @@ func _route_melody_input(ev: InputEvent) -> bool:
 		return true
 	return false
 
+
+func _slide_canvas_input_gated() -> bool:
+	# The fish Canvas intentionally disables the legacy swim controls. Its own
+	# route therefore mirrors shared overlay/fade gates without interpreting the
+	# dedicated slide_canvas control block as a gameplay failure.
+	if intro_active or get_tree().paused or mg_kind != "":
+		return true
+	if fade_rect != null and (fade_rect.modulate.a > 0.02 \
+			or fade_rect.mouse_filter != Control.MOUSE_FILTER_IGNORE):
+		return true
+	return false
+
+
+func _slide_canvas_overlay_owns_input() -> bool:
+	return _slide_canvas_fish_route_active() and (wardrobe_layer != null \
+		or craft_layer != null or castle_logo_layer != null \
+		or stickers_layer != null or collection_layer != null \
+		or companion_layer != null or companion_care_layer != null \
+		or mic_teach_layer != null \
+		or (dev_mode != null and bool(dev_mode.get("open"))))
+
+
+func _slide_canvas_source_token(ev: InputEvent) -> StringName:
+	if ev is InputEventScreenTouch:
+		var touch := ev as InputEventScreenTouch
+		return StringName("touch:%d:%d" % [touch.device, touch.index])
+	if ev is InputEventScreenDrag:
+		var drag := ev as InputEventScreenDrag
+		return StringName("touch:%d:%d" % [drag.device, drag.index])
+	if ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index == MOUSE_BUTTON_LEFT:
+			return StringName("mouse:%d:left" % mouse_button.device)
+	if ev is InputEventMouseMotion:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION \
+				and (mouse_motion.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0:
+			return StringName("mouse:%d:left" % mouse_motion.device)
+	if ev is InputEventKey:
+		var key := ev as InputEventKey
+		var key_code: int = int(key.physical_keycode)
+		if key_code == 0:
+			key_code = int(key.keycode)
+		if key_code in [KEY_LEFT, KEY_A, KEY_RIGHT, KEY_D]:
+			return StringName("key:%d:%d" % [key.device, key_code])
+	if ev is InputEventJoypadButton:
+		var button := ev as InputEventJoypadButton
+		if button.button_index in [JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_RIGHT]:
+			return StringName("pad:%d:%d" % [button.device, button.button_index])
+	if ev is InputEventJoypadMotion:
+		var motion := ev as InputEventJoypadMotion
+		if motion.axis == JOY_AXIS_LEFT_X:
+			return StringName("pad:%d:axis:%d" % [motion.device, motion.axis])
+	return &""
+
+
+func _slide_canvas_source_press(ev: InputEvent) -> bool:
+	if ev is InputEventScreenTouch:
+		return (ev as InputEventScreenTouch).pressed
+	if ev is InputEventMouseButton:
+		return (ev as InputEventMouseButton).pressed
+	if ev is InputEventKey:
+		var key := ev as InputEventKey
+		return key.pressed and not key.echo
+	if ev is InputEventJoypadButton:
+		return (ev as InputEventJoypadButton).pressed
+	if ev is InputEventJoypadMotion:
+		return absf((ev as InputEventJoypadMotion).axis_value) > 0.18
+	return false
+
+
+func _slide_canvas_source_release(ev: InputEvent) -> bool:
+	if ev is InputEventScreenTouch:
+		return not (ev as InputEventScreenTouch).pressed
+	if ev is InputEventMouseButton:
+		return not (ev as InputEventMouseButton).pressed
+	if ev is InputEventKey:
+		return not (ev as InputEventKey).pressed
+	if ev is InputEventJoypadButton:
+		return not (ev as InputEventJoypadButton).pressed
+	if ev is InputEventJoypadMotion:
+		return absf((ev as InputEventJoypadMotion).axis_value) <= 0.18
+	return false
+
+
+func _track_slide_canvas_source_state(ev: InputEvent) -> void:
+	if _slide_canvas_input_context_blocks_input():
+		return
+	var source_token := _slide_canvas_source_token(ev)
+	if source_token.is_empty():
+		return
+	if _slide_canvas_source_press(ev):
+		_slide_canvas_held_sources[source_token] = true
+	elif _slide_canvas_source_release(ev):
+		_slide_canvas_held_sources.erase(source_token)
+
+
+func _retire_paused_slide_canvas_release(ev: InputEvent) -> void:
+	# TouchUI remains always-processing while Main is paused. It forwards only
+	# terminal events here, without claiming them from the visible Pause sheet.
+	if _slide_canvas_input_context_lost() \
+			or not _slide_canvas_source_release(ev) \
+			or _slide_canvas_source_token(ev).is_empty():
+		return
+	_track_slide_canvas_source_state(ev)
+	if _slide_canvas_fish_route_active():
+		_release_slide_canvas_source_event(ev,
+			_game_obj("race", SlideRaceGame) as SlideRaceGame)
+
+
+func _retire_paused_slide_canvas_restore_boundary() -> void:
+	# Main does not process while SceneTree.paused; TouchUI does. After every OS
+	# loss reason clears, let that ALWAYS relay spend the controller's source-free
+	# boundary and two neutral poll frames without advancing g.t or routing a GUI
+	# action. Ordinary Pause (no OS loss/restore guard) remains untouched.
+	if not _slide_canvas_fish_route_active():
+		return
+	var slide := _game_obj("race", SlideRaceGame) as SlideRaceGame
+	slide.refresh_canvas_layout()
+	if _slide_canvas_input_context_lost():
+		return
+	if slide.input_context_blocks_input():
+		slide.retire_input_context_restore_guard()
+	if _slide_canvas_overlay_axis_wait_neutral:
+		_neutralize_slide_canvas_overlay_poll()
+
+
+func _forget_slide_canvas_pad_device(device: int) -> void:
+	var return_source_prefix := "return:pad:%d:" % device
+	for return_source_value: Variant in _slide_canvas_return_held_sources.keys():
+		var return_source_token := StringName(String(return_source_value))
+		if String(return_source_token).begins_with(return_source_prefix):
+			_slide_canvas_return_held_sources.erase(return_source_token)
+	if _slide_canvas_return_guard_active():
+		_slide_canvas_return_neutral_frames = 0
+	if _slide_canvas_input_context_blocks_input():
+		return
+	var source_prefix := "pad:%d:" % device
+	for source_value: Variant in _slide_canvas_held_sources.keys():
+		var source_token := StringName(String(source_value))
+		if String(source_token).begins_with(source_prefix):
+			_slide_canvas_held_sources.erase(source_token)
+	if _slide_canvas_fish_route_active():
+		(_game_obj("race", SlideRaceGame) as SlideRaceGame).forget_sources_with_prefix(
+			source_prefix)
+
+
+func _release_slide_canvas_source_event(ev: InputEvent,
+		slide: SlideRaceGame) -> bool:
+	if not _slide_canvas_source_release(ev):
+		return false
+	var source_token := _slide_canvas_source_token(ev)
+	if source_token.is_empty():
+		return false
+	# A fade/overlay can appear between press and lift. Neutralize the current
+	# owner first, then forward only this concrete terminal source.
+	slide.cancel_input()
+	if ev is InputEventScreenTouch or ev is InputEventMouseButton:
+		slide.handle_touch_release(source_token)
+	else:
+		slide.handle_steer_release(source_token)
+	return true
+
+
+func _release_slide_canvas_input_under_overlay(ev: InputEvent,
+		slide: SlideRaceGame) -> void:
+	if _release_slide_canvas_source_event(ev, slide):
+		return
+	var source_token := _slide_canvas_source_token(ev)
+	if _slide_canvas_source_press(ev) and not source_token.is_empty():
+		slide.cancel_input(source_token)
+	else:
+		slide.cancel_input()
+
+
+func _slide_canvas_pause_zone_hit(screen_pos: Vector2) -> bool:
+	if touch_ui == null or not touch_ui.has_method("pause_zone"):
+		return false
+	var pause_rect: Rect2 = touch_ui.call("pause_zone") as Rect2
+	return pause_rect.has_point(screen_pos)
+
+
+func _route_slide_canvas_input(ev: InputEvent,
+		source_was_held: bool = false) -> bool:
+	# The opaque fish slide owns the entire pointer surface before TouchUI can
+	# reinterpret it as swimming. Only the visible Pause corner and higher-layer
+	# overlays retain their normal GUI route.
+	if not _slide_canvas_fish_route_active():
+		return false
+	if _slide_canvas_input_context_blocks_input():
+		return false
+	var slide: SlideRaceGame = _game_obj("race", SlideRaceGame) as SlideRaceGame
+	if get_tree().paused:
+		_retire_paused_slide_canvas_release(ev)
+		return false
+	if _slide_canvas_overlay_owns_input():
+		_release_slide_canvas_input_under_overlay(ev, slide)
+		return false
+	if ev is InputEventScreenTouch:
+		var touch := ev as InputEventScreenTouch
+		var touch_source := _slide_canvas_source_token(touch)
+		if not touch.pressed:
+			if _slide_canvas_input_gated():
+				slide.cancel_input()
+				slide.handle_touch_release(touch_source)
+			elif touch.canceled:
+				slide.handle_touch_cancel(touch_source)
+			else:
+				slide.handle_touch_release(touch_source)
+			return true
+		if _slide_canvas_pause_zone_hit(touch.position):
+			return false
+		if _slide_canvas_input_gated():
+			slide.cancel_input(touch_source)
+			return true
+		slide.handle_touch_press(touch.position, touch_source)
+		return true
+	if ev is InputEventScreenDrag:
+		var drag := ev as InputEventScreenDrag
+		var drag_source := _slide_canvas_source_token(drag)
+		if _slide_canvas_input_gated():
+			slide.cancel_input()
+			return true
+		slide.handle_touch_drag(drag.position, drag_source)
+		return true
+	if ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION \
+				or mouse_button.button_index != MOUSE_BUTTON_LEFT:
+			return false
+		var mouse_source := _slide_canvas_source_token(mouse_button)
+		if not mouse_button.pressed:
+			if _slide_canvas_input_gated():
+				slide.cancel_input()
+				slide.handle_touch_release(mouse_source)
+			elif mouse_button.canceled:
+				slide.handle_touch_cancel(mouse_source)
+			else:
+				slide.handle_touch_release(mouse_source)
+			return true
+		if _slide_canvas_pause_zone_hit(mouse_button.position):
+			return false
+		if _slide_canvas_input_gated():
+			slide.cancel_input(mouse_source)
+			return true
+		slide.handle_touch_press(mouse_button.position, mouse_source)
+		return true
+	if ev is InputEventMouseMotion:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device == InputEvent.DEVICE_ID_EMULATION \
+				or (mouse_motion.button_mask & MOUSE_BUTTON_MASK_LEFT) == 0:
+			return false
+		var mouse_drag_source := _slide_canvas_source_token(mouse_motion)
+		if _slide_canvas_input_gated():
+			slide.cancel_input()
+			return true
+		slide.handle_touch_drag(mouse_motion.position, mouse_drag_source)
+		return true
+	if ev is InputEventKey:
+		var key := ev as InputEventKey
+		var key_code: int = int(key.physical_keycode)
+		if key_code == 0:
+			key_code = int(key.keycode)
+		if key_code not in [KEY_LEFT, KEY_A, KEY_RIGHT, KEY_D]:
+			return false
+		var key_source := _slide_canvas_source_token(key)
+		var key_axis: float = -1.0 if key_code in [KEY_LEFT, KEY_A] else 1.0
+		if _slide_canvas_input_gated():
+			if key.pressed:
+				if not key.echo:
+					slide.cancel_input(key_source)
+			else:
+				slide.cancel_input()
+				slide.handle_steer_release(key_source)
+			return true
+		if key.pressed:
+			if not key.echo:
+				slide.handle_steer_press(key_axis, key_source)
+		else:
+			slide.handle_steer_release(key_source)
+		return true
+	if ev is InputEventJoypadButton:
+		var button := ev as InputEventJoypadButton
+		if button.button_index not in [JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_RIGHT]:
+			return false
+		var pad_source := _slide_canvas_source_token(button)
+		var pad_axis := -1.0 if button.button_index == JOY_BUTTON_DPAD_LEFT else 1.0
+		if _slide_canvas_input_gated():
+			if button.pressed:
+				slide.cancel_input(pad_source)
+			else:
+				slide.cancel_input()
+				slide.handle_steer_release(pad_source)
+			return true
+		if button.pressed:
+			slide.handle_steer_press(pad_axis, pad_source)
+		else:
+			slide.handle_steer_release(pad_source)
+		return true
+	if ev is InputEventJoypadMotion:
+		var motion := ev as InputEventJoypadMotion
+		if motion.axis != JOY_AXIS_LEFT_X:
+			return false
+		var axis_source := _slide_canvas_source_token(motion)
+		var steer_axis: float = clampf(motion.axis_value, -1.0, 1.0)
+		if absf(steer_axis) <= 0.18:
+			if _slide_canvas_input_gated():
+				slide.cancel_input()
+			slide.handle_steer_release(axis_source)
+			return true
+		if _slide_canvas_input_gated():
+			slide.cancel_input(axis_source)
+			return true
+		if source_was_held:
+			slide.handle_steer_motion(steer_axis, axis_source)
+		else:
+			slide.handle_steer_press(steer_axis, axis_source)
+		return true
+	return false
+
 # ENEMY PRIORITY RULE, press half (combat wing 2026-08): hit engines get the
 # finger-DOWN so a pop lands the instant the finger does — never after the
 # release half of a grabby preschool tap. Returning true tells the router to
@@ -4083,6 +4798,13 @@ func _on_world_press(screen_pos: Vector2) -> bool:
 		(_game_obj("melody", MelodyGame) as MelodyGame).handle_touch_press(
 			screen_pos, MELODY_LEGACY_TOUCH_SOURCE)
 		return true   # the opaque stage owns misses too; never leak into Reef travel
+	if _slide_canvas_fish_route_active():
+		var slide: SlideRaceGame = _game_obj("race", SlideRaceGame) as SlideRaceGame
+		if _slide_canvas_input_gated():
+			slide.cancel_input(SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
+			return false
+		slide.handle_touch_press(screen_pos, SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
+		return true
 	if _world_tap_gated():
 		return false
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
@@ -4105,6 +4827,10 @@ func _on_world_press_release() -> void:
 	if game == "melody":
 		(_game_obj("melody", MelodyGame) as MelodyGame).handle_touch_release(
 			MELODY_LEGACY_TOUCH_SOURCE)
+		return
+	if _slide_canvas_fish_route_active():
+		(_game_obj("race", SlideRaceGame) as SlideRaceGame).handle_touch_release(
+			SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
 		return
 	for engine_value: Variant in hit_engines:
 		var engine: HitEngine = engine_value as HitEngine
@@ -4132,6 +4858,12 @@ func _on_world_press_drag() -> void:
 		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input(
 			MELODY_LEGACY_TOUCH_SOURCE)
 		return
+	if _slide_canvas_fish_route_active():
+		# The raw Canvas route carries the true drag coordinate; this legacy seam
+		# cannot, so it may only neutralize its own fallback owner.
+		(_game_obj("race", SlideRaceGame) as SlideRaceGame).cancel_input(
+			SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
+		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		return
 	for engine_value: Variant in _live_hit_engines():
@@ -4144,6 +4876,9 @@ func _on_world_press_cancel() -> void:
 	if game == "melody":
 		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input()
 		return
+	if _slide_canvas_fish_route_active():
+		(_game_obj("race", SlideRaceGame) as SlideRaceGame).cancel_input()
+		return
 	for engine_value: Variant in _live_hit_engines():
 		(engine_value as HitEngine).cancel_charge_for_drag()
 
@@ -4154,6 +4889,10 @@ func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
 	if game == "melody":
 		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input(
 			MELODY_LEGACY_TOUCH_SOURCE)
+		return
+	if _slide_canvas_fish_route_active():
+		(_game_obj("race", SlideRaceGame) as SlideRaceGame).cancel_input(
+			SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
 		return
 	if _world_tap_gated():
 		return
@@ -4177,6 +4916,16 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 		var melody: MelodyGame = _game_obj("melody", MelodyGame) as MelodyGame
 		melody.handle_touch_press(screen_pos, MELODY_LEGACY_TOUCH_SOURCE)
 		melody.handle_touch_release(MELODY_LEGACY_TOUCH_SOURCE)
+		return
+	if _slide_canvas_fish_route_active():
+		if _slide_canvas_input_gated():
+			(_game_obj("race", SlideRaceGame) as SlideRaceGame).cancel_input()
+			return
+		# Release-side compatibility for non-raw callers. The ordinary app route is
+		# claimed earlier in _input and never reaches this fallback.
+		var slide: SlideRaceGame = _game_obj("race", SlideRaceGame) as SlideRaceGame
+		slide.handle_touch_press(screen_pos, SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
+		slide.handle_touch_release(SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
 		return
 	if _world_tap_gated():
 		return
@@ -4223,6 +4972,9 @@ func _on_touch_manual_move() -> void:
 	_living_world_ref().note_activity()
 	if game == "melody":
 		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input()
+		return
+	if _slide_canvas_fish_route_active():
+		(_game_obj("race", SlideRaceGame) as SlideRaceGame).cancel_input()
 		return
 	_cancel_lagoon_navigation()
 	_tap_move_ref().cancel("manual")
@@ -6893,10 +7645,55 @@ func _tick_hints(delta: float) -> void:
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
 	var closing_melody: bool = game == "melody"
+	var closing_slide_canvas: bool = _slide_canvas_fish_route_active()
+	var slide_canvas_player_was_visible: bool = bool(
+		g.get("slide_canvas_player_was_visible", true))
+	var slide_canvas_collection_was_visible: bool = bool(
+		g.get("slide_canvas_collection_was_visible", false))
+	var slide_canvas_living_was_visible: bool = bool(
+		g.get("slide_canvas_living_was_visible", false))
+	var slide_canvas_return_camera: Variant = g.get(
+		"slide_canvas_return_camera", null)
+	var slide_canvas_camera_was_current: bool = bool(
+		g.get("slide_canvas_camera_was_current", false))
+	var slide_canvas_player_cam_transform: Variant = g.get(
+		"slide_canvas_player_cam_transform", null)
+	var slide_canvas_player_cam_fov: float = float(
+		g.get("slide_canvas_player_cam_fov", 0.0))
+	var slide_canvas_player_cam_orbit: float = float(
+		g.get("slide_canvas_player_cam_orbit", 0.0))
+	var slide_canvas_player_cam_pitch: float = float(
+		g.get("slide_canvas_player_cam_pitch", 0.0))
 	_game_obj("dolls", DollsGame).stage_close()
 	_game_obj("seek", SeekGame).stage_close()
 	_game_obj("brawl", BrawlGame).stage_close()
 	_game_obj("melody", MelodyGame).stage_close()
+	if closing_slide_canvas:
+		# Arm while the exact route and its complete held-source census still exist.
+		# This distinct return block survives game/g reset and the reveal tween.
+		_arm_slide_canvas_return_guard()
+		# The Canvas layer must be gone synchronously while its g-backed controller
+		# state still exists. No queued frame may survive into the return world.
+		(_game_obj("race", SlideRaceGame) as SlideRaceGame).stage_close()
+		# Preserve raw fallback levels until the return guard observes their actual
+		# terminal neutral boundary; it clears them only when the guard retires.
+		_slide_canvas_overlay_axis_wait_neutral = false
+		_slide_canvas_overlay_poll_neutral_frames = 0
+		# Restore the exact lens the child was looking through. This route never
+		# teleports the Reef player, so the generic snap_cam watchdog would be a
+		# visible and unnecessary orbit/pitch jump on the first returned frame.
+		if player != null and player.cam != null:
+			if slide_canvas_player_cam_transform != null:
+				player.cam.transform = slide_canvas_player_cam_transform
+			if slide_canvas_player_cam_fov > 0.0:
+				player.cam.fov = slide_canvas_player_cam_fov
+			player.cam_orbit = slide_canvas_player_cam_orbit
+			player.cam_pitch_off = slide_canvas_player_cam_pitch
+		if slide_canvas_camera_was_current \
+				and slide_canvas_return_camera is Node \
+				and is_instance_valid(slide_canvas_return_camera) \
+				and (slide_canvas_return_camera as Node).is_inside_tree():
+			(slide_canvas_return_camera as Node).call(&"make_current")
 	_game_obj("dustboss", DustBossGame).stage_close()
 	# safety net (alpha audit 2026-08-05): any tween a minigame stashed in g
 	# dies WITH the game — a looping tween that outlives its freed target
@@ -6916,6 +7713,14 @@ func _clear_game() -> void:
 	hud_game.text = ""
 	if closing_melody:
 		_set_world_controls_enabled(true, "melody")
+	if closing_slide_canvas:
+		if player != null:
+			player.visible = slide_canvas_player_was_visible
+		if collection_button_layer != null:
+			collection_button_layer.visible = slide_canvas_collection_was_visible
+		if living_layer != null:
+			living_layer.visible = slide_canvas_living_was_visible
+		_set_world_controls_enabled(true, "slide_canvas")
 
 func _fail_line() -> String:
 	# in-character failure lines, by game (the on-screen text; the matching
@@ -6944,7 +7749,8 @@ func _tick_contact_shadow() -> void:
 	# cutout against the diorama (book pages do the same with painted shadows)
 	# Sky owns a Canvas contact shadow for its visible actor. Do not construct or
 	# expose the generic spatial disc behind that opaque stage.
-	if game == "melody" \
+	if game == "melody" or _slide_canvas_fish_route_active() \
+			or _slide_canvas_return_guard_active() \
 			or (game == "level2" and String(g.get("phase", "")) == "promenade"):
 		if _shadow_disc != null:
 			_shadow_disc.visible = false
@@ -7296,6 +8102,10 @@ func _start_game(fr: Dictionary) -> void:
 func _start_game_now(fr: Dictionary) -> void:
 	game = String(fr["game"])
 	g = {"fr": fr, "t": 0.0, "timer": -1.0}
+	if game == "slide":
+		# _enter_arena must know the exact route before it decides whether to build
+		# and teleport into a spatial arena. Penguin chase remains mode="chase".
+		g["mode"] = String(fr.get("mode", "fish"))
 	_enter_arena(game)
 	if game == "melody":
 		# Its full-screen notes own the complete touch surface; hide the legacy
@@ -7325,7 +8135,47 @@ func _start_game_now(fr: Dictionary) -> void:
 			melody.on_input_context_lost(StringName(String(reason_value)))
 		melody.arm_entry_sources(_melody_held_sources.keys())
 	elif game == "slide":
-		_game_obj("race", SlideRaceGame).build_slide(fr, origin)
+		var slide: SlideRaceGame = _game_obj("race", SlideRaceGame) as SlideRaceGame
+		var slide_canvas_route: bool = _slide_canvas_fish_route_active()
+		if slide_canvas_route:
+			# Clear the legacy router before build. Its cancellation callback is safe
+			# against the closed controller; build then establishes the authoritative
+			# fresh startup latch which remains intact through the reveal fade.
+			joy_ev_axis.clear()
+			joy_ev_btn.clear()
+			_slide_canvas_overlay_axis_wait_neutral = false
+			_slide_canvas_overlay_poll_neutral_frames = 0
+			var slide_canvas_return_camera := active_viewport_camera()
+			g["slide_canvas_return_camera"] = slide_canvas_return_camera
+			g["slide_canvas_camera_was_current"] = \
+				slide_canvas_return_camera != null
+			if player != null and player.cam != null:
+				g["slide_canvas_player_cam_transform"] = player.cam.transform
+				g["slide_canvas_player_cam_fov"] = player.cam.fov
+				g["slide_canvas_player_cam_orbit"] = player.cam_orbit
+				g["slide_canvas_player_cam_pitch"] = player.cam_pitch_off
+			if slide_canvas_return_camera != null:
+				slide_canvas_return_camera.clear_current(false)
+			if collection_button_layer != null:
+				g["slide_canvas_collection_was_visible"] = \
+					collection_button_layer.visible
+				collection_button_layer.visible = false
+			if living_layer != null:
+				g["slide_canvas_living_was_visible"] = living_layer.visible
+				living_layer.visible = false
+			_set_world_controls_enabled(false, "slide_canvas")
+			if player != null:
+				g["slide_canvas_player_was_visible"] = player.visible
+		slide.build_slide(fr, origin)
+		if slide_canvas_route:
+			# The fade still covers the fresh layer. Hide the spatial actor and seed
+			# every concrete source which was physically down before entry.
+			if player != null:
+				player.visible = false
+				player.vel *= 0.0
+			for reason_value: Variant in _slide_canvas_input_context_losses.keys():
+				slide.on_input_context_lost(StringName(String(reason_value)))
+			slide.arm_entry_sources(_slide_canvas_held_sources.keys())
 	elif game == "fairyshoot":
 		_game_obj("fairyshoot", FairyGame).build(fr, origin)
 
@@ -7540,6 +8390,41 @@ func _tick_pad_cursor(delta: float) -> void:
 			hit.pressed.emit()
 	_pc_prev_a = a
 
+
+func _neutralize_slide_canvas_overlay_poll() -> void:
+	# Input events are quarantined while the app is unfocused/backgrounded and
+	# through the source-free restore boundary. Polling must obey the same rule:
+	# sample current button levels as the new baseline, never synthesize an edge,
+	# and retire the old star cursor until a deliberate post-restore stick move.
+	_pad_prev_a = joy_pressed(JOY_BUTTON_A)
+	_pad_prev_b = joy_pressed(JOY_BUTTON_B)
+	_pc_prev_a = _pad_prev_a
+	pad_cursor_active = false
+	if pad_cursor_layer != null:
+		pad_cursor_layer.visible = false
+	if not _slide_canvas_overlay_axis_wait_neutral:
+		return
+	var all_poll_sources_neutral: bool = not _pad_prev_a and not _pad_prev_b \
+		and not joy_pressed(JOY_BUTTON_DPAD_LEFT) \
+		and not joy_pressed(JOY_BUTTON_DPAD_RIGHT) \
+		and not joy_pressed(JOY_BUTTON_DPAD_UP) \
+		and not joy_pressed(JOY_BUTTON_DPAD_DOWN) \
+		and absf(joy_axis(JOY_AXIS_LEFT_X)) <= 0.18 \
+		and absf(joy_axis(JOY_AXIS_LEFT_Y)) <= 0.18 \
+		and absf(joy_axis(JOY_AXIS_RIGHT_X)) <= 0.18 \
+		and absf(joy_axis(JOY_AXIS_RIGHT_Y)) <= 0.18
+	if _slide_canvas_input_context_lost() \
+			or _slide_canvas_input_context_blocks_input() \
+			or not all_poll_sources_neutral:
+		_slide_canvas_overlay_poll_neutral_frames = 0
+		return
+	# Require two trustworthy post-guard neutral polls. Some mobile backends
+	# publish a stale zero for one frame before their mapped pad state refreshes.
+	_slide_canvas_overlay_poll_neutral_frames += 1
+	if _slide_canvas_overlay_poll_neutral_frames >= 2:
+		_slide_canvas_overlay_axis_wait_neutral = false
+		_slide_canvas_overlay_poll_neutral_frames = 0
+
 func _tick_overlay_pads(delta: float) -> void:
 	# gamepad shortcuts for the pointer-driven overlays: A = Done, B = close.
 	# Without these a controller-only setup could open the craft studio or the
@@ -7700,21 +8585,31 @@ func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
 
 func _process(delta: float) -> void:
 	_sync_pause_surface_layer()
-	_living_world_ref().tick(delta)
-	if _fx_water != null:
-		_fx_water.tick(delta)   # water-FX cards animate everywhere, even mid-cutaway
+	var slide_canvas_active: bool = _slide_canvas_fish_route_active()
+	var slide_canvas_return_was_active: bool = _slide_canvas_return_guard_active()
+	if slide_canvas_return_was_active:
+		_tick_slide_canvas_return_guard()
+	if not slide_canvas_active and not slide_canvas_return_was_active:
+		_living_world_ref().tick(delta)
+		if _fx_water != null:
+			_fx_water.tick(delta)   # cutaways keep water FX; opaque fish Canvas suspends them
 	# camera watchdog (CAMERA_AUDIT_2026_07 P0): if a torn-down mode freed the
 	# current camera without restoring one (kart/galaxy teardown guards,
 	# cancel(false) paths), fall back to Roshan instead of a black screen
-	var vp_cam: Camera3D = get_viewport().get_camera_3d()
+	var vp_cam := active_viewport_camera()
 	var sky_canvas_active: bool = game == "level2" \
 		and String(g.get("phase", "")) == "promenade"
 	var melody_canvas_active: bool = game == "melody"
-	var opaque_canvas_active: bool = sky_canvas_active or melody_canvas_active
+	var opaque_canvas_active: bool = sky_canvas_active or melody_canvas_active \
+		or slide_canvas_active
 	# Player creates its compatibility camera deferred during boot. Direct phone
 	# entry can therefore reach Sky before that compatibility camera joins the tree; disarm
 	# the late arrival as well as the synchronous entry path above.
-	if opaque_canvas_active and player != null and player.cam != null \
+	if slide_canvas_active and vp_cam != null and vp_cam.is_inside_tree():
+		# Clear whichever camera actually owned the Viewport, not merely the
+		# compatibility player camera. Exact ownership is restored on teardown.
+		vp_cam.clear_current(false)
+	elif opaque_canvas_active and player != null and player.cam != null \
 			and player.cam.is_inside_tree() and player.cam.current:
 		player.cam.clear_current(false)
 	elif not opaque_canvas_active and vp_cam == null \
@@ -7746,10 +8641,17 @@ func _process(delta: float) -> void:
 	_tick_ambience_duck(delta)
 	if mic_sys != null:
 		mic_sys.tick(delta)   # no-op unless a battle armed the microphone
-	if player != null and not opaque_canvas_active:
+	if player != null and not opaque_canvas_active \
+			and not slide_canvas_return_was_active:
 		_tick_wayfinder(delta, player.position)
-	_tick_overlay_pads(delta)
-	_tick_pad_cursor(delta)
+	if slide_canvas_return_was_active:
+		_neutralize_slide_canvas_overlay_poll()
+	elif slide_canvas_active and (_slide_canvas_input_context_blocks_input() \
+			or _slide_canvas_overlay_axis_wait_neutral):
+		_neutralize_slide_canvas_overlay_poll()
+	else:
+		_tick_overlay_pads(delta)
+		_tick_pad_cursor(delta)
 	if fps_lbl != null and pause_panel != null and pause_panel.visible:
 		fps_lbl.text = "FPS: %d   (%s)" % [Engine.get_frames_per_second(), quality]
 	if speech_t > 0.0:
@@ -7759,6 +8661,13 @@ func _process(delta: float) -> void:
 	if player == null:
 		return
 	if intro_active:
+		return
+	if slide_canvas_return_was_active:
+		# Even the second neutral sample is a quarantine frame. The controls block
+		# may retire above, but the returned world cannot consume a level until a
+		# genuinely fresh event arrives on a later frame.
+		if caustics_plane != null and caustics_plane.visible:
+			caustics_plane.visible = false
 		return
 	var ppos: Vector3 = player.position
 	if melody_canvas_active:
@@ -7773,6 +8682,33 @@ func _process(delta: float) -> void:
 		# resumed/focus-in. Those frames are not gameplay time and cannot advance
 		# Melody's medal clock, motion, neutral guard, or controller state.
 		if _melody_input_context_lost():
+			return
+		_tick_game(delta)
+		return
+	if slide_canvas_active:
+		# Harper and Fiona's fish slide is a complete Canvas world. Keep the shared
+		# save/audio/pause seams above, but suspend every hidden Reef system and
+		# tick its controller exactly once through _tick_game (after g.t advances).
+		var slide_canvas := _game_obj("race", SlideRaceGame) as SlideRaceGame
+		slide_canvas.refresh_canvas_layout()
+		if caustics_plane != null and caustics_plane.visible:
+			caustics_plane.visible = false
+		if _slide_canvas_input_context_lost():
+			return
+		if _slide_canvas_overlay_axis_wait_neutral:
+			# Restore the controller's source-free boundary without advancing g.t,
+			# then keep the ride frozen until two trustworthy neutral polls retire
+			# every held overlay/gamepad source.
+			slide_canvas.retire_input_context_restore_guard()
+			return
+		# Sticker Book and the other full-screen overlays resume SceneTree so their
+		# own UI can animate. They must nevertheless freeze the ride itself: a
+		# previously latched steer may never finish or award the game behind them.
+		if _slide_canvas_overlay_owns_input():
+			# Context restoration normally spends one source-free controller tick.
+			# An overlay suppresses that tick, so retire only the guard here without
+			# advancing g.t/progress; otherwise its own visible Back button deadlocks.
+			slide_canvas.retire_input_context_restore_guard()
 			return
 		_tick_game(delta)
 		return
@@ -8094,6 +9030,8 @@ func _physlab_standees() -> void:
 			jolt_props.append(p)
 
 func _physics_process(delta: float) -> void:
+	if _slide_canvas_fish_route_active() or _slide_canvas_return_guard_active():
+		return
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.physics_tick(delta)
 	if game == "melody" \
@@ -8928,7 +9866,8 @@ func _enter_arena(kind: String) -> void:
 	return_track = cur_track
 	# Opaque true-Canvas activities preserve the shared return/music lifecycle,
 	# but never construct or teleport into a hidden arena beneath their pixels.
-	if kind == "dolls" or kind == "seek" or kind == "melody":
+	if kind == "dolls" or kind == "seek" or kind == "melody" \
+			or (kind == "slide" and String(g.get("mode", "")) == "fish"):
 		_play_music(kind)
 		return
 	arena_solids.clear()

@@ -25,6 +25,15 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		stream = load(p1)
 	elif ResourceLoader.exists(p2):
 		stream = load(p2)
+	if stream != null:
+		# Different semantic keys can resolve to the same family fallback clip
+		# (for example harper_talk and harper_hint -> harper.ogg). Never start an
+		# identical recording on a second pool player while the first is audible.
+		for voice_player_value: Variant in m.voice_pool:
+			var active_player := voice_player_value as AudioStreamPlayer
+			if active_player != null and active_player.playing \
+					and active_player.stream == stream:
+				return
 	var ap: AudioStreamPlayer = m.voice_pool[m.voice_i % m.voice_pool.size()]
 	m.voice_i += 1
 	if stream != null:
