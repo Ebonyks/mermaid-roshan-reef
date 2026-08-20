@@ -296,12 +296,14 @@ func _run() -> void:
 	await _frames(2)
 	_check("neutral teardown frees the complete Canvas subtree",
 		first_layer_ref.get_ref() == null and first_surface_ref.get_ref() == null)
+	await _exercise_system_loss_and_paused_census(progress_baseline)
 
 	# Re-entry begins while a real world touch is still held at the deterministic
 	# first-note point. The activity must demand its release and then seven new
 	# one-finger gestures in red-through-violet order.
 	_push_key(KEY_SPACE, true, 5)
 	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
 	_push_pad(JOY_BUTTON_A, true, 6)
 	main._forget_melody_pad_device(6)
 	_push_touch(first_note_point, true, TOUCH_INDEX + 1)
@@ -1885,76 +1887,367 @@ func _exercise_negative_and_neutral_input() -> void:
 	_check("first fresh green mouse gesture after Sticker Book scores exactly once",
 		melody.progress_count() == before + 1)
 
-	# Focus loss neutralizes every supported held input vocabulary. Keep the
-	# current note incomplete for the following neutral-leave safety check.
+	# A standalone focus loss retains its source-free guard through arbitrarily
+	# many lost-context frames. Only the matching focus restoration permits the
+	# next active tick to retire it; the missing old release is never synthesized.
 	before = melody.progress_count()
 	await _wait_for_green(false)
 	var focus_point: Vector2 = melody.active_note_screen_point()
 	_push_touch(focus_point, true, TOUCH_INDEX + 11)
 	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
-	_check("application focus loss neutralizes the held touch",
+	_check("standalone focus loss neutrally forgets the held touch owner",
 		not bool(melody.audit_snapshot().get("input_down", true))
-		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
-	await _wait_for_green(true)
-	_push_touch(focus_point, false, TOUCH_INDEX + 90)
-	_push_mouse(focus_point, false, 9)
-	_push_touch(focus_point, true, TOUCH_INDEX + 91)
-	_push_touch(focus_point, false, TOUCH_INDEX + 91)
-	await process_frame
-	_check("wrong sources preserve the focus-loss touch latch",
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and (melody.audit_snapshot().get("blocked_sources", {}) as Dictionary).is_empty()
+		and melody.input_context_lost())
+	await _frames(3)
+	_check("lost focus cannot clear its neutral guard on background frames",
 		melody.progress_count() == before
-		and bool(melody.audit_snapshot().get(
-			"blocked_until_release", false)))
-	_push_touch(focus_point, false, TOUCH_INDEX + 11)
+		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
+	_check("matching focus restoration retains the guard until an active tick",
+		not melody.input_context_lost()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
 	await process_frame
-	_check("focus-loss release makes no progress",
+	_check("first active focus-restored tick needs no missing old release",
 		melody.progress_count() == before
 		and not bool(melody.audit_snapshot().get(
 			"blocked_until_release", true)))
 
-	await _wait_for_green(false)
-	_push_key(KEY_SPACE, true)
-	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
-	_check("focus loss neutralizes a held keyboard action",
-		not bool(melody.audit_snapshot().get("input_down", true))
-		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
-	await _wait_for_green(true)
-	_push_key(KEY_ENTER, false, 0)
-	_push_key(KEY_SPACE, false, 1)
-	_push_pad(JOY_BUTTON_A, false, 0)
-	await process_frame
-	_check("wrong sources preserve the focus-loss keyboard latch",
-		melody.progress_count() == before
-		and bool(melody.audit_snapshot().get(
-			"blocked_until_release", false)))
-	_push_key(KEY_SPACE, false)
-	await process_frame
-	_check("focus-loss keyboard release makes no progress",
-		melody.progress_count() == before
-		and not bool(melody.audit_snapshot().get(
-			"blocked_until_release", true)))
 
-	await _wait_for_green(false)
-	_push_pad(JOY_BUTTON_A, true)
-	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
-	_check("focus loss neutralizes a held pad action",
-		not bool(melody.audit_snapshot().get("input_down", true))
-		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
+func _exercise_system_loss_and_paused_census(
+		progress_baseline: Dictionary) -> void:
+	# Main is pausable, while TouchUI is the always-processing release relay.
+	# Prove that sources which lift under an ordinary Reef pause cannot survive
+	# in Melody's process-wide pre-entry census and poison a later Canvas stage.
+	var census_point := Vector2(420.0, 260.0)
+	var held_touch := StringName("touch:31:%d" % (TOUCH_INDEX + 201))
+	var held_mouse := StringName("mouse:32:left")
+	var held_key := StringName("key:33:%d" % KEY_SPACE)
+	var held_pad := StringName("pad:34:%d" % JOY_BUTTON_A)
+	_push_touch(census_point, true, TOUCH_INDEX + 201, 31)
+	_push_mouse(census_point, true, 32)
+	_push_key(KEY_SPACE, true, 33)
+	_push_pad(JOY_BUTTON_A, true, 34)
+	_check("ordinary Reef input populates the complete Melody entry-source census",
+		main.game == ""
+		and main._melody_held_sources.has(held_touch)
+		and main._melody_held_sources.has(held_mouse)
+		and main._melody_held_sources.has(held_key)
+		and main._melody_held_sources.has(held_pad))
+	main.toggle_pause()
+	_check("ordinary non-Melody pause suspends Main while TouchUI stays live",
+		paused and main.game == "" and main.pause_panel.visible)
+	_push_touch(census_point, false, TOUCH_INDEX + 201, 31)
+	_push_mouse(census_point, false, 32)
+	_push_key(KEY_SPACE, false, 33)
+	_push_pad(JOY_BUTTON_A, false, 34)
+	await process_frame
+	_check("paused terminal touch, mouse, key, and pad releases retire the census",
+		main._melody_held_sources.is_empty())
+	main.pause_resume_btn.pressed.emit()
+	await process_frame
+	_check("ordinary pause resumes without creating a Melody activity",
+		not paused and not main.pause_panel.visible and main.game == "")
+
+	main._activate_touch_interactable("friend:%d" % daddy_index, daddy_index)
+	melody = main._game_obj("melody", MelodyGame) as MelodyGame
+	var recovery_layer: CanvasLayer = melody.active_layer()
+	var recovery_layer_ref: WeakRef = weakref(recovery_layer)
+	_check("clean census cannot poison the next Melody entry",
+		main.game == "melody" and recovery_layer != null
+		and (melody.audit_snapshot().get("blocked_sources", {}) as Dictionary).is_empty())
+	await _wait_for_fade_clear()
 	await _wait_for_green(true)
-	_push_pad(JOY_BUTTON_B, false, 0)
-	_push_pad(JOY_BUTTON_A, false, 1)
-	_push_key(KEY_SPACE, false, 0)
+
+	# Real Android ordering may be focus-out -> application-paused, followed by
+	# resumed -> focus-in. Neither the first restore nor arbitrary lost-context
+	# traffic may thaw the stage, repopulate the census, or clear its guard.
+	var before := melody.progress_count()
+	var lost_touch_point: Vector2 = melody.active_note_screen_point()
+	_push_touch(lost_touch_point, true, TOUCH_INDEX + 202, 41)
+	_check("ordered context-loss fixture holds a concrete touch owner",
+		bool(melody.audit_snapshot().get("input_down", false)))
+	var lost_game_time := float(main.g.get("t", -1.0))
+	var lost_elapsed := float(melody.audit_snapshot().get("elapsed", -1.0))
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	main.notification(Node.NOTIFICATION_APPLICATION_PAUSED)
+	var runtime_reasons: Array = melody.audit_snapshot().get(
+		"input_context_loss_reasons", []) as Array
+	_check("focus-out then application-paused tracks both reasons behind one guard",
+		not bool(melody.audit_snapshot().get("input_down", true))
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and (melody.audit_snapshot().get("blocked_sources", {}) as Dictionary).is_empty()
+		and main._melody_held_sources.is_empty()
+		and main._melody_input_context_lost() and melody.input_context_lost()
+		and main._melody_input_context_losses.size() == 2
+		and main._melody_input_context_losses.has(&"focus")
+		and main._melody_input_context_losses.has(&"application")
+		and runtime_reasons.size() == 2
+		and runtime_reasons.has(&"focus")
+		and runtime_reasons.has(&"application"))
+	await _frames(4)
+	var lost_pause_point: Vector2 = main.touch_ui.pause_zone().get_center()
+	_push_touch(lost_pause_point, true, TOUCH_INDEX + 250, 46)
+	_push_touch(lost_pause_point, false, TOUCH_INDEX + 250, 46)
+	_push_mouse(lost_pause_point, true, 47)
+	_push_mouse(lost_pause_point, false, 47)
 	await process_frame
-	_check("wrong sources preserve the focus-loss pad latch",
+	_check("lost context consumes the real touch and mouse Pause-corner target",
+		not paused and not main.pause_panel.visible
+		and main.game == "melody" and melody.progress_count() == before)
+	_push_lost_context_traffic(Vector2(80.0, 680.0), 45, true)
+	await process_frame
+	_check("lost-context touch, mouse, key, and pad presses cannot claim census state",
 		melody.progress_count() == before
-		and bool(melody.audit_snapshot().get(
+		and is_equal_approx(float(main.g.get("t", -2.0)), lost_game_time)
+		and is_equal_approx(float(melody.audit_snapshot().get(
+			"elapsed", -2.0)), lost_elapsed)
+		and main._melody_held_sources.is_empty()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and (melody.audit_snapshot().get("blocked_sources", {}) as Dictionary).is_empty()
+		and not bool(melody.audit_snapshot().get("input_down", true)))
+	_push_lost_context_traffic(Vector2(80.0, 680.0), 45, false)
+	await process_frame
+	_check("lost-context touch, mouse, key, and pad releases are also inert",
+		melody.progress_count() == before
+		and is_equal_approx(float(main.g.get("t", -2.0)), lost_game_time)
+		and is_equal_approx(float(melody.audit_snapshot().get(
+			"elapsed", -2.0)), lost_elapsed)
+		and main._melody_held_sources.is_empty()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and (melody.audit_snapshot().get("blocked_sources", {}) as Dictionary).is_empty()
+		and not bool(melody.audit_snapshot().get("input_down", true)))
+	main.notification(Node.NOTIFICATION_APPLICATION_RESUMED)
+	await _frames(2)
+	runtime_reasons = melody.audit_snapshot().get(
+		"input_context_loss_reasons", []) as Array
+	_check("resumed alone cannot override the still-lost focus reason",
+		main._melody_input_context_lost() and melody.input_context_lost()
+		and melody.progress_count() == before
+		and main._melody_held_sources.is_empty()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and main._melody_input_context_losses.size() == 1
+		and main._melody_input_context_losses.has(&"focus")
+		and runtime_reasons.size() == 1 and runtime_reasons.has(&"focus"))
+	_push_lost_context_traffic(Vector2(80.0, 680.0), 55, true)
+	await process_frame
+	_check("partially restored context still rejects every fresh source press",
+		melody.progress_count() == before
+		and main._melody_held_sources.is_empty()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
+	_push_lost_context_traffic(Vector2(80.0, 680.0), 55, false)
+	await process_frame
+	_check("partially restored context still rejects every terminal release",
+		melody.progress_count() == before
+		and main._melody_held_sources.is_empty()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
+	_check("full ordered restoration keeps a source-free guard until its tick",
+		not main._melody_input_context_lost() and not melody.input_context_lost()
+		and main._melody_input_context_blocks_input()
+		and melody.input_context_blocks_input()
+		and main._melody_held_sources.is_empty()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
+	_push_lost_context_traffic(lost_pause_point, 65, true)
+	_check("pre-tick restored presses cannot enter Main census, arm Melody, or score",
+		not paused and not main.pause_panel.visible
+		and melody.progress_count() == before
+		and main._melody_held_sources.is_empty()
+		and not bool(melody.audit_snapshot().get("input_down", true))
+		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
+	await process_frame
+	_check("first restored tick clears only the guard, never preserves pre-tick presses",
+		melody.progress_count() == before
+		and not main._melody_input_context_blocks_input()
+		and not melody.input_context_blocks_input()
+		and main._melody_held_sources.is_empty()
+		and not bool(melody.audit_snapshot().get("input_down", true))
+		and not bool(melody.audit_snapshot().get("blocked_until_release", true)))
+	# Deliberately never send any of the four old releases. A neutral exit and
+	# rebuild must still start source-clean rather than carrying phantom owners.
+	await _leave_through_real_pause_gear()
+	_check("unreleased pre-tick sources cannot poison a neutral Melody leave",
+		main.game == "" and _progress_snapshot() == progress_baseline
+		and main._melody_held_sources.is_empty() and melody.active_layer() == null)
+	await _wait_for_fade_clear()
+	_check("pre-tick-source recovery teardown frees its first Canvas subtree",
+		recovery_layer_ref.get_ref() == null)
+	main._populate_touch_interactables()
+	var recovery_daddy_node: Variant = daddy_friend.get("node")
+	var recovery_camera: Variant = main.player.get("cam")
+	var recovery_daddy_point := Vector2(-1.0, -1.0)
+	if recovery_camera != null and recovery_daddy_node != null:
+		recovery_daddy_point = recovery_camera.unproject_position(
+			recovery_daddy_node.global_position)
+	var recovery_viewport: Rect2 = main.get_viewport().get_visible_rect()
+	_check("missing-release recovery exposes Daddy through the real Reef camera",
+		recovery_camera != null and recovery_daddy_node != null
+		and recovery_viewport.has_point(recovery_daddy_point)
+		and not _touch_target("friend:%d" % daddy_index).is_empty())
+	var recovery_touch_index := TOUCH_INDEX + 251
+	_push_touch(recovery_daddy_point, true, recovery_touch_index)
+	_push_touch(recovery_daddy_point, false, recovery_touch_index)
+	await process_frame
+	_check("first recovery one-finger Daddy tap focuses PLAY without launching",
+		main.game == "" and main.touch_focus_id == "friend:%d" % daddy_index
+		and main.touch_focus_ready)
+	_push_touch(recovery_daddy_point, true, recovery_touch_index)
+	_push_touch(recovery_daddy_point, false, recovery_touch_index)
+	_check("second recovery one-finger Daddy PLAY tap enters through production routing",
+		main.game == "melody" and main.g.get("fr", {}) == daddy_friend)
+	melody = main._game_obj("melody", MelodyGame) as MelodyGame
+	recovery_layer = melody.active_layer()
+	recovery_layer_ref = weakref(recovery_layer)
+	_check("reentry after missing releases has no inherited census or exact owner",
+		main.game == "melody" and recovery_layer != null
+		and main._melody_held_sources.is_empty()
+		and (melody.audit_snapshot().get(
+			"blocked_sources", {}) as Dictionary).is_empty())
+	await _wait_for_fade_clear()
+	await _wait_for_green(true)
+	before = melody.progress_count()
+	_push_key(KEY_SPACE, true, 42)
+	_push_key(KEY_SPACE, false, 42)
+	await process_frame
+	_check("different fresh gesture scores exactly once after source-clean reentry",
+		melody.progress_count() == before + 1)
+
+	# Reverse both halves: application-paused -> focus-out, then focus-in ->
+	# resumed. The remaining application reason must be independently binding.
+	before = melody.progress_count()
+	await _wait_for_green(true)
+	_push_pad(JOY_BUTTON_A, true, 43)
+	_check("reverse-order context-loss fixture holds a concrete pad owner",
+		bool(melody.audit_snapshot().get("input_down", false)))
+	main.notification(Node.NOTIFICATION_APPLICATION_PAUSED)
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	runtime_reasons = melody.audit_snapshot().get(
+		"input_context_loss_reasons", []) as Array
+	_check("application-paused then focus-out also retains both exact reasons",
+		main._melody_input_context_losses.size() == 2
+		and main._melody_input_context_losses.has(&"focus")
+		and main._melody_input_context_losses.has(&"application")
+		and runtime_reasons.size() == 2
+		and runtime_reasons.has(&"focus")
+		and runtime_reasons.has(&"application"))
+	await _frames(3)
+	_push_lost_context_traffic(Vector2(80.0, 680.0), 75, true)
+	await process_frame
+	_check("reverse loss ordering also ignores all traffic and forgets its owner",
+		not bool(melody.audit_snapshot().get("input_down", true))
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and (melody.audit_snapshot().get("blocked_sources", {}) as Dictionary).is_empty()
+		and main._melody_held_sources.is_empty()
+		and melody.progress_count() == before)
+	_push_lost_context_traffic(Vector2(80.0, 680.0), 75, false)
+	await process_frame
+	_check("reverse-order terminal traffic cannot mutate the empty census",
+		not bool(melody.audit_snapshot().get("input_down", true))
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and main._melody_held_sources.is_empty()
+		and melody.progress_count() == before)
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
+	await process_frame
+	runtime_reasons = melody.audit_snapshot().get(
+		"input_context_loss_reasons", []) as Array
+	_check("focus-in alone cannot override the still-paused application reason",
+		main._melody_input_context_lost() and melody.input_context_lost()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and melody.progress_count() == before
+		and main._melody_input_context_losses.size() == 1
+		and main._melody_input_context_losses.has(&"application")
+		and runtime_reasons.size() == 1
+		and runtime_reasons.has(&"application"))
+	main.notification(Node.NOTIFICATION_APPLICATION_RESUMED)
+	_check("reverse full restoration also retains its pre-tick guard",
+		not main._melody_input_context_lost() and not melody.input_context_lost()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false)))
+	await process_frame
+	_check("reverse restoration clears the guard on its first active tick",
+		not bool(melody.audit_snapshot().get("blocked_until_release", true)))
+	var fresh_touch_point: Vector2 = melody.active_note_screen_point()
+	_push_touch(fresh_touch_point, true, TOUCH_INDEX + 203, 44)
+	_push_touch(fresh_touch_point, false, TOUCH_INDEX + 203, 44)
+	await process_frame
+	_check("reverse-order different-source touch gesture scores exactly once",
+		melody.progress_count() == before + 1)
+
+	# Nest OS loss inside the real Pause sheet. Context loss supersedes the normal
+	# exact-source latch, but full OS restoration while SceneTree is still paused
+	# cannot clear the guard; only a subsequent unpaused Melody tick may do so.
+	before = melody.progress_count()
+	await _wait_for_green(false)
+	_push_key(KEY_SPACE, true, 51)
+	await _open_pause_gear(TOUCH_INDEX + 204)
+	_check("nested fixture starts with a normal exact-source Pause latch",
+		paused and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and not (melody.audit_snapshot().get(
+			"blocked_sources", {}) as Dictionary).is_empty())
+	_check("real Pause accessibility keeps Resume focused for lost-input testing",
+		main.pause_resume_btn.has_focus())
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	main.notification(Node.NOTIFICATION_APPLICATION_PAUSED)
+	var resume_point: Vector2 = main.pause_resume_btn.get_global_rect().get_center()
+	var leave_point: Vector2 = main.pause_leave_btn.get_global_rect().get_center()
+	_push_touch(resume_point, true, TOUCH_INDEX + 205, 85)
+	_push_mouse(leave_point, true, 86)
+	_push_key(KEY_ENTER, true, 87)
+	_push_pad(JOY_BUTTON_A, true, 88)
+	_push_action(&"ui_accept", true)
+	await process_frame
+	_check("lost-context presses cannot activate real Resume/Leave or focused actions",
+		paused and main.pause_panel.visible and main.game == "melody"
+		and melody.active_layer() != null
+		and main._melody_held_sources.is_empty()
+		and melody.progress_count() == before)
+	_push_touch(resume_point, false, TOUCH_INDEX + 205, 85)
+	_push_mouse(leave_point, false, 86)
+	_push_key(KEY_ENTER, false, 87)
+	_push_pad(JOY_BUTTON_A, false, 88)
+	_push_action(&"ui_accept", false)
+	await _frames(3)
+	_check("lost-context releases also leave real Pause GUI and Melody untouched",
+		paused and melody.input_context_lost()
+		and main.pause_panel.visible and main.game == "melody"
+		and main._melody_held_sources.is_empty()
+		and (melody.audit_snapshot().get("blocked_sources", {}) as Dictionary).is_empty()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and melody.progress_count() == before)
+	main.notification(Node.NOTIFICATION_APPLICATION_RESUMED)
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
+	await process_frame
+	_check("full OS restore cannot clear the guard while Pause remains open",
+		paused and not melody.input_context_lost()
+		and main._melody_input_context_blocks_input()
+		and melody.input_context_blocks_input()
+		and bool(melody.audit_snapshot().get("blocked_until_release", false))
+		and melody.progress_count() == before
+		and main.pause_resume_btn.has_focus())
+	_push_action(&"ui_accept", true)
+	_push_action(&"ui_accept", false)
+	_check("real focused ui_accept resumes without clearing the restored context guard",
+		not paused and bool(melody.audit_snapshot().get(
 			"blocked_until_release", false)))
-	_push_pad(JOY_BUTTON_A, false)
 	await process_frame
-	_check("focus-loss pad release makes no progress",
-		melody.progress_count() == before
-		and not bool(melody.audit_snapshot().get(
-			"blocked_until_release", true)))
+	_check("first active unpaused nested-restoration tick clears the guard",
+		not main._melody_input_context_blocks_input()
+		and not melody.input_context_blocks_input()
+		and not bool(melody.audit_snapshot().get("blocked_until_release", true)))
+	await _wait_for_green(true)
+	_push_pad(JOY_BUTTON_A, true, 52)
+	_push_pad(JOY_BUTTON_A, false, 52)
+	await process_frame
+	_check("fresh pad gesture after nested restoration scores exactly once",
+		melody.progress_count() == before + 1)
+
+	await _leave_through_real_pause_gear()
+	_check("system-loss recovery stage leaves neutrally with no reward or save progress",
+		main.game == "" and _progress_snapshot() == progress_baseline
+		and melody.active_layer() == null and main._melody_held_sources.is_empty())
+	await _frames(2)
+	_check("system-loss recovery teardown frees its complete Canvas subtree",
+		recovery_layer_ref.get_ref() == null)
 
 
 func _complete_ordered_notes(modes: Array, force_bronze: bool,
@@ -2023,7 +2316,11 @@ func _leave_through_real_pause_gear() -> void:
 		paused and main.pause_panel.visible
 		and main.pause_leave_btn.visible
 		and bool(main.pause_leave_btn.get_meta("neutral_exit", false)))
-	main.pause_leave_btn.pressed.emit()
+	main.pause_leave_btn.grab_focus()
+	_check("neutral BACK doorway owns real focused Pause GUI input",
+		main.pause_leave_btn.has_focus())
+	_push_action(&"ui_accept", true)
+	_push_action(&"ui_accept", false)
 
 
 func _open_pause_gear(index: int) -> void:
@@ -2065,10 +2362,12 @@ func _wait_for_green(wanted: bool, limit: int = 900) -> bool:
 
 func _wait_for_fade_clear(limit: int = 120) -> bool:
 	for _index in range(limit):
-		if main.fade_rect == null or main.fade_rect.modulate.a <= 0.02:
+		if main.fade_rect == null or (main.fade_rect.modulate.a <= 0.02 \
+				and main.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE):
 			return true
 		await process_frame
-	_check("entry fade clears within its bounded reveal", false)
+	_check("entry fade clears visually and restores input within its bounded reveal",
+		false)
 	return false
 
 
@@ -2109,6 +2408,24 @@ func _push_pad(button: JoyButton, pressed: bool, device: int = 0) -> void:
 	event.button_index = button
 	event.pressed = pressed
 	main.get_viewport().push_input(event, false)
+
+
+func _push_action(action: StringName, pressed: bool) -> void:
+	var event := InputEventAction.new()
+	event.action = action
+	event.pressed = pressed
+	main.get_viewport().push_input(event, false)
+
+
+func _push_lost_context_traffic(position: Vector2, seed_value: int,
+		pressed: bool) -> void:
+	# Every supported gameplay vocabulary is deliberately exercised while the OS
+	# context is absent. Presses and releases are separate real Viewport phases so
+	# transient census repopulation cannot hide behind a back-to-back erase.
+	_push_touch(position, pressed, TOUCH_INDEX + seed_value, seed_value)
+	_push_mouse(position, pressed, seed_value + 1)
+	_push_key(KEY_ENTER, pressed, seed_value + 2)
+	_push_pad(JOY_BUTTON_X, pressed, seed_value + 3)
 
 
 func _find_daddy_route() -> void:

@@ -407,9 +407,10 @@ func _pause_zone_owned_by_melody_overlay() -> bool:
 
 func _forward_paused_melody_release(ev: InputEvent) -> void:
 	# ReefMain does not process input while SceneTree.paused, but this persistent
-	# layer does. Relay only terminal source lifts so Melody can retire the exact
-	# finger/key/pad that was held before the sheet opened. Never claim the event:
-	# the visible Pause GUI remains its owner.
+	# layer does. Relay only terminal source lifts so Main can retire its global
+	# Melody entry census even during an ordinary Reef pause. A live Melody stage
+	# also performs its exact neutral release there. Never claim the event: the
+	# visible Pause GUI remains its owner.
 	if not get_tree().paused:
 		return
 	var released := false
@@ -431,9 +432,37 @@ func _forward_paused_melody_release(ev: InputEvent) -> void:
 	if not released:
 		return
 	var main: Node = get_parent()
-	if main != null and String(main.get("game")) == "melody" \
-			and main.has_method("_route_melody_input"):
-		main.call("_route_melody_input", ev)
+	if main != null and main.has_method("_retire_paused_melody_release"):
+		main.call("_retire_paused_melody_release", ev)
+
+func _consume_blocked_melody_context_input(ev: InputEvent) -> bool:
+	# Main is pausable, but this relay and the Pause Canvas are always-processing.
+	# While the OS context is absent, consume queued physical vocabulary before a
+	# focused Resume/Leave control or the corner gear can act on stale input. The
+	# one-tick restored guard also sinks unpaused events, but deliberately yields
+	# to an already-open Pause sheet so its real Resume control cannot deadlock.
+	var main: Node = get_parent()
+	if main == null or String(main.get("game")) != "melody" \
+			or not main.has_method("_melody_input_context_lost") \
+			or not main.has_method("_melody_input_context_blocks_input"):
+		return false
+	var os_context_lost: bool = bool(main.call("_melody_input_context_lost"))
+	var context_blocked: bool = bool(
+		main.call("_melody_input_context_blocks_input"))
+	if not os_context_lost and (not context_blocked or get_tree().paused):
+		return false
+	var physical_event: bool = ev is InputEventScreenTouch \
+		or ev is InputEventScreenDrag \
+		or ev is InputEventMouseButton \
+		or ev is InputEventMouseMotion \
+		or ev is InputEventKey \
+		or ev is InputEventJoypadButton \
+		or ev is InputEventJoypadMotion \
+		or ev is InputEventAction
+	if not physical_event:
+		return false
+	get_viewport().set_input_as_handled()
+	return true
 
 func reserved_zone_hit(pos: Vector2) -> bool:
 	# True when this router already owns a press at this screen point. Stages
@@ -773,6 +802,8 @@ func consume_look() -> Vector2:
 	return look
 
 func _input(ev: InputEvent) -> void:
+	if _consume_blocked_melody_context_input(ev):
+		return
 	_forward_paused_melody_release(ev)
 	# These fixed controls must win before ordinary GUI routing. Overlay
 	# builders disable world_controls_enabled, so their own buttons still keep

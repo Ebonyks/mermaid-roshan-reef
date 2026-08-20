@@ -29,6 +29,9 @@ const SKY_LAGOON_LIVING_CANVAS_LAYER := 6
 # kingdom probe covers the launch route directly.
 const START_AT_CASTLE_GATE := true
 const MELODY_LEGACY_TOUCH_SOURCE := &"legacy_world_touch"
+const MELODY_CONTEXT_FOCUS := &"focus"
+const MELODY_CONTEXT_APPLICATION := &"application"
+const MELODY_CONTEXT_CLOSE := &"window_close"
 
 var player: Node3D
 var pearls: Array[Node3D] = []
@@ -105,6 +108,7 @@ var game := ""              # "", "fetch", "dolls", "seek", "race", "melody"
 var g := {}                 # per-game scratch
 var game_nodes: Array[Node3D] = []
 var _melody_held_sources: Dictionary = {}
+var _melody_input_context_losses: Dictionary = {}
 var fs_fails := 0                  # boss attempts lost -> retry kindness (+6s each, max +12)
 var _fairy_art_cache: Dictionary = {}
 var world_env: Environment
@@ -704,7 +708,18 @@ func _refresh_joy_mapped() -> void:
 			joy_has_unmapped = true
 
 func _input(ev: InputEvent) -> void:
-	_track_melody_source_state(ev)
+	# OS focus/background notifications are independently nested. Never let
+	# delayed platform traffic rebuild Melody's entry-source census, and never
+	# route a live Melody stage until every loss reason and its first-active-tick
+	# restoration guard have cleared.
+	var melody_context_blocked: bool = _melody_input_context_blocks_input()
+	if not melody_context_blocked:
+		_track_melody_source_state(ev)
+	if game == "melody" and melody_context_blocked:
+		# Fail closed before TouchUI or a focused Pause Control can interpret stale
+		# queued actions. TouchUI repeats this sink while Main is SceneTree-paused.
+		get_viewport().set_input_as_handled()
+		return
 	# Story exchanges advance on the next deliberate press and consume that
 	# press, so skipping a witness line never also scores the task underneath.
 	var dialogue_press := false
@@ -3612,19 +3627,57 @@ func _queue_save() -> void:
 	save_pending = true
 	save_pending_t = 1.5
 
-func _notification(what: int) -> void:
-	var input_reset_notification: bool = what == NOTIFICATION_APPLICATION_FOCUS_OUT \
-		or what == NOTIFICATION_APPLICATION_PAUSED \
-		or what == NOTIFICATION_WM_CLOSE_REQUEST
-	if game == "melody" and input_reset_notification:
-		# A suspended app must never turn the held note into a hit when it
-		# returns. This is deliberately a neutral release, with no score.
-		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input()
-	if input_reset_notification:
-		# The controller retains the exact active token until its matching release;
-		# the process-wide pre-entry census must not carry OS-cancelled sources into
-		# a later, newly built activity.
+
+func _melody_input_context_lost() -> bool:
+	return not _melody_input_context_losses.is_empty()
+
+
+func _melody_input_context_blocks_input() -> bool:
+	if _melody_input_context_lost():
+		return true
+	if game != "melody":
+		return false
+	return (_game_obj("melody", MelodyGame) as MelodyGame).input_context_blocks_input()
+
+
+func _lose_melody_input_context(reason: StringName) -> void:
+	if reason.is_empty() or _melody_input_context_losses.has(reason):
+		return
+	# Clear once on the active -> lost boundary. Further nested loss reasons must
+	# not mutate the census at all; lost-context input is blocked at its writers.
+	if _melody_input_context_losses.is_empty():
 		_melody_held_sources.clear()
+	_melody_input_context_losses[reason] = true
+	if game == "melody":
+		(_game_obj("melody", MelodyGame) as MelodyGame).on_input_context_lost(
+			reason)
+
+
+func _restore_melody_input_context(reason: StringName) -> void:
+	if reason.is_empty() or not _melody_input_context_losses.has(reason):
+		return
+	_melody_input_context_losses.erase(reason)
+	if game == "melody":
+		(_game_obj("melody", MelodyGame) as MelodyGame).on_input_context_restored(
+			reason)
+	if _melody_input_context_losses.is_empty():
+		# A platform may deliver stale terminal events around the restoration edge.
+		# Re-establish the empty census before the first active post-restore tick.
+		_melody_held_sources.clear()
+
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_APPLICATION_FOCUS_OUT:
+			_lose_melody_input_context(MELODY_CONTEXT_FOCUS)
+		NOTIFICATION_APPLICATION_PAUSED:
+			_lose_melody_input_context(MELODY_CONTEXT_APPLICATION)
+		NOTIFICATION_APPLICATION_RESUMED:
+			_restore_melody_input_context(MELODY_CONTEXT_APPLICATION)
+		NOTIFICATION_APPLICATION_FOCUS_IN:
+			_restore_melody_input_context(MELODY_CONTEXT_FOCUS)
+		NOTIFICATION_WM_CLOSE_REQUEST:
+			_lose_melody_input_context(MELODY_CONTEXT_CLOSE)
 	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST:
 		# flush BOTH a failed write awaiting retry and a debounced pending
 		# write — going to the background must never drop queued progress
@@ -3820,6 +3873,8 @@ func _melody_source_release(ev: InputEvent) -> bool:
 	return false
 
 func _track_melody_source_state(ev: InputEvent) -> void:
+	if _melody_input_context_blocks_input():
+		return
 	var source_token := _melody_source_token(ev)
 	if source_token.is_empty():
 		return
@@ -3828,7 +3883,25 @@ func _track_melody_source_state(ev: InputEvent) -> void:
 	elif _melody_source_release(ev):
 		_melody_held_sources.erase(source_token)
 
+
+func _retire_paused_melody_release(ev: InputEvent) -> void:
+	# Main itself is pausable, so TouchUI's always-processing relay calls this
+	# for recognized terminal events. Retire the process-wide entry census in
+	# every activity. Only a live Melody stage also needs its cancel-before-exact-
+	# release contract; neither path claims the event from the visible Pause GUI.
+	if _melody_input_context_lost() \
+			or not _melody_source_release(ev) \
+			or _melody_source_token(ev).is_empty():
+		return
+	_track_melody_source_state(ev)
+	if game == "melody":
+		_release_melody_source_event(ev,
+			_game_obj("melody", MelodyGame) as MelodyGame)
+
+
 func _forget_melody_pad_device(device: int) -> void:
+	if _melody_input_context_blocks_input():
+		return
 	var source_prefix := "pad:%d:" % device
 	for source_value: Variant in _melody_held_sources.keys():
 		var source_token := StringName(String(source_value))
@@ -3879,16 +3952,16 @@ func _route_melody_input(ev: InputEvent) -> bool:
 	# owned by TouchUI, which cancels this controller before raising the sheet.
 	if game != "melody":
 		return false
+	if _melody_input_context_blocks_input():
+		return false
 	var melody: MelodyGame = _game_obj("melody", MelodyGame) as MelodyGame
 	if get_tree().paused:
 		# The Pause sheet still owns and receives its controls, but an original
 		# note source may lift while the tree is paused. Forward only exact neutral
 		# releases so that source cannot leave the activity permanently latched.
-		# Main._input is itself paused, so TouchUI's always-processing relay reaches
-		# this branch directly; retire the process-wide pre-entry census token here
-		# as well (a duplicate erase is harmless if an input backend calls both).
-		_track_melody_source_state(ev)
-		_release_melody_source_event(ev, melody)
+		# Main._input is itself paused, so TouchUI normally reaches the narrow helper
+		# directly. Keep this branch for any other always-processing caller.
+		_retire_paused_melody_release(ev)
 		return false
 	if _melody_overlay_owns_input():
 		# Do not mark this event handled: the visible higher-layer GUI owns it.
@@ -7248,6 +7321,8 @@ func _start_game_now(fr: Dictionary) -> void:
 	elif game == "melody":
 		var melody: MelodyGame = _game_obj("melody", MelodyGame) as MelodyGame
 		melody.build(fr, origin)
+		for reason_value: Variant in _melody_input_context_losses.keys():
+			melody.on_input_context_lost(StringName(String(reason_value)))
 		melody.arm_entry_sources(_melody_held_sources.keys())
 	elif game == "slide":
 		_game_obj("race", SlideRaceGame).build_slide(fr, origin)
@@ -7692,9 +7767,14 @@ func _process(delta: float) -> void:
 		# and suspend every hidden spatial system until synchronous teardown.
 		if caustics_plane != null and caustics_plane.visible:
 			caustics_plane.visible = false
-		_tick_game(delta)
 		if touch_ui != null:
 			touch_ui.set_action_label("PLAY")
+		# Some platforms continue producing frames between focus-out/paused and
+		# resumed/focus-in. Those frames are not gameplay time and cannot advance
+		# Melody's medal clock, motion, neutral guard, or controller state.
+		if _melody_input_context_lost():
+			return
+		_tick_game(delta)
 		return
 	if sky_canvas_active:
 		# The opaque Canvas promenade is a complete world slice. Its controller

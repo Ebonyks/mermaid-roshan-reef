@@ -569,6 +569,8 @@ var _blocked_until_release := true
 var _startup_release_guard := true
 var _cancelled_had_input := false
 var _pause_waiting_release := false
+var _input_context_loss_reasons: Dictionary = {}
+var _input_context_restore_guard := false
 
 var _chime_snapshot_valid := false
 var _chime_volume_db := 0.0
@@ -605,6 +607,8 @@ func build(fr: Dictionary, _origin: Variant) -> void:
 	_startup_release_guard = true
 	_cancelled_had_input = false
 	_pause_waiting_release = false
+	_input_context_loss_reasons.clear()
+	_input_context_restore_guard = false
 	_capture_chime_state()
 
 	_layer = CanvasLayer.new()
@@ -685,6 +689,10 @@ func _tick_melody(delta: float, _fr_value: Dictionary,
 		_ppos: Variant) -> void:
 	if _layer == null or not is_instance_valid(_layer) or _completed:
 		return
+	# Main normally suppresses the whole gameplay tick while an OS input context
+	# is absent. Keep the controller independently fail-closed for direct callers.
+	if input_context_lost():
+		return
 	_tick_count += 1
 	_elapsed += maxf(delta, 0.0)
 	_layout_stage(false)
@@ -698,6 +706,7 @@ func _tick_melody(delta: float, _fr_value: Dictionary,
 		# router reports both halves only as neutral cancellation.
 		_blocked_until_release = false
 		_startup_release_guard = false
+		_input_context_restore_guard = false
 	_note_cycle_t = fposmod(_note_cycle_t + maxf(delta, 0.0),
 		NOTE_CYCLE_SECONDS)
 	_update_note_point()
@@ -712,6 +721,8 @@ func handle_touch_press(screen_position: Vector2,
 
 func handle_touch_drag(screen_position: Vector2,
 		source_token: StringName = &"legacy_world_touch") -> void:
+	if input_context_lost() or _input_context_restore_guard:
+		return
 	if not _input_down or _input_kind != "touch" or _input_source != source_token:
 		return
 	_current_position = screen_position
@@ -737,6 +748,11 @@ func handle_action_release(
 
 
 func cancel_input(source_token: StringName = &"") -> void:
+	if input_context_lost() or _input_context_restore_guard:
+		# TouchUI may defensively cancel again as notifications propagate through
+		# the tree. Context loss owns the stronger source-free contract.
+		_arm_input_context_restore_guard()
+		return
 	if _input_down and not _input_source.is_empty():
 		_block_source(_input_source, _input_kind)
 	if not source_token.is_empty():
@@ -746,6 +762,52 @@ func cancel_input(source_token: StringName = &"") -> void:
 	_reset_press_state()
 	_blocked_until_release = true
 	_startup_release_guard = false
+
+
+func input_context_lost() -> bool:
+	return not _input_context_loss_reasons.is_empty()
+
+
+func input_context_blocks_input() -> bool:
+	# Main queries this narrow seam during the restored-but-not-yet-ticked
+	# boundary. That source-free guard is gameplay authority, not probe metadata.
+	return input_context_lost() or _input_context_restore_guard
+
+
+func _arm_input_context_restore_guard() -> void:
+	_blocked_sources.clear()
+	_reset_press_state()
+	_blocked_until_release = true
+	_startup_release_guard = true
+	_cancelled_had_input = false
+	_pause_waiting_release = false
+	_input_context_restore_guard = true
+
+
+func on_input_context_lost(reason: StringName) -> void:
+	if reason.is_empty() or _input_context_loss_reasons.has(reason):
+		return
+	var was_lost: bool = input_context_lost()
+	_input_context_loss_reasons[reason] = true
+	if was_lost:
+		return
+	# Focus/background loss is not an ordinary Pause sheet: Android may never
+	# deliver the terminal event for the finger, key, or pad which was down when
+	# the app lost its input context. Forget every now-unreleasable exact owner,
+	# then retain one source-free guard through every nested loss reason.
+	_arm_input_context_restore_guard()
+
+
+func on_input_context_restored(reason: StringName) -> void:
+	if reason.is_empty() or not _input_context_loss_reasons.has(reason):
+		return
+	_input_context_loss_reasons.erase(reason)
+	if input_context_lost():
+		return
+	# Clear again on the fully-lost -> active boundary. Delayed platform events
+	# cannot become owners, and the first active unpaused tick alone retires this
+	# source-free guard.
+	_arm_input_context_restore_guard()
 
 
 func handle_touch_cancel(
@@ -763,6 +825,8 @@ func arm_entry_sources(source_tokens: Array) -> void:
 	# Main observes physical presses before the fade starts. Seed every source
 	# that is still down so a different finger, key, or controller cannot clear
 	# the reveal latch on its behalf.
+	if input_context_lost() or _input_context_restore_guard:
+		return
 	for source_value: Variant in source_tokens:
 		var source_token := StringName(String(source_value))
 		if not source_token.is_empty():
@@ -777,7 +841,8 @@ func arm_entry_sources(source_tokens: Array) -> void:
 func forget_sources_with_prefix(source_prefix: String) -> void:
 	# Device disconnects have no release event. Neutralize only that device's
 	# sources; another finger/key/pad must retain its independent ownership.
-	if source_prefix.is_empty():
+	if source_prefix.is_empty() or input_context_lost() \
+			or _input_context_restore_guard:
 		return
 	var forgot_source := false
 	if _input_down and String(_input_source).begins_with(source_prefix):
@@ -802,6 +867,9 @@ func forget_sources_with_prefix(source_prefix: String) -> void:
 
 
 func on_pause_changed(paused: bool) -> void:
+	if input_context_lost() or _input_context_restore_guard:
+		_arm_input_context_restore_guard()
+		return
 	if paused:
 		if _input_down and not _input_source.is_empty():
 			_block_source(_input_source, _input_kind)
@@ -858,6 +926,8 @@ func stage_close() -> void:
 	_startup_release_guard = false
 	_cancelled_had_input = false
 	_pause_waiting_release = false
+	_input_context_loss_reasons.clear()
+	_input_context_restore_guard = false
 
 
 func active_layer() -> CanvasLayer:
@@ -938,6 +1008,9 @@ func audit_snapshot() -> Dictionary:
 		"touch_armed": _touch_armed,
 		"blocked_until_release": _blocked_until_release,
 		"blocked_sources": _blocked_sources.duplicate(),
+		"input_context_lost": input_context_lost(),
+		"input_context_loss_reasons": _input_context_loss_reasons.keys(),
+		"input_context_restore_guard": _input_context_restore_guard,
 		"tick_count": _tick_count,
 		"elapsed": _elapsed,
 		"viewport_size": _viewport_size,
@@ -1100,6 +1173,8 @@ func _begin_press(kind: String, source_token: StringName,
 		screen_position: Vector2, position_required: bool) -> bool:
 	if active_note_id() < 0:
 		return false
+	if input_context_lost() or _input_context_restore_guard:
+		return true
 	if source_token.is_empty():
 		return true
 	if _blocked_until_release:
@@ -1119,6 +1194,8 @@ func _begin_press(kind: String, source_token: StringName,
 
 
 func _finish_press(kind: String, source_token: StringName) -> void:
+	if input_context_lost() or _input_context_restore_guard:
+		return
 	if _blocked_until_release:
 		if not _blocked_sources.is_empty():
 			if not _blocked_sources.has(source_token) \
