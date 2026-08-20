@@ -2,8 +2,8 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "1b7d6bda",
-    "inventory_date": "2026-08-13",
+    "inventory_head": "ac8ce918",
+    "inventory_date": "2026-08-19",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
@@ -7579,7 +7579,7 @@
     "model_import_sidecars": 157,
     "active_untracked_model_import_sidecars": 352,
     "model_archive_files": 0,
-    "production_3d_files": 65,
+    "production_3d_files": 64,
     "probe_3d_files": 70,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
@@ -12149,29 +12149,6 @@
       "StandardMaterial3D": 7,
       "Vector3": 50
     },
-    "scripts/games/melody.gd": {
-      "<3d-multimesh>": 4,
-      "<model-reference>": 2,
-      "BaseMaterial3D": 4,
-      "Basis": 4,
-      "BoxMesh": 3,
-      "CapsuleMesh": 2,
-      "CylinderMesh": 4,
-      "GeometryInstance3D": 2,
-      "Mesh": 2,
-      "MeshInstance3D": 9,
-      "MultiMeshInstance3D": 4,
-      "Node3D": 4,
-      "Quaternion": 1,
-      "RainbowTheater3D": 1,
-      "SphereMesh": 3,
-      "Sprite3D": 1,
-      "StandardMaterial3D": 3,
-      "TRANSFORM_3D": 4,
-      "TorusMesh": 2,
-      "Transform3D": 4,
-      "Vector3": 144
-    },
     "scripts/games/octagon_stage.gd": {
       "BaseMaterial3D": 9,
       "BoxMesh": 1,
@@ -12502,10 +12479,9 @@
       "Camera3D": 1,
       "Node3D": 10,
       "Quaternion": 1,
-      "RainbowTheater3D": 1,
       "Skeleton3D": 1,
       "Sprite3D": 1,
-      "Vector3": 21
+      "Vector3": 20
     },
     "scripts/probe_basement.gd": {
       "Camera3D": 2,
@@ -12702,8 +12678,7 @@
       "Vector3": 2
     },
     "scripts/probe_melody.gd": {
-      "Node3D": 2,
-      "Vector3": 3
+      "Node3D": 2
     },
     "scripts/probe_northern.gd": {
       "Node3D": 1,

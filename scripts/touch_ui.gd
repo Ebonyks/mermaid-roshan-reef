@@ -400,6 +400,41 @@ func pause_zone() -> Rect2:
 		vs = get_viewport().get_visible_rect().size
 	return Rect2(Vector2(vs.x - 170.0, 0.0), Vector2(170.0, 170.0))
 
+func _pause_zone_owned_by_melody_overlay() -> bool:
+	var main: Node = get_parent()
+	return main != null and main.has_method("_melody_overlay_owns_input") \
+		and bool(main.call("_melody_overlay_owns_input"))
+
+func _forward_paused_melody_release(ev: InputEvent) -> void:
+	# ReefMain does not process input while SceneTree.paused, but this persistent
+	# layer does. Relay only terminal source lifts so Melody can retire the exact
+	# finger/key/pad that was held before the sheet opened. Never claim the event:
+	# the visible Pause GUI remains its owner.
+	if not get_tree().paused:
+		return
+	var released := false
+	if ev is InputEventScreenTouch:
+		released = not (ev as InputEventScreenTouch).pressed
+	elif ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		released = mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+			and mouse_button.button_index == MOUSE_BUTTON_LEFT \
+			and not mouse_button.pressed
+	elif ev is InputEventKey:
+		var key := ev as InputEventKey
+		released = key.physical_keycode in [KEY_SPACE, KEY_ENTER, KEY_KP_ENTER] \
+			and not key.pressed
+	elif ev is InputEventJoypadButton:
+		var button := ev as InputEventJoypadButton
+		released = button.button_index in [JOY_BUTTON_A, JOY_BUTTON_B,
+			JOY_BUTTON_X, JOY_BUTTON_Y] and not button.pressed
+	if not released:
+		return
+	var main: Node = get_parent()
+	if main != null and String(main.get("game")) == "melody" \
+			and main.has_method("_route_melody_input"):
+		main.call("_route_melody_input", ev)
+
 func reserved_zone_hit(pos: Vector2) -> bool:
 	# True when this router already owns a press at this screen point. Stages
 	# that read the EMULATED MOUSE directly for hold-to-travel must ask first:
@@ -738,12 +773,14 @@ func consume_look() -> Vector2:
 	return look
 
 func _input(ev: InputEvent) -> void:
+	_forward_paused_melody_release(ev)
 	# These fixed controls must win before ordinary GUI routing. Overlay
 	# builders disable world_controls_enabled, so their own buttons still keep
 	# the whole screen while open.
 	if wants_touch() and ev is InputEventScreenTouch:
 		var touch := ev as InputEventScreenTouch
-		if touch.pressed and pause_zone().has_point(touch.position):
+		if touch.pressed and pause_zone().has_point(touch.position) \
+				and not _pause_zone_owned_by_melody_overlay():
 			_request_pause()
 			get_viewport().set_input_as_handled()
 			return
@@ -778,7 +815,8 @@ func _input(ev: InputEvent) -> void:
 		var mouse_button := ev as InputEventMouseButton
 		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
 				and mouse_button.button_index == MOUSE_BUTTON_LEFT:
-			if mouse_button.pressed and pause_zone().has_point(mouse_button.position):
+			if mouse_button.pressed and pause_zone().has_point(mouse_button.position) \
+					and not _pause_zone_owned_by_melody_overlay():
 				_request_pause()
 				get_viewport().set_input_as_handled()
 				return

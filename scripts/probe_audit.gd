@@ -4,6 +4,23 @@ extends SceneTree
 var main: Node3D
 var player: Node3D
 
+const MELODY_TILE_PATHS: Array[String] = [
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+]
+const MELODY_TILE_NODES: Array[String] = [
+	"SkyLagoonBackdrop_r0_c2", "SkyLagoonBackdrop_r0_c3",
+	"SkyLagoonBackdrop_r1_c2", "SkyLagoonBackdrop_r1_c3",
+]
+const MELODY_TILE_SOURCE_RECTS: Array[Rect2i] = [
+	Rect2i(0, 0, 1024, 1024), Rect2i(1024, 0, 1024, 1024),
+	Rect2i(0, 1024, 1024, 1024), Rect2i(1024, 1024, 1024, 1024),
+]
+const MELODY_DADDY_PATH := "res://assets/characters/stickers/daddy.png"
+const MELODY_ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
+
 func _init() -> void:
 	var seed_str := OS.get_environment("AUDIT_SEED")
 	if seed_str != "":
@@ -67,6 +84,8 @@ func _init() -> void:
 			player.position = node.position + Vector3(3, 0, 0)
 			player.vel = Vector3.ZERO
 			await process_frame
+		var friend_route_position: Variant = player.position
+		var friend_route_environment: Variant = main.we_node.environment
 		if main.game == "" and main.touch_uses_explicit_interactions():
 			main._activate_touch_interactable("friend:%d" % fi, fi)
 			await _frames(10)
@@ -74,17 +93,30 @@ func _init() -> void:
 			print("AUDIT|", fname, ": GAME DID NOT START")
 			continue
 		var gname: String = main.game
-		var cutaway_ok: bool = player.position.distance_to(main.ARENA_POS) <= 120.0
+		var cutaway_ok: bool = player.position == friend_route_position \
+			and main.we_node.environment == friend_route_environment \
+			if gname == "melody" else \
+			player.position.distance_to(main.ARENA_POS) <= 120.0
 		if gname == "melody":
-			var stage: Node = main.get_node_or_null("RainbowTheater3D")
-			var stage_ok: bool = stage != null
-			if stage_ok:
-				var required := ["BackWall", "StageDeck", "RainbowArc0", "ProsceniumBulbs", "Runway", "TheaterSeats", "StarPerformer"]
-				for child_name in required:
-					if stage.get_node_or_null(String(child_name)) == null:
-						stage_ok = false
-						break
-			print("AUDIT|Rainbow 3D theater: ", ("OK" if stage_ok else "FAIL"))
+			var melody := main._game_obj("melody", MelodyGame) as MelodyGame
+			var layer: CanvasLayer = melody.active_layer()
+			var surface: Node2D = melody.surface()
+			var stage_ok: bool = layer != null and surface != null \
+				and layer.name == &"MelodyCanvasLayer" \
+				and surface.name == &"RainbowTheaterCanvas" \
+				and melody.stage_root() == surface \
+				and _melody_surface_exact(surface) \
+				and _melody_tile_bindings_exact(surface) \
+				and _melody_spatial_descendant_count(layer) == 0 \
+				and surface.find_child("LeftCurtainGeometry", true, false) != null \
+				and surface.find_child("RightCurtainGeometry", true, false) != null \
+				and surface.find_child("DaddyGuide", true, false) != null \
+				and surface.find_child("PopstarRoshan", true, false) != null \
+				and surface.find_child("TimingZone", true, false) != null \
+				and surface.find_child("VisualPointer", true, false) != null \
+				and melody.note_count() == 7 \
+				and melody.progress_count() == 0
+			print("AUDIT|Rainbow Canvas theater: ", ("OK" if stage_ok else "FAIL"))
 		var f0 := Time.get_ticks_msec()
 		var ok := await _drive_game(gname, f)
 		var secs := float(Time.get_ticks_msec() - f0) / 1000.0
@@ -543,12 +575,204 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 						player.vel = Vector3.ZERO
 						break
 		elif gname == "melody":
-			var orbs: Array = g.get("orbs", [])
-			for ob in orbs:
-				if not bool(ob["caught"]):
-					player.position = player.position.lerp((ob["node"] as Node3D).position, 0.14)
-					player.vel = Vector3.ZERO
-					break
+			var melody := main._game_obj("melody", MelodyGame) as MelodyGame
+			var note_point: Vector2 = melody.active_note_screen_point()
+			var timing_zone: Rect2 = melody.timing_zone_screen_rect()
+			if melody.active_note_id() >= 0 and timing_zone.has_point(note_point):
+				var melody_touch := InputEventScreenTouch.new()
+				melody_touch.index = 53
+				melody_touch.position = note_point
+				melody_touch.pressed = true
+				# active_note_screen_point() is already in this Viewport's local
+				# Canvas coordinates. The broad headless audit can expose a square
+				# visible rect, so asking Viewport to reinterpret it as an external
+				# window coordinate moves the press away from the note.
+				main.get_viewport().push_input(melody_touch, true)
+				var melody_release := InputEventScreenTouch.new()
+				melody_release.index = 53
+				melody_release.position = note_point
+				melody_release.pressed = false
+				main.get_viewport().push_input(melody_release, true)
 		await process_frame
 	main.touch_ui.stick_vec = Vector2.ZERO   # release the virtual hand
 	return main.game == "" and bool(f["won"])
+
+
+func _melody_surface_exact(surface: Node) -> bool:
+	if surface == null:
+		return false
+	var expected: Array[String] = [
+		"OpaqueTheaterFill", "ScenicBackcloth", "OperaProscenium",
+		"StageFootlights", "StageStar", "DaddyGuide", "PopstarRoshan",
+		"TimingZone", "VisualPointer",
+	]
+	for index in range(7):
+		expected.append("RainbowNote%d" % index)
+		expected.append("ProgressPip%d" % index)
+	if surface.get_child_count() != expected.size():
+		return false
+	for index in range(expected.size()):
+		var child: Node = surface.get_child(index)
+		if String(child.name) != expected[index] or not (child is CanvasItem):
+			return false
+	var fill: Node = surface.find_child("OpaqueTheaterFill", true, false)
+	var scenic: Node = surface.find_child("ScenicBackcloth", true, false)
+	var proscenium: Node = surface.find_child("OperaProscenium", true, false)
+	var footlights: Node = surface.find_child("StageFootlights", true, false)
+	var star: Node = surface.find_child("StageStar", true, false)
+	var daddy: Node = surface.find_child("DaddyGuide", true, false)
+	var roshan: Node = surface.find_child("PopstarRoshan", true, false)
+	var zone: Node = surface.find_child("TimingZone", true, false)
+	var pointer: Node = surface.find_child("VisualPointer", true, false)
+	var first_tile: Node = surface.find_child(MELODY_TILE_NODES[0], true, false)
+	if not (fill is ColorRect) or not (scenic is ColorRect) \
+			or not (proscenium is Control) or not (footlights is Control) \
+			or not (star is Control) or not (zone is Control) \
+			or not (pointer is Control) \
+			or not _melody_actor_exact(daddy, surface, MELODY_DADDY_PATH) \
+			or not _melody_actor_exact(roshan, surface, MELODY_ROSHAN_PATH):
+		return false
+	var ordered_z: bool = _melody_effective_z(fill) < _melody_effective_z(scenic) \
+		and _melody_effective_z(scenic) < _melody_effective_z(first_tile) \
+		and _melody_effective_z(first_tile) < _melody_effective_z(proscenium) \
+		and _melody_effective_z(proscenium) < _melody_effective_z(footlights) \
+		and _melody_effective_z(footlights) < _melody_effective_z(star) \
+		and _melody_effective_z(star) < _melody_effective_z(daddy) \
+		and _melody_effective_z(star) < _melody_effective_z(roshan) \
+		and _melody_effective_z(daddy) < _melody_effective_z(zone) \
+		and _melody_effective_z(roshan) < _melody_effective_z(zone) \
+		and _melody_effective_z(zone) < _melody_effective_z(pointer)
+	for index in range(7):
+		var note: Node = surface.find_child("RainbowNote%d" % index, true, false)
+		var pip: Node = surface.find_child("ProgressPip%d" % index, true, false)
+		ordered_z = ordered_z and note is Control and pip is Control \
+			and _melody_effective_z(pointer) <= _melody_effective_z(note) \
+			and _melody_effective_z(note) < _melody_effective_z(pip)
+	return ordered_z
+
+
+func _melody_actor_exact(actor: Node, surface: Node,
+		expected_path: String) -> bool:
+	if not (actor is Sprite2D) or actor.get_parent() != surface:
+		return false
+	var sprite := actor as Sprite2D
+	var texture: Texture2D = sprite.texture
+	return texture != null and not (texture is AtlasTexture) \
+		and texture.resource_path == expected_path \
+		and String(sprite.get_meta("source_path", "")) == expected_path \
+		and sprite.get_child_count() == 0 \
+		and sprite.centered and not sprite.region_enabled \
+		and not sprite.flip_h and not sprite.flip_v \
+		and sprite.hframes == 1 and sprite.vframes == 1 and sprite.frame == 0 \
+		and sprite.offset.is_zero_approx() \
+		and sprite.scale.x > 0.0 and sprite.scale.y > 0.0 \
+		and is_zero_approx(sprite.rotation) and is_zero_approx(sprite.skew)
+
+
+func _melody_effective_z(node: Node) -> int:
+	if not (node is CanvasItem):
+		return -4096
+	var total := 0
+	var current: Node = node
+	while current is CanvasItem:
+		var item := current as CanvasItem
+		total += item.z_index
+		if not item.z_as_relative:
+			break
+		current = current.get_parent()
+	return total
+
+
+func _melody_tile_bindings_exact(surface: Node) -> bool:
+	if surface == null:
+		return false
+	var scenic: Node = surface.find_child("ScenicBackcloth", true, false)
+	if not (scenic is Control) or not (scenic as Control).clip_contents:
+		return false
+	var instance_ids: Dictionary = {}
+	var rects: Array[Rect2] = []
+	var common_scale := Vector2.ZERO
+	for index in range(MELODY_TILE_NODES.size()):
+		var node: Node = surface.find_child(MELODY_TILE_NODES[index], true, false)
+		if not (node is Sprite2D) or node.get_parent() != scenic \
+				or _melody_named_count(surface, MELODY_TILE_NODES[index]) != 1:
+			return false
+		var sprite := node as Sprite2D
+		var texture: Texture2D = sprite.texture
+		if texture == null or texture.resource_path != MELODY_TILE_PATHS[index] \
+				or texture is AtlasTexture \
+				or texture.get_size() != Vector2(1024, 1024) \
+				or String(sprite.get_meta("source_path", "")) \
+					!= MELODY_TILE_PATHS[index] \
+				or sprite.get_meta("native_source_rect", Rect2i()) \
+					!= MELODY_TILE_SOURCE_RECTS[index] \
+				or sprite.get_child_count() != 0 \
+				or not sprite.centered or sprite.flip_h or sprite.flip_v \
+				or sprite.region_enabled or sprite.hframes != 1 or sprite.vframes != 1 \
+				or sprite.frame != 0 or not sprite.offset.is_zero_approx() \
+				or sprite.scale.x <= 0.0 or sprite.scale.y <= 0.0 \
+				or not is_equal_approx(sprite.scale.x, sprite.scale.y) \
+				or not is_zero_approx(sprite.rotation) \
+				or not is_zero_approx(sprite.skew):
+			return false
+		if index == 0:
+			common_scale = sprite.scale
+		elif not sprite.scale.is_equal_approx(common_scale):
+			return false
+		rects.append(_melody_transform_rect(sprite.get_rect(),
+			sprite.get_global_transform_with_canvas()))
+		instance_ids[node.get_instance_id()] = true
+	var tolerance := 1.5
+	var union_rect: Rect2 = rects[0]
+	for index in range(1, rects.size()):
+		union_rect = union_rect.merge(rects[index])
+	var scenic_rect: Rect2 = (scenic as Control).get_global_rect()
+	return instance_ids.size() == MELODY_TILE_PATHS.size() \
+		and rects.all(func(rect: Rect2) -> bool:
+			return rect.has_area() and rect.size.is_equal_approx(rects[0].size)) \
+		and absf(rects[0].size.x - rects[0].size.y) <= tolerance \
+		and absf(rects[0].end.x - rects[1].position.x) <= tolerance \
+		and absf(rects[2].end.x - rects[3].position.x) <= tolerance \
+		and absf(rects[0].end.y - rects[2].position.y) <= tolerance \
+		and absf(rects[1].end.y - rects[3].position.y) <= tolerance \
+		and absf(union_rect.size.x - union_rect.size.y) <= tolerance \
+		and union_rect.grow(tolerance).encloses(scenic_rect) \
+		and union_rect.get_center().distance_to(scenic_rect.get_center()) <= tolerance
+
+
+func _melody_transform_rect(rect: Rect2, xform: Transform2D) -> Rect2:
+	var points := PackedVector2Array([
+		xform * rect.position,
+		xform * Vector2(rect.end.x, rect.position.y),
+		xform * rect.end,
+		xform * Vector2(rect.position.x, rect.end.y),
+	])
+	var min_point: Vector2 = points[0]
+	var max_point: Vector2 = points[0]
+	for point: Vector2 in points:
+		min_point.x = minf(min_point.x, point.x)
+		min_point.y = minf(min_point.y, point.y)
+		max_point.x = maxf(max_point.x, point.x)
+		max_point.y = maxf(max_point.y, point.y)
+	return Rect2(min_point, max_point - min_point)
+
+
+func _melody_named_count(node: Node, exact_name: String) -> int:
+	if node == null:
+		return 0
+	var count := 1 if String(node.name) == exact_name else 0
+	for child_value: Variant in node.get_children():
+		count += _melody_named_count(child_value as Node, exact_name)
+	return count
+
+
+func _melody_spatial_descendant_count(node: Node) -> int:
+	if node == null:
+		return 0
+	var total := 0
+	for child_value: Variant in node.get_children():
+		var child := child_value as Node
+		if child is Node3D:
+			total += 1
+		total += _melody_spatial_descendant_count(child)
+	return total

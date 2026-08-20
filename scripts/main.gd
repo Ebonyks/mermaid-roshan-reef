@@ -28,6 +28,7 @@ const SKY_LAGOON_LIVING_CANVAS_LAYER := 6
 # so the existing trusted activity probes remain deterministic while the new
 # kingdom probe covers the launch route directly.
 const START_AT_CASTLE_GATE := true
+const MELODY_LEGACY_TOUCH_SOURCE := &"legacy_world_touch"
 
 var player: Node3D
 var pearls: Array[Node3D] = []
@@ -103,6 +104,7 @@ var bloom_parts: GPUParticles3D
 var game := ""              # "", "fetch", "dolls", "seek", "race", "melody"
 var g := {}                 # per-game scratch
 var game_nodes: Array[Node3D] = []
+var _melody_held_sources: Dictionary = {}
 var fs_fails := 0                  # boss attempts lost -> retry kindness (+6s each, max +12)
 var _fairy_art_cache: Dictionary = {}
 var world_env: Environment
@@ -702,6 +704,7 @@ func _refresh_joy_mapped() -> void:
 			joy_has_unmapped = true
 
 func _input(ev: InputEvent) -> void:
+	_track_melody_source_state(ev)
 	# Story exchanges advance on the next deliberate press and consume that
 	# press, so skipping a witness line never also scores the task underneath.
 	var dialogue_press := false
@@ -730,6 +733,9 @@ func _input(ev: InputEvent) -> void:
 	elif ev is InputEventJoypadButton:
 		var jb := ev as InputEventJoypadButton
 		joy_ev_btn[int(jb.button_index)] = jb.pressed
+	if _route_melody_input(ev):
+		get_viewport().set_input_as_handled()
+		return
 
 func joy_axis(axis: int) -> float:
 	# read from EVERY connected pad, not just device 0 — Bluetooth and 2.4GHz
@@ -831,6 +837,8 @@ func _ready() -> void:
 	Input.joy_connection_changed.connect(func(_dev: int, _conn: bool):
 		joy_ev_axis.clear()   # never let a departed pad leave phantom input behind
 		joy_ev_btn.clear()
+		if not _conn:
+			_forget_melody_pad_device(_dev)
 		_refresh_joy_mapped())
 	_refresh_joy_mapped()
 	_build_environment()
@@ -3605,6 +3613,18 @@ func _queue_save() -> void:
 	save_pending_t = 1.5
 
 func _notification(what: int) -> void:
+	var input_reset_notification: bool = what == NOTIFICATION_APPLICATION_FOCUS_OUT \
+		or what == NOTIFICATION_APPLICATION_PAUSED \
+		or what == NOTIFICATION_WM_CLOSE_REQUEST
+	if game == "melody" and input_reset_notification:
+		# A suspended app must never turn the held note into a hit when it
+		# returns. This is deliberately a neutral release, with no score.
+		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input()
+	if input_reset_notification:
+		# The controller retains the exact active token until its matching release;
+		# the process-wide pre-entry census must not carry OS-cancelled sources into
+		# a later, newly built activity.
+		_melody_held_sources.clear()
 	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST:
 		# flush BOTH a failed write awaiting retry and a debounced pending
 		# write — going to the background must never drop queued progress
@@ -3729,12 +3749,267 @@ func _world_tap_gated() -> bool:
 		return true
 	return false
 
+func _melody_input_gated() -> bool:
+	# Melody deliberately disables the legacy swim controls while its opaque
+	# Canvas is open, so its own input gate mirrors the shared overlay/fade rules
+	# without treating that one intentional control block as an input failure.
+	if intro_active or get_tree().paused or mg_kind != "":
+		return true
+	if fade_rect != null and fade_rect.modulate.a > 0.02:
+		return true
+	return false
+
+func _melody_overlay_owns_input() -> bool:
+	# Full-screen books/studios sit above Melody's layer and retain their normal
+	# GUI input.  Melody still receives a neutral cancellation/release so the
+	# note underneath can never score while an overlay is open.
+	return game == "melody" and (wardrobe_layer != null or craft_layer != null \
+		or castle_logo_layer != null or stickers_layer != null \
+		or collection_layer != null or companion_layer != null \
+		or companion_care_layer != null or mic_teach_layer != null)
+
+func _melody_source_token(ev: InputEvent) -> StringName:
+	if ev is InputEventScreenTouch:
+		var touch := ev as InputEventScreenTouch
+		return StringName("touch:%d:%d" % [touch.device, touch.index])
+	if ev is InputEventScreenDrag:
+		var drag := ev as InputEventScreenDrag
+		return StringName("touch:%d:%d" % [drag.device, drag.index])
+	if ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index == MOUSE_BUTTON_LEFT:
+			return StringName("mouse:%d:left" % mouse_button.device)
+	if ev is InputEventMouseMotion:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION \
+				and (mouse_motion.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0:
+			return StringName("mouse:%d:left" % mouse_motion.device)
+	if ev is InputEventKey:
+		var key := ev as InputEventKey
+		if key.physical_keycode in [KEY_SPACE, KEY_ENTER, KEY_KP_ENTER]:
+			return StringName("key:%d:%d" % [key.device, key.physical_keycode])
+	if ev is InputEventJoypadButton:
+		var button := ev as InputEventJoypadButton
+		if button.button_index in [JOY_BUTTON_A, JOY_BUTTON_B,
+				JOY_BUTTON_X, JOY_BUTTON_Y]:
+			return StringName("pad:%d:%d" % [button.device, button.button_index])
+	return &""
+
+func _melody_source_press(ev: InputEvent) -> bool:
+	if ev is InputEventScreenTouch:
+		return (ev as InputEventScreenTouch).pressed
+	if ev is InputEventMouseButton:
+		return (ev as InputEventMouseButton).pressed
+	if ev is InputEventKey:
+		var key := ev as InputEventKey
+		return key.pressed and not key.echo
+	if ev is InputEventJoypadButton:
+		return (ev as InputEventJoypadButton).pressed
+	return false
+
+func _melody_source_release(ev: InputEvent) -> bool:
+	if ev is InputEventScreenTouch:
+		return not (ev as InputEventScreenTouch).pressed
+	if ev is InputEventMouseButton:
+		return not (ev as InputEventMouseButton).pressed
+	if ev is InputEventKey:
+		return not (ev as InputEventKey).pressed
+	if ev is InputEventJoypadButton:
+		return not (ev as InputEventJoypadButton).pressed
+	return false
+
+func _track_melody_source_state(ev: InputEvent) -> void:
+	var source_token := _melody_source_token(ev)
+	if source_token.is_empty():
+		return
+	if _melody_source_press(ev):
+		_melody_held_sources[source_token] = true
+	elif _melody_source_release(ev):
+		_melody_held_sources.erase(source_token)
+
+func _forget_melody_pad_device(device: int) -> void:
+	var source_prefix := "pad:%d:" % device
+	for source_value: Variant in _melody_held_sources.keys():
+		var source_token := StringName(String(source_value))
+		if String(source_token).begins_with(source_prefix):
+			_melody_held_sources.erase(source_token)
+	if game == "melody":
+		var melody: MelodyGame = _game_obj("melody", MelodyGame) as MelodyGame
+		melody.forget_sources_with_prefix(source_prefix)
+
+func _release_melody_source_event(ev: InputEvent,
+		melody: MelodyGame) -> bool:
+	if not _melody_source_release(ev):
+		return false
+	var source_token := _melody_source_token(ev)
+	if source_token.is_empty():
+		return false
+	# An overlay/fade may have appeared between press and release. Transfer any
+	# armed press into the neutral blocked set before forwarding the exact lift,
+	# otherwise that release could score behind the new owner.
+	melody.cancel_input()
+	if String(source_token).begins_with("touch:") \
+			or String(source_token).begins_with("mouse:"):
+		melody.handle_touch_release(source_token)
+	else:
+		melody.handle_action_release(source_token)
+	return true
+
+func _release_melody_input_under_overlay(ev: InputEvent,
+		melody: MelodyGame) -> void:
+	if _release_melody_source_event(ev, melody):
+		return
+	var source_token := _melody_source_token(ev)
+	if _melody_source_press(ev) and not source_token.is_empty():
+		melody.cancel_input(source_token)
+	else:
+		melody.cancel_input()
+
+func _melody_pause_zone_hit(screen_pos: Vector2) -> bool:
+	if touch_ui == null or not touch_ui.has_method("pause_zone"):
+		return false
+	var pause_rect: Rect2 = touch_ui.call("pause_zone") as Rect2
+	return pause_rect.has_point(screen_pos)
+
+func _route_melody_input(ev: InputEvent) -> bool:
+	# Melody is an opaque Canvas activity. Read its pointer before the legacy
+	# touch router can reinterpret Classic touches as swimming or reserve parts
+	# of the painted stage as a virtual stick/action bay. The pause corner stays
+	# owned by TouchUI, which cancels this controller before raising the sheet.
+	if game != "melody":
+		return false
+	var melody: MelodyGame = _game_obj("melody", MelodyGame) as MelodyGame
+	if get_tree().paused:
+		# The Pause sheet still owns and receives its controls, but an original
+		# note source may lift while the tree is paused. Forward only exact neutral
+		# releases so that source cannot leave the activity permanently latched.
+		# Main._input is itself paused, so TouchUI's always-processing relay reaches
+		# this branch directly; retire the process-wide pre-entry census token here
+		# as well (a duplicate erase is harmless if an input backend calls both).
+		_track_melody_source_state(ev)
+		_release_melody_source_event(ev, melody)
+		return false
+	if _melody_overlay_owns_input():
+		# Do not mark this event handled: the visible higher-layer GUI owns it.
+		# Releases still clear Melody's neutral latch without ever scoring.
+		_release_melody_input_under_overlay(ev, melody)
+		return false
+	if ev is InputEventScreenTouch:
+		var touch := ev as InputEventScreenTouch
+		var touch_source := _melody_source_token(touch)
+		# A release is always neutral-safe, including during a fade.  Cancelling
+		# both halves used to leave the fresh-input latch armed forever after a
+		# quick tap wholly inside the entry transition.
+		if not touch.pressed:
+			if _melody_input_gated():
+				melody.cancel_input()
+				melody.handle_touch_release(touch_source)
+			elif touch.canceled:
+				melody.handle_touch_cancel(touch_source)
+			else:
+				melody.handle_touch_release(touch_source)
+			return true
+		if touch.pressed and _melody_pause_zone_hit(touch.position):
+			return false
+		if _melody_input_gated():
+			melody.cancel_input(touch_source)
+			return true
+		melody.handle_touch_press(touch.position, touch_source)
+		return true
+	if ev is InputEventScreenDrag:
+		var drag := ev as InputEventScreenDrag
+		var drag_source := _melody_source_token(drag)
+		if _melody_input_gated():
+			melody.cancel_input()
+			return true
+		melody.handle_touch_drag(drag.position, drag_source)
+		return true
+	if ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION \
+				or mouse_button.button_index != MOUSE_BUTTON_LEFT:
+			return false
+		var mouse_source := _melody_source_token(mouse_button)
+		if not mouse_button.pressed:
+			if _melody_input_gated():
+				melody.cancel_input()
+				melody.handle_touch_release(mouse_source)
+			elif mouse_button.canceled:
+				melody.handle_touch_cancel(mouse_source)
+			else:
+				melody.handle_touch_release(mouse_source)
+			return true
+		if mouse_button.pressed and _melody_pause_zone_hit(mouse_button.position):
+			return false
+		if _melody_input_gated():
+			melody.cancel_input(mouse_source)
+			return true
+		melody.handle_touch_press(mouse_button.position, mouse_source)
+		return true
+	if ev is InputEventMouseMotion:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device == InputEvent.DEVICE_ID_EMULATION \
+				or (mouse_motion.button_mask & MOUSE_BUTTON_MASK_LEFT) == 0:
+			return false
+		var mouse_drag_source := _melody_source_token(mouse_motion)
+		if _melody_input_gated():
+			melody.cancel_input()
+			return true
+		melody.handle_touch_drag(mouse_motion.position, mouse_drag_source)
+		return true
+	if ev is InputEventKey:
+		var key := ev as InputEventKey
+		if key.physical_keycode not in [KEY_SPACE, KEY_ENTER, KEY_KP_ENTER]:
+			return false
+		var key_source := _melody_source_token(key)
+		if _melody_input_gated():
+			if key.pressed:
+				if not key.echo:
+					melody.cancel_input(key_source)
+			else:
+				melody.cancel_input()
+				melody.handle_action_release(key_source)
+			return true
+		if key.pressed:
+			if not key.echo:
+				melody.handle_action_press(key_source)
+		else:
+			melody.handle_action_release(key_source)
+		return true
+	if ev is InputEventJoypadButton:
+		var button := ev as InputEventJoypadButton
+		if button.button_index not in [JOY_BUTTON_A, JOY_BUTTON_B, JOY_BUTTON_X, JOY_BUTTON_Y]:
+			return false
+		var pad_source := _melody_source_token(button)
+		if _melody_input_gated():
+			if button.pressed:
+				melody.cancel_input(pad_source)
+			else:
+				melody.cancel_input()
+				melody.handle_action_release(pad_source)
+			return true
+		if button.pressed:
+			melody.handle_action_press(pad_source)
+		else:
+			melody.handle_action_release(pad_source)
+		return true
+	return false
+
 # ENEMY PRIORITY RULE, press half (combat wing 2026-08): hit engines get the
 # finger-DOWN so a pop lands the instant the finger does — never after the
 # release half of a grabby preschool tap. Returning true tells the router to
 # suppress the release-side world_touched for this touch.
 func _on_world_press(screen_pos: Vector2) -> bool:
 	_living_world_ref().note_activity()
+	if game == "melody":
+		if _melody_input_gated():
+			(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input(
+				MELODY_LEGACY_TOUCH_SOURCE)
+			return false
+		(_game_obj("melody", MelodyGame) as MelodyGame).handle_touch_press(
+			screen_pos, MELODY_LEGACY_TOUCH_SOURCE)
+		return true   # the opaque stage owns misses too; never leak into Reef travel
 	if _world_tap_gated():
 		return false
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
@@ -3754,6 +4029,10 @@ func _on_world_press(screen_pos: Vector2) -> bool:
 
 # The finger that press-fired has lifted: any held charge releases now.
 func _on_world_press_release() -> void:
+	if game == "melody":
+		(_game_obj("melody", MelodyGame) as MelodyGame).handle_touch_release(
+			MELODY_LEGACY_TOUCH_SOURCE)
+		return
 	for engine_value: Variant in hit_engines:
 		var engine: HitEngine = engine_value as HitEngine
 		if engine != null:
@@ -3774,6 +4053,12 @@ func _live_hit_engines() -> Array:
 
 # The press-firing finger started travelling: it is a SLICE now, not a charge.
 func _on_world_press_drag() -> void:
+	if game == "melody":
+		# TouchUI's compatibility callback has no coordinate. Cancel rather than
+		# guessing a target; the raw Canvas route above supplies real drag points.
+		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input(
+			MELODY_LEGACY_TOUCH_SOURCE)
+		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		return
 	for engine_value: Variant in _live_hit_engines():
@@ -3783,6 +4068,9 @@ func _on_world_press_drag() -> void:
 # WITHOUT firing — opening the pause menu must never land a hit.
 func _on_world_press_cancel() -> void:
 	_cancel_lagoon_navigation()
+	if game == "melody":
+		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input()
+		return
 	for engine_value: Variant in _live_hit_engines():
 		(engine_value as HitEngine).cancel_charge_for_drag()
 
@@ -3790,6 +4078,10 @@ func _on_world_press_cancel() -> void:
 # enemy simply cuts nothing; it never stole a tap, because a moved world touch
 # has never emitted world_touched.
 func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
+	if game == "melody":
+		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input(
+			MELODY_LEGACY_TOUCH_SOURCE)
+		return
 	if _world_tap_gated():
 		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
@@ -3804,6 +4096,15 @@ func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
 
 func _on_touch_world(screen_pos: Vector2) -> void:
 	_living_world_ref().note_activity()
+	if game == "melody":
+		if _melody_input_gated():
+			(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input()
+			return
+		# Release-side compatibility for callers which emit only world_touched.
+		var melody: MelodyGame = _game_obj("melody", MelodyGame) as MelodyGame
+		melody.handle_touch_press(screen_pos, MELODY_LEGACY_TOUCH_SOURCE)
+		melody.handle_touch_release(MELODY_LEGACY_TOUCH_SOURCE)
+		return
 	if _world_tap_gated():
 		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
@@ -3847,6 +4148,9 @@ func _combat_arena_ref() -> CombatArena:
 
 func _on_touch_manual_move() -> void:
 	_living_world_ref().note_activity()
+	if game == "melody":
+		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input()
+		return
 	_cancel_lagoon_navigation()
 	_tap_move_ref().cancel("manual")
 
@@ -6515,9 +6819,11 @@ func _tick_hints(delta: float) -> void:
 
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
+	var closing_melody: bool = game == "melody"
 	_game_obj("dolls", DollsGame).stage_close()
 	_game_obj("seek", SeekGame).stage_close()
 	_game_obj("brawl", BrawlGame).stage_close()
+	_game_obj("melody", MelodyGame).stage_close()
 	_game_obj("dustboss", DustBossGame).stage_close()
 	# safety net (alpha audit 2026-08-05): any tween a minigame stashed in g
 	# dies WITH the game — a looping tween that outlives its freed target
@@ -6535,6 +6841,8 @@ func _clear_game() -> void:
 	game = ""
 	g = {}
 	hud_game.text = ""
+	if closing_melody:
+		_set_world_controls_enabled(true, "melody")
 
 func _fail_line() -> String:
 	# in-character failure lines, by game (the on-screen text; the matching
@@ -6563,7 +6871,8 @@ func _tick_contact_shadow() -> void:
 	# cutout against the diorama (book pages do the same with painted shadows)
 	# Sky owns a Canvas contact shadow for its visible actor. Do not construct or
 	# expose the generic spatial disc behind that opaque stage.
-	if game == "level2" and String(g.get("phase", "")) == "promenade":
+	if game == "melody" \
+			or (game == "level2" and String(g.get("phase", "")) == "promenade"):
 		if _shadow_disc != null:
 			_shadow_disc.visible = false
 		return
@@ -6915,6 +7224,10 @@ func _start_game_now(fr: Dictionary) -> void:
 	game = String(fr["game"])
 	g = {"fr": fr, "t": 0.0, "timer": -1.0}
 	_enter_arena(game)
+	if game == "melody":
+		# Its full-screen notes own the complete touch surface; hide the legacy
+		# swim stick/action bay while retaining the separately-owned pause corner.
+		_set_world_controls_enabled(false, "melody")
 	var origin: Vector3 = ARENA_POS
 	if game == "fetch":
 		_game_obj("fetch", FetchGame).build(fr, origin)
@@ -6933,7 +7246,9 @@ func _start_game_now(fr: Dictionary) -> void:
 	elif game == "treasure":
 		_game_obj("treasure", TreasureGame).build(fr, origin)
 	elif game == "melody":
-		_game_obj("melody", MelodyGame).build(fr, origin)
+		var melody: MelodyGame = _game_obj("melody", MelodyGame) as MelodyGame
+		melody.build(fr, origin)
+		melody.arm_entry_sources(_melody_held_sources.keys())
 	elif game == "slide":
 		_game_obj("race", SlideRaceGame).build_slide(fr, origin)
 	elif game == "fairyshoot":
@@ -7319,13 +7634,15 @@ func _process(delta: float) -> void:
 	var vp_cam: Camera3D = get_viewport().get_camera_3d()
 	var sky_canvas_active: bool = game == "level2" \
 		and String(g.get("phase", "")) == "promenade"
+	var melody_canvas_active: bool = game == "melody"
+	var opaque_canvas_active: bool = sky_canvas_active or melody_canvas_active
 	# Player creates its compatibility camera deferred during boot. Direct phone
 	# entry can therefore reach Sky before that compatibility camera joins the tree; disarm
 	# the late arrival as well as the synchronous entry path above.
-	if sky_canvas_active and player != null and player.cam != null \
+	if opaque_canvas_active and player != null and player.cam != null \
 			and player.cam.is_inside_tree() and player.cam.current:
 		player.cam.clear_current(false)
-	elif not sky_canvas_active and vp_cam == null \
+	elif not opaque_canvas_active and vp_cam == null \
 			and player != null and player.cam != null and player.cam.is_inside_tree():
 		player.snap_cam()
 		player.cam.make_current()
@@ -7354,7 +7671,7 @@ func _process(delta: float) -> void:
 	_tick_ambience_duck(delta)
 	if mic_sys != null:
 		mic_sys.tick(delta)   # no-op unless a battle armed the microphone
-	if player != null and not sky_canvas_active:
+	if player != null and not opaque_canvas_active:
 		_tick_wayfinder(delta, player.position)
 	_tick_overlay_pads(delta)
 	_tick_pad_cursor(delta)
@@ -7369,6 +7686,16 @@ func _process(delta: float) -> void:
 	if intro_active:
 		return
 	var ppos: Vector3 = player.position
+	if melody_canvas_active:
+		# Melody owns the complete visible and interactive world. Preserve the
+		# shared save/audio/pause work above, tick its controller exactly once,
+		# and suspend every hidden spatial system until synchronous teardown.
+		if caustics_plane != null and caustics_plane.visible:
+			caustics_plane.visible = false
+		_tick_game(delta)
+		if touch_ui != null:
+			touch_ui.set_action_label("PLAY")
+		return
 	if sky_canvas_active:
 		# The opaque Canvas promenade is a complete world slice. Its controller
 		# is the sole movement, camera, interaction, collection and proximity
@@ -7689,7 +8016,8 @@ func _physlab_standees() -> void:
 func _physics_process(delta: float) -> void:
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.physics_tick(delta)
-	if game == "level2" and String(g.get("phase", "")) == "promenade":
+	if game == "melody" \
+			or (game == "level2" and String(g.get("phase", "")) == "promenade"):
 		return
 	# Roshan -> Jolt coupling: firm contact push + softer swim-wake drag,
 	# at the physics tick so it is frame-rate independent.
@@ -8520,7 +8848,7 @@ func _enter_arena(kind: String) -> void:
 	return_track = cur_track
 	# Opaque true-Canvas activities preserve the shared return/music lifecycle,
 	# but never construct or teleport into a hidden arena beneath their pixels.
-	if kind == "dolls" or kind == "seek":
+	if kind == "dolls" or kind == "seek" or kind == "melody":
 		_play_music(kind)
 		return
 	arena_solids.clear()

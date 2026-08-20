@@ -173,6 +173,12 @@ func toggle_pause() -> void:
 	# and PLAY/ENTER focus, preventing navigation from resuming behind the sheet.
 	if paused and m.touch_ui != null:
 		m.touch_ui.cancel_all_touches()
+	# Melody receives raw screen/key/pad input before the legacy touch router,
+	# so TouchUI cannot neutralize every held source on its own.  Notify the
+	# controller on both edges before changing SceneTree pause state; it retains
+	# a held-source release latch without turning resume into a score.
+	if m.game == "melody":
+		(m._game_obj("melody", MelodyGame) as MelodyGame).on_pause_changed(paused)
 	m.get_tree().paused = paused
 	m.pause_panel.visible = paused
 	# Activity overlays normally cover the corner button. Start/Escape raises

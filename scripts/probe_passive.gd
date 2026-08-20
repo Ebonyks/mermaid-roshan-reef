@@ -62,9 +62,11 @@ func _init() -> void:
 			bad += 1
 			continue
 		var gname := String(main.game)
-		# park at the arena spawn, hands off everything, 60 sim-seconds
-		player.position = main.ARENA_POS + Vector3(0, 8, 18)
-		player.vel = Vector3.ZERO
+		# Park spatial activities at their arena spawn. Melody's opaque Canvas
+		# must preserve the real Daddy-route return coordinate untouched.
+		if gname != "melody":
+			player.position = main.ARENA_POS + Vector3(0, 8, 18)
+			player.vel = Vector3.ZERO
 		main.touch_ui.stick_vec = Vector2.ZERO
 		main.touch_ui.action_down = false
 		var won_before := bool(f["won"])
@@ -75,14 +77,28 @@ func _init() -> void:
 		while main.game != "" and float(main.g.get("t", 0.0)) < 60.0:
 			await process_frame
 		var still_running: bool = main.game != ""
+		var activity_progressed := false
+		var melody_passive_contract := true
+		if gname == "melody":
+			var melody := main._game_obj("melody", MelodyGame) as MelodyGame
+			activity_progressed = melody.progress_count() != 0
+			melody_passive_contract = melody.active_layer() != null \
+				and melody.surface() != null and melody.note_count() == 7 \
+				and melody.active_note_id() >= 0 \
+				and int(main.g.get("caught", -1)) == 0 \
+				and float(main.g.get("t", 0.0)) >= 60.0
 		if still_running:
 			main._clear_game()
 			await _frames(5)
 		var won_passively: bool = bool(f["won"]) and not won_before
 		var progression_changed: bool = main.pearl_count != pearls_before or main.trophies != trophies_before or main.stickers != stickers_before or main.medals != medals_before
-		if won_passively or progression_changed or not still_running:
+		if won_passively or progression_changed or activity_progressed \
+				or not still_running or not melody_passive_contract:
 			print("PASSIVE|", fname, " [", gname, "]: FAIL zero-input state won=", won_passively,
-				" progression=", progression_changed, " still_running=", still_running)
+				" progression=", progression_changed,
+				" activity_progress=", activity_progressed,
+				" surface=", melody_passive_contract,
+				" still_running=", still_running)
 			bad += 1
 		else:
 			print("PASSIVE|", fname, " [", gname, "]: OK active and unrewarded at 60s")

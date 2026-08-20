@@ -2,6 +2,12 @@ extends SceneTree
 
 var bad := 0
 
+const MELODY_VOICE_PATH := \
+	"res://assets/audio/voices/roshan_op_popstar_rhythm.ogg"
+const MELODY_VOICE_SHA256 := \
+	"b8566e49b135e6271e09f6c969af6d8362a8f6582c9c28d93b991741d562b5eb"
+const MELODY_OBJECTIVE := "Tap each rainbow note in the green!"
+
 
 class CountingAudioDirector:
 	extends AudioDirector
@@ -22,7 +28,7 @@ func _init() -> void:
 	await process_frame
 	var expected_events := [
 		"talk", "whale", "ship", "wreck", "beans", "intro1", "intro4",
-		"win", "pearl",
+		"win", "pearl", "op_popstar_rhythm",
 	]
 	var present := 0
 	for ln: String in expected_events:
@@ -80,11 +86,48 @@ func _init() -> void:
 
 	var brawl_audio := CountingAudioDirector.new(main)
 	main._audio_dir = brawl_audio
+	await _check_melody_message_cue(main, brawl_audio)
 	await _check_brawl_message_cues(main, brawl_audio)
 	_check_dialogue_speech_lifecycle(main)
 
 	print("VOICE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit(1 if bad > 0 else 0)
+
+
+func _check_melody_message_cue(main: ReefMain,
+		audio: CountingAudioDirector) -> void:
+	# Melody's child-facing sentence is a project-owned exact recording. Daddy's
+	# numbered sacred archive clips are intentionally not objective substitutes.
+	var friend: Dictionary = {}
+	var melody_routes := 0
+	for candidate_value: Variant in main.friends:
+		var candidate: Dictionary = candidate_value as Dictionary
+		if String(candidate.get("game", "")) == "melody":
+			melody_routes += 1
+			if friend.is_empty():
+				friend = candidate
+	_check("Melody Daddy route exists for exact cue coverage",
+		melody_routes == 1 and not friend.is_empty()
+		and String(friend.get("fname", "")) == "Daddy Mermaid")
+	if friend.is_empty():
+		return
+	main.clear_dialogue()
+	main.said_cool.erase("roshan_op_popstar_rhythm")
+	var before: int = main.voice_i
+	var requests_before: int = audio.requests.size()
+	main._start_game_now(friend)
+	_check_named_cue(main, audio, "Melody entry", "roshan",
+		"op_popstar_rhythm", before, requests_before)
+	_check("Melody exact cue path and immutable bytes are present",
+		ResourceLoader.exists(MELODY_VOICE_PATH)
+		and FileAccess.get_sha256(MELODY_VOICE_PATH) == MELODY_VOICE_SHA256
+		and _stream_path(_last_pool_player(main)) == MELODY_VOICE_PATH)
+	_check("Melody entry retains the exact semantic objective copy",
+		main.game == "melody" and main.hud_msg.text == MELODY_OBJECTIVE)
+	main.clear_dialogue()
+	main._clear_game()
+	await process_frame
+	await process_frame
 
 
 func _check_brawl_message_cues(main: ReefMain, audio: CountingAudioDirector) -> void:
@@ -238,7 +281,8 @@ func _check_named_cue(main: ReefMain, audio: CountingAudioDirector, label: Strin
 	_check("%s makes one intended request" % label,
 		audio.requests.size() == requests_before + 1
 		and String(request.get("speaker", "")) == speaker
-		and String(request.get("event", "")) == event,
+		and String(request.get("event", "")) == event
+		and is_equal_approx(float(request.get("min_gap", -1.0)), 0.5),
 		"requests=%d->%d cue=%s_%s" % [requests_before, audio.requests.size(),
 			request.get("speaker", "missing"), request.get("event", "missing")])
 	_check("%s plays one cue" % label, main.voice_i == before + 1,
