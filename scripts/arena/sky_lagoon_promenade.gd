@@ -517,6 +517,7 @@ func _build_castle_screen() -> void:
 		Vector2(5260, 1110), 1190.0, true, m.g.get("lagoon_landmark_layer") as Node2D)
 	castle.name = "SkyLagoonCastleFourTower"
 	m.g["lagoon_castle_card"] = castle
+	_build_day_one_castle_grime(castle)
 	var door_anchor := Node2D.new()
 	door_anchor.name = "SkyLagoonCastleDoorFocus"
 	# Derive the focus socket from the accepted door-pixel bounds in the actual
@@ -530,6 +531,54 @@ func _build_castle_screen() -> void:
 	m.g["lagoon_castle_door_focus"] = door_anchor
 	_register_target("castle_gate", door_anchor, "castle", "", 128.0, 1.0,
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png", 266.0)
+
+func _build_day_one_castle_grime(castle: Sprite2D) -> void:
+	if castle == null or castle.texture == null or not m.day_one_is_active():
+		return
+	# Non-destructive child dressing: the approved facade texture remains
+	# untouched. A few broad translucent shapes read at phone scale without a
+	# second full-screen texture or expensive transparent overdraw.
+	var holder := Node2D.new()
+	holder.name = "DayOneExteriorGrime"
+	holder.z_index = 3
+	holder.set_meta("day_one_exterior_dressing", true)
+	castle.add_child(holder)
+	var size: Vector2 = castle.texture.get_size()
+	var half: Vector2 = size * 0.5
+	var grime_color := Color(0.18, 0.14, 0.25, 0.30)
+	var patch_specs: Array[PackedVector2Array] = [
+		PackedVector2Array([
+			Vector2(-0.45, 0.18), Vector2(-0.24, 0.12),
+			Vector2(-0.18, 0.38), Vector2(-0.42, 0.44)]),
+		PackedVector2Array([
+			Vector2(0.18, -0.06), Vector2(0.43, 0.02),
+			Vector2(0.38, 0.30), Vector2(0.16, 0.24)]),
+		PackedVector2Array([
+			Vector2(-0.12, 0.31), Vector2(0.10, 0.28),
+			Vector2(0.14, 0.47), Vector2(-0.16, 0.46)]),
+	]
+	for normalized_points: PackedVector2Array in patch_specs:
+		var patch := Polygon2D.new()
+		var points := PackedVector2Array()
+		for normalized_point: Vector2 in normalized_points:
+			points.append(Vector2(
+				normalized_point.x * size.x,
+				normalized_point.y * size.y))
+		patch.polygon = points
+		patch.color = grime_color
+		patch.set_meta("procedural_grime", true)
+		holder.add_child(patch)
+	var crack := Line2D.new()
+	crack.width = maxf(5.0, size.x * 0.006)
+	crack.default_color = Color(0.12, 0.09, 0.18, 0.48)
+	crack.points = PackedVector2Array([
+		Vector2(-half.x * 0.30, -half.y * 0.05),
+		Vector2(-half.x * 0.20, half.y * 0.08),
+		Vector2(-half.x * 0.27, half.y * 0.20),
+		Vector2(-half.x * 0.13, half.y * 0.34),
+	])
+	crack.set_meta("procedural_disrepair_crack", true)
+	holder.add_child(crack)
 
 func _build_roshan_card() -> void:
 	var card := Sprite2D.new()

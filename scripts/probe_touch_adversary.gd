@@ -30,6 +30,7 @@ func _playthrough(run_index: int) -> void:
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await _frames(4)
+	main.day_one_active = false
 	main._set_touch_mode("hybrid", false)
 	main._populate_touch_interactables()
 

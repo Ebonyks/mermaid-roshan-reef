@@ -7,6 +7,7 @@ extends Node
 
 const ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
 const FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
+const TRANSITION_2D := preload("res://scripts/sprite_transition_2d.gd")
 const DIRECTIONAL: Texture2D = preload(
 	"res://assets/characters/roshan_25d/roshan_directional.png")
 const SWIM_FRONT: Texture2D = preload(
@@ -23,6 +24,7 @@ const MAX_FPS := 12.0
 const STOP_SETTLE_SECONDS := 0.10
 const SPEED_START_THRESHOLD := 0.15
 const IDLE_BREATH_PIXELS := 1.8
+const SMOOTHNESS_MULTIPLIER := 3
 
 var _sprite: Sprite3D = null
 var _sprite_2d: Sprite2D = null
@@ -44,6 +46,8 @@ var _paused := false
 var _base_offset := Vector2.ZERO
 var _base_rect_modulate := Color.WHITE
 var _target_anchor := Vector2.ZERO
+var _transition_2d: Variant = null
+var _authored_frame_interval := 1.0 / BASE_SWIM_FPS
 
 func setup_sprite_3d(sprite: Sprite3D, back_view: bool = false,
 	motion_node: Node3D = null, idle_frame: int = -1) -> void:
@@ -77,7 +81,14 @@ func setup_sprite_2d(sprite: Sprite2D, back_view: bool = false,
 		(4 if back_view else 0) if idle_frame < 0 else idle_frame, 0, 7)
 	_base_offset = _sprite_2d.offset
 	_target_anchor = ANCHORS.anchor("directional", _idle_frame)
+	# Establish the exact authored idle before the smoother exists; spawning a
+	# Canvas actor must never dissolve in from an empty texture.
 	_enter_idle()
+	_transition_2d = TRANSITION_2D.new()
+	_transition_2d.name = "TemporalSpriteTransition"
+	_sprite_2d.add_child(_transition_2d)
+	_transition_2d.setup(_sprite_2d, SMOOTHNESS_MULTIPLIER, false)
+	_sprite_2d.set_meta("roshan_temporal_smoothing", SMOOTHNESS_MULTIPLIER)
 
 func _process(delta: float) -> void:
 	if not _has_target():
@@ -98,6 +109,7 @@ func _process(delta: float) -> void:
 	_life_phase = fposmod(_life_phase + delta * 1.65, TAU)
 	if _state == "swim":
 		var fps: float = minf(BASE_SWIM_FPS + speed * 0.25, MAX_FPS)
+		_authored_frame_interval = 1.0 / maxf(fps, 1.0)
 		_frame_cursor = fposmod(
 			_frame_cursor + delta * fps, float(SWIM_FRAME_COUNT))
 		_apply_frame(int(floor(_frame_cursor)))
@@ -161,21 +173,25 @@ func _explicit_moving(sampled_speed: float) -> bool:
 	return sampled_speed > SPEED_START_THRESHOLD
 
 func _enter_idle() -> void:
+	var captured_transition := _capture_canvas_transition()
 	_state = "idle"
 	_still_seconds = 0.0
 	_frame_cursor = 0.0
 	_displayed_frame = -1
+	_authored_frame_interval = STOP_SETTLE_SECONDS
 	_apply_sheet(DIRECTIONAL, DIRECTIONAL_ROWS)
-	_apply_frame(_idle_frame)
+	_apply_frame(_idle_frame, captured_transition)
 	_set_state_meta()
 
 func _enter_swim() -> void:
+	var captured_transition := _capture_canvas_transition()
 	_state = "swim"
 	_still_seconds = 0.0
 	_frame_cursor = 0.0
 	_displayed_frame = -1
+	_authored_frame_interval = 1.0 / BASE_SWIM_FPS
 	_apply_sheet(SWIM_BACK if _back_view else SWIM_FRONT, SWIM_ROWS)
-	_apply_frame(0)
+	_apply_frame(0, captured_transition)
 	_set_state_meta()
 
 func _apply_sheet(texture: Texture2D, rows: int) -> void:
@@ -190,7 +206,8 @@ func _apply_sheet(texture: Texture2D, rows: int) -> void:
 	if _atlas_texture != null:
 		_atlas_texture.atlas = texture
 
-func _apply_frame(frame_index: int) -> void:
+func _apply_frame(frame_index: int,
+		canvas_transition_captured: bool = false) -> void:
 	var frame_count: int = 8 if _state == "idle" else SWIM_FRAME_COUNT
 	var safe_frame: int = posmod(frame_index, frame_count)
 	if safe_frame == _displayed_frame:
@@ -199,6 +216,9 @@ func _apply_frame(frame_index: int) -> void:
 		if _sprite_2d != null and is_instance_valid(_sprite_2d):
 			_apply_anchor_offset()
 		return
+	var should_smooth := canvas_transition_captured
+	if not should_smooth:
+		should_smooth = _capture_canvas_transition()
 	_displayed_frame = safe_frame
 	var sheet: String = _sheet_key()
 	if _sprite != null and is_instance_valid(_sprite):
@@ -210,8 +230,18 @@ func _apply_frame(frame_index: int) -> void:
 	if _sprite_2d != null and is_instance_valid(_sprite_2d):
 		FRAMES.apply_region_2d(_sprite_2d, sheet, safe_frame, ATLAS_COLUMNS)
 		_apply_anchor_offset()
+		if should_smooth and _transition_2d != null:
+			_transition_2d.play_captured(_authored_frame_interval)
 	if _atlas_texture != null:
 		_atlas_texture.region = FRAMES.region(sheet, safe_frame, ATLAS_COLUMNS)
+
+
+func _capture_canvas_transition() -> bool:
+	if _sprite_2d == null or not is_instance_valid(_sprite_2d) \
+			or _transition_2d == null:
+		return false
+	_transition_2d.capture()
+	return true
 
 func _sheet_key() -> String:
 	return "directional" if _state == "idle" \

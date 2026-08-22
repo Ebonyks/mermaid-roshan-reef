@@ -286,6 +286,27 @@ var castle_room_menu_panel: Control = null
 var castle_room_menu_buttons: Dictionary = {}
 var castle_room_menu_open := false
 var castle_room_id := "main_hall"
+const DAY_ONE_CASTLE_ROOM_IDS: Dictionary = {
+	"bubble_bath": "bathroom",
+	"mermaid_pool": "pool",
+	"playroom": "stuffie",
+	"craft_room": "art",
+}
+var day_one_active: bool = true
+var day_one_current_room_id: String = "bathroom"
+var day_one_completed_rooms: Dictionary = {}
+var day_one_cleaned_rooms: Dictionary = {}
+var day_one_arrival_plane_media_seen: bool = false
+var day_one_dirty_castle_discovered: bool = false
+var day_one_grok_video_2_seen: bool = false
+var day_one_boss_door_glow: bool = false
+var day_one_giant_dust_bunny_boss_triggered: bool = false
+var day_one_pool_cleanup_step: int = 0
+var day_one_pool_rumi_met: bool = false
+var day_one_event_seen: Dictionary = {}
+var day_one_event_history: Array[Dictionary] = []
+var _day_one_director: DayOneDirector = null
+var day_one_castle_dressing: DayOneCastleDressing = null
 var castle_royal_hall_mist_cards: Array[Sprite2D] = []
 var castle_royal_hall_mist_time := 0.0
 var castle_royal_hall_mist_flutter_time := 0.0
@@ -3103,6 +3124,11 @@ func _end_ember_dungeon(completed: bool) -> void:
 		ember_level.resume_from_dungeon(completed)
 
 func _start_opera() -> void:
+	if not day_one_opera_enabled():
+		show_msg("Daddy Mermaid",
+			"The Opera House is resting. Today we clean the castle together!",
+			"hint")
+		return
 	# Compatibility action for the Opera Hall's large stage button: point to
 	# its room-owned pictures, but never provide a second generic launch route.
 	# CastleRooms25D historically suspends before calling this method, so undo
@@ -3115,6 +3141,13 @@ func _start_opera() -> void:
 
 
 func _start_opera_from_room(act_index: int, room_id: String) -> void:
+	if not day_one_opera_enabled():
+		opera_pending_act_index = -1
+		opera_return_room = ""
+		show_msg("Daddy Mermaid",
+			"The castle jobs are locked until our cleaning adventure is done!",
+			"hint")
+		return
 	if opera_game != null or opera_pending_act_index >= 0:
 		return
 	# The route owner is authoritative too: a matching tuple cannot be used as
@@ -3138,6 +3171,13 @@ func _start_opera_from_room(act_index: int, room_id: String) -> void:
 	_fade_cut(_start_opera_now)
 
 func _start_opera_now() -> void:
+	if not day_one_opera_enabled():
+		var blocked_return_room: String = opera_return_room
+		opera_pending_act_index = -1
+		opera_return_room = ""
+		if blocked_return_room != "" and _castle_rooms_ref().is_open():
+			_castle_rooms_ref().resume(blocked_return_room)
+		return
 	# Every career is launched from its one owner-approved Castle-room picture.
 	# There is deliberately no no-argument picker or hidden all-career backdoor.
 	var act_index := opera_pending_act_index
@@ -3469,7 +3509,7 @@ func _update_hud() -> void:
 	hud_stars.text = "★  %s\n♛  %s    ◇  %d / 18" % [_pips(stars, 5, "●"), _pips(trophies, 5, "●"), critters] + _medal_ref().hud_suffix()
 
 # speaker key -> default pitch tint (so even the fallback clip differs per character)
-const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "daddy": 0.9, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "mewsha": 1.3, "rosalina": 1.15, "everyone": 1.1}
+const VOICE_PITCH := {"roshan": 1.18, "huluu": 1.05, "evie": 1.28, "harper": 1.12, "faron": 1.0, "daddy": 0.9, "wacky": 0.7, "chuck": 1.0, "shop": 0.85, "sparkle": 1.35, "mewsha": 1.3, "rosalina": 1.15, "rumi": 1.24, "everyone": 1.1}
 
 var speech_layer: CanvasLayer
 var speech_portrait: TextureRect
@@ -5497,6 +5537,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	we_node.environment = null
 	if String(g.get("phase", "")) == "court":
 		_lagoon_promenade_ref().build(from_castle, from_north, at_ocean_gate_hub)
+		_day_one_begin_arrival()
 		l2_open = from_castle or level2_done_once
 		# A prior world's assisted route, focus ring, objective or spatial
 		# critter must not survive underneath the Canvas product. These generic
@@ -5994,7 +6035,7 @@ func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Co
 			sm.set_shader_parameter("paint_body", body)
 			sm.set_shader_parameter("paint_fin", accent)
 			sm.set_shader_parameter("paint_third", third)
-			# zone mask (baked from rig anatomy + authored paint) follows the character:
+			# zone mask (baked from geometry) paints the BOOK-ART pattern:
 			# body / accent / third-colour regions; black = fixed features
 			var mpath := "res://assets/props/gen2/" + gname.replace("_rigged", "_mask") + ".png"
 			if ResourceLoader.exists(mpath):
@@ -6572,6 +6613,7 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	player.yaw = 0.0
 	player.vel = Vector3.ZERO
 	_castle_rooms_ref().open("main_hall")
+	_day_one_discover_dirty_castle()
 	show_msg("Pearl Castle",
 		"Touch a picture door or the shell elevator to visit a room!" if not from_back
 		else "The secret shell door opens into the Main Hall!",
@@ -6698,6 +6740,191 @@ func light_rig() -> LightRig:
 
 var _castle_rooms_25d: CastleRooms25D = null
 var _castle_career_routes: CastleCareerRoutes = null
+
+func _day_one_ref() -> DayOneDirector:
+	if _day_one_director == null:
+		_day_one_director = DayOneDirector.new(self)
+		_day_one_director.hook_event.connect(_on_day_one_hook_event)
+	return _day_one_director
+
+func day_one_is_active() -> bool:
+	return _day_one_ref().day_one_active
+
+func day_one_jobs_locked() -> bool:
+	return day_one_is_active() and _day_one_ref().jobs_are_globally_locked()
+
+func day_one_opera_enabled() -> bool:
+	return not day_one_is_active() or _day_one_ref().can_start_opera()
+
+func day_one_boss_door_ready() -> bool:
+	return day_one_is_active() and _day_one_ref().boss_door_glow
+
+func day_one_castle_room_is_clean(castle_room: String) -> bool:
+	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
+		castle_room, ""))
+	return logical_room != "" \
+		and _day_one_ref().is_dust_bunny_cleaned(logical_room)
+
+func day_one_can_enter_castle_room(castle_room: String) -> bool:
+	if not day_one_is_active() or castle_room == "main_hall":
+		return true
+	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
+		castle_room, ""))
+	return logical_room != "" and _day_one_ref().can_enter_room(logical_room)
+
+func day_one_try_enter_castle_room(castle_room: String) -> bool:
+	if day_one_can_enter_castle_room(castle_room):
+		return true
+	show_msg("Daddy Mermaid",
+		"That door is resting. Follow the glowing picture door together!",
+		"hint")
+	_say("roshan", "talk", 0.8)
+	return false
+
+func day_one_activate_castle_room(castle_room: String) -> bool:
+	if not day_one_is_active():
+		return false
+	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
+		castle_room, ""))
+	if logical_room == "":
+		show_msg("Daddy Mermaid",
+			"The castle jobs are resting today. First, let's clean together!",
+			"hint")
+		_say("roshan", "talk", 0.8)
+		return true
+	var director: DayOneDirector = _day_one_ref()
+	if director.is_room_completed(logical_room):
+		show_msg("Roshan", "This room is sparkly clean!", "win")
+		_say("roshan", "talk", 0.6)
+		return true
+	if logical_room == "pool":
+		_castle_rooms_ref().start_day_one_pool_cleanup()
+		return true
+	if not director.complete_placeholder(logical_room):
+		show_msg("Daddy Mermaid",
+			"Let's finish the glowing room before opening another door!",
+			"hint")
+		_say("roshan", "talk", 0.8)
+		return true
+	_castle_rooms_ref().apply_day_one_cleanup(castle_room)
+	_day_one_sync_castle_dressing()
+	_write_save()
+	if director.boss_door_glow:
+		_day_one_arm_boss_door()
+		show_msg("Roshan",
+			"All four rooms are clean! The big back door is glowing!",
+			"win")
+	else:
+		show_msg("Roshan",
+			"Dust bunnies cleaned up! A new picture door is glowing!",
+			"win")
+	_say("roshan", "talk", 0.8)
+	return true
+
+func day_one_record_pool_cleanup_step(step: int) -> void:
+	if not day_one_is_active():
+		return
+	day_one_pool_cleanup_step = clampi(maxi(
+		day_one_pool_cleanup_step, step), 0, 4)
+	_queue_save()
+
+func day_one_complete_pool_scene() -> bool:
+	if not day_one_is_active():
+		return false
+	var director: DayOneDirector = _day_one_ref()
+	if director.is_room_completed("pool"):
+		return false
+	day_one_pool_cleanup_step = 4
+	day_one_pool_rumi_met = true
+	if not director.complete_activity("pool", "pool_activity"):
+		return false
+	_castle_rooms_ref().apply_day_one_cleanup("mermaid_pool")
+	_day_one_sync_castle_dressing()
+	_write_save()
+	return true
+
+func _day_one_begin_arrival() -> void:
+	if day_one_is_active():
+		_day_one_ref().trigger_arrival_plane_media()
+
+func _day_one_discover_dirty_castle() -> void:
+	if not day_one_is_active():
+		return
+	_day_one_ref().discover_dirty_castle()
+	_day_one_attach_castle_dressing()
+	_day_one_arm_boss_door()
+
+func _day_one_attach_castle_dressing() -> void:
+	if not day_one_is_active() or castle_room_stage == null:
+		return
+	if day_one_castle_dressing == null \
+			or not is_instance_valid(day_one_castle_dressing):
+		day_one_castle_dressing = DayOneCastleDressing.create_dressing(
+			castle_room_stage)
+		day_one_castle_dressing.name = "DayOneDirtyCastleDressing"
+		day_one_castle_dressing.z_index = 20
+	_day_one_sync_castle_dressing()
+
+func _day_one_sync_castle_dressing() -> void:
+	if day_one_castle_dressing == null \
+			or not is_instance_valid(day_one_castle_dressing):
+		return
+	var director: DayOneDirector = _day_one_ref()
+	var room_dirty: Dictionary = {}
+	var door_unlocked: Dictionary = {}
+	for castle_room_value: Variant in DAY_ONE_CASTLE_ROOM_IDS.keys():
+		var castle_room: String = String(castle_room_value)
+		var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS[castle_room])
+		room_dirty[castle_room] = not director.is_dust_bunny_cleaned(logical_room)
+		door_unlocked[castle_room] = director.can_enter_room(logical_room)
+	day_one_castle_dressing.update_dressing(0.0, {
+		"room_dirty": room_dirty,
+		"door_unlocked": door_unlocked,
+		"boss_back_door_active": director.boss_door_glow,
+		"visible_room_id": castle_room_id,
+	})
+
+func _day_one_clear_castle_dressing() -> void:
+	if day_one_castle_dressing != null \
+			and is_instance_valid(day_one_castle_dressing):
+		day_one_castle_dressing.teardown()
+	day_one_castle_dressing = null
+
+func _day_one_arm_boss_door() -> void:
+	var director: DayOneDirector = _day_one_ref()
+	if not day_one_is_active() or not director.boss_door_glow \
+			or director.giant_dust_bunny_boss_triggered:
+		return
+	_castle_rooms_ref().arm_royal_hall_event(
+		"day_one_giant_dust_bunny", _day_one_trigger_boss)
+
+func _day_one_trigger_boss() -> void:
+	_day_one_ref().trigger_giant_dust_bunny_boss()
+
+func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
+	g["day_one_last_event"] = event_name
+	match event_name:
+		DayOneDirector.EVENT_ARRIVAL_PLANE_MEDIA:
+			# The Grok render is a handoff contract, not an imported runtime asset.
+			# Keep the request explicit while the existing pearl-plane animation is
+			# the safe in-engine fallback.
+			g["day_one_media_request"] = "grok_opening_flight"
+		DayOneDirector.EVENT_DIRTY_CASTLE_DISCOVERY:
+			g["day_one_castle_dirty"] = true
+		DayOneDirector.EVENT_GROK_VIDEO_2:
+			g["day_one_media_request"] = "grok_dirty_castle_video_2"
+			show_msg("Roshan",
+				"Dust bunnies! This castle needs our help!", "talk")
+		DayOneDirector.EVENT_DUST_BUNNY_CLEANUP:
+			g["day_one_cleaned_room"] = String(payload.get("room_id", ""))
+		DayOneDirector.EVENT_BOSS_DOOR_GLOW:
+			_day_one_arm_boss_door()
+		DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:
+			_write_save()
+			if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+				_castle_rooms_25d.close()
+			_start_game(dust_boss_fr)
+	_queue_save()
 
 func _castle_rooms_ref() -> CastleRooms25D:
 	if _castle_rooms_25d == null:

@@ -18,6 +18,7 @@ func _init() -> void:
 	await process_frame
 	main._skip_intro()
 	await process_frame
+	main.day_one_active = false
 	await _locked_case()
 	await _picker_case()
 	await _studio_room_case()
@@ -67,9 +68,9 @@ func _picker_case() -> void:
 		"eagle_pin_left", {}) as Dictionary
 	var right_record: Dictionary = main.castle_room_item_sprites.get(
 		"eagle_pin_right", {}) as Dictionary
-	var eagle_sprite: Sprite3D = eagle_record.get("sprite") as Sprite3D
-	var left_sprite: Sprite3D = left_record.get("sprite") as Sprite3D
-	var right_sprite: Sprite3D = right_record.get("sprite") as Sprite3D
+	var eagle_sprite: Sprite2D = eagle_record.get("sprite") as Sprite2D
+	var left_sprite: Sprite2D = left_record.get("sprite") as Sprite2D
+	var right_sprite: Sprite2D = right_record.get("sprite") as Sprite2D
 	# The V3 additive sticker pack is deliberately retired. The audited room now
 	# contains its four established interactions, two source-owned V4 subjects
 	# isolated from the painting, and these three rescue cards. Assert the exact
@@ -90,11 +91,13 @@ func _picker_case() -> void:
 		and eagle_sprite != null
 		and left_sprite != null
 		and right_sprite != null
-		and not eagle_sprite.shaded
-		and not left_sprite.shaded
-		and not right_sprite.shaded
-		and eagle_sprite.position.z < left_sprite.position.z
-		and eagle_sprite.position.z < right_sprite.position.z)
+		and eagle_sprite.get_meta("source_asset_role", "") == "unique_object"
+		and left_sprite.get_meta("source_asset_role", "") == "unique_object"
+		and right_sprite.get_meta("source_asset_role", "") == "unique_object"
+		and float(eagle_sprite.get_meta("depth_z", 0.0))
+			< float(left_sprite.get_meta("depth_z", 0.0))
+		and float(eagle_sprite.get_meta("depth_z", 0.0))
+			< float(right_sprite.get_meta("depth_z", 0.0)))
 	_ck("Playroom rescue uses proximity cards instead of flat hotspots",
 		left_record.get("hotspot") == null
 		and right_record.get("hotspot") == null

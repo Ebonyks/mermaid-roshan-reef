@@ -111,6 +111,20 @@ func _init() -> void:
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
+	var reef_main := main as ReefMain
+	var day_one: DayOneDirector = reef_main._day_one_ref()
+	day_one.restore_state({})
+	var day_one_ok: bool = reef_main.day_one_jobs_locked() \
+		and not reef_main.day_one_opera_enabled() \
+		and reef_main.day_one_can_enter_castle_room("bubble_bath") \
+		and not reef_main.day_one_can_enter_castle_room("mermaid_pool") \
+		and day_one.complete_tutorial("bathroom") \
+		and reef_main.day_one_can_enter_castle_room("mermaid_pool")
+	print("AUDIT|Day One lock and progressive room contract: ",
+		"OK" if day_one_ok else "FAIL")
+	# The remainder audits the established later-day activities. Dedicated Day
+	# One probes own the complete four-room and boss-door state-machine contract.
+	day_one.restore_state({"day_one_active": false})
 	var ui_ok: bool = await _audit_storybook_ui()
 	print("AUDIT|Storybook UI contract: ", "OK" if ui_ok else "FAIL")
 	if main.has_method("_skip_intro"):

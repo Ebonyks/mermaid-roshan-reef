@@ -17,6 +17,7 @@ func _init() -> void:
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
+	main.day_one_active = false
 	main._skip_intro()
 	await process_frame
 	await _no_partner_case()
@@ -35,6 +36,7 @@ func _ck(label: String, ok: bool) -> void:
 		bad += 1
 
 func _no_partner_case() -> void:
+	main.companion_id = ""
 	main.game = "galaxy"
 	main._start_combat("ice")
 	await process_frame

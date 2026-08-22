@@ -118,6 +118,7 @@ func _speaker_key(who: String) -> String:
 	var w := who.to_lower()
 	if "rosalina" in w: return "rosalina"
 	if "roshan" in w: return "roshan"
+	if "rumi" in w: return "rumi"
 	if "huluu" in w: return "huluu"
 	if "evie" in w or "lamb" in w: return "evie"
 	if "harper" in w or "fiona" in w: return "harper"

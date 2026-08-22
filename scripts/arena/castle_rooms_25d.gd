@@ -14,6 +14,10 @@ const HALL_REDRAW_ROOT := \
 const HALL_TILE_ROOT := HALL_REDRAW_ROOT + "tiles/"
 const HALL_SIGN_ART_ROOT := HALL_REDRAW_ROOT + "signs/"
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const SPRITE_TRANSITION_2D := preload(
+	"res://scripts/sprite_transition_2d.gd")
+const DAY_ONE_POOL_CLEANUP := preload(
+	"res://scripts/games/day_one_pool_cleanup.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
@@ -411,7 +415,7 @@ const ROOM_ITEMS := {
 		{"id": "curtains", "name": "Stage curtains", "pos": Vector2(414, 100),
 			"z": 0.65,
 			"symbol": "♪", "color": Color(1.0, 0.67, 0.78)},
-		{"id": "chandelier", "name": "Pearl chandelier", "pos": Vector2(418, 0),
+		{"id": "chandelier", "name": "Pearl chandelier", "pos": Vector2(418, 48),
 			"z": 1.10,
 			"symbol": "✦", "color": Color(1.0, 0.90, 0.44)},
 		{"id": "stage_star", "name": "Stage star", "pos": Vector2(490, 309),
@@ -842,6 +846,7 @@ var _room_transition_generation := 0
 var _composition_transition_tween: Tween = null
 var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
+var day_one_pool_cleanup: DayOnePoolCleanup = null
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -892,6 +897,8 @@ func _set_fridge_close_blocked(blocked: bool) -> void:
 
 
 func open(start_room: String = "main_hall") -> void:
+	if not m.day_one_try_enter_castle_room(start_room):
+		start_room = "main_hall"
 	if is_open():
 		resume(start_room)
 		return
@@ -952,6 +959,7 @@ func open(start_room: String = "main_hall") -> void:
 	if m.hud_layer != null:
 		m.hud_layer.visible = false
 	show_room(start_room, false)
+	m._day_one_attach_castle_dressing()
 	_sync_hall_lighting()
 	# combat wing 2026-08: the castle's chain engine (pop-chain, pips, pitch
 	# ladder, haptics for bunny pops). Never registered in main.hit_engines —
@@ -1015,6 +1023,8 @@ func cancel_kitchen_recipe() -> void:
 	resume("kitchen")
 
 func close() -> void:
+	m._day_one_clear_castle_dressing()
+	_clear_day_one_pool_cleanup()
 	_room_build_generation += 1
 	_cancel_composition_transition()
 	_cancel_room_transition()
@@ -1606,6 +1616,9 @@ func _update_elevator_selected() -> void:
 		var room_id := String(room_id_value)
 		var button: Button = m.castle_room_menu_buttons.get(room_id) as Button
 		if button != null:
+			button.disabled = not m.day_one_can_enter_castle_room(room_id)
+			button.modulate = Color.WHITE if not button.disabled \
+				else Color(0.56, 0.54, 0.68, 0.72)
 			StorybookUI.set_selected(button, room_id == m.castle_room_id)
 
 func _set_elevator_menu_open(open_menu: bool, play_sound: bool = true) -> void:
@@ -1642,6 +1655,8 @@ func _toggle_elevator_menu() -> void:
 func _choose_elevator_room(room_id: String) -> void:
 	if not ELEVATOR_ROOM_IDS.has(room_id):
 		return
+	if not m.day_one_try_enter_castle_room(room_id):
+		return
 	_set_elevator_menu_open(false, false)
 	show_room(room_id, true)
 
@@ -1656,9 +1671,12 @@ func _rebuild_room_links(_room_id: String) -> void:
 func show_room(room_id: String, announce: bool = true) -> void:
 	if _fridge_close_is_blocked():
 		return
+	if not m.day_one_try_enter_castle_room(room_id):
+		return
 	var room: Dictionary = _room(room_id)
 	if room.is_empty() or m.castle_room_background == null:
 		return
+	_clear_day_one_pool_cleanup()
 	_cancel_room_transition()
 	_cancel_player_motion()
 	_begin_composition_transition()
@@ -1694,6 +1712,8 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	m.castle_room_stage.set_meta("room_tiles_ready", room_tiles_ready)
 	_rebuild_depth_layers(room_id)
 	_rebuild_touch_items(room_id)
+	if m.day_one_castle_room_is_clean(room_id):
+		apply_day_one_cleanup(room_id)
 	_rebuild_room_links(room_id)
 	m._castle_logo_ref().refresh_room_display()
 	if room_id == "dining_room":
@@ -1702,10 +1722,17 @@ func show_room(room_id: String, announce: bool = true) -> void:
 		_sync_bedside_light()
 	elif room_id == "movie_lounge":
 		_sync_movie_picture()
-	m.castle_room_action_button.visible = not hall_mode \
+	var day_one_activity: bool = m.day_one_is_active() \
+		and m.DAY_ONE_CASTLE_ROOM_IDS.has(room_id)
+	var day_one_pool_needs_cleanup: bool = day_one_activity \
+		and room_id == "mermaid_pool" \
+		and not m.day_one_castle_room_is_clean(room_id)
+	m.castle_room_action_button.visible = day_one_activity or (not hall_mode \
 		and room_id != "family_gallery" \
 		and room_id != "opera_hall" \
-		and (room_id != "playroom" or _playroom_rescue_done())
+		and (room_id != "playroom" or _playroom_rescue_done()))
+	if day_one_pool_needs_cleanup:
+		m.castle_room_action_button.visible = false
 	if not hall_mode:
 		StorybookUI.style_icon_button(m.castle_room_action_button,
 			String(room["action_icon"]), "gold", Vector2(132.0, 132.0),
@@ -1716,6 +1743,8 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_sync_hall_horizontal_culling()
 	_update_hall_portals()
 	_sync_hall_lighting()
+	m._day_one_sync_castle_dressing()
+	_sync_day_one_pool_cleanup(room_id)
 	if announce:
 		m._ui_tap()
 		if room_id == "playroom" and not _playroom_rescue_done():
@@ -1730,6 +1759,79 @@ func _room(room_id: String) -> Dictionary:
 		if String(room["id"]) == room_id:
 			return room
 	return {}
+
+func apply_day_one_cleanup(room_id: String) -> void:
+	if room_id != m.castle_room_id:
+		return
+	for record_value: Variant in m.castle_room_item_sprites.values():
+		var record: Dictionary = record_value as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if not item_data.has("dust_bunny_role") \
+				and not bool(item_data.get("rescue_bunny", false)):
+			continue
+		var sprite: Sprite2D = record.get("sprite") as Sprite2D
+		if sprite != null and is_instance_valid(sprite):
+			sprite.visible = false
+
+
+func start_day_one_pool_cleanup() -> void:
+	if m.castle_room_id != "mermaid_pool" \
+			or m.day_one_castle_room_is_clean("mermaid_pool"):
+		return
+	_sync_day_one_pool_cleanup("mermaid_pool")
+
+
+func _sync_day_one_pool_cleanup(room_id: String) -> void:
+	if room_id != "mermaid_pool" or not m.day_one_is_active() \
+			or m.day_one_castle_room_is_clean(room_id) \
+			or m.castle_room_stage == null:
+		_clear_day_one_pool_cleanup()
+		return
+	if day_one_pool_cleanup != null \
+			and is_instance_valid(day_one_pool_cleanup):
+		return
+	day_one_pool_cleanup = DAY_ONE_POOL_CLEANUP.new() as DayOnePoolCleanup
+	m.castle_room_stage.add_child(day_one_pool_cleanup)
+	day_one_pool_cleanup.cleanup_step_completed.connect(
+		_on_day_one_pool_cleanup_step)
+	day_one_pool_cleanup.finale_started.connect(
+		_on_day_one_pool_finale_started)
+	day_one_pool_cleanup.reveal_completed.connect(
+		_on_day_one_pool_reveal_completed)
+	day_one_pool_cleanup.setup(m)
+	# This room has a bespoke cleaning cast. Keep the generic dust bunny out of
+	# Roshan's face and let the pool's own progressive dingy wash own the mood.
+	if m.day_one_castle_dressing != null \
+			and is_instance_valid(m.day_one_castle_dressing):
+		m.day_one_castle_dressing.set_visible_room("main_hall")
+	_position_player_at_foot(Vector2(330.0, 640.0), false)
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.visible = false
+
+
+func _clear_day_one_pool_cleanup() -> void:
+	if day_one_pool_cleanup != null \
+			and is_instance_valid(day_one_pool_cleanup):
+		day_one_pool_cleanup.teardown()
+	day_one_pool_cleanup = null
+
+
+func _on_day_one_pool_cleanup_step(step: int, cleanup_id: String) -> void:
+	m.day_one_record_pool_cleanup_step(step)
+	m.g["day_one_pool_last_cleanup"] = cleanup_id
+
+
+func _on_day_one_pool_finale_started() -> void:
+	_activate_room_item("waterfall")
+	_burst("✦", Color(0.74, 0.94, 1.0))
+
+
+func _on_day_one_pool_reveal_completed() -> void:
+	if not m.day_one_complete_pool_scene():
+		return
+	m._day_one_sync_castle_dressing()
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.visible = true
 
 
 func _cancel_player_motion() -> void:
@@ -3237,6 +3339,36 @@ func _timeline_sequence(item_data: Dictionary,
 	return sequence
 
 
+func _sprite_transition(sprite: Sprite2D) -> Variant:
+	if sprite == null or not is_instance_valid(sprite):
+		return null
+	# A fixture shader may own frame-specific UV uniforms. Sharing it with the
+	# prior-frame ghost would select the new UVs on both cards, so those uncommon
+	# cards keep their authored cel timing instead of accepting a false blend.
+	if sprite.material != null or sprite.has_meta("castle_fixture_material"):
+		sprite.set_meta("sprite_transition_skipped", "frame_specific_material")
+		return null
+	var existing: Variant = sprite.get_node_or_null(
+		"TemporalSpriteTransition")
+	if existing != null:
+		return existing
+	var smoother: Variant = SPRITE_TRANSITION_2D.new()
+	smoother.name = "TemporalSpriteTransition"
+	sprite.add_child(smoother)
+	smoother.setup(sprite, 3, false)
+	sprite.set_meta("castle_temporal_smoothing", 3)
+	return smoother
+
+
+func _snap_item_atlas_frame(sprite: Sprite2D, frame_index: int) -> void:
+	var smoother: Variant = sprite.get_node_or_null(
+		"TemporalSpriteTransition")
+	if smoother != null:
+		smoother.snap_to_frame(frame_index)
+	else:
+		sprite.frame = frame_index
+
+
 func _play_sprite_atlas_sequence(sprite: Sprite2D, item_data: Dictionary,
 		play_sound: bool, open_kitchen_menu_after: bool) -> void:
 	if sprite == null or not is_instance_valid(sprite) \
@@ -3253,7 +3385,7 @@ func _play_sprite_atlas_sequence(sprite: Sprite2D, item_data: Dictionary,
 		terminal_step = mini(terminal_step,
 			int(item_data.get("open_hold_step", terminal_step)))
 	sprite.set_meta("busy", true)
-	sprite.frame = sequence[0]
+	_snap_item_atlas_frame(sprite, sequence[0])
 	_sync_sconce_frame_uv(sprite)
 	fixture_rigs.apply_frame(
 		interaction_key, 0, timeline_count, int(sequence[0]))
@@ -3286,7 +3418,13 @@ func _show_item_atlas_frame(sprite: Sprite2D, item_data: Dictionary,
 	var sequence := _timeline_sequence(item_data, available_frames)
 	var step := clampi(timeline_step, 0, sequence.size() - 1)
 	var atlas_frame: int = sequence[step]
-	sprite.frame = atlas_frame
+	var frame_duration: float = maxf(
+		0.01, float(item_data.get("frame_duration", 0.10)))
+	var smoother: Variant = _sprite_transition(sprite)
+	if smoother != null:
+		smoother.transition_to_frame(atlas_frame, frame_duration)
+	else:
+		sprite.frame = atlas_frame
 	_sync_sconce_frame_uv(sprite)
 	var visited: Array = sprite.get_meta("animation_frames_visited", []) as Array
 	visited.append(atlas_frame)
@@ -3312,12 +3450,13 @@ func _finish_sprite_atlas_sequence(sprite: Sprite2D, item_data: Dictionary,
 	var interaction_key := String(sprite.get_meta("source_object_id", ""))
 	if open_kitchen_menu_after:
 		var step := clampi(terminal_step, 0, sequence.size() - 1)
-		sprite.frame = sequence[step]
+		_snap_item_atlas_frame(sprite, sequence[step])
 		fixture_rigs.apply_frame(
 			interaction_key, step, sequence.size(), int(sequence[step]))
 	else:
 		var rest_frame: int = int(item_data.get("rest_frame", 0))
-		sprite.frame = clampi(rest_frame, 0, available_frames - 1)
+		_snap_item_atlas_frame(
+			sprite, clampi(rest_frame, 0, available_frames - 1))
 		fixture_rigs.apply_frame(
 			interaction_key, 0, sequence.size(), rest_frame)
 	if sprite.has_meta("active_close_tween"):
@@ -4083,8 +4222,19 @@ func _update_hall_portals() -> void:
 		var projected := Rect2(left, top, right - left, bottom - top)
 		var canvas_rect := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
 		button.visible = projected.intersects(canvas_rect)
+		var portal_id: String = String(portal_data.get("id", ""))
+		if m.DAY_ONE_CASTLE_ROOM_IDS.has(portal_id) \
+				and m.day_one_castle_dressing != null \
+				and is_instance_valid(m.day_one_castle_dressing):
+			m.day_one_castle_dressing.set_room_door_rect(
+				portal_id, projected.intersection(canvas_rect) \
+				if button.visible else Rect2())
 		if button.visible:
 			var clipped: Rect2 = projected.intersection(canvas_rect)
+			if portal_id == ROYAL_HALL_PORTAL_ID \
+					and m.day_one_castle_dressing != null \
+					and is_instance_valid(m.day_one_castle_dressing):
+				m.day_one_castle_dressing.set_boss_back_door_rect(clipped)
 			var hit_size := Vector2(
 				maxf(112.0, clipped.size.x),
 				maxf(112.0, clipped.size.y))
@@ -4100,6 +4250,15 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 	if _fridge_close_is_blocked():
 		return
 	if not _is_wide_hall() or m.castle_room_menu_open:
+		return
+	if portal_id != ROYAL_HALL_PORTAL_ID \
+			and not m.day_one_try_enter_castle_room(portal_id):
+		return
+	if portal_id == ROYAL_HALL_PORTAL_ID and m.day_one_is_active() \
+			and not m.day_one_boss_door_ready():
+		m.show_msg("Daddy Mermaid",
+			"The big back door is sleeping. Four clean rooms will wake it up!",
+			"hint")
 		return
 	if portal_id == ROYAL_HALL_PORTAL_ID \
 			and m.castle_royal_hall_arrival_pending:
@@ -4394,6 +4553,8 @@ func activate_current_room() -> void:
 	var room: Dictionary = _room(m.castle_room_id)
 	var action: String = String(room.get("action", ""))
 	m._ui_tap()
+	if m.day_one_activate_castle_room(m.castle_room_id):
+		return
 	match action:
 		"opera":
 			suspend()

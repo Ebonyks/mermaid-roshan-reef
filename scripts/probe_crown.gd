@@ -226,6 +226,7 @@ func _init() -> void:
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await process_frame
+	main.day_one_active = false
 	main.pearl_count = main.PEARL_TOTAL
 	for f in main.friends:
 		f["found"] = true

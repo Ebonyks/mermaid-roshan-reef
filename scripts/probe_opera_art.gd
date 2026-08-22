@@ -144,6 +144,7 @@ func _init() -> void:
 	main = scene.instantiate() as ReefMain
 	get_root().add_child(main)
 	await _settle(2)
+	main.day_one_active = false
 	if main.intro_active:
 		main._skip_intro()
 	await _settle(12)

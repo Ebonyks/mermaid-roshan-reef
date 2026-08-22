@@ -156,6 +156,7 @@ func _init() -> void:
 	root.add_child(main)
 	await process_frame
 	await process_frame
+	main.day_one_active = false
 	_check_storybook_coverage()
 
 	# Intro: four shape pips, repeat voice, explicit next, and deliberate hold-skip.

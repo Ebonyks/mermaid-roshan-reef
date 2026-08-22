@@ -261,6 +261,7 @@ func _run() -> void:
 	var depth_ok := true
 	var interaction_ok := true
 	var fixed_pivots_ok := true
+	var temporal_smoothing_seen := false
 	var exact_audio_ok := true
 	var busy_guards_ok := true
 	var toilet_cavity_water_ok := true
@@ -439,6 +440,16 @@ func _run() -> void:
 				and visited_steps == expected_steps \
 				and sprite.frame == int(item_data.get("rest_frame", 0)) \
 				and not bool(sprite.get_meta("busy", true))
+			if sprite.material == null:
+				var smoother: Variant = sprite.get_node_or_null(
+					"TemporalSpriteTransition")
+				temporal_smoothing_seen = temporal_smoothing_seen \
+					or (smoother != null \
+						and smoother.smoothness_multiplier() == 3 \
+						and smoother.rendered_transition_samples() > 0 \
+						and not smoother.is_transition_active() \
+						and int(sprite.get_meta(
+							"sprite_transition_draws", 0)) == 1)
 			if physics_mode != "none":
 				var spring: Dictionary = fixture_rig.get(
 					"spring", {}) as Dictionary
@@ -472,6 +483,8 @@ func _run() -> void:
 	_ck("fixtures occupy real depth", depth_ok)
 	_ck("semantic atlas sequences follow audited timelines and reset",
 		interaction_ok)
+	_ck("Canvas fixtures add 3x temporal samples and sleep at one idle draw",
+		temporal_smoothing_seen)
 	_ck("semantic fixture actions stay bounded and restore roots",
 		fixed_pivots_ok)
 	_ck("fixture actions play exact castle audio", exact_audio_ok)

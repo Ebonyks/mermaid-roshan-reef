@@ -3,6 +3,8 @@ extends SceneTree
 # atlas frames and finish, while both 16-frame swim views and playground poses
 # remain selectable. No character skeleton may exist below the player.
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const SPRITE_TRANSITION_2D := preload(
+	"res://scripts/sprite_transition_2d.gd")
 
 func _count_skeletons(node: Node) -> int:
 	var total := 1 if node is Skeleton3D else 0
@@ -10,7 +12,66 @@ func _count_skeletons(node: Node) -> int:
 		total += _count_skeletons(child)
 	return total
 
+
+func _probe_canvas_transition_engine() -> void:
+	var image := Image.create(8, 4, false, Image.FORMAT_RGBA8)
+	image.fill(Color(0.3, 0.8, 1.0, 1.0))
+	var texture := ImageTexture.create_from_image(image)
+	var sprite := Sprite2D.new()
+	sprite.texture = texture
+	sprite.hframes = 2
+	sprite.offset = Vector2(3.0, -2.0)
+	sprite.self_modulate = Color(0.8, 0.9, 1.0, 0.75)
+	root.add_child(sprite)
+	var smoother: Variant = SPRITE_TRANSITION_2D.new()
+	sprite.add_child(smoother)
+	smoother.setup(sprite, 3)
+	smoother.transition_to_frame(1, 0.12, Vector2(2.0, 0.0))
+	var ghost: Sprite2D = smoother.transition_ghost()
+	if sprite.frame != 1 or ghost == null or not ghost.visible \
+			or ghost.frame != 0 or sprite.self_modulate.a != 0.0:
+		print("FAIL: Canvas transition did not preserve the exact old/new endpoints")
+	smoother._process(0.04)
+	var blended_alpha: float = sprite.self_modulate.a + ghost.self_modulate.a
+	if not smoother.is_transition_active() \
+			or smoother.transition_progress() <= 0.0 \
+			or smoother.transition_progress() >= 1.0 \
+			or absf(blended_alpha - 0.75) > 0.001:
+		print("FAIL: Canvas transition midpoint lost constant alpha coverage: ",
+			blended_alpha)
+	smoother._process(0.08)
+	if smoother.is_transition_active() or ghost.visible \
+			or absf(sprite.self_modulate.a - 0.75) > 0.001 \
+			or int(sprite.get_meta("sprite_transition_draws", 0)) != 1:
+		print("FAIL: Canvas transition did not return to its one-draw idle state")
+	if smoother.smoothness_multiplier() != 3 \
+			or smoother.estimated_intermediate_samples(0.12, 30.0) < 2:
+		print("FAIL: Canvas transition did not provide the requested 2x-4x sampling")
+	else:
+		print("sprite transition engine: 3x temporal smoothing, one idle draw")
+	sprite.queue_free()
+
+
+func _probe_roshan_canvas_smoothing() -> void:
+	var sprite := Sprite2D.new()
+	root.add_child(sprite)
+	var loop: RoshanSpriteLoop = ROSHAN_SPRITE_LOOP.new()
+	sprite.add_child(loop)
+	loop.setup_sprite_2d(sprite)
+	loop.set_moving(true)
+	var smoother: Variant = sprite.get_node_or_null(
+		"TemporalSpriteTransition")
+	if smoother == null or not smoother.is_transition_active() \
+			or loop.animation_state() != "swim" or not sprite.region_enabled \
+			or int(sprite.get_meta("roshan_temporal_smoothing", 0)) != 3:
+		print("FAIL: Roshan Canvas loop did not enter its 3x smoothed swim")
+	else:
+		print("Roshan Canvas loop: authored anchors preserved through 3x smoothing")
+	sprite.queue_free()
+
 func _init() -> void:
+	_probe_canvas_transition_engine()
+	_probe_roshan_canvas_smoothing()
 	var ps: PackedScene = load("res://scenes/main.tscn")
 	root.add_child(ps.instantiate())
 	await process_frame

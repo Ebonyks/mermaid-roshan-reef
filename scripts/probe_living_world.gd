@@ -28,6 +28,7 @@ func _init() -> void:
 	main = packed.instantiate()
 	get_root().add_child(main)
 	await _frames(2)
+	main.day_one_active = false
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await _frames(2)
