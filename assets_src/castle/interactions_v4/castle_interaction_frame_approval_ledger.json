@@ -1,12 +1,12 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "8b2b5cdd5b5109d08adac707e2523f20d198f9581b8f4d4afa63d7196986dc13",
+  "candidate_payload_sha256": "69aaf431be4c00677c7da6924f9590c414b5c57312806f62fc06ac6b315f2a60",
   "manifest_semantic_sha256": "442767ad0816900565c46ff29d57ff656df07e5c08606c0159b0e3bc0eaa4cc5",
   "metadata_revalidation": {
     "date": "2026-08-22",
-    "reason": "The Castle depth manifest now declares the accepted Canvas2D runtime, and the V4 manifest pins that updated provenance. The two redundant Main Hall foreground cards were retired outside all V4 interaction rooms. All 104 approved frame-review hashes, occlusion relations, and V4 PNG bytes remain unchanged; the regenerated candidate has zero blocking findings.",
-    "prior_candidate_payload_sha256": "1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9",
-    "prior_manifest_semantic_sha256": "1306fb650c6be730d3eb109ebea408f6b762f6ee006282e610c743aee35b0bef"
+    "reason": "The Day One Mermaid Pool cleanup adds a separate Canvas2D overlay and restores the grandfathered Opera Hall chandelier to its approved painted-source coordinate. All 104 approved V4 frame-review hashes, occlusion relations, manifest semantics, and PNG bytes remain unchanged; the regenerated candidate has zero blocking findings.",
+    "prior_candidate_payload_sha256": "8b2b5cdd5b5109d08adac707e2523f20d198f9581b8f4d4afa63d7196986dc13",
+    "prior_manifest_semantic_sha256": "442767ad0816900565c46ff29d57ff656df07e5c08606c0159b0e3bc0eaa4cc5"
   },
   "reviewer": "Codex visual review 2026-08-05",
   "review_basis": "All 104 untinted depth-aware composites and paired diagnostic sheets inspected; corrected Pool water and low-alpha waterfall also reviewed in exact Godot 4.7.1 Forward Mobile runtime captures; automated duplicate, ownership, alpha-scissor, and static-z gates clean.",
