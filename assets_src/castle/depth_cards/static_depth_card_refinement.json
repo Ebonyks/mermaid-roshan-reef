@@ -3,132 +3,6 @@
   "cards": [
     {
       "after": {
-        "alpha_pixels": 56438,
-        "core_bbox": [
-          0,
-          0,
-          160,
-          486
-        ],
-        "core_pixels": 53424,
-        "hidden_rgb_pixels": 0
-      },
-      "alpha_sha256": "e60aa425584d90d828267f6bf441c34f9f9d41321b592b882364165fcb33fe3d",
-      "before": {
-        "alpha_pixels": 56438,
-        "core_bbox": [
-          0,
-          0,
-          160,
-          486
-        ],
-        "core_pixels": 53424,
-        "hidden_rgb_pixels": 96454
-      },
-      "core_mask_sha256": "6818981adb5c4b966d5fb9623331e4f619eb285da319906b1a783ba7fe2964bf",
-      "crop": [
-        0,
-        0,
-        274,
-        558
-      ],
-      "id": "front_left",
-      "keep_shapes": [
-        {
-          "box": [
-            0,
-            0,
-            274,
-            558
-          ],
-          "radius": 0,
-          "type": "rounded_rectangle"
-        }
-      ],
-      "mask_feather_radius": 0.0,
-      "method": "preserve_approved_alpha_zero_hidden_rgb",
-      "output_sha256": "7889915859106d7b77037ab605b513dc457b23eeaadec0571ef6080d8d636b9e",
-      "path": "assets/flats/castle/rooms/room_main_hall_front_left.png",
-      "position": [
-        0,
-        0
-      ],
-      "role": "foreground",
-      "room": "main_hall",
-      "source_alpha_path": "assets_src/castle/depth_cards/source_alpha/room_main_hall_front_left_alpha.png",
-      "source_alpha_sha256": "dda55842dcb45235c27a2ca37de16d14577b056ac2aa64f8703019d1c0228fa5",
-      "source_room_path": "assets/flats/castle/rooms/room_main_hall.png",
-      "source_room_sha256": "7b284cd4530faf38ee8b06e3613f5c81dddf40fc73a64aaf943496c98acfe1a0",
-      "source_sha256": "ecf172cdd6b2a7330fe934845f81716b4caf03ca3e778cef19e54e40862b429f",
-      "source_sha256_kind": "raw_rgba_bytes",
-      "transparent_rgb_operation": "zero_rgb_where_alpha_is_zero",
-      "visible_rgb_operation": "none_source_room_pixels_only"
-    },
-    {
-      "after": {
-        "alpha_pixels": 48265,
-        "core_bbox": [
-          115,
-          0,
-          274,
-          487
-        ],
-        "core_pixels": 45230,
-        "hidden_rgb_pixels": 0
-      },
-      "alpha_sha256": "3666171fd2dfb9f653bb291762225311a895dec6bb77e355ec1e39a89b8a98a2",
-      "before": {
-        "alpha_pixels": 48265,
-        "core_bbox": [
-          115,
-          0,
-          274,
-          487
-        ],
-        "core_pixels": 45230,
-        "hidden_rgb_pixels": 104627
-      },
-      "core_mask_sha256": "0f4c12e14cb9a4ab4ec62ed167a77075e61393c1307276794d8e7e17325d5e70",
-      "crop": [
-        750,
-        0,
-        1024,
-        558
-      ],
-      "id": "front_right",
-      "keep_shapes": [
-        {
-          "box": [
-            0,
-            0,
-            274,
-            558
-          ],
-          "radius": 0,
-          "type": "rounded_rectangle"
-        }
-      ],
-      "mask_feather_radius": 0.0,
-      "method": "preserve_approved_alpha_zero_hidden_rgb",
-      "output_sha256": "aec514c1d0c9299a92ab76c22ba7d8a54aee524f63c6f51252fd64c363f7e2be",
-      "path": "assets/flats/castle/rooms/room_main_hall_front_right.png",
-      "position": [
-        750,
-        0
-      ],
-      "role": "foreground",
-      "room": "main_hall",
-      "source_alpha_path": "assets_src/castle/depth_cards/source_alpha/room_main_hall_front_right_alpha.png",
-      "source_alpha_sha256": "71176efb73da1e599816a27fc514950fae0256012fdcccc073dbd54ebd379720",
-      "source_room_path": "assets/flats/castle/rooms/room_main_hall.png",
-      "source_room_sha256": "7b284cd4530faf38ee8b06e3613f5c81dddf40fc73a64aaf943496c98acfe1a0",
-      "source_sha256": "ac99e7a4cbae3c423c2aa83dea4173060df1ab892d7166157b38818332d8cb75",
-      "source_sha256_kind": "raw_rgba_bytes",
-      "transparent_rgb_operation": "zero_rgb_where_alpha_is_zero",
-      "visible_rgb_operation": "none_source_room_pixels_only"
-    },
-    {
-      "after": {
         "alpha_pixels": 58561,
         "core_bbox": [
           0,
@@ -2799,6 +2673,7 @@
     }
   ],
   "constraints": {
+    "legacy_hall_front_cards_runtime_retired": true,
     "pool_mid_card_runtime_retired": true,
     "source_room_art_reused_exactly": true,
     "transparent_rgb_zeroed": true,
@@ -2806,10 +2681,34 @@
   },
   "contact_sheet": {
     "path": "audit/castle_static_depth_cards/static_depth_card_refinement_contact.png",
-    "raw_pixel_sha256": "4e514ab582c2439349d0dcbbc959de863ab7e6f61b101fc20fb45611af81720f"
+    "raw_pixel_sha256": "3fcbcbee088143eb5fc105046bd455dc189f549d3786514ba69cf7e098c399a7"
   },
   "generated_by": "tools/refine_castle_depth_cards.py",
   "retired_cards": [
+    {
+      "id": "front_left",
+      "path": "assets/flats/castle/rooms/room_main_hall_front_left.png",
+      "position": [
+        0,
+        0
+      ],
+      "reason": "approved_panorama_already_contains_complete_hall_architecture",
+      "role": "foreground",
+      "room": "main_hall",
+      "source_sha256": "7889915859106d7b77037ab605b513dc457b23eeaadec0571ef6080d8d636b9e"
+    },
+    {
+      "id": "front_right",
+      "path": "assets/flats/castle/rooms/room_main_hall_front_right.png",
+      "position": [
+        750,
+        0
+      ],
+      "reason": "approved_panorama_already_contains_complete_hall_architecture",
+      "role": "foreground",
+      "room": "main_hall",
+      "source_sha256": "aec514c1d0c9299a92ab76c22ba7d8a54aee524f63c6f51252fd64c363f7e2be"
+    },
     {
       "id": "mid_pool",
       "path": "assets/flats/castle/rooms/room_mermaid_pool_mid_pool.png",

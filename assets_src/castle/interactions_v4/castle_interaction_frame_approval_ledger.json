@@ -1,12 +1,12 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9",
-  "manifest_semantic_sha256": "1306fb650c6be730d3eb109ebea408f6b762f6ee006282e610c743aee35b0bef",
+  "candidate_payload_sha256": "ca69a9ca66b18b438178db8b31abf409908fc1a9236ac35682b847005b5cec2a",
+  "manifest_semantic_sha256": "442767ad0816900565c46ff29d57ff656df07e5c08606c0159b0e3bc0eaa4cc5",
   "metadata_revalidation": {
-    "date": "2026-08-09",
-    "reason": "The Castle generator provenance hash changed only because its text hashing became CRLF/LF invariant. All 104 approved frame-review hashes, occlusion relations, and V4 PNG bytes remain unchanged.",
-    "prior_candidate_payload_sha256": "d2696ba6e0c8f4bc48554272e758ccd813785ae3fddda130e307c3168617fdae",
-    "prior_manifest_semantic_sha256": "6196bc5ab01d55e90a97312b561ad10960596b5b52a04f87d58aea2fc33da35d"
+    "date": "2026-08-22",
+    "reason": "The Castle depth manifest now declares the accepted Canvas2D runtime, and the V4 manifest pins that updated provenance. The two redundant Main Hall foreground cards were retired outside all V4 interaction rooms. All 104 approved frame-review hashes, occlusion relations, and V4 PNG bytes remain unchanged; the regenerated candidate has zero blocking findings.",
+    "prior_candidate_payload_sha256": "1754c880e4ef3df87daed47e1a8ec1ed36e114956ae86dbc50a74e40bba392d9",
+    "prior_manifest_semantic_sha256": "1306fb650c6be730d3eb109ebea408f6b762f6ee006282e610c743aee35b0bef"
   },
   "reviewer": "Codex visual review 2026-08-05",
   "review_basis": "All 104 untinted depth-aware composites and paired diagnostic sheets inspected; corrected Pool water and low-alpha waterfall also reviewed in exact Godot 4.7.1 Forward Mobile runtime captures; automated duplicate, ownership, alpha-scissor, and static-z gates clean.",
