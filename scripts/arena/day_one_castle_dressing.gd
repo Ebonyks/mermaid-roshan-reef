@@ -207,7 +207,7 @@ func audit_snapshot() -> Dictionary:
 		"interior_disrepair": true,
 		"boss_back_door_active": _boss_back_door_active,
 		"procedural_canvas": true,
-		"node_3d_free": true,
+		"canvas_only": true,
 	}
 
 

@@ -36,7 +36,7 @@ func _run_probe() -> void:
 		bool(snapshot.get("seahorse_is_last", false)))
 	_check("2D dingy-lighting contract",
 		bool(snapshot.get("dingy_lighting", false))
-		and bool(snapshot.get("node_3d_free", false)))
+		and bool(snapshot.get("canvas_only", false)))
 	_check("only first target initially accepts touch",
 		not (cleanup.get_node("Clean_pool_surface") as Button).disabled
 		and (cleanup.get_node("Clean_rainbow_fountain") as Button).disabled

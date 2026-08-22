@@ -39,7 +39,7 @@ func _run_probe() -> void:
 		print("DAY_ONE_DRESSING|door affordances: OK four readable doors")
 	if not bool(snapshot.get("procedural_canvas", false)) \
 			or not bool(snapshot.get("dust_bunny_sprite2d", false)) \
-			or not bool(snapshot.get("node_3d_free", false)):
+			or not bool(snapshot.get("canvas_only", false)):
 		print("DAY_ONE_DRESSING|2D contract: FAIL ", snapshot)
 		bad += 1
 	else:

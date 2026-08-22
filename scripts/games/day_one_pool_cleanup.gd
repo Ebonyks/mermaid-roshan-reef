@@ -111,7 +111,7 @@ func audit_snapshot() -> Dictionary:
 		"dingy_lighting": _light_wash != null,
 		"finale_started": _finale_started,
 		"rumi_present": _rumi != null and is_instance_valid(_rumi),
-		"node_3d_free": true,
+		"canvas_only": true,
 	}
 
 
