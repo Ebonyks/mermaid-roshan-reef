@@ -1,9 +1,9 @@
 """Refine Pearl Castle static depth cards to physical foreground subjects.
 
-The room cards were originally cut with broad routing polygons.  Their RGB is
+The room cards were originally cut with broad routing polygons. Their RGB is
 pixel-exact source-room art, but some alpha mattes still own attached pieces of
-wall, floor, rugs, and contact-shadow smear.  With Sprite3D alpha scissoring,
-those pixels write depth and can hide Roshan.
+wall, floor, rugs, and contact-shadow smear. In the Canvas2D runtime, those
+pixels still draw in front of Roshan and can hide her.
 
 This tool is deliberately independent of the V4 interaction builders/audits.
 It preserves each original card alpha plane under ``assets_src`` and rebuilds
@@ -94,8 +94,6 @@ def preserve_card(room: str, card_id: str, position: tuple[int, int]) -> CardSpe
 # the painted outlines; the retained edge itself always comes from the original
 # alpha plane.
 CARD_SPECS: tuple[CardSpec, ...] = (
-	preserve_card("main_hall", "front_left", (0, 0)),
-	preserve_card("main_hall", "front_right", (750, 0)),
 	preserve_card("opera_hall", "front_left", (0, 252)),
 	preserve_card("opera_hall", "front_right", (750, 252)),
 	CardSpec("kitchen", "front_left", (0, 354), (
@@ -257,14 +255,32 @@ CARD_SPECS: tuple[CardSpec, ...] = (
 )
 
 
-RETIRED_CARDS: tuple[dict[str, Any], ...] = ({
-	"room": "mermaid_pool",
-	"id": "mid_pool",
-	"role": "midground",
-	"path": "assets/flats/castle/rooms/room_mermaid_pool_mid_pool.png",
-	"position": [0, 218],
-	"reason": "pool_water_oval_is_background_not_a_physical_depth_subject",
-},)
+RETIRED_CARDS: tuple[dict[str, Any], ...] = (
+	{
+		"room": "main_hall",
+		"id": "front_left",
+		"role": "foreground",
+		"path": "assets/flats/castle/rooms/room_main_hall_front_left.png",
+		"position": [0, 0],
+		"reason": "approved_panorama_already_contains_complete_hall_architecture",
+	},
+	{
+		"room": "main_hall",
+		"id": "front_right",
+		"role": "foreground",
+		"path": "assets/flats/castle/rooms/room_main_hall_front_right.png",
+		"position": [750, 0],
+		"reason": "approved_panorama_already_contains_complete_hall_architecture",
+	},
+	{
+		"room": "mermaid_pool",
+		"id": "mid_pool",
+		"role": "midground",
+		"path": "assets/flats/castle/rooms/room_mermaid_pool_mid_pool.png",
+		"position": [0, 218],
+		"reason": "pool_water_oval_is_background_not_a_physical_depth_subject",
+	},
+)
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -536,6 +552,7 @@ def build_outputs(bootstrap: bool) -> tuple[
 			"visible_rgb_repainted": False,
 			"source_room_art_reused_exactly": True,
 			"transparent_rgb_zeroed": True,
+			"legacy_hall_front_cards_runtime_retired": True,
 			"pool_mid_card_runtime_retired": True,
 		},
 	}
