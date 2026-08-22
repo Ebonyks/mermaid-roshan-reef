@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gate: the Environment grade must not clip art that did not clip in the PNG.
+"""Gate: an active Environment grade must not clip approved PNG art.
 
 Painted 2.5D flats are drawn unshaded, so the WorldEnvironment grade is the
 only thing between an approved painting and the child's screen. When a profile
@@ -9,7 +9,8 @@ of castle-room pixels before the 2026-08-02 retune (LIGHTING_2P5D_AUDIT).
 
 This reads the live grade numbers straight out of the GDScript (so the gate
 cannot drift from the shipped values), replays the chain over a sample of each
-zone's real flats, and fails if a zone exceeds its clip/crush budget.
+zone's real flats, and fails if a zone exceeds its clip/crush budget. A true
+Canvas2D zone with no WorldEnvironment is measured as pixel identity.
 
     python3 tools/check_grade_headroom.py            # gate
     python3 tools/check_grade_headroom.py --report   # numbers, always exit 0
@@ -88,9 +89,11 @@ def parse_profiles() -> dict:
 	return defaults, profiles
 
 
-def parse_castle_room() -> dict:
-	"""Destination-room BCS + glow overrides from _sync_castle_environment."""
+def parse_castle_room() -> dict | None:
+	"""Return legacy Castle grade overrides, or None for the true-2D canvas."""
 	src = CASTLE_GD.read_text(encoding="utf-8")
+	if "func _sync_castle_environment" not in src:
+		return None
 	body = src.split("func _sync_castle_environment")[1].split("\nfunc ")[0]
 	tail = body.split("\telse:")[1]
 	def g(key, default):
@@ -111,7 +114,6 @@ def parse_castle_room() -> dict:
 
 def build_profile_table() -> dict:
 	_, profiles = parse_profiles()
-	warm = profiles["warm_pastel"]
 	room = parse_castle_room()
 	table = {}
 	for name, p in profiles.items():
@@ -119,13 +121,19 @@ def build_profile_table() -> dict:
 			p["full_exposure"], p["white_point"], p["brightness"], p["contrast"],
 			p["saturation"], 0.90, 0.95, 0.40, 2.40,
 		)
-	# Castle destination rooms: warm_pastel exposure/white, then the room's own
-	# BCS + glow overrides written after _apply_scene_grade returns.
-	table["castle_room"] = (
-		warm["full_exposure"], warm["white_point"], room["brightness"],
-		room["contrast"], room["saturation"], room["glow_threshold"],
-		room["glow_intensity"], room["glow_bloom"], 2.40,
-	)
+	if room is None:
+		# The migrated Castle is a true Canvas2D overlay with no Castle
+		# WorldEnvironment. None is an explicit pixel-identity profile.
+		table["castle_room"] = None
+	else:
+		# Legacy destination rooms: warm_pastel exposure/white, then the room's
+		# own BCS + glow overrides written after _apply_scene_grade returns.
+		warm = profiles["warm_pastel"]
+		table["castle_room"] = (
+			warm["full_exposure"], warm["white_point"], room["brightness"],
+			room["contrast"], room["saturation"], room["glow_threshold"],
+			room["glow_intensity"], room["glow_bloom"], 2.40,
+		)
 	return table
 
 
@@ -163,7 +171,8 @@ def _sample(paths, limit):
 
 def measure(paths, profile_values, light=None, limit=80):
 	import sim_render_grade
-	sim_render_grade.PROFILES["__gate__"] = profile_values
+	if profile_values is not None:
+		sim_render_grade.PROFILES["__gate__"] = profile_values
 	clip_in = clip_out = crush_in = crush_out = 0.0
 	n = 0
 	for p in _sample(paths, limit):
@@ -175,7 +184,10 @@ def measure(paths, profile_values, light=None, limit=80):
 		if mask.sum() < 64:
 			mask = np.ones(rgba.shape[:2], bool)
 		im = src.convert("RGB")
-		out, _ = render(im, "__gate__", light)
+		if profile_values is None:
+			out = im
+		else:
+			out, _ = render(im, "__gate__", light)
 		a = np.asarray(im, dtype=np.float32) / 255.0
 		b = np.asarray(out, dtype=np.float32) / 255.0
 		clip_in += (a.max(-1) > 0.996)[mask].mean()
