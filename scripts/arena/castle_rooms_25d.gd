@@ -432,6 +432,8 @@ const ROOM_ITEMS := {
 		{"id": "stage_star", "name": "Stage star", "pos": Vector2(490, 309),
 			"z": 0.75, "hotspot_offset": Vector2(-26.0, 6.0),
 			"hotspot_size": Vector2(96.0, 80.0),
+			"launch_activity": "opera",
+			"semantic_action": "open_opera_stage",
 			"symbol": "★", "color": Color(1.0, 0.82, 0.30)},
 		{"id": "footlights", "name": "Stage footlights",
 			"pos": Vector2(414, 286), "z": 0.72,
@@ -848,6 +850,12 @@ var kitchen_menu_stage: Control = null
 var kitchen_act: OperaAct = null
 var fridge_close_input_blocker: Control = null
 var _room_build_generation := 0
+var _movement_tween: Tween = null
+var _movement_generation := 0
+var _room_transition_tween: Tween = null
+var _room_transition_generation := 0
+var _composition_transition_tween: Tween = null
+var _composition_transition_generation := 0
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -1015,6 +1023,9 @@ func cancel_kitchen_recipe() -> void:
 
 func close() -> void:
 	_room_build_generation += 1
+	_cancel_composition_transition()
+	_cancel_room_transition()
+	_cancel_player_motion()
 	_invalidate_royal_hall_arrival()
 	_close_kitchen_menu()
 	_set_fridge_close_blocked(false)
@@ -1125,6 +1136,8 @@ func physics_tick(delta: float) -> void:
 
 func _build_stage() -> void:
 	var stage: Control = m.castle_room_stage
+	stage.set_meta("persistent_picture_map", true)
+	stage.set_meta("picture_map_room_count", ELEVATOR_ROOM_IDS.size())
 	m.castle_room_world_root = Node3D.new()
 	m.castle_room_world_root.name = "CastleRoomsSprite3DWorld"
 	m.castle_room_world_root.position = WORLD_ORIGIN
@@ -1244,7 +1257,9 @@ func _build_stage() -> void:
 	elevator.name = "ElevatorButton"
 	elevator.position = Vector2(1116.0, 544.0)
 	StorybookUI.style_icon_button(elevator, "↕", "primary",
-		Vector2(136.0, 136.0), "Castle elevator")
+		Vector2(136.0, 136.0), "Open the picture map of every castle room")
+	elevator.set_meta("castle_picture_map", true)
+	elevator.set_meta("persistent_navigation", true)
 	elevator.pressed.connect(_toggle_elevator_menu)
 	elevator.z_index = 30
 	stage.add_child(elevator)
@@ -1262,6 +1277,15 @@ func _build_stage() -> void:
 	point.tween_property(elevator_pointer, "position:y", 490.0,
 		0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	_build_elevator_menu(stage)
+	var transition_cover := ColorRect.new()
+	transition_cover.name = "CastleRoomTransitionCover"
+	transition_cover.color = Color(0.10, 0.07, 0.22, 1.0)
+	transition_cover.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	transition_cover.visible = false
+	transition_cover.z_index = 100
+	transition_cover.set_meta("covers_complete_room_composition", true)
+	stage.add_child(transition_cover)
+	transition_cover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 func _build_hall_background_tiles() -> void:
 	m.castle_room_background_tiles.clear()
@@ -1404,15 +1428,20 @@ func _restore_previous_environment() -> void:
 		if m.castle_room_previous_environment != null else m.world_env
 	m.castle_room_previous_environment = null
 
-func _set_hall_background_visible(visible: bool) -> void:
+func _set_hall_background_visible(visible: bool,
+		detail_tiles_ready: bool = true) -> void:
 	for tile: Sprite3D in m.castle_room_background_tiles:
 		if tile != null and is_instance_valid(tile):
+			tile.modulate.a = 1.0
 			tile.visible = false
 	for tile: Sprite3D in m.castle_room_detail_tiles:
 		if tile != null and is_instance_valid(tile):
-			tile.visible = not visible
+			tile.modulate.a = 1.0
+			tile.visible = not visible and detail_tiles_ready
 	if m.castle_room_background != null:
-		m.castle_room_background.visible = false
+		# Keep the authored whole-room painting as a complete, safe fallback while
+		# an atomic tile route is unavailable. Never expose a partial room grid.
+		m.castle_room_background.visible = not visible and not detail_tiles_ready
 	if m.castle_room_door_hotspot_layer != null:
 		m.castle_room_door_hotspot_layer.visible = visible
 	_sync_hall_horizontal_culling()
@@ -1509,7 +1538,7 @@ func _load_room_background_tile_set(tile_root: String, room_id: String,
 	return textures
 
 
-func _build_room_background_tiles(room_id: String) -> void:
+func _build_room_background_tiles(room_id: String) -> bool:
 	var native_tile_root := fixture_rigs.room_background_tile_root(room_id)
 	var grid: Dictionary = ROOM_BACKGROUND_GRIDS.get(room_id, {})
 	if grid.is_empty() and native_tile_root == "":
@@ -1548,7 +1577,7 @@ func _build_room_background_tiles(room_id: String) -> void:
 	_clear_room_background_tiles()
 	if textures.size() != columns * rows:
 		push_warning("Castle room %s has no complete background tile set" % room_id)
-		return
+		return false
 	for row in range(rows):
 		for column in range(columns):
 			var texture: Texture2D = textures[row * columns + column]
@@ -1599,6 +1628,7 @@ func _build_room_background_tiles(room_id: String) -> void:
 			tile.set_meta("depth_z", BACKGROUND_Z)
 			m.castle_room_world_root.add_child(tile)
 			m.castle_room_detail_tiles.append(tile)
+	return true
 
 func _build_hall_portals() -> void:
 	if m.castle_room_door_hotspot_layer == null:
@@ -1670,6 +1700,8 @@ func _build_elevator_menu(stage: Control) -> void:
 		button.expand_icon = true
 		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		button.set_meta("castle_room_destination", room_id)
+		button.set_meta("picture_map_entry", true)
+		button.set_meta("persistent_navigation", true)
 		button.set_meta("castle_room_icon_path", icon_path)
 		button.set_meta("castle_room_icon_family",
 			"pearl_castle_scallop_crest")
@@ -1744,6 +1776,9 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)
 	if room.is_empty() or m.castle_room_background == null:
 		return
+	_cancel_room_transition()
+	_cancel_player_motion()
+	_begin_composition_transition()
 	_invalidate_royal_hall_arrival()
 	m.castle_room_id = room_id
 	_set_elevator_menu_open(false, false)
@@ -1762,10 +1797,14 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if not hall_mode:
 		m.castle_room_background.texture = load(ROOM_ART + String(room["tex"]))
 		m.castle_room_camera.position = Vector3(0.0, 0.0, CAMERA_DISTANCE)
-		_build_room_background_tiles(room_id)
+	var room_tiles_ready := true
+	if not hall_mode:
+		room_tiles_ready = _build_room_background_tiles(room_id)
 	else:
 		_clear_room_background_tiles()
-	_set_hall_background_visible(hall_mode)
+	_set_hall_background_visible(hall_mode, room_tiles_ready)
+	m.castle_room_stage.set_meta("room_composition_complete", true)
+	m.castle_room_stage.set_meta("room_tiles_ready", room_tiles_ready)
 	_rebuild_depth_layers(room_id)
 	_rebuild_touch_items(room_id)
 	_rebuild_room_links(room_id)
@@ -1778,22 +1817,14 @@ func show_room(room_id: String, announce: bool = true) -> void:
 		_sync_movie_picture()
 	m.castle_room_action_button.visible = not hall_mode \
 		and room_id != "family_gallery" \
+		and room_id != "opera_hall" \
 		and (room_id != "playroom" or _playroom_rescue_done())
 	if not hall_mode:
 		StorybookUI.style_icon_button(m.castle_room_action_button,
 			String(room["action_icon"]), "gold", Vector2(132.0, 132.0),
 			String(room["name"]))
-	if hall_mode:
-		for tile: Sprite3D in m.castle_room_background_tiles:
-			tile.modulate.a = 0.25
-			m.create_tween().tween_property(
-				tile, "modulate:a", 1.0, 0.24)
-	else:
-		var fade := m.create_tween()
-		for tile: Sprite3D in m.castle_room_detail_tiles:
-			tile.modulate.a = 0.25
-			fade.parallel().tween_property(
-				tile, "modulate:a", 1.0, 0.24)
+		m.castle_room_action_button.set_meta("diegetic_launch", false)
+		m.castle_room_action_button.position = Vector2(72.0, 520.0)
 	_center_player()
 	_sync_hall_horizontal_culling()
 	_update_hall_portals()
@@ -1812,6 +1843,91 @@ func _room(room_id: String) -> Dictionary:
 		if String(room["id"]) == room_id:
 			return room
 	return {}
+
+
+func _cancel_player_motion() -> void:
+	_movement_generation += 1
+	if _movement_tween != null and is_instance_valid(_movement_tween):
+		_movement_tween.kill()
+	_movement_tween = null
+	if m.castle_room_player_sprite != null \
+			and is_instance_valid(m.castle_room_player_sprite):
+		m.castle_room_player_sprite.set_meta("walking", false)
+
+
+func _cancel_room_transition() -> void:
+	_room_transition_generation += 1
+	if _room_transition_tween != null \
+			and is_instance_valid(_room_transition_tween):
+		_room_transition_tween.kill()
+	_room_transition_tween = null
+	m.castle_royal_hall_arrival_pending = false
+
+
+func _begin_room_transition() -> int:
+	_cancel_room_transition()
+	return _room_transition_generation
+
+
+func _room_transition_is_current(generation: int) -> bool:
+	return is_open() and generation == _room_transition_generation
+
+
+func _composition_transition_cover() -> ColorRect:
+	if m.castle_room_stage == null:
+		return null
+	return m.castle_room_stage.get_node_or_null(
+		"CastleRoomTransitionCover") as ColorRect
+
+
+func _cancel_composition_transition() -> void:
+	_composition_transition_generation += 1
+	if _composition_transition_tween != null \
+			and _composition_transition_tween.is_valid():
+		_composition_transition_tween.kill()
+	_composition_transition_tween = null
+	var cover := _composition_transition_cover()
+	if cover != null:
+		cover.visible = false
+		cover.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		cover.modulate.a = 1.0
+
+
+func _begin_composition_transition() -> void:
+	_cancel_composition_transition()
+	var cover := _composition_transition_cover()
+	if cover == null:
+		return
+	var generation := _composition_transition_generation
+	cover.modulate.a = 1.0
+	cover.visible = true
+	cover.mouse_filter = Control.MOUSE_FILTER_STOP
+	call_deferred("_fade_composition_transition", generation)
+
+
+func _fade_composition_transition(generation: int) -> void:
+	if not is_open() or generation != _composition_transition_generation:
+		return
+	var cover := _composition_transition_cover()
+	if cover == null:
+		return
+	_composition_transition_tween = m.create_tween()
+	_composition_transition_tween.tween_property(
+		cover, "modulate:a", 0.0, 0.24
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	_composition_transition_tween.tween_callback(
+		_finish_composition_transition.bind(generation))
+
+
+func _finish_composition_transition(generation: int) -> void:
+	if generation != _composition_transition_generation:
+		return
+	_composition_transition_tween = null
+	var cover := _composition_transition_cover()
+	if cover != null:
+		cover.visible = false
+		cover.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		cover.modulate.a = 1.0
 
 func _on_room_input(event: InputEvent) -> void:
 	if _fridge_close_is_blocked() or m.castle_room_menu_open:
@@ -1833,18 +1949,26 @@ func _walk_cutout_to(screen_position: Vector2) -> void:
 		_explode_dust_bunny(bunny_id)
 		return
 	var local_position: Vector2 = _screen_to_stage(screen_position)
+	# The Storybook stage is centered inside the viewport. Reject letterbox
+	# taps, then keep in-stage taps forgiving by clamping their destination to
+	# the painted walk lane. A four-year-old should not need floor-pixel aim.
+	if not Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE).has_point(local_position):
+		return
 	if _is_wide_hall():
 		var hall_position: Vector2 = _stage_to_hall_art(local_position)
 		var hall_foot := Vector2(
 			clampf(hall_position.x, HALL_WALK.position.x, HALL_WALK.end.x),
 			clampf(hall_position.y, HALL_WALK.position.y, HALL_WALK.end.y))
+		_cancel_room_transition()
 		_position_player_at_foot(hall_foot, true)
 		return
 	var layout: Dictionary = ROOM_LAYOUTS.get(m.castle_room_id, {})
 	var walk: Rect2 = layout.get("walk", Rect2(170.0, 450.0, 940.0, 215.0))
-	var foot_x: float = clampf(local_position.x, walk.position.x, walk.end.x)
-	var foot_y: float = clampf(local_position.y, walk.position.y, walk.end.y)
-	_position_player_at_foot(Vector2(foot_x, foot_y), true)
+	var walk_foot := Vector2(
+		clampf(local_position.x, walk.position.x, walk.end.x),
+		clampf(local_position.y, walk.position.y, walk.end.y))
+	_cancel_room_transition()
+	_position_player_at_foot(walk_foot, true)
 
 # The probe-proven card picker, kept verbatim below but returning the picked
 # bunny's id; the foot variant wraps it for the walking route and the probes.
@@ -1900,8 +2024,10 @@ func _dust_bunny_id_from_camera_ray(screen_position: Vector2) -> String:
 func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	if m.castle_room_player_sprite == null:
 		return
+	_cancel_player_motion()
+	var movement_generation := _movement_generation
 	if _is_wide_hall():
-		_position_hall_player_at_foot(foot, tweened)
+		_position_hall_player_at_foot(foot, tweened, movement_generation)
 		return
 	var layout: Dictionary = ROOM_LAYOUTS.get(m.castle_room_id, {})
 	var walk: Rect2 = layout.get("walk", Rect2(170.0, 450.0, 940.0, 215.0))
@@ -1941,7 +2067,8 @@ func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
 		return
-	var movement_tween := m.create_tween().set_parallel(true)
+	var movement_tween: Tween = m.create_tween().set_parallel(true)
+	_movement_tween = movement_tween
 	movement_tween.tween_method(
 		_set_player_current_foot, current_foot, foot, duration
 	).set_trans(Tween.TRANS_SINE)
@@ -1958,9 +2085,11 @@ func _position_player_at_foot(foot: Vector2, tweened: bool) -> void:
 			duration).set_trans(Tween.TRANS_SINE)
 		movement_tween.tween_property(shadow, "pixel_size",
 			_pixel_size_for_depth(shadow_z), duration).set_trans(Tween.TRANS_SINE)
-	movement_tween.chain().tween_callback(_finish_player_walk)
+	movement_tween.chain().tween_callback(
+		_finish_player_walk.bind(movement_generation))
 
-func _position_hall_player_at_foot(foot: Vector2, tweened: bool) -> void:
+func _position_hall_player_at_foot(foot: Vector2, tweened: bool,
+		movement_generation: int = -1) -> void:
 	var depth: float = inverse_lerp(
 		HALL_WALK.position.y, HALL_WALK.end.y, foot.y)
 	var target_scale: float = lerpf(0.72, 1.05, depth)
@@ -2000,7 +2129,8 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool) -> void:
 		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
 		return
-	var movement_tween := m.create_tween().set_parallel(true)
+	var movement_tween: Tween = m.create_tween().set_parallel(true)
+	_movement_tween = movement_tween
 	movement_tween.tween_method(
 		_set_player_current_foot, current_foot, foot, duration
 	).set_trans(Tween.TRANS_SINE)
@@ -2023,7 +2153,8 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool) -> void:
 		movement_tween.tween_property(
 			shadow, "pixel_size", _pixel_size_for_depth(shadow_z),
 			duration).set_trans(Tween.TRANS_SINE)
-	movement_tween.chain().tween_callback(_finish_player_walk)
+	movement_tween.chain().tween_callback(
+		_finish_player_walk.bind(movement_generation))
 
 func _center_player() -> void:
 	if m.castle_room_player_sprite == null:
@@ -2713,12 +2844,23 @@ func _enter_gallery_room(sprite: Sprite3D,
 	var duration: float = clampf(
 		old_foot.distance_to(roleplay_foot) / 520.0,
 		0.12, 0.85)
+	var transition_generation := _begin_room_transition()
 	_position_player_at_foot(roleplay_foot, true)
 	_item_burst(sprite.position,
 		Color(item_data.get("color", StorybookUI.GOLD)), 8)
-	var transition := m.create_tween()
-	transition.tween_interval(duration + 0.04)
-	transition.tween_callback(show_room.bind(destination, true))
+	_room_transition_tween = m.create_tween()
+	_room_transition_tween.tween_interval(duration + 0.04)
+	_room_transition_tween.tween_callback(
+		_finish_gallery_room_transition.bind(
+			destination, transition_generation))
+
+
+func _finish_gallery_room_transition(destination: String,
+		generation: int) -> void:
+	if not _room_transition_is_current(generation):
+		return
+	_room_transition_tween = null
+	show_room(destination, true)
 
 func _serve_dining_meal(sprite: Sprite3D,
 		item_data: Dictionary) -> void:
@@ -3436,10 +3578,15 @@ func _finish_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
 	if launch_activity == "castle_logo" \
 			and m.castle_room_id == "craft_room" \
 			and String(sprite.get_meta("source_object_id", "")) \
-				== "craft_room:paint_table" \
+			== "craft_room:paint_table" \
 			and m.castle_logo_layer == null:
 		_item_burst(sprite.position, Color(0.60, 0.90, 0.82), 10)
 		m._open_castle_logo()
+	if launch_activity == "opera" \
+			and m.castle_room_id == "opera_hall" \
+			and m.opera_game == null:
+		_item_burst(sprite.position, Color(1.0, 0.82, 0.30), 10)
+		m._start_opera()
 
 
 func _close_fridge_visual() -> bool:
@@ -3718,7 +3865,11 @@ func _set_player_current_foot(foot: Vector2) -> void:
 			and is_instance_valid(m.castle_room_player_sprite):
 		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
 
-func _finish_player_walk() -> void:
+
+func _finish_player_walk(generation: int = -1) -> void:
+	if generation >= 0 and generation != _movement_generation:
+		return
+	_movement_tween = null
 	if m.castle_room_player_sprite != null \
 			and is_instance_valid(m.castle_room_player_sprite):
 		var foot: Vector2 = m.castle_room_player_sprite.get_meta(
@@ -4115,8 +4266,10 @@ func _update_touch_hotspot(record: Dictionary) -> void:
 	var edge_x_stage: Vector2 = _screen_to_stage(edge_x_screen)
 	var edge_y_stage: Vector2 = _screen_to_stage(edge_y_screen)
 	var hit_size := Vector2(
-		maxf(88.0, absf(edge_x_stage.x - center_stage.x) * 2.0),
-		maxf(88.0, absf(edge_y_stage.y - center_stage.y) * 2.0))
+		maxf(StorybookUI.MIN_TOUCH.x,
+			absf(edge_x_stage.x - center_stage.x) * 2.0),
+		maxf(StorybookUI.MIN_TOUCH.y,
+			absf(edge_y_stage.y - center_stage.y) * 2.0))
 	var hit_position: Vector2 = center_stage - hit_size * 0.5
 	hit_position.x = clampf(hit_position.x, 0.0,
 		StorybookUI.CANVAS_SIZE.x - hit_size.x)
@@ -4175,6 +4328,7 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 	if portal_id == ROYAL_HALL_PORTAL_ID \
 			and m.castle_royal_hall_arrival_pending:
 		return
+	var transition_generation := _begin_room_transition()
 	_invalidate_royal_hall_arrival()
 	m._ui_tap()
 	var old_foot: Vector2 = m.castle_room_player_sprite.get_meta(
@@ -4183,7 +4337,8 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 		old_foot.distance_to(foot) * HALL_STAGE_SCALE / 520.0,
 		0.12, 1.05)
 	_position_player_at_foot(foot, true)
-	var transition := m.create_tween()
+	var transition: Tween = m.create_tween()
+	_room_transition_tween = transition
 	transition.tween_interval(duration + 0.04)
 	if portal_id == ROYAL_HALL_PORTAL_ID:
 		m.castle_royal_hall_arrival_pending = true
@@ -4192,11 +4347,26 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 		var expected_event_id: String = _royal_hall_event_id()
 		var expected_event_generation: int = \
 			m.castle_royal_hall_event_generation
-		transition.tween_callback(_activate_royal_hall_event.bind(
-			arrival_generation, expected_event_id,
-			expected_event_generation, foot))
+		transition.tween_callback(_finish_hall_portal_transition.bind(
+			portal_id, transition_generation, arrival_generation,
+			expected_event_id, expected_event_generation, foot))
 	else:
-		transition.tween_callback(show_room.bind(portal_id, true))
+		transition.tween_callback(_finish_hall_portal_transition.bind(
+			portal_id, transition_generation, -1, "", -1, foot))
+
+
+func _finish_hall_portal_transition(portal_id: String,
+		transition_generation: int, arrival_generation: int,
+		expected_event_id: String, expected_event_generation: int,
+		foot: Vector2) -> void:
+	if not _room_transition_is_current(transition_generation):
+		return
+	_room_transition_tween = null
+	if portal_id == ROYAL_HALL_PORTAL_ID:
+		_activate_royal_hall_event(arrival_generation, expected_event_id,
+			expected_event_generation, foot)
+	else:
+		show_room(portal_id, true)
 
 func _activate_royal_hall_event(arrival_generation: int,
 		expected_event_id: String, expected_event_generation: int,
@@ -4544,6 +4714,8 @@ func _go_back() -> void:
 	if m.castle_room_menu_open:
 		_set_elevator_menu_open(false)
 		return
+	_cancel_room_transition()
+	_cancel_player_motion()
 	if m.castle_room_id == "main_hall":
 		_exit_to_courtyard()
 	else:
