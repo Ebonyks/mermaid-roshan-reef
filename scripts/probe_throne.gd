@@ -128,26 +128,26 @@ func _wait_for_royal_hall_offer() -> void:
 
 func _visible_royal_hall_mist() -> int:
 	var visible_count := 0
-	for mist: Sprite3D in main.castle_royal_hall_mist_cards:
+	for mist: Sprite2D in main.castle_royal_hall_mist_cards:
 		if mist != null and mist.visible and mist.modulate.a > 0.012:
 			visible_count += 1
 	return visible_count
 
-func _mist_transforms() -> Array[Transform3D]:
-	var values: Array[Transform3D] = []
-	for mist: Sprite3D in main.castle_royal_hall_mist_cards:
+func _mist_transforms() -> Array[Transform2D]:
+	var values: Array[Transform2D] = []
+	for mist: Sprite2D in main.castle_royal_hall_mist_cards:
 		if mist != null and is_instance_valid(mist):
 			values.append(mist.transform)
 	return values
 
-func _mist_transform_changed(before: Array[Transform3D],
-		after: Array[Transform3D]) -> bool:
+func _mist_transform_changed(before: Array[Transform2D],
+		after: Array[Transform2D]) -> bool:
 	if before.size() != after.size():
 		return false
 	for index: int in range(before.size()):
 		if before[index].origin.distance_to(after[index].origin) > 0.00001 \
-				or before[index].basis.get_scale().distance_to(
-					after[index].basis.get_scale()) > 0.00001:
+				or before[index].get_scale().distance_to(
+					after[index].get_scale()) > 0.00001:
 			return true
 	return false
 

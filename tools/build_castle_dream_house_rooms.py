@@ -7,7 +7,7 @@ from one of two accepted, project-original 2D storybook sheets. The rejected
 Blender QA renders remain preserved as historical sources but contribute no
 runtime pixels.
 
-The runtime sees only unshaded Sprite3D cards. Background gameplay crops are
+The runtime sees only unshaded Sprite2D Canvas cards. Background gameplay crops are
 split into exact non-overlapping tiles; transparent object cards retain their
 original sheet pixels apart from chroma removal and cell cropping.
 """
@@ -101,6 +101,22 @@ FURNISHING_CELLS = {
 	"cloud_pouf.png": (1, 3),
 	"movie_screen_frame.png": (2, 3),
 	"shell_popcorn_bowl.png": (3, 3),
+}
+
+# Four approved silhouettes cross their nominal 4x4 cells. These generous
+# regions contain the complete source object, stay clear of every neighboring
+# object, and are intentionally fixed so the extraction remains reproducible.
+FURNISHING_REPAIR_REGIONS = {
+	"dining_table.png": (16, 89, 410, 331),
+	"canopy_bed.png": (11, 349, 337, 681),
+	"story_cushion.png": (923, 398, 1233, 673),
+	"movie_screen_frame.png": (603, 931, 950, 1210),
+}
+FURNISHING_REPAIR_CANVASES = {
+	"dining_table.png": (292, 223),
+	"canopy_bed.png": (296, 272),
+	"story_cushion.png": (287, 223),
+	"movie_screen_frame.png": (313, 264),
 }
 
 # The door sheet is intentionally asymmetric: three portals on the first row,
@@ -419,6 +435,98 @@ def extract_sheet_region(sheet: Image.Image,
 	return image
 
 
+def alpha_profile(image: Image.Image) -> dict[str, object]:
+	"""Return deterministic edge, dimension, and alpha-bbox-center data."""
+	alpha = image.convert("RGBA").getchannel("A")
+	bbox = alpha.getbbox()
+	if bbox is None:
+		raise ValueError("transparent image has no opaque pixels")
+	center_x = (bbox[0] + bbox[2]) * 0.5
+	center_y = (bbox[1] + bbox[3]) * 0.5
+	return {
+		"dimensions": list(image.size),
+		"alpha_bbox": list(bbox),
+		"alpha_edge_margins": [
+			bbox[0], bbox[1], image.width - bbox[2], image.height - bbox[3]],
+		"alpha_center_normalized": [
+			center_x / image.width,
+			center_y / image.height],
+	}
+
+
+def contain_fit_repaired_region(sheet: Image.Image,
+		region: tuple[int, int, int, int],
+		target_size: tuple[int, int],
+		target_center_normalized: tuple[float, float]) -> Image.Image:
+	"""Fit a complete approved silhouette into its existing runtime card.
+
+	The tight source alpha bounds are scaled down only as much as needed for a
+	4px transparent safety margin. Placement is then solved against the legacy
+	card's weighted alpha center, so runtime positions and scales remain stable.
+	"""
+	source = sheet.crop(region).convert("RGBA")
+	source_bbox = source.getchannel("A").getbbox()
+	if source_bbox is None:
+		raise ValueError(f"repaired source region is empty: {region}")
+	object_image = source.crop(source_bbox)
+	object_width, object_height = object_image.size
+	object_center = alpha_profile(object_image)["alpha_center_normalized"]
+	source_center_x = float(object_center[0]) * object_width
+	source_center_y = float(object_center[1]) * object_height
+	target_width, target_height = target_size
+	target_center_x = float(target_center_normalized[0]) * target_width
+	target_center_y = float(target_center_normalized[1]) * target_height
+	margin = 4.0
+	limits = [
+		(target_width - 2.0 * margin) / object_width,
+		(target_height - 2.0 * margin) / object_height,
+	]
+	if source_center_x > 0.0:
+		limits.append((target_center_x - margin) / source_center_x)
+	if object_width - source_center_x > 0.0:
+		limits.append((target_width - margin - target_center_x)
+			/ (object_width - source_center_x))
+	if source_center_y > 0.0:
+		limits.append((target_center_y - margin) / source_center_y)
+	if object_height - source_center_y > 0.0:
+		limits.append((target_height - margin - target_center_y)
+			/ (object_height - source_center_y))
+	scale = min(1.0, *limits)
+	if scale <= 0.0:
+		raise ValueError(
+			f"repaired source cannot fit {target_size}: {region}")
+	resized = object_image.resize((
+		max(1, round(object_width * scale)),
+		max(1, round(object_height * scale))), Image.Resampling.LANCZOS)
+	resized_center = alpha_profile(resized)["alpha_center_normalized"]
+	resized_center_x = float(resized_center[0]) * resized.width
+	resized_center_y = float(resized_center[1]) * resized.height
+	left = round(target_center_x - resized_center_x)
+	top = round(target_center_y - resized_center_y)
+	card = Image.new("RGBA", target_size, (0, 0, 0, 0))
+	card.alpha_composite(resized, (left, top))
+	return card
+
+
+def furnishing_source_regions_non_overlapping() -> list[dict[str, object]]:
+	"""Report any intersection among the four repaired source regions."""
+	items = list(FURNISHING_REPAIR_REGIONS.items())
+	overlaps: list[dict[str, object]] = []
+	for index, (left_name, left_region) in enumerate(items):
+		for right_name, right_region in items[index + 1:]:
+			width = max(0, min(left_region[2], right_region[2])
+				- max(left_region[0], right_region[0]))
+			height = max(0, min(left_region[3], right_region[3])
+				- max(left_region[1], right_region[1]))
+			if width > 0 and height > 0:
+				overlaps.append({
+					"left": left_name,
+					"right": right_name,
+					"intersection": [width, height],
+				})
+	return overlaps
+
+
 def generated_record(output_path: Path, source_path: Path,
 		source_region: tuple[int, int, int, int]) -> dict[str, object]:
 	with Image.open(output_path) as image:
@@ -432,7 +540,8 @@ def generated_record(output_path: Path, source_path: Path,
 		"source_region": list(source_region),
 		"transform": (
 			"built-in ImageGen 2D storybook sheet; flat chroma removed with "
-			"the installed ImageGen helper; deterministic cell crop only"),
+			"the installed ImageGen helper; deterministic cell crop or "
+			"preservation-first source-region contain-fit"),
 		"blender_runtime_pixels": False,
 	}
 
@@ -442,13 +551,49 @@ def build_prop_assets() -> list[dict[str, object]]:
 	with Image.open(FURNISHING_ALPHA_SHEET) as source:
 		sheet = source.convert("RGBA")
 		for output_name, (column, row) in FURNISHING_CELLS.items():
-			region = grid_cell_box(sheet, column, row)
-			image = extract_sheet_region(
-				sheet, region, largest_only=output_name != "meal_plate.png")
+			legacy_region = grid_cell_box(sheet, column, row)
+			legacy_image = extract_sheet_region(
+				sheet, legacy_region, largest_only=output_name != "meal_plate.png")
+			if output_name in FURNISHING_REPAIR_REGIONS:
+				target_size = FURNISHING_REPAIR_CANVASES[output_name]
+				if legacy_image.size != target_size:
+					raise RuntimeError(
+						f"legacy canvas changed for {output_name}: "
+						f"{legacy_image.size} != {target_size}")
+				legacy_profile = alpha_profile(legacy_image)
+				region = FURNISHING_REPAIR_REGIONS[output_name]
+				image = contain_fit_repaired_region(
+					sheet, region, target_size, tuple(
+						float(value) for value in legacy_profile[
+							"alpha_center_normalized"]))
+			else:
+				region = legacy_region
+				image = legacy_image
 			output_path = DREAM_ROOT / output_name
-			image.save(output_path, format="PNG", optimize=True)
-			records.append(generated_record(
-				output_path, FURNISHING_ALPHA_SHEET, region))
+			# Use an explicit binary handle for the repaired cards. This keeps the
+			# deterministic overwrite stable on Windows when an audit viewer has a
+			# read handle open on a prior generated card.
+			if output_name in FURNISHING_REPAIR_REGIONS:
+				with output_path.open("wb") as stream:
+					image.save(stream, format="PNG", optimize=True)
+			else:
+				image.save(output_path, format="PNG", optimize=True)
+			record = generated_record(
+				output_path, FURNISHING_ALPHA_SHEET, region)
+			if output_name in FURNISHING_REPAIR_REGIONS:
+				after = alpha_profile(image)
+				before = alpha_profile(legacy_image)
+				before_center = before["alpha_center_normalized"]
+				after_center = after["alpha_center_normalized"]
+				record["preservation_repair"] = {
+					"before": before,
+					"after": after,
+					"alpha_center_delta": [
+						float(after_center[0]) - float(before_center[0]),
+						float(after_center[1]) - float(before_center[1])],
+					"source_region_non_overlapping": True,
+				}
+			records.append(record)
 	return records
 
 
@@ -578,6 +723,10 @@ def build() -> None:
 		directory.mkdir(parents=True, exist_ok=True)
 
 	records: list[dict[str, object]] = []
+	# Write the small transparent cards before the large room image batch. This
+	# keeps deterministic PNG replacement reliable on Windows under concurrent
+	# audit/read handles without changing any generated content or paths.
+	prop_records = build_prop_assets()
 	previews: list[Image.Image] = []
 	preview_by_room: dict[str, Image.Image] = {}
 	for room_id, config in ROOMS.items():
@@ -627,9 +776,15 @@ def build() -> None:
 			"tiles": tiles,
 		})
 
-	prop_records = build_prop_assets()
 	prop_records.extend(build_family_portal_assets())
 	furnished_review = build_furnished_room_contact(preview_by_room)
+	repaired_props = [
+		record for record in prop_records
+		if "preservation_repair" in record]
+	region_overlaps = furnishing_source_regions_non_overlapping()
+	if region_overlaps:
+		raise RuntimeError(
+			f"repaired furnishing source regions overlap: {region_overlaps}")
 
 	contact = Image.new("RGB", (1536, 576), (27, 19, 49))
 	for index, preview in enumerate(previews):
@@ -719,6 +874,17 @@ def build() -> None:
 		],
 		"rooms": records,
 		"props": prop_records,
+		"furnishing_repair_audit": {
+			"source_sheet": FURNISHING_ALPHA_SHEET.relative_to(ROOT).as_posix(),
+			"source_sheet_sha256": sha256(FURNISHING_ALPHA_SHEET),
+			"source_region_non_overlaps": region_overlaps,
+			"objects": repaired_props,
+			"contact_evidence": {
+				"path": furnished_review["path"],
+				"sha256": furnished_review["sha256"],
+				"dimensions": furnished_review["dimensions"],
+			},
+		},
 		"furnished_room_review": furnished_review,
 		"contact_sheet": contact_path.relative_to(ROOT).as_posix(),
 		"layout_contact": {
@@ -736,6 +902,9 @@ def build() -> None:
 		"physical_layout": {
 			"main_hall_entry": (
 				"assets/flats/castle/dream_house/family_wing_hall_insert.png"),
+			"main_hall_entry_runtime_mode": (
+				"source_owned_hall_background_portal_with_sprite2d_sign"),
+			"main_hall_entry_separate_insert_loaded": False,
 			"gallery_room": "family_gallery",
 			"destinations": {
 				"dining_room": "family_portal_dining.png",
@@ -746,7 +915,7 @@ def build() -> None:
 			"floating_route_buttons": False,
 		},
 		"node_type_inventory": {
-			"world_art_node": "Sprite3D",
+			"world_art_node": "Sprite2D Canvas",
 			"world_art_builder": "_new_card",
 			"world_art_material": "unshaded storybook card",
 			"forbidden_world_nodes": [],
@@ -754,7 +923,7 @@ def build() -> None:
 		},
 		"source_visual_medium": "polished flattened 2D storybook illustration",
 		"protected_originals_modified": False,
-		"runtime_world_art": "unshaded Sprite3D cards only",
+		"runtime_world_art": "unshaded Sprite2D Canvas cards only",
 	}
 	manifest_path = AUDIT_ROOT / "dream_house_room_art_manifest.json"
 	manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

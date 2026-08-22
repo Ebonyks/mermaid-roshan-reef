@@ -187,9 +187,9 @@ func _playthrough(run_index: int) -> void:
 			main._populate_touch_interactables()
 			var rooms: CastleRooms25D = main._castle_rooms_ref()
 			if not rooms.is_open():
-				issues.append("castle Sprite3D stage did not open")
+				issues.append("castle Sprite2D stage did not open")
 			if not main.touch_interactables.is_empty():
-				issues.append("retired 3D hall targets were registered")
+				issues.append("retired spatial hall targets were registered")
 			if main.castle_room_buttons.size() != 8 \
 					or not main.castle_room_buttons.has("family_gallery") \
 					or not main.castle_room_buttons.has("opera_hall") \
@@ -199,11 +199,12 @@ func _playthrough(run_index: int) -> void:
 					or not main.castle_room_menu_buttons.has("dining_room") \
 					or not main.castle_room_menu_buttons.has("movie_lounge"):
 				issues.append("castle room routes were missing or redundant")
-			if main.castle_room_world_root == null \
-					or main.castle_room_camera == null \
-					or main.castle_room_camera.projection \
-						!= Camera3D.PROJECTION_PERSPECTIVE:
-				issues.append("castle lacks perspective Sprite3D stage")
+			if not main.castle_room_world_root is Node2D \
+					or not main.castle_room_stage.find_children(
+						"*", "Camera2D", true, false).is_empty() \
+					or not main.castle_room_stage.find_children(
+						"*", "Camera3D", true, false).is_empty():
+				issues.append("castle lacks direct-canvas Sprite2D stage")
 			var elevator_button: Button = main.castle_room_stage.get_node_or_null(
 				"ElevatorButton") as Button
 			if elevator_button != null and main.castle_room_player_sprite != null:

@@ -8,7 +8,7 @@ single-screen rooms use the same 3640x2048 contract as one strict Main Hall
 screen, while the corrected Kitchen keeps its accepted 4096x2304 master. Every
 master is split into non-overlapping runtime tiles, and reconstruction must be
 pixel exact. The Main Hall is not rebuilt here:
-its live depth-manifest record is projected only from the accepted strict
+its live Canvas-manifest record is projected only from the accepted strict
 7280x2048/2x8 build manifest, so this legacy room tool cannot restore the
 retired shaded 2x4/bleed implementation.
 """
@@ -201,7 +201,7 @@ def _historical_main_hall_tile_records_2026_07_29(
 
 
 def current_main_hall_record() -> dict[str, object]:
-	"""Project the accepted strict Hall build into the living depth manifest."""
+	"""Project the accepted strict Hall build into the living Canvas manifest."""
 	data = json.loads(HALL_STRICT_BUILD_MANIFEST.read_text(encoding="utf-8"))
 	panorama = data.get("panorama", {})
 	grid = data.get("runtime_grid", {})
@@ -241,7 +241,7 @@ def current_main_hall_record() -> dict[str, object]:
 	return {
 		"active_background_system": (
 			"two 3640x2048 per-screen masters / lossless 7280x2048 "
-			"panorama / 2x8 unshaded Sprite3D grid"),
+		"panorama / 2x8 unshaded Sprite2D grid"),
 		"active_runtime_status": "accepted_current_runtime",
 		"aspect_ratio_delta": 0.0005105937832092788,
 		"aspect_ratio_pixel_delta": 0.5885167464111873,
@@ -411,13 +411,29 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 	manifest = json.loads(DEPTH_MANIFEST.read_text(encoding="utf-8"))
 	manifest["source_policy"] = (
 		"Approved room composites; Kitchen v3 retains its documented full-frame "
-		"source and single-kettle topology repair; all runtime depth cards are "
+		"source and single-kettle topology repair; all runtime Canvas layer cards are "
 		"outline-refined derivatives of accepted master pixels")
-	manifest["runtime_node_contract"]["world_art_allowed"] = [
-		"Sprite3D:unshaded",
-	]
-	manifest["runtime_node_contract"]["shaded_role_allowlist"] = []
-	manifest["runtime_node_contract"]["background_tile_seam_policy"] = {
+	node_contract = manifest["runtime_node_contract"]
+	node_contract.update({
+		"world_root": "Node2D",
+		"camera": "none",
+		"coordinate_system": "direct_canvas_coordinates",
+		"world_art_allowed": ["Sprite2D:unshaded"],
+		"world_art_forbidden": [
+			"Node3D",
+			"Sprite3D",
+			"Camera3D",
+			"MeshInstance3D",
+			"MultiMeshInstance3D",
+			"CSGShape3D",
+			"Decal",
+		],
+		"shaded_role_allowlist": [],
+	})
+	if "reference_steady_sprite3d_inventory" in node_contract:
+		node_contract["reference_steady_sprite2d_inventory"] = \
+			node_contract.pop("reference_steady_sprite3d_inventory")
+	node_contract["background_tile_seam_policy"] = {
 		"source_rectangles_non_overlapping": True,
 		"main_hall_runtime_neighbor_bleed_pixels": [0, 0],
 		"main_hall_bleed_method": (
@@ -447,7 +463,7 @@ def update_depth_manifest(records: list[dict[str, object]]) -> None:
 		room = manifest["rooms"][record["room_id"]]
 		grid = record["runtime_grid"]
 		room.update({
-			"active_background_system": "%dx%d Sprite3D tile grid" % (
+			"active_background_system": "%dx%d Sprite2D tile grid" % (
 				int(grid["rows"]), int(grid["columns"])),
 			"native_master_compliant": (
 				min(int(value) for value in record["master_dimensions"]) >= 2048),

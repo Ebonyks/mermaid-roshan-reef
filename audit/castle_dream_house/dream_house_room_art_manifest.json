@@ -13,7 +13,7 @@
       "role": "physical_door_family",
       "prompt_id": "physical-door-family",
       "prompt_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/PROMPTS.md",
-      "prompt_sha256": "c4e00e94d9d71439e274f9d9880264e8b2374620c0c47f93a26c71d7238ec87a",
+      "prompt_sha256": "5f744ae0a033fb14bb0a7e05ed67bf80e010f0265c468d4192530ab106dde597",
       "chroma_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_chroma.png",
       "chroma_sha256": "5f3afefea59b4dc399a077373ea443776f752422e31cff7776d1c7287e85142a",
       "alpha_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
@@ -27,7 +27,7 @@
       "role": "four_room_furnishing_family",
       "prompt_id": "four-room-furnishing-family",
       "prompt_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/PROMPTS.md",
-      "prompt_sha256": "c4e00e94d9d71439e274f9d9880264e8b2374620c0c47f93a26c71d7238ec87a",
+      "prompt_sha256": "5f744ae0a033fb14bb0a7e05ed67bf80e010f0265c468d4192530ab106dde597",
       "chroma_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_chroma.png",
       "chroma_sha256": "441c9528d45ea36925ac467a131815af62b7a3172aa0a6aec152f742422f96e9",
       "alpha_path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
@@ -529,17 +529,68 @@
         292,
         223
       ],
-      "sha256": "722bd7b038cac2d09cfc157c54ee392136800c38722c82b47c748290964635b3",
+      "sha256": "18c2c6a4ad7cb40de2ac85bf73aedbb5111c0aaf22a7e741d21bb7796625c57b",
       "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
       "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
       "source_region": [
-        0,
-        0,
-        314,
-        314
+        16,
+        89,
+        410,
+        331
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
-      "blender_runtime_pixels": false
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
+      "blender_runtime_pixels": false,
+      "preservation_repair": {
+        "before": {
+          "dimensions": [
+            292,
+            223
+          ],
+          "alpha_bbox": [
+            4,
+            4,
+            292,
+            223
+          ],
+          "alpha_edge_margins": [
+            4,
+            4,
+            0,
+            0
+          ],
+          "alpha_center_normalized": [
+            0.5068493150684932,
+            0.5089686098654709
+          ]
+        },
+        "after": {
+          "dimensions": [
+            292,
+            223
+          ],
+          "alpha_bbox": [
+            8,
+            27,
+            288,
+            200
+          ],
+          "alpha_edge_margins": [
+            8,
+            27,
+            4,
+            23
+          ],
+          "alpha_center_normalized": [
+            0.5068493150684932,
+            0.5089686098654709
+          ]
+        },
+        "alpha_center_delta": [
+          0.0,
+          0.0
+        ],
+        "source_region_non_overlapping": true
+      }
     },
     {
       "path": "assets/flats/castle/dream_house/dining_seat.png",
@@ -556,7 +607,7 @@
         627,
         314
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -574,7 +625,7 @@
         940,
         314
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -592,7 +643,7 @@
         1254,
         314
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -601,17 +652,68 @@
         296,
         272
       ],
-      "sha256": "92f100fc3343289efd3face16feb521ac623b5bc3be2d90d1b060b91d55a39b3",
+      "sha256": "5750aace0300c65ac27d03e99e0768c9e07911f0ea887f1a548bcee8d261df4a",
       "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
       "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
       "source_region": [
-        0,
-        314,
-        314,
-        627
+        11,
+        349,
+        337,
+        681
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
-      "blender_runtime_pixels": false
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
+      "blender_runtime_pixels": false,
+      "preservation_repair": {
+        "before": {
+          "dimensions": [
+            296,
+            272
+          ],
+          "alpha_bbox": [
+            4,
+            4,
+            296,
+            272
+          ],
+          "alpha_edge_margins": [
+            4,
+            4,
+            0,
+            0
+          ],
+          "alpha_center_normalized": [
+            0.5067567567567568,
+            0.5073529411764706
+          ]
+        },
+        "after": {
+          "dimensions": [
+            296,
+            272
+          ],
+          "alpha_bbox": [
+            22,
+            8,
+            277,
+            268
+          ],
+          "alpha_edge_margins": [
+            22,
+            8,
+            19,
+            4
+          ],
+          "alpha_center_normalized": [
+            0.5050675675675675,
+            0.5073529411764706
+          ]
+        },
+        "alpha_center_delta": [
+          -0.0016891891891892552,
+          0.0
+        ],
+        "source_region_non_overlapping": true
+      }
     },
     {
       "path": "assets/flats/castle/dream_house/shell_wardrobe.png",
@@ -628,7 +730,7 @@
         627,
         627
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -646,7 +748,7 @@
         940,
         627
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -655,17 +757,68 @@
         287,
         223
       ],
-      "sha256": "d70d5e48c8bbe758a2c640c0a64d2e41e5a5d08bf153b18114515adc74bcdd07",
+      "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
       "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
       "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
       "source_region": [
-        940,
-        314,
-        1254,
-        627
+        923,
+        398,
+        1233,
+        673
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
-      "blender_runtime_pixels": false
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
+      "blender_runtime_pixels": false,
+      "preservation_repair": {
+        "before": {
+          "dimensions": [
+            287,
+            223
+          ],
+          "alpha_bbox": [
+            0,
+            4,
+            283,
+            223
+          ],
+          "alpha_edge_margins": [
+            0,
+            4,
+            4,
+            0
+          ],
+          "alpha_center_normalized": [
+            0.4930313588850174,
+            0.5089686098654709
+          ]
+        },
+        "after": {
+          "dimensions": [
+            287,
+            223
+          ],
+          "alpha_bbox": [
+            22,
+            8,
+            262,
+            219
+          ],
+          "alpha_edge_margins": [
+            22,
+            8,
+            25,
+            4
+          ],
+          "alpha_center_normalized": [
+            0.49477351916376305,
+            0.5089686098654709
+          ]
+        },
+        "alpha_center_delta": [
+          0.0017421602787456303,
+          0.0
+        ],
+        "source_region_non_overlapping": true
+      }
     },
     {
       "path": "assets/flats/castle/dream_house/dream_bed_0.png",
@@ -682,7 +835,7 @@
         314,
         940
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -700,7 +853,7 @@
         627,
         940
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -718,7 +871,7 @@
         940,
         940
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -736,7 +889,7 @@
         1254,
         940
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -754,7 +907,7 @@
         314,
         1254
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -772,7 +925,7 @@
         627,
         1254
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -781,17 +934,68 @@
         313,
         264
       ],
-      "sha256": "02dc3c5011c72f4e09978705456ab2e9ec3579ec4067daeb66e14d85461cc330",
+      "sha256": "091304e6b1e053b12d5774e76a710852680253e0b597089c05cb11f5c038ec4e",
       "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
       "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
       "source_region": [
-        627,
-        940,
-        940,
-        1254
+        603,
+        931,
+        950,
+        1210
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
-      "blender_runtime_pixels": false
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
+      "blender_runtime_pixels": false,
+      "preservation_repair": {
+        "before": {
+          "dimensions": [
+            313,
+            264
+          ],
+          "alpha_bbox": [
+            0,
+            1,
+            313,
+            260
+          ],
+          "alpha_edge_margins": [
+            0,
+            1,
+            0,
+            4
+          ],
+          "alpha_center_normalized": [
+            0.5,
+            0.4943181818181818
+          ]
+        },
+        "after": {
+          "dimensions": [
+            313,
+            264
+          ],
+          "alpha_bbox": [
+            4,
+            5,
+            309,
+            256
+          ],
+          "alpha_edge_margins": [
+            4,
+            5,
+            4,
+            8
+          ],
+          "alpha_center_normalized": [
+            0.5,
+            0.4943181818181818
+          ]
+        },
+        "alpha_center_delta": [
+          0.0,
+          0.0
+        ],
+        "source_region_non_overlapping": true
+      }
     },
     {
       "path": "assets/flats/castle/dream_house/shell_popcorn_bowl.png",
@@ -808,7 +1012,7 @@
         1254,
         1254
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -826,7 +1030,7 @@
         560,
         512
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -844,7 +1048,7 @@
         560,
         512
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -862,7 +1066,7 @@
         1024,
         512
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -880,7 +1084,7 @@
         1536,
         512
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -898,7 +1102,7 @@
         760,
         1024
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     },
     {
@@ -916,13 +1120,304 @@
         1270,
         1024
       ],
-      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop only",
+      "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
       "blender_runtime_pixels": false
     }
   ],
+  "furnishing_repair_audit": {
+    "source_sheet": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+    "source_sheet_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+    "source_region_non_overlaps": [],
+    "objects": [
+      {
+        "path": "assets/flats/castle/dream_house/dining_table.png",
+        "dimensions": [
+          292,
+          223
+        ],
+        "sha256": "18c2c6a4ad7cb40de2ac85bf73aedbb5111c0aaf22a7e741d21bb7796625c57b",
+        "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+        "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+        "source_region": [
+          16,
+          89,
+          410,
+          331
+        ],
+        "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
+        "blender_runtime_pixels": false,
+        "preservation_repair": {
+          "before": {
+            "dimensions": [
+              292,
+              223
+            ],
+            "alpha_bbox": [
+              4,
+              4,
+              292,
+              223
+            ],
+            "alpha_edge_margins": [
+              4,
+              4,
+              0,
+              0
+            ],
+            "alpha_center_normalized": [
+              0.5068493150684932,
+              0.5089686098654709
+            ]
+          },
+          "after": {
+            "dimensions": [
+              292,
+              223
+            ],
+            "alpha_bbox": [
+              8,
+              27,
+              288,
+              200
+            ],
+            "alpha_edge_margins": [
+              8,
+              27,
+              4,
+              23
+            ],
+            "alpha_center_normalized": [
+              0.5068493150684932,
+              0.5089686098654709
+            ]
+          },
+          "alpha_center_delta": [
+            0.0,
+            0.0
+          ],
+          "source_region_non_overlapping": true
+        }
+      },
+      {
+        "path": "assets/flats/castle/dream_house/canopy_bed.png",
+        "dimensions": [
+          296,
+          272
+        ],
+        "sha256": "5750aace0300c65ac27d03e99e0768c9e07911f0ea887f1a548bcee8d261df4a",
+        "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+        "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+        "source_region": [
+          11,
+          349,
+          337,
+          681
+        ],
+        "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
+        "blender_runtime_pixels": false,
+        "preservation_repair": {
+          "before": {
+            "dimensions": [
+              296,
+              272
+            ],
+            "alpha_bbox": [
+              4,
+              4,
+              296,
+              272
+            ],
+            "alpha_edge_margins": [
+              4,
+              4,
+              0,
+              0
+            ],
+            "alpha_center_normalized": [
+              0.5067567567567568,
+              0.5073529411764706
+            ]
+          },
+          "after": {
+            "dimensions": [
+              296,
+              272
+            ],
+            "alpha_bbox": [
+              22,
+              8,
+              277,
+              268
+            ],
+            "alpha_edge_margins": [
+              22,
+              8,
+              19,
+              4
+            ],
+            "alpha_center_normalized": [
+              0.5050675675675675,
+              0.5073529411764706
+            ]
+          },
+          "alpha_center_delta": [
+            -0.0016891891891892552,
+            0.0
+          ],
+          "source_region_non_overlapping": true
+        }
+      },
+      {
+        "path": "assets/flats/castle/dream_house/story_cushion.png",
+        "dimensions": [
+          287,
+          223
+        ],
+        "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
+        "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+        "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+        "source_region": [
+          923,
+          398,
+          1233,
+          673
+        ],
+        "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
+        "blender_runtime_pixels": false,
+        "preservation_repair": {
+          "before": {
+            "dimensions": [
+              287,
+              223
+            ],
+            "alpha_bbox": [
+              0,
+              4,
+              283,
+              223
+            ],
+            "alpha_edge_margins": [
+              0,
+              4,
+              4,
+              0
+            ],
+            "alpha_center_normalized": [
+              0.4930313588850174,
+              0.5089686098654709
+            ]
+          },
+          "after": {
+            "dimensions": [
+              287,
+              223
+            ],
+            "alpha_bbox": [
+              22,
+              8,
+              262,
+              219
+            ],
+            "alpha_edge_margins": [
+              22,
+              8,
+              25,
+              4
+            ],
+            "alpha_center_normalized": [
+              0.49477351916376305,
+              0.5089686098654709
+            ]
+          },
+          "alpha_center_delta": [
+            0.0017421602787456303,
+            0.0
+          ],
+          "source_region_non_overlapping": true
+        }
+      },
+      {
+        "path": "assets/flats/castle/dream_house/movie_screen_frame.png",
+        "dimensions": [
+          313,
+          264
+        ],
+        "sha256": "091304e6b1e053b12d5774e76a710852680253e0b597089c05cb11f5c038ec4e",
+        "source": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+        "source_sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+        "source_region": [
+          603,
+          931,
+          950,
+          1210
+        ],
+        "transform": "built-in ImageGen 2D storybook sheet; flat chroma removed with the installed ImageGen helper; deterministic cell crop or preservation-first source-region contain-fit",
+        "blender_runtime_pixels": false,
+        "preservation_repair": {
+          "before": {
+            "dimensions": [
+              313,
+              264
+            ],
+            "alpha_bbox": [
+              0,
+              1,
+              313,
+              260
+            ],
+            "alpha_edge_margins": [
+              0,
+              1,
+              0,
+              4
+            ],
+            "alpha_center_normalized": [
+              0.5,
+              0.4943181818181818
+            ]
+          },
+          "after": {
+            "dimensions": [
+              313,
+              264
+            ],
+            "alpha_bbox": [
+              4,
+              5,
+              309,
+              256
+            ],
+            "alpha_edge_margins": [
+              4,
+              5,
+              4,
+              8
+            ],
+            "alpha_center_normalized": [
+              0.5,
+              0.4943181818181818
+            ]
+          },
+          "alpha_center_delta": [
+            0.0,
+            0.0
+          ],
+          "source_region_non_overlapping": true
+        }
+      }
+    ],
+    "contact_evidence": {
+      "path": "audit/castle_dream_house/dream_house_furnished_rooms_contact.png",
+      "sha256": "85dd7bf0621bf463ff3254d3b1884f9d80476664a8171fe0b1bb538ad788305e",
+      "dimensions": [
+        2048,
+        1152
+      ]
+    }
+  },
   "furnished_room_review": {
     "path": "audit/castle_dream_house/dream_house_furnished_rooms_contact.png",
-    "sha256": "ba6a10c30cea19ac3c3bea5871fd8ae24658b552f00308d780e1916d4e539de1",
+    "sha256": "85dd7bf0621bf463ff3254d3b1884f9d80476664a8171fe0b1bb538ad788305e",
     "dimensions": [
       2048,
       1152
@@ -1393,6 +1888,8 @@
   },
   "physical_layout": {
     "main_hall_entry": "assets/flats/castle/dream_house/family_wing_hall_insert.png",
+    "main_hall_entry_runtime_mode": "source_owned_hall_background_portal_with_sprite2d_sign",
+    "main_hall_entry_separate_insert_loaded": false,
     "gallery_room": "family_gallery",
     "destinations": {
       "dining_room": "family_portal_dining.png",
@@ -1403,7 +1900,7 @@
     "floating_route_buttons": false
   },
   "node_type_inventory": {
-    "world_art_node": "Sprite3D",
+    "world_art_node": "Sprite2D Canvas",
     "world_art_builder": "_new_card",
     "world_art_material": "unshaded storybook card",
     "forbidden_world_nodes": [],
@@ -1411,5 +1908,5 @@
   },
   "source_visual_medium": "polished flattened 2D storybook illustration",
   "protected_originals_modified": false,
-  "runtime_world_art": "unshaded Sprite3D cards only"
+  "runtime_world_art": "unshaded Sprite2D Canvas cards only"
 }

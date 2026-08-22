@@ -1,15 +1,15 @@
-"""Build clean Pearl Castle plates and non-overlapping Sprite3D art cards.
+"""Build clean Pearl Castle plates and non-overlapping Sprite2D art cards.
 
 The complete room images are immutable source composites. This tool reuses
 their pixels in two ways:
 
-* exact-pixel alpha cards for every authored object/depth region;
+* exact-pixel alpha cards for every authored object/layer region;
 * a clean architecture plate whose card-owned pixels are filled exclusively
   from surrounding pixels in the same source image.
 
 No image generation or outside artwork is involved. Card masks receive unique
 pixel ownership, so an object cannot be baked into the runtime background and
-also appear on one or more Sprite3D cards.
+also appear on one or more Sprite2D cards.
 """
 
 from __future__ import annotations
@@ -398,8 +398,8 @@ def _refine_mask_to_painted_outline(image: Image.Image,
 
 	The authored polygons identify which object owns a region, but they are not
 	valid alpha mattes: opaque wall and floor pixels inside those polygons write
-	depth and can hide Roshan. The provisional clean plate supplies a same-scene
-	background estimate. Strong source/plate differences seed the object, close
+	layer order and can hide Roshan. The provisional clean plate supplies a
+	same-canvas background estimate. Strong source/plate differences seed the object, close
 	matches seed transparency, and an RGB-edge watershed settles the uncertain
 	band on the illustration's inked outline.
 	"""
@@ -439,7 +439,7 @@ def _refine_mask_to_painted_outline(image: Image.Image,
 	refined = binary_fill_holes(kept) & raw_core
 
 	# A sub-pixel matte keeps the authored antialiasing, while the 50% alpha
-	# threshold remains a true silhouette for mobile depth testing.
+	# threshold remains a true silhouette for mobile layer ordering.
 	local_alpha = Image.fromarray(
 		refined.astype(np.uint8) * 255, mode="L").filter(
 			ImageFilter.GaussianBlur(0.55))
@@ -515,7 +515,7 @@ def _sha256(path: Path) -> str:
 
 
 def _build_actor_shadow() -> None:
-	"""Create a small transparent contact-shadow card for Sprite3D actors."""
+	"""Create a small transparent contact-shadow card for Sprite2D actors."""
 	shadow = Image.new("RGBA", (256, 64), (0, 0, 0, 0))
 	mask = Image.new("L", shadow.size, 0)
 	draw = ImageDraw.Draw(mask)
@@ -552,15 +552,14 @@ def main() -> None:
 			"handoff": "FABLE_CASTLE_2K_REGEN_HANDOFF_2026-07-26.md",
 		},
 		"runtime_node_contract": {
-			"world_root": "Node3D",
-			"camera": "Camera3D:perspective",
-			"world_art_allowed": ["Sprite3D:unshaded"],
+			"world_root": "Node2D",
+			"camera": "none",
+			"coordinate_system": "direct_canvas_coordinates",
+			"world_art_allowed": ["Sprite2D:unshaded"],
 			"world_art_forbidden": [
-				"Sprite2D",
-				"AnimatedSprite2D",
-				"TextureRect",
-				"Polygon2D",
-				"CanvasItem custom drawing",
+				"Node3D",
+				"Sprite3D",
+				"Camera3D",
 				"MeshInstance3D",
 				"MultiMeshInstance3D",
 				"CSGShape3D",
@@ -573,7 +572,7 @@ def main() -> None:
 				"Panel",
 				"Label",
 			],
-			"reference_steady_sprite3d_inventory": {
+			"reference_steady_sprite2d_inventory": {
 				"background": 1,
 				"touch_props": {
 					"minimum_per_destination_room": 4,
@@ -588,7 +587,7 @@ def main() -> None:
 			},
 			"native_master_runtime_note": (
 				"Background and any over-1024 layer counts expand only by "
-				"the minimum lossless non-overlapping tile count."),
+				"the minimum lossless non-overlapping tile count in Canvas order."),
 		},
 			"source_policy": (
 			"Approved complete room-composite pixels only; Kitchen v3 retains "
