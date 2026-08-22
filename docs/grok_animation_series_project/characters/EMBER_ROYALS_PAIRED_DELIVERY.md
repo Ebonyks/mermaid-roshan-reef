@@ -1,12 +1,13 @@
-# Ember Royals paired-animation delivery V1
+# Ember Royals paired-animation delivery V2
 
 `EMBER_ROYALS_family_walk.mp4` and `EMBER_ROYALS_family_walk.gif` are concrete
-timing proofs assembled from the accepted V1 atlas cells.
+timing proofs assembled from the dedicated sixteen-frame walk atlases.
 
 - Canvas: 1024×576, 16:9, high-key neutral review stage, audio off.
-- Duration: 3.6 seconds, looping.
-- King: heavy-walk key advances every three 80 ms timing ticks.
-- Prince: sleek-walk key advances every two 80 ms timing ticks.
+- Duration: 6.4 seconds, looping cleanly at the shared cycle boundary.
+- King: sixteen-frame heavy walk at 10 fps in the paired review.
+- Prince: sixteen-frame sleek walk at 12.5 fps in the paired review; the
+  individual animation plays at 14.285714 fps.
 - Scale lock: Prince standing silhouette is exactly 4/5 (80%) of the King's
   standing height, measured from the neutral authority poses.
 - Staging: King leads at broad scale; Prince remains one step behind and to the

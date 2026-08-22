@@ -42,3 +42,27 @@ bright neutral checker field, creates an RGBA matte, normalizes cells to
 256×384, packs the 1024×768 atlas, exports individual frames, and assembles the
 silent GIF/MP4 loops. Exact derivative hashes are in
 `../EMBER_ROYALS_ANIMATION_MANIFEST.json`.
+
+## Sixteen-frame walk expansion
+
+Generated with the OpenAI built-in image workflow on 2026-08-22 as two
+consecutive eight-frame sheets. Original cache masters:
+
+- Frames 01–08: SHA-256 `6a009946b4c32893655e1fd281b95224fccd3894f37eead7a81e0a5238d05b34`.
+- Frames 09–16: SHA-256 `639afa1e0ff1ef2a1cdb3c9e9c59dde01a4f0ba71b23790597c2d0c74a7bd3f2`.
+
+Rule-compliant 1024×682 project copies are committed under `source_masters/`;
+their hashes are `bc62692c4ad8b903495bd1ff204126b952e87437131452c11f9c54e4591b84bc`
+and `40f075eb4acf3f6f1fccbaf0dca3eefd96d43304746520c9c6e83ffeb42bee6b`.
+
+### Frames 01–08 final prompt
+
+```text
+Use case: stylized-concept. Asset type: production 2D heavy walk-cycle sprite sheet, Ember King frames 01-08 of 16. Generate the first eight consecutive frames of one seamless 16-frame screen-right heavy blundering walk for the exact referenced King, not a pose collection. Preserve exact face, lighter stocky-athletic coral-red body, cream muzzle/belly, black emo fringe, obsidian horn crown, natural volcanic shell, charcoal vest/cuffs, chain belt, ember clasp and enormous aubergine split cape; no tie or candle. Exact 4x2 grid, equal cells, common scale/baseline and transparent background. Consecutive phases: right broad contact/left toe push; right foot slap; weight drop; deepest squash/left peel; left swing begins; left knee passes/right heel lifts; left knee leads/high point; left lower leg opens. Feet lead, torso/belly compress second, shell follows and cape arrives one to two frames last. Keep the attitude bored, funny and child-friendly. Match Mermaid Roshan storybook cutout art. No text, border, attack, fall, shell spin, extra limbs, drift, photorealism or 3D.
+```
+
+### Frames 09–16 final prompt
+
+```text
+Use case: stylized-concept. Asset type: production 2D heavy walk-cycle sprite sheet, Ember King frames 09-16 of 16. Continue directly from frames 01-08 and complete the opposite half-step into a seamless loop. Preserve every identity, cape and costume invariant. Exact 4x2 grid, equal cells, same screen-right view, scale/baseline and transparent background. Consecutive phases: left broad contact/right toe push; left foot slap; weight drop; deepest squash/right peel; right swing begins; right knee passes/left heel lifts; right knee leads/high point; right lower leg opens toward frame 01. Continue fluid asymmetric cape folds with one-to-two-frame lag. Match Mermaid Roshan storybook cutout art. No text, border, tie, candle, attack, fall, shell spin, extra limbs, drift, photorealism or 3D.
+```

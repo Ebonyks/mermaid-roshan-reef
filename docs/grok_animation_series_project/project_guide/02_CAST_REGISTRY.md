@@ -57,7 +57,7 @@ Each character owns a folder under `characters/`. Status meanings:
 - Motion vocabulary: gentle hover, friendly wave, broad slow swim with braid/sleeves lagging behind the body.
 - Scope: approved canon for this private family animation project. Preserve `SOURCE_PROVENANCE.md` with the character folder so the local source history is not lost.
 
-## Ember King — APPROVED_PRIVATE_CANON identity / REVIEW motion V1
+## Ember King — APPROVED_PRIVATE_CANON identity / REVIEW motion V2
 
 - Role: child-appropriate antagonist and father of the Ember Prince. His simple
   motive is exclusive: he is fascinated by Roshan's fancy birthday candle and
@@ -71,13 +71,14 @@ Each character owns a folder under `characters/`. Status meanings:
 - Personality: adult ruler with melodramatic teenage-emo acting—possessive,
   slouched, defensive, easily embarrassed and transparently delighted by the
   candle while pretending to be bored.
-- Motion vocabulary: sparse slouched idle, heavy blundering walk with delayed
-  shell/cape follow-through, and theatrical harmless cape fan.
+- Motion vocabulary: sparse slouched idle, sixteen-frame heavy blundering walk
+  with two complete weight transfers and delayed shell/cape follow-through,
+  and theatrical harmless cape fan.
 - Relative scale: family anchor at 100%; the Prince is exactly 80% of his
   standing height.
 - Restriction: the candle is scene-specific and not baked into reusable motion.
 
-## Ember Prince — APPROVED_PRIVATE_CANON identity / REVIEW motion V1
+## Ember Prince — APPROVED_PRIVATE_CANON identity / REVIEW motion V2
 
 - Role: the King's observant son. He comes because this is a family journey;
   he has no separate candle fascination, secret mission or elemental destiny.
@@ -92,8 +93,9 @@ Each character owns a folder under `characters/`. Status meanings:
 - Shell topology: natural shell grows from exposed red back skin; a continuous
   skin halo surrounds it; the jacket center-back panel is absent; no fabric may
   exist beneath, behind, across or over the shell.
-- Motion vocabulary: quiet guarded idle, sleek level walk, diagonal Cinderstep
-  and restrained secondary lag in hair, coat tails and tail.
+- Motion vocabulary: quiet guarded idle, sixteen-frame sleek level walk with
+  distinct contact/passing/high-point phases, diagonal Cinderstep and
+  restrained staggered lag in hair, coat tails and tail.
 - Relationship behavior: in family shots his eyeline tracks the King and other
   people, never the candle; he quietly clears hazards and protects his father's
   dignity without sharing the goal.

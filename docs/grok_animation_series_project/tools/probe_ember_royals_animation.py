@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import shutil
 import subprocess
 import sys
@@ -68,10 +69,38 @@ def validate_character(character_id: str, prefix: str, animations: tuple[str, ..
 		if left < 2 or top < 2 or right > 254 or bottom > 382:
 			fail(f"{frame_path.name} touches its cell edge: {bbox}")
 
+	walk_atlas_path = directory / f"{prefix}_WALK_ATLAS.png"
+	walk_atlas = Image.open(walk_atlas_path)
+	if walk_atlas.size != (2048, 1024) or walk_atlas.mode != "RGBA":
+		fail(
+			f"{walk_atlas_path.name} must be 2048x1024 RGBA; "
+			f"got {walk_atlas.size} {walk_atlas.mode}"
+		)
+	if walk_atlas.getchannel("A").getextrema()[0] != 0:
+		fail(f"{walk_atlas_path.name} has no transparent background")
+	walk_hashes: set[str] = set()
+	for index in range(16):
+		frame_path = directory / "walk_frames" / f"{prefix}_walk_{index + 1:02d}.png"
+		frame = Image.open(frame_path)
+		if frame.size != (256, 512) or frame.mode != "RGBA":
+			fail(f"{frame_path.name} must be 256x512 RGBA")
+		bbox = frame.getchannel("A").getbbox()
+		if bbox is None:
+			fail(f"{frame_path.name} is empty")
+		left, top, right, bottom = bbox
+		if left < 2 or top < 2 or right > 254 or bottom > 510:
+			fail(f"{frame_path.name} touches its cell edge: {bbox}")
+		if bottom != 440:
+			fail(f"{frame_path.name} moved off the shared foot baseline: {bottom}")
+		walk_hashes.add(hashlib.sha256(frame.tobytes()).hexdigest())
+	if len(walk_hashes) != 16:
+		fail(f"{character_id} walk contains duplicate frame cells")
+
 	for animation in animations:
 		gif_path = directory / "animations" / f"{prefix}_{animation}.gif"
 		gif = Image.open(gif_path)
-		if gif.size != (512, 288) or getattr(gif, "n_frames", 1) < 3:
+		minimum_frames = 16 if animation.endswith("walk") else 3
+		if gif.size != (512, 288) or getattr(gif, "n_frames", 1) < minimum_frames:
 			fail(f"{gif_path.name} is not a multi-frame 512x288 GIF")
 		video_path = directory / "animations" / f"{prefix}_{animation}.mp4"
 		metadata = ffprobe(video_path)
@@ -91,14 +120,22 @@ def validate_character(character_id: str, prefix: str, animations: tuple[str, ..
 	for animation in animations:
 		if f'&"{animation}"' not in resource:
 			fail(f"SpriteFrames resource omits {animation}")
-	print(f"OK: {character_id} atlas, 8 cells, 3 GIF loops, 3 silent MP4 loops, SpriteFrames")
+	if resource.count('SubResource("Walk_') != 16:
+		fail(f"{character_id} SpriteFrames does not map all 16 walk cells exactly once")
+	print(
+		f"OK: {character_id} utility atlas, 16-cell walk atlas, "
+		"3 GIF loops, 3 silent MP4 loops, SpriteFrames"
+	)
 
 
 def main() -> None:
 	manifest_path = CHARACTERS / "EMBER_ROYALS_ANIMATION_MANIFEST.json"
 	manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-	if manifest.get("schema") != "mermaid-roshan-ember-royals-animation-v1":
+	if manifest.get("schema") != "mermaid-roshan-ember-royals-animation-v2":
 		fail("animation manifest schema mismatch")
+	for character in manifest.get("characters", []):
+		if character.get("walk_frame_count") != 16:
+			fail(f"{character.get('character_id', 'unknown')} manifest walk count is not 16")
 	for character_id, (prefix, animations) in EXPECTED.items():
 		validate_character(character_id, prefix, animations)
 	paired_entries = manifest.get("paired_previews", [])

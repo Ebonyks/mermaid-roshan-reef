@@ -31,3 +31,27 @@ bright neutral checker field, creates an RGBA matte, normalizes cells to
 256×384, packs the 1024×768 atlas, exports individual frames, and assembles the
 silent GIF/MP4 loops. Exact derivative hashes are in
 `../EMBER_ROYALS_ANIMATION_MANIFEST.json`.
+
+## Sixteen-frame walk expansion
+
+Generated with the OpenAI built-in image workflow on 2026-08-22 as two
+consecutive eight-frame sheets. Original cache masters:
+
+- Frames 01–08: SHA-256 `8b11cfc073c32bb658673005621a0dd5b937518088cc40db5b3bfb1218edac03`.
+- Frames 09–16: SHA-256 `c85836f932cb7f7490b6eed4055acfba7eaffff59424cba6df831dc670717105`.
+
+Rule-compliant 1024×682 project copies are committed under `source_masters/`;
+their hashes are `34207100c237479f22e298ed85813c64f9d5a80791f8de85856f513e0d1f8f7f`
+and `fa0f67966c452a0f181a7816af5db41b97790dae9098dd14f0dd8993f1e25f2c`.
+
+### Frames 01–08 final prompt
+
+```text
+Use case: stylized-concept. Asset type: production 2D game character walk-cycle sprite sheet, Ember Prince frames 01-08 of 16. Generate the first eight consecutive frames of one seamless 16-frame screen-right walk for the exact referenced Prince, not a pose collection. Preserve exact face, lanky coral-red turtle-dragon anatomy, emo hair, horns, cream muzzle, amber eyes, sleeveless charcoal/aubergine open-back jacket, ember-heart clasp, trousers, boots, split coat tails, long tail and compact natural shell. The shell grows from exposed red back skin with a continuous skin halo; jacket center-back is absent; no fabric may sit beneath, behind, across or over it. Exact 4x2 grid, equal cells, screen-right side view, common scale/baseline and transparent background. Consecutive phases: right heel contact/left toe push; right foot lowering; right foot flat and settle; right-knee compression/left toe-off; left swing begins; left knee passes under hips/right heel lifts; left knee leads/high point; left lower leg opens. Use quiet heel-to-toe contacts, real hip translation, small vertical arc, fixed planted foot, opposite arm swing and staggered shell/hair/coat/tail overlap. Match Mermaid Roshan storybook cutout art. No text, border, candle, attack, teleportation, blur, extra limbs, drift, photorealism or 3D.
+```
+
+### Frames 09–16 final prompt
+
+```text
+Use case: stylized-concept. Asset type: production 2D game character walk-cycle sprite sheet, Ember Prince frames 09-16 of 16. Continue directly from frames 01-08 and complete the opposite half-step into a seamless loop. Preserve every identity and open-back shell-topology invariant. Exact 4x2 grid, equal cells, same screen-right side view, scale/baseline and transparent background. Consecutive phases: left heel contact/right toe push; left foot lowering; left foot flat and settle; left-knee compression/right toe-off; right swing begins; right knee passes under hips/left heel lifts; right knee leads/high point; right lower leg opens toward frame 01. Continue staggered shell, hair, coat-tail and tail-tip overlap without synchronized snapping. Match Mermaid Roshan storybook cutout art. No text, border, candle, attack, teleportation, blur, extra limbs, drift, photorealism or 3D.
+```

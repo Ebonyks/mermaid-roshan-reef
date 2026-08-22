@@ -66,26 +66,28 @@
       "id": "ember_king",
       "name": "Ember King",
       "status": "APPROVED_PRIVATE_CANON",
-      "motion_status": "REVIEW_V1",
+      "motion_status": "REVIEW_V2",
       "scope": "private family animation project",
       "family_scale_anchor": 1.0,
       "references": [
         {"file": "characters/ember_king/EMBER_KING_IDENTITY.png", "sha256": "052242579de522610580834b5b34c61dc5164c0343597e71aa79e596b7f1746e", "width": 1024, "height": 683, "authority": "identity"},
         {"file": "characters/ember_king/EMBER_KING_MOTION_AUTHORITY.png", "sha256": "4d8186ce1674eb35874addf7aa293406f180a75bd3e205c03e5b22a0f99f6692", "width": 1024, "height": 683, "authority": "motion_vocabulary"},
-        {"file": "characters/ember_king/EMBER_KING_RUNTIME_ATLAS.png", "sha256": "a5e33cde75471dcd3f5a1e8fb144e9e7315a3ab1b075f7cfc93fa1a13ae66bc9", "width": 1024, "height": 768, "authority": "runtime_inspection"}
+        {"file": "characters/ember_king/EMBER_KING_RUNTIME_ATLAS.png", "sha256": "a5e33cde75471dcd3f5a1e8fb144e9e7315a3ab1b075f7cfc93fa1a13ae66bc9", "width": 1024, "height": 768, "authority": "utility_runtime_inspection"},
+        {"file": "characters/ember_king/EMBER_KING_WALK_ATLAS.png", "sha256": "32f74036ed9b291409bd7cfc1c52f8ef9f6af8f9304785c41b8bc58623875c62", "width": 2048, "height": 1024, "authority": "sixteen_frame_walk_runtime"}
       ]
     },
     {
       "id": "ember_prince",
       "name": "Ember Prince",
       "status": "APPROVED_PRIVATE_CANON",
-      "motion_status": "REVIEW_V1",
+      "motion_status": "REVIEW_V2",
       "scope": "private family animation project",
       "relative_height_to_ember_king": 0.8,
       "references": [
         {"file": "characters/ember_prince/EMBER_PRINCE_IDENTITY.png", "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4", "width": 1024, "height": 683, "authority": "identity_and_shell_topology"},
         {"file": "characters/ember_prince/EMBER_PRINCE_MOTION_AUTHORITY.png", "sha256": "878371d1340332f1125811223b5bb68eca40f538c260d791b1b3b395a7d7581b", "width": 1024, "height": 683, "authority": "motion_vocabulary"},
-        {"file": "characters/ember_prince/EMBER_PRINCE_RUNTIME_ATLAS.png", "sha256": "5ab5a952f7d8b6acc9d19eaa6ebf757c7ed54e4a5a589470cf2a79dd18ab4b66", "width": 1024, "height": 768, "authority": "runtime_inspection"}
+        {"file": "characters/ember_prince/EMBER_PRINCE_RUNTIME_ATLAS.png", "sha256": "5ab5a952f7d8b6acc9d19eaa6ebf757c7ed54e4a5a589470cf2a79dd18ab4b66", "width": 1024, "height": 768, "authority": "utility_runtime_inspection"},
+        {"file": "characters/ember_prince/EMBER_PRINCE_WALK_ATLAS.png", "sha256": "1e198bf0ad801d0d75198234684b9c3a5a2a5c1752f9f7e6c795723b9acae1be", "width": 2048, "height": 1024, "authority": "sixteen_frame_walk_runtime"}
       ]
     }
   ]

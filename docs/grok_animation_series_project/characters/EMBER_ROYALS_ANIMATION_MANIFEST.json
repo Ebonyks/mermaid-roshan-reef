@@ -1,10 +1,14 @@
 {
-  "schema": "mermaid-roshan-ember-royals-animation-v1",
+  "schema": "mermaid-roshan-ember-royals-animation-v2",
   "render_target": "2D limited animation; silent review clips",
   "characters": [
     {
       "character_id": "ember_king",
       "source_master_sha256": "12b2a56cfd0516956eed43cb9daded8b22329882d084e0eedd7ee41411a25de5",
+      "walk_source_master_sha256": [
+        "bc62692c4ad8b903495bd1ff204126b952e87437131452c11f9c54e4591b84bc",
+        "40f075eb4acf3f6f1fccbaf0dca3eefd96d43304746520c9c6e83ffeb42bee6b"
+      ],
       "runtime_atlas": "EMBER_KING_RUNTIME_ATLAS.png",
       "runtime_atlas_sha256": "a5e33cde75471dcd3f5a1e8fb144e9e7315a3ab1b075f7cfc93fa1a13ae66bc9",
       "atlas_size": [
@@ -15,6 +19,17 @@
         256,
         384
       ],
+      "walk_runtime_atlas": "EMBER_KING_WALK_ATLAS.png",
+      "walk_runtime_atlas_sha256": "32f74036ed9b291409bd7cfc1c52f8ef9f6af8f9304785c41b8bc58623875c62",
+      "walk_atlas_size": [
+        2048,
+        1024
+      ],
+      "walk_cell_size": [
+        256,
+        512
+      ],
+      "walk_frame_count": 16,
       "animations": [
         {
           "name": "idle",
@@ -32,29 +47,8 @@
           "loop": true,
           "gif": "EMBER_KING_idle.gif",
           "mp4": "EMBER_KING_idle.mp4",
-          "gif_sha256": "396bb3e24455ce6eebcceda16a93398c89c1a13a459776b0a9352b7a5f3e5bfe",
-          "mp4_sha256": "4085c6f0fef8389c9cef44806a2c55ab54d74fbd5472e71c1ba6cffc086d5aca"
-        },
-        {
-          "name": "heavy_walk",
-          "frame_indices_zero_based": [
-            2,
-            3,
-            4,
-            5
-          ],
-          "durations_ms": [
-            230,
-            230,
-            230,
-            230
-          ],
-          "spriteframes_fps": 4.35,
-          "loop": true,
-          "gif": "EMBER_KING_heavy_walk.gif",
-          "mp4": "EMBER_KING_heavy_walk.mp4",
-          "gif_sha256": "2bf6f3ebfc675ec0119789dc0f637c926d0e274add465977f8e152c8bf8715aa",
-          "mp4_sha256": "8d9f8200e7b68cf58db2227ed94dc4bfcf991378086951fb103838f9bce33017"
+          "gif_sha256": "98a129b10169dbb222ca26769ba05fb78820c0cc96d48ae56d9ada3ad12f0ce6",
+          "mp4_sha256": "a27279351dca4e0e2b4e011580af7631e0257159854d48854ea4fc3c2fcd8c2c"
         },
         {
           "name": "cape_fan",
@@ -73,11 +67,56 @@
             800
           ],
           "spriteframes_fps": 2.2,
-          "loop": true,
+          "loop": false,
           "gif": "EMBER_KING_cape_fan.gif",
           "mp4": "EMBER_KING_cape_fan.mp4",
-          "gif_sha256": "22dd1c4a7ad68723046566f46f80b12d30fcb4d42eac40a2a50dfa7ff0fbac00",
-          "mp4_sha256": "651e6f4b82cf257352992175310bdda95b7161bf20737247e1b71602275ae639"
+          "gif_sha256": "494d60e3a2c86f20d0fc6374183ca137d1eaa25775724b66e582a87b125561a5",
+          "mp4_sha256": "3fbd3f5b68282d9170d3423beb01c88c9e7b37706fa206d87246be1d609fd91d"
+        },
+        {
+          "name": "heavy_walk",
+          "frame_indices_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "durations_ms": [
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100
+          ],
+          "spriteframes_fps": 10.0,
+          "loop": true,
+          "gif": "EMBER_KING_heavy_walk.gif",
+          "mp4": "EMBER_KING_heavy_walk.mp4",
+          "gif_sha256": "c1c8f9c52d3fad0099981f7a600466bdce2f5700f8226c9f9f15bd2c1c64460b",
+          "mp4_sha256": "45d75e30800443c513888dd2d91ef28f654e75bf175227d434cda4732d0505d7"
         }
       ],
       "frame_eight_replacement_sha256": "01db65c4c117b67bbe8dd4888fbfaa57146f3d1d6395e62fb95611fe67e2c00f"
@@ -85,6 +124,10 @@
     {
       "character_id": "ember_prince",
       "source_master_sha256": "d5d0b51bc19373ec703fcf7ac5a3a717426864a8ed068e6f976d8c9c4148dc96",
+      "walk_source_master_sha256": [
+        "34207100c237479f22e298ed85813c64f9d5a80791f8de85856f513e0d1f8f7f",
+        "fa0f67966c452a0f181a7816af5db41b97790dae9098dd14f0dd8993f1e25f2c"
+      ],
       "runtime_atlas": "EMBER_PRINCE_RUNTIME_ATLAS.png",
       "runtime_atlas_sha256": "5ab5a952f7d8b6acc9d19eaa6ebf757c7ed54e4a5a589470cf2a79dd18ab4b66",
       "atlas_size": [
@@ -95,6 +138,17 @@
         256,
         384
       ],
+      "walk_runtime_atlas": "EMBER_PRINCE_WALK_ATLAS.png",
+      "walk_runtime_atlas_sha256": "1e198bf0ad801d0d75198234684b9c3a5a2a5c1752f9f7e6c795723b9acae1be",
+      "walk_atlas_size": [
+        2048,
+        1024
+      ],
+      "walk_cell_size": [
+        256,
+        512
+      ],
+      "walk_frame_count": 16,
       "animations": [
         {
           "name": "idle_glance",
@@ -112,29 +166,8 @@
           "loop": true,
           "gif": "EMBER_PRINCE_idle_glance.gif",
           "mp4": "EMBER_PRINCE_idle_glance.mp4",
-          "gif_sha256": "60440e9f867280d08b1c98574cac29b1fd861855f8ade9052954e3cf1a97688b",
-          "mp4_sha256": "9b63ac4accf274853f3685bf83946cf647acef71633fa5c49bd34b23ba9cbfe1"
-        },
-        {
-          "name": "sleek_walk",
-          "frame_indices_zero_based": [
-            2,
-            3,
-            4,
-            5
-          ],
-          "durations_ms": [
-            160,
-            160,
-            160,
-            160
-          ],
-          "spriteframes_fps": 6.25,
-          "loop": true,
-          "gif": "EMBER_PRINCE_sleek_walk.gif",
-          "mp4": "EMBER_PRINCE_sleek_walk.mp4",
-          "gif_sha256": "01fada5e5776151a97adac736cc250e33a9f6c76e19295be4a4aeb27379c78ff",
-          "mp4_sha256": "e8994ae1623ec90f085d96b1b34677518726bb2c01f6c34ca245420b1be57bf5"
+          "gif_sha256": "38d4721325b54b95301b5a4f684498aa5c33194ec887837ef0020ed736a6bdef",
+          "mp4_sha256": "b1bf42cd345d5633334caa5d54f1f3f4e2f37697a79e9a1d2f687aca04757c0e"
         },
         {
           "name": "cinderstep",
@@ -151,11 +184,56 @@
             720
           ],
           "spriteframes_fps": 3.0,
-          "loop": true,
+          "loop": false,
           "gif": "EMBER_PRINCE_cinderstep.gif",
           "mp4": "EMBER_PRINCE_cinderstep.mp4",
-          "gif_sha256": "6693301c073c105c2cae4d600d289ca8fb8d29a01c27919752f5f08903fb9bc8",
-          "mp4_sha256": "26a716f120cbe0a92f40146f01b25ee74d46c13be6b78e78f381b375a048106f"
+          "gif_sha256": "0e28a2b8fa82c7e95b06f3b59e6791fc708baf0ece1ed72c40feb927bd2c3069",
+          "mp4_sha256": "cb259314d8d12816da965029ec582a4c7210b9ebf8b1fcc919fe5f9929591324"
+        },
+        {
+          "name": "sleek_walk",
+          "frame_indices_zero_based": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "durations_ms": [
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70,
+            70
+          ],
+          "spriteframes_fps": 14.285714,
+          "loop": true,
+          "gif": "EMBER_PRINCE_sleek_walk.gif",
+          "mp4": "EMBER_PRINCE_sleek_walk.mp4",
+          "gif_sha256": "5c81ccc6bfac30b885c39c2003d21e74d3ccc4768d1c5df126883dd65250731e",
+          "mp4_sha256": "53e1ac21c367b3cbbad4b778dfd4fdbab99292939b2b5fbf54fdd6e3d97c913e"
         }
       ]
     }
@@ -163,13 +241,13 @@
   "paired_previews": [
     {
       "name": "family_walk",
-      "duration_ms": 3600,
-      "timing_note": "King advances every 3 ticks; Prince advances every 2 ticks",
+      "duration_ms": 6400,
+      "timing_note": "16-frame cycles; King 10 fps, Prince 12.5 fps in paired review",
       "prince_height_relative_to_king": 0.8,
       "gif": "EMBER_ROYALS_family_walk.gif",
       "mp4": "EMBER_ROYALS_family_walk.mp4",
-      "gif_sha256": "1dbb6ed6fdb8a3ceb337ea1b028dcf40c66234ac6670df0af65dd7ef52bda045",
-      "mp4_sha256": "1f7c48f9a019088fe9c0b286b1805691a390083735a20d5620023d7a93564e05"
+      "gif_sha256": "9f13f2d74ead8757ee0d3f61378bf1e68ae664a1bde122e2ea7828acaa8e9b55",
+      "mp4_sha256": "8db8b6ce9ab06c769375f74cc3fbe25846ac88cecd4788ceef960741b2991b05"
     }
   ]
 }

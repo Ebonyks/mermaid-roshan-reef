@@ -1,6 +1,6 @@
 # Ember Prince — identity and continuity card
 
-- Status: **APPROVED_PRIVATE_CANON** identity; motion package V1 is **REVIEW**.
+- Status: **APPROVED_PRIVATE_CANON** identity; motion package V2 is **REVIEW**.
 - Stable ID: `ember_prince`
 - Role: the King's observant son, initially accompanying the journey from
   ordinary family loyalty and habit rather than interest in the candle.

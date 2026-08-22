@@ -1,6 +1,6 @@
 # Ember King — identity and continuity card
 
-- Status: **APPROVED_PRIVATE_CANON** identity; motion package V1 is **REVIEW**.
+- Status: **APPROVED_PRIVATE_CANON** identity; motion package V2 is **REVIEW**.
 - Stable ID: `ember_king`
 - Role: child-appropriate antagonist, father of the Ember Prince, sole owner of
   the candle obsession that starts the journey.
