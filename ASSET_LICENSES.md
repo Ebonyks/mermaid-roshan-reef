@@ -2612,3 +2612,27 @@ generations and transparent source masters remain preserved.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_heart.png` - 256x256 transparent heart emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png` - 256x256 transparent pearl-crown emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png` - 256x256 transparent complete-butterfly emblem cell from the authored motif master.
+
+## Rear-facing castle movie couch (2026-08-21)
+
+Project-original OpenAI built-in ImageGen derivative of the approved
+project-owned cloud settee; license: project original; URL: none. Generation
+was limited to the verified missing rear view needed for the couches to face
+the movie screen. Exact prompt, hashes, alpha audit, and normalization are in
+`assets_src/imagegen/castle_movie_couch_2026-08-21/PROVENANCE.md`.
+
+- `assets_src/imagegen/castle_movie_couch_2026-08-21/native/cloud_settee_back_native.png` - preserved native generation.
+- `assets/flats/castle/dream_house/cloud_settee_back.png` - 1024x799 transparent runtime cutout; full silhouette and all feet preserved.
+
+## Rainbow slice combat effect (2026-08-21)
+
+Project-original OpenAI built-in ImageGen art; license: project original; URL:
+none. Generation was limited to the verified gap for a straight, translucent,
+variable-length combat ribbon. The existing project-owned Pop Star rainbow
+ribbon was a style reference only and contributed no delivery pixels. Exact
+prompt, hashes, alpha review, and deterministic normalization are recorded in
+`assets_src/imagegen/combat_rainbow_slice_2026-08-21/`.
+
+- `assets_src/imagegen/combat_rainbow_slice_2026-08-21/native/rainbow_slice_native.png` - preserved 2172x724 RGBA ImageGen source with genuine transparent background.
+- `assets/fx/combat/rainbow_slice.png` - 1024x296 RGBA whole-image Lanczos runtime derivative, stretched only along the measured 2D swipe segment.
+- `shaders/rainbow_slice_sparkle.gdshader` - project-original Mobile-compatible CanvasItem shader for phase-varied iridescent sparkle highlights; no external source.

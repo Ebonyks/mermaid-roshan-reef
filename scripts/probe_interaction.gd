@@ -194,6 +194,53 @@ func _init() -> void:
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	if not rooms.is_open():
 		_bad("castle Sprite3D room stage did not open")
+	var master_record: Dictionary = main.castle_room_item_sprites.get(
+		"master_mode_painting", {}) as Dictionary
+	var master_painting: Sprite3D = master_record.get("sprite") as Sprite3D
+	var master_hotspot: Button = master_record.get("hotspot") as Button
+	if master_painting == null or master_hotspot == null \
+			or String(master_painting.get_meta("roleplay_action", "")) \
+				!= "master_mode" \
+			or master_painting.texture == null \
+			or master_painting.texture.resource_path \
+				!= "res://assets/flats/castle/dream_house/movie_screen_frame.png" \
+			or master_hotspot.size.x < StorybookUI.MIN_TOUCH.x \
+			or master_hotspot.size.y < StorybookUI.MIN_TOUCH.y:
+		_bad("Main Hall master painting is missing its giant truthful touch route")
+	else:
+		rooms._activate_room_item("master_mode_painting")
+		await process_frame
+		var master_mode: Node = main._master_mode_ref()
+		var master_buttons: Array[Node] = master_mode.find_children(
+			"MasterModeGame_*", "Button", true, false)
+		if not main._master_mode_is_open() or master_buttons.size() != 26 \
+				or master_mode.find_child(
+					"MasterModeGame_harper_slide", true, false) == null \
+				or master_mode.find_child(
+					"MasterModeGame_opera_15", true, false) == null \
+				or master_mode.find_child(
+					"MasterModeGame_collection", true, false) == null:
+			_bad("Master Mode did not expose every Canvas, picture, Opera and tool shortcut")
+		var master_melody: Button = master_mode.find_child(
+			"MasterModeGame_melody", true, false) as Button
+		if master_melody == null:
+			main._master_mode_ref().call("close")
+		else:
+			master_melody.pressed.emit()
+			await _frames(2)
+			if main.game != "melody" or main.castle_room_layer == null \
+					or main.castle_room_layer.visible:
+				_bad("Master Mode did not launch Melody as a Castle cutaway")
+			main._leave_arena()
+			main._clear_game()
+			if not main._restore_master_mode_activity() \
+					or main.game != "level2" \
+					or String(main.g.get("phase", "")) != "hall" \
+					or main.castle_room_layer == null \
+					or not main.castle_room_layer.visible \
+					or main.castle_room_id != "main_hall":
+				_bad("Master-launched Canvas activity did not rebuild the Main Hall return")
+			await _frames(2)
 	if rooms.has_method("_roleplay_prop_bounce"):
 		_bad("castle role-play still exposes the rejected generic prop bounce")
 	var rejected_native_tiles: Array[Texture2D] = \
@@ -766,6 +813,9 @@ func _init() -> void:
 	# retired free-roaming controls.
 	main._mg2d_open("garden")
 	await process_frame
+	if main.castle_room_layer == null or main.castle_room_layer.visible \
+			or main.mg2d_layer == null or not main.mg2d_layer.visible:
+		_bad("castle did not yield its opaque layer to a Master Mode picture game")
 	if main.touch_ui.world_controls_enabled or (main.touch_ui._act_button != null and main.touch_ui._act_button.visible):
 		_bad("world action controls occluded a picture game")
 	# Nested pause overlays must release only their own block; closing Sticker
@@ -778,6 +828,8 @@ func _init() -> void:
 		_bad("closing nested overlay re-enabled controls above picture game")
 	main._mg2d_close()
 	await process_frame
+	if main.castle_room_layer == null or not main.castle_room_layer.visible:
+		_bad("picture game Back did not restore the Castle room layer")
 	if main.touch_ui.world_controls_enabled:
 		_bad("picture game close enabled 3D controls over castle stage")
 

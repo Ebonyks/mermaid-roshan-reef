@@ -30,7 +30,8 @@ const CHILD_MENU_SYSTEMS := [
 	{"id": "picture_games", "path": "res://scripts/games/picture_games.gd", "token": "PictureGameStorybookHeader"},
 	{"id": "dance", "path": "res://scripts/games/dance_engine.gd", "token": "StorybookUI.add_panel"},
 	{"id": "kart_garage", "path": "res://scripts/kart.gd", "token": "KartRideChoice_"},
-	{"id": "castle_careers", "path": "res://scripts/castle_career_routes.gd", "token": "RoomCareer_"}]
+	{"id": "castle_careers", "path": "res://scripts/castle_career_routes.gd", "token": "RoomCareer_"},
+	{"id": "master_mode", "path": "res://scripts/master_mode.gd", "token": "MasterModeGame_"}]
 
 func _check(ok: bool, label: String) -> void:
 	if ok:
@@ -88,14 +89,14 @@ func _check_storybook_coverage() -> void:
 	for path: String in GAMEPLAY_HUD_SURFACES:
 		var source: String = FileAccess.get_file_as_string(path)
 		_check(source.contains("StorybookUI.add_hud_panel"), "%s uses a shared Storybook HUD surface" % path.get_file())
-	_check(CHILD_MENU_SYSTEMS.size() == 15,
-		"menu census covers all 15 child-facing systems")
+	_check(CHILD_MENU_SYSTEMS.size() == 16,
+		"menu census covers all 16 child-facing systems")
 	var developer_source: String = FileAccess.get_file_as_string(
 		"res://scripts/dev_mode.gd")
 	_check(developer_source.contains("DeveloperStorybookPanel")
 		and developer_source.contains("DeveloperShellCrest")
 		and developer_source.contains("_style_parent_controls"),
-		"16th interactive system gives parent Developer Mode Storybook styling")
+		"17th interactive system gives parent Developer Mode Storybook styling")
 	for row: Dictionary in CHILD_MENU_SYSTEMS:
 		var path: String = String(row["path"])
 		var menu_source: String = FileAccess.get_file_as_string(path)

@@ -17,10 +17,19 @@ func _mg2d_open(kind: String) -> void:
 	if kind == "slide":
 		m._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen
 		return
+	var castle_return_room := ""
+	var castle_visible: bool = m.castle_room_layer != null \
+		and is_instance_valid(m.castle_room_layer) \
+		and m.castle_room_layer.visible
+	if m.game == "level2" and String(m.g.get("phase", "")) == "hall" \
+			and castle_visible:
+		castle_return_room = m.castle_room_id
+		m._castle_rooms_ref().suspend()
 	open_generation += 1
 	m._set_world_controls_enabled(false, "picture_game")
 	m.mg_kind = kind
-	m.mg = {"t": 0.0, "btns": [], "music_return": m.cur_track}
+	m.mg = {"t": 0.0, "btns": [], "music_return": m.cur_track,
+		"castle_return_room": castle_return_room}
 	m._play_music("picture_" + kind)
 	if m.mg2d_layer == null:
 		m.mg2d_layer = CanvasLayer.new()
@@ -307,6 +316,8 @@ func _mg2d_close(expected_generation: int = -1) -> void:
 	open_generation += 1
 	var owns_music_return: bool = m.mg.has("music_return")
 	var music_return: String = String(m.mg.get("music_return", ""))
+	var castle_return_room: String = String(
+		m.mg.get("castle_return_room", ""))
 	var close_tween := m.mg.get("close_tween") as Tween
 	if close_tween != null and close_tween.is_valid():
 		close_tween.kill()
@@ -326,6 +337,10 @@ func _mg2d_close(expected_generation: int = -1) -> void:
 		m._play_music(music_return if music_return != "" else "level2")
 	m.mg_cool = 8.0
 	m._set_world_controls_enabled(true, "picture_game")
+	if castle_return_room != "" and m.game == "level2" \
+			and String(m.g.get("phase", "")) == "hall" \
+			and m._castle_rooms_ref().is_open():
+		m._castle_rooms_ref().resume(castle_return_room)
 
 # ---- SNOWMAN: ROLL the snow into balls (stick circles / finger circles),
 # ---- watch each ball grow, then stack it and place the face ----

@@ -9,6 +9,7 @@ const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd"
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
 const LivingWorldLogic = preload("res://scripts/living_world.gd")
 const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
+const MasterModeLogic = preload("res://scripts/master_mode.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -561,6 +562,7 @@ var caustics_plane: MeshInstance3D = null   # animated light dapples on the reef
 var caustics_mat: ShaderMaterial = null      # terrain-conforming dapple overlay (day/night tuned)
 var caustics_enabled := true                # developer mode can switch the caustic layer off
 var dev_mode: Node = null                   # in-game developer "look lab" (scripts/dev_mode.gd)
+var _master_mode: Node = null               # Castle painting's all-2D debug launcher
 var plankton_node: GPUParticles3D
 # ---- WW motion language: one global wind drives streaks, water lines, seagrass
 # sway and flags (via the wind_dir/wind_gust shader globals) so gusts roll
@@ -3116,6 +3118,22 @@ func _start_opera() -> void:
 		_castle_rooms_ref().resume(castle_room_id)
 	if _castle_career_routes_ref().guide_current_room():
 		show_msg("Roshan", "Pick one bright career picture!", "hint")
+
+
+func _master_mode_ref() -> Node:
+	if _master_mode == null:
+		_master_mode = MasterModeLogic.new(self)
+		add_child(_master_mode)
+	return _master_mode
+
+
+func _master_mode_is_open() -> bool:
+	return _master_mode != null and bool(_master_mode.call("is_open"))
+
+
+func _restore_master_mode_activity() -> bool:
+	return _master_mode != null \
+		and bool(_master_mode.call("restore_after_standard_activity"))
 
 
 func _start_opera_from_room(act_index: int, room_id: String) -> void:
@@ -7933,6 +7951,8 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	_update_hud()
 	_clear_game()
 	_write_save()
+	if _restore_master_mode_activity():
+		return
 	if String(fr.get("fname", "")) == "Fairy Pond" and fairy_from_galaxy:
 		fairy_from_galaxy = false
 		call_deferred("_start_galaxy")   # back to the Butterfly World

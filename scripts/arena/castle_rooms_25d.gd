@@ -224,6 +224,18 @@ const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.70,
 		"color": Color(1.0, 0.75, 0.86)},
 ]
+const MASTER_MODE_PAINTING: Array[Dictionary] = [
+	# Reuse the approved Dream House movie frame as one enormous enchanted wall
+	# painting. Its dark inner canvas reads as a portal without generating or
+	# modifying any protected book artwork.
+	{"id": "master_mode_painting", "name": "Master Mode painting",
+		"pos": Vector2(1485.0, 365.0), "z": 0.72, "scale": 1.30,
+		"tex_path": DREAM_HOUSE_ART + "movie_screen_frame.png",
+		"hotspot_size": Vector2(313.0, 249.0),
+		"roleplay_action": "master_mode",
+		"sound": "castle/page_flip.ogg", "pitch": 0.92,
+		"color": Color(0.82, 0.68, 1.0)},
+]
 const PLAYROOM_RESCUE_ITEMS: Array[Dictionary] = [
 	{"id": "baby_eagle_rescue", "name": "Baby Eagle",
 		"pos": Vector2(382.0, 110.0), "z": 1.55,
@@ -480,9 +492,19 @@ const ROOM_ITEMS := {
 			"color": Color(0.81, 0.66, 1.0)},
 	],
 	"playroom": [
-		{"id": "stuffie_nook", "name": "Stuffie friends", "pos": Vector2(380, 140),
-			"z": 0.75,
-			"symbol": "♡", "color": Color(1.0, 0.58, 0.74)},
+		# The old painted couch was a fixed decoration: it could not show the
+		# child's current collection and its touch target only played a loop.
+		# Use the approved shell/mermaid six-cubby art as the single source of
+		# truth for this display; the small 2D contents layer below fills its
+		# cubbies from the persisted unlocked roster.
+		{"id": "stuffie_nook", "name": "Shell stuffie cubbie",
+			"pos": Vector2(360.0, 90.0), "z": MIDGROUND_Z,
+			"scale": 0.30,
+			"tex_path": "res://assets/sprites/stuffie_studio/display_shelf.png",
+			"hotspot_size": Vector2(307.0, 307.0),
+			"roleplay_action": "stuffie_cubbie",
+			"sound": "castle/curtain_swish.ogg",
+			"color": Color(0.62, 0.82, 1.0)},
 		{"id": "stacking_toy", "name": "Stacking toy", "pos": Vector2(218, 284),
 			"z": MIDGROUND_Z,
 			"symbol": "★", "color": Color(1.0, 0.79, 0.30)},
@@ -697,14 +719,14 @@ const ROOM_ITEMS := {
 			"color": Color(1.0, 0.82, 0.42)},
 		{"id": "cloud_settee_left", "name": "Left cloud couch",
 			"pos": Vector2(109.0, 351.0), "z": 2.12, "scale": 0.74,
-			"tex_path": DREAM_HOUSE_ART + "cloud_settee.png",
+			"tex_path": DREAM_HOUSE_ART + "cloud_settee_back.png",
 			"roleplay_action": "relax", "roleplay_foot": Vector2(325.00, 693.75),
 			"sound": "castle/curtain_swish.ogg",
 			"color": Color(0.72, 0.88, 1.0)},
 		{"id": "cloud_settee_right", "name": "Right cloud couch",
 			"pos": Vector2(613.0, 351.0), "z": 2.12, "scale": 0.74,
-			"tex_path": DREAM_HOUSE_ART + "cloud_settee.png",
-			"flip_h": true, "roleplay_action": "relax",
+			"tex_path": DREAM_HOUSE_ART + "cloud_settee_back.png",
+			"roleplay_action": "relax",
 			"roleplay_foot": Vector2(955.00, 693.75),
 			"sound": "castle/curtain_swish.ogg",
 			"color": Color(0.72, 0.88, 1.0)},
@@ -1112,6 +1134,8 @@ func tick(delta: float) -> void:
 		m.castle_partner.tick(delta)
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
+	if m.castle_room_id == "playroom":
+		_build_playroom_stuffie_cubbie()
 	_update_camera_parallax(delta)
 	_sync_hall_horizontal_culling()
 	_tick_royal_hall_mist(delta)
@@ -1229,6 +1253,10 @@ func _build_stage() -> void:
 		Vector2(132.0, 132.0), "Touch the room")
 	m.castle_room_action_button.pressed.connect(activate_current_room)
 	m.castle_room_action_button.z_index = 30
+	# Every room prop already owns a large direct-touch hotspot. Keep this node
+	# only as a compatibility route for old probes/saves; the duplicate gold
+	# corner button is intentionally absent from the child-facing composition.
+	m.castle_room_action_button.visible = false
 	stage.add_child(m.castle_room_action_button)
 
 	m.castle_room_back_button = Button.new()
@@ -1247,6 +1275,11 @@ func _build_stage() -> void:
 		Vector2(136.0, 136.0), "Castle elevator")
 	elevator.pressed.connect(_toggle_elevator_menu)
 	elevator.z_index = 30
+	# Physical room doors plus contextual Back are the castle navigation. The
+	# old corner elevator was redundant screen filler; retain its programmatic
+	# route for compatibility without drawing or accepting touch input.
+	elevator.visible = false
+	elevator.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	stage.add_child(elevator)
 	var elevator_pointer := Label.new()
 	elevator_pointer.name = "ElevatorPointer"
@@ -1255,6 +1288,7 @@ func _build_stage() -> void:
 	StorybookUI.style_label(elevator_pointer, 48, StorybookUI.GOLD, 5)
 	elevator_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	elevator_pointer.z_index = 30
+	elevator_pointer.visible = false
 	stage.add_child(elevator_pointer)
 	var point := elevator_pointer.create_tween().set_loops()
 	point.tween_property(elevator_pointer, "position:y", 502.0,
@@ -1776,9 +1810,9 @@ func show_room(room_id: String, announce: bool = true) -> void:
 		_sync_bedside_light()
 	elif room_id == "movie_lounge":
 		_sync_movie_picture()
-	m.castle_room_action_button.visible = not hall_mode \
-		and room_id != "family_gallery" \
-		and (room_id != "playroom" or _playroom_rescue_done())
+	# Direct-touch room objects are the only child-facing actions. Do not bring
+	# back the generic lower-corner action button on room changes.
+	m.castle_room_action_button.visible = false
 	if not hall_mode:
 		StorybookUI.style_icon_button(m.castle_room_action_button,
 			String(room["action_icon"]), "gold", Vector2(132.0, 132.0),
@@ -2263,6 +2297,7 @@ func _rebuild_touch_items(room_id: String) -> void:
 	var items: Array = []
 	if room_id == "main_hall":
 		items.append_array(HALL_DUST_BUNNY_SPAWNS)
+		items.append_array(MASTER_MODE_PAINTING)
 	else:
 		var room_items: Array = ROOM_ITEMS.get(room_id, []) as Array
 		items = room_items.duplicate()
@@ -2288,6 +2323,8 @@ func _rebuild_touch_items(room_id: String) -> void:
 		var item_data: Dictionary = item_data_value
 		_add_touch_item(room_id, item_data)
 	_update_touch_hotspots()
+	if room_id == "playroom":
+		_build_playroom_stuffie_cubbie()
 
 func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	if m.castle_room_item_visual_layer == null \
@@ -2378,6 +2415,19 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		item_data["vframes"] = 3 if interaction_key in INTERACTION_GRIDS_3X3 else 2
 		item_data["tex_path"] = INTERACTION_ART + room_id + "_" \
 			+ item_id + "_atlas.png"
+	# Keep the stable probe/save-facing item id while moving its pixels and
+	# behavior to the new cubbie. The legacy interaction manifest remains for
+	# audit history, but must not replace this complete approved shelf card with
+	# the retired couch atlas.
+	if room_id == "playroom" and item_id == "stuffie_nook":
+		item_data["tex_path"] = \
+			"res://assets/sprites/stuffie_studio/display_shelf.png"
+		item_data["frames"] = 1
+		item_data["timeline_frames"] = 1
+		item_data["hframes"] = 1
+		item_data["vframes"] = 1
+		item_data["semantic_action"] = "stuffie_cubbie"
+		item_data["roleplay_action"] = "stuffie_cubbie"
 	var bunny_role: String = String(item_data.get("dust_bunny_role", ""))
 	if bunny_role != "":
 		var cleared: Dictionary = m.g.get(
@@ -2668,6 +2718,100 @@ func _activate_room_item(item_id: String) -> void:
 	_play_sprite_atlas_sequence(sprite, item_data, true,
 		m.castle_room_id == "kitchen" and item_id == "fridge")
 
+
+func _open_playroom_stuffie_cubbie(sprite: Sprite3D,
+		item_data: Dictionary) -> void:
+	if sprite == null or not is_instance_valid(sprite) \
+			or bool(sprite.get_meta("busy", false)):
+		return
+	sprite.set_meta("busy", true)
+	_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+		float(item_data.get("pitch", 1.0)))
+	_item_burst(sprite.position, Color(0.62, 0.82, 1.0), 10)
+	# The existing companion picker owns unlock rules, save compatibility,
+	# active-friend replacement, and the no-fail confirmation flow. Opening it
+	# in swap mode keeps this cubbie a one-tap doorway into that established UI.
+	var companion: Object = m._companion_ref()
+	companion.call("open_picker", true, m.companion_id, "swap")
+	sprite.set_meta("busy", false)
+
+
+func _build_playroom_stuffie_cubbie() -> void:
+	if m.castle_room_item_hotspot_layer == null:
+		return
+	var companion: Object = m._companion_ref()
+	var unlocked_defs: Array = companion.call("unlocked_defs") as Array
+	var roster_ids: Array[String] = []
+	for stuffie_value: Variant in unlocked_defs:
+		var stuffie_data: Dictionary = stuffie_value as Dictionary
+		roster_ids.append(String(stuffie_data.get("id", "")))
+	var cubbie_record: Dictionary = m.castle_room_item_sprites.get(
+		"stuffie_nook", {}) as Dictionary
+	var cubbie_hotspot: Button = cubbie_record.get("hotspot") as Button
+	if cubbie_hotspot == null or not is_instance_valid(cubbie_hotspot):
+		return
+	var existing_ids: Array = cubbie_hotspot.get_meta(
+		"cubbie_roster_ids", []) as Array
+	var existing_active := String(cubbie_hotspot.get_meta(
+		"cubbie_active_stuffie_id", ""))
+	if existing_ids == roster_ids and existing_active == m.companion_id:
+		return
+	for child: Node in cubbie_hotspot.get_children():
+		if child.name.begins_with("StuffieCubbieSlot_"):
+			child.free()
+	cubbie_hotspot.set_meta("cubbie_roster_ids", roster_ids)
+	cubbie_hotspot.set_meta("cubbie_active_stuffie_id", m.companion_id)
+
+	var slot_positions: Array[Vector2] = [
+		Vector2(25.0, 110.0), Vector2(123.0, 110.0), Vector2(221.0, 110.0),
+		Vector2(25.0, 211.0), Vector2(123.0, 211.0), Vector2(221.0, 211.0),
+	]
+	var slot_size := Vector2(78.0, 78.0)
+	for index: int in range(mini(unlocked_defs.size(), slot_positions.size())):
+		var stuffie: Dictionary = unlocked_defs[index] as Dictionary
+		var id := String(stuffie.get("id", ""))
+		if id == "":
+			continue
+		var slot := Button.new()
+		slot.name = "StuffieCubbieSlot_" + id
+		slot.position = slot_positions[index]
+		slot.size = slot_size
+		slot.flat = true
+		slot.focus_mode = Control.FOCUS_NONE
+		slot.tooltip_text = String(stuffie.get("name", "Stuffie friend"))
+		slot.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		var slot_style := StyleBoxFlat.new()
+		slot_style.bg_color = Color(0.10, 0.25, 0.43, 0.22)
+		slot_style.border_color = StorybookUI.GOLD \
+			if id == m.companion_id else Color(0.82, 0.92, 1.0, 0.78)
+		slot_style.set_border_width_all(5 if id == m.companion_id else 2)
+		slot_style.set_corner_radius_all(18)
+		slot.add_theme_stylebox_override("normal", slot_style)
+		slot.add_theme_stylebox_override("hover", slot_style)
+		slot.add_theme_stylebox_override("pressed", slot_style)
+		var icon_path := String(stuffie.get("sprite", ""))
+		if icon_path == "":
+			var kind := String(stuffie.get("kind", "fish"))
+			var layer_names: Array = m.CREATURE_LAYERS.get(
+				kind, m.CREATURE_LAYERS["fish"]) as Array
+			icon_path = "res://assets/mg/%s.png" % String(layer_names[1])
+			slot.icon = load(icon_path) as Texture2D
+		var icon_color := stuffie.get("body", Color.WHITE) as Color
+		for icon_state: String in [
+			"icon_normal_color", "icon_hover_color", "icon_pressed_color",
+			"icon_focus_color",
+		]:
+			slot.add_theme_color_override(icon_state, icon_color)
+		slot.expand_icon = true
+		slot.add_theme_constant_override("icon_max_width", 68)
+		slot.pressed.connect(_open_playroom_stuffie_from_slot.bind(id))
+		cubbie_hotspot.add_child(slot)
+
+
+func _open_playroom_stuffie_from_slot(id: String) -> void:
+	var companion: Object = m._companion_ref()
+	companion.call("open_picker", true, id, "swap")
+
 func _activate_roleplay_item(roleplay_action: String, item_id: String,
 		sprite: Sprite3D, item_data: Dictionary) -> void:
 	match roleplay_action:
@@ -2683,10 +2827,18 @@ func _activate_roleplay_item(roleplay_action: String, item_id: String,
 			_cycle_home_movie(sprite, item_data)
 		"relax":
 			_relax_on_furniture(sprite, item_data)
+		"stuffie_cubbie":
+			_open_playroom_stuffie_cubbie(sprite, item_data)
 		"dress_up":
 			_open_roleplay_wardrobe(sprite, item_data)
 		"bedside_light":
 			_toggle_bedside_light(sprite, item_data)
+		"master_mode":
+			_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+				float(item_data.get("pitch", 1.0)))
+			_item_burst(sprite.position,
+				Color(item_data.get("color", StorybookUI.LAVENDER)), 10)
+			m._master_mode_ref().call("open")
 		_:
 			push_warning("Unknown castle role-play action: %s (%s)" % [
 				roleplay_action, item_id])
@@ -3440,8 +3592,6 @@ func _finish_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
 			and m.castle_logo_layer == null:
 		_item_burst(sprite.position, Color(0.60, 0.90, 0.82), 10)
 		m._open_castle_logo()
-
-
 func _close_fridge_visual() -> bool:
 	var record: Dictionary = m.castle_room_item_sprites.get("fridge", {})
 	if record.is_empty():
@@ -4000,10 +4150,11 @@ func _update_camera_parallax(delta: float) -> void:
 		m.castle_room_camera.position = m.castle_room_camera.position.lerp(
 			hall_target, hall_weight)
 		return
-	var target := Vector3(
-		(foot.x / StorybookUI.CANVAS_SIZE.x - 0.5) * 0.08,
-		(0.5 - foot.y / StorybookUI.CANVAS_SIZE.y) * 0.035,
-		CAMERA_DISTANCE)
+	# Single-screen rooms are authored as complete flattened paintings. Camera
+	# drift made their isolated foreground cards read as a detached parallax
+	# overlay in the Stuffie, Craft, Library and other rooms. Keep the authored
+	# frame locked; only the two-screen Main Hall needs camera travel.
+	var target := Vector3(0.0, 0.0, CAMERA_DISTANCE)
 	var weight: float = clampf(delta * 3.5, 0.0, 1.0)
 	m.castle_room_camera.position = m.castle_room_camera.position.lerp(
 		target, weight)

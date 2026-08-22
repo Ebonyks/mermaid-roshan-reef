@@ -114,7 +114,8 @@ var charge_stage := 0
 var charge_ring: MeshInstance3D = null
 var charge_pips: Node3D = null     # the three stage lamps above the target
 var slash_cool := 0.0              # blade rest; a swipe inside it only fizzles
-var ribbon: Line2D = null          # the band she cut, drawn at its true width
+var ribbon: RainbowSliceEffect = null  # the band she cut, drawn at its true width
+var slash_fx_serial := 0            # deterministic variation between slice flourishes
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -355,6 +356,7 @@ func teardown() -> void:
 	charge_pips = null
 	charge_enemy = {}
 	slash_cool = 0.0
+	slash_fx_serial = 0
 
 func hittable(enemy: Dictionary) -> bool:
 	if enemy.is_empty():
@@ -460,17 +462,11 @@ func _draw_ribbon(from: Vector2, to: Vector2, spent: bool) -> void:
 	_ensure_pips_layer()
 	if ribbon != null and is_instance_valid(ribbon):
 		ribbon.queue_free()
-	ribbon = Line2D.new()
-	ribbon.width = SLASH_BAND * 2.0
-	ribbon.begin_cap_mode = Line2D.LINE_CAP_ROUND
-	ribbon.end_cap_mode = Line2D.LINE_CAP_ROUND
-	ribbon.default_color = Color(0.72, 0.74, 0.80, 0.30) if spent else Color(1.0, 0.93, 0.66, 0.55)
-	ribbon.points = PackedVector2Array([from, to])
+	ribbon = RainbowSliceEffect.new()
 	pips_layer.add_child(ribbon)
-	var blade: Line2D = ribbon
-	var tw: Tween = blade.create_tween()
-	tw.tween_property(blade, "modulate:a", 0.0, SLASH_RIBBON_T)
-	tw.tween_callback(blade.queue_free)
+	slash_fx_serial += 1
+	ribbon.configure(from, to, SLASH_BAND * 2.0, SLASH_RIBBON_T, spent,
+		slash_fx_serial)
 
 # A drag cancels a held charge: one finger, one verb. Without this the charge
 # keeps growing under a swipe and auto-fires mid-gesture.

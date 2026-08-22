@@ -209,7 +209,7 @@ func toggle_pause() -> void:
 			focus_owner.release_focus()
 
 func _has_leave_context() -> bool:
-	return m.mg_kind != "" or m.game != "" or m.wardrobe_layer != null \
+	return m._master_mode_is_open() or m.mg_kind != "" or m.game != "" or m.wardrobe_layer != null \
 		or m.craft_layer != null or m.castle_logo_layer != null \
 		or m.stickers_layer != null or m.collection_layer != null or m.companion_layer != null or m.companion_care_layer != null
 
@@ -218,6 +218,9 @@ func _leave_current_activity() -> void:
 	m.get_tree().paused = false
 	m.pause_panel.visible = false
 	m._sync_pause_surface_layer()
+	if m._master_mode_is_open():
+		m._master_mode_ref().call("close")
+		return
 	if m.stickers_layer != null:
 		m._close_stickers()
 		return
@@ -306,6 +309,9 @@ func _leave_current_activity() -> void:
 		m.brawl_cool = 14.0
 	m._clear_game()
 	m._write_save()
+	if m._restore_master_mode_activity():
+		m.show_msg("Roshan", "Back to the Master Mode painting!", "home")
+		return
 	if leaving_game == "fairyshoot" and m.fairy_from_galaxy:
 		m.fairy_from_galaxy = false
 		m.call_deferred("_start_galaxy")

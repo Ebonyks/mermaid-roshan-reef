@@ -209,13 +209,26 @@ func _slash_case() -> void:
 		eng.slash(line[0] as Vector2, (line[0] as Vector2) + Vector2(20, 0)) == 0)
 	# a swipe well above the row cuts nobody: the band is narrow
 	var high: Vector2 = Vector2((line[0] as Vector2).x, row_y - HitEngine.SLASH_BAND * 3.0)
+	var short_slice_len: float = HitEngine.SLASH_MIN_LEN + 70.0
 	_ck("a swipe outside the band cuts nothing",
-		eng.slash(high, high + Vector2(HitEngine.SLASH_MAX_LEN, 0)) == 0)
+		eng.slash(high, high + Vector2(short_slice_len, 0)) == 0)
+	_ck("the rainbow system preserves shorter valid lengths",
+		eng.ribbon != null and is_equal_approx(eng.ribbon.visual_length, short_slice_len))
+	_ck("short rainbow slices receive bounded iridescent sparkles",
+		_rainbow_sparkles_are_bounded(eng.ribbon))
 	eng.slash_cool = 0.0
 	# a swipe along the row cuts at most two, nearest-first along the blade
 	var cut: int = eng.slash(Vector2((line[0] as Vector2).x - 30.0, row_y),
 		Vector2((line[4] as Vector2).x + 30.0, row_y))
 	_ck("a swipe never cuts more than the cap", cut == HitEngine.SLASH_MAX_TARGETS)
+	_ck("the rainbow slice draws the clamped hit length",
+		eng.ribbon != null
+		and is_equal_approx(eng.ribbon.visual_length, HitEngine.SLASH_MAX_LEN)
+		and is_equal_approx(eng.ribbon.visual_width, HitEngine.SLASH_BAND * 2.0)
+		and not eng.ribbon.spent
+		and eng.ribbon.stripe.texture == RainbowSliceEffect.TEXTURE)
+	_ck("sparkle layouts vary between rainbow slices",
+		eng.ribbon.sparkle_seed == 2 and _rainbow_sparkles_are_bounded(eng.ribbon))
 	_ck("the slice deals its 2 damage",
 		int((recs[0] as Dictionary)["hp"]) == 9 - int(HitEngine.VERB_DAMAGE["slice"]))
 	_ck("the far end of a long drag is out of reach",
@@ -223,6 +236,9 @@ func _slash_case() -> void:
 	# and the blade rests
 	_ck("a spent blade cuts nothing", eng.slash(Vector2((line[0] as Vector2).x - 30.0, row_y),
 		Vector2((line[4] as Vector2).x + 30.0, row_y)) == 0)
+	_ck("the resting slice is visibly muted",
+		eng.ribbon != null and eng.ribbon.spent and eng.ribbon.stripe.texture == null
+		and eng.ribbon.sparkle_count == 0 and eng.ribbon.sparkles == null)
 	eng.tick(HitEngine.SLASH_COOL + 0.05)
 	_ck("the blade comes back after its rest", eng.slash_cool <= 0.0)
 	# a travelling finger is a slice, never a charge
@@ -231,6 +247,27 @@ func _slash_case() -> void:
 	_ck("a drag cancels the held charge", eng.charge_enemy.is_empty())
 	eng.teardown()
 	await process_frame
+
+func _rainbow_sparkles_are_bounded(effect: RainbowSliceEffect) -> bool:
+	if effect == null or effect.sparkles == null:
+		return false
+	if effect.sparkle_count < RainbowSliceEffect.SPARKLE_MIN \
+			or effect.sparkle_count > RainbowSliceEffect.SPARKLE_MAX:
+		return false
+	if effect.sparkles.get_child_count() != effect.sparkle_count \
+			or effect.sparkle_positions.size() != effect.sparkle_count:
+		return false
+	for index in range(effect.sparkle_count):
+		var position: Vector2 = effect.sparkle_positions[index]
+		if position.x < 0.0 or position.x > effect.visual_length \
+				or absf(position.y) >= effect.visual_width * 0.5:
+			return false
+		var sparkle := effect.sparkles.get_child(index) as Polygon2D
+		if sparkle == null or not sparkle.material is ShaderMaterial:
+			return false
+		if (sparkle.material as ShaderMaterial).shader != RainbowSliceEffect.SPARKLE_SHADER:
+			return false
+	return true
 
 func _priority_case() -> void:
 	# ENEMY PRIORITY RULE: an enemy overlapping any other tappable object
