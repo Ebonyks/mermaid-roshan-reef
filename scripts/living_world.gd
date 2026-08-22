@@ -70,7 +70,12 @@ func note_activity() -> void:
 
 func tick(delta: float) -> void:
 	setup()
-	if _suspended():
+	# A headless probe-stage override is an explicit isolated runtime request.
+	# Do not let a still-fading boot/castle cover make every forced idle event a
+	# zero-event no-op on unusually fast CI runners. Production has no override.
+	var probe_stage_active: bool = DisplayServer.get_name() == "headless" \
+		and m.living_probe_stage_override != ""
+	if _suspended() and not probe_stage_active:
 		note_activity()
 		m.living_layer.visible = false
 		return

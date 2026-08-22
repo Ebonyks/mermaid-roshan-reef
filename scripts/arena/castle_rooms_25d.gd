@@ -1890,7 +1890,10 @@ func _begin_composition_transition() -> void:
 	var generation := _composition_transition_generation
 	cover.modulate.a = 1.0
 	cover.visible = true
-	cover.mouse_filter = Control.MOUSE_FILTER_STOP
+	# This is a visual crossfade, not a modal overlay. Headless and low-frame-rate
+	# devices can hold the 0.24 s fade across many input frames; swallowing those
+	# taps makes the back button and room floor appear intermittently dead.
+	cover.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	call_deferred("_fade_composition_transition", generation)
 
 
