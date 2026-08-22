@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "project": "Mermaid Roshan Animation Series",
+  "scope": "one hour or more of expandable short-clip animation",
+  "characters": [
+    {
+      "id": "roshan",
+      "name": "Mermaid Roshan",
+      "status": "APPROVED",
+      "references": [
+        {"file": "characters/roshan/ROSHAN_FRONT_IDENTITY.png", "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab", "width": 256, "height": 256},
+        {"file": "characters/roshan/ROSHAN_REAR_POSE_SHEET.png", "sha256": "325985106004ca6614370b4aa0eb988a911e385dd450612577f31afc65da6ba1", "width": 1024, "height": 1024}
+      ]
+    },
+    {
+      "id": "daddy_mermaid",
+      "name": "Daddy Mermaid",
+      "status": "APPROVED",
+      "references": [
+        {"file": "characters/daddy_mermaid/DADDY_FRONT_IDENTITY.png", "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77", "width": 1677, "height": 2362}
+      ]
+    },
+    {
+      "id": "huluu",
+      "name": "Princess Huluu",
+      "status": "APPROVED",
+      "references": [
+        {"file": "characters/huluu/HULUU_CANONICAL.png", "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9", "width": 640, "height": 1039}
+      ]
+    },
+    {
+      "id": "boss_dust_bunny",
+      "name": "Boss Dust Bunny",
+      "status": "APPROVED",
+      "references": [
+        {"file": "characters/boss_dust_bunny/BOSS_DUST_BUNNY_IDENTITY.png", "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef", "width": 1024, "height": 1024},
+        {"file": "characters/boss_dust_bunny/MOTION_jump.png", "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c", "width": 1024, "height": 1024},
+        {"file": "characters/boss_dust_bunny/MOTION_laugh_vulnerable.png", "sha256": "bdcf03aab906fa9c8f7293733e780ffaac883c14ba72bdc43069a4ace4f9afca", "width": 1024, "height": 1024},
+        {"file": "characters/boss_dust_bunny/MOTION_flinch.png", "sha256": "fe885c898dc70d4ac621005a4f7b0c2727ac354322453b434e96dc2b7dabb743", "width": 1024, "height": 1024},
+        {"file": "characters/boss_dust_bunny/MOTION_angry.png", "sha256": "897ca1fec2e3dbdfddb1b6566fc014b0809e3e276148b46267746466cfdb5915", "width": 1024, "height": 1024},
+        {"file": "characters/boss_dust_bunny/MOTION_implode.png", "sha256": "273770fa67763662e2294d80444da727575bb0a10c63938d5fe20689d0f9d256", "width": 1024, "height": 1024}
+      ]
+    },
+    {
+      "id": "rainbow_dust_bunny",
+      "name": "Rainbow Dust Bunny",
+      "status": "CONCEPT",
+      "references": [
+        {"file": "characters/rainbow_dust_bunny/RAINBOW_DUST_BUNNY_CONCEPT.png", "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17", "width": 1024, "height": 1024}
+      ]
+    },
+    {
+      "id": "rumi",
+      "name": "Rumi",
+      "local_source_codename": "Violet Tide",
+      "status": "APPROVED_PRIVATE_CANON",
+      "scope": "private family animation project",
+      "references": [
+        {"file": "characters/rumi/RUMI_FULL_BODY_IDENTITY.png", "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f", "width": 576, "height": 1024, "authority": "identity"},
+        {"file": "characters/rumi/RUMI_EIGHT_POSE_ATLAS.png", "sha256": "b5d31e649ad23150790bff0919c3b2f09ddb96317cd24c60478450731d3f8624", "width": 1024, "height": 768, "authority": "motion_vocabulary"},
+        {"file": "characters/rumi/RUMI_EIGHT_POSE_RUNTIME.png", "sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66", "width": 1024, "height": 768, "authority": "runtime_inspection"},
+        {"file": "characters/rumi/RUMI_AND_ROSHAN_RELATIONSHIP_SAMPLE.png", "sha256": "963363147ef9527e77f5a7d3c936c32b84b227ddab1f87a34eee76914b6fca26", "width": 1024, "height": 1536, "authority": "relationship_and_relative_scale"}
+      ]
+    }
+  ]
+}

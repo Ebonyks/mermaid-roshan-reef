@@ -2612,3 +2612,11 @@ generations and transparent source masters remain preserved.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_heart.png` - 256x256 transparent heart emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png` - 256x256 transparent pearl-crown emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png` - 256x256 transparent complete-butterfly emblem cell from the authored motif master.
+
+## Grok private animation-series handoff branch (2026-08-22)
+
+All media under `docs/grok_animation_series_project/` is a non-destructive handoff copy for the owner-directed private family animation project. Runtime originals elsewhere in the repository remain unchanged. Exact branch-copy paths, byte sizes, and SHA-256 hashes are recorded in `docs/grok_animation_series_project/PACKAGE_INVENTORY_SHA256.csv`.
+
+- Roshan, Daddy Mermaid, Huluu, Boss Dust Bunny, Rainbow Dust Bunny, airplane, Sky Lagoon, and castle references retain the license/provenance of their corresponding existing repository sources. Modifications: filename normalization and organization only; image pixels unchanged.
+- `docs/grok_animation_series_project/characters/rumi/RUMI_FULL_BODY_IDENTITY.png`, `RUMI_EIGHT_POSE_ATLAS.png`, and `RUMI_EIGHT_POSE_RUNTIME.png` are owner-directed private-project OpenAI ImageGen assets recovered from the local `codex/rumi-mermaid-prototype` worktree. The original generation record and prompts are preserved in the same character folder. Modifications: filename normalization and organization only; image pixels unchanged.
+- `docs/grok_animation_series_project/characters/rumi/RUMI_AND_ROSHAN_RELATIONSHIP_SAMPLE.png` was supplied directly by the owner for this task as a private-project relationship and relative-scale reference. URL: none. Modifications: filename normalization only; image pixels unchanged.

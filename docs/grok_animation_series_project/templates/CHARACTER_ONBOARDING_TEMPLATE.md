@@ -1,0 +1,23 @@
+# Character onboarding: [DISPLAY NAME]
+
+- Stable ID:
+- Status: REFERENCE_PENDING / CONCEPT / APPROVED
+- Role:
+- Source authority filename and hash:
+- Species / age category:
+- Relative scale beside Roshan:
+- Immutable face traits:
+- Immutable hair/head traits:
+- Immutable wardrobe/accessories:
+- Immutable body/tail traits:
+- Authored color placement:
+- Allowed variation:
+- Forbidden variation:
+- Personality/behavior anchors:
+- Relationships:
+- Expression vocabulary:
+- Motion vocabulary:
+- Unknown details requiring owner decision:
+- Approved turnaround version:
+- Approved expression sheet version:
+- Approved motion-test version:
