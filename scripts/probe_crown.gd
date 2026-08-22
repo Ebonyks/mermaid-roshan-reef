@@ -92,23 +92,15 @@ func _frames(n: int) -> void:
 
 func _world_cards_conform(node: Node) -> bool:
 	for child: Node in node.get_children():
-		if child is CanvasItem:
+		if child is Node3D:
 			return false
-		if child is MeshInstance3D or child is MultiMeshInstance3D \
-				or child is CSGShape3D or child is Decal:
+		if child is Sprite2D:
+			var sprite := child as Sprite2D
+			if sprite.texture == null \
+					or bool(sprite.get_meta("shaded", false)):
+				return false
+		elif child is CanvasItem and not child is Node2D:
 			return false
-		if child is SpriteBase3D:
-			if not child is Sprite3D:
-				return false
-			var sprite := child as Sprite3D
-			var role := String(sprite.get_meta("source_asset_role", ""))
-			if sprite.shaded and role not in [
-				"clean_background_tile",
-				"architectural_join_divider",
-				"architectural_join_inlay",
-				"architectural_bridge",
-			]:
-				return false
 		if not _world_cards_conform(child):
 			return false
 	return true
@@ -116,28 +108,23 @@ func _world_cards_conform(node: Node) -> bool:
 func _visible_sprite_card_count(node: Node) -> int:
 	var count := 0
 	for child: Node in node.get_children():
-		if child is Sprite3D and (child as Sprite3D).visible:
+		if child is Sprite2D and (child as Sprite2D).visible:
 			count += 1
 		count += _visible_sprite_card_count(child)
 	return count
 
-func _all_children_follow_fixture_contract(node: Node3D) -> bool:
+func _all_children_follow_fixture_contract(node: Node2D) -> bool:
 	if node == null:
 		return false
 	for child: Node in node.get_children():
-		if child is Sprite3D:
-			if (child as Sprite3D).shaded:
+		if child is Sprite2D:
+			if (child as Sprite2D).texture == null \
+					or bool((child as Sprite2D).get_meta("shaded", false)):
 				return false
 			continue
-		if child is RigidBody3D:
-			var body := child as RigidBody3D
-			if not bool(body.get_meta("castle_fixture_jolt_garnish", false)) \
-					or bool(body.get_meta("logic_authority", true)) \
-					or body.collision_layer != 0 \
-					or body.collision_mask != 0:
-				return false
-			continue
-		else:
+		if child is Node3D:
+			return false
+		if not child is Node2D:
 			return false
 	return true
 
@@ -162,7 +149,7 @@ func _native_v4_items_conform(room_id: String, expected: Array) -> bool:
 		var item_id := String(item_id_value)
 		var record: Dictionary = main.castle_room_item_sprites.get(
 			item_id, {}) as Dictionary
-		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		var sprite: Sprite2D = record.get("sprite") as Sprite2D
 		var item_data: Dictionary = record.get("data", {}) as Dictionary
 		var visual: Dictionary = item_data.get("v2_visual", {}) as Dictionary
 		var ownership: Dictionary = visual.get(
@@ -206,7 +193,7 @@ func _native_background_tiles_conform(room_id: String) -> bool:
 	if main.castle_room_detail_tiles.size() != expected_count:
 		return false
 	for tile_value: Variant in main.castle_room_detail_tiles:
-		var tile := tile_value as Sprite3D
+		var tile := tile_value as Sprite2D
 		if tile == null or tile.texture == null \
 				or Vector2i(tile.texture.get_width(), tile.texture.get_height()) \
 					!= expected_size \
@@ -216,7 +203,8 @@ func _native_background_tiles_conform(room_id: String) -> bool:
 					!= "source_owned_healed_background_tile" \
 				or not bool(tile.get_meta(
 					"native_source_ownership_background", false)) \
-				or tile.transparent or tile.shaded:
+				or bool(tile.get_meta("transparent", false)) \
+				or bool(tile.get_meta("shaded", false)):
 			return false
 	return true
 
@@ -275,20 +263,22 @@ func _init() -> void:
 		_ck("opera_lives_behind_physical_door_not_3d_courtyard",
 			main.castle_room_buttons.has("opera_hall")
 			and not main.g.has("opera_gate"))
-		_ck("sprite3d_world_root", main.castle_room_world_root is Node3D)
-		_ck("perspective_room_camera",
-			main.castle_room_camera is Camera3D
-			and main.castle_room_camera.projection
-				== Camera3D.PROJECTION_PERSPECTIVE)
-		_ck("world_has_no_canvas_or_mesh_art",
+		_ck("canvas2d_world_root", main.castle_room_world_root is Node2D)
+		_ck("direct_canvas_has_no_room_camera",
+			main.castle_room_stage.find_children(
+				"*", "Camera2D", true, false).is_empty()
+			and main.castle_room_stage.find_children(
+				"*", "Camera3D", true, false).is_empty())
+		_ck("world_has_no_spatial_art",
 			_world_cards_conform(main.castle_room_world_root))
-		_ck("backdrop_is_unshaded_sprite3d",
-			main.castle_room_background is Sprite3D
-			and not main.castle_room_background.shaded)
-		var reference_ppm: float = 1.0 / main.castle_room_background.pixel_size
+		_ck("backdrop_is_unshaded_sprite2d",
+			main.castle_room_background is Sprite2D
+			and not bool(main.castle_room_background.get_meta("shaded", false)))
 		var backdrop_size: Vector2 = main.castle_room_background.texture.get_size()
-		_ck("reference_pixels_per_meter", absf(reference_ppm - 51.2) < 0.01,
-			"ppm=%.3f" % reference_ppm)
+		_ck("reference_canvas_scale",
+			main.castle_room_background.scale.is_equal_approx(
+				Vector2.ONE * CastleRooms25D.ART_TO_STAGE),
+			"scale=%s" % str(main.castle_room_background.scale))
 		_ck("backdrop_aspect_preserved",
 			is_equal_approx(backdrop_size.aspect(), 16.0 / 9.0))
 		var manifest: Dictionary = _depth_manifest()
@@ -324,21 +314,30 @@ func _init() -> void:
 		var node_contract: Dictionary = manifest.get(
 			"runtime_node_contract", {}) as Dictionary
 		var forbidden_world_types: Array = node_contract.get(
-			"world_art_forbidden", []) as Array
+			"canvas_art_forbidden", node_contract.get(
+				"world_art_forbidden", [])) as Array
 		var allowed_world_types: Array = node_contract.get(
-			"world_art_allowed", []) as Array
+			"canvas_art_allowed", node_contract.get(
+				"world_art_allowed", [])) as Array
 		var shaded_role_allowlist: Array = node_contract.get(
 			"shaded_role_allowlist", []) as Array
-		_ck("manifest_sprite3d_node_contract",
-			String(node_contract.get("world_root", "")) == "Node3D"
-			and String(node_contract.get("camera", ""))
-				== "Camera3D:perspective"
+		var manifest_root: String = String(node_contract.get(
+			"world_root", node_contract.get("canvas_root", "")))
+		_ck("manifest_sprite2d_node_contract",
+			manifest_root == "Node2D"
+			and String(node_contract.get("camera", "")) == "none"
+			and String(node_contract.get("coordinate_system", "")) \
+				in ["direct_canvas", "direct_canvas_coordinates"]
 			and allowed_world_types.size() == 1
-			and allowed_world_types.has("Sprite3D:unshaded")
+			and allowed_world_types.has("Sprite2D:unshaded")
 			and shaded_role_allowlist.is_empty()
-			and forbidden_world_types.has("Sprite2D")
-			and forbidden_world_types.has("TextureRect")
-			and forbidden_world_types.has("MeshInstance3D"))
+			and forbidden_world_types.has("Node3D")
+			and forbidden_world_types.has("Sprite3D")
+			and forbidden_world_types.has("Camera3D")
+			and forbidden_world_types.has("MeshInstance3D")
+			and forbidden_world_types.has("MultiMeshInstance3D")
+			and forbidden_world_types.has("CSGShape3D")
+			and forbidden_world_types.has("Decal"))
 		var hall_manifest: Dictionary = manifest_rooms.get(
 			"main_hall", {}) as Dictionary
 		var hall_master_dimensions: Array = hall_manifest.get(
@@ -347,9 +346,20 @@ func _init() -> void:
 			"runtime_tiles", []) as Array
 		var hall_runtime_audit: Dictionary = hall_manifest.get(
 			"current_runtime_audit", {}) as Dictionary
-		var current_hall_revision: Dictionary = manifest.get(
+		var historical_hall_revision: Dictionary = manifest.get(
 			"runtime_correction_2026_08_04", {}) as Dictionary
-		var current_hall_background: Dictionary = current_hall_revision.get(
+		var current_hall_revision: Dictionary = manifest.get(
+			"runtime_correction_2026_08_22", {}) as Dictionary
+		var current_runtime_contract: Dictionary = current_hall_revision.get(
+			"runtime_node_contract", manifest.get(
+				"runtime_node_contract", {})) as Dictionary
+		var current_forbidden_nodes: Array = current_runtime_contract.get(
+			"canvas_art_forbidden", current_runtime_contract.get(
+				"world_art_forbidden", [])) as Array
+		var current_allowed_nodes: Array = current_runtime_contract.get(
+			"canvas_art_allowed", current_runtime_contract.get(
+				"world_art_allowed", [])) as Array
+		var current_hall_background: Dictionary = historical_hall_revision.get(
 			"background_contract", {}) as Dictionary
 		var hall_manifest_tiles_current := hall_manifest_tiles.size() == 16
 		for hall_tile_value: Variant in hall_manifest_tiles:
@@ -384,11 +394,28 @@ func _init() -> void:
 				== "audit/castle_sprite3d/castle_main_hall_redraw_2026-08-04_2k_audit.json"
 			and String(hall_runtime_audit.get("node_inventory", ""))
 				== "audit/castle_sprite3d/castle_main_hall_redraw_2026-08-03_node_inventory.json"
+			and String(historical_hall_revision.get("status", ""))
+				== "historical_superseded"
 			and String(current_hall_revision.get("status", ""))
 				== "accepted_current_runtime"
 			and bool(current_hall_background.get("all_cards_unshaded", false))
 			and int(current_hall_background.get("runtime_tile_count", 0)) == 16
-			and current_hall_zero_bleed)
+			and current_hall_zero_bleed
+			and String(current_runtime_contract.get(
+				"world_root", current_runtime_contract.get("canvas_root", "")))
+				== "Node2D"
+			and String(current_runtime_contract.get("camera", "")) == "none"
+			and String(current_runtime_contract.get(
+				"coordinate_system", "")) in [
+				"direct_canvas", "direct_canvas_coordinates"]
+			and current_allowed_nodes.has("Sprite2D:unshaded")
+			and current_forbidden_nodes.has("Node" + "3D")
+			and current_forbidden_nodes.has("Sprite3D")
+			and current_forbidden_nodes.has("Camera3D")
+			and current_forbidden_nodes.has("MeshInstance3D")
+			and current_forbidden_nodes.has("MultiMeshInstance" + "3D")
+			and current_forbidden_nodes.has("CSGShape" + "3D")
+			and current_forbidden_nodes.has("Decal"))
 		var native_contract: Dictionary = manifest.get(
 			"owner_native_environment_contract", {}) as Dictionary
 		var required_ratio: Array = native_contract.get(
@@ -450,27 +477,27 @@ func _init() -> void:
 		_ck("library_mid_layer", main.castle_room_mid_layer.get_child_count() == 0)
 		_ck("library_front_layers", main.castle_room_front_layer.get_child_count() == 2)
 		_ck("library_node_inventory",
-			main.castle_room_background is Sprite3D
+			main.castle_room_background is Sprite2D
 			and main.castle_room_background_tiles.size() == 16
 			and main.castle_room_detail_tiles.size() == 8
 			and _dictionary_has_exact_keys(
 				main.castle_room_item_sprites,
 				EXPECTED_ROOM_ITEM_IDS["library"] as Array)
 			and main.castle_room_front_layer.get_child_count() == 2
-			and main.castle_room_player_sprite is Sprite3D
-			and main.castle_room_player_shadow is Sprite3D)
-		var library_book: Sprite3D = (
+			and main.castle_room_player_sprite is Sprite2D
+			and main.castle_room_player_shadow is Sprite2D)
+		var library_book: Sprite2D = (
 			main.castle_room_item_sprites["magic_book"] as Dictionary
-			).get("sprite") as Sprite3D
-		var library_table: Sprite3D = (
+			).get("sprite") as Sprite2D
+		var library_table: Sprite2D = (
 			main.castle_room_item_sprites["pearl_table"] as Dictionary
-			).get("sprite") as Sprite3D
+			).get("sprite") as Sprite2D
 		_ck("library_depth_bands",
-			main.castle_room_background.position.z
-				< library_book.position.z
-			and library_book.position.z < library_table.position.z
-			and library_table.position.z
-				< (main.castle_room_front_layer.get_child(0) as Sprite3D).position.z)
+			main.castle_room_background.z_index
+				< library_book.z_index
+			and library_book.z_index < library_table.z_index
+			and library_table.z_index
+				< (main.castle_room_front_layer.get_child(0) as Sprite2D).z_index)
 		var room_items_ok := true
 		var room_hotspots_ok := true
 		var room_cards_ok := true
@@ -504,8 +531,8 @@ func _init() -> void:
 			for item_id_value: Variant in main.castle_room_item_sprites:
 				var item_record: Dictionary = main.castle_room_item_sprites[
 					item_id_value] as Dictionary
-				var item_sprite: Sprite3D = item_record.get("sprite") as Sprite3D
-				item_depths[snappedf(item_sprite.position.z, 0.01)] = true
+				var item_sprite: Sprite2D = item_record.get("sprite") as Sprite2D
+				item_depths[snappedf(float(item_sprite.z_index), 0.01)] = true
 				room_depth_ok = room_depth_ok \
 					and String(item_sprite.get_meta(
 						"source_asset_role", "")) == "unique_object" \
@@ -535,7 +562,7 @@ func _init() -> void:
 		_ck("room_touch_inventory_matches_design", room_hotspots_ok)
 		_ck("source_owned_v4_items_match_audited_design", native_v4_items_ok)
 		_ck("native_healed_background_routes_match_design", native_backgrounds_ok)
-		_ck("all_room_art_uses_sprite3d_contract", room_cards_ok)
+		_ck("all_room_art_uses_sprite2d_contract", room_cards_ok)
 		_ck("objects_have_authored_real_depth", room_depth_ok)
 		_ck("speedy_visible_card_budget", overdraw_budget_ok)
 		rooms.show_room("bubble_bath", false)
@@ -543,7 +570,7 @@ func _init() -> void:
 		var toilet_button: Button = main.castle_room_item_hotspot_layer.get_node_or_null(
 			"Touch_toilet") as Button
 		var toilet_record: Dictionary = main.castle_room_item_sprites.get("toilet", {})
-		var toilet_sprite: Sprite3D = toilet_record.get("sprite") as Sprite3D
+		var toilet_sprite: Sprite2D = toilet_record.get("sprite") as Sprite2D
 		var toilet_rig: Dictionary = toilet_record.get(
 			"fixture_rig", {}) as Dictionary
 		var toilet_visual: Dictionary = toilet_rig.get(
@@ -551,11 +578,9 @@ func _init() -> void:
 		var toilet_water: Array = toilet_rig.get("water", []) as Array
 		var expected_toilet_sheet: String = "res://" + String(
 			toilet_visual.get("sheet", ""))
-		main.castle_room_camera.position = Vector3(
-			0.0, 0.0, CastleRooms25D.CAMERA_DISTANCE)
 		rooms._update_touch_hotspots()
-		var toilet_screen: Vector2 = main.castle_room_camera.unproject_position(
-			toilet_sprite.global_position)
+		var toilet_screen: Vector2 = toilet_sprite.get_global_transform_with_canvas() \
+			* Vector2.ZERO
 		var toilet_stage: Vector2 = rooms._screen_to_stage(toilet_screen)
 		_ck("projected_touch_hit_mapping",
 			toilet_button != null
@@ -564,23 +589,11 @@ func _init() -> void:
 			"stage=%s hit=%s" % [
 				str(toilet_stage),
 				str(Rect2(toilet_button.position, toilet_button.size))])
-		var front_card: Sprite3D = main.castle_room_front_layer.get_child(0) as Sprite3D
-		var backdrop_x_before: float = main.castle_room_camera.unproject_position(
-			main.castle_room_background.global_position).x
-		var front_x_before: float = main.castle_room_camera.unproject_position(
-			front_card.global_position).x
-		main.castle_room_camera.position.x = 0.12
-		var backdrop_shift: float = absf(
-			main.castle_room_camera.unproject_position(
-				main.castle_room_background.global_position).x
-			- backdrop_x_before)
-		var front_shift: float = absf(
-			main.castle_room_camera.unproject_position(
-				front_card.global_position).x - front_x_before)
-		_ck("real_depth_parallax", front_shift > backdrop_shift + 0.05,
-			"back=%.2f front=%.2f" % [backdrop_shift, front_shift])
-		main.castle_room_camera.position = Vector3(
-			0.0, 0.0, CastleRooms25D.CAMERA_DISTANCE)
+		var front_card: Sprite2D = main.castle_room_front_layer.get_child(0) as Sprite2D
+		_ck("direct_canvas_depth_order", front_card.z_index
+			> main.castle_room_background.z_index,
+			"back=%d front=%d" % [main.castle_room_background.z_index,
+				front_card.z_index])
 		var walk_target := Vector2(260.0, 430.0)
 		rooms._walk_cutout_to(_stage_to_screen(
 			main.castle_room_stage, walk_target))
@@ -591,9 +604,9 @@ func _init() -> void:
 		rooms._position_player_at_foot(requested_foot, false)
 		var toilet_texture: Texture2D = toilet_sprite.texture
 		var toilet_data: Dictionary = toilet_record.get("data", {}) as Dictionary
-		var toilet_start_position: Vector3 = toilet_sprite.position
-		var toilet_start_scale: Vector3 = toilet_sprite.scale
-		var toilet_start_rotation: Vector3 = toilet_sprite.rotation
+		var toilet_start_position: Vector2 = toilet_sprite.position
+		var toilet_start_scale: Vector2 = toilet_sprite.scale
+		var toilet_start_rotation: float = toilet_sprite.rotation
 		main.castle_room_prop_sfx.stop()
 		main.castle_room_prop_sfx.stream = null
 		if toilet_button != null:
@@ -619,8 +632,8 @@ func _init() -> void:
 		var effect_count: int = main.castle_room_item_effect_layer.get_child_count()
 		var toilet_water_layer: Dictionary = toilet_water[0] as Dictionary \
 			if toilet_water.size() == 1 else {}
-		var toilet_water_node: Sprite3D = toilet_water_layer.get(
-			"node") as Sprite3D
+		var toilet_water_node: Sprite2D = toilet_water_layer.get(
+			"node") as Sprite2D
 		_ck("toilet_uses_bounded_fixture_water_not_generic_overlay",
 			effect_count == 0
 			and toilet_water.size() == 1
@@ -632,7 +645,7 @@ func _init() -> void:
 				"castle_fixture_water", false))
 			and bool(toilet_water_node.get_meta(
 				"bounded_to_fixture", false))
-			and not toilet_water_node.no_depth_test
+			and toilet_water_node is Sprite2D
 			and not bool(toilet_water_node.get_meta(
 				"logic_authority", true)))
 		if toilet_button != null:
@@ -651,7 +664,7 @@ func _init() -> void:
 				and toilet_sprite.position.is_equal_approx(
 					toilet_start_position) \
 				and toilet_sprite.scale.is_equal_approx(toilet_start_scale) \
-				and toilet_sprite.rotation.is_equal_approx(
+				and is_equal_approx(toilet_sprite.rotation,
 					toilet_start_rotation)
 		var toilet_expected_frames: Array[int] = []
 		for toilet_frame_value: Variant in toilet_data.get(
@@ -682,14 +695,14 @@ func _init() -> void:
 			not bool(main.g.get("crown_won", false)))
 		rooms.show_room("library", false)
 		await _frames(2)
-		var sprite: Sprite3D = main.castle_room_player_sprite
-		var mid_card: Sprite3D = (
+		var sprite: Sprite2D = main.castle_room_player_sprite
+		var mid_card: Sprite2D = (
 			main.castle_room_item_sprites["pearl_table"] as Dictionary
-			).get("sprite") as Sprite3D
+			).get("sprite") as Sprite2D
 		rooms._position_player_at_foot(Vector2(640.0, 540.0), false)
-		_ck("sorts_behind_midground", sprite.position.z < mid_card.position.z)
+		_ck("sorts_behind_midground", sprite.z_index < mid_card.z_index)
 		rooms._position_player_at_foot(Vector2(640.0, 556.0), false)
-		_ck("sorts_in_front_of_midground", sprite.position.z > mid_card.position.z)
+		_ck("sorts_in_front_of_midground", sprite.z_index > mid_card.z_index)
 		rooms.show_room("main_hall", false)
 		var royal_hall_button: Button = null
 		for portal_record: Dictionary in main.castle_room_door_hotspots:

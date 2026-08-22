@@ -156,7 +156,7 @@ func _class_case() -> void:
 	rooms._tick_royal_hall_mist(1.0)
 	var royal_hall_mist_restored := \
 		main.castle_royal_hall_mist_cards.size() == 5
-	for mist: Sprite3D in main.castle_royal_hall_mist_cards:
+	for mist: Sprite2D in main.castle_royal_hall_mist_cards:
 		var rest_alpha: float = float(mist.get_meta("mist_rest_alpha", 0.0))
 		royal_hall_mist_restored = royal_hall_mist_restored \
 			and mist.modulate.a >= rest_alpha * 0.90

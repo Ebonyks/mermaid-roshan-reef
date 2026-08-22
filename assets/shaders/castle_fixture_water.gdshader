@@ -1,12 +1,12 @@
-// Castle fixture water for front-facing 2.5D props.
+// Castle fixture water for true-2D Canvas props.
 //
 // This is deliberately UV driven: castle sinks, bowls, tubs, fountains and
 // waterfall ribbons face the camera instead of lying on the world's XZ plane.
 // It reuses the reef's approved ripple and caustic textures. Exact per-fixture
-// masks bound every card, and depth_draw_never prevents translucent water from
-// erasing Roshan or another cutout behind it on the Mobile renderer.
-shader_type spatial;
-render_mode unshaded, cull_disabled, depth_draw_never;
+// masks bound every card, and CanvasItem compositing prevents translucent water
+// from erasing Roshan or another cutout behind it on the Mobile renderer.
+shader_type canvas_item;
+render_mode unshaded, blend_mix;
 
 uniform sampler2D shape_mask : source_color, filter_linear;
 uniform sampler2D ripple : hint_normal, repeat_enable, filter_linear_mipmap;
@@ -63,9 +63,7 @@ void fragment() {
 	vec3 base = mix(deep_color, shallow_color,
 		clamp(0.24 + painted_ripple * 0.72, 0.0, 1.0));
 	base = mix(base, foam_color, clamp(foam + shimmer * 0.28, 0.0, 1.0));
-	ALBEDO = base;
-	EMISSION = base * (0.16 + shimmer * 0.10) + foam_color * foam * 0.16;
-	ROUGHNESS = 0.18;
-	METALLIC = 0.08;
-	ALPHA = alpha_base * visible * (0.78 + painted_ripple * turbulence * 0.20);
+	vec3 emission = base * (0.16 + shimmer * 0.10) + foam_color * foam * 0.16;
+	COLOR = vec4(base + emission, alpha_base * visible
+		* (0.78 + painted_ripple * turbulence * 0.20));
 }

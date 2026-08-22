@@ -101,3 +101,32 @@ static func configure_radial_halo(
 	halo.modulate = color(kind, false)
 	halo.set_meta("affordance_kind", normalize(kind))
 	halo.set_meta("affordance_base_scale", halo.scale)
+
+
+static func make_radial_halo_2d(kind: String, size: Vector2) -> Sprite2D:
+	var gradient_texture := GradientTexture2D.new()
+	gradient_texture.width = 128
+	gradient_texture.height = 128
+	gradient_texture.fill = GradientTexture2D.FILL_RADIAL
+	gradient_texture.fill_from = Vector2(0.5, 0.5)
+	gradient_texture.fill_to = Vector2(0.5, 0.0)
+	var gradient := Gradient.new()
+	gradient.set_color(0, Color(1.0, 1.0, 1.0, 0.90))
+	gradient.set_color(1, Color(1.0, 1.0, 1.0, 0.0))
+	gradient_texture.gradient = gradient
+	var halo := Sprite2D.new()
+	halo.texture = gradient_texture
+	configure_radial_halo_2d(halo, kind, size)
+	return halo
+
+
+static func configure_radial_halo_2d(
+		halo: Sprite2D, kind: String, size: Vector2) -> void:
+	if halo == null:
+		return
+	halo.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	halo.scale = size / Vector2(128.0, 128.0)
+	halo.position = Vector2.ZERO
+	halo.modulate = color(kind, false)
+	halo.set_meta("affordance_kind", normalize(kind))
+	halo.set_meta("affordance_base_scale", halo.scale)

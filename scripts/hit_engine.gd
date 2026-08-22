@@ -287,11 +287,24 @@ func _end_charge(fired: bool) -> void:
 # itself; on_hit encounters call it from their response. Returns the new
 # chain level; level 3 arms the SUPER.
 func note_hit(pos: Vector3) -> int:
+	var new_chain := _record_hit_chain()
+	if new_chain >= 3:
+		m._sparkle_burst(pos + Vector3(0, 2.5, 0), Color(1.0, 0.95, 0.6))
+	return new_chain
+
+
+# Canvas encounters share the same chain/audio/haptic state without routing a
+# 2D stage coordinate through the legacy world-space sparkle path. The caller
+# owns its visible Canvas celebration at the exact Sprite2D contact point.
+func note_hit_2d(_pos: Vector2) -> int:
+	return _record_hit_chain()
+
+
+func _record_hit_chain() -> int:
 	chain = mini(chain + 1, 3)
 	chain_t = CHAIN_T
 	if chain >= 3:
 		super_armed = true
-		m._sparkle_burst(pos + Vector3(0, 2.5, 0), Color(1.0, 0.95, 0.6))
 	m._audio_ref().pop(chain)
 	Juice.haptic(20)
 	_show_pips()

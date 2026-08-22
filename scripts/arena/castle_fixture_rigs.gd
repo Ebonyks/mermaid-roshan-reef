@@ -3,8 +3,8 @@ extends RefCounted
 
 # Object-local mechanics for the Pearl Castle interaction pass. Authored state
 # sheets animate the real fixture. This helper adds only manifest-measured fluid
-# emitted from the real outlet/cavity and capped Jolt secondary motion for
-# appropriate solids. Objective and menu logic never depend on body settling.
+# emitted from the real outlet/cavity and capped analytic spring motion for
+# appropriate solids. Objective and menu logic never depend on spring settling.
 
 const V2_BASE_MANIFEST_PATH := \
 	"res://assets/flats/castle/interactions_v2/castle_interactions_v2.json"
@@ -25,8 +25,8 @@ const RETIRED_V2_ASSET_IDS: Array[String] = [
 const WATER_SHADER := preload("res://assets/shaders/castle_fixture_water.gdshader")
 const RIPPLE_TEXTURE := preload("res://assets/terrain/up_water_nrm.jpg")
 const CAUSTICS_TEXTURE := preload("res://assets/terrain/caustics.png")
-const MAX_JOLT_BODIES := 12
-const MAX_AWAKE_BODIES := 8
+const MAX_SPRING_BODIES := 12
+const MAX_AWAKE_SPRINGS := 8
 const WATER_MASK_SIZE := 96
 const HINGE_TORQUE_IMPULSE := 0.0045
 const BUOYANT_VERTICAL_IMPULSE := 0.045
@@ -35,10 +35,16 @@ const MAX_HINGE_ANGLE := 0.21
 const MAX_BUOYANT_ANGLE := 0.12
 const MAX_HINGE_DISPLACEMENT := 0.35
 const MAX_BUOYANT_DISPLACEMENT := 0.06
-const JOLT_SETTLE_GRACE_TICKS := 6
-const JOLT_FORCE_SETTLE_TICKS := 300
-const JOLT_ANGULAR_SPRING := 0.16
-const JOLT_ANGULAR_DAMPING := 0.022
+const SPRING_SETTLE_GRACE_TICKS := 6
+const SPRING_FORCE_SETTLE_TICKS := 300
+const SPRING_ANGULAR_STIFFNESS := 18.0
+const SPRING_ANGULAR_DAMPING := 7.5
+const SPRING_LINEAR_STIFFNESS := 7.0
+const SPRING_LINEAR_DAMPING := 2.2
+const SPRING_HINGE_INITIAL_VELOCITY := 1.08
+const SPRING_BUOYANT_INITIAL_ANGULAR_VELOCITY := 0.72
+const SPRING_BUOYANT_INITIAL_VERTICAL_VELOCITY := 0.45
+const WORLD_TO_CANVAS_PIXELS := 64.0
 
 var _flow_profile: PackedFloat32Array = PackedFloat32Array([
 	0.0, 0.18, 0.62, 1.0, 1.0, 0.68, 0.20, 0.0,
@@ -54,6 +60,7 @@ var _declared_native_source_items: Dictionary = {}
 var _native_background_tile_roots: Dictionary = {}
 var _native_background_tile_specs: Dictionary = {}
 var _active_native_background_rooms: Dictionary = {}
+var _spring_rigs: Dictionary = {}
 
 
 func _init(main: ReefMain) -> void:
@@ -447,7 +454,7 @@ func rebuild_begin() -> void:
 	teardown()
 
 
-func build(interaction_key: String, piece: Sprite3D, item_data: Dictionary,
+func build(interaction_key: String, piece: Node, item_data: Dictionary,
 		source_position: Vector2, placement_size: Vector2, depth_z: float,
 		to_world: Callable) -> Dictionary:
 	var visual: Dictionary = item_data.get("v2_visual", {}) as Dictionary
@@ -461,9 +468,10 @@ func build(interaction_key: String, piece: Sprite3D, item_data: Dictionary,
 		"visual": visual,
 		"water": [],
 		"body": null,
+		"spring": null,
 		"physics_mode": String(visual.get("physics_mode", "none")),
-		"base_sprite_position": piece.position,
-		"base_sprite_rotation": piece.rotation.z,
+		"base_sprite_position": _node_position(piece),
+		"base_sprite_rotation": _node_rotation(piece),
 	}
 	var rig_mode: String = String(rig["physics_mode"])
 	rig["peak_angle_radians"] = 0.0
@@ -494,7 +502,7 @@ func build(interaction_key: String, piece: Sprite3D, item_data: Dictionary,
 	var water_layers: Array = visual.get("water_layers", []) as Array
 	_add_water_layers(rig, water_layers, source_position, placement_size,
 		depth_z, to_world)
-	_add_jolt_driver(rig, source_position, placement_size, depth_z, to_world)
+	_add_spring_driver(rig, source_position, placement_size, depth_z, to_world)
 	m.castle_room_fixture_rigs[interaction_key] = rig
 	return rig
 
@@ -504,17 +512,24 @@ func activate(interaction_key: String) -> void:
 		interaction_key, {}) as Dictionary
 	if rig.is_empty():
 		return
-	var body: RigidBody3D = rig.get("body") as RigidBody3D
-	if body == null or not is_instance_valid(body):
+	var spring := _spring_record(rig)
+	if spring.is_empty():
 		return
-	var already_awake := not body.freeze and not body.sleeping
-	if not already_awake and _awake_count() >= MAX_AWAKE_BODIES:
+	var already_awake := String(spring.get("phase", "idle")) != "idle"
+	if not already_awake and _awake_count() >= MAX_AWAKE_SPRINGS:
 		return
 	rig["peak_angle_radians"] = 0.0
 	rig["peak_displacement"] = 0.0
-	body.freeze = false
-	body.sleeping = false
 	var direction := -1.0 if abs(interaction_key.hash()) % 2 == 0 else 1.0
+	spring["direction"] = direction
+	spring["phase"] = "wake"
+	spring["active_ticks"] = 0
+	var mode := String(rig.get("physics_mode", "none"))
+	spring["angle_velocity"] = direction * (
+		SPRING_HINGE_INITIAL_VELOCITY if mode == "hinge_z"
+		else SPRING_BUOYANT_INITIAL_ANGULAR_VELOCITY)
+	spring["vertical_velocity"] = direction * (
+		SPRING_BUOYANT_INITIAL_VERTICAL_VELOCITY if mode == "buoyant" else 0.0)
 	rig["jolt_direction"] = direction
 	rig["jolt_phase"] = "wake"
 	rig["jolt_active_ticks"] = 0
@@ -534,7 +549,7 @@ func apply_frame(interaction_key: String, timeline_step: int,
 	for water_value: Variant in rig.get("water", []):
 		var water: Dictionary = water_value as Dictionary
 		var material: ShaderMaterial = water.get("material") as ShaderMaterial
-		var node: Sprite3D = water.get("node") as Sprite3D
+		var node: Sprite2D = water.get("node") as Sprite2D
 		if material == null or node == null:
 			continue
 		_update_polygon_water_for_frame(water, water_frame_index)
@@ -564,7 +579,7 @@ func apply_frame(interaction_key: String, timeline_step: int,
 		node.visible = layer_amount > 0.01
 		any_water_active = any_water_active or node.visible
 		water["flow_amount"] = layer_amount
-	var sprite: Sprite3D = rig.get("sprite") as Sprite3D
+	var sprite: Node = rig.get("sprite") as Node
 	if sprite != null:
 		sprite.set_meta("fixture_timeline_frame", timeline_step)
 		sprite.set_meta("fixture_timeline_frame_count", timeline_count)
@@ -573,16 +588,11 @@ func apply_frame(interaction_key: String, timeline_step: int,
 
 
 func tick(_delta: float) -> void:
-	var alive: Array[RigidBody3D] = []
-	var awake := 0
-	for body: RigidBody3D in m.castle_room_fixture_physics:
-		if body == null or not is_instance_valid(body):
-			continue
-		alive.append(body)
-		if not body.sleeping and not body.freeze:
-			awake += 1
-	m.castle_room_fixture_physics = alive
-	m.g["castle_fixture_jolt_allocated"] = alive.size()
+	var awake := _awake_count()
+	m.g["castle_fixture_spring_allocated"] = _spring_rigs.size()
+	m.g["castle_fixture_spring_awake"] = awake
+	# Compatibility telemetry for older callers; these are analytic springs now.
+	m.g["castle_fixture_jolt_allocated"] = _spring_rigs.size()
 	m.g["castle_fixture_jolt_awake"] = awake
 	for rig_value: Variant in m.castle_room_fixture_rigs.values():
 		_tick_bubbles(rig_value as Dictionary)
@@ -590,16 +600,18 @@ func tick(_delta: float) -> void:
 
 func physics_tick(_delta: float) -> void:
 	for rig_value: Variant in m.castle_room_fixture_rigs.values():
-		_tick_body(rig_value as Dictionary)
+		_tick_spring(rig_value as Dictionary, _delta)
 
 
 func stats() -> Dictionary:
 	return {
 		"rigs": m.castle_room_fixture_rigs.size(),
-		"allocated": m.castle_room_fixture_physics.size(),
+		"allocated": _spring_rigs.size(),
 		"awake": _awake_count(),
-		"body_cap": MAX_JOLT_BODIES,
-		"awake_cap": MAX_AWAKE_BODIES,
+		"body_cap": MAX_SPRING_BODIES,
+		"awake_cap": MAX_AWAKE_SPRINGS,
+		"spring_cap": MAX_SPRING_BODIES,
+		"spring_awake_cap": MAX_AWAKE_SPRINGS,
 		"water_mask_cache_entries": _water_mask_cache.size(),
 		"native_v4_loaded": int(m.g.get(
 			"castle_fixture_native_v4_loaded", 0)),
@@ -611,18 +623,20 @@ func stats() -> Dictionary:
 
 
 func teardown() -> void:
-	for body: RigidBody3D in m.castle_room_fixture_physics:
-		if body != null and is_instance_valid(body):
-			body.free()
 	for rig_value: Variant in m.castle_room_fixture_rigs.values():
 		var rig: Dictionary = rig_value as Dictionary
 		for water_value: Variant in rig.get("water", []):
 			var water: Dictionary = water_value as Dictionary
-			var node: Sprite3D = water.get("node") as Sprite3D
+			var node: Sprite2D = water.get("node") as Sprite2D
 			if node != null and is_instance_valid(node):
+				node.visible = false
+				if node.get_parent() != null:
+					node.get_parent().remove_child(node)
 				node.free()
-	m.castle_room_fixture_physics.clear()
+	_spring_rigs.clear()
 	m.castle_room_fixture_rigs.clear()
+	m.g.erase("castle_fixture_spring_allocated")
+	m.g.erase("castle_fixture_spring_awake")
 	m.g.erase("castle_fixture_jolt_allocated")
 	m.g.erase("castle_fixture_jolt_awake")
 
@@ -634,6 +648,13 @@ func _add_water_layers(rig: Dictionary, layers: Array,
 		return
 	for layer_value: Variant in layers:
 		var layer: Dictionary = layer_value as Dictionary
+		# The authored bathtub already carries its faucet hardware and stream
+		# contact in the complete source-owned atlas. The old quad stream added a
+		# conspicuous rectangular cyan strip on Mobile, so keep the basin water
+		# only and preserve the interaction/timeline unchanged.
+		if String(rig.get("key", "")) == "bubble_bath:bathtub" \
+				and String(layer.get("role", "")) == "stream":
+			continue
 		if String(layer.get("role", "")) == "bubble_emitter":
 			_add_bubble_emitter(rig, layer, source_position, placement_size,
 				depth_z, to_world)
@@ -687,38 +708,29 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 	var z_offset: float = float(layer.get("z_offset", 0.010))
 	var center_normalized := bounds.position + bounds.size * 0.5
 	var center_art := source_position + center_normalized * placement_size
-	var center_world: Vector3 = to_world.call(center_art, depth_z + z_offset)
-	var left_world: Vector3 = to_world.call(
-		Vector2(source_position.x + bounds.position.x * placement_size.x,
-			center_art.y), depth_z + z_offset)
-	var right_world: Vector3 = to_world.call(
-		Vector2(source_position.x + bounds.end.x * placement_size.x,
-			center_art.y), depth_z + z_offset)
-	var top_world: Vector3 = to_world.call(
-		Vector2(center_art.x,
-			source_position.y + bounds.position.y * placement_size.y),
-		depth_z + z_offset)
-	var bottom_world: Vector3 = to_world.call(
-		Vector2(center_art.x,
-			source_position.y + bounds.end.y * placement_size.y),
-		depth_z + z_offset)
-	var node := Sprite3D.new()
+	var center_canvas := _canvas_point(to_world.call(center_art, depth_z + z_offset))
+	var left_canvas := _canvas_point(to_world.call(Vector2(
+		source_position.x + bounds.position.x * placement_size.x,
+		center_art.y), depth_z + z_offset))
+	var right_canvas := _canvas_point(to_world.call(Vector2(
+		source_position.x + bounds.end.x * placement_size.x,
+		center_art.y), depth_z + z_offset))
+	var top_canvas := _canvas_point(to_world.call(Vector2(center_art.x,
+		source_position.y + bounds.position.y * placement_size.y),
+		depth_z + z_offset))
+	var bottom_canvas := _canvas_point(to_world.call(Vector2(center_art.x,
+		source_position.y + bounds.end.y * placement_size.y),
+		depth_z + z_offset))
+	var node := Sprite2D.new()
 	node.name = "FixtureWater_" + String(layer.get("role", "water"))
 	node.texture = mask_texture
 	node.centered = true
-	node.shaded = false
-	node.no_depth_test = false
-	node.billboard = BaseMaterial3D.BILLBOARD_DISABLED
-	node.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
-	node.pixel_size = 0.01
-	node.scale = Vector3(
-		absf(right_world.x - left_world.x)
-			/ (float(WATER_MASK_SIZE) * node.pixel_size),
-		absf(top_world.y - bottom_world.y)
-			/ (float(WATER_MASK_SIZE) * node.pixel_size),
-		1.0)
-	node.position = center_world
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	node.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	node.scale = Vector2(
+		absf(right_canvas.x - left_canvas.x) / float(WATER_MASK_SIZE),
+		absf(bottom_canvas.y - top_canvas.y) / float(WATER_MASK_SIZE))
+	node.position = center_canvas
+	node.z_index = int(round((depth_z + z_offset) * 100.0))
 	var material := ShaderMaterial.new()
 	material.shader = WATER_SHADER
 	material.set_shader_parameter("shape_mask", mask_texture)
@@ -737,8 +749,11 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 		_layer_color(layer, "deep", Color(0.10, 0.50, 0.76)))
 	material.set_shader_parameter("shallow_color",
 		_layer_color(layer, "shallow", Color(0.48, 0.90, 0.96)))
-	material.set_shader_parameter("alpha_base",
-		float(layer.get("alpha_base", 0.84)))
+	var alpha_base := float(layer.get("alpha_base", 0.84))
+	if String(rig.get("key", "")) == "bubble_bath:bathtub" \
+			and role == "fill":
+		alpha_base = minf(alpha_base, 0.24)
+	material.set_shader_parameter("alpha_base", alpha_base)
 	material.set_shader_parameter("turbulence",
 		float(layer.get("turbulence", 0.65)))
 	material.set_shader_parameter("edge_foam",
@@ -746,7 +761,7 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 	material.set_shader_parameter("flow_speed",
 		float(layer.get("flow_speed", 1.0)))
 	material.render_priority = int(layer.get("render_priority", 1))
-	node.material_override = material
+	node.material = material
 	node.visible = false
 	node.set_meta("castle_fixture_water", true)
 	node.set_meta("water_role", role)
@@ -807,7 +822,7 @@ func _update_polygon_water_for_frame(water: Dictionary,
 	var bounds := _polygon_bounds(points)
 	if bounds.size.x <= 0.0001 or bounds.size.y <= 0.0001:
 		return
-	var node: Sprite3D = water.get("node") as Sprite3D
+	var node: Sprite2D = water.get("node") as Sprite2D
 	var material: ShaderMaterial = water.get("material") as ShaderMaterial
 	if node == null or material == null:
 		return
@@ -818,28 +833,26 @@ func _update_polygon_water_for_frame(water: Dictionary,
 		"source_position", Vector2.ZERO) as Vector2
 	var placement_size: Vector2 = water.get(
 		"placement_size", Vector2.ONE) as Vector2
-	var to_world: Callable = water.get("to_world") as Callable
 	var depth_z: float = float(water.get("depth_z", 0.0))
+	var to_world: Callable = water.get("to_world") as Callable
 	var center_normalized := bounds.position + bounds.size * 0.5
 	var center_art := source_position + center_normalized * placement_size
-	var center_world: Vector3 = to_world.call(center_art, depth_z)
-	var left_world: Vector3 = to_world.call(Vector2(
+	var center_canvas := _canvas_point(to_world.call(center_art, depth_z))
+	var left_canvas := _canvas_point(to_world.call(Vector2(
 		source_position.x + bounds.position.x * placement_size.x,
-		center_art.y), depth_z)
-	var right_world: Vector3 = to_world.call(Vector2(
+		center_art.y), depth_z))
+	var right_canvas := _canvas_point(to_world.call(Vector2(
 		source_position.x + bounds.end.x * placement_size.x,
-		center_art.y), depth_z)
-	var top_world: Vector3 = to_world.call(Vector2(center_art.x,
-		source_position.y + bounds.position.y * placement_size.y), depth_z)
-	var bottom_world: Vector3 = to_world.call(Vector2(center_art.x,
-		source_position.y + bounds.end.y * placement_size.y), depth_z)
-	node.position = center_world
-	node.scale = Vector3(
-		absf(right_world.x - left_world.x)
-			/ (float(WATER_MASK_SIZE) * node.pixel_size),
-		absf(top_world.y - bottom_world.y)
-			/ (float(WATER_MASK_SIZE) * node.pixel_size),
-		1.0)
+		center_art.y), depth_z))
+	var top_canvas := _canvas_point(to_world.call(Vector2(center_art.x,
+		source_position.y + bounds.position.y * placement_size.y), depth_z))
+	var bottom_canvas := _canvas_point(to_world.call(Vector2(center_art.x,
+		source_position.y + bounds.end.y * placement_size.y), depth_z))
+	node.position = center_canvas
+	node.scale = Vector2(
+		absf(right_canvas.x - left_canvas.x) / float(WATER_MASK_SIZE),
+		absf(bottom_canvas.y - top_canvas.y) / float(WATER_MASK_SIZE))
+	node.z_index = int(round(depth_z * 100.0))
 	var outlet := _layer_outlet(geometry)
 	node.set_meta("fixture_bounds_normalized", bounds)
 	node.set_meta("fixture_outlet_normalized", outlet)
@@ -930,13 +943,13 @@ func _position_water_for_frame(water: Dictionary, timeline_t: float) -> void:
 		"source_position", Vector2.ZERO) as Vector2
 	var placement_size: Vector2 = water.get(
 		"placement_size", Vector2.ONE) as Vector2
-	var to_world: Callable = water.get("to_world") as Callable
 	var depth_z: float = float(water.get("depth_z", 0.0))
 	var art_position := source_position + center * placement_size
-	var node: Sprite3D = water.get("node") as Sprite3D
+	var to_world: Callable = water.get("to_world") as Callable
+	var node: Sprite2D = water.get("node") as Sprite2D
 	if node == null:
 		return
-	node.position = to_world.call(art_position, depth_z)
+	node.position = _canvas_point(to_world.call(art_position, depth_z))
 	water["base_position"] = node.position
 	water["base_center_normalized"] = base_center
 
@@ -978,198 +991,141 @@ func _layer_color(layer: Dictionary, key: String, fallback: Color) -> Color:
 	return fallback
 
 
-func _add_jolt_driver(rig: Dictionary, source_position: Vector2,
+func _add_spring_driver(rig: Dictionary, source_position: Vector2,
 		placement_size: Vector2, depth_z: float, to_world: Callable) -> void:
-	var mode: String = String(rig.get("physics_mode", "none"))
-	if mode == "none" or m.castle_room_fixture_physics.size() >= MAX_JOLT_BODIES:
+	var mode := String(rig.get("physics_mode", "none"))
+	if mode == "none" or _spring_rigs.size() >= MAX_SPRING_BODIES:
 		return
 	var visual: Dictionary = rig.get("visual", {}) as Dictionary
 	var pivot_array: Array = visual.get("physics_pivot", [0.5, 0.5]) as Array
-	var pivot_normalized := Vector2(
-		float(pivot_array[0]), float(pivot_array[1]))
+	var pivot_normalized := Vector2(float(pivot_array[0]), float(pivot_array[1]))
+	var sprite: Node = rig.get("sprite") as Node
+	var rest_position := _node_position(sprite)
 	var pivot_art := source_position + pivot_normalized * placement_size
-	var pivot_world: Vector3 = to_world.call(pivot_art, depth_z)
-	var sprite: Sprite3D = rig.get("sprite") as Sprite3D
-	var body := RigidBody3D.new()
-	body.name = "CastleFixtureJolt_" + String(rig.get("key", "fixture"))
-	body.collision_layer = 0
-	body.collision_mask = 0
-	body.mass = 0.65
-	body.gravity_scale = 0.0
-	body.linear_damp = 2.8
-	body.angular_damp = 3.8
-	body.can_sleep = true
-	body.axis_lock_linear_x = true
-	body.axis_lock_linear_z = true
-	body.axis_lock_angular_x = true
-	body.axis_lock_angular_y = true
-	body.axis_lock_angular_z = false
-	body.axis_lock_linear_y = mode == "hinge_z"
-	var collision := CollisionShape3D.new()
-	var shape := BoxShape3D.new()
-	shape.size = Vector3(0.12, 0.12, 0.05)
-	collision.shape = shape
-	body.add_child(collision)
-	body.position = pivot_world if mode == "hinge_z" else sprite.position
-	body.freeze = true
-	body.set_meta("castle_fixture_jolt_garnish", true)
-	body.set_meta("logic_authority", false)
-	body.set_meta("sleep_required", true)
-	body.set_meta("depth_axis_locked", true)
-	m.castle_room_item_visual_layer.add_child(body)
-	m.castle_room_fixture_physics.append(body)
-	rig["body"] = body
-	rig["rest_body_position"] = body.position
-	rig["pivot_offset"] = sprite.position - body.position
-	rig["base_sprite_position"] = sprite.position
+	var pivot_position := _canvas_point(to_world.call(pivot_art, depth_z))
+	var spring := {
+		"phase": "idle", "active_ticks": 0, "direction": 1.0,
+		"angle": 0.0, "angle_velocity": 0.0, "displacement": 0.0,
+		"vertical_velocity": 0.0, "rest_position": rest_position,
+		"pivot_offset": rest_position - pivot_position,
+	}
+	rig["spring"] = spring
+	rig["rest_body_position"] = rest_position
+	rig["pivot_offset"] = spring["pivot_offset"]
+	rig["base_sprite_position"] = rest_position
+	# The source interaction contract retains its legacy world displacement key.
+	# Expose a Canvas-space cap per rig so probes can enforce containment without
+	# mixing units. Buoyant rigs translate the legacy linear cap directly; hinge
+	# rigs use the actual pivot arc at their configured maximum angle, while still
+	# honoring the legacy cap when it is tighter.
+	var legacy_canvas_cap := float(
+		rig.get("max_displacement", 0.0)) * WORLD_TO_CANVAS_PIXELS
+	if mode == "hinge_z":
+		var pivot_offset: Vector2 = spring["pivot_offset"] as Vector2
+		var max_angle := float(rig.get(
+			"max_angle_radians", MAX_HINGE_ANGLE))
+		var pivot_arc_canvas := 2.0 * pivot_offset.length() \
+			* sin(max_angle * 0.5)
+		rig["max_displacement_canvas"] = minf(
+			pivot_arc_canvas, legacy_canvas_cap)
+	else:
+		rig["max_displacement_canvas"] = legacy_canvas_cap
 	rig["jolt_direction"] = 1.0
 	rig["jolt_phase"] = "idle"
 	rig["jolt_active_ticks"] = 0
+	_spring_rigs[String(rig.get("key", "fixture"))] = spring
 
 
-func _tick_body(rig: Dictionary) -> void:
-	var body: RigidBody3D = rig.get("body") as RigidBody3D
-	var sprite: Sprite3D = rig.get("sprite") as Sprite3D
-	if body == null or sprite == null or not is_instance_valid(body):
+func _tick_spring(rig: Dictionary, delta: float) -> void:
+	var spring := _spring_record(rig)
+	var sprite: Node = rig.get("sprite") as Node
+	if spring.is_empty() or sprite == null:
 		return
-	var rest_position: Vector3 = rig.get(
-		"rest_body_position", body.position) as Vector3
-	var jolt_phase: String = String(rig.get("jolt_phase", "idle"))
-	if body.freeze:
-		if jolt_phase == "idle":
-			return
-		body.freeze = false
-	if jolt_phase == "wake":
-		body.sleeping = false
+	var phase := String(spring.get("phase", "idle"))
+	if phase == "idle":
+		return
+	if phase == "wake":
+		spring["phase"] = "kick"
 		rig["jolt_phase"] = "kick"
 		return
-	if jolt_phase == "kick":
-		body.sleeping = false
-		_apply_jolt_impulse(rig)
+	if phase == "kick":
+		spring["phase"] = "observe"
 		rig["jolt_phase"] = "observe"
-		rig["jolt_active_ticks"] = 0
+		spring["active_ticks"] = 0
 		return
-	var active_ticks: int = int(rig.get("jolt_active_ticks", 0)) + 1
-	rig["jolt_active_ticks"] = active_ticks
-	if body.sleeping:
-		if active_ticks < JOLT_SETTLE_GRACE_TICKS:
-			body.sleeping = false
-			return
-		_settle_body(rig, rest_position)
-		return
-	var mode: String = String(rig.get("physics_mode", "none"))
-	var max_angle: float = float(rig.get("max_angle_radians", 0.12))
+	var step := clampf(delta, 0.001, 0.05)
+	var active_ticks := int(spring.get("active_ticks", 0)) + 1
+	spring["active_ticks"] = active_ticks
+	var mode := String(rig.get("physics_mode", "none"))
+	var angle := float(spring.get("angle", 0.0))
+	var angle_velocity := float(spring.get("angle_velocity", 0.0))
+	var displacement := float(spring.get("displacement", 0.0))
+	var vertical_velocity := float(spring.get("vertical_velocity", 0.0))
+	angle_velocity += (-angle * SPRING_ANGULAR_STIFFNESS
+		- angle_velocity * SPRING_ANGULAR_DAMPING) * step
+	angle += angle_velocity * step
+	var max_angle := float(rig.get("max_angle_radians", MAX_BUOYANT_ANGLE))
 	if mode == "hinge_z":
-		var hinge_displacement_limit: float = float(
-			rig.get("max_displacement", MAX_HINGE_DISPLACEMENT))
-		var pivot_offset: Vector3 = rig.get("pivot_offset", Vector3.ZERO)
-		var pivot_radius := Vector2(pivot_offset.x, pivot_offset.y).length()
-		if pivot_radius > hinge_displacement_limit * 0.5:
+		var pivot_offset: Vector2 = spring.get(
+			"pivot_offset", Vector2.ZERO) as Vector2
+		var pivot_radius := pivot_offset.length()
+		var displacement_cap := float(rig.get(
+			"max_displacement_canvas", 0.0))
+		if pivot_radius > displacement_cap * 0.5 and displacement_cap > 0.001:
 			var displacement_ratio := clampf(
-				(hinge_displacement_limit - 0.001) / (2.0 * pivot_radius),
+				(displacement_cap - 0.001) / (2.0 * pivot_radius),
 				0.0, 1.0)
 			max_angle = minf(max_angle, 2.0 * asin(displacement_ratio))
-	var angle: float = clampf(body.rotation.z, -max_angle, max_angle)
-	if not is_equal_approx(angle, body.rotation.z):
-		var clamped_rotation: Vector3 = body.rotation
-		clamped_rotation.z = angle
-		body.rotation = clamped_rotation
-		var angular_velocity: Vector3 = body.angular_velocity
-		angular_velocity.z = clampf(angular_velocity.z, -4.0, 4.0)
-		body.angular_velocity = angular_velocity
-	body.apply_torque(Vector3(
-		0.0, 0.0, -angle * JOLT_ANGULAR_SPRING
-			- body.angular_velocity.z * JOLT_ANGULAR_DAMPING))
+	angle = clampf(angle, -max_angle, max_angle)
 	if mode == "buoyant":
-		var max_displacement: float = float(rig.get("max_displacement", 0.06))
-		var displacement: float = body.position.y - rest_position.y
-		if absf(displacement) > max_displacement:
-			var clamped_position: Vector3 = body.position
-			clamped_position.y = rest_position.y + clampf(
-				displacement, -max_displacement, max_displacement)
-			body.position = clamped_position
-			var linear_velocity: Vector3 = body.linear_velocity
-			linear_velocity.y = clampf(linear_velocity.y, -0.32, 0.32)
-			body.linear_velocity = linear_velocity
-			displacement = body.position.y - rest_position.y
-		body.apply_central_force(Vector3(
-			0.0, -displacement * 7.0 - body.linear_velocity.y * 2.2, 0.0))
-	_sync_body_sprite(rig)
-	_record_body_peak(rig)
-	var position_error: float = body.position.distance_to(rest_position)
-	var recorded_motion: bool = \
-		float(rig.get("peak_angle_radians", 0.0)) > 0.001 \
-		and float(rig.get("peak_displacement", 0.0)) > 0.001
-	var naturally_settled: bool = absf(angle) < 0.008 \
-			and position_error < 0.008 \
-			and body.angular_velocity.length() < 0.012 \
-			and body.linear_velocity.length() < 0.012
-	if active_ticks >= JOLT_FORCE_SETTLE_TICKS \
-			or (active_ticks >= JOLT_SETTLE_GRACE_TICKS \
-				and recorded_motion and naturally_settled):
-		_settle_body(rig, rest_position)
-
-
-func _apply_jolt_impulse(rig: Dictionary) -> void:
-	var body: RigidBody3D = rig.get("body") as RigidBody3D
-	if body == null:
-		return
-	var mode: String = String(rig.get("physics_mode", "none"))
-	var direction: float = float(rig.get("jolt_direction", 1.0))
-	var impulse_scale: float = float(rig.get("impulse_scale", 1.0))
-	if mode == "hinge_z":
-		body.apply_torque_impulse(Vector3(
-			0.0, 0.0, direction * HINGE_TORQUE_IMPULSE * impulse_scale))
-	elif mode == "buoyant":
-		body.apply_central_impulse(Vector3(
-			0.0, BUOYANT_VERTICAL_IMPULSE * impulse_scale, 0.0))
-		body.apply_torque_impulse(Vector3(
-			0.0, 0.0, direction * BUOYANT_TORQUE_IMPULSE * impulse_scale))
-
-
-func _settle_body(rig: Dictionary, rest_position: Vector3) -> void:
-	var body: RigidBody3D = rig.get("body") as RigidBody3D
-	if body == null:
-		return
-	body.position = rest_position
-	body.rotation.z = 0.0
-	body.linear_velocity = Vector3.ZERO
-	body.angular_velocity = Vector3.ZERO
-	_sync_body_sprite(rig)
-	body.freeze = true
-	body.sleeping = true
-	rig["jolt_phase"] = "idle"
-	rig["jolt_active_ticks"] = 0
-
-
-func _record_body_peak(rig: Dictionary) -> void:
-	var body: RigidBody3D = rig.get("body") as RigidBody3D
-	var sprite: Sprite3D = rig.get("sprite") as Sprite3D
-	if body == null or sprite == null:
-		return
-	var base_position: Vector3 = rig.get(
-		"base_sprite_position", sprite.position) as Vector3
+		var max_displacement := float(rig.get(
+			"max_displacement", MAX_BUOYANT_DISPLACEMENT))
+		vertical_velocity += (-displacement * SPRING_LINEAR_STIFFNESS
+			- vertical_velocity * SPRING_LINEAR_DAMPING) * step
+		displacement += vertical_velocity * step
+		displacement = clampf(displacement, -max_displacement, max_displacement)
+	else:
+		displacement = 0.0
+	spring["angle"] = angle
+	spring["angle_velocity"] = angle_velocity
+	spring["displacement"] = displacement
+	spring["vertical_velocity"] = vertical_velocity
+	_sync_spring_sprite(rig)
+	var current_position := _node_position(sprite)
+	var base_position: Vector2 = rig.get(
+		"base_sprite_position", current_position) as Vector2
 	rig["peak_angle_radians"] = maxf(
-		float(rig.get("peak_angle_radians", 0.0)), absf(body.rotation.z))
+		float(rig.get("peak_angle_radians", 0.0)), absf(angle))
 	rig["peak_displacement"] = maxf(
 		float(rig.get("peak_displacement", 0.0)),
-		sprite.position.distance_to(base_position))
+		current_position.distance_to(base_position))
+	var settled := absf(angle) < 0.008 \
+		and current_position.distance_to(base_position) < 0.008 \
+		and absf(angle_velocity) < 0.012 and absf(vertical_velocity) < 0.012
+	if active_ticks >= SPRING_FORCE_SETTLE_TICKS \
+			or (active_ticks >= SPRING_SETTLE_GRACE_TICKS \
+			and float(rig.get("peak_angle_radians", 0.0)) > 0.001 \
+			and float(rig.get("peak_displacement", 0.0)) > 0.001
+			and settled):
+		_settle_spring(rig)
 
-func _sync_body_sprite(rig: Dictionary) -> void:
-	var body: RigidBody3D = rig.get("body") as RigidBody3D
-	var sprite: Sprite3D = rig.get("sprite") as Sprite3D
-	if body == null or sprite == null:
+
+func _settle_spring(rig: Dictionary) -> void:
+	var spring := _spring_record(rig)
+	var sprite: Node = rig.get("sprite") as Node
+	if spring.is_empty() or sprite == null:
 		return
-	var mode: String = String(rig.get("physics_mode", "none"))
-	var angle := body.rotation.z
-	if mode == "hinge_z":
-		var pivot_offset: Vector3 = rig.get("pivot_offset", Vector3.ZERO)
-		var rotated := Vector2(pivot_offset.x, pivot_offset.y).rotated(angle)
-		sprite.position = body.position + Vector3(
-			rotated.x, rotated.y, pivot_offset.z)
-	else:
-		sprite.position = body.position
-	sprite.rotation.z = angle
+	_set_node_position(sprite,
+		spring.get("rest_position", Vector2.ZERO) as Vector2)
+	_set_node_rotation(sprite, float(rig.get("base_sprite_rotation", 0.0)))
+	spring["phase"] = "idle"
+	spring["active_ticks"] = 0
+	spring["angle"] = 0.0
+	spring["angle_velocity"] = 0.0
+	spring["displacement"] = 0.0
+	spring["vertical_velocity"] = 0.0
+	rig["jolt_phase"] = "idle"
+	rig["jolt_active_ticks"] = 0
 
 
 func _tick_bubbles(rig: Dictionary) -> void:
@@ -1178,22 +1134,99 @@ func _tick_bubbles(rig: Dictionary) -> void:
 		var water: Dictionary = water_value as Dictionary
 		if String(water.get("role", "")) != "bubble":
 			continue
-		var node: Sprite3D = water.get("node") as Sprite3D
+		var node: Sprite2D = water.get("node") as Sprite2D
 		if node == null or not is_instance_valid(node):
 			continue
-		var base: Vector3 = water.get("base_position", Vector3.ZERO)
+		var base: Vector2 = water.get("base_position", Vector2.ZERO) as Vector2
 		var index: int = int(water.get("bubble_index", 0))
 		var amount: float = float(water.get("flow_amount", 0.0))
-		node.position = base + Vector3(
-			sin(now * 1.7 + float(index)) * 0.012 * amount,
-			fmod(now * (0.05 + float(index) * 0.009), 0.11) * amount,
-			0.0)
+		node.position = base + Vector2(
+			sin(now * 1.7 + float(index)) * 0.012
+				* WORLD_TO_CANVAS_PIXELS * amount,
+			fmod(now * (0.05 + float(index) * 0.009), 0.11)
+				* WORLD_TO_CANVAS_PIXELS * amount)
 
 
 func _awake_count() -> int:
 	var awake := 0
-	for body: RigidBody3D in m.castle_room_fixture_physics:
-		if body != null and is_instance_valid(body) \
-				and not body.freeze and not body.sleeping:
+	for value: Variant in _spring_rigs.values():
+		var spring: Dictionary = value as Dictionary
+		if String(spring.get("phase", "idle")) != "idle":
 			awake += 1
 	return awake
+
+
+func _spring_record(rig: Dictionary) -> Dictionary:
+	var value: Variant = rig.get("spring", null)
+	return value as Dictionary if value is Dictionary else {}
+
+
+func _sync_spring_sprite(rig: Dictionary) -> void:
+	var spring := _spring_record(rig)
+	var sprite: Node = rig.get("sprite") as Node
+	if spring.is_empty() or sprite == null:
+		return
+	var angle := float(spring.get("angle", 0.0))
+	var rest: Vector2 = spring.get("rest_position", Vector2.ZERO) as Vector2
+	var offset: Vector2 = spring.get("pivot_offset", Vector2.ZERO) as Vector2
+	if String(rig.get("physics_mode", "none")) == "hinge_z":
+		_set_node_position(sprite, rest + offset.rotated(angle) - offset)
+	else:
+		_set_node_position(sprite, rest + Vector2(
+			0.0, float(spring.get("displacement", 0.0))
+				* WORLD_TO_CANVAS_PIXELS))
+	_set_node_rotation(sprite,
+		float(rig.get("base_sprite_rotation", 0.0)) + angle)
+
+
+func _node_position(node: Node) -> Vector2:
+	if node == null:
+		return Vector2.ZERO
+	var value: Variant = node.get("position")
+	if value is Vector2:
+		return value as Vector2
+	if value == null:
+		return Vector2.ZERO
+	return Vector2(float(value.x), float(value.y))
+
+
+func _canvas_point(value: Variant) -> Vector2:
+	if value is Vector2:
+		return value as Vector2
+	if value == null:
+		return Vector2.ZERO
+	return Vector2(float(value.x), float(value.y))
+
+
+func _set_node_position(node: Node, position: Vector2) -> void:
+	if node == null:
+		return
+	var current: Variant = node.get("position")
+	if current is Vector2:
+		node.set("position", position)
+		return
+	if current == null:
+		return
+	current.x = position.x
+	current.y = position.y
+	node.set("position", current)
+
+
+func _node_rotation(node: Node) -> float:
+	if node == null:
+		return 0.0
+	var value: Variant = node.get("rotation")
+	if value is float or value is int:
+		return float(value)
+	return float(value.z)
+
+
+func _set_node_rotation(node: Node, angle: float) -> void:
+	if node == null:
+		return
+	var current: Variant = node.get("rotation")
+	if current is float or current is int:
+		node.set("rotation", angle)
+		return
+	current.z = angle
+	node.set("rotation", current)

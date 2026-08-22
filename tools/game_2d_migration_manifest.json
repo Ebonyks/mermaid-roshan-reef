@@ -7579,8 +7579,8 @@
     "model_import_sidecars": 157,
     "active_untracked_model_import_sidecars": 352,
     "model_archive_files": 0,
-    "production_3d_files": 64,
-    "probe_3d_files": 70,
+    "production_3d_files": 59,
+    "probe_3d_files": 68,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
     "archive_now_model_files": 0
@@ -11791,13 +11791,7 @@
   },
   "model_archive_files": {},
   "production_3d_files": {
-    "assets/flats/castle/interactions_v2/castle_interactions_v2.json": {
-      "Sprite3D": 1
-    },
     "assets/shaders/butterfly_flap.gdshader": {
-      "<spatial-shader>": 1
-    },
-    "assets/shaders/castle_fixture_water.gdshader": {
       "<spatial-shader>": 1
     },
     "assets/shaders/cel.gdshader": {
@@ -11830,31 +11824,6 @@
     },
     "assets/shaders/toon_water.gdshader": {
       "<spatial-shader>": 1
-    },
-    "scripts/arena/castle_fixture_rigs.gd": {
-      "BaseMaterial3D": 2,
-      "BoxShape3D": 1,
-      "CollisionShape3D": 1,
-      "GeometryInstance3D": 1,
-      "RigidBody3D": 17,
-      "Sprite3D": 22,
-      "Vector3": 38
-    },
-    "scripts/arena/castle_rooms_25d.gd": {
-      "<lowercase-3d-marker>": 2,
-      "BaseMaterial3D": 5,
-      "Basis": 1,
-      "Camera3D": 3,
-      "CastleRoomsSprite3DWorld": 1,
-      "DirectionalLight3D": 1,
-      "Environment": 4,
-      "GeometryInstance3D": 11,
-      "Light3D": 1,
-      "Node3D": 7,
-      "SpotLight3D": 1,
-      "Sprite3D": 100,
-      "SpriteBase3D": 5,
-      "Vector3": 55
     },
     "scripts/arena/courtyard_train.gd": {
       "<3d-multimesh>": 1,
@@ -12327,34 +12296,34 @@
       "BoxMesh": 8,
       "BoxShape3D": 1,
       "CPUParticles3D": 4,
-      "Camera3D": 2,
+      "Camera3D": 1,
       "CapsuleMesh": 1,
       "CollisionShape3D": 3,
       "CylinderMesh": 10,
       "CylinderShape3D": 1,
       "DirectionalLight3D": 3,
-      "Environment": 18,
+      "Environment": 16,
       "GPUParticles3D": 5,
       "GeometryInstance3D": 18,
       "Label3D": 8,
-      "Light3D": 4,
+      "Light3D": 3,
       "Mesh": 30,
       "MeshInstance3D": 88,
       "MultiMeshInstance3D": 2,
-      "Node3D": 102,
+      "Node3D": 97,
       "OmniLight3D": 17,
       "PackedVector3Array": 1,
       "PlaneMesh": 3,
       "ProceduralSkyMaterial": 2,
       "QuadMesh": 13,
       "Quaternion": 12,
-      "RigidBody3D": 7,
+      "RigidBody3D": 6,
       "Skeleton3D": 7,
       "Skin": 2,
       "Sky": 1,
       "SphereMesh": 9,
       "SphereShape3D": 1,
-      "Sprite3D": 16,
+      "Sprite3D": 10,
       "StandardMaterial3D": 65,
       "StaticBody3D": 2,
       "SurfaceTool": 10,
@@ -12446,9 +12415,6 @@
       "Camera3D": 1,
       "Vector3": 24
     },
-    "shaders/castle_fixture_bloom.gdshader": {
-      "<spatial-shader>": 1
-    },
     "shaders/castle_portal_cutout.gdshader": {
       "<spatial-shader>": 1,
       "Sprite3D": 1
@@ -12480,7 +12446,6 @@
       "Node3D": 10,
       "Quaternion": 1,
       "Skeleton3D": 1,
-      "Sprite3D": 1,
       "Vector3": 20
     },
     "scripts/probe_basement.gd": {
@@ -12489,10 +12454,7 @@
       "Vector3": 65
     },
     "scripts/probe_bathroom_integration.gd": {
-      "Camera3D": 1,
-      "RigidBody3D": 2,
-      "Sprite3D": 10,
-      "Vector3": 3
+      "Camera3D": 1
     },
     "scripts/probe_bathroom_props.gd": {
       "Sprite3D": 1
@@ -12511,22 +12473,6 @@
       "Node3D": 2,
       "Vector3": 18
     },
-    "scripts/probe_castle_pearl_art.gd": {
-      "<lowercase-3d-marker>": 1,
-      "BaseMaterial3D": 3,
-      "CSGShape3D": 3,
-      "Camera3D": 1,
-      "Decal": 1,
-      "Environment": 3,
-      "GeometryInstance3D": 2,
-      "Light3D": 4,
-      "MeshInstance3D": 3,
-      "MultiMeshInstance3D": 3,
-      "RigidBody3D": 3,
-      "Sprite3D": 94,
-      "SpriteBase3D": 14,
-      "Vector3": 23
-    },
     "scripts/probe_castle_shots.gd": {
       "Camera3D": 2,
       "Vector3": 32
@@ -12540,9 +12486,6 @@
       "<model-reference>": 2,
       "Node3D": 1
     },
-    "scripts/probe_combat_tutorial.gd": {
-      "Sprite3D": 1
-    },
     "scripts/probe_creatures.gd": {
       "Camera3D": 2,
       "Node3D": 5,
@@ -12552,14 +12495,11 @@
       "<lowercase-3d-marker>": 2,
       "CSGShape3D": 1,
       "Camera3D": 3,
-      "Decal": 1,
       "MeshInstance3D": 2,
       "MultiMeshInstance3D": 1,
       "Node3D": 4,
-      "RigidBody3D": 2,
-      "Sprite3D": 30,
-      "SpriteBase3D": 1,
-      "Vector3": 6
+      "Sprite3D": 2,
+      "Vector3": 1
     },
     "scripts/probe_dance.gd": {
       "Vector3": 1
@@ -12662,9 +12602,6 @@
       "<lowercase-3d-marker>": 1,
       "Camera3D": 2,
       "Node3D": 2,
-      "Sprite3D": 45,
-      "SpriteBase3D": 2,
-      "Transform3D": 12,
       "Vector3": 11
     },
     "scripts/probe_kart_feel.gd": {
@@ -12782,8 +12719,7 @@
       "Vector3": 19
     },
     "scripts/probe_throne.gd": {
-      "Sprite3D": 2,
-      "Transform3D": 6,
+      "Transform3D": 2,
       "Vector3": 1
     },
     "scripts/probe_throne_shots.gd": {
@@ -12795,7 +12731,6 @@
       "<lowercase-3d-marker>": 1,
       "Camera3D": 2,
       "Node3D": 7,
-      "Sprite3D": 2,
       "Vector3": 13
     },
     "scripts/probe_touch_router.gd": {

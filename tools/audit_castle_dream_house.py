@@ -72,7 +72,8 @@ def main() -> None:
 		"unexpected dream-house manifest schema", failures)
 	check(manifest.get("protected_originals_modified") is False,
 		"manifest does not preserve protected originals", failures)
-	check(manifest.get("runtime_world_art") == "unshaded Sprite3D cards only",
+	check(manifest.get("runtime_world_art")
+		== "unshaded Sprite2D Canvas cards only",
 		"runtime world-art method changed", failures)
 
 	check(manifest.get("blender_runtime_pixels") is False,
@@ -81,8 +82,8 @@ def main() -> None:
 		== "polished flattened 2D storybook illustration",
 		"dream-house source medium is not approved 2D storybook art", failures)
 	node_inventory = manifest.get("node_type_inventory", {})
-	check(node_inventory.get("world_art_node") == "Sprite3D",
-		"world-art node inventory is not Sprite3D", failures)
+	check(node_inventory.get("world_art_node") == "Sprite2D Canvas",
+		"world-art node inventory is not Sprite2D Canvas", failures)
 	check(node_inventory.get("forbidden_world_nodes") == [],
 		"node inventory contains forbidden world-art nodes", failures)
 
@@ -155,6 +156,11 @@ def main() -> None:
 	check(physical_layout.get("main_hall_entry")
 		== "assets/flats/castle/dream_house/family_wing_hall_insert.png",
 		"constructed Main Hall wing entry changed", failures)
+	check(physical_layout.get("main_hall_entry_runtime_mode")
+		== "source_owned_hall_background_portal_with_sprite2d_sign",
+		"Main Hall family-wing runtime mode changed", failures)
+	check(physical_layout.get("main_hall_entry_separate_insert_loaded") is False,
+		"retired separate Main Hall insert was re-enabled", failures)
 	repo_path(physical_layout.get("main_hall_entry"),
 		"constructed Main Hall wing entry", failures)
 
@@ -350,8 +356,11 @@ def main() -> None:
 			'"pos": Vector2(680.0, 89.0), "z": 0.89, "scale": 0.60'):
 		check(door_token in runtime_text,
 			f"physical gallery door placement drifted: {door_token}", failures)
-	check('"z": 0.01, "scale": 0.82, "shaded": false' in runtime_text,
-		"Main Hall family-wing door scale drifted", failures)
+	check('"id": "family_gallery", "name": "Dream House Wing"' in runtime_text
+		and '"rect": Rect2(210.0, 300.0, 160.0, 305.0)' in runtime_text
+		and '"sign_tex": "sign_family_gallery.png", "sign_scale": 1.0'
+			in runtime_text,
+		"Main Hall family-wing portal contract drifted", failures)
 	for room_id in REQUIRED_ROOMS:
 		check(f'"id": "{room_id}"' in runtime_text,
 			f"runtime room missing: {room_id}", failures)
@@ -369,8 +378,8 @@ def main() -> None:
 			f"Back route does not return to gallery: {destination}", failures)
 	check('"family_gallery": "main_hall"' in runtime_text,
 		"gallery Back route does not return to Main Hall", failures)
-	check("family_wing_hall_insert.png" in runtime_text,
-		"constructed Main Hall wing entry is not loaded", failures)
+	check("family_wing_hall_insert.png" not in runtime_text,
+		"retired separate Main Hall wing insert is still loaded", failures)
 	check('"DreamHouseDoor_"' not in runtime_text,
 		"floating dream-house route buttons remain in runtime", failures)
 	check("m.castle_room_link_layer.visible = false" in runtime_text,
@@ -383,12 +392,12 @@ def main() -> None:
 		"reference-only ImageGen file is loaded by runtime", failures)
 	check("MeshInstance3D.new()" not in runtime_text,
 		"dream-house runtime introduced modeled world art", failures)
-	check("Sprite3D.new()" in runtime_text,
-		"dream-house runtime no longer constructs Sprite3D world cards",
+	check("Sprite2D.new()" in runtime_text,
+		"dream-house runtime no longer constructs Sprite2D Canvas cards",
 		failures)
 	for forbidden_node in (
-			"Sprite2D.new()", "AnimatedSprite2D.new()",
-			"TextureRect.new()", "Polygon2D.new()"):
+			"Node3D.new()", "Sprite3D.new()", "AnimatedSprite3D.new()",
+			"MeshInstance3D.new()", "Camera3D.new()"):
 		check(forbidden_node not in runtime_text,
 			f"forbidden world-art node constructor found: {forbidden_node}",
 			failures)

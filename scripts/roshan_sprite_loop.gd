@@ -25,10 +25,13 @@ const SPEED_START_THRESHOLD := 0.15
 const IDLE_BREATH_PIXELS := 1.8
 
 var _sprite: Sprite3D = null
+var _sprite_2d: Sprite2D = null
 var _texture_rect: TextureRect = null
 var _atlas_texture: AtlasTexture = null
 var _motion_node: Node3D = null
+var _motion_node_2d: Node2D = null
 var _last_position := Vector3.ZERO
+var _last_position_2d := Vector2.ZERO
 var _has_last_position := false
 var _frame_cursor := 0.0
 var _displayed_frame := -1
@@ -65,6 +68,17 @@ func setup_texture_rect(texture_rect: TextureRect,
 	_texture_rect.texture = _atlas_texture
 	_enter_idle()
 
+func setup_sprite_2d(sprite: Sprite2D, back_view: bool = false,
+		motion_node: Node2D = null, idle_frame: int = -1) -> void:
+	_sprite_2d = sprite
+	_motion_node_2d = motion_node if motion_node != null else sprite
+	_back_view = back_view
+	_idle_frame = clampi(
+		(4 if back_view else 0) if idle_frame < 0 else idle_frame, 0, 7)
+	_base_offset = _sprite_2d.offset
+	_target_anchor = ANCHORS.anchor("directional", _idle_frame)
+	_enter_idle()
+
 func _process(delta: float) -> void:
 	if not _has_target():
 		queue_free()
@@ -93,6 +107,8 @@ func _process(delta: float) -> void:
 func set_moving(moving: bool) -> void:
 	if _sprite != null and is_instance_valid(_sprite):
 		_sprite.set_meta("walking", moving)
+	if _sprite_2d != null and is_instance_valid(_sprite_2d):
+		_sprite_2d.set_meta("walking", moving)
 	if moving:
 		_still_seconds = 0.0
 		if not _paused and _state != "swim":
@@ -108,9 +124,19 @@ func animation_state() -> String:
 
 func _has_target() -> bool:
 	return (_sprite != null and is_instance_valid(_sprite)) \
+		or (_sprite_2d != null and is_instance_valid(_sprite_2d)) \
 		or (_texture_rect != null and is_instance_valid(_texture_rect))
 
 func _sample_speed(delta: float) -> float:
+	if _motion_node_2d != null and is_instance_valid(_motion_node_2d):
+		var current_2d := _motion_node_2d.global_position
+		if not _has_last_position:
+			_last_position_2d = current_2d
+			_has_last_position = true
+			return 0.0
+		var speed_2d := current_2d.distance_to(_last_position_2d) / maxf(delta, 0.001)
+		_last_position_2d = current_2d
+		return speed_2d
 	if _motion_node == null or not is_instance_valid(_motion_node):
 		return 0.0
 	var current: Vector3 = _motion_node.global_position
@@ -123,6 +149,9 @@ func _sample_speed(delta: float) -> float:
 	return speed
 
 func _explicit_moving(sampled_speed: float) -> bool:
+	if _sprite_2d != null and is_instance_valid(_sprite_2d) \
+			and _sprite_2d.has_meta("walking"):
+		return bool(_sprite_2d.get_meta("walking"))
 	if _sprite != null and is_instance_valid(_sprite) \
 			and _sprite.has_meta("walking"):
 		return bool(_sprite.get_meta("walking"))
@@ -154,6 +183,10 @@ func _apply_sheet(texture: Texture2D, rows: int) -> void:
 		_sprite.texture = texture
 		_sprite.hframes = ATLAS_COLUMNS
 		_sprite.vframes = rows
+	if _sprite_2d != null and is_instance_valid(_sprite_2d):
+		_sprite_2d.texture = texture
+		_sprite_2d.hframes = ATLAS_COLUMNS
+		_sprite_2d.vframes = rows
 	if _atlas_texture != null:
 		_atlas_texture.atlas = texture
 
@@ -162,6 +195,8 @@ func _apply_frame(frame_index: int) -> void:
 	var safe_frame: int = posmod(frame_index, frame_count)
 	if safe_frame == _displayed_frame:
 		if _sprite != null and is_instance_valid(_sprite):
+			_apply_anchor_offset()
+		if _sprite_2d != null and is_instance_valid(_sprite_2d):
 			_apply_anchor_offset()
 		return
 	_displayed_frame = safe_frame
@@ -172,6 +207,9 @@ func _apply_frame(frame_index: int) -> void:
 		# sample the corrected window so the lower rows keep her whole head.
 		FRAMES.apply_region(_sprite, sheet, safe_frame, ATLAS_COLUMNS)
 		_apply_anchor_offset()
+	if _sprite_2d != null and is_instance_valid(_sprite_2d):
+		FRAMES.apply_region_2d(_sprite_2d, sheet, safe_frame, ATLAS_COLUMNS)
+		_apply_anchor_offset()
 	if _atlas_texture != null:
 		_atlas_texture.region = FRAMES.region(sheet, safe_frame, ATLAS_COLUMNS)
 
@@ -180,15 +218,26 @@ func _sheet_key() -> String:
 		else "swim_back" if _back_view else "swim_front"
 
 func _apply_anchor_offset() -> void:
+	var sheet: String = _sheet_key()
+	if _sprite_2d != null and is_instance_valid(_sprite_2d):
+		_sprite_2d.offset = _base_offset + ANCHORS.correction(
+			sheet, _displayed_frame, _target_anchor, _sprite_2d.flip_h) \
+			+ FRAMES.offset_correction(sheet, _displayed_frame, _sprite_2d.flip_h)
+		_sprite_2d.set_meta("roshan_anchor_offset", _sprite_2d.offset - _base_offset)
+		return
 	if _sprite == null or not is_instance_valid(_sprite):
 		return
-	var sheet: String = _sheet_key()
 	_sprite.offset = _base_offset + ANCHORS.correction(
 		sheet, _displayed_frame, _target_anchor, _sprite.flip_h) \
 		+ FRAMES.offset_correction(sheet, _displayed_frame, _sprite.flip_h)
 	_sprite.set_meta("roshan_anchor_offset", _sprite.offset - _base_offset)
 
 func _apply_idle_breath() -> void:
+	if _sprite_2d != null and is_instance_valid(_sprite_2d):
+		_apply_anchor_offset()
+		_sprite_2d.offset.y += sin(_life_phase) * IDLE_BREATH_PIXELS
+		_sprite_2d.set_meta("roshan_life_phase", _life_phase)
+		return
 	if _sprite != null and is_instance_valid(_sprite):
 		_apply_anchor_offset()
 		_sprite.offset.y += sin(_life_phase) * IDLE_BREATH_PIXELS
@@ -202,5 +251,8 @@ func _apply_idle_breath() -> void:
 			_base_rect_modulate.a)
 
 func _set_state_meta() -> void:
+	if _sprite_2d != null and is_instance_valid(_sprite_2d):
+		_sprite_2d.set_meta("roshan_animation_state", _state)
+		return
 	if _sprite != null and is_instance_valid(_sprite):
 		_sprite.set_meta("roshan_animation_state", _state)

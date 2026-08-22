@@ -44,7 +44,7 @@ LICENSES = ROOT / "ASSET_LICENSES.md"
 EXPECTED_ASSETS = 33
 EXPECTED_ACTIVE_ASSETS = 29
 EXPECTED_INSTANCES = 34
-EXPECTED_JOLT = 6
+EXPECTED_SPRINGS = 6
 RETIRED_V2_ROOMS = {"mermaid_pool"}
 EXPECTED_WATER = {
     "kitchen_sink",
@@ -988,8 +988,8 @@ def audit() -> int:
     summary = manifest.get("summary", {})
     if int(summary.get("generated_sheet_count", 0)) != EXPECTED_ACTIVE_ASSETS:
         errors.append("not every interaction uses a generated full-object sheet")
-    if int(summary.get("jolt_component_count", 0)) != EXPECTED_JOLT:
-        errors.append("Jolt component count is not the active capped set")
+    if int(summary.get("spring_component_count", 0)) != EXPECTED_SPRINGS:
+        errors.append("spring component count is not the active capped set")
     if int(summary.get("water_interaction_count", 0)) != len(EXPECTED_WATER):
         errors.append("water interaction count does not match the measured roster")
 
@@ -1095,16 +1095,18 @@ def audit() -> int:
         audit_water_against_generated_frames(asset, errors)
 
     contract = manifest.get("contract", {})
-    if contract.get("water_node_type") != "Sprite3D":
-        errors.append("water contract does not require Sprite3D")
+    if contract.get("water_node_type") != "Sprite2D":
+        errors.append("water contract does not require Sprite2D")
+    if contract.get("water_shader_domain") != "canvas_item":
+        errors.append("water contract does not require CanvasItem shaders")
     if bool(contract.get("water_depth_write", True)):
         errors.append("water contract permits depth writes")
-    if int(contract.get("jolt_body_cap", 0)) != 12:
-        errors.append("Jolt allocation cap is not 12")
-    if int(contract.get("jolt_awake_cap", 0)) != 8:
-        errors.append("Jolt awake cap is not 8")
-    if bool(contract.get("jolt_logic_authority", True)):
-        errors.append("Jolt is incorrectly allowed to own gameplay logic")
+    if int(contract.get("spring_component_cap", 0)) != 12:
+        errors.append("spring allocation cap is not 12")
+    if int(contract.get("spring_active_cap", 0)) != 8:
+        errors.append("spring active cap is not 8")
+    if bool(contract.get("spring_logic_authority", True)):
+        errors.append("analytic springs are incorrectly allowed to own gameplay logic")
     expected_water_resources = (
         ("water_renderer", "water_renderer_sha256", SHADER),
         ("water_ripple_texture", "water_ripple_texture_sha256", RIPPLE_TEXTURE),
@@ -1202,15 +1204,12 @@ def audit() -> int:
 
     shader_source = SHADER.read_text(encoding="utf-8")
     render_modes = shader_render_modes(shader_source)
-    required_render_modes = {"unshaded", "cull_disabled", "depth_draw_never"}
+    required_render_modes = {"unshaded", "blend_mix"}
     if not required_render_modes.issubset(render_modes):
         errors.append("water shader executable render_mode contract is incomplete")
     executable_shader = strip_shader_comments(shader_source)
-    if (
-        "depth_prepass_alpha" in render_modes
-        or "depth_draw_alpha_prepass" in render_modes
-    ):
-        errors.append("water shader still uses a transparent depth prepass")
+    if "spatial" in executable_shader:
+        errors.append("water shader still declares the spatial domain")
     for forbidden in (
         "SCREEN_TEXTURE",
         "DEPTH_TEXTURE",
@@ -1225,28 +1224,38 @@ def audit() -> int:
         if token not in executable_shader:
             errors.append(f"water shader is missing {token}")
     rig_source = RIG_SCRIPT.read_text(encoding="utf-8")
-    if "MeshInstance3D" in rig_source:
-        errors.append("water runtime still creates prohibited MeshInstance3D")
+    for forbidden in (
+        "Sprite3D", "RigidBody3D", "CollisionShape3D", "BoxShape3D",
+        "MeshInstance3D", "Node3D", "Vector3", "shader_type spatial",
+    ):
+        if forbidden in rig_source or (forbidden == "shader_type spatial"
+                                       and forbidden in executable_shader):
+            errors.append(f"fixture runtime retains prohibited 3D token: {forbidden}")
     for token in (
-        "Sprite3D",
+        "Sprite2D",
         '"water_layers"',
-        "MAX_JOLT_BODIES := 12",
-        "MAX_AWAKE_BODIES := 8",
-        "already_awake",
+        "MAX_SPRING_BODIES := 12",
+        "MAX_AWAKE_SPRINGS := 8",
+        "func _tick_spring",
+        "func _add_spring_driver",
         "func physics_tick",
         "_water_mask_cache",
         "func _prewarm_water_masks",
         "func _mask_cache_key",
-        "clampf(body.rotation.z, -max_angle, max_angle)",
-        "absf(displacement) > max_displacement",
+        "clampf(angle, -max_angle, max_angle)",
+        "clampf(displacement, -max_displacement, max_displacement)",
         "0.028 + float(index % 2) * 0.010",
     ):
         if token not in rig_source:
             errors.append(f"fixture rig is missing contract token: {token}")
     bounded_constants = {
-        "HINGE_TORQUE_IMPULSE": 0.010,
-        "BUOYANT_VERTICAL_IMPULSE": 0.060,
-        "BUOYANT_TORQUE_IMPULSE": 0.005,
+        "SPRING_LINEAR_STIFFNESS": 12.0,
+        "SPRING_LINEAR_DAMPING": 5.0,
+        "SPRING_ANGULAR_STIFFNESS": 30.0,
+        "SPRING_ANGULAR_DAMPING": 15.0,
+        "SPRING_HINGE_INITIAL_VELOCITY": 2.0,
+        "SPRING_BUOYANT_INITIAL_ANGULAR_VELOCITY": 2.0,
+        "SPRING_BUOYANT_INITIAL_VERTICAL_VELOCITY": 1.0,
         "MAX_HINGE_ANGLE": 0.25,
         "MAX_BUOYANT_ANGLE": 0.15,
         "MAX_HINGE_DISPLACEMENT": 0.35,
@@ -1292,7 +1301,8 @@ def audit() -> int:
             errors.append(
                 "castle SFX loader cannot resolve manifest path token: " + token
             )
-    if "TEXTURE_FILTER_LINEAR" not in room_source:
+    if "TEXTURE_FILTER_LINEAR" not in room_source and \
+            "CanvasItem.TEXTURE_FILTER_LINEAR" not in rig_source:
         errors.append("v2 sheets do not disable cross-cell mipmap sampling")
     main_source = MAIN_SCRIPT.read_text(encoding="utf-8")
     if "_castle_rooms_25d.physics_tick(delta)" not in main_source:
@@ -1384,7 +1394,7 @@ def audit() -> int:
     print(
         "CASTLEV2|RESULT|OK|"
         f"assets={len(asset_map)}|instances={instance_count}|"
-        f"average={average:.2f}|water={len(EXPECTED_WATER)}|jolt={EXPECTED_JOLT}|"
+        f"average={average:.2f}|water={len(EXPECTED_WATER)}|spring={EXPECTED_SPRINGS}|"
         f"max_room_rgba_mib={max_room_rgba_bytes / (1024.0 * 1024.0):.2f}"
     )
     return 0

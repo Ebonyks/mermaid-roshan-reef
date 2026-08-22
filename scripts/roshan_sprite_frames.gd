@@ -156,3 +156,23 @@ static func sampled_rect(sprite: Sprite3D) -> Rect2:
 	var safe: int = maxi(0, sprite.frame)
 	var cell := Vector2(float(safe % cols), float(safe / cols)) * frame_size
 	return Rect2(base.position + cell, frame_size)
+
+
+static func apply_region_2d(sprite: Sprite2D, sheet: String, frame_index: int,
+		columns: int) -> void:
+	if sprite == null or not has_sheet(sheet):
+		return
+	var region := region(sheet, frame_index, columns)
+	sprite.region_enabled = true
+	sprite.region_rect = region
+	sprite.hframes = 1
+	sprite.vframes = 1
+	sprite.frame = 0
+
+
+static func sampled_rect_2d(sprite: Sprite2D) -> Rect2:
+	if sprite == null or sprite.texture == null:
+		return Rect2()
+	if sprite.region_enabled:
+		return sprite.region_rect
+	return Rect2(Vector2.ZERO, sprite.texture.get_size())

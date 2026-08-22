@@ -1,5 +1,5 @@
-shader_type spatial;
-render_mode unshaded, blend_mix, depth_prepass_alpha, cull_disabled, shadows_disabled, fog_disabled;
+shader_type canvas_item;
+render_mode unshaded, blend_mix;
 
 uniform sampler2D fixture_texture : source_color, filter_linear_mipmap_anisotropic;
 uniform vec4 fixture_tint : source_color = vec4(1.0);
@@ -59,12 +59,11 @@ void fragment() {
 		emission_color,
 		0.46
 	) * emission_energy * mix(0.10, 1.0, highlight) * fixture.a;
-	ALBEDO = mix(
+	COLOR = vec4(mix(
 		emission_color,
 		fixture.rgb * fixture_tint.rgb,
 		fixture.a
-	);
-	ALPHA = max(fixture.a * fixture_tint.a, aura);
-	EMISSION = fixture_emission
-		+ emission_color * emission_energy * 1.20 * aura;
+	) + fixture_emission
+		+ emission_color * emission_energy * 1.20 * aura,
+		max(fixture.a * fixture_tint.a, aura));
 }

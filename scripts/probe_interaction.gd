@@ -181,8 +181,8 @@ func _init() -> void:
 		_bad("promenade roster must contain the permanent Reef route and four toys/landmarks")
 
 	# Exercise the first-visit Crown Star target, not the already-won keepsake.
-	# The castle is one picture-first Sprite3D stage, not a second free-roaming
-	# 3D world. Room props use UI hit targets projected over their world cards;
+	# The castle is one picture-first Sprite2D stage, not a second free-roaming
+	# spatial world. Room props use UI hit targets over their canvas cards;
 	# the retired hall registry must therefore remain empty.
 	main.level2_done_once = false
 	# This probe audits the Crown route only. Companion re-offer behavior has
@@ -193,7 +193,7 @@ func _init() -> void:
 	main._populate_touch_interactables()
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	if not rooms.is_open():
-		_bad("castle Sprite3D room stage did not open")
+		_bad("castle Sprite2D room stage did not open")
 	if rooms.has_method("_roleplay_prop_bounce"):
 		_bad("castle role-play still exposes the rejected generic prop bounce")
 	var rejected_native_tiles: Array[Texture2D] = \
@@ -222,12 +222,14 @@ func _init() -> void:
 		"craft_room", "mermaid_pool", "bubble_bath"]:
 		if not main.castle_room_buttons.has(room_id):
 			_bad("castle physical doorway missing %s" % room_id)
-	if main.castle_room_world_root == null \
-			or main.castle_room_camera == null \
-			or main.castle_room_camera.projection != Camera3D.PROJECTION_PERSPECTIVE:
-		_bad("castle did not build its perspective Sprite3D stage")
+	if not main.castle_room_world_root is Node2D \
+			or not main.castle_room_stage.find_children(
+				"*", "Camera2D", true, false).is_empty() \
+			or not main.castle_room_stage.find_children(
+				"*", "Camera3D", true, false).is_empty():
+		_bad("castle did not build its direct-canvas Sprite2D stage")
 	if main.touch_ui.world_controls_enabled or main.player.visible:
-		_bad("free-roaming 3D controls remained active inside castle stage")
+		_bad("free-roaming world controls remained active inside castle stage")
 	if main.touch_discovery_ring == null or main.touch_focus_ring == null:
 		_bad("shared glow/focus visuals were not built")
 	var elevator_button: Button = main.castle_room_stage.get_node_or_null(
@@ -262,8 +264,8 @@ func _init() -> void:
 	if main.castle_room_detail_tiles.size() != 4 \
 			or main.castle_room_action_button.visible:
 		_bad("Dream House Wing did not build as a native physical gallery")
-	var castle_affordance: Sprite3D = main.g.get(
-		"castle_room_affordance") as Sprite3D
+	var castle_affordance: Sprite2D = main.g.get(
+		"castle_room_affordance") as Sprite2D
 	if castle_affordance == null:
 		_bad("castle shared affordance card missing")
 	var dream_routes: Array[Dictionary] = [
@@ -277,7 +279,7 @@ func _init() -> void:
 		var child_id: String = String(route["child"])
 		var route_record: Dictionary = main.castle_room_item_sprites.get(
 			item_id, {}) as Dictionary
-		var door_sprite: Sprite3D = route_record.get("sprite") as Sprite3D
+		var door_sprite: Sprite2D = route_record.get("sprite") as Sprite2D
 		var door_hotspot: Button = route_record.get("hotspot") as Button
 		if door_sprite == null \
 				or String(route_record.get(
@@ -341,8 +343,8 @@ func _init() -> void:
 	await _frames(2)
 	var logo_table_record: Dictionary = main.castle_room_item_sprites.get(
 		"paint_table", {}) as Dictionary
-	var logo_table_sprite: Sprite3D = logo_table_record.get(
-		"sprite") as Sprite3D
+	var logo_table_sprite: Sprite2D = logo_table_record.get(
+		"sprite") as Sprite2D
 	if logo_table_sprite == null or String(logo_table_sprite.get_meta(
 			"launch_activity", "")) != "castle_logo":
 		_bad("craft-room paint table is not the castle-logo station")
@@ -457,9 +459,9 @@ func _init() -> void:
 		_bad("family dining room did not build native tiles and meal furniture")
 	var hutch_record: Dictionary = main.castle_room_item_sprites.get(
 		"provisions_hutch", {}) as Dictionary
-	var hutch_sprite: Sprite3D = hutch_record.get("sprite") as Sprite3D
-	var hutch_transform: Transform3D = hutch_sprite.transform \
-		if hutch_sprite != null else Transform3D.IDENTITY
+	var hutch_sprite: Sprite2D = hutch_record.get("sprite") as Sprite2D
+	var hutch_transform: Transform2D = hutch_sprite.transform \
+		if hutch_sprite != null else Transform2D.IDENTITY
 	if String(hutch_record.get("affordance_kind", "")) != Affordance.ANIMATION \
 			or castle_affordance == null \
 			or String(castle_affordance.get_meta(
@@ -472,11 +474,11 @@ func _init() -> void:
 	for plate_index in range(6):
 		var plate_record: Dictionary = main.castle_room_item_sprites.get(
 			"meal_plate_%d" % plate_index, {}) as Dictionary
-		var plate_sprite: Sprite3D = plate_record.get("sprite") as Sprite3D
+		var plate_sprite: Sprite2D = plate_record.get("sprite") as Sprite2D
 		all_six_plates_visible = all_six_plates_visible \
 			and plate_sprite != null and plate_sprite.visible \
 			and bool(plate_sprite.get_meta("castle_soft_alpha", false)) \
-			and plate_sprite.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED \
+			and not bool(plate_sprite.get_meta("alpha_cut", false)) \
 			and int(plate_sprite.get_meta(
 				"meal_plate_reveal_step", -1)) == plate_index
 	if not all_six_plates_visible:
@@ -491,14 +493,14 @@ func _init() -> void:
 		_bad("serving dinner deformed the buffet instead of sequencing plates")
 	var table_record: Dictionary = main.castle_room_item_sprites.get(
 		"dining_table", {}) as Dictionary
-	var table_sprite: Sprite3D = table_record.get("sprite") as Sprite3D
-	var table_transform: Transform3D = table_sprite.transform \
-		if table_sprite != null else Transform3D.IDENTITY
+	var table_sprite: Sprite2D = table_record.get("sprite") as Sprite2D
+	var table_transform: Transform2D = table_sprite.transform \
+		if table_sprite != null else Transform2D.IDENTITY
 	rooms._activate_room_item("dining_table")
 	await _frames(24)
 	var eaten_record: Dictionary = main.castle_room_item_sprites.get(
 		"meal_plate_5", {}) as Dictionary
-	var eaten_plate: Sprite3D = eaten_record.get("sprite") as Sprite3D
+	var eaten_plate: Sprite2D = eaten_record.get("sprite") as Sprite2D
 	if int(main.g.get("castle_dining_plates", 0)) != 5 \
 			or eaten_plate == null or eaten_plate.visible \
 			or String(eaten_plate.get_meta("meal_plate_state", "")) != "eaten":
@@ -541,8 +543,8 @@ func _init() -> void:
 		var current_plate_record: Dictionary = \
 			main.castle_room_item_sprites.get(
 				"meal_plate_%d" % plate_index, {}) as Dictionary
-		var current_plate: Sprite3D = current_plate_record.get(
-			"sprite") as Sprite3D
+		var current_plate: Sprite2D = current_plate_record.get(
+			"sprite") as Sprite2D
 		stale_plate_revealed = stale_plate_revealed \
 			or (current_plate != null and current_plate.visible)
 	if rooms._room_build_generation == serving_generation \
@@ -562,9 +564,9 @@ func _init() -> void:
 			_bad("royal bedroom missing role-play prop %s" % bedroom_item)
 	var wardrobe_record: Dictionary = main.castle_room_item_sprites.get(
 		"shell_wardrobe", {}) as Dictionary
-	var wardrobe_sprite: Sprite3D = wardrobe_record.get("sprite") as Sprite3D
-	var wardrobe_transform: Transform3D = wardrobe_sprite.transform \
-		if wardrobe_sprite != null else Transform3D.IDENTITY
+	var wardrobe_sprite: Sprite2D = wardrobe_record.get("sprite") as Sprite2D
+	var wardrobe_transform: Transform2D = wardrobe_sprite.transform \
+		if wardrobe_sprite != null else Transform2D.IDENTITY
 	rooms._activate_room_item("shell_wardrobe")
 	await _frames(24)
 	if main.wardrobe_layer == null \
@@ -610,9 +612,9 @@ func _init() -> void:
 	await _frames(2)
 	var bedside_record: Dictionary = main.castle_room_item_sprites.get(
 		"bedside_table", {}) as Dictionary
-	var bedside_sprite: Sprite3D = bedside_record.get("sprite") as Sprite3D
-	var bedside_transform: Transform3D = bedside_sprite.transform \
-		if bedside_sprite != null else Transform3D.IDENTITY
+	var bedside_sprite: Sprite2D = bedside_record.get("sprite") as Sprite2D
+	var bedside_transform: Transform2D = bedside_sprite.transform \
+		if bedside_sprite != null else Transform2D.IDENTITY
 	var bedside_was_on := bool(main.g.get("castle_bedside_light_on", false))
 	rooms._activate_room_item("bedside_table")
 	await _frames(24)
@@ -628,7 +630,7 @@ func _init() -> void:
 	var was_night: bool = main.is_night
 	var bed_record: Dictionary = main.castle_room_item_sprites.get(
 		"canopy_bed", {}) as Dictionary
-	var bed_sprite: Sprite3D = bed_record.get("sprite") as Sprite3D
+	var bed_sprite: Sprite2D = bed_record.get("sprite") as Sprite2D
 	rooms._activate_room_item("canopy_bed")
 	await process_frame
 	var sleep_overlay: ColorRect = main.castle_room_stage.get_node_or_null(
@@ -653,8 +655,8 @@ func _init() -> void:
 		"dream_bed_0", "dream_bed_1", "dream_bed_2"]:
 		var dream_bed_record: Dictionary = main.castle_room_item_sprites.get(
 			dream_bed_id, {}) as Dictionary
-		var dream_bed_sprite: Sprite3D = dream_bed_record.get(
-			"sprite") as Sprite3D
+		var dream_bed_sprite: Sprite2D = dream_bed_record.get(
+			"sprite") as Sprite2D
 		if dream_bed_sprite == null \
 				or String(dream_bed_sprite.get_meta(
 					"roleplay_action", "")) != "sleep":
@@ -664,12 +666,12 @@ func _init() -> void:
 	await _frames(2)
 	var picture_record: Dictionary = main.castle_room_item_sprites.get(
 		"movie_picture", {}) as Dictionary
-	var picture_sprite: Sprite3D = picture_record.get("sprite") as Sprite3D
+	var picture_sprite: Sprite2D = picture_record.get("sprite") as Sprite2D
 	var screen_record: Dictionary = main.castle_room_item_sprites.get(
 		"movie_screen", {}) as Dictionary
-	var screen_sprite: Sprite3D = screen_record.get("sprite") as Sprite3D
-	var screen_transform: Transform3D = screen_sprite.transform \
-		if screen_sprite != null else Transform3D.IDENTITY
+	var screen_sprite: Sprite2D = screen_record.get("sprite") as Sprite2D
+	var screen_transform: Transform2D = screen_sprite.transform \
+		if screen_sprite != null else Transform2D.IDENTITY
 	var movie_before: int = int(main.g.get("castle_movie_index", 0))
 	rooms._activate_room_item("movie_screen")
 	await _frames(30)
@@ -678,7 +680,7 @@ func _init() -> void:
 	if picture_sprite == null \
 			or int(main.g.get("castle_movie_index", -1)) != expected_movie \
 			or not bool(picture_sprite.get_meta("castle_soft_alpha", false)) \
-			or picture_sprite.alpha_cut != SpriteBase3D.ALPHA_CUT_DISABLED \
+			or bool(picture_sprite.get_meta("alpha_cut", false)) \
 			or picture_sprite.texture.resource_path \
 				!= CastleRooms25D.MOVIE_IMAGES[expected_movie] \
 			or not bool(picture_sprite.get_meta(
@@ -693,7 +695,7 @@ func _init() -> void:
 	var popcorn_record: Dictionary = main.castle_room_item_sprites.get(
 		"movie_popcorn", {}) as Dictionary
 	var popcorn_data: Dictionary = popcorn_record.get("data", {}) as Dictionary
-	var popcorn_sprite: Sprite3D = popcorn_record.get("sprite") as Sprite3D
+	var popcorn_sprite: Sprite2D = popcorn_record.get("sprite") as Sprite2D
 	var movie_after_screen := int(main.g.get("castle_movie_index", -1))
 	rooms._activate_room_item("movie_popcorn")
 	await _frames(4)
@@ -707,18 +709,18 @@ func _init() -> void:
 		"cloud_settee_left", "cloud_settee_right", "cloud_pouf"]:
 		var lounge_record: Dictionary = main.castle_room_item_sprites.get(
 			lounge_item, {}) as Dictionary
-		var lounge_sprite: Sprite3D = lounge_record.get("sprite") as Sprite3D
+		var lounge_sprite: Sprite2D = lounge_record.get("sprite") as Sprite2D
 		if lounge_sprite == null \
 				or String(lounge_sprite.get_meta(
 					"roleplay_action", "")) != "relax":
 			_bad("movie lounge missing relaxing seat %s" % lounge_item)
 	var left_settee_record: Dictionary = main.castle_room_item_sprites.get(
 		"cloud_settee_left", {}) as Dictionary
-	var left_settee: Sprite3D = left_settee_record.get("sprite") as Sprite3D
+	var left_settee: Sprite2D = left_settee_record.get("sprite") as Sprite2D
 	var left_settee_data: Dictionary = left_settee_record.get(
 		"data", {}) as Dictionary
-	var left_settee_transform: Transform3D = left_settee.transform \
-		if left_settee != null else Transform3D.IDENTITY
+	var left_settee_transform: Transform2D = left_settee.transform \
+		if left_settee != null else Transform2D.IDENTITY
 	rooms._activate_room_item("cloud_settee_left")
 	await _frames(60)
 	var expected_seat_foot: Vector2 = left_settee_data.get(
@@ -738,13 +740,13 @@ func _init() -> void:
 	await _frames(2)
 	for prop_id: String in ["bathtub", "sink", "toilet"]:
 		if not main.castle_room_item_sprites.has(prop_id):
-			_bad("bubble bath missing separate Sprite3D prop %s" % prop_id)
+			_bad("bubble bath missing separate Sprite2D prop %s" % prop_id)
 	var toilet_record: Dictionary = main.castle_room_item_sprites.get("toilet", {})
-	var toilet_sprite: Sprite3D = toilet_record.get("sprite") as Sprite3D
+	var toilet_sprite: Sprite2D = toilet_record.get("sprite") as Sprite2D
 	rooms._activate_room_item("toilet")
 	await process_frame
 	if toilet_sprite == null or not bool(toilet_sprite.get_meta("busy", false)):
-		_bad("touching the toilet did not animate its Sprite3D card")
+		_bad("touching the toilet did not animate its Sprite2D card")
 	if main.castle_room_prop_sfx == null or main.castle_room_prop_sfx.stream == null:
 		_bad("touching a room prop did not attach relevant sound")
 	main.castle_room_back_button.pressed.emit()
@@ -782,7 +784,7 @@ func _init() -> void:
 		_bad("picture game close enabled 3D controls over castle stage")
 
 	# Leaving the picture stage clears stale assisted navigation and restores the
-	# courtyard. The room overlay and its Sprite3D world must be fully released.
+	# courtyard. The room overlay and its Sprite2D world must be fully released.
 	main.touch_focus_id = "retired:hall"
 	main.touch_auto_active = true
 	rooms._exit_to_courtyard()
@@ -802,7 +804,7 @@ func _init() -> void:
 	if not main.touch_ui.world_controls_enabled:
 		_bad("leaving the castle left touch controls blocked")
 	if rooms.is_open() or main.castle_room_world_root != null:
-		_bad("leaving Level 2 retained the castle Sprite3D stage")
+		_bad("leaving Level 2 retained the castle Sprite2D stage")
 
 	# Fix regression (Hybrid contract): the sparring den may advertise by
 	# proximity but must start ONLY from its explicit tap target.
@@ -881,7 +883,7 @@ func _audit_native_route_fallback(rooms: CastleRooms25D) -> void:
 			NATIVE_FALLBACK_TILE_COUNTS.get(room_id, 0))
 		if main.castle_room_detail_tiles.size() != expected_tile_count:
 			_bad("rejected native route lost fallback tiles for %s" % room_id)
-		for tile: Sprite3D in main.castle_room_detail_tiles:
+		for tile: Sprite2D in main.castle_room_detail_tiles:
 			if bool(tile.get_meta(
 					"native_source_ownership_background", true)) \
 					or String(tile.get_meta("runtime_background_tile_root", "")) \
@@ -906,7 +908,7 @@ func _audit_native_route_fallback(rooms: CastleRooms25D) -> void:
 	await _frames(2)
 	if main.castle_room_detail_tiles.size() != 4:
 		_bad("native rejection changed Dream House legacy tile count")
-	for tile: Sprite3D in main.castle_room_detail_tiles:
+	for tile: Sprite2D in main.castle_room_detail_tiles:
 		if String(tile.get_meta("source_master_grid", "")) != "2x2_2k" \
 				or tile.get_meta("native_texture_size", Vector2.ZERO) \
 					!= Vector2(1024.0, 576.0):

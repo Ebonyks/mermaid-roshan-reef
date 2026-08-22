@@ -544,13 +544,17 @@ def main() -> None:
             "water_ripple_texture_sha256": sha256(RIPPLE_TEXTURE),
             "water_caustics_texture": CAUSTICS_TEXTURE.relative_to(ROOT).as_posix(),
             "water_caustics_texture_sha256": sha256(CAUSTICS_TEXTURE),
-            "water_node_type": "Sprite3D",
+            "water_node_type": "Sprite2D",
+            "water_shader_domain": "canvas_item",
             "water_depth_write": False,
             "water_geometry_source": "per_asset_manifest_layers",
             "water_mask_source": "runtime_cached_exact_polygon_image_texture",
             "water_color_space": "source_color_uniforms_no_manual_srgb_conversion",
-            "jolt_body_cap": 12,
-            "jolt_awake_cap": 8,
+            "spring_component_cap": 12,
+            "spring_active_cap": 8,
+            "spring_logic_authority": False,
+            "jolt_body_cap": 0,
+            "jolt_awake_cap": 0,
             "jolt_logic_authority": False,
         },
         "frame_contract": {
@@ -580,9 +584,10 @@ def main() -> None:
                 len(entry["instances"]) for entry in output_assets
             ),
             "generated_sheet_count": len(output_assets),
-            "jolt_component_count": sum(
+            "spring_component_count": sum(
                 entry["physics_mode"] != "none" for entry in output_assets
             ),
+            "jolt_component_count": 0,
             "water_interaction_count": sum(
                 bool(entry["water_layers"]) for entry in output_assets
             ),

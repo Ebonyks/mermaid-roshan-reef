@@ -398,12 +398,11 @@ func _init() -> void:
 		var hall_ok: bool = main.game == "level2" and String(main.g.get("phase","")) == "hall"
 		var rooms_a: CastleRooms25D = main._castle_rooms_ref()
 		var stage_ok: bool = hall_ok and rooms_a.is_open() \
-			and main.castle_room_world_root != null \
-			and main.castle_room_camera != null \
-			and main.castle_room_camera.projection \
-				== Camera3D.PROJECTION_PERSPECTIVE \
+			and main.castle_room_world_root is Node2D \
+			and main.castle_room_stage.find_children("*", "Camera2D", true, false).is_empty() \
+			and main.castle_room_stage.find_children("*", "Camera3D", true, false).is_empty() \
 			and main.touch_interactables.is_empty()
-		print("AUDIT|Level 2 castle Sprite3D stage: ",
+		print("AUDIT|Level 2 castle Sprite2D stage: ",
 			("OK" if stage_ok else "FAIL"),
 			" game=", main.game, " phase=", String(main.g.get("phase","?")),
 			" mg_kind=", main.mg_kind, " stars_got=", _stars_got(), " l2_open=", main.l2_open)
