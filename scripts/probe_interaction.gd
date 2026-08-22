@@ -33,6 +33,7 @@ func _init() -> void:
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
+	(main as ReefMain).day_one_active = false
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await _frames(8)

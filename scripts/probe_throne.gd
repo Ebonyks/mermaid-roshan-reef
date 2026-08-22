@@ -192,6 +192,7 @@ func _run() -> void:
 	root.add_child(main)
 	await process_frame
 	main._skip_intro()
+	main.day_one_active = false
 	main.pearl_count = main.PEARL_TOTAL
 	main.trophies = 5
 	main.level2_done_once = true
@@ -240,7 +241,7 @@ func _run() -> void:
 	_ck("locked_royal_hall_has_five_mist_cards",
 		main.castle_royal_hall_mist_cards.size() == 5
 		and _visible_royal_hall_mist() == 5)
-	var locked_mist_before: Array[Transform3D] = _mist_transforms()
+	var locked_mist_before: Array[Transform2D] = _mist_transforms()
 	var voice_i_before: int = main.voice_i
 	_ck("locked_royal_hall_tap_reaches_real_button",
 		_tap_royal_hall_now())
@@ -250,7 +251,7 @@ func _run() -> void:
 	# Advance the authored flutter deterministically; uncapped headless frames can
 	# carry near-zero delta even while the arrival tween uses real elapsed time.
 	rooms._tick_royal_hall_mist(0.08)
-	var locked_mist_after: Array[Transform3D] = _mist_transforms()
+	var locked_mist_after: Array[Transform2D] = _mist_transforms()
 	var locked_voice: AudioStreamPlayer = _latest_voice_player()
 	var locked_voice_stream: AudioStream = locked_voice.stream \
 		if locked_voice != null else null

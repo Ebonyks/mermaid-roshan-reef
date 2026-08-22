@@ -38,6 +38,7 @@ func _init() -> void:
 	main = scene.instantiate() as ReefMain
 	get_root().add_child(main)
 	await _frames(2)
+	main.day_one_active = false
 	main._skip_intro()
 	main.opera_progress = 0
 	main.opera_stars = 0

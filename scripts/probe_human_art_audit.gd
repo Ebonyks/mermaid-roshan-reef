@@ -34,6 +34,7 @@ func _fresh_main() -> Node3D:
 	main = scene.instantiate() as Node3D
 	get_root().add_child(main)
 	await _frames(3)
+	(main as ReefMain).day_one_active = false
 	main._skip_intro()
 	await _frames(20)
 	return main

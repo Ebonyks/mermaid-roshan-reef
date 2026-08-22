@@ -10,7 +10,10 @@ const CREST_ROOT := "res://assets/opera/worlds/ui/crests/"
 const ACTOR_ROOT := "res://assets/opera/worlds/actors/"
 const CARD_SIZE := Vector2(154.0, 154.0)
 const CARD_GAP := 22.0
-const CARD_Y := 532.0
+# Bottom-anchored so the full touch cards clear Roshan's face and walk lane;
+# the eight-pixel floor inset keeps silhouettes readable without stealing the
+# corner movement/elevator controls.
+const CARD_Y := StorybookUI.CANVAS_SIZE.y - CARD_SIZE.y - 8.0
 
 const ROOM_ACT_INDICES := {
 	"kitchen": [0, 3],
@@ -105,7 +108,8 @@ func sync() -> void:
 	var castle_visible := m.castle_room_layer != null \
 		and is_instance_valid(m.castle_room_layer) \
 		and m.castle_room_layer.visible
-	root.visible = castle_visible and m.game == "level2" \
+	root.visible = not m.day_one_jobs_locked() \
+		and castle_visible and m.game == "level2" \
 		and String(m.g.get("phase", "")) == "hall" \
 		and m.mg_kind == "" and m.opera_game == null \
 		and not m.castle_room_menu_open and not buttons.is_empty()
@@ -131,6 +135,8 @@ func button_for_act(act_index: int) -> Button:
 
 
 func guide_current_room() -> bool:
+	if m.day_one_jobs_locked():
+		return false
 	sync()
 	var act_index := preferred_act_for_room(room_id, m.opera_stars)
 	var button := button_for_act(act_index)
@@ -167,6 +173,8 @@ func _rebuild_room() -> void:
 	for child: Node in root.get_children():
 		if child != active_animator:
 			child.queue_free()
+	if m.day_one_jobs_locked():
+		return
 	var indices := act_indices_for_room(room_id)
 	if indices.is_empty():
 		return
@@ -273,7 +281,8 @@ func _stop_animator() -> void:
 
 
 func _launch(expected_room: String, act_index: int) -> void:
-	if m.castle_room_id != expected_room \
+	if m.day_one_jobs_locked() \
+		or m.castle_room_id != expected_room \
 		or not route_matches(expected_room, act_index) \
 		or m.opera_game != null:
 		return

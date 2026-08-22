@@ -14,6 +14,7 @@ func _init() -> void:
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
+	main.day_one_active = false
 	main._skip_intro()
 	main.game = "opera"
 
