@@ -2,8 +2,8 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "ac8ce918",
-    "inventory_date": "2026-08-19",
+    "inventory_head": "3b0c0658",
+    "inventory_date": "2026-08-22",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
@@ -12711,7 +12711,7 @@
     "scripts/probe_stuffie.gd": {
       "MeshInstance3D": 2,
       "Node3D": 6,
-      "Sprite3D": 10,
+      "Sprite3D": 4,
       "Vector3": 7
     },
     "scripts/probe_texture_seams.gd": {
@@ -12719,7 +12719,6 @@
       "Vector3": 19
     },
     "scripts/probe_throne.gd": {
-      "Transform3D": 2,
       "Vector3": 1
     },
     "scripts/probe_throne_shots.gd": {
