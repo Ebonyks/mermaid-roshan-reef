@@ -5998,7 +5998,7 @@ func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Co
 			sm.set_shader_parameter("paint_body", body)
 			sm.set_shader_parameter("paint_fin", accent)
 			sm.set_shader_parameter("paint_third", third)
-			# zone mask (baked from geometry) paints the BOOK-ART pattern:
+			# zone mask (baked from rig anatomy + authored paint) follows the character:
 			# body / accent / third-colour regions; black = fixed features
 			var mpath := "res://assets/props/gen2/" + gname.replace("_rigged", "_mask") + ".png"
 			if ResourceLoader.exists(mpath):

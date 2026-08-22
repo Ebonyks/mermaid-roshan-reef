@@ -17,7 +17,8 @@ uniform float excite = 0.0;         // 0..1 greeting boost (faster + bigger)
 // craft-studio repaint. Two modes:
 //  * luma mode (no zone_mask): light zones take the fin colour — the fish.
 //  * zone mode (zone_mask bound, use_zones=1): mask R/G/B = body / accent /
-//    third-colour regions baked from geometry (tools/bake_zone_mask.py), so
+//    third-colour regions baked from rig anatomy and authored paint boundaries
+//    (tools/bake_zone_mask.py), so
 //    the coloration matches the book art (white kitty muzzle, pink wings...).
 //    Black mask = fixed features (horn, feet, beak) keep the baked texture.
 uniform float paint_mix = 0.0;

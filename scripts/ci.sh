@@ -20,6 +20,10 @@ python3 -m gdtoolkit.parser $(find scripts -name '*.gd') \
 	|| { echo "PARSE FAIL (gdtoolkit)"; exit 1; }
 python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd \
 	|| { echo "LINT FAIL (:= from Variant)"; exit 1; }
+# Baby Eagle's three paint panels must remain one-hot anatomical cutouts.
+# This also proves the shipped mask still matches the rig/albedo contract.
+python3 -m unittest tools.tests.test_bake_zone_mask \
+	|| { echo "BABY EAGLE RECOLOR MASK FAIL"; exit 1; }
 # Owner decision 2026-08-09: Mermaid Roshan is 2D-only. Prove the guard can
 # fail before trusting it, then reject model assets, rig APIs, missing atlases,
 # or a future CI bypass before Godot imports anything.
