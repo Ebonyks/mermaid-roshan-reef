@@ -415,7 +415,7 @@ const ROOM_ITEMS := {
 		{"id": "curtains", "name": "Stage curtains", "pos": Vector2(414, 100),
 			"z": 0.65,
 			"symbol": "♪", "color": Color(1.0, 0.67, 0.78)},
-		{"id": "chandelier", "name": "Pearl chandelier", "pos": Vector2(418, 48),
+		{"id": "chandelier", "name": "Pearl chandelier", "pos": Vector2(418, 0),
 			"z": 1.10,
 			"symbol": "✦", "color": Color(1.0, 0.90, 0.44)},
 		{"id": "stage_star", "name": "Stage star", "pos": Vector2(490, 309),
