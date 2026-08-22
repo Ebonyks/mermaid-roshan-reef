@@ -75,6 +75,25 @@ unclassified until this ledger gains one new scoped row for it.
 | `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md` | 🟢 | `BINDING_OPERATIONAL` for stable `CHG-*` scope and rollback. Current inventory is 31 IDs, 79 uniquely owned commit references, four guarded-script emitters, 25 planner tests, and 27 manual/refusal groups. Manual/non-emitting CHG-031 owns exact 19-path source `51d0abc0`, including `scripts/probe_northern.gd`, at +3,318/-3,517. The ledger never authorizes rollback that violates protected-asset, security, save, or final-medium rules. |
 | `ASSET_AUDIT.md` | ⚪ | `HISTORICAL_EVIDENCE`; 2026-06-25 CC0 audit/network decision. Current named-defect discipline comes from design 06; its stale music inventory is superseded by `MUSIC_AUDIT_2026-08-09.md`. |
 
+## Private Grok animation package additions
+
+These records are scoped to the private Grok animation branch. They preserve
+accepted character identity, concrete review motion, generation provenance and
+production prompts, but do not claim live-game runtime or global design
+authority.
+
+| Doc | | Note |
+|---|---|---|
+| `docs/grok_animation_series_project/characters/EMBER_ROYALS_PAIRED_DELIVERY.md` | 🔵 | `PRIVATE_ANIMATION_REVIEW`; concrete paired cadence and 4:5 family-scale proof. It is not a live-game scene or owner acceptance record. |
+| `docs/grok_animation_series_project/characters/ember_king/ANIMATION_DELIVERY.md` | 🔵 | `PRIVATE_ANIMATION_REVIEW`; Ember King atlas, timing, loop and SpriteFrames delivery for the Grok package. |
+| `docs/grok_animation_series_project/characters/ember_king/GROK_PROMPTS.md` | 🔵 | `PRIVATE_PRODUCTION_RUNBOOK`; copy/paste motion prompts subordinate to the accepted identity and current project-wide art rules. |
+| `docs/grok_animation_series_project/characters/ember_king/IDENTITY_CARD.md` | 🔵 | `PRIVATE_CHARACTER_AUTHORITY`; accepted Ember King identity and acting continuity within the private animation project only. |
+| `docs/grok_animation_series_project/characters/ember_king/SOURCE_GENERATION_RECORD.md` | 🔵 | `PROVENANCE_ONLY`; records the built-in generation prompts, source hashes and derived-atlas method. |
+| `docs/grok_animation_series_project/characters/ember_prince/ANIMATION_DELIVERY.md` | 🔵 | `PRIVATE_ANIMATION_REVIEW`; Ember Prince atlas, timing, loop and SpriteFrames delivery for the Grok package. |
+| `docs/grok_animation_series_project/characters/ember_prince/GROK_PROMPTS.md` | 🔵 | `PRIVATE_PRODUCTION_RUNBOOK`; copy/paste motion prompts including the 80% family-scale and shell-topology locks. |
+| `docs/grok_animation_series_project/characters/ember_prince/IDENTITY_CARD.md` | 🔵 | `PRIVATE_CHARACTER_AUTHORITY`; accepted Ember Prince identity, shell anatomy and relative scale within the private animation project only. |
+| `docs/grok_animation_series_project/characters/ember_prince/SOURCE_GENERATION_RECORD.md` | 🔵 | `PROVENANCE_ONLY`; records the built-in generation prompt, source hash and derived-atlas method. |
+
 ## Game design lineage
 
 | Doc | | Note |
