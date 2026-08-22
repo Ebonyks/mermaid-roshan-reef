@@ -57,6 +57,47 @@ Each character owns a folder under `characters/`. Status meanings:
 - Motion vocabulary: gentle hover, friendly wave, broad slow swim with braid/sleeves lagging behind the body.
 - Scope: approved canon for this private family animation project. Preserve `SOURCE_PROVENANCE.md` with the character folder so the local source history is not lost.
 
+## Ember King — APPROVED_PRIVATE_CANON identity / REVIEW motion V1
+
+- Role: child-appropriate antagonist and father of the Ember Prince. His simple
+  motive is exclusive: he is fascinated by Roshan's fancy birthday candle and
+  travels to take it.
+- Identity authority: `characters/ember_king/EMBER_KING_IDENTITY.png`.
+- Motion authority: `EMBER_KING_MOTION_AUTHORITY.png`; concrete atlas,
+  individual frames, review loops and SpriteFrames are in the same folder.
+- Locks: lighter stocky-athletic red/coral turtle-dragon body; cream muzzle and
+  belly; asymmetrical black emo fringe; obsidian horn crown and natural shell;
+  charcoal vest/cuffs/chain; huge aubergine split cape; no tie.
+- Personality: adult ruler with melodramatic teenage-emo acting—possessive,
+  slouched, defensive, easily embarrassed and transparently delighted by the
+  candle while pretending to be bored.
+- Motion vocabulary: sparse slouched idle, heavy blundering walk with delayed
+  shell/cape follow-through, and theatrical harmless cape fan.
+- Relative scale: family anchor at 100%; the Prince is exactly 80% of his
+  standing height.
+- Restriction: the candle is scene-specific and not baked into reusable motion.
+
+## Ember Prince — APPROVED_PRIVATE_CANON identity / REVIEW motion V1
+
+- Role: the King's observant son. He comes because this is a family journey;
+  he has no separate candle fascination, secret mission or elemental destiny.
+- Identity authority: `characters/ember_prince/EMBER_PRINCE_IDENTITY.png`.
+- Motion authority: `EMBER_PRINCE_MOTION_AUTHORITY.png`; concrete atlas,
+  individual frames, review loops and SpriteFrames are in the same folder.
+- Locks: lanky red/coral turtle-dragon; cream muzzle; short obsidian horns;
+  asymmetrical black emo hair; charcoal/aubergine open-back jacket; ember-heart
+  clasp; slim trousers/boots; long split coat tails.
+- Relative scale: exactly four-fifths (80%) of the Ember King's standing
+  height in every shared shot.
+- Shell topology: natural shell grows from exposed red back skin; a continuous
+  skin halo surrounds it; the jacket center-back panel is absent; no fabric may
+  exist beneath, behind, across or over the shell.
+- Motion vocabulary: quiet guarded idle, sleek level walk, diagonal Cinderstep
+  and restrained secondary lag in hair, coat tails and tail.
+- Relationship behavior: in family shots his eyeline tracks the King and other
+  people, never the candle; he quietly clears hazards and protects his father's
+  dignity without sharing the goal.
+
 ## Adding future characters
 
 Never append a loose image to the root Project. Create a named folder, stable character ID, canonical authority, status, immutable traits, allowed variation, relative scale, expression/motion vocabulary and relationship notes. Use the onboarding template.

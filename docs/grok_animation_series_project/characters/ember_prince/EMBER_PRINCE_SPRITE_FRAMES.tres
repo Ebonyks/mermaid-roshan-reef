@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3]
+
+[ext_resource type="Texture2D" path="res://docs/grok_animation_series_project/characters/ember_prince/EMBER_PRINCE_RUNTIME_ATLAS.png" id="1_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 0, 256, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 0, 256, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03"]
+atlas = ExtResource("1_atlas")
+region = Rect2(512, 0, 256, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04"]
+atlas = ExtResource("1_atlas")
+region = Rect2(768, 0, 256, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 384, 256, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 384, 256, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07"]
+atlas = ExtResource("1_atlas")
+region = Rect2(512, 384, 256, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08"]
+atlas = ExtResource("1_atlas")
+region = Rect2(768, 384, 256, 384)
+
+[resource]
+resource_name = "EmberPrinceSpriteFrames"
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("AtlasTexture_07")}, {"duration": 1.0, "texture": SubResource("AtlasTexture_08")}, {"duration": 1.0, "texture": SubResource("AtlasTexture_08")}, {"duration": 1.0, "texture": SubResource("AtlasTexture_01")}],
+"loop": false,
+"name": &"cinderstep",
+"speed": 3.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("AtlasTexture_01")}, {"duration": 1.0, "texture": SubResource("AtlasTexture_02")}, {"duration": 1.0, "texture": SubResource("AtlasTexture_01")}],
+"loop": true,
+"name": &"idle_glance",
+"speed": 1.35
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("AtlasTexture_03")}, {"duration": 1.0, "texture": SubResource("AtlasTexture_04")}, {"duration": 1.0, "texture": SubResource("AtlasTexture_05")}, {"duration": 1.0, "texture": SubResource("AtlasTexture_06")}],
+"loop": true,
+"name": &"sleek_walk",
+"speed": 6.25
+}]

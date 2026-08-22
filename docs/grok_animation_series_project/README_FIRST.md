@@ -48,5 +48,10 @@ The Grok Project is an organized continuity library, not guaranteed automatic vi
 - Boss Dust Bunny — active approved identity plus five motion-state atlases.
 - Rainbow Dust Bunny — concept authority; animation turnaround not yet approved.
 - Rumi — approved private-project canon; full-body identity, eight-pose motion atlas, runtime atlas, and Roshan/Rumi relationship sample included.
+- Ember King — approved private-project identity; concrete idle, heavy-walk and
+  cape-fan motion package V1 included for review. He alone wants the candle.
+- Ember Prince — approved private-project identity; concrete idle, sleek-walk
+  and Cinderstep motion package V1 included for review. He accompanies the
+  journey because he is family, not because he wants the candle.
 
 The registry is designed to grow without rewriting the Project constitution.

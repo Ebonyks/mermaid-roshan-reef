@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://docs/grok_animation_series_project/tools/ember_royals_animation_preview.gd" id="1_script"]
+[ext_resource type="SpriteFrames" path="res://docs/grok_animation_series_project/characters/ember_king/EMBER_KING_SPRITE_FRAMES.tres" id="2_king"]
+[ext_resource type="SpriteFrames" path="res://docs/grok_animation_series_project/characters/ember_prince/EMBER_PRINCE_SPRITE_FRAMES.tres" id="3_prince"]
+
+[node name="EmberRoyalsAnimationPreview" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.976, 0.961, 0.988, 1)
+
+[node name="FloorBand" type="Polygon2D" parent="."]
+z_index = -5
+polygon = PackedVector2Array(0, 540, 1280, 540, 1280, 720, 0, 720)
+color = Color(0.89, 0.847, 0.929, 1)
+
+[node name="EmberKing" type="AnimatedSprite2D" parent="."]
+position = Vector2(395, 486)
+sprite_frames = ExtResource("2_king")
+animation = &"idle"
+centered = true
+
+[node name="EmberPrince" type="AnimatedSprite2D" parent="."]
+position = Vector2(875, 552)
+scale = Vector2(0.640532, 0.640532)
+sprite_frames = ExtResource("3_prince")
+animation = &"idle_glance"
+centered = true
