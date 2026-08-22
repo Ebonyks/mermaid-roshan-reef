@@ -40,6 +40,10 @@ func setup(target: Sprite2D,
 		MIN_SMOOTHNESS_MULTIPLIER, MAX_SMOOTHNESS_MULTIPLIER)
 	_copy_material = copy_material
 	_ensure_ghost()
+	# Keep the reusable idle ghost a complete Sprite2D card from setup onward.
+	# The castle canvas audit walks hidden cards too, and a just-created ghost
+	# must not temporarily expose a null texture before the first capture.
+	_copy_target_visual_to_ghost()
 	set_process(false)
 	_set_target_meta(false, 1.0)
 
