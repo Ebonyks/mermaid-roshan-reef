@@ -279,8 +279,20 @@ def _audit_current_runtime_contract(
 	if not isinstance(contract, dict):
 		failures.append("Current Castle runtime_node_contract must be an object")
 		return
-	_check(contract == depth_manifest.get("runtime_node_contract"),
-		"Current Castle correction and root runtime_node_contract must match", failures)
+	root_contract = depth_manifest.get("runtime_node_contract")
+	if not isinstance(root_contract, dict):
+		failures.append("Root Castle runtime_node_contract must be an object")
+		return
+	required_contract_keys = {
+		"camera", "coordinate_system", "world_art_allowed",
+		"world_art_forbidden", "world_root",
+	}
+	_check(set(contract) == required_contract_keys,
+		"Current Castle correction must declare exactly the core 2D runtime keys",
+		failures)
+	_check(all(root_contract.get(key) == value for key, value in contract.items()),
+		"Current Castle correction must be an exact subset of the root runtime contract",
+		failures)
 	_check(contract.get("world_root") == "Node2D",
 		"Current Castle world root must be Node2D", failures)
 	_check(contract.get("camera") == "none",
