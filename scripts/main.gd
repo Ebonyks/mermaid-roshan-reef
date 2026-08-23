@@ -6800,6 +6800,14 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 	if logical_room == "pool":
 		_castle_rooms_ref().start_day_one_pool_cleanup()
 		return true
+	if logical_room == "stuffie":
+		if _castle_rooms_ref().playroom_rescue_done():
+			day_one_complete_stuffie_scene()
+		else:
+			show_msg("Baby Eagle",
+				"Chirp! Bump both dust bunnies away to free me!", "hint")
+			_say("sparkle", "talk", 0.9)
+		return true
 	if not director.complete_placeholder(logical_room):
 		show_msg("Daddy Mermaid",
 			"Let's finish the glowing room before opening another door!",
@@ -6841,6 +6849,21 @@ func day_one_complete_pool_scene() -> bool:
 	_castle_rooms_ref().apply_day_one_cleanup("mermaid_pool")
 	_day_one_sync_castle_dressing()
 	_write_save()
+	return true
+
+func day_one_complete_stuffie_scene() -> bool:
+	if not day_one_is_active():
+		return false
+	var director: DayOneDirector = _day_one_ref()
+	if director.is_room_completed("stuffie") \
+			or not _castle_rooms_ref().playroom_rescue_done():
+		return false
+	if not director.complete_activity("stuffie", "stuffie_activity"):
+		return false
+	_castle_rooms_ref().apply_day_one_cleanup("playroom")
+	_day_one_sync_castle_dressing()
+	_write_save()
+	_say("sparkle", "talk", 0.9)
 	return true
 
 func _day_one_begin_arrival() -> void:

@@ -215,9 +215,14 @@ const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 ]
 const PLAYROOM_RESCUE_ITEMS: Array[Dictionary] = [
 	{"id": "baby_eagle_rescue", "name": "Baby Eagle",
-		"pos": Vector2(382.0, 110.0), "z": 1.55,
-		"tex_path": "res://assets/book/baby_eagle.png",
-		"scale": 0.32, "rescue_role": "baby_eagle",
+		# The book cutout includes a large packed bag and is cropped below the
+		# body. This dedicated pose keeps the complete eagle low between the two
+		# separately interactive bunny cards; the protected book original stays
+		# untouched.
+		"pos": Vector2(23.0, -36.0), "z": 1.55,
+		"tex_path": "res://assets/castle/day_one_stuffie/"
+			+ "baby_eagle_pinned.png",
+		"scale": 0.24, "rescue_role": "baby_eagle",
 		"proximity_only": true,
 		"color": Color(0.54, 0.91, 1.0)},
 	{"id": "eagle_pin_left", "name": "Left pinning dust bunny",
@@ -3956,6 +3961,9 @@ func _playroom_rescue_done() -> bool:
 	return m.companion_id != "" \
 		or bool(m.stuffie_wins.get("rescued_eagle", false))
 
+func playroom_rescue_done() -> bool:
+	return _playroom_rescue_done()
+
 func _restore_playroom_rescue_clears() -> void:
 	if _playroom_rescue_done():
 		return
@@ -4006,7 +4014,9 @@ func _check_playroom_rescue_complete() -> void:
 			or not bool(cleared.get("eagle_pin_right", false)):
 		return
 	m.stuffie_wins["rescued_eagle"] = true
-	m._write_save()
+	var completed_day_one_room: bool = m.day_one_complete_stuffie_scene()
+	if not completed_day_one_room:
+		m._write_save()
 	if m.castle_room_action_button != null:
 		m.castle_room_action_button.visible = true
 	var pointer: Node = m.castle_room_item_effect_layer.get_node_or_null(
@@ -4018,9 +4028,10 @@ func _check_playroom_rescue_complete() -> void:
 		"baby_eagle_rescue", {}) as Dictionary
 	var eagle: Sprite2D = eagle_record.get("sprite") as Sprite2D
 	m.castle_room_item_sprites.erase("baby_eagle_rescue")
-	m.show_msg("Baby Eagle",
-		"Chirp! You saved me! Let us learn how stuffie friends come along!",
-		"win")
+	m.show_msg("Baby Eagle", "Chirp! You saved me! " + (
+		"The Art Room picture is glowing, and I can come along!"
+		if completed_day_one_room else
+		"Let us learn how stuffie friends come along!"), "win")
 	if eagle == null or not is_instance_valid(eagle):
 		_open_playroom_stuffie_tutorial()
 		return

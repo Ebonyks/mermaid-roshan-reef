@@ -2613,3 +2613,8 @@ generations and transparent source masters remain preserved.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_heart.png` - 256x256 transparent heart emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png` - 256x256 transparent pearl-crown emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png` - 256x256 transparent complete-butterfly emblem cell from the authored motif master.
+
+## Day One Stuffie Room rescue (2026-08-22)
+
+- `assets_src/imagegen/day_one_stuffie_2026-08-22/baby_eagle_pinned_native.png` - project-owned Codex ImageGen identity-preserving derivative of protected canonical reference `assets/book/baby_eagle.png`; **Project-generated © Mermaid Roshan LLC, all rights reserved**; backpack removed and a new complete low rescue pose authored on transparency; protected source unchanged; generation prompt and hashes recorded in the adjacent `PROVENANCE.md`.
+- `assets/castle/day_one_stuffie/baby_eagle_pinned.png` - non-destructive whole-character 1024x768 runtime normalization of the preserved native generation above; **Project-generated © Mermaid Roshan LLC, all rights reserved**; proportional Lanczos downscale and transparent-canvas padding only.

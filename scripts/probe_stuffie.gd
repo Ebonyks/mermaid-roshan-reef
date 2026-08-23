@@ -98,6 +98,12 @@ func _picker_case() -> void:
 			< float(left_sprite.get_meta("depth_z", 0.0))
 		and float(eagle_sprite.get_meta("depth_z", 0.0))
 			< float(right_sprite.get_meta("depth_z", 0.0)))
+	_ck("Playroom rescue uses the complete bag-free Baby Eagle pose",
+		eagle_sprite.texture != null
+		and eagle_sprite.texture.resource_path ==
+			"res://assets/castle/day_one_stuffie/baby_eagle_pinned.png"
+		and not eagle_sprite.texture.resource_path ==
+			"res://assets/book/baby_eagle.png")
 	_ck("Playroom rescue uses proximity cards instead of flat hotspots",
 		left_record.get("hotspot") == null
 		and right_record.get("hotspot") == null
