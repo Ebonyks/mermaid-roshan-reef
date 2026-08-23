@@ -86,10 +86,25 @@ accepted. Mark every attempt `APPROVED`, `REVIEW` or `REJECT` with a reason.
 ## Gate 9 — delivery and provenance
 
 - Every Grok request is 15 seconds or less; planned requests are 6s or 8s.
-- Native download preserved unchanged with stable attempt filename.
+- Native download preserved unchanged with stable attempt filename. Every Grok
+  clip remains a candidate, never review/final delivery authority, until the
+  required frame audit passes.
 - Starting frame and every reference alias recorded in
   `04_CONTINUITY_LEDGER.csv`.
+- For every changed frame, the separate frame-regeneration manifest records:
+  timeline index; native full-frame candidate path and SHA-256; accepted
+  neighboring reference paths and hashes; prompt hash; attempt number; Grok
+  generation method; declared action or intentional-hold state; normalized
+  subject geometry; any position-guide path/hash with `role: position_only`
+  and `used_as_delivery_pixels: false`; and human identity, topology and style
+  review.
 - Identity, hands, topology, geography and camera review fields completed.
+- An intentional hold is allowed only where the direction brief calls for
+  stillness; it is labeled with its narrative purpose and never substitutes
+  for acting, contact, cleanup motion or camera action.
+- `tools/audit_cinematic.py` must pass for the extracted complete flattened
+  frame sequence before any review or final delivery. The shot ledger does not
+  replace this per-frame manifest.
 - Audio remains off during generation. Authorized voices/music are added later.
 - Assemble at 16:9 for 1280×720 without cropping essential action.
 - Rejected attempts remain labeled with their failure reason and are never
