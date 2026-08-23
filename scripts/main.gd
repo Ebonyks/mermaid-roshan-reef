@@ -1012,10 +1012,9 @@ func _ready() -> void:
 	_build_pause()
 	_load_save()
 	_init_touch_experiment()
-	if START_AT_CASTLE_GATE and DisplayServer.get_name() != "headless":
-		# Direct entry happens before the first rendered frame; a fade here would
-		# briefly expose the legacy ocean origin behind the intro overlay.
-		_enter_level2_now(false, false, true)
+	# Display builds defer the authored gatehouse entry until the start menu
+	# knows whether this is a direct Continue or a fresh Day 1 adventure.
+	# Headless probes retain their established self-directed bootstrap.
 	_collection_ref().build()
 	if DisplayServer.get_name() == "headless":
 		if first_session:
@@ -3742,6 +3741,23 @@ func _start_new_game() -> bool:
 	if _save_state == null:
 		_save_state = SaveState.new(self)
 	return _save_state.start_new_game()
+
+func _launch_from_start_menu(start_day_one: bool) -> void:
+	# The launch choice owns the Day 1 boundary. Continue is deliberately a
+	# direct game entry, even when an older save predates the Day 1 fields;
+	# New Game keeps the fresh-save defaults and fires the authored arrival.
+	_prepare_start_menu_launch(start_day_one)
+	if START_AT_CASTLE_GATE:
+		_enter_level2_now(false, false, true)
+
+func _prepare_start_menu_launch(start_day_one: bool) -> void:
+	first_session = false
+	# Initialize the director before selecting the mode: its constructor
+	# normalizes default Day 1 state and must not overwrite a Continue choice.
+	var director: DayOneDirector = _day_one_ref()
+	director.day_one_active = start_day_one
+	if not start_day_one:
+		_day_one_clear_castle_dressing()
 
 func _queue_save() -> void:
 	# debounce for the per-frame hot sites (pearl pickup, friend discovery):
