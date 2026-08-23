@@ -41,6 +41,14 @@
       "sha256": "2f68701c069635516514db25d2621c2300fa1bc7077c2db8c028a0a51941455a",
       "use": "opening storyboard, prompts, continuity ledger, shot plan, and airplane reference",
       "depends_on": ["character_library", "sky_lagoon_location"]
+    },
+    {
+      "id": "opening_v2_rebuild",
+      "file": "downloads/05_OPENING_V2_REBUILD.zip",
+      "bytes": 1779099,
+      "sha256": "8d61cdcde3902defe18e8486acc6398a4108b89e0b0198afb83ec07361326559",
+      "use": "trial audit, visual evidence, twenty-segment defect ledger, and fifteen-shot fresh-generation replacement script",
+      "depends_on": ["character_library", "sky_lagoon_location", "opening_sequence_module"]
     }
   ],
   "direct_previews": [

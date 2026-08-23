@@ -1,0 +1,21 @@
+trial_segment,start_seconds,end_seconds,visible_content,intended_story_function,verdict,primary_failures,replacement_v2_shot
+T01,0.0,2.0,Plane crosses painted sky,Opening travel beat,REJECT_PRODUCTION,"Plane identity/window drift; modern glossy rendering",V2-S01
+T02,2.0,4.5,Cabin two-shot,Roshan and Daddy establish positions,REJECT_PRODUCTION,"Unstable cabin; simplified identities; weak seatbelt continuity",V2-S02
+T03,4.5,6.5,Roshan medium reaction,Roshan uncertainty,REJECT_PRODUCTION,"Genericized Roshan; missing precise pendant/finger acting",V2-S03
+T04,6.5,10.0,Daddy gesture and partial hand contact,Daddy offers hand and Roshan chooses,REJECT_PRODUCTION,"Beat compressed; hand ownership unclear; hug absent",V2-S04/V2-S05
+T05,10.0,12.5,Plane with full island and castle,Arrival transition,HARD_REJECT,"Kingdom revealed 27.5 seconds early; geography drift",V2-S06 cabin touchdown only
+T06,12.5,15.0,Castle beauty insert,None before final reveal,HARD_REJECT,"Premature reveal; castle proportions drift; no character causality",REMOVE
+T07,15.0,17.5,Cabin belts/two-shot,Daddy demonstrates belt release,REJECT_PRODUCTION,"Belt state/ownership unclear; action not demonstrated",V2-S07
+T08,17.5,20.0,Cabin two-shot,Roshan copies belt release,REJECT_PRODUCTION,"Copy action unreadable; hand/buckle continuity drifts",V2-S07
+T09,20.0,22.0,Characters rise in cabin,Daddy rises and waits,REJECT_PRODUCTION,"Bodies/tails scale abruptly; offered-hand consent beat weak",V2-S08
+T10,22.0,23.5,Characters move together,Approach screen-right door,REJECT_PRODUCTION,"Door/cabin geography unclear; insufficient rear tracking",V2-S08
+T11,23.5,25.0,Repeated island/castle aerial,None,HARD_REJECT,"Second premature kingdom reveal; redundant montage cutaway",REMOVE
+T12,25.0,26.5,Empty PNW forest path,None,REMOVE,"Replaces required action; unrelated scenic filler",REMOVE
+T13,26.5,28.0,Second empty forest view,None,REMOVE,"Replaces required action; no causal continuity",REMOVE
+T14,28.0,29.5,Empty lakeside PNW path,None,REMOVE,"Replaces route establishment; unrelated geography",REMOVE
+T15,29.5,33.5,Tiny plane parked on lawn while otter climbs it,Landing and safe route,HARD_REJECT,"No landing; plane on grass; random animal; catastrophic scale; no six steps/rails/platform",V2-S09/V2-S10
+T16,33.5,36.5,Roshan and Daddy outside with otter,Descent and platform arrival,HARD_REJECT,"Characters teleport outside; airplane too small; animal hijacks story; no route",V2-S11/V2-S12
+T17,36.5,37.5,Characters suddenly back inside cabin,Continuous exit,HARD_REJECT,"Time/space reversal after exterior scene",V2-S08/V2-S09
+T18,37.5,40.5,Rear pair enters glowing doorway,Countable threshold crossing,HARD_REJECT,"Portal substitution; no six-step route; no separate platform; kingdom leaks through doorway",V2-S09/V2-S11
+T19,40.5,43.5,Front/three-quarter pair before castle,Rear hero reveal,HARD_REJECT,"Wrong orientation; characters too large; path/bridge obscured; geography simplified",V2-S13
+T20,43.5,46.5,Castle tableau continues,Quiet final handoff,REJECT_PRODUCTION,"Wrong starting composition; gesture and eyeline drift; no locked rear hold",V2-S14

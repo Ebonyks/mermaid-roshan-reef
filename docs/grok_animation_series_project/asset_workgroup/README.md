@@ -8,6 +8,7 @@ This directory is the context-light asset exchange for the Mermaid Roshan Grok P
 2. [`02_SKY_LAGOON_LOCATION.zip`](downloads/02_SKY_LAGOON_LOCATION.zip) — accepted Sky Lagoon geography, exact four-tower castle, full panorama, airplane, and current style bible.
 3. [`03_PNW_FULL_2D_PACK.zip`](downloads/03_PNW_FULL_2D_PACK.zip) — complete accepted 2D PNW visual pack: 12 trees, 12 shrub variants, two master sheets, four plant-motion atlases, five fauna families in full-resolution and runtime motion sets, contact sheet, prompts, manifests, and audit notes.
 4. [`04_OPENING_SEQUENCE_MODULE.zip`](downloads/04_OPENING_SEQUENCE_MODULE.zip) — the opening-flight storyboard, 15-second plan, prompt set, continuity ledger, review gates, and airplane reference. It deliberately reuses packs 01 and 02 rather than duplicating them.
+5. [`05_OPENING_V2_REBUILD.zip`](downloads/05_OPENING_V2_REBUILD.zip) — complete audit of the 46.5-second Grok trial, visual evidence sheets, twenty-segment defect ledger, and the fifteen-shot fresh-generation replacement script.
 
 Exact hashes are in `DOWNLOADS_SHA256.txt`. Every file inside the PNW archive is inventoried in `PNW_PACK_MANIFEST.csv`.
 

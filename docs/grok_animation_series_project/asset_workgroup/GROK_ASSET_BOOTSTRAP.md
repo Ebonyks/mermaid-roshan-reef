@@ -12,6 +12,7 @@ The four downloadable workgroups are:
 02_SKY_LAGOON_LOCATION.zip — Sky Lagoon, castle, panorama, airplane, and style authority.
 03_PNW_FULL_2D_PACK.zip — the complete accepted 2D Pacific Northwest flora and fauna reference family.
 04_OPENING_SEQUENCE_MODULE.zip — storyboard, shot plan, prompts, ledger, and airplane for the first sequence.
+05_OPENING_V2_REBUILD.zip — audit of the rejected first trial plus the fresh fifteen-shot replacement script; use this instead of coaching or extending the rejected movie.
 
 For PNW visual understanding, inspect these direct previews instead of opening 57 assets:
 - asset_workgroup/previews/PNW_TREE_MASTER_SHEET.png

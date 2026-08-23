@@ -37,6 +37,7 @@ Grok clips remain limited to 15 seconds, but the Project itself is organized as 
 - `modules/` — episode/sequence-specific scripts, prompts and ledgers.
 - `templates/` — new-character and new-sequence onboarding templates.
 - `asset_workgroup/` — preassembled downloadable character, location, full-PNW and opening-sequence bundles for Grok's limited context window.
+- `modules/opening_flight_to_sky_lagoon/trial_2026-08-23/` — audit of the first 46.5-second Grok trial and the authoritative V2 rebuild script.
 
 ## Core operating principle
 
