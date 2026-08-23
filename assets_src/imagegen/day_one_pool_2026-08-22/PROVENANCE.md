@@ -54,16 +54,41 @@ or 3D rendering.
 
 ### `seahorse_sick_native.png`
 
-Use case: precise-object-edit. Image 1 is the exact approved seahorse fountain
-identity reference; Image 2 is the room style reference. Create the same
-lavender-aqua seahorse fountain in a clearly sick, clogged state. Preserve its
-species, crest, snout, curled tail, proportions, identity colors,
-pearl-and-coral pedestal, outline, and three-quarter pose. Remove the healthy
-water stream. Add a gentle tired expression, muted color, olive seaweed around
-belly and tail, soft algae on crest and pedestal, two leaves, and dull murky
-bubbles. Keep the face visible, sympathetic, and child-safe. Full-body genuine
-transparent cutout; no redesign, extra limbs, injury, medicine, text, logo,
-watermark, photorealism, or 3D rendering.
+Use case: precise-object-edit. Image 1 is the sole identity, silhouette,
+proportions, palette, material, outline, viewing-angle, pedestal, and
+character-design authority for the existing Mermaid Pool seahorse fountain;
+Image 2 supplies only its larger room context and diffuse storybook lighting.
+Render that exact established lavender-and-aqua fountain in one dirty, clogged,
+sick-looking state. Preserve the long narrow snout, round black eye placement,
+lavender scalloped crest, small side fin, aqua-lavender body, cream segmented
+belly, tightly curled tail, pink-and-aqua coral base, pearl-paver pedestal,
+proportions, and upright three-quarter pose. Remove only the clean water stream.
+One clearly visible soggy crumpled pink paper wrapper is wedged sideways in and
+protrudes from the mouth/nozzle, with a short soft olive seaweed strand tangled
+around it; the trash must read instantly at phone size as the cause of the clog
+and not as a tongue, wound, food, sharp object, cigarette, or body part. Limit
+growth to three calm clusters: algae on part of the crest/back, two broad
+seaweed ribbons around belly/tail, and grime on the pedestal. Preserve the
+face, full silhouette, belly, curl, coral base, and pedestal. Match the approved
+matte high-key 2D storybook/cel painting: broad rounded masses, two or three
+broad value bands, clean deep-indigo/plum contours, sparse interior lines,
+diffuse front-above lighting, and restrained wet accents. Exactly one complete
+cutout on genuine alpha; no redesigned living seahorse, water stream, extra
+animal/limbs/horn/eyelashes/jewelry, background, floor, shadow, glow, aura,
+vignette, text, logo, watermark, PBR texture, photographic algae, horror, or
+injury.
+
+The initial 2026-08-22 sick-state master redesigned the fountain as a different
+living seahorse and omitted the required mouth blockage. It is rejected and
+retained only as evidence at
+`rejected/seahorse_sick_wrong_identity_native.png`; it is not a runtime
+fallback. The corrected generation initially returned a baked checkerboard, so
+a background-extraction-only pass removed that checkerboard while preserving
+the accepted subject pixels. A later candidate preserved the mouth blockage but
+invented a small forehead horn; that candidate was rejected, the horn alone was
+removed against the canonical clean fountain, and the resulting checkerboard
+was again extracted without admitting it to runtime. The selected hornless
+master is verified RGBA with alpha extrema 0–255.
 
 ### `rumi_violet_native.png`
 
@@ -85,7 +110,7 @@ tail, legs, text, logo, watermark, photorealism, or 3D rendering.
 | `pool_algae_trash_native.png` | `assets/castle/day_one_pool/pool_algae_trash.png` | 1536×1024 to 1024×682 RGBA |
 | `waterfall_growth_native.png` | `assets/castle/day_one_pool/waterfall_growth.png` | portrait to 1024px high RGBA |
 | `pool_rim_grime_native.png` | `assets/castle/day_one_pool/pool_rim_grime.png` | 1536×1024 to 1024×682 RGBA |
-| `seahorse_sick_native.png` | `assets/castle/day_one_pool/seahorse_sick.png` | 1104×1425 to 794×1024 RGBA |
+| `seahorse_sick_native.png` | `assets/castle/day_one_pool/seahorse_sick.png` | 1199×1312 to 936×1024 RGBA |
 | `rumi_violet_native.png` | `assets/castle/day_one_pool/rumi_violet.png` | 1024×1536 to 682×1024 RGBA |
 
 The first waterfall-growth attempt returned an RGB checkerboard instead of
