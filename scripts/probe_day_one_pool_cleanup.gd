@@ -7,7 +7,8 @@ const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/day_one_pool/waterfall_growth.png",
 	"res://assets/castle/day_one_pool/pool_rim_grime.png",
 	"res://assets/castle/day_one_pool/seahorse_sick.png",
-	"res://assets/castle/day_one_pool/rumi_violet.png",
+	"res://assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+	"res://assets/characters/rumi/rumi_eight_pose_runtime.png",
 ]
 
 var checks_failed: int = 0
@@ -54,7 +55,21 @@ func _run_probe() -> void:
 	var final_snapshot: Dictionary = cleanup.audit_snapshot()
 	_check("finale creates Rumi reveal",
 		bool(final_snapshot.get("finale_started", false))
-		and bool(final_snapshot.get("rumi_present", false)))
+		and bool(final_snapshot.get("rumi_present", false))
+		and bool(final_snapshot.get("rumi_approved_identity", false))
+		and bool(final_snapshot.get("rumi_authored_animation", false))
+		and String(final_snapshot.get("rumi_animation", "")) == "swim")
+	# The focused harness does not build ReefMain's HUD/audio tree. Detach the
+	# stub before the delayed reveal callback while preserving animation checks.
+	cleanup.m = null
+	await create_timer(1.25).timeout
+	var wave_snapshot: Dictionary = cleanup.audit_snapshot()
+	_check("Rumi performs authored wave after rising",
+		String(wave_snapshot.get("rumi_animation", "")) == "wave")
+	await create_timer(1.1).timeout
+	var idle_snapshot: Dictionary = cleanup.audit_snapshot()
+	_check("Rumi settles into authored idle",
+		String(idle_snapshot.get("rumi_animation", "")) == "idle")
 	cleanup.teardown()
 	await process_frame
 	_check("teardown frees cleanup", not is_instance_valid(cleanup))

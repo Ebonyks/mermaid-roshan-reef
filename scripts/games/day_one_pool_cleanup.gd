@@ -40,7 +40,15 @@ const CLEANUP_STEPS: Array[Dictionary] = [
 		"hit_size": Vector2(285.0, 375.0),
 	},
 ]
-const RUMI_TEXTURE := ASSET_ROOT + "rumi_violet.png"
+const RUMI_POOL_ATLAS := \
+	"res://assets/characters/rumi/rumi_pool_idle_swim_atlas.png"
+const RUMI_POSE_ATLAS := \
+	"res://assets/characters/rumi/rumi_eight_pose_runtime.png"
+const RUMI_POOL_CELL_SIZE := Vector2(256.0, 256.0)
+const RUMI_POSE_CELL_SIZE := Vector2(256.0, 384.0)
+const RUMI_SWIM_SCALE := 1.02
+const RUMI_UPRIGHT_START_SCALE := 0.83
+const RUMI_UPRIGHT_SCALE := 0.96
 const DINGY_WASH := Color(0.18, 0.20, 0.11, 0.36)
 const CLEAN_SPARKLE_COLORS: Array[Color] = [
 	Color(0.48, 0.96, 0.94),
@@ -59,7 +67,7 @@ var _step_sprites: Array[Sprite2D] = []
 var _step_buttons: Array[Button] = []
 var _light_wash: ColorRect = null
 var _pointer: Label = null
-var _rumi: Sprite2D = null
+var _rumi: AnimatedSprite2D = null
 var _healthy_seahorse: Sprite2D = null
 var _clean_seahorse: Sprite2D = null
 var _hidden_fixture_items: Array[Dictionary] = []
@@ -111,6 +119,15 @@ func audit_snapshot() -> Dictionary:
 		"dingy_lighting": _light_wash != null,
 		"finale_started": _finale_started,
 		"rumi_present": _rumi != null and is_instance_valid(_rumi),
+		"rumi_approved_identity": _rumi != null and is_instance_valid(_rumi)
+			and bool(_rumi.get_meta("approved_private_canon", false)),
+		"rumi_authored_animation": _rumi != null and is_instance_valid(_rumi)
+			and _rumi.sprite_frames != null
+			and _rumi.sprite_frames.get_frame_count(&"idle") == 2
+			and _rumi.sprite_frames.get_frame_count(&"wave") == 2
+			and _rumi.sprite_frames.get_frame_count(&"swim") == 4,
+		"rumi_animation": String(_rumi.animation) \
+			if _rumi != null and is_instance_valid(_rumi) else "",
 		"canvas_only": true,
 	}
 
@@ -368,33 +385,76 @@ func _begin_finale() -> void:
 
 
 func _spawn_rumi_rise() -> void:
-	var texture: Texture2D = load(RUMI_TEXTURE) as Texture2D
-	if texture == null:
-		push_error("Missing Rumi reveal texture: %s" % RUMI_TEXTURE)
+	var pool_atlas: Texture2D = load(RUMI_POOL_ATLAS) as Texture2D
+	var pose_atlas: Texture2D = load(RUMI_POSE_ATLAS) as Texture2D
+	if pool_atlas == null or pose_atlas == null:
+		push_error("Missing approved Rumi animation atlases: %s / %s" % [
+			RUMI_POOL_ATLAS, RUMI_POSE_ATLAS])
 		_finish_rumi_reveal()
 		return
-	_rumi = Sprite2D.new()
+	_rumi = AnimatedSprite2D.new()
 	_rumi.name = "RumiVioletReveal"
-	_rumi.texture = texture
+	_rumi.sprite_frames = _build_rumi_sprite_frames(pool_atlas, pose_atlas)
+	_rumi.animation_finished.connect(_on_rumi_animation_finished)
 	_rumi.position = Vector2(640.0, 610.0)
-	var texture_size: Vector2 = texture.get_size()
-	var reveal_scale: float = minf(
-		245.0 / maxf(texture_size.x, 1.0),
-		305.0 / maxf(texture_size.y, 1.0))
-	_rumi.scale = Vector2.ONE * reveal_scale * 0.72
+	_rumi.scale = Vector2.ONE * RUMI_SWIM_SCALE * 0.72
 	_rumi.modulate.a = 0.0
 	_rumi.z_index = 18
+	_rumi.set_meta("approved_private_canon", true)
+	_rumi.set_meta("source_working_name", "Violet Tide")
 	add_child(_rumi)
+	_rumi.play(&"swim")
 	_spawn_reveal_ripple()
 	var rise_tween: Tween = _rumi.create_tween().set_parallel(true)
 	rise_tween.tween_property(
 		_rumi, "position", Vector2(650.0, 350.0), 1.15
 	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	rise_tween.tween_property(
-		_rumi, "scale", Vector2.ONE * reveal_scale, 1.0
+		_rumi, "scale", Vector2.ONE * RUMI_SWIM_SCALE, 1.0
 	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	rise_tween.tween_property(_rumi, "modulate:a", 1.0, 0.52)
 	rise_tween.chain().tween_callback(_finish_rumi_reveal)
+
+
+func _build_rumi_sprite_frames(
+		pool_atlas: Texture2D, pose_atlas: Texture2D) -> SpriteFrames:
+	var frames := SpriteFrames.new()
+	frames.remove_animation(&"default")
+	frames.add_animation(&"idle")
+	frames.set_animation_speed(&"idle", 1.5)
+	frames.set_animation_loop(&"idle", true)
+	for column: int in range(2):
+		frames.add_frame(&"idle", _rumi_atlas_frame(
+			pose_atlas, column, 0, RUMI_POSE_CELL_SIZE))
+	frames.add_animation(&"wave")
+	frames.set_animation_speed(&"wave", 2.0)
+	frames.set_animation_loop(&"wave", false)
+	for column: int in range(2, 4):
+		frames.add_frame(&"wave", _rumi_atlas_frame(
+			pose_atlas, column, 0, RUMI_POSE_CELL_SIZE))
+	frames.add_animation(&"swim")
+	frames.set_animation_speed(&"swim", 5.0)
+	frames.set_animation_loop(&"swim", true)
+	for column: int in range(4):
+		frames.add_frame(&"swim", _rumi_atlas_frame(
+			pool_atlas, column, 1, RUMI_POOL_CELL_SIZE))
+	return frames
+
+
+func _rumi_atlas_frame(atlas: Texture2D, column: int, row: int,
+		cell_size: Vector2) -> AtlasTexture:
+	var frame := AtlasTexture.new()
+	frame.atlas = atlas
+	frame.region = Rect2(
+		Vector2(float(column) * cell_size.x, float(row) * cell_size.y),
+		cell_size)
+	return frame
+
+
+func _on_rumi_animation_finished() -> void:
+	if _rumi != null and is_instance_valid(_rumi) \
+			and _rumi.animation == &"wave":
+		_rumi.play(&"idle")
 
 
 func _spawn_reveal_ripple() -> void:
@@ -420,6 +480,12 @@ func _spawn_reveal_ripple() -> void:
 func _finish_rumi_reveal() -> void:
 	_busy = false
 	if _rumi != null and is_instance_valid(_rumi):
+		_rumi.scale = Vector2.ONE * RUMI_UPRIGHT_START_SCALE
+		_rumi.play(&"wave")
+		var settle_tween: Tween = _rumi.create_tween()
+		settle_tween.tween_property(
+			_rumi, "scale", Vector2.ONE * RUMI_UPRIGHT_SCALE, 0.35
+		).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		var idle_tween: Tween = _rumi.create_tween().set_loops()
 		idle_tween.tween_property(
 			_rumi, "position:y", _rumi.position.y - 7.0, 1.15
