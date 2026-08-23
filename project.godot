@@ -33,6 +33,10 @@ config/features=PackedStringArray("4.7", "Mobile")
 ; Nothing is captured at boot.
 driver/enable_input=true
 
+[autoload]
+
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -43,6 +47,10 @@ window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=4
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg")
 
 [filesystem]
 
