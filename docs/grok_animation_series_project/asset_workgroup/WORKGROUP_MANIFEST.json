@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "project": "Mermaid Roshan Animation Series",
+  "branch": "codex/grok-animation-series-guide",
+  "purpose": "preassembled context-light asset exchange for manual Grok Project and Imagine use",
+  "packs": [
+    {
+      "id": "character_library",
+      "file": "downloads/01_CHARACTER_LIBRARY.zip",
+      "bytes": 35525272,
+      "sha256": "fe5a6b5ebd9e6d69346b32d82c6c8fc32c43ca91cc62105a9602b02049f16623",
+      "use": "current tracked canonical cast identity and motion authorities, including Ember King and Ember Prince"
+    },
+    {
+      "id": "sky_lagoon_location",
+      "file": "downloads/02_SKY_LAGOON_LOCATION.zip",
+      "bytes": 20879035,
+      "sha256": "7ccce24dcef80754cd9b22c377d727ce7ad1c9254aebd5ad3bf3bfc9f1085398",
+      "use": "Sky Lagoon geography, exact castle, panorama, airplane, and style"
+    },
+    {
+      "id": "pnw_full_2d",
+      "file": "downloads/03_PNW_FULL_2D_PACK.zip",
+      "bytes": 16197859,
+      "sha256": "e22e9171a05231ea76d6729bc03b4a90b7fbb04df2d7aedb180d6939e4418d9a",
+      "use": "complete accepted 2D PNW flora and fauna authority",
+      "contents": {
+        "flora_master_sheets": 2,
+        "flora_individual_cards": 24,
+        "flora_motion_atlases": 4,
+        "fauna_full_resolution_atlases": 10,
+        "fauna_runtime_atlases": 10,
+        "documentation_and_manifests": 7
+      },
+      "excludes": ["raw chroma intermediates", "GLB and other superseded 3D material"]
+    },
+    {
+      "id": "opening_sequence_module",
+      "file": "downloads/04_OPENING_SEQUENCE_MODULE.zip",
+      "bytes": 238881,
+      "sha256": "2f68701c069635516514db25d2621c2300fa1bc7077c2db8c028a0a51941455a",
+      "use": "opening storyboard, prompts, continuity ledger, shot plan, and airplane reference",
+      "depends_on": ["character_library", "sky_lagoon_location"]
+    }
+  ],
+  "direct_previews": [
+    "previews/PNW_TREE_MASTER_SHEET.png",
+    "previews/PNW_SHRUB_MASTER_SHEET.png",
+    "previews/PNW_FAUNA_CONTACT_SHEET.png"
+  ],
+  "generation_reference_budget": {
+    "normal": "2-4 images",
+    "hard_ceiling": 7,
+    "rule": "Each attached image must have one declared authority domain."
+  }
+}

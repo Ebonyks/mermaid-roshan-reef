@@ -41,3 +41,7 @@ If you cannot open a branch file or image, name its path explicitly instead of g
 - the current sequence module and accepted previous ending frame
 
 GitHub access provides context and stable filenames. It does not replace attaching the two to four most important reference images directly to each Imagine generation.
+
+## Preassembled asset workgroup
+
+If repository browsing or context size becomes a problem, use `asset_workgroup/`. It contains four ready-to-download bundles, the complete accepted 2D PNW pack, three direct PNW preview sheets, exact checksums, and a separate bootstrap message for the Project's asset-library chat.

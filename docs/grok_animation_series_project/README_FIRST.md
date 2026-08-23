@@ -35,6 +35,7 @@ Grok clips remain limited to 15 seconds, but the Project itself is organized as 
 - `locations/` — reusable Sky Lagoon authorities; add future places here.
 - `modules/` — episode/sequence-specific scripts, prompts and ledgers.
 - `templates/` — new-character and new-sequence onboarding templates.
+- `asset_workgroup/` — preassembled downloadable character, location, full-PNW and opening-sequence bundles for Grok's limited context window.
 
 ## Core operating principle
 

@@ -6,6 +6,10 @@ Start here:
 
 [`docs/grok_animation_series_project/GROK_START_HERE.md`](docs/grok_animation_series_project/GROK_START_HERE.md)
 
+Preassembled assets and full PNW pack:
+
+[`docs/grok_animation_series_project/asset_workgroup/README.md`](docs/grok_animation_series_project/asset_workgroup/README.md)
+
 The complete self-contained handoff lives only under:
 
 `docs/grok_animation_series_project/`

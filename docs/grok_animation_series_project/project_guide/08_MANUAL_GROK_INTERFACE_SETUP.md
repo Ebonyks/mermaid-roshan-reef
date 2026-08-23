@@ -9,8 +9,9 @@ This package is designed for the signed-in Grok web interface, not an API or bro
 3. Paste the bootstrap message from `../GROK_START_HERE.md`, including the dedicated GitHub branch URL. Ask Grok to read and confirm the five requested items before generating.
 4. Open a Project chat named `00 — Series Bible` and paste the fenced block from `00_PROJECT_CONSTITUTION_COPY_PASTE.md`.
 5. Attach or paste `01_STYLE_BIBLE.md`, `02_CAST_REGISTRY.md`, and `03_PROJECT_ARCHITECTURE.md` in that chat. Ask Grok to summarize the authority hierarchy without generating art; correct any misunderstanding before production.
-6. Create one Project chat named `01 — Character Library`. Introduce each character folder separately. Do not upload the whole cast in one request.
-7. Create separate Project chats for locations and for each episode/sequence. The first included sequence is `opening_flight_to_sky_lagoon`.
+6. Create one Project chat named `01 — Asset Library` and paste `asset_workgroup/GROK_ASSET_BOOTSTRAP.md`. Use its four preassembled packs; introduce characters separately rather than expanding the entire cast archive into one message.
+7. Let Grok inspect the three PNW preview sheets directly. Keep `03_PNW_FULL_2D_PACK.zip` available when a specific plant or animal is needed, but do not put all 57 PNW files into conversational context.
+8. Create separate Project chats for locations and for each episode/sequence. The first included sequence is `opening_flight_to_sky_lagoon`.
 
 The branch is a stable read-only knowledge source for Grok. Continue attaching the exact reference images needed by an Imagine generation; do not assume that browsing the branch automatically conditions the video model.
 
