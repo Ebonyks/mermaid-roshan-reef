@@ -36,8 +36,11 @@ const PLAY_SETTLE_HOP := 18.0
 const CASTLE_DOOR_MASTER_X := 5312.0
 const CASTLE_CARD_TEXTURE_SIZE := Vector2(1022.0, 1024.0)
 const CASTLE_DOOR_FOCUS_BOUNDS := Rect2(Vector2(410.0, 557.0), Vector2(199.0, 228.0))
+const CASTLE_CARD_HEIGHT_MASTER := 1060.0
+const CASTLE_CARD_BOTTOM_MASTER_Y := 1120.0
 const DOORSTEP_RADIUS_MASTER := 62.0
 const DOORSTEP_REARM_MASTER := 330.0
+const LOCKED_MURAL_PARALLAX := 1.0
 const REAR_PARALLAX := 0.82
 const FOREGROUND_PARALLAX := 1.06
 
@@ -46,6 +49,23 @@ const FIREFLY_TEX := "res://assets/fairy/sprites/bug_firefly.png"
 const SMOKE_WISP_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
 const SWING_FRAME_TEX := "res://assets/props/story/play_swing_frame.png"
 const SWING_SEAT_TEX := "res://assets/props/story/play_swing_seat.png"
+const SWING_GRIP_LENGTH_MASTER := 361.0
+const SWING_HAND_ANCHORS := [
+	Vector2(264.5, 204.5),
+	Vector2(168.0, 205.0),
+	Vector2(322.5, 186.0),
+	Vector2(222.0, 190.0),
+]
+const SEESAW_SEAT_ANCHORS := [
+	Vector2(300.0, 420.0),
+	Vector2(225.0, 400.0),
+	Vector2(270.0, 340.0),
+	Vector2(220.0, 360.0),
+]
+const SEESAW_RIGHT_SEAT_SOCKET_MASTER := Vector2(226.13, -9.42)
+const SLIDE_RIDE_START_MASTER := Vector2(-62.0, -325.0)
+const SLIDE_RIDE_CONTROL_MASTER := Vector2(54.0, -217.0)
+const SLIDE_RIDE_FINISH_MASTER := Vector2(250.0, 92.0)
 const ROSHAN_DIRECTIONAL := preload("res://assets/characters/roshan_25d/roshan_directional.png")
 const ROSHAN_SWIM_FRONT := preload("res://assets/characters/roshan_25d/roshan_swim_front.png")
 
@@ -203,11 +223,11 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_master_space"] = content
 
 	for holder_spec: Dictionary in [
-		{"key": "lagoon_base_layer", "name": "SkyLagoonBase", "z": -500, "parallax": 1.0},
+		{"key": "lagoon_base_layer", "name": "SkyLagoonBase", "z": -500, "parallax": LOCKED_MURAL_PARALLAX},
 		{"key": "lagoon_rear_layer", "name": "SkyLagoonRear", "z": -400, "parallax": REAR_PARALLAX},
-		{"key": "lagoon_landmark_layer", "name": "SkyLagoonLandmarks", "z": -300, "parallax": 1.0},
-		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "z": 0, "parallax": 1.0},
-		{"key": "lagoon_actor_layer", "name": "SkyLagoonActors", "z": 100, "parallax": 1.0},
+		{"key": "lagoon_landmark_layer", "name": "SkyLagoonLandmarks", "z": -300, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "z": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_actor_layer", "name": "SkyLagoonActors", "z": 100, "parallax": LOCKED_MURAL_PARALLAX},
 		{"key": "lagoon_foreground_layer", "name": "SkyLagoonForeground", "z": 300, "parallax": FOREGROUND_PARALLAX},
 	]:
 		var holder := Node2D.new()
@@ -455,6 +475,7 @@ func _build_night_fireflies() -> void:
 		fly.scale = Vector2.ONE * (0.030 + float(index % 4) * 0.006)
 		fly.modulate = Color(1.0, 0.88, 0.35, 0.75)
 		fly.set_meta("ambient_kind", "fireflies")
+		fly.set_meta("lighting_medium", "canvas_sprite2d")
 		fly.set_meta("night_only", true)
 		fly.set_meta("night_tinted", true)
 		fly.set_meta("canvas_layer_role", "sparse_foreground")
@@ -514,8 +535,11 @@ func _build_promenade_swing(position_master: Vector2) -> Sprite2D:
 func _build_castle_screen() -> void:
 	var castle := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
-		Vector2(5260, 1110), 1190.0, true, m.g.get("lagoon_landmark_layer") as Node2D)
+		Vector2(5260, CASTLE_CARD_BOTTOM_MASTER_Y), CASTLE_CARD_HEIGHT_MASTER,
+		true, m.g.get("lagoon_landmark_layer") as Node2D)
 	castle.name = "SkyLagoonCastleFourTower"
+	castle.set_meta("exterior_dressing_contract", "authored_sprite2d_only")
+	castle.set_meta("lighting_medium", "authored_rgba_canvas_sprite")
 	m.g["lagoon_castle_card"] = castle
 	var door_anchor := Node2D.new()
 	door_anchor.name = "SkyLagoonCastleDoorFocus"
@@ -650,6 +674,7 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 	idle_tint.a = minf(idle_tint.a,
 		0.055 if kind == "playground" or kind == "reef" else 0.10)
 	glow.modulate = idle_tint
+	glow.visible = false
 	glow.z_index = node.z_index + 4
 	glow.set_meta("canvas_layer_role", "interaction_affordance")
 	glow.set_meta("interaction_id", id)
@@ -733,6 +758,7 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 		if glow == null or not is_instance_valid(glow):
 			continue
 		var selected: bool = String(target.get("id", "")) == focus_id
+		glow.visible = selected
 		var kind: String = String(target.get("affordance_kind", Affordance.INTERACTION))
 		var wave: float = sin(focus_t * Affordance.pulse_speed(kind, selected))
 		var tint: Color = Affordance.color(kind, selected)
@@ -1228,6 +1254,12 @@ func _start_playground_animation(kind: String, equipment: Node2D) -> void:
 		"equipment_rest_rotation": equipment.rotation,
 	}
 	_set_play_frame(0)
+	# Place the first pose on its authored contact socket immediately. Waiting
+	# for the next process tick exposes one frame at Roshan's old route position.
+	match kind:
+		"swing": _tick_swing_animation(m.g.get("lagoon_roshan_card") as Sprite2D, equipment, 0.0)
+		"slide": _tick_slide_animation(m.g.get("lagoon_roshan_card") as Sprite2D, equipment, 0.0)
+		"seesaw": _tick_seesaw_animation(m.g.get("lagoon_roshan_card") as Sprite2D, equipment, 0.0)
 
 func _set_play_frame(frame_index: int) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {}) as Dictionary
@@ -1241,6 +1273,20 @@ func _set_play_frame(frame_index: int) -> void:
 	card.region_enabled = false
 	card.offset = Vector2.ZERO
 	card.scale = Vector2.ONE * (PLAY_ROSHAN_HEIGHT_PX / maxf(1.0, card.texture.get_height()))
+
+func _play_anchor_local(card: Sprite2D, anchor_pixels: Vector2) -> Vector2:
+	var texture_size: Vector2 = card.texture.get_size()
+	var local: Vector2 = anchor_pixels - texture_size * 0.5 + card.offset
+	local *= card.scale
+	return local.rotated(card.rotation)
+
+func _play_anchor_master(card: Sprite2D, anchor_pixels: Vector2) -> Vector2:
+	return card.position + _play_anchor_local(card, anchor_pixels)
+
+func _place_play_anchor(card: Sprite2D, equipment: Node2D,
+		anchor_pixels: Vector2, socket_offset: Vector2) -> void:
+	card.position = equipment.position + socket_offset \
+		- _play_anchor_local(card, anchor_pixels)
 
 func _tick_playground_animation(delta: float) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {}) as Dictionary
@@ -1276,11 +1322,10 @@ func _tick_swing_animation(card: Sprite2D, swing: Node2D, timer: float) -> void:
 		pivot.rotation = angle
 	var frame: int = 1 if sin(phase) > 0.34 else 2 if sin(phase) < -0.34 else 3 if cos(phase) < 0.0 else 0
 	_set_play_frame(frame)
-	var equipment_socket: Vector2 = swing.position \
-		+ (pivot.position if pivot != null else Vector2(0.0, -258.0)) \
-		+ Vector2(0.0, 430.0).rotated(angle)
-	card.position = equipment_socket
 	card.rotation = angle * 0.65
+	var grip_socket: Vector2 = (pivot.position if pivot != null else Vector2(0.0, -258.0)) \
+		+ Vector2(0.0, SWING_GRIP_LENGTH_MASTER).rotated(angle)
+	_place_play_anchor(card, swing, SWING_HAND_ANCHORS[frame], grip_socket)
 
 func _tick_slide_animation(card: Sprite2D, slide: Node2D, timer: float) -> void:
 	if timer < 2.55:
@@ -1288,31 +1333,35 @@ func _tick_slide_animation(card: Sprite2D, slide: Node2D, timer: float) -> void:
 		_set_play_frame(int(floor(progress * 5.0)) % 2)
 		card.position = slide.position + Vector2(-135.0 + progress * 65.0,
 			95.0 - progress * 435.0 - sin(progress * 5.0 * PI) * 18.0)
+		card.rotation = 0.03
 	elif timer < 3.15:
 		_set_play_frame(2)
-		card.position = slide.position + Vector2(-62.0, -325.0)
+		var settle: float = smoothstep(0.0, 1.0, (timer - 2.55) / 0.60)
+		card.position = slide.position + Vector2(-135.0, -340.0).lerp(
+			SLIDE_RIDE_START_MASTER, settle)
+		card.rotation = lerpf(0.03, 0.12, settle)
 	else:
 		_set_play_frame(3)
 		var ride: float = smoothstep(0.0, 1.0, clampf((timer - 3.15) / 2.05, 0.0, 1.0))
-		card.position = slide.position + Vector2(-62.0, -325.0).lerp(Vector2(250.0, 92.0), ride)
-		card.rotation = lerpf(-0.12, -0.42, ride)
+		var first: Vector2 = SLIDE_RIDE_START_MASTER.lerp(SLIDE_RIDE_CONTROL_MASTER, ride)
+		var second: Vector2 = SLIDE_RIDE_CONTROL_MASTER.lerp(SLIDE_RIDE_FINISH_MASTER, ride)
+		card.position = slide.position + first.lerp(second, ride)
+		card.rotation = lerpf(0.12, 0.42, ride)
 
 func _tick_seesaw_animation(card: Sprite2D, seesaw: Node2D, timer: float) -> void:
 	var phase: float = timer * TAU / 1.92
-	var rock: float = sin(phase) * 0.13
+	var rock: float = sin(phase) * 0.105
 	var play: Dictionary = m.g.get("lagoon_play_anim", {}) as Dictionary
 	# Always sample from the immutable authored rest angle. Adding each sine
 	# sample to the previous frame accumulated nearly a radian during one ride.
 	seesaw.rotation = float(play.get("equipment_rest_rotation", 0.0)) + rock
 	var frame: int = 2 if sin(phase) > 0.45 else 0 if sin(phase) < -0.45 else 1 if cos(phase) > 0.0 else 3
 	_set_play_frame(frame)
-	# Stronger truthful contact: the authored seat socket follows the beam arc;
-	# Roshan sits lower/larger than the old hovering card and shares its rotation.
-	var equipment_socket: Vector2 = seesaw.position + Vector2(136.0, -52.0).rotated(rock)
-	card.position = equipment_socket
 	card.rotation = rock
 	card.scale = Vector2.ONE * (PLAY_ROSHAN_HEIGHT_PX \
 		/ maxf(1.0, float(card.texture.get_height()))) * 1.12
+	var seat_socket: Vector2 = SEESAW_RIGHT_SEAT_SOCKET_MASTER.rotated(rock)
+	_place_play_anchor(card, seesaw, SEESAW_SEAT_ANCHORS[frame], seat_socket)
 	play["equipment_rotation"] = seesaw.rotation
 
 func _sprite_alpha_bounds_master(sprite: Sprite2D) -> Rect2:
