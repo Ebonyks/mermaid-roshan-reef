@@ -79,6 +79,25 @@ func _frames(count: int) -> void:
 		await process_frame
 
 
+func _visible_named_node_exists(node: Node, wanted: StringName) -> bool:
+	if node.name == wanted:
+		if node is CanvasLayer and (node as CanvasLayer).visible:
+			return true
+		if node is CanvasItem and (node as CanvasItem).is_visible_in_tree():
+			return true
+	for child: Node in node.get_children():
+		if _visible_named_node_exists(child, wanted):
+			return true
+	return false
+
+
+func _object_has_property(object: Object, wanted: StringName) -> bool:
+	for property_info: Dictionary in object.get_property_list():
+		if StringName(property_info.get("name", "")) == wanted:
+			return true
+	return false
+
+
 func _fail(capture_id: String, code: String, detail: String) -> void:
 	global_failures.append({"capture_id": capture_id, "code": code, "detail": detail})
 	print("LAGOONSHOT|%s|FAIL|%s|%s" % [capture_id, code, detail])
@@ -795,6 +814,7 @@ func _validate_scene(expect_departed: bool, night: bool) -> bool:
 		and promenade.camera_2d() != null \
 		and get_root().get_viewport().get_camera_2d() == promenade.camera_2d() \
 		and get_root().get_viewport().get_camera_3d() == null \
+		and not _visible_named_node_exists(get_root(), &"StartMenu") \
 		and main.player != null and not main.player.visible
 	for target_id: String in EXPECTED_TARGET_IDS:
 		var target := _target_by_id(target_id)
@@ -1163,6 +1183,33 @@ func _run() -> void:
 		look_lab.free()
 	dev_mode_neutralized = main.dev_mode == null
 	await _frames(2)
+	# Newer builds open on the production launch menu. Enter through that menu's
+	# real continuation seam before selecting the Lagoon; otherwise a full-screen
+	# menu can satisfy generic nonblank-image checks while hiding the whole stage.
+	var launch_menu_visible: bool = _visible_named_node_exists(get_root(), &"StartMenu") \
+		or (_object_has_property(main, &"start_menu_active") \
+			and bool(main.get("start_menu_active")))
+	if launch_menu_visible:
+		var start_menu: Variant = main.call("_start_menu_ref") \
+			if main.has_method("_start_menu_ref") else null
+		if not (start_menu is Object) \
+				or not (start_menu as Object).has_method("_enter_game"):
+			_fail("GLOBAL", "start_menu_launch", "visible launch menu has no entry seam")
+			abort_remaining = true
+		else:
+			(start_menu as Object).call("_enter_game")
+			var launch_cleared := false
+			for _frame: int in range(60):
+				await process_frame
+				var active: bool = _object_has_property(main, &"start_menu_active") \
+					and bool(main.get("start_menu_active"))
+				if not active and not _visible_named_node_exists(get_root(), &"StartMenu"):
+					launch_cleared = true
+					break
+			if not launch_cleared:
+				_fail("GLOBAL", "start_menu_launch",
+					"entry seam did not clear menu in 60 frames")
+				abort_remaining = true
 	if main.intro_active:
 		main._skip_intro()
 	await _frames(2)
