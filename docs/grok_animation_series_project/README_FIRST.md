@@ -25,7 +25,8 @@ Grok clips remain limited to 15 seconds, but the Project itself is organized as 
 4. Add `style_authority/BASE_VIDEO_REQUIRED.md`, then manually upload the existing base video and representative stills when available. The base video itself was not found in the repository, so this branch does not pretend to contain it.
 5. Add the folders under `characters/` to the Project library. Rumi's local Violet Tide art is included as approved private-project canon, together with the owner-supplied Roshan/Rumi relationship sample.
 6. Use `modules/opening_flight_to_sky_lagoon/` as the first sequence module, not as the global Project definition.
-7. For every new episode, duplicate `templates/SEQUENCE_MODULE_TEMPLATE.md` and create a new module folder.
+7. Use `modules/day_one_dirty_pool_rescue/` for the next Mermaid Pool animation scene. Its immutable reference links point to the exact green game commit and explicitly separate dirty-state content from visual-style authority.
+8. For every new episode, duplicate `templates/SEQUENCE_MODULE_TEMPLATE.md` and create a new module folder.
 
 ## Folder map
 
@@ -49,12 +50,7 @@ The Grok Project is an organized continuity library, not guaranteed automatic vi
 - Boss Dust Bunny — active approved identity plus five motion-state atlases.
 - Rainbow Dust Bunny — concept authority; animation turnaround not yet approved.
 - Rumi — approved private-project canon; full-body identity, eight-pose motion atlas, runtime atlas, and Roshan/Rumi relationship sample included.
-- Ember King — approved private-project identity; concrete idle, heavy-walk and
-  cape-fan motion package V2 included for review, with a sixteen-frame heavy
-  walk. He alone wants the candle.
-- Ember Prince — approved private-project identity; concrete idle, sleek-walk
-  and Cinderstep motion package V2 included for review, with a sixteen-frame
-  sleek walk. He accompanies the
-  journey because he is family, not because he wants the candle.
+- Ember King — approved private-project identity; concrete idle, heavy-walk and cape-fan motion package V2 included for review, with a sixteen-frame heavy walk. He alone wants the candle.
+- Ember Prince — approved private-project identity; concrete idle, sleek-walk and Cinderstep motion package V2 included for review, with a sixteen-frame sleek walk. He accompanies the journey because he is family, not because he wants the candle.
 
 The registry is designed to grow without rewriting the Project constitution.
