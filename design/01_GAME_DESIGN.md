@@ -441,6 +441,22 @@ candies instead of seven is twice as long and half as good.
 All of it funnels through one `_reward()` director; no mode may write pearls,
 stickers or save state on its own path.
 
+### Day One → Day Two castle-banner handoff (owner decision 2026-08-22)
+
+- The Day One Art Room teaches customization by letting Roshan choose the
+  castle banner's color and symbol. The committed choice remains in the
+  additive `castle_logo_color` and `castle_logo_symbol` save fields.
+- During Day One, the finished banner hangs in exactly one place: the Art
+  Room's central idea-board/banner hook. It is not repeated on both walls or
+  copied into the Stuffie Room.
+- When Day Two begins and the castle is clean, that same saved banner is
+  promoted to one larger ceremonial display in the Main Hall. Day Two moves
+  the authored design; it does not clone it, ask the child to remake it, or
+  overwrite the saved choice.
+- The current multi-banner Craft Room/Playroom display registry predates this
+  decision and is implementation debt to remove when the Day One Art Room and
+  Day Two clean-castle presentation are wired.
+
 ### Save contract
 
 `reef_save.json`, transactional with a `.bak` recovery path. `KNOWN_KEYS` is
