@@ -192,6 +192,38 @@ suite runs in CI instead — .github/workflows/probes.yml executes
 import + all trusted probes on every push to the graphics fork and fails
 on any FAIL line. Treat a red probes run exactly like a local red probe.
 
+## Default local Codex + Godot AI workflow (owner decision 2026-08-22)
+
+The normal coding and debugging loop is local and does not require GitHub.
+Codex edits this checkout directly and uses the project-installed Godot AI
+plugin as the default editor bridge whenever editor-aware inspection,
+diagnostics, runtime control, or screenshots are useful.
+
+- The one authoritative local project path is
+  `C:\Users\Peter\Documents\mermaid-roshan-reef`. Never work in or launch a
+  stale side-copy. Files changed by Codex in this path are the same files the
+  local Godot editor must import and run.
+- Launch exactly
+  `C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\Godot\4.7.1\godot.exe`
+  with this project path. The editor and local validation baseline remains
+  exactly Godot 4.7.1-stable.
+- Godot AI is installed under `addons/godot_ai/`. Keep its Codex client on the
+  local `attach` transport, loopback-only, with telemetry disabled. Treat the
+  MCP bridge as a local developer tool, not as production game functionality.
+- At the start of editor-aware work, verify that the connected editor reports
+  this exact project path and current scene. If the worktree branch or HEAD
+  changes, re-check the live editor before acting. Never discard or overwrite
+  unsaved editor state or concurrent work to force synchronization.
+- After Codex changes scripts or resources, rescan/reimport the live editor as
+  needed, read editor diagnostics, and run the smallest relevant local game or
+  probe. Use the full local gate before integration. GitHub is for shared
+  integration, CI, APK delivery, and release promotion—not the ordinary
+  edit/debug feedback loop.
+- If the Godot AI connection is unavailable, first repair or reconnect the
+  local bridge and continue locally. Fall back to headless Godot commands only
+  when the editor bridge cannot perform the needed check; do not move the
+  workflow to GitHub merely because the bridge needs reconnection.
+
 ## Getting the game onto the phone
 Every green push to `master` or `dev` auto-builds a debug APK
 (.github/workflows/android.yml), on two channels:
