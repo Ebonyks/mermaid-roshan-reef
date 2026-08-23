@@ -50,7 +50,7 @@ const SMOKE_WISP_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v
 const SWING_FRAME_TEX := "res://assets/props/story/play_swing_frame.png"
 const SWING_SEAT_TEX := "res://assets/props/story/play_swing_seat.png"
 const SWING_GRIP_LENGTH_MASTER := 361.0
-const SWING_HAND_ANCHORS := [
+const SWING_SEAT_ANCHORS := [
 	Vector2(264.5, 204.5),
 	Vector2(168.0, 205.0),
 	Vector2(322.5, 186.0),
@@ -1253,13 +1253,18 @@ func _start_playground_animation(kind: String, equipment: Node2D) -> void:
 		"frame_index": -1,
 		"equipment_rest_rotation": equipment.rotation,
 	}
+	var card: Sprite2D = m.g.get("lagoon_roshan_card") as Sprite2D
+	if card != null:
+		# Playground poses are authored in one facing. Route movement may have
+		# left the pooled card mirrored after approaching a toy from the right.
+		card.flip_h = false
 	_set_play_frame(0)
 	# Place the first pose on its authored contact socket immediately. Waiting
 	# for the next process tick exposes one frame at Roshan's old route position.
 	match kind:
-		"swing": _tick_swing_animation(m.g.get("lagoon_roshan_card") as Sprite2D, equipment, 0.0)
-		"slide": _tick_slide_animation(m.g.get("lagoon_roshan_card") as Sprite2D, equipment, 0.0)
-		"seesaw": _tick_seesaw_animation(m.g.get("lagoon_roshan_card") as Sprite2D, equipment, 0.0)
+		"swing": _tick_swing_animation(card, equipment, 0.0)
+		"slide": _tick_slide_animation(card, equipment, 0.0)
+		"seesaw": _tick_seesaw_animation(card, equipment, 0.0)
 
 func _set_play_frame(frame_index: int) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {}) as Dictionary
@@ -1281,12 +1286,20 @@ func _play_anchor_local(card: Sprite2D, anchor_pixels: Vector2) -> Vector2:
 	return local.rotated(card.rotation)
 
 func _play_anchor_master(card: Sprite2D, anchor_pixels: Vector2) -> Vector2:
-	return card.position + _play_anchor_local(card, anchor_pixels)
+	var master_space: Node2D = m.g.get("lagoon_master_space") as Node2D
+	if master_space == null:
+		return card.position + _play_anchor_local(card, anchor_pixels)
+	var texture_size: Vector2 = card.texture.get_size()
+	var anchor_local: Vector2 = anchor_pixels - texture_size * 0.5 + card.offset
+	return master_space.to_local(card.to_global(anchor_local))
 
 func _place_play_anchor(card: Sprite2D, equipment: Node2D,
 		anchor_pixels: Vector2, socket_offset: Vector2) -> void:
-	card.position = equipment.position + socket_offset \
-		- _play_anchor_local(card, anchor_pixels)
+	var card_parent: Node2D = card.get_parent() as Node2D
+	if card_parent == null:
+		return
+	var socket_parent: Vector2 = card_parent.to_local(equipment.to_global(socket_offset))
+	card.position = socket_parent - _play_anchor_local(card, anchor_pixels)
 
 func _tick_playground_animation(delta: float) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {}) as Dictionary
@@ -1325,7 +1338,7 @@ func _tick_swing_animation(card: Sprite2D, swing: Node2D, timer: float) -> void:
 	card.rotation = angle * 0.65
 	var grip_socket: Vector2 = (pivot.position if pivot != null else Vector2(0.0, -258.0)) \
 		+ Vector2(0.0, SWING_GRIP_LENGTH_MASTER).rotated(angle)
-	_place_play_anchor(card, swing, SWING_HAND_ANCHORS[frame], grip_socket)
+	_place_play_anchor(card, swing, SWING_SEAT_ANCHORS[frame], grip_socket)
 
 func _tick_slide_animation(card: Sprite2D, slide: Node2D, timer: float) -> void:
 	if timer < 2.55:
@@ -1337,7 +1350,7 @@ func _tick_slide_animation(card: Sprite2D, slide: Node2D, timer: float) -> void:
 	elif timer < 3.15:
 		_set_play_frame(2)
 		var settle: float = smoothstep(0.0, 1.0, (timer - 2.55) / 0.60)
-		card.position = slide.position + Vector2(-135.0, -340.0).lerp(
+		card.position = slide.position + Vector2(-70.0, -340.0).lerp(
 			SLIDE_RIDE_START_MASTER, settle)
 		card.rotation = lerpf(0.03, 0.12, settle)
 	else:
@@ -1360,8 +1373,8 @@ func _tick_seesaw_animation(card: Sprite2D, seesaw: Node2D, timer: float) -> voi
 	card.rotation = rock
 	card.scale = Vector2.ONE * (PLAY_ROSHAN_HEIGHT_PX \
 		/ maxf(1.0, float(card.texture.get_height()))) * 1.12
-	var seat_socket: Vector2 = SEESAW_RIGHT_SEAT_SOCKET_MASTER.rotated(rock)
-	_place_play_anchor(card, seesaw, SEESAW_SEAT_ANCHORS[frame], seat_socket)
+	_place_play_anchor(card, seesaw, SEESAW_SEAT_ANCHORS[frame],
+		SEESAW_RIGHT_SEAT_SOCKET_MASTER)
 	play["equipment_rotation"] = seesaw.rotation
 
 func _sprite_alpha_bounds_master(sprite: Sprite2D) -> Rect2:

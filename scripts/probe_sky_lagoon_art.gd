@@ -1186,12 +1186,30 @@ func _run() -> void:
 	# Newer builds open on the production launch menu. Enter through that menu's
 	# real continuation seam before selecting the Lagoon; otherwise a full-screen
 	# menu can satisfy generic nonblank-image checks while hiding the whole stage.
-	if _object_has_property(main, &"start_menu_active") \
-			and bool(main.get("start_menu_active")):
-		var start_menu: Variant = main.call("_start_menu_ref")
-		if start_menu is Object and (start_menu as Object).has_method("_enter_game"):
+	var launch_menu_visible: bool = _visible_named_node_exists(get_root(), &"StartMenu") \
+		or (_object_has_property(main, &"start_menu_active") \
+			and bool(main.get("start_menu_active")))
+	if launch_menu_visible:
+		var start_menu: Variant = main.call("_start_menu_ref") \
+			if main.has_method("_start_menu_ref") else null
+		if not (start_menu is Object) \
+				or not (start_menu as Object).has_method("_enter_game"):
+			_fail("GLOBAL", "start_menu_launch", "visible launch menu has no entry seam")
+			abort_remaining = true
+		else:
 			(start_menu as Object).call("_enter_game")
-			await _frames(2)
+			var launch_cleared := false
+			for _frame: int in range(60):
+				await process_frame
+				var active: bool = _object_has_property(main, &"start_menu_active") \
+					and bool(main.get("start_menu_active"))
+				if not active and not _visible_named_node_exists(get_root(), &"StartMenu"):
+					launch_cleared = true
+					break
+			if not launch_cleared:
+				_fail("GLOBAL", "start_menu_launch",
+					"entry seam did not clear menu in 60 frames")
+				abort_remaining = true
 	if main.intro_active:
 		main._skip_intro()
 	await _frames(2)
