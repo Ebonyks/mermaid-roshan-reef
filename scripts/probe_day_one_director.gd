@@ -22,11 +22,12 @@ func _init() -> void:
 		and main.day_one_event_seen.has(DayOneDirector.EVENT_ARRIVAL_PLANE_MEDIA)
 		and main.day_one_event_history.size() == 1)
 	director.drain_events()
-	_check("bathroom placeholder completes",
+	_check("bathroom rescue completion unlocks pool",
 		director.complete_tutorial("bathroom")
 		and bool(main.day_one_completed_rooms.get("bathroom", false))
 		and director.is_room_completed("bathroom")
 		and director.is_dust_bunny_cleaned("bathroom")
+		and director.bathroom_cleanup_step == 3
 		and main.day_one_current_room_id == "pool"
 		and director.can_enter_room("bathroom")
 		and director.can_enter_room("pool"))
@@ -68,6 +69,7 @@ func _init() -> void:
 		restored_main.day_one_completed_rooms == {"bathroom": true, "pool": true}
 		and restored_main.day_one_current_room_id == "stuffie"
 		and restored_main.day_one_cleaned_rooms == {"bathroom": true, "pool": true}
+		and restored_main.day_one_bathroom_cleanup_step == 3
 		and restored_main.day_one_pool_cleanup_step == 4
 		and restored_main.day_one_pool_rumi_met
 		and not restored_main.day_one_boss_door_glow

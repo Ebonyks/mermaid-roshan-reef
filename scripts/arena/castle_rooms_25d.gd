@@ -16,8 +16,12 @@ const HALL_SIGN_ART_ROOT := HALL_REDRAW_ROOT + "signs/"
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const SPRITE_TRANSITION_2D := preload(
 	"res://scripts/sprite_transition_2d.gd")
+const DAY_ONE_BATHROOM_CLEANUP := preload(
+	"res://scripts/games/day_one_bathroom_cleanup.gd")
 const DAY_ONE_POOL_CLEANUP := preload(
 	"res://scripts/games/day_one_pool_cleanup.gd")
+const CASTLE_POOL_SURFACE_LIFE := preload(
+	"res://scripts/castle_pool_surface_life.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
@@ -511,7 +515,10 @@ const ROOM_ITEMS := {
 			"hotspot_size": Vector2(105.0, 85.0),
 			"symbol": "✦", "color": Color(1.0, 0.62, 0.78)},
 		{"id": "seahorse_fountain", "name": "Seahorse fountain",
-			"pos": Vector2(635, 90), "z": MIDGROUND_Z,
+			# The fountain is attached to the back wall. Its complete source-owned
+			# card and the +0.013 stream layer must both stay behind Roshan even
+			# while she swims across its wide transparent registration rectangle.
+			"pos": Vector2(635, 90), "z": PLAYER_BACK_Z - 0.05,
 			"hotspot_offset": Vector2(0.0, 0.0),
 			"hotspot_size": Vector2(195.0, 215.0),
 			"symbol": "○", "color": Color(0.72, 0.94, 1.0)},
@@ -846,6 +853,7 @@ var _room_transition_generation := 0
 var _composition_transition_tween: Tween = null
 var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
+var day_one_bathroom_cleanup: DayOneBathroomCleanup = null
 var day_one_pool_cleanup: DayOnePoolCleanup = null
 
 func _init(main: ReefMain) -> void:
@@ -1024,6 +1032,7 @@ func cancel_kitchen_recipe() -> void:
 
 func close() -> void:
 	m._day_one_clear_castle_dressing()
+	_clear_day_one_bathroom_cleanup()
 	_clear_day_one_pool_cleanup()
 	_room_build_generation += 1
 	_cancel_composition_transition()
@@ -1676,6 +1685,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	var room: Dictionary = _room(room_id)
 	if room.is_empty() or m.castle_room_background == null:
 		return
+	_clear_day_one_bathroom_cleanup()
 	_clear_day_one_pool_cleanup()
 	_cancel_room_transition()
 	_cancel_player_motion()
@@ -1724,6 +1734,9 @@ func show_room(room_id: String, announce: bool = true) -> void:
 		_sync_movie_picture()
 	var day_one_activity: bool = m.day_one_is_active() \
 		and m.DAY_ONE_CASTLE_ROOM_IDS.has(room_id)
+	var day_one_bathroom_needs_cleanup: bool = day_one_activity \
+		and room_id == "bubble_bath" \
+		and not m.day_one_castle_room_is_clean(room_id)
 	var day_one_pool_needs_cleanup: bool = day_one_activity \
 		and room_id == "mermaid_pool" \
 		and not m.day_one_castle_room_is_clean(room_id)
@@ -1731,7 +1744,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 		and room_id != "family_gallery" \
 		and room_id != "opera_hall" \
 		and (room_id != "playroom" or _playroom_rescue_done()))
-	if day_one_pool_needs_cleanup:
+	if day_one_bathroom_needs_cleanup or day_one_pool_needs_cleanup:
 		m.castle_room_action_button.visible = false
 	if not hall_mode:
 		StorybookUI.style_icon_button(m.castle_room_action_button,
@@ -1744,6 +1757,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_update_hall_portals()
 	_sync_hall_lighting()
 	m._day_one_sync_castle_dressing()
+	_sync_day_one_bathroom_cleanup(room_id)
 	_sync_day_one_pool_cleanup(room_id)
 	if announce:
 		m._ui_tap()
@@ -1772,6 +1786,67 @@ func apply_day_one_cleanup(room_id: String) -> void:
 		var sprite: Sprite2D = record.get("sprite") as Sprite2D
 		if sprite != null and is_instance_valid(sprite):
 			sprite.visible = false
+
+
+func start_day_one_bathroom_cleanup() -> void:
+	if m.castle_room_id != "bubble_bath" \
+			or m.day_one_castle_room_is_clean("bubble_bath"):
+		return
+	_sync_day_one_bathroom_cleanup("bubble_bath")
+
+
+func _sync_day_one_bathroom_cleanup(room_id: String) -> void:
+	if room_id != "bubble_bath" or not m.day_one_is_active() \
+			or m.day_one_castle_room_is_clean(room_id) \
+			or m.castle_room_stage == null:
+		_clear_day_one_bathroom_cleanup()
+		return
+	if day_one_bathroom_cleanup != null \
+			and is_instance_valid(day_one_bathroom_cleanup):
+		return
+	day_one_bathroom_cleanup = DAY_ONE_BATHROOM_CLEANUP.new() \
+		as DayOneBathroomCleanup
+	m.castle_room_stage.add_child(day_one_bathroom_cleanup)
+	day_one_bathroom_cleanup.cleanup_step_completed.connect(
+		_on_day_one_bathroom_cleanup_step)
+	day_one_bathroom_cleanup.finale_started.connect(
+		_on_day_one_bathroom_finale_started)
+	day_one_bathroom_cleanup.cleanup_completed.connect(
+		_on_day_one_bathroom_cleanup_completed)
+	day_one_bathroom_cleanup.setup(m)
+	# The bespoke rescue owns the visible dirt and its one active touch target.
+	# Hide the generic room bunny so the first lesson stays visually simple.
+	if m.day_one_castle_dressing != null \
+			and is_instance_valid(m.day_one_castle_dressing):
+		m.day_one_castle_dressing.set_visible_room("main_hall")
+	_position_player_at_foot(Vector2(348.0, 640.0), false)
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.visible = false
+
+
+func _clear_day_one_bathroom_cleanup() -> void:
+	if day_one_bathroom_cleanup != null \
+			and is_instance_valid(day_one_bathroom_cleanup):
+		day_one_bathroom_cleanup.teardown()
+	day_one_bathroom_cleanup = null
+
+
+func _on_day_one_bathroom_cleanup_step(step: int, cleanup_id: String) -> void:
+	m.day_one_record_bathroom_cleanup_step(step)
+	m.g["day_one_bathroom_last_cleanup"] = cleanup_id
+
+
+func _on_day_one_bathroom_finale_started() -> void:
+	_burst("✦", Color(0.92, 0.78, 1.0))
+
+
+func _on_day_one_bathroom_cleanup_completed() -> void:
+	if not m.day_one_complete_bathroom_scene():
+		return
+	_clear_day_one_bathroom_cleanup()
+	m._day_one_sync_castle_dressing()
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.visible = true
 
 
 func start_day_one_pool_cleanup() -> void:
@@ -2153,6 +2228,15 @@ func _rebuild_depth_layers(room_id: String) -> void:
 		_add_layer_piece(m.castle_room_mid_layer, piece_data, MIDGROUND_Z)
 	for piece_data: Dictionary in layout.get("front", []):
 		_add_layer_piece(m.castle_room_front_layer, piece_data, FOREGROUND_Z)
+	if room_id == "mermaid_pool":
+		_build_mermaid_pool_surface_life()
+
+
+func _build_mermaid_pool_surface_life() -> void:
+	if m.castle_room_mid_layer == null:
+		return
+	var living_surface: CastlePoolSurfaceLife = CASTLE_POOL_SURFACE_LIFE.new()
+	m.castle_room_mid_layer.add_child(living_surface)
 
 func _build_hall_door_signs() -> void:
 	if m.castle_room_mid_layer == null:
@@ -3769,9 +3853,26 @@ func _shadow_scale(depth_scale: float) -> Vector2:
 		desired_art_size.y / maxf(1.0, texture_size.y) * depth_scale)
 
 func _set_player_current_foot(foot: Vector2) -> void:
-	if m.castle_room_player_sprite != null \
-			and is_instance_valid(m.castle_room_player_sprite):
-		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
+	var sprite: Sprite2D = m.castle_room_player_sprite
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	sprite.set_meta("current_stage_foot", foot)
+	# Tweened swims used to update position and scale but retained the z-index
+	# from their starting point. Refresh depth on the same tween callback so a
+	# back-wall fixture cannot incorrectly overdraw Roshan mid-crossing.
+	var walk: Rect2
+	var mid_foot_y := -1.0
+	if _is_wide_hall():
+		walk = HALL_WALK
+	else:
+		var layout: Dictionary = ROOM_LAYOUTS.get(m.castle_room_id, {})
+		walk = layout.get("walk", Rect2(170.0, 450.0, 940.0, 215.0))
+		mid_foot_y = float(layout.get("mid_foot_y", -1.0))
+	var player_z: float = _player_depth_for_foot(foot.y, walk, mid_foot_y)
+	sprite.z_index = _depth_to_z_index(player_z)
+	var shadow: Sprite2D = _player_shadow()
+	if shadow != null:
+		shadow.z_index = _depth_to_z_index(player_z - 0.04)
 
 
 func _finish_player_walk(generation: int = -1) -> void:
@@ -3782,7 +3883,7 @@ func _finish_player_walk(generation: int = -1) -> void:
 			and is_instance_valid(m.castle_room_player_sprite):
 		var foot: Vector2 = m.castle_room_player_sprite.get_meta(
 			"stage_foot", Vector2.ZERO) as Vector2
-		m.castle_room_player_sprite.set_meta("current_stage_foot", foot)
+		_set_player_current_foot(foot)
 		m.castle_room_player_sprite.set_meta("walking", false)
 
 func _update_dust_bunny_runner(delta: float) -> void:
