@@ -4,7 +4,6 @@ extends RefCounted
 # complete background so engine splash -> menu is a seamless visual handoff.
 
 const SPLASH_TEXTURE: Texture2D = preload("res://assets/ui/boot_splash_mermaid_roshan.png")
-const BUTTON_FRAME: Texture2D = preload("res://assets/opera/worlds/ui/task_card_frame.png")
 const LETTERBOX_COLOR := Color("188ed6")
 
 static var skip_once_after_reset := false
@@ -97,72 +96,61 @@ func _menu_button(
 	button.size = rect.size
 	button.custom_minimum_size = rect.size
 	StorybookUI.style_button(button, kind, font_size, 38)
-	_style_mermaid_button(button, kind)
 	parent.add_child(button)
-	_add_shell_frame(button)
+	_add_button_finish(button, kind)
 	return button
 
-func _style_mermaid_button(button: Button, kind: String) -> void:
-	# The title screen carries more of the splash painting's jewel-box richness:
-	# aqua, orchid and pearl fills under the approved shell-and-pearl art.
-	var fill := Color(0.62, 0.95, 1.0, 0.98)
-	match kind:
-		"gold":
-			fill = Color(1.0, 0.82, 0.46, 0.99)
-		"secondary":
-			fill = Color(0.91, 0.83, 1.0, 0.99)
-		"primary":
-			fill = Color(0.55, 0.97, 0.92, 0.99)
-	var normal := StorybookUI.panel_style(StorybookUI.PURPLE_DEEP, fill, 44, 3)
-	normal.border_color = Color(0.33, 0.14, 0.58, 1.0)
-	normal.shadow_color = Color(0.12, 0.05, 0.36, 0.48)
-	normal.shadow_size = 12
-	normal.shadow_offset = Vector2(0.0, 7.0)
-	var hover: StyleBoxFlat = normal.duplicate()
-	hover.bg_color = fill.lightened(0.10)
-	hover.border_color = StorybookUI.GOLD
-	var pressed: StyleBoxFlat = normal.duplicate()
-	pressed.bg_color = fill.darkened(0.12)
-	pressed.shadow_size = 3
-	pressed.shadow_offset = Vector2(0.0, 2.0)
-	var focus: StyleBoxFlat = normal.duplicate()
-	focus.border_color = Color(1.0, 0.92, 0.48, 1.0)
-	focus.set_border_width_all(7)
-	var disabled: StyleBoxFlat = normal.duplicate()
-	disabled.bg_color = Color(0.70, 0.72, 0.84, 0.94)
-	disabled.border_color = Color(0.44, 0.39, 0.62, 0.90)
-	button.add_theme_stylebox_override("normal", normal)
-	button.add_theme_stylebox_override("hover", hover)
-	button.add_theme_stylebox_override("pressed", pressed)
-	button.add_theme_stylebox_override("focus", focus)
-	button.add_theme_stylebox_override("disabled", disabled)
-	button.add_theme_color_override("font_color", StorybookUI.PURPLE_DEEP)
-	button.add_theme_color_override("font_hover_color", StorybookUI.PURPLE_DEEP)
-	button.add_theme_color_override("font_pressed_color", StorybookUI.PURPLE_DEEP)
-	button.add_theme_color_override("font_focus_color", StorybookUI.PURPLE_DEEP)
-	button.add_theme_color_override("font_outline_color", Color(1.0, 1.0, 1.0, 0.92))
-	button.add_theme_constant_override("outline_size", 5)
+func _add_button_finish(button: Button, kind: String) -> void:
+	# Keep the established button silhouette and fill. A fine inset contour,
+	# tiny pearls and one slow sparkle add title-screen polish without forcing
+	# a large square illustration into a wide, shallow control.
+	var accent: Color = StorybookUI.GOLD if kind == "gold" else StorybookUI.PEARL_BLUE
+	var inset := Panel.new()
+	inset.name = String(button.name) + "InsetHighlight"
+	inset.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	inset.offset_left = 8.0
+	inset.offset_top = 8.0
+	inset.offset_right = -8.0
+	inset.offset_bottom = -8.0
+	inset.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var inset_style := StyleBoxFlat.new()
+	inset_style.bg_color = Color(1.0, 1.0, 1.0, 0.0)
+	inset_style.border_color = Color(accent.r, accent.g, accent.b, 0.58)
+	inset_style.set_border_width_all(2)
+	inset_style.set_corner_radius_all(30)
+	inset.add_theme_stylebox_override("panel", inset_style)
+	button.add_child(inset)
 
-func _add_shell_frame(button: Button) -> void:
-	# Nine-slice the existing Opera shell/pearl frame so its sculpted corners
-	# stay crisp on both the wide launch buttons and the smaller Options tab.
-	var frame := NinePatchRect.new()
-	frame.name = String(button.name) + "ShellPearlFrame"
-	frame.texture = BUTTON_FRAME
-	frame.draw_center = false
-	frame.set_patch_margin(SIDE_LEFT, 210)
-	frame.set_patch_margin(SIDE_TOP, 210)
-	frame.set_patch_margin(SIDE_RIGHT, 210)
-	frame.set_patch_margin(SIDE_BOTTOM, 210)
-	# Both axes default to Stretch in Godot 4.7.1, which preserves the corners
-	# while expanding the pearl bands between them.
-	frame.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	frame.offset_left = -9.0
-	frame.offset_top = -9.0
-	frame.offset_right = 9.0
-	frame.offset_bottom = 9.0
-	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	button.add_child(frame)
+	var sheen := Panel.new()
+	sheen.name = String(button.name) + "PearlSheen"
+	sheen.position = Vector2(42.0, 12.0)
+	sheen.size = Vector2(maxf(36.0, button.size.x - 84.0), 10.0)
+	sheen.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var sheen_style := StyleBoxFlat.new()
+	sheen_style.bg_color = Color(1.0, 1.0, 1.0, 0.24)
+	sheen_style.set_corner_radius_all(5)
+	sheen.add_theme_stylebox_override("panel", sheen_style)
+	button.add_child(sheen)
+
+	StorybookUI.add_pearl(button, Vector2(20.0, button.size.y * 0.5), 12.0,
+		String(button.name) + "PearlLeft")
+	StorybookUI.add_pearl(button, Vector2(button.size.x - 20.0, button.size.y * 0.5), 12.0,
+		String(button.name) + "PearlRight")
+	var sparkle := Label.new()
+	sparkle.name = String(button.name) + "Sparkle"
+	sparkle.text = "✦"
+	sparkle.position = Vector2(button.size.x - 48.0, 8.0)
+	sparkle.size = Vector2(30.0, 30.0)
+	sparkle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	sparkle.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	sparkle.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.style_label(sparkle, 20, accent, 2)
+	button.add_child(sparkle)
+	var twinkle := sparkle.create_tween().set_loops()
+	twinkle.tween_property(sparkle, "modulate:a", 0.32, 1.3) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	twinkle.tween_property(sparkle, "modulate:a", 1.0, 1.3) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _build_options(stage: Control) -> void:
 	_options_root = Control.new()
