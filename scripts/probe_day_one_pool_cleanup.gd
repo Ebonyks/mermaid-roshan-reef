@@ -4,7 +4,7 @@ extends SceneTree
 const POOL_CLEANUP := preload("res://scripts/games/day_one_pool_cleanup.gd")
 const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/day_one_pool/pool_algae_trash.png",
-	"res://assets/castle/day_one_pool/waterfall_growth.png",
+	"res://assets/castle/day_one_pool/waterfall_clogged_turgid.png",
 	"res://assets/castle/day_one_pool/pool_rim_grime.png",
 	"res://assets/castle/day_one_pool/seahorse_sick.png",
 	"res://assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
@@ -24,10 +24,26 @@ func _run_probe() -> void:
 	host.name = "DayOnePoolProbeHost"
 	host.size = StorybookUI.CANVAS_SIZE
 	get_root().add_child(host)
+	var clean_waterfall := Sprite2D.new()
+	clean_waterfall.name = "CleanWaterfallProbeFixture"
+	host.add_child(clean_waterfall)
+	var flowing_water := Sprite2D.new()
+	flowing_water.name = "FlowingWaterProbeLayer"
+	host.add_child(flowing_water)
+	main.castle_room_item_sprites["waterfall"] = {
+		"sprite": clean_waterfall,
+		"fixture_rig": {
+			"water": [{"node": flowing_water}],
+		},
+	}
 	var cleanup: DayOnePoolCleanup = POOL_CLEANUP.new() as DayOnePoolCleanup
 	host.add_child(cleanup)
 	cleanup.setup(main, false)
 	await process_frame
+	_check("dirty arrival hides pristine rainbow card",
+		not clean_waterfall.visible)
+	_check("dirty arrival stops animated rainbow flow",
+		not flowing_water.visible)
 	var snapshot: Dictionary = cleanup.audit_snapshot()
 	_check("four staged cleanup subjects",
 		int(snapshot.get("cleanup_step_count", 0)) == 4
@@ -48,10 +64,28 @@ func _run_probe() -> void:
 		_check("runtime asset %s" % asset_path.get_file(),
 			texture != null
 			and maxf(texture.get_size().x, texture.get_size().y) <= 1024.0)
+	var clogged_texture: Texture2D = load(
+		"res://assets/castle/day_one_pool/waterfall_clogged_turgid.png"
+	) as Texture2D
+	var clogged_image: Image = clogged_texture.get_image() \
+		if clogged_texture != null else null
+	_check("clogged fixture fully occludes central rainbow lanes",
+		clogged_image != null
+		and clogged_image.get_pixel(501, 220).a > 0.98
+		and clogged_image.get_pixel(501, 512).a > 0.98
+		and clogged_image.get_pixel(501, 790).a > 0.98)
 	for expected_step: int in range(1, 5):
 		_check("cleanup step %d advances" % expected_step,
 			cleanup.probe_advance_current_step()
 			and main.day_one_pool_cleanup_step == expected_step)
+		if expected_step == 1:
+			_check("rainbow stays hidden before its cleanup step",
+				not clean_waterfall.visible)
+		elif expected_step == 2:
+			_check("clean rainbow card returns after its cleanup step",
+				clean_waterfall.visible)
+		_check("animated rainbow flow remains stopped before finale activation",
+			not flowing_water.visible)
 	var final_snapshot: Dictionary = cleanup.audit_snapshot()
 	_check("finale creates Rumi reveal",
 		bool(final_snapshot.get("finale_started", false))
@@ -73,6 +107,8 @@ func _run_probe() -> void:
 	cleanup.teardown()
 	await process_frame
 	_check("teardown frees cleanup", not is_instance_valid(cleanup))
+	_check("teardown restores pristine rainbow card", clean_waterfall.visible)
+	_check("teardown restores prior animated-flow visibility", flowing_water.visible)
 	host.queue_free()
 	main.free()
 	print("DAY_ONE_POOL|RESULT: ",

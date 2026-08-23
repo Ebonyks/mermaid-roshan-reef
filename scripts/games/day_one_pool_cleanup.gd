@@ -20,9 +20,9 @@ const CLEANUP_STEPS: Array[Dictionary] = [
 	},
 	{
 		"id": "rainbow_fountain",
-		"texture": ASSET_ROOT + "waterfall_growth.png",
-		"center": Vector2(372.0, 206.0),
-		"max_size": Vector2(230.0, 280.0),
+		"texture": ASSET_ROOT + "waterfall_clogged_turgid.png",
+		"center": Vector2(378.0, 173.0),
+		"max_size": Vector2(165.0, 185.0),
 		"hit_size": Vector2(250.0, 300.0),
 	},
 	{
@@ -68,6 +68,7 @@ var _step_buttons: Array[Button] = []
 var _light_wash: ColorRect = null
 var _pointer: Label = null
 var _rumi: AnimatedSprite2D = null
+var _clean_waterfall: Sprite2D = null
 var _healthy_seahorse: Sprite2D = null
 var _clean_seahorse: Sprite2D = null
 var _hidden_fixture_items: Array[Dictionary] = []
@@ -82,6 +83,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	z_index = 22
 	_build_light_wash()
+	_capture_clean_waterfall()
 	_capture_healthy_seahorse()
 	_build_cleanup_steps()
 	_build_pointer()
@@ -96,6 +98,8 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 
 func teardown() -> void:
 	set_process(false)
+	if _clean_waterfall != null and is_instance_valid(_clean_waterfall):
+		_clean_waterfall.visible = true
 	if _healthy_seahorse != null and is_instance_valid(_healthy_seahorse):
 		_healthy_seahorse.visible = true
 	for record: Dictionary in _hidden_fixture_items:
@@ -160,6 +164,25 @@ func _build_light_wash() -> void:
 	_light_wash.z_index = 0
 	_light_wash.set_meta("day_one_pool_dingy_lighting", true)
 	add_child(_light_wash)
+
+
+func _capture_clean_waterfall() -> void:
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		"waterfall", {}) as Dictionary
+	_clean_waterfall = record.get("sprite") as Sprite2D
+	if _clean_waterfall != null:
+		_clean_waterfall.visible = false
+	var fixture_rig: Dictionary = record.get("fixture_rig", {}) as Dictionary
+	for water_value: Variant in fixture_rig.get("water", []):
+		var water: Dictionary = water_value as Dictionary
+		var water_item: CanvasItem = water.get("node") as CanvasItem
+		if water_item == null:
+			continue
+		_hidden_fixture_items.append({
+			"item": water_item,
+			"was_visible": water_item.visible,
+		})
+		water_item.visible = false
 
 
 func _capture_healthy_seahorse() -> void:
@@ -248,6 +271,7 @@ func _build_pointer() -> void:
 func _apply_restored_progress() -> void:
 	for index: int in range(_step_sprites.size()):
 		_step_sprites[index].visible = index >= _step
+	_sync_clean_waterfall_visibility()
 	_update_dingy_lighting()
 	_refresh_current_target()
 	if _clean_seahorse != null and is_instance_valid(_clean_seahorse):
@@ -299,6 +323,7 @@ func _finish_cleanup_step(index: int) -> void:
 	sprite.modulate.a = 1.0
 	_step += 1
 	m.day_one_pool_cleanup_step = _step
+	_sync_clean_waterfall_visibility()
 	cleanup_step_completed.emit(
 		_step, String(CLEANUP_STEPS[index]["id"]))
 	_update_dingy_lighting()
@@ -310,6 +335,13 @@ func _finish_cleanup_step(index: int) -> void:
 	else:
 		_refresh_current_target()
 		_announce_current_step()
+
+
+func _sync_clean_waterfall_visibility() -> void:
+	if _clean_waterfall != null and is_instance_valid(_clean_waterfall):
+		# The opaque clogged fixture owns these pixels until its second cleanup
+		# step is complete. Never let the clean rainbow shine through the grime.
+		_clean_waterfall.visible = _step >= 2
 
 
 func _update_dingy_lighting() -> void:
@@ -333,7 +365,7 @@ func _announce_current_step() -> void:
 				"talk")
 		"rainbow_fountain":
 			m.show_msg("Roshan",
-				"The rainbow fountain is clogged too. Tap the hanging seaweed!",
+				"The rainbow fountain is clogged with thick, yucky sludge. Tap it clean!",
 				"talk")
 		"pool_rim":
 			m.show_msg("Roshan",

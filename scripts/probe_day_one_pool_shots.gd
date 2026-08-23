@@ -57,11 +57,22 @@ func _run() -> void:
 		main.queue_free()
 		quit(1)
 		return
+	var waterfall_record: Dictionary = main.castle_room_item_sprites.get(
+		"waterfall", {}) as Dictionary
+	var clean_waterfall: Sprite2D = waterfall_record.get("sprite") as Sprite2D
+	_check("dirty state fully hides clean rainbow waterfall",
+		clean_waterfall != null and not clean_waterfall.visible)
 	await _capture("00_dirty_arrival")
 	for step_index: int in range(1, 5):
 		_check("advance state %d" % step_index,
 			cleanup.probe_advance_current_step())
 		await _frames(8)
+		if step_index == 1:
+			_check("clean rainbow remains hidden before fountain cleanup",
+				clean_waterfall != null and not clean_waterfall.visible)
+		elif step_index == 2:
+			_check("clean rainbow returns only after fountain cleanup",
+				clean_waterfall != null and clean_waterfall.visible)
 		if step_index < 4:
 			await _capture("%02d_%s" % [
 				step_index,

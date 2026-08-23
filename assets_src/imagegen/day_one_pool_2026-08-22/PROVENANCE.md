@@ -119,6 +119,31 @@ animation family recorded in
 | `pool_rim_grime_native.png` | `assets/castle/day_one_pool/pool_rim_grime.png` | 1536×1024 to 1024×682 RGBA |
 | `seahorse_sick_native.png` | `assets/castle/day_one_pool/seahorse_sick.png` | 1199×1312 to 936×1024 RGBA |
 
+## 2026-08-23 waterfall occlusion correction
+
+The original `waterfall_growth_native.png` was a porous content overlay. It
+left the approved clean rainbow waterfall visible through transparent gaps,
+so the Day One dirty state still looked bright and flowing. It remains as
+historical generation evidence but no longer owns the runtime cleanup step.
+
+`waterfall_clogged_turgid_native.png` was generated with the OpenAI built-in
+image tool as a precise-object edit using the clean V4 waterfall rest card as
+the sole fixture identity/geometry authority, the historical growth cutout as
+dirty-content reference, and the approved Mermaid Pool room plate as finish
+authority. A second edit reduced gloss and micro-detail into broad matte
+painted bands. A third background-extraction edit removed only the accidentally
+baked checkerboard and produced genuine transparent alpha.
+
+The complete cutout preserves the shell housing, pearl, side columns, starfish
+and basin while replacing every rainbow lane with an opaque, stagnant,
+olive-brown algae curtain and blocked basin. It contains no fresh stream,
+splash, foam, cyan water or luminous rainbow. Runtime code also hides the clean
+fixture until this cleanup step completes, so no clean pixels can leak through.
+
+| Native source | Runtime derivative | Transform |
+|---|---|---|
+| `waterfall_clogged_turgid_native.png` — SHA-256 `9eea1f86a20229f52682993044f09c0260445824dc0f6682ddb207d922f03704` | `assets/castle/day_one_pool/waterfall_clogged_turgid.png` — SHA-256 `df7c3147bc8867612e9d59b4eb50771399341040ecd6305342dffe5ce4166589` | FFmpeg 8.1.2 Lanczos whole-canvas resize, 1240×1268 to 1002×1024 RGBA; alpha preserved |
+
 The first waterfall-growth attempt returned an RGB checkerboard instead of
 alpha. It was rejected and is not stored in the repository; the selected
 master is the corrected background-extraction result.
