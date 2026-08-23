@@ -167,6 +167,36 @@ failed neighboring-frame comparison is a hard failure.
 - Target device: Lenovo Tab M11 (Helio G88 / Mali-G52) — Speedy tier is the
   mobile default; treat 30 fps and transparent-overdraw budget as hard limits.
 
+## DEFAULT LOCAL GODOT AI WORKFLOW (owner decision 2026-08-22)
+Godot AI is the default coding and debugging loop for this project whenever a
+local Godot editor is available. The owner does not need to request it again.
+
+- The only authoritative live project path on Peter's Windows machine is
+  `C:\Users\Peter\Documents\mermaid-roshan-reef`, opened with exactly
+  `C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\Godot\4.7.1\godot.exe`.
+  Never drive another clone, backup, editor version, or stale project window.
+- At the start of implementation or diagnosis, connect to the Godot AI MCP
+  session, activate the editor for this exact path, record `editor_state` and
+  the current log cursor, and compare its scene/version/readiness with the
+  current filesystem and Git branch before trusting editor state.
+- Codex and Godot share this workspace directly. After any external file edit,
+  branch switch, merge, extraction, or generated asset change, force a Godot
+  filesystem scan/reimport as appropriate, reload affected scripts/plugins or
+  reopen the affected scene, and verify the live editor sees the on-disk state.
+  An open editor with an old in-memory resource is not synchronized evidence.
+- Use the local loop by default: reproduce with the exact 4.7.1 editor, inspect
+  live logs/state/screenshots, make the smallest change, run the targeted local
+  probe/test, and read the new logs before reporting success. Routine debugging
+  must not wait on GitHub. CI remains mandatory where the gates below require
+  it and for integration, APK, and release authority.
+- Keep the MCP surface focused on coding/debugging and the accepted true-2D
+  game: API, editor, filesystem, game, project, script, and testing domains.
+  Scene/node authoring or other excluded domains may be enabled only when the
+  task needs them, and all 2D/art/protected-asset rules still apply.
+- If the MCP bridge is unavailable, repair or restart the local editor/bridge
+  first. The fallback is the exact 4.7.1 `godot_console.exe` at the same install
+  root, never a different Godot version and never GitHub as the first debugger.
+
 ## Build & test (headless, no display needed)
 GODOT=./Godot_v4.7.1-stable_linux.x86_64   # or `godot` on PATH
 1. Import (required after any asset change):
