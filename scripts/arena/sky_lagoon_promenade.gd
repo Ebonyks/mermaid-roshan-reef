@@ -674,7 +674,7 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 	idle_tint.a = minf(idle_tint.a,
 		0.055 if kind == "playground" or kind == "reef" else 0.10)
 	glow.modulate = idle_tint
-	glow.visible = false
+	glow.visible = true
 	glow.z_index = node.z_index + 4
 	glow.set_meta("canvas_layer_role", "interaction_affordance")
 	glow.set_meta("interaction_id", id)
@@ -758,7 +758,7 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 		if glow == null or not is_instance_valid(glow):
 			continue
 		var selected: bool = String(target.get("id", "")) == focus_id
-		glow.visible = selected
+		glow.visible = true
 		var kind: String = String(target.get("affordance_kind", Affordance.INTERACTION))
 		var wave: float = sin(focus_t * Affordance.pulse_speed(kind, selected))
 		var tint: Color = Affordance.color(kind, selected)

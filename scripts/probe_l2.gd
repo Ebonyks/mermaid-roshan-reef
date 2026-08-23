@@ -721,8 +721,8 @@ func _validate_targets_and_touch() -> void:
 	for target_id: String in TARGET_IDS:
 		var idle_highlight: Sprite2D = _target(target_id).get("highlight") as Sprite2D
 		idle_cues_ok = idle_cues_ok and idle_highlight != null \
-			and not idle_highlight.visible and idle_highlight.modulate.a <= 0.06
-	_check("idle_focus_cues_leave_no_ghost_objects", idle_cues_ok)
+			and idle_highlight.visible and idle_highlight.modulate.a <= 0.06
+	_check("idle_focus_cues_are_subtle_not_ghost_objects", idle_cues_ok)
 	_check("unique_focus_assets_do_not_clone_target_pixels",
 		unique_focus_ok and _sprite_resource_count(promenade.root(),
 			"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png") == 1)
