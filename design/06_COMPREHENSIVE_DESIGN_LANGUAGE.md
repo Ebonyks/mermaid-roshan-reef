@@ -699,6 +699,297 @@ leg-, foot-, streamer-, extra-tail-, or crop-like candidates remain rejected.
 
 ---
 
+## 9A. Game-wide water and mermaid-medium contract
+
+_Water authority reconciliation: 2026-08-22. This section retains the useful
+2D art, deterministic event, timing, and feel findings from
+`CODEX_WATER_FX_WORKORDER_2026-08-02.md`,
+`WATER_PHYSICS_EVALUATION_2026-08-02.md`, `PHYSICS_ENGINE.md`, the Castle
+interaction atlases, and the current runtime inventory. It supersedes every
+Jolt, physical-standee, `Node3D`, spatial-shader, or ocean-FFT rollout premise
+in those sources._
+
+### Decision and current disposition
+
+Water is one **graphic, interaction, and event language**, not one universal
+physics solver. A faucet, calm pool, shoreline, surface swim, and scene ten
+feet underwater must look like the same illustrated material at different
+scales and under different forces. Each activity may keep the smallest
+analytic movement model its gameplay needs, but it reports the same medium
+states and contact events to the same Canvas presentation vocabulary.
+
+The accepted reusable family already exists:
+
+- `assets/sprites/fx_water/` owns small, medium, and breach splash atlases,
+  ripple-ring and bubble-burst atlases, and the static foamline strip;
+- the Castle interaction atlases own the best current faucet, fill, bubbles,
+  waterfall, float, fountain, and contained-pool motion examples;
+- `assets/terrain/caustics.png`, the approved painted water tiles, and the
+  Castle water masks are source references for Canvas derivatives, not
+  authority to keep their spatial consumers; and
+- `assets/audio/castle/faucet_water.ogg` and `bubble_water.ogg` own the current
+  fixture/contact sound family.
+
+`tools/audit_game_2d.py` identifies the dimensional conflict precisely. Its
+current shrinking manifest records `scripts/fx_water.gd` with eleven
+`BaseMaterial3D`, seven `MeshInstance3D`, seven `Node3D`, three `QuadMesh`, two
+`Sprite3D`, and eleven `Vector3` tokens; `scripts/physics.gd` with one `Node3D`
+and seventeen `Vector3` tokens; `scripts/games/side_scroll.gd` with four
+`RigidBody3D` plus its spatial stage; and both `toon_water.gdshader` and
+`castle_fixture_water.gdshader` as spatial shaders. Those counts are removal
+targets. They may shrink to zero and must never grow. The disabled ocean-FFT
+addon remains dead, `project.godot`'s selected 3D Jolt engine remains
+configuration debt until its last consumer is removed, and Jolt water/physical-
+prop fleets remain historical behavior evidence only.
+
+`DL-WTR-01` — New and converted water uses only `Node2D`, `Sprite2D`,
+`AnimatedSprite2D`, `Polygon2D`, `Line2D`, `Control`/`TextureRect`, 2D
+collision where needed, and explicit Canvas ordering. Water work MUST NOT add
+`Node3D`, `Sprite3D`, `Camera3D`, 3D bodies, meshes/materials, spatial shaders,
+or `Vector3`/`Transform3D` world logic. `tools/audit_game_2d.py
+--regression-gate` must show no growth; final acceptance still requires its
+strict zero-debt state under `DL-MED-09`.
+
+`DL-WTR-02` — The event semantics, constants, and tested feel of the old
+analytic/Jolt systems may be translated to 2D; their runtime types may not.
+Water physics decides **when** a supported state or discrete contact occurs.
+Authored Canvas animation decides **what it looks like**. Objective, reward,
+route, and save truth never rides cosmetic water motion.
+
+`DL-WTR-03` — Reuse the accepted water and Roshan atlases before generating
+anything. A new wade, dive/emerge, or hand-under-stream atlas is justified only
+after a runtime reuse trial proves that the existing directional, hop,
+climb/land, and swim frames cannot show stable contact and the required action.
+Any derived or new art uses a new path and the normal provenance, fixed-pivot,
+identity, anatomy, and phone-review gates.
+
+### One illustrated material, three motion scales
+
+`DL-WTR-04` — The nominal water palette is the existing family: deep aqua near
+`#3389CC`/`#338CCC`, light aqua near `#80D1E6`, lavender/aqua shadow bands,
+foam from `#D9F7FF` through `#F2FBFF`, white sparkle points, and deep
+indigo/plum contact contours. Water reads through two or three broad painted
+value bands and selective wet highlights, never PBR noise, screen-space
+refraction, or photoreal transparency. Warm character and objective colors
+remain the focal contrast.
+
+`DL-WTR-05` — Water motion has four deterministic frequency bands. A contained
+surface breathes slowly on an approximately 8–12 second cycle with no more
+than 1–3 base-canvas pixels of vertical drift at gameplay scale. Underwater
+current/light bands drift over approximately 6–12 seconds. A steady faucet or
+waterfall uses its authored rapid 0.6–1.5 second loop. Discrete eight-frame
+event cards retain their authored 0.08–0.12 second frame timing. Local phase
+offsets may prevent obvious synchronization, but random timing or size MUST NOT
+change the meaning of an event.
+
+`DL-WTR-06` — Ambient motion and event motion are different channels. Surface
+breathing, caustic drift, a steady stream, a held pool fill, bubbles already in
+the water, and an idle mermaid bob never spawn a splash card. A card means a
+real crossing, impact, stroke payoff, or fixture contact occurred. Energy and
+contact type select small, medium, breach, ripple, or bubble; randomness does
+not. The existing six-card cap and 0.5-second per-emitter cooldown are the
+starting performance contract, with at most two simultaneous large cards.
+
+The same material changes topology, not identity:
+
+| Context | Shape and layering | Motion and contact | What must not appear |
+|---|---|---|---|
+| Faucet / narrow stream | One tapered, directional aqua ribbon from an exact outlet socket, broad light core, restrained dark edge, and an attached fan/foam shape at the exact impact socket | Fixture anticipates; stream grows; impact forms; steady authored loop; stream retracts to the truthful dry rest. The current eight-state, 0.15-second Castle faucet cadence is the reference | Detached ribbon, flow before the tap moves, splash with no impact, repeated event-card spam, or a generic whole-fixture wobble |
+| Pool / tub / calm surface | High-key turquoise field below the actor, one basin-clipped front-water card over only the submerged portion, sparse edge meniscus/foam, and separate front rim | Slow surface breathing; local ripple or bubble only at contact; contained fill level changes monotonically when the authored action calls for filling | Full-screen translucent sheet, broad opaque foreground water, foam everywhere, ocean-sized swell, or duplicated floats/fixtures painted in both the basin and a card |
+| Shore / river / open surface | Painted water body plus a narrow readable waterline, local wake behind a moving actor, and tiered crossing cards at the true contact point | Directional drift follows the authored current; banks remain calm; crossing and landing are discrete events | Shader-only boundary, invisible wet/dry switch, or every step producing a crown splash |
+| Submerged, including about 10 ft / 3 m | Water becomes the environment: deeper background value, sparse current strokes/bubbles, softened distant contrast, and light bands behind the actor. A surface line/foam band appears only when it is actually in frame | Near-surface caustics and rays weaken with depth; slow current motion persists; actor swim cycle and occasional baked bubbles carry life | Thick fog, dark-blue identity loss, a translucent plane across Roshan, full-screen displacement, dynamic 2D lights, or surface foam at deep depth |
+
+### Authored 2D water volumes
+
+`DL-WTR-07` — Every playable water body declares authoritative Canvas data,
+not visual-pixel guesses or sentinel infinities: a surface line/curve, a
+water-region polygon, a support/floor or depth map where one exists, named safe
+entry/exit sockets, a basin/front-water mask, current profile, and audio
+profile. Touch geometry, actor anchors, masks, effects, and art use the same
+master-to-viewport transform. Painted appearance may be richer than collision,
+but it cannot contradict the declared playable volume.
+
+The shared pure state reducer uses normalized actor landmarks so the rules
+survive changes of stage scale:
+
+- `H` — the actor's current visible rendered body height;
+- `C` — water-column depth at the actor's support/contact point;
+- `G` — whether a valid support/floor is acquired;
+- `F` — signed face/eye-anchor depth below the surface, positive underwater;
+- `Vn` — velocity normal to the local surface, in body-heights per second; and
+- `intent` — the selected world destination, rise/dive route, or edge/fixture
+  socket, never a hidden animation toggle.
+
+`DL-WTR-08` — State transitions use hysteresis and short stable holds. They are
+evaluated from declared water geometry and actor anchors, not from which sprite
+happens to be visible. The binding initial thresholds are:
+
+| Transition | Enter condition | Reverse condition |
+|---|---|---|
+| `DRY` ↔ `SHALLOW_WADE` | `C >= 0.12H` for at least 0.10 s and tail/contact enters the polygon | `C <= 0.06H` for at least 0.10 s and tail/contact clears the polygon |
+| `SHALLOW_WADE` ↔ `SURFACE_SWIM` | `C >= 0.68H` plus support lost or a selected safe target in deep water, stable for at least 0.12 s | `C <= 0.52H` plus `G = true`, stable for at least 0.16 s |
+| `SURFACE_SWIM` ↔ `SUBMERGED` | Authored dive/contact completes and `F >= 0.18H` for at least 0.12 s | Rise/emerge intent with `F <= 0.08H` for at least 0.12 s, followed by authored emerge/contact |
+
+The separated enter/exit thresholds prevent bank, wave, and frame-rate jitter
+from flickering pose, mask, sound, or controls. Tests exercise the same reducer
+at 30 and 60 Hz.
+
+`DL-WTR-09` — `DRY` means the tail/contact anchor is clear of playable water.
+Roshan uses the directional/seated idle and authored dry hop/contact family;
+the contact shadow is visible; there is no wake. A decorative puddle shallower
+than the dry threshold may ripple under a tap but does not silently change her
+locomotion state.
+
+`DL-WTR-10` — `SHALLOW_WADE` is a mermaid tail-supported paddle/scoot, not a
+human leg walk. It requires support, has no free vertical control, begins at
+approximately 0.65× submerged swim speed, and keeps an upright readable
+silhouette. The front-water mask may cover about 10–55% of the body from the
+tail upward but never the face, hair, hands performing the action, or the
+objective. A narrow V-wake or periodic foot/tail ripple communicates travel;
+the boundary crossing produces one event card, while ordinary strokes do not.
+
+`DL-WTR-11` — `SURFACE_SWIM` holds the face and hair clearly above the water,
+with the waterline near the upper chest/shoulder presentation anchor. Horizontal
+speed begins at approximately 0.85× submerged speed; a restrained shelf bob is
+no more than `0.015H`. The existing front/back swim atlases play about 7–10 fps
+under movement and 4–6 fps while gently treading. A surface wake follows travel;
+idle buoyancy never machine-guns ripples or sound.
+
+`DL-WTR-12` — Dive and emerge are short authored transition states, not an
+instant pose swap. Each follows anticipation → surface contact → payoff →
+settle over approximately 0.48–0.64 seconds, responds within two rendered
+frames of valid intent, and preserves face, tail, and waterline anchors. A
+plunge emits exactly one contact splash/ripple plus one bubble burst; an emerge
+emits one correctly tiered surface event. Cancelled navigation eases back to
+the safe surface state without penalty, duplicated sound, or duplicated FX.
+Rotating/scaling a static sticker or reusing the breach twirl is not an
+authored dive.
+
+`DL-WTR-13` — `SUBMERGED` gives full two-axis tap-to-move while retaining the
+tested analytic acceleration/drag feel during its 2D translation. Surface wake
+and ground shadow are absent. Existing front/back swim atlases own steady
+locomotion; sparse tail-current strokes or baked bubbles may accompany it.
+"Ten feet underwater" is a presentation ramp, not another control state: use
+declared metric depth when available, reaching the full deep treatment near
+3.0 m, or otherwise use
+`deepness = clamp((F - 0.18H) / 2.32H, 0, 1)`. With depth, the visible surface
+band leaves frame, white foam disappears, caustics weaken, and distant world
+layers shift toward deep aqua/lavender. Roshan's face, warm identity colors,
+outline, and objective contrast remain stable.
+
+`DL-WTR-14` — `STREAM_CONTACT` is an orthogonal contact overlay, not a new
+locomotion medium. It activates only when a visible authored stream intersects
+a declared hand, tail, object, or basin socket for at least 0.08 seconds and
+clears after at least 0.12 seconds off contact. First contact may make one small
+splash/ripple; continuous contact owns one steady visual and sound loop. An
+underwater impact produces bubbles/ripples rather than an above-water crown.
+
+`DL-WTR-15` — Pool entry/exit uses large authored safe sockets at steps,
+ladder, low rim, or shoreline rather than requiring a four-year-old to steer
+across a thin boundary. Tapping water or land highlights the nearest valid
+socket immediately, auto-routes there, and plays a 0.40–0.65 second authored
+climb/slide/contact transition before resolving from declared `C` to wade,
+surface, or dry. Required hit regions remain at least 110×110 base-canvas
+pixels. A blocked route reroutes or gives kind feedback; it never traps or
+fails the child.
+
+### Canvas ordering, interaction, and lifecycle
+
+`DL-WTR-16` — Water uses named 2D roles in this order: background/deep bed →
+rear water and underwater props → actor/y-sorted interactive layer → one
+basin-clipped front-water card over only the submerged actor portion →
+meniscus/foamline → contact splash/ripple → front rim/sparse foreground frame
+→ HUD. Exact integers may vary by activity, but the roles and relative order
+may not. A ripple is an authored ellipse in the stage's 2D perspective, not a
+3D-tilted quad. Transparent pixels own neither occlusion nor input. No water
+mask may cross its basin or cover Roshan's face.
+
+`DL-WTR-17` — The shared implementation is a small Canvas component family,
+not a monolithic water engine: a pure `WaterMediumState2D` reducer; stage-owned
+`WaterBody2D` geometry/data; pooled `FxWater2D` atlas playback; contained
+surface/foamline presentation; fixture-owned `WaterFlow2D`; and an underwater
+environment treatment that excludes HUD and preserves character identity.
+All mutable state remains on the owning activity/main contract, every node and
+audio loop is torn down with that activity, and no subsystem allocates a new
+material, texture, or audio player per frame or per splash.
+
+`DL-WTR-18` — Primary input remains touch-the-world. A tap in shallow water
+selects wading, a deep-water destination selects surface travel and then an
+automatic safe dive when the requested face depth is at least `0.30H` below
+the surface, and a shore/surface tap rises or exits through a safe socket. The
+child never chooses a text-labelled WADING/SWIMMING mode. Stick and action
+controls remain accessibility fallbacks. Pause, focus loss, Back, scene close,
+and teardown cancel routes, stream contacts, loops, and held transition intent
+without firing a splash, reward, or stale callback.
+
+`DL-WTR-19` — Visual, sound, and optional haptic describe the same contact.
+Event cards play one contact-timed SFX; a steady visible stream owns one steady
+loop and silence follows its dry rest. Small/medium/breach pitch may begin from
+the existing approximately 1.35/1.05/0.85 family, but playback uses a bounded
+stage pool. Optional haptic is short and event-only: approximately 12–15 ms for
+a small entry/contact and approximately 20 ms for a breach/plunge, with none
+for steady flow, bobbing, ambient current, or every stroke. Underwater ambience
+may crossfade over about 0.25 seconds, but protected family voice remains clear
+and is never filtered into unintelligibility.
+
+`DL-WTR-20` — Every mermaid actor uses the same geometry-derived state and
+mask rules; NPC or companion shortcuts may not show dry hopping in deep water
+or submerged swimming on a dry floor. State remains per actor. Cosmetic wakes
+do not push another actor or decide objectives. Shared FX eviction preserves
+the player/contact action first, evicts the oldest low-priority small card
+before a large payoff, and keeps at most two authored steady fixture streams in
+one bounded phone scene unless target-device evidence approves more.
+
+### Audit, capture, and rollout gate
+
+`DL-WTR-21` — Machine acceptance includes: pure reducer matrices at 30 and
+60 Hz; jitter around every threshold; one crossing → one event; zero input →
+zero event cards; ambient motion → zero event cards; pause/focus/teardown
+cancellation; atlas grid/pivot/timing checks; per-emitter cooldown and cap/
+eviction; source-pixel ownership; exact water-mask containment; and no
+game-2D debt growth. A passive steady faucet may remain visibly/audibly on only
+when the authored fixture state was already on; it is not an event proc or
+progress.
+
+`DL-WTR-22` — Visual review captures, at minimum, dry, `0.15H`/`0.35H`/`0.55H`
+shallows, surface idle and travel, dive contact, near-submerged, full deep/
+ten-foot treatment, faucet start/contact/steady/stop, near and far pool rims,
+and two-mermaid overlap at 1280×720 plus the target wide-phone aspect. Fail if
+the face or objective is hidden, a basin mask leaks, source art is duplicated,
+contact/effect origins disagree, a required target is undersized, a splash
+obscures the contact for more than two frames, or draw and input transforms
+diverge. Device review additionally enforces the Speedy 30-fps frame-time,
+overdraw, touch, audio, thermal, and memory rules. Child and owner review remain
+required for comprehension, comfort, identity, and final style acceptance.
+
+`DL-WTR-23` — Authored currents are bounded helpers, not a global noise field
+or a trap. Each current declares its corridor, direction, strength, edge
+falloff, assist/centering behavior, and any breathing on/off cycle; the field is
+zero outside its declared region. A four-year-old can always leave, surface,
+pause, or wait through an off phase without losing progress. Current ribbons
+use the slow submerged motion band and never imply a force where the movement
+reducer reports none.
+
+`DL-WTR-24` — Cinematic water follows the same palette, topology, depth cues,
+and mermaid-state truth, but is authored into each complete flattened delivery
+frame under `DL-CIN-01` through `DL-CIN-12`. Runtime water cards, shaders,
+particles, masks, camera moves, or cutout animation cannot supply or repair
+cinematic water motion. A cinematic set about ten feet underwater therefore
+shows the deep treatment consistently in every accepted full frame rather than
+adding a runtime tint over the sequence.
+
+The implementation order is deliberately shrinking and reversible: first port
+the existing event vocabulary to pooled Canvas playback; then build and probe
+the pure state reducer/`WaterBody2D` contract; next convert one contained
+fixture/pool slice without changing its authored action; pilot wade/surface/
+dive in one bounded true-Canvas route; migrate the reef/submerged route one
+tested slice at a time; and finally delete the corresponding spatial shaders,
+Jolt fleet, `Vector3` water logic, and dead ocean examples as their exact
+consumers disappear. Each slice proves enter → understand → act → leave →
+return → re-enter before the next expands scope.
+
+---
+
 ## 10. Voice, music, and non-reader communication
 
 `DL-SND-01` — Every required objective has an exact spoken cue. A generic cheer,

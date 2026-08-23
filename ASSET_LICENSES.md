@@ -591,6 +591,14 @@ ambientCG (all CC0).
 - `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r{0..1}_c{0..5}.png`
   — twelve lossless, non-overlapping 1024x1024 runtime crops of the v5 master.
   Four cards reconstruct each native 2048x2048 playable screen.
+- `assets_src/sky_lagoon/day_one_arrival_2026-08-22/**` and
+  `assets/sprites/sky_lagoon/sky_lagoon_dirt_landing_v1.png` — project-original
+  transparent dirt-landing canvas card generated with OpenAI built-in image
+  generation from project-owned Sky Lagoon references on 2026-08-22. It is a
+  non-destructive foreground repair that occludes the baked opening-screen rope
+  crossing while preserving the approved panorama tiles and their seams. The
+  runtime card is a whole-canvas 1024x512 lossless-alpha downsample of the
+  retained 1774x887 source. No external references; project-generated art.
 - `assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png` —
   project-original OpenAI built-in extraction of the approved 2D storybook
   castle and drawbridge. The window contents are the exact owner-supplied

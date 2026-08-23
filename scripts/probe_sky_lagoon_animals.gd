@@ -292,12 +292,14 @@ func _validate_day_actor() -> void:
 
 func _validate_continuity() -> void:
 	await _move_to_page(0)
-	var route: Sprite2D = main.g.get("lagoon_reef_route_card") as Sprite2D
-	var route_screen: Vector2 = route.get_global_transform_with_canvas().origin \
-		if route != null else Vector2(-1.0, -1.0)
-	_check("reef_route_visible_from_arrival_page",
-		route != null and Rect2(Vector2.ZERO,
-			get_root().get_visible_rect().size).has_point(route_screen))
+	var plane: Sprite2D = main.g.get("lagoon_plane_card") as Sprite2D
+	var landing: Sprite2D = main.g.get("lagoon_dirt_landing_card") as Sprite2D
+	var plane_screen: Vector2 = plane.get_global_transform_with_canvas().origin \
+		if plane != null else Vector2(-1.0, -1.0)
+	_check("grounded_plane_visible_from_arrival_page",
+		plane != null and landing != null and Rect2(Vector2.ZERO,
+			get_root().get_visible_rect().size).has_point(plane_screen) \
+		and not main.g.has("lagoon_reef_route_card"))
 	var actor: Dictionary = main.g.get("lagoon_animal_actor", {}) as Dictionary
 	_check("shore_starts_with_otter", promenade._bind_next_animal(0)
 		and String((actor.get("definition", {}) as Dictionary).get("id", "")) == "otter")

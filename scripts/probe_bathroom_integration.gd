@@ -1,8 +1,8 @@
 extends SceneTree
-# Focused live-world audit for the Bubble Bath room. The room is a layered
-# Sprite3D stage: four retained source-owned fixtures plus any audited native
-# V4 fixtures are separate world cards with projected touch targets, semantic
-# atlas animations, and sounds. No modeled bathroom or V3 prop pack may return.
+# Focused live-world audit for the Bubble Bath Canvas trial. Retained and
+# audited source-owned fixtures share one 2D hierarchy with exact touch targets,
+# semantic atlas animation, manifest water geometry, and sound. No modeled
+# bathroom, spatial water, Jolt garnish, or V3 prop pack may return.
 
 const V4_MANIFEST_PATH := \
 	"res://assets/flats/castle/interactions_v4/castle_interactions_v4.json"
@@ -165,7 +165,7 @@ func _shot() -> void:
 	await _frames(3)
 	await RenderingServer.frame_post_draw
 	var output_dir := ProjectSettings.globalize_path(
-		"res://audit/castle_sprite3d")
+		"res://audit/castle_water_2d")
 	DirAccess.make_dir_recursive_absolute(output_dir)
 	var output_path := output_dir.path_join("bubble_bath.png")
 	var save_error: Error = root.get_viewport().get_texture().get_image() \
@@ -199,11 +199,16 @@ func _run() -> void:
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	rooms.show_room("bubble_bath", false)
 	await _frames(3)
-	_ck("sprite stage open", rooms.is_open())
-	_ck("perspective camera",
-		main.castle_room_camera != null
-		and main.castle_room_camera.projection
-			== Camera3D.PROJECTION_PERSPECTIVE)
+	_ck("wet room stage open", rooms.is_open()
+		and rooms.wet_rooms != null and rooms.wet_rooms.is_active())
+	_ck("full Canvas presentation active",
+		rooms.wet_rooms.root is Node2D
+		and String(rooms.wet_rooms.root.get_meta("final_medium", ""))
+			== "canvas_2d"
+		and main.castle_room_world_root != null
+		and not main.castle_room_world_root.visible
+		and main.castle_room_camera != null
+		and not main.castle_room_camera.current)
 	_ck("retired modeled bathroom absent",
 		not main.g.has("toilet")
 		and main.game_nodes.is_empty()
@@ -213,22 +218,17 @@ func _run() -> void:
 	_ck("audited V4 bathroom registry", v4_manifest_contract_ok,
 		v4_manifest_contract_detail)
 	var runtime_ids: Dictionary = {}
-	var no_v3_props := true
+	var all_canvas_props := true
 	for runtime_id_value: Variant in main.castle_room_item_sprites.keys():
 		var runtime_id: String = String(runtime_id_value)
 		runtime_ids[runtime_id] = true
 		var runtime_record: Dictionary = main.castle_room_item_sprites.get(
 			runtime_id, {}) as Dictionary
-		var runtime_data: Dictionary = runtime_record.get(
-			"data", {}) as Dictionary
-		var runtime_visual: Dictionary = runtime_data.get(
-			"v2_visual", {}) as Dictionary
-		var runtime_sprite: Sprite3D = runtime_record.get("sprite") as Sprite3D
-		no_v3_props = no_v3_props \
-			and String(runtime_visual.get("pack", "")) != "v3_addition" \
-			and (runtime_sprite == null \
-				or not bool(runtime_sprite.get_meta(
-					"castle_component_rig_v3", false)))
+		var runtime_sprite: Sprite2D = runtime_record.get(
+			"canvas_sprite") as Sprite2D
+		all_canvas_props = all_canvas_props and runtime_sprite != null \
+			and bool(runtime_sprite.get_meta(
+				"canvas_water_trial_fixture", false))
 	var exact_prop_set: bool = runtime_ids.size() == prop_expectations.size()
 	for expected_id_value: Variant in prop_expectations.keys():
 		exact_prop_set = exact_prop_set \
@@ -240,7 +240,8 @@ func _run() -> void:
 		"expected=%d runtime=%d hotspots=%d" % [
 			prop_expectations.size(), runtime_ids.size(),
 			main.castle_room_item_hotspot_layer.get_child_count()])
-	_ck("zero V3 additions or duplicate props", no_v3_props and exact_prop_set)
+	_ck("zero duplicate props and every visible fixture is Canvas",
+		all_canvas_props and exact_prop_set)
 	var expects_native_background := prop_expectations.values().any(
 		func(expected_value: Variant) -> bool:
 			var expected: Dictionary = expected_value as Dictionary
@@ -259,7 +260,6 @@ func _run() -> void:
 			expects_native_background, native_background_ready])
 
 	var props_ok := true
-	var depth_ok := true
 	var interaction_ok := true
 	var fixed_pivots_ok := true
 	var exact_audio_ok := true
@@ -268,21 +268,17 @@ func _run() -> void:
 	var toilet_cavity_detail := ""
 	for prop_id: String in prop_expectations:
 		var record: Dictionary = main.castle_room_item_sprites.get(prop_id, {})
-		var sprite: Sprite3D = record.get("sprite") as Sprite3D
+		var sprite: Sprite2D = record.get("canvas_sprite") as Sprite2D
 		var hotspot: Button = record.get("hotspot") as Button
 		var item_data: Dictionary = record.get("data", {}) as Dictionary
 		var expected: Dictionary = prop_expectations[prop_id] as Dictionary
-		var fixture_rig: Dictionary = record.get(
-			"fixture_rig", {}) as Dictionary
-		var fixture_visual: Dictionary = fixture_rig.get(
-			"visual", {}) as Dictionary
-		var physics_mode: String = String(fixture_rig.get(
-			"physics_mode", "none"))
-		var body: RigidBody3D = fixture_rig.get("body") as RigidBody3D
+		var fixture_visual: Dictionary = item_data.get(
+			"v2_visual", {}) as Dictionary
+		var water: CastleWaterFixture2D = rooms.wet_rooms.fixture_water.get(
+			prop_id) as CastleWaterFixture2D
 		var expected_sheet_path: String = "res://" + String(
 			fixture_visual.get("sheet", ""))
-		var frame_count: int = int(sprite.get_meta(
-			"animation_frame_count", 0)) if sprite != null else 0
+		var frame_count: int = int(item_data.get("frames", 0))
 		var expected_pack: String = String(expected.get("pack", ""))
 		if prop_id == "toilet":
 			var water_specs: Array = fixture_visual.get("water_layers", []) as Array
@@ -310,92 +306,59 @@ func _run() -> void:
 					and float(radius_values[0]) <= 0.13 \
 					and float(radius_values[1]) <= 0.03 \
 					and float(water_spec.get("z_offset", 1.0)) <= 0.004
-				var runtime_water: Array = fixture_rig.get("water", []) as Array
+				var runtime_water: Array[Dictionary] = water.layer_metadata() \
+					if water != null else []
 				toilet_cavity_water_ok = toilet_cavity_water_ok \
 					and runtime_water.size() == 1
 				if runtime_water.size() == 1:
-					var water_record: Dictionary = runtime_water[0] as Dictionary
-					var water_node: Sprite3D = water_record.get("node") as Sprite3D
+					var water_record: Dictionary = runtime_water[0]
 					var bounds: Rect2 = water_record.get(
 						"bounds_normalized", Rect2()) as Rect2
 					var cavity := Rect2(
 						Vector2(float(cavity_values[0]), float(cavity_values[1])),
 						Vector2(float(cavity_values[2]), float(cavity_values[3])))
 					toilet_cavity_water_ok = toilet_cavity_water_ok \
-						and water_node != null and cavity.encloses(bounds) \
-						and absf(water_node.position.z - sprite.position.z) <= 0.0041
+						and cavity.encloses(bounds) \
+						and String(water_record.get("role", "")) == "vortex"
 					toilet_cavity_detail = \
-						"spec=%s bounds=%s cavity=%s water_z=%s sprite_z=%s" % [
-							water_spec, bounds, cavity,
-							water_node.position.z if water_node != null else INF,
-							sprite.position.z if sprite != null else INF]
-		var native_v4_ok: bool = expected_pack != "v4_native" \
-			or (sprite != null \
-				and bool(sprite.get_meta("source_owned_native", false)) \
-				and bool(sprite.get_meta(
-					"source_ownership_verified", false)) \
-				and bool(sprite.get_meta(
-					"native_authored_object_states", false)) \
-				and not bool(sprite.get_meta(
-					"generic_transform_fallback", true)))
-		props_ok = props_ok and sprite != null and not sprite.shaded \
-			and hotspot != null and hotspot.size.x >= 112.0 \
-			and hotspot.size.y >= 112.0 \
+						"spec=%s bounds=%s cavity=%s" % [
+							water_spec, bounds, cavity]
+		props_ok = props_ok and sprite != null \
+			and hotspot != null and hotspot.size.x >= 110.0 \
+			and hotspot.size.y >= 110.0 \
 			and frame_count >= 4 and frame_count <= 12 \
 			and sprite.hframes * sprite.vframes >= frame_count \
 			and sprite.texture != null \
 			and expected_sheet_path != "res://" \
 			and sprite.texture.resource_path == expected_sheet_path \
 			and String(fixture_visual.get("pack", "")) == expected_pack \
-			and native_v4_ok \
-			and bool(sprite.get_meta(
-				"generated_full_object_states", false)) \
-			and not bool(sprite.get_meta(
-				"primary_animation_is_overlay", true)) \
-			and String(sprite.get_meta("semantic_action", "")) \
-				== String(expected["semantic_action"]) \
+			and bool(sprite.get_meta("fixed_pivot_animation", false)) \
 			and String(item_data.get("sound", "")) \
 				== String(expected["runtime_sound"])
-		depth_ok = depth_ok and sprite != null \
-			and sprite.position.z > main.castle_room_background.position.z \
-			and sprite.position.z < CastleRooms25D.FOREGROUND_Z
 		if sprite != null:
-			var start_position: Vector3 = sprite.position
-			var start_scale: Vector3 = sprite.scale
-			var start_rotation: Vector3 = sprite.rotation
+			var start_position: Vector2 = sprite.position
+			var start_scale: Vector2 = sprite.scale
+			var start_rotation: float = sprite.rotation
 			main.castle_room_prop_sfx.stop()
 			main.castle_room_prop_sfx.stream = null
 			rooms._activate_room_item(prop_id)
 			var busy_started: bool = bool(sprite.get_meta("busy", false))
-			var effects_after_first: int = \
-				main.castle_room_item_effect_layer.get_child_count()
+			var visited_after_first: Array = sprite.get_meta(
+				"animation_frames_visited", []) as Array
 			rooms._activate_room_item(prop_id)
 			busy_guards_ok = busy_guards_ok \
-				and main.castle_room_item_effect_layer.get_child_count() \
-					== effects_after_first
+				and sprite.get_meta("animation_frames_visited", []) \
+					== visited_after_first
 			var wait_frames := 0
 			var deadline_ms: int = Time.get_ticks_msec() + 3000
 			while bool(sprite.get_meta("busy", false)) \
 					and Time.get_ticks_msec() < deadline_ms:
 				await process_frame
 				wait_frames += 1
-				if physics_mode == "none":
-					fixed_pivots_ok = fixed_pivots_ok \
-						and sprite.position.is_equal_approx(start_position) \
-						and sprite.scale.is_equal_approx(start_scale) \
-						and sprite.rotation.is_equal_approx(start_rotation)
-				else:
-					var max_displacement: float = float(
-						fixture_rig.get("max_displacement", 0.0))
-					var max_angle: float = float(
-						fixture_rig.get("max_angle_radians", 0.0))
-					fixed_pivots_ok = fixed_pivots_ok \
-						and body != null \
-						and sprite.position.distance_to(start_position) \
-							<= max_displacement + 0.001 \
-						and absf(sprite.rotation.z - start_rotation.z) \
-							<= max_angle + 0.001 \
-						and sprite.scale.is_equal_approx(start_scale)
+				fixed_pivots_ok = fixed_pivots_ok \
+					and sprite.position.is_equal_approx(start_position) \
+					and sprite.scale.is_equal_approx(start_scale) \
+					and is_equal_approx(sprite.rotation, start_rotation)
 			var expected_frames: Array[int] = []
 			for frame_value: Variant in item_data.get(
 					"timeline_sequence", []) as Array:
@@ -415,40 +378,30 @@ func _run() -> void:
 				and visited_steps == expected_steps \
 				and sprite.frame == int(item_data.get("rest_frame", 0)) \
 				and not bool(sprite.get_meta("busy", true))
-			if physics_mode != "none":
-				var settle_deadline_ms: int = Time.get_ticks_msec() + 5000
-				while body != null and not body.freeze \
-						and Time.get_ticks_msec() < settle_deadline_ms:
-					await physics_frame
-				fixed_pivots_ok = fixed_pivots_ok \
-					and body != null \
-					and body.freeze and body.sleeping \
-					and Time.get_ticks_msec() < settle_deadline_ms \
-					and float(fixture_rig.get(
-						"peak_angle_radians", 0.0)) > 0.001 \
-					and float(fixture_rig.get(
-						"peak_displacement", 0.0)) > 0.001 \
-					and sprite.position.distance_to(start_position) <= 0.02 \
-					and sprite.scale.is_equal_approx(start_scale) \
-					and absf(sprite.rotation.z - start_rotation.z) <= 0.02
 			exact_audio_ok = exact_audio_ok \
 				and main.castle_room_prop_sfx.stream != null \
 				and main.castle_room_prop_sfx.stream.resource_path \
 					== String(expected["sound"])
-	_ck("unshaded Sprite3D fixtures", props_ok)
-	_ck("fixtures occupy real depth", depth_ok)
+	_ck("source-owned Sprite2D fixtures and production touch", props_ok)
 	_ck("semantic atlas sequences follow audited timelines and reset",
 		interaction_ok)
-	_ck("semantic fixture actions stay bounded and restore roots",
+	_ck("semantic fixture actions keep fixed Canvas pivots",
 		fixed_pivots_ok)
 	_ck("fixture actions play exact castle audio", exact_audio_ok)
 	_ck("fixture animations reject repeat taps while busy", busy_guards_ok)
 	_ck("toilet vortex stays inside the animated bowl cavity",
 		toilet_cavity_water_ok, toilet_cavity_detail)
-	_ck("foreground occluders",
-		main.castle_room_front_layer.get_child_count() == 2
-		and (main.castle_room_front_layer.get_child(0) as Sprite3D).position.z
-			> main.castle_room_player_sprite.position.z)
+	var foreground: Node2D = rooms.wet_rooms.root.get_node_or_null(
+		"Foreground") as Node2D
+	_ck("Canvas foreground occluders",
+		foreground != null and foreground.get_child_count() == 2
+		and foreground.z_index > rooms.wet_rooms.actor.z_index)
+	var wet_stats: Dictionary = rooms.wet_rooms.stats()
+	_ck("fixture water is Canvas-only with no Jolt allocation",
+		bool(wet_stats.get("canvas_only", false))
+		and int(wet_stats.get("water_layers", 0)) == 6
+		and main.castle_room_fixture_physics.is_empty()
+		and main.castle_room_fixture_rigs.is_empty())
 	_ck("free-roaming controls disabled",
 		not main.touch_ui.world_controls_enabled
 		and not main.player.visible

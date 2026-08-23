@@ -155,9 +155,7 @@ func _init() -> void:
 		var promenade_id: String = String(promenade_target.get("id", ""))
 		promenade_ids[promenade_id] = true
 		var expected_affordance: String = Affordance.PLOT \
-			if promenade_id == "castle_gate" \
-			else Affordance.INTERACTION if promenade_id == "reef_route" \
-			else Affordance.ANIMATION
+			if promenade_id == "castle_gate" else Affordance.ANIMATION
 		var target_node: CanvasItem = promenade_target.get("node") as CanvasItem
 		var highlight: CanvasItem = promenade_target.get("highlight") as CanvasItem
 		if String(promenade_target.get(
@@ -171,14 +169,14 @@ func _init() -> void:
 				or float(target_node.get_meta("touch_footprint_px", 0.0)) < 220.0 \
 				or float(promenade_target.get("radius_px", 0.0)) < 110.0:
 			_bad("promenade Canvas target contract wrong for %s" % promenade_id)
-	for expected: String in ["reef_route", "slide", "swing", "seesaw", "castle_gate"]:
+	for expected: String in ["slide", "swing", "seesaw", "castle_gate"]:
 		if not promenade_ids.has(expected):
 			_bad("promenade interaction missing %s" % expected)
 	for removed_frame: String in ["runway_frame", "playground_frame", "castle_frame"]:
 		if promenade_ids.has(removed_frame):
 			_bad("removed lawn picture still interactive: %s" % removed_frame)
-	if promenade_targets.size() != 5:
-		_bad("promenade roster must contain the permanent Reef route and four toys/landmarks")
+	if promenade_targets.size() != 4 or promenade_ids.has("reef_route"):
+		_bad("promenade roster must contain only the three toys and castle landmark")
 
 	# Exercise the first-visit Crown Star target, not the already-won keepsake.
 	# The castle is one picture-first Sprite3D stage, not a second free-roaming
@@ -246,6 +244,16 @@ func _init() -> void:
 				or not main.castle_room_menu_panel.visible:
 			_bad("storybook elevator did not expand")
 		rooms._set_elevator_menu_open(false, false)
+	# Act One intentionally seals the remaining destinations until the existing
+	# Royal Hall Crown beat. Earn that unlock before auditing the post-Crown
+	# Dream House and direct-elevator routes below.
+	rooms.activate_current_room()
+	var royal_hall_deadline_ms: int = Time.get_ticks_msec() + 3000
+	while not bool(main.g.get("crown_won", false)) \
+			and Time.get_ticks_msec() < royal_hall_deadline_ms:
+		await process_frame
+	if not bool(main.g.get("crown_won", false)):
+		_bad("eligible Royal Hall event did not award the Crown Star")
 	for dream_room_id: String in [
 		"family_gallery", "dining_room", "royal_bedroom",
 		"sleepover_bedroom", "movie_lounge"]:
@@ -751,15 +759,6 @@ func _init() -> void:
 	await _frames(2)
 	if main.castle_room_id != "main_hall":
 		_bad("room Back did not return to the Main Hall")
-	rooms.activate_current_room()
-	# Royal Hall is a real walk-then-arrive doorway now, not the retired
-	# instant throne action. Wait for the authored approach callback.
-	var royal_hall_deadline_ms: int = Time.get_ticks_msec() + 3000
-	while not bool(main.g.get("crown_won", false)) \
-			and Time.get_ticks_msec() < royal_hall_deadline_ms:
-		await process_frame
-	if not bool(main.g.get("crown_won", false)):
-		_bad("eligible Royal Hall event did not award the Crown Star")
 
 	# Pointer-driven activities may temporarily cover the castle, but closing a
 	# nested overlay must return to the room stage rather than resurrecting the

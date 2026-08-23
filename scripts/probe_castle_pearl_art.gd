@@ -925,8 +925,209 @@ func _expected_room_fixture_inventory(
 	return expected
 
 
+func _run_canvas_semantic_animation(rooms: CastleRooms25D, room_id: String,
+		item_id: String, manifest_asset: Dictionary) -> Dictionary:
+	var result := {
+		"contract_ok": false,
+		"sequence_ok": false,
+		"transform_ok": false,
+		"sound_ok": false,
+		"busy_guard_ok": false,
+		"fixture_uv_ok": true,
+		"menu_order_ok": true,
+		"water_profile_ok": false,
+		"physics_motion_ok": true,
+		"settled_ok": true,
+		"peak_visible_cards": 0,
+		"detail": "",
+	}
+	var record: Dictionary = main.castle_room_item_sprites.get(
+		item_id, {}) as Dictionary
+	var sprite: Sprite2D = record.get("canvas_sprite") as Sprite2D
+	var item_data: Dictionary = record.get("data", {}) as Dictionary
+	if sprite == null or not is_instance_valid(sprite) \
+			or manifest_asset.is_empty() or rooms.wet_rooms == null \
+			or not rooms.wet_rooms.is_active():
+		result["detail"] = room_id + ":" + item_id \
+			+ " missing active Canvas fixture or manifest"
+		return result
+	var authored_count := int(manifest_asset.get("authored_frame_count", 0))
+	var timeline_count := int(manifest_asset.get("timeline_frame_count", 0))
+	var grid_values: Array = manifest_asset.get("grid", []) as Array
+	var cell_size_values: Array = manifest_asset.get("cell_size", []) as Array
+	var expected_sheet_path := "res://" + String(
+		manifest_asset.get("sheet", ""))
+	var expected_sound_path := "res://" + String(
+		manifest_asset.get("sound", ""))
+	var expected_sound_value := expected_sound_path.trim_prefix(
+		"res://assets/audio/")
+	var expected_texture_size := Vector2.ZERO
+	if cell_size_values.size() == 2 and grid_values.size() == 2:
+		expected_texture_size = Vector2(
+			float(cell_size_values[0]) * float(grid_values[0]),
+			float(cell_size_values[1]) * float(grid_values[1]))
+	var texture_size := sprite.texture.get_size() \
+		if sprite.texture != null else Vector2.ZERO
+	var water_layers: Array = manifest_asset.get("water_layers", []) as Array
+	var expected_water_roles: Array[String] = \
+		_expanded_runtime_water_roles(water_layers)
+	expected_water_roles.sort()
+	var water: CastleWaterFixture2D = rooms.wet_rooms.fixture_water.get(
+		item_id) as CastleWaterFixture2D
+	var water_stats: Dictionary = water.stats() if water != null else {}
+	var runtime_layers: Array = water.layer_metadata() \
+		if water != null else []
+	var actual_water_roles: Array[String] = []
+	var water_contract_ok := runtime_layers.size() == expected_water_roles.size()
+	for layer: Dictionary in runtime_layers:
+		var bounds: Rect2 = layer.get("bounds_normalized", Rect2()) as Rect2
+		var outlet: Vector2 = layer.get(
+			"outlet_normalized", Vector2.INF) as Vector2
+		var active_frames: Array = layer.get("active_frames", []) as Array
+		actual_water_roles.append(String(layer.get("role", "")))
+		water_contract_ok = water_contract_ok \
+			and String(layer.get("shape", "")) in ["ellipse", "polygon"] \
+			and bounds.has_area() \
+			and bounds.position.x >= 0.0 and bounds.position.y >= 0.0 \
+			and bounds.end.x <= 1.0 and bounds.end.y <= 1.0 \
+			and outlet.x >= 0.0 and outlet.x <= 1.0 \
+			and outlet.y >= 0.0 and outlet.y <= 1.0 \
+			and float(layer.get("flow_start", -1.0)) >= 0.0 \
+			and float(layer.get("flow_start", 2.0)) < 1.0
+		for active_frame_value: Variant in active_frames:
+			var active_frame := int(active_frame_value)
+			water_contract_ok = water_contract_ok \
+				and active_frame >= 0 and active_frame < authored_count
+	actual_water_roles.sort()
+	water_contract_ok = water_contract_ok \
+		and actual_water_roles == expected_water_roles \
+		and ((water == null and expected_water_roles.is_empty()) or (
+			water != null
+			and bool(water_stats.get("configured", false))
+			and bool(water_stats.get("canvas_only", false))
+			and not bool(water_stats.get("uses_shader", true))
+			and int(water_stats.get("physics_bodies", -1)) == 0
+			and int(water_stats.get("active_layers", -1)) == 0))
+	var wet_root: Node2D = rooms.wet_rooms.root
+	var canvas_root_ok := wet_root != null \
+		and String(wet_root.get_meta("final_medium", "")) == "canvas_2d" \
+		and String(wet_root.get_meta("water_contract", "")) == "DL-WTR" \
+		and _descendants_are_canvas(wet_root)
+	result["contract_ok"] = (
+		authored_count >= 4 and authored_count <= 12
+		and timeline_count >= 4 and timeline_count <= 12
+		and grid_values.size() == 2
+		and sprite.hframes == int(grid_values[0])
+		and sprite.vframes == int(grid_values[1])
+		and sprite.hframes * sprite.vframes >= authored_count
+		and texture_size == expected_texture_size
+		and maxf(texture_size.x, texture_size.y) <= 1024.0
+		and sprite.texture != null
+		and sprite.texture.resource_path == expected_sheet_path
+		and String(item_data.get("semantic_action", ""))
+			== String(manifest_asset.get("semantic_action", ""))
+		and String(item_data.get("sound", "")) == expected_sound_value
+		and int(item_data.get("sound_frame", -1))
+			== int(manifest_asset.get("sound_frame", -2))
+		and is_equal_approx(float(item_data.get("frame_duration", -1.0)),
+			float(manifest_asset.get("frame_duration_seconds", -2.0)))
+		and bool(sprite.get_meta("fixed_pivot_animation", false))
+		and bool(manifest_asset.get("fixed_pivot", false))
+		and bool(record.get("canvas_water_trial", false))
+		and ResourceLoader.exists(expected_sound_path)
+		and water_contract_ok
+		and canvas_root_ok
+		and main.castle_room_fixture_physics.is_empty()
+		and main.castle_room_fixture_rigs.is_empty()
+	)
+	var start_position := sprite.position
+	var start_scale := sprite.scale
+	var start_rotation := sprite.rotation
+	var effects_before := main.castle_room_item_effect_layer.get_child_count()
+	if main.castle_room_prop_sfx != null:
+		main.castle_room_prop_sfx.stop()
+		main.castle_room_prop_sfx.stream = null
+	rooms._activate_room_item(item_id)
+	var busy_started := bool(sprite.get_meta("busy", false))
+	var effects_after_first := \
+		main.castle_room_item_effect_layer.get_child_count()
+	rooms._activate_room_item(item_id)
+	result["busy_guard_ok"] = busy_started \
+		and main.castle_room_item_effect_layer.get_child_count() \
+			== effects_after_first \
+		and effects_after_first == effects_before
+	var layer_seen: Dictionary = {}
+	for role: String in expected_water_roles:
+		layer_seen[role] = false
+	var transform_ok := true
+	var waited_frames := 0
+	var deadline_ms := Time.get_ticks_msec() + 5000
+	while bool(sprite.get_meta("busy", false)) \
+			and Time.get_ticks_msec() < deadline_ms:
+		rooms.tick(1.0 / 60.0)
+		await process_frame
+		waited_frames += 1
+		transform_ok = transform_ok \
+			and sprite.position.is_equal_approx(start_position) \
+			and sprite.scale.is_equal_approx(start_scale) \
+			and is_equal_approx(sprite.rotation, start_rotation)
+		if water != null:
+			for layer: Dictionary in water.layer_metadata():
+				if bool(layer.get("active", false)):
+					layer_seen[String(layer.get("role", ""))] = true
+	var manifest_sequence_values: Array = manifest_asset.get(
+		"timeline_sequence", []) as Array
+	var manifest_sequence: Array[int] = []
+	for frame_value: Variant in manifest_sequence_values:
+		manifest_sequence.append(int(frame_value))
+	var expected_timeline: Array[int] = []
+	for timeline_step in range(timeline_count):
+		expected_timeline.append(timeline_step)
+	var visited: Array = sprite.get_meta(
+		"animation_frames_visited", []) as Array
+	var timeline_visited: Array = sprite.get_meta(
+		"animation_timeline_steps_visited", []) as Array
+	var all_water_seen := true
+	for seen_value: Variant in layer_seen.values():
+		all_water_seen = all_water_seen and bool(seen_value)
+	var water_at_rest := water == null or (
+		int(water.stats().get("active_layers", -1)) == 0
+		and absf(float(water.stats().get("flow_amount", -1.0))) <= 0.001
+		and absf(float(water.stats().get("vortex_amount", -1.0))) <= 0.001)
+	result["water_profile_ok"] = water_contract_ok \
+		and all_water_seen and water_at_rest
+	result["sequence_ok"] = busy_started \
+		and not bool(sprite.get_meta("busy", true)) \
+		and visited == manifest_sequence \
+		and timeline_visited == expected_timeline \
+		and sprite.frame == int(manifest_asset.get("rest_frame", 0)) \
+		and bool(result["water_profile_ok"]) \
+		and Time.get_ticks_msec() < deadline_ms
+	var played_stream: AudioStream = main.castle_room_prop_sfx.stream \
+		if main.castle_room_prop_sfx != null else null
+	result["sound_ok"] = played_stream != null \
+		and played_stream.resource_path == expected_sound_path
+	result["transform_ok"] = transform_ok
+	result["peak_visible_cards"] = int(rooms.wet_rooms.stats().get(
+		"fixture_count", 0)) + int(rooms.wet_rooms.stats().get(
+		"water_layers", 0))
+	result["detail"] = (
+		"%s atlas=%s steps=%s sound=%s wait=%d canvas_water=%s/%s") % [
+		room_id + ":" + item_id, str(visited), str(timeline_visited),
+		played_stream.resource_path if played_stream != null else "missing",
+		waited_frames, str(layer_seen), str(expected_water_roles)]
+	return result
+
+
 func _run_semantic_animation(rooms: CastleRooms25D, room_id: String,
 		item_id: String, manifest_asset: Dictionary) -> Dictionary:
+	var wet_record: Dictionary = main.castle_room_item_sprites.get(
+		item_id, {}) as Dictionary
+	var wet_sprite: Sprite2D = wet_record.get("canvas_sprite") as Sprite2D
+	if rooms.wet_rooms != null and rooms.wet_rooms.is_active() \
+			and wet_sprite != null and is_instance_valid(wet_sprite):
+		return await _run_canvas_semantic_animation(
+			rooms, room_id, item_id, manifest_asset)
 	var result := {
 		"contract_ok": false,
 		"sequence_ok": false,
@@ -2261,6 +2462,7 @@ func _run() -> void:
 			castle_roshan.texture.resource_path])
 
 	var all_rooms_ok := true
+	var all_wet_room_canvas_trials_ok := true
 	var room_structure_failures: Array[Dictionary] = []
 	var all_depth_ok := true
 	# LIGHTING_2P5D_AUDIT_2026-08-02 §E2: depth must be TONAL as well as
@@ -2434,6 +2636,28 @@ func _run() -> void:
 	for room_id: String in ROOM_IDS:
 		rooms.show_room(room_id, false)
 		await _frames(2)
+		var wet_room_active := rooms.wet_rooms != null \
+			and rooms.wet_rooms.is_active()
+		if room_id in ["mermaid_pool", "bubble_bath"]:
+			var wet_root: Node2D = rooms.wet_rooms.root \
+				if rooms.wet_rooms != null else null
+			var wet_stats: Dictionary = rooms.wet_rooms.stats() \
+				if rooms.wet_rooms != null else {}
+			all_wet_room_canvas_trials_ok = all_wet_room_canvas_trials_ok \
+				and wet_room_active \
+				and wet_root != null \
+				and _descendants_are_canvas(wet_root) \
+				and String(wet_root.get_meta("water_trial_room", "")) == room_id \
+				and String(wet_root.get_meta("final_medium", "")) == "canvas_2d" \
+				and bool(wet_stats.get("canvas_only", false)) \
+				and int(wet_stats.get("fixture_count", -1)) \
+					== main.castle_room_item_sprites.size() \
+				and main.castle_room_fixture_physics.is_empty() \
+				and main.castle_room_fixture_rigs.is_empty() \
+				and main.castle_room_world_root != null \
+				and not main.castle_room_world_root.visible \
+				and main.castle_room_camera != null \
+				and not main.castle_room_camera.current
 		if room_id == "opera_hall":
 			var stage_star_record: Dictionary = \
 				main.castle_room_item_sprites.get("stage_star", {}) as Dictionary
@@ -2584,7 +2808,12 @@ func _run() -> void:
 			var record: Dictionary = main.castle_room_item_sprites[
 				item_id_value] as Dictionary
 			var sprite: Sprite3D = record.get("sprite") as Sprite3D
-			if sprite != null:
+			var canvas_sprite: Sprite2D = record.get("canvas_sprite") as Sprite2D
+			var record_data: Dictionary = record.get("data", {}) as Dictionary
+			if canvas_sprite != null and is_instance_valid(canvas_sprite):
+				if String(record_data.get("semantic_action", "")) != "":
+					semantic_item_ids.append(String(item_id_value))
+			elif sprite != null and is_instance_valid(sprite):
 				depths[snappedf(sprite.position.z, 0.01)] = true
 				if String(sprite.get_meta("semantic_action", "")) != "":
 					semantic_item_ids.append(String(item_id_value))
@@ -2612,7 +2841,10 @@ func _run() -> void:
 				and is_equal_approx(back_tint.g, 1.0) \
 				and is_equal_approx(back_tint.b, 1.0)
 		all_rooms_ok = all_rooms_ok and room_ok
-		all_depth_ok = all_depth_ok and depths.size() >= 3
+		# Wet trials use Canvas z-index bands; their hidden spatial snapshot is
+		# migration input, not the active presentation's depth authority.
+		all_depth_ok = all_depth_ok \
+			and (wet_room_active or depths.size() >= 3)
 		if not hall_mode:
 			approved_composite_backdrops_ok = \
 				approved_composite_backdrops_ok \
@@ -2922,8 +3154,10 @@ func _run() -> void:
 				and main.game == "level2" \
 				and main.castle_room_id == "kitchen" \
 				and main.castle_room_layer.visible
-	_ck("all_eight_rooms_sprite3d_only", all_rooms_ok,
+	_ck("legacy_room_snapshots_remain_structurally_valid", all_rooms_ok,
 		"failures=%s" % [room_structure_failures])
+	_ck("pool_and_bathroom_trials_use_one_canvas_only_water_host",
+		all_wet_room_canvas_trials_ok)
 	_ck("all_rooms_use_multiple_real_depths", all_depth_ok)
 	_ck("depth_planes_are_tonally_separated",
 		all_depth_tint_ok and saw_tinted_foreground,
@@ -2984,9 +3218,9 @@ func _run() -> void:
 		all_fixture_uv_resets_ok, ";".join(interaction_failures))
 	_ck("all_runtime_water_layers_activate_and_return_to_rest",
 		all_water_profiles_ok, ";".join(interaction_failures))
-	_ck("all_jolt_garnish_has_nonzero_bounded_motion",
+	_ck("remaining_legacy_jolt_garnish_has_nonzero_bounded_motion",
 		all_jolt_motion_ok, ";".join(interaction_failures))
-	_ck("all_jolt_garnish_eventually_settles",
+	_ck("remaining_legacy_jolt_garnish_eventually_settles",
 		all_jolt_settles_ok, ";".join(interaction_failures))
 	_ck("kitchen_manifest_backed_props_are_all_present", kitchen_prop_set_ok)
 	_ck("kitchen_pan_rack_one_hotspot_animates_all_four_pans",
@@ -3011,6 +3245,7 @@ func _run() -> void:
 			max_visible_world_cards, visible_card_peaks])
 	await _frames(60)
 	var repeated_rebuilds_clean := true
+	var repeated_rebuild_failures: Array[Dictionary] = []
 	for room_id: String in ROOM_IDS:
 		rooms.show_room(room_id, false)
 		await _frames(2)
@@ -3035,8 +3270,15 @@ func _run() -> void:
 		rooms.show_room(room_id, false)
 		await _frames(2)
 		var second_visual_inventory: Dictionary = _direct_visual_inventory()
-		repeated_rebuilds_clean = repeated_rebuilds_clean \
-			and main.castle_room_item_sprites.size() == expected_runtime_items \
+		var wet_rebuild := rooms.wet_rooms != null \
+			and rooms.wet_rooms.is_active()
+		var wet_root_count := 0
+		if wet_rebuild:
+			for stage_child: Node in main.castle_room_stage.get_children():
+				if String(stage_child.get_meta("water_contract", "")) == "DL-WTR":
+					wet_root_count += 1
+		var legacy_rebuild_clean := \
+			main.castle_room_item_sprites.size() == expected_runtime_items \
 			and second_visual_inventory == first_visual_inventory \
 			and int(first_visual_inventory.get("art", -1)) \
 				== expected_runtime_items \
@@ -3052,8 +3294,40 @@ func _run() -> void:
 			and main.castle_room_item_effect_layer.get_child_count() \
 				== first_effect_count \
 			and first_effect_count == expected_persistent_effects
+		var wet_rebuild_clean := wet_rebuild \
+			and main.castle_room_item_sprites.size() == expected_runtime_items \
+			and rooms.wet_rooms.root != null \
+			and rooms.wet_rooms.root.get_parent() == main.castle_room_stage \
+			and wet_root_count == 1 \
+			and int(rooms.wet_rooms.stats().get("fixture_count", -1)) \
+				== expected_runtime_items \
+			and main.castle_room_fixture_physics.is_empty() \
+			and main.castle_room_fixture_rigs.is_empty() \
+			and main.castle_room_item_hotspot_layer.get_child_count() \
+				== first_hotspot_count \
+			and first_hotspot_count == expected_hotspots \
+			and main.castle_room_item_effect_layer.get_child_count() \
+				== first_effect_count \
+			and first_effect_count == expected_persistent_effects
+		repeated_rebuilds_clean = repeated_rebuilds_clean \
+			and (wet_rebuild_clean if wet_rebuild else legacy_rebuild_clean)
+		if not (wet_rebuild_clean if wet_rebuild else legacy_rebuild_clean):
+			repeated_rebuild_failures.append({
+				"room": room_id,
+				"wet": wet_rebuild,
+				"items": main.castle_room_item_sprites.size(),
+				"expected_items": expected_runtime_items,
+				"first_visual": first_visual_inventory,
+				"second_visual": second_visual_inventory,
+				"wet_roots": wet_root_count,
+				"wet_stats": rooms.wet_rooms.stats() if wet_rebuild else {},
+				"hotspots": main.castle_room_item_hotspot_layer.get_child_count(),
+				"expected_hotspots": expected_hotspots,
+				"effects": main.castle_room_item_effect_layer.get_child_count(),
+				"expected_effects": expected_persistent_effects,
+			})
 	_ck("repeated_room_rebuilds_do_not_leak_cards_or_hotspots",
-		repeated_rebuilds_clean)
+		repeated_rebuilds_clean, str(repeated_rebuild_failures))
 
 	rooms.show_room("main_hall", false)
 	var castle_environment: Environment = main.castle_room_environment

@@ -3,7 +3,7 @@ extends SceneTree
 # release the prior CanvasLayer and construct exactly one fresh Canvas stage.
 
 const TARGET_IDS: Array[String] = [
-	"castle_gate", "reef_route", "seesaw", "slide", "swing",
+	"castle_gate", "seesaw", "slide", "swing",
 ]
 
 var main: ReefMain

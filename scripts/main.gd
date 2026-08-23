@@ -6575,9 +6575,14 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	player.position = CASTLE_POS + Vector3(0, 6, 24)
 	player.yaw = 0.0
 	player.vel = Vector3.ZERO
-	_castle_rooms_ref().open("main_hall")
+	var castle_rooms: CastleRooms25D = _castle_rooms_ref()
+	castle_rooms.open("main_hall")
+	var first_visit_hint := \
+		"Follow the golden rainbow door for the next royal adventure! Blue doors hold a bonus." \
+		if castle_rooms.door_state("__royal_hall") == "plot" \
+		else "Touch a picture door or the shell elevator to visit a room!"
 	show_msg("Pearl Castle",
-		"Touch a picture door or the shell elevator to visit a room!" if not from_back
+		first_visit_hint if not from_back
 		else "The secret shell door opens into the Main Hall!",
 		"home")
 	_say("roshan", "talk", 0.5)

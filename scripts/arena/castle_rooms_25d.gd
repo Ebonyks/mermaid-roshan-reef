@@ -14,7 +14,11 @@ const HALL_REDRAW_ROOT := \
 const HALL_TILE_ROOT := HALL_REDRAW_ROOT + "tiles/"
 const HALL_SIGN_ART_ROOT := HALL_REDRAW_ROOT + "signs/"
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const CASTLE_WET_ROOMS_2D := preload(
+	"res://scripts/arena/castle_wet_rooms_2d.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
+const DoorLanguage := preload("res://scripts/castle_door_language.gd")
+const DoorCue := preload("res://scripts/castle_door_cue.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
 const ART_TO_STAGE := 1.25
@@ -843,6 +847,7 @@ const KITCHEN_FOOD_ICONS := {
 
 var m: ReefMain
 var fixture_rigs: CastleFixtureRigs
+var wet_rooms: CastleWetRooms2D
 var kitchen_menu_layer: CanvasLayer = null
 var kitchen_menu_stage: Control = null
 var kitchen_act: OperaAct = null
@@ -852,6 +857,7 @@ var _room_build_generation := 0
 func _init(main: ReefMain) -> void:
 	m = main
 	fixture_rigs = CastleFixtureRigs.new(main)
+	wet_rooms = CASTLE_WET_ROOMS_2D.new(main) as CastleWetRooms2D
 
 func is_open() -> bool:
 	return m.castle_room_layer != null and is_instance_valid(m.castle_room_layer)
@@ -1031,6 +1037,8 @@ func close() -> void:
 		m.combat_tutorial_game = null
 		tut.finish_cb = Callable()
 		tut.cancel()
+	if wet_rooms != null:
+		wet_rooms.close()
 	fixture_rigs.teardown()
 	if m.castle_logo_layer != null:
 		m._close_castle_logo()
@@ -1104,8 +1112,11 @@ func tick(delta: float) -> void:
 		m.player.vel = Vector3.ZERO
 	m.castle_royal_hall_feedback_cool = maxf(
 		0.0, m.castle_royal_hall_feedback_cool - delta)
-	fixture_rigs.tick(delta)
-	_tick_item_affordances(delta)
+	if wet_rooms != null and wet_rooms.is_active():
+		wet_rooms.tick(delta)
+	else:
+		fixture_rigs.tick(delta)
+		_tick_item_affordances(delta)
 	if m.castle_dust_he != null:
 		m.castle_dust_he.tick(delta)   # pop-chain window decay
 	if m.castle_partner != null:
@@ -1120,7 +1131,8 @@ func tick(delta: float) -> void:
 	_sync_hall_lighting()
 
 func physics_tick(delta: float) -> void:
-	fixture_rigs.physics_tick(delta)
+	if wet_rooms == null or not wet_rooms.is_active():
+		fixture_rigs.physics_tick(delta)
 
 
 func _build_stage() -> void:
@@ -1616,10 +1628,15 @@ func _build_hall_portals() -> void:
 		button.pressed.connect(_enter_hall_portal.bind(
 			portal_id, portal_data["foot"] as Vector2))
 		m.castle_room_door_hotspot_layer.add_child(button)
+		var cue: Control = DoorCue.new()
+		cue.name = "HallDoorCue_" + portal_id
+		cue.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		m.castle_room_door_hotspot_layer.add_child(cue)
 		if portal_id != ROYAL_HALL_PORTAL_ID:
 			m.castle_room_buttons[portal_id] = button
 		m.castle_room_door_hotspots.append({
 			"button": button,
+			"cue": cue,
 			"data": portal_data,
 		})
 	m.castle_room_door_hotspot_layer.visible = false
@@ -1675,6 +1692,13 @@ func _build_elevator_menu(stage: Control) -> void:
 			"pearl_castle_scallop_crest")
 		button.pressed.connect(_choose_elevator_room.bind(room_id))
 		book.add_child(button)
+		var cue: Control = DoorCue.new()
+		cue.name = "ElevatorDoorCue_" + room_id
+		cue.position = Vector2.ZERO
+		cue.size = Vector2(180.0, 138.0)
+		cue.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		button.add_child(cue)
+		button.set_meta("castle_door_cue", cue)
 		m.castle_room_menu_buttons[room_id] = button
 
 	var close_button := Button.new()
@@ -1691,6 +1715,15 @@ func _update_elevator_selected() -> void:
 		var room_id := String(room_id_value)
 		var button: Button = m.castle_room_menu_buttons.get(room_id) as Button
 		if button != null:
+			var state: String = door_state(room_id)
+			button.set_meta("castle_door_state", state)
+			button.tooltip_text = String(_room(room_id).get("name", room_id)) \
+				+ ": " + DoorLanguage.child_meaning(state)
+			button.modulate = Color(0.72, 0.72, 0.82, 0.88) \
+				if state == DoorLanguage.BLOCKED else Color.WHITE
+			var cue: Control = button.get_meta("castle_door_cue", null) as Control
+			if cue != null:
+				cue.call("set_door_state", state)
 			StorybookUI.set_selected(button, room_id == m.castle_room_id)
 
 func _set_elevator_menu_open(open_menu: bool, play_sound: bool = true) -> void:
@@ -1727,6 +1760,13 @@ func _toggle_elevator_menu() -> void:
 func _choose_elevator_room(room_id: String) -> void:
 	if not ELEVATOR_ROOM_IDS.has(room_id):
 		return
+	var state: String = door_state(room_id)
+	if not DoorLanguage.allows_travel(state):
+		var button: Button = m.castle_room_menu_buttons.get(room_id) as Button
+		var cue: Control = button.get_meta("castle_door_cue", null) as Control \
+			if button != null else null
+		_blocked_door_feedback(room_id, cue)
+		return
 	_set_elevator_menu_open(false, false)
 	show_room(room_id, true)
 
@@ -1741,9 +1781,17 @@ func _rebuild_room_links(_room_id: String) -> void:
 func show_room(room_id: String, announce: bool = true) -> void:
 	if _fridge_close_is_blocked():
 		return
+	# Announced transitions are child-facing navigation. Silent transitions are
+	# retained for exact-room restoration and structural probes, so an activity
+	# can always return home without a newly evaluated door stealing progress.
+	if announce and room_id != "main_hall" \
+			and not DoorLanguage.allows_travel(door_state(room_id)):
+		_blocked_door_feedback(room_id)
+		return
 	var room: Dictionary = _room(room_id)
 	if room.is_empty() or m.castle_room_background == null:
 		return
+	_leave_wet_room_trial()
 	_invalidate_royal_hall_arrival()
 	m.castle_room_id = room_id
 	_set_elevator_menu_open(false, false)
@@ -1769,6 +1817,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_rebuild_depth_layers(room_id)
 	_rebuild_touch_items(room_id)
 	_rebuild_room_links(room_id)
+	_sync_wet_room_trial(room_id)
 	m._castle_logo_ref().refresh_room_display()
 	if room_id == "dining_room":
 		_sync_dining_plates()
@@ -1813,6 +1862,114 @@ func _room(room_id: String) -> Dictionary:
 			return room
 	return {}
 
+
+func door_state(destination_id: String) -> String:
+	return DoorLanguage.resolve(
+		destination_id,
+		m.level2_done_once,
+		not _playroom_rescue_done(),
+		_royal_hall_event_id() != "")
+
+
+func _blocked_door_feedback(destination_id: String,
+		cue: Control = null) -> void:
+	if cue != null and cue.has_method("pulse_blocked_feedback"):
+		cue.call("pulse_blocked_feedback")
+	_play_item_sfx("castle/curtain_swish.ogg", 0.84)
+	var room_name: String = String(_room(destination_id).get(
+		"name", "That room"))
+	m.show_msg("Roshan",
+		room_name + " is dreaming behind royal mist. The Crown Star will wake it!",
+		"talk")
+
+
+func _leave_wet_room_trial() -> void:
+	if wet_rooms != null:
+		wet_rooms.close()
+	if m.castle_room_world_root != null \
+			and is_instance_valid(m.castle_room_world_root):
+		m.castle_room_world_root.visible = true
+	if m.castle_room_camera != null and is_instance_valid(m.castle_room_camera):
+		m.castle_room_camera.make_current()
+
+
+func _sync_wet_room_trial(room_id: String) -> void:
+	if wet_rooms == null or not wet_rooms.supports(room_id) \
+			or m.castle_room_stage == null:
+		return
+	var background_specs: Array[Dictionary] = []
+	for tile: Variant in m.castle_room_detail_tiles:
+		if tile == null or not is_instance_valid(tile) or tile.texture == null:
+			continue
+		background_specs.append({
+			"name": tile.name,
+			"texture": tile.texture,
+			"art_rect": tile.get_meta("render_art_rect", Rect2()),
+			"native": bool(tile.get_meta(
+				"native_source_ownership_background", false)),
+			"source_asset_role": String(tile.get_meta(
+				"source_asset_role", "clean_background_tile")),
+		})
+	var fixture_specs: Array[Dictionary] = []
+	for item_id_value: Variant in m.castle_room_item_sprites.keys():
+		var item_id := String(item_id_value)
+		var record: Dictionary = m.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		var legacy_sprite: Variant = record.get("sprite")
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if legacy_sprite == null or not is_instance_valid(legacy_sprite) \
+				or legacy_sprite.texture == null:
+			continue
+		var visual: Dictionary = item_data.get("v2_visual", {}) as Dictionary
+		var placement_center: Vector2 = record.get(
+			"placement_center", Vector2.ZERO) as Vector2
+		fixture_specs.append({
+			"id": item_id,
+			"texture": legacy_sprite.texture,
+			"hframes": legacy_sprite.hframes,
+			"vframes": legacy_sprite.vframes,
+			"frame": legacy_sprite.frame,
+			"position": placement_center * ART_TO_STAGE,
+			"scale": Vector2(legacy_sprite.scale.x,
+				legacy_sprite.scale.y) * ART_TO_STAGE,
+			"flip_h": legacy_sprite.flip_h,
+			"water_layers": visual.get("water_layers", []),
+		})
+	var foreground_specs: Array[Dictionary] = []
+	var layout: Dictionary = ROOM_LAYOUTS.get(room_id, {}) as Dictionary
+	for piece_value: Variant in layout.get("front", []):
+		var piece_data: Dictionary = piece_value as Dictionary
+		var texture_path := ROOM_ART + String(piece_data.get("tex", ""))
+		var texture: Texture2D = load(texture_path) as Texture2D \
+			if ResourceLoader.exists(texture_path) else null
+		if texture == null:
+			continue
+		foreground_specs.append({
+			"name": String(piece_data.get("tex", "foreground")).get_basename(),
+			"texture": texture,
+			"position": piece_data.get("pos", Vector2.ZERO),
+		})
+	var opened := wet_rooms.open(
+		m.castle_room_stage, room_id, background_specs, fixture_specs,
+		foreground_specs, layout, load(m.skin_sprite_path()) as Texture2D)
+	if not opened:
+		return
+	for item_id_value: Variant in m.castle_room_item_sprites.keys():
+		var item_id := String(item_id_value)
+		var record: Dictionary = m.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		record["canvas_sprite"] = wet_rooms.fixture_sprite(item_id)
+		record["canvas_water_trial"] = true
+		m.castle_room_item_sprites[item_id] = record
+	# Remove the old spatial water overlays and Jolt garnish for the active trial.
+	# The hidden legacy room is retained only as a migration snapshot source.
+	fixture_rigs.teardown()
+	if m.castle_room_world_root != null:
+		m.castle_room_world_root.visible = false
+	if m.castle_room_camera != null:
+		m.castle_room_camera.current = false
+	m.g["castle_wet_room_background_tiles"] = background_specs.size()
+
 func _on_room_input(event: InputEvent) -> void:
 	if _fridge_close_is_blocked() or m.castle_room_menu_open:
 		return
@@ -1822,6 +1979,9 @@ func _on_room_input(event: InputEvent) -> void:
 		_walk_cutout_to((event as InputEventScreenTouch).position)
 
 func _walk_cutout_to(screen_position: Vector2) -> void:
+	if wet_rooms != null and wet_rooms.is_active():
+		wet_rooms.move_player(_screen_to_stage(screen_position))
+		return
 	if m.castle_room_player_sprite == null:
 		return
 	_invalidate_royal_hall_arrival()
@@ -2026,6 +2186,9 @@ func _position_hall_player_at_foot(foot: Vector2, tweened: bool) -> void:
 	movement_tween.chain().tween_callback(_finish_player_walk)
 
 func _center_player() -> void:
+	if wet_rooms != null and wet_rooms.is_active():
+		wet_rooms.center_player(false)
+		return
 	if m.castle_room_player_sprite == null:
 		return
 	if _is_wide_hall():
@@ -2624,6 +2787,13 @@ func _activate_room_item(item_id: String) -> void:
 		return
 	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
 	if record.is_empty():
+		return
+	var canvas_sprite: Sprite2D = record.get("canvas_sprite") as Sprite2D
+	if wet_rooms != null and wet_rooms.is_active() \
+			and canvas_sprite != null and is_instance_valid(canvas_sprite):
+		var canvas_item_data: Dictionary = record.get("data", {}) as Dictionary
+		_play_canvas_atlas_sequence(
+			item_id, canvas_sprite, canvas_item_data, true)
 		return
 	var sprite: Sprite3D = record.get("sprite") as Sprite3D
 	var item_data: Dictionary = record.get("data", {})
@@ -3333,6 +3503,75 @@ func _timeline_sequence(item_data: Dictionary,
 	if sequence.is_empty():
 		sequence.append(0)
 	return sequence
+
+
+func _play_canvas_atlas_sequence(item_id: String, sprite: Sprite2D,
+		item_data: Dictionary, play_sound: bool) -> void:
+	if sprite == null or not is_instance_valid(sprite) \
+			or bool(sprite.get_meta("busy", false)):
+		return
+	var available_frames := maxi(1, sprite.hframes * sprite.vframes)
+	var sequence := _timeline_sequence(item_data, available_frames)
+	var timeline_count := sequence.size()
+	var frame_duration := maxf(
+		0.01, float(item_data.get("frame_duration", 0.10)))
+	sprite.set_meta("busy", true)
+	sprite.frame = sequence[0]
+	sprite.set_meta("animation_frames_visited", [sequence[0]])
+	sprite.set_meta("animation_timeline_steps_visited", [0])
+	wet_rooms.apply_fixture_frame(item_id, 0, timeline_count, sequence[0])
+	if play_sound and int(item_data.get("sound_frame", 0)) == 0:
+		_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+			float(item_data.get("pitch", 1.0)))
+	if timeline_count <= 1:
+		_finish_canvas_atlas_sequence(item_id, sprite, item_data)
+		return
+	var tween := sprite.create_tween()
+	for timeline_step in range(1, timeline_count):
+		tween.tween_interval(frame_duration)
+		tween.tween_callback(_show_canvas_atlas_frame.bind(
+			item_id, sprite, item_data, timeline_step, play_sound))
+	tween.tween_interval(frame_duration)
+	tween.tween_callback(_finish_canvas_atlas_sequence.bind(
+		item_id, sprite, item_data))
+
+
+func _show_canvas_atlas_frame(item_id: String, sprite: Sprite2D,
+		item_data: Dictionary, timeline_step: int, play_sound: bool) -> void:
+	if sprite == null or not is_instance_valid(sprite) \
+			or wet_rooms == null or not wet_rooms.is_active():
+		return
+	var available_frames := maxi(1, sprite.hframes * sprite.vframes)
+	var sequence := _timeline_sequence(item_data, available_frames)
+	var step := clampi(timeline_step, 0, sequence.size() - 1)
+	var atlas_frame := sequence[step]
+	wet_rooms.apply_fixture_frame(
+		item_id, step, sequence.size(), atlas_frame)
+	var visited: Array = sprite.get_meta("animation_frames_visited", []) as Array
+	visited.append(atlas_frame)
+	sprite.set_meta("animation_frames_visited", visited)
+	var timeline_visited: Array = sprite.get_meta(
+		"animation_timeline_steps_visited", []) as Array
+	timeline_visited.append(step)
+	sprite.set_meta("animation_timeline_steps_visited", timeline_visited)
+	if play_sound and step == int(item_data.get("sound_frame", 0)):
+		_play_item_sfx(String(item_data.get("sound", "ui_tap.ogg")),
+			float(item_data.get("pitch", 1.0)))
+
+
+func _finish_canvas_atlas_sequence(item_id: String, sprite: Sprite2D,
+		item_data: Dictionary) -> void:
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	var available_frames := maxi(1, sprite.hframes * sprite.vframes)
+	var rest_frame := clampi(
+		int(item_data.get("rest_frame", 0)), 0, available_frames - 1)
+	if wet_rooms != null and wet_rooms.is_active():
+		var sequence := _timeline_sequence(item_data, available_frames)
+		wet_rooms.apply_fixture_frame(item_id, 0, sequence.size(), rest_frame)
+	else:
+		sprite.frame = rest_frame
+	sprite.set_meta("busy", false)
 
 
 func _play_sprite_atlas_sequence(sprite: Sprite3D, item_data: Dictionary,
@@ -4070,6 +4309,10 @@ func _tick_item_affordances(_delta: float) -> void:
 	halo.visible = envelope > 0.01
 
 func _update_touch_hotspot(record: Dictionary) -> void:
+	if wet_rooms != null and wet_rooms.is_active() \
+			and bool(record.get("canvas_water_trial", false)):
+		_update_canvas_touch_hotspot(record)
+		return
 	if m.castle_room_camera == null or m.castle_room_stage == null:
 		return
 	var sprite: Sprite3D = record.get("sprite") as Sprite3D
@@ -4125,6 +4368,33 @@ func _update_touch_hotspot(record: Dictionary) -> void:
 	hotspot.position = hit_position
 	hotspot.size = hit_size
 
+
+func _update_canvas_touch_hotspot(record: Dictionary) -> void:
+	var sprite: Sprite2D = record.get("canvas_sprite") as Sprite2D
+	var hotspot: Button = record.get("hotspot") as Button
+	if sprite == null or hotspot == null or not is_instance_valid(sprite):
+		return
+	var frame_size: Vector2 = record.get(
+		"frame_size", Vector2(256.0, 256.0)) as Vector2
+	var local_center: Vector2 = record.get(
+		"hotspot_local_center_pixels", Vector2.ZERO) as Vector2
+	var local_size: Vector2 = record.get(
+		"hotspot_local_size_pixels", frame_size) as Vector2
+	if sprite.flip_h:
+		local_center.x = -local_center.x
+	var center := sprite.position + local_center * sprite.scale
+	var hit_size := Vector2(
+		maxf(110.0, absf(local_size.x * sprite.scale.x)),
+		maxf(110.0, absf(local_size.y * sprite.scale.y)))
+	var hit_position := center - hit_size * 0.5
+	hit_position.x = clampf(hit_position.x, 0.0,
+		StorybookUI.CANVAS_SIZE.x - hit_size.x)
+	hit_position.y = clampf(hit_position.y, 0.0,
+		StorybookUI.CANVAS_SIZE.y - hit_size.y)
+	hotspot.position = hit_position
+	hotspot.size = hit_size
+	hotspot.visible = sprite.visible
+
 func _update_hall_portals() -> void:
 	if m.castle_room_door_hotspot_layer == null:
 		return
@@ -4135,9 +4405,17 @@ func _update_hall_portals() -> void:
 		return
 	for record: Dictionary in m.castle_room_door_hotspots:
 		var button: Button = record.get("button") as Button
+		var cue: Control = record.get("cue") as Control
 		var portal_data: Dictionary = record.get("data", {})
 		if button == null or portal_data.is_empty():
 			continue
+		var portal_id: String = String(portal_data.get("id", ""))
+		var state: String = door_state(portal_id)
+		button.set_meta("castle_door_state", state)
+		button.tooltip_text = String(portal_data.get("name", portal_id)) \
+			+ ": " + DoorLanguage.child_meaning(state)
+		if cue != null:
+			cue.call("set_door_state", state)
 		var art_rect: Rect2 = portal_data["rect"]
 		var world_top_left: Vector3 = m.castle_room_world_root.to_global(
 			_hall_art_to_world(art_rect.position, BACKGROUND_Z))
@@ -4154,6 +4432,12 @@ func _update_hall_portals() -> void:
 		var projected := Rect2(left, top, right - left, bottom - top)
 		var canvas_rect := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
 		button.visible = projected.intersects(canvas_rect)
+		if cue != null:
+			var cue_rect: Rect2 = projected.intersection(canvas_rect) \
+				if button.visible else Rect2()
+			cue.position = cue_rect.position
+			cue.size = cue_rect.size
+			cue.visible = button.visible and state != DoorLanguage.OPEN
 		if button.visible:
 			var clipped: Rect2 = projected.intersection(canvas_rect)
 			var hit_size := Vector2(
@@ -4174,6 +4458,17 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 		return
 	if portal_id == ROYAL_HALL_PORTAL_ID \
 			and m.castle_royal_hall_arrival_pending:
+		return
+	var state: String = door_state(portal_id)
+	if not DoorLanguage.allows_travel(state) \
+			and portal_id != ROYAL_HALL_PORTAL_ID:
+		var cue: Control = null
+		for record: Dictionary in m.castle_room_door_hotspots:
+			var data: Dictionary = record.get("data", {}) as Dictionary
+			if String(data.get("id", "")) == portal_id:
+				cue = record.get("cue") as Control
+				break
+		_blocked_door_feedback(portal_id, cue)
 		return
 	_invalidate_royal_hall_arrival()
 	m._ui_tap()
@@ -4526,6 +4821,8 @@ func _award_crown() -> void:
 	m.g["crown_won"] = true
 	m.level2_done_once = true
 	m._write_save()
+	_update_hall_portals()
+	_update_elevator_selected()
 	if m.voice != null:
 		m.voice.pitch_scale = 1.15
 		m.voice.play()

@@ -7,7 +7,7 @@ const Affordance := preload("res://scripts/interaction_affordance.gd")
 const MASTER_SIZE := Vector2(6144.0, 2048.0)
 const TILE_SIZE := Vector2(1024.0, 1024.0)
 const TARGET_IDS: Array[String] = [
-	"castle_gate", "reef_route", "seesaw", "slide", "swing",
+	"castle_gate", "seesaw", "slide", "swing",
 ]
 const HOLDER_NAMES: Array[String] = [
 	"SkyLagoonBase",
@@ -19,6 +19,7 @@ const HOLDER_NAMES: Array[String] = [
 ]
 const REQUIRED_ASSETS: Array[String] = [
 	"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+	"res://assets/sprites/sky_lagoon/sky_lagoon_dirt_landing_v1.png",
 	"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
 	"res://assets/props/story/play_swing_frame.png",
 	"res://assets/props/story/play_swing_seat.png",
@@ -566,8 +567,7 @@ func _validate_targets_and_touch() -> void:
 		var node: CanvasItem = target.get("node") as CanvasItem
 		var highlight: CanvasItem = target.get("highlight") as CanvasItem
 		var expected_affordance: String = Affordance.PLOT \
-			if target_id == "castle_gate" else Affordance.INTERACTION \
-			if target_id == "reef_route" else Affordance.ANIMATION
+			if target_id == "castle_gate" else Affordance.ANIMATION
 		category_ok = category_ok and String(target.get(
 			"affordance_kind", "")) == expected_affordance
 		metadata_ok = metadata_ok and node != null and highlight != null \
@@ -633,7 +633,7 @@ func _validate_targets_and_touch() -> void:
 						attachment_distance, focus_sprite.modulate.a])
 				selected_cues_ok = selected_cues_ok and cue_ok
 				promenade._clear_focus()
-	_check("exact_five_target_roster", roster_ok)
+	_check("exact_four_target_roster", roster_ok)
 	_check("target_canvas_metadata_and_touch_budget", metadata_ok)
 	_check("target_affordance_categories", category_ok)
 	_check("production_canvas_target_resolver", reach_ok)
@@ -769,25 +769,25 @@ func _validate_play_contacts() -> void:
 	promenade._sync_roshan_card()
 
 
-func _validate_plane_save_and_teardown() -> void:
-	# Rebuild the first-arrival state and let the real arrival clock replace the
-	# plane with the permanent Reef shuttle while preserving the five-target ID.
+func _validate_grounded_plane_and_teardown() -> void:
+	# The Day One plane is a permanent, non-interactive arrival landmark. The old
+	# save bit remains readable for compatibility but no longer changes the scene.
 	main.save_data["lagoon_plane_departed"] = false
 	main._enter_level2_now(false, false, false)
 	promenade = main._lagoon_promenade_ref()
 	var arrival_plane: Sprite2D = main.g.get("lagoon_plane_card") as Sprite2D
+	var landing: Sprite2D = main.g.get("lagoon_dirt_landing_card") as Sprite2D
 	var arrival_ok: bool = arrival_plane != null and is_instance_valid(arrival_plane) \
-		and not bool(main.save_data.get("lagoon_plane_departed", true)) \
+		and landing != null and is_instance_valid(landing) \
 		and _target_ids() == TARGET_IDS
 	for _index: int in range(10):
 		promenade.tick(1.0)
-	var shuttle: Sprite2D = main.g.get("lagoon_reef_route_card") as Sprite2D
-	var departure_ok: bool = not is_instance_valid(arrival_plane) \
-		and bool(main.save_data.get("lagoon_plane_departed", false)) \
-		and shuttle != null and is_instance_valid(shuttle) \
-		and _target_ids() == TARGET_IDS
-	_check("arrival_plane_save_becomes_permanent_reef_route",
-		arrival_ok and departure_ok)
+	var persistence_ok: bool = is_instance_valid(arrival_plane) \
+		and is_instance_valid(landing) \
+		and not bool(main.save_data.get("lagoon_plane_departed", true)) \
+		and _target("reef_route").is_empty() and _target_ids() == TARGET_IDS
+	_check("grounded_arrival_plane_persists_without_reef_route",
+		arrival_ok and persistence_ok)
 
 	var old_root: CanvasLayer = promenade.root()
 	promenade.set_master_route_x(4096.0)
@@ -806,7 +806,7 @@ func _validate_plane_save_and_teardown() -> void:
 		and _target_ids() == TARGET_IDS)
 
 
-func _validate_door_and_reef_routes() -> void:
+func _validate_door_and_water_safety() -> void:
 	var gate: Dictionary = _target("castle_gate")
 	var gate_node: CanvasItem = gate.get("node") as CanvasItem
 	if gate_node != null:
@@ -824,16 +824,14 @@ func _validate_door_and_reef_routes() -> void:
 
 	main._enter_level2_now(true, false, false)
 	promenade = main._lagoon_promenade_ref()
-	var route: Dictionary = _target("reef_route")
-	var route_node: CanvasItem = route.get("node") as CanvasItem
-	var route_ready: bool = route_node != null
-	if route_ready:
-		promenade.set_master_route_x(1024.0)
-		promenade.handle_touch(_screen_center(route_node))
-		await _frames(4)
-	_check("one_touch_canvas_plane_returns_to_reef",
-		route_ready and main.game == "" and main.player.visible \
-		and main.we_node.environment == main.world_env)
+	promenade.set_master_route_x(610.0)
+	var water_screen: Vector2 = promenade.screen_from_master(Vector2(180.0, 1320.0))
+	promenade.handle_touch(water_screen)
+	await _frames(4)
+	_check("water_touch_stays_in_canvas_sky_lagoon",
+		_target("reef_route").is_empty() and main.game == "level2" \
+		and String(main.g.get("phase", "")) == "promenade" \
+		and not main.player.visible)
 
 
 func _init() -> void:
@@ -866,8 +864,8 @@ func _init() -> void:
 	await _frames(2)
 	_check("canvas_clip_cannot_crop_phone_frame", _canvas_clip_contract())
 	_check("rendered_mural_fills_phone_frame", _rendered_frame_contract())
-	_validate_plane_save_and_teardown()
-	await _validate_door_and_reef_routes()
+	_validate_grounded_plane_and_teardown()
+	await _validate_door_and_water_safety()
 	if failed:
 		print("FAIL|Sky Lagoon Canvas promenade regression")
 		quit(1)

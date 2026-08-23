@@ -11,12 +11,12 @@ const SCHEMA := "reef.sky_lagoon.visual_review.v1"
 const PROBE_PATH := "res://scripts/probe_sky_lagoon_art.gd"
 const VIEWPORT_SIZE := Vector2i(1280, 720)
 const EXPECTED_TARGET_IDS: Array[String] = [
-	"castle_gate", "reef_route", "seesaw", "slide", "swing",
+	"castle_gate", "seesaw", "slide", "swing",
 ]
 const EXPECTED_CAPTURE_IDS: Array[String] = [
-	"lagoon_01_arrival_plane_day",
-	"lagoon_02_reef_route_return_day",
-	"lagoon_03_reef_route_focus_day",
+	"lagoon_01_grounded_plane_day",
+	"lagoon_02_grounded_plane_return_day",
+	"lagoon_03_grounded_plane_route_removed_day",
 	"lagoon_04_otter_idle_day",
 	"lagoon_05_frog_idle_day",
 	"lagoon_06_hare_idle_day",
@@ -398,13 +398,11 @@ func _target_screen_state() -> Dictionary:
 
 func _route_state() -> String:
 	var plane: Variant = main.g.get("lagoon_plane_card")
-	var marker: Variant = main.g.get("lagoon_reef_route_card")
+	var landing: Variant = main.g.get("lagoon_dirt_landing_card")
 	var plane_valid := plane != null and is_instance_valid(plane)
-	var marker_valid := marker != null and is_instance_valid(marker)
-	if plane_valid and not marker_valid:
-		return "arrival_plane"
-	if marker_valid and not plane_valid:
-		return "reef_return"
+	var landing_valid := landing != null and is_instance_valid(landing)
+	if plane_valid and landing_valid and not main.g.has("lagoon_reef_route_card"):
+		return "grounded_arrival"
 	return "invalid"
 
 
@@ -791,7 +789,7 @@ func _validate_scene(expect_departed: bool, night: bool) -> bool:
 		and main.mg_kind == "" and main.quality == "speedy" \
 		and main.is_night == night and stage_root != null and is_instance_valid(stage_root) \
 		and card != null and is_instance_valid(card) and _target_ids() == EXPECTED_TARGET_IDS \
-		and _route_state() == ("reef_return" if expect_departed else "arrival_plane") \
+		and _route_state() == "grounded_arrival" \
 		and promenade.camera_2d() != null \
 		and get_root().get_viewport().get_camera_2d() == promenade.camera_2d() \
 		and get_root().get_viewport().get_camera_3d() == null \
@@ -855,11 +853,11 @@ func _run_capture_sequence() -> void:
 	await _move_to_mural_x(610.0)
 	_suppress_animal()
 	promenade._clear_focus()
-	var expected := _base_expected("arrival_plane")
+	var expected := _base_expected("grounded_arrival")
 	expected["camera_page"] = 0
-	expected["onscreen_targets"] = ["reef_route"]
+	expected["onscreen_targets"] = []
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[0], expected,
-			["arrival", "plane", "production_camera", "day"]):
+			["arrival", "plane", "dirt_landing", "route_removed", "day"]):
 		return
 
 	if not await _build_promenade(true, false):
@@ -869,23 +867,20 @@ func _run_capture_sequence() -> void:
 	await _move_to_mural_x(610.0)
 	_suppress_animal()
 	promenade._clear_focus()
-	expected = _base_expected("reef_return")
+	expected = _base_expected("grounded_arrival")
 	expected["camera_page"] = 0
-	expected["onscreen_targets"] = ["reef_route"]
+	expected["onscreen_targets"] = []
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[1], expected,
-			["reef_route", "return", "production_camera", "day"]):
+			["arrival", "plane", "return", "route_removed", "day"]):
 		return
 
-	if not _focus_target("reef_route"):
-		_record_root_failure(EXPECTED_CAPTURE_IDS[2], "missing_target", "reef_route")
-		return
-	expected = _base_expected("reef_return")
+	expected = _base_expected("grounded_arrival")
 	expected["camera_page"] = 0
-	expected["focus"] = "reef_route"
-	expected["action_label"] = "FLY"
-	expected["onscreen_targets"] = ["reef_route"]
+	expected["focus"] = ""
+	expected["action_label"] = "JUMP"
+	expected["onscreen_targets"] = []
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[2], expected,
-			["reef_route", "focus", "FLY", "day"]):
+			["water_safe", "route_removed", "JUMP", "day"]):
 		return
 	promenade._clear_focus()
 
@@ -895,7 +890,7 @@ func _run_capture_sequence() -> void:
 			_record_root_failure(EXPECTED_CAPTURE_IDS[current_expected_index],
 				"animal_bind", animal_id)
 			return
-		expected = _base_expected("reef_return")
+		expected = _base_expected("grounded_arrival")
 		expected["camera_page"] = 0
 		_expect_animal(expected, animal_id, "idle", 0, "day")
 		if not await _capture_base(EXPECTED_CAPTURE_IDS[current_expected_index], expected,
@@ -908,7 +903,7 @@ func _run_capture_sequence() -> void:
 			_record_root_failure(EXPECTED_CAPTURE_IDS[current_expected_index],
 				"animal_bind", animal_id)
 			return
-		expected = _base_expected("reef_return")
+		expected = _base_expected("grounded_arrival")
 		expected["camera_page"] = 1
 		_expect_animal(expected, animal_id, "idle", 0, "day")
 		if not await _capture_base(EXPECTED_CAPTURE_IDS[current_expected_index], expected,
@@ -917,7 +912,7 @@ func _run_capture_sequence() -> void:
 
 	await _move_to_mural_x(3072.0)
 	_suppress_animal()
-	expected = _base_expected("reef_return")
+	expected = _base_expected("grounded_arrival")
 	expected["camera_page"] = 1
 	expected["onscreen_targets"] = ["slide", "swing", "seesaw"]
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[7], expected,
@@ -932,7 +927,7 @@ func _run_capture_sequence() -> void:
 			_record_root_failure(EXPECTED_CAPTURE_IDS[current_expected_index],
 				"missing_target", play_id)
 			return
-		expected = _base_expected("reef_return")
+		expected = _base_expected("grounded_arrival")
 		expected["camera_page"] = 1
 		expected["focus"] = play_id
 		expected["action_label"] = "PLAY"
@@ -945,7 +940,7 @@ func _run_capture_sequence() -> void:
 		promenade._clear_focus()
 		var sample_t := 4.15 if play_id == "slide" else 0.43 if play_id == "swing" else 0.48
 		promenade._tick_playground_animation(sample_t)
-		expected = _base_expected("reef_return")
+		expected = _base_expected("grounded_arrival")
 		expected["camera_page"] = 1
 		expected["play_kind"] = play_id
 		expected["play_phase"] = "action"
@@ -966,7 +961,7 @@ func _run_capture_sequence() -> void:
 	await _move_to_mural_x(4905.0, true)
 	_suppress_animal()
 	promenade._clear_focus()
-	expected = _base_expected("reef_return")
+	expected = _base_expected("grounded_arrival")
 	expected["camera_page"] = 2
 	expected["onscreen_targets"] = ["castle_gate"]
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[14], expected,
@@ -975,7 +970,7 @@ func _run_capture_sequence() -> void:
 	if not _focus_target("castle_gate"):
 		_record_root_failure(EXPECTED_CAPTURE_IDS[15], "missing_target", "castle_gate")
 		return
-	expected = _base_expected("reef_return")
+	expected = _base_expected("grounded_arrival")
 	expected["camera_page"] = 2
 	expected["focus"] = "castle_gate"
 	expected["action_label"] = "ENTER"
@@ -989,7 +984,7 @@ func _run_capture_sequence() -> void:
 	if not promenade._bind_animal_id("raccoon"):
 		_record_root_failure(EXPECTED_CAPTURE_IDS[16], "animal_bind", "raccoon")
 		return
-	expected = _base_expected("reef_return")
+	expected = _base_expected("grounded_arrival")
 	expected["camera_page"] = 2
 	_expect_animal(expected, "raccoon", "idle", 0, "day")
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[16], expected,
@@ -1010,7 +1005,7 @@ func _run_capture_sequence() -> void:
 	await _move_to_mural_x(3072.0)
 	_suppress_animal()
 	promenade._clear_focus()
-	expected = _base_expected("reef_return", true)
+	expected = _base_expected("grounded_arrival", true)
 	expected["camera_page"] = 1
 	expected["onscreen_targets"] = ["slide", "swing", "seesaw"]
 	if not await _capture_base(EXPECTED_CAPTURE_IDS[18], expected,
@@ -1021,7 +1016,7 @@ func _run_capture_sequence() -> void:
 	if not _focus_target("castle_gate"):
 		_record_root_failure(EXPECTED_CAPTURE_IDS[19], "missing_target", "castle_gate")
 		return
-	expected = _base_expected("reef_return", true)
+	expected = _base_expected("grounded_arrival", true)
 	expected["camera_page"] = 2
 	expected["focus"] = "castle_gate"
 	expected["action_label"] = "ENTER"

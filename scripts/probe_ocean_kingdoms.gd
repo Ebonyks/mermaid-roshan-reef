@@ -65,8 +65,9 @@ func _run() -> void:
 	for target_value in promenade_targets:
 		var target: Dictionary = target_value as Dictionary
 		promenade_ids[String(target.get("id", ""))] = true
-	var promenade_roster_ok: bool = promenade_targets.size() == 5
-	for required_id: String in ["reef_route", "slide", "swing", "seesaw", "castle_gate"]:
+	var promenade_roster_ok: bool = promenade_targets.size() == 4 \
+		and not promenade_ids.has("reef_route")
+	for required_id: String in ["slide", "swing", "seesaw", "castle_gate"]:
 		promenade_roster_ok = promenade_roster_ok and promenade_ids.has(required_id)
 	_check(promenade_roster_ok, "promenade_interactions_present")
 	_check(not state.has("ocean_kingdom_gates"),
