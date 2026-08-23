@@ -9,6 +9,7 @@ const SCHEMA_VERSION := 1
 const OPERA_ACTIVE_STAR_MASK := 0xBDEF
 const OPERA_ACTIVE_ACT_COUNT := 13
 const BACKUP_SUFFIX := ".bak"
+const NEW_GAME_ARCHIVE_SUFFIX := ".before_new_game"
 const TEMP_SUFFIX := ".tmp"
 const OLD_SUFFIX := ".old"
 const BOOL_KEYS: Array[String] = [
@@ -62,6 +63,7 @@ func _init(main: ReefMain, path_override: String = "") -> void:
 func load_save() -> void:
 	future_schema_read_only = false
 	var selected: Dictionary = _select_load_candidate()
+	m.has_saved_game = bool(selected.get("valid", false))
 	if bool(selected.get("valid", false)):
 		var selected_data: Dictionary = selected.get("data", {})
 		m.save_data = selected_data.duplicate(true)
@@ -259,6 +261,39 @@ func write_save() -> bool:
 		return false
 	m.save_data = normalised
 	m.save_generation = next_generation
+	return true
+
+func start_new_game() -> bool:
+	# New Game is intentionally recoverable. Preserve the selected current save
+	# outside the transaction candidate set, then install a fresh document with
+	# a higher generation so stale .bak/.tmp files cannot resurrect progress.
+	if future_schema_read_only or not _find_future_candidate().is_empty():
+		future_schema_read_only = true
+		push_warning("SaveState: a newer save schema cannot be replaced by New Game in this build")
+		return false
+	var selected: Dictionary = _select_load_candidate()
+	var next_generation: int = maxi(m.save_generation, 0) + 1
+	if bool(selected.get("valid", false)):
+		var previous_data: Dictionary = selected.get("data", {})
+		next_generation = maxi(next_generation, int(previous_data.get("save_generation", 0)) + 1)
+		if not _write_checked_file(save_path + NEW_GAME_ARCHIVE_SUFFIX, previous_data):
+			push_error("SaveState: New Game stopped because the recoverable archive could not be written")
+			return false
+	var fresh_seed := {
+		"music": m.music_on,
+		"mic": m.mic_on,
+		"haptics": Juice.haptics_enabled,
+		"quality": m.quality,
+		"touch_mode": m.touch_mode,
+	}
+	var fresh_data: Dictionary = _normalise_save(fresh_seed)
+	fresh_data["save_generation"] = next_generation
+	if not _commit_save(fresh_data):
+		push_error("SaveState: New Game could not install a fresh save; existing progress was preserved")
+		return false
+	m.save_data = fresh_data
+	m.save_generation = next_generation
+	m.has_saved_game = true
 	return true
 
 func _select_load_candidate() -> Dictionary:
