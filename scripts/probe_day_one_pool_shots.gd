@@ -35,7 +35,11 @@ func _run() -> void:
 	var main: ReefMain = scene.instantiate() as ReefMain
 	root.add_child(main)
 	await _frames(3)
-	main._skip_intro()
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	else:
+		main._skip_intro()
 	await _frames(3)
 	main._day_one_ref().restore_state({
 		"day_one_active": true,
