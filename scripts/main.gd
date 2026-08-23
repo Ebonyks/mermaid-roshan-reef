@@ -9,6 +9,7 @@ const InteractionDirectorLogic = preload("res://scripts/interaction_director.gd"
 const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
 const LivingWorldLogic = preload("res://scripts/living_world.gd")
 const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
+const StartMenuLogic = preload("res://scripts/start_menu.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -564,6 +565,7 @@ var mic_teach_layer: CanvasLayer = null
 var mic_btn: Button
 var save_data := {}
 var save_generation := 0   # monotonically orders primary/.tmp/.bak snapshots
+var has_saved_game := false
 var save_dirty := false    # main retains failed-write responsibility after a minigame frees
 var save_retry_t := 0.0
 var save_pending := false  # debounced write queued by the hot sites (pearl pickup, friend discovery)
@@ -695,6 +697,8 @@ var animals_owned := {}    # tank friends released into the reef (persisted)
 var animals_spawned := {}  # runtime: released species already swimming this session
 var flora_nodes: Array = []
 var first_session := true
+var start_menu_active := false
+var start_menu_layer: CanvasLayer = null
 var chime: AudioStreamPlayer
 var buy_sound: AudioStreamPlayer
 var beans_sfx: AudioStreamPlayer   # banjo toot-loop: a SOUND EFFECT, not music (plays with music off)
@@ -1008,13 +1012,15 @@ func _ready() -> void:
 	_build_pause()
 	_load_save()
 	_init_touch_experiment()
-	if START_AT_CASTLE_GATE and DisplayServer.get_name() != "headless":
-		# Direct entry happens before the first rendered frame; a fade here would
-		# briefly expose the legacy ocean origin behind the intro overlay.
-		_enter_level2_now(false, false, true)
+	# Display builds defer the authored gatehouse entry until the start menu
+	# knows whether this is a direct Continue or a fresh Day 1 adventure.
+	# Headless probes retain their established self-directed bootstrap.
 	_collection_ref().build()
-	if first_session:
-		_build_intro()
+	if DisplayServer.get_name() == "headless":
+		if first_session:
+			_build_intro()
+	else:
+		_build_start_menu()
 	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
 	_spawn_shop_animals()   # same ordering trap: released tank friends spawn now
 	_warm_shaders()         # precompile the hot runtime shaders behind the intro
@@ -1078,7 +1084,16 @@ func _warm_shaders() -> void:
 
 # the storybook intro overlay lives in scripts/intro_overlay.gd
 # (state stays here; IntroOverlay receives main by reference)
+var _start_menu: StartMenu = null
 var _intro_overlay: IntroOverlay = null
+
+func _start_menu_ref() -> StartMenu:
+	if _start_menu == null:
+		_start_menu = StartMenuLogic.new(self)
+	return _start_menu
+
+func _build_start_menu() -> void:
+	_start_menu_ref().build()
 
 func _intro_ref() -> IntroOverlay:
 	if _intro_overlay == null:
@@ -1097,7 +1112,7 @@ func _skip_intro() -> void:
 func _unhandled_input(ev: InputEvent) -> void:
 	# gamepad/keyboard advance for the storybook intro (taps and clicks land on
 	# the invisible full-screen button; this covers A/B/Start, Space and Enter)
-	if not intro_active:
+	if start_menu_active or not intro_active:
 		return
 	var advance := false
 	if ev is InputEventJoypadButton and (ev as InputEventJoypadButton).pressed:
@@ -3721,6 +3736,28 @@ func _write_save() -> bool:
 	save_dirty = not saved
 	save_retry_t = 1.5 if save_dirty else 0.0
 	return saved
+
+func _start_new_game() -> bool:
+	if _save_state == null:
+		_save_state = SaveState.new(self)
+	return _save_state.start_new_game()
+
+func _launch_from_start_menu(start_day_one: bool) -> void:
+	# The launch choice owns the Day 1 boundary. Continue is deliberately a
+	# direct game entry, even when an older save predates the Day 1 fields;
+	# New Game keeps the fresh-save defaults and fires the authored arrival.
+	_prepare_start_menu_launch(start_day_one)
+	if START_AT_CASTLE_GATE:
+		_enter_level2_now(false, false, true)
+
+func _prepare_start_menu_launch(start_day_one: bool) -> void:
+	first_session = false
+	# Initialize the director before selecting the mode: its constructor
+	# normalizes default Day 1 state and must not overwrite a Continue choice.
+	var director: DayOneDirector = _day_one_ref()
+	director.day_one_active = start_day_one
+	if not start_day_one:
+		_day_one_clear_castle_dressing()
 
 func _queue_save() -> void:
 	# debounce for the per-frame hot sites (pearl pickup, friend discovery):
