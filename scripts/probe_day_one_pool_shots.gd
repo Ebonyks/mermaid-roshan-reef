@@ -45,6 +45,9 @@ func _run() -> void:
 		"day_one_active": true,
 		"day_one_completed_rooms": ["bathroom"],
 		"day_one_pool_cleanup_step": 0,
+		"day_one_pool_skimmer_mask": 0,
+		"day_one_pool_waterfall_mask": 0,
+		"day_one_pool_seahorse_tugs": 0,
 	})
 	main.pearl_count = 10
 	main.level2_done_once = true
@@ -67,26 +70,44 @@ func _run() -> void:
 	_check("dirty state fully hides clean rainbow waterfall",
 		clean_waterfall != null and not clean_waterfall.visible)
 	await _capture("00_dirty_arrival")
-	for step_index: int in range(1, 5):
-		_check("advance state %d" % step_index,
-			cleanup.probe_advance_current_step())
-		await _frames(8)
-		if step_index == 1:
-			_check("clean rainbow remains hidden before fountain cleanup",
-				clean_waterfall != null and not clean_waterfall.visible)
-		elif step_index == 2:
-			_check("clean rainbow returns only after fountain cleanup",
-				clean_waterfall != null and clean_waterfall.visible)
-		if step_index < 4:
-			await _capture("%02d_%s" % [
-				step_index,
-				["pool_clear", "fountain_clear", "seahorse_last"][
-					step_index - 1],
-			])
-		else:
-			await _capture("04_waterfall_reveal_active")
-			await _frames(72)
-			await _capture("05_rumi_reveal")
+
+	_check("skimmer first catch", cleanup.skimmer_activity.probe_collect_next())
+	await _frames(2)
+	await _capture("01_skimmer_catch")
+	for _trash_index: int in range(5):
+		_check("skimmer remaining catch", cleanup.skimmer_activity.probe_collect_next())
+	await _frames(40)
+	_check("waterfall unlocked after pool clear",
+		String(cleanup.audit_snapshot().get("current_activity", "")) == "waterfall")
+	await _capture("02_pool_clear_waterfall_dirty")
+
+	_check("waterfall first scrub lane",
+		cleanup.waterfall_activity.probe_clear_next_lane())
+	await _frames(4)
+	await _capture("03_waterfall_scrub")
+	_check("waterfall second scrub lane",
+		cleanup.waterfall_activity.probe_clear_next_lane())
+	_check("waterfall final scrub lane",
+		cleanup.waterfall_activity.probe_clear_next_lane())
+	await _frames(34)
+	_check("seahorse unlocked after waterfall clear",
+		String(cleanup.audit_snapshot().get("current_activity", "")) == "seahorse")
+	_check("rainbow flow remains stopped during rescue",
+		clean_waterfall != null and clean_waterfall.visible)
+	await _capture("04_waterfall_clear_static")
+
+	for _tug_index: int in range(4):
+		_check("seahorse opening tug", cleanup.seahorse_activity.probe_tap())
+	await _frames(3)
+	await _capture("05_seahorse_tug_midway")
+	for _tug_index: int in range(4):
+		_check("seahorse release tug", cleanup.seahorse_activity.probe_tap())
+	await _frames(5)
+	await _capture("06_seahorse_trash_release")
+	await _frames(46)
+	await _capture("07_rainbow_reveal_active")
+	await _frames(70)
+	await _capture("08_rumi_reveal")
 	main.queue_free()
 	await _frames(4)
 	print("DAY_ONE_POOL_SHOTS|RESULT: %s failures=%d output=%s" % [

@@ -304,6 +304,9 @@ var day_one_boss_door_glow: bool = false
 var day_one_giant_dust_bunny_boss_triggered: bool = false
 var day_one_pool_cleanup_step: int = 0
 var day_one_pool_rumi_met: bool = false
+var day_one_pool_skimmer_mask: int = 0
+var day_one_pool_waterfall_mask: int = 0
+var day_one_pool_seahorse_tugs: int = 0
 var day_one_event_seen: Dictionary = {}
 var day_one_event_history: Array[Dictionary] = []
 var _day_one_director: DayOneDirector = null
@@ -6865,6 +6868,17 @@ func day_one_record_pool_cleanup_step(step: int) -> void:
 		day_one_pool_cleanup_step, step), 0, 4)
 	_queue_save()
 
+
+func day_one_record_pool_activity_progress(
+		skimmer_mask: int, waterfall_mask: int, seahorse_tugs: int) -> void:
+	if not day_one_is_active():
+		return
+	day_one_pool_skimmer_mask |= skimmer_mask & 0x3F
+	day_one_pool_waterfall_mask |= waterfall_mask & 0x07
+	day_one_pool_seahorse_tugs = clampi(maxi(
+		day_one_pool_seahorse_tugs, seahorse_tugs), 0, 8)
+	_queue_save()
+
 func day_one_complete_pool_scene() -> bool:
 	if not day_one_is_active():
 		return false
@@ -6873,6 +6887,9 @@ func day_one_complete_pool_scene() -> bool:
 		return false
 	day_one_pool_cleanup_step = 4
 	day_one_pool_rumi_met = true
+	day_one_pool_skimmer_mask = 0x3F
+	day_one_pool_waterfall_mask = 0x07
+	day_one_pool_seahorse_tugs = 8
 	if not director.complete_activity("pool", "pool_activity"):
 		return false
 	_castle_rooms_ref().apply_day_one_cleanup("mermaid_pool")

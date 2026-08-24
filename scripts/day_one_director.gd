@@ -59,6 +59,9 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_giant_dust_bunny_boss_triggered",
 	"day_one_pool_cleanup_step",
 	"day_one_pool_rumi_met",
+	"day_one_pool_skimmer_mask",
+	"day_one_pool_waterfall_mask",
+	"day_one_pool_seahorse_tugs",
 ]
 
 var m: ReefMain
@@ -121,6 +124,21 @@ var pool_rumi_met: bool:
 		return m.day_one_pool_rumi_met
 	set(value):
 		m.day_one_pool_rumi_met = value
+var pool_skimmer_mask: int:
+	get:
+		return m.day_one_pool_skimmer_mask
+	set(value):
+		m.day_one_pool_skimmer_mask = value
+var pool_waterfall_mask: int:
+	get:
+		return m.day_one_pool_waterfall_mask
+	set(value):
+		m.day_one_pool_waterfall_mask = value
+var pool_seahorse_tugs: int:
+	get:
+		return m.day_one_pool_seahorse_tugs
+	set(value):
+		m.day_one_pool_seahorse_tugs = value
 var day_one_event_seen: Dictionary:
 	get:
 		return m.day_one_event_seen
@@ -237,6 +255,9 @@ func complete_room(room_id: String) -> bool:
 	if id == "pool":
 		pool_cleanup_step = 4
 		pool_rumi_met = true
+		pool_skimmer_mask = 0x3F
+		pool_waterfall_mask = 0x07
+		pool_seahorse_tugs = 8
 	completed_rooms[id] = true
 	cleaned_rooms[id] = true
 	_emit_once(EVENT_DUST_BUNNY_CLEANUP, {"room_id": id})
@@ -316,6 +337,9 @@ func serialize_state() -> Dictionary:
 			giant_dust_bunny_boss_triggered,
 		"day_one_pool_cleanup_step": pool_cleanup_step,
 		"day_one_pool_rumi_met": pool_rumi_met,
+		"day_one_pool_skimmer_mask": pool_skimmer_mask,
+		"day_one_pool_waterfall_mask": pool_waterfall_mask,
+		"day_one_pool_seahorse_tugs": pool_seahorse_tugs,
 	}
 
 
@@ -342,6 +366,9 @@ func _normalise_state(source: Dictionary) -> void:
 		"day_one_giant_dust_bunny_boss_triggered", false))
 	pool_cleanup_step = int(normalised.get("day_one_pool_cleanup_step", 0))
 	pool_rumi_met = bool(normalised.get("day_one_pool_rumi_met", false))
+	pool_skimmer_mask = int(normalised.get("day_one_pool_skimmer_mask", 0))
+	pool_waterfall_mask = int(normalised.get("day_one_pool_waterfall_mask", 0))
+	pool_seahorse_tugs = int(normalised.get("day_one_pool_seahorse_tugs", 0))
 
 
 ## SaveState can call this static helper without constructing a director (and
@@ -368,6 +395,12 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_pool_cleanup_step", 4 if pool_done else 0)), 0, 4)
 	if pool_done:
 		saved_pool_step = 4
+	var saved_skimmer_mask: int = int(source.get(
+		"day_one_pool_skimmer_mask", 0x3F if saved_pool_step >= 1 else 0)) & 0x3F
+	var saved_waterfall_mask: int = int(source.get(
+		"day_one_pool_waterfall_mask", 0x07 if saved_pool_step >= 2 else 0)) & 0x07
+	var saved_seahorse_tugs: int = clampi(int(source.get(
+		"day_one_pool_seahorse_tugs", 8 if saved_pool_step >= 4 else 0)), 0, 8)
 	return {
 		"day_one_active": _as_bool_static(source.get(
 			"day_one_active", true), true),
@@ -389,6 +422,9 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_pool_cleanup_step": saved_pool_step,
 		"day_one_pool_rumi_met": pool_done or _as_bool_static(
 			source.get("day_one_pool_rumi_met", false), false),
+		"day_one_pool_skimmer_mask": saved_skimmer_mask,
+		"day_one_pool_waterfall_mask": saved_waterfall_mask,
+		"day_one_pool_seahorse_tugs": saved_seahorse_tugs,
 	}
 
 

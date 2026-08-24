@@ -27,10 +27,6 @@ const REQUIRED_WIRING: Dictionary = {
 	"res://scripts/castle_career_routes.gd": [
 		"m.day_one_jobs_locked()",
 	],
-	"res://scripts/arena/sky_lagoon_promenade.gd": [
-		"_build_day_one_castle_grime(castle)",
-		"day_one_exterior_dressing",
-	],
 }
 
 var failures: int = 0

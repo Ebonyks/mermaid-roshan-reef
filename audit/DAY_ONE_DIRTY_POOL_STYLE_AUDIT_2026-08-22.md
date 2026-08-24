@@ -1,146 +1,99 @@
-# Day One Dirty Pool style congruence audit — 2026-08-22
+# Day One Dirty Pool style congruence audit — updated 2026-08-23
 
 ## Verdict
 
-**Overall master-audit rating: 2/5 — major repair.**
+**Overall master-audit rating: 3/5 — usable, with bounded acceptance gaps.**
 
-The Day One pool rescue is functional, narratively purposeful, one-finger
-readable, save-compatible, and implemented on the 2D Canvas. The corrected
-sick-state seahorse now preserves the established fountain identity, has no
-invented horn, and shows a soggy pink wrapper visibly blocking its mouth/nozzle.
-Rumi now uses her owner-approved private-canon Violet identity and existing
-authored swim, wave, and idle frames. The 2026-08-23 waterfall repair replaces
-the porous growth overlay with a complete stagnant fixture state and hides both
-the pristine card and its animated water until their authored cleanup/reveal
-beats. Those corrections do not make the generated dirt family congruent as a
-whole: the remaining pool-surface and rim overlays are materially glossier,
-denser, and more halo-driven than the approved Mermaid Pool anchor.
+The generic four-click cleanup has been replaced by three causal, one-finger
+activities: skim six visible pieces of trash, scrub three clogged waterfall
+lanes, then tap eight times to pull the blockage from the seahorse's mouth.
+There is no timer, loss, reset, or reading dependency. Partial progress is
+saved monotonically. The first two games must finish before the seahorse rescue
+unlocks, and the lighting, rainbow surge, healthy fountain, and Rumi reveal are
+reserved for the final extraction.
 
-Under the master audit rubric, a green technical probe or a clean isolated
-render cannot grant a high visual score. The pack therefore remains at 2/5
-until the named art and evidence gaps below are repaired and accepted in
-runtime context.
+The replacement waterfall is registered from the live V4 fixture's source
+rectangle rather than an independent guessed position. In the dirty arrival it
+fully replaces the rainbow with a still olive sludge curtain, embedded litter,
+and a blocked basin. Rumi uses the approved Violet identity and the existing
+authored swim, wave, and idle art; no substitute mermaid is present.
+
+The feature earns 3/5 rather than 4/5 because several new activity props are
+sharper and glossier than the room's soft painted background, and because M11,
+small-phone, child, owner, and final voice acceptance are still open. These are
+bounded review gaps, not a reason to revert to the prior generic interaction.
 
 ## Authority and evidence
 
 - Rating meanings: `audit/MASTER_AUDIT_2026-08-09.md` §1.1.
-- Binding visual rules: `DL-VIS-01`–`DL-VIS-08`, `DL-READ-01`–`DL-READ-06`,
-  `DL-INT-02`–`DL-INT-03`, `DL-MOT-01`–`DL-MOT-07`, and `DL-SND-01`–`DL-SND-05`
-  in `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`.
-- Approved identity/style anchors: the clean Mermaid Pool room, separated clean
-  seahorse-fountain card, clean fountain animation sheet, and approved Roshan
-  Canvas cutout. Protected sources were inspected but not modified.
-- Rumi identity authority: owner-supplied attachment SHA-256 `96336314…fca26`
-  matches the retained relationship sample byte-for-byte. The approved
-  full-body identity, eight-pose atlas, and continuity card come from project
-  commit `975d7e86291a5e5b69ffb417bfba45cf184ef756`. The runtime combines its
-  approved idle/wave cells with the existing cell-safe pool swim row; no new
-  Rumi generation was performed for this correction.
-- `python tools/audit_lighting_images.py assets/castle/day_one_pool
-  assets/characters/rumi` scanned all seven runtime images: 0 unreadable. The
-  five pool assets measure luminance p50 0.23, dynamic range 0.72, 0% crushed,
-  0.1% blown, 68° hue shift, and 0.1% measured ink; the two Rumi atlases measure
-  luminance p50 0.33, dynamic range 0.69, 0% crushed, 0% blown, 71° hue shift,
-  and 0% measured ink. The JSON and generated Markdown evidence are stored
-  beside this report.
-- All seven runtime images are RGBA with 0–255 alpha. The corrected seahorse is
-  936×1024 and the complete clogged waterfall is 1002×1024. The algae mat
-  touches the left and lower alpha bounds; that is a padding/cutoff warning,
-  not a style pass. Every authored Rumi animation cell has nonzero edge-safe
-  alpha padding.
-- Exact Godot 4.7.1 import completed and
-  `scripts/probe_day_one_pool_cleanup.gd` passed every focused check, including
-  four ordered cleanup subjects, seahorse-last enforcement, dingy-lighting
-  contract, sequential touch ownership, complete dirty-waterfall central alpha,
-  pristine-card occlusion, stopped animated flow before the finale, approved
-  Rumi identity, four-cell swim, two-cell wave, two-cell idle, their runtime
-  transition order, finale, and teardown.
-- A fresh Castle run of `tools/audit_visual_design.py` was attempted with exact
-  Godot 4.7.1. Its runtime-facts subprocess reached the tool's 180-second
-  timeout and correctly downgraded runtime checks to `COVERAGE_GAP`. A later
-  static-only attempt also failed to return within a bounded review window and
-  was stopped. This report makes no causal attribution and does not treat that
-  broad automated result as a fresh Castle-wide visual PASS.
-- The dedicated screenshot probe passed under Godot 4.7.1's Forward Mobile
-  renderer and captured all six states at 2560×1369, including the dirty
-  seahorse-last frame, Rumi's authored swim-rise, and the settled approved Rumi
-  reveal. Smallest-phone, M11, child, and owner acceptance remain open.
+- Binding families: `DL-VIS-01`–`08`, `DL-READ-01`–`06`,
+  `DL-INT-02`–`03`, `DL-MOT-01`–`07`, and `DL-SND-01`–`05` in
+  `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`.
+- Clean visual anchors: the accepted Mermaid Pool V4 background, waterfall
+  rest card and sheet, and seahorse rest card and sheet. The live waterfall
+  center resolves to `(461.875, 216.25)` on the 1280×720 stage; the seahorse
+  center resolves to `(921.875, 245.625)`.
+- Rumi identity authority remains the owner-confirmed Violet package from
+  commit `975d7e86291a5e5b69ffb417bfba45cf184ef756` and the existing pool swim
+  atlas. Protected character sources were not modified or regenerated.
+- `python tools/audit_lighting_images.py assets/castle/day_one_pool/activities
+  assets/characters/rumi` scanned nine runtime images with zero unreadable.
+  The seven activity assets measure luminance p50 0.32, dynamic range 0.88,
+  0% crushed, 0.4% blown, and 10° hue shift. The two approved Rumi atlases
+  measure luminance p50 0.33, dynamic range 0.69, 0% crushed, and 0% blown.
+- Every new runtime texture is RGBA and no larger than 1024 pixels on its
+  longest edge. Native generated files, prompts, hashes, rejected attempts,
+  and non-destructive runtime derivations are recorded in
+  `assets_src/imagegen/day_one_pool_activities_2026-08-23/PROVENANCE.md`.
+- Exact Godot 4.7.1 focused gameplay validation passes all 25 checks with no
+  script errors. It covers ordered ownership, passive non-advance, six actual
+  catches, three independent scrub lanes, eight monotonic rescue taps,
+  persistence, correct V4 registration, stopped pre-finale fixture water,
+  Rumi identity/action order, finale, and teardown.
+- The dedicated Forward Mobile capture passes all nine states at 2560×1369:
+  dirty arrival, skimmer catch, pool clear/clogged fixture, waterfall scrub,
+  cleaned-static fixture, midway seahorse tug, trash release, rainbow surge,
+  and Rumi reveal.
 
-## Asset-by-asset findings
+## Asset and activity findings
 
-| Asset/state | Rating | Congruent strengths | Blocking or material gaps |
+| Asset/activity | Rating | Congruent strengths | Remaining gap |
 |---|---:|---|---|
-| Approved clean Mermaid Pool room | 4/5 anchor | High-key aqua/lavender/cream field; child-readable pool, waterfall, floats, and established seahorse fountain | Existing owner/device acceptance remains outside this pool-specific review |
-| `pool_algae_trash.png` | 2/5 | Pollution reads immediately; wrapper and harmless cup are recognizable; broad single-tap footprint | Glossy wet rendering, dense distributed highlights, dark/colored halo, too many equally weighted details, and alpha touching two canvas edges conflict with `DL-VIS-01`–`05` and calm phone-size grouping |
-| Historical `waterfall_growth.png` | 2/5, superseded | Tall silhouette communicated growth | Porous alpha let the pristine rainbow shine through; monolithic microtexture and repeated droplets diverged from the matte storybook anchor. It remains provenance evidence, not the live cleanup asset |
-| `waterfall_clogged_turgid.png` | 3/5 | Complete shell-fixture silhouette, broad olive sludge bands, blocked basin, leaf debris, genuine alpha, and full rainbow-lane occlusion; reads immediately at phone scale and is materially calmer than the superseded overlay | Still more saturated, sharp, and highlight-dense than the soft painted room anchor; owner/M11 review remains open |
-| `pool_rim_grime.png` | 2/5 | Distinct from the pool mat; bottle cap, scraps, ribbon, and sponge communicate trash | PBR-like bubbles/gloss, broad colored halo, dense object scatter, and weak quiet-negative-space control compete with the intended next tap |
-| Corrected `seahorse_sick.png` | 3/5 | Same fountain species, long snout, eye placement, crest, belly, curl, coral/paver base, palette, and pose; no horn; wrapper visibly lodged in mouth/nozzle; sympathetic and child-safe; real alpha; settled desktop runtime capture confirms the final-target composition | Still somewhat more saturated and highlight-dense than the clean rest card; smallest-phone squint review, owner acceptance, and clean/dirty cross-state identity review remain open |
-| Approved Rumi atlas reveal | 4/5 | Exact owner-confirmed Violet/Rumi identity; enormous violet braid, sea-jacket, shell clasp, aqua-lavender tail, and coral fins are preserved. Authored cell-safe swim frames animate the rise, followed by authored wave and idle frames; fresh desktop mobile-renderer capture confirms her in-pool scale and identity | Private-project/IP-hold only; smallest-phone/device acceptance remains open; exact Rumi speech is still missing under `DL-SND-01`/`03` |
-| Ordered cleanup composition | 4/5 | One live target at a time, direct pointer, truthful state removal, Roshan remains visible, seahorse is last, lighting/reward progression is clear, and the finale now uses authored Rumi acting; all six desktop mobile-renderer states captured successfully | The three pollution assets share one glossy green visual mass; exact Rumi voice and device acceptance remain open |
+| Mermaid Pool V4 room and fixtures | 4/5 anchor | Pastel shell architecture, broad aqua pool, readable pearl waterfall and long-snouted seahorse | Target-device acceptance remains external to this review |
+| Skimmer game | 3/5 | Six distinct, harmless objects; oversized net; circular touch targets; catch flight, basket landing, ripples, bubbles, and sparkles make contact truthful | Net, basket, and trash have more specular detail than the room anchor |
+| Clogged waterfall game | 3/5 | Uses the live V4 center and aspect; complete stagnant curtain hides the rainbow; three lanes reveal truthfully; no clean animated water before finale | Olive curtain remains visually sharper than the soft architectural paint; owner/M11 review open |
+| Seahorse rescue | 3/5 | Correct species/pose and long nozzle; trash visibly projects from the mouth; eight taps stretch the plug toward a basket; healthy card replaces it only after release | Generated sick card is more saturated than the clean rest card; phone identity comparison open |
+| Rumi reveal | 4/5 | Correct Violet/Rumi: enormous violet braid, pointed ears, navy sea-jacket, shell clasp, aqua-lavender tail, coral fins; authored swim, wave, idle | Exact authorized spoken thank-you/introduction and device acceptance remain open |
+| Ordered composition | 4/5 | One active target, direct pointer, no fail state, truthful removal, progressive light recovery, and a strong final reward | Final child/owner playtest and audio mix remain open |
 
-## Rule-level summary
+The superseded `pool_algae_trash.png`, `pool_rim_grime.png`,
+`waterfall_growth.png`, `waterfall_clogged_turgid.png`, and old monolithic
+`seahorse_sick.png` are not loaded by the new activity controller. They remain
+historical provenance only and do not set the live sequence's score.
+
+## Rule-level result
 
 | Rule family | Result | Reason |
 |---|---|---|
-| True 2D / runtime size | **Pass for this feature** | Canvas nodes and RGBA textures; all runtime images are at or below a 1024px longest edge |
-| Identity preservation | **Pass for corrected seahorse and Rumi** | Seahorse derives from the clean fountain authority. Rumi derives from the exact owner-confirmed private-canon identity and retained relationship sample |
-| Shape, contour, value, materials | **Improved waterfall; fail for dirt pack overall** | The complete waterfall now uses broad readable sludge bands, while the pool mat and rim overlay retain dense glossy rendering, colored halos, and microdetail |
-| Child-readable hierarchy | **Workable** | Sequential targets and pointer are strong, but dense equal-weight details weaken the phone squint test |
-| Truthful interaction and ordered motion | **Pass functionally** | Cleaning removes the visible state and the waterfall/light finale follows completion |
-| Authored character motion | **Pass for Rumi reveal** | Four authored swim cells animate the rise, two authored wave cells perform the greeting, and two authored idle cells sustain her presence |
-| Non-reader audio | **Coverage gap** | The objective path is visually cued, but Rumi's exact thank-you/introduction recording does not exist; caption plus generic cheer is not a complete substitute |
-| Runtime/owner/device evidence | **Partial pass / coverage gap** | Focused probe and six-state desktop Forward Mobile capture are green; M11/phone, child, and owner acceptance remain absent |
+| True 2D / runtime size | **Pass** | Canvas-only activities and ≤1024 RGBA textures; no new 3D debt |
+| Identity | **Pass** | Live V4 fixture registration, corrected mouth obstruction, and approved Rumi art |
+| Child readability | **Pass with review gap** | One active subject, oversized tools, picture-first prompts, no loss; smallest-phone playtest pending |
+| Truthful interaction/motion | **Pass** | Trash travels into basket, scrubbed lanes uncover the clean card, mouth plug visibly stretches and releases |
+| Save/no-fail contract | **Pass** | Monotonic masks/tug count; legacy cleanup step normalized; no timer or reset |
+| Material/style congruence | **3/5** | Strong contour/palette family, but props are glossier and higher-frequency than the room anchor |
+| Audio | **Coverage gap** | Objectives have visual and `_say()` cues; final authorized Rumi line and Luna mix review require an actual cut |
+| Device/owner evidence | **Coverage gap** | Exact desktop Mobile render and probes pass; M11, smallest-phone, child, and owner acceptance remain open |
 
-## Bounded repair order
+## Bounded next review
 
-1. Keep the corrected seahorse and validate its dirty/clean identity at
-   smallest-phone scale and on the target device; desktop mobile-renderer
-   capture is complete.
-2. Keep the complete waterfall state and validate it on the M11; regenerate
-   only the pool-surface and rim overlays against the clean pool anchor: matte
-   broad bands, two or three calm clusters, restrained wet accents, clean
-   plum/indigo contour, no aura/vignette, and safe alpha padding.
-3. Keep the approved Rumi identity and authored atlas wiring; the desktop
-   swim-to-wave-to-idle transition is validated, so complete smallest-phone and
-   target-device review.
-4. Add an authorized exact Rumi thank-you/introduction recording without
-   modifying or substituting protected family voices.
-5. Re-run import, focused/passive/full probes, fresh Castle visual facts, phone
-   captures, and owner review. Only that evidence can raise the overall rating.
+1. Run the nine-state sequence on the M11 and smallest supported phone.
+2. Verify that each drag/tap reads without adult explanation and that the mouth
+   blockage remains legible under a thumb.
+3. Record or authorize Rumi's exact thank-you/introduction line; never replace
+   protected family voices.
+4. When an actual next-scene cut exists, assign Luna the video for music,
+   ambience, foley, timing, and placeholder-voice review. Grok is visual only.
+5. Owner acceptance is final; this audit and generator output are advisory.
 
-## Grok handoff — next pool animation scene
-
-Treat the following as the continuity contract for the next authored sequence:
-
-1. **Dirty establishing state:** use the approved Mermaid Pool room and the live
-   `assets/castle/day_one_pool/waterfall_clogged_turgid.png` fixture. It is an
-   opaque, stagnant olive-brown sludge curtain with a blocked basin and leaf
-   debris. No clean rainbow lane, fresh water, splash, foam, sparkle, cyan flow,
-   or luminous backlight is visible. Lighting is dingy and low-energy.
-2. **Ordered cleanup:** pool surface first, clogged rainbow fixture second, rim
-   trash third, and the sick seahorse last. The seahorse retains its established
-   long-snouted fountain identity and has a soggy pink wrapper visibly lodged
-   in its mouth/nozzle beneath seaweed growth.
-3. **Pre-finale waterfall:** after its own cleaning beat, the clean fixture may
-   be present, but its animated water remains stopped. Do not begin the rainbow
-   surge while the rim or seahorse still needs help.
-4. **Final rescue and reveal:** removing the seahorse blockage triggers the
-   lighting recovery and the authored rainbow-waterfall surge. Rumi is Violet:
-   enormous violet braid, pointed ears, navy sea-jacket with gold trim and shell
-   clasp, aqua-to-lavender tail, and coral-pink fins. She rises from the pool on
-   her approved swim action, thanks Roshan, introduces herself, waves, and then
-   settles into idle. Do not substitute another mermaid.
-5. **Animation medium:** if delivered as a cinematic, every changed action
-   frame is a newly accepted complete flattened 2D storybook frame under the
-   repository's full-frame cinematic rule. No tween, morph, optical flow,
-   cross-dissolve, translated cutout, rig, or duplicated-frame shortcut may
-   supply motion.
-
-Runtime identity/action references are
-`assets/characters/rumi/rumi_pool_idle_swim_atlas.png` and
-`assets/characters/rumi/rumi_eight_pose_runtime.png`. Reproduce the six-state
-review sequence with `scripts/probe_day_one_pool_shots.gd`; its required order
-is dirty arrival, pool clear, fixture clear, seahorse last, waterfall reveal
-active, and Rumi reveal. The private-canon Rumi package remains beta/IP-hold
-material and is not cleared for public marketing or reuse outside this project.
+The copy/pasteable visual-generation brief is in
+`design/HANDOFF_GROK_DAY_ONE_POOL_NEXT_ANIMATION_2026-08-23.md`.
