@@ -412,7 +412,8 @@ func _reveal_supply(index: int) -> void:
 	_update_progress_pips()
 	if m != null:
 		m.day_one_record_bathroom_supply_step(_supply_step)
-		m._ui_tap()
+		if _announcements_enabled:
+			m._ui_tap()
 	supply_found.emit(index, String(SUPPLY_DEFINITIONS[index]["id"]))
 	_spawn_sparkle(SUPPLY_DEFINITIONS[index]["center"] as Vector2)
 	var reveal_tween: Tween = _supply_nodes[index].create_tween()

@@ -108,6 +108,10 @@ func _run_probe() -> void:
 	_check("teardown frees hunt", not is_instance_valid(hunt))
 
 	var restored_main := ReefMain.new()
+	# Production constructs the director before a room overlay can restore its
+	# progress. Mirror that order so director initialization cannot overwrite a
+	# synthetic pre-director fixture value.
+	restored_main._day_one_ref()
 	restored_main.day_one_bathroom_supply_hunt_step = 1
 	var restored: DayOneBathroomCleanup = BATHROOM_CLEANUP.new() \
 		as DayOneBathroomCleanup
@@ -215,6 +219,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		and float(final_snapshot["gesture_budget"]["tub_max_seconds"]) <= 5.0)
 
 	var interrupted_main := ReefMain.new()
+	interrupted_main._day_one_ref()
 	interrupted_main.day_one_bathroom_cleanup_step = 2
 	var interrupted: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
 		as DayOneBathroomCleaning

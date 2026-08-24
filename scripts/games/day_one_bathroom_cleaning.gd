@@ -48,6 +48,7 @@ var _valid_motion_seconds: float = 0.0
 var _motion_since_last_tick: bool = false
 var _busy: bool = false
 var _completion_sent: bool = false
+var _announcements_enabled: bool = true
 var _pulse_time: float = 0.0
 var _gesture_surface: Control = null
 var _pointer: Label = null
@@ -59,6 +60,7 @@ var _progress: ColorRect = null
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	m = main
+	_announcements_enabled = announcements_enabled
 	name = "DayOneBathroomCleaning"
 	position = Vector2.ZERO
 	size = StorybookUI.CANVAS_SIZE
@@ -352,7 +354,7 @@ func _finish_tub() -> void:
 		m.day_one_record_bathroom_cleanup_step(2)
 	cleanup_step_completed.emit(2, "tub")
 	finale_started.emit()
-	if m != null:
+	if m != null and _announcements_enabled:
 		m.show_msg("Roshan", "The bathroom is sparkling!", "win")
 		m._say("roshan", "win", 0.6)
 	if _pointer != null:
@@ -380,7 +382,7 @@ func _emit_completion_once() -> void:
 
 
 func _announce_stage() -> void:
-	if m == null or _step >= 2:
+	if not _announcements_enabled or m == null or _step >= 2:
 		return
 	if _step == 0:
 		m.show_msg("Roshan", "Scrub the sink in little circles!", "talk")
