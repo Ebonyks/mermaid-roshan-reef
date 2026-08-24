@@ -5,27 +5,35 @@ extends Control
 ## Canvas2D scene; this node owns only temporary touch targets and effects.
 
 const MATERIALS: Array[Dictionary] = [
-	{"id": "brushes", "label": "loose brushes", "center": Vector2(215.0, 366.0),
-		"hit_size": Vector2(190.0, 142.0), "color": Color(1.0, 0.72, 0.38)},
-	{"id": "pink_paint", "label": "pink paint", "center": Vector2(352.0, 270.0),
-		"hit_size": Vector2(164.0, 148.0), "color": Color(1.0, 0.48, 0.70)},
-	{"id": "blue_paint", "label": "blue paint", "center": Vector2(790.0, 267.0),
-		"hit_size": Vector2(172.0, 150.0), "color": Color(0.44, 0.84, 1.0)},
-	{"id": "paint_cups", "label": "paint cups", "center": Vector2(928.0, 370.0),
-		"hit_size": Vector2(182.0, 156.0), "color": Color(0.73, 0.60, 1.0)},
+	{"id": "brushes", "label": "loose brushes", "center": Vector2(344.0, 390.0),
+		"hit_size": Vector2(124.0, 104.0), "color": Color(1.0, 0.72, 0.38)},
+	{"id": "pink_paint", "label": "pink paint", "center": Vector2(416.0, 390.0),
+		"hit_size": Vector2(92.0, 104.0), "color": Color(1.0, 0.48, 0.70)},
+	{"id": "blue_paint", "label": "blue paint", "center": Vector2(608.0, 390.0),
+		"hit_size": Vector2(92.0, 104.0), "color": Color(0.44, 0.84, 1.0)},
+	{"id": "paint_cups", "label": "paint cups", "center": Vector2(681.0, 390.0),
+		"hit_size": Vector2(124.0, 104.0), "color": Color(0.73, 0.60, 1.0)},
 ]
 const GRIME: Array[Dictionary] = [
-	{"id": "left_counter", "label": "left counter grime", "center": Vector2(170.0, 365.0),
-		"hit_size": Vector2(260.0, 130.0), "radius": Vector2(106.0, 36.0)},
-	{"id": "desk_counter", "label": "desk counter grime", "center": Vector2(512.0, 315.0),
-		"hit_size": Vector2(282.0, 132.0), "radius": Vector2(116.0, 38.0)},
-	{"id": "right_counter", "label": "right counter grime", "center": Vector2(854.0, 365.0),
-		"hit_size": Vector2(255.0, 130.0), "radius": Vector2(104.0, 36.0)},
+	{"id": "left_counter", "label": "left counter grime", "center": Vector2(180.0, 385.0),
+		"hit_size": Vector2(132.0, 76.0), "radius": Vector2(48.0, 12.0)},
+	{"id": "desk_counter", "label": "desk counter grime", "center": Vector2(512.0, 290.0),
+		"hit_size": Vector2(144.0, 72.0), "radius": Vector2(54.0, 11.0)},
+	{"id": "right_counter", "label": "right counter grime", "center": Vector2(854.0, 385.0),
+		"hit_size": Vector2(132.0, 76.0), "radius": Vector2(48.0, 12.0)},
 ]
 const DESK_CENTER := Vector2(512.0, 325.0)
 const DESK_HIT_SIZE := Vector2(310.0, 158.0)
 const SOURCE_CANVAS_SIZE := Vector2(1024.0, 576.0)
 const ART_TO_STAGE := 1.25
+const ART_BRUSHES := preload("res://assets/castle/day_one_art_studio/loose_brush_bundle.png")
+const ART_PAINT_PINK := preload("res://assets/castle/day_one_art_studio/paint_bottle_pink.png")
+const ART_PAINT_BLUE := preload("res://assets/castle/day_one_art_studio/paint_bottle_blue.png")
+const ART_PAINT_CUPS := preload("res://assets/castle/day_one_art_studio/paint_cups.png")
+const ART_GRIME_LEFT := preload("res://assets/castle/day_one_art_studio/grime_left.png")
+const ART_GRIME_DESK := preload("res://assets/castle/day_one_art_studio/grime_desk.png")
+const ART_GRIME_RIGHT := preload("res://assets/castle/day_one_art_studio/grime_right.png")
+const CONTACT_SHADOW := preload("res://assets/flats/castle/rooms/room_actor_shadow.png")
 const SPARKLE_COLORS: Array[Color] = [
 	Color(1.0, 0.83, 0.38), Color(0.52, 0.94, 1.0),
 	Color(1.0, 0.55, 0.76), Color(0.80, 0.68, 1.0),
@@ -34,6 +42,10 @@ const SPARKLE_COLORS: Array[Color] = [
 var m: ReefMain
 var _material_buttons: Dictionary = {}
 var _grime_buttons: Dictionary = {}
+var _material_art: Dictionary = {}
+var _material_shadows: Dictionary = {}
+var _grime_art: Dictionary = {}
+var _world_visual_layer: Node2D = null
 var _desk_button: Button = null
 var _pointer: Label = null
 var _desk_glow: Label = null
@@ -61,6 +73,9 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 func teardown() -> void:
 	set_process(false)
 	_customizer_open = false
+	if _world_visual_layer != null and is_instance_valid(_world_visual_layer):
+		_world_visual_layer.queue_free()
+	_world_visual_layer = null
 	if is_inside_tree():
 		queue_free()
 	else:
@@ -78,6 +93,12 @@ func refresh_from_state() -> void:
 		material_button.visible = not collected
 		material_button.mouse_filter = Control.MOUSE_FILTER_STOP \
 			if not collected else Control.MOUSE_FILTER_IGNORE
+		var material_card: Sprite2D = _material_art.get(material_id) as Sprite2D
+		if material_card != null:
+			material_card.visible = not collected
+		var material_shadow: Sprite2D = _material_shadows.get(material_id) as Sprite2D
+		if material_shadow != null:
+			material_shadow.visible = not collected
 	for grime_id: String in _grime_buttons:
 		var grime_button: Button = _grime_buttons[grime_id] as Button
 		var cleaned: bool = bool(m.day_one_art_cleaned_grime.get(grime_id, false))
@@ -85,6 +106,9 @@ func refresh_from_state() -> void:
 		grime_button.visible = materials_ready and not cleaned
 		grime_button.mouse_filter = Control.MOUSE_FILTER_STOP \
 			if not cleaned else Control.MOUSE_FILTER_IGNORE
+		var grime_card: Sprite2D = _grime_art.get(grime_id) as Sprite2D
+		if grime_card != null:
+			grime_card.visible = materials_ready and not cleaned
 	var ready: bool = bool(m.day_one_art_desk_unlocked)
 	if _desk_button != null:
 		_desk_button.visible = ready and not _customizer_open
@@ -101,6 +125,8 @@ func audit_snapshot() -> Dictionary:
 		"grime_count": GRIME.size(),
 		"material_button_count": _material_buttons.size(),
 		"grime_button_count": _grime_buttons.size(),
+		"material_art_count": _material_art.size(),
+		"grime_art_count": _grime_art.size(),
 		"desk_button": _desk_button != null,
 		"pointer": _pointer != null,
 		"canvas_only": true,
@@ -128,31 +154,8 @@ func _process(delta: float) -> void:
 
 
 func _draw() -> void:
-	# The room already supplies the desk and counters.  These marks are only
-	# temporary, code-native 2D grime/supply accents over that approved painting.
-	for material: Dictionary in MATERIALS:
-		var material_id: String = String(material["id"])
-		if m != null and bool(m.day_one_art_collected_materials.get(material_id, false)):
-			continue
-		var center: Vector2 = material["center"] as Vector2
-		var color: Color = material["color"] as Color
-		if material_id == "brushes":
-			_draw_loose_brushes(center, color)
-		elif material_id == "paint_cups":
-			_draw_paint_cups(center)
-		else:
-			_draw_paint_bottle(center, color)
-	for grime: Dictionary in GRIME:
-		var grime_id: String = String(grime["id"])
-		if m != null and bool(m.day_one_art_cleaned_grime.get(grime_id, false)):
-			continue
-		var center: Vector2 = grime["center"] as Vector2
-		var radius: Vector2 = grime["radius"] as Vector2
-		_draw_grime_ellipse(center, radius, Color(0.18, 0.13, 0.24, 0.43))
-		draw_circle(center + Vector2(-radius.x * 0.45, -4.0), 8.0,
-			Color(0.10, 0.08, 0.16, 0.48))
-		draw_circle(center + Vector2(radius.x * 0.34, 4.0), 12.0,
-			Color(0.10, 0.08, 0.16, 0.38))
+	# Representational supplies and grime are texture-backed cards.  Only the
+	# transient desk invitation remains code-native.
 	if m != null and bool(m.day_one_art_desk_unlocked):
 		var ring_scale: float = 1.0 + sin(_pulse_time * 3.2) * 0.06
 		for ring: int in range(3):
@@ -161,6 +164,7 @@ func _draw() -> void:
 
 
 func _build_targets() -> void:
+	_build_item_art()
 	for material: Dictionary in MATERIALS:
 		var material_id: String = String(material["id"])
 		_material_buttons[material_id] = _make_target_button(
@@ -187,6 +191,62 @@ func _build_targets() -> void:
 	StorybookUI.style_label(_desk_glow, 76, Color(1.0, 0.84, 0.34), 5)
 	add_child(_desk_glow)
 	move_child(_desk_glow, 0)
+
+
+func _build_item_art() -> void:
+	if m.castle_room_world_root == null:
+		return
+	_world_visual_layer = Node2D.new()
+	_world_visual_layer.name = "DayOneArtStudioWorldVisuals"
+	m.castle_room_world_root.add_child(_world_visual_layer)
+	# These are the only new loose supplies. Existing stored brushes, bottles,
+	# cups, palette and paint table remain owned by the accepted room cards.
+	_material_art["brushes"] = _make_world_card("LooseBrushes", ART_BRUSHES,
+		Vector2(344.0, 390.0), Vector2(92.0, 62.0), 250)
+	_material_art["pink_paint"] = _make_world_card("LoosePinkPaint", ART_PAINT_PINK,
+		Vector2(416.0, 390.0), Vector2(42.0, 56.0), 250)
+	_material_art["blue_paint"] = _make_world_card("LooseBluePaint", ART_PAINT_BLUE,
+		Vector2(608.0, 390.0), Vector2(42.0, 56.0), 250)
+	_material_art["paint_cups"] = _make_world_card("LoosePaintCups", ART_PAINT_CUPS,
+		Vector2(681.0, 390.0), Vector2(92.0, 62.0), 250)
+	for material: Dictionary in MATERIALS:
+		var material_id: String = String(material["id"])
+		var center: Vector2 = material["center"] as Vector2
+		var shadow_size := Vector2(76.0, 18.0)
+		if material_id in ["pink_paint", "blue_paint"]:
+			shadow_size = Vector2(38.0, 13.0)
+		_material_shadows[material_id] = _make_world_card(
+			"Shadow_" + material_id, CONTACT_SHADOW,
+			center + Vector2(0.0, 27.0), shadow_size, 249,
+			Color(0.22, 0.18, 0.40, 0.34))
+	# Surface marks share the room's own world depth rather than the stage UI.
+	_grime_art["left_counter"] = _make_world_card("GrimeLeft", ART_GRIME_LEFT,
+		Vector2(180.0, 385.0), Vector2(82.0, 18.0), 401,
+		Color(0.78, 0.72, 0.90, 0.70), -0.025)
+	_grime_art["desk_counter"] = _make_world_card("GrimeDesk", ART_GRIME_DESK,
+		Vector2(512.0, 290.0), Vector2(96.0, 18.0), 201,
+		Color(0.78, 0.72, 0.90, 0.68), 0.01)
+	_grime_art["right_counter"] = _make_world_card("GrimeRight", ART_GRIME_RIGHT,
+		Vector2(854.0, 385.0), Vector2(82.0, 18.0), 401,
+		Color(0.78, 0.72, 0.90, 0.70), 0.025)
+
+
+func _make_world_card(card_name: String, texture: Texture2D, center: Vector2,
+		art_size: Vector2, card_z_index: int, tint: Color = Color.WHITE,
+		rotation_radians: float = 0.0) -> Sprite2D:
+	var card := Sprite2D.new()
+	card.name = card_name
+	card.texture = texture
+	card.position = center * ART_TO_STAGE
+	card.scale = art_size * ART_TO_STAGE / texture.get_size()
+	card.z_index = card_z_index
+	card.modulate = tint
+	card.rotation = rotation_radians
+	card.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	card.set_meta("source_asset_role", "day_one_cleanup_item")
+	card.set_meta("source_art_center", center)
+	_world_visual_layer.add_child(card)
+	return card
 
 
 func _make_target_button(button_name: String, center: Vector2, hit_size: Vector2,
@@ -224,7 +284,17 @@ func _on_material_pressed(material_id: String) -> void:
 		return
 	m._ui_tap()
 	_spawn_clean_sparkles(_material_center(material_id))
+	_animate_storage_station(material_id)
 	_record_cleanup("material", material_id)
+
+
+func _animate_storage_station(material_id: String) -> void:
+	var rooms: Variant = m.call("_castle_rooms_ref")
+	if not (rooms is Object) or not (rooms as Object).has_method("_activate_room_item"):
+		return
+	var station_id := "paint_table" if material_id in ["brushes", "blue_paint"] \
+		else "palette"
+	(rooms as Object).call("_activate_room_item", station_id)
 
 
 func _on_grime_pressed(grime_id: String) -> void:
@@ -366,70 +436,3 @@ func _spawn_clean_sparkles(center: Vector2) -> void:
 			center + end_offset - sparkle.size * 0.5, 0.42)
 		tween.tween_property(sparkle, "modulate:a", 0.0, 0.42)
 		tween.chain().tween_callback(sparkle.queue_free)
-
-
-func _draw_loose_brushes(center: Vector2, color: Color) -> void:
-	for index: int in range(3):
-		var offset := Vector2(-18.0 + index * 17.0, 8.0 + index * 4.0)
-		var tip := center + offset + Vector2(35.0, -28.0)
-		var heel := center + offset + Vector2(-31.0, 25.0)
-		draw_line(heel + Vector2(3.0, 4.0), tip + Vector2(3.0, 4.0),
-			Color(0.12, 0.08, 0.24, 0.28), 13.0, true)
-		draw_line(heel, tip, Color(0.48, 0.28, 0.18), 10.0, true)
-		draw_line(heel + Vector2(6.0, -5.0), tip,
-			Color(1.0, 0.80, 0.34), 4.0, true)
-		draw_circle(heel, 11.0, color.lightened(float(index) * 0.08))
-		draw_arc(heel, 11.0, 0.0, TAU, 18, Color(0.22, 0.14, 0.48), 3.0)
-
-
-func _draw_paint_bottle(center: Vector2, color: Color) -> void:
-	var shadow := PackedVector2Array([
-		center + Vector2(-26.0, 30.0), center + Vector2(26.0, 30.0),
-		center + Vector2(22.0, -12.0), center + Vector2(11.0, -22.0),
-		center + Vector2(11.0, -34.0), center + Vector2(-11.0, -34.0),
-		center + Vector2(-11.0, -22.0), center + Vector2(-22.0, -12.0),
-		center + Vector2(-26.0, 30.0),
-	])
-	var bottle := PackedVector2Array()
-	for point: Vector2 in shadow:
-		bottle.append(point + Vector2(-3.0, -4.0))
-	draw_colored_polygon(shadow, Color(0.12, 0.08, 0.24, 0.28))
-	draw_colored_polygon(bottle, color)
-	draw_polyline(bottle, Color(0.22, 0.14, 0.48), 4.0, true)
-	draw_rect(Rect2(center + Vector2(-13.0, -43.0), Vector2(26.0, 12.0)),
-		Color(1.0, 0.82, 0.38))
-	draw_rect(Rect2(center + Vector2(-13.0, -43.0), Vector2(26.0, 12.0)),
-		Color(0.22, 0.14, 0.48), false, 4.0)
-	draw_circle(center + Vector2(0.0, 8.0), 12.0, Color(1.0, 0.96, 0.88, 0.92))
-	draw_circle(center + Vector2(-8.0, -8.0), 5.0, Color(1.0, 1.0, 1.0, 0.58))
-
-
-func _draw_paint_cups(center: Vector2) -> void:
-	var colors: Array[Color] = [
-		Color(0.43, 0.88, 0.92), Color(1.0, 0.58, 0.73),
-		Color(0.73, 0.60, 1.0),
-	]
-	for index: int in range(3):
-		var cup_center := center + Vector2(-35.0 + index * 35.0,
-			6.0 + abs(index - 1) * 5.0)
-		var cup := PackedVector2Array([
-			cup_center + Vector2(-16.0, -18.0),
-			cup_center + Vector2(16.0, -18.0),
-			cup_center + Vector2(12.0, 20.0),
-			cup_center + Vector2(-12.0, 20.0),
-			cup_center + Vector2(-16.0, -18.0),
-		])
-		draw_colored_polygon(cup, colors[index])
-		draw_polyline(cup, Color(0.22, 0.14, 0.48), 4.0, true)
-		draw_ellipse(cup_center + Vector2(0.0, -18.0), 16.0, 6.0,
-			colors[index].lightened(0.16))
-		draw_arc(cup_center + Vector2(0.0, -18.0), 16.0, 0.0, TAU, 24,
-			Color(0.22, 0.14, 0.48), 3.0)
-
-
-func _draw_grime_ellipse(center: Vector2, radius: Vector2, color: Color) -> void:
-	var points := PackedVector2Array()
-	for index: int in range(25):
-		var angle: float = TAU * float(index) / 24.0
-		points.append(center + Vector2(cos(angle) * radius.x, sin(angle) * radius.y))
-	draw_colored_polygon(points, color)

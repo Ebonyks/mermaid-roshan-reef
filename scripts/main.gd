@@ -324,6 +324,7 @@ var day_one_event_seen: Dictionary = {}
 var day_one_event_history: Array[Dictionary] = []
 var _day_one_director: DayOneDirector = null
 var _attack_customizer: AttackCustomizer = null
+var _attack_customizer_layer: CanvasLayer = null
 var _day_one_art_studio: DayOneArtStudio = null
 var day_one_castle_dressing: DayOneCastleDressing = null
 var castle_royal_hall_mist_cards: Array[Sprite2D] = []
@@ -6809,8 +6810,15 @@ func _day_one_ref() -> DayOneDirector:
 func _attack_customizer_ref() -> AttackCustomizer:
 	if _attack_customizer != null and is_instance_valid(_attack_customizer):
 		return _attack_customizer
+	if _attack_customizer_layer == null or not is_instance_valid(_attack_customizer_layer):
+		_attack_customizer_layer = CanvasLayer.new()
+		_attack_customizer_layer.name = "AttackCustomizerLayer"
+		# Castle rooms own opaque layer 14 and their controls reach layer 16.
+		# This modal must remain above both while it owns the child's touch.
+		_attack_customizer_layer.layer = 18
+		add_child(_attack_customizer_layer)
 	_attack_customizer = AttackCustomizerLogic.new() as AttackCustomizer
-	add_child(_attack_customizer)
+	_attack_customizer_layer.add_child(_attack_customizer)
 	_attack_customizer.attach(self)
 	return _attack_customizer
 
