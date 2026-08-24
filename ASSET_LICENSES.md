@@ -2619,3 +2619,7 @@ generations and transparent source masters remain preserved.
 ## Day One Bubble Bathroom cleanup reuse (2026-08-22)
 
 - `assets/castle/dirty_cleanup_2d/{targets/target_cloudy_mirror.png,targets/target_bath_soap_ring.png,targets/target_floor_scuff.png,tools/tool_star_sponge.png,effects/fx_clean_ring.png,effects/fx_soap_bubbles.png,effects/fx_wipe_swoosh.png}` — seven exact, lossless 512×512 project-original RGBA cutouts restored from audited commit `95132b6b310c34aa1d7fba5330d72f36fed9d4d7` for the Bubble Bathroom's first playable rescue. Source: OpenAI built-in image generation under the project's storybook direction; license: project original; URL: none. Modifications in this task: none. The existing Bubble Bath room plates, tiles, fixtures, and protected originals are reused unchanged.
+
+## Day One Pool natural-integration reference (2026-08-23)
+
+- `assets_src/imagegen/day_one_pool_natural_integration_2026-08-23/room_activity_integration_reference_native.png` - project-original OpenAI built-in ImageGen full-frame visual-integration reference generated only from project-owned Mermaid Pool art; license: project original; URL: none. It is non-runtime reference art, not a replacement for the approved room or V4 fixture identities. Exact prompt, source roles, result ID, SHA-256, review decision, and rejected attempts are recorded in the adjacent `PROMPT.md` and `PROVENANCE.md`.

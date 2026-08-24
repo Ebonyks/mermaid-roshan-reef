@@ -19,8 +19,9 @@ const COMPLETE_MASK := 0b111
 const TAP_ASSIST := 0.22
 const DRAG_START_DISTANCE := 12.0
 const MIN_DRAG_DISTANCE := 4.0
-const LANE_GUTTER := 10.0
-const TOOL_SIZE := 88.0
+const LANE_GUTTER := 24.0
+const TOOL_SIZE := 72.0
+const SCRUBBER_CONTACT_OFFSET := Vector2(22.0, 22.0)
 
 var fixture_center := Vector2.ZERO
 var fixture_size := Vector2.ZERO
@@ -43,6 +44,7 @@ var _touch_travel := 0.0
 var _hint_lane := 0
 var _pulse_time := 0.0
 var _scrubber: Sprite2D = null
+var _wash_overlay: Control = null
 
 
 func _ready() -> void:
@@ -69,6 +71,7 @@ func setup(fixture_center: Vector2, fixture_size: Vector2,
 	_dirty_texture = load(DIRTY_TEXTURE_PATH) as Texture2D
 	_scrubber_texture = load(SCRUBBER_TEXTURE_PATH) as Texture2D
 	_build_dirty_slices()
+	_build_wash_overlay()
 	_build_scrubber()
 	_queue_progress_signal()
 	queue_redraw()
@@ -130,6 +133,8 @@ func audit_snapshot() -> Dictionary:
 		"scrubber_texture_loaded": _scrubber_texture != null,
 		"dirty_slices_aligned": _slice_nodes.size() == LANE_COUNT
 			and _slice_base_scales.size() == LANE_COUNT,
+		"wash_feedback_above_grime": _wash_overlay != null
+			and is_instance_valid(_wash_overlay) and _wash_overlay.z_index > 2,
 		"animated_flow_stopped": true,
 	}
 
@@ -138,7 +143,8 @@ func _process(delta: float) -> void:
 	if not _active:
 		return
 	_pulse_time += maxf(delta, 0.0)
-	queue_redraw()
+	if _wash_overlay != null and is_instance_valid(_wash_overlay):
+		_wash_overlay.queue_redraw()
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -259,6 +265,7 @@ func _build_dirty_slices() -> void:
 			lane_size.x / source_lane_width,
 			fixture_size.y / maxf(source_size.y, 1.0))
 		sprite.z_index = 2
+		sprite.modulate = Color(0.88, 0.91, 0.78, 0.98)
 		_slice_nodes.append(sprite)
 		_slice_base_scales.append(sprite.scale)
 		add_child(sprite)
@@ -267,11 +274,23 @@ func _build_dirty_slices() -> void:
 			_lane_progress[lane] = 1.0
 
 
+func _build_wash_overlay() -> void:
+	_wash_overlay = Control.new()
+	_wash_overlay.name = "WaterfallContactAndReveal"
+	_wash_overlay.position = Vector2.ZERO
+	_wash_overlay.size = size
+	_wash_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_wash_overlay.z_index = 4
+	_wash_overlay.draw.connect(_draw_wash_overlay)
+	add_child(_wash_overlay)
+
+
 func _build_scrubber() -> void:
 	_scrubber = Sprite2D.new()
 	_scrubber.name = "WaterfallScrubberTool"
 	_scrubber.texture = _scrubber_texture
 	_scrubber.z_index = 12
+	_scrubber.modulate = Color(0.86, 0.91, 0.88, 0.98)
 	_scrubber.visible = false
 	if _scrubber_texture != null:
 		var source_size := _scrubber_texture.get_size()
@@ -289,12 +308,17 @@ func _free_owned_nodes() -> void:
 	if _scrubber != null and is_instance_valid(_scrubber):
 		_scrubber.queue_free()
 	_scrubber = null
+	if _wash_overlay != null and is_instance_valid(_wash_overlay):
+		_wash_overlay.queue_free()
+	_wash_overlay = null
 
 
 func _show_scrubber(point: Vector2) -> void:
 	if _scrubber == null or not is_instance_valid(_scrubber):
 		return
-	_scrubber.position = point + Vector2(0.0, -18.0)
+	# Register the broad blade to the touch instead of floating the cutout's
+	# center over the grime.
+	_scrubber.position = point + SCRUBBER_CONTACT_OFFSET
 	_scrubber.rotation = clampf(
 		(point.y - _touch_start.y) * 0.0015, -0.18, 0.18)
 	_scrubber.visible = true
@@ -385,8 +409,9 @@ func _queue_progress_signal() -> void:
 	progress_changed.emit(_clear_mask)
 
 
-func _draw() -> void:
-	if fixture_size.x <= 1.0 or fixture_size.y <= 1.0:
+func _draw_wash_overlay() -> void:
+	if _wash_overlay == null or not is_instance_valid(_wash_overlay) \
+			or fixture_size.x <= 1.0 or fixture_size.y <= 1.0:
 		return
 	var lane_width := fixture_size.x / float(LANE_COUNT)
 	for lane in range(LANE_COUNT):
@@ -401,19 +426,25 @@ func _draw() -> void:
 					lane_rect.end.y - fixture_size.y * progress),
 				Vector2(lane_rect.size.x - 6.0, fixture_size.y * progress))
 			if progress > 0.0:
-				draw_rect(wash_rect, Color(0.48, 0.96, 0.96, 0.16), true)
-			var edge_alpha := 0.18 if lane != _hint_lane else 0.42
-			draw_line(lane_rect.position, Vector2(lane_rect.position.x, lane_rect.end.y),
-				Color(0.70, 0.96, 1.0, edge_alpha), 3.0)
+				_wash_overlay.draw_rect(
+					wash_rect, Color(0.50, 0.90, 0.82, 0.26), true)
+			var edge_alpha := 0.14 if lane != _hint_lane else 0.32
+			_wash_overlay.draw_line(lane_rect.position,
+				Vector2(lane_rect.position.x, lane_rect.end.y),
+				Color(0.70, 0.96, 1.0, edge_alpha), 2.0)
 			if lane == _hint_lane and _active:
 				_draw_lane_hint(lane_rect, _pulse_time)
 		if lane < LANE_COUNT - 1:
-			draw_line(Vector2(lane_rect.end.x, lane_rect.position.y + 8.0),
+			_wash_overlay.draw_line(
+				Vector2(lane_rect.end.x, lane_rect.position.y + 8.0),
 				Vector2(lane_rect.end.x, lane_rect.end.y - 8.0),
-				Color(0.46, 0.87, 0.92, 0.16), 2.0)
+				Color(0.46, 0.87, 0.92, 0.12), 2.0)
 	if _touch_active and _touch_lane >= 0:
-		var halo := 28.0 + sin(_pulse_time * 5.0) * 4.0
-		draw_circle(_touch_last, halo, Color(0.78, 1.0, 0.98, 0.16))
+		_wash_overlay.draw_set_transform(_touch_last, 0.0, Vector2(1.0, 0.30))
+		_wash_overlay.draw_arc(Vector2.ZERO,
+			30.0 + sin(_pulse_time * 5.0) * 3.0, 0.10, PI - 0.10, 18,
+			Color(0.78, 0.96, 0.90, 0.26), 3.0, true)
+		_wash_overlay.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
 func _draw_lane_hint(lane_rect: Rect2, phase: float) -> void:
@@ -421,9 +452,11 @@ func _draw_lane_hint(lane_rect: Rect2, phase: float) -> void:
 	var x := lane_rect.get_center().x
 	var top := lane_rect.position.y + 34.0
 	var arrow_color := Color(1.0, 0.89, 0.34, 0.78)
-	draw_circle(Vector2(x, top), 10.0 * pulse, arrow_color)
+	_wash_overlay.draw_circle(Vector2(x, top), 8.0 * pulse, arrow_color)
 	for index in range(3):
 		var y := top + 27.0 + float(index) * minf(48.0, fixture_size.y * 0.16)
 		var width := 13.0 * pulse
-		draw_line(Vector2(x - width, y), Vector2(x, y + 12.0), arrow_color, 4.0)
-		draw_line(Vector2(x + width, y), Vector2(x, y + 12.0), arrow_color, 4.0)
+		_wash_overlay.draw_line(
+			Vector2(x - width, y), Vector2(x, y + 12.0), arrow_color, 4.0)
+		_wash_overlay.draw_line(
+			Vector2(x + width, y), Vector2(x, y + 12.0), arrow_color, 4.0)
