@@ -1,0 +1,102 @@
+{
+  "picture_timing_basis": "24 fps source MP4 scene audit",
+  "checks": [
+    {
+      "span": [
+        0.0,
+        2.0
+      ],
+      "category": "flight",
+      "source": "flight_exterior_loop.wav",
+      "fit": "gentle aircraft/air movement",
+      "status": "PASS"
+    },
+    {
+      "span": [
+        2.0,
+        4.5
+      ],
+      "category": "cabin",
+      "source": "cabin_room_loop.wav",
+      "fit": "warm interior tone; dialogue space preserved",
+      "status": "PASS_DIALOGUE_BLOCKED"
+    },
+    {
+      "span": [
+        4.5,
+        6.7
+      ],
+      "category": "island_reveal",
+      "source": "reveal_island.wav",
+      "fit": "continuous wonder swell, not a UI chime",
+      "status": "PASS"
+    },
+    {
+      "span": [
+        7.5,
+        10.1
+      ],
+      "category": "castle_reveal",
+      "source": "reveal_castle.wav",
+      "fit": "low wonder swell, no alarm/fail semantics",
+      "status": "PASS"
+    },
+    {
+      "span": [
+        7.5,
+        14.0
+      ],
+      "category": "forest_lakeside",
+      "source": "forest_lakeside_loop.wav",
+      "fit": "sparse water/leaf bed",
+      "status": "PASS"
+    },
+    {
+      "span": [
+        14.0,
+        23.0
+      ],
+      "category": "otter_action",
+      "source": "otter_plane_action_loop.wav",
+      "fit": "rounded playful movement/contact, not combat/UI",
+      "status": "PASS"
+    },
+    {
+      "span": [
+        23.04,
+        28.0
+      ],
+      "category": "cabin",
+      "source": "cabin_room_loop.wav",
+      "fit": "room tone only; owner dialogue required",
+      "status": "PASS_DIALOGUE_BLOCKED"
+    },
+    {
+      "span": [
+        28.04,
+        36.08
+      ],
+      "category": "reunion_walk",
+      "source": "reunion_walk_loop.wav",
+      "fit": "gentle exterior movement",
+      "status": "PASS"
+    },
+    {
+      "span": [
+        36.08,
+        42.133333
+      ],
+      "category": "bridge_arrival",
+      "source": "bridge_water_arrival_loop.wav",
+      "fit": "water/wood arrival, sustained resolution",
+      "status": "PASS"
+    }
+  ],
+  "forbidden_semantics": [
+    "fabricated_voice",
+    "alarm",
+    "combat_hit",
+    "UI_click",
+    "punitive_fail"
+  ]
+}

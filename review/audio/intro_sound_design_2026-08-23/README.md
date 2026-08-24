@@ -1,26 +1,38 @@
-# Intro sound-design review package
+# Intro sound-design review package (second pass)
 
-This is a non-destructive review render for `C:\Users\Peter\Intro for mermaid roshan.mp4`. It does not modify the source MP4, runtime assets, protected voices, or game scenes. Cabin dialogue is intentionally left owner-recording-blocked; no voice is synthesized, generated, or altered.
+This package is a non-destructive review render for `C:\Users\Peter\Intro for mermaid roshan.mp4`. The source MP4 is read-only. The renderer includes the source audio stream underneath the mix, accepts only `assets/audio/music/home.ogg` from runtime game audio, and uses only the eight newly authored procedural nonvoice masters under `authored/`. No voices are synthesized or altered; cabin dialogue remains owner-recording-blocked.
 
 ## Reproduce
 
-From the repository root, with FFmpeg 8.x and Python 3.10+ available:
+From the repository root with FFmpeg 8.x and Python 3.10+:
 
 ```powershell
 python review/audio/intro_sound_design_2026-08-23/render_intro_sound_design.py --source "C:\Users\Peter\Intro for mermaid roshan.mp4"
 ```
 
-The script checks dependencies and required asset paths, writes the deterministic nonvoice engine master under `generated/`, creates and removes temporary component WAVs, mixes a standalone `intro_sound_design_mix.ogg`, remuxes `intro_sound_design_review.mp4` with the source video stream copied (`-c:v copy`), and records `source_ffprobe.json`, `output_ffprobe.json`, `sha256sums.txt`, `video_stream_sha256.txt`, and `render_metrics.txt`. It fails if the copied review video stream hash differs from the source video stream hash.
+The renderer hard-fails if the authored palette or approved `home.ogg` is missing, or if any other runtime audio path is introduced. Component WAVs are written only to a disposable system temp directory and removed on completion. The rejected prior `generated/` directory is not a renderer input and must remain absent.
 
-## Reuse/provenance
+Outputs include the standalone `intro_sound_design_mix.ogg`, remuxed `intro_sound_design_review.mp4` with `-c:v copy`, `cue_audit.json`, `allowlist_audit.json`, `source_ffprobe.json`, `output_ffprobe.json`, `render_metrics.txt`, `silence_audit.txt`, `video_stream_sha256.txt`, and `sha256sums.txt`.
 
-Existing project-owned audio is reused first: `assets/audio/music/home.ogg`, `assets/audio/ambience_hall.ogg`, `assets/audio/ambience_reef.ogg`, `assets/audio/ambience_lagoon.ogg`, `assets/audio/chime.ogg`, `assets/audio/hop_boing.ogg`, and `assets/audio/castle/bubble_water.ogg`. Their existing provenance is authoritative; no new `ASSET_LICENSES.md` row is needed because no runtime asset is added.
+## Palette and provenance
 
-The only new audio is `generated/flight_engine_gap.wav`, a deterministic procedural nonvoice effect for the measured silent plane/travel beats. It uses fixed sine partials, a fixed SHA-256-derived noise seed, and fades only. It is review evidence, not runtime art. The exact algorithm is in the render script.
+The eight authored masters and their deterministic provenance are owned by `author_sound_palette.py` and documented in `sound_design_spec.md`:
 
-## Acceptance notes
+- `flight_exterior_loop.wav`
+- `cabin_room_loop.wav`
+- `reveal_island.wav`
+- `reveal_castle.wav`
+- `forest_lakeside_loop.wav`
+- `otter_plane_action_loop.wav`
+- `reunion_walk_loop.wav`
+- `bridge_water_arrival_loop.wav`
 
-- Source video pixels remain untouched and are copied into the review MP4.
-- Source audio from approximately 17–23 s remains present underneath the mix.
-- Target mix is calm and child-safe: approximately `-17 LUFS`, true peak `<= -1 dBTP`.
-- Dialogue gaps are explicit and blocked pending owner-recorded family voices.
+The only reused runtime game audio is the approved project-owned `assets/audio/music/home.ogg`. No ambience, chime, UI, combat, Castle, or other game SFX enters the graph. The source MP4 audio remains present as the immutable existing reference layer.
+
+## Acceptance
+
+- Source video stream hash and review video stream hash must be identical.
+- Final mix target is approximately `-18` to `-16 LUFS` and `<= -1 dBTP`.
+- Silence audit must show no unintended long silent spans in the final standalone mix.
+- Cue audit must show only the source MP4, `home.ogg`, and `authored/*.wav` inputs, with no unauthorized repo audio.
+- Review is picture-timed and child-safe in intent: no alarms, combat hits, UI clicks, fabricated speech, or text-dependent cues.
