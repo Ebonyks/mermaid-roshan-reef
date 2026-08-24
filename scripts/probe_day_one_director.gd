@@ -36,7 +36,11 @@ func _init() -> void:
 	_check("wrong activity rejected", not director.complete_activity("pool", "wrong"))
 	_check("pool activity completes", director.complete_placeholder("pool", "pool_activity"))
 	_check("pool completion derives full cleanup state",
-		director.pool_cleanup_step == 4 and director.pool_rumi_met)
+		director.pool_cleanup_step == 4
+		and director.pool_skimmer_mask == 0x3F
+		and director.pool_waterfall_mask == 0x07
+		and director.pool_seahorse_tugs == 8
+		and director.pool_rumi_met)
 	_check("stuffie activity completes", director.complete_activity("stuffie", "stuffie_activity"))
 	_check("art activity completes", director.complete_activity("art", "art_activity"))
 	_check("all completed and boss glow", director.boss_door_glow
@@ -71,6 +75,9 @@ func _init() -> void:
 		and restored_main.day_one_cleaned_rooms == {"bathroom": true, "pool": true}
 		and restored_main.day_one_bathroom_cleanup_step == 3
 		and restored_main.day_one_pool_cleanup_step == 4
+		and restored_main.day_one_pool_skimmer_mask == 0x3F
+		and restored_main.day_one_pool_waterfall_mask == 0x07
+		and restored_main.day_one_pool_seahorse_tugs == 8
 		and restored_main.day_one_pool_rumi_met
 		and not restored_main.day_one_boss_door_glow
 		and not restored_main.day_one_giant_dust_bunny_boss_triggered)
@@ -82,6 +89,22 @@ func _init() -> void:
 	_check("restore all rooms derives glow", final_main.day_one_boss_door_glow
 		and final_main.day_one_current_room_id == ""
 		and final_main.day_one_giant_dust_bunny_boss_triggered)
+	var partial_main: ReefMain = ReefMain.new()
+	var partial_restore: DayOneDirector = DIRECTOR_SCRIPT.new(partial_main) as DayOneDirector
+	partial_restore.restore_state({
+		"day_one_active": true,
+		"day_one_completed_rooms": ["bathroom"],
+		"day_one_pool_cleanup_step": 2,
+		"day_one_pool_skimmer_mask": 0x15,
+		"day_one_pool_waterfall_mask": 0x03,
+		"day_one_pool_seahorse_tugs": 5,
+	})
+	_check("partial pool progress restores exactly and monotonically",
+		partial_main.day_one_pool_cleanup_step == 2
+		and partial_main.day_one_pool_skimmer_mask == 0x15
+		and partial_main.day_one_pool_waterfall_mask == 0x03
+		and partial_main.day_one_pool_seahorse_tugs == 5
+		and not partial_main.day_one_pool_rumi_met)
 	var later_main: ReefMain = ReefMain.new()
 	var later_day: DayOneDirector = DIRECTOR_SCRIPT.new(later_main) as DayOneDirector
 	later_day.restore_state({"day_one_active": false})
@@ -93,6 +116,7 @@ func _init() -> void:
 	main.free()
 	restored_main.free()
 	final_main.free()
+	partial_main.free()
 	later_main.free()
 	_print_result()
 	quit(1 if checks_failed > 0 else 0)

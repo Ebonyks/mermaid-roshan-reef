@@ -9,6 +9,7 @@ const SCHEMA_VERSION := 1
 const OPERA_ACTIVE_STAR_MASK := 0xBDEF
 const OPERA_ACTIVE_ACT_COUNT := 13
 const BACKUP_SUFFIX := ".bak"
+const NEW_GAME_ARCHIVE_SUFFIX := ".before_new_game"
 const TEMP_SUFFIX := ".tmp"
 const OLD_SUFFIX := ".old"
 const BOOL_KEYS: Array[String] = [
@@ -39,6 +40,7 @@ const KNOWN_KEYS: Array[String] = [
 	"companion", "companion_colors", "fish_tokens", "stuffie_wins", "care_points",
 	"companion_resting", "companion_bruises",
 	"lagoon_plane_departed",
+	"attack_color", "attack_effect",
 ]
 
 var m: ReefMain
@@ -62,6 +64,7 @@ func _init(main: ReefMain, path_override: String = "") -> void:
 func load_save() -> void:
 	future_schema_read_only = false
 	var selected: Dictionary = _select_load_candidate()
+	m.has_saved_game = bool(selected.get("valid", false))
 	if bool(selected.get("valid", false)):
 		var selected_data: Dictionary = selected.get("data", {})
 		m.save_data = selected_data.duplicate(true)
@@ -114,6 +117,8 @@ func load_save() -> void:
 		m.save_data.get("castle_logo_color", "rainbow")))
 	m.castle_logo_symbol = CastleLogoStudio.normalise_symbol(String(
 		m.save_data.get("castle_logo_symbol", "rainbow")))
+	m.attack_color = _attack_color_or_default(m.save_data, "attack_color")
+	m.attack_effect = _attack_effect_or_default(m.save_data, "attack_effect")
 	m.stickers = m.save_data.get("stickers", {})
 	# legacy cosmetic flags (tail/tiara/pearlskin) may still sit in "owned" from
 	# old saves -- kept for save compatibility, no longer applied to the player
@@ -220,6 +225,9 @@ func write_save() -> bool:
 	next_data["crafts"] = m.craft_unlocks
 	next_data["castle_logo_color"] = CastleLogoStudio.normalise_color(m.castle_logo_color)
 	next_data["castle_logo_symbol"] = CastleLogoStudio.normalise_symbol(m.castle_logo_symbol)
+	next_data["attack_color"] = m.attack_color.to_html(false)
+	next_data["attack_effect"] = _attack_effect_or_default({
+		"attack_effect": m.attack_effect}, "attack_effect")
 	next_data["galaxy"] = m.galaxy_unlocked
 	next_data["bwdone"] = m.bwd_done
 	next_data["fairyskin"] = m.fairy_skin_unlocked
@@ -259,6 +267,39 @@ func write_save() -> bool:
 		return false
 	m.save_data = normalised
 	m.save_generation = next_generation
+	return true
+
+func start_new_game() -> bool:
+	# New Game is intentionally recoverable. Preserve the selected current save
+	# outside the transaction candidate set, then install a fresh document with
+	# a higher generation so stale .bak/.tmp files cannot resurrect progress.
+	if future_schema_read_only or not _find_future_candidate().is_empty():
+		future_schema_read_only = true
+		push_warning("SaveState: a newer save schema cannot be replaced by New Game in this build")
+		return false
+	var selected: Dictionary = _select_load_candidate()
+	var next_generation: int = maxi(m.save_generation, 0) + 1
+	if bool(selected.get("valid", false)):
+		var previous_data: Dictionary = selected.get("data", {})
+		next_generation = maxi(next_generation, int(previous_data.get("save_generation", 0)) + 1)
+		if not _write_checked_file(save_path + NEW_GAME_ARCHIVE_SUFFIX, previous_data):
+			push_error("SaveState: New Game stopped because the recoverable archive could not be written")
+			return false
+	var fresh_seed := {
+		"music": m.music_on,
+		"mic": m.mic_on,
+		"haptics": Juice.haptics_enabled,
+		"quality": m.quality,
+		"touch_mode": m.touch_mode,
+	}
+	var fresh_data: Dictionary = _normalise_save(fresh_seed)
+	fresh_data["save_generation"] = next_generation
+	if not _commit_save(fresh_data):
+		push_error("SaveState: New Game could not install a fresh save; existing progress was preserved")
+		return false
+	m.save_data = fresh_data
+	m.save_generation = next_generation
+	m.has_saved_game = true
 	return true
 
 func _select_load_candidate() -> Dictionary:
@@ -459,6 +500,14 @@ func _known_types_are_valid(data: Dictionary) -> bool:
 			typeof(data["castle_logo_symbol"]) != TYPE_STRING \
 			or not CastleLogoStudio.has_symbol(String(data["castle_logo_symbol"]))):
 		return false
+	if data.has("attack_color") and (
+			typeof(data["attack_color"]) != TYPE_STRING \
+			or not _is_valid_attack_color(String(data["attack_color"]))):
+		return false
+	if data.has("attack_effect") and (
+			typeof(data["attack_effect"]) != TYPE_STRING \
+			or not String(data["attack_effect"]) in ["bubbles", "splashes"]):
+		return false
 	return true
 
 func _normalise_save(raw: Dictionary) -> Dictionary:
@@ -491,6 +540,8 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 		_string_or_default(raw, "castle_logo_color", "rainbow"))
 	data["castle_logo_symbol"] = CastleLogoStudio.normalise_symbol(
 		_string_or_default(raw, "castle_logo_symbol", "rainbow"))
+	data["attack_color"] = _attack_color_or_default(raw, "attack_color").to_html(false)
+	data["attack_effect"] = _attack_effect_or_default(raw, "attack_effect")
 	data["galaxy"] = _bool_or_default(raw, "galaxy", false)
 	data["bwdone"] = _bool_or_default(raw, "bwdone", false)
 	data["fairyskin"] = _bool_or_default(raw, "fairyskin", false)
@@ -580,6 +631,28 @@ func _string_or_default(data: Dictionary, key: String, default_value: String) ->
 	if typeof(value) == TYPE_STRING and not String(value).is_empty():
 		return String(value)
 	return default_value
+
+
+func _attack_color_or_default(data: Dictionary, key: String) -> Color:
+	const default_aqua: Color = Color(
+		0.2705882353, 0.8588235294, 0.9215686275, 1.0)
+	var value: Variant = data.get(key, "")
+	if typeof(value) != TYPE_STRING or not _is_valid_attack_color(String(value)):
+		return default_aqua
+	return Color.from_string(String(value), default_aqua)
+
+
+func _attack_effect_or_default(data: Dictionary, key: String) -> String:
+	var value: Variant = data.get(key, "bubbles")
+	if typeof(value) == TYPE_STRING:
+		var effect: String = String(value).strip_edges().to_lower()
+		if effect in ["bubbles", "splashes"]:
+			return effect
+	return "bubbles"
+
+
+func _is_valid_attack_color(value: String) -> bool:
+	return Color.html_is_valid(value.strip_edges())
 
 func _quality_or_default(data: Dictionary, default_value: String) -> String:
 	var value: Variant = data.get("quality", default_value)

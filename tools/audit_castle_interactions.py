@@ -245,44 +245,68 @@ def _depth_crops(depth_manifest: dict[str, Any]) -> dict[tuple[str, str], tuple[
 	return crops
 
 
-def _audit_current_sconce_contract(
+def _audit_current_runtime_contract(
 	depth_manifest: dict[str, Any], failures: list[str],
 ) -> None:
-	revision = depth_manifest.get("runtime_correction_2026_08_01")
+	current_name = "runtime_correction_2026_08_22"
+	revision = depth_manifest.get(current_name)
 	if not isinstance(revision, dict):
-		failures.append("Depth manifest must declare runtime_correction_2026_08_01")
+		failures.append(f"Depth manifest must declare {current_name}")
 		return
 	_check(revision.get("status") == "accepted_current_runtime",
-		"Current sconce correction must be marked accepted_current_runtime", failures)
-	_check(revision.get("supersedes_runtime_fixture_contract")
-		== "runtime_correction_2026_07_29.interactive_fixture_family",
-		"Current sconce correction must supersede the historical 2026-07-29 fixture",
+		"Current Castle correction must be marked accepted_current_runtime", failures)
+	_check(revision.get("fixture_physics") == "analytic_2d",
+		"Current Castle fixture physics must be analytic_2d", failures)
+	required_predecessors = {
+		"runtime_correction_2026_07_29",
+		"runtime_correction_2026_08_01",
+		"runtime_correction_2026_08_04",
+	}
+	superseded = revision.get("supersedes_runtime_corrections")
+	_check(isinstance(superseded, list) and set(superseded) == required_predecessors,
+		"Current Castle correction must supersede every historical runtime contract",
 		failures)
-	fixture = revision.get("interactive_fixture_family")
-	if not isinstance(fixture, dict):
-		failures.append("Current sconce interactive_fixture_family must be an object")
-		return
-	_check(fixture.get("count") == 6 and fixture.get("shared_scale") == 0.8,
-		"Current sconce contract must declare six fixtures at scale 0.8", failures)
-	_check(fixture.get("atlas_frames") == 8 and fixture.get("atlas_grid") == [4, 2],
-		"Current sconce contract must declare the 8-frame 4x2 atlas", failures)
-	_check(fixture.get("frame_uv_clamped_to_atlas_cell") is True,
-		"Current sconce contract must declare per-frame UV clamping", failures)
-	for key, hash_key in (("texture", "texture_sha256"),
-			("bloom_shader", "bloom_shader_sha256")):
-		path = _repo_path(fixture.get(key), f"Current sconce {key}", failures)
-		if path is None or not path.is_file():
-			failures.append(f"Current sconce {key} file is missing")
+	for predecessor_name in sorted(required_predecessors):
+		predecessor = depth_manifest.get(predecessor_name)
+		if not isinstance(predecessor, dict):
+			failures.append(f"Depth manifest must preserve {predecessor_name}")
 			continue
-		# Name both hashes and the file. A bare "does not match" cost an hour
-		# of git archaeology on 2026-08-02 to establish that the RECORD was
-		# wrong rather than the artifact; the values make that a ten-second
-		# check against `sha256sum <path>` and `git log -- <path>`.
-		recorded = fixture.get(hash_key)
-		actual = _text_sha256(path) if key == "bloom_shader" else _sha256(path)
-		_check(recorded == actual,
-			f"Current sconce {hash_key} does not match file bytes "
-			f"({path}: recorded {recorded}, actual {actual})", failures)
+		_check(predecessor.get("status") == "historical_superseded",
+			f"{predecessor_name} must be marked historical_superseded", failures)
+		_check(predecessor.get("superseded_by") == current_name,
+			f"{predecessor_name} must point to {current_name}", failures)
+	contract = revision.get("runtime_node_contract")
+	if not isinstance(contract, dict):
+		failures.append("Current Castle runtime_node_contract must be an object")
+		return
+	root_contract = depth_manifest.get("runtime_node_contract")
+	if not isinstance(root_contract, dict):
+		failures.append("Root Castle runtime_node_contract must be an object")
+		return
+	required_contract_keys = {
+		"camera", "coordinate_system", "world_art_allowed",
+		"world_art_forbidden", "world_root",
+	}
+	_check(set(contract) == required_contract_keys,
+		"Current Castle correction must declare exactly the core 2D runtime keys",
+		failures)
+	_check(all(root_contract.get(key) == value for key, value in contract.items()),
+		"Current Castle correction must be an exact subset of the root runtime contract",
+		failures)
+	_check(contract.get("world_root") == "Node2D",
+		"Current Castle world root must be Node2D", failures)
+	_check(contract.get("camera") == "none",
+		"Current Castle contract must not use a 3D camera", failures)
+	_check(contract.get("coordinate_system") == "direct_canvas_coordinates",
+		"Current Castle coordinates must be direct canvas coordinates", failures)
+	_check(contract.get("world_art_allowed") == ["Sprite2D:unshaded"],
+		"Current Castle world art must be unshaded Sprite2D", failures)
+	for forbidden_type in (
+		"Node3D", "Sprite3D", "Camera3D", "MeshInstance3D",
+		"MultiMeshInstance3D", "CSGShape3D", "Decal",
+	):
+		_check(forbidden_type in contract.get("world_art_forbidden", []),
+			f"Current Castle contract must forbid {forbidden_type}", failures)
 
 
 def _audio_durations(
@@ -756,7 +780,7 @@ def main() -> None:
 		"manifest schema_version must be 1", failures)
 	_check(manifest.get("generator") == "tools/build_castle_interaction_atlases.py",
 		"manifest generator is not the approved atlas builder", failures)
-	_audit_current_sconce_contract(depth_manifest, failures)
+	_audit_current_runtime_contract(depth_manifest, failures)
 	frame_contract = manifest.get("frame_contract", {})
 	_check(isinstance(frame_contract, dict)
 		and frame_contract.get("minimum") == 4

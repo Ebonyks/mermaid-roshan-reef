@@ -1,0 +1,91 @@
+{
+  "character": "Rumi",
+  "source_working_name": "Violet Tide",
+  "status": "approved_private_canon",
+  "public_use_status": "private_ip_hold_playtest_only_not_cleared_for_public_marketing_or_merchandising",
+  "owner_identity_confirmation": {
+    "date": "2026-08-22",
+    "request": "Rumi, on the right, or Violet, belongs in the pool",
+    "attachment_sha256": "963363147ef9527e77f5a7d3c936c32b84b227ddab1f87a34eee76914b6fca26",
+    "matches_relationship_sample_byte_for_byte": true
+  },
+  "approved_handoff": {
+    "source_branch": "origin/codex/grok-animation-series-guide",
+    "source_commit": "975d7e86291a5e5b69ffb417bfba45cf184ef756",
+    "identity_authority": "docs/grok_animation_series_project/characters/rumi/RUMI_FULL_BODY_IDENTITY.png",
+    "pose_authority": "docs/grok_animation_series_project/characters/rumi/RUMI_EIGHT_POSE_ATLAS.png",
+    "relationship_authority": "docs/grok_animation_series_project/characters/rumi/RUMI_AND_ROSHAN_RELATIONSHIP_SAMPLE.png",
+    "generation_method": "OpenAI built-in image generation",
+    "original_generation_date": "2026-07-26"
+  },
+  "selected_files": [
+    {
+      "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+      "sha256": "39cd43295adfce51249ac97647520aee9643e397fe417bf0374727297b34528e",
+      "dimensions": [1024, 512],
+      "role": "runtime_cell_safe_idle_and_swim_frames",
+      "source": "existing local Mermaid Pool Rumi integration pack",
+      "modifications_this_task": "none"
+    },
+    {
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66",
+      "dimensions": [1024, 768],
+      "role": "runtime_approved_idle_and_wave_frames",
+      "source": "approved private-canon handoff",
+      "modifications_this_task": "none"
+    },
+    {
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "role": "source_identity_authority",
+      "modifications_this_task": "none"
+    },
+    {
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_eight_pose_atlas.png",
+      "sha256": "b5d31e649ad23150790bff0919c3b2f09ddb96317cd24c60478450731d3f8624",
+      "role": "source_pose_authority",
+      "modifications_this_task": "none"
+    },
+    {
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_relationship_sample.png",
+      "sha256": "963363147ef9527e77f5a7d3c936c32b84b227ddab1f87a34eee76914b6fca26",
+      "role": "source_relationship_and_relative_scale_authority",
+      "modifications_this_task": "none"
+    },
+    {
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_swim_repair_alpha_native.png",
+      "sha256": "29f7d35af8abe8baa042a8a36132a56e8b67a9fb53c127f2eb15fe257fe0634f",
+      "role": "source_for_cell_safe_pool_swim_row",
+      "modifications_this_task": "none"
+    }
+  ],
+  "runtime_animation_contract": {
+    "idle": {
+      "atlas": "rumi_eight_pose_runtime.png",
+      "row": 0,
+      "columns": [0, 1],
+      "fps": 1.5,
+      "loop": true
+    },
+    "wave": {
+      "atlas": "rumi_eight_pose_runtime.png",
+      "row": 0,
+      "columns": [2, 3],
+      "fps": 2.0,
+      "loop": false
+    },
+    "swim_rise": {
+      "atlas": "rumi_pool_idle_swim_atlas.png",
+      "row": 1,
+      "columns": [0, 1, 2, 3],
+      "fps": 5.0,
+      "loop": true
+    }
+  },
+  "task_generation": {
+    "new_image_generation_used": false,
+    "reason": "approved identity and authored animation already existed and were reused"
+  },
+  "rejected_runtime_predecessor": "assets_src/imagegen/day_one_pool_2026-08-22/rejected/rumi_wrong_identity_native.png"
+}

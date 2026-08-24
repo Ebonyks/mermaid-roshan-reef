@@ -9,6 +9,20 @@ const TILE_SIZE := Vector2(1024.0, 1024.0)
 const TARGET_IDS: Array[String] = [
 	"castle_gate", "reef_route", "seesaw", "slide", "swing",
 ]
+const AUDIT_SWING_SEAT_ANCHORS := [
+	Vector2(264.5, 204.5),
+	Vector2(168.0, 205.0),
+	Vector2(322.5, 186.0),
+	Vector2(222.0, 190.0),
+]
+const AUDIT_SEESAW_SEAT_ANCHORS := [
+	Vector2(300.0, 420.0),
+	Vector2(225.0, 400.0),
+	Vector2(270.0, 340.0),
+	Vector2(220.0, 360.0),
+]
+const AUDIT_SEESAW_SOCKET := Vector2(226.13, -9.42)
+const AUDIT_SWING_SEAT_DROP := 361.0
 const HOLDER_NAMES: Array[String] = [
 	"SkyLagoonBase",
 	"SkyLagoonRear",
@@ -69,6 +83,20 @@ func _spatial_count(node: Node) -> int:
 	for child: Node in node.get_children():
 		result += _spatial_count(child)
 	return result
+
+
+func _forbidden_facade_primitive_count(node: Node) -> int:
+	var result := 1 if node is Polygon2D or node is Line2D else 0
+	for child: Node in node.get_children():
+		result += _forbidden_facade_primitive_count(child)
+	return result
+
+
+func _audit_sprite_anchor_master(sprite: Sprite2D, anchor_pixels: Vector2) -> Vector2:
+	var master_space: Node2D = main.g.get("lagoon_master_space") as Node2D
+	var source_size: Vector2 = sprite.texture.get_size()
+	var local_anchor: Vector2 = anchor_pixels - source_size * 0.5 + sprite.offset
+	return master_space.to_local(sprite.to_global(local_anchor))
 
 
 func _collect_sprites(node: Node, output: Array[Sprite2D]) -> void:
@@ -268,8 +296,15 @@ func _opaque_screen_cells(sprite: Sprite2D, output: Dictionary,
 			var screen: Vector2 = transform * (local_top_left + relative)
 			output[Vector2i(floori(screen.x / grid_px), floori(screen.y / grid_px))] = true
 	for child: Node in sprite.get_children():
-		if child is Sprite2D:
-			_opaque_screen_cells(child as Sprite2D, output, grid_px)
+		_opaque_child_screen_cells(child, output, grid_px)
+
+
+func _opaque_child_screen_cells(node: Node, output: Dictionary, grid_px: float) -> void:
+	if node is Sprite2D:
+		_opaque_screen_cells(node as Sprite2D, output, grid_px)
+		return
+	for child: Node in node.get_children():
+		_opaque_child_screen_cells(child, output, grid_px)
 
 
 func _opaque_geometry_contacts(actor: Sprite2D, equipment: Sprite2D) -> bool:
@@ -498,21 +533,53 @@ func _validate_assets_and_mural() -> void:
 	_check("twelve_native_seamless_canvas_tiles",
 		tiles_ok and tile_count == 12 and positions.size() == 12,
 		"tiles=%d positions=%d" % [tile_count, positions.size()])
+	var castle: Sprite2D = main.g.get("lagoon_castle_card") as Sprite2D
+	var castle_bounds := promenade._sprite_alpha_bounds_master(castle)
+	var castle_frame_ok: bool = castle != null and castle_bounds.get_area() > 0.0 \
+		and castle.visible and castle.is_visible_in_tree() \
+		and castle.modulate.a * castle.self_modulate.a >= 0.95 \
+		and castle_bounds.get_area() >= 500000.0 \
+		and castle_bounds.position.x >= 0.0 and castle_bounds.end.x <= 6144.0 \
+		and castle_bounds.position.y >= 48.0 and castle_bounds.end.y <= 2048.0
+	_check("castle_authored_pixels_stay_inside_master_frame", castle_frame_ok,
+		"bounds=%s" % castle_bounds)
+	var landmark_layer: Node2D = main.g.get("lagoon_landmark_layer") as Node2D
+	var primitive_count: int = _forbidden_facade_primitive_count(landmark_layer) \
+		if landmark_layer != null else -1
+	var castle_dressing_ok: bool = castle != null \
+		and String(castle.get_meta("exterior_dressing_contract", "")) \
+			== "authored_sprite2d_only" \
+		and String(castle.get_meta("lighting_medium", "")) \
+			== "authored_rgba_canvas_sprite" \
+		and primitive_count == 0
+	_check("castle_facade_rejects_procedural_mesh_grime", castle_dressing_ok,
+		"landmark_primitive_count=%d" % primitive_count)
 
 
 func _validate_parallax_and_coordinates() -> void:
 	var root_node: CanvasLayer = promenade.root()
 	var base: Node2D = root_node.find_child("SkyLagoonBase", true, false) as Node2D
 	var rear: Node2D = root_node.find_child("SkyLagoonRear", true, false) as Node2D
+	var landmarks: Node2D = root_node.find_child(
+		"SkyLagoonLandmarks", true, false) as Node2D
+	var interactive: Node2D = root_node.find_child(
+		"SkyLagoonInteractive", true, false) as Node2D
+	var actors: Node2D = root_node.find_child("SkyLagoonActors", true, false) as Node2D
 	var foreground: Node2D = root_node.find_child(
 		"SkyLagoonForeground", true, false) as Node2D
-	var factors_ok: bool = base != null and rear != null and foreground != null \
+	var factors_ok: bool = base != null and rear != null and landmarks != null \
+		and interactive != null and actors != null and foreground != null \
 		and is_equal_approx(float(base.get_meta("parallax_factor", -1.0)), 1.0) \
 		and is_equal_approx(float(rear.get_meta("parallax_factor", -1.0)), 0.82) \
+		and is_equal_approx(float(landmarks.get_meta("parallax_factor", -1.0)), 1.0) \
+		and is_equal_approx(float(interactive.get_meta("parallax_factor", -1.0)), 1.0) \
+		and is_equal_approx(float(actors.get_meta("parallax_factor", -1.0)), 1.0) \
 		and is_equal_approx(float(foreground.get_meta("parallax_factor", -1.0)), 1.06)
 	promenade.set_master_route_x(2048.0)
 	var rear_before: float = rear.position.x if rear != null else 0.0
 	var foreground_before: float = foreground.position.x if foreground != null else 0.0
+	var locked_before: Array[Vector2] = [
+		base.position, landmarks.position, interactive.position, actors.position]
 	promenade.set_master_route_x(3072.0)
 	var rear_content: Dictionary = _real_sprite_content(rear)
 	var foreground_content: Dictionary = _real_sprite_content(foreground)
@@ -521,6 +588,15 @@ func _validate_parallax_and_coordinates() -> void:
 	var rear_delta: float = rear.position.x - rear_before if rear != null else 0.0
 	var foreground_delta: float = foreground.position.x - foreground_before \
 		if foreground != null else 0.0
+	var locked_after: Array[Vector2] = [
+		base.position, landmarks.position, interactive.position, actors.position]
+	var locked_zero: bool = base.position.is_zero_approx() \
+		and landmarks.position.is_zero_approx() \
+		and interactive.position.is_zero_approx() \
+		and actors.position.is_zero_approx()
+	_check("playground_actor_castle_share_locked_mural_socket",
+		factors_ok and locked_before == locked_after and locked_zero,
+		"before=%s after=%s" % [locked_before, locked_after])
 	_check("two_real_parallax_motion_classes",
 		factors_ok and int(rear_content.get("count", 0)) > 0 \
 		and int(foreground_content.get("count", 0)) > 0 \
@@ -610,7 +686,8 @@ func _validate_targets_and_touch() -> void:
 					if node is Sprite2D else Rect2(center - Vector2(0.5, 0.5), Vector2.ONE)
 				var attachment_distance := _point_rect_distance(
 					cue_bounds.get_center(), target_bounds)
-				var cue_ok: bool = minf(cue_bounds.size.x, cue_bounds.size.y) >= 64.0 \
+				var cue_ok: bool = focus_sprite.visible \
+					and minf(cue_bounds.size.x, cue_bounds.size.y) >= 64.0 \
 					and _selected_tint_is_readable(focus_sprite) \
 					and attachment_distance <= 96.0
 				if target_id != "castle_gate":
@@ -644,8 +721,8 @@ func _validate_targets_and_touch() -> void:
 	for target_id: String in TARGET_IDS:
 		var idle_highlight: Sprite2D = _target(target_id).get("highlight") as Sprite2D
 		idle_cues_ok = idle_cues_ok and idle_highlight != null \
-			and idle_highlight.modulate.a <= 0.06
-	_check("idle_focus_cues_leave_no_ghost_objects", idle_cues_ok)
+			and idle_highlight.visible and idle_highlight.modulate.a <= 0.06
+	_check("idle_focus_cues_are_subtle_not_ghost_objects", idle_cues_ok)
 	_check("unique_focus_assets_do_not_clone_target_pixels",
 		unique_focus_ok and _sprite_resource_count(promenade.root(),
 			"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png") == 1)
@@ -673,11 +750,17 @@ func _validate_play_contacts() -> void:
 	var contacts_ok: bool = actor != null and is_instance_valid(actor)
 	var temporal_ok := true
 	var natural_cleanup_ok := true
+	var authored_anchors_ok := true
+	var slide_axis_ok := true
+	var slide_continuity_ok := true
+	var action_facing_ok := true
 	var performance_samples: Array[float] = []
 	var detail: Array[String] = []
 	for kind: String in ["slide", "swing", "seesaw"]:
 		var target: Dictionary = _target(kind)
+		actor.flip_h = true
 		promenade._activate(target)
+		action_facing_ok = action_facing_ok and not actor.flip_h
 		promenade._clear_focus()
 		var play: Dictionary = main.g.get("lagoon_play_anim", {}) as Dictionary
 		var equipment: Sprite2D = play.get("equipment") as Sprite2D
@@ -687,6 +770,9 @@ func _validate_play_contacts() -> void:
 		var negative_rotation := false
 		var max_rest_delta := 0.0
 		var representative_contact := false
+		var max_anchor_error := 0.0
+		var max_slide_step := 0.0
+		var previous_actor_position: Vector2 = actor.position
 		var action_steps := 0
 		var start_usec: int = Time.get_ticks_usec()
 		while String((main.g.get("lagoon_play_anim", {}) as Dictionary).get(
@@ -696,6 +782,11 @@ func _validate_play_contacts() -> void:
 			frames_seen[int(play.get("frame_index", -1))] = true
 			equipment = play.get("equipment") as Sprite2D
 			if equipment != null and is_instance_valid(equipment):
+				var contact_phase: bool = String(play.get("phase", "")) == "action"
+				if contact_phase and kind == "slide":
+					max_slide_step = maxf(max_slide_step,
+						actor.position.distance_to(previous_actor_position))
+				previous_actor_position = actor.position
 				var sampled_rotation: float = equipment.rotation
 				if kind == "swing" and equipment.has_meta("swing_seat_pivot"):
 					var pivot: Node2D = equipment.get_meta("swing_seat_pivot") as Node2D
@@ -705,7 +796,26 @@ func _validate_play_contacts() -> void:
 				positive_rotation = positive_rotation or delta_rotation > 0.02
 				negative_rotation = negative_rotation or delta_rotation < -0.02
 				max_rest_delta = maxf(max_rest_delta, absf(delta_rotation))
-				if action_steps == (111 if kind == "slide" else 14):
+				var frame_index: int = int(play.get("frame_index", -1))
+				if contact_phase and kind == "swing" and frame_index >= 0:
+					var pivot: Node2D = equipment.get_meta("swing_seat_pivot") as Node2D
+					var master_space: Node2D = main.g.get("lagoon_master_space") as Node2D
+					var grip_socket: Vector2 = master_space.to_local(pivot.to_global(
+						Vector2(0.0, AUDIT_SWING_SEAT_DROP)))
+					var seat: Vector2 = _audit_sprite_anchor_master(actor,
+						AUDIT_SWING_SEAT_ANCHORS[frame_index])
+					max_anchor_error = maxf(max_anchor_error, seat.distance_to(grip_socket))
+				elif contact_phase and kind == "seesaw" and frame_index >= 0:
+					var master_space: Node2D = main.g.get("lagoon_master_space") as Node2D
+					var seat_socket: Vector2 = master_space.to_local(equipment.to_global(
+						AUDIT_SEESAW_SOCKET))
+					var seat: Vector2 = _audit_sprite_anchor_master(actor,
+						AUDIT_SEESAW_SEAT_ANCHORS[frame_index])
+					max_anchor_error = maxf(max_anchor_error, seat.distance_to(seat_socket))
+				elif contact_phase and kind == "slide" and frame_index == 3:
+					slide_axis_ok = slide_axis_ok and actor.rotation >= 0.12 \
+						and actor.rotation <= 0.421
+				if contact_phase and action_steps == (111 if kind == "slide" else 14):
 					representative_contact = _opaque_geometry_contacts(actor, equipment)
 			action_steps += 1
 		var elapsed_usec: float = float(Time.get_ticks_usec() - start_usec)
@@ -721,6 +831,10 @@ func _validate_play_contacts() -> void:
 				and negative_rotation and max_rest_delta <= 0.135
 		temporal_ok = temporal_ok and action_temporal_ok
 		contacts_ok = contacts_ok and representative_contact
+		if kind == "swing" or kind == "seesaw":
+			authored_anchors_ok = authored_anchors_ok and max_anchor_error <= 0.05
+		if kind == "slide":
+			slide_continuity_ok = slide_continuity_ok and max_slide_step <= 24.0
 		var settle_start: Vector2 = actor.position
 		promenade._tick_playground_animation(0.17)
 		var settle_moved: bool = actor.position.distance_to(settle_start) > 0.1
@@ -728,14 +842,20 @@ func _validate_play_contacts() -> void:
 		var cleaned: bool = (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty() \
 			and actor.visible and actor.region_enabled and is_zero_approx(actor.rotation)
 		natural_cleanup_ok = natural_cleanup_ok and settle_moved and cleaned
-		detail.append("%s=steps%d frames%d contact%s rot%.3f cleanup%s" % [
+		detail.append("%s=steps%d frames%d contact%s rot%.3f anchor%.3f step%.3f cleanup%s" % [
 			kind, action_steps, frames_seen.size(), str(representative_contact),
-			max_rest_delta, str(cleaned)])
+			max_rest_delta, max_anchor_error, max_slide_step, str(cleaned)])
 	performance_samples.sort()
 	var median_usec: float = performance_samples[performance_samples.size() / 2] \
 		if not performance_samples.is_empty() else INF
 	_check("play_actions_verify_visible_actor_equipment_contact",
 		contacts_ok, ",".join(detail))
+	_check("play_actions_preserve_authored_contact_anchors",
+		authored_anchors_ok, ",".join(detail))
+	_check("slide_ride_uses_downhill_canvas_rotation", slide_axis_ok)
+	_check("slide_phases_preserve_position_continuity", slide_continuity_ok,
+		",".join(detail))
+	_check("play_actions_reset_inherited_route_facing", action_facing_ok)
 	_check("play_actions_run_full_temporal_cycle", temporal_ok, ",".join(detail))
 	_check("play_actions_naturally_settle_and_restore", natural_cleanup_ok)
 	_check("speedy_play_tick_median_under_1ms", median_usec < 1000.0,

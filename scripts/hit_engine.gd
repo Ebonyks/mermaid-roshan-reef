@@ -81,6 +81,8 @@ const SLASH_BAND := 54.0           # px half-height of the cutting band
 const SLASH_MAX_TARGETS := 2
 const SLASH_COOL := 0.9
 const SLASH_RIBBON_T := 0.28       # seconds the ribbon lingers
+const DEFAULT_ATTACK_COLOR := Color(0.2705882353, 0.8588235294, 0.9215686275, 1.0)
+const DEFAULT_ATTACK_EFFECT := "bubbles"
 
 var m: ReefMain
 # ENEMY PRIORITY RULE (owner decision 2026-07-28): enemies always sit in
@@ -115,9 +117,89 @@ var charge_ring: MeshInstance3D = null
 var charge_pips: Node3D = null     # the three stage lamps above the target
 var slash_cool := 0.0              # blade rest; a swipe inside it only fizzles
 var ribbon: Line2D = null          # the band she cut, drawn at its true width
+var attack_color: Color = DEFAULT_ATTACK_COLOR
+var attack_effect: String = DEFAULT_ATTACK_EFFECT
+var attack_fx_layer: CanvasLayer = null
+
+class AttackFx2D extends Node2D:
+	var tint: Color = DEFAULT_ATTACK_COLOR
+	var effect := DEFAULT_ATTACK_EFFECT
+	var age := 0.0
+	var duration := 0.52
+
+	func configure(color: Color, style: String) -> void:
+		tint = color
+		effect = style if style in ["bubbles", "splashes"] else DEFAULT_ATTACK_EFFECT
+		queue_redraw()
+
+	func _process(delta: float) -> void:
+		age += delta
+		queue_redraw()
+		if age >= duration:
+			queue_free()
+
+	func _draw() -> void:
+		var progress: float = clampf(age / duration, 0.0, 1.0)
+		var fade: float = 1.0 - progress
+		var lift: float = -34.0 * progress
+		var center := Vector2(0.0, lift)
+		if effect == "bubbles":
+			for i in range(4):
+				var phase: float = TAU * float(i) / 4.0
+				var drift := Vector2(cos(phase), sin(phase) * 0.55) * (18.0 + progress * 28.0)
+				var radius: float = 7.0 + float(i % 2) * 4.0
+				draw_circle(center + drift, radius, Color(tint.r, tint.g, tint.b, 0.16 * fade), false, 4.0)
+		else:
+			for i in range(5):
+				var phase: float = lerpf(PI * 1.08, PI * 1.92, float(i) / 4.0)
+				var start := center + Vector2(cos(phase), sin(phase)) * 7.0
+				var finish := center + Vector2(cos(phase), sin(phase)) * (
+					22.0 + progress * 28.0)
+				var splash_color := Color(tint.r, tint.g, tint.b, 0.76 * fade)
+				draw_line(start, finish, splash_color, 5.0, true)
+				draw_circle(finish, 3.5 + float(i % 2) * 1.5, splash_color)
+			draw_arc(center + Vector2(0.0, 10.0), 16.0 + progress * 20.0,
+				PI, TAU, 20, Color(tint.r, tint.g, tint.b, 0.62 * fade),
+				5.0, true)
+		draw_circle(center, 5.0 + progress * 4.0, Color(tint.r, tint.g, tint.b, 0.74 * fade))
 
 func _init(main: ReefMain) -> void:
 	m = main
+	_refresh_attack_profile()
+
+func _refresh_attack_profile() -> void:
+	if m == null:
+		return
+	var stored_color: Variant = m.get("attack_color")
+	if stored_color is Color:
+		attack_color = stored_color as Color
+	var stored_effect: Variant = m.get("attack_effect")
+	if stored_effect is String and String(stored_effect) in ["bubbles", "splashes"]:
+		attack_effect = String(stored_effect)
+
+func profile_color() -> Color:
+	_refresh_attack_profile()
+	return attack_color
+
+func profile_effect() -> String:
+	_refresh_attack_profile()
+	return attack_effect
+
+func show_attack_feedback_2d(screen_pos: Vector2, color: Color = Color.TRANSPARENT, effect: String = "") -> void:
+	if m == null:
+		return
+	_refresh_attack_profile()
+	var tint: Color = attack_color if color == Color.TRANSPARENT else color
+	var style: String = attack_effect if effect.is_empty() else effect
+	if attack_fx_layer == null or not is_instance_valid(attack_fx_layer):
+		attack_fx_layer = CanvasLayer.new()
+		attack_fx_layer.name = "AttackProfileFx"
+		attack_fx_layer.layer = 15
+		m.add_child(attack_fx_layer)
+	var fx := AttackFx2D.new()
+	fx.position = screen_pos
+	fx.configure(tint, style)
+	attack_fx_layer.add_child(fx)
 
 # Called once per frame by the hosting encounter: the chain window decays
 # here (a lapsed chain fades silently) and a live charge grows its ring.
@@ -358,6 +440,9 @@ func teardown() -> void:
 	if pips_layer != null and is_instance_valid(pips_layer):
 		pips_layer.queue_free()
 	pips_layer = null
+	if attack_fx_layer != null and is_instance_valid(attack_fx_layer):
+		attack_fx_layer.queue_free()
+	attack_fx_layer = null
 	chain_pips = null
 	ribbon = null
 	if charge_ring != null and is_instance_valid(charge_ring):
@@ -516,6 +601,10 @@ func hit(enemy: Dictionary, damage: int = 1, source: String = "tap") -> bool:
 	# and briefly freezes the target. Cosmetic only; state stays instant.
 	Juice.squash(node, big)
 	Juice.flash(node)
+	# The selected profile is a cosmetic, child-readable signal only. It never
+	# changes damage, hp or no-fail state; every landed source gets the same
+	# small Canvas burst at the contact point.
+	show_attack_feedback_2d(m.get_viewport().get_visible_rect().get_center())
 	enemy["hitstop"] = HITSTOP[clampi(chain, 0, HITSTOP.size() - 1)]
 	if not enemy.has("hp_max"):
 		enemy["hp_max"] = int(enemy.get("hp", 1))

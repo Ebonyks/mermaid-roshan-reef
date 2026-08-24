@@ -2,12 +2,11 @@ extends SceneTree
 
 # Display-build boot gate.
 #
-# The first area the game shows is chosen inside ReefMain._ready(), behind
-#   if START_AT_CASTLE_GATE and DisplayServer.get_name() != "headless":
-# so the headless probe suite can NEVER execute it. Every existing check
-# (probe_ocean_kingdoms, probe_l2) calls _enter_level2_now() by hand, several
-# frames after boot, with a camera already in the tree — a different code path
-# from the one the phone runs.
+# The display build now waits at the start menu. The headless suite cannot
+# exercise that viewport-only surface, so this probe verifies the real menu,
+# activates its real Continue button, and then checks the resulting promenade.
+# The XDG sandbox is intentionally fresh, so Continue begins disabled; the
+# fixture marks the already-loaded session as resumable before pressing it.
 #
 # Owner report 2026-07-29: the phone boots into the legacy 3D reef, with the
 # reef sun already hidden and reef music playing. That combination is the
@@ -16,8 +15,8 @@ extends SceneTree
 # leaves the player standing in the reef that _ready() built underneath.
 #
 # This probe boots main.tscn under a REAL viewport (Xvfb in CI), verifies the
-# untouched first frame, then dismisses the story and exercises the route the
-# child sees. Headless probes cannot cover either display-only boot behavior.
+# untouched menu, then exercises Continue and the visible route the child sees.
+# Headless probes cannot cover either display-only boot behavior.
 
 var failures: int = 0
 
@@ -57,7 +56,41 @@ func _run() -> void:
 	for i in range(20):
 		await process_frame
 
-	# The whole point: she must not be left in the open reef (game == "").
+	_check(main.start_menu_active, "boot_waits_at_start_menu")
+	_check(main.game == "", "menu_does_not_enter_the_world_early")
+	var menu_layer: CanvasLayer = main.start_menu_layer
+	_check(menu_layer != null and is_instance_valid(menu_layer),
+		"start_menu_canvas_is_in_the_tree")
+	if menu_layer == null or not is_instance_valid(menu_layer):
+		_finish()
+		return
+	var continue_button := menu_layer.find_child(
+		"StartMenuContinueButton", true, false) as Button
+	var new_game_button := menu_layer.find_child(
+		"StartMenuNewGameButton", true, false) as Button
+	var options_button := menu_layer.find_child(
+		"StartMenuOptionsTab", true, false) as Button
+	_check(continue_button != null and continue_button.disabled,
+		"fresh_boot_continue_is_disabled")
+	_check(new_game_button != null and not new_game_button.disabled,
+		"fresh_boot_new_game_is_available")
+	_check(options_button != null and not options_button.disabled,
+		"fresh_boot_options_is_available")
+	if continue_button == null:
+		_finish()
+		return
+
+	# Exercise the actual Continue signal after making this isolated in-memory
+	# fixture represent an existing loaded save. Continue must never start Day 1.
+	main.has_saved_game = true
+	continue_button.disabled = false
+	continue_button.pressed.emit()
+	for i in range(20):
+		await process_frame
+	_check(not main.start_menu_active, "continue_closes_start_menu")
+	_check(not main.day_one_is_active(), "continue_bypasses_day_one")
+
+	# Continue must now land in gameplay rather than leave her in the reef shell.
 	_check(main.game == "level2", "boot_leaves_the_reef")
 	_check(String(main.g.get("phase", "")) == "promenade", "boot_lands_on_the_promenade")
 
