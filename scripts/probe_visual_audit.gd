@@ -23,7 +23,8 @@ const CANVAS_DRAW_ORDER_METHOD := \
 	"deterministic_effective_canvas_z_verified_descendants_v3"
 const RENDERED_DIFF_METHOD := "visible_minus_target_hidden_rgba8_exact_v1"
 const SOURCE_PROJECTION_METHOD := "independent_source_alpha_inverse_canvas_v1"
-const CANVAS_OCCLUSION_METHOD := "live_canvas_alpha_overlap_samples_v2"
+const CANVAS_OCCLUSION_METHOD := \
+	"live_canvas_alpha_overlap_effective_z_groups_v3"
 const CANVAS_OCCLUSION_SAMPLE_STEP := 4.0
 const CANVAS_OCCLUSION_ALPHA_THRESHOLD := 0.5
 const TEMPORAL_FREEZE_METHOD := "engine_time_scale_zero_alternating_visibility_v1"
@@ -458,14 +459,10 @@ func _canvas_parallax_facts(main: ReefMain, zone_id: String,
 	var nodes: Array[Node] = []
 	_collect_canvas_layers(main, nodes)
 	var provenance := _runtime_block_provenance(main, zone_id)
-	var canvas_audit_root: Node = get_root()
-	var zone_promenade: SkyLagoonPromenade = null
-	if zone_id == "sky_lagoon" \
-			and String(main.g.get("phase", "")) == "promenade":
-		zone_promenade = main.call(
-			"_lagoon_promenade_ref") as SkyLagoonPromenade
-		if zone_promenade != null and zone_promenade.canvas_root() != null:
-			canvas_audit_root = zone_promenade.canvas_root()
+	var canvas_audit_root: Node = _zone_canvas_audit_root(main, zone_id)
+	var zone_promenade: SkyLagoonPromenade = main.call(
+		"_lagoon_promenade_ref") as SkyLagoonPromenade \
+		if zone_id == "sky_lagoon" else null
 	var spatial_count := _non_canvas_spatial_count(canvas_audit_root)
 	if nodes.is_empty():
 		var missing := {
@@ -539,6 +536,16 @@ func _canvas_parallax_facts(main: ReefMain, zone_id: String,
 	}
 	no_camera.merge(provenance)
 	return no_camera
+
+
+func _zone_canvas_audit_root(main: ReefMain, zone_id: String) -> Node:
+	if zone_id == "sky_lagoon" \
+			and String(main.g.get("phase", "")) == "promenade":
+		var promenade := main.call(
+			"_lagoon_promenade_ref") as SkyLagoonPromenade
+		if promenade != null and promenade.canvas_root() != null:
+			return promenade.canvas_root()
+	return get_root()
 
 
 func _collect_canvas_layers(node: Node, out: Array[Node]) -> void:
@@ -1081,38 +1088,54 @@ func _canvas_occlusion_facts(main: ReefMain, zone_id: String,
 			for layer_visual in layer_visuals:
 				if _visual_has_unresolved_alpha_effect(layer_visual):
 					unresolved_alpha_visuals[layer_visual.get_instance_id()] = true
-			var layer_order := _canvas_draw_order(layer_node)
-			if _draw_order_effect_count(layer_node, layer_visuals, layer_order) > 0:
-				for layer_visual in layer_visuals:
-					if _visual_has_ambiguous_draw_order(layer_visual, layer_node):
-						unresolved_draw_visuals[layer_visual.get_instance_id()] = true
-				continue
-			var overlap_facts := _painted_overlap(
-				target_visuals, layer_visuals, target_rect)
-			var overlap := float(overlap_facts.get("overlap_px2", 0.0))
-			if overlap <= 0.0 or int(overlap_facts.get("painted_sample_count", 0)) <= 0:
-				continue
-			var row := {
-				"instance_path": layer_path,
-				"draw_order": layer_order,
-				"overlap_px2": snappedf(overlap, 0.1),
-				"painted_sample_count": int(overlap_facts.get(
-					"painted_sample_count", 0)),
-				"target_painted_sample_count": int(overlap_facts.get(
-					"target_painted_sample_count", 0)),
-				"target_overlap_ratio": float(overlap_facts.get(
-					"target_overlap_ratio", 0.0)),
-				"alpha_threshold": float(overlap_facts.get(
-					"alpha_threshold", 0.0)),
-				"unresolved_alpha_effects": int(overlap_facts.get(
-					"unresolved_alpha_effects", 0)),
-				"overlap_method": CANVAS_OCCLUSION_METHOD,
-				"sample_step_px": CANVAS_OCCLUSION_SAMPLE_STEP,
-			}
-			if layer_order < target_order:
-				behind.append(row)
-			elif layer_order > target_order:
-				front.append(row)
+			var layer_order_groups: Dictionary = {}
+			for layer_visual in layer_visuals:
+				if _visual_has_ambiguous_draw_order(layer_visual, layer_node):
+					unresolved_draw_visuals[layer_visual.get_instance_id()] = true
+					continue
+				var visual_order := _canvas_draw_order(layer_visual)
+				if visual_order == target_order:
+					# Equal effective z across separate tagged subtrees still depends
+					# on sibling tree order, which this fact row does not encode.
+					unresolved_draw_visuals[layer_visual.get_instance_id()] = true
+					continue
+				if not layer_order_groups.has(visual_order):
+					layer_order_groups[visual_order] = []
+				(layer_order_groups[visual_order] as Array).append(layer_visual)
+			for layer_order_value: Variant in layer_order_groups:
+				var layer_order := int(layer_order_value)
+				var ordered_visuals: Array[Node] = []
+				for ordered_value: Variant in (
+						layer_order_groups[layer_order_value] as Array):
+					ordered_visuals.append(ordered_value as Node)
+				var overlap_facts := _painted_overlap(
+					target_visuals, ordered_visuals, target_rect)
+				var overlap := float(overlap_facts.get("overlap_px2", 0.0))
+				if overlap <= 0.0 \
+						or int(overlap_facts.get("painted_sample_count", 0)) <= 0:
+					continue
+				var row := {
+					"instance_path": layer_path,
+					"draw_order": layer_order,
+					"visual_count": ordered_visuals.size(),
+					"overlap_px2": snappedf(overlap, 0.1),
+					"painted_sample_count": int(overlap_facts.get(
+						"painted_sample_count", 0)),
+					"target_painted_sample_count": int(overlap_facts.get(
+						"target_painted_sample_count", 0)),
+					"target_overlap_ratio": float(overlap_facts.get(
+						"target_overlap_ratio", 0.0)),
+					"alpha_threshold": float(overlap_facts.get(
+						"alpha_threshold", 0.0)),
+					"unresolved_alpha_effects": int(overlap_facts.get(
+						"unresolved_alpha_effects", 0)),
+					"overlap_method": CANVAS_OCCLUSION_METHOD,
+					"sample_step_px": CANVAS_OCCLUSION_SAMPLE_STEP,
+				}
+				if layer_order < target_order:
+					behind.append(row)
+				else:
+					front.append(row)
 		samples.append({
 			"id": String(target.get("id", "")),
 			"target_instance_path": String(target.get("target_instance_path", "")),
@@ -1122,11 +1145,13 @@ func _canvas_occlusion_facts(main: ReefMain, zone_id: String,
 			"behind": behind,
 			"front": front,
 		})
+	var canvas_audit_root := _zone_canvas_audit_root(main, zone_id)
+	var zone_spatial_count := _non_canvas_spatial_count(canvas_audit_root)
 	var facts := {
-		"backend": "legacy_spatial" if _non_canvas_spatial_count(get_root()) > 0 else (
+		"backend": "legacy_spatial" if zone_spatial_count > 0 else (
 			"canvas_2d" if not layer_nodes.is_empty() else "missing"),
 		"method": CANVAS_OCCLUSION_METHOD,
-		"non_canvas_spatial_nodes": _non_canvas_spatial_count(get_root()),
+		"non_canvas_spatial_nodes": zone_spatial_count,
 		"unresolved_alpha_effects": unresolved_alpha_visuals.size(),
 		"unresolved_draw_order_effects": unresolved_draw_visuals.size(),
 		"samples": samples,

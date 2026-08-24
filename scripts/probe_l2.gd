@@ -601,14 +601,21 @@ func _validate_parallax_and_coordinates() -> void:
 		"foreground_geography", "foreground_lighting"]
 	var expected_z: Array[int] = [-500, -400, -400, -300, 0, 100, 300, 300]
 	var holder_contract_ok := true
+	var holders_present := true
 	for index: int in range(holders.size()):
 		var holder: Node2D = holders[index]
+		holders_present = holders_present and holder != null
 		holder_contract_ok = holder_contract_ok and holder != null \
 			and holder.get_index() == index and holder.z_index == expected_z[index] \
 			and String(holder.get_meta("visual_audit_layer_id", "")) \
 				== expected_audit_ids[index]
 	_check("eight_canvas_holders_have_exact_order_and_audit_ids",
 		holder_contract_ok, "ids=%s z=%s" % [expected_audit_ids, expected_z])
+	if not holders_present:
+		# The topology assertion above owns this failure. Stop before any
+		# coordinate/member access so a malformed scene reports controlled FAIL
+		# instead of hiding the defect behind a null-dereference script error.
+		return
 	promenade.set_master_route_x(2048.0)
 	var rear_before: float = rear.position.x if rear != null else 0.0
 	var foreground_before: float = foreground.position.x if foreground != null else 0.0

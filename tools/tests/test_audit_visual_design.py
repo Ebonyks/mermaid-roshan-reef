@@ -93,6 +93,16 @@ class RegistryContractTests(unittest.TestCase):
 			for rel in zone.get("builders", []) + zone.get("probes", []):
 				self.assertTrue((ROOT / rel).is_file(), f"{zone['id']} declares missing {rel}")
 
+	def test_lagoon_probe_stops_before_missing_holder_dereference(self) -> None:
+		probe_source = (ROOT / "scripts/probe_l2.gd").read_text(encoding="utf-8")
+		contract_start = probe_source.index("var holder_contract_ok")
+		guard_start = probe_source.index("if not holders_present:", contract_start)
+		first_coordinate_access = probe_source.index(
+			"var locked_before: Array[Vector2]", contract_start)
+		self.assertLess(guard_start, first_coordinate_access)
+		self.assertIn("\n\t\treturn\n", probe_source[
+			guard_start:first_coordinate_access])
+
 	def test_sky_lagoon_evidence_names_active_runtime_2d_assets(self) -> None:
 		sky_lagoon = next(
 			zone for zone in ava.load_spec()["zones"]
@@ -1650,12 +1660,15 @@ class VisualEvidenceContractTests(unittest.TestCase):
 				"_visual_has_unresolved_alpha_effect", "CanvasGroup",
 				"canvas_cull_mask", "visibility_layer", "custom_viewport",
 				"CanvasModulate", "Light2D", "_draw_order_effect_count",
-				"show_behind_parent", "y_sort_enabled", 'is_class("Node" + "3D")'):
+				"show_behind_parent", "y_sort_enabled", "layer_order_groups",
+				"visual_order == target_order", "_zone_canvas_audit_root",
+				'is_class("Node" + "3D")'):
 			self.assertIn(required, probe_source)
 		self.assertIn(
 			"current_canvas_global_effects = _visible_canvas_global_effect_count(get_root())",
 			probe_source)
-		self.assertIn("_non_canvas_spatial_count(get_root())", probe_source)
+		self.assertGreaterEqual(
+			probe_source.count("_zone_canvas_audit_root(main, zone_id)"), 2)
 		self.assertGreaterEqual(probe_source.count("_refresh_canvas_global_effects()"), 8)
 
 	def test_occlusion_requires_meaningful_alpha_area_and_ratio(self) -> None:

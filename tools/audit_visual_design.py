@@ -216,7 +216,8 @@ CANVAS_MOTION_METHOD = "viewport_canvas_transform_delta"
 CANVAS_DRAW_ORDER_METHOD = \
     "deterministic_effective_canvas_z_verified_descendants_v3"
 SOURCE_PROJECTION_METHOD = "independent_source_alpha_inverse_canvas_v1"
-CANVAS_OCCLUSION_METHOD = "live_canvas_alpha_overlap_samples_v2"
+CANVAS_OCCLUSION_METHOD = \
+    "live_canvas_alpha_overlap_effective_z_groups_v3"
 TEMPORAL_FREEZE_METHOD = "engine_time_scale_zero_alternating_visibility_v1"
 
 RUNTIME_MANIFEST_SUFFIXES = (
