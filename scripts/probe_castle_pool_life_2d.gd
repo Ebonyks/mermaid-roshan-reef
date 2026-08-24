@@ -1,74 +1,40 @@
 extends SceneTree
+## Regression guard: the rejected Mermaid Pool overlay must stay absent.
+## The bathroom still unlocks the pool through DayOneDirector state only.
 
-const PoolSurfaceLife := preload("res://scripts/castle_pool_surface_life.gd")
-const CASTLE_ROOMS_SOURCE := "res://scripts/arena/castle_rooms_25d.gd"
-const PLAYER_BACK_DEPTH := 1.25
-const SEAHORSE_STREAM_OFFSET := 0.013
+const DIRECTOR_SCRIPT: GDScript = preload("res://scripts/day_one_director.gd")
 
-var failures: Array[String] = []
+var checks_failed: int = 0
 
 
 func _init() -> void:
-	print("=== probe_castle_pool_life_2d ===")
-	var surface: CastlePoolSurfaceLife = PoolSurfaceLife.new()
-	root.add_child(surface)
-	var snapshot: Dictionary = surface.audit_snapshot()
-	_check(bool(snapshot.get("canvas_only", false)),
-		"pool life is a CanvasItem")
-	_check(int(snapshot.get("point_count", 0)) == 4,
-		"pool life is one bounded quad")
-	_check(int(snapshot.get("surface_pixels", 0))
-		<= int(snapshot.get("max_surface_pixels", 0)),
-		"bounded fragment footprint stays within mobile budget")
-	_check(float(snapshot.get("depth", 99.0)) < PLAYER_BACK_DEPTH,
-		"water motion stays behind Roshan at every walk depth")
-	_check(ResourceLoader.exists(String(snapshot.get("shader", ""))),
-		"pool-life Canvas shader exists")
-	_check(ResourceLoader.exists(String(snapshot.get("ripple", ""))),
-		"approved ripple texture exists")
-	_check(ResourceLoader.exists(String(snapshot.get("caustics", ""))),
-		"approved caustics texture exists")
-	var shader: Shader = load(String(snapshot.get("shader", ""))) as Shader
-	_check(shader != null and "TIME" in shader.code,
-		"water surface has continuous time-based motion")
-	_check(shader != null and "pool_mask" in shader.code,
-		"water motion is analytically clipped to the pool")
-	var source := FileAccess.get_file_as_string(CASTLE_ROOMS_SOURCE)
-	_check("CASTLE_POOL_SURFACE_LIFE.new()" in source,
-		"Mermaid Pool builds the living surface")
-	var seahorse_depth := _seahorse_depth_from_source(source)
-	_check(seahorse_depth + SEAHORSE_STREAM_OFFSET < PLAYER_BACK_DEPTH,
-		"seahorse body and stream always stay behind Roshan")
-	_check("sprite.z_index = _depth_to_z_index(player_z)" in source,
-		"tweened swims continuously refresh player depth")
-	_check(_all_canvas_items(surface),
-		"pool-life runtime subtree is true 2D")
-	surface.queue_free()
-	if failures.is_empty():
-		print("PROBE castle pool life 2D: ALL OK")
-		quit(0)
-	else:
-		for failure: String in failures:
-			print("FAIL | ", failure)
-		quit(1)
+	var rooms_source: String = FileAccess.get_file_as_string(
+		"res://scripts/arena/castle_rooms_25d.gd")
+	_check("no pool overlay runtime hook",
+		not rooms_source.contains("CASTLE_POOL_SURFACE_LIFE")
+		and not rooms_source.contains("_build_mermaid_pool_surface_life"))
+	_check("rejected pool overlay resources are absent",
+		not FileAccess.file_exists(
+			"res://scripts/castle_pool_surface_life.gd")
+		and not FileAccess.file_exists(
+			"res://assets/shaders/castle_pool_surface_life.gdshader"))
+
+	var main: ReefMain = ReefMain.new()
+	var director: DayOneDirector = DIRECTOR_SCRIPT.new(main) as DayOneDirector
+	_check("bathroom completion still unlocks the pool",
+		director.current_room_id == "bathroom"
+		and director.complete_tutorial("bathroom")
+		and director.current_room_id == "pool"
+		and director.can_enter_room("pool"))
+	main.free()
+	print("CASTLE_POOL_OVERLAY_ABSENCE|RESULT: ",
+		"PASS" if checks_failed == 0 else "FAIL",
+		" checks_failed=", checks_failed)
+	quit(1 if checks_failed > 0 else 0)
 
 
-func _seahorse_depth_from_source(source: String) -> float:
-	var marker := "\"pos\": Vector2(635, 90), \"z\": PLAYER_BACK_Z - 0.05"
-	return PLAYER_BACK_DEPTH - 0.05 if marker in source else 99.0
-
-
-func _all_canvas_items(node: Node) -> bool:
-	if not node is CanvasItem:
-		return false
-	for child: Node in node.get_children():
-		if not _all_canvas_items(child):
-			return false
-	return true
-
-
-func _check(condition: bool, label: String) -> void:
-	if condition:
-		print("OK | ", label)
-	else:
-		failures.append(label)
+func _check(label: String, ok: bool) -> void:
+	if not ok:
+		checks_failed += 1
+	print("CASTLE_POOL_OVERLAY_ABSENCE|", label, ": ",
+		"OK" if ok else "FAIL")

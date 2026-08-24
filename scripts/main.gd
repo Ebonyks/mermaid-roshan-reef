@@ -302,6 +302,7 @@ var day_one_grok_video_2_seen: bool = false
 var day_one_boss_door_glow: bool = false
 var day_one_giant_dust_bunny_boss_triggered: bool = false
 var day_one_bathroom_cleanup_step: int = 0
+var day_one_bathroom_supply_hunt_step: int = 0
 var day_one_pool_cleanup_step: int = 0
 var day_one_pool_rumi_met: bool = false
 var day_one_event_seen: Dictionary = {}
@@ -6832,15 +6833,28 @@ func day_one_record_bathroom_cleanup_step(step: int) -> void:
 		day_one_bathroom_cleanup_step, step), 0, 3)
 	_queue_save()
 
+func day_one_record_bathroom_supply_step(step: int) -> void:
+	if not day_one_is_active():
+		return
+	day_one_bathroom_supply_hunt_step = clampi(maxi(
+		day_one_bathroom_supply_hunt_step, step), 0, 2)
+	_queue_save()
+
 func day_one_complete_bathroom_scene() -> bool:
 	if not day_one_is_active():
 		return false
 	var director: DayOneDirector = _day_one_ref()
 	if director.is_room_completed("bathroom"):
 		return false
-	day_one_bathroom_cleanup_step = 3
+	# The pool unlock is downstream of both the ordered supply hunt and the two
+	# live cleaning gestures. A stale or partial save must never skip either.
+	if day_one_bathroom_supply_hunt_step < 2 \
+			or day_one_bathroom_cleanup_step < 2:
+		return false
 	if not director.complete_tutorial("bathroom"):
 		return false
+	day_one_bathroom_cleanup_step = 3
+	day_one_bathroom_supply_hunt_step = 2
 	_castle_rooms_ref().apply_day_one_cleanup("bubble_bath")
 	_day_one_sync_castle_dressing()
 	_write_save()

@@ -6,6 +6,7 @@ const REQUIRED_WIRING: Dictionary = {
 	"res://scripts/main.gd": [
 		"var day_one_bathroom_cleanup_step: int = 0",
 		"func day_one_record_bathroom_cleanup_step",
+		"func day_one_record_bathroom_supply_step",
 		"func day_one_complete_bathroom_scene",
 		"start_day_one_bathroom_cleanup()",
 	],
@@ -16,6 +17,7 @@ const REQUIRED_WIRING: Dictionary = {
 	],
 	"res://scripts/day_one_director.gd": [
 		"day_one_bathroom_cleanup_step",
+		"day_one_bathroom_supply_hunt_step",
 		"saved_bathroom_step",
 	],
 }
@@ -31,9 +33,12 @@ func _init() -> void:
 		and director.unlocked_room_ids() == ["bathroom"]
 		and not director.can_enter_room("pool"))
 	main.day_one_bathroom_cleanup_step = 2
+	main.day_one_bathroom_supply_hunt_step = 1
 	var mid_rescue_save: Dictionary = director.serialize_state()
 	_check("mid-rescue step enters the additive Day One save",
 		int(mid_rescue_save.get("day_one_bathroom_cleanup_step", -1)) == 2)
+	_check("mid-hunt supply progress enters additive Day One save",
+		int(mid_rescue_save.get("day_one_bathroom_supply_hunt_step", -1)) == 1)
 
 	var restored_main := ReefMain.new()
 	var restored: DayOneDirector = DIRECTOR_SCRIPT.new(restored_main) \
@@ -43,7 +48,14 @@ func _init() -> void:
 		restored_main.day_one_bathroom_cleanup_step == 2
 		and restored.current_room_id == "bathroom"
 		and not restored.can_enter_room("pool"))
-	_check("bathroom completion unlocks the pool immediately",
+	_check("mid-hunt supply progress restores without loss",
+		restored_main.day_one_bathroom_supply_hunt_step == 1)
+	_check("partial bathroom completion cannot unlock the pool",
+		not restored_main.day_one_complete_bathroom_scene()
+		and restored.current_room_id == "bathroom"
+		and not restored.can_enter_room("pool"))
+	restored_main.day_one_bathroom_supply_hunt_step = 2
+	_check("bathroom completion unlocks the pool after both gestures",
 		restored.complete_tutorial("bathroom")
 		and restored_main.day_one_bathroom_cleanup_step == 3
 		and restored.current_room_id == "pool"

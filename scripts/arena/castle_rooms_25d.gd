@@ -20,8 +20,6 @@ const DAY_ONE_BATHROOM_CLEANUP := preload(
 	"res://scripts/games/day_one_bathroom_cleanup.gd")
 const DAY_ONE_POOL_CLEANUP := preload(
 	"res://scripts/games/day_one_pool_cleanup.gd")
-const CASTLE_POOL_SURFACE_LIFE := preload(
-	"res://scripts/castle_pool_surface_life.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
@@ -1809,6 +1807,8 @@ func _sync_day_one_bathroom_cleanup(room_id: String) -> void:
 	m.castle_room_stage.add_child(day_one_bathroom_cleanup)
 	day_one_bathroom_cleanup.cleanup_step_completed.connect(
 		_on_day_one_bathroom_cleanup_step)
+	day_one_bathroom_cleanup.supply_hunt_completed.connect(
+		_on_day_one_bathroom_supply_hunt_completed)
 	day_one_bathroom_cleanup.finale_started.connect(
 		_on_day_one_bathroom_finale_started)
 	day_one_bathroom_cleanup.cleanup_completed.connect(
@@ -1834,6 +1834,15 @@ func _clear_day_one_bathroom_cleanup() -> void:
 func _on_day_one_bathroom_cleanup_step(step: int, cleanup_id: String) -> void:
 	m.day_one_record_bathroom_cleanup_step(step)
 	m.g["day_one_bathroom_last_cleanup"] = cleanup_id
+
+
+func _on_day_one_bathroom_supply_hunt_completed() -> void:
+	# This is only the handoff to the later sink/tub owner. Room completion and
+	# pool unlock still require day_one_complete_bathroom_scene().
+	if day_one_bathroom_cleanup != null \
+			and is_instance_valid(day_one_bathroom_cleanup):
+		day_one_bathroom_cleanup.begin_cleaning_handoff()
+	m.g["day_one_bathroom_supply_hunt_complete"] = true
 
 
 func _on_day_one_bathroom_finale_started() -> void:
@@ -2228,16 +2237,6 @@ func _rebuild_depth_layers(room_id: String) -> void:
 		_add_layer_piece(m.castle_room_mid_layer, piece_data, MIDGROUND_Z)
 	for piece_data: Dictionary in layout.get("front", []):
 		_add_layer_piece(m.castle_room_front_layer, piece_data, FOREGROUND_Z)
-	if room_id == "mermaid_pool":
-		_build_mermaid_pool_surface_life()
-
-
-func _build_mermaid_pool_surface_life() -> void:
-	if m.castle_room_mid_layer == null:
-		return
-	var living_surface: CastlePoolSurfaceLife = CASTLE_POOL_SURFACE_LIFE.new()
-	m.castle_room_mid_layer.add_child(living_surface)
-
 func _build_hall_door_signs() -> void:
 	if m.castle_room_mid_layer == null:
 		return

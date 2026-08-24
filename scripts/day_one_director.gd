@@ -58,6 +58,7 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_boss_door_glow",
 	"day_one_giant_dust_bunny_boss_triggered",
 	"day_one_bathroom_cleanup_step",
+	"day_one_bathroom_supply_hunt_step",
 	"day_one_pool_cleanup_step",
 	"day_one_pool_rumi_met",
 ]
@@ -117,6 +118,11 @@ var bathroom_cleanup_step: int:
 		return m.day_one_bathroom_cleanup_step
 	set(value):
 		m.day_one_bathroom_cleanup_step = value
+var bathroom_supply_hunt_step: int:
+	get:
+		return m.day_one_bathroom_supply_hunt_step
+	set(value):
+		m.day_one_bathroom_supply_hunt_step = value
 var pool_cleanup_step: int:
 	get:
 		return m.day_one_pool_cleanup_step
@@ -242,6 +248,7 @@ func complete_room(room_id: String) -> bool:
 		return false
 	if id == "bathroom":
 		bathroom_cleanup_step = 3
+		bathroom_supply_hunt_step = 2
 	if id == "pool":
 		pool_cleanup_step = 4
 		pool_rumi_met = true
@@ -323,6 +330,7 @@ func serialize_state() -> Dictionary:
 		"day_one_giant_dust_bunny_boss_triggered": \
 			giant_dust_bunny_boss_triggered,
 		"day_one_bathroom_cleanup_step": bathroom_cleanup_step,
+		"day_one_bathroom_supply_hunt_step": bathroom_supply_hunt_step,
 		"day_one_pool_cleanup_step": pool_cleanup_step,
 		"day_one_pool_rumi_met": pool_rumi_met,
 	}
@@ -351,6 +359,8 @@ func _normalise_state(source: Dictionary) -> void:
 		"day_one_giant_dust_bunny_boss_triggered", false))
 	bathroom_cleanup_step = int(normalised.get(
 		"day_one_bathroom_cleanup_step", 0))
+	bathroom_supply_hunt_step = int(normalised.get(
+		"day_one_bathroom_supply_hunt_step", 0))
 	pool_cleanup_step = int(normalised.get("day_one_pool_cleanup_step", 0))
 	pool_rumi_met = bool(normalised.get("day_one_pool_rumi_met", false))
 
@@ -380,6 +390,10 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_bathroom_cleanup_step", 3 if bathroom_done else 0)), 0, 3)
 	if bathroom_done:
 		saved_bathroom_step = 3
+	var saved_supply_hunt_step: int = clampi(int(source.get(
+		"day_one_bathroom_supply_hunt_step", 2 if bathroom_done else 0)), 0, 2)
+	if bathroom_done:
+		saved_supply_hunt_step = 2
 	var saved_pool_step: int = clampi(int(source.get(
 		"day_one_pool_cleanup_step", 4 if pool_done else 0)), 0, 4)
 	if pool_done:
@@ -403,6 +417,7 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_giant_dust_bunny_boss_triggered": all_done and _as_bool_static(
 			source.get("day_one_giant_dust_bunny_boss_triggered", false), false),
 		"day_one_bathroom_cleanup_step": saved_bathroom_step,
+		"day_one_bathroom_supply_hunt_step": saved_supply_hunt_step,
 		"day_one_pool_cleanup_step": saved_pool_step,
 		"day_one_pool_rumi_met": pool_done or _as_bool_static(
 			source.get("day_one_pool_rumi_met", false), false),
