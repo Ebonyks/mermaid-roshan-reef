@@ -66,12 +66,18 @@ func _init() -> void:
 		and not bool(malformed.get("day_one_art_desk_unlocked", false))
 		and not bool(malformed.get("day_one_art_customization_completed", false)))
 	var studio := DayOneArtStudio.new()
+	# The focused probe omits the full castle scene, so provide the same Canvas
+	# world owner that the real Craft Room mounts before the studio opens.
+	main.castle_room_world_root = Node2D.new()
+	root.add_child(main.castle_room_world_root)
 	root.add_child(studio)
 	studio.setup(main, false)
 	var studio_audit: Dictionary = studio.audit_snapshot()
 	_check("studio builds seven large Canvas cleanup targets at castle scale",
 		int(studio_audit.get("material_count", 0)) == 4
 		and int(studio_audit.get("grime_count", 0)) == 3
+		and int(studio_audit.get("material_art_count", 0)) == 4
+		and int(studio_audit.get("grime_art_count", 0)) == 3
 		and bool(studio_audit.get("canvas_only", false))
 		and studio.scale.is_equal_approx(Vector2.ONE * 1.25))
 	var customizer := AttackCustomizer.new()
@@ -83,6 +89,8 @@ func _init() -> void:
 		int(customizer_audit.get("color_choices", 0)) == 5
 		and int(customizer_audit.get("effect_choices", 0)) == 2
 		and bool(customizer_audit.get("confirm_button", false))
+		and bool(customizer_audit.get("painted_brush", false))
+		and bool(customizer_audit.get("painted_effect_previews", false))
 		and bool(customizer_audit.get("canvas_only", false)))
 	# SceneTree teardown owns the two root children. Queueing them during
 	# SceneTree._init() trips Godot's root lock even though gameplay teardown is

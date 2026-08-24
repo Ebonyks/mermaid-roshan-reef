@@ -83,6 +83,8 @@ const SLASH_COOL := 0.9
 const SLASH_RIBBON_T := 0.28       # seconds the ribbon lingers
 const DEFAULT_ATTACK_COLOR := Color(0.2705882353, 0.8588235294, 0.9215686275, 1.0)
 const DEFAULT_ATTACK_EFFECT := "bubbles"
+const ATTACK_BUBBLE_FX := preload("res://assets/sprites/fx_water/fx_water_bubble_burst_atlas.png")
+const ATTACK_SPLASH_FX := preload("res://assets/sprites/fx_water/fx_water_splash_medium_atlas.png")
 
 var m: ReefMain
 # ENEMY PRIORITY RULE (owner decision 2026-07-28): enemies always sit in
@@ -125,43 +127,38 @@ class AttackFx2D extends Node2D:
 	var tint: Color = DEFAULT_ATTACK_COLOR
 	var effect := DEFAULT_ATTACK_EFFECT
 	var age := 0.0
-	var duration := 0.52
+	var duration := 0.58
+	var sprite: Sprite2D = null
+	var frame_count := 8
 
-	func configure(color: Color, style: String) -> void:
+	func configure(color: Color, style: String, bubble_texture: Texture2D,
+			splash_texture: Texture2D) -> void:
 		tint = color
 		effect = style if style in ["bubbles", "splashes"] else DEFAULT_ATTACK_EFFECT
-		queue_redraw()
+		sprite = Sprite2D.new()
+		sprite.name = "PaintedAttackFx"
+		sprite.texture = bubble_texture if effect == "bubbles" else splash_texture
+		sprite.hframes = 4 if effect == "bubbles" else 3
+		sprite.vframes = 2 if effect == "bubbles" else 3
+		sprite.frame = 0
+		sprite.scale = Vector2.ONE * (0.48 if effect == "bubbles" else 0.42)
+		sprite.modulate = Color(lerpf(1.0, tint.r, 0.64),
+			lerpf(1.0, tint.g, 0.64), lerpf(1.0, tint.b, 0.64), 1.0)
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		add_child(sprite)
 
 	func _process(delta: float) -> void:
 		age += delta
-		queue_redraw()
+		var progress: float = clampf(age / duration, 0.0, 1.0)
+		if sprite != null:
+			sprite.frame = mini(int(floor(progress * float(frame_count))), frame_count - 1)
+			sprite.position.y = -18.0 * progress
+			var swell: float = 1.0 + sin(progress * PI) * 0.14
+			var base_scale: float = 0.48 if effect == "bubbles" else 0.42
+			sprite.scale = Vector2.ONE * base_scale * swell
+			sprite.modulate.a = clampf((1.0 - progress) * 1.45, 0.0, 1.0)
 		if age >= duration:
 			queue_free()
-
-	func _draw() -> void:
-		var progress: float = clampf(age / duration, 0.0, 1.0)
-		var fade: float = 1.0 - progress
-		var lift: float = -34.0 * progress
-		var center := Vector2(0.0, lift)
-		if effect == "bubbles":
-			for i in range(4):
-				var phase: float = TAU * float(i) / 4.0
-				var drift := Vector2(cos(phase), sin(phase) * 0.55) * (18.0 + progress * 28.0)
-				var radius: float = 7.0 + float(i % 2) * 4.0
-				draw_circle(center + drift, radius, Color(tint.r, tint.g, tint.b, 0.16 * fade), false, 4.0)
-		else:
-			for i in range(5):
-				var phase: float = lerpf(PI * 1.08, PI * 1.92, float(i) / 4.0)
-				var start := center + Vector2(cos(phase), sin(phase)) * 7.0
-				var finish := center + Vector2(cos(phase), sin(phase)) * (
-					22.0 + progress * 28.0)
-				var splash_color := Color(tint.r, tint.g, tint.b, 0.76 * fade)
-				draw_line(start, finish, splash_color, 5.0, true)
-				draw_circle(finish, 3.5 + float(i % 2) * 1.5, splash_color)
-			draw_arc(center + Vector2(0.0, 10.0), 16.0 + progress * 20.0,
-				PI, TAU, 20, Color(tint.r, tint.g, tint.b, 0.62 * fade),
-				5.0, true)
-		draw_circle(center, 5.0 + progress * 4.0, Color(tint.r, tint.g, tint.b, 0.74 * fade))
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -198,7 +195,7 @@ func show_attack_feedback_2d(screen_pos: Vector2, color: Color = Color.TRANSPARE
 		m.add_child(attack_fx_layer)
 	var fx := AttackFx2D.new()
 	fx.position = screen_pos
-	fx.configure(tint, style)
+	fx.configure(tint, style, ATTACK_BUBBLE_FX, ATTACK_SPLASH_FX)
 	attack_fx_layer.add_child(fx)
 
 # Called once per frame by the hosting encounter: the chain window decays

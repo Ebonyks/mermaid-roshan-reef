@@ -2616,6 +2616,30 @@ generations and transparent source masters remain preserved.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png` - 256x256 transparent pearl-crown emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png` - 256x256 transparent complete-butterfly emblem cell from the authored motif master.
 
+## Day One Art Studio item art (2026-08-23)
+
+All files in this section are project-original OpenAI built-in ImageGen art or
+deterministic transparent derivatives of it; license: project original; URL:
+none. Exact prompts, generation-result identifiers, SHA-256 hashes, rejected
+attempts, reference-role limits, and review status are recorded in
+`assets_src/imagegen/day_one_art_studio_2026-08-23/PROVENANCE.md`. Runtime
+derivatives are reproducibly prepared by `tools/prepare_day_one_art_studio.py`;
+the selected native generations remain preserved.
+
+- `assets_src/imagegen/day_one_art_studio_2026-08-23/loose_brush_bundle_native.png` - selected native three-brush item generation.
+- `assets_src/imagegen/day_one_art_studio_2026-08-23/paint_bottle_pair_native.png` - selected native two-bottle atlas generation.
+- `assets_src/imagegen/day_one_art_studio_2026-08-23/paint_cups_native.png` - selected native three-cup group generation.
+- `assets_src/imagegen/day_one_art_studio_2026-08-23/grime_patches_native.png` - selected native three-patch matte grime atlas generation.
+- `assets_src/imagegen/day_one_art_studio_2026-08-23/magic_cleaning_brush_native.png` - selected native customizer-brush generation.
+- `assets/castle/day_one_art_studio/loose_brush_bundle.png` - transparent 768×512 runtime brush-group derivative.
+- `assets/castle/day_one_art_studio/paint_bottle_pink.png` - transparent 384×512 left-atlas bottle derivative.
+- `assets/castle/day_one_art_studio/paint_bottle_blue.png` - transparent 384×512 right-atlas bottle derivative.
+- `assets/castle/day_one_art_studio/paint_cups.png` - transparent 768×512 runtime cup-group derivative.
+- `assets/castle/day_one_art_studio/grime_left.png` - transparent 512×306 left grime derivative.
+- `assets/castle/day_one_art_studio/grime_desk.png` - transparent 512×346 desk grime derivative.
+- `assets/castle/day_one_art_studio/grime_right.png` - transparent 512×307 right grime derivative.
+- `assets/castle/day_one_art_studio/magic_cleaning_brush.png` - transparent 936×1024 runtime customizer-brush derivative.
+
 ## Day One Pool natural-integration reference (2026-08-23)
 
 - `assets_src/imagegen/day_one_pool_natural_integration_2026-08-23/room_activity_integration_reference_native.png` - project-original OpenAI built-in ImageGen full-frame visual-integration reference generated only from project-owned Mermaid Pool art; license: project original; URL: none. It is non-runtime reference art, not a replacement for the approved room or V4 fixture identities. Exact prompt, source roles, result ID, SHA-256, review decision, and rejected attempts are recorded in the adjacent `PROMPT.md` and `PROVENANCE.md`.
