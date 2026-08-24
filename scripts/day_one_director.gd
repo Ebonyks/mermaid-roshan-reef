@@ -67,8 +67,6 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_giant_dust_bunny_boss_triggered",
 	"day_one_bathroom_cleanup_step",
 	"day_one_bathroom_supply_hunt_step",
-	"day_one_bathroom_rebuild_replay_pending",
-	"day_one_bathroom_rebuild_replay_seen",
 	"day_one_pool_cleanup_step",
 	"day_one_pool_rumi_met",
 	"day_one_pool_skimmer_mask",
@@ -140,16 +138,6 @@ var bathroom_supply_hunt_step: int:
 		return m.day_one_bathroom_supply_hunt_step
 	set(value):
 		m.day_one_bathroom_supply_hunt_step = value
-var bathroom_rebuild_replay_pending: bool:
-	get:
-		return m.day_one_bathroom_rebuild_replay_pending
-	set(value):
-		m.day_one_bathroom_rebuild_replay_pending = value
-var bathroom_rebuild_replay_seen: bool:
-	get:
-		return m.day_one_bathroom_rebuild_replay_seen
-	set(value):
-		m.day_one_bathroom_rebuild_replay_seen = value
 var pool_cleanup_step: int:
 	get:
 		return m.day_one_pool_cleanup_step
@@ -291,6 +279,8 @@ func complete_activity(room_id: String, activity_id: String = "") -> bool:
 
 
 func complete_tutorial(room_id: String) -> bool:
+	if not day_one_active:
+		return false
 	var id: String = _normalise_room_id(room_id)
 	if id == "":
 		return false
@@ -298,19 +288,6 @@ func complete_tutorial(room_id: String) -> bool:
 	if String(definition.get("kind", "")) != "tutorial":
 		return false
 	return complete_activity(id, String(definition.get("activity_id", "")))
-
-
-## Finishes the rebuilt bathroom once for saves that already completed the
-## primitive placeholder. Progress and unlocked rooms stay untouched.
-func complete_bathroom_rebuild_replay() -> bool:
-	if not bathroom_rebuild_replay_pending \
-			or not is_room_completed("bathroom"):
-		return false
-	bathroom_cleanup_step = 3
-	bathroom_supply_hunt_step = 2
-	bathroom_rebuild_replay_pending = false
-	bathroom_rebuild_replay_seen = true
-	return true
 
 
 func complete_placeholder(room_id: String, activity_id: String = "") -> bool:
@@ -375,8 +352,6 @@ func complete_room(room_id: String) -> bool:
 	if id == "bathroom":
 		bathroom_cleanup_step = 3
 		bathroom_supply_hunt_step = 2
-		bathroom_rebuild_replay_pending = false
-		bathroom_rebuild_replay_seen = true
 	if id == "pool":
 		pool_cleanup_step = 4
 		pool_rumi_met = true
@@ -462,9 +437,6 @@ func serialize_state() -> Dictionary:
 			giant_dust_bunny_boss_triggered,
 		"day_one_bathroom_cleanup_step": bathroom_cleanup_step,
 		"day_one_bathroom_supply_hunt_step": bathroom_supply_hunt_step,
-		"day_one_bathroom_rebuild_replay_pending": \
-			bathroom_rebuild_replay_pending,
-		"day_one_bathroom_rebuild_replay_seen": bathroom_rebuild_replay_seen,
 		"day_one_pool_cleanup_step": pool_cleanup_step,
 		"day_one_pool_rumi_met": pool_rumi_met,
 		"day_one_pool_skimmer_mask": pool_skimmer_mask,
@@ -502,10 +474,6 @@ func _normalise_state(source: Dictionary) -> void:
 		"day_one_bathroom_cleanup_step", 0))
 	bathroom_supply_hunt_step = int(normalised.get(
 		"day_one_bathroom_supply_hunt_step", 0))
-	bathroom_rebuild_replay_pending = bool(normalised.get(
-		"day_one_bathroom_rebuild_replay_pending", false))
-	bathroom_rebuild_replay_seen = bool(normalised.get(
-		"day_one_bathroom_rebuild_replay_seen", false))
 	pool_cleanup_step = int(normalised.get("day_one_pool_cleanup_step", 0))
 	pool_rumi_met = bool(normalised.get("day_one_pool_rumi_met", false))
 	pool_skimmer_mask = int(normalised.get("day_one_pool_skimmer_mask", 0))
@@ -542,31 +510,13 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	var all_done: bool = completed.size() == ROOM_ORDER.size()
 	var bathroom_done: bool = completed.has("bathroom")
 	var pool_done: bool = completed.has("pool")
-	var day_active: bool = _as_bool_static(source.get(
-		"day_one_active", true), true)
-	var has_bathroom_rescue_steps: bool = source.has(
-		"day_one_bathroom_cleanup_step") and source.has(
-		"day_one_bathroom_supply_hunt_step")
-	var legacy_bathroom_completion: bool = bathroom_done \
-		and not has_bathroom_rescue_steps \
-		and not source.has("day_one_bathroom_rebuild_replay_pending") \
-		and not source.has("day_one_bathroom_rebuild_replay_seen")
-	var replay_seen: bool = _as_bool_static(source.get(
-		"day_one_bathroom_rebuild_replay_seen",
-		bathroom_done and has_bathroom_rescue_steps), false)
-	var replay_pending: bool = not replay_seen \
-		and _as_bool_static(source.get(
-			"day_one_bathroom_rebuild_replay_pending",
-			legacy_bathroom_completion), legacy_bathroom_completion)
 	var saved_bathroom_step: int = clampi(int(source.get(
-		"day_one_bathroom_cleanup_step",
-		0 if replay_pending else 3 if bathroom_done else 0)), 0, 3)
-	if bathroom_done and not replay_pending:
+		"day_one_bathroom_cleanup_step", 3 if bathroom_done else 0)), 0, 3)
+	if bathroom_done:
 		saved_bathroom_step = 3
 	var saved_supply_hunt_step: int = clampi(int(source.get(
-		"day_one_bathroom_supply_hunt_step",
-		0 if replay_pending else 2 if bathroom_done else 0)), 0, 2)
-	if bathroom_done and not replay_pending:
+		"day_one_bathroom_supply_hunt_step", 2 if bathroom_done else 0)), 0, 2)
+	if bathroom_done:
 		saved_supply_hunt_step = 2
 	var saved_pool_step: int = clampi(int(source.get(
 		"day_one_pool_cleanup_step", 4 if pool_done else 0)), 0, 4)
@@ -590,7 +540,8 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	# the next frame from ever losing progress or trapping the child.
 	var art_desk: bool = art_cleanup_done
 	return {
-		"day_one_active": day_active,
+		"day_one_active": _as_bool_static(source.get(
+			"day_one_active", true), true),
 		"day_one_current_room": current,
 		"day_one_completed_rooms": completed,
 		"day_one_cleaned_rooms": cleaned,
@@ -608,8 +559,6 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 			source.get("day_one_giant_dust_bunny_boss_triggered", false), false),
 		"day_one_bathroom_cleanup_step": saved_bathroom_step,
 		"day_one_bathroom_supply_hunt_step": saved_supply_hunt_step,
-		"day_one_bathroom_rebuild_replay_pending": replay_pending,
-		"day_one_bathroom_rebuild_replay_seen": replay_seen,
 		"day_one_pool_cleanup_step": saved_pool_step,
 		"day_one_pool_rumi_met": pool_done or _as_bool_static(
 			source.get("day_one_pool_rumi_met", false), false),

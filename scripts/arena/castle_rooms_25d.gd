@@ -1732,10 +1732,9 @@ func show_room(room_id: String, announce: bool = true) -> void:
 		_sync_movie_picture()
 	var day_one_activity: bool = m.day_one_is_active() \
 		and m.DAY_ONE_CASTLE_ROOM_IDS.has(room_id)
-	var day_one_bathroom_needs_cleanup: bool = room_id == "bubble_bath" \
-		and (m.day_one_bathroom_rebuild_replay_pending \
-			or (day_one_activity \
-				and not m.day_one_castle_room_is_clean(room_id)))
+	var day_one_bathroom_needs_cleanup: bool = day_one_activity \
+		and room_id == "bubble_bath" \
+		and not m.day_one_castle_room_is_clean(room_id)
 	var day_one_pool_needs_cleanup: bool = day_one_activity \
 		and room_id == "mermaid_pool" \
 		and not m.day_one_castle_room_is_clean(room_id)
@@ -1789,18 +1788,14 @@ func apply_day_one_cleanup(room_id: String) -> void:
 
 func start_day_one_bathroom_cleanup() -> void:
 	if m.castle_room_id != "bubble_bath" \
-			or (m.day_one_castle_room_is_clean("bubble_bath") \
-				and not m.day_one_bathroom_rebuild_replay_pending):
+			or m.day_one_castle_room_is_clean("bubble_bath"):
 		return
 	_sync_day_one_bathroom_cleanup("bubble_bath")
 
 
 func _sync_day_one_bathroom_cleanup(room_id: String) -> void:
-	if room_id != "bubble_bath" \
-			or (not m.day_one_is_active() \
-				and not m.day_one_bathroom_rebuild_replay_pending) \
-			or (m.day_one_castle_room_is_clean(room_id) \
-				and not m.day_one_bathroom_rebuild_replay_pending) \
+	if room_id != "bubble_bath" or not m.day_one_is_active() \
+			or m.day_one_castle_room_is_clean(room_id) \
 			or m.castle_room_stage == null:
 		_clear_day_one_bathroom_cleanup()
 		return
