@@ -2615,3 +2615,7 @@ generations and transparent source masters remain preserved.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_heart.png` - 256x256 transparent heart emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png` - 256x256 transparent pearl-crown emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png` - 256x256 transparent complete-butterfly emblem cell from the authored motif master.
+
+## Day One Pool natural-integration reference (2026-08-23)
+
+- `assets_src/imagegen/day_one_pool_natural_integration_2026-08-23/room_activity_integration_reference_native.png` - project-original OpenAI built-in ImageGen full-frame visual-integration reference generated only from project-owned Mermaid Pool art; license: project original; URL: none. It is non-runtime reference art, not a replacement for the approved room or V4 fixture identities. Exact prompt, source roles, result ID, SHA-256, review decision, and rejected attempts are recorded in the adjacent `PROMPT.md` and `PROVENANCE.md`.
