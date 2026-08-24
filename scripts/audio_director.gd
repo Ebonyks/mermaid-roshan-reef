@@ -133,7 +133,18 @@ func _speaker_key(who: String) -> String:
 	if "maestro" in w: return "maestro"
 	if "kareem" in w: return "shop"
 	if "imp" in w: return "imp"
-	return "roshan"
+	# Location/activity labels are captions, not speaking characters. Route
+	# their missing exact recordings through the non-character fallback instead
+	# of making Roshan appear to say an Ember King, room, or activity line.
+	# Keep this explicit so future labels cannot silently acquire Roshan's
+	# identity through the default branch.
+	if w in ["ember king", "ember fortress", "dusty attic", "toy castle",
+			"fairy pond", "secret cave", "penguin slide", "music room",
+			"rainbow road", "ocean race", "butterfly world", "pearl castle",
+			"wacky and chuck", "faron and her dolls", "evie and lamb-a'",
+			"harper and fiona"]:
+		return "environment"
+	return "environment"
 
 
 func show_msg(who: String, txt: String, vo: String = "talk") -> void:

@@ -111,10 +111,27 @@ func _init() -> void:
 	await _check_melody_message_cue(main, brawl_audio)
 	await _check_slide_message_cue(main, brawl_audio)
 	await _check_brawl_message_cues(main, brawl_audio)
+	_check_semantic_speaker_routes(main)
 	_check_dialogue_speech_lifecycle(main)
 
 	print("VOICE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit(1 if bad > 0 else 0)
+
+
+func _check_semantic_speaker_routes(main: ReefMain) -> void:
+	# Environment/activity labels must not silently resolve to Roshan. The
+	# non-character fallback still preserves the caption and generic cheer when
+	# an exact authorized recording is absent.
+	_check("environment labels use non-character voice identity",
+		main._speaker_key("Ember King") == "environment"
+		and main._speaker_key("Dusty Attic") == "environment"
+		and main._speaker_key("Music Room") == "environment"
+		and main._speaker_key("Secret Cave") == "environment"
+		and main._speaker_key("Unmapped Activity") == "environment")
+	_check("character labels retain voice identity",
+		main._speaker_key("Roshan") == "roshan"
+		and main._speaker_key("Princess Huluu") == "huluu"
+		and main._speaker_key("Pearl Shop") == "shop")
 
 
 func _check_melody_message_cue(main: ReefMain,
