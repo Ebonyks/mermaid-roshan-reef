@@ -41,6 +41,7 @@ func _run_probe() -> void:
 	var clean_seahorse := Sprite2D.new()
 	clean_seahorse.name = "CleanSeahorseProbeFixture"
 	clean_seahorse.position = Vector2(921.875, 245.625)
+	clean_seahorse.set_meta("source_art_rect", Rect2(821.0, 149.0, 167.0, 193.0))
 	host.add_child(clean_seahorse)
 	main.castle_room_item_sprites["waterfall"] = {
 		"sprite": clean_waterfall,
@@ -95,7 +96,10 @@ func _run_probe() -> void:
 		(after_pool.get("waterfall_center", Vector2.ZERO) as Vector2).is_equal_approx(
 			clean_waterfall.position)
 		and (after_pool.get("waterfall_size", Vector2.ZERO) as Vector2).is_equal_approx(
-			Vector2(162.5, 220.0)))
+			Vector2(151.25, 207.5)))
+	_check("clean stripe feedback sits above dirty waterfall lanes",
+		bool((after_pool.get("waterfall", {}) as Dictionary).get(
+			"wash_feedback_above_grime", false)))
 	_check("static clean card under scrub lanes but flow remains stopped",
 		clean_waterfall.visible and not flowing_water.visible
 		and bool(after_pool.get("animated_water_hidden", false)))
@@ -108,6 +112,10 @@ func _run_probe() -> void:
 		main.day_one_pool_waterfall_mask == 0x07
 		and main.day_one_pool_cleanup_step == 2
 		and String(after_waterfall.get("current_activity", "")) == "seahorse")
+	_check("sick seahorse uses exact live V4 fixture bounds",
+		((after_waterfall.get("seahorse", {}) as Dictionary).get(
+			"fixture_size", Vector2.ZERO) as Vector2).is_equal_approx(
+				Vector2(208.75, 241.25)))
 	_check("rainbow animation still waits for rescue finale",
 		clean_waterfall.visible and not flowing_water.visible)
 

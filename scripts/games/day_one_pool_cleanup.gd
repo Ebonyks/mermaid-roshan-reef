@@ -19,7 +19,7 @@ const ART_TO_STAGE := 1.25
 const WATERFALL_FALLBACK_CENTER := Vector2(461.875, 216.25)
 const WATERFALL_FALLBACK_SIZE := Vector2(162.5, 220.0)
 const SEAHORSE_FALLBACK_CENTER := Vector2(921.875, 245.625)
-const SEAHORSE_FALLBACK_SIZE := Vector2(245.0, 268.0)
+const SEAHORSE_FALLBACK_SIZE := Vector2(208.75, 241.25)
 const RUMI_POOL_ATLAS := \
 	"res://assets/characters/rumi/rumi_pool_idle_swim_atlas.png"
 const RUMI_POSE_ATLAS := \
@@ -29,7 +29,7 @@ const RUMI_POSE_CELL_SIZE := Vector2(256.0, 384.0)
 const RUMI_SWIM_SCALE := 1.02
 const RUMI_UPRIGHT_START_SCALE := 0.83
 const RUMI_UPRIGHT_SCALE := 0.96
-const DINGY_WASH := Color(0.18, 0.20, 0.11, 0.36)
+const DINGY_ROOM_TINT := Color(0.78, 0.86, 0.76, 1.0)
 
 var m: ReefMain
 var skimmer_activity: PoolSkimmerActivity = null
@@ -39,11 +39,11 @@ var _phase: int = 0
 var _busy: bool = false
 var _finale_started: bool = false
 var _announcements_enabled: bool = true
-var _light_wash: ColorRect = null
+var _lighting_target: CanvasItem = null
+var _lighting_target_rest_modulate := Color.WHITE
 var _rumi: AnimatedSprite2D = null
 var _clean_waterfall: Sprite2D = null
 var _healthy_seahorse: Sprite2D = null
-var _clean_seahorse: Sprite2D = null
 var _hidden_fixture_items: Array[Dictionary] = []
 
 
@@ -54,8 +54,8 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	position = Vector2.ZERO
 	size = StorybookUI.CANVAS_SIZE
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	z_index = 22
-	_build_light_wash()
+	z_index = 0
+	_capture_room_lighting()
 	_capture_clean_waterfall()
 	_capture_healthy_seahorse()
 	_build_activities()
@@ -69,6 +69,8 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 
 func teardown() -> void:
 	_stop_activities()
+	if _lighting_target != null and is_instance_valid(_lighting_target):
+		_lighting_target.modulate = _lighting_target_rest_modulate
 	if _clean_waterfall != null and is_instance_valid(_clean_waterfall):
 		_clean_waterfall.visible = true
 	if _healthy_seahorse != null and is_instance_valid(_healthy_seahorse):
@@ -94,7 +96,7 @@ func audit_snapshot() -> Dictionary:
 		"legacy_completion_step": LEGACY_COMPLETE_STEP,
 		"seahorse_is_last": ACTIVITY_IDS[-1] == "seahorse",
 		"standalone_pool_rim_gate": false,
-		"dingy_lighting": _light_wash != null,
+		"dingy_lighting": _lighting_target != null,
 		"finale_started": _finale_started,
 		"clean_waterfall_visible": _clean_waterfall != null
 			and is_instance_valid(_clean_waterfall) and _clean_waterfall.visible,
@@ -152,16 +154,13 @@ func _notification(what: int) -> void:
 		cancel_touch()
 
 
-func _build_light_wash() -> void:
-	_light_wash = ColorRect.new()
-	_light_wash.name = "DingyPoolLighting"
-	_light_wash.position = Vector2.ZERO
-	_light_wash.size = StorybookUI.CANVAS_SIZE
-	_light_wash.color = DINGY_WASH
-	_light_wash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_light_wash.z_index = 0
-	_light_wash.set_meta("day_one_pool_dingy_lighting", true)
-	add_child(_light_wash)
+func _capture_room_lighting() -> void:
+	# Tint the authored room and cleanup cast together. A full-screen ColorRect
+	# made the activity read as a translucent modal pasted over the V4 room.
+	_lighting_target = m.castle_room_world_root as CanvasItem \
+		if m != null and m.castle_room_world_root != null else self
+	_lighting_target_rest_modulate = _lighting_target.modulate
+	_lighting_target.set_meta("day_one_pool_dingy_lighting", true)
 
 
 func _capture_clean_waterfall() -> void:
@@ -180,18 +179,6 @@ func _capture_healthy_seahorse() -> void:
 	if _healthy_seahorse != null:
 		_healthy_seahorse.visible = false
 	_capture_fixture_water(record)
-	var clean_texture: Texture2D = load(
-		"res://assets/flats/castle/rooms/room_mermaid_pool_item_seahorse_fountain.png"
-	) as Texture2D
-	if clean_texture != null:
-		_clean_seahorse = Sprite2D.new()
-		_clean_seahorse.name = "HealthySeahorseRest"
-		_clean_seahorse.texture = clean_texture
-		_clean_seahorse.position = _seahorse_fixture_center()
-		_clean_seahorse.scale = Vector2.ONE * ART_TO_STAGE
-		_clean_seahorse.z_index = 5
-		_clean_seahorse.visible = false
-		add_child(_clean_seahorse)
 
 
 func _capture_fixture_water(record: Dictionary) -> void:
@@ -213,6 +200,7 @@ func _build_activities() -> void:
 	skimmer_activity.name = "SkimThePool"
 	skimmer_activity.position = Vector2.ZERO
 	skimmer_activity.size = StorybookUI.CANVAS_SIZE
+	skimmer_activity.z_index = 210
 	skimmer_activity.setup(m.day_one_pool_skimmer_mask)
 	skimmer_activity.progress_changed.connect(_on_skimmer_progress)
 	skimmer_activity.completed.connect(_on_skimmer_completed)
@@ -222,6 +210,7 @@ func _build_activities() -> void:
 	waterfall_activity.name = "ClearTheWaterfall"
 	waterfall_activity.position = Vector2.ZERO
 	waterfall_activity.size = StorybookUI.CANVAS_SIZE
+	waterfall_activity.z_index = 70
 	waterfall_activity.setup(_waterfall_fixture_center(),
 		_waterfall_fixture_size(), m.day_one_pool_waterfall_mask)
 	waterfall_activity.progress_changed.connect(_on_waterfall_progress)
@@ -232,8 +221,9 @@ func _build_activities() -> void:
 	seahorse_activity.name = "HelpTheSeahorse"
 	seahorse_activity.position = Vector2.ZERO
 	seahorse_activity.size = StorybookUI.CANVAS_SIZE
+	seahorse_activity.z_index = 70
 	seahorse_activity.setup(_seahorse_fixture_center(),
-		SEAHORSE_FALLBACK_SIZE, m.day_one_pool_seahorse_tugs)
+		_seahorse_fixture_size(), m.day_one_pool_seahorse_tugs)
 	seahorse_activity.progress_changed.connect(_on_seahorse_progress)
 	seahorse_activity.completed.connect(_on_seahorse_completed)
 	add_child(seahorse_activity)
@@ -246,8 +236,8 @@ func _apply_restored_progress() -> void:
 	seahorse_activity.visible = _phase < 3
 	if _clean_waterfall != null and is_instance_valid(_clean_waterfall):
 		_clean_waterfall.visible = _phase >= 1
-	if _clean_seahorse != null and is_instance_valid(_clean_seahorse):
-		_clean_seahorse.visible = _phase >= 3
+	if _healthy_seahorse != null and is_instance_valid(_healthy_seahorse):
+		_healthy_seahorse.visible = _phase >= 3
 	match _phase:
 		0:
 			skimmer_activity.start()
@@ -314,8 +304,8 @@ func _on_seahorse_completed() -> void:
 	if _phase != 2 or _busy:
 		return
 	_busy = true
-	if _clean_seahorse != null and is_instance_valid(_clean_seahorse):
-		_clean_seahorse.visible = true
+	if _healthy_seahorse != null and is_instance_valid(_healthy_seahorse):
+		_healthy_seahorse.visible = true
 	_commit_activity(LEGACY_COMPLETE_STEP, "seahorse")
 
 
@@ -371,7 +361,7 @@ func _waterfall_fixture_size() -> Vector2:
 		var source_rect: Rect2 = _clean_waterfall.get_meta(
 			"source_art_rect", Rect2()) as Rect2
 		if source_rect.size.x > 1.0 and source_rect.size.y > 1.0:
-			return (source_rect.size + Vector2(9.0, 10.0)) * ART_TO_STAGE
+			return source_rect.size * ART_TO_STAGE
 	return WATERFALL_FALLBACK_SIZE
 
 
@@ -379,6 +369,15 @@ func _seahorse_fixture_center() -> Vector2:
 	if _healthy_seahorse != null and is_instance_valid(_healthy_seahorse):
 		return _healthy_seahorse.position
 	return SEAHORSE_FALLBACK_CENTER
+
+
+func _seahorse_fixture_size() -> Vector2:
+	if _healthy_seahorse != null and is_instance_valid(_healthy_seahorse):
+		var source_rect: Rect2 = _healthy_seahorse.get_meta(
+			"source_art_rect", Rect2()) as Rect2
+		if source_rect.size.x > 1.0 and source_rect.size.y > 1.0:
+			return source_rect.size * ART_TO_STAGE
+	return SEAHORSE_FALLBACK_SIZE
 
 
 func _animated_fixture_water_hidden() -> bool:
@@ -390,7 +389,7 @@ func _animated_fixture_water_hidden() -> bool:
 
 
 func _update_dingy_lighting() -> void:
-	if _light_wash == null:
+	if _lighting_target == null or not is_instance_valid(_lighting_target):
 		return
 	var completed_actions: int = 0
 	if m != null:
@@ -398,9 +397,8 @@ func _update_dingy_lighting() -> void:
 			+ _count_bits(m.day_one_pool_waterfall_mask, 0x07) \
 			+ clampi(m.day_one_pool_seahorse_tugs, 0, 8)
 	var remaining_ratio: float = 1.0 - float(completed_actions) / 17.0
-	_light_wash.color = Color(
-		DINGY_WASH.r, DINGY_WASH.g, DINGY_WASH.b,
-		DINGY_WASH.a * clampf(remaining_ratio, 0.0, 1.0))
+	_lighting_target.modulate = _lighting_target_rest_modulate * Color.WHITE.lerp(
+		DINGY_ROOM_TINT, clampf(remaining_ratio, 0.0, 1.0))
 
 
 func _count_bits(value: int, mask: int) -> int:
@@ -418,10 +416,10 @@ func _begin_finale() -> void:
 	_finale_started = true
 	_busy = true
 	_stop_activities()
-	if _light_wash != null:
-		var light_tween: Tween = _light_wash.create_tween()
+	if _lighting_target != null and is_instance_valid(_lighting_target):
+		var light_tween: Tween = _lighting_target.create_tween()
 		light_tween.tween_property(
-			_light_wash, "color", Color(0.82, 0.96, 1.0, 0.0), 0.85)
+			_lighting_target, "modulate", _lighting_target_rest_modulate, 0.85)
 	finale_started.emit()
 	_spawn_rumi_rise()
 

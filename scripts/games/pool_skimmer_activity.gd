@@ -20,24 +20,37 @@ const TRASH_CELL_SIZE := Vector2(341.0, 341.0)
 const TRASH_COUNT := 6
 const ALL_MASK := (1 << TRASH_COUNT) - 1
 const CATCH_RADIUS := 118.0
-const BASKET_POSITION := Vector2(1080.0, 596.0)
-const SKIMMER_MAX_SIZE := Vector2(330.0, 250.0)
-const BASKET_MAX_SIZE := Vector2(210.0, 165.0)
+const BASKET_POSITION := Vector2(1074.0, 512.0)
+const SKIMMER_MAX_SIZE := Vector2(205.0, 150.0)
+const BASKET_MAX_SIZE := Vector2(145.0, 112.0)
+const SKIMMER_CONTACT_OFFSET := Vector2(48.0, -16.0)
+const POOL_VISUAL_BOUNDS := Rect2(170.0, 220.0, 940.0, 250.0)
 const TRASH_POSITIONS: Array[Vector2] = [
-	Vector2(352.0, 292.0),
-	Vector2(640.0, 274.0),
-	Vector2(928.0, 300.0),
-	Vector2(420.0, 462.0),
-	Vector2(700.0, 445.0),
-	Vector2(982.0, 468.0),
+	Vector2(310.0, 316.0),
+	Vector2(535.0, 276.0),
+	Vector2(795.0, 292.0),
+	Vector2(404.0, 401.0),
+	Vector2(676.0, 425.0),
+	Vector2(955.0, 382.0),
 ]
 const TRASH_TINTS: Array[Color] = [
-	Color(1.0, 0.95, 0.84),
-	Color(0.92, 1.0, 0.96),
-	Color(1.0, 0.93, 0.98),
-	Color(0.96, 0.98, 1.0),
-	Color(1.0, 0.97, 0.84),
-	Color(0.92, 0.95, 1.0),
+	Color(0.78, 0.83, 0.71, 0.90),
+	Color(0.70, 0.81, 0.74, 0.90),
+	Color(0.72, 0.82, 0.78, 0.88),
+	Color(0.82, 0.80, 0.64, 0.90),
+	Color(0.72, 0.76, 0.80, 0.88),
+	Color(0.78, 0.82, 0.68, 0.90),
+]
+const TRASH_MAX_SIZES: Array[Vector2] = [
+	Vector2(68.0, 68.0),
+	Vector2(62.0, 62.0),
+	Vector2(66.0, 66.0),
+	Vector2(82.0, 82.0),
+	Vector2(88.0, 88.0),
+	Vector2(78.0, 78.0),
+]
+const TRASH_ROTATIONS: Array[float] = [
+	-0.13, 0.09, -0.05, 0.18, -0.10, 0.08,
 ]
 
 var _progress_mask: int = 0
@@ -169,7 +182,7 @@ func _process(delta: float) -> void:
 		while (_progress_mask & (1 << route_index)) != 0:
 			route_index = (route_index + 1) % TRASH_COUNT
 		var route_phase: float = fmod(_demo_time * 0.72, 1.0)
-		var route_position: Vector2 = TRASH_POSITIONS[route_index]
+		var route_position: Vector2 = _trash_contact_position(route_index)
 		_demo_pointer.position = route_position + Vector2(
 			90.0 + sin(_demo_time * 3.0) * 9.0,
 			-92.0 + cos(_demo_time * 2.4) * 7.0)
@@ -178,33 +191,34 @@ func _process(delta: float) -> void:
 		# route_phase is intentionally used to make the pointer breathe along
 		# the current target; it never catches anything without live input.
 		_demo_pointer.modulate.a = 0.86 + route_phase * 0.12
+	for index: int in range(_trash_sprites.size()):
+		var piece: Sprite2D = _trash_sprites[index]
+		if piece == null or not is_instance_valid(piece) \
+				or bool(piece.get_meta("in_flight", false)):
+			continue
+		var phase: float = _demo_time * (0.75 + float(index) * 0.07) \
+			+ float(index) * 1.31
+		piece.position = _trash_base_positions[index] + Vector2(
+			sin(phase) * (3.0 + float(index % 2)), cos(phase * 0.83) * 2.4)
+		piece.rotation = TRASH_ROTATIONS[index] + sin(phase * 0.62) * 0.025
 	queue_redraw()
 
 
 func _draw() -> void:
-	var canvas: Vector2 = size if size.x > 1.0 and size.y > 1.0 else CANVAS_SIZE
-	# The activity grows out of the room: soft painted water and an open edge,
-	# with no modal panel or hard border competing with the pool art beneath it.
-	draw_rect(Rect2(Vector2.ZERO, canvas), Color(0.11, 0.29, 0.43, 0.17), true)
-	draw_circle(Vector2(640.0, 376.0), 330.0, Color(0.20, 0.70, 0.78, 0.28))
-	draw_circle(Vector2(640.0, 376.0), 292.0, Color(0.36, 0.85, 0.86, 0.20))
-	for wave: int in range(7):
-		var y: float = 204.0 + float(wave) * 63.0
-		var wave_alpha: float = 0.12 + 0.025 * sin(_demo_time * 1.7 + wave)
-		draw_arc(Vector2(640.0, y), 245.0 + wave * 8.0, 0.12, PI - 0.12,
-			28, Color(0.84, 1.0, 0.97, wave_alpha), 3.0, true)
-	# Broad rings make the catch target legible even on a small phone.
+	# Only local water contact is drawn. The authored V4 pool remains the one
+	# visible surface; the generous catch radius stays entirely invisible.
 	for index: int in range(TRASH_COUNT):
 		if (_progress_mask & (1 << index)) != 0:
 			continue
-		var pulse: float = 1.0 + sin(_demo_time * 2.2 + index) * 0.045
-		draw_circle(TRASH_POSITIONS[index], 69.0 * pulse,
-			Color(0.88, 1.0, 0.86, 0.08))
-		draw_arc(TRASH_POSITIONS[index], 75.0 * pulse, 0.0, TAU, 32,
-			Color(1.0, 0.94, 0.52, 0.23), 3.0, true)
-	# The basket's landing glow is a visual destination, never a score gate.
-	draw_circle(BASKET_POSITION, 106.0 + sin(_demo_time * 2.4) * 4.0,
-		Color(1.0, 0.88, 0.38, 0.10))
+		var contact: Vector2 = _trash_contact_position(index) + Vector2(0.0, 16.0)
+		draw_set_transform(contact, 0.0, Vector2(1.0, 0.28))
+		draw_arc(Vector2.ZERO, 34.0 + sin(_demo_time * 1.6 + index) * 2.0,
+			0.15, PI - 0.15, 20, Color(0.74, 0.94, 0.90, 0.18), 2.0, true)
+	draw_set_transform(_skimmer_position + Vector2(0.0, 18.0),
+		0.0, Vector2(1.0, 0.24))
+	draw_arc(Vector2.ZERO, 54.0, 0.12, PI - 0.12, 24,
+		Color(0.78, 0.94, 0.91, 0.22), 2.5, true)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -258,14 +272,13 @@ func _update_live_drag(position: Vector2) -> void:
 
 
 func _set_skimmer_position(position: Vector2, live_input: bool) -> void:
-	var canvas: Vector2 = size if size.x > 1.0 and size.y > 1.0 else CANVAS_SIZE
 	_skimmer_position = Vector2(
-		clampf(position.x, 90.0, canvas.x - 90.0),
-		clampf(position.y, 100.0, canvas.y - 72.0))
+		clampf(position.x, POOL_VISUAL_BOUNDS.position.x, POOL_VISUAL_BOUNDS.end.x),
+		clampf(position.y, POOL_VISUAL_BOUNDS.position.y, POOL_VISUAL_BOUNDS.end.y))
 	if _skimmer == null or not is_instance_valid(_skimmer):
 		return
-	_skimmer.position = _skimmer_position
-	_skimmer.rotation = clampf(
+	_skimmer.position = _skimmer_position - SKIMMER_CONTACT_OFFSET
+	_skimmer.rotation = -0.08 + clampf(
 		(_skimmer_position.x - 640.0) / 1200.0, -0.18, 0.18)
 	if live_input:
 		_skimmer.modulate = Color(1.0, 1.0, 1.0, 1.0)
@@ -277,7 +290,7 @@ func _collect_at(position: Vector2) -> bool:
 	for index: int in range(TRASH_COUNT):
 		if (_progress_mask & (1 << index)) != 0:
 			continue
-		if position.distance_to(TRASH_POSITIONS[index]) <= CATCH_RADIUS:
+		if position.distance_to(_trash_contact_position(index)) <= CATCH_RADIUS:
 			_collect_item(index)
 			return true
 	return false
@@ -295,13 +308,14 @@ func _collect_item(index: int) -> void:
 	if index < _trash_sprites.size():
 		var piece: Sprite2D = _trash_sprites[index]
 		if piece != null and is_instance_valid(piece):
-			piece.z_index = 12
+			piece.set_meta("in_flight", true)
+			piece.z_index = 176
 			var flight: Tween = piece.create_tween().set_parallel(true)
 			_flight_tweens.append(flight)
 			flight.tween_property(piece, "position", BASKET_POSITION, 0.48) \
 				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 			flight.tween_property(piece, "scale", piece.scale * 0.42, 0.48)
-			flight.tween_property(piece, "modulate:a", 0.0, 0.42)
+			flight.tween_property(piece, "modulate:a", 0.0, 0.12).set_delay(0.39)
 			flight.chain().tween_callback(_finish_piece_flight.bind(index, flight))
 	if _progress_mask == ALL_MASK:
 		_completed = true
@@ -327,7 +341,8 @@ func _build_activity_art() -> void:
 	_basket.name = "CleanupBasket"
 	_basket.texture = load(BASKET_PATH) as Texture2D
 	_basket.position = BASKET_POSITION
-	_basket.z_index = 7
+	_basket.z_index = 175
+	_basket.modulate = Color(0.84, 0.88, 0.82, 0.96)
 	_fit_sprite(_basket, BASKET_MAX_SIZE)
 	add_child(_basket)
 
@@ -336,10 +351,12 @@ func _build_activity_art() -> void:
 		piece.name = "FloatingTrash_%02d" % index
 		piece.texture = _atlas_frame(index)
 		piece.position = TRASH_POSITIONS[index]
-		piece.z_index = 8
+		piece.z_index = 2 + int(round((piece.position.y - 260.0) / 22.0))
 		piece.modulate = TRASH_TINTS[index]
+		piece.rotation = TRASH_ROTATIONS[index]
 		piece.set_meta("trash_index", index)
-		_fit_sprite(piece, Vector2(122.0, 122.0))
+		piece.set_meta("in_flight", false)
+		_fit_sprite(piece, TRASH_MAX_SIZES[index])
 		add_child(piece)
 		_trash_sprites.append(piece)
 		_trash_base_positions.append(piece.position)
@@ -347,8 +364,9 @@ func _build_activity_art() -> void:
 	_skimmer = Sprite2D.new()
 	_skimmer.name = "PoolSkimmer"
 	_skimmer.texture = load(SKIMMER_PATH) as Texture2D
-	_skimmer.position = _skimmer_position
-	_skimmer.z_index = 14
+	_skimmer.position = _skimmer_position - SKIMMER_CONTACT_OFFSET
+	_skimmer.z_index = 35
+	_skimmer.modulate = Color(0.82, 0.88, 0.86, 0.96)
 	_fit_sprite(_skimmer, SKIMMER_MAX_SIZE)
 	add_child(_skimmer)
 
@@ -388,6 +406,14 @@ func _atlas_frame(index: int) -> AtlasTexture:
 		Vector2(float(index % 3) * TRASH_CELL_SIZE.x,
 			float(index / 3) * TRASH_CELL_SIZE.y), TRASH_CELL_SIZE)
 	return frame
+
+
+func _trash_contact_position(index: int) -> Vector2:
+	if index >= 0 and index < _trash_sprites.size():
+		var piece: Sprite2D = _trash_sprites[index]
+		if piece != null and is_instance_valid(piece):
+			return piece.position
+	return TRASH_POSITIONS[index]
 
 
 func _fit_sprite(sprite: Sprite2D, max_size: Vector2) -> void:
