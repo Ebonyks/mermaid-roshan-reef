@@ -223,14 +223,14 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_master_space"] = content
 
 	for holder_spec: Dictionary in [
-		{"key": "lagoon_base_layer", "name": "SkyLagoonBase", "audit_id": "base", "z": -500, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_rear_geography_layer", "name": "SkyLagoonRearMural", "audit_id": "rear_geography", "z": -400, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_rear_layer", "name": "SkyLagoonRear", "audit_id": "rear_atmosphere", "z": -400, "parallax": REAR_PARALLAX},
-		{"key": "lagoon_landmark_layer", "name": "SkyLagoonLandmarks", "audit_id": "landmarks", "z": -300, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "audit_id": "interactive", "z": 0, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_actor_layer", "name": "SkyLagoonActors", "audit_id": "actors", "z": 100, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_foreground_geography_layer", "name": "SkyLagoonForegroundMural", "audit_id": "foreground_geography", "z": 300, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_foreground_layer", "name": "SkyLagoonForeground", "audit_id": "foreground_lighting", "z": 300, "parallax": FOREGROUND_PARALLAX},
+		{"key": "lagoon_base_layer", "name": "SkyLagoonBase", "audit_id": "base", "z": -500, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_rear_geography_layer", "name": "SkyLagoonRearMural", "audit_id": "rear_geography", "z": -400, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_rear_layer", "name": "SkyLagoonRear", "audit_id": "rear_atmosphere", "z": -400, "z_min": 0, "z_max": 0, "parallax": REAR_PARALLAX},
+		{"key": "lagoon_landmark_layer", "name": "SkyLagoonLandmarks", "audit_id": "landmarks", "z": -300, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "audit_id": "interactive", "z": 0, "z_min": -1, "z_max": 4, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_actor_layer", "name": "SkyLagoonActors", "audit_id": "actors", "z": 100, "z_min": -1, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_foreground_geography_layer", "name": "SkyLagoonForegroundMural", "audit_id": "foreground_geography", "z": 300, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_foreground_layer", "name": "SkyLagoonForeground", "audit_id": "foreground_lighting", "z": 300, "z_min": 0, "z_max": 0, "parallax": FOREGROUND_PARALLAX},
 	]:
 		var holder := Node2D.new()
 		holder.name = String(holder_spec["name"])
@@ -238,6 +238,8 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		holder.set_meta("canvas_layer_role", String(holder_spec["name"]))
 		holder.set_meta("visual_audit_layer_id", String(holder_spec["audit_id"]))
 		holder.set_meta("parallax_factor", float(holder_spec["parallax"]))
+		holder.set_meta("visual_audit_relative_z_min", int(holder_spec["z_min"]))
+		holder.set_meta("visual_audit_relative_z_max", int(holder_spec["z_max"]))
 		content.add_child(holder)
 		m.g[String(holder_spec["key"])] = holder
 

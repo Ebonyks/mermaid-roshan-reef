@@ -569,6 +569,15 @@ func _canvas_layer_row(node: Node, screen_delta: float) -> Dictionary:
 	elif node is CanvasLayer:
 		z_index = _canvas_draw_order(node)
 		visible = (node as CanvasLayer).visible
+	var visual_draw_order_min := z_index
+	var visual_draw_order_max := z_index
+	if not visuals.is_empty():
+		visual_draw_order_min = _canvas_draw_order(visuals[0])
+		visual_draw_order_max = visual_draw_order_min
+		for visual in visuals:
+			var visual_order := _canvas_draw_order(visual)
+			visual_draw_order_min = mini(visual_draw_order_min, visual_order)
+			visual_draw_order_max = maxi(visual_draw_order_max, visual_order)
 	return {
 		"id": String(node.get_meta(CANVAS_LAYER_META, "")),
 		"instance_path": String(node.get_path()),
@@ -589,6 +598,14 @@ func _canvas_layer_row(node: Node, screen_delta: float) -> Dictionary:
 		"z_index": z_index,
 		"draw_order": z_index,
 		"draw_order_method": CANVAS_DRAW_ORDER_METHOD,
+		"visual_draw_order_min": visual_draw_order_min,
+		"visual_draw_order_max": visual_draw_order_max,
+		"relative_z_min": visual_draw_order_min - z_index,
+		"relative_z_max": visual_draw_order_max - z_index,
+		"allowed_relative_z_min": int(node.get_meta(
+			"visual_audit_relative_z_min", 0)),
+		"allowed_relative_z_max": int(node.get_meta(
+			"visual_audit_relative_z_max", 0)),
 		"unresolved_draw_order_effects": _draw_order_effect_count(
 			node, visuals, z_index),
 	}
@@ -621,13 +638,17 @@ func _canvas_draw_order(node: Node) -> int:
 
 
 func _draw_order_effect_count(root: Node, visuals: Array[Node],
-		_expected_order: int) -> int:
+		expected_order: int) -> int:
 	var count := 0
+	var allowed_min := int(root.get_meta("visual_audit_relative_z_min", 0))
+	var allowed_max := int(root.get_meta("visual_audit_relative_z_max", 0))
 	for visual in visuals:
 		# A child's explicit relative z offset is deterministic and commonly used
-		# for contact shadows and focus cues. Only ordering modes that make the
-		# tagged holder's effective band insufficient remain unresolved.
-		if _visual_has_ambiguous_draw_order(visual, root):
+		# for contact shadows and focus cues, but it must remain inside the tagged
+		# holder's explicitly declared band so it cannot cross another holder.
+		var relative_z := _canvas_draw_order(visual) - expected_order
+		if relative_z < allowed_min or relative_z > allowed_max \
+				or _visual_has_ambiguous_draw_order(visual, root):
 			count += 1
 	return count
 

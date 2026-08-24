@@ -1583,6 +1583,7 @@ class Zone:
                 "stack_evidence": bool(row.get("stack_evidence", True)),
                 "minimum_coverage_ratio": row.get("minimum_coverage_ratio"),
                 "parallax_factor": row.get("parallax_factor"),
+                "relative_z_range": row.get("relative_z_range", [0, 0]),
             })
             out[-1]["content_signature"] = asset_content_signature(
                 self.repo, out[-1]["assets"])
@@ -2025,6 +2026,21 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
     if invalid_asset_match:
         declaration_issues.append(
             f"declared layers use an invalid asset_match: {invalid_asset_match}")
+    invalid_z_ranges = [
+        row["id"] or "<unnamed>" for row in declared
+        if not isinstance(row["relative_z_range"], list)
+        or len(row["relative_z_range"]) != 2
+        or any(not isinstance(value, int) or isinstance(value, bool)
+               for value in row["relative_z_range"])
+        or (isinstance(row["relative_z_range"], list)
+            and len(row["relative_z_range"]) == 2
+            and all(isinstance(value, int) and not isinstance(value, bool)
+                    for value in row["relative_z_range"])
+            and row["relative_z_range"][0] > row["relative_z_range"][1])
+    ]
+    if invalid_z_ranges:
+        declaration_issues.append(
+            f"declared layers use an invalid relative_z_range: {invalid_z_ranges}")
     missing_assets = [row["id"] or "<unnamed>" for row in declared
                       if row["required_content"] and not row["assets"]
                       and row["asset_match"] != "dynamic"]
@@ -2190,6 +2206,21 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
                     or not math.isclose(float(runtime_factor),
                                         float(expected_factor), abs_tol=0.0001)):
                 issues.append(f"{layer_id} has the wrong runtime parallax factor")
+            expected_z_range = declared_row["relative_z_range"]
+            allowed_z_min = value.get("allowed_relative_z_min")
+            allowed_z_max = value.get("allowed_relative_z_max")
+            relative_z_min = value.get("relative_z_min")
+            relative_z_max = value.get("relative_z_max")
+            z_values = (allowed_z_min, allowed_z_max,
+                        relative_z_min, relative_z_max)
+            if any(not isinstance(item, int) or isinstance(item, bool)
+                   for item in z_values):
+                issues.append(f"{layer_id} lacks an exact descendant z-band audit")
+            elif [allowed_z_min, allowed_z_max] != expected_z_range:
+                issues.append(f"{layer_id} runtime z band differs from its declaration")
+            elif relative_z_min < expected_z_range[0] \
+                    or relative_z_max > expected_z_range[1]:
+                issues.append(f"{layer_id} has a visual outside its declared z band")
         if value.get("coverage_method") != CANVAS_COVERAGE_METHOD:
             issues.append(f"{layer_id or '<unnamed>'} lacks painted-pixel coverage evidence")
         unresolved = value.get("unresolved_alpha_effects")
@@ -4429,6 +4460,12 @@ func build() -> void:
             "z_index": index,
             "draw_order": index,
             "draw_order_method": CANVAS_DRAW_ORDER_METHOD,
+            "visual_draw_order_min": index,
+            "visual_draw_order_max": index,
+            "relative_z_min": 0,
+            "relative_z_max": 0,
+            "allowed_relative_z_min": 0,
+            "allowed_relative_z_max": 0,
             "unresolved_draw_order_effects": 0,
         })
     subprocess.run(["git", "init", "-q", root], check=True,

@@ -600,6 +600,10 @@ func _validate_parallax_and_coordinates() -> void:
 		"rear_atmosphere", "landmarks", "interactive", "actors",
 		"foreground_geography", "foreground_lighting"]
 	var expected_z: Array[int] = [-500, -400, -400, -300, 0, 100, 300, 300]
+	var expected_relative_z: Array[Vector2i] = [
+		Vector2i(0, 0), Vector2i(0, 0), Vector2i(0, 0), Vector2i(0, 0),
+		Vector2i(-1, 4), Vector2i(-1, 0), Vector2i(0, 0), Vector2i(0, 0),
+	]
 	var holder_contract_ok := true
 	var holders_present := true
 	for index: int in range(holders.size()):
@@ -608,9 +612,14 @@ func _validate_parallax_and_coordinates() -> void:
 		holder_contract_ok = holder_contract_ok and holder != null \
 			and holder.get_index() == index and holder.z_index == expected_z[index] \
 			and String(holder.get_meta("visual_audit_layer_id", "")) \
-				== expected_audit_ids[index]
+				== expected_audit_ids[index] \
+			and int(holder.get_meta("visual_audit_relative_z_min", 999)) \
+				== expected_relative_z[index].x \
+			and int(holder.get_meta("visual_audit_relative_z_max", -999)) \
+				== expected_relative_z[index].y
 	_check("eight_canvas_holders_have_exact_order_and_audit_ids",
-		holder_contract_ok, "ids=%s z=%s" % [expected_audit_ids, expected_z])
+		holder_contract_ok, "ids=%s z=%s relative_z=%s" % [
+			expected_audit_ids, expected_z, expected_relative_z])
 	if not holders_present:
 		# The topology assertion above owns this failure. Stop before any
 		# coordinate/member access so a malformed scene reports controlled FAIL

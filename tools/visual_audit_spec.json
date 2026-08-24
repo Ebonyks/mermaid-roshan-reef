@@ -79,6 +79,7 @@
           "id": "base",
           "role": "locked_healed_panorama",
           "assets": ["assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_*.png"],
+          "relative_z_range": [0, 0],
           "parallax_factor": 1.0
         },
         {
@@ -87,6 +88,7 @@
           "assets": ["assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png"],
           "stack_evidence": false,
           "minimum_coverage_ratio": 0.0,
+          "relative_z_range": [0, 0],
           "parallax_factor": 1.0
         },
         {
@@ -94,6 +96,7 @@
           "role": "independent_rear_atmosphere",
           "assets": ["assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png"],
           "minimum_coverage_ratio": 0.001,
+          "relative_z_range": [0, 0],
           "parallax_factor": 0.82
         },
         {
@@ -106,6 +109,7 @@
           ],
           "stack_evidence": false,
           "minimum_coverage_ratio": 0.0,
+          "relative_z_range": [0, 0],
           "parallax_factor": 1.0
         },
         {
@@ -120,6 +124,7 @@
           "asset_match": "contains",
           "stack_evidence": false,
           "minimum_coverage_ratio": 0.0,
+          "relative_z_range": [-1, 4],
           "parallax_factor": 1.0
         },
         {
@@ -129,6 +134,7 @@
           "asset_match": "contains",
           "stack_evidence": false,
           "minimum_coverage_ratio": 0.0,
+          "relative_z_range": [-1, 0],
           "parallax_factor": 1.0
         },
         {
@@ -137,6 +143,7 @@
           "assets": ["assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png"],
           "stack_evidence": false,
           "minimum_coverage_ratio": 0.0,
+          "relative_z_range": [0, 0],
           "parallax_factor": 1.0
         },
         {
@@ -147,6 +154,7 @@
           "required_content": false,
           "stack_evidence": false,
           "minimum_coverage_ratio": 0.0,
+          "relative_z_range": [0, 0],
           "parallax_factor": 1.06
         }
       ],

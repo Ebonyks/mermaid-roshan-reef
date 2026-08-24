@@ -1671,6 +1671,24 @@ class VisualEvidenceContractTests(unittest.TestCase):
 			probe_source.count("_zone_canvas_audit_root(main, zone_id)"), 2)
 		self.assertGreaterEqual(probe_source.count("_refresh_canvas_global_effects()"), 8)
 
+	def test_descendant_z_outside_declared_band_cannot_pass(self) -> None:
+		for mutation in ("visual_crosses_band", "runtime_widens_band"):
+			with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as raw_root:
+				root = Path(raw_root)
+				spec = ava._fixture(str(root), layers_api=True, murals=2,
+					canvas_layer_count=2, depths=(), band=False)
+				row = spec["_runtime_facts"]["zones"]["fx"] \
+					["canvas_parallax"]["layers"][0]
+				if mutation == "visual_crosses_band":
+					row["relative_z_max"] = 5
+					row["visual_draw_order_max"] = 5
+				else:
+					row["allowed_relative_z_max"] = 5
+				self._reseal(root, spec)
+				finding = self._rows(
+					root, spec, "layering.mural_is_a_stack")[0]
+				self.assertEqual(finding.disposition, ava.FAIL)
+
 	def test_occlusion_requires_meaningful_alpha_area_and_ratio(self) -> None:
 		for mutation in ("alpha", "samples", "ratio"):
 			with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as raw_root:
