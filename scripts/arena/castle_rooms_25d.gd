@@ -18,6 +18,8 @@ const SPRITE_TRANSITION_2D := preload(
 	"res://scripts/sprite_transition_2d.gd")
 const DAY_ONE_POOL_CLEANUP := preload(
 	"res://scripts/games/day_one_pool_cleanup.gd")
+const DAY_ONE_ART_STUDIO := preload(
+	"res://scripts/day_one_art_studio.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
@@ -847,6 +849,7 @@ var _composition_transition_tween: Tween = null
 var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
 var day_one_pool_cleanup: DayOnePoolCleanup = null
+var day_one_art_studio: DayOneArtStudio = null
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -1025,6 +1028,7 @@ func cancel_kitchen_recipe() -> void:
 func close() -> void:
 	m._day_one_clear_castle_dressing()
 	_clear_day_one_pool_cleanup()
+	_clear_day_one_art_studio()
 	_room_build_generation += 1
 	_cancel_composition_transition()
 	_cancel_room_transition()
@@ -1745,6 +1749,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_sync_hall_lighting()
 	m._day_one_sync_castle_dressing()
 	_sync_day_one_pool_cleanup(room_id)
+	_sync_day_one_art_studio(room_id)
 	if announce:
 		m._ui_tap()
 		if room_id == "playroom" and not _playroom_rescue_done():
@@ -1779,6 +1784,40 @@ func start_day_one_pool_cleanup() -> void:
 			or m.day_one_castle_room_is_clean("mermaid_pool"):
 		return
 	_sync_day_one_pool_cleanup("mermaid_pool")
+
+
+func start_day_one_art_studio() -> void:
+	if m.castle_room_id != "craft_room" \
+			or m.day_one_castle_room_is_clean("craft_room"):
+		return
+	_sync_day_one_art_studio("craft_room")
+
+
+func _sync_day_one_art_studio(room_id: String) -> void:
+	if room_id != "craft_room" or not m.day_one_is_active() \
+			or m.day_one_castle_room_is_clean(room_id) \
+			or m.castle_room_stage == null:
+		_clear_day_one_art_studio()
+		return
+	if day_one_art_studio != null \
+			and is_instance_valid(day_one_art_studio):
+		day_one_art_studio.refresh_from_state()
+		return
+	day_one_art_studio = DAY_ONE_ART_STUDIO.new() as DayOneArtStudio
+	m.castle_room_stage.add_child(day_one_art_studio)
+	day_one_art_studio.setup(m)
+	# The cleanup overlay owns its own large touch targets and pointer. Keep
+	# the room's generic action icon out of the way until the desk is complete.
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.visible = false
+	_position_player_at_foot(Vector2(330.0, 640.0), false)
+
+
+func _clear_day_one_art_studio() -> void:
+	if day_one_art_studio != null \
+			and is_instance_valid(day_one_art_studio):
+		day_one_art_studio.teardown()
+	day_one_art_studio = null
 
 
 func _sync_day_one_pool_cleanup(room_id: String) -> void:
@@ -4556,6 +4595,13 @@ func activate_current_room() -> void:
 	var room: Dictionary = _room(m.castle_room_id)
 	var action: String = String(room.get("action", ""))
 	m._ui_tap()
+	# Day One's Craft Room is a hands-on cleanup first. Do this before the
+	# generic castle-room placeholder can mark the art room complete; the desk
+	# in DayOneArtStudio opens the attack customizer after the child finishes.
+	if m.day_one_is_active() and m.castle_room_id == "craft_room" \
+			and not m.day_one_castle_room_is_clean("craft_room"):
+		start_day_one_art_studio()
+		return
 	if m.day_one_activate_castle_room(m.castle_room_id):
 		return
 	match action:

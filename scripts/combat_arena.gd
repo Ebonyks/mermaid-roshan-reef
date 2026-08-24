@@ -474,6 +474,9 @@ func _fire(power_override: String = "") -> void:
 		dir = Vector3(sin(player_yaw), 0, cos(player_yaw))
 	dir = dir.normalized()
 	var shot_pos: Vector3 = player_pos + Vector3(0, 2.2, 0) + dir * 1.5
+	var chosen_color: Color = he.profile_color() if he != null else Color(
+		0.2705882353, 0.8588235294, 0.9215686275, 1.0)
+	var chosen_effect: String = he.profile_effect() if he != null else "bubbles"
 	var orb: Node3D
 	if power == "clean":
 		orb = _clean_bubble_projectile(shot_pos)
@@ -483,11 +486,21 @@ func _fire(power_override: String = "") -> void:
 		if orb.name.begins_with("MissingDungeonArt"):
 			var orb_col := Color(0.55, 0.92, 1.0) if power == "ice" else Color(1.0, 0.25, 0.06)
 			orb.queue_free()
-			orb = _sphere(self, shot_pos, 0.65, orb_col, 1.8)
+			orb = _sphere(self, shot_pos, 0.65, chosen_color.lerp(orb_col, 0.35), 1.8)
 		else:
 			orb.scale = Vector3.ONE * (0.82 if power == "ice" else 0.74)
 			orb.rotation.y = atan2(dir.x, dir.z)
-	shots.append({"node": orb, "vel": dir * 27.0, "life": 1.6, "power": power})
+	# Preserve authored 3D projectile art while carrying the player's profile
+	# through every shot. Sprite projectiles can tint directly; mesh projectiles
+	# keep their approved art and expose the same metadata to future 2D renderers.
+	if orb is Sprite3D:
+		(orb as Sprite3D).modulate = chosen_color
+	orb.set_meta("attack_color", chosen_color)
+	orb.set_meta("attack_effect", chosen_effect)
+	if he != null:
+		he.show_attack_feedback_at(shot_pos)
+	shots.append({"node": orb, "vel": dir * 27.0, "life": 1.6, "power": power,
+		"attack_color": chosen_color, "attack_effect": chosen_effect})
 	shot_cool = 0.32
 	player_yaw = atan2(dir.x, dir.z)
 
@@ -524,6 +537,7 @@ func _tick_shots(delta: float) -> void:
 		elif kind == "dust":
 			for enemy in enemies:
 				if String(enemy["state"]) == "active" and node.position.distance_to((enemy["pos"] as Vector3) + Vector3(0, 2.2, 0)) < 2.8:
+					he.show_attack_feedback_at((enemy["pos"] as Vector3) + Vector3(0, 2.2, 0))
 					_clean_dust_bunny(enemy)
 					hit = true
 					break

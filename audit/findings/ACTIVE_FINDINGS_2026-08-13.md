@@ -29,6 +29,82 @@ remote Sky subprocess still fails requested-Mobile renderer identity after 20
 PASS rows, uploads PNGs only, and supplies no remote JSON/Mobile PASS. No
 target-device, child, owner, or accepted-visual result is claimed.
 
+## Castle overdraw correction queue — 2026-08-23
+
+This subordinate queue is owned jointly by `MA-VIS-006`, `MA-OPERA-012`, and
+`MA-PERF-001`; it does not create duplicate canonical findings. It separates
+visible compositing/occlusion defects from GPU alpha-overdraw candidates. The
+six 2560×1369 room images under
+`%TEMP%\castle-fixed-final-verified\` are diagnostic only: they have no bound
+source SHA, PNG hashes, real-route proof, or capture manifest and therefore
+confirm visible symptoms without granting acceptance. Source claims below are
+locked to `e1946d2792569cb08b3c14e8c8b6e4f2704c835b`; the shared dirty worktree
+and later uncommitted Castle changes are excluded from authority.
+
+### Primary visible correction shortlist
+
+| ID | Room / diagnostic evidence | Child-visible defect | First repair class | Generation-credit gate | Acceptance evidence |
+|---|---|---|---|---|---|
+| `CAS-OD-01` | Kitchen, `kitchen.png` | Two career cards cover Roshan's lower body and tail; the action and movement controls cover both foreground prop groups. | Preserve exact career-room ownership and child-safe card size, but add a Roshan/foreground exclusion region and room-aware dock. | No generation. This is UI composition. | Exact-SHA real-route Mobile frame at 1280×720 plus phone aspect; Roshan, both targets, controls, and foreground silhouettes have non-overlapping asserted bounds. |
+| `CAS-OD-02` | Library, `library.png` | One career card covers Roshan; controls cover the book-stack and chair framing. | Use the shared safe-region repair, then verify the two foreground cards do not create duplicate chair/book silhouettes. | No generation unless exact ownership proof shows an irreparable healed plate. | Card/control bounds, background-versus-card alpha union, stable rest/action frames, and owner review. |
+| `CAS-OD-03` | Playroom, `playroom.png` | Two career cards cover Roshan while dust bunnies, blocks, stacking toy, and foreground bins cross her silhouette; the movement control covers the right bin. | Reduce or reorder live clutter before altering art; enforce a player-clear movement lane and the shared UI exclusion region. | No generation initially; reuse current approved art. | Rest, fastest traversal, two-career-card, and active-toy frames with a readable Roshan silhouette and one obvious current target. |
+| `CAS-OD-04` | Craft Room, `craft_room.png` | One career card covers Roshan's tail; action and movement controls cover the two foreground work counters. | Shared UI safe region plus foreground z-order review. | No generation. | Two-aspect stable frames with asserted player, target, card, control, and foreground bounds. |
+| `CAS-OD-05` | Mermaid Pool, `mermaid_pool.png` | The route card covers Roshan and the broad water/effect stack dominates the play field. Day One also combines a room-wide dirt tint with a second pool-wide wash before bounded dirty-object and fixture-water layers. | Reposition the card; remove or localize redundant full-frame washes; measure and collapse redundant bounded water layers while retaining the dirty-room cue. | No generation for the first pass. A localized grime mask may consume one credit only after reuse/code reduction fails visual review. | Real-touch dirty/clean sequence, alpha-overdraw heatmap, water-layer census, Rumi/target/pointer contrast, and M11 plus smallest-phone frame-time trace. |
+| `CAS-OD-06` | Bubble Bath, `bubble_bath.png` | One career card covers Roshan, controls cover foreground art, and a conspicuous blurred vertical healing scar remains in the right window behind the toilet. | Apply the shared UI repair, then repair only the bounded failed background-heal region while preserving approved fixture cards and originals. | One tightly bounded background-heal generation is justified only after source inventory proves deterministic healing/reuse cannot meet the fidelity bar. | Exact source/derived provenance, before/after crop and whole-room frames, no duplicate fixture pixels, stable UI bounds, Mobile device review, and owner acceptance. |
+
+`CAS-OD-01` through `CAS-OD-06` refine the already-open card-composition
+problem in `MA-OPERA-012`; one shared repair should be preferred over six
+room-specific card hacks. `CAS-OD-06` is the only primary item presently
+eligible for generation-credit reservation. No credit is authorized until the
+required source inventory and current capture reproduce the defect.
+
+### GPU alpha-overdraw watchlist
+
+These are source-supported measurement candidates, not measured performance
+failures. They remain under `MA-PERF-001` until an exact-APK Mobile heatmap or
+device trace demonstrates material cost.
+
+- `CAS-GPU-01`: Day One draws a 12% full-room dirt wash and Mermaid Pool adds
+  a 36% full-screen cleanup wash, producing about 44% combined alpha before
+  dirty-object cards. Inspect
+  `scripts/arena/day_one_castle_dressing.gd:291` and
+  `scripts/games/day_one_pool_cleanup.gd:159` at the locked source.
+- `CAS-GPU-02`: Royal Hall can draw five continuously animated mist cards at
+  alpha 0.21–0.30. Inspect `scripts/arena/castle_rooms_25d.gd:2194`.
+- `CAS-GPU-03`: Castle interaction smoothing temporarily draws both the live
+  fixture and a prior-frame ghost; metadata reports two sprite-transition
+  draws. Inspect `scripts/sprite_transition_2d.gd:247`.
+- `CAS-GPU-04`: each fixture-water declaration becomes a separate translucent,
+  shader-backed card. Record active layer union and painted area per fixture
+  before collapsing any layer. Inspect
+  `scripts/arena/castle_fixture_rigs.gd:644`.
+- `CAS-GPU-05`: Elevator, room-transition, and Logo Studio full-screen overlays
+  may leave the complete Castle composition drawing underneath. Measure before
+  hiding or pausing the world, and preserve return-state/input behavior.
+- `CAS-EVID-01`: Castle capture evidence remains non-authoritative until every
+  required frame is source-bound, real-route, stable, clean of StartMenu/debug
+  contamination, and accompanied by an exact layer/node manifest.
+
+### Recurring Sol/Luna overdraw cell
+
+- **Luna Visual** receives raw frames first and independently marks occlusion,
+  painted duplication, healing scars, focal hierarchy, player/target
+  readability, and four-year-old comprehension risk.
+- **Luna Technical** independently inventories live `CanvasItem` nodes,
+  texture/alpha footprint, draw order, visibility lifecycle, hidden/doubled
+  draws, shader layers, and target-device fill rate.
+- **Sol** locks source/capture authority, reconciles disagreements, and promotes
+  a correction only when a visible frame plus source evidence corroborate it;
+  GPU cost additionally requires a profiler or device trace. Missing evidence
+  remains `COVERAGE_GAP`, never PASS.
+
+Every correction must retain exact Godot 4.7.1 Mobile rendering, true 2D,
+one-finger targets, approved/protected art, save and room-return behavior, and
+the 30 fps target. Acceptance requires real-route stable frames at 1280×720
+and phone aspect, source SHA and hashes, layer/node manifests, alpha-union or
+overdraw heatmaps, Roshan/target/UI safe-bound assertions, Lenovo Tab M11 and
+smallest-phone traces, and owner review.
+
 ## MA-2D-002
 
 | Field | Value |
@@ -187,8 +263,8 @@ target-device, child, owner, or accepted-visual result is claimed.
 | surrounding_tests | Visual stress-first suite; source/Git closure; immutable capture checks; per-target occlusion and touch; positive/negative/passive/sibling states; teardown/re-entry; Mobile aspects and device review. |
 | acceptance | Every applicable item has accepted current live evidence and no unresolved FAIL, REVIEW_OPEN, MANUAL_OPEN, or COVERAGE_GAP remains. |
 | closure | Open as of 2026-08-13. The Sky product slice now has a locally approved candidate plus exact machine/build integration, but global unresolved totals are nonzero and no requested-Mobile remote Sky PASS, all-applicable-pass result, device/owner acceptance, or closure date exists. |
-| relationships | Contract mechanics closed under `MA-VIS-005`; active evidence gaps affect `MA-VIS-002`, `MA-VIS-003`, `MA-VIS-004`, and Opera visual findings. |
-| history | 2026-08-09: indexed as the fail-closed evidence gap. 2026-08-13: report remains 16/17/2/86/32/94. Historical source `7391c53c` exposed bounded Sky defects and a failed remote renderer step; source `51d0abc0` repairs that product slice locally, while the broader finding remains `CONFIRMED_OPEN`. |
+| relationships | Contract mechanics closed under `MA-VIS-005`; active evidence gaps affect `MA-VIS-002`, `MA-VIS-003`, `MA-VIS-004`, and Opera visual findings. The 2026-08-23 `CAS-OD-01`–`06` queue above is the Castle-specific visual correction slice and shares card composition with `MA-OPERA-012` and measurement with `MA-PERF-001`. |
+| history | 2026-08-09: indexed as the fail-closed evidence gap. 2026-08-13: report remains 16/17/2/86/32/94. Historical source `7391c53c` exposed bounded Sky defects and a failed remote renderer step; source `51d0abc0` repairs that product slice locally, while the broader finding remains `CONFIRMED_OPEN`. 2026-08-23: a Sol reconciliation of independent Luna visual and technical passes adds six diagnostic Castle correction instances and a separate unmeasured GPU watchlist; no item is promoted to accepted evidence. |
 
 ## MA-PLAY-001
 
@@ -459,12 +535,12 @@ target-device, child, owner, or accepted-visual result is claimed.
 | child_impact | The new routes remove a reading-heavy hub, but card occlusion can hide Roshan and external gaps leave child discovery and phone usability unproved. |
 | evidence | Runtime full local: 1463.4 seconds/64 probes; `ff068db` full local: 1379.3 seconds/64; pre-fix run `31678156887` remains red from four-frame reveal sampling. Historical e6 and `7391c53c` preserve bounded remote evidence, including the latter's failed Sky renderer subprocess. Product source `51d0abc0` changes no Opera behavior and passes full local in 1,404.5 seconds/all 64. Governance-only integrated head `441adf35` preserves it and passes exact local CI in 1,391.5 seconds/all 64 plus topic/dev runs `31760207048`/`31762132976` with 63/63 remote loop, zero hard failures, and music 42/42. Android `31763879294` publishes the exact raw-checkout/package-source `441adf35` APK (596,033,220 bytes; SHA-256 `f04d0fef3b9bf097aa5b07e56e5726a1db9ff37e4be6ce35b495e31b9e4a72d8`). |
 | owner_decision | Owner direction 2026-08-02 assigns all thirteen careers to exact thematic Castle rooms, makes Movie Lounge Racer's sole home, and forbids a central or hidden all-career lobby. |
-| fix | Preserve exact room ownership and direct return; reposition/compose route cards without shrinking child-safe targets; complete external review on the matching current APK. |
+| fix | Preserve exact room ownership and direct return; implement one shared Roshan/foreground safe-region repair for `CAS-OD-01`–`06` without shrinking child-safe targets; complete external review on the matching current APK. |
 | surrounding_tests | Exact room mapping; hidden/off-room negatives; launch/return; save/reward/tombstones; voice/pointer; passive; pause/layers/focus; teardown/re-entry; sibling rooms; two aspects; APK/device/child/owner. |
 | acceptance | A matching current APK and machine gates are green; route cards keep large targets without obscuring Roshan; phone/M11, child, owner, voice/listening, strict-2D, and authoritative visual gates pass. |
 | closure | Pending as of 2026-08-13; exact integrated machine runs and matching APK exist at `441adf35`. Phone/M11, child, owner, voice/listening, strict-2D, and accepted-visual evidence are missing, remote Sky renderer diagnostics remain failed, and P2 card composition is unresolved. |
-| relationships | Builds on `MA-OPERA-010` and `MA-OPERA-011`; visual capture gap `MA-OPERA-004`; release gate `MA-RELEASE-001`; rollback `CHG-027`. |
-| history | 2026-08-12: `09e5e356` implemented exact room routes and local evidence. 2026-08-13: `ff068db` repaired readiness sampling; e6 and `7391c53c` preserve predecessor machine/build history. Current integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior and adds local/topic/dev machine plus APK evidence; all external/visual gates remain open. |
+| relationships | Builds on `MA-OPERA-010` and `MA-OPERA-011`; visual capture gap `MA-OPERA-004`; Castle-specific instances `CAS-OD-01`–`06` are owned by the subordinate queue above and `MA-VIS-006`; release gate `MA-RELEASE-001`; rollback `CHG-027`. |
+| history | 2026-08-12: `09e5e356` implemented exact room routes and local evidence. 2026-08-13: `ff068db` repaired readiness sampling; e6 and `7391c53c` preserve predecessor machine/build history. Current integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior and adds local/topic/dev machine plus APK evidence; all external/visual gates remain open. 2026-08-23: diagnostics confirm the lower-card problem in Kitchen, Library, Playroom, Craft Room, Mermaid Pool, and Bubble Bath; repair remains shared and unaccepted. |
 
 ## MA-PERF-001
 
@@ -483,11 +559,11 @@ target-device, child, owner, or accepted-visual result is claimed.
 | evidence | Source `51d0abc0` passes exact local official-Godot CI in 1,404.5 seconds/all 64 and run-14 local Mobile/Speedy visual capture. Governance-only head `441adf35` passes exact local/topic/dev machine gates. Android run `31763879294` publishes its exact raw-checkout/package-source APK (596,033,220 bytes; SHA-256 `f04d0fef3b9bf097aa5b07e56e5726a1db9ff37e4be6ce35b495e31b9e4a72d8`). Speedy action-loop samples stay below the local 1 ms probe ceiling, but P50/P95/P99 device frame time, hitches, memory, thermal, load, and touch-latency data are missing. |
 | owner_decision | Mobile renderer is authoritative; Speedy is default; stable 30 fps and transparent-overdraw limits are binding for the target hardware. |
 | fix | Produce and measure a matching current APK, then optimize only the bounded hotspots demonstrated by traces while preserving art and behavior. |
-| surrounding_tests | Cold/warm load; long session; representative high-cost zones; frame-time percentiles; hitches; RAM/VRAM; thermal; touch latency; focus/pause/re-entry; save integrity; visual comparison. |
+| surrounding_tests | Cold/warm load; long session; representative high-cost zones; frame-time percentiles; hitches; RAM/VRAM; thermal; touch latency; focus/pause/re-entry; save integrity; visual comparison; Castle `CAS-GPU-01`–`05` alpha-area census, layer toggles, and overdraw heatmaps. |
 | acceptance | The exact release candidate meets documented design thresholds on required devices with retained touch, save, visual, and gameplay behavior. |
 | closure | Blocked as of 2026-08-13; the matching `441adf35` APK exists, but no device matrix, measurements, accepted result, closure commit, or date exists. |
-| relationships | Blocks `MA-RELEASE-001`; device touch overlaps `MA-TOUCH-001`; asset/performance risks include `MA-ASSET-004` and `MA-2D-002`. |
-| history | 2026-08-09: V0 device gap indexed. 2026-08-13: integrated predecessor `e6edf559` gained a matching dev APK; historical source `7391c53c` preserved its failed remote renderer diagnostic. Integrated head `441adf35` adds exact machine and matching-APK evidence over unchanged source `51d0abc0`, but no target-device matrix, so the item remains `BLOCKED_EXTERNAL`. |
+| relationships | Blocks `MA-RELEASE-001`; device touch overlaps `MA-TOUCH-001`; asset/performance risks include `MA-ASSET-004` and `MA-2D-002`; `CAS-GPU-01`–`05` above are Castle measurement candidates, not established performance failures. |
+| history | 2026-08-09: V0 device gap indexed. 2026-08-13: integrated predecessor `e6edf559` gained a matching dev APK; historical source `7391c53c` preserved its failed remote renderer diagnostic. Integrated head `441adf35` adds exact machine and matching-APK evidence over unchanged source `51d0abc0`, but no target-device matrix, so the item remains `BLOCKED_EXTERNAL`. 2026-08-23: the overdraw cell adds five exact-source Castle candidates for Mobile profiling; lifecycle stays `BLOCKED_EXTERNAL` because no device cost is measured. |
 
 ## MA-CHILD-001
 
