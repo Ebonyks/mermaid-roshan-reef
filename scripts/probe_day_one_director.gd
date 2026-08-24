@@ -28,6 +28,8 @@ func _init() -> void:
 		and director.is_room_completed("bathroom")
 		and director.is_dust_bunny_cleaned("bathroom")
 		and director.bathroom_cleanup_step == 3
+		and director.bathroom_rebuild_replay_seen
+		and not director.bathroom_rebuild_replay_pending
 		and main.day_one_current_room_id == "pool"
 		and director.can_enter_room("bathroom")
 		and director.can_enter_room("pool"))
@@ -73,7 +75,10 @@ func _init() -> void:
 		restored_main.day_one_completed_rooms == {"bathroom": true, "pool": true}
 		and restored_main.day_one_current_room_id == "stuffie"
 		and restored_main.day_one_cleaned_rooms == {"bathroom": true, "pool": true}
-		and restored_main.day_one_bathroom_cleanup_step == 3
+		and restored_main.day_one_bathroom_cleanup_step == 0
+		and restored_main.day_one_bathroom_supply_hunt_step == 0
+		and restored_main.day_one_bathroom_rebuild_replay_pending
+		and not restored_main.day_one_bathroom_rebuild_replay_seen
 		and restored_main.day_one_pool_cleanup_step == 4
 		and restored_main.day_one_pool_skimmer_mask == 0x3F
 		and restored_main.day_one_pool_waterfall_mask == 0x07
