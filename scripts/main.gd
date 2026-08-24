@@ -10,6 +10,8 @@ const TapMoveDirectorLogic = preload("res://scripts/tap_move_director.gd")
 const LivingWorldLogic = preload("res://scripts/living_world.gd")
 const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
 const StartMenuLogic = preload("res://scripts/start_menu.gd")
+const AttackCustomizerLogic = preload("res://scripts/attack_customizer.gd")
+const DayOneArtStudioLogic = preload("res://scripts/day_one_art_studio.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -242,6 +244,11 @@ var lagoon_trip_return_master_x := -1.0
 var combat_ice_done := false       # Butterfly Castle ice-berry encounter completed
 var combat_fire_done := false      # Pearl Castle basement pepper encounter completed
 var combat_tutorial_done := false  # the Royal Hall sparring class, finished once
+## Player-selected attack presentation. These are deliberately small, stable
+## values so every combat mode can read the same profile without owning save
+## state or introducing another rendering path.
+var attack_color: Color = Color(0.2705882353, 0.8588235294, 0.9215686275, 1.0)
+var attack_effect: String = "bubbles"
 var combat_game: CombatArena = null
 var combat_tutorial_game: CombatTutorial = null
 var combat_from := ""
@@ -304,9 +311,15 @@ var day_one_boss_door_glow: bool = false
 var day_one_giant_dust_bunny_boss_triggered: bool = false
 var day_one_pool_cleanup_step: int = 0
 var day_one_pool_rumi_met: bool = false
+var day_one_art_collected_materials: Dictionary = {}
+var day_one_art_cleaned_grime: Dictionary = {}
+var day_one_art_desk_unlocked: bool = false
+var day_one_art_customization_completed: bool = false
 var day_one_event_seen: Dictionary = {}
 var day_one_event_history: Array[Dictionary] = []
 var _day_one_director: DayOneDirector = null
+var _attack_customizer: AttackCustomizer = null
+var _day_one_art_studio: DayOneArtStudio = null
 var day_one_castle_dressing: DayOneCastleDressing = null
 var castle_royal_hall_mist_cards: Array[Sprite2D] = []
 var castle_royal_hall_mist_time := 0.0
@@ -6784,6 +6797,69 @@ func _day_one_ref() -> DayOneDirector:
 		_day_one_director.hook_event.connect(_on_day_one_hook_event)
 	return _day_one_director
 
+
+## The attack customizer is intentionally loaded lazily. This keeps the main
+## boot path independent of the optional art-room overlay while still giving
+## every combat mode one owner-facing entry point.
+func _attack_customizer_ref() -> AttackCustomizer:
+	if _attack_customizer != null and is_instance_valid(_attack_customizer):
+		return _attack_customizer
+	_attack_customizer = AttackCustomizerLogic.new() as AttackCustomizer
+	add_child(_attack_customizer)
+	_attack_customizer.attach(self)
+	return _attack_customizer
+
+
+func _open_attack_customizer(on_confirm: Callable = Callable()) -> bool:
+	var customizer: AttackCustomizer = _attack_customizer_ref()
+	if customizer == null or not customizer.has_method("open"):
+		return false
+	var result: Variant = customizer.call("open", on_confirm)
+	return bool(result) if result is bool else true
+
+
+func _close_attack_customizer() -> void:
+	if _attack_customizer != null and is_instance_valid(_attack_customizer) \
+			and _attack_customizer.has_method("close"):
+		_attack_customizer.call("close")
+
+
+func set_attack_profile(next_color: Color, next_effect: String) -> bool:
+	var effect: String = next_effect.strip_edges().to_lower()
+	if effect not in ["bubbles", "splashes"]:
+		effect = "bubbles"
+	attack_color = Color(
+		clampf(next_color.r, 0.0, 1.0),
+		clampf(next_color.g, 0.0, 1.0),
+		clampf(next_color.b, 0.0, 1.0),
+		clampf(next_color.a, 0.0, 1.0))
+	attack_effect = effect
+	_queue_save()
+	return true
+
+
+func _open_day_one_art_studio() -> bool:
+	if castle_room_stage == null or castle_room_id != "craft_room" \
+			or not day_one_is_active() \
+			or _day_one_ref().is_room_completed("art"):
+		return false
+	if _day_one_art_studio != null and is_instance_valid(_day_one_art_studio):
+		_day_one_art_studio.refresh_from_state()
+		return true
+	_day_one_art_studio = DayOneArtStudioLogic.new() as DayOneArtStudio
+	castle_room_stage.add_child(_day_one_art_studio)
+	_day_one_art_studio.setup(self)
+	if castle_room_action_button != null:
+		castle_room_action_button.visible = false
+	return true
+
+
+func _close_day_one_art_studio() -> void:
+	if _day_one_art_studio != null and is_instance_valid(_day_one_art_studio):
+		_day_one_art_studio.teardown()
+	_day_one_art_studio = null
+
+
 func day_one_is_active() -> bool:
 	return _day_one_ref().day_one_active
 
@@ -6837,6 +6913,12 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 	if logical_room == "pool":
 		_castle_rooms_ref().start_day_one_pool_cleanup()
 		return true
+	if logical_room == "art":
+		if director.art_customization_completed:
+			day_one_complete_art_scene()
+		else:
+			_open_day_one_art_studio()
+		return true
 	if not director.complete_placeholder(logical_room):
 		show_msg("Daddy Mermaid",
 			"Let's finish the glowing room before opening another door!",
@@ -6857,6 +6939,38 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 			"win")
 	_say("roshan", "talk", 0.8)
 	return true
+
+
+func day_one_record_art_cleanup(kind: String, item_id: String) -> bool:
+	if not day_one_is_active() or _day_one_ref().current_room_id != "art":
+		return false
+	var changed: bool = _day_one_ref().record_art_cleanup(kind, item_id)
+	if changed:
+		_queue_save()
+	return changed
+
+
+func day_one_complete_art_customization() -> bool:
+	if not day_one_is_active() or _day_one_ref().current_room_id != "art":
+		return false
+	var changed: bool = _day_one_ref().complete_art_customization()
+	if changed:
+		_write_save()
+	return changed
+
+
+func day_one_complete_art_scene() -> bool:
+	if not day_one_is_active():
+		return false
+	var director: DayOneDirector = _day_one_ref()
+	if not director.complete_art_studio():
+		return false
+	_close_day_one_art_studio()
+	_castle_rooms_ref().apply_day_one_cleanup("craft_room")
+	_day_one_sync_castle_dressing()
+	_write_save()
+	return true
+
 
 func day_one_record_pool_cleanup_step(step: int) -> void:
 	if not day_one_is_active():
@@ -6903,6 +7017,7 @@ func _day_one_attach_castle_dressing() -> void:
 	_day_one_sync_castle_dressing()
 
 func _day_one_sync_castle_dressing() -> void:
+	_sync_day_one_art_studio()
 	if day_one_castle_dressing == null \
 			or not is_instance_valid(day_one_castle_dressing):
 		return
@@ -6921,7 +7036,20 @@ func _day_one_sync_castle_dressing() -> void:
 		"visible_room_id": castle_room_id,
 	})
 
+
+func _sync_day_one_art_studio() -> void:
+	var should_show: bool = day_one_is_active() \
+		and castle_room_stage != null \
+		and castle_room_id == "craft_room" \
+		and not _day_one_ref().is_room_completed("art")
+	if should_show:
+		_open_day_one_art_studio()
+	else:
+		_close_day_one_art_studio()
+
+
 func _day_one_clear_castle_dressing() -> void:
+	_close_day_one_art_studio()
 	if day_one_castle_dressing != null \
 			and is_instance_valid(day_one_castle_dressing):
 		day_one_castle_dressing.teardown()
@@ -6954,6 +7082,10 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 				"Dust bunnies! This castle needs our help!", "talk")
 		DayOneDirector.EVENT_DUST_BUNNY_CLEANUP:
 			g["day_one_cleaned_room"] = String(payload.get("room_id", ""))
+		DayOneDirector.EVENT_ART_DESK_UNLOCKED:
+			g["day_one_art_desk_unlocked"] = true
+		DayOneDirector.EVENT_ART_CUSTOMIZATION_COMPLETED:
+			g["day_one_art_customization_completed"] = true
 		DayOneDirector.EVENT_BOSS_DOOR_GLOW:
 			_day_one_arm_boss_door()
 		DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:

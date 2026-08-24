@@ -42,8 +42,16 @@ const EVENT_ARRIVAL_PLANE_MEDIA: String = "arrival_plane_media"
 const EVENT_DIRTY_CASTLE_DISCOVERY: String = "dirty_castle_discovery"
 const EVENT_GROK_VIDEO_2: String = "grok_video_2"
 const EVENT_DUST_BUNNY_CLEANUP: String = "dust_bunny_cleanup"
+const EVENT_ART_DESK_UNLOCKED: String = "art_desk_unlocked"
+const EVENT_ART_CUSTOMIZATION_COMPLETED: String = "art_customization_completed"
 const EVENT_BOSS_DOOR_GLOW: String = "boss_door_glow"
 const EVENT_GIANT_DUST_BUNNY_BOSS: String = "giant_dust_bunny_boss"
+const ART_MATERIAL_IDS: Array[String] = [
+	"brushes", "pink_paint", "blue_paint", "paint_cups",
+]
+const ART_GRIME_IDS: Array[String] = [
+	"left_counter", "desk_counter", "right_counter",
+]
 
 const SAVE_KEYS: Array[String] = [
 	"day_one_active",
@@ -59,6 +67,10 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_giant_dust_bunny_boss_triggered",
 	"day_one_pool_cleanup_step",
 	"day_one_pool_rumi_met",
+	"day_one_art_collected_materials",
+	"day_one_art_cleaned_grime",
+	"day_one_art_desk_unlocked",
+	"day_one_art_customization_completed",
 ]
 
 var m: ReefMain
@@ -121,6 +133,26 @@ var pool_rumi_met: bool:
 		return m.day_one_pool_rumi_met
 	set(value):
 		m.day_one_pool_rumi_met = value
+var art_collected_materials: Dictionary:
+	get:
+		return m.day_one_art_collected_materials
+	set(value):
+		m.day_one_art_collected_materials = value
+var art_cleaned_grime: Dictionary:
+	get:
+		return m.day_one_art_cleaned_grime
+	set(value):
+		m.day_one_art_cleaned_grime = value
+var art_desk_unlocked: bool:
+	get:
+		return m.day_one_art_desk_unlocked
+	set(value):
+		m.day_one_art_desk_unlocked = value
+var art_customization_completed: bool:
+	get:
+		return m.day_one_art_customization_completed
+	set(value):
+		m.day_one_art_customization_completed = value
 var day_one_event_seen: Dictionary:
 	get:
 		return m.day_one_event_seen
@@ -230,6 +262,57 @@ func complete_placeholder(room_id: String, activity_id: String = "") -> bool:
 	return complete_activity(room_id, activity_id)
 
 
+func art_cleanup_complete() -> bool:
+	return _map_has_every_id(art_collected_materials, ART_MATERIAL_IDS) \
+		and _map_has_every_id(art_cleaned_grime, ART_GRIME_IDS)
+
+
+## Records one child-readable studio action. The maps intentionally remain
+## string->true dictionaries so arbitrary future props survive JSON round trips
+## without changing this director's schema.
+func record_art_cleanup(kind: String, item_id: String) -> bool:
+	var id: String = item_id.strip_edges().to_lower()
+	if id.is_empty():
+		return false
+	var action: String = kind.strip_edges().to_lower()
+	if action in ["material", "materials", "loose_material", "loose_materials"]:
+		art_collected_materials[id] = true
+	elif action in ["grime", "counter", "counter_grime", "cleaned_grime"]:
+		art_cleaned_grime[id] = true
+	else:
+		return false
+	if art_cleanup_complete() and not art_desk_unlocked:
+		art_desk_unlocked = true
+		_emit_once(EVENT_ART_DESK_UNLOCKED, {
+			"materials": _string_bool_map_to_array(art_collected_materials),
+			"grime": _string_bool_map_to_array(art_cleaned_grime),
+		})
+	return true
+
+
+func unlock_art_desk() -> bool:
+	if not art_cleanup_complete() or art_desk_unlocked:
+		return false
+	art_desk_unlocked = true
+	_emit_once(EVENT_ART_DESK_UNLOCKED, {})
+	return true
+
+
+func complete_art_customization() -> bool:
+	if not art_desk_unlocked or art_customization_completed:
+		return false
+	art_customization_completed = true
+	_emit_once(EVENT_ART_CUSTOMIZATION_COMPLETED, {})
+	return true
+
+
+func complete_art_studio() -> bool:
+	if not art_cleanup_complete() or not art_desk_unlocked \
+			or not art_customization_completed:
+		return false
+	return complete_activity("art", "art_activity")
+
+
 func complete_room(room_id: String) -> bool:
 	var id: String = _normalise_room_id(room_id)
 	if id == "" or id != current_room_id or is_room_completed(id):
@@ -316,6 +399,10 @@ func serialize_state() -> Dictionary:
 			giant_dust_bunny_boss_triggered,
 		"day_one_pool_cleanup_step": pool_cleanup_step,
 		"day_one_pool_rumi_met": pool_rumi_met,
+		"day_one_art_collected_materials": art_collected_materials.duplicate(true),
+		"day_one_art_cleaned_grime": art_cleaned_grime.duplicate(true),
+		"day_one_art_desk_unlocked": art_desk_unlocked,
+		"day_one_art_customization_completed": art_customization_completed,
 	}
 
 
@@ -342,6 +429,14 @@ func _normalise_state(source: Dictionary) -> void:
 		"day_one_giant_dust_bunny_boss_triggered", false))
 	pool_cleanup_step = int(normalised.get("day_one_pool_cleanup_step", 0))
 	pool_rumi_met = bool(normalised.get("day_one_pool_rumi_met", false))
+	art_collected_materials = _string_bool_map(normalised.get(
+		"day_one_art_collected_materials", {}))
+	art_cleaned_grime = _string_bool_map(normalised.get(
+		"day_one_art_cleaned_grime", {}))
+	art_desk_unlocked = bool(normalised.get(
+		"day_one_art_desk_unlocked", false)) and art_cleanup_complete()
+	art_customization_completed = bool(normalised.get(
+		"day_one_art_customization_completed", false)) and art_desk_unlocked
 
 
 ## SaveState can call this static helper without constructing a director (and
@@ -368,6 +463,17 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_pool_cleanup_step", 4 if pool_done else 0)), 0, 4)
 	if pool_done:
 		saved_pool_step = 4
+	var art_materials: Dictionary = _string_bool_map_static(source.get(
+		"day_one_art_collected_materials", {}))
+	var art_grime: Dictionary = _string_bool_map_static(source.get(
+		"day_one_art_cleaned_grime", {}))
+	var art_cleanup_done: bool = _map_has_every_id_static(
+		art_materials, ART_MATERIAL_IDS) and _map_has_every_id_static(
+		art_grime, ART_GRIME_IDS)
+	# The desk is a derived reward for finishing all seven cleanup actions.
+	# Deriving it on restore prevents a save written between the final scrub and
+	# the next frame from ever losing progress or trapping the child.
+	var art_desk: bool = art_cleanup_done
 	return {
 		"day_one_active": _as_bool_static(source.get(
 			"day_one_active", true), true),
@@ -389,6 +495,11 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_pool_cleanup_step": saved_pool_step,
 		"day_one_pool_rumi_met": pool_done or _as_bool_static(
 			source.get("day_one_pool_rumi_met", false), false),
+		"day_one_art_collected_materials": art_materials,
+		"day_one_art_cleaned_grime": art_grime,
+		"day_one_art_desk_unlocked": art_desk,
+		"day_one_art_customization_completed": art_desk and _as_bool_static(
+			source.get("day_one_art_customization_completed", false), false),
 	}
 
 
@@ -449,6 +560,46 @@ func _room_map_to_array(value: Dictionary) -> Array[String]:
 		if bool(value.get(room_id, false)):
 			result.append(room_id)
 	return result
+
+
+func _string_bool_map(value: Variant) -> Dictionary:
+	return _string_bool_map_static(value)
+
+
+static func _string_bool_map_static(value: Variant) -> Dictionary:
+	var result: Dictionary = {}
+	if value is Dictionary:
+		var source: Dictionary = value as Dictionary
+		for key: Variant in source.keys():
+			var id: String = String(key).strip_edges().to_lower()
+			if not id.is_empty() and _as_bool_static(source.get(key, false), false):
+				result[id] = true
+	elif value is Array:
+		for entry: Variant in value as Array:
+			var id_from_entry: String = String(entry).strip_edges().to_lower()
+			if not id_from_entry.is_empty():
+				result[id_from_entry] = true
+	return result
+
+
+func _string_bool_map_to_array(value: Dictionary) -> Array[String]:
+	var result: Array[String] = []
+	for key: Variant in value.keys():
+		if bool(value.get(key, false)):
+			result.append(String(key))
+	return result
+
+
+func _map_has_every_id(value: Dictionary, required: Array[String]) -> bool:
+	return _map_has_every_id_static(value, required)
+
+
+static func _map_has_every_id_static(value: Dictionary,
+		required: Array[String]) -> bool:
+	for id: String in required:
+		if not bool(value.get(id, false)):
+			return false
+	return true
 
 
 func _as_bool(value: Variant, fallback: bool) -> bool:
