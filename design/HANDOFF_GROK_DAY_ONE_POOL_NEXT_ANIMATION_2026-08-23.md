@@ -32,6 +32,15 @@ Also upload the relevant runtime review frame(s) from the nine-state evidence
 set produced by `scripts/probe_day_one_pool_shots.gd`. Use them for composition
 and continuity, not as delivery pixels.
 
+Use these current composition references as well:
+
+11. `assets_src/imagegen/day_one_pool_natural_integration_2026-08-23/room_activity_integration_reference_native.png`
+12. `audit/DAY_ONE_POOL_NATURAL_INTEGRATION_SPEC_2026-08-23.md`
+
+The integration reference is layout, material, scale, and contact guidance
+only. It is not a source for character identity, fixture redesign, or delivery
+pixels. The nine-state runtime captures are the authority for exact placement.
+
 ## Non-negotiable continuity
 
 - The location is the same Mermaid Pool: cream pearl coping, lavender shell
@@ -51,6 +60,14 @@ and continuity, not as delivery pixels.
 - Polished flattened 2D storybook illustration: rounded shapes, navy/plum
   contours, broad painted value bands, aqua/lavender shadows, restrained
   highlights, readable silhouettes, no photorealism, no 3D render, no text/UI.
+- Activities must look physically present in the room rather than drawn over
+  it. Keep tools and debris small enough for the room perspective, tint them
+  into the local dingy aqua/lavender light, give each item a short local
+  contact shadow or water wake, and let architecture occlude objects naturally.
+- Compose only one active action as the focal event in any frame. Other task
+  areas remain quiet environmental state. Never add a full-screen colour wash,
+  a second graphic pool, decorative ring field, giant uniform props, floating
+  cards, checkerboard edges, white halos, or sticker-like outlines.
 
 ## Required visual beats
 
@@ -97,6 +114,14 @@ braid, pointed ears, navy gold-trimmed sea-jacket, shell clasp, aqua-lavender
 tail, and coral fins; do not substitute another mermaid. Show the requested
 action and contact unambiguously at phone size. Return one complete newly drawn
 full frame, not layers or a cutout.
+
+Natural integration: preserve the room's original perspective and value
+hierarchy. Stage one active action only. Match every tool, trash piece, wake,
+shadow, and grime mark to the nearby surface colour and light; use tight contact
+shadows, small ripples, partial architectural occlusion, and varied rotations.
+Avoid overlay graphics, global tint panels, concentric interface rings,
+oversized props, repeated identical scale, bright sticker rims, or isolated
+objects that do not touch water, stone, fixture, hand, net, or basket.
 
 ## Delivery and review contract
 

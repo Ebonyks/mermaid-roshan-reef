@@ -17,9 +17,15 @@ const BASKET_TEXTURE_PATH := \
 	"res://assets/castle/day_one_pool/activities/cleanup_basket.png"
 const TAP_TOTAL := 8
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
-const BASKET_ANCHOR := Vector2(1080.0, 596.0)
+const BASKET_ANCHOR := Vector2(980.0, 560.0)
 const TAP_REGION_GROWTH := 0.55
 const BUBBLE_LIFETIME := 1.35
+# Normalized authored cutout anchors: the seahorse nozzle center in the fitted
+# fixture and the far weed tip in the obstruction texture. Keeping these as
+# explicit visual anchors makes the growth enter the mouth instead of hovering
+# beside it; the broad toddler tap envelope remains independent below.
+const SEAHORSE_MOUTH_ANCHOR := Vector2(-0.085, -0.19)
+const PROP_NOZZLE_ANCHOR := Vector2(0.488, 0.184)
 
 var fixture_center := Vector2.ZERO
 var fixture_size := Vector2.ZERO
@@ -252,7 +258,18 @@ func _start_completion_flight() -> void:
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	_completion_tween.tween_property(_mouth_trash, "scale", _prop_scale * 0.22, 0.58) \
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	_completion_tween.tween_property(_mouth_trash, "modulate:a", 0.0, 0.52)
+	# Keep the recovered prop readable through basket contact, then let the rim
+	# swallow it instead of fading a floating token in mid-air.
+	_completion_tween.tween_property(
+		_mouth_trash, "modulate:a", 0.0, 0.10).set_delay(0.50)
+	if _basket != null and is_instance_valid(_basket):
+		var basket_settle: Tween = _basket.create_tween()
+		basket_settle.tween_interval(0.46)
+		basket_settle.tween_property(
+			_basket, "position:y", _basket_position.y + 5.0, 0.08)
+		basket_settle.tween_property(
+			_basket, "position:y", _basket_position.y, 0.14) \
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	_completion_tween.chain().tween_callback(_finish_completion)
 
 
@@ -277,9 +294,10 @@ func _build_activity_art() -> void:
 		_seahorse.name = "SickSeahorseBase"
 		_seahorse.texture = _seahorse_texture
 		_seahorse.position = fixture_center
-		_seahorse.z_index = 3
+		_seahorse.z_index = 2
 		_base_scale = _fit_scale(_seahorse_texture, fixture_size * 0.96)
 		_seahorse.scale = _base_scale
+		_seahorse.modulate = Color(0.84, 0.90, 0.82, 0.98)
 		add_child(_seahorse)
 
 	if _mouth_trash_texture != null:
@@ -287,16 +305,17 @@ func _build_activity_art() -> void:
 		_mouth_trash.name = "MouthTrashPullProp"
 		_mouth_trash.texture = _mouth_trash_texture
 		_prop_scale = _fit_scale(_mouth_trash_texture,
-			Vector2(base_dimension * 0.74, base_dimension * 0.74))
+			Vector2(base_dimension * 0.62, base_dimension * 0.62))
 		_mouth_trash.scale = _prop_scale
-		# The standalone prop's pink wrapper sits left of its source canvas;
-		# offset its sprite center so that wrapper lands over the sick mouth.
-		# The seahorse faces left. Register the prop's right-hand algae tail at
-		# the nozzle, leaving the pink wrapper visibly outside the mouth.
-		_prop_rest_position = fixture_center + Vector2(
-			-fixture_size.x * 0.48, -fixture_size.y * 0.19)
+		# Register the prop's right-hand weed tip to the seahorse's authored
+		# mouth anchor. These visual anchors are independent of the broad hit box.
+		var mouth_anchor: Vector2 = fixture_center \
+			+ fixture_size * SEAHORSE_MOUTH_ANCHOR
+		var prop_display_size: Vector2 = _mouth_trash_texture.get_size() * _prop_scale
+		_prop_rest_position = mouth_anchor - prop_display_size * PROP_NOZZLE_ANCHOR
 		_mouth_trash.position = _prop_rest_position
 		_mouth_trash.z_index = 6
+		_mouth_trash.modulate = Color(0.78, 0.82, 0.68, 0.96)
 		add_child(_mouth_trash)
 
 	if _basket_texture != null:
@@ -305,8 +324,9 @@ func _build_activity_art() -> void:
 		_basket.texture = _basket_texture
 		_basket_position = _resolve_basket_position()
 		_basket.position = _basket_position
-		_basket.z_index = 2
-		_basket.scale = _fit_scale(_basket_texture, Vector2(210.0, 165.0))
+		_basket.z_index = 320
+		_basket.scale = _fit_scale(_basket_texture, Vector2(145.0, 112.0))
+		_basket.modulate = Color(0.84, 0.88, 0.82, 0.96)
 		add_child(_basket)
 
 	_feedback_layer = Control.new()
@@ -397,20 +417,25 @@ func _draw() -> void:
 		return
 	var progress := float(_taps) / float(TAP_TOTAL)
 	var pulse := 1.0 + sin(_activity_time * 3.1) * 0.06
-	var halo_alpha := 0.12 if _completed else 0.20
-	draw_circle(_prop_rest_position, maxf(fixture_size.x, fixture_size.y) * 0.18 * pulse,
-		Color(0.58, 0.96, 0.94, halo_alpha))
-	# Eight chunky, wordless progress beads remain legible at phone scale.
-	var bead_start := fixture_center + Vector2(-112.0, fixture_size.y * 0.53)
+	# A flattened water-contact ripple keeps the plug grounded without exposing
+	# the much larger invisible tap target.
+	draw_set_transform(
+		_prop_rest_position + Vector2(0.0, 18.0), 0.0, Vector2(1.0, 0.30))
+	draw_arc(Vector2.ZERO,
+		maxf(fixture_size.x, fixture_size.y) * 0.16 * pulse,
+		0.10, PI - 0.10, 22, Color(0.64, 0.91, 0.86, 0.24), 2.5, true)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# Small bubbles communicate monotonic progress without forming a modal HUD.
+	var bead_start := fixture_center + Vector2(-84.0, fixture_size.y * 0.48)
 	for index in range(TAP_TOTAL):
 		var filled := index < _taps
-		var bead_color := Color(1.0, 0.86, 0.30, 0.95) if filled \
-			else Color(0.75, 0.96, 0.96, 0.30)
-		draw_circle(bead_start + Vector2(float(index) * 32.0, 0.0),
-			9.0 + (2.0 if filled else 0.0), bead_color)
+		var bead_color := Color(0.96, 0.86, 0.44, 0.78) if filled \
+			else Color(0.75, 0.92, 0.90, 0.20)
+		draw_circle(bead_start + Vector2(float(index) * 24.0, 0.0),
+			6.0 + (1.5 if filled else 0.0), bead_color)
 		if not filled:
-			draw_arc(bead_start + Vector2(float(index) * 32.0, 0.0), 13.0,
-				0.0, TAU, 20, Color(0.86, 1.0, 0.96, 0.26), 2.0, true)
+			draw_arc(bead_start + Vector2(float(index) * 24.0, 0.0), 9.0,
+				0.0, TAU, 16, Color(0.86, 1.0, 0.96, 0.18), 1.5, true)
 	if _tap_pulse_time > 0.0:
 		var pulse_fraction := 1.0 - _tap_pulse_time / 0.32
 		draw_arc(_tap_pulse, 28.0 + pulse_fraction * 48.0, 0.0, TAU, 28,

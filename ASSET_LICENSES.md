@@ -2639,3 +2639,7 @@ the selected native generations remain preserved.
 - `assets/castle/day_one_art_studio/grime_desk.png` - transparent 512×346 desk grime derivative.
 - `assets/castle/day_one_art_studio/grime_right.png` - transparent 512×307 right grime derivative.
 - `assets/castle/day_one_art_studio/magic_cleaning_brush.png` - transparent 936×1024 runtime customizer-brush derivative.
+
+## Day One Pool natural-integration reference (2026-08-23)
+
+- `assets_src/imagegen/day_one_pool_natural_integration_2026-08-23/room_activity_integration_reference_native.png` - project-original OpenAI built-in ImageGen full-frame visual-integration reference generated only from project-owned Mermaid Pool art; license: project original; URL: none. It is non-runtime reference art, not a replacement for the approved room or V4 fixture identities. Exact prompt, source roles, result ID, SHA-256, review decision, and rejected attempts are recorded in the adjacent `PROMPT.md` and `PROVENANCE.md`.

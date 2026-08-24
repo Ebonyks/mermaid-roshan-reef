@@ -2,7 +2,8 @@
 
 ## Verdict
 
-**Overall master-audit rating: 3/5 — usable, with bounded acceptance gaps.**
+**Overall master-audit rating: 4/5 — strong in-engine candidate, with device,
+child, voice, and owner acceptance still open.**
 
 The generic four-click cleanup has been replaced by three causal, one-finger
 activities: skim six visible pieces of trash, scrub three clogged waterfall
@@ -18,10 +19,13 @@ fully replaces the rainbow with a still olive sludge curtain, embedded litter,
 and a blocked basin. Rumi uses the approved Violet identity and the existing
 authored swim, wave, and idle art; no substitute mermaid is present.
 
-The feature earns 3/5 rather than 4/5 because several new activity props are
-sharper and glossier than the room's soft painted background, and because M11,
-small-phone, child, owner, and final voice acceptance are still open. These are
-bounded review gaps, not a reason to revert to the prior generic interaction.
+The 2026-08-23 natural-integration pass closes the material in-engine clarity
+gap that held the earlier composite at 3/5. The full-screen activity wash,
+abstract second pool, broad target-ring field, inflated props, and uniform
+foreground staging are gone. The tools and debris now use room tint, local
+water contact, perspective scale, and the room's authored depth ladder. The
+remaining gaps are the normal 4/5 external gates: M11, small-phone, observed
+child, final voice, and owner acceptance.
 
 ## Authority and evidence
 
@@ -54,15 +58,26 @@ bounded review gaps, not a reason to revert to the prior generic interaction.
   dirty arrival, skimmer catch, pool clear/clogged fixture, waterfall scrub,
   cleaned-static fixture, midway seahorse tug, trash release, rainbow surge,
   and Rumi reveal.
+- The accepted composite has no activity-owned full-screen color plate or
+  abstract pool redraw. Debris is 62–88 px, the skimmer is capped at 205×150,
+  and the basket at 145×112 on the 1280×720 stage while the invisible skimmer
+  catch radius remains 118 px.
+- Runtime depth is explicit: waterfall/seahorse activity art sits immediately
+  above its z=65 fixture; debris and skimmer remain below Roshan; baskets sit
+  below the authored z=400 foreground rim. Local flattened aqua ripples replace
+  the old multi-target rings.
+- The obstruction uses measured texture anchors for the seahorse nozzle and
+  weed tip, so the growth enters the mouth while the broad tap region remains
+  independent of the smaller visible art.
 
 ## Asset and activity findings
 
 | Asset/activity | Rating | Congruent strengths | Remaining gap |
 |---|---:|---|---|
 | Mermaid Pool V4 room and fixtures | 4/5 anchor | Pastel shell architecture, broad aqua pool, readable pearl waterfall and long-snouted seahorse | Target-device acceptance remains external to this review |
-| Skimmer game | 3/5 | Six distinct, harmless objects; oversized net; circular touch targets; catch flight, basket landing, ripples, bubbles, and sparkles make contact truthful | Net, basket, and trash have more specular detail than the room anchor |
-| Clogged waterfall game | 3/5 | Uses the live V4 center and aspect; complete stagnant curtain hides the rainbow; three lanes reveal truthfully; no clean animated water before finale | Olive curtain remains visually sharper than the soft architectural paint; owner/M11 review open |
-| Seahorse rescue | 3/5 | Correct species/pose and long nozzle; trash visibly projects from the mouth; eight taps stretch the plug toward a basket; healthy card replaces it only after release | Generated sick card is more saturated than the clean rest card; phone identity comparison open |
+| Skimmer game | 4/5 | Six harmless pieces are perspective-sized and water-anchored; the smaller tinted net, rim-resting basket, local ripples, contact-preserving catch flight, and unchanged broad invisible radius read as one room action | M11/small-phone and child/owner review remain open |
+| Clogged waterfall game | 4/5 | Uses exact live V4 bounds; still olive curtain fully hides the rainbow; three lanes reveal with contact feedback above the grime; no animated clean water before finale | Owner/M11 review remains open; retain the restrained runtime tint |
+| Seahorse rescue | 4/5 | Correct long-nozzled fixture; measured anchors put the trash/growth into the mouth; eight taps pull it outward and preserve it through basket contact; the room-owned healthy fixture returns only after release | Phone thumb-occlusion and owner identity review remain open |
 | Rumi reveal | 4/5 | Correct Violet/Rumi: enormous violet braid, pointed ears, navy sea-jacket, shell clasp, aqua-lavender tail, coral fins; authored swim, wave, idle | Exact authorized spoken thank-you/introduction and device acceptance remain open |
 | Ordered composition | 4/5 | One active target, direct pointer, no fail state, truthful removal, progressive light recovery, and a strong final reward | Final child/owner playtest and audio mix remain open |
 
@@ -80,7 +95,7 @@ historical provenance only and do not set the live sequence's score.
 | Child readability | **Pass with review gap** | One active subject, oversized tools, picture-first prompts, no loss; smallest-phone playtest pending |
 | Truthful interaction/motion | **Pass** | Trash travels into basket, scrubbed lanes uncover the clean card, mouth plug visibly stretches and releases |
 | Save/no-fail contract | **Pass** | Monotonic masks/tug count; legacy cleanup step normalized; no timer or reset |
-| Material/style congruence | **3/5** | Strong contour/palette family, but props are glossier and higher-frequency than the room anchor |
+| Material/style congruence | **4/5** | The accepted runtime composite removes the modal redraw and uses room tint, reduced scale, local aqua contact, exact fixture registration, and authored depth occlusion; isolated source cutouts remain glossier than the room but no longer dominate at scene scale |
 | Audio | **Coverage gap** | Objectives have visual and `_say()` cues; final authorized Rumi line and Luna mix review require an actual cut |
 | Device/owner evidence | **Coverage gap** | Exact desktop Mobile render and probes pass; M11, smallest-phone, child, and owner acceptance remain open |
 
