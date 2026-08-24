@@ -847,7 +847,6 @@ var _composition_transition_tween: Tween = null
 var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
 var day_one_pool_cleanup: DayOnePoolCleanup = null
-var _day_one_pool_layer_visibility: Array[Dictionary] = []
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -1792,9 +1791,7 @@ func _sync_day_one_pool_cleanup(room_id: String) -> void:
 			and is_instance_valid(day_one_pool_cleanup):
 		return
 	day_one_pool_cleanup = DAY_ONE_POOL_CLEANUP.new() as DayOnePoolCleanup
-	# Visuals share the room world's depth ladder so pool debris can sit below
-	# Roshan and the authored foreground instead of above the entire scene.
-	m.castle_room_world_root.add_child(day_one_pool_cleanup)
+	m.castle_room_stage.add_child(day_one_pool_cleanup)
 	day_one_pool_cleanup.cleanup_step_completed.connect(
 		_on_day_one_pool_cleanup_step)
 	day_one_pool_cleanup.finale_started.connect(
@@ -1810,15 +1807,6 @@ func _sync_day_one_pool_cleanup(room_id: String) -> void:
 	_position_player_at_foot(Vector2(330.0, 640.0), false)
 	if m.castle_room_action_button != null:
 		m.castle_room_action_button.visible = false
-	_day_one_pool_layer_visibility.clear()
-	for interaction_layer: CanvasItem in [m.castle_room_item_hotspot_layer,
-			m.castle_room_door_hotspot_layer, m.castle_room_link_layer]:
-		if interaction_layer != null:
-			_day_one_pool_layer_visibility.append({
-				"layer": interaction_layer,
-				"visible": interaction_layer.visible,
-			})
-			interaction_layer.visible = false
 
 
 func _clear_day_one_pool_cleanup() -> void:
@@ -1826,11 +1814,6 @@ func _clear_day_one_pool_cleanup() -> void:
 			and is_instance_valid(day_one_pool_cleanup):
 		day_one_pool_cleanup.teardown()
 	day_one_pool_cleanup = null
-	for visibility_record: Dictionary in _day_one_pool_layer_visibility:
-		var interaction_layer: CanvasItem = visibility_record.get("layer") as CanvasItem
-		if interaction_layer != null and is_instance_valid(interaction_layer):
-			interaction_layer.visible = bool(visibility_record.get("visible", true))
-	_day_one_pool_layer_visibility.clear()
 
 
 func _on_day_one_pool_cleanup_step(step: int, cleanup_id: String) -> void:
@@ -1840,7 +1823,6 @@ func _on_day_one_pool_cleanup_step(step: int, cleanup_id: String) -> void:
 
 func _on_day_one_pool_finale_started() -> void:
 	_activate_room_item("waterfall")
-	_activate_room_item("seahorse_fountain")
 	_burst("✦", Color(0.74, 0.94, 1.0))
 
 

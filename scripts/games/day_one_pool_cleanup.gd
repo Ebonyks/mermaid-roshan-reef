@@ -45,6 +45,7 @@ var _rumi: AnimatedSprite2D = null
 var _clean_waterfall: Sprite2D = null
 var _healthy_seahorse: Sprite2D = null
 var _hidden_fixture_items: Array[Dictionary] = []
+var _interaction_layer_visibility: Array[Dictionary] = []
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -55,6 +56,12 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	size = StorybookUI.CANVAS_SIZE
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	z_index = 0
+	# The owner mounts the controller on the room stage for lifecycle ownership.
+	# Move this activity under the authored world root so its explicit z values
+	# interleave with Roshan and the foreground instead of becoming screen UI.
+	if m.castle_room_world_root != null and get_parent() != m.castle_room_world_root:
+		reparent(m.castle_room_world_root)
+	_capture_interaction_layers()
 	_capture_room_lighting()
 	_capture_clean_waterfall()
 	_capture_healthy_seahorse()
@@ -69,6 +76,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 
 func teardown() -> void:
 	_stop_activities()
+	_restore_interaction_layers()
 	if _lighting_target != null and is_instance_valid(_lighting_target):
 		_lighting_target.modulate = _lighting_target_rest_modulate
 	if _clean_waterfall != null and is_instance_valid(_clean_waterfall):
@@ -84,6 +92,28 @@ func teardown() -> void:
 		queue_free()
 	else:
 		free()
+
+
+func _capture_interaction_layers() -> void:
+	_interaction_layer_visibility.clear()
+	for interaction_layer: CanvasItem in [m.castle_room_item_hotspot_layer,
+			m.castle_room_door_hotspot_layer, m.castle_room_link_layer]:
+		if interaction_layer == null:
+			continue
+		_interaction_layer_visibility.append({
+			"layer": interaction_layer,
+			"visible": interaction_layer.visible,
+		})
+		interaction_layer.visible = false
+
+
+func _restore_interaction_layers() -> void:
+	for visibility_record: Dictionary in _interaction_layer_visibility:
+		var interaction_layer: CanvasItem = visibility_record.get("layer") as CanvasItem
+		if interaction_layer != null and is_instance_valid(interaction_layer):
+			interaction_layer.visible = bool(
+				visibility_record.get("visible", true))
+	_interaction_layer_visibility.clear()
 
 
 func audit_snapshot() -> Dictionary:
@@ -421,6 +451,9 @@ func _begin_finale() -> void:
 		light_tween.tween_property(
 			_lighting_target, "modulate", _lighting_target_rest_modulate, 0.85)
 	finale_started.emit()
+	var rooms: CastleRooms25D = m._castle_rooms_ref() if m != null else null
+	if rooms != null:
+		rooms._activate_room_item("seahorse_fountain")
 	_spawn_rumi_rise()
 
 
