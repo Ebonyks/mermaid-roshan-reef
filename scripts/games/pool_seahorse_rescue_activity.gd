@@ -17,11 +17,15 @@ const BASKET_TEXTURE_PATH := \
 	"res://assets/castle/day_one_pool/activities/cleanup_basket.png"
 const TAP_TOTAL := 8
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
-const BASKET_ANCHOR := Vector2(1074.0, 512.0)
+const BASKET_ANCHOR := Vector2(980.0, 560.0)
 const TAP_REGION_GROWTH := 0.55
 const BUBBLE_LIFETIME := 1.35
-const SEAHORSE_MOUTH_ANCHOR := Vector2(-0.18, -0.22)
-const PROP_NOZZLE_ANCHOR := Vector2(0.45, 0.05)
+# Normalized authored cutout anchors: the seahorse nozzle center in the fitted
+# fixture and the far weed tip in the obstruction texture. Keeping these as
+# explicit visual anchors makes the growth enter the mouth instead of hovering
+# beside it; the broad toddler tap envelope remains independent below.
+const SEAHORSE_MOUTH_ANCHOR := Vector2(-0.085, -0.19)
+const PROP_NOZZLE_ANCHOR := Vector2(0.488, 0.184)
 
 var fixture_center := Vector2.ZERO
 var fixture_size := Vector2.ZERO
@@ -301,7 +305,7 @@ func _build_activity_art() -> void:
 		_mouth_trash.name = "MouthTrashPullProp"
 		_mouth_trash.texture = _mouth_trash_texture
 		_prop_scale = _fit_scale(_mouth_trash_texture,
-			Vector2(base_dimension * 0.74, base_dimension * 0.74))
+			Vector2(base_dimension * 0.62, base_dimension * 0.62))
 		_mouth_trash.scale = _prop_scale
 		# Register the prop's right-hand weed tip to the seahorse's authored
 		# mouth anchor. These visual anchors are independent of the broad hit box.

@@ -101,3 +101,22 @@ The next Mobile capture must prove all of the following in the actual
 - center water remains open and Rumi remains the approved identity.
 
 Per `DL-VIS-07`, owner acceptance in runtime remains the final gate.
+
+## Implemented runtime evidence
+
+The integrated 2026-08-23 runtime pass now satisfies this specification in the
+exact Godot 4.7.1 Forward Mobile composite:
+
+- the activity is mounted in the room's world/depth hierarchy;
+- the global wash, abstract pool redraw, and broad target-ring field are gone;
+- visible props are reduced and tinted while the forgiving hit geometry is
+  unchanged;
+- debris, skimmer, scrubber, mouth obstruction, and basket receive local
+  contact staging rather than a shared modal halo;
+- waterfall and seahorse replacements use the live V4 source bounds;
+- the mouth obstruction uses measured nozzle/tip anchors and visibly enters
+  the seahorse's mouth;
+- nine captured states pass from dirty arrival through approved Rumi reveal.
+
+Target-device, observed-child, voice, and owner acceptance remain external
+gates and are not inferred from the desktop Mobile capture.
