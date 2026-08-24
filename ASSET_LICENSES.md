@@ -2615,3 +2615,26 @@ generations and transparent source masters remain preserved.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_heart.png` - 256x256 transparent heart emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png` - 256x256 transparent pearl-crown emblem cell from the authored motif master.
 - `assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png` - 256x256 transparent complete-butterfly emblem cell from the authored motif master.
+
+## Mermaid Roshan intro sound and editorial review (2026-08-23)
+
+Project-owned review media; license: project original / owner-supplied source;
+URL: none. The downloaded Grok video clips were supplied by the owner, remained
+in `C:/Users/Peter/Downloads`, and were not copied into the repository. The
+review render is a non-destructive editorial derivative. The sound palette was
+authored deterministically from synthesis/noise primitives; it contains no
+third-party recordings and no generated or altered voices. The only reused game
+audio in the mixes is the already-licensed `assets/audio/music/home.ogg`.
+
+- `review/audio/intro_sound_design_2026-08-23/authored/flight_exterior_loop.wav` - project-original synthesized exterior air/aircraft texture.
+- `review/audio/intro_sound_design_2026-08-23/authored/cabin_room_loop.wav` - project-original synthesized cabin room tone.
+- `review/audio/intro_sound_design_2026-08-23/authored/reveal_island.wav` - project-original synthesized island-reveal swell.
+- `review/audio/intro_sound_design_2026-08-23/authored/reveal_castle.wav` - project-original synthesized castle-reveal swell.
+- `review/audio/intro_sound_design_2026-08-23/authored/forest_lakeside_loop.wav` - project-original synthesized forest/lakeside texture.
+- `review/audio/intro_sound_design_2026-08-23/authored/otter_plane_action_loop.wav` - project-original synthesized playful otter/plane action texture.
+- `review/audio/intro_sound_design_2026-08-23/authored/reunion_walk_loop.wav` - project-original synthesized reunion/walking texture.
+- `review/audio/intro_sound_design_2026-08-23/authored/bridge_water_arrival_loop.wav` - project-original synthesized bridge/water arrival texture.
+- `review/video/luna_editorial_recut_2026-08-23/luna_recut_audio_mix.ogg` - compressed review mix derived from the approved music and project-original sound palette.
+- `review/video/luna_editorial_recut_2026-08-23/luna_recut_audio_mix_resolve.wav` - 24-bit PCM Resolve timeline master of the same mix.
+- `review/video/luna_editorial_recut_2026-08-23/mermaid_roshan_luna_recut_v1_resolve.mp4` - DaVinci Resolve editorial derivative of seven owner-supplied Grok clips, with the project-original review mix.
+- `review/video/luna_editorial_recut_2026-08-23/final_contact_sheet.png` - deterministic visual-QA contact sheet derived from the final review render; not runtime art.

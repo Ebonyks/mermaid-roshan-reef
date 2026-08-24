@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "resolve": {
+    "edition": "free",
+    "version": "21.0.4.5",
+    "project": "Mermaid Roshan - Luna Editorial Recut 2026-08-23 v5",
+    "timeline": "MERMAID_ROSHAN_LUNA_RECUT_V1_24FPS",
+    "render_job_status": "Complete",
+    "render_time_ms": 5818
+  },
+  "picture": {
+    "codec": "h264 Main",
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "frames": 939,
+    "duration_seconds": 39.125,
+    "progressive": true,
+    "color": "BT.709",
+    "timeline_video_items": 10,
+    "cross_dissolves": 3,
+    "fcpxml_gap_elements": 0,
+    "black_events_at_least_0_08_seconds": 0,
+    "freeze_events_at_least_1_5_seconds": 0
+  },
+  "audio": {
+    "codec": "aac LC",
+    "sample_rate": 48000,
+    "channels": 2,
+    "duration_seconds": 39.125333,
+    "integrated_lufs": -17.6,
+    "loudness_range_lu": 4.1,
+    "true_peak_dbfs": -4.1,
+    "silence_events_below_minus_45_db_for_0_20_seconds": 0,
+    "source_clip_audio_included": false,
+    "voices_generated_or_modified": false
+  },
+  "hashes_sha256": {
+    "final_mp4": "19782383688852034b82a0ca1174ff900abfb364f1f5e19867e05d859191a2dc",
+    "standalone_ogg": "ba78ccf40c184974e7a461359300b008bdeb6d672304a4b0f52cc8f1308a9446",
+    "resolve_drp": "acba0565c3f9df6678c734a0e23ea897c1d79b1e3e82f4358a7b69f1c6fda254"
+  },
+  "source_integrity": {
+    "C:/Users/Peter/Downloads/grok-0502fb4c-eef6-4016-b0a9-043bd2b566b5.mp4": "077257afdc388951c249d5b979852919667a0121d731af15679e2261e60c8bf3",
+    "C:/Users/Peter/Downloads/grok-0d7c3f2a-78e1-4c92-afb4-250d1a4a7f37-720p.mp4": "485b9683eaa95988ceff5a5765858cdb44d0156c1fb12785c2bfbc8ba24accdb",
+    "C:/Users/Peter/Downloads/grok-a8018b14-ef72-4e1d-9ae8-b3f287b32dd4.mp4": "afe6500edcbab940a0ed262d7baafcc6445f67b106440be601a47205266c9411",
+    "C:/Users/Peter/Downloads/GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4": "67b6c57ab7898a579fed98e7850896cd972c6e21d35ad1171b69adbf992a79b1",
+    "C:/Users/Peter/Downloads/grok-b313bcb5-6577-46b0-80f6-b383830c786d-720p.mp4": "7a8eccb9031ddd14db817e51023c7f21cdf45cea9137a42f896bd34a5bd39723",
+    "C:/Users/Peter/Downloads/grok-bcbfb2e3-7801-4883-af10-8a2d2d34607e-720p.mp4": "713a1f0542f54e84777d822d7f0cf5a2c2f6787ec4ccf4f814f72e8049d0ef14",
+    "C:/Users/Peter/Downloads/grok-ef4539b3-2854-43b4-af2e-870f09a6d0d8-720p.mp4": "4bee84a9a5764f109ef93dabf903c73dba086e333ebba7757c79e99311ef470a"
+  },
+  "preflight_defect_removed": "The rejected first render exposed one-frame conform gaps and two black transition events. Resolve endFrame handling was corrected to exclusive, the timeline was rebuilt, and the failed render/project export were removed before the final render."
+}
