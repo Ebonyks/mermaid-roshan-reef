@@ -76,9 +76,78 @@
       "murals": ["assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_*.png"],
       "canvas_layers": [
         {
-          "id": "L0",
-          "role": "current_single_panorama",
-          "assets": ["assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_*.png"]
+          "id": "base",
+          "role": "locked_healed_panorama",
+          "assets": ["assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_*.png"],
+          "parallax_factor": 1.0
+        },
+        {
+          "id": "rear_geography",
+          "role": "locked_rear_geography_cards",
+          "assets": ["assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png"],
+          "stack_evidence": false,
+          "minimum_coverage_ratio": 0.0,
+          "parallax_factor": 1.0
+        },
+        {
+          "id": "rear_atmosphere",
+          "role": "independent_rear_atmosphere",
+          "assets": ["assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png"],
+          "minimum_coverage_ratio": 0.001,
+          "parallax_factor": 0.82
+        },
+        {
+          "id": "landmarks",
+          "role": "locked_landmark_cards",
+          "assets": [
+            "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+            "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+            "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
+          ],
+          "stack_evidence": false,
+          "minimum_coverage_ratio": 0.0,
+          "parallax_factor": 1.0
+        },
+        {
+          "id": "interactive",
+          "role": "locked_playground_and_door_cards",
+          "assets": [
+            "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+            "assets/props/story/play_swing_frame.png",
+            "assets/props/story/play_swing_seat.png",
+            "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png"
+          ],
+          "asset_match": "contains",
+          "stack_evidence": false,
+          "minimum_coverage_ratio": 0.0,
+          "parallax_factor": 1.0
+        },
+        {
+          "id": "actors",
+          "role": "locked_actor_cards",
+          "assets": ["assets/characters/roshan_25d/roshan_directional.png"],
+          "asset_match": "contains",
+          "stack_evidence": false,
+          "minimum_coverage_ratio": 0.0,
+          "parallax_factor": 1.0
+        },
+        {
+          "id": "foreground_geography",
+          "role": "locked_foreground_geography_cards",
+          "assets": ["assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png"],
+          "stack_evidence": false,
+          "minimum_coverage_ratio": 0.0,
+          "parallax_factor": 1.0
+        },
+        {
+          "id": "foreground_lighting",
+          "role": "optional_sprite2d_firefly_lighting",
+          "assets": ["assets/fairy/sprites/bug_firefly.png"],
+          "asset_match": "dynamic",
+          "required_content": false,
+          "stack_evidence": false,
+          "minimum_coverage_ratio": 0.0,
+          "parallax_factor": 1.06
         }
       ],
       "rendered_readability_states": [

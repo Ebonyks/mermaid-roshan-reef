@@ -2145,6 +2145,13 @@ class RealRepoTests(unittest.TestCase):
 
 	def test_valid_waiver_stays_visible_and_does_not_become_pass(self) -> None:
 		spec = ava.load_spec()
+		# Keep this a deterministic hard-failure fixture. The real Lagoon layer
+		# contract may legitimately move from a declaration error to a runtime
+		# coverage gap as its registered holders are repaired.
+		sky_zone = next(zone for zone in spec["zones"]
+			if zone["id"] == "sky_lagoon")
+		sky_zone["canvas_layers"][1]["id"] = \
+			sky_zone["canvas_layers"][0]["id"]
 		spec["waivers"] = [{
 			"check": "layering.mural_is_a_stack",
 			"zone": "sky_lagoon",

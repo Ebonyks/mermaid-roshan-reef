@@ -19,7 +19,8 @@ const CANVAS_LAYER_META := "visual_audit_layer_id"
 const CANVAS_COVERAGE_METHOD := "viewport_grid_effective_canvas_alpha_64x36_v2"
 const CANVAS_COMPOSITE_SIGNATURE_METHOD := "viewport_grid_effective_canvas_rgba_64x36_v1"
 const CANVAS_MOTION_METHOD := "viewport_canvas_transform_delta"
-const CANVAS_DRAW_ORDER_METHOD := "effective_canvas_z_verified_descendants_v2"
+const CANVAS_DRAW_ORDER_METHOD := \
+	"deterministic_effective_canvas_z_verified_descendants_v3"
 const RENDERED_DIFF_METHOD := "visible_minus_target_hidden_rgba8_exact_v1"
 const SOURCE_PROJECTION_METHOD := "independent_source_alpha_inverse_canvas_v1"
 const CANVAS_OCCLUSION_METHOD := "live_canvas_alpha_overlap_samples_v2"
@@ -85,10 +86,17 @@ func _init() -> void:
 	# Authoring and touch budgets are defined in the 1280x720 base canvas.
 	# Pin this generator to that viewport so projected visual sizes are directly
 	# comparable and do not depend on a headless runner's default square window.
+	get_root().mode = Window.MODE_WINDOWED
 	get_root().size = Vector2i(1280, 720)
 	var packed: PackedScene = load("res://scenes/main.tscn")
 	var main: ReefMain = packed.instantiate()
 	get_root().add_child(main)
+	await _frames(2)
+	# Project startup applies the desktop maximized-mode override after _init().
+	# Reapply the audit window once the root Window is live so the flattened
+	# capture and the attested viewport use the same canonical pixel grid.
+	get_root().mode = Window.MODE_WINDOWED
+	get_root().size = Vector2i(1280, 720)
 	await _frames(2)
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
@@ -103,8 +111,21 @@ func _init() -> void:
 		friend["found"] = true
 		friend["won"] = true
 	main.trophies = 5
-	main._enter_level2()
+	# Keep the audited holder membership deterministic: daylight has no optional
+	# fireflies, while the arrival plane is the stable route landmark.
+	main.is_night = false
+	main.save_data["lagoon_plane_departed"] = false
+	# The trusted Lagoon probe enters the target state synchronously. The public
+	# fade wrapper is intentionally asynchronous and eight headless frames are
+	# not a contract for its completion; sampling it here can bind "Sky Lagoon"
+	# facts to the outgoing legacy reef/spatial tree instead of the promenade.
+	main._enter_level2_now(false, false, false)
 	await _frames(8)
+	var promenade: SkyLagoonPromenade = main.call(
+		"_lagoon_promenade_ref") as SkyLagoonPromenade
+	promenade.set_master_route_x(3600.0)
+	promenade.cancel_navigation()
+	await _frames(2)
 	await _measure(main, "sky_lagoon")
 
 	_write()
@@ -437,7 +458,15 @@ func _canvas_parallax_facts(main: ReefMain, zone_id: String,
 	var nodes: Array[Node] = []
 	_collect_canvas_layers(main, nodes)
 	var provenance := _runtime_block_provenance(main, zone_id)
-	var spatial_count := _non_canvas_spatial_count(get_root())
+	var canvas_audit_root: Node = get_root()
+	var zone_promenade: SkyLagoonPromenade = null
+	if zone_id == "sky_lagoon" \
+			and String(main.g.get("phase", "")) == "promenade":
+		zone_promenade = main.call(
+			"_lagoon_promenade_ref") as SkyLagoonPromenade
+		if zone_promenade != null and zone_promenade.canvas_root() != null:
+			canvas_audit_root = zone_promenade.canvas_root()
+	var spatial_count := _non_canvas_spatial_count(canvas_audit_root)
 	if nodes.is_empty():
 		var missing := {
 			"backend": "legacy_spatial" if spatial_count > 0 else "missing",
@@ -457,7 +486,19 @@ func _canvas_parallax_facts(main: ReefMain, zone_id: String,
 	if camera != null:
 		var original := camera.global_position
 		var before_canvas := main.get_viewport().get_canvas_transform()
-		camera.global_position.x += CANVAS_SAMPLE_PX
+		var promenade: SkyLagoonPromenade = zone_promenade
+		var original_route_x := 0.0
+		if promenade != null:
+			original_route_x = promenade.master_route_x()
+			var origin_screen: float = promenade.screen_from_master(
+				Vector2(original_route_x, 0.0)).x
+			var unit_screen: float = promenade.screen_from_master(
+				Vector2(original_route_x + 1.0, 0.0)).x
+			var pixels_per_master := maxf(0.001, unit_screen - origin_screen)
+			promenade.set_master_route_x(
+				original_route_x + CANVAS_SAMPLE_PX / pixels_per_master)
+		else:
+			camera.global_position.x += CANVAS_SAMPLE_PX
 		await _frames(2)
 		_refresh_canvas_global_effects()
 		var after_canvas := main.get_viewport().get_canvas_transform()
@@ -467,12 +508,16 @@ func _canvas_parallax_facts(main: ReefMain, zone_id: String,
 			rows.append(_canvas_layer_row(
 				node, (_canvas_origin(node) -
 					(before[String(node.get_path())] as Vector2)).length()))
-		camera.global_position = original
+		if promenade != null:
+			promenade.set_master_route_x(original_route_x)
+		else:
+			camera.global_position = original
 		await _frames(2)
 		var captured := {
 			"backend": "canvas_2d",
 			"root_canvas_item": true,
-			"non_canvas_spatial_nodes": _non_canvas_spatial_count(get_root()),
+			"non_canvas_spatial_nodes": _non_canvas_spatial_count(
+				canvas_audit_root),
 			"camera_requested_px": CANVAS_SAMPLE_PX,
 			"camera_sample_px": snappedf(sample_px, 0.01),
 			"motion_method": CANVAS_MOTION_METHOD,
@@ -487,7 +532,7 @@ func _canvas_parallax_facts(main: ReefMain, zone_id: String,
 	var no_camera := {
 		"backend": "canvas_2d",
 		"root_canvas_item": true,
-		"non_canvas_spatial_nodes": _non_canvas_spatial_count(get_root()),
+		"non_canvas_spatial_nodes": _non_canvas_spatial_count(canvas_audit_root),
 		"camera_sample_px": sample_px,
 		"motion_method": CANVAS_MOTION_METHOD,
 		"layers": static_rows,
@@ -533,6 +578,7 @@ func _canvas_layer_row(node: Node, screen_delta: float) -> Dictionary:
 		"screen_coverage_ratio": snappedf(coverage, 0.0001),
 		"unresolved_alpha_effects": _unresolved_alpha_effect_count(visuals),
 		"screen_delta_px": snappedf(screen_delta, 0.01),
+		"parallax_factor": float(node.get_meta("parallax_factor", 1.0)),
 		"z_index": z_index,
 		"draw_order": z_index,
 		"draw_order_method": CANVAS_DRAW_ORDER_METHOD,
@@ -548,8 +594,16 @@ func _canvas_draw_order(node: Node) -> int:
 		return 0
 	var item := node as CanvasItem
 	var order := item.z_index
-	if item.has_method("get_effective_z_index"):
-		order = int(item.call("get_effective_z_index"))
+	# Godot 4.7 does not expose CanvasItem's effective relative z as a public
+	# method. Reconstruct the documented z_as_relative chain so an ordinary
+	# Sprite2D child at local z=0 inherits its tagged holder's draw band.
+	var current_item := item
+	while current_item.z_as_relative:
+		var canvas_parent := current_item.get_parent()
+		if not (canvas_parent is CanvasItem):
+			break
+		current_item = canvas_parent as CanvasItem
+		order += current_item.z_index
 	var parent := node.get_parent()
 	while parent != null:
 		if parent is CanvasLayer:
@@ -560,11 +614,13 @@ func _canvas_draw_order(node: Node) -> int:
 
 
 func _draw_order_effect_count(root: Node, visuals: Array[Node],
-		expected_order: int) -> int:
+		_expected_order: int) -> int:
 	var count := 0
 	for visual in visuals:
-		if _canvas_draw_order(visual) != expected_order \
-				or _visual_has_ambiguous_draw_order(visual, root):
+		# A child's explicit relative z offset is deterministic and commonly used
+		# for contact shadows and focus cues. Only ordering modes that make the
+		# tagged holder's effective band insufficient remain unresolved.
+		if _visual_has_ambiguous_draw_order(visual, root):
 			count += 1
 	return count
 
@@ -622,6 +678,13 @@ func _visual_color_at_screen_point(node: Node, point: Vector2,
 		image = texture.get_image()
 		if image == null or image.is_empty():
 			return Color(0.0, 0.0, 0.0, 0.0)
+		# VRAM-compressed POT textures are valid production inputs, but Image
+		# sampling requires a CPU-readable copy. Decompress only the probe cache;
+		# the imported/runtime texture and its Mobile memory policy stay untouched.
+		if image.is_compressed():
+			image = image.duplicate()
+			if image.decompress() != OK:
+				return Color(0.0, 0.0, 0.0, 0.0)
 		image_cache[cache_key] = image
 	var local := (node as CanvasItem).get_global_transform_with_canvas().affine_inverse() * point
 	var source := Vector2.ZERO
@@ -745,8 +808,10 @@ func _effective_canvas_modulate(node: Node) -> Color:
 			tint *= item.modulate
 			if current == node:
 				tint *= item.self_modulate
-		elif current is CanvasLayer:
-			tint *= (current as CanvasLayer).modulate
+		# CanvasLayer contributes visibility and layer ordering, but it does not
+		# expose CanvasItem.modulate/self_modulate. Treating it as a tinted
+		# ancestor floods a fresh audit with invalid-property errors and prevents
+		# the capture bundle from being written.
 		current = current.get_parent()
 	return tint
 
@@ -1019,8 +1084,7 @@ func _canvas_occlusion_facts(main: ReefMain, zone_id: String,
 			var layer_order := _canvas_draw_order(layer_node)
 			if _draw_order_effect_count(layer_node, layer_visuals, layer_order) > 0:
 				for layer_visual in layer_visuals:
-					if _canvas_draw_order(layer_visual) != layer_order \
-							or _visual_has_ambiguous_draw_order(layer_visual, layer_node):
+					if _visual_has_ambiguous_draw_order(layer_visual, layer_node):
 						unresolved_draw_visuals[layer_visual.get_instance_id()] = true
 				continue
 			var overlap_facts := _painted_overlap(
@@ -1088,8 +1152,20 @@ func _capture_rendered_states(main: ReefMain, zone_id: String,
 			state["_adapter_evidence"] = adapter_evidence
 			current_states.append(state)
 	if current_states.is_empty():
+		var live_state := {
+			"focus": String(main.g.get("lagoon_promenade_focus", "")),
+			"game": String(main.game),
+			"intro_active": main.intro_active,
+			"mg_kind": String(main.mg_kind),
+			"phase": String(main.g.get("phase", "")),
+			"play_animation_empty": (main.g.get(
+				"lagoon_play_anim", {}) as Dictionary).is_empty(),
+			"tree_paused": main.get_tree().paused,
+			"world_controls_enabled": main.touch_ui != null \
+				and bool(main.touch_ui.world_controls_enabled),
+		}
 		_log("%s_composite" % zone_id, true,
-			"COVERAGE_GAP no adapter for the live state entered by this probe")
+			"COVERAGE_GAP no adapter for live state %s" % live_state)
 		return []
 	if current_states.size() != 1:
 		_log("%s_composite" % zone_id, true,

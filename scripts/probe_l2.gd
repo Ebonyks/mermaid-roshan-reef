@@ -356,6 +356,16 @@ func _real_sprite_content(holder: Node2D) -> Dictionary:
 	return {"count": textured, "bounds": union}
 
 
+func _direct_child_names(holder: Node2D) -> Array[String]:
+	var names: Array[String] = []
+	if holder == null:
+		return names
+	for child: Node in holder.get_children():
+		names.append(String(child.name))
+	names.sort()
+	return names
+
+
 func _canvas_clip_contract() -> bool:
 	var viewport_root: Control = promenade.canvas_root()
 	if viewport_root == null or not is_instance_valid(viewport_root):
@@ -559,29 +569,57 @@ func _validate_assets_and_mural() -> void:
 func _validate_parallax_and_coordinates() -> void:
 	var root_node: CanvasLayer = promenade.root()
 	var base: Node2D = root_node.find_child("SkyLagoonBase", true, false) as Node2D
+	var rear_mural: Node2D = root_node.find_child(
+		"SkyLagoonRearMural", true, false) as Node2D
 	var rear: Node2D = root_node.find_child("SkyLagoonRear", true, false) as Node2D
 	var landmarks: Node2D = root_node.find_child(
 		"SkyLagoonLandmarks", true, false) as Node2D
 	var interactive: Node2D = root_node.find_child(
 		"SkyLagoonInteractive", true, false) as Node2D
 	var actors: Node2D = root_node.find_child("SkyLagoonActors", true, false) as Node2D
+	var foreground_mural: Node2D = root_node.find_child(
+		"SkyLagoonForegroundMural", true, false) as Node2D
 	var foreground: Node2D = root_node.find_child(
 		"SkyLagoonForeground", true, false) as Node2D
-	var factors_ok: bool = base != null and rear != null and landmarks != null \
-		and interactive != null and actors != null and foreground != null \
+	var factors_ok: bool = base != null and rear_mural != null \
+		and rear != null and landmarks != null and interactive != null \
+		and actors != null and foreground_mural != null and foreground != null \
 		and is_equal_approx(float(base.get_meta("parallax_factor", -1.0)), 1.0) \
+		and is_equal_approx(float(rear_mural.get_meta(
+			"parallax_factor", -1.0)), 1.0) \
 		and is_equal_approx(float(rear.get_meta("parallax_factor", -1.0)), 0.82) \
 		and is_equal_approx(float(landmarks.get_meta("parallax_factor", -1.0)), 1.0) \
 		and is_equal_approx(float(interactive.get_meta("parallax_factor", -1.0)), 1.0) \
 		and is_equal_approx(float(actors.get_meta("parallax_factor", -1.0)), 1.0) \
+		and is_equal_approx(float(foreground_mural.get_meta(
+			"parallax_factor", -1.0)), 1.0) \
 		and is_equal_approx(float(foreground.get_meta("parallax_factor", -1.0)), 1.06)
+	var holders: Array[Node2D] = [base, rear_mural, rear, landmarks,
+		interactive, actors, foreground_mural, foreground]
+	var expected_audit_ids: Array[String] = ["base", "rear_geography",
+		"rear_atmosphere", "landmarks", "interactive", "actors",
+		"foreground_geography", "foreground_lighting"]
+	var expected_z: Array[int] = [-500, -400, -400, -300, 0, 100, 300, 300]
+	var holder_contract_ok := true
+	for index: int in range(holders.size()):
+		var holder: Node2D = holders[index]
+		holder_contract_ok = holder_contract_ok and holder != null \
+			and holder.get_index() == index and holder.z_index == expected_z[index] \
+			and String(holder.get_meta("visual_audit_layer_id", "")) \
+				== expected_audit_ids[index]
+	_check("eight_canvas_holders_have_exact_order_and_audit_ids",
+		holder_contract_ok, "ids=%s z=%s" % [expected_audit_ids, expected_z])
 	promenade.set_master_route_x(2048.0)
 	var rear_before: float = rear.position.x if rear != null else 0.0
 	var foreground_before: float = foreground.position.x if foreground != null else 0.0
 	var locked_before: Array[Vector2] = [
-		base.position, landmarks.position, interactive.position, actors.position]
+		base.position, rear_mural.position, landmarks.position,
+		interactive.position, actors.position, foreground_mural.position]
 	promenade.set_master_route_x(3072.0)
+	var rear_mural_content: Dictionary = _real_sprite_content(rear_mural)
 	var rear_content: Dictionary = _real_sprite_content(rear)
+	var foreground_mural_content: Dictionary = _real_sprite_content(
+		foreground_mural)
 	var foreground_content: Dictionary = _real_sprite_content(foreground)
 	var rear_bounds: Rect2 = rear_content.get("bounds", Rect2()) as Rect2
 	var foreground_bounds: Rect2 = foreground_content.get("bounds", Rect2()) as Rect2
@@ -589,22 +627,83 @@ func _validate_parallax_and_coordinates() -> void:
 	var foreground_delta: float = foreground.position.x - foreground_before \
 		if foreground != null else 0.0
 	var locked_after: Array[Vector2] = [
-		base.position, landmarks.position, interactive.position, actors.position]
+		base.position, rear_mural.position, landmarks.position,
+		interactive.position, actors.position, foreground_mural.position]
 	var locked_zero: bool = base.position.is_zero_approx() \
+		and rear_mural.position.is_zero_approx() \
 		and landmarks.position.is_zero_approx() \
 		and interactive.position.is_zero_approx() \
-		and actors.position.is_zero_approx()
+		and actors.position.is_zero_approx() \
+		and foreground_mural.position.is_zero_approx()
 	_check("playground_actor_castle_share_locked_mural_socket",
 		factors_ok and locked_before == locked_after and locked_zero,
 		"before=%s after=%s" % [locked_before, locked_after])
+	var rear_tree: Node = rear_mural.get_child(0) if rear_mural != null \
+		and rear_mural.get_child_count() == 1 else null
+	var foreground_tree: Node = foreground_mural.get_child(0) \
+		if foreground_mural != null \
+		and foreground_mural.get_child_count() == 1 else null
+	var rear_tree_texture := ""
+	var rear_tree_base := Vector2.ZERO
+	if rear_tree is Sprite2D:
+		rear_tree_texture = (rear_tree as Sprite2D).texture.resource_path \
+			if (rear_tree as Sprite2D).texture != null else ""
+		rear_tree_base = (rear_tree as Sprite2D).get_meta(
+			"ambient_base", Vector2.ZERO) as Vector2
+	var foreground_tree_texture := ""
+	var foreground_tree_base := Vector2.ZERO
+	if foreground_tree is Sprite2D:
+		foreground_tree_texture = (foreground_tree as Sprite2D).texture.resource_path \
+			if (foreground_tree as Sprite2D).texture != null else ""
+		foreground_tree_base = (foreground_tree as Sprite2D).get_meta(
+			"ambient_base", Vector2.ZERO) as Vector2
+	var geographic_ownership_ok: bool = \
+		int(rear_mural_content.get("count", 0)) == 1 \
+		and int(foreground_mural_content.get("count", 0)) == 1 \
+		and rear_tree is Sprite2D and rear_tree.name == "SkyLagoonRearTree" \
+		and foreground_tree is Sprite2D \
+		and foreground_tree.name == "SkyLagoonForegroundTree" \
+		and bool(rear_tree.get_meta("background_socket_healed", false)) \
+		and bool(rear_tree.get_meta("geography_locked", false)) \
+		and bool(foreground_tree.get_meta("background_socket_healed", false)) \
+		and bool(foreground_tree.get_meta("geography_locked", false)) \
+		and rear_tree_texture \
+			== "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png" \
+		and foreground_tree_texture \
+			== "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png" \
+		and rear_tree_base.is_equal_approx(Vector2(4180.0, 1185.0 - 465.0 * 0.5)) \
+		and foreground_tree_base.is_equal_approx(
+			Vector2(5750.0, 1510.0 - 350.0 * 0.5))
+	_check("healed_tree_cards_have_one_locked_geographic_owner",
+		geographic_ownership_ok,
+		"rear=%s/%s/%s foreground=%s/%s/%s" % [rear_mural_content,
+			rear_tree_texture, rear_tree_base,
+			foreground_mural_content,
+			foreground_tree_texture, foreground_tree_base])
+	var rear_membership_ok: bool = _direct_child_names(rear) \
+		== ["SkyLagoonRearCloud"]
+	var foreground_names: Array[String] = _direct_child_names(foreground)
+	var expected_fireflies: Array[String] = []
+	for index: int in range(18):
+		expected_fireflies.append("SkyLagoonFirefly_%02d" % index)
+	var foreground_membership_ok: bool = foreground_names.is_empty() \
+		or foreground_names == expected_fireflies
+	var sprite2d_lighting_ok := true
+	for child: Node in foreground.get_children():
+		sprite2d_lighting_ok = sprite2d_lighting_ok and child is Sprite2D \
+			and String(child.get_meta("lighting_medium", "")) \
+				== "canvas_sprite2d"
+	_check("atmosphere_and_sprite2d_lighting_keep_independent_owners",
+		rear_membership_ok and foreground_membership_ok and sprite2d_lighting_ok,
+		"rear=%s foreground=%s" % [_direct_child_names(rear), foreground_names])
 	_check("two_real_parallax_motion_classes",
 		factors_ok and int(rear_content.get("count", 0)) > 0 \
-		and int(foreground_content.get("count", 0)) > 0 \
 		and maxf(rear_bounds.size.x, rear_bounds.size.y) >= 48.0 \
-		and maxf(foreground_bounds.size.x, foreground_bounds.size.y) >= 48.0 \
 		and not is_equal_approx(rear_delta, foreground_delta) \
 		and absf(rear_delta) > 0.01 and absf(foreground_delta) > 0.01,
-		"rear=%.3f foreground=%.3f" % [rear_delta, foreground_delta])
+		"rear=%.3f/%s foreground=%.3f/%s" % [rear_delta,
+			int(rear_content.get("count", 0)), foreground_delta,
+			int(foreground_content.get("count", 0))])
 	var master_points: Array[Vector2] = [
 		Vector2(2560.0, 1024.0), Vector2(3072.0, 1450.0),
 		Vector2(3584.0, 1800.0),

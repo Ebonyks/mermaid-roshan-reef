@@ -213,7 +213,8 @@ RENDERED_DIFF_METHOD = "visible_minus_target_hidden_rgba8_exact_v1"
 CANVAS_COVERAGE_METHOD = "viewport_grid_effective_canvas_alpha_64x36_v2"
 CANVAS_COMPOSITE_SIGNATURE_METHOD = "viewport_grid_effective_canvas_rgba_64x36_v1"
 CANVAS_MOTION_METHOD = "viewport_canvas_transform_delta"
-CANVAS_DRAW_ORDER_METHOD = "effective_canvas_z_verified_descendants_v2"
+CANVAS_DRAW_ORDER_METHOD = \
+    "deterministic_effective_canvas_z_verified_descendants_v3"
 SOURCE_PROJECTION_METHOD = "independent_source_alpha_inverse_canvas_v1"
 CANVAS_OCCLUSION_METHOD = "live_canvas_alpha_overlap_samples_v2"
 TEMPORAL_FREEZE_METHOD = "engine_time_scale_zero_alternating_visibility_v1"
@@ -1576,6 +1577,11 @@ class Zone:
                 "patterns": patterns,
                 "assets": [path.replace("\\", "/")
                            for path in self.repo.expand(patterns)],
+                "asset_match": str(row.get("asset_match", "exact")),
+                "required_content": bool(row.get("required_content", True)),
+                "stack_evidence": bool(row.get("stack_evidence", True)),
+                "minimum_coverage_ratio": row.get("minimum_coverage_ratio"),
+                "parallax_factor": row.get("parallax_factor"),
             })
             out[-1]["content_signature"] = asset_content_signature(
                 self.repo, out[-1]["assets"])
@@ -2003,15 +2009,24 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
     declared = zone.resolved_canvas_layers()
     ids = [row["id"] for row in declared]
     declaration_issues: list[str] = []
-    if len(declared) < need:
+    stack_declared = [row for row in declared if row["stack_evidence"]]
+    if len(stack_declared) < need:
         declaration_issues.append(
-            f"declares {len(declared)} Canvas layer(s); requires at least {need}")
+            f"declares {len(stack_declared)} Canvas stack-evidence layer(s); "
+            f"requires at least {need}")
     if any(not layer_id for layer_id in ids):
         declaration_issues.append("every Canvas layer needs a non-empty stable id")
     duplicate_ids = sorted({layer_id for layer_id in ids if ids.count(layer_id) > 1})
     if duplicate_ids:
         declaration_issues.append(f"duplicate layer ids: {duplicate_ids}")
-    missing_assets = [row["id"] or "<unnamed>" for row in declared if not row["assets"]]
+    invalid_asset_match = [row["id"] or "<unnamed>" for row in declared
+                           if row["asset_match"] not in {"exact", "contains", "dynamic"}]
+    if invalid_asset_match:
+        declaration_issues.append(
+            f"declared layers use an invalid asset_match: {invalid_asset_match}")
+    missing_assets = [row["id"] or "<unnamed>" for row in declared
+                      if row["required_content"] and not row["assets"]
+                      and row["asset_match"] != "dynamic"]
     if missing_assets:
         declaration_issues.append(
             f"declared layers resolve no source assets: {missing_assets}")
@@ -2122,7 +2137,8 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
     painted_signatures: list[str] = []
     movements: list[float] = []
     draw_orders: list[float] = []
-    min_coverage = float(zone.budget("canvas_layer_min_coverage_ratio", 0.50))
+    default_min_coverage = float(
+        zone.budget("canvas_layer_min_coverage_ratio", 0.50))
     by_id = {row["id"]: row for row in declared}
     for value in runtime_layers:
         if not isinstance(value, dict):
@@ -2133,8 +2149,6 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
         signature = str(value.get("content_signature", ""))
         painted_signature = str(value.get("painted_composite_signature", ""))
         instance_paths.append(instance_path)
-        signatures.append(signature)
-        painted_signatures.append(painted_signature)
         node_type = str(value.get("node_type", ""))
         if value.get("instantiated") is not True or value.get("visible") is not True:
             issues.append(f"{layer_id or '<unnamed>'} is not visibly instantiated")
@@ -2143,20 +2157,38 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
             issues.append(f"{layer_id or '<unnamed>'} is not a pure Canvas layer")
         if not instance_path:
             issues.append(f"{layer_id or '<unnamed>'} has no runtime instance path")
-        if not signature:
+        declared_row = by_id.get(layer_id)
+        required_content = bool(declared_row.get("required_content", True)) \
+            if declared_row is not None else True
+        stack_evidence = bool(declared_row.get("stack_evidence", True)) \
+            if declared_row is not None else True
+        if required_content and not signature:
             issues.append(f"{layer_id or '<unnamed>'} has no content signature")
         if value.get("painted_composite_method") != CANVAS_COMPOSITE_SIGNATURE_METHOD \
                 or re.fullmatch(r"[0-9a-f]{64}", painted_signature) is None:
             issues.append(
                 f"{layer_id or '<unnamed>'} has no canonical painted-composite signature")
-        declared_row = by_id.get(layer_id)
         runtime_assets = sorted(set(str(path) for path in value.get("assets", [])
                                     if isinstance(path, str)))
-        if declared_row is not None and runtime_assets != declared_row["assets"]:
-            issues.append(f"{layer_id} runtime assets do not match its declaration")
-        if declared_row is not None \
-                and signature != declared_row["content_signature"]:
-            issues.append(f"{layer_id} runtime content signature is not reproducible")
+        if declared_row is not None:
+            asset_match = declared_row["asset_match"]
+            if asset_match == "exact" and runtime_assets != declared_row["assets"]:
+                issues.append(f"{layer_id} runtime assets do not match its declaration")
+            elif asset_match == "contains" \
+                    and not set(declared_row["assets"]).issubset(runtime_assets):
+                issues.append(f"{layer_id} runtime assets omit required declared assets")
+            if asset_match == "exact" \
+                    and signature != declared_row["content_signature"]:
+                issues.append(f"{layer_id} runtime content signature is not reproducible")
+            expected_factor = declared_row.get("parallax_factor")
+            runtime_factor = value.get("parallax_factor")
+            if expected_factor is not None and (
+                    not isinstance(runtime_factor, (int, float))
+                    or isinstance(runtime_factor, bool)
+                    or not math.isfinite(float(runtime_factor))
+                    or not math.isclose(float(runtime_factor),
+                                        float(expected_factor), abs_tol=0.0001)):
+                issues.append(f"{layer_id} has the wrong runtime parallax factor")
         if value.get("coverage_method") != CANVAS_COVERAGE_METHOD:
             issues.append(f"{layer_id or '<unnamed>'} lacks painted-pixel coverage evidence")
         unresolved = value.get("unresolved_alpha_effects")
@@ -2179,6 +2211,10 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
                 "whose effective order differs from the tagged layer or uses ambiguous "
                 "Canvas ordering")
         coverage = value.get("screen_coverage_ratio")
+        configured_min = declared_row.get("minimum_coverage_ratio") \
+            if declared_row is not None else None
+        min_coverage = default_min_coverage if configured_min is None \
+            else float(configured_min)
         if not isinstance(coverage, (int, float)) or not math.isfinite(float(coverage)):
             issues.append(f"{layer_id or '<unnamed>'} has no measured screen coverage")
         elif float(coverage) < min_coverage:
@@ -2189,7 +2225,8 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
         if not isinstance(movement, (int, float)) or not math.isfinite(float(movement)):
             issues.append(f"{layer_id or '<unnamed>'} has no measured camera response")
         else:
-            movements.append(float(movement))
+            if stack_evidence:
+                movements.append(float(movement))
         draw_order = value.get("draw_order")
         if value.get("draw_order_method") != CANVAS_DRAW_ORDER_METHOD \
                 or not isinstance(draw_order, (int, float)) \
@@ -2197,7 +2234,12 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
                 or not math.isfinite(float(draw_order)):
             issues.append(f"{layer_id or '<unnamed>'} has no measured Canvas draw order")
         else:
-            draw_orders.append(float(draw_order))
+            if stack_evidence:
+                draw_orders.append(float(draw_order))
+        if signature:
+            signatures.append(signature)
+        if stack_evidence and painted_signature:
+            painted_signatures.append(painted_signature)
     duplicate_paths = sorted({path for path in instance_paths
                               if path and instance_paths.count(path) > 1})
     duplicate_signatures = sorted({sig for sig in signatures
@@ -2255,7 +2297,8 @@ def _mural_stack(zone: Zone) -> Iterator[Finding]:
         return
     yield Finding(
         "layering.mural_is_a_stack", zone.id, INFO,
-        f"{len(runtime_layers)} distinct Canvas layers cover the frame and differ "
+        f"{len(runtime_layers)} registered Canvas holders include "
+        f"{len(stack_declared)} stack-evidence layers and differ "
         f"by {differential:.1f}px over a {abs(float(camera_sample)):.0f}px effective "
         f"camera sample with {draw_spread:.1f} draw-order spread",
         evidence={"runtime": runtime, "differential_px": differential,
@@ -4824,6 +4867,7 @@ def main(argv: list[str] | None = None) -> int:
                 facts_path = os.path.join(fresh_tmp.name, "visual_runtime_facts.json")
                 command = [
                     godot, "--path", REPO, "--rendering-method", "mobile",
+                    "--windowed", "--resolution", "1280x720",
                     "-s", "scripts/probe_visual_audit.gd", "--",
                     f"--visual-facts-out={facts_path.replace(os.sep, '/')}",
                     f"--visual-audit-challenge={challenge}",
