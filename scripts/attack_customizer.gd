@@ -21,6 +21,9 @@ const COLORS := [
 	Color(0.74, 0.58, 1.0, 1.0),
 ]
 const EFFECTS := ["bubbles", "splashes"]
+const MAGIC_BRUSH_ART := preload("res://assets/castle/day_one_art_studio/magic_cleaning_brush.png")
+const BUBBLE_FX_ART := preload("res://assets/sprites/fx_water/fx_water_bubble_burst_atlas.png")
+const SPLASH_FX_ART := preload("res://assets/sprites/fx_water/fx_water_splash_medium_atlas.png")
 
 var m: ReefMain = null
 var attack_color: Color = DEFAULT_COLOR
@@ -32,38 +35,25 @@ var _dim: ColorRect = null
 var _card: Panel = null
 var _color_row: HBoxContainer = null
 var _effect_row: HBoxContainer = null
-var _brush: BrushBadge = null
+var _brush: TextureRect = null
 var _color_buttons: Array[AttackChoice] = []
 var _effect_buttons: Array[AttackChoice] = []
-
-class BrushBadge extends Control:
-	var attack_color: Color = DEFAULT_COLOR
-
-	func _ready() -> void:
-		mouse_filter = Control.MOUSE_FILTER_IGNORE
-		queue_redraw()
-
-	func _draw() -> void:
-		# A simple broad brush silhouette reads at phone size without a texture.
-		draw_circle(Vector2(58.0, 68.0), 24.0, Color(0.35, 0.22, 0.66, 0.25))
-		draw_line(Vector2(54.0, 62.0), Vector2(112.0, 20.0), Color(0.42, 0.25, 0.68), 17.0, true)
-		draw_line(Vector2(52.0, 63.0), Vector2(112.0, 20.0), Color(0.95, 0.79, 0.38), 9.0, true)
-		var bristles := PackedVector2Array([
-			Vector2(22.0, 76.0), Vector2(66.0, 67.0), Vector2(58.0, 103.0),
-			Vector2(15.0, 95.0),
-		])
-		draw_colored_polygon(bristles, attack_color)
-		draw_polyline(bristles, Color(0.22, 0.14, 0.52), 4.0, true)
-		draw_circle(Vector2(17.0, 88.0), 6.0, attack_color if is_instance_valid(self) else DEFAULT_COLOR)
 
 class AttackChoice extends Button:
 	var choice_color := DEFAULT_COLOR
 	var choice_effect := ""
 	var selected := false
+	var choice_texture: Texture2D = null
+	var atlas_grid := Vector2i.ONE
+	var atlas_frame := 0
 
-	func configure(color: Color, effect: String) -> void:
+	func configure(color: Color, effect: String, preview_texture: Texture2D = null,
+			preview_grid: Vector2i = Vector2i.ONE, preview_frame: int = 0) -> void:
 		choice_color = color
 		choice_effect = effect
+		choice_texture = preview_texture
+		atlas_grid = preview_grid
+		atlas_frame = preview_frame
 		text = ""
 		tooltip_text = ""
 		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
@@ -78,26 +68,18 @@ class AttackChoice extends Button:
 		if choice_effect.is_empty():
 			draw_circle(center, minf(size.x, size.y) * 0.26, choice_color)
 			draw_circle(center, minf(size.x, size.y) * 0.26, Color(0.22, 0.14, 0.52, 0.92), false, 5.0)
-		else:
-			if choice_effect == "bubbles":
-				draw_circle(center + Vector2(-15.0, 8.0), 16.0, choice_color, false, 7.0)
-				draw_circle(center + Vector2(15.0, -10.0), 11.0, choice_color, false, 6.0)
-				draw_circle(center + Vector2(7.0, 17.0), 7.0, choice_color, false, 5.0)
-			else:
-				var crown := PackedVector2Array([
-					center + Vector2(-35.0, 17.0),
-					center + Vector2(-27.0, -8.0),
-					center + Vector2(-12.0, 8.0),
-					center + Vector2(0.0, -25.0),
-					center + Vector2(13.0, 8.0),
-					center + Vector2(28.0, -8.0),
-					center + Vector2(35.0, 17.0),
-				])
-				draw_polyline(crown, choice_color, 8.0, true)
-				draw_line(center + Vector2(-35.0, 18.0),
-					center + Vector2(35.0, 18.0), choice_color, 8.0, true)
-				draw_circle(center + Vector2(-31.0, -17.0), 5.0, choice_color)
-				draw_circle(center + Vector2(31.0, -20.0), 6.0, choice_color)
+		elif choice_texture != null:
+			var texture_size: Vector2 = choice_texture.get_size()
+			var cell_size := Vector2(texture_size.x / float(atlas_grid.x),
+				texture_size.y / float(atlas_grid.y))
+			var frame_column: int = atlas_frame % atlas_grid.x
+			var frame_row: int = atlas_frame / atlas_grid.x
+			var source_rect := Rect2(Vector2(frame_column, frame_row) * cell_size, cell_size)
+			var preview_size := Vector2(minf(size.x - 30.0, 104.0), minf(size.y - 22.0, 88.0))
+			var preview_rect := Rect2(center - preview_size * 0.5, preview_size)
+			var tint := Color(lerpf(1.0, choice_color.r, 0.58),
+				lerpf(1.0, choice_color.g, 0.58), lerpf(1.0, choice_color.b, 0.58), 1.0)
+			draw_texture_rect_region(choice_texture, preview_rect, source_rect, tint)
 		if selected:
 			draw_arc(center, minf(size.x, size.y) * 0.42, 0.0, TAU, 32, StorybookUI.GOLD, 8.0, true)
 
@@ -166,6 +148,8 @@ func audit_snapshot() -> Dictionary:
 		"color_choices": _color_buttons.size(),
 		"effect_choices": _effect_buttons.size(),
 		"confirm_button": get_node_or_null("AttackCustomizerCard/AttackCustomizerConfirm") != null,
+		"painted_brush": _brush != null and _brush.texture == MAGIC_BRUSH_ART,
+		"painted_effect_previews": _effect_buttons.size() == EFFECTS.size(),
 		"canvas_only": true,
 	}
 
@@ -185,10 +169,15 @@ func _build() -> void:
 	_card.name = "AttackCustomizerCard"
 	_card.mouse_filter = Control.MOUSE_FILTER_STOP
 	_card.pivot_offset = _card.size * 0.5
-	_brush = BrushBadge.new()
+	_brush = TextureRect.new()
 	_brush.name = "CleaningBrush"
-	_brush.position = Vector2(32.0, 30.0)
-	_brush.size = Vector2(130.0, 124.0)
+	_brush.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_brush.texture = MAGIC_BRUSH_ART
+	_brush.position = Vector2(26.0, 8.0)
+	_brush.size = Vector2(208.0, 160.0)
+	_brush.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_brush.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_brush.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	_card.add_child(_brush)
 	var confirm := Button.new()
 	confirm.name = "AttackCustomizerConfirm"
@@ -229,7 +218,10 @@ func _build() -> void:
 		var choice := AttackChoice.new()
 		choice.custom_minimum_size = Vector2(150.0, 110.0)
 		choice.size = Vector2(150.0, 110.0)
-		choice.configure(attack_color, effect)
+		if effect == "bubbles":
+			choice.configure(attack_color, effect, BUBBLE_FX_ART, Vector2i(4, 2), 2)
+		else:
+			choice.configure(attack_color, effect, SPLASH_FX_ART, Vector2i(3, 3), 5)
 		StorybookUI.style_picture_button(choice, StorybookUI.PAPER, StorybookUI.PURPLE, 30)
 		choice.pressed.connect(_on_effect_pressed.bind(effect))
 		_effect_row.add_child(choice)
@@ -275,6 +267,3 @@ func _refresh_choices() -> void:
 		button.choice_color = attack_color
 		button.set_choice_selected(button.choice_effect == attack_effect)
 		button.queue_redraw()
-	if _brush != null:
-		_brush.attack_color = attack_color
-		_brush.queue_redraw()
