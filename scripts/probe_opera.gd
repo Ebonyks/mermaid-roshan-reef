@@ -155,6 +155,9 @@ func _audit_all_room_cards() -> void:
 		rooms.show_room(room_id, false)
 		await _frames(3)
 		routes.sync()
+		if room_id == "opera_hall":
+			routes.open_opera_venue()
+			await _frames(3)
 		var expected: Array[int] = CastleCareerRoutes.act_indices_for_room(room_id)
 		var actual: Array[int] = []
 		var pictures_ok := routes.root != null and routes.root.visible \
@@ -163,10 +166,9 @@ func _audit_all_room_cards() -> void:
 			var act_index := int(button.get_meta("act_index", -1))
 			actual.append(act_index)
 			seen.append(act_index)
-			var actor := button.get_node_or_null("RoshanActor") as TextureRect
 			var crest := button.get_node_or_null("CareerCrest") as TextureRect
-			var actor_frame := actor.texture as AtlasTexture if actor != null else null
-			pictures_ok = pictures_ok and button.visible and not button.disabled \
+			var presentation := String(button.get_meta("presentation", ""))
+			var base_ok := button.visible \
 				and button.text.is_empty() and not button.clip_contents \
 				and button.size.x >= 110.0 and button.size.y >= 110.0 \
 				and bool(button.get_meta("picture_first", false)) \
@@ -175,13 +177,38 @@ func _audit_all_room_cards() -> void:
 					>= 110.0 \
 				and (button.get_meta("screen_hit_size", Vector2.ZERO) as Vector2).y \
 					>= 110.0 \
-				and actor_frame != null and actor_frame.atlas != null \
-				and actor_frame.atlas.resource_path.contains(
-					"/actors/animation/roshan_") \
 				and crest != null and crest.texture != null \
 				and crest.texture.resource_path.contains("/ui/crests/")
+			if presentation == "historical_three_floor_portal":
+				pictures_ok = pictures_ok and base_ok \
+					and not bool(button.get_meta("opaque_card", true)) \
+					and int(button.get_meta("floor_index", -1)) in [0, 1, 2]
+			else:
+				var actor := button.get_node_or_null("RoshanActor") as TextureRect
+				var actor_frame := actor.texture as AtlasTexture \
+					if actor != null else null
+				pictures_ok = pictures_ok and base_ok and not button.disabled \
+					and actor_frame != null and actor_frame.atlas != null \
+					and actor_frame.atlas.resource_path.contains(
+						"/actors/animation/roshan_")
 		_check("%s exposes its exact room-owned career pictures" % room_id,
 			actual == expected and pictures_ok)
+		if room_id == "opera_hall":
+			var venue := routes.opera_venue
+			var venue_ok := venue != null and venue.is_open() \
+				and bool(venue.get_meta("true_2d_venue", false)) \
+				and String(venue.get_meta("historical_layout_commit", "")) \
+					== "90d19190" \
+				and int(venue.get_meta("historical_floor_count", 0)) == 3 \
+				and int(venue.get_meta("historical_portal_count", 0)) == 12 \
+				and int(venue.get_meta("active_room_owned_portal_count", 0)) == 3 \
+				and int(venue.get_meta("decorative_closed_portal_count", 0)) == 9 \
+				and int(venue.get_meta("bubble_lift_count", 0)) == 2 \
+				and venue.find_children("VenueTile_*", "TextureRect", true, false).size() == 8 \
+				and venue.find_children("BubbleLift*", "Button", true, false).size() == 2 \
+				and venue.get_node_or_null("LobbyRoshanCutout") is TextureRect
+			_check("Opera Hall opens the recovered three-floor explorable venue",
+				venue_ok)
 	seen.sort()
 	_check("the nine visible room sets contain every career exactly once",
 		seen == OperaHouse.LIVE_ACT_INDICES)
@@ -195,15 +222,18 @@ func _audit_no_hidden_hub() -> void:
 	var pearls_before := main.pearl_count
 	main._start_opera()
 	await _frames(3)
-	_check("the legacy Opera action only guides a room picture",
+	var venue := routes.opera_venue
+	_check("the Opera stage star opens the recovered three-floor venue",
 		main.opera_game == null and main.opera_pending_act_index == -1
 		and routes.root != null and routes.root.visible
-		and routes.highlighted_act \
-			== CastleCareerRoutes.preferred_act_for_room("opera_hall", stars_before)
+		and venue != null and venue.is_open()
+		and int(venue.get_meta("historical_floor_count", 0)) == 3
+		and int(venue.get_meta("historical_portal_count", 0)) == 12
 		and main.opera_stars == stars_before and main.pearl_count == pearls_before)
-	_check("no all-career picker node can be reached from the live tree",
+	_check("the recovered venue is not an all-career picker",
 		main.find_children("*OperaLobby*", "Node", true, false).is_empty()
-		and main.find_children("*FloorTab*", "Node", true, false).is_empty())
+		and main.find_children("*FloorTab*", "Node", true, false).is_empty()
+		and venue.career_buttons().size() == 3)
 
 
 func _audit_wrong_and_passive_routes() -> void:
@@ -390,7 +420,24 @@ func _start_via_room_touch(room_id: String, act_index: int) -> OperaHouse:
 	rooms.show_room(room_id, false)
 	await _frames(3)
 	routes.sync()
+	if room_id == "opera_hall":
+		_check("Opera Hall touch route enters the recovered foyer",
+			routes.open_opera_venue())
+		await _frames(2)
 	var button := routes.button_for_act(act_index)
+	if room_id == "opera_hall" and button != null:
+		var venue := routes.opera_venue
+		var target_floor := int(button.get_meta("floor_index", -1))
+		while venue != null and venue.floor_index != target_floor:
+			var lift := venue.get_node_or_null("BubbleLift1") as Button
+			if lift == null:
+				break
+			var old_floor := venue.floor_index
+			_tap_control(lift, 140 + act_index + venue.floor_index)
+			for _wait_frame: int in range(100):
+				await process_frame
+				if venue.floor_index != old_floor:
+					break
 	_check("slot %d exposes its real %s picture" % [act_index, room_id],
 		button != null and button.visible and not button.disabled
 		and int(button.get_meta("act_index", -1)) == act_index)

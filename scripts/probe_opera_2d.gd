@@ -159,6 +159,9 @@ func _init() -> void:
 		main.castle_room_id = route_room
 		route_ui.sync()
 		await process_frame
+		if route_room == "opera_hall":
+			route_ui.open_opera_venue()
+			await process_frame
 		var expected_indices := CastleCareerRoutes.act_indices_for_room(route_room)
 		var actual_indices: Array[int] = []
 		var room_art_ok := route_ui.root != null and route_ui.root.visible \
@@ -168,6 +171,20 @@ func _init() -> void:
 			var act_index := int(card.get_meta("act_index", -1))
 			actual_indices.append(act_index)
 			all_card_indices.append(act_index)
+			if route_room == "opera_hall":
+				var portal_crest := card.get_node_or_null("CareerCrest") as TextureRect
+				room_art_ok = room_art_ok and card.text.is_empty() \
+					and card.visible and not card.clip_contents \
+					and card.size.x >= StorybookUI.MIN_TOUCH.x \
+					and card.size.y >= StorybookUI.MIN_TOUCH.y \
+					and bool(card.get_meta("picture_first", false)) \
+					and String(card.get_meta("castle_room_id", "")) == route_room \
+					and String(card.get_meta("presentation", "")) \
+						== "historical_three_floor_portal" \
+					and not bool(card.get_meta("opaque_card", true)) \
+					and portal_crest != null and portal_crest.texture != null \
+					and portal_crest.texture.resource_path.contains("/ui/crests/")
+				continue
 			var actor := card.get_node_or_null("RoshanActor") as TextureRect
 			var crest := card.get_node_or_null("CareerCrest") as TextureRect
 			var frame := actor.texture as AtlasTexture if actor != null else null
@@ -186,14 +203,21 @@ func _init() -> void:
 				and frame.atlas.resource_path.contains("/actors/animation/roshan_") \
 				and crest != null and crest.texture != null \
 				and crest.texture.resource_path.contains("/ui/crests/")
-		_check("%s route uses exact picture cards and approved art" % route_room,
+		_check("%s route uses its exact diegetic entrances and approved art" % route_room,
 			actual_indices == expected_indices and room_art_ok)
 		all_route_art_ok = all_route_art_ok and room_art_ok
-		_check("%s highlights exactly its preferred career atlas" % route_room,
-			route_ui.highlighted_act \
-				== CastleCareerRoutes.preferred_act_for_room(route_room, 0)
-			and route_ui.active_animator != null
-			and route_ui.active_animator.has_animation)
+		if route_room == "opera_hall":
+			var venue := route_ui.opera_venue
+			_check("Opera Hall guides the physical portal on Roshan's floor",
+				venue != null and venue.guide_button != null \
+				and int(venue.guide_button.get_meta("floor_index", -1)) \
+					== venue.floor_index)
+		else:
+			_check("%s highlights exactly its preferred career atlas" % route_room,
+				route_ui.highlighted_act \
+					== CastleCareerRoutes.preferred_act_for_room(route_room, 0)
+				and route_ui.active_animator != null
+				and route_ui.active_animator.has_animation)
 		if not lobby_shot_out.is_empty():
 			await _capture_viewport(lobby_shot_out.path_join(
 				"castle_career_routes_%s.png" % route_room))

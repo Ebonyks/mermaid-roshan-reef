@@ -52,6 +52,7 @@ var room_id := ""
 var buttons: Array[Button] = []
 var active_animator: OperaRoshanActor = null
 var highlighted_act := -1
+var opera_venue: OperaHouseVenue2D = null
 
 
 func _init(main: ReefMain) -> void:
@@ -120,6 +121,7 @@ func sync() -> void:
 func clear() -> void:
 	_stop_animator()
 	buttons.clear()
+	opera_venue = null
 	room_id = ""
 	stage_owner = null
 	if root != null and is_instance_valid(root):
@@ -138,6 +140,9 @@ func guide_current_room() -> bool:
 	if m.day_one_jobs_locked():
 		return false
 	sync()
+	if room_id == "opera_hall" and opera_venue != null \
+			and is_instance_valid(opera_venue) and opera_venue.is_open():
+		return opera_venue.guide_current_floor()
 	var act_index := preferred_act_for_room(room_id, m.opera_stars)
 	var button := button_for_act(act_index)
 	if button == null or not button.visible or button.disabled:
@@ -168,6 +173,7 @@ func _attach(stage: Control) -> void:
 func _rebuild_room() -> void:
 	_stop_animator()
 	buttons.clear()
+	opera_venue = null
 	if root == null or not is_instance_valid(root):
 		return
 	for child: Node in root.get_children():
@@ -177,6 +183,14 @@ func _rebuild_room() -> void:
 		return
 	var indices := act_indices_for_room(room_id)
 	if indices.is_empty():
+		return
+	if room_id == "opera_hall":
+		opera_venue = OperaHouseVenue2D.new()
+		opera_venue.setup(
+			m, m.opera_stars, Callable(self, "_launch_opera_venue"))
+		root.add_child(opera_venue)
+		buttons = opera_venue.career_buttons()
+		_refresh_completion()
 		return
 	var width := float(indices.size()) * CARD_SIZE.x \
 		+ float(indices.size() - 1) * CARD_GAP
@@ -199,7 +213,8 @@ func _rebuild_room() -> void:
 		button.set_meta("castle_room_id", room_id)
 		button.set_meta("picture_first", true)
 		button.set_meta("career_costume", costume)
-		button.set_meta("screen_hit_size", CARD_SIZE)
+		button.set_meta("screen_hit_size", button.size)
+		button.set_meta("presentation", "room_picture_card")
 		StorybookUI.style_picture_button(
 			button, Color(0.94, 0.96, 1.0, 0.98), StorybookUI.GOLD, 42)
 		button.pressed.connect(_launch.bind(room_id, act_index))
@@ -243,7 +258,6 @@ func _rebuild_room() -> void:
 	_refresh_completion()
 	_highlight(preferred_act_for_room(room_id, m.opera_stars))
 
-
 func _refresh_completion() -> void:
 	for button: Button in buttons:
 		var act_index := int(button.get_meta("act_index", -1))
@@ -264,6 +278,10 @@ func _highlight(act_index: int) -> void:
 	_stop_animator()
 	var button := button_for_act(act_index)
 	if button == null:
+		return
+	if String(button.get_meta("presentation", "")) \
+			== "historical_three_floor_portal":
+		highlighted_act = act_index
 		return
 	var actor := button.get_node_or_null("RoshanActor") as TextureRect
 	if actor == null:
@@ -287,3 +305,23 @@ func _launch(expected_room: String, act_index: int) -> void:
 		or m.opera_game != null:
 		return
 	m._start_opera_from_room(act_index, expected_room)
+
+
+func open_opera_venue() -> bool:
+	if m.day_one_jobs_locked() or m.castle_room_id != "opera_hall":
+		return false
+	sync()
+	if opera_venue == null or not is_instance_valid(opera_venue):
+		return false
+	opera_venue.open(m.opera_stars)
+	root.visible = true
+	return true
+
+
+func close_opera_venue() -> void:
+	if opera_venue != null and is_instance_valid(opera_venue):
+		opera_venue.close()
+
+
+func _launch_opera_venue(act_index: int) -> void:
+	_launch("opera_hall", act_index)

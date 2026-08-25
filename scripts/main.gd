@@ -3161,15 +3161,16 @@ func _start_opera() -> void:
 			"The Opera House is resting. Today we clean the castle together!",
 			"hint")
 		return
-	# Compatibility action for the Opera Hall's large stage button: point to
-	# its room-owned pictures, but never provide a second generic launch route.
+	# The stage star opens the recovered three-floor Pearl Opera House venue.
 	# CastleRooms25D historically suspends before calling this method, so undo
-	# that cover immediately; otherwise the highlighted pictures stay hidden.
+	# that cover immediately; otherwise the venue would open behind the room.
 	if _castle_rooms_ref().is_open() and castle_room_id != "" \
 			and (castle_room_layer == null or not castle_room_layer.visible):
 		_castle_rooms_ref().resume(castle_room_id)
-	if _castle_career_routes_ref().guide_current_room():
-		show_msg("Roshan", "Pick one bright career picture!", "hint")
+	if _castle_career_routes_ref().open_opera_venue():
+		show_msg("Pearl Opera House",
+			"The grand foyer is open! Ride a bubble lift and swim into a glowing show door!",
+			"home")
 
 
 func _start_opera_from_room(act_index: int, room_id: String) -> void:
