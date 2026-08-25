@@ -2643,3 +2643,7 @@ the selected native generations remain preserved.
 ## Day One Pool natural-integration reference (2026-08-23)
 
 - `assets_src/imagegen/day_one_pool_natural_integration_2026-08-23/room_activity_integration_reference_native.png` - project-original OpenAI built-in ImageGen full-frame visual-integration reference generated only from project-owned Mermaid Pool art; license: project original; URL: none. It is non-runtime reference art, not a replacement for the approved room or V4 fixture identities. Exact prompt, source roles, result ID, SHA-256, review decision, and rejected attempts are recorded in the adjacent `PROMPT.md` and `PROVENANCE.md`.
+
+## Day One swimming dust bunny (2026-08-24)
+
+- `assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png` - project-original OpenAI built-in ImageGen art; license: project original; URL: none. New 1024×683 RGBA true-swimming action cutout generated from the approved project-original curl-ear and hop identity references, then whole-canvas normalized from the accepted 1536×1024 RGBA native. The exact prompts, reference/output SHA-256 hashes, rejected seated concept, alpha correction, normalization method, and independent Luna acceptance are recorded in `assets_src/imagegen/day_one_pool_dust_bunny_swimmer_2026-08-24/PROMPT_AND_PROVENANCE.md`. The same runtime asset is reused in the Mermaid Pool and filled Bubble Bath bathtub; no protected original was modified.

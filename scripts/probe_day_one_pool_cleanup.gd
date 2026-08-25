@@ -12,6 +12,7 @@ const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
 	"res://assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
 	"res://assets/characters/rumi/rumi_eight_pose_runtime.png",
+	"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
 ]
 
 var checks_failed: int = 0
@@ -72,6 +73,22 @@ func _run_probe() -> void:
 		bool(initial.get("canvas_only", false))
 		and bool(initial.get("no_fail", false))
 		and bool(initial.get("dingy_lighting", false)))
+	var swimmer: Dictionary = initial.get("swimming_bunny", {}) as Dictionary
+	_check("exact pool bunny cast keeps one land and one swimmer",
+		int(initial.get("dust_bunny_count", 0)) == 2
+		and String(initial.get("land_bunny_owner", ""))
+			== "day_one_castle_dressing"
+		and bool(swimmer.get("present", false))
+		and bool(swimmer.get("true_2d", false)))
+	_check("swimmer remains inside central water with a simple 2D loop",
+		bool(swimmer.get("inside_bounds", false))
+		and bool(swimmer.get("fully_contained", false))
+		and swimmer.get("bounds", Rect2()) == Rect2(300.0, 285.0, 680.0, 235.0)
+		and String(swimmer.get("animation", "")) == "bounded_bob_paddle"
+		and String(swimmer.get("asset", "")).ends_with(
+			"dust_bunny_swimming.png")
+		and float(swimmer.get("display_width", 0.0)) <= 124.0
+		and float(swimmer.get("display_width", 0.0)) >= 112.0)
 	for asset_path: String in RUNTIME_ASSETS:
 		var texture: Texture2D = load(asset_path) as Texture2D
 		_check("runtime asset %s" % asset_path.get_file(),
@@ -140,11 +157,15 @@ func _run_probe() -> void:
 		and bool(final_snapshot.get("rumi_approved_identity", false))
 		and bool(final_snapshot.get("rumi_authored_animation", false))
 		and String(final_snapshot.get("rumi_animation", "")) == "swim")
-
 	cleanup.m = null
 	await create_timer(0.52).timeout
 	await create_timer(0.74).timeout
 	var wave_snapshot: Dictionary = cleanup.audit_snapshot()
+	var finale_swimmer: Dictionary = wave_snapshot.get(
+		"swimming_bunny", {}) as Dictionary
+	_check("ambient swimmer yields the finale focal point",
+		not bool(finale_swimmer.get("visible", true))
+		and float(finale_swimmer.get("opacity", 1.0)) <= 0.01)
 	_check("Rumi performs authored wave after rising",
 		String(wave_snapshot.get("rumi_animation", "")) == "wave")
 	await create_timer(1.1).timeout
