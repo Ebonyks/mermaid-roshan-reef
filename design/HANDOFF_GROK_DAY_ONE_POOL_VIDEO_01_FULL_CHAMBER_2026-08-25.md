@@ -1,5 +1,12 @@
 # Grok handoff — Day One Mermaid Pool Video 01: Full Chamber
 
+> **OWNER-REJECTED CAMERA PACKAGE / SUPERSEDED 2026-08-25.** The fixture,
+> dirty-state, Roshan, and no-cleanup constraints below remain useful evidence,
+> but its six camera keys kept the original north wall dominant and do not
+> capture the full room. Do not upload its storyboard frames or camera prompts
+> to Grok. Current camera and storyboard authority is
+> `HANDOFF_GROK_DAY_ONE_POOL_VIDEO_01_CARDINAL_ROOM_2026-08-25.md`.
+
 ## Authority and outcome
 
 This is the current owner-run, visual-only handoff for the first Mermaid Pool

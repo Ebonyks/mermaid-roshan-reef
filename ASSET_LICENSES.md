@@ -2717,3 +2717,29 @@ scores, and normalization are recorded in
 - `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/delivery_1280x720/S05_waterline_attempt04.png` - whole-canvas 1280×720 Lanczos derivative.
 - `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/delivery_1280x720/S06_southeast_return_attempt04.png` - whole-canvas 1280×720 Lanczos derivative.
 - `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/STORYBOARD_CONTACT_SHEET.png` - deterministic review-only 3×2 contact sheet from exact accepted delivery copies.
+
+## Day One Mermaid Pool Video 01 cardinal-room storyboard (2026-08-25)
+
+All generated PNGs below are project-original OpenAI built-in ImageGen art;
+license: project original; URL: none. They are non-runtime Grok/storyboard
+references. Exact result IDs, source roles, native and delivery SHA-256 hashes,
+attempt/rejection reasons, camera bearings, normalization, and Luna review are
+recorded in
+`assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/PROMPTS_AND_PROVENANCE.md`.
+The same-date `MULTIPERSPECTIVE` and `FULL_CHAMBER` packages are superseded and
+have no current Grok camera authority.
+
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/accepted/C00_room_cardinal_turnaround_master.png` - native four-direction room-compass master.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/accepted/S01_N_cardinal_return.png` - accepted native north/000° problem-state key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/accepted/S02_E_cardinal.png` - accepted native east/090° unseen-wall key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/accepted/S03_SE_connector.png` - accepted native southeast/135° connector key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/accepted/S04_S_cardinal.png` - accepted native south/180° unseen-wall key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/accepted/S05_SW_connector.png` - accepted native southwest/225° connector key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/accepted/S06_W_cardinal.png` - accepted native west/270° unseen-wall key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/delivery_1280x720/S01_N_cardinal_return.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/delivery_1280x720/S02_E_cardinal.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/delivery_1280x720/S03_SE_connector.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/delivery_1280x720/S04_S_cardinal.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/delivery_1280x720/S05_SW_connector.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/delivery_1280x720/S06_W_cardinal.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/STORYBOARD_CARDINAL_CONTACT_SHEET.png` - deterministic review-only 3×2 visual index from the six delivery copies.
