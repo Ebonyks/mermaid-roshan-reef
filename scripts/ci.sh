@@ -70,6 +70,15 @@ python3 tools/audit_opera_roshan_animation.py \
 	|| { echo "OPERA ROSHAN ANIMATION ART FAIL"; exit 1; }
 python3 tools/build_area_music.py --check \
 	|| { echo "AREA MUSIC BUILD/PROVENANCE DRIFT"; exit 1; }
+# Complete runtime-audio authority: prove the ledger rules can reject malformed
+# rows, reproduce the authored UI replacement, then require exact agreement
+# with every shipped audio file and its measured quality decision.
+python3 -m unittest tools.tests.test_audit_audio_quality \
+	|| { echo "AUDIO QUALITY AUDIT CONTRACT TEST FAIL"; exit 1; }
+python3 tools/build_audio_quality_replacements.py --check \
+	|| { echo "AUDIO QUALITY REPLACEMENT BUILD DRIFT"; exit 1; }
+python3 tools/audit_audio_quality.py --check \
+	|| { echo "COMPLETE AUDIO QUALITY LEDGER DRIFT"; exit 1; }
 # Game-wide visual design audit (VISUAL_AUDIT_TOOL.md). Lifecycle-contract and
 # stress tests are HARD gates: strict must never accept an unresolved review,
 # manual item, or coverage gap, and every check must remain falsifiable. The

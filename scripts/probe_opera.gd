@@ -297,8 +297,15 @@ func _audit_all_career_lifecycles() -> void:
 		if act == null:
 			continue
 		if act_index == 12:
-			_check("missing Racer voice restores its readable caption above the game",
-				main.hud_msg.visible and "wrench" in main.hud_msg.text.to_lower()
+			var racer_voice_path := ""
+			if main.voice_i > 0 and not main.voice_pool.is_empty():
+				var voice_index := posmod(main.voice_i - 1, main.voice_pool.size())
+				var racer_voice := main.voice_pool[voice_index] as AudioStreamPlayer
+				if racer_voice != null and racer_voice.stream != null:
+					racer_voice_path = racer_voice.stream.resource_path
+			_check("Racer exact objective voice replaces its caption fallback",
+				racer_voice_path == "res://assets/audio/voices/roshan_op_racer_tune_up.ogg"
+				and not main.hud_msg.visible and main.hud_msg.text.is_empty()
 				and main.hud_layer.layer > act.career_world_2d.layer)
 			main._pause_ref().toggle_pause()
 			_check("pause sheet rises above the room-started Opera career",

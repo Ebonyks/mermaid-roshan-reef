@@ -748,6 +748,58 @@ requires human style and two-wrap listening, voice-over/ducking intelligibility,
 music-off persistence, mono fold-down, and Lenovo Tab M11 start/loop/performance
 review. No score identity may rely only on stereo width or mask a family voice.
 
+`DL-SND-10` — Every runtime `.ogg`, `.wav`, and `.mp3` under
+`assets/audio/` has exactly one row in the all-audio ledger. The row names its
+class, runtime routing, semantic role, source, license, SHA-256, measurements,
+grade, and disposition. Dynamically constructed paths, retired assets, and
+fallback clips remain in scope; a wildcard provenance row is not an individual
+quality review.
+
+`DL-SND-11` — Protected recordings retain their pre-review SHA-256 and remain
+byte-identical unless an explicit owner authorization is recorded. An
+authorized improvement is written at a new path, preserves the original, and
+passes exact-speaker, semantic, device, and child-facing review before routing
+changes. A technical outlier is a review candidate, never permission to alter
+a protected original.
+
+`DL-SND-12` — Every new or replacement file decodes to finite samples without
+DC fault or clipping. New voices are 48 kHz mono Ogg Vorbis at 64 kbps or
+higher, target −16 LUFS-I ±1 LU, and do not exceed −1.5 dBTP. New music follows
+`DL-SND-07`; continuous ambience is loop-tagged and seam-tested; new SFX/UI is
+Ogg Vorbis at 64 kbps or higher unless a measured, graded legacy exception is
+recorded. Upsampling or transcoding alone is not a quality improvement.
+
+`DL-SND-13` — Every required child-facing objective maps to an exact spoken
+semantic key or an owner-approved independently sufficient diegetic cue.
+Generic `voice_yay.mp3`, a wrong legacy noun, or a caption alone does not pass.
+The ledger records expected transcript, speaker, trigger, and synchronized
+visual pointer. Objective voice begins within 150 ms of the trigger at P95 on
+the target device, and teardown leaves no stale or duplicate objective voice.
+
+`DL-SND-14` — Runtime mix review proves speech intelligibility at default
+volume. While speech is active, Music reaches no louder than −14 dB and
+Ambience no louder than −16 dB within 250 ms; music-off remains below −60 dB
+through transitions; only one dialogue voice is audible; and coincident Voice,
+SFX, UI, and Ambience do not clip.
+
+`DL-SND-15` — Every ledger row receives human review for intelligibility,
+identity, pronunciation, noise, artifacts, harshness, child-safety, mono
+fold-down, and mix interaction. A required voice scores at least 4/5 for
+intelligibility and semantic correctness, and child-facing audio scores at
+least 4/5 for child-safety. Device, volume, listener, date, and evidence path
+are recorded; machine grades remain provisional until this review occurs.
+
+`DL-SND-16` — On the Lenovo Tab M11 and required older Android phone,
+objective voice starts within 150 ms P95, touch SFX within 100 ms P95, and music
+within 250 ms P95. A representative ten-minute loop has no audible dropout
+longer than 20 ms, overlapping score, runaway audio memory, or state leak across
+pause, leave, re-entry, or focus loss.
+
+`DL-SND-17` — Replacement requires a materially better human grade, preserved
+speaker/semantic identity, complete provenance, and the same routing, child,
+device, mono, and protected-asset gates. Codec, loudness, bitrate, or sample
+rate improvement alone does not grant acceptance.
+
 ---
 
 ## 11. Cinematic exception
@@ -1095,6 +1147,14 @@ separate human/device/owner gate. A remote workflow cannot call the harness
 blocking until it propagates the process result and uploads/validates the
 manifest; `continue-on-error` plus PNG-only upload remains diagnostic even when
 all local capture assertions pass.
+
+`DL-QA-16` — The all-audio ledger must equal the decoded runtime inventory and
+contain a final grade and disposition for every voice, music, ambience, UI,
+Castle interaction, combat SFX, procedural sound, retired asset, and fallback
+clip. The audio audit remains open while a required objective is missing, a
+protected source is unresolved, provenance is absent, or a P1/P2 candidate
+lacks a documented decision. Machine completion does not close the human,
+device, child, or owner listening gates in `DL-SND-15` and `DL-SND-16`.
 
 ---
 

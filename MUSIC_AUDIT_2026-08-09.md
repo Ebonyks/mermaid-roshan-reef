@@ -107,7 +107,13 @@ All 15 files are Ogg Vorbis. Duration, stream metadata, integrated loudness, and
 | `world.ogg` | Day reef; Juhani Junkala, *Tropical Island*, CC0 | 53.333 s | 44,100 / stereo / 160 | -18.0 / -3.8 | Runtime loop | **RETAINED** |
 | `world_night.ogg` | Night reef; Juhani Junkala, *Prairie Nights*, CC0 | 92.903 s | 44,100 / stereo / 160 | -18.0 / -5.2 | Runtime loop selected by `world` at night | **RETAINED** |
 
-The four 22.05 kHz / nominal 50 kbps minigame files are a legacy exception. They should not be destructively recompressed merely to change a metadata number, but no new cue may use that exception. New area music uses the stricter 48 kHz stereo / managed 96 kbps delivery profile in Section 6, which also clears the project-wide minimum of 64 kbps.
+The five 22.05 kHz / nominal 50 kbps minigame files — `dolls.ogg`,
+`fetch.ogg`, `melody.ogg`, `race.ogg`, and `seek.ogg` — are a legacy
+exception. They should not be destructively recompressed merely to change a
+metadata number, but no new cue may use that exception. Each remains a
+listening-led replacement candidate in the all-audio ledger. New area music
+uses the stricter 48 kHz stereo / managed 96 kbps delivery profile in Section
+6, which also clears the project-wide minimum of 64 kbps.
 
 ## 5. Shared musical language
 
