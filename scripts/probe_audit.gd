@@ -117,17 +117,17 @@ func _init() -> void:
 	var day_one_ok: bool = reef_main.day_one_jobs_locked() \
 		and not reef_main.day_one_opera_enabled() \
 		and reef_main.day_one_can_enter_castle_room("bubble_bath") \
-		and not reef_main.day_one_can_enter_castle_room("art_studio") \
-		and not reef_main.day_one_can_enter_castle_room("stuffie_bedroom") \
+		and not reef_main.day_one_can_enter_castle_room("craft_room") \
+		and not reef_main.day_one_can_enter_castle_room("playroom") \
 		and not reef_main.day_one_can_enter_castle_room("mermaid_pool") \
 		and day_one.complete_tutorial("bathroom") \
-		and reef_main.day_one_can_enter_castle_room("art_studio") \
-		and not reef_main.day_one_can_enter_castle_room("stuffie_bedroom") \
+		and reef_main.day_one_can_enter_castle_room("craft_room") \
+		and not reef_main.day_one_can_enter_castle_room("playroom") \
 		and not reef_main.day_one_can_enter_castle_room("mermaid_pool") \
-		and day_one.complete_tutorial("art") \
-		and reef_main.day_one_can_enter_castle_room("stuffie_bedroom") \
+		and day_one.complete_activity("art", "art_activity") \
+		and reef_main.day_one_can_enter_castle_room("playroom") \
 		and not reef_main.day_one_can_enter_castle_room("mermaid_pool") \
-		and day_one.complete_tutorial("stuffie") \
+		and day_one.complete_activity("stuffie", "stuffie_activity") \
 		and reef_main.day_one_can_enter_castle_room("mermaid_pool")
 	print("AUDIT|Day One lock and progressive room contract: ",
 		"OK" if day_one_ok else "FAIL")
