@@ -6974,10 +6974,20 @@ func _on_day_one_stuffie_completed() -> void:
 	if not _day_one_ref().complete_tutorial("stuffie"):
 		return
 	_close_day_one_stuffie_cleanup()
-	_castle_rooms_ref().finish_day_one_stuffie_cleanup()
+	_finish_day_one_stuffie_cleanup()
 	_castle_rooms_ref().apply_day_one_cleanup("playroom")
 	_day_one_sync_castle_dressing()
 	_write_save()
+
+
+func _finish_day_one_stuffie_cleanup() -> void:
+	if castle_room_id != "playroom":
+		return
+	# Reuse the authored rescue response without changing the reviewed Castle
+	# interaction layout that owns the underlying bunny records.
+	var rooms: Object = _castle_rooms_ref() as Object
+	for item_id: String in ["eagle_pin_left", "eagle_pin_right"]:
+		rooms.call("_explode_dust_bunny", item_id)
 
 
 func _show_day_one_tutorial(tutorial_id: String,
@@ -7214,6 +7224,7 @@ func _day_one_sync_castle_dressing() -> void:
 	_sync_day_one_bathroom_search()
 	_sync_day_one_art_studio()
 	_sync_day_one_stuffie_cleanup()
+	_sync_day_one_pool_tutorial()
 	if day_one_castle_dressing == null \
 			or not is_instance_valid(day_one_castle_dressing):
 		return
@@ -7266,6 +7277,16 @@ func _sync_day_one_stuffie_cleanup() -> void:
 		_open_day_one_stuffie_cleanup()
 	else:
 		_close_day_one_stuffie_cleanup()
+
+
+func _sync_day_one_pool_tutorial() -> void:
+	var should_show: bool = day_one_is_active() \
+		and castle_room_stage != null \
+		and castle_room_id == "mermaid_pool" \
+		and _day_one_ref().current_room_id == "pool" \
+		and not _day_one_ref().is_room_completed("pool")
+	if should_show:
+		_show_day_one_tutorial("pool")
 
 
 func _day_one_clear_castle_dressing() -> void:

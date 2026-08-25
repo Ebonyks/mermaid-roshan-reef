@@ -1774,16 +1774,6 @@ func apply_day_one_cleanup(room_id: String) -> void:
 			sprite.visible = false
 
 
-func finish_day_one_stuffie_cleanup() -> void:
-	if m.castle_room_id != "playroom":
-		return
-	# Reuse the authored rescue response so the swipe lesson produces the same
-	# truthful burst, sound, persistent clears, and Baby Eagle release as a
-	# direct child interaction with these bunnies.
-	for item_id: String in ["eagle_pin_left", "eagle_pin_right"]:
-		_explode_dust_bunny(item_id)
-
-
 func start_day_one_pool_cleanup() -> void:
 	if m.castle_room_id != "mermaid_pool" \
 			or m.day_one_castle_room_is_clean("mermaid_pool"):
@@ -1809,7 +1799,6 @@ func _sync_day_one_pool_cleanup(room_id: String) -> void:
 	day_one_pool_cleanup.reveal_completed.connect(
 		_on_day_one_pool_reveal_completed)
 	day_one_pool_cleanup.setup(m)
-	m._show_day_one_tutorial("pool")
 	# This room has a bespoke cleaning cast. Keep the generic dust bunny out of
 	# Roshan's face and let the pool's own progressive dingy wash own the mood.
 	if m.day_one_castle_dressing != null \
