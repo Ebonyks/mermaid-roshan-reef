@@ -200,6 +200,18 @@ func _init() -> void:
 	main._tap_move_ref().cancel("probe complete")
 	main.player.verb = ""
 
+	# A rapid second tap is an escape hatch: it clears an active Roshan gesture
+	# and immediately starts a fresh swim command toward the tapped point.
+	touch.cancel_all_touches()
+	main._tap_move_ref().cancel("double tap setup")
+	main.player.play_verb("look")
+	touch._emit_world_tap(world_pos)
+	touch._emit_world_tap(world_pos)
+	if main.player.verb != "" or not bool(main.touch_auto_active):
+		_bad("double tap did not cancel the gesture and start movement")
+	main._tap_move_ref().cancel("double tap complete")
+	main.player.verb = ""
+
 	# Priority dispatch: fixed controls are claimed in _input before ordinary
 	# GUI routing. Headless display drivers do not forward synthetic mouse
 	# events through a viewport, so exercise that priority handler directly.

@@ -1,0 +1,171 @@
+{
+  "project": "Mermaid Roshan - Otter Wing Recut 2026-08-23 v1",
+  "timeline": "MERMAID_ROSHAN_OTTER_WING_RECUT_V2_24FPS",
+  "fps": 24,
+  "duration_frames": 807,
+  "duration_seconds": 33.625,
+  "removed": [
+    {
+      "beat": "duplicate_play_resolution",
+      "old_record_frames": [
+        505,
+        577
+      ],
+      "old_record_seconds": [
+        21.0416667,
+        24.0416667
+      ],
+      "source_frames": [
+        480,
+        552
+      ]
+    },
+    {
+      "beat": "wave_to_otter_on_wing",
+      "old_record_frames": [
+        577,
+        637
+      ],
+      "old_record_seconds": [
+        24.0416667,
+        26.5416667
+      ],
+      "source_frames": [
+        552,
+        612
+      ]
+    }
+  ],
+  "retained_jump_source_audio": {
+    "file": "C:\\Users\\Peter\\Downloads\\grok-b313bcb5-6577-46b0-80f6-b383830c786d-720p.mp4",
+    "source_frames": [
+      12,
+      133
+    ],
+    "record_frames": [
+      384,
+      505
+    ],
+    "sample_rate": 48000,
+    "channels": 2
+  },
+  "shots": [
+    {
+      "beat": "flight_departure",
+      "file": "grok-0502fb4c-eef6-4016-b0a9-043bd2b566b5.mp4",
+      "start_frame": 0,
+      "duration_frames": 48,
+      "transition_in": "hard_cut",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-0502fb4c-eef6-4016-b0a9-043bd2b566b5.mp4",
+      "source_sha256": "077257afdc388951c249d5b979852919667a0121d731af15679e2261e60c8bf3",
+      "record_start_frame": 0,
+      "record_end_frame_exclusive": 48,
+      "record_start_seconds": 0.0,
+      "record_end_seconds": 2.0
+    },
+    {
+      "beat": "cabin_connection",
+      "file": "grok-0d7c3f2a-78e1-4c92-afb4-250d1a4a7f37-720p.mp4",
+      "start_frame": 6,
+      "duration_frames": 96,
+      "transition_in": "hard_cut",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-0d7c3f2a-78e1-4c92-afb4-250d1a4a7f37-720p.mp4",
+      "source_sha256": "485b9683eaa95988ceff5a5765858cdb44d0156c1fb12785c2bfbc8ba24accdb",
+      "record_start_frame": 48,
+      "record_end_frame_exclusive": 144,
+      "record_start_seconds": 2.0,
+      "record_end_seconds": 6.0
+    },
+    {
+      "beat": "island_and_castle_approach",
+      "file": "grok-a8018b14-ef72-4e1d-9ae8-b3f287b32dd4.mp4",
+      "start_frame": 12,
+      "duration_frames": 36,
+      "transition_in": "cross_dissolve_24f",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-a8018b14-ef72-4e1d-9ae8-b3f287b32dd4.mp4",
+      "source_sha256": "afe6500edcbab940a0ed262d7baafcc6445f67b106440be601a47205266c9411",
+      "record_start_frame": 144,
+      "record_end_frame_exclusive": 180,
+      "record_start_seconds": 6.0,
+      "record_end_seconds": 7.5
+    },
+    {
+      "beat": "castle_reveal_and_forest_breath",
+      "file": "GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4",
+      "start_frame": 204,
+      "duration_frames": 168,
+      "transition_in": "hard_cut",
+      "source_path": "C:\\Users\\Peter\\Downloads\\GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4",
+      "source_sha256": "67b6c57ab7898a579fed98e7850896cd972c6e21d35ad1171b69adbf992a79b1",
+      "record_start_frame": 180,
+      "record_end_frame_exclusive": 348,
+      "record_start_seconds": 7.5,
+      "record_end_seconds": 14.5
+    },
+    {
+      "beat": "otter_discovery",
+      "file": "GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4",
+      "start_frame": 372,
+      "duration_frames": 36,
+      "transition_in": "hard_cut",
+      "source_path": "C:\\Users\\Peter\\Downloads\\GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4",
+      "source_sha256": "67b6c57ab7898a579fed98e7850896cd972c6e21d35ad1171b69adbf992a79b1",
+      "record_start_frame": 348,
+      "record_end_frame_exclusive": 384,
+      "record_start_seconds": 14.5,
+      "record_end_seconds": 16.0
+    },
+    {
+      "beat": "otter_jump_retained",
+      "file": "grok-b313bcb5-6577-46b0-80f6-b383830c786d-720p.mp4",
+      "start_frame": 12,
+      "duration_frames": 121,
+      "transition_in": "hard_cut",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-b313bcb5-6577-46b0-80f6-b383830c786d-720p.mp4",
+      "source_sha256": "7a8eccb9031ddd14db817e51023c7f21cdf45cea9137a42f896bd34a5bd39723",
+      "record_start_frame": 384,
+      "record_end_frame_exclusive": 505,
+      "record_start_seconds": 16.0,
+      "record_end_seconds": 21.041666666666668
+    },
+    {
+      "beat": "cabin_return_after_wave",
+      "file": "GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4",
+      "start_frame": 612,
+      "duration_frames": 60,
+      "transition_in": "hard_cut",
+      "source_path": "C:\\Users\\Peter\\Downloads\\GROK_OTTER_PLANE_MASTER_20260823_V02_REVIEW.mp4",
+      "source_sha256": "67b6c57ab7898a579fed98e7850896cd972c6e21d35ad1171b69adbf992a79b1",
+      "record_start_frame": 505,
+      "record_end_frame_exclusive": 565,
+      "record_start_seconds": 21.041666666666668,
+      "record_end_seconds": 23.541666666666668
+    },
+    {
+      "beat": "exterior_reunion",
+      "file": "grok-bcbfb2e3-7801-4883-af10-8a2d2d34607e-720p.mp4",
+      "start_frame": 12,
+      "duration_frames": 121,
+      "transition_in": "cross_dissolve_24f",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-bcbfb2e3-7801-4883-af10-8a2d2d34607e-720p.mp4",
+      "source_sha256": "713a1f0542f54e84777d822d7f0cf5a2c2f6787ec4ccf4f814f72e8049d0ef14",
+      "record_start_frame": 565,
+      "record_end_frame_exclusive": 686,
+      "record_start_seconds": 23.541666666666668,
+      "record_end_seconds": 28.583333333333332
+    },
+    {
+      "beat": "castle_bridge_arrival",
+      "file": "grok-ef4539b3-2854-43b4-af2e-870f09a6d0d8-720p.mp4",
+      "start_frame": 12,
+      "duration_frames": 121,
+      "transition_in": "cross_dissolve_24f",
+      "source_path": "C:\\Users\\Peter\\Downloads\\grok-ef4539b3-2854-43b4-af2e-870f09a6d0d8-720p.mp4",
+      "source_sha256": "4bee84a9a5764f109ef93dabf903c73dba086e333ebba7757c79e99311ef470a",
+      "record_start_frame": 686,
+      "record_end_frame_exclusive": 807,
+      "record_start_seconds": 28.583333333333332,
+      "record_end_seconds": 33.625
+    }
+  ]
+}

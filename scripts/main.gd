@@ -4213,6 +4213,8 @@ func _init_touch_experiment() -> void:
 		touch_ui.set_mode(touch_mode)
 		if not touch_ui.world_touched.is_connected(_on_touch_world):
 			touch_ui.world_touched.connect(_on_touch_world)
+		if not touch_ui.world_double_tapped.is_connected(_on_touch_double_tap):
+			touch_ui.world_double_tapped.connect(_on_touch_double_tap)
 		if not touch_ui.manual_move_started.is_connected(_on_touch_manual_move):
 			touch_ui.manual_move_started.connect(_on_touch_manual_move)
 		touch_ui.world_press_probe = Callable(self, "_on_world_press")
@@ -5067,6 +5069,25 @@ func _on_touch_manual_move() -> void:
 		return
 	_cancel_lagoon_navigation()
 	_tap_move_ref().cancel("manual")
+
+func _on_touch_double_tap(screen_pos: Vector2) -> void:
+	# A second tap is an escape hatch, never another wait state. Preschoolers
+	# commonly tap again when Roshan is still acting, so clear the visible pose
+	# and send her toward the new point in the same input turn.
+	_living_world_ref().note_activity()
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		_lagoon_promenade_ref().interrupt_animation_and_walk(screen_pos)
+		return
+	# Minigames and arenas own Roshan's visible controller and movement. The
+	# shared Reef tap escape hatch must not steer a hidden player underneath one.
+	if game != "":
+		return
+	if _world_tap_gated() or player == null:
+		return
+	player.cancel_animation()
+	_cancel_lagoon_navigation()
+	_interaction_ref().clear_focus()
+	_tap_move_ref().start_from_screen(screen_pos)
 
 func _cancel_lagoon_navigation() -> void:
 	if game == "level2" and String(g.get("phase", "")) == "promenade":

@@ -6,6 +6,7 @@ extends RefCounted
 # created or loaded by this satellite.
 
 const ROOM_ART := "res://assets/flats/castle/rooms/"
+const SHOW_SECONDARY_ROOM_CONTROLS := false
 const INTERACTION_ART := "res://assets/flats/castle/interactions/"
 const DREAM_HOUSE_ART := "res://assets/flats/castle/dream_house/"
 const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
@@ -1224,6 +1225,7 @@ func _build_stage() -> void:
 		Vector2(132.0, 132.0), "Touch the room")
 	m.castle_room_action_button.pressed.connect(activate_current_room)
 	m.castle_room_action_button.z_index = 30
+	m.castle_room_action_button.visible = SHOW_SECONDARY_ROOM_CONTROLS
 	stage.add_child(m.castle_room_action_button)
 
 	m.castle_room_back_button = Button.new()
@@ -1244,6 +1246,7 @@ func _build_stage() -> void:
 	elevator.set_meta("persistent_navigation", true)
 	elevator.pressed.connect(_toggle_elevator_menu)
 	elevator.z_index = 30
+	elevator.visible = SHOW_SECONDARY_ROOM_CONTROLS
 	stage.add_child(elevator)
 	var elevator_pointer := Label.new()
 	elevator_pointer.name = "ElevatorPointer"
@@ -1252,6 +1255,7 @@ func _build_stage() -> void:
 	StorybookUI.style_label(elevator_pointer, 48, StorybookUI.GOLD, 5)
 	elevator_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	elevator_pointer.z_index = 30
+	elevator_pointer.visible = SHOW_SECONDARY_ROOM_CONTROLS
 	stage.add_child(elevator_pointer)
 	var point := elevator_pointer.create_tween().set_loops()
 	point.tween_property(elevator_pointer, "position:y", 502.0,
@@ -1727,10 +1731,11 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	var day_one_pool_needs_cleanup: bool = day_one_activity \
 		and room_id == "mermaid_pool" \
 		and not m.day_one_castle_room_is_clean(room_id)
-	m.castle_room_action_button.visible = day_one_activity or (not hall_mode \
+	m.castle_room_action_button.visible = SHOW_SECONDARY_ROOM_CONTROLS \
+		and (day_one_activity or (not hall_mode \
 		and room_id != "family_gallery" \
 		and room_id != "opera_hall" \
-		and (room_id != "playroom" or _playroom_rescue_done()))
+		and (room_id != "playroom" or _playroom_rescue_done())))
 	if day_one_pool_needs_cleanup:
 		m.castle_room_action_button.visible = false
 	if not hall_mode:
@@ -1831,7 +1836,7 @@ func _on_day_one_pool_reveal_completed() -> void:
 		return
 	m._day_one_sync_castle_dressing()
 	if m.castle_room_action_button != null:
-		m.castle_room_action_button.visible = true
+		m.castle_room_action_button.visible = SHOW_SECONDARY_ROOM_CONTROLS
 
 
 func _cancel_player_motion() -> void:
@@ -4008,7 +4013,7 @@ func _check_playroom_rescue_complete() -> void:
 	m.stuffie_wins["rescued_eagle"] = true
 	m._write_save()
 	if m.castle_room_action_button != null:
-		m.castle_room_action_button.visible = true
+		m.castle_room_action_button.visible = SHOW_SECONDARY_ROOM_CONTROLS
 	var pointer: Node = m.castle_room_item_effect_layer.get_node_or_null(
 		"BabyEagleRescuePointer") \
 		if m.castle_room_item_effect_layer != null else null

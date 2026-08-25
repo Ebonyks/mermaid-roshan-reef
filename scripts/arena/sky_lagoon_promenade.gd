@@ -223,18 +223,23 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_master_space"] = content
 
 	for holder_spec: Dictionary in [
-		{"key": "lagoon_base_layer", "name": "SkyLagoonBase", "z": -500, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_rear_layer", "name": "SkyLagoonRear", "z": -400, "parallax": REAR_PARALLAX},
-		{"key": "lagoon_landmark_layer", "name": "SkyLagoonLandmarks", "z": -300, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "z": 0, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_actor_layer", "name": "SkyLagoonActors", "z": 100, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_foreground_layer", "name": "SkyLagoonForeground", "z": 300, "parallax": FOREGROUND_PARALLAX},
+		{"key": "lagoon_base_layer", "name": "SkyLagoonBase", "audit_id": "base", "z": -500, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_rear_geography_layer", "name": "SkyLagoonRearMural", "audit_id": "rear_geography", "z": -400, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_rear_layer", "name": "SkyLagoonRear", "audit_id": "rear_atmosphere", "z": -400, "z_min": 0, "z_max": 0, "parallax": REAR_PARALLAX},
+		{"key": "lagoon_landmark_layer", "name": "SkyLagoonLandmarks", "audit_id": "landmarks", "z": -300, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "audit_id": "interactive", "z": 0, "z_min": -1, "z_max": 4, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_actor_layer", "name": "SkyLagoonActors", "audit_id": "actors", "z": 100, "z_min": -1, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_foreground_geography_layer", "name": "SkyLagoonForegroundMural", "audit_id": "foreground_geography", "z": 300, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_foreground_layer", "name": "SkyLagoonForeground", "audit_id": "foreground_lighting", "z": 300, "z_min": 0, "z_max": 0, "parallax": FOREGROUND_PARALLAX},
 	]:
 		var holder := Node2D.new()
 		holder.name = String(holder_spec["name"])
 		holder.z_index = int(holder_spec["z"])
 		holder.set_meta("canvas_layer_role", String(holder_spec["name"]))
+		holder.set_meta("visual_audit_layer_id", String(holder_spec["audit_id"]))
 		holder.set_meta("parallax_factor", float(holder_spec["parallax"]))
+		holder.set_meta("visual_audit_relative_z_min", int(holder_spec["z_min"]))
+		holder.set_meta("visual_audit_relative_z_max", int(holder_spec["z_max"]))
 		content.add_child(holder)
 		m.g[String(holder_spec["key"])] = holder
 
@@ -272,8 +277,10 @@ func teardown() -> void:
 	for key: String in [
 		"lagoon_canvas_layer", "lagoon_canvas_root", "lagoon_master_space",
 		"lagoon_camera_2d", "lagoon_base_layer", "lagoon_rear_layer",
+		"lagoon_rear_geography_layer",
 		"lagoon_landmark_layer", "lagoon_interactive_layer", "lagoon_actor_layer",
-		"lagoon_foreground_layer", "lagoon_roshan_card", "lagoon_animal_actor",
+		"lagoon_foreground_geography_layer", "lagoon_foreground_layer",
+		"lagoon_roshan_card", "lagoon_animal_actor",
 		"lagoon_plane_card", "lagoon_reef_route_card", "lagoon_castle_card",
 		"lagoon_castle_door_focus", "lagoon_night_fireflies",
 		"lagoon_ambient_cards", "lagoon_animals", "lagoon_animal_cycles",
@@ -337,6 +344,38 @@ func handle_drag(_from: Vector2, to: Vector2) -> bool:
 	cancel_navigation()
 	_set_walk_goal(to)
 	return true
+
+func interrupt_animation_and_walk(screen_pos: Vector2) -> void:
+	# A second tap is an unconditional child escape hatch. Do not force a child
+	# to watch the playground ride or its settle beat finish before she can move.
+	_cancel_playground_animation_immediately()
+	_set_walk_goal(screen_pos)
+
+func _cancel_playground_animation_immediately() -> void:
+	var play: Dictionary = m.g.get("lagoon_play_anim", {}) as Dictionary
+	if play.is_empty():
+		return
+	var equipment_value: Variant = play.get("equipment")
+	var equipment: Node2D = null
+	if is_instance_valid(equipment_value):
+		equipment = equipment_value as Node2D
+	if equipment != null:
+		equipment.rotation = float(play.get("equipment_rest_rotation", 0.0))
+		var pivot: Node2D = equipment.get_meta("swing_seat_pivot") as Node2D \
+			if equipment.has_meta("swing_seat_pivot") else null
+		if pivot != null:
+			pivot.rotation = 0.0
+	m.g["lagoon_play_anim"] = {}
+	var card: Sprite2D = m.g.get("lagoon_roshan_card") as Sprite2D
+	if card == null or not is_instance_valid(card):
+		return
+	card.texture = ROSHAN_DIRECTIONAL
+	card.region_enabled = true
+	card.region_rect = FRAMES.region("directional", 2, 4)
+	card.offset = Vector2.ZERO
+	card.scale = Vector2.ONE * (PLAYER_HEIGHT_PX / 256.0)
+	card.rotation = 0.0
+	_sync_roshan_card()
 
 func cancel_navigation() -> void:
 	# One cancellation seam owns every child-visible route promise. Manual stick
@@ -405,11 +444,14 @@ func _build_ambient_life() -> void:
 	# base layer, satisfying the layered-scene contract without duplicate pixels.
 	var tree := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
-		Vector2(4180, 1185), 465.0, true, m.g.get("lagoon_rear_layer") as Node2D)
+		Vector2(4180, 1185), 465.0, true,
+		m.g.get("lagoon_rear_geography_layer") as Node2D)
 	tree.name = "SkyLagoonRearTree"
 	tree.set_meta("ambient_kind", "tree")
-	tree.set_meta("canvas_layer_role", "rear_ambient")
+	tree.set_meta("canvas_layer_role", "rear_geography_locked")
 	tree.set_meta("source_owned", true)
+	tree.set_meta("background_socket_healed", true)
+	tree.set_meta("geography_locked", true)
 	_mark_living_card(tree, "sway", "quiet", 465.0)
 	var cloud := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
@@ -435,10 +477,13 @@ func _build_ambient_life() -> void:
 	var foreground_tree := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
 		Vector2(5750, 1510), 350.0, true,
-		m.g.get("lagoon_foreground_layer") as Node2D)
+		m.g.get("lagoon_foreground_geography_layer") as Node2D)
 	foreground_tree.name = "SkyLagoonForegroundTree"
 	foreground_tree.set_meta("ambient_kind", "foreground_tree")
-	foreground_tree.set_meta("canvas_layer_role", "sparse_foreground")
+	foreground_tree.set_meta("canvas_layer_role", "foreground_geography_locked")
+	foreground_tree.set_meta("source_owned", true)
+	foreground_tree.set_meta("background_socket_healed", true)
+	foreground_tree.set_meta("geography_locked", true)
 	_mark_living_card(foreground_tree, "sway", "quiet", 350.0)
 	(m.g["lagoon_ambient_cards"] as Array).append(foreground_tree)
 	if m.is_night:
@@ -946,6 +991,16 @@ func _apply_view_transform(snap: bool = false) -> void:
 	if rear != null:
 		rear.position.x = left * (1.0 - REAR_PARALLAX)
 		rear.set_meta("observable_parallax_offset", rear.position.x)
+	var rear_geography: Node2D = m.g.get(
+		"lagoon_rear_geography_layer") as Node2D
+	if rear_geography != null:
+		rear_geography.position = Vector2.ZERO
+		rear_geography.set_meta("observable_parallax_offset", 0.0)
+	var foreground_geography: Node2D = m.g.get(
+		"lagoon_foreground_geography_layer") as Node2D
+	if foreground_geography != null:
+		foreground_geography.position = Vector2.ZERO
+		foreground_geography.set_meta("observable_parallax_offset", 0.0)
 	var foreground: Node2D = m.g.get("lagoon_foreground_layer") as Node2D
 	if foreground != null:
 		foreground.position.x = left * (1.0 - FOREGROUND_PARALLAX)

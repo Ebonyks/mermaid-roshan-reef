@@ -131,6 +131,16 @@ func play_verb(vname: String) -> bool:
 	return true
 
 
+func cancel_animation() -> void:
+	# Touch interruption is intentionally immediate: a second tap must return
+	# Roshan to locomotion instead of making a child wait out a gesture.
+	verb = ""
+	verb_t = 0.0
+	classic_toy_pose_until_msec = 0
+	if classic_sprite != null:
+		classic_sprite.rotation.z = 0.0
+
+
 func _apply_verb(delta: float) -> void:
 	if verb == "":
 		return

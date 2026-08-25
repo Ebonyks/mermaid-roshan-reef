@@ -1,0 +1,55 @@
+{
+  "status": "PASS_INDEPENDENT_LUNA_AUDIT",
+  "resolve": {
+    "version": "21.0.4.5",
+    "project": "Mermaid Roshan - Otter Wing Recut 2026-08-23 v1",
+    "timeline": "MERMAID_ROSHAN_OTTER_WING_RECUT_V2_24FPS"
+  },
+  "render": {
+    "file": "mermaid_roshan_otter_wing_recut_v2_resolve.mp4",
+    "sha256": "32116206b941447a998ab2f7d5fa4338f6604574236d3ce3c8cc7d04e75b40c8",
+    "width": 1280,
+    "height": 720,
+    "fps": "24/1",
+    "picture_frames": 807,
+    "picture_duration_seconds": 33.625,
+    "video_codec": "H.264 Main",
+    "audio_codec": "AAC-LC",
+    "audio_sample_rate": 48000,
+    "audio_channels": 2
+  },
+  "project_archive": {
+    "file": "Mermaid_Roshan_Otter_Wing_Recut_2026-08-23_v1.drp",
+    "sha256": "194c0461306a3ecc3ab7b8535f895d2246a466a0c36434c1e079ea7ea94a5810"
+  },
+  "editorial": {
+    "retained_jump": {
+      "source_frames": [12, 133],
+      "record_frames": [384, 505],
+      "render_to_source_psnr_db": 47.207457,
+      "occurrences": 1
+    },
+    "duplicate_master_wing_beat_removed": {
+      "source_frames": [480, 552],
+      "old_record_seconds": [21.0416667, 24.0416667]
+    },
+    "wave_gesture_removed": {
+      "source_frames": [552, 612],
+      "old_record_seconds": [24.0416667, 26.5416667]
+    },
+    "cabin_resume": {
+      "source_frames": [612, 672],
+      "record_frames": [505, 565],
+      "pre_transition_render_to_source_psnr_db": 50.122693
+    }
+  },
+  "audio": {
+    "integrated_lufs": -19.7,
+    "loudness_range_lu": 3.4,
+    "true_peak_dbtp": -1.7,
+    "original_jump_audio_source_seconds": [0.5, 5.541666667],
+    "original_jump_audio_record_seconds": [16.0, 21.041666667],
+    "render_to_resolve_mix_apsnr_db": [163.741, 163.738]
+  },
+  "source_hashes_unchanged": true
+}

@@ -10,6 +10,7 @@ extends CanvasLayer
 # A touch has one owner for its lifetime; ownership never changes mid-gesture.
 
 signal world_touched(pos: Vector2)
+signal world_double_tapped(pos: Vector2)
 signal manual_move_started
 signal manual_move_ended
 
@@ -88,10 +89,14 @@ var _act_vis: Panel = null
 var _act_lbl: Label = null
 var _act_t := 0.0
 var _action_edge_frames := 0
+var _last_world_tap_ms := -1
+var _last_world_tap_pos := Vector2.ZERO
 
 const R := 78.0
 const TAP_SLOP := 22.0
 const TAP_MS := 300
+const DOUBLE_TAP_MS := 500
+const DOUBLE_TAP_SLOP := 180.0
 const JUMP_HOLD_MS := 140
 const ACTION_PICTOGRAMS := {
 	"JUMP": "↑",
@@ -341,7 +346,7 @@ func _release_stick() -> void:
 	if control_mode == "classic" and not _moved \
 			and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
 		if _classic_world_tap_active():
-			world_touched.emit(_press_pos)
+			_emit_world_tap(_press_pos)
 			_flash(_press_pos)
 		else:
 			_jump_pulse()
@@ -353,7 +358,7 @@ func _release_stick() -> void:
 		# lower-left corner exactly as they do everywhere else. No TAP_MS gate:
 		# a four-year-old's deliberate press is slow, and the world-tap owner
 		# elsewhere in this router has no time limit either.
-		world_touched.emit(_press_pos)
+		_emit_world_tap(_press_pos)
 		_flash(_press_pos)
 	if _manual_emitted:
 		manual_move_ended.emit()
@@ -604,7 +609,33 @@ func _clear_touch_state() -> void:
 	_manual_emitted = false
 	_press_pos = Vector2.ZERO
 	_pulse = 0.0
+	_last_world_tap_ms = -1
+	_last_world_tap_pos = Vector2.ZERO
 	_rest_stick()
+
+func _emit_world_tap(pos: Vector2) -> void:
+	var now_ms: int = Time.get_ticks_msec()
+	var is_double_tap: bool = _last_world_tap_ms >= 0 \
+		and now_ms - _last_world_tap_ms <= DOUBLE_TAP_MS \
+		and pos.distance_to(_last_world_tap_pos) <= DOUBLE_TAP_SLOP
+	_last_world_tap_ms = now_ms
+	_last_world_tap_pos = pos
+	if is_double_tap:
+		world_double_tapped.emit(pos)
+		return
+	world_touched.emit(pos)
+
+func _record_world_tap(pos: Vector2) -> void:
+	# Press-fired world interactions do not emit world_touched on release, but
+	# they still count as a tap for the preschooler-friendly interruption rule.
+	var now_ms: int = Time.get_ticks_msec()
+	var is_double_tap: bool = _last_world_tap_ms >= 0 \
+		and now_ms - _last_world_tap_ms <= DOUBLE_TAP_MS \
+		and pos.distance_to(_last_world_tap_pos) <= DOUBLE_TAP_SLOP
+	_last_world_tap_ms = now_ms
+	_last_world_tap_pos = pos
+	if is_double_tap:
+		world_double_tapped.emit(pos)
 
 func set_mode(next_mode: String) -> void:
 	control_mode = "classic" if next_mode == "classic" else "hybrid"
@@ -720,8 +751,10 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
 				var world_data: Dictionary = _world_pend[touch.index]
 				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
-					world_touched.emit(touch.position)
+					_emit_world_tap(touch.position)
 					_flash(touch.position)
+				elif owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
+					_record_world_tap(touch.position)
 				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
 					world_press_release.call()
 				_world_swipe(world_data, touch.position)
@@ -770,8 +803,10 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
 				var world_data: Dictionary = _world_pend[99]
 				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
-					world_touched.emit(mouse_button.position)
+					_emit_world_tap(mouse_button.position)
 					_flash(mouse_button.position)
+				elif owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)):
+					_record_world_tap(mouse_button.position)
 				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
 					world_press_release.call()
 				_world_swipe(world_data, mouse_button.position)
