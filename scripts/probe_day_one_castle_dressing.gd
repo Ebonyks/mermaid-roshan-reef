@@ -44,6 +44,18 @@ func _run_probe() -> void:
 		bad += 1
 	else:
 		print("DAY_ONE_DRESSING|2D contract: OK")
+	dressing.set_visible_room("mermaid_pool")
+	dressing.update_dressing(0.25)
+	var land_snapshot: Dictionary = dressing.audit_snapshot().get(
+		"pool_land_bunny", {}) as Dictionary
+	if int(land_snapshot.get("count", 0)) != 1 \
+			or not bool(land_snapshot.get("landlocked", false)) \
+			or not String(land_snapshot.get("asset", "")).ends_with(
+				"dust_bunny_curl_ears.png"):
+		print("DAY_ONE_DRESSING|pool shore bunny: FAIL ", land_snapshot)
+		bad += 1
+	else:
+		print("DAY_ONE_DRESSING|pool shore bunny: OK one landlocked cutout")
 	dressing.set_visible_room("bubble_bath")
 	dressing.update_dressing(0.25)
 	var bathroom_bunny: Sprite2D = dressing.get_node("DustBunny_bubble_bath") as Sprite2D

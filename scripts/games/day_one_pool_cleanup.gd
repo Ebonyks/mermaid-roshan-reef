@@ -13,6 +13,8 @@ const POOL_WATERFALL_ACTIVITY := preload(
 	"res://scripts/games/pool_waterfall_activity.gd")
 const POOL_SEAHORSE_ACTIVITY := preload(
 	"res://scripts/games/pool_seahorse_rescue_activity.gd")
+const DUST_BUNNY_SWIMMER := preload(
+	"res://scripts/games/day_one_dust_bunny_swimmer.gd")
 const ACTIVITY_IDS: Array[String] = ["pool_surface", "waterfall", "seahorse"]
 const LEGACY_COMPLETE_STEP := 4
 const ART_TO_STAGE := 1.25
@@ -30,6 +32,8 @@ const RUMI_SWIM_SCALE := 1.02
 const RUMI_UPRIGHT_START_SCALE := 0.83
 const RUMI_UPRIGHT_SCALE := 0.96
 const DINGY_ROOM_TINT := Color(0.78, 0.86, 0.76, 1.0)
+const SWIMMER_WATER_BOUNDS := Rect2(300.0, 285.0, 680.0, 235.0)
+const SWIMMER_START := Vector2(820.0, 455.0)
 
 var m: ReefMain
 var skimmer_activity: PoolSkimmerActivity = null
@@ -42,6 +46,7 @@ var _announcements_enabled: bool = true
 var _lighting_target: CanvasItem = null
 var _lighting_target_rest_modulate := Color.WHITE
 var _rumi: AnimatedSprite2D = null
+var _swimming_bunny: DayOneDustBunnySwimmer = null
 var _clean_waterfall: Sprite2D = null
 var _healthy_seahorse: Sprite2D = null
 var _hidden_fixture_items: Array[Dictionary] = []
@@ -65,6 +70,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	_capture_room_lighting()
 	_capture_clean_waterfall()
 	_capture_healthy_seahorse()
+	_build_swimming_dust_bunny()
 	_build_activities()
 	_phase = _phase_from_legacy_step(m.day_one_pool_cleanup_step)
 	_apply_restored_progress()
@@ -149,6 +155,11 @@ func audit_snapshot() -> Dictionary:
 			and _rumi.sprite_frames.get_frame_count(&"swim") == 4,
 		"rumi_animation": String(_rumi.animation)
 			if _rumi != null and is_instance_valid(_rumi) else "",
+		"dust_bunny_count": 2,
+		"land_bunny_owner": "day_one_castle_dressing",
+		"swimming_bunny": _swimming_bunny.audit_snapshot()
+			if _swimming_bunny != null and is_instance_valid(_swimming_bunny)
+			else {},
 		"canvas_only": true,
 		"no_fail": true,
 	}
@@ -257,6 +268,16 @@ func _build_activities() -> void:
 	seahorse_activity.progress_changed.connect(_on_seahorse_progress)
 	seahorse_activity.completed.connect(_on_seahorse_completed)
 	add_child(seahorse_activity)
+
+
+func _build_swimming_dust_bunny() -> void:
+	_swimming_bunny = DUST_BUNNY_SWIMMER.new() as DayOneDustBunnySwimmer
+	add_child(_swimming_bunny)
+	if not _swimming_bunny.setup(
+			SWIMMER_WATER_BOUNDS, SWIMMER_START, 118.0, Vector2(52.0, 12.0),
+			205, Vector2(94.0, 20.0), Color(0.58, 0.88, 0.90, 0.18)):
+		_swimming_bunny.queue_free()
+		_swimming_bunny = null
 
 
 func _apply_restored_progress() -> void:
@@ -446,6 +467,8 @@ func _begin_finale() -> void:
 	_finale_started = true
 	_busy = true
 	_stop_activities()
+	if _swimming_bunny != null and is_instance_valid(_swimming_bunny):
+		_swimming_bunny.fade_out(0.32)
 	if _lighting_target != null and is_instance_valid(_lighting_target):
 		var light_tween: Tween = _lighting_target.create_tween()
 		light_tween.tween_property(

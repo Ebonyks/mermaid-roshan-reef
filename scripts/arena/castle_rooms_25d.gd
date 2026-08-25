@@ -18,6 +18,8 @@ const SPRITE_TRANSITION_2D := preload(
 	"res://scripts/sprite_transition_2d.gd")
 const DAY_ONE_POOL_CLEANUP := preload(
 	"res://scripts/games/day_one_pool_cleanup.gd")
+const DAY_ONE_DUST_BUNNY_SWIMMER := preload(
+	"res://scripts/games/day_one_dust_bunny_swimmer.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
@@ -70,6 +72,8 @@ const DUST_BUNNY_BURST_COUNT := 8
 const DUST_BUNNY_BURST_SCALE_MIN := 0.014
 const DUST_BUNNY_BURST_SCALE_MAX := 0.022
 const DUST_BUNNY_BURST_LIFETIME := 0.48
+const BATHTUB_SWIMMER_BOUNDS := Rect2(220.0, 225.0, 150.0, 112.0)
+const BATHTUB_SWIMMER_START := Vector2(277.0, 255.0)
 const HALL_SIGN_Z := 0.68
 const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
@@ -847,6 +851,7 @@ var _composition_transition_tween: Tween = null
 var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
 var day_one_pool_cleanup: DayOnePoolCleanup = null
+var day_one_bathtub_swimmer: DayOneDustBunnySwimmer = null
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -1025,6 +1030,7 @@ func cancel_kitchen_recipe() -> void:
 func close() -> void:
 	m._day_one_clear_castle_dressing()
 	_clear_day_one_pool_cleanup()
+	_clear_day_one_bathtub_swimmer()
 	_room_build_generation += 1
 	_cancel_composition_transition()
 	_cancel_room_transition()
@@ -1112,6 +1118,7 @@ func tick(delta: float) -> void:
 	m.castle_royal_hall_feedback_cool = maxf(
 		0.0, m.castle_royal_hall_feedback_cool - delta)
 	fixture_rigs.tick(delta)
+	_sync_day_one_bathtub_swimmer()
 	_tick_item_affordances(delta)
 	if m.castle_dust_he != null:
 		m.castle_dust_he.tick(delta)   # pop-chain window decay
@@ -1677,6 +1684,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if room.is_empty() or m.castle_room_background == null:
 		return
 	_clear_day_one_pool_cleanup()
+	_clear_day_one_bathtub_swimmer()
 	_cancel_room_transition()
 	_cancel_player_motion()
 	_begin_composition_transition()
@@ -1799,11 +1807,11 @@ func _sync_day_one_pool_cleanup(room_id: String) -> void:
 	day_one_pool_cleanup.reveal_completed.connect(
 		_on_day_one_pool_reveal_completed)
 	day_one_pool_cleanup.setup(m)
-	# This room has a bespoke cleaning cast. Keep the generic dust bunny out of
-	# Roshan's face and let the pool's own progressive dingy wash own the mood.
+	# Keep exactly one approved land bunny in its lower-left shore slot while the
+	# bespoke cleanup owns the separate central-water swimmer.
 	if m.day_one_castle_dressing != null \
 			and is_instance_valid(m.day_one_castle_dressing):
-		m.day_one_castle_dressing.set_visible_room("main_hall")
+		m.day_one_castle_dressing.set_visible_room("mermaid_pool")
 	_position_player_at_foot(Vector2(330.0, 640.0), false)
 	if m.castle_room_action_button != null:
 		m.castle_room_action_button.visible = false
@@ -1814,6 +1822,88 @@ func _clear_day_one_pool_cleanup() -> void:
 			and is_instance_valid(day_one_pool_cleanup):
 		day_one_pool_cleanup.teardown()
 	day_one_pool_cleanup = null
+
+
+func _sync_day_one_bathtub_swimmer() -> void:
+	var should_show: bool = m.castle_room_id == "bubble_bath" \
+		and m.day_one_is_active() \
+		and bool(m.g.get("day_one_bathtub_filled", false)) \
+		and m.castle_room_item_visual_layer != null
+	if not should_show:
+		_clear_day_one_bathtub_swimmer()
+		return
+	_set_bathtub_fill_visible(true)
+	if day_one_bathtub_swimmer != null \
+			and is_instance_valid(day_one_bathtub_swimmer):
+		return
+	day_one_bathtub_swimmer = DAY_ONE_DUST_BUNNY_SWIMMER.new() \
+		as DayOneDustBunnySwimmer
+	m.castle_room_item_visual_layer.add_child(day_one_bathtub_swimmer)
+	day_one_bathtub_swimmer.set_meta("filled_bathtub_reuse", true)
+	if not day_one_bathtub_swimmer.setup(
+			BATHTUB_SWIMMER_BOUNDS, BATHTUB_SWIMMER_START, 72.0,
+			Vector2(8.0, 2.0), 124, Vector2(62.0, 14.0),
+			Color(0.62, 0.92, 0.96, 0.22)):
+		day_one_bathtub_swimmer.queue_free()
+		day_one_bathtub_swimmer = null
+
+
+func _clear_day_one_bathtub_swimmer() -> void:
+	if day_one_bathtub_swimmer != null \
+			and is_instance_valid(day_one_bathtub_swimmer):
+		day_one_bathtub_swimmer.queue_free()
+	day_one_bathtub_swimmer = null
+
+
+func day_one_bathtub_swimmer_snapshot() -> Dictionary:
+	var bathtub_record: Dictionary = m.castle_room_item_sprites.get(
+		"bathtub", {}) as Dictionary
+	var bathtub_sprite: Sprite2D = bathtub_record.get("sprite") as Sprite2D
+	return {
+		"filled": bool(m.g.get("day_one_bathtub_filled", false)),
+		"fill_water_visible": _bathtub_fill_water_visible(),
+		"visible": day_one_bathtub_swimmer != null \
+			and is_instance_valid(day_one_bathtub_swimmer),
+		"behind_tub_lip": day_one_bathtub_swimmer != null \
+			and is_instance_valid(day_one_bathtub_swimmer) \
+			and bathtub_sprite != null \
+			and day_one_bathtub_swimmer.z_index < bathtub_sprite.z_index,
+		"swimmer": day_one_bathtub_swimmer.audit_snapshot()
+			if day_one_bathtub_swimmer != null \
+				and is_instance_valid(day_one_bathtub_swimmer) else {},
+	}
+
+
+func _set_bathtub_fill_visible(visible: bool) -> void:
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		"bathtub", {}) as Dictionary
+	var rig: Dictionary = record.get("fixture_rig", {}) as Dictionary
+	for water_value: Variant in rig.get("water", []):
+		var water: Dictionary = water_value as Dictionary
+		if String(water.get("role", "")) != "fill":
+			continue
+		var node: Sprite2D = water.get("node") as Sprite2D
+		var material: ShaderMaterial = water.get("material") as ShaderMaterial
+		if node != null:
+			node.visible = visible
+		if material != null:
+			material.set_shader_parameter("flow_amount", 1.0 if visible else 0.0)
+			material.set_shader_parameter("fill_amount", 1.0 if visible else 0.02)
+		water["flow_amount"] = 1.0 if visible else 0.0
+
+
+func _bathtub_fill_water_visible() -> bool:
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		"bathtub", {}) as Dictionary
+	var rig: Dictionary = record.get("fixture_rig", {}) as Dictionary
+	for water_value: Variant in rig.get("water", []):
+		var water: Dictionary = water_value as Dictionary
+		if String(water.get("role", "")) != "fill":
+			continue
+		var node: Sprite2D = water.get("node") as Sprite2D
+		return node != null and node.visible \
+			and float(water.get("flow_amount", 0.0)) >= 0.99
+	return false
 
 
 func _on_day_one_pool_cleanup_step(step: int, cleanup_id: String) -> void:
@@ -3462,6 +3552,9 @@ func _finish_sprite_atlas_sequence(sprite: Sprite2D, item_data: Dictionary,
 			sprite, clampi(rest_frame, 0, available_frames - 1))
 		fixture_rigs.apply_frame(
 			interaction_key, 0, sequence.size(), rest_frame)
+	if interaction_key == "bubble_bath:bathtub":
+		m.g["day_one_bathtub_filled"] = true
+		_sync_day_one_bathtub_swimmer()
 	if sprite.has_meta("active_close_tween"):
 		sprite.remove_meta("active_close_tween")
 	_sync_sconce_frame_uv(sprite)

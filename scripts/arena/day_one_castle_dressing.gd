@@ -17,7 +17,8 @@ const DEFAULT_ROOM_CENTERS: Dictionary = {
 	# current room's center when mounting a room camera; these are never a
 	# four-room overview layout.
 	"bubble_bath": Vector2(640.0, 390.0),
-	"mermaid_pool": Vector2(640.0, 390.0),
+	# The pool bunny owns the lower-left shore and never crosses the water rim.
+	"mermaid_pool": Vector2(220.0, 508.0),
 	"playroom": Vector2(640.0, 390.0),
 	"craft_room": Vector2(640.0, 390.0),
 }
@@ -31,7 +32,7 @@ const DEFAULT_BOSS_BACK_DOOR := Rect2(610.0, 104.0, 60.0, 108.0)
 const MAIN_HALL_ID := "main_hall"
 const DUST_BUNNY_TEXTURES: Dictionary = {
 	"bubble_bath": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
-	"mermaid_pool": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+	"mermaid_pool": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
 	"playroom": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
 	"craft_room": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
 }
@@ -203,11 +204,27 @@ func audit_snapshot() -> Dictionary:
 		"visible_hall_door_count": _hall_door_rects.size(),
 		"dust_bunny_count": _dust_bunnies.size(),
 		"dust_bunny_sprite2d": true,
+		"pool_land_bunny": _pool_land_bunny_snapshot(),
 		"exterior_grime": true,
 		"interior_disrepair": true,
 		"boss_back_door_active": _boss_back_door_active,
 		"procedural_canvas": true,
 		"canvas_only": true,
+	}
+
+
+func _pool_land_bunny_snapshot() -> Dictionary:
+	var bunny: Sprite2D = _dust_bunnies.get("mermaid_pool") as Sprite2D
+	if bunny == null or not is_instance_valid(bunny):
+		return {}
+	var shore_bounds := Rect2(160.0, 550.0, 140.0, 80.0)
+	return {
+		"count": 1,
+		"position": bunny.position,
+		"shore_bounds": shore_bounds,
+		"landlocked": shore_bounds.has_point(bunny.position),
+		"asset": bunny.texture.resource_path if bunny.texture != null else "",
+		"true_2d": true,
 	}
 
 

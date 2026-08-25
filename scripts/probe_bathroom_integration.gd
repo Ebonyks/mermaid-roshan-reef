@@ -159,15 +159,17 @@ func _frames(count: int) -> void:
 	for _index in range(count):
 		await process_frame
 
-func _shot() -> void:
+func _shot(capture_name: String) -> void:
 	if DisplayServer.get_name() == "headless":
 		return
 	await _frames(3)
 	await RenderingServer.frame_post_draw
-	var output_dir := ProjectSettings.globalize_path(
-		"res://audit/castle_sprite3d")
+	var output_dir := OS.get_environment("DAY_ONE_BATH_CAPTURE_OUT")
+	if output_dir == "":
+		output_dir = ProjectSettings.globalize_path(
+			"res://audit/review/day_one_bath_swimmer_2026-08-24_v2")
 	DirAccess.make_dir_recursive_absolute(output_dir)
-	var output_path := output_dir.path_join("bubble_bath.png")
+	var output_path := output_dir.path_join(capture_name + ".png")
 	var save_error: Error = root.get_viewport().get_texture().get_image() \
 		.save_png(output_path)
 	print("BATHROOM_WORLD|shot saved: ", output_path,
@@ -180,10 +182,19 @@ func _run() -> void:
 	# The focused probe drives the room controller and tweens directly. Disable
 	# unrelated ambient systems so companion-den state cannot pollute this
 	# castle-only gate with deferred errors during the long interaction waits.
+	await process_frame
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	else:
+		main._skip_intro()
+	await process_frame
+	main._day_one_ref().restore_state({
+		"day_one_active": true,
+		"day_one_completed_rooms": [],
+	})
+	main.g.erase("day_one_bathtub_filled")
 	main.set_process(false)
-	await process_frame
-	main._skip_intro()
-	await process_frame
 	main.pearl_count = main.PEARL_TOTAL
 	for friend_value: Variant in main.friends:
 		var friend: Dictionary = friend_value
@@ -199,6 +210,12 @@ func _run() -> void:
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	rooms.show_room("bubble_bath", false)
 	await _frames(3)
+	var empty_bath_bunny: Dictionary = rooms.day_one_bathtub_swimmer_snapshot()
+	_ck("empty Day One bathtub has no swimmer or fill water",
+		not bool(empty_bath_bunny.get("filled", true))
+		and not bool(empty_bath_bunny.get("fill_water_visible", true))
+		and not bool(empty_bath_bunny.get("visible", true)))
+	await _shot("00_bubble_bath_empty")
 	_ck("sprite stage open", rooms.is_open())
 	_ck("direct canvas has no camera",
 		main.castle_room_stage.find_children("*", "Camera2D", true, false).is_empty()
@@ -493,6 +510,19 @@ func _run() -> void:
 		toilet_cavity_water_ok, toilet_cavity_detail)
 	_ck("bathtub water is a soft contained basin layer",
 		bathtub_water_ok, bathtub_water_detail)
+	var bath_bunny: Dictionary = rooms.day_one_bathtub_swimmer_snapshot()
+	var bath_swimmer: Dictionary = bath_bunny.get("swimmer", {}) as Dictionary
+	_ck("filled Day One bathtub reuses the true-swimming bunny",
+		bool(bath_bunny.get("filled", false))
+		and bool(bath_bunny.get("fill_water_visible", false))
+		and bool(bath_bunny.get("visible", false))
+		and bool(bath_bunny.get("behind_tub_lip", false))
+		and bool(bath_swimmer.get("true_2d", false))
+		and bool(bath_swimmer.get("inside_bounds", false))
+		and bool(bath_swimmer.get("fully_contained", false))
+		and String(bath_swimmer.get("asset", "")).ends_with(
+			"dust_bunny_swimming.png")
+		and float(bath_swimmer.get("display_width", 0.0)) <= 72.1)
 	_ck("foreground occluders",
 		main.castle_room_front_layer.get_child_count() == 2
 		and (main.castle_room_front_layer.get_child(0) as Sprite2D).z_index
@@ -502,7 +532,7 @@ func _run() -> void:
 		and not main.player.visible
 		and main.touch_interactables.is_empty())
 
-	await _shot()
+	await _shot("01_bubble_bath_filled_swimmer")
 	# Let Canvas shader instances and fixture nodes leave the rendering server
 	# before SceneTree shutdown. Immediate quit can otherwise produce a dummy-
 	# renderer null-material diagnostic after every assertion has passed.
