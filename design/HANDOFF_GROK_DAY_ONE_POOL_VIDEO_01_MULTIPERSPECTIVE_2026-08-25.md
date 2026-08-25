@@ -1,5 +1,12 @@
 # Owner-run Grok handoff — Mermaid Pool Video 01: The Pool Is Sick
 
+> **SUPERSEDED 2026-08-25:** the owner rejected this storyboard's repeated
+> theater-flat camera grammar and style drift. Do not use its frames or prompts
+> as Grok authority. The current handoff is
+> `HANDOFF_GROK_DAY_ONE_POOL_VIDEO_01_FULL_CHAMBER_2026-08-25.md`; the current
+> accepted package is
+> `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/`.
+
 ## Use and authority
 
 This is the shot-specific, copy/pasteable **visual-only** handoff for the first

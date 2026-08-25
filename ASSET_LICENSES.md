@@ -2674,3 +2674,45 @@ The accepted/rejected status does not grant final cinematic or owner acceptance.
 - `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/delivery_1280x720/S05_seahorse_obstruction_attempt01.png` - whole-canvas 1280×720 Lanczos review derivative.
 - `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/delivery_1280x720/S06_return_wide_attempt02.png` - whole-canvas 1280×720 Lanczos review derivative.
 - `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/STORYBOARD_CONTACT_SHEET.png` - deterministic review-only 3×2 contact sheet made from the six exact 1280×720 derivatives.
+
+## Day One Mermaid Pool Video 01 full-chamber replacement storyboard (2026-08-25)
+
+All generated PNGs below are project-original OpenAI built-in ImageGen art;
+license: project original; URL: none. They are non-runtime Grok/storyboard
+references only. The first package above is owner-rejected/superseded and has
+no current camera/style authority. Exact final prompts, built-in result IDs,
+native/reference/neighbor/delivery hashes, attempt reasons, room plan, Luna
+scores, and normalization are recorded in
+`assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/PROMPTS_AND_PROVENANCE.md`.
+
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/accepted/S01_south_entry_attempt04.png` - accepted native south-threshold full-room key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/accepted/S02_west_stair_attempt03.png` - accepted native low west-stair trash-inspection key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/accepted/S03_northwest_high_attempt03.png` - accepted native high northwest room-volume key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/accepted/S04_east_reverse_attempt06.png` - accepted native east-side reverse trash-cluster key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/accepted/S05_waterline_attempt04.png` - accepted native waterline blocked-mouth key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/accepted/S06_southeast_return_attempt04.png` - accepted native elevated southeast return key.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S01_attempt01_illegal_stream.png` - rejected native; wrong fixture and illegal clean stream.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S01_attempt02_wrong_fixture.png` - rejected native; cream/horned fixture drift.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S01_attempt03_bright_water.png` - rejected native; pool remained too clean/turquoise.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S02_attempt01_wrong_fixture_arch.png` - rejected native; wrong fixture and invented architecture.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S02_attempt02_clean_water.png` - rejected native; pristine cyan pool.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S03_attempt01_wrong_fixture_arch.png` - rejected native; wrong fixture and invented doorway.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S03_attempt02_unreadable_face.png` - rejected native; Roshan acting unreadable at phone size.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S04_attempt01_giant_wrong_fixture.png` - rejected native; giant wrong seahorse statue.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S04_attempt02_clean_water.png` - rejected native; clean pool and weak mouth contact.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S04_attempt03_frontal_repeat.png` - rejected native; repeated frontal camera.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S04_attempt04_theater_hierarchy.png` - rejected native; oversized fixture/tiny Roshan hierarchy.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S04_attempt05_still_overscale.png` - rejected native; fixture still exceeded rear-right scale limit.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S05_attempt01_wrong_fixture.png` - rejected native; wrong fixture and Roshan drift.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S05_attempt02_ghost_roshan.png` - rejected native; translucent Roshan.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S05_attempt03_giant_fixture.png` - rejected native; exact fixture remained giant foreground portrait.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S06_attempt01_wrong_fixture.png` - rejected native; wrong cream/horned fixture.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S06_attempt02_missing_plug_duplicate_trash.png` - rejected native; plug missing and trash duplicated.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/rejected/S06_attempt03_missing_window.png` - rejected native; canonical center window missing.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/delivery_1280x720/S01_south_entry_attempt04.png` - whole-canvas 1280×720 Lanczos derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/delivery_1280x720/S02_west_stair_attempt03.png` - whole-canvas 1280×720 Lanczos derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/delivery_1280x720/S03_northwest_high_attempt03.png` - whole-canvas 1280×720 Lanczos derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/delivery_1280x720/S04_east_reverse_attempt06.png` - whole-canvas 1280×720 Lanczos derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/delivery_1280x720/S05_waterline_attempt04.png` - whole-canvas 1280×720 Lanczos derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/delivery_1280x720/S06_southeast_return_attempt04.png` - whole-canvas 1280×720 Lanczos derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/STORYBOARD_CONTACT_SHEET.png` - deterministic review-only 3×2 contact sheet from exact accepted delivery copies.

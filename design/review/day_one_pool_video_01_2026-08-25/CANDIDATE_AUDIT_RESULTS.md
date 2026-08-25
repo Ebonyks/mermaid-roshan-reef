@@ -1,102 +1,120 @@
-# Luna candidate audit results — Day One Mermaid Pool Video 01
+# Replacement storyboard audit — Day One Mermaid Pool Video 01
 
 **Review date:** 2026-08-25
-**Reviewer:** Luna, independent visual audit
-**Shot plan:** `design/review/day_one_pool_video_01_2026-08-25/LUNA_SHOT_DESIGN.md`
-**Rubric:** `design/review/day_one_pool_video_01_2026-08-25/LUNA_CANDIDATE_AUDIT.md`
 
-## Overall verdict
+**Independent reviewer:** Luna master-style gate
 
-All six accepted paths pass the storyboard-reference gate at **≥4.5/5.0** with
-no observed knockout. They are `AUDIT_PASS_OWNER_PENDING` for this reference
-package, not final cinematic acceptance. The preserved natives are `1672x941`
-landscape PNGs (`1672 / 941 ≈ 1.7768331562`), a near-16:9 image-generation
-output rather than native `1280x720` delivery. After the visual gate, one
-whole-canvas FFmpeg 8.1.2 Lanczos scale produced exact `1280x720` review copies
-without crop, mask, compositing, translation, or subject repair; native files
-and hashes remain preserved.
+**Orchestrator:** Sol
 
-Exact per-attempt prompt records/hashes, built-in fresh-full-frame method,
-candidate/delivery hashes, neighboring accepted references, declared
-action/hold states, approximate normalized geometry, and Sol + independent
-Luna identity/topology/style review are recorded in
-`assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/PROMPTS_AND_PROVENANCE.md`.
-The later Grok film still requires complete temporal/frame evidence,
-`tools/audit_cinematic.py`, and owner review of the exact runtime cut.
+**Authority:** `design/02_ART_DIRECTION.md`,
+`design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`,
+`audit/MASTER_AUDIT_2026-08-09.md`, exact V4 room/fixture/activity art
 
-Common visual pass findings: every accepted frame is a complete flattened
-storybook image; the waterfall is opaque olive-brown, still, and non-glowing;
-Roshan is the approved brown-haired, rainbow-streak, pink-top, rainbow-tail
-identity; the pool has visible waterline/contact ripples and pearl-coping
-occlusion; no Rumi/Violet, cleanup action, clean stripe, rainbow surge, UI,
-theater-flat overlay, photorealism, or 3D treatment is visible.
+## Result
 
-## Accepted candidates
+The owner's correction is satisfied at storyboard-reference scope. The six
+accepted keys are complete, fresh, flattened ImageGen frames derived from the
+actual approved game/book/castle authority rather than the rejected first
+storyboard. They occupy six physically different camera stations in one mapped
+bathing chamber. Every accepted key scores at least `4.5/5` with no knockout.
+The documentary maximum is `4.9`; only the owner can award `5/5`.
 
-Scores are out of 5.0 and capped at 4.9 for this documentary audit. The status
-means visual pass pending provenance, target-device, child, and owner review.
+The old storyboard under
+`assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/` is now
+rejection/comparison evidence only. It is not style, camera, fixture, or Grok
+continuity authority.
 
-| Shot / candidate | Attempt(s) | SHA-256 | Score | Status | Observed evidence / caveat |
-|---|---:|---|---:|---|---|
-| **S01** `accepted/S01_wide_arrival_attempt02.png` | 2 | `92b354db479b51fe1a3b3fbadd96c007f955c10c484caac9263700d44f119f4b` | **4.70** | `AUDIT_PASS_OWNER_PENDING` | Strong wide room map: all six trash pieces read with local ripples; waterfall remains opaque/still; seahorse has unmistakable bright pink wrapper and seaweed lodged in the nozzle; Roshan is clear at lower-left. Lower tail is naturally cropped by coping. Full prompt/neighbor/method/geometry records and exact 1280×720 review copy are in the package provenance. |
-| **S02** `accepted/S02_wrapper_can_attempt02.png` | 2 | `0f91a01da322f736d09a39048a1a8554912d9d9cfdb4591b22a667adaaee9dc8` | **4.74** | `AUDIT_PASS_OWNER_PENDING` | Correct west-side low inspection. T1 pink wrapper and T2 can have water contact and readable scale; Roshan's face/hand/tail depth reads. Seahorse is deliberately cropped completely out, not omitted from the room canon; dirty waterfall stays fully opaque in the background. No mouth check applies inside this crop. |
-| **S03** `accepted/S03_center_oblique_attempt01.png` | 1 | `cf94a2ce739d12500583d2f64aefa2cfdd462700e683b6f796bfca2765fbbcce` | **4.66** | `AUDIT_PASS_OWNER_PENDING` | T2 can is the clear center focal subject and T3 blue lid bridges the cut; T1 remains a small west-edge continuity mark; staggered ripples and coping give water volume. Seahorse is deliberately cropped completely out. Slightly tighter oblique crop reduces landmark coverage, so neighbor geometry must be measured before final acceptance. |
-| **S04** `accepted/S04_right_trash_cluster_attempt01.png` | 1 | `df479b6273aae9e8d48ba97bcfe01c9dd01c03b72e07934c5e642e8a59510629` | **4.72** | `AUDIT_PASS_OWNER_PENDING` | T4 leaf, T5 purple strip, and T6 sponge are distinct, water-anchored, and not giant cards; Roshan remains readable at left; seahorse is rear-right with bright pink wrapper plus seaweed clearly in the mouth. Dirty waterfall is only a quiet olive vertical at far-left, with no flow/glow. T5 remains separate from the mouth plug. |
-| **S05** `accepted/S05_seahorse_obstruction_attempt01.png` | 1 | `ab04f23e08c8a95b49ae3da0c880a4fb80110bec7ee4247e0281604d553619af` | **4.68** | `AUDIT_PASS_OWNER_PENDING` | Intimate two-subject frame preserves the same long-snouted seahorse, eye, crest, pedestal, shelf, and water contact. Bright pink wrapper and green seaweed are unmistakably rooted behind the nozzle; Roshan's hand stops short, with no rescue pull. Waterfall remains a quiet dirty curtain at left; no Rumi/cleanup/payoff. Close framing is near the scale ceiling, so phone-size squint and neighbor fixture-center review remain required. |
-| **S06** `accepted/S06_return_wide_attempt02.png` | 2 | `bb3297da6672290da08a8b526f0d7cc6e1bde51fb2182e9c9dfe3be3e403a393` | **4.58** | `AUDIT_PASS_OWNER_PENDING` | Return-wide room map is coherent with S01: six trash pieces, still dirty waterfall, right seahorse, and Roshan all read; bright pink mouth wrapper plus seaweed remain visible; no reward/Rumi/cleanup action. The open south-east coping intentionally contains no basket or tool. The rejected wicker-basket attempt proved why all basket imagery is reserved for later gameplay, not Video 01. |
+## Master-derived rubric
 
-### Score breakdown
+| Dimension | Max | Pass requirement |
+|---|---:|---|
+| Identity and canonical continuity | 1.25 | Roshan and every visible V4 fixture retain exact family, topology, color, nozzle/pedestal, room order, and debris identity. |
+| Beat and spatial truth | 1.25 | One inspection beat reads; camera has a truthful physical station; contact/occlusion/scale prove one inhabitable room. |
+| Natural style integration | 1.00 | Approved flattened pastel storybook game style; broad rounded forms, matte bands, indigo/plum contours, aqua/lavender shadows; no theater/PBR drift. |
+| Child/phone readability | 0.75 | Roshan's face or declared action is readable; focal trash/plug survives a phone squint; background stays subordinate. |
+| Cinematic craft and evidence | 0.75 | Complete full frame, fresh method, prompt/native/reference/neighbor hashes, geometry, declared action, identity/topology/style review. |
 
-| Shot | Identity / 1.25 | Beat & spatial truth / 1.25 | Natural style / 1.00 | Child read / 0.75 | Cinematic craft / 0.75 | Raw / capped score |
-|---|---:|---:|---:|---:|---:|---:|
-| S01 | 1.20 | 1.18 | 0.94 | 0.69 | 0.69 | 4.70 |
-| S02 | 1.20 | 1.19 | 0.95 | 0.70 | 0.70 | 4.74 |
-| S03 | 1.18 | 1.15 | 0.94 | 0.68 | 0.71 | 4.66 |
-| S04 | 1.20 | 1.18 | 0.95 | 0.70 | 0.69 | 4.72 |
-| S05 | 1.19 | 1.20 | 0.93 | 0.68 | 0.68 | 4.68 |
-| S06 | 1.19 | 1.13 | 0.93 | 0.67 | 0.66 | 4.58 |
+Acceptance requires raw `>=4.5` and no knockout. Missing or detached mouth
+trash, flowing dirty fixtures, wrong seahorse family, theater-flat scale,
+transparent Roshan, invented/missing landmark, duplicated trash, or incomplete
+evidence is an immediate rejection.
 
-No accepted candidate is below 4.5, so no further storyboard-frame regeneration
-is ordered. Video 01 intentionally contains no basket or cleaning tool; the
-approved shell cleanup basket remains available for later gameplay only.
+## Accepted keys
 
-## Preserved rejected attempts
+| Shot | Accepted native | Attempts | I | B | S | R | C | Score | Status |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---|
+| S01 south entry | `accepted/S01_south_entry_attempt04.png` | 4 | 1.17 | 1.19 | .91 | .72 | .70 | **4.69** | `AUDIT_PASS_OWNER_PENDING` |
+| S02 west stair | `accepted/S02_west_stair_attempt03.png` | 3 | 1.14 | 1.20 | .92 | .73 | .70 | **4.69** | `AUDIT_PASS_OWNER_PENDING` |
+| S03 northwest high | `accepted/S03_northwest_high_attempt03.png` | 3 | 1.14 | 1.17 | .90 | .65 | .70 | **4.56** | `AUDIT_PASS_OWNER_PENDING` |
+| S04 east reverse | `accepted/S04_east_reverse_attempt06.png` | 6 | 1.08 | 1.20 | .90 | .72 | .70 | **4.60** | `AUDIT_PASS_OWNER_PENDING` |
+| S05 waterline | `accepted/S05_waterline_attempt04.png` | 4 | 1.14 | 1.16 | .88 | .68 | .70 | **4.56** | `AUDIT_PASS_OWNER_PENDING` |
+| S06 southeast return | `accepted/S06_southeast_return_attempt04.png` | 4 | 1.13 | 1.17 | .89 | .63 | .70 | **4.52** | `AUDIT_PASS_OWNER_PENDING` |
 
-These files remain evidence and are not delivery candidates.
+### Shot findings
 
-| Shot / rejected candidate | Attempt | SHA-256 | Status | Failure reason |
-|---|---:|---|---|---|
-| **S01** `rejected/S01_wide_arrival_attempt01_fail_mouth_contact.png` | 1 | `edeacee48b104cbcde266a2d86e2b35a231208b0023de6aa0bf76cdb316d85c2` | `REJECT_KNOCKOUT` | Seahorse mouth reads as a small purple ring/cup-like obstruction; the required bright pink wrapper plus seaweed is not unmistakably lodged in the nozzle. This fails the S01 mouth-contact identity gate despite otherwise dirty room/water. |
-| **S02** `rejected/S02_wrapper_can_attempt01_fail_mouth_continuity.png` | 1 | `544d477d27441cb9da184b5f494a3813fb334b42f25cc22d3dd55f7976b065bb` | `REJECT_KNOCKOUT` | Seahorse remains visible in the far-right background instead of being deliberately cropped completely out for S02, and its mouth obstruction is too small to verify. The frame therefore fails both the declared S02 crop grammar and mouth-continuity evidence. |
-| **S06** `rejected/S06_return_wide_attempt01_fail_generic_basket.png` | 1 | `f3d4662148a95c216f2327ad3dcfadeba2fdd2522699ea015d5759b1b976ea9e` | `REJECT_KNOCKOUT` | South-east prop is a generic wicker basket, not an allowed Video 01 prop. It reads as a detached generic/clip-art prop and breaks the room-specific natural-integration contract. Accepted S06 correctly removes it; the no-basket opening-film contract is intentional. |
+- **S01:** true south-threshold wide; one oval basin; canonical steps,
+  waterfall, window, blue-purple V4 seahorse, shelf, six debris pieces and
+  Roshan all register. Pool and waterfall are rank/opaque/still. Pink wrapper
+  plus olive seaweed is rooted in the nozzle and phone-readable.
+- **S02:** low west-stair camera; T1/T2/T3 and Roshan's crouched inspection
+  lead. The seahorse is intentionally behind/outside the east crop, not
+  removed from room canon.
+- **S03:** genuine high northwest oblique; coping ellipse, step overlap,
+  window, dirty bands, and T1-to-T3 diagonal prove water volume. Roshan's face
+  and pointing hand clear the phone gate narrowly.
+- **S04:** genuine east-side reverse; near-right column/coping and far-left
+  steps reverse the spatial read without mirroring. The seahorse is
+  intentionally behind the camera, allowing T4/T5/T6 and Roshan to lead.
+- **S05:** low water-surface lens; complete exact fixture recedes at room
+  scale. The pink-wrapper/olive-seaweed plug remains legible; Roshan is opaque
+  with one stable tail. This is the key most deserving of M11 confirmation.
+- **S06:** elevated southeast return; right foreground column, diagonal coping,
+  far west steps, restored central window, exact fixtures and full debris map
+  close the room plan. Roshan's profile clears the phone gate narrowly.
 
-## Next evidence required before final acceptance
+## Attempt history
 
-- [x] Package one record per candidate: exact timeline index, candidate
-  path/hash, prompt hash, attempt, fresh generation method, action/hold state,
-  subject geometry, accepted previous/next frame paths/hashes, and human
-  identity/topology/style review.
-- [x] Preserve `1672x941` natives and create one post-visual-gate whole-canvas
-  `1280x720` Lanczos review copy per accepted frame, with hashes and no crop.
-- [ ] Run `tools/audit_cinematic.py` with no forbidden method, guide-pixel
-  reuse, aspect/orientation, drift, or neighboring-frame failure.
-- [ ] Review the exact cut at phone size and on the target device; Luna's score
-  does not grant owner, child, or runtime acceptance.
-- [x] Keep baskets/tools out of Video 01. The approved shell basket remains for
-  later gameplay; never use the rejected generic wicker basket.
+Attempt counts are S01 `4`, S02 `3`, S03 `3`, S04 `6`, S05 `4`, S06 `4`.
+Eighteen correction-pass rejects are preserved in the replacement `rejected/`
+directory; the earlier storyboard package preserves its own superseded
+attempts. Notable paid-for failures:
 
-## Final evidence reconciliation — 2026-08-25
+- cream/gray horned generic seahorse instead of the exact blue-purple V4 art;
+- illegal clean cyan stream from the blocked nozzle;
+- pool left pristine cyan rather than dirty olive-blue;
+- invented doorway or missing central window;
+- giant foreground fixture recreating theater-flat hierarchy;
+- translucent/ghosted Roshan body;
+- duplicated leaves or missing mouth plug;
+- back-facing Roshan below phone readability.
 
-Luna independently recomputed and matched all six native candidate SHA-256
-values, all nine verbatim prompt-file SHA-256 values, and all six normalized
-`1280x720` delivery-copy SHA-256 values in
-`assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/PROMPTS_AND_PROVENANCE.md`.
-The attempt ledger, shot times/states, accepted neighbors, normalized subject
-geometry/contact notes, fresh-generation method, and Sol/Luna
-identity/topology/style/phone-readability review were inspected and are
-present. Native `1672x941` files are correctly described as near-16:9 rather
-than exact delivery; normalized copies are exact `1280x720`. The S06 attempt-02
-prompt and manifest explicitly require **no basket, container, or tool of any
-kind** in this opening film, so all six `AUDIT_PASS_OWNER_PENDING` statuses
-remain truthful for storyboard-reference scope only. They do not close
-temporal, runtime, target-device, child, audio, or owner acceptance.
+No rejected frame is approved Grok continuity authority. A rejected full frame
+appears in a later prompt only when explicitly labeled layout/camera evidence;
+the later output remains a fresh complete generation.
+
+## Evidence and tool checks
+
+- Exact prompt, native, source-reference, and neighbor hashes:
+
+  `assets_src/imagegen/day_one_pool_video_01_storyboard_replacement_2026-08-25/PROMPTS_AND_PROVENANCE.md`
+- Six native dimensions: `1672x941`, near-16:9 ratio
+  `1.7768331562`; native bytes retained.
+- Six exact whole-canvas `1280x720` Lanczos copies: `delivery_1280x720/`.
+- Corrected 3x2 contact sheet SHA-256:
+  `148a14048973e91df37f9a5c7ca5d9536a763bf2fd9ba53f108838428b597430`.
+- `python tools/audit_lighting_images.py <accepted-dir>`: six scanned, zero
+  unreadable, zero crushed pixels, zero blown pixels. This is diagnostic; it
+  does not award style or identity acceptance.
+- `tools/audit_cinematic.py` requires a rendered video, lossless extracted
+  per-frame tracks, temporal manifest, and neighboring-frame review. It cannot
+  truthfully pass a six-key storyboard package and remains mandatory for the
+  later Grok film.
+
+## Remaining gates
+
+- M11/phone review, especially S05 plug and S03/S06 Roshan face scale.
+- Exact Grok video frame extraction and full temporal/neighbor audit.
+- Child/owner review; only the owner can award 5/5.
+- Audio remains out of scope and owner-controlled.
+
+No further storyboard regeneration is ordered.
