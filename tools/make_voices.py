@@ -167,6 +167,8 @@ LINES = {
     "roshan_op_racer_imps": ("roshan", "Imps rolled tires onto the track! Tap each imp!"),
     "roshan_op_racer_steer": ("roshan", "Swipe to steer through the coral gates!"),
     "roshan_op_racer_turbo": ("roshan", "Tap TURBO when the marker hits green!"),
+    "roshan_op_racer_tune_up": ("roshan", "Turn the wrench in big circles. Tighten every wheel before the race!"),
+    "roshan_op_racer_to_the_line": ("roshan", "Push the kart all the way out to the starting line!"),
     "roshan_op_racer_trophy_chase": ("roshan", "The imp captain grabbed the shell trophy! Clear the track!"),
     "roshan_op_racer_lap_two": ("roshan", "Loop the loop! Draw big racing circles!"),
     "roshan_op_racer_finish": ("roshan", "Tap the zoom strips and cross the line!"),
@@ -290,7 +292,10 @@ def polish(wav_in, ogg_out, pitch):
     )
     ff("-i", wav_in, "-af", chain, tmp)
     gain = TARGET_LUFS - measure_lufs(tmp)
-    ff("-i", tmp, "-af", f"volume={gain:.2f}dB,alimiter=limit=0.84:level=false",
+    # Vorbis reconstruction can overshoot the decoded sample peak. Leave a
+    # conservative sample ceiling so the delivered clip stays below the
+    # project-wide -1.5 dBTP voice limit after encoding.
+    ff("-i", tmp, "-af", f"volume={gain:.2f}dB,alimiter=limit=0.70:level=false",
        "-c:a", "libvorbis", "-q:a", "5", ogg_out)
     os.unlink(tmp)
 
@@ -300,6 +305,8 @@ def main():
     ap.add_argument("--kokoro", default=os.path.join(os.path.dirname(__file__), "kokoro"))
     ap.add_argument("--out", default=os.path.join(os.path.dirname(__file__), "..", "assets", "audio", "voices"))
     ap.add_argument("--only", default="")
+    ap.add_argument("--line", action="append", default=[],
+                    help="render one exact LINES key; repeat for multiple clips")
     args = ap.parse_args()
 
     import numpy as np
@@ -334,8 +341,14 @@ def main():
         sf.write(wav_path, audio.reshape(-1), SR)
 
     os.makedirs(args.out, exist_ok=True)
+    unknown = sorted(set(args.line) - set(LINES) - {"everyone"})
+    if unknown:
+        ap.error("unknown --line key(s): " + ", ".join(unknown))
+    selected = set(args.line)
     done = 0
     for name, (char, text) in LINES.items():
+        if selected and name not in selected:
+            continue
         if args.only and not name.startswith(args.only):
             continue
         with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as t:
@@ -346,7 +359,8 @@ def main():
         done += 1
         print(f"[ok] {name}.ogg  ({char}: \"{text}\")")
 
-    if not args.only or args.only == "everyone":
+    if (not selected and not args.only) or args.only == "everyone" \
+            or "everyone" in selected:
         parts = []
         for i, (char, text) in enumerate(EVERYONE):
             with tempfile.NamedTemporaryFile(suffix=f"_{i}.wav", delete=False) as t:

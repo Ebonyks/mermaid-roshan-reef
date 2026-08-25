@@ -1,0 +1,112 @@
+Game-wide audio quality audit — 2026-08-24
+
+Status: **REPAIRING / HUMAN AND DEVICE LISTENING OPEN**
+
+Branch: `codex/audio-quality-remediation-20260824`
+
+This pass inventories and grades every production audio file, repairs the
+highest-confidence defects, and refuses metadata-only “upgrades.” Three
+independent Luna reviews covered technical delivery, runtime semantics, and
+Master Audit criteria. The deterministic final inventory is
+`audit/audio_quality_ledger_2026-08-24.csv`; its summary is
+`audit/audio_quality_summary_2026-08-24.json`.
+
+## Scope and final grades
+
+The pre-repair runtime contained 301 audio files. Two missing exact objective
+voices were added, producing a final 303-row ledger:
+
+| Class | Count |
+|---|---:|
+| Voice and fallback | 214 |
+| Music | 57 |
+| Castle interaction SFX | 15 |
+| Combat SFX | 6 |
+| Ambience | 3 |
+| Other SFX | 7 |
+| UI | 1 |
+
+| Technical grade | Count | Meaning |
+|---|---:|---|
+| A | 134 | Current delivery contract or bounded accepted repair |
+| B | 137 | Functional; protected/legacy exception or voice peak review |
+| C | 27 | Measured legacy delivery; listening-led replacement candidate |
+| D | 5 | Live 22.05 kHz mono legacy score; replacement candidate |
+| F | 0 | No remaining decode or clipping failure after repair |
+
+Every row also has a provisional 1–5 human grade, severity, protected flag,
+hash, codec, sample rate, channels, bitrate, duration, loudness/peak evidence,
+routing class, and explicit disposition. Provisional grades do not close the
+listening gates in `DL-SND-15` and `DL-SND-16`.
+
+## Strategic replacements completed
+
+1. **Global UI tap — F to A.** The previous `assets/audio/ui_tap.ogg`
+   measured +0.6 dBTP. It is replaced by a new deterministic, project-original
+   48 kHz mono shell-and-bubble tap at −7.2 dBTP. Source parameters and seed are
+   preserved in
+   `assets_src/audio/quality_replacements_2026-08-24/ui_tap.json`; the original
+   contained no protected material.
+2. **Two missing Racer objectives — fallback to exact speech.** Added
+   `roshan_op_racer_tune_up.ogg` and
+   `roshan_op_racer_to_the_line.ogg`. Both use the established Roshan Kokoro
+   identity, 48 kHz mono Vorbis delivery, approximately −16 LUFS-I, and at
+   least 2.8 dB true-peak headroom. They replace a live path that previously
+   collapsed into protected 22.05 kHz non-speech `voice_yay.mp3`.
+3. **Three generated voice peak outliers — B to A.** Re-rendered
+   `roshan_op_candymaker_parade.ogg`, `roshan_op_magician_rope.ogg`, and
+   `roshan_op_popstar_mic_chase.ogg` from the same model, text, and speaker
+   identity with conservative encode headroom. Final true peaks are −2.1,
+   −1.7, and −2.4 dBTP respectively.
+
+All six protected files remain byte-identical to `origin/dev`: Daddy 1–3,
+Chuck and Chuck bark, and `voice_yay.mp3`. No family recording was regenerated,
+cleaned, recompressed, overwritten, or rerouted.
+
+## Graded candidates deliberately not transcoded
+
+- `dolls.ogg`, `fetch.ogg`, `melody.ogg`, `race.ogg`, and `seek.ogg` are the
+  five live D-grade 22.05 kHz mono legacy cues. A transcode or upsample would
+  not recover quality. Replacement requires a newly authored, route-specific
+  composition that passes identity, loop, device, and child review.
+- Ten other legacy music files are C-grade retained masters.
+- Fifteen Castle interaction cues are C-grade 24 kHz mono project synthesis.
+  They remain functional and semantically specific; replacement waits for
+  M11 listening rather than blindly discarding their authored identities.
+- `purr.wav` is a C-grade 22.05 kHz source. It remains pending device review.
+- 126 generated voices exceed the newly explicit −1.5 dBTP decoded ceiling by
+  varying small amounts. They are measured B-grade re-render candidates, not a
+  mandate for a risky whole-library identity change. This pass repairs the
+  three highest-priority outliers and leaves exact per-file evidence in the
+  ledger for bounded follow-up.
+
+## Open semantic and owner gates
+
+- Seek still needs an authorized exact Evie “tap the wiggly tree” cue
+  (`MA-ACCESS-003`).
+- Lamba’s current semantic role still conflicts with reachable “bunny-fish”
+  wording (`MA-ACCESS-002`). Protected-source authority must be reconciled
+  before replacement.
+- Ember King, Rumi, Mewsha, and Lamb-a’ need owner-approved speaker identities
+  and exact routing; unknown speakers must not silently count as Roshan.
+- `voice_yay.mp3` is protected and retained only as non-objective affect. It
+  cannot satisfy non-reader guidance.
+- Every required voice still needs owner identity/pronunciation review,
+  default-volume intelligibility, mono fold-down, Lenovo Tab M11 and older-phone
+  playback, and observed child comprehension.
+
+## Acceptance evidence
+
+- `python tools/audit_audio_quality.py --check`
+- `python tools/build_audio_quality_replacements.py --check`
+- `python -m unittest tools.tests.test_audit_audio_quality`
+- `python -m gdtoolkit.parser scripts/probe_opera.gd scripts/probe_voice.gd`
+- `python tools/lint_inference.py scripts/probe_opera.gd scripts/probe_voice.gd`
+- Exact Godot 4.7.1 `scripts/ci.sh`: complete import and all trusted probes ALL OK,
+  including exact Racer playback in `probe_opera.gd` and voice provenance in
+  `probe_voice.gd`
+- Owner/device listening matrix required before the audit may claim full audio
+  acceptance
+
+No machine hash, codec, loudness number, or agent grade is presented as a
+substitute for listening.

@@ -1652,6 +1652,19 @@ finding records; section 10 controls that designation.
   cue's style/area identity, speech intelligibility and ducking, music-off
   persistence, mono fold-down, and Lenovo Tab M11 start/loop/memory review.
   No automated measurement grants those passes.
+- **2026-08-24 all-audio extension:**
+  `AUDIO_QUALITY_AUDIT_2026-08-24.txt` and the deterministic 303-row ledger
+  extend measurement and disposition coverage to every voice, legacy score,
+  ambience, UI cue, Castle/combat SFX, and fallback. The pass removes the
+  clipping global UI tap, adds two exact Racer objective voices, true-peak
+  repairs three unprotected generated voices, and preserves all six protected
+  recordings byte-for-byte. It also adds `DL-SND-10` through `DL-SND-17` and
+  `DL-QA-16`, because `MA-AUDIO-001` previously specified the 42 new scores but
+  not complete runtime-audio quality. The aggregate state remains
+  `FIXED_PENDING_VERIFICATION`: 31 legacy listening-led candidates, 126 bounded
+  generated-voice peak candidates, exact protected-voice gaps, owner identity,
+  mono, device, child, and human listening remain open. No bulk transcode or
+  metadata-only upsample is accepted as repair.
 
 ### MA-PLAY-001 — normal-play reachability
 

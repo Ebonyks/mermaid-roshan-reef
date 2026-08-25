@@ -14,6 +14,10 @@ the project standard (-16 LUFS, -1.5 dBTP).
 
 To change a line or add a new one: edit the `LINES` table in
 `tools/make_voices.py` and re-run it (setup instructions in the script header).
+Use repeatable `--line <exact_key>` arguments for a bounded replacement; do not
+regenerate the whole voice library to repair one line. The delivery limiter
+leaves conservative encode headroom so decoded Vorbis stays at or below the
+project-wide −1.5 dBTP ceiling.
 New `<speaker>_<event>.ogg` names are picked up by the game automatically —
 no code changes needed. Events used by the game: `talk`, `win`, `fail`,
 plus bespoke ones (`greet`, `intro`, `thanks`, `bark`, `pearl`, `idle1..3`).
@@ -42,3 +46,29 @@ plus bespoke ones (`greet`, `intro`, `thanks`, `bark`, `pearl`, `idle1..3`).
 To improve a real recording instead of replacing it, run it through a free
 speech enhancer (Adobe Podcast Enhance web tool, or locally: resemble-enhance /
 DeepFilterNet), then loudness-match with the same -16 LUFS pipeline.
+
+## 2026-08-24 all-audio quality pass
+
+The measured ledger is
+`audit/audio_quality_ledger_2026-08-24.csv`; its deterministic builder is
+`tools/audit_audio_quality.py`. The two previously missing live Racer
+objectives now have exact Roshan clips:
+
+- `roshan_op_racer_tune_up.ogg` — “Turn the wrench in big circles. Tighten
+  every wheel before the race!”
+- `roshan_op_racer_to_the_line.ogg` — “Push the kart all the way out to the
+  starting line!”
+
+Three unprotected generated clips with the least true-peak headroom were
+re-rendered from the same Kokoro model and speaker identity using the safer
+limiter: `roshan_op_candymaker_parade.ogg`,
+`roshan_op_magician_rope.ogg`, and
+`roshan_op_popstar_mic_chase.ogg`. Protected Daddy/Chuck recordings and
+`voice_yay.mp3` remain byte-identical. `voice_yay.mp3` is a non-objective
+affect fallback only; it cannot satisfy a spoken instruction.
+
+Machine grades cover decode, codec, sample rate, channels, bitrate, duration,
+loudness, true peak, protection, provenance class, and routing evidence. Human
+voice identity, pronunciation, intelligibility, child-safety, mono, mix, and
+target-device grades remain open until the listening matrix in `DL-SND-15` and
+`DL-SND-16` is completed.

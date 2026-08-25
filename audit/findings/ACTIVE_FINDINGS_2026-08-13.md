@@ -793,23 +793,23 @@ target-device, child, owner, or accepted-visual result is claimed.
 | Field | Value |
 |---|---|
 | id | `MA-AUDIO-001` |
-| title | Forty-two deterministic area cues lack required human listening, voice-mix, mono, transition, and M11 acceptance. |
-| rule_ids | `DL-SND-06`, `DL-SND-07`, `DL-SND-09`, `DL-QA-04` |
-| domain / zone | Music and mix / 42 game-wide area cues |
+| title | Complete runtime audio has measured delivery and bounded repairs but lacks required human, voice-identity, mono, transition, child, and device acceptance. |
+| rule_ids | `DL-SND-06` through `DL-SND-17`, `DL-QA-04`, `DL-QA-13`, `DL-QA-16` |
+| domain / zone | Voice, music, ambience, UI, SFX, fallbacks, and mix / game-wide |
 | source | Deterministic score/render/manifest audit, routing probes, local CI, and pinned Windows jobs. |
 | severity | P2 |
 | lifecycle | `FIXED_PENDING_VERIFICATION` |
 | verification | V3 partial: hashes, codec, loop/import, loudness, peak, seam, routing, and 42/42 machine delivery pass; listening/device evidence is open. |
 | reproduction | On the exact candidate with matching APK, listen to two wraps of every cue, transitions, speech ducking, music-off restoration, and mono fold-down on headphones/speaker and Lenovo Tab M11. The human/device matrix is missing. |
 | child_impact | A technically valid loop can still be tiring, mask family voices, click at transitions, disappear in mono, or play poorly on the child's hardware. |
-| evidence | `assets_src/audio/music/area_music_scores.json`; `assets/audio/music/area_music_manifest.json`; 48 kHz stereo OGG and measured manifests. Current topic/dev runs `31760207048`/`31762132976` at exact `441adf35` finish music 42/42 in 3m18s/3m56s. Earlier e6, `7391c53c`, and branch runs remain historical corroboration. Human two-wrap/style, intelligibility/ducking, mono, music-off, and M11 evidence is missing. |
+| evidence | `assets_src/audio/music/area_music_scores.json`; `assets/audio/music/area_music_manifest.json`; `AUDIO_QUALITY_AUDIT_2026-08-24.txt`; `audit/audio_quality_ledger_2026-08-24.csv`; and `audit/audio_quality_summary_2026-08-24.json`. Current topic/dev runs `31760207048`/`31762132976` at exact `441adf35` finish music 42/42 in 3m18s/3m56s. The 2026-08-24 extension measures and grades all 303 final audio files, removes the clipping UI tap, adds two exact Racer voices, true-peak repairs three unprotected voices, and preserves six protected files byte-identically. Human identity/listening, 31 legacy candidates, 126 bounded voice-peak candidates, mono, child, and device evidence remain open. |
 | owner_decision | Machine evidence never substitutes for human listening; protected voices remain authoritative and must stay intelligible. |
-| fix | Complete the listening matrix and make only bounded score/mix/transition repairs demonstrated by it, preserving deterministic sources and manifests. |
+| fix | Complete the all-audio listening matrix and make only bounded voice/score/SFX/mix repairs demonstrated by it, preserving deterministic sources, manifests, speaker identity, and protected originals. |
 | surrounding_tests | 42/42 deterministic rebuild; source/render/import hashes; codec/loop/seam/loudness/peak; named routing; hard cuts; voice ducking; music-off/on; mono; two wraps; M11 start/loop/performance. |
-| acceptance | All 42 pass human style/two-wrap listening, voice intelligibility/ducking, mono, music-off transitions, and M11 playback/performance while machine evidence remains exact. |
+| acceptance | Every ledger row has a final disposition; required voices pass exact semantics, identity, intelligibility, child comprehension, and teardown; all 42 new scores pass two-wrap/style review; the full mix passes mono, transitions, music-off, M11, older-phone, and performance review while machine evidence remains exact. |
 | closure | Pending as of 2026-08-13; human/device listening evidence, accepted result, closure commit, and date are missing. |
 | relationships | Exact objective voice gaps are `MA-ACCESS-001` through `003`; aggregate release gate is `MA-RELEASE-001`. |
-| history | 2026-08-12: deterministic 42/42 repair and remote Windows verification completed. 2026-08-13: exact-head Windows remains 42/42; lifecycle stays `FIXED_PENDING_VERIFICATION` for listening/device evidence. |
+| history | 2026-08-12: deterministic 42/42 repair and remote Windows verification completed. 2026-08-13: exact-head Windows remains 42/42; lifecycle stays `FIXED_PENDING_VERIFICATION` for listening/device evidence. 2026-08-24: Luna-led 301-file baseline and 303-file final ledger extend the finding game-wide; six bounded repairs land without altering protected bytes, while subjective/device/child gates and documented candidates remain open. |
 
 ## MA-CODE-001
 

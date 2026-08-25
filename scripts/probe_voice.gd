@@ -50,7 +50,8 @@ func _init() -> void:
 			'"harper":     ("harper", "Come slide with us! Grab the fishies!"),'))
 	var expected_events := [
 		"talk", "whale", "ship", "wreck", "beans", "intro1", "intro4",
-		"win", "pearl", "op_popstar_rhythm",
+		"win", "pearl", "op_popstar_rhythm", "op_racer_tune_up",
+		"op_racer_to_the_line",
 	]
 	var present := 0
 	for ln: String in expected_events:
@@ -58,6 +59,11 @@ func _init() -> void:
 			present += 1
 	_check("expected Roshan clips present", present == expected_events.size(),
 		"%d / %d" % [present, expected_events.size()])
+	_check("Racer repair owns exact generated objective text",
+		voice_generator.contains(
+			'"roshan_op_racer_tune_up": ("roshan", "Turn the wrench in big circles. Tighten every wheel before the race!"),')
+		and voice_generator.contains(
+			'"roshan_op_racer_to_the_line": ("roshan", "Push the kart all the way out to the starting line!"),'))
 
 	# Exercise the real reaction branches. Ship and wreck are currently guarded
 	# behind removed runtime art, so deterministic probe-only Node3Ds keep their
