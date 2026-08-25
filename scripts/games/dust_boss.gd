@@ -424,19 +424,59 @@ func on_world_tap(screen_pos: Vector2) -> void:
 		return
 	_bounce_off()
 
+
+func on_world_swipe(from: Vector2, to: Vector2) -> void:
+	# The rainbow-brush gesture is an equal one-finger route through the same
+	# vulnerability contract as a direct tap. It never bypasses the flashing
+	# star, and one swipe contributes one of the three required child inputs.
+	if not m.g.has("db_state") or m.game != "dustboss" \
+			or from.distance_to(to) < 90.0:
+		return
+	var k: DustBunnyBossSprite = kit()
+	var on_him: bool = _swipe_hits_boss(from, to)
+	if k != null and is_instance_valid(k) and k.vulnerable \
+			and String(m.g.get("db_state", "")) == "vuln" and on_him:
+		k.register_vulnerable_tap()
+		return
+	var live: String = String(m.g.get("db_state", ""))
+	if live in ["showing", "struck", "friends"]:
+		_answer_only()
+	else:
+		_bounce_off()
+
+
+func _swipe_hits_boss(from: Vector2, to: Vector2) -> bool:
+	var circle: Dictionary = _boss_screen_circle()
+	if circle.is_empty():
+		return false
+	var center: Vector2 = circle["center"] as Vector2
+	var radius: float = float(circle["radius"])
+	var stroke: Vector2 = to - from
+	if stroke.length_squared() <= 0.001:
+		return from.distance_to(center) <= radius
+	var along: float = clampf((center - from).dot(stroke) \
+		/ stroke.length_squared(), 0.0, 1.0)
+	return (from + stroke * along).distance_to(center) <= radius
+
 func _screen_hit(screen_pos: Vector2) -> bool:
 	# did the finger land on his card? (generous: the whole cutout plus a ring)
+	var circle: Dictionary = _boss_screen_circle()
+	return not circle.is_empty() and screen_pos.distance_to(
+		circle["center"] as Vector2) <= float(circle["radius"])
+
+
+func _boss_screen_circle() -> Dictionary:
 	var boss: Node3D = m.g.get("db_boss") as Node3D
 	var cam: Camera3D = m.player.cam if m.player != null else null
 	if boss == null or not is_instance_valid(boss) or cam == null or not cam.is_inside_tree():
-		return false
+		return {}
 	var mid: Vector3 = boss.global_position + Vector3(0, BOSS_H * 0.5, 0)
 	if cam.is_position_behind(mid):
-		return false
+		return {}
 	var centre: Vector2 = cam.unproject_position(mid)
 	var top: Vector2 = cam.unproject_position(boss.global_position + Vector3(0, BOSS_H, 0))
 	var half: float = maxf(64.0, absf(centre.y - top.y) * 1.15)
-	return screen_pos.distance_to(centre) <= half
+	return {"center": centre, "radius": half}
 
 func _answer_only() -> void:
 	# A tap during the showing, the bonk reaction or the befriending must not

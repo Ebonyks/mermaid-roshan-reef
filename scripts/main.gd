@@ -12,6 +12,9 @@ const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
 const StartMenuLogic = preload("res://scripts/start_menu.gd")
 const AttackCustomizerLogic = preload("res://scripts/attack_customizer.gd")
 const DayOneArtStudioLogic = preload("res://scripts/day_one_art_studio.gd")
+const DayOneBathroomSearchLogic = preload("res://scripts/day_one_bathroom_search.gd")
+const DayOneStuffieCleanupLogic = preload("res://scripts/day_one_stuffie_cleanup.gd")
+const DayOneTutorialOverlayLogic = preload("res://scripts/day_one_tutorial_overlay.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -309,6 +312,9 @@ var day_one_dirty_castle_discovered: bool = false
 var day_one_grok_video_2_seen: bool = false
 var day_one_boss_door_glow: bool = false
 var day_one_giant_dust_bunny_boss_triggered: bool = false
+var day_one_tutorial_seen: Dictionary = {}
+var day_one_bathroom_supplies_mask: int = 0
+var day_one_stuffie_cleanup_mask: int = 0
 var day_one_pool_cleanup_step: int = 0
 var day_one_pool_rumi_met: bool = false
 var day_one_pool_skimmer_mask: int = 0
@@ -324,6 +330,11 @@ var _day_one_director: DayOneDirector = null
 var _attack_customizer: AttackCustomizer = null
 var _attack_customizer_layer: CanvasLayer = null
 var _day_one_art_studio: DayOneArtStudio = null
+var _day_one_bathroom_search: DayOneBathroomSearch = null
+var _day_one_stuffie_cleanup: DayOneStuffieCleanup = null
+var _day_one_tutorial_overlay: DayOneTutorialOverlay = null
+var _day_one_tutorial_layer: CanvasLayer = null
+var _day_one_tutorial_done: Callable = Callable()
 var day_one_castle_dressing: DayOneCastleDressing = null
 var castle_royal_hall_mist_cards: Array[Sprite2D] = []
 var castle_royal_hall_mist_time := 0.0
@@ -4989,6 +5000,10 @@ func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_drag(from, to)
 		return
+	if game == "dustboss":
+		(_game_obj("dustboss", DustBossGame) as DustBossGame).on_world_swipe(
+			from, to)
+		return
 	for engine_value: Variant in _live_hit_engines():
 		var engine: HitEngine = engine_value as HitEngine
 		if not engine.tap_priority:
@@ -6860,9 +6875,157 @@ func _open_day_one_art_studio() -> bool:
 	_day_one_art_studio = DayOneArtStudioLogic.new() as DayOneArtStudio
 	castle_room_stage.add_child(_day_one_art_studio)
 	_day_one_art_studio.setup(self)
+	_show_day_one_tutorial("art")
 	if castle_room_action_button != null:
 		castle_room_action_button.visible = false
 	return true
+
+
+func _open_day_one_bathroom_search() -> bool:
+	if castle_room_stage == null or castle_room_id != "bubble_bath" \
+			or not day_one_is_active() \
+			or _day_one_ref().current_room_id != "bathroom" \
+			or _day_one_ref().is_room_completed("bathroom"):
+		return false
+	if _day_one_bathroom_search != null \
+			and is_instance_valid(_day_one_bathroom_search):
+		return true
+	_day_one_bathroom_search = DayOneBathroomSearchLogic.new() \
+		as DayOneBathroomSearch
+	castle_room_stage.add_child(_day_one_bathroom_search)
+	_day_one_bathroom_search.setup(day_one_bathroom_supplies_mask)
+	_day_one_bathroom_search.progress_changed.connect(
+		_on_day_one_bathroom_progress)
+	_day_one_bathroom_search.completed.connect(
+		_on_day_one_bathroom_completed)
+	_day_one_bathroom_search.start()
+	_show_day_one_tutorial("bathroom")
+	if castle_room_action_button != null:
+		castle_room_action_button.visible = false
+	return true
+
+
+func _close_day_one_bathroom_search() -> void:
+	if _day_one_bathroom_search != null \
+			and is_instance_valid(_day_one_bathroom_search):
+		_day_one_bathroom_search.teardown()
+	_day_one_bathroom_search = null
+
+
+func _on_day_one_bathroom_progress(mask: int) -> void:
+	day_one_bathroom_supplies_mask |= mask & 0x07
+	_queue_save()
+
+
+func _on_day_one_bathroom_completed() -> void:
+	if not day_one_is_active() or _day_one_ref().current_room_id != "bathroom":
+		return
+	day_one_bathroom_supplies_mask = 0x07
+	if not _day_one_ref().complete_tutorial("bathroom"):
+		return
+	_close_day_one_bathroom_search()
+	_castle_rooms_ref().apply_day_one_cleanup("bubble_bath")
+	_day_one_sync_castle_dressing()
+	_write_save()
+
+
+func _open_day_one_stuffie_cleanup() -> bool:
+	if castle_room_stage == null or castle_room_id != "playroom" \
+			or not day_one_is_active() \
+			or _day_one_ref().current_room_id != "stuffie" \
+			or _day_one_ref().is_room_completed("stuffie"):
+		return false
+	if _day_one_stuffie_cleanup != null \
+			and is_instance_valid(_day_one_stuffie_cleanup):
+		return true
+	_day_one_stuffie_cleanup = DayOneStuffieCleanupLogic.new() \
+		as DayOneStuffieCleanup
+	castle_room_stage.add_child(_day_one_stuffie_cleanup)
+	# The authored playroom already owns the two bunny cards. This activity
+	# adds only generous touch geometry, brush feedback, and progress state.
+	_day_one_stuffie_cleanup.setup(day_one_stuffie_cleanup_mask, false)
+	_day_one_stuffie_cleanup.progress_changed.connect(
+		_on_day_one_stuffie_progress)
+	_day_one_stuffie_cleanup.completed.connect(
+		_on_day_one_stuffie_completed)
+	_day_one_stuffie_cleanup.start()
+	_show_day_one_tutorial("stuffie")
+	if castle_room_action_button != null:
+		castle_room_action_button.visible = false
+	return true
+
+
+func _close_day_one_stuffie_cleanup() -> void:
+	if _day_one_stuffie_cleanup != null \
+			and is_instance_valid(_day_one_stuffie_cleanup):
+		_day_one_stuffie_cleanup.teardown()
+	_day_one_stuffie_cleanup = null
+
+
+func _on_day_one_stuffie_progress(mask: int) -> void:
+	day_one_stuffie_cleanup_mask |= mask & 0x03
+	_queue_save()
+
+
+func _on_day_one_stuffie_completed() -> void:
+	if not day_one_is_active() or _day_one_ref().current_room_id != "stuffie":
+		return
+	day_one_stuffie_cleanup_mask = 0x03
+	if not _day_one_ref().complete_tutorial("stuffie"):
+		return
+	_close_day_one_stuffie_cleanup()
+	_castle_rooms_ref().finish_day_one_stuffie_cleanup()
+	_castle_rooms_ref().apply_day_one_cleanup("playroom")
+	_day_one_sync_castle_dressing()
+	_write_save()
+
+
+func _show_day_one_tutorial(tutorial_id: String,
+		done: Callable = Callable()) -> bool:
+	var director: DayOneDirector = _day_one_ref()
+	if director.has_seen_tutorial(tutorial_id):
+		return false
+	if not director.mark_tutorial_seen(tutorial_id):
+		return false
+	# Persist first-entry ownership immediately. A process kill may skip a
+	# repeated demonstration, but it must never repeat rewards or lose activity
+	# progress because this overlay owns neither.
+	_write_save()
+	_close_day_one_tutorial(false)
+	_day_one_tutorial_done = done
+	_day_one_tutorial_layer = CanvasLayer.new()
+	_day_one_tutorial_layer.name = "DayOneTutorialLayer"
+	_day_one_tutorial_layer.layer = 80
+	add_child(_day_one_tutorial_layer)
+	_day_one_tutorial_overlay = DayOneTutorialOverlayLogic.new() \
+		as DayOneTutorialOverlay
+	_day_one_tutorial_layer.add_child(_day_one_tutorial_overlay)
+	_day_one_tutorial_overlay.tutorial_finished.connect(
+		_on_day_one_tutorial_finished)
+	_day_one_tutorial_overlay.setup(self, tutorial_id)
+	return true
+
+
+func _on_day_one_tutorial_finished(_tutorial_id: String) -> void:
+	var done: Callable = _day_one_tutorial_done
+	_close_day_one_tutorial(false)
+	if done.is_valid():
+		done.call_deferred()
+
+
+func _close_day_one_tutorial(invoke_done: bool = false) -> void:
+	var done: Callable = _day_one_tutorial_done
+	_day_one_tutorial_done = Callable()
+	if _day_one_tutorial_overlay != null \
+			and is_instance_valid(_day_one_tutorial_overlay):
+		_day_one_tutorial_overlay.teardown()
+	_day_one_tutorial_overlay = null
+	if _day_one_tutorial_layer != null \
+			and is_instance_valid(_day_one_tutorial_layer):
+		_day_one_tutorial_layer.queue_free()
+	_day_one_tutorial_layer = null
+	if invoke_done and done.is_valid():
+		done.call_deferred()
 
 
 func _close_day_one_art_studio() -> void:
@@ -6929,6 +7092,12 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 			day_one_complete_art_scene()
 		else:
 			_open_day_one_art_studio()
+		return true
+	if logical_room == "bathroom":
+		_open_day_one_bathroom_search()
+		return true
+	if logical_room == "stuffie":
+		_open_day_one_stuffie_cleanup()
 		return true
 	if not director.complete_placeholder(logical_room):
 		show_msg("Daddy Mermaid",
@@ -7042,7 +7211,9 @@ func _day_one_attach_castle_dressing() -> void:
 	_day_one_sync_castle_dressing()
 
 func _day_one_sync_castle_dressing() -> void:
+	_sync_day_one_bathroom_search()
 	_sync_day_one_art_studio()
+	_sync_day_one_stuffie_cleanup()
 	if day_one_castle_dressing == null \
 			or not is_instance_valid(day_one_castle_dressing):
 		return
@@ -7073,7 +7244,34 @@ func _sync_day_one_art_studio() -> void:
 		_close_day_one_art_studio()
 
 
+func _sync_day_one_bathroom_search() -> void:
+	var should_show: bool = day_one_is_active() \
+		and castle_room_stage != null \
+		and castle_room_id == "bubble_bath" \
+		and _day_one_ref().current_room_id == "bathroom" \
+		and not _day_one_ref().is_room_completed("bathroom")
+	if should_show:
+		_open_day_one_bathroom_search()
+	else:
+		_close_day_one_bathroom_search()
+
+
+func _sync_day_one_stuffie_cleanup() -> void:
+	var should_show: bool = day_one_is_active() \
+		and castle_room_stage != null \
+		and castle_room_id == "playroom" \
+		and _day_one_ref().current_room_id == "stuffie" \
+		and not _day_one_ref().is_room_completed("stuffie")
+	if should_show:
+		_open_day_one_stuffie_cleanup()
+	else:
+		_close_day_one_stuffie_cleanup()
+
+
 func _day_one_clear_castle_dressing() -> void:
+	_close_day_one_tutorial(false)
+	_close_day_one_bathroom_search()
+	_close_day_one_stuffie_cleanup()
 	_close_day_one_art_studio()
 	if day_one_castle_dressing != null \
 			and is_instance_valid(day_one_castle_dressing):
@@ -7089,6 +7287,13 @@ func _day_one_arm_boss_door() -> void:
 		"day_one_giant_dust_bunny", _day_one_trigger_boss)
 
 func _day_one_trigger_boss() -> void:
+	if _show_day_one_tutorial("boss", Callable(
+			self, "_day_one_commit_boss_trigger")):
+		return
+	_day_one_commit_boss_trigger()
+
+
+func _day_one_commit_boss_trigger() -> void:
 	_day_one_ref().trigger_giant_dust_bunny_boss()
 
 func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:

@@ -33,6 +33,7 @@ const ART_PAINT_CUPS := preload("res://assets/castle/day_one_art_studio/paint_cu
 const ART_GRIME_LEFT := preload("res://assets/castle/day_one_art_studio/grime_left.png")
 const ART_GRIME_DESK := preload("res://assets/castle/day_one_art_studio/grime_desk.png")
 const ART_GRIME_RIGHT := preload("res://assets/castle/day_one_art_studio/grime_right.png")
+const MAGIC_BRUSH := preload("res://assets/castle/day_one_art_studio/magic_cleaning_brush.png")
 const CONTACT_SHADOW := preload("res://assets/flats/castle/rooms/room_actor_shadow.png")
 const SPARKLE_COLORS: Array[Color] = [
 	Color(1.0, 0.83, 0.38), Color(0.52, 0.94, 1.0),
@@ -49,6 +50,10 @@ var _world_visual_layer: Node2D = null
 var _desk_button: Button = null
 var _pointer: Label = null
 var _desk_glow: Label = null
+var _brush_cursor: TextureRect = null
+var _grime_drag_id: String = ""
+var _grime_drag_distance: float = 0.0
+var _grime_drag_points: PackedVector2Array = PackedVector2Array()
 var _pulse_time: float = 0.0
 var _announcements_enabled: bool = true
 var _customizer_open: bool = false
@@ -72,6 +77,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 
 func teardown() -> void:
 	set_process(false)
+	cancel_touch()
 	_customizer_open = false
 	if _world_visual_layer != null and is_instance_valid(_world_visual_layer):
 		_world_visual_layer.queue_free()
@@ -80,6 +86,19 @@ func teardown() -> void:
 		queue_free()
 	else:
 		free()
+
+
+func cancel_touch() -> void:
+	_grime_drag_id = ""
+	_grime_drag_distance = 0.0
+	_grime_drag_points = PackedVector2Array()
+	if _brush_cursor != null:
+		_brush_cursor.visible = false
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		cancel_touch()
 
 
 func refresh_from_state() -> void:
@@ -172,9 +191,11 @@ func _build_targets() -> void:
 			material["hit_size"] as Vector2, _on_material_pressed.bind(material_id))
 	for grime: Dictionary in GRIME:
 		var grime_id: String = String(grime["id"])
-		_grime_buttons[grime_id] = _make_target_button(
+		var grime_button: Button = _make_target_button(
 			"Scrub_" + grime_id, grime["center"] as Vector2,
-			grime["hit_size"] as Vector2, _on_grime_pressed.bind(grime_id))
+			grime["hit_size"] as Vector2, Callable())
+		grime_button.gui_input.connect(_on_grime_input.bind(grime_id))
+		_grime_buttons[grime_id] = grime_button
 	_desk_button = _make_target_button("OpenPaintDesk", DESK_CENTER, DESK_HIT_SIZE,
 		_on_desk_pressed)
 	_desk_button.z_index = 18
@@ -191,6 +212,18 @@ func _build_targets() -> void:
 	StorybookUI.style_label(_desk_glow, 76, Color(1.0, 0.84, 0.34), 5)
 	add_child(_desk_glow)
 	move_child(_desk_glow, 0)
+	_brush_cursor = TextureRect.new()
+	_brush_cursor.name = "RainbowCleaningBrush"
+	_brush_cursor.texture = MAGIC_BRUSH
+	_brush_cursor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_brush_cursor.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_brush_cursor.size = Vector2(118.0, 88.0)
+	_brush_cursor.pivot_offset = _brush_cursor.size * 0.5
+	_brush_cursor.rotation = -0.38
+	_brush_cursor.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_brush_cursor.z_index = 48
+	_brush_cursor.visible = false
+	add_child(_brush_cursor)
 
 
 func _build_item_art() -> void:
@@ -260,7 +293,8 @@ func _make_target_button(button_name: String, center: Vector2, hit_size: Vector2
 	target.mouse_filter = Control.MOUSE_FILTER_STOP
 	target.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
 	target.z_index = 14
-	target.pressed.connect(handler)
+	if handler.is_valid():
+		target.pressed.connect(handler)
 	add_child(target)
 	return target
 
@@ -295,6 +329,110 @@ func _animate_storage_station(material_id: String) -> void:
 	var station_id := "paint_table" if material_id in ["brushes", "blue_paint"] \
 		else "palette"
 	(rooms as Object).call("_activate_room_item", station_id)
+
+
+func _on_grime_input(event: InputEvent, grime_id: String) -> void:
+	if m == null or bool(m.day_one_art_cleaned_grime.get(grime_id, false)):
+		return
+	var screen_position: Vector2 = Vector2.ZERO
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		screen_position = touch.position
+		if touch.pressed:
+			_begin_grime_drag(grime_id, _screen_to_local(screen_position))
+		else:
+			_end_grime_drag(grime_id)
+		accept_event()
+	elif event is InputEventScreenDrag:
+		var drag := event as InputEventScreenDrag
+		_continue_grime_drag(grime_id, _screen_to_local(drag.position),
+			drag.relative.length() / ART_TO_STAGE)
+		accept_event()
+	elif event is InputEventMouseButton:
+		var mouse_button := event as InputEventMouseButton
+		if mouse_button.button_index != MOUSE_BUTTON_LEFT:
+			return
+		screen_position = mouse_button.position
+		if mouse_button.pressed:
+			_begin_grime_drag(grime_id, _screen_to_local(screen_position))
+		else:
+			_end_grime_drag(grime_id)
+		accept_event()
+	elif event is InputEventMouseMotion and _grime_drag_id == grime_id:
+		var motion := event as InputEventMouseMotion
+		_continue_grime_drag(grime_id, _screen_to_local(motion.position),
+			motion.relative.length() / ART_TO_STAGE)
+		accept_event()
+
+
+func _begin_grime_drag(grime_id: String, local_position: Vector2) -> void:
+	_grime_drag_id = grime_id
+	_grime_drag_distance = 0.0
+	_grime_drag_points = PackedVector2Array()
+	_grime_drag_points.append(local_position)
+	if _brush_cursor != null:
+		_brush_cursor.position = local_position - _brush_cursor.pivot_offset
+		_brush_cursor.visible = true
+	_spawn_rainbow_dab(local_position)
+
+
+func _continue_grime_drag(grime_id: String, local_position: Vector2,
+		distance: float) -> void:
+	if _grime_drag_id != grime_id:
+		return
+	_grime_drag_distance += maxf(distance, 0.0)
+	_grime_drag_points.append(local_position)
+	if _brush_cursor != null:
+		_brush_cursor.position = local_position - _brush_cursor.pivot_offset
+	if _grime_drag_points.size() % 2 == 0:
+		_spawn_rainbow_dab(local_position)
+	if _grime_drag_distance >= 42.0:
+		_finish_grime_swipe(grime_id)
+
+
+func _end_grime_drag(grime_id: String) -> void:
+	if _grime_drag_id != grime_id:
+		return
+	if _brush_cursor != null:
+		_brush_cursor.visible = false
+	if _grime_drag_distance < 42.0:
+		_spawn_clean_sparkles(_grime_center(grime_id))
+	_grime_drag_id = ""
+	_grime_drag_distance = 0.0
+	_grime_drag_points = PackedVector2Array()
+
+
+func _finish_grime_swipe(grime_id: String) -> void:
+	if _grime_drag_id != grime_id:
+		return
+	_grime_drag_id = ""
+	_grime_drag_distance = 0.0
+	_grime_drag_points = PackedVector2Array()
+	if _brush_cursor != null:
+		_brush_cursor.visible = false
+	_on_grime_pressed(grime_id)
+
+
+func _screen_to_local(screen_position: Vector2) -> Vector2:
+	return get_global_transform_with_canvas().affine_inverse() * screen_position
+
+
+func _spawn_rainbow_dab(local_position: Vector2) -> void:
+	var dab := Label.new()
+	dab.text = "●"
+	dab.position = local_position - Vector2(18.0, 18.0)
+	dab.size = Vector2(36.0, 36.0)
+	dab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	dab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	dab.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dab.z_index = 46
+	var colour: Color = SPARKLE_COLORS[int(Time.get_ticks_msec() / 80) \
+		% SPARKLE_COLORS.size()]
+	StorybookUI.style_label(dab, 26, colour, 2)
+	add_child(dab)
+	var tween: Tween = dab.create_tween()
+	tween.tween_property(dab, "modulate:a", 0.0, 0.34)
+	tween.tween_callback(dab.queue_free)
 
 
 func _on_grime_pressed(grime_id: String) -> void:

@@ -189,6 +189,7 @@ func _pose_case() -> void:
 	# frame, because the interesting poses (wind-up, open) last under a second.
 	var boss := _boss()
 	var seen: Dictionary = {}
+	var swipe_accepted := false
 	for key: String in ["idle", "jump", "laugh_vulnerable", "flinch_3",
 			"angry_jump_final", "implode"]:
 		seen[key] = false
@@ -202,7 +203,15 @@ func _pose_case() -> void:
 		var kk: DustBunnyBossSprite = main.g.get("db_kit") as DustBunnyBossSprite
 		if _state() == "vuln" and kk != null and kk.vulnerable:
 			_park_on_boss()
-			main.touch_ui.action_down = (guard % 2) == 0
+			if not swipe_accepted:
+				var circle: Dictionary = boss._boss_screen_circle()
+				if not circle.is_empty():
+					var accepted_before: int = kk.accepted_taps
+					var center: Vector2 = circle["center"] as Vector2
+					boss.on_world_swipe(center - Vector2(100.0, 0.0),
+						center + Vector2(100.0, 0.0))
+					swipe_accepted = kk.accepted_taps == accepted_before + 1
+			main.touch_ui.action_down = swipe_accepted and (guard % 2) == 0
 		else:
 			main.touch_ui.action_down = false
 		guard += 1
@@ -219,6 +228,8 @@ func _pose_case() -> void:
 		bool(seen.get("jump", false)) and bool(seen.get("laugh_vulnerable", false))
 		and bool(seen.get("flinch_3", false)) and bool(seen.get("angry_jump_final", false)))
 	_ck("the befriending beat is the authored implosion", bool(seen.get("implode", false)))
+	_ck("a rainbow swipe across the flashing boss contributes one real tap",
+		swipe_accepted)
 	print("DUSTBOSS|poses used: ", ", ".join(used), " | not reached in this run: ",
 		", ".join(unused))
 

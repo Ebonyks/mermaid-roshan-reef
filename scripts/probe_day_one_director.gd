@@ -8,7 +8,7 @@ var checks_failed: int = 0
 func _init() -> void:
 	var main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = DIRECTOR_SCRIPT.new(main) as DayOneDirector
-	_check("four-room order", director.room_ids() == ["bathroom", "pool", "stuffie", "art"])
+	_check("four-room order", director.room_ids() == ["bathroom", "art", "stuffie", "pool"])
 	_check("only bathroom starts unlocked",
 		main.day_one_current_room_id == "bathroom"
 		and director.unlocked_room_ids() == ["bathroom"])
@@ -22,17 +22,19 @@ func _init() -> void:
 		and main.day_one_event_seen.has(DayOneDirector.EVENT_ARRIVAL_PLANE_MEDIA)
 		and main.day_one_event_history.size() == 1)
 	director.drain_events()
-	_check("bathroom placeholder completes",
+	_check("bathroom tutorial completes after its live challenge",
 		director.complete_tutorial("bathroom")
 		and bool(main.day_one_completed_rooms.get("bathroom", false))
 		and director.is_room_completed("bathroom")
 		and director.is_dust_bunny_cleaned("bathroom")
-		and main.day_one_current_room_id == "pool"
+		and main.day_one_current_room_id == "art"
 		and director.can_enter_room("bathroom")
-		and director.can_enter_room("pool"))
+		and director.can_enter_room("art"))
 	var bathroom_events: Array[Dictionary] = director.drain_events()
 	_check("completion cleanup hook", _has_event(bathroom_events, "dust_bunny_cleanup"))
-	_check("wrong activity rejected", not director.complete_activity("pool", "wrong"))
+	_check("wrong activity rejected", not director.complete_activity("art", "wrong"))
+	_check("art activity completes", director.complete_activity("art", "art_activity"))
+	_check("stuffie activity completes", director.complete_activity("stuffie", "stuffie_activity"))
 	_check("pool activity completes", director.complete_placeholder("pool", "pool_activity"))
 	_check("pool completion derives full cleanup state",
 		director.pool_cleanup_step == 4
@@ -40,8 +42,6 @@ func _init() -> void:
 		and director.pool_waterfall_mask == 0x07
 		and director.pool_seahorse_tugs == 8
 		and director.pool_rumi_met)
-	_check("stuffie activity completes", director.complete_activity("stuffie", "stuffie_activity"))
-	_check("art activity completes", director.complete_activity("art", "art_activity"))
 	_check("all completed and boss glow", director.boss_door_glow
 		and director.current_room_id == ""
 		and director.can_enter_room("bathroom")
@@ -59,6 +59,11 @@ func _init() -> void:
 	for key: Variant in saved.keys():
 		save_keys_ok = save_keys_ok and String(key).begins_with("day_one_")
 	_check("save keys are additive day-one keys", save_keys_ok)
+	_check("tutorial flags are additive and idempotent",
+		director.mark_tutorial_seen("bathroom")
+		and not director.mark_tutorial_seen("bathroom")
+		and director.has_seen_tutorial("bathroom")
+		and not director.mark_tutorial_seen("unknown"))
 	var restored_main: ReefMain = ReefMain.new()
 	var restored: DayOneDirector = DIRECTOR_SCRIPT.new(restored_main) as DayOneDirector
 	restored.restore_state({
@@ -68,10 +73,12 @@ func _init() -> void:
 		"day_one_grok_video_2_seen": true,
 		"day_one_giant_dust_bunny_boss_triggered": true,
 	})
-	_check("restore normalises ordered rooms",
-		restored_main.day_one_completed_rooms == {"bathroom": true, "pool": true}
+	_check("restore preserves completed membership across the route migration",
+		restored_main.day_one_completed_rooms == {
+			"bathroom": true, "art": true, "pool": true}
 		and restored_main.day_one_current_room_id == "stuffie"
-		and restored_main.day_one_cleaned_rooms == {"bathroom": true, "pool": true}
+		and restored_main.day_one_cleaned_rooms == {
+			"bathroom": true, "art": true, "pool": true}
 		and restored_main.day_one_pool_cleanup_step == 4
 		and restored_main.day_one_pool_skimmer_mask == 0x3F
 		and restored_main.day_one_pool_waterfall_mask == 0x07
@@ -80,7 +87,7 @@ func _init() -> void:
 		and not restored_main.day_one_boss_door_glow
 		and not restored_main.day_one_giant_dust_bunny_boss_triggered)
 	var all_done: Dictionary = saved.duplicate(true)
-	all_done["day_one_completed_rooms"] = ["bathroom", "pool", "stuffie", "art"]
+	all_done["day_one_completed_rooms"] = ["bathroom", "art", "stuffie", "pool"]
 	var final_main: ReefMain = ReefMain.new()
 	var final_restore: DayOneDirector = DIRECTOR_SCRIPT.new(final_main) as DayOneDirector
 	final_restore.restore_state(all_done)

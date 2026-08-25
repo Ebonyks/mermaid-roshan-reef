@@ -46,7 +46,8 @@ func _init() -> void:
 	director.complete_tutorial("bathroom")
 	_check("completion advances the physical castle route",
 		main.day_one_can_enter_castle_room("bubble_bath")
-		and main.day_one_can_enter_castle_room("mermaid_pool")
+		and main.day_one_can_enter_castle_room("craft_room")
+		and not main.day_one_can_enter_castle_room("mermaid_pool")
 		and not main.day_one_can_enter_castle_room("playroom"))
 	director.restore_state({"day_one_active": false})
 	_check("later-day policy releases rooms, jobs, and opera",
@@ -67,8 +68,8 @@ func _probe_save_patch() -> void:
 		"legacy_key": "preserved by SaveState's duplicate",
 		"day_one_completed_rooms": ["bathroom", "pool", "art"],
 	})
-	_check("save normalization cannot skip the room order",
-		patch.get("day_one_completed_rooms", []) == ["bathroom", "pool"]
+	_check("save normalization preserves old-route completion membership",
+		patch.get("day_one_completed_rooms", []) == ["bathroom", "art", "pool"]
 		and String(patch.get("day_one_current_room", "")) == "stuffie")
 
 

@@ -10,7 +10,8 @@ extends RefCounted
 
 signal hook_event(event_name: String, payload: Dictionary)
 
-const ROOM_ORDER: Array[String] = ["bathroom", "pool", "stuffie", "art"]
+const ROOM_ORDER: Array[String] = ["bathroom", "art", "stuffie", "pool"]
+const TUTORIAL_IDS: Array[String] = ["bathroom", "art", "stuffie", "pool", "boss"]
 const ROOM_DEFINITIONS: Dictionary = {
 	"bathroom": {
 		"index": 0,
@@ -19,7 +20,7 @@ const ROOM_DEFINITIONS: Dictionary = {
 		"activity_id": "bathroom_tutorial",
 	},
 	"pool": {
-		"index": 1,
+		"index": 3,
 		"title": "Sparkle Pool",
 		"kind": "activity",
 		"activity_id": "pool_activity",
@@ -31,7 +32,7 @@ const ROOM_DEFINITIONS: Dictionary = {
 		"activity_id": "stuffie_activity",
 	},
 	"art": {
-		"index": 3,
+		"index": 1,
 		"title": "Art Room",
 		"kind": "activity",
 		"activity_id": "art_activity",
@@ -65,6 +66,9 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_grok_video_2_seen",
 	"day_one_boss_door_glow",
 	"day_one_giant_dust_bunny_boss_triggered",
+	"day_one_tutorial_seen",
+	"day_one_bathroom_supplies_mask",
+	"day_one_stuffie_cleanup_mask",
 	"day_one_pool_cleanup_step",
 	"day_one_pool_rumi_met",
 	"day_one_pool_skimmer_mask",
@@ -126,6 +130,21 @@ var giant_dust_bunny_boss_triggered: bool:
 		return m.day_one_giant_dust_bunny_boss_triggered
 	set(value):
 		m.day_one_giant_dust_bunny_boss_triggered = value
+var tutorial_seen: Dictionary:
+	get:
+		return m.day_one_tutorial_seen
+	set(value):
+		m.day_one_tutorial_seen = value
+var bathroom_supplies_mask: int:
+	get:
+		return m.day_one_bathroom_supplies_mask
+	set(value):
+		m.day_one_bathroom_supplies_mask = value
+var stuffie_cleanup_mask: int:
+	get:
+		return m.day_one_stuffie_cleanup_mask
+	set(value):
+		m.day_one_stuffie_cleanup_mask = value
 var pool_cleanup_step: int:
 	get:
 		return m.day_one_pool_cleanup_step
@@ -276,6 +295,19 @@ func complete_tutorial(room_id: String) -> bool:
 	return complete_activity(id, String(definition.get("activity_id", "")))
 
 
+func has_seen_tutorial(tutorial_id: String) -> bool:
+	var id: String = tutorial_id.strip_edges().to_lower()
+	return id in TUTORIAL_IDS and bool(tutorial_seen.get(id, false))
+
+
+func mark_tutorial_seen(tutorial_id: String) -> bool:
+	var id: String = tutorial_id.strip_edges().to_lower()
+	if not id in TUTORIAL_IDS or bool(tutorial_seen.get(id, false)):
+		return false
+	tutorial_seen[id] = true
+	return true
+
+
 func complete_placeholder(room_id: String, activity_id: String = "") -> bool:
 	return complete_activity(room_id, activity_id)
 
@@ -418,6 +450,9 @@ func serialize_state() -> Dictionary:
 		"day_one_boss_door_glow": boss_door_glow,
 		"day_one_giant_dust_bunny_boss_triggered": \
 			giant_dust_bunny_boss_triggered,
+		"day_one_tutorial_seen": tutorial_seen.duplicate(true),
+		"day_one_bathroom_supplies_mask": bathroom_supplies_mask,
+		"day_one_stuffie_cleanup_mask": stuffie_cleanup_mask,
 		"day_one_pool_cleanup_step": pool_cleanup_step,
 		"day_one_pool_rumi_met": pool_rumi_met,
 		"day_one_pool_skimmer_mask": pool_skimmer_mask,
@@ -451,6 +486,12 @@ func _normalise_state(source: Dictionary) -> void:
 	boss_door_glow = bool(normalised.get("day_one_boss_door_glow", false))
 	giant_dust_bunny_boss_triggered = bool(normalised.get(
 		"day_one_giant_dust_bunny_boss_triggered", false))
+	tutorial_seen = _tutorial_membership(normalised.get(
+		"day_one_tutorial_seen", {}))
+	bathroom_supplies_mask = int(normalised.get(
+		"day_one_bathroom_supplies_mask", 0)) & 0x07
+	stuffie_cleanup_mask = int(normalised.get(
+		"day_one_stuffie_cleanup_mask", 0)) & 0x03
 	pool_cleanup_step = int(normalised.get("day_one_pool_cleanup_step", 0))
 	pool_rumi_met = bool(normalised.get("day_one_pool_rumi_met", false))
 	pool_skimmer_mask = int(normalised.get("day_one_pool_skimmer_mask", 0))
@@ -475,17 +516,20 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_completed_rooms", []))
 	var completed: Array[String] = []
 	for room_id: String in ROOM_ORDER:
-		if not bool(candidates.get(room_id, false)):
-			break
-		completed.append(room_id)
+		if bool(candidates.get(room_id, false)):
+			completed.append(room_id)
 	var cleaned: Array[String] = completed.duplicate()
 	var current: String = ""
-	if completed.size() < ROOM_ORDER.size():
-		current = ROOM_ORDER[completed.size()]
+	for room_id: String in ROOM_ORDER:
+		if not completed.has(room_id):
+			current = room_id
+			break
 	var grok_seen: bool = _as_bool_static(source.get(
 		"day_one_grok_video_2_seen", false), false)
 	var all_done: bool = completed.size() == ROOM_ORDER.size()
 	var pool_done: bool = completed.has("pool")
+	var bathroom_done: bool = completed.has("bathroom")
+	var stuffie_done: bool = completed.has("stuffie")
 	var saved_pool_step: int = clampi(int(source.get(
 		"day_one_pool_cleanup_step", 4 if pool_done else 0)), 0, 4)
 	if pool_done:
@@ -525,6 +569,12 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_boss_door_glow": all_done,
 		"day_one_giant_dust_bunny_boss_triggered": all_done and _as_bool_static(
 			source.get("day_one_giant_dust_bunny_boss_triggered", false), false),
+		"day_one_tutorial_seen": _tutorial_membership_static(source.get(
+			"day_one_tutorial_seen", {})),
+		"day_one_bathroom_supplies_mask": 0x07 if bathroom_done else \
+			(int(source.get("day_one_bathroom_supplies_mask", 0)) & 0x07),
+		"day_one_stuffie_cleanup_mask": 0x03 if stuffie_done else \
+			(int(source.get("day_one_stuffie_cleanup_mask", 0)) & 0x03),
 		"day_one_pool_cleanup_step": saved_pool_step,
 		"day_one_pool_rumi_met": pool_done or _as_bool_static(
 			source.get("day_one_pool_rumi_met", false), false),
@@ -595,6 +645,25 @@ func _room_map_to_array(value: Dictionary) -> Array[String]:
 	for room_id: String in ROOM_ORDER:
 		if bool(value.get(room_id, false)):
 			result.append(room_id)
+	return result
+
+
+func _tutorial_membership(value: Variant) -> Dictionary:
+	return _tutorial_membership_static(value)
+
+
+static func _tutorial_membership_static(value: Variant) -> Dictionary:
+	var result: Dictionary = {}
+	if value is Dictionary:
+		var source: Dictionary = value as Dictionary
+		for tutorial_id: String in TUTORIAL_IDS:
+			if _as_bool_static(source.get(tutorial_id, false), false):
+				result[tutorial_id] = true
+	elif value is Array:
+		for entry: Variant in value as Array:
+			var tutorial_id: String = String(entry).strip_edges().to_lower()
+			if tutorial_id in TUTORIAL_IDS:
+				result[tutorial_id] = true
 	return result
 
 
