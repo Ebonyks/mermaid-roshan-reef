@@ -2647,3 +2647,30 @@ the selected native generations remain preserved.
 ## Day One swimming dust bunny (2026-08-24)
 
 - `assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png` - project-original OpenAI built-in ImageGen art; license: project original; URL: none. New 1024×683 RGBA true-swimming action cutout generated from the approved project-original curl-ear and hop identity references, then whole-canvas normalized from the accepted 1536×1024 RGBA native. The exact prompts, reference/output SHA-256 hashes, rejected seated concept, alpha correction, normalization method, and independent Luna acceptance are recorded in `assets_src/imagegen/day_one_pool_dust_bunny_swimmer_2026-08-24/PROMPT_AND_PROVENANCE.md`. The same runtime asset is reused in the Mermaid Pool and filled Bubble Bath bathtub; no protected original was modified.
+
+## Day One Mermaid Pool Video 01 storyboard references (2026-08-25)
+
+All generated files below are project-original OpenAI built-in ImageGen art;
+license: project original; URL: none. They are non-runtime Grok/storyboard
+references only. Exact prompts, built-in result IDs, SHA-256 hashes, rejection
+reasons, reference-role limits, human/Luna review, and whole-canvas normalization
+method are recorded in
+`assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/PROMPTS_AND_PROVENANCE.md`.
+The accepted/rejected status does not grant final cinematic or owner acceptance.
+
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/accepted/S01_wide_arrival_attempt02.png` - selected native wide-arrival storyboard reference.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/accepted/S02_wrapper_can_attempt02.png` - selected native wrapper/can inspection reference.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/accepted/S03_center_oblique_attempt01.png` - selected native painted-oblique water-volume reference.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/accepted/S04_right_trash_cluster_attempt01.png` - selected native right trash-cluster reference.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/accepted/S05_seahorse_obstruction_attempt01.png` - selected native mouth-obstruction reference.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/accepted/S06_return_wide_attempt02.png` - selected native return-wide no-basket reference.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/rejected/S01_wide_arrival_attempt01_fail_mouth_contact.png` - preserved rejected native; mouth obstruction was not legible.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/rejected/S02_wrapper_can_attempt01_fail_mouth_continuity.png` - preserved rejected native; distant visible mouth could not be verified.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/rejected/S06_return_wide_attempt01_fail_generic_basket.png` - preserved rejected native; generic wicker basket broke scene integration.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/delivery_1280x720/S01_wide_arrival_attempt02.png` - whole-canvas 1280×720 Lanczos review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/delivery_1280x720/S02_wrapper_can_attempt02.png` - whole-canvas 1280×720 Lanczos review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/delivery_1280x720/S03_center_oblique_attempt01.png` - whole-canvas 1280×720 Lanczos review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/delivery_1280x720/S04_right_trash_cluster_attempt01.png` - whole-canvas 1280×720 Lanczos review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/delivery_1280x720/S05_seahorse_obstruction_attempt01.png` - whole-canvas 1280×720 Lanczos review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/delivery_1280x720/S06_return_wide_attempt02.png` - whole-canvas 1280×720 Lanczos review derivative.
+- `assets_src/imagegen/day_one_pool_video_01_storyboard_2026-08-25/STORYBOARD_CONTACT_SHEET.png` - deterministic review-only 3×2 contact sheet made from the six exact 1280×720 derivatives.
