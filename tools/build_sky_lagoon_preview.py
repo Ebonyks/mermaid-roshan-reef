@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from PIL import Image
@@ -28,6 +29,8 @@ WORLD_LEFT = -72.0
 WORLD_TOP = 33.5
 WORLD_WIDTH = 144.0
 WORLD_HEIGHT = 48.0
+LAYOUT_PATH = ROOT / "scripts/arena/sky_lagoon_layout.json"
+LAYOUT = json.loads(LAYOUT_PATH.read_text(encoding="utf-8"))
 
 
 def place(
@@ -56,6 +59,20 @@ def place(
 	canvas.alpha_composite(sprite, (center_x - width // 2, center_y - height // 2))
 
 
+def place_master_anchor(canvas: Image.Image, contract: dict[str, object]) -> None:
+	path = str(contract["path"]).removeprefix("res://")
+	sprite = Image.open(ROOT / path).convert("RGBA")
+	height = round(float(contract["height_master"]))
+	width = round(sprite.width * height / sprite.height)
+	sprite = sprite.resize((width, height), Image.Resampling.LANCZOS)
+	scale = height / float(contract["texture_size"][1])
+	anchor_pixel = contract["anchor_pixel"]
+	anchor_master = contract["anchor_master"]
+	left = round(float(anchor_master[0]) - float(anchor_pixel[0]) * scale)
+	top = round(float(anchor_master[1]) - float(anchor_pixel[1]) * scale)
+	canvas.alpha_composite(sprite, (left, top))
+
+
 def shadow(canvas: Image.Image, x: float, y: float, object_height: float) -> None:
 	bottom = y - object_height * 0.5 + max(0.08, object_height * 0.025)
 	place(
@@ -69,21 +86,14 @@ def shadow(canvas: Image.Image, x: float, y: float, object_height: float) -> Non
 
 def build_preview(show_plane: bool) -> Image.Image:
 	canvas = Image.open(MASTER).convert("RGBA")
-	# Sky card first, then distant PNW standees.
+	# Sky card first. The independently generated tall tree is intentionally
+	# absent: the shared layout contract records that v5 has no source socket
+	# for it and that both legacy placements blocked the mountain path.
 	place(canvas, "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", -10.0, 29.0, 3.2)
-	for path, x, y, height in (
-		("assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png", 26.0, 6.5, 9.5),
-	):
-		place(canvas, path, x, y, height)
-	# The full stained-glass castle is one extracted depth card; the clean
-	# plate deliberately has no duplicate facade underneath it.
-	place(
-		canvas,
-		"assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
-		51.572852,
-		11.022284,
-		28.430568,
-	)
+	# The bridge's visible tip is the canonical castle anchor. Runtime and this
+	# preview consume the same master-space socket rather than converting it
+	# independently through center- versus bottom-aligned coordinates.
+	place_master_anchor(canvas, LAYOUT["cards"]["castle"])
 
 	for path, x, y, height in (
 		("assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png", -11.5, 6.61, 11.4),
