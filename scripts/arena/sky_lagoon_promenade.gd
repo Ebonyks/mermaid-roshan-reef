@@ -6,8 +6,8 @@ extends RefCounted
 # temporary Canvas nodes only.
 
 const Affordance := preload("res://scripts/interaction_affordance.gd")
-const ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
 const FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
+const LAYOUT_PATH := "res://scripts/arena/sky_lagoon_layout.json"
 
 const MASTER_SIZE := Vector2(6144.0, 2048.0)
 const BACKDROP_COLUMNS := 6
@@ -19,7 +19,6 @@ const CAMERA_FOLLOW := 7.5
 const WALK_SPEED_MASTER := 790.0
 const ARRIVE_RADIUS_MASTER := 28.0
 const EDGE_MARGIN_PX := 112.0
-const PLAYER_HEIGHT_PX := 382.0
 const PLAY_ROSHAN_HEIGHT_PX := 315.0
 const ANIMAL_TOUCH_RADIUS_PX := 114.0
 const ANIMAL_PAGE_SPAWN_S := 0.70
@@ -34,10 +33,7 @@ const PLANE_DEPARTURE_S := 7.0
 const PLAY_SETTLE_S := 0.34
 const PLAY_SETTLE_HOP := 18.0
 const CASTLE_DOOR_MASTER_X := 5312.0
-const CASTLE_CARD_TEXTURE_SIZE := Vector2(1022.0, 1024.0)
 const CASTLE_DOOR_FOCUS_BOUNDS := Rect2(Vector2(410.0, 557.0), Vector2(199.0, 228.0))
-const CASTLE_CARD_HEIGHT_MASTER := 1060.0
-const CASTLE_CARD_BOTTOM_MASTER_Y := 1120.0
 const DOORSTEP_RADIUS_MASTER := 62.0
 const DOORSTEP_REARM_MASTER := 330.0
 const LOCKED_MURAL_PARALLAX := 1.0
@@ -67,7 +63,6 @@ const SLIDE_RIDE_START_MASTER := Vector2(-62.0, -325.0)
 const SLIDE_RIDE_CONTROL_MASTER := Vector2(54.0, -217.0)
 const SLIDE_RIDE_FINISH_MASTER := Vector2(250.0, 92.0)
 const ROSHAN_DIRECTIONAL := preload("res://assets/characters/roshan_25d/roshan_directional.png")
-const ROSHAN_SWIM_FRONT := preload("res://assets/characters/roshan_25d/roshan_swim_front.png")
 
 # Master-pixel route sampled from the approved v5 painting. It remains a real
 # continuous path: every screen point resolves onto it and both stick/tap use
@@ -160,9 +155,31 @@ const PLAY_FRAME_PATHS := {
 const PLAY_DURATIONS := {"swing": 5.6, "slide": 5.4, "seesaw": 5.8}
 
 var m: ReefMain
+var _layout_cache: Dictionary = {}
 
 func _init(main: ReefMain) -> void:
 	m = main
+
+func layout_contract() -> Dictionary:
+	if not _layout_cache.is_empty():
+		return _layout_cache
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(LAYOUT_PATH))
+	if parsed is Dictionary:
+		_layout_cache = parsed as Dictionary
+	else:
+		push_error("Sky Lagoon layout manifest is missing or malformed: %s" % LAYOUT_PATH)
+	return _layout_cache
+
+func _contract_vector2(value: Variant) -> Vector2:
+	var values: Array = value as Array if value is Array else []
+	return Vector2(float(values[0]), float(values[1])) if values.size() == 2 else Vector2.ZERO
+
+func _card_contract(id: String) -> Dictionary:
+	var cards: Dictionary = layout_contract().get("cards", {}) as Dictionary
+	return cards.get(id, {}) as Dictionary
+
+func _route_roshan_contract() -> Dictionary:
+	return layout_contract().get("roshan_route", {}) as Dictionary
 
 func root() -> CanvasLayer:
 	return m.g.get("lagoon_canvas_layer") as CanvasLayer
@@ -407,20 +424,9 @@ func _build_backdrop() -> void:
 func _build_ambient_life() -> void:
 	m.g["lagoon_ambient_t"] = 0.0
 	m.g["lagoon_ambient_cards"] = []
-	# These approved transparent assets form a genuinely independent broad rear
-	# layer. They move at REAR_PARALLAX while the 12-tile panorama remains one
-	# base layer, satisfying the layered-scene contract without duplicate pixels.
-	var tree := _make_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_tall_v1.png",
-		Vector2(4180, 1185), 465.0, true,
-		m.g.get("lagoon_rear_geography_layer") as Node2D)
-	tree.name = "SkyLagoonRearTree"
-	tree.set_meta("ambient_kind", "tree")
-	tree.set_meta("canvas_layer_role", "rear_geography_locked")
-	tree.set_meta("source_owned", true)
-	tree.set_meta("background_socket_healed", true)
-	tree.set_meta("geography_locked", true)
-	_mark_living_card(tree, "sway", "quiet", 465.0)
+	# The independently generated tall tree has no source-object socket in the
+	# v5 plate and obscured its scenic mountain path.  Its disabled contract is
+	# retained in the shared manifest so previews and audits cannot revive it.
 	var cloud := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
 		Vector2(2680, 430), 235.0, false, m.g.get("lagoon_rear_layer") as Node2D)
@@ -429,7 +435,7 @@ func _build_ambient_life() -> void:
 	cloud.set_meta("canvas_layer_role", "rear_ambient")
 	cloud.set_meta("source_owned", true)
 	_mark_living_card(cloud, "drift", "quiet", 235.0)
-	m.g["lagoon_ambient_cards"] = [tree, cloud]
+	m.g["lagoon_ambient_cards"] = [cloud]
 	for index: int in range(3):
 		var smoke := _make_sprite(SMOKE_WISP_TEX,
 			Vector2(4700.0 + float(index) * 150.0, 755.0 + float(index) * 68.0),
@@ -440,8 +446,7 @@ func _build_ambient_life() -> void:
 		smoke.set_meta("phase", float(index) * 2.0)
 		_mark_living_card(smoke, "rise_fade", "quiet", 135.0)
 		(m.g["lagoon_ambient_cards"] as Array).append(smoke)
-	# A distinct approved slender tree occupies a clean-plate foreground socket;
-	# it never duplicates the rear tree's source pixels or a baked object.
+	# This is new foreground dressing, not a claimed extraction from the plate.
 	var foreground_tree := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
 		Vector2(5750, 1510), 350.0, true,
@@ -450,7 +455,7 @@ func _build_ambient_life() -> void:
 	foreground_tree.set_meta("ambient_kind", "foreground_tree")
 	foreground_tree.set_meta("canvas_layer_role", "foreground_geography_locked")
 	foreground_tree.set_meta("source_owned", true)
-	foreground_tree.set_meta("background_socket_healed", true)
+	foreground_tree.set_meta("placement_role", "new_dressing")
 	foreground_tree.set_meta("geography_locked", true)
 	_mark_living_card(foreground_tree, "sway", "quiet", 350.0)
 	(m.g["lagoon_ambient_cards"] as Array).append(foreground_tree)
@@ -554,13 +559,21 @@ func _build_promenade_swing(position_master: Vector2) -> Sprite2D:
 	return frame
 
 func _build_castle_screen() -> void:
-	var castle := _make_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
-		Vector2(5260, CASTLE_CARD_BOTTOM_MASTER_Y), CASTLE_CARD_HEIGHT_MASTER,
-		true, m.g.get("lagoon_landmark_layer") as Node2D)
+	var contract: Dictionary = _card_contract("castle")
+	var castle := _make_sprite_at_texture_anchor(
+		String(contract.get("path", "")),
+		_contract_vector2(contract.get("anchor_pixel", [])),
+		_contract_vector2(contract.get("anchor_master", [])),
+		float(contract.get("height_master", 0.0)),
+		m.g.get("lagoon_landmark_layer") as Node2D)
 	castle.name = "SkyLagoonCastleFourTower"
 	castle.set_meta("exterior_dressing_contract", "authored_sprite2d_only")
 	castle.set_meta("lighting_medium", "authored_rgba_canvas_sprite")
+	castle.set_meta("composition_anchor_id", String(contract.get("anchor_id", "")))
+	castle.set_meta("composition_anchor_pixel", _contract_vector2(
+		contract.get("anchor_pixel", [])))
+	castle.set_meta("composition_anchor_master", _contract_vector2(
+		contract.get("anchor_master", [])))
 	m.g["lagoon_castle_card"] = castle
 	var door_anchor := Node2D.new()
 	door_anchor.name = "SkyLagoonCastleDoorFocus"
@@ -568,8 +581,9 @@ func _build_castle_screen() -> void:
 	# scaled castle card. This cannot drift when the facade scale changes.
 	var door_center_pixels: Vector2 = CASTLE_DOOR_FOCUS_BOUNDS.position \
 		+ CASTLE_DOOR_FOCUS_BOUNDS.size * 0.5
+	var castle_texture_size: Vector2 = _contract_vector2(contract.get("texture_size", []))
 	door_anchor.position = castle.position \
-		+ (door_center_pixels - CASTLE_CARD_TEXTURE_SIZE * 0.5) * castle.scale
+		+ (door_center_pixels - castle_texture_size * 0.5) * castle.scale
 	door_anchor.set_meta("source_owned", true)
 	(m.g.get("lagoon_interactive_layer") as Node2D).add_child(door_anchor)
 	m.g["lagoon_castle_door_focus"] = door_anchor
@@ -579,11 +593,8 @@ func _build_castle_screen() -> void:
 func _build_roshan_card() -> void:
 	var card := Sprite2D.new()
 	card.name = "SkyLagoonRoshan"
-	card.texture = ROSHAN_DIRECTIONAL
-	card.region_enabled = true
-	card.region_rect = FRAMES.region("directional", 2, 4)
 	card.centered = true
-	card.scale = Vector2.ONE * (PLAYER_HEIGHT_PX / 256.0)
+	_configure_route_roshan_card(card)
 	card.set_meta("walking", false)
 	card.set_meta("canvas_layer_role", "actor")
 	card.set_meta("source_owned", true)
@@ -633,6 +644,21 @@ func _make_sprite(path: String, position_master: Vector2, height_master: float,
 	parent.add_child(sprite)
 	return sprite
 
+func _make_sprite_at_texture_anchor(path: String, anchor_pixel: Vector2,
+		anchor_master: Vector2, height_master: float, parent: Node) -> Sprite2D:
+	var texture: Texture2D = load(path) as Texture2D
+	var sprite := Sprite2D.new()
+	sprite.texture = texture
+	if texture != null:
+		var texture_size: Vector2 = texture.get_size()
+		var scale_factor: float = height_master / maxf(1.0, texture_size.y)
+		sprite.scale = Vector2.ONE * scale_factor
+		sprite.position = anchor_master - (anchor_pixel - texture_size * 0.5) * scale_factor
+	sprite.set_meta("source_path", path)
+	sprite.set_meta("source_owned", true)
+	parent.add_child(sprite)
+	return sprite
+
 func _add_contact_shadow(sprite: Sprite2D, size_master: Vector2) -> Sprite2D:
 	var shadow := Sprite2D.new()
 	shadow.name = "%sContactShadow" % sprite.name
@@ -654,6 +680,17 @@ func _sync_contact_shadow(sprite: Sprite2D) -> void:
 		if sprite != null and sprite.has_meta("contact_shadow") else null
 	if shadow == null or not is_instance_valid(shadow):
 		return
+	var roshan: Sprite2D = m.g.get("lagoon_roshan_card") as Sprite2D
+	if sprite == roshan:
+		var play: Dictionary = m.g.get("lagoon_play_anim", {}) as Dictionary
+		# Ride frames are held by seat/grip sockets rather than the ground.  A
+		# rectangle-derived shadow under them falsely advertises ground contact.
+		shadow.visible = sprite.visible and play.is_empty()
+		if not play.is_empty():
+			return
+		if sprite.has_meta("route_contact_master"):
+			shadow.position = sprite.get_meta("route_contact_master") as Vector2
+			return
 	shadow.position = Vector2(sprite.position.x, sprite.position.y + _sprite_draw_height(sprite) * 0.5)
 	shadow.visible = sprite.visible
 
@@ -912,11 +949,13 @@ func _sync_roshan_card(delta_x: float = 0.0, moving: bool = false) -> void:
 	var card: Sprite2D = m.g.get("lagoon_roshan_card") as Sprite2D
 	if card == null or not is_instance_valid(card):
 		return
-	card.position = Vector2(float(m.g.get("lagoon_master_x", ROUTE_MASTER[0].x)),
-		float(m.g.get("lagoon_master_y", ROUTE_MASTER[0].y)) - PLAYER_HEIGHT_PX * 0.47)
 	card.set_meta("walking", moving)
 	if moving:
 		card.flip_h = delta_x < 0.0
+	_configure_route_roshan_card(card)
+	var contact := Vector2(float(m.g.get("lagoon_master_x", ROUTE_MASTER[0].x)),
+		float(m.g.get("lagoon_master_y", ROUTE_MASTER[0].y)))
+	_place_route_roshan_contact(card, contact)
 	_sync_contact_shadow(card)
 
 func _tick_roshan_animation(delta: float) -> void:
@@ -925,26 +964,47 @@ func _tick_roshan_animation(delta: float) -> void:
 	var card: Sprite2D = m.g.get("lagoon_roshan_card") as Sprite2D
 	if card == null or not is_instance_valid(card):
 		return
-	var moving: bool = bool(card.get_meta("walking", false))
 	var timer: float = float(m.g.get("lagoon_roshan_anim_t", 0.0)) + delta
 	m.g["lagoon_roshan_anim_t"] = timer
-	var frame_index: int
-	if moving:
-		frame_index = int(floor(timer * 9.0)) % 16
-		card.texture = ROSHAN_SWIM_FRONT
-		card.region_rect = FRAMES.region("swim_front", frame_index, 4)
-		card.offset = ANCHORS.correction("swim_front", frame_index,
-			ANCHORS.anchor("directional", 2), card.flip_h) \
-			+ FRAMES.offset_correction("swim_front", frame_index, card.flip_h)
-	else:
-		frame_index = 2
-		card.texture = ROSHAN_DIRECTIONAL
-		card.region_rect = FRAMES.region("directional", frame_index, 4)
-		card.offset = Vector2(0.0, sin(timer * 1.65) * 1.8)
+	var route_contract: Dictionary = _route_roshan_contract()
+	var frame_index: int = int(route_contract.get("frame", 2))
+	# Ground travel stays in the manifest's land medium.  The former 16-frame
+	# swim cycle had no feet/ground contract and made the card visibly airborne.
+	_configure_route_roshan_card(card)
 	m.g["lagoon_roshan_frame"] = frame_index
 	var hop_t: float = maxf(0.0, float(m.g.get("lagoon_hop_t", 0.0)) - delta)
 	m.g["lagoon_hop_t"] = hop_t
 	card.position.y -= sin((hop_t / 0.32) * PI) * 26.0 if hop_t > 0.0 else 0.0
+
+func _configure_route_roshan_card(card: Sprite2D) -> void:
+	var contract: Dictionary = _route_roshan_contract()
+	var frame: int = int(contract.get("frame", 2))
+	var columns: int = int(contract.get("columns", 4))
+	card.texture = ROSHAN_DIRECTIONAL
+	card.region_enabled = true
+	card.region_rect = FRAMES.region("directional", frame, columns)
+	card.offset = Vector2.ZERO
+	card.rotation = 0.0
+	card.scale = Vector2.ONE * float(contract.get("scale_master_per_pixel", 1.0))
+	card.set_meta("locomotion_medium", String(contract.get("medium", "")))
+	card.set_meta("route_contact_anchor_pixel", _contract_vector2(
+		contract.get("contact_anchor_pixel", [])))
+
+func _route_roshan_anchor_local(card: Sprite2D) -> Vector2:
+	var contract: Dictionary = _route_roshan_contract()
+	var frame_size: Vector2 = _contract_vector2(contract.get("frame_size", []))
+	var anchor: Vector2 = _contract_vector2(contract.get("contact_anchor_pixel", []))
+	var local: Vector2 = anchor - frame_size * 0.5 + card.offset
+	if card.flip_h:
+		local.x = -local.x
+	return (local * card.scale).rotated(card.rotation)
+
+func _route_roshan_center_for_contact(card: Sprite2D, contact_master: Vector2) -> Vector2:
+	return contact_master - _route_roshan_anchor_local(card)
+
+func _place_route_roshan_contact(card: Sprite2D, contact_master: Vector2) -> void:
+	card.position = _route_roshan_center_for_contact(card, contact_master)
+	card.set_meta("route_contact_master", contact_master)
 
 func _apply_view_transform(snap: bool = false) -> void:
 	var content: Node2D = m.g.get("lagoon_master_space") as Node2D
@@ -1296,6 +1356,7 @@ func _start_playground_animation(kind: String, equipment: Node2D) -> void:
 		"swing": _tick_swing_animation(card, equipment, 0.0)
 		"slide": _tick_slide_animation(card, equipment, 0.0)
 		"seesaw": _tick_seesaw_animation(card, equipment, 0.0)
+	_sync_contact_shadow(card)
 
 func _set_play_frame(frame_index: int) -> void:
 	var play: Dictionary = m.g.get("lagoon_play_anim", {}) as Dictionary
@@ -1477,28 +1538,36 @@ func _tick_playground_settle(card: Sprite2D, play: Dictionary, delta: float) -> 
 	var timer: float = minf(float(play.get("settle_t", 0.0)) + delta, PLAY_SETTLE_S)
 	play["settle_t"] = timer
 	var progress: float = timer / PLAY_SETTLE_S
-	var target: Vector2 = Vector2(float(m.g.get("lagoon_master_x", 0.0)),
-		float(m.g.get("lagoon_master_y", 0.0)) - PLAYER_HEIGHT_PX * 0.47)
+	var route_contact := Vector2(float(m.g.get("lagoon_master_x", 0.0)),
+		float(m.g.get("lagoon_master_y", 0.0)))
+	var original_texture: Texture2D = card.texture
+	var original_region_enabled: bool = card.region_enabled
+	var original_region: Rect2 = card.region_rect
+	var original_scale: Vector2 = card.scale
+	var original_rotation: float = card.rotation
+	_configure_route_roshan_card(card)
+	var target: Vector2 = _route_roshan_center_for_contact(card, route_contact)
+	card.texture = original_texture
+	card.region_enabled = original_region_enabled
+	card.region_rect = original_region
+	card.scale = original_scale
+	card.rotation = original_rotation
 	card.position = (play.get("settle_start_position", card.position) as Vector2).lerp(target,
 		smoothstep(0.0, 1.0, progress)) - Vector2(0.0, sin(progress * PI) * PLAY_SETTLE_HOP)
 	card.rotation = lerp_angle(float(play.get("settle_start_rotation", 0.0)), 0.0, progress)
 	if timer < PLAY_SETTLE_S:
 		return
 	m.g["lagoon_play_anim"] = {}
-	card.texture = ROSHAN_DIRECTIONAL
-	card.region_enabled = true
-	card.region_rect = FRAMES.region("directional", 2, 4)
-	card.scale = Vector2.ONE * (PLAYER_HEIGHT_PX / 256.0)
-	card.rotation = 0.0
+	_configure_route_roshan_card(card)
 	_sync_roshan_card()
 
 func _celebrate_visible_roshan() -> void:
 	var card: Sprite2D = m.g.get("lagoon_roshan_card") as Sprite2D
 	if card == null or not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
 		return
-	card.scale = Vector2(1.07, 0.93) * (PLAYER_HEIGHT_PX / 256.0)
+	card.self_modulate = Color(1.10, 1.06, 1.12, 1.0)
 	var tween: Tween = m.create_tween()
-	tween.tween_property(card, "scale", Vector2.ONE * (PLAYER_HEIGHT_PX / 256.0), 0.26).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(card, "self_modulate", Color.WHITE, 0.26).set_trans(Tween.TRANS_BACK)
 
 func _stop_visible_roshan_celebration() -> void:
 	pass
