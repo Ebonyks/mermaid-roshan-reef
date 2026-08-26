@@ -92,3 +92,56 @@ project master/style audits. Final scores are recorded in
 `design/review/day_one_pool_video_01_cardinal_2026-08-25/CARDINAL_STORYBOARD_AUDIT.md`.
 All six pass `>=4.5/5` with no knockout. M11, child, owner, final-film temporal,
 and audio review remain open.
+
+## Luna close-up extension — dirty waterfall
+
+The first waterfall frame is retained as rejected continuity evidence only:
+v01 lacked a Roshan context anchor, read as a product/detail plate, repeated
+leaves, and did not make the canonical pink wrapper or timeline neighbors
+clear. The replacement is a fresh complete whole-canvas generation.
+
+| File | Built-in result ID | Subject | Dimensions | SHA-256 | Prompt SHA-256 | Status |
+|---|---|---|---:|---|---|---|
+| `closeups_rejected/dirty_waterfall_closeup_v01_rejected.png` | `exec-66ce478d-6755-4e05-8bf1-7083118bd2d4` | rejected dirty waterfall close-up | `1672×941` | `2DE869C67548F6A4DE2E31EFBC8145C3B288B8D683C01CB2E7125976D61C916D` | see v01 prompt file | `REJECT_KNOCKOUT` |
+| `closeups_accepted/dirty_waterfall_closeup_v02b.png` | `exec-88aae78e-21ad-4636-a9fe-365d117e39b3` | dirty waterfall close-up with Roshan edge anchor | `1672×941` | `9B98443D48373158F1D7CA0F9DE5071B17A5F83BDAC6760BA238463BDFFEFC96` | `5A17152CAFFDFC6F6C52A239C6F9F515F62532BC3C5AA60F85ACC2D0265AEE10` | `AUDIT_PASS_OWNER_PENDING` |
+
+Exact v02b prompt: `prompts/dirty_waterfall_closeup_v02b.txt`. Full audit:
+`closeups_accepted/DIRTY_WATERFALL_CLOSEUP_V02_AUDIT.md`. Intended timeline is
+`CU-WF 2.00–3.00`; previous neighbor is S01 native hash
+`777F44C65B2C76B3DC4595ADD5C6ED6CC44F297E7BF81A48D116FC3027D65223`; intended
+next neighbor is the accepted dirty seahorse close-up hash
+`C8F6D98C82EC5CAACA1D423168F647460C3D6F1068E2E2184AC337110545630C`.
+The v02b candidate is not a runtime asset or final-film frame until owner,
+M11, and Grok temporal review pass.
+
+## Luna close-up extension — dirty seahorse
+
+The selected seahorse frame is attempt `3/20`. The original attempt lacked a
+Roshan context anchor and wrapped the fixture in excessive vines. A second
+fresh attempt added Roshan but retained the long body/tail vine. Both remain
+under `closeups_rejected/`; neither is Grok authority.
+
+| File | Built-in result ID | Subject | Dimensions | SHA-256 | Prompt SHA-256 | Status |
+|---|---|---|---:|---|---|---|
+| `closeups_accepted/dirty_seahorse_closeup_v02.png` | `exec-aa806da1-9c70-4f74-8338-5668cf05a3bc` | sick seahorse with pink wrapper and modest olive weed rooted behind the nozzle lip | `1672×941` | `C8F6D98C82EC5CAACA1D423168F647460C3D6F1068E2E2184AC337110545630C` | `40D8391D0BF2AA45298C5EFA7AB36A2C0429E1DBAFBCE7F630A27E7998D2D616` | `AUDIT_PASS_OWNER_PENDING` |
+
+Exact prompt, reference hashes, rejected-attempt hashes, normalized Roshan/
+fixture/mouth geometry, and generation declaration are recorded in
+`closeups_accepted/V02_PROMPT_AND_PROVENANCE.md`. Independent review is in
+`design/review/day_one_pool_video_01_cardinal_2026-08-25/LUNA_CLOSEUP_CONTINUITY_AUDIT_2026-08-25.md`.
+
+## Close-up delivery normalization and integrated index
+
+The two native frames were each normalized by one whole-canvas Lanczos resize.
+No subject-local crop, mask, translation, warp, or relighting was applied.
+
+| Delivery file | Dimensions | SHA-256 |
+|---|---:|---|
+| `closeups_delivery_1280x720/CU_WF_dirty_waterfall.png` | `1280×720` | `EDD3C80BA353F01BFCD49D69D7D08A4DA0BC9AA6390B70B9D095F0A07DA5448A` |
+| `closeups_delivery_1280x720/CU_SH_dirty_seahorse.png` | `1280×720` | `0A58B7D1F66D9DBE7A11F058B6B9638A37E306AB46B6081ED87A9A13ECC68A34` |
+
+`STORYBOARD_CARDINAL_PLUS_CLOSEUPS_CONTACT_SHEET.png` is a deterministic
+`1920×540` review-only 4×2 index in locked order S01, CU-WF, CU-SH, S02, S03,
+S04, S05, S06. SHA-256:
+`615A8AB609F8DCB00346DE07392153499F0C8A6794711CCF947404255C936B16`.
+It is never a generation plate or Grok upload reference.
