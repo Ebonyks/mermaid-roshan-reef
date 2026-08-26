@@ -51,7 +51,6 @@ const DWELL_T := 8.0          # station stop, seconds
 const GUARD_DT := 0.25        # clip-guard cadence, seconds
 const BOARD_RAD := 9.0        # hop-on proximity (toys default 6.5)
 const SPD_MAX := 12.0         # cruise speed (owner 2026-07-14: 1.5x the original 8)
-const LAGOON_TRAIN_KIT_ROOT := "res://assets/sky_lagoon/lagoon_kit/"
 
 
 func _init(main: ReefMain) -> void:
@@ -239,49 +238,17 @@ func _quad(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, d: Vector3, nrm:
 
 
 func _build_station(o: Vector3) -> void:
-	# An authored shell-roof station replaces the primitive post-and-slab stop.
-	# It remains low and NON-solid so nobody can ever get pinched by it.
-	var radial := Vector3(sin(STATION_A), 0, cos(STATION_A))
-	var c: Vector3 = Vector3(RING_CX, 0, RING_CZ) + radial * (_ring_r(STATION_A) + 6.5)
-	c.y = m._lagoon_local(c.x, c.z)
-	var station: Node3D = m._art35_prop(
-		"res://assets/sky_lagoon/lagoon_kit/lagoon_train_station.glb", o + c, 1.0, 0.0)
-	if station != null:
-		station.set_meta("lagoon_art_role", "lagoon_train_station")
-		var counts: Dictionary = m.g.get("lagoon_art_counts", {})
-		counts["lagoon_train_station"] = int(counts.get("lagoon_train_station", 0)) + 1
-		m.g["lagoon_art_counts"] = counts
+	return
 
 
 # ---------------- car construction ----------------
 
 func _mesh_from_authored_scene(name: String) -> Mesh:
-	var packed: PackedScene = load(LAGOON_TRAIN_KIT_ROOT + name + ".glb") as PackedScene
-	if packed == null:
-		return null
-	var scene_root: Node3D = packed.instantiate() as Node3D
-	var found: Mesh
-	if scene_root is MeshInstance3D:
-		found = (scene_root as MeshInstance3D).mesh
-	else:
-		var mesh_nodes: Array[Node] = scene_root.find_children("*", "MeshInstance3D", true, false)
-		if not mesh_nodes.is_empty():
-			found = (mesh_nodes[0] as MeshInstance3D).mesh
-	scene_root.free()
-	return found
+	return null
 
 
 func _authored_train_body(parent: Node3D, name: String) -> Node3D:
-	var packed: PackedScene = load(LAGOON_TRAIN_KIT_ROOT + name + ".glb") as PackedScene
-	if packed == null:
-		return null
-	var body: Node3D = packed.instantiate() as Node3D
-	body.set_meta("lagoon_art_role", name)
-	parent.add_child(body)
-	var counts: Dictionary = m.g.get("lagoon_art_counts", {})
-	counts[name] = int(counts.get(name, 0)) + 1
-	m.g["lagoon_art_counts"] = counts
-	return body
+	return null
 
 
 func _train_mat(col: Color, glow: float = 0.0, metal: float = 0.0) -> StandardMaterial3D:

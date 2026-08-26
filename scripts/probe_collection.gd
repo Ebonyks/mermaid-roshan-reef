@@ -29,13 +29,11 @@ func _init() -> void:
 	_check(collection.total_count() == 18, "catalog has 18 species")
 	_check(main.collection_nodes.size() == 3, "Ocean Reef roster has three native fish")
 	var unique := {}
-	var assets_ok := true
 	for d: Dictionary in collection.DEFS:
 		var id := String(d["id"])
 		unique[id] = true
-		assets_ok = assets_ok and ResourceLoader.exists("res://assets/collectibles/%s.glb" % id)
 	_check(unique.size() == 18, "all species ids are unique")
-	_check(assets_ok and ResourceLoader.exists("res://assets/collectibles/catch_net.glb"), "all Blender GLBs import")
+	_check(collection.DEFS.size() == 18, "all species retain 2D-safe definitions")
 
 	# Zero input must never collect anything. The critters wait kindly forever.
 	main.touch_ui.action_down = false

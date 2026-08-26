@@ -73,14 +73,14 @@ const FRIEND_POSITIONS := [
 	Vector2(70, -58),
 ]
 
-const REGIONAL_SCENES := {
-	"wreck_shoulders": "res://assets/reef_regions/wreck_ravine_shoulders.glb",
-	"kelp_arch": "res://assets/reef_regions/kelp_cathedral_arch.glb",
-	"kelp_lanterns": "res://assets/reef_regions/kelp_lantern_cluster.glb",
-	"moon_arch": "res://assets/reef_regions/moon_shell_arch.glb",
-	"moon_totem": "res://assets/reef_regions/moon_pearl_totem.glb",
-	"ice_crystals": "res://assets/reef_regions/ice_crystal_cluster.glb",
-	"ice_current": "res://assets/reef_regions/ice_current_fan.glb",
+const REGIONAL_COLORS := {
+	"wreck_shoulders": Color(0.38, 0.30, 0.25),
+	"kelp_arch": Color(0.26, 0.60, 0.45),
+	"kelp_lanterns": Color(0.88, 0.68, 0.32),
+	"moon_arch": Color(0.66, 0.48, 0.78),
+	"moon_totem": Color(0.78, 0.64, 0.90),
+	"ice_crystals": Color(0.48, 0.82, 1.0),
+	"ice_current": Color(0.42, 0.72, 0.94),
 }
 
 # The audit vocabulary for each district. Every region has at least three
@@ -284,24 +284,9 @@ func _kingdom_return_marker(kingdom: String, xz: Vector2) -> void:
 	m.flora_nodes.append(halo)
 
 func _regional_prop(kind: String, xz: Vector2, target: float, yrot: float, solid: bool) -> Node3D:
-	var path: String = REGIONAL_SCENES[kind]
-	if not ResourceLoader.exists(path):
+	if not REGIONAL_COLORS.has(kind):
 		return null
-	var packed: PackedScene = load(path)
-	if packed == null:
-		return null
-	var wrap := Node3D.new()
-	wrap.name = "Reef_region_%s" % kind
-	var model: Node3D = packed.instantiate()
-	m._fit_prop(model, target) # toonifies embedded matte region materials
-	wrap.add_child(model)
-	wrap.position = Vector3(xz.x, m.seabed_y(xz.x, xz.y), xz.y)
-	wrap.rotation.y = yrot
-	m.add_child(wrap)
-	m.flora_nodes.append(wrap)
-	if solid:
-		m._register_solid(wrap, 0.68, 1.0)
-	return wrap
+	return null
 
 func build_groves() -> void:
 	seed_cluster_centers()

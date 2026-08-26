@@ -29,6 +29,8 @@ func _init(main: ReefMain) -> void:
 	_build()
 
 func _build() -> void:
+	stars.clear()
+	shells.clear()
 	for sp in [Vector3(20.0, 0.0, 14.0), Vector3(-16.0, 0.0, -22.0)]:
 		var y: float = ReefMain.seabed_y(sp.x, sp.z) + 0.4
 		var n: Node3D = m._gen2_prop("starfish", Vector3(sp.x, y, sp.z), 2.6, randf() * TAU, 0.0)
@@ -47,6 +49,17 @@ func _build() -> void:
 		shells.append({"node": n, "mouth": Vector3(sp.x, y + 2.2, sp.z),
 			"sing_t": -1.0, "note_i": 0, "cool": 0.0, "halo": halo})
 
+func _props_need_rebuild() -> bool:
+	if stars.size() != 2 or shells.size() != 2:
+		return true
+	for star: Dictionary in stars:
+		if not is_instance_valid(star.get("node")):
+			return true
+	for shell: Dictionary in shells:
+		if not is_instance_valid(shell.get("node")):
+			return true
+	return false
+
 func is_carrying() -> bool:
 	for s in stars:
 		if String(s["state"]) == "held":
@@ -54,6 +67,8 @@ func is_carrying() -> bool:
 	return false
 
 func tick(delta: float, ppos: Vector3) -> void:
+	if _props_need_rebuild():
+		_build()
 	# ACTION edge — overlays and minigames own the button while they are up
 	var blocked: bool = m.get("wardrobe_layer") != null \
 		or m.get("stickers_layer") != null or m.get("craft_layer") != null \

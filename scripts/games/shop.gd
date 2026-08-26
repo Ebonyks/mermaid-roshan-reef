@@ -10,10 +10,8 @@ func _init(main: ReefMain) -> void:
 
 func _build_shop_cabin(origin: Vector3) -> void:
 	var f: float = m.ARENA_POS.y + 2.0
-	# A single authored open-front diorama replaces the repeated all-surface wood
-	# sheet. The broad floor/wall panels retain the cozy cabin role while giving
-	# the shop a distinct shell emblem, canopy, palette, and readable counter.
-	m._art35_prop("res://assets/art35/arena/shop_interior.glb", Vector3(origin.x, f - 0.5, origin.z), 1.0)
+	# Broad floor/wall panels retain the cozy cabin role with a lightweight
+	# procedural shell and readable counter.
 	# collision audit #4: the cabin walls were swim-through
 	m._wall_solid(Vector3(origin.x, f + 9.0, origin.z - 13.0), Vector3(34, 19, 1.2), 0.5)
 	m._wall_solid(Vector3(origin.x - 16.0, f + 9.0, origin.z + 2.0), Vector3(1.2, 19, 30), 0.5)
@@ -151,18 +149,20 @@ func _build_shop_cabin(origin: Vector3) -> void:
 		# a strip of sand so it reads "little home", not "specimen jar"
 		var sand := m._course_box(tpos + Vector3(0, -1.6, 0), Vector3(5.2, 0.35, 2.4), Color(0.93, 0.85, 0.6))
 		sand.material_override.roughness = 1.0
-		# the friend swimming inside — each species gets its own close-up idle:
-		# the turtle a full skeleton (fin strokes via _rig_turtle), the others
-		# a boosted sway so wing/jet/tail motion reads through the glass
-		var pet: Node3D = null
+		# the friend swimming inside — each species gets its own close-up idle.
+		# The layered card is shared across species, while the tank tick gives
+		# each card a readable swim/bob through the glass.
+		var pet: Node3D = m._make_creature_node("fish",
+			m.AQ_COLORS.get(String(ta["model"]), Color(0.4, 0.75, 0.7)),
+			m.AQ_COLORS.get(String(ta["model"]), Color(0.4, 0.75, 0.7)).lightened(0.2))
 		var trig := {}
-		if m.CREATURE_GEN2.has(String(ta["model"])):
-			pet = m._gen2_creature(String(m.CREATURE_GEN2[String(ta["model"])]), tpos + Vector3(0, -0.3, 0), 2.2)
 		if pet != null:
+			pet.position = tpos + Vector3(0, -0.3, 0)
+			m.add_child(pet)
 			m.game_nodes.append(pet)
 			if tid == "turtle":
 				trig = m._rig_turtle(pet, 2.4)
-				m._set_sway(pet, 0.02)   # the skeleton owns the motion now
+				m._set_sway(pet, 0.02)   # Sprite card motion is driven by the tank tick
 			elif tid == "stingray":
 				m._set_sway(pet, 0.22)
 			elif tid == "squid":

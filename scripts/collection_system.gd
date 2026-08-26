@@ -172,14 +172,10 @@ func _spawn_context(context: String) -> void:
 	for d: Dictionary in DEFS:
 		if String(d["context"]) != context:
 			continue
-		var path := "res://assets/collectibles/%s.glb" % String(d["id"])
-		var scene := load(path) as PackedScene
-		if scene == null:
-			push_warning("Critter asset missing: " + path)
-			continue
-		var node := scene.instantiate() as Node3D
-		if node == null:
-			continue
+		# Collection critters are represented by the existing marker label while
+		# retired 3D source resources are absent. The label remains a clear,
+		# animated, touch-target-sized collectible in the world.
+		var node := Label3D.new()
 		node.name = String(d["id"])
 		var scale_value: float = float(d["scale"])
 		node.scale = Vector3.ONE * scale_value
@@ -192,15 +188,14 @@ func _spawn_context(context: String) -> void:
 		node.position = base
 		root_node.add_child(node)
 
-		var marker := Label3D.new()
-		marker.text = "✦"
+		var marker = node
+		marker.text = CATEGORY_ICON.get(String(d["category"]), "✦")
 		marker.font_size = 150
 		marker.outline_size = 22
 		marker.modulate = Color(1.0, 0.88, 0.35, 0.9)
 		marker.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		marker.no_depth_test = true
 		marker.position = Vector3(0, 3.4 / scale_value, 0)
-		node.add_child(marker)
 		var star := Label3D.new()
 		star.text = "★"
 		star.font_size = 100
@@ -285,23 +280,9 @@ func _catch(id: String) -> void:
 
 
 func _sweep_net() -> void:
-	if m.player == null:
-		return
-	var scene := load("res://assets/collectibles/catch_net.glb") as PackedScene
-	if scene == null:
-		return
-	var net := scene.instantiate() as Node3D
-	if net == null:
-		return
-	net.position = m.player.position + Vector3(0, 2.0, 0)
-	net.rotation_degrees = Vector3(15, m.player.rotation_degrees.y, -55)
-	net.scale = Vector3.ONE * 1.5
-	m.add_child(net)
-	var tween := net.create_tween()
-	tween.tween_property(net, "rotation_degrees:z", 58.0, 0.36).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property(net, "position:y", net.position.y + 1.4, 0.36)
-	tween.tween_property(net, "scale", Vector3.ONE * 0.15, 0.20)
-	tween.tween_callback(net.queue_free)
+	# The visible catch marker and sparkle burst already communicate the action;
+	# the retired net source is intentionally omitted.
+	return
 
 
 func open_book() -> void:

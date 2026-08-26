@@ -1,40 +1,40 @@
 class_name DungeonArt
 extends RefCounted
 
-const ROOT := "res://assets/dungeon/"
-const EMBER_ROOT := "res://assets/ember_fortress/"
+const STORY_ART := preload("res://scripts/story_art.gd")
+
 const PATHS := {
-	"arena": ROOT + "dungeon_arena.glb",
-	"door": ROOT + "dungeon_door.glb",
-	"imp": ROOT + "mischief_imp.glb",
-	"boss": ROOT + "dragon_turtle.glb",
-	"basket": ROOT + "pepper_basket.glb",
-	"pepper_projectile": ROOT + "pepper_projectile.glb",
-	"ice_berry_projectile": ROOT + "ice_berry_projectile.glb",
-	"pedestal": ROOT + "crystal_pedestal.glb",
-	"lantern": ROOT + "pepper_lantern.glb",
-	"statue": ROOT + "turtle_statue.glb",
-	"stone": ROOT + "stepping_stone.glb",
-	"pictograms": ROOT + "dungeon_pictograms.glb",
+	"arena": "",
+	"door": "",
+	"imp": "",
+	"boss": "",
+	"basket": "",
+	"pepper_projectile": "",
+	"ice_berry_projectile": "",
+	"pedestal": "",
+	"lantern": "",
+	"statue": "",
+	"stone": "",
+	"pictograms": "",
 }
 
 const EMBER_PATHS := {
-	"arena": EMBER_ROOT + "ember_arena.glb",
-	"door": EMBER_ROOT + "ember_door.glb",
-	"imp": EMBER_ROOT + "ember_imp.glb",
-	"boss": EMBER_ROOT + "ember_boss.glb",
-	"basket": EMBER_ROOT + "ember_basket.glb",
-	"pepper_projectile": EMBER_ROOT + "ember_fire_projectile.glb",
-	"ice_berry_projectile": EMBER_ROOT + "ember_ice_projectile.glb",
-	"pedestal": EMBER_ROOT + "ember_pedestal.glb",
-	"lantern": EMBER_ROOT + "ember_dungeon_lantern.glb",
-	"statue": EMBER_ROOT + "ember_statue.glb",
-	"stone": EMBER_ROOT + "ember_stepping_stone.glb",
-	"pictograms": EMBER_ROOT + "ember_pictograms.glb",
-	"clue_plaque": EMBER_ROOT + "ember_clue_plaque.glb",
-	"direction_beak": EMBER_ROOT + "ember_direction_beak.glb",
-	"completion_spark": EMBER_ROOT + "ember_completion_spark.glb",
-	"pearl_target": EMBER_ROOT + "ember_pearl_target.glb",
+	"arena": "",
+	"door": "",
+	"imp": "",
+	"boss": "",
+	"basket": "",
+	"pepper_projectile": "",
+	"ice_berry_projectile": "",
+	"pedestal": "",
+	"lantern": "",
+	"statue": "",
+	"stone": "",
+	"pictograms": "",
+	"clue_plaque": "",
+	"direction_beak": "",
+	"completion_spark": "",
+	"pearl_target": "",
 }
 
 const PICTOGRAM_NODES := {
@@ -51,16 +51,113 @@ const PICTOGRAM_NODES := {
 	"pepper": "Pepper",
 }
 
+const FALLBACK_PART_ART := {
+	"DungeonArena": "res://assets/props/gen2/rock_largea_Image_0_flat.png",
+	"DungeonDoor": "res://assets/props/gen2/fanshell_Image_0_flat.png",
+	"ShellDoor": "res://assets/props/gen2/fanshell_Image_0_flat.png",
+	"Imp": "res://assets/sprites/dust_bunnies/dust_bunny_idle.png",
+	"Head": "res://assets/props/gen2/turtle_Image_0.jpg",
+	"Shell": "res://assets/props/gen2/spiralshell_Image_0_flat.png",
+	"Basket": "res://assets/props/gen2/sponge_barrel_Image_0_flat.png",
+	"Projectile": "res://assets/props/story/flower_coral.png",
+	"CrystalPedestal": "res://assets/art35/cards/style3/crystal_facet_crystal_facet.png",
+	"Lantern": "res://assets/props/gen2/sponge_tubes_Image_0_flat.png",
+	"Glow": "res://assets/art35/cards/mg/star_star.png",
+	"Statue": "res://assets/props/gen2/turtle_Image_0.jpg",
+	"Stone": "res://assets/props/gen2/rock3_Image_0_flat.png",
+	"CluePlaque": "res://assets/props/gen2/rock2_Image_0_flat.png",
+	"Beak": "res://assets/art35/cards/mg/carrot_carrot.png",
+	"Spark": "res://assets/art35/cards/mg/star_star.png",
+	"Pearl": "res://assets/props/gen2/sanddollar_Image_0_flat.png",
+	"Diamond": "res://assets/art35/cards/style3/crystal_facet_crystal_facet.png",
+	"Orb": "res://assets/props/gen2/sanddollar_Image_0_flat.png",
+	"Triangle": "res://assets/art35/cards/mg/k_pine_k_pine.png",
+	"Ice": "res://assets/art35/cards/mg/snowman_snowman.png",
+	"Flame": "res://assets/art35/cards/mg/sun_sun.png",
+	"Moon": "res://assets/props/gen2/smallfanshell_Image_0_flat.png",
+	"Star": "res://assets/props/gen2/starfish_decal.png",
+	"Question": "res://assets/art35/cards/mg/sprout_sprout.png",
+	"Left": "res://assets/props/story/leaf_fern.png",
+	"Right": "res://assets/props/story/leaf_broad.png",
+	"Pepper": "res://assets/props/story/fruit_apple.png",
+}
+
+const FALLBACK_ROLE_SIZE := {
+	"arena": 24.0,
+	"door": 8.0,
+	"imp": 3.2,
+	"boss": 7.0,
+	"basket": 3.0,
+	"pepper_projectile": 1.2,
+	"ice_berry_projectile": 1.2,
+	"pedestal": 3.5,
+	"lantern": 3.0,
+	"statue": 5.0,
+	"stone": 4.0,
+	"pictograms": 2.0,
+	"clue_plaque": 5.0,
+	"direction_beak": 2.0,
+	"completion_spark": 1.4,
+	"pearl_target": 2.5,
+}
+
 static func spawn(role: String, parent: Node3D, position: Vector3 = Vector3.ZERO, theme: String = "") -> Node3D:
 	var role_paths: Dictionary = EMBER_PATHS if theme == "ember" else PATHS
 	var path: String = String(role_paths.get(role, ""))
-	var scene: PackedScene = load(path) as PackedScene
+	var scene: PackedScene = null
+	if path != "":
+		scene = load(path) as PackedScene
 	if scene == null:
-		push_error("Dungeon art role could not be loaded: %s (%s)" % [role, path])
+		if path != "":
+			push_error("Dungeon art role could not be loaded: %s (%s)" % [role, path])
 		var missing := Node3D.new()
 		missing.name = "MissingDungeonArt_%s" % role
 		missing.position = position
 		parent.add_child(missing)
+		# Retired model roles keep distinct, readable cards so the spatial
+		# puzzles remain playable while their full Canvas2D conversion proceeds.
+		var fallback_parts: Array[String] = []
+		match role:
+			"arena":
+				fallback_parts = ["EmberArena" if theme == "ember" else "DungeonArena"]
+			"door":
+				fallback_parts = ["DungeonDoor", "ShellDoor"]
+			"imp":
+				fallback_parts = ["Imp"]
+			"boss":
+				fallback_parts = ["Head", "Shell"]
+			"basket":
+				fallback_parts = ["Basket"]
+			"pepper_projectile", "ice_berry_projectile":
+				fallback_parts = ["Projectile"]
+			"pedestal":
+				fallback_parts = ["CrystalPedestal"]
+			"lantern":
+				fallback_parts = ["Lantern", "Glow"]
+			"statue":
+				fallback_parts = ["Statue"]
+			"stone":
+				fallback_parts = ["Stone"]
+			"pictograms":
+				fallback_parts.assign(PICTOGRAM_NODES.values())
+			"clue_plaque":
+				fallback_parts = ["CluePlaque"]
+			"direction_beak":
+				fallback_parts = ["Beak"]
+			"completion_spark":
+				fallback_parts = ["Spark"]
+			"pearl_target":
+				fallback_parts = ["Pearl"]
+		for part_name: String in fallback_parts:
+			var art_key: String = "DungeonArena" if part_name == "EmberArena" else part_name
+			var art_path: String = String(FALLBACK_PART_ART.get(art_key,
+				"res://assets/props/story/flower_lavender.png"))
+			var fallback_size: float = float(FALLBACK_ROLE_SIZE.get(role, 2.0))
+			var part := STORY_ART.crossed_card(art_path, fallback_size)
+			part.name = part_name
+			for surface: Node in part.get_children():
+				surface.name = "Tint_Fallback"
+			missing.add_child(part)
 		return missing
 	var node: Node3D = scene.instantiate() as Node3D
 	node.position = position

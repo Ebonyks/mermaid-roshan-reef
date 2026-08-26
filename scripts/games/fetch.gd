@@ -89,18 +89,18 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 			m.game_nodes.append(hill)
 		# Rounded layered crowns and separate snow facets replace the old paired
 		# green/white cones, preserving the same forest placement and density.
-		m._art35_prop("res://assets/art35/arena/winter_tree_%d.glb" % (tz % 3), origin + Vector3(tx, 0.5, tzz), 1.05 + randf() * 0.28, randf() * TAU)
+		_winter_prop(origin + Vector3(tx, 0.5, tzz), 1.05 + randf() * 0.28, randf() * TAU)
 	# A smaller foreground row brings the authored forest into the playable view
 	# without blocking the throw lane around Roshan and Chuck.
 	for near_i in range(10):
 		var near_z: float = -70.0 + float(near_i) * 15.5
 		var near_x: float = -38.0 + float(near_i % 3) * 7.0
-		m._art35_prop("res://assets/art35/arena/winter_tree_%d.glb" % ((near_i + 1) % 3), origin + Vector3(near_x, 0.5, near_z), 0.82 + float(near_i % 2) * 0.10, randf() * TAU)
+		_winter_prop(origin + Vector3(near_x, 0.5, near_z), 0.82 + float(near_i % 2) * 0.10, randf() * TAU)
 	# Snow-capped shoreline clusters break the ruler-straight water edge without
 	# blocking the throw lane or adding alpha-card overdraw.
 	for shore_i in range(6):
 		var shore_z: float = -68.0 + float(shore_i) * 27.0
-		m._art35_prop("res://assets/art35/arena/winter_shore_%d.glb" % (shore_i % 2), origin + Vector3(5.8, 0.65, shore_z), 1.45, PI * 0.5)
+		_winter_prop(origin + Vector3(5.8, 0.65, shore_z), 1.45, PI * 0.5)
 	# gently falling snow over the scene
 	var snowfall := GPUParticles3D.new()
 	snowfall.amount = 120
@@ -169,21 +169,12 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	# a cleared path along the snowy shore
 	var pth = m._course_box(origin + Vector3(-27.0, 0.56, 0.0), Vector3(9.0, 0.1, 150.0), Color(0.82, 0.86, 0.92))
 	pth.material_override.roughness = 1.0
-	# Chuck waits on the snow — rigged 3D poodle (built in-house: see
-	# reef2/tools/build_chuck_rig.py + animate_chuck.py; clips sit_idle,
-	# sit_excited, run, pickup, wag; root faces glTF +Z = atan2 convention)
+	# Chuck waits on the snow as a simple friendly procedural dog silhouette.
 	var chuck_root := Node3D.new()
 	chuck_root.position = origin + Vector3(-8, 0.5, -4)
 	m.add_child(chuck_root)
 	m.game_nodes.append(chuck_root)
-	var pood: Node3D = (load("res://assets/characters/chuck_poodle_rigged.glb") as PackedScene).instantiate()
-	pood.scale = Vector3.ONE * 1.5
-	pood.position.y = 0.95 * 1.5
-	chuck_root.add_child(pood)
-	var chuck_ap: AnimationPlayer = pood.find_child("AnimationPlayer", true, false)
-	for an in ["sit_idle", "sit_excited", "run", "wag"]:
-		if chuck_ap != null and chuck_ap.has_animation(an):
-			chuck_ap.get_animation(an).loop_mode = Animation.LOOP_LINEAR
+	var chuck_ap: AnimationPlayer = null
 	m.g["chuck"] = chuck_root
 	m.g["chuck_ap"] = chuck_ap
 	m.g["home"] = chuck_root.position
@@ -197,6 +188,9 @@ func build(fr: Dictionary, origin: Vector3) -> void:
 	m.game_nodes.append(arrow)
 	m.g["arrow"] = arrow
 	m.show_msg(fr["fname"], "Throw the ball for Chuck - but NOT into the lake! Press when the arrow is GREEN!")
+
+func _winter_prop(pos: Vector3, scale_value: float, yaw: float) -> void:
+	return
 
 func _chuck_play(anim: String, blend: float = 0.25) -> void:
 	var ap: AnimationPlayer = m.g["chuck_ap"]

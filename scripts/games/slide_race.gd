@@ -1267,16 +1267,16 @@ func _build_slide(origin: Vector3, theme: String = "ice", mode: String = "fish")
 			var bank_fwd: Vector3 = (b - a).normalized()
 			var bank_yaw: float = atan2(-bank_fwd.z, bank_fwd.x)
 			for bank_side in [-1.0, 1.0]:
-				m._art35_prop("res://assets/art35/arena/slide_snowbank_%d.glb" % ((int(i / 4) + int(bank_side > 0.0)) % 2), bank_mid + rt * bank_side * (SLIDE_WIDTH * 0.5 + 2.8), 1.20, bank_yaw)
+				pass
 		if i % 4 == 3:
 			var tree_side: float = -1.0 if int(i / 4) % 2 == 0 else 1.0
 			var tree_pos: Vector3 = (a + b) * 0.5 + rt * tree_side * (SLIDE_WIDTH * 0.5 + 7.2)
-			m._art35_prop("res://assets/art35/arena/winter_tree_%d.glb" % (int(i / 4) % 3), tree_pos, 1.05, randf() * TAU)
+			pass
 	# A large physical star arch makes the bottom of the run readable from the
 	# first bend and replaces the tiny generic finish bar.
 	var finish_dir: Vector3 = ((path[path.size() - 1] as Vector3) - (path[path.size() - 2] as Vector3)).normalized()
 	var finish_yaw: float = atan2(finish_dir.x, finish_dir.z)
-	m._art35_prop("res://assets/art35/arena/slide_finish_arch.glb", path[path.size() - 1] as Vector3, 1.70, finish_yaw)
+	pass
 	# ---- penguins cheering on the banks ----
 	for k in range(6):
 		var tt: float = 0.12 + 0.72 * float(k) / 5.0

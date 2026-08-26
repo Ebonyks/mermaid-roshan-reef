@@ -128,14 +128,16 @@ func _init() -> void:
 			for key in spec.keys():
 				var oname := String(key)
 				var states: Array = spec[key]
-				var rel := "assets/opera/jobs/%s/opera_%s_%s.glb" % [dir_name, dir_name, oname]
-				var have := ResourceLoader.exists("res://" + rel)
-				if not have:
-					total_missing += 1
+				# Opera object art is now authored as Canvas assets by the runtime.
+				# The retired 3D job outputs deliberately have no replacement path here.
+				var rel := ""
+				var have := false
+				total_missing += 1
 				objs[oname] = {
 					"states": states,
 					"path": rel,
 					"exists": have,
+					"medium": "canvas_2d",
 				}
 				total_objects += 1
 				total_states += states.size()

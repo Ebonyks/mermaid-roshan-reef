@@ -312,7 +312,8 @@ func _build_pepper_boss() -> void:
 	var first_time := float(encounter.get("shell_time", 4.5)) if kind == "dual" else float(encounter.get("peek_time", 4.5))
 	boss = {"node": root, "head": head, "shell": shell, "hp": int(encounter.get("boss_hp", 7)), "phase": first_phase, "timer": first_time, "attack": 1.2, "pos": root.position, "aim_h": 3.0, "screen_radius": 170.0}
 	if kind == "dual":
-		head.visible = false
+		if head != null:
+			head.visible = false
 
 func _move_input() -> Vector2:
 	var value := Vector2.ZERO
@@ -814,7 +815,8 @@ func _tick_boss(delta: float) -> void:
 	boss["attack"] = float(boss["attack"]) - delta
 	var phase: String = boss["phase"]
 	if phase == "peek":
-		(boss["head"] as Node3D).visible = true
+		if boss.get("head", null) != null:
+			(boss["head"] as Node3D).visible = true
 		root.rotation.y = sin(elapsed * 1.4) * 0.18
 		if float(boss["attack"]) <= 0.0:
 			boss["attack"] = float(encounter.get("attack_gap", 1.25))
@@ -829,7 +831,8 @@ func _tick_boss(delta: float) -> void:
 			boss["timer"] = float(encounter.get("shell_time", 2.8))
 			boss["attack"] = 0.8
 	else:
-		(boss["head"] as Node3D).visible = false
+		if boss.get("head", null) != null:
+			(boss["head"] as Node3D).visible = false
 		root.rotate_y(delta * 6.0)
 		var pos: Vector3 = boss["pos"]
 		var chase: Vector3 = player_pos - pos

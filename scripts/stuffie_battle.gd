@@ -22,14 +22,13 @@ const RADIUS := 27.0
 # CAPTURE ROUNDS (owner 2026-07-20, the core collection loop): a round with an
 # "award" is a boss STUFFIE — befriending it takes it HOME to the Stuffie Den
 # where it becomes a carryable companion for future missions. Future toys
-# (photo-scanned via the Meshy pipeline) are one roster entry + one award
+# Future toys are one roster entry + one award
 # round away.
 const LADDER := [
 	{"tag": "round1", "imps": 2, "hp": 2, "attack_gap": 4.6, "telegraph": 2.4, "layout": "ring"},
 	{"tag": "round2", "imps": 3, "hp": 2, "attack_gap": 3.8, "telegraph": 2.2, "layout": "double"},
 	{"tag": "round3", "imps": 0, "boss": true, "hp": 5, "attack_gap": 3.4, "telegraph": 2.0},
 	{"tag": "boss_lamma", "imps": 0, "boss": true, "hp": 6, "attack_gap": 3.2, "telegraph": 2.0,
-		"boss_model": "res://assets/characters/lamb.glb", "boss_scale": 3.6,
 		"award": "lamma", "award_name": "Lamb-a'"},
 ]
 
@@ -244,20 +243,10 @@ func _build_imps() -> void:
 			"ai": mind, "pose": "prowl"})
 
 func _build_boss() -> void:
-	# a FRIENDLY sparring boss: capture rounds bring a real stuffie model
-	# (Lamb-a' first); otherwise the dragon-turtle comes back for a rematch
-	var root: Node3D = null
-	if round_cfg.has("boss_model"):
-		var ps: PackedScene = load(String(round_cfg["boss_model"]))
-		if ps != null:
-			root = ps.instantiate() as Node3D
-			if root != null:
-				root.scale = Vector3.ONE * float(round_cfg.get("boss_scale", 3.0))
-				root.position = CENTER + Vector3(0, 1.0, -10.0)
-				add_child(root)
-	if root == null:
-		root = DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
-		root.scale = Vector3.ONE * 1.2
+	# A friendly procedural sparring boss keeps the capture round independent
+	# of external model resources.
+	var root: Node3D = DungeonArt.spawn("boss", self, CENTER + Vector3(0, 1.0, -10.0))
+	root.scale = Vector3.ONE * 1.2
 	var boss_mind: Dictionary = imp_brain.spawn_mind(0, true)
 	boss_mind["pos"] = Vector2(root.position.x - CENTER.x, root.position.z - CENTER.z)
 	enemies.append({"node": root, "pos": root.position, "state": "active", "hp": int(round_cfg.get("hp", 5)),

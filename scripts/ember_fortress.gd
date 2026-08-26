@@ -1,6 +1,7 @@
 extends Node3D
 class_name EmberFortressLevel
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const STORY_ART := preload("res://scripts/story_art.gd")
 
 # ============================================================================
 # THE EMBER FORTRESS — the Volcanic Throne Planet. A later-game "scary" world:
@@ -42,23 +43,51 @@ const TURN_SPD := 2.4
 const LANTERNS := 5
 const GATE_DIR := Vector3(0.0, 0.92, 0.4)      # the Great Gate, on the fortress hill's south face
 const KING_DIR := Vector3(0.26, 0.96, 0.10)    # the Ember King watches beside the gate, clear of its approach
-const ART_ROOT := "res://assets/ember_fortress/"
-const PLANET_GLB := ART_ROOT + "ember_planet.glb"
-const CRYSTALS := [ART_ROOT + "ember_crystal_a.glb", ART_ROOT + "ember_crystal_b.glb", ART_ROOT + "ember_crystal_c.glb"]
-const CRAGS := [ART_ROOT + "ember_crag_a.glb", ART_ROOT + "ember_crag_b.glb", ART_ROOT + "ember_crag_c.glb"]
-const TOWER_GLBS := [ART_ROOT + "ember_tower_a.glb", ART_ROOT + "ember_tower_b.glb", ART_ROOT + "ember_tower_c.glb", ART_ROOT + "ember_tower_d.glb"]
-const GATE_GLB := ART_ROOT + "ember_great_gate.glb"
-const GATE_VEIL_GLB := ART_ROOT + "ember_gate_veil.glb"
-const LANTERN_GLB := ART_ROOT + "ember_lantern.glb"
-const FLAME_GLB := ART_ROOT + "ember_flame.glb"
-const BEACON_GLB := ART_ROOT + "ember_beacon.glb"
-const GEYSER_GLB := ART_ROOT + "ember_geyser.glb"
-const KING_GLB := ART_ROOT + "ember_king.glb"
-const STATUE_GLB := ART_ROOT + "ember_sentry.glb"
-const WALL_GLB := ART_ROOT + "ember_rampart.glb"
-const FLAG_GLB := ART_ROOT + "ember_flag.glb"
-const MOON_GLB := ART_ROOT + "ember_ash_moon.glb"
-const HOME_RING_GLB := ART_ROOT + "ember_home_ring.glb"
+const PLANET_GLB := ""
+const CRYSTALS := ["crystal", "crystal", "crystal"]
+const CRAGS := ["crag", "crag", "crag"]
+const TOWER_GLBS := ["tower", "tower", "tower", "tower"]
+const GATE_GLB := "gate"
+const GATE_VEIL_GLB := "gate_veil"
+const LANTERN_GLB := "lantern"
+const FLAME_GLB := "flame"
+const BEACON_GLB := "beacon"
+const GEYSER_GLB := "geyser"
+const KING_GLB := "king"
+const STATUE_GLB := "statue"
+const WALL_GLB := "wall"
+const FLAG_GLB := "flag"
+const MOON_GLB := "moon"
+const HOME_RING_GLB := "home_ring"
+const FALLBACK_ART := {
+	"crystal": "res://assets/art35/cards/style3/crystal_facet_crystal_facet.png",
+	"crag": "res://assets/props/gen2/rock_largea_Image_0_flat.png",
+	"tower": "res://assets/art35/cards/mg/k_pine_k_pine.png",
+	"gate": "res://assets/props/gen2/fanshell_Image_0_flat.png",
+	"gate_veil": "res://assets/art35/cards/mg/sun_sun.png",
+	"lantern": "res://assets/props/gen2/sponge_tubes_Image_0_flat.png",
+	"flame": "res://assets/props/story/flower_coral.png",
+	"beacon": "res://assets/art35/cards/mg/star_star.png",
+	"geyser": "res://assets/props/gen2/sponge_tubes_Image_0_flat.png",
+	"king": "res://assets/props/gen2/turtle_Image_0.jpg",
+	"statue": "res://assets/props/gen2/turtle_Image_0.jpg",
+	"wall": "res://assets/props/gen2/rock2_Image_0_flat.png",
+	"flag": "res://assets/props/story/leaf_spear.png",
+	"moon": "res://assets/props/gen2/sanddollar_Image_0_flat.png",
+	"home_ring": "res://assets/art35/cards/mg/rainbow_swatch_rainbow_swatch.png",
+}
+const FALLBACK_NODE_NAMES := {
+	"flame": "Flame",
+	"geyser": "FriendlyGeyserFlame",
+	"gate": "GreatGate",
+	"gate_veil": "GateVeil",
+	"lantern": "Lantern",
+	"beacon": "Beacon",
+	"king": "EmberKing",
+	"statue": "Sentry",
+	"moon": "AshMoon",
+	"home_ring": "HomeRing",
+}
 # lantern spots dodge the two lava-river latitude bands (see _lava_mix)
 const LANTERN_DIRS := [
 	Vector3(0.6, 0.55, 0.58), Vector3(-0.8, 0.05, 0.6), Vector3(0.75, -0.05, -0.66),
@@ -280,6 +309,7 @@ func _build_planet() -> void:
 		return
 	push_warning("Ember planet kit missing; using the procedural safety fallback")
 	var planet := MeshInstance3D.new()
+	planet.name = "EmberPlanet"
 	var pm := SphereMesh.new()
 	pm.radius = PLANET_R
 	pm.height = PLANET_R * 2.0
@@ -533,19 +563,23 @@ func _make_ash_moon_mesh() -> ArrayMesh:
 	return st.commit()
 
 func _authored_prop(path: String, parent: Node3D, pos: Vector3, target_long: float, yaw: float = 0.0) -> Node3D:
-	if not ResourceLoader.exists(path):
-		return null
-	var packed: PackedScene = load(path) as PackedScene
-	if packed == null:
-		return null
 	var holder := Node3D.new()
-	var model: Node3D = packed.instantiate() as Node3D
+	var model: Node3D = null
+	if ResourceLoader.exists(path):
+		var packed: PackedScene = load(path) as PackedScene
+		if packed != null:
+			model = packed.instantiate() as Node3D
+	elif FALLBACK_ART.has(path):
+		model = STORY_ART.crossed_card(String(FALLBACK_ART[path]), target_long)
+		model.name = String(FALLBACK_NODE_NAMES.get(path, path.capitalize()))
+		holder.name = "EmberCard_%s" % path
 	if model == null:
 		holder.free()
 		return null
 	holder.add_child(model)
 	parent.add_child(holder)
-	_fit_small(model, target_long)
+	if ResourceLoader.exists(path):
+		_fit_small(model, target_long)
 	holder.position = pos
 	holder.rotation.y = yaw
 	return holder

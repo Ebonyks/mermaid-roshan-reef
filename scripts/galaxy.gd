@@ -32,24 +32,18 @@ const JUMP_V := 17.0
 const RUN_SPD := 13.5
 const TURN_SPD := 2.4
 const SHARDS := 7
-const CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
 const FLORA := ["flower_purpleA", "flower_redA", "flower_yellowB", "mushroom_red", "mushroom_tanGroup"]
 # tropical foliage (palms, monstera, ferns, big leaves) — the butterfly house
 # is a greenhouse full of tropical plants, not a pine forest
 const TROPICAL := ["trop_palm1", "trop_palm2", "trop_monstera", "trop_bigleaf",
 	"trop_fern", "plant_bush", "grass_leafsLarge"]
-const CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
 const GATE_DIR := Vector3(0.55, 0.84, 0.16)   # separated from the north-pole crystal silhouette
 const FOUNTAIN_DIR := Vector3(-0.2, 0.35, 0.9)   # the Fairy Fountain (launches the fairy flight)
 const HALL_C := Vector3(0.0, 9300.0, 0.0)   # the Star Hall floats high above the planet
-const BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
-const BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
 const FRUIT_ROLES := ["apple", "banana", "orange", "melon"]
-const TRAY_GLB := "res://assets/galaxy/tray.glb"
 # butterfly wing palettes — "all the colours and styles" from the butterfly-house photo
 const WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
 const BUG_ROLES := ["beetle", "ladybug"]
-const CORALS := ["res://assets/props/gen2/coral1.glb", "res://assets/props/gen2/coral2.glb", "res://assets/props/gen2/coral3.glb", "res://assets/props/gen2/coral4.glb", "res://assets/props/gen2/coral5.glb", "res://assets/props/gen2/coral6.glb"]
 
 var _main: Node = null
 var _player_node: Node3D = null
@@ -496,14 +490,6 @@ func _authored_prop(path: String, parent: Node3D, pos: Vector3, target_long: flo
 
 func _make_butterfly(tint: Color, wingspan: float) -> Node3D:
 	var holder := Node3D.new()
-	if ResourceLoader.exists(BUTTERFLY_STORY_GLB):
-		var story: Node3D = (load(BUTTERFLY_STORY_GLB) as PackedScene).instantiate()
-		holder.add_child(story)
-		_fit_small(story, wingspan)
-		_tint_meshes(story, tint, 0.14)
-		holder.set_meta("wing_l", story.find_child("wing_L", true, false))
-		holder.set_meta("wing_r", story.find_child("wing_R", true, false))
-		return holder
 	var card_path := "res://assets/props/gen2/butterfly%d.png" % (1 + randi() % 2)
 	if ResourceLoader.exists(card_path):
 		var tex: Texture2D = load(card_path)
@@ -514,22 +500,15 @@ func _make_butterfly(tint: Color, wingspan: float) -> Node3D:
 		card.modulate = Color.WHITE.lerp(tint, 0.28)
 		holder.add_child(card)
 		return holder
-	var path: String = BUTTERFLY_GLBS[randi() % BUTTERFLY_GLBS.size()]
-	if ResourceLoader.exists(path):
-		var bf: Node3D = (load(path) as PackedScene).instantiate()
-		holder.add_child(bf)
-		_fit_small(bf, wingspan)
-		_tint_meshes(bf, tint, 0.25)
-	else:
-		var q := MeshInstance3D.new()
-		var qm := QuadMesh.new()
-		qm.size = Vector2(wingspan, wingspan * 0.7)
-		q.mesh = qm
-		var m := StandardMaterial3D.new()
-		m.albedo_color = tint
-		m.cull_mode = BaseMaterial3D.CULL_DISABLED
-		q.material_override = m
-		holder.add_child(q)
+	var q := MeshInstance3D.new()
+	var qm := QuadMesh.new()
+	qm.size = Vector2(wingspan, wingspan * 0.7)
+	q.mesh = qm
+	var m := StandardMaterial3D.new()
+	m.albedo_color = tint
+	m.cull_mode = BaseMaterial3D.CULL_DISABLED
+	q.material_override = m
+	holder.add_child(q)
 	return holder
 
 # ---------------------------------------------------------------- decor
@@ -574,25 +553,13 @@ func _build_decor() -> void:
 		_blockers.append({"dir": tdir, "r": 1.6, "cool": 0.0})   # pedestal rock is solid (feast trigger fires at 4.5)
 		var th := Node3D.new()
 		add_child(th)
-		if ResourceLoader.exists("res://assets/props/gen2/rock2.glb"):
-			var ped: Node3D = (load("res://assets/props/gen2/rock2.glb") as PackedScene).instantiate()
-			var ph2 := Node3D.new()
-			th.add_child(ph2)
-			ph2.add_child(ped)
-			_fit_small(ped, 3.6)
-			ph2.position = Vector3(0, -0.4, 0)
-		if ResourceLoader.exists(TRAY_GLB):
-			var tray_n: Node3D = (load(TRAY_GLB) as PackedScene).instantiate()
-			th.add_child(tray_n)
-			_fit_small(tray_n, 4.2)
-		else:
-			var cyl := MeshInstance3D.new()
-			var cm := CylinderMesh.new()
-			cm.top_radius = 2.1
-			cm.bottom_radius = 2.1
-			cm.height = 0.5
-			cyl.mesh = cm
-			th.add_child(cyl)
+		var cyl := MeshInstance3D.new()
+		var cm := CylinderMesh.new()
+		cm.top_radius = 2.1
+		cm.bottom_radius = 2.1
+		cm.height = 0.5
+		cyl.mesh = cm
+		th.add_child(cyl)
 		for fi in range(3):
 			var fruit_role: String = FRUIT_ROLES[(ti + fi) % FRUIT_ROLES.size()]
 			var fr: Node3D = StoryArtFactory.fruit(fruit_role, 1.5)
@@ -623,11 +590,6 @@ func _build_decor() -> void:
 	# flanked by two of the old crystals — Mermaid Rosalina watches over it
 	var castle := Node3D.new()
 	add_child(castle)
-	if ResourceLoader.exists(CASTLE_GLB):
-		var ck: Node3D = (load(CASTLE_GLB) as PackedScene).instantiate()
-		castle.add_child(ck)
-		_fit_small(ck, 28.0)   # landmark scale leaves the authored gate legible nearby
-		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.84, 0.80, 0.92))
 	_blockers.append({"dir": Vector3.UP, "r": 8.0, "cool": 0.0})
 	_place_on_planet(castle, Vector3.UP)
 	# sunk: a 30-wide base on a 42-radius sphere must sit BELOW the tangent
@@ -1171,8 +1133,12 @@ func _process(delta: float) -> void:
 		var vel2: Vector3 = newp - bn.position
 		bn.position = newp
 		_safe_look(bn, vel2, pdir)
-		var wing_l: Node3D = bn.get_meta("wing_l", null) as Node3D
-		var wing_r: Node3D = bn.get_meta("wing_r", null) as Node3D
+		var wing_l: Node3D = null
+		var wing_r: Node3D = null
+		if bn.has_meta("wing_l"):
+			wing_l = bn.get_meta("wing_l") as Node3D
+		if bn.has_meta("wing_r"):
+			wing_r = bn.get_meta("wing_r") as Node3D
 		if wing_l != null and wing_r != null:
 			var flap_angle := deg_to_rad(12.0 - 54.0 * absf(sin(tt * float(fd["flap"]))))
 			wing_l.rotation.y = flap_angle
@@ -1455,23 +1421,6 @@ func _build_hall() -> void:
 		wp.position = Vector3(sin(pa) * 25.0, 6.5, cos(pa) * 25.0)
 		wp.rotation.y = pa
 		_hall_root.add_child(wp)
-	# crystal columns
-	for i in range(6):
-		# Column five occupied the direct child-height sightline from the hall
-		# entrance to the ice arch. Keep that objective visibly distinct.
-		if i == 5:
-			continue
-		var cpath: String = CRYSTALS[i % CRYSTALS.size()]
-		if not ResourceLoader.exists(cpath):
-			continue
-		var col: Node3D = (load(cpath) as PackedScene).instantiate()
-		var chh := Node3D.new()
-		_hall_root.add_child(chh)
-		chh.add_child(col)
-		_fit_small(col, 3.4)
-		var ca: float = float(i) / 6.0 * TAU + 0.26
-		chh.position = Vector3(sin(ca) * 18.0, 0.5, cos(ca) * 18.0)
-		StoryArtFactory.apply_triplanar(col, "res://assets/terrain/up_crystal_col.png", 0.16)
 	# star chandeliers
 	for i in range(3):
 		var star: Node3D = LandmarkArtFactory.create_star(2.2, [Color(1.0, 0.76, 0.3), Color(0.45, 0.86, 0.82), Color(0.74, 0.58, 0.94)][i])
@@ -1484,9 +1433,7 @@ func _build_hall() -> void:
 		sl.position = star.position
 		_gate_light(sl)
 		_hall_root.add_child(sl)
-	# The Moon Throne now has a shell-back silhouette and a real seat instead
-	# of a single glowing sphere.
-	_authored_prop("res://assets/art35/galaxy/shell_throne.glb", _hall_root, Vector3(0, 0.5, -20.0), 10.0, PI)
+	# The Moon Throne keeps its existing 2D mermaid silhouette and seat space.
 	if ResourceLoader.exists("res://assets/characters/skins/fairy_mermaid.png"):
 		var rosa2 := Sprite3D.new()
 		var rtex2: Texture2D = load("res://assets/characters/skins/fairy_mermaid.png")
@@ -1495,14 +1442,16 @@ func _build_hall() -> void:
 		rosa2.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		rosa2.position = Vector3(0, 5.6, -20.0)
 		_hall_root.add_child(rosa2)
-	# Three authored hanging stars remain independent touch targets.
+	# Three hanging stars remain independent touch targets.
 	for i in range(3):
 		var bpos := Vector3(14.0, 2.2, -6.0 + float(i) * 6.0)
-		var bell: Node3D = _authored_prop("res://assets/art35/galaxy/star_bell_%d.glb" % i, _hall_root, bpos, 4.8)
+		var bell: Node3D = LandmarkArtFactory.create_star(1.6, [Color(1.0, 0.76, 0.3), Color(0.45, 0.86, 0.82), Color(0.74, 0.58, 0.94)][i])
+		bell.position = bpos
+		_hall_root.add_child(bell)
 		_bells.append({"node": bell, "pos": HALL_C + bpos, "cool": 0.0, "pitch": 0.7 + float(i) * 0.18})
 	# The wish fountain and garden doorway communicate through their physical
 	# silhouettes; no reading-dependent floating labels remain.
-	_authored_prop("res://assets/art35/galaxy/wish_fountain.glb", _hall_root, Vector3(-14.0, 0.5, -2.0), 7.5)
+	# The fountain interaction remains represented by the existing hall layout.
 	var garden_gate: Node3D = LandmarkArtFactory.create_butterfly_gate(3.3)
 	garden_gate.position = Vector3(0, 4.2, 24.6)
 	_hall_root.add_child(garden_gate)
@@ -1604,7 +1553,6 @@ func _build_ice_gate() -> void:
 	_ice_gate = Node3D.new()
 	_ice_gate.position = Vector3(-16.0, 0.8, 8.0)
 	_hall_root.add_child(_ice_gate)
-	_authored_prop("res://assets/art35/galaxy/ice_gate.glb", _ice_gate, Vector3.ZERO, 8.5)
 
 func _enter_hall() -> void:
 	if not _hall_built:

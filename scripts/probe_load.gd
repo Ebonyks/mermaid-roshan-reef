@@ -60,18 +60,19 @@ func _init() -> void:
 		print("crafted fish restored: ", crafted)
 	# a released tank friend must survive a relaunch (same build-before-load trap)
 	var pets := 0
-	var rigged := 0
+	var visible := 0
 	for mv in main.aquatic_movers:
 		if String(mv.get("shop_pet", "")) == "turtle":
 			pets += 1
-			if mv.has("rig"):
-				rigged += 1
+			var pet_node = mv.get("node", null)
+			if pet_node != null and is_instance_valid(pet_node):
+				visible += 1
 	if pets < 1:
 		print("FAIL: shop animal missing after reload (animals.turtle in save, none swimming)")
-	elif rigged < pets:
-		print("FAIL: reloaded shop turtle missing its flipper skeleton (%d/%d rigged)" % [rigged, pets])
+	elif visible < pets:
+		print("FAIL: reloaded shop turtle missing its display card (%d/%d visible)" % [visible, pets])
 	else:
-		print("shop animals restored: ", pets, " (all rigged)")
+		print("shop animals restored: ", pets, " (all display cards)")
 	if not bool(main.critter_collection.get("coral_clownfish", false)):
 		print("FAIL: Critter Book discovery missing after reload")
 	else:

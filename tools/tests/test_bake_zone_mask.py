@@ -14,14 +14,17 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class BabyEagleZoneMaskTests(unittest.TestCase):
-	def test_rig_exposes_anatomical_signals(self) -> None:
-		mesh = bake_zone_mask.load_mesh(
-			ROOT / "assets" / "props" / "gen2" / "craft_birdie_rigged.glb"
-		)
-		self.assertTrue({"wingL", "wingL2", "wingR", "wingR2"}.issubset(mesh.joint_names))
-		self.assertTrue({"legL", "footL", "legR", "footR"}.issubset(mesh.joint_names))
-		self.assertIsNotNone(mesh.albedo)
-		self.assertEqual(mesh.albedo.shape, (1024, 1024, 3))
+	def test_shipped_birdie_atlas_exposes_anatomical_signals(self) -> None:
+		base_path = ROOT / "assets" / "props" / "gen2" / "craft_birdie_base_color.jpg"
+		mask_path = ROOT / "assets" / "props" / "gen2" / "craft_birdie_mask.png"
+		with Image.open(base_path) as source:
+			base = np.asarray(source.convert("RGB"))
+		self.assertEqual(base.shape, (1024, 1024, 3))
+		with Image.open(mask_path) as source:
+			mask = np.asarray(source.convert("RGB"))
+		self.assertEqual(mask.shape, (1024, 1024, 3))
+		self.assertTrue(np.all((mask > 0).sum(axis=2) <= 1))
+		self.assertTrue(np.all(mask.sum(axis=(0, 1)) > 25000))
 
 	def test_birdie_classifier_keeps_regions_anatomical_and_one_hot(self) -> None:
 		points = np.zeros((3, 3, 3), dtype=np.float64)

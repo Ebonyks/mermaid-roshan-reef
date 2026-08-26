@@ -105,23 +105,6 @@ func _capture_reef() -> void:
 	await _shot("06_reef_moon_grotto", Vector3(28, 12, -78), Vector3(-6, -2, -78), 64.0)
 	await _shot("07_reef_rainbow_flats", Vector3(-73, 14, -22), Vector3(-59, 0, 17), 64.0)
 	await _shot("08_reef_ice_current", Vector3(-70, 16, 58), Vector3(-92, 2, 84), 64.0)
-	# Dedicated runtime close-ups prevent anatomically weak creature silhouettes
-	# from hiding inside wide environment scores.
-	var anatomy_pos := Vector3(0, 72, 0)
-	var anatomy_rows: Array = [
-		["09_reef_clownfish_anatomy", "res://assets/props/gen2/clownfish.glb", 1.05],
-		["09_reef_octopus_anatomy", "res://assets/props/gen2/octopus.glb", 1.15],
-		["09_reef_jellyfish_anatomy", "res://assets/props/gen2/jellyfish.glb", 1.05],
-	]
-	for row_value: Variant in anatomy_rows:
-		var row: Array = row_value as Array
-		var creature: Node3D = main._art35_prop(String(row[1]), anatomy_pos, float(row[2]), 0.55)
-		if creature == null:
-			continue
-		await _shot(String(row[0]), anatomy_pos + Vector3(11, 6, 17), anatomy_pos + Vector3(0, 2, 0), 48.0)
-		creature.visible = false
-
-
 func _capture_lagoon_and_north() -> void:
 	main.galaxy_unlocked = true
 	main.l2_star_progress = [false, false, false]

@@ -150,7 +150,6 @@ const PEARL_ROWS := [
 	{"u": 0.82, "lat": 2.0, "n": 4},
 	{"u": 0.95, "lat": -4.0, "n": 3},
 ]
-const SHELL_GLB := "res://assets/aquatic/SpiralShell.glb"
 const SHELL_GEN2 := "spiralshell"
 
 # Butterfly World centerpiece (rainbow theme): the Level-2 rainbow legs are the
@@ -158,13 +157,6 @@ const SHELL_GEN2 := "spiralshell"
 # meadow planet, crystal castle and butterflies the player lands on in
 # galaxy.gd — instead of circling empty starfield.
 const BW_PLANET_R := 70.0
-const BW_CASTLE_GLB := "res://assets/galaxy/crystal_castle.glb"
-const BW_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb"]
-const BW_DECO_CRYSTALS := ["res://assets/galaxy/crystal1.glb", "res://assets/galaxy/crystal2.glb", "res://assets/galaxy/crystal3.glb"]
-# (soft_barrier.glb stays shipped in assets/art35/kart/ but is deliberately
-# unplaced — owner 2026-07-18: no pastel ball chains on the track edges)
-const BW_BUTTERFLY_GLBS := ["res://assets/galaxy/butterfly1.glb", "res://assets/galaxy/butterfly2.glb"]
-const BW_BUTTERFLY_STORY_GLB := "res://assets/props/gen2/butterfly_story.glb"
 const BW_BUTTERFLY_CARDS := ["butterfly1", "butterfly2"]
 const BW_WING_COLS := [Color(1.0, 0.5, 0.15), Color(0.25, 0.45, 1.0), Color(0.75, 1.0, 0.85), Color(1.0, 0.85, 0.3), Color(0.95, 0.35, 0.4), Color(0.6, 0.4, 1.0), Color(0.4, 0.8, 1.0)]
 # ------------------------------------------------------------ vehicles
@@ -177,22 +169,18 @@ const VEHICLES := {
 	# bumper king (mass WINS every collision, walls barely slow it).
 	"moto": {
 		"label": "Zoom Cycle", "blurb": "PRO: fastest + super steering / CON: so light, bumps toss it!",
-		"glb": "res://assets/vehicles/motorcycle.glb",
 		"vmax": 1.08, "steer": 30.0, "wall": 0.62, "mass": 0.6,
 		"turbo": 1.2, "slip": 0.45, "size": 5.0, "yaw_fix": 0.0,   # model faces -Z: correct as-is (verified render)
 		"lean": 0.5,
 	},
 	"kart": {
 		"label": "Rainbow Kart", "blurb": "PRO: turbo champ - pickups charge extra! / CON: no muscle",
-		"glb": "res://assets/vehicles/gokart.glb",
 		"vmax": 1.0, "steer": 22.0, "wall": 0.82, "mass": 1.0, "mcharge": 1.3,
 		"turbo": 1.35, "slip": 0.12, "size": 6.0, "yaw_fix": -PI * 0.5,   # model faces -X: was riding sideways (verified render)
 		"lean": 0.15,
 	},
 	"truck": {
 		"label": "Monster Truck", "blurb": "PRO: BUMPER KING - shove everyone, walls can't stop it / CON: slowest",
-		"glb": "res://assets/vehicles/monstertruck_story.glb",
-		"legacy_glb": "res://assets/vehicles/monstertruck.glb",
 		"vmax": 0.985, "steer": 16.0, "wall": 0.97, "mass": 2.2,
 		"turbo": 0.9, "slip": 0.0, "size": 7.5, "yaw_fix": PI,   # model faces +Z: was driving backwards (verified render)
 		"lean": 0.05,
@@ -830,20 +818,6 @@ void fragment(){
 	add_child(_bw_spin)
 	# the crystal castle at the north pole, amethyst-tinted like stage 3
 	var castle := Node3D.new()
-	if ResourceLoader.exists(BW_CASTLE_GLB):
-		var ck: Node3D = (load(BW_CASTLE_GLB) as PackedScene).instantiate()
-		castle.add_child(ck)
-		_bw_fit(ck, 40.0)
-		StoryArtFactory.apply_triplanar(ck, "res://assets/terrain/up_crystal_col.png", 0.08, Color(0.96, 0.94, 1.0))
-	for i in range(BW_CRYSTALS.size()):
-		var path: String = BW_CRYSTALS[i]
-		if not ResourceLoader.exists(path):
-			continue
-		var spire: Node3D = (load(path) as PackedScene).instantiate()
-		spire.scale = Vector3.ONE * 4.5
-		spire.position = Vector3([-15.0, 15.0][i], 0, 7.0)
-		castle.add_child(spire)
-		StoryArtFactory.apply_triplanar(spire, "res://assets/terrain/up_crystal_col.png", 0.16)
 	# sunk a little so its base corners don't hover above the curving horizon
 	castle.position = Vector3(0, BW_PLANET_R - 6.0, 0)
 	_bw_spin.add_child(castle)
@@ -854,9 +828,6 @@ void fragment(){
 		{"role": "trop_palm1", "dir": Vector3(0.9, 0.30, 0.3), "size": 17.0},
 		{"role": "trop_palm2", "dir": Vector3(-0.7, 0.15, 0.7), "size": 16.0},
 		{"role": "trop_monstera", "dir": Vector3(0.2, 0.5, -0.85), "size": 12.0},
-		{"glb": "res://assets/galaxy/crystal1.glb", "dir": Vector3(-0.5, 0.45, -0.75), "size": 13.0, "tint": Color(0.8, 0.7, 1.0)},
-		{"glb": "res://assets/galaxy/crystal2.glb", "dir": Vector3(0.6, -0.15, -0.8), "size": 12.0, "tint": Color(0.7, 0.85, 1.0)},
-		{"glb": "res://assets/galaxy/crystal3.glb", "dir": Vector3(-0.9, -0.3, 0.25), "size": 12.0, "tint": Color(0.85, 0.7, 1.0)},
 	]
 	for md in marks:
 		var holder := Node3D.new()
@@ -864,9 +835,7 @@ void fragment(){
 		if md.has("role"):
 			prop = StoryArtFactory.plant(String(md["role"]), float(md["size"]))
 		else:
-			var mpath := String(md["glb"])
-			if ResourceLoader.exists(mpath):
-				prop = (load(mpath) as PackedScene).instantiate()
+			continue
 		if prop == null:
 			continue
 		holder.add_child(prop)
@@ -880,16 +849,8 @@ void fragment(){
 	for i in range(butterfly_count):
 		var holder := Node3D.new()
 		var bf: Node3D = null
-		if ResourceLoader.exists(BW_BUTTERFLY_STORY_GLB):
-			bf = (load(BW_BUTTERFLY_STORY_GLB) as PackedScene).instantiate()
-			holder.set_meta("wing_l", bf.find_child("wing_L", true, false))
-			holder.set_meta("wing_r", bf.find_child("wing_R", true, false))
-		elif ResourceLoader.exists("res://assets/props/gen2/%s.png" % BW_BUTTERFLY_CARDS[i % BW_BUTTERFLY_CARDS.size()]):
+		if ResourceLoader.exists("res://assets/props/gen2/%s.png" % BW_BUTTERFLY_CARDS[i % BW_BUTTERFLY_CARDS.size()]):
 			bf = _gen2_card(BW_BUTTERFLY_CARDS[i % BW_BUTTERFLY_CARDS.size()], 7.0)
-		else:
-			var bpath: String = BW_BUTTERFLY_GLBS[i % BW_BUTTERFLY_GLBS.size()]
-			if ResourceLoader.exists(bpath):
-				bf = (load(bpath) as PackedScene).instantiate()
 		if bf != null:
 			holder.add_child(bf)
 			_bw_fit(bf, 7.0)
@@ -947,8 +908,12 @@ func _tick_butterfly_world(tt: float) -> void:
 		bn.position = newp
 		if vel.length() > 0.01:
 			bn.look_at(newp + vel, pdir)
-		var wing_l: Node3D = bn.get_meta("wing_l", null) as Node3D
-		var wing_r: Node3D = bn.get_meta("wing_r", null) as Node3D
+		var wing_l: Node3D = null
+		var wing_r: Node3D = null
+		if bn.has_meta("wing_l"):
+			wing_l = bn.get_meta("wing_l") as Node3D
+		if bn.has_meta("wing_r"):
+			wing_r = bn.get_meta("wing_r") as Node3D
 		if wing_l != null and wing_r != null:
 			var flap_angle: float = deg_to_rad(12.0 - 54.0 * absf(sin(tt * float(fd["flap"]))))
 			wing_l.rotation.y = flap_angle
@@ -1029,11 +994,11 @@ void fragment(){
 	road.material_override = rmat
 	road.position = _origin()
 	add_child(road)
-	# track edge: the glowing rails. The art-3.5 soft_barrier.glb ball chains
+	# track edge: the glowing rails. The art-3.5 ball chains
 	# were wired along both edges here on 2026-07-16 and REMOVED by owner
 	# decision 2026-07-18 ("the pink and blue orbs should be gone") — they
 	# buried the road silhouette under ~180 oversized pastel spheres. Do not
-	# re-place soft_barrier.glb on the racing line; the rails ARE the edge.
+	# are intentionally absent; the rails ARE the edge.
 	for sgn: float in [1.0, -1.0]:
 		var rail := MeshInstance3D.new()
 		var rst := SurfaceTool.new()
@@ -1067,7 +1032,7 @@ void fragment(){
 	if _theme() == "ocean":
 		_build_ocean_props()
 	else:
-		# floating crystals (rainbow theme) — authored GLBs, box fallback
+		# floating crystals (rainbow theme) — lightweight box accents
 		var deco_count: int = 4 if _speedy() else 7
 		for si2 in range(deco_count):
 			var su: float = float(si2) / float(deco_count)
@@ -1076,15 +1041,6 @@ void fragment(){
 			var rgt: Vector3 = pf[2]
 			var side: float = 1.0 if si2 % 2 == 0 else -1.0
 			var deco: Node3D = null
-			var cpath: String = BW_DECO_CRYSTALS[si2 % BW_DECO_CRYSTALS.size()]
-			if ResourceLoader.exists(cpath):
-				var cscene: PackedScene = load(cpath)
-				if cscene != null:
-					var crystal := cscene.instantiate() as Node3D
-					if crystal != null:
-						_bw_fit(crystal, 7.0)
-						deco = Node3D.new()
-						deco.add_child(crystal)
 			if deco == null:
 				var mi := MeshInstance3D.new()
 				var dmsh := BoxMesh.new()
@@ -1117,17 +1073,7 @@ const OCEAN_FISH_GEN2 := ["clownfish", "turtle", "stingray", "dolphin"]
 var _deco_fish: Array = []
 
 func _gen2_instance(name: String) -> Node3D:
-	var path := "res://assets/props/gen2/%s.glb" % name
-	if not ResourceLoader.exists(path):
-		return null
-	var scene: PackedScene = load(path)
-	if scene == null:
-		return null
-	var instance := scene.instantiate() as Node3D
-	if instance == null:
-		return null
-	instance.set_meta("gen2", true)
-	return instance
+	return null
 
 func _gen2_card(name: String, target_width: float) -> Node3D:
 	var path := "res://assets/props/gen2/%s.png" % name
@@ -1203,9 +1149,7 @@ func _build_ocean_props() -> void:
 		elif OCEAN_PROP_GEN2.has(prop_name):
 			prop = _gen2_instance(String(OCEAN_PROP_GEN2[prop_name]))
 		else:
-			var path: String = "res://assets/aquatic/%s.glb" % prop_name
-			if ResourceLoader.exists(path):
-				prop = (load(path) as PackedScene).instantiate()
+			prop = null
 		if prop == null:
 			continue
 		var pf := _frame_at(su * _len, 0.0)
@@ -1278,14 +1222,6 @@ void fragment(){
 	line.material_override = lmat
 	line.transform = Transform3D(Basis(fright, Vector3.UP, ffwd).orthonormalized(), c0 + Vector3(0, 0.2, 0))
 	add_child(line)
-	var arch_scene: PackedScene = load("res://assets/art35/kart/finish_arch.glb")
-	if arch_scene != null:
-		var authored_arch: Node3D = arch_scene.instantiate() as Node3D
-		_bw_fit(authored_arch, _rhalf() * 2.0 + 7.0)
-		authored_arch.position = c0
-		add_child(authored_arch)
-		authored_arch.look_at(c0 + ffwd, Vector3.UP)
-		return
 	for psgn: float in [1.0, -1.0]:
 		var post := MeshInstance3D.new()
 		var pbm := BoxMesh.new()
@@ -1393,11 +1329,7 @@ func _build_pickups() -> void:
 		var kind := String(pd["kind"])
 		var rlab: Label3D = null
 		if kind == "shell":
-			var sm: Node3D = null
-			if ResourceLoader.exists("res://assets/props/gen2/%s.glb" % SHELL_GEN2):
-				sm = _gen2_instance(SHELL_GEN2)
-			elif ResourceLoader.exists(SHELL_GLB):
-				sm = (load(SHELL_GLB) as PackedScene).instantiate()
+			var sm: Node3D = _gen2_card(SHELL_GEN2, 2.4)
 			if sm == null:
 				continue
 			sm.scale = Vector3.ONE * 2.4
@@ -1506,10 +1438,6 @@ func _build_hazards() -> void:
 		match kind:
 			"crab":
 				var cb: Node3D = null
-				if ResourceLoader.exists("res://assets/props/gen2/crab.glb"):
-					cb = _gen2_instance("crab")
-				elif ResourceLoader.exists("res://assets/aquatic/Crab.glb"):
-					cb = (load("res://assets/aquatic/Crab.glb") as PackedScene).instantiate()
 				if cb != null:
 					holder.add_child(cb)
 					_bw_fit(cb, 3.4)
@@ -1533,9 +1461,7 @@ func _build_hazards() -> void:
 					if ResourceLoader.exists("res://assets/props/gen2/seagrass.png"):
 						sw = _gen2_grass_card(i, 5.0)
 					else:
-						var kp: String = "res://assets/aquatic/SeaWeed%s.glb" % ["", "1", "2"][i]
-						if ResourceLoader.exists(kp):
-							sw = (load(kp) as PackedScene).instantiate()
+						sw = null
 					if sw == null:
 						continue
 					var kh := Node3D.new()
@@ -1585,10 +1511,6 @@ func _build_hazards() -> void:
 				# a grumpy METEOR — dark craggy rock with a fiery tail. Rocks
 				# bonk; stars are treats (never reuse the pickup vocabulary)
 				var rk: Node3D = null
-				if ResourceLoader.exists("res://assets/props/gen2/rock3.glb"):
-					rk = _gen2_instance("rock3")
-				elif ResourceLoader.exists("res://assets/aquatic/Rock3.glb"):
-					rk = (load("res://assets/aquatic/Rock3.glb") as PackedScene).instantiate()
 				if rk != null:
 					holder.add_child(rk)
 					_bw_fit(rk, 3.2)
@@ -1973,13 +1895,6 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 	var root := Node3D.new()
 	var vd: Dictionary = _vehicles_table()[vkey]
 	var model: Node3D = null
-	var glb_path: String = String(vd["glb"])
-	if not ResourceLoader.exists(glb_path):
-		glb_path = String(vd.get("legacy_glb", glb_path))
-	if ResourceLoader.exists(glb_path):
-		var ps: PackedScene = load(glb_path)
-		if ps != null:
-			model = ps.instantiate()
 	var top_h := 2.5
 	if model != null:
 		top_h = _fit_model(model, float(vd["size"]))
@@ -2141,17 +2056,11 @@ func _build_select() -> void:
 		var slot := Node3D.new()
 		slot.position = _select_slot_pos(i)
 		add_child(slot)
-		var plinth_scene: PackedScene = load("res://assets/art35/kart/showcase_plinth.glb")
-		if plinth_scene != null:
-			var plinth: Node3D = plinth_scene.instantiate() as Node3D
-			_bw_fit(plinth, 11.0)
-			plinth.rotation.y = float(i) * 0.16
-			slot.add_child(plinth)
 		var body := _vehicle_body(vkey, Color(1, 1, 1), "", "")
 		body.position = Vector3(0, 2.0, 0)
 		slot.add_child(body)
 		var lab := Label3D.new()
-		# The models and glowing choice halo carry the selection for a non-reader;
+		# The vehicle silhouette and glowing choice halo carry the selection for a non-reader;
 		# keep the 3D card to one short name instead of covering it with a paragraph.
 		lab.text = String(vd["label"])
 		lab.font_size = 52
@@ -3118,7 +3027,7 @@ func _update_camera(delta: float) -> void:
 		want += right * sin(Time.get_ticks_msec() * 0.045) * _shake * 1.6
 	_thunk_cool = maxf(0.0, _thunk_cool - delta)
 	_cam.position = _cam.position.lerp(want, clampf(delta * 4.0, 0.0, 1.0))
-	_cam.fov = lerpf(_cam.fov, 62.0 + 14.0 * spd_n + (7.0 if boosting else 0.0), delta * 5.0)
+	_cam.fov = clampf(lerpf(_cam.fov, 62.0 + 14.0 * spd_n + (7.0 if boosting else 0.0), clampf(delta * 5.0, 0.0, 1.0)), 1.0, 179.0)
 	# the horizon leans into the carve (tiny, but it makes steering feel physical)
 	var up_roll := Vector3.UP.rotated(fwd, clampf(-float(_pl["latv"]) * 0.010, -0.10, 0.10))
 	_cam.look_at(pn.position + fwd * 6.0 + Vector3(0, 2.0, 0), up_roll)

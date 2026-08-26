@@ -2042,19 +2042,14 @@ func _paint_aq(node: Node, mat: StandardMaterial3D) -> void:
 		_paint_aq(c, mat)
 
 func _aq(model: String) -> PackedScene:
-	if not model_cache.has("aq_" + model):
-		# rigged + textured gen2 rebuilds take priority; Riley pack is the fallback
-		var p2 := "res://assets/aquatic2/" + model + ".glb"
-		if ResourceLoader.exists(p2):
-			model_cache["aq_" + model] = load(p2)
-			model_cache["aq2_" + model] = true
-		else:
-			model_cache["aq_" + model] = load("res://assets/aquatic/" + model + ".glb")
-	return model_cache["aq_" + model]
+	# Legacy model packs were retired with the 2D migration. Unknown species
+	# already have a null-safe fallback at the call site.
+	model_cache["aq_" + model] = null
+	return null
 
 # MR2.0: pack name -> painted GEN2 prop. Every mapped piece spawns the
 # family-style Meshy model (footprint-fit, cel+outline, settled); the pack
-# GLB remains the strangler-fig fallback if a file is ever missing.
+	# Missing converted art is handled by the null-safe caller fallback.
 # 2nd audit (owner 2026-07-11): baked-in faces are CHARM, not flaws - the
 # dealbreakers are invented characters (F9/F10), inconsistency, and concept
 # enmeshment (F8). coral1 is the face coral Roshan chose herself; fanshell
@@ -2101,6 +2096,17 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 			if not play_anim:
 				flora_nodes.append(cw)
 			return cw
+		# Retired model resources deliberately have no runtime fallback. Keep
+		# released shop friends visible with the existing layered card.
+		var card := _make_creature_node("fish", AQ_COLORS.get(model, Color(0.4, 0.75, 0.7)),
+			AQ_COLORS.get(model, Color(0.4, 0.75, 0.7)).lightened(0.2))
+		if card != null:
+			card.position = pos
+			card.scale *= scl
+			add_child(card)
+			if not play_anim:
+				flora_nodes.append(card)
+			return card
 	var ps := _aq(model)
 	if ps == null:
 		return null
@@ -2287,7 +2293,7 @@ func _rig_turtle(pet: Node3D, speed: float) -> Dictionary:
 	# THE TURTLE RIG: a real Skeleton3D over the (unrigged) Meshy turtle so
 	# the flippers FLAP from the shoulder instead of shearing with the body
 	# wave. Skin weights come from a MOTION CAGE - anatomical regions measured
-	# from turtle.glb's vertex slices (mesh space, +Z = head):
+	# from the turtle mesh's vertex slices (mesh space, +Z = head):
 	#   head/neck tube  z > 0.42, |x| < 0.30
 	#   front flippers  blades |x| 0.55..0.93, z -0.44..+0.30, shoulder ~0.48
 	#   rear paddles    |x| 0.28..0.55, z -0.95..-0.55
@@ -2593,31 +2599,15 @@ func _build_friends() -> void:
 		var x: float = fp.x
 		var z: float = fp.y
 		# 3D migration (owner 2026-07-19): prefer a gen2 model when one has
-		# landed for this character; the sprite cutout remains the fallback so
-		# the cast converts one .glb at a time with zero breakage.
+		# landed for this character; the sprite cutout remains the fallback.
 		var tex_name := String(fd["tex"])
-		var glb_path := "res://assets/characters/friends/%s.glb" % tex_name
-		var spr: Node3D
-		if ResourceLoader.exists(glb_path):
-			var fps2: PackedScene = load(glb_path)
-			var mdl: Node3D = fps2.instantiate() as Node3D
-			mdl.scale = Vector3.ONE * 4.0
-			mdl.position = Vector3(x, seabed_y(x, z) + 4.0, z)
-			add_child(mdl)
-			var fap := _find_anim(mdl)
-			if fap != null and fap.get_animation_list().size() > 0:
-				var clip: String = fap.get_animation_list()[0]
-				fap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
-				fap.play(clip)
-			spr = mdl
-		else:
-			var cut := Sprite3D.new()
-			cut.texture = _cutout_tex(tex_name)
-			cut.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			cut.pixel_size = 0.016
-			cut.position = Vector3(x, seabed_y(x, z) + 6.5, z)
-			add_child(cut)
-			spr = cut
+		var cut := Sprite3D.new()
+		cut.texture = _cutout_tex(tex_name)
+		cut.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		cut.pixel_size = 0.016
+		cut.position = Vector3(x, seabed_y(x, z) + 6.5, z)
+		add_child(cut)
+		var spr: Node3D = cut
 		var bcols := [Color(1.0, 0.75, 0.35), Color(0.45, 0.9, 1.0), Color(1.0, 0.5, 0.75), Color(0.6, 1.0, 0.6), Color(0.8, 0.6, 1.0)]
 		var bcol: Color = bcols[i % bcols.size()]
 		var beacon := OmniLight3D.new()
@@ -5904,23 +5894,7 @@ func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 		game_nodes.append(story_plant)
 		_wind_sway(story_plant)
 		return story_plant
-	var ps: PackedScene = _nat_cache.get(name, null)
-	if ps == null:
-		var path := "res://assets/nature/" + name + ".glb"
-		if not ResourceLoader.exists(path):
-			return null
-		ps = load(path)
-		_nat_cache[name] = ps
-	if ps == null:
-		return null
-	var inst: Node3D = ps.instantiate()
-	inst.position = pos
-	inst.scale = Vector3.ONE * scl
-	inst.rotation.y = yrot
-	add_child(inst)
-	game_nodes.append(inst)
-	_dress_nature(inst)
-	return inst
+	return null
 
 var _kit_cache := {}
 
@@ -5997,7 +5971,7 @@ func _toy_anim(node: Node3D, name: String) -> void:
 					swm.set_shader_parameter("x_max", bb.size.x * 0.30)
 
 func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3D:
-	# instantiate a CC0 kit piece (assets/kits/<name>.glb), restyle it for the
+	# instantiate a CC0 kit piece, restyle it for the
 	# storybook look (_fit_prop calls _toonify), fit its footprint to `target`
 	# units and seat its base at pos. Collision stays the caller's job — solids
 	# are hand-placed so gameplay clearances remain explicit.
@@ -6007,40 +5981,7 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 			game_nodes.append(kg)
 			_toy_anim(kg, name)
 			return kg
-	var ps: PackedScene = _kit_cache.get(name, null)
-	if ps == null:
-		var path := "res://assets/kits/" + name + ".glb"
-		if not ResourceLoader.exists(path):
-			return null
-		ps = load(path)
-		_kit_cache[name] = ps
-	if ps == null:
-		return null
-	var wrap := Node3D.new()
-	var inst: Node3D = ps.instantiate()
-	_fit_prop(inst, target)
-	if name.begins_with("castle/") and name.contains("roof"):
-		_toon_tile(inst, "roof", 0.12, Color(0.92, 0.88, 1.0))
-	elif name.begins_with("castle/") and name.contains("flag"):
-		_toon_tile(inst, "fabric", 0.16, Color(1.0, 0.72, 0.9))
-	elif name.begins_with("castle/"):
-		_toon_tile(inst, "castle", 0.14, Color(0.98, 0.95, 1.0))   # painted masonry
-	elif name in ["furniture/bookcase", "furniture/table", "park/bench"]:
-		_toon_tile(inst, "wood", 0.22, Color(1.0, 0.86, 0.78))
-	elif name == "furniture/chair":
-		_toon_tile(inst, "fabric", 0.18, Color(0.92, 0.84, 1.0))
-	elif name == "park/fountain":
-		_toon_tile(inst, "marble", 0.14, Color(0.86, 0.96, 1.0))
-	elif name.begins_with("park/hedge"):
-		_toon_tile(inst, "grass", 0.18, Color(0.62, 0.92, 0.72))
-	wrap.add_child(inst)
-	wrap.position = pos
-	if KIT_GEN2.has(name):
-		_toy_anim(wrap, name)   # the toys move whichever art they wear
-	wrap.rotation.y = yrot
-	add_child(wrap)
-	game_nodes.append(wrap)
-	return wrap
+	return null
 
 var _gen2_cache := {}
 var _gen2_mesh_cache := {}
@@ -6060,7 +6001,7 @@ var _seagrass_mats := {}   # sprite name -> 4 phase-varied sway materials
 func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Color, third: Color = Color(1, 1, 1)) -> Node3D:
 	var ps: PackedScene = _gen2_cache.get(gname, null)
 	if ps == null:
-		var path := "res://assets/props/gen2/" + gname + ".glb"
+		var path := ""
 		if not ResourceLoader.exists(path):
 			return null
 		ps = load(path)
@@ -6200,10 +6141,10 @@ func _attach_penguin_beak(wrap: Node3D) -> void:
 	beak.rotation = Vector3(-0.32, 0, 0)
 
 func _gen2_seagrass(pos: Vector3, size: float) -> Node3D:
-	# Rounded modeled blades replace the crossed cards that dominated nearby cameras.
+	# Converted 2D cards replace the crossed cards that dominated nearby cameras.
 	var variant: int = randi() % 2
 	var family: String = "kelp" if randf() > 0.82 else "seagrass"
-	var path := "res://assets/art35/reef/%s_%d.glb" % [family, variant]
+	var path := ""
 	if not ResourceLoader.exists(path):
 		return null
 	var packed: PackedScene = load(path)
@@ -6227,11 +6168,11 @@ func _gen2_outline_mat() -> ShaderMaterial:
 	return _gen2_outline
 
 func _gen2_static_mesh(name: String) -> Mesh:
-	# MultiMesh scenery needs the joined mesh resource from the story GLB.
+	# MultiMesh scenery has no remaining model source in the 2D build.
 	var cached: Mesh = _gen2_mesh_cache.get(name, null)
 	if cached != null:
 		return cached
-	var path := "res://assets/props/gen2/" + name + ".glb"
+	var path := ""
 	if not ResourceLoader.exists(path):
 		return null
 	var ps: PackedScene = load(path)
@@ -6286,14 +6227,30 @@ func _art35_prop(path: String, pos: Vector3, scl: float = 1.0, yaw: float = 0.0)
 	return prop
 
 func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, sink: float = 0.0) -> Node3D:
-	# GEN2 pipeline prop (assets/props/gen2/<name>.glb): art generated in the
-	# family storybook style, audited, converted to 3D (Meshy) and shrunk for
+	# GEN2 pipeline prop: art generated in the family storybook style and
+	# converted to 2D before shipping.
 	# the phone (tools/shrink_glb.py). Same contract as _kit: fits footprint
 	# to `target`, seats base at pos; collisions and node-list registration
 	# (game_nodes/flora_nodes) stay the caller's job.
+	# Carryable reef props retain approved 2D art after the retired model pack
+	# was removed. CarrySystem owns these nodes, so do not register them in
+	# game_nodes: Canvas minigames clear that list as part of their lifecycle.
+	if name == "starfish":
+		var star := LandmarkArtFactory.create_star(2.4, Color(1.0, 0.76, 0.24))
+		star.position = pos
+		star.rotation.y = yrot
+		star.scale *= target / 2.4
+		add_child(star)
+		return star
+	if name == "spiralshell":
+		var shell := StoryArtFactory.ground_card("res://assets/props/gen2/spiralshell_Image_0_flat.png", target)
+		shell.position = pos
+		shell.rotation.y = yrot
+		add_child(shell)
+		return shell
 	var ps: PackedScene = _gen2_cache.get(name, null)
 	if ps == null:
-		var path := "res://assets/props/gen2/" + name + ".glb"
+		var path := ""
 		if not ResourceLoader.exists(path):
 			return null
 		ps = load(path)
@@ -9492,14 +9449,6 @@ func _jolt_barrel(pos: Vector3) -> RigidBody3D:
 	cy.height = 2.4
 	shp.shape = cy
 	prop.add_child(shp)
-	if ResourceLoader.exists("res://assets/ship/barrel.glb"):
-		var vis: Node3D = (load("res://assets/ship/barrel.glb") as PackedScene).instantiate()
-		vis.scale = Vector3.ONE * 2.4
-		vis.position.y = -1.2
-		if wood_overlay == null:
-			_texture_mats()
-		_apply_mat(vis, wood_overlay, true)
-		prop.add_child(vis)
 	prop.position = pos
 	add_child(prop)
 	return prop
@@ -9634,28 +9583,8 @@ func _scatter_field(count: int, mesh: Mesh, mat: Material, y_off: float, use_col
 	flora_nodes.append(mmi)   # Speedy tier applies its 150u range to mass fields too
 
 func _build_meadows() -> void:
-	# seagrass meadow — HER painted blades (the gen2 seagrass/kelp sprites on
-	# the crossed sway quads; the old procedural needles read as teal spikes,
-	# owner 2026-07-12). Blade proportions match each sprite's aspect.
-	# Two rounded modeled silhouettes per family replace 1,110 crossed alpha
-	# cards. Lower density keeps the reef lush without repetitive walls or
-	# transparent overdraw on the target tablet.
-	for variant in range(2):
-		var grass_mesh: Mesh = _art35_static_mesh("res://assets/art35/reef/seagrass_%d.glb" % variant)
-		if grass_mesh != null:
-			_scatter_field(120, grass_mesh, null, 0.0, false, [], false, "mixed")
-		var kelp_mesh: Mesh = _art35_static_mesh("res://assets/art35/reef/kelp_%d.glb" % variant)
-		if kelp_mesh != null:
-			_scatter_field(42, kelp_mesh, null, 0.0, false, [], false, "kelp")
-	# Fable-kit constructed flora (from the approved E1 reference sheets):
-	# volumetric ribbon kelp joins the meadow, bare antler coral joins the
-	# mixed reef floor — both single-mesh GLBs with the burial point at origin
-	var kelp_vol: Mesh = _art35_static_mesh("res://assets/fable_kit/kelp_vol_0.glb")
-	if kelp_vol != null:
-		_scatter_field(30, kelp_vol, null, 0.0, false, [], false, "kelp")
-	var coral_bare: Mesh = _art35_static_mesh("res://assets/fable_kit/coral_bare_0.glb")
-	if coral_bare != null:
-		_scatter_field(46, coral_bare, null, 0.0, false, [], false, "mixed")
+	# The 2D build uses the procedural flora fallback below. Converted model
+	# scenery is intentionally absent so this path stays mobile-safe.
 	# anemones + urchins stay procedural for now (no painted source art yet —
 	# see TEXTURE_SOURCE_AUDIT.md), soft jewel tones
 	var anemone_mesh := _gen2_static_mesh("anemone_story")

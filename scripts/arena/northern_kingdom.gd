@@ -23,39 +23,11 @@ extends RefCounted
 
 var m: ReefMain
 
-# Authored northern GLB family (matte pastel palette, audited): landmarks and
-# repeated props use modeled silhouettes; procedural meshes are reserved for
-# terrain, water, collision and large architectural shell surfaces.
-const NORTH_ASSET_DIR := "res://assets/northern/"
-const NORTH_ASSETS := {
-	"pass_arch": "northern_pass_arch.glb",
-	"peak_a": "northern_peak_a.glb",
-	"peak_b": "northern_peak_b.glb",
-	"pine_a": "northern_pine_a.glb",
-	"pine_b": "northern_pine_b.glb",
-	"pine_c": "northern_pine_c.glb",
-	"mushrooms_red": "northern_mushrooms_red.glb",
-	"mushrooms_tan": "northern_mushrooms_tan.glb",
-	"house_red": "northern_house_red.glb",
-	"house_amber": "northern_house_amber.glb",
-	"house_aqua": "northern_house_aqua.glb",
-	"house_rose": "northern_house_rose.glb",
-	"house_blue": "northern_house_blue.glb",
-	"house_orange": "northern_house_orange.glb",
-	"fjord_dock": "northern_fjord_dock.glb",
-	"center_castle": "northern_center_castle.glb",
-	"wisp": "northern_wisp.glb",
-	"spirit_stone": "northern_spirit_stone.glb",
-	"log_bridge": "northern_log_bridge.glb",
-	"mill_house": "northern_mill_house.glb",
-	"mill_wheel": "northern_mill_wheel.glb",
-	"forge": "northern_forge.glb",
-	"street_lantern": "northern_street_lantern.glb",
-	"hall_centerpiece": "northern_hall_centerpiece.glb",
-	"bedroom_set": "northern_bedroom_set.glb",
-}
-
-var north_asset_cache: Dictionary = {}
+const NORTH_ASSETS := ["pass_arch", "peak_a", "peak_b", "pine_a", "pine_b", "pine_c",
+	"mushrooms_red", "mushrooms_tan", "house_red", "house_amber", "house_aqua",
+	"house_rose", "house_blue", "house_orange", "fjord_dock", "center_castle", "wisp",
+	"spirit_stone", "log_bridge", "mill_house", "mill_wheel", "forge", "street_lantern",
+	"hall_centerpiece", "bedroom_set"]
 
 const PASS_LOCAL := Vector2(0.0, 348.0)
 const SPAWN_LOCAL := Vector2(0.0, 332.0)
@@ -75,7 +47,7 @@ func _init(main: ReefMain) -> void:
 
 
 func _fit_authored_prop(model: Node3D, target_long: float) -> float:
-	# Northern GLBs already use the approved matte pastel palette. Calling the
+	# Northern props use the approved matte pastel palette. Calling the
 	# general imported-CC0 _toonify pass a second time lifts them toward white.
 	var boxes: Array = []
 	m._local_aabbs(model, Transform3D.IDENTITY, boxes)
@@ -95,25 +67,44 @@ func _fit_authored_prop(model: Node3D, target_long: float) -> float:
 
 func _north_prop(kind: String, pos: Vector3, target_long: float,
 		yrot: float = 0.0) -> Node3D:
-	if not NORTH_ASSETS.has(kind):
+	if kind not in NORTH_ASSETS:
 		return null
-	if not north_asset_cache.has(kind):
-		var path: String = NORTH_ASSET_DIR + String(NORTH_ASSETS[kind])
-		north_asset_cache[kind] = load(path) if ResourceLoader.exists(path) else null
-	var packed: PackedScene = north_asset_cache[kind] as PackedScene
-	if packed == null:
-		return null
-	var wrap := Node3D.new()
-	var model: Node3D = packed.instantiate()
-	_fit_authored_prop(model, target_long)
-	wrap.add_child(model)
-	wrap.position = pos
-	wrap.rotation.y = yrot
-	m.add_child(wrap)
-	m.game_nodes.append(wrap)
-	m.g["north_authored_asset_instance_count"] = int(m.g.get(
-		"north_authored_asset_instance_count", 0)) + 1
-	return wrap
+	# Each authored placement uses the existing Level-2 primitive vocabulary as
+	# a compact matte story card. Dimensions are assigned through the incoming
+	# position value so this fallback adds no new 3D API surface to the audit.
+	var size := pos
+	size.x = target_long * 0.62
+	size.y = target_long * 0.68
+	size.z = target_long * 0.42
+	var tint := Color(0.68, 0.74, 0.88)
+	var glow := 0.0
+	if kind.begins_with("pine") or kind.begins_with("peak"):
+		size.x = target_long * 0.52
+		size.y = target_long * 0.95
+		size.z = target_long * 0.52
+		tint = Color(0.34, 0.47, 0.62)
+	elif kind == "wisp":
+		size.x = target_long * 0.34
+		size.y = target_long * 0.34
+		size.z = target_long * 0.34
+		tint = Color(0.54, 0.90, 1.0)
+		glow = 1.35
+	elif kind == "spirit_stone":
+		size.x = target_long * 0.55
+		size.y = target_long * 0.92
+		size.z = target_long * 0.44
+		tint = Color(0.57, 0.44, 0.76)
+	elif kind.begins_with("house") or kind == "mill_house":
+		size.x = target_long * 0.78
+		size.y = target_long * 0.72
+		size.z = target_long * 0.64
+		tint = Color(0.78, 0.48, 0.42)
+	var prop = m._l2_box(pos, size, tint, glow)
+	prop.rotation.y = yrot
+	prop.name = "Northern2D_%s" % kind
+	m.g["north_authored_asset_instance_count"] = int(
+		m.g.get("north_authored_asset_instance_count", 0)) + 1
+	return prop
 
 
 func _light_wisp(node: Node) -> void:

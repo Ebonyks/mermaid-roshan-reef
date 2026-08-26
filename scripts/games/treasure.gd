@@ -52,8 +52,7 @@ func _build_cavern(origin: Vector3) -> void:
 	# composition instead of another equally bright scatter cluster.
 	var chest_approach: Vector3 = (pts[pts.size() - 2] - pts[pts.size() - 1]).normalized()
 	var chest_yaw: float = atan2(chest_approach.x, chest_approach.z)
-	m._art35_prop("res://assets/art35/arena/treasure_dais.glb", pts[pts.size() - 1] + Vector3(0, -3.1, 0), 1.08, chest_yaw)
-	var chest: Node3D = m._art35_prop("res://assets/art35/arena/treasure_chest.glb", pts[pts.size() - 1] + Vector3(0, -2.4, 0), 1.22, chest_yaw)
+	var chest: Node3D = null
 	m.g["treasure_chest"] = chest
 	var gl := OmniLight3D.new()
 	gl.light_color = Color(1.0, 0.85, 0.4)
@@ -76,7 +75,7 @@ func _build_cavern(origin: Vector3) -> void:
 			continue
 		var kind := (seed2 / 13) % 4
 		if kind == 0:                      # glowing crystal cluster
-			m._art35_prop("res://assets/art35/arena/treasure_cluster_%d.glb" % (k % 3), spot, 0.72 + randf() * 0.32, randf() * TAU)
+			pass
 		elif kind == 1:                    # bright gem
 			var gem := MeshInstance3D.new()
 			var sp := SphereMesh.new(); sp.radius = 0.55; sp.height = 1.1

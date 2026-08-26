@@ -21,20 +21,14 @@ const ALPINE_CAVE_ROOM := Vector2(-128.0, -165.0)
 const ALPINE_HOUSE_A := Vector2(-92.0, -156.0)
 const ALPINE_HOUSE_B := Vector2(-78.0, -185.0)
 const ALPINE_HOUSE_C := Vector2(-112.0, -190.0)
-const ALPINE_HABITAT_SCENES := [
-	preload("res://assets/props/alpine/alpine_fish_aquarium.glb"),
-	preload("res://assets/props/alpine/alpine_beetle_terrarium.glb"),
-	preload("res://assets/props/alpine/alpine_bird_cage.glb"),
-]
 const OCEAN_KINGDOM_GATE_DEFS := [
 	{"kingdom": ReefDistricts.KINGDOM_CARIBBEAN, "local": Vector2(-48.0, 178.0),
-		"scene": "res://assets/reef_regions/moon_shell_arch.glb", "target": 18.0,
+		"kind": "lagoon_gate_caribbean", "target": 18.0,
 		"color": Color(1.0, 0.67, 0.38), "rune": "☀\n🐠"},
 	{"kingdom": ReefDistricts.KINGDOM_NORWEGIAN, "local": Vector2(48.0, 178.0),
-		"scene": "res://assets/reef_regions/ice_current_fan.glb", "target": 18.0,
+		"kind": "lagoon_gate_norwegian", "target": 18.0,
 		"color": Color(0.48, 0.82, 1.0), "rune": "❄\n🐋"},
 ]
-const LAGOON_KIT_ROOT := "res://assets/sky_lagoon/lagoon_kit/"
 const SWING_FRAME_TEXTURE := preload("res://assets/props/story/play_swing_frame.png")
 const SWING_SEAT_TEXTURE := preload("res://assets/props/story/play_swing_seat.png")
 const SWING_ANGULAR_SPEED := 2.5
@@ -201,21 +195,12 @@ func _init(main: ReefMain) -> void:
 
 
 func _lagoon_prop(name: String, pos: Vector3, scale_value: float = 1.0,
-	yaw: float = 0.0) -> Node3D:
-	var prop: Node3D = m._art35_prop(LAGOON_KIT_ROOT + name + ".glb", pos, scale_value, yaw)
-	if prop == null:
-		return null
-	prop.set_meta("lagoon_art_role", name)
-	var counts: Dictionary = m.g.get("lagoon_art_counts", {})
-	if name in LAGOON_REVIEW_FLORA and int(counts.get(name, 0)) == 0:
-		prop.set_meta("lagoon_art_review_anchor", true)
-	counts[name] = int(counts.get(name, 0)) + 1
-	m.g["lagoon_art_counts"] = counts
-	return prop
+		yaw: float = 0.0) -> Node3D:
+	return null
 
 
 func _swing_sprite(pos: Vector3, target: float, yaw: float) -> Node3D:
-	# The touched legacy swing GLB is retired here: the frame and each hanging
+	# The touched legacy swing source is retired here: the frame and each hanging
 	# seat are flat storybook cutouts. Separating the rider seat gives the
 	# playground controller one real pivot to share with Roshan's arc.
 	var root := Node3D.new()
@@ -315,18 +300,12 @@ func _build_ocean_kingdom_gates(o: Vector3) -> void:
 		var local: Vector2 = definition["local"]
 		var gate_color: Color = definition["color"]
 		var pos := o + Vector3(local.x, _lagoon_local(local.x, local.y), local.y)
-		var packed: PackedScene = load(String(definition["scene"])) as PackedScene
-		if packed == null:
+		var wrap: Node3D = _lagoon_prop(String(definition["kind"]), pos,
+			float(definition["target"]) / 2.0)
+		if wrap == null:
 			continue
-		var wrap := Node3D.new()
 		wrap.name = "OceanKingdomGate_%s" % String(definition["kingdom"])
-		var model: Node3D = packed.instantiate() as Node3D
-		m._fit_prop(model, float(definition["target"]))
-		wrap.add_child(model)
-		wrap.position = pos
 		wrap.set_meta("lagoon_art_role", "ocean_kingdom_gate_%s" % String(definition["kingdom"]))
-		m.add_child(wrap)
-		m.game_nodes.append(wrap)
 		var rune := Label3D.new()
 		rune.text = String(definition["rune"])
 		rune.font_size = 92
@@ -625,7 +604,7 @@ func _build_pearl_castle(o: Vector3) -> void:
 		var prop_pos := o + Vector3(pgx, pgy - 0.3, pgz)
 		var tnode: Node3D
 		if kind == "swing":
-			# The cutout is ground-aligned already; unlike the old GLB it does
+			# The cutout is ground-aligned already; unlike the old model it does
 			# not need the shared 0.3-unit sculpt sink.
 			tnode = _swing_sprite(o + Vector3(pgx, pgy, pgz), tgt, tyrot)
 		else:
@@ -1540,58 +1519,7 @@ func _village_cottage_interior(base: Vector3, accent: Color, house_index: int) -
 
 
 func _village_house_collectible(base: Vector3, house_index: int) -> void:
-	var bonus_colors: Array[Color] = [
-		Color(0.35, 0.82, 1.0),
-		Color(1.0, 0.55, 0.48),
-		Color(0.88, 0.70, 1.0),
-	]
-	var habitat_scene: PackedScene = ALPINE_HABITAT_SCENES[house_index]
-	var habitat: Node3D = habitat_scene.instantiate() as Node3D
-	habitat.position = base + Vector3(3.15, 0.44, -3.15)
-	m.add_child(habitat)
-	m.game_nodes.append(habitat)
-	var collectible: Node3D = habitat.find_child("Collectible", true, false) as Node3D
-	var cage: Node3D = habitat.find_child("Cage", true, false) as Node3D
-	if not is_instance_valid(collectible):
-		collectible = Node3D.new()
-		collectible.name = "MissingCollectible"
-		habitat.add_child(collectible)
-
-	# A glowing floor ring is the non-reading pointer. It disappears with the
-	# rescued animal, while the aquarium/terrarium/cage remains as a clear record.
-	var halo := MeshInstance3D.new()
-	var halo_mesh := TorusMesh.new()
-	halo_mesh.inner_radius = 1.82
-	halo_mesh.outer_radius = 2.08
-	halo_mesh.rings = 20
-	halo_mesh.ring_segments = 8
-	halo.mesh = halo_mesh
-	halo.material_override = m._soft_mat(bonus_colors[house_index], 1.35)
-	halo.position = base + Vector3(3.15, 0.56, -3.15)
-	m.add_child(halo)
-	m.game_nodes.append(halo)
-
-	var save_key: String = ALPINE_CREATURE_KEYS[house_index]
-	var claimed: bool = bool(m.stickers.get(save_key, false))
-	collectible.visible = not claimed
-	halo.visible = not claimed
-	var bonuses: Array = m.g["alpine_house_bonuses"]
-	bonuses.append({
-		"kind": ALPINE_CREATURE_KINDS[house_index],
-		"cage_kind": ALPINE_CREATURE_CAGES[house_index],
-		"habitat": habitat,
-		"cage": cage,
-		"node": collectible,
-		"halo": halo,
-		"pos": base + Vector3(3.15, 2.20, -3.15),
-		"base_position": collectible.position,
-		"base_rotation": collectible.rotation,
-		"color": bonus_colors[house_index],
-		"message": ALPINE_CREATURE_MESSAGES[house_index],
-		"key": save_key,
-		"claimed": claimed,
-		"phase": float(house_index) * 1.7,
-	})
+	return
 
 
 func _village_pine(o: Vector3, lp: Vector3, sc: float, decorated: bool) -> void:
