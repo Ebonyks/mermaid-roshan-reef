@@ -494,6 +494,15 @@ asset is reachable, current, visually accepted, or safe to promote.
 | `tools/CHUCK_ANIMATION_SPEC.md` | 🟡 | `HISTORICAL_EVIDENCE`; GLB/clip acceptance specification is `SUPERSEDED` by the final Canvas medium. It is not authority to alter protected Chuck assets or resume model work. |
 | `tools/out/lighting_image_audit.md` | 🔵 | `GENERATED_REPORT`; regenerate from the current tree, never hand-edit or treat its dated 748-file result as current visual acceptance. |
 
+## Day One Pool Video 02 restoration handoff
+
+| Doc | | Note |
+|---|---|---|
+| `design/HANDOFF_GROK_DAY_ONE_POOL_VIDEO_02_RESTORATION_2026-08-26.md` | 🟣 | `ACTIVE_HANDOFF_OWNER_PENDING`; exact 15-second continuation, camera map, base-art upload order, Grok prompt, identity/topology locks and final-film gates. It does not itself grant owner, device, child, audio or temporal acceptance. |
+| `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/PROMPTS_AND_PROVENANCE.md` | 🔵 | `PROVENANCE_ONLY`; exact prompts, result/reference/image hashes, native/delivery lineage, neighbors, rejection evidence and no-shortcut declarations for the seven owner-pending storyboard keys. |
+| `design/review/day_one_pool_video_02_restoration_2026-08-26/STORYBOARD_MASTER_AUDIT.md` | 🟣 | `CANDIDATE_REVIEW`; seven storyboard keys clear the documentary 4.5-per-axis gate with owner/M11/child/final-film review still pending. |
+| `design/review/day_one_pool_video_02_restoration_2026-08-26/LIGHTING_AUDIT.md` | 🔵 | `GENERATED_REPORT`; diagnostic seven-frame lighting scan with zero unreadable/crushed/blown results, not visual or temporal acceptance. |
+
 ---
 
 ## Where the same rule is stated more than once

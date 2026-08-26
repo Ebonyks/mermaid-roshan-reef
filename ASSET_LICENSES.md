@@ -2748,3 +2748,28 @@ have no current Grok camera authority.
 - `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/closeups_rejected/**` - project-generated waterfall and seahorse rejection evidence; not runtime art or Grok authority; exact prompts, result IDs, hashes, and rejection reasons remain in the package provenance/audits.
 - `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/closeups_delivery_1280x720/**` - exact whole-canvas Lanczos Grok/review derivatives of the two accepted native close-ups.
 - `assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/STORYBOARD_CARDINAL_PLUS_CLOSEUPS_CONTACT_SHEET.png` - deterministic review-only 4×2 visual index of the locked eight-shot order; never a generation plate.
+
+## Day One Mermaid Pool Video 02 restoration storyboard (2026-08-26)
+
+All generated PNGs below are project-original OpenAI built-in ImageGen art;
+license: project original; URL: none. They are non-runtime Grok/storyboard
+references. Exact prompts, result IDs, reference/image/prompt hashes, timeline
+roles, normalization, rejection evidence and review status are recorded in
+`assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/PROMPTS_AND_PROVENANCE.md`.
+
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S01_seahorse_extraction.png` - native full-frame catalyst key; Roshan pulls the pink mouth obstruction.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S02_seahorse_first_flow.png` - native full-frame first-flow key.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S03_restoration_wave_west.png` - native full-frame west reverse transformation key.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S04_clean_room_violet_glow.png` - native full-frame clean-room reveal with corrected mermaid Roshan.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S05_rumi_emerges.png` - native full-frame Rumi/Violet water-emergence key.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S06_rumi_thanks_roshan.png` - native full-frame gratitude-performance key.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S07_rumi_roshan_hug.png` - native full-frame two-character hug climax key.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/rejected/S04_attempt01_rejected_human_legs.png` - retained rejection evidence; wrong human legs/feet topology.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S01_seahorse_extraction.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S02_seahorse_first_flow.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S03_restoration_wave_west.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S04_clean_room_violet_glow.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S05_rumi_emerges.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S06_rumi_thanks_roshan.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S07_rumi_roshan_hug.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/STORYBOARD_RESTORATION_CONTACT_SHEET.png` - deterministic review-only seven-shot index; never a generation plate.
