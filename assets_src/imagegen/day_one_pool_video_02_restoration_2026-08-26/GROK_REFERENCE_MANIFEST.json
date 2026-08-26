@@ -1,0 +1,88 @@
+{
+  "package": "day_one_pool_video_02_restoration",
+  "version": 2,
+  "timeline_seconds": 15.0,
+  "storyboard_shots": 9,
+  "room_contract": {
+    "pool_count": 1,
+    "pool_description": "one enormous uninterrupted shared pool occupying most of the chamber",
+    "waterfall_destination": "directly into the shared pool",
+    "seahorse_destination": "directly into the shared pool",
+    "forbidden": [
+      "local waterfall catch basin",
+      "secondary pool",
+      "semicircular coping around waterfall",
+      "floating rainbow",
+      "standalone clogged-waterfall concept as room geometry"
+    ]
+  },
+  "references": [
+    {
+      "role": "dirty_room_cardinal_compass",
+      "path": "assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/accepted/C00_room_cardinal_turnaround_master.png",
+      "sha256": "C43E4492B9C64CE6ED7BA5FD60703383E0CEA77EF80DD90581BD615C15C694CD"
+    },
+    {
+      "role": "canonical_clean_room_and_fixture_registration",
+      "path": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "sha256": "1A9A2005D4D27BD57848130C5D7B402B71D8004D4EB803FA16E1493F6A6A222D"
+    },
+    {
+      "role": "absolute_single_shared_pool_plane",
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_mid_pool.png",
+      "sha256": "E1E6EC4DBE5B9AB05847D5DE659AC579E76DFC883A2AAE40748F695A35D4DF8B"
+    },
+    {
+      "role": "authored_wall_waterfall_color_order_and_no_basin_geometry",
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_waterfall.png",
+      "sha256": "6EAD36F8EFC3B115A3C7116EC3D88A80E905730548D2949C063C65C671042CBA"
+    },
+    {
+      "role": "dirty_seahorse_catalyst_state",
+      "path": "assets_src/imagegen/day_one_pool_video_01_storyboard_cardinal_2026-08-25/closeups_accepted/dirty_seahorse_closeup_v02.png",
+      "sha256": "C8F6D98C82EC5CAACA1D423168F647460C3D6F1068E2E2184AC337110545630C"
+    },
+    {
+      "role": "roshan_primary_identity_and_mermaid_topology",
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625A8A795F1303C90A465454DD8529F10D5401C78911D00B90BE8D1E1AB"
+    },
+    {
+      "role": "roshan_eight_direction_identity",
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "sha256": "2BCC6212DDDADDEDB5823BA095CAFF1CBECDB762D5BBDC76726D3D5B0E3EE85A"
+    },
+    {
+      "role": "roshan_gestures_expressions_and_tail_flexion",
+      "path": "assets/characters/roshan_25d/roshan_gestures.png",
+      "sha256": "D7D7D78D68311E5D4285AADA7A306C555DBA985A06145DEA2BCB611EA4E2409E"
+    },
+    {
+      "role": "rumi_violet_primary_identity",
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+      "sha256": "636EC38FD0E01D472163DA8A83E7C818A488823545565F17136CA6EB7B5BB31F"
+    },
+    {
+      "role": "rumi_violet_pose_and_swim_topology",
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_eight_pose_atlas.png",
+      "sha256": "B5D31E649AD23150790BFF0919C3B2F09DDB96317CD24C60478450731D3F8624"
+    },
+    {
+      "role": "roshan_rumi_scale_warmth_and_hug_relationship",
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_relationship_sample.png",
+      "sha256": "963363147EF9527E77F5A7D3C936C32B84B227DDAB1F87A34EEE76914B6FCA26",
+      "green_field_authority": false
+    }
+  ],
+  "delivery_keys": [
+    {"shot": "S01", "path": "delivery_1280x720/S01_seahorse_extraction.png", "sha256": "8A243490E908FBE11F9FB02D3C6CFB8F44C4DEC2E92CCF2ADCBB8B39C78C55ED"},
+    {"shot": "S02", "path": "delivery_1280x720/S02_seahorse_first_flow.png", "sha256": "7CA01F4842909AA78E2C5AEF49B5B96FAB9FC086D5E0CA85CC722CA48737C6B9"},
+    {"shot": "S03", "path": "delivery_1280x720/S03_waterfall_top_down_ignition.png", "sha256": "CCE6F888DEC5397FD9D38C8A796EFD62786610ABB2D2B8F8953123D0B3F18E90"},
+    {"shot": "S04", "path": "delivery_1280x720/S04_waterfall_pullback_full_flow.png", "sha256": "9BD3B4083BE9A4429B61509050960B5E8DC1B90AB5D1A71BB2732066F4C8DDD4"},
+    {"shot": "S05", "path": "delivery_1280x720/S05_restoration_wave_west.png", "sha256": "686388E2EFE0F4FF49C7A3A127E96EA16C6B8DE801A658D02B9609E27C433B12"},
+    {"shot": "S06", "path": "delivery_1280x720/S06_clean_room_violet_glow.png", "sha256": "2E2F91C539332693893122C9B6E1290934A7C2CEE9D086529608036D1DA8F99E"},
+    {"shot": "S07", "path": "delivery_1280x720/S07_rumi_emerges.png", "sha256": "8CD18AFDF9A75EA2E9D09858D53FE6193214003063AC4A7B853746E137412683"},
+    {"shot": "S08", "path": "delivery_1280x720/S08_rumi_thanks_roshan.png", "sha256": "15E03AC715C968A835E50EC44AE74A9CDE3C0CF9C450D937037A956A3DC56F7F"},
+    {"shot": "S09", "path": "delivery_1280x720/S09_rumi_roshan_hug.png", "sha256": "E27FD38D1937C80C4C74FA2CE2CF048D6F9F84C5D5413185F9009B0DFAD48B3A"}
+  ]
+}

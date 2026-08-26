@@ -2759,17 +2759,25 @@ roles, normalization, rejection evidence and review status are recorded in
 
 - `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S01_seahorse_extraction.png` - native full-frame catalyst key; Roshan pulls the pink mouth obstruction.
 - `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S02_seahorse_first_flow.png` - native full-frame first-flow key.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S03_restoration_wave_west.png` - native full-frame west reverse transformation key.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S04_clean_room_violet_glow.png` - native full-frame clean-room reveal with corrected mermaid Roshan.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S05_rumi_emerges.png` - native full-frame Rumi/Violet water-emergence key.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S06_rumi_thanks_roshan.png` - native full-frame gratitude-performance key.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S07_rumi_roshan_hug.png` - native full-frame two-character hug climax key.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/rejected/S04_attempt01_rejected_human_legs.png` - retained rejection evidence; wrong human legs/feet topology.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S03_waterfall_top_down_ignition.png` - native full-frame top-down rainbow ignition key; one giant shared pool, no local basin.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S04_waterfall_pullback_full_flow.png` - native full-frame pullback key; waterfall and seahorse create two source-centered purification zones.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S05_restoration_wave_west.png` - native full-frame west reverse key; two purification fronts meet and clear final debris.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S06_clean_room_violet_glow.png` - native full-frame clean-room reveal with corrected mermaid Roshan.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S07_rumi_emerges.png` - native full-frame Rumi/Violet water-emergence key.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S08_rumi_thanks_roshan.png` - native full-frame gratitude-performance key.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/accepted/S09_rumi_roshan_hug.png` - native full-frame two-character hug climax key.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/rejected/S03_attempt01_rejected_secondary_basin.png` - retained rejection evidence; invented local waterfall basin.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/rejected/S03_attempt02_rejected_flow_reached_pool.png` - retained rejection evidence; skipped required top-down leading-edge beat.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/rejected/S04_attempt01_rejected_secondary_basin.png` - retained rejection evidence; pullback repeated local-basin topology defect.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/rejected/S04_attempt02_rejected_single_source.png` - retained rejection evidence; only waterfall, not both fixtures, purified water.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/rejected/S06_attempt01_rejected_human_legs.png` - retained rejection evidence; wrong human legs/feet topology.
 - `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S01_seahorse_extraction.png` - exact whole-canvas Lanczos Grok/review derivative.
 - `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S02_seahorse_first_flow.png` - exact whole-canvas Lanczos Grok/review derivative.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S03_restoration_wave_west.png` - exact whole-canvas Lanczos Grok/review derivative.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S04_clean_room_violet_glow.png` - exact whole-canvas Lanczos Grok/review derivative.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S05_rumi_emerges.png` - exact whole-canvas Lanczos Grok/review derivative.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S06_rumi_thanks_roshan.png` - exact whole-canvas Lanczos Grok/review derivative.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S07_rumi_roshan_hug.png` - exact whole-canvas Lanczos Grok/review derivative.
-- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/STORYBOARD_RESTORATION_CONTACT_SHEET.png` - deterministic review-only seven-shot index; never a generation plate.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S03_waterfall_top_down_ignition.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S04_waterfall_pullback_full_flow.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S05_restoration_wave_west.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S06_clean_room_violet_glow.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S07_rumi_emerges.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S08_rumi_thanks_roshan.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/delivery_1280x720/S09_rumi_roshan_hug.png` - exact whole-canvas Lanczos Grok/review derivative.
+- `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/STORYBOARD_RESTORATION_CONTACT_SHEET.png` - deterministic review-only nine-shot index; never a generation plate.

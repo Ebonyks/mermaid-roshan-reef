@@ -498,10 +498,10 @@ asset is reachable, current, visually accepted, or safe to promote.
 
 | Doc | | Note |
 |---|---|---|
-| `design/HANDOFF_GROK_DAY_ONE_POOL_VIDEO_02_RESTORATION_2026-08-26.md` | 🟣 | `ACTIVE_HANDOFF_OWNER_PENDING`; exact 15-second continuation, camera map, base-art upload order, Grok prompt, identity/topology locks and final-film gates. It does not itself grant owner, device, child, audio or temporal acceptance. |
-| `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/PROMPTS_AND_PROVENANCE.md` | 🔵 | `PROVENANCE_ONLY`; exact prompts, result/reference/image hashes, native/delivery lineage, neighbors, rejection evidence and no-shortcut declarations for the seven owner-pending storyboard keys. |
-| `design/review/day_one_pool_video_02_restoration_2026-08-26/STORYBOARD_MASTER_AUDIT.md` | 🟣 | `CANDIDATE_REVIEW`; seven storyboard keys clear the documentary 4.5-per-axis gate with owner/M11/child/final-film review still pending. |
-| `design/review/day_one_pool_video_02_restoration_2026-08-26/LIGHTING_AUDIT.md` | 🔵 | `GENERATED_REPORT`; diagnostic seven-frame lighting scan with zero unreadable/crushed/blown results, not visual or temporal acceptance. |
+| `design/HANDOFF_GROK_DAY_ONE_POOL_VIDEO_02_RESTORATION_2026-08-26.md` | 🟣 | `ACTIVE_HANDOFF_OWNER_PENDING`; exact 15-second nine-shot continuation, top-down waterfall restart, dual-source purification, one-giant-pool topology, camera map, expanded Roshan/Rumi/base-art upload order, Grok prompt, identity locks and final-film gates. It does not itself grant owner, device, child, audio or temporal acceptance. |
+| `assets_src/imagegen/day_one_pool_video_02_restoration_2026-08-26/PROMPTS_AND_PROVENANCE.md` | 🔵 | `PROVENANCE_ONLY`; exact prompts, result/reference/image hashes, native/delivery lineage, neighbors, five retained rejection classes and no-shortcut declarations for the nine owner-pending storyboard keys. |
+| `design/review/day_one_pool_video_02_restoration_2026-08-26/STORYBOARD_MASTER_AUDIT.md` | 🟣 | `CANDIDATE_REVIEW`; nine storyboard keys clear the documentary 4.5-per-axis gate with owner/M11/child/final-film review still pending. |
+| `design/review/day_one_pool_video_02_restoration_2026-08-26/LIGHTING_AUDIT.md` | 🔵 | `GENERATED_REPORT`; diagnostic nine-frame lighting scan with zero unreadable/crushed/blown results, not visual or temporal acceptance. |
 
 ---
 
