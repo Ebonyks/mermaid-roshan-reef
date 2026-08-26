@@ -353,32 +353,14 @@ func _classic_lagoon_gate() -> void:
 	# The release is a deliberate positional tap and may now request travel; the
 	# assertion above proves the held Classic stick was never a second autowalk.
 	main.g["lagoon_walk_goal_master"] = null
-	var route: Dictionary = _target("reef_route")
-	var route_node: Node2D = route.get("node") as Node2D
-	var reef_exit_ok := false
-	if route_node != null:
-		prom.set_master_route_x(1024.0)
-		var route_screen: Vector2 = prom.screen_from_master(route_node.position)
-		_down(0, route_screen)
-		_up(0, route_screen)
-		await _frames(8)
-		reef_exit_ok = main.game == ""
-	taps.clear()
-	touch.world_touched.connect(_record_tap)
-	var outside_press := Vector2(640.0, 360.0)
-	_down(0, outside_press)
-	_up(0, outside_press)
-	await process_frame
-	var outside_classic_jump_only: bool = taps.is_empty() \
-		and touch.consume_action_just()
-	touch.world_touched.disconnect(_record_tap)
+	var retired_exit_absent: bool = _target("reef_route").is_empty() \
+		and main.game == "level2"
 	main._set_touch_mode("hybrid", false)
-	if focus_ok and play_ok and long_press_ok and reef_exit_ok and outside_classic_jump_only:
-		_ok("classic_lagoon", "real taps focus/play/exit; held stick never autowalks; Reef keeps jump")
+	if focus_ok and play_ok and long_press_ok and retired_exit_absent:
+		_ok("classic_lagoon", "real taps focus/play; held stick never autowalks; retired Reef exit absent")
 	else:
-		_bad("Classic Lagoon failed focus=%s play=%s hold=%s exit=%s outside_jump=%s" \
-			% [str(focus_ok), str(play_ok), str(long_press_ok), str(reef_exit_ok),
-			str(outside_classic_jump_only)])
+		_bad("Classic Lagoon failed focus=%s play=%s hold=%s retired_exit_absent=%s" \
+			% [str(focus_ok), str(play_ok), str(long_press_ok), str(retired_exit_absent)])
 
 func _reset_promenade() -> void:
 	touch.cancel_all_touches()

@@ -185,7 +185,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	m.g["lagoon_promenade_focus_t"] = 0.0
 	m.g["lagoon_walk_goal_master"] = null
 	m.g["lagoon_play_anim"] = {}
-	m.g["lagoon_reef_guidance_pending"] = false
+	m.g["lagoon_castle_guidance_pending"] = false
 	m.g["lagoon_castle_armed"] = not (from_castle or from_north)
 	m.lagoon_floor = false
 	m.northern_floor = false
@@ -264,9 +264,9 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 	if from_castle:
 		m.show_msg("Roshan", "Back outside! Tap a playground toy or the castle door once to light it up, then tap it again to play.")
 	elif m.first_session and at_ocean_gate_hub:
-		m.g["lagoon_reef_guidance_pending"] = true
+		m.g["lagoon_castle_guidance_pending"] = true
 	else:
-		_show_reef_route_guidance()
+		_show_castle_route_guidance()
 
 func teardown() -> void:
 	var layer: CanvasLayer = root()
@@ -281,12 +281,12 @@ func teardown() -> void:
 		"lagoon_landmark_layer", "lagoon_interactive_layer", "lagoon_actor_layer",
 		"lagoon_foreground_geography_layer", "lagoon_foreground_layer",
 		"lagoon_roshan_card", "lagoon_animal_actor",
-		"lagoon_plane_card", "lagoon_reef_route_card", "lagoon_castle_card",
+		"lagoon_plane_card", "lagoon_castle_card",
 		"lagoon_castle_door_focus", "lagoon_night_fireflies",
 		"lagoon_ambient_cards", "lagoon_animals", "lagoon_animal_cycles",
 		"lagoon_promenade_targets", "lagoon_promenade_focus",
 		"lagoon_promenade_focus_t", "lagoon_walk_goal_master",
-		"lagoon_play_anim", "lagoon_reef_guidance_pending", "lagoon_castle_armed",
+		"lagoon_play_anim", "lagoon_castle_guidance_pending", "lagoon_castle_armed",
 		"lagoon_master_x", "lagoon_master_y", "lagoon_route_t",
 		"lagoon_camera_x", "lagoon_plane_t", "lagoon_hop_t",
 		"lagoon_roshan_anim_t", "lagoon_roshan_frame", "lagoon_ambient_t",
@@ -297,9 +297,9 @@ func teardown() -> void:
 func tick(delta: float) -> void:
 	if m.mg_kind != "" or root() == null:
 		return
-	if bool(m.g.get("lagoon_reef_guidance_pending", false)) and not m.intro_active:
-		m.g["lagoon_reef_guidance_pending"] = false
-		_show_reef_route_guidance()
+	if bool(m.g.get("lagoon_castle_guidance_pending", false)) and not m.intro_active:
+		m.g["lagoon_castle_guidance_pending"] = false
+		_show_castle_route_guidance()
 	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
 		m.g["lagoon_walk_goal_master"] = null
 		_tick_playground_animation(delta)
@@ -330,8 +330,7 @@ func handle_touch(screen_pos: Vector2) -> bool:
 		return true
 	m.g["lagoon_walk_goal_master"] = null
 	var target_id: String = String(target.get("id", ""))
-	if String(target.get("kind", "")) == "reef" \
-			or String(m.g.get("lagoon_promenade_focus", "")) == target_id:
+	if String(m.g.get("lagoon_promenade_focus", "")) == target_id:
 		_activate(target)
 		_clear_focus()
 	else:
@@ -362,7 +361,6 @@ func action_label() -> String:
 			continue
 		match String(target.get("kind", "")):
 			"castle": return "ENTER"
-			"reef": return "FLY"
 			_: return "PLAY"
 	return "JUMP"
 
@@ -498,7 +496,6 @@ func _build_night_fireflies() -> void:
 
 func _build_runway_screen() -> void:
 	if bool(m.save_data.get("lagoon_plane_departed", false)):
-		_build_reef_route_marker()
 		return
 	var plane := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
@@ -506,15 +503,6 @@ func _build_runway_screen() -> void:
 	plane.name = "SkyLagoonArrivalPlane"
 	m.g["lagoon_plane_card"] = plane
 	m.g["lagoon_plane_t"] = 0.0
-	_register_target("reef_route", plane, "reef", "reef", 132.0, 1.10)
-
-func _build_reef_route_marker() -> void:
-	var plane := _make_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
-		Vector2(310, 1040), 270.0, true, m.g.get("lagoon_landmark_layer") as Node2D)
-	plane.name = "SkyLagoonReefPlane"
-	m.g["lagoon_reef_route_card"] = plane
-	_register_target("reef_route", plane, "reef", "reef", 132.0, 1.12)
 
 func _build_playground_screen() -> void:
 	var holder: Node2D = m.g.get("lagoon_interactive_layer") as Node2D
@@ -653,10 +641,10 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 		radius_px: float, highlight_scale: float, highlight_path: String = "",
 		highlight_height: float = 0.0) -> void:
 	var affordance_kind: String = Affordance.PLOT if kind == "castle" \
-		else Affordance.INTERACTION if kind == "reef" else Affordance.ANIMATION
+		else Affordance.ANIMATION
 	var glow := Sprite2D.new()
 	glow.name = "SkyLagoonFocus_%s" % id
-	if kind == "playground" or kind == "reef":
+	if kind == "playground":
 		# A neutral procedural ring plus arrow names the object without cloning
 		# any of its pixels. At the full-height phone scale the selected composite
 		# remains over 64 px and its tip lands on the source card's top edge.
@@ -679,13 +667,13 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 		var source := node as Sprite2D
 		glow.texture = source.texture
 		glow.scale = source.scale
-	if kind != "playground" and kind != "reef":
+	if kind != "playground":
 		glow.position = node.position
 	var idle_tint: Color = Affordance.color(affordance_kind, false)
 	# A complete duplicate object is never the affordance. Idle animation targets
 	# use a nearly invisible shimmer; selection raises the same pixels briefly.
 	idle_tint.a = minf(idle_tint.a,
-		0.055 if kind == "playground" or kind == "reef" else 0.10)
+		0.055 if kind == "playground" else 0.10)
 	glow.modulate = idle_tint
 	glow.visible = true
 	glow.z_index = node.z_index + 4
@@ -792,8 +780,6 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 
 func _activate(target: Dictionary) -> void:
 	match String(target.get("kind", "")):
-		"reef":
-			m._exit_level2()
 		"playground":
 			_start_playground_animation(String(target.get("payload", "")), target.get("node") as Node2D)
 		"castle":
@@ -1041,38 +1027,17 @@ func _tick_plane_arrival(delta: float) -> void:
 func _finish_plane_arrival() -> void:
 	var plane: Sprite2D = m.g.get("lagoon_plane_card") as Sprite2D
 	if plane != null and is_instance_valid(plane):
-		var target_index: int = _target_index("reef_route")
-		if target_index >= 0:
-			var targets: Array = m.g.get("lagoon_promenade_targets", []) as Array
-			var old_target: Dictionary = targets[target_index] as Dictionary
-			var highlight: Sprite2D = old_target.get("highlight") as Sprite2D
-			if highlight != null and is_instance_valid(highlight):
-				if highlight.get_parent() != null:
-					highlight.get_parent().remove_child(highlight)
-				highlight.free()
-			targets.remove_at(target_index)
 		if plane.get_parent() != null:
 			plane.get_parent().remove_child(plane)
 		plane.free()
 	m.g["lagoon_plane_card"] = null
 	m.save_data["lagoon_plane_departed"] = true
 	m._write_save()
-	_build_reef_route_marker()
 
-func _target_index(target_id: String) -> int:
-	var targets: Array = m.g.get("lagoon_promenade_targets", []) as Array
-	for index: int in range(targets.size()):
-		if String((targets[index] as Dictionary).get("id", "")) == target_id:
-			return index
-	return -1
-
-func _show_reef_route_guidance() -> void:
-	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:
-		var target: Dictionary = value as Dictionary
-		if String(target.get("id", "")) == "reef_route":
-			_focus(target)
-			break
-	m.show_msg("Roshan", "Tap the pearl plane to visit the Reef!", "intro4")
+func _show_castle_route_guidance() -> void:
+	# The pearl plane is arrival story dressing only. It no longer advertises
+	# or opens the retired Reef stage; the path and castle own the live route.
+	m.show_msg("Roshan", "The castle is along this path! Let's go see it!", "intro4")
 
 func _tick_ambient_life(delta: float) -> void:
 	var timer: float = fmod(float(m.g.get("lagoon_ambient_t", 0.0)) + delta, 3600.0)

@@ -960,24 +960,33 @@ func _ready() -> void:
 			_forget_slide_canvas_pad_device(_dev)
 		_refresh_joy_mapped())
 	_refresh_joy_mapped()
-	_build_environment()
-	_build_terrain()
-	_build_water()
-	_build_wind_streaks()
-	_build_surf_rings()
-	_build_garden()
-	_build_meadows()
-	_build_aquatic_flora()
-	_build_aquatic_creatures()
-	_build_events()
-	_build_pearls()
-	_build_friends()
-	_build_kart_portal()
+	# The original free-swim reef is retired and is not part of the display
+	# product. Trusted headless probes still construct it as a compatibility
+	# fixture while its remaining systems are migrated, but an editor, desktop,
+	# or Android launch must never instantiate its terrain, water, fauna, props,
+	# portals, or interactions behind the current Canvas game.
+	var build_retired_reef_test_fixture: bool = \
+		DisplayServer.get_name() == "headless"
+	_build_environment(build_retired_reef_test_fixture)
+	if build_retired_reef_test_fixture:
+		_build_terrain()
+		_build_water()
+		_build_wind_streaks()
+		_build_surf_rings()
+		_build_garden()
+		_build_meadows()
+		_build_aquatic_flora()
+		_build_aquatic_creatures()
+		_build_events()
+		_build_pearls()
+		_build_friends()
+		_build_kart_portal()
 	_build_player()
 	_build_hud()
 	_build_fade_cover()
-	_living_world_ref().setup()
-	_apply_cel_shading()
+	if build_retired_reef_test_fixture:
+		_living_world_ref().setup()
+		_apply_cel_shading()
 	# (the storybook page frame — dotted border + corner bubbles — was removed
 	# here, owner request 2026-07-21: the screen was getting too busy)
 	get_tree().node_added.connect(_hook_button_taps)
@@ -1022,10 +1031,11 @@ func _ready() -> void:
 	if OS.has_feature("editor") or "--dev-mode" in OS.get_cmdline_user_args():
 		dev_mode = preload("res://scripts/dev_mode.gd").new()
 		add_child(dev_mode)
-	_build_guide()
-	_build_slide_portal()
-	_build_brawl_portal()
-	dust_boss_portal_pos = _game_obj("dustboss", DustBossGame).build_portal()
+	if build_retired_reef_test_fixture:
+		_build_guide()
+		_build_slide_portal()
+		_build_brawl_portal()
+		dust_boss_portal_pos = _game_obj("dustboss", DustBossGame).build_portal()
 	_build_pause()
 	_load_save()
 	_init_touch_experiment()
@@ -1038,8 +1048,9 @@ func _ready() -> void:
 			_build_intro()
 	else:
 		_build_start_menu()
-	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
-	_spawn_shop_animals()   # same ordering trap: released tank friends spawn now
+	if build_retired_reef_test_fixture:
+		_spawn_crafted_fish()
+		_spawn_shop_animals()
 	_warm_shaders()         # precompile the hot runtime shaders behind the intro
 
 func _warm_shaders() -> void:
@@ -1175,7 +1186,8 @@ func _apply_time_of_day() -> void:
 	# subtle day/night variation for the overworld reef (level2 handles its own in _enter_level2)
 	if world_env == null:
 		return
-	var sky := world_env.sky.sky_material as ProceduralSkyMaterial
+	var sky = world_env.sky.sky_material \
+		if world_env.sky != null else null
 	if is_night:
 		# night is MYSTICAL, not murky: strong blue moonlight so everything still
 		# reads clearly, plus the bioluminescent dressing from _build_night_ocean
@@ -1192,7 +1204,8 @@ func _apply_time_of_day() -> void:
 		if sun_light != null:
 			sun_light.light_color = Color(0.5, 0.66, 0.95)
 			sun_light.light_energy = 0.46
-		_build_night_ocean()
+		if DisplayServer.get_name() == "headless":
+			_build_night_ocean()
 	else:
 		if sky != null:
 			sky.sky_top_color = Color(0.16, 0.42, 0.55)
@@ -1448,43 +1461,52 @@ func _world_glow_target() -> float:
 	var gi: float = 0.82 if is_night else 0.68   # landmarks glow; the whole reef no longer does
 	return minf(gi, 0.75) if quality == "speedy" else gi
 
-func _build_environment() -> void:
+func _build_environment(include_retired_reef: bool = true) -> void:
 	var env := Environment.new()
-	# gradient 'underwater sky' — light filtering from the surface above, deep blue below
-	env.background_mode = Environment.BG_SKY
-	var sky := Sky.new()
-	var psky := ProceduralSkyMaterial.new()
-	psky.sky_top_color = Color(0.16, 0.42, 0.55)
-	psky.sky_horizon_color = Color(0.05, 0.17, 0.28)
-	psky.sky_curve = 0.25
-	psky.ground_bottom_color = Color(0.02, 0.07, 0.13)
-	psky.ground_horizon_color = Color(0.05, 0.15, 0.24)
-	psky.sun_angle_max = 30.0
-	psky.energy_multiplier = 0.7
-	sky.sky_material = psky
-	env.sky = sky
-	env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	env.ambient_light_sky_contribution = 0.6
-	env.ambient_light_color = Color(0.46, 0.66, 0.72)
-	env.ambient_light_energy = 0.9
-	env.fog_enabled = true
-	env.fog_light_color = Color(0.10, 0.26, 0.34)
-	env.fog_density = 0.0042
-	env.fog_aerial_perspective = 0.75
-	env.fog_sky_affect = 0.5
-	_wind_waker_bloom(env, 0.68, 0.22, 0.96)   # selective magic, not a white wash over ordinary scenery
-	env.adjustment_enabled = true
-	env.adjustment_saturation = 0.98
-	env.adjustment_contrast = 1.03
-	env.adjustment_brightness = 0.96
-	_grade(env)
+	if include_retired_reef:
+		# Headless migration fixture only: the retired underwater grade remains
+		# available to probes until its remaining systems finish conversion.
+		env.background_mode = Environment.BG_SKY
+		var sky := Sky.new()
+		var psky := ProceduralSkyMaterial.new()
+		psky.sky_top_color = Color(0.16, 0.42, 0.55)
+		psky.sky_horizon_color = Color(0.05, 0.17, 0.28)
+		psky.sky_curve = 0.25
+		psky.ground_bottom_color = Color(0.02, 0.07, 0.13)
+		psky.ground_horizon_color = Color(0.05, 0.15, 0.24)
+		psky.sun_angle_max = 30.0
+		psky.energy_multiplier = 0.7
+		sky.sky_material = psky
+		env.sky = sky
+		env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
+		env.ambient_light_sky_contribution = 0.6
+		env.ambient_light_color = Color(0.46, 0.66, 0.72)
+		env.ambient_light_energy = 0.9
+		env.fog_enabled = true
+		env.fog_light_color = Color(0.10, 0.26, 0.34)
+		env.fog_density = 0.0042
+		env.fog_aerial_perspective = 0.75
+		env.fog_sky_affect = 0.5
+		_wind_waker_bloom(env, 0.68, 0.22, 0.96)
+		env.adjustment_enabled = true
+		env.adjustment_saturation = 0.98
+		env.adjustment_contrast = 1.03
+		env.adjustment_brightness = 0.96
+		_grade(env)
+	else:
+		# Display compatibility holder only. No retired underwater pixel or
+		# particle exists behind the current Canvas stage as a fallback.
+		env.background_color = Color(0.035, 0.055, 0.12)
 	world_env = env
 	we_node = WorldEnvironment.new()
 	we_node.environment = env
 	add_child(we_node)
 	music = AudioStreamPlayer.new()
 	music.bus = "Music"
+	music.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music)
+	if not include_retired_reef:
+		return
 	_play_music("world")
 	_build_bubble_columns()
 	var sun := DirectionalLight3D.new()
@@ -1496,7 +1518,6 @@ func _build_environment() -> void:
 	sun.directional_shadow_max_distance = 90.0
 	add_child(sun)
 	sun_light = sun
-	music.process_mode = Node.PROCESS_MODE_ALWAYS
 	_build_god_rays()
 	_build_caustics()
 
@@ -7752,17 +7773,15 @@ func _close_stickers() -> void:
 func _exit_level2() -> void:
 	_fade_cut(_exit_level2_now)
 
-func _enter_ocean_kingdom(kingdom: String) -> void:
-	if kingdom != ReefDistricts.KINGDOM_CARIBBEAN and kingdom != ReefDistricts.KINGDOM_NORWEGIAN:
-		kingdom = ReefDistricts.KINGDOM_CARIBBEAN
-	_fade_cut(_exit_level2_now.bind(kingdom))
+func _enter_ocean_kingdom(_kingdom: String) -> void:
+	# Compatibility seam for stale callers while the retired spatial lagoon is
+	# removed. Ocean kingdoms belonged to the retired free-swim reef; the live
+	# game stays in the current Canvas promenade.
+	_fade_cut(_exit_level2_now)
 
-func _exit_level2_now(target_kingdom: String = "") -> void:
+func _exit_level2_now(_target_kingdom: String = "") -> void:
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.close()
-	player.visible = true
-	if player.cam != null and player.cam.is_inside_tree():
-		player.cam.make_current()
 	if sleep_t >= 0.0:
 		# Leaving mid-tuck-in (pause -> Leave): _tick_sleep only runs in the
 		# hall, so nothing would ever release the "sleep" input block or the
@@ -7784,94 +7803,22 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	_interaction_ref().clear_focus()
 	touch_interactables.clear()
 	lagoon_trip_return_master_x = -1.0
-	game = ""
-	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
-		_sky_lagoon_promenade.teardown()
-	g = {}
-	hud_game.text = ""
-	for n in game_nodes:
-		if is_instance_valid(n):
-			n.queue_free()
-	game_nodes.clear()
-	arena_solids.clear()
-	arena_zones.clear()
-	fade_walls.clear()
-	we_node.environment = world_env
-	if sun_light != null:
-		sun_light.visible = true
-	arena_center = ARENA_POS
-	arena_dome = 48.0
-	arena_ceil = 42.0
-	portal_cool = 8.0
-	portal_armed = false
-	if target_kingdom != "":
-		ocean_kingdom = target_kingdom
-		ocean_routes_enabled = true
-		var entry_xz: Vector2 = ReefDistricts.kingdom_entry_point(ocean_kingdom)
-		var destination_xz: Vector2 = ReefDistricts.kingdom_destination_center(ocean_kingdom)
-		player.position = Vector3(entry_xz.x,
-			seabed_y(entry_xz.x, entry_xz.y) + 6.0, entry_xz.y)
-		var into_kingdom: Vector2 = destination_xz - entry_xz
-		player.yaw = atan2(into_kingdom.x, into_kingdom.y)
-		ocean_return_gate_armed = false
-		ocean_return_gate_cool = 2.5
-	elif portal_node != null and is_instance_valid(portal_node):
-		# beside the seabed portal, resting on the ocean floor (never below it)
-		player.position = portal_node.position + Vector3(22, 0, 22)
-		player.position.y = seabed_y(player.position.x, player.position.z) + 6.0
-	else:
-		player.position = return_pos
-	player.vel = Vector3.ZERO
-	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
-	_play_music("world")
-	if target_kingdom == ReefDistricts.KINGDOM_NORWEGIAN:
-		show_msg("Roshan", "The icy waters of Norway! Follow the blue currents through the kelp and fjord!", "pearl2")
-	elif target_kingdom == ReefDistricts.KINGDOM_CARIBBEAN:
-		show_msg("Roshan", "The sunny Caribbean! Follow the warm shells and rainbow coral!", "pearl")
-	else:
-		show_msg("Roshan", "Back in the Reef! I love swimming!", "idle2")
+	# "Leave" now means leave the current castle room/activity and return to
+	# the live 2D promenade. There is no transition back to the retired reef.
+	_enter_level2_now(true, false, false)
+	show_msg("Roshan", "Back outside the castle! Pick where you want to go.", "idle2")
 
 func _finish_level2() -> void:
 	_do_finish_level2()
 
 func _do_finish_level2() -> void:
 	level2_finishing = false
-	player.cam_back = 25.0   # restore the outdoor diorama lens (tightened for the hall)
-	player.cam_high = 6.5
-	for i in range(10):
-		_sparkle_burst(player.position + Vector3(randf() * 12 - 6, randf() * 8, randf() * 12 - 6), Color.from_hsv(randf(), 0.6, 1.0))
 	level2_done_once = true
 	_write_save()
 	if voice != null:
 		voice.pitch_scale = 1.15
 		voice.play()
-	game = ""
-	g = {}
-	hud_game.text = ""
-	for n in game_nodes:
-		if is_instance_valid(n):
-			n.queue_free()
-	game_nodes.clear()
-	arena_solids.clear()
-	arena_zones.clear()
-	fade_walls.clear()
-	we_node.environment = world_env
-	if sun_light != null:
-		sun_light.visible = true
-	arena_center = ARENA_POS
-	arena_dome = 48.0
-	arena_ceil = 42.0
-	portal_cool = 6.0
-	portal_armed = false
-	# beside the portal but clearly off it, resting on the ocean floor
-	if portal_node != null and is_instance_valid(portal_node):
-		player.position = portal_node.position + Vector3(22, 0, 22)
-		player.position.y = seabed_y(player.position.x, player.position.z) + 6.0
-	else:
-		player.position = return_pos
-	player.vel = Vector3.ZERO
-	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
-	_play_music("world")
+	_exit_level2_now()
 	show_msg("Princess Huluu", "You made it to my Pearl Castle, Roshan! You are the Queen of the Castle now!", "win")
 
 func _beans_go() -> void:

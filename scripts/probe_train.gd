@@ -3,7 +3,7 @@ extends SceneTree
 # assisted route, synchronous teardown and exact rebuild contract.
 
 const TARGET_IDS: Array[String] = [
-	"castle_gate", "reef_route", "seesaw", "slide", "swing",
+	"castle_gate", "seesaw", "slide", "swing",
 ]
 
 

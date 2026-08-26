@@ -58,6 +58,11 @@ func _run() -> void:
 
 	_check(main.start_menu_active, "boot_waits_at_start_menu")
 	_check(main.game == "", "menu_does_not_enter_the_world_early")
+	_check(main.water_node == null and main.sun_light == null \
+		and main.caustics_plane == null and main.portal_node == null \
+		and main.pearls.is_empty() and main.friends.is_empty() \
+		and main.aquatic_movers.is_empty(),
+		"retired_reef_nodes_are_never_constructed_in_display_build")
 	var menu_layer: CanvasLayer = main.start_menu_layer
 	_check(menu_layer != null and is_instance_valid(menu_layer),
 		"start_menu_canvas_is_in_the_tree")
@@ -132,45 +137,31 @@ func _run() -> void:
 		and is_equal_approx(spawn_x, float(main.g.get("lagoon_master_x", -1.0)))
 		and not main.player.visible, "canvas_actor_spawns_on_screen_one")
 
-	# The route already exists while the story is open, but its prompt must wait
-	# until the story is gone instead of expiring behind four full-screen pages.
-	var route_target: Dictionary = {}
+	# The retired Reef route must not exist on the first phone frame. The arrival
+	# plane may finish its story beat, but it is no longer an interaction target.
+	var has_retired_route: bool = false
 	for target_value in (main.g.get("lagoon_promenade_targets", []) as Array):
 		var target: Dictionary = target_value as Dictionary
 		if String(target.get("id", "")) == "reef_route":
-			route_target = target
+			has_retired_route = true
 			break
-	_check(not route_target.is_empty(), "reef_route_is_visible_on_first_phone_frame")
-	_check(float(route_target.get("radius_px", 0.0)) >= 128.0,
-		"reef_route_has_child_touch_radius")
-	_check(String(route_target.get("affordance_kind", "")) == "interaction",
-		"reef_route_uses_blue_interaction_language")
+	_check(not has_retired_route, "retired_reef_route_absent_on_first_phone_frame")
+	var arrival_plane: Sprite2D = main.g.get("lagoon_plane_card") as Sprite2D
+	_check(arrival_plane == null or not arrival_plane.has_meta("interaction_id"),
+		"arrival_plane_is_story_dressing_only")
 	if main.first_session and main.intro_active:
-		_check(bool(main.g.get("lagoon_reef_guidance_pending", false)),
-			"reef_guidance_waits_behind_story")
+		_check(bool(main.g.get("lagoon_castle_guidance_pending", false)),
+			"castle_guidance_waits_behind_story")
 	if main.intro_active:
 		main._skip_intro()
 	for _i in range(4):
 		await process_frame
-	_check(not bool(main.g.get("lagoon_reef_guidance_pending", true)),
-		"reef_guidance_releases_after_story")
-	_check(String(main.g.get("lagoon_promenade_focus", "")) == "reef_route",
-		"reef_route_pulses_after_story")
-	_check(main.msg_timer > 0.0 and main.hud_msg.text.contains("visit the Reef"),
-		"reef_route_prompt_is_post_story_and_semantic")
-
-	# One tap on the focused plane is enough: this is the normal visible return
-	# route, not a hidden Pause-menu escape hatch.
-	var route_node: CanvasItem = route_target.get("node") as CanvasItem
-	var route_ready: bool = route_node != null and is_instance_valid(route_node)
-	if route_ready:
-		var route_screen: Vector2 = route_node.get_global_transform_with_canvas().origin
-		promenade.handle_touch(route_screen)
-		for _i in range(3):
-			await process_frame
-	_check(route_ready and main.game == "" and main.player.visible
-		and main.we_node.environment == main.world_env,
-		"one_tap_reef_route_restores_free_swim")
+	_check(not bool(main.g.get("lagoon_castle_guidance_pending", true)),
+		"castle_guidance_releases_after_story")
+	_check(main.msg_timer > 0.0 and main.hud_msg.text.contains("castle"),
+		"castle_prompt_is_post_story_and_semantic")
+	_check(main.game == "level2" and not main.player.visible,
+		"boot_remains_in_live_canvas_game")
 
 	_finish()
 

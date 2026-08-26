@@ -157,7 +157,6 @@ func _init() -> void:
 		promenade_ids[promenade_id] = true
 		var expected_affordance: String = Affordance.PLOT \
 			if promenade_id == "castle_gate" \
-			else Affordance.INTERACTION if promenade_id == "reef_route" \
 			else Affordance.ANIMATION
 		var target_node: CanvasItem = promenade_target.get("node") as CanvasItem
 		var highlight: CanvasItem = promenade_target.get("highlight") as CanvasItem
@@ -172,14 +171,14 @@ func _init() -> void:
 				or float(target_node.get_meta("touch_footprint_px", 0.0)) < 220.0 \
 				or float(promenade_target.get("radius_px", 0.0)) < 110.0:
 			_bad("promenade Canvas target contract wrong for %s" % promenade_id)
-	for expected: String in ["reef_route", "slide", "swing", "seesaw", "castle_gate"]:
+	for expected: String in ["slide", "swing", "seesaw", "castle_gate"]:
 		if not promenade_ids.has(expected):
 			_bad("promenade interaction missing %s" % expected)
 	for removed_frame: String in ["runway_frame", "playground_frame", "castle_frame"]:
 		if promenade_ids.has(removed_frame):
 			_bad("removed lawn picture still interactive: %s" % removed_frame)
-	if promenade_targets.size() != 5:
-		_bad("promenade roster must contain the permanent Reef route and four toys/landmarks")
+	if promenade_targets.size() != 4 or promenade_ids.has("reef_route"):
+		_bad("promenade roster must contain four live toys/landmarks and no retired Reef route")
 
 	# Exercise the first-visit Crown Star target, not the already-won keepsake.
 	# The castle is one picture-first Sprite2D stage, not a second free-roaming
@@ -796,8 +795,8 @@ func _init() -> void:
 		_bad("fade cover did not claim touches during transition")
 	await _frames(8)
 
-	# Leaving Level 2 directly from the castle must also tear down both UI and
-	# world-card roots; otherwise the old stage can remain over the reef.
+	# Leaving the castle tears down its room UI and returns to the live promenade;
+	# it must never reveal the retired Reef stage.
 	main._enter_castle_interior_now(false)
 	await _frames(12)
 	main._exit_level2_now()
@@ -806,6 +805,17 @@ func _init() -> void:
 		_bad("leaving the castle left touch controls blocked")
 	if rooms.is_open() or main.castle_room_world_root != null:
 		_bad("leaving Level 2 retained the castle Sprite2D stage")
+	if main.game != "level2" or String(main.g.get("phase", "")) != "promenade" \
+			or main.player.visible:
+		_bad("leaving the castle did not return to the live Canvas promenade")
+
+	# The remainder is a headless-only compatibility-fixture contract for the
+	# still-measured companion system. Enter it directly; no product route may
+	# expose this retired world state.
+	main._lagoon_promenade_ref().teardown()
+	main.game = ""
+	main.g = {}
+	main.player.visible = true
 
 	# Fix regression (Hybrid contract): the sparring den may advertise by
 	# proximity but must start ONLY from its explicit tap target.

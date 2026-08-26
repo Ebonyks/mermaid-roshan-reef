@@ -209,9 +209,17 @@ func toggle_pause() -> void:
 			focus_owner.release_focus()
 
 func _has_leave_context() -> bool:
-	return m.mg_kind != "" or m.game != "" or m.wardrobe_layer != null \
+	var overlay_context: bool = m.mg_kind != "" or m.wardrobe_layer != null \
 		or m.craft_layer != null or m.castle_logo_layer != null \
-		or m.stickers_layer != null or m.collection_layer != null or m.companion_layer != null or m.companion_care_layer != null
+		or m.stickers_layer != null or m.collection_layer != null \
+		or m.companion_layer != null or m.companion_care_layer != null
+	if overlay_context:
+		return true
+	# The promenade is the live home stage. Offering Leave there previously
+	# exposed the retired free-swim reef, so the base promenade has no exit.
+	if m.game == "level2" and String(m.g.get("phase", "")) == "promenade":
+		return false
+	return m.game != ""
 
 func _leave_current_activity() -> void:
 	# This is a voluntary, neutral exit -- never a loss and never a free win.
