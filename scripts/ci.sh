@@ -108,6 +108,8 @@ python3 tools/audit_visual_design.py --stress \
 python3 tools/audit_visual_design.py || true
 python3 tools/audit_scene_congruency.py \
 	|| { echo "SKY LAGOON CONGRUENCY FAIL"; exit 1; }
+python3 tools/audit_sky_lagoon_layout.py \
+	|| { echo "SKY LAGOON SEMANTIC LAYOUT/CONTACT FAIL"; exit 1; }
 python3 tools/audit_castle_card_alpha.py \
 	|| { echo "CASTLE CARD ALPHA/DEPTH FAIL"; exit 1; }
 # Painted flats are drawn unshaded, so the Environment grade is the only thing
