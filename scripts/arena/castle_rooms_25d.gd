@@ -21,6 +21,8 @@ const DAY_ONE_POOL_CLEANUP := preload(
 const DAY_ONE_DUST_BUNNY_SWIMMER := preload(
 	"res://scripts/games/day_one_dust_bunny_swimmer.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
+const DoorLanguage := preload("res://scripts/castle_door_language.gd")
+const DoorCue := preload("res://scripts/castle_door_cue.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
 const ART_TO_STAGE := 1.25
@@ -1536,6 +1538,10 @@ func _build_hall_portals() -> void:
 	m.castle_room_door_hotspots.clear()
 	for portal_data: Dictionary in HALL_PORTALS:
 		var portal_id: String = String(portal_data["id"])
+		var cue: CastleDoorCue = DoorCue.new() as CastleDoorCue
+		cue.name = "HallDoorCue_" + portal_id
+		cue.z_index = 0
+		m.castle_room_door_hotspot_layer.add_child(cue)
 		var button := Button.new()
 		button.name = "HallDoor_" + portal_id
 		button.flat = true
@@ -1550,6 +1556,7 @@ func _build_hall_portals() -> void:
 			m.castle_room_buttons[portal_id] = button
 		m.castle_room_door_hotspots.append({
 			"button": button,
+			"cue": cue,
 			"data": portal_data,
 		})
 	m.castle_room_door_hotspot_layer.visible = false
@@ -1605,6 +1612,11 @@ func _build_elevator_menu(stage: Control) -> void:
 		button.set_meta("castle_room_icon_path", icon_path)
 		button.set_meta("castle_room_icon_family",
 			"pearl_castle_scallop_crest")
+		var cue: CastleDoorCue = DoorCue.new() as CastleDoorCue
+		cue.name = "DoorCue"
+		cue.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		cue.z_index = 1
+		button.add_child(cue)
 		button.pressed.connect(_choose_elevator_room.bind(room_id))
 		book.add_child(button)
 		m.castle_room_menu_buttons[room_id] = button
@@ -1623,10 +1635,86 @@ func _update_elevator_selected() -> void:
 		var room_id := String(room_id_value)
 		var button: Button = m.castle_room_menu_buttons.get(room_id) as Button
 		if button != null:
-			button.disabled = not m.day_one_can_enter_castle_room(room_id)
-			button.modulate = Color.WHITE if not button.disabled \
-				else Color(0.56, 0.54, 0.68, 0.72)
+			var state: String = door_state(room_id)
+			# Keep the card tappable so a blocked route can answer kindly instead of
+			# silently swallowing a four-year-old's touch.
+			button.disabled = false
+			button.modulate = Color.WHITE
+			button.set_meta("castle_door_state", state)
+			button.tooltip_text = DoorLanguage.child_meaning(state)
+			var cue: CastleDoorCue = button.get_node_or_null(
+				"DoorCue") as CastleDoorCue
+			if cue != null:
+				cue.set_door_state(state)
 			StorybookUI.set_selected(button, room_id == m.castle_room_id)
+
+
+func door_state(destination_id: String) -> String:
+	if m.day_one_is_active():
+		return DoorLanguage.resolve_act_one(destination_id,
+			_act_one_current_destination_id(),
+			_act_one_completed_destination_ids(),
+			m.day_one_boss_door_ready())
+	return DoorLanguage.resolve_free_play(destination_id,
+		_royal_hall_event_id() != "")
+
+
+func active_door_highlight_id() -> String:
+	if m.day_one_is_active():
+		return DoorLanguage.active_highlight_id(
+			_act_one_current_destination_id(), m.day_one_boss_door_ready())
+	return DoorLanguage.ROYAL_HALL_ID if _royal_hall_event_id() != "" else ""
+
+
+func refresh_door_states() -> void:
+	_update_elevator_selected()
+	_update_hall_portals()
+
+
+func _act_one_current_destination_id() -> String:
+	for destination_value: Variant in m.DAY_ONE_CASTLE_ROOM_IDS.keys():
+		var destination_id: String = String(destination_value)
+		if String(m.DAY_ONE_CASTLE_ROOM_IDS[destination_id]) \
+				== m.day_one_current_room_id:
+			return destination_id
+	return ""
+
+
+func _act_one_completed_destination_ids() -> Array[String]:
+	var completed: Array[String] = []
+	for destination_value: Variant in m.DAY_ONE_CASTLE_ROOM_IDS.keys():
+		var destination_id: String = String(destination_value)
+		var logical_id: String = String(
+			m.DAY_ONE_CASTLE_ROOM_IDS[destination_id])
+		if bool(m.day_one_completed_rooms.get(logical_id, false)):
+			completed.append(destination_id)
+	return completed
+
+
+func _blocked_door_feedback(destination_id: String,
+		cue: CastleDoorCue = null) -> void:
+	if cue != null:
+		cue.pulse_blocked_feedback()
+	# The Royal Hall already owns five authored mist cards. Preserve their
+	# tactile flutter and established spoken line underneath the shared state
+	# resolver instead of replacing that child-tested feedback contract.
+	if destination_id == ROYAL_HALL_PORTAL_ID:
+		m.castle_royal_hall_mist_flutter_time = \
+			ROYAL_HALL_MIST_FLUTTER_SECONDS
+		if m.castle_royal_hall_feedback_cool <= 0.0:
+			m.castle_royal_hall_feedback_cool = 2.8
+			_play_item_sfx("castle/curtain_swish.ogg", 0.84)
+			m.show_msg("Roshan",
+				"The royal mist is resting. It will float away for a special royal adventure!",
+				"talk")
+		return
+	_play_item_sfx("castle/curtain_swish.ogg", 0.78)
+	var room: Dictionary = _room(destination_id)
+	var room_name: String = String(room.get("name", "That room"))
+	m.show_msg("Daddy Mermaid",
+		"%s is resting. Follow the one golden rainbow door together!" \
+			% room_name, "hint")
+	m._say("roshan", "talk", 0.8)
 
 func _set_elevator_menu_open(open_menu: bool, play_sound: bool = true) -> void:
 	if m.castle_room_menu_panel == null:
@@ -1662,7 +1750,12 @@ func _toggle_elevator_menu() -> void:
 func _choose_elevator_room(room_id: String) -> void:
 	if not ELEVATOR_ROOM_IDS.has(room_id):
 		return
-	if not m.day_one_try_enter_castle_room(room_id):
+	var state: String = door_state(room_id)
+	if not DoorLanguage.allows_travel(state):
+		var button: Button = m.castle_room_menu_buttons.get(room_id) as Button
+		var cue: CastleDoorCue = button.get_node_or_null(
+			"DoorCue") as CastleDoorCue if button != null else null
+		_blocked_door_feedback(room_id, cue)
 		return
 	_set_elevator_menu_open(false, false)
 	show_room(room_id, true)
@@ -1678,6 +1771,13 @@ func _rebuild_room_links(_room_id: String) -> void:
 func show_room(room_id: String, announce: bool = true) -> void:
 	if _fridge_close_is_blocked():
 		return
+	if not DoorLanguage.allows_travel(door_state(room_id)):
+		if announce:
+			_blocked_door_feedback(room_id)
+		return
+	# Preserve the Day One state-owner entry contract after the shared visual
+	# resolver has admitted the door. This is normally a no-op for allowed
+	# rooms, but keeps every transition routed through the director API.
 	if not m.day_one_try_enter_castle_room(room_id):
 		return
 	var room: Dictionary = _room(room_id)
@@ -4046,11 +4146,12 @@ func _daddy_splash(_partner_kind: String) -> void:
 	_castle_canvas_shake()
 
 func _playroom_rescue_done() -> bool:
-	return m.companion_id != "" \
-		or bool(m.stuffie_wins.get("rescued_eagle", false))
+	# Owning a different stuffie must never skip this required story rescue.
+	return bool(m.stuffie_wins.get("rescued_eagle", false))
 
 func _restore_playroom_rescue_clears() -> void:
 	if _playroom_rescue_done():
+		m.day_one_complete_stuffie_rescue()
 		return
 	var cleared: Dictionary = m.g.get(
 		"castle_dust_bunnies_cleared", {}) as Dictionary
@@ -4061,6 +4162,7 @@ func _restore_playroom_rescue_clears() -> void:
 	if bool(cleared.get("eagle_pin_left", false)) \
 			and bool(cleared.get("eagle_pin_right", false)):
 		m.stuffie_wins["rescued_eagle"] = true
+		m.day_one_complete_stuffie_rescue()
 		m._write_save()
 
 func _add_playroom_rescue_pointer() -> void:
@@ -4099,6 +4201,7 @@ func _check_playroom_rescue_complete() -> void:
 			or not bool(cleared.get("eagle_pin_right", false)):
 		return
 	m.stuffie_wins["rescued_eagle"] = true
+	m.day_one_complete_stuffie_rescue()
 	m._write_save()
 	if m.castle_room_action_button != null:
 		m.castle_room_action_button.visible = true
@@ -4301,9 +4404,16 @@ func _update_hall_portals() -> void:
 		return
 	for record: Dictionary in m.castle_room_door_hotspots:
 		var button: Button = record.get("button") as Button
+		var cue: CastleDoorCue = record.get("cue") as CastleDoorCue
 		var portal_data: Dictionary = record.get("data", {})
 		if button == null or portal_data.is_empty():
 			continue
+		var portal_id: String = String(portal_data.get("id", ""))
+		var state: String = door_state(portal_id)
+		button.set_meta("castle_door_state", state)
+		button.tooltip_text = DoorLanguage.child_meaning(state)
+		if cue != null:
+			cue.set_door_state(state)
 		var art_rect: Rect2 = portal_data["rect"]
 		var world_xform: Transform2D = \
 			m.castle_room_world_root.get_global_transform_with_canvas()
@@ -4318,7 +4428,12 @@ func _update_hall_portals() -> void:
 		var projected := Rect2(left, top, right - left, bottom - top)
 		var canvas_rect := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
 		button.visible = projected.intersects(canvas_rect)
-		var portal_id: String = String(portal_data.get("id", ""))
+		if cue != null:
+			var cue_rect: Rect2 = projected.intersection(canvas_rect) \
+				if button.visible else Rect2()
+			cue.position = cue_rect.position
+			cue.size = cue_rect.size
+			cue.visible = button.visible and state != DoorLanguage.OPEN
 		if m.DAY_ONE_CASTLE_ROOM_IDS.has(portal_id) \
 				and m.day_one_castle_dressing != null \
 				and is_instance_valid(m.day_one_castle_dressing):
@@ -4347,14 +4462,15 @@ func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 		return
 	if not _is_wide_hall() or m.castle_room_menu_open:
 		return
-	if portal_id != ROYAL_HALL_PORTAL_ID \
-			and not m.day_one_try_enter_castle_room(portal_id):
-		return
-	if portal_id == ROYAL_HALL_PORTAL_ID and m.day_one_is_active() \
-			and not m.day_one_boss_door_ready():
-		m.show_msg("Daddy Mermaid",
-			"The big back door is sleeping. Four clean rooms will wake it up!",
-			"hint")
+	var state: String = door_state(portal_id)
+	if not DoorLanguage.allows_travel(state):
+		var cue: CastleDoorCue = null
+		for record: Dictionary in m.castle_room_door_hotspots:
+			var data: Dictionary = record.get("data", {}) as Dictionary
+			if String(data.get("id", "")) == portal_id:
+				cue = record.get("cue") as CastleDoorCue
+				break
+		_blocked_door_feedback(portal_id, cue)
 		return
 	if portal_id == ROYAL_HALL_PORTAL_ID \
 			and m.castle_royal_hall_arrival_pending:
