@@ -56,34 +56,13 @@ func attach(partner_kind: String, super_cb: Callable) -> void:
 	on_super = super_cb
 	cool = 0.0
 	announced = false
-	layer = CanvasLayer.new()
-	layer.layer = 15
-	m.add_child(layer)
-	bubble = Button.new()
-	bubble.flat = true
-	bubble.focus_mode = Control.FOCUS_NONE
-	var vs: Vector2 = m.get_viewport().get_visible_rect().size
-	bubble.position = Vector2(26.0, vs.y * 0.40 - 88.0)
-	bubble.size = Vector2(176.0, 176.0)
-	bubble.pivot_offset = Vector2(88.0, 88.0)
-	bubble.pressed.connect(on_bubble_tap)
-	layer.add_child(bubble)
-	var tex_path: String = _portrait_path()
-	if tex_path != "" and ResourceLoader.exists(tex_path):
-		var portrait := TextureRect.new()
-		portrait.texture = load(tex_path)
-		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		portrait.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		bubble.add_child(portrait)
-	else:
-		StorybookUI.style_icon_button(bubble, "🧸" if kind == "stuffie" else "💙",
-			"secondary", Vector2(176.0, 176.0), "Partner power!")
-	ring = PartnerRing.new()
-	ring.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	ring.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	bubble.add_child(ring)
+	# The persistent partner portrait/super bubble is retired with the rest of
+	# the gameplay overlay controls. Partner presentation remains in-world; a
+	# future diegetic interaction may expose this optional super without adding
+	# another screen button.
+	layer = null
+	bubble = null
+	ring = null
 
 func detach() -> void:
 	if layer != null and is_instance_valid(layer):

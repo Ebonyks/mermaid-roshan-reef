@@ -1,12 +1,12 @@
 extends CanvasLayer
 # Touch controls (Android/tablet):
-#   HYBRID (default): point-to-interact + a contextual lower-right action button;
+#   HYBRID (default): point-to-interact with no persistent on-screen controls;
 #   taps on unclaimed world space are emitted for select/approach/move.
 #   CLASSIC (rollback): the shipped drag-anywhere stick, tap action and
 #   second-finger camera path is retained below.
 # World taps remain in _unhandled_input so overlays receive first claim.
-# Persistent movement/action/pause controls are claimed in _input: these are
-# visible promises and must not become inert when another Control overlaps.
+# The single global Back/Menu control is claimed in _input so it cannot become
+# inert when another Control overlaps it.
 # A touch has one owner for its lifetime; ownership never changes mid-gesture.
 
 signal world_touched(pos: Vector2)
@@ -156,43 +156,9 @@ func _ready() -> void:
 	_btn = Button.new()
 	_btn.visible = false
 	_root.add_child(_btn)
-	# A 176 px real hit target surrounds the 148 px visible action bubble.
-	# Classic mode hides this Control and keeps the original all-screen tap.
-	# The rect is only an anchor/affordance: presses are claimed from raw
-	# ScreenTouch in _hybrid_unhandled_input, because a Control Button only
-	# hears the FIRST finger (mouse-from-touch emulation) — a second finger
-	# pressed while the stick is held would otherwise be silently dropped.
-	if wants_touch():
-		_act_button = Button.new()
-		_act_button.flat = true
-		_act_button.focus_mode = Control.FOCUS_NONE
-		_act_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		_act_button.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-		_act_button.offset_left = -204.0
-		_act_button.offset_top = -224.0
-		_act_button.offset_right = -28.0
-		_act_button.offset_bottom = -48.0
-		var empty := StyleBoxEmpty.new()
-		for style_name: String in ["normal", "hover", "pressed", "focus"]:
-			_act_button.add_theme_stylebox_override(style_name, empty)
-		_root.add_child(_act_button)
-		# Storybook coral bubble: 148 px visible, centred in the 176 px envelope.
-		_act_vis = _circle(Color(1.0, 0.50, 0.48, 0.86), 74.0, StorybookUI.INK, 5)
-		_act_vis.name = "ActionShellMedallion"
-		_act_vis.position = Vector2(14.0, 14.0)
-		_act_button.add_child(_act_vis)
-		_act_lbl = Label.new()
-		_act_lbl.text = _action_display("JUMP")
-		_act_lbl.add_theme_font_size_override("font_size", 27)
-		_act_lbl.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
-		_act_lbl.add_theme_color_override("font_outline_color", Color(0.2, 0.15, 0.35, 0.9))
-		_act_lbl.add_theme_constant_override("outline_size", 8)
-		_act_lbl.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		_act_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		_act_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		_act_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		_act_vis.add_child(_act_lbl)
-		StorybookUI.add_shell_crest(_act_vis, Rect2(46, 104, 56, 40), "ActionShellCrest")
+	# The fixed jump/action bubble is retired. World taps and activity-owned
+	# gestures remain the child-facing vocabulary; temporary minigames may draw
+	# their own controls only while that action is the game itself.
 	set_mode(control_mode)
 
 func _process(delta: float) -> void:
@@ -397,13 +363,14 @@ func action_zone() -> Rect2:
 func pause_zone() -> Rect2:
 	var main: Node = get_parent()
 	if main != null:
-		var pause_button := main.find_child("PauseCornerButton", true, false) as Control
-		if pause_button != null and pause_button.visible:
-			return pause_button.get_global_rect()
+		var navigation := main.find_child(
+			"GlobalNavigationButton", true, false) as Control
+		if navigation != null:
+			return navigation.get_global_rect() if navigation.visible else Rect2()
 	var vs: Vector2 = _root.size
 	if vs == Vector2.ZERO:
 		vs = get_viewport().get_visible_rect().size
-	return Rect2(Vector2(vs.x - 170.0, 0.0), Vector2(170.0, 170.0))
+	return Rect2(Vector2.ZERO, Vector2(148.0, 148.0))
 
 func _pause_zone_owned_by_melody_overlay() -> bool:
 	var main: Node = get_parent()
@@ -653,9 +620,12 @@ func _request_pause() -> void:
 	# also raise the pause sheet over that same press.
 	if m != null and bool(m.get("intro_active")):
 		return
-	if m != null and m.has_method("toggle_pause"):
+	if m != null and m.has_method("_pause_ref"):
 		_clear_touch_state()
-		m.toggle_pause()
+		var navigation: Object = m.call("_pause_ref") as Object
+		if navigation != null and navigation.has_method(
+				"global_navigation_pressed"):
+			navigation.call("global_navigation_pressed")
 
 func _flush_parent_save() -> void:
 	var main: Node = get_parent()
@@ -916,8 +886,7 @@ func _input(ev: InputEvent) -> void:
 	# the whole screen while open.
 	if wants_touch() and ev is InputEventScreenTouch:
 		var touch := ev as InputEventScreenTouch
-		if touch.pressed and pause_zone().has_point(touch.position) \
-				and not _pause_zone_owned_by_canvas_overlay():
+		if touch.pressed and pause_zone().has_point(touch.position):
 			_request_pause()
 			get_viewport().set_input_as_handled()
 			return
@@ -954,8 +923,7 @@ func _input(ev: InputEvent) -> void:
 		var mouse_button := ev as InputEventMouseButton
 		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
 				and mouse_button.button_index == MOUSE_BUTTON_LEFT:
-			if mouse_button.pressed and pause_zone().has_point(mouse_button.position) \
-					and not _pause_zone_owned_by_canvas_overlay():
+			if mouse_button.pressed and pause_zone().has_point(mouse_button.position):
 				_request_pause()
 				get_viewport().set_input_as_handled()
 				return

@@ -13,6 +13,28 @@ func _build_pause() -> void:
 	# unmistakably dominant Resume, secondary actions as an icon-tile grid
 	# (>=150x132, 24 px apart), toggles that change silhouette (never color
 	# alone), a neutral doorway exit, and dev/FPS kept out of the child menu.
+	# The only persistent gameplay control: one upper-left button. It is Back
+	# whenever another activity/room is stacked over Sky Lagoon, and becomes
+	# Menu only at the Lagoon root. Its own layer stays above activity overlays;
+	# the separate pause sheet remains below transition fades.
+	m.navigation_layer = CanvasLayer.new()
+	m.navigation_layer.name = "GlobalNavigationLayer"
+	m.navigation_layer.layer = 31
+	m.navigation_layer.process_mode = Node.PROCESS_MODE_ALWAYS
+	m.add_child(m.navigation_layer)
+	var navigation := Button.new()
+	navigation.name = "GlobalNavigationButton"
+	StorybookUI.style_icon_button(
+		navigation, "↩", "secondary", Vector2(112.0, 112.0), "Back")
+	navigation.position = Vector2(18.0, 18.0)
+	navigation.button_down.connect(global_navigation_pressed)
+	navigation.set_meta("global_navigation_owner", true)
+	m.navigation_layer.add_child(navigation)
+	m.global_navigation_button = navigation
+	# Compatibility for systems that only need to locate the shipped corner
+	# control. It no longer means Pause and is never placed in the top-right.
+	m.pause_gear_btn = navigation
+
 	m.pause_layer = CanvasLayer.new()
 	m.pause_layer.layer = 12
 	m.pause_layer.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -22,18 +44,7 @@ func _build_pause() -> void:
 	m.pause_dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	m.pause_dim.visible = false
 	m.pause_layer.add_child(m.pause_dim)
-	# 112 px visual pause circle centered in a 128 px hit envelope, inset from
-	# the top-right safe edge (frustrated fingers mash here)
-	var gear := Button.new()
-	gear.name = "PauseCornerButton"
-	StorybookUI.style_icon_button(gear, "Ⅱ", "secondary", Vector2(128, 128), "Pause")
-	gear.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	gear.position = Vector2(-146, 18)
-	# Pause on touch-down: a young child may slide off before lifting.
-	gear.button_down.connect(toggle_pause)
-	m.pause_layer.add_child(gear)
-	StorybookUI.add_shell_crest(gear, Rect2(34, 72, 60, 45), "PauseCornerShell")
-	m.pause_layer.set_meta("corner_button", gear)
+	m.pause_layer.set_meta("corner_button", navigation)
 
 	# Full-screen root lets the dim and shell scale together while main keeps
 	# its historical pause_panel reference and probe surface.
@@ -46,14 +57,14 @@ func _build_pause() -> void:
 	dim.mouse_filter = Control.MOUSE_FILTER_STOP
 	var shell_rect := Rect2(290, 25, 700, 670)
 	var shell := StorybookUI.add_panel(m.pause_panel, shell_rect, StorybookUI.PURPLE, Color(0.90, 0.96, 1.0, 0.99), 62)
-	shell.name = "PauseShell"
-	StorybookUI.adorn_panel(m.pause_panel, shell_rect, "Pause")
+	shell.name = "MenuShell"
+	StorybookUI.adorn_panel(m.pause_panel, shell_rect, "Menu")
 
 	m.fps_lbl = Label.new()
 	StorybookUI.style_label(m.fps_lbl, 18, Color(0.74, 0.82, 0.94), 2)
 	m.fps_lbl.position = Vector2(1030, 686)
 	m.pause_panel.add_child(m.fps_lbl)
-	var resume := _pause_btn("▶   KEEP SWIMMING", Rect2(350, 105, 580, 140), "primary")
+	var resume := _pause_btn("▶   BACK TO PLAY", Rect2(350, 105, 580, 140), "primary")
 	resume.name = "PauseResumeButton"
 	resume.pressed.connect(toggle_pause)
 	m.pause_resume_btn = resume
@@ -114,6 +125,57 @@ func _build_pause() -> void:
 			toggle_pause()
 			m.dev_mode.toggle())
 	_sync_labels()
+	sync_global_navigation()
+
+func sync_global_navigation() -> void:
+	var button: Button = m.global_navigation_button
+	if button == null or not is_instance_valid(button):
+		return
+	var blocked_by_boot := m.start_menu_active or m.intro_active
+	var covered_by_fade := m.fade_rect != null and m.fade_rect.visible \
+		and m.fade_rect.color.a * m.fade_rect.modulate.a > 0.01
+	button.visible = not blocked_by_boot and not covered_by_fade
+	if not button.visible:
+		return
+	var mode := "menu" if _is_sky_lagoon_root() \
+		and (m.pause_panel == null or not m.pause_panel.visible) else "back"
+	if String(button.get_meta("global_navigation_mode", "")) == mode:
+		return
+	button.set_meta("global_navigation_mode", mode)
+	StorybookUI.style_icon_button(button, "☰" if mode == "menu" else "↩",
+		"secondary", Vector2(112.0, 112.0), "Menu" if mode == "menu" else "Back")
+	button.position = Vector2(18.0, 18.0)
+
+func _is_sky_lagoon_root() -> bool:
+	var root_world := (m.game == "level2" \
+		and String(m.g.get("phase", "")) == "promenade") or m.game == ""
+	if not root_world:
+		return false
+	if m.castle_room_layer != null and is_instance_valid(m.castle_room_layer) \
+			and m.castle_room_layer.visible:
+		return false
+	return m.mg_kind == "" and m.wardrobe_layer == null \
+		and m.craft_layer == null and m.castle_logo_layer == null \
+		and m.stickers_layer == null and m.collection_layer == null \
+		and m.companion_layer == null and m.companion_care_layer == null \
+		and m.combat_tutorial_game == null \
+		and (m._attack_customizer == null \
+			or not is_instance_valid(m._attack_customizer) \
+			or not m._attack_customizer.is_open) \
+		and (m._day_one_art_studio == null \
+			or not is_instance_valid(m._day_one_art_studio))
+
+func global_navigation_pressed() -> void:
+	if m.start_menu_active or m.intro_active:
+		return
+	if m.pause_panel != null and m.pause_panel.visible:
+		toggle_pause()
+		return
+	if _is_sky_lagoon_root():
+		toggle_pause()
+		return
+	_leave_current_activity()
+	sync_global_navigation()
 
 func music_label() -> String:
 	# State shown by silhouette, not colour: a note when on, a struck note when
@@ -207,6 +269,7 @@ func toggle_pause() -> void:
 		var focus_owner := m.get_viewport().gui_get_focus_owner()
 		if focus_owner != null:
 			focus_owner.release_focus()
+	sync_global_navigation()
 
 func _has_leave_context() -> bool:
 	var overlay_context: bool = m.mg_kind != "" or m.wardrobe_layer != null \
@@ -226,6 +289,27 @@ func _leave_current_activity() -> void:
 	m.get_tree().paused = false
 	m.pause_panel.visible = false
 	m._sync_pause_surface_layer()
+	if m.dance_engine != null and is_instance_valid(m.dance_engine) \
+			and (m.dance_engine as DanceEngine).active:
+		(m.dance_engine as DanceEngine).close_demo()
+		return
+	if m._attack_customizer != null and is_instance_valid(m._attack_customizer) \
+			and m._attack_customizer.is_open:
+		m._close_attack_customizer()
+		return
+	if m._day_one_art_studio != null and is_instance_valid(m._day_one_art_studio):
+		m._close_day_one_art_studio()
+		return
+	if m._castle_career_routes != null \
+			and m._castle_career_routes.opera_venue != null \
+			and is_instance_valid(m._castle_career_routes.opera_venue) \
+			and m._castle_career_routes.opera_venue.is_open():
+		m._castle_career_routes.close_opera_venue()
+		return
+	if m._castle_rooms_25d != null \
+			and m._castle_rooms_25d.kitchen_menu_layer != null:
+		m._castle_rooms_25d._close_kitchen_menu()
+		return
 	if m.stickers_layer != null:
 		m._close_stickers()
 		return
@@ -258,6 +342,9 @@ func _leave_current_activity() -> void:
 		# screen, its hit engine stealing every ocean tap (alpha audit
 		# 2026-08-05).
 		m.combat_tutorial_game.cancel()
+		return
+	if m._castle_rooms_25d != null and m._castle_rooms_25d.is_open():
+		m._castle_rooms_25d._go_back()
 		return
 	if m.game == "kitchen_cooking":
 		m._castle_rooms_ref().cancel_kitchen_recipe()

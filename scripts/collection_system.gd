@@ -64,20 +64,17 @@ func has_nearby() -> bool:
 
 
 func build() -> void:
-	if m.collection_button != null and is_instance_valid(m.collection_button):
+	if m.collection_button_layer != null \
+			and is_instance_valid(m.collection_button_layer):
 		return
 	var layer := CanvasLayer.new()
 	layer.layer = 11
+	layer.visible = false
 	m.add_child(layer)
 	m.collection_button_layer = layer
-	var button := Button.new()
-	button.name = "CritterBookCornerButton"
-	StorybookUI.style_icon_button(button, "♧", "secondary", Vector2(112, 112), "Critter Book")
-	button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	button.position = Vector2(-278, 18)
-	button.pressed.connect(open_book)
-	layer.add_child(button)
-	m.collection_button = button
+	# The Critter Book remains available from the root Menu. Its former
+	# persistent corner launcher obscured the world and competed with Back.
+	m.collection_button = null
 
 
 func _context() -> String:
@@ -91,9 +88,7 @@ func _context() -> String:
 func tick(delta: float, ppos: Vector3) -> void:
 	var context := _context()
 	if m.collection_button_layer != null:
-		# also hide while a 2D picture game is open — the paw sits on layer 11
-		# and was covering the minigame's ✕ close button (layer 7)
-		m.collection_button_layer.visible = context != "" and not m.intro_active and m.collection_layer == null and m.mg_kind == ""
+		m.collection_button_layer.visible = false
 	if context != m.collection_habitat:
 		_spawn_context(context)
 	if context == "" or m.collection_layer != null:

@@ -609,10 +609,12 @@ var streak_ctx := "none"       # "sea" | "sky" | "off" — restyled when it chan
 var surf_rings: Array = []     # pooled expanding rings on the water underside
 var ring_cool := 0.0
 var flag_sh: Shader = null
+var navigation_layer: CanvasLayer = null
+var global_navigation_button: Button = null
 var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_dim: ColorRect = null      # full-screen cool dim under the pause panel
-var pause_gear_btn: Button = null    # top-right pause button (128 hit / 112 visual)
+var pause_gear_btn: Button = null    # compatibility alias for global_navigation_button
 var pause_grid: GridContainer = null # secondary icon tiles (probe-checked sizes)
 var pause_resume_btn: Button = null
 var pause_leave_btn: Button = null
@@ -3654,7 +3656,30 @@ func _ui_tap() -> void:
 	_audio_ref()._ui_tap()
 
 func _hook_button_taps(n: Node) -> void:
+	# One upper-left Back/Menu control owns navigation game-wide. Older overlays
+	# still construct local back buttons for compatibility with their isolated
+	# controllers; retire those nodes as soon as they enter the tree so no later
+	# screen can resurrect the former corner-button design language.
+	if n is Button:
+		var button_name := String(n.name)
+		if button_name == "CastleBack" or button_name.ends_with("BackButton") \
+				or button_name in ["PauseCornerButton", "RoomAction",
+					"ElevatorButton", "ElevatorMenuClose",
+					"CritterBookCornerButton", "StuffieCareMenuButton"]:
+			_retire_legacy_overlay_button(n)
+			call_deferred("_retire_legacy_overlay_button", n)
 	_audio_ref()._hook_button_taps(n)
+
+func _retire_legacy_overlay_button(node: Node) -> void:
+	if node == null or not is_instance_valid(node) or not node is Button:
+		return
+	var button := node as Button
+	if button == global_navigation_button:
+		return
+	button.visible = false
+	button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.focus_mode = Control.FOCUS_NONE
+	button.set_meta("retired_by_global_navigation", true)
 
 func _play_music(track: String, loop: bool = true) -> void:
 	_audio_ref()._play_music(track, loop)
@@ -4206,10 +4231,9 @@ func toggle_pause() -> void:
 
 
 func _sync_pause_surface_layer() -> void:
-	# The shipped Castle owns opaque CanvasLayer 14. Keep the phone's pause
-	# affordance above its layer-15 ambient accents. During Opera it sits above
-	# the layer-10 career, layer-11 ambient accents and layer-12 caption HUD.
-	# An opened pause sheet still owns layer 29 beneath the layer-30 fade.
+	# The settings sheet still follows its activity surface. Persistent Back/Menu
+	# navigation lives on its own layer and syncs even while the tree is paused.
+	_pause_ref().sync_global_navigation()
 	if pause_layer == null or get_tree().paused:
 		return
 	var castle_front := castle_room_layer != null \

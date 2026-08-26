@@ -223,47 +223,18 @@ func tick(delta: float) -> void:
 # ---------- the inset HUD launcher + Tamagotchi care sheet ----------
 
 func _ensure_menu_button() -> void:
-	if m.companion_menu_button != null and is_instance_valid(m.companion_menu_button):
-		return
-	if m.hud_layer == null:
-		return
-	var button := Button.new()
-	button.name = "StuffieCareMenuButton"
-	# Upper-right hand area, intentionally left of both the Critter Book and the
-	# pause-owned far corner; all three targets keep a visible finger-width gap.
-	button.position = Vector2(858, 22)
-	StorybookUI.style_icon_button(button, "🧸", "secondary", Vector2(128, 128), "Care for your stuffie")
-	StorybookUI.add_shell_crest(button, Rect2(34, 72, 60, 45), "StuffieWatchShell")
-	button.set_meta("hud_zone", "upper_right_inset")
-	button.pressed.connect(open_care_menu)
-	m.hud_layer.add_child(button)
-	m.companion_menu_button = button
+	# Stuffie care is reached from the root Menu. No persistent launcher shares
+	# the playfield with the single global Back/Menu control.
+	if m.companion_menu_button != null \
+			and is_instance_valid(m.companion_menu_button):
+		m.companion_menu_button.queue_free()
+	m.companion_menu_button = null
 
 func _sync_menu_button() -> void:
 	var button: Button = m.companion_menu_button
 	if button == null or not is_instance_valid(button):
 		return
-	button.visible = m.companion_id != "" and _follow_ctx() and not m.intro_active \
-		and m.companion_care_layer == null and m.companion_layer == null
-	if not button.visible:
-		return
-	var icon := "🧸"
-	var kind := "secondary"
-	if m.companion_bruises > 0:
-		icon = "🩹"
-		kind = "action"
-	elif m.companion_want != "":
-		var want := want_def(m.companion_want)
-		icon = String(want.get("emoji", "♥"))
-		kind = "gold"
-	if button.text != icon or String(button.get_meta("storybook_kind", "")) != kind:
-		StorybookUI.style_icon_button(button, icon, kind, Vector2(128, 128), "Care for your stuffie")
-	button.pivot_offset = button.size * 0.5
-	if kind != "secondary":
-		var now: float = Time.get_ticks_msec() / 1000.0
-		button.scale = Vector2.ONE * (1.0 + sin(now * 4.0) * 0.08)
-	else:
-		button.scale = Vector2.ONE
+	button.visible = false
 
 
 func open_care_menu() -> void:

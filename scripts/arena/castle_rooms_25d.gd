@@ -1226,46 +1226,16 @@ func _build_stage() -> void:
 
 	m.castle_room_action_button = Button.new()
 	m.castle_room_action_button.name = "RoomAction"
-	m.castle_room_action_button.position = Vector2(72.0, 520.0)
-	StorybookUI.style_icon_button(m.castle_room_action_button, "♛", "gold",
-		Vector2(132.0, 132.0), "Touch the room")
 	m.castle_room_action_button.pressed.connect(activate_current_room)
-	m.castle_room_action_button.z_index = 30
-	stage.add_child(m.castle_room_action_button)
-
-	m.castle_room_back_button = Button.new()
-	m.castle_room_back_button.name = "CastleBack"
-	m.castle_room_back_button.position = Vector2(28.0, 28.0)
-	StorybookUI.style_back_button(
-		m.castle_room_back_button, "Castle courtyard")
-	m.castle_room_back_button.pressed.connect(_go_back)
-	m.castle_room_back_button.z_index = 30
-	stage.add_child(m.castle_room_back_button)
-
-	var elevator := Button.new()
-	elevator.name = "ElevatorButton"
-	elevator.position = Vector2(1116.0, 544.0)
-	StorybookUI.style_icon_button(elevator, "↕", "primary",
-		Vector2(136.0, 136.0), "Open the picture map of every castle room")
-	elevator.set_meta("castle_picture_map", true)
-	elevator.set_meta("persistent_navigation", true)
-	elevator.pressed.connect(_toggle_elevator_menu)
-	elevator.z_index = 30
-	stage.add_child(elevator)
-	var elevator_pointer := Label.new()
-	elevator_pointer.name = "ElevatorPointer"
-	elevator_pointer.text = "▼"
-	elevator_pointer.position = Vector2(1155.0, 490.0)
-	StorybookUI.style_label(elevator_pointer, 48, StorybookUI.GOLD, 5)
-	elevator_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	elevator_pointer.z_index = 30
-	stage.add_child(elevator_pointer)
-	var point := elevator_pointer.create_tween().set_loops()
-	point.tween_property(elevator_pointer, "position:y", 502.0,
-		0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	point.tween_property(elevator_pointer, "position:y", 490.0,
-		0.55).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	_build_elevator_menu(stage)
+	# Room actions are reached through the painted room itself. Keep the
+	# compatibility signal object off-tree for activity controllers, but do not
+	# add a bubbles/action overlay. Back is owned by GlobalNavigationButton and
+	# rooms are entered through their in-world doors, so no elevator UI exists.
+	m.castle_room_action_button.visible = false
+	m.castle_room_back_button = null
+	m.castle_room_menu_panel = null
+	m.castle_room_menu_buttons.clear()
+	m.castle_room_menu_open = false
 	var transition_cover := ColorRect.new()
 	transition_cover.name = "CastleRoomTransitionCover"
 	transition_cover.color = Color(0.10, 0.07, 0.22, 1.0)
