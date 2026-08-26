@@ -464,7 +464,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | A matching current APK and machine gates are green; route cards keep large targets without obscuring Roshan; phone/M11, child, owner, voice/listening, strict-2D, and authoritative visual gates pass. |
 | closure | Pending as of 2026-08-13; exact integrated machine runs and matching APK exist at `441adf35`. Phone/M11, child, owner, voice/listening, strict-2D, and accepted-visual evidence are missing, remote Sky renderer diagnostics remain failed, and P2 card composition is unresolved. |
 | relationships | Builds on `MA-OPERA-010` and `MA-OPERA-011`; visual capture gap `MA-OPERA-004`; release gate `MA-RELEASE-001`; rollback `CHG-027`. |
-| history | 2026-08-12: `09e5e356` implemented exact room routes and local evidence. 2026-08-13: `ff068db` repaired readiness sampling; e6 and `7391c53c` preserve predecessor machine/build history. Current integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior and adds local/topic/dev machine plus APK evidence; all external/visual gates remain open. |
+| history | 2026-08-12: `09e5e356` implemented exact room routes and local evidence. 2026-08-13: `ff068db` repaired readiness sampling; e6 and `7391c53c` preserve predecessor machine/build history. Current integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior and adds local/topic/dev machine plus APK evidence; all external/visual gates remain open. 2026-08-26: owner commits `0277071f` and `9a1754c1` (2026-08-25) add `scripts/opera_house_venue_2d.gd`, a true-2D three-floor Opera House venue serving as the Opera Hall room interior that hosts only its three resident careers through invisible painted portal regions with no card grid or all-career menu; the no-central-lobby premise is preserved, the venue is recognized as the newest owner direction, and the lifecycle is unchanged pending the same external verification. |
 
 ## MA-PERF-001
 
@@ -816,7 +816,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | Field | Value |
 |---|---|
 | id | `MA-CODE-001` |
-| title | `scripts/main.gd` is 8,734 lines at current source `51d0abc0`, far above the extraction-only target below 2,500 lines. |
+| title | `scripts/main.gd` is 10,499 lines at integration head `9a1754c1`, far above the extraction-only target below 2,500 lines, and the trend has reversed. |
 | rule_ids | `DL-SAVE-03`, `DL-QA-01`, `DL-QA-02` |
 | domain / zone | Architecture and maintainability / `ReefMain` |
 | source | Static line-count and architecture audit at runtime commit `09e5e356`. |
@@ -830,9 +830,9 @@ target-device, child, owner, or accepted-visual result is claimed.
 | fix | Continue small behavior-preserving extractions into typed satellites until the target is met, with no opportunistic rewrite. |
 | surrounding_tests | Parser and inference lint; exact before/after focused probes; passive; save/load/recovery/re-entry; UI/touch; sibling systems; full trusted probes and exact CI for each extraction. |
 | acceptance | `main.gd` is below 2,500 lines through reviewed mechanical extractions, behavior/save contracts are unchanged, and all required gates remain green. |
-| closure | Open as of 2026-08-13; current line count is 8,734 and no complete extraction sequence, final gate result, closure commit, or date exists. |
-| relationships | Coupled structural risks are `MA-CODE-002`; broad medium migration is `MA-2D-002`; release risk aggregates under `MA-RELEASE-001`. |
-| history | 2026-07-18: extraction-only target documented. 2026-08-13: `09e5e356` measured 8,647 lines; current `51d0abc0` measures 8,734; lifecycle `CONFIRMED_OPEN`. |
+| closure | Open as of 2026-08-26; current line count is 10,499 and no complete extraction sequence, final gate result, closure commit, or date exists. |
+| relationships | Coupled structural risks are `MA-CODE-002`; broad medium migration is `MA-2D-002`; release risk aggregates under `MA-RELEASE-001`; the 2026-08-26 round decomposes bounded sub-risks into `MA-CODE-003`, `MA-CODE-004`, `MA-PERF-002`, and `MA-SAVE-001`. |
+| history | 2026-07-18: extraction-only target documented. 2026-08-13: `09e5e356` measured 8,647 lines; `51d0abc0` measured 8,734; lifecycle `CONFIRMED_OPEN`. 2026-08-26: integration head `9a1754c1` measures 10,499 lines (+1,765 in thirteen days) with 480 functions — the Day One glue (about thirty `day_one_*` functions), start-menu routing, and venue delegation landed on main while `scripts/day_one_director.gd` exists as a 673-line satellite; the shrink trajectory is reversed and `DL-CODE-01` now names the criterion; lifecycle remains `CONFIRMED_OPEN`. |
 
 ## MA-CODE-002
 
@@ -855,4 +855,280 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Each confirmed sub-risk has a bounded repair and regression evidence, no speculative caller change is smuggled in, and state/input/save/render contracts remain green. |
 | closure | Open as of 2026-08-13; sub-risk decomposition and repairs are incomplete, with no aggregate acceptance result, closure commit, or date. |
 | relationships | Companion to size finding `MA-CODE-001`; save/release risk affects `MA-RELEASE-001`; remaining 3D glue contributes to `MA-2D-002`; Chef caller exclusion relates to `MA-OPERA-001`. |
-| history | 2026-08-09: grouped structural risks confirmed. 2026-08-12: speculative Chef caller hardening explicitly excluded. 2026-08-13: lifecycle remains `CONFIRMED_OPEN`. |
+| history | 2026-08-09: grouped structural risks confirmed. 2026-08-12: speculative Chef caller hardening explicitly excluded. 2026-08-13: lifecycle remains `CONFIRMED_OPEN`. 2026-08-26: the code-refinement round re-measures the group at `9a1754c1` — 409 distinct string state keys, eight verbatim pointer-glyph copies, three `_action_pressed` copies, roughly 280 cross-module calls into main-side private builder helpers, and 38 probe-private `_frames` helpers — and carves bounded sub-findings `MA-CODE-003`, `MA-CODE-004`, `MA-PERF-002`, `MA-SAVE-001`, and `MA-CI-007` out of this group per its own fix plan; the residual group stays `CONFIRMED_OPEN` for what remains. |
+
+## MA-CI-004
+
+| Field | Value |
+|---|---|
+| id | `MA-CI-004` |
+| title | The Day One wing and start-menu routing ship with eight dedicated probes, none of which runs in either trusted roster. |
+| rule_ids | `DL-CODE-10`, `DL-QA-02`, `DL-QA-07`, `DL-SAVE-05` |
+| domain / zone | CI and release evidence / Day One wing, start menu, mermaid pool, art studio |
+| source | 2026-08-26 code-refinement round roster cross-check at integration head `9a1754c1`. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: roster absence is exact; the ungated probes' own health is unassessed. |
+| reproduction | At `9a1754c1`, list `scripts/probe_day_one_*.gd` plus `scripts/probe_start_menu_routing.gd` (eight files), then search the trusted loops in `scripts/ci.sh` and `.github/workflows/probes.yml`; zero of the eight appear in either roster, so no push can fail on a Day One or fresh-save-routing regression. |
+| child_impact | Day One is the fresh-save entry arc — the first thing the child meets after New Game. A routing, cleanup, or reward regression there ships without any gate noticing. |
+| evidence | `scripts/probe_day_one_art_attack_state.gd`, `probe_day_one_art_studio_shots.gd`, `probe_day_one_castle_dressing.gd`, `probe_day_one_director.gd`, `probe_day_one_integration.gd`, `probe_day_one_pool_cleanup.gd`, `probe_day_one_pool_shots.gd`, `probe_start_menu_routing.gd`; trusted rosters in `scripts/ci.sh` and `.github/workflows/probes.yml` contain none of them; `scripts/main.gd:3763` `_launch_from_start_menu` routes New Game into Day One. |
+| owner_decision | Not required: gating an existing wing's probes implements the standing probe-first contract. |
+| fix | Classify the eight probes per master audit section 11.2; promote the deterministic non-capture ones (at minimum `probe_day_one_director`, `probe_day_one_integration`, `probe_day_one_pool_cleanup`, `probe_start_menu_routing`) into both trusted rosters; capture-style probes become `ADVISORY_CAPTURE`. |
+| surrounding_tests | Each promoted probe runs green three consecutive times locally before promotion; full suite before/after; roster parity check between `ci.sh` and `probes.yml`. |
+| acceptance | Both rosters carry the promoted probes, a deliberately injected Day One routing break turns the gate red, and suite wall time stays inside the workflow ceiling. |
+| closure | Open as of 2026-08-26; no roster change exists. |
+| relationships | Decomposes release risk from `MA-RELEASE-001`; complements `MA-CI-003` classification and `MA-CI-005` passive coverage. |
+| history | 2026-08-26: confirmed by roster cross-check; opened `CONFIRMED_OPEN`. |
+
+## MA-CI-005
+
+| Field | Value |
+|---|---|
+| id | `MA-CI-005` |
+| title | The central zero-input negative probe snapshots only pearls, trophies, stickers, and medals, so a passive award in Opera, combat, castle interactions, or Day One is invisible to it. |
+| rule_ids | `DL-AGE-04`, `DL-CODE-10`, `DL-QA-02` |
+| domain / zone | CI negative coverage / `scripts/probe_passive.gd` game-wide |
+| source | 2026-08-26 code-refinement round probe-content audit at integration head `9a1754c1`. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: snapshot field list and per-mode idle checks are read exactly; no runtime demonstration of a slipped award exists. |
+| reproduction | At `9a1754c1`, read `scripts/probe_passive.gd` `_progress_snapshot()` — it reads `pearl_count`, `trophies`, `stickers`, `medals` (with shop/animal ownership) and never `opera_stars`, `opera_progress`, combat completion fields, `stuffie_wins`, castle interaction milestones, or Day One state; the file's mode coverage is the five friend games, shop, slide, fairy, and brawl. Newer modes carry their own opt-in idle assertions inside their own probes, which a brand-new mode does not inherit. |
+| child_impact | The no-fail promise's enforcement arm is the passive probe; a future mercy or assist feature that quietly awards progress for watching would ship ungated in every mode the snapshot does not cover. |
+| evidence | `scripts/probe_passive.gd` (snapshot function and mode list; three total references matching opera/combat/dungeon/stuffie/castle); distributed idle checks exist in `probe_opera.gd`, `probe_opera_2d.gd`, `probe_combat.gd`, `probe_stuffie.gd`, `probe_living_world.gd` but are opt-in per probe. |
+| owner_decision | Not required: extending the negative test implements `DL-AGE-04` as already decided. |
+| fix | Extend `_progress_snapshot()` to a complete reward-surface dictionary (opera stars/progress/pantry, combat and tutorial completion, dungeon checkpoints, `stuffie_wins`, care points, Day One serialized state, castle milestone fields), and add passive legs for the reward-bearing modes it can cheaply enter; document that a new mode must either extend the snapshot or carry its own idle no-award leg. |
+| surrounding_tests | Deliberate mutation test: hand-award one field of each new snapshot section under idle input and confirm the probe fails; full suite green after. |
+| acceptance | The snapshot covers every save-backed reward surface at the audited commit, the mutation test fails closed for each section, and the rule is recorded in the probe header. |
+| closure | Open as of 2026-08-26; snapshot unchanged. |
+| relationships | Enforces the same invariant family as `MA-CI-004`; classification context is `MA-CI-003`. |
+| history | 2026-08-26: confirmed by probe-content read; opened `CONFIRMED_OPEN`. |
+
+## MA-CODE-003
+
+| Field | Value |
+|---|---|
+| id | `MA-CODE-003` |
+| title | At least eight shared behaviors exist as verbatim multi-copy clones — pointer glyphs, action-press reads, cached material factories, AABB kits, avatar spawns, mode start/end scaffolds, stage input maps, and act teardown lists. |
+| rule_ids | `DL-CODE-05`, `DL-CODE-06`, `DL-QA-02` |
+| domain / zone | Architecture and maintainability / cross-cutting gameplay scripts |
+| source | 2026-08-26 code-refinement round duplication sweep at integration head `9a1754c1`, decomposed from `MA-CODE-002`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: copies located and counted by exact text search; behavioral equivalence of each family is asserted from reading, not runtime diffing. |
+| reproduction | At `9a1754c1`: the `pointer.text = "▼"` Label3D block appears eight times; `func _action_pressed()` is verbatim in `scripts/dungeon_puzzle_room.gd:312`, `scripts/combat_arena.gd:354`, `scripts/stuffie_battle.gd:285`; the keyed cached-material factory `_mat(col, glow)` with primitive trio recurs across `dungeon_puzzle_room.gd` and `opera_house.gd`; `_gather_aabbs`-style kits recur in `ember_fortress.gd`, `kart.gd`, `galaxy.gd`, and main; a thirty-line Roshan avatar spawn is cloned between `ember_fortress.gd` and `galaxy.gd`; the eight-branch keyboard-to-stage input map is cloned between `games/side_scroll.gd` and `games/octagon_stage.gd`; main's `_start_X_now`/`_end_X` scaffolds repeat per standalone mode. |
+| child_impact | Clone drift is how one mode's fix misses its siblings — the child meets the stale copy. |
+| evidence | Paths and line anchors above; count check `grep -rn 'pointer.text = "▼"' scripts` returns eight. |
+| owner_decision | Not required: consolidation under exact-behavior extraction is the standing refactor contract. |
+| fix | One clone family per commit: extract a shared helper (satellite or static), point every copy at it mechanically, and prove exact behavior with the owning probes; start with the action-press read and the pointer widget, which have the smallest surfaces. |
+| surrounding_tests | Full trusted suite before/after each family; the owning mode probes for every touched file; parser/lint/analyzer. |
+| acceptance | Each named family has one implementation with all call sites migrated, suite green at each step, and no behavior delta reported by the owning probes. |
+| closure | Open as of 2026-08-26; no consolidation commit exists. |
+| relationships | Decomposed from `MA-CODE-002`; probe-side boilerplate is `MA-CI-007`; size pressure feeds `MA-CODE-001`. |
+| history | 2026-08-26: copies re-verified at `9a1754c1` after the Opera dismantle relocated several; opened `CONFIRMED_OPEN`. |
+
+## MA-CODE-004
+
+| Field | Value |
+|---|---|
+| id | `MA-CODE-004` |
+| title | Cross-system state is keyed by 409 distinct raw string literals in the `g` scratch dictionary, where a typo fails silently at runtime. |
+| rule_ids | `DL-CODE-04`, `DL-CODE-03`, `DL-QA-01` |
+| domain / zone | Architecture and state / `ReefMain.g` and all satellites |
+| source | 2026-08-26 code-refinement round state-surface count at integration head `9a1754c1`, decomposed from `MA-CODE-002`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: distinct-key count is exact; no specific live typo defect is currently reproduced. |
+| reproduction | At `9a1754c1`, `grep -rhoE 'g\["[a-z0-9_]+"\]' scripts --include='*.gd' \| sort -u \| wc -l` reports 409 distinct keys (380 at `e924d9ba` thirteen days earlier); main itself holds 82 accesses while satellites hold the rest as `m.g["…"]`. |
+| child_impact | A misspelled state key reads as a default instead of erroring, producing wrong-but-quiet behavior in whatever mode the child is in. |
+| evidence | Count command above; the historical shrink of `g` on main relocated rather than reduced the surface. |
+| owner_decision | Not required: `DL-CODE-04` states the direction; no schema or save change is involved. |
+| fix | Freeze the surface (no new keys — reviewed against the baseline count), introduce typed accessor helpers or per-mode typed state objects for the top-traffic key families (phase/timer/position groups), and migrate one mode per commit mechanically. |
+| surrounding_tests | Full suite per migration; a lint count of distinct keys recorded in the round metrics so growth is visible at the next audit. |
+| acceptance | Distinct-key count is at or below 409 at the next audit round and at least two high-traffic modes read state through typed accessors with suite green. |
+| closure | Open as of 2026-08-26; count is 409 and growing. |
+| relationships | Decomposed from `MA-CODE-002`; interacts with `MA-CODE-001` extraction boundaries. |
+| history | 2026-08-26: counted 409 distinct keys (up from 380 on 2026-08-13's parent head); opened `CONFIRMED_OPEN`. |
+
+## MA-CODE-005
+
+| Field | Value |
+|---|---|
+| id | `MA-CODE-005` |
+| title | A fully wired but unreachable loss-message system (`_fail_line()` and the unused lose branch of `_end_game`) sits one call away from violating the no-fail rule. |
+| rule_ids | `DL-CODE-09`, `DL-AGE-03` |
+| domain / zone | Child-safety adjacent dead code / `scripts/main.gd` |
+| source | 2026-08-26 code-refinement round dead-code sweep at integration head `9a1754c1`. |
+| severity | P3 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: zero call sites confirmed by exact search. |
+| reproduction | At `9a1754c1`, `scripts/main.gd:8143` defines `_fail_line()` returning in-character loss lines ("Aww... now Chuck is all wet!"); repo-wide search finds no caller, and no `_end_game(false` call exists, so the lose path of `_end_game(win: bool)` is also unreachable. |
+| child_impact | None today; the risk is a future wiring mistake resurrecting a loss message against the no-fail promise. |
+| evidence | `scripts/main.gd:8143` and caller search; `_end_game(false` returns zero hits. |
+| owner_decision | Not required: removing dead code that cannot ship a behavior change. |
+| fix | Delete `_fail_line()` and the dead lose branch; keep `_end_game`'s signature only if a caller needs it, otherwise simplify mechanically. |
+| surrounding_tests | Parser/lint/analyzer; full suite; passive probe unchanged. |
+| acceptance | The symbols are gone, the suite is green, and no probe output changes. |
+| closure | Open as of 2026-08-26; code present. |
+| relationships | Child-safety context is `DL-AGE-03` enforcement; grouped origin is `MA-CODE-002`. |
+| history | 2026-08-26: confirmed dead at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+
+## MA-PERF-002
+
+| Field | Value |
+|---|---|
+| id | `MA-PERF-002` |
+| title | `_sparkle_burst` allocates a particle node, a mesh, and a material on every call from 141 sites with no quality-tier gate, including a permanent wayfinder cadence. |
+| rule_ids | `DL-CODE-07`, `DL-CODE-08`, `DL-PERF-03` |
+| domain / zone | Runtime performance / `scripts/main.gd` effect helper, game-wide callers |
+| source | 2026-08-26 code-refinement round allocation sweep at integration head `9a1754c1`, decomposed from `MA-CODE-002`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: allocation pattern and call count are exact; no target-device frame-time measurement isolates its cost yet. |
+| reproduction | At `9a1754c1`, `scripts/main.gd:8001` constructs `CPUParticles3D.new()` + `BoxMesh.new()` + `StandardMaterial3D.new()` per call and frees via a tween 1.6 seconds later; 141 call references exist across scripts; the wayfinder emits bursts on a repeating cadence during free roam; no `speedy`/quality check appears in the function. |
+| child_impact | Steady allocation and node churn on a weak phone GPU/CPU is a plausible hitch source exactly while the child follows the sparkle trail. |
+| evidence | `scripts/main.gd:8001` function body; call-reference count; absence of tier checks in the function. |
+| owner_decision | Not required: pooling and caching preserve identical visuals. |
+| fix | Cache one shared `BoxMesh` and per-color materials, pool a small ring of particle nodes, and add the Speedy-tier reduction (fewer simultaneous bursts) per `DL-CODE-08`; keep visual output otherwise identical. |
+| surrounding_tests | Full suite; visual spot-check of a celebration and the wayfinder trail; later target-device frame capture under `MA-PERF-001`'s protocol. |
+| acceptance | No per-call allocation of mesh/material remains, pooled nodes are bounded, tier reduction exists, and the suite is green with unchanged probe output. |
+| closure | Open as of 2026-08-26; helper unchanged. |
+| relationships | Decomposed from `MA-CODE-002`; device evidence rolls up to `MA-PERF-001`; tier-coverage context is `MA-PERF-003`. |
+| history | 2026-08-26: re-verified at `9a1754c1` (141 sites; body allocates all three resources); opened `CONFIRMED_OPEN`. |
+
+## MA-PERF-003
+
+| Field | Value |
+|---|---|
+| id | `MA-PERF-003` |
+| title | The newest child-facing surfaces — the Canvas Melody theater, the Day One director, the side-scroll stage, and the remaining spatial Galaxy/companion layers — contain no quality-tier awareness at all. |
+| rule_ids | `DL-CODE-08`, `DL-PERF-02`, `DL-PERF-03` |
+| domain / zone | Runtime performance / newest gameplay surfaces game-wide |
+| source | 2026-08-26 code-refinement round tier-coverage sweep at integration head `9a1754c1`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: zero-reference counts are exact per file; actual per-surface frame cost on the target device is unmeasured. |
+| reproduction | At `9a1754c1`, searching `speedy`/`quality` reports zero hits in `scripts/games/melody.gd` (1,295 lines, new Canvas rhythm stage), `scripts/day_one_director.gd` (673 lines), and `scripts/games/side_scroll.gd` (930 lines); `scripts/opera_gesture_surface.gd` (6,185 lines) matches only an unrelated gesture-quality signal; legacy spatial `scripts/galaxy.gd` and `scripts/companion.gd` also carry none while creating lights, labels, and transparent cards. The Speedy tier itself defaults on for mobile. |
+| child_impact | The tier exists to keep the weakest phone at a stable frame rate; surfaces that ignore it spend the same budget on the M11 as on a desktop, and the newest surfaces are where she now plays most. |
+| evidence | Per-file zero counts above; `scripts/main.gd` `_apply_quality` implements the tier for the legacy reef systems only. |
+| owner_decision | Not required for reductions that do not change what the child sees at Sparkly tier. |
+| fix | Per surface, identify the dominant cost (redraw cadence, canvas particle counts, ambient loop counts, decoded texture residency, remaining 3D lights/cards) and either implement a Speedy reduction or record a measured budget note stating why none is needed, per `DL-CODE-08`. |
+| surrounding_tests | Full suite; before/after screenshots at both tiers for one touched surface; later device capture under `MA-PERF-001`. |
+| acceptance | Every named surface has either a tier path or a recorded budget note, and the suite is green. |
+| closure | Open as of 2026-08-26; no tier work exists in the named files. |
+| relationships | Effect churn is `MA-PERF-002`; device evidence is `MA-PERF-001`; spatial remainder overlaps `MA-2D-002`. |
+| history | 2026-08-26: swept at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+
+## MA-SAVE-001
+
+| Field | Value |
+|---|---|
+| id | `MA-SAVE-001` |
+| title | Castle interaction progress the child can see accumulates only in the unpersisted `m.g` scratch dictionary and is lost on app kill. |
+| rule_ids | `DL-CODE-03`, `DL-SAVE-01`, `DL-SAVE-04` |
+| domain / zone | Save and persistence / `scripts/arena/castle_rooms_25d.gd` interaction state |
+| source | 2026-08-26 code-refinement round persistence sweep at integration head `9a1754c1`, decomposed from `MA-CODE-002`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: the scratch writes and the absence of any save path for them are exact; the child-visible loss is reasoned, not observed. |
+| reproduction | At `9a1754c1`, `scripts/arena/castle_rooms_25d.gd` writes `m.g["castle_dust_bunnies_cleared"]` at lines 919, 3968, and 4060 and `m.g["crown_won"]` at 4729; `ReefMain.g` is per-activity scratch cleared by `_clear_game()` and never serialized. Milestones are laundered into real save fields (`stuffie_wins`, `level2_done_once`) only at completion, so partial clearing progress (for example one of two cleared pins) resets on kill or leave. Day One state is, correctly, serialized through `day_one_director.serialize_state()` — the gap is the castle interaction layer. |
+| child_impact | A child who clears half a room's dust bunnies, gets interrupted, and returns finds her work undone — a small but real broken promise against zero tolerance for lost progress. |
+| evidence | Write sites above; `save_state.gd` has no castle interaction fields; `main.gd` `_clear_game()` resets `g = {}`. |
+| owner_decision | Not required: adding append-only keys with defaults is the standing save contract. |
+| fix | Promote durable child-visible castle interaction progress into append-only save fields with defaults (per-room cleared maps), written through the existing `_queue_save` cadence; leave true per-session scratch in `g`. |
+| surrounding_tests | Save round-trip probe extension covering the new keys; kill-and-relaunch restore; passive probe unchanged; full suite. |
+| acceptance | Partial castle interaction progress survives an app kill, the new keys are append-only with defaults, and save probes cover them. |
+| closure | Open as of 2026-08-26; state remains scratch-only. |
+| relationships | Decomposed from `MA-CODE-002`; save-contract kin `MA-RELEASE-001`. |
+| history | 2026-08-26: verified write sites and missing serialization at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+
+## MA-AUDIO-002
+
+| Field | Value |
+|---|---|
+| id | `MA-AUDIO-002` |
+| title | The microphone capture player routes to a "Mic" bus that does not exist in the bus layout and depends on a runtime bus rename to avoid audible self-capture. |
+| rule_ids | `DL-SND-04`, `DL-SND-14`, `DL-AGE-08` |
+| domain / zone | Audio routing / `scripts/mic_input.gd`, `default_bus_layout.tres` |
+| source | 2026-08-26 code-refinement round audio-routing sweep at integration head `9a1754c1`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: the missing bus and the runtime-rename fallback are exact; the failure mode (mic audible through speakers) is reasoned, not reproduced on device. |
+| reproduction | At `9a1754c1`, `default_bus_layout.tres` declares Master, Music, Voice, SFX, Ambience, and UI — no Mic; `scripts/mic_input.gd:244` assigns `bus = "Mic"`, relying on the self-heal at lines 217–223 that renames a spare bus at runtime. If that path fails or races player creation, Godot falls back to Master and the spoken-spell microphone becomes audible through the phone speaker. |
+| child_impact | A mic-to-speaker loop during a stuffie battle would be a loud, confusing, potentially frightening noise — exactly the class `DL-AGE-08` exists to prevent. |
+| evidence | Bus list in `default_bus_layout.tres`; assignment and self-heal sites in `mic_input.gd`. |
+| owner_decision | Not required: declaring a muted bus in the layout resource changes no audible behavior when the current rename path succeeds. |
+| fix | Declare a seventh, muted `Mic` bus in `default_bus_layout.tres`; keep the runtime check as a defensive assertion rather than the creation path; extend `probe_audio.gd` to assert the Mic bus exists and is muted. |
+| surrounding_tests | `probe_audio` extension; mic probe (`probe_mic`) unchanged and green; full suite. |
+| acceptance | The layout declares the muted Mic bus, `probe_audio` asserts it, and the rename fallback becomes unreachable in normal boot. |
+| closure | Open as of 2026-08-26; layout unchanged. |
+| relationships | Mix-review context is `MA-AUDIO-001`. |
+| history | 2026-08-26: verified layout and assignment at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+
+## MA-TOUCH-002
+
+| Field | Value |
+|---|---|
+| id | `MA-TOUCH-002` |
+| title | The side-scroll swim branch reads the emulated mouse without the reserved-zone guard, so holding a UI medallion drags Roshan toward it. |
+| rule_ids | `DL-UI-02`, `DL-UI-04`, `DL-QA-02` |
+| domain / zone | Touch routing / `scripts/games/side_scroll.gd` swim tick |
+| source | 2026-08-26 code-refinement round touch-guard sweep at integration head `9a1754c1`; residual of the 2026-08-03 touch audit's third finding. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: the unguarded read is exact in source; the drag symptom is reasoned from the same mechanism the fixed sibling paths had. |
+| reproduction | At `9a1754c1`, `scripts/games/side_scroll.gd` around line 158 maps `Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)` plus `get_mouse_position().x` directly to stage x in the swim branch with no `reserved_zone_hit()` check, unlike its own `walk_tick` hold path (guarded at about line 277). A held action medallion or pause-corner press in a swim stage therefore steers continuously. |
+| child_impact | Pressing the big action bubble while swimming pulls her toward screen-right instead of acting — the exact "held button becomes movement" confusion the touch audit repaired elsewhere. |
+| evidence | Unguarded read at `games/side_scroll.gd:158` area versus the guarded sibling at `:277`; guard contract in `touch_ui.gd` `reserved_zone_hit()`. |
+| owner_decision | Not required: applying the existing guard to the remaining path implements the already-accepted repair. |
+| fix | Route the swim-branch press through the same `reserved_zone_hit()` guard, then sweep the remaining direct emulated-mouse reads in gesture-owned code to confirm each is inside a router-owned drag context. |
+| surrounding_tests | `probe_touch_stress` and `probe_touch_router` legs extended to a swim stage; full suite. |
+| acceptance | The swim branch ignores presses that begin in reserved zones, a touch-stress leg proves it, and no other unguarded read remains outside router-owned drags. |
+| closure | Open as of 2026-08-26; guard absent on the swim branch. |
+| relationships | Sibling of the repaired `MA-TOUCH-001` surface. |
+| history | 2026-08-26: verified at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+
+## MA-CI-006
+
+| Field | Value |
+|---|---|
+| id | `MA-CI-006` |
+| title | Promotion accepts any successful probe run for dev's SHA — not the latest, not push-only — and nothing verifies that the run executed the expected trusted roster. |
+| rule_ids | `DL-SAVE-05`, `DL-QA-07` |
+| domain / zone | Release workflow / `.github/workflows/promote.yml` |
+| source | 2026-08-26 code-refinement round workflow read at integration head `9a1754c1`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: workflow logic is read exactly; no exploiting sequence has occurred. |
+| reproduction | At `9a1754c1`, `promote.yml` queries workflow runs by `head_sha` and accepts success if any of up to twenty runs concluded green, regardless of event type or recency — a green `workflow_dispatch` re-run can therefore satisfy the gate even when a later push-triggered run at the same SHA went red; separately, nothing compares the run's executed probe list against the repository's trusted roster at that SHA, so a commit that shortens the roster gates itself. |
+| child_impact | Indirect: a weaker gate raises the chance a regression reaches the stable APK bookmark on her phone. |
+| evidence | `promote.yml` run-query and filter logic; roster lives only in `probes.yml`/`ci.sh` with no cross-check. |
+| owner_decision | Not required for tightening run selection; owner awareness recommended since `.github/workflows/` is explicit-task-only territory — this finding authorizes exactly that task. |
+| fix | Select the latest completed run for the SHA (prefer push events) and fail on red; emit the executed probe-heading count in the run and have `promote.yml` compare it to a committed expected-roster count so silent shrinkage fails closed. |
+| surrounding_tests | Dry-run promotion against a known SHA; deliberately shortened-roster branch test proving the guard trips; workflow lint. |
+| acceptance | Promotion refuses a SHA whose newest run is red and refuses a roster-count mismatch; a normal green promotion still passes. |
+| closure | Open as of 2026-08-26; workflow unchanged. |
+| relationships | Release aggregation is `MA-RELEASE-001`; roster hygiene is `MA-CI-004`. |
+| history | 2026-08-26: confirmed by workflow read; opened `CONFIRMED_OPEN`. |
+
+## MA-CI-007
+
+| Field | Value |
+|---|---|
+| id | `MA-CI-007` |
+| title | Probe infrastructure is copy-paste — 38 probes define a private frame-wait helper, most re-implement boot/skip-intro scaffolding, and wall-clock waits mix inconsistently with scaled engine time. |
+| rule_ids | `DL-CODE-05`, `DL-QA-02` |
+| domain / zone | Test fidelity / `scripts/probe_*.gd` suite-wide |
+| source | 2026-08-26 code-refinement round probe-infrastructure sweep at integration head `9a1754c1`, decomposed from `MA-CODE-002`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: counts exact; flake incidence is not quantified from run history in this round. |
+| reproduction | At `9a1754c1`, 38 probe files define their own `func _frames(`; no probe shares a helper class (zero `class_name`/`preload` of a probe base); many trusted probes combine `Time.get_ticks_msec()` wall-clock windows with `Engine.time_scale` overrides and hundreds of `await process_frame` loops whose real duration varies with runner speed — the release gate's own history includes a red run caused by a fixed-frame sample of a timed reveal. |
+| child_impact | Indirect: flaky or duplicated probes slow every repair cycle and erode trust in the gate that protects her build. |
+| evidence | `grep -l "func _frames(" scripts/probe_*.gd \| wc -l` = 38; the 2026-08-05 release-gate history (fixed-four-frame `probe_opera` sample) as precedent; wall-clock sites across trusted probes. |
+| owner_decision | Not required: probe-side refactor with unchanged assertions. |
+| fix | Introduce one shared probe harness (boot, intro skip, frame/sim-time waits, isolated user-dir setup, snapshot helpers) and migrate probes mechanically a few per commit; prefer bounded semantic waits over wall-clock windows, following the `ff068db` repair pattern. |
+| surrounding_tests | Suite green after each migration batch; migrated probes' transcripts byte-compared where deterministic. |
+| acceptance | A shared harness exists, at least the trusted roster's top-twenty probes use it, no assertion weakened, and no fixed-frame timing sample remains in trusted probes. |
+| closure | Open as of 2026-08-26; no shared harness exists. |
+| relationships | Decomposed from `MA-CODE-002`; classification context `MA-CI-003`; roster context `MA-CI-004`. |
+| history | 2026-08-26: counted at `9a1754c1`; opened `CONFIRMED_OPEN`. |

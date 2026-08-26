@@ -109,6 +109,13 @@
   `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`
   (`CHG-001`–`031`: 31 IDs, 79 uniquely owned commit references, four
   guarded-script emitters, 25 planner tests, and 27 manual/refusal groups)
+- **Current audit round:** `MA-2026-08-26` code-refinement round at
+  integration head `9a1754c1b1987dd2b9745fea8d8048f65f6d1ce2` (2026-08-25),
+  169 commits past sealed evidence head `441adf35`; round record
+  `MASTER_AUDIT_2026-08-26.md`, criteria deltas in sections 5, 12, 13, and
+  14 and `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` section 18, Codex
+  implementation handoff
+  `CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md`
 - **Document authority:** `CANONICAL_CURRENT`
 - **Audit program status:** `IN_PROGRESS`
 - **Overall cycle state:** `REPAIRING` with concurrent focused `VERIFYING`
@@ -724,6 +731,9 @@ preserve a useful measurement while its 3D recommendation is `SUPERSEDED`.
 | Current cinematic protocols and `tools/audit_cinematic.py` | `BINDING_DOMAIN` | Full-frame cinematic-only delivery |
 | `VISUAL_AUDIT_TOOL.md` methodology | `BINDING_DOMAIN` | Fresh-runtime visual evidence, Canvas-only runtime staging, falsifiability, and explicit unresolved-evidence contract at `3b7a7e66` plus `fea916a8` |
 | `codex/deprecated-resources-roshan-20260809` at `9329d9a6` | `HISTORICAL_EVIDENCE` | Exact archived 3D resources; never a production fallback or merge source |
+| Owner commits `0277071f`/`9a1754c1`, 2026-08-25 | `OWNER_DECISION` | The true-2D three-floor Opera House venue (`scripts/opera_house_venue_2d.gd`) is the Opera Hall room interior hosting only its three resident careers through invisible painted portal regions; it preserves the no-central-lobby ruling and is the newest owner direction on Opera navigation |
+| `MASTER_AUDIT_2026-08-26.md` (this directory) | `SUPPORTING_CURRENT` | The 2026-08-26 code-refinement round record: comprehensive analysis at integration head `9a1754c1`, scorecard movement, goal set G1–G12, and orchestration rationale; its normative deltas are applied in this document's sections 5, 12, 13, and 14 and in design 06 section 18 |
+| `CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md` | `SUPPORTING_CURRENT` | Implementation work packages for the 2026-08-26 round, addressed to the implementing agent; subordinate to this audit's protocol and gates |
 
 ### 3.3 Design-language confirmation state
 
@@ -1262,6 +1272,7 @@ the compact navigation view; these links open the complete section-10 records:
 | Opera | [`MA-OPERA-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-001), [`MA-OPERA-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-002), [`MA-OPERA-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-003), [`MA-OPERA-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-004), [`MA-OPERA-005`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-005), [`MA-OPERA-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-006), [`MA-OPERA-007`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-007), [`MA-OPERA-009`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-009), [`MA-OPERA-010`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-010), [`MA-OPERA-011`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-011), [`MA-OPERA-012`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-012) |
 | QA, audio, release, and external evidence | [`MA-PERF-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-perf-001), [`MA-CHILD-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-child-001), [`MA-RELEASE-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-release-001), [`MA-CI-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-ci-003), [`MA-AUDIO-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-audio-001) |
 | Deferred optimization and structure | [`MA-ROSHAN-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-roshan-003), [`MA-CODE-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-code-001), [`MA-CODE-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-code-002) |
+| Code refinement (2026-08-26 round) | [`MA-CI-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-ci-004), [`MA-CI-005`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-ci-005), [`MA-CI-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-ci-006), [`MA-CI-007`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-ci-007), [`MA-CODE-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-code-003), [`MA-CODE-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-code-004), [`MA-CODE-005`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-code-005), [`MA-PERF-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-perf-002), [`MA-PERF-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-perf-003), [`MA-SAVE-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-save-001), [`MA-AUDIO-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-audio-002), [`MA-TOUCH-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-touch-002) |
 
 ### 5.1 P0/P1 and acceptance-blocking indexed items
 
@@ -1288,6 +1299,8 @@ the compact navigation view; these links open the complete section-10 records:
 | `MA-OPERA-012` | P1 | `FIXED_PENDING_VERIFICATION` | V3 exact local/remote/build plus V4 diagnostics; external open | Runtime `09e5e356` distributes all thirteen careers through exact thematic Castle rooms, selects Movie Lounge as Racer's sole home, deletes the all-career lobby with no hidden backdoor, preserves stable sparse save bits/rewards, restores the exact launching room, and fixes Canvas layers. Its full 1463.4-second/64-probe local suite is green; probe-only `ff068db` passes a newer 1379.3-second/64-probe full-local suite. Historical predecessors preserve bounded evidence. Integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior, passes exact local/topic/dev machine gates, and Android `31763879294` publishes its matching APK. Twenty-two local Opera/Castle 1280×720 captures remain diagnostic; all nine room captures show residual P2 lower-body/tail occlusion | Complete phone/M11, child navigation/comprehension, owner, exact-voice/listening, strict-2D, and accepted-visual gates; adjust route-card composition without weakening target size or reintroducing the hub |
 | `MA-PERF-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current target-device frame-time, hitch, memory, thermal, or latency matrix | U0 device matrix at exact release candidate meets design thresholds |
 | `MA-CHILD-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current observed five-minute child golden-path record | Private/safe observed session meets section 12 |
+| `MA-CI-004` | P1 | `CONFIRMED_OPEN` | V1 | The Day One wing and start-menu routing — the fresh-save entry arc — have eight dedicated probes and zero of them run in either trusted roster at `9a1754c1`, so a regression on the New Game path ships ungated | Classify and promote the deterministic Day One/start-menu probes into both rosters; a deliberately injected routing break must turn the gate red |
+| `MA-CI-005` | P1 | `CONFIRMED_OPEN` | V1 | The central passive probe's progress snapshot reads only pearls, trophies, stickers, and medals; opera stars, combat, castle interaction, companion, and Day One reward surfaces are invisible to the zero-input negative test, and per-probe idle checks are opt-in | Extend the snapshot to every save-backed reward surface with a fail-closed mutation test per section 10 acceptance |
 | `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 exact local/remote/build plus V4 current source/capture; external open | Historical evidence remains preserved. Product source `51d0abc0` passes exact local CI in 1,404.5 seconds/all 64 and run-14 20/20 local Mobile/Speedy evidence. Integrated `441adf35` passes exact local/topic/dev machine gates and Android `31763879294` publishes its matching APK. Both remote Sky subprocesses still fail requested-Mobile renderer identity after 20 PASS rows and upload PNGs only | Require requested-Mobile remote Sky proof, target-device matrix, child, owner, authoritative visual, exact-voice/human-listening, strict-2D, clean warning/capture triage, and clean re-audit gates |
 
 ### 5.2 P2/P3 and owner-decision indexed items
@@ -1310,7 +1323,17 @@ the compact navigation view; these links open the complete section-10 records:
 | `MA-AUDIO-001` | P2 | `FIXED_PENDING_VERIFICATION` | V3 partial | Forty-two unique deterministic area cues have complete score/render hashes, 48 kHz stereo OGG delivery, loop/import metadata, loudness/peak/seam measurements, routing ownership, and focused audio/full-branch evidence. Topic/dev runs `31760207048`/`31762132976` at exact `441adf35` complete music 42/42 in 3m18s/3m56s; earlier e6, `7391c53c`, and branch runs are historical corroboration. Human style/two-wrap, voice-over intelligibility/ducking, mono fold-down, music-off transition, and Lenovo Tab M11 start/loop/performance gates remain open |
 | `MA-CHANGE-001` | P2 | `VERIFIED_FIXED` | V2/V3 process evidence | Thirty-one stable records, `CHG-001` through `CHG-031`, cover 79 unique catalog-owned commit references. Manual/non-emitting CHG-031 owns exact 19-path source `51d0abc0`, including `scripts/probe_northern.gd`, at +3,318/-3,517. Only CHG-020/021/022/024 emit guarded stdout scripts; the other 27 refuse automation. Twenty-five planner tests, exact ledger/catalog parity, non-mutation replay, Git-history checks, GAME2D no-regression, and adversarial approval are green; future drift reopens the finding. |
 | `MA-CODE-001` | P2 | `CONFIRMED_OPEN` | V1 | `main.gd` is 8,734 lines at current source `51d0abc0` against the extraction-only <2,500 target; historical `09e5e356` was 8,647 |
-| `MA-CODE-002` | P2 | `CONFIRMED_OPEN` | V1 | String state, duplicated input, save frequency, material churn, and remaining 3D glue are structural risks |
+| `MA-CODE-002` | P2 | `CONFIRMED_OPEN` | V1 | String state, duplicated input, save frequency, material churn, and remaining 3D glue are structural risks; the 2026-08-26 round decomposes bounded sub-findings out of this group |
+| `MA-CODE-003` | P2 | `CONFIRMED_OPEN` | V1 | Eight verbatim clone families (pointer glyphs, action-press reads, material factories, AABB kits, avatar spawns, start/end scaffolds, stage input maps, act teardown lists) violate the one-implementation rule `DL-CODE-05` |
+| `MA-CODE-004` | P2 | `CONFIRMED_OPEN` | V1 | 409 distinct raw string keys own cross-system state in `g`, up from 380 thirteen days earlier; a typo fails silently (`DL-CODE-04`) |
+| `MA-CODE-005` | P3 | `CONFIRMED_OPEN` | V1 | Dead but fully wired loss-message code (`_fail_line`, unused `_end_game` lose branch) sits adjacent to the no-fail invariant (`DL-CODE-09`) |
+| `MA-PERF-002` | P2 | `CONFIRMED_OPEN` | V1 | `_sparkle_burst` allocates a node, mesh, and material per call from 141 sites with no tier gate, on a permanent wayfinder cadence (`DL-CODE-07`) |
+| `MA-PERF-003` | P2 | `CONFIRMED_OPEN` | V1 | The newest child-facing surfaces (Canvas Melody, Day One director, side-scroll stage, remaining spatial Galaxy/companion layers) carry zero quality-tier awareness (`DL-CODE-08`) |
+| `MA-SAVE-001` | P2 | `CONFIRMED_OPEN` | V1 | Child-visible castle interaction progress lives only in unpersisted `m.g` scratch and resets on app kill (`DL-CODE-03`) |
+| `MA-AUDIO-002` | P2 | `CONFIRMED_OPEN` | V1 | The mic capture player targets a "Mic" bus absent from `default_bus_layout.tres`, depending on a runtime bus rename to avoid audible self-capture |
+| `MA-TOUCH-002` | P2 | `CONFIRMED_OPEN` | V1 | The side-scroll swim branch reads the emulated mouse without the reserved-zone guard, so a held UI medallion steers Roshan |
+| `MA-CI-006` | P2 | `CONFIRMED_OPEN` | V1 | Promotion accepts any green probe run for dev's SHA rather than the latest push run, and nothing pins the executed roster against the expected one |
+| `MA-CI-007` | P2 | `CONFIRMED_OPEN` | V1 | 38 probes carry private frame-wait helpers and duplicated boot scaffolding; wall-clock waits mix with scaled engine time, the flake class that already produced one red release-gate run |
 
 ### 5.3 Resolved indexed items retained for anti-regression history
 
@@ -1934,6 +1957,35 @@ exact commit. This is the operational checklist for `DL-QA-09` and
 - [ ] Owner accepts identity/style and every deliberate exception.
 - [ ] A clean second master-audit pass discovers no new P0/P1 issue.
 
+Code-refinement conditions, added by the 2026-08-26 criteria update
+(`DL-CODE-01` through `DL-CODE-10`; round record
+`MASTER_AUDIT_2026-08-26.md` in this directory). These give the
+architecture-and-maintainability dimension the same operational footing as
+the medium, visual, and evidence gates:
+
+- [ ] `scripts/main.gd` is at or below the standing coordinator target below
+      2,500 lines through reviewed mechanical extractions, and no other
+      gameplay script exceeds 3,000 lines without its recorded decomposition
+      plan (`DL-CODE-01`, `DL-CODE-02`).
+- [ ] No per-frame allocation remains in tick/draw paths, burst effects are
+      pooled, and every child-facing surface has a Speedy-tier path or a
+      recorded measured budget note (`DL-CODE-07`, `DL-CODE-08`).
+- [ ] Durable child-visible progress is save-backed — no reward or visible
+      completion state lives only in per-activity scratch (`DL-CODE-03`).
+- [ ] The distinct string-state-key count is at or below its recorded
+      baseline (409 at `9a1754c1`) and the named clone families each have one
+      shared implementation (`DL-CODE-04`, `DL-CODE-05`).
+- [ ] Every shipped mode has a driving trusted probe in both rosters and
+      zero-input negative coverage over its reward surface (`DL-CODE-10`);
+      the central passive snapshot covers every save-backed reward field.
+- [ ] No dead code adjacent to a child-safety invariant remains
+      (`DL-CODE-09`).
+
+These criteria are a framework, not a ceiling: a material defect outside
+them is still a finding, and a recurring off-list defect class earns a rule
+in `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` section 18 in the same
+commit as the audit that justified it.
+
 Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 `REPAIRING`, not `SATISFIED`.**
 
@@ -2002,6 +2054,17 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
    target-device U0 pass, audio listening matrix, and child golden path.
 10. Repeat the master audit from `INVENTORYING`; satisfaction cannot come from
     closing only the first list.
+11. Execute the 2026-08-26 code-refinement round: the comprehensive analysis,
+    goal set G1–G12, and implementation sequencing live in
+    `MASTER_AUDIT_2026-08-26.md` (this directory), with the Codex work
+    packages in `CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md`
+    at the repository root. Safety and gate hardening precede structural
+    refactors; every package is probe-gated under the section-9 protocol and
+    the new section-12 code-refinement conditions; findings
+    `MA-CI-004`, `MA-CI-005`, `MA-CI-006`, `MA-CI-007`, `MA-CODE-003`,
+    `MA-CODE-004`, `MA-CODE-005`, `MA-PERF-002`, `MA-PERF-003`,
+    `MA-SAVE-001`, `MA-AUDIO-002`, and `MA-TOUCH-002` are its scope, with
+    `MA-CODE-001` the binding constraint.
 
 ---
 
@@ -2062,5 +2125,8 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-08-13 | focused Sky diagnostic `VERIFYING` | Exact parent `e6edf559af219edd4e5ce38cab0c5094483be5c6` passes latest integrated dev Probe Suite run `31722047536` with probes 34m25s/63-of-63, document controls 36 tests/six stress/316 parity/34 active and 36 retained, and music 3m33s/42-of-42. Earlier branch run `31719143975` is corroborating e6 history. Workflow-run Android `31724927769` uses raw checkout/package source exact e6 and publishes the latest predecessor 596,041,412-byte APK at SHA-256 `66d16de5973dfe08947577b7cad59cfb40b0db87dde788d0d61d9c8b598ca17c`. Two-file source `7391c53cd6981a256bd8bfe40ccbb9f72fb723fe` then replaces obsolete Sky courtyard/custom-camera assertions with the production camera and twenty ordered promenade states spanning all five live animals; no runtime, workflow, asset, save schema, protected-art, voice, friend, or gameplay file changes. Exact official Godot 4.7.1 full local CI exits zero after 1,402.3 seconds/all 64. The local Mobile/Speedy capture manifest is 20/20 PASS with 20 exact 1280×720 PNGs and 1,078 assertions; probe SHA-256 is `f28413263c0bedeed421fae6e9de4626095f03b6010bade8380ad7fb5aa07db9` and GAME2D manifest SHA-256 is `8c70b9aeaba5302322bdd44ca84d8a2b76fca053a091753e0e04676ee407fb00`. Normal save fingerprints and in-memory plane/time state are restored. Exact-source Probe Suite run `31728755204` completes overall `SUCCESS`: probes 40m05s with a 17m50s trusted step/63 headings and music 3m38s/42-of-42. Its nonblocking Sky step internally fails: 20 PASS rows and summary `20/20/20/20/0/0` are followed by `GLOBAL\|FAIL\|rendering_method\|gl_compatibility`, `RESULT\|FAIL`, and exit 1 because the runner lacks `VK_KHR_surface`; PNGs upload, JSON does not. The locally reviewed frames expose tiny frog/otter and subtle-focus P1 risks plus animal/Roshan overlap, grounding, and seesaw-contact P2 defects; the one-mural/spatial runtime remains, so `MA-VIS-002`/`006` stay `CONFIRMED_OPEN`. Workflow remains continue-on-error/PNG-only, and no remote diagnostic PASS/JSON/APK/device/child/owner/art acceptance is claimed. Manual/non-emitting CHG-030 owns the source; the current catalog is 30 IDs/78 unique references/four emitters/24 tests/26 manual groups. The audit remains `IN_PROGRESS` / `UNSATISFIED`. |
 | 2026-08-13 | focused Sky true-Canvas repair `VERIFYING` | Sealed source `51d0abc0d32855a8ba32932599fedd8f59b398b7`, exact parent `1b7d6bdaf89ebc7c9bdeae16fbde0e14079fd8a8`, changes exactly 19 paths including `scripts/probe_northern.gd`, with 3,318 insertions and 3,517 deletions. It replaces the spatial promenade with a `CanvasLayer` -1, literal 6144×2048 `Node2D` master, six-by-two `Sprite2D` backdrop, differential Canvas layers, real parallax, and a sole `Camera2D`; movement, touch, focus, pause cancellation, save/return, all five animals, three playground actions, and Reef/Castle/Northern/Galaxy/Ember/kart transitions use that owned Canvas lifecycle. No art, asset, protected original, audio, workflow, or save-schema file changes. The exact source bytes pass official Godot 4.7.1 full local CI in 1,404.5 seconds with all 64 unique trusted headings completed and no trusted-probe, script, parse, or compile failure; advisory diagnostics remain scoped evidence rather than a warning-clean claim. Run-14 supplies 20/20 local 1280×720 Mobile/Speedy frames with zero failed/skipped/global rows, manifest SHA-256 `AEAC7C72E0A3BFF992713127261DD00ED69049947DFB6723AA66365F5712DE34`, and visual-probe SHA-256 `B9EAF5E0738CFB61CCD3E34ACFEA420AEADAB4E3ADE80B40A2CFD1F227569C6C`; those hashes bind its manifest/PNGs and probe script, not the full source revision, which remains `unknown`. Two independent human reviews approve the local candidate. GAME2D is 509 models/65 production/70 probe files, exact `NO_REGRESSION`, 14/14 stress, and still `UNSATISFIED`. `MA-VIS-002` moves from `CONFIRMED_OPEN` to `FIXED_PENDING_VERIFICATION`; `MA-2D-002` stays `IN_PROGRESS`; `MA-VIS-006` stays `CONFIRMED_OPEN`; `MA-TOUCH-001` and `MA-RELEASE-001` stay `FIXED_PENDING_VERIFICATION`; `MA-PLAY-001` stays open; `MA-PERF-001`/`MA-CHILD-001` stay external. Historical `7391c53c` run `31728755204` retains its failed remote `gl_compatibility` subprocess. No exact-source remote/APK/device/child/owner/accepted-visual claim exists. Manual/non-emitting CHG-031 owns the source; catalog totals are 31 IDs/79 references/four emitters/25 planner tests/27 manual groups. Overall audit remains `IN_PROGRESS` / `UNSATISFIED`. |
 | 2026-08-13 | integrated Sky authority/build `VERIFYING` | Governance-only integrated evidence head `441adf35f7dbdeb67d36fbf1a2217b87d3040d47` preserves unchanged CHG-031 product source `51d0abc0`. Exact official-Godot local `scripts/ci.sh` exits 0 in 1,391.5 seconds with all 64 unique headings. Topic Probe run `31760207048` succeeds with probes 33m39s and music 3m18s; dev Probe run `31762132976` succeeds with probes 33m39s and music 3m56s. Both exact-head runs complete 63/63 unique remote headings with zero hard failures, document controls 36 tests/six stress/316 inventory/316 ledger/34 active/36 records, and music 42/42. Both nonblocking Sky diagnostics request Mobile but miss `VK_KHR_surface`, fall back through llvmpipe to `gl_compatibility`, emit 20 PASS rows plus summary `20/20/20/20` with failed 0/skipped 0, then emit `GLOBAL`/`RESULT` FAIL and exit 1; PNGs upload, no remote JSON or Mobile PASS. Android run `31763879294` succeeds at exact checkout/package HEAD `441adf35`, version code 1414, `dev`/`android-dev`, and publishes a 596,033,220-byte APK with SHA-256 `f04d0fef3b9bf097aa5b07e56e5726a1db9ff37e4be6ce35b495e31b9e4a72d8`; the 82-byte checksum sidecar has SHA-256 `43e892cfb6c9a3847e1a8760d5cad4dd8fb36719d63db0625ec8b2fa3ba8e651`. This closes exact integrated machine/build provenance only. Run-14 `source_revision` remains unknown and no device/child/owner/accepted-visual/listening/strict-2D/release acceptance transfers. Lifecycle remains `MA-2D-002` `IN_PROGRESS`, `MA-VIS-002`/`MA-TOUCH-001`/`MA-OPERA-012`/`MA-RELEASE-001` `FIXED_PENDING_VERIFICATION`, `MA-VIS-006` `CONFIRMED_OPEN`, `MA-PLAY-001` open, and `MA-PERF-001`/`MA-CHILD-001` external. The synchronization is CHG-023 maintenance, not CHG-032. Overall audit remains `IN_PROGRESS` / `UNSATISFIED`. |
+
+| 2026-08-26 | `CONFIRMING` | The code-refinement round re-inventories the tree at integration head `9a1754c1` (169 commits past sealed evidence head `441adf35`): the Canvas Melody rebuild, Castle Canvas2D baseline rooms, Day One wing (start-menu New Game routing, dirty pool, art studio), Harper/Fiona slide canvas, game-wide audio remediation, and the 2026-08-25 owner Opera House venue landed after the last audited head, so the round's measurements are pinned to `9a1754c1` while every sealed historical claim above stands unchanged for its own commit. The owner venue commits are recognized in section 3.2 as the newest Opera navigation direction, premise-consistent with `MA-OPERA-012`. |
+| 2026-08-26 | `TRIAGING` | Criteria update: design 06 gains section 18 (`DL-CODE-01`–`DL-CODE-10`), section 12 gains the code-refinement conditions, and the framework clause is recorded. Twelve bounded findings open (`MA-CI-004`–`MA-CI-007`, `MA-CODE-003`–`MA-CODE-005`, `MA-PERF-002`, `MA-PERF-003`, `MA-SAVE-001`, `MA-AUDIO-002`, `MA-TOUCH-002`), decomposing `MA-CODE-002` per its own fix plan; `MA-CODE-001` is re-measured at 10,499 lines and named the round's binding constraint; `MA-CODE-001`, `MA-CODE-002`, and `MA-OPERA-012` histories are appended. The round record is `MASTER_AUDIT_2026-08-26.md`; implementation is handed to Codex via `CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md` under section 13 item 11. No lifecycle claim beyond V1 static evidence is made by this round; this documentation-only integration is CHG-023 maintenance (rollback: revert its commit), consuming no new CHG ID; the audit remains `IN_PROGRESS` / `UNSATISFIED`. |
 
 No later state is added without its required evidence.

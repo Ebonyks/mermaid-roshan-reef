@@ -1202,3 +1202,75 @@ four emitters/25 planner tests/27 manual groups.
 The audit-cycle and finding-state vocabularies are defined in
 `audit/MASTER_AUDIT_2026-08-09.md` section 2.2 and apply to every subsequent
 audit round.
+
+---
+
+## 18. Code architecture and refinement
+
+_Added 2026-08-26 by the master-audit code-refinement criteria update
+(master audit sections 12–14; round record
+`audit/MASTER_AUDIT_2026-08-26.md`). These rules give the
+"Architecture and maintainability" scorecard dimension the same citable,
+falsifiable footing every other dimension already has. They restate the
+binding extraction/refactor contract as audit criteria; they do not weaken
+it. This rule set is a framework, not a ceiling: an auditor who finds a
+material code defect outside these rules records it anyway, and a defect
+class that recurs earns its own rule here in the same commit as the audit
+that justified it._
+
+`DL-CODE-01` — `scripts/main.gd` is a coordinator, and its line count MUST
+fall monotonically toward the standing target below 2,500 lines. A change
+that grows it needs either a same-branch extraction that nets the growth out
+or a recorded waiver naming the follow-up extraction. A new wing lands as a
+satellite or standalone controller with thin delegation on main, never as a
+new function family on main.
+
+`DL-CODE-02` — No single gameplay script exceeds 3,000 lines without a
+recorded decomposition plan naming its intended module boundaries. Moving a
+god object's mass into a new file without splitting responsibilities
+relocates the finding; it does not close it.
+
+`DL-CODE-03` — Ownership follows the satellite mold: extracted logic owns no
+duplicate copy of state that main owns, and durable child-visible progress
+never lives only in per-activity scratch (`m.g` or equivalent). Anything the
+child would miss after an app kill reaches `save_state.gd` under the
+append-only save contract (`DL-SAVE-01`).
+
+`DL-CODE-04` — Inter-system state prefers typed fields and named constants
+over new string-keyed dictionary entries. The distinct string-key surface
+MUST NOT grow release over release; a state key typo that fails silently at
+runtime is a defect, not a style choice.
+
+`DL-CODE-05` — One contract, one implementation: composite input reads,
+objective pointers, reward/celebration ceremonies, cached material
+factories, avatar spawns, mode start/end scaffolds, and probe harness
+boilerplate each ship as one shared helper. A second verbatim copy of ten or
+more lines is refactor debt; a third copy is an audit finding.
+
+`DL-CODE-06` — Refactors are mechanical: extract, don't rewrite. Behavior,
+state ownership, and save compatibility are preserved exactly; the trusted
+probe suite is green before and after; a probe failure after an extraction
+reverts the extraction rather than patching the probe (`DL-QA-02`).
+
+`DL-CODE-07` — Per-frame code allocates nothing: no nodes, meshes,
+materials, textures, or unbounded strings inside `_process`, `_draw`, or
+tick paths. Burst effects pool and reuse; repeated HUD text writes are
+dirty-checked; per-frame full-array copies are replaced with mutation-safe
+iteration.
+
+`DL-CODE-08` — Every child-facing surface respects the quality tier. A
+surface whose dominant cost is 2D (redraw cadence, canvas particle count,
+decoded texture residency) declares its Speedy-tier reduction or records a
+measured budget note stating why none is needed (`DL-PERF-02`,
+`DL-PERF-03`). "The tier only affects 3D" is not a waiver.
+
+`DL-CODE-09` — Dead code adjacent to a child-safety invariant is a defect,
+not clutter: an unreachable fail path, loss message table, or punitive
+branch is removed in full rather than parked, so no future wiring mistake
+can resurrect it against `DL-AGE-03`.
+
+`DL-CODE-10` — A new mode ships probe-first: analytic objective state
+readable by bots, a driving trusted probe in both the local and remote
+rosters, and zero-input negative coverage — either the central passive
+probe's progress snapshot covers the mode's reward fields, or the mode's own
+trusted probe carries an idle no-award leg (`DL-AGE-04`, `DL-QA-02`).
