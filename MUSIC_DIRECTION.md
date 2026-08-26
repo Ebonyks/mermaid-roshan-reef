@@ -183,8 +183,47 @@ from generic chiptune.
 | `home` | Home / castle interior | 76 | The quietest bed in the game. Nearly beatless — arpeggio and bass only. |
 | `race` | Kart / slide race (4 call sites) | 108 | The fastest thing we ship, and still under the ceiling. Driving WAV bass, straighter (less swung) kit, PU1+PU2 trading the hook. |
 | `fetch`, `dolls`, `seek`, `melody`, `shop`, `treasure` | Minigame arenas via `_play_music(kind)` | 92 | One shared groove skeleton, one distinct PU1 hook each, so the minigames sound like siblings. Shortest loops in the game (4 bars). |
-| `castle_open` | One-shot stinger (`loop=false`) | — | ≤4 bars, rising, resolves into `hall`. |
+| `castle_open` | One-shot stinger (`loop=false`) — **and, wrongly, the Ember Fortress bed**, see below | — | ≤4 bars, rising, resolves into `hall`. |
+| **`ember`** (does not exist yet) | The Ember Fortress — the Ember King's volcanic throne planet | 76 | **The zone with no track.** Half-time and heavy: lowest pulse duty (12.5%) for the King's motif, WAV bass walking slow and deliberate (still ≥120 Hz), NOI reduced to a distant rumble rather than a kit. Theatrical menace and *zero real threat* — see below. |
 | `finale` | One-shot celebration (`loop=false`) | — | ≤8 bars. The one place all four channels go full and bright at once. Still no startle transient. |
+
+### The Ember King's zone — the gap this table found
+
+`scripts/ember_fortress.gd` never calls `_play_music` at all. Entry is scored
+one line earlier, at `main.gd:2884`, with **`_play_music("castle_open")`** — the
+castle *opening fanfare*, and called without the `false` argument, so it
+**loops**. The game's designated scary world is currently underscored by a
+looping pearl-castle welcome sting. That is a real mismatch, not a stylistic
+preference, and it is the strongest argument in this document for a dedicated
+`ember` track.
+
+It is also the zone where this palette earns the most. The fortress is written
+as *"theatrical menace, zero real threat — lava only makes Roshan hop, nothing
+can be lost"* (`ember_fortress.gd:6-32`), and its King is *"all growl, zero
+bite"* (`:589-590`). Spooky-silly rather than frightening is exactly what four
+chip voices do well and what an orchestral bed does badly: a 12.5%-duty pulse
+growling under a slow WAV bass reads as a big friendly monster, because the
+timbre is audibly a toy. §4's no-startle and no-fail-signalling rules bind here
+hardest of anywhere in the game.
+
+**A motif that is already in the mechanics, for free:** the fortress goal is
+lighting **five** ember lanterns (`LANTERNS := 5`), and per the Chapter-2 bible
+the Ember King's crash is blowing out Roshan's **five** birthday candles, which
+are the same five lanterns re-read. Give the King a **five-note motif** and add
+one note each time a lantern lights — the tune literally completes as she
+relights his world, and the same five notes played descending are the crash.
+Chip music does this natively (it is a channel/voice budget, not an
+arrangement), it costs no new asset, and it makes the score carry the plot
+point rather than decorate it.
+
+**Before anyone scores this zone, know that the King has no voice.**
+`audio_director.gd:_speaker_key` (`:95-113`) has no `ember`/`king` branch, so
+`show_msg("Ember King", …)` falls through to `return "roshan"` — the Ember King
+currently speaks *in Roshan's own voice*. Flagged already in
+`CHAPTER2_BIBLE_ARC_2026-08-03.md:209` with a proposed fix and voice
+assignment. It is a code change and out of scope for this direction doc, but it
+is the single highest-value audio fix on this character, and no amount of
+scoring compensates for it.
 
 Two notes on the existing files:
 - `banjo.ogg` lives in `assets/audio/music/` but is **not music** — it is the
@@ -248,6 +287,10 @@ currently ships and works, so:
    batch — they share a skeleton.
 4. `race`, then `level2`, then `hall`/`home`.
 5. Stingers (`castle_open`, `finale`) last.
+6. **`ember` — the one genuinely new track**, not a replacement. It can be
+   built at any point and is the only step that also fixes a live defect
+   (the looping castle fanfare at `main.gd:2884`); scheduling it early is
+   defensible for that reason alone.
 
 Each step is one commit, replacing one track (or one batch), with the probe
 suite green and the ASSET_LICENSES.md line included. A replaced track keeps its
