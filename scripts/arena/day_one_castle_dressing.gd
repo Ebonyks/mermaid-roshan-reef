@@ -6,8 +6,8 @@ extends Node2D
 ## four approved Sprite2D cutouts. It sits above the castle cards and can be
 ## mounted or removed without changing those cards. The marks are readable
 ## first-day cues: grime at the exterior edge, a soft interior disrepair tint,
-## four gently moving dust bunnies, door affordances, and the optional boss
-## back-door signal.
+## four gently moving dust bunnies, and room grime. CastleRooms25D owns the
+## unified four-state door cues so this dressing never creates a second glow.
 
 const ROOM_IDS: Array[String] = [
 	"bubble_bath", "mermaid_pool", "playroom", "craft_room",
@@ -39,10 +39,6 @@ const DUST_BUNNY_TEXTURES: Dictionary = {
 const EXTERIOR_GRIME_COLOR := Color(0.19, 0.16, 0.29, 0.18)
 const INTERIOR_DIRT_COLOR := Color(0.22, 0.18, 0.32, 0.12)
 const CRACK_COLOR := Color(0.18, 0.14, 0.25, 0.38)
-const LOCKED_COLOR := Color(0.56, 0.46, 0.74, 0.86)
-const UNLOCKED_COLOR := Color(0.52, 0.93, 0.82, 0.95)
-const BOSS_GLOW_COLOR := Color(1.0, 0.77, 0.35, 0.95)
-
 var _room_centers: Dictionary = {}
 var _door_rects: Dictionary = {}
 var _hall_door_rects: Dictionary = {}
@@ -208,6 +204,8 @@ func audit_snapshot() -> Dictionary:
 		"exterior_grime": true,
 		"interior_disrepair": true,
 		"boss_back_door_active": _boss_back_door_active,
+		"door_visual_owner": "castle_rooms",
+		"independent_door_glows": false,
 		"procedural_canvas": true,
 		"canvas_only": true,
 	}
@@ -277,14 +275,8 @@ func _draw() -> void:
 		return
 	_draw_exterior_grime()
 	if _visible_room_id == MAIN_HALL_ID:
-		for room_id_value: Variant in _hall_door_rects.keys():
-			var room_id: String = String(room_id_value)
-			_draw_door_affordance(room_id, _hall_door_rects[room_id],
-				bool(_door_unlocked[room_id]))
-		_draw_boss_back_door()
 		return
 	_draw_room_dressing(_visible_room_id)
-	_draw_door_affordance(_visible_room_id, _door_rects[_visible_room_id], bool(_door_unlocked[_visible_room_id]))
 
 
 func _draw_exterior_grime() -> void:
@@ -312,34 +304,6 @@ func _draw_room_dressing(room_id: String) -> void:
 	draw_line(crack_origin + Vector2(17.0, 12.0), crack_origin + Vector2(9.0, 29.0), CRACK_COLOR, 3.0)
 	var second_crack := center + Vector2(69.0, 35.0)
 	draw_line(second_crack, second_crack + Vector2(-13.0, 9.0), CRACK_COLOR, 3.0)
-
-
-func _draw_door_affordance(room_id: String, door_rect: Rect2, unlocked: bool) -> void:
-	var pulse: float = 0.5 + 0.5 * sin(_elapsed * 2.4 + float(ROOM_IDS.find(room_id)))
-	var color: Color = UNLOCKED_COLOR if unlocked else LOCKED_COLOR
-	var glow_alpha: float = 0.10 + pulse * 0.10
-	draw_rect(door_rect.grow(12.0), Color(color.r, color.g, color.b, glow_alpha), false, 5.0)
-	draw_rect(door_rect.grow(4.0), Color(color.r, color.g, color.b, 0.42), false, 3.0)
-	var keyhole_center := door_rect.position + Vector2(door_rect.size.x * 0.5, door_rect.size.y * 0.52)
-	if unlocked:
-		draw_circle(keyhole_center, 8.0, color)
-		draw_line(keyhole_center + Vector2(0.0, 6.0), keyhole_center + Vector2(0.0, 17.0), color, 4.0)
-	else:
-		draw_circle(keyhole_center, 8.0, color)
-		draw_line(keyhole_center + Vector2(-6.0, -11.0), keyhole_center + Vector2(-6.0, -2.0), color, 4.0)
-		draw_line(keyhole_center + Vector2(6.0, -11.0), keyhole_center + Vector2(6.0, -2.0), color, 4.0)
-
-
-func _draw_boss_back_door() -> void:
-	if not _boss_back_door_active:
-		return
-	var pulse: float = 0.5 + 0.5 * sin(_elapsed * 3.2)
-	var glow_rect := _boss_back_door_rect.grow(14.0 + pulse * 5.0)
-	draw_rect(glow_rect, Color(BOSS_GLOW_COLOR.r, BOSS_GLOW_COLOR.g, BOSS_GLOW_COLOR.b, 0.14 + pulse * 0.12), false, 7.0)
-	draw_rect(_boss_back_door_rect.grow(4.0), Color(BOSS_GLOW_COLOR.r, BOSS_GLOW_COLOR.g, BOSS_GLOW_COLOR.b, 0.44), false, 4.0)
-	var center := _boss_back_door_rect.position + _boss_back_door_rect.size * 0.5
-	draw_circle(center, 9.0 + pulse * 2.0, BOSS_GLOW_COLOR)
-	draw_line(center + Vector2(-14.0, 0.0), center + Vector2(14.0, 0.0), BOSS_GLOW_COLOR, 3.0)
 
 
 func _count_true(values: Dictionary) -> int:

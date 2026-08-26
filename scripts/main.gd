@@ -6667,10 +6667,15 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	player.position = CASTLE_POS + Vector3(0, 6, 24)
 	player.yaw = 0.0
 	player.vel = Vector3.ZERO
-	_castle_rooms_ref().open("main_hall")
+	var castle_rooms: CastleRooms25D = _castle_rooms_ref()
+	castle_rooms.open("main_hall")
 	_day_one_discover_dirty_castle()
+	var entry_hint := \
+		"Follow the one golden rainbow door! Foggy doors are resting until it is their turn." \
+		if day_one_is_active() \
+		else "Touch a picture door or the shell elevator to visit a room!"
 	show_msg("Pearl Castle",
-		"Touch a picture door or the shell elevator to visit a room!" if not from_back
+		entry_hint if not from_back
 		else "The secret shell door opens into the Main Hall!",
 		"home")
 	_say("roshan", "talk", 0.5)
@@ -6882,7 +6887,9 @@ func day_one_opera_enabled() -> bool:
 	return not day_one_is_active() or _day_one_ref().can_start_opera()
 
 func day_one_boss_door_ready() -> bool:
-	return day_one_is_active() and _day_one_ref().boss_door_glow
+	var director: DayOneDirector = _day_one_ref()
+	return day_one_is_active() and director.boss_door_glow \
+		and not director.giant_dust_bunny_boss_triggered
 
 func day_one_castle_room_is_clean(castle_room: String) -> bool:
 	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
@@ -6924,6 +6931,15 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 		return true
 	if logical_room == "pool":
 		_castle_rooms_ref().start_day_one_pool_cleanup()
+		return true
+	if logical_room == "stuffie":
+		if not bool(stuffie_wins.get("rescued_eagle", false)):
+			show_msg("Baby Eagle",
+				"Bump both dust bunnies away first! I know you can do it!",
+				"talk")
+			_say("roshan", "talk", 0.8)
+		else:
+			day_one_complete_stuffie_rescue()
 		return true
 	if logical_room == "art":
 		if director.art_customization_completed:
@@ -7020,6 +7036,19 @@ func day_one_complete_pool_scene() -> bool:
 	_write_save()
 	return true
 
+func day_one_complete_stuffie_rescue() -> bool:
+	if not day_one_is_active() \
+			or not bool(stuffie_wins.get("rescued_eagle", false)):
+		return false
+	var director: DayOneDirector = _day_one_ref()
+	if director.is_room_completed("stuffie") \
+			or not director.complete_activity("stuffie", "stuffie_activity"):
+		return false
+	_castle_rooms_ref().apply_day_one_cleanup("playroom")
+	_day_one_sync_castle_dressing()
+	_write_save()
+	return true
+
 func _day_one_begin_arrival() -> void:
 	if day_one_is_active():
 		_day_one_ref().trigger_arrival_plane_media()
@@ -7061,6 +7090,8 @@ func _day_one_sync_castle_dressing() -> void:
 		"boss_back_door_active": director.boss_door_glow,
 		"visible_room_id": castle_room_id,
 	})
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		_castle_rooms_25d.refresh_door_states()
 
 
 func _sync_day_one_art_studio() -> void:

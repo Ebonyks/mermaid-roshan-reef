@@ -32,11 +32,13 @@ func _run_probe() -> void:
 		bad += 1
 	else:
 		print("DAY_ONE_DRESSING|interior overlay: OK four dirty rooms")
-	if int(snapshot.get("readable_door_count", 0)) != 4:
-		print("DAY_ONE_DRESSING|door affordances: FAIL ", snapshot)
+	if int(snapshot.get("readable_door_count", 0)) != 4 \
+			or String(snapshot.get("door_visual_owner", "")) != "castle_rooms" \
+			or bool(snapshot.get("independent_door_glows", true)):
+		print("DAY_ONE_DRESSING|door handoff: FAIL ", snapshot)
 		bad += 1
 	else:
-		print("DAY_ONE_DRESSING|door affordances: OK four readable doors")
+		print("DAY_ONE_DRESSING|door handoff: OK no independent glows")
 	if not bool(snapshot.get("procedural_canvas", false)) \
 			or not bool(snapshot.get("dust_bunny_sprite2d", false)) \
 			or not bool(snapshot.get("canvas_only", false)):
