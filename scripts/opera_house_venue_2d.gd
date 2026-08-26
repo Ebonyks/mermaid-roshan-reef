@@ -2,8 +2,9 @@ class_name OperaHouseVenue2D
 extends Control
 ## True-2D reconstruction of the July 21 three-floor Pearl Opera House.
 ##
-## The accepted master painting supplies the venue.  Controls are transparent
-## physical portal/lift hit regions; there is no card grid or all-career menu.
+## The accepted master painting supplies every visible portal. Controls are
+## invisible physical portal/lift hit regions; there is no card grid, career
+## crest, floating door frame, completion pearl, or all-career menu.
 
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
 const TILE_ROOT := \
@@ -14,7 +15,6 @@ const TILE_ROWS := 2
 const HISTORICAL_LAYOUT_COMMIT := "90d19190"
 const ROSHAN_TEXTURE := \
 	"res://assets/characters/roshan_25d/roshan_base.png"
-const CREST_ROOT := "res://assets/opera/worlds/ui/crests/"
 const FLOOR_NAMES: Array[String] = [
 	"Lagoon Lights Foyer",
 	"Starlight Balcony",
@@ -36,12 +36,6 @@ const LIFT_RECTS: Array[Rect2] = [
 	Rect2(1012.0, 79.0, 126.0, 500.0),
 ]
 const LIFT_ACTOR_X: Array[float] = [164.0, 1024.0]
-const CAREER_CREST_FILES := {
-	2: "opera_crest_ballerina.png",
-	8: "opera_crest_magician.png",
-	13: "opera_crest_singer.png",
-}
-
 var m: ReefMain
 var launch_career: Callable
 var buttons: Array[Button] = []
@@ -71,6 +65,7 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 	set_meta("active_room_owned_portal_count", 3)
 	set_meta("decorative_closed_portal_count", 9)
 	set_meta("bubble_lift_count", 2)
+	set_meta("floating_portal_decoration_count", 0)
 	_build_background_tiles()
 	_build_input_blocker()
 	_build_floor_glow()
@@ -119,10 +114,7 @@ func refresh(star_mask: int) -> void:
 		var portal_floor := int(button.get_meta("floor_index", -1))
 		var on_floor := portal_floor == floor_index
 		button.disabled = not on_floor or not accepting_input
-		button.modulate = Color.WHITE if on_floor else Color(0.62, 0.66, 0.82, 0.72)
-		var pearl := button.get_node_or_null("CareerPearl") as Panel
-		if pearl != null:
-			_style_pearl(pearl, (star_mask & (1 << act_index)) != 0)
+		button.set_meta("complete", (star_mask & (1 << act_index)) != 0)
 	if actor != null:
 		actor.position = FLOOR_ACTOR_POSITIONS[floor_index]
 	if floor_glow != null:
@@ -231,32 +223,13 @@ func _build_portals() -> void:
 		button.set_meta("floor_index", portal_floor)
 		button.set_meta("presentation", "historical_three_floor_portal")
 		button.set_meta("opaque_card", false)
-		button.set_meta("picture_first", true)
+		button.set_meta("painted_door_hit_region", true)
+		button.set_meta("floating_decoration", false)
 		button.set_meta("screen_hit_size", rect.size)
 		_style_portal_button(button)
 		button.pressed.connect(_choose_career.bind(act_index))
 		add_child(button)
 		buttons.append(button)
-
-		var crest := TextureRect.new()
-		crest.name = "CareerCrest"
-		crest.position = Vector2((rect.size.x - 58.0) * 0.5, 2.0)
-		crest.size = Vector2(58.0, 58.0)
-		crest.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		crest.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		crest.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		crest.texture = load(CREST_ROOT + String(
-			CAREER_CREST_FILES[act_index])) as Texture2D
-		button.add_child(crest)
-
-		var pearl := Panel.new()
-		pearl.name = "CareerPearl"
-		pearl.position = Vector2(rect.size.x - 31.0, rect.size.y - 31.0)
-		pearl.size = Vector2(27.0, 27.0)
-		pearl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		button.add_child(pearl)
-
-
 func _build_lifts() -> void:
 	for lift_index in range(LIFT_RECTS.size()):
 		var rect := LIFT_RECTS[lift_index]
@@ -290,13 +263,13 @@ func _style_portal_button(button: Button) -> void:
 	button.add_theme_stylebox_override("normal", _outline_style(
 		Color.TRANSPARENT, Color.TRANSPARENT, 0, 54))
 	button.add_theme_stylebox_override("hover", _outline_style(
-		Color(1.0, 0.88, 0.46, 0.96), Color(1.0, 0.80, 0.40, 0.08), 4, 54))
+		Color.TRANSPARENT, Color.TRANSPARENT, 0, 54))
 	button.add_theme_stylebox_override("pressed", _outline_style(
-		Color.WHITE, Color(1.0, 0.86, 0.55, 0.14), 5, 54))
+		Color.TRANSPARENT, Color.TRANSPARENT, 0, 54))
 	button.add_theme_stylebox_override("focus", _outline_style(
-		Color(1.0, 0.90, 0.50, 1.0), Color(1.0, 0.82, 0.45, 0.10), 5, 54))
+		Color.TRANSPARENT, Color.TRANSPARENT, 0, 54))
 	button.add_theme_stylebox_override("disabled", _outline_style(
-		Color.TRANSPARENT, Color(0.10, 0.08, 0.22, 0.12), 0, 54))
+		Color.TRANSPARENT, Color.TRANSPARENT, 0, 54))
 
 
 func _style_lift_button(button: Button) -> void:
@@ -322,14 +295,6 @@ func _outline_style(border: Color, fill: Color, width: int,
 	style.shadow_size = 8 if width > 0 else 0
 	style.shadow_offset = Vector2.ZERO
 	return style
-
-
-func _style_pearl(pearl: Panel, complete: bool) -> void:
-	pearl.set_meta("complete", complete)
-	pearl.add_theme_stylebox_override("panel", StorybookUI.panel_style(
-		StorybookUI.GOLD if complete else StorybookUI.LAVENDER,
-		Color(1.0, 0.95, 0.58, 1.0) if complete \
-		else Color(0.34, 0.30, 0.56, 0.88), 18, 3))
 
 
 func _choose_career(act_index: int) -> void:

@@ -172,18 +172,22 @@ func _init() -> void:
 			actual_indices.append(act_index)
 			all_card_indices.append(act_index)
 			if route_room == "opera_hall":
-				var portal_crest := card.get_node_or_null("CareerCrest") as TextureRect
+				var portal_focus := card.get_theme_stylebox("focus") \
+					as StyleBoxFlat
 				room_art_ok = room_art_ok and card.text.is_empty() \
 					and card.visible and not card.clip_contents \
 					and card.size.x >= StorybookUI.MIN_TOUCH.x \
 					and card.size.y >= StorybookUI.MIN_TOUCH.y \
-					and bool(card.get_meta("picture_first", false)) \
 					and String(card.get_meta("castle_room_id", "")) == route_room \
 					and String(card.get_meta("presentation", "")) \
 						== "historical_three_floor_portal" \
 					and not bool(card.get_meta("opaque_card", true)) \
-					and portal_crest != null and portal_crest.texture != null \
-					and portal_crest.texture.resource_path.contains("/ui/crests/")
+					and bool(card.get_meta("painted_door_hit_region", false)) \
+					and not bool(card.get_meta("floating_decoration", true)) \
+					and card.get_child_count() == 0 \
+					and portal_focus != null \
+					and portal_focus.border_width_left == 0 \
+					and is_zero_approx(portal_focus.bg_color.a)
 				continue
 			var actor := card.get_node_or_null("RoshanActor") as TextureRect
 			var crest := card.get_node_or_null("CareerCrest") as TextureRect

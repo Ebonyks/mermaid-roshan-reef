@@ -166,28 +166,35 @@ func _audit_all_room_cards() -> void:
 			var act_index := int(button.get_meta("act_index", -1))
 			actual.append(act_index)
 			seen.append(act_index)
-			var crest := button.get_node_or_null("CareerCrest") as TextureRect
 			var presentation := String(button.get_meta("presentation", ""))
 			var base_ok := button.visible \
 				and button.text.is_empty() and not button.clip_contents \
 				and button.size.x >= 110.0 and button.size.y >= 110.0 \
-				and bool(button.get_meta("picture_first", false)) \
 				and String(button.get_meta("castle_room_id", "")) == room_id \
 				and (button.get_meta("screen_hit_size", Vector2.ZERO) as Vector2).x \
 					>= 110.0 \
 				and (button.get_meta("screen_hit_size", Vector2.ZERO) as Vector2).y \
-					>= 110.0 \
-				and crest != null and crest.texture != null \
-				and crest.texture.resource_path.contains("/ui/crests/")
+					>= 110.0
 			if presentation == "historical_three_floor_portal":
+				var portal_focus := button.get_theme_stylebox("focus") \
+					as StyleBoxFlat
 				pictures_ok = pictures_ok and base_ok \
 					and not bool(button.get_meta("opaque_card", true)) \
+					and bool(button.get_meta("painted_door_hit_region", false)) \
+					and not bool(button.get_meta("floating_decoration", true)) \
+					and button.get_child_count() == 0 \
+					and portal_focus != null \
+					and portal_focus.border_width_left == 0 \
+					and is_zero_approx(portal_focus.bg_color.a) \
 					and int(button.get_meta("floor_index", -1)) in [0, 1, 2]
 			else:
+				var crest := button.get_node_or_null("CareerCrest") as TextureRect
 				var actor := button.get_node_or_null("RoshanActor") as TextureRect
 				var actor_frame := actor.texture as AtlasTexture \
 					if actor != null else null
-				pictures_ok = pictures_ok and base_ok and not button.disabled \
+				pictures_ok = pictures_ok and base_ok \
+					and bool(button.get_meta("picture_first", false)) \
+					and not button.disabled \
 					and actor_frame != null and actor_frame.atlas != null \
 					and actor_frame.atlas.resource_path.contains(
 						"/actors/animation/roshan_")
@@ -204,6 +211,9 @@ func _audit_all_room_cards() -> void:
 				and int(venue.get_meta("active_room_owned_portal_count", 0)) == 3 \
 				and int(venue.get_meta("decorative_closed_portal_count", 0)) == 9 \
 				and int(venue.get_meta("bubble_lift_count", 0)) == 2 \
+				and int(venue.get_meta("floating_portal_decoration_count", -1)) == 0 \
+				and venue.find_children("CareerCrest", "TextureRect", true, false).is_empty() \
+				and venue.find_children("CareerPearl", "Panel", true, false).is_empty() \
 				and venue.find_children("VenueTile_*", "TextureRect", true, false).size() == 8 \
 				and venue.find_children("BubbleLift*", "Button", true, false).size() == 2 \
 				and venue.get_node_or_null("LobbyRoshanCutout") is TextureRect
