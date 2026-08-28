@@ -12,6 +12,8 @@ const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
 const StartMenuLogic = preload("res://scripts/start_menu.gd")
 const AttackCustomizerLogic = preload("res://scripts/attack_customizer.gd")
 const DayOneArtStudioLogic = preload("res://scripts/day_one_art_studio.gd")
+const DayOneBathroomMovieHandoffLogic = preload(
+	"res://scripts/day_one_bathroom_movie_handoff.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -323,6 +325,7 @@ var day_one_art_customization_completed: bool = false
 var day_one_event_seen: Dictionary = {}
 var day_one_event_history: Array[Dictionary] = []
 var _day_one_director: DayOneDirector = null
+var _day_one_bathroom_movie_handoff: DayOneBathroomMovieHandoff = null
 var _attack_customizer: AttackCustomizer = null
 var _attack_customizer_layer: CanvasLayer = null
 var _day_one_art_studio: DayOneArtStudio = null
@@ -6988,6 +6991,7 @@ func day_one_complete_bathroom_scene() -> bool:
 	_castle_rooms_ref().apply_day_one_cleanup("bubble_bath")
 	_day_one_sync_castle_dressing()
 	_write_save()
+	_start_day_one_bathroom_movie_handoff()
 	return true
 
 
@@ -7113,11 +7117,36 @@ func _sync_day_one_art_studio() -> void:
 
 
 func _day_one_clear_castle_dressing() -> void:
+	_clear_day_one_bathroom_movie_handoff()
 	_close_day_one_art_studio()
 	if day_one_castle_dressing != null \
 			and is_instance_valid(day_one_castle_dressing):
 		day_one_castle_dressing.teardown()
 	day_one_castle_dressing = null
+
+
+func _clear_day_one_bathroom_movie_handoff() -> void:
+	if _day_one_bathroom_movie_handoff != null \
+			and is_instance_valid(_day_one_bathroom_movie_handoff):
+		_day_one_bathroom_movie_handoff.stop()
+		_day_one_bathroom_movie_handoff.queue_free()
+	_day_one_bathroom_movie_handoff = null
+
+
+func _start_day_one_bathroom_movie_handoff() -> void:
+	if not day_one_is_active() or _day_one_bathroom_movie_handoff != null \
+			or castle_room_stage == null:
+		return
+	_day_one_bathroom_movie_handoff = DayOneBathroomMovieHandoffLogic.new() \
+		as DayOneBathroomMovieHandoff
+	castle_room_stage.add_child(_day_one_bathroom_movie_handoff)
+	_day_one_bathroom_movie_handoff.setup(self)
+	var handoff: Dictionary = \
+		_day_one_bathroom_movie_handoff.start_after_completion()
+	if String(handoff.get("status", "")) == "fallback":
+		_day_one_bathroom_movie_handoff.stop()
+		_day_one_bathroom_movie_handoff.queue_free()
+		_day_one_bathroom_movie_handoff = null
 
 func _day_one_arm_boss_door() -> void:
 	var director: DayOneDirector = _day_one_ref()

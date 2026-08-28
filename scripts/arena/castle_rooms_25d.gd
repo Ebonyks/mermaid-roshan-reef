@@ -18,8 +18,6 @@ const SPRITE_TRANSITION_2D := preload(
 	"res://scripts/sprite_transition_2d.gd")
 const DAY_ONE_BATHROOM_CLEANUP := preload(
 	"res://scripts/games/day_one_bathroom_cleanup.gd")
-const DAY_ONE_BATHROOM_MOVIE_HANDOFF := preload(
-	"res://scripts/day_one_bathroom_movie_handoff.gd")
 const DAY_ONE_POOL_CLEANUP := preload(
 	"res://scripts/games/day_one_pool_cleanup.gd")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
@@ -854,7 +852,6 @@ var _composition_transition_tween: Tween = null
 var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
 var day_one_bathroom_cleanup: DayOneBathroomCleanup = null
-var day_one_bathroom_movie_handoff: DayOneBathroomMovieHandoff = null
 var day_one_pool_cleanup: DayOnePoolCleanup = null
 
 func _init(main: ReefMain) -> void:
@@ -1034,7 +1031,6 @@ func cancel_kitchen_recipe() -> void:
 func close() -> void:
 	m._day_one_clear_castle_dressing()
 	_clear_day_one_bathroom_cleanup()
-	_clear_day_one_bathroom_movie_handoff()
 	_clear_day_one_pool_cleanup()
 	_room_build_generation += 1
 	_cancel_composition_transition()
@@ -1791,8 +1787,7 @@ func apply_day_one_cleanup(room_id: String) -> void:
 
 
 func start_day_one_bathroom_cleanup() -> void:
-	if not m.day_one_is_active() \
-			or m.castle_room_id != "bubble_bath" \
+	if m.castle_room_id != "bubble_bath" \
 			or m.day_one_castle_room_is_clean("bubble_bath"):
 		return
 	_sync_day_one_bathroom_cleanup("bubble_bath")
@@ -1836,14 +1831,6 @@ func _clear_day_one_bathroom_cleanup() -> void:
 	day_one_bathroom_cleanup = null
 
 
-func _clear_day_one_bathroom_movie_handoff() -> void:
-	if day_one_bathroom_movie_handoff != null \
-			and is_instance_valid(day_one_bathroom_movie_handoff):
-		day_one_bathroom_movie_handoff.stop()
-		day_one_bathroom_movie_handoff.queue_free()
-	day_one_bathroom_movie_handoff = null
-
-
 func _on_day_one_bathroom_cleanup_step(step: int, cleanup_id: String) -> void:
 	m.day_one_record_bathroom_cleanup_step(step)
 	m.g["day_one_bathroom_last_cleanup"] = cleanup_id
@@ -1869,13 +1856,6 @@ func _on_day_one_bathroom_cleanup_completed() -> void:
 	m._day_one_sync_castle_dressing()
 	if m.castle_room_action_button != null:
 		m.castle_room_action_button.visible = true
-	day_one_bathroom_movie_handoff = DAY_ONE_BATHROOM_MOVIE_HANDOFF.new() \
-		as DayOneBathroomMovieHandoff
-	m.castle_room_stage.add_child(day_one_bathroom_movie_handoff)
-	day_one_bathroom_movie_handoff.setup(m)
-	var handoff: Dictionary = day_one_bathroom_movie_handoff.start_after_completion()
-	if String(handoff.get("status", "")) == "fallback":
-		_clear_day_one_bathroom_movie_handoff()
 
 
 func start_day_one_pool_cleanup() -> void:

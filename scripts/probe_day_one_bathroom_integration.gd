@@ -9,10 +9,11 @@ const REQUIRED_WIRING: Dictionary = {
 		"func day_one_record_bathroom_supply_step",
 		"func day_one_complete_bathroom_scene",
 		"start_day_one_bathroom_cleanup()",
+		"_start_day_one_bathroom_movie_handoff()",
+		"if not day_one_is_active():",
 	],
 	"res://scripts/arena/castle_rooms_25d.gd": [
 		"DAY_ONE_BATHROOM_CLEANUP",
-		"if not m.day_one_is_active()",
 		"_sync_day_one_bathroom_cleanup(room_id)",
 		"m.day_one_complete_bathroom_scene()",
 	],
