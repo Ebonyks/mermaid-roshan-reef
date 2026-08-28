@@ -17,6 +17,14 @@ signal cleanup_completed
 
 const MAGNIFIER_TEXTURE := "res://assets/opera/worlds/ui/magnifier.png"
 const SPARKLE_TEXTURE := "res://assets/opera/worlds/props/fx_stolen_sparkle.png"
+# Reuse the approved Day One cleanup basket as the single, diegetic collection
+# point. It is deliberately placed on the front-right floor so a child can
+# see where each found tool goes without a second card or floating box.
+const BASKET_TEXTURE := "res://assets/castle/day_one_pool/activities/cleanup_basket.png"
+const BASKET_POSITION := Vector2(1082.0, 575.0)
+const BASKET_SCALE := 0.19
+const BASKET_CONTENT_OFFSETS: Array[Vector2] = [Vector2(-34.0, -26.0),
+	Vector2(36.0, -24.0)]
 # These are the centers of the two painted storage baskets in the approved
 # Bubble Bath room (ROOM_ITEMS art positions transformed by ART_TO_STAGE).
 # Keep the hunt on existing room pixels; no cabinet card is drawn here.
@@ -46,6 +54,8 @@ var _found: Array[bool] = [false, false]
 var _supply_nodes: Array[Node2D] = []
 var _sparkle_nodes: Array[Sprite2D] = []
 var _magnifier: Sprite2D = null
+var _basket: Sprite2D = null
+var _basket_base_scale: Vector2 = Vector2.ONE
 var _drag_surface: Control = null
 var _pointer: Label = null
 var _progress_pips: Array[ColorRect] = []
@@ -60,6 +70,12 @@ var _announcements_enabled: bool = true
 var _pulse_time: float = 0.0
 var _hotspot_layer: Control = null
 var _hotspot_layer_was_visible: bool = false
+var _door_hotspot_layer: Control = null
+var _door_hotspot_layer_was_visible: bool = false
+var _room_link_layer: Control = null
+var _room_link_layer_was_visible: bool = false
+var _hud_layer: CanvasLayer = null
+var _hud_layer_was_visible: bool = false
 
 
 class SupplyIcon extends Node2D:
@@ -100,7 +116,9 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	size = StorybookUI.CANVAS_SIZE
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	z_index = 22
+	_suspend_standard_surfaces()
 	_suspend_room_hotspots()
+	_build_basket()
 	_build_supply_icons()
 	_build_drag_surface()
 	_build_guidance()
@@ -120,7 +138,16 @@ func teardown() -> void:
 	_cleaning_stage = null
 	if _hotspot_layer != null and is_instance_valid(_hotspot_layer):
 		_hotspot_layer.visible = _hotspot_layer_was_visible
-	_hotspot_layer = null
+		_hotspot_layer = null
+	if _door_hotspot_layer != null and is_instance_valid(_door_hotspot_layer):
+		_door_hotspot_layer.visible = _door_hotspot_layer_was_visible
+		_door_hotspot_layer = null
+	if _room_link_layer != null and is_instance_valid(_room_link_layer):
+		_room_link_layer.visible = _room_link_layer_was_visible
+		_room_link_layer = null
+	if _hud_layer != null and is_instance_valid(_hud_layer):
+		_hud_layer.visible = _hud_layer_was_visible
+		_hud_layer = null
 	if is_inside_tree():
 		queue_free()
 	else:
@@ -145,6 +172,18 @@ func audit_snapshot() -> Dictionary:
 		"voice_guidance_configured": true,
 		"announcements_enabled": _announcements_enabled,
 		"has_visual_pointer": _pointer != null and _magnifier != null,
+		"basket_visible": _basket != null and _basket.visible,
+		"basket_pulsing": _basket != null and _basket.get_meta(
+			"pulsing", false),
+		"basket_position": _basket.position if _basket != null else Vector2.ZERO,
+		"basket_collects_supplies": _basket != null and _basket.get_meta(
+			"collects_supplies", false),
+		"found_tools_visible_in_basket": _found_tools_visible_in_basket(),
+		"normal_hud_suppressed": _hud_layer == null or not _hud_layer.visible,
+		"room_hotspots_suppressed": _hotspots_suppressed(),
+		"room_links_suppressed": _room_link_layer == null
+			or not _room_link_layer.visible,
+		"floating_sink_box_suppressed": true,
 		"cabinet_target_count": _supply_nodes.size(),
 		"supply_hunt_completed": _hunt_completed,
 		"handoff_ready": _handoff_ready,
@@ -240,17 +279,52 @@ func _process(delta: float) -> void:
 	if _magnifier != null and is_instance_valid(_magnifier) and _magnifier.visible:
 		_magnifier.rotation = sin(_pulse_time * 2.8) * 0.035
 		_magnifier.modulate.a = 0.90 + sin(_pulse_time * 4.0) * 0.08
+	if _basket != null and is_instance_valid(_basket) and _basket.visible:
+		var pulse: float = 1.0 + sin(_pulse_time * 3.6) * 0.045
+		_basket.scale = _basket_base_scale * pulse
 	if _pointer != null and is_instance_valid(_pointer) and _pointer.visible:
 		_pointer.rotation = sin(_pulse_time * 2.6) * 0.04
 
 
 func _suspend_room_hotspots() -> void:
 	_hotspot_layer = m.castle_room_item_hotspot_layer
-	if _hotspot_layer == null or not is_instance_valid(_hotspot_layer):
+	if _hotspot_layer != null and is_instance_valid(_hotspot_layer):
+		_hotspot_layer_was_visible = _hotspot_layer.visible
+		_hotspot_layer.visible = false
+	else:
 		_hotspot_layer = null
-		return
-	_hotspot_layer_was_visible = _hotspot_layer.visible
-	_hotspot_layer.visible = false
+	_door_hotspot_layer = m.castle_room_door_hotspot_layer
+	if _door_hotspot_layer != null and is_instance_valid(_door_hotspot_layer):
+		_door_hotspot_layer_was_visible = _door_hotspot_layer.visible
+		_door_hotspot_layer.visible = false
+	_room_link_layer = m.castle_room_link_layer
+	if _room_link_layer != null and is_instance_valid(_room_link_layer):
+		_room_link_layer_was_visible = _room_link_layer.visible
+		_room_link_layer.visible = false
+
+
+func _suspend_standard_surfaces() -> void:
+	# The room rescue owns the whole child-facing presentation. Keep voice/audio
+	# alive, but remove status trays, ordinary objective cards, and captions from
+	# this layer so the magnifier and basket are the only hunt invitation.
+	_hud_layer = m.hud_layer
+	if _hud_layer != null and is_instance_valid(_hud_layer):
+		_hud_layer_was_visible = _hud_layer.visible
+		_hud_layer.visible = false
+
+
+func _build_basket() -> void:
+	_basket = Sprite2D.new()
+	_basket.name = "FrontRightCleanupBasket"
+	_basket.texture = load(BASKET_TEXTURE) as Texture2D
+	_basket.position = BASKET_POSITION
+	_basket.scale = Vector2.ONE * BASKET_SCALE
+	_basket_base_scale = _basket.scale
+	_basket.z_index = 27
+	_basket.set_meta("pulsing", true)
+	_basket.set_meta("collects_supplies", true)
+	_basket.set_meta("front_right_collection_point", true)
+	add_child(_basket)
 
 
 func _build_supply_icons() -> void:
@@ -259,8 +333,10 @@ func _build_supply_icons() -> void:
 		icon.name = "HiddenSupply_%s" % String(SUPPLY_DEFINITIONS[index]["id"])
 		icon.configure(String(SUPPLY_DEFINITIONS[index]["id"]))
 		icon.position = SUPPLY_DEFINITIONS[index]["center"] as Vector2
-		icon.z_index = 5
+		icon.z_index = 29
 		icon.visible = false
+		icon.set_meta("collection_role", "basket_tool")
+		icon.set_meta("visible_in_basket", false)
 		add_child(icon)
 		_supply_nodes.append(icon)
 		_found[index] = false
@@ -320,7 +396,10 @@ func _build_guidance() -> void:
 func _apply_restored_progress() -> void:
 	for index: int in range(MAX_SUPPLIES):
 		_found[index] = index < _supply_step
-		_supply_nodes[index].visible = false
+		if _found[index]:
+			_place_supply_in_basket(index)
+		else:
+			_supply_nodes[index].visible = false
 	_update_progress_pips()
 	_refresh_guidance()
 
@@ -409,6 +488,7 @@ func _reveal_supply(index: int) -> void:
 	_supply_step = clampi(index + 1, 0, MAX_SUPPLIES)
 	_supply_nodes[index].visible = true
 	_supply_nodes[index].scale = Vector2.ONE * 0.72
+	_supply_nodes[index].position = SUPPLY_DEFINITIONS[index]["center"] as Vector2
 	_update_progress_pips()
 	if m != null:
 		m.day_one_record_bathroom_supply_step(_supply_step)
@@ -416,16 +496,19 @@ func _reveal_supply(index: int) -> void:
 			m._ui_tap()
 	supply_found.emit(index, String(SUPPLY_DEFINITIONS[index]["id"]))
 	_spawn_sparkle(SUPPLY_DEFINITIONS[index]["center"] as Vector2)
+	# The found tool travels into the one visible basket and stays there. This
+	# makes collection legible without adding a separate inventory card.
 	var reveal_tween: Tween = _supply_nodes[index].create_tween()
-	reveal_tween.tween_property(_supply_nodes[index], "scale", Vector2.ONE, 0.16)
-	reveal_tween.tween_interval(0.20)
-	reveal_tween.tween_property(_supply_nodes[index], "modulate:a", 0.0, 0.18)
+	reveal_tween.tween_property(_supply_nodes[index], "scale", Vector2.ONE * 0.30, 0.42)
+	reveal_tween.parallel().tween_property(_supply_nodes[index], "position",
+		_basket_content_position(index), 0.42)
+	reveal_tween.parallel().tween_property(_supply_nodes[index], "rotation",
+		-0.08 if index == 0 else 0.08, 0.42)
 	reveal_tween.tween_callback(_finish_supply_reveal.bind(index))
 
 
 func _finish_supply_reveal(index: int) -> void:
-	_supply_nodes[index].visible = false
-	_supply_nodes[index].modulate.a = 1.0
+	_place_supply_in_basket(index)
 	_busy = false
 	if _supply_step >= MAX_SUPPLIES:
 		_complete_supply_hunt()
@@ -484,6 +567,38 @@ func _all_canvas_children(node: Node) -> bool:
 		if not child is CanvasItem or not _all_canvas_children(child):
 			return false
 	return true
+
+
+func _basket_content_position(index: int) -> Vector2:
+	return BASKET_POSITION + BASKET_CONTENT_OFFSETS[clampi(index, 0,
+		BASKET_CONTENT_OFFSETS.size() - 1)]
+
+
+func _place_supply_in_basket(index: int) -> void:
+	if index < 0 or index >= _supply_nodes.size():
+		return
+	var supply: Node2D = _supply_nodes[index]
+	supply.visible = true
+	supply.position = _basket_content_position(index)
+	supply.scale = Vector2.ONE * 0.30
+	supply.rotation = -0.08 if index == 0 else 0.08
+	supply.modulate.a = 1.0
+	supply.set_meta("visible_in_basket", true)
+
+
+func _found_tools_visible_in_basket() -> bool:
+	for index: int in range(_found.size()):
+		if _found[index] and (not _supply_nodes[index].visible
+				or not bool(_supply_nodes[index].get_meta(
+					"visible_in_basket", false))):
+			return false
+	return true
+
+
+func _hotspots_suppressed() -> bool:
+	return (_hotspot_layer == null or not _hotspot_layer.visible) \
+		and (_door_hotspot_layer == null or not _door_hotspot_layer.visible) \
+		and (_room_link_layer == null or not _room_link_layer.visible)
 
 
 func _on_cleaning_step_completed(step: int, cleanup_id: String) -> void:
