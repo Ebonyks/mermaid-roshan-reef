@@ -25,9 +25,6 @@ const SINK_MIN_GESTURE_SECONDS := 2.0
 const SINK_MAX_GESTURE_SECONDS := 5.0
 const TUB_MIN_GESTURE_SECONDS := 2.0
 const TUB_MAX_GESTURE_SECONDS := 5.0
-# No approved sink-grime cutout exists. Reuse the approved soap-bubble effect
-# as a small residue layer over the painted basin instead of mislabeling the
-# cloudy-mirror artwork or drawing a replacement fixture.
 const SINK_TARGET_TEXTURE := "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png"
 const TUB_TARGET_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png"
 const SPONGE_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png"
@@ -56,6 +53,8 @@ var _sponge: Sprite2D = null
 var _target: Sprite2D = null
 var _swoosh: Sprite2D = null
 var _progress: ColorRect = null
+var _sink_grime: Sprite2D = null
+var _tub_grime: Sprite2D = null
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -113,6 +112,10 @@ func audit_snapshot() -> Dictionary:
 		},
 		"has_visual_pointer": _pointer != null,
 		"has_gesture_surface": _gesture_surface != null,
+		"grime_overlays_bound": _sink_grime != null and _tub_grime != null,
+		"sink_grime_visible": _sink_grime != null and _sink_grime.visible,
+		"tub_grime_visible": _tub_grime != null and _tub_grime.visible,
+		"grime_fade_progress": _grime_fade_progress(),
 		"sink_gesture_reachable": SINK_CENTER.x > 0.0 and SINK_CENTER.y > 0.0
 			and SINK_CENTER.x < StorybookUI.CANVAS_SIZE.x
 			and SINK_CENTER.y < StorybookUI.CANVAS_SIZE.y,
@@ -130,6 +133,12 @@ func is_sink_active() -> bool:
 
 func is_tub_active() -> bool:
 	return _step == 1 and not _busy
+
+
+func set_dirty_overlays(sink_grime: Sprite2D, tub_grime: Sprite2D) -> void:
+	_sink_grime = sink_grime
+	_tub_grime = tub_grime
+	_update_dirty_overlays()
 
 
 func probe_begin_gesture(at: Vector2) -> bool:
@@ -197,6 +206,7 @@ func _process(delta: float) -> void:
 		_pointer.rotation = sin(_pulse_time * 2.6) * 0.05
 	if _sponge != null and is_instance_valid(_sponge):
 		_sponge.rotation = sin(_pulse_time * 2.1) * 0.08
+	_update_dirty_overlays()
 	_update_progress()
 
 
@@ -404,6 +414,38 @@ func _update_progress() -> void:
 			minf(float(_tub_reversals) / float(TUB_REVERSALS_REQUIRED),
 				_valid_motion_seconds / TUB_MIN_GESTURE_SECONDS)))
 	_progress.size.x = 860.0 * ratio
+
+
+func _update_dirty_overlays() -> void:
+	var sink_ratio: float = _gesture_ratio(0)
+	var tub_ratio: float = _gesture_ratio(1)
+	if _sink_grime != null and is_instance_valid(_sink_grime):
+		_sink_grime.visible = _step == 0 and sink_ratio < 1.0
+		_sink_grime.modulate.a = 0.86 * (1.0 - sink_ratio) \
+			if _step == 0 else 0.0
+	if _tub_grime != null and is_instance_valid(_tub_grime):
+		_tub_grime.visible = _step == 1 and tub_ratio < 1.0
+		_tub_grime.modulate.a = 0.86 * (1.0 - tub_ratio) \
+			if _step == 1 else 0.0
+
+
+func _gesture_ratio(stage: int) -> float:
+	if _step != stage:
+		return 1.0 if _step > stage else 0.0
+	if stage == 0:
+		return minf(1.0, minf(_sink_arc / SINK_ARC_REQUIRED,
+			minf(_sink_distance / SINK_DISTANCE_REQUIRED,
+				_valid_motion_seconds / SINK_MIN_GESTURE_SECONDS)))
+	return minf(1.0, minf(_tub_distance / TUB_DISTANCE_REQUIRED,
+		minf(float(_tub_reversals) / float(TUB_REVERSALS_REQUIRED),
+			_valid_motion_seconds / TUB_MIN_GESTURE_SECONDS)))
+
+
+func _grime_fade_progress() -> Dictionary:
+	return {
+		"sink": _gesture_ratio(0),
+		"tub": _gesture_ratio(1),
+	}
 
 
 func _all_canvas_children(node: Node) -> bool:

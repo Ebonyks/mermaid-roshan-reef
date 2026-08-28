@@ -14,6 +14,8 @@ const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png",
 	"res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
 	"res://assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
+	"res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+	"res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
 	"res://assets/castle/day_one_pool/activities/cleanup_basket.png",
 ]
 
@@ -79,6 +81,10 @@ func _run_probe() -> void:
 	_check("ordinary HUD and room hotspots stay out of rescue",
 		bool(snapshot.get("normal_hud_suppressed", false))
 		and bool(snapshot.get("room_hotspots_suppressed", false)))
+	_check("sink and tub grime are visible at rescue entry",
+		bool(snapshot.get("dirty_overlays_visible", false))
+		and bool(snapshot.get("sink_grime_visible", false))
+		and bool(snapshot.get("tub_grime_visible", false)))
 	_check("Canvas-only node tree",
 		bool(snapshot.get("canvas_only", false))
 		and _all_runtime_children_are_canvas_items(hunt))
@@ -187,6 +193,11 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		as DayOneBathroomCleaning
 	host.add_child(cleaning)
 	cleaning.setup(cleaning_main, false)
+	var sink_grime := Sprite2D.new()
+	var tub_grime := Sprite2D.new()
+	host.add_child(sink_grime)
+	host.add_child(tub_grime)
+	cleaning.set_dirty_overlays(sink_grime, tub_grime)
 	var before: Dictionary = cleaning.audit_snapshot()
 	_check("sink phase has a visible one-finger pointer",
 		String(before.get("active_stage", "")) == "sink"
@@ -213,6 +224,11 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	_check("circular sink scrub needs arc, distance, and valid motion time",
 		cleaning.probe_sink_circle(sink_points, 0.06)
 		and cleaning_main.day_one_bathroom_cleanup_step == 1)
+	cleaning._process(0.0)
+	_check("sink grime fades away and tub grime becomes the next target",
+		not sink_grime.visible and tub_grime.visible
+		and float(cleaning.audit_snapshot()["grime_fade_progress"]["sink"])
+		>= 1.0)
 	cleaning_main.day_one_record_bathroom_cleanup_step(0)
 	_check("cleanup persistence is monotonic",
 		cleaning_main.day_one_bathroom_cleanup_step == 1)
@@ -254,6 +270,12 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	_check("back-and-forth tub brush needs reversals, distance, and time",
 		tub_stage.probe_tub_strokes(tub_points, 0.55)
 		and cleaning_main.day_one_bathroom_cleanup_step == 2)
+	# The re-entry stage shares the same bound overlays in production; bind the
+	# probe's pair too so completion verifies the final tub fade, not just state.
+	tub_stage.set_dirty_overlays(sink_grime, tub_grime)
+	tub_stage._process(0.0)
+	_check("tub grime fades away after the final scrub",
+		not sink_grime.visible and not tub_grime.visible)
 	_check("cleaning completion emits exactly once",
 		int(cleaning_main.get_meta(
 			"day_one_bathroom_cleaning_completion_count", 0)) == 1
