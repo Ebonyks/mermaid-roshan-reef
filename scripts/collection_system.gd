@@ -64,16 +64,9 @@ func has_nearby() -> bool:
 
 
 func build() -> void:
-	if m.collection_button_layer != null \
-			and is_instance_valid(m.collection_button_layer):
-		return
-	var layer := CanvasLayer.new()
-	layer.layer = 11
-	layer.visible = false
-	m.add_child(layer)
-	m.collection_button_layer = layer
-	# The Critter Book remains available from the root Menu. Its former
-	# persistent corner launcher obscured the world and competed with Back.
+	# No persistent Critter launcher or empty compatibility CanvasLayer. The
+	# collection itself remains intact for diegetic activity routes.
+	m.collection_button_layer = null
 	m.collection_button = null
 
 
@@ -88,7 +81,11 @@ func _context() -> String:
 func tick(delta: float, ppos: Vector3) -> void:
 	var context := _context()
 	if m.collection_button_layer != null:
-		m.collection_button_layer.visible = false
+		# Preserve the layer's context lifecycle for overlay restoration code; it
+		# is intentionally empty now that the corner launcher is retired.
+		m.collection_button_layer.visible = context != "" \
+			and not m.intro_active and m.collection_layer == null \
+			and m.mg_kind == ""
 	if context != m.collection_habitat:
 		_spawn_context(context)
 	if context == "" or m.collection_layer != null:
@@ -355,13 +352,6 @@ func _draw_book() -> void:
 	StorybookUI.style_label(title, 46, StorybookUI.INK, 4)
 	title.position = Vector2(70, 34)
 	stage.add_child(title)
-
-	var close := Button.new()
-	close.name = "CritterBookBackButton"
-	StorybookUI.style_back_button(close, "Back to the castle")
-	close.position = Vector2(1110, 32)
-	close.pressed.connect(close_book)
-	stage.add_child(close)
 
 	for i in range(CATEGORY_ORDER.size()):
 		var category: String = CATEGORY_ORDER[i]

@@ -15,11 +15,11 @@ func _build_pause() -> void:
 	# alone), a neutral doorway exit, and dev/FPS kept out of the child menu.
 	# The only persistent gameplay control: one upper-left button. It is Back
 	# whenever another activity/room is stacked over Sky Lagoon, and becomes
-	# Menu only at the Lagoon root. Its own layer stays above activity overlays;
-	# the separate pause sheet remains below transition fades.
+	# Menu only at the Lagoon promenade root. Layer 29 sits over ordinary game
+	# surfaces but below the transition fade at 30.
 	m.navigation_layer = CanvasLayer.new()
 	m.navigation_layer.name = "GlobalNavigationLayer"
-	m.navigation_layer.layer = 31
+	m.navigation_layer.layer = 29
 	m.navigation_layer.process_mode = Node.PROCESS_MODE_ALWAYS
 	m.add_child(m.navigation_layer)
 	var navigation := Button.new()
@@ -131,10 +131,7 @@ func sync_global_navigation() -> void:
 	var button: Button = m.global_navigation_button
 	if button == null or not is_instance_valid(button):
 		return
-	var blocked_by_boot := m.start_menu_active or m.intro_active
-	var covered_by_fade := m.fade_rect != null and m.fade_rect.visible \
-		and m.fade_rect.color.a * m.fade_rect.modulate.a > 0.01
-	button.visible = not blocked_by_boot and not covered_by_fade
+	button.visible = not _navigation_locked()
 	if not button.visible:
 		return
 	var mode := "menu" if _is_sky_lagoon_root() \
@@ -147,8 +144,8 @@ func sync_global_navigation() -> void:
 	button.position = Vector2(18.0, 18.0)
 
 func _is_sky_lagoon_root() -> bool:
-	var root_world := (m.game == "level2" \
-		and String(m.g.get("phase", "")) == "promenade") or m.game == ""
+	var root_world := m.game == "level2" \
+		and String(m.g.get("phase", "")) == "promenade"
 	if not root_world:
 		return false
 	if m.castle_room_layer != null and is_instance_valid(m.castle_room_layer) \
@@ -159,14 +156,29 @@ func _is_sky_lagoon_root() -> bool:
 		and m.stickers_layer == null and m.collection_layer == null \
 		and m.companion_layer == null and m.companion_care_layer == null \
 		and m.combat_tutorial_game == null \
+		and m.mic_teach_layer == null \
+		and (m.dance_engine == null or not is_instance_valid(m.dance_engine) \
+			or not (m.dance_engine as DanceEngine).active) \
+		and (m._castle_career_routes == null \
+			or m._castle_career_routes.opera_venue == null \
+			or not is_instance_valid(m._castle_career_routes.opera_venue) \
+			or not m._castle_career_routes.opera_venue.is_open()) \
 		and (m._attack_customizer == null \
 			or not is_instance_valid(m._attack_customizer) \
 			or not m._attack_customizer.is_open) \
 		and (m._day_one_art_studio == null \
 			or not is_instance_valid(m._day_one_art_studio))
 
+func _navigation_locked() -> bool:
+	if m.start_menu_active or m.intro_active or m.sleep_layer != null \
+			or m.hug_layer != null:
+		return true
+	return m.fade_rect != null and m.fade_rect.visible \
+		and (m.fade_rect.color.a * m.fade_rect.modulate.a > 0.01 \
+			or m.fade_rect.mouse_filter == Control.MOUSE_FILTER_STOP)
+
 func global_navigation_pressed() -> void:
-	if m.start_menu_active or m.intro_active:
+	if _navigation_locked():
 		return
 	if m.pause_panel != null and m.pause_panel.visible:
 		toggle_pause()
@@ -249,7 +261,7 @@ func toggle_pause() -> void:
 	# Activity overlays normally cover the corner button. Start/Escape raises
 	# the pause sheet above them, while layer 30 still owns transition fades.
 	if paused:
-		m.pause_layer.layer = 29
+		m.pause_layer.layer = 28
 	else:
 		m._sync_pause_surface_layer()
 	_sync_labels()
@@ -310,6 +322,9 @@ func _leave_current_activity() -> void:
 			and m._castle_rooms_25d.kitchen_menu_layer != null:
 		m._castle_rooms_25d._close_kitchen_menu()
 		return
+	if m.mic_teach_layer != null:
+		m._mic_ref().close_teach()
+		return
 	if m.stickers_layer != null:
 		m._close_stickers()
 		return
@@ -343,14 +358,23 @@ func _leave_current_activity() -> void:
 		# 2026-08-05).
 		m.combat_tutorial_game.cancel()
 		return
-	if m._castle_rooms_25d != null and m._castle_rooms_25d.is_open():
-		m._castle_rooms_25d._go_back()
-		return
+	# Child activities can suspend the castle room layer while leaving its state
+	# alive. They must unwind before the castle itself sees Back.
 	if m.game == "kitchen_cooking":
 		m._castle_rooms_ref().cancel_kitchen_recipe()
 		return
 	if m.game == "opera" and m.opera_game != null:
 		(m.opera_game as OperaHouse)._leave_early()
+		return
+	if m.game == "kart" and m.kart_game != null:
+		m.kart_game.call("_quit_race")
+		return
+	if (m.game == "dungeon" or m.game == "emberdun") and m.dungeon_game != null:
+		m.dungeon_game._leave_early()
+		return
+	if m._castle_rooms_25d != null and m._castle_rooms_25d.is_open() \
+			and m.castle_room_layer != null and m.castle_room_layer.visible:
+		m._castle_rooms_25d._go_back()
 		return
 	if m.game == "level2":
 		m._exit_level2()
@@ -361,17 +385,11 @@ func _leave_current_activity() -> void:
 	if m.game == "ember" and m.ember_game != null:
 		(m.ember_game as EmberFortressLevel)._teardown(false)
 		return
-	if m.game == "kart" and m.kart_game != null:
-		m.kart_game.call("_quit_race")
-		return
 	if m.game == "combat" and m.combat_game != null:
 		m.combat_game.cancel()
 		return
 	if m.game == "stuffie" and m.stuffie_game != null:
 		m.stuffie_game.cancel()
-		return
-	if (m.game == "dungeon" or m.game == "emberdun") and m.dungeon_game != null:
-		m.dungeon_game._leave_early()
 		return
 	if m.game == "":
 		return

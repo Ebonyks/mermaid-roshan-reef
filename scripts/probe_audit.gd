@@ -437,13 +437,12 @@ func _init() -> void:
 			and main.castle_room_buttons.has("family_gallery") \
 			and main.castle_room_buttons.has("opera_hall") \
 			and main.castle_room_buttons.has("bubble_bath") \
-			and main.castle_room_back_button != null \
-			and main.castle_room_stage.get_node_or_null("ElevatorButton") != null \
-			and main.castle_room_menu_buttons.size() == 12 \
-			and main.castle_room_menu_buttons.has("dining_room") \
-			and main.castle_room_menu_buttons.has("movie_lounge") \
-			and not main.castle_room_menu_buttons.has("family_gallery")
-		print("AUDIT|castle physical doors plus direct elevator routes: ",
+			and main.castle_room_back_button == null \
+			and main.castle_room_stage.get_node_or_null("ElevatorButton") == null \
+			and main.castle_room_menu_buttons.is_empty() \
+			and main.global_navigation_button != null \
+			and main.global_navigation_button.visible
+		print("AUDIT|castle physical doors plus single global Back: ",
 			("OK" if room_routes_ok else "FAIL"))
 		# The eligible Royal Hall event celebrates in place and records the win
 		# without switching back to the free-roaming world.
@@ -3693,7 +3692,6 @@ func _slide_consumed_entry_release_contract() -> bool:
 		return false
 	var movement_start: Vector2 = main.touch_ui.movement_zone().get_center()
 	var movement_end: Vector2 = movement_start + Vector2(90.0, 0.0)
-	var action_point: Vector2 = main.touch_ui.action_zone().get_center()
 	var sibling_start := Vector2(520.0, 220.0)
 	var sibling_end := sibling_start + Vector2(0.0, -40.0)
 	var exact: bool = main._slide_canvas_held_sources.is_empty() \
@@ -3725,29 +3723,6 @@ func _slide_consumed_entry_release_contract() -> bool:
 	exact = exact and main._slide_canvas_held_sources.is_empty() \
 		and main._melody_held_sources.is_empty() \
 		and not main.touch_ui.touch_owners.has(620)
-
-	# Touch ACTION is claimed in TouchUI's early input phase, so it must never
-	# create a ledger token; its terminal must leave the unrelated sibling exact.
-	var touch_action_sibling := &"touch:76:621"
-	var touch_action_sibling_map: Dictionary = {}
-	touch_action_sibling_map[touch_action_sibling] = true
-	_slide_push_touch(sibling_start, true, 621, 76)
-	_slide_push_drag(sibling_end, sibling_end - sibling_start, 621, 76)
-	_slide_push_touch(action_point, true, 611, 72)
-	exact = exact \
-		and main._slide_canvas_held_sources == touch_action_sibling_map \
-		and main._melody_held_sources == touch_action_sibling_map \
-		and main.touch_ui.touch_owners.has(621) \
-		and main.touch_ui.touch_owners.has(611)
-	_slide_push_touch(action_point, false, 611, 72)
-	exact = exact \
-		and main._slide_canvas_held_sources == touch_action_sibling_map \
-		and main._melody_held_sources == touch_action_sibling_map \
-		and main.touch_ui.touch_owners.has(621) \
-		and not main.touch_ui.touch_owners.has(611)
-	_slide_push_touch(sibling_end, false, 621, 76)
-	exact = exact and main._slide_canvas_held_sources.is_empty() \
-		and main._melody_held_sources.is_empty()
 
 	# Native left-mouse STICK follows the same exact-owner relay while a real
 	# sibling world finger remains held in both process-wide ledgers.
@@ -5372,9 +5347,12 @@ func _audit_storybook_ui() -> bool:
 	main._skip_intro()
 	await process_frame
 
-	ok = _ui_target_ok(main.pause_layer, "PauseCornerButton", Vector2(128, 128)) and ok
+	ok = _ui_target_ok(main.navigation_layer,
+		"GlobalNavigationButton", Vector2(112, 112)) and ok
+	ok = main.find_child("PauseCornerButton", true, false) == null and ok
+	ok = main.touch_ui.find_child("ActionShellMedallion", true, false) == null and ok
 	main.toggle_pause()
-	ok = main.pause_layer.layer == 29 and main.get_tree().paused and ok
+	ok = main.pause_layer.layer == 28 and main.get_tree().paused and ok
 	ok = _ui_target_ok(main.pause_panel, "PauseResumeButton", Vector2(300, 140)) and ok
 	ok = _ui_target_ok(main.pause_panel, "PauseStickerButton") and ok
 	ok = _ui_target_ok(main.pause_panel, "PauseMusicButton") and ok
@@ -5386,7 +5364,7 @@ func _audit_storybook_ui() -> bool:
 
 	main._open_craft_studio()
 	await process_frame
-	ok = _ui_target_ok(main.craft_layer, "CraftBackButton") and ok
+	ok = _ui_legacy_back_retired(main.craft_layer, "CraftBackButton") and ok
 	ok = _ui_target_ok(main.craft_layer, "CraftFinishButton", Vector2(150, 150)) and ok
 	ok = _ui_named_count(main.craft_layer, "CraftPart_*") == 3 and ok
 	ok = _ui_named_count(main.craft_layer, "CraftSwatch_*") == 8 and ok
@@ -5395,7 +5373,7 @@ func _audit_storybook_ui() -> bool:
 
 	main._open_castle_logo()
 	await process_frame
-	ok = _ui_target_ok(main.castle_logo_layer, "CastleLogoBackButton") and ok
+	ok = _ui_legacy_back_retired(main.castle_logo_layer, "CastleLogoBackButton") and ok
 	ok = _ui_target_ok(main.castle_logo_layer, "CastleLogoFinishButton", Vector2(150, 150)) and ok
 	ok = _ui_named_count(main.castle_logo_layer, "CastleLogoColor_*") == 6 and ok
 	ok = _ui_named_count(main.castle_logo_layer, "CastleLogoSymbol_*") == 8 and ok
@@ -5403,31 +5381,29 @@ func _audit_storybook_ui() -> bool:
 
 	main._open_wardrobe()
 	await process_frame
-	ok = _ui_target_ok(main.wardrobe_layer, "WardrobeBackButton") and ok
+	ok = _ui_legacy_back_retired(main.wardrobe_layer, "WardrobeBackButton") and ok
 	ok = _ui_target_ok(main.wardrobe_layer, "WardrobeFinishButton") and ok
 	main._close_wardrobe()
 	main._open_stickers()
 	await process_frame
-	ok = _ui_target_ok(main.stickers_layer, "StickerBookBackButton") and ok
+	ok = _ui_legacy_back_retired(main.stickers_layer, "StickerBookBackButton") and ok
 	main._close_stickers()
 
 	main._collection_ref().open_book()
 	await process_frame
-	ok = _ui_target_ok(main.collection_layer, "CritterBookBackButton") and ok
+	ok = _ui_legacy_back_retired(main.collection_layer, "CritterBookBackButton") and ok
 	main._collection_ref().close_book()
 
 	main._companion_ref().open_picker(false)
 	await process_frame
-	ok = _ui_target_ok(main.companion_layer, "StuffiePickerBackButton") and ok
+	ok = _ui_legacy_back_retired(main.companion_layer, "StuffiePickerBackButton") and ok
 	ok = _ui_named_count(main.companion_layer, "StuffiePart_*") == 3 and ok
 	ok = _ui_named_count(main.companion_layer, "StuffieSwatch_*") == 8 and ok
 	main._companion_ref().close_picker()
 
 	main._mg2d_open("garden")
 	await process_frame
-	var picture_back := main.mg2d_layer.find_child("PictureGameBackButton", true, false) as Button
-	ok = picture_back != null and _ui_target_ok(main.mg2d_layer, "PictureGameBackButton") and ok
-	ok = picture_back != null and bool(picture_back.get_meta("neutral_exit", false)) and ok
+	ok = _ui_legacy_back_retired(main.mg2d_layer, "PictureGameBackButton") and ok
 	main._mg2d_close()
 	main.mg_cool = 0.0
 	return ok
@@ -5448,6 +5424,12 @@ func _ui_target_ok(from: Node, pattern: String, minimum := Vector2(110, 110)) ->
 		maxf(control.size.y, control.custom_minimum_size.y)
 	)
 	return touch_size.x >= minimum.x and touch_size.y >= minimum.y
+
+func _ui_legacy_back_retired(from: Node, pattern: String) -> bool:
+	if from == null:
+		return false
+	var button := from.find_child(pattern, true, false) as Button
+	return button == null
 
 func _stars_got() -> int:
 	var got := 0

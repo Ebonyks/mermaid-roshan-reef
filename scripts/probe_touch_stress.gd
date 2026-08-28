@@ -134,16 +134,18 @@ func _agreement_gate() -> void:
 	_ok("bay_tap_fallthrough", "press taps, drag steers, never both")
 
 	# Hold-to-travel clients read the emulated pointer, which is blind to touch
-	# ownership. They ask the router first, so a held BUTTON is never "walk here".
+	# ownership. Only the thumb bay and global navigation reserve fixed space;
+	# the former bottom-right action overlay is ordinary world art again.
 	var screen: Vector2 = get_root().get_viewport().get_visible_rect().size
-	var reserved_ok: bool = touch.reserved_zone_hit(touch.action_zone().get_center()) \
+	var reserved_ok: bool = touch.action_zone().size == Vector2.ZERO \
+		and not touch.reserved_zone_hit(screen - Vector2(120.0, 120.0)) \
 		and touch.reserved_zone_hit(bay.get_center()) \
 		and touch.reserved_zone_hit(touch.pause_zone().get_center()) \
 		and not touch.reserved_zone_hit(Vector2(screen.x * 0.58, screen.y * 0.32))
 	if not reserved_ok:
 		_bad("hold-to-travel reservation does not match the router's own zones")
 	else:
-		_ok("hold_travel_reservation", "medallion, bay and pause reserved; world free")
+		_ok("hold_travel_reservation", "bay and navigation reserved; former medallion/world free")
 	main._tap_move_ref().cancel("stress reset")
 	main._interaction_ref().clear_focus()
 
@@ -249,13 +251,13 @@ func _travel_case(label: String, gesture: String, press: Vector2, expect: int) -
 		% [label, RETRY_STEPS.size()])
 
 func _held_medallion_case() -> void:
-	# Holding PLAY is a button press, never a request to walk to the bottom-right
-	# corner of the screen. (The emulated-pointer hold-to-travel path used to read
-	# it as exactly that.)
+	# A deliberate hold on open art supplies the former PLAY verb without adding
+	# a button or walking Roshan toward that point.
 	await _reset_promenade()
 	var start_x: float = prom.master_route_x()
 	var drift := 0.0
-	var press: Vector2 = touch.action_zone().get_center()
+	var screen: Vector2 = get_root().get_viewport().get_visible_rect().size
+	var press: Vector2 = screen - Vector2(120.0, 120.0)
 	_down(0, press)
 	for _hold_frame: int in range(90):
 		await process_frame
@@ -264,9 +266,9 @@ func _held_medallion_case() -> void:
 	await _frames(30)
 	drift = maxf(drift, absf(prom.master_route_x() - start_x))
 	if drift > 1.0:
-		_bad("holding the action medallion walked Roshan %.2f master px" % drift)
+		_bad("button-free action hold walked Roshan %.2f master px" % drift)
 	else:
-		_ok("held_medallion", "stayed put (%.3f master px of settle)" % drift)
+		_ok("button_free_action_hold", "stayed put (%.3f master px of settle)" % drift)
 	touch.consume_action()
 
 func _target(target_id: String) -> Dictionary:

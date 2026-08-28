@@ -1,6 +1,6 @@
 extends SceneTree
-# PartnerAssist probe: the bubble exists only when a partner is present and
-# never fires without a tap (agency); each partner's SUPER does its job —
+# PartnerAssist probe: no persistent partner button is drawn; the optional
+# ability state still never fires without an explicit activation (agency).
 # stuffie SPARKLE STAMPEDE pops nearest fodder, dizzies the rest and grants
 # Big Taps; DADDY SPLASH clears ordinary castle dust but never the Baby
 # Eagle rescue pins; the cooldown gates repeat use; and the child's own
@@ -51,14 +51,16 @@ func _stuffie_case() -> void:
 	main._start_combat("ice")
 	await process_frame
 	var arena: CombatArena = main.combat_game
-	_ck("stuffie bubble attaches ready", arena.pa != null and arena.pa.ready())
+	_ck("stuffie assist has no overlay and attaches ready", arena.pa != null
+		and arena.pa.ready() and arena.pa.bubble == null and arena.pa.layer == null)
 	for _i in range(30):
 		await process_frame
 	var active := 0
 	for enemy: Dictionary in arena.enemies:
 		if String(enemy["state"]) == "active":
 			active += 1
-	_ck("idle frames never fire the super", active == 8 and arena.pa.ready())
+	_ck("idle frames never fire the super", active == 8 and arena.pa.ready()
+		and arena.pa.bubble == null)
 	arena.pa.on_bubble_tap()
 	await process_frame
 	var popped_or_frozen := 0
@@ -94,8 +96,10 @@ func _daddy_case() -> void:
 	_ck("no pop yet means no daddy bubble", main.castle_partner == null)
 	rooms._explode_dust_bunny("sleepy_bunny")
 	await process_frame
-	_ck("her first pop invites Daddy",
-		main.castle_partner != null and main.castle_partner.ready())
+	_ck("her first pop invites Daddy without an overlay",
+		main.castle_partner != null and main.castle_partner.ready()
+		and main.castle_partner.bubble == null
+		and main.castle_partner.layer == null)
 	main.castle_partner.on_bubble_tap()
 	await process_frame
 	_ck("DADDY SPLASH clears the hall dust", _live_dust_count() == 0)

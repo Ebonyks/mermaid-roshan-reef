@@ -3,7 +3,7 @@ extends Control
 ## True-2D reconstruction of the July 21 three-floor Pearl Opera House.
 ##
 ## The accepted master painting supplies every visible portal. Controls are
-## invisible physical portal/lift hit regions; there is no card grid, career
+## invisible physical portal hit regions; there is no card grid, career
 ## crest, floating door frame, completion pearl, or all-career menu.
 
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
@@ -31,11 +31,6 @@ const PORTAL_RECTS := {
 	8: Rect2(900.0, 236.0, 126.0, 160.0),
 	13: Rect2(830.0, 63.0, 126.0, 156.0),
 }
-const LIFT_RECTS: Array[Rect2] = [
-	Rect2(144.0, 79.0, 126.0, 500.0),
-	Rect2(1012.0, 79.0, 126.0, 500.0),
-]
-const LIFT_ACTOR_X: Array[float] = [164.0, 1024.0]
 var m: ReefMain
 var launch_career: Callable
 var buttons: Array[Button] = []
@@ -64,15 +59,13 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 	set_meta("historical_portal_count", 12)
 	set_meta("active_room_owned_portal_count", 3)
 	set_meta("decorative_closed_portal_count", 9)
-	set_meta("bubble_lift_count", 2)
+	set_meta("bubble_lift_count", 0)
 	set_meta("floating_portal_decoration_count", 0)
 	_build_background_tiles()
 	_build_input_blocker()
 	_build_floor_glow()
 	_build_actor()
 	_build_portals()
-	_build_lifts()
-	_build_back_button()
 	refresh(star_mask)
 
 
@@ -111,9 +104,7 @@ func career_buttons() -> Array[Button]:
 func refresh(star_mask: int) -> void:
 	for button: Button in buttons:
 		var act_index := int(button.get_meta("act_index", -1))
-		var portal_floor := int(button.get_meta("floor_index", -1))
-		var on_floor := portal_floor == floor_index
-		button.disabled = not on_floor or not accepting_input
+		button.disabled = not accepting_input
 		button.set_meta("complete", (star_mask & (1 << act_index)) != 0)
 	if actor != null:
 		actor.position = FLOOR_ACTOR_POSITIONS[floor_index]
@@ -230,33 +221,6 @@ func _build_portals() -> void:
 		button.pressed.connect(_choose_career.bind(act_index))
 		add_child(button)
 		buttons.append(button)
-func _build_lifts() -> void:
-	for lift_index in range(LIFT_RECTS.size()):
-		var rect := LIFT_RECTS[lift_index]
-		var lift := Button.new()
-		lift.name = "BubbleLift%d" % (lift_index + 1)
-		lift.position = rect.position
-		lift.size = rect.size
-		lift.custom_minimum_size = StorybookUI.MIN_TOUCH
-		lift.text = ""
-		lift.tooltip_text = "Ride the bubble lift"
-		lift.focus_mode = Control.FOCUS_ALL
-		lift.z_index = 7
-		lift.set_meta("physical_floor_cycle", [0, 1, 2])
-		lift.set_meta("transparent_diegetic_hit_region", true)
-		_style_lift_button(lift)
-		lift.pressed.connect(_ride_lift.bind(lift_index))
-		add_child(lift)
-
-
-func _build_back_button() -> void:
-	var back := Button.new()
-	back.name = "OperaVenueBack"
-	StorybookUI.style_back_button(back, "Back to the Opera Hall")
-	back.position = Vector2(18.0, 18.0)
-	back.z_index = 12
-	back.pressed.connect(close)
-	add_child(back)
 
 
 func _style_portal_button(button: Button) -> void:
@@ -270,17 +234,6 @@ func _style_portal_button(button: Button) -> void:
 		Color.TRANSPARENT, Color.TRANSPARENT, 0, 54))
 	button.add_theme_stylebox_override("disabled", _outline_style(
 		Color.TRANSPARENT, Color.TRANSPARENT, 0, 54))
-
-
-func _style_lift_button(button: Button) -> void:
-	button.add_theme_stylebox_override("normal", _outline_style(
-		Color.TRANSPARENT, Color.TRANSPARENT, 0, 52))
-	button.add_theme_stylebox_override("hover", _outline_style(
-		Color(0.66, 0.94, 1.0, 0.92), Color(0.48, 0.88, 1.0, 0.08), 4, 52))
-	button.add_theme_stylebox_override("pressed", _outline_style(
-		Color.WHITE, Color(0.55, 0.92, 1.0, 0.13), 5, 52))
-	button.add_theme_stylebox_override("focus", _outline_style(
-		Color(0.76, 0.96, 1.0, 1.0), Color(0.55, 0.92, 1.0, 0.10), 5, 52))
 
 
 func _outline_style(border: Color, fill: Color, width: int,
@@ -298,8 +251,9 @@ func _outline_style(border: Color, fill: Color, width: int,
 
 
 func _choose_career(act_index: int) -> void:
-	if not accepting_input or FLOOR_ACT_INDICES[floor_index] != act_index:
+	if not accepting_input or not PORTAL_RECTS.has(act_index):
 		return
+	floor_index = FLOOR_ACT_INDICES.find(act_index)
 	accepting_input = false
 	refresh(m.opera_stars)
 	var rect: Rect2 = PORTAL_RECTS[act_index]
@@ -316,32 +270,6 @@ func _launch_selected(act_index: int) -> void:
 	accepting_input = true
 	if launch_career.is_valid():
 		launch_career.call(act_index)
-
-
-func _ride_lift(lift_index: int) -> void:
-	if not accepting_input:
-		return
-	accepting_input = false
-	refresh(m.opera_stars)
-	var next_floor := (floor_index + 1) % FLOOR_ACT_INDICES.size()
-	var lift_position := Vector2(
-		LIFT_ACTOR_X[lift_index], actor.position.y)
-	var lifted_position := Vector2(
-		LIFT_ACTOR_X[lift_index], FLOOR_ACTOR_POSITIONS[next_floor].y)
-	_start_motion()
-	motion.tween_property(actor, "position", lift_position, 0.38) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	motion.tween_property(actor, "position", lifted_position, 0.62) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	motion.tween_callback(_finish_lift.bind(next_floor))
-
-
-func _finish_lift(next_floor: int) -> void:
-	floor_index = next_floor
-	accepting_input = true
-	refresh(m.opera_stars)
-	if m != null:
-		m.show_msg("Pearl Opera House", FLOOR_NAMES[floor_index], "home")
 
 
 func _start_motion() -> void:

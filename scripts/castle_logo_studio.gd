@@ -239,13 +239,6 @@ func open() -> void:
 	StorybookUI.style_label(title, 40, Color.WHITE, 6)
 	stage.add_child(title)
 
-	var back := Button.new()
-	back.name = "CastleLogoBackButton"
-	StorybookUI.style_back_button(back, "Back to the craft room")
-	back.position = Vector2(1140.0, 18.0)
-	back.pressed.connect(close.bind(false))
-	stage.add_child(back)
-
 	var preview_rect := Rect2(55.0, 125.0, 400.0, 405.0)
 	var preview_panel := StorybookUI.add_panel(stage, preview_rect,
 		StorybookUI.PURPLE, Color(0.95, 0.98, 1.0, 0.99), 44)

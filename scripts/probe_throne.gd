@@ -99,20 +99,12 @@ func _tap_royal_hall() -> void:
 func _tap_royal_hall_now() -> bool:
 	return _tap_button(_royal_hall_button())
 
-func _tap_elevator() -> bool:
-	if main.castle_room_stage == null:
+func _press_global_navigation() -> bool:
+	if main.global_navigation_button == null \
+			or not main.global_navigation_button.visible:
 		return false
-	return _tap_button(main.castle_room_stage.get_node_or_null(
-		"ElevatorButton") as Button)
-
-func _tap_elevator_close() -> bool:
-	if main.castle_room_menu_panel == null:
-		return false
-	return _tap_button(main.castle_room_menu_panel.get_node_or_null(
-		"ElevatorMenuClose") as Button)
-
-func _tap_elevator_room(room_id: String) -> bool:
-	return _tap_button(main.castle_room_menu_buttons.get(room_id) as Button)
+	main._pause_ref().global_navigation_pressed()
+	return true
 
 func _wait_for_royal_hall_offer() -> void:
 	# Headless frames can advance with a much smaller delta than a rendered
@@ -404,7 +396,7 @@ func _run() -> void:
 	_ck("rapid_double_rearm_can_be_cleared_by_owner",
 		rooms.clear_royal_hall_event("probe_double_next", rearmed_token))
 
-	# ---- opening the real elevator cancels approach, not event ownership ----
+	# ---- global Back cancels approach, not event ownership ----
 	royal_hall_event_calls = 0
 	_ck("menu_cancel_event_arms",
 		rooms.arm_royal_hall_event("probe_menu_cancel",
@@ -412,25 +404,23 @@ func _run() -> void:
 	var menu_cancel_token: int = rooms.royal_hall_event_token(
 		"probe_menu_cancel")
 	var menu_approach_tap: bool = _tap_royal_hall_now()
-	var menu_open_tap: bool = _tap_elevator()
-	await _frames(2)
-	var menu_opened_during_approach: bool = main.castle_room_menu_open
+	var global_back_tap: bool = _press_global_navigation()
 	await _wait_ms(ROYAL_HALL_ARRIVAL_SETTLE_MS)
-	_ck("opening_elevator_cancels_arrival_and_preserves_event",
-		menu_approach_tap and menu_open_tap and menu_opened_during_approach
+	_ck("global_back_cancels_arrival_and_preserves_event",
+		menu_approach_tap and global_back_tap and not rooms.is_open()
 		and royal_hall_event_calls == 0
 		and not main.castle_royal_hall_arrival_pending
 		and _event_matches(rooms, "probe_menu_cancel", menu_cancel_token),
-		"menu=%s calls=%d pending=%s token=%d" % [
-			menu_opened_during_approach, royal_hall_event_calls,
+		"open=%s calls=%d pending=%s token=%d" % [
+			rooms.is_open(), royal_hall_event_calls,
 			main.castle_royal_hall_arrival_pending, menu_cancel_token])
-	_ck("real_elevator_close_tap_works", _tap_elevator_close())
-	await _frames(2)
 	_ck("menu_cancel_owner_clears_event",
 		rooms.clear_royal_hall_event(
 			"probe_menu_cancel", menu_cancel_token))
+	rooms.open("main_hall")
+	await _frames(12)
 
-	# ---- choosing a real room during approach also preserves the event ----
+	# ---- entering a physical room during approach also preserves the event ----
 	royal_hall_event_calls = 0
 	_ck("navigation_cancel_event_arms",
 		rooms.arm_royal_hall_event("probe_navigation_cancel",
@@ -438,22 +428,18 @@ func _run() -> void:
 	var navigation_cancel_token: int = rooms.royal_hall_event_token(
 		"probe_navigation_cancel")
 	var navigation_approach_tap: bool = _tap_royal_hall_now()
-	var navigation_menu_tap: bool = _tap_elevator()
-	await _frames(2)
-	var navigation_room_tap: bool = _tap_elevator_room("library")
+	rooms.show_room("library", false)
 	await _frames(4)
 	await _wait_ms(ROYAL_HALL_ARRIVAL_SETTLE_MS)
 	_ck("navigating_away_cancels_arrival_and_preserves_event",
-		navigation_approach_tap and navigation_menu_tap
-		and navigation_room_tap and main.castle_room_id == "library"
+		navigation_approach_tap and main.castle_room_id == "library"
 		and royal_hall_event_calls == 0
 		and not main.castle_royal_hall_arrival_pending
 		and _event_matches(rooms, "probe_navigation_cancel",
 			navigation_cancel_token),
 		"room=%s calls=%d pending=%s" % [main.castle_room_id,
 			royal_hall_event_calls, main.castle_royal_hall_arrival_pending])
-	_ck("real_room_back_tap_returns_to_hall",
-		_tap_button(main.castle_room_back_button))
+	_ck("global_room_back_returns_to_hall", _press_global_navigation())
 	await _frames(12)
 	_ck("room_back_returns_to_main_hall", main.castle_room_id == "main_hall",
 		main.castle_room_id)
@@ -467,7 +453,7 @@ func _run() -> void:
 		rooms.arm_royal_hall_event("probe_reopen",
 			Callable(self, "_on_probe_royal_hall_event")))
 	var reopen_token: int = rooms.royal_hall_event_token("probe_reopen")
-	var real_back_closed_hall: bool = _tap_button(main.castle_room_back_button)
+	var real_back_closed_hall: bool = _press_global_navigation()
 	await _frames(10)
 	_ck("real_back_closes_hall_but_preserves_event",
 		real_back_closed_hall and not rooms.is_open()

@@ -77,14 +77,7 @@ func _mg2d_open(kind: String) -> void:
 	StorybookUI.add_shell_crest(header, Rect2(20, 27, 82, 60),
 		"PictureGameShellCrest")
 	m.mg["hud"] = _mg_label("", 34, Vector2(124, 34))
-	# A neutral doorway/back affordance so leaving never reads as failure.
-	var xb := Button.new()
-	xb.name = "PictureGameBackButton"
-	StorybookUI.style_back_button(xb, "Back to the castle")
-	xb.position = Vector2(1128, 26)
-	xb.pressed.connect(_mg2d_close)
-	m.mg2d_stage.add_child(xb)
-	m.mg["xbtn"] = xb
+	m.mg["xbtn"] = null
 	if kind == "snowman": _mg_build_snowman()
 	elif kind == "garden": _mg_build_garden()
 	elif kind == "trampoline": _mg_build_trampoline()

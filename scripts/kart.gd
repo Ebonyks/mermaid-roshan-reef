@@ -247,7 +247,6 @@ var _guide_mode := ""
 var _guide_t := 0.0
 var _meter_bg: ColorRect = null
 var _meter_fill: ColorRect = null
-var _btn_quit: Button = null
 
 var _lut: PackedVector3Array = []
 var _cum: PackedFloat32Array = []
@@ -281,7 +280,6 @@ var _sel_phase := "ride"           # ride -> paint
 var _paint_idx := 0
 var _paint_orbs: Array = []
 var _paint_prev := -1
-var _quit_arm_t := 0.0
 var _bw_centre := Vector3.ZERO     # Butterfly World planet centre (rainbow theme)
 var _bw_planet: MeshInstance3D = null
 var _bw_spin: Node3D = null        # landmark carrier — turns with the planet surface
@@ -502,7 +500,6 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_completion_committed = false
 	_rocket_armed = false
 	_select_confirm_queued = false
-	_quit_arm_t = 0.0
 	if "player" in main and main.player != null:
 		_player_node = main.player
 	_build_lut()
@@ -2425,16 +2422,6 @@ func _process(delta: float) -> void:
 	if _state == "done":
 		return
 	_tick_guide(delta)
-	if _quit_arm_t > 0.0:
-		_quit_arm_t = maxf(0.0, _quit_arm_t - delta)
-		if _btn_quit != null:
-			var quit_pulse: float = 1.0 + sin(_quit_arm_t * 10.0) * 0.08
-			_btn_quit.pivot_offset = _btn_quit.size * 0.5
-			_btn_quit.scale = Vector2.ONE * quit_pulse
-		if _quit_arm_t <= 0.0 and _btn_quit != null:
-			_btn_quit.text = "↩"
-			_btn_quit.modulate = Color.WHITE
-			_btn_quit.scale = Vector2.ONE
 	# rainbow paint: cycle hue on plain materials (renderer-proof)
 	var tt: float = Time.get_ticks_msec() / 1000.0
 	if _rainbow_mats.size() > 0:
@@ -3226,33 +3213,10 @@ func _build_hud() -> void:
 	_meter_fill.position = Vector2(3, 3)
 	_meter_fill.size = Vector2(0, 24)
 	_meter_bg.add_child(_meter_fill)
-	# Neutral back (top-right): leave the race and return to the launch spot.
-	# from. A real Button, so it gets first claim on its taps — touch_ui's
-	# stick only ever sees touches nothing else wanted.
-	_btn_quit = Button.new()
-	_btn_quit.name = "KartBackButton"
-	StorybookUI.style_back_button(_btn_quit, "Leave the race")
-	_btn_quit.focus_mode = Control.FOCUS_NONE
-	_btn_quit.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	_btn_quit.offset_left = -132.0
-	_btn_quit.offset_top = 16.0
-	_btn_quit.offset_right = -20.0
-	_btn_quit.offset_bottom = 128.0
-	_btn_quit.pressed.connect(_quit_race)
-	root.add_child(_btn_quit)
-
 func _quit_race() -> void:
 	if _state == "podium" or _state == "done":
 		return   # already finishing — let the podium payout complete instead
-	# Two icon taps prevent a stray preschool thumb from closing a run. No
-	# reading is required: the button visibly becomes a pulsing double-X.
-	if _quit_arm_t <= 0.0:
-		_player_acted = true
-		_quit_arm_t = 2.2
-		_btn_quit.text = "↩  ↩"
-		_btn_quit.modulate = Color(1.0, 0.92, 0.55)
-		_chime(0.8)
-		return
+	_player_acted = true
 	_commit_payout(0)
 	_chime(0.6)
 	_teardown(-1)

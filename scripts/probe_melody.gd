@@ -2323,21 +2323,18 @@ func _leave_through_real_pause_gear() -> void:
 	_push_action(&"ui_accept", false)
 
 
-func _open_pause_gear(index: int) -> void:
-	var pause_rect: Rect2 = main.touch_ui.pause_zone()
-	var point := pause_rect.get_center()
-	var gear := main.find_child("PauseCornerButton", true, false) as Button
-	_check("pause fixture is the real visible PauseCornerButton",
-		gear != null and gear.visible and gear.get_global_rect().has_point(point)
-		and main.pause_layer.get_meta("corner_button") == gear)
-	_push_touch(point, true, index)
-	var release := InputEventScreenTouch.new()
-	release.index = index
-	release.position = point
-	release.pressed = false
-	main.get_viewport().push_input(release, false)
+func _open_pause_gear(_index: int) -> void:
+	var navigation := main.find_child(
+		"GlobalNavigationButton", true, false) as Button
+	_check("Melody exposes only the global Back control",
+		navigation != null and navigation.visible
+		and String(navigation.get_meta("global_navigation_mode", "")) == "back"
+		and main.find_child("PauseCornerButton", true, false) == null)
+	# Pause-cancellation semantics are still exercised through the internal Menu
+	# command; pressing the visible global control now correctly leaves Melody.
+	main.toggle_pause()
 	await process_frame
-	_check("real pause-corner touch raises the production PauseMenu sheet",
+	_check("internal Menu command raises the production Menu sheet",
 		paused and main.pause_panel.visible)
 
 

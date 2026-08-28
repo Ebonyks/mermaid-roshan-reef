@@ -44,7 +44,6 @@ var creature_def := {}
 var hud: CanvasLayer = null
 var objective: Label = null
 var counter: Label = null
-var dodge_btn: Button = null
 var pointer: Label3D = null
 var pal_pos := Vector3.ZERO
 var pal_yaw := PI
@@ -200,21 +199,6 @@ func _build_hud() -> void:
 	counter.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	StorybookUI.style_hud_label(counter, 34)
 	counter_card.add_child(counter)
-	# THE dodge bubble: huge, center-low, hot pink, only alive during a telegraph
-	dodge_btn = Button.new()
-	dodge_btn.name = "StuffieDodgeButton"
-	dodge_btn.text = "🛡  DODGE!"
-	dodge_btn.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	dodge_btn.offset_left = -240.0
-	dodge_btn.offset_right = 240.0
-	dodge_btn.offset_top = -290.0
-	dodge_btn.offset_bottom = -140.0
-	dodge_btn.custom_minimum_size = Vector2(480, 150)
-	StorybookUI.style_button(dodge_btn, "action", 46, 70)
-	dodge_btn.set_meta("picture_first", true)
-	dodge_btn.visible = false
-	dodge_btn.pressed.connect(press_dodge)
-	hud.add_child(dodge_btn)
 	pointer = Label3D.new()
 	pointer.text = "▼"
 	pointer.font_size = 150
@@ -290,12 +274,6 @@ func _action_pressed() -> bool:
 		just = true
 	return just
 
-func press_dodge() -> void:
-	# the QTE button (also X on keyboard/pad via _process below)
-	if state != "play" or qte_t <= 0.0:
-		return
-	_dodge_success()
-
 # ===================== tick =====================
 
 func _process(delta: float) -> void:
@@ -312,9 +290,9 @@ func _process(delta: float) -> void:
 		return
 	_tick_move(delta)
 	var attack_tap := _action_pressed()
-	# hidden mercy: after two missed dodges in a row, ANY button counts as the
-	# dodge — mashing the attack bubble still saves the day for little thumbs
-	if attack_tap and qte_t > 0.0 and miss_streak >= 2:
+	# During the generous telegraph the same button-free hold/tap action becomes
+	# dodge. The child never has to hunt for a temporary overlay control.
+	if attack_tap and qte_t > 0.0:
 		_dodge_success()
 	elif attack_tap and attack_cool <= 0.0:
 		_attack()
@@ -547,18 +525,12 @@ func _qte_begin(enemy: Dictionary) -> void:
 	tw.tween_property(node, "scale", node.scale * 1.18, 0.18)
 	tw.tween_property(node, "scale", node.scale, 0.18)
 	m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 3.5, 0), Color(1.0, 0.45, 0.45))
-	if dodge_btn != null:
-		dodge_btn.visible = true
-		dodge_btn.pivot_offset = dodge_btn.size * 0.5
 	_update_hud()
 
 func _tick_qte(delta: float) -> void:
 	if qte_t <= 0.0:
 		return
 	qte_t -= delta
-	if dodge_btn != null:
-		var pulse_s: float = 1.0 + sin(elapsed * 9.0) * 0.09
-		dodge_btn.scale = Vector2(pulse_s, pulse_s)
 	if String(qte_enemy.get("state", "")) != "active":
 		_qte_clear()   # target got bopped dizzy mid-telegraph
 		return
@@ -599,9 +571,6 @@ func _dodge_missed() -> void:
 func _qte_clear() -> void:
 	qte_t = -1.0
 	qte_enemy = {}
-	if dodge_btn != null:
-		dodge_btn.visible = false
-		dodge_btn.scale = Vector2.ONE
 
 func _spawn_enemy_shot(from: Vector3, to: Vector3) -> void:
 	var dir: Vector3 = to - from

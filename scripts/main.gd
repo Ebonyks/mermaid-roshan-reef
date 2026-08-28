@@ -3656,10 +3656,9 @@ func _ui_tap() -> void:
 	_audio_ref()._ui_tap()
 
 func _hook_button_taps(n: Node) -> void:
-	# One upper-left Back/Menu control owns navigation game-wide. Older overlays
-	# still construct local back buttons for compatibility with their isolated
-	# controllers; retire those nodes as soon as they enter the tree so no later
-	# screen can resurrect the former corner-button design language.
+	# One upper-left Back/Menu control owns navigation game-wide. This defensive
+	# guard prevents a stale scene or future regression from resurrecting the
+	# removed corner-button design language.
 	if n is Button:
 		var button_name := String(n.name)
 		if button_name == "CastleBack" or button_name.ends_with("BackButton") \
@@ -6906,8 +6905,6 @@ func _open_day_one_art_studio() -> bool:
 	_day_one_art_studio = DayOneArtStudioLogic.new() as DayOneArtStudio
 	castle_room_stage.add_child(_day_one_art_studio)
 	_day_one_art_studio.setup(self)
-	if castle_room_action_button != null:
-		castle_room_action_button.visible = false
 	return true
 
 

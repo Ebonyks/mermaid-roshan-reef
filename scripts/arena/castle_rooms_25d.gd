@@ -994,7 +994,6 @@ func resume(room_id: String = "") -> void:
 func suspend() -> void:
 	_invalidate_royal_hall_arrival()
 	_close_kitchen_menu()
-	_set_elevator_menu_open(false, false)
 	_set_fridge_close_blocked(false)
 	# alpha audit 2026-08-05: the Daddy bubble and the dust chain-engine used
 	# to stay live UNDER the cutaway (cooking act, sparring class, opera hall)
@@ -1224,14 +1223,9 @@ func _build_stage() -> void:
 	m.castle_room_prop_sfx.process_mode = Node.PROCESS_MODE_ALWAYS
 	m.castle_room_layer.add_child(m.castle_room_prop_sfx)
 
-	m.castle_room_action_button = Button.new()
-	m.castle_room_action_button.name = "RoomAction"
-	m.castle_room_action_button.pressed.connect(activate_current_room)
-	# Room actions are reached through the painted room itself. Keep the
-	# compatibility signal object off-tree for activity controllers, but do not
-	# add a bubbles/action overlay. Back is owned by GlobalNavigationButton and
-	# rooms are entered through their in-world doors, so no elevator UI exists.
-	m.castle_room_action_button.visible = false
+	# Room actions are reached through painted props. Back is owned by the
+	# game-wide GlobalNavigationButton; no action bubble or elevator UI exists.
+	m.castle_room_action_button = null
 	m.castle_room_back_button = null
 	m.castle_room_menu_panel = null
 	m.castle_room_menu_buttons.clear()
@@ -1524,119 +1518,6 @@ func _build_hall_portals() -> void:
 		})
 	m.castle_room_door_hotspot_layer.visible = false
 
-func _build_elevator_menu(stage: Control) -> void:
-	var overlay := Control.new()
-	overlay.name = "CastleElevatorMenu"
-	overlay.position = Vector2.ZERO
-	overlay.size = StorybookUI.CANVAS_SIZE
-	overlay.mouse_filter = Control.MOUSE_FILTER_STOP
-	overlay.z_index = 40
-	overlay.visible = false
-	stage.add_child(overlay)
-	m.castle_room_menu_panel = overlay
-
-	var dim := ColorRect.new()
-	dim.name = "CastleElevatorDim"
-	dim.position = Vector2.ZERO
-	dim.size = StorybookUI.CANVAS_SIZE
-	dim.color = StorybookUI.DIM
-	dim.mouse_filter = Control.MOUSE_FILTER_STOP
-	overlay.add_child(dim)
-	var book: Panel = StorybookUI.add_panel(overlay,
-		Rect2(192.0, 55.0, 896.0, 610.0), StorybookUI.PURPLE_DEEP,
-		Color(0.94, 0.98, 1.0, 0.99), 42)
-	book.name = "CastleElevatorBook"
-	book.mouse_filter = Control.MOUSE_FILTER_STOP
-	StorybookUI.add_shell_crest(book,
-		Rect2(408.0, 12.0, 80.0, 54.0), "CastleElevatorShellCrest")
-
-	for index: int in range(ELEVATOR_ROOM_IDS.size()):
-		var room_id: String = ELEVATOR_ROOM_IDS[index]
-		var room: Dictionary = _room(room_id)
-		if room.is_empty():
-			continue
-		var button := Button.new()
-		button.name = "ElevatorRoom_" + room_id
-		button.position = Vector2(
-			44.0 + float(index % 4) * 208.0,
-			76.0 + float(index / 4) * 166.0)
-		StorybookUI.style_icon_button(button, "",
-			"secondary", Vector2(180.0, 138.0), String(room["name"]))
-		var icon_path: String = String(
-			ELEVATOR_ROOM_ICONS.get(room_id, ""))
-		var room_icon: Texture2D = load(icon_path) as Texture2D \
-			if not icon_path.is_empty() else null
-		button.icon = room_icon
-		button.expand_icon = true
-		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		button.set_meta("castle_room_destination", room_id)
-		button.set_meta("picture_map_entry", true)
-		button.set_meta("persistent_navigation", true)
-		button.set_meta("castle_room_icon_path", icon_path)
-		button.set_meta("castle_room_icon_family",
-			"pearl_castle_scallop_crest")
-		button.pressed.connect(_choose_elevator_room.bind(room_id))
-		book.add_child(button)
-		m.castle_room_menu_buttons[room_id] = button
-
-	var close_button := Button.new()
-	close_button.name = "ElevatorMenuClose"
-	close_button.position = Vector2(1116.0, 544.0)
-	StorybookUI.style_icon_button(close_button, "↕", "primary",
-		Vector2(136.0, 136.0), "Close the castle elevator")
-	close_button.pressed.connect(_toggle_elevator_menu)
-	overlay.add_child(close_button)
-	_update_elevator_selected()
-
-func _update_elevator_selected() -> void:
-	for room_id_value: Variant in m.castle_room_menu_buttons:
-		var room_id := String(room_id_value)
-		var button: Button = m.castle_room_menu_buttons.get(room_id) as Button
-		if button != null:
-			button.disabled = not m.day_one_can_enter_castle_room(room_id)
-			button.modulate = Color.WHITE if not button.disabled \
-				else Color(0.56, 0.54, 0.68, 0.72)
-			StorybookUI.set_selected(button, room_id == m.castle_room_id)
-
-func _set_elevator_menu_open(open_menu: bool, play_sound: bool = true) -> void:
-	if m.castle_room_menu_panel == null:
-		m.castle_room_menu_open = false
-		return
-	if play_sound and m.castle_room_menu_open != open_menu:
-		m._ui_tap()
-	m.castle_room_menu_open = open_menu
-	if open_menu:
-		_invalidate_royal_hall_arrival()
-	m.castle_room_menu_panel.visible = open_menu
-	if not open_menu:
-		return
-	_update_elevator_selected()
-	var pointer: Label = m.castle_room_stage.get_node_or_null(
-		"ElevatorPointer") as Label
-	if pointer != null:
-		pointer.visible = false
-	var book: Panel = m.castle_room_menu_panel.get_node_or_null(
-		"CastleElevatorBook") as Panel
-	if book != null:
-		book.pivot_offset = book.size * 0.5
-		book.scale = Vector2(0.88, 0.88)
-		var pop := m.create_tween()
-		pop.tween_property(book, "scale", Vector2.ONE, 0.18).set_trans(
-			Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-
-func _toggle_elevator_menu() -> void:
-	if _fridge_close_is_blocked():
-		return
-	_set_elevator_menu_open(not m.castle_room_menu_open)
-
-func _choose_elevator_room(room_id: String) -> void:
-	if not ELEVATOR_ROOM_IDS.has(room_id):
-		return
-	if not m.day_one_try_enter_castle_room(room_id):
-		return
-	_set_elevator_menu_open(false, false)
-	show_room(room_id, true)
-
 func _rebuild_room_links(_room_id: String) -> void:
 	if m.castle_room_link_layer == null:
 		return
@@ -1660,8 +1541,6 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_begin_composition_transition()
 	_invalidate_royal_hall_arrival()
 	m.castle_room_id = room_id
-	_set_elevator_menu_open(false, false)
-	_update_elevator_selected()
 	if m.castle_room_prop_sfx != null:
 		m.castle_room_prop_sfx.stop()
 	var hall_mode: bool = room_id == "main_hall"
@@ -1700,23 +1579,6 @@ func show_room(room_id: String, announce: bool = true) -> void:
 		_sync_bedside_light()
 	elif room_id == "movie_lounge":
 		_sync_movie_picture()
-	var day_one_activity: bool = m.day_one_is_active() \
-		and m.DAY_ONE_CASTLE_ROOM_IDS.has(room_id)
-	var day_one_pool_needs_cleanup: bool = day_one_activity \
-		and room_id == "mermaid_pool" \
-		and not m.day_one_castle_room_is_clean(room_id)
-	m.castle_room_action_button.visible = day_one_activity or (not hall_mode \
-		and room_id != "family_gallery" \
-		and room_id != "opera_hall" \
-		and (room_id != "playroom" or _playroom_rescue_done()))
-	if day_one_pool_needs_cleanup:
-		m.castle_room_action_button.visible = false
-	if not hall_mode:
-		StorybookUI.style_icon_button(m.castle_room_action_button,
-			String(room["action_icon"]), "gold", Vector2(132.0, 132.0),
-			String(room["name"]))
-		m.castle_room_action_button.set_meta("diegetic_launch", false)
-		m.castle_room_action_button.position = Vector2(72.0, 520.0)
 	_center_player()
 	_sync_hall_horizontal_culling()
 	_update_hall_portals()
@@ -1783,8 +1645,6 @@ func _sync_day_one_pool_cleanup(room_id: String) -> void:
 			and is_instance_valid(m.day_one_castle_dressing):
 		m.day_one_castle_dressing.set_visible_room("mermaid_pool")
 	_position_player_at_foot(Vector2(330.0, 640.0), false)
-	if m.castle_room_action_button != null:
-		m.castle_room_action_button.visible = false
 
 
 func _clear_day_one_pool_cleanup() -> void:
@@ -1890,8 +1750,6 @@ func _on_day_one_pool_reveal_completed() -> void:
 	if not m.day_one_complete_pool_scene():
 		return
 	m._day_one_sync_castle_dressing()
-	if m.castle_room_action_button != null:
-		m.castle_room_action_button.visible = true
 
 
 func _cancel_player_motion() -> void:
@@ -1982,7 +1840,7 @@ func _finish_composition_transition(generation: int) -> void:
 		cover.modulate.a = 1.0
 
 func _on_room_input(event: InputEvent) -> void:
-	if _fridge_close_is_blocked() or m.castle_room_menu_open:
+	if _fridge_close_is_blocked():
 		return
 	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed:
 		_walk_cutout_to((event as InputEventMouseButton).position)
@@ -4070,8 +3928,6 @@ func _check_playroom_rescue_complete() -> void:
 		return
 	m.stuffie_wins["rescued_eagle"] = true
 	m._write_save()
-	if m.castle_room_action_button != null:
-		m.castle_room_action_button.visible = true
 	var pointer: Node = m.castle_room_item_effect_layer.get_node_or_null(
 		"BabyEagleRescuePointer") \
 		if m.castle_room_item_effect_layer != null else null
@@ -4315,7 +4171,7 @@ func _update_hall_portals() -> void:
 func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
 	if _fridge_close_is_blocked():
 		return
-	if not _is_wide_hall() or m.castle_room_menu_open:
+	if not _is_wide_hall():
 		return
 	if portal_id != ROYAL_HALL_PORTAL_ID \
 			and not m.day_one_try_enter_castle_room(portal_id):
@@ -4377,7 +4233,7 @@ func _activate_royal_hall_event(arrival_generation: int,
 		return
 	m.castle_royal_hall_arrival_pending = false
 	if not is_open() or not m.castle_room_layer.visible \
-			or not _is_wide_hall() or m.castle_room_menu_open \
+			or not _is_wide_hall() \
 			or m.castle_room_player_sprite == null:
 		return
 	var current_foot: Vector2 = m.castle_room_player_sprite.get_meta(
@@ -4425,7 +4281,7 @@ func _open_kitchen_menu() -> void:
 	m._set_world_controls_enabled(false, "kitchen_fridge_menu")
 	kitchen_menu_layer = CanvasLayer.new()
 	kitchen_menu_layer.name = "KitchenFridgeMenu"
-	kitchen_menu_layer.layer = 29
+	kitchen_menu_layer.layer = 27
 	m.add_child(kitchen_menu_layer)
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -4449,13 +4305,6 @@ func _open_kitchen_menu() -> void:
 	title.size = Vector2(980.0, 70.0)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	kitchen_menu_stage.add_child(title)
-
-	var close_button := Button.new()
-	close_button.name = "KitchenFridgeBackButton"
-	StorybookUI.style_back_button(close_button, "Back to the kitchen")
-	close_button.position = Vector2(1090.0, 55.0)
-	close_button.pressed.connect(_close_kitchen_menu)
-	kitchen_menu_stage.add_child(close_button)
 
 	var available: Array[Dictionary] = []
 	for recipe: Dictionary in KITCHEN_RECIPES:
@@ -4714,9 +4563,6 @@ func _burst(_symbol: String, color: Color) -> void:
 		color, 9)
 
 func _go_back() -> void:
-	if m.castle_room_menu_open:
-		_set_elevator_menu_open(false)
-		return
 	_cancel_room_transition()
 	_cancel_player_motion()
 	if m.castle_room_id == "main_hall":

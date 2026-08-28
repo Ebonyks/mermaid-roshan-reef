@@ -75,14 +75,6 @@ func _open_craft_studio() -> void:
 	stage.add_child(m.craft_pearl_lbl)
 	m.craft_pearl_lbl.add_to_group("craft_top")
 
-	var back := Button.new()
-	back.name = "CraftBackButton"
-	StorybookUI.style_back_button(back, "Back to the castle")
-	back.position = Vector2(1140, 18)
-	back.pressed.connect(_close_craft)
-	stage.add_child(back)
-	back.add_to_group("craft_top")
-
 	var kinds := [["fish", "◉\nFISH", 0], ["cat", "♧\nKITTY", 5], ["bird", "♢\nBIRDIE", 8]]
 	var kind_buttons: Array[Dictionary] = []
 	for i in range(kinds.size()):

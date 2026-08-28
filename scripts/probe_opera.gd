@@ -210,12 +210,13 @@ func _audit_all_room_cards() -> void:
 				and int(venue.get_meta("historical_portal_count", 0)) == 12 \
 				and int(venue.get_meta("active_room_owned_portal_count", 0)) == 3 \
 				and int(venue.get_meta("decorative_closed_portal_count", 0)) == 9 \
-				and int(venue.get_meta("bubble_lift_count", 0)) == 2 \
+				and int(venue.get_meta("bubble_lift_count", -1)) == 0 \
 				and int(venue.get_meta("floating_portal_decoration_count", -1)) == 0 \
 				and venue.find_children("CareerCrest", "TextureRect", true, false).is_empty() \
 				and venue.find_children("CareerPearl", "Panel", true, false).is_empty() \
 				and venue.find_children("VenueTile_*", "TextureRect", true, false).size() == 8 \
-				and venue.find_children("BubbleLift*", "Button", true, false).size() == 2 \
+				and venue.find_children("BubbleLift*", "Button", true, false).is_empty() \
+				and venue.get_node_or_null("OperaVenueBack") == null \
 				and venue.get_node_or_null("LobbyRoshanCutout") is TextureRect
 			_check("Opera Hall opens the recovered three-floor explorable venue",
 				venue_ok)
@@ -350,7 +351,7 @@ func _audit_all_career_lifecycles() -> void:
 			main._pause_ref().toggle_pause()
 			_check("pause sheet rises above the room-started Opera career",
 				main.get_tree().paused and main.pause_panel.visible
-				and main.pause_layer.layer == 29
+				and main.pause_layer.layer == 28
 				and main.pause_layer.layer > main.hud_layer.layer)
 			main._pause_ref().toggle_pause()
 			_check("resume restores the nonblocking pause layer",
@@ -435,19 +436,8 @@ func _start_via_room_touch(room_id: String, act_index: int) -> OperaHouse:
 			routes.open_opera_venue())
 		await _frames(2)
 	var button := routes.button_for_act(act_index)
-	if room_id == "opera_hall" and button != null:
-		var venue := routes.opera_venue
-		var target_floor := int(button.get_meta("floor_index", -1))
-		while venue != null and venue.floor_index != target_floor:
-			var lift := venue.get_node_or_null("BubbleLift1") as Button
-			if lift == null:
-				break
-			var old_floor := venue.floor_index
-			_tap_control(lift, 140 + act_index + venue.floor_index)
-			for _wait_frame: int in range(100):
-				await process_frame
-				if venue.floor_index != old_floor:
-					break
+	# All three painted doors are directly touchable; no transport controls are
+	# needed to reveal a floor or route.
 	_check("slot %d exposes its real %s picture" % [act_index, room_id],
 		button != null and button.visible and not button.disabled
 		and int(button.get_meta("act_index", -1)) == act_index)

@@ -77,13 +77,6 @@ func _build_hud() -> void:
 	room_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	room_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	room_card.add_child(room_label)
-	var home := Button.new()
-	home.name = "DungeonBackButton"
-	StorybookUI.style_back_button(home, "Save checkpoint and leave")
-	home.position = Vector2(1138, 24)
-	home.pressed.connect(_leave_early)
-	hud.add_child(home)
-
 func _update_hud() -> void:
 	if progress_label == null:
 		return

@@ -293,13 +293,6 @@ func _draw_care_menu() -> void:
 	title.size = Vector2(720, 70)
 	StorybookUI.style_label(title, 44, StorybookUI.INK, 4)
 	stage_control.add_child(title)
-	var close := Button.new()
-	close.name = "StuffieCareBackButton"
-	StorybookUI.style_back_button(close, "Back to swimming")
-	close.position = Vector2(1100, 38)
-	close.pressed.connect(close_care_menu)
-	stage_control.add_child(close)
-
 	var preview := StorybookUI.add_panel(stage_control, Rect2(72, 138, 350, 360), StorybookUI.MINT, Color(0.96, 0.99, 1.0, 0.98), 38)
 	var current_colors: Array[Color] = colors()
 	_add_creature_preview(preview, d, Vector2(16, 16), Vector2(318, 328), current_colors[0], current_colors[1])
@@ -687,12 +680,6 @@ func _draw_picker() -> void:
 	StorybookUI.style_label(title, 42, StorybookUI.INK, 4)
 	title.position = Vector2(70, 34)
 	stage.add_child(title)
-	var close := Button.new()
-	close.name = "StuffiePickerBackButton"
-	StorybookUI.style_back_button(close, "Back to the castle")
-	close.position = Vector2(1110, 32)
-	close.pressed.connect(close_picker)
-	stage.add_child(close)
 	# The chest lists every friend who lives at home. The worktable deliberately
 	# locks this column to the active friend so choosing and changing are distinct.
 	var picks: Array[Dictionary] = unlocked_defs()

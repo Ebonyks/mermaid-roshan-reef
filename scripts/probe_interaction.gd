@@ -232,22 +232,14 @@ func _init() -> void:
 		_bad("free-roaming world controls remained active inside castle stage")
 	if main.touch_discovery_ring == null or main.touch_focus_ring == null:
 		_bad("shared glow/focus visuals were not built")
-	var elevator_button: Button = main.castle_room_stage.get_node_or_null(
-		"ElevatorButton") as Button
-	if elevator_button == null or main.castle_room_back_button == null \
-			or main.castle_room_menu_panel == null \
-			or main.castle_room_menu_buttons.size() != 12 \
-			or main.castle_room_menu_buttons.has("family_gallery"):
-		_bad("storybook elevator or contextual Back was missing")
-	elif elevator_button.size.x < StorybookUI.MIN_TOUCH.x \
-			or elevator_button.size.y < StorybookUI.MIN_TOUCH.y:
-		_bad("storybook elevator touch target is too small")
-	else:
-		elevator_button.pressed.emit()
-		if not main.castle_room_menu_open \
-				or not main.castle_room_menu_panel.visible:
-			_bad("storybook elevator did not expand")
-		rooms._set_elevator_menu_open(false, false)
+	if main.castle_room_stage.get_node_or_null("ElevatorButton") != null \
+			or main.castle_room_back_button != null \
+			or main.castle_room_menu_panel != null \
+			or not main.castle_room_menu_buttons.is_empty():
+		_bad("retired castle elevator or local Back remained")
+	if main.global_navigation_button == null \
+			or not main.global_navigation_button.visible:
+		_bad("single global castle Back was missing")
 	for dream_room_id: String in [
 		"family_gallery", "dining_room", "royal_bedroom",
 		"sleepover_bedroom", "movie_lounge"]:
@@ -262,7 +254,7 @@ func _init() -> void:
 	rooms.show_room("family_gallery", false)
 	await _frames(2)
 	if main.castle_room_detail_tiles.size() != 4 \
-			or main.castle_room_action_button.visible:
+			or main.castle_room_action_button != null:
 		_bad("Dream House Wing did not build as a native physical gallery")
 	var castle_affordance: Sprite2D = main.g.get(
 		"castle_room_affordance") as Sprite2D
@@ -302,40 +294,25 @@ func _init() -> void:
 			rooms.show_room("family_gallery", false)
 			await _frames(2)
 			continue
-		main.castle_room_back_button.pressed.emit()
+		main._pause_ref().global_navigation_pressed()
 		await _frames(2)
 		if main.castle_room_id != "family_gallery":
 			_bad("dream-house Back did not return %s to gallery" % child_id)
 
-	main.castle_room_back_button.pressed.emit()
+	main._pause_ref().global_navigation_pressed()
 	await _frames(2)
 	if main.castle_room_id != "main_hall":
 		_bad("Dream House Wing Back did not return to Main Hall")
 
-	# The four newest rooms retain their physical gallery doors, but the
-	# omnipresent picture elevator also reaches each in one direct choice.
+	# The four newest rooms are reachable through their physical gallery doors;
+	# no omnipresent picture elevator remains over the artwork.
 	for direct_room_id: String in [
 		"dining_room", "royal_bedroom", "sleepover_bedroom", "movie_lounge"]:
-		elevator_button = main.castle_room_stage.get_node_or_null(
-			"ElevatorButton") as Button
-		var direct_button: Button = main.castle_room_menu_buttons.get(
-			direct_room_id) as Button
-		if elevator_button == null or direct_button == null:
-			_bad("direct elevator route missing %s" % direct_room_id)
-			continue
-		elevator_button.pressed.emit()
-		if not main.castle_room_menu_open:
-			_bad("elevator would not open from %s" % main.castle_room_id)
-			continue
-		direct_button.pressed.emit()
+		rooms.show_room(direct_room_id, false)
 		if not await _wait_for_castle_room(direct_room_id):
-			_bad("elevator did not directly enter %s" % direct_room_id)
-	var main_hall_button: Button = main.castle_room_menu_buttons.get(
-		"main_hall") as Button
-	if main_hall_button != null:
-		elevator_button.pressed.emit()
-		main_hall_button.pressed.emit()
-		await _wait_for_castle_room("main_hall")
+			_bad("physical gallery route did not enter %s" % direct_room_id)
+	rooms.show_room("main_hall", false)
+	await _wait_for_castle_room("main_hall")
 
 	# The paint table, not the room-wide make-a-friend action, owns the new
 	# castle-logo game. A confirmed choice saves and returns as board art.
@@ -749,7 +726,7 @@ func _init() -> void:
 		_bad("touching the toilet did not animate its Sprite2D card")
 	if main.castle_room_prop_sfx == null or main.castle_room_prop_sfx.stream == null:
 		_bad("touching a room prop did not attach relevant sound")
-	main.castle_room_back_button.pressed.emit()
+	main._pause_ref().global_navigation_pressed()
 	await _frames(2)
 	if main.castle_room_id != "main_hall":
 		_bad("room Back did not return to the Main Hall")
@@ -768,7 +745,7 @@ func _init() -> void:
 	# retired free-roaming controls.
 	main._mg2d_open("garden")
 	await process_frame
-	if main.touch_ui.world_controls_enabled or (main.touch_ui._act_button != null and main.touch_ui._act_button.visible):
+	if main.touch_ui.world_controls_enabled:
 		_bad("world action controls occluded a picture game")
 	# Nested pause overlays must release only their own block; closing Sticker
 	# Book while the picture game remains open cannot resurrect world controls.
@@ -776,7 +753,7 @@ func _init() -> void:
 	await process_frame
 	main._close_stickers()
 	await process_frame
-	if main.touch_ui.world_controls_enabled or (main.touch_ui._act_button != null and main.touch_ui._act_button.visible):
+	if main.touch_ui.world_controls_enabled:
 		_bad("closing nested overlay re-enabled controls above picture game")
 	main._mg2d_close()
 	await process_frame
