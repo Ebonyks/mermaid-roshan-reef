@@ -22,7 +22,9 @@ func _init() -> void:
 	_check("present hook accepts a future full-frame stream path",
 		HANDOFF.normalise_movie_path("res://future/bathroom_finale.ogv")
 		== "res://future/bathroom_finale.ogv"
-		and HANDOFF.is_movie_candidate_path("res://future/bathroom_finale.ogv"))
+		and HANDOFF.is_movie_candidate_path("res://future/bathroom_finale.ogv")
+		and not HANDOFF.is_movie_candidate_path(
+			"res://future/bathroom_finale.mp4"))
 
 	var main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = main._day_one_ref()
@@ -35,7 +37,9 @@ func _init() -> void:
 	_check("absent movie gracefully falls back to clean scene",
 		String(first.get("status", "")) == "fallback"
 		and int(first.get("playback_count", -1)) == 0
-		and int(first.get("fallback_count", -1)) == 1)
+		and int(first.get("fallback_count", -1)) == 1
+		and bool(fallback.audit_snapshot().get(
+			"seamless_clean_scene_cut", false)))
 	_check("completion and handoff are exactly once across Continue",
 		String(second.get("status", "")) == "already_done"
 		and int(second.get("playback_count", -1)) == 0

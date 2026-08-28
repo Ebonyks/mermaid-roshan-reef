@@ -17,6 +17,11 @@ signal cleanup_completed
 
 const MAGNIFIER_TEXTURE := "res://assets/opera/worlds/ui/magnifier.png"
 const SPARKLE_TEXTURE := "res://assets/opera/worlds/props/fx_stolen_sparkle.png"
+const POINTER_TEXTURE := "res://assets/castle/training/ghost_hand.png"
+const BRUSH_TEXTURE := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
+const CLEANER_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_magic_cleaner_v1.png"
+const SUPPLY_REVEAL_SCALE := 0.14
+const BASKET_TOOL_SCALE := 0.06
 # Reuse the approved Day One cleanup basket as the single, diegetic collection
 # point. It is deliberately placed on the front-right floor so a child can
 # see where each found tool goes without a second card or floating box.
@@ -65,8 +70,7 @@ var _basket_base_scale: Vector2 = Vector2.ONE
 var _sink_grime: Sprite2D = null
 var _tub_grime: Sprite2D = null
 var _drag_surface: Control = null
-var _pointer: Label = null
-var _progress_pips: Array[ColorRect] = []
+var _pointer: Sprite2D = null
 var _dragging: bool = false
 var _drag_last: Vector2 = Vector2.ZERO
 var _drag_distance: float = 0.0
@@ -88,34 +92,13 @@ var _action_button: Button = null
 var _action_button_was_visible: bool = false
 
 
-class SupplyIcon extends Node2D:
+class SupplyIcon extends Sprite2D:
 	var supply_kind: String = "brush"
 
 	func configure(kind: String) -> void:
 		supply_kind = kind
-		queue_redraw()
-
-	func _draw() -> void:
-		if supply_kind == "brush":
-			draw_line(Vector2(-8.0, 42.0), Vector2(42.0, -24.0),
-				Color(0.67, 0.38, 0.19, 1.0), 18.0)
-			draw_line(Vector2(42.0, -24.0), Vector2(62.0, -46.0),
-				Color(0.98, 0.73, 0.29, 1.0), 22.0)
-			for offset: float in [-12.0, -4.0, 4.0, 12.0]:
-				draw_line(Vector2(62.0 + offset, -52.0),
-					Vector2(66.0 + offset, -72.0),
-					Color(0.38, 0.77, 0.82, 1.0), 7.0)
-		else:
-			draw_circle(Vector2(0.0, 12.0), 48.0,
-				Color(0.45, 0.86, 0.93, 1.0))
-			draw_circle(Vector2(0.0, 12.0), 48.0,
-				Color(0.12, 0.18, 0.38, 1.0), false, 8.0)
-			draw_rect(Rect2(-27.0, -52.0, 54.0, 26.0),
-				Color(0.83, 0.95, 0.93, 1.0), true)
-			draw_rect(Rect2(-10.0, -74.0, 20.0, 23.0),
-				Color(0.16, 0.20, 0.40, 1.0), true)
-			draw_circle(Vector2(-14.0, 1.0), 7.0,
-				Color(0.96, 0.98, 0.70, 0.95))
+		texture = load(BRUSH_TEXTURE if kind == "brush" else CLEANER_TEXTURE) \
+			as Texture2D
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -409,34 +392,12 @@ func _build_guidance() -> void:
 	_magnifier.set_meta("one_finger_drag", true)
 	add_child(_magnifier)
 
-	_pointer = Label.new()
+	_pointer = Sprite2D.new()
 	_pointer.name = "MagnifierPointer"
-	_pointer.text = "👇"
-	_pointer.size = Vector2(92.0, 92.0)
-	_pointer.pivot_offset = _pointer.size * 0.5
-	_pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_pointer.texture = load(POINTER_TEXTURE) as Texture2D
+	_pointer.scale = Vector2.ONE * 0.18
 	_pointer.z_index = 34
-	StorybookUI.style_label(_pointer, 60, Color(1.0, 0.87, 0.32), 6)
 	add_child(_pointer)
-
-	var progress_row := HBoxContainer.new()
-	progress_row.name = "SupplyProgress"
-	progress_row.position = Vector2(574.0, 50.0)
-	progress_row.size = Vector2(132.0, 34.0)
-	progress_row.add_theme_constant_override("separation", 18)
-	progress_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	progress_row.z_index = 34
-	add_child(progress_row)
-	for index: int in range(MAX_SUPPLIES):
-		var pip := ColorRect.new()
-		pip.name = "SupplyPip%d" % index
-		pip.custom_minimum_size = Vector2(48.0, 28.0)
-		pip.color = Color(0.93, 0.84, 0.45, 0.42)
-		pip.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		progress_row.add_child(pip)
-		_progress_pips.append(pip)
 
 
 func _apply_restored_progress() -> void:
@@ -446,7 +407,6 @@ func _apply_restored_progress() -> void:
 			_place_supply_in_basket(index)
 		else:
 			_supply_nodes[index].visible = false
-	_update_progress_pips()
 	_refresh_guidance()
 
 
@@ -460,14 +420,7 @@ func _refresh_guidance() -> void:
 		return
 	# Teach the one-finger action in open space. The next hidden basket remains
 	# discoverable through the lens, but the pointer never marks its exact spot.
-	_pointer.position = DRAG_GUIDANCE_POSITION + Vector2(0.0, -128.0) \
-		- _pointer.size * 0.5
-
-
-func _update_progress_pips() -> void:
-	for index: int in range(_progress_pips.size()):
-		_progress_pips[index].color = Color(0.98, 0.84, 0.35, 0.96) \
-			if _found[index] else Color(0.93, 0.84, 0.45, 0.42)
+	_pointer.position = DRAG_GUIDANCE_POSITION + Vector2(0.0, -128.0)
 
 
 func _on_drag_surface_input(event: InputEvent) -> void:
@@ -533,9 +486,8 @@ func _reveal_supply(index: int) -> void:
 	_found[index] = true
 	_supply_step = clampi(index + 1, 0, MAX_SUPPLIES)
 	_supply_nodes[index].visible = true
-	_supply_nodes[index].scale = Vector2.ONE * 0.72
+	_supply_nodes[index].scale = Vector2.ONE * SUPPLY_REVEAL_SCALE
 	_supply_nodes[index].position = SUPPLY_DEFINITIONS[index]["center"] as Vector2
-	_update_progress_pips()
 	if m != null:
 		m.day_one_record_bathroom_supply_step(_supply_step)
 		if _announcements_enabled:
@@ -545,7 +497,8 @@ func _reveal_supply(index: int) -> void:
 	# The found tool travels into the one visible basket and stays there. This
 	# makes collection legible without adding a separate inventory card.
 	var reveal_tween: Tween = _supply_nodes[index].create_tween()
-	reveal_tween.tween_property(_supply_nodes[index], "scale", Vector2.ONE * 0.30, 0.42)
+	reveal_tween.tween_property(_supply_nodes[index], "scale",
+		Vector2.ONE * BASKET_TOOL_SCALE, 0.42)
 	reveal_tween.parallel().tween_property(_supply_nodes[index], "position",
 		_basket_content_position(index), 0.42)
 	reveal_tween.parallel().tween_property(_supply_nodes[index], "rotation",
@@ -626,7 +579,7 @@ func _place_supply_in_basket(index: int) -> void:
 	var supply: Node2D = _supply_nodes[index]
 	supply.visible = true
 	supply.position = _basket_content_position(index)
-	supply.scale = Vector2.ONE * 0.30
+	supply.scale = Vector2.ONE * BASKET_TOOL_SCALE
 	supply.rotation = -0.08 if index == 0 else 0.08
 	supply.modulate.a = 1.0
 	supply.set_meta("visible_in_basket", true)

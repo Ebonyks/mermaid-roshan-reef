@@ -8,7 +8,7 @@ extends Control
 ## or invalid movie is a harmless no-op rather than a new failure state.
 
 const DEFAULT_MOVIE_PATH: String = \
-	"res://assets/cinematics/day_one_bathroom_finale.webm"
+	"res://assets/cinematics/day_one_bathroom_finale.ogv"
 const HANDOFF_SAVE_KEY: String = "day_one_bathroom_end_movie_handoff_done"
 
 var m: ReefMain = null
@@ -27,8 +27,7 @@ static func normalise_movie_path(path_override: String) -> String:
 
 static func is_movie_candidate_path(path_value: String) -> bool:
 	var candidate: String = path_value.strip_edges().to_lower()
-	return candidate.ends_with(".webm") or candidate.ends_with(".ogv") \
-		or candidate.ends_with(".mp4")
+	return candidate.ends_with(".ogv")
 
 
 func setup(main: ReefMain, path_override: String = "") -> void:
@@ -95,6 +94,7 @@ func audit_snapshot() -> Dictionary:
 		"playback_count": playback_count,
 		"fallback_count": fallback_count,
 		"player_active": _player != null and is_instance_valid(_player),
+		"seamless_clean_scene_cut": true,
 		"canvas_only": _all_canvas_children(self),
 	}
 
@@ -121,14 +121,10 @@ func _play(stream: VideoStream) -> void:
 	_player.mouse_filter = Control.MOUSE_FILTER_STOP
 	_player.expand = true
 	_player.stream = stream
-	_player.finished.connect(_on_movie_finished, CONNECT_ONE_SHOT)
+	_player.finished.connect(stop, CONNECT_ONE_SHOT)
 	add_child(_player)
 	_player.play()
 	playback_count += 1
-
-
-func _on_movie_finished() -> void:
-	stop()
 
 
 func _result(status: String, completion_committed: bool) -> Dictionary:

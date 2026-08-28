@@ -29,6 +29,7 @@ const SINK_TARGET_TEXTURE := "res://assets/castle/dirty_cleanup_2d/effects/fx_so
 const TUB_TARGET_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png"
 const SPONGE_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png"
 const SWOOSH_TEXTURE := "res://assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png"
+const POINTER_TEXTURE := "res://assets/castle/training/ghost_hand.png"
 
 var m: ReefMain
 var _step: int = 0
@@ -48,7 +49,7 @@ var _completion_sent: bool = false
 var _announcements_enabled: bool = true
 var _pulse_time: float = 0.0
 var _gesture_surface: Control = null
-var _pointer: Label = null
+var _pointer: Sprite2D = null
 var _sponge: Sprite2D = null
 var _target: Sprite2D = null
 var _swoosh: Sprite2D = null
@@ -225,26 +226,13 @@ func _build_presentation() -> void:
 		0.34, "CleaningTool")
 	_swoosh = _make_sprite(SWOOSH_TEXTURE, TUB_CENTER, 0.42, "TubWipeSwoosh")
 	_swoosh.visible = _step == 1
-	_pointer = Label.new()
+	_pointer = Sprite2D.new()
 	_pointer.name = "GhostHandPointer"
-	_pointer.text = "👇"
-	_pointer.size = Vector2(96.0, 96.0)
-	_pointer.pivot_offset = _pointer.size * 0.5
-	_pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_pointer.texture = load(POINTER_TEXTURE) as Texture2D
+	_pointer.scale = Vector2.ONE * 0.18
 	_pointer.z_index = 30
 	_pointer.position = (SINK_CENTER if _step == 0 else TUB_CENTER) + Vector2(0.0, -190.0)
-	StorybookUI.style_label(_pointer, 64, Color(1.0, 0.88, 0.34), 6)
 	add_child(_pointer)
-	_progress = ColorRect.new()
-	_progress.name = "GestureProgress"
-	_progress.position = Vector2(210.0, 665.0)
-	_progress.size = Vector2(860.0, 18.0)
-	_progress.color = Color(0.98, 0.83, 0.38, 0.82)
-	_progress.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_progress.z_index = 31
-	add_child(_progress)
 
 
 func _make_sprite(path: String, at: Vector2, scale_factor: float, node_name: String) -> Sprite2D:
@@ -420,13 +408,13 @@ func _update_dirty_overlays() -> void:
 	var sink_ratio: float = _gesture_ratio(0)
 	var tub_ratio: float = _gesture_ratio(1)
 	if _sink_grime != null and is_instance_valid(_sink_grime):
-		_sink_grime.visible = _step == 0 and sink_ratio < 1.0
+		_sink_grime.visible = _step <= 0 and sink_ratio < 1.0
 		_sink_grime.modulate.a = 0.86 * (1.0 - sink_ratio) \
-			if _step == 0 else 0.0
+			if _step <= 0 else 0.0
 	if _tub_grime != null and is_instance_valid(_tub_grime):
-		_tub_grime.visible = _step == 1 and tub_ratio < 1.0
+		_tub_grime.visible = _step <= 1 and tub_ratio < 1.0
 		_tub_grime.modulate.a = 0.86 * (1.0 - tub_ratio) \
-			if _step == 1 else 0.0
+			if _step <= 1 else 0.0
 
 
 func _gesture_ratio(stage: int) -> float:

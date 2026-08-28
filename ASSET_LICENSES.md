@@ -2619,6 +2619,10 @@ generations and transparent source masters remain preserved.
 ## Day One Bubble Bathroom cleanup reuse (2026-08-22)
 
 - `assets/castle/dirty_cleanup_2d/{targets/target_cloudy_mirror.png,targets/target_bath_soap_ring.png,targets/target_floor_scuff.png,tools/tool_star_sponge.png,effects/fx_clean_ring.png,effects/fx_soap_bubbles.png,effects/fx_wipe_swoosh.png}` — seven exact, lossless 512×512 project-original RGBA cutouts restored from audited commit `95132b6b310c34aa1d7fba5330d72f36fed9d4d7` for the Bubble Bathroom's first playable rescue. Source: OpenAI built-in image generation under the project's storybook direction; license: project original; URL: none. Modifications in this task: none. The existing Bubble Bath room plates, tiles, fixtures, and protected originals are reused unchanged.
+- `assets_src/castle/day_one_bathroom_dirty/{sink_grime_source_v1.png,tub_grime_source_v1.png}` — project-original native RGBA generations made with the OpenAI built-in image-generation tool for the missing child-readable fixture dirt; license: project original; URL: none. The approved bathroom plate was not edited. Exact prompts and hashes are recorded in the adjacent `PROVENANCE.md`.
+- `assets/castle/dirty_cleanup_2d/targets/{target_sink_grime_v1.png,target_tub_grime_v1.png}` — transparent 1024×1024 whole-canvas Lanczos runtime derivatives of the preserved native generations above. No compositing, fixture extraction, protected-art modification, or destructive overwrite was used.
+- `assets_src/castle/day_one_bathroom_dirty/magic_cleaner_source_v1.png` — selected project-original OpenAI built-in ImageGen cleaner-bottle cutout; license: project original; URL: none. Exact prompt, rejected attempts, and hash are recorded in the adjacent `PROVENANCE.md`.
+- `assets/castle/dirty_cleanup_2d/tools/tool_magic_cleaner_v1.png` — transparent 683×1024 whole-canvas Lanczos runtime derivative of the preserved cleaner-bottle generation. The approved `assets/castle/day_one_art_studio/magic_cleaning_brush.png` is reused unchanged as its paired brush.
 
 ## Day One Art Studio item art (2026-08-23)
 

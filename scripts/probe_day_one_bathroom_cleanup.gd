@@ -16,6 +16,9 @@ const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
 	"res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
 	"res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+	"res://assets/castle/dirty_cleanup_2d/tools/tool_magic_cleaner_v1.png",
+	"res://assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+	"res://assets/castle/training/ghost_hand.png",
 	"res://assets/castle/day_one_pool/activities/cleanup_basket.png",
 ]
 
@@ -202,7 +205,8 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	_check("sink phase has a visible one-finger pointer",
 		String(before.get("active_stage", "")) == "sink"
 		and bool(before.get("has_visual_pointer", false))
-		and (cleaning.get_node("GhostHandPointer") as Label).visible)
+		and (cleaning.get_node("GhostHandPointer") as Sprite2D).visible
+		and tub_grime.visible)
 	cleaning._process(4.0)
 	var after_wait: Dictionary = cleaning.audit_snapshot()
 	_check("passive wait does not advance sink",
@@ -241,7 +245,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	_check("tub phase keeps its visual pointer and spoken guidance seam",
 		String(tub_stage.audit_snapshot().get("active_stage", "")) == "tub"
 		and bool(tub_stage.audit_snapshot().get("has_visual_pointer", false))
-		and (tub_stage.get_node("GhostHandPointer") as Label).visible)
+		and (tub_stage.get_node("GhostHandPointer") as Sprite2D).visible)
 	var before_tub_wait: Dictionary = tub_stage.audit_snapshot()
 	tub_stage._process(4.0)
 	var after_tub_wait: Dictionary = tub_stage.audit_snapshot()
