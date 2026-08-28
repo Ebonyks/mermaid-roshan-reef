@@ -1,3 +1,4 @@
+extends SceneTree
 ## Contract probe for the optional Day One bathroom end-movie seam.
 
 const HANDOFF := preload("res://scripts/day_one_bathroom_movie_handoff.gd")
