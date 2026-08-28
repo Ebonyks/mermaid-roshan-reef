@@ -1,0 +1,617 @@
+class_name DayOneBathroomCleanup
+extends Control
+## Day One's first bathroom beat: a reading-free two-supply magnifier hunt.
+##
+## This node owns only the temporary Canvas2D hunt presentation. The later
+## sink/tub cleaning gestures are deliberately left behind the handoff signal
+## so a partial hunt can never unlock the pool or complete the room.
+
+const DAY_ONE_BATHROOM_CLEANING := preload(
+	"res://scripts/games/day_one_bathroom_cleaning.gd")
+
+signal supply_found(index: int, supply_id: String)
+signal supply_hunt_completed
+signal cleanup_step_completed(step: int, cleanup_id: String)
+signal finale_started
+signal cleanup_completed
+
+const MAGNIFIER_TEXTURE := "res://assets/opera/worlds/ui/magnifier.png"
+const SPARKLE_TEXTURE := "res://assets/opera/worlds/props/fx_stolen_sparkle.png"
+const POINTER_TEXTURE := "res://assets/castle/training/ghost_hand.png"
+const BRUSH_TEXTURE := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
+const CLEANER_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_magic_cleaner_v1.png"
+const SUPPLY_REVEAL_SCALE := 0.14
+const BASKET_TOOL_SCALE := 0.06
+# Reuse the approved Day One cleanup basket as the single, diegetic collection
+# point. It is deliberately placed on the front-right floor so a child can
+# see where each found tool goes without a second card or floating box.
+const BASKET_TEXTURE := "res://assets/castle/day_one_pool/activities/cleanup_basket.png"
+const BASKET_POSITION := Vector2(1082.0, 575.0)
+const BASKET_SCALE := 0.19
+const BASKET_CONTENT_OFFSETS: Array[Vector2] = [Vector2(-34.0, -26.0),
+	Vector2(36.0, -24.0)]
+const SINK_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png"
+const TUB_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png"
+const SINK_GRIME_POSITION := Vector2(642.0, 280.0)
+const TUB_GRIME_POSITION := Vector2(310.0, 349.0)
+const SINK_GRIME_SCALE := 0.24
+const TUB_GRIME_SCALE := 0.31
+# These are the centers of the two painted storage baskets in the approved
+# Bubble Bath room (ROOM_ITEMS art positions transformed by ART_TO_STAGE).
+# Keep the hunt on existing room pixels; no cabinet card is drawn here.
+const CABINET_POSITIONS: Array[Vector2] = [Vector2(138.0, 592.0),
+	Vector2(1125.0, 592.0)]
+const SUPPLY_DEFINITIONS: Array[Dictionary] = [
+	{
+		"id": "brush",
+		"center": CABINET_POSITIONS[0],
+		"hit_radius": 112.0,
+	},
+	{
+		"id": "cleaner",
+		"center": CABINET_POSITIONS[1],
+		"hit_radius": 112.0,
+	},
+]
+const MAX_SUPPLIES := 2
+const MAGNIFIER_RADIUS := 74.0
+const DRAG_TARGET_SIZE := Vector2(184.0, 184.0)
+const MIN_DRAG_DISTANCE := 36.0
+const DRAG_GUIDANCE_POSITION := Vector2(640.0, 360.0)
+
+var m: ReefMain
+var _supply_step: int = 0
+var _found: Array[bool] = [false, false]
+var _supply_nodes: Array[Node2D] = []
+var _sparkle_nodes: Array[Sprite2D] = []
+var _magnifier: Sprite2D = null
+var _basket: Sprite2D = null
+var _basket_base_scale: Vector2 = Vector2.ONE
+var _sink_grime: Sprite2D = null
+var _tub_grime: Sprite2D = null
+var _drag_surface: Control = null
+var _pointer: Sprite2D = null
+var _dragging: bool = false
+var _drag_last: Vector2 = Vector2.ZERO
+var _drag_distance: float = 0.0
+var _busy: bool = false
+var _hunt_completed: bool = false
+var _handoff_ready: bool = false
+var _cleaning_stage: DayOneBathroomCleaning = null
+var _announcements_enabled: bool = true
+var _pulse_time: float = 0.0
+var _hotspot_layer: Control = null
+var _hotspot_layer_was_visible: bool = false
+var _door_hotspot_layer: Control = null
+var _door_hotspot_layer_was_visible: bool = false
+var _room_link_layer: Control = null
+var _room_link_layer_was_visible: bool = false
+var _hud_layer: CanvasLayer = null
+var _hud_layer_was_visible: bool = false
+var _action_button: Button = null
+var _action_button_was_visible: bool = false
+
+
+class SupplyIcon extends Sprite2D:
+	var supply_kind: String = "brush"
+
+	func configure(kind: String) -> void:
+		supply_kind = kind
+		texture = load(BRUSH_TEXTURE if kind == "brush" else CLEANER_TEXTURE) \
+			as Texture2D
+
+
+func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
+	m = main
+	_announcements_enabled = announcements_enabled
+	name = "DayOneBathroomCleanup"
+	position = Vector2.ZERO
+	size = StorybookUI.CANVAS_SIZE
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	z_index = 22
+	_suspend_standard_surfaces()
+	_suspend_room_hotspots()
+	_build_dirty_overlays()
+	_build_basket()
+	_build_supply_icons()
+	_build_drag_surface()
+	_build_guidance()
+	_supply_step = clampi(m.day_one_bathroom_supply_hunt_step, 0, MAX_SUPPLIES)
+	_apply_restored_progress()
+	set_process(true)
+	if _supply_step >= MAX_SUPPLIES:
+		_complete_supply_hunt()
+	else:
+		call_deferred("_announce_current_supply")
+
+
+func teardown() -> void:
+	set_process(false)
+	if _cleaning_stage != null and is_instance_valid(_cleaning_stage):
+		_cleaning_stage.teardown()
+	_cleaning_stage = null
+	if _hotspot_layer != null and is_instance_valid(_hotspot_layer):
+		_hotspot_layer.visible = _hotspot_layer_was_visible
+		_hotspot_layer = null
+	if _door_hotspot_layer != null and is_instance_valid(_door_hotspot_layer):
+		_door_hotspot_layer.visible = _door_hotspot_layer_was_visible
+		_door_hotspot_layer = null
+	if _room_link_layer != null and is_instance_valid(_room_link_layer):
+		_room_link_layer.visible = _room_link_layer_was_visible
+		_room_link_layer = null
+	if _hud_layer != null and is_instance_valid(_hud_layer):
+		_hud_layer.visible = _hud_layer_was_visible
+		_hud_layer = null
+	if _action_button != null and is_instance_valid(_action_button):
+		_action_button.visible = _action_button_was_visible
+		_action_button = null
+	if is_inside_tree():
+		queue_free()
+	else:
+		free()
+
+
+func audit_snapshot() -> Dictionary:
+	var found_count: int = 0
+	for found: bool in _found:
+		if found:
+			found_count += 1
+	return {
+		"supply_count": MAX_SUPPLIES,
+		"found_count": found_count,
+		"current_supply_step": _supply_step,
+		"active_target_count": 1 if not _hunt_completed else 0,
+		"minimum_touch_side": DRAG_TARGET_SIZE.x,
+		"drag_target_size": DRAG_TARGET_SIZE,
+		"minimum_drag_distance": MIN_DRAG_DISTANCE,
+		"guidance_discloses_target": false,
+		"magnifier_following_drag": _magnifier != null,
+		"voice_guidance_configured": true,
+		"announcements_enabled": _announcements_enabled,
+		"has_visual_pointer": _pointer != null and _magnifier != null,
+		"basket_visible": _basket != null and _basket.visible,
+		"basket_pulsing": _basket != null and _basket.get_meta(
+			"pulsing", false),
+		"basket_position": _basket.position if _basket != null else Vector2.ZERO,
+		"basket_collects_supplies": _basket != null and _basket.get_meta(
+			"collects_supplies", false),
+		"found_tools_visible_in_basket": _found_tools_visible_in_basket(),
+		"normal_hud_suppressed": _hud_layer == null or not _hud_layer.visible,
+		"room_hotspots_suppressed": _hotspots_suppressed(),
+		"room_links_suppressed": _room_link_layer == null
+			or not _room_link_layer.visible,
+		"room_action_suppressed": _action_button == null
+			or not _action_button.visible,
+		"floating_sink_box_suppressed": true,
+		"dirty_overlays_visible": _dirty_overlays_visible(),
+		"sink_grime_visible": _sink_grime != null and _sink_grime.visible,
+		"tub_grime_visible": _tub_grime != null and _tub_grime.visible,
+		"cabinet_target_count": _supply_nodes.size(),
+		"supply_hunt_completed": _hunt_completed,
+		"handoff_ready": _handoff_ready,
+		"canvas_only": _all_canvas_children(self),
+	}
+
+
+func is_supply_hunt_complete() -> bool:
+	return _hunt_completed
+
+
+func is_handoff_ready() -> bool:
+	return _handoff_ready
+
+
+## Stable seam for the later sink/tub gesture owner. This method intentionally
+## does not complete the room; it only acknowledges that both supplies exist.
+func begin_cleaning_handoff() -> bool:
+	if not _hunt_completed:
+		return false
+	_handoff_ready = true
+	if _cleaning_stage == null or not is_instance_valid(_cleaning_stage):
+		_cleaning_stage = DAY_ONE_BATHROOM_CLEANING.new() \
+			as DayOneBathroomCleaning
+		_cleaning_stage.cleanup_step_completed.connect(
+			_on_cleaning_step_completed)
+		_cleaning_stage.finale_started.connect(_on_cleaning_finale_started)
+		_cleaning_stage.cleanup_completed.connect(_on_cleaning_completed)
+		add_child(_cleaning_stage)
+		_cleaning_stage.setup(m, _announcements_enabled)
+		_cleaning_stage.set_dirty_overlays(_sink_grime, _tub_grime)
+	return true
+
+
+func cleaning_audit_snapshot() -> Dictionary:
+	if _cleaning_stage == null or not is_instance_valid(_cleaning_stage):
+		return {"active": false, "handoff_ready": _handoff_ready}
+	var snapshot: Dictionary = _cleaning_stage.audit_snapshot()
+	snapshot["active"] = true
+	snapshot["handoff_ready"] = _handoff_ready
+	return snapshot
+
+
+func probe_cleaning_sink_circle(points: Array[Vector2]) -> bool:
+	return _cleaning_stage != null and is_instance_valid(_cleaning_stage) \
+		and _cleaning_stage.probe_sink_circle(points)
+
+
+func probe_cleaning_tub_strokes(points: Array[Vector2]) -> bool:
+	return _cleaning_stage != null and is_instance_valid(_cleaning_stage) \
+		and _cleaning_stage.probe_tub_strokes(points)
+
+
+func probe_begin_drag(at: Vector2) -> bool:
+	if _hunt_completed or _busy:
+		return false
+	_dragging = true
+	_drag_last = at
+	_drag_distance = 0.0
+	_move_magnifier(at)
+	return true
+
+
+func probe_drag_to(at: Vector2) -> bool:
+	if not _dragging or _hunt_completed or _busy:
+		return false
+	_drag_distance += _drag_last.distance_to(at)
+	_drag_last = at
+	_move_magnifier(at)
+	return true
+
+
+func probe_end_drag() -> void:
+	_dragging = false
+
+
+func probe_reveal_supply(index: int) -> bool:
+	if _hunt_completed or _busy or index < 0 or index >= MAX_SUPPLIES:
+		return false
+	if index != _supply_step:
+		return false
+	if _found[index]:
+		return false
+	var center: Vector2 = SUPPLY_DEFINITIONS[index]["center"] as Vector2
+	if not probe_begin_drag(center - Vector2(MIN_DRAG_DISTANCE, 0.0)):
+		return false
+	probe_drag_to(center)
+	probe_end_drag()
+	return _found[index]
+
+
+func _process(delta: float) -> void:
+	_pulse_time += maxf(delta, 0.0)
+	if _magnifier != null and is_instance_valid(_magnifier) and _magnifier.visible:
+		_magnifier.rotation = sin(_pulse_time * 2.8) * 0.035
+		_magnifier.modulate.a = 0.90 + sin(_pulse_time * 4.0) * 0.08
+	if _basket != null and is_instance_valid(_basket) and _basket.visible:
+		var pulse: float = 1.0 + sin(_pulse_time * 3.6) * 0.045
+		_basket.scale = _basket_base_scale * pulse
+	if _pointer != null and is_instance_valid(_pointer) and _pointer.visible:
+		_pointer.rotation = sin(_pulse_time * 2.6) * 0.04
+
+
+func _suspend_room_hotspots() -> void:
+	_hotspot_layer = m.castle_room_item_hotspot_layer
+	if _hotspot_layer != null and is_instance_valid(_hotspot_layer):
+		_hotspot_layer_was_visible = _hotspot_layer.visible
+		_hotspot_layer.visible = false
+	else:
+		_hotspot_layer = null
+	_door_hotspot_layer = m.castle_room_door_hotspot_layer
+	if _door_hotspot_layer != null and is_instance_valid(_door_hotspot_layer):
+		_door_hotspot_layer_was_visible = _door_hotspot_layer.visible
+		_door_hotspot_layer.visible = false
+	_room_link_layer = m.castle_room_link_layer
+	if _room_link_layer != null and is_instance_valid(_room_link_layer):
+		_room_link_layer_was_visible = _room_link_layer.visible
+		_room_link_layer.visible = false
+
+
+func _suspend_standard_surfaces() -> void:
+	# The room rescue owns the whole child-facing presentation. Keep voice/audio
+	# alive, but remove status trays, ordinary objective cards, and captions from
+	# this layer so the magnifier and basket are the only hunt invitation.
+	_hud_layer = m.hud_layer
+	if _hud_layer != null and is_instance_valid(_hud_layer):
+		_hud_layer_was_visible = _hud_layer.visible
+		_hud_layer.visible = false
+	_action_button = m.castle_room_action_button
+	if _action_button != null and is_instance_valid(_action_button):
+		_action_button_was_visible = _action_button.visible
+		_action_button.visible = false
+
+
+func _build_basket() -> void:
+	_basket = Sprite2D.new()
+	_basket.name = "FrontRightCleanupBasket"
+	_basket.texture = load(BASKET_TEXTURE) as Texture2D
+	_basket.position = BASKET_POSITION
+	_basket.scale = Vector2.ONE * BASKET_SCALE
+	_basket_base_scale = _basket.scale
+	_basket.z_index = 27
+	_basket.set_meta("pulsing", true)
+	_basket.set_meta("collects_supplies", true)
+	_basket.set_meta("front_right_collection_point", true)
+	add_child(_basket)
+
+
+func _build_dirty_overlays() -> void:
+	_sink_grime = _make_dirty_overlay("BathroomSinkGrime", SINK_GRIME_TEXTURE,
+		SINK_GRIME_POSITION, SINK_GRIME_SCALE)
+	_tub_grime = _make_dirty_overlay("BathroomTubGrime", TUB_GRIME_TEXTURE,
+		TUB_GRIME_POSITION, TUB_GRIME_SCALE)
+
+
+func _make_dirty_overlay(node_name: String, texture_path: String, at: Vector2,
+		scale_factor: float) -> Sprite2D:
+	var overlay := Sprite2D.new()
+	overlay.name = node_name
+	overlay.texture = load(texture_path) as Texture2D
+	overlay.position = at
+	overlay.scale = Vector2.ONE * scale_factor
+	overlay.modulate = Color(1.0, 1.0, 1.0, 0.86)
+	overlay.z_index = 24
+	overlay.set_meta("bathroom_dirty_overlay", true)
+	overlay.set_meta("floating_sink_box", false)
+	add_child(overlay)
+	return overlay
+
+
+func _build_supply_icons() -> void:
+	for index: int in range(MAX_SUPPLIES):
+		var icon := SupplyIcon.new()
+		icon.name = "HiddenSupply_%s" % String(SUPPLY_DEFINITIONS[index]["id"])
+		icon.configure(String(SUPPLY_DEFINITIONS[index]["id"]))
+		icon.position = SUPPLY_DEFINITIONS[index]["center"] as Vector2
+		icon.z_index = 29
+		icon.visible = false
+		icon.set_meta("collection_role", "basket_tool")
+		icon.set_meta("visible_in_basket", false)
+		add_child(icon)
+		_supply_nodes.append(icon)
+		_found[index] = false
+
+
+func _build_drag_surface() -> void:
+	_drag_surface = Control.new()
+	_drag_surface.name = "MagnifierDragSurface"
+	_drag_surface.position = Vector2.ZERO
+	_drag_surface.size = StorybookUI.CANVAS_SIZE
+	_drag_surface.mouse_filter = Control.MOUSE_FILTER_STOP
+	_drag_surface.z_index = 12
+	_drag_surface.gui_input.connect(_on_drag_surface_input)
+	add_child(_drag_surface)
+
+
+func _build_guidance() -> void:
+	_magnifier = Sprite2D.new()
+	_magnifier.name = "DraggableMagnifyingGlass"
+	_magnifier.texture = load(MAGNIFIER_TEXTURE) as Texture2D
+	_magnifier.position = DRAG_GUIDANCE_POSITION
+	_magnifier.scale = Vector2.ONE * 0.38
+	_magnifier.z_index = 32
+	_magnifier.set_meta("one_finger_drag", true)
+	add_child(_magnifier)
+
+	_pointer = Sprite2D.new()
+	_pointer.name = "MagnifierPointer"
+	_pointer.texture = load(POINTER_TEXTURE) as Texture2D
+	_pointer.scale = Vector2.ONE * 0.18
+	_pointer.z_index = 34
+	add_child(_pointer)
+
+
+func _apply_restored_progress() -> void:
+	for index: int in range(MAX_SUPPLIES):
+		_found[index] = index < _supply_step
+		if _found[index]:
+			_place_supply_in_basket(index)
+		else:
+			_supply_nodes[index].visible = false
+	_refresh_guidance()
+
+
+func _refresh_guidance() -> void:
+	var visible: bool = not _hunt_completed
+	if _magnifier != null:
+		_magnifier.visible = visible
+	if _pointer != null:
+		_pointer.visible = visible
+	if not visible:
+		return
+	# Teach the one-finger action in open space. The next hidden basket remains
+	# discoverable through the lens, but the pointer never marks its exact spot.
+	_pointer.position = DRAG_GUIDANCE_POSITION + Vector2(0.0, -128.0)
+
+
+func _on_drag_surface_input(event: InputEvent) -> void:
+	if _hunt_completed or _busy:
+		return
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed:
+			_dragging = true
+			_drag_last = touch.position
+			_drag_distance = 0.0
+			_move_magnifier(touch.position)
+		else:
+			_dragging = false
+		get_viewport().set_input_as_handled()
+	elif event is InputEventScreenDrag:
+		if _dragging:
+			var drag_position := (event as InputEventScreenDrag).position
+			_drag_distance += _drag_last.distance_to(drag_position)
+			_drag_last = drag_position
+			_move_magnifier(drag_position)
+		get_viewport().set_input_as_handled()
+	elif event is InputEventMouseButton:
+		var button := event as InputEventMouseButton
+		if button.button_index != MOUSE_BUTTON_LEFT:
+			return
+		if button.pressed:
+			_dragging = true
+			_drag_last = button.position
+			_drag_distance = 0.0
+			_move_magnifier(button.position)
+		else:
+			_dragging = false
+		get_viewport().set_input_as_handled()
+	elif event is InputEventMouseMotion and _dragging:
+		var motion_position := (event as InputEventMouseMotion).position
+		_drag_distance += _drag_last.distance_to(motion_position)
+		_drag_last = motion_position
+		_move_magnifier(motion_position)
+		get_viewport().set_input_as_handled()
+
+
+func _move_magnifier(at: Vector2) -> void:
+	if _magnifier == null or _busy or _hunt_completed:
+		return
+	_magnifier.position = at.clamp(Vector2(88.0, 88.0),
+		StorybookUI.CANVAS_SIZE - Vector2(88.0, 88.0))
+	var index: int = _supply_step
+	if index < 0 or index >= MAX_SUPPLIES or _found[index]:
+		return
+	var definition: Dictionary = SUPPLY_DEFINITIONS[index]
+	var target: Vector2 = definition["center"] as Vector2
+	var hit_radius: float = float(definition["hit_radius"])
+	if _drag_distance >= MIN_DRAG_DISTANCE \
+			and _magnifier.position.distance_to(target) <= hit_radius + MAGNIFIER_RADIUS:
+		_reveal_supply(index)
+
+
+func _reveal_supply(index: int) -> void:
+	if _busy or _hunt_completed or _found[index]:
+		return
+	_busy = true
+	_found[index] = true
+	_supply_step = clampi(index + 1, 0, MAX_SUPPLIES)
+	_supply_nodes[index].visible = true
+	_supply_nodes[index].scale = Vector2.ONE * SUPPLY_REVEAL_SCALE
+	_supply_nodes[index].position = SUPPLY_DEFINITIONS[index]["center"] as Vector2
+	if m != null:
+		m.day_one_record_bathroom_supply_step(_supply_step)
+		if _announcements_enabled:
+			m._ui_tap()
+	supply_found.emit(index, String(SUPPLY_DEFINITIONS[index]["id"]))
+	_spawn_sparkle(SUPPLY_DEFINITIONS[index]["center"] as Vector2)
+	# The found tool travels into the one visible basket and stays there. This
+	# makes collection legible without adding a separate inventory card.
+	var reveal_tween: Tween = _supply_nodes[index].create_tween()
+	reveal_tween.tween_property(_supply_nodes[index], "scale",
+		Vector2.ONE * BASKET_TOOL_SCALE, 0.42)
+	reveal_tween.parallel().tween_property(_supply_nodes[index], "position",
+		_basket_content_position(index), 0.42)
+	reveal_tween.parallel().tween_property(_supply_nodes[index], "rotation",
+		-0.08 if index == 0 else 0.08, 0.42)
+	reveal_tween.tween_callback(_finish_supply_reveal.bind(index))
+
+
+func _finish_supply_reveal(index: int) -> void:
+	_place_supply_in_basket(index)
+	_busy = false
+	if _supply_step >= MAX_SUPPLIES:
+		_complete_supply_hunt()
+	else:
+		_refresh_guidance()
+		_announce_current_supply()
+
+
+func _complete_supply_hunt() -> void:
+	if _hunt_completed:
+		return
+	_hunt_completed = true
+	_handoff_ready = true
+	_busy = false
+	_dragging = false
+	_refresh_guidance()
+	supply_hunt_completed.emit()
+	if _announcements_enabled and m != null:
+		m.show_msg("Roshan", "We found both cleaning supplies!", "win")
+		m._say("roshan", "win", 0.6)
+	begin_cleaning_handoff()
+
+
+func _announce_current_supply() -> void:
+	if not _announcements_enabled or m == null or _hunt_completed:
+		return
+	var supply_id: String = String(SUPPLY_DEFINITIONS[_supply_step]["id"])
+	var message := "Drag the magnifying glass to find the brush!"
+	if supply_id == "cleaner":
+		message = "Great! Now find the cleaner in the other cabinet!"
+	m.show_msg("Roshan", message, "talk")
+	m._say("roshan", "talk", 0.8)
+
+
+func _spawn_sparkle(center: Vector2) -> void:
+	var texture: Texture2D = load(SPARKLE_TEXTURE) as Texture2D
+	if texture == null:
+		return
+	var sparkle := Sprite2D.new()
+	sparkle.name = "SupplySparkle"
+	sparkle.texture = texture
+	sparkle.position = center
+	sparkle.scale = Vector2.ONE * 0.42
+	sparkle.z_index = 40
+	add_child(sparkle)
+	_sparkle_nodes.append(sparkle)
+	var tween: Tween = sparkle.create_tween().set_parallel(true)
+	tween.tween_property(sparkle, "scale", Vector2.ONE * 0.82, 0.42)
+	tween.tween_property(sparkle, "rotation", 0.35, 0.42)
+	tween.tween_property(sparkle, "modulate:a", 0.0, 0.42)
+	tween.chain().tween_callback(sparkle.queue_free)
+
+
+func _all_canvas_children(node: Node) -> bool:
+	for child: Node in node.get_children():
+		if not child is CanvasItem or not _all_canvas_children(child):
+			return false
+	return true
+
+
+func _basket_content_position(index: int) -> Vector2:
+	return BASKET_POSITION + BASKET_CONTENT_OFFSETS[clampi(index, 0,
+		BASKET_CONTENT_OFFSETS.size() - 1)]
+
+
+func _place_supply_in_basket(index: int) -> void:
+	if index < 0 or index >= _supply_nodes.size():
+		return
+	var supply: Node2D = _supply_nodes[index]
+	supply.visible = true
+	supply.position = _basket_content_position(index)
+	supply.scale = Vector2.ONE * BASKET_TOOL_SCALE
+	supply.rotation = -0.08 if index == 0 else 0.08
+	supply.modulate.a = 1.0
+	supply.set_meta("visible_in_basket", true)
+
+
+func _found_tools_visible_in_basket() -> bool:
+	for index: int in range(_found.size()):
+		if _found[index] and (not _supply_nodes[index].visible
+				or not bool(_supply_nodes[index].get_meta(
+					"visible_in_basket", false))):
+			return false
+	return true
+
+
+func _hotspots_suppressed() -> bool:
+	return (_hotspot_layer == null or not _hotspot_layer.visible) \
+		and (_door_hotspot_layer == null or not _door_hotspot_layer.visible) \
+		and (_room_link_layer == null or not _room_link_layer.visible)
+
+
+func _dirty_overlays_visible() -> bool:
+	return _sink_grime != null and _sink_grime.visible \
+		and _tub_grime != null and _tub_grime.visible
+
+
+func _on_cleaning_step_completed(step: int, cleanup_id: String) -> void:
+	cleanup_step_completed.emit(step, cleanup_id)
+
+
+func _on_cleaning_finale_started() -> void:
+	finale_started.emit()
+
+
+func _on_cleaning_completed() -> void:
+	cleanup_completed.emit()
