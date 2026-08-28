@@ -32,6 +32,23 @@ func _run_probe() -> void:
 	host.name = "DayOneBathroomSupplyProbeHost"
 	host.size = StorybookUI.CANVAS_SIZE
 	get_root().add_child(host)
+	var item_hotspots := Control.new()
+	var door_hotspots := Control.new()
+	var room_links := Control.new()
+	var action_button := Button.new()
+	item_hotspots.name = "RoomItemHotspots"
+	door_hotspots.name = "RoomDoorHotspots"
+	room_links.name = "RoomLinks"
+	action_button.name = "RoomAction"
+	for layer: Control in [item_hotspots, door_hotspots, room_links]:
+		layer.visible = true
+		host.add_child(layer)
+	action_button.visible = true
+	host.add_child(action_button)
+	main.castle_room_item_hotspot_layer = item_hotspots
+	main.castle_room_door_hotspot_layer = door_hotspots
+	main.castle_room_link_layer = room_links
+	main.castle_room_action_button = action_button
 	var hunt: DayOneBathroomCleanup = BATHROOM_CLEANUP.new() \
 		as DayOneBathroomCleanup
 	host.add_child(hunt)
@@ -68,6 +85,12 @@ func _run_probe() -> void:
 	_check("supplies begin hidden inside cabinets",
 		not (hunt.get_node("HiddenSupply_brush") as Node2D).visible
 		and not (hunt.get_node("HiddenSupply_cleaner") as Node2D).visible)
+	_check("normal room affordances are suppressed during rescue",
+		not item_hotspots.visible and not door_hotspots.visible
+		and not room_links.visible and not action_button.visible
+		and bool(snapshot.get("room_hotspots_suppressed", false))
+		and bool(snapshot.get("room_links_suppressed", false))
+		and bool(snapshot.get("room_action_suppressed", false)))
 	await create_timer(0.18).timeout
 	_check("passive time cannot collect a supply",
 		main.day_one_bathroom_supply_hunt_step == 0
@@ -121,6 +144,9 @@ func _run_probe() -> void:
 	hunt.teardown()
 	await process_frame
 	_check("teardown frees hunt", not is_instance_valid(hunt))
+	_check("normal room affordances restore after rescue teardown",
+		item_hotspots.visible and door_hotspots.visible and room_links.visible
+		and action_button.visible)
 
 	var restored_main := ReefMain.new()
 	# Production constructs the director before a room overlay can restore its

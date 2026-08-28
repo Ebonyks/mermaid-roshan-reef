@@ -1791,7 +1791,8 @@ func apply_day_one_cleanup(room_id: String) -> void:
 
 
 func start_day_one_bathroom_cleanup() -> void:
-	if m.castle_room_id != "bubble_bath" \
+	if not m.day_one_is_active() \
+			or m.castle_room_id != "bubble_bath" \
 			or m.day_one_castle_room_is_clean("bubble_bath"):
 		return
 	_sync_day_one_bathroom_cleanup("bubble_bath")

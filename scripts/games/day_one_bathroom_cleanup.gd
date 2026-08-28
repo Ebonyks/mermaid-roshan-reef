@@ -25,6 +25,12 @@ const BASKET_POSITION := Vector2(1082.0, 575.0)
 const BASKET_SCALE := 0.19
 const BASKET_CONTENT_OFFSETS: Array[Vector2] = [Vector2(-34.0, -26.0),
 	Vector2(36.0, -24.0)]
+const SINK_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png"
+const TUB_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png"
+const SINK_GRIME_POSITION := Vector2(642.0, 280.0)
+const TUB_GRIME_POSITION := Vector2(310.0, 349.0)
+const SINK_GRIME_SCALE := 0.24
+const TUB_GRIME_SCALE := 0.31
 # These are the centers of the two painted storage baskets in the approved
 # Bubble Bath room (ROOM_ITEMS art positions transformed by ART_TO_STAGE).
 # Keep the hunt on existing room pixels; no cabinet card is drawn here.
@@ -56,6 +62,8 @@ var _sparkle_nodes: Array[Sprite2D] = []
 var _magnifier: Sprite2D = null
 var _basket: Sprite2D = null
 var _basket_base_scale: Vector2 = Vector2.ONE
+var _sink_grime: Sprite2D = null
+var _tub_grime: Sprite2D = null
 var _drag_surface: Control = null
 var _pointer: Label = null
 var _progress_pips: Array[ColorRect] = []
@@ -76,6 +84,8 @@ var _room_link_layer: Control = null
 var _room_link_layer_was_visible: bool = false
 var _hud_layer: CanvasLayer = null
 var _hud_layer_was_visible: bool = false
+var _action_button: Button = null
+var _action_button_was_visible: bool = false
 
 
 class SupplyIcon extends Node2D:
@@ -118,6 +128,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	z_index = 22
 	_suspend_standard_surfaces()
 	_suspend_room_hotspots()
+	_build_dirty_overlays()
 	_build_basket()
 	_build_supply_icons()
 	_build_drag_surface()
@@ -148,6 +159,9 @@ func teardown() -> void:
 	if _hud_layer != null and is_instance_valid(_hud_layer):
 		_hud_layer.visible = _hud_layer_was_visible
 		_hud_layer = null
+	if _action_button != null and is_instance_valid(_action_button):
+		_action_button.visible = _action_button_was_visible
+		_action_button = null
 	if is_inside_tree():
 		queue_free()
 	else:
@@ -183,7 +197,12 @@ func audit_snapshot() -> Dictionary:
 		"room_hotspots_suppressed": _hotspots_suppressed(),
 		"room_links_suppressed": _room_link_layer == null
 			or not _room_link_layer.visible,
+		"room_action_suppressed": _action_button == null
+			or not _action_button.visible,
 		"floating_sink_box_suppressed": true,
+		"dirty_overlays_visible": _dirty_overlays_visible(),
+		"sink_grime_visible": _sink_grime != null and _sink_grime.visible,
+		"tub_grime_visible": _tub_grime != null and _tub_grime.visible,
 		"cabinet_target_count": _supply_nodes.size(),
 		"supply_hunt_completed": _hunt_completed,
 		"handoff_ready": _handoff_ready,
@@ -214,6 +233,7 @@ func begin_cleaning_handoff() -> bool:
 		_cleaning_stage.cleanup_completed.connect(_on_cleaning_completed)
 		add_child(_cleaning_stage)
 		_cleaning_stage.setup(m, _announcements_enabled)
+		_cleaning_stage.set_dirty_overlays(_sink_grime, _tub_grime)
 	return true
 
 
@@ -311,6 +331,10 @@ func _suspend_standard_surfaces() -> void:
 	if _hud_layer != null and is_instance_valid(_hud_layer):
 		_hud_layer_was_visible = _hud_layer.visible
 		_hud_layer.visible = false
+	_action_button = m.castle_room_action_button
+	if _action_button != null and is_instance_valid(_action_button):
+		_action_button_was_visible = _action_button.visible
+		_action_button.visible = false
 
 
 func _build_basket() -> void:
@@ -325,6 +349,28 @@ func _build_basket() -> void:
 	_basket.set_meta("collects_supplies", true)
 	_basket.set_meta("front_right_collection_point", true)
 	add_child(_basket)
+
+
+func _build_dirty_overlays() -> void:
+	_sink_grime = _make_dirty_overlay("BathroomSinkGrime", SINK_GRIME_TEXTURE,
+		SINK_GRIME_POSITION, SINK_GRIME_SCALE)
+	_tub_grime = _make_dirty_overlay("BathroomTubGrime", TUB_GRIME_TEXTURE,
+		TUB_GRIME_POSITION, TUB_GRIME_SCALE)
+
+
+func _make_dirty_overlay(node_name: String, texture_path: String, at: Vector2,
+		scale_factor: float) -> Sprite2D:
+	var overlay := Sprite2D.new()
+	overlay.name = node_name
+	overlay.texture = load(texture_path) as Texture2D
+	overlay.position = at
+	overlay.scale = Vector2.ONE * scale_factor
+	overlay.modulate = Color(1.0, 1.0, 1.0, 0.86)
+	overlay.z_index = 24
+	overlay.set_meta("bathroom_dirty_overlay", true)
+	overlay.set_meta("floating_sink_box", false)
+	add_child(overlay)
+	return overlay
 
 
 func _build_supply_icons() -> void:
@@ -599,6 +645,11 @@ func _hotspots_suppressed() -> bool:
 	return (_hotspot_layer == null or not _hotspot_layer.visible) \
 		and (_door_hotspot_layer == null or not _door_hotspot_layer.visible) \
 		and (_room_link_layer == null or not _room_link_layer.visible)
+
+
+func _dirty_overlays_visible() -> bool:
+	return _sink_grime != null and _sink_grime.visible \
+		and _tub_grime != null and _tub_grime.visible
 
 
 func _on_cleaning_step_completed(step: int, cleanup_id: String) -> void:
