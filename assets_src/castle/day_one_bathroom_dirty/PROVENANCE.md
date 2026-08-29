@@ -7,6 +7,78 @@ pixels.
 
 ## Full dirty bathroom state
 
+### Final room-readable dirty state (v3)
+
+- Selected native master: `room_bubble_bath_dirty_full_master_v3.png`
+- Native dimensions: 1672x941 RGB
+- Native SHA-256: `136ab1cadd15d9c4a21500da03bf279bbff15189e4ac5b34c35080e23de39a23`
+- Runtime derivative:
+  `assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png`
+- Runtime dimensions: 1024x576 RGBA
+- Runtime SHA-256: `5bd81c8cb287cf5794b3635536e8037ab49b5b30c689a1f9b64a93937cfa7231`
+- Generation result identifier:
+  `exec-4373d1c2-bbc2-4a97-8efe-b0ab09d77fb4.png`
+- Generation method: OpenAI built-in image generation, precise-object edit.
+- Reference role: v2 was the sole edit target. It remained authoritative for
+  every room, character, mess, palette, lighting, and composition decision.
+- Derivation: one whole-canvas Lanczos resize from 1672x941 to 1024x576,
+  followed by RGB-to-RGBA format normalization. No local masks, compositing,
+  fixture extraction, or subject translation.
+- Final prompt: "Change only the toilet grime so it is unmistakably dirty at
+  small mobile scale. Strengthen the warm olive-brown scum ring directly under
+  the inside rim of the open toilet bowl, and add exactly two short matching
+  soft grime streaks on the front/side of the toilet base. Keep it friendly
+  and mild for a four-year-old. Preserve the exact composition, architecture,
+  lighting, palette, tub, dirty water, single submerged lavender dust bunny,
+  sink marks, footprints, puddles, unfolded towels, baskets, decorations, and
+  open play space. Do not add, remove, move, resize, or redesign anything else.
+  No Roshan, UI, text, tools, extra creatures, trash, insects, mold, feces,
+  frightening imagery, or watermark. Return a complete flattened full-frame
+  image in the same polished 2D storybook style."
+- Review: targeted follow-up to the v2 Mobile audit. The clearer warm olive
+  bowl ring separates intentional grime from the toilet's ordinary interior
+  shadow without making the preschool scene gross or frightening.
+
+### Enhanced room-readable dirty state (v2, superseded for runtime)
+
+- Selected native master: `room_bubble_bath_dirty_full_master_v2.png`
+- Native dimensions: 1672x941 RGB
+- Native SHA-256: `ecc0197c9698997b3f25acc8a0bbae3d5ef71fca62be6c00cf9e2a962e8b80dd`
+- Runtime derivative:
+  `assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png`
+- Runtime dimensions: 1024x576 RGBA
+- Runtime SHA-256: `42a6e4b231d0b08bd6a2a8f6471d55f706191355faba7483c9ff79bbf6ab6ff1`
+- Generation result identifier:
+  `exec-f10cbaaa-977d-4997-bc51-814c49fdb3de.png`
+- Generation method: OpenAI built-in image generation, precise-object edit.
+- Reference roles: the v1 dirty plate was the edit target and authoritative
+  room composition. The approved clean Bubble Bathroom was supplied only to
+  preserve established fixture, palette, and towel design. The protected
+  clean image remains unchanged.
+- Derivation: one whole-canvas Lanczos resize from 1672x941 to 1024x576,
+  followed by RGB-to-RGBA format normalization. No local masks, fixture
+  extraction, compositing, subject translation, or destructive source edit.
+- Final prompt: "Make the v1 room read immediately as a dirty, untidy
+  bathroom while preserving its exact 16:9 composition and storybook style.
+  Keep the olive bathwater and exactly one lavender dust bunny submerged to
+  its shoulders behind the waterline and tub rim. Reuse the established pink
+  and aqua towel designs as three oversized unfolded or rumpled foreground
+  floor towels. Add gentle olive-gray toilet bowl/base grime, a stronger tub
+  soap-scum ring and contained shell smudges, cloudy sink marks, two small
+  vanity smears, two wet footprints, and a modest floor water trail. Keep the
+  mess child-friendly and targets visually separated. Preserve every room
+  fixture, object position, architecture, camera, lighting, and open play
+  space. No Roshan, UI, text, tools, duck, extra creatures, trash, insects,
+  mold, feces, frightening imagery, or watermark. Return one complete
+  flattened full-frame image."
+- Review: the earlier v1 remains preserved as provenance. Luna child-
+  readability review found that v1 read primarily as different-colored bath
+  water; v2 adds large familiar towel silhouettes and clear dirt on the tub,
+  sink, toilet, and floor while keeping the bunny readable and the imagery
+  friendly for a four-year-old.
+
+### Original dirty state (v1, superseded for runtime)
+
 - Selected native master: `room_bubble_bath_dirty_full_master_v1.png`
 - Native dimensions: 1672x941 RGB
 - Native SHA-256: `ccf9882aaf6f09d02c7858febf0164462b56cd466a051361342fcdb98b50c649`
