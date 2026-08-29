@@ -43,6 +43,13 @@ const GRID_H := 36
 const NON_CLEAR_DISTANCE := 0.12
 const MIN_NON_CLEAR_FRACTION := 0.35
 const MIN_LUMA_SPAN := 0.20
+const PLAYGROUND_IDS: Array[String] = ["slide", "swing", "seesaw"]
+# The usable painted lawn on the middle screen, between the rear shrub bed and
+# the lavender walking route. Equipment may rise in front of the distant mural,
+# but its horizontal painted extent and complete contact footprint belong here.
+const PLAYGROUND_GRASS_MASTER := Rect2(Vector2(2150.0, 1220.0), Vector2(1980.0, 315.0))
+const MAX_EQUIPMENT_OVERLAP_FRACTION := 0.002
+const MAX_SHADOW_TO_PAINT_GAP_MASTER := 32.0
 
 var main: ReefMain
 var promenade: SkyLagoonPromenade
@@ -68,6 +75,7 @@ var probe_save_path := ""
 var save_was_remapped := false
 var isolated_cleanup_ok := false
 var dev_mode_neutralized := false
+var alpha_used_rect_cache: Dictionary = {}
 
 
 func _init() -> void:
@@ -272,6 +280,153 @@ func _alpha_sprite_screen_rect(sprite: Sprite2D) -> Rect2:
 	for corner: Vector2 in corners:
 		bounds = bounds.expand(corner)
 	return bounds
+
+
+func _alpha_sprite_master_rect(sprite: Sprite2D) -> Rect2:
+	if sprite == null or not is_instance_valid(sprite) or sprite.texture == null \
+			or not sprite.is_visible_in_tree():
+		return Rect2()
+	var source := Rect2i(Vector2i.ZERO, sprite.texture.get_size())
+	if sprite.region_enabled:
+		source = Rect2i(sprite.region_rect)
+	var cache_key := "%s|%s" % [sprite.texture.resource_path, str(source)]
+	var used: Rect2i
+	if alpha_used_rect_cache.has(cache_key):
+		used = alpha_used_rect_cache[cache_key] as Rect2i
+	else:
+		var image: Image = sprite.texture.get_image()
+		if image == null or image.is_empty():
+			return Rect2()
+		if image.is_compressed() and image.decompress() != OK:
+			return Rect2()
+		var alpha_min := Vector2i(source.size)
+		var alpha_max := Vector2i(-1, -1)
+		for y: int in range(source.position.y, source.end.y):
+			for x: int in range(source.position.x, source.end.x):
+				if image.get_pixel(x, y).a < 0.10:
+					continue
+				var local := Vector2i(x, y) - source.position
+				alpha_min.x = mini(alpha_min.x, local.x)
+				alpha_min.y = mini(alpha_min.y, local.y)
+				alpha_max.x = maxi(alpha_max.x, local.x)
+				alpha_max.y = maxi(alpha_max.y, local.y)
+		if alpha_max.x < alpha_min.x or alpha_max.y < alpha_min.y:
+			return Rect2()
+		used = Rect2i(alpha_min, alpha_max - alpha_min + Vector2i.ONE)
+		alpha_used_rect_cache[cache_key] = used
+	var local_origin := Vector2(used.position) + sprite.offset
+	if sprite.centered:
+		local_origin -= Vector2(source.size) * 0.5
+	var local_size := Vector2(used.size)
+	var master_space: Node2D = main.g.get("lagoon_master_space") as Node2D
+	if master_space == null or not is_instance_valid(master_space):
+		return Rect2()
+	var transform: Transform2D = master_space.get_global_transform().affine_inverse() \
+		* sprite.get_global_transform()
+	var corners: Array[Vector2] = [
+		transform * local_origin,
+		transform * (local_origin + Vector2(local_size.x, 0.0)),
+		transform * (local_origin + local_size),
+		transform * (local_origin + Vector2(0.0, local_size.y)),
+	]
+	var bounds := Rect2(corners[0], Vector2.ZERO)
+	for corner: Vector2 in corners:
+		bounds = bounds.expand(corner)
+	return bounds
+
+
+func _canvas_alpha_master_rect(node: Node) -> Rect2:
+	var bounds := Rect2()
+	var has_bounds := false
+	if node is Sprite2D:
+		bounds = _alpha_sprite_master_rect(node as Sprite2D)
+		has_bounds = bounds.get_area() > 0.0
+	for child: Node in node.get_children():
+		var child_bounds: Rect2 = _canvas_alpha_master_rect(child)
+		if child_bounds.get_area() <= 0.0:
+			continue
+		bounds = child_bounds if not has_bounds else bounds.merge(child_bounds)
+		has_bounds = true
+	return bounds if has_bounds else Rect2()
+
+
+func _rect_record(bounds: Rect2) -> Array[float]:
+	return [bounds.position.x, bounds.position.y, bounds.size.x, bounds.size.y]
+
+
+func _playground_capture_contract() -> bool:
+	return EXPECTED_CAPTURE_IDS[7] == "lagoon_08_playground_overview_day" \
+		and EXPECTED_CAPTURE_IDS.slice(8, 14) == [
+			"lagoon_09_slide_focus_day", "lagoon_10_slide_action_day",
+			"lagoon_11_swing_focus_day", "lagoon_12_swing_action_day",
+			"lagoon_13_seesaw_focus_day", "lagoon_14_seesaw_action_day",
+		] \
+		and EXPECTED_CAPTURE_IDS[18] == "lagoon_19_playground_overview_night"
+
+
+func _playground_placement_state() -> Dictionary:
+	var painted_bounds := {}
+	var shadow_bounds := {}
+	var overlap_fractions := {}
+	var alpha_valid := true
+	var grass_area_valid := true
+	var shrub_route_clear := true
+	var shadows_visible := true
+	var shadows_grounded := true
+	var bounds_by_id: Dictionary = {}
+	for equipment_id: String in PLAYGROUND_IDS:
+		var target: Dictionary = _target_by_id(equipment_id)
+		var node: Sprite2D = target.get("node") as Sprite2D
+		var bounds: Rect2 = _canvas_alpha_master_rect(node) if node != null else Rect2()
+		bounds_by_id[equipment_id] = bounds
+		painted_bounds[equipment_id] = _rect_record(bounds)
+		alpha_valid = alpha_valid and bounds.get_area() > 0.0
+		grass_area_valid = grass_area_valid and bounds.position.x \
+			>= PLAYGROUND_GRASS_MASTER.position.x \
+			and bounds.end.x <= PLAYGROUND_GRASS_MASTER.end.x
+		var shadow: Sprite2D = node.get_meta("contact_shadow") as Sprite2D \
+			if node != null and node.has_meta("contact_shadow") else null
+		var shadow_rect: Rect2 = _alpha_sprite_master_rect(shadow) \
+			if shadow != null else Rect2()
+		shadow_bounds[equipment_id] = _rect_record(shadow_rect)
+		var visible_shadow: bool = shadow != null and is_instance_valid(shadow) \
+			and shadow.visible and shadow.is_visible_in_tree() and shadow.texture != null \
+			and shadow.modulate.a >= 0.20 \
+			and String(shadow.get_meta("canvas_layer_role", "")) == "contact_shadow" \
+			and bool(shadow.get_meta("contact_shadow", false)) \
+			and shadow_rect.get_area() > 0.0
+		shadows_visible = shadows_visible and visible_shadow
+		var footprint_inside: bool = shadow_rect.get_area() > 0.0 \
+			and PLAYGROUND_GRASS_MASTER.encloses(shadow_rect)
+		grass_area_valid = grass_area_valid and footprint_inside
+		shrub_route_clear = shrub_route_clear and footprint_inside
+		shadows_grounded = shadows_grounded and visible_shadow \
+			and absf(shadow_rect.get_center().y - bounds.end.y) \
+			<= MAX_SHADOW_TO_PAINT_GAP_MASTER
+	for first_index: int in range(PLAYGROUND_IDS.size()):
+		for second_index: int in range(first_index + 1, PLAYGROUND_IDS.size()):
+			var first_id: String = PLAYGROUND_IDS[first_index]
+			var second_id: String = PLAYGROUND_IDS[second_index]
+			var first: Rect2 = bounds_by_id[first_id] as Rect2
+			var second: Rect2 = bounds_by_id[second_id] as Rect2
+			var denominator: float = minf(first.get_area(), second.get_area())
+			var fraction: float = first.intersection(second).get_area() / denominator \
+				if denominator > 0.0 else 1.0
+			overlap_fractions["%s_%s" % [first_id, second_id]] = fraction
+	var separated := alpha_valid
+	for value: Variant in overlap_fractions.values():
+		separated = separated and float(value) <= MAX_EQUIPMENT_OVERLAP_FRACTION
+	return {
+		"painted_bounds_master": painted_bounds,
+		"shadow_bounds_master": shadow_bounds,
+		"overlap_fractions": overlap_fractions,
+		"painted_bounds_separate": separated,
+		"grass_play_area": grass_area_valid,
+		"clear_of_shrub_bed_and_route": shrub_route_clear,
+		"contact_shadows_visible": shadows_visible,
+		"contact_shadows_grounded": shadows_grounded,
+		"capture_contract": _playground_capture_contract(),
+	}
 
 
 func _polygon_screen_rect(polygon: Polygon2D) -> Rect2:
@@ -499,6 +654,7 @@ func _actual_state() -> Dictionary:
 		"animal_texture": animal_texture,
 		"animal_lighting_profile": animal_lighting_profile,
 		"animal_overlap_fraction": _animal_overlap_fraction(),
+		"playground_placement": _playground_placement_state(),
 		"highlight_contract": _highlight_contract(),
 		"castle_armed": bool(main.g.get("lagoon_castle_armed", false)),
 		"fireflies_present": main.g.get("lagoon_night_fireflies") is Array \
@@ -537,6 +693,13 @@ func _semantic_assertions(expected: Dictionary, actual: Dictionary) -> Array[Dic
 	assertions.append(_assertion("review_layers_hidden",
 		bool(actual.get("review_layers_hidden", false)), true,
 		actual.get("review_layers_hidden")))
+	var playground: Dictionary = actual.get("playground_placement", {}) as Dictionary
+	for placement_key: String in ["painted_bounds_separate", "grass_play_area",
+			"clear_of_shrub_bed_and_route", "contact_shadows_visible",
+			"contact_shadows_grounded", "capture_contract"]:
+		assertions.append(_assertion("playground_%s" % placement_key,
+			bool(playground.get(placement_key, false)), true,
+			playground.get(placement_key)))
 	if expected.has("camera_page"):
 		assertions.append(_assertion("camera_page",
 			int(actual.get("camera_page", -1)) == int(expected["camera_page"]),

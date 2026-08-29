@@ -518,21 +518,29 @@ func _build_reef_route_marker() -> void:
 
 func _build_playground_screen() -> void:
 	var holder: Node2D = m.g.get("lagoon_interactive_layer") as Node2D
+	# Keep the three authored alpha footprints distinct across the meadow. Their
+	# original 2655/3200/3760 centers let both neighboring silhouettes collide;
+	# the seesaw also read as planted in the lower shrub band instead of on grass.
+	# Only the equipment rest transforms move, so touch targets and Roshan's
+	# equipment-local play sockets continue to follow the same nodes.
 	var slide := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
-		Vector2(2655, 1315), 620.0, true, holder)
+		Vector2(2550, 1400), 620.0, true, holder)
 	slide.name = "SkyLagoonSlide"
-	var swing := _build_promenade_swing(Vector2(3200, 1268))
+	var swing := _build_promenade_swing(Vector2(3200, 1390))
 	var seesaw := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-		Vector2(3760, 1510), 265.0, true, holder)
+		Vector2(3826, 1500), 265.0, true, holder)
 	seesaw.name = "SkyLagoonSeesaw"
+	_add_contact_shadow(slide, Vector2(500, 40))
+	_add_contact_shadow(swing, Vector2(580, 42))
+	_add_contact_shadow(seesaw, Vector2(430, 38))
 	_register_target("slide", slide, "playground", "slide", 118.0, 1.10)
-	_register_target("swing", swing, "playground", "swing", 122.0, 1.10)
-	_register_target("seesaw", seesaw, "playground", "seesaw", 112.0, 1.12)
+	_register_target("swing", swing, "playground", "swing", 110.0, 1.10)
+	_register_target("seesaw", seesaw, "playground", "seesaw", 110.0, 1.12)
 
 func _build_promenade_swing(position_master: Vector2) -> Sprite2D:
-	var frame := _make_sprite(SWING_FRAME_TEX, position_master, 610.0, true,
+	var frame := _make_sprite(SWING_FRAME_TEX, position_master, 480.0, true,
 		m.g.get("lagoon_interactive_layer") as Node2D)
 	frame.name = "SkyLagoonPromenadeSwingFrame"
 	var pivot := Node2D.new()
