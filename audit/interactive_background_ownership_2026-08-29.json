@@ -1,0 +1,1259 @@
+{
+  "schema": 1,
+  "finding": "MA-VIS-007",
+  "status": "machine_verified_human_review_pending",
+  "policy": "One complete clean background owns every pixel beneath a live card; runtime plates may use whole-canvas normalization and exact tiling only.",
+  "forbidden_methods": [
+    "local scanline interpolation",
+    "Gaussian blur ownership fill",
+    "independent tile regeneration",
+    "painted duplicate under live card"
+  ],
+  "protected_originals_modified": false,
+  "castle": [
+    {
+      "room": "opera_hall",
+      "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_opera_hall_background_source.png",
+      "source_sha256": "21b3645f36914701b697377a11aea0faba5dd830207f571f9c26013ca8383d8d",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "generation_id": "exec-bfefe97a-4b68-4477-87d7-d95ac653e91f.png",
+      "method": "built-in ImageGen full-frame edit",
+      "prompt": "Edit the supplied Pearl Castle room reference as one complete flattened storybook background. Preserve the room identity, camera, architecture, lighting, palette, floor and wall geometry. Remove every extracted interactive or foreground object and every plaid, streaked, blurred, duplicated, or ghosted footprint beneath those objects. Repaint each vacated area as coherent continuous wall, floor, water, shelving, or architectural surface matching its immediate surroundings. Do not add characters, text, UI, new props, duplicate fixtures, empty object silhouettes, patches, or smears. Return a complete opaque polished 2D preschool storybook frame.",
+      "prompt_sha256": "664f363351bb5230b6b49c93ed943a106eb1e88a190ae217480768e7e93f9988",
+      "logical_background": "assets/flats/castle/rooms/room_opera_hall_background.png",
+      "native_master": "assets_src/castle/room_backgrounds_2k/room_opera_hall_background_2k.png",
+      "native_dimensions": [
+        3640,
+        2048
+      ],
+      "normalization": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "tiles": [
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c0.png",
+          "master_rectangle": [
+            0,
+            0,
+            910,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "a18cd59488570b1d5316f5583d7dee778e2dd5395b5aeeff0ef92967a76ed0a4",
+          "v4_sha256": "a18cd59488570b1d5316f5583d7dee778e2dd5395b5aeeff0ef92967a76ed0a4"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c1.png",
+          "master_rectangle": [
+            910,
+            0,
+            1820,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "d6a48b9e9171f0f4aa1163e8925b9c57e77afca8567adefd4af9fb67af9cc1e3",
+          "v4_sha256": "d6a48b9e9171f0f4aa1163e8925b9c57e77afca8567adefd4af9fb67af9cc1e3"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c2.png",
+          "master_rectangle": [
+            1820,
+            0,
+            2730,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "63a66a417833a9764c5b6f4bc742b0c043e3cb99edd9616941dd53b8ab807773",
+          "v4_sha256": "63a66a417833a9764c5b6f4bc742b0c043e3cb99edd9616941dd53b8ab807773"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c3.png",
+          "master_rectangle": [
+            2730,
+            0,
+            3640,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "642ab06337bb726b1fb736ffa10c6b94aadf01550ca1f12ba30421d6a0a4dd86",
+          "v4_sha256": "642ab06337bb726b1fb736ffa10c6b94aadf01550ca1f12ba30421d6a0a4dd86"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c0.png",
+          "master_rectangle": [
+            0,
+            1024,
+            910,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "422727d745628b237acba5135660f27d8989556abd19168f90bcec869d079a08",
+          "v4_sha256": "422727d745628b237acba5135660f27d8989556abd19168f90bcec869d079a08"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c1.png",
+          "master_rectangle": [
+            910,
+            1024,
+            1820,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "1c75abdeb9b718c55d320b30fb6d5050bca09ff7e01a500156e567d9e9590004",
+          "v4_sha256": "1c75abdeb9b718c55d320b30fb6d5050bca09ff7e01a500156e567d9e9590004"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c2.png",
+          "master_rectangle": [
+            1820,
+            1024,
+            2730,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "bdc4d61551082d74e530eb39b46639904b7c372a39daec5255a038da44dc49db",
+          "v4_sha256": "bdc4d61551082d74e530eb39b46639904b7c372a39daec5255a038da44dc49db"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c3.png",
+          "master_rectangle": [
+            2730,
+            1024,
+            3640,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "afb10ec7e107b1f2c1d0c6be9ab5244997401d12f41c589365a50d58e481215f",
+          "v4_sha256": "afb10ec7e107b1f2c1d0c6be9ab5244997401d12f41c589365a50d58e481215f"
+        }
+      ],
+      "human_owner_review": "pending",
+      "logical_background_sha256": "ebd074ac85a1b7d479eada4f49e0000690a9e96576a8ae1370525fe68e08116f",
+      "native_master_sha256": "21c33685913d290d8a887f11f6d3a0a4faf8b938f1137cd1e1d9c395cf3a1f77"
+    },
+    {
+      "room": "kitchen",
+      "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_kitchen_background_source.png",
+      "source_sha256": "bf719337f531b436c556c6510cab614dd90825ba8d66903f1b76f88f6bf37466",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "generation_id": "exec-b4af448e-8895-414d-a040-dbf087bce908.png",
+      "method": "built-in ImageGen full-frame edit",
+      "prompt": "Edit the supplied Pearl Castle room reference as one complete flattened storybook background. Preserve the room identity, camera, architecture, lighting, palette, floor and wall geometry. Remove every extracted interactive or foreground object and every plaid, streaked, blurred, duplicated, or ghosted footprint beneath those objects. Repaint each vacated area as coherent continuous wall, floor, water, shelving, or architectural surface matching its immediate surroundings. Do not add characters, text, UI, new props, duplicate fixtures, empty object silhouettes, patches, or smears. Return a complete opaque polished 2D preschool storybook frame.",
+      "prompt_sha256": "664f363351bb5230b6b49c93ed943a106eb1e88a190ae217480768e7e93f9988",
+      "logical_background": "assets/flats/castle/rooms/room_kitchen_background.png",
+      "native_master": "assets_src/castle/room_backgrounds_2k/room_kitchen_background_2k.png",
+      "native_dimensions": [
+        4096,
+        2304
+      ],
+      "normalization": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "tiles": [
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c0.png",
+          "master_rectangle": [
+            0,
+            0,
+            1024,
+            768
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "3c05ca73febc3baa99c40150b48764177223280b8647fb9d01fc4d9e669ad38b",
+          "v4_sha256": "3c05ca73febc3baa99c40150b48764177223280b8647fb9d01fc4d9e669ad38b"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c1.png",
+          "master_rectangle": [
+            1024,
+            0,
+            2048,
+            768
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "059e9d72f1329fe1259479d4c068a64fcd9d6afc109502f50779c99abcbac827",
+          "v4_sha256": "059e9d72f1329fe1259479d4c068a64fcd9d6afc109502f50779c99abcbac827"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c2.png",
+          "master_rectangle": [
+            2048,
+            0,
+            3072,
+            768
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "757c89aaf143d61d4d1e17f4f7c53ac23a2bc7c0fbf36c5bcd980568e1f7fb67",
+          "v4_sha256": "757c89aaf143d61d4d1e17f4f7c53ac23a2bc7c0fbf36c5bcd980568e1f7fb67"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c3.png",
+          "master_rectangle": [
+            3072,
+            0,
+            4096,
+            768
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "48dc74dc14c228cc68da4e512fe01a80726c614429c429bc14bffe74315e7123",
+          "v4_sha256": "48dc74dc14c228cc68da4e512fe01a80726c614429c429bc14bffe74315e7123"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c0.png",
+          "master_rectangle": [
+            0,
+            768,
+            1024,
+            1536
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "46fa2db95b39365ed42e99dcc9defb9a775e7653f3e1027a6fc22e5d4139ba1f",
+          "v4_sha256": "46fa2db95b39365ed42e99dcc9defb9a775e7653f3e1027a6fc22e5d4139ba1f"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c1.png",
+          "master_rectangle": [
+            1024,
+            768,
+            2048,
+            1536
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "8a49cc80a4a0fcc78979056329398cd35a52ed9f42c912af2d21140a171f299c",
+          "v4_sha256": "8a49cc80a4a0fcc78979056329398cd35a52ed9f42c912af2d21140a171f299c"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c2.png",
+          "master_rectangle": [
+            2048,
+            768,
+            3072,
+            1536
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "a47facda2e46320ec49959764a95f8385008f807e204a8119d41e455d3cf5f31",
+          "v4_sha256": "a47facda2e46320ec49959764a95f8385008f807e204a8119d41e455d3cf5f31"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r1_c3.png",
+          "master_rectangle": [
+            3072,
+            768,
+            4096,
+            1536
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "1da2cb9587a227f9351b0a456ad9fc6baa3a364cc6b7c26e1c28c3d018a8b724",
+          "v4_sha256": "1da2cb9587a227f9351b0a456ad9fc6baa3a364cc6b7c26e1c28c3d018a8b724"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c0.png",
+          "master_rectangle": [
+            0,
+            1536,
+            1024,
+            2304
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "e9af86a19c5ef9044ff3d11246040f254513a71f9d1c8b176c613cd6021a1b6b",
+          "v4_sha256": "e9af86a19c5ef9044ff3d11246040f254513a71f9d1c8b176c613cd6021a1b6b"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c1.png",
+          "master_rectangle": [
+            1024,
+            1536,
+            2048,
+            2304
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "4e390845f8d5a3db4c5a937caa5de1ffb60c0347d2fbf340b9a189509fc13ef8",
+          "v4_sha256": "4e390845f8d5a3db4c5a937caa5de1ffb60c0347d2fbf340b9a189509fc13ef8"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c2.png",
+          "master_rectangle": [
+            2048,
+            1536,
+            3072,
+            2304
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "6c12ef5153102152f7582da654a09cac438d2c50bd0667bae56d2b59511e5cc4",
+          "v4_sha256": "6c12ef5153102152f7582da654a09cac438d2c50bd0667bae56d2b59511e5cc4"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r2_c3.png",
+          "master_rectangle": [
+            3072,
+            1536,
+            4096,
+            2304
+          ],
+          "dimensions": [
+            1024,
+            768
+          ],
+          "sha256": "0b9a5f3a00979db39da7caf8d8613d9b9bce340f274ef78ab29ca924c5b6dc5e",
+          "v4_sha256": "0b9a5f3a00979db39da7caf8d8613d9b9bce340f274ef78ab29ca924c5b6dc5e"
+        }
+      ],
+      "human_owner_review": "pending",
+      "logical_background_sha256": "b58bd03a394717ebff381d76e4cb7d03410a463b7b30d2a58065be5a4df8c065",
+      "native_master_sha256": "84cb819fbbeab05ceeecffa19d9821e5077eb5f74f2c6669767dc3623add9f07"
+    },
+    {
+      "room": "library",
+      "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_library_background_source.png",
+      "source_sha256": "dea78951144fe242201fbbd0e4e01e5f9f53c20fc5b05777811f82223e7d7066",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "generation_id": "exec-6f9ea13b-24ad-4021-a2d4-1fbe1ac4758b.png",
+      "method": "built-in ImageGen full-frame edit",
+      "prompt": "Edit the supplied Pearl Castle room reference as one complete flattened storybook background. Preserve the room identity, camera, architecture, lighting, palette, floor and wall geometry. Remove every extracted interactive or foreground object and every plaid, streaked, blurred, duplicated, or ghosted footprint beneath those objects. Repaint each vacated area as coherent continuous wall, floor, water, shelving, or architectural surface matching its immediate surroundings. Do not add characters, text, UI, new props, duplicate fixtures, empty object silhouettes, patches, or smears. Return a complete opaque polished 2D preschool storybook frame.",
+      "prompt_sha256": "664f363351bb5230b6b49c93ed943a106eb1e88a190ae217480768e7e93f9988",
+      "logical_background": "assets/flats/castle/rooms/room_library_background.png",
+      "native_master": "assets_src/castle/room_backgrounds_2k/room_library_background_2k.png",
+      "native_dimensions": [
+        3640,
+        2048
+      ],
+      "normalization": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "tiles": [
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c0.png",
+          "master_rectangle": [
+            0,
+            0,
+            910,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "d42f48eeb5d0177e1316043eee94e1a096614f45e1f42ce7205ecd573b4c4e74",
+          "v4_sha256": "d42f48eeb5d0177e1316043eee94e1a096614f45e1f42ce7205ecd573b4c4e74"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c1.png",
+          "master_rectangle": [
+            910,
+            0,
+            1820,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "c228066d86f9e3edc2714be1b257611219473d6086b89204e3423106d4d31e74",
+          "v4_sha256": "c228066d86f9e3edc2714be1b257611219473d6086b89204e3423106d4d31e74"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c2.png",
+          "master_rectangle": [
+            1820,
+            0,
+            2730,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "a440418326eb2511814838bcf29b530a95f39c4af05b2acda65ec89d857f3536",
+          "v4_sha256": "a440418326eb2511814838bcf29b530a95f39c4af05b2acda65ec89d857f3536"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c3.png",
+          "master_rectangle": [
+            2730,
+            0,
+            3640,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "fedcd873d6519fbda9f79e50583c44a7ac51d0c6548898fa226c9b18e14b61ba",
+          "v4_sha256": "fedcd873d6519fbda9f79e50583c44a7ac51d0c6548898fa226c9b18e14b61ba"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c0.png",
+          "master_rectangle": [
+            0,
+            1024,
+            910,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "e87730bb1460e70fce1f5459116be4e5156405ecb288c511e6e41d17c7871c20",
+          "v4_sha256": "e87730bb1460e70fce1f5459116be4e5156405ecb288c511e6e41d17c7871c20"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c1.png",
+          "master_rectangle": [
+            910,
+            1024,
+            1820,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "ec67c61df88bee4ce231a85358f57e3b1908c9dbb97eed5295e628707834cdcd",
+          "v4_sha256": "ec67c61df88bee4ce231a85358f57e3b1908c9dbb97eed5295e628707834cdcd"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c2.png",
+          "master_rectangle": [
+            1820,
+            1024,
+            2730,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "35359accb08f6c937492c0d2789355504cea90868faf521e9dc91097e68e5332",
+          "v4_sha256": "35359accb08f6c937492c0d2789355504cea90868faf521e9dc91097e68e5332"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r1_c3.png",
+          "master_rectangle": [
+            2730,
+            1024,
+            3640,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "19e20c561b82e45b8bda12446b857699ee369fea8e1f064a7206a37a9b863c9c",
+          "v4_sha256": "19e20c561b82e45b8bda12446b857699ee369fea8e1f064a7206a37a9b863c9c"
+        }
+      ],
+      "human_owner_review": "pending",
+      "logical_background_sha256": "1bd0d93f703c78339da78ef709bdedfae45fce9a03ad734774995ac2ac409974",
+      "native_master_sha256": "8c4dd2a82a8475a07d188565f9f93acce6a471b61e55cf868555b6661ea618a2"
+    },
+    {
+      "room": "playroom",
+      "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_playroom_background_source.png",
+      "source_sha256": "779bc3714165916c7fbce3755c7038d56068f48cb379c4ff528fa470041e0c9e",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "generation_id": "exec-f2bae1be-0740-4f5e-9f57-71c16863fc49.png",
+      "method": "built-in ImageGen full-frame edit",
+      "prompt": "Edit the supplied Pearl Castle room reference as one complete flattened storybook background. Preserve the room identity, camera, architecture, lighting, palette, floor and wall geometry. Remove every extracted interactive or foreground object and every plaid, streaked, blurred, duplicated, or ghosted footprint beneath those objects. Repaint each vacated area as coherent continuous wall, floor, water, shelving, or architectural surface matching its immediate surroundings. Do not add characters, text, UI, new props, duplicate fixtures, empty object silhouettes, patches, or smears. Return a complete opaque polished 2D preschool storybook frame.",
+      "prompt_sha256": "664f363351bb5230b6b49c93ed943a106eb1e88a190ae217480768e7e93f9988",
+      "logical_background": "assets/flats/castle/rooms/room_playroom_background.png",
+      "native_master": "assets_src/castle/room_backgrounds_2k/room_playroom_background_2k.png",
+      "native_dimensions": [
+        3640,
+        2048
+      ],
+      "normalization": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "tiles": [
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c0.png",
+          "master_rectangle": [
+            0,
+            0,
+            910,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "096488900a40cbf648a1d14bc47a0c12b7fed6581b59f3ae64438df68083281d",
+          "v4_sha256": "096488900a40cbf648a1d14bc47a0c12b7fed6581b59f3ae64438df68083281d"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c1.png",
+          "master_rectangle": [
+            910,
+            0,
+            1820,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "6f4e4aba1b1088202e029c7789dd72ae3839973ad03188baba70bcf4dd04edee",
+          "v4_sha256": "6f4e4aba1b1088202e029c7789dd72ae3839973ad03188baba70bcf4dd04edee"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c2.png",
+          "master_rectangle": [
+            1820,
+            0,
+            2730,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "6a53730b073147c28cf9d0592e8a671df9660a167e08e3522f8870caf585e05a",
+          "v4_sha256": "6a53730b073147c28cf9d0592e8a671df9660a167e08e3522f8870caf585e05a"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c3.png",
+          "master_rectangle": [
+            2730,
+            0,
+            3640,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "843edda8aaa1167aa7f38b9ff0a7b3ce073e44137e8191f966b1dfa2b928268f",
+          "v4_sha256": "843edda8aaa1167aa7f38b9ff0a7b3ce073e44137e8191f966b1dfa2b928268f"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c0.png",
+          "master_rectangle": [
+            0,
+            1024,
+            910,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "e5d5044e76a9f542ad27229baa135862e4daf86b628b50bdee3a81eb85b4bca7",
+          "v4_sha256": "e5d5044e76a9f542ad27229baa135862e4daf86b628b50bdee3a81eb85b4bca7"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c1.png",
+          "master_rectangle": [
+            910,
+            1024,
+            1820,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "b03d79f00f8bf9848e8d42edfc6a6fbfa37e1ac6e8cebb0df5653c8611661f2a",
+          "v4_sha256": "b03d79f00f8bf9848e8d42edfc6a6fbfa37e1ac6e8cebb0df5653c8611661f2a"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c2.png",
+          "master_rectangle": [
+            1820,
+            1024,
+            2730,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "b971fbb842904377f5fdd3e91ea48284ba4ec563497d77656719e9e963e5ecdd",
+          "v4_sha256": "b971fbb842904377f5fdd3e91ea48284ba4ec563497d77656719e9e963e5ecdd"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c3.png",
+          "master_rectangle": [
+            2730,
+            1024,
+            3640,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "eb67c27e7d4dc2d0d304390cf83b58aa1be2347c4e466beb35eadd27ae82240f",
+          "v4_sha256": "eb67c27e7d4dc2d0d304390cf83b58aa1be2347c4e466beb35eadd27ae82240f"
+        }
+      ],
+      "human_owner_review": "pending",
+      "logical_background_sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "native_master_sha256": "0e6073b167bffb7f17558a09f52e1bee94b406ad6e8191e4372716e604202901"
+    },
+    {
+      "room": "craft_room",
+      "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_craft_room_background_source.png",
+      "source_sha256": "506ac703fe36ac9e33ddbbf1c6249bec8bcb4c9df806eb54e2d0cfc2d9ddeb48",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "generation_id": "exec-e6207fcf-cdfb-421e-bae5-d2847d218302.png",
+      "method": "built-in ImageGen full-frame edit",
+      "prompt": "Edit the supplied Pearl Castle room reference as one complete flattened storybook background. Preserve the room identity, camera, architecture, lighting, palette, floor and wall geometry. Remove every extracted interactive or foreground object and every plaid, streaked, blurred, duplicated, or ghosted footprint beneath those objects. Repaint each vacated area as coherent continuous wall, floor, water, shelving, or architectural surface matching its immediate surroundings. Do not add characters, text, UI, new props, duplicate fixtures, empty object silhouettes, patches, or smears. Return a complete opaque polished 2D preschool storybook frame.",
+      "prompt_sha256": "664f363351bb5230b6b49c93ed943a106eb1e88a190ae217480768e7e93f9988",
+      "logical_background": "assets/flats/castle/rooms/room_craft_room_background.png",
+      "native_master": "assets_src/castle/room_backgrounds_2k/room_craft_room_background_2k.png",
+      "native_dimensions": [
+        3640,
+        2048
+      ],
+      "normalization": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "tiles": [
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c0.png",
+          "master_rectangle": [
+            0,
+            0,
+            910,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "a7bac7f1207c7fb68f706a6f1702215da771f30e9752e72b33d708de7d4e97d3",
+          "v4_sha256": "a7bac7f1207c7fb68f706a6f1702215da771f30e9752e72b33d708de7d4e97d3"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c1.png",
+          "master_rectangle": [
+            910,
+            0,
+            1820,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "beb2abb1c5b24a89d13ad2318a2040e28fc624ac14404f3cd85cc1ea4069519d",
+          "v4_sha256": "beb2abb1c5b24a89d13ad2318a2040e28fc624ac14404f3cd85cc1ea4069519d"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c2.png",
+          "master_rectangle": [
+            1820,
+            0,
+            2730,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "8b12029b8dd7f1bd7be4b7f5b33dee7fe7aed240aea155474d26a826f9e1772e",
+          "v4_sha256": "8b12029b8dd7f1bd7be4b7f5b33dee7fe7aed240aea155474d26a826f9e1772e"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c3.png",
+          "master_rectangle": [
+            2730,
+            0,
+            3640,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "3d263e7fdaf731fd6da217361ebfcc10a920f1e8caedd9471f3ccee909f3bfbe",
+          "v4_sha256": "3d263e7fdaf731fd6da217361ebfcc10a920f1e8caedd9471f3ccee909f3bfbe"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c0.png",
+          "master_rectangle": [
+            0,
+            1024,
+            910,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "7aedf83c6bba58e085744bc3e11cb0aa2987f93f3b34a3db33aa9af295daa255",
+          "v4_sha256": "7aedf83c6bba58e085744bc3e11cb0aa2987f93f3b34a3db33aa9af295daa255"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c1.png",
+          "master_rectangle": [
+            910,
+            1024,
+            1820,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "41adc48e454d86813de0ff67ea7d724753d07aee5eaea92161cd623eaa3ed9c8",
+          "v4_sha256": "41adc48e454d86813de0ff67ea7d724753d07aee5eaea92161cd623eaa3ed9c8"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c2.png",
+          "master_rectangle": [
+            1820,
+            1024,
+            2730,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "72bf313d31004123fcf029828e0ae7aa4f60973fb5760e314e59195fadff92fc",
+          "v4_sha256": "72bf313d31004123fcf029828e0ae7aa4f60973fb5760e314e59195fadff92fc"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c3.png",
+          "master_rectangle": [
+            2730,
+            1024,
+            3640,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "3aad0f5d2e0f2a33d6755e7aff253d4123a1f4a4b9dd6899e1dfb63eade551d7",
+          "v4_sha256": "3aad0f5d2e0f2a33d6755e7aff253d4123a1f4a4b9dd6899e1dfb63eade551d7"
+        }
+      ],
+      "human_owner_review": "pending",
+      "logical_background_sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+      "native_master_sha256": "d3b447c641201a212e87b759c210daad16d6162068197a5f538b558a9548796d"
+    },
+    {
+      "room": "mermaid_pool",
+      "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_mermaid_pool_background_source.png",
+      "source_sha256": "5807a2383e67229b328a3756fbee6fa4036e0ad0b1c090cf65ebd74399d90b87",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "generation_id": "exec-4fbd1e17-45c5-4e28-9431-f02fe6fd3116.png",
+      "method": "built-in ImageGen full-frame edit",
+      "prompt": "Edit the supplied Pearl Castle room reference as one complete flattened storybook background. Preserve the room identity, camera, architecture, lighting, palette, floor and wall geometry. Remove every extracted interactive or foreground object and every plaid, streaked, blurred, duplicated, or ghosted footprint beneath those objects. Repaint each vacated area as coherent continuous wall, floor, water, shelving, or architectural surface matching its immediate surroundings. Do not add characters, text, UI, new props, duplicate fixtures, empty object silhouettes, patches, or smears. Return a complete opaque polished 2D preschool storybook frame.",
+      "prompt_sha256": "664f363351bb5230b6b49c93ed943a106eb1e88a190ae217480768e7e93f9988",
+      "logical_background": "assets/flats/castle/rooms/room_mermaid_pool_background.png",
+      "native_master": "assets_src/castle/room_backgrounds_2k/room_mermaid_pool_background_2k.png",
+      "native_dimensions": [
+        3640,
+        2048
+      ],
+      "normalization": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "tiles": [
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c0.png",
+          "master_rectangle": [
+            0,
+            0,
+            910,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "3d1827d3f83b0fbb515831d7bd34b78fe227817970896556a5e77b54ebb6090f",
+          "v4_sha256": "3d1827d3f83b0fbb515831d7bd34b78fe227817970896556a5e77b54ebb6090f"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png",
+          "master_rectangle": [
+            910,
+            0,
+            1820,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516",
+          "v4_sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c2.png",
+          "master_rectangle": [
+            1820,
+            0,
+            2730,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "746f17f2060b1e50bbfabf0369628f34cd782d533ff9e145c16839634eabe450",
+          "v4_sha256": "746f17f2060b1e50bbfabf0369628f34cd782d533ff9e145c16839634eabe450"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c3.png",
+          "master_rectangle": [
+            2730,
+            0,
+            3640,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "0295252d806fb02a5d16e362f45f8b79bc588bdfd49a45d1cbf8fdf5aeb9ef7c",
+          "v4_sha256": "0295252d806fb02a5d16e362f45f8b79bc588bdfd49a45d1cbf8fdf5aeb9ef7c"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c0.png",
+          "master_rectangle": [
+            0,
+            1024,
+            910,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "35d644cc44e22dccbf7cffd846fbecb07cdfb7bc62569074c574bfb948108885",
+          "v4_sha256": "35d644cc44e22dccbf7cffd846fbecb07cdfb7bc62569074c574bfb948108885"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c1.png",
+          "master_rectangle": [
+            910,
+            1024,
+            1820,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "6b8889b828b2e1062ebac7218f45aed0df579041c0567ed5cca9148d806ec693",
+          "v4_sha256": "6b8889b828b2e1062ebac7218f45aed0df579041c0567ed5cca9148d806ec693"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c2.png",
+          "master_rectangle": [
+            1820,
+            1024,
+            2730,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "cafa0e24d949d75c216fc22d6ab6c59025482424959a58759b809f7c586d735d",
+          "v4_sha256": "cafa0e24d949d75c216fc22d6ab6c59025482424959a58759b809f7c586d735d"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c3.png",
+          "master_rectangle": [
+            2730,
+            1024,
+            3640,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "1940861bf7d1e5e67fce5619d969eefb9e41940634260afa793f994be9cfd519",
+          "v4_sha256": "1940861bf7d1e5e67fce5619d969eefb9e41940634260afa793f994be9cfd519"
+        }
+      ],
+      "human_owner_review": "pending",
+      "logical_background_sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "native_master_sha256": "70cf179b47b9a3f4b8b7046f8059f9140450bc209be8e630fbf211e9bd0a203b"
+    },
+    {
+      "room": "bubble_bath",
+      "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_bubble_bath_background_source.png",
+      "source_sha256": "9ec8d3a2a6205f953a90e06b9c19c9f6833b57269adccb10240ddc8680aedb31",
+      "source_dimensions": [
+        1672,
+        941
+      ],
+      "generation_id": "exec-de78aa84-bf23-4cb6-8e48-1e1611919517.png",
+      "method": "built-in ImageGen full-frame edit",
+      "prompt": "Edit the supplied Pearl Castle room reference as one complete flattened storybook background. Preserve the room identity, camera, architecture, lighting, palette, floor and wall geometry. Remove every extracted interactive or foreground object and every plaid, streaked, blurred, duplicated, or ghosted footprint beneath those objects. Repaint each vacated area as coherent continuous wall, floor, water, shelving, or architectural surface matching its immediate surroundings. Do not add characters, text, UI, new props, duplicate fixtures, empty object silhouettes, patches, or smears. Return a complete opaque polished 2D preschool storybook frame.",
+      "prompt_sha256": "664f363351bb5230b6b49c93ed943a106eb1e88a190ae217480768e7e93f9988",
+      "logical_background": "assets/flats/castle/rooms/room_bubble_bath_background.png",
+      "native_master": "assets_src/castle/room_backgrounds_2k/room_bubble_bath_background_2k.png",
+      "native_dimensions": [
+        3640,
+        2048
+      ],
+      "normalization": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "tiles": [
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c0.png",
+          "master_rectangle": [
+            0,
+            0,
+            910,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "affba4d029b470299b8efa7bd17f9a2cfa65f715c5a7eb49824a7e1473eb4fb2",
+          "v4_sha256": "affba4d029b470299b8efa7bd17f9a2cfa65f715c5a7eb49824a7e1473eb4fb2"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c1.png",
+          "master_rectangle": [
+            910,
+            0,
+            1820,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "fefd2ea43121f4b71ed7bb9e203e4468e35b102b0e253c7f04817d67f21257f6",
+          "v4_sha256": "fefd2ea43121f4b71ed7bb9e203e4468e35b102b0e253c7f04817d67f21257f6"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c2.png",
+          "master_rectangle": [
+            1820,
+            0,
+            2730,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "9472ff0a88ea99192299e3c0fda6044af5b108fe509c496c33137636caa2b3a6",
+          "v4_sha256": "9472ff0a88ea99192299e3c0fda6044af5b108fe509c496c33137636caa2b3a6"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r0_c3.png",
+          "master_rectangle": [
+            2730,
+            0,
+            3640,
+            1024
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "0dfdf96c51cf864e9a46ffb2e0ed45f8b344d00df9be7749c469f1b74147ffcc",
+          "v4_sha256": "0dfdf96c51cf864e9a46ffb2e0ed45f8b344d00df9be7749c469f1b74147ffcc"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c0.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c0.png",
+          "master_rectangle": [
+            0,
+            1024,
+            910,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "843bf7f7f7decdacbc3f3780a54df61ab54d1a2981517947d4a507d34f254cef",
+          "v4_sha256": "843bf7f7f7decdacbc3f3780a54df61ab54d1a2981517947d4a507d34f254cef"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c1.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c1.png",
+          "master_rectangle": [
+            910,
+            1024,
+            1820,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "559c830f86e7edaf0f51e3405fe77880caebe95511ba1c7e6d60fcfc7452ccb4",
+          "v4_sha256": "559c830f86e7edaf0f51e3405fe77880caebe95511ba1c7e6d60fcfc7452ccb4"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c2.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c2.png",
+          "master_rectangle": [
+            1820,
+            1024,
+            2730,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "67c64a06d47f61534703f625817cc6f708b8e724a5a120f97f3f77248334a510",
+          "v4_sha256": "67c64a06d47f61534703f625817cc6f708b8e724a5a120f97f3f77248334a510"
+        },
+        {
+          "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c3.png",
+          "v4_path": "assets/flats/castle/interactions_v4/background_tiles/room_bubble_bath_background_r1_c3.png",
+          "master_rectangle": [
+            2730,
+            1024,
+            3640,
+            2048
+          ],
+          "dimensions": [
+            910,
+            1024
+          ],
+          "sha256": "486df0347cf7ef50ead1ea7cffb6daa53f563a81f707e6c8ebd58734fe9ed963",
+          "v4_sha256": "486df0347cf7ef50ead1ea7cffb6daa53f563a81f707e6c8ebd58734fe9ed963"
+        }
+      ],
+      "human_owner_review": "pending",
+      "logical_background_sha256": "8a333a0b16643a67fd20c061c11770c7e515df6395eb7790d2617f16e855b70e",
+      "native_master_sha256": "ed684642db4a987582b32ef2a292e3400316f6a4b9812ae079e5749ad7b50c32"
+    }
+  ],
+  "opera": [
+    {
+      "world": "detective",
+      "source": "assets_src/opera/interactive_background_ownership_2026-08-29/generated_world_detective_missing_crown_source.png",
+      "source_sha256": "168b5d8abc6cb0cdd37da92c0103a87bc4e98b27e72e36d79d2faba10f9ac570",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "generation_id": "exec-0924c2f2-d102-4283-9cad-6f521a3ed346.png",
+      "method": "built-in ImageGen full-frame edit",
+      "prompt": "Edit the supplied complete square Detective world reference. Preserve the entire composition, camera, architecture, lighting, palette, paths, outer margins and child-readable storybook style. Remove the painted crown or pearl tiara from the far-right open display because the crown is the missing interactive object. Leave that display visibly empty and coherently repaint its backing and shelf. Do not add text, characters, a replacement crown, ghost silhouette, blur, patch or new prop. Return one complete opaque flattened square frame.",
+      "prompt_sha256": "35210d99edfdd670b02614b38f263ea6870ddc58f7b738840b794b84853a0fde",
+      "promoted_native": "assets_src/imagegen/opera_codex_2026-08-02/native/world_detective_native.png",
+      "native_master": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_detective.png",
+      "normalization": "established whole-canvas Opera 2048-square normalization; no local repair",
+      "tiles": [
+        {
+          "path": "assets/opera/worlds/backdrops/world_detective_c0r0.png",
+          "column": 0,
+          "row": 0,
+          "sha256": "7b98aa7fa3a381c84c0a9c19395d25da5cadb2b0e337ec02fcd395e28cbc9e26"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_detective_c1r0.png",
+          "column": 1,
+          "row": 0,
+          "sha256": "dc6e4d8f6bbea2b877d59d09bc2ca86c1195240a3cedd44a776a9f5bcb5d453a"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_detective_c0r1.png",
+          "column": 0,
+          "row": 1,
+          "sha256": "c6b7e633fe82d4ee5471d5f560fe372102ef20cf360c69fdb4db333c174aa28e"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_detective_c1r1.png",
+          "column": 1,
+          "row": 1,
+          "sha256": "d3a69006ae38ff5fbb6247b378565cd95f59e717af1747f9bb2cf3f5281abbf6"
+        }
+      ],
+      "human_owner_review": "pending",
+      "promoted_native_sha256": "048f6dc1dc51e8d748b8050a82c962c35e5f1a46d60c91525a3a6ab80b18c267",
+      "native_master_sha256": "86c6ebb2c6c10f1fff3af8c541f448b3eb3e31b2841330c367ab88a03748529a"
+    },
+    {
+      "world": "nursery",
+      "source": "assets_src/opera/interactive_background_ownership_2026-08-29/generated_world_nursery_empty_bottle_nook_source.png",
+      "source_sha256": "ad0c74377b0def5a592c139db0a392dd15e6bba89ed522cb061960a07f91b773",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "generation_id": "exec-718fe9db-779c-4a48-91ce-46fb13d3f13a.png",
+      "method": "built-in ImageGen full-frame edit",
+      "prompt": "Edit the supplied complete square Nursery world reference. Preserve the entire composition, camera, architecture, lighting, palette, paths, outer margins and child-readable storybook style. Remove the painted row of feeding bottles from the center-right bottle nook because the bottle is a live interactive overlay. Leave the nook and shelf visibly empty and coherently repaint their backing. Do not add text, characters, replacement bottles, ghost silhouettes, blur, patch or new prop. Return one complete opaque flattened square frame.",
+      "prompt_sha256": "9f2c1269718d2032928394d9b53c25974e2e5e4d9e87b11a9b1a7519adde8b89",
+      "promoted_native": "assets_src/imagegen/opera_codex_2026-08-02/native/world_nursery_native.png",
+      "native_master": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_nursery.png",
+      "normalization": "established whole-canvas Opera 2048-square normalization; no local repair",
+      "tiles": [
+        {
+          "path": "assets/opera/worlds/backdrops/world_nursery_c0r0.png",
+          "column": 0,
+          "row": 0,
+          "sha256": "ed0142cf00f970e65cd211ce1816fa411528f7bf31dff38a0d8046d243875133"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_nursery_c1r0.png",
+          "column": 1,
+          "row": 0,
+          "sha256": "fc0fed2f81b13694a86e10d91c09e1072716e58697d14c68d9d36ebd9b41eaef"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_nursery_c0r1.png",
+          "column": 0,
+          "row": 1,
+          "sha256": "65c04742ca49fb3450125dd98a66e8e69a36fccc31dda88fedaac9a8800cf3a2"
+        },
+        {
+          "path": "assets/opera/worlds/backdrops/world_nursery_c1r1.png",
+          "column": 1,
+          "row": 1,
+          "sha256": "8f1e09ffd00795119258fcca0e2b30d69475fdbe33ca33d350a9954bfdb9e2c7"
+        }
+      ],
+      "human_owner_review": "pending",
+      "promoted_native_sha256": "8e94631d370d82972a2d0715edd75b6eaf72d61ef59eacd89abcffcd29dabdf0",
+      "native_master_sha256": "ffd1667fa2ff2b99d2abd28d0644bf2ba1663c3469f0650aaec875c9d6c8600f"
+    }
+  ],
+  "scrub": {
+    "castle_active_interactive_cards": 39,
+    "castle_active_static_cards": 12,
+    "castle_rooms": 7,
+    "opera_confirmed_conflicts": [
+      "Detective missing crown painted in world background",
+      "Nursery feeding bottles painted beneath live pour mover"
+    ],
+    "cleared_domains": [
+      "Sky Lagoon",
+      "reef districts",
+      "galaxy and kart",
+      "picture games",
+      "other active Opera careers",
+      "Dream House empty-shell rooms"
+    ]
+  }
+}
