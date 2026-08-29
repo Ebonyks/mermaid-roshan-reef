@@ -83,6 +83,10 @@ func _run() -> void:
 	await _frames(8)
 	main._sync_day_one_bathroom_cleanup()
 	await _frames(5)
+	# Let the 0.24-second room-composition transition fully clear before the
+	# first evidence frame. A transition ghost is not a live object, but it can
+	# visually resemble the retired lower-left shell basket in a still capture.
+	await create_timer(0.36).timeout
 	main.set_process(false)
 
 	var cleanup: DayOneBathroomCleanup = main._day_one_bathroom_cleanup
@@ -98,6 +102,13 @@ func _run() -> void:
 		and int(entry.get("active_target_count", 0)) == 1
 		and bool(entry.get("localized_fixture_grime", false))
 		and bool(entry.get("basket_clear_of_action_zone", false)))
+	var false_second_tub: Node = main.castle_room_front_layer.get_node_or_null(
+		"room_bubble_bath_front_left")
+	var real_bathtub: Dictionary = main.castle_room_item_sprites.get(
+		"bathtub", {}) as Dictionary
+	_check("dirty bathroom has one bathtub silhouette",
+		false_second_tub == null
+		and real_bathtub.get("sprite") is Sprite2D)
 	var elevator: Control = main.castle_room_stage.get_node_or_null(
 		"ElevatorButton") as Control
 	var elevator_pointer: Control = main.castle_room_stage.get_node_or_null(
@@ -208,6 +219,11 @@ func _run() -> void:
 		and elevator.mouse_filter == Control.MOUSE_FILTER_IGNORE
 		and elevator_pointer != null and not elevator_pointer.visible
 		and elevator_pointer.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	_check("clean bathroom still has one bathtub silhouette",
+		main.castle_room_front_layer.get_node_or_null(
+			"room_bubble_bath_front_left") == null
+		and (main.castle_room_item_sprites.get(
+			"bathtub", {}) as Dictionary).get("sprite") is Sprite2D)
 	await _capture("07_clean_pool_route")
 
 	main.queue_free()

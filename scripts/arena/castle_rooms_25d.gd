@@ -385,7 +385,9 @@ const ROOM_LAYOUTS := {
 		"walk": Rect2(170.0, 405.0, 940.0, 265.0), "mid_foot_y": -1.0,
 		"mid": [],
 		"front": [
-			{"tex": "room_bubble_bath_front_left.png", "pos": Vector2(0.0, 358.0)},
+			# The retired left shell towel basket reads as a second bathtub at
+			# phone scale. Keep the real interactive tub as the room's only tub
+			# silhouette; the source art remains preserved but is not composed.
 			{"tex": "room_bubble_bath_front_right.png", "pos": Vector2(798.0, 358.0)},
 		],
 	},
