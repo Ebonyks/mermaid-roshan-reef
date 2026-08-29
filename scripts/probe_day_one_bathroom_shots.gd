@@ -103,7 +103,8 @@ func _run() -> void:
 	_check("entry uses the separate full dirty 2D room plate",
 		bool(dirty_plate_entry.get("dirty_plate_visible", false))
 		and bool(dirty_plate_entry.get("true_2d", false))
-		and bool(dirty_plate_entry.get("contains_tub_swimmer", false))
+		and not bool(dirty_plate_entry.get("contains_tub_swimmer", true))
+		and bool(dirty_plate_entry.get("separate_animated_bunny", false))
 		and bool(dirty_plate_entry.get("bunny_depth_occluded", false))
 		and bool(dirty_plate_entry.get("clean_fixture_pixels_occluded", false))
 		and not bool(dirty_plate_entry.get(
@@ -112,7 +113,7 @@ func _run() -> void:
 			== Vector2i(1024, 576))
 	_check("entry bath visibly contains one depth-occluded mermaid bunny",
 		bool(dirty_plate_entry.get("dirty_plate_visible", false))
-		and bool(dirty_plate_entry.get("contains_tub_swimmer", false))
+		and bool(dirty_plate_entry.get("separate_animated_bunny", false))
 		and bool(dirty_plate_entry.get("bunny_depth_occluded", false)))
 	var elevator: Control = main.castle_room_stage.get_node_or_null(
 		"ElevatorButton") as Control
@@ -160,10 +161,29 @@ func _run() -> void:
 	await create_timer(0.48).timeout
 	await _capture("04_brush_travels_to_tub")
 	await create_timer(0.30).timeout
+	_check("tub drain tap is live before brush arrows",
+		bool(cleanup.cleaning_audit_snapshot().get("tub_drain_ready", false))
+		and bool(cleanup.cleaning_audit_snapshot().get(
+			"one_tap_drain_target_visible", false))
+		and bool(cleanup.cleaning_audit_snapshot().get(
+			"brush_parked_on_tub_rim", false))
+		and not bool(cleanup.cleaning_audit_snapshot().get(
+			"back_and_forth_arrows_visible", true)))
+	await _capture("05_tub_drain_prompt")
+	_check("tub tap starts the bunny's comic reaction", cleanup.probe_tap_tub())
+	await create_timer(0.16).timeout
+	_check("comic No and one spin are visible",
+		int(cleanup.cleaning_audit_snapshot().get(
+			"drain_reaction_count", 0)) == 1
+		and String(cleanup.cleaning_audit_snapshot().get(
+			"comic_shout", "")) == "NO!")
+	await _capture("06_bunny_no_spin")
+	await create_timer(0.92).timeout
 	_check("tub arrows are live",
 		bool(cleanup.cleaning_audit_snapshot().get(
-			"back_and_forth_arrows_visible", false)))
-	await _capture("05_tub_arrow_guide")
+			"back_and_forth_arrows_visible", false))
+		and bool(cleanup.cleaning_audit_snapshot().get("tub_drained", false)))
+	await _capture("07_tub_arrow_guide")
 
 	var tub_points: Array[Vector2] = [
 		TUB_CENTER + Vector2(-210.0, 0.0),
@@ -181,7 +201,7 @@ func _run() -> void:
 		not bool(clean_plate_finale.get("dirty_plate_visible", true))
 		and bool(clean_plate_finale.get(
 			"clean_fixture_layer_visible", false)))
-	await _capture("06_whole_room_sparkle")
+	await _capture("08_whole_room_sparkle")
 	await create_timer(0.96).timeout
 	_check("finale exposes direct pool picture",
 		main._day_one_pool_route_button != null
@@ -234,7 +254,7 @@ func _run() -> void:
 		and elevator.mouse_filter == Control.MOUSE_FILTER_IGNORE
 		and elevator_pointer != null and not elevator_pointer.visible
 		and elevator_pointer.mouse_filter == Control.MOUSE_FILTER_IGNORE)
-	await _capture("07_clean_pool_route")
+	await _capture("09_clean_pool_route")
 
 	main.queue_free()
 	await _frames(4)

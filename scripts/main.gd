@@ -318,6 +318,7 @@ var day_one_giant_dust_bunny_boss_triggered: bool = false
 var day_one_bathroom_cleanup_step: int = 0
 var day_one_bathroom_supply_hunt_step: int = 0
 var day_one_bathroom_tools_authorized: bool = false
+var day_one_bathroom_tub_drained: bool = false
 var day_one_pool_cleanup_step: int = 0
 var day_one_pool_rumi_met: bool = false
 var day_one_pool_skimmer_mask: int = 0
@@ -6959,6 +6960,13 @@ func day_one_record_bathroom_supply_step(step: int) -> void:
 		day_one_bathroom_supply_hunt_step, step), 0, 2)
 	if day_one_bathroom_supply_hunt_step >= 2:
 		day_one_bathroom_tools_authorized = true
+	_queue_save()
+
+
+func day_one_record_bathroom_tub_drained() -> void:
+	if not day_one_is_active() or day_one_bathroom_tub_drained:
+		return
+	day_one_bathroom_tub_drained = true
 	_queue_save()
 
 

@@ -7,6 +7,7 @@ extends Control
 ## gesture, so a quiet screen can never win by waiting.
 
 signal cleanup_step_completed(step: int, cleanup_id: String)
+signal tub_drain_visual_started
 signal finale_started
 signal cleanup_completed
 
@@ -64,6 +65,13 @@ class GestureGuide extends Node2D:
 				24, ink, 5.5, true)
 			var tip := Vector2(cos(-0.8), sin(-0.8)) * 72.0 * pulse
 			_draw_arrowhead(tip, -0.8 + PI * 0.5, ink)
+		elif guide_mode == "tap":
+			var tap_radius: float = 34.0 * pulse
+			draw_circle(Vector2.ZERO, tap_radius, Color(0.46, 0.91, 0.86, 0.14))
+			draw_arc(Vector2.ZERO, tap_radius, 0.0, TAU, 28, ink, 6.0, true)
+			draw_arc(Vector2.ZERO, tap_radius + 16.0, 0.0, TAU, 28,
+				Color(1.0, 0.82, 0.24, 0.64), 4.0, true)
+			draw_circle(Vector2.ZERO, 8.0, Color(1.0, 0.82, 0.24, 0.90))
 		else:
 			var reach: float = 108.0 * pulse
 			draw_line(Vector2(-reach, 0.0), Vector2(reach, 0.0), ink, 5.5,
@@ -111,6 +119,12 @@ var _sponge_travel_complete: bool = true
 var _brush_travel_complete: bool = false
 var _whole_room_sparkle: bool = false
 var _sparkle_nodes: Array[Sprite2D] = []
+var _bunny_swimmer: DayOneDustBunnySwimmer = null
+var _tub_drained := false
+var _tub_drain_ready := false
+var _drain_reaction_active := false
+var _drain_reaction_count := 0
+var _drain_voice_sent := false
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -125,6 +139,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	if not m.has_meta("day_one_bathroom_cleaning_completion_count"):
 		m.set_meta("day_one_bathroom_cleaning_completion_count", 0)
 	_step = clampi(m.day_one_bathroom_cleanup_step, 0, 3)
+	_tub_drained = m.day_one_bathroom_tub_drained or _step >= 2
 	_sponge_travel_complete = _step >= 1
 	_brush_travel_complete = _step >= 1
 	if _step >= 2:
@@ -161,6 +176,16 @@ func audit_snapshot() -> Dictionary:
 		"sink_distance_required": SINK_DISTANCE_REQUIRED,
 		"tub_distance_required": TUB_DISTANCE_REQUIRED,
 		"tub_reversals_required": TUB_REVERSALS_REQUIRED,
+		"tub_drain_ready": _tub_drain_ready,
+		"tub_drained": _tub_drained,
+		"drain_reaction_active": _drain_reaction_active,
+		"drain_reaction_count": _drain_reaction_count,
+		"drain_reaction_played_once": _drain_reaction_count == 1,
+		"reaction_duration_ms": 680,
+		"comic_shout": "NO!" if _drain_reaction_count > 0 else "",
+		"drain_voice_key": "wacky_fail" if _drain_voice_sent else "",
+		"bunny_swimmer": _bunny_swimmer.audit_snapshot()
+			if _bunny_swimmer != null and is_instance_valid(_bunny_swimmer) else {},
 		"passive_progress": false,
 		"gesture_budget": {
 			"sink_min_seconds": SINK_MIN_GESTURE_SECONDS,
@@ -187,6 +212,11 @@ func audit_snapshot() -> Dictionary:
 			and _guide.guide_mode == "sink",
 		"back_and_forth_arrows_visible": _guide != null and _guide.visible
 			and _guide.guide_mode == "tub",
+		"one_tap_drain_target_visible": _tub_drain_ready and _guide != null
+			and _guide.visible and _guide.guide_mode == "tap",
+		"brush_parked_on_tub_rim": _tub_drain_ready and _sponge != null
+			and _sponge.visible and bool(_sponge.get_meta(
+				"parked_on_tub_rim", false)),
 		"sponge_travel_complete": _sponge_travel_complete,
 		"brush_travel_complete": _brush_travel_complete,
 		"whole_room_sparkle": _whole_room_sparkle,
@@ -230,6 +260,10 @@ func set_dirty_overlays(sink_grime: Sprite2D, tub_grime: Sprite2D) -> void:
 	# the authored fixtures rather than cover their full silhouettes on a phone.
 	_tune_dirty_overlay(_sink_grime, 0.84)
 	_tune_dirty_overlay(_tub_grime, 0.86)
+	if _tub_grime != null and is_instance_valid(_tub_grime):
+		# Warm olive reads as soap scum; the original pale lavender target was
+		# too close to the swimming bunny's outline at phone scale.
+		_tub_grime.modulate = Color(0.66, 0.58, 0.34, 0.64)
 	_update_dirty_overlays()
 
 
@@ -244,10 +278,16 @@ func set_supply_basket(at: Vector2) -> void:
 		_begin_brush_tool_travel()
 
 
+func set_bunny_swimmer(swimmer: DayOneDustBunnySwimmer) -> void:
+	_bunny_swimmer = swimmer
+
+
 func probe_begin_gesture(at: Vector2) -> bool:
 	if _busy or _step >= 2:
 		return false
 	if _step == 0 and at.distance_to(SINK_CENTER) > SINK_RADIUS + GESTURE_BAND:
+		return false
+	if _step == 1 and not _tub_drained:
 		return false
 	if _step == 1 and absf(at.x - TUB_CENTER.x) > TUB_HALF_WIDTH + GESTURE_BAND:
 		return false
@@ -289,7 +329,7 @@ func probe_sink_circle(points: Array[Vector2], motion_seconds: float = 0.06) -> 
 
 
 func probe_tub_strokes(points: Array[Vector2], motion_seconds: float = 0.55) -> bool:
-	if not is_tub_active() or points.is_empty():
+	if not is_tub_active() or not _tub_drained or points.is_empty():
 		return false
 	if not probe_begin_gesture(points[0]):
 		return false
@@ -299,6 +339,16 @@ func probe_tub_strokes(points: Array[Vector2], motion_seconds: float = 0.55) -> 
 			break
 	probe_end_gesture()
 	return _step >= 2
+
+
+func probe_tap_tub() -> bool:
+	return probe_tap_tub_at(TUB_CENTER)
+
+
+func probe_tap_tub_at(at: Vector2) -> bool:
+	if at.distance_to(TUB_CENTER) > TUB_HALF_WIDTH + 72.0:
+		return false
+	return _begin_tub_drain_reaction()
 
 
 func _process(delta: float) -> void:
@@ -401,7 +451,10 @@ func _on_gesture_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		if touch.pressed:
-			probe_begin_gesture(touch.position)
+			if _step == 1 and not _tub_drained:
+				probe_tap_tub_at(touch.position)
+			else:
+				probe_begin_gesture(touch.position)
 		else:
 			probe_end_gesture()
 		get_viewport().set_input_as_handled()
@@ -412,7 +465,10 @@ func _on_gesture_input(event: InputEvent) -> void:
 		var button := event as InputEventMouseButton
 		if button.button_index == MOUSE_BUTTON_LEFT:
 			if button.pressed:
-				probe_begin_gesture(button.position)
+				if _step == 1 and not _tub_drained:
+					probe_tap_tub_at(button.position)
+				else:
+					probe_begin_gesture(button.position)
 			else:
 				probe_end_gesture()
 			get_viewport().set_input_as_handled()
@@ -485,6 +541,7 @@ func _finish_sink() -> void:
 
 
 func _build_tub_visuals() -> void:
+	_tub_drain_ready = false
 	if _target != null:
 		_target.texture = load(TUB_TARGET_TEXTURE) as Texture2D
 		_target.position = TUB_TARGET_POSITION
@@ -492,6 +549,7 @@ func _build_tub_visuals() -> void:
 	if _sponge != null:
 		_sponge.position = TUB_CENTER
 		_sponge.scale = Vector2.ONE * TUB_TOOL_SCALE
+		_sponge.set_meta("parked_on_tub_rim", false)
 		_sponge.visible = true
 	if _swoosh != null:
 		_swoosh.visible = false
@@ -564,6 +622,77 @@ func _finish_brush_tool_travel() -> void:
 	_tool_traveling = false
 	_busy = false
 	_brush_travel_complete = true
+	if _tub_drained:
+		_build_tub_visuals()
+	else:
+		_build_tub_drain_prompt()
+	_announce_stage()
+
+
+func _build_tub_drain_prompt() -> void:
+	_tub_drain_ready = true
+	if _target != null:
+		_target.visible = false
+	if _sponge != null:
+		# Park the brush against the tub rim instead of leaving it floating on
+		# the floor while the child performs the one-tap drain beat.
+		_sponge.position = Vector2(455.0, 330.0)
+		_sponge.set_meta("parked_on_tub_rim", true)
+		_sponge.visible = true
+	if _guide != null:
+		_guide.position = TUB_CENTER + Vector2(0.0, -45.0)
+		_guide.set_mode("tap")
+		_guide.visible = true
+	if _pointer != null:
+		_pointer.position = TUB_CENTER + Vector2(0.0, -74.0)
+		_pointer.rotation = 0.0
+		_pointer.visible = true
+
+
+func _begin_tub_drain_reaction() -> bool:
+	if _step != 1 or _tub_drained or not _tub_drain_ready or _busy \
+			or _drain_reaction_count > 0:
+		return false
+	_busy = true
+	_active_gesture = false
+	_tub_drain_ready = false
+	_drain_reaction_active = true
+	_drain_reaction_count = 1
+	if _pointer != null:
+		_pointer.visible = false
+	if _guide != null:
+		_guide.visible = false
+	if _sponge != null:
+		_sponge.set_meta("parked_on_tub_rim", false)
+		_sponge.visible = false
+	if _announcements_enabled and m != null:
+		m.show_msg("", "NO!", "")
+		m._say("wacky", "fail", 0.2)
+		_drain_voice_sent = true
+	if _bunny_swimmer != null and is_instance_valid(_bunny_swimmer) \
+			and _bunny_swimmer.play_comic_no():
+		_bunny_swimmer.comic_reaction_finished.connect(
+			_on_bunny_drain_reaction_finished, CONNECT_ONE_SHOT)
+	else:
+		get_tree().create_timer(0.68).timeout.connect(
+			_on_bunny_drain_reaction_finished, CONNECT_ONE_SHOT)
+	return true
+
+
+func _on_bunny_drain_reaction_finished() -> void:
+	if not _drain_reaction_active:
+		return
+	_drain_reaction_active = false
+	_tub_drained = true
+	if m != null:
+		m.day_one_record_bathroom_tub_drained()
+	tub_drain_visual_started.emit()
+	get_tree().create_timer(0.36).timeout.connect(
+		_finish_tub_drain_transition, CONNECT_ONE_SHOT)
+
+
+func _finish_tub_drain_transition() -> void:
+	_busy = false
 	_build_tub_visuals()
 	_announce_stage()
 
@@ -603,7 +732,7 @@ func _tool_position_is_bounded() -> bool:
 
 
 func _finish_tub() -> void:
-	if _busy or _step != 1:
+	if _busy or _step != 1 or not _tub_drained:
 		return
 	_busy = true
 	_active_gesture = false
@@ -680,6 +809,8 @@ func _announce_stage() -> void:
 		return
 	if _step == 0:
 		m.show_msg("Roshan", "Scrub the sink in little circles!", "talk")
+	elif not _tub_drained:
+		m.show_msg("Roshan", "Tap the tub to drain the dirty water!", "talk")
 	else:
 		m.show_msg("Roshan", "Brush the tub back and forth!", "talk")
 	m._say("roshan", "talk", 0.8)

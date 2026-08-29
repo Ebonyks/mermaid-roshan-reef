@@ -5,9 +5,11 @@ const DIRECTOR_SCRIPT: GDScript = preload("res://scripts/day_one_director.gd")
 const REQUIRED_WIRING: Dictionary = {
 	"res://scripts/main.gd": [
 		"var day_one_bathroom_cleanup_step: int = 0",
+		"var day_one_bathroom_tub_drained: bool = false",
 		"DayOneBathroomCleanupLogic",
 		"func day_one_record_bathroom_cleanup_step",
 		"func day_one_record_bathroom_supply_step",
+		"func day_one_record_bathroom_tub_drained",
 		"func day_one_complete_bathroom_scene",
 		"func _sync_day_one_bathroom_cleanup",
 		"func _clear_day_one_bathroom_cleanup",
@@ -18,6 +20,7 @@ const REQUIRED_WIRING: Dictionary = {
 	"res://scripts/day_one_director.gd": [
 		"day_one_bathroom_cleanup_step",
 		"day_one_bathroom_supply_hunt_step",
+		"day_one_bathroom_tub_drained",
 		"saved_bathroom_step",
 	],
 	"res://scripts/games/day_one_bathroom_cleanup.gd": [
