@@ -9,10 +9,11 @@ var failures: int = 0
 func _init() -> void:
 	var main := ReefMain.new()
 	main._prepare_start_menu_launch(false)
-	_check("Continue bypasses Day 1", not main.day_one_is_active())
+	_check("completed or legacy Continue stays beyond Day 1",
+		not main.day_one_is_active())
 	_check("Continue bypasses the legacy intro", not main.first_session)
 	main._prepare_start_menu_launch(true)
-	_check("New Game selects Day 1", main.day_one_is_active())
+	_check("partial Day 1 Continue preserves Day 1", main.day_one_is_active())
 	_check("New Game bypasses the legacy intro", not main.first_session)
 	_probe_wiring()
 	main.free()
@@ -28,8 +29,9 @@ func _probe_wiring() -> void:
 	_check("startup waits for the menu or probe driver",
 		not main_source.contains(
 			"START_AT_CASTLE_GATE and DisplayServer.get_name()"))
-	_check("Continue calls the direct-game route",
-		menu_source.contains("m._launch_from_start_menu(false)"))
+	_check("Continue preserves the loaded Day 1 route",
+		menu_source.contains(
+			"m._launch_from_start_menu(m.day_one_is_active())"))
 	_check("New Game calls the Day 1 route after reload",
 		menu_source.contains("m._launch_from_start_menu(true)"))
 	_check("New Game reload marker survives the scene reset",

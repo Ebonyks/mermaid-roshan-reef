@@ -306,7 +306,14 @@ func _leave_current_activity() -> void:
 		m.brawl_cool = 14.0
 	m._clear_game()
 	m._write_save()
-	if leaving_game == "fairyshoot" and m.fairy_from_galaxy:
+	if leaving_game == "dustboss" and m.day_one_is_active():
+		# Leaving is always safe. The Royal Hall event re-arms from the persisted
+		# all-rooms state, and Roshan returns to the live castle promenade.
+		m.show_msg("Roshan",
+			"Grand Puff will wait for us. The golden castle door is still ready!",
+			"home")
+		m.call_deferred("_enter_level2", true, false, false)
+	elif leaving_game == "fairyshoot" and m.fairy_from_galaxy:
 		m.fairy_from_galaxy = false
 		m.call_deferred("_start_galaxy")
 	elif leaving_game == "fairyshoot" or leaving_name == "Rainbow Slide":

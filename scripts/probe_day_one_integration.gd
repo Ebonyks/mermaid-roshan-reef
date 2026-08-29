@@ -8,6 +8,8 @@ const REQUIRED_WIRING: Dictionary = {
 		"DayOneDirector.new(self)",
 		"func day_one_try_enter_castle_room",
 		"func day_one_activate_castle_room",
+		"_open_day_one_bathroom_search()",
+		"complete_day_one_after_boss()",
 		"_day_one_begin_arrival()",
 		"_day_one_discover_dirty_castle()",
 		"_start_game(dust_boss_fr)",
@@ -38,11 +40,16 @@ func _init() -> void:
 	_check("director uses ReefMain state owner", director.m == main)
 	_check("Day One starts with jobs and opera locked",
 		main.day_one_jobs_locked() and not main.day_one_opera_enabled())
-	_check("only physical bathroom route starts unlocked",
+	_check("Main Hall cleanup owns the first physical gate",
 		main.day_one_can_enter_castle_room("main_hall")
-		and main.day_one_can_enter_castle_room("bubble_bath")
+		and not main.day_one_can_enter_castle_room("bubble_bath")
 		and not main.day_one_can_enter_castle_room("mermaid_pool")
 		and not main.day_one_can_enter_castle_room("opera_hall"))
+	director.hall_cleanup_mask = DayOneDirector.HALL_CLEANUP_COMPLETE_MASK
+	_check("completed Main Hall unlocks only the Bathroom",
+		main.day_one_can_enter_castle_room("bubble_bath")
+		and not main.day_one_can_enter_castle_room("mermaid_pool")
+		and not main.day_one_can_enter_castle_room("playroom"))
 	director.complete_tutorial("bathroom")
 	_check("completion advances the physical castle route",
 		main.day_one_can_enter_castle_room("bubble_bath")
@@ -70,6 +77,14 @@ func _probe_save_patch() -> void:
 	_check("save normalization cannot skip the room order",
 		patch.get("day_one_completed_rooms", []) == ["bathroom", "pool"]
 		and String(patch.get("day_one_current_room", "")) == "stuffie")
+	var pool_checkpoint: Dictionary = DayOneDirector.normalise_save_patch({
+		"day_one_active": true,
+		"day_one_completed_rooms": ["bathroom"],
+		"day_one_pool_cleanup_step": 0,
+		"day_one_pool_skimmer_mask": 0x3F,
+	})
+	_check("save normalization repairs completed Pool milestones",
+		int(pool_checkpoint.get("day_one_pool_cleanup_step", 0)) == 1)
 
 
 func _probe_wiring() -> void:

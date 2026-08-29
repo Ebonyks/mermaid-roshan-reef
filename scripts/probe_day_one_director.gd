@@ -22,7 +22,8 @@ func _init() -> void:
 		and main.day_one_event_seen.has(DayOneDirector.EVENT_ARRIVAL_PLANE_MEDIA)
 		and main.day_one_event_history.size() == 1)
 	director.drain_events()
-	_check("bathroom placeholder completes",
+	director.bathroom_search_mask = 0x07
+	_check("completed bathroom search advances the tutorial",
 		director.complete_tutorial("bathroom")
 		and bool(main.day_one_completed_rooms.get("bathroom", false))
 		and director.is_room_completed("bathroom")
@@ -46,9 +47,9 @@ func _init() -> void:
 		and director.current_room_id == ""
 		and director.can_enter_room("bathroom")
 		and director.can_enter_room("art"))
-	_check("boss trigger gated and idempotent",
+	_check("no-loss boss trigger is retryable until completion",
 		director.trigger_giant_dust_bunny_boss()
-		and not director.trigger_giant_dust_bunny_boss()
+		and director.trigger_giant_dust_bunny_boss()
 		and director.giant_dust_bunny_boss_triggered)
 	_check("discovery emits both hooks", director.discover_dirty_castle()
 		and not director.discover_dirty_castle()
@@ -103,6 +104,27 @@ func _init() -> void:
 		and partial_main.day_one_pool_waterfall_mask == 0x03
 		and partial_main.day_one_pool_seahorse_tugs == 5
 		and not partial_main.day_one_pool_rumi_met)
+	var checkpoint_patch: Dictionary = DayOneDirector.normalise_save_patch({
+		"day_one_active": true,
+		"day_one_completed_rooms": ["bathroom"],
+		"day_one_pool_cleanup_step": 0,
+		"day_one_pool_skimmer_mask": 0x3F,
+	})
+	_check("full skimmer checkpoint derives the next phase",
+		int(checkpoint_patch.get("day_one_pool_cleanup_step", 0)) == 1)
+	var bathroom_checkpoint: Dictionary = DayOneDirector.normalise_save_patch({
+		"day_one_active": true,
+		"day_one_bathroom_search_mask": 0x07,
+	})
+	_check("full bathroom checkpoint derives room completion",
+		bathroom_checkpoint.get("day_one_completed_rooms", []) == ["bathroom"]
+		and int(bathroom_checkpoint.get(
+			"day_one_bathroom_search_mask", 0)) == 0x07)
+	_check("boss victory completes Day One",
+		director.complete_day_one_after_boss()
+		and not director.day_one_active
+		and not director.jobs_are_globally_locked()
+		and director.is_opera_enabled())
 	var later_main: ReefMain = ReefMain.new()
 	var later_day: DayOneDirector = DIRECTOR_SCRIPT.new(later_main) as DayOneDirector
 	later_day.restore_state({"day_one_active": false})
@@ -111,6 +133,10 @@ func _init() -> void:
 		and later_day.is_opera_enabled()
 		and later_day.can_start_opera()
 		and bool(later_day.serialize_state().get("day_one_opera_enabled", false)))
+	var legacy_patch: Dictionary = DayOneDirector.normalise_save_patch({
+		"won": {"old_friend": true}, "pearls": 4, "plays": 9})
+	_check("legacy save without Day One namespace stays on later days",
+		not bool(legacy_patch.get("day_one_active", true)))
 	main.free()
 	restored_main.free()
 	final_main.free()

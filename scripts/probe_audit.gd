@@ -116,6 +116,12 @@ func _init() -> void:
 	day_one.restore_state({})
 	var day_one_ok: bool = reef_main.day_one_jobs_locked() \
 		and not reef_main.day_one_opera_enabled() \
+		and reef_main.day_one_can_enter_castle_room("main_hall") \
+		and not reef_main.day_one_can_enter_castle_room("bubble_bath") \
+		and not reef_main.day_one_can_enter_castle_room("mermaid_pool") \
+		and not reef_main.day_one_can_enter_castle_room("opera_hall")
+	day_one.hall_cleanup_mask = DayOneDirector.HALL_CLEANUP_COMPLETE_MASK
+	day_one_ok = day_one_ok \
 		and reef_main.day_one_can_enter_castle_room("bubble_bath") \
 		and not reef_main.day_one_can_enter_castle_room("mermaid_pool") \
 		and day_one.complete_tutorial("bathroom") \

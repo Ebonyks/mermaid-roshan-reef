@@ -412,6 +412,11 @@ func _init() -> void:
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await process_frame
+	# Exercise the Stage 1 hall from a deterministic dirty state instead of
+	# inheriting whichever user save happens to exist on the test machine.
+	main.set("day_one_active", true)
+	main.set("day_one_hall_cleanup_mask", 0)
+	main.set("day_one_hall_shock_seen", true)
 	if main.has_method("_enter_castle_interior_now"):
 		main._enter_castle_interior_now(false)
 	await process_frame
@@ -419,18 +424,22 @@ func _init() -> void:
 	_check("castle runtime opened", main.get("castle_room_stage") != null)
 	_check_stage_contract(main)
 	_check_navigation_contract(main)
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	_check_dust_bunny_burst_contract(main, rooms)
+	await _check_daddy_partner_burst_contract(main, rooms)
+	# The remainder deliberately audits later rooms. Satisfy the new hall
+	# prerequisite explicitly before direct fixture-room composition checks.
+	main.set("day_one_hall_cleanup_mask", 0xFFF)
+	rooms.sync_day_one_dirty_tiles()
 	# Bubble Bath is deliberately fixture-rich in the authored V2 contract: it
 	# exercises masked water and the buoyant analytic spring without touching a
 	# camera or engine physics body.
-	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	rooms.show_room("bubble_bath", false)
 	await process_frame
 	await process_frame
 	_check("fixture-rich room remains composed", main.get("castle_room_id") == "bubble_bath")
 	_check_stage_contract(main)
 	_check_fixture_contract(main, rooms)
-	_check_dust_bunny_burst_contract(main, rooms)
-	await _check_daddy_partner_burst_contract(main, rooms)
 	# Rebuild every ordinary room and prove that its visible object cards are
 	# contained by the 1280x720 stage. The panoramic Main Hall is intentionally
 	# wider than one viewport and is instead covered by its portal/culling checks.

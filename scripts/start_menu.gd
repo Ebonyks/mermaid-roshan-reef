@@ -233,7 +233,9 @@ func _continue_game() -> void:
 	if not m.has_saved_game:
 		return
 	_dismiss_menu()
-	m._launch_from_start_menu(false)
+	# Continue must preserve the loaded route. A partial Day One save resumes
+	# Day One; a legacy or completed save remains on the later-day route.
+	m._launch_from_start_menu(m.day_one_is_active())
 	if m.chime != null:
 		m.chime.pitch_scale = 1.0
 		m.chime.play()
