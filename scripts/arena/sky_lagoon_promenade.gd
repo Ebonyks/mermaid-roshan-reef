@@ -62,7 +62,7 @@ const SEESAW_SEAT_ANCHORS := [
 	Vector2(270.0, 340.0),
 	Vector2(220.0, 360.0),
 ]
-const SEESAW_RIGHT_SEAT_SOCKET_LOCAL := Vector2(121.0, -35.0)
+const SEESAW_RIGHT_SEAT_SOCKET_MASTER := Vector2(226.13, -9.42)
 const SLIDE_RIDE_START_MASTER := Vector2(-62.0, -325.0)
 const SLIDE_RIDE_CONTROL_MASTER := Vector2(54.0, -217.0)
 const SLIDE_RIDE_FINISH_MASTER := Vector2(250.0, 92.0)
@@ -525,19 +525,19 @@ func _build_playground_screen() -> void:
 	# equipment-local play sockets continue to follow the same nodes.
 	var slide := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
-		Vector2(2452, 1400), 620.0, true, holder)
+		Vector2(2550, 1400), 620.0, true, holder)
 	slide.name = "SkyLagoonSlide"
 	var swing := _build_promenade_swing(Vector2(3200, 1390))
 	var seesaw := _make_sprite(
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-		Vector2(3820, 1500), 265.0, true, holder)
+		Vector2(3826, 1500), 265.0, true, holder)
 	seesaw.name = "SkyLagoonSeesaw"
 	_add_contact_shadow(slide, Vector2(500, 40))
 	_add_contact_shadow(swing, Vector2(580, 42))
 	_add_contact_shadow(seesaw, Vector2(430, 38))
 	_register_target("slide", slide, "playground", "slide", 118.0, 1.10)
-	_register_target("swing", swing, "playground", "swing", 108.0, 1.10)
-	_register_target("seesaw", seesaw, "playground", "seesaw", 106.0, 1.12)
+	_register_target("swing", swing, "playground", "swing", 110.0, 1.10)
+	_register_target("seesaw", seesaw, "playground", "seesaw", 110.0, 1.12)
 
 func _build_promenade_swing(position_master: Vector2) -> Sprite2D:
 	var frame := _make_sprite(SWING_FRAME_TEX, position_master, 480.0, true,
@@ -1405,7 +1405,7 @@ func _tick_seesaw_animation(card: Sprite2D, seesaw: Node2D, timer: float) -> voi
 	card.scale = Vector2.ONE * (PLAY_ROSHAN_HEIGHT_PX \
 		/ maxf(1.0, float(card.texture.get_height()))) * 1.12
 	_place_play_anchor(card, seesaw, SEESAW_SEAT_ANCHORS[frame],
-		SEESAW_RIGHT_SEAT_SOCKET_LOCAL)
+		SEESAW_RIGHT_SEAT_SOCKET_MASTER)
 	play["equipment_rotation"] = seesaw.rotation
 
 func _sprite_alpha_bounds_master(sprite: Sprite2D) -> Rect2:
