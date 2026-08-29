@@ -1,13 +1,76 @@
 # Day One bathroom dirty overlays
 
-Generated 2026-08-27 with the built-in OpenAI image-generation tool as
-project-original, non-destructive transparent overlays. The approved Bubble
-Bath room plate and protected assets were not edited or supplied as delivery
-pixels.
+Generated and extended 2026-08-27 through 2026-08-29 with the built-in OpenAI
+image-generation tool as project-original, non-destructive overlays and room
+states. The approved Bubble Bath room plate and protected assets were not
+edited or supplied as delivery pixels.
 
 ## Full dirty bathroom state
 
-### Final room-readable dirty state (v3)
+### Animation-ready filled state (v4, current filled runtime)
+
+- Selected native master: `room_bubble_bath_dirty_filled_master_v4.png`
+- Native dimensions: 1672x941 RGB
+- Native SHA-256: `25672ba56cc86b8c1efdaa3645eade113d01e4bb6683d4adf5cb073eacdbab8c`
+- Runtime derivative:
+  `assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png`
+- Runtime dimensions: 1024x576 RGBA
+- Runtime SHA-256: `90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f`
+- Generation result identifier:
+  `exec-39bdde3e-00e0-4ba4-8532-3746da1ce104.png`
+- Generation method: OpenAI built-in image generation, precise-object edit.
+- Reference role: v3 was the sole edit target and remained authoritative for
+  the complete room, dirty-water surface, mess, palette, lighting, and
+  composition. The painted bunny was removed only so the approved true-2D
+  swimmer cutout could animate separately without duplicate delivery pixels.
+- Derivation: one whole-canvas Lanczos resize from 1672x941 to 1024x576,
+  followed by RGB-to-RGBA format normalization. No local masking,
+  compositing, fixture extraction, or protected-original edit was used.
+- Final prompt: "Use case precise-object-edit. Remove only the single
+  lavender dust-bunny creature from inside the left bathtub. Restore the
+  small area behind it as uninterrupted murky olive bathwater matching the
+  existing painted surface, waterline, reflections, depth, and tub interior.
+  Preserve the exact 16:9 composition, camera, architecture, lighting,
+  palette, tub shape, dirty water level, tub scum, sink residue, strong
+  toilet grime, footprints, puddles, unfolded towels, baskets, windows,
+  decor, and open space. No creature, character, UI, text, tool, bubbles,
+  duck, watermark, or new decor. Return one complete flattened 2D storybook
+  room image."
+- Review: accepted as the filled gameplay plate because it preserves the v3
+  dirty-room read while allowing one bounded Canvas2D bunny layer to own all
+  idle and comic motion.
+
+### Drained dirty state (v1, current post-tap runtime)
+
+- Selected native master: `room_bubble_bath_dirty_drained_master_v1.png`
+- Native dimensions: 1672x941 RGB
+- Native SHA-256: `145d8599dc6ee8fdbcf56284b2260d208b4ca829ce47b205efcbff7d2f8bfccd`
+- Runtime derivative:
+  `assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png`
+- Runtime dimensions: 1024x576 RGBA
+- Runtime SHA-256: `1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47`
+- Generation result identifier:
+  `exec-113d91bd-86a0-4e23-a078-8df5de239d9f.png`
+- Generation method: OpenAI built-in image generation, precise-object edit.
+- Reference role: the animation-ready v4 filled room was the sole edit target.
+  Everything outside the bathtub basin remained fixed; no approved clean-room
+  pixels or protected asset was edited.
+- Derivation: one whole-canvas Lanczos resize from 1672x941 to 1024x576,
+  followed by RGB-to-RGBA format normalization. No local masking,
+  compositing, fixture extraction, or subject translation was used.
+- Final prompt: "Change only the left bathtub from filled to freshly drained.
+  Remove the murky water completely and reveal the empty peach shell basin at
+  the same perspective and contours. Add a child-friendly warm olive-gray
+  soap-scum waterline and broad cloudy scrub marks, plus damp droplets but no
+  standing water and no creature. Preserve everything outside the basin
+  exactly. No bunny, character, UI, text, tool, bubbles, duck, drain plug,
+  watermark, new mess, or gross imagery. Return a complete full-frame 2D
+  storybook room image."
+- Review: accepted as the causal post-drain state. The dry basin and warm scum
+  provide the clear target for the two-to-three-stroke brush game; the room
+  remains dirty until that action completes.
+
+### Final room-readable dirty state (v3, superseded for runtime)
 
 - Selected native master: `room_bubble_bath_dirty_full_master_v3.png`
 - Native dimensions: 1672x941 RGB
