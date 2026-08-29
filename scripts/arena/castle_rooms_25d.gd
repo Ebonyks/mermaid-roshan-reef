@@ -105,6 +105,7 @@ const ROYAL_HALL_PORTAL_ID := "__royal_hall"
 const ROYAL_HALL_CROWN_EVENT := "crown_welcome"
 const ROYAL_HALL_COMPANION_EVENT := "companion_welcome"
 const ROYAL_HALL_TUTORIAL_EVENT := "combat_tutorial"
+const DAY_ONE_BOSS_EVENT_ID := "day_one_giant_dust_bunny"
 const ROYAL_HALL_MIST_TEXTURE := \
 	"res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
 const ROYAL_HALL_MIST_FADE_SPEED := 2.8
@@ -2491,6 +2492,7 @@ func _royal_hall_event_id() -> String:
 
 func _tick_royal_hall_mist(delta: float) -> void:
 	m.castle_royal_hall_mist_time += maxf(0.0, delta)
+	_sync_day_one_boss_door_pointer()
 	var flutter_ratio: float = clampf(
 		m.castle_royal_hall_mist_flutter_time
 			/ ROYAL_HALL_MIST_FLUTTER_SECONDS, 0.0, 1.0)
@@ -2528,6 +2530,35 @@ func _tick_royal_hall_mist(delta: float) -> void:
 		var in_camera_band: bool = _hall_card_inside_horizontal_span(mist, span)
 		mist.visible = hall_visible and in_camera_band \
 			and (not event_active or tint.a > 0.012)
+
+
+func _sync_day_one_boss_door_pointer() -> void:
+	if m.castle_room_mid_layer == null:
+		return
+	var pointer: Label = m.castle_room_mid_layer.get_node_or_null(
+		"DayOneBossDoorPointer") as Label
+	var should_show: bool = _royal_hall_event_id() == DAY_ONE_BOSS_EVENT_ID \
+		and is_open() and _is_wide_hall()
+	if not should_show:
+		if pointer != null:
+			pointer.visible = false
+		return
+	if pointer == null:
+		pointer = Label.new()
+		pointer.name = "DayOneBossDoorPointer"
+		pointer.size = Vector2(150.0, 132.0)
+		pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		pointer.text = "👇"
+		pointer.z_index = 40
+		StorybookUI.style_label(pointer, 92, StorybookUI.GOLD, 8)
+		m.castle_room_mid_layer.add_child(pointer)
+	var art_position := Vector2(3045.0,
+		100.0 + sin(m.castle_royal_hall_mist_time * 4.2) * 12.0)
+	pointer.position = _hall_art_to_world(
+		art_position, HALL_SIGN_Z + 0.20) - pointer.size * 0.5
+	pointer.visible = true
 
 func _rebuild_touch_items(room_id: String) -> void:
 	_room_build_generation += 1

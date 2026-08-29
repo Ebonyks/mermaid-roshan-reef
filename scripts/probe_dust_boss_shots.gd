@@ -70,7 +70,13 @@ func _init() -> void:
 	await _shot("09_angry_window")
 	# 7. the befriending
 	await _strike()
-	await _shot("10_friends")
+	await _shot("10_befriending_implosion")
+	# Let the friendly beat reach the real Day One terminal handoff, then allow
+	# main to own the returned Canvas promenade again for final evidence.
+	await _pump(70)
+	main.set_process(true)
+	await _settle(90)
+	await _shot("11_post_victory_unlocked_promenade")
 	print("DUSTSHOT|DONE|", out_dir)
 	quit()
 
