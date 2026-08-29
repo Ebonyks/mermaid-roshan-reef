@@ -26,7 +26,7 @@ falls back through llvmpipe to `gl_compatibility`, uploads PNGs only, and
 produces no remote JSON/Mobile PASS. Historical `7391c53c` run `31728755204`
 retains its earlier failed remote Sky renderer subprocess._
 
-Engine/editor/release validator: **exactly Godot 4.7.1-stable**. The
+Engine/editor/release validator: **exactly Godot 4.7.2-stable**. The
 `project.godot` feature tag `"4.7"` records the engine series and does not
 permit Godot 4.4 or a 4.7 development build. Renderer: **Mobile** on every
 platform. GDScript uses tabs and typed variables where present.
@@ -303,7 +303,7 @@ separately under `MA-CI-003`.
 watching*, and it is what keeps every "mercy" and "assist" feature honest.
 
 ```bash
-GODOT=./Godot_v4.7.1-stable_linux.x86_64
+GODOT=./Godot_v4.7.2-stable_linux.x86_64
 $GODOT --headless --import .        # required after any asset change
 GODOT=$GODOT scripts/ci.sh          # import + every trusted probe; nonzero on any FAIL
 ```

@@ -46,7 +46,7 @@ AUDIT_SKY_LAGOON_CAPTURE_COMMIT = "7391c53cd6981a256bd8bfe40ccbb9f72fb723fe"
 AUDIT_SKY_LAGOON_CAPTURE_PARENT = "e6edf559af219edd4e5ce38cab0c5094483be5c6"
 AUDIT_SKY_LAGOON_CANVAS_COMMIT = "51d0abc0d32855a8ba32932599fedd8f59b398b7"
 AUDIT_SKY_LAGOON_CANVAS_PARENT = "1b7d6bdaf89ebc7c9bdeae16fbde0e14079fd8a8"
-GODOT_REQUIREMENT = "exact Godot 4.7.1-stable (not 4.4 or a development build)"
+GODOT_REQUIREMENT = "exact Godot 4.7.2-stable (not 4.4 or a development build)"
 PROTECTED_PATHS = (
 	"assets/book/",
 	"assets/audio/voices/",
@@ -1438,7 +1438,7 @@ def render_script(group: ChangeGroup) -> str:
 		))
 	lines.append("git diff --check")
 	lines.append("git diff --cached --check")
-	lines.append(": \"${GODOT:?Set GODOT to the exact Godot 4.7.1-stable binary}\"")
+	lines.append(": \"${GODOT:?Set GODOT to the exact Godot 4.7.2-stable binary}\"")
 	lines.extend(group.gates)
 	lines.extend((
 		"git status --short",

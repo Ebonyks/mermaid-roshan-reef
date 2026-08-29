@@ -1,15 +1,15 @@
 # CLAUDE.md — Mermaid Roshan: Reef of Light
 
 ## What this is
-A Godot 4.7.1 game for one specific 4-year-old, playable on a 3–4-year-old
+A Godot 4.7.2 game for one specific 4-year-old, playable on a 3–4-year-old
 Android phone by touch. Every decision is weighed against: non-reader,
 one finger, short sessions, zero tolerance for lost progress or fail states.
 The book art and recorded family voices are irreplaceable — never modify,
 recompress destructively, or substitute anything in assets/book/,
 assets/audio/voices/, or assets/characters/friends/ without being asked.
 
-Runtime/editor baseline: exactly Godot 4.7.1-stable (owner decision
-2026-07-29). The `project.godot` feature tag is `"4.7"` because Godot records
+Runtime/editor baseline: exactly Godot 4.7.2-stable (owner decision
+2026-08-29). The `project.godot` feature tag is `"4.7"` because Godot records
 the engine series there; it does not lower the required patch baseline. Do not
 validate releases with Godot 4.4 or a 4.7 development build.
 
@@ -70,7 +70,7 @@ relaxation; no summary here or elsewhere may narrow it.
 - disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
 
 ## Build & test (headless, no display needed)
-GODOT=./Godot_v4.7.1-stable_linux.x86_64   # or `godot` on PATH
+GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or `godot` on PATH
 1. Import (required after any asset change):
    $GODOT --headless --import .
    ⚠ KNOWN DEADLOCK: NPOT textures with compress/mode=2 hang the headless
