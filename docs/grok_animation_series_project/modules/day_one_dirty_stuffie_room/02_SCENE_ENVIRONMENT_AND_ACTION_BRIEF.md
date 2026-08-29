@@ -12,7 +12,7 @@
 
 ## Fixed geography and framing
 
-The clean 16:9 room authority is never mirrored. Preserve the centered shell
+Both 16:9 room-state authorities are never mirrored. Preserve the centered shell
 stuffie nook, left/center/right ceiling lights, two large foreground corner
 baskets, rear-left tent, lower-left stacking rings, lower-right blocks/tunnel
 and broad open central floor.
@@ -24,12 +24,13 @@ frame width. The two wing bunnies remain spatially separate and readable.
 
 ## Storyboard A opening state
 
-The room is dusty and neglected but still warm, toy-like and safe. Add only:
+The room is dusty and neglected but still warm, toy-like and safe. Preserve
+the complete dirty-room authority, including:
 
-- two faint cobweb groups near the upper side walls;
-- three low soft floor scuffs;
-- one small crumb group near the open floor;
-- slightly subdued lavender/peach room light.
+- dim grey-lavender room light and a visible dusty floor film;
+- readable webs around upper walls, columns, rails and ceiling lights;
+- soft lint/dust piles, footprints, smudges and harmless paper/fabric scraps;
+- displaced toys, overfilled untidy baskets and a rumpled central stuffie nook.
 
 These marks are background dressing only. They do not glow, wave, point or
 promise interaction. Exactly three Dust Bunnies are present:
@@ -43,12 +44,12 @@ unhurt. The bunny play is inconsiderate, not violent. Roshan's shock is a quick
 wide-eyed stop and hand-near-mouth gesture, followed by concern—not screaming,
 crying or panic.
 
-## Storyboard B clean starting state
+## Storyboard B dirty starting state
 
-The same room is now neat, bright and calm. The optional webs, scuffs and crumbs
-are gone. Baby Eagle stands at lower center-right in a small breathing idle;
-Roshan remains left. The two former wing bunnies and former center-light bunny
-are completely absent.
+The prior three Dust Bunnies are gone and Baby Eagle now stands at lower
+center-right in a small breathing idle, but the room has not yet been cleaned.
+Roshan remains left. The full dirty background state persists unchanged:
+webs, dust film, piles, marks, scraps and movable-toy disorder remain visible.
 
 Both foreground baskets begin closed/still-looking and full of ordinary
 stuffies. They then wiggle visibly. Exactly four new Dust Bunnies emerge, all
@@ -68,8 +69,11 @@ Baby Eagle notices all four, plants both glittery feet, lowers the body, draws
 both wings back and performs one broad double-wing flap. The gust reads through
 curved pastel air ribbons, a few loose dust curls and the bunnies' coherent
 screen-right/upward tumble. All four bunnies remain individually countable and
-intact until they pass cleanly out of frame. Toys may ruffle but do not fly,
-break or strike anyone. Roshan braces safely, then smiles.
+intact until they pass cleanly out of frame. Only after the fourth bunny exits
+does the trailing gust lift away the remaining webs, dust, lint, scraps and
+floor marks and settle the movable toys into the exact clean-room authority.
+Toys may ruffle but do not fly, break or strike anyone. Roshan braces safely,
+then smiles.
 
 End with a clean, still room, both baskets visible, no Dust Bunnies remaining,
 Baby Eagle proud and upright, and Roshan delighted. No weapons, fighting pose,
@@ -80,5 +84,7 @@ injury, defeat text, explosion, vacuum effect or frightening storm.
 Render as the approved photographed-painted-cel Mermaid Roshan language with
 pastel watercolor/gouache backgrounds, navy/violet contours, restrained
 two/three-tone cel shading, expressive holds and sparse prismatic accents.
-Every shot is a newly generated complete 16:9 sequence. Do not paste, key,
-tween, warp or slide the supplied cutouts over the room. Audio off.
+Every changed frame is a newly generated complete 16:9 image. The dirty-to-clean
+action must be authored as causal full-frame generations of dirt and scraps
+lifting in the trailing gust. Do not crossfade, wipe, composite, morph, tween,
+warp, slide or swap static room plates. Audio off.

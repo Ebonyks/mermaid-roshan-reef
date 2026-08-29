@@ -1,10 +1,10 @@
 block,shot,attempt,status,mode,duration,resolution,starting_frame,reference_1,reference_2,reference_3,reference_4,identity_pass,topology_pass,count_pass,geography_pass,camera_pass,child_readability_pass,notes,output_filename
-B,01,01,PLANNED,still,,16:9,,STUFFIE_ROOM_CLEAN,EAGLE_STANDING,ROSHAN_IDENTITY,STYLE_INTERIOR,,,,,,,clean room; zero bunnies; both baskets visible,
-B,02,01,PLANNED,still,,16:9,B01_CLEAN_CALM_APPROVED,BUNNY_HOP,BUNNY_LIGHT_SWING,BUNNY_BOUNDER,BUNNY_TWIRLER,,,,,,,two bunnies per basket; target split two light/two floor,
-B,03,01,PLANNED,still,,16:9,B02_BASKET_AMBUSH_APPROVED,EAGLE_STANDING,BUNNY_HOP,STYLE_ACTION,,,,,,,,all four intact in gust; broad two-wing silhouette,
-SQB,010,01,PLANNED,video,6s,16:9,B01_CLEAN_CALM_APPROVED,EAGLE_STANDING,ROSHAN_IDENTITY,,,,,,,,,zero bunnies; standing idle,MR_E01_SQ040_SC010_SH010_clean-calm_a01_REVIEW.mp4
-SQB,020,01,PLANNED,video,6s,16:9,SH010_ACCEPTED_END,STUFFIE_ROOM_CLEAN,,,,,,,,,,baskets wiggle left then right; no exposed bunny,MR_E01_SQ040_SC010_SH020_baskets-wiggle_a01_REVIEW.mp4
+B,01,01,PLANNED,still,,16:9,,STUFFIE_ROOM_DIRTY,EAGLE_STANDING,ROSHAN_IDENTITY,STYLE_INTERIOR,,,,,,,dirty room; zero bunnies; both baskets visible,
+B,02,01,PLANNED,still,,16:9,B01_DIRTY_CALM_APPROVED,BUNNY_HOP,BUNNY_LIGHT_SWING,BUNNY_BOUNDER,BUNNY_TWIRLER,,,,,,,dirty state preserved; two bunnies per basket; target split two light/two floor,
+B,03,01,PLANNED,still,,16:9,B02_BASKET_AMBUSH_APPROVED,EAGLE_STANDING,BUNNY_HOP,STUFFIE_ROOM_CLEAN,,,,,,,,all four intact in dirty pre-gust state; clean reference is final-state-only,
+SQB,010,01,PLANNED,video,6s,16:9,B01_DIRTY_CALM_APPROVED,EAGLE_STANDING,ROSHAN_IDENTITY,,,,,,,,,dirty room; zero bunnies; standing idle,MR_E01_SQ040_SC010_SH010_dirty-calm_a01_REVIEW.mp4
+SQB,020,01,PLANNED,video,6s,16:9,SH010_ACCEPTED_END,STUFFIE_ROOM_DIRTY,,,,,,,,,,dirty room preserved; baskets wiggle left then right; no exposed bunny,MR_E01_SQ040_SC010_SH020_baskets-wiggle_a01_REVIEW.mp4
 SQB,030,01,PLANNED,video,8s,16:9,B02_BASKET_AMBUSH_APPROVED,BUNNY_LIGHT_SWING,BUNNY_BOUNDER,BUNNY_TWIRLER,,,,,,,,exactly four emerge; two per basket; two light/two floor,MR_E01_SQ040_SC010_SH030_four-bunnies-emerge_a01_REVIEW.mp4
 SQB,040,01,PLANNED,video,6s,16:9,SH030_ACCEPTED_END,EAGLE_STANDING,,,,,,,,,,all four remain in place; eagle plants feet and draws wings back,MR_E01_SQ040_SC010_SH040_eagle-sets-wings_a01_REVIEW.mp4
-SQB,050,01,PLANNED,video,8s,16:9,B03_WING_BLAST_APPROVED,EAGLE_STANDING,BUNNY_HOP,,,,,,,,,one double-wing flap; exactly four intact exits,MR_E01_SQ040_SC010_SH050_wing-blast_a01_REVIEW.mp4
+SQB,050,01,PLANNED,video,8s,16:9,B03_WING_BLAST_APPROVED,EAGLE_STANDING,BUNNY_HOP,STUFFIE_ROOM_CLEAN,,,,,,,,one double-wing flap; four exit before trailing gust changes dirty room to clean,MR_E01_SQ040_SC010_SH050_wing-blast_a01_REVIEW.mp4
 SQB,060,01,PLANNED,video,6s,16:9,SH050_ACCEPTED_END,STUFFIE_ROOM_CLEAN,EAGLE_STANDING,ROSHAN_IDENTITY,,,,,,,,zero bunnies; no returning props; proud calm resolve,MR_E01_SQ040_SC010_SH060_clean-resolve_a01_REVIEW.mp4

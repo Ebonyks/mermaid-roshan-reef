@@ -10,7 +10,8 @@ Act as continuity supervisor for the two Day One Stuffie Room storyboards. Do
 not generate yet. Confirm the exact unmirrored room geography, Roshan's
 screen-left entrance, correct bag-free Baby Eagle references, Storyboard A's
 three-bunny count and reveal order, Storyboard B's four-bunny basket origins
-and two-light/two-floor split, the harmless wing-gust resolution, 15-second
+and two-light/two-floor split, the dirty room persisting until all four leave,
+the final trailing-gust clean reveal, 15-second
 maximum and audio-off delivery. Warn before generation if a required authority
 is missing. Never use assets/book/baby_eagle.png, Boss Dust Bunny, Rainbow Dust
 Bunny, Little Grey, Lavender Mini or any invented color-coded variant as a
@@ -21,15 +22,17 @@ substitute for the one approved small lavender Playroom Dust Bunny family.
 
 ```text
 Create one complete 16:9 establishing still of the Day One Stuffie Room before
-the rescue. Image 1 owns the exact unmirrored clean room geography. Image 2 is
+the rescue. Image 1 owns the exact unmirrored dirty room geography and every
+visible dirty-state detail. Image 2 is
 the sole Roshan identity authority. Image 3 controls finished painted-cel
 interior style only.
 
 Preserve three ceiling lights, centered shell stuffie nook, two large aqua
 foreground corner baskets, rear-left tent, lower-left stacking rings,
-lower-right blocks/tunnel and broad open floor. Add only two faint upper-side
-cobwebs, three soft floor scuffs, one small crumb group and slightly subdued
-lavender/peach light. The mess is safe and quiet, not toxic.
+lower-right blocks/tunnel and broad open floor. Preserve Image 1's dim
+grey-lavender light, webs, dust film and piles, footprints, smudges, harmless
+scraps, displaced toys, untidy baskets and rumpled center nook. The mess is
+obvious, safe and quiet, not toxic.
 
 Place Roshan entering from screen-left at about 20 percent of frame width, full
 body visible and off-center. Leave the lower middle/right and center light
@@ -135,16 +138,18 @@ exactly three exist in Storyboard A. No backpack, crop, head/body pinning,
 injury, attack, dialogue, camera move, text, UI, photorealism or 3D. Audio off.
 ```
 
-## Storyboard B anchor B01 — clean calm
+## Storyboard B anchor B01 — dirty calm
 
 ```text
-Create one complete 16:9 clean Stuffie Room still. Image 1 owns exact unmirrored
-geography and final bright palette. Image 2 is Baby Eagle's sole complete-body
+Create one complete 16:9 dirty Stuffie Room still. Image 1 owns exact unmirrored
+geography and the full visibly dirty state. Image 2 is Baby Eagle's sole complete-body
 identity authority. Image 3 owns Roshan identity. Image 4 controls finished
 painted-cel interior style only.
 
-The optional webs, scuffs and crumbs are gone. Place Baby Eagle standing proud
-but calm at lower center-right and Roshan smiling at screen-left. Keep both
+The first three Dust Bunnies are gone, but every web, dusty floor mark, lint
+pile, harmless scrap and piece of movable-toy disorder from Image 1 remains.
+Place Baby Eagle standing proud but calm at lower center-right and Roshan
+smiling at screen-left. Keep both
 foreground baskets fully visible, all three lights correct and the central
 floor open. There are zero Dust Bunnies. No backpack, extra character, text,
 UI, photorealism, 3D or composited cutout.
@@ -153,8 +158,8 @@ UI, photorealism, 3D or composited cutout.
 ## Storyboard B anchor B02 — exact four-way basket ambush
 
 ```text
-Create one complete 16:9 action anchor in the exact clean Stuffie Room. Image 1
-owns the accepted clean composition. Image 2 owns small Dust Bunny identity.
+Create one complete 16:9 action anchor in the exact dirty Stuffie Room. Image 1
+owns the accepted dirty composition. Image 2 owns small Dust Bunny identity.
 Image 3 controls safe light-swing pose. Images 4 and 5 control floor-bound and
 twirling action poses only.
 
@@ -174,9 +179,11 @@ do not create or substitute Boss, Rainbow, Grey or Mini variants.
 
 ```text
 Create one complete 16:9 medium-wide action anchor immediately before Baby
-Eagle's gust. Image 1 owns accepted four-bunny positions and room geography.
+Eagle's gust. Image 1 owns accepted four-bunny positions and dirty room
+geography.
 Image 2 owns Baby Eagle identity. Image 3 owns small Dust Bunny identity. Image
-4 controls painted-cel action effects only.
+4 owns the clean room as the final post-gust state only; it has no authority
+over this pre-gust anchor's dirty background.
 
 Baby Eagle stands lower center-right with both glitter feet planted, body
 lowered and both wings drawn back in one strong symmetrical anticipation pose.
@@ -186,24 +193,25 @@ a clear screen-right/upward exit lane. No backpack, weapon, anger, injury,
 missing bunny, extra limb, storm, text, UI, photorealism or 3D.
 ```
 
-## Storyboard B SH010 — clean calm
+## Storyboard B SH010 — dirty calm
 
 ```text
 Animate approved B01 for six seconds with a locked wide camera. Baby Eagle
 performs a small breathing idle and blink; feathers settle. Roshan gives a warm
 relieved smile from screen-left. Both baskets and all three lights remain still
-and fully visible. There are zero Dust Bunnies. End on quiet stillness. Audio
+and fully visible. Preserve the complete dirty background without any cleanup.
+There are zero Dust Bunnies. End on quiet stillness. Audio
 off; no dialogue, new movement source, camera drift, text, UI or 3D.
 ```
 
 ## Storyboard B SH020 — baskets wiggle
 
 ```text
-Animate the accepted clean wide for six seconds, reframed low enough to
+Animate the accepted dirty wide for six seconds, reframed low enough to
 emphasize both foreground baskets while preserving Baby Eagle and Roshan. The
 left basket compresses/rocks once; after a short beat the right basket answers.
 Ordinary stuffies bob slightly but stay inside. No Dust Bunny is exposed yet.
-Baby Eagle and Roshan turn their eyes toward the movement. Keep the room clean
+Baby Eagle and Roshan turn their eyes toward the movement. Keep the dirty state
 and every prop in place. Audio off; no popping bunny, new basket, text, UI,
 camera shake, photorealism or 3D.
 ```
@@ -219,6 +227,9 @@ while one bounds into the right floor lane. Stagger the four launches by a few
 frames but keep each origin and destination readable. End with exactly two
 light bunnies and two floor bunnies; right light empty.
 
+Preserve the complete dirty-room background throughout. No web, dust mark,
+lint pile, scrap or room disorder disappears yet.
+
 No former wing bunnies, fifth bunny, hidden silhouette, teleportation, toy
 leaving a basket, collision, camera orbit, text, UI, photorealism or 3D. Audio
 off.
@@ -233,7 +244,8 @@ plants both glitter feet, lowers the body and draws both wings back. The acting
 is brave and focused, not angry. All four bunnies remain individually visible
 in their exact positions and do not vanish, multiply or move early. Roshan
 stays safely at far left. End on the approved strong anticipation silhouette.
-Audio off; no backpack, weapon, extra limb, text, UI or 3D.
+Preserve the complete dirty-room state. Audio off; no backpack, weapon, extra
+limb, early cleanup, text, UI or 3D.
 ```
 
 ## Storyboard B SH050 — Baby Eagle blows all four away
@@ -246,8 +258,18 @@ release their grips and the two floor bunnies lift; exactly four intact bunnies
 tumble together in separate readable arcs up and toward screen-right until all
 four pass fully out of frame. Their faces are surprised but unharmed.
 
-Roshan braces safely and smiles. Baskets, stuffies, lights, blocks and tent
-ruffle only slightly and remain in place. No bunny pops, dissolves, explodes,
+Keep the complete dirty room unchanged until the fourth bunny is fully outside
+the frame. Then—and only then—the trailing gust visibly lifts away the webs,
+dust film and piles, footprints, smudges, lint and harmless scraps, settles the
+movable toys, brightens the light and finishes on the exact supplied clean-room
+authority. The four bunny exits happen before the cleanup reveal.
+
+Every changed frame must be a newly generated complete full-frame image that
+causally shows the mess lifting in the gust. Do not crossfade, wipe, composite,
+morph, tween or swap between static dirty and clean plates.
+
+Roshan braces safely and smiles. Baskets, lights, blocks and tent remain intact.
+No bunny pops, dissolves, explodes,
 hits a wall, becomes particles or appears injured. No violent storm, camera
 shake, weapon, text, UI, photorealism or 3D. Audio off.
 ```
@@ -255,8 +277,9 @@ shake, weapon, text, UI, photorealism or 3D. Audio off.
 ## Storyboard B SH060 — clean resolve
 
 ```text
-Animate the accepted SH050 ending frame for six seconds as a quiet clean-room
-resolve. Return to the same wide composition as B01. The last pastel air ribbon
+Animate the accepted clean SH050 ending frame for six seconds as a quiet
+clean-room resolve. Use the clean authority for this final state; do not return
+to B01's dirty state. The last pastel air ribbon
 fades; Baby Eagle's wings and feathers settle into a proud upright idle; Roshan
 gives one small delighted bounce or clap at screen-left. Both baskets and all
 room landmarks remain intact. Exactly zero Dust Bunnies remain and none returns

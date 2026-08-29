@@ -59,6 +59,9 @@ is accepted. Mark every attempt `APPROVED`, `REVIEW` or `REJECT` with a reason.
 - Baby Eagle plants both feet, draws both wings back and flaps both once.
 - Gust causality is clear through restrained curved pastel air ribbons.
 - All four bunnies remain intact/countable until they pass out of frame.
+- The fourth bunny is fully outside the frame before any room cleanup begins.
+- The trailing gust visibly causes the dirt and loose scraps to lift away and
+  reaches the exact clean-room authority only after the bunny exits.
 - Bunnies look surprised and playful, not injured, terrified or dead.
 - No popping, implosion, disintegration, vacuuming, crushing, wall impact,
   weapon, explosion or violent storm.
@@ -67,9 +70,15 @@ is accepted. Mark every attempt `APPROVED`, `REVIEW` or `REJECT` with a reason.
 
 ## Gate 7 — dirt/clean state
 
-- Storyboard A has only faint webs, three scuffs, one crumb group and subdued
-  light. Dirt is background dressing, not an interactive target.
-- Storyboard B is visibly clean and bright from its first shot onward.
+- Storyboard A and Storyboard B through the start of `SH050` match the complete
+  materially dirty authority: dimmer light, readable webs, dust film and piles,
+  footprints/smudges, lint, harmless scraps and movable-toy disorder.
+- The room remains dirty after the first three bunnies are gone and while all
+  four basket bunnies emerge, land and face Baby Eagle.
+- No clean room appears before the fourth basket bunny is fully out of frame.
+- The trailing gust then clears the mess through newly generated full frames;
+  the end of `SH050` and all of `SH060` match the clean authority.
+- No crossfade, wipe, composite, morph, tween or static dirty/clean plate swap.
 - No grime repopulates, migrates or becomes a creature.
 - Baskets may wiggle but do not break, spill ordinary stuffies or change design.
 

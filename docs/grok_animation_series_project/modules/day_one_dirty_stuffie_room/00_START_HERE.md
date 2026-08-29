@@ -8,10 +8,11 @@ series as two separate, short-shot storyboards:
 1. `SQ030` — Roshan enters, reacts in shock, notices one Dust Bunny swinging
    from the center light, then discovers sad Baby Eagle on the floor with two
    Dust Bunnies playing on the spread wings.
-2. `SQ040` — after the room looks clean and Baby Eagle is standing, exactly
-   four new Dust Bunnies spring from the two foreground toy baskets; two reach
-   the lights and two land on the floor, then Baby Eagle blows all four away
-   with one broad, safe wing gust.
+2. `SQ040` — after the first three Dust Bunnies are gone and Baby Eagle is
+   standing, the room is still visibly dirty. Exactly four new Dust Bunnies
+   spring from the two foreground toy baskets; two reach the lights and two
+   land on the floor. Baby Eagle blows all four away with one broad, safe wing
+   gust, then the trailing gust clears the room into its clean state.
 
 These are separate editorial storyboards, not one oversized generation. Every
 shot is six or eight seconds at request time and is trimmed to its authored
@@ -55,6 +56,10 @@ into this Grok package so the sequence does not depend on Project memory.
   color-coded variant.
 - Storyboard B has two light bunnies and two floor bunnies—never more, never
   fewer. The earlier wing bunnies are absent.
+- `STUFFIE_ROOM_DIRTY_GEOGRAPHY.png` controls every frame from Storyboard A
+  through the start of `SQ040_SH050`. The room may become clean only after the
+  fourth basket bunny has fully exited in Baby Eagle's final gust. The clean
+  state then holds through `SQ040_SH060`.
 - Baby Eagle's gust is playful and nonviolent. The Dust Bunnies leave as intact,
   surprised, softly spinning fluff. No death, injury, impact or explosion.
 - Gameplay sprites and room screenshots are reference authorities only. Every
@@ -77,7 +82,7 @@ cadence. Accepted ending frames control immediate continuity.
 
 Before generating, return a concise confirmation of: (1) the five shots in the
 dirty-discovery storyboard; (2) its exact count of three Dust Bunnies; (3) the
-six shots in the clean-room basket storyboard; (4) its exact count and landing
+six shots in the dirty-room basket/clean-reveal storyboard; (4) its exact count and landing
 split of four Dust Bunnies; (5) the rejected backpack Baby Eagle image; (6)
 Roshan's left-side entry; (7) the harmless wing-gust rule; and (8) audio-off and
 15-second limits. Name any file you cannot open instead of guessing. Do not
@@ -92,7 +97,8 @@ generate yet.
 - Storyboard B: `PLANNED`, six shots, approximately 28 seconds assembled
 - Baby Eagle: `APPROVED_PRIVATE_CANON`
 - Playroom Dust Bunny: `APPROVED`
-- Stuffie Room clean geography: approved recurring location anchor
+- Stuffie Room dirty geography: approved pre-gust location-state anchor
+- Stuffie Room clean geography: approved final post-gust location-state anchor
 - Human approval required for all six anchor stills before motion generation
 - Pasted external “8-video execution”: `REJECTED_NO_AUDITABLE_MEDIA`; restart
   from the six anchors using the GitHub Project URL handoff

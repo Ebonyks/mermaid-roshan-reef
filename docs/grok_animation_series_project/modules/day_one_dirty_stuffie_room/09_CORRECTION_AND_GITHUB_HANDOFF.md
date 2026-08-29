@@ -48,7 +48,7 @@ request a ZIP.
 - <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/characters/playroom_dust_bunny/IDENTITY_CARD.md>
 - <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/LOCATION_CARD.md>
 
-### Nine exact image authorities
+### Ten exact image authorities
 
 1. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/characters/roshan/ROSHAN_FRONT_IDENTITY.png>
 2. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/characters/roshan/ROSHAN_REAR_POSE_SHEET.png>
@@ -58,7 +58,8 @@ request a ZIP.
 6. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/characters/playroom_dust_bunny/MOTION_LIGHT_SWING.png>
 7. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/characters/playroom_dust_bunny/MOTION_BOUNDER.png>
 8. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/characters/playroom_dust_bunny/MOTION_TWIRLER.png>
-9. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/STUFFIE_ROOM_CLEAN_GEOGRAPHY.png>
+9. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/STUFFIE_ROOM_DIRTY_GEOGRAPHY.png>
+10. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/STUFFIE_ROOM_CLEAN_GEOGRAPHY.png>
 
 ## Paste into the Grok Project sequence chat
 
@@ -88,7 +89,13 @@ Baby Eagle—not the bunnies—creates one harmless gust with both wings. All fo
 bunnies leave intact and remain absent. Roshan enters from screen-left. Never
 use the backpack Baby Eagle. Audio off; maximum 15 seconds per shot.
 
-Do not generate yet. First list the nine image authorities by exact filename
+The dirty room image controls every pre-gust shot in both storyboards. Removing
+the first three bunnies does not clean the room. During Baby Eagle's final wing
+blast, all four basket bunnies must fully exit first; only the trailing gust
+then clears the dirt and reaches the clean room image. Generate complete new
+full frames for this action—no crossfade, wipe, composite or static plate swap.
+
+Do not generate yet. First list the ten image authorities by exact filename
 and domain, then restate the six anchor still IDs. If any URL cannot be opened,
 name that exact URL and stop rather than inventing a substitute.
 ```
@@ -98,11 +105,13 @@ name that exact URL and stop rather than inventing a substitute.
 Generation may resume only when Grok correctly names:
 
 1. `A01_DIRTY_ENTRY`, `A02_CENTER_LIGHT`, `A03_PINNED_EAGLE`;
-2. `B01_CLEAN_CALM`, `B02_BASKET_AMBUSH`, `B03_WING_BLAST`;
-3. all nine image authorities and their domains;
+2. `B01_DIRTY_CALM`, `B02_BASKET_AMBUSH`, `B03_WING_BLAST`;
+3. all ten image authorities and their domains;
 4. counts `3` and `4`, with all actors sharing one bunny identity;
 5. Baby Eagle as the sole gust source;
-6. zero bunnies in Storyboard B's final frame.
+6. zero bunnies in Storyboard B's final frame;
+7. the dirty background persists until all four basket bunnies exit, then the
+   trailing gust alone reveals the clean background.
 
 Only then generate anchor still `A01`. Human approval remains required before
 moving to `A02` or any video shot.
