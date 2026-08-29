@@ -56,6 +56,8 @@ var _customizer_open: bool = false
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	m = main
+	m._navigation_push("day_one_art_studio", self,
+		Callable(m, "_close_day_one_art_studio"))
 	_announcements_enabled = announcements_enabled
 	name = "DayOneArtStudio"
 	position = Vector2.ZERO
@@ -71,6 +73,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 
 
 func teardown() -> void:
+	m._navigation_remove("day_one_art_studio")
 	set_process(false)
 	_customizer_open = false
 	if _world_visual_layer != null and is_instance_valid(_world_visual_layer):

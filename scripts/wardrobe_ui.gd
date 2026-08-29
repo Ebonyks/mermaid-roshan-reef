@@ -15,6 +15,8 @@ func _init(main: ReefMain) -> void:
 func _open_wardrobe() -> void:
 	if m.wardrobe_layer != null:
 		return
+	m._navigation_push("wardrobe", self,
+		Callable(self, "_close_wardrobe"))
 	m._set_world_controls_enabled(false, "wardrobe")
 	m.wardrobe_layer = CanvasLayer.new(); m.wardrobe_layer.layer = 18; m.add_child(m.wardrobe_layer)
 	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); m.wardrobe_layer.add_child(root)
@@ -30,12 +32,6 @@ func _open_wardrobe() -> void:
 	var title := Label.new(); title.text = "Pick your look!"
 	StorybookUI.style_label(title, 48, StorybookUI.INK, 4)
 	title.position = Vector2(60, 18); stage.add_child(title)
-	var back := Button.new()
-	back.name = "WardrobeBackButton"
-	StorybookUI.style_back_button(back, "Back to the bedroom")
-	back.position = Vector2(1140, 18)
-	back.pressed.connect(_close_wardrobe)
-	stage.add_child(back)
 	# ---- preview of the selected skin ----
 	var frame := Panel.new(); frame.position = Vector2(110, 110); frame.size = Vector2(470, 560)
 	var fsb := StorybookUI.panel_style(StorybookUI.GOLD, Color(0.92, 0.96, 1.0, 0.98), 42, 8)
@@ -185,6 +181,8 @@ func _wardrobe_pick(id: String) -> void:
 func _open_stickers() -> void:
 	if m.stickers_layer != null:
 		return
+	m._navigation_push("sticker_book", self,
+		Callable(self, "_close_stickers"))
 	m._set_world_controls_enabled(false, "stickers")
 	m.stickers_layer = CanvasLayer.new(); m.stickers_layer.layer = 18; m.add_child(m.stickers_layer)
 	var root := Control.new(); root.set_anchors_preset(Control.PRESET_FULL_RECT); m.stickers_layer.add_child(root)
@@ -232,13 +230,8 @@ func _open_stickers() -> void:
 		nm.offset_left = 8.0
 		nm.offset_right = -8.0
 		cell.add_child(nm)
-	var xb := Button.new(); xb.name = "StickerBookBackButton"
-	StorybookUI.style_back_button(xb, "Back to the castle")
-	xb.position = Vector2(1128, 24)
-	xb.pressed.connect(_close_stickers)
-	stage.add_child(xb)
-
 func _close_stickers() -> void:
+	m._navigation_remove("sticker_book")
 	if m.stickers_layer != null and is_instance_valid(m.stickers_layer):
 		m.stickers_layer.queue_free()
 	m.stickers_layer = null
@@ -267,6 +260,7 @@ func _wardrobe_done() -> void:
 	_close_wardrobe()
 
 func _close_wardrobe() -> void:
+	m._navigation_remove("wardrobe")
 	var feedback_tween: Tween = m.wd.get("feedback_tween") as Tween
 	if feedback_tween != null and feedback_tween.is_valid():
 		feedback_tween.kill()

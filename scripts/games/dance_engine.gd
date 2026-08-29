@@ -53,7 +53,7 @@ var chart_generation := 0
 
 func _init(reef_main: ReefMain) -> void:
 	main = reef_main
-	layer = 40
+	layer = 27
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_build_ui()
 	visible = false
@@ -105,13 +105,6 @@ func _build_ui() -> void:
 	StorybookUI.style_button(next_song, "secondary", 28, 28)
 	next_song.pressed.connect(_change_song.bind(1))
 	top_bar.add_child(next_song)
-
-	var close_button := Button.new()
-	close_button.name = "DanceBackButton"
-	StorybookUI.style_back_button(close_button, "Back to the opera house")
-	close_button.position = Vector2(1138, 20)
-	close_button.pressed.connect(close_demo)
-	root.add_child(close_button)
 
 	prompt_label = Label.new()
 	prompt_label.text = "Tap the matching arrows!"
@@ -191,6 +184,8 @@ func _build_ui() -> void:
 func open_demo() -> void:
 	if active:
 		return
+	main._navigation_push("dance_demo", self,
+		Callable(self, "close_demo"))
 	prior_paused = get_tree().paused
 	prior_stream = main.music.stream
 	prior_music_position = main.music.get_playback_position()
@@ -204,6 +199,7 @@ func open_demo() -> void:
 
 
 func close_demo() -> void:
+	main._navigation_remove("dance_demo")
 	if not active:
 		return
 	active = false

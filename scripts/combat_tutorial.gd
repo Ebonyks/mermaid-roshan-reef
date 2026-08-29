@@ -108,6 +108,7 @@ class DemoFinger:
 
 func start(main: ReefMain, done_cb: Callable) -> void:
 	m = main
+	m._navigation_push("combat_tutorial", self, Callable(self, "cancel"))
 	finish_cb = done_cb
 	prior_music = m.cur_track
 	m._play_music("combat_tutorial")
@@ -377,6 +378,7 @@ func _win() -> void:
 func _finish() -> void:
 	if state == "done":
 		return
+	m._navigation_remove("combat_tutorial")
 	state = "done"
 	m.hit_engines.erase(he)
 	he.teardown()
@@ -394,6 +396,7 @@ func _finish() -> void:
 func cancel() -> void:
 	if state == "done":
 		return
+	m._navigation_remove("combat_tutorial")
 	if state == "won":
 		_finish()
 		return

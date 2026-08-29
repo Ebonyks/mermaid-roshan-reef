@@ -168,6 +168,7 @@ func start(main: ReefMain, index: int, done_cb: Callable) -> bool:
 		push_error("OperaHouse: invalid Canvas career mapping at slot %d" % index)
 		return false
 	m = main
+	m._navigation_push("opera_act", self, Callable(self, "_leave_early"))
 	finish_cb = done_cb
 	act_index = index
 	state = "playing"
@@ -227,6 +228,7 @@ func _leave_early() -> void:
 func _finish(completed: bool) -> void:
 	if state == "done":
 		return
+	m._navigation_remove("opera_act")
 	state = "done"
 	var completed_cb := finish_cb
 	finish_cb = Callable()

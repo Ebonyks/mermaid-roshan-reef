@@ -237,11 +237,9 @@ func _check_navigation_contract(main: Node) -> void:
 	_check("physical castle door dictionary is populated",
 		room_buttons != null and room_buttons.size() >= 6,
 		"count=%d" % (room_buttons.size() if room_buttons != null else 0))
-	_check("picture elevator owns every direct room route",
-		menu_buttons != null and menu_buttons.size() == CastleRooms25D.ELEVATOR_ROOM_IDS.size(),
-		"count=%d expected=%d" % [
-			menu_buttons.size() if menu_buttons != null else 0,
-			CastleRooms25D.ELEVATOR_ROOM_IDS.size()])
+	_check("picture elevator routes are retired",
+		menu_buttons != null and menu_buttons.is_empty(),
+		"count=%d" % (menu_buttons.size() if menu_buttons != null else 0))
 	_check("castle door hotspot list is populated",
 		door_hotspots != null and door_hotspots.size() >= 6)
 	_check("castle interaction dictionary is populated",

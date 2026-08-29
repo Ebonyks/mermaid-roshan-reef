@@ -64,20 +64,10 @@ func has_nearby() -> bool:
 
 
 func build() -> void:
-	if m.collection_button != null and is_instance_valid(m.collection_button):
-		return
-	var layer := CanvasLayer.new()
-	layer.layer = 11
-	m.add_child(layer)
-	m.collection_button_layer = layer
-	var button := Button.new()
-	button.name = "CritterBookCornerButton"
-	StorybookUI.style_icon_button(button, "♧", "secondary", Vector2(112, 112), "Critter Book")
-	button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-	button.position = Vector2(-278, 18)
-	button.pressed.connect(open_book)
-	layer.add_child(button)
-	m.collection_button = button
+	# No persistent Critter launcher or empty compatibility CanvasLayer. The
+	# collection itself remains intact for diegetic activity routes.
+	m.collection_button_layer = null
+	m.collection_button = null
 
 
 func _context() -> String:
@@ -91,9 +81,11 @@ func _context() -> String:
 func tick(delta: float, ppos: Vector3) -> void:
 	var context := _context()
 	if m.collection_button_layer != null:
-		# also hide while a 2D picture game is open — the paw sits on layer 11
-		# and was covering the minigame's ✕ close button (layer 7)
-		m.collection_button_layer.visible = context != "" and not m.intro_active and m.collection_layer == null and m.mg_kind == ""
+		# Preserve the layer's context lifecycle for overlay restoration code; it
+		# is intentionally empty now that the corner launcher is retired.
+		m.collection_button_layer.visible = context != "" \
+			and not m.intro_active and m.collection_layer == null \
+			and m.mg_kind == ""
 	if context != m.collection_habitat:
 		_spawn_context(context)
 	if context == "" or m.collection_layer != null:
@@ -288,6 +280,8 @@ func _sweep_net() -> void:
 func open_book() -> void:
 	if m.collection_layer != null:
 		return
+	m._navigation_push("critter_book", self,
+		Callable(self, "close_book"))
 	m._set_world_controls_enabled(false, "collection")
 	m.collection_layer = CanvasLayer.new()
 	m.collection_layer.layer = 25
@@ -310,6 +304,7 @@ func open_book() -> void:
 
 
 func close_book() -> void:
+	m._navigation_remove("critter_book")
 	if m.collection_layer != null and is_instance_valid(m.collection_layer):
 		m.collection_layer.queue_free()
 	m.collection_layer = null
@@ -341,13 +336,6 @@ func _draw_book() -> void:
 	StorybookUI.style_label(title, 46, StorybookUI.INK, 4)
 	title.position = Vector2(70, 34)
 	stage.add_child(title)
-
-	var close := Button.new()
-	close.name = "CritterBookBackButton"
-	StorybookUI.style_back_button(close, "Back to the castle")
-	close.position = Vector2(1110, 32)
-	close.pressed.connect(close_book)
-	stage.add_child(close)
 
 	for i in range(CATEGORY_ORDER.size()):
 		var category: String = CATEGORY_ORDER[i]

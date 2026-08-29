@@ -23,6 +23,7 @@ const FAIRY_CONSERVATORY_DOOR := preload(
 	"res://scripts/arena/fairy_conservatory_door_2d.gd")
 const DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE := \
 	"res://assets/flats/castle/rooms/room_mermaid_pool.png"
+const NavigationControllerLogic = preload("res://scripts/navigation_controller.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -644,10 +645,14 @@ var streak_ctx := "none"       # "sea" | "sky" | "off" — restyled when it chan
 var surf_rings: Array = []     # pooled expanding rings on the water underside
 var ring_cool := 0.0
 var flag_sh: Shader = null
+var navigation_layer: CanvasLayer = null
+var global_navigation_button: Button = null
+var navigation_root_id := ""
+var navigation_routes: Array[Dictionary] = []
 var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_dim: ColorRect = null      # full-screen cool dim under the pause panel
-var pause_gear_btn: Button = null    # top-right pause button (128 hit / 112 visual)
+var pause_gear_btn: Button = null    # compatibility alias for global_navigation_button
 var pause_grid: GridContainer = null # secondary icon tiles (probe-checked sizes)
 var pause_resume_btn: Button = null
 var pause_leave_btn: Button = null
@@ -3372,7 +3377,7 @@ func _start_opera() -> void:
 		_castle_rooms_ref().resume(castle_room_id)
 	if _castle_career_routes_ref().open_opera_venue():
 		show_msg("Pearl Opera House",
-			"The grand foyer is open! Ride a bubble lift and swim into a glowing show door!",
+			"The grand foyer is open! Tap a glowing show door!",
 			"home")
 
 
@@ -4372,6 +4377,22 @@ func _add_won_star(fr: Dictionary) -> void:
 # the pause menu overlay lives in scripts/pause_menu.gd
 # (state stays here; PauseMenu receives main by reference)
 var _pause_menu: PauseMenu = null
+var _navigation_controller: NavigationController = null
+
+func _navigation_ref() -> NavigationController:
+	if _navigation_controller == null:
+		_navigation_controller = NavigationControllerLogic.new(self)
+	return _navigation_controller
+
+func _navigation_set_root(route_id: String) -> void:
+	_navigation_ref().set_root(route_id)
+
+func _navigation_push(route_id: String, owner: Object,
+		close_action: Callable) -> void:
+	_navigation_ref().push(route_id, owner, close_action)
+
+func _navigation_remove(route_id: String) -> void:
+	_navigation_ref().remove(route_id)
 
 func _pause_ref() -> PauseMenu:
 	if _pause_menu == null:
@@ -4388,10 +4409,9 @@ func toggle_pause() -> void:
 
 
 func _sync_pause_surface_layer() -> void:
-	# The shipped Castle owns opaque CanvasLayer 14. Keep the phone's pause
-	# affordance above its layer-15 ambient accents. During Opera it sits above
-	# the layer-10 career, layer-11 ambient accents and layer-12 caption HUD.
-	# An opened pause sheet still owns layer 29 beneath the layer-30 fade.
+	# The settings sheet still follows its activity surface. Persistent Back/Menu
+	# navigation lives on its own layer and syncs even while the tree is paused.
+	_pause_ref().sync_global_navigation()
 	if pause_layer == null or get_tree().paused:
 		return
 	var castle_front := castle_room_layer != null \
@@ -5251,6 +5271,12 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 		# (2026-08-02 boss stress test).
 		_game_obj("dustboss", DustBossGame).on_world_tap(screen_pos)
 		return
+	if game != "" and game != "level2" and touch_ui != null:
+		# Button-free activity language: tap the visible play scene to perform
+		# its contextual jump/boost/use action. Direct enemy and authored-object
+		# taps above retain first claim.
+		touch_ui.pulse_context_action(screen_pos)
+		return
 	_interaction_ref().on_world_touch(screen_pos)
 
 # The live hit-engine client, if a battle is running: a standalone arena
@@ -5808,6 +5834,7 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		touch_interactables.clear()
 		_set_objective("", null, "")
 		_collection_ref().tick(0.0, player.position)
+		_navigation_set_root("sky_lagoon")
 		return
 	_build_pearl_castle(LEVEL2_POS)
 	if is_night:
@@ -7046,8 +7073,6 @@ func _open_day_one_art_studio() -> bool:
 	_day_one_art_studio = DayOneArtStudioLogic.new() as DayOneArtStudio
 	castle_room_stage.add_child(_day_one_art_studio)
 	_day_one_art_studio.setup(self)
-	if castle_room_action_button != null:
-		castle_room_action_button.visible = false
 	return true
 
 
@@ -8473,6 +8498,7 @@ func _exit_level2_now(target_kingdom: String = "") -> void:
 	touch_interactables.clear()
 	lagoon_trip_return_master_x = -1.0
 	game = ""
+	_navigation_set_root("")
 	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
 		_sky_lagoon_promenade.teardown()
 	g = {}

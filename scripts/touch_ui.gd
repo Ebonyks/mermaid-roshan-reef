@@ -1,12 +1,13 @@
 extends CanvasLayer
 # Touch controls (Android/tablet):
-#   HYBRID (default): point-to-interact + a contextual lower-right action button;
-#   taps on unclaimed world space are emitted for select/approach/move.
+#   HYBRID (default): point-to-interact with no persistent on-screen controls;
+#   taps on unclaimed world space are emitted for select/approach/move. Active
+#   games may translate that same direct scene tap into their context action.
 #   CLASSIC (rollback): the shipped drag-anywhere stick, tap action and
 #   second-finger camera path is retained below.
 # World taps remain in _unhandled_input so overlays receive first claim.
-# Persistent movement/action/pause controls are claimed in _input: these are
-# visible promises and must not become inert when another Control overlaps.
+# The single global Back/Menu control is claimed in _input so it cannot become
+# inert when another Control overlaps it.
 # A touch has one owner for its lifetime; ownership never changes mid-gesture.
 
 signal world_touched(pos: Vector2)
@@ -68,8 +69,6 @@ var _root: Control
 var _base: Panel
 var _knob: Panel
 var _stick_hint: Panel    # fixed ghost wheel teaching the bottom-left thumb bay
-var _btn: Button          # legacy action button — kept for set_action_label() compat, never shown
-var _act_button: Button = null
 var _touch_idx := -1      # the finger that owns the stick
 var _jump_fingers := {}   # extra fingers currently HELD as jump (swim up while held)
 var _action_fingers := {}
@@ -84,39 +83,12 @@ var _moved := false
 var _manual_emitted := false
 var _press_ms := 0
 var _pulse := 0.0
-var _act_vis: Panel = null
-var _act_lbl: Label = null
-var _act_t := 0.0
 var _action_edge_frames := 0
 
 const R := 78.0
 const TAP_SLOP := 22.0
 const TAP_MS := 300
 const JUMP_HOLD_MS := 140
-const ACTION_PICTOGRAMS := {
-	"JUMP": "↑",
-	"BONK!": "✋",
-	"WAIT": "◇",
-	"PLAY": "▶",
-	"SHOP": "◆",
-	"OPEN": "◇",
-	"SLIDE": "↘",
-	"RACE": "⚑",
-	"ENTER": "✦",
-	"SHOW": "♬",
-	"GET": "★",
-	"SLEEP": "☾",
-	"DRESS": "♛",
-	"MAKE": "✂",
-	"RING": "♫",
-	"TOUCH": "✧",
-	"HUG": "♥",
-	"EXIT": "↩",
-	"CATCH!": "✋",
-	"THROW": "➶",
-	"BUY": "◆",
-	"SWIM": "➜",
-}
 
 func _ready() -> void:
 	layer = 9
@@ -153,46 +125,9 @@ func _ready() -> void:
 	_root.add_child(_base)
 	_root.add_child(_knob)
 	call_deferred("_rest_stick")
-	_btn = Button.new()
-	_btn.visible = false
-	_root.add_child(_btn)
-	# A 176 px real hit target surrounds the 148 px visible action bubble.
-	# Classic mode hides this Control and keeps the original all-screen tap.
-	# The rect is only an anchor/affordance: presses are claimed from raw
-	# ScreenTouch in _hybrid_unhandled_input, because a Control Button only
-	# hears the FIRST finger (mouse-from-touch emulation) — a second finger
-	# pressed while the stick is held would otherwise be silently dropped.
-	if wants_touch():
-		_act_button = Button.new()
-		_act_button.flat = true
-		_act_button.focus_mode = Control.FOCUS_NONE
-		_act_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		_act_button.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-		_act_button.offset_left = -204.0
-		_act_button.offset_top = -224.0
-		_act_button.offset_right = -28.0
-		_act_button.offset_bottom = -48.0
-		var empty := StyleBoxEmpty.new()
-		for style_name: String in ["normal", "hover", "pressed", "focus"]:
-			_act_button.add_theme_stylebox_override(style_name, empty)
-		_root.add_child(_act_button)
-		# Storybook coral bubble: 148 px visible, centred in the 176 px envelope.
-		_act_vis = _circle(Color(1.0, 0.50, 0.48, 0.86), 74.0, StorybookUI.INK, 5)
-		_act_vis.name = "ActionShellMedallion"
-		_act_vis.position = Vector2(14.0, 14.0)
-		_act_button.add_child(_act_vis)
-		_act_lbl = Label.new()
-		_act_lbl.text = _action_display("JUMP")
-		_act_lbl.add_theme_font_size_override("font_size", 27)
-		_act_lbl.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
-		_act_lbl.add_theme_color_override("font_outline_color", Color(0.2, 0.15, 0.35, 0.9))
-		_act_lbl.add_theme_constant_override("outline_size", 8)
-		_act_lbl.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		_act_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		_act_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		_act_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		_act_vis.add_child(_act_lbl)
-		StorybookUI.add_shell_crest(_act_vis, Rect2(46, 104, 56, 40), "ActionShellCrest")
+	# The fixed jump/action bubble is retired. World taps and activity-owned
+	# gestures remain the child-facing vocabulary: tap points, drag travels, and
+	# a deliberate hold performs the context action.
 	set_mode(control_mode)
 
 func _process(delta: float) -> void:
@@ -205,8 +140,8 @@ func _process(delta: float) -> void:
 		_pulse -= delta
 		if _pulse <= 0.0 and _jump_fingers.is_empty() and _action_fingers.is_empty():
 			action_down = false
-	# This classification is intentionally Classic-only. Hybrid gives the
-	# right-side action button and the world tap separate ownership.
+	# Classic retains its short second-finger hold. Hybrid has no invisible
+	# hold-anywhere command; direct scene taps are routed by ReefMain.
 	if control_mode == "classic" and not _pend.is_empty():
 		var now := Time.get_ticks_msec()
 		for idx: Variant in _pend.keys():
@@ -216,11 +151,6 @@ func _process(delta: float) -> void:
 				_arm_action_edge()
 				_flash(_pend[idx]["pos"])
 				_pend.erase(idx)
-	if _act_vis != null:
-		_act_t += delta
-		var pulse_s: float = 1.0 + sin(_act_t * 2.2) * 0.045
-		_act_vis.pivot_offset = _act_vis.size * 0.5
-		_act_vis.scale = Vector2(pulse_s, pulse_s) * (0.88 if action_down else 1.0)
 	if action_just:
 		if _action_edge_frames > 0:
 			_action_edge_frames -= 1
@@ -380,30 +310,26 @@ func rest_zone() -> Rect2:
 
 func movement_zone() -> Rect2:
 	# The whole lower-left thumb bay accepts the stick, while the resting ring
-	# teaches the preferred landing spot. It ends well before the action button.
+	# teaches the preferred landing spot without reserving a second control bay.
 	var vs: Vector2 = _root.size
 	if vs == Vector2.ZERO:
 		vs = get_viewport().get_visible_rect().size
 	return Rect2(0.0, vs.y * 0.52, maxf(390.0, vs.x * 0.34), vs.y * 0.48)
 
 func action_zone() -> Rect2:
-	if _act_button != null:
-		return _act_button.get_global_rect()
-	var vs: Vector2 = _root.size
-	if vs == Vector2.ZERO:
-		vs = get_viewport().get_visible_rect().size
-	return Rect2(vs - Vector2(214.0, 234.0), Vector2(214.0, 234.0))
+	return Rect2()
 
 func pause_zone() -> Rect2:
 	var main: Node = get_parent()
 	if main != null:
-		var pause_button := main.find_child("PauseCornerButton", true, false) as Control
-		if pause_button != null and pause_button.visible:
-			return pause_button.get_global_rect()
+		var navigation := main.find_child(
+			"GlobalNavigationButton", true, false) as Control
+		if navigation != null:
+			return navigation.get_global_rect() if navigation.visible else Rect2()
 	var vs: Vector2 = _root.size
 	if vs == Vector2.ZERO:
 		vs = get_viewport().get_visible_rect().size
-	return Rect2(Vector2(vs.x - 170.0, 0.0), Vector2(170.0, 170.0))
+	return Rect2(Vector2.ZERO, Vector2(148.0, 148.0))
 
 func _pause_zone_owned_by_melody_overlay() -> bool:
 	var main: Node = get_parent()
@@ -568,17 +494,16 @@ func _consume_slide_canvas_return_guard_input(ev: InputEvent) -> bool:
 func reserved_zone_hit(pos: Vector2) -> bool:
 	# True when this router already owns a press at this screen point. Stages
 	# that read the EMULATED MOUSE directly for hold-to-travel must ask first:
-	# that pointer knows nothing about touch ownership, so without this guard a
-	# hold on the action medallion (bottom-right) or in the thumb bay commanded
-	# travel toward that corner of the screen — Roshan strolled off to the right
-	# while the child was simply holding PLAY down.
+	# that pointer knows nothing about touch ownership, so the thumb bay remains
+	# reserved while the removed bottom-right action medallion leaves no dead
+	# rectangle over the artwork.
 	if not wants_touch() or not world_controls_enabled:
 		return false
 	if pause_zone().has_point(pos):
 		return true
 	if control_mode != "hybrid":
 		return false
-	return action_zone().has_point(pos) or movement_zone().has_point(pos)
+	return movement_zone().has_point(pos)
 
 func _clear_touch_state() -> void:
 	if world_press_cancel.is_valid():
@@ -609,8 +534,6 @@ func _clear_touch_state() -> void:
 func set_mode(next_mode: String) -> void:
 	control_mode = "classic" if next_mode == "classic" else "hybrid"
 	_clear_touch_state()
-	if _act_button != null:
-		_act_button.visible = control_mode == "hybrid" and world_controls_enabled
 
 func set_world_controls_enabled(enabled: bool) -> void:
 	if world_controls_enabled == enabled:
@@ -619,8 +542,6 @@ func set_world_controls_enabled(enabled: bool) -> void:
 		return
 	world_controls_enabled = enabled
 	_clear_touch_state()
-	if _act_button != null:
-		_act_button.visible = enabled and control_mode == "hybrid"
 
 func cancel_all_touches() -> void:
 	_clear_touch_state()
@@ -629,13 +550,18 @@ func clear_action_edge() -> void:
 	action_just = false
 	_action_edge_frames = 0
 
+func pulse_context_action(screen_pos: Vector2) -> void:
+	if control_mode != "hybrid" or not world_controls_enabled:
+		return
+	_jump_pulse()
+	_flash(screen_pos)
+
 func _on_action_button_down() -> void:
 	if control_mode != "hybrid" or not world_controls_enabled:
 		return
 	action_down = true
 	_arm_action_edge()
 	_pulse = 0.0
-	_flash(action_zone().get_center())
 
 func _on_action_button_up() -> void:
 	if control_mode == "hybrid":
@@ -647,15 +573,18 @@ func consume_action() -> void:
 	_pulse = 0.0
 	_rest_stick()
 
-func _request_pause() -> void:
+func _request_navigation() -> void:
 	var m: Node = get_parent()
 	# Start advances the always-processing story intro via ReefMain. Do not
 	# also raise the pause sheet over that same press.
 	if m != null and bool(m.get("intro_active")):
 		return
-	if m != null and m.has_method("toggle_pause"):
+	if m != null and m.has_method("_pause_ref"):
 		_clear_touch_state()
-		m.toggle_pause()
+		var navigation: Object = m.call("_pause_ref") as Object
+		if navigation != null and navigation.has_method(
+				"global_navigation_pressed"):
+			navigation.call("global_navigation_pressed")
 
 func _flush_parent_save() -> void:
 	var main: Node = get_parent()
@@ -670,7 +599,7 @@ func _notification(what: int) -> void:
 		_flush_parent_save()
 	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		_clear_touch_state()
-		_request_pause()
+		_request_navigation()
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
 		_clear_touch_state()
 		_flush_parent_save()
@@ -683,8 +612,8 @@ func _unhandled_input(ev: InputEvent) -> void:
 	else:
 		_classic_unhandled_input(ev)
 
-func _action_hit(pos: Vector2) -> bool:
-	return _act_button != null and _act_button.visible and action_zone().has_point(pos)
+func _action_hit(_pos: Vector2) -> bool:
+	return false
 
 func _claim_action(finger_index: int) -> void:
 	touch_owners[finger_index] = TouchOwner.ACTION
@@ -707,7 +636,11 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_press(touch.position, touch.index)
 			else:
 				touch_owners[touch.index] = TouchOwner.WORLD_INTERACT
-				_world_pend[touch.index] = {"pos": touch.position, "moved": false}
+				_world_pend[touch.index] = {
+					"pos": touch.position,
+					"moved": false,
+					"ms": Time.get_ticks_msec(),
+				}
 				if world_press_probe.is_valid() and bool(world_press_probe.call(touch.position)):
 					_world_pend[touch.index]["consumed"] = true
 					_flash(touch.position)
@@ -757,7 +690,11 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_press(mouse_button.position, 99)
 			else:
 				touch_owners[99] = TouchOwner.WORLD_INTERACT
-				_world_pend[99] = {"pos": mouse_button.position, "moved": false}
+				_world_pend[99] = {
+					"pos": mouse_button.position,
+					"moved": false,
+					"ms": Time.get_ticks_msec(),
+				}
 				if world_press_probe.is_valid() and bool(world_press_probe.call(mouse_button.position)):
 					_world_pend[99]["consumed"] = true
 					_flash(mouse_button.position)
@@ -863,16 +800,10 @@ func _classic_unhandled_input(ev: InputEvent) -> void:
 			return
 		_drag(mouse_motion.position)
 
-func set_action_label(text: String) -> void:
-	var display_text: String = _action_display(text)
-	if _btn != null and _btn.text != display_text:
-		_btn.text = display_text
-	if _act_lbl != null and _act_lbl.text != display_text:
-		_act_lbl.text = display_text
-
-func _action_display(text: String) -> String:
-	var pictogram: String = String(ACTION_PICTOGRAMS.get(text, "✦"))
-	return "%s\n%s" % [pictogram, text]
+func set_action_label(_text: String) -> void:
+	# Activity controllers retain this compatibility call, but Hybrid uses the
+	# activity's visible scene rather than an overlay label.
+	pass
 
 func consume_action_just() -> bool:
 	var just_pressed := action_just
@@ -916,9 +847,8 @@ func _input(ev: InputEvent) -> void:
 	# the whole screen while open.
 	if wants_touch() and ev is InputEventScreenTouch:
 		var touch := ev as InputEventScreenTouch
-		if touch.pressed and pause_zone().has_point(touch.position) \
-				and not _pause_zone_owned_by_canvas_overlay():
-			_request_pause()
+		if touch.pressed and pause_zone().has_point(touch.position):
+			_request_navigation()
 			get_viewport().set_input_as_handled()
 			return
 		if control_mode == "hybrid" and world_controls_enabled:
@@ -954,9 +884,8 @@ func _input(ev: InputEvent) -> void:
 		var mouse_button := ev as InputEventMouseButton
 		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
 				and mouse_button.button_index == MOUSE_BUTTON_LEFT:
-			if mouse_button.pressed and pause_zone().has_point(mouse_button.position) \
-					and not _pause_zone_owned_by_canvas_overlay():
-				_request_pause()
+			if mouse_button.pressed and pause_zone().has_point(mouse_button.position):
+				_request_navigation()
 				get_viewport().set_input_as_handled()
 				return
 			if control_mode == "hybrid" and world_controls_enabled:
@@ -991,7 +920,7 @@ func _input(ev: InputEvent) -> void:
 		if (ev as InputEventJoypadButton).button_index == JOY_BUTTON_START:
 			toggle = true
 	if toggle:
-		_request_pause()
+		_request_navigation()
 
 static func wants_touch() -> bool:
 	# Touch-first game: editor/debug desktop runs take the touch path too, so the

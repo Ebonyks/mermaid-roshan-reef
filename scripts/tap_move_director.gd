@@ -93,7 +93,7 @@ func tick(delta: float) -> void:
 	m.touch_auto_stall_t = 0.0
 	if m.touch_auto_recoveries >= MAX_RECOVERIES:
 		cancel("stalled")
-		m.show_msg("Roshan", "That way is snug. Use the left circle to wiggle around!", "hint")
+		m.show_msg("Roshan", "That way is snug. Tap another nearby spot!", "hint")
 		return
 	m.touch_auto_recoveries += 1
 	var to_goal: Vector3 = m.touch_auto_target - m.player.position

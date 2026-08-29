@@ -17,6 +17,8 @@ func _mg2d_open(kind: String) -> void:
 	if kind == "slide":
 		m._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen
 		return
+	m._navigation_push("picture_game", self,
+		Callable(self, "_mg2d_close"))
 	open_generation += 1
 	m._set_world_controls_enabled(false, "picture_game")
 	m.mg_kind = kind
@@ -77,14 +79,7 @@ func _mg2d_open(kind: String) -> void:
 	StorybookUI.add_shell_crest(header, Rect2(20, 27, 82, 60),
 		"PictureGameShellCrest")
 	m.mg["hud"] = _mg_label("", 34, Vector2(124, 34))
-	# A neutral doorway/back affordance so leaving never reads as failure.
-	var xb := Button.new()
-	xb.name = "PictureGameBackButton"
-	StorybookUI.style_back_button(xb, "Back to the castle")
-	xb.position = Vector2(1128, 26)
-	xb.pressed.connect(_mg2d_close)
-	m.mg2d_stage.add_child(xb)
-	m.mg["xbtn"] = xb
+	m.mg["xbtn"] = null
 	if kind == "snowman": _mg_build_snowman()
 	elif kind == "garden": _mg_build_garden()
 	elif kind == "trampoline": _mg_build_trampoline()
@@ -299,6 +294,7 @@ func _mg2d_finish_win(expected_root: Control, expected_generation: int) -> void:
 
 
 func _mg2d_close(expected_generation: int = -1) -> void:
+	m._navigation_remove("picture_game")
 	# A win schedules this close after its celebration. The child may use Back
 	# (or Pause -> Leave) and open another picture first. A delayed callback may
 	# only close the exact opening that won, never the child's newer activity.
@@ -653,7 +649,7 @@ func _mg_build_trampoline() -> void:
 	m.mg["star_y"] = 90.0
 	(m.mg["hud"] as Label).text = "Tap JUMP to bounce up and TOUCH the star!"
 	m.mg["star"] = _mg_sprite("res://assets/mg/star.png", Vector2(640, 90), Vector2(140, 140))
-	# trampoline (kept high enough that the JUMP button fits on the 1280x720 stage in landscape)
+	# trampoline (kept high enough for a clear 1280x720 landscape silhouette)
 	var tramp := _mg_circle(Vector2(640, 520), 200.0, Color(0.25, 0.5, 0.85))
 	tramp.size.y = 56.0
 	tramp.position = Vector2(640 - 200, 492)
