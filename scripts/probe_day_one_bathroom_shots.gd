@@ -105,6 +105,7 @@ func _run() -> void:
 		and bool(dirty_plate_entry.get("true_2d", false))
 		and bool(dirty_plate_entry.get("contains_tub_swimmer", false))
 		and bool(dirty_plate_entry.get("bunny_depth_occluded", false))
+		and bool(dirty_plate_entry.get("clean_fixture_pixels_occluded", false))
 		and not bool(dirty_plate_entry.get(
 			"clean_fixture_layer_visible", true))
 		and dirty_plate_entry.get("texture_size", Vector2i.ZERO)

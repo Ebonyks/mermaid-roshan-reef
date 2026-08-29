@@ -139,6 +139,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 func teardown() -> void:
 	set_process(false)
 	_restore_clean_room_visuals()
+	_clear_dirty_room_plate(false)
 	if _cleaning_stage != null and is_instance_valid(_cleaning_stage):
 		_cleaning_stage.teardown()
 	_cleaning_stage = null
@@ -396,27 +397,40 @@ func _build_dirty_room_plate() -> void:
 	_dirty_room_plate.texture = DIRTY_ROOM_TEXTURE
 	_dirty_room_plate.position = StorybookUI.CANVAS_SIZE * 0.5
 	_dirty_room_plate.scale = Vector2.ONE * 1.25
-	_dirty_room_plate.z_index = 1
+	# The castle world root sits below Control chrome. Mount the plate there at
+	# the painter seam between fixed fixtures (z 55) and Roshan (z >= 125), so
+	# the clean fixtures are covered but Roshan and her shadow stay visible.
+	_dirty_room_plate.z_index = 100
 	_dirty_room_plate.set_meta(
 		"source_asset_role", "day_one_dirty_bathroom_full_plate")
 	_dirty_room_plate.set_meta("true_2d", true)
 	_dirty_room_plate.set_meta("contains_tub_swimmer", true)
 	_dirty_room_plate.set_meta("bunny_depth_occluded", true)
-	add_child(_dirty_room_plate)
-	move_child(_dirty_room_plate, 0)
+	if m.castle_room_world_root != null:
+		m.castle_room_world_root.add_child(_dirty_room_plate)
+	else:
+		_dirty_room_plate.z_index = 1
+		add_child(_dirty_room_plate)
 
 
 func reveal_clean_room() -> void:
 	_restore_clean_room_visuals()
+	_clear_dirty_room_plate(true)
+
+
+func _clear_dirty_room_plate(animated: bool) -> void:
 	if _dirty_room_plate == null or not is_instance_valid(_dirty_room_plate):
 		_dirty_room_plate = null
 		return
 	var plate: Sprite2D = _dirty_room_plate
 	_dirty_room_plate = null
-	var reveal: Tween = plate.create_tween()
-	reveal.tween_property(plate, "modulate:a", 0.0, 0.34) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	reveal.tween_callback(plate.queue_free)
+	if animated and plate.is_inside_tree():
+		var reveal: Tween = plate.create_tween()
+		reveal.tween_property(plate, "modulate:a", 0.0, 0.34) \
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		reveal.tween_callback(plate.queue_free)
+	else:
+		plate.queue_free()
 
 
 func day_one_bathroom_plate_snapshot() -> Dictionary:
@@ -430,6 +444,8 @@ func day_one_bathroom_plate_snapshot() -> Dictionary:
 			_dirty_room_plate.get_meta("contains_tub_swimmer", false)),
 		"bunny_depth_occluded": visible and bool(
 			_dirty_room_plate.get_meta("bunny_depth_occluded", false)),
+		"clean_fixture_pixels_occluded": visible
+			and _dirty_room_plate.z_index == 100,
 		"clean_fixture_layer_visible":
 			m.castle_room_item_visual_layer != null
 			and m.castle_room_item_visual_layer.visible,
