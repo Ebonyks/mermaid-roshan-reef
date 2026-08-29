@@ -8,6 +8,7 @@ extends RefCounted
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const ANCHORS := preload("res://scripts/roshan_sprite_anchors.gd")
 const FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
+const SPRITE_TRANSITION_2D := preload("res://scripts/sprite_transition_2d.gd")
 
 const MASTER_SIZE := Vector2(6144.0, 2048.0)
 const BACKDROP_COLUMNS := 6
@@ -290,6 +291,7 @@ func teardown() -> void:
 		"lagoon_master_x", "lagoon_master_y", "lagoon_route_t",
 		"lagoon_camera_x", "lagoon_plane_t", "lagoon_hop_t",
 		"lagoon_roshan_anim_t", "lagoon_roshan_frame", "lagoon_ambient_t",
+		"lagoon_roshan_smoother",
 		"lagoon_press_t", "lagoon_press_position",
 	]:
 		m.g.erase(key)
@@ -580,7 +582,12 @@ func _build_roshan_card() -> void:
 	card.set_meta("canvas_layer_role", "actor")
 	card.set_meta("source_owned", true)
 	(m.g.get("lagoon_actor_layer") as Node2D).add_child(card)
+	var smoother: Variant = SPRITE_TRANSITION_2D.new()
+	smoother.name = "TemporalSpriteTransition"
+	card.add_child(smoother)
+	smoother.setup(card, 3, false)
 	m.g["lagoon_roshan_card"] = card
+	m.g["lagoon_roshan_smoother"] = smoother
 	m.g["lagoon_roshan_anim_t"] = 0.0
 	m.g["lagoon_roshan_frame"] = 2
 	_add_contact_shadow(card, Vector2(175, 48))
@@ -636,6 +643,8 @@ func _add_contact_shadow(sprite: Sprite2D, size_master: Vector2) -> Sprite2D:
 	shadow.set_meta("canvas_layer_role", "contact_shadow")
 	shadow.set_meta("contact_shadow", true)
 	shadow.set_meta("source_owned", true)
+	shadow.set_meta("contact_shadow_base_scale", shadow.scale)
+	shadow.set_meta("contact_shadow_base_modulate", shadow.modulate)
 	sprite.get_parent().add_child(shadow)
 	sprite.set_meta("contact_shadow", shadow)
 	_sync_contact_shadow(sprite)
@@ -920,23 +929,68 @@ func _tick_roshan_animation(delta: float) -> void:
 	var moving: bool = bool(card.get_meta("walking", false))
 	var timer: float = float(m.g.get("lagoon_roshan_anim_t", 0.0)) + delta
 	m.g["lagoon_roshan_anim_t"] = timer
+	var previous_frame: int = int(m.g.get("lagoon_roshan_frame", 2))
+	var was_moving: bool = bool(card.get_meta("roshan_was_moving", false))
+	var smoother: Variant = m.g.get("lagoon_roshan_smoother")
 	var frame_index: int
+	var stroke_lift := 0.0
 	if moving:
 		frame_index = int(floor(timer * 9.0)) % 16
+		var smooth_neighbors: bool = was_moving and frame_index != previous_frame \
+			and smoother != null and is_instance_valid(smoother)
+		if smooth_neighbors:
+			smoother.capture()
 		card.texture = ROSHAN_SWIM_FRONT
 		card.region_rect = FRAMES.region("swim_front", frame_index, 4)
 		card.offset = ANCHORS.correction("swim_front", frame_index,
 			ANCHORS.anchor("directional", 2), card.flip_h) \
 			+ FRAMES.offset_correction("swim_front", frame_index, card.flip_h)
+		var stroke_phase: float = timer * 9.0 / 16.0 * TAU
+		stroke_lift = absf(sin(stroke_phase))
+		var base_scale := Vector2.ONE * (PLAYER_HEIGHT_PX / 256.0)
+		card.scale = base_scale * Vector2(
+			1.0 + stroke_lift * 0.008, 1.0 - stroke_lift * 0.006)
+		card.rotation = (-0.018 if card.flip_h else 0.018) \
+			+ sin(stroke_phase) * 0.010
+		if smooth_neighbors:
+			smoother.play_captured(1.0 / 9.0,
+				Vector2(-1.5 if card.flip_h else 1.5, 0.0))
 	else:
 		frame_index = 2
+		if was_moving and smoother != null and is_instance_valid(smoother):
+			smoother.cancel()
 		card.texture = ROSHAN_DIRECTIONAL
 		card.region_rect = FRAMES.region("directional", frame_index, 4)
-		card.offset = Vector2(0.0, sin(timer * 1.65) * 1.8)
+		var breath: float = sin(timer * 1.65)
+		card.offset = Vector2(0.0, breath * 1.8)
+		card.scale = Vector2.ONE * (PLAYER_HEIGHT_PX / 256.0) \
+			* Vector2(1.0 + breath * 0.008, 1.0 - breath * 0.006)
+		card.rotation = sin(timer * 0.72) * 0.008
 	m.g["lagoon_roshan_frame"] = frame_index
+	card.set_meta("roshan_was_moving", moving)
 	var hop_t: float = maxf(0.0, float(m.g.get("lagoon_hop_t", 0.0)) - delta)
 	m.g["lagoon_hop_t"] = hop_t
-	card.position.y -= sin((hop_t / 0.32) * PI) * 26.0 if hop_t > 0.0 else 0.0
+	var hop_lift := sin((hop_t / 0.32) * PI) if hop_t > 0.0 else 0.0
+	card.position.y -= hop_lift * 26.0
+	card.scale *= Vector2(1.0 - hop_lift * 0.035, 1.0 + hop_lift * 0.055)
+	_apply_roshan_shadow_depth(card, maxf(stroke_lift * 0.25, hop_lift))
+
+func _apply_roshan_shadow_depth(card: Sprite2D, lift: float,
+		ground_y: float = NAN) -> void:
+	var shadow: Sprite2D = card.get_meta("contact_shadow") as Sprite2D \
+		if card != null and card.has_meta("contact_shadow") else null
+	if shadow == null or not is_instance_valid(shadow):
+		return
+	var safe_lift: float = clampf(lift, 0.0, 1.0)
+	var base_scale: Vector2 = shadow.get_meta(
+		"contact_shadow_base_scale", shadow.scale) as Vector2
+	var base_modulate: Color = shadow.get_meta(
+		"contact_shadow_base_modulate", shadow.modulate) as Color
+	shadow.scale = base_scale * (1.0 - safe_lift * 0.22)
+	shadow.modulate = Color(base_modulate.r, base_modulate.g,
+		base_modulate.b, base_modulate.a * (1.0 - safe_lift * 0.38))
+	if not is_nan(ground_y):
+		shadow.position = Vector2(card.position.x, ground_y)
 
 func _apply_view_transform(snap: bool = false) -> void:
 	var content: Node2D = m.g.get("lagoon_master_space") as Node2D
@@ -1278,6 +1332,14 @@ func _start_playground_animation(kind: String, equipment: Node2D) -> void:
 	}
 	var card: Sprite2D = m.g.get("lagoon_roshan_card") as Sprite2D
 	if card != null:
+		var smoother: Variant = m.g.get("lagoon_roshan_smoother")
+		if smoother != null and is_instance_valid(smoother):
+			smoother.cancel()
+		var shadow: Sprite2D = card.get_meta("contact_shadow") as Sprite2D \
+			if card.has_meta("contact_shadow") else null
+		if shadow != null and is_instance_valid(shadow):
+			(m.g["lagoon_play_anim"] as Dictionary)["shadow_ground_y"] = \
+				shadow.position.y
 		# Playground poses are authored in one facing. Route movement may have
 		# left the pooled card mirrored after approaching a toy from the right.
 		card.flip_h = false
@@ -1345,7 +1407,11 @@ func _tick_playground_animation(delta: float) -> void:
 		"swing": _tick_swing_animation(card, equipment, timer)
 		"slide": _tick_slide_animation(card, equipment, timer)
 		"seesaw": _tick_seesaw_animation(card, equipment, timer)
-	_sync_contact_shadow(card)
+	var ground_y: float = float(play.get("shadow_ground_y", NAN))
+	var card_bottom: float = card.position.y + _sprite_draw_height(card) * 0.5
+	var lift: float = clampf((ground_y - card_bottom) / 420.0, 0.0, 1.0) \
+		if not is_nan(ground_y) else 0.0
+	_apply_roshan_shadow_depth(card, lift, ground_y)
 	if timer >= float(play.get("dur", 0.0)):
 		_finish_playground_animation()
 
@@ -1474,6 +1540,8 @@ func _tick_playground_settle(card: Sprite2D, play: Dictionary, delta: float) -> 
 	card.position = (play.get("settle_start_position", card.position) as Vector2).lerp(target,
 		smoothstep(0.0, 1.0, progress)) - Vector2(0.0, sin(progress * PI) * PLAY_SETTLE_HOP)
 	card.rotation = lerp_angle(float(play.get("settle_start_rotation", 0.0)), 0.0, progress)
+	var ground_y: float = float(play.get("shadow_ground_y", NAN))
+	_apply_roshan_shadow_depth(card, sin(progress * PI) * 0.35, ground_y)
 	if timer < PLAY_SETTLE_S:
 		return
 	m.g["lagoon_play_anim"] = {}

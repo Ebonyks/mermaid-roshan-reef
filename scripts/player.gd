@@ -104,6 +104,27 @@ const ROSHAN_25D_SHEETS := {
 	"play_b": [preload("res://assets/characters/roshan_25d/roshan_play_b.png"), 4, 4],
 }
 const ROSHAN_25D_KEYFRAMES := 4
+const ROSHAN_SWIM_MIN_CYCLE_HZ := 0.48
+const ROSHAN_SWIM_MAX_CYCLE_HZ := 0.84
+# Four authored poses do not become animation merely by swapping faster. These
+# cumulative marks preserve the accepted cells while giving each verb a real
+# anticipation/action/peak/recovery rhythm. Long quiet verbs spend their time
+# in the readable peak instead of holding every pose for an equal second.
+const ROSHAN_25D_VERB_TIMING := {
+	"wave": [0.16, 0.34, 0.76],
+	"cheer": [0.20, 0.38, 0.78],
+	"clap": [0.12, 0.30, 0.72],
+	"twirl": [0.16, 0.36, 0.75],
+	"look": [0.15, 0.30, 0.82],
+	"giggle": [0.16, 0.34, 0.74],
+	"sleep": [0.10, 0.24, 0.86],
+	"point": [0.16, 0.34, 0.78],
+	"collect": [0.18, 0.42, 0.74],
+	"boing": [0.16, 0.34, 0.62],
+	"hairtwirl": [0.14, 0.30, 0.82],
+	"hum": [0.16, 0.34, 0.72],
+	"flop": [0.16, 0.35, 0.78],
+}
 const ROSHAN_25D_GESTURES := {
 	"wave": ["gesture_a", 0], "cheer": ["gesture_a", 1],
 	"clap": ["gesture_a", 2], "twirl": ["gesture_a", 3],
@@ -355,6 +376,28 @@ func _set_classic_sequence(sequence: Array, phase: int, flip: bool = false) -> v
 		row * ROSHAN_25D_KEYFRAMES + clampi(phase, 0, ROSHAN_25D_KEYFRAMES - 1),
 		flip)
 
+func _verb_frame_at_progress(vname: String, progress: float) -> int:
+	var u: float = clampf(progress, 0.0, 0.9999)
+	# A two-second clap should read as clapping, not one contact held for half a
+	# second. Reuse the accepted approach/contact cells for two crisp beats and
+	# keep the authored settle as the final state.
+	if vname == "clap":
+		if u < 0.12:
+			return 0
+		if u < 0.72:
+			var beat: int = int(floor((u - 0.12) / 0.12))
+			return 1 if posmod(beat, 2) == 0 else 2
+		return 3
+	var marks: Array = ROSHAN_25D_VERB_TIMING.get(
+		vname, [0.25, 0.50, 0.75]) as Array
+	if u < float(marks[0]):
+		return 0
+	if u < float(marks[1]):
+		return 1
+	if u < float(marks[2]):
+		return 2
+	return 3
+
 func _classic_view_angle() -> float:
 	if cam == null or not cam.is_inside_tree():
 		return PI
@@ -400,9 +443,7 @@ func _tick_classic_sprite(speed: float,
 		return
 	if verb != "" and ROSHAN_25D_GESTURES.has(verb):
 		var verb_len: float = maxf(float(VERB_LIB[verb]["len"]), 0.001)
-		var verb_phase: int = mini(
-			int(floor(clampf(verb_t / verb_len, 0.0, 0.9999) * ROSHAN_25D_KEYFRAMES)),
-			ROSHAN_25D_KEYFRAMES - 1)
+		var verb_phase: int = _verb_frame_at_progress(verb, verb_t / verb_len)
 		_set_classic_sequence(ROSHAN_25D_GESTURES[verb] as Array, verb_phase, flip)
 		if verb == "twirl":
 			var spin_u: float = verb_t / verb_len
@@ -466,11 +507,72 @@ func _tick_always_alive_visual(delta: float, speed: float) -> void:
 		if Time.get_ticks_msec() < classic_toy_pose_until_msec:
 			classic_motion_root.position = Vector3.ZERO
 			classic_motion_root.scale = Vector3.ONE
+			classic_motion_root.rotation.z = 0.0
 		else:
 			var breath: float = sin(classic_life_phase)
-			classic_motion_root.position.y = breath * 0.055
-			classic_motion_root.scale = Vector3(
-				1.0 + breath * 0.008, 1.0 - breath * 0.006, 1.0)
+			var root_x := 0.0
+			var root_y := breath * 0.055
+			var root_sx := 1.0 + breath * 0.008
+			var root_sy := 1.0 - breath * 0.006
+			var root_rotation := 0.0
+			if verb != "" and VERB_LIB.has(verb):
+				var verb_len: float = maxf(float(VERB_LIB[verb]["len"]), 0.001)
+				var u: float = clampf(verb_t / verb_len, 0.0, 1.0)
+				var envelope: float = sin(u * PI)
+				var facing: float = -1.0 if classic_sprite_flip else 1.0
+				match verb:
+					"wave":
+						root_y += envelope * 0.07
+						root_rotation = sin(u * TAU) * 0.026 * facing
+					"cheer":
+						root_y += envelope * 0.18
+						root_sx -= envelope * 0.025
+						root_sy += envelope * 0.045
+					"clap":
+						var clap_pulse: float = absf(sin(u * TAU * 2.5)) * envelope
+						root_y += clap_pulse * 0.075
+						root_sx += clap_pulse * 0.020
+						root_sy -= clap_pulse * 0.014
+					"twirl":
+						root_y += envelope * 0.10
+						root_sx += absf(sin(u * TAU)) * 0.025
+						root_sy -= absf(sin(u * TAU)) * 0.012
+					"look":
+						root_x += sin(u * PI) * 0.05 * facing
+						root_rotation = sin(u * PI) * 0.025 * facing
+					"giggle":
+						var giggle_pulse: float = absf(sin(u * TAU * 2.5)) * envelope
+						root_y += giggle_pulse * 0.09
+						root_rotation = sin(u * TAU * 2.5) * envelope * 0.018
+					"sleep":
+						root_y = sin(classic_life_phase * 0.55) * 0.035
+						root_sx = 1.0 + sin(classic_life_phase * 0.55) * 0.006
+						root_sy = 1.0 - sin(classic_life_phase * 0.55) * 0.004
+					"point":
+						root_x += envelope * 0.06 * facing
+						root_rotation = -envelope * 0.040 * facing
+					"collect":
+						root_y -= envelope * 0.08
+						root_sx += envelope * 0.018
+						root_sy -= envelope * 0.018
+					"boing":
+						var boing: float = envelope * envelope
+						root_y += boing * 0.23
+						root_sx -= boing * 0.055
+						root_sy += boing * 0.085
+					"hairtwirl", "hum":
+						root_x += sin(u * TAU) * envelope * 0.055
+						root_rotation = sin(u * TAU) * envelope * 0.030
+					"flop":
+						root_y += envelope * 0.07
+						root_rotation = sin(u * PI) * 0.055 * facing
+			elif _classic_is_carrying():
+				root_y += sin(classic_life_phase * 0.72) * 0.045
+				root_rotation = sin(classic_life_phase * 0.48) * 0.010
+			classic_motion_root.position.x = root_x
+			classic_motion_root.position.y = root_y
+			classic_motion_root.scale = Vector3(root_sx, root_sy, 1.0)
+			classic_motion_root.rotation.z = root_rotation
 	if skin_sprite != null and skin_sprite.visible:
 		skin_t += delta * (2.2 + speed * 0.6)
 		# Alternate full-skin cutouts do not have atlases, so their established
@@ -971,8 +1073,17 @@ func _process(delta: float) -> void:
 
 func _tick_swim_bones(delta: float, speed: float) -> void:
 	# This legacy API name now advances only the 16-frame sprite-atlas clock.
-	swim_phase += delta * (2.2 + speed * 0.9)
+	# The old 2.2 + speed*0.9 clock could demand more than 60 authored swaps per
+	# second at sprint speed, skipping cells on a 30 fps phone. Preserve a useful
+	# 8-13.5 fps range instead; speed changes the force of the stroke, not into a
+	# flickering flipbook.
+	swim_phase += delta * TAU * _swim_cycle_hz(speed)
 	arm_swim_phase += delta * (1.0 + minf(speed * 0.035, 0.9))
+
+func _swim_cycle_hz(speed: float) -> float:
+	var speed_u: float = clampf(speed / 26.0, 0.0, 1.0)
+	return lerpf(ROSHAN_SWIM_MIN_CYCLE_HZ, ROSHAN_SWIM_MAX_CYCLE_HZ,
+		smoothstep(0.0, 1.0, speed_u))
 
 func snap_cam() -> void:
 	# Place the chase camera at its resolved rest pose INSTANTLY. Call after

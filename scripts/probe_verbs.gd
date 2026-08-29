@@ -120,6 +120,27 @@ func _init() -> void:
 	else:
 		print("sprite keyframes: ", original_key_count, " -> ",
 			expanded_key_count, " (exactly 4x)")
+	var slow_swim_fps: float = pl._swim_cycle_hz(0.0) * 16.0
+	var sprint_swim_fps: float = pl._swim_cycle_hz(26.0) * 16.0
+	if slow_swim_fps < 7.5 or sprint_swim_fps > 13.5 \
+			or sprint_swim_fps <= slow_swim_fps:
+		print("FAIL: Roshan swim cadence is not phone-safe: ",
+			slow_swim_fps, "..", sprint_swim_fps, " authored fps")
+	else:
+		print("swim cadence: %.2f..%.2f authored fps (30 fps phone-safe)" \
+			% [slow_swim_fps, sprint_swim_fps])
+	var timing_contract: bool = \
+		pl._verb_frame_at_progress("sleep", 0.50) == 2 \
+		and pl._verb_frame_at_progress("sleep", 0.90) == 3 \
+		and pl._verb_frame_at_progress("clap", 0.20) == 1 \
+		and pl._verb_frame_at_progress("clap", 0.32) == 2 \
+		and pl._verb_frame_at_progress("clap", 0.44) == 1 \
+		and pl._verb_frame_at_progress("clap", 0.56) == 2 \
+		and pl._verb_frame_at_progress("clap", 0.80) == 3
+	if not timing_contract:
+		print("FAIL: Roshan authored anticipation/contact/recovery timing regressed")
+	else:
+		print("gesture timing: non-uniform peaks and two readable clap contacts")
 	if pl.play_verb("nonsense"):
 		print("FAIL: play_verb accepted an unknown verb")
 	for verb_key in pl.VERB_LIB:
