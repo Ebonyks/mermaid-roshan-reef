@@ -45,6 +45,7 @@ func _run() -> void:
 	if failures > 0:
 		quit(1)
 		return
+	root.mode = Window.MODE_WINDOWED
 	root.size = Vector2i(1280, 720)
 	await _frames(4)
 	capture_root = OS.get_environment("DAY_ONE_BATHROOM_CAPTURE_OUT")
@@ -102,12 +103,15 @@ func _run() -> void:
 		and int(entry.get("active_target_count", 0)) == 1
 		and bool(entry.get("localized_fixture_grime", false))
 		and bool(entry.get("basket_clear_of_action_zone", false)))
-	var false_second_tub: Node = main.castle_room_front_layer.get_node_or_null(
+	var false_second_tub_left: Node = main.castle_room_front_layer.get_node_or_null(
 		"room_bubble_bath_front_left")
+	var false_second_tub_right: Node = main.castle_room_front_layer.get_node_or_null(
+		"room_bubble_bath_front_right")
 	var real_bathtub: Dictionary = main.castle_room_item_sprites.get(
 		"bathtub", {}) as Dictionary
 	_check("dirty bathroom has one bathtub silhouette",
-		false_second_tub == null
+		false_second_tub_left == null
+		and false_second_tub_right == null
 		and real_bathtub.get("sprite") is Sprite2D)
 	var elevator: Control = main.castle_room_stage.get_node_or_null(
 		"ElevatorButton") as Control
@@ -222,6 +226,8 @@ func _run() -> void:
 	_check("clean bathroom still has one bathtub silhouette",
 		main.castle_room_front_layer.get_node_or_null(
 			"room_bubble_bath_front_left") == null
+		and main.castle_room_front_layer.get_node_or_null(
+			"room_bubble_bath_front_right") == null
 		and (main.castle_room_item_sprites.get(
 			"bathtub", {}) as Dictionary).get("sprite") is Sprite2D)
 	await _capture("07_clean_pool_route")

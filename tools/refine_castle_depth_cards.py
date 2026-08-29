@@ -222,21 +222,6 @@ CARD_SPECS: tuple[CardSpec, ...] = (
 			(108, 102), (139, 111), (139, 141),
 			(0, 141)),
 	)),
-	CardSpec("bubble_bath", "front_right", (798, 358), (
-		polygon((116, 0), (151, 0), (184, 13), (207, 38), (217, 68),
-			(211, 99), (190, 113), (149, 103), (119, 77)),
-		polygon((45, 55), (70, 40), (105, 38), (144, 48), (181, 65),
-			(205, 87), (212, 119), (203, 148), (179, 169), (140, 181),
-			(78, 178), (48, 158), (34, 128), (32, 91)),
-		# Bottom decoration is three physical clusters, not one floor-sized
-		# polygon.  The transparent gaps are important to Roshan occlusion.
-		polygon((0, 151), (21, 137), (43, 139), (64, 157), (82, 181),
-			(77, 211), (0, 218)),
-		polygon((59, 177), (86, 168), (112, 177), (137, 168), (164, 174),
-			(185, 195), (183, 218), (55, 218)),
-		polygon((164, 145), (184, 123), (208, 120), (226, 133),
-			(226, 218), (178, 218), (174, 190)),
-	)),
 )
 
 
@@ -247,6 +232,14 @@ RETIRED_CARDS: tuple[dict[str, Any], ...] = (
 		"role": "foreground",
 		"path": "assets/flats/castle/rooms/room_bubble_bath_front_left.png",
 		"position": [0, 358],
+		"reason": "phone_scale_shell_towel_basket_silhouette_reads_as_a_false_second_bathtub",
+	},
+	{
+		"room": "bubble_bath",
+		"id": "front_right",
+		"role": "foreground",
+		"path": "assets/flats/castle/rooms/room_bubble_bath_front_right.png",
+		"position": [798, 358],
 		"reason": "phone_scale_shell_towel_basket_silhouette_reads_as_a_false_second_bathtub",
 	},
 	{

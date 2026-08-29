@@ -2197,264 +2197,6 @@
       "source_sha256_kind": "raw_rgba_bytes",
       "transparent_rgb_operation": "zero_rgb_where_alpha_is_zero",
       "visible_rgb_operation": "none_source_room_pixels_only"
-    },
-    {
-      "after": {
-        "alpha_pixels": 31177,
-        "core_bbox": [
-          14,
-          6,
-          226,
-          218
-        ],
-        "core_pixels": 29664,
-        "hidden_rgb_pixels": 0
-      },
-      "alpha_sha256": "5b734d79e6e5b9a877e21a9b843b4747d5525a4b3be04811fb64d820585ac8b6",
-      "before": {
-        "alpha_pixels": 32203,
-        "core_bbox": [
-          14,
-          6,
-          226,
-          218
-        ],
-        "core_pixels": 30879,
-        "hidden_rgb_pixels": 17065
-      },
-      "core_mask_sha256": "704c1f26f343f92290483cd104c9c1eab3bcc59b620f7e5aa9ff627eb936f6b8",
-      "crop": [
-        798,
-        358,
-        1024,
-        576
-      ],
-      "id": "front_right",
-      "keep_shapes": [
-        {
-          "points": [
-            [
-              116,
-              0
-            ],
-            [
-              151,
-              0
-            ],
-            [
-              184,
-              13
-            ],
-            [
-              207,
-              38
-            ],
-            [
-              217,
-              68
-            ],
-            [
-              211,
-              99
-            ],
-            [
-              190,
-              113
-            ],
-            [
-              149,
-              103
-            ],
-            [
-              119,
-              77
-            ]
-          ],
-          "type": "polygon"
-        },
-        {
-          "points": [
-            [
-              45,
-              55
-            ],
-            [
-              70,
-              40
-            ],
-            [
-              105,
-              38
-            ],
-            [
-              144,
-              48
-            ],
-            [
-              181,
-              65
-            ],
-            [
-              205,
-              87
-            ],
-            [
-              212,
-              119
-            ],
-            [
-              203,
-              148
-            ],
-            [
-              179,
-              169
-            ],
-            [
-              140,
-              181
-            ],
-            [
-              78,
-              178
-            ],
-            [
-              48,
-              158
-            ],
-            [
-              34,
-              128
-            ],
-            [
-              32,
-              91
-            ]
-          ],
-          "type": "polygon"
-        },
-        {
-          "points": [
-            [
-              0,
-              151
-            ],
-            [
-              21,
-              137
-            ],
-            [
-              43,
-              139
-            ],
-            [
-              64,
-              157
-            ],
-            [
-              82,
-              181
-            ],
-            [
-              77,
-              211
-            ],
-            [
-              0,
-              218
-            ]
-          ],
-          "type": "polygon"
-        },
-        {
-          "points": [
-            [
-              59,
-              177
-            ],
-            [
-              86,
-              168
-            ],
-            [
-              112,
-              177
-            ],
-            [
-              137,
-              168
-            ],
-            [
-              164,
-              174
-            ],
-            [
-              185,
-              195
-            ],
-            [
-              183,
-              218
-            ],
-            [
-              55,
-              218
-            ]
-          ],
-          "type": "polygon"
-        },
-        {
-          "points": [
-            [
-              164,
-              145
-            ],
-            [
-              184,
-              123
-            ],
-            [
-              208,
-              120
-            ],
-            [
-              226,
-              133
-            ],
-            [
-              226,
-              218
-            ],
-            [
-              178,
-              218
-            ],
-            [
-              174,
-              190
-            ]
-          ],
-          "type": "polygon"
-        }
-      ],
-      "mask_feather_radius": 0.75,
-      "method": "reviewed_physical_subject_intersection",
-      "output_sha256": "4acd135c2552916542b5335e8f50c49ca67a030198305fb34bc6bf22f8c974bc",
-      "path": "assets/flats/castle/rooms/room_bubble_bath_front_right.png",
-      "position": [
-        798,
-        358
-      ],
-      "role": "foreground",
-      "room": "bubble_bath",
-      "source_alpha_path": "assets_src/castle/depth_cards/source_alpha/room_bubble_bath_front_right_alpha.png",
-      "source_alpha_sha256": "edbfd6f858f261ad729b7eadb5c8e4e35c5b005096a98d7cd58321ac34586ef2",
-      "source_room_path": "assets/flats/castle/rooms/room_bubble_bath.png",
-      "source_room_sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
-      "source_sha256": "a9b29a309f4f9dd063ec7b7e476176260ae0b1c5ac9b1728fbba2b06182438bc",
-      "source_sha256_kind": "raw_rgba_bytes",
-      "transparent_rgb_operation": "zero_rgb_where_alpha_is_zero",
-      "visible_rgb_operation": "none_source_room_pixels_only"
     }
   ],
   "constraints": {
@@ -2467,7 +2209,7 @@
   },
   "contact_sheet": {
     "path": "audit/castle_static_depth_cards/static_depth_card_refinement_contact.png",
-    "raw_pixel_sha256": "609a1ed3943fb4b7be15127768633042115b7014b2f0ffd3585ee9e94b243e55"
+    "raw_pixel_sha256": "99d78421d9dc0ecc4349c0e42cebb70a0ee32b901cd9fbbb316f1baf7892983d"
   },
   "generated_by": "tools/refine_castle_depth_cards.py",
   "retired_cards": [
@@ -2482,6 +2224,18 @@
       "role": "foreground",
       "room": "bubble_bath",
       "source_sha256": "2caea3582f401636bf118447618a6a6e408a98df9accf51d4c721b4320dded81"
+    },
+    {
+      "id": "front_right",
+      "path": "assets/flats/castle/rooms/room_bubble_bath_front_right.png",
+      "position": [
+        798,
+        358
+      ],
+      "reason": "phone_scale_shell_towel_basket_silhouette_reads_as_a_false_second_bathtub",
+      "role": "foreground",
+      "room": "bubble_bath",
+      "source_sha256": "4acd135c2552916542b5335e8f50c49ca67a030198305fb34bc6bf22f8c974bc"
     },
     {
       "id": "front_left",
