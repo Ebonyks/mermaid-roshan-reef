@@ -2,8 +2,8 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "9a1754c1",
-    "inventory_date": "2026-08-26",
+    "inventory_head": "a00d7347",
+    "inventory_date": "2026-08-29",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
@@ -7579,7 +7579,7 @@
     "model_import_sidecars": 0,
     "active_untracked_model_import_sidecars": 0,
     "model_archive_files": 0,
-    "production_3d_files": 59,
+    "production_3d_files": 56,
     "probe_3d_files": 66,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
@@ -7611,15 +7611,8 @@
     "assets/shaders/creature_sway.gdshader": {
       "<spatial-shader>": 1
     },
-    "assets/shaders/opaque_storybook_cutout.gdshader": {
-      "<spatial-shader>": 1
-    },
     "assets/shaders/outline.gdshader": {
       "<spatial-shader>": 1
-    },
-    "assets/shaders/seagrass_sway.gdshader": {
-      "<spatial-shader>": 1,
-      "QuadMesh": 1
     },
     "assets/shaders/swing_sway.gdshader": {
       "<spatial-shader>": 1,
@@ -8201,10 +8194,6 @@
       "<lowercase-3d-marker>": 1,
       "Camera3D": 1,
       "Vector3": 24
-    },
-    "shaders/castle_portal_cutout.gdshader": {
-      "<spatial-shader>": 1,
-      "Sprite3D": 1
     }
   },
   "probe_3d_files": {
