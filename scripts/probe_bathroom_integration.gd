@@ -225,6 +225,19 @@ func _run() -> void:
 		and main.game_nodes.is_empty()
 		and main.arena_solids.is_empty()
 		and main.arena_zones.is_empty())
+	var false_second_tub_left: Node = main.castle_room_front_layer.get_node_or_null(
+		"room_bubble_bath_front_left")
+	var false_second_tub_right: Node = main.castle_room_front_layer.get_node_or_null(
+		"room_bubble_bath_front_right")
+	var real_bathtub: Dictionary = main.castle_room_item_sprites.get(
+		"bathtub", {}) as Dictionary
+	_ck("one child-readable bathtub silhouette",
+		false_second_tub_left == null
+		and false_second_tub_right == null
+		and real_bathtub.get("sprite") is Sprite2D,
+		"false_foreground_left=%s false_foreground_right=%s real_bathtub=%s" % [
+			false_second_tub_left != null, false_second_tub_right != null,
+			real_bathtub.has("sprite")])
 	var prop_expectations := _expected_props()
 	_ck("audited V4 bathroom registry", v4_manifest_contract_ok,
 		v4_manifest_contract_detail)
@@ -523,10 +536,8 @@ func _run() -> void:
 		and String(bath_swimmer.get("asset", "")).ends_with(
 			"dust_bunny_swimming.png")
 		and float(bath_swimmer.get("display_width", 0.0)) <= 72.1)
-	_ck("foreground occluders",
-		main.castle_room_front_layer.get_child_count() == 2
-		and (main.castle_room_front_layer.get_child(0) as Sprite2D).z_index
-			> main.castle_room_player_sprite.z_index)
+	_ck("no bathtub-like foreground occluders",
+		main.castle_room_front_layer.get_child_count() == 0)
 	_ck("free-roaming controls disabled",
 		not main.touch_ui.world_controls_enabled
 		and not main.player.visible
