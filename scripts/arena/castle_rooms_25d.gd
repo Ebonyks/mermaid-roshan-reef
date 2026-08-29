@@ -20,8 +20,6 @@ const DAY_ONE_POOL_CLEANUP := preload(
 	"res://scripts/games/day_one_pool_cleanup.gd")
 const DAY_ONE_DUST_BUNNY_SWIMMER := preload(
 	"res://scripts/games/day_one_dust_bunny_swimmer.gd")
-const DAY_ONE_DIRTY_BATHROOM_TEXTURE: Texture2D = preload(
-	"res://assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png")
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const DoorLanguage := preload("res://scripts/castle_door_language.gd")
 const DoorCue := preload("res://scripts/castle_door_cue.gd")
@@ -78,23 +76,6 @@ const DUST_BUNNY_BURST_SCALE_MAX := 0.022
 const DUST_BUNNY_BURST_LIFETIME := 0.48
 const BATHTUB_SWIMMER_BOUNDS := Rect2(220.0, 225.0, 150.0, 112.0)
 const BATHTUB_SWIMMER_START := Vector2(277.0, 255.0)
-# Day One bathtub rescue is a presentation seam only: it reuses the existing
-# fixture-water card and the approved neutral swimmer cutout. These values are
-# material parameters, never replacement artwork or a room-plate tint.
-const BATHTUB_CLEAN_DEEP_COLOR := Color(0.10, 0.50, 0.76, 1.0)
-const BATHTUB_CLEAN_SHALLOW_COLOR := Color(0.48, 0.90, 0.96, 1.0)
-const BATHTUB_CLEAN_FOAM_COLOR := Color(0.96, 1.0, 1.0, 1.0)
-const BATHTUB_CLEAN_ALPHA := 0.24
-const BATHTUB_CLEAN_TURBULENCE := 0.65
-const BATHTUB_CLEAN_EDGE_FOAM := 0.35
-const BATHTUB_DIRTY_DEEP_COLOR := Color(0.18, 0.30, 0.22, 1.0)
-const BATHTUB_DIRTY_SHALLOW_COLOR := Color(0.44, 0.54, 0.31, 1.0)
-const BATHTUB_DIRTY_FOAM_COLOR := Color(0.70, 0.72, 0.47, 1.0)
-const BATHTUB_DIRTY_MODULATE := Color(0.72, 0.80, 0.55, 1.0)
-# Strong enough to read as dingy olive water at phone size while the animated
-# ripple/caustic detail remains visible through the bounded fixture mask.
-const BATHTUB_DIRTY_ALPHA := 0.48
-const BATHTUB_CLEAN_MODULATE := Color.WHITE
 const HALL_SIGN_Z := 0.68
 const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
@@ -873,12 +854,6 @@ var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
 var day_one_pool_cleanup: DayOnePoolCleanup = null
 var day_one_bathtub_swimmer: DayOneDustBunnySwimmer = null
-var day_one_bathroom_dirty_plate: Sprite2D = null
-var _day_one_bathtub_rescue_active := false
-var _day_one_bathtub_fill_enabled := false
-var _day_one_bathtub_dirty_progress := 0.0
-var _day_one_bathtub_swimmer_fade_requested := false
-var _day_one_bathtub_fill_defaults: Dictionary = {}
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -1057,14 +1032,7 @@ func cancel_kitchen_recipe() -> void:
 func close() -> void:
 	m._day_one_clear_castle_dressing()
 	_clear_day_one_pool_cleanup()
-	_clear_day_one_bathroom_dirty_plate(false)
 	_clear_day_one_bathtub_swimmer()
-	_set_bathtub_fill_visible(false)
-	_day_one_bathtub_rescue_active = false
-	_day_one_bathtub_fill_enabled = false
-	_day_one_bathtub_dirty_progress = 0.0
-	_day_one_bathtub_fill_defaults.clear()
-	m.g.erase("day_one_bathtub_filled")
 	_room_build_generation += 1
 	_cancel_composition_transition()
 	_cancel_room_transition()
@@ -1152,7 +1120,6 @@ func tick(delta: float) -> void:
 	m.castle_royal_hall_feedback_cool = maxf(
 		0.0, m.castle_royal_hall_feedback_cool - delta)
 	fixture_rigs.tick(delta)
-	_sync_day_one_bathroom_dirty_plate()
 	_sync_day_one_bathtub_swimmer()
 	_tick_item_affordances(delta)
 	if m.castle_dust_he != null:
@@ -1817,10 +1784,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if room.is_empty() or m.castle_room_background == null:
 		return
 	_clear_day_one_pool_cleanup()
-	_clear_day_one_bathroom_dirty_plate(false)
 	_clear_day_one_bathtub_swimmer()
-	_set_bathtub_fill_visible(false)
-	_day_one_bathtub_fill_defaults.clear()
 	_cancel_room_transition()
 	_cancel_player_motion()
 	_begin_composition_transition()
@@ -1889,7 +1853,6 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_sync_hall_lighting()
 	m._day_one_sync_castle_dressing()
 	_sync_day_one_pool_cleanup(room_id)
-	_sync_day_one_bathroom_dirty_plate()
 	if announce:
 		m._ui_tap()
 		if room_id == "playroom" and not _playroom_rescue_done():
@@ -1917,94 +1880,6 @@ func apply_day_one_cleanup(room_id: String) -> void:
 		var sprite: Sprite2D = record.get("sprite") as Sprite2D
 		if sprite != null and is_instance_valid(sprite):
 			sprite.visible = false
-	if room_id == "bubble_bath":
-		_sync_day_one_bathroom_dirty_plate()
-
-
-func _set_day_one_bathroom_base_visible(visible: bool) -> void:
-	if visible:
-		var tiles_ready: bool = m.castle_room_stage != null \
-			and bool(m.castle_room_stage.get_meta("room_tiles_ready", false))
-		_set_hall_background_visible(false, tiles_ready)
-	else:
-		for tile: Sprite2D in m.castle_room_detail_tiles:
-			if tile != null and is_instance_valid(tile):
-				tile.visible = false
-		if m.castle_room_background != null:
-			m.castle_room_background.visible = false
-	var room_layers: Array[CanvasItem] = [
-		m.castle_room_item_visual_layer,
-		m.castle_room_mid_layer,
-		m.castle_room_front_layer,
-		m.castle_room_item_effect_layer,
-	]
-	for layer: CanvasItem in room_layers:
-		if layer != null and is_instance_valid(layer):
-			layer.visible = visible
-	if m.castle_room_item_hotspot_layer != null:
-		m.castle_room_item_hotspot_layer.visible = visible
-
-
-func _sync_day_one_bathroom_dirty_plate() -> void:
-	var should_show: bool = m.castle_room_id == "bubble_bath" \
-		and m.day_one_is_active() \
-		and not m.day_one_castle_room_is_clean("bubble_bath") \
-		and m.castle_room_world_root != null
-	if not should_show:
-		_clear_day_one_bathroom_dirty_plate(true)
-		return
-	if day_one_bathroom_dirty_plate == null \
-			or not is_instance_valid(day_one_bathroom_dirty_plate):
-		day_one_bathroom_dirty_plate = _new_card(
-			"DayOneDirtyBathroomPlate", DAY_ONE_DIRTY_BATHROOM_TEXTURE)
-		day_one_bathroom_dirty_plate.position = ART_SIZE * ART_TO_STAGE * 0.5
-		day_one_bathroom_dirty_plate.scale = Vector2.ONE * ART_TO_STAGE
-		day_one_bathroom_dirty_plate.z_index = _depth_to_z_index(
-			BACKGROUND_Z + 0.04)
-		day_one_bathroom_dirty_plate.set_meta(
-			"source_asset_role", "day_one_dirty_bathroom_full_plate")
-		day_one_bathroom_dirty_plate.set_meta("true_2d", true)
-		day_one_bathroom_dirty_plate.set_meta("contains_tub_swimmer", true)
-		m.castle_room_world_root.add_child(day_one_bathroom_dirty_plate)
-	day_one_bathroom_dirty_plate.visible = true
-	day_one_bathroom_dirty_plate.modulate = Color.WHITE
-	_set_day_one_bathroom_base_visible(false)
-
-
-func _clear_day_one_bathroom_dirty_plate(animated: bool) -> void:
-	if day_one_bathroom_dirty_plate == null:
-		return
-	_set_day_one_bathroom_base_visible(true)
-	if not is_instance_valid(day_one_bathroom_dirty_plate):
-		day_one_bathroom_dirty_plate = null
-		return
-	var plate: Sprite2D = day_one_bathroom_dirty_plate
-	day_one_bathroom_dirty_plate = null
-	if animated and plate.is_inside_tree():
-		var tween: Tween = plate.create_tween()
-		tween.tween_property(plate, "modulate:a", 0.0, 0.34) \
-			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		tween.tween_callback(plate.queue_free)
-	else:
-		plate.queue_free()
-
-
-func day_one_bathroom_plate_snapshot() -> Dictionary:
-	var visible: bool = day_one_bathroom_dirty_plate != null \
-		and is_instance_valid(day_one_bathroom_dirty_plate) \
-		and day_one_bathroom_dirty_plate.visible
-	return {
-		"dirty_plate_visible": visible,
-		"true_2d": visible and day_one_bathroom_dirty_plate is Sprite2D,
-		"contains_tub_swimmer": visible and bool(
-			day_one_bathroom_dirty_plate.get_meta(
-				"contains_tub_swimmer", false)),
-		"clean_fixture_layer_visible": m.castle_room_item_visual_layer != null \
-			and m.castle_room_item_visual_layer.visible,
-		"texture_size": Vector2i(
-			DAY_ONE_DIRTY_BATHROOM_TEXTURE.get_width(),
-			DAY_ONE_DIRTY_BATHROOM_TEXTURE.get_height()),
-	}
 
 
 func start_day_one_pool_cleanup() -> void:
@@ -2050,34 +1925,16 @@ func _clear_day_one_pool_cleanup() -> void:
 
 
 func _sync_day_one_bathtub_swimmer() -> void:
-	var in_bathroom: bool = m.castle_room_id == "bubble_bath" \
+	var should_show: bool = m.castle_room_id == "bubble_bath" \
+		and m.day_one_is_active() \
+		and bool(m.g.get("day_one_bathtub_filled", false)) \
 		and m.castle_room_item_visual_layer != null
-	if not in_bathroom:
+	if not should_show:
 		_clear_day_one_bathtub_swimmer()
-		_set_bathtub_fill_visible(false)
-		return
-	# The ordinary bubble-bath interaction still owns its filled-water fixture.
-	# Day One owns only this rescue vignette, so do not rewrite the fixture when
-	# the global Day One state is inactive.
-	if not m.day_one_is_active():
-		_clear_day_one_bathtub_swimmer()
-		return
-	if not _day_one_bathtub_fill_enabled \
-			and not bool(m.g.get("day_one_bathtub_filled", false)):
-		_clear_day_one_bathtub_swimmer()
-		_set_bathtub_fill_visible(false)
 		return
 	_set_bathtub_fill_visible(true)
-	_apply_bathtub_fill_style(_day_one_bathtub_dirty_progress)
-	var should_show_swimmer: bool = _day_one_bathtub_rescue_active \
-		and _day_one_bathtub_dirty_progress > 0.001
-	if not should_show_swimmer:
-		_fade_day_one_bathtub_swimmer()
-		return
-	_day_one_bathtub_swimmer_fade_requested = false
 	if day_one_bathtub_swimmer != null \
 			and is_instance_valid(day_one_bathtub_swimmer):
-		day_one_bathtub_swimmer.visible = true
 		return
 	day_one_bathtub_swimmer = DAY_ONE_DUST_BUNNY_SWIMMER.new() \
 		as DayOneDustBunnySwimmer
@@ -2091,231 +1948,30 @@ func _sync_day_one_bathtub_swimmer() -> void:
 		day_one_bathtub_swimmer = null
 
 
-## Starts the visual rescue seam on a dirty, filled bathtub. This deliberately
-## does not create any art: the fixture's existing bounded fill and the shared
-## DayOneDustBunnySwimmer remain the only runtime pixels involved.
-func start_day_one_bathtub_rescue() -> void:
-	if not m.day_one_is_active():
-		return
-	_day_one_bathtub_rescue_active = true
-	_day_one_bathtub_fill_enabled = true
-	_day_one_bathtub_dirty_progress = 1.0
-	_day_one_bathtub_swimmer_fade_requested = false
-	m.g["day_one_bathtub_filled"] = true
-	_sync_day_one_bathtub_swimmer()
-
-
-## Compatibility name for callers that use the Day One cleanup vocabulary.
-func start_day_one_bathtub_cleanup() -> void:
-	start_day_one_bathtub_rescue()
-
-
-## Sets dirty progress in the inclusive [0, 1] range. At zero, the bunny is
-## faded/removed while the same filled water remains visible and is restored to
-## the fixture's original clean material parameters.
-func set_day_one_bathtub_dirty_progress(progress: float) -> void:
-	if not _day_one_bathtub_fill_enabled and progress > 0.001:
-		start_day_one_bathtub_rescue()
-	progress = clampf(progress, 0.0, 1.0)
-	_day_one_bathtub_dirty_progress = progress
-	if progress <= 0.001:
-		_day_one_bathtub_rescue_active = false
-		_day_one_bathtub_swimmer_fade_requested = false
-		_day_one_bathtub_fill_enabled = true
-		m.g["day_one_bathtub_filled"] = true
-	_sync_day_one_bathtub_swimmer()
-
-
-## Completes the visual seam without hiding the now-clean filled bath. The
-## caller owns any Day One Director completion/save transition separately.
-func complete_day_one_bathtub_rescue() -> void:
-	set_day_one_bathtub_dirty_progress(0.0)
-
-
-func _fade_day_one_bathtub_swimmer() -> void:
-	if day_one_bathtub_swimmer == null \
-			or not is_instance_valid(day_one_bathtub_swimmer):
-		day_one_bathtub_swimmer = null
-		return
-	if not day_one_bathtub_swimmer.visible:
-		day_one_bathtub_swimmer.queue_free()
-		day_one_bathtub_swimmer = null
-		return
-	if _day_one_bathtub_swimmer_fade_requested:
-		return
-	_day_one_bathtub_swimmer_fade_requested = true
-	var fading_swimmer: DayOneDustBunnySwimmer = day_one_bathtub_swimmer
-	fading_swimmer.fade_out(0.24)
-	# DayOneDustBunnySwimmer intentionally owns only its visual fade. The room
-	# owner completes the lifecycle a frame later so an invisible stale node
-	# cannot be mistaken for a live rescue or be resurrected on a later sync.
-	m.get_tree().create_timer(0.28).timeout.connect(
-		_finish_day_one_bathtub_swimmer_fade.bind(fading_swimmer),
-		CONNECT_ONE_SHOT)
-
-
-func _finish_day_one_bathtub_swimmer_fade(
-		fading_swimmer: DayOneDustBunnySwimmer) -> void:
-	if day_one_bathtub_swimmer != fading_swimmer:
-		return
-	_clear_day_one_bathtub_swimmer()
-
-
-func _apply_bathtub_fill_style(dirty_progress: float) -> void:
-	var record: Dictionary = m.castle_room_item_sprites.get(
-		"bathtub", {}) as Dictionary
-	var rig: Dictionary = record.get("fixture_rig", {}) as Dictionary
-	for water_value: Variant in rig.get("water", []):
-		var water: Dictionary = water_value as Dictionary
-		if String(water.get("role", "")) != "fill":
-			continue
-		var node: Sprite2D = water.get("node") as Sprite2D
-		var material: ShaderMaterial = water.get("material") as ShaderMaterial
-		if node == null or material == null:
-			continue
-		_capture_bathtub_fill_defaults(node, material)
-		var amount: float = clampf(dirty_progress, 0.0, 1.0)
-		if amount <= 0.001:
-			_restore_bathtub_fill_defaults(node, material)
-			water["day_one_bathtub_water_state"] = "clean"
-			water["day_one_bathtub_dirty_progress"] = 0.0
-			node.set_meta("day_one_bathtub_water_state", "clean")
-			node.set_meta("day_one_bathtub_dirty_progress", 0.0)
-			continue
-		var clean_deep: Color = _day_one_bathtub_fill_defaults.get(
-			"deep_color", BATHTUB_CLEAN_DEEP_COLOR)
-		var clean_shallow: Color = _day_one_bathtub_fill_defaults.get(
-			"shallow_color", BATHTUB_CLEAN_SHALLOW_COLOR)
-		var clean_foam: Color = _day_one_bathtub_fill_defaults.get(
-			"foam_color", BATHTUB_CLEAN_FOAM_COLOR)
-		var clean_modulate: Color = _day_one_bathtub_fill_defaults.get(
-			"node_modulate", BATHTUB_CLEAN_MODULATE)
-		var clean_alpha: float = float(_day_one_bathtub_fill_defaults.get(
-			"alpha_base", BATHTUB_CLEAN_ALPHA))
-		var clean_turbulence: float = float(
-			_day_one_bathtub_fill_defaults.get("turbulence",
-				BATHTUB_CLEAN_TURBULENCE))
-		var clean_edge_foam: float = float(
-			_day_one_bathtub_fill_defaults.get("edge_foam",
-				BATHTUB_CLEAN_EDGE_FOAM))
-		material.set_shader_parameter("deep_color",
-			clean_deep.lerp(BATHTUB_DIRTY_DEEP_COLOR, amount))
-		material.set_shader_parameter("shallow_color",
-			clean_shallow.lerp(BATHTUB_DIRTY_SHALLOW_COLOR, amount))
-		material.set_shader_parameter("foam_color",
-			clean_foam.lerp(BATHTUB_DIRTY_FOAM_COLOR, amount))
-		material.set_shader_parameter("alpha_base",
-			lerpf(clean_alpha, BATHTUB_DIRTY_ALPHA, amount))
-		material.set_shader_parameter("turbulence",
-			lerpf(clean_turbulence, 0.82, amount))
-		material.set_shader_parameter("edge_foam",
-			lerpf(clean_edge_foam, 0.18, amount))
-		node.modulate = clean_modulate.lerp(BATHTUB_DIRTY_MODULATE, amount)
-		water["day_one_bathtub_water_state"] = "dirty"
-		water["day_one_bathtub_dirty_progress"] = amount
-		node.set_meta("day_one_bathtub_water_state", "dirty")
-		node.set_meta("day_one_bathtub_dirty_progress", amount)
-
-
-func _capture_bathtub_fill_defaults(node: Sprite2D,
-		material: ShaderMaterial) -> void:
-	if not _day_one_bathtub_fill_defaults.is_empty():
-		return
-	_day_one_bathtub_fill_defaults = {
-		"node_modulate": node.modulate,
-		"deep_color": _clean_color_parameter(
-			material.get_shader_parameter("deep_color"),
-			BATHTUB_CLEAN_DEEP_COLOR),
-		"shallow_color": _clean_color_parameter(
-			material.get_shader_parameter("shallow_color"),
-			BATHTUB_CLEAN_SHALLOW_COLOR),
-		"foam_color": _clean_color_parameter(
-			material.get_shader_parameter("foam_color"),
-			BATHTUB_CLEAN_FOAM_COLOR),
-		"alpha_base": _clean_float_parameter(
-			material.get_shader_parameter("alpha_base"), BATHTUB_CLEAN_ALPHA),
-		"turbulence": _clean_float_parameter(
-			material.get_shader_parameter("turbulence"),
-			BATHTUB_CLEAN_TURBULENCE),
-		"edge_foam": _clean_float_parameter(
-			material.get_shader_parameter("edge_foam"),
-			BATHTUB_CLEAN_EDGE_FOAM),
-	}
-
-
-func _clean_color_parameter(value: Variant, fallback: Color) -> Color:
-	if value is Color:
-		return value
-	return fallback
-
-
-func _clean_float_parameter(value: Variant, fallback: float) -> float:
-	var value_type: int = typeof(value)
-	if value_type == TYPE_FLOAT or value_type == TYPE_INT:
-		return float(value)
-	return fallback
-
-
-func _restore_bathtub_fill_defaults(node: Sprite2D,
-		material: ShaderMaterial) -> void:
-	if _day_one_bathtub_fill_defaults.is_empty():
-		return
-	node.modulate = _day_one_bathtub_fill_defaults.get(
-		"node_modulate", BATHTUB_CLEAN_MODULATE) as Color
-	for parameter: String in [
-			"deep_color", "shallow_color", "foam_color", "alpha_base",
-			"turbulence", "edge_foam"]:
-		material.set_shader_parameter(parameter,
-			_day_one_bathtub_fill_defaults.get(parameter))
-
-
 func _clear_day_one_bathtub_swimmer() -> void:
 	if day_one_bathtub_swimmer != null \
 			and is_instance_valid(day_one_bathtub_swimmer):
 		day_one_bathtub_swimmer.queue_free()
 	day_one_bathtub_swimmer = null
-	_day_one_bathtub_swimmer_fade_requested = false
 
 
 func day_one_bathtub_swimmer_snapshot() -> Dictionary:
 	var bathtub_record: Dictionary = m.castle_room_item_sprites.get(
 		"bathtub", {}) as Dictionary
 	var bathtub_sprite: Sprite2D = bathtub_record.get("sprite") as Sprite2D
-	var swimmer_present: bool = day_one_bathtub_swimmer != null \
-		and is_instance_valid(day_one_bathtub_swimmer)
-	var swimmer_active: bool = swimmer_present \
-		and not _day_one_bathtub_swimmer_fade_requested \
-		and day_one_bathtub_swimmer.visible
 	return {
 		"filled": bool(m.g.get("day_one_bathtub_filled", false)),
-		"fill_enabled": _day_one_bathtub_fill_enabled,
-		"dirty_rescue_active": _day_one_bathtub_rescue_active,
-		"dirty_progress": _day_one_bathtub_dirty_progress,
 		"fill_water_visible": _bathtub_fill_water_visible(),
-		"water_state": _bathtub_fill_water_state(),
-		"visible": swimmer_active,
-		"fading": swimmer_present \
-			and _day_one_bathtub_swimmer_fade_requested,
+		"visible": day_one_bathtub_swimmer != null \
+			and is_instance_valid(day_one_bathtub_swimmer),
 		"behind_tub_lip": day_one_bathtub_swimmer != null \
 			and is_instance_valid(day_one_bathtub_swimmer) \
-			and swimmer_active \
 			and bathtub_sprite != null \
 			and day_one_bathtub_swimmer.z_index < bathtub_sprite.z_index,
 		"swimmer": day_one_bathtub_swimmer.audit_snapshot()
 			if day_one_bathtub_swimmer != null \
 				and is_instance_valid(day_one_bathtub_swimmer) else {},
 	}
-
-
-func _bathtub_fill_water_state() -> String:
-	var record: Dictionary = m.castle_room_item_sprites.get(
-		"bathtub", {}) as Dictionary
-	var rig: Dictionary = record.get("fixture_rig", {}) as Dictionary
-	for water_value: Variant in rig.get("water", []):
-		var water: Dictionary = water_value as Dictionary
-		if String(water.get("role", "")) == "fill":
-			return String(water.get("day_one_bathtub_water_state", "clean"))
-	return "absent"
 
 
 func _set_bathtub_fill_visible(visible: bool) -> void:
@@ -3996,8 +3652,9 @@ func _finish_sprite_atlas_sequence(sprite: Sprite2D, item_data: Dictionary,
 			sprite, clampi(rest_frame, 0, available_frames - 1))
 		fixture_rigs.apply_frame(
 			interaction_key, 0, sequence.size(), rest_frame)
-	if interaction_key == "bubble_bath:bathtub" and m.day_one_is_active():
-		start_day_one_bathtub_rescue()
+	if interaction_key == "bubble_bath:bathtub":
+		m.g["day_one_bathtub_filled"] = true
+		_sync_day_one_bathtub_swimmer()
 	if sprite.has_meta("active_close_tween"):
 		sprite.remove_meta("active_close_tween")
 	_sync_sconce_frame_uv(sprite)

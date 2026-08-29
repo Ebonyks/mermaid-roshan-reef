@@ -98,30 +98,21 @@ func _run() -> void:
 		and int(entry.get("active_target_count", 0)) == 1
 		and bool(entry.get("localized_fixture_grime", false))
 		and bool(entry.get("basket_clear_of_action_zone", false)))
-	var tub_entry: Dictionary = \
-		main._castle_rooms_ref().day_one_bathtub_swimmer_snapshot()
 	var dirty_plate_entry: Dictionary = \
-		main._castle_rooms_ref().day_one_bathroom_plate_snapshot()
+		cleanup.day_one_bathroom_plate_snapshot()
 	_check("entry uses the separate full dirty 2D room plate",
 		bool(dirty_plate_entry.get("dirty_plate_visible", false))
 		and bool(dirty_plate_entry.get("true_2d", false))
 		and bool(dirty_plate_entry.get("contains_tub_swimmer", false))
+		and bool(dirty_plate_entry.get("bunny_depth_occluded", false))
 		and not bool(dirty_plate_entry.get(
 			"clean_fixture_layer_visible", true))
 		and dirty_plate_entry.get("texture_size", Vector2i.ZERO)
 			== Vector2i(1024, 576))
-	var tub_swimmer: Dictionary = tub_entry.get("swimmer", {}) as Dictionary
-	_check("entry bath is full of dirty living water with one mermaid bunny",
-		bool(tub_entry.get("filled", false))
-		and bool(tub_entry.get("fill_water_visible", false))
-		and String(tub_entry.get("water_state", "")) == "dirty"
-		and is_equal_approx(float(tub_entry.get("dirty_progress", 0.0)), 1.0)
-		and bool(tub_entry.get("visible", false))
-		and bool(tub_entry.get("behind_tub_lip", false))
-		and bool(tub_swimmer.get("true_2d", false))
-		and bool(tub_swimmer.get("fully_contained", false))
-		and String(tub_swimmer.get("asset", "")).ends_with(
-			"dust_bunny_swimming.png"))
+	_check("entry bath visibly contains one depth-occluded mermaid bunny",
+		bool(dirty_plate_entry.get("dirty_plate_visible", false))
+		and bool(dirty_plate_entry.get("contains_tub_swimmer", false))
+		and bool(dirty_plate_entry.get("bunny_depth_occluded", false)))
 	var elevator: Control = main.castle_room_stage.get_node_or_null(
 		"ElevatorButton") as Control
 	var elevator_pointer: Control = main.castle_room_stage.get_node_or_null(
@@ -184,22 +175,13 @@ func _run() -> void:
 	_check("three forgiving tub reversals complete",
 		cleaning != null and cleaning.probe_tub_strokes(tub_points, 0.75))
 	await create_timer(0.12).timeout
-	await _capture("06_whole_room_sparkle")
-	await create_timer(0.96).timeout
-	var tub_clean: Dictionary = \
-		main._castle_rooms_ref().day_one_bathtub_swimmer_snapshot()
-	_check("final scrub reveals clean filled water and releases the bunny",
-		bool(tub_clean.get("filled", false))
-		and bool(tub_clean.get("fill_water_visible", false))
-		and String(tub_clean.get("water_state", "")) == "clean"
-		and is_equal_approx(float(tub_clean.get("dirty_progress", 1.0)), 0.0)
-		and not bool(tub_clean.get("visible", true)))
-	var clean_plate_finale: Dictionary = \
-		main._castle_rooms_ref().day_one_bathroom_plate_snapshot()
+	var clean_plate_finale: Dictionary = cleanup.day_one_bathroom_plate_snapshot()
 	_check("completion permanently reveals the distinct clean room state",
 		not bool(clean_plate_finale.get("dirty_plate_visible", true))
 		and bool(clean_plate_finale.get(
 			"clean_fixture_layer_visible", false)))
+	await _capture("06_whole_room_sparkle")
+	await create_timer(0.96).timeout
 	_check("finale exposes direct pool picture",
 		main._day_one_pool_route_button != null
 		and main._day_one_pool_route_button.visible)

@@ -9,6 +9,8 @@ extends Control
 
 const DAY_ONE_BATHROOM_CLEANING := preload(
 	"res://scripts/games/day_one_bathroom_cleaning.gd")
+const DIRTY_ROOM_TEXTURE: Texture2D = preload(
+	"res://assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png")
 
 signal supply_found(index: int, supply_id: String)
 signal supply_hunt_completed
@@ -69,6 +71,14 @@ var _basket_base_scale: Vector2 = Vector2.ONE
 var _basket_button: Button = null
 var _sink_grime: Sprite2D = null
 var _tub_grime: Sprite2D = null
+var _dirty_room_plate: Sprite2D = null
+var _clean_room_revealed := false
+var _room_background: Sprite2D = null
+var _room_background_was_visible := false
+var _room_tiles: Array[Sprite2D] = []
+var _room_tile_visibility: Array[bool] = []
+var _room_visual_layers: Array[CanvasItem] = []
+var _room_visual_layer_visibility: Array[bool] = []
 var _pointer: Sprite2D = null
 var _dragging: bool = false
 var _drag_last: Vector2 = Vector2.ZERO
@@ -111,6 +121,8 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	z_index = 22
 	_suspend_standard_surfaces()
 	_suspend_room_hotspots()
+	_suspend_clean_room_visuals()
+	_build_dirty_room_plate()
 	_build_dirty_overlays()
 	_build_basket()
 	_build_supply_icons()
@@ -126,6 +138,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 
 func teardown() -> void:
 	set_process(false)
+	_restore_clean_room_visuals()
 	if _cleaning_stage != null and is_instance_valid(_cleaning_stage):
 		_cleaning_stage.teardown()
 	_cleaning_stage = null
@@ -177,6 +190,10 @@ func audit_snapshot() -> Dictionary:
 		"interaction_mode": "tap_basket_then_clean",
 		"basket_tap_required": not _hunt_completed,
 		"auto_started_dirty_room": _dirty_overlays_visible(),
+		"dirty_room_plate_visible": _dirty_room_plate != null
+			and is_instance_valid(_dirty_room_plate)
+			and _dirty_room_plate.visible,
+		"clean_room_revealed": _clean_room_revealed,
 		"basket_visible": _basket != null and _basket.visible,
 		"basket_pulsing": _basket != null and _basket.get_meta(
 			"pulsing", false),
@@ -326,6 +343,99 @@ func _suspend_room_hotspots() -> void:
 	if _room_link_layer != null and is_instance_valid(_room_link_layer):
 		_room_link_layer_was_visible = _room_link_layer.visible
 		_room_link_layer.visible = false
+
+
+func _suspend_clean_room_visuals() -> void:
+	_room_background = m.castle_room_background
+	if _room_background != null and is_instance_valid(_room_background):
+		_room_background_was_visible = _room_background.visible
+		_room_background.visible = false
+	else:
+		_room_background = null
+	_room_tiles.clear()
+	_room_tile_visibility.clear()
+	for tile: Sprite2D in m.castle_room_detail_tiles:
+		if tile != null and is_instance_valid(tile):
+			_room_tiles.append(tile)
+			_room_tile_visibility.append(tile.visible)
+			tile.visible = false
+	_room_visual_layers = [
+		m.castle_room_item_visual_layer,
+		m.castle_room_mid_layer,
+		m.castle_room_front_layer,
+		m.castle_room_item_effect_layer,
+	]
+	_room_visual_layer_visibility.clear()
+	for layer: CanvasItem in _room_visual_layers:
+		var was_visible: bool = layer != null and is_instance_valid(layer) \
+			and layer.visible
+		_room_visual_layer_visibility.append(was_visible)
+		if layer != null and is_instance_valid(layer):
+			layer.visible = false
+
+
+func _restore_clean_room_visuals() -> void:
+	if _clean_room_revealed:
+		return
+	_clean_room_revealed = true
+	if _room_background != null and is_instance_valid(_room_background):
+		_room_background.visible = _room_background_was_visible
+	for index: int in range(_room_tiles.size()):
+		var tile: Sprite2D = _room_tiles[index]
+		if tile != null and is_instance_valid(tile):
+			tile.visible = _room_tile_visibility[index]
+	for index: int in range(_room_visual_layers.size()):
+		var layer: CanvasItem = _room_visual_layers[index]
+		if layer != null and is_instance_valid(layer):
+			layer.visible = _room_visual_layer_visibility[index]
+
+
+func _build_dirty_room_plate() -> void:
+	_dirty_room_plate = Sprite2D.new()
+	_dirty_room_plate.name = "DayOneDirtyBathroomPlate"
+	_dirty_room_plate.texture = DIRTY_ROOM_TEXTURE
+	_dirty_room_plate.position = StorybookUI.CANVAS_SIZE * 0.5
+	_dirty_room_plate.scale = Vector2.ONE * 1.25
+	_dirty_room_plate.z_index = 1
+	_dirty_room_plate.set_meta(
+		"source_asset_role", "day_one_dirty_bathroom_full_plate")
+	_dirty_room_plate.set_meta("true_2d", true)
+	_dirty_room_plate.set_meta("contains_tub_swimmer", true)
+	_dirty_room_plate.set_meta("bunny_depth_occluded", true)
+	add_child(_dirty_room_plate)
+	move_child(_dirty_room_plate, 0)
+
+
+func reveal_clean_room() -> void:
+	_restore_clean_room_visuals()
+	if _dirty_room_plate == null or not is_instance_valid(_dirty_room_plate):
+		_dirty_room_plate = null
+		return
+	var plate: Sprite2D = _dirty_room_plate
+	_dirty_room_plate = null
+	var reveal: Tween = plate.create_tween()
+	reveal.tween_property(plate, "modulate:a", 0.0, 0.34) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	reveal.tween_callback(plate.queue_free)
+
+
+func day_one_bathroom_plate_snapshot() -> Dictionary:
+	var visible: bool = _dirty_room_plate != null \
+		and is_instance_valid(_dirty_room_plate) \
+		and _dirty_room_plate.visible
+	return {
+		"dirty_plate_visible": visible,
+		"true_2d": visible and _dirty_room_plate is Sprite2D,
+		"contains_tub_swimmer": visible and bool(
+			_dirty_room_plate.get_meta("contains_tub_swimmer", false)),
+		"bunny_depth_occluded": visible and bool(
+			_dirty_room_plate.get_meta("bunny_depth_occluded", false)),
+		"clean_fixture_layer_visible":
+			m.castle_room_item_visual_layer != null
+			and m.castle_room_item_visual_layer.visible,
+		"texture_size": Vector2i(
+			DIRTY_ROOM_TEXTURE.get_width(), DIRTY_ROOM_TEXTURE.get_height()),
+	}
 
 
 func _suspend_standard_surfaces() -> void:

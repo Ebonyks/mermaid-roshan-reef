@@ -7145,16 +7145,8 @@ func _sync_day_one_bathroom_cleanup() -> void:
 			_restore_day_one_bathroom_controls()
 		return
 	_suspend_day_one_bathroom_controls()
-	# The first Day One frame deliberately starts with a living, filled dirty
-	# bath and the approved swimming dust bunny already inside it. CastleRooms
-	# owns the bounded water mask and tub-lip occlusion; this rescue only drives
-	# its temporary dirty-to-clean progress.
-	if _day_one_bathroom_cleanup == null \
-			and not _day_one_bathroom_entry_movie_checked:
-		_castle_rooms_ref().start_day_one_bathtub_rescue()
 	if _day_one_bathroom_cleanup != null \
 			and is_instance_valid(_day_one_bathroom_cleanup):
-		_sync_day_one_bathroom_tub_vignette()
 		if castle_room_action_button != null:
 			castle_room_action_button.visible = false
 		return
@@ -7195,23 +7187,6 @@ func _clear_day_one_bathroom_cleanup() -> void:
 func _on_day_one_bathroom_cleanup_step(step: int, cleanup_id: String) -> void:
 	day_one_record_bathroom_cleanup_step(step)
 	g["day_one_bathroom_last_cleanup"] = cleanup_id
-	if cleanup_id == "tub" and step >= 2:
-		_castle_rooms_ref().complete_day_one_bathtub_rescue()
-
-
-func _sync_day_one_bathroom_tub_vignette() -> void:
-	if _day_one_bathroom_cleanup == null \
-			or not is_instance_valid(_day_one_bathroom_cleanup):
-		return
-	var cleaning: Dictionary = \
-		_day_one_bathroom_cleanup.cleaning_audit_snapshot()
-	if not bool(cleaning.get("active", false)):
-		return
-	var fade_progress: Dictionary = cleaning.get(
-		"grime_fade_progress", {}) as Dictionary
-	var clean_ratio: float = clampf(float(fade_progress.get("tub", 0.0)),
-		0.0, 1.0)
-	_castle_rooms_ref().set_day_one_bathtub_dirty_progress(1.0 - clean_ratio)
 
 
 func _on_day_one_bathroom_supply_hunt_completed() -> void:
@@ -7224,9 +7199,11 @@ func _on_day_one_bathroom_supply_hunt_completed() -> void:
 
 
 func _on_day_one_bathroom_finale_started() -> void:
-	# The bespoke rescue owns fixture-associated sparkle sprites. Do not add the
-	# Castle-wide center-floor burst here: it obscures the clean sink/tub result.
-	pass
+	# Reveal the untouched approved clean room underneath the separate dirty
+	# full-frame plate while the fixture sparkles mask the short crossfade.
+	if _day_one_bathroom_cleanup != null \
+			and is_instance_valid(_day_one_bathroom_cleanup):
+		_day_one_bathroom_cleanup.reveal_clean_room()
 
 
 func _on_day_one_bathroom_cleanup_completed() -> void:

@@ -12,8 +12,6 @@ const REQUIRED_WIRING: Dictionary = {
 		"func _sync_day_one_bathroom_cleanup",
 		"func _clear_day_one_bathroom_cleanup",
 		"_day_one_bathroom_entry_movie_blocks_cleanup()",
-		"start_day_one_bathtub_rescue()",
-		"set_day_one_bathtub_dirty_progress",
 		"_start_day_one_bathroom_movie_handoff()",
 		"if not day_one_is_active():",
 	],
@@ -22,14 +20,11 @@ const REQUIRED_WIRING: Dictionary = {
 		"day_one_bathroom_supply_hunt_step",
 		"saved_bathroom_step",
 	],
-	"res://scripts/arena/castle_rooms_25d.gd": [
-		"func start_day_one_bathtub_rescue",
-		"func set_day_one_bathtub_dirty_progress",
-		"func complete_day_one_bathtub_rescue",
-	],
-	"res://scripts/games/day_one_dust_bunny_swimmer.gd": [
-		"dust_bunny_swimming.png",
-		"bounded_bob_paddle",
+	"res://scripts/games/day_one_bathroom_cleanup.gd": [
+		"room_bubble_bath_dirty_day_one.png",
+		"func reveal_clean_room",
+		"func day_one_bathroom_plate_snapshot",
+		"bunny_depth_occluded",
 	],
 }
 
@@ -122,6 +117,8 @@ func _probe_wiring() -> void:
 				source.contains(token))
 	var main_source: String = FileAccess.get_file_as_string(
 		"res://scripts/main.gd")
+	var cleanup_source: String = FileAccess.get_file_as_string(
+		"res://scripts/games/day_one_bathroom_cleanup.gd")
 	var completion_start: int = main_source.find(
 		"func day_one_complete_bathroom_scene()")
 	var completion_source: String = main_source.substr(completion_start) \
@@ -132,7 +129,7 @@ func _probe_wiring() -> void:
 	_check("bathroom entry automatically builds the dirty rescue",
 		main_source.contains("not day_one_castle_room_is_clean(\"bubble_bath\")")
 		and main_source.contains("DayOneBathroomCleanupLogic.new()")
-		and main_source.contains("start_day_one_bathtub_rescue()"))
+		and cleanup_source.contains("_build_dirty_room_plate()"))
 	_check("entry and completion own separate optional movie phases",
 		main_source.contains("PHASE_ENTRY")
 		and main_source.contains("PHASE_CLEANUP")
@@ -149,13 +146,14 @@ func _probe_wiring() -> void:
 		finale_end - finale_start) if finale_start >= 0 and finale_end > finale_start \
 		else ""
 	_check("bathroom finale suppresses generic floor burst",
-		finale_source.contains("fixture-associated sparkle")
+		finale_source.contains("reveal_clean_room()")
 		and not finale_source.contains("_burst(\"✦\""))
 	_check("pool route uses approved picture and pointer without a UI box",
 		main_source.contains("room_mermaid_pool.png")
 		and main_source.contains("ApprovedPoolRoomPreview")
 		and main_source.contains("route_preview_kind")
 		and main_source.contains("actual_pool_room")
+		and main_source.contains("ApprovedShellPoolFrame")
 		and main_source.contains("PoolRouteGhostHand")
 		and main_source.contains("StyleBoxEmpty.new()")
 		and not main_source.contains(
@@ -174,8 +172,6 @@ func _probe_wiring() -> void:
 		and main_source.contains("\"ElevatorButton\""))
 	_check("Roshan stages clear of the bath gestures",
 		main_source.contains("_position_player_at_foot(Vector2(790.0, 630.0), false)"))
-	var cleanup_source: String = FileAccess.get_file_as_string(
-		"res://scripts/games/day_one_bathroom_cleanup.gd")
 	_check("bathroom route owns the basket-to-sink handoff",
 		cleanup_source.contains("_build_basket()")
 		and cleanup_source.contains("_build_dirty_overlays()")
@@ -184,6 +180,7 @@ func _probe_wiring() -> void:
 		"res://scripts/arena/castle_rooms_25d.gd")
 	_check("bathroom rescue does not alter the sealed castle frame owner",
 		not sealed_castle_source.contains("DAY_ONE_BATHROOM_CLEANUP")
+		and not sealed_castle_source.contains("DAY_ONE_DIRTY_BATHROOM_TEXTURE")
 		and not sealed_castle_source.contains(
 			"_sync_day_one_bathroom_cleanup"))
 

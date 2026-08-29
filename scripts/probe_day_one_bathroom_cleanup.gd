@@ -8,6 +8,7 @@ const BATHROOM_CLEANING := preload(
 const SINK_CENTER := Vector2(642.0, 280.0)
 const TUB_CENTER := Vector2(310.0, 349.0)
 const RUNTIME_ASSETS: Array[String] = [
+	"res://assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png",
 	"res://assets/castle/day_one_pool/activities/cleanup_basket.png",
 	"res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
 	"res://assets/castle/day_one_art_studio/magic_cleaning_brush.png",
@@ -64,9 +65,18 @@ func _run_probe() -> void:
 	var snapshot: Dictionary = hunt.audit_snapshot()
 	_check("bathroom entry is automatically dirty and interactive",
 		bool(snapshot.get("dirty_overlays_visible", false))
+		and bool(snapshot.get("dirty_room_plate_visible", false))
 		and bool(snapshot.get("sink_grime_visible", false))
 		and bool(snapshot.get("tub_grime_visible", false))
 		and bool(snapshot.get("basket_visible", false)))
+	var plate_snapshot: Dictionary = hunt.day_one_bathroom_plate_snapshot()
+	_check("separate dirty room plate is true 2D with bunny inside tub",
+		bool(plate_snapshot.get("dirty_plate_visible", false))
+		and bool(plate_snapshot.get("true_2d", false))
+		and bool(plate_snapshot.get("contains_tub_swimmer", false))
+		and bool(plate_snapshot.get("bunny_depth_occluded", false))
+		and plate_snapshot.get("texture_size", Vector2i.ZERO)
+			== Vector2i(1024, 576))
 	_check("rescue has no passive win or fail state",
 		not bool(snapshot.get("won", false))
 		and not bool(snapshot.get("failed", false))
