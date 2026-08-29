@@ -18,6 +18,18 @@ The final gust returns to the matched front dirty/clean room pair so the causal
 rule is unambiguous: all four bunnies fully leave first, and only the trailing
 gust replaces the dirty background with the clean background.
 
+### Immutable GitHub handoff
+
+- [Movie A archive packet](https://github.com/Ebonyks/mermaid-roshan-reef/tree/8cfef94c712002c7d5a6586c87a49c9017fdca5b/assets_src/cinematics/day_one_stuffie_discovery_v2)
+- [Movie A storyboard](https://github.com/Ebonyks/mermaid-roshan-reef/blob/8cfef94c712002c7d5a6586c87a49c9017fdca5b/assets_src/cinematics/day_one_stuffie_discovery_v2/storyboards/SQ030_DISCOVERY_SHOT_BOARD.png)
+- [Movie B archive packet](https://github.com/Ebonyks/mermaid-roshan-reef/tree/8cfef94c712002c7d5a6586c87a49c9017fdca5b/assets_src/cinematics/day_one_stuffie_basket_clean_v2)
+- [Movie B storyboard](https://github.com/Ebonyks/mermaid-roshan-reef/blob/8cfef94c712002c7d5a6586c87a49c9017fdca5b/assets_src/cinematics/day_one_stuffie_basket_clean_v2/storyboards/SQ040_BASKET_CLEAN_SHOT_BOARD.png)
+- [Imagine shot-card authority](https://github.com/Ebonyks/mermaid-roshan-reef/blob/8cfef94c712002c7d5a6586c87a49c9017fdca5b/design/templates/IMAGINE_SHOT_CARD_V1.md)
+
+GitHub verification at content commit `8cfef94c712002c7d5a6586c87a49c9017fdca5b`
+found zero missing files across both manifests and all 80 archived assets. This
+is the URL handoff; do not create or upload a ZIP.
+
 ## Exact story counts
 
 - Movie A shows one center-light bunny and two separate wing bunnies: three.

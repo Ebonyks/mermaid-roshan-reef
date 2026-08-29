@@ -1,7 +1,7 @@
 {
   "schema": "imagine-handoff-v1",
   "handoff_id": "day_one_stuffie_discovery_v2",
-  "archive_status": "incomplete",
+  "archive_status": "complete",
   "generation_status": "blocked",
   "delivery_status": "not_accepted",
   "shot_packets": [],
@@ -11,5 +11,11 @@
     "all two-to-four role-labeled image bindings must be opened from immutable GitHub URLs and human accepted",
     "draft cards must be materialized as SHOT_PACKET.json only after those approvals"
   ],
-  "archive_remote": {}
+  "archive_remote": {
+    "commit": "8cfef94c712002c7d5a6586c87a49c9017fdca5b",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/8cfef94c712002c7d5a6586c87a49c9017fdca5b/assets_src/cinematics/day_one_stuffie_discovery_v2",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/8cfef94c712002c7d5a6586c87a49c9017fdca5b/assets_src/cinematics/day_one_stuffie_discovery_v2/HANDOFF_PACKET.json",
+    "verified_via": "GitHub Contents and recursive tree APIs; manifest plus 38 archived assets resolved",
+    "verified_at": "2026-08-29"
+  }
 }

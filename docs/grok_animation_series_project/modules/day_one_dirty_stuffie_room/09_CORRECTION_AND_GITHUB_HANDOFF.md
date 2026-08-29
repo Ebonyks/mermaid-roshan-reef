@@ -33,6 +33,8 @@ For new generation work, read `11_IMAGINE_V2_STORYBOARD_HANDOFF.md` first. It
 replaces the older six-anchor batching with thirteen one-shot draft cards under
 the two `assets_src/cinematics/day_one_stuffie_*_v2/` packets. The generated
 boards are narrative-only and must not be uploaded as Grok pixel references.
+Its immutable Movie A and Movie B GitHub packet links are the current no-ZIP
+handoff.
 
 Give Grok these two URLs first:
 
