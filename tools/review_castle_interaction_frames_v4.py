@@ -51,7 +51,7 @@ CANDIDATE_FILENAME = "castle_interaction_frame_candidate_v4.json"
 
 CANDIDATE_SCHEMA = "castle_interaction_frame_candidate_v2"
 APPROVAL_SCHEMA = "castle_interaction_frame_approval_v2"
-EXPECTED_V4_ASSET_COUNT = 13
+EXPECTED_V4_ASSET_COUNT = 12
 LOGICAL_ROOM_SIZE = (1024, 576)
 STATIC_ALPHA_THRESHOLD = 128
 MINIMUM_ABSOLUTE_Z_DELTA = 0.01
@@ -527,23 +527,24 @@ def load_static_cards(
 
 
 def compose_depth_aware_frame(
-        approved_room: Image.Image,
+        _approved_room: Image.Image,
         runtime_underlay: Image.Image,
-        ownership_mask: Image.Image,
+        _ownership_mask: Image.Image,
         placed_frame: frame_qa.PlacedFrame,
         static_cards: Sequence[StaticCard],
         asset_z: float,
         ) -> Image.Image:
     """Reapply active static cards on the correct side of the target object.
 
-    The approved room preserves all unrelated painted fixtures.  Active static
-    card pixels are first cleared to the reconstructed V4 underlay, then their
-    real runtime cards are composited behind or in front according to z.
+    The complete generated room background owns every noninteractive pixel.
+    Starting from the historical approved room and clearing only a legacy
+    ownership mask can resurrect baked copies outside that mask, so the review
+    compositor starts from the exact readiness-gated runtime background.  Real
+    static cards are then composited behind or in front according to z.
     Coplanar cards are drawn in front only to keep the candidate deterministic;
     their zero delta is an unconditional gate failure.
     """
-    base = frame_qa.target_isolated_base(
-        approved_room, runtime_underlay, ownership_mask)
+    base = runtime_underlay.convert("RGBA")
     ordered = sorted(static_cards, key=lambda card: (
         card.z, card.layer, card.path))
     for card in ordered:
@@ -801,7 +802,7 @@ def build_repository_candidate(
         manifest_relative: Path = V4_MANIFEST_RELATIVE,
         runtime_relative: Path = RUNTIME_LAYOUT_RELATIVE,
         ) -> RepositoryReviewBuild:
-    """Load all 13 V4 assets and produce exact per-frame review evidence."""
+    """Load all 12 V4 assets and produce exact per-frame review evidence."""
     root = root.resolve()
     manifest_path = _repository_file(
         root, manifest_relative.as_posix(), "V4 manifest")
@@ -843,7 +844,7 @@ def build_repository_candidate(
     room_records = manifest.get("rooms")
     if not isinstance(routes, dict) or set(routes) != rooms:
         raise ReviewInputError(
-            "runtime_background_tiles must exactly cover the 13 assets' rooms")
+            "runtime_background_tiles must exactly cover the 12 assets' rooms")
     if not isinstance(room_records, dict) or not rooms.issubset(room_records):
         raise ReviewInputError("V4 manifest room records are incomplete")
 
@@ -952,8 +953,10 @@ def build_repository_candidate(
             runtime_scale,
             frame_qa.DEFAULT_ALPHA_SCISSOR_THRESHOLD,
         )
-        # V4 heals the complete accepted ownership footprint.  Passing this
-        # explicitly prevents an all-frame union from hiding frame-local holes.
+        # Keep the historical approved room only as a contamination reference
+        # for exact duplicate-pixel detection.  The depth-aware compositor
+        # below renders from the generated full-frame runtime background and
+        # therefore cannot resurrect the reference plate's retired objects.
         results = frame_qa.compute_asset_frame_qa(
             approved_rooms[room],
             runtime_underlays[room],

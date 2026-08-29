@@ -653,7 +653,7 @@ finding while confirming another and verifying a third.
 | `V0 NONE` | No current evidence |
 | `V1 STATIC` | Source, asset, hash, dimension, dependency, or deterministic static evidence |
 | `V2 UNIT` | Falsifiable unit/stress tests with negative controls |
-| `V3 RUNTIME` | Exact Godot 4.7.1 analyzer/import and focused/full trusted probes |
+| `V3 RUNTIME` | Exact Godot 4.7.2-stable analyzer/import and focused/full trusted probes |
 | `V4 CAPTURE` | Mobile-renderer screenshots/video at supported aspect ratios |
 | `V5 DEVICE` | Target phone/M11 touch, performance, thermal, memory, audio, and squint evidence |
 | `V6 CHILD` | Observed intended-child session without adult verbal instruction |
@@ -692,7 +692,7 @@ preserve a useful measurement while its 3D recommendation is `SUPERSEDED`.
 2. Direct owner product decision, 2026-08-09, within those boundaries: remove
    3D Mermaid Roshan; the game is true 2D; active 3D resources belong only on
    the deprecated-resources branch.
-3. Exact Godot 4.7.1-stable requirements and the remaining current operational
+3. Exact Godot 4.7.2-stable requirements and the remaining current operational
    rules in `AGENTS.md`, excluding its stale 3D clauses.
 4. Canonical-current `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md`.
 5. A current domain document within its explicitly retained scope.
@@ -1257,7 +1257,7 @@ the compact navigation view; these links open the complete section-10 records:
 | Domain | Canonical records |
 |---|---|
 | Medium and document control | [`MA-2D-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-2d-002), [`MA-DOC-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-002), [`MA-DOC-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-003), [`MA-DOC-005`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-005) |
-| Visual and assets | [`MA-VIS-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-002), [`MA-VIS-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-003), [`MA-VIS-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-004), [`MA-VIS-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-006), [`MA-ASSET-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-asset-001), [`MA-ASSET-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-asset-004) |
+| Visual and assets | [`MA-VIS-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-002), [`MA-VIS-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-003), [`MA-VIS-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-004), [`MA-VIS-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-006), [`MA-VIS-007`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-007), [`MA-ASSET-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-asset-001), [`MA-ASSET-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-asset-004) |
 | Play, access, touch, and combat | [`MA-PLAY-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-001), [`MA-PLAY-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-002), [`MA-ACCESS-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-access-001), [`MA-ACCESS-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-access-002), [`MA-ACCESS-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-access-003), [`MA-TOUCH-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-touch-001), [`MA-COMBAT-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-combat-001) |
 | Opera | [`MA-OPERA-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-001), [`MA-OPERA-002`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-002), [`MA-OPERA-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-003), [`MA-OPERA-004`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-004), [`MA-OPERA-005`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-005), [`MA-OPERA-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-006), [`MA-OPERA-007`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-007), [`MA-OPERA-009`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-009), [`MA-OPERA-010`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-010), [`MA-OPERA-011`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-011), [`MA-OPERA-012`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-012) |
 | QA, audio, release, and external evidence | [`MA-PERF-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-perf-001), [`MA-CHILD-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-child-001), [`MA-RELEASE-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-release-001), [`MA-CI-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-ci-003), [`MA-AUDIO-001`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-audio-001) |
@@ -1274,6 +1274,7 @@ the compact navigation view; these links open the complete section-10 records:
 | `MA-VIS-002` | P1 | `FIXED_PENDING_VERIFICATION` | V3/V4 exact local source/capture plus integrated machine/build; external open | Source `51d0abc0` replaces the spatial promenade with an owned `CanvasLayer` -1, 6144×2048 `Node2D` master, 6×2 `Sprite2D` backdrop, differential layer stack, real parallax, and sole `Camera2D`. Exact source-byte CI is green in 1,404.5 seconds/all 64; run-14 is 20/20 local Mobile/Speedy with manifest/PNG/probe hashes, but its source revision is unknown. Integrated `441adf35` passes exact local/topic/dev machine gates and has a matching APK, while both remote Sky subprocesses fail requested-Mobile renderer identity and provide no JSON/Mobile PASS | Preserve true Canvas and pass requested-Mobile remote Sky proof, target-device, child, owner, and accepted-visual review; `SideScrollStage`, `Sprite3D`, capture-tool success, or filename-only relabeling cannot close it |
 | `MA-VIS-003` | P1 | `REPORTED_UNCONFIRMED` | V1; `REVIEW_OPEN` | Reproduced source-average saturation diagnostics flag Fairy and Lagoon, but Fairy is probably a false positive/coverage gap and Lagoon is only a plausible hierarchy risk | True state-local Canvas composite with HUD/viewport/runtime/device evidence; do not recolor or regenerate approved art merely to satisfy the current average |
 | `MA-VIS-006` | P1 | `CONFIRMED_OPEN` | V2/V3 contract plus V4 local Sky candidate and integrated machine/build | Source `51d0abc0` repairs the bounded Sky defects and run-14 supplies 20/20 locally reviewed Mobile/Speedy frames. Integrated `441adf35` adds exact machine/build evidence, but its remote Sky subprocess lacks Mobile PASS/JSON, no device/owner acceptance exists, and the global report remains 16 failures, 17 reviews, two manual items, and 86 coverage gaps | Implement every required live state adapter/capture; every applicable FAIL/REVIEW/MANUAL/COVERAGE_GAP explicitly resolved with device/owner review |
+| `MA-VIS-007` | P1 | `FIXED_PENDING_VERIFICATION` | V3/V4 exact local and multi-review; integration/external open | The repeated Bubble Bath report was a layered pixel-ownership failure compounded by an abandoned branch, stale regeneration/review paths, and node-only probes. The repair regenerates seven Castle and two Opera complete backgrounds, retires both false bath cards and the incomplete tent-flap card, fixes the cupboard rest frame, binds every source/hash/route, reviews all 96 retained V4 frames against the exact runtime underlay, and passes exact Godot 4.7.2 Mobile one-bathtub dirty/clean captures plus the complete local CI suite | Preserve the fail-closed ownership/generator/frame gates; integrate the exact green topic to `dev`; then retain distinct target-device, child, and owner visual acceptance evidence before terminal closure |
 | `MA-PLAY-001` | P1 | `CONFIRMED_OPEN` | V1/V3 partial | No end-to-end fresh-save, child-visible, no-cheat world reachability proof exists | Enter/leave/re-enter every visible destination without direct debug calls; save/seam/touch/voice checks |
 | `MA-ACCESS-001` | P1 | `BLOCKED_EXTERNAL` | V1 | Required exact voice cues remain absent for some objectives | Authorized exact recordings or independently sufficient spoken/diegetic design; playback/device/child evidence |
 | `MA-ACCESS-002` | P1 | `BLOCKED_EXTERNAL` | V1 | Lamba's current semantic role still maps to legacy “bunny-fish” recordings | Owner-approved re-record/re-render and exact-key/device listening evidence |
@@ -1289,6 +1290,35 @@ the compact navigation view; these links open the complete section-10 records:
 | `MA-PERF-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current target-device frame-time, hitch, memory, thermal, or latency matrix | U0 device matrix at exact release candidate meets design thresholds |
 | `MA-CHILD-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current observed five-minute child golden-path record | Private/safe observed session meets section 12 |
 | `MA-RELEASE-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 exact local/remote/build plus V4 current source/capture; external open | Historical evidence remains preserved. Product source `51d0abc0` passes exact local CI in 1,404.5 seconds/all 64 and run-14 20/20 local Mobile/Speedy evidence. Integrated `441adf35` passes exact local/topic/dev machine gates and Android `31763879294` publishes its matching APK. Both remote Sky subprocesses still fail requested-Mobile renderer identity after 20 PASS rows and upload PNGs only | Require requested-Mobile remote Sky proof, target-device matrix, child, owner, authoritative visual, exact-voice/human-listening, strict-2D, clean warning/capture triage, and clean re-audit gates |
+
+#### 5.1.1 Subordinate workstream — interactive/background pixel ownership
+
+`MA-VIS-007` is the named child workstream of the game-wide live-evidence gap
+`MA-VIS-006`. It owns the repeated failure cycle in which an interactive
+foreground card is accepted while a baked, blurred, partial, or silhouette
+copy remains in its background, or an automated background-heal recipe leaves
+a visible smear that later animation frames uncover.
+
+The workstream is fail-closed. A repair is not complete when a node disappears,
+when the foreground card differs numerically from the background, or when an
+unmerged topic branch contains the change. Closure requires all of the
+following at one exact candidate:
+
+1. enumerate every runtime background/interactive-card pairing and bind the
+   inspected sources, generators, manifests, and visual states to the audit;
+2. inspect the complete authored-frame sequence, including the largest exposed
+   footprint rather than frame zero alone;
+3. preserve protected and approved originals, then restore only the confirmed
+   background gap as a full clean plate before slicing runtime tiles;
+4. record source, prompt/method, hashes, normalization, licensing, and explicit
+   proof that no guide or foreground-card pixel became delivery background;
+5. make generators, manifests, audits, and runtime probes reject both duplicate
+   pixels and blurred/interpolated placeholder holes;
+6. capture dirty and clean live Mobile frames under exact Godot 4.7.2-stable,
+   retain human review as distinct from machine PASS, and pass focused plus
+   surrounding tests; and
+7. merge the green topic into `dev` and verify the exact `dev` head before any
+   release claim. A topic-only or stale-branch result is explicitly incomplete.
 
 ### 5.2 P2/P3 and owner-decision indexed items
 

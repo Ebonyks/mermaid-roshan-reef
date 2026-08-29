@@ -881,6 +881,15 @@ def _print_metrics(results: dict[str, dict[str, Any]]) -> None:
 
 
 def main() -> int:
+	# MA-VIS-007 supersedes local alpha-mask healing with complete generated
+	# background ownership.  Keep this historical entry point for CI and old
+	# operator commands, but delegate to the sole current builder so it cannot
+	# recreate blurred object-shaped holes.
+	ownership_source = (
+		ROOT / "assets_src/castle/interactive_background_ownership_2026-08-29")
+	if ownership_source.is_dir():
+		from build_interactive_background_ownership import main as ownership_main
+		return ownership_main()
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument(
 		"--check", action="store_true",

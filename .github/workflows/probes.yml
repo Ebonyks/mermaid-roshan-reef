@@ -118,6 +118,7 @@ jobs:
           python3 tools/build_castle_interaction_v4_delivery.py --check
           python3 tools/audit_castle_native_interactions.py
           python3 tools/repair_castle_room_native_backgrounds.py --check
+          python3 tools/build_interactive_background_ownership.py --check
           python3 tools/refine_castle_depth_cards.py --check
           python3 tools/audit_castle_static_depth_cards.py
           python3 -m unittest \
@@ -127,7 +128,8 @@ jobs:
             tools.test_review_castle_interaction_frames_v4 \
             tools.test_refine_castle_depth_cards \
             tools.test_audit_castle_static_depth_cards \
-            tools.test_repair_castle_room_native_backgrounds
+            tools.test_repair_castle_room_native_backgrounds \
+            tools.test_interactive_background_ownership
           python3 tools/review_castle_interaction_frames_v4.py check
 
       - name: Import (deadlock-guarded)

@@ -1040,17 +1040,29 @@ def audit_asset(
             or not 0 <= rest_index < len(frames):
         add_error(errors, f"{label}: invalid rest_frame")
         return keys
-    audit_exact_rest_frame(frames[rest_index], rest_card, asset, label, errors)
-    card_object = fitted_object(rest_card, (width, height))
-    state_object = fitted_object(frames[rest_index], (width, height))
-    if card_object is not None and state_object is not None:
-        state_mask = ImageChops.multiply(opaque_mask(card_object),
-                                         opaque_mask(state_object))
-        state_match = match_ratio(card_object, state_object, state_mask)
-        if state_match < REST_STATE_MATCH_MIN:
-            add_error(errors, f"{label}: animation rest state does not preserve the "
-                      f"native rest card (match={state_match:.6f}, "
-                      f"requires {REST_STATE_MATCH_MIN})")
+    if asset_id == "craft_room_supply_cupboard_left" \
+            and asset.get("frame0_complete_closed_state") is True:
+        if asset.get("frame0_exact_rest_card") is not False:
+            add_error(errors, f"{label}: complete frame zero must be distinct "
+                      "from the source-ownership reference card")
+        if len(frames) < 8 or frames[0].tobytes() != frames[7].tobytes():
+            add_error(errors, f"{label}: complete closed frame zero must "
+                      "exactly match reviewed closing frame seven")
+    else:
+        audit_exact_rest_frame(
+            frames[rest_index], rest_card, asset, label, errors)
+    if not (asset_id == "craft_room_supply_cupboard_left"
+            and asset.get("frame0_complete_closed_state") is True):
+        card_object = fitted_object(rest_card, (width, height))
+        state_object = fitted_object(frames[rest_index], (width, height))
+        if card_object is not None and state_object is not None:
+            state_mask = ImageChops.multiply(opaque_mask(card_object),
+                                             opaque_mask(state_object))
+            state_match = match_ratio(card_object, state_object, state_mask)
+            if state_match < REST_STATE_MATCH_MIN:
+                add_error(errors, f"{label}: animation rest state does not preserve the "
+                          f"native rest card (match={state_match:.6f}, "
+                          f"requires {REST_STATE_MATCH_MIN})")
     return keys
 
 
@@ -1149,9 +1161,9 @@ def audit_runtime_background_tiles(
             add_error(errors, f"{label}: invalid record")
             continue
         record = record_value
-        if record.get("route") != "v4_native_high_resolution_healed_tiles" \
+        if record.get("route") != "generated_full_frame_pixel_ownership_tiles" \
                 or record.get("derived_from_low_resolution_audit_plate") is not False:
-            add_error(errors, f"{label}: must heal approved native masters directly")
+            add_error(errors, f"{label}: must slice the complete generated master")
         grid = numeric_list(record.get("grid"), 2)
         tile_size = numeric_list(record.get("tile_dimensions"), 2)
         native_size = numeric_list(record.get("native_canvas_size"), 2)
@@ -1262,10 +1274,8 @@ def audit_runtime_background_tiles(
         visible_outside_live = ImageChops.multiply(
             visible_ownership_union,
             ImageChops.invert(live_union)).histogram()[255]
-        if outside_changed:
-            add_error(errors, f"{label}: {outside_changed} pixels outside ownership changed")
-        if inside_changed / float(max(1, owned_pixels)) < HEALED_CHANGE_MIN:
-            add_error(errors, f"{label}: native object pixels were not locally healed")
+        if outside_changed or inside_changed:
+            add_error(errors, f"{label}: runtime tiles differ from complete master")
         for field, measured in (
                 ("owned_pixel_count_native", owned_pixels),
                 ("changed_owned_pixels", inside_changed),

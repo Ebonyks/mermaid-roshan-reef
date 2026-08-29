@@ -112,6 +112,8 @@ python3 tools/audit_castle_native_interactions.py \
 	|| { echo "CASTLE NATIVE INTERACTION OWNERSHIP FAIL"; exit 1; }
 python3 tools/repair_castle_room_native_backgrounds.py --check \
 	|| { echo "CASTLE LIVE-ALPHA BACKGROUND HEALING FAIL"; exit 1; }
+python3 tools/build_interactive_background_ownership.py --check \
+	|| { echo "INTERACTIVE/BACKGROUND PIXEL OWNERSHIP FAIL"; exit 1; }
 python3 tools/refine_castle_depth_cards.py --check \
 	|| { echo "CASTLE STATIC DEPTH-CARD REFINEMENT DRIFT"; exit 1; }
 python3 tools/audit_castle_static_depth_cards.py \
@@ -124,6 +126,7 @@ python3 -m unittest \
 	tools.test_refine_castle_depth_cards \
 	tools.test_audit_castle_static_depth_cards \
 	tools.test_repair_castle_room_native_backgrounds \
+	tools.test_interactive_background_ownership \
 	|| { echo "CASTLE INTERACTION/DEPTH REVIEW SELF-TEST FAIL"; exit 1; }
 python3 tools/review_castle_interaction_frames_v4.py check \
 	|| { echo "CASTLE INTERACTION PER-FRAME APPROVAL FAIL"; exit 1; }

@@ -594,7 +594,9 @@ def build(root: Path, spec_path: Path) -> dict[str, Any]:
         raw_union = Image.new("L", CANVAS, 0)
         for raw in raw_masks:
             raw_union = ImageChops.lighter(raw_union, raw)
-        provisional_background = _clean_plate(parent_background, raw_union)
+        # MA-VIS-007: segmentation compares against the complete authoritative
+        # clean frame; it must never synthesize a temporary blur-filled plate.
+        provisional_background = parent_background.copy()
 
         refined_masks: list[Image.Image] = []
         refined_claimed = existing_ownership.copy()
@@ -690,7 +692,9 @@ def build(root: Path, spec_path: Path) -> dict[str, Any]:
             healing_union,
             repair_union.point(lambda value: 255 if value >= 48 else 0),
         )
-        healed_background = _clean_plate(parent_background, healing_union)
+        # Background pixels are owned by the complete generated frame.  New
+        # cards may not locally repaint, interpolate, or blur that frame.
+        healed_background = parent_background.copy()
         healed_background_path = background_dir / f"room_{room_id}_background.png"
         healed_background.save(healed_background_path, optimize=True)
 

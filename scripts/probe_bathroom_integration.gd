@@ -282,7 +282,7 @@ func _run() -> void:
 					and tile.texture != null \
 					and tile.texture.resource_path.contains(
 						"interactions_v4/background_tiles/"))
-	_ck("native bath props replace pixels in healed high-resolution tiles",
+	_ck("native bath props own pixels over complete full-frame clean tiles",
 		native_background_ready == expects_native_background,
 		"expected_native=%s runtime_native=%s" % [
 			expects_native_background, native_background_ready])

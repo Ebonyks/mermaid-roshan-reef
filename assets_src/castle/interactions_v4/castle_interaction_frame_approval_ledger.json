@@ -1,257 +1,174 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "16270de8dd3b2d57edf57ea92fb037ba52ff163ea77ed984a3d41fe13bb7e359",
-  "manifest_semantic_sha256": "442767ad0816900565c46ff29d57ff656df07e5c08606c0159b0e3bc0eaa4cc5",
+  "candidate_payload_sha256": "7bd0c274b394b9506c88b6370712b48480e9b290073b2a3786a1ae52d7d8f870",
+  "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
-    "date": "2026-08-26",
-    "reason": "The Act One castle door language adds only separate Canvas2D arch cues and sequential route-state behavior. All 104 approved V4 fixture frame-review hashes, PNG bytes, occlusion records, and manifest semantics remain unchanged; the regenerated candidate has zero blocking findings.",
-    "prior_candidate_payload_sha256": "82e2e61ade85f25be81b2f2ec3aafc8c85ac1c5b0424e8d48427888a37c4831b",
-    "prior_manifest_semantic_sha256": "442767ad0816900565c46ff29d57ff656df07e5c08606c0159b0e3bc0eaa4cc5"
+    "date": "2026-08-29",
+    "reason": "MA-VIS-007 replaced legacy partial-mask/healed-room composites with complete generated runtime backgrounds. All 96 current V4 frame composites were visually re-reviewed in the isolated absolute worktree; Craft frame zero was repaired to a complete closed state, the incomplete flap-only V4 override was retired in favor of the approved complete V2 tent, and Bubble mirror topology was verified with its real sink occluder in exact Godot 4.7.2 Mobile runtime captures. This is Codex review evidence, not owner acceptance.",
+    "prior_candidate_payload_sha256": "16270de8dd3b2d57edf57ea92fb037ba52ff163ea77ed984a3d41fe13bb7e359",
+    "prior_manifest_semantic_sha256": "442767ad0816900565c46ff29d57ff656df07e5c08606c0159b0e3bc0eaa4cc5",
+    "owner_acceptance": "pending",
+    "candidate_binding_refresh": "Complete cupboard rest card now exactly equals the already reviewed frame-zero pixels; all 96 per-frame review hashes are unchanged.",
+    "final_binding_refresh": "Source-ownership reference/rest role separation changed manifest provenance only; all 96 reviewed per-frame hashes remain unchanged."
   },
-  "reviewer": "Codex visual review 2026-08-05",
-  "review_basis": "All 104 untinted depth-aware composites and paired diagnostic sheets inspected; corrected Pool water and low-alpha waterfall also reviewed in exact Godot 4.7.1 Forward Mobile runtime captures; automated duplicate, ownership, alpha-scissor, and static-z gates clean.",
+  "reviewer": "Codex visual re-review 2026-08-29",
+  "review_basis": "All 96 current V4 plain and diagnostic composites inspected across three independent absolute-worktree review groups plus primary review; complete V2 Playroom tent reuse verified; Bubble mirror/sink occlusion verified in exact Godot 4.7.2 Forward Mobile dirty and clean runtime captures; automated duplicate, ownership, alpha-scissor, static-z, and full-frame background gates clean. Owner acceptance remains pending.",
   "assets": {
     "bubble_bath_vanity_mirror": {
       "frame_review_sha256": {
-        "0": "b18b8e5193bc0bd4c380c1aad20a5c3e4efd33bb3fffb1fd12a79ba0ef9516b5",
-        "1": "cba961d9935b06d93a2332b5f78b6d23b5e87a96e2bb2218259532fac30f4df2",
-        "2": "0dfba7aa7a88cafa820978a0d9372c253f09f9eb94f560eeea139b017f439121",
-        "3": "09689d35c419d3b2220366b6a246fa8c0b5ba64d158e84fcba3b0dac440a493f",
-        "4": "bce1b65ce1381cd5f8c1b65ed69f22d7c55f8056482e83586dd87aaae76571de",
-        "5": "f28f485f183b37e69de853cb85ae3f124e23fd4d19e3e765a33aec4c3abaed8f",
-        "6": "b367615c3817d7418157a238e33a1a1ad0952f1e86045307d80d95c95186341f",
-        "7": "5233cbdbbd38f7eabe49abf573c99a55055a81c5080b3ddf3dcfb8509140c44c"
+        "0": "a5c0209f1a2ce86bf34d1a9672b6732494d207d6f6d23268428bb499c8e89d23",
+        "1": "83a05567a0931f55224b85854b9f5bdd86d5133df326e9fddf1aab0ab4490f82",
+        "2": "10b9425271178cdad3127cae276402b626b25f678c8af576feb8a46ccdb207e0",
+        "3": "96c378570d7976842109aa489da1613792e4eb477225f84bdf14384f2d0fef97",
+        "4": "be9c90cbaa9acf2e81666a4b019620085cc8963f8dfa08bb0a8b851d10d7e458",
+        "5": "40c3f6166eeb7b50a275314fa2057e78c409545eb7b4a77294630fffbda67a6f",
+        "6": "f9a87e6fc37519eda640eb5a22fd9f250025aeef717e4820e3c3c979b3c5d30d",
+        "7": "758de5b3249d8bfcc9eb4dd6c56f9e89a4775bf2fe880297a7b4f3a9427db282"
       },
       "occlusion_relation": []
     },
     "craft_room_supply_cupboard_left": {
       "frame_review_sha256": {
-        "0": "203c0ef79e19ea26f76381cf6b7c41f41b22bea291d0120b3f5330b491459122",
-        "1": "d77a9064fd1180d8e87547b7322b7d11276cca4e299194496e4fcfcb6eb7efa7",
-        "2": "d12b8b5071b07db59ac60fced6b6a01cc0e7d036bd4f02fa03a7ae186549cda3",
-        "3": "48fab8ca5381fc25483646a3aba1c56c097b3bf88e6800c50c28bf282c307a77",
-        "4": "e3712d86225c95e27222199bd5f4faab4f0dad0c62ed92fbf936274a833865ca",
-        "5": "87dc180e67a6f4946e0ddb65603d405b711eab35388d45c728930cd73e836654",
-        "6": "5f6af2daaeb1c5ff429925ec5bc04a222c8dc098339a9aafb45f9d82fb08a39d",
-        "7": "aead3b6ea0ab46b3548b5e0c1eccb9960d2a653cca99260d1c69b8d0a358ba5f"
+        "0": "c0897cac2501cb7743e5c01f55b1b4424ae94d9813c1dd79a1f974488bf183a5",
+        "1": "8ebdbac68b41338a19a80c4481915ce428616b3256209e4511f87dfe353346d7",
+        "2": "fd5f07fe3118488d4f23bf111693ea3549e1ba9f7393054a99285b270a326419",
+        "3": "c09abe2986a614802f461e0c5a23f124c5fabfe51d017dcee9ea2123ac736a25",
+        "4": "2d12b76729a8f5bd81f7f2099025cc8a77ed5d81be77c385245c35b0f968b47e",
+        "5": "2b33f7527bcc41cf8560d1d8f63ea93a6570ca93a180dc2f1233ec6fa1a37309",
+        "6": "4639f8c73ea5e7c41324ed39731a659da23b06cff8600e1c4058639e617577f4",
+        "7": "04acd0d9615bf865beaf19276559d6b8861f02a78f033007f790f530a4cb3c7d"
       },
       "occlusion_relation": []
     },
     "kitchen_fridge": {
       "frame_review_sha256": {
-        "0": "567bb3aba7ce339a835b6d631de0522960da692e1c5b501c955e905f5cd186b8",
-        "1": "16ec9f9e565e2717fa879d1d517e86165693bdc9d344257bf22a566974d66c43",
-        "2": "ed8df6c99f204479b6fac0c75f6c1fb3ac734e884dce8f5f849ed7c1c7415d20",
-        "3": "9703446e55a5fffad75bb410bb83e58e0aee2a17babd174764865d883799f9bf",
-        "4": "a463902ddee205ac6c18eba80e21a906cacd0658c7ebfdd2192ca76e6bb21d58",
-        "5": "755ad2c7955ade94c927e0a0b69c33e92708d7ba42c7dd3314993d86df445baf",
-        "6": "19a2e0d8a8e0f655fd0b7806cb93817f4a47bb6add1c047b9d687914405fe0ec",
-        "7": "5051d85f9e0181350177c44e9d85e46ae1536f343f00821ca779b75846663777"
+        "0": "91d13a5a9e2932681b43d04cc71b5778fca46c993f6e0e9c30ae6cb8c3337a20",
+        "1": "c08ac20599e44580f53a863fa73de26d1618b212f42af622e667ef21d469340e",
+        "2": "6f70c8bef0138bf960a8dac1f6398c16c933e74e3114360d9f408e2e1ed13401",
+        "3": "9429cf0cc108dedf6c4eb4d769569085edd8cc148dd80794bceae7739bfd2fa4",
+        "4": "9bda61dc9b91846caac4909f5bf29d5aeffd3eb4edf9b32a1573b5184c9fcc93",
+        "5": "b0e2ee70d42576afd369078e402fedb61c61fc347cead07372f68502ed75944a",
+        "6": "a19d6cfabd6c9eb432995cd275dbd3ecf492b134776d78be6b863ae420629c4f",
+        "7": "e2445992ff943456d815a12e65c8476414b7a5aa636a7a1a36dee95481e47d08"
       },
       "occlusion_relation": []
     },
     "library_ceiling_chandelier": {
       "frame_review_sha256": {
-        "0": "a76b5d0c6807b0c9b03bcd7271f97a20629e56d7b398c2e7b95eb2a415763349",
-        "1": "a6b7af9578df5b500a6b381ae086614e15a8d893c145de23ba116d858a5e3a99",
-        "2": "b5351e536ab30858d090fbd83515a9e31a32c9c291a4f0b45528786349c730ad",
-        "3": "84e03bf6efcc1b7ddd6ad0f71c683b20149ad44a1ca8e2ab3f03f22772909c9f",
-        "4": "d8faafa6bad7c4d086e91b7f05577dfacff10b51343398b941c0fed8dd45f9b5",
-        "5": "bedf24ffbd71fa9bda45be733e24a3164ae8d0e5257835cdec855b1ac0dd657d",
-        "6": "ee25017f1d7fb4175aa9ebe404c17e421dd711d7e261d23798414514df37dfd7",
-        "7": "3b43c3f6b7ab5b89be3c6f487595f2a57a9df3cc87d68ff210c2843e6eed3c83"
+        "0": "42275cab6cd5863e0a1bf7978d7d2fbe7d9a85605c39c60b39665259821e2b6c",
+        "1": "11775569912ea6a0b44be4b8ecfc8cf3c73b0cd3d2c39cc40fb8aa310449e627",
+        "2": "9e388f16f74df304a7dbb44ed1f9e6360b44ae3f061fe2e4ca9ddb443fd29a04",
+        "3": "104503297f95657a15768abea56029ef0ceba7095a0b5c78b883048827584e27",
+        "4": "6f4d048777d801ff24629ca6036e2834dd5c0ff6ce7f3bb7329b23e5056a5680",
+        "5": "2b958cad7253d79e6b880811ae5ff1f3a36e9d7732dd9b53a7e68e3e3a5f62f6",
+        "6": "86b002b3fd100be2c47c73914725ca4322074840a99461c19dc3b2289c05809a",
+        "7": "760ba5b8f39131fa2d2d98725555793a42e040cda059c1b213ce364cde0c4453"
       },
       "occlusion_relation": []
     },
     "library_pearl_lamp_right": {
       "frame_review_sha256": {
-        "0": "ce45f2a5b42fa0edef2055ee35ba730e5c4b70aa53672005257b14c0d16c6e96",
-        "1": "7f78ee8df332170dfa3eb5f09cc466c32d8b50cb3c06486e879121bd8378bdcb",
-        "2": "2a99026c9f1e19fc7353615ed583df4acb35c08fb4c2e8aaa0313e020c0b5052",
-        "3": "c49fdb0468f8bff916362079989fac6c18122e7eedf835af58aec3ecd0594f85",
-        "4": "e6481128d07f5602681aeab73c59ca7631cb893f27db7d7bb15d03c56a82e438",
-        "5": "7ebd7ff1ced61a2675650c9ed17af298e0947ffbb6d0b82a9680e2dc5b2c4792",
-        "6": "7fa014bc754b183931aaaed297dfee71af6a67e7b9ea1ef38108852702d79872",
-        "7": "27736ddd3cb65b8378953daee67dbb00f357b4f22148749f7d7f40d4f05682c8"
+        "0": "4382924daeb04bb6cdc34f0cdf486d60b2c8f279e6bb6f47ec0f472f3506f584",
+        "1": "d509aebb2a1c9418732ab77c28d840304f6d5e7690e6a4c2be0a1dabe1ab1653",
+        "2": "7c3fe2bf13badee6608ac0fbae166d5a437f0746819f0798ea5a5d78202173bc",
+        "3": "0dfcd64a2a935f4aa046013a78434d1049018c3147ac57057881cbcccaa6e85f",
+        "4": "252e8d2b158edc914be6b2d02db2a682360f8442a3757a154a605087182c06a9",
+        "5": "72cbdef00bbd0fe469975bf4c454d22cfdf7c01ba4e80017bc6822625dbce55e",
+        "6": "fb00e8ec07537221435fcbd86dade611334be20661b25309d8994c04d350997d",
+        "7": "26ef76f8c78f090a288cc2c491b63b52d5ca48d036479b59c4d3cbab88b17d49"
       },
       "occlusion_relation": []
     },
     "mermaid_pool_flower_float": {
       "frame_review_sha256": {
-        "0": "a263e00dfe5dee9e793cfc80e4d1cd57afacffbf4036b94133df159877b56b82",
-        "1": "ce0a4e7467956c1446ef077361072d00d933758d535b4bc0067d1174e7fdbec2",
-        "2": "7c4fedabebf540eab59eff0d8ef4616595a249deddecee7f4b42ab1cdfa25fff",
-        "3": "a52a6595b7a2c36fc0c95b1e57e8a3aae1f7fbe0ae53b5d8d03c2f5eb6e4cc41",
-        "4": "561845d56f02d59c5cad237b8a5e43a89553c56476a528795bddacb68a94ca0b",
-        "5": "dc8cc1e1df72392b2ce28d333c164ae4984caf4fa8c0d27f93a5e9f2a9495e08",
-        "6": "d6a7b1ca809f86b690428fbff3f187668689c69ee3e6f4bcf414ea783e3d69aa",
-        "7": "2499605dc04e57226dd097dcdd5d1ac413cc662f101cc12436f828c20ef89bb1"
+        "0": "a2743fee30511c9485e26dee31638bdc3c7bddba89d49e9a764172e05ec04221",
+        "1": "4c4fd55f7884de0f8dc2271c385d8a1c825c9a048bbeac6597e5f603434bf2ff",
+        "2": "6976e38cbda307fb913b026049aa22e34e70954642d8e1aeb30755b2757bf9c1",
+        "3": "fa30119e20f47a8e5f98156fd77bc18050d1721f99c3c94b9ee754f595b845e7",
+        "4": "a3c7ac6ca2da350d573a5fee26cb70fb0e0650d85efee8063bda8595f5cd1be1",
+        "5": "152600b32870d98668965fba426c6be720e483aefeb05f8cabc9ab13d690f744",
+        "6": "3b4e3ae77b8aace2c9ed68e58a0ea74d407a249a0a4d81842e1227df8c5f7efe",
+        "7": "1d25f6088c6ea1588471291531ed1ee8b18444864dba61a67efab1f78f0459ab"
       },
       "occlusion_relation": []
     },
     "mermaid_pool_seahorse_fountain": {
       "frame_review_sha256": {
-        "0": "94c9043c6257d2b79b3864c4397008744702bedf04a8af01cf1af796e52e8765",
-        "1": "26a870f7ef4ee1a4809a933461542079a9c772b1f69bea59a16074678c1050a6",
-        "2": "f705db954ec34e51213de8731742f6f56c6c9bdb056b06aae242f0a6dde157f4",
-        "3": "dac37f2b4fa48884b608ba2d4f292cf682ca05b4123f4f8569f6d23102d5c76a",
-        "4": "40b06b875b2ae3b7ae4a610239f774c08deed52dd9dd7cac083c29192514e564",
-        "5": "f6e8d52c782befe0339aaa94691feba14ee368b427b08d14192155dd650de8c0",
-        "6": "01efe5e43781831446bbe36a812dd49f1f737be4bbd0f2b62a84289bac3c7fec",
-        "7": "d710f0f50b20f8f0c9cbfa7860a1a905ffd7632b30576273aa835daa0ef64887"
+        "0": "38886da22f2d8cfdfa81f35d792e462fd20fc68f9765e7bfc19df6747ad829ca",
+        "1": "f1dede766ce24fe5ebeeb369c284c1c4de8a6994d4dd5058f07c96521bcbb3d3",
+        "2": "c7519281ca75ae8afe577fd042b563ce4d4531df26fb8d54df65c74691e0e983",
+        "3": "8c073754cd84a483d3762e38b83bcc767c7d3b9a47db15ddab6173df4fc3dff3",
+        "4": "c7e1f2d2a6690509dde4dc79a5e319bbd6f84e385154660db50350f22c7f0e56",
+        "5": "0c7a1d1ad795bd24b4d605d05e2687c4aaf4e85a6f76b78ada8e8cd9001046fb",
+        "6": "afe1646d842c5cce0c6aa905c260d8a45e5677f5685d180c92f07f01db8e87de",
+        "7": "f072aeac71d66648ddf697e5de9cc35bd99e79067304a8602cefa0017b036f8b"
       },
       "occlusion_relation": []
     },
     "mermaid_pool_star_float": {
       "frame_review_sha256": {
-        "0": "fa521b622c2360d8a9d3ad1ced1a130e27317d864c7887a5156670992ea75057",
-        "1": "8342fc2519b4fa33ad6494df3d301e63c5c9d12b10c0647a08c63c822f14fc7b",
-        "2": "71b0c4cf877926e90aa30941fee98ff5657ba8223d350362151e087b0a076a3b",
-        "3": "ed49bf838a0e25f19d91935a3a86fb94ea875d17c3907e7c11d1afe004af773f",
-        "4": "6cf571de6ae0315298b6cb598944fc83b3bb5c474128fa07076cdedb5ebf1806",
-        "5": "7ea05dfc0ec00437ff890ce019f17a821d9b0df88027928f4c47ee5f34b7443e",
-        "6": "6d791562e802c789274771ab7de96ba1be1bf3787565251af3992e9d54caf4f7",
-        "7": "22a8bf77a5f82ed1a74d6426e7517161ea6e1d42a119901af7e821996a75d96a"
+        "0": "f2e9bbc45449d3dc3985429c3bc519a00975de4f786ec5e5f9f246c71bf82dec",
+        "1": "0df88f297656a365b19520ba082a43348be9b7894387df36f1e9597cd5546441",
+        "2": "71699c6543468eeab7ebd94c5d7ed86d5265391af19c8a1a51dbede5016bc52f",
+        "3": "06187b302255afd7e705d494a9148354cf9d74a3e36e133f4628b1795ac9cae0",
+        "4": "4b57831f576763804dbaa704715737b0db70897582d79fe42889c5d0fbf89f61",
+        "5": "ceaca7e70a711db36849c57c9e7bb71d75eb0318aa707e7d42e271f3a5398c5c",
+        "6": "478d8568eb2f132137f8325d4d4bd0acbfe0a169e2306a20876df29839cc38e1",
+        "7": "dd4b630b458a1551365903061bd960aae8588729d666a5b147c9cb16b6002fbc"
       },
       "occlusion_relation": []
     },
     "mermaid_pool_waterfall": {
       "frame_review_sha256": {
-        "0": "bc3933373db506a26a61e57f8577f0839228044d105588f09fcaa585b27fe46d",
-        "1": "3c1ffce7cf4ab99eb9bb9a89412ae8b44268b05742d13070e7a4b9076be10aa1",
-        "2": "fc8f721e32cf37dce465ea807c375bb17ef92d785cf69914545c2f7bcee5e801",
-        "3": "1cbf0aa408d4de961b4c1d31a05b3a61b8acd40b3cff9480d625d0772794c40e",
-        "4": "2845975482eb950808dd12ecbcc064d00ed19a384b45eac80f1801e8879d289f",
-        "5": "88f6563af0a3b663ea5802f6dbb7be2edfa180bed1d34bca9246dca6c47eb881",
-        "6": "421f19a3daf434ff4dd1eee41d5336dc66e87cdd8bba0f6565b1aad53b81dc64",
-        "7": "17d27422401fb389020cb8823ea64996d9556ccbccfe422c9f265a17eb9689de"
+        "0": "b5416fc470b8764bc00d8b209e3e41b3f821693840641b8118df188a6d7eed3e",
+        "1": "0a83cc3354210687d6c65469da4e894d3677194a2ef678b594b47e70e5136faf",
+        "2": "913438bf0e38bf185cd87bccb80140039b86fe1d3fd4ec85bdcde37e50ac449c",
+        "3": "818db2db5843d46bd9b43f360f33d6a6c399ca1bd2c479ec02f1a6a2da73ace5",
+        "4": "12c04de1f7689af14da0379625db9836cba8b01da6aa91e411557693acfeea4e",
+        "5": "0ab715e62ee44a624a23d4088499de0685b64cbac921266ac6b1a67afa452eee",
+        "6": "b686aa632a9ccf5d2f127f0df6e7d8459be5a4b3ca4bb2aff8a5c048990d008b",
+        "7": "d162410bebe0585ee0db3700ba345cbbba7a39d7640ff0df9c9224d15ca6b576"
       },
       "occlusion_relation": []
     },
     "opera_hall_pearl_sconce_left": {
       "frame_review_sha256": {
-        "0": "8c5cb53fdfea89212e2e9d1f56a6f55144fd856afc947dc6d046ca6470e39b79",
-        "1": "7e104ee756d140b882ccb743b228566eb47c3889db87c1f9a6629b4151578e11",
-        "2": "10ac17ece90cac0748d7241cf43d5bebca0f63701ffc5b21cc9136dd37bd0d19",
-        "3": "b287af999afc1d7e8bb9025c6352e9f78e771375539bbce915a00c9d08fbebfe",
-        "4": "fb74912dc8d62be100581a0304ecb71c6dac69170866c26ba02e3b726e75ba63",
-        "5": "d5c1ace8aa7a24a05c649cc0a5a73180350df3ab64e7253e60430a4c05a1e850",
-        "6": "ab8a749fc3207fe46d8b04bff647a6cf4d9525d7692559225ee2a0bbf17713e9",
-        "7": "998f83e309e9b073242c33cf9555ec6acc78626529f877b9dfcd45c7e2046426"
+        "0": "f7e25931b508627785a003bcb34e2151713b5688af5a5b5ee7484bc3679e4af8",
+        "1": "6cfa28bae13046c839eff1b7e523725054e8ba8a47f1c9cecdec615ac10e2d18",
+        "2": "b89b5845c02a42049a1ba1fed8c9bced475545e2d52ef60578dc8db91b82b868",
+        "3": "e2de6551aaca23b838572bb468706f661f8cd2a16f11bd2a3979229405ed81ce",
+        "4": "b87439d6cc7b2fa619e97014bd16227a0d7695eb76f48f45433bd7f81ad3d5ad",
+        "5": "838dfc5fb3e91eabebf3a35944ffdf74e9df2f433fbcefe5ce7239bb678d1422",
+        "6": "52c908efd9623e2a05265e42de00d19df2ab3706c03ae91708f752e90091be5f",
+        "7": "1707e7c53da17c6dfb66809ebb612d2a15f66af24e1a0cc44a884d856a99a4bd"
       },
       "occlusion_relation": []
     },
     "opera_hall_pearl_sconce_right": {
       "frame_review_sha256": {
-        "0": "1b6cf2b86aa8808c627d81209f902a45b3e8b0a2501a6201d5f187df2a89ceb2",
-        "1": "407b7931d80ed9c9d9bca455d138979c70371e0360ae81c474f5d8df59419201",
-        "2": "ecd485a4de2ce99a9e01363e2d5efd2fed075aeb38c31bf0eb06d8343ec165e3",
-        "3": "facf7168079be23e74eacfa15cf9ba79ff086ee874f33743252e20803ff82a39",
-        "4": "9401edf74b5965bff2a63a05a9e76f269b2cc09205ffebe312e1476793f3aff6",
-        "5": "e599eaed34fbd93c98da9b3569de4cf3ffea984e019a84b5fd3e57e21abad8bd",
-        "6": "b23b50c0f1bd8c808a066cd64958ae6bfe63cff9cd2214efead18065d7eafcda",
-        "7": "a47ca24455dca5dfda0ae6d77308e4115a1e2a938afea5f175168359a22a1400"
+        "0": "a7197b4fea512c12522ba5646ed130e17ee5d9bf91d86fedab82e59ed4c9d8e7",
+        "1": "92fa0ec4263dd65353c57b68f8c2ec9c3f9e52eca62a9a5290fce14c823933c5",
+        "2": "c2ff02b34b2059c4a2426dc9aff9d1089f2175bd63751932afb13b950fcbdd18",
+        "3": "f09b8a6d1b8b71c358f5eeec4f002bf0a17677f444ecfa3de2728999be737dfb",
+        "4": "bf50ffc3ee6892797b978a5c1ba6cd9d675bd6419701cf6893b797418b5f155c",
+        "5": "7583f5aefebeaea6621c475a68e745a34eb44fd5ce71b4db8a8149c5a9929565",
+        "6": "edddf02a871411e4319c5e3955eeaf20051001e374a250590addd38e7a2de860",
+        "7": "c27f79618f924d08cd0d0fe77f2f99ad7e60b73fa16770957ba4942d3566e213"
       },
       "occlusion_relation": []
     },
     "playroom_shelf_sailboat": {
       "frame_review_sha256": {
-        "0": "fca9651b742b53d0359b8f2e8ec334af09d22dc34193e8bea916a632a2460d73",
-        "1": "27e55c56f0f313c80645754c0c447cbde3b9d18881ab94b4bf5fadd8c2f3f0fe",
-        "2": "e91909c04ddc3f0af87bbddfd098921c467ebcbf12f129636ea88ce01e5af108",
-        "3": "caa4c6d6da18901df7d6ad0a6aec9c4e1de965e3fa2d648f2fc7f2e0aedb38c0",
-        "4": "b4a84f6b922603d599917bb20a9488909b1e609ee151b05c24c6042729d0ebe5",
-        "5": "1bacc7a94659273a6d0981dfdd7da6b2b938da97ead02703b1598733a700bc4c",
-        "6": "222f19a011ad3b288622fc71804fbc5ca7067f9449b33c8324e82b6f190ba3d2",
-        "7": "d18ce2005daa5df02d15276402afab9e53bf8cb383815d40a4b9cbb41823b4fb"
+        "0": "9826f891f0f033a9ea2c42ef44b318fe6021838656322591b954f5eba34076fb",
+        "1": "4fb959cdf29e02320452556bc9f3de14a7ee34dfcbd84f8758980ab2b5672402",
+        "2": "c18e2351de90150f43705183a144ed0e11667e2f013bfe30d8f335b13e68fd96",
+        "3": "a7509d9e9ead197b9e5b8ef92555729df21b3dd6e15f992c363d5fd16955c8dc",
+        "4": "b35bb751e8e88639aaf6d38583b4411c21c35f72e555edb70a9efba76c64bafa",
+        "5": "f1ecadbc17824238030a88ec233c80c6f6e34b40ea7688b8843050a2b1feb079",
+        "6": "ff574a6aef69e3c856e33a91dba3c649e40d8cfc45e9fdbd01f4544247c51dd4",
+        "7": "419e373a6142df4957c8494d60e6950edaed44efe6afa03c50f9c756211c7ea1"
       },
       "occlusion_relation": []
-    },
-    "playroom_tent_flaps_right": {
-      "frame_review_sha256": {
-        "0": "8f67c063d7edeb7213d140bad93934fdf3c5b8f7dfe7cd3f93e75036fcef60b3",
-        "1": "2384ae5f44538d2e83e55a57a1b5b0687ff5384dd6c93e183ec5f6585d49540c",
-        "2": "44fad33e359056b2a1f29155f1a45f8111792728a5f1fe821e675c3af1578534",
-        "3": "73477ce4b7c362b774da1757aa22b3ae93179fb146d3054696d850179799ed5e",
-        "4": "6f718073949147a9b65af90372dd139d0744d0c3f850d94de56f6423d0beda3c",
-        "5": "2d46ea28463fcd5ebb61f391cd27f45de0d03dfb194a6f229f48ab0e409860a6",
-        "6": "0e92418911f075c1335876b059a445f291abc35e017e81f486210dc22354b73b",
-        "7": "12a46c2f06d70ba55924b8353c82e8e43dcb63dde7c35baa9815414be89c23b7"
-      },
-      "occlusion_relation": [
-        {
-          "asset_z": 0.82,
-          "card_id": "front_right",
-          "card_path": "assets/flats/castle/rooms/room_playroom_front_right.png",
-          "card_z": 4.0,
-          "frame_index": 1,
-          "layer": "front",
-          "overlap_pixel_sha256": "c31e8141d736a37798a00d5c876fe43c930246317a910ae16901a563ff1d22b8",
-          "overlap_pixels": 3,
-          "relation": "card_in_front_of_asset",
-          "signed_z_delta": -3.18
-        },
-        {
-          "asset_z": 0.82,
-          "card_id": "front_right",
-          "card_path": "assets/flats/castle/rooms/room_playroom_front_right.png",
-          "card_z": 4.0,
-          "frame_index": 2,
-          "layer": "front",
-          "overlap_pixel_sha256": "50f7693db3c13b59c3d495e2216289c0d99356033df842f58ecf351c4fbe9a2f",
-          "overlap_pixels": 27,
-          "relation": "card_in_front_of_asset",
-          "signed_z_delta": -3.18
-        },
-        {
-          "asset_z": 0.82,
-          "card_id": "front_right",
-          "card_path": "assets/flats/castle/rooms/room_playroom_front_right.png",
-          "card_z": 4.0,
-          "frame_index": 3,
-          "layer": "front",
-          "overlap_pixel_sha256": "8c5913f046ae9a33aabea7b5476b7a9bd4c10eaff4a97d7e7b269a6e794bcc72",
-          "overlap_pixels": 33,
-          "relation": "card_in_front_of_asset",
-          "signed_z_delta": -3.18
-        },
-        {
-          "asset_z": 0.82,
-          "card_id": "front_right",
-          "card_path": "assets/flats/castle/rooms/room_playroom_front_right.png",
-          "card_z": 4.0,
-          "frame_index": 4,
-          "layer": "front",
-          "overlap_pixel_sha256": "30611c46322ba1169c3526e424d7fde033b6c1b7810b8f87686ed8539e230d1c",
-          "overlap_pixels": 29,
-          "relation": "card_in_front_of_asset",
-          "signed_z_delta": -3.18
-        },
-        {
-          "asset_z": 0.82,
-          "card_id": "front_right",
-          "card_path": "assets/flats/castle/rooms/room_playroom_front_right.png",
-          "card_z": 4.0,
-          "frame_index": 5,
-          "layer": "front",
-          "overlap_pixel_sha256": "7e3ed26f05a5859ad3e5186b2c8043b1c10281e56dee92757e7444aeb6d41b80",
-          "overlap_pixels": 30,
-          "relation": "card_in_front_of_asset",
-          "signed_z_delta": -3.18
-        },
-        {
-          "asset_z": 0.82,
-          "card_id": "front_right",
-          "card_path": "assets/flats/castle/rooms/room_playroom_front_right.png",
-          "card_z": 4.0,
-          "frame_index": 6,
-          "layer": "front",
-          "overlap_pixel_sha256": "f4af72519ed6e5f99bf29d6cb1c0e66373484f2a73e4d74350af7553dff61453",
-          "overlap_pixels": 21,
-          "relation": "card_in_front_of_asset",
-          "signed_z_delta": -3.18
-        }
-      ]
     }
   }
 }
