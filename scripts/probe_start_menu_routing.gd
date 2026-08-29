@@ -4,6 +4,7 @@ extends SceneTree
 ## touching the real child save.
 
 var failures: int = 0
+const START_MENU := preload("res://scripts/start_menu.gd")
 
 
 func _init() -> void:
@@ -14,6 +15,10 @@ func _init() -> void:
 	main._prepare_start_menu_launch(true)
 	_check("New Game selects Day 1", main.day_one_is_active())
 	_check("New Game bypasses the legacy intro", not main.first_session)
+	_check("Continue preserves an explicitly active Day One save",
+		START_MENU.continue_day_one_mode({"day_one_active": true}))
+	_check("legacy Continue remains outside Day One",
+		not START_MENU.continue_day_one_mode({"legacy": true}))
 	_probe_wiring()
 	main.free()
 	print("START_MENU_ROUTING|RESULT: ",
@@ -28,8 +33,8 @@ func _probe_wiring() -> void:
 	_check("startup waits for the menu or probe driver",
 		not main_source.contains(
 			"START_AT_CASTLE_GATE and DisplayServer.get_name()"))
-	_check("Continue calls the direct-game route",
-		menu_source.contains("m._launch_from_start_menu(false)"))
+	_check("Continue derives its mode from the saved Day One flag",
+		menu_source.contains("continue_day_one_mode(m.save_data)"))
 	_check("New Game calls the Day 1 route after reload",
 		menu_source.contains("m._launch_from_start_menu(true)"))
 	_check("New Game reload marker survives the scene reset",

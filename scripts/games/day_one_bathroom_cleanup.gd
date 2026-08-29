@@ -20,22 +20,32 @@ const SPARKLE_TEXTURE := "res://assets/opera/worlds/props/fx_stolen_sparkle.png"
 const POINTER_TEXTURE := "res://assets/castle/training/ghost_hand.png"
 const SPONGE_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png"
 const BRUSH_TEXTURE := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
-const BASKET_TOOL_SCALE := 0.06
+const BASKET_TOOL_SCALE := 0.07
 # Reuse the approved Day One cleanup basket as the single, diegetic collection
-# point. It is deliberately placed on the front-right floor so a child can
-# see where each found tool goes without a second card or floating box.
+# point. It is deliberately placed on the front-right floor, clear of the
+# lower-right action control, so a child can see where each found tool goes
+# without a second card or floating box.
 const BASKET_TEXTURE := "res://assets/castle/day_one_pool/activities/cleanup_basket.png"
-const BASKET_POSITION := Vector2(1082.0, 575.0)
-const BASKET_SCALE := 0.19
+const BASKET_POSITION := Vector2(940.0, 575.0)
+const BASKET_SCALE := 0.105
 const BASKET_BUTTON_SIZE := Vector2(220.0, 220.0)
+const BASKET_POINTER_OFFSET := Vector2(0.0, -132.0)
+# The approved Roshan staging footprint occupies the center-right lesson area;
+# this narrow pointer corridor keeps the hand above the basket and out of her
+# face, hair, tail, and the sink/tub fixtures.
+const ROSHAN_SAFE_RECT := Rect2(700.0, 320.0, 185.0, 320.0)
+const POINTER_BOUNDS := Vector2(56.0, 88.0)
 const BASKET_CONTENT_OFFSETS: Array[Vector2] = [Vector2(-34.0, -26.0),
 	Vector2(36.0, -24.0)]
 const SINK_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png"
 const TUB_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png"
 const SINK_GRIME_POSITION := Vector2(642.0, 280.0)
 const TUB_GRIME_POSITION := Vector2(310.0, 349.0)
-const SINK_GRIME_SCALE := 0.24
-const TUB_GRIME_SCALE := 0.31
+# These are localized fixture marks, not full fixture cards. The approved
+# source cards are 1024px square and are intentionally mounted small enough to
+# sit inside the painted basin/rim on a 1280x720 phone canvas.
+const SINK_GRIME_SCALE := 0.095
+const TUB_GRIME_SCALE := 0.12
 const SUPPLY_DEFINITIONS: Array[Dictionary] = [
 	{
 		"id": "sponge",
@@ -47,6 +57,7 @@ const SUPPLY_DEFINITIONS: Array[Dictionary] = [
 const MAX_SUPPLIES := 2
 const DRAG_TARGET_SIZE := Vector2(184.0, 184.0)
 const MIN_DRAG_DISTANCE := 36.0
+const WORLD_CONTROL_BLOCK_REASON := "day_one_bathroom_cleanup"
 
 var m: ReefMain
 var _supply_step: int = 0
@@ -78,6 +89,7 @@ var _hud_layer: CanvasLayer = null
 var _hud_layer_was_visible: bool = false
 var _action_button: Button = null
 var _action_button_was_visible: bool = false
+var _world_controls_suppressed: bool = false
 
 
 class SupplyIcon extends Sprite2D:
@@ -132,6 +144,12 @@ func teardown() -> void:
 	if _action_button != null and is_instance_valid(_action_button):
 		_action_button.visible = _action_button_was_visible
 		_action_button = null
+	if _world_controls_suppressed and m != null \
+			and m.has_method("_set_world_controls_enabled"):
+		# Removing our named block preserves any unrelated block that was already
+		# active, while restoring TouchUI when rescue was the only owner.
+		m._set_world_controls_enabled(true, WORLD_CONTROL_BLOCK_REASON)
+		_world_controls_suppressed = false
 	if is_inside_tree():
 		queue_free()
 	else:
@@ -172,6 +190,16 @@ func audit_snapshot() -> Dictionary:
 			or not _room_link_layer.visible,
 		"room_action_suppressed": _action_button == null
 			or not _action_button.visible,
+		"world_controls_suppressed": _world_controls_suppressed,
+		"basket_clear_of_action_zone": _basket_button == null
+			or _basket_button.position.x + _basket_button.size.x <= 1066.0,
+		"pointer_position": _pointer.position if _pointer != null else Vector2.ZERO,
+		"pointer_aimed_at_basket": _pointer != null
+			and _pointer.position.distance_to(BASKET_POSITION) <= 150.0,
+		"pointer_clear_of_roshan": _pointer != null
+			and not _pointer_bounds().intersects(ROSHAN_SAFE_RECT),
+		"localized_fixture_grime": SINK_GRIME_SCALE <= 0.12
+			and TUB_GRIME_SCALE <= 0.12,
 		"floating_sink_box_suppressed": true,
 		"dirty_overlays_visible": _dirty_overlays_visible(),
 		"sink_grime_visible": _sink_grime != null and _sink_grime.visible,
@@ -312,6 +340,9 @@ func _suspend_standard_surfaces() -> void:
 	if _action_button != null and is_instance_valid(_action_button):
 		_action_button_was_visible = _action_button.visible
 		_action_button.visible = false
+	if m.has_method("_set_world_controls_enabled"):
+		m._set_world_controls_enabled(false, WORLD_CONTROL_BLOCK_REASON)
+		_world_controls_suppressed = true
 
 
 func _build_basket() -> void:
@@ -403,7 +434,7 @@ func _refresh_guidance() -> void:
 		_basket_button.visible = visible
 	if not visible:
 		return
-	_pointer.position = BASKET_POSITION + Vector2(-108.0, -154.0)
+	_pointer.position = BASKET_POSITION + BASKET_POINTER_OFFSET
 
 
 func _reveal_supply(index: int) -> void:
@@ -500,6 +531,12 @@ func _basket_item_ids() -> Array[String]:
 	for definition: Dictionary in SUPPLY_DEFINITIONS:
 		ids.append(String(definition["id"]))
 	return ids
+
+
+func _pointer_bounds() -> Rect2:
+	if _pointer == null:
+		return Rect2()
+	return Rect2(_pointer.position - POINTER_BOUNDS * 0.5, POINTER_BOUNDS)
 
 
 func _place_supply_in_basket(index: int) -> void:

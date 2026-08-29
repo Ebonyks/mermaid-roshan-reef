@@ -20,10 +20,23 @@ func _init() -> void:
 			"res://assets/shaders/castle_pool_surface_life.gdshader"))
 	var main_source: String = FileAccess.get_file_as_string(
 		"res://scripts/main.gd")
-	_check("bathroom finale owns whole-room sparkle and pool pointer handoff",
-		main_source.contains("_burst(\"✦\"")
-		and main_source.contains("_day_one_sync_castle_dressing()")
+	var finale_start: int = main_source.find(
+		"func _on_day_one_bathroom_finale_started()")
+	var finale_end: int = main_source.find("\nfunc ", finale_start + 1)
+	var finale_source: String = main_source.substr(finale_start,
+		finale_end - finale_start) if finale_start >= 0 and finale_end > finale_start \
+		else ""
+	_check("bathroom finale owns distributed sparkle and pool picture handoff",
+		main_source.contains("fixture-associated sparkle")
+		and not finale_source.contains("_burst(\"✦\"")
+		and main_source.contains("ApprovedPoolRoomPreview")
+		and main_source.contains("actual_pool_room")
 		and main_source.contains("day_one_complete_pool_scene"))
+	_check("pool route preview is the approved actual room, not a droplet",
+		main_source.contains("DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE")
+		and main_source.contains(
+			"res://assets/flats/castle/rooms/room_mermaid_pool.png")
+		and not main_source.contains("sign_mermaid_pool.png"))
 
 	var main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = DIRECTOR_SCRIPT.new(main) as DayOneDirector
