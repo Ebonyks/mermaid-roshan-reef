@@ -62,13 +62,14 @@ func _run_probe() -> void:
 		_highlight_count(bonus_states) == 1
 		and _highlight_id(bonus_states) == "mermaid_pool"
 		and String(bonus_states["mermaid_pool"]) == DoorLanguage.BONUS)
-	_check("bonus cue is a slow red pulse",
-		DoorCue.BONUS_OUTER_COLOR.r > DoorCue.BONUS_OUTER_COLOR.g
-		and DoorCue.BONUS_OUTER_COLOR.r > DoorCue.BONUS_OUTER_COLOR.b
+	_check("bonus cue retains its slow red glow",
+		DoorCue.BONUS_GLOW_COLOR.r > DoorCue.BONUS_GLOW_COLOR.g
+		and DoorCue.BONUS_GLOW_COLOR.r > DoorCue.BONUS_GLOW_COLOR.b
 		and DoorCue.BONUS_PERIOD_SECONDS >= 4.0)
-	_check("plot cue remains slower and restrained",
-		DoorCue.PLOT_PERIOD_SECONDS >= 3.0
-		and DoorCue.PLOT_SHIMMER_PERIOD_SECONDS >= 4.0)
+	_check("plot cue retains its restrained gold glow",
+		DoorCue.PLOT_GLOW_COLOR.r > DoorCue.PLOT_GLOW_COLOR.b
+		and DoorCue.PLOT_GLOW_COLOR.g > DoorCue.PLOT_GLOW_COLOR.b
+		and DoorCue.PLOT_PERIOD_SECONDS >= 3.0)
 
 	_check("unknown direct routes fail closed",
 		DoorLanguage.resolve_act_one("retired_backdoor", "bubble_bath", [],
@@ -84,8 +85,16 @@ func _run_probe() -> void:
 	root.add_child(cue)
 	cue.size = Vector2(180.0, 300.0)
 	cue.call("set_door_state", DoorLanguage.PLOT)
-	_check("plot cue is visible and input-transparent",
-		cue.visible and cue.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	_check("plot glow remains visible and input-transparent",
+		cue.visible and cue.is_processing()
+		and cue.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	cue.call("set_door_state", DoorLanguage.BONUS)
+	_check("bonus glow remains visible and input-transparent",
+		cue.visible and cue.is_processing())
+	_check("mismatched frame-tracing geometry is removed",
+		not cue.has_method("_arch_points")
+		and not cue.has_method("_draw_bonus")
+		and not cue.has_method("_draw_plot"))
 	_check("unified cue has no legacy keyhole child",
 		cue.find_child("*Keyhole*", true, false) == null
 		and cue.find_child("*LockIcon*", true, false) == null)
