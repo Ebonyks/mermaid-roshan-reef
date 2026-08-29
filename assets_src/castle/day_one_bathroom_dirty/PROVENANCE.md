@@ -5,6 +5,56 @@ project-original, non-destructive transparent overlays. The approved Bubble
 Bath room plate and protected assets were not edited or supplied as delivery
 pixels.
 
+## Full dirty bathroom state
+
+- Selected native master: `room_bubble_bath_dirty_full_master_v1.png`
+- Native dimensions: 1672x941 RGB
+- Native SHA-256: `ccf9882aaf6f09d02c7858febf0164462b56cd466a051361342fcdb98b50c649`
+- Runtime derivative:
+  `assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png`
+- Runtime dimensions: 1024x576 RGBA
+- Runtime SHA-256: `a80e17a902c26ce31873a4e4611f9c17a32bcecb72a289c9d10dcd3a7abbb6b9`
+- Generation result identifier:
+  `exec-f2314964-3a33-407b-9fbc-05ca00908d7e.png`
+- Generation method: OpenAI built-in image generation.
+- Reference roles: the approved clean Bubble Bathroom established the fixed
+  room composition, fixtures, palette, and storybook style; the approved
+  Day One dust-bunny cutout established the friendly lavender creature design.
+  References were appearance guidance only. The selected output is a newly
+  generated complete image and contains no protected source pixels.
+- Derivation: one whole-canvas high-quality bicubic resize from 1672x941 to
+  1024x576, then RGB-to-RGBA format normalization. No local masking,
+  compositing, relighting, fixture extraction, or overwrite of the approved
+  clean room was performed.
+- Final prompt: "Edit the supplied complete dirty Mermaid Roshan Bubble
+  Bathroom into one final full-frame dirty-before room image. Preserve the
+  room image's exact 16:9 composition, camera, architecture, shell bathtub,
+  center sink, toilet, shelves, windows, pastel storybook lighting, and every
+  fixture position and proportion. Do not redesign, move, resize, crop, or
+  replace the room. Keep the same muted olive-gray dirty bathwater. Keep
+  exactly one cute lavender mermaid dust bunny in the left bathtub, using the
+  supplied bunny reference for identity. Critical depth correction: lower the
+  bunny slightly and hide its entire lower cloud body behind the painted
+  bathwater surface and behind the bathtub's front inner lip; only its ears,
+  face, eyes, cheeks, and upper fluffy shoulders should rise above the water.
+  Paint a clear waterline across the lower body so the creature unmistakably
+  occupies the bath rather than floating above it. Keep the bunny centered in
+  the water cavity and separated from the rim. The tub's peach front shell,
+  teal base, pearl medallion, and contours must remain completely clean and
+  unobstructed. Any friendly soap scum must stay within the inner water cavity
+  only; no U-shaped grime, bubbles, or marks may cross the peach tub shell or
+  bunny face. Keep one small gentle cloudy grime patch inside the center sink.
+  No Roshan, UI, text, arrows, pointer, basket, floating boxes, duck, extra
+  characters, cracks, damage, mold, harsh stains, or watermark. Produce a
+  complete flattened polished 2D children's storybook room image, not an
+  overlay or cutout."
+- Human review: selected for the Day One dirty state after the first candidate
+  was rejected for weak lower-body occlusion. The water reads dirty at phone
+  scale, the dust bunny's lower body is covered by the waterline and tub lip,
+  the room remains friendly, and the clean plate remains a distinct untouched
+  asset. Final acceptance is contingent on the rendered Mobile screenshot
+  audit recorded by the focused bathroom probe.
+
 ## Sink grime
 
 - Native: `sink_grime_source_v1.png`

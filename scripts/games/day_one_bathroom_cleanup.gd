@@ -40,12 +40,12 @@ const BASKET_CONTENT_OFFSETS: Array[Vector2] = [Vector2(-34.0, -26.0),
 const SINK_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png"
 const TUB_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png"
 const SINK_GRIME_POSITION := Vector2(642.0, 280.0)
-const TUB_GRIME_POSITION := Vector2(310.0, 349.0)
+const TUB_GRIME_POSITION := Vector2(270.0, 292.0)
 # These are localized fixture marks, not full fixture cards. The approved
 # source cards are 1024px square and are intentionally mounted small enough to
 # sit inside the painted basin/rim on a 1280x720 phone canvas.
 const SINK_GRIME_SCALE := 0.095
-const TUB_GRIME_SCALE := 0.12
+const TUB_GRIME_SCALE := 0.10
 const SUPPLY_DEFINITIONS: Array[Dictionary] = [
 	{
 		"id": "sponge",

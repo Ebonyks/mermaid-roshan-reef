@@ -58,15 +58,15 @@ class GestureGuide extends Node2D:
 
 	func _draw() -> void:
 		var pulse: float = 1.0 + sin(animation_time * 3.2) * 0.04
-		var ink := Color(0.46, 0.91, 0.86, 0.86)
+		var ink := Color(0.46, 0.91, 0.86, 0.70)
 		if guide_mode == "sink":
-			draw_arc(Vector2.ZERO, 82.0 * pulse, -0.8, TAU - 0.8,
-				24, ink, 7.0, true)
-			var tip := Vector2(cos(-0.8), sin(-0.8)) * 82.0 * pulse
+			draw_arc(Vector2.ZERO, 72.0 * pulse, -0.8, TAU - 0.8,
+				24, ink, 5.5, true)
+			var tip := Vector2(cos(-0.8), sin(-0.8)) * 72.0 * pulse
 			_draw_arrowhead(tip, -0.8 + PI * 0.5, ink)
 		else:
-			var reach: float = 128.0 * pulse
-			draw_line(Vector2(-reach, 0.0), Vector2(reach, 0.0), ink, 8.0,
+			var reach: float = 108.0 * pulse
+			draw_line(Vector2(-reach, 0.0), Vector2(reach, 0.0), ink, 5.5,
 				true)
 			_draw_arrowhead(Vector2(-reach, 0.0), PI, ink)
 			_draw_arrowhead(Vector2(reach, 0.0), 0.0, ink)
@@ -74,8 +74,8 @@ class GestureGuide extends Node2D:
 	func _draw_arrowhead(tip: Vector2, direction: float, color: Color) -> void:
 		var heading := Vector2(cos(direction), sin(direction))
 		var side := Vector2(-heading.y, heading.x)
-		draw_line(tip, tip - heading * 18.0 + side * 12.0, color, 8.0, true)
-		draw_line(tip, tip - heading * 18.0 - side * 12.0, color, 8.0, true)
+		draw_line(tip, tip - heading * 14.0 + side * 9.0, color, 5.5, true)
+		draw_line(tip, tip - heading * 14.0 - side * 9.0, color, 5.5, true)
 
 var m: ReefMain
 var _step: int = 0

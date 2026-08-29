@@ -19,6 +19,7 @@ const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
 	"res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
 	"res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+	"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
 ]
 
 var checks_failed: int = 0

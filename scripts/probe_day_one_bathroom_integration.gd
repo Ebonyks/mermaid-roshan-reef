@@ -11,6 +11,9 @@ const REQUIRED_WIRING: Dictionary = {
 		"func day_one_complete_bathroom_scene",
 		"func _sync_day_one_bathroom_cleanup",
 		"func _clear_day_one_bathroom_cleanup",
+		"_day_one_bathroom_entry_movie_blocks_cleanup()",
+		"start_day_one_bathtub_rescue()",
+		"set_day_one_bathtub_dirty_progress",
 		"_start_day_one_bathroom_movie_handoff()",
 		"if not day_one_is_active():",
 	],
@@ -18,6 +21,15 @@ const REQUIRED_WIRING: Dictionary = {
 		"day_one_bathroom_cleanup_step",
 		"day_one_bathroom_supply_hunt_step",
 		"saved_bathroom_step",
+	],
+	"res://scripts/arena/castle_rooms_25d.gd": [
+		"func start_day_one_bathtub_rescue",
+		"func set_day_one_bathtub_dirty_progress",
+		"func complete_day_one_bathtub_rescue",
+	],
+	"res://scripts/games/day_one_dust_bunny_swimmer.gd": [
+		"dust_bunny_swimming.png",
+		"bounded_bob_paddle",
 	],
 }
 
@@ -119,7 +131,13 @@ func _probe_wiring() -> void:
 		"_start_day_one_bathroom_movie_handoff()")
 	_check("bathroom entry automatically builds the dirty rescue",
 		main_source.contains("not day_one_castle_room_is_clean(\"bubble_bath\")")
-		and main_source.contains("DayOneBathroomCleanupLogic.new()"))
+		and main_source.contains("DayOneBathroomCleanupLogic.new()")
+		and main_source.contains("start_day_one_bathtub_rescue()"))
+	_check("entry and completion own separate optional movie phases",
+		main_source.contains("PHASE_ENTRY")
+		and main_source.contains("PHASE_CLEANUP")
+		and main_source.contains(
+			"_day_one_bathroom_entry_movie_checked"))
 	_check("clean rescue keeps the finale and pool pointer seam",
 		main_source.contains("_day_one_sync_castle_dressing()")
 		and main_source.contains("_on_day_one_bathroom_finale_started")
