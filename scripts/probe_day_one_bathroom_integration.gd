@@ -120,11 +120,24 @@ func _probe_wiring() -> void:
 	_check("bathroom entry automatically builds the dirty rescue",
 		main_source.contains("not day_one_castle_room_is_clean(\"bubble_bath\")")
 		and main_source.contains("DayOneBathroomCleanupLogic.new()"))
-	_check("clean rescue emits whole-room sparkle and pool pointer seam",
+	_check("clean rescue keeps the finale and pool pointer seam",
 		main_source.contains("_day_one_sync_castle_dressing()")
-		and main_source.contains("_burst(\"✦\""))
+		and main_source.contains("_on_day_one_bathroom_finale_started")
+		and main_source.contains("_show_day_one_pool_route()"))
+	var finale_start: int = main_source.find(
+		"func _on_day_one_bathroom_finale_started()")
+	var finale_end: int = main_source.find("\nfunc ", finale_start + 1)
+	var finale_source: String = main_source.substr(finale_start,
+		finale_end - finale_start) if finale_start >= 0 and finale_end > finale_start \
+		else ""
+	_check("bathroom finale suppresses generic floor burst",
+		finale_source.contains("fixture-associated sparkle")
+		and not finale_source.contains("_burst(\"✦\""))
 	_check("pool route uses approved picture and pointer without a UI box",
-		main_source.contains("sign_mermaid_pool.png")
+		main_source.contains("room_mermaid_pool.png")
+		and main_source.contains("ApprovedPoolRoomPreview")
+		and main_source.contains("route_preview_kind")
+		and main_source.contains("actual_pool_room")
 		and main_source.contains("PoolRouteGhostHand")
 		and main_source.contains("StyleBoxEmpty.new()")
 		and not main_source.contains(
@@ -135,6 +148,14 @@ func _probe_wiring() -> void:
 		completion_source.contains("if not day_one_is_active():")
 		and completion_source.contains("director.is_room_completed(\"bathroom\")")
 		and main_source.contains("_day_one_bathroom_movie_handoff != null"))
+	_check("generic controls stay owned by the rescue and movie handoff",
+		main_source.contains("_suspend_day_one_bathroom_controls()")
+		and main_source.contains("_day_one_bathroom_movie_handoff_pending")
+		and main_source.contains(
+			"_set_world_controls_enabled(false, \"day_one_bathroom_lifecycle\")")
+		and main_source.contains("\"ElevatorButton\""))
+	_check("Roshan stages clear of the bath gestures",
+		main_source.contains("_position_player_at_foot(Vector2(790.0, 630.0), false)"))
 	var cleanup_source: String = FileAccess.get_file_as_string(
 		"res://scripts/games/day_one_bathroom_cleanup.gd")
 	_check("bathroom route owns the basket-to-sink handoff",

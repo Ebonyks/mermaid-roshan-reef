@@ -16,6 +16,8 @@ const DayOneBathroomCleanupLogic = preload(
 	"res://scripts/games/day_one_bathroom_cleanup.gd")
 const DayOneBathroomMovieHandoffLogic = preload(
 	"res://scripts/day_one_bathroom_movie_handoff.gd")
+const DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE := \
+	"res://assets/flats/castle/rooms/room_mermaid_pool.png"
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -330,7 +332,11 @@ var day_one_event_history: Array[Dictionary] = []
 var _day_one_director: DayOneDirector = null
 var _day_one_bathroom_cleanup: DayOneBathroomCleanup = null
 var _day_one_bathroom_movie_handoff: DayOneBathroomMovieHandoff = null
+var _day_one_bathroom_movie_handoff_pending: bool = false
 var _day_one_pool_route_button: Button = null
+var _day_one_bathroom_controls_suspended: bool = false
+var _day_one_bathroom_control_state: Array[Dictionary] = []
+var _day_one_bathroom_menu_was_open: bool = false
 var _attack_customizer: AttackCustomizer = null
 var _attack_customizer_layer: CanvasLayer = null
 var _day_one_art_studio: DayOneArtStudio = null
@@ -7121,14 +7127,23 @@ func _day_one_sync_castle_dressing() -> void:
 
 func _sync_day_one_bathroom_cleanup() -> void:
 	var should_show: bool = day_one_is_active() \
-		and castle_room_stage != null \
-		and castle_room_id == "bubble_bath" \
-		and not day_one_castle_room_is_clean("bubble_bath")
+			and castle_room_stage != null \
+			and castle_room_id == "bubble_bath" \
+			and not day_one_castle_room_is_clean("bubble_bath")
+	var bathroom_route_owned: bool = day_one_is_active() \
+			and castle_room_stage != null \
+			and castle_room_id == "bubble_bath" \
+			and _day_one_ref().is_room_completed("bathroom")
 	if not should_show:
 		_clear_day_one_bathroom_cleanup()
 		if castle_room_id != "bubble_bath":
 			_clear_day_one_pool_route()
+		if bathroom_route_owned:
+			_suspend_day_one_bathroom_controls()
+		else:
+			_restore_day_one_bathroom_controls()
 		return
+	_suspend_day_one_bathroom_controls()
 	if _day_one_bathroom_cleanup != null \
 			and is_instance_valid(_day_one_bathroom_cleanup):
 		if castle_room_action_button != null:
@@ -7151,7 +7166,7 @@ func _sync_day_one_bathroom_cleanup() -> void:
 	if day_one_castle_dressing != null \
 			and is_instance_valid(day_one_castle_dressing):
 		day_one_castle_dressing.set_visible_room("main_hall")
-	_castle_rooms_ref()._position_player_at_foot(Vector2(348.0, 640.0), false)
+	_castle_rooms_ref()._position_player_at_foot(Vector2(790.0, 630.0), false)
 	if castle_room_action_button != null:
 		castle_room_action_button.visible = false
 
@@ -7178,7 +7193,9 @@ func _on_day_one_bathroom_supply_hunt_completed() -> void:
 
 
 func _on_day_one_bathroom_finale_started() -> void:
-	_castle_rooms_ref()._burst("✦", Color(0.92, 0.78, 1.0))
+	# The bespoke rescue owns fixture-associated sparkle sprites. Do not add the
+	# Castle-wide center-floor burst here: it obscures the clean sink/tub result.
+	pass
 
 
 func _on_day_one_bathroom_cleanup_completed() -> void:
@@ -7186,8 +7203,6 @@ func _on_day_one_bathroom_cleanup_completed() -> void:
 		return
 	_clear_day_one_bathroom_cleanup()
 	_day_one_sync_castle_dressing()
-	if castle_room_action_button != null:
-		castle_room_action_button.visible = true
 
 
 func _sync_day_one_art_studio() -> void:
@@ -7204,7 +7219,9 @@ func _sync_day_one_art_studio() -> void:
 func _day_one_clear_castle_dressing() -> void:
 	_clear_day_one_bathroom_cleanup()
 	_clear_day_one_bathroom_movie_handoff()
+	_day_one_bathroom_movie_handoff_pending = false
 	_clear_day_one_pool_route()
+	_restore_day_one_bathroom_controls()
 	_close_day_one_art_studio()
 	if day_one_castle_dressing != null \
 			and is_instance_valid(day_one_castle_dressing):
@@ -7218,19 +7235,25 @@ func _clear_day_one_bathroom_movie_handoff() -> void:
 		_day_one_bathroom_movie_handoff.stop()
 		_day_one_bathroom_movie_handoff.queue_free()
 	_day_one_bathroom_movie_handoff = null
+	_day_one_bathroom_movie_handoff_pending = false
 
 
 func _start_day_one_bathroom_movie_handoff() -> void:
 	if not day_one_is_active() or _day_one_bathroom_movie_handoff != null \
 			or castle_room_stage == null:
 		return
+	_day_one_bathroom_movie_handoff_pending = false
+	_suspend_day_one_bathroom_controls()
 	_day_one_bathroom_movie_handoff = DayOneBathroomMovieHandoffLogic.new() \
 		as DayOneBathroomMovieHandoff
 	castle_room_stage.add_child(_day_one_bathroom_movie_handoff)
 	_day_one_bathroom_movie_handoff.setup(self)
 	var handoff: Dictionary = \
 		_day_one_bathroom_movie_handoff.start_after_completion()
-	if String(handoff.get("status", "")) == "fallback":
+	var status: String = String(handoff.get("status", ""))
+	if status == "save_pending":
+		_day_one_bathroom_movie_handoff_pending = true
+	elif status == "fallback":
 		_day_one_bathroom_movie_handoff.stop()
 		_day_one_bathroom_movie_handoff.queue_free()
 		_day_one_bathroom_movie_handoff = null
@@ -7240,8 +7263,13 @@ func _show_day_one_pool_route() -> void:
 	if not day_one_is_active() or castle_room_stage == null \
 			or not _day_one_ref().can_enter_room("pool"):
 		return
-	if _day_one_bathroom_movie_is_playing():
+	if _day_one_bathroom_movie_handoff_pending \
+			or _day_one_bathroom_movie_is_playing():
 		return
+	# The pool picture is still a Day One bathroom-owned presentation. Keep the
+	# generic action/elevator controls out of its touch area until the picture is
+	# consumed and show_room() transfers ownership to the next room.
+	_suspend_day_one_bathroom_controls()
 	if _day_one_pool_route_button != null \
 			and is_instance_valid(_day_one_pool_route_button):
 		_day_one_pool_route_button.visible = true
@@ -7258,23 +7286,28 @@ func _show_day_one_pool_route() -> void:
 	_day_one_pool_route_button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	_day_one_pool_route_button.set_meta("day_one_route_target", "mermaid_pool")
 	_day_one_pool_route_button.set_meta("real_navigation_control", true)
+	_day_one_pool_route_button.set_meta("route_preview_kind",
+		"actual_pool_room")
+	_day_one_pool_route_button.set_meta("route_preview_asset",
+		DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE)
 	_day_one_pool_route_button.pressed.connect(_open_day_one_pool_route)
 	var empty_style := StyleBoxEmpty.new()
 	_day_one_pool_route_button.add_theme_stylebox_override("normal", empty_style)
 	_day_one_pool_route_button.add_theme_stylebox_override("hover", empty_style)
 	_day_one_pool_route_button.add_theme_stylebox_override("pressed", empty_style)
 	_day_one_pool_route_button.add_theme_stylebox_override("focus", empty_style)
-	var pool_picture := TextureRect.new()
-	pool_picture.name = "ApprovedPoolPicture"
-	pool_picture.texture = load(
-		"res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/" \
-		+ "sign_mermaid_pool.png") as Texture2D
-	pool_picture.position = Vector2(20.0, 18.0)
-	pool_picture.size = Vector2(165.0, 150.0)
-	pool_picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	pool_picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	pool_picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	pool_picture.set_meta("approved_pool_picture", true)
+	var pool_picture := Sprite2D.new()
+	pool_picture.name = "ApprovedPoolRoomPreview"
+	pool_picture.texture = load(DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE) as Texture2D
+	# Keep the complete 16:9 room visible inside the transparent route target.
+	# Sprite2D avoids TextureRect's live stretch/crop interaction on the Canvas.
+	pool_picture.centered = true
+	pool_picture.position = Vector2(102.5, 95.0)
+	pool_picture.scale = Vector2.ONE * 0.18
+	pool_picture.region_enabled = false
+	pool_picture.set_meta("approved_pool_room_preview", true)
+	pool_picture.set_meta("actual_destination_room", "mermaid_pool")
+	pool_picture.set_meta("uniform_preview_scale", 0.18)
 	_day_one_pool_route_button.add_child(pool_picture)
 	var hand := Sprite2D.new()
 	hand.name = "PoolRouteGhostHand"
@@ -7295,11 +7328,39 @@ func _show_day_one_pool_route() -> void:
 
 
 func _sync_day_one_pool_route() -> void:
+	var bathroom_rescue_active: bool = day_one_is_active() \
+			and castle_room_stage != null \
+			and castle_room_id == "bubble_bath" \
+			and not _day_one_ref().is_room_completed("bathroom")
 	if not day_one_is_active() or castle_room_stage == null \
 			or castle_room_id != "bubble_bath" \
 			or not _day_one_ref().is_room_completed("bathroom"):
 		_clear_day_one_pool_route()
+		if castle_room_id != "bubble_bath":
+			_clear_day_one_bathroom_movie_handoff()
+		if bathroom_rescue_active:
+			_suspend_day_one_bathroom_controls()
+		else:
+			_restore_day_one_bathroom_controls()
 		return
+	if _day_one_bathroom_movie_handoff_pending \
+			and not save_dirty and not save_pending \
+			and _day_one_bathroom_movie_handoff != null \
+			and is_instance_valid(_day_one_bathroom_movie_handoff):
+		var handoff: Dictionary = \
+			_day_one_bathroom_movie_handoff.start_after_completion()
+		var status: String = String(handoff.get("status", ""))
+		if status != "save_pending":
+			_day_one_bathroom_movie_handoff_pending = false
+			if status == "fallback":
+				_day_one_bathroom_movie_handoff.stop()
+				_day_one_bathroom_movie_handoff.queue_free()
+				_day_one_bathroom_movie_handoff = null
+	if _day_one_bathroom_movie_handoff_pending \
+			or _day_one_bathroom_movie_is_playing():
+		_suspend_day_one_bathroom_controls()
+		return
+	_suspend_day_one_bathroom_controls()
 	_show_day_one_pool_route()
 
 
@@ -7309,6 +7370,68 @@ func _day_one_bathroom_movie_is_playing() -> bool:
 		return false
 	return bool(_day_one_bathroom_movie_handoff.audit_snapshot().get(
 		"player_active", false))
+
+
+func _day_one_bathroom_navigation_controls() -> Array[Control]:
+	var controls: Array[Control] = []
+	var candidates: Array[Node] = [
+		castle_room_action_button,
+		castle_room_back_button,
+		castle_room_stage.get_node_or_null("ElevatorButton") \
+			if castle_room_stage != null else null,
+		castle_room_stage.get_node_or_null("ElevatorPointer") \
+			if castle_room_stage != null else null,
+		castle_room_menu_panel,
+	]
+	for candidate: Node in candidates:
+		var control: Control = candidate as Control
+		if control != null and is_instance_valid(control) \
+				and not controls.has(control):
+			controls.append(control)
+	return controls
+
+
+func _suspend_day_one_bathroom_controls() -> void:
+	var controls: Array[Control] = _day_one_bathroom_navigation_controls()
+	if not _day_one_bathroom_controls_suspended:
+		_day_one_bathroom_control_state.clear()
+		_day_one_bathroom_menu_was_open = castle_room_menu_open
+		for control: Control in controls:
+			var button: BaseButton = control as BaseButton
+			_day_one_bathroom_control_state.append({
+				"control": control,
+				"visible": control.visible,
+				"mouse_filter": control.mouse_filter,
+				"disabled": button.disabled if button != null else false,
+			})
+		_day_one_bathroom_controls_suspended = true
+	for control: Control in controls:
+		control.visible = false
+		control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var button: BaseButton = control as BaseButton
+		if button != null:
+			button.disabled = true
+	castle_room_menu_open = false
+	_set_world_controls_enabled(false, "day_one_bathroom_lifecycle")
+
+
+func _restore_day_one_bathroom_controls() -> void:
+	if not _day_one_bathroom_controls_suspended:
+		return
+	for state: Dictionary in _day_one_bathroom_control_state:
+		var control: Control = state.get("control") as Control
+		if control == null or not is_instance_valid(control):
+			continue
+		control.visible = bool(state.get("visible", true))
+		control.mouse_filter = int(state.get("mouse_filter",
+			Control.MOUSE_FILTER_STOP))
+		var button: BaseButton = control as BaseButton
+		if button != null:
+			button.disabled = bool(state.get("disabled", false))
+	_day_one_bathroom_control_state.clear()
+	_day_one_bathroom_controls_suspended = false
+	castle_room_menu_open = _day_one_bathroom_menu_was_open
+	_set_world_controls_enabled(true, "day_one_bathroom_lifecycle")
 
 
 func _clear_day_one_pool_route() -> void:

@@ -75,7 +75,7 @@ func _run_probe() -> void:
 		and bool(snapshot.get("basket_pulsing", false))
 		and bool(snapshot.get("basket_collects_supplies", false))
 		and bool(snapshot.get("floating_sink_box_suppressed", false))
-		and (snapshot.get("basket_position", Vector2.ZERO) as Vector2).x > 960.0
+		and (snapshot.get("basket_position", Vector2.ZERO) as Vector2).x > 760.0
 		and (snapshot.get("basket_position", Vector2.ZERO) as Vector2).y > 480.0)
 	_check("basket contains sponge and brush, never cleaner",
 		(snapshot.get("basket_item_ids", []) as Array) == ["sponge", "brush"]

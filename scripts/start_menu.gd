@@ -15,6 +15,11 @@ var _music_button: Button = null
 var _quality_button: Button = null
 var _mic_button: Button = null
 
+
+static func continue_day_one_mode(save_data: Dictionary) -> bool:
+	return save_data.has("day_one_active") \
+		and bool(save_data.get("day_one_active", false))
+
 func _init(main: ReefMain) -> void:
 	m = main
 
@@ -233,7 +238,10 @@ func _continue_game() -> void:
 	if not m.has_saved_game:
 		return
 	_dismiss_menu()
-	m._launch_from_start_menu(false)
+	# Preserve an explicitly active Day One save on Continue. Saves from before
+	# the Day One namespace still take the legacy direct-game route.
+	var continue_day_one: bool = continue_day_one_mode(m.save_data)
+	m._launch_from_start_menu(continue_day_one)
 	if m.chime != null:
 		m.chime.pitch_scale = 1.0
 		m.chime.play()

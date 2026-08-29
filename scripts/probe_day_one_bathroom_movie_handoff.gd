@@ -78,6 +78,12 @@ func _init() -> void:
 		String(second.get("status", "")) == "already_done"
 		and int(second.get("playback_count", -1)) == 0
 		and bool(main.save_data.get(HANDOFF.HANDOFF_SAVE_KEY, false)))
+	_check("main route defers the pool picture while handoff save is pending",
+		main_source.contains("var _day_one_bathroom_movie_handoff_pending: bool")
+		and main_source.contains("if _day_one_bathroom_movie_handoff_pending")
+		and main_source.contains("not save_dirty and not save_pending"))
+	_check("generic room action is not restored by cleanup completion",
+		not main_source.contains("castle_room_action_button.visible = true"))
 
 	var interrupted_main: ReefMain = ReefMain.new()
 	var interrupted_director: DayOneDirector = interrupted_main._day_one_ref()
