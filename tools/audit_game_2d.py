@@ -143,6 +143,10 @@ NON_ACTIVE_TOP_LEVEL = {
 	"disabled_addons", "example", "gen2", "tmp", "tools",
 }
 NON_ACTIVE_PREFIXES = {"assets/_staging"}
+# Godot AI is an editor bridge, not game-world code. Its export plugin removes
+# the temporary MCP autoload from shipped projects. Keep this waiver exact:
+# runtime-capable add-ons under every other addons/ path remain audited.
+EDITOR_ONLY_ADDON_PREFIXES = {"addons/godot_ai"}
 # These are review/provenance ledgers, not live game data.  Every other
 # Godot-active data directory is scanned, including future custom roots; a
 # directory needs .gdignore (or an explicit reviewed provenance entry here)
@@ -525,6 +529,12 @@ def _is_active_path(path: Path, root: Path) -> bool:
 		return False
 	return not any(relative == prefix or relative.startswith(prefix + "/")
 		for prefix in NON_ACTIVE_PREFIXES)
+
+
+def _is_editor_only_addon_path(path: Path, root: Path) -> bool:
+	relative = _relative(path, root)
+	return any(relative == prefix or relative.startswith(prefix + "/")
+		for prefix in EDITOR_ONLY_ADDON_PREFIXES)
 
 
 def _is_godot_ignored_path(path: Path, root: Path,
@@ -1821,14 +1831,16 @@ def _production_files(root: Path) -> Iterable[Path]:
 		path for path in _active_files(root)
 		if path.suffix.lower() in PRODUCTION_SOURCE_EXTENSIONS
 		and not (path.suffix.lower() == ".gd" and path.name.startswith("probe_"))
+		and not _is_editor_only_addon_path(path, root)
 	)
 
 
 def _native_binary_files(root: Path) -> Iterable[Path]:
 	return (
 		path for path in _active_files(root)
-		if path.suffix.lower() in NATIVE_BINARY_EXTENSIONS
-		or re.search(r"(?i)\.so(?:\.\d+)+$", path.name) is not None
+		if (path.suffix.lower() in NATIVE_BINARY_EXTENSIONS
+			or re.search(r"(?i)\.so(?:\.\d+)+$", path.name) is not None)
+		and not _is_editor_only_addon_path(path, root)
 	)
 
 
@@ -1836,6 +1848,7 @@ def _opaque_runtime_binary_files(root: Path) -> Iterable[Path]:
 	return (
 		path for path in _active_files(root)
 		if path.suffix.lower() in OPAQUE_RUNTIME_BINARY_EXTENSIONS
+		and not _is_editor_only_addon_path(path, root)
 	)
 
 
@@ -1861,6 +1874,7 @@ def _runtime_dependency_scope(root: Path,
 		if ((path.suffix.lower() in PRODUCTION_SOURCE_EXTENSIONS
 			and not (path.suffix.lower() == ".gd" and path.name.startswith("probe_")))
 			or path.suffix.lower() in {".tscn", ".tres", ".cfg", ".gdextension"})
+		and not _is_editor_only_addon_path(path, root)
 	}
 	project = root / "project.godot"
 	if project.is_file():
@@ -1903,6 +1917,8 @@ def _runtime_dependency_scope(root: Path,
 
 def _is_runtime_dependency_path(path: Path, root: Path,
 		scope: tuple[set[str], set[str]]) -> bool:
+	if _is_editor_only_addon_path(path, root):
+		return False
 	relative = _relative(path, root)
 	paths, directories = scope
 	return (_is_runtime_data_path(path, root) or relative in paths or any(
@@ -2167,18 +2183,21 @@ def discover(root: Path,
 			candidate for candidate in active_files
 			if candidate.suffix.lower() in PRODUCTION_SOURCE_EXTENSIONS
 			and not (candidate.suffix.lower() == ".gd"
-				and candidate.name.startswith("probe_"))):
+				and candidate.name.startswith("probe_"))
+			and not _is_editor_only_addon_path(candidate, root)):
 		counts = _token_counts(_read_text_cached(path, text_cache))
 		if counts:
 			production[_relative(path, root)] = counts
 	for path in (
 			candidate for candidate in active_files
-			if candidate.suffix.lower() in NATIVE_BINARY_EXTENSIONS
-			or re.search(r"(?i)\.so(?:\.\d+)+$", candidate.name) is not None):
+			if (candidate.suffix.lower() in NATIVE_BINARY_EXTENSIONS
+				or re.search(r"(?i)\.so(?:\.\d+)+$", candidate.name) is not None)
+			and not _is_editor_only_addon_path(candidate, root)):
 		production[_relative(path, root)] = _native_binary_counts(path)
 	for path in (
 			candidate for candidate in active_files
-			if candidate.suffix.lower() in OPAQUE_RUNTIME_BINARY_EXTENSIONS):
+			if candidate.suffix.lower() in OPAQUE_RUNTIME_BINARY_EXTENSIONS
+			and not _is_editor_only_addon_path(candidate, root)):
 		production[_relative(path, root)] = {"<opaque-runtime-binary>": 1}
 	runtime_scope = _runtime_dependency_scope(root, active_files, text_cache)
 	for path in _runtime_data_files(root, runtime_scope, active_files):
@@ -2190,7 +2209,8 @@ def discover(root: Path,
 	for path in (
 			candidate for candidate in active_files
 			if candidate.suffix.lower() == ".gd"
-			and candidate.name.startswith("probe_")):
+			and candidate.name.startswith("probe_")
+			and not _is_editor_only_addon_path(candidate, root)):
 		counts = _token_counts(_read_text_cached(path, text_cache))
 		if counts:
 			probes[_relative(path, root)] = counts
@@ -2198,20 +2218,23 @@ def discover(root: Path,
 	scenes: dict[str, dict[str, int]] = {}
 	for path in (
 			candidate for candidate in active_files
-			if candidate.suffix.lower() in {".tscn", ".tres"}):
+			if candidate.suffix.lower() in {".tscn", ".tres"}
+			and not _is_editor_only_addon_path(candidate, root)):
 		counts = _token_counts(
 			_read_text_cached(path, text_cache), scene_resource=True)
 		if counts:
 			scenes[_relative(path, root)] = counts
 	for path in (
 			candidate for candidate in active_files
-			if candidate.suffix.lower() in {".res", ".scn"}):
+			if candidate.suffix.lower() in {".res", ".scn"}
+			and not _is_editor_only_addon_path(candidate, root)):
 		scenes[_relative(path, root)] = {"<opaque-binary-resource>": 1}
 
 	configuration: dict[str, dict[str, int]] = {}
 	configuration_paths = {
 		candidate for candidate in active_files
 		if candidate.suffix.lower() in {".cfg", ".gdextension"}
+		and not _is_editor_only_addon_path(candidate, root)
 	}
 	project = root / "project.godot"
 	if project.is_file():
@@ -2895,6 +2918,8 @@ def _normalise_resource_directory(value: str) -> str:
 
 
 def _is_runtime_data_path(path: Path, root: Path) -> bool:
+	if _is_editor_only_addon_path(path, root):
+		return False
 	relative = _relative(path, root)
 	if any(relative == prefix or relative.startswith(prefix + "/")
 			for prefix in NON_RUNTIME_DATA_PREFIXES):

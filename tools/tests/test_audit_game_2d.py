@@ -1218,6 +1218,50 @@ class Game2DAuditTests(unittest.TestCase):
 		self.assertNotIn("review/old.gd", inventory.production_3d_files)
 		self.assertIn("G2D101", self.finding_ids(game_2d.audit(root, manifest)))
 
+	def test_only_godot_ai_editor_addon_is_excluded_from_runtime_debt(self) -> None:
+		temp, root, _manifest = self.fixture(with_debt=False)
+		self.addCleanup(temp.cleanup)
+		editor = root / "addons/godot_ai"
+		editor.mkdir(parents=True)
+		(editor / "plugin.gd").write_text(
+			'extends Node3D\nvar camera: Camera3D\n'
+			'var data = load("res://addons/godot_ai/editor_only.json")\n',
+			encoding="utf-8",
+		)
+		(editor / "editor_only.json").write_text(
+			'{"type": "Node3D"}\n', encoding="utf-8")
+		(editor / "preview.tscn").write_text(
+			'[gd_scene format=3]\n[node name="Preview" type="Node3D"]\n',
+			encoding="utf-8",
+		)
+		(editor / "plugin.cfg").write_text(
+			'[plugin]\nname="Camera3D editor"\n', encoding="utf-8")
+
+		live = root / "addons/live"
+		live.mkdir(parents=True)
+		(live / "runtime.gd").write_text(
+			"extends Node3D\n", encoding="utf-8")
+		(live / "world.tscn").write_text(
+			'[gd_scene format=3]\n[node name="World" type="Node3D"]\n',
+			encoding="utf-8",
+		)
+		(live / "runtime.cfg").write_text(
+			'camera_type="Camera3D"\n', encoding="utf-8")
+
+		inventory = game_2d.discover(root)
+		self.assertEqual(
+			set(inventory.production_3d_files), {"addons/live/runtime.gd"})
+		self.assertEqual(
+			set(inventory.scene_3d_files), {"addons/live/world.tscn"})
+		self.assertEqual(
+			set(inventory.configuration_3d_files), {"addons/live/runtime.cfg"})
+		for category in (
+				inventory.production_3d_files,
+				inventory.scene_3d_files,
+				inventory.configuration_3d_files):
+			self.assertFalse(any(
+				path.startswith("addons/godot_ai/") for path in category))
+
 	def test_existing_debt_file_cannot_gain_more_3d_api(self) -> None:
 		temp, root, manifest = self.fixture()
 		self.addCleanup(temp.cleanup)
