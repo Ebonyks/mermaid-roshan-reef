@@ -81,8 +81,11 @@ func _run() -> void:
 		return
 
 	# Exercise the actual Continue signal after making this isolated in-memory
-	# fixture represent an existing loaded save. Continue must never start Day 1.
+	# fixture represent an existing loaded save. A bare has_saved_game flag is
+	# not a loaded save state: explicitly restore the later-day marker so this
+	# viewport gate verifies that the one-shot Day One rescue cannot replay.
 	main.has_saved_game = true
+	main._day_one_ref().restore_state({"day_one_active": false})
 	continue_button.disabled = false
 	continue_button.pressed.emit()
 	for i in range(20):
