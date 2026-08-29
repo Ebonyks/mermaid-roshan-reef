@@ -45,7 +45,6 @@ func _run() -> void:
 	if failures > 0:
 		quit(1)
 		return
-	root.mode = Window.MODE_WINDOWED
 	root.size = Vector2i(1280, 720)
 	await _frames(4)
 	capture_root = OS.get_environment("DAY_ONE_BATHROOM_CAPTURE_OUT")
@@ -84,10 +83,6 @@ func _run() -> void:
 	await _frames(8)
 	main._sync_day_one_bathroom_cleanup()
 	await _frames(5)
-	# Let the 0.24-second room-composition transition fully clear before the
-	# first evidence frame. A transition ghost is not a live object, but it can
-	# visually resemble the retired lower-left shell basket in a still capture.
-	await create_timer(0.36).timeout
 	main.set_process(false)
 
 	var cleanup: DayOneBathroomCleanup = main._day_one_bathroom_cleanup
@@ -103,16 +98,23 @@ func _run() -> void:
 		and int(entry.get("active_target_count", 0)) == 1
 		and bool(entry.get("localized_fixture_grime", false))
 		and bool(entry.get("basket_clear_of_action_zone", false)))
-	var false_second_tub_left: Node = main.castle_room_front_layer.get_node_or_null(
-		"room_bubble_bath_front_left")
-	var false_second_tub_right: Node = main.castle_room_front_layer.get_node_or_null(
-		"room_bubble_bath_front_right")
-	var real_bathtub: Dictionary = main.castle_room_item_sprites.get(
-		"bathtub", {}) as Dictionary
-	_check("dirty bathroom has one bathtub silhouette",
-		false_second_tub_left == null
-		and false_second_tub_right == null
-		and real_bathtub.get("sprite") is Sprite2D)
+	var dirty_plate_entry: Dictionary = \
+		cleanup.day_one_bathroom_plate_snapshot()
+	_check("entry uses the separate full dirty 2D room plate",
+		bool(dirty_plate_entry.get("dirty_plate_visible", false))
+		and bool(dirty_plate_entry.get("true_2d", false))
+		and not bool(dirty_plate_entry.get("contains_tub_swimmer", true))
+		and bool(dirty_plate_entry.get("separate_animated_bunny", false))
+		and bool(dirty_plate_entry.get("bunny_depth_occluded", false))
+		and bool(dirty_plate_entry.get("clean_fixture_pixels_occluded", false))
+		and not bool(dirty_plate_entry.get(
+			"clean_fixture_layer_visible", true))
+		and dirty_plate_entry.get("texture_size", Vector2i.ZERO)
+			== Vector2i(1024, 576))
+	_check("entry bath visibly contains one depth-occluded mermaid bunny",
+		bool(dirty_plate_entry.get("dirty_plate_visible", false))
+		and bool(dirty_plate_entry.get("separate_animated_bunny", false))
+		and bool(dirty_plate_entry.get("bunny_depth_occluded", false)))
 	var elevator: Control = main.castle_room_stage.get_node_or_null(
 		"ElevatorButton") as Control
 	var elevator_pointer: Control = main.castle_room_stage.get_node_or_null(
@@ -159,10 +161,29 @@ func _run() -> void:
 	await create_timer(0.48).timeout
 	await _capture("04_brush_travels_to_tub")
 	await create_timer(0.30).timeout
+	_check("tub drain tap is live before brush arrows",
+		bool(cleanup.cleaning_audit_snapshot().get("tub_drain_ready", false))
+		and bool(cleanup.cleaning_audit_snapshot().get(
+			"one_tap_drain_target_visible", false))
+		and bool(cleanup.cleaning_audit_snapshot().get(
+			"brush_parked_on_tub_rim", false))
+		and not bool(cleanup.cleaning_audit_snapshot().get(
+			"back_and_forth_arrows_visible", true)))
+	await _capture("05_tub_drain_prompt")
+	_check("tub tap starts the bunny's comic reaction", cleanup.probe_tap_tub())
+	await create_timer(0.16).timeout
+	_check("comic No and one spin are visible",
+		int(cleanup.cleaning_audit_snapshot().get(
+			"drain_reaction_count", 0)) == 1
+		and String(cleanup.cleaning_audit_snapshot().get(
+			"comic_shout", "")) == "NO!")
+	await _capture("06_bunny_no_spin")
+	await create_timer(0.92).timeout
 	_check("tub arrows are live",
 		bool(cleanup.cleaning_audit_snapshot().get(
-			"back_and_forth_arrows_visible", false)))
-	await _capture("05_tub_arrow_guide")
+			"back_and_forth_arrows_visible", false))
+		and bool(cleanup.cleaning_audit_snapshot().get("tub_drained", false)))
+	await _capture("07_tub_arrow_guide")
 
 	var tub_points: Array[Vector2] = [
 		TUB_CENTER + Vector2(-210.0, 0.0),
@@ -175,15 +196,23 @@ func _run() -> void:
 	_check("three forgiving tub reversals complete",
 		cleaning != null and cleaning.probe_tub_strokes(tub_points, 0.75))
 	await create_timer(0.12).timeout
-	await _capture("06_whole_room_sparkle")
+	var clean_plate_finale: Dictionary = cleanup.day_one_bathroom_plate_snapshot()
+	_check("completion permanently reveals the distinct clean room state",
+		not bool(clean_plate_finale.get("dirty_plate_visible", true))
+		and bool(clean_plate_finale.get(
+			"clean_fixture_layer_visible", false)))
+	await _capture("08_whole_room_sparkle")
 	await create_timer(0.96).timeout
 	_check("finale exposes direct pool picture",
 		main._day_one_pool_route_button != null
 		and main._day_one_pool_route_button.visible)
 	var pool_preview: Sprite2D = null
+	var pool_frame: Sprite2D = null
 	if main._day_one_pool_route_button != null:
 		pool_preview = main._day_one_pool_route_button.get_node_or_null(
 			"ApprovedPoolRoomPreview") as Sprite2D
+		pool_frame = main._day_one_pool_route_button.get_node_or_null(
+			"ApprovedShellPoolFrame") as Sprite2D
 	var pool_preview_size: Vector2 = Vector2.ZERO
 	if pool_preview != null and pool_preview.texture != null:
 		pool_preview_size = pool_preview.texture.get_size() * pool_preview.scale
@@ -206,9 +235,11 @@ func _run() -> void:
 		and pool_preview.centered
 		and not pool_preview.region_enabled
 		and is_equal_approx(pool_preview.scale.x, pool_preview.scale.y)
-		and is_equal_approx(pool_preview.scale.x, 0.18)
+		and is_equal_approx(pool_preview.scale.x, 0.15)
 		and pool_preview_size.x <= main._day_one_pool_route_button.size.x
 		and pool_preview_size.y <= main._day_one_pool_route_button.size.y
+		and pool_frame != null
+		and bool(pool_frame.get_meta("approved_reused_shell_frame", false))
 		and pool_pointer != null
 		and pool_pointer.position.y
 			< pool_preview.position.y - pool_preview_size.y * 0.5)
@@ -223,14 +254,7 @@ func _run() -> void:
 		and elevator.mouse_filter == Control.MOUSE_FILTER_IGNORE
 		and elevator_pointer != null and not elevator_pointer.visible
 		and elevator_pointer.mouse_filter == Control.MOUSE_FILTER_IGNORE)
-	_check("clean bathroom still has one bathtub silhouette",
-		main.castle_room_front_layer.get_node_or_null(
-			"room_bubble_bath_front_left") == null
-		and main.castle_room_front_layer.get_node_or_null(
-			"room_bubble_bath_front_right") == null
-		and (main.castle_room_item_sprites.get(
-			"bathtub", {}) as Dictionary).get("sprite") is Sprite2D)
-	await _capture("07_clean_pool_route")
+	await _capture("09_clean_pool_route")
 
 	main.queue_free()
 	await _frames(4)

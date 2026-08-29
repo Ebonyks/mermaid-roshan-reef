@@ -1,0 +1,21 @@
+{
+  "schema": "imagine-handoff-v1",
+  "handoff_id": "day_one_bathroom_cleaned_v1",
+  "archive_status": "complete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "blocking_findings": [
+    "B0 through B7 do not yet have individual SHOT_PACKET.json and PROMPT.txt files",
+    "approved clean HUD-free first frames do not yet exist for every shot",
+    "later shots do not yet bind the accepted end frame of the preceding shot",
+    "the 8-panel generated board and eight HUD-bearing runtime captures cannot be bound pixel references"
+  ],
+  "archive_remote": {
+    "commit": "e0069c3fc839f24e2dbd25353d93efce018a748b",
+    "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/e0069c3fc839f24e2dbd25353d93efce018a748b/assets_src/cinematics/day_one_bathroom_cleaned_v1",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/e0069c3fc839f24e2dbd25353d93efce018a748b/assets_src/cinematics/day_one_bathroom_cleaned_v1/HANDOFF_PACKET.json",
+    "verified_via": "GitHub Contents API",
+    "verified_at": "2026-08-29"
+  }
+}

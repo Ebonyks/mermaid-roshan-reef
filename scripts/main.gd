@@ -318,6 +318,7 @@ var day_one_giant_dust_bunny_boss_triggered: bool = false
 var day_one_bathroom_cleanup_step: int = 0
 var day_one_bathroom_supply_hunt_step: int = 0
 var day_one_bathroom_tools_authorized: bool = false
+var day_one_bathroom_tub_drained: bool = false
 var day_one_pool_cleanup_step: int = 0
 var day_one_pool_rumi_met: bool = false
 var day_one_pool_skimmer_mask: int = 0
@@ -333,6 +334,7 @@ var _day_one_director: DayOneDirector = null
 var _day_one_bathroom_cleanup: DayOneBathroomCleanup = null
 var _day_one_bathroom_movie_handoff: DayOneBathroomMovieHandoff = null
 var _day_one_bathroom_movie_handoff_pending: bool = false
+var _day_one_bathroom_entry_movie_checked: bool = false
 var _day_one_pool_route_button: Button = null
 var _day_one_bathroom_controls_suspended: bool = false
 var _day_one_bathroom_control_state: Array[Dictionary] = []
@@ -6961,6 +6963,13 @@ func day_one_record_bathroom_supply_step(step: int) -> void:
 	_queue_save()
 
 
+func day_one_record_bathroom_tub_drained() -> void:
+	if not day_one_is_active() or day_one_bathroom_tub_drained:
+		return
+	day_one_bathroom_tub_drained = true
+	_queue_save()
+
+
 ## The basket is the single authorization point for the two cleaning tools.
 ## The old hunt-step key is advanced for save compatibility; new callers can
 ## use this idempotent seam without reviving a cabinet hunt.
@@ -7149,6 +7158,11 @@ func _sync_day_one_bathroom_cleanup() -> void:
 		if castle_room_action_button != null:
 			castle_room_action_button.visible = false
 		return
+	# A real entry cinematic owns the full frame and input before the basket
+	# lesson exists. If the future OGV is absent, this returns false immediately
+	# and the playable dirty room appears with no dead end or blank overlay.
+	if _day_one_bathroom_entry_movie_blocks_cleanup():
+		return
 	_day_one_bathroom_cleanup = DayOneBathroomCleanupLogic.new() \
 		as DayOneBathroomCleanup
 	castle_room_stage.add_child(_day_one_bathroom_cleanup)
@@ -7193,9 +7207,12 @@ func _on_day_one_bathroom_supply_hunt_completed() -> void:
 
 
 func _on_day_one_bathroom_finale_started() -> void:
-	# The bespoke rescue owns fixture-associated sparkle sprites. Do not add the
-	# Castle-wide center-floor burst here: it obscures the clean sink/tub result.
-	pass
+	# Reveal the untouched approved clean room underneath the separate dirty
+	# full-frame plate while the fixture-associated sparkle effects mask the
+	# short crossfade.
+	if _day_one_bathroom_cleanup != null \
+			and is_instance_valid(_day_one_bathroom_cleanup):
+		_day_one_bathroom_cleanup.reveal_clean_room()
 
 
 func _on_day_one_bathroom_cleanup_completed() -> void:
@@ -7220,6 +7237,7 @@ func _day_one_clear_castle_dressing() -> void:
 	_clear_day_one_bathroom_cleanup()
 	_clear_day_one_bathroom_movie_handoff()
 	_day_one_bathroom_movie_handoff_pending = false
+	_day_one_bathroom_entry_movie_checked = false
 	_clear_day_one_pool_route()
 	_restore_day_one_bathroom_controls()
 	_close_day_one_art_studio()
@@ -7247,7 +7265,8 @@ func _start_day_one_bathroom_movie_handoff() -> void:
 	_day_one_bathroom_movie_handoff = DayOneBathroomMovieHandoffLogic.new() \
 		as DayOneBathroomMovieHandoff
 	castle_room_stage.add_child(_day_one_bathroom_movie_handoff)
-	_day_one_bathroom_movie_handoff.setup(self)
+	_day_one_bathroom_movie_handoff.setup(self,
+		DayOneBathroomMovieHandoff.PHASE_CLEANUP)
 	var handoff: Dictionary = \
 		_day_one_bathroom_movie_handoff.start_after_completion()
 	var status: String = String(handoff.get("status", ""))
@@ -7257,6 +7276,44 @@ func _start_day_one_bathroom_movie_handoff() -> void:
 		_day_one_bathroom_movie_handoff.stop()
 		_day_one_bathroom_movie_handoff.queue_free()
 		_day_one_bathroom_movie_handoff = null
+
+
+func _day_one_bathroom_entry_movie_blocks_cleanup() -> bool:
+	if _day_one_bathroom_movie_handoff != null \
+			and is_instance_valid(_day_one_bathroom_movie_handoff):
+		var snapshot: Dictionary = \
+			_day_one_bathroom_movie_handoff.audit_snapshot()
+		if String(snapshot.get("phase", "")) \
+				!= DayOneBathroomMovieHandoff.PHASE_ENTRY:
+			return bool(snapshot.get("player_active", false))
+		if _day_one_bathroom_movie_handoff_pending \
+				and not save_dirty and not save_pending:
+			var retry: Dictionary = _day_one_bathroom_movie_handoff.start()
+			_day_one_bathroom_movie_handoff_pending = \
+				String(retry.get("status", "")) == "save_pending"
+		if _day_one_bathroom_movie_is_playing() \
+				or _day_one_bathroom_movie_handoff_pending:
+			_suspend_day_one_bathroom_controls()
+			return true
+		_clear_day_one_bathroom_movie_handoff()
+		return false
+	if _day_one_bathroom_entry_movie_checked or castle_room_stage == null:
+		return false
+	_day_one_bathroom_entry_movie_checked = true
+	_day_one_bathroom_movie_handoff = DayOneBathroomMovieHandoffLogic.new() \
+		as DayOneBathroomMovieHandoff
+	castle_room_stage.add_child(_day_one_bathroom_movie_handoff)
+	_day_one_bathroom_movie_handoff.setup(self,
+		DayOneBathroomMovieHandoff.PHASE_ENTRY)
+	var handoff: Dictionary = \
+		_day_one_bathroom_movie_handoff.start_before_cleanup()
+	var status: String = String(handoff.get("status", ""))
+	_day_one_bathroom_movie_handoff_pending = status == "save_pending"
+	if status == "playing" or _day_one_bathroom_movie_handoff_pending:
+		_suspend_day_one_bathroom_controls()
+		return true
+	_clear_day_one_bathroom_movie_handoff()
+	return false
 
 
 func _show_day_one_pool_route() -> void:
@@ -7296,25 +7353,35 @@ func _show_day_one_pool_route() -> void:
 	_day_one_pool_route_button.add_theme_stylebox_override("hover", empty_style)
 	_day_one_pool_route_button.add_theme_stylebox_override("pressed", empty_style)
 	_day_one_pool_route_button.add_theme_stylebox_override("focus", empty_style)
+	var pool_frame := Sprite2D.new()
+	pool_frame.name = "ApprovedShellPoolFrame"
+	pool_frame.texture = load(
+		"res://assets/flats/castle/dream_house/movie_screen_frame.png") as Texture2D
+	pool_frame.position = Vector2(102.5, 103.0)
+	pool_frame.scale = Vector2.ONE * 0.66
+	pool_frame.z_index = 0
+	pool_frame.set_meta("approved_reused_shell_frame", true)
+	_day_one_pool_route_button.add_child(pool_frame)
 	var pool_picture := Sprite2D.new()
 	pool_picture.name = "ApprovedPoolRoomPreview"
 	pool_picture.texture = load(DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE) as Texture2D
 	# Keep the complete 16:9 room visible inside the transparent route target.
 	# Sprite2D avoids TextureRect's live stretch/crop interaction on the Canvas.
 	pool_picture.centered = true
-	pool_picture.position = Vector2(102.5, 95.0)
-	pool_picture.scale = Vector2.ONE * 0.18
+	pool_picture.position = Vector2(102.5, 103.0)
+	pool_picture.scale = Vector2.ONE * 0.15
+	pool_picture.z_index = 1
 	pool_picture.region_enabled = false
 	pool_picture.set_meta("approved_pool_room_preview", true)
 	pool_picture.set_meta("actual_destination_room", "mermaid_pool")
-	pool_picture.set_meta("uniform_preview_scale", 0.18)
+	pool_picture.set_meta("uniform_preview_scale", 0.15)
 	_day_one_pool_route_button.add_child(pool_picture)
 	var hand := Sprite2D.new()
 	hand.name = "PoolRouteGhostHand"
 	hand.texture = load("res://assets/castle/training/ghost_hand.png") as Texture2D
 	hand.position = Vector2(168.0, 12.0)
 	hand.scale = Vector2.ONE * 0.13
-	hand.z_index = 1
+	hand.z_index = 2
 	hand.set_meta("visual_pointer", true)
 	_day_one_pool_route_button.add_child(hand)
 	var pointer_tween: Tween = hand.create_tween().set_loops()
@@ -7348,7 +7415,7 @@ func _sync_day_one_pool_route() -> void:
 			and _day_one_bathroom_movie_handoff != null \
 			and is_instance_valid(_day_one_bathroom_movie_handoff):
 		var handoff: Dictionary = \
-			_day_one_bathroom_movie_handoff.start_after_completion()
+			_day_one_bathroom_movie_handoff.start()
 		var status: String = String(handoff.get("status", ""))
 		if status != "save_pending":
 			_day_one_bathroom_movie_handoff_pending = false

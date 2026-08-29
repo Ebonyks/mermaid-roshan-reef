@@ -20,6 +20,8 @@ func _init() -> void:
 			"res://assets/shaders/castle_pool_surface_life.gdshader"))
 	var main_source: String = FileAccess.get_file_as_string(
 		"res://scripts/main.gd")
+	var cleaning_source: String = FileAccess.get_file_as_string(
+		"res://scripts/games/day_one_bathroom_cleaning.gd")
 	var finale_start: int = main_source.find(
 		"func _on_day_one_bathroom_finale_started()")
 	var finale_end: int = main_source.find("\nfunc ", finale_start + 1)
@@ -27,7 +29,10 @@ func _init() -> void:
 		finale_end - finale_start) if finale_start >= 0 and finale_end > finale_start \
 		else ""
 	_check("bathroom finale owns distributed sparkle and pool picture handoff",
-		main_source.contains("fixture-associated sparkle")
+		cleaning_source.contains("SPARKLE_ANCHORS")
+		and cleaning_source.contains("SPARKLE_ANCHOR_ROLES")
+		and cleaning_source.contains("_spawn_whole_room_sparkles()")
+		and cleaning_source.contains("fixture_associated_role")
 		and not finale_source.contains("_burst(\"✦\"")
 		and main_source.contains("ApprovedPoolRoomPreview")
 		and main_source.contains("actual_pool_room")

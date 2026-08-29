@@ -876,6 +876,44 @@ square pixels, zero rotation metadata, and a 16:9 displayed canvas. Candidates
 and neighboring references have delivery orientation/aspect even when pixel
 dimensions match; equal-sized wrong-aspect inputs are invalid evidence.
 
+`DL-CIN-13` — An external animation handoff is incomplete without a
+self-contained, GitHub-hosted visual-reference packet under versioned non-runtime
+`assets_src/cinematics/<handoff_id>/`. It includes the actual approved
+room/background, characters, props, style/turnaround and applicable
+boundary/runtime reference images, plus an inspectable shot board or contact
+sheet covering every shot and beat. Prose, repository paths, prompts, or beat
+tables alone do not qualify. The packet records every file's source path, role,
+dimensions, SHA-256, license/provenance and modification status, plus either a
+deterministic sorted packet-payload SHA-256 or literal archive SHA-256. Packet
+art is continuity input only, never delivery
+pixels or accepted keyframes, and cannot bypass any full-frame, human, or
+device acceptance gate. Before completion, the entire packet is committed and
+pushed to GitHub, the remote manifest and every referenced asset are verified,
+and the animation system receives immutable GitHub commit/tree links plus a
+direct manifest link. Local-only, unpushed, expiring, or merely upload-ready
+packets do not qualify as delivered handoffs.
+
+`DL-CIN-14` — External-generator packaging has two non-interchangeable layers.
+The archive packet owns provenance, licensing, hashes, authority, runtime seams,
+boards, and delivery evidence. The generator packet owns one executable shot
+card per generation job using `design/templates/IMAGINE_SHOT_CARD_V1.md`.
+Each card binds only two to four approved images with explicit roles, covers one
+shot, allows at most one camera move, and supplies a short action-first motion
+timeline, fixed elements, moving elements, end state, negatives, and `Sound:`
+line. Generated boards communicate shot order in text only; HUD/runtime captures
+communicate seam and negative constraints in text only. Neither is a bound
+pixel reference. Multi-shot movies are generated as separate jobs and assembled
+in edit. Archive metadata never crowds the pasted generator prompt.
+
+`DL-CIN-15` — Audit outcomes are independent: `ARCHIVE_COMPLETE` means the
+human/legal packet is complete; `GENERATION_READY` means every shot card,
+remote link, input binding and clean first frame is executable by the named
+generator; `DELIVERY_ACCEPTED` means the resulting movie independently passed
+the complete full-frame cinematic, human, and device gates. No score or status
+implies a later status. Grok/Imagine image-to-video output remains motion or
+editorial reference unless every delivered changed frame independently satisfies
+`DL-CIN-01` through `DL-CIN-12`.
+
 ---
 
 ## 12. Mobile performance and asset discipline
@@ -1006,7 +1044,7 @@ These states prevent an old recommendation from silently becoming a new bug.
 | `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md`'s 52-phase count and old Ballerina/Boxer/kart sections | **SUPERSEDED in named scopes; remainder supporting** | Preserve non-conflicting prop provenance and repairs; current shipping authority is 13 careers/53 phases/27 modes plus the later specialist records |
 | `OPERA_QUALITY_OVERHAUL_2026-08-09.md`'s 52-phase/19-mode/single-`bop` snapshot and universal chronological-loop claim | **SUPERSEDED in named scopes; remainder supporting** | Preserve its 208-frame audit rationale and non-conflicting fixes; current Opera has no generic `bop`, and Ballerina follows the held-pose exception |
 | Music audit's temporary `race` cue for an Opera nested kart | **SUPERSEDED for current Racer** | Current Canvas Racer remains under its Opera career cue; the other 42-cue composition, delivery, and routing rules remain current |
-| Cinematic tween/morph/interpolation shortcuts or portrait/rotated delivery | **DISMISSED_NOT_IN_PROJECT** | `DL-CIN-01` through `DL-CIN-12` |
+| Cinematic tween/morph/interpolation shortcuts, text-only or archive-only external handoffs, generator cards that bind boards/HUD captures, or portrait/rotated delivery | **DISMISSED_NOT_IN_PROJECT** | `DL-CIN-01` through `DL-CIN-15` |
 | Repack Roshan into a smaller runtime atlas during the migration audit | **DEFERRED_WITH_REASON** | It may be a later measured optimization; it is not required to prove true 2D and must not risk protected pixels or identity |
 | Add bone-driven or per-costume runtime costume layers to replace the current atlas | **DISMISSED_NOT_A_DEFECT** | The owner chose the approved 2D atlas family; absent costume layering is not a current bug |
 | Unadopted Chapter 2 plot, daily rhythm, naming, gifting, tending, decorating, and additional-minigame proposals | **DEFERRED_WITH_REASON** | Design proposals, not current defects; existing-game golden path, device evidence, and confirmed defects come first. This deferral excludes the adopted §10 room distribution and §§16–17 Opera-boss/Ember-antagonist rulings. |

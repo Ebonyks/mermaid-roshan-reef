@@ -56,6 +56,10 @@ python3 tools/audit_document_authority.py --stress \
 	|| { echo "DOCUMENT AUTHORITY SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_document_authority.py \
 	|| { echo "DOCUMENT AUTHORITY / CANONICAL FINDING FAIL"; exit 1; }
+python3 -m unittest tools.tests.test_audit_imagine_handoff \
+	|| { echo "IMAGINE HANDOFF CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_imagine_handoff.py --all \
+	|| { echo "IMAGINE HANDOFF STRUCTURAL AUDIT FAIL"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
 python3 tools/prepare_opera_nursery_art.py --check-only \

@@ -1,28 +1,59 @@
 class_name DayOneBathroomMovieHandoff
 extends Control
-## Optional end-movie seam for the Day One bathroom rescue.
+## Optional two-phase movie seam for the Day One bathroom rescue.
 ##
-## The movie is deliberately not part of this change. A future full-frame
-## VideoStream can be installed at DEFAULT_MOVIE_PATH, or supplied through
-## setup(). The final clean room remains underneath the player, so an absent
-## or invalid movie is a harmless no-op rather than a new failure state.
+## The entry movie plays over the already-built dirty bathroom before the
+## basket lesson. The cleanup movie plays over the final clean room before the
+## pool route appears. Neither movie is delivered by this change: an absent or
+## invalid stream fails open to the matching playable room state. A real stream
+## commits its phase-specific once-only marker before playback.
 
-const DEFAULT_MOVIE_PATH: String = \
-	"res://assets/cinematics/day_one_bathroom_finale.ogv"
-const HANDOFF_SAVE_KEY: String = "day_one_bathroom_end_movie_handoff_done"
+signal handoff_finished(phase: String, status: String)
+
+const PHASE_ENTRY: String = "entry"
+const PHASE_CLEANUP: String = "cleanup"
+const DEFAULT_ENTRY_MOVIE_PATH: String = \
+	"res://assets/cinematics/day_one_bathroom_entry.ogv"
+const DEFAULT_CLEANUP_MOVIE_PATH: String = \
+	"res://assets/cinematics/day_one_bathroom_cleaned.ogv"
+const ENTRY_SAVE_KEY: String = "day_one_bathroom_entry_movie_handoff_done"
+const CLEANUP_SAVE_KEY: String = "day_one_bathroom_end_movie_handoff_done"
+# Compatibility aliases for callers and save files built against the original
+# single completion-movie seam.
+const DEFAULT_MOVIE_PATH: String = DEFAULT_CLEANUP_MOVIE_PATH
+const HANDOFF_SAVE_KEY: String = CLEANUP_SAVE_KEY
 
 var m: ReefMain = null
-var movie_path: String = DEFAULT_MOVIE_PATH
+var phase: String = PHASE_CLEANUP
+var movie_path: String = DEFAULT_CLEANUP_MOVIE_PATH
 var playback_count: int = 0
 var fallback_count: int = 0
 var _handoff_done: bool = false
+var _last_status: String = "not_started"
 var _player: VideoStreamPlayer = null
 var _save_writer: Callable = Callable()
 
 
-static func normalise_movie_path(path_override: String) -> String:
+static func normalise_phase(phase_value: String) -> String:
+	return PHASE_ENTRY if phase_value.strip_edges().to_lower() == PHASE_ENTRY \
+		else PHASE_CLEANUP
+
+
+static func default_movie_path(phase_value: String) -> String:
+	return DEFAULT_ENTRY_MOVIE_PATH \
+		if normalise_phase(phase_value) == PHASE_ENTRY \
+		else DEFAULT_CLEANUP_MOVIE_PATH
+
+
+static func save_key_for_phase(phase_value: String) -> String:
+	return ENTRY_SAVE_KEY if normalise_phase(phase_value) == PHASE_ENTRY \
+		else CLEANUP_SAVE_KEY
+
+
+static func normalise_movie_path(path_override: String,
+		phase_value: String = PHASE_CLEANUP) -> String:
 	var candidate: String = path_override.strip_edges()
-	return DEFAULT_MOVIE_PATH if candidate.is_empty() else candidate
+	return default_movie_path(phase_value) if candidate.is_empty() else candidate
 
 
 static func is_movie_candidate_path(path_value: String) -> bool:
@@ -30,13 +61,16 @@ static func is_movie_candidate_path(path_value: String) -> bool:
 	return candidate.ends_with(".ogv")
 
 
-func setup(main: ReefMain, path_override: String = "") -> void:
+func setup(main: ReefMain, phase_value: String = PHASE_CLEANUP,
+		path_override: String = "") -> void:
 	m = main
-	movie_path = normalise_movie_path(path_override)
-	name = "DayOneBathroomMovieHandoff"
+	phase = normalise_phase(phase_value)
+	movie_path = normalise_movie_path(path_override, phase)
+	name = "DayOneBathroom%sMovieHandoff" % phase.capitalize()
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	focus_mode = Control.FOCUS_NONE
+	z_index = 60
 	visible = false
 
 
@@ -46,36 +80,32 @@ func set_save_writer(writer: Callable) -> void:
 	_save_writer = writer
 
 
-## Called only after day_one_complete_bathroom_scene() returns true. The saved
-## marker is committed before the player is created, making Continue a strict
-## no-replay path even when the movie finishes after a scene transition.
+func start() -> Dictionary:
+	return start_before_cleanup() if phase == PHASE_ENTRY \
+		else start_after_completion()
+
+
+## Entry is valid only while Day One still owns the unfinished bathroom. A
+## present movie receives a save-before-play marker; an absent movie does not
+## poison future saves before the authored cinematic is installed.
+func start_before_cleanup() -> Dictionary:
+	if m == null or not m.day_one_is_active():
+		return _result("not_ready", false)
+	var director: DayOneDirector = m._day_one_ref()
+	if director.current_room_id != "bathroom" \
+			or director.is_room_completed("bathroom"):
+		return _result("wrong_state", false)
+	return _start_validated()
+
+
+## Called only after day_one_complete_bathroom_scene() returns true. Completion
+## has already been committed before this seam is entered.
 func start_after_completion() -> Dictionary:
 	if m == null:
 		return _result("not_ready", false)
 	if not m._day_one_ref().is_room_completed("bathroom"):
 		return _result("not_completed", false)
-	if _handoff_done or bool(m.save_data.get(HANDOFF_SAVE_KEY, false)):
-		_handoff_done = true
-		return _result("already_done", true)
-	# A failed completion write leaves main dirty. Retry that transaction before
-	# adding the once-only handoff marker, then refuse playback if it still fails.
-	if m.save_dirty and not _flush_save():
-		return _result("save_pending", false)
-	var previous_marker: Variant = m.save_data.get(HANDOFF_SAVE_KEY, null)
-	m.save_data[HANDOFF_SAVE_KEY] = true
-	if not _flush_save():
-		if previous_marker == null:
-			m.save_data.erase(HANDOFF_SAVE_KEY)
-		else:
-			m.save_data[HANDOFF_SAVE_KEY] = previous_marker
-		return _result("save_pending", false)
-	_handoff_done = true
-	var stream: VideoStream = _load_movie_stream()
-	if stream == null:
-		fallback_count += 1
-		return _result("fallback", true)
-	_play(stream)
-	return _result("playing", true)
+	return _start_validated()
 
 
 func stop() -> void:
@@ -84,19 +114,58 @@ func stop() -> void:
 		_player.queue_free()
 	_player = null
 	visible = false
+	if _last_status == "playing":
+		_last_status = "finished"
+		handoff_finished.emit(phase, _last_status)
 
 
 func audit_snapshot() -> Dictionary:
 	return {
+		"phase": phase,
 		"movie_path": movie_path,
 		"movie_candidate_path": is_movie_candidate_path(movie_path),
+		"save_key": save_key_for_phase(phase),
 		"handoff_done": _handoff_done,
+		"last_status": _last_status,
 		"playback_count": playback_count,
 		"fallback_count": fallback_count,
 		"player_active": _player != null and is_instance_valid(_player),
-		"seamless_clean_scene_cut": true,
+		"modal_input_blocker": mouse_filter == Control.MOUSE_FILTER_STOP,
+		"full_frame_overlay": anchors_preset == Control.PRESET_FULL_RECT,
+		"seamless_dirty_scene_cut": phase == PHASE_ENTRY,
+		"seamless_clean_scene_cut": phase == PHASE_CLEANUP,
 		"canvas_only": _all_canvas_children(self),
 	}
+
+
+func _start_validated() -> Dictionary:
+	if _handoff_done or bool(m.save_data.get(save_key_for_phase(phase), false)):
+		_handoff_done = true
+		return _result("already_done", true)
+	var stream: VideoStream = _load_movie_stream()
+	if stream == null:
+		# This instance will not retry every frame. The absence is deliberately
+		# not serialized, allowing an authored movie added to a later build to
+		# remain eligible for a Day One save that never actually played it.
+		_handoff_done = true
+		fallback_count += 1
+		return _result("fallback", true)
+	# A failed earlier write leaves main dirty. Retry it before adding the
+	# phase-specific once-only marker, then refuse playback if it still fails.
+	if m.save_dirty and not _flush_save():
+		return _result("save_pending", false)
+	var save_key: String = save_key_for_phase(phase)
+	var previous_marker: Variant = m.save_data.get(save_key, null)
+	m.save_data[save_key] = true
+	if not _flush_save():
+		if previous_marker == null:
+			m.save_data.erase(save_key)
+		else:
+			m.save_data[save_key] = previous_marker
+		return _result("save_pending", false)
+	_handoff_done = true
+	_play(stream)
+	return _result("playing", true)
 
 
 func _flush_save() -> bool:
@@ -107,7 +176,7 @@ func _flush_save() -> bool:
 
 func _load_movie_stream() -> VideoStream:
 	if not is_movie_candidate_path(movie_path) \
-		or not ResourceLoader.exists(movie_path):
+			or not ResourceLoader.exists(movie_path):
 		return null
 	var resource: Resource = load(movie_path) as Resource
 	return resource as VideoStream
@@ -116,7 +185,7 @@ func _load_movie_stream() -> VideoStream:
 func _play(stream: VideoStream) -> void:
 	visible = true
 	_player = VideoStreamPlayer.new()
-	_player.name = "DayOneBathroomEndMovie"
+	_player.name = "DayOneBathroom%sMovie" % phase.capitalize()
 	_player.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_player.mouse_filter = Control.MOUSE_FILTER_STOP
 	_player.expand = true
@@ -125,13 +194,17 @@ func _play(stream: VideoStream) -> void:
 	add_child(_player)
 	_player.play()
 	playback_count += 1
+	_last_status = "playing"
 
 
 func _result(status: String, completion_committed: bool) -> Dictionary:
+	_last_status = status
 	return {
+		"phase": phase,
 		"status": status,
 		"completion_committed": completion_committed,
 		"movie_path": movie_path,
+		"save_key": save_key_for_phase(phase),
 		"playback_count": playback_count,
 		"fallback_count": fallback_count,
 	}

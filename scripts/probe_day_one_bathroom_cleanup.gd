@@ -8,6 +8,8 @@ const BATHROOM_CLEANING := preload(
 const SINK_CENTER := Vector2(642.0, 280.0)
 const TUB_CENTER := Vector2(310.0, 349.0)
 const RUNTIME_ASSETS: Array[String] = [
+	"res://assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png",
+	"res://assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
 	"res://assets/castle/day_one_pool/activities/cleanup_basket.png",
 	"res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
 	"res://assets/castle/day_one_art_studio/magic_cleaning_brush.png",
@@ -19,6 +21,7 @@ const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
 	"res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
 	"res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+	"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
 ]
 
 var checks_failed: int = 0
@@ -63,9 +66,19 @@ func _run_probe() -> void:
 	var snapshot: Dictionary = hunt.audit_snapshot()
 	_check("bathroom entry is automatically dirty and interactive",
 		bool(snapshot.get("dirty_overlays_visible", false))
+		and bool(snapshot.get("dirty_room_plate_visible", false))
 		and bool(snapshot.get("sink_grime_visible", false))
 		and bool(snapshot.get("tub_grime_visible", false))
 		and bool(snapshot.get("basket_visible", false)))
+	var plate_snapshot: Dictionary = hunt.day_one_bathroom_plate_snapshot()
+	_check("separate dirty room plate and animated bunny are true 2D",
+		bool(plate_snapshot.get("dirty_plate_visible", false))
+		and bool(plate_snapshot.get("true_2d", false))
+		and not bool(plate_snapshot.get("contains_tub_swimmer", true))
+		and bool(plate_snapshot.get("separate_animated_bunny", false))
+		and bool(plate_snapshot.get("bunny_depth_occluded", false))
+		and plate_snapshot.get("texture_size", Vector2i.ZERO)
+			== Vector2i(1024, 576))
 	_check("rescue has no passive win or fail state",
 		not bool(snapshot.get("won", false))
 		and not bool(snapshot.get("failed", false))
@@ -239,11 +252,17 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	tub_stage.set_supply_basket(Vector2(1130.0, 590.0))
 	await create_timer(0.42).timeout
 	_check("re-entry resumes tub after sink", tub_stage.is_tub_active())
-	_check("tub phase keeps its visual pointer and spoken guidance seam",
+	_check("tub phase asks for one clear drain tap before brushing",
 		String(tub_stage.audit_snapshot().get("active_stage", "")) == "tub"
 		and bool(tub_stage.audit_snapshot().get("has_visual_pointer", false))
 		and (tub_stage.get_node("GhostHandPointer") as Sprite2D).visible
-		and bool(tub_stage.audit_snapshot().get("back_and_forth_arrows_visible", false))
+		and bool(tub_stage.audit_snapshot().get("tub_drain_ready", false))
+		and bool(tub_stage.audit_snapshot().get(
+			"one_tap_drain_target_visible", false))
+		and bool(tub_stage.audit_snapshot().get(
+			"brush_parked_on_tub_rim", false))
+		and not bool(tub_stage.audit_snapshot().get(
+			"back_and_forth_arrows_visible", true))
 		and bool(tub_stage.audit_snapshot().get("brush_travel_complete", false)))
 	var before_tub_wait: Dictionary = tub_stage.audit_snapshot()
 	tub_stage._process(4.0)
@@ -254,6 +273,24 @@ func _probe_cleaning_gestures(host: Control) -> void:
 			== float(before_tub_wait["tub_distance"])
 		and int(after_tub_wait["tub_reversals"])
 			== int(before_tub_wait["tub_reversals"]))
+	_check("live tub tap starts one bounded comic reaction",
+		tub_stage.probe_tap_tub())
+	await create_timer(0.12).timeout
+	var reaction_snapshot: Dictionary = tub_stage.audit_snapshot()
+	_check("bunny reaction spins once and shouts No without advancing",
+		bool(reaction_snapshot.get("drain_reaction_active", false))
+		and int(reaction_snapshot.get("drain_reaction_count", 0)) == 1
+		and String(reaction_snapshot.get("comic_shout", "")) == "NO!"
+		and int(reaction_snapshot.get("active_step", -1)) == 1
+		and not tub_stage.probe_tap_tub())
+	# The no-swimmer fallback is 0.68s of reaction plus a 0.36s drain
+	# crossfade; keep a small deterministic scheduling margin.
+	await create_timer(1.10).timeout
+	_check("drain reaction enables the demonstrated tub brush",
+		bool(tub_stage.audit_snapshot().get("tub_drained", false))
+		and bool(tub_stage.audit_snapshot().get(
+			"back_and_forth_arrows_visible", false))
+		and cleaning_main.day_one_bathroom_tub_drained)
 	var tub_circle: Array[Vector2] = []
 	for index: int in range(49):
 		var tub_angle: float = float(index) / 48.0 * TAU
