@@ -29,6 +29,29 @@
       ]
     },
     {
+      "id": "baby_eagle",
+      "name": "Baby Eagle",
+      "status": "APPROVED_PRIVATE_CANON",
+      "scope": "private family animation project",
+      "rejected_reference": "assets/book/baby_eagle.png",
+      "references": [
+        {"file": "characters/baby_eagle/BABY_EAGLE_STANDING_IDENTITY.png", "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76", "width": 770, "height": 1024, "authority": "complete_body_identity"},
+        {"file": "characters/baby_eagle/BABY_EAGLE_PINNED_STATE.png", "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac", "width": 1024, "height": 768, "authority": "bag_free_pinned_pose"}
+      ]
+    },
+    {
+      "id": "playroom_dust_bunny",
+      "name": "Playroom Dust Bunny",
+      "status": "APPROVED",
+      "distinct_from": "boss_dust_bunny",
+      "references": [
+        {"file": "characters/playroom_dust_bunny/PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png", "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752", "width": 512, "height": 512, "authority": "identity_and_hop"},
+        {"file": "characters/playroom_dust_bunny/MOTION_LIGHT_SWING.png", "sha256": "d588c403b98ecb79cea483e7e013fdae757091e3f3aefcfd90dd1bb8a3df238a", "width": 768, "height": 1024, "authority": "light_swing_pose"},
+        {"file": "characters/playroom_dust_bunny/MOTION_BOUNDER.png", "sha256": "81509067d053a6f03c0b2fc94a8ede75e599f250cec8662d8ffe1a1cc4bdcacd", "width": 768, "height": 768, "authority": "floor_bound_pose"},
+        {"file": "characters/playroom_dust_bunny/MOTION_TWIRLER.png", "sha256": "e054292658e291819b693c2a250f7ab1ffe321623ce173e87a9532cd81b4a5c9", "width": 768, "height": 768, "authority": "floor_twirl_pose"}
+      ]
+    },
+    {
       "id": "boss_dust_bunny",
       "name": "Boss Dust Bunny",
       "status": "APPROVED",

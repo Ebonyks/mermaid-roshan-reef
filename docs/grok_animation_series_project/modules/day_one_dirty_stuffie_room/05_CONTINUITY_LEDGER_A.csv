@@ -1,0 +1,9 @@
+block,shot,attempt,status,mode,duration,resolution,starting_frame,reference_1,reference_2,reference_3,reference_4,identity_pass,topology_pass,count_pass,geography_pass,camera_pass,child_readability_pass,notes,output_filename
+A,01,01,PLANNED,still,,16:9,,STUFFIE_ROOM_CLEAN,ROSHAN_IDENTITY,STYLE_INTERIOR,,,,,,,,dirty dressing only; Roshan left; exact room geography,
+A,02,01,PLANNED,still,,16:9,A01_DIRTY_ENTRY_APPROVED,BUNNY_HOP,BUNNY_LIGHT_SWING,ROSHAN_IDENTITY,,,,,,,,exactly one center-light bunny,
+A,03,01,PLANNED,still,,16:9,A01_DIRTY_ENTRY_APPROVED,EAGLE_STANDING,EAGLE_PINNED,BUNNY_HOP,ROSHAN_IDENTITY,,,,,,,A03 also uses Roshan identity; exactly two wing bunnies; no backpack,
+SQA,010,01,PLANNED,video,6s,16:9,A01_DIRTY_ENTRY_APPROVED,ROSHAN_IDENTITY,,,,,,,,,,Roshan enters from left and stops off-center,MR_E01_SQ030_SC010_SH010_roshan-enters_a01_REVIEW.mp4
+SQA,020,01,PLANNED,video,4s,16:9,SH010_ACCEPTED_END,ROSHAN_IDENTITY,,,,,,,,,,brief shock becomes concern,MR_E01_SQ030_SC010_SH020_shocked-reaction_a01_REVIEW.mp4
+SQA,030,01,PLANNED,video,6s,16:9,A02_CENTER_LIGHT_APPROVED,BUNNY_LIGHT_SWING,ROSHAN_IDENTITY,,,,,,,,,one gentle swing arc; bunny count 1 in insert,MR_E01_SQ030_SC010_SH030_light-swinger_a01_REVIEW.mp4
+SQA,040,01,PLANNED,video,4s,16:9,SH030_ACCEPTED_END,ROSHAN_IDENTITY,,,,,,,,,,eyeline moves down-right,MR_E01_SQ030_SC010_SH040_roshan-hears-eagle_a01_REVIEW.mp4
+SQA,050,01,PLANNED,video,6s,16:9,A03_PINNED_EAGLE_APPROVED,EAGLE_STANDING,EAGLE_PINNED,BUNNY_HOP,,,,,,,,A03 contains Roshan; two alternating wing bounces; three total bunnies in sequence,MR_E01_SQ030_SC010_SH050_sad-eagle-reveal_a01_REVIEW.mp4

@@ -30,6 +30,25 @@ Each character owns a folder under `characters/`. Status meanings:
 - Behavior notes from existing story: organized, proactive, princessly, eager to help; can be gently comic when rules and lists meet playful situations.
 - Needed expansion: turnaround, expression sheet and simplified motion reference that remain source-faithful.
 
+## Baby Eagle — APPROVED_PRIVATE_CANON
+
+- Role: young plush-like rainbow eagle friend rescued in the Day One Stuffie Room.
+- Primary identity: `characters/baby_eagle/BABY_EAGLE_STANDING_IDENTITY.png`.
+- Pinned-state authority: `characters/baby_eagle/BABY_EAGLE_PINNED_STATE.png`.
+- Locks: turquoise/mint scalloped feathers, yellow face patches, pink crest and wings, black wing tips, large blue eyes, pale pink/black beak, silver-glitter feet and complete body.
+- Wrong-reference restriction: never use `assets/book/baby_eagle.png`; its backpack-packing action and lower-body crop are explicitly rejected for animation.
+- Motion vocabulary: gentle standing idle, sad low wing-spread pose, worried blink, broad safe double-wing flap and feather settle.
+- Safety: sad or inconvenienced is allowed; injury, terror and aggressive attack acting are not.
+
+## Playroom Dust Bunny — APPROVED
+
+- Role: small playful Stuffie Room troublemaker, distinct from the Boss Dust Bunny.
+- Identity authority: `characters/playroom_dust_bunny/PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png`.
+- Motion authorities: `MOTION_LIGHT_SWING.png`, `MOTION_BOUNDER.png` and `MOTION_TWIRLER.png` in the same folder.
+- Locks: small rounded lavender curl-cloud body, two long spiral ears, pearl joints/paws, glossy plum eyes, coral blush and tiny delighted mouth.
+- Motion vocabulary: small wing bounce, upside-down light swing, basket spring, floor bound, sideways twirl and harmless wind tumble.
+- Safety: mischievous fluff, never a realistic rodent, attacker or injured target. Wing gusts move the intact bunny safely out of frame; no death, impact or explosion.
+
 ## Boss Dust Bunny — APPROVED
 
 - Role: playful, non-frightening boss creature.

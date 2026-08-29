@@ -26,7 +26,8 @@ Grok clips remain limited to 15 seconds, but the Project itself is organized as 
 5. Add the folders under `characters/` to the Project library. Rumi's local Violet Tide art is included as approved private-project canon, together with the owner-supplied Roshan/Rumi relationship sample.
 6. Use `modules/opening_flight_to_sky_lagoon/` as the first sequence module, not as the global Project definition.
 7. Use `modules/day_one_dirty_pool_rescue/` for the next Mermaid Pool animation scene. Its immutable reference links point to the exact green game commit and explicitly separate dirty-state content from visual-style authority.
-8. For every new episode, duplicate `templates/SEQUENCE_MODULE_TEMPLATE.md` and create a new module folder.
+8. Use `modules/day_one_dirty_stuffie_room/` for the two separate Stuffie Room storyboards: Roshan's dirty-room discovery and Baby Eagle's clean-room basket/wing-gust resolution. The module includes exact count, staging, reference and continuity gates for both.
+9. For every new episode, duplicate `templates/SEQUENCE_MODULE_TEMPLATE.md` and create a new module folder.
 
 ## Folder map
 
@@ -48,6 +49,8 @@ The Grok Project is an organized continuity library, not guaranteed automatic vi
 - Mermaid Roshan — active canonical references.
 - Daddy Mermaid — active front identity; rear/turnaround expansion still useful.
 - Princess Huluu — active canonical reference; preserve exact distinctive outfit and tail.
+- Baby Eagle — active private-project identity with correct complete standing and bag-free pinned references; the backpack-packing book image is explicitly rejected for animation.
+- Playroom Dust Bunny — active small lavender identity with hop, light-swing, bounder and twirler motion references; distinct from the Boss Dust Bunny.
 - Boss Dust Bunny — active approved identity plus five motion-state atlases.
 - Rainbow Dust Bunny — concept authority; animation turnaround not yet approved.
 - Rumi — approved private-project canon; full-body identity, eight-pose motion atlas, runtime atlas, and Roshan/Rumi relationship sample included.
