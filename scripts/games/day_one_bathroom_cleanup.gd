@@ -1,10 +1,11 @@
 class_name DayOneBathroomCleanup
 extends Control
-## Day One's first bathroom beat: a reading-free two-supply magnifier hunt.
+## Day One's first bathroom beat: a reading-free basket-to-cleaning handoff.
 ##
-## This node owns only the temporary Canvas2D hunt presentation. The later
-## sink/tub cleaning gestures are deliberately left behind the handoff signal
-## so a partial hunt can never unlock the pool or complete the room.
+## The rescue owns the temporary Canvas2D presentation. Both child-readable
+## tools are already visible in one front-right basket; the only hunt action is
+## a generous tap on that basket, after which the cleaning owner demonstrates
+## the sponge and brush journeys before accepting gestures.
 
 const DAY_ONE_BATHROOM_CLEANING := preload(
 	"res://scripts/games/day_one_bathroom_cleaning.gd")
@@ -15,12 +16,10 @@ signal cleanup_step_completed(step: int, cleanup_id: String)
 signal finale_started
 signal cleanup_completed
 
-const MAGNIFIER_TEXTURE := "res://assets/opera/worlds/ui/magnifier.png"
 const SPARKLE_TEXTURE := "res://assets/opera/worlds/props/fx_stolen_sparkle.png"
 const POINTER_TEXTURE := "res://assets/castle/training/ghost_hand.png"
+const SPONGE_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png"
 const BRUSH_TEXTURE := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
-const CLEANER_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_magic_cleaner_v1.png"
-const SUPPLY_REVEAL_SCALE := 0.14
 const BASKET_TOOL_SCALE := 0.06
 # Reuse the approved Day One cleanup basket as the single, diegetic collection
 # point. It is deliberately placed on the front-right floor so a child can
@@ -28,6 +27,7 @@ const BASKET_TOOL_SCALE := 0.06
 const BASKET_TEXTURE := "res://assets/castle/day_one_pool/activities/cleanup_basket.png"
 const BASKET_POSITION := Vector2(1082.0, 575.0)
 const BASKET_SCALE := 0.19
+const BASKET_BUTTON_SIZE := Vector2(220.0, 220.0)
 const BASKET_CONTENT_OFFSETS: Array[Vector2] = [Vector2(-34.0, -26.0),
 	Vector2(36.0, -24.0)]
 const SINK_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png"
@@ -36,40 +36,28 @@ const SINK_GRIME_POSITION := Vector2(642.0, 280.0)
 const TUB_GRIME_POSITION := Vector2(310.0, 349.0)
 const SINK_GRIME_SCALE := 0.24
 const TUB_GRIME_SCALE := 0.31
-# These are the centers of the two painted storage baskets in the approved
-# Bubble Bath room (ROOM_ITEMS art positions transformed by ART_TO_STAGE).
-# Keep the hunt on existing room pixels; no cabinet card is drawn here.
-const CABINET_POSITIONS: Array[Vector2] = [Vector2(138.0, 592.0),
-	Vector2(1125.0, 592.0)]
 const SUPPLY_DEFINITIONS: Array[Dictionary] = [
 	{
-		"id": "brush",
-		"center": CABINET_POSITIONS[0],
-		"hit_radius": 112.0,
+		"id": "sponge",
 	},
 	{
-		"id": "cleaner",
-		"center": CABINET_POSITIONS[1],
-		"hit_radius": 112.0,
+		"id": "brush",
 	},
 ]
 const MAX_SUPPLIES := 2
-const MAGNIFIER_RADIUS := 74.0
 const DRAG_TARGET_SIZE := Vector2(184.0, 184.0)
 const MIN_DRAG_DISTANCE := 36.0
-const DRAG_GUIDANCE_POSITION := Vector2(640.0, 360.0)
 
 var m: ReefMain
 var _supply_step: int = 0
 var _found: Array[bool] = [false, false]
 var _supply_nodes: Array[Node2D] = []
 var _sparkle_nodes: Array[Sprite2D] = []
-var _magnifier: Sprite2D = null
 var _basket: Sprite2D = null
 var _basket_base_scale: Vector2 = Vector2.ONE
+var _basket_button: Button = null
 var _sink_grime: Sprite2D = null
 var _tub_grime: Sprite2D = null
-var _drag_surface: Control = null
 var _pointer: Sprite2D = null
 var _dragging: bool = false
 var _drag_last: Vector2 = Vector2.ZERO
@@ -93,11 +81,11 @@ var _action_button_was_visible: bool = false
 
 
 class SupplyIcon extends Sprite2D:
-	var supply_kind: String = "brush"
+	var supply_kind: String = "sponge"
 
 	func configure(kind: String) -> void:
 		supply_kind = kind
-		texture = load(BRUSH_TEXTURE if kind == "brush" else CLEANER_TEXTURE) \
+		texture = load(SPONGE_TEXTURE if kind == "sponge" else BRUSH_TEXTURE) \
 			as Texture2D
 
 
@@ -114,7 +102,6 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	_build_dirty_overlays()
 	_build_basket()
 	_build_supply_icons()
-	_build_drag_surface()
 	_build_guidance()
 	_supply_step = clampi(m.day_one_bathroom_supply_hunt_step, 0, MAX_SUPPLIES)
 	_apply_restored_progress()
@@ -164,11 +151,14 @@ func audit_snapshot() -> Dictionary:
 		"minimum_touch_side": DRAG_TARGET_SIZE.x,
 		"drag_target_size": DRAG_TARGET_SIZE,
 		"minimum_drag_distance": MIN_DRAG_DISTANCE,
-		"guidance_discloses_target": false,
-		"magnifier_following_drag": _magnifier != null,
+		"guidance_discloses_target": true,
+		"magnifier_following_drag": false,
 		"voice_guidance_configured": true,
 		"announcements_enabled": _announcements_enabled,
-		"has_visual_pointer": _pointer != null and _magnifier != null,
+		"has_visual_pointer": _pointer != null and _pointer.visible,
+		"interaction_mode": "tap_basket_then_clean",
+		"basket_tap_required": not _hunt_completed,
+		"auto_started_dirty_room": _dirty_overlays_visible(),
 		"basket_visible": _basket != null and _basket.visible,
 		"basket_pulsing": _basket != null and _basket.get_meta(
 			"pulsing", false),
@@ -186,7 +176,26 @@ func audit_snapshot() -> Dictionary:
 		"dirty_overlays_visible": _dirty_overlays_visible(),
 		"sink_grime_visible": _sink_grime != null and _sink_grime.visible,
 		"tub_grime_visible": _tub_grime != null and _tub_grime.visible,
-		"cabinet_target_count": _supply_nodes.size(),
+		"cabinet_target_count": 0,
+		"cabinet_search_active": false,
+		"basket_item_ids": _basket_item_ids(),
+		"basket_tap_prompt_voice": not _hunt_completed,
+		"basket_tap_prompt_visual": _pointer != null and _pointer.visible,
+		"basket_tap_count": int(get_meta("basket_tap_count", 0)),
+		"basket_tap_voice_sent": bool(get_meta("basket_tap_voice_sent", false)),
+		"basket_tap_pointer_visible": _pointer != null and _pointer.visible,
+		"sponge_travel_complete": _cleaning_stage != null
+			and bool(_cleaning_stage.audit_snapshot().get(
+				"sponge_travel_complete", false)),
+		"sink_circle_demo_visible": _cleaning_stage != null
+			and bool(_cleaning_stage.audit_snapshot().get(
+				"circle_demo_visible", false)),
+		"brush_travel_complete": _cleaning_stage != null
+			and bool(_cleaning_stage.audit_snapshot().get(
+				"brush_travel_complete", false)),
+		"whole_room_sparkle": _cleaning_stage != null
+			and bool(_cleaning_stage.audit_snapshot().get(
+				"whole_room_sparkle", false)),
 		"supply_hunt_completed": _hunt_completed,
 		"handoff_ready": _handoff_ready,
 		"canvas_only": _all_canvas_children(self),
@@ -216,6 +225,7 @@ func begin_cleaning_handoff() -> bool:
 		_cleaning_stage.cleanup_completed.connect(_on_cleaning_completed)
 		add_child(_cleaning_stage)
 		_cleaning_stage.setup(m, _announcements_enabled)
+		_cleaning_stage.set_supply_basket(BASKET_POSITION)
 		_cleaning_stage.set_dirty_overlays(_sink_grime, _tub_grime)
 	return true
 
@@ -240,22 +250,13 @@ func probe_cleaning_tub_strokes(points: Array[Vector2]) -> bool:
 
 
 func probe_begin_drag(at: Vector2) -> bool:
-	if _hunt_completed or _busy:
-		return false
-	_dragging = true
-	_drag_last = at
-	_drag_distance = 0.0
-	_move_magnifier(at)
-	return true
+	# Kept as a compatibility seam for old callers. The playable rescue has no
+	# magnifier or drag surface; one finger always taps the basket instead.
+	return false
 
 
 func probe_drag_to(at: Vector2) -> bool:
-	if not _dragging or _hunt_completed or _busy:
-		return false
-	_drag_distance += _drag_last.distance_to(at)
-	_drag_last = at
-	_move_magnifier(at)
-	return true
+	return false
 
 
 func probe_end_drag() -> void:
@@ -263,25 +264,18 @@ func probe_end_drag() -> void:
 
 
 func probe_reveal_supply(index: int) -> bool:
-	if _hunt_completed or _busy or index < 0 or index >= MAX_SUPPLIES:
+	return probe_tap_basket()
+
+
+func probe_tap_basket() -> bool:
+	if _hunt_completed or _busy:
 		return false
-	if index != _supply_step:
-		return false
-	if _found[index]:
-		return false
-	var center: Vector2 = SUPPLY_DEFINITIONS[index]["center"] as Vector2
-	if not probe_begin_drag(center - Vector2(MIN_DRAG_DISTANCE, 0.0)):
-		return false
-	probe_drag_to(center)
-	probe_end_drag()
-	return _found[index]
+	_on_basket_tapped()
+	return _hunt_completed
 
 
 func _process(delta: float) -> void:
 	_pulse_time += maxf(delta, 0.0)
-	if _magnifier != null and is_instance_valid(_magnifier) and _magnifier.visible:
-		_magnifier.rotation = sin(_pulse_time * 2.8) * 0.035
-		_magnifier.modulate.a = 0.90 + sin(_pulse_time * 4.0) * 0.08
 	if _basket != null and is_instance_valid(_basket) and _basket.visible:
 		var pulse: float = 1.0 + sin(_pulse_time * 3.6) * 0.045
 		_basket.scale = _basket_base_scale * pulse
@@ -309,7 +303,7 @@ func _suspend_room_hotspots() -> void:
 func _suspend_standard_surfaces() -> void:
 	# The room rescue owns the whole child-facing presentation. Keep voice/audio
 	# alive, but remove status trays, ordinary objective cards, and captions from
-	# this layer so the magnifier and basket are the only hunt invitation.
+	# this layer so the basket is the only hunt invitation.
 	_hud_layer = m.hud_layer
 	if _hud_layer != null and is_instance_valid(_hud_layer):
 		_hud_layer_was_visible = _hud_layer.visible
@@ -359,11 +353,11 @@ func _make_dirty_overlay(node_name: String, texture_path: String, at: Vector2,
 func _build_supply_icons() -> void:
 	for index: int in range(MAX_SUPPLIES):
 		var icon := SupplyIcon.new()
-		icon.name = "HiddenSupply_%s" % String(SUPPLY_DEFINITIONS[index]["id"])
+		icon.name = "BasketTool_%s" % String(SUPPLY_DEFINITIONS[index]["id"])
 		icon.configure(String(SUPPLY_DEFINITIONS[index]["id"]))
-		icon.position = SUPPLY_DEFINITIONS[index]["center"] as Vector2
+		icon.position = _basket_content_position(index)
 		icon.z_index = 29
-		icon.visible = false
+		icon.visible = true
 		icon.set_meta("collection_role", "basket_tool")
 		icon.set_meta("visible_in_basket", false)
 		add_child(icon)
@@ -371,139 +365,51 @@ func _build_supply_icons() -> void:
 		_found[index] = false
 
 
-func _build_drag_surface() -> void:
-	_drag_surface = Control.new()
-	_drag_surface.name = "MagnifierDragSurface"
-	_drag_surface.position = Vector2.ZERO
-	_drag_surface.size = StorybookUI.CANVAS_SIZE
-	_drag_surface.mouse_filter = Control.MOUSE_FILTER_STOP
-	_drag_surface.z_index = 12
-	_drag_surface.gui_input.connect(_on_drag_surface_input)
-	add_child(_drag_surface)
-
-
 func _build_guidance() -> void:
-	_magnifier = Sprite2D.new()
-	_magnifier.name = "DraggableMagnifyingGlass"
-	_magnifier.texture = load(MAGNIFIER_TEXTURE) as Texture2D
-	_magnifier.position = DRAG_GUIDANCE_POSITION
-	_magnifier.scale = Vector2.ONE * 0.38
-	_magnifier.z_index = 32
-	_magnifier.set_meta("one_finger_drag", true)
-	add_child(_magnifier)
-
 	_pointer = Sprite2D.new()
-	_pointer.name = "MagnifierPointer"
+	_pointer.name = "BasketPointer"
 	_pointer.texture = load(POINTER_TEXTURE) as Texture2D
 	_pointer.scale = Vector2.ONE * 0.18
 	_pointer.z_index = 34
 	add_child(_pointer)
+	_basket_button = Button.new()
+	_basket_button.name = "TapCleanupBasket"
+	_basket_button.flat = true
+	_basket_button.focus_mode = Control.FOCUS_NONE
+	_basket_button.position = BASKET_POSITION - BASKET_BUTTON_SIZE * 0.5
+	_basket_button.size = BASKET_BUTTON_SIZE
+	_basket_button.modulate = Color(1.0, 1.0, 1.0, 0.0)
+	_basket_button.z_index = 35
+	_basket_button.set_meta("one_finger_tap", true)
+	_basket_button.set_meta("physical_object", true)
+	_basket_button.pressed.connect(_on_basket_tapped)
+	add_child(_basket_button)
 
 
 func _apply_restored_progress() -> void:
 	for index: int in range(MAX_SUPPLIES):
-		_found[index] = index < _supply_step
-		if _found[index]:
-			_place_supply_in_basket(index)
-		else:
-			_supply_nodes[index].visible = false
+		# The new rescue starts with both child-readable tools already sitting in
+		# the one basket; tapping it is the only hunt action.
+		_found[index] = true
+		_place_supply_in_basket(index)
 	_refresh_guidance()
 
 
 func _refresh_guidance() -> void:
 	var visible: bool = not _hunt_completed
-	if _magnifier != null:
-		_magnifier.visible = visible
 	if _pointer != null:
 		_pointer.visible = visible
+	if _basket_button != null:
+		_basket_button.visible = visible
 	if not visible:
 		return
-	# Teach the one-finger action in open space. The next hidden basket remains
-	# discoverable through the lens, but the pointer never marks its exact spot.
-	_pointer.position = DRAG_GUIDANCE_POSITION + Vector2(0.0, -128.0)
-
-
-func _on_drag_surface_input(event: InputEvent) -> void:
-	if _hunt_completed or _busy:
-		return
-	if event is InputEventScreenTouch:
-		var touch := event as InputEventScreenTouch
-		if touch.pressed:
-			_dragging = true
-			_drag_last = touch.position
-			_drag_distance = 0.0
-			_move_magnifier(touch.position)
-		else:
-			_dragging = false
-		get_viewport().set_input_as_handled()
-	elif event is InputEventScreenDrag:
-		if _dragging:
-			var drag_position := (event as InputEventScreenDrag).position
-			_drag_distance += _drag_last.distance_to(drag_position)
-			_drag_last = drag_position
-			_move_magnifier(drag_position)
-		get_viewport().set_input_as_handled()
-	elif event is InputEventMouseButton:
-		var button := event as InputEventMouseButton
-		if button.button_index != MOUSE_BUTTON_LEFT:
-			return
-		if button.pressed:
-			_dragging = true
-			_drag_last = button.position
-			_drag_distance = 0.0
-			_move_magnifier(button.position)
-		else:
-			_dragging = false
-		get_viewport().set_input_as_handled()
-	elif event is InputEventMouseMotion and _dragging:
-		var motion_position := (event as InputEventMouseMotion).position
-		_drag_distance += _drag_last.distance_to(motion_position)
-		_drag_last = motion_position
-		_move_magnifier(motion_position)
-		get_viewport().set_input_as_handled()
-
-
-func _move_magnifier(at: Vector2) -> void:
-	if _magnifier == null or _busy or _hunt_completed:
-		return
-	_magnifier.position = at.clamp(Vector2(88.0, 88.0),
-		StorybookUI.CANVAS_SIZE - Vector2(88.0, 88.0))
-	var index: int = _supply_step
-	if index < 0 or index >= MAX_SUPPLIES or _found[index]:
-		return
-	var definition: Dictionary = SUPPLY_DEFINITIONS[index]
-	var target: Vector2 = definition["center"] as Vector2
-	var hit_radius: float = float(definition["hit_radius"])
-	if _drag_distance >= MIN_DRAG_DISTANCE \
-			and _magnifier.position.distance_to(target) <= hit_radius + MAGNIFIER_RADIUS:
-		_reveal_supply(index)
+	_pointer.position = BASKET_POSITION + Vector2(-108.0, -154.0)
 
 
 func _reveal_supply(index: int) -> void:
-	if _busy or _hunt_completed or _found[index]:
-		return
-	_busy = true
-	_found[index] = true
-	_supply_step = clampi(index + 1, 0, MAX_SUPPLIES)
-	_supply_nodes[index].visible = true
-	_supply_nodes[index].scale = Vector2.ONE * SUPPLY_REVEAL_SCALE
-	_supply_nodes[index].position = SUPPLY_DEFINITIONS[index]["center"] as Vector2
-	if m != null:
-		m.day_one_record_bathroom_supply_step(_supply_step)
-		if _announcements_enabled:
-			m._ui_tap()
-	supply_found.emit(index, String(SUPPLY_DEFINITIONS[index]["id"]))
-	_spawn_sparkle(SUPPLY_DEFINITIONS[index]["center"] as Vector2)
-	# The found tool travels into the one visible basket and stays there. This
-	# makes collection legible without adding a separate inventory card.
-	var reveal_tween: Tween = _supply_nodes[index].create_tween()
-	reveal_tween.tween_property(_supply_nodes[index], "scale",
-		Vector2.ONE * BASKET_TOOL_SCALE, 0.42)
-	reveal_tween.parallel().tween_property(_supply_nodes[index], "position",
-		_basket_content_position(index), 0.42)
-	reveal_tween.parallel().tween_property(_supply_nodes[index], "rotation",
-		-0.08 if index == 0 else 0.08, 0.42)
-	reveal_tween.tween_callback(_finish_supply_reveal.bind(index))
+	# Obsolete cabinet/magnifier route: the basket is the only playable target.
+	# Keep the method name so older save/probe callers fail closed safely.
+	return
 
 
 func _finish_supply_reveal(index: int) -> void:
@@ -531,14 +437,30 @@ func _complete_supply_hunt() -> void:
 	begin_cleaning_handoff()
 
 
+func _on_basket_tapped() -> void:
+	if _hunt_completed or _busy:
+		return
+	_busy = true
+	set_meta("basket_tap_count", int(get_meta("basket_tap_count", 0)) + 1)
+	set_meta("basket_tap_voice_sent", _announcements_enabled and m != null)
+	if _announcements_enabled and m != null:
+		m._ui_tap()
+		m.show_msg("Roshan", "Let’s clean together!", "talk")
+		m._say("roshan", "talk", 0.4)
+	for index: int in range(MAX_SUPPLIES):
+		_found[index] = true
+		_place_supply_in_basket(index)
+		supply_found.emit(index, String(SUPPLY_DEFINITIONS[index]["id"]))
+	_supply_step = MAX_SUPPLIES
+	if m != null:
+		m.day_one_record_bathroom_supply_step(_supply_step)
+	_complete_supply_hunt()
+
+
 func _announce_current_supply() -> void:
 	if not _announcements_enabled or m == null or _hunt_completed:
 		return
-	var supply_id: String = String(SUPPLY_DEFINITIONS[_supply_step]["id"])
-	var message := "Drag the magnifying glass to find the brush!"
-	if supply_id == "cleaner":
-		message = "Great! Now find the cleaner in the other cabinet!"
-	m.show_msg("Roshan", message, "talk")
+	m.show_msg("Roshan", "Tap the cleaning basket.", "talk")
 	m._say("roshan", "talk", 0.8)
 
 
@@ -571,6 +493,13 @@ func _all_canvas_children(node: Node) -> bool:
 func _basket_content_position(index: int) -> Vector2:
 	return BASKET_POSITION + BASKET_CONTENT_OFFSETS[clampi(index, 0,
 		BASKET_CONTENT_OFFSETS.size() - 1)]
+
+
+func _basket_item_ids() -> Array[String]:
+	var ids: Array[String] = []
+	for definition: Dictionary in SUPPLY_DEFINITIONS:
+		ids.append(String(definition["id"]))
+	return ids
 
 
 func _place_supply_in_basket(index: int) -> void:

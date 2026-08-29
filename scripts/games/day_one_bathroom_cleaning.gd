@@ -1,6 +1,6 @@
 class_name DayOneBathroomCleaning
 extends Control
-## Two short, forgiving bathroom gestures that follow the supply hunt.
+## Two short, forgiving bathroom gestures that follow the basket handoff.
 ##
 ## Sink is a circular scrub (arc + distance); tub is a back-and-forth brush
 ## (distance + direction reversals). Both only advance from a live one-finger
@@ -19,8 +19,8 @@ const TUB_HALF_WIDTH := 210.0
 const GESTURE_BAND := 172.0
 const SINK_ARC_REQUIRED := TAU * 1.05
 const SINK_DISTANCE_REQUIRED := 520.0
-const TUB_DISTANCE_REQUIRED := 760.0
-const TUB_REVERSALS_REQUIRED := 4
+const TUB_DISTANCE_REQUIRED := 520.0
+const TUB_REVERSALS_REQUIRED := 2
 const SINK_MIN_GESTURE_SECONDS := 2.0
 const SINK_MAX_GESTURE_SECONDS := 5.0
 const TUB_MIN_GESTURE_SECONDS := 2.0
@@ -28,8 +28,44 @@ const TUB_MAX_GESTURE_SECONDS := 5.0
 const SINK_TARGET_TEXTURE := "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png"
 const TUB_TARGET_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png"
 const SPONGE_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png"
+const BRUSH_TEXTURE := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
 const SWOOSH_TEXTURE := "res://assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png"
 const POINTER_TEXTURE := "res://assets/castle/training/ghost_hand.png"
+const SPARKLE_TEXTURE := "res://assets/opera/worlds/props/fx_stolen_sparkle.png"
+
+
+class GestureGuide extends Node2D:
+	var guide_mode: String = "sink"
+	var animation_time: float = 0.0
+
+	func set_mode(next_mode: String) -> void:
+		guide_mode = next_mode
+		queue_redraw()
+
+	func _process(delta: float) -> void:
+		animation_time += maxf(delta, 0.0)
+		queue_redraw()
+
+	func _draw() -> void:
+		var pulse: float = 1.0 + sin(animation_time * 3.2) * 0.08
+		var ink := Color(0.98, 0.86, 0.26, 0.95)
+		if guide_mode == "sink":
+			draw_arc(Vector2.ZERO, 116.0 * pulse, -0.8, TAU - 0.8,
+				32, ink, 11.0, true)
+			var tip := Vector2(cos(-0.8), sin(-0.8)) * 116.0 * pulse
+			_draw_arrowhead(tip, -0.8 + PI * 0.5, ink)
+		else:
+			var reach: float = 176.0 * pulse
+			draw_line(Vector2(-reach, 0.0), Vector2(reach, 0.0), ink, 12.0,
+				true)
+			_draw_arrowhead(Vector2(-reach, 0.0), PI, ink)
+			_draw_arrowhead(Vector2(reach, 0.0), 0.0, ink)
+
+	func _draw_arrowhead(tip: Vector2, direction: float, color: Color) -> void:
+		var heading := Vector2(cos(direction), sin(direction))
+		var side := Vector2(-heading.y, heading.x)
+		draw_line(tip, tip - heading * 24.0 + side * 16.0, color, 11.0, true)
+		draw_line(tip, tip - heading * 24.0 - side * 16.0, color, 11.0, true)
 
 var m: ReefMain
 var _step: int = 0
@@ -56,6 +92,14 @@ var _swoosh: Sprite2D = null
 var _progress: ColorRect = null
 var _sink_grime: Sprite2D = null
 var _tub_grime: Sprite2D = null
+var _guide: GestureGuide = null
+var _basket_position := Vector2(1082.0, 575.0)
+var _demo_active: bool = false
+var _tool_traveling: bool = false
+var _sponge_travel_complete: bool = true
+var _brush_travel_complete: bool = false
+var _whole_room_sparkle: bool = false
+var _sparkle_nodes: Array[Sprite2D] = []
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -70,6 +114,8 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	if not m.has_meta("day_one_bathroom_cleaning_completion_count"):
 		m.set_meta("day_one_bathroom_cleaning_completion_count", 0)
 	_step = clampi(m.day_one_bathroom_cleanup_step, 0, 3)
+	_sponge_travel_complete = _step >= 1
+	_brush_travel_complete = _step >= 1
 	if _step >= 2:
 		# A save can land after the tub gesture but before the director's room
 		# completion callback. Re-emit that boundary once on re-entry.
@@ -113,6 +159,16 @@ func audit_snapshot() -> Dictionary:
 		},
 		"has_visual_pointer": _pointer != null,
 		"has_gesture_surface": _gesture_surface != null,
+		"tool_traveling": _tool_traveling,
+		"sink_demo_active": _demo_active,
+		"circle_demo_visible": _guide != null and _guide.visible
+			and _guide.guide_mode == "sink",
+		"back_and_forth_arrows_visible": _guide != null and _guide.visible
+			and _guide.guide_mode == "tub",
+		"sponge_travel_complete": _sponge_travel_complete,
+		"brush_travel_complete": _brush_travel_complete,
+		"whole_room_sparkle": _whole_room_sparkle,
+		"pool_pointer_ready": _whole_room_sparkle,
 		"grime_overlays_bound": _sink_grime != null and _tub_grime != null,
 		"sink_grime_visible": _sink_grime != null and _sink_grime.visible,
 		"tub_grime_visible": _tub_grime != null and _tub_grime.visible,
@@ -140,6 +196,17 @@ func set_dirty_overlays(sink_grime: Sprite2D, tub_grime: Sprite2D) -> void:
 	_sink_grime = sink_grime
 	_tub_grime = tub_grime
 	_update_dirty_overlays()
+
+
+func set_supply_basket(at: Vector2) -> void:
+	# The basket is the only source of tools in the child-facing flow. Keep the
+	# old save step semantics, but make the visible handoff explicit each time a
+	# fresh sink or resumed tub stage is entered.
+	_basket_position = at
+	if _step == 0:
+		_begin_sink_tool_travel()
+	elif _step == 1:
+		_begin_brush_tool_travel()
 
 
 func probe_begin_gesture(at: Vector2) -> bool:
@@ -233,6 +300,13 @@ func _build_presentation() -> void:
 	_pointer.z_index = 30
 	_pointer.position = (SINK_CENTER if _step == 0 else TUB_CENTER) + Vector2(0.0, -190.0)
 	add_child(_pointer)
+	_guide = GestureGuide.new()
+	_guide.name = "OneFingerGestureGuide"
+	_guide.position = SINK_CENTER if _step == 0 else TUB_CENTER
+	_guide.set_mode("sink" if _step == 0 else "tub")
+	_guide.z_index = 28
+	_guide.visible = true
+	add_child(_guide)
 
 
 func _make_sprite(path: String, at: Vector2, scale_factor: float, node_name: String) -> Sprite2D:
@@ -322,9 +396,15 @@ func _finish_sink() -> void:
 		_sponge.visible = false
 	if _pointer != null:
 		_pointer.visible = false
-	_busy = false
-	_build_tub_visuals()
-	_announce_stage()
+	if _guide != null:
+		_guide.visible = false
+	# Let the sponge visibly return to the basket before the approved magic
+	# brush makes its separate basket-to-tub journey.
+	_sponge_travel_complete = true
+	_brush_travel_complete = false
+	var return_tween: Tween = _sponge.create_tween()
+	return_tween.tween_property(_sponge, "position", _basket_position, 0.32)
+	return_tween.tween_callback(_begin_brush_tool_travel)
 
 
 func _build_tub_visuals() -> void:
@@ -340,6 +420,72 @@ func _build_tub_visuals() -> void:
 	if _pointer != null:
 		_pointer.position = TUB_CENTER + Vector2(0.0, -190.0)
 		_pointer.visible = true
+	if _guide != null:
+		_guide.position = TUB_CENTER
+		_guide.set_mode("tub")
+		_guide.visible = true
+
+
+func _begin_sink_tool_travel() -> void:
+	if _sponge == null or not is_instance_valid(_sponge) or _step != 0:
+		return
+	_demo_active = true
+	_tool_traveling = true
+	_busy = true
+	_sponge_travel_complete = false
+	_sponge.texture = load(SPONGE_TEXTURE) as Texture2D
+	_sponge.position = _basket_position
+	_sponge.visible = true
+	if _pointer != null:
+		_pointer.visible = false
+	if _guide != null:
+		_guide.position = SINK_CENTER
+		_guide.set_mode("sink")
+		_guide.visible = false
+	var travel: Tween = _sponge.create_tween()
+	travel.tween_property(_sponge, "position", SINK_CENTER, 0.38)
+	travel.tween_callback(_finish_sink_tool_travel)
+
+
+func _finish_sink_tool_travel() -> void:
+	_tool_traveling = false
+	_demo_active = false
+	_busy = false
+	_sponge_travel_complete = true
+	if _guide != null:
+		_guide.position = SINK_CENTER
+		_guide.set_mode("sink")
+		_guide.visible = true
+	if _pointer != null:
+		_pointer.position = SINK_CENTER + Vector2(0.0, -190.0)
+		_pointer.visible = true
+	_announce_stage()
+
+
+func _begin_brush_tool_travel() -> void:
+	if _sponge == null or not is_instance_valid(_sponge) or _step != 1:
+		return
+	_tool_traveling = true
+	_busy = true
+	_brush_travel_complete = false
+	_sponge.texture = load(BRUSH_TEXTURE) as Texture2D
+	_sponge.position = _basket_position
+	_sponge.visible = true
+	if _pointer != null:
+		_pointer.visible = false
+	if _guide != null:
+		_guide.visible = false
+	var travel: Tween = _sponge.create_tween()
+	travel.tween_property(_sponge, "position", TUB_CENTER, 0.38)
+	travel.tween_callback(_finish_brush_tool_travel)
+
+
+func _finish_brush_tool_travel() -> void:
+	_tool_traveling = false
+	_busy = false
+	_brush_travel_complete = true
+	_build_tub_visuals()
+	_announce_stage()
 
 
 func _finish_tub() -> void:
@@ -363,8 +509,41 @@ func _finish_tub() -> void:
 		_sponge.visible = false
 	if _swoosh != null:
 		_swoosh.visible = false
+	if _guide != null:
+		_guide.visible = false
 	_busy = false
-	_emit_completion_once()
+	_spawn_whole_room_sparkles()
+	# The room director tears this presentation down on completion. Give the
+	# child a visible sparkle beat before emitting that teardown signal.
+	get_tree().create_timer(0.92).timeout.connect(_emit_completion_once,
+		CONNECT_ONE_SHOT)
+
+
+func _spawn_whole_room_sparkles() -> void:
+	_whole_room_sparkle = true
+	var texture: Texture2D = load(SPARKLE_TEXTURE) as Texture2D
+	if texture == null:
+		return
+	var sparkle_positions: Array[Vector2] = [
+		Vector2(150.0, 170.0), Vector2(420.0, 150.0), Vector2(760.0, 160.0),
+		Vector2(1050.0, 190.0), Vector2(250.0, 520.0), Vector2(850.0, 520.0),
+	]
+	for index: int in range(sparkle_positions.size()):
+		var sparkle := Sprite2D.new()
+		sparkle.name = "BathroomRoomSparkle_%d" % index
+		sparkle.texture = texture
+		sparkle.position = sparkle_positions[index]
+		sparkle.scale = Vector2.ONE * 0.34
+		sparkle.modulate.a = 0.0
+		sparkle.z_index = 40
+		add_child(sparkle)
+		_sparkle_nodes.append(sparkle)
+		var sparkle_tween: Tween = sparkle.create_tween()
+		sparkle_tween.tween_interval(float(index) * 0.05)
+		sparkle_tween.tween_property(sparkle, "modulate:a", 1.0, 0.16)
+		sparkle_tween.parallel().tween_property(sparkle, "scale",
+			Vector2.ONE * 0.62, 0.32)
+		sparkle_tween.tween_property(sparkle, "modulate:a", 0.0, 0.46)
 
 
 func _emit_completion_once() -> void:
@@ -380,7 +559,7 @@ func _emit_completion_once() -> void:
 
 
 func _announce_stage() -> void:
-	if not _announcements_enabled or m == null or _step >= 2:
+	if _demo_active or not _announcements_enabled or m == null or _step >= 2:
 		return
 	if _step == 0:
 		m.show_msg("Roshan", "Scrub the sink in little circles!", "talk")

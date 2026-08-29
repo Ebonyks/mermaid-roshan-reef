@@ -22,6 +22,12 @@ func _init() -> void:
 		and main.day_one_event_seen.has(DayOneDirector.EVENT_ARRIVAL_PLANE_MEDIA)
 		and main.day_one_event_history.size() == 1)
 	director.drain_events()
+	_check("bathroom cannot complete before basket and both scrubs",
+		not director.complete_tutorial("bathroom")
+		and not director.can_enter_room("pool"))
+	director.bathroom_supply_hunt_step = 2
+	director.bathroom_tools_authorized = true
+	director.bathroom_cleanup_step = 2
 	_check("bathroom rescue completion unlocks pool",
 		director.complete_tutorial("bathroom")
 		and bool(main.day_one_completed_rooms.get("bathroom", false))
@@ -74,6 +80,7 @@ func _init() -> void:
 		and restored_main.day_one_current_room_id == "stuffie"
 		and restored_main.day_one_cleaned_rooms == {"bathroom": true, "pool": true}
 		and restored_main.day_one_bathroom_cleanup_step == 3
+		and restored_main.day_one_bathroom_tools_authorized
 		and restored_main.day_one_pool_cleanup_step == 4
 		and restored_main.day_one_pool_skimmer_mask == 0x3F
 		and restored_main.day_one_pool_waterfall_mask == 0x07
