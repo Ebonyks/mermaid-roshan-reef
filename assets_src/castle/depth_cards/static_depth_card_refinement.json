@@ -2458,6 +2458,7 @@
     }
   ],
   "constraints": {
+    "bubble_bath_false_tub_card_runtime_retired": true,
     "legacy_hall_front_cards_runtime_retired": true,
     "pool_mid_card_runtime_retired": true,
     "source_room_art_reused_exactly": true,
@@ -2466,7 +2467,7 @@
   },
   "contact_sheet": {
     "path": "audit/castle_static_depth_cards/static_depth_card_refinement_contact.png",
-    "raw_pixel_sha256": "3fcbcbee088143eb5fc105046bd455dc189f549d3786514ba69cf7e098c399a7"
+    "raw_pixel_sha256": "609a1ed3943fb4b7be15127768633042115b7014b2f0ffd3585ee9e94b243e55"
   },
   "generated_by": "tools/refine_castle_depth_cards.py",
   "retired_cards": [
@@ -2480,7 +2481,7 @@
       "reason": "phone_scale_shell_towel_basket_silhouette_reads_as_a_false_second_bathtub",
       "role": "foreground",
       "room": "bubble_bath",
-      "source_sha256": "08cf0c0ab6be6b5e8d793f07da98b8edcb6d199c402b8728f474634d78826bf4"
+      "source_sha256": "2caea3582f401636bf118447618a6a6e408a98df9accf51d4c721b4320dded81"
     },
     {
       "id": "front_left",

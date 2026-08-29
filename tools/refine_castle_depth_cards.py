@@ -222,21 +222,6 @@ CARD_SPECS: tuple[CardSpec, ...] = (
 			(108, 102), (139, 111), (139, 141),
 			(0, 141)),
 	)),
-	CardSpec("bubble_bath", "front_left", (0, 358), (
-		# Rolled towels sit above the shell hamper; separating them removes the
-		# broad pink floor patch previously trapped between their silhouettes.
-		rounded_rectangle((38, 30, 105, 79), 18),
-		rounded_rectangle((60, 22, 137, 87), 20),
-		rounded_rectangle((99, 43, 171, 101), 20),
-		polygon((25, 78), (48, 68), (82, 64), (126, 69), (164, 76),
-			(188, 91), (194, 119), (186, 143), (169, 160), (132, 169),
-			(76, 170), (43, 157), (27, 136), (21, 107)),
-		polygon((0, 128), (18, 119), (38, 128), (54, 145), (66, 166),
-			(91, 174), (108, 191), (101, 204), (70, 202), (47, 194),
-			(21, 202), (0, 194)),
-		ellipse((79, 164, 122, 205)),
-		ellipse((181, 130, 218, 169)),
-	)),
 	CardSpec("bubble_bath", "front_right", (798, 358), (
 		polygon((116, 0), (151, 0), (184, 13), (207, 38), (217, 68),
 			(211, 99), (190, 113), (149, 103), (119, 77)),
@@ -256,6 +241,14 @@ CARD_SPECS: tuple[CardSpec, ...] = (
 
 
 RETIRED_CARDS: tuple[dict[str, Any], ...] = (
+	{
+		"room": "bubble_bath",
+		"id": "front_left",
+		"role": "foreground",
+		"path": "assets/flats/castle/rooms/room_bubble_bath_front_left.png",
+		"position": [0, 358],
+		"reason": "phone_scale_shell_towel_basket_silhouette_reads_as_a_false_second_bathtub",
+	},
 	{
 		"room": "main_hall",
 		"id": "front_left",
@@ -554,6 +547,7 @@ def build_outputs(bootstrap: bool) -> tuple[
 			"transparent_rgb_zeroed": True,
 			"legacy_hall_front_cards_runtime_retired": True,
 			"pool_mid_card_runtime_retired": True,
+			"bubble_bath_false_tub_card_runtime_retired": True,
 		},
 	}
 	return entries, provenance, sheet
