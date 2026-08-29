@@ -1,5 +1,22 @@
 # Owner-run Grok handoff — Day One Bubble Bathroom movies
 
+## Current readiness — do not confuse archive with generation
+
+The committed `HANDOFF_PACKET.json` directories are complete audit archives,
+not executable Grok Imagine generation packets. Their 12 and 22 images must
+not be uploaded together, the seven/eight-panel boards must not be bound as
+pixel references, and the HUD-bearing runtime captures must not be used as
+cinematic first frames. The broad Movie A/B prompts below are retained as
+direction history; do not paste either one into a single multi-shot job.
+
+Before generating, create one
+`design/templates/IMAGINE_SHOT_CARD_V1.md` card for each A0–A6 and B0–B7 shot.
+Each job binds only two to four approved, role-labeled images and needs an
+accepted clean UI-free first frame. Generate one shot per job, then assemble
+the accepted shots in edit. Until those cards and first frames exist and pass
+the generator-readiness audit, this handoff is `ARCHIVE_COMPLETE` but
+`GENERATION_READY: false` and `DELIVERY_ACCEPTED: false`.
+
 ## Use and authority
 
 This is a visual-only storyboard and copy/paste handoff for two optional

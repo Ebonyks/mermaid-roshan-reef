@@ -47,7 +47,19 @@ External animation handoffs are incomplete unless they include the binding
 self-contained visual-reference packet required by `AGENTS.md`: actual
 approved appearance/boundary assets, an inspectable shot board covering every
 beat, hashes, provenance, and explicit non-delivery status. Prose, repository
-paths, prompts, or beat tables alone never qualify.
+paths, prompts, or beat tables alone never qualify. The complete packet must
+be committed and pushed to GitHub, its remote contents verified, and immutable
+GitHub packet and direct-manifest links supplied to the animation system;
+local-only or merely upload-ready packets are incomplete.
+
+Do not conflate the compliance archive with the generator interface. Every
+Grok Imagine job uses one `design/templates/IMAGINE_SHOT_CARD_V1.md` card, two
+to four role-bound approved images, one shot, at most one camera move, an
+action-first timeline, end state, negatives, and `Sound:` line. Generated
+boards and HUD/runtime captures are never bound pixel inputs. Report
+`ARCHIVE_COMPLETE`, `GENERATION_READY`, and `DELIVERY_ACCEPTED` separately;
+Imagine video remains motion reference unless the full-frame rule independently
+accepts every changed delivery frame.
 
 ## Layout
 - scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized
