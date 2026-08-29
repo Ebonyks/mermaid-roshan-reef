@@ -133,6 +133,15 @@ def load_opaque(path: Path) -> Image.Image:
 	return image.convert("RGB")
 
 
+def committed_output_hashes(planned: dict[Path, Image.Image]) -> dict[str, str]:
+	"""Hash shipped bytes without asking the local PNG encoder to recreate them."""
+	return {
+		relative(path): sha256(path) if path.is_file()
+		else sha256_bytes(png_bytes(image))
+		for path, image in planned.items()
+	}
+
+
 def opera_master(source: Image.Image) -> Image.Image:
 	"""Use the established complete-canvas Opera normalization unchanged."""
 	active_size = (2048, 1152)
@@ -271,7 +280,12 @@ def build_expected() -> tuple[dict[Path, Image.Image], dict[str, Any], dict[str,
 
 def bind_hashes(planned: dict[Path, Image.Image], fable: dict[str, Any],
 		v4: dict[str, Any], audit: dict[str, Any]) -> None:
-	hashes = {relative(path): sha256_bytes(png_bytes(image)) for path, image in planned.items()}
+	# Bind provenance to the exact committed PNG bytes, not a fresh Pillow/zlib
+	# encoding of the same pixels. PNG pixels are portable, while compressed
+	# bytes can differ across operating systems even with the same Pillow
+	# version. Build mode writes every planned image before reaching this point;
+	# check mode separately rejects missing or pixel-stale outputs.
+	hashes = committed_output_hashes(planned)
 	for room_record in audit["castle"]:
 		room = room_record["room"]
 		room_record["logical_background_sha256"] = hashes[room_record["logical_background"]]
@@ -347,6 +361,9 @@ def main() -> int:
 	args = parser.parse_args()
 	try:
 		planned, fable, v4, audit = build_expected()
+		if not args.check:
+			for path, image in planned.items():
+				write_image(path, image)
 		bind_hashes(planned, fable, v4, audit)
 		if args.check:
 			errors = check_outputs(planned, audit)
@@ -360,8 +377,6 @@ def main() -> int:
 				return 1
 			print("PIXEL_OWNERSHIP|RESULT|OK|castle_rooms=7|opera_worlds=2")
 			return 0
-		for path, image in planned.items():
-			write_image(path, image)
 		FABLE.write_text(json.dumps(fable, indent=2) + "\n", encoding="utf-8")
 		V4.write_text(json.dumps(v4, indent=2) + "\n", encoding="utf-8")
 		AUDIT.parent.mkdir(parents=True, exist_ok=True)

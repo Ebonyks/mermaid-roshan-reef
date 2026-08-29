@@ -5,6 +5,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+from pathlib import Path
+import tempfile
 import unittest
 
 from PIL import Image
@@ -38,6 +40,17 @@ class InteractiveBackgroundOwnershipTests(unittest.TestCase):
 		planned, fable, v4, audit = ownership.build_expected()
 		ownership.bind_hashes(planned, fable, v4, audit)
 		self.assertEqual(ownership.check_outputs(planned, audit), [])
+
+	def test_manifest_hashes_bind_committed_png_bytes(self) -> None:
+		image = Image.new("RGB", (97, 61), (12, 34, 56))
+		with tempfile.TemporaryDirectory(dir=ownership.ROOT / "audit") as directory:
+			path = Path(directory) / "compressed_differently.png"
+			image.save(path, "PNG", compress_level=1)
+			committed = hashlib.sha256(path.read_bytes()).hexdigest()
+			reencoded = hashlib.sha256(ownership.png_bytes(image)).hexdigest()
+			self.assertNotEqual(committed, reencoded)
+			hashes = ownership.committed_output_hashes({path: image})
+			self.assertEqual(hashes[ownership.relative(path)], committed)
 
 	def test_partial_tent_override_is_retired_for_complete_v2_object(self) -> None:
 		v4 = json.loads((ownership.ROOT /
