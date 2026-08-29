@@ -43,6 +43,12 @@ Current cross-domain rules and audit state:
 The complete full-frame cinematic rule in `AGENTS.md` remains binding without
 relaxation; no summary here or elsewhere may narrow it.
 
+External animation handoffs are incomplete unless they include the binding
+self-contained visual-reference packet required by `AGENTS.md`: actual
+approved appearance/boundary assets, an inspectable shot board covering every
+beat, hashes, provenance, and explicit non-delivery status. Prose, repository
+paths, prompts, or beat tables alone never qualify.
+
 ## Layout
 - scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized
   2026-08-09 audit snapshot; still

@@ -2657,3 +2657,46 @@ the selected native generations remain preserved.
 ## Day One swimming dust bunny (2026-08-24)
 
 - `assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png` - project-original OpenAI built-in ImageGen art; license: project original; URL: none. New 1024×683 RGBA true-swimming action cutout generated from the approved project-original curl-ear and hop identity references, then whole-canvas normalized from the accepted 1536×1024 RGBA native. The exact prompts, reference/output SHA-256 hashes, rejected seated concept, alpha correction, normalization method, and independent Luna acceptance are recorded in `assets_src/imagegen/day_one_pool_dust_bunny_swimmer_2026-08-24/PROMPT_AND_PROVENANCE.md`. The same runtime asset is reused in the Mermaid Pool and filled Bubble Bath bathtub; no protected original was modified.
+
+## Day One bathroom external-animation visual packets (2026-08-29)
+
+Every file below is a non-runtime handoff reference under `assets_src/.gdignore`;
+license: project original; URL: none. Exact dimensions, SHA-256, role, source,
+generation prompt where applicable, authority status, modification status, and
+whole-payload hash are recorded in the sibling `HANDOFF_PACKET.json`. Copied
+files are lossless and leave all approved/protected originals unchanged.
+
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/01_dirty_runtime_anchor.png` — lossless copy of the exact Godot 4.7.1 `00_dirty_basket_prompt` capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/02_entry_storyboard_reference.png` — project-original OpenAI built-in ImageGen four-beat reference board (`exec-c0b821a6-cfa9-405a-b5e4-b18a96068e95`); modifications: none after generation; narrative reference only.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/03_roshan_identity_reference.png` — lossless copy of `assets/characters/roshan_25d/roshan_base.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/04_swimming_bunny_identity_reference.png` — lossless copy of `assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/05_supply_basket_reference.png` — lossless copy of `assets/castle/day_one_pool/activities/cleanup_basket.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/06_room_plate_reference.png` — lossless copy of `assets/flats/castle/rooms/room_bubble_bath.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/07_healed_background_reference.png` — lossless copy of `assets/flats/castle/interactions_v4/backgrounds/room_bubble_bath_background.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/08_roshan_directional_reference.png` — lossless copy of `assets/characters/roshan_25d/roshan_directional.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/09_roshan_gestures_reference.png` — lossless copy of `assets/characters/roshan_25d/roshan_gestures.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/10_entry_shot_board_7_panel_reference.png` — project-original OpenAI built-in ImageGen seven-shot board (`exec-9557b013-76fe-42d6-9761-cc9b03b309d8`); modifications: none after generation; narrative reference only.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/11_sink_grime_reference.png` — lossless copy of `assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/12_tub_grime_reference.png` — lossless copy of `assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/01_dirty_runtime_anchor.png` — lossless copy of the exact Godot 4.7.1 `00_dirty_basket_prompt` capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/02_clean_runtime_anchor.png` — lossless copy of the exact Godot 4.7.1 `07_clean_pool_route` capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/03_cleanup_storyboard_reference.png` — project-original OpenAI built-in ImageGen four-beat reference board (`exec-182c0086-969f-4804-903d-1a3a26749266`); modifications: none after generation; narrative reference only.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/04_roshan_identity_reference.png` — lossless copy of `assets/characters/roshan_25d/roshan_base.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/05_swimming_bunny_identity_reference.png` — lossless copy of `assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/06_star_sponge_reference.png` — lossless copy of `assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/07_magic_brush_reference.png` — lossless copy of `assets/castle/day_one_art_studio/magic_cleaning_brush.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/08_tub_grime_reference.png` — lossless copy of `assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/09_room_plate_reference.png` — lossless copy of `assets/flats/castle/rooms/room_bubble_bath.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/10_healed_background_reference.png` — lossless copy of `assets/flats/castle/interactions_v4/backgrounds/room_bubble_bath_background.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/11_roshan_directional_reference.png` — lossless copy of `assets/characters/roshan_25d/roshan_directional.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/12_roshan_gestures_reference.png` — lossless copy of `assets/characters/roshan_25d/roshan_gestures.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/13_sink_grime_reference.png` — lossless copy of `assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png`; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/14_cleanup_shot_board_8_panel_reference.png` — project-original OpenAI built-in ImageGen eight-shot B0–B7 board (`exec-5718165e-cd2d-4074-a7d2-40ec94c6c57a`); modifications: none after generation; narrative reference only.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/00_dirty_basket_prompt.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/01_sponge_travels_to_sink.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/02_sink_circle_guide.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/03_sink_clean_sponge_returns.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/04_brush_travels_to_tub.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/05_tub_arrow_guide.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/06_whole_room_sparkle.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+- `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/07_clean_pool_route.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.

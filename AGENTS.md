@@ -141,6 +141,24 @@ position-guide metadata when used, and human identity/topology/style review.
 forbidden methods, guide-pixel reuse, unreviewed identity, position drift, or a
 failed neighboring-frame comparison is a hard failure.
 
+### Mandatory external-animation visual packet
+
+An external animation handoff is incomplete without a self-contained,
+uploadable visual-reference packet. Every handoff must include the actual
+approved room/background, character, prop, style/turnaround, and applicable
+boundary/runtime reference images, plus an inspectable shot board or contact
+sheet covering every shot and beat. Prose, repository path lists, prompts, or
+beat tables alone do not qualify.
+
+Store the packet under a versioned, non-runtime
+`assets_src/cinematics/<handoff_id>/` directory. Preserve protected originals
+and record every packet file's source path, role, dimensions, SHA-256,
+license/provenance, modification status, and either a deterministic sorted
+packet-payload SHA-256 or a literal archive SHA-256.
+References and boards are continuity inputs only, never delivery pixels or
+accepted keyframes; every full-frame cinematic, human-review, and device gate
+above remains blocking.
+
 ## Layout
 - scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized
   2026-08-09 audit snapshot; still
