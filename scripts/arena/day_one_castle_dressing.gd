@@ -295,9 +295,14 @@ func _draw_room_dressing(room_id: String) -> void:
 	if not room_is_dirty(room_id):
 		return
 	var center: Vector2 = _room_centers[room_id]
-	# This rect is the current room viewport, not a stitched hall overview.
-	var room_rect := Rect2(Vector2.ZERO, Vector2(1280.0, 720.0))
-	draw_rect(room_rect, INTERIOR_DIRT_COLOR)
+	# Keep the disrepair cue local to the room perimeter. A full-screen translucent
+	# wash repaints every background pixel and makes the bathroom especially costly
+	# once its fixture cards and search overlay are active. Four shallow edge bands
+	# preserve the same readable mood while leaving the central play area clear.
+	draw_rect(Rect2(0.0, 0.0, 1280.0, 54.0), INTERIOR_DIRT_COLOR)
+	draw_rect(Rect2(0.0, 666.0, 1280.0, 54.0), INTERIOR_DIRT_COLOR)
+	draw_rect(Rect2(0.0, 0.0, 46.0, 720.0), INTERIOR_DIRT_COLOR)
+	draw_rect(Rect2(1234.0, 0.0, 46.0, 720.0), INTERIOR_DIRT_COLOR)
 	# Two short cracks keep the disrepair cue graphic and child-readable.
 	var crack_origin := center + Vector2(-76.0, -62.0)
 	draw_line(crack_origin, crack_origin + Vector2(17.0, 12.0), CRACK_COLOR, 3.0)

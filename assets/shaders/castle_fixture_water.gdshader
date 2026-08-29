@@ -24,9 +24,15 @@ uniform float flow_speed : hint_range(0.0, 4.0) = 1.0;
 uniform vec2 flow_axis = vec2(0.0, 1.0);
 uniform bool stream_mode = false;
 uniform bool reveal_from_top = false;
+// Speedy-tier rooms keep the same painted palette and mask, but avoid the
+// second ripple/caustic pair on every transparent fixture pixel.
+uniform bool speedy_mode = false;
 
 void fragment() {
 	float mask_alpha = texture(shape_mask, UV).a;
+	if (mask_alpha <= 0.005 || flow_amount <= 0.005) {
+		discard;
+	}
 	vec2 centered = UV - vec2(0.5);
 	float radius = max(length(centered), 0.001);
 	float angle = atan(centered.y, centered.x);
@@ -37,10 +43,13 @@ void fragment() {
 	vec2 uv_a = UV * 3.2 + travel + vortex_uv * vortex_strength * 0.65;
 	vec2 uv_b = UV * 5.1 - travel * 0.63 - vortex_uv * vortex_strength * 0.34;
 	float wave_a = texture(ripple, uv_a).g;
-	float wave_b = texture(ripple, uv_b).b;
-	float painted_ripple = mix(wave_a, wave_b, 0.48);
-	float sparkle = texture(caustics, uv_a * 0.83).g
-		* texture(caustics, uv_b * 0.61).g;
+	float painted_ripple = wave_a;
+	float sparkle = texture(caustics, uv_a * 0.83).g;
+	if (!speedy_mode) {
+		float wave_b = texture(ripple, uv_b).b;
+		painted_ripple = mix(wave_a, wave_b, 0.48);
+		sparkle *= texture(caustics, uv_b * 0.61).g;
+	}
 	float shimmer = smoothstep(0.34, 0.82, sparkle + painted_ripple * 0.20);
 	float stream_edge = 1.0 - smoothstep(0.24, 0.49, abs(UV.x - 0.5));
 	float basin_edge = 1.0 - smoothstep(0.0, 0.10,

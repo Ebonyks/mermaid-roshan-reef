@@ -13,36 +13,47 @@ Runtime/editor baseline: exactly Godot 4.7.1-stable (owner decision
 the engine series there; it does not lower the required patch baseline. Do not
 validate releases with Godot 4.4 or a 4.7 development build.
 
-## FINAL MEDIUM (owner decision 2026-08-09): TRUE 2D GAME-WIDE
+## FINAL MEDIUM (owner decision 2026-08-28): FIXED-VIEW 2.5D SPRITE3D GAME-WIDE
 
-The accepted final game is a Canvas/Node2D 2D game. New and converted gameplay
-uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`, `TextureRect`, `Camera2D`,
-2D particles and 2D collision where collision is needed. A flat image mounted
-on `Sprite3D` is migration debt, not a finished 2D implementation.
+The accepted final game is a fixed-view 2.5D game: authored raster artwork is
+mounted on `Sprite3D`/`AnimatedSprite3D` cards in a constrained 3D stage. A
+declared projection is immutable for the room lifecycle. Ordinary rooms keep
+the camera completely still; a declared wide room may translate X only inside
+audited bounds. Perspective is accepted (the validated Castle uses a locked
+perspective camera); orthographic is also accepted. No runtime rotation, tilt,
+zoom/FOV/size changes, Y/Z movement, perspective switching, or free follow.
+Gameplay remains planar X/Y; Z is presentation depth, not 3D gameplay.
+
+`CanvasItem`, `Control`, `Sprite2D`, `TextureRect`, `Camera2D`, and 2D
+particles are restricted to UI, safe-band overlays, touch feedback,
+full-frame cinematic playback, and explicitly registered legacy exceptions.
+They are not the default medium for new world gameplay.
 
 - Mermaid Roshan uses the approved RGBA atlas/cutout family under
-  `assets/characters/roshan_25d/` on the 2D canvas. She has no accepted GLB,
-  mesh, armature, skeleton, rig, skin-weight, or model fallback. Current
-  `Node3D`/`Sprite3D` player staging is measured debt and must be converted.
+  `assets/characters/roshan_25d/` on Sprite3D cards. She has no accepted GLB,
+  mesh, armature, skeleton, rig, skin-weight, or model fallback. The approved
+  raster player is staged on Sprite3D cards; any remaining Canvas/Sprite2D
+  player staging is migration debt to convert when the room is touched.
 - The 2026-07-19 Meshy migration and every 3D character/world work order,
   including the Roshan v2/v3/v4 model hierarchy, are **superseded**, not
   paused. Never submit or revive those batches.
-- `Node3D`, `Sprite3D`, `Camera3D`, meshes, 3D materials/lights/physics,
-  spatial shaders, and `Vector3`/`Transform3D` world logic are exact shrinking
-  transition debt. Do not add to that debt or describe it as accepted
-  scaffolding.
+- `Node3D`, `Sprite3D`, and `Camera3D` are accepted presentation primitives.
+  GLB/model resources, meshes, skeletons/rigs, spatial gameplay physics, and
+  unconstrained `Vector3`/`Transform3D` world logic remain forbidden. Use a
+  shared bounded lighting setup where lighting materially improves card
+  integration; do not add per-card lights or a free 3D camera.
 - Retired 3D resources live only on archive branch
   `codex/deprecated-resources-roshan-20260809` at verified archive head
   `9329d9a6`. That branch is preservation evidence, never a runtime fallback,
   rollback target, merge source, or alternate production authority.
-- `tools/audit_game_2d.py` owns the inventory. `NO_REGRESSION` means only that
-  debt did not grow. Satisfaction requires its strict zero-debt state.
+- `tools/audit_fixed_view_25d.py` owns the fixed-view contract and migration
+  inventory. Legacy 2D findings are explicit, hashed, and no-regression gated;
+  every newly declared 2.5D room must pass the strict Sprite3D contract.
 
-The synchronized committed audit snapshot is **`UNSATISFIED`** at 513 model
-files and 70 production 3D files. See
-`design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` and
-`audit/MASTER_AUDIT_2026-08-09.md` for the rule IDs, full inventory and
-individual repair protocol.
+The fixed-view audit reports the current, hashed migration inventory and
+strict-room status. Do not copy stale model-count snapshots into new work;
+inspect `tools/audit_fixed_view_25d.py` and the checked-in manifests for the
+current evidence.
 
 ## ART REUSE AND GENERATION BUDGET (owner decision 2026-07-28)
 The project is in art finalization, not open-ended redesign. Conserve the
@@ -156,13 +167,14 @@ failed neighboring-frame comparison is a hard failure.
   scripts/games/{fetch,dolls,seek,melody,slide_race,treasure,shop,fairy,
   picture_games}.gd
 - scripts/player.gd (swim controller), scripts/touch_ui.gd (virtual stick)
-- scripts/physics.gd — ReefPhysics (analytic). Legacy Jolt, physical-standee,
-  and spatial gameplay paths remain measured 3D migration debt. Preserve
-  behavior while converting them; do not add new 3D bodies or garnish.
+- scripts/physics.gd — ReefPhysics (analytic). Preserve planar gameplay and do
+  not add 3D bodies, spatial gameplay physics, or free-camera logic. Sprite3D
+  presentation depth is permitted and must not become physical simulation.
 - scripts/probe*.gd — headless bots. probe_audit.gd is the source of truth;
   probe_passive.gd is the zero-input negative test (Phase 6).
-- assets/ — 2D runtime art, protected book art/voices/friend portraits, and
-  remaining measured model/PBR migration debt. Do not add 3D resources.
+- assets/ — authored raster runtime art, protected book art/voices/friend
+  portraits, Sprite3D card textures, and registered derived variants. Do not
+  add GLB/model/mesh/rig resources.
 - disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
 - Target device: Lenovo Tab M11 (Helio G88 / Mali-G52) — Speedy tier is the
   mobile default; treat 30 fps and transparent-overdraw budget as hard limits.
@@ -209,18 +221,20 @@ installs it in place (save data kept).
 - Renderer: "mobile" on EVERY platform (owner decision 2026-07-11:
   desktop and phone must look identical — mobile is the dominant
   interface; supersedes the 2026-07-09 forward_plus split). Base
-  1280×720 canvas_items/expand. Anything new must run under the Mobile
-  renderer; Forward+-only effects (the cel post grade) are dormant
-  behind a rendering-method guard.
-- Do not add 3D lights. Existing OmniLights are migration debt to remove while
-  preserving the Mobile-rendered composition and Speedy-tier budget.
+  1280×720 base canvas. Anything new must run under the Mobile renderer;
+  fixed-view Sprite3D stages may use the validated Mobile-compatible 3D path.
+  Forward+-only effects remain dormant behind a rendering-method guard.
+- Use only a small, shared, bounded 3D light/environment rig where it improves
+  Sprite3D integration. Never add per-card lights, dynamic shadow cascades, or
+  lighting that changes authored identity colours; the Speedy-tier budget is a
+  hard limit.
 - All new textures: ≤1024px longest side OR power-of-two; VRAM compress ok
   only if POT. New audio: OGG, music ≥64kbps, loop-tagged.
 - Multi-screen background resolution is measured PER PLAYABLE SCREEN, not
   across the whole panorama. Every screen must have at least 2048×2048 native
   background coverage before runtime slicing. A horizontal three-screen 3×1
   stage therefore requires a native master of at least 6144×2048 and is
-  reconstructed as a 6×2 grid of non-overlapping 1024×1024 `Sprite2D` cards.
+  reconstructed as a 6×2 grid of non-overlapping 1024×1024 `Sprite3D` cards.
   A 2048-wide (or similarly sized) three-screen panorama is reference-only
   and is not runtime-ready, even though its panorama long edge exceeds 2K.
   Preserve the approved panorama ratio and continuous composition.
@@ -228,8 +242,8 @@ installs it in place (save data kept).
   boundaries. If a tree, building, cloud, mountain feature, or other readable
   object sits ambiguously between two generated panels, remove it from the
   background, preserve/extract that same approved artwork as an unshaded
-  `Sprite2D` canvas card, and heal the background behind it. Reinsert it once
-  at its intentional `z_index`/parallax layer. Do not add a second unrelated
+  `Sprite3D` card, and heal the background behind it. Reinsert it once at its
+  intentional depth/parallax layer. Do not add a second unrelated
   sticker over a painted copy.
   Background tiles must join seam-free before the separated cards are added.
 - Every new asset gets a line in ASSET_LICENSES.md (source, license, URL,
@@ -311,10 +325,10 @@ explicit goal of the task.
 Static Mermaid Roshan storybook characters in a polished 2D, Wind
 Waker-inspired storybook world. Character and environment cutouts retain their
 authored contours, identity colours and light; restrained 2D idle motion,
-contact shadows, sparkles and bubbles are allowed, but never relight or
-redesign approved art to imitate a mesh. World layers are explicit Canvas
-background, playable and sparse foreground roles with child-readable
-`z_index`/parallax ownership. Gabby is REMOVED (IP hold — assets preserved in
+contact shadows, sparkles and bubbles are allowed, with bounded shared lighting
+used only to integrate cards without changing approved identity. Never
+redesign approved art to imitate a mesh. World layers are explicit depth bands
+with child-readable depth/parallax ownership. Gabby is REMOVED (IP hold — assets preserved in
 `attic/gabby/`; do not reintroduce without an owner-approved redesign). The
 world remains a pastel toy playset: rounded forms, broad painted value bands,
 navy/purple outlines, aqua/lavender shadows, graphic water, and oversized

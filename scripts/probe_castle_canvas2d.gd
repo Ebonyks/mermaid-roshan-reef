@@ -176,11 +176,8 @@ func _check_stage_contract(main: Node) -> void:
 	var backdrop: ColorRect = castle_layer.get_node_or_null(
 		"CastleRooms25D/CastleLetterboxBackdrop") as ColorRect \
 		if castle_layer != null else null
-	_check("castle safe-frame backdrop replaces default letterbox gray",
-		backdrop != null
-			and backdrop.get_meta("castle_safe_frame_backdrop", false)
-			and backdrop.z_index < -1000
-			and backdrop.color == Color(0.055, 0.035, 0.105, 1.0))
+	_check("castle safe-frame margins are owned by renderer clear color",
+		backdrop == null)
 	_check("castle canvas world is Node2D", world != null)
 	if stage == null or world == null:
 		return
@@ -251,6 +248,32 @@ func _check_navigation_contract(main: Node) -> void:
 		(main.get("castle_room_stage") as Control).get_meta(
 			"room_composition_complete", false))
 	_check("room composition declares completion", transition_complete)
+
+
+func _check_kitchen_modal_contract(main: Node, rooms: CastleRooms25D) -> void:
+	var stage: Control = main.get("castle_room_stage") as Control
+	var world: Node2D = main.get("castle_room_world_root") as Node2D
+	if stage == null or world == null:
+		_check("Kitchen modal suppression can be measured", false)
+		return
+	rooms._open_kitchen_menu()
+	await process_frame
+	_check("Kitchen modal owns a separate CanvasLayer", rooms.kitchen_menu_layer != null
+		and is_instance_valid(rooms.kitchen_menu_layer))
+	_check("Kitchen modal hides the room world", not world.visible)
+	_check("Kitchen modal freezes the room world", \
+		world.process_mode == Node.PROCESS_MODE_DISABLED)
+	_check("Kitchen modal hides the Day One sibling stage", not stage.visible)
+	_check("Kitchen modal freezes the Day One sibling stage", \
+		stage.process_mode == Node.PROCESS_MODE_DISABLED)
+	rooms._close_kitchen_menu()
+	await process_frame
+	_check("Kitchen modal restores the room world", world.visible)
+	_check("Kitchen modal restores the room world process", \
+		world.process_mode == Node.PROCESS_MODE_INHERIT)
+	_check("Kitchen modal restores the Day One sibling stage", stage.visible)
+	_check("Kitchen modal restores the Day One sibling process", \
+		stage.process_mode == Node.PROCESS_MODE_INHERIT)
 
 
 func _check_fixture_contract(main: Node, rooms: CastleRooms25D) -> void:
@@ -425,6 +448,7 @@ func _init() -> void:
 	_check_stage_contract(main)
 	_check_navigation_contract(main)
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	await _check_kitchen_modal_contract(main, rooms)
 	_check_dust_bunny_burst_contract(main, rooms)
 	await _check_daddy_partner_burst_contract(main, rooms)
 	# The remainder deliberately audits later rooms. Satisfy the new hall

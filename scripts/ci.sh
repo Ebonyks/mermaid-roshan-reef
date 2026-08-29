@@ -188,4 +188,8 @@ for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive pro
 		|| { echo "PROBE $p produced no output - silent no-op treated as failure"; rc=1; }
 	rm -rf "$probe_home"
 done
+echo "=== fixed-view 2.5D contract audit ==="
+python tools/audit_fixed_view_25d.py || exit 1
+echo "=== runtime overdraw contract audit ==="
+python tools/audit_runtime_overdraw.py || exit 1
 exit $rc

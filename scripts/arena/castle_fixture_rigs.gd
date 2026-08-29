@@ -743,6 +743,7 @@ func _add_water_layer(rig: Dictionary, layer: Dictionary,
 		or role in ["stream", "waterfall_band"]
 	material.set_shader_parameter("stream_mode", stream_mode)
 	material.set_shader_parameter("reveal_from_top", stream_mode)
+	material.set_shader_parameter("speedy_mode", m.quality == "speedy")
 	material.set_shader_parameter("flow_axis",
 		Vector2(0.0, 1.0) if stream_mode else Vector2(1.0, 0.15))
 	material.set_shader_parameter("deep_color",

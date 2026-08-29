@@ -1,9 +1,8 @@
 class_name CastleRooms25D
 extends RefCounted
-# Picture-first Pearl Castle room shell. Every in-world image is an unshaded
-# Sprite2D card at direct canvas depth. Controls are reserved for touch routing, the
-# single contextual Back control, and other interface chrome. No model or mesh art is
-# created or loaded by this satellite.
+# Picture-first Pearl Castle room shell. Every in-world image is a fixed-view
+# Sprite3D card at authored depth on one planar stage. Controls are reserved for
+# touch routing and interface chrome. No model, mesh, or free camera is created.
 
 const ROOM_ART := "res://assets/flats/castle/rooms/"
 const INTERACTION_ART := "res://assets/flats/castle/interactions/"
@@ -29,6 +28,9 @@ const DoorLanguage := preload("res://scripts/castle_door_language.gd")
 const DoorCue := preload("res://scripts/castle_door_cue.gd")
 const CASTLE_FIXTURE_BLOOM_SHADER := preload(
 	"res://shaders/castle_fixture_bloom.gdshader")
+const CAMERA_DISTANCE := 18.0
+const CAMERA_FOV := 58.109
+const CAMERA_KEEP_ASPECT := Camera3D.KEEP_WIDTH
 const ART_TO_STAGE := 1.25
 const ART_SIZE := Vector2(1024.0, 576.0)
 const WORLD_WIDTH := 20.0
@@ -971,18 +973,10 @@ func open(start_room: String = "main_hall") -> void:
 	root.mouse_filter = Control.MOUSE_FILTER_STOP
 	root.gui_input.connect(_on_room_input)
 	m.castle_room_layer.add_child(root)
-	# Preserve the complete 1280x720 composition on every phone shape. The
-	# fitted stage may leave safe bands on wider/taller viewports; a quiet
-	# storybook violet keeps those bands congruent instead of exposing the
-	# renderer's attention-grabbing default gray.
-	var viewport_backdrop := ColorRect.new()
-	viewport_backdrop.name = "CastleLetterboxBackdrop"
-	viewport_backdrop.color = Color(0.055, 0.035, 0.105, 1.0)
-	viewport_backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	viewport_backdrop.z_index = -2000
-	viewport_backdrop.set_meta("castle_safe_frame_backdrop", true)
-	root.add_child(viewport_backdrop)
-	viewport_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	# StorybookUI owns the safe-area clear color. Do not add another full-viewport
+	# ColorRect behind the room: on the exact 16:9 target it is a redundant draw,
+	# and on letterboxed devices it makes the room's transparent margins a second
+	# large fill instead of a quiet renderer clear.
 	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
 	m.castle_room_stage = StorybookUI.add_stage(root, viewport_size)
 	# StorybookUI stages default to MOUSE_FILTER_STOP, which is right for the
@@ -1179,32 +1173,39 @@ func _build_stage() -> void:
 	var stage: Control = m.castle_room_stage
 	stage.set_meta("persistent_picture_map", true)
 	stage.set_meta("picture_map_room_count", ELEVATOR_ROOM_IDS.size())
-	m.castle_room_world_root = Node2D.new()
-	m.castle_room_world_root.name = "CastleRoomsCanvasWorld"
-	m.castle_room_world_root.position = WORLD_ORIGIN
-	stage.add_child(m.castle_room_world_root)
-	m.castle_room_world_root.z_index = -1000
-	var affordance_halo: Sprite2D = Affordance.make_radial_halo_2d(
+	m.castle_room_world_root = Node3D.new()
+	m.castle_room_world_root.name = "CastleRoomsSprite3DWorld"
+	m.castle_room_world_root.position = Vector3.ZERO
+	m.add_child(m.castle_room_world_root)
+	var affordance_halo: Sprite3D = Affordance.make_radial_halo(
 		Affordance.ANIMATION, Vector2.ONE)
 	affordance_halo.name = "CastleTouchAffordance"
 	affordance_halo.visible = false
 	m.castle_room_world_root.add_child(affordance_halo)
 	m.g["castle_room_affordance"] = affordance_halo
-
-
+	m.castle_room_camera = Camera3D.new()
+	m.castle_room_camera.name = "CastleRoomsCamera"
+	m.castle_room_camera.position = Vector3(0.0, 0.0, CAMERA_DISTANCE)
+	m.castle_room_camera.projection = Camera3D.PROJECTION_PERSPECTIVE
+	m.castle_room_camera.fov = CAMERA_FOV
+	m.castle_room_camera.keep_aspect = CAMERA_KEEP_ASPECT
+	m.castle_room_camera.near = 0.1
+	m.castle_room_camera.far = 40.0
+	m.castle_room_world_root.add_child(m.castle_room_camera)
+	m.castle_room_camera.make_current()
 	m.castle_room_background = _new_card("RoomBackdrop",
 		load(ROOM_ART + "room_main_hall_background_v2.png") as Texture2D)
-	m.castle_room_background.position = ART_SIZE * ART_TO_STAGE * 0.5
-	m.castle_room_background.scale = Vector2.ONE * ART_TO_STAGE
-	m.castle_room_background.z_index = _depth_to_z_index(BACKGROUND_Z)
+	m.castle_room_background.position = _art_to_world(
+		ART_SIZE * 0.5, BACKGROUND_Z)
+	m.castle_room_background.pixel_size = _pixel_size_for_depth(BACKGROUND_Z)
 	m.castle_room_background.set_meta("source_asset_role", "clean_background")
 	m.castle_room_world_root.add_child(m.castle_room_background)
 	_build_hall_background_tiles()
 
-	m.castle_room_item_visual_layer = Node2D.new()
+	m.castle_room_item_visual_layer = Node3D.new()
 	m.castle_room_item_visual_layer.name = "TouchableRoomProps"
 	m.castle_room_world_root.add_child(m.castle_room_item_visual_layer)
-	m.castle_room_mid_layer = Node2D.new()
+	m.castle_room_mid_layer = Node3D.new()
 	m.castle_room_mid_layer.name = "RoomMidground"
 	m.castle_room_world_root.add_child(m.castle_room_mid_layer)
 
@@ -1233,10 +1234,10 @@ func _build_stage() -> void:
 		0.85).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	idle.tween_property(m.castle_room_player_sprite, "rotation", 0.012,
 		0.85).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	m.castle_room_front_layer = Node2D.new()
+	m.castle_room_front_layer = Node3D.new()
 	m.castle_room_front_layer.name = "RoomForeground"
 	m.castle_room_world_root.add_child(m.castle_room_front_layer)
-	m.castle_room_item_effect_layer = Node2D.new()
+	m.castle_room_item_effect_layer = Node3D.new()
 	m.castle_room_item_effect_layer.name = "TouchablePropEffects"
 	m.castle_room_world_root.add_child(m.castle_room_item_effect_layer)
 	m.castle_room_item_hotspot_layer = Control.new()
@@ -2952,6 +2953,10 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		contact_foot *= ART_TO_STAGE
 		contact_radius *= ART_TO_STAGE
 	var frame_size: Vector2 = _sprite_frame_size(piece)
+	# Keep the interaction transition policy data-driven so future large cards do
+	# not accidentally reintroduce a two-card transparent crossfade.
+	piece.set_meta("large_fixture",
+		frame_size.x * frame_size.y >= ART_SIZE.x * ART_SIZE.y * 0.10)
 	var visual_size: Vector2 = reference_size * authored_visual_scale
 	var visual_center: Vector2 = source_position \
 		if room_id == "main_hall" \
@@ -3678,6 +3683,16 @@ func _timeline_sequence(item_data: Dictionary,
 
 func _sprite_transition(sprite: Sprite2D) -> Variant:
 	if sprite == null or not is_instance_valid(sprite):
+		return null
+	# A temporal ghost doubles the transparent quad while an atlas advances. That
+	# is not perceptible on tiny props, but it is a measurable fill spike on large
+	# fixtures (bathtub, fridge, oven, and room-scale native cards). Preserve the
+	# authored frame timing and use one draw for those cards.
+	var frame_size: Vector2 = _sprite_frame_size(sprite)
+	var large_fixture_area: float = frame_size.x * frame_size.y
+	if large_fixture_area >= ART_SIZE.x * ART_SIZE.y * 0.10 \
+			or bool(sprite.get_meta("large_fixture", false)):
+		sprite.set_meta("sprite_transition_skipped", "large_fixture")
 		return null
 	# A fixture shader may own frame-specific UV uniforms. Sharing it with the
 	# prior-frame ghost would select the new UVs on both cards, so those uncommon
@@ -4768,6 +4783,17 @@ func _open_kitchen_menu() -> void:
 	if kitchen_menu_layer != null or kitchen_act != null:
 		return
 	m._set_world_controls_enabled(false, "kitchen_fridge_menu")
+	# The recipe picker owns the whole screen. Freeze and hide the room composition
+	# beneath it so the dim/panel is not composited over every room card, fixture,
+	# water layer, player, and shadow for the entire menu lifetime.
+	if m.castle_room_world_root != null \
+			and is_instance_valid(m.castle_room_world_root):
+		m.castle_room_world_root.visible = false
+		m.castle_room_world_root.process_mode = Node.PROCESS_MODE_DISABLED
+	if m.castle_room_stage != null \
+			and is_instance_valid(m.castle_room_stage):
+		m.castle_room_stage.visible = false
+		m.castle_room_stage.process_mode = Node.PROCESS_MODE_DISABLED
 	kitchen_menu_layer = CanvasLayer.new()
 	kitchen_menu_layer.name = "KitchenFridgeMenu"
 	kitchen_menu_layer.layer = 29
@@ -4866,6 +4892,14 @@ func _close_kitchen_menu() -> bool:
 		kitchen_menu_layer.queue_free()
 	kitchen_menu_layer = null
 	kitchen_menu_stage = null
+	if m.castle_room_world_root != null \
+			and is_instance_valid(m.castle_room_world_root):
+		m.castle_room_world_root.visible = true
+		m.castle_room_world_root.process_mode = Node.PROCESS_MODE_INHERIT
+	if m.castle_room_stage != null \
+			and is_instance_valid(m.castle_room_stage):
+		m.castle_room_stage.visible = true
+		m.castle_room_stage.process_mode = Node.PROCESS_MODE_INHERIT
 	if closing_fridge:
 		_set_fridge_close_blocked(true)
 		m._set_world_controls_enabled(false, "kitchen_fridge_close")

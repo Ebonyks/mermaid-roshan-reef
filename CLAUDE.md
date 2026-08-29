@@ -13,28 +13,35 @@ Runtime/editor baseline: exactly Godot 4.7.1-stable (owner decision
 the engine series there; it does not lower the required patch baseline. Do not
 validate releases with Godot 4.4 or a 4.7 development build.
 
-## Final medium (owner decision 2026-08-09): true 2D game-wide
+## Final medium (owner decision 2026-08-28): fixed-view 2.5D Sprite3D game-wide
 
-The accepted final game uses Canvas/`Node2D` structure throughout. New and
-converted gameplay uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`,
-`TextureRect`, `Camera2D`, 2D particles and 2D collision where needed. A flat
-image on a 3D node is migration debt, not final 2D.
+The accepted final game uses authored raster cards on a constrained 3D stage.
+New world gameplay uses `Node3D` with `Sprite3D`/`AnimatedSprite3D` wherever
+feasible. Each room declares one immutable projection: perspective or
+orthographic. Ordinary rooms have zero camera motion; declared wide rooms may
+translate X only inside audited bounds. Runtime rotation, tilt, zoom/FOV/size
+changes, projection switches, Y/Z movement and free follow are prohibited.
+Canvas/`Node2D` is reserved for UI, safe-band overlays, touch feedback,
+full-frame cinematic playback and registered legacy exceptions.
 
 Mermaid Roshan's only approved representation is the RGBA atlas/cutout family
-under `assets/characters/roshan_25d/`, staged on the 2D canvas. She has no
+under `assets/characters/roshan_25d/`, staged on Sprite3D cards. She has no
 accepted GLB, mesh, armature, skeleton, rig, skin-weight or model fallback.
 The 2026-07-19 Meshy migration, the Roshan model hierarchy, every other 3D
 character/world work order, and the old dimensional rollback direction are
 **superseded or dismissed**, not paused.
 
-All remaining `Node3D`/`Sprite3D`/`Camera3D`, model, spatial-shader, 3D-light,
-3D-physics and `Vector3`/`Transform3D` paths are exact shrinking debt. Retired
+`Node3D`/`Sprite3D`/`Camera3D` are accepted presentation primitives. GLB/model,
+mesh, skeleton/rig, spatial gameplay physics and unconstrained
+`Vector3`/`Transform3D` paths remain forbidden. Retired
 resources are preserved only on
 `codex/deprecated-resources-roshan-20260809` at verified archive head
 `9329d9a6`; that branch is not a fallback, rollback target, merge source or
-alternate production authority. `tools/audit_game_2d.py` owns the inventory;
-`NO_REGRESSION` is not satisfaction. The synchronized committed snapshot is
-**`UNSATISFIED`** at 513 model files and 70 production 3D files.
+alternate production authority. `tools/audit_fixed_view_25d.py` owns the
+fixed-view contract and hashed migration inventory. Legacy findings are
+no-regression gated while every new strict room must pass the Sprite3D
+contract. Runtime transparent-overdraw is blocking through
+`tools/audit_runtime_overdraw.py`.
 
 Current cross-domain rules and audit state:
 `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` and

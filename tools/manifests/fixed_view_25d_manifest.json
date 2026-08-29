@@ -1,0 +1,31 @@
+{
+  "schema": "fixed-view-25d/v1",
+  "canvas_exceptions": ["ui", "safe_band", "touch_feedback", "cinematic"],
+  "legacy_2d_paths": ["scripts/*.gd", "scripts/**/*.gd", "scenes/**/*.tscn"],
+  "strict_25d_paths": ["scripts/arena/castle_rooms_25d.gd"],
+  "strict_authority_groups": [{
+    "id": "castle_fixed_view_runtime",
+    "paths": ["scripts/arena/castle_rooms_25d.gd", "scripts/main.gd", "scripts/player.gd"],
+    "required_constructors": ["Node3D.new()", "Camera3D.new()", "Sprite3D.new()"],
+    "required_touch_tokens": ["camera_ray", "Plane", "screen_position"],
+    "required_structural_patterns": ["project_ray_origin\\s*\\(", "project_ray_normal\\s*\\(", "intersect_plane\\s*\\("],
+    "forbidden_runtime_mutations": ["func\\s+_(?:process|physics_process|input|unhandled_input)[\\s\\S]{0,1200}?(?:camera|cam)\\.(?:rotation|rotation_degrees|fov|size|projection)\\s*="]
+  }],
+  "strict_file_contracts": [{
+    "path": "scripts/arena/castle_rooms_25d.gd",
+    "required_patterns": ["Node3D\\.new\\s*\\(", "Camera3D\\.new\\s*\\(", "Sprite3D\\.new\\s*\\("],
+    "forbidden_patterns": ["Sprite2D\\.new\\s*\\(", "Node2D\\.new\\s*\\(", "MeshInstance3D", "CharacterBody3D", "RigidBody3D", "StaticBody3D"]
+  }],
+  "legacy_baseline": {
+    "sprite2d_world": {"count": 68, "paths_sha256": "733ce22aaf22db4c39413c25c0cf0553af729b579571dcc64dd1021dcf98b3cd"},
+    "camera2d_world": {"count": 15, "paths_sha256": "79fd0515b492104f188c6f1112660b635bcf430ffd109f1cecaab131db6f38b2"},
+    "camera_mutation": {"count": 90, "paths_sha256": "cda54d91b1933f1d57bb5988a83c4de547ce4cd1743c65ee72fd28d5686af320"},
+    "model_resource": {"count": 40, "paths_sha256": "b7559226a6e1036223861ae10a9a76ae26d15328ae918e8ef2375db653690fe5"},
+    "spatial_physics": {"count": 7, "paths_sha256": "9df8c776f407025e67445a5092d28b5349bf2a78fa83a31719ab1c2372681ca3"}
+  },
+  "rooms": {
+    "castle_hall": {"camera": "fixed_projection", "projection": "perspective", "projection_locked": true, "world_card_medium": "Sprite3D", "canvas_exception": null, "allow_free_camera": false, "allow_meshes": false, "allow_3d_physics": false},
+    "castle_wide_hall": {"camera": "bounded_x_projection", "projection": "perspective", "projection_locked": true, "x_bounds": [-320.0, 320.0], "world_card_medium": "Sprite3D", "canvas_exception": null, "allow_free_camera": false, "allow_meshes": false, "allow_3d_physics": false},
+    "screen_ui": {"camera": "fixed_projection", "projection": "perspective", "projection_locked": true, "world_card_medium": "Sprite3D", "canvas_exception": "ui", "allow_free_camera": false, "allow_meshes": false, "allow_3d_physics": false}
+  }
+}
