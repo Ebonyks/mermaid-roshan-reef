@@ -100,6 +100,7 @@ var _last_eval_liveness_reply: Dictionary = {}
 
 
 func _ready() -> void:
+	_restore_autoload_root_order()
 	## Only run in the game process, not in the editor. Use is_editor_hint
 	## — NOT OS.has_feature("editor"), which is a BUILD-config check
 	## (TOOLS_ENABLED) and returns true in the game subprocess too because
@@ -132,6 +133,23 @@ func _ready() -> void:
 	## if no screenshot was ever requested.
 	if EngineDebugger.is_active():
 		EngineDebugger.send_message("mcp:hello", [])
+
+
+## SceneTree probe scripts can add their game scene during _init(), before
+## Godot instantiates project autoloads. Keep this helper with the other
+## autoload roots so those scenes remain the final root child, matching normal
+## play-from-editor ordering without disabling game-side MCP capture.
+func _restore_autoload_root_order() -> void:
+	var tree_root: Node = get_parent()
+	if tree_root == null:
+		return
+	var autoload_count: int = 0
+	for sibling: Node in tree_root.get_children():
+		if sibling == self:
+			continue
+		if ProjectSettings.has_setting("autoload/" + String(sibling.name)):
+			autoload_count += 1
+	tree_root.call_deferred("move_child", self, autoload_count)
 
 
 func _process(_delta: float) -> void:
