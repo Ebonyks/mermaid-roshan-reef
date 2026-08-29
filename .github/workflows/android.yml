@@ -20,16 +20,16 @@ permissions:
   contents: write
 
 env:
-  # Template dir uses full patch version (4.7.1.stable); editor settings
+  # Template dir uses full patch version (4.7.2.stable); editor settings
   # filename uses only major.minor (editor_settings-4.7.tres) — they diverged
   # when the pinned release gained a patch number.
-  GODOT_VERSION: "4.7.1"
+  GODOT_VERSION: "4.7.2"
   GODOT_SETTINGS_VERSION: "4.7"
-  GODOT_RELEASE: "4.7.1-stable"
-  # Official values from the 4.7.1-stable release's SHA512-SUMS.txt, verified
-  # 2026-07-26. A Godot version bump must update these in the same commit.
-  GODOT_ZIP_SHA512: "4ccdab7a48eeccbe8819a2fc1f6262f8d72065d98601bcb3743fcbd7ebd39f373758a788ee3293a05ec5b2c48538266c437404312e372225cd2df273945a2de9"
-  GODOT_TPZ_SHA512: "afcc83d8d3d298038f19c58744a0d660fa75dd4baa33cb55d1011bb2565a2a8c2381728924564cb909e37c205a23f21b521b23bd057993afd43ae4da0b2f9d47"
+  GODOT_RELEASE: "4.7.2-stable"
+  # Official values from the 4.7.2-stable release's SHA512-SUMS.txt, verified
+  # 2026-08-29. A Godot version bump must update these in the same commit.
+  GODOT_ZIP_SHA512: "9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65"
+  GODOT_TPZ_SHA512: "ca4d71c4d7b81dfc15d1a98baa07534aa95b03fdda78a0075b06672e1648d2e5f40980c9adc28d23e1b92e732ee7bf3461997aa804af74ec2fcd7a93ccb84079"
 
 jobs:
   build:

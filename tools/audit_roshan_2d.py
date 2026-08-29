@@ -12,6 +12,7 @@ that the rule fires.
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import tempfile
 from dataclasses import dataclass
@@ -19,7 +20,9 @@ from pathlib import Path
 
 
 MODEL_EXTENSIONS = {".blend", ".dae", ".fbx", ".glb", ".gltf", ".obj"}
-IGNORED_DIRS = {".git", ".godot", ".venv", "__pycache__", "decommissioned"}
+IGNORED_DIRS = {
+	".codex", ".git", ".godot", ".secrets", ".venv", "__pycache__", "decommissioned",
+}
 RUNTIME_TEXT_SUFFIXES = {
 	".cfg", ".gd", ".godot", ".json", ".sh", ".tscn", ".tres", ".yaml", ".yml",
 }
@@ -67,10 +70,40 @@ def _is_ignored(path: Path, root: Path) -> bool:
 	return any(part in IGNORED_DIRS for part in parts)
 
 
+def _is_linked_worktree_root(path: Path, root: Path) -> bool:
+	"""Return true only for a worktree linked to this repository's Git dir."""
+	marker = path / ".git"
+	main_git = root / ".git"
+	if not marker.is_file() or not main_git.is_dir():
+		return False
+	try:
+		match = re.fullmatch(r"gitdir:\s*(.+)\s*", marker.read_text(
+			encoding="utf-8", errors="strict"))
+		if match is None:
+			return False
+		gitdir = Path(match.group(1))
+		if not gitdir.is_absolute():
+			gitdir = marker.parent / gitdir
+		gitdir.resolve().relative_to((main_git / "worktrees").resolve())
+		return True
+	except (OSError, UnicodeError, ValueError):
+		return False
+
+
 def _iter_files(root: Path):
-	for path in root.rglob("*"):
-		if path.is_file() and not _is_ignored(path, root):
-			yield path
+	for directory, dirnames, filenames in os.walk(root, topdown=True):
+		base = Path(directory)
+		kept: list[str] = []
+		for dirname in dirnames:
+			candidate = base / dirname
+			if dirname in IGNORED_DIRS or _is_linked_worktree_root(candidate, root):
+				continue
+			kept.append(dirname)
+		dirnames[:] = kept
+		for filename in filenames:
+			path = base / filename
+			if not _is_ignored(path, root):
+				yield path
 
 
 def _relative(path: Path, root: Path) -> str:

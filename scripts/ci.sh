@@ -10,6 +10,12 @@ cd "$(dirname "$0")/.."
 # probes. Linux CI already defaults to UTF-8, so this is a no-op there.
 export PYTHONIOENCODING="utf-8"
 export PYTHONUTF8=1
+# Keep the editor, templates, CI downloads, feature tag and release authority
+# on one checksum-pinned official patch before any other gate runs.
+python3 -m unittest tools.tests.test_audit_godot_baseline \
+	|| { echo "GODOT BASELINE CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_godot_baseline.py --godot "$GODOT" \
+	|| { echo "GODOT BASELINE DRIFT"; exit 1; }
 # fast static gates first (no Godot needed): syntax, then the ':=' Variant
 # inference shape that broke main.gd twice on 2026-07-11 - a parse error in
 # main.gd makes every probe idle to its 8m timeout, so catching it here
@@ -34,7 +40,7 @@ python3 tools/audit_roshan_2d.py \
 # The character audit above remains the narrow atlas/identity invariant.  The
 # game-wide owner contract is a shrinking migration gate: its self-tests run
 # before import, while the exact inventory runs after import has recreated the
-# deterministic Godot 4.7.1 sidecars recorded by the baseline.
+# deterministic Godot 4.7.2 sidecars recorded by the baseline.
 python3 -m unittest tools.tests.test_audit_game_2d \
 	|| { echo "GAME-WIDE 2D AUDIT CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_game_2d.py --stress \

@@ -8,7 +8,7 @@
   binding operational, security, protected-asset, save, and final-medium rules
   remain higher authority
 - **Decision baseline:** owner direction through 2026-08-09
-- **Runtime baseline:** exactly Godot 4.7.1-stable, Mobile renderer
+- **Runtime baseline:** exactly Godot 4.7.2-stable, Mobile renderer
 - **Authority reconciliation checkpoint:** `9289dd813439d16cc8178e57abcbd332a8e0fe9d`
 - **Historical CI-repair checkpoint:**
   `af4189a99cfd5a32d0df0f75185f6912d3889399`
@@ -964,7 +964,7 @@ before another world becomes active.
 complete → reward → leave → return → re-enter, plus pause/focus-loss and save/
 load at meaningful intermediate states.
 
-`DL-SAVE-05` — A release requires exact Godot 4.7.1-stable analysis/import,
+`DL-SAVE-05` — A release requires exact Godot 4.7.2-stable analysis/import,
 trusted probes at the exact commit, save-upgrade evidence, matching APK hash,
 and device acceptance. A local green run does not authorize bypassing the
 dev-to-master promotion workflow.
@@ -1110,7 +1110,7 @@ branch alone is not completion.
 3. every P2/P3 finding is `VERIFIED_FIXED`, explicitly deferred, waived,
    dismissed, superseded, or a duplicate whose canonical owner is resolved,
    with evidence;
-4. exact Godot 4.7.1-stable import/analyzer and all trusted probes green at the
+4. exact Godot 4.7.2-stable import/analyzer and all trusted probes green at the
    audited commit;
 5. all applicable visual/runtime checks run under `DL-QA-11`, with no
    unresolved failure/review/manual/coverage gap;
@@ -1122,7 +1122,7 @@ branch alone is not completion.
 
 `DL-QA-11` — Authoritative visual-runtime PASS requires the approved
 same-process `--fresh-runtime` contract: a new random one-use challenge, exact
-Godot 4.7.1-stable/Mobile/1280×720/stretch binding, clean current Git and full
+Godot 4.7.2-stable/Mobile/1280×720/stretch binding, clean current Git and full
 active source dependency closure, implemented closed state transition, and
 immutable visible/hidden/restored capture bytes tied to unique live Canvas
 targets. The verifier independently checks decoded layer identity,

@@ -187,7 +187,7 @@ AMBIGUOUS_API_RES = tuple(re.compile(pattern) for pattern in (
 AMBIGUOUS_SCENE_TYPE_RE = re.compile(
 	r"\b(?:type|base_type)\s*=\s*[\"'](?P<class>" +
 	AMBIGUOUS_CLASS_ALTERNATION + r")[\"']")
-# Authoritative Godot 4.7.1 taxonomy, grouped from the exact extension API
+# Authoritative Godot 4.7.2 taxonomy, grouped from the exact extension API
 # dump.  Names ending in 3D are covered generically below; these sets cover
 # the 3D-only resources, import pipeline, and XR APIs whose names do not.
 MESH_3D_API_CLASSES = {

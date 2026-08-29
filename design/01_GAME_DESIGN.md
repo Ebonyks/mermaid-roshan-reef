@@ -34,7 +34,7 @@ master audit/design language are
 
 ## 1. The player, and the five rules that come from her
 
-**Mermaid Roshan: Reef of Light** is an exact Godot 4.7.1-stable game built
+**Mermaid Roshan: Reef of Light** is an exact Godot 4.7.2-stable game built
 for one specific four-year-old, played in landscape on a three-to-four-year-old
 Android phone
 (target device: Lenovo Tab M11, Helio G88 / Mali-G52, "Speedy" quality tier)

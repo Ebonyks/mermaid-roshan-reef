@@ -475,7 +475,7 @@ class VisualEvidenceContractTests(unittest.TestCase):
 			def process(command: list[str], **kwargs: object):
 				if command[-1] == "--version":
 					return ava.subprocess.CompletedProcess(
-						command, 0, stdout="4.7.1.stable.official.fixture\n")
+						command, 0, stdout="4.7.2.stable.official.fixture\n")
 				if "-s" in command and "scripts/probe_visual_audit.gd" in command:
 					challenge = next(value.split("=", 1)[1] for value in command
 						if value.startswith("--visual-audit-challenge="))
@@ -548,7 +548,7 @@ class VisualEvidenceContractTests(unittest.TestCase):
 			def process(command: list[str], **kwargs: object):
 				if command[-1] == "--version":
 					return ava.subprocess.CompletedProcess(
-						command, 0, stdout="4.7.1.stable.official.fixture\n")
+						command, 0, stdout="4.7.2.stable.official.fixture\n")
 				if "-s" in command and "scripts/probe_visual_audit.gd" in command:
 					return ava.subprocess.CompletedProcess(
 						command, 7, stdout="fixture probe failure\n")

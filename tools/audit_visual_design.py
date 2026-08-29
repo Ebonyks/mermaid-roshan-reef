@@ -1734,12 +1734,12 @@ def _runtime_contract_issues(zone: Zone, block: dict | None = None) -> list[str]
     else:
         exact = (engine.get("major"), engine.get("minor"), engine.get("patch"),
                  str(engine.get("status", "")))
-        if exact != (4, 7, 1, "stable"):
+        if exact != (4, 7, 2, "stable"):
             issues.append(
-                "runtime evidence was not captured by exactly Godot 4.7.1-stable")
+                "runtime evidence was not captured by exactly Godot 4.7.2-stable")
         version_string = str(engine.get("version_string", ""))
-        if re.match(r"^4\.7\.1(?:[.-])stable(?:\b|\s|\()", version_string) is None:
-            issues.append("runtime evidence Godot version string is not 4.7.1-stable")
+        if re.match(r"^4\.7\.2(?:[.-])stable(?:\b|\s|\()", version_string) is None:
+            issues.append("runtime evidence Godot version string is not 4.7.2-stable")
 
     renderer = contract.get("renderer")
     if not isinstance(renderer, dict) \
@@ -4487,7 +4487,7 @@ func build() -> void:
     run_nonce = "b" * 64
     fresh_challenge = "c" * 64
     run_started_utc = "2026-08-09T12:00:00Z"
-    engine_string = "4.7.1-stable (official fixture)"
+    engine_string = "4.7.2-stable (official fixture)"
     run_identity = hashlib.sha256("|".join([
         git_identity["revision"], git_identity["tree"], fresh_challenge,
         source_revision, run_nonce, run_started_utc, engine_string, "mobile",
@@ -4508,7 +4508,7 @@ func build() -> void:
             for role, path in RUNTIME_EVIDENCE_FILES.items()
         },
         "engine": {
-            "major": 4, "minor": 7, "patch": 1, "status": "stable",
+            "major": 4, "minor": 7, "patch": 2, "status": "stable",
             "version_string": engine_string,
         },
         "renderer": {"actual": "mobile", "project_setting": "mobile"},
@@ -4896,10 +4896,10 @@ def main(argv: list[str] | None = None) -> int:
                 )
                 version_text = version_check.stdout.strip()
                 if version_check.returncode != 0 or re.match(
-                        r"^4\.7\.1(?:[.-])stable(?:[.-]official)?(?:\b|\s|\()",
+                        r"^4\.7\.2(?:[.-])stable(?:[.-]official)?(?:\b|\s|\()",
                         version_text) is None:
                     raise ValueError(
-                        f"configured Godot is not exactly 4.7.1-stable: {version_text!r}")
+                        f"configured Godot is not exactly 4.7.2-stable: {version_text!r}")
                 challenge = secrets.token_hex(32)
                 fresh_tmp = tempfile.TemporaryDirectory(prefix="reef-visual-audit-")
                 facts_path = os.path.join(fresh_tmp.name, "visual_runtime_facts.json")

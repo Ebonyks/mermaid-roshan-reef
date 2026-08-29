@@ -50,6 +50,30 @@ class Roshan2DAuditTests(unittest.TestCase):
 		model.write_bytes(b"archived")
 		self.assertEqual(audit_2d.audit(root), [])
 
+	def test_linked_worktree_is_outside_active_checkout_scope(self) -> None:
+		temp, root = self.fixture()
+		self.addCleanup(temp.cleanup)
+		gitdir = root / ".git/worktrees/other"
+		gitdir.mkdir(parents=True)
+		worktree = root / ".worktrees/other"
+		worktree.mkdir(parents=True)
+		(worktree / ".git").write_text(f"gitdir: {gitdir}\n", encoding="utf-8")
+		model = worktree / "assets/characters/roshan_v4.glb"
+		model.parent.mkdir(parents=True)
+		model.write_bytes(b"other checkout")
+		self.assertEqual(audit_2d.audit(root), [])
+
+	def test_decoy_worktree_marker_cannot_hide_active_model(self) -> None:
+		temp, root = self.fixture()
+		self.addCleanup(temp.cleanup)
+		worktree = root / ".worktrees/decoy"
+		worktree.mkdir(parents=True)
+		(worktree / ".git").write_text("gitdir: C:/unrelated/repository\n", encoding="utf-8")
+		model = worktree / "assets/characters/roshan_v4.glb"
+		model.parent.mkdir(parents=True)
+		model.write_bytes(b"active decoy")
+		self.assertIn("R2D001", {issue.check_id for issue in audit_2d.audit(root)})
+
 	def test_stress_harness_is_green(self) -> None:
 		self.assertEqual(audit_2d.stress(), 0)
 

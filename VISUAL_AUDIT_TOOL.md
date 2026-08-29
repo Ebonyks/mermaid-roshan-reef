@@ -44,7 +44,7 @@ Codex) and `audit/visual_design_report.md` (human-readable, for the owner).
 | Half | What it sees | Runs where |
 |---|---|---|
 | `tools/audit_visual_design.py` | source PNGs; declared Canvas-layer contract; the complete runtime dependency manifest; current clean Git HEAD/source revision; bound harness/spec/scene/project/builder hashes; flattened, target-hidden, temporal-stability, and source-projection evidence; ASSET_LICENSES.md; ci.sh | static checks and saved-evidence diagnostics run anywhere with Python; authoritative runtime PASS needs `--fresh-runtime` and trusted Godot |
-| `scripts/probe_visual_audit.gd` | the assembled scene: tagged live Canvas instances, effective Camera2D movement, provenance-bound touch targets, live Canvas draw-order/occlusion samples, a frozen flattened viewport capture, and an asymmetric visible/hidden capture sequence for each exact bound Canvas target; legacy 3D counts are debt-only | needs exactly Godot 4.7.1-stable with the Mobile renderer at 1280×720 `canvas_items/expand`; writes `audit/visual_runtime_facts.json` by default |
+| `scripts/probe_visual_audit.gd` | the assembled scene: tagged live Canvas instances, effective Camera2D movement, provenance-bound touch targets, live Canvas draw-order/occlusion samples, a frozen flattened viewport capture, and an asymmetric visible/hidden capture sequence for each exact bound Canvas target; legacy 3D counts are debt-only | needs exactly Godot 4.7.2-stable with the Mobile renderer at 1280×720 `canvas_items/expand`; writes `audit/visual_runtime_facts.json` by default |
 
 The Python tool ingests the facts file when it exists. `--runtime-facts PATH`
 selects an isolated evidence bundle for diagnostics only. Saved JSON and PNGs
@@ -230,7 +230,7 @@ asset mismatches, layers covering less than 50% of the viewport, insufficient
 camera travel, less than 8px differential motion, and equal/insufficient draw
 order. Missing or stale runtime capture is `COVERAGE_GAP`. Reachable source
 classification imports the exact hash-bound `tools/audit_game_2d.py` canonical
-Godot 4.7.1 taxonomy instead of maintaining a weaker visual-only class list.
+Godot 4.7.2 taxonomy instead of maintaining a weaker visual-only class list.
 Zone-transitive reachability follows direct loads, global `class_name`
 dependencies, project autoload/main-scene bindings, scene transitions, and
 current main/player sources. Resolved model loads and canonical spatial
@@ -313,7 +313,7 @@ must provide all of the following:
   one-use challenge; saved/manual facts can inform diagnostics but cannot pass;
 - a real flattened viewport PNG whose bytes match `capture_sha256`;
 - exactly 1280×720 `canvas_items/expand` pixels rendered by Godot
-  4.7.1-stable's Mobile renderer;
+  4.7.2-stable's Mobile renderer;
 - exact hashes for the probe harness, PASS-producing auditor, canonical 2D
   taxonomy, visual spec, main scene, project settings, main/player scripts,
   every declared builder, and mural/foreground source,

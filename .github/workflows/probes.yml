@@ -20,10 +20,10 @@ permissions:
   contents: read
 
 env:
-  GODOT_RELEASE: "4.7.1-stable"
-  # Official value from the 4.7.1-stable release's SHA512-SUMS.txt, verified
-  # 2026-07-26. A Godot version bump must update this in the same commit.
-  GODOT_ZIP_SHA512: "4ccdab7a48eeccbe8819a2fc1f6262f8d72065d98601bcb3743fcbd7ebd39f373758a788ee3293a05ec5b2c48538266c437404312e372225cd2df273945a2de9"
+  GODOT_RELEASE: "4.7.2-stable"
+  # Official value from the 4.7.2-stable release's SHA512-SUMS.txt, verified
+  # 2026-08-29. A Godot version bump must update this in the same commit.
+  GODOT_ZIP_SHA512: "9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65"
 
 jobs:
   area-music-provenance:
@@ -75,6 +75,8 @@ jobs:
         # catch it here in seconds instead (incidents: tnode, sm2 2026-07-11)
         run: |
           pip install --quiet gdtoolkit==4.5.0 numpy==2.5.1 Pillow==12.3.0 scipy==1.18.0
+          python3 -m unittest tools.tests.test_audit_godot_baseline
+          python3 tools/audit_godot_baseline.py --godot godot
           python3 -m gdtoolkit.parser $(find scripts -name '*.gd')
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
           # Owner decision 2026-08-09: Mermaid Roshan is 2D-only. The stress
@@ -143,7 +145,7 @@ jobs:
             echo "IMPORT FAIL (resource or script error)"
             exit 1
           fi
-          # Run the exact inventory only after the required 4.7.1 import has
+          # Run the exact inventory only after the required 4.7.2 import has
           # recreated the generated sidecars captured by the shrinking debt
           # baseline. Green means NO_REGRESSION, never that migration is done.
           python3 tools/audit_game_2d.py --regression-gate
