@@ -2642,6 +2642,10 @@ the selected native generations remain preserved.
 - `assets/castle/day_one_art_studio/grime_right.png` - transparent 512×307 right grime derivative.
 - `assets/castle/day_one_art_studio/magic_cleaning_brush.png` - transparent 936×1024 runtime customizer-brush derivative.
 
+## Day One Main Hall dirty background (2026-08-28)
+
+- `assets_src/imagegen/day_one_main_hall_environment_2026-08-28/**`, `assets_src/imagegen/day_one_main_hall_dirt_2026-08-27/**` (quarantine/source evidence only), and `assets/castle/day_one_main_hall/{dirty_tiles,clean_tiles}/*.png` - project-original OpenAI built-in ImageGen dirty and clean-v2 Main Hall Screen A/B plates plus non-destructive whole-canvas normalized/runtime tile derivatives; license: project original; URL: none. Native plates, the clean-B whole-canvas normalization, build manifests, hashes, and visual review are recorded in the adjacent `PROVENANCE.md`, `dirty_main_hall_build/`, and `clean_v2_build/`; the prior decal family remains rejected evidence and is not runtime art. The 16 dirty and 16 clean runtime tiles are exact non-overlapping crops of their registered 7280×2048 two-screen masters, with no protected source modified.
+
 ## Day One Pool natural-integration reference (2026-08-23)
 
 - `assets_src/imagegen/day_one_pool_natural_integration_2026-08-23/room_activity_integration_reference_native.png` - project-original OpenAI built-in ImageGen full-frame visual-integration reference generated only from project-owned Mermaid Pool art; license: project original; URL: none. It is non-runtime reference art, not a replacement for the approved room or V4 fixture identities. Exact prompt, source roles, result ID, SHA-256, review decision, and rejected attempts are recorded in the adjacent `PROMPT.md` and `PROVENANCE.md`.

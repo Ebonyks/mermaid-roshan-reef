@@ -11,7 +11,11 @@ const LivingWorldLogic = preload("res://scripts/living_world.gd")
 const BootSplashOverlayLogic = preload("res://scripts/boot_splash_overlay.gd")
 const StartMenuLogic = preload("res://scripts/start_menu.gd")
 const AttackCustomizerLogic = preload("res://scripts/attack_customizer.gd")
+const DayOneBathroomSearchLogic = preload(
+	"res://scripts/day_one_bathroom_search.gd")
 const DayOneArtStudioLogic = preload("res://scripts/day_one_art_studio.gd")
+const DayOneMainHallCleanupLogic = preload(
+	"res://scripts/day_one_main_hall_cleanup.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -309,6 +313,7 @@ var day_one_dirty_castle_discovered: bool = false
 var day_one_grok_video_2_seen: bool = false
 var day_one_boss_door_glow: bool = false
 var day_one_giant_dust_bunny_boss_triggered: bool = false
+var day_one_bathroom_search_mask: int = 0
 var day_one_pool_cleanup_step: int = 0
 var day_one_pool_rumi_met: bool = false
 var day_one_pool_skimmer_mask: int = 0
@@ -318,13 +323,19 @@ var day_one_art_collected_materials: Dictionary = {}
 var day_one_art_cleaned_grime: Dictionary = {}
 var day_one_art_desk_unlocked: bool = false
 var day_one_art_customization_completed: bool = false
+var day_one_hall_cleanup_mask: int = 0
+var day_one_hall_shock_seen: bool = false
+var day_one_hall_cleanup_modal: bool = false
+var day_one_hall_celebration_done: bool = false
 var day_one_event_seen: Dictionary = {}
 var day_one_event_history: Array[Dictionary] = []
 var _day_one_director: DayOneDirector = null
 var _attack_customizer: AttackCustomizer = null
 var _attack_customizer_layer: CanvasLayer = null
+var _day_one_bathroom_search: Control = null
 var _day_one_art_studio: DayOneArtStudio = null
 var day_one_castle_dressing: DayOneCastleDressing = null
+var day_one_main_hall_cleanup: DayOneMainHallCleanup = null
 var castle_royal_hall_mist_cards: Array[Sprite2D] = []
 var castle_royal_hall_mist_time := 0.0
 var castle_royal_hall_mist_flutter_time := 0.0
@@ -5157,7 +5168,7 @@ func _populate_touch_interactables() -> void:
 			_touch_add_item("reef:slide", "Penguin Slide", slide_portal_pos, slide_portal_penguin, 14.0, 38.0, "SLIDE")
 		if brawl_portal_pos != Vector3.ZERO:
 			_touch_add_item("reef:brawl", "Toy Castle", brawl_portal_pos, null, 13.0, 36.0, "PLAY")
-		if dust_boss_portal_pos != Vector3.ZERO:
+		if dust_boss_portal_pos != Vector3.ZERO and not day_one_is_active():
 			_touch_add_item("reef:dustboss", "Dusty Attic", dust_boss_portal_pos, null, 13.0, 36.0, "PLAY")
 		if kart_portal_pos != Vector3.ZERO:
 			_touch_add_item("reef:kart", "Ocean Race", kart_portal_pos, null, 12.0, 42.0, "RACE")
@@ -5276,6 +5287,8 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 			brawl_cool = 14.0
 			_start_game(brawl_fr)
 		"reef:dustboss":
+			if day_one_is_active():
+				return
 			dust_boss_cool = 14.0
 			_start_game(dust_boss_fr)
 		"reef:kart":
@@ -6601,6 +6614,8 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 	_fade_cut(_enter_castle_interior_now.bind(from_back))
 
 func _enter_castle_interior_now(from_back: bool = false) -> void:
+	var play_hall_shock: bool = day_one_is_active() \
+		and not _day_one_ref().hall_shock_seen
 	player.visible = true
 	_play_music("hall")
 	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
@@ -6627,6 +6642,9 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	var castle_rooms: CastleRooms25D = _castle_rooms_ref()
 	castle_rooms.open("main_hall")
 	_day_one_discover_dirty_castle()
+	if play_hall_shock:
+		_day_one_hall_shock()
+		return
 	var entry_hint := \
 		"Follow the one golden rainbow door! Foggy doors are resting until it is their turn." \
 		if day_one_is_active() \
@@ -6812,6 +6830,61 @@ func set_attack_profile(next_color: Color, next_effect: String) -> bool:
 	return true
 
 
+func _open_day_one_bathroom_search() -> bool:
+	if castle_room_stage == null or castle_room_id != "bubble_bath" \
+			or not day_one_is_active() \
+			or _day_one_ref().is_room_completed("bathroom"):
+		return false
+	if _day_one_bathroom_search != null \
+			and is_instance_valid(_day_one_bathroom_search):
+		_day_one_bathroom_search.call("start")
+		return true
+	_day_one_bathroom_search = DayOneBathroomSearchLogic.new() as Control
+	castle_room_stage.add_child(_day_one_bathroom_search)
+	_day_one_bathroom_search.connect("progress_changed",
+		Callable(self, "_on_day_one_bathroom_progress"))
+	_day_one_bathroom_search.connect("completed",
+		Callable(self, "_on_day_one_bathroom_completed"))
+	_day_one_bathroom_search.call("setup", day_one_bathroom_search_mask)
+	_day_one_bathroom_search.call("start")
+	if castle_room_action_button != null:
+		castle_room_action_button.visible = false
+	show_msg("Roshan",
+		"Slide the magnifying glass over all three sparkling hiding places!",
+		"talk")
+	return true
+
+
+func _close_day_one_bathroom_search() -> void:
+	if _day_one_bathroom_search != null \
+			and is_instance_valid(_day_one_bathroom_search):
+		_day_one_bathroom_search.call("teardown")
+	_day_one_bathroom_search = null
+
+
+func _on_day_one_bathroom_progress(mask: int) -> void:
+	var next_mask: int = day_one_bathroom_search_mask | (mask & 0x07)
+	if next_mask == day_one_bathroom_search_mask:
+		return
+	day_one_bathroom_search_mask = next_mask
+	# Only three child-visible milestones exist here. Persist each immediately
+	# so a phone close cannot erase a supply the child just found.
+	_write_save()
+
+
+func _on_day_one_bathroom_completed() -> void:
+	day_one_bathroom_search_mask = 0x07
+	if not _day_one_ref().complete_tutorial("bathroom"):
+		return
+	_close_day_one_bathroom_search()
+	_castle_rooms_ref().apply_day_one_cleanup("bubble_bath")
+	_day_one_sync_castle_dressing()
+	_write_save()
+	show_msg("Roshan",
+		"We found every cleaning tool! The Pool picture door is glowing!",
+		"win")
+
+
 func _open_day_one_art_studio() -> bool:
 	if castle_room_stage == null or castle_room_id != "craft_room" \
 			or not day_one_is_active() \
@@ -6845,8 +6918,9 @@ func day_one_opera_enabled() -> bool:
 
 func day_one_boss_door_ready() -> bool:
 	var director: DayOneDirector = _day_one_ref()
-	return day_one_is_active() and director.boss_door_glow \
-		and not director.giant_dust_bunny_boss_triggered
+	# Grand Puff is no-loss. The persisted "triggered" bit records that the
+	# introduction happened; it must not consume the only doorway attempt.
+	return day_one_is_active() and director.boss_door_glow
 
 func day_one_castle_room_is_clean(castle_room: String) -> bool:
 	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
@@ -6857,6 +6931,8 @@ func day_one_castle_room_is_clean(castle_room: String) -> bool:
 func day_one_can_enter_castle_room(castle_room: String) -> bool:
 	if not day_one_is_active() or castle_room == "main_hall":
 		return true
+	if not _day_one_ref().hall_cleanup_complete():
+		return false
 	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
 		castle_room, ""))
 	return logical_room != "" and _day_one_ref().can_enter_room(logical_room)
@@ -6886,6 +6962,9 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 		show_msg("Roshan", "This room is sparkly clean!", "win")
 		_say("roshan", "talk", 0.6)
 		return true
+	if logical_room == "bathroom":
+		_open_day_one_bathroom_search()
+		return true
 	if logical_room == "pool":
 		_castle_rooms_ref().start_day_one_pool_cleanup()
 		return true
@@ -6895,6 +6974,9 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 				"Bump both dust bunnies away first! I know you can do it!",
 				"talk")
 			_say("roshan", "talk", 0.8)
+		elif not bool(stuffie_wins.get(
+				"day_one_adoption_completed", false)):
+			_castle_rooms_ref().start_day_one_stuffie_adoption()
 		else:
 			day_one_complete_stuffie_rescue()
 		return true
@@ -6954,6 +7036,14 @@ func day_one_complete_art_scene() -> bool:
 	_castle_rooms_ref().apply_day_one_cleanup("craft_room")
 	_day_one_sync_castle_dressing()
 	_write_save()
+	if director.boss_door_glow:
+		_day_one_arm_boss_door()
+		# Return her to the only remaining objective instead of leaving the
+		# child in a completed studio with the goal off-screen.
+		_castle_rooms_ref().show_room("main_hall", false)
+		show_msg("Roshan",
+			"All four rooms sparkle! Follow the golden star to the big back door!",
+			"win")
 	return true
 
 
@@ -6995,7 +7085,9 @@ func day_one_complete_pool_scene() -> bool:
 
 func day_one_complete_stuffie_rescue() -> bool:
 	if not day_one_is_active() \
-			or not bool(stuffie_wins.get("rescued_eagle", false)):
+			or not bool(stuffie_wins.get("rescued_eagle", false)) \
+			or not bool(stuffie_wins.get(
+				"day_one_adoption_completed", false)):
 		return false
 	var director: DayOneDirector = _day_one_ref()
 	if director.is_room_completed("stuffie") \
@@ -7027,8 +7119,15 @@ func _day_one_attach_castle_dressing() -> void:
 		day_one_castle_dressing.name = "DayOneDirtyCastleDressing"
 		day_one_castle_dressing.z_index = 20
 	_day_one_sync_castle_dressing()
+	if castle_room_id == "main_hall" and day_one_main_hall_cleanup == null \
+		and castle_room_stage != null and day_one_is_active():
+		day_one_main_hall_cleanup = DayOneMainHallCleanupLogic.new() \
+			as DayOneMainHallCleanup
+		castle_room_stage.add_child(day_one_main_hall_cleanup)
+		day_one_main_hall_cleanup.setup(self, _castle_rooms_ref())
 
 func _day_one_sync_castle_dressing() -> void:
+	_sync_day_one_bathroom_search()
 	_sync_day_one_art_studio()
 	if day_one_castle_dressing == null \
 			or not is_instance_valid(day_one_castle_dressing):
@@ -7062,17 +7161,59 @@ func _sync_day_one_art_studio() -> void:
 		_close_day_one_art_studio()
 
 
+func _sync_day_one_bathroom_search() -> void:
+	var should_show: bool = day_one_is_active() \
+		and castle_room_stage != null \
+		and castle_room_id == "bubble_bath" \
+		and not _day_one_ref().is_room_completed("bathroom")
+	if should_show:
+		_open_day_one_bathroom_search()
+	else:
+		_close_day_one_bathroom_search()
+
+
 func _day_one_clear_castle_dressing() -> void:
+	_close_day_one_bathroom_search()
 	_close_day_one_art_studio()
+	if day_one_main_hall_cleanup != null \
+		and is_instance_valid(day_one_main_hall_cleanup):
+		day_one_main_hall_cleanup.teardown()
+	day_one_main_hall_cleanup = null
 	if day_one_castle_dressing != null \
 			and is_instance_valid(day_one_castle_dressing):
 		day_one_castle_dressing.teardown()
 	day_one_castle_dressing = null
 
+func _day_one_hall_shock() -> void:
+	if not day_one_is_active() or _day_one_ref().hall_shock_seen:
+		return
+	if day_one_main_hall_cleanup != null \
+			and is_instance_valid(day_one_main_hall_cleanup) \
+			and day_one_main_hall_cleanup.begin_shock_beat():
+		_day_one_ref().hall_shock_seen = true
+		_write_save()
+
+func day_one_complete_main_hall() -> bool:
+	if not day_one_is_active() or not _day_one_ref().hall_cleanup_complete():
+		return false
+	if day_one_hall_celebration_done:
+		return false
+	day_one_hall_celebration_done = true
+	_castle_rooms_ref().sync_day_one_dirty_tiles()
+	show_msg("Roshan", "The Main Hall is sparkling! Bubble-bath time!", "win")
+	_say("roshan", "win", 0.0)
+	_day_one_sync_castle_dressing()
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		_castle_rooms_25d.refresh_door_states()
+	if day_one_main_hall_cleanup != null \
+			and is_instance_valid(day_one_main_hall_cleanup):
+		day_one_main_hall_cleanup.play_completion_celebration()
+	_write_save()
+	return true
+
 func _day_one_arm_boss_door() -> void:
 	var director: DayOneDirector = _day_one_ref()
-	if not day_one_is_active() or not director.boss_door_glow \
-			or director.giant_dust_bunny_boss_triggered:
+	if not day_one_is_active() or not director.boss_door_glow:
 		return
 	_castle_rooms_ref().arm_royal_hall_event(
 		"day_one_giant_dust_bunny", _day_one_trigger_boss)
@@ -8301,6 +8442,8 @@ func _spawn_shooting_star(ppos: Vector3) -> void:
 	tw.tween_callback(star.queue_free)
 
 func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> void:
+	var completed_day_one_boss: bool = win and game == "dustboss" \
+		and day_one_is_active()
 	if chime != null:
 		chime.volume_db = -4.0   # restore default chime volume (the fairy game lowers it)
 	_leave_arena()
@@ -8335,10 +8478,19 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		fairy_cool = 3.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
 	show_msg(fr["fname"], txt, "win" if win else vo)
+	if completed_day_one_boss:
+		_day_one_ref().complete_day_one_after_boss()
+		_day_one_clear_castle_dressing()
 	_respawn_pearls()   # after the banner: its freshness guard yields to the win message
 	_update_hud()
 	_clear_game()
 	_write_save()
+	if completed_day_one_boss:
+		# Grand Puff is a friendly, no-loss finale. Victory advances the story and
+		# returns to the live Canvas promenade; it never drops Roshan into the
+		# retired spatial reef or applies a penalty.
+		call_deferred("_enter_level2", true, false, false)
+		return
 	if String(fr.get("fname", "")) == "Fairy Pond" and fairy_from_galaxy:
 		fairy_from_galaxy = false
 		call_deferred("_start_galaxy")   # back to the Butterfly World
@@ -9294,7 +9446,8 @@ func _process(delta: float) -> void:
 		if brawl_cool <= 0.0 and brawl_portal_pos != Vector3.ZERO and brawl_portal_pos.distance_to(ppos) < 13.0:
 			brawl_cool = 14.0
 			_start_game(brawl_fr)
-		if dust_boss_cool <= 0.0 and dust_boss_portal_pos != Vector3.ZERO \
+		if not day_one_is_active() and dust_boss_cool <= 0.0 \
+				and dust_boss_portal_pos != Vector3.ZERO \
 				and dust_boss_portal_pos.distance_to(ppos) < 13.0:
 			dust_boss_cool = 14.0
 			_start_game(dust_boss_fr)

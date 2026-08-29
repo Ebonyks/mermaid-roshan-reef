@@ -12,6 +12,10 @@ const ROOM_TILE_ROOT := ROOM_ART + "background_tiles/"
 const HALL_REDRAW_ROOT := \
 	"res://assets/flats/castle/main_hall_redraw_2026-08-03/"
 const HALL_TILE_ROOT := HALL_REDRAW_ROOT + "tiles/"
+const DAY_ONE_HALL_TILE_ROOT := "res://assets/castle/day_one_main_hall/dirty_tiles/"
+const DAY_ONE_HALL_CLEAN_TILE_ROOT := "res://assets/castle/day_one_main_hall/clean_tiles/"
+const DAY_ONE_HALL_CLEANUP_SHADER := preload(
+	"res://shaders/day_one_hall_cleanup_blend.gdshader")
 const HALL_SIGN_ART_ROOT := HALL_REDRAW_ROOT + "signs/"
 const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const SPRITE_TRANSITION_2D := preload(
@@ -124,15 +128,46 @@ const HALL_BLOOM_OFF := 0.015
 const HALL_TILE_FILES: Array[String] = [
 	"main_hall_room_led_r0_c0.png", "main_hall_room_led_r0_c1.png", "main_hall_room_led_r0_c2.png", "main_hall_room_led_r0_c3.png", "main_hall_room_led_r0_c4.png", "main_hall_room_led_r0_c5.png", "main_hall_room_led_r0_c6.png", "main_hall_room_led_r0_c7.png", "main_hall_room_led_r1_c0.png", "main_hall_room_led_r1_c1.png", "main_hall_room_led_r1_c2.png", "main_hall_room_led_r1_c3.png", "main_hall_room_led_r1_c4.png", "main_hall_room_led_r1_c5.png", "main_hall_room_led_r1_c6.png", "main_hall_room_led_r1_c7.png",
 ]
+const DAY_ONE_HALL_TILE_PREFIX := "dirty_main_hall_day_one"
+const DAY_ONE_HALL_CLEAN_TILE_PREFIX := "clean_main_hall_day_one"
 const HALL_LIGHT_CLUSTERS: Array[Dictionary] = [
-	{"id": "a_left", "half": "a", "pos": Vector2(290.0, 335.0),
+	{"id": "a_left", "half": "a", "pos": Vector2(430.0, 220.0),
 		"max_energy": 4.6},
-	{"id": "a_right", "half": "a", "pos": Vector2(1090.0, 335.0),
+	{"id": "a_right", "half": "a", "pos": Vector2(1260.0, 220.0),
 		"max_energy": 4.6},
-	{"id": "b_left", "half": "b", "pos": Vector2(2215.0, 335.0),
+	{"id": "b_left", "half": "b", "pos": Vector2(1892.0, 220.0),
 		"max_energy": 4.6},
-	{"id": "b_right", "half": "b", "pos": Vector2(2780.0, 335.0),
+	{"id": "b_right", "half": "b", "pos": Vector2(2752.0, 220.0),
 		"max_energy": 4.6},
+]
+const DAY_ONE_HALL_CLEANUP_TARGETS: Array[Dictionary] = [
+	{"id": "light_left", "center": Vector2(430.0, 220.0),
+		"reveal_center": Vector2(430.0, 220.0),
+		"size": Vector2(220.0, 200.0)},
+	{"id": "light_right", "center": Vector2(1260.0, 220.0),
+		"reveal_center": Vector2(1260.0, 220.0),
+		"size": Vector2(220.0, 200.0)},
+	{"id": "wall_a", "center": Vector2(1450.0, 390.0),
+		"reveal_center": Vector2(1430.0, 390.0),
+		"size": Vector2(230.0, 220.0)},
+	{"id": "runner_a", "center": Vector2(1370.0, 685.0),
+		"reveal_center": Vector2(1200.0, 685.0),
+		"size": Vector2(600.0, 250.0)},
+	{"id": "floor_a", "center": Vector2(650.0, 815.0),
+		"reveal_center": Vector2(600.0, 815.0),
+		"size": Vector2(600.0, 230.0)},
+	{"id": "light_b_left", "center": Vector2(1892.0, 220.0),
+		"reveal_center": Vector2(1892.0, 220.0),
+		"size": Vector2(220.0, 200.0)},
+	{"id": "light_b_right", "center": Vector2(2752.0, 220.0),
+		"reveal_center": Vector2(2752.0, 220.0),
+		"size": Vector2(220.0, 200.0)},
+	{"id": "wall_b", "center": Vector2(1822.0, 390.0),
+		"reveal_center": Vector2(1822.0, 390.0),
+		"size": Vector2(230.0, 220.0)},
+	{"id": "floor_b", "center": Vector2(2792.0, 810.0),
+		"reveal_center": Vector2(2792.0, 810.0),
+		"size": Vector2(600.0, 230.0)},
 ]
 const ROYAL_HALL_MIST_CARDS: Array[Dictionary] = [
 	# Five slender, low-alpha wisps form one quiet veil inside the painted
@@ -1127,6 +1162,7 @@ func tick(delta: float) -> void:
 	if m.castle_partner != null:
 		m.castle_partner.tick(delta)
 	_update_dust_bunny_runner(delta)
+	_update_static_dust_bunnies(delta)
 	_check_dust_bunny_contacts()
 	_update_camera_parallax(delta)
 	_sync_hall_horizontal_culling()
@@ -1280,8 +1316,20 @@ func _build_stage() -> void:
 
 func _build_hall_background_tiles() -> void:
 	m.castle_room_background_tiles.clear()
+	var use_dirty: bool = m.day_one_is_active() \
+		and not m._day_one_ref().hall_cleanup_complete()
 	for index in range(HALL_TILE_FILES.size()):
-		var texture: Texture2D = load(HALL_TILE_ROOT + HALL_TILE_FILES[index])
+		var clean_path: String = DAY_ONE_HALL_CLEAN_TILE_ROOT \
+			+ "%s_r%d_c%d.png" % [DAY_ONE_HALL_CLEAN_TILE_PREFIX,
+			index / HALL_TILE_COLUMNS, index % HALL_TILE_COLUMNS]
+		if not ResourceLoader.exists(clean_path):
+			clean_path = HALL_TILE_ROOT + HALL_TILE_FILES[index]
+		var dirty_path: String = DAY_ONE_HALL_TILE_ROOT \
+			+ "%s_r%d_c%d.png" % [DAY_ONE_HALL_TILE_PREFIX,
+			index / HALL_TILE_COLUMNS, index % HALL_TILE_COLUMNS]
+		var texture: Texture2D = load(dirty_path) as Texture2D \
+			if use_dirty and ResourceLoader.exists(dirty_path) \
+			else load(clean_path) as Texture2D
 		if texture == null:
 			continue
 		var row: int = index / HALL_TILE_COLUMNS
@@ -1305,7 +1353,12 @@ func _build_hall_background_tiles() -> void:
 			logical_size.x / native_size.x,
 			logical_size.y / native_size.y) * HALL_STAGE_SCALE
 		tile.visible = false
-		tile.set_meta("source_asset_role", "clean_background_tile")
+		tile.set_meta("source_asset_role",
+			"day_one_dirty_background_tile" if use_dirty
+			else "clean_background_tile")
+		tile.set_meta("day_one_dirty_texture_path", dirty_path)
+		tile.set_meta("day_one_clean_texture_path", clean_path)
+		tile.set_meta("day_one_hall_state", "dirty" if use_dirty else "clean")
 		tile.set_meta("source_master_grid", "2x8_7280x2048")
 		# These sixteen runtime textures are exact non-overlapping crops of the
 		# 7280x2048 master. Proportional mapping preserves every native boundary
@@ -1331,6 +1384,8 @@ func _build_hall_background_tiles() -> void:
 				native_top_left.y),
 			native_size))
 		tile.set_meta("depth_z", BACKGROUND_Z)
+		if use_dirty:
+			_configure_day_one_cleanup_blend(tile)
 		m.castle_room_world_root.add_child(tile)
 		m.castle_room_background_tiles.append(tile)
 
@@ -1345,7 +1400,7 @@ func _set_hall_background_visible(visible: bool,
 	for tile: Sprite2D in m.castle_room_background_tiles:
 		if tile != null and is_instance_valid(tile):
 			tile.modulate.a = 1.0
-			tile.visible = false
+			tile.visible = visible
 	for tile: Sprite2D in m.castle_room_detail_tiles:
 		if tile != null and is_instance_valid(tile):
 			tile.modulate.a = 1.0
@@ -1357,6 +1412,84 @@ func _set_hall_background_visible(visible: bool,
 	if m.castle_room_door_hotspot_layer != null:
 		m.castle_room_door_hotspot_layer.visible = visible
 	_sync_hall_horizontal_culling()
+
+func sync_day_one_dirty_tiles() -> void:
+	if m.castle_room_id != "main_hall":
+		return
+	if m._day_one_ref().hall_cleanup_complete():
+		_swap_hall_background_to_clean()
+	else:
+		for tile: Sprite2D in m.castle_room_background_tiles:
+			if tile != null and is_instance_valid(tile):
+				_configure_day_one_cleanup_blend(tile)
+	_set_hall_background_visible(true, true)
+
+func _configure_day_one_cleanup_blend(tile: Sprite2D) -> void:
+	if tile == null or not is_instance_valid(tile):
+		return
+	var clean_path: String = String(tile.get_meta(
+		"day_one_clean_texture_path", ""))
+	var clean_texture: Texture2D = load(clean_path) as Texture2D
+	if clean_texture == null:
+		return
+	var source_rect: Rect2 = tile.get_meta(
+		"source_art_rect", Rect2()) as Rect2
+	if not source_rect.has_area():
+		return
+	var material := tile.material as ShaderMaterial
+	if material == null or material.shader != DAY_ONE_HALL_CLEANUP_SHADER:
+		material = ShaderMaterial.new()
+		material.shader = DAY_ONE_HALL_CLEANUP_SHADER
+		tile.material = material
+	material.set_shader_parameter("clean_texture", clean_texture)
+	var director: DayOneDirector = m._day_one_ref()
+	for slot: int in range(4):
+		material.set_shader_parameter("reveal_rect_%d" % slot,
+			Vector4(-2.0, -2.0, 0.0, 0.0))
+		material.set_shader_parameter("reveal_progress_%d" % slot, 0.0)
+	var slot: int = 0
+	var reveal_targets: Array[String] = []
+	var reveal_progress: Dictionary = {}
+	for target: Dictionary in DAY_ONE_HALL_CLEANUP_TARGETS:
+		if slot >= 4:
+			break
+		var center: Vector2 = target.get("reveal_center",
+			target["center"]) as Vector2
+		var size: Vector2 = target["size"] as Vector2
+		var target_rect := Rect2(center - size * 0.5, size)
+		if not source_rect.intersects(target_rect):
+			continue
+		var local_center: Vector2 = (center - source_rect.position) \
+			/ source_rect.size
+		var local_size: Vector2 = size / source_rect.size
+		var id: String = String(target["id"])
+		material.set_shader_parameter("reveal_rect_%d" % slot,
+			Vector4(local_center.x - local_size.x * 0.5,
+			local_center.y - local_size.y * 0.5,
+			local_size.x, local_size.y))
+		material.set_shader_parameter("reveal_progress_%d" % slot,
+			1.0 if director.hall_target_clean(id) else 0.0)
+		reveal_targets.append(id)
+		reveal_progress[id] = 1.0 if director.hall_target_clean(id) else 0.0
+		slot += 1
+	tile.set_meta("day_one_hall_cleanup_blend", true)
+	tile.set_meta("day_one_hall_clean_texture_path", clean_path)
+	tile.set_meta("day_one_hall_reveal_targets", reveal_targets)
+	tile.set_meta("day_one_hall_reveal_progress", reveal_progress)
+
+func _swap_hall_background_to_clean() -> void:
+	for tile: Sprite2D in m.castle_room_background_tiles:
+		if tile == null or not is_instance_valid(tile):
+			continue
+		var clean_path: String = String(tile.get_meta(
+			"day_one_clean_texture_path", ""))
+		var clean_texture: Texture2D = load(clean_path) as Texture2D
+		if clean_texture == null:
+			continue
+		tile.texture = clean_texture
+		tile.material = null
+		tile.set_meta("source_asset_role", "clean_background_tile")
+		tile.set_meta("day_one_hall_state", "clean")
 
 func _hall_horizontal_cull_span() -> Vector2:
 	var camera_center_art: float = _hall_view_left_art + HALL_VIEW_SIZE.x * 0.5
@@ -1743,12 +1876,12 @@ func _set_elevator_menu_open(open_menu: bool, play_sound: bool = true) -> void:
 			Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _toggle_elevator_menu() -> void:
-	if _fridge_close_is_blocked():
+	if m.day_one_hall_cleanup_modal or _fridge_close_is_blocked():
 		return
 	_set_elevator_menu_open(not m.castle_room_menu_open)
 
 func _choose_elevator_room(room_id: String) -> void:
-	if not ELEVATOR_ROOM_IDS.has(room_id):
+	if m.day_one_hall_cleanup_modal or not ELEVATOR_ROOM_IDS.has(room_id):
 		return
 	var state: String = door_state(room_id)
 	if not DoorLanguage.allows_travel(state):
@@ -1790,6 +1923,9 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_begin_composition_transition()
 	_invalidate_royal_hall_arrival()
 	m.castle_room_id = room_id
+	if m.day_one_main_hall_cleanup != null \
+		and is_instance_valid(m.day_one_main_hall_cleanup):
+		m.day_one_main_hall_cleanup.set_hall_active(room_id == "main_hall")
 	_set_elevator_menu_open(false, false)
 	_update_elevator_selected()
 	if m.castle_room_prop_sfx != null:
@@ -2112,7 +2248,8 @@ func _finish_composition_transition(generation: int) -> void:
 		cover.modulate.a = 1.0
 
 func _on_room_input(event: InputEvent) -> void:
-	if _fridge_close_is_blocked() or m.castle_room_menu_open:
+	if m.day_one_hall_cleanup_modal or _fridge_close_is_blocked() \
+			or m.castle_room_menu_open:
 		return
 	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed:
 		_walk_cutout_to((event as InputEventMouseButton).position)
@@ -2120,7 +2257,7 @@ func _on_room_input(event: InputEvent) -> void:
 		_walk_cutout_to((event as InputEventScreenTouch).position)
 
 func _walk_cutout_to(screen_position: Vector2) -> void:
-	if m.castle_room_player_sprite == null:
+	if m.day_one_hall_cleanup_modal or m.castle_room_player_sprite == null:
 		return
 	_invalidate_royal_hall_arrival()
 	# combat wing 2026-08: a tap on a bunny card pops it on the spot — the
@@ -2662,6 +2799,9 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 			+ item_id + "_atlas.png"
 	var bunny_role: String = String(item_data.get("dust_bunny_role", ""))
 	if bunny_role != "":
+		if room_id == "main_hall" and m.day_one_is_active() \
+				and m._day_one_ref().hall_target_clean(item_id):
+			return
 		var cleared: Dictionary = m.g.get(
 			"castle_dust_bunnies_cleared", {}) as Dictionary
 		if bool(cleared.get(item_id, false)):
@@ -2898,13 +3038,17 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		_add_playroom_rescue_pointer()
 
 func _activate_room_item(item_id: String) -> void:
-	if _fridge_close_is_blocked():
+	if m.day_one_hall_cleanup_modal or _fridge_close_is_blocked():
 		return
 	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
 	if record.is_empty():
 		return
-	var sprite: Sprite2D = record.get("sprite") as Sprite2D
 	var item_data: Dictionary = record.get("data", {})
+	if m.castle_room_id == "main_hall" \
+			and String(item_data.get("dust_bunny_role", "")) != "":
+		_explode_dust_bunny(item_id)
+		return
+	var sprite: Sprite2D = record.get("sprite") as Sprite2D
 	if sprite == null or bool(sprite.get_meta("busy", false)):
 		return
 	var visual: Dictionary = item_data.get("v2_visual", {}) as Dictionary
@@ -4018,8 +4162,40 @@ func _update_dust_bunny_runner(delta: float) -> void:
 	runner_record["runner_direction"] = 1.0 if moving_right else -1.0
 	m.castle_room_item_sprites["runner_bunny"] = runner_record
 
+func _update_static_dust_bunnies(delta: float) -> void:
+	if not _is_wide_hall() or delta <= 0.0:
+		return
+	var elapsed: float = float(m.g.get(
+		"castle_dust_bunny_static_time", 0.0)) + delta
+	m.g["castle_dust_bunny_static_time"] = elapsed
+	for item_id: String in ["sleepy_bunny", "shell_bunny"]:
+		var record: Dictionary = m.castle_room_item_sprites.get(
+			item_id, {}) as Dictionary
+		if record.is_empty():
+			continue
+		var sprite: Sprite2D = record.get("sprite") as Sprite2D
+		var data: Dictionary = record.get("data", {}) as Dictionary
+		if sprite == null or not is_instance_valid(sprite) \
+				or bool(sprite.get_meta("exploding", false)):
+			continue
+		var base_position: Vector2 = data.get(
+			"pos", Vector2.ZERO) as Vector2
+		var phase: float = 0.0 if item_id == "sleepy_bunny" else 1.7
+		var hop: float = absf(sin(elapsed * 2.6 + phase)) * 5.0
+		var squash: float = 1.0 + sin(elapsed * 5.2 + phase) * 0.035
+		sprite.position = _hall_art_to_world(
+			base_position + Vector2(0.0, -hop),
+			float(data.get("z", 2.85)))
+		sprite.scale = Vector2.ONE * float(data.get("scale", 1.0)) \
+			* HALL_STAGE_SCALE * Vector2(1.0 + (squash - 1.0) * 0.7,
+				squash)
+		var contact_offset: Vector2 = data.get(
+			"contact_offset", Vector2.ZERO) as Vector2
+		record["contact_foot"] = base_position + contact_offset
+		m.castle_room_item_sprites[item_id] = record
+
 func _check_dust_bunny_contacts() -> void:
-	if m.castle_room_player_sprite == null:
+	if m.day_one_hall_cleanup_modal or m.castle_room_player_sprite == null:
 		return
 	var player_foot: Vector2 = m.castle_room_player_sprite.get_meta(
 		"current_stage_foot",
@@ -4060,6 +4236,16 @@ func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 	if sprite == null or not is_instance_valid(sprite) \
 			or bool(sprite.get_meta("exploding", false)):
 		return
+	if m.castle_room_id == "main_hall" \
+			and m.day_one_main_hall_cleanup != null \
+			and is_instance_valid(m.day_one_main_hall_cleanup) \
+			and m.day_one_is_active():
+		if not m._day_one_ref().clean_hall_target(item_id):
+			return
+		m._write_save()
+		sync_day_one_dirty_tiles()
+		if m._day_one_ref().hall_cleanup_complete():
+			m.day_one_complete_main_hall()
 	var cleared: Dictionary = m.g.get(
 		"castle_dust_bunnies_cleared", {}) as Dictionary
 	if bool(cleared.get(item_id, false)):
@@ -4151,7 +4337,12 @@ func _playroom_rescue_done() -> bool:
 
 func _restore_playroom_rescue_clears() -> void:
 	if _playroom_rescue_done():
-		m.day_one_complete_stuffie_rescue()
+		if m.day_one_is_active() \
+				and not bool(m.stuffie_wins.get(
+					"day_one_adoption_completed", false)):
+			call_deferred("start_day_one_stuffie_adoption")
+		else:
+			m.day_one_complete_stuffie_rescue()
 		return
 	var cleared: Dictionary = m.g.get(
 		"castle_dust_bunnies_cleared", {}) as Dictionary
@@ -4245,6 +4436,14 @@ func _open_playroom_stuffie_tutorial() -> void:
 	m.g["stuffie_rescue_tutorial"] = true
 	m.g["stuffie_rescue_tutorial_step"] = 0
 	m._companion_ref().open_picker(true, "eagle", "adopt")
+
+
+func start_day_one_stuffie_adoption() -> void:
+	if m.castle_room_id != "playroom" or not _playroom_rescue_done() \
+			or bool(m.stuffie_wins.get(
+				"day_one_adoption_completed", false)):
+		return
+	_open_playroom_stuffie_tutorial()
 
 
 func _update_camera_parallax(delta: float) -> void:
@@ -4458,7 +4657,7 @@ func _update_hall_portals() -> void:
 			button.size = hit_size
 
 func _enter_hall_portal(portal_id: String, foot: Vector2) -> void:
-	if _fridge_close_is_blocked():
+	if m.day_one_hall_cleanup_modal or _fridge_close_is_blocked():
 		return
 	if not _is_wide_hall() or m.castle_room_menu_open:
 		return
@@ -4860,6 +5059,8 @@ func _burst(_symbol: String, color: Color) -> void:
 		color, 9)
 
 func _go_back() -> void:
+	if m.day_one_hall_cleanup_modal:
+		return
 	if m.castle_room_menu_open:
 		_set_elevator_menu_open(false)
 		return

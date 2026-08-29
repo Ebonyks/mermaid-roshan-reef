@@ -137,17 +137,13 @@ func _strike(max_windows: int) -> bool:
 # ---- the attic opens -------------------------------------------------------
 func _open_case() -> void:
 	await _frames(10)
-	_ck("attic portal exists in the reef", main.dust_boss_portal_pos != Vector3.ZERO)
-	main.dust_boss_cool = 0.0
-	var wait := 0
-	while main.game == "" and wait < 900:
+	main._day_one_ref().day_one_active = false
+	main._start_game(main.dust_boss_fr)
+	var wait: int = 0
+	while main.game != "dustboss" and wait < 900:
 		wait += 1
-		main.player.position = main.dust_boss_portal_pos + Vector3(0, 2, 3)
-		main.player.vel = Vector3.ZERO
-		if main.touch_uses_explicit_interactions():
-			main._activate_touch_interactable("reef:dustboss")
 		await process_frame
-	_ck("swimming to the attic door opens the boss fight", main.game == "dustboss")
+	_ck("later-day replay route opens the boss fight", main.game == "dustboss")
 
 # ---- the camera contract ---------------------------------------------------
 func _framing_case() -> void:

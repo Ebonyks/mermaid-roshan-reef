@@ -52,6 +52,24 @@ const ART_MATERIAL_IDS: Array[String] = [
 const ART_GRIME_IDS: Array[String] = [
 	"left_counter", "desk_counter", "right_counter",
 ]
+## Stage 1 Main Hall cleanup: four fixture targets, five surface targets, and
+## the three existing bunnies, persisted as one additive 12-bit mask.
+const HALL_CLEANUP_TARGET_IDS: Array[String] = [
+	"light_left", "light_right", "light_b_left", "light_b_right",
+	"wall_a", "runner_a", "floor_a", "wall_b", "floor_b",
+	"sleepy_bunny", "shell_bunny", "runner_bunny",
+]
+const HALL_LIGHT_TARGET_IDS: Array[String] = [
+	"light_left", "light_right", "light_b_left", "light_b_right",
+]
+const HALL_SCRUB_TARGET_IDS: Array[String] = [
+	"wall_a", "runner_a", "floor_a", "wall_b", "floor_b",
+]
+const HALL_BUNNY_TARGET_IDS: Array[String] = [
+	"sleepy_bunny", "shell_bunny", "runner_bunny",
+]
+const HALL_CLEANUP_COMPLETE_MASK: int = (1 << 12) - 1
+const EVENT_HALL_COMPLETE: String = "main_hall_cleanup_complete"
 
 const SAVE_KEYS: Array[String] = [
 	"day_one_active",
@@ -65,6 +83,7 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_grok_video_2_seen",
 	"day_one_boss_door_glow",
 	"day_one_giant_dust_bunny_boss_triggered",
+	"day_one_bathroom_search_mask",
 	"day_one_pool_cleanup_step",
 	"day_one_pool_rumi_met",
 	"day_one_pool_skimmer_mask",
@@ -74,6 +93,8 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_art_cleaned_grime",
 	"day_one_art_desk_unlocked",
 	"day_one_art_customization_completed",
+	"day_one_hall_cleanup_mask",
+	"day_one_hall_shock_seen",
 ]
 
 var m: ReefMain
@@ -126,6 +147,11 @@ var giant_dust_bunny_boss_triggered: bool:
 		return m.day_one_giant_dust_bunny_boss_triggered
 	set(value):
 		m.day_one_giant_dust_bunny_boss_triggered = value
+var bathroom_search_mask: int:
+	get:
+		return m.day_one_bathroom_search_mask
+	set(value):
+		m.day_one_bathroom_search_mask = value & 0x07
 var pool_cleanup_step: int:
 	get:
 		return m.day_one_pool_cleanup_step
@@ -171,6 +197,16 @@ var art_customization_completed: bool:
 		return m.day_one_art_customization_completed
 	set(value):
 		m.day_one_art_customization_completed = value
+var hall_cleanup_mask: int:
+	get:
+		return m.day_one_hall_cleanup_mask
+	set(value):
+		m.day_one_hall_cleanup_mask = value & HALL_CLEANUP_COMPLETE_MASK
+var hall_shock_seen: bool:
+	get:
+		return m.day_one_hall_shock_seen
+	set(value):
+		m.day_one_hall_shock_seen = value
 var day_one_event_seen: Dictionary:
 	get:
 		return m.day_one_event_seen
@@ -230,6 +266,43 @@ func is_room_completed(room_id: String) -> bool:
 func is_dust_bunny_cleaned(room_id: String) -> bool:
 	var id: String = _normalise_room_id(room_id)
 	return id != "" and bool(cleaned_rooms.get(id, false))
+
+func hall_target_ids() -> Array[String]:
+	return HALL_CLEANUP_TARGET_IDS.duplicate()
+
+func hall_target_category(target_id: String) -> String:
+	var id: String = target_id.strip_edges().to_lower()
+	if id in HALL_LIGHT_TARGET_IDS:
+		return "light"
+	if id in HALL_SCRUB_TARGET_IDS:
+		return "scrub"
+	if id in HALL_BUNNY_TARGET_IDS:
+		return "bunny"
+	return ""
+
+func hall_target_bit(target_id: String) -> int:
+	var index: int = HALL_CLEANUP_TARGET_IDS.find(
+		target_id.strip_edges().to_lower())
+	return 1 << index if index >= 0 else 0
+
+func hall_target_clean(target_id: String) -> bool:
+	var bit: int = hall_target_bit(target_id)
+	return bit != 0 and (hall_cleanup_mask & bit) != 0
+
+func hall_cleanup_complete() -> bool:
+	return (hall_cleanup_mask & HALL_CLEANUP_COMPLETE_MASK) \
+		== HALL_CLEANUP_COMPLETE_MASK
+
+func clean_hall_target(target_id: String) -> bool:
+	if not day_one_active:
+		return false
+	var bit: int = hall_target_bit(target_id)
+	if bit == 0 or hall_target_clean(target_id):
+		return false
+	hall_cleanup_mask |= bit
+	if hall_cleanup_complete():
+		_emit_once(EVENT_HALL_COMPLETE, {})
+	return true
 
 
 func jobs_are_globally_locked() -> bool:
@@ -341,6 +414,8 @@ func complete_room(room_id: String) -> bool:
 		pool_skimmer_mask = 0x3F
 		pool_waterfall_mask = 0x07
 		pool_seahorse_tugs = 8
+	elif id == "bathroom":
+		bathroom_search_mask = 0x07
 	completed_rooms[id] = true
 	cleaned_rooms[id] = true
 	_emit_once(EVENT_DUST_BUNNY_CLEANUP, {"room_id": id})
@@ -383,12 +458,25 @@ func trigger_grok_video_2() -> bool:
 
 
 func trigger_giant_dust_bunny_boss() -> bool:
-	if not boss_door_glow or not _all_rooms_completed():
+	if not day_one_active or not boss_door_glow or not _all_rooms_completed():
 		return false
 	if giant_dust_bunny_boss_triggered:
-		return false
+		# The persisted flag records that the encounter has been introduced; it
+		# must never turn a no-loss boss into a one-attempt door. Re-entry emits a
+		# fresh runtime hook without duplicating the authored history beat.
+		hook_event.emit(EVENT_GIANT_DUST_BUNNY_BOSS, {
+			"room_id": "art", "retry": true})
+		return true
 	giant_dust_bunny_boss_triggered = true
 	_emit_once(EVENT_GIANT_DUST_BUNNY_BOSS, {"room_id": "art"})
+	return true
+
+
+func complete_day_one_after_boss() -> bool:
+	if not day_one_active or not giant_dust_bunny_boss_triggered \
+			or not _all_rooms_completed():
+		return false
+	day_one_active = false
 	return true
 
 
@@ -418,6 +506,7 @@ func serialize_state() -> Dictionary:
 		"day_one_boss_door_glow": boss_door_glow,
 		"day_one_giant_dust_bunny_boss_triggered": \
 			giant_dust_bunny_boss_triggered,
+		"day_one_bathroom_search_mask": bathroom_search_mask,
 		"day_one_pool_cleanup_step": pool_cleanup_step,
 		"day_one_pool_rumi_met": pool_rumi_met,
 		"day_one_pool_skimmer_mask": pool_skimmer_mask,
@@ -427,6 +516,8 @@ func serialize_state() -> Dictionary:
 		"day_one_art_cleaned_grime": art_cleaned_grime.duplicate(true),
 		"day_one_art_desk_unlocked": art_desk_unlocked,
 		"day_one_art_customization_completed": art_customization_completed,
+		"day_one_hall_cleanup_mask": hall_cleanup_mask,
+		"day_one_hall_shock_seen": hall_shock_seen,
 	}
 
 
@@ -451,6 +542,8 @@ func _normalise_state(source: Dictionary) -> void:
 	boss_door_glow = bool(normalised.get("day_one_boss_door_glow", false))
 	giant_dust_bunny_boss_triggered = bool(normalised.get(
 		"day_one_giant_dust_bunny_boss_triggered", false))
+	bathroom_search_mask = int(normalised.get(
+		"day_one_bathroom_search_mask", 0)) & 0x07
 	pool_cleanup_step = int(normalised.get("day_one_pool_cleanup_step", 0))
 	pool_rumi_met = bool(normalised.get("day_one_pool_rumi_met", false))
 	pool_skimmer_mask = int(normalised.get("day_one_pool_skimmer_mask", 0))
@@ -464,6 +557,9 @@ func _normalise_state(source: Dictionary) -> void:
 		"day_one_art_desk_unlocked", false)) and art_cleanup_complete()
 	art_customization_completed = bool(normalised.get(
 		"day_one_art_customization_completed", false)) and art_desk_unlocked
+	hall_cleanup_mask = int(normalised.get(
+		"day_one_hall_cleanup_mask", 0)) & HALL_CLEANUP_COMPLETE_MASK
+	hall_shock_seen = bool(normalised.get("day_one_hall_shock_seen", false))
 
 
 ## SaveState can call this static helper without constructing a director (and
@@ -471,8 +567,14 @@ func _normalise_state(source: Dictionary) -> void:
 ## Day One namespace and returns a complete, normalized Day One patch.
 static func normalise_save_patch(raw: Variant) -> Dictionary:
 	var source: Dictionary = raw as Dictionary if raw is Dictionary else {}
+	var saved_bathroom_mask: int = int(source.get(
+		"day_one_bathroom_search_mask", 0)) & 0x07
 	var candidates: Dictionary = _room_membership_static(source.get(
 		"day_one_completed_rooms", []))
+	# A process kill between the third reveal and the room-completion callback
+	# must credit the finished tutorial instead of restoring an inert full mask.
+	if saved_bathroom_mask == 0x07:
+		candidates["bathroom"] = true
 	var completed: Array[String] = []
 	for room_id: String in ROOM_ORDER:
 		if not bool(candidates.get(room_id, false)):
@@ -486,6 +588,8 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_grok_video_2_seen", false), false)
 	var all_done: bool = completed.size() == ROOM_ORDER.size()
 	var pool_done: bool = completed.has("pool")
+	if completed.has("bathroom"):
+		saved_bathroom_mask = 0x07
 	var saved_pool_step: int = clampi(int(source.get(
 		"day_one_pool_cleanup_step", 4 if pool_done else 0)), 0, 4)
 	if pool_done:
@@ -496,6 +600,16 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_pool_waterfall_mask", 0x07 if saved_pool_step >= 2 else 0)) & 0x07
 	var saved_seahorse_tugs: int = clampi(int(source.get(
 		"day_one_pool_seahorse_tugs", 8 if saved_pool_step >= 4 else 0)), 0, 8)
+	# The detailed masks are written at the child-visible action, while the
+	# legacy phase advances after its short celebration. Derive the phase from
+	# those monotonic facts so a pause in that gap can never strand the Pool.
+	if saved_skimmer_mask == 0x3F:
+		saved_pool_step = maxi(saved_pool_step, 1)
+	if saved_skimmer_mask == 0x3F and saved_waterfall_mask == 0x07:
+		saved_pool_step = maxi(saved_pool_step, 2)
+	if saved_skimmer_mask == 0x3F and saved_waterfall_mask == 0x07 \
+			and saved_seahorse_tugs >= 8:
+		saved_pool_step = 4
 	var art_materials: Dictionary = _string_bool_map_static(source.get(
 		"day_one_art_collected_materials", {}))
 	var art_grime: Dictionary = _string_bool_map_static(source.get(
@@ -507,16 +621,42 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	# Deriving it on restore prevents a save written between the final scrub and
 	# the next frame from ever losing progress or trapping the child.
 	var art_desk: bool = art_cleanup_done
+	var has_day_one_namespace: bool = false
+	for source_key_value: Variant in source.keys():
+		if String(source_key_value).begins_with("day_one_"):
+			has_day_one_namespace = true
+			break
+	# An empty fresh save starts Day One. A genuine legacy save with no Day One
+	# namespace stays on its established route, while partial Day One saves keep
+	# their explicit active flag on Continue.
+	var active_default: bool = source.is_empty() or has_day_one_namespace
+	var active: bool = _as_bool_static(source.get(
+		"day_one_active", active_default), active_default)
+	var saved_hall_mask: int = int(source.get(
+		"day_one_hall_cleanup_mask", 0)) & HALL_CLEANUP_COMPLETE_MASK
+	var legacy_day_one_progress: bool = false
+	for key_value: Variant in source.keys():
+		var key: String = String(key_value)
+		if key.begins_with("day_one_") \
+				and key != "day_one_hall_cleanup_mask" \
+				and key != "day_one_hall_shock_seen":
+			legacy_day_one_progress = true
+			break
+	# Legacy/non-Day1 saves and already-completed routes must never expose a
+	# partially dirty hall or trap a child behind its Stage 1 gate.
+	if not source.has("day_one_hall_cleanup_mask") \
+			and (legacy_day_one_progress or not completed.is_empty()):
+		saved_hall_mask = HALL_CLEANUP_COMPLETE_MASK
+	if not active or all_done:
+		saved_hall_mask = HALL_CLEANUP_COMPLETE_MASK
 	return {
-		"day_one_active": _as_bool_static(source.get(
-			"day_one_active", true), true),
+		"day_one_active": active,
 		"day_one_current_room": current,
 		"day_one_completed_rooms": completed,
 		"day_one_cleaned_rooms": cleaned,
 		"day_one_jobs_locked": _as_bool_static(source.get(
-			"day_one_active", true), true),
-		"day_one_opera_enabled": not _as_bool_static(source.get(
-			"day_one_active", true), true),
+			"day_one_active", active), active),
+		"day_one_opera_enabled": not active,
 		"day_one_arrival_plane_media_seen": _as_bool_static(source.get(
 			"day_one_arrival_plane_media_seen", false), false),
 		"day_one_dirty_castle_discovered": _as_bool_static(source.get(
@@ -525,6 +665,7 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_boss_door_glow": all_done,
 		"day_one_giant_dust_bunny_boss_triggered": all_done and _as_bool_static(
 			source.get("day_one_giant_dust_bunny_boss_triggered", false), false),
+		"day_one_bathroom_search_mask": saved_bathroom_mask,
 		"day_one_pool_cleanup_step": saved_pool_step,
 		"day_one_pool_rumi_met": pool_done or _as_bool_static(
 			source.get("day_one_pool_rumi_met", false), false),
@@ -536,6 +677,9 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_art_desk_unlocked": art_desk,
 		"day_one_art_customization_completed": art_desk and _as_bool_static(
 			source.get("day_one_art_customization_completed", false), false),
+		"day_one_hall_cleanup_mask": saved_hall_mask,
+		"day_one_hall_shock_seen": _as_bool_static(source.get(
+			"day_one_hall_shock_seen", false), false) or not active,
 	}
 
 

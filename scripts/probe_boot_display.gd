@@ -81,14 +81,16 @@ func _run() -> void:
 		return
 
 	# Exercise the actual Continue signal after making this isolated in-memory
-	# fixture represent an existing loaded save. Continue must never start Day 1.
+	# fixture represent an existing partial Day One save. Continue must preserve
+	# the loaded route rather than silently skipping the remaining onboarding.
 	main.has_saved_game = true
+	main._day_one_ref().day_one_active = true
 	continue_button.disabled = false
 	continue_button.pressed.emit()
 	for i in range(20):
 		await process_frame
 	_check(not main.start_menu_active, "continue_closes_start_menu")
-	_check(not main.day_one_is_active(), "continue_bypasses_day_one")
+	_check(main.day_one_is_active(), "continue_preserves_partial_day_one")
 
 	# Continue must now land in gameplay rather than leave her in the reef shell.
 	_check(main.game == "level2", "boot_leaves_the_reef")

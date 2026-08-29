@@ -661,10 +661,14 @@ func _pick_color_slot(slot: int) -> void:
 func _confirm_pick() -> void:
 	var studio_change: bool = m.companion_pick_mode == "studio" \
 		and m.companion_pick_id == m.companion_id
+	var completed_rescue_tutorial: bool = bool(
+		m.g.get("stuffie_rescue_tutorial", false))
 	m.g.erase("stuffie_rescue_tutorial")
 	m.g.erase("stuffie_rescue_tutorial_step")
 	m.companion_id = m.companion_pick_id
 	m.companion_colors = m.companion_pick_colors.duplicate()
+	if completed_rescue_tutorial:
+		m.stuffie_wins["day_one_adoption_completed"] = true
 	var d := active_def()
 	close_picker()
 	if m.companion_node != null and is_instance_valid(m.companion_node):
@@ -689,6 +693,8 @@ func _confirm_pick() -> void:
 		m.companion_resting = false
 		m.companion_greeted = false
 	m._write_save()
+	if completed_rescue_tutorial:
+		m.day_one_complete_stuffie_rescue()
 	m._reward(false)
 	if m.player != null:
 		m._sparkle_burst(m.player.position + Vector3(0, 2.0, 0), Color(1.0, 0.8, 0.5))

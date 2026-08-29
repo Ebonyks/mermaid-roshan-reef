@@ -1,0 +1,701 @@
+{
+  "schema": 1,
+  "pipeline": "castle_main_hall_redraw_strict_per_screen_2k",
+  "decision_date": "2026-08-04",
+  "new_art": false,
+  "source_art_preserved": true,
+  "script": {
+    "path": "tools/build_audit_castle_main_hall_redraw_2k.py",
+    "sha256": "e28b20088a8ecc13621554686ea11fd270abcadda04c963906e93e5dcecb6bb4",
+    "pillow_version": "12.3.0"
+  },
+  "production_operation": {
+    "resampling": "Pillow Image.Resampling.LANCZOS",
+    "resampling_interpolation": true,
+    "resampling_scope": "same whole-canvas transform on the complete flattened screen",
+    "whole_canvas_only": true,
+    "crop": false,
+    "padding": false,
+    "canvas_extension": false,
+    "local_retouch": false,
+    "seam_blend": false,
+    "ai_upscale": false,
+    "new_art_generation": false
+  },
+  "transform_chains": {
+    "A": {
+      "native": {
+        "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_screen_a_v2_native.png",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "file_sha256": "e9f424610a9735f181015d8f7de596f850df27669040bcc92ffa329ffa0940ca",
+        "pixel_sha256": "a70b6a6a4a9e162ce1011ed3829f216ae848fb906768228a23941e45071770cd"
+      },
+      "native_to_prior": {
+        "label": "accepted native to prior production",
+        "source_dimensions": [
+          1672,
+          941
+        ],
+        "target_dimensions": [
+          2048,
+          1152
+        ],
+        "source_aspect_ratio": 1.7768331562167907,
+        "target_aspect_ratio": 1.7777777777777777,
+        "aspect_ratio_delta": 0.0009446215609869579,
+        "ideal_target_height_at_fixed_target_width": 1152.6124401913876,
+        "target_height_rounding_error_pixels": 0.6124401913875772,
+        "one_pixel_rounding_tolerance": 1.0,
+        "within_one_pixel_rounding_tolerance": true,
+        "whole_canvas": true,
+        "resampling": "Pillow Image.Resampling.LANCZOS",
+        "crop": false,
+        "padding": false,
+        "canvas_extension": false,
+        "local_retouch": false,
+        "seam_blend": false,
+        "ai_upscale": false,
+        "rederived_prior_pixel_exact": true
+      },
+      "prior": {
+        "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_screen_a_prior_2048x1152.png",
+        "dimensions": [
+          2048,
+          1152
+        ],
+        "mode": "RGB",
+        "file_sha256": "0b7641cef43c43bcd8e6747a0436adbb47471e45c2852caaddcc19c10f71a98f",
+        "pixel_sha256": "92c3859a6885de5550fed1acbcc8060bd1224a0092baec9b09673dba78ddd493"
+      },
+      "prior_to_final": {
+        "label": "prior production to strict per-screen 2K",
+        "source_dimensions": [
+          2048,
+          1152
+        ],
+        "target_dimensions": [
+          3640,
+          2048
+        ],
+        "source_aspect_ratio": 1.7777777777777777,
+        "target_aspect_ratio": 1.77734375,
+        "aspect_ratio_delta": 0.0004340277777776791,
+        "ideal_target_height_at_fixed_target_width": 2047.5,
+        "target_height_rounding_error_pixels": 0.5,
+        "one_pixel_rounding_tolerance": 1.0,
+        "within_one_pixel_rounding_tolerance": true,
+        "whole_canvas": true,
+        "resampling": "Pillow Image.Resampling.LANCZOS",
+        "crop": false,
+        "padding": false,
+        "canvas_extension": false,
+        "local_retouch": false,
+        "seam_blend": false,
+        "ai_upscale": false
+      },
+      "final": {
+        "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_screen_a_final_3640x2048.png",
+        "dimensions": [
+          3640,
+          2048
+        ],
+        "mode": "RGB",
+        "file_sha256": "a41255253cc36cf5656e51dea98070149b4ef7b917dd4f135686538a97ba8e3a",
+        "pixel_sha256": "5224bbb413576601bf4cf7ff3df50bd7b6c5fa764c615d43aa70d62e171e6861"
+      }
+    },
+    "B": {
+      "native": {
+        "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_screen_b_v2_normalized_1672x941.png",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "file_sha256": "07fd3a325dffb5582097d7ff8ff0ee61a33d99e0274199867210eec2b8db0cb1",
+        "pixel_sha256": "0d56dbe46e161a4b8d4442bc26ede34f6f04cc17e2198c5ba75a6c8a4da78936"
+      },
+      "native_to_prior": {
+        "label": "accepted native to prior production",
+        "source_dimensions": [
+          1672,
+          941
+        ],
+        "target_dimensions": [
+          2048,
+          1152
+        ],
+        "source_aspect_ratio": 1.7768331562167907,
+        "target_aspect_ratio": 1.7777777777777777,
+        "aspect_ratio_delta": 0.0009446215609869579,
+        "ideal_target_height_at_fixed_target_width": 1152.6124401913876,
+        "target_height_rounding_error_pixels": 0.6124401913875772,
+        "one_pixel_rounding_tolerance": 1.0,
+        "within_one_pixel_rounding_tolerance": true,
+        "whole_canvas": true,
+        "resampling": "Pillow Image.Resampling.LANCZOS",
+        "crop": false,
+        "padding": false,
+        "canvas_extension": false,
+        "local_retouch": false,
+        "seam_blend": false,
+        "ai_upscale": false,
+        "rederived_prior_pixel_exact": true
+      },
+      "prior": {
+        "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_screen_b_prior_2048x1152.png",
+        "dimensions": [
+          2048,
+          1152
+        ],
+        "mode": "RGB",
+        "file_sha256": "e97cb28a65b13d5a6be7d788bf1f519c6e2406db1a5ac3c1374a49e043191a0e",
+        "pixel_sha256": "8ea32f19c4fd54bdf4b2649d039caf5d41df3678a3533a4011f8a4057f5dcf50"
+      },
+      "prior_to_final": {
+        "label": "prior production to strict per-screen 2K",
+        "source_dimensions": [
+          2048,
+          1152
+        ],
+        "target_dimensions": [
+          3640,
+          2048
+        ],
+        "source_aspect_ratio": 1.7777777777777777,
+        "target_aspect_ratio": 1.77734375,
+        "aspect_ratio_delta": 0.0004340277777776791,
+        "ideal_target_height_at_fixed_target_width": 2047.5,
+        "target_height_rounding_error_pixels": 0.5,
+        "one_pixel_rounding_tolerance": 1.0,
+        "within_one_pixel_rounding_tolerance": true,
+        "whole_canvas": true,
+        "resampling": "Pillow Image.Resampling.LANCZOS",
+        "crop": false,
+        "padding": false,
+        "canvas_extension": false,
+        "local_retouch": false,
+        "seam_blend": false,
+        "ai_upscale": false
+      },
+      "final": {
+        "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_screen_b_final_3640x2048.png",
+        "dimensions": [
+          3640,
+          2048
+        ],
+        "mode": "RGB",
+        "file_sha256": "60c3e6d136963de7719aca88b7516d0ac461c47ee6deabd3c482539c78e5ea84",
+        "pixel_sha256": "079ac72a516e27c4b33650baea22b35bc257eb990ad677432b12b5ce6e8b40bc"
+      }
+    }
+  },
+  "panorama": {
+    "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_main_hall_panorama_7280x2048.png",
+    "dimensions": [
+      7280,
+      2048
+    ],
+    "mode": "RGB",
+    "file_sha256": "4dabe98f5e7a7ffb534e5aea6bd202f5c76ec675d40a328935517d4ed1f5417d",
+    "pixel_sha256": "8cebc208e4bab227e7e76a66ffae94fb9f73009e79497ade0d3fa3ae33930683"
+  },
+  "stitch": {
+    "operation": "lossless side-by-side paste",
+    "screen_a_rectangle": [
+      0,
+      0,
+      3640,
+      2048
+    ],
+    "screen_b_rectangle": [
+      3640,
+      0,
+      7280,
+      2048
+    ],
+    "screen_boundary_x": 3640,
+    "scaling": false,
+    "overlap": false,
+    "gap": false
+  },
+  "runtime_grid": {
+    "rows": 2,
+    "columns": 8,
+    "tile_count": 16,
+    "column_widths": [
+      910,
+      910,
+      910,
+      910,
+      910,
+      910,
+      910,
+      910
+    ],
+    "row_heights": [
+      1024,
+      1024
+    ],
+    "column_bounds": [
+      0,
+      910,
+      1820,
+      2730,
+      3640,
+      4550,
+      5460,
+      6370,
+      7280
+    ],
+    "row_bounds": [
+      0,
+      1024,
+      2048
+    ],
+    "screen_boundary_after_column": 3,
+    "screen_boundary_x": 3640,
+    "screen_boundary_exact": true,
+    "tiles_non_overlapping": true,
+    "tiles_lossless": true,
+    "all_tiles_within_1024_long_edge": true
+  },
+  "tiles": [
+    {
+      "row": 0,
+      "column": 0,
+      "screen": "A",
+      "screen_local_column": 0,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r0_c0.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "f12bc1362e6a713ef5277ea98746beaa613f80880f00a4f0f270d0ac1b57ccc4",
+      "pixel_sha256": "a27e3dcb304d36cf8f96ace9d0b34729ddb899c8d352cfdf6ec77e887bd52571",
+      "panorama_source_rectangle": [
+        0,
+        0,
+        910,
+        1024
+      ],
+      "screen_source_rectangle": [
+        0,
+        0,
+        910,
+        1024
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "screen": "A",
+      "screen_local_column": 1,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r0_c1.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "e3e9461642beb898efd18dea91cbd3bab09ebcbdfa535bd0e9ea6a0396755450",
+      "pixel_sha256": "1bc77ad1c30a1b052271ddfada74974ee6cf748464dbc24b670794b2122cf9ed",
+      "panorama_source_rectangle": [
+        910,
+        0,
+        1820,
+        1024
+      ],
+      "screen_source_rectangle": [
+        910,
+        0,
+        1820,
+        1024
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "screen": "A",
+      "screen_local_column": 2,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r0_c2.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "b83ec4abffcc06346a409453b900383f51891bacba3913d4309d95ed0e51dc15",
+      "pixel_sha256": "cafaa1d5e009333080096815c908a6c73e1a407ff89ac2a587982c377673b212",
+      "panorama_source_rectangle": [
+        1820,
+        0,
+        2730,
+        1024
+      ],
+      "screen_source_rectangle": [
+        1820,
+        0,
+        2730,
+        1024
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "screen": "A",
+      "screen_local_column": 3,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r0_c3.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "fba893180eabc4224a3e66676c1f047510c8ff3c3d9c1c7c1860ea68403e8e82",
+      "pixel_sha256": "239fc1aa4e754d92ae8c0f69a4cd27e49a113f62ead55497672d65ccadad3ef6",
+      "panorama_source_rectangle": [
+        2730,
+        0,
+        3640,
+        1024
+      ],
+      "screen_source_rectangle": [
+        2730,
+        0,
+        3640,
+        1024
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "screen": "B",
+      "screen_local_column": 0,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r0_c4.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "6f35e4e929afa848af3f8781ffe900be7b9ca366bbcc42fbb20c860869579c9f",
+      "pixel_sha256": "222e8a43b4250ceb0b62e2cc6457808c1fa6c28e8b52a15d1759146ed8524fcc",
+      "panorama_source_rectangle": [
+        3640,
+        0,
+        4550,
+        1024
+      ],
+      "screen_source_rectangle": [
+        0,
+        0,
+        910,
+        1024
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "screen": "B",
+      "screen_local_column": 1,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r0_c5.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "8defe170903acc4833d7d7e348ccebd3b871d557128b4ce4878f2fc38143b4b1",
+      "pixel_sha256": "672d3d9df72cb76c019e8ae887af138b1aec94a7e42afd42415245edd6b2c1e3",
+      "panorama_source_rectangle": [
+        4550,
+        0,
+        5460,
+        1024
+      ],
+      "screen_source_rectangle": [
+        910,
+        0,
+        1820,
+        1024
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 0,
+      "column": 6,
+      "screen": "B",
+      "screen_local_column": 2,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r0_c6.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "db6b05b43a9cf5ce13ee08a56d26f2f5d8bf5c43edb733a2f485b54b2ba0b8ea",
+      "pixel_sha256": "b411879d0c51996f3cb7dbbf467eb3cefa3a8f44f8654d7ba0ba5aff5a2a7517",
+      "panorama_source_rectangle": [
+        5460,
+        0,
+        6370,
+        1024
+      ],
+      "screen_source_rectangle": [
+        1820,
+        0,
+        2730,
+        1024
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 0,
+      "column": 7,
+      "screen": "B",
+      "screen_local_column": 3,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r0_c7.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "1b807ca60966d9a2659bec3e3fc17483cc3ae6f363c8f6bcb45450425c148bf7",
+      "pixel_sha256": "956c02033288269591276245206b7fde8d30c2375f5c9a589d549a6ce60acb19",
+      "panorama_source_rectangle": [
+        6370,
+        0,
+        7280,
+        1024
+      ],
+      "screen_source_rectangle": [
+        2730,
+        0,
+        3640,
+        1024
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "screen": "A",
+      "screen_local_column": 0,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r1_c0.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "17f7143ff44568d60c0fdb4ce09edce0d1a41b68d68bfc31bca91fbede127311",
+      "pixel_sha256": "74029a72782266d890bc0bd2cc096f46114d27fb6f3b5a6d416194cdebe6b053",
+      "panorama_source_rectangle": [
+        0,
+        1024,
+        910,
+        2048
+      ],
+      "screen_source_rectangle": [
+        0,
+        1024,
+        910,
+        2048
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "screen": "A",
+      "screen_local_column": 1,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r1_c1.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "b509f6a997d0e3cdff588b663050c90876e2c0aed582b2c909ee8c175100add8",
+      "pixel_sha256": "d6760ebae1041ba35c484a648e3948980538ef2f282132ae2fb50faa1e41845e",
+      "panorama_source_rectangle": [
+        910,
+        1024,
+        1820,
+        2048
+      ],
+      "screen_source_rectangle": [
+        910,
+        1024,
+        1820,
+        2048
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "screen": "A",
+      "screen_local_column": 2,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r1_c2.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "d6b47430a5497a69b2fedcb85b41549ffa0a11b7f76c3dd06b5ab238d3079d93",
+      "pixel_sha256": "4847fecbbdb43e94d0d0e3551521b3d4edbfbf6f19eef08c8dd6167e6cba9390",
+      "panorama_source_rectangle": [
+        1820,
+        1024,
+        2730,
+        2048
+      ],
+      "screen_source_rectangle": [
+        1820,
+        1024,
+        2730,
+        2048
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "screen": "A",
+      "screen_local_column": 3,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r1_c3.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "39cd2d74bf5811e3e37fa042fc41320343738e66f998a658d66a03b89d0ad6f9",
+      "pixel_sha256": "3bab943a118c91fdb924c23d0f1d1f00c20891b9d512af535ab9c8669e02a8d8",
+      "panorama_source_rectangle": [
+        2730,
+        1024,
+        3640,
+        2048
+      ],
+      "screen_source_rectangle": [
+        2730,
+        1024,
+        3640,
+        2048
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "screen": "B",
+      "screen_local_column": 0,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r1_c4.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "a1a7666c30b77055d33110e1cd9ccf0b4cfd5b21711f1dd9daa8a2a60c69f97d",
+      "pixel_sha256": "4935291433b4cbe28bfb72cf54b962655d4a14b8283986487d30e019b95691d1",
+      "panorama_source_rectangle": [
+        3640,
+        1024,
+        4550,
+        2048
+      ],
+      "screen_source_rectangle": [
+        0,
+        1024,
+        910,
+        2048
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "screen": "B",
+      "screen_local_column": 1,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r1_c5.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "1a43631c7df7da45f328ff1150e2eee2f21244e422261a2aeb6c0ae38429b5ab",
+      "pixel_sha256": "787d59891bbf64ad03dfdf60c3eff1832e6508960b210f4d7b1e8fede9cdaf30",
+      "panorama_source_rectangle": [
+        4550,
+        1024,
+        5460,
+        2048
+      ],
+      "screen_source_rectangle": [
+        910,
+        1024,
+        1820,
+        2048
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 1,
+      "column": 6,
+      "screen": "B",
+      "screen_local_column": 2,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r1_c6.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "40177889f2b4cebe5ae77f03d778300da603fc6ee5504d5d0877cf1c6fc0565f",
+      "pixel_sha256": "81fabcb7ebe3490e7c7b5e6688632dfb61afafe14c3cc7e7480b7bc09fe3519f",
+      "panorama_source_rectangle": [
+        5460,
+        1024,
+        6370,
+        2048
+      ],
+      "screen_source_rectangle": [
+        1820,
+        1024,
+        2730,
+        2048
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    },
+    {
+      "row": 1,
+      "column": 7,
+      "screen": "B",
+      "screen_local_column": 3,
+      "path": "assets_src/imagegen/day_one_main_hall_environment_2026-08-28/dirty_v2_build/dirty_tiles/dirty_main_hall_day_one_r1_c7.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "file_sha256": "99325addea93a759aa2987e4d9ddc425c91993d6029f15be1d0b29ef93a75dae",
+      "pixel_sha256": "9be425145195eb565fcca0a99235bbeba85890209ed3f73e4257248bb0ca92fc",
+      "panorama_source_rectangle": [
+        6370,
+        1024,
+        7280,
+        2048
+      ],
+      "screen_source_rectangle": [
+        2730,
+        1024,
+        3640,
+        2048
+      ],
+      "long_edge": 1024,
+      "runtime_long_edge_within_1024_limit": true
+    }
+  ]
+}
