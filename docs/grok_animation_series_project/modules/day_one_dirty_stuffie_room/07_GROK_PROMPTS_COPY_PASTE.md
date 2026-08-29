@@ -12,8 +12,9 @@ screen-left entrance, correct bag-free Baby Eagle references, Storyboard A's
 three-bunny count and reveal order, Storyboard B's four-bunny basket origins
 and two-light/two-floor split, the harmless wing-gust resolution, 15-second
 maximum and audio-off delivery. Warn before generation if a required authority
-is missing. Never use assets/book/baby_eagle.png or the Boss Dust Bunny as a
-substitute for the small Playroom Dust Bunnies.
+is missing. Never use assets/book/baby_eagle.png, Boss Dust Bunny, Rainbow Dust
+Bunny, Little Grey, Lavender Mini or any invented color-coded variant as a
+substitute for the one approved small lavender Playroom Dust Bunny family.
 ```
 
 ## Storyboard A anchor A01 — dirty entry composition
@@ -164,7 +165,9 @@ two: one arcs toward the center light and one toward the right open floor lane.
 Stagger positions enough that a preschool viewer can count all four. The right
 light stays empty. Baby Eagle and Roshan remain clear and do not overlap a
 bunny trajectory. No fifth bunny, former wing bunny, hidden background bunny,
-moving landmark, text, UI, photorealism, 3D or pasted sprite.
+moving landmark, text, UI, photorealism, 3D or pasted sprite. All four are
+individual actors from the same approved lavender Playroom Dust Bunny family;
+do not create or substitute Boss, Rainbow, Grey or Mini variants.
 ```
 
 ## Storyboard B anchor B03 — wing-blast silhouette

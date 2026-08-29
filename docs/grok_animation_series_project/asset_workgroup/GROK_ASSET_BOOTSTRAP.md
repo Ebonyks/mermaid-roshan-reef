@@ -7,7 +7,7 @@ https://github.com/Ebonyks/mermaid-roshan-reef/tree/codex/grok-animation-series-
 
 Do not crawl the entire game repository and do not attempt to download every file into conversational context. Read asset_workgroup/README.md and WORKGROUP_MANIFEST.json first.
 
-The four downloadable workgroups are:
+The five downloadable workgroups are:
 01_CHARACTER_LIBRARY.zip — current canonical cast identities and motion records, including Ember King and Ember Prince.
 02_SKY_LAGOON_LOCATION.zip — Sky Lagoon, castle, panorama, airplane, and style authority.
 03_PNW_FULL_2D_PACK.zip — the complete accepted 2D Pacific Northwest flora and fauna reference family.

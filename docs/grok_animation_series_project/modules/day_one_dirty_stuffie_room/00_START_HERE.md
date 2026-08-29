@@ -36,6 +36,7 @@ into this Grok package so the sequence does not depend on Project memory.
 11. `04_STORYBOARD_B_BASKET_WING_BLAST.md`
 12. `07_GROK_PROMPTS_COPY_PASTE.md`
 13. `08_REVIEW_GATES.md`
+14. `09_CORRECTION_AND_GITHUB_HANDOFF.md`
 
 ## Non-negotiable corrections
 
@@ -46,9 +47,12 @@ into this Grok package so the sequence does not depend on Project memory.
   reveal so Baby Eagle and every Dust Bunny stay fully visible.
 - Storyboard A contains exactly three Dust Bunnies: one on the center light and
   two playing on Baby Eagle's wings. No background, basket or floor bunnies.
-- Storyboard B contains exactly four different Dust Bunnies. All four visibly
-  come out of the two foreground baskets: two per basket. One from each basket
-  reaches a light; one from each basket lands on the floor.
+- Storyboard B contains exactly four individual Dust Bunnies from the same
+  approved lavender Playroom Dust Bunny family. All four visibly come out of
+  the two foreground baskets: two per basket. One from each basket reaches a
+  light; one from each basket lands on the floor. “Four” never means four new
+  designs: do not use Boss, Rainbow, Little Grey, Lavender Mini or any invented
+  color-coded variant.
 - Storyboard B has two light bunnies and two floor bunnies—never more, never
   fewer. The earlier wing bunnies are absent.
 - Baby Eagle's gust is playful and nonviolent. The Dust Bunnies leave as intact,
@@ -90,3 +94,5 @@ generate yet.
 - Playroom Dust Bunny: `APPROVED`
 - Stuffie Room clean geography: approved recurring location anchor
 - Human approval required for all six anchor stills before motion generation
+- Pasted external “8-video execution”: `REJECTED_NO_AUDITABLE_MEDIA`; restart
+  from the six anchors using the GitHub Project URL handoff

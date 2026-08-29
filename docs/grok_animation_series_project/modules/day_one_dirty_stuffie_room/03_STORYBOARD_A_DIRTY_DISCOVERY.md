@@ -14,6 +14,8 @@
 - Roshan enters and stays on screen-left, looking inward/right.
 - Exactly three Dust Bunnies exist throughout: one center-light swinger and two
   wing bunnies. No basket, floor or background bunnies.
+- All three are individual actors from the one approved lavender Playroom Dust
+  Bunny family. Do not substitute Boss, Rainbow or a newly invented variant.
 - Baby Eagle uses the complete bag-free pinned pose. No backpack or body crop.
 - Dirt dressing and subdued light remain unchanged across all five shots.
 - Camera cuts are authored and restrained; room geography never mirrors.

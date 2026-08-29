@@ -27,7 +27,8 @@ Grok clips remain limited to 15 seconds, but the Project itself is organized as 
 6. Use `modules/opening_flight_to_sky_lagoon/` as the first sequence module, not as the global Project definition.
 7. Use `modules/day_one_dirty_pool_rescue/` for the next Mermaid Pool animation scene. Its immutable reference links point to the exact green game commit and explicitly separate dirty-state content from visual-style authority.
 8. Use `modules/day_one_dirty_stuffie_room/` for the two separate Stuffie Room storyboards: Roshan's dirty-room discovery and Baby Eagle's clean-room basket/wing-gust resolution. The module includes exact count, staging, reference and continuity gates for both.
-9. For every new episode, duplicate `templates/SEQUENCE_MODULE_TEMPLATE.md` and create a new module folder.
+9. Give Grok the GitHub Project and module URLs from `modules/day_one_dirty_stuffie_room/09_CORRECTION_AND_GITHUB_HANDOFF.md`. Do not accept invented substitute characters when a relative path fails.
+10. For every new episode, duplicate `templates/SEQUENCE_MODULE_TEMPLATE.md` and create a new module folder.
 
 ## Folder map
 

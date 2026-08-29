@@ -17,6 +17,8 @@
 - The prior three Dust Bunnies are absent.
 - Exactly four new Dust Bunnies emerge, all from the two foreground baskets:
   two from the left and two from the right.
+- All four share the approved lavender Playroom Dust Bunny identity. The motion
+  references are poses, not separate Boss/Rainbow/Grey/Mini character designs.
 - Final distribution before the gust: one bunny on left light, one on center
   light, one on left floor lane and one on right floor lane.
 - All four leave in Baby Eagle's single safe gust. None returns in the resolve.

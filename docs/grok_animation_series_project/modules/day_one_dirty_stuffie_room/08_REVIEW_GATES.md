@@ -33,6 +33,8 @@ is accepted. Mark every attempt `APPROVED`, `REVIEW` or `REJECT` with a reason.
 ## Gate 4 — Storyboard A count and order
 
 - Exactly three Dust Bunnies exist: one center-light swinger, two wing bunnies.
+- All three share the approved small lavender Playroom Dust Bunny identity;
+  Boss, Rainbow and invented Grey/Mini variants are automatic rejection.
 - Roshan enters → reacts → sees light swinger → redirects gaze downward → sees
   Baby Eagle. Do not reveal Baby Eagle first or combine all beats into one shot.
 - Left and right ceiling lights are empty.
@@ -42,6 +44,8 @@ is accepted. Mark every attempt `APPROVED`, `REVIEW` or `REJECT` with a reason.
 ## Gate 5 — Storyboard B origin, count and distribution
 
 - Starts with zero exposed bunnies and no prior wing/light bunnies.
+- All four new actors share the approved small lavender Playroom Dust Bunny
+  identity. Pose sheets never authorize four separate character designs.
 - Left basket wiggles, right basket answers, then exactly four emerge.
 - Exactly two bunnies originate from each basket.
 - One left-basket bunny reaches left light; one reaches left floor lane.
