@@ -7200,7 +7200,8 @@ func _on_day_one_bathroom_supply_hunt_completed() -> void:
 
 func _on_day_one_bathroom_finale_started() -> void:
 	# Reveal the untouched approved clean room underneath the separate dirty
-	# full-frame plate while the fixture sparkles mask the short crossfade.
+	# full-frame plate while the fixture-associated sparkle effects mask the
+	# short crossfade.
 	if _day_one_bathroom_cleanup != null \
 			and is_instance_valid(_day_one_bathroom_cleanup):
 		_day_one_bathroom_cleanup.reveal_clean_room()
