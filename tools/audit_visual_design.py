@@ -3,10 +3,12 @@
 
 Why this exists
 ---------------
-The game is authored and shipped as polished Canvas-based 2D storybook art.
-The final 2026-08-09 owner decision makes every executable Godot 3D staging
-class or active 3D model-resource load migration debt, never acceptable
-evidence for a visual check. The current design
+The game is authored and shipped as polished fixed-view 2.5D storybook art.
+World artwork is raster imagery on Sprite3D/AnimatedSprite3D cards; Canvas is
+reserved for UI, safe-band overlays, touch feedback, cinematics, and registered
+legacy exceptions. A declared projection is immutable, ordinary cameras are
+static, and wide rooms may translate X only inside audited bounds. GLB/model,
+mesh, rig, and spatial gameplay physics remain forbidden. The current design
 language still contains numeric, checkable promises — independently moving
 Canvas layers, alpha-layer overdraw budgets, state-local figure/ground
 readability, and texture legality. Written promises rot silently. This tool
@@ -106,10 +108,11 @@ WAIVABLE_DISPOSITIONS = {FAIL, REVIEW_OPEN}
 # Presentations whose source art can be triaged as a painted stack. The legacy
 # row remains in this set only so its source images receive risk triage; it is
 # not an accepted runtime presentation.
-FLAT_PRESENTATIONS = {
+FIXED_VIEW_PRESENTATIONS = {
     "panning_depth_cards", "fixed_depth_cards", "overhead_canvas",
     "legacy_3d_debt",
 }
+FLAT_PRESENTATIONS = FIXED_VIEW_PRESENTATIONS
 
 # The parallax/occlusion rules are specific to the side-on promenade: it is the
 # only presentation where the camera pans across a set and the player moves
@@ -197,6 +200,9 @@ CANVAS_STAGE_TYPES = (
     "CanvasItem", "CanvasLayer", "Node2D", "Sprite2D", "Parallax2D",
     "TextureRect", "Control", "Camera2D",
 )
+SPRITE3D_STAGE_TYPES = (
+    "Node3D", "Sprite3D", "AnimatedSprite3D", "Camera3D",
+)
 
 RUNTIME_EVIDENCE_SCHEMA = 2
 RUNTIME_EVIDENCE_FILES = {
@@ -206,7 +212,7 @@ RUNTIME_EVIDENCE_FILES = {
     "project": "project.godot",
     "main_script": "scripts/main.gd",
     "player_script": "scripts/player.gd",
-    "game_2d_taxonomy": "tools/audit_game_2d.py",
+    "fixed_view_25d_contract": "tools/audit_fixed_view_25d.py",
     "auditor": "tools/audit_visual_design.py",
 }
 RENDERED_DIFF_METHOD = "visible_minus_target_hidden_rgba8_exact_v1"
@@ -1269,6 +1275,8 @@ def builder_stage_evidence(zone: "Zone") -> dict:
     elif missing or zone_missing or unresolved_dynamic_types \
             or unresolved_references or zone_unresolved_references:
         backend = "unknown"
+    elif re.search(r"\b(?:Sprite3D|AnimatedSprite3D)\b", zone_code):
+        backend = "sprite3d_25d"
     elif canvas:
         backend = "canvas_2d"
     else:
@@ -1951,11 +1959,11 @@ def _texture_budget(zone: Zone) -> Iterator[Finding]:
 
 @check("layering.legacy_3d_debt", "layering", "layering_rule")
 def _legacy_3d_debt(zone: Zone) -> Iterator[Finding]:
-    """Every active builder is free of executable Godot 3D staging debt."""
+    """Require the declared fixed-view medium, preserving legacy inventory."""
     if zone.lifecycle != "active_shipped":
         yield Finding(
             "layering.legacy_3d_debt", zone.id, INFO,
-            "3D staging debt is outside the active shipped lifecycle",
+            "fixed-view staging is outside the active shipped lifecycle",
             disposition=NOT_APPLICABLE,
         )
         return
@@ -1964,33 +1972,38 @@ def _legacy_3d_debt(zone: Zone) -> Iterator[Finding]:
         yield Finding(
             "layering.legacy_3d_debt", zone.id, SKIP,
             "active surface has no readable declared builder source, so game-wide "
-            "2D staging cannot be confirmed",
+            "fixed-view staging cannot be confirmed",
             evidence=source,
         )
         return
-    if source["backend"] == "unknown" and zone.presentation != "legacy_3d_debt":
+    if source["backend"] == "unknown":
         yield Finding(
             "layering.legacy_3d_debt", zone.id, SKIP,
-            "active builder has neither forbidden 3D evidence nor positive Canvas "
-            "staging evidence; the game-wide 2D source gate cannot confirm it",
+            "active builder has neither Sprite3D nor registered Canvas exception "
+            "evidence; the fixed-view source gate cannot confirm it",
             evidence=source,
         )
         return
-    if source["backend"] == "canvas_2d" and zone.presentation != "legacy_3d_debt":
+    if source["backend"] == "sprite3d_25d":
         yield Finding(
             "layering.legacy_3d_debt", zone.id, INFO,
-            "active builder source contains Canvas staging and no executable Godot "
-            "3D class or active 3D resource load",
+            "active builder source contains fixed-view Sprite3D staging",
             evidence=source,
+        )
+        return
+    if source["backend"] == "canvas_2d":
+        yield Finding(
+            "layering.legacy_3d_debt", zone.id, WARN,
+            "active builder still uses Canvas staging; migrate world cards to "
+            "Sprite3D or register a scoped Canvas exception",
+            evidence=source,
+            disposition=REVIEW_OPEN,
         )
         return
     yield Finding(
         "layering.legacy_3d_debt", zone.id, ERROR,
-        "active surface contains or is explicitly classified as 3D staging debt; "
-        "every class/resource/API identified by the canonical game-wide 2D "
-        "taxonomy, low-level spatial RID call, SideScrollStage, and active model "
-        "load must migrate to live Canvas before the game-wide master "
-        "audit can close",
+        "active surface contains forbidden model/mesh/physics staging; remove it "
+        "before the fixed-view 2.5D audit can close",
         evidence={"presentation": zone.presentation, "source": source,
                   "target_presentation": zone.raw.get("target_presentation", "canvas")},
     )
@@ -3233,7 +3246,7 @@ def _rendered_sample_metrics(zone: Zone, state: dict, sample: dict) -> tuple[dic
 
 def _complete_rendered_readability_pass(zone: Zone) -> bool:
     """True only for current rendered evidence from a pure live Canvas stage."""
-    if builder_stage_evidence(zone).get("backend") != "canvas_2d" \
+    if builder_stage_evidence(zone).get("backend") not in {"canvas_2d", "sprite3d_25d"} \
             or zone.presentation == "legacy_3d_debt":
         return False
     facts = zone.runtime_facts()
