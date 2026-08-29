@@ -39,6 +39,7 @@ into this Grok package so the sequence does not depend on Project memory.
 13. `08_REVIEW_GATES.md`
 14. `09_CORRECTION_AND_GITHUB_HANDOFF.md`
 15. `10_PERSPECTIVE_TRANSITION_SHOTS.md`
+16. `11_IMAGINE_V2_STORYBOARD_HANDOFF.md`
 
 ## Non-negotiable corrections
 
@@ -92,16 +93,17 @@ generate yet.
 
 ## Module state
 
-- Handoff status: `READY_FOR_ANCHOR_GENERATION`
+- Handoff status: `ARCHIVE_BUILT_GENERATION_BLOCKED`
 - Game source: commit `2d5acdb8`
-- Storyboard A: `PLANNED`, five shots, approximately 20 seconds assembled
-- Storyboard B: `PLANNED`, six shots, approximately 28 seconds assembled
+- Storyboard A V2: six narrative shots, approximately 20 seconds assembled
+- Storyboard B V2: seven narrative shots, approximately 26 seconds assembled
 - Baby Eagle: `APPROVED_PRIVATE_CANON`
 - Playroom Dust Bunny: `APPROVED`
 - Stuffie Room dirty geography: approved pre-gust location-state anchor
 - Stuffie Room clean geography: approved final post-gust location-state anchor
 - Dirty perspective set: ten generated character-free candidates; human review
   required before any becomes a motion continuity authority
-- Human approval required for all six anchor stills before motion generation
+- Human approval required for one complete clean first frame per shot before
+  any of the thirteen Grok motion-reference jobs becomes generation-ready
 - Pasted external “8-video execution”: `REJECTED_NO_AUDITABLE_MEDIA`; restart
   from the six anchors using the GitHub Project URL handoff

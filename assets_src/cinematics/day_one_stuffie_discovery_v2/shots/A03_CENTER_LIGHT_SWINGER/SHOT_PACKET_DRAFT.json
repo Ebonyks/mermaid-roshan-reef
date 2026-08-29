@@ -1,0 +1,52 @@
+{
+  "schema": "imagine-shot-packet-draft-v1",
+  "movie_id": "SQ030_DIRTY_DISCOVERY_V2",
+  "shot_id": "A03_CENTER_LIGHT_SWINGER",
+  "status": "DRAFT",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "handoff_art/P07_STUFFIE_ROOM_DIRTY_ANGLE_07_CENTER_LIGHT.png",
+      "sha256": "39df32fce3c4e909fd0dac9acdc5bfdfcd106065842a6888ee547183a2913c28",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "handoff_art/ROSHAN_ROSHAN_FRONT_IDENTITY.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "handoff_art/BUNNY_LIGHT_MOTION_LIGHT_SWING.png",
+      "sha256": "d588c403b98ecb79cea483e7e013fdae757091e3f3aefcfd90dd1bb8a3df238a",
+      "hud_present": false,
+      "human_decision": "pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "end_state": "One bunny hangs under the center light while Roshan looks up.",
+  "prompt_path": "shots/A03_CENTER_LIGHT_SWINGER/PROMPT.txt",
+  "prompt_sha256": "e14083f43d0f52a7457d311d90e349cb46eb9deeb793119016e4ae5b2b210784",
+  "blocking_findings": [
+    "IMAGE_1 is a layout candidate, not an owner-approved complete first frame",
+    "all bound references require GitHub-open and human acceptance",
+    "materialize SHOT_PACKET.json only after both findings are cleared"
+  ]
+}

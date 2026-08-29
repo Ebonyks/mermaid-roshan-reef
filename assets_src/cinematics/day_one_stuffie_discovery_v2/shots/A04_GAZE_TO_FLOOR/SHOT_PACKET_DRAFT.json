@@ -1,0 +1,52 @@
+{
+  "schema": "imagine-shot-packet-draft-v1",
+  "movie_id": "SQ030_DIRTY_DISCOVERY_V2",
+  "shot_id": "A04_GAZE_TO_FLOOR",
+  "status": "DRAFT",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "handoff_art/P03_STUFFIE_ROOM_DIRTY_ANGLE_03_LOW_FLOOR.png",
+      "sha256": "439d136b9b253169eab5e6cb61a084291a8a71f1d65b0adeca53cb700e36298e",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "handoff_art/ROSHAN_ROSHAN_FRONT_IDENTITY.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "handoff_art/EAGLE_PINNED_BABY_EAGLE_PINNED_STATE.png",
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "hud_present": false,
+      "human_decision": "pending"
+    }
+  ],
+  "camera": {
+    "verb": "gentle tilt down",
+    "move_count": 1
+  },
+  "end_state": "Roshan looks down toward Baby Eagle just beyond frame-right.",
+  "prompt_path": "shots/A04_GAZE_TO_FLOOR/PROMPT.txt",
+  "prompt_sha256": "d8c357636a73f89a5f7f99238367f466c8d0a31500dac58519257489e1cb17ff",
+  "blocking_findings": [
+    "IMAGE_1 is a layout candidate, not an owner-approved complete first frame",
+    "all bound references require GitHub-open and human acceptance",
+    "materialize SHOT_PACKET.json only after both findings are cleared"
+  ]
+}

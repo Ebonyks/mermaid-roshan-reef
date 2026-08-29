@@ -1,0 +1,52 @@
+{
+  "schema": "imagine-shot-packet-draft-v1",
+  "movie_id": "SQ030_DIRTY_DISCOVERY_V2",
+  "shot_id": "A05_PINNED_EAGLE_REVEAL",
+  "status": "DRAFT",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "handoff_art/P10_STUFFIE_ROOM_DIRTY_ANGLE_10_REAR_RIGHT.png",
+      "sha256": "9902f6786998640ef1522aece30dd3b558420c26770970275d7427561ce0a11f",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "handoff_art/EAGLE_PINNED_BABY_EAGLE_PINNED_STATE.png",
+      "sha256": "dab2d2cd9c89d1b74def2cb9ef6e4adb0930deb7099dde1f457309665690a0ac",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "handoff_art/BUNNY_HOP_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "hud_present": false,
+      "human_decision": "pending"
+    }
+  ],
+  "camera": {
+    "verb": "slow push-in",
+    "move_count": 1
+  },
+  "end_state": "Baby Eagle remains safe with one bunny on each wing.",
+  "prompt_path": "shots/A05_PINNED_EAGLE_REVEAL/PROMPT.txt",
+  "prompt_sha256": "65dabb759e453e17774e37ac213ecea75fe3aa6dc083b3de8e1f46b3b2f282bb",
+  "blocking_findings": [
+    "IMAGE_1 is a layout candidate, not an owner-approved complete first frame",
+    "all bound references require GitHub-open and human acceptance",
+    "materialize SHOT_PACKET.json only after both findings are cleared"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "imagine-shot-packet-draft-v1",
+  "movie_id": "SQ030_DIRTY_DISCOVERY_V2",
+  "shot_id": "A01_ROSHAN_ENTERS",
+  "status": "DRAFT",
+  "duration_seconds": 4,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "handoff_art/P01_STUFFIE_ROOM_DIRTY_ANGLE_01_LEFT_DOORWAY.png",
+      "sha256": "9ce191db5ec0ce53cd38589bec2e8152eab3f86ffb4504471a7a7763f4fe134b",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "handoff_art/ROSHAN_ROSHAN_FRONT_IDENTITY.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "hud_present": false,
+      "human_decision": "pending"
+    }
+  ],
+  "camera": {
+    "verb": "slow push-in",
+    "move_count": 1
+  },
+  "end_state": "Roshan holds shocked at screen-left with the room visible.",
+  "prompt_path": "shots/A01_ROSHAN_ENTERS/PROMPT.txt",
+  "prompt_sha256": "49606ce057d8bb705294e19cdc6f9d93620dbb727a7adb2e5d94ee70b11f2ded",
+  "blocking_findings": [
+    "IMAGE_1 is a layout candidate, not an owner-approved complete first frame",
+    "all bound references require GitHub-open and human acceptance",
+    "materialize SHOT_PACKET.json only after both findings are cleared"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "imagine-shot-packet-draft-v1",
+  "movie_id": "SQ030_DIRTY_DISCOVERY_V2",
+  "shot_id": "A00_TENT_ORIENTATION",
+  "status": "DRAFT",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "handoff_art/P08_STUFFIE_ROOM_DIRTY_ANGLE_08_TENT_PEEK.png",
+      "sha256": "2d1fdfa444e9fa7adfff6b331ea8a62ffb951eebc729de3243b18d83e2534254",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "object_or_material_identity",
+      "path": "handoff_art/DIRTY_FRONT_STUFFIE_ROOM_DIRTY_GEOGRAPHY.png",
+      "sha256": "f50ae511d59f4f328d017041bef7469aadb3320ab7bd403c0c82f43a1692578b",
+      "hud_present": false,
+      "human_decision": "pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "end_state": "The empty dirty room holds with both baskets readable.",
+  "prompt_path": "shots/A00_TENT_ORIENTATION/PROMPT.txt",
+  "prompt_sha256": "71020901fe2dbfd65118f55229c7e2660c24bdb29fbee99077e59697f424f2c9",
+  "blocking_findings": [
+    "IMAGE_1 is a layout candidate, not an owner-approved complete first frame",
+    "all bound references require GitHub-open and human acceptance",
+    "materialize SHOT_PACKET.json only after both findings are cleared"
+  ]
+}

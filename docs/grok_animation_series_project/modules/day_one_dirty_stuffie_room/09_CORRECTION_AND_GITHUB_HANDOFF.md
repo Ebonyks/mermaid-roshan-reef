@@ -29,6 +29,11 @@ Restart at the six anchor stills. Do not extend any described rejected output.
 
 ## GitHub URL handoff
 
+For new generation work, read `11_IMAGINE_V2_STORYBOARD_HANDOFF.md` first. It
+replaces the older six-anchor batching with thirteen one-shot draft cards under
+the two `assets_src/cinematics/day_one_stuffie_*_v2/` packets. The generated
+boards are narrative-only and must not be uploaded as Grok pixel references.
+
 Give Grok these two URLs first:
 
 - Project root: <https://github.com/Ebonyks/mermaid-roshan-reef/tree/codex/grok-animation-series-guide/docs/grok_animation_series_project>
@@ -134,3 +139,6 @@ Generation may resume only when Grok correctly names:
 
 Only then generate anchor still `A01`. Human approval remains required before
 moving to `A02` or any video shot.
+
+The older resume gate above remains historical context. The V2 gate in
+`11_IMAGINE_V2_STORYBOARD_HANDOFF.md` is authoritative for new jobs.

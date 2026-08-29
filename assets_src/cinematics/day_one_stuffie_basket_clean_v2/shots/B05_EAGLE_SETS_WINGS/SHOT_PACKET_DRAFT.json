@@ -1,0 +1,60 @@
+{
+  "schema": "imagine-shot-packet-draft-v1",
+  "movie_id": "SQ040_BASKET_CLEAN_V2",
+  "shot_id": "B05_EAGLE_SETS_WINGS",
+  "status": "DRAFT",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "handoff_art/P01_STUFFIE_ROOM_DIRTY_ANGLE_01_LEFT_DOORWAY.png",
+      "sha256": "9ce191db5ec0ce53cd38589bec2e8152eab3f86ffb4504471a7a7763f4fe134b",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "handoff_art/EAGLE_STANDING_BABY_EAGLE_STANDING_IDENTITY.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "handoff_art/BUNNY_HOP_PLAYROOM_DUST_BUNNY_HOP_IDENTITY.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "path": "handoff_art/BUNNY_LIGHT_MOTION_LIGHT_SWING.png",
+      "sha256": "d588c403b98ecb79cea483e7e013fdae757091e3f3aefcfd90dd1bb8a3df238a",
+      "hud_present": false,
+      "human_decision": "pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "end_state": "Eagle holds both wings back against exactly four bunnies.",
+  "prompt_path": "shots/B05_EAGLE_SETS_WINGS/PROMPT.txt",
+  "prompt_sha256": "dba98224d8fff179ded7164f5c7fcb0847c6986ad6fbb89783abac4a9d7ac2e2",
+  "blocking_findings": [
+    "IMAGE_1 is a layout candidate, not an owner-approved complete first frame",
+    "all bound references require GitHub-open and human acceptance",
+    "materialize SHOT_PACKET.json only after both findings are cleared"
+  ]
+}

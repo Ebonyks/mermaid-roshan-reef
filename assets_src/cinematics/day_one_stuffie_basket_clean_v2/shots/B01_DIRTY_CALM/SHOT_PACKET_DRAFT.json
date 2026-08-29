@@ -1,0 +1,52 @@
+{
+  "schema": "imagine-shot-packet-draft-v1",
+  "movie_id": "SQ040_BASKET_CLEAN_V2",
+  "shot_id": "B01_DIRTY_CALM",
+  "status": "DRAFT",
+  "duration_seconds": 3,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "handoff_art/P02_STUFFIE_ROOM_DIRTY_ANGLE_02_RIGHT_DOORWAY.png",
+      "sha256": "312b76fc759063f94fb225096c1b77fea9c49b5b919c156d981a1302cae7e9de",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "handoff_art/ROSHAN_ROSHAN_FRONT_IDENTITY.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "hud_present": false,
+      "human_decision": "pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "subject_identity",
+      "path": "handoff_art/EAGLE_STANDING_BABY_EAGLE_STANDING_IDENTITY.png",
+      "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "hud_present": false,
+      "human_decision": "pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "end_state": "Roshan and Eagle look toward the baskets in the dirty room.",
+  "prompt_path": "shots/B01_DIRTY_CALM/PROMPT.txt",
+  "prompt_sha256": "02f4698e517b42bc390fdcd441ac12590959b2c261329e09a05d708f9a591067",
+  "blocking_findings": [
+    "IMAGE_1 is a layout candidate, not an owner-approved complete first frame",
+    "all bound references require GitHub-open and human acceptance",
+    "materialize SHOT_PACKET.json only after both findings are cleared"
+  ]
+}
