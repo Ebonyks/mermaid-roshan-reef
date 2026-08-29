@@ -1,6 +1,16 @@
 extends SceneTree
 
-const ROUTE_READY_FRAME_LIMIT := 120
+const ROUTE_READY_FRAME_LIMIT := 600
+const ROUTE_READY_TIMEOUT_MSEC := 3000
+const ROUTE_CARD_MIN_SIZE := Vector2(154.0, 154.0)
+const ROUTE_CARD_MIN_GAP := 22.0
+const ROUTE_CANVAS_RECT := Rect2(0.0, 0.0, 1280.0, 720.0)
+# Current Castle composition: the centered 270 px standee scales down to
+# 194.4 px at the shallowest route-room walk depth (foot y=390), beginning at
+# y=195.6. This deliberately wider/lower rectangle also reserves the tail and
+# contact-shadow area through the front of the walk lane.
+const ROUTE_ROSHAN_KEEP_CLEAR := Rect2(360.0, 190.0, 560.0, 490.0)
+const ROUTE_WIDE_VIEWPORT := Vector2(1600.0, 720.0)
 ## MA-OPERA-012 product-route regression.
 ##
 ## The Opera is no longer an all-career destination. Each of the thirteen
@@ -160,6 +170,8 @@ func _audit_all_room_cards() -> void:
 			await _frames(3)
 		var expected: Array[int] = CastleCareerRoutes.act_indices_for_room(room_id)
 		var actual: Array[int] = []
+		var room_card_rects: Array[Rect2] = []
+		var room_card_geometry_ok := true
 		var pictures_ok := routes.root != null and routes.root.visible \
 			and bool(routes.root.get_meta("room_owned_career_routes", false))
 		for button: Button in routes.buttons:
@@ -192,6 +204,30 @@ func _audit_all_room_cards() -> void:
 				var actor := button.get_node_or_null("RoshanActor") as TextureRect
 				var actor_frame := actor.texture as AtlasTexture \
 					if actor != null else null
+				var card_rect := Rect2(button.position, button.size)
+				var screen_hit_size := button.get_meta(
+					"screen_hit_size", Vector2.ZERO) as Vector2
+				var effective_touch_size := Vector2(
+					maxf(button.size.x, button.custom_minimum_size.x),
+					maxf(button.size.y, button.custom_minimum_size.y))
+				var wide_card_rect := _fit_stage_rect(
+					card_rect, ROUTE_WIDE_VIEWPORT)
+				var wide_keep_clear := _fit_stage_rect(
+					ROUTE_ROSHAN_KEEP_CLEAR, ROUTE_WIDE_VIEWPORT)
+				room_card_rects.append(card_rect)
+				room_card_geometry_ok = room_card_geometry_ok \
+					and ROUTE_CANVAS_RECT.encloses(card_rect) \
+					and button.size.x >= ROUTE_CARD_MIN_SIZE.x \
+					and button.size.y >= ROUTE_CARD_MIN_SIZE.y \
+					and effective_touch_size.x >= ROUTE_CARD_MIN_SIZE.x \
+					and effective_touch_size.y >= ROUTE_CARD_MIN_SIZE.y \
+					and screen_hit_size.x >= ROUTE_CARD_MIN_SIZE.x \
+					and screen_hit_size.y >= ROUTE_CARD_MIN_SIZE.y \
+					and not card_rect.intersects(
+						ROUTE_ROSHAN_KEEP_CLEAR, true) \
+					and Rect2(Vector2.ZERO, ROUTE_WIDE_VIEWPORT).encloses(
+						wide_card_rect) \
+					and not wide_card_rect.intersects(wide_keep_clear, true)
 				pictures_ok = pictures_ok and base_ok \
 					and bool(button.get_meta("picture_first", false)) \
 					and not button.disabled \
@@ -200,6 +236,19 @@ func _audit_all_room_cards() -> void:
 						"/actors/animation/roshan_")
 		_check("%s exposes its exact room-owned career pictures" % room_id,
 			actual == expected and pictures_ok)
+		if room_id != "opera_hall":
+			for card_index: int in range(1, room_card_rects.size()):
+				var previous: Rect2 = room_card_rects[card_index - 1]
+				var current: Rect2 = room_card_rects[card_index]
+				room_card_geometry_ok = room_card_geometry_ok \
+					and is_equal_approx(previous.position.y, current.position.y) \
+					and not previous.intersects(current, true) \
+					and current.position.x - previous.end.x \
+						>= ROUTE_CARD_MIN_GAP
+			_check("%s route cards stay full-size, separated and clear Roshan" \
+					% room_id,
+				room_card_rects.size() == expected.size() \
+				and room_card_geometry_ok)
 		if room_id == "opera_hall":
 			var venue := routes.opera_venue
 			var venue_ok := venue != null and venue.is_open() \
@@ -438,18 +487,26 @@ func _start_via_room_touch(room_id: String, act_index: int) -> OperaHouse:
 	if room_id == "opera_hall" and button != null:
 		var venue := routes.opera_venue
 		var target_floor := int(button.get_meta("floor_index", -1))
-		while venue != null and venue.floor_index != target_floor:
+		var lift_attempts := 0
+		while venue != null and venue.floor_index != target_floor \
+				and lift_attempts < 4:
 			var lift := venue.get_node_or_null("BubbleLift1") as Button
 			if lift == null:
 				break
+			lift_attempts += 1
 			var old_floor := venue.floor_index
 			_tap_control(lift, 140 + act_index + venue.floor_index)
-			for _wait_frame: int in range(100):
+			var lift_deadline := Time.get_ticks_msec() + 2500
+			for _wait_frame: int in range(ROUTE_READY_FRAME_LIMIT):
 				await process_frame
 				if venue.floor_index != old_floor:
 					break
+				if Time.get_ticks_msec() >= lift_deadline:
+					break
+		_check("slot %d reaches its Opera Hall venue floor" % act_index,
+			venue != null and venue.floor_index == target_floor)
 	_check("slot %d exposes its real %s picture" % [act_index, room_id],
-		button != null and button.visible and not button.disabled
+		button != null and button.is_visible_in_tree() and not button.disabled
 		and int(button.get_meta("act_index", -1)) == act_index)
 	if button == null:
 		return null
@@ -474,6 +531,7 @@ func _await_route_ready(act_index: int) -> bool:
 	# runner-dependent, so sample the production-ready state instead of assuming
 	# that four frames always outlive the tween.
 	var expected_stage := "opera.act.%02d" % act_index
+	var deadline_msec := Time.get_ticks_msec() + ROUTE_READY_TIMEOUT_MSEC
 	for _frame: int in range(ROUTE_READY_FRAME_LIMIT):
 		var fade_ready := main.fade_rect == null \
 			or (main.fade_rect.modulate.a <= 0.02 \
@@ -482,6 +540,8 @@ func _await_route_ready(act_index: int) -> bool:
 				and main.living_stage_id == expected_stage \
 				and main.living_layer != null and main.living_layer.layer == 11:
 			return true
+		if Time.get_ticks_msec() >= deadline_msec:
+			break
 		await process_frame
 	print("OPERA|route readiness evidence: act=%d stage=%s layer=%s fade=%s" % [
 		act_index,
@@ -519,6 +579,17 @@ func _control_screen_point(control: Control, local_position: Vector2) -> Vector2
 	var viewport := control.get_viewport()
 	return viewport.get_screen_transform() \
 		* (control.get_screen_transform() * local_position)
+
+
+func _fit_stage_rect(stage_rect: Rect2, viewport_size: Vector2) -> Rect2:
+	var fit_scale := minf(
+		viewport_size.x / StorybookUI.CANVAS_SIZE.x,
+		viewport_size.y / StorybookUI.CANVAS_SIZE.y)
+	var fit_offset := (
+		viewport_size - StorybookUI.CANVAS_SIZE * fit_scale) * 0.5
+	return Rect2(
+		fit_offset + stage_rect.position * fit_scale,
+		stage_rect.size * fit_scale)
 
 
 func _direct_child_ids(node: Node) -> Array[int]:

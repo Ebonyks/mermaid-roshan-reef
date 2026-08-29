@@ -10,10 +10,12 @@ const CREST_ROOT := "res://assets/opera/worlds/ui/crests/"
 const ACTOR_ROOT := "res://assets/opera/worlds/actors/"
 const CARD_SIZE := Vector2(154.0, 154.0)
 const CARD_GAP := 22.0
-# Bottom-anchored so the full touch cards clear Roshan's face and walk lane;
-# the eight-pixel floor inset keeps silhouettes readable without stealing the
-# corner movement/elevator controls.
-const CARD_Y := StorybookUI.CANVAS_SIZE.y - CARD_SIZE.y - 8.0
+# The Castle standee is 270 stage pixels tall and reaches its shallowest walk
+# depth at y=390 with a 0.72 scale, so its conservative frame begins near
+# y=196. End this centered route rail at y=172: the cards retain their full
+# touch size while leaving Roshan's face, body and tail unobscured. The fixed
+# Storybook stage preserves the same separation on expand/wide viewports.
+const CARD_Y := 18.0
 
 const ROOM_ACT_INDICES := {
 	"kitchen": [0, 3],
