@@ -26,6 +26,20 @@ controls the low sad pose only. `BUNNY_HOP` controls ordinary Dust Bunny
 identity; the other bunny images control pose/action without creating new
 species or characters.
 
+## Optional dirty perspective authorities
+
+The ten aliases `P01_LEFT_DOORWAY` through `P10_REAR_RIGHT` map to the
+normalized images under
+`../../locations/stuffie_room/perspectives_dirty/`. Exact filenames, camera
+roles and hashes are listed in that folder's `PERSPECTIVE_SET.md`.
+
+For a perspective transition, attach exactly one selected `Pxx` authority,
+the identity image for every character entering the dependent shot and the
+accepted previous ending frame when continuity requires it. Do not attach
+multiple viewpoints and ask Grok to average them. These optional angles are
+dirty-state authorities only and never replace `STUFFIE_ROOM_CLEAN` after the
+final gust.
+
 ## Explicit rejected reference
 
 Never upload or use `assets/book/baby_eagle.png`. It shows Baby Eagle packing a

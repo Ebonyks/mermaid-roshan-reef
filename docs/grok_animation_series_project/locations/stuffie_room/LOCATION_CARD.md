@@ -34,3 +34,15 @@ Do not add a bed, throne, pool, exterior view, extra toybox or fourth ceiling
 light. Keep both foreground baskets fully visible whenever their movement or
 contents matter. Architecture and fixed props do not move between state
 authorities; only dirt and small movable-toy disorder change.
+
+## Additional perspective authority
+
+The ten character-free dirty-state camera views under `perspectives_dirty/`
+establish the room's depth. The primary front wide remains the geography source
+of truth. `P09_REVERSE_ENTRANCE` establishes the otherwise unseen opposite wall:
+one broad rounded, pearl-trimmed entrance centered between the two foreground
+basket positions. This is Roshan's sole room entrance, not an extra door.
+
+Use these perspectives only before the final clean reveal. Their camera and
+transition rules are recorded in `perspectives_dirty/PERSPECTIVE_SET.md` and
+`../../modules/day_one_dirty_stuffie_room/10_PERSPECTIVE_TRANSITION_SHOTS.md`.

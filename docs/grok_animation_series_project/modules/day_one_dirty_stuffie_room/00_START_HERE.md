@@ -38,6 +38,7 @@ into this Grok package so the sequence does not depend on Project memory.
 12. `07_GROK_PROMPTS_COPY_PASTE.md`
 13. `08_REVIEW_GATES.md`
 14. `09_CORRECTION_AND_GITHUB_HANDOFF.md`
+15. `10_PERSPECTIVE_TRANSITION_SHOTS.md`
 
 ## Non-negotiable corrections
 
@@ -99,6 +100,8 @@ generate yet.
 - Playroom Dust Bunny: `APPROVED`
 - Stuffie Room dirty geography: approved pre-gust location-state anchor
 - Stuffie Room clean geography: approved final post-gust location-state anchor
+- Dirty perspective set: ten generated character-free candidates; human review
+  required before any becomes a motion continuity authority
 - Human approval required for all six anchor stills before motion generation
 - Pasted external “8-video execution”: `REJECTED_NO_AUDITABLE_MEDIA`; restart
   from the six anchors using the GitHub Project URL handoff

@@ -61,6 +61,25 @@ request a ZIP.
 9. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/STUFFIE_ROOM_DIRTY_GEOGRAPHY.png>
 10. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/STUFFIE_ROOM_CLEAN_GEOGRAPHY.png>
 
+### Ten optional dirty transition perspective authorities
+
+These support additional depth-establishing interstitial shots. They do not
+change the ten core identity/geography authorities above.
+
+1. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_01_LEFT_DOORWAY.png>
+2. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_02_RIGHT_DOORWAY.png>
+3. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_03_LOW_FLOOR.png>
+4. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_04_BALCONY.png>
+5. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_05_LEFT_BASKET.png>
+6. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_06_RIGHT_BASKET.png>
+7. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_07_CENTER_LIGHT.png>
+8. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_08_TENT_PEEK.png>
+9. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_09_REVERSE_ENTRANCE.png>
+10. <https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/locations/stuffie_room/perspectives_dirty/STUFFIE_ROOM_DIRTY_ANGLE_10_REAR_RIGHT.png>
+
+Perspective design and motion use:
+<https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/grok-animation-series-guide/docs/grok_animation_series_project/modules/day_one_dirty_stuffie_room/10_PERSPECTIVE_TRANSITION_SHOTS.md>
+
 ## Paste into the Grok Project sequence chat
 
 ```text
