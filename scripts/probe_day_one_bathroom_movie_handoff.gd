@@ -16,6 +16,36 @@ class SaveWriter:
 
 
 func _init() -> void:
+	var handoff_source: String = FileAccess.get_file_as_string(
+		"res://scripts/day_one_bathroom_movie_handoff.gd")
+	var main_source: String = FileAccess.get_file_as_string(
+		"res://scripts/main.gd")
+	var completion_start: int = main_source.find(
+		"func day_one_complete_bathroom_scene()")
+	var completion_source: String = main_source.substr(completion_start) \
+		if completion_start >= 0 else ""
+	var save_order: int = completion_source.find("_write_save()")
+	var handoff_order: int = completion_source.find(
+		"_start_day_one_bathroom_movie_handoff()")
+	_check("movie seam is wired after bathroom completion save",
+		save_order >= 0 and handoff_order > save_order
+		and completion_source.contains("director.is_room_completed(\"bathroom\")"))
+	_check("future movie is an optional full-frame Canvas2D overlay",
+		handoff_source.contains("VideoStreamPlayer.new()")
+		and handoff_source.contains("Control.PRESET_FULL_RECT")
+		and handoff_source.contains("player_active"))
+	_check("movie path is an additive contract, not a delivered asset",
+		handoff_source.contains("DEFAULT_MOVIE_PATH")
+		and handoff_source.contains("ResourceLoader.exists(movie_path)")
+		and not ResourceLoader.exists(HANDOFF.DEFAULT_MOVIE_PATH))
+	var marker_position: int = handoff_source.find(
+		"HANDOFF_SAVE_KEY] = true")
+	var marker_save_position: int = handoff_source.find(
+		"_flush_save()", marker_position)
+	var play_position: int = handoff_source.find("_play(stream)")
+	_check("handoff marker is committed before playback",
+		marker_position >= 0 and marker_save_position > marker_position
+		and play_position > marker_save_position)
 	_check("absent movie uses the approved future path hook",
 		HANDOFF.normalise_movie_path("") == HANDOFF.DEFAULT_MOVIE_PATH
 		and HANDOFF.is_movie_candidate_path(HANDOFF.DEFAULT_MOVIE_PATH)
@@ -29,6 +59,9 @@ func _init() -> void:
 
 	var main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = main._day_one_ref()
+	director.bathroom_supply_hunt_step = 2
+	director.bathroom_tools_authorized = true
+	director.bathroom_cleanup_step = 2
 	director.complete_tutorial("bathroom")
 	var fallback: DayOneBathroomMovieHandoff = HANDOFF.new() \
 		as DayOneBathroomMovieHandoff
@@ -48,6 +81,9 @@ func _init() -> void:
 
 	var interrupted_main: ReefMain = ReefMain.new()
 	var interrupted_director: DayOneDirector = interrupted_main._day_one_ref()
+	interrupted_director.bathroom_supply_hunt_step = 2
+	interrupted_director.bathroom_tools_authorized = true
+	interrupted_director.bathroom_cleanup_step = 2
 	interrupted_director.complete_tutorial("bathroom")
 	var writer := SaveWriter.new()
 	var interrupted: DayOneBathroomMovieHandoff = HANDOFF.new() \

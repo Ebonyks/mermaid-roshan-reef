@@ -26,7 +26,7 @@ var checks_failed: int = 0
 
 func _init() -> void:
 	var main := ReefMain.new()
-	var director: DayOneDirector = DIRECTOR_SCRIPT.new(main) as DayOneDirector
+	var director: DayOneDirector = main._day_one_ref()
 	_check("bathroom rescue is the first playable room",
 		director.current_room_id == "bathroom"
 		and director.unlocked_room_ids() == ["bathroom"]
@@ -40,8 +40,7 @@ func _init() -> void:
 		int(mid_rescue_save.get("day_one_bathroom_supply_hunt_step", -1)) == 1)
 
 	var restored_main := ReefMain.new()
-	var restored: DayOneDirector = DIRECTOR_SCRIPT.new(restored_main) \
-		as DayOneDirector
+	var restored: DayOneDirector = restored_main._day_one_ref()
 	restored.restore_state(mid_rescue_save)
 	_check("mid-rescue progress restores without unlocking the pool",
 		restored_main.day_one_bathroom_cleanup_step == 2
@@ -54,8 +53,10 @@ func _init() -> void:
 		and restored.current_room_id == "bathroom"
 		and not restored.can_enter_room("pool"))
 	restored_main.day_one_bathroom_supply_hunt_step = 2
+	restored_main.day_one_bathroom_tools_authorized = true
+	var bathroom_completed: bool = restored.complete_tutorial("bathroom")
 	_check("bathroom completion unlocks the pool after both gestures",
-		restored.complete_tutorial("bathroom")
+		bathroom_completed
 		and restored_main.day_one_bathroom_cleanup_step == 3
 		and restored.current_room_id == "pool"
 		and restored.can_enter_room("bathroom")
@@ -107,6 +108,39 @@ func _probe_wiring() -> void:
 			var token: String = String(token_value)
 			_check("wired %s -> %s" % [path.get_file(), token],
 				source.contains(token))
+	var main_source: String = FileAccess.get_file_as_string(
+		"res://scripts/main.gd")
+	var completion_start: int = main_source.find(
+		"func day_one_complete_bathroom_scene()")
+	var completion_source: String = main_source.substr(completion_start) \
+		if completion_start >= 0 else ""
+	var save_order: int = completion_source.find("_write_save()")
+	var movie_order: int = completion_source.find(
+		"_start_day_one_bathroom_movie_handoff()")
+	_check("bathroom entry automatically builds the dirty rescue",
+		main_source.contains("not day_one_castle_room_is_clean(\"bubble_bath\")")
+		and main_source.contains("DayOneBathroomCleanupLogic.new()"))
+	_check("clean rescue emits whole-room sparkle and pool pointer seam",
+		main_source.contains("_day_one_sync_castle_dressing()")
+		and main_source.contains("_burst(\"✦\""))
+	_check("pool route uses approved picture and pointer without a UI box",
+		main_source.contains("sign_mermaid_pool.png")
+		and main_source.contains("PoolRouteGhostHand")
+		and main_source.contains("StyleBoxEmpty.new()")
+		and not main_source.contains(
+			"style_icon_button(_day_one_pool_route_button"))
+	_check("completion saves before starting the optional movie handoff",
+		save_order >= 0 and movie_order > save_order)
+	_check("completion and movie handoff are Day One-only and one-shot",
+		completion_source.contains("if not day_one_is_active():")
+		and completion_source.contains("director.is_room_completed(\"bathroom\")")
+		and main_source.contains("_day_one_bathroom_movie_handoff != null"))
+	var cleanup_source: String = FileAccess.get_file_as_string(
+		"res://scripts/games/day_one_bathroom_cleanup.gd")
+	_check("bathroom route owns the basket-to-sink handoff",
+		cleanup_source.contains("_build_basket()")
+		and cleanup_source.contains("_build_dirty_overlays()")
+		and cleanup_source.contains("begin_cleaning_handoff()"))
 	var sealed_castle_source: String = FileAccess.get_file_as_string(
 		"res://scripts/arena/castle_rooms_25d.gd")
 	_check("bathroom rescue does not alter the sealed castle frame owner",

@@ -8,7 +8,10 @@ const BATHROOM_CLEANING := preload(
 const SINK_CENTER := Vector2(642.0, 280.0)
 const TUB_CENTER := Vector2(310.0, 349.0)
 const RUNTIME_ASSETS: Array[String] = [
-	"res://assets/opera/worlds/ui/magnifier.png",
+	"res://assets/castle/day_one_pool/activities/cleanup_basket.png",
+	"res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+	"res://assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+	"res://assets/castle/training/ghost_hand.png",
 	"res://assets/opera/worlds/props/fx_stolen_sparkle.png",
 	"res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
 	"res://assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png",
@@ -16,10 +19,6 @@ const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
 	"res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
 	"res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
-	"res://assets/castle/dirty_cleanup_2d/tools/tool_magic_cleaner_v1.png",
-	"res://assets/castle/day_one_art_studio/magic_cleaning_brush.png",
-	"res://assets/castle/training/ghost_hand.png",
-	"res://assets/castle/day_one_pool/activities/cleanup_basket.png",
 ]
 
 var checks_failed: int = 0
@@ -62,38 +61,38 @@ func _run_probe() -> void:
 	hunt.setup(main, false)
 	await process_frame
 	var snapshot: Dictionary = hunt.audit_snapshot()
-	_check("two cabinet supplies are staged",
-		int(snapshot.get("supply_count", 0)) == 2
-		and int(snapshot.get("cabinet_target_count", 0)) == 2
-		and int(snapshot.get("found_count", -1)) == 0)
-	_check("one-finger drag target is generous",
-		float(snapshot.get("minimum_touch_side", 0.0)) >= 160.0
-		and float(snapshot.get("minimum_drag_distance", 0.0)) >= 32.0
-		and bool(snapshot.get("magnifier_following_drag", false))
-		and not bool(snapshot.get("guidance_discloses_target", true)))
-	_check("voice and picture guidance are configured",
-		bool(snapshot.get("voice_guidance_configured", false))
-		and bool(snapshot.get("has_visual_pointer", false)))
-	_check("rescue owns one pulsing front-right collection basket",
+	_check("bathroom entry is automatically dirty and interactive",
+		bool(snapshot.get("dirty_overlays_visible", false))
+		and bool(snapshot.get("sink_grime_visible", false))
+		and bool(snapshot.get("tub_grime_visible", false))
+		and bool(snapshot.get("basket_visible", false)))
+	_check("rescue has no passive win or fail state",
+		not bool(snapshot.get("won", false))
+		and not bool(snapshot.get("failed", false))
+		and not bool(snapshot.get("game_over", false)))
+	_check("rescue owns one pulsing front-right basket",
 		bool(snapshot.get("basket_visible", false))
 		and bool(snapshot.get("basket_pulsing", false))
 		and bool(snapshot.get("basket_collects_supplies", false))
 		and bool(snapshot.get("floating_sink_box_suppressed", false))
 		and (snapshot.get("basket_position", Vector2.ZERO) as Vector2).x > 960.0
 		and (snapshot.get("basket_position", Vector2.ZERO) as Vector2).y > 480.0)
+	_check("basket contains sponge and brush, never cleaner",
+		(snapshot.get("basket_item_ids", []) as Array) == ["sponge", "brush"]
+		and not (snapshot.get("basket_item_ids", []) as Array).has("cleaner"))
+	_check("no magnifier or cabinet search route exists",
+		not bool(snapshot.get("magnifier_following_drag", false))
+		and int(snapshot.get("cabinet_target_count", 0)) == 0
+		and not bool(snapshot.get("cabinet_search_active", false)))
+	_check("basket tap has spoken and visual invitation",
+		bool(snapshot.get("basket_tap_prompt_voice", false))
+		and bool(snapshot.get("basket_tap_prompt_visual", false)))
 	_check("ordinary HUD and room hotspots stay out of rescue",
 		bool(snapshot.get("normal_hud_suppressed", false))
 		and bool(snapshot.get("room_hotspots_suppressed", false)))
-	_check("sink and tub grime are visible at rescue entry",
-		bool(snapshot.get("dirty_overlays_visible", false))
-		and bool(snapshot.get("sink_grime_visible", false))
-		and bool(snapshot.get("tub_grime_visible", false)))
 	_check("Canvas-only node tree",
 		bool(snapshot.get("canvas_only", false))
 		and _all_runtime_children_are_canvas_items(hunt))
-	_check("supplies begin hidden inside cabinets",
-		not (hunt.get_node("HiddenSupply_brush") as Node2D).visible
-		and not (hunt.get_node("HiddenSupply_cleaner") as Node2D).visible)
 	_check("normal room affordances are suppressed during rescue",
 		not item_hotspots.visible and not door_hotspots.visible
 		and not room_links.visible and not action_button.visible
@@ -103,43 +102,34 @@ func _run_probe() -> void:
 	await create_timer(0.18).timeout
 	_check("passive time cannot collect a supply",
 		main.day_one_bathroom_supply_hunt_step == 0
-		and found_signals == 0)
+		and found_signals == 0
+		and main.day_one_bathroom_cleanup_step == 0)
 	for asset_path: String in RUNTIME_ASSETS:
 		var texture: Texture2D = load(asset_path) as Texture2D
 		_check("runtime asset %s" % asset_path.get_file(),
 			texture != null
 			and maxf(texture.get_size().x, texture.get_size().y) <= 1024.0)
-	_check("wrong-position drag does not collect",
-		hunt.probe_begin_drag(Vector2(84.0, 84.0))
-		and hunt.probe_drag_to(Vector2(640.0, 620.0))
-		and main.day_one_bathroom_supply_hunt_step == 0)
-	hunt.probe_end_drag()
-	_check("tap at a hidden target does not collect",
-		hunt.probe_begin_drag(Vector2(138.0, 592.0))
-		and main.day_one_bathroom_supply_hunt_step == 0)
-	hunt.probe_end_drag()
-	_check("brush requires explicit lens positioning",
-		hunt.probe_reveal_supply(0)
-		and main.day_one_bathroom_supply_hunt_step == 1
-		and found_signals == 1)
-	await create_timer(0.62).timeout
-	_check("cleaner remains the only next hunt target",
-		int(hunt.audit_snapshot().get("current_supply_step", -1)) == 1
-		and int(hunt.audit_snapshot().get("active_target_count", 0)) == 1)
-	_check("cleaner requires explicit lens positioning",
-		hunt.probe_reveal_supply(1)
-		and main.day_one_bathroom_supply_hunt_step == 2
-		and found_signals == 2)
-	await create_timer(0.62).timeout
-	_check("found tools remain visibly collected in the front-right basket",
-		bool(hunt.audit_snapshot().get("found_tools_visible_in_basket", false))
-		and (hunt.get_node("HiddenSupply_brush") as Node2D).visible
-		and (hunt.get_node("HiddenSupply_cleaner") as Node2D).visible)
-	_check("hunt handoff waits for both supplies",
-		hunt.is_supply_hunt_complete()
-		and hunt.is_handoff_ready()
-		and hunt_complete_signals == 1
-		and not hunt.probe_reveal_supply(1))
+	var basket_tap_result: Variant = null
+	if hunt.has_method("probe_tap_basket"):
+		basket_tap_result = hunt.call("probe_tap_basket")
+	_check("real basket tap starts the rescue handoff",
+		hunt.has_method("probe_tap_basket")
+		and bool(basket_tap_result)
+		and bool(hunt.audit_snapshot().get("basket_tap_count", 0))
+		and not bool(hunt.audit_snapshot().get(
+			"basket_tap_pointer_visible", true)))
+	await create_timer(0.48).timeout
+	var tapped_snapshot: Dictionary = hunt.audit_snapshot()
+	_check("sponge travels from basket toward the sink",
+		bool(tapped_snapshot.get("sponge_travel_complete", false))
+		and bool(tapped_snapshot.get("sink_circle_demo_visible", false)))
+	_check("basket tap does not expose a magnifier or cabinet target",
+		not bool(tapped_snapshot.get("magnifier_following_drag", false))
+		and int(tapped_snapshot.get("cabinet_target_count", 0)) == 0)
+	_check("hunt handoff opens the sink gesture without a fail state",
+		bool(hunt.is_handoff_ready())
+		and bool(hunt.cleaning_audit_snapshot().get("active", false))
+		and not bool(hunt.cleaning_audit_snapshot().get("failed", false)))
 	_check("supply hunt does not unlock the pool",
 		main.day_one_current_room_id == "bathroom"
 		and main.day_one_bathroom_cleanup_step == 0)
@@ -159,28 +149,24 @@ func _run_probe() -> void:
 
 	var restored_main := ReefMain.new()
 	# Production constructs the director before a room overlay can restore its
-	# progress. Mirror that order so director initialization cannot overwrite a
-	# synthetic pre-director fixture value.
+	# progress. Mirror that order so a mid-gesture save resumes the tub.
 	restored_main._day_one_ref()
-	restored_main.day_one_bathroom_supply_hunt_step = 1
-	var restored: DayOneBathroomCleanup = BATHROOM_CLEANUP.new() \
-		as DayOneBathroomCleanup
+	restored_main.day_one_bathroom_cleanup_step = 1
+	var restored: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
+		as DayOneBathroomCleaning
 	host.add_child(restored)
 	restored.setup(restored_main, false)
 	await process_frame
 	var restored_snapshot: Dictionary = restored.audit_snapshot()
-	_check("re-entry restores the next unfinished supply",
-		int(restored_snapshot.get("current_supply_step", -1)) == 1
-		and int(restored_snapshot.get("found_count", 0)) == 1
-		and (restored.get_node("HiddenSupply_brush") as Node2D).visible
-		and bool(restored_snapshot.get("found_tools_visible_in_basket", false))
-		and not (restored.get_node("HiddenSupply_cleaner") as Node2D).visible)
-	restored_main.day_one_record_bathroom_supply_step(0)
-	_check("supply persistence is monotonic",
-		restored_main.day_one_bathroom_supply_hunt_step == 1)
+	_check("re-entry restores the next unfinished brush gesture",
+		int(restored_snapshot.get("active_step", -1)) == 1
+		and bool(restored_snapshot.get("has_visual_pointer", false)))
+	restored_main.day_one_record_bathroom_cleanup_step(0)
+	_check("cleanup persistence is monotonic on re-entry",
+		restored_main.day_one_bathroom_cleanup_step == 1)
 	restored.teardown()
 	await process_frame
-	_probe_cleaning_gestures(host)
+	await _probe_cleaning_gestures(host)
 	host.queue_free()
 	main.free()
 	restored_main.free()
@@ -201,12 +187,17 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	host.add_child(sink_grime)
 	host.add_child(tub_grime)
 	cleaning.set_dirty_overlays(sink_grime, tub_grime)
+	cleaning.set_supply_basket(Vector2(1130.0, 590.0))
+	await create_timer(0.42).timeout
 	var before: Dictionary = cleaning.audit_snapshot()
 	_check("sink phase has a visible one-finger pointer",
 		String(before.get("active_stage", "")) == "sink"
 		and bool(before.get("has_visual_pointer", false))
 		and (cleaning.get_node("GhostHandPointer") as Sprite2D).visible
 		and tub_grime.visible)
+	_check("sink phase shows a circle demo and travelling sponge",
+		bool(before.get("circle_demo_visible", false))
+		and bool(before.get("sponge_travel_complete", false)))
 	cleaning._process(4.0)
 	var after_wait: Dictionary = cleaning.audit_snapshot()
 	_check("passive wait does not advance sink",
@@ -233,6 +224,10 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		not sink_grime.visible and tub_grime.visible
 		and float(cleaning.audit_snapshot()["grime_fade_progress"]["sink"])
 		>= 1.0)
+	await create_timer(0.76).timeout
+	_check("sink completion leaves a clean visible basin",
+		not bool(cleaning.audit_snapshot().get("sink_grime_visible", true))
+		and bool(cleaning.audit_snapshot().get("brush_travel_complete", false)))
 	cleaning_main.day_one_record_bathroom_cleanup_step(0)
 	_check("cleanup persistence is monotonic",
 		cleaning_main.day_one_bathroom_cleanup_step == 1)
@@ -241,11 +236,15 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		as DayOneBathroomCleaning
 	host.add_child(tub_stage)
 	tub_stage.setup(cleaning_main, false)
+	tub_stage.set_supply_basket(Vector2(1130.0, 590.0))
+	await create_timer(0.42).timeout
 	_check("re-entry resumes tub after sink", tub_stage.is_tub_active())
 	_check("tub phase keeps its visual pointer and spoken guidance seam",
 		String(tub_stage.audit_snapshot().get("active_stage", "")) == "tub"
 		and bool(tub_stage.audit_snapshot().get("has_visual_pointer", false))
-		and (tub_stage.get_node("GhostHandPointer") as Sprite2D).visible)
+		and (tub_stage.get_node("GhostHandPointer") as Sprite2D).visible
+		and bool(tub_stage.audit_snapshot().get("back_and_forth_arrows_visible", false))
+		and bool(tub_stage.audit_snapshot().get("brush_travel_complete", false)))
 	var before_tub_wait: Dictionary = tub_stage.audit_snapshot()
 	tub_stage._process(4.0)
 	var after_tub_wait: Dictionary = tub_stage.audit_snapshot()
@@ -268,22 +267,29 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		TUB_CENTER + Vector2(210.0, 0.0),
 		TUB_CENTER + Vector2(-210.0, 0.0),
 		TUB_CENTER + Vector2(210.0, 0.0),
-		TUB_CENTER + Vector2(-210.0, 0.0),
-		TUB_CENTER + Vector2(210.0, 0.0),
 	]
 	_check("back-and-forth tub brush needs reversals, distance, and time",
-		tub_stage.probe_tub_strokes(tub_points, 0.55)
+		tub_stage.probe_tub_strokes(tub_points, 1.1)
 		and cleaning_main.day_one_bathroom_cleanup_step == 2)
+	_check("two-to-three forgiving tub strokes are enough",
+		int(tub_stage.audit_snapshot().get("tub_reversals", 0)) <= 3)
 	# The re-entry stage shares the same bound overlays in production; bind the
 	# probe's pair too so completion verifies the final tub fade, not just state.
 	tub_stage.set_dirty_overlays(sink_grime, tub_grime)
 	tub_stage._process(0.0)
 	_check("tub grime fades away after the final scrub",
 		not sink_grime.visible and not tub_grime.visible)
+	await create_timer(0.98).timeout
 	_check("cleaning completion emits exactly once",
 		int(cleaning_main.get_meta(
 			"day_one_bathroom_cleaning_completion_count", 0)) == 1
 		and not tub_stage.probe_tub_strokes(tub_points, 0.55))
+	_check("finale has whole-room sparkle and pool pointer seam",
+		bool(tub_stage.audit_snapshot().get("whole_room_sparkle", false))
+		and bool(tub_stage.audit_snapshot().get("pool_pointer_ready", false)))
+	_check("cleaning exposes no fail state",
+		not bool(tub_stage.audit_snapshot().get("failed", false))
+		and not bool(tub_stage.audit_snapshot().get("game_over", false)))
 	var final_snapshot: Dictionary = tub_stage.audit_snapshot()
 	_check("cleaning gestures are reachable, Canvas-only, and budgeted 2-5s",
 		bool(final_snapshot["canvas_only"])
