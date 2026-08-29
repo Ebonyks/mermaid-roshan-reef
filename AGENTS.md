@@ -141,6 +141,57 @@ position-guide metadata when used, and human identity/topology/style review.
 forbidden methods, guide-pixel reuse, unreviewed identity, position drift, or a
 failed neighboring-frame comparison is a hard failure.
 
+### Mandatory external-animation visual packet
+
+An external animation handoff is incomplete without a self-contained,
+GitHub-hosted visual-reference packet. Every handoff must include the actual
+approved room/background, character, prop, style/turnaround, and applicable
+boundary/runtime reference images, plus an inspectable shot board or contact
+sheet covering every shot and beat. Prose, repository path lists, prompts, or
+beat tables alone do not qualify.
+
+Store the packet under a versioned, non-runtime
+`assets_src/cinematics/<handoff_id>/` directory. Preserve protected originals
+and record every packet file's source path, role, dimensions, SHA-256,
+license/provenance, modification status, and either a deterministic sorted
+packet-payload SHA-256 or a literal archive SHA-256.
+References and boards are continuity inputs only, never delivery pixels or
+accepted keyframes; every full-frame cinematic, human-review, and device gate
+above remains blocking.
+
+Before declaring the handoff complete, commit and push the entire packet to
+GitHub on a durable project branch or accepted integration commit, verify that
+the remote manifest and every referenced asset resolve, and give the intended
+animation system immutable GitHub commit/tree links plus a direct manifest
+link. A local directory, unpushed commit, expiring attachment, or prose saying
+that files are "ready to upload" is not a delivered handoff.
+
+Keep two different artifacts and three different audit claims explicit:
+
+- The **archive packet** is for humans, licensing, provenance, hashes,
+  authority order, runtime seams, and later delivery audit.
+- The **generator packet** is one tiny executable shot card per generation
+  job. It contains a paste-ready timeline prompt and only two to four bound
+  images, each named `IMAGE_1` through `IMAGE_4` with one job: approved clean
+  first-frame/layout lock, subject identity, object/material identity, or
+  lighting/grade. One clip equals one shot, with one camera move at most.
+- Report `ARCHIVE_COMPLETE`, `GENERATION_READY`, and `DELIVERY_ACCEPTED`
+  separately. A score or pass in one lane never grants either later claim.
+
+Use `design/templates/IMAGINE_SHOT_CARD_V1.md` for every Grok Imagine job.
+Prompts are short, action-first timelines and end with an explicit `Sound:`
+line. They state what moves, what stays fixed, the end state, and negatives.
+Never bind generated storyboards or HUD/gameplay captures as generation pixels;
+boards provide shot order in text and captures provide seam/negative constraints
+in text. Never ask one generation to make a multi-shot movie; generate shots
+separately and assemble them in edit. Keep hashes, licensing, audit prose, and
+policy language in the archive sidecar, never in the pasted generation prompt.
+
+Grok/Imagine image-to-video output is motion/editorial reference only unless
+the binding full-frame cinematic evidence above independently proves every
+delivered changed frame. Generator readiness therefore never relaxes the
+full-frame delivery rule.
+
 ## Layout
 - scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized
   2026-08-09 audit snapshot; still

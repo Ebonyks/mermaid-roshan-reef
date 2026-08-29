@@ -2,8 +2,11 @@ class_name DayOneDustBunnySwimmer
 extends Node2D
 ## Shared true-2D swimming dust bunny for the Day One pool and filled bathtub.
 
+signal comic_reaction_finished
+
 const SWIMMER_TEXTURE_PATH := \
 	"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png"
+const COMIC_REACTION_SECONDS := 0.68
 
 var _sprite: Sprite2D = null
 var _swim_bounds := Rect2()
@@ -16,12 +19,16 @@ var _footprint_half_extents := Vector2.ZERO
 var _ripple_size := Vector2.ZERO
 var _ripple_color := Color(0.54, 0.93, 0.96, 0.32)
 var _elapsed := 0.0
+var _waterline_uv := 1.0
+var _reaction_active := false
+var _reaction_count := 0
+var _comic_no: Label = null
 
 
 func setup(swim_bounds: Rect2, start_position: Vector2,
 		display_width: float, travel: Vector2, depth_z: int,
 		ripple_size: Vector2, ripple_color: Color = Color(
-			0.54, 0.93, 0.96, 0.32)) -> bool:
+			0.54, 0.93, 0.96, 0.32), waterline_uv: float = 1.0) -> bool:
 	var texture: Texture2D = load(SWIMMER_TEXTURE_PATH) as Texture2D
 	if texture == null:
 		push_error("Missing Day One swimming dust bunny: %s" % SWIMMER_TEXTURE_PATH)
@@ -34,6 +41,7 @@ func setup(swim_bounds: Rect2, start_position: Vector2,
 	_travel = Vector2(maxf(travel.x, 0.0), maxf(travel.y, 0.0))
 	_ripple_size = ripple_size
 	_ripple_color = ripple_color
+	_waterline_uv = clampf(waterline_uv, 0.45, 1.0)
 	position = _rest_position
 	z_index = depth_z
 	_sprite = Sprite2D.new()
@@ -68,11 +76,13 @@ func setup(swim_bounds: Rect2, start_position: Vector2,
 		clampf(start_position.y, safe_min.y, safe_max.y))
 	position = _rest_position
 	_sprite.scale = _base_scale
+	_apply_waterline_fade()
 	add_child(_sprite)
 	set_meta("true_2d", true)
 	set_meta("shared_swimmer_asset", SWIMMER_TEXTURE_PATH)
 	set_meta("swim_bounds", _swim_bounds)
 	set_meta("simple_animation", "bounded_bob_paddle")
+	set_meta("comic_reaction", "one_shot_spin_no")
 	set_process(true)
 	queue_redraw()
 	return true
@@ -99,7 +109,36 @@ func audit_snapshot() -> Dictionary:
 			if _sprite != null and _sprite.texture != null else 0.0,
 		"visible": visible,
 		"opacity": modulate.a,
+		"waterline_uv": _waterline_uv,
+		"submerged_lower_body": _waterline_uv < 0.99,
+		"drain_reaction_active": _reaction_active,
+		"drain_reaction_count": _reaction_count,
+		"drain_reaction_played_once": _reaction_count == 1,
+		"reaction_duration_ms": int(COMIC_REACTION_SECONDS * 1000.0),
+		"comic_shout": "NO!" if _reaction_count > 0 else "",
+		"comic_no_visible": _comic_no != null
+			and is_instance_valid(_comic_no) and _comic_no.visible,
 	}
+
+
+func play_comic_no() -> bool:
+	if _sprite == null or not is_instance_valid(_sprite) \
+			or _reaction_active or _reaction_count > 0:
+		return false
+	_reaction_active = true
+	_reaction_count = 1
+	set_process(false)
+	_build_comic_no()
+	var reaction: Tween = create_tween().set_parallel(true)
+	reaction.tween_property(_sprite, "rotation", TAU * 2.0,
+		COMIC_REACTION_SECONDS).set_trans(Tween.TRANS_BACK).set_ease(
+		Tween.EASE_IN_OUT)
+	reaction.tween_property(_sprite, "scale", _base_scale * Vector2(1.10, 0.90),
+		0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	reaction.tween_property(self, "position:y", _rest_position.y - 12.0,
+		0.20).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	reaction.chain().tween_callback(_finish_comic_no)
+	return true
 
 
 func fade_out(duration: float = 0.36) -> void:
@@ -109,6 +148,58 @@ func fade_out(duration: float = 0.36) -> void:
 	var fade: Tween = create_tween()
 	fade.tween_property(self, "modulate:a", 0.0, maxf(duration, 0.01))
 	fade.tween_callback(set_visible.bind(false))
+
+
+func _apply_waterline_fade() -> void:
+	if _sprite == null or _waterline_uv >= 0.99:
+		return
+	var shader := Shader.new()
+	shader.code = "shader_type canvas_item;\n" \
+		+ "uniform float waterline_uv = 0.70;\n" \
+		+ "void fragment() {\n" \
+		+ "  vec4 pixel = texture(TEXTURE, UV);\n" \
+		+ "  float water_fade = 1.0 - smoothstep(waterline_uv, " \
+		+ "waterline_uv + 0.18, UV.y);\n" \
+		+ "  COLOR = vec4(pixel.rgb, pixel.a * water_fade);\n" \
+		+ "}\n"
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("waterline_uv", _waterline_uv)
+	_sprite.material = material
+
+
+func _build_comic_no() -> void:
+	_comic_no = Label.new()
+	_comic_no.name = "ComicNoBurst"
+	_comic_no.text = "NO!"
+	_comic_no.position = Vector2(24.0, -86.0)
+	_comic_no.pivot_offset = Vector2(36.0, 24.0)
+	_comic_no.scale = Vector2.ONE * 0.45
+	_comic_no.z_index = 4
+	_comic_no.add_theme_font_size_override("font_size", 42)
+	_comic_no.add_theme_color_override("font_color", Color(1.0, 0.82, 0.24))
+	_comic_no.add_theme_color_override("font_outline_color",
+		Color(0.24, 0.10, 0.42))
+	_comic_no.add_theme_constant_override("outline_size", 8)
+	add_child(_comic_no)
+	var pop: Tween = _comic_no.create_tween()
+	pop.tween_property(_comic_no, "scale", Vector2.ONE, 0.18) \
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	pop.tween_interval(0.20)
+	pop.tween_property(_comic_no, "modulate:a", 0.0, 0.24)
+
+
+func _finish_comic_no() -> void:
+	position = _rest_position
+	if _sprite != null and is_instance_valid(_sprite):
+		_sprite.rotation = 0.0
+		_sprite.scale = _base_scale
+	_reaction_active = false
+	if _comic_no != null and is_instance_valid(_comic_no):
+		_comic_no.queue_free()
+	_comic_no = null
+	set_process(true)
+	comic_reaction_finished.emit()
 
 
 func _process(delta: float) -> void:
