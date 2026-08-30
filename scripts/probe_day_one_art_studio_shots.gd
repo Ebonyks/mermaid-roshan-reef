@@ -101,6 +101,15 @@ func _run() -> void:
 		Color(1.0, 0.48, 0.55, 1.0), "splashes")
 	await _frames(4)
 	await _capture("06_splash_attack_frame")
+	if customizer != null:
+		# Follow the same public close/confirm callback as the gold heart button.
+		customizer.visible = true
+		customizer.close()
+	await _frames(12)
+	_check("customization accepted", main.day_one_art_customization_completed)
+	_check("studio completion opens boss route",
+		main.day_one_boss_door_ready() and main.castle_room_id == "main_hall")
+	await _capture("07_main_hall_boss_wayfinding")
 	main.queue_free()
 	await _frames(4)
 	print("DAY_ONE_ART_STUDIO_SHOTS|RESULT: %s failures=%d output=%s" % [
