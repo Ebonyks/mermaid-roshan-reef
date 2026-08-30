@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Build the Chapter 3 Rainbow Stage and Butterfly House 2D art package.
 
-The continuous 16:9 stage background is a lossless reconstruction and crop of
-the approved Sky Lagoon v5 panorama.  Only the missing walkable rainbow
-causeway and Butterfly House landmark are selected ImageGen subjects.  This
-script preserves their native sources, removes presentation fields where
-needed, normalizes whole subjects, slices the background, and records hashes.
+The continuous 16:9 stage background is the approved Lily-Pad Fairy World
+redrawn at an upright eye-level perspective.  The walkable rainbow causeway
+and Butterfly House remain separate whole-sprite subjects.  This script
+preserves every native source, normalizes the complete generated background,
+slices it without seams, and records hashes and reference authority.
 """
 
 from __future__ import annotations
@@ -16,7 +16,7 @@ import json
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageOps
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,19 +31,24 @@ REVIEW_STAGE = REVIEW_ROOT / "rainbow_stage_composite_1280x720.png"
 
 WALKWAY_RAW = RAW_ROOT / "rainbow_walkway_openai_raw.png"
 HOUSE_RAW = RAW_ROOT / "butterfly_house_openai_raw.png"
+BACKGROUND_RAW = RAW_ROOT / "fairy_pond_horizon_openai_raw.png"
 WALKWAY_RUNTIME = RUNTIME_ROOT / "rainbow_walkway.png"
 HOUSE_RUNTIME = RUNTIME_ROOT / "butterfly_house.png"
 BACKGROUND_MASTER = MASTER_ROOT / "handoff_background_master_3640x2048.png"
-SKY_TILE_PATTERN = (
-    ROOT / "assets" / "flats" / "sky_lagoon" / "main"
-    / "flat_sky_lagoon_main_panorama_v5_tile_r{row}_c{column}.png"
+FAIRY_POND_REFERENCE = ROOT / "assets" / "fairy" / "pond_panorama.png"
+FAIRY_TWILIGHT_REFERENCE = (
+	ROOT / "assets_src" / "fairy_v2" / "concepts"
+	/ "background_twilight.png"
+)
+FAIRY_DAWN_REFERENCE = (
+	ROOT / "assets_src" / "fairy_v2" / "concepts"
+	/ "background_dawn.png"
 )
 ROSHAN_SOURCE = ROOT / "assets" / "characters" / "roshan_25d" / "roshan_base.png"
 
 CANVAS_EDGE = 1024
 SUBJECT_EDGE = 1000
-PANORAMA_SIZE = (6144, 2048)
-BACKGROUND_CROP = (1252, 0, 4892, 2048)
+BACKGROUND_MASTER_SIZE = (3640, 2048)
 BACKGROUND_TILE_SIZE = (910, 1024)
 BACKGROUND_GRID = (4, 2)
 
@@ -143,23 +148,25 @@ def _audit_cutout(image: Image.Image) -> dict[str, object]:
 	}
 
 
-def _build_background() -> tuple[list[Path], list[Path]]:
-	panorama = Image.new("RGB", PANORAMA_SIZE)
-	inputs: list[Path] = []
-	for row in range(2):
-		for column in range(6):
-			path = Path(str(SKY_TILE_PATTERN).format(
-				row=row, column=column))
-			if not path.is_file():
-				raise FileNotFoundError(path)
-			tile = Image.open(path).convert("RGB")
-			if tile.size != (1024, 1024):
-				raise ValueError(f"unexpected approved tile: {path} {tile.size}")
-			panorama.paste(tile, (column * 1024, row * 1024))
-			inputs.append(path)
-
-	master = panorama.crop(BACKGROUND_CROP)
-	if master.size != (3640, 2048):
+def _build_background() -> tuple[list[Path], list[Path], tuple[int, int]]:
+	inputs = [
+		BACKGROUND_RAW,
+		FAIRY_POND_REFERENCE,
+		FAIRY_TWILIGHT_REFERENCE,
+		FAIRY_DAWN_REFERENCE,
+	]
+	for path in inputs:
+		if not path.is_file():
+			raise FileNotFoundError(path)
+	source = Image.open(BACKGROUND_RAW).convert("RGB")
+	source_dimensions = source.size
+	master = ImageOps.fit(
+		source,
+		BACKGROUND_MASTER_SIZE,
+		method=Image.Resampling.LANCZOS,
+		centering=(0.5, 0.5),
+	)
+	if master.size != BACKGROUND_MASTER_SIZE:
 		raise ValueError(f"bad background master size: {master.size}")
 	MASTER_ROOT.mkdir(parents=True, exist_ok=True)
 	master.save(BACKGROUND_MASTER, format="PNG", optimize=True)
@@ -178,7 +185,7 @@ def _build_background() -> tuple[list[Path], list[Path]]:
 			path = BACKGROUND_ROOT / f"handoff_background_r{row}_c{column}.png"
 			tile.save(path, format="PNG", optimize=True)
 			outputs.append(path)
-	return inputs, outputs
+	return inputs, outputs, source_dimensions
 
 
 def _place_review_sprite(
@@ -253,7 +260,7 @@ def main() -> None:
 	house = _normalize_subject(Image.open(HOUSE_RAW), remove_field=True)
 	walkway.save(WALKWAY_RUNTIME, format="PNG", optimize=True)
 	house.save(HOUSE_RUNTIME, format="PNG", optimize=True)
-	approved_inputs, background_tiles = _build_background()
+	background_inputs, background_tiles, source_dimensions = _build_background()
 	_build_review_stage(Image.open(BACKGROUND_MASTER), walkway, house)
 
 	manifest = {
@@ -261,20 +268,29 @@ def main() -> None:
 		"purpose": "Chapter 3 Rainbow Stage handoff and Butterfly House landmark",
 		"generation_method": "OpenAI built-in image generation",
 		"art_gap": (
-			"No approved standalone walkable rainbow causeway or true-2D "
-			"Butterfly House landmark existed; approved Sky Lagoon art already "
-			"met the continuous background need and is reused unchanged."
+			"No approved upright Fairy Pond stage plate, standalone walkable "
+			"rainbow causeway, or true-2D Butterfly House landmark existed. "
+			"The background redraw is bound to the approved Lily-Pad Fairy "
+			"World rather than Sky Lagoon."
 		),
 		"background": {
-			"approved_input_tiles": [
+			"result_id": "exec-f94c58c7-28bd-455d-897c-c0c7a16588a3",
+			"raw": BACKGROUND_RAW.relative_to(ROOT).as_posix(),
+			"raw_dimensions": list(source_dimensions),
+			"raw_sha256": _hash(BACKGROUND_RAW),
+			"reference_authority": "Lily-Pad Fairy World / Fairy Pond",
+			"reference_inputs": [
 				{"path": path.relative_to(ROOT).as_posix(), "sha256": _hash(path)}
-				for path in approved_inputs
+				for path in background_inputs[1:]
 			],
 			"master": {
 				"path": BACKGROUND_MASTER.relative_to(ROOT).as_posix(),
-				"dimensions": [3640, 2048],
+				"dimensions": list(BACKGROUND_MASTER_SIZE),
 				"sha256": _hash(BACKGROUND_MASTER),
-				"crop_from_approved_6144x2048_panorama": list(BACKGROUND_CROP),
+				"whole_canvas_transform": (
+					"centered ImageOps.fit with Lanczos resampling; no local "
+					"retouch, object move, seam blend, or tile regeneration"
+				),
 			},
 			"runtime_tiles": [
 				{
@@ -315,6 +331,7 @@ def main() -> None:
 			"sha256": _hash(REVIEW_STAGE),
 			"delivery_pixels": False,
 			"purpose": "visual placement audit; runtime remains separate Canvas sprites",
+			"rainbow_path_reaches_stage_base_y": 720,
 		},
 	}
 	MANIFEST_PATH.write_text(

@@ -82,7 +82,7 @@ def audit_background() -> None:
 	master = image(master_path)
 	if master is None:
 		return
-	check("background master meets per-screen native coverage",
+	check("background master meets per-screen runtime coverage",
 		master.size[0] >= 2048 and master.size[1] >= 2048, str(master.size))
 	check("background master preserves 16:9 stage crop",
 		master.size == (3640, 2048), str(master.size))
@@ -122,7 +122,23 @@ def audit_manifests() -> None:
 	door = json.loads(door_manifest_path.read_text(encoding="utf-8"))
 	check("handoff manifest records built-in ImageGen",
 		handoff.get("generation_method") == "OpenAI built-in image generation")
-	check("handoff manifest records exactly two generated gaps",
+	background = handoff.get("background", {})
+	background_raw = ROOT / str(background.get("raw", ""))
+	check("handoff background is the generated upright Fairy Pond",
+		background.get("reference_authority")
+		== "Lily-Pad Fairy World / Fairy Pond")
+	check("Fairy Pond background raw hash matches manifest",
+		background_raw.is_file()
+		and digest(background_raw) == background.get("raw_sha256"))
+	reference_paths = {
+		str(record.get("path", ""))
+		for record in background.get("reference_inputs", [])
+	}
+	check("approved Fairy Pond panorama is the primary background reference",
+		"assets/fairy/pond_panorama.png" in reference_paths)
+	check("handoff background excludes Sky Lagoon reference authority",
+		all("sky_lagoon" not in path.lower() for path in reference_paths))
+	check("handoff manifest records exactly two generated foreground gaps",
 		set(handoff.get("generated_subjects", {}))
 		== {"rainbow_walkway", "butterfly_house"})
 	for record in handoff.get("generated_subjects", {}).values():
@@ -136,6 +152,15 @@ def audit_manifests() -> None:
 	horizon = float(open_view.get("horizon_fraction", 1.0))
 	check("door horizon is at or below the 50% line", horizon <= 0.5,
 		f"fraction={horizon:.4f}")
+	check("door view uses the Lily-Pad Fairy World authority",
+		open_view.get("location_authority")
+		== "Lily-Pad Fairy World / Fairy Pond")
+	opening_bottom = int(open_view.get("opening_mask", {}).get("bottom", -1))
+	walkway_base = int(open_view.get("walkway_visible_base_y", -2))
+	check("rainbow art begins at the exact door-opening base",
+		open_view.get("walkway_base_matches_opening_base") is True
+		and walkway_base == opening_bottom,
+		f"walkway={walkway_base} opening={opening_bottom}")
 	check("door manifest names the Rainbow Stage destination",
 		"Rainbow Stage" in str(open_view.get("destination", "")))
 	for state in ("closed", "open"):
@@ -245,6 +270,7 @@ def audit_ledger() -> None:
 		"moonflower_door_{closed,open}_hall_1280x720.png",
 		"rainbow_walkway.png",
 		"butterfly_house.png",
+		"fairy_pond_horizon_openai_raw.png",
 		"handoff_background_master_3640x2048.png",
 		"handoff_background_r{0..1}_c{0..3}.png",
 		"rainbow_stage_composite_1280x720.png",
