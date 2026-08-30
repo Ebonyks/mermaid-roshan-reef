@@ -174,7 +174,19 @@ func _check_typography_coverage() -> void:
 
 	var picture := Button.new()
 	StorybookUI.style_picture_button(picture)
-	_check(picture.get_theme_font_size("font_size") >= 28
+	_check(picture.has_theme_color_override("font_color")
+		and picture.has_theme_color_override("font_hover_color")
+		and picture.has_theme_color_override("font_pressed_color")
+		and picture.has_theme_color_override("font_hover_pressed_color")
+		and picture.has_theme_color_override("font_focus_color")
+		and picture.has_theme_color_override("font_disabled_color")
+		and picture.has_theme_stylebox_override("normal")
+		and picture.has_theme_stylebox_override("hover")
+		and picture.has_theme_stylebox_override("pressed")
+		and picture.has_theme_stylebox_override("hover_pressed")
+		and picture.has_theme_stylebox_override("focus")
+		and picture.has_theme_stylebox_override("disabled")
+		and picture.get_theme_font_size("font_size") >= 28
 		and picture.get_theme_constant("outline_size") > 0
 		and picture.get_theme_stylebox("normal") != null
 		and picture.get_theme_stylebox("focus") != null
@@ -183,22 +195,37 @@ func _check_typography_coverage() -> void:
 	_check(picture.has_theme_color_override("font_hover_color")
 		and picture.has_theme_color_override("font_focus_color")
 		and picture.has_theme_color_override("font_pressed_color")
+		and picture.has_theme_color_override("font_hover_pressed_color")
 		and picture.has_theme_color_override("font_disabled_color")
+		and picture.has_theme_color_override("font_color")
 		and picture.get_theme_color("font_hover_color") == StorybookUI.PURPLE_DEEP
 		and picture.get_theme_color("font_focus_color") == StorybookUI.PURPLE_DEEP
 		and picture.get_theme_color("font_pressed_color") == StorybookUI.PURPLE_DEEP
+		and picture.get_theme_color("font_hover_pressed_color") == StorybookUI.PURPLE_DEEP
 		and picture.get_theme_color("font_disabled_color") == Color(0.82, 0.84, 0.9),
 		"picture button covers hover, focus, pressed, and disabled text colors")
-	_check(picture.has_theme_stylebox_override("hover")
-		and picture.has_theme_stylebox_override("pressed"),
-		"picture button owns hover and pressed styleboxes locally")
+	_check(picture.has_theme_stylebox_override("normal")
+		and picture.has_theme_stylebox_override("hover")
+		and picture.has_theme_stylebox_override("pressed")
+		and picture.has_theme_stylebox_override("hover_pressed")
+		and picture.has_theme_stylebox_override("focus")
+		and picture.has_theme_stylebox_override("disabled"),
+		"picture button owns all six state styleboxes locally")
 	var semantic := Button.new()
 	StorybookUI.style_button(semantic)
-	_check(semantic.has_theme_color_override("font_hover_color")
+	_check(semantic.has_theme_color_override("font_color")
+		and semantic.has_theme_color_override("font_hover_color")
 		and semantic.has_theme_color_override("font_pressed_color")
+		and semantic.has_theme_color_override("font_hover_pressed_color")
+		and semantic.has_theme_color_override("font_focus_color")
+		and semantic.has_theme_color_override("font_disabled_color")
+		and semantic.has_theme_stylebox_override("normal")
 		and semantic.has_theme_stylebox_override("hover")
-		and semantic.has_theme_stylebox_override("pressed"),
-		"text button owns hover/pressed colors and styleboxes locally")
+		and semantic.has_theme_stylebox_override("pressed")
+		and semantic.has_theme_stylebox_override("hover_pressed")
+		and semantic.has_theme_stylebox_override("focus")
+		and semantic.has_theme_stylebox_override("disabled"),
+		"text button owns all six state colors and styleboxes locally")
 	semantic.free()
 	_check(String(picture.get_meta("typography_role", ""))
 		== String(StorybookUI.ROLE_CHILD_CONTROL)

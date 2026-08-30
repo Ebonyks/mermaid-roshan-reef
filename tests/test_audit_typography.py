@@ -2,11 +2,16 @@ from __future__ import annotations
 
 import json
 import hashlib
+import struct
 import tempfile
 import unittest
+import zlib
 from pathlib import Path
 
-from tools.audit_typography import audit, scan_live_glyphs
+from tools.audit_typography import (
+    _sfnt_bytes, _sfnt_structurally_valid, audit, inventory_font_assets,
+    scan_live_glyphs,
+)
 
 
 ROLE_SOURCE = '''
@@ -51,6 +56,71 @@ func typography_role(role: StringName) -> Dictionary:
 \ttoken["line_spacing"] = 0
 \treturn token
 '''
+
+
+def _minimal_sfnt() -> bytes:
+    """Build a tiny deterministic SFNT without relying on an OS font."""
+    tables = {
+        "cmap": struct.pack(">HHHHI", 0, 1, 3, 1, 12),
+        "glyf": b"\0\0\0\0",
+        "head": bytearray(54),
+        "hhea": bytearray(36),
+        "hmtx": struct.pack(">HH", 1000, 0),
+        "maxp": struct.pack(">IH", 0x00010000, 1),
+        "name": struct.pack(">HHH", 0, 1, 18) + struct.pack(">HHHHHH", 3, 1, 0, 1, 4, 0) + b"Test",
+    }
+    tables["head"][0:4] = struct.pack(">I", 0x00010000)
+    tables["head"][12:16] = struct.pack(">I", 0x5F0F3CF5)
+    tables["head"][18:20] = struct.pack(">H", 1024)
+    tables["head"][50:52] = struct.pack(">h", 0)
+    tables["hhea"][0:4] = struct.pack(">I", 0x00010000)
+    tables["hhea"][34:36] = struct.pack(">H", 1)
+    # cmap format 6 has a 12-byte subtable for one glyph; the header above
+    # intentionally points at the subtable start and is followed by it.
+    tables["cmap"] += struct.pack(">HHHHH", 6, 12, 0, 0x2605, 1) + struct.pack(">H", 1)
+    records = sorted(tables.items())
+    header = struct.pack(">4sHHHH", b"\x00\x01\x00\x00", len(records),
+                         16 * (1 << (len(records).bit_length() - 1)),
+                         len(records).bit_length() - 1,
+                         len(records) * 16 - 16 * (1 << (len(records).bit_length() - 1)))
+    directory = bytearray(header + b"\0" * (16 * len(records)))
+    payload = bytearray()
+    for index, (tag, data) in enumerate(records):
+        while (len(directory) + len(payload)) % 4:
+            payload.append(0)
+        offset = len(directory) + len(payload)
+        payload.extend(data)
+        checksum_data = bytearray(data)
+        if tag == "head":
+            checksum_data[8:12] = b"\0\0\0\0"
+        checksum_data.extend(b"\0" * ((4 - len(checksum_data) % 4) % 4))
+        checksum = sum(struct.unpack(f">{len(checksum_data) // 4}I", checksum_data)) & 0xFFFFFFFF
+        directory[12 + index * 16:28 + index * 16] = struct.pack(
+            ">4sIII", tag.encode("ascii"), checksum, offset, len(data))
+    payload.extend(b"\0" * ((4 - len(payload) % 4) % 4))
+    return bytes(directory + payload)
+
+
+def _minimal_woff(sfnt: bytes) -> bytes:
+    count = struct.unpack(">H", sfnt[4:6])[0]
+    entries = []
+    blobs = bytearray()
+    cursor = 44 + count * 20
+    for index in range(count):
+        tag, checksum, offset, length = struct.unpack(">4sIII", sfnt[12 + index * 16:28 + index * 16])
+        data = sfnt[offset:offset + length]
+        cursor = (cursor + 3) & ~3
+        blobs.extend(b"\0" * (cursor - (44 + count * 20 + len(blobs))))
+        compressed = zlib.compress(data) if tag == b"name" else data
+        comp = compressed if len(compressed) < len(data) else data
+        entries.append((tag, cursor, len(comp), length, checksum, comp))
+        blobs.extend(comp)
+        cursor += len(comp)
+    total = 44 + count * 20 + len(blobs)
+    header = struct.pack(">4s4sIHHIHHIIIII", b"wOFF", sfnt[:4], total, count, 0,
+                         len(sfnt), 1, 0, 0, 0, 0, 0, 0)
+    directory = b"".join(struct.pack(">4sIIII", *entry[:5]) for entry in entries)
+    return header + directory + bytes(blobs)
 
 
 def manifest(glyphs: list[str], baseline: dict[str, int] | None = None) -> dict:
@@ -110,6 +180,97 @@ class TypographyAuditTests(unittest.TestCase):
             'var raw = r"\\u2603 ☃"\n'
         )
         self.assertEqual(set(scan_live_glyphs(root)), {"U+2605", "U+2606", "U+2603"})
+
+    def test_portable_sfnt_and_woff_fixtures_pass_structural_checks(self) -> None:
+        sfnt = _minimal_sfnt()
+        self.assertTrue(_sfnt_structurally_valid(sfnt))
+        woff = _minimal_woff(sfnt)
+        self.assertEqual(_sfnt_bytes(woff), sfnt)
+
+    def test_sfnt_search_fields_and_table_checksum_are_enforced(self) -> None:
+        sfnt = bytearray(_minimal_sfnt())
+        sfnt[10:12] = struct.pack(">H", 0)  # entrySelector must be log2(power)
+        self.assertFalse(_sfnt_structurally_valid(bytes(sfnt)))
+        sfnt = bytearray(_minimal_sfnt())
+        sfnt[124] ^= 1  # first byte of cmap, covered by its directory checksum
+        self.assertFalse(_sfnt_structurally_valid(bytes(sfnt)))
+
+    def test_font_import_sidecars_are_not_binary_assets(self) -> None:
+        root, _manifest_path = self.write_tree('var label = "★"\n', {
+            "assets/fonts/face.ttf.import": "metadata",
+            "assets/fonts/face.ttf.uid": "uid",
+            "assets/fonts/face.ttf": _minimal_sfnt().decode("latin1"),
+        })
+        self.assertEqual(inventory_font_assets(root), ["assets/fonts/face.ttf"])
+
+    def _write_verified_fixture(self) -> tuple[Path, Path, dict]:
+        root, manifest_path = self.write_tree(
+            'var label = "★"\nbutton.add_theme_font_override("font", load("res://assets/fonts/face.ttf"))\n')
+        font = _minimal_sfnt()
+        font_path = root / "assets/fonts/face.ttf"
+        font_path.parent.mkdir(parents=True)
+        font_path.write_bytes(font)
+        font_hash = hashlib.sha256(font).hexdigest()
+        for name, contents in (("screen.png", b"screen"), ("capture.png", b"capture")):
+            (root / name).write_bytes(contents)
+        screen = {"path": "screen.png", "sha256": hashlib.sha256(b"screen").hexdigest()}
+        capture = {"path": "capture.png", "sha256": hashlib.sha256(b"capture").hexdigest()}
+        coverage = {"font_sha256": font_hash, "observed_codepoints": ["U+2605"],
+                    "positive_results": {"U+2605": "PASS"}}
+        negative = {"font_sha256": font_hash, "codepoint": "U+10FFFF",
+                    "purpose": "deliberate missing-glyph negative", "covered": False}
+        for name, contents in (("coverage.json", coverage), ("negative.json", negative)):
+            (root / name).write_text(json.dumps(contents), encoding="utf-8")
+        states = ["default", "longest", "wrapped", "locked", "selected", "missing-glyph"]
+        results = {state: {"result": "PASS", "screen": screen, "capture": capture} for state in states}
+        device = {"commit": "a" * 40, "apk_sha256": "b" * 64, "font_sha256": font_hash,
+                  "date": "2026-08-30", "reviewer": "Typography QA",
+                  "devices": ["Lenovo Tab M11", "older Android phone"],
+                  "states": states, "results": results}
+        (root / "device.json").write_text(json.dumps(device), encoding="utf-8")
+        data = manifest(["U+2605"])
+        authority = data["font_authority"]
+        authority.update({
+            "primary": "PASS", "fallback": "PASS", "provenance_status": "PASS",
+            "coverage_status": "PASS", "device_evidence_status": "PASS",
+            "font_hashes": [{"path": "assets/fonts/face.ttf", "sha256": font_hash}],
+            "binding": {"status": "PASS", "asset": "assets/fonts/face.ttf"},
+            "coverage": {"status": "PASS", "positive": {"path": "coverage.json", "sha256": hashlib.sha256(json.dumps(coverage).encode()).hexdigest()},
+                          "negative": {"path": "negative.json", "sha256": hashlib.sha256(json.dumps(negative).encode()).hexdigest()}},
+            "device_evidence": {"status": "PASS", "artifact": {"path": "device.json", "sha256": hashlib.sha256(json.dumps(device).encode()).hexdigest()}},
+            "license_row": "forged manifest echo that must not grant authority",
+        })
+        (root / "ASSET_LICENSES.md").write_text(
+            "| Path | Source | License | URL | Modifications |\n"
+            "|---|---|---|---|---|\n"
+            "| assets/fonts/face.ttf | Project-owned deterministic font fixture | Apache-2.0 | https://example.invalid/font | none |\n",
+            encoding="utf-8")
+        manifest_path.write_text(json.dumps(data), encoding="utf-8")
+        return root, manifest_path, data
+
+    def test_end_to_end_verified_fixture_is_os_font_independent(self) -> None:
+        root, manifest_path, _data = self._write_verified_fixture()
+        report = audit(root, manifest_path)
+        self.assertEqual(report["status"], "PASS")
+        self.assertTrue(report["font"]["license_ok"])
+        self.assertTrue(report["font"]["device_ok"])
+
+    def test_device_and_license_evidence_reject_forged_strings(self) -> None:
+        root, manifest_path, data = self._write_verified_fixture()
+        device = json.loads((root / "device.json").read_text(encoding="utf-8"))
+        device["commit"] = "latest"
+        (root / "device.json").write_text(json.dumps(device), encoding="utf-8")
+        data["font_authority"]["device_evidence"]["artifact"]["sha256"] = hashlib.sha256(
+            json.dumps(device).encode()).hexdigest()
+        (root / "ASSET_LICENSES.md").write_text(
+            "| Path | Source | License | URL | Modifications |\n|---|---|---|---|---|\n"
+            "| assets/fonts/not-face.ttf | unrelated source | Apache-2.0 | https://example.invalid | none |\n",
+            encoding="utf-8")
+        manifest_path.write_text(json.dumps(data), encoding="utf-8")
+        report = audit(root, manifest_path)
+        self.assertEqual(report["status"], "FAIL")
+        self.assertFalse(report["font"]["license_ok"])
+        self.assertTrue(any("exact commit" in error for error in report["machine_errors"]))
 
     def test_empty_or_fake_font_is_not_evidence(self) -> None:
         root, manifest_path = self.write_tree(

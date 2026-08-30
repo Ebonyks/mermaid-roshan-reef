@@ -39,37 +39,45 @@ const ROLE_DECORATIVE_GLYPH := &"decorative_glyph"
 const TYPOGRAPHY_ROLES: Dictionary = {
 	ROLE_DISPLAY: {"font_size": 56, "font_color": PEARL, "outline_color": INK,
 		"outline_size": 6, "focus_color": PEARL, "pressed_color": PEARL,
+		"hover_pressed_color": PEARL,
 		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_OFF,
 		"max_lines": 1},
 	ROLE_TITLE: {"font_size": 44, "font_color": INK, "outline_color": PEARL,
 		"outline_size": 4, "focus_color": INK, "pressed_color": INK,
+		"hover_pressed_color": INK,
 		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_WORD_SMART,
 		"max_lines": 2},
 	ROLE_CHILD_CONTROL: {"font_size": 30, "font_color": PURPLE_DEEP,
 		"outline_color": Color(1.0, 1.0, 1.0, 0.7), "outline_size": 3,
 		"focus_color": PURPLE_DEEP, "pressed_color": PURPLE_DEEP,
+		"hover_pressed_color": PURPLE_DEEP,
 		"disabled_color": Color(0.82, 0.84, 0.9),
 		"wrap_mode": TextServer.AUTOWRAP_WORD_SMART, "max_lines": 2},
 	ROLE_BODY: {"font_size": 30, "font_color": INK, "outline_color": PEARL,
 		"outline_size": 4, "focus_color": INK, "pressed_color": INK,
+		"hover_pressed_color": INK,
 		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_WORD_SMART,
 		"max_lines": 3},
 	ROLE_ADULT_CAPTION: {"font_size": 22, "font_color": INK_SOFT,
 		"outline_color": PEARL, "outline_size": 3, "focus_color": INK_SOFT,
-		"pressed_color": INK_SOFT, "disabled_color": MUTED,
+		"pressed_color": INK_SOFT, "hover_pressed_color": INK_SOFT,
+		"disabled_color": MUTED,
 		"wrap_mode": TextServer.AUTOWRAP_WORD_SMART, "max_lines": 3},
 	ROLE_STATUS: {"font_size": 30, "font_color": INK, "outline_color": PEARL,
 		"outline_size": 4, "focus_color": INK, "pressed_color": INK,
+		"hover_pressed_color": INK,
 		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_WORD_SMART,
 		"max_lines": 2},
 	ROLE_NUMERIC: {"font_size": 34, "font_color": PURPLE_DEEP,
 		"outline_color": PEARL, "outline_size": 4,
 		"focus_color": PURPLE_DEEP, "pressed_color": PURPLE_DEEP,
+		"hover_pressed_color": PURPLE_DEEP,
 		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_OFF,
 		"max_lines": 1},
 	ROLE_DECORATIVE_GLYPH: {"font_size": 30, "font_color": PURPLE_DEEP,
 		"outline_color": PEARL, "outline_size": 3,
 		"focus_color": PURPLE_DEEP, "pressed_color": PURPLE_DEEP,
+		"hover_pressed_color": PURPLE_DEEP,
 		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_OFF,
 		"max_lines": 1},
 }
@@ -103,6 +111,7 @@ static func _apply_button_typography(button: Button, role: StringName,
 	button.add_theme_color_override("font_hover_color", token["focus_color"])
 	button.add_theme_color_override("font_focus_color", token["focus_color"])
 	button.add_theme_color_override("font_pressed_color", token["pressed_color"])
+	button.add_theme_color_override("font_hover_pressed_color", token["hover_pressed_color"])
 	button.add_theme_color_override("font_disabled_color", token["disabled_color"])
 	button.autowrap_mode = int(token["wrap_mode"])
 	# Button has no max_lines_visible property.  Keep max_lines a Label-only
@@ -234,6 +243,9 @@ static func style_button(button: Button, kind: String = "secondary", font_size: 
 	pressed.shadow_offset = Vector2(0.0, 1.0)
 	pressed.expand_margin_top = -2.0
 	pressed.expand_margin_bottom = -2.0
+	var hover_pressed: StyleBoxFlat = pressed.duplicate()
+	hover_pressed.bg_color = fill.darkened(0.04)
+	hover_pressed.border_color = GOLD if kind != "gold" else INK
 	var focus: StyleBoxFlat = normal.duplicate()
 	focus.border_color = GOLD
 	focus.set_border_width_all(8)
@@ -243,9 +255,12 @@ static func style_button(button: Button, kind: String = "secondary", font_size: 
 	button.add_theme_stylebox_override("normal", normal)
 	button.add_theme_stylebox_override("hover", hover)
 	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_stylebox_override("hover_pressed", hover_pressed)
 	button.add_theme_stylebox_override("focus", focus)
 	button.add_theme_stylebox_override("disabled", disabled)
 	_apply_button_typography(button, role, font_size)
+	var token: Dictionary = typography_role(role)
+	button.add_theme_color_override("font_hover_pressed_color", token["hover_pressed_color"])
 	button.set_meta("storybook_kind", kind)
 	button.set_meta("touch_target", true)
 
@@ -266,16 +281,22 @@ static func style_picture_button(button: Button, fill: Color = PAPER,
 	pressed.bg_color = fill.darkened(0.10)
 	pressed.shadow_size = 2
 	pressed.shadow_offset = Vector2(0.0, 1.0)
+	var hover_pressed: StyleBoxFlat = pressed.duplicate()
+	hover_pressed.bg_color = fill.darkened(0.04)
+	hover_pressed.border_color = GOLD
 	var focus: StyleBoxFlat = normal.duplicate()
 	focus.border_color = GOLD
 	focus.set_border_width_all(8)
 	button.add_theme_stylebox_override("normal", normal)
 	button.add_theme_stylebox_override("hover", hover)
 	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_stylebox_override("hover_pressed", hover_pressed)
 	button.add_theme_stylebox_override("focus", focus)
 	button.add_theme_stylebox_override("disabled", panel_style(
 		MUTED, Color(0.74, 0.76, 0.84, 0.96), radius, 5))
 	_apply_button_typography(button, role, font_size)
+	var token: Dictionary = typography_role(role)
+	button.add_theme_color_override("font_hover_pressed_color", token["hover_pressed_color"])
 	button.set_meta("storybook_kind", "picture")
 	button.set_meta("picture_first", true)
 	button.set_meta("touch_target", true)

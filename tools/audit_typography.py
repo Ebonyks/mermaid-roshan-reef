@@ -9,6 +9,7 @@ VERIFIED claims are machine failures.
 from __future__ import annotations
 
 import argparse
+import datetime as _datetime
 import hashlib
 import json
 import re
@@ -54,6 +55,13 @@ FONT_PATH_RE = re.compile(
     r"(?:res://)?((?:assets/)?[^\"'\s,)]+(?:\.ttf|\.otf|\.woff2?|\.fontdata?|\.font))",
     re.IGNORECASE,
 )
+
+SFNT_FLAVORS = {b"\x00\x01\x00\x00", b"OTTO", b"true", b"typ1"}
+REQUIRED_DEVICE_STATES = {
+    "default", "longest", "wrapped", "locked", "selected", "missing-glyph",
+}
+HEX40_RE = re.compile(r"[0-9a-fA-F]{40}")
+HEX64_RE = re.compile(r"[0-9a-fA-F]{64}")
 
 # The editable manifest may describe this baseline for humans, but cannot
 # raise the ceiling used by the gate.
@@ -222,7 +230,12 @@ def inventory_font_assets(root: Path) -> list[str]:
         if not path.is_file():
             continue
         name = path.name.lower()
-        if any(name.endswith(suffix) or name.endswith(suffix + ".import") for suffix in FONT_SUFFIXES):
+        # Godot import descriptors and other sidecars are not font bytes.  A
+        # sidecar named `face.ttf.import` must never make a missing/invalid
+        # runtime font look like an asset in the evidence inventory.
+        if name.endswith(".import") or name.endswith(".uid"):
+            continue
+        if name.endswith(FONT_SUFFIXES):
             paths.append(path.relative_to(root).as_posix())
     return sorted(paths)
 
@@ -336,81 +349,109 @@ def validate_caption_exception(manifest: dict[str, Any]) -> list[str]:
     return errors
 
 
+def _sfnt_search_fields(table_count: int) -> tuple[int, int, int]:
+    """Return the OpenType header searchRange/entrySelector/rangeShift."""
+    power = 1 << (table_count.bit_length() - 1)
+    search_range = 16 * power
+    entry_selector = power.bit_length() - 1
+    range_shift = table_count * 16 - search_range
+    return search_range, entry_selector, range_shift
+
+
+def _table_checksum(payload: bytes, tag: bytes = b"") -> int:
+    """Compute an OpenType table checksum, treating head.adjustment as zero."""
+    data = bytearray(payload)
+    if tag == b"head" and len(data) >= 12:
+        data[8:12] = b"\0\0\0\0"
+    data.extend(b"\0" * ((4 - len(data) % 4) % 4))
+    return sum(struct.unpack(f">{len(data) // 4}I", data)) & 0xFFFFFFFF
+
+
 def _sfnt_bytes(data: bytes) -> bytes | None:
-    """Return an uncompressed SFNT byte stream after structural validation."""
+    """Return an uncompressed SFNT byte stream after validating WOFF tables."""
     if len(data) < 4:
         return None
     if data[:4] != b"wOFF":
-        return data if data[:4] in {b"\x00\x01\x00\x00", b"OTTO", b"true", b"typ1"} else None
+        return data if data[:4] in SFNT_FLAVORS else None
     if len(data) < 44:
         return None
     try:
-        signature, flavor, length, tables, reserved, total_size, _major, _minor,
-        meta_offset, meta_length, _meta_orig, priv_offset, priv_length = struct.unpack(
+        (_signature, flavor, length, tables, reserved, total_size, _major, _minor,
+         meta_offset, meta_length, meta_orig_length, priv_offset, priv_length) = struct.unpack(
             ">4s4sIHHIHHIIIII", data[:44])
     except struct.error:
         return None
     if (length != len(data) or reserved != 0 or tables == 0 or tables > 4096
-            or total_size < 12 + tables * 16):
-        return None
-    if flavor not in {b"\x00\x01\x00\x00", b"OTTO", b"true", b"typ1"}:
+            or flavor not in SFNT_FLAVORS or total_size < 12 + tables * 16):
         return None
     directory_end = 44 + tables * 20
     if directory_end > len(data):
         return None
-    records: list[tuple[bytes, int, int, int]] = []
+    # Optional WOFF metadata/private blocks are bounded and cannot overlap the
+    # table payload. Metadata is zlib-compressed by the WOFF format.
+    blocks: list[tuple[int, int]] = []
+    for offset, block_length in ((meta_offset, meta_length), (priv_offset, priv_length)):
+        if (offset == 0) != (block_length == 0) or offset + block_length > len(data):
+            return None
+        if block_length:
+            blocks.append((offset, offset + block_length))
+    if meta_length:
+        try:
+            if len(zlib.decompress(data[meta_offset:meta_offset + meta_length])) != meta_orig_length:
+                return None
+        except zlib.error:
+            return None
+    records: list[tuple[bytes, int, int, int, int]] = []
     spans: list[tuple[int, int]] = []
     for index in range(tables):
         start = 44 + index * 20
         try:
-            tag, offset, comp_len, orig_len, _checksum = struct.unpack(
+            tag, offset, comp_len, orig_len, checksum = struct.unpack(
                 ">4sIIII", data[start:start + 20])
         except struct.error:
             return None
-        if not orig_len or not comp_len or offset < directory_end \
-                or offset + comp_len > len(data) or comp_len > orig_len:
+        if (not orig_len or not comp_len or offset < directory_end
+                or offset % 4 or offset + comp_len > len(data)
+                or comp_len > orig_len or tag in {record[0] for record in records}):
             return None
-        spans.append((offset, offset + comp_len))
-        records.append((tag, offset, comp_len, orig_len))
-    if len({record[0] for record in records}) != tables:
+        span = (offset, offset + comp_len)
+        if any(span[0] < end and start < span[1] for start, end in blocks):
+            return None
+        spans.append(span)
+        records.append((tag, offset, comp_len, orig_len, checksum))
+    if records != sorted(records, key=lambda record: record[0]):
         return None
     ordered = sorted(spans)
     if any(end > next_start for (_start, end), (next_start, _end) in zip(ordered, ordered[1:])):
         return None
-    sfnt = bytearray(struct.pack(">4sHHHH", flavor, tables, 0, 0, 0)
-                     + b"\0" * (tables * 16))
-    # The searchRange/entrySelector/rangeShift fields are not semantically
-    # relevant to the parser; use deterministic values for the rebuilt stream.
-    search_range = 16 * (2 ** (tables.bit_length() - 1))
-    sfnt[6:12] = struct.pack(">HHH", search_range, tables.bit_length() - 1,
-                             tables * 16 - search_range)
-    cursor = len(sfnt)
+    sfnt = bytearray(struct.pack(">4sHHHH", flavor, tables, *_sfnt_search_fields(tables)))
+    sfnt.extend(b"\0" * (tables * 16))
     payloads: list[tuple[bytes, int, int, int, bytes]] = []
-    for tag, offset, comp_len, orig_len in records:
-        payload = data[offset:offset + comp_len]
-        if comp_len != orig_len:
-            try:
-                payload = zlib.decompress(payload)
-            except zlib.error:
-                return None
-        if len(payload) != orig_len:
+    for tag, offset, comp_len, orig_len, checksum in records:
+        compressed = data[offset:offset + comp_len]
+        try:
+            payload = compressed if comp_len == orig_len else zlib.decompress(compressed)
+        except zlib.error:
             return None
-        cursor = (cursor + 3) & ~3
-        if len(sfnt) < cursor:
-            sfnt.extend(b"\0" * (cursor - len(sfnt)))
+        if len(payload) != orig_len or _table_checksum(payload, tag) != checksum:
+            return None
+        cursor = (len(sfnt) + 3) & ~3
+        sfnt.extend(b"\0" * (cursor - len(sfnt)))
         table_offset = cursor
         sfnt.extend(payload)
-        cursor += len(payload)
-        payloads.append((tag, table_offset, len(payload), orig_len, payload))
-    for index, (tag, table_offset, comp_len, orig_len, payload) in enumerate(payloads):
+        sfnt.extend(b"\0" * ((4 - len(payload) % 4) % 4))
+        payloads.append((tag, table_offset, orig_len, checksum, payload))
+    if len(sfnt) != total_size:
+        return None
+    for index, (tag, table_offset, orig_len, checksum, _payload) in enumerate(payloads):
         record_at = 12 + index * 16
         sfnt[record_at:record_at + 16] = struct.pack(
-            ">4sIII", tag, 0, table_offset, orig_len)
+            ">4sIII", tag, checksum, table_offset, orig_len)
     return bytes(sfnt)
 
 
 def _sfnt_structurally_valid(data: bytes) -> bool:
-    if len(data) < 12 or data[:4] not in {b"\x00\x01\x00\x00", b"OTTO", b"true", b"typ1"}:
+    if len(data) < 12 or data[:4] not in SFNT_FLAVORS:
         return False
     try:
         _version, tables, search_range, entry_selector, range_shift = struct.unpack(
@@ -421,10 +462,7 @@ def _sfnt_structurally_valid(data: bytes) -> bool:
         return False
     # Malformed search fields are a common pseudo-font trick. They are cheap
     # to validate and make the directory itself falsifiable.
-    expected_search = 16 * (2 ** (tables.bit_length() - 1))
-    if (search_range, entry_selector, range_shift) != (
-            expected_search, expected_search.bit_length() - 1,
-            tables * 16 - expected_search):
+    if (search_range, entry_selector, range_shift) != _sfnt_search_fields(tables):
         return False
     records: dict[bytes, tuple[int, int]] = {}
     spans: list[tuple[int, int]] = []
@@ -435,8 +473,11 @@ def _sfnt_structurally_valid(data: bytes) -> bool:
         except struct.error:
             return False
         directory_end = 12 + tables * 16
-        if tag in records or length == 0 or offset < directory_end \
-                or offset + length > len(data):
+        if (tag in records or not re.fullmatch(rb"[ -~]{4}", tag)
+                or length == 0 or offset < directory_end or offset % 4
+                or offset + length > len(data)):
+            return False
+        if _table_checksum(data[offset:offset + length], tag) != _checksum:
             return False
         records[tag] = (offset, length)
         spans.append((offset, offset + length))
@@ -453,7 +494,11 @@ def _sfnt_structurally_valid(data: bytes) -> bool:
     head = data[records[b"head"][0]:records[b"head"][0] + records[b"head"][1]]
     maxp = data[records[b"maxp"][0]:records[b"maxp"][0] + records[b"maxp"][1]]
     hhea = data[records[b"hhea"][0]:records[b"hhea"][0] + records[b"hhea"][1]]
+    if head[12:16] != b"_\x0f<\xf5":
+        return False
     if struct.unpack(">H", head[18:20])[0] < 16 or struct.unpack(">H", head[18:20])[0] > 16384:
+        return False
+    if struct.unpack(">h", head[50:52])[0] not in {-1, 0}:
         return False
     glyphs = struct.unpack(">H", maxp[4:6])[0]
     metrics = struct.unpack(">H", hhea[34:36])[0]
@@ -467,22 +512,67 @@ def _sfnt_structurally_valid(data: bytes) -> bool:
     for index in range(cmap_count):
         platform, encoding, offset = struct.unpack(">HHI", cmap[4 + index * 8:12 + index * 8])
         del platform, encoding
-        if offset + 2 > len(cmap):
+        if offset < 4 or offset + 2 > len(cmap):
             return False
         fmt = struct.unpack(">H", cmap[offset:offset + 2])[0]
         if fmt in {0, 4, 6}:
             if offset + 4 > len(cmap):
                 return False
             length = struct.unpack(">H", cmap[offset + 2:offset + 4])[0]
-        elif fmt in {12, 13, 14}:
-            if offset + 8 > len(cmap):
+            minimum = {0: 262, 4: 16, 6: 10}[fmt]
+            if length < minimum:
+                return False
+            if fmt == 4:
+                if offset + 8 > len(cmap):
+                    return False
+                segments = struct.unpack(">H", cmap[offset + 6:offset + 8])[0] // 2
+                if segments == 0 or 16 + segments * 8 > length:
+                    return False
+            elif fmt == 6:
+                if offset + 10 > len(cmap):
+                    return False
+                count = struct.unpack(">H", cmap[offset + 8:offset + 10])[0]
+                if 10 + count * 2 > length:
+                    return False
+        elif fmt in {12, 13}:
+            if offset + 16 > len(cmap):
                 return False
             length = struct.unpack(">I", cmap[offset + 4:offset + 8])[0]
+            groups = struct.unpack(">I", cmap[offset + 12:offset + 16])[0]
+            if length < 16 or 16 + groups * 12 > length:
+                return False
+        elif fmt == 14:
+            if offset + 10 > len(cmap):
+                return False
+            length = struct.unpack(">I", cmap[offset + 2:offset + 6])[0]
+            selectors = struct.unpack(">I", cmap[offset + 6:offset + 10])[0]
+            if length < 10 or 10 + selectors * 11 > length:
+                return False
         else:
             continue
-        if length < 4 or offset + length > len(cmap):
+        if offset + length > len(cmap):
             return False
         usable_cmap = True
+    # The name directory must at least contain a bounded format-0 record
+    # array and string storage; this catches directory-shaped pseudo-fonts.
+    name = data[records[b"name"][0]:records[b"name"][0] + records[b"name"][1]]
+    name_format, name_count, name_offset = struct.unpack(">HHH", name[:6])
+    if name_format not in {0, 1} or name_count == 0 or 6 + name_count * 12 > len(name):
+        return False
+    name_records_end = 6 + name_count * 12
+    if name_format == 1:
+        if name_records_end + 2 > len(name):
+            return False
+        lang_tag_count = struct.unpack(">H", name[name_records_end:name_records_end + 2])[0]
+        name_records_end += 2 + lang_tag_count * 4
+    if name_offset < name_records_end or name_offset > len(name):
+        return False
+    for index in range(name_count):
+        record_at = 6 + index * 12
+        _platform, _encoding, _language, _name_id, string_length, string_offset = struct.unpack(
+            ">HHHHHH", name[record_at:record_at + 12])
+        if string_offset + string_length > len(name) - name_offset:
+            return False
     return usable_cmap
 
 
@@ -633,13 +723,172 @@ def _device_artifact(root: Path, value: Any, selected_hash: str) -> tuple[bool, 
     devices = _first_value(payload, ("devices", "device"))
     states = _first_value(payload, ("states", "tested_states", "state"))
     results = _first_value(payload, ("results", "outcomes", "checks"))
-    if (not isinstance(commit, str) or not commit.strip()
-            or not apk or font_hash != selected_hash
-            or not isinstance(devices, (list, str)) or not devices
-            or not isinstance(states, (list, str)) or not states
-            or not isinstance(results, (dict, list)) or not results):
-        return False, "device evidence must identify commit, APK, font hash, devices, states, and results"
+    date_value = _first_value(payload, ("date", "review_date", "tested_date"))
+    reviewer = payload.get("reviewer")
+    if (not isinstance(commit, str) or not HEX40_RE.fullmatch(commit.strip())
+            or not isinstance(apk, str) or not HEX64_RE.fullmatch(apk.strip())
+            or not HEX64_RE.fullmatch(font_hash) or font_hash != selected_hash
+            or not isinstance(date_value, str) or not _valid_iso_date(date_value)
+            or not isinstance(reviewer, str) or not reviewer.strip()):
+        return False, "device evidence requires exact commit/APK/font hashes, ISO date, and reviewer"
+
+    device_names: list[str] = []
+    if isinstance(devices, str):
+        device_names = [part.strip().lower() for part in re.split(r"[;,\n]", devices) if part.strip()]
+    elif isinstance(devices, list):
+        for item in devices:
+            if isinstance(item, str) and item.strip():
+                device_names.append(item.strip().lower())
+            elif isinstance(item, dict):
+                name = _first_value(item, ("name", "device", "model"))
+                if isinstance(name, str) and name.strip():
+                    device_names.append(name.strip().lower())
+                category = _first_value(item, ("category", "class", "tier", "age"))
+                if isinstance(category, str) and category.strip():
+                    device_names.append(category.strip().lower())
+    has_m11 = any("lenovo tab m11" in name for name in device_names)
+    has_older = any(
+        ("older" in name and "phone" in name) or "older_phone" in name
+        for name in device_names)
+    if not has_m11 or not has_older:
+        return False, "device evidence must include Lenovo Tab M11 and an older-phone entry"
+
+    def canonical_state(value: Any) -> str:
+        return re.sub(r"[\s_]+", "-", str(value).strip().lower())
+
+    if isinstance(states, str):
+        state_values = [part for part in re.split(r"[;,\n]", states) if part.strip()]
+    elif isinstance(states, list):
+        state_values = states
+    else:
+        state_values = []
+    state_set = {canonical_state(item) for item in state_values if isinstance(item, str)}
+    if len(state_values) != len(REQUIRED_DEVICE_STATES) or state_set != REQUIRED_DEVICE_STATES:
+        return False, "device evidence must list exactly the required DL-TYPE-12 states"
+
+    def result_rows(value: Any) -> list[tuple[str, Any]]:
+        if isinstance(value, list):
+            return [(canonical_state(item.get("state", "")), item)
+                    for item in value if isinstance(item, dict)]
+        if isinstance(value, dict):
+            return [(canonical_state(key), item if isinstance(item, dict)
+                     else {"result": item}) for key, item in value.items()]
+        return []
+
+    rows = result_rows(results)
+    row_states = {state for state, _item in rows}
+    if len(rows) != len(REQUIRED_DEVICE_STATES) or row_states != REQUIRED_DEVICE_STATES:
+        return False, "device evidence results must cover every required state exactly once"
+
+    def external_artifact_ref(role: str, state: str) -> Any:
+        containers = (
+            payload.get(f"{role}s"), payload.get(f"{role}_references"),
+            payload.get(f"{role}_refs"), payload.get(f"{role}shots"),
+        )
+        for container in containers:
+            if isinstance(container, dict):
+                candidate = container.get(state)
+                if candidate is not None:
+                    return candidate
+            elif isinstance(container, list):
+                for candidate in container:
+                    if isinstance(candidate, dict) and canonical_state(
+                            candidate.get("state", "")) == state:
+                        return candidate
+        return None
+
+    def artifact_ref(item: dict[str, Any], role: str, state: str) -> dict[str, Any] | None:
+        candidate = item.get(role)
+        if candidate is None:
+            candidate = item.get(f"{role}_ref")
+        if candidate is None:
+            candidate = external_artifact_ref(role, state)
+        if isinstance(candidate, dict):
+            path = candidate.get("path", candidate.get("ref", candidate.get("reference")))
+            digest = candidate.get("sha256", candidate.get("hash"))
+        else:
+            path = candidate if isinstance(candidate, str) else None
+            digest = item.get(f"{role}_sha256", item.get(f"{role}_hash"))
+        if not isinstance(path, str) or not path.strip() or not isinstance(digest, str):
+            return None
+        return {"path": path, "sha256": digest}
+
+    for state, item in rows:
+        if not isinstance(item, dict):
+            return False, f"device evidence {state} result is not structured"
+        result = item.get("result", item.get("status", item.get("outcome")))
+        if str(result).strip().upper() != "PASS":
+            return False, f"device evidence {state} result is not explicitly PASS"
+        for role in ("screen", "capture"):
+            reference = artifact_ref(item, role, state)
+            if reference is None:
+                return False, f"device evidence {state} is missing a hashed {role} reference"
+            ok, ref_reason = _artifact(root, reference)
+            if not ok:
+                return False, f"device evidence {state} {role}: {ref_reason}"
     return True, ""
+
+
+def _valid_iso_date(value: str) -> bool:
+    try:
+        return _datetime.date.fromisoformat(value.strip()).isoformat() == value.strip()
+    except (TypeError, ValueError):
+        return False
+
+
+def _license_rows(text: str) -> list[dict[str, str]]:
+    """Parse the canonical markdown ledger, rather than matching free text."""
+    rows: list[dict[str, str]] = []
+    header: list[str] | None = None
+    for line in text.splitlines():
+        if not line.lstrip().startswith("|"):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if header is None and {cell.lower() for cell in cells} >= {"path", "source", "license"}:
+            header = [cell.lower() for cell in cells]
+            continue
+        if header is None or not cells or all(set(cell) <= {"-", ":", " "} for cell in cells):
+            continue
+        if len(cells) < len(header):
+            continue
+        rows.append(dict(zip(header, cells)))
+    return rows
+
+
+def _license_path_matches(cell: str, asset: str) -> bool:
+    # Match a complete path token, including grouped rows, while rejecting
+    # look-alike substrings such as `face.ttf.backup`.
+    pattern = rf"(?<![A-Za-z0-9_./*-]){re.escape(asset)}(?![A-Za-z0-9_./*-])"
+    return bool(re.search(pattern, cell)) or cell.strip() == asset
+
+
+def _recognized_license(value: str) -> bool:
+    normalized = value.strip().lower()
+    if not normalized or normalized in {"-", "—", "unknown", "tbd", "missing", "unresolved"}:
+        return False
+    return any(marker in normalized for marker in (
+        "cc0", "public domain", "apache", "mit license", "bsd", "ofl", "sil",
+        "pixabay", "original", "owned by project", "all rights reserved",
+        "project-generated", "synthesized", "free software", "creative commons",
+    ))
+
+
+def _license_row_for_asset(root: Path, asset: str) -> bool:
+    license_path = root / "ASSET_LICENSES.md"
+    if not license_path.is_file():
+        return False
+    try:
+        rows = _license_rows(license_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError):
+        return False
+    for row in rows:
+        source = row.get("source", "").strip()
+        license_name = row.get("license", "").strip()
+        if (_license_path_matches(row.get("path", ""), asset)
+                and source not in {"", "-", "—"}
+                and _recognized_license(license_name)):
+            return True
+    return False
 
 
 def _font_evidence(root: Path, manifest: dict[str, Any],
@@ -689,13 +938,10 @@ def _font_evidence(root: Path, manifest: dict[str, Any],
     }
     binding_ok = (bool(declarations) and isinstance(binding_asset, str)
                   and binding_asset in assets and binding_asset in observed_bindings)
-    license_row = authority.get("license_row")
-    if not license_row and isinstance(authority.get("license"), dict):
-        license_row = authority["license"].get("row")
-    license_path = root / "ASSET_LICENSES.md"
-    license_text = license_path.read_text(encoding="utf-8") if license_path.exists() else ""
-    license_ok = bool(binding_asset and license_row and binding_asset in license_text
-                     and str(license_row).strip() in license_text)
+    # `license_row` in the manifest is descriptive metadata only. Authority
+    # comes from a parsed ledger row whose path, source and recognized license
+    # fields all bind to the selected runtime asset.
+    license_ok = bool(binding_asset and _license_row_for_asset(root, binding_asset))
 
     coverage = authority.get("coverage", {})
     positive = coverage.get("positive") if isinstance(coverage, dict) else authority.get("coverage_evidence")
