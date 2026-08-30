@@ -77,6 +77,30 @@ const DUST_BUNNY_BURST_LIFETIME := 0.48
 const BATHTUB_SWIMMER_BOUNDS := Rect2(220.0, 225.0, 150.0, 112.0)
 const BATHTUB_SWIMMER_START := Vector2(277.0, 255.0)
 const HALL_SIGN_Z := 0.68
+const FAIRY_CONSERVATORY_Z := 0.70
+const FAIRY_CONSERVATORY_DOOR_CLOSED := \
+	"res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png"
+const FAIRY_CONSERVATORY_DOOR_OPEN := \
+	"res://assets/flats/castle/fairy_conservatory/moonflower_door_open.png"
+const FAIRY_CONSERVATORY_CENTER := Vector2(1672.0, 385.0)
+const FAIRY_CONSERVATORY_FOOT := Vector2(1672.0, 620.0)
+# The approved 1024px card contains an approximately 960px-tall alpha
+# subject. Keep the doorway at the same child-readable ~470 logical-pixel
+# height as the Hall brief while preserving the card's centered pivot.
+const FAIRY_CONSERVATORY_ART_SCALE := 0.4896
+const FAIRY_CONSERVATORY_CARD_ART_SIZE := \
+	Vector2(1024.0, 1024.0) * FAIRY_CONSERVATORY_ART_SCALE
+const FAIRY_CONSERVATORY_CARD_ART_RECT := Rect2(
+	FAIRY_CONSERVATORY_CENTER - FAIRY_CONSERVATORY_CARD_ART_SIZE * 0.5,
+	FAIRY_CONSERVATORY_CARD_ART_SIZE)
+const FAIRY_CONSERVATORY_HOTSPOT_RECT := Rect2(
+	1450.0, 170.0, 444.0, 470.0)
+const FAIRY_CONSERVATORY_SCONCE_AVOID_RECT := Rect2(
+	1360.0, 210.0, 624.0, 300.0)
+const FAIRY_CONSERVATORY_REVEALED_KEY := \
+	"chapter3_fairy_door_revealed"
+const FAIRY_CONSERVATORY_OPENED_KEY := \
+	"chapter3_fairy_door_opened"
 const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
 const HALL_PLAYER_STAGE_HEIGHT := 190.0
@@ -855,6 +879,11 @@ var _composition_transition_generation := 0
 var _hall_view_left_art := 0.0
 var day_one_pool_cleanup: DayOnePoolCleanup = null
 var day_one_bathtub_swimmer: DayOneDustBunnySwimmer = null
+var fairy_conservatory_card: Sprite2D = null
+var fairy_conservatory_cue: CastleDoorCue = null
+var fairy_conservatory_hotspot: Button = null
+var _fairy_conservatory_render_state := ""
+var _fairy_conservatory_opening := false
 
 func _init(main: ReefMain) -> void:
 	m = main
@@ -914,6 +943,8 @@ func open(start_room: String = "main_hall") -> void:
 	m.castle_room_buttons.clear()
 	m.castle_room_menu_buttons.clear()
 	m.castle_room_menu_open = false
+	_fairy_conservatory_render_state = ""
+	_fairy_conservatory_opening = false
 	m.castle_royal_hall_mist_cards.clear()
 	m.castle_royal_hall_mist_time = 0.0
 	m.castle_royal_hall_mist_flutter_time = 0.0
@@ -1083,6 +1114,11 @@ func close() -> void:
 	m.castle_room_door_hotspot_layer = null
 	m.castle_room_link_layer = null
 	m.castle_room_door_hotspots.clear()
+	fairy_conservatory_card = null
+	fairy_conservatory_cue = null
+	fairy_conservatory_hotspot = null
+	_fairy_conservatory_render_state = ""
+	_fairy_conservatory_opening = false
 	m.castle_room_item_sprites.clear()
 	m.castle_room_prop_sfx = null
 	m.castle_room_player_sprite = null
@@ -1134,6 +1170,7 @@ func tick(delta: float) -> void:
 	_tick_royal_hall_mist(delta)
 	_update_touch_hotspots()
 	_update_hall_portals()
+	_sync_fairy_conservatory()
 	_sync_hall_lighting()
 
 func physics_tick(delta: float) -> void:
@@ -1381,6 +1418,32 @@ func _hall_art_rect_inside_horizontal_span(art_rect: Rect2,
 		and art_rect.end.x >= span.x \
 		and art_rect.position.x <= span.y
 
+
+func _fairy_conservatory_hides_sconce(record: Dictionary) -> bool:
+	# The approved Hall panorama already owns its painted sconces. This guard is
+	# only for a future live fixture card: never let one sit visibly through the
+	# new door's reserved bay if a source-owned interaction route is re-enabled.
+	if not _is_wide_hall() or fairy_conservatory_card == null \
+			or not is_instance_valid(fairy_conservatory_card) \
+			or not fairy_conservatory_card.visible:
+		return false
+	var item_data: Dictionary = record.get("data", {}) as Dictionary
+	if not item_data.has("light_cluster"):
+		return false
+	var sprite: Sprite2D = record.get("sprite") as Sprite2D
+	if sprite == null or not is_instance_valid(sprite):
+		return false
+	var source_position: Vector2 = item_data.get(
+		"pos", Vector2.INF) as Vector2
+	if not is_finite(source_position.x) or not is_finite(source_position.y):
+		return false
+	var frame_size := _sprite_frame_size(sprite)
+	var visual_scale := float(item_data.get("scale", 1.0))
+	var art_rect := Rect2(
+		source_position - frame_size * visual_scale * 0.5,
+		frame_size * visual_scale)
+	return art_rect.intersects(FAIRY_CONSERVATORY_SCONCE_AVOID_RECT)
+
 func _sync_hall_horizontal_culling() -> void:
 	var hall_visible: bool = is_open() and _is_wide_hall()
 	var span: Vector2 = _hall_horizontal_cull_span()
@@ -1413,13 +1476,15 @@ func _sync_hall_horizontal_culling() -> void:
 			"render_art_rect", record.get("art_rect", Rect2())) as Rect2
 		var item_visible: bool = hall_visible \
 			and _hall_art_rect_inside_horizontal_span(art_rect, span)
-		sprite.visible = item_visible
+		var hidden_by_fairy_door := \
+			_fairy_conservatory_hides_sconce(record)
+		sprite.visible = item_visible and not hidden_by_fairy_door
 		sprite.set_meta("hall_horizontal_cull", true)
 		sprite.set_meta("hall_horizontal_cull_kind", "interaction")
 		sprite.set_meta("hall_horizontal_cull_rect", art_rect)
 		var hotspot: Button = record.get("hotspot") as Button
 		if hotspot != null:
-			hotspot.visible = item_visible
+			hotspot.visible = item_visible and not hidden_by_fairy_door
 
 func _clear_room_background_tiles() -> void:
 	for tile: Sprite2D in m.castle_room_detail_tiles:
@@ -2329,6 +2394,7 @@ func _center_player() -> void:
 	_position_player_at_foot(foot, false)
 
 func _rebuild_depth_layers(room_id: String) -> void:
+	_remove_fairy_conservatory_nodes()
 	m.castle_royal_hall_mist_cards.clear()
 	for container: Node2D in [m.castle_room_mid_layer, m.castle_room_front_layer]:
 		if container != null:
@@ -2336,6 +2402,7 @@ func _rebuild_depth_layers(room_id: String) -> void:
 				child.free()
 	if room_id == "main_hall":
 		_build_hall_door_signs()
+		_build_fairy_conservatory()
 		_build_royal_hall_mist_cards()
 		_sync_hall_horizontal_culling()
 		return
@@ -2344,6 +2411,252 @@ func _rebuild_depth_layers(room_id: String) -> void:
 		_add_layer_piece(m.castle_room_mid_layer, piece_data, MIDGROUND_Z)
 	for piece_data: Dictionary in layout.get("front", []):
 		_add_layer_piece(m.castle_room_front_layer, piece_data, FOREGROUND_Z)
+
+
+func refresh_fairy_conservatory_state() -> void:
+	# Main remains the state owner. This public refresh lets the chapter-3
+	# controller reveal the door while the Hall is already on screen without
+	# rebuilding the room or adding a second route.
+	if not _is_wide_hall() or not is_open():
+		return
+	_sync_fairy_conservatory()
+	_sync_hall_horizontal_culling()
+
+
+func _remove_fairy_conservatory_nodes() -> void:
+	if fairy_conservatory_card != null \
+			and is_instance_valid(fairy_conservatory_card):
+		fairy_conservatory_card.free()
+	if fairy_conservatory_cue != null \
+			and is_instance_valid(fairy_conservatory_cue):
+		fairy_conservatory_cue.free()
+	if fairy_conservatory_hotspot != null \
+			and is_instance_valid(fairy_conservatory_hotspot):
+		fairy_conservatory_hotspot.free()
+	fairy_conservatory_card = null
+	fairy_conservatory_cue = null
+	fairy_conservatory_hotspot = null
+	_fairy_conservatory_render_state = ""
+
+
+func _build_fairy_conservatory() -> void:
+	if m.castle_room_mid_layer == null:
+		return
+	var state := _fairy_conservatory_visual_state()
+	var texture_path := FAIRY_CONSERVATORY_DOOR_OPEN \
+		if state == "open" else FAIRY_CONSERVATORY_DOOR_CLOSED
+	if not ResourceLoader.exists(texture_path):
+		push_warning("Missing Moonflower Conservatory door card: "
+			+ texture_path)
+		return
+	var texture: Texture2D = load(texture_path) as Texture2D
+	if texture == null:
+		return
+	fairy_conservatory_card = _new_card(
+		"MoonflowerConservatoryDoor", texture)
+	fairy_conservatory_card.position = _hall_art_to_world(
+		FAIRY_CONSERVATORY_CENTER, FAIRY_CONSERVATORY_Z)
+	fairy_conservatory_card.scale = Vector2.ONE \
+		* FAIRY_CONSERVATORY_ART_SCALE * HALL_STAGE_SCALE
+	fairy_conservatory_card.z_index = _depth_to_z_index(
+		FAIRY_CONSERVATORY_Z)
+	fairy_conservatory_card.set_meta("source_asset_role",
+		"chapter3_story_door")
+	fairy_conservatory_card.set_meta("source_object_id",
+		"main_hall:moonflower_conservatory")
+	fairy_conservatory_card.set_meta("source_asset_path", texture_path)
+	fairy_conservatory_card.set_meta("source_art_position",
+		FAIRY_CONSERVATORY_CENTER)
+	fairy_conservatory_card.set_meta("source_foot",
+		FAIRY_CONSERVATORY_FOOT)
+	fairy_conservatory_card.set_meta("hall_horizontal_cull", true)
+	fairy_conservatory_card.set_meta("hall_horizontal_cull_kind",
+		"fairy_conservatory_door")
+	fairy_conservatory_card.set_meta("hall_horizontal_cull_rect",
+		FAIRY_CONSERVATORY_CARD_ART_RECT)
+	fairy_conservatory_card.set_meta("depth_z", FAIRY_CONSERVATORY_Z)
+	m.castle_room_mid_layer.add_child(fairy_conservatory_card)
+	_fairy_conservatory_render_state = state
+	_sync_fairy_conservatory()
+
+
+func _sync_fairy_conservatory() -> void:
+	if not _is_wide_hall() or not is_open():
+		return
+	if fairy_conservatory_card == null \
+			or not is_instance_valid(fairy_conservatory_card):
+		return
+	var state := _fairy_conservatory_visual_state()
+	if state != _fairy_conservatory_render_state:
+		var texture_path := FAIRY_CONSERVATORY_DOOR_OPEN \
+			if state == "open" else FAIRY_CONSERVATORY_DOOR_CLOSED
+		var texture: Texture2D = load(texture_path) as Texture2D
+		if texture != null:
+			fairy_conservatory_card.texture = texture
+			fairy_conservatory_card.set_meta("source_asset_path",
+				texture_path)
+			_fairy_conservatory_render_state = state
+	if state == "revealed" or state == "open":
+		_ensure_fairy_conservatory_hotspot()
+		if state == "open":
+			_remove_fairy_conservatory_cue()
+	else:
+		_remove_fairy_conservatory_hotspot()
+	_update_fairy_conservatory_hotspot()
+	fairy_conservatory_card.visible = _hall_card_inside_horizontal_span(
+		fairy_conservatory_card, _hall_horizontal_cull_span())
+
+
+func _fairy_conservatory_visual_state() -> String:
+	if _fairy_conservatory_flag(FAIRY_CONSERVATORY_OPENED_KEY) \
+			or _fairy_conservatory_legacy_open():
+		return "open"
+	if _fairy_conservatory_flag(FAIRY_CONSERVATORY_REVEALED_KEY) \
+			or _fairy_conservatory_flag("chapter3_rainbow_candle_lit") \
+			or _fairy_conservatory_flag("rainbow_candle_lit"):
+		return "revealed"
+	return "closed"
+
+
+func _fairy_conservatory_flag(key: String) -> bool:
+	var property_value: Variant = m.get(key)
+	if property_value != null:
+		return bool(property_value)
+	if m.save_data is Dictionary:
+		return bool(m.save_data.get(key, false))
+	return false
+
+
+func _fairy_conservatory_legacy_open() -> bool:
+	# Older saves already past Butterfly World must never strand a child at the
+	# newly inserted door. SaveState may also normalize these into chapter-3
+	# fields; this visual fallback keeps the route safe during that migration.
+	if not (m.save_data is Dictionary):
+		return false
+	return bool(m.save_data.get("bwdone", false)) \
+		or bool(m.save_data.get("fairyskin", false)) \
+		or bool(m.save_data.get("galaxy", false))
+
+
+func _set_fairy_conservatory_flag(key: String) -> void:
+	if m.has_method("set_fairy_conservatory_flag"):
+		m.call("set_fairy_conservatory_flag", key, true)
+	elif m.get(key) != null:
+		m.set(key, true)
+	if m.save_data is Dictionary:
+		m.save_data[key] = true
+
+
+func _ensure_fairy_conservatory_hotspot() -> void:
+	if fairy_conservatory_hotspot != null \
+			and is_instance_valid(fairy_conservatory_hotspot):
+		return
+	if m.castle_room_door_hotspot_layer == null:
+		return
+	fairy_conservatory_cue = DoorCue.new() as CastleDoorCue
+	fairy_conservatory_cue.name = "MoonflowerConservatoryPointer"
+	fairy_conservatory_cue.z_index = 0
+	fairy_conservatory_cue.set_meta("chapter3_fairy_conservatory", true)
+	fairy_conservatory_cue.set_door_state(DoorLanguage.PLOT)
+	m.castle_room_door_hotspot_layer.add_child(
+		fairy_conservatory_cue)
+	fairy_conservatory_hotspot = Button.new()
+	fairy_conservatory_hotspot.name = "MoonflowerConservatoryHotspot"
+	fairy_conservatory_hotspot.flat = true
+	fairy_conservatory_hotspot.focus_mode = Control.FOCUS_NONE
+	fairy_conservatory_hotspot.tooltip_text = "Moonflower Conservatory"
+	fairy_conservatory_hotspot.self_modulate = Color(
+		1.0, 1.0, 1.0, 0.0)
+	fairy_conservatory_hotspot.set_meta("uses_own_sfx", true)
+	fairy_conservatory_hotspot.set_meta("chapter3_fairy_conservatory",
+		true)
+	fairy_conservatory_hotspot.pressed.connect(
+		_open_fairy_conservatory)
+	m.castle_room_door_hotspot_layer.add_child(
+		fairy_conservatory_hotspot)
+
+
+func _remove_fairy_conservatory_hotspot() -> void:
+	_remove_fairy_conservatory_cue()
+	if fairy_conservatory_hotspot != null \
+			and is_instance_valid(fairy_conservatory_hotspot):
+		fairy_conservatory_hotspot.free()
+	fairy_conservatory_hotspot = null
+
+
+func _remove_fairy_conservatory_cue() -> void:
+	if fairy_conservatory_cue != null \
+			and is_instance_valid(fairy_conservatory_cue):
+		fairy_conservatory_cue.free()
+	fairy_conservatory_cue = null
+
+
+func _update_fairy_conservatory_hotspot() -> void:
+	if fairy_conservatory_hotspot == null \
+			or not is_instance_valid(fairy_conservatory_hotspot):
+		return
+	var world_xform: Transform2D = \
+		m.castle_room_world_root.get_global_transform_with_canvas()
+	var stage_top_left := _canvas_to_stage(world_xform * \
+		_hall_art_to_world(FAIRY_CONSERVATORY_HOTSPOT_RECT.position,
+			FAIRY_CONSERVATORY_Z))
+	var stage_bottom_right := _canvas_to_stage(world_xform * \
+		_hall_art_to_world(FAIRY_CONSERVATORY_HOTSPOT_RECT.end,
+			FAIRY_CONSERVATORY_Z))
+	var projected := Rect2(
+		Vector2(minf(stage_top_left.x, stage_bottom_right.x),
+			minf(stage_top_left.y, stage_bottom_right.y)),
+		Vector2(absf(stage_bottom_right.x - stage_top_left.x),
+			absf(stage_bottom_right.y - stage_top_left.y)))
+	var canvas_rect := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
+	var visible_rect := projected.intersection(canvas_rect) \
+		if projected.intersects(canvas_rect) else Rect2()
+	var active := (_fairy_conservatory_render_state == "revealed" \
+		or _fairy_conservatory_render_state == "open") \
+		and visible_rect.has_area()
+	fairy_conservatory_hotspot.visible = active
+	if fairy_conservatory_cue != null:
+		fairy_conservatory_cue.visible = active \
+			and _fairy_conservatory_render_state == "revealed"
+		fairy_conservatory_cue.position = visible_rect.position
+		fairy_conservatory_cue.size = visible_rect.size
+	if not active:
+		return
+	var hit_size := Vector2(
+		maxf(112.0, visible_rect.size.x),
+		maxf(112.0, visible_rect.size.y))
+	var hit_position := visible_rect.get_center() - hit_size * 0.5
+	hit_position.x = clampf(hit_position.x, 0.0,
+		StorybookUI.CANVAS_SIZE.x - hit_size.x)
+	hit_position.y = clampf(hit_position.y, 0.0,
+		StorybookUI.CANVAS_SIZE.y - hit_size.y)
+	fairy_conservatory_hotspot.position = hit_position
+	fairy_conservatory_hotspot.size = hit_size
+
+
+func _open_fairy_conservatory() -> void:
+	if _fairy_conservatory_opening or not _is_wide_hall():
+		return
+	if _fairy_conservatory_render_state == "open":
+		# The opened doorway remains the permanent re-entry point. Main owns the
+		# already-completed flags, so this branch only re-enters the handoff.
+		if m.has_method("_start_fairy_conservatory_handoff"):
+			m.call("_start_fairy_conservatory_handoff")
+		return
+	if _fairy_conservatory_render_state != "revealed":
+		return
+	_fairy_conservatory_opening = true
+	_set_fairy_conservatory_flag(FAIRY_CONSERVATORY_REVEALED_KEY)
+	_set_fairy_conservatory_flag(FAIRY_CONSERVATORY_OPENED_KEY)
+	_fairy_conservatory_render_state = "revealed"
+	_sync_fairy_conservatory()
+	if m.has_method("_ui_tap"):
+		m.call("_ui_tap")
+	if m.has_method("_write_save"):
+		m.call("_write_save")
+	_fairy_conservatory_opening = false
+	if m.has_method("_start_fairy_conservatory_handoff"):
+		m.call("_start_fairy_conservatory_handoff")
 
 func _build_hall_door_signs() -> void:
 	if m.castle_room_mid_layer == null:

@@ -32,6 +32,14 @@ func _init() -> void:
 	sd["opera_stars"] = 0x4211
 	sd["opera_progress"] = 16
 	sd["opera_done"] = false
+	# A pre-Chapter-3 save that already unlocked Butterfly World must be
+	# grandfathered through the new Moonflower route without losing access.
+	sd["galaxy"] = true
+	sd["bwdone"] = false
+	sd["fairyskin"] = false
+	sd["chapter3_fairy_door_revealed"] = false
+	sd["chapter3_fairy_door_opened"] = false
+	sd["chapter3_fairy_mission_started"] = false
 	var w := FileAccess.open("user://reef_save.json", FileAccess.WRITE)
 	w.store_string(JSON.stringify(sd))
 	w.close()
@@ -83,6 +91,7 @@ func _init() -> void:
 		print("castle logo restored: purple puppy")
 	var first_companion_ok: bool = _legacy_companion_ok(main, "first launch")
 	var first_opera_ok: bool = _opera_mask_ok(main, "first launch")
+	var first_fairy_route_ok: bool = _fairy_route_ok(main, "first launch")
 	var first_write_ok: bool = main._write_save()
 	var saved_healed: bool = first_write_ok \
 		and not bool(main.save_data.get("companion_resting", true)) \
@@ -97,7 +106,10 @@ func _init() -> void:
 		and bool((main.save_data.get("stuffie_wins", {}) as Dictionary).get(
 			"friend_lamma", false)) \
 		and int(main.save_data.get("opera_stars", -1)) == 0x4211 \
-		and int(main.save_data.get("opera_progress", -1)) == 1
+		and int(main.save_data.get("opera_progress", -1)) == 1 \
+		and bool(main.save_data.get("chapter3_fairy_door_revealed", false)) \
+		and bool(main.save_data.get("chapter3_fairy_door_opened", false)) \
+		and bool(main.save_data.get("chapter3_fairy_mission_started", false))
 	if saved_healed:
 		print("legacy companion save rewrote only the retired resting flag")
 	else:
@@ -115,8 +127,27 @@ func _init() -> void:
 	var second_companion_ok: bool = _legacy_companion_ok(
 		relaunched, "second launch")
 	var second_opera_ok: bool = _opera_mask_ok(relaunched, "second launch")
+	var second_fairy_route_ok: bool = _fairy_route_ok(
+		relaunched, "second launch")
 	quit(0 if first_companion_ok and first_opera_ok and saved_healed \
-		and second_companion_ok and second_opera_ok else 1)
+		and first_fairy_route_ok and second_companion_ok \
+		and second_opera_ok and second_fairy_route_ok else 1)
+
+
+func _fairy_route_ok(main: ReefMain, label: String) -> bool:
+	var ok: bool = main.galaxy_unlocked \
+		and main.chapter3_fairy_door_revealed \
+		and main.chapter3_fairy_door_opened \
+		and main.chapter3_fairy_mission_started
+	if ok:
+		print("legacy Butterfly World access grandfathered on ", label)
+	else:
+		print("FAIL: Chapter 3 fairy route migration mismatch on %s " % label,
+			"galaxy=", main.galaxy_unlocked,
+			" revealed=", main.chapter3_fairy_door_revealed,
+			" opened=", main.chapter3_fairy_door_opened,
+			" started=", main.chapter3_fairy_mission_started)
+	return ok
 
 
 func _opera_mask_ok(main: ReefMain, label: String) -> bool:
