@@ -97,6 +97,9 @@ func _open_craft_studio() -> void:
 		button.position = Vector2(620.0 + float(i) * 164.0, 18.0)
 		button.custom_minimum_size = Vector2(150, 112)
 		button.size = Vector2(150, 112)
+		# Locked choices intentionally retain the audited 24px treatment: the
+		# exact locked copy contains an explicit newline plus the kind label, so a
+		# 30px enlargement would exceed this 112px button's line capacity.
 		StorybookUI.style_button(button, "locked" if locked else "secondary", 24, 28)
 		button.set_meta("locked", locked)
 		button.set_meta("price", price)
@@ -138,6 +141,9 @@ func _open_craft_studio() -> void:
 	m.craft_status.size = Vector2(175, 150)
 	m.craft_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	m.craft_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	# This status box is still a known sub-floor child surface. Keep its
+	# established 21px geometry until it receives a measured layout redesign;
+	# do not trade clipped feedback for a nominal role marker.
 	StorybookUI.style_label(m.craft_status, 21, Color.WHITE, 5)
 	stage.add_child(m.craft_status)
 	var done := Button.new()
@@ -185,7 +191,8 @@ func _craft_rebuild_palette() -> void:
 		rainbow.position = Vector2(998, 584)
 		rainbow.custom_minimum_size = Vector2(112, 112)
 		rainbow.size = Vector2(112, 112)
-		StorybookUI.style_button(rainbow, "selected" if _craft_rainbow_selected() else "secondary", 24, 30)
+		StorybookUI.style_button(rainbow, "selected" if _craft_rainbow_selected() else "secondary", 30, 30,
+			StorybookUI.ROLE_DECORATIVE_GLYPH)
 		rainbow.text = "🌈"
 		rainbow.pressed.connect(_craft_set.bind(m.craft_part, Color.WHITE, true))
 		stage.add_child(rainbow)

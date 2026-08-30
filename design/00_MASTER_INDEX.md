@@ -91,6 +91,7 @@ emitters/25 planner tests/27 manual groups.
 | 06 | [COMPREHENSIVE_DESIGN_LANGUAGE.md](06_COMPREHENSIVE_DESIGN_LANGUAGE.md) | Stable `DL-*` rules, including the owner's 2026-08-09 true-2D decision and the complete audit contract |
 | 08 | [TARGET_ARCHITECTURE.md](08_TARGET_ARCHITECTURE.md) | The Mode Platform remodel (owner-requested 2026-08-26): the growth law, GameMode/registry/director/services contracts, the structure ratchet, and migration plan M0–M6 |
 | audit | [MASTER_AUDIT_2026-08-09.md](../audit/MASTER_AUDIT_2026-08-09.md) | Current audit-cycle state, synchronized evidence, lifecycle triage, and satisfaction gate |
+| typography audit | [FONT_TYPOGRAPHY_AUDIT_2026-08-30.md](../audit/FONT_TYPOGRAPHY_AUDIT_2026-08-30.md) | V1 font, glyph, size, layout, and `Label3D` census; critique; and bounded TYPE-A–G implementation program |
 | findings | [ACTIVE_FINDINGS_2026-08-13.md](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md) | Full canonical records for every material `MA-*` item, including retained terminal history |
 | changes | [MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md](../audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md) | Stable `CHG-*` change groups, benefits/risks, dependencies, evidence, and guarded per-change rollback plans |
 

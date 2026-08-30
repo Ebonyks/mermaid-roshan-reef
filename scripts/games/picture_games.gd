@@ -164,8 +164,8 @@ func _mg_roundbtn(pos: Vector2, r: float, col: Color, txt: String = "") -> Butto
 	b.custom_minimum_size = Vector2(r * 2.0, r * 2.0)
 	b.size = Vector2(r * 2.0, r * 2.0)
 	b.text = txt
-	b.add_theme_font_size_override("font_size", 44)
-	StorybookUI.style_picture_button(b, col, StorybookUI.PURPLE, int(r))
+	StorybookUI.style_picture_button(b, col, StorybookUI.PURPLE, int(r),
+		StorybookUI.ROLE_CHILD_CONTROL, 44)
 	m.mg2d_stage.add_child(b)
 	(m.mg["btns"] as Array).append(b)
 	return b

@@ -150,6 +150,123 @@ func _check_storybook_coverage() -> void:
 		and not companion_source.contains("func open_menu()"),
 		"legacy duplicate Stuffie launcher and care panel stay removed")
 
+func _check_typography_coverage() -> void:
+	var storybook_source: String = FileAccess.get_file_as_string(
+		"res://scripts/storybook_ui.gd")
+	var roles: Array[StringName] = [
+		StorybookUI.ROLE_DISPLAY, StorybookUI.ROLE_TITLE,
+		StorybookUI.ROLE_CHILD_CONTROL, StorybookUI.ROLE_BODY,
+		StorybookUI.ROLE_ADULT_CAPTION, StorybookUI.ROLE_STATUS,
+		StorybookUI.ROLE_NUMERIC, StorybookUI.ROLE_DECORATIVE_GLYPH]
+	_check(StorybookUI.TYPOGRAPHY_ROLES.size() == roles.size()
+		and storybook_source.contains("TYPOGRAPHY_FONT_AUTHORITY")
+		and storybook_source.contains("TYPOGRAPHY_FALLBACK_AUTHORITY"),
+		"typography authority and eight named roles are explicit")
+	for role: StringName in roles:
+		var token: Dictionary = StorybookUI.typography_role(role)
+		_check(int(token.get("font_size", 0)) > 0
+			and token.has("outline_color") and token.has("outline_size")
+			and token.has("focus_color") and token.has("disabled_color")
+			and token.has("wrap_mode") and token.has("max_lines")
+			and token.has("line_spacing") and token.has("font_authority")
+			and token.has("fallback_authority"),
+			"typography role token is complete: %s" % String(role))
+
+	var picture := Button.new()
+	StorybookUI.style_picture_button(picture)
+	_check(picture.get_theme_font_size("font_size") >= 28
+		and picture.get_theme_constant("outline_size") > 0
+		and picture.get_theme_stylebox("normal") != null
+		and picture.get_theme_stylebox("focus") != null
+		and picture.get_theme_stylebox("disabled") != null,
+		"picture button has child-size typography, outline, focus, and disabled surfaces")
+	_check(picture.get_theme_color("font_hover_color") == StorybookUI.PURPLE_DEEP
+		and picture.get_theme_color("font_focus_color") == StorybookUI.PURPLE_DEEP
+		and picture.get_theme_color("font_pressed_color") == StorybookUI.PURPLE_DEEP
+		and picture.get_theme_color("font_disabled_color") == Color(0.82, 0.84, 0.9),
+		"picture button covers hover, focus, pressed, and disabled text colors")
+	_check(String(picture.get_meta("typography_role", ""))
+		== String(StorybookUI.ROLE_CHILD_CONTROL)
+		and String(picture.get_meta("typography_font_authority", ""))
+		== StorybookUI.TYPOGRAPHY_FONT_AUTHORITY,
+		"picture button records its role and font authority")
+	picture.free()
+
+	var label := Label.new()
+	StorybookUI.style_label(label, 22, StorybookUI.INK_SOFT, 3,
+		StorybookUI.ROLE_ADULT_CAPTION)
+	_check(label.get_theme_font_size("font_size") == 22
+		and label.get_theme_constant("outline_size") == 3
+		and label.autowrap_mode == TextServer.AUTOWRAP_WORD_SMART
+		and label.max_lines_visible == 3,
+		"label helper delegates role wrap and bounded caption typography")
+	label.free()
+
+func _check_type_c_layout_contract() -> void:
+	const CHILD_FLOOR := 28
+	_check(int(StorybookUI.TYPOGRAPHY_ROLES[StorybookUI.ROLE_CHILD_CONTROL]["font_size"])
+		>= CHILD_FLOOR
+		and int(StorybookUI.TYPOGRAPHY_ROLES[StorybookUI.ROLE_STATUS]["font_size"])
+		>= CHILD_FLOOR,
+		"child control and status roles keep the 28px minimum")
+	# These are source-level guards for the bounded TYPE-C batch. They keep a
+	# future edit from silently restoring the audited sub-floor call sites while
+	# leaving decorative glyphs and unrelated legacy surfaces out of scope.
+	var child_specs: Array[Dictionary] = [
+		{"path": "res://scripts/craft_studio.gd",
+			"markers": ["style_button(button, \"locked\" if locked else \"secondary\", 24, 28)",
+				"style_label(m.craft_status, 21", "known sub-floor child surface"]},
+		{"path": "res://scripts/wardrobe_ui.gd",
+			"markers": ["ROLE_CHILD_CONTROL, 28)", "b.alignment = HORIZONTAL_ALIGNMENT_RIGHT",
+				"bt.alignment = HORIZONTAL_ALIGNMENT_RIGHT"]},
+		{"path": "res://scripts/wardrobe_ui.gd",
+			"markers": ["font_size\", 20 if earned else 15", "reserves only 72px"]},
+		{"path": "res://scripts/collection_system.gd",
+			"markers": ["habitat, 28", "ROLE_STATUS", "habitat.max_lines_visible = 2"]},
+		{"path": "res://scripts/companion.gd",
+			"markers": ["style_button(card, \"selected\" if id == m.companion_pick_id else \"secondary\", 24, 24)",
+				"style_label(nm, 26", "style_label(atk, 24", "style_label(asis, 27"]},
+		{"path": "res://scripts/games/dance_engine.gd",
+			"markers": ["magic_label, 28", "ROLE_STATUS", "magic_label.max_lines_visible = 1"]},
+		{"path": "res://scripts/main.gd",
+			"markers": ["hint, 24", "hint.mouse_filter = Control.MOUSE_FILTER_IGNORE"]},
+	]
+	var forbidden_child_sizes: Array[Dictionary] = [
+		{"path": "res://scripts/craft_studio.gd", "text": "m.craft_status, 30"},
+		{"path": "res://scripts/craft_studio.gd", "text": "else \"secondary\", 30"},
+		{"path": "res://scripts/wardrobe_ui.gd", "text": "font_size\", 20"},
+		{"path": "res://scripts/wardrobe_ui.gd", "text": "font_size\", 15"},
+		{"path": "res://scripts/collection_system.gd", "text": "habitat, 22"},
+		{"path": "res://scripts/companion.gd", "text": "card, \"selected\" if id == m.companion_pick_id else \"secondary\", 30"},
+		{"path": "res://scripts/companion.gd", "text": "style_label(atk, 28"},
+		{"path": "res://scripts/companion.gd", "text": "style_label(nm, 30"},
+		{"path": "res://scripts/companion.gd", "text": "style_label(asis, 30"},
+		{"path": "res://scripts/games/dance_engine.gd", "text": "magic_label, 24"},
+		{"path": "res://scripts/main.gd", "text": "style_hud_label(hint, 28"},
+	]
+	for spec: Dictionary in child_specs:
+		var source: String = FileAccess.get_file_as_string(String(spec["path"]))
+		for marker: String in spec["markers"]:
+			_check(source.contains(marker), "TYPE-C child layout contract: %s has %s" % [String(spec["path"]), marker])
+	for spec: Dictionary in forbidden_child_sizes:
+		var source: String = FileAccess.get_file_as_string(String(spec["path"]))
+		_check(not source.contains(String(spec["text"])), "TYPE-C rejects sub-floor child call: %s" % String(spec["text"]))
+	var adult_specs: Array[Dictionary] = [
+		{"path": "res://scripts/intro_overlay.gd", "markers": [
+			"ROLE_ADULT_CAPTION", "adult_caption_voice_picture_redundant",
+			"m.intro_text.max_lines_visible = 3"]},
+		{"path": "res://scripts/start_menu.gd", "markers": [
+			"ROLE_STATUS", "This warning protects the child's saved progress",
+			"note.max_lines_visible = 3"]},
+	]
+	for spec: Dictionary in adult_specs:
+		var source: String = FileAccess.get_file_as_string(String(spec["path"]))
+		for marker: String in spec["markers"]:
+			_check(source.contains(marker), "TYPE-C adult-caption exception is explicit: %s" % marker)
+		if String(spec["path"]) == "res://scripts/start_menu.gd":
+			_check(not source.contains("adult_caption_adult_only_save_safety"),
+				"save warning is not misclassified as adult caption")
+
 func _init() -> void:
 	var packed := load("res://scenes/main.tscn") as PackedScene
 	main = packed.instantiate() as ReefMain
@@ -158,6 +275,8 @@ func _init() -> void:
 	await process_frame
 	main.day_one_active = false
 	_check_storybook_coverage()
+	_check_typography_coverage()
+	_check_type_c_layout_contract()
 
 	# Intro: four shape pips, repeat voice, explicit next, and deliberate hold-skip.
 	if not main.intro_active:

@@ -4623,10 +4623,10 @@ func _open_kitchen_menu() -> void:
 		recipe_button.position = Vector2(
 			first_x + float(index) * (card_width + card_gap), 180.0)
 		recipe_button.size = Vector2(card_width, 278.0)
-		recipe_button.add_theme_font_size_override("font_size", 40)
 		recipe_button.set_meta("picture_first", true)
 		recipe_button.set_meta("recipe_id", String(recipe["id"]))
-		StorybookUI.style_button(recipe_button, "gold", 40, 34)
+		StorybookUI.style_button(recipe_button, "gold", 40, 34,
+			StorybookUI.ROLE_CHILD_CONTROL)
 		recipe_button.pressed.connect(
 			_launch_kitchen_recipe.bind(String(recipe["id"])))
 		kitchen_menu_stage.add_child(recipe_button)

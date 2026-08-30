@@ -125,7 +125,9 @@ func _build_ui() -> void:
 	magic_label.position = Vector2(180, 182)
 	magic_label.size = Vector2(920, 45)
 	magic_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	StorybookUI.style_label(magic_label, 24, StorybookUI.INK_SOFT, 2)
+	StorybookUI.style_label(magic_label, 28, StorybookUI.INK_SOFT, 2,
+		StorybookUI.ROLE_STATUS)
+	magic_label.max_lines_visible = 1
 	root.add_child(magic_label)
 
 	# Buttons are deliberately much larger than their art. A four-year-old can

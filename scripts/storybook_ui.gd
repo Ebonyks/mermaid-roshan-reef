@@ -23,6 +23,100 @@ const DIM := Color(0.025, 0.06, 0.16, 0.76)
 const MIN_TOUCH := Vector2(110.0, 110.0)
 const SHELL_ORNAMENT_SCRIPT := preload("res://scripts/shell_ornament.gd")
 
+# Typography roles are explicit, but font identity and fallback evidence are
+# still unresolved.  The engine/system default is not a project authority and
+# must never be reported as approved or deterministic.
+const TYPOGRAPHY_FONT_AUTHORITY: String = "UNRESOLVED"
+const TYPOGRAPHY_FALLBACK_AUTHORITY: String = "MISSING"
+const ROLE_DISPLAY := &"display"
+const ROLE_TITLE := &"title"
+const ROLE_CHILD_CONTROL := &"child_control"
+const ROLE_BODY := &"body"
+const ROLE_ADULT_CAPTION := &"adult_caption"
+const ROLE_STATUS := &"status"
+const ROLE_NUMERIC := &"numeric_progress"
+const ROLE_DECORATIVE_GLYPH := &"decorative_glyph"
+const TYPOGRAPHY_ROLES: Dictionary = {
+	ROLE_DISPLAY: {"font_size": 56, "font_color": PEARL, "outline_color": INK,
+		"outline_size": 6, "focus_color": PEARL, "pressed_color": PEARL,
+		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_OFF,
+		"max_lines": 1},
+	ROLE_TITLE: {"font_size": 44, "font_color": INK, "outline_color": PEARL,
+		"outline_size": 4, "focus_color": INK, "pressed_color": INK,
+		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_WORD_SMART,
+		"max_lines": 2},
+	ROLE_CHILD_CONTROL: {"font_size": 30, "font_color": PURPLE_DEEP,
+		"outline_color": Color(1.0, 1.0, 1.0, 0.7), "outline_size": 3,
+		"focus_color": PURPLE_DEEP, "pressed_color": PURPLE_DEEP,
+		"disabled_color": Color(0.82, 0.84, 0.9),
+		"wrap_mode": TextServer.AUTOWRAP_WORD_SMART, "max_lines": 2},
+	ROLE_BODY: {"font_size": 30, "font_color": INK, "outline_color": PEARL,
+		"outline_size": 4, "focus_color": INK, "pressed_color": INK,
+		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_WORD_SMART,
+		"max_lines": 3},
+	ROLE_ADULT_CAPTION: {"font_size": 22, "font_color": INK_SOFT,
+		"outline_color": PEARL, "outline_size": 3, "focus_color": INK_SOFT,
+		"pressed_color": INK_SOFT, "disabled_color": MUTED,
+		"wrap_mode": TextServer.AUTOWRAP_WORD_SMART, "max_lines": 3},
+	ROLE_STATUS: {"font_size": 30, "font_color": INK, "outline_color": PEARL,
+		"outline_size": 4, "focus_color": INK, "pressed_color": INK,
+		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_WORD_SMART,
+		"max_lines": 2},
+	ROLE_NUMERIC: {"font_size": 34, "font_color": PURPLE_DEEP,
+		"outline_color": PEARL, "outline_size": 4,
+		"focus_color": PURPLE_DEEP, "pressed_color": PURPLE_DEEP,
+		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_OFF,
+		"max_lines": 1},
+	ROLE_DECORATIVE_GLYPH: {"font_size": 30, "font_color": PURPLE_DEEP,
+		"outline_color": PEARL, "outline_size": 3,
+		"focus_color": PURPLE_DEEP, "pressed_color": PURPLE_DEEP,
+		"disabled_color": MUTED, "wrap_mode": TextServer.AUTOWRAP_OFF,
+		"max_lines": 1},
+}
+
+static func typography_role(role: StringName) -> Dictionary:
+	var token: Dictionary = (TYPOGRAPHY_ROLES[role] if TYPOGRAPHY_ROLES.has(role)
+		else TYPOGRAPHY_ROLES[ROLE_BODY]).duplicate()
+	token["font_authority"] = TYPOGRAPHY_FONT_AUTHORITY
+	token["fallback_authority"] = TYPOGRAPHY_FALLBACK_AUTHORITY
+	token["line_spacing"] = 0
+	return token
+
+static func _apply_typography(control: Control, role: StringName,
+		font_size: int = -1) -> void:
+	var token: Dictionary = typography_role(role)
+	var resolved_size: int = int(token["font_size"]) if font_size < 0 else font_size
+	control.add_theme_font_size_override("font_size", resolved_size)
+	control.add_theme_color_override("font_color", token["font_color"])
+	control.add_theme_color_override("font_outline_color", token["outline_color"])
+	control.add_theme_constant_override("outline_size", int(token["outline_size"]))
+	control.add_theme_constant_override("line_spacing", int(token["line_spacing"]))
+	control.set_meta("typography_role", role)
+	control.set_meta("typography_font_authority", TYPOGRAPHY_FONT_AUTHORITY)
+	control.set_meta("typography_fallback_authority", TYPOGRAPHY_FALLBACK_AUTHORITY)
+	control.set_meta("typography_wrap_mode", int(token["wrap_mode"]))
+
+static func _apply_button_typography(button: Button, role: StringName,
+		font_size: int = -1) -> void:
+	var token: Dictionary = typography_role(role)
+	_apply_typography(button, role, font_size)
+	button.add_theme_color_override("font_hover_color", token["focus_color"])
+	button.add_theme_color_override("font_focus_color", token["focus_color"])
+	button.add_theme_color_override("font_pressed_color", token["pressed_color"])
+	button.add_theme_color_override("font_disabled_color", token["disabled_color"])
+	button.autowrap_mode = int(token["wrap_mode"])
+	# Button has no max_lines_visible property.  Keep max_lines a Label-only
+	# contract rather than implying that this metadata limits Button text.
+	button.set_meta("typography_max_lines_supported", false)
+
+static func _apply_label_typography(label: Label, role: StringName,
+		font_size: int = -1) -> void:
+	var token: Dictionary = typography_role(role)
+	_apply_typography(label, role, font_size)
+	label.autowrap_mode = int(token["wrap_mode"])
+	label.max_lines_visible = int(token["max_lines"])
+	label.set_meta("typography_max_lines", int(token["max_lines"]))
+
 static func add_stage(parent: Control, viewport_size: Vector2) -> Control:
 	var stage := Control.new()
 	stage.name = "StorybookStage"
@@ -125,7 +219,8 @@ static func _button_fill(kind: String) -> Color:
 		_:
 			return Color(0.91, 0.93, 1.0, 0.98)
 
-static func style_button(button: Button, kind: String = "secondary", font_size: int = 30, radius: int = 28) -> void:
+static func style_button(button: Button, kind: String = "secondary", font_size: int = -1,
+		radius: int = 28, role: StringName = ROLE_CHILD_CONTROL) -> void:
 	var fill: Color = _button_fill(kind)
 	var normal := panel_style(PURPLE, fill, radius, 5)
 	normal.shadow_size = 7
@@ -150,18 +245,13 @@ static func style_button(button: Button, kind: String = "secondary", font_size: 
 	button.add_theme_stylebox_override("pressed", pressed)
 	button.add_theme_stylebox_override("focus", focus)
 	button.add_theme_stylebox_override("disabled", disabled)
-	button.add_theme_font_size_override("font_size", font_size)
-	button.add_theme_color_override("font_color", PURPLE_DEEP)
-	button.add_theme_color_override("font_hover_color", PURPLE_DEEP)
-	button.add_theme_color_override("font_pressed_color", PURPLE_DEEP)
-	button.add_theme_color_override("font_focus_color", PURPLE_DEEP)
-	button.add_theme_color_override("font_disabled_color", Color(0.82, 0.84, 0.9))
-	button.add_theme_color_override("font_outline_color", Color(1.0, 1.0, 1.0, 0.7))
-	button.add_theme_constant_override("outline_size", 3)
+	_apply_button_typography(button, role, font_size)
 	button.set_meta("storybook_kind", kind)
 	button.set_meta("touch_target", true)
 
-static func style_picture_button(button: Button, fill: Color = PAPER, accent: Color = PURPLE, radius: int = 28) -> void:
+static func style_picture_button(button: Button, fill: Color = PAPER,
+		accent: Color = PURPLE, radius: int = 28,
+		role: StringName = ROLE_CHILD_CONTROL, font_size: int = -1) -> void:
 	# Art-backed choices still need the same violet contour, physical press,
 	# focus ring and shadow as text/icon tiles. Keeping this in the shared
 	# system prevents picture games and selectors from falling back to flat,
@@ -185,9 +275,7 @@ static func style_picture_button(button: Button, fill: Color = PAPER, accent: Co
 	button.add_theme_stylebox_override("focus", focus)
 	button.add_theme_stylebox_override("disabled", panel_style(
 		MUTED, Color(0.74, 0.76, 0.84, 0.96), radius, 5))
-	button.add_theme_color_override("font_color", PURPLE_DEEP)
-	button.add_theme_color_override("font_hover_color", PURPLE_DEEP)
-	button.add_theme_color_override("font_pressed_color", PURPLE_DEEP)
+	_apply_button_typography(button, role, font_size)
 	button.set_meta("storybook_kind", "picture")
 	button.set_meta("picture_first", true)
 	button.set_meta("touch_target", true)
@@ -205,14 +293,22 @@ static func style_back_button(button: Button, parent_hint: String = "Back") -> v
 	style_icon_button(button, "↩", "secondary", Vector2(112.0, 112.0), parent_hint)
 	button.set_meta("neutral_exit", true)
 
-static func style_label(label: Label, font_size: int = 30, color: Color = INK, outline_size: int = 4) -> void:
-	label.add_theme_font_size_override("font_size", font_size)
-	label.add_theme_color_override("font_color", color)
-	label.add_theme_color_override("font_outline_color", Color(1.0, 1.0, 1.0, 0.75))
-	label.add_theme_constant_override("outline_size", outline_size)
+static func style_label(label: Label, font_size: int = -1,
+		color: Color = Color(-1.0, -1.0, -1.0, -1.0), outline_size: int = -1,
+		role: StringName = ROLE_BODY) -> void:
+	_apply_label_typography(label, role, font_size)
+	var token: Dictionary = typography_role(role)
+	# Keep historical color/outline arguments as compatibility overrides while
+	# allowing omitted values to use the named role token.
+	label.add_theme_color_override("font_color",
+			token["font_color"] if color.r < 0.0 else color)
+	label.add_theme_constant_override("outline_size",
+			int(token["outline_size"]) if outline_size < 0 else outline_size)
 
-static func style_hud_label(label: Label, font_size: int = 30, color: Color = INK, outline_size: int = 3) -> void:
-	style_label(label, font_size, color, outline_size)
+static func style_hud_label(label: Label, font_size: int = -1,
+		color: Color = Color(-1.0, -1.0, -1.0, -1.0), outline_size: int = -1,
+		role: StringName = ROLE_STATUS) -> void:
+	style_label(label, font_size, color, outline_size, role)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.set_meta("storybook_hud", true)
 
