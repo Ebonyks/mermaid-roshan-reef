@@ -23,6 +23,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
+from xml.etree import ElementTree
 
 
 DEFAULT_MANIFEST = "audit/typography_manifest.json"
@@ -838,24 +839,180 @@ def _git_head(root: Path) -> str | None:
     return head if HEX40_RE.fullmatch(head) else None
 
 
-def _binary_xml_valid(data: bytes) -> bool:
-    """Check Android's binary-XML file/chunk framing without XML decoding."""
+def _axml_string_pool(data: bytes, chunk_offset: int) -> list[str] | None:
+    """Decode one Android string-pool chunk, rejecting malformed offsets."""
+    if chunk_offset + 28 > len(data):
+        return None
+    chunk_type, header_size, chunk_size = struct.unpack_from("<HHI", data, chunk_offset)
+    if (chunk_type != 0x0001 or header_size < 28 or chunk_size < header_size
+            or chunk_offset + chunk_size > len(data)):
+        return None
+    string_count, style_count, flags, strings_start, styles_start = struct.unpack_from(
+        "<IIIII", data, chunk_offset + 8)
+    offsets_start = chunk_offset + header_size
+    offsets_end = offsets_start + string_count * 4
+    if offsets_end > chunk_offset + chunk_size:
+        return None
+    strings_base = chunk_offset + strings_start
+    strings_end = chunk_offset + chunk_size
+    if strings_start < header_size or strings_base > strings_end:
+        return None
+    if style_count:
+        styles_base = chunk_offset + styles_start
+        if styles_start < strings_start or styles_base > strings_end:
+            return None
+    result: list[str] = []
+    utf8 = bool(flags & 0x100)
+    for index in range(string_count):
+        relative = struct.unpack_from("<I", data, offsets_start + index * 4)[0]
+        cursor = strings_base + relative
+        if cursor < strings_base or cursor >= strings_end:
+            return None
+        try:
+            if utf8:
+                # UTF-8 pool entries have a UTF-16 length followed by a byte
+                # length; both lengths use Android's optional two-byte form.
+                def read_length(position: int) -> tuple[int, int] | None:
+                    if position >= strings_end:
+                        return None
+                    first = data[position]
+                    if first & 0x80:
+                        if position + 1 >= strings_end:
+                            return None
+                        return ((first & 0x7F) << 8) | data[position + 1], position + 2
+                    return first, position + 1
+                decoded_length = read_length(cursor)
+                if decoded_length is None:
+                    return None
+                _utf16_length, cursor = decoded_length
+                byte_length = read_length(cursor)
+                if byte_length is None:
+                    return None
+                byte_count, cursor = byte_length
+                end = cursor + byte_count
+                if end >= strings_end or data[end] != 0:
+                    return None
+                result.append(data[cursor:end].decode("utf-8"))
+            else:
+                if cursor + 2 > strings_end:
+                    return None
+                first = struct.unpack_from("<H", data, cursor)[0]
+                if first & 0x8000:
+                    if cursor + 4 > strings_end:
+                        return None
+                    length = ((first & 0x7FFF) << 16) | struct.unpack_from(
+                        "<H", data, cursor + 2)[0]
+                    cursor += 4
+                else:
+                    length = first
+                    cursor += 2
+                end = cursor + length * 2
+                if end + 2 > strings_end or data[end:end + 2] != b"\0\0":
+                    return None
+                result.append(data[cursor:end].decode("utf-16le"))
+        except (UnicodeDecodeError, struct.error):
+            return None
+    return result
+
+
+def _binary_xml_manifest_identity(data: bytes) -> dict[str, str] | None:
+    """Decode the minimum real AXML structure required for APK identity.
+
+    A valid ZIP and an 8-byte top-level XML header are not an Android
+    manifest.  Require a string pool, a START_ELEMENT named ``manifest``, and
+    its package attribute.  Also retain the application identity when the
+    application element exposes a name/label/id attribute.
+    """
     if len(data) < 8:
-        return False
+        return None
     chunk_type, header_size, declared_size = struct.unpack_from("<HHI", data)
     if chunk_type != 0x0003 or header_size != 8 or declared_size != len(data):
-        return False
+        return None
     cursor = header_size
+    strings: list[str] | None = None
+    manifest_attrs: dict[str, str] | None = None
+    application_identity: str | None = None
+    application_seen = False
     while cursor < len(data):
         if len(data) - cursor < 8:
-            return False
+            return None
         _chunk_type, chunk_header_size, chunk_size = struct.unpack_from(
             "<HHI", data, cursor)
         if (chunk_header_size < 8 or chunk_size < chunk_header_size
-                or cursor + chunk_size > len(data)):
-            return False
+                or cursor + chunk_size > len(data) or chunk_size == 0):
+            return None
+        if _chunk_type == 0x0001:
+            if strings is not None:
+                return None
+            strings = _axml_string_pool(data, cursor)
+            if strings is None:
+                return None
+        elif _chunk_type == 0x0102:
+            # ResXMLTree_node (16 bytes) followed by attribute metadata.
+            if strings is None or chunk_header_size < 0x10 or chunk_size < 0x24:
+                return None
+            if cursor + 0x24 > len(data):
+                return None
+            name_index = struct.unpack_from("<I", data, cursor + 20)[0]
+            if name_index >= len(strings):
+                return None
+            attribute_start, attribute_size, attribute_count = struct.unpack_from(
+                "<HHH", data, cursor + 24)
+            # attributeStart is relative to the ResXMLTree_attrExt (which
+            # begins immediately after the 16-byte node header).
+            attributes_start = cursor + 16 + attribute_start
+            attributes_end = attributes_start + attribute_count * attribute_size
+            if (attribute_size < 20 or attributes_start < cursor + chunk_header_size
+                    or attributes_end > cursor + chunk_size):
+                return None
+            attributes: dict[str, str] = {}
+            for index in range(attribute_count):
+                offset = attributes_start + index * attribute_size
+                _namespace, attr_name, raw_value = struct.unpack_from("<III", data, offset)
+                if attr_name >= len(strings):
+                    return None
+                value: str | None = None
+                if raw_value != 0xFFFFFFFF:
+                    if raw_value >= len(strings):
+                        return None
+                    value = strings[raw_value]
+                elif offset + 20 <= attributes_end:
+                    value_type = data[offset + 15]
+                    value_data = struct.unpack_from("<I", data, offset + 16)[0]
+                    if value_type == 0x03 and value_data < len(strings):
+                        value = strings[value_data]
+                if value is not None:
+                    attributes[strings[attr_name]] = value
+            element_name = strings[name_index]
+            if element_name == "manifest":
+                if manifest_attrs is not None:
+                    return None
+                manifest_attrs = attributes
+            elif element_name == "application" and application_identity is None:
+                application_seen = True
+                for key in ("name", "label", "id"):
+                    if attributes.get(key):
+                        application_identity = attributes[key]
+                        break
+            elif element_name == "application":
+                application_seen = True
         cursor += chunk_size
-    return cursor == len(data)
+    if (cursor != len(data) or strings is None or manifest_attrs is None
+            or not application_seen):
+        return None
+    package = manifest_attrs.get("package")
+    if not package:
+        return None
+    return {
+        "package_id": package,
+        "manifest_identity": "manifest",
+        "application_identity": application_identity or "application",
+    }
+
+
+def _binary_xml_valid(data: bytes) -> bool:
+    """Require a string pool and real manifest START_ELEMENT, not just framing."""
+    return _binary_xml_manifest_identity(data) is not None
 
 
 def _dex_valid(data: bytes) -> bool:
@@ -1060,6 +1217,7 @@ def _apk_artifact(root: Path, path_value: Any, expected: Any) -> tuple[bool, str
 
 
 _APK_VERIFIER_NAMES = ("apksigner", "jarsigner")
+_APK_PARSER_NAMES = ("apkanalyzer", "aapt2", "aapt")
 _APK_VERIFIER_TIMEOUT_SECONDS = 120
 
 
@@ -1134,6 +1292,160 @@ def _discover_apk_verifier() -> tuple[str, Path] | None:
         if real is not None:
             return name, real
     return None
+
+
+def _discover_apk_parser() -> tuple[str, Path] | None:
+    """Find an Android SDK parser; signer output alone is never sufficient."""
+    candidates: list[tuple[str, Path]] = []
+    for name in _APK_PARSER_NAMES:
+        path = shutil.which(name)
+        if path:
+            candidates.append((name, Path(path)))
+    suffixes = ("", ".bat", ".cmd", ".exe") if os.name == "nt" else ("")
+    for root in _sdk_roots():
+        for name in ("apkanalyzer",):
+            for tools_root in (root / "cmdline-tools", root / "tools"):
+                if not tools_root.is_dir():
+                    continue
+                try:
+                    versions = sorted((item for item in tools_root.iterdir()
+                                       if item.is_dir()), key=lambda item: item.name,
+                                      reverse=True)
+                except OSError:
+                    versions = []
+                for version in versions:
+                    for suffix in suffixes:
+                        candidates.append((name, version / "bin" / f"{name}{suffix}"))
+        build_tools = root / "build-tools"
+        if build_tools.is_dir():
+            try:
+                versions = sorted((item for item in build_tools.iterdir() if item.is_dir()),
+                                  key=lambda item: item.name, reverse=True)
+            except OSError:
+                versions = []
+            for version in versions:
+                for name in ("aapt2", "aapt"):
+                    for suffix in suffixes:
+                        candidates.append((name, version / f"{name}{suffix}"))
+    for name, candidate in candidates:
+        real = _safe_tool_path(candidate)
+        if real is not None:
+            return name, real
+    return None
+
+
+def _parser_command(executable: Path, args: list[str]) -> list[str]:
+    """Build an argv list for a discovered parser while retaining shell=False."""
+    if executable.suffix.lower() in {".bat", ".cmd"}:
+        command_line = subprocess.list2cmdline([str(executable), *args])
+        return [os.environ.get("COMSPEC", "cmd.exe"), "/d", "/s", "/c", command_line]
+    return [str(executable), *args]
+
+
+def _parse_apkanalyzer_manifest(output: str) -> dict[str, str] | None:
+    """Extract identity from ``apkanalyzer manifest print`` XML output."""
+    # Some SDK revisions prepend a diagnostic line despite a successful
+    # command. Keep only the complete XML document, never accepting a partial
+    # fragment or a diagnostic that merely mentions a package.
+    start = output.find("<manifest")
+    end = output.rfind("</manifest>")
+    if start >= 0 and end >= start:
+        output = output[start:end + len("</manifest>")]
+    try:
+        root = ElementTree.fromstring(output)
+    except ElementTree.ParseError:
+        return None
+    if root.tag.rsplit("}", 1)[-1] != "manifest":
+        return None
+    def attr(element: ElementTree.Element, name: str) -> str:
+        for key, value in element.attrib.items():
+            if key.rsplit("}", 1)[-1] == name:
+                return value.strip()
+        return ""
+    package_id = attr(root, "package")
+    version_code = attr(root, "versionCode")
+    version_name = attr(root, "versionName")
+    application = next((item for item in root.iter()
+                        if item.tag.rsplit("}", 1)[-1] == "application"), None)
+    if not package_id or not version_code or not version_name or application is None:
+        return None
+    application_identity = next((attr(application, name)
+                                 for name in ("name", "label", "id")
+                                 if attr(application, name)), "")
+    if not application_identity:
+        return None
+    return {"package_id": package_id, "version_code": version_code,
+            "version_name": version_name, "manifest_identity": "manifest",
+            "application_identity": application_identity}
+
+
+def _parse_aapt_output(badging: str, xmltree: str) -> dict[str, str] | None:
+    """Extract package/version and manifest/application identity from aapt."""
+    package_match = re.search(
+        r"(?m)^package:\s+name='([^']+)'\s+versionCode='([^']+)'\s+versionName='([^']*)'",
+        badging,
+    )
+    if package_match is None:
+        return None
+    if not re.search(r"(?m)^E:\s*manifest(?:\s|$)", xmltree):
+        return None
+    if not re.search(r"(?m)^\s+E:\s*application(?:\s|$)", xmltree):
+        return None
+    application_match = re.search(
+        r"(?m)^\s+A:\s+android:(?:name|label|id)\([^\n]*\)=([^\n]+)", xmltree)
+    label_match = re.search(r"(?m)^application-label(?::[^:]+)?:'([^']*)'", badging)
+    application_identity = ""
+    if application_match:
+        application_identity = application_match.group(1).strip().strip('"')
+    elif label_match:
+        application_identity = label_match.group(1).strip()
+    if not application_identity:
+        return None
+    return {"package_id": package_match.group(1),
+            "version_code": package_match.group(2),
+            "version_name": package_match.group(3),
+            "manifest_identity": "manifest",
+            "application_identity": application_identity}
+
+
+def _run_parser(name: str, executable: Path, apk: Path) -> tuple[bool, str, str,
+                                                                     bytes, dict[str, str], str]:
+    """Execute a discovered Android parser and decode real APK identity."""
+    if name not in _APK_PARSER_NAMES:
+        return False, "", "", b"", {}, "APK parser is not allowlisted"
+    version_args = ["--version"] if name == "apkanalyzer" else ["version"]
+    commands = [["manifest", "print", str(apk)]] if name == "apkanalyzer" else [
+        ["dump", "badging", str(apk)], ["dump", "xmltree", str(apk), "AndroidManifest.xml"]
+    ]
+    try:
+        version_run = subprocess.run(
+            _parser_command(executable, version_args), shell=False, check=False,
+            cwd=apk.parent, capture_output=True, timeout=_APK_VERIFIER_TIMEOUT_SECONDS)
+        version_bytes = version_run.stdout + version_run.stderr
+        version = version_bytes.decode("utf-8", errors="replace").strip()
+        if version_run.returncode != 0 or not version:
+            return False, version, "", version_bytes, {}, "APK parser version command failed"
+        outputs: list[bytes] = []
+        decoded: list[str] = []
+        for args in commands:
+            run = subprocess.run(
+                _parser_command(executable, args), shell=False, check=False,
+                cwd=apk.parent, capture_output=True, timeout=_APK_VERIFIER_TIMEOUT_SECONDS)
+            payload = run.stdout + run.stderr
+            outputs.append(payload)
+            decoded.append(payload.decode("utf-8", errors="replace"))
+            if run.returncode != 0:
+                return False, version, decoded[-1], b"\n".join(outputs), {}, (
+                    "APK parser command failed: " + decoded[-1].strip()[-500:])
+    except (OSError, subprocess.SubprocessError) as exc:
+        return False, "", "", b"", {}, f"APK parser could not execute: {exc}"
+    parsed = (_parse_apkanalyzer_manifest(decoded[0]) if name == "apkanalyzer"
+              else _parse_aapt_output(decoded[0], decoded[1]))
+    output_bytes = b"\n".join(outputs)
+    if parsed is None:
+        return False, version, "\n".join(decoded), output_bytes, {}, (
+            "APK parser output does not contain package/version/manifest/application identity")
+    return True, version, "\n".join(decoded), output_bytes, parsed, ""
 
 
 def _run_verifier(name: str, executable: Path, apk: Path,
@@ -1282,6 +1594,75 @@ def _apk_verification_record(root: Path, value: Any, apk_path: str,
         return False, artifact_reason
     if artifact_bytes != output_bytes:
         return False, "APK verifier output artifact does not match actual executed output"
+
+    # A cryptographically valid JAR/APK signature says nothing about whether
+    # Android can install or identify the package.  Require a second,
+    # allowlisted Android build-tool parser and bind its real output and
+    # decoded values to the same evidence record.
+    parser_discovered = _discover_apk_parser()
+    if parser_discovered is None:
+        return False, "APK is not verified: no allowlisted apkanalyzer, aapt2, or aapt is available"
+    parser_name, parser_executable = parser_discovered
+    parser_record = record.get("android_parser")
+    nested_parser_record = isinstance(parser_record, dict)
+    if not nested_parser_record:
+        parser_record = record
+    parser_tool = _first_value(parser_record, ("tool", "name") if nested_parser_record
+                                else ("parser_tool",))
+    parser_version = _first_value(parser_record, ("tool_version", "version")
+                                  if nested_parser_record else ("parser_tool_version",))
+    parser_path = _first_value(parser_record, ("executable_path", "tool_path")
+                               if nested_parser_record else ("parser_executable_path",))
+    parser_sha = str(_first_value(parser_record, (
+        "executable_sha256", "tool_sha256") if nested_parser_record
+        else ("parser_executable_sha256",))).lower()
+    if (parser_tool != parser_name or not isinstance(parser_version, str)
+            or not parser_version.strip() or not isinstance(parser_path, str)
+            or Path(parser_path).resolve() != parser_executable
+            or not HEX64_RE.fullmatch(parser_sha)
+            or _sha256(parser_executable) != parser_sha):
+        return False, "APK verification record must bind the discovered Android parser executable/path/SHA-256"
+    parser_ok, actual_parser_version, _parser_text, parser_output, parsed, parser_reason = _run_parser(
+        parser_name, parser_executable, apk)
+    if not parser_ok:
+        return False, parser_reason
+    if parser_version != actual_parser_version:
+        return False, "APK verification record Android parser version does not match execution"
+    parser_output_sha = str(_first_value(parser_record, ("output_sha256",)
+                                         if nested_parser_record
+                                         else ("parser_output_sha256",))).lower()
+    if (not HEX64_RE.fullmatch(parser_output_sha)
+            or hashlib.sha256(parser_output).hexdigest() != parser_output_sha):
+        return False, "APK verification record must bind SHA-256 of actual Android parser output"
+    parser_output_value = _first_value(parser_record, ("output_artifact", "output")
+                                       if nested_parser_record
+                                       else ("parser_output_artifact",))
+    parser_artifact, parser_artifact_reason = _record_artifact(
+        root, parser_output_value, "Android parser output artifact")
+    if parser_artifact is None:
+        return False, parser_artifact_reason
+    if parser_artifact != parser_output:
+        return False, "Android parser output artifact does not match actual executed output"
+    expected_version_code = _first_value(parser_record, (
+        "version_code", "package_version_code", "versionCode") if nested_parser_record
+        else ("parser_version_code",))
+    expected_version_name = _first_value(parser_record, (
+        "version_name", "package_version", "package_version_name", "versionName")
+        if nested_parser_record else ("parser_version_name",))
+    expected_package = _first_value(parser_record, ("package_id", "package", "application_id")
+                                    if nested_parser_record else ("parser_package_id",))
+    expected_manifest = _first_value(parser_record, ("manifest_identity", "manifest", "manifest_name")
+                                     if nested_parser_record else ("parser_manifest_identity",))
+    expected_application = _first_value(parser_record, (
+        "application_identity", "application", "application_name") if nested_parser_record
+        else ("parser_application_identity",))
+    if (package_id != parsed.get("package_id") or package_version != parsed.get("version_name")
+            or expected_package != parsed.get("package_id")
+            or expected_version_code != parsed.get("version_code")
+            or expected_version_name != parsed.get("version_name")
+            or expected_manifest != parsed.get("manifest_identity")
+            or expected_application != parsed.get("application_identity")):
+        return False, "APK verification record package/version/manifest/application values do not match parser output"
     return True, ""
 
 

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import hashlib
+import os
 import struct
 import tempfile
 import unittest
@@ -12,7 +13,9 @@ import zipfile
 from pathlib import Path
 
 from tools.audit_typography import (
-    _apk_artifact, _discover_apk_verifier, _png_dimensions, _run_verifier,
+    _apk_artifact, _apk_verification_record, _binary_xml_valid, _discover_apk_parser,
+    _discover_apk_verifier, _parse_aapt_output, _parse_apkanalyzer_manifest,
+    _png_dimensions, _run_parser, _run_verifier,
     _sfnt_bytes, _sfnt_structurally_valid, audit, inventory_font_assets,
     scan_live_glyphs,
 )
@@ -136,25 +139,6 @@ def _minimal_png(dimensions: tuple[int, int], rgb: tuple[int, int, int],
             + chunk(b"IDAT", zlib.compress(raw)) + chunk(b"IEND", b""))
 
 
-def _minimal_binary_manifest() -> bytes:
-    return struct.pack("<HHI", 0x0003, 8, 8)
-
-
-def _minimal_dex() -> bytes:
-    data = bytearray(112)
-    data[:8] = b"dex\n035\0"
-    data[32:36] = struct.pack("<I", len(data))
-    data[36:40] = struct.pack("<I", 112)
-    data[40:44] = struct.pack("<I", 0x12345678)
-    data[12:32] = hashlib.sha1(data[32:]).digest()
-    data[8:12] = struct.pack("<I", zlib.adler32(data[12:]) & 0xFFFFFFFF)
-    return bytes(data)
-
-
-def _minimal_resources() -> bytes:
-    return struct.pack("<HHII", 0x0002, 12, 12, 0)
-
-
 def _minimal_woff(sfnt: bytes) -> bytes:
     count = struct.unpack(">H", sfnt[4:6])[0]
     entries = []
@@ -273,6 +257,14 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertEqual(inventory_font_assets(root), ["assets/fonts/face.ttf"])
 
     def _write_verified_fixture(self) -> tuple[Path, Path, dict]:
+        real_apk_value = os.environ.get("TYPOGRAPHY_TEST_REAL_APK", "").strip()
+        if not real_apk_value:
+            self.skipTest(
+                "real APK positive fixture skipped: set TYPOGRAPHY_TEST_REAL_APK "
+                "to a genuine signed, parser-readable APK")
+        real_apk = Path(real_apk_value).expanduser()
+        if not real_apk.is_file():
+            self.skipTest(f"real APK positive fixture is missing: {real_apk}")
         root, manifest_path = self.write_tree(
             'var label = "★"\nbutton.add_theme_font_override("font", load("res://assets/fonts/face.ttf"))\n')
         font = _minimal_sfnt()
@@ -314,38 +306,29 @@ class TypographyAuditTests(unittest.TestCase):
             (root / name).write_text(json.dumps(contents), encoding="utf-8")
         apk_path = root / "build" / "typography-fixture.apk"
         apk_path.parent.mkdir(parents=True, exist_ok=True)
-        with zipfile.ZipFile(apk_path, "w", compression=zipfile.ZIP_DEFLATED) as apk:
-            apk.writestr("AndroidManifest.xml", _minimal_binary_manifest())
-            apk.writestr("classes.dex", _minimal_dex())
-            apk.writestr("resources.arsc", _minimal_resources())
-        # A nonempty META-INF/CERT.RSA is not cryptographic evidence. Build a
-        # genuine v1-signed fixture with the approved JDK tools instead.
-        jarsigner_path = shutil.which("jarsigner")
-        keytool_path = shutil.which("keytool")
+        apk_path.write_bytes(real_apk.read_bytes())
         verifier = _discover_apk_verifier()
-        if not jarsigner_path or not keytool_path or verifier is None:
-            self.skipTest("no approved keytool/jarsigner or APK verifier is available")
-        keystore = root / "fixture.p12"
-        keytool_run = subprocess.run(
-            [keytool_path, "-genkeypair", "-alias", "fixture", "-keystore", str(keystore),
-             "-storetype", "PKCS12", "-storepass", "changeit", "-keypass", "changeit",
-             "-dname", "CN=Typography Fixture", "-validity", "1", "-keyalg", "RSA",
-             "-noprompt"], capture_output=True, text=True, check=False)
-        if keytool_run.returncode != 0:
-            self.skipTest(f"approved keytool cannot create fixture: {keytool_run.stderr}")
-        sign_run = subprocess.run(
-            [jarsigner_path, "-keystore", str(keystore), "-storetype", "PKCS12",
-             "-storepass", "changeit", "-keypass", "changeit", str(apk_path), "fixture"],
-            capture_output=True, text=True, check=False)
-        if sign_run.returncode != 0:
-            self.skipTest(f"approved jarsigner cannot sign fixture: {sign_run.stderr}")
+        parser = _discover_apk_parser()
+        if verifier is None or parser is None:
+            self.skipTest("real APK positive fixture skipped: approved signer and Android parser are required")
+        apk_ok, apk_reason = _apk_artifact(root, "build/typography-fixture.apk",
+                                           hashlib.sha256(apk_path.read_bytes()).hexdigest())
+        if not apk_ok:
+            self.skipTest(f"real APK positive fixture is not parseable: {apk_reason}")
         verifier_name, verifier_path = verifier
         verified, tool_version, reason, verifier_output = _run_verifier(
-            verifier_name, verifier_path, apk_path, keystore)
+            verifier_name, verifier_path, apk_path)
         if not verified:
             self.skipTest(f"approved APK verifier cannot verify fixture: {reason}")
+        parser_name, parser_path = parser
+        parsed_ok, parser_version, _parser_text, parser_output, parsed, parser_reason = _run_parser(
+            parser_name, parser_path, apk_path)
+        if not parsed_ok:
+            self.skipTest(f"approved Android parser cannot parse fixture: {parser_reason}")
         output_path = root / "apk-verification-output.txt"
         output_path.write_bytes(verifier_output)
+        parser_output_path = root / "apk-parser-output.txt"
+        parser_output_path.write_bytes(parser_output)
         apk_hash = hashlib.sha256(apk_path.read_bytes()).hexdigest()
         verification = {
             "apk_path": "build/typography-fixture.apk", "apk_sha256": apk_hash,
@@ -355,10 +338,20 @@ class TypographyAuditTests(unittest.TestCase):
             "output_sha256": hashlib.sha256(verifier_output).hexdigest(),
             "output_artifact": {"path": "apk-verification-output.txt",
                                 "sha256": hashlib.sha256(verifier_output).hexdigest()},
-            "truststore": {"path": "fixture.p12",
-                           "sha256": hashlib.sha256(keystore.read_bytes()).hexdigest()},
-            "result": "PASS", "package_id": "com.example.typography.fixture",
-            "package_version": "1.0",
+            "result": "PASS", "package_id": parsed["package_id"],
+            "package_version": parsed["version_name"], "version_code": parsed["version_code"],
+            "android_parser": {
+                "tool": parser_name, "tool_version": parser_version,
+                "executable_path": str(parser_path),
+                "executable_sha256": hashlib.sha256(parser_path.read_bytes()).hexdigest(),
+                "output_sha256": hashlib.sha256(parser_output).hexdigest(),
+                "output_artifact": {"path": "apk-parser-output.txt",
+                                     "sha256": hashlib.sha256(parser_output).hexdigest()},
+                "package_id": parsed["package_id"], "version_code": parsed["version_code"],
+                "version_name": parsed["version_name"],
+                "manifest_identity": parsed["manifest_identity"],
+                "application_identity": parsed["application_identity"],
+            },
         }
         verification_path = root / "apk-verification.json"
         verification_path.write_text(json.dumps(verification), encoding="utf-8")
@@ -403,6 +396,78 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertEqual(report["status"], "PASS")
         self.assertTrue(report["font"]["license_ok"])
         self.assertTrue(report["font"]["device_ok"])
+
+    def test_framed_but_empty_manifest_is_not_android_manifest(self) -> None:
+        self.assertFalse(_binary_xml_valid(struct.pack("<HHI", 0x0003, 8, 8)))
+
+    def test_android_parser_output_requires_identity_values(self) -> None:
+        self.assertEqual(
+            _parse_apkanalyzer_manifest(
+                '<manifest xmlns:android="http://schemas.android.com/apk/res/android" '
+                'package="com.example.fixture" android:versionCode="7" '
+                'android:versionName="1.2"><application android:label="Fixture"/></manifest>'
+            ),
+            {"package_id": "com.example.fixture", "version_code": "7",
+             "version_name": "1.2", "manifest_identity": "manifest",
+             "application_identity": "Fixture"},
+        )
+        self.assertIsNone(_parse_apkanalyzer_manifest("<manifest/>"))
+        self.assertEqual(
+            _parse_aapt_output(
+                "package: name='com.example.fixture' versionCode='7' versionName='1.2'\n"
+                "application-label:'Fixture'\n",
+                "E: manifest (line=2)\n  E: application (line=3)\n"
+                "    A: android:label(0x01010001)=\"Fixture\"\n",
+            )["package_id"], "com.example.fixture")
+
+    def test_jarsigner_positive_zip_cannot_grant_android_device_authority(self) -> None:
+        """A real JAR signature on arbitrary ZIP bytes is not an Android APK."""
+        root, _manifest_path = self.write_tree('var label = "★"\n')
+        jarsigner_path = shutil.which("jarsigner")
+        keytool_path = shutil.which("keytool")
+        if not jarsigner_path or not keytool_path:
+            self.skipTest("JDK jarsigner/keytool unavailable for signed-ZIP negative")
+        apk_path = root / "signed.zip"
+        with zipfile.ZipFile(apk_path, "w") as archive:
+            archive.writestr("payload.txt", "not an Android package")
+        keystore = root / "fixture.p12"
+        keytool_run = subprocess.run(
+            [keytool_path, "-genkeypair", "-alias", "fixture", "-keystore", str(keystore),
+             "-storetype", "PKCS12", "-storepass", "changeit", "-keypass", "changeit",
+             "-dname", "CN=Typography Fixture", "-validity", "1", "-keyalg", "RSA",
+             "-noprompt"], capture_output=True, text=True, check=False)
+        if keytool_run.returncode != 0:
+            self.skipTest(f"keytool cannot create signed-ZIP fixture: {keytool_run.stderr}")
+        sign_run = subprocess.run(
+            [jarsigner_path, "-keystore", str(keystore), "-storetype", "PKCS12",
+             "-storepass", "changeit", "-keypass", "changeit", str(apk_path), "fixture"],
+            capture_output=True, text=True, check=False)
+        if sign_run.returncode != 0:
+            self.skipTest(f"jarsigner cannot sign ZIP fixture: {sign_run.stderr}")
+        verified, version, reason, output = _run_verifier(
+            "jarsigner", Path(jarsigner_path), apk_path, keystore)
+        self.assertTrue(verified, reason)
+        output_path = root / "signer-output.txt"
+        output_path.write_bytes(output)
+        apk_hash = hashlib.sha256(apk_path.read_bytes()).hexdigest()
+        record = {
+            "apk_path": "signed.zip", "apk_sha256": apk_hash, "tool": "jarsigner",
+            "tool_version": version, "executable_path": str(Path(jarsigner_path).resolve()),
+            "executable_sha256": hashlib.sha256(Path(jarsigner_path).read_bytes()).hexdigest(),
+            "output_sha256": hashlib.sha256(output).hexdigest(),
+            "output_artifact": {"path": "signer-output.txt",
+                                "sha256": hashlib.sha256(output).hexdigest()},
+            "truststore": {"path": "fixture.p12",
+                           "sha256": hashlib.sha256(keystore.read_bytes()).hexdigest()},
+            "result": "PASS", "package_id": "com.example.fake", "package_version": "1",
+        }
+        record_path = root / "record.json"
+        record_path.write_text(json.dumps(record), encoding="utf-8")
+        ok, reason = _apk_verification_record(
+            root, {"path": "record.json", "sha256": hashlib.sha256(record_path.read_bytes()).hexdigest()},
+            "signed.zip", apk_hash)
+        self.assertFalse(ok)
+        self.assertRegex(reason.lower(), "android parser|not verified|identity")
 
     def test_fabricated_verifier_and_command_cannot_grant_device_authority(self) -> None:
         root, manifest_path, data = self._write_verified_fixture()
