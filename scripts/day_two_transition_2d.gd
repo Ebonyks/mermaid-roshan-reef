@@ -14,9 +14,9 @@ const TOTAL_TIME := 4.18
 const NIGHT_TOP := Color(0.16, 0.13, 0.40, 1.0)
 const NIGHT_MIDDLE := Color(0.32, 0.28, 0.58, 1.0)
 const NIGHT_BOTTOM := Color(0.54, 0.48, 0.70, 1.0)
-const MORNING_TOP := Color(0.51, 0.82, 0.93, 1.0)
-const MORNING_MIDDLE := Color(0.73, 0.86, 0.94, 1.0)
-const MORNING_BOTTOM := Color(0.95, 0.83, 0.73, 1.0)
+const MORNING_TOP := Color(0.55, 0.86, 0.97, 1.0)
+const MORNING_MIDDLE := Color(0.72, 0.89, 0.96, 1.0)
+const MORNING_BOTTOM := Color(1.0, 0.84, 0.68, 1.0)
 const INK := Color(0.20, 0.18, 0.48, 1.0)
 const INK_DEEP := Color(0.12, 0.08, 0.34, 1.0)
 const PURPLE := Color(0.43, 0.30, 0.76, 1.0)
@@ -209,11 +209,7 @@ func _build_painted_clouds() -> void:
 
 
 func _build_page() -> void:
-	var page_rect := Rect2(30.0, 24.0, 1220.0, 672.0)
-	var page := StorybookUI.add_panel(
-		_stage, page_rect, PURPLE, Color.TRANSPARENT, 48)
-	page.name = "DayTwoPearlPage"
-	page.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	pass
 
 
 func _build_castle() -> void:
@@ -263,41 +259,29 @@ func _build_title() -> void:
 func _build_activity_cards() -> void:
 	_activity_panel = Control.new()
 	_activity_panel.name = "DayTwoActivityTray"
-	_activity_panel.position = Vector2(970.0, 205.0)
-	_activity_panel.size = Vector2(218.0, 408.0)
+	_activity_panel.position = Vector2(922.0, 292.0)
+	_activity_panel.size = Vector2(280.0, 352.0)
 	_activity_panel.pivot_offset = _activity_panel.size * 0.5
 	_stage.add_child(_activity_panel)
-	var tray_surface := StorybookUI.add_panel(
-		_activity_panel, Rect2(Vector2.ZERO, _activity_panel.size),
-		PURPLE, PAPER, 42)
-	tray_surface.name = "DayTwoActivityTraySurface"
-	tray_surface.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	StorybookUI.add_pearl(
-		_activity_panel, Vector2(25.0, 27.0), 15.0, "DayTwoTrayPearlTL")
-	StorybookUI.add_pearl(
-		_activity_panel, Vector2(193.0, 27.0), 15.0, "DayTwoTrayPearlTR")
-	StorybookUI.add_pearl(
-		_activity_panel, Vector2(27.0, 381.0), 13.0, "DayTwoTrayPearlBL")
-	StorybookUI.add_pearl(
-		_activity_panel, Vector2(191.0, 381.0), 13.0, "DayTwoTrayPearlBR")
 	var tray_shell := TextureRect.new()
 	tray_shell.name = "DayTwoPaintedShellAccent"
 	tray_shell.texture = SHELL_MOTIF_TEXTURE
 	tray_shell.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	tray_shell.position = Vector2(83.0, -20.0)
-	tray_shell.size = Vector2(52.0, 52.0)
+	tray_shell.position = Vector2(118.0, -11.0)
+	tray_shell.size = Vector2(44.0, 44.0)
 	tray_shell.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	tray_shell.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_activity_panel.add_child(tray_shell)
 	var heading := _make_label(
 		_activity_panel, "DayTwoActivityHeading", "NEW ADVENTURES",
-		Rect2(18.0, 40.0, 182.0, 34.0), 16, PURPLE, 2)
+		Rect2(24.0, 30.0, 232.0, 34.0), 16, PURPLE, 3)
+	heading.add_theme_color_override("font_outline_color", CREAM)
 	heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	heading.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 
 	var textures: Array[Texture2D] = [OPERA_TEXTURE, CRAFT_TEXTURE, KITCHEN_TEXTURE]
 	var positions: Array[Vector2] = [
-		Vector2(57.0, 77.0), Vector2(57.0, 180.0), Vector2(57.0, 283.0),
+		Vector2(90.0, 54.0), Vector2(90.0, 151.0), Vector2(90.0, 248.0),
 	]
 	var names: Array[String] = ["Opera", "CraftJob", "KitchenJob"]
 	for index: int in textures.size():
@@ -306,7 +290,7 @@ func _build_activity_cards() -> void:
 		card.texture = textures[index]
 		card.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		card.position = positions[index]
-		card.size = Vector2.ONE * 104.0
+		card.size = Vector2.ONE * 100.0
 		card.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		card.pivot_offset = card.size * 0.5
 		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -316,7 +300,7 @@ func _build_activity_cards() -> void:
 		_activity_cards.append(card)
 
 	var sparkle_positions: Array[Vector2] = [
-		Vector2(27.0, 118.0), Vector2(167.0, 252.0),
+		Vector2(54.0, 112.0), Vector2(194.0, 235.0),
 	]
 	for index: int in sparkle_positions.size():
 		var sparkle := _make_label(

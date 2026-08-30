@@ -82,7 +82,7 @@ def audit_background() -> None:
 	master = image(master_path)
 	if master is None:
 		return
-	check("background master meets per-screen native coverage",
+	check("background master meets per-screen runtime coverage",
 		master.size[0] >= 2048 and master.size[1] >= 2048, str(master.size))
 	check("background master preserves 16:9 stage crop",
 		master.size == (3640, 2048), str(master.size))

@@ -102,9 +102,9 @@ func _build_backdrop() -> void:
 	field.size = CANVAS_SIZE
 	field.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	field.texture = _make_linear_gradient_texture([
-		Color(0.17, 0.13, 0.42, 1.0),
-		Color(0.34, 0.27, 0.63, 1.0),
-		Color(0.45, 0.55, 0.77, 1.0),
+		Color(0.30, 0.30, 0.57, 1.0),
+		Color(0.48, 0.52, 0.73, 1.0),
+		Color(0.64, 0.73, 0.82, 1.0),
 	])
 	field.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_stage.add_child(field)
@@ -132,12 +132,6 @@ func _build_backdrop() -> void:
 
 
 func _build_page() -> void:
-	var page_rect := Rect2(42.0, 34.0, 1196.0, 652.0)
-	var page := StorybookUI.add_panel(
-		_stage, page_rect, PURPLE, Color(0.91, 0.95, 1.0, 0.80), 48)
-	page.name = "BossSplashPearlPage"
-	page.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
 	var portrait_glow := TextureRect.new()
 	portrait_glow.name = "BossSplashPortraitGlow"
 	portrait_glow.position = Vector2(72.0, 112.0)
@@ -147,6 +141,15 @@ func _build_page() -> void:
 		Color(1.0, 0.90, 0.58, 0.38))
 	portrait_glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_stage.add_child(portrait_glow)
+	var title_glow := TextureRect.new()
+	title_glow.name = "BossSplashTitleGlow"
+	title_glow.position = Vector2(636.0, 120.0)
+	title_glow.size = Vector2(594.0, 500.0)
+	title_glow.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	title_glow.texture = _make_radial_gradient_texture(
+		Color(0.94, 0.98, 1.0, 0.55))
+	title_glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stage.add_child(title_glow)
 
 
 func _build_character() -> void:
@@ -237,28 +240,19 @@ func _build_title() -> void:
 	_title_panel.size = Vector2(470.0, 382.0)
 	_title_panel.pivot_offset = _title_panel.size * 0.5
 	_stage.add_child(_title_panel)
-	var title_surface := StorybookUI.add_panel(
-		_title_panel, Rect2(Vector2.ZERO, _title_panel.size),
-		PURPLE, Color(0.94, 0.98, 1.0, 0.88), 38)
-	title_surface.name = "BossSplashTitleSurface"
-	title_surface.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var shell := TextureRect.new()
 	shell.name = "BossSplashPaintedShellAccent"
 	shell.texture = SHELL_MOTIF_TEXTURE
 	shell.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	shell.position = Vector2(205.0, -29.0)
-	shell.size = Vector2(60.0, 60.0)
+	shell.position = Vector2(211.0, -12.0)
+	shell.size = Vector2(48.0, 48.0)
 	shell.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	shell.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_title_panel.add_child(shell)
-	StorybookUI.add_pearl(
-		_title_panel, Vector2(28.0, 28.0), 15.0, "BossSplashTitlePearlTL")
-	StorybookUI.add_pearl(
-		_title_panel, Vector2(442.0, 28.0), 15.0, "BossSplashTitlePearlTR")
-
 	var kind := _make_label(
 		_title_panel, "BossSplashKind", _boss_kind,
 		Rect2(30.0, 40.0, 410.0, 42.0), 22, PURPLE, 2)
+	kind.add_theme_color_override("font_outline_color", Color(0.94, 0.98, 1.0))
 	kind.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	kind.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 
@@ -286,6 +280,20 @@ func _build_title() -> void:
 	tell.add_theme_color_override("font_outline_color", INK)
 	tell.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	tell.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	var rule := Panel.new()
+	rule.name = "BossSplashTitleRule"
+	rule.position = Vector2(102.0, 276.0)
+	rule.size = Vector2(266.0, 3.0)
+	rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var rule_style := StyleBoxFlat.new()
+	rule_style.bg_color = Color(0.43, 0.30, 0.76, 0.34)
+	rule_style.set_corner_radius_all(2)
+	rule.add_theme_stylebox_override("panel", rule_style)
+	_title_panel.add_child(rule)
+	StorybookUI.add_pearl(
+		_title_panel, Vector2(96.0, 277.5), 11.0, "BossSplashRulePearlLeft")
+	StorybookUI.add_pearl(
+		_title_panel, Vector2(374.0, 277.5), 11.0, "BossSplashRulePearlRight")
 	_intro_ribbon.move_to_front()
 
 
