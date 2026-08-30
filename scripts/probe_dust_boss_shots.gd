@@ -30,7 +30,12 @@ func _init() -> void:
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
-	if main.intro_active:
+	# The real encounter is reached after the launch menu has been dismissed.
+	# Mirror that seam before capture: a native desktop tooltip can otherwise
+	# outlive its covered button and contaminate an otherwise opaque review card.
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+	elif main.intro_active:
 		main._skip_intro()
 	await _settle(20)
 	boss = main._game_obj("dustboss", DustBossGame) as DustBossGame
