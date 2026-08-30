@@ -2,48 +2,59 @@ class_name DayTwoTransition2D
 extends CanvasLayer
 
 ## Picture-first bridge from the cleaned-castle boss victory into Day Two.
-## Dawn physically reveals the approved castle and newly lit room medallions;
-## the large title and voice event reinforce the change for a grown-up helper.
+## Dawn reveals the approved castle while three room medallions wake inside a
+## shared pearl card. The painted assets carry the scene; code-native shapes
+## stay limited to quiet StorybookUI surfaces, soft light and framing.
 
 signal finished
 
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
 const EXIT_START := 3.70
 const TOTAL_TIME := 4.18
-const NIGHT_TOP := Color(0.055, 0.035, 0.20, 1.0)
-const NIGHT_BOTTOM := Color(0.29, 0.15, 0.48, 1.0)
-const MORNING_TOP := Color(0.22, 0.66, 0.91, 1.0)
-const MORNING_BOTTOM := Color(1.0, 0.66, 0.46, 1.0)
-const INK := Color(0.12, 0.06, 0.31, 1.0)
-const GOLD := Color(1.0, 0.76, 0.26, 1.0)
-const CREAM := Color(1.0, 0.96, 0.79, 1.0)
+const NIGHT_TOP := Color(0.16, 0.13, 0.40, 1.0)
+const NIGHT_MIDDLE := Color(0.32, 0.28, 0.58, 1.0)
+const NIGHT_BOTTOM := Color(0.54, 0.48, 0.70, 1.0)
+const MORNING_TOP := Color(0.51, 0.82, 0.93, 1.0)
+const MORNING_MIDDLE := Color(0.73, 0.86, 0.94, 1.0)
+const MORNING_BOTTOM := Color(0.95, 0.83, 0.73, 1.0)
+const INK := Color(0.20, 0.18, 0.48, 1.0)
+const INK_DEEP := Color(0.12, 0.08, 0.34, 1.0)
+const PURPLE := Color(0.43, 0.30, 0.76, 1.0)
+const GOLD := Color(1.0, 0.78, 0.30, 1.0)
+const CREAM := Color(0.97, 0.95, 1.0, 1.0)
+const PAPER := Color(0.94, 0.98, 1.0, 0.97)
 const CASTLE_TEXTURE := preload(
 	"res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png")
+const CLOUD_TEXTURE := preload(
+	"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png")
+const SINGLE_CLOUD_TEXTURE := preload(
+	"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png")
 const OPERA_TEXTURE := preload(
 	"res://assets/ui/castle_room_buttons_v2/room_opera_hall.png")
 const CRAFT_TEXTURE := preload(
 	"res://assets/ui/castle_room_buttons_v2/room_craft_room.png")
 const KITCHEN_TEXTURE := preload(
 	"res://assets/ui/castle_room_buttons_v2/room_kitchen.png")
+const SHELL_MOTIF_TEXTURE := preload(
+	"res://assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png")
 
 var _elapsed := 0.0
 var _done := false
 var _root: Control = null
 var _stage: Control = null
-var _sky_bands: Array[ColorRect] = []
+var _sky_gradient: Gradient = null
 var _stars: Array[Label] = []
 var _sun_anchor: Control = null
-var _sun_halo: Panel = null
-var _sun_disc: Panel = null
-var _sun_rays: Array[Polygon2D] = []
+var _sun_halo: TextureRect = null
 var _moon_anchor: Control = null
 var _moon_cutout: Panel = null
 var _castle: TextureRect = null
-var _castle_glow: Panel = null
+var _castle_glow: TextureRect = null
 var _title_group: Control = null
+var _activity_panel: Control = null
 var _activity_cards: Array[TextureRect] = []
 var _sparkles: Array[Label] = []
-var _clouds: Array[Panel] = []
+var _clouds: Array[TextureRect] = []
 
 
 func _ready() -> void:
@@ -74,7 +85,8 @@ func _build_ui() -> void:
 	_build_sky()
 	_build_moon()
 	_build_sun()
-	_build_landscape()
+	_build_painted_clouds()
+	_build_page()
 	_build_castle()
 	_build_title()
 	_build_activity_cards()
@@ -82,113 +94,145 @@ func _build_ui() -> void:
 
 
 func _build_sky() -> void:
-	for index: int in range(12):
-		var band := ColorRect.new()
-		band.name = "DayTwoSkyBand_%02d" % index
-		band.position = Vector2(0.0, float(index) * 60.0)
-		band.size = Vector2(1280.0, 61.0)
-		band.color = NIGHT_TOP.lerp(NIGHT_BOTTOM, float(index) / 11.0)
-		band.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		_stage.add_child(band)
-		_sky_bands.append(band)
-	for index: int in range(18):
-		var star := Label.new()
-		star.name = "DayTwoNightStar_%02d" % index
-		star.text = "✦" if index % 3 == 0 else "·"
-		star.position = Vector2(
-			42.0 + float((index * 103) % 1170),
-			35.0 + float((index * 67) % 290))
-		star.size = Vector2(34.0, 34.0)
+	_sky_gradient = Gradient.new()
+	_sky_gradient.colors = PackedColorArray([
+		NIGHT_TOP, NIGHT_MIDDLE, NIGHT_BOTTOM,
+	])
+	var sky_texture := GradientTexture2D.new()
+	sky_texture.gradient = _sky_gradient
+	sky_texture.width = int(CANVAS_SIZE.x)
+	sky_texture.height = int(CANVAS_SIZE.y)
+	sky_texture.fill_from = Vector2(0.5, 0.0)
+	sky_texture.fill_to = Vector2(0.5, 1.0)
+	var sky := TextureRect.new()
+	sky.name = "DayTwoSky"
+	sky.position = Vector2.ZERO
+	sky.size = CANVAS_SIZE
+	sky.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	sky.texture = sky_texture
+	sky.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stage.add_child(sky)
+
+	var star_positions: Array[Vector2] = [
+		Vector2(92.0, 94.0), Vector2(176.0, 144.0),
+		Vector2(286.0, 76.0), Vector2(418.0, 150.0),
+		Vector2(835.0, 92.0), Vector2(970.0, 142.0),
+		Vector2(1126.0, 88.0), Vector2(1184.0, 196.0),
+	]
+	for index: int in star_positions.size():
+		var star := _make_label(
+			_stage, "DayTwoNightStar_%02d" % index,
+			"✦" if index % 3 == 0 else "·",
+			Rect2(star_positions[index], Vector2(34.0, 34.0)),
+			21 if index % 3 == 0 else 28, CREAM, 2)
 		star.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		star.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		star.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		StorybookUI.style_label(star, 24 if index % 3 == 0 else 31, CREAM, 2)
 		star.add_theme_color_override("font_outline_color", INK)
-		_stage.add_child(star)
+		star.modulate.a = 0.72
 		_stars.append(star)
 
 
 func _build_moon() -> void:
 	_moon_anchor = Control.new()
 	_moon_anchor.name = "DayTwoMoon"
-	_moon_anchor.position = Vector2(102.0, 84.0)
-	_moon_anchor.size = Vector2.ONE * 134.0
+	_moon_anchor.position = Vector2(86.0, 62.0)
+	_moon_anchor.size = Vector2.ONE * 84.0
 	_stage.add_child(_moon_anchor)
 	_make_circle(
-		_moon_anchor, "DayTwoMoonDisc", Vector2(0.0, 0.0), 128.0,
-		CREAM, Color(0.45, 0.29, 0.68, 1.0), 6)
+		_moon_anchor, "DayTwoMoonDisc", Vector2.ZERO, 80.0,
+		CREAM, Color(0.54, 0.45, 0.72, 1.0), 4)
 	_moon_cutout = _make_circle(
-		_moon_anchor, "DayTwoMoonCutout", Vector2(38.0, -18.0), 128.0,
+		_moon_anchor, "DayTwoMoonCutout", Vector2(26.0, -10.0), 80.0,
 		NIGHT_TOP, NIGHT_TOP, 0)
 
 
 func _build_sun() -> void:
-	# The open-beat composition is the visual destination, so rays converge on
-	# the sun's final center rather than the below-horizon starting position.
-	var origin := Vector2(304.0, 330.0)
-	for index: int in range(14):
-		var angle_a: float = float(index) * TAU / 14.0 - 0.04
-		var angle_b: float = angle_a + TAU / 30.0
-		var ray := _add_polygon(
-			"DayTwoSunRay_%02d" % index,
-			PackedVector2Array([
-				origin,
-				origin + Vector2(cos(angle_a), sin(angle_a)) * 430.0,
-				origin + Vector2(cos(angle_b), sin(angle_b)) * 430.0,
-			]), Color(1.0, 0.83, 0.35, 0.22))
-		_sun_rays.append(ray)
 	_sun_anchor = Control.new()
 	_sun_anchor.name = "DayTwoSun"
-	_sun_anchor.position = Vector2(184.0, 454.0)
-	_sun_anchor.size = Vector2.ONE * 240.0
+	_sun_anchor.position = Vector2(1025.0, 170.0)
+	_sun_anchor.size = Vector2.ONE * 118.0
 	_stage.add_child(_sun_anchor)
-	_sun_halo = _make_circle(
-		_sun_anchor, "DayTwoSunHalo", Vector2(-42.0, -42.0), 324.0,
-		Color(1.0, 0.79, 0.28, 0.18), Color(1.0, 0.90, 0.55, 0.16), 5)
-	_sun_disc = _make_circle(
-		_sun_anchor, "DayTwoSunDisc", Vector2(0.0, 0.0), 240.0,
-		Color(1.0, 0.72, 0.18, 1.0), CREAM, 8)
-	var sun_core := _make_circle(
-		_sun_anchor, "DayTwoSunCore", Vector2(28.0, 24.0), 150.0,
-		Color(1.0, 0.87, 0.34, 0.74), Color.TRANSPARENT, 0)
-	sun_core.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_sun_halo = TextureRect.new()
+	_sun_halo.name = "DayTwoSunHalo"
+	_sun_halo.position = Vector2(-50.0, -50.0)
+	_sun_halo.size = Vector2.ONE * 218.0
+	_sun_halo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_sun_halo.texture = _make_radial_gradient_texture(
+		Color(1.0, 0.82, 0.33, 0.52))
+	_sun_halo.pivot_offset = _sun_halo.size * 0.5
+	_sun_halo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_sun_anchor.add_child(_sun_halo)
+	_make_circle(
+		_sun_anchor, "DayTwoSunDisc", Vector2.ZERO, 118.0,
+		Color(1.0, 0.82, 0.34, 1.0), CREAM, 5)
+	_make_circle(
+		_sun_anchor, "DayTwoSunCore", Vector2(18.0, 15.0), 66.0,
+		Color(1.0, 0.91, 0.58, 0.72), Color.TRANSPARENT, 0)
 
 
-func _build_landscape() -> void:
-	_add_cloud(Vector2(30.0, 356.0), 1.08, "DayTwoCloudLeft")
-	_add_cloud(Vector2(860.0, 315.0), 0.88, "DayTwoCloudRight")
-	_add_polygon("DayTwoFarHill", PackedVector2Array([
-		Vector2(-40.0, 610.0), Vector2(130.0, 492.0),
-		Vector2(328.0, 585.0), Vector2(570.0, 470.0),
-		Vector2(824.0, 594.0), Vector2(1090.0, 474.0),
-		Vector2(1320.0, 602.0), Vector2(1320.0, 720.0),
-		Vector2(-40.0, 720.0),
-	]), Color(0.36, 0.28, 0.67, 0.88))
-	_add_polygon("DayTwoNearHill", PackedVector2Array([
-		Vector2(-40.0, 655.0), Vector2(184.0, 568.0),
-		Vector2(420.0, 640.0), Vector2(711.0, 545.0),
-		Vector2(968.0, 630.0), Vector2(1160.0, 559.0),
-		Vector2(1320.0, 631.0), Vector2(1320.0, 720.0),
-		Vector2(-40.0, 720.0),
-	]), Color(0.27, 0.69, 0.66, 1.0))
-	_add_polygon("DayTwoForeground", PackedVector2Array([
-		Vector2(-30.0, 690.0), Vector2(235.0, 642.0),
-		Vector2(558.0, 686.0), Vector2(858.0, 627.0),
-		Vector2(1080.0, 675.0), Vector2(1310.0, 640.0),
-		Vector2(1310.0, 730.0), Vector2(-30.0, 730.0),
-	]), Color(0.18, 0.48, 0.49, 1.0))
+func _build_painted_clouds() -> void:
+	var cloud_family := TextureRect.new()
+	cloud_family.name = "DayTwoPaintedCloudBank"
+	cloud_family.texture = CLOUD_TEXTURE
+	cloud_family.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	cloud_family.position = Vector2(-36.0, 270.0)
+	cloud_family.size = Vector2(1352.0, 380.0)
+	cloud_family.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	cloud_family.modulate = Color(0.95, 0.96, 1.0, 0.72)
+	cloud_family.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stage.add_child(cloud_family)
+	_clouds.append(cloud_family)
+
+	var cloud_left := TextureRect.new()
+	cloud_left.name = "DayTwoPaintedCloudLeft"
+	cloud_left.texture = SINGLE_CLOUD_TEXTURE
+	cloud_left.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	cloud_left.position = Vector2(30.0, 238.0)
+	cloud_left.size = Vector2(310.0, 148.0)
+	cloud_left.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	cloud_left.modulate = Color(0.94, 0.96, 1.0, 0.70)
+	cloud_left.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stage.add_child(cloud_left)
+	_clouds.append(cloud_left)
+
+	var cloud_right := TextureRect.new()
+	cloud_right.name = "DayTwoPaintedCloudRight"
+	cloud_right.texture = SINGLE_CLOUD_TEXTURE
+	cloud_right.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	cloud_right.position = Vector2(950.0, 250.0)
+	cloud_right.size = Vector2(270.0, 132.0)
+	cloud_right.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	cloud_right.modulate = Color(0.94, 0.96, 1.0, 0.66)
+	cloud_right.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stage.add_child(cloud_right)
+	_clouds.append(cloud_right)
+
+
+func _build_page() -> void:
+	var page_rect := Rect2(30.0, 24.0, 1220.0, 672.0)
+	var page := StorybookUI.add_panel(
+		_stage, page_rect, PURPLE, Color.TRANSPARENT, 48)
+	page.name = "DayTwoPearlPage"
+	page.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
 func _build_castle() -> void:
-	_castle_glow = _make_circle(
-		_stage, "DayTwoCastleGlow", Vector2(343.0, 182.0), 540.0,
-		Color(1.0, 0.88, 0.53, 0.17), Color(1.0, 0.94, 0.69, 0.22), 6)
+	_castle_glow = TextureRect.new()
+	_castle_glow.name = "DayTwoCastleGlow"
+	_castle_glow.position = Vector2(132.0, 84.0)
+	_castle_glow.size = Vector2(792.0, 620.0)
+	_castle_glow.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_castle_glow.texture = _make_radial_gradient_texture(
+		Color(1.0, 0.90, 0.60, 0.42))
+	_castle_glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stage.add_child(_castle_glow)
+
 	_castle = TextureRect.new()
 	_castle.name = "DayTwoCastle"
 	_castle.texture = CASTLE_TEXTURE
 	_castle.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	_castle.position = Vector2(347.0, 205.0)
-	_castle.size = Vector2(530.0, 530.0)
+	_castle.position = Vector2(160.0, 128.0)
+	_castle.size = Vector2(748.0, 590.0)
 	_castle.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	_castle.pivot_offset = _castle.size * 0.5
 	_castle.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -198,34 +242,62 @@ func _build_castle() -> void:
 func _build_title() -> void:
 	_title_group = Control.new()
 	_title_group.name = "DayTwoTitleCard"
-	_title_group.position = Vector2(405.0, 34.0)
-	_title_group.size = Vector2(700.0, 168.0)
+	_title_group.position = Vector2(346.0, 48.0)
+	_title_group.size = Vector2(540.0, 104.0)
 	_title_group.pivot_offset = _title_group.size * 0.5
 	_stage.add_child(_title_group)
 	var eyebrow := _make_label(
-		_title_group, "DayTwoEyebrow", "✦  A NEW DAY!  ✦",
-		Rect2(86.0, 0.0, 520.0, 55.0), 28, GOLD, 4)
+		_title_group, "DayTwoEyebrow", "✦  A NEW DAY  ✦",
+		Rect2(47.0, 0.0, 446.0, 32.0), 19, GOLD, 3)
 	eyebrow.add_theme_color_override("font_outline_color", INK)
 	eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	eyebrow.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	var title_shadow := _make_label(
-		_title_group, "DayTwoTitleShadow", "DAY TWO!",
-		Rect2(16.0, 45.0, 684.0, 116.0), 88, INK, 15)
-	title_shadow.add_theme_color_override("font_outline_color", INK)
-	title_shadow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title_shadow.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	var title := _make_label(
 		_title_group, "DayTwoTitle", "DAY TWO!",
-		Rect2(5.0, 34.0, 684.0, 116.0), 88, CREAM, 11)
-	title.add_theme_color_override("font_outline_color", Color(0.31, 0.16, 0.61, 1.0))
+		Rect2(10.0, 25.0, 520.0, 74.0), 56, INK_DEEP, 6)
+	title.add_theme_color_override("font_outline_color", CREAM)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 
 
 func _build_activity_cards() -> void:
+	_activity_panel = Control.new()
+	_activity_panel.name = "DayTwoActivityTray"
+	_activity_panel.position = Vector2(970.0, 205.0)
+	_activity_panel.size = Vector2(218.0, 408.0)
+	_activity_panel.pivot_offset = _activity_panel.size * 0.5
+	_stage.add_child(_activity_panel)
+	var tray_surface := StorybookUI.add_panel(
+		_activity_panel, Rect2(Vector2.ZERO, _activity_panel.size),
+		PURPLE, PAPER, 42)
+	tray_surface.name = "DayTwoActivityTraySurface"
+	tray_surface.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.add_pearl(
+		_activity_panel, Vector2(25.0, 27.0), 15.0, "DayTwoTrayPearlTL")
+	StorybookUI.add_pearl(
+		_activity_panel, Vector2(193.0, 27.0), 15.0, "DayTwoTrayPearlTR")
+	StorybookUI.add_pearl(
+		_activity_panel, Vector2(27.0, 381.0), 13.0, "DayTwoTrayPearlBL")
+	StorybookUI.add_pearl(
+		_activity_panel, Vector2(191.0, 381.0), 13.0, "DayTwoTrayPearlBR")
+	var tray_shell := TextureRect.new()
+	tray_shell.name = "DayTwoPaintedShellAccent"
+	tray_shell.texture = SHELL_MOTIF_TEXTURE
+	tray_shell.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	tray_shell.position = Vector2(83.0, -20.0)
+	tray_shell.size = Vector2(52.0, 52.0)
+	tray_shell.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	tray_shell.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_activity_panel.add_child(tray_shell)
+	var heading := _make_label(
+		_activity_panel, "DayTwoActivityHeading", "NEW ADVENTURES",
+		Rect2(18.0, 40.0, 182.0, 34.0), 16, PURPLE, 2)
+	heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	heading.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+
 	var textures: Array[Texture2D] = [OPERA_TEXTURE, CRAFT_TEXTURE, KITCHEN_TEXTURE]
 	var positions: Array[Vector2] = [
-		Vector2(952.0, 273.0), Vector2(1074.0, 415.0), Vector2(941.0, 510.0),
+		Vector2(57.0, 77.0), Vector2(57.0, 180.0), Vector2(57.0, 283.0),
 	]
 	var names: Array[String] = ["Opera", "CraftJob", "KitchenJob"]
 	for index: int in textures.size():
@@ -234,70 +306,44 @@ func _build_activity_cards() -> void:
 		card.texture = textures[index]
 		card.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		card.position = positions[index]
-		card.size = Vector2.ONE * 122.0
+		card.size = Vector2.ONE * 104.0
 		card.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		card.pivot_offset = card.size * 0.5
 		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		card.modulate.a = 0.0
-		card.scale = Vector2.ONE * 0.45
-		_stage.add_child(card)
+		card.scale = Vector2.ONE * 0.64
+		_activity_panel.add_child(card)
 		_activity_cards.append(card)
-	for index: int in range(8):
+
+	var sparkle_positions: Array[Vector2] = [
+		Vector2(27.0, 118.0), Vector2(167.0, 252.0),
+	]
+	for index: int in sparkle_positions.size():
 		var sparkle := _make_label(
-			_stage, "DayTwoUnlockSparkle_%02d" % index,
-			"✦" if index % 2 == 0 else "◆",
-			Rect2(
-				808.0 + float((index * 71) % 310),
-				294.0 + float((index * 89) % 315),
-				46.0, 46.0),
-			28 if index % 2 == 0 else 20, GOLD, 3)
+			_activity_panel, "DayTwoUnlockSparkle_%02d" % index,
+			"✦" if index % 2 == 0 else "·",
+			Rect2(sparkle_positions[index], Vector2(34.0, 34.0)),
+			22 if index % 2 == 0 else 28, GOLD, 2)
 		sparkle.add_theme_color_override("font_outline_color", INK)
 		sparkle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		sparkle.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		sparkle.modulate.a = 0.0
 		_sparkles.append(sparkle)
-	var caption_shadow := _make_panel(
-		_stage, "DayTwoCaptionShadow", Rect2(764.0, 646.0, 470.0, 58.0),
-		INK, INK, 24, 0)
-	caption_shadow.position += Vector2(7.0, 8.0)
-	var caption_panel := _make_panel(
-		_stage, "DayTwoCaption", Rect2(764.0, 646.0, 470.0, 58.0),
-		GOLD, Color(0.12, 0.06, 0.31, 0.94), 24, 4)
-	var caption := _make_label(
-		caption_panel, "DayTwoCaptionText", "JOBS + OPERA OPEN!",
-		Rect2(8.0, 1.0, 454.0, 53.0), 25, CREAM, 2)
-	caption.add_theme_color_override("font_outline_color", INK)
-	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 
 
 func _build_frame() -> void:
-	_make_panel(
-		_stage, "DayTwoFrame", Rect2(10.0, 10.0, 1260.0, 700.0),
-		INK, Color.TRANSPARENT, 0, 12)
-	for index: int in range(4):
-		var pearl := _make_circle(
-			_stage, "DayTwoFramePearl_%d" % index,
-			Vector2(27.0 if index % 2 == 0 else 1225.0,
-				27.0 if index < 2 else 674.0),
-			28.0, CREAM, INK, 4)
-		pearl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-
-func _add_cloud(position: Vector2, scale_value: float, cloud_name: String) -> void:
-	var sizes: Array[Vector2] = [
-		Vector2(145.0, 58.0), Vector2(105.0, 78.0), Vector2(125.0, 70.0),
-	]
-	var offsets: Array[Vector2] = [
-		Vector2(0.0, 34.0), Vector2(50.0, 4.0), Vector2(112.0, 25.0),
-	]
-	for index: int in sizes.size():
-		var cloud := _make_panel(
-			_stage, cloud_name + "_%d" % index,
-			Rect2(position + offsets[index] * scale_value, sizes[index] * scale_value),
-			Color.TRANSPARENT, Color(0.96, 0.93, 1.0, 0.60),
-			int(38.0 * scale_value), 0)
-		_clouds.append(cloud)
+	var frame := Panel.new()
+	frame.name = "DayTwoFrame"
+	frame.position = Vector2(14.0, 14.0)
+	frame.size = Vector2(1252.0, 692.0)
+	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var frame_style := StyleBoxFlat.new()
+	frame_style.bg_color = Color.TRANSPARENT
+	frame_style.border_color = INK_DEEP
+	frame_style.set_border_width_all(7)
+	frame_style.set_corner_radius_all(58)
+	frame.add_theme_stylebox_override("panel", frame_style)
+	_stage.add_child(frame)
 
 
 func _make_label(
@@ -314,40 +360,38 @@ func _make_label(
 	return label
 
 
-func _make_panel(
-		parent: Node, node_name: String, rect: Rect2,
-		accent: Color, fill: Color, radius: int, border_width: int) -> Panel:
+func _make_circle(
+		parent: Node, node_name: String, position: Vector2, diameter: float,
+		fill: Color, border: Color, border_width: int) -> Panel:
 	var panel := Panel.new()
 	panel.name = node_name
-	panel.position = rect.position
-	panel.size = rect.size
+	panel.position = position
+	panel.size = Vector2.ONE * diameter
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var style := StyleBoxFlat.new()
 	style.bg_color = fill
-	style.border_color = accent
+	style.border_color = border
 	style.set_border_width_all(border_width)
-	style.set_corner_radius_all(radius)
+	style.set_corner_radius_all(int(diameter * 0.5))
 	panel.add_theme_stylebox_override("panel", style)
 	parent.add_child(panel)
 	return panel
 
 
-func _make_circle(
-		parent: Node, node_name: String, position: Vector2, diameter: float,
-		fill: Color, border: Color, border_width: int) -> Panel:
-	return _make_panel(
-		parent, node_name, Rect2(position, Vector2.ONE * diameter),
-		border, fill, int(diameter * 0.5), border_width)
-
-
-func _add_polygon(
-		node_name: String, points: PackedVector2Array, color: Color) -> Polygon2D:
-	var polygon := Polygon2D.new()
-	polygon.name = node_name
-	polygon.polygon = points
-	polygon.color = color
-	_stage.add_child(polygon)
-	return polygon
+func _make_radial_gradient_texture(center_color: Color) -> GradientTexture2D:
+	var gradient := Gradient.new()
+	gradient.colors = PackedColorArray([
+		center_color,
+		Color(center_color.r, center_color.g, center_color.b, 0.0),
+	])
+	var texture := GradientTexture2D.new()
+	texture.gradient = gradient
+	texture.width = 512
+	texture.height = 512
+	texture.fill = GradientTexture2D.FILL_RADIAL
+	texture.fill_from = Vector2(0.5, 0.5)
+	texture.fill_to = Vector2(0.5, 0.0)
+	return texture
 
 
 func _process(delta: float) -> void:
@@ -356,66 +400,70 @@ func _process(delta: float) -> void:
 	_elapsed += delta
 	var dawn: float = smoothstep(0.0, 1.0,
 		clampf((_elapsed - 0.18) / 1.72, 0.0, 1.0))
-	for index: int in _sky_bands.size():
-		var vertical: float = float(index) / maxf(1.0, float(_sky_bands.size() - 1))
-		var night_color: Color = NIGHT_TOP.lerp(NIGHT_BOTTOM, vertical)
-		var morning_color: Color = MORNING_TOP.lerp(MORNING_BOTTOM, vertical)
-		_sky_bands[index].color = night_color.lerp(morning_color, dawn)
+	if _sky_gradient != null:
+		_sky_gradient.colors = PackedColorArray([
+			NIGHT_TOP.lerp(MORNING_TOP, dawn),
+			NIGHT_MIDDLE.lerp(MORNING_MIDDLE, dawn),
+			NIGHT_BOTTOM.lerp(MORNING_BOTTOM, dawn),
+		])
 	for index: int in _stars.size():
 		var star: Label = _stars[index]
-		star.modulate.a = (1.0 - dawn) * (0.62 + 0.38 * sin(
-			_elapsed * 3.2 + float(index) * 0.7))
+		star.modulate.a = (1.0 - dawn) * (0.58 + 0.30 * sin(
+			_elapsed * 3.0 + float(index) * 0.7))
 	if _moon_anchor != null:
-		_moon_anchor.position.y = lerpf(84.0, -185.0, dawn)
+		_moon_anchor.position.y = lerpf(62.0, -104.0, dawn)
 		_moon_anchor.modulate.a = 1.0 - dawn
 	if _moon_cutout != null:
-		var moon_style: StyleBoxFlat = _moon_cutout.get_theme_stylebox("panel") as StyleBoxFlat
+		var moon_style: StyleBoxFlat = \
+			_moon_cutout.get_theme_stylebox("panel") as StyleBoxFlat
 		if moon_style != null:
 			moon_style.bg_color = NIGHT_TOP.lerp(MORNING_TOP, dawn)
 			moon_style.border_color = moon_style.bg_color
 	if _sun_anchor != null:
-		_sun_anchor.position.y = lerpf(454.0, 210.0, dawn)
-		_sun_anchor.scale = Vector2.ONE * lerpf(0.72, 1.0, dawn)
+		_sun_anchor.position.y = lerpf(170.0, 70.0, dawn)
+		_sun_anchor.scale = Vector2.ONE * lerpf(0.78, 1.0, dawn)
+		_sun_anchor.modulate.a = 0.45 + dawn * 0.55
 	if _sun_halo != null:
-		var halo_pulse: float = 0.96 + 0.06 * sin(_elapsed * 4.0)
+		var halo_pulse: float = 0.96 + 0.04 * sin(_elapsed * 4.0)
 		_sun_halo.scale = Vector2.ONE * halo_pulse
-		_sun_halo.pivot_offset = _sun_halo.size * 0.5
-	for index: int in _sun_rays.size():
-		var ray: Polygon2D = _sun_rays[index]
-		ray.modulate.a = dawn * (0.70 + 0.24 * sin(_elapsed * 2.8 + float(index)))
 	if _castle != null:
 		var castle_pop: float = smoothstep(0.0, 1.0,
 			clampf((_elapsed - 0.52) / 0.72, 0.0, 1.0))
-		_castle.scale = Vector2.ONE * lerpf(0.76, 1.0, castle_pop)
+		_castle.scale = Vector2.ONE * lerpf(0.91, 1.0, castle_pop)
 		var castle_tint: Color = Color.WHITE.lerp(
-			Color(1.0, 0.94, 0.76), dawn * 0.14)
+			Color(1.0, 0.96, 0.84), dawn * 0.08)
 		castle_tint.a = castle_pop
 		_castle.modulate = castle_tint
 	if _castle_glow != null:
-		_castle_glow.modulate.a = dawn * (0.72 + 0.18 * sin(_elapsed * 3.0))
+		_castle_glow.modulate.a = dawn * (0.62 + 0.12 * sin(_elapsed * 3.0))
 	if _title_group != null:
 		var title_pop: float = smoothstep(0.0, 1.0,
 			clampf((_elapsed - 0.70) / 0.48, 0.0, 1.0))
-		_title_group.scale = Vector2.ONE * lerpf(0.74, 1.0, title_pop)
+		_title_group.scale = Vector2.ONE * lerpf(0.88, 1.0, title_pop)
 		_title_group.modulate.a = title_pop
+	if _activity_panel != null:
+		var tray_progress: float = smoothstep(0.0, 1.0,
+			clampf((_elapsed - 1.18) / 0.46, 0.0, 1.0))
+		_activity_panel.modulate.a = tray_progress
+		_activity_panel.scale = Vector2.ONE * lerpf(0.92, 1.0, tray_progress)
 	for index: int in _activity_cards.size():
 		var card: TextureRect = _activity_cards[index]
 		var card_progress: float = smoothstep(0.0, 1.0, clampf(
-			(_elapsed - 1.42 - float(index) * 0.16) / 0.40, 0.0, 1.0))
+			(_elapsed - 1.38 - float(index) * 0.15) / 0.38, 0.0, 1.0))
 		card.modulate.a = card_progress
-		card.scale = Vector2.ONE * lerpf(0.45, 1.0, card_progress)
+		card.scale = Vector2.ONE * lerpf(0.64, 1.0, card_progress)
 		if card_progress >= 1.0:
-			var pulse: float = 0.5 + 0.5 * sin(_elapsed * 4.0 + float(index))
-			card.scale = Vector2.ONE * (1.0 + pulse * 0.035)
+			var pulse: float = 0.5 + 0.5 * sin(_elapsed * 3.6 + float(index))
+			card.scale = Vector2.ONE * (1.0 + pulse * 0.025)
 	for index: int in _sparkles.size():
 		var sparkle_progress: float = smoothstep(0.0, 1.0,
-			clampf((_elapsed - 1.45) / 0.45, 0.0, 1.0))
+			clampf((_elapsed - 1.46) / 0.45, 0.0, 1.0))
 		var sparkle: Label = _sparkles[index]
-		var wave: float = 0.5 + 0.5 * sin(_elapsed * 5.0 + float(index) * 0.8)
-		sparkle.modulate.a = sparkle_progress * wave
-		sparkle.scale = Vector2.ONE * (0.74 + wave * 0.34)
+		var wave: float = 0.5 + 0.5 * sin(_elapsed * 4.6 + float(index) * 0.8)
+		sparkle.modulate.a = sparkle_progress * wave * 0.78
+		sparkle.scale = Vector2.ONE * (0.82 + wave * 0.22)
 	for index: int in _clouds.size():
-		_clouds[index].position.x += delta * (5.0 + float(index % 3) * 2.0)
+		_clouds[index].position.x += delta * (1.8 + float(index) * 0.7)
 
 	var reveal: float = smoothstep(0.0, 1.0,
 		clampf(_elapsed / 0.20, 0.0, 1.0))

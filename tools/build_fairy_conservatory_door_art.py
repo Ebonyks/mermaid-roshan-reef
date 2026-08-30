@@ -2,10 +2,9 @@
 """Build the Chapter 3 Moonflower Conservatory doorway Sprite2D cards.
 
 The shell doorway architecture is normalized from its selected presentation
-source.  The open view is then rebuilt deterministically from the approved Sky
-Lagoon panorama and the selected Chapter 3 Rainbow Stage cutouts.  This makes
-the doorway reveal the handoff stage rather than falsely opening straight into
-the Fairy Pond.
+source.  The open view is then rebuilt deterministically from the corrected
+upright Fairy Pond stage and the selected Chapter 3 Rainbow Stage cutouts.
+The causeway is registered to the exact base of the architectural opening.
 """
 
 from __future__ import annotations
@@ -16,7 +15,7 @@ import json
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,9 +41,9 @@ SOURCES = {
     "open": RAW_ROOT / "moonflower_door_open_checker_raw.png",
 }
 
-SKY_TILE_PATTERN = (
-    ROOT / "assets" / "flats" / "sky_lagoon" / "main"
-    / "flat_sky_lagoon_main_panorama_v5_tile_r{row}_c{column}.png"
+BACKGROUND_MASTER = (
+    ROOT / "assets_src" / "fairy_conservatory_handoff_2026-08-30"
+    / "masters" / "handoff_background_master_3640x2048.png"
 )
 HALL_TILE_PATTERN = (
     ROOT / "assets" / "flats" / "castle"
@@ -61,7 +60,7 @@ HOUSE_SOURCE = (
 )
 BUTTERFLY_SOURCE = ROOT / "assets" / "mg" / "butterfly.png"
 
-HORIZON_Y = 468
+HORIZON_Y = 354
 OPENING_LEFT = 316
 OPENING_RIGHT = 708
 OPENING_TOP = 228
@@ -187,23 +186,17 @@ def _opening_mask() -> Image.Image:
     return mask.filter(ImageFilter.GaussianBlur(0.55))
 
 
-def _approved_sky() -> Image.Image:
-    """Reconstruct the approved 6x2 Sky Lagoon panorama and choose its calm bay."""
-    panorama = Image.new("RGB", (6144, 2048))
-    for row in range(2):
-        for column in range(6):
-            path = Path(str(SKY_TILE_PATTERN).format(row=row, column=column))
-            if not path.is_file():
-                raise FileNotFoundError(path)
-            tile = Image.open(path).convert("RGB")
-            if tile.size != (1024, 1024):
-                raise ValueError(f"unexpected Sky Lagoon tile size: {path} {tile.size}")
-            panorama.paste(tile, (column * 1024, row * 1024))
-    # The source horizon sits near the middle of this crop.  Cropping 200 px
-    # from its top aligns the visible cloud bank with HORIZON_Y after resize.
-    calm_bay = panorama.crop((2048, 200, 4096, 2048))
-    return calm_bay.resize(
-        (CANVAS_EDGE, CANVAS_EDGE), Image.Resampling.LANCZOS).convert("RGBA")
+def _approved_fairy_pond() -> Image.Image:
+    """Crop the corrected Fairy Pond stage without distorting its perspective."""
+    if not BACKGROUND_MASTER.is_file():
+        raise FileNotFoundError(BACKGROUND_MASTER)
+    background = Image.open(BACKGROUND_MASTER).convert("RGB")
+    return ImageOps.fit(
+        background,
+        (CANVAS_EDGE, CANVAS_EDGE),
+        method=Image.Resampling.LANCZOS,
+        centering=(0.5, 0.5),
+    ).convert("RGBA")
 
 
 def _place_runtime_sprite(
@@ -227,15 +220,47 @@ def _place_runtime_sprite(
     )
 
 
+def _place_runtime_sprite_center_foot_at_base(
+        scene: Image.Image, path: Path, center_x: int,
+        base_y: int, edge: int) -> tuple[int, int, int, int]:
+    """Register the sprite's central threshold foot exactly on ``base_y``."""
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    sprite = Image.open(path).convert("RGBA")
+    bounds = sprite.getchannel("A").getbbox()
+    if bounds is None:
+        raise ValueError(f"approved runtime sprite has no alpha subject: {path}")
+    sprite = sprite.crop(bounds)
+    scale = edge / max(sprite.size)
+    sprite = sprite.resize(
+        (max(1, round(sprite.width * scale)),
+         max(1, round(sprite.height * scale))),
+        Image.Resampling.LANCZOS,
+    )
+    alpha = np.asarray(sprite.getchannel("A"), dtype=np.uint8)
+    center_left = round(sprite.width * 0.33)
+    center_right = round(sprite.width * 0.67)
+    center_rows = np.flatnonzero(
+        np.any(alpha[:, center_left:center_right] >= 64, axis=1))
+    if center_rows.size == 0:
+        raise ValueError(f"runtime sprite has no visible center foot: {path}")
+    center_foot = int(center_rows[-1]) + 1
+    left = center_x - sprite.width // 2
+    top = base_y - center_foot
+    scene.alpha_composite(sprite, (left, top))
+    return (left, top, left + sprite.width, top + center_foot)
+
+
 def _approved_open_scene() -> Image.Image:
-    """Compose the open view from the approved sky and handoff-stage art."""
-    scene = _approved_sky()
+    """Compose the open view from the approved Fairy Pond handoff art."""
+    scene = _approved_fairy_pond()
     # The physical house sits at the horizon; the one-point walkway begins
-    # there and grows toward the threshold.  The doorway mask supplies the
-    # final side/bottom clipping, so these remain whole-sprite placements.
-    _place_runtime_sprite(scene, HOUSE_SOURCE, (512, 440), 170)
-    _place_runtime_sprite(scene, WALKWAY_SOURCE, (512, 718), 520)
-    _place_runtime_sprite(scene, BUTTERFLY_SOURCE, (582, 366), 34)
+    # there and grows to the exact base of the opening.  The doorway mask
+    # supplies the final side clipping, so these remain whole-sprite placements.
+    _place_runtime_sprite_center_foot_at_base(
+        scene, WALKWAY_SOURCE, 512, OPENING_BOTTOM, 630)
+    _place_runtime_sprite(scene, HOUSE_SOURCE, (512, 390), 170)
+    _place_runtime_sprite(scene, BUTTERFLY_SOURCE, (582, 316), 34)
     return scene
 
 
@@ -356,10 +381,7 @@ def main() -> None:
         }
         if state == "open":
             approved_inputs = [
-                *[
-                    Path(str(SKY_TILE_PATTERN).format(row=row, column=column))
-                    for row in range(2) for column in range(6)
-                ],
+                BACKGROUND_MASTER,
                 WALKWAY_SOURCE,
                 HOUSE_SOURCE,
                 BUTTERFLY_SOURCE,
@@ -376,6 +398,9 @@ def main() -> None:
                 "horizon_y": HORIZON_Y,
                 "horizon_fraction": HORIZON_Y / CANVAS_EDGE,
                 "destination": "Rainbow Stage causeway ending at the Butterfly House",
+                "location_authority": "Lily-Pad Fairy World / Fairy Pond",
+                "walkway_visible_base_y": OPENING_BOTTOM,
+                "walkway_base_matches_opening_base": True,
                 "opening_mask": {
                     "left": OPENING_LEFT,
                     "right": OPENING_RIGHT,
@@ -405,8 +430,9 @@ def main() -> None:
             "matte_feather_radius_pixels": MATTE_FEATHER,
             "whole_subject_normalization": f"fit within {SUBJECT_EDGE}px on {CANVAS_EDGE}px RGBA canvas",
             "open_view": (
-                "Sky Lagoon v5 runtime tiles plus selected Chapter 3 rainbow "
-                "walkway and Butterfly House cutouts; no direct Fairy Pond view"
+                "corrected upright Fairy Pond background plus selected Chapter 3 "
+                "rainbow walkway and Butterfly House cutouts; walkway registered "
+                "to the exact architectural opening base"
             ),
         },
         "hall_review_inputs": [

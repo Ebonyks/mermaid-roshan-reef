@@ -1,8 +1,10 @@
 # Fairy Conservatory — early Chapter 3 route
 
-Status: `LOCATION_DECIDED`, `ART_INTEGRATED`, `RUNTIME_IMPLEMENTED`,
-`SOL_VISUAL_PASS`; exact Godot 4.7.2 CI, target-device, child, owner, and release
-acceptance remain pending.
+Status: `LOCATION_DECIDED`, `FAIRY_POND_ART_CORRECTED`,
+`RUNTIME_IMPLEMENTED`, `LOCAL_VISUAL_PASS`; exact Godot 4.7.2 CI,
+target-device, child, owner, and release acceptance remain pending. The earlier
+Sol pass covered the owner-rejected Sky Lagoon version and grants no acceptance
+to this correction.
 
 ## Decision
 
@@ -96,17 +98,21 @@ route rather than visibly bypassing the Rainbow Skyway and Butterfly House.
 - One crown pearl only. Bridge posts may carry their own architectural pearls,
   but there are no duplicate door handles or pearls mirrored on the door
   leaves.
-- Eye-level sky composition. The authored destination line is at
-  `y = 468 / 1024` (45.7%), never above the 50% limit.
+- Eye-level Fairy Pond composition. The authored destination line is at
+  `y = 354 / 1024` (34.6%), safely above the 50% maximum.
 - The Rainbow Skyway converges on the Butterfly House at the horizon. No lily
   pad climbs into the sky, no top-down pond is mounted in the doorway, and the
   hall does not open directly into Butterfly World.
+- The visible rainbow artwork reaches `y = 965`, the exact base of the
+  architectural opening. No grass strip, water strip, matte, or empty band
+  separates the stage from the threshold.
 
 The shell-frame source is project-original built-in ImageGen art. Its obsolete
 generated garden is fully removed by a deterministic opening mask. The view
-uses the approved Sky Lagoon v5 panorama plus the selected Chapter 3 walkway
-and Butterfly House whole-sprite cutouts. Exact hashes and roles are recorded
-in the two source manifests.
+uses the corrected upright Fairy Pond master, bound to the approved Lily-Pad
+Fairy World art, plus the selected Chapter 3 walkway and Butterfly House
+whole-sprite cutouts. Exact hashes and roles are recorded in the two source
+manifests.
 
 ## Rainbow Skyway stage evaluation
 
@@ -117,8 +123,8 @@ minute.
 ### Accepted interaction
 
 - True 2D only: `CanvasLayer`, `Control`, `Node2D`, `Sprite2D`, and 2D input.
-- Full 1280×720 composition using a continuous approved 3640×2048 Sky Lagoon
-  source master, sliced into a non-overlapping 4×2 grid for runtime.
+- Full 1280×720 composition using a continuous 3640×2048 upright Fairy Pond
+  master, sliced into a non-overlapping 4×2 grid for runtime.
 - The house stays visible at the vanishing point throughout; it is not revealed
   by a screen swap.
 - Roshan advances from the broad foreground toward the centered horizon using
@@ -136,9 +142,11 @@ the handoff and compete with the actual mission.
 
 ### Stage art
 
-- Background: approved Sky Lagoon v5 artwork only, reconstructed at
-  6144×2048, cropped continuously to 3640×2048, then sliced into eight
-  910×1024 cards. No seam object is regenerated independently.
+- Background: one complete eye-level Fairy Pond redraw guided by the approved
+  V5 lily-pad panorama and V2 pond foliage/water plates. The complete source
+  is normalized to a continuous 3640×2048 master, then sliced into eight
+  910×1024 cards. No tile or seam object is regenerated independently. Sky
+  Lagoon mountains, cabins, grass, and promenade imagery are excluded.
 - `assets/flats/fairy_conservatory_handoff/rainbow_walkway.png`: one-point
   causeway in the established coral, peach, yellow, mint, aqua, and lavender
   order, with Pearl Castle shell/gold/lavender rails.
