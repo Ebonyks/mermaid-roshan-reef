@@ -764,6 +764,60 @@ Exact CHG-023 maintenance checkpoint `51887315` then passes official Godot
 security, protected-asset, save, engine, workflow, or release rules, and it does
 not make the still-`UNSATISFIED` game-wide audit complete.
 
+
+### 3.4 Wings — the growing development bible (owner direction 2026-08-30)
+
+This audit program and its design language are **deliberately extensible**:
+the owner's stated intent is a development bible that future chapters are
+built against, so new work matches the established build and quality with
+minimal hand-tweaking or intervention. New **wings** are therefore expected
+regularly — most of them design-consistency protocols: image styles and
+generation techniques, character design languages, typography and font
+design language, palette systems, animation vocabularies, audio identity,
+and chapter-production templates.
+
+A wing is added by a fixed protocol, not by accretion:
+
+1. One scope document at `BINDING_DOMAIN` (or `CANONICAL_CURRENT` where it
+   is game-wide), carrying its rules as a `DL-*` family or a named
+   extension of an existing family in design 06.
+2. A ledger row in `design/05_DOC_LEDGER.md` and an authority-map row in
+   section 3.2, in the same commit.
+3. Where the wing's rules are mechanically checkable, a deterministic
+   checker under `tools/` wired into the static gates — prose-only wings
+   are acceptable only where taste genuinely rules, and then they carry
+   accepted exemplars (reference images, approved sheets) so agents match
+   examples rather than guess.
+4. Acceptance exemplars: every design-consistency wing names its approved
+   reference artifacts, because "similar to previous work" is enforceable
+   only against named previous work.
+
+Chapter production consults the wing inventory **before** generating
+anything; a gap in a wing is reported to the owner as a wing request, never
+improvised around. Current wings and their owners:
+
+| Wing | Rules / document | Status |
+|---|---|---|
+| Child-safety and interaction | `DL-AGE-*`, `DL-UI-*`, `DL-INT-*` (design 06) | Standing |
+| Medium and layering | `DL-MED-*`, `DL-LAY-*` (design 06) | Standing |
+| Visual promise and readability | `DL-VIS-*`, `DL-READ-*` (design 06) | Standing |
+| Motion and rewards | `DL-MOT-*` (design 06) | Standing |
+| Sound and music | `DL-SND-*` (design 06); `MUSIC_AUDIT_2026-08-09.md` | Standing |
+| Cinematics | `DL-CIN-*` (design 06); the full-frame protocol | Standing |
+| Code architecture | `DL-CODE-*` (design 06 §18); `design/08_TARGET_ARCHITECTURE.md` | Standing |
+| Castle door language | `design/07_CASTLE_DOOR_LANGUAGE.md` | Standing |
+| Career specialists | Ballerina / Boxing briefs (section 3.2) | Standing |
+| **Tablet performance** | Target-device/tablet frame pacing, capture protocol, and device-side tuning — the `MA-PERF-001` lineage and `DL-PERF-*` device gates | **IN FLIGHT — owned by Fable**; other agents coordinate per the round handoff and do not take its scope |
+| Image style and technique | expected wing — not yet authored | Planned |
+| Character design language | expected wing — not yet authored | Planned |
+| Typography / font design language | expected wing — not yet authored | Planned |
+| Chapter-production template | expected wing — not yet authored | Planned |
+
+The framework clause (section 12) already lets a recurring off-list defect
+class earn a rule; this section is its constructive twin — quality classes
+earn wings **before** a chapter needs them, so the next chapter starts from
+the bible instead of rediscovering the style.
+
 ---
 
 ## 4. Evidence at the integration snapshot and named historical commits
@@ -1299,7 +1353,7 @@ the compact navigation view; these links open the complete section-10 records:
 | `MA-OPERA-010` | P1 | `FIXED_PENDING_VERIFICATION` | V3 full local plus exact-head remote | Commit `e2c25878` uses one Canvas lifecycle for ordinary unforced and display entry and contains no external-kart route. Exact focused coverage, the full local Godot 4.7.1 startup/Racer/idle/passive/close/suspend/reward/teardown/re-entry gate, and exact-head run `31661887863` at `e0677ae4` are green | Pass authoritative Mobile/device/child/owner acceptance before closure; rollback is recorded under `CHG-026` |
 | `MA-OPERA-011` | P1 | `FIXED_PENDING_VERIFICATION` | V3 full local plus exact-head remote | Commit `e2c25878` removes all three owner-cut bosses from cards, gates, completion, voices/music routes, and runtime. Slots 4/9/14 remain raw-preserving tombstones (`0x4210`), live mask/completion is `0xBDEF`, effective progress is 0–13, and focused/full-local/exact-head migration/reward/passive/suspend/leave/re-entry evidence is green | Pass authoritative visual/device/child/owner gates before closure; rollback is recorded under `CHG-026` |
 | `MA-OPERA-012` | P1 | `FIXED_PENDING_VERIFICATION` | V3 exact local/remote/build plus V4 diagnostics; external open | Runtime `09e5e356` distributes all thirteen careers through exact thematic Castle rooms, selects Movie Lounge as Racer's sole home, deletes the all-career lobby with no hidden backdoor, preserves stable sparse save bits/rewards, restores the exact launching room, and fixes Canvas layers. Its full 1463.4-second/64-probe local suite is green; probe-only `ff068db` passes a newer 1379.3-second/64-probe full-local suite. Historical predecessors preserve bounded evidence. Integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior, passes exact local/topic/dev machine gates, and Android `31763879294` publishes its matching APK. Twenty-two local Opera/Castle 1280×720 captures remain diagnostic; all nine room captures show residual P2 lower-body/tail occlusion | Complete phone/M11, child navigation/comprehension, owner, exact-voice/listening, strict-2D, and accepted-visual gates; adjust route-card composition without weakening target size or reintroducing the hub |
-| `MA-PERF-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current target-device frame-time, hitch, memory, thermal, or latency matrix | U0 device matrix at exact release candidate meets design thresholds |
+| `MA-PERF-001` | P1 | `IN_PROGRESS` | V0; tablet wing in flight | No current target-device frame-time, hitch, memory, thermal, or latency matrix; the tablet performance wing (section 3.4, owned by Fable) is implementing the capture protocol and device-side remediation | U0 device matrix at exact release candidate meets design thresholds |
 | `MA-CHILD-001` | P1 | `BLOCKED_EXTERNAL` | V0 | No current observed five-minute child golden-path record | Private/safe observed session meets section 12 |
 | `MA-CI-004` | P1 | `CONFIRMED_OPEN` | V1 | The Day One wing and start-menu routing — the fresh-save entry arc — have eight dedicated probes and zero of them run in either trusted roster at `9a1754c1`, so a regression on the New Game path ships ungated | Classify and promote the deterministic Day One/start-menu probes into both rosters; a deliberately injected routing break must turn the gate red |
 | `MA-CI-005` | P1 | `CONFIRMED_OPEN` | V1 | The central passive probe's progress snapshot reads only pearls, trophies, stickers, and medals; opera stars, combat, castle interaction, companion, and Day One reward surfaces are invisible to the zero-input negative test, and per-probe idle checks are opt-in | Extend the snapshot to every save-backed reward surface with a fail-closed mutation test per section 10 acceptance |
@@ -2172,5 +2226,7 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 | 2026-08-26 | `TRIAGING` | Owner direction, same day: the round's shrink goals alone are insufficient — a comprehensive remodel must change the architecture so continued expansion no longer grows `main.gd`. `design/08_TARGET_ARCHITECTURE.md` (`BINDING_DOMAIN`, code structure) answers it: the Mode Platform formalizes the MiniGame contract's plumbing into a ModeDirector, declarative ModeRegistry, and owned Services; the growth law becomes rule `DL-CODE-11`, the CI structure ratchet becomes `DL-CODE-12`, section 12 gains the matching gate condition, and the Codex handoff gains Stage C (WP-C0–C6 = migration M0–M6, absorbing the structural halves of G7/G10/G11). Section 9 of design 08 reserves four decisions for explicit owner confirmation. Documentation-only; CHG-023 maintenance; audit remains `IN_PROGRESS` / `UNSATISFIED`. |
 
 | 2026-08-30 | `TRIAGING` | Owner direction: revision 2 of `design/08_TARGET_ARCHITECTURE.md` completes the Mode Platform spec to implementation grade — full typed contracts and director algorithm with decided edge cases; reversibility as a design input (delegating-shim windows of one promotion cycle instead of deletions, per-step `CHG-*` entries with guarded inverses, behavior-identical branches so `git revert` always suffices, an append-only ratchet history); a new Stage R implementation re-audit (an agent that did not implement a package re-executes its gate, verifies non-goals and reversibility, and alone applies lifecycle transitions — checkpoints WP-R1/R2/R3); and the agent-assignment model (Luna agents carry most implementation in parallel lanes, single-writer discipline on governance files, serial integration). Revision 1's interface sketches and replace-by-deletion migration are superseded as not executable; the handoff is aligned (shims, reversibility-as-done, single-writer rule, Stage R, resequencing). Documentation-only; CHG-023 maintenance; audit remains `IN_PROGRESS` / `UNSATISFIED`. |
+
+| 2026-08-30 | `TRIAGING` | Owner direction: the audit is declared a flexible, wing-extensible development bible (new section 3.4) — design-consistency wings (image style/technique, character design, typography/font language, palette, animation, audio identity, chapter-production templates) are expected regularly under a fixed protocol (scope doc + `DL-*` family + ledger/authority rows + deterministic checker or accepted exemplars), so future chapters match established build and quality with minimal hand-tweaking. The in-flight **tablet performance wing, owned by Fable**, is registered; `MA-PERF-001` moves `BLOCKED_EXTERNAL` → `IN_PROGRESS` on the owner's report; the round handoff gains the wings/parallel-workstreams section and deconflicts WP-B5/WP-C4 from the wing's scope. Documentation-only; CHG-023 maintenance; audit remains `IN_PROGRESS` / `UNSATISFIED`. |
 
 No later state is added without its required evidence.

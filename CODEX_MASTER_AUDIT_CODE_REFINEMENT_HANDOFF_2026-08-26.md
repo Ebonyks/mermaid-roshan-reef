@@ -34,7 +34,10 @@ invisible to the child.
    (`DL-CODE-01`–`DL-CODE-12`).
 5. The canonical finding record for the package at hand, in
    `audit/findings/ACTIVE_FINDINGS_2026-08-13.md`.
-6. `CLAUDE.md` / `AGENTS.md` — the operating contract, including true-2D
+6. The wing inventory, `audit/MASTER_AUDIT_2026-08-09.md` section 3.4 —
+   which design-consistency and performance wings apply to your package,
+   and which are someone else's in-flight scope.
+7. `CLAUDE.md` / `AGENTS.md` — the operating contract, including true-2D
    medium rules and protected-content law.
 
 ## Stage 0 — review first (mandatory, per package)
@@ -100,6 +103,11 @@ behavior for a package:
 - Any conflict with an owner decision, including the 2026-08-25 venue
   commits (`0277071f`/`9a1754c1`) — the newest owner direction wins
   (`DL-AUTH-01`).
+- Any change inside another wing's in-flight scope — today that means the
+  tablet performance wing's (capture tooling, tier thresholds,
+  quality-tier semantics, device tuning) — or any child-visible work whose
+  governing design-consistency wing does not exist yet (report the wing
+  gap instead of improvising a style).
 
 ## Stage A packages — harden the net (run first, any order, parallel-safe)
 
@@ -206,6 +214,29 @@ access, so every rule below is the orchestrator's to enforce internally.
 The contract in this document is agent-neutral: whichever agent holds a
 package obeys all of it.
 
+## Wings and parallel workstreams (canonical section 3.4)
+
+The master audit is a wing-extensible development bible: design-consistency
+wings (image style/technique, character design, typography, palette,
+animation, audio identity, chapter templates) are added regularly so new
+chapters match established build and quality with minimal hand-tweaking.
+Two obligations follow for every package in this round:
+
+1. **Consult before you create.** Anything child-visible conforms to the
+   applicable standing wings; a wing gap is reported to the owner as a wing
+   request in your package report — never improvised around. Match the
+   wing's named exemplars, not your own taste.
+2. **The tablet performance wing is IN FLIGHT and owned by Fable.** Its
+   scope: target-device/tablet performance measurement, the capture
+   protocol, quality-tier threshold values, and device-side tuning — the
+   `MA-PERF-001` lineage. Round agents do NOT take that scope: no capture
+   tooling, no tier-threshold or quality-tier-semantics changes, no
+   device-performance claims. Where a package's change plausibly moves
+   measured performance (allocation, draw calls, texture residency), state
+   the expected delta in your report so the wing can account for it.
+   Code-side work the round DOES own is unchanged: WP-C4's pooling and
+   WP-B5's per-surface Speedy paths and budget notes.
+
 ## Stage C packages — the Mode Platform (the remodel; start after A1–A2 merge)
 
 Stage C is `design/08_TARGET_ARCHITECTURE.md` §7 turned into packages —
@@ -271,6 +302,9 @@ cheapest real mode before anything load-bearing moves.
 - **Gate:** suite green per commit; the `m._`-private-call budget ratchets
   down; no per-call mesh/material allocation remains in the FX path
   (allocation grep + visual spot-check at both tiers).
+- **Coordination:** pooling is visual/behavior-identical; report the
+  allocation delta to the tablet performance wing (Fable) and change no
+  tier thresholds — those are the wing's.
 - **Non-goals:** redesigning any service's behavior.
 
 ### WP-C5 — Typed mode state pilots (M5; executes G10/WP-B4)
@@ -343,8 +377,12 @@ below remain independent.
   field as modes migrate.
 - **Gate:** every named surface has a tier path or budget note; visual
   spot-check at both tiers for one touched surface; suite green.
-- **Non-goals:** device measurement (that is `MA-PERF-001`'s protocol, not
-  this container's).
+- **Coordination:** tier PATHS are this package's; tier THRESHOLD VALUES
+  and all device verification belong to the in-flight tablet performance
+  wing (Fable) — report each surface's expected device-side delta for the
+  wing rather than measuring or tuning it here.
+- **Non-goals:** device measurement or threshold tuning (the tablet
+  performance wing's scope, `MA-PERF-001`).
 
 ### WP-B6 — Dead code out, shared probe harness in (G12, `MA-CODE-005`/`MA-CI-007`)
 

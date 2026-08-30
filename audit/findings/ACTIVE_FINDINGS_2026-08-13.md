@@ -499,7 +499,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | domain / zone | Performance / whole game on older Android phone and Lenovo Tab M11 |
 | source | Performance audit and absence of U0 device measurements for the current candidate. |
 | severity | P1 |
-| lifecycle | `BLOCKED_EXTERNAL` |
+| lifecycle | `IN_PROGRESS` |
 | verification | V0: no current exact-candidate target-device performance matrix exists. |
 | reproduction | Install and verify the exact `441adf35` APK from Android run `31763879294` on the intended older Android phone and Lenovo Tab M11, then run representative cold load, traversal, Castle/Opera, Lagoon, combat, particles, pause/re-entry, and touch-latency traces at native aspect. Current measurements are missing. |
 | child_impact | Hitches, heat, memory pressure, slow loads, or delayed touch can make the game unusable for its only intended player. |
@@ -510,7 +510,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | The exact release candidate meets documented design thresholds on required devices with retained touch, save, visual, and gameplay behavior. |
 | closure | Blocked as of 2026-08-13; the matching `441adf35` APK exists, but no device matrix, measurements, accepted result, closure commit, or date exists. |
 | relationships | Blocks `MA-RELEASE-001`; device touch overlaps `MA-TOUCH-001`; asset/performance risks include `MA-ASSET-004` and `MA-2D-002`. |
-| history | 2026-08-09: V0 device gap indexed. 2026-08-13: integrated predecessor `e6edf559` gained a matching dev APK; historical source `7391c53c` preserved its failed remote renderer diagnostic. Integrated head `441adf35` adds exact machine and matching-APK evidence over unchanged source `51d0abc0`, but no target-device matrix, so the item remains `BLOCKED_EXTERNAL`. |
+| history | 2026-08-09: V0 device gap indexed. 2026-08-13: integrated predecessor `e6edf559` gained a matching dev APK; historical source `7391c53c` preserved its failed remote renderer diagnostic. Integrated head `441adf35` adds exact machine and matching-APK evidence over unchanged source `51d0abc0`, but no target-device matrix, so the item remains `BLOCKED_EXTERNAL`. 2026-08-30: owner reports the tablet performance wing is being implemented by Fable, carrying this finding's capture protocol and device-side remediation (master audit section 3.4); lifecycle moves to `IN_PROGRESS`; closure still requires the U0-style device matrix at the exact release candidate. |
 
 ## MA-CHILD-001
 

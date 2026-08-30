@@ -30,9 +30,12 @@ delegating shim is the only exception, and only during a migration step).
 Ship probe-first (DL-CODE-10): a driving trusted probe in BOTH rosters and
 zero-input negative coverage of every reward field. Ephemeral state lives
 on the mode; anything durable goes through services.reward into the save
-(append-only keys). Include your revert inverse in the report. If you
-believe this feature cannot fit the mode contract, STOP and tell me why
-before writing code.
+(append-only keys). Include your revert inverse in the report. Conform to
+the applicable wings in the master audit's section 3.4 inventory — match
+their named exemplars; if a governing design-consistency wing is missing,
+report the wing gap instead of improvising a style. If you believe this
+feature cannot fit the mode contract, STOP and tell me why before writing
+code.
 ```
 
 Until the platform exists (M0 has not merged), use the interim line
@@ -117,13 +120,18 @@ result**:
   or the report smells thorough rather than true — make R its own run; the
   report always looks thorough.
 
-## 5. Keep the calendar — two recurring rituals
+## 5. Keep the calendar — three recurring rituals
 
 1. **After every dev→master promotion:** ask the integration lane to close
    any shim windows whose promotion cycle has completed (each closure is
    its own small commit with probe-callsite updates). Shims that never
    close become the next flavor of debt.
-2. **After every wing lands, or monthly:** commission a master-audit round
+2. **Before every new chapter:** check the wing inventory (canonical
+   section 3.4) against what the chapter needs — image style, character
+   design, typography, palette, chapter template — and commission the
+   missing wings FIRST. A chapter built before its wings exist is the
+   hand-tweaking you are trying to retire.
+3. **After every wing lands, or monthly:** commission a master-audit round
    (the canonical protocol, `audit/MASTER_AUDIT_2026-08-09.md` §6/§13) and
    include the **growth-law spot check** — you can paste this to any agent
    any time you're suspicious:
@@ -264,7 +272,10 @@ verify shims match their recorded originals, then apply lifecycles and
 CHG/ledger entries serially and finish with
 python3 tools/audit_document_authority.py -> ALL OK.
 
-Deliver: branches/PRs, the final report with agent-per-step and R2
+The tablet performance wing (owned by Fable) is in flight: change no tier
+thresholds, quality-tier semantics, or capture tooling, and report any
+expected device-side performance delta for the wing instead of measuring
+it. Deliver: branches/PRs, the final report with agent-per-step and R2
 verdicts, ratchet baselines. Do not start C3+ or Stage B. Stop and surface
 to the owner on any escalation trigger.
 ```
@@ -287,6 +298,9 @@ standing metrics table, verify all shim windows and waivers, then apply
 lifecycles and CHG/ledger entries serially and finish with
 python3 tools/audit_document_authority.py -> ALL OK.
 
+The tablet performance wing (owned by Fable) is in flight: WP-C4 pooling
+and WP-B5 tier PATHS are yours; tier THRESHOLD VALUES, capture tooling, and
+all device measurement are the wing's — report expected deltas instead.
 Deliver: branches/PRs, the final report with agent-per-package, R3
 verdicts, the metrics table before/after, and the list of shim windows
 awaiting their promotion-cycle closure. Stop and surface to the owner on
