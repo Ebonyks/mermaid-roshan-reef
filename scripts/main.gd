@@ -16,6 +16,7 @@ const DayOneBathroomCleanupLogic = preload(
 	"res://scripts/games/day_one_bathroom_cleanup.gd")
 const DayOneBathroomMovieHandoffLogic = preload(
 	"res://scripts/day_one_bathroom_movie_handoff.gd")
+const DayTwoTransition2DLogic = preload("res://scripts/day_two_transition_2d.gd")
 const FAIRY_CONSERVATORY_HANDOFF_PATH := \
 	"res://scripts/arena/fairy_conservatory_handoff_2d.gd"
 const FAIRY_CONSERVATORY_DOOR := preload(
@@ -344,6 +345,8 @@ var day_one_art_desk_unlocked: bool = false
 var day_one_art_customization_completed: bool = false
 var day_one_event_seen: Dictionary = {}
 var day_one_event_history: Array[Dictionary] = []
+var day_two_transition_active: bool = false
+var day_two_transition_layer: CanvasLayer = null
 var _day_one_director: DayOneDirector = null
 var _day_one_bathroom_cleanup: DayOneBathroomCleanup = null
 var _day_one_bathroom_movie_handoff: DayOneBathroomMovieHandoff = null
@@ -4460,7 +4463,7 @@ func _touch_mode_label() -> String:
 # The world-tap gates shared by the release path and the press-fire probe:
 # a tap may reach the stage only when no overlay or mode owns the screen.
 func _world_tap_gated() -> bool:
-	if intro_active or get_tree().paused or mg_kind != "":
+	if intro_active or day_two_transition_active or get_tree().paused or mg_kind != "":
 		return true
 	if fade_rect != null and fade_rect.modulate.a > 0.02:
 		return true
@@ -7068,6 +7071,44 @@ func day_one_boss_door_ready() -> bool:
 	return day_one_is_active() and director.boss_door_glow \
 		and not director.giant_dust_bunny_boss_triggered
 
+
+func day_one_complete_boss_and_begin_day_two() -> bool:
+	if not _day_one_ref().complete_day_one_after_boss():
+		return false
+	# Persist the unlock before presentation. The normal end-game save follows
+	# in the same frame, but this first write protects the terminal story gate
+	# even if the platform backgrounds during the transition.
+	_write_save()
+	call_deferred("_show_day_two_transition")
+	return true
+
+
+func _show_day_two_transition() -> void:
+	if day_two_transition_layer != null \
+			and is_instance_valid(day_two_transition_layer):
+		return
+	day_two_transition_active = true
+	if touch_ui != null:
+		touch_ui.consume_action()
+	var transition := DayTwoTransition2DLogic.new() as DayTwoTransition2D
+	if transition == null:
+		day_two_transition_active = false
+		return
+	day_two_transition_layer = transition
+	transition.finished.connect(_on_day_two_transition_finished, CONNECT_ONE_SHOT)
+	add_child(transition)
+	show_msg("Roshan",
+		"A new day! Day Two begins — the castle jobs and Opera House are open!",
+		"day_two_begins")
+
+
+func _on_day_two_transition_finished() -> void:
+	day_two_transition_active = false
+	day_two_transition_layer = null
+	if touch_ui != null:
+		touch_ui.consume_action()
+	_update_hud()
+
 func day_one_castle_room_is_clean(castle_room: String) -> bool:
 	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
 		castle_room, ""))
@@ -7755,6 +7796,8 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 			if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 				_castle_rooms_25d.close()
 			_start_game(dust_boss_fr)
+		DayOneDirector.EVENT_DAY_TWO_BEGINS:
+			g["day_two_started"] = true
 	_queue_save()
 
 func _castle_rooms_ref() -> CastleRooms25D:
@@ -9725,7 +9768,7 @@ func _process(delta: float) -> void:
 			speech_layer.visible = false
 	if player == null:
 		return
-	if intro_active:
+	if intro_active or day_two_transition_active:
 		return
 	if slide_canvas_return_was_active:
 		# Even the second neutral sample is a quarantine frame. The controls block

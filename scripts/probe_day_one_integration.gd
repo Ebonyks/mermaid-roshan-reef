@@ -43,13 +43,20 @@ func _init() -> void:
 		and main.day_one_can_enter_castle_room("bubble_bath")
 		and not main.day_one_can_enter_castle_room("mermaid_pool")
 		and not main.day_one_can_enter_castle_room("opera_hall"))
+	# Match the live bathroom completion contract: the basket authorizes both
+	# tools, then the drain and grime gestures must be complete.
+	director.bathroom_tools_authorized = true
+	director.bathroom_supply_hunt_step = 2
+	director.bathroom_cleanup_step = 2
 	director.complete_tutorial("bathroom")
 	_check("completion advances the physical castle route",
 		main.day_one_can_enter_castle_room("bubble_bath")
 		and main.day_one_can_enter_castle_room("mermaid_pool")
 		and not main.day_one_can_enter_castle_room("playroom"))
-	director.restore_state({"day_one_active": false})
-	_check("later-day policy releases rooms, jobs, and opera",
+	_check("the first boss completes Day One exactly once",
+		director.complete_day_one_after_boss()
+		and not director.complete_day_one_after_boss())
+	_check("Day Two policy releases rooms, jobs, and opera",
 		main.day_one_can_enter_castle_room("opera_hall")
 		and not main.day_one_jobs_locked()
 		and main.day_one_opera_enabled())
