@@ -4,9 +4,9 @@ extends SceneTree
 # airborne with his star flashing, one hit per window; hit 1 turns him dizzy
 # (slower), hit 2 turns him angry (faster), hit 3 ends the fight as friends;
 # a window that closes unhit is not a failure. Five consecutive misses switch
-# on the slower assist pace, and a landed round resets that streak. Every hit
-# here comes from a real tap edge on touch_ui, so nothing in this file can win
-# the fight without input.
+# on the slower assist pace. A landed round resets that streak but keeps the
+# earned pace for the encounter. Every hit here comes from a real tap edge on
+# touch_ui, so nothing in this file can win the fight without input.
 # Frame pacing differs per machine, so every wait here is on a CONDITION.
 
 var main: ReefMain
@@ -380,8 +380,8 @@ func _win_case() -> void:
 	var hit3: bool = await _strike(5)
 	_ck("the fight keeps offering windows until she lands them", hit3)
 	_ck("the third round finishes the fight", _hits() == 3)
-	_ck("a landed round resets the consecutive-miss assist",
-		int(main.g.get("db_miss_streak", -1)) == 0)
+	_ck("a landed round resets the streak but keeps the earned assist pace",
+		int(main.g.get("db_miss_streak", -1)) == 0 and _boss().mercy_tier() == 1)
 	_ck("the ending is a befriending beat, not a defeat", _state() == "friends")
 	var wait := 0
 	while main.game == "dustboss" and wait < 4000:

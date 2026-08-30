@@ -31,9 +31,11 @@ extends RefCounted
 # shove and boing before she recovers immediately; it never removes progress.
 # Five windows missed IN A ROW switch the fight to its slower assist pace:
 # longer tells/windows, wider reach and one helping tap. A completed round
-# resets the streak, so the opening feel stays lively for a child who is
-# keeping up. Satellite rules per CLAUDE.md: logic only, `main` by reference,
-# all state on m.g ("db_*" keys, reclaimed with the rest of the game scratch).
+# resets the streak but keeps the earned pace for the rest of the encounter;
+# a slower child never has to prove the same limitation three times. The
+# opening feel stays lively for a child who is keeping up. Satellite rules per
+# CLAUDE.md: logic only, `main` by reference, all state on m.g ("db_*" keys,
+# reclaimed with the rest of the game scratch).
 
 # THE DAMAGE CORE IS DustBunnyBossSprite (scripts/dust_bunny_boss_sprite.gd),
 # the approved four-frame animation kit that arrived with Grand Puff's art.
@@ -71,8 +73,8 @@ const RADIUS := 26.0           # the ring's circumradius (apothem ≈ 24.0)
 const BOSS_INSET := 4.5        # how far inside the wall the boss may land
 
 const MERCY_TRIGGER_STREAK := 5 # keep the lively opening for five real tries
-const MERCY_WINDOW_PER_TIER := 1.0 # final window: 0.65s -> 1.65s at tier one
-const MERCY_WINDOW_MAX := 1.5
+const MERCY_WINDOW_PER_TIER := 5.5 # final window: 0.65s -> 6.15s at tier one
+const MERCY_WINDOW_MAX := 6.0      # admits a measured four-second reaction
 const MERCY_REACH_PER_TIER := 4.0
 const MERCY_REACH_MAX := 6.0
 const MERCY_SLOW_PER_TIER := 0.30 # angry travel drops near the opening pace
@@ -121,6 +123,7 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_hits"] = 0
 	m.g["db_miss"] = 0
 	m.g["db_miss_streak"] = 0
+	m.g["db_mercy_tier"] = 0
 	m.g["db_bumps"] = 0
 	m.g["db_shield_taps"] = 0
 	m.g["db_window_hit"] = 0
@@ -197,7 +200,10 @@ func miss_streak() -> int:
 func mercy_tier() -> int:
 	# Tier one begins on miss five, tier two on miss ten. Using a discrete tier
 	# makes the change legible and keeps attempts one through four identical.
-	return miss_streak() / MERCY_TRIGGER_STREAK
+	# Once earned it stays for this encounter, avoiding fast/slow oscillation
+	# after an assisted success.
+	return maxi(int(m.g.get("db_mercy_tier", 0)),
+		miss_streak() / MERCY_TRIGGER_STREAK)
 
 func window_len() -> float:
 	# the vulnerability window: the kit's own number (0.75s, 0.65s in the final
@@ -303,10 +309,9 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 			MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
 		if bonus > 0.0:
 			k.vulnerability_time_left += bonus
-		# A LONGER WINDOW IS NOT ENOUGH FOR THE SLOWEST HAND. Three taps inside
-		# even a mercy-stretched 2.25s window is out of reach for a child whose
-		# reaction is ~4s, and the measured slowpoke control needed 28 windows
-		# and 230s before the composition added this. So deep mercy also GIVES
+		# A merely doubled short window is not enough for the slowest hand. The
+		# measured slowpoke control reacts at ~4s, so tier one stays open beyond
+		# that measured delay. The assist also GIVES
 		# her taps: tier one lands the first one (tier two lands the second), so
 		# the window she finally reads still needs her real input but not a fast
 		# three-tap burst.
@@ -333,6 +338,7 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 	if not open_now and st > LEAP_UP + 0.35:
 		m.g["db_miss"] = int(m.g.get("db_miss", 0)) + 1
 		m.g["db_miss_streak"] = miss_streak() + 1
+		m.g["db_mercy_tier"] = mercy_tier()
 		m.g["db_flash"] = 0.0
 		m.g["db_y"] = 0.0
 		_enter_state("prowl")
