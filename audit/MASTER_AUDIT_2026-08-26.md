@@ -196,6 +196,18 @@ the probe).
 
 **Stage B — spend the safety margin on structure.**
 
+Owner direction (2026-08-26, after this round's first publication): shrink
+goals alone are treatment, not cure — the architecture itself must change so
+continued expansion no longer grows `main.gd`. That remodel is specified in
+`../design/07_TARGET_ARCHITECTURE.md` (the Mode Platform: growth law
+`DL-CODE-11`, GameMode/registry/director/services contracts, the CI
+structure ratchet `DL-CODE-12`, migration plan M0–M6). **The structural
+goals below execute through that plan**: G7 lands as migration step M6, G10
+as M5, and G11's pooling half as M4's FxService; the handoff's Stage C
+packages (WP-C0–C6) carry the step-by-step boundaries. G8, G9, G12 and
+G11's tier-note half remain independent cleanups sequenced behind the
+platform spine.
+
 | Goal | Trace | Definition of done |
 |---|---|---|
 | G7. Reverse the coordinator regression | `MA-CODE-001` | Day One glue, venue delegation, and start-menu routing extracted from `main.gd` into their owning satellites/controllers mechanically; `main.gd` at or below 9,000 lines this round with each extraction suite-green; trajectory re-measured in the next round |

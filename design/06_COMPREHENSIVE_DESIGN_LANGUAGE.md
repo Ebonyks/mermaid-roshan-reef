@@ -1274,3 +1274,19 @@ readable by bots, a driving trusted probe in both the local and remote
 rosters, and zero-input negative coverage — either the central passive
 probe's progress snapshot covers the mode's reward fields, or the mode's own
 trusted probe carries an idle no-award leg (`DL-AGE-04`, `DL-QA-02`).
+
+`DL-CODE-11` — The growth law (added 2026-08-26 with the Mode Platform,
+`design/07_TARGET_ARCHITECTURE.md`): once a mode family has migrated to the
+platform, adding an activity, wing, or zone touches `scripts/main.gd` zero
+times — new content is a mode script plus a `ModeRegistry` row, riding the
+shared director and services. A feature that must edit main beyond that
+needs a recorded waiver naming the follow-up extraction; before its family
+migrates, `DL-CODE-01`'s net-out rule applies instead.
+
+`DL-CODE-12` — The structure ratchet: `tools/audit_structure.py` and its
+budget file are the standing enforcement for `DL-CODE-01`, `DL-CODE-02`,
+`DL-CODE-04`, and `DL-CODE-11`. Budgets are append-only history and only
+ever decrease; an increase requires an owner-visible waiver with finding,
+reason, and expiry (`DL-QA-08` shape). Once armed as blocking, removing or
+weakening the gate is a workflow-scope change and an audit finding, not a
+cleanup.

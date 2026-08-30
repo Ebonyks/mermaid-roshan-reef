@@ -733,6 +733,7 @@ preserve a useful measurement while its 3D recommendation is `SUPERSEDED`.
 | `codex/deprecated-resources-roshan-20260809` at `9329d9a6` | `HISTORICAL_EVIDENCE` | Exact archived 3D resources; never a production fallback or merge source |
 | Owner commits `0277071f`/`9a1754c1`, 2026-08-25 | `OWNER_DECISION` | The true-2D three-floor Opera House venue (`scripts/opera_house_venue_2d.gd`) is the Opera Hall room interior hosting only its three resident careers through invisible painted portal regions; it preserves the no-central-lobby ruling and is the newest owner direction on Opera navigation |
 | `MASTER_AUDIT_2026-08-26.md` (this directory) | `SUPPORTING_CURRENT` | The 2026-08-26 code-refinement round record: comprehensive analysis at integration head `9a1754c1`, scorecard movement, goal set G1–G12, and orchestration rationale; its normative deltas are applied in this document's sections 5, 12, 13, and 14 and in design 06 section 18 |
+| `design/07_TARGET_ARCHITECTURE.md` | `BINDING_DOMAIN` | The Mode Platform remodel, produced on direct owner request 2026-08-26: the growth law (`DL-CODE-11`), the GameMode/ModeRegistry/ModeDirector/Services contracts, the structure ratchet (`DL-CODE-12`), and migration plan M0–M6 that absorbs goals G7/G10/G11's structural halves. Section 9 of that document reserves four design decisions for explicit owner confirmation; the rest binds as each migration step lands suite-green |
 | `CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md` | `SUPPORTING_CURRENT` | Implementation work packages for the 2026-08-26 round, addressed to the implementing agent; subordinate to this audit's protocol and gates |
 
 ### 3.3 Design-language confirmation state
@@ -1980,6 +1981,12 @@ the medium, visual, and evidence gates:
       the central passive snapshot covers every save-backed reward field.
 - [ ] No dead code adjacent to a child-safety invariant remains
       (`DL-CODE-09`).
+- [ ] The Mode Platform growth law holds (`DL-CODE-11`,
+      `design/07_TARGET_ARCHITECTURE.md`): for migrated families, new
+      content lands as a mode script plus a registry row with `main.gd`
+      untouched, demonstrated by the platform's growth-law test; and the
+      structure ratchet (`DL-CODE-12`) is armed and blocking with budgets
+      monotone and no waiver outstanding past expiry.
 
 These criteria are a framework, not a ceiling: a material defect outside
 them is still a finding, and a recurring off-list defect class earns a rule
@@ -2064,7 +2071,12 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
     `MA-CI-004`, `MA-CI-005`, `MA-CI-006`, `MA-CI-007`, `MA-CODE-003`,
     `MA-CODE-004`, `MA-CODE-005`, `MA-PERF-002`, `MA-PERF-003`,
     `MA-SAVE-001`, `MA-AUDIO-002`, and `MA-TOUCH-002` are its scope, with
-    `MA-CODE-001` the binding constraint.
+    `MA-CODE-001` the binding constraint. The structural stage executes
+    through the Mode Platform remodel and migration plan M0–M6 in
+    `design/07_TARGET_ARCHITECTURE.md` (owner-requested 2026-08-26): the
+    remodel changes where growth lands (`DL-CODE-11`) and arms the
+    structure ratchet (`DL-CODE-12`) so the coordinator target is enforced
+    by CI rather than intention.
 
 ---
 
@@ -2128,5 +2140,7 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 
 | 2026-08-26 | `CONFIRMING` | The code-refinement round re-inventories the tree at integration head `9a1754c1` (169 commits past sealed evidence head `441adf35`): the Canvas Melody rebuild, Castle Canvas2D baseline rooms, Day One wing (start-menu New Game routing, dirty pool, art studio), Harper/Fiona slide canvas, game-wide audio remediation, and the 2026-08-25 owner Opera House venue landed after the last audited head, so the round's measurements are pinned to `9a1754c1` while every sealed historical claim above stands unchanged for its own commit. The owner venue commits are recognized in section 3.2 as the newest Opera navigation direction, premise-consistent with `MA-OPERA-012`. |
 | 2026-08-26 | `TRIAGING` | Criteria update: design 06 gains section 18 (`DL-CODE-01`–`DL-CODE-10`), section 12 gains the code-refinement conditions, and the framework clause is recorded. Twelve bounded findings open (`MA-CI-004`–`MA-CI-007`, `MA-CODE-003`–`MA-CODE-005`, `MA-PERF-002`, `MA-PERF-003`, `MA-SAVE-001`, `MA-AUDIO-002`, `MA-TOUCH-002`), decomposing `MA-CODE-002` per its own fix plan; `MA-CODE-001` is re-measured at 10,499 lines and named the round's binding constraint; `MA-CODE-001`, `MA-CODE-002`, and `MA-OPERA-012` histories are appended. The round record is `MASTER_AUDIT_2026-08-26.md`; implementation is handed to Codex via `CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md` under section 13 item 11. No lifecycle claim beyond V1 static evidence is made by this round; this documentation-only integration is CHG-023 maintenance (rollback: revert its commit), consuming no new CHG ID; the audit remains `IN_PROGRESS` / `UNSATISFIED`. |
+
+| 2026-08-26 | `TRIAGING` | Owner direction, same day: the round's shrink goals alone are insufficient — a comprehensive remodel must change the architecture so continued expansion no longer grows `main.gd`. `design/07_TARGET_ARCHITECTURE.md` (`BINDING_DOMAIN`, code structure) answers it: the Mode Platform formalizes the MiniGame contract's plumbing into a ModeDirector, declarative ModeRegistry, and owned Services; the growth law becomes rule `DL-CODE-11`, the CI structure ratchet becomes `DL-CODE-12`, section 12 gains the matching gate condition, and the Codex handoff gains Stage C (WP-C0–C6 = migration M0–M6, absorbing the structural halves of G7/G10/G11). Section 9 of design 07 reserves four decisions for explicit owner confirmation. Documentation-only; CHG-023 maintenance; audit remains `IN_PROGRESS` / `UNSATISFIED`. |
 
 No later state is added without its required evidence.

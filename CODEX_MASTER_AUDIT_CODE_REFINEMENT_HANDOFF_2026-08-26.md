@@ -10,23 +10,29 @@ those win.
 
 ## Mission
 
-Execute the 2026-08-26 code-refinement goal set G1–G12: first harden the
-safety net (gates, negative coverage, four bounded child-facing repairs),
-then reverse the structural regression (coordinator size, god-object mass,
-clone families, string state, allocation churn) — mechanically,
-probe-gated, and without changing what the child experiences.
+Execute the 2026-08-26 code-refinement round in three stages: first harden
+the safety net (Stage A — gates, negative coverage, four bounded
+child-facing repairs), then **remodel the architecture** (Stage C — the Mode
+Platform of `design/07_TARGET_ARCHITECTURE.md`, which changes where growth
+lands so new wings stop touching `main.gd` and arms a CI ratchet so the
+shrink cannot regress again), with the remaining structural cleanups
+(Stage B) running alongside. Everything is mechanical, probe-gated, and
+invisible to the child.
 
 ## Read before any package
 
 1. `audit/MASTER_AUDIT_2026-08-26.md` — the analysis, metrics, and goal set.
-2. `audit/MASTER_AUDIT_2026-08-09.md` sections 9 (repair protocol),
+2. `design/07_TARGET_ARCHITECTURE.md` — the remodel: growth law, contracts,
+   ratchet, and migration plan M0–M6. **Stage C implements this document;
+   read it in full before any C package.**
+3. `audit/MASTER_AUDIT_2026-08-09.md` sections 9 (repair protocol),
    10 (finding fields), 12 (satisfaction gate incl. the code-refinement
    conditions), 13 item 11 (this round's mandate).
-3. `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` section 18
-   (`DL-CODE-01`–`DL-CODE-10`).
-4. The canonical finding record for the package at hand, in
+4. `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` section 18
+   (`DL-CODE-01`–`DL-CODE-12`).
+5. The canonical finding record for the package at hand, in
    `audit/findings/ACTIVE_FINDINGS_2026-08-13.md`.
-5. `CLAUDE.md` / `AGENTS.md` — the operating contract, including true-2D
+6. `CLAUDE.md` / `AGENTS.md` — the operating contract, including true-2D
    medium rules and protected-content law.
 
 ## Stage 0 — review first (mandatory, per package)
@@ -72,8 +78,9 @@ behavior for a package:
 
 ## Escalation triggers — stop and surface to the owner
 
-- Any change to `.github/workflows/` beyond WP-A3's named scope (workflows
-  are explicit-task-only; WP-A3 is that explicit task, exactly as bounded).
+- Any change to `.github/workflows/` beyond the named scopes of WP-A3 and
+  WP-C6 (workflows are explicit-task-only; those two packages are the
+  explicit tasks, exactly as bounded).
 - Any save-schema question beyond additive keys with defaults.
 - Anything touching `assets/book/`, `assets/audio/voices/`,
   `assets/characters/friends/`, or `attic/gabby/`.
@@ -163,20 +170,97 @@ behavior for a package:
   probe; passive probe unchanged; suite green.
 - **Non-goals:** no interaction redesign; no non-castle scratch migration.
 
-## Stage B packages — structural refinement (start after A1–A3 merge)
+## Stage C packages — the Mode Platform (the remodel; start after A1–A2 merge)
 
-### WP-B1 — Extract the Day One / venue / start-menu glue from main (G7, `MA-CODE-001`, binding constraint)
+Stage C is `design/07_TARGET_ARCHITECTURE.md` §7 turned into packages —
+WP-C0 through WP-C6 are migration steps M0 through M6, and that document's
+step table carries the full detail; the entries below add only the
+handoff-level boundaries. Each package is one branch, behavior-identical,
+suite-green at every commit. Do not reorder: the pattern is proven on the
+cheapest real mode before anything load-bearing moves.
 
-- **Scope:** `scripts/main.gd` `day_one_*` function family, start-menu
-  routing, venue delegation; their owning satellites
-  (`day_one_director.gd`, `opera_house_venue_2d.gd`, or a new thin
-  controller following the satellite mold).
-- **Do:** mechanical moves, one bounded owner per commit, state on main per
-  the mold, `game_nodes` registration preserved, delegators ≤5 lines.
-- **Gate:** `main.gd` at or below 9,000 lines at package end; suite green
-  after EVERY commit; zero behavior delta reported by the Day One,
-  start-menu (once WP-A1 gates them), opera, and castle probes.
-- **Non-goals:** the 2,500-line target (later rounds); any rewrite.
+### WP-C0 — Platform skeleton (M0)
+
+- **Scope:** new `scripts/platform/` (GameMode, ModeContext, ModeRegistry,
+  ModeDirector, Services façade delegating to today's main methods); new
+  `tools/audit_structure.py` + `tools/structure_budget.json` in report-only
+  mode; new trusted `probe_mode_platform`. **Pure addition — zero existing
+  lines change.**
+- **Gate:** suite green; the new probe green three consecutive local runs
+  and added to BOTH rosters; the structure gate prints its baselines.
+- **Non-goals:** migrating any real mode; arming the ratchet.
+
+### WP-C1 — Pilot: dungeon through the director (M1)
+
+- **Scope:** the dungeon glue (`_start_dungeon_now`/`_end_dungeon`, its
+  pause-Leave branch) and one `ModeRegistry` row; `dungeon_level.gd` gains
+  the thin GameMode surface over its existing lifecycle.
+- **Gate:** `probe_dungeon` + suite green; `main.gd` net negative; the
+  director reproduces the music-save/HUD/player sequence exactly (compare
+  probe transcripts before/after).
+- **Non-goals:** dungeon gameplay or difficulty changes.
+
+### WP-C2 — The standalone family (M2)
+
+- **Scope:** kart, galaxy, combat, stuffie battle, ember, and opera entry —
+  **one mode per commit**; the `_start_X_now`/`_end_X` scaffold family
+  dissolves; the ratchet arms as blocking in `scripts/ci.sh`.
+- **Gate:** each mode's probes + suite green per commit; the scaffold grep
+  count reaches zero; ratchet green in `ci.sh`.
+- **Non-goals:** touching the arena family yet.
+
+### WP-C3 — The arena family (M3)
+
+- **Scope:** `ArenaModeAdapter` wrapping the existing
+  `_start_game → _tick_game → _end_game` satellites (fetch, dolls, seek,
+  melody, slide, treasure, shop, fairy, brawl) and the K2 canvas kit; the
+  `_enter_arena` switch and `_process` mode branches dissolve.
+- **Gate:** `probe_audit`, the per-game probes, and `probe_passive` + suite
+  green; `_process` under 100 lines.
+- **Non-goals:** changing any game's simulation or feel.
+
+### WP-C4 — Services extraction (M4)
+
+- **Scope:** `services.stage` (StageKit — the six builder helpers and their
+  ~280 cross-module call sites), `services.objective` (voice + pointer +
+  card in one call), `services.fx` (pooled, tier-aware — this executes the
+  pooling half of G11/`MA-PERF-002`), `services.input` (GameInput — closes
+  the composite-read duplication), `services.reward` formalized.
+  Delegate-first, call sites next, delegate deleted last.
+- **Gate:** suite green per commit; the `m._`-private-call budget ratchets
+  down; no per-call mesh/material allocation remains in the FX path
+  (allocation grep + visual spot-check at both tiers).
+- **Non-goals:** redesigning any service's behavior.
+
+### WP-C5 — Typed mode state pilots (M5; executes G10/WP-B4)
+
+- **Scope:** two high-traffic migrated modes swap `g["…"]` ephemeral keys
+  for typed state per design 07 §4.5; the g-key budget ratchets down; the
+  rule applies to every subsequently migrated mode.
+- **Gate:** pilot-mode probes + suite green; distinct-key count at or below
+  409 and recorded.
+- **Non-goals:** repo-wide migration in one pass.
+
+### WP-C6 — Finale: Day One, venue, start-menu; ratchet everywhere (M6; executes G7/WP-B1)
+
+- **Scope:** the `day_one_*` glue (~30 functions), venue delegation, and
+  start-menu routing become modes/registry rows; the ratchet arms as
+  blocking in `.github/workflows/probes.yml` (workflow edit — the same
+  explicit-task boundary discipline as WP-A3, called out in the commit
+  message); budgets set at the measured post-migration floor.
+- **Gate:** Day One/start-menu probes (gated by WP-A1) + suite green;
+  `main.gd` at or below 9,000 lines at package end with the steady-state
+  target below 2,500 tracked by the ratchet from there; **the growth-law
+  test passes** — a throwaway branch adds a trivial test mode as one file +
+  one registry row with `main.gd` untouched (design 07 §8.1).
+- **Non-goals:** Day One gameplay changes; reaching 2,500 in this round.
+
+## Stage B packages — remaining structural cleanups (interleave behind C)
+
+Three original Stage B packages are executed by Stage C and MUST NOT be run
+standalone (moving the same code twice is churn): **WP-B1 → WP-C6**,
+**WP-B4 → WP-C5**, and the pooling half of **WP-B5 → WP-C4**. The packages
+below remain independent.
 
 ### WP-B2 — Decompose the opera gesture surface (G8, `MA-CODE-001`/`MA-CODE-002`)
 
@@ -192,36 +276,31 @@ behavior for a package:
 
 ### WP-B3 — Consolidate the clone families (G9, `MA-CODE-003`)
 
-- **Scope:** the eight named families (action-press read, `▼` pointer
-  widget, cached material factory, AABB kit, avatar spawn, stage input map,
-  mode start/end scaffold, act teardown list) and their call sites.
+- **Scope:** the six families the platform does not already dissolve —
+  action-press read, `▼` pointer widget, cached material factory, AABB kit,
+  avatar spawn, act teardown list — and their call sites. (The mode
+  start/end scaffold dissolves in WP-C1–C2 and the stage input map becomes
+  `services.input` in WP-C4; do not consolidate those separately.)
 - **Do:** one family per commit: extract one shared helper, migrate every
-  copy mechanically. Start with action-press and pointer (smallest).
+  copy mechanically. Start with action-press and pointer (smallest). Where
+  a family's natural home is a Stage C service that already exists by then,
+  put the helper there rather than inventing a second home.
 - **Gate:** owning probes green per family; suite green; the finding's
   history records each family's before/after copy count.
 - **Non-goals:** new abstractions beyond the named families.
 
-### WP-B4 — Freeze and shrink string state (G10, `MA-CODE-004`)
+### WP-B5 — Tier the newest surfaces (G11, `MA-PERF-003`; pooling half runs in WP-C4)
 
-- **Scope:** `g`-key usage; typed accessor helpers or per-mode typed state
-  objects for the top-traffic families; a recorded distinct-key count.
-- **Do:** freeze the surface at 409 (reviewed against the baseline); migrate
-  two high-traffic modes to typed accessors mechanically.
-- **Gate:** distinct-key count at or below 409 recorded in the package
-  report; migrated modes' probes green; suite green.
-- **Non-goals:** repo-wide migration in one pass.
-
-### WP-B5 — Pool bursts, tier the newest surfaces (G11, `MA-PERF-002`/`MA-PERF-003`)
-
-- **Scope:** `scripts/main.gd` `_sparkle_burst`; the tier-blind files named
-  in `MA-PERF-003` (`games/melody.gd`, `day_one_director.gd`,
-  `games/side_scroll.gd`, `opera_gesture_surface.gd` redraw cadence,
-  remaining spatial `galaxy.gd`/`companion.gd` costs).
-- **Do:** cache mesh/materials, pool a bounded node ring, add the Speedy
-  reduction; per tier-blind surface, implement a Speedy path or record the
-  measured budget note (`DL-CODE-08`).
-- **Gate:** no per-call mesh/material allocation remains in the helper;
-  visual spot-check at both tiers for one touched surface; suite green.
+- **Scope:** the tier-blind files named in `MA-PERF-003`
+  (`games/melody.gd`, `day_one_director.gd`, `games/side_scroll.gd`,
+  `opera_gesture_surface.gd` redraw cadence, remaining spatial
+  `galaxy.gd`/`companion.gd` costs). The `_sparkle_burst` pooling itself is
+  WP-C4's FxService — do not fix it twice.
+- **Do:** per tier-blind surface, implement a Speedy path or record the
+  measured budget note (`DL-CODE-08`); registry rows gain their `tier`
+  field as modes migrate.
+- **Gate:** every named surface has a tier path or budget note; visual
+  spot-check at both tiers for one touched surface; suite green.
 - **Non-goals:** device measurement (that is `MA-PERF-001`'s protocol, not
   this container's).
 
@@ -254,15 +333,21 @@ behavior for a package:
 
 ## Sequencing summary
 
-`A1 ∥ A2 ∥ A3 ∥ A4 ∥ A5 ∥ A6` → merge as each goes green →
-`B1 → B2` (B2 may start once B1's main-side opera delegation is stable) →
-`B3 ∥ B4 ∥ B5 ∥ B6` behind them. If capacity is constrained, strict order:
-A1, A2, A3, A6, A4, A5, B1, B2, B3, B5, B4, B6.
+`A1 ∥ A2 ∥ A3 ∥ A4 ∥ A5 ∥ A6` → merge as each goes green. Then the platform
+spine, strictly in order: `C0 → C1 → C2 → C3 → C4 → C5 → C6`. Independent
+cleanups interleave behind it: `B2` any time; `B3` after C2 (so the
+platform-dissolved families are already gone); `B5` after C4 (FxService
+exists); `B6` any time. If capacity is constrained, strict order:
+A1, A2, A3, A6, A4, A5, C0, C1, C2, B2, C3, C4, B5, C5, B3, C6, B6.
+
+WP-B1 and WP-B4 are not in the order because Stage C executes them (C6 and
+C5); running them standalone is an error.
 
 ---
 
 This handoff changes no rule and grants no authority: it sequences work the
-canonical audit already mandates in its section 13 item 11. When all twelve
+canonical audit already mandates in its section 13 item 11, through the
+remodel the owner requested in `design/07_TARGET_ARCHITECTURE.md`. When all
 packages are merged or reported "no change needed", the next master-audit
-round re-measures the section-4 metrics table and re-scores the moved
-dimensions.
+round re-measures the section-4 metrics table, runs the growth-law test,
+and re-scores the moved dimensions.
