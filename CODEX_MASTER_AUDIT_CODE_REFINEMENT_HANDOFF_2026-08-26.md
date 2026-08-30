@@ -1,6 +1,8 @@
 # Codex handoff — master-audit code-refinement round (2026-08-26)
 
-Audience: the implementing Codex agent. Authority: this document is
+Audience: every agent working the round — the Luna implementation pool and
+whichever agent (Codex or Claude) holds the integration and Stage R
+re-audit lanes (agent assignment: design 08 §8). Authority: this document is
 `SUPPORTING_CURRENT` and subordinate to `audit/MASTER_AUDIT_2026-08-09.md`
 (canonical audit ledger, sections 9–13) and
 `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` (the `DL-*` rules, including the
@@ -70,11 +72,20 @@ behavior for a package:
 - **Probes are the gate:** run the relevant focused probes plus the full
   local suite (`scripts/ci.sh`) before pushing; CI must be green at the head
   you merge.
-- **Lifecycle bookkeeping:** when a package completes its acceptance gate,
-  move its finding to `FIXED_PENDING_VERIFICATION` (not `VERIFIED_FIXED`)
-  in both the section-5 index row and the canonical record, with the closure
-  evidence you actually produced. Terminal claims wait for the canonical
-  verification levels.
+- **Reversibility is part of done** (design 08 §6): a package lands with a
+  recorded way back — behavior-identical commits so `git revert` is always
+  safe; replaced entry points become one-line delegating shims kept for one
+  promotion cycle, never deletions (probes keep working; un-migrating stays
+  local); the package report carries the exact inverse (revert command plus
+  shim-restoration note) so the integration lane can append the package's
+  `CHG-*` ledger entry.
+- **Single-writer governance** (design 08 §8): implementation agents do NOT
+  edit `audit/MASTER_AUDIT_2026-08-09.md`, the findings register, the
+  `CHG-*` rollback ledger, `design/05_DOC_LEDGER.md`, or design 08. Deliver
+  your package report; the integration lane applies ledger rows and `CHG`
+  entries serially, and ONLY the Stage R re-audit lane applies lifecycle
+  transitions. Proposing a transition in your report is your job; writing
+  it is not.
 
 ## Escalation triggers — stop and surface to the owner
 
@@ -170,6 +181,19 @@ behavior for a package:
   probe; passive probe unchanged; suite green.
 - **Non-goals:** no interaction redesign; no non-castle scratch migration.
 
+## Agent assignment (owner direction 2026-08-30; design 08 §8)
+
+Most implementation work is carried by **Luna agents** — one package per
+agent, one branch per package, off fresh `origin/dev`. Stage A's six
+packages may run on six Luna agents concurrently (WP-A3 merges alone,
+never batched with another workflow-touching change). The Stage C spine is
+strictly serial — one agent at a time, C0 through C6 in order. Stage B
+parallelizes behind its stated dependencies. Integration (merging green
+packages, `CHG` entries, ledger rows) is one agent at a time; the Stage R
+re-audit below is performed by an agent that did NOT implement the package
+under review. The contract in this document is agent-neutral: whichever
+agent holds a package obeys all of it.
+
 ## Stage C packages — the Mode Platform (the remodel; start after A1–A2 merge)
 
 Stage C is `design/08_TARGET_ARCHITECTURE.md` §7 turned into packages —
@@ -194,19 +218,23 @@ cheapest real mode before anything load-bearing moves.
 
 - **Scope:** the dungeon glue (`_start_dungeon_now`/`_end_dungeon`, its
   pause-Leave branch) and one `ModeRegistry` row; `dungeon_level.gd` gains
-  the thin GameMode surface over its existing lifecycle.
-- **Gate:** `probe_dungeon` + suite green; `main.gd` net negative; the
-  director reproduces the music-save/HUD/player sequence exactly (compare
-  probe transcripts before/after).
+  the thin GameMode surface over its existing lifecycle. The old entry
+  functions become one-line delegating shims (design 08 §6.1), NOT
+  deletions — probes keep calling them unchanged.
+- **Gate:** `probe_dungeon` + suite green; probe transcripts byte-stable
+  across the migration commit; `main.gd` net negative; the shim bodies'
+  pre-migration originals recorded in the package report for the `CHG`
+  inverse.
 - **Non-goals:** dungeon gameplay or difficulty changes.
 
 ### WP-C2 — The standalone family (M2)
 
 - **Scope:** kart, galaxy, combat, stuffie battle, ember, and opera entry —
-  **one mode per commit**; the `_start_X_now`/`_end_X` scaffold family
-  dissolves; the ratchet arms as blocking in `scripts/ci.sh`.
-- **Gate:** each mode's probes + suite green per commit; the scaffold grep
-  count reaches zero; ratchet green in `ci.sh`.
+  **one mode per commit**; each scaffold pair becomes a shim pair
+  (design 08 §6.1); the ratchet arms as blocking in `scripts/ci.sh`.
+- **Gate:** each mode's probes + suite green per commit; every scaffold
+  body lives only in its shim (grep-verifiable); ratchet green in `ci.sh`;
+  per-mode inverse recorded.
 - **Non-goals:** touching the arena family yet.
 
 ### WP-C3 — The arena family (M3)
@@ -214,7 +242,8 @@ cheapest real mode before anything load-bearing moves.
 - **Scope:** `ArenaModeAdapter` wrapping the existing
   `_start_game → _tick_game → _end_game` satellites (fetch, dolls, seek,
   melody, slide, treasure, shop, fairy, brawl) and the K2 canvas kit; the
-  `_enter_arena` switch and `_process` mode branches dissolve.
+  `_enter_arena` switch and `_process` mode branches reduce to
+  director-delegating shims (design 08 §6.1).
 - **Gate:** `probe_audit`, the per-game probes, and `probe_passive` + suite
   green; `_process` under 100 lines.
 - **Non-goals:** changing any game's simulation or feel.
@@ -252,7 +281,8 @@ cheapest real mode before anything load-bearing moves.
   `main.gd` at or below 9,000 lines at package end with the steady-state
   target below 2,500 tracked by the ratchet from there; **the growth-law
   test passes** — a throwaway branch adds a trivial test mode as one file +
-  one registry row with `main.gd` untouched (design 08 §8.1).
+  one registry row with `main.gd` untouched (design 08 §9.1); shim windows
+  and inverses recorded per glue family.
 - **Non-goals:** Day One gameplay changes; reaching 2,500 in this round.
 
 ## Stage B packages — remaining structural cleanups (interleave behind C)
@@ -318,7 +348,24 @@ below remain independent.
 - **Non-goals:** untrusted-probe cleanup (that is `MA-CI-003`
   classification work).
 
-## Reporting format (per package, into the PR/branch description and the finding history)
+## Stage R — implementation re-audit (design 08 §9; runs at each stage boundary)
+
+No package's finding advances on its author's word. WP-R1 runs after
+Stage A merges, WP-R2 after C2, WP-R3 after C6 plus the remaining B
+packages. The re-auditing agent must not have implemented the package under
+review. Per package it: re-executes the gate (re-runs the named probes and
+checks at the merged head, re-measures the gate's metric, re-runs the
+deliberate-break demonstration where the gate names one); diff-verifies the
+non-goals; verifies reversibility (the `CHG` entry exists, its inverse is
+coherent, shims match their recorded originals); and only then applies the
+lifecycle transition in both the section-5 index and the canonical record,
+running `python3 tools/audit_document_authority.py` to `ALL OK`. A failed
+re-audit gets a dated failure note in the finding history and returns to
+the implementation lane with its lifecycle unmoved. WP-R3 additionally runs
+the growth-law acceptance test (design 08 §9.1) and re-measures the round's
+standing metrics table.
+
+## Reporting format (per package, into the PR/branch description)
 
 1. Finding re-verification result (Stage 0), with any history correction
    made.
@@ -327,18 +374,24 @@ below remain independent.
    head.
 4. Metric before/after where the gate names one (line counts, key counts,
    copy counts, roster counts).
-5. Lifecycle transition applied (`CONFIRMED_OPEN` →
-   `FIXED_PENDING_VERIFICATION`) in index + record, or "no change needed"
-   with evidence.
+5. Reversibility evidence: the exact inverse (revert command; for shim
+   steps, the recorded pre-migration bodies) for the integration lane's
+   `CHG` entry.
+6. Proposed lifecycle transition with the evidence that supports it — or
+   "no change needed" with evidence. Stage R applies transitions; you do
+   not.
 
 ## Sequencing summary
 
-`A1 ∥ A2 ∥ A3 ∥ A4 ∥ A5 ∥ A6` → merge as each goes green. Then the platform
-spine, strictly in order: `C0 → C1 → C2 → C3 → C4 → C5 → C6`. Independent
-cleanups interleave behind it: `B2` any time; `B3` after C2 (so the
+`A1 ∥ A2 ∥ A3 ∥ A4 ∥ A5 ∥ A6` (six Luna agents in parallel; A3 merges
+alone) → **WP-R1** → the platform spine, strictly in order and single-agent:
+`C0 → C1 → C2` → **WP-R2** → `C3 → C4 → C5 → C6`. Independent cleanups
+interleave behind it: `B2` any time; `B3` after C2 (so the
 platform-dissolved families are already gone); `B5` after C4 (FxService
-exists); `B6` any time. If capacity is constrained, strict order:
-A1, A2, A3, A6, A4, A5, C0, C1, C2, B2, C3, C4, B5, C5, B3, C6, B6.
+exists); `B6` any time → **WP-R3** (final re-audit + growth-law test +
+metrics re-measure). If capacity is constrained, strict order:
+A1, A2, A3, A6, A4, A5, R1, C0, C1, C2, R2, B2, C3, C4, B5, C5, B3, C6,
+B6, R3.
 
 WP-B1 and WP-B4 are not in the order because Stage C executes them (C6 and
 C5); running them standalone is an error.
