@@ -82,7 +82,7 @@ func setup(swim_bounds: Rect2, start_position: Vector2,
 	set_meta("shared_swimmer_asset", SWIMMER_TEXTURE_PATH)
 	set_meta("swim_bounds", _swim_bounds)
 	set_meta("simple_animation", "bounded_bob_paddle")
-	set_meta("comic_reaction", "one_shot_spin_no")
+	set_meta("comic_reaction", "one_shot_spin_whee")
 	set_process(true)
 	queue_redraw()
 	return true
@@ -115,7 +115,7 @@ func audit_snapshot() -> Dictionary:
 		"drain_reaction_count": _reaction_count,
 		"drain_reaction_played_once": _reaction_count == 1,
 		"reaction_duration_ms": int(COMIC_REACTION_SECONDS * 1000.0),
-		"comic_shout": "NO!" if _reaction_count > 0 else "",
+		"comic_shout": "WHEE!" if _reaction_count > 0 else "",
 		"comic_no_visible": _comic_no != null
 			and is_instance_valid(_comic_no) and _comic_no.visible,
 	}
@@ -171,7 +171,9 @@ func _apply_waterline_fade() -> void:
 func _build_comic_no() -> void:
 	_comic_no = Label.new()
 	_comic_no.name = "ComicNoBurst"
-	_comic_no.text = "NO!"
+	# The drain is a required success beat, so its comic reaction celebrates
+	# motion instead of suggesting that the child's correct tap was a failure.
+	_comic_no.text = "WHEE!"
 	_comic_no.position = Vector2(24.0, -86.0)
 	_comic_no.pivot_offset = Vector2(36.0, 24.0)
 	_comic_no.scale = Vector2.ONE * 0.45

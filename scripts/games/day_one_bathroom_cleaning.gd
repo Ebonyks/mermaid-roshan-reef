@@ -182,8 +182,8 @@ func audit_snapshot() -> Dictionary:
 		"drain_reaction_count": _drain_reaction_count,
 		"drain_reaction_played_once": _drain_reaction_count == 1,
 		"reaction_duration_ms": 680,
-		"comic_shout": "NO!" if _drain_reaction_count > 0 else "",
-		"drain_voice_key": "wacky_fail" if _drain_voice_sent else "",
+		"comic_shout": "WHEE!" if _drain_reaction_count > 0 else "",
+		"drain_voice_key": "roshan_win" if _drain_voice_sent else "",
 		"bunny_swimmer": _bunny_swimmer.audit_snapshot()
 			if _bunny_swimmer != null and is_instance_valid(_bunny_swimmer) else {},
 		"passive_progress": false,
@@ -666,8 +666,8 @@ func _begin_tub_drain_reaction() -> bool:
 		_sponge.set_meta("parked_on_tub_rim", false)
 		_sponge.visible = false
 	if _announcements_enabled and m != null:
-		m.show_msg("", "NO!", "")
-		m._say("wacky", "fail", 0.2)
+		m.show_msg("", "WHEE!", "win")
+		m._say("roshan", "win", 0.2)
 		_drain_voice_sent = true
 	if _bunny_swimmer != null and is_instance_valid(_bunny_swimmer) \
 			and _bunny_swimmer.play_comic_no():

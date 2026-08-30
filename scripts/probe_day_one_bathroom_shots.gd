@@ -83,6 +83,16 @@ func _run() -> void:
 	await _frames(8)
 	main._sync_day_one_bathroom_cleanup()
 	await _frames(5)
+	var polish: DayOneRoomPolish = main._day_one_room_polish
+	_check("new soap-splatter task mounted first", polish != null
+		and String(polish.audit_snapshot().get("task_id", ""))
+		== "soap_splatter")
+	await _capture("00a_dirty_soap_splatter")
+	_check("one tap completes soap-splatter task", polish != null
+		and polish.probe_complete())
+	await create_timer(1.35).timeout
+	_check("soap-splatter task saves immediately",
+		main.day_one_room_polish_is_complete("bathroom"))
 	main.set_process(false)
 
 	var cleanup: DayOneBathroomCleanup = main._day_one_bathroom_cleanup
@@ -172,12 +182,12 @@ func _run() -> void:
 	await _capture("05_tub_drain_prompt")
 	_check("tub tap starts the bunny's comic reaction", cleanup.probe_tap_tub())
 	await create_timer(0.16).timeout
-	_check("comic No and one spin are visible",
+	_check("comic Whee and one spin are visible",
 		int(cleanup.cleaning_audit_snapshot().get(
 			"drain_reaction_count", 0)) == 1
 		and String(cleanup.cleaning_audit_snapshot().get(
-			"comic_shout", "")) == "NO!")
-	await _capture("06_bunny_no_spin")
+			"comic_shout", "")) == "WHEE!")
+	await _capture("06_bunny_whee_spin")
 	await create_timer(0.92).timeout
 	_check("tub arrows are live",
 		bool(cleanup.cleaning_audit_snapshot().get(

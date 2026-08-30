@@ -26,6 +26,7 @@ func _capture(name: String) -> void:
 
 
 func _run() -> void:
+	root.size = Vector2i(1280, 720)
 	capture_root = OS.get_environment("DAY_ONE_POOL_CAPTURE_OUT")
 	if capture_root == "":
 		capture_root = ProjectSettings.globalize_path("user://day_one_pool_shots")
@@ -58,6 +59,16 @@ func _run() -> void:
 	var rooms: CastleRooms25D = main._castle_rooms_ref()
 	rooms.show_room("mermaid_pool", false)
 	await _frames(12)
+	var polish: DayOneRoomPolish = main._day_one_room_polish
+	_check("new algae-tangle task mounted first", polish != null
+		and String(polish.audit_snapshot().get("task_id", ""))
+		== "algae_tangle")
+	await _capture("00a_dirty_algae_tangle")
+	_check("one tap completes algae-tangle task", polish != null
+		and polish.probe_complete())
+	await create_timer(1.35).timeout
+	_check("algae-tangle task saves immediately",
+		main.day_one_room_polish_is_complete("pool"))
 	var cleanup: DayOnePoolCleanup = rooms.day_one_pool_cleanup
 	_check("dirty pool mounted", cleanup != null)
 	if cleanup == null:
@@ -76,7 +87,7 @@ func _run() -> void:
 	await _capture("01_skimmer_catch")
 	for _trash_index: int in range(5):
 		_check("skimmer remaining catch", cleanup.skimmer_activity.probe_collect_next())
-	await _frames(40)
+	await create_timer(0.8).timeout
 	_check("waterfall unlocked after pool clear",
 		String(cleanup.audit_snapshot().get("current_activity", "")) == "waterfall")
 	await _capture("02_pool_clear_waterfall_dirty")
@@ -89,7 +100,7 @@ func _run() -> void:
 		cleanup.waterfall_activity.probe_clear_next_lane())
 	_check("waterfall final scrub lane",
 		cleanup.waterfall_activity.probe_clear_next_lane())
-	await _frames(34)
+	await create_timer(0.8).timeout
 	_check("seahorse unlocked after waterfall clear",
 		String(cleanup.audit_snapshot().get("current_activity", "")) == "seahorse")
 	_check("rainbow flow remains stopped during rescue",

@@ -2713,3 +2713,21 @@ files are lossless and leave all approved/protected originals unchanged.
 - `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/05_tub_arrow_guide.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
 - `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/06_whole_room_sparkle.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
 - `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/07_clean_pool_route.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+
+## Restored Day One Stuffie rescue sprites (2026-08-29)
+
+- `assets_src/imagegen/day_one_stuffie_2026-08-22/baby_eagle_pinned_native.png` — restored unchanged from existing repository commit `bb51bfe5`; project-owned OpenAI built-in ImageGen identity-preserving derivative of protected `assets/book/baby_eagle.png`; © Mermaid Roshan LLC, all rights reserved; exact prompt, result and hash in adjacent `PROVENANCE.md`.
+- `assets/castle/day_one_stuffie/baby_eagle_pinned.png` — restored unchanged from `bb51bfe5`; 1024×768 transparent runtime normalization of the preserved native; proportional whole-image normalization only.
+- `assets_src/imagegen/day_one_stuffie_eagle_idle_2026-08-28/baby_eagle_standing_idle_native.png` — restored unchanged from existing repository commit `2d5acdb8`; project-owned OpenAI built-in ImageGen standing pose derived solely from the approved pinned identity; © Mermaid Roshan LLC, all rights reserved; exact prompt, result and hash in adjacent `PROVENANCE.md`.
+- `assets/castle/day_one_stuffie/baby_eagle_standing_idle.png` — restored unchanged from `2d5acdb8`; 770×1024 transparent proportional whole-image runtime normalization of the preserved native.
+
+## Day One room-polish targets (2026-08-29)
+
+- `assets_src/imagegen/day_one_room_polish_v2_2026-08-29/bathroom_soap_splatter_native.png` — project-original OpenAI built-in ImageGen transparent bathroom target; © Mermaid Roshan LLC, all rights reserved; no external URL; local room capture used only as style/scale reference; exact prompt, result ID, hashes, and review in adjacent `PROVENANCE.md`.
+- `assets/castle/day_one_polish_v2/bathroom_soap_splatter.png` — non-destructive alpha-threshold crop and proportional Lanczos runtime normalization of the preserved generated native; 1024×592 RGBA.
+- `assets_src/imagegen/day_one_room_polish_v2_2026-08-29/pool_algae_tangle_native.png` — project-original OpenAI built-in ImageGen transparent pool target; © Mermaid Roshan LLC, all rights reserved; no external URL; local room capture used only as style/scale reference; exact prompt, result ID, hashes, and review in adjacent `PROVENANCE.md`.
+- `assets/castle/day_one_polish_v2/pool_algae_tangle.png` — non-destructive alpha-threshold crop and proportional Lanczos runtime normalization of the preserved generated native; 1024×758 RGBA.
+- `assets_src/imagegen/day_one_room_polish_v2_2026-08-29/stuffie_loose_stuffing_native.png` — project-original OpenAI built-in ImageGen transparent playroom target; © Mermaid Roshan LLC, all rights reserved; no external URL; local room capture used only as style/scale reference; exact prompt, result ID, hashes, and review in adjacent `PROVENANCE.md`.
+- `assets/castle/day_one_polish_v2/stuffie_loose_stuffing.png` — non-destructive alpha-threshold crop and proportional Lanczos runtime normalization of the preserved generated native; 1024×614 RGBA.
+- `assets_src/imagegen/day_one_room_polish_v2_2026-08-29/art_rainbow_spill_native.png` — project-original OpenAI built-in ImageGen transparent Art Studio target; © Mermaid Roshan LLC, all rights reserved; no external URL; local room capture used only as style/scale reference; exact prompt, result ID, hashes, and review in adjacent `PROVENANCE.md`.
+- `assets/castle/day_one_polish_v2/art_rainbow_spill.png` — non-destructive alpha-threshold crop and proportional Lanczos runtime normalization of the preserved generated native; 1024×614 RGBA.

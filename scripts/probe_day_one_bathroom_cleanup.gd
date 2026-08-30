@@ -277,10 +277,10 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		tub_stage.probe_tap_tub())
 	await create_timer(0.12).timeout
 	var reaction_snapshot: Dictionary = tub_stage.audit_snapshot()
-	_check("bunny reaction spins once and shouts No without advancing",
+	_check("bunny reaction spins once and shouts WHEE without advancing",
 		bool(reaction_snapshot.get("drain_reaction_active", false))
 		and int(reaction_snapshot.get("drain_reaction_count", 0)) == 1
-		and String(reaction_snapshot.get("comic_shout", "")) == "NO!"
+		and String(reaction_snapshot.get("comic_shout", "")) == "WHEE!"
 		and int(reaction_snapshot.get("active_step", -1)) == 1
 		and not tub_stage.probe_tap_tub())
 	# The no-swimmer fallback is 0.68s of reaction plus a 0.36s drain

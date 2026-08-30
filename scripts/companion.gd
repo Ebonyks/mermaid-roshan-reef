@@ -41,6 +41,8 @@ const ROSTER := [
 		"hello": "Lamb-a' bounces along beside you now! Baa baa!",
 		"pro": "Big fluffy bounce attacks!"},
 ]
+const RESCUE_EAGLE_PREVIEW := preload(
+	"res://assets/castle/day_one_stuffie/baby_eagle_standing_idle.png")
 
 const PALETTE := [
 	Color(0.98, 0.55, 0.65), Color(1.0, 0.72, 0.42), Color(1.0, 0.9, 0.45),
@@ -766,7 +768,12 @@ func _draw_picker() -> void:
 	preview_panel.name = "StuffiePreviewCard"
 	_add_creature_preview(preview_panel, pick_def, Vector2(14, 14), Vector2(302, 302), pc0, pc1)
 	# Three large part selectors, but only one large palette at a time.
-	var show_palette: bool = m.companion_pick_mode != "swap" \
+	var rescue_eagle_focus: bool = bool(m.g.get(
+		"stuffie_rescue_tutorial", false)) \
+		and m.companion_pick_mode == "adopt" \
+		and String(pick_def.get("id", "")) == "eagle"
+	var show_palette: bool = not rescue_eagle_focus \
+		and m.companion_pick_mode != "swap" \
 		and bool(pick_def.get("paintable", true))
 	if m.companion_pick_mode == "swap":
 		var take_hint := Label.new()
@@ -878,6 +885,26 @@ func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box
 	# scale, centered) instead of trusting any fixed scale, and paint in the
 	# in-world order — body first, accent OVER it, ink line on top.
 	parent.clip_contents = true
+	var rescue_eagle_focus: bool = bool(m.g.get(
+		"stuffie_rescue_tutorial", false)) \
+		and m.companion_pick_mode == "adopt" \
+		and String(d.get("id", "")) == "eagle"
+	if rescue_eagle_focus:
+		var rescue_preview := Sprite2D.new()
+		rescue_preview.name = "RescueEaglePreview"
+		rescue_preview.texture = RESCUE_EAGLE_PREVIEW
+		var preview_size: Vector2 = RESCUE_EAGLE_PREVIEW.get_size()
+		var preview_fit: float = minf(
+			box_size.x / maxf(preview_size.x, 1.0),
+			box_size.y / maxf(preview_size.y, 1.0))
+		rescue_preview.position = box_pos + box_size * 0.5
+		rescue_preview.scale = Vector2.ONE * preview_fit
+		rescue_preview.set_meta("preview_box_size", box_size)
+		rescue_preview.set_meta("contain_fit", true)
+		rescue_preview.set_meta("identity_continuity_role",
+			"purpose_built_standing_rescue_eagle")
+		parent.add_child(rescue_preview)
+		return
 	if d.has("sprite"):
 		var direct := TextureRect.new()
 		direct.texture = load(String(d["sprite"]))

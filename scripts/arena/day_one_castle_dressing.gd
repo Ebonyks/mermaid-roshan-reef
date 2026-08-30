@@ -37,13 +37,23 @@ const DUST_BUNNY_TEXTURES: Dictionary = {
 	"craft_room": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
 }
 const EXTERIOR_GRIME_COLOR := Color(0.19, 0.16, 0.29, 0.18)
-const INTERIOR_DIRT_COLOR := Color(0.22, 0.18, 0.32, 0.12)
+const INTERIOR_DIRT_COLOR := Color(0.12, 0.10, 0.24, 1.0)
+const ROOM_DIRT_ALPHA: Dictionary = {
+	"bubble_bath": 0.20,
+	"mermaid_pool": 0.16,
+	"playroom": 0.30,
+	"craft_room": 0.28,
+}
+const CLEAN_REVEAL_SECONDS := 0.86
 const CRACK_COLOR := Color(0.18, 0.14, 0.25, 0.38)
 var _room_centers: Dictionary = {}
 var _door_rects: Dictionary = {}
 var _hall_door_rects: Dictionary = {}
 var _room_dirty: Dictionary = {}
+var _room_dirty_strength: Dictionary = {}
+var _room_dirty_target: Dictionary = {}
 var _door_unlocked: Dictionary = {}
+var _room_bunny_suppressed: Dictionary = {}
 var _boss_back_door_rect: Rect2 = DEFAULT_BOSS_BACK_DOOR
 var _boss_back_door_active := false
 var _visible_room_id := MAIN_HALL_ID
@@ -72,7 +82,10 @@ func configure(config: Dictionary = {}) -> void:
 	_door_rects.clear()
 	_hall_door_rects.clear()
 	_room_dirty.clear()
+	_room_dirty_strength.clear()
+	_room_dirty_target.clear()
 	_door_unlocked.clear()
+	_room_bunny_suppressed.clear()
 	for room_id: String in ROOM_IDS:
 		var center: Vector2 = DEFAULT_ROOM_CENTERS[room_id]
 		var center_value: Variant = config.get("room_centers", {}).get(room_id, center)
@@ -85,6 +98,8 @@ func configure(config: Dictionary = {}) -> void:
 			door_rect = door_value
 		_door_rects[room_id] = door_rect
 		_room_dirty[room_id] = true
+		_room_dirty_strength[room_id] = 1.0
+		_room_dirty_target[room_id] = 1.0
 		_door_unlocked[room_id] = false
 	var boss_rect_value: Variant = config.get("boss_back_door_rect", DEFAULT_BOSS_BACK_DOOR)
 	if boss_rect_value is Rect2:
@@ -107,7 +122,12 @@ func update_dressing(delta: float, state: Dictionary = {}) -> void:
 	if dirty_rooms is Dictionary:
 		for room_id: String in ROOM_IDS:
 			if dirty_rooms.has(room_id):
-				_room_dirty[room_id] = bool(dirty_rooms[room_id])
+				set_room_dirty(room_id, bool(dirty_rooms[room_id]))
+	for room_id: String in ROOM_IDS:
+		var strength: float = float(_room_dirty_strength.get(room_id, 1.0))
+		var target: float = float(_room_dirty_target.get(room_id, 1.0))
+		_room_dirty_strength[room_id] = move_toward(strength, target,
+			maxf(delta, 0.0) / CLEAN_REVEAL_SECONDS)
 	var unlocked_doors: Variant = state.get("door_unlocked", {})
 	if unlocked_doors is Dictionary:
 		for room_id: String in ROOM_IDS:
@@ -137,8 +157,18 @@ func set_room_dirty(room_id: String, dirty: bool) -> void:
 	if not _room_dirty.has(room_id):
 		return
 	_room_dirty[room_id] = dirty
+	_room_dirty_target[room_id] = 1.0 if dirty else 0.0
+	if dirty and float(_room_dirty_strength.get(room_id, 0.0)) <= 0.01:
+		_room_dirty_strength[room_id] = 1.0
 	_refresh_dust_visibility()
 	queue_redraw()
+
+
+func set_room_bunny_suppressed(room_id: String, suppressed: bool) -> void:
+	if not _room_centers.has(room_id):
+		return
+	_room_bunny_suppressed[room_id] = suppressed
+	_refresh_dust_visibility()
 
 
 func set_door_unlocked(door_id: String, unlocked: bool) -> void:
@@ -195,6 +225,9 @@ func audit_snapshot() -> Dictionary:
 		"room_ids": room_ids(),
 		"visible_room_id": _visible_room_id,
 		"dirty_room_count": _count_true(_room_dirty),
+		"visible_dirty_strength": float(_room_dirty_strength.get(
+			_visible_room_id, 0.0)),
+		"clean_reveal_seconds": CLEAN_REVEAL_SECONDS,
 		"unlocked_door_count": _count_true(_door_unlocked),
 		"readable_door_count": _door_rects.size(),
 		"visible_hall_door_count": _hall_door_rects.size(),
@@ -267,7 +300,8 @@ func _refresh_dust_visibility() -> void:
 		var room_index: int = ROOM_IDS.find(room_id)
 		var phase: float = _elapsed * (0.8 + float(room_index) * 0.08) + float(room_index) * 1.45
 		bunny.position = center + Vector2(sin(phase) * 42.0, 82.0 + sin(phase * 1.8) * 2.0)
-		bunny.visible = _visible_room_id == room_id and room_is_dirty(room_id)
+		bunny.visible = _visible_room_id == room_id and room_is_dirty(room_id) \
+			and not bool(_room_bunny_suppressed.get(room_id, false))
 
 
 func _draw() -> void:
@@ -292,18 +326,51 @@ func _draw_exterior_grime() -> void:
 
 
 func _draw_room_dressing(room_id: String) -> void:
-	if not room_is_dirty(room_id):
+	var dirty_strength: float = float(_room_dirty_strength.get(room_id, 0.0))
+	var dirty_target: float = float(_room_dirty_target.get(room_id, 0.0))
+	if dirty_strength <= 0.01:
 		return
 	var center: Vector2 = _room_centers[room_id]
 	# This rect is the current room viewport, not a stitched hall overview.
 	var room_rect := Rect2(Vector2.ZERO, Vector2(1280.0, 720.0))
-	draw_rect(room_rect, INTERIOR_DIRT_COLOR)
+	var room_tint: Color = INTERIOR_DIRT_COLOR
+	room_tint.a = float(ROOM_DIRT_ALPHA.get(room_id, 0.26)) * dirty_strength
+	draw_rect(room_rect, room_tint)
+	# One additional top wash deepens the abandoned-room read without stacking
+	# transparent sprites or obscuring the foreground target cards.
+	draw_rect(Rect2(0.0, 0.0, 1280.0, 210.0),
+		Color(0.08, 0.07, 0.18, room_tint.a * 0.42))
 	# Two short cracks keep the disrepair cue graphic and child-readable.
 	var crack_origin := center + Vector2(-76.0, -62.0)
-	draw_line(crack_origin, crack_origin + Vector2(17.0, 12.0), CRACK_COLOR, 3.0)
-	draw_line(crack_origin + Vector2(17.0, 12.0), crack_origin + Vector2(9.0, 29.0), CRACK_COLOR, 3.0)
+	var crack_color: Color = CRACK_COLOR
+	crack_color.a *= dirty_strength
+	draw_line(crack_origin, crack_origin + Vector2(17.0, 12.0), crack_color, 3.0)
+	draw_line(crack_origin + Vector2(17.0, 12.0), crack_origin + Vector2(9.0, 29.0), crack_color, 3.0)
 	var second_crack := center + Vector2(69.0, 35.0)
-	draw_line(second_crack, second_crack + Vector2(-13.0, 9.0), CRACK_COLOR, 3.0)
+	draw_line(second_crack, second_crack + Vector2(-13.0, 9.0), crack_color, 3.0)
+	if dirty_target <= 0.01:
+		_draw_clean_reveal(center, 1.0 - dirty_strength)
+
+
+func _draw_clean_reveal(center: Vector2, progress: float) -> void:
+	var reveal_progress: float = clampf(progress, 0.0, 1.0)
+	var pulse: float = sin(reveal_progress * PI)
+	if pulse <= 0.001:
+		return
+	# A short whole-room pearl flash and expanding ring make the settled clean
+	# state unmistakable without adding persistent transparent overdraw.
+	draw_rect(Rect2(Vector2.ZERO, Vector2(1280.0, 720.0)),
+		Color(0.82, 1.0, 0.96, pulse * 0.14))
+	var ring_radius: float = lerpf(48.0, 340.0, reveal_progress)
+	draw_arc(center, ring_radius, 0.0, TAU, 64,
+		Color(1.0, 0.92, 0.56, pulse * 0.92), 7.0)
+	for index: int in range(12):
+		var angle: float = TAU * float(index) / 12.0 + _elapsed * 0.35
+		var sparkle_radius: float = lerpf(70.0, 390.0, reveal_progress)
+		var sparkle_position: Vector2 = center + Vector2.from_angle(angle) \
+			* sparkle_radius
+		draw_circle(sparkle_position, 4.0 + float(index % 3) * 1.6,
+			Color(0.78, 1.0, 0.94, pulse))
 
 
 func _count_true(values: Dictionary) -> int:

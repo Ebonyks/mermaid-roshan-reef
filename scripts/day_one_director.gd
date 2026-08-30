@@ -74,6 +74,7 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_pool_skimmer_mask",
 	"day_one_pool_waterfall_mask",
 	"day_one_pool_seahorse_tugs",
+	"day_one_room_polish_completed",
 	"day_one_art_collected_materials",
 	"day_one_art_cleaned_grime",
 	"day_one_art_desk_unlocked",
@@ -175,6 +176,11 @@ var pool_seahorse_tugs: int:
 		return m.day_one_pool_seahorse_tugs
 	set(value):
 		m.day_one_pool_seahorse_tugs = value
+var room_polish_completed: Dictionary:
+	get:
+		return m.day_one_room_polish_completed
+	set(value):
+		m.day_one_room_polish_completed = value
 var art_collected_materials: Dictionary:
 	get:
 		return m.day_one_art_collected_materials
@@ -467,6 +473,7 @@ func serialize_state() -> Dictionary:
 		"day_one_pool_skimmer_mask": pool_skimmer_mask,
 		"day_one_pool_waterfall_mask": pool_waterfall_mask,
 		"day_one_pool_seahorse_tugs": pool_seahorse_tugs,
+		"day_one_room_polish_completed": room_polish_completed.duplicate(true),
 		"day_one_art_collected_materials": art_collected_materials.duplicate(true),
 		"day_one_art_cleaned_grime": art_cleaned_grime.duplicate(true),
 		"day_one_art_desk_unlocked": art_desk_unlocked,
@@ -508,6 +515,8 @@ func _normalise_state(source: Dictionary) -> void:
 	pool_skimmer_mask = int(normalised.get("day_one_pool_skimmer_mask", 0))
 	pool_waterfall_mask = int(normalised.get("day_one_pool_waterfall_mask", 0))
 	pool_seahorse_tugs = int(normalised.get("day_one_pool_seahorse_tugs", 0))
+	room_polish_completed = _string_bool_map(normalised.get(
+		"day_one_room_polish_completed", {}))
 	art_collected_materials = _string_bool_map(normalised.get(
 		"day_one_art_collected_materials", {}))
 	art_cleaned_grime = _string_bool_map(normalised.get(
@@ -567,6 +576,10 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_pool_waterfall_mask", 0x07 if saved_pool_step >= 2 else 0)) & 0x07
 	var saved_seahorse_tugs: int = clampi(int(source.get(
 		"day_one_pool_seahorse_tugs", 8 if saved_pool_step >= 4 else 0)), 0, 8)
+	var room_polish: Dictionary = _string_bool_map_static(source.get(
+		"day_one_room_polish_completed", {}))
+	for completed_room_id: String in completed:
+		room_polish[completed_room_id] = true
 	var art_materials: Dictionary = _string_bool_map_static(source.get(
 		"day_one_art_collected_materials", {}))
 	var art_grime: Dictionary = _string_bool_map_static(source.get(
@@ -606,6 +619,7 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_pool_skimmer_mask": saved_skimmer_mask,
 		"day_one_pool_waterfall_mask": saved_waterfall_mask,
 		"day_one_pool_seahorse_tugs": saved_seahorse_tugs,
+		"day_one_room_polish_completed": room_polish,
 		"day_one_art_collected_materials": art_materials,
 		"day_one_art_cleaned_grime": art_grime,
 		"day_one_art_desk_unlocked": art_desk,

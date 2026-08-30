@@ -74,6 +74,15 @@ const DUST_BUNNY_BURST_COUNT := 8
 const DUST_BUNNY_BURST_SCALE_MIN := 0.014
 const DUST_BUNNY_BURST_SCALE_MAX := 0.022
 const DUST_BUNNY_BURST_LIFETIME := 0.48
+const PLAYROOM_RESCUE_POINTER_TEXTURE := \
+	"res://assets/castle/training/ghost_hand.png"
+const PLAYROOM_RESCUE_STANDING_TEXTURE := \
+	"res://assets/castle/day_one_stuffie/baby_eagle_standing_idle.png"
+const PLAYROOM_RESCUE_ENTRY_FOOT := Vector2(350.0, 640.0)
+const PLAYROOM_RESCUE_POINTER_OFFSET := Vector2(0.0, -110.0)
+const PLAYROOM_RESCUE_TARGET_ORDER: Array[String] = [
+	"eagle_pin_left", "eagle_pin_right",
+]
 const BATHTUB_SWIMMER_BOUNDS := Rect2(220.0, 225.0, 150.0, 112.0)
 const BATHTUB_SWIMMER_START := Vector2(277.0, 255.0)
 const HALL_SIGN_Z := 0.68
@@ -221,29 +230,29 @@ const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 ]
 const PLAYROOM_RESCUE_ITEMS: Array[Dictionary] = [
 	{"id": "baby_eagle_rescue", "name": "Baby Eagle",
-		"pos": Vector2(382.0, 110.0), "z": 1.55,
-		"tex_path": "res://assets/book/baby_eagle.png",
-		"scale": 0.32, "rescue_role": "baby_eagle",
+		"pos": Vector2(23.0, -36.0), "z": 1.55,
+		"tex_path": "res://assets/castle/day_one_stuffie/baby_eagle_pinned.png",
+		"scale": 0.24, "rescue_role": "baby_eagle",
 		"proximity_only": true,
 		"color": Color(0.54, 0.91, 1.0)},
 	{"id": "eagle_pin_left", "name": "Left pinning dust bunny",
-		"pos": Vector2(189.0, 109.0), "z": 2.45,
+		"pos": Vector2(169.0, 109.0), "z": 2.45,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
 			+ "dust_bunnies/dust_bunny_hop.png",
 		"scale": 0.26, "dust_bunny_role": "playroom_pin_left",
 		"rescue_bunny": true,
-		"contact_foot": Vector2(445.0, 450.0),
+		"contact_foot": Vector2(425.0, 450.0),
 		"contact_radius": Vector2(82.0, 62.0),
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.55,
 		"color": Color(0.86, 0.72, 1.0)},
 	{"id": "eagle_pin_right", "name": "Right pinning dust bunny",
-		"pos": Vector2(323.0, 109.0), "z": 2.50,
+		"pos": Vector2(343.0, 109.0), "z": 2.50,
 		"tex_path": "res://assets/castle/dirty_cleanup_2d/critters/"
 			+ "dust_bunnies/dust_bunny_hop.png",
 		"scale": 0.26, "flip_h": true,
 		"dust_bunny_role": "playroom_pin_right",
 		"rescue_bunny": true,
-		"contact_foot": Vector2(579.0, 450.0),
+		"contact_foot": Vector2(599.0, 450.0),
 		"contact_radius": Vector2(82.0, 62.0),
 		"proximity_only": true, "sound": "hop_boing.ogg", "pitch": 1.72,
 		"color": Color(1.0, 0.75, 0.86)},
@@ -1129,6 +1138,7 @@ func tick(delta: float) -> void:
 		m.castle_partner.tick(delta)
 	_update_dust_bunny_runner(delta)
 	_check_dust_bunny_contacts()
+	_tick_playroom_rescue_pointer(delta)
 	_update_camera_parallax(delta)
 	_sync_hall_horizontal_culling()
 	_tick_royal_hall_mist(delta)
@@ -1836,11 +1846,13 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	var day_one_pool_needs_cleanup: bool = day_one_activity \
 		and room_id == "mermaid_pool" \
 		and not m.day_one_castle_room_is_clean(room_id)
+	var playroom_rescue_active: bool = room_id == "playroom" \
+		and not _playroom_rescue_done()
 	m.castle_room_action_button.visible = day_one_activity or (not hall_mode \
 		and room_id != "family_gallery" \
 		and room_id != "opera_hall" \
 		and (room_id != "playroom" or _playroom_rescue_done()))
-	if day_one_pool_needs_cleanup:
+	if day_one_pool_needs_cleanup or playroom_rescue_active:
 		m.castle_room_action_button.visible = false
 	if not hall_mode:
 		StorybookUI.style_icon_button(m.castle_room_action_button,
@@ -1848,7 +1860,13 @@ func show_room(room_id: String, announce: bool = true) -> void:
 			String(room["name"]))
 		m.castle_room_action_button.set_meta("diegetic_launch", false)
 		m.castle_room_action_button.position = Vector2(72.0, 520.0)
-	_center_player()
+	if playroom_rescue_active:
+		# Keep Roshan in a clear floor pocket so the pinned Eagle and two bunnies
+		# remain one readable phone-scale rescue tableau.
+		m.castle_room_player_sprite.flip_h = false
+		_position_player_at_foot(PLAYROOM_RESCUE_ENTRY_FOOT, false)
+	else:
+		_center_player()
 	_sync_hall_horizontal_culling()
 	_update_hall_portals()
 	_sync_hall_lighting()
@@ -1860,6 +1878,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 			m.show_msg("Baby Eagle",
 				"Chirp! Two dust bunnies have me! Swim over and bump both away!",
 				"talk")
+			m._say("roshan", "talk", 0.55)
 		else:
 			m.show_msg("Pearl Castle", String(room["name"]), "home")
 
@@ -2174,6 +2193,9 @@ func _dust_bunny_id_from_camera_ray(screen_position: Vector2) -> String:
 			as Dictionary
 		var item_data: Dictionary = record.get("data", {}) as Dictionary
 		if String(item_data.get("dust_bunny_role", "")) == "":
+			continue
+		if not _playroom_rescue_target_accepts(
+				String(item_id_value), item_data):
 			continue
 		var sprite: Sprite2D = record.get("sprite") as Sprite2D
 		if sprite == null or sprite.texture == null or not sprite.visible:
@@ -2570,6 +2592,9 @@ func _rebuild_touch_items(room_id: String) -> void:
 	for item_data_value: Variant in items:
 		var item_data: Dictionary = item_data_value
 		_add_touch_item(room_id, item_data)
+	if room_id == "playroom" and not _playroom_rescue_done() \
+			and m.day_one_room_polish_is_complete("stuffie"):
+		_sync_playroom_rescue_stage(false)
 	_update_touch_hotspots()
 
 func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
@@ -2895,10 +2920,9 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 		interaction_key, piece, item_data, source_position, reference_size,
 		item_z, rig_to_world)
 	_update_touch_hotspot(stored_record)
-	if room_id == "playroom" and item_id == "baby_eagle_rescue":
-		_add_playroom_rescue_pointer()
 
-func _activate_room_item(item_id: String) -> void:
+func _activate_room_item(item_id: String,
+		launch_followup_activity: bool = true) -> void:
 	if _fridge_close_is_blocked():
 		return
 	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
@@ -2920,9 +2944,11 @@ func _activate_room_item(item_id: String) -> void:
 		fixture_rigs.activate(native_interaction_key)
 		var native_launch_activity: String = String(item_data.get(
 			"launch_activity", ""))
-		if native_launch_activity != "":
+		if native_launch_activity != "" and launch_followup_activity:
 			sprite.set_meta(
 				"launch_activity_after_sequence", native_launch_activity)
+		elif sprite.has_meta("launch_activity_after_sequence"):
+			sprite.remove_meta("launch_activity_after_sequence")
 		_play_sprite_atlas_sequence(sprite, item_data, true,
 			m.castle_room_id == "kitchen" and item_id == "fridge")
 		return
@@ -2942,8 +2968,10 @@ func _activate_room_item(item_id: String) -> void:
 	var interaction_key := String(sprite.get_meta("source_object_id", ""))
 	fixture_rigs.activate(interaction_key)
 	var launch_activity: String = String(item_data.get("launch_activity", ""))
-	if launch_activity != "":
+	if launch_activity != "" and launch_followup_activity:
 		sprite.set_meta("launch_activity_after_sequence", launch_activity)
+	elif sprite.has_meta("launch_activity_after_sequence"):
+		sprite.remove_meta("launch_activity_after_sequence")
 	_play_sprite_atlas_sequence(sprite, item_data, true,
 		m.castle_room_id == "kitchen" and item_id == "fridge")
 
@@ -4033,6 +4061,8 @@ func _check_dust_bunny_contacts() -> void:
 		var item_data: Dictionary = record.get("data", {}) as Dictionary
 		if String(item_data.get("dust_bunny_role", "")) == "":
 			continue
+		if not _playroom_rescue_target_accepts(item_id, item_data):
+			continue
 		var contact_foot: Vector2 = record.get(
 			"contact_foot", Vector2(-10000.0, -10000.0)) as Vector2
 		var contact_radius: Vector2 = record.get(
@@ -4056,6 +4086,8 @@ func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 		return
 	var item_data: Dictionary = record.get("data", {}) as Dictionary
 	if String(item_data.get("dust_bunny_role", "")) == "":
+		return
+	if not _playroom_rescue_target_accepts(item_id, item_data):
 		return
 	var sprite: Sprite2D = record.get("sprite") as Sprite2D
 	if sprite == null or not is_instance_valid(sprite) \
@@ -4120,6 +4152,7 @@ func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 		_check_playroom_rescue_complete()
 		if not _playroom_rescue_done():
 			m._write_save()
+			_sync_playroom_rescue_stage(true)
 
 # DADDY SPLASH (PartnerAssist fires this only from the child's tap on his
 # bubble): a wave of hearts pops every ordinary dust bunny in the current
@@ -4150,6 +4183,23 @@ func _playroom_rescue_done() -> bool:
 	# Owning a different stuffie must never skip this required story rescue.
 	return bool(m.stuffie_wins.get("rescued_eagle", false))
 
+func _active_playroom_rescue_target_id() -> String:
+	if _playroom_rescue_done():
+		return ""
+	var cleared: Dictionary = m.g.get(
+		"castle_dust_bunnies_cleared", {}) as Dictionary
+	for target_id: String in PLAYROOM_RESCUE_TARGET_ORDER:
+		if not bool(cleared.get(target_id, false)):
+			return target_id
+	return ""
+
+func _playroom_rescue_target_accepts(item_id: String,
+		item_data: Dictionary) -> bool:
+	if m.castle_room_id != "playroom" \
+			or not bool(item_data.get("rescue_bunny", false)):
+		return true
+	return item_id == _active_playroom_rescue_target_id()
+
 func _restore_playroom_rescue_clears() -> void:
 	if _playroom_rescue_done():
 		m.day_one_complete_stuffie_rescue()
@@ -4171,27 +4221,131 @@ func _add_playroom_rescue_pointer() -> void:
 			or m.castle_room_item_effect_layer.get_node_or_null(
 				"BabyEagleRescuePointer") != null:
 		return
-	var star_texture: Texture2D = load("res://assets/mg/star.png")
-	if star_texture == null:
+	var pointer_texture: Texture2D = load(PLAYROOM_RESCUE_POINTER_TEXTURE)
+	if pointer_texture == null:
 		return
 	var pointer: Sprite2D = _new_card(
-		"BabyEagleRescuePointer", star_texture, true)
-	pointer.position = _art_to_world(Vector2(512.0, 210.0), 2.72)
-	pointer.scale = Vector2.ONE * 0.052
-	pointer.modulate = Color(1.0, 0.86, 0.32, 0.94)
+		"BabyEagleRescuePointer", pointer_texture, true)
+	pointer.scale = Vector2.ONE * 0.18
+	pointer.z_index = _depth_to_z_index(EFFECT_Z)
 	pointer.set_meta("source_asset_role", "tutorial_pointer")
 	pointer.set_meta("source_object_id", "playroom:baby_eagle_pointer")
+	pointer.set_meta("target_specific", true)
+	pointer.set_meta("bathroom_pointer_language", true)
+	pointer.set_meta("one_active_target", true)
 	m.castle_room_item_effect_layer.add_child(pointer)
-	var base_position: Vector2 = pointer.position
-	var pulse: Tween = pointer.create_tween().set_loops()
-	pulse.tween_property(pointer, "position:y", base_position.y + 0.28,
-		0.42).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	pulse.parallel().tween_property(pointer, "scale", Vector2.ONE * 0.060,
-		0.42).set_trans(Tween.TRANS_SINE)
-	pulse.tween_property(pointer, "position:y", base_position.y,
-		0.42).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	pulse.parallel().tween_property(pointer, "scale", Vector2.ONE * 0.052,
-		0.42).set_trans(Tween.TRANS_SINE)
+
+func _set_playroom_rescue_controls_suppressed(suppressed: bool) -> void:
+	if m.castle_room_stage == null:
+		return
+	if m.castle_room_action_button != null:
+		m.castle_room_action_button.visible = not suppressed
+	var elevator: Button = m.castle_room_stage.get_node_or_null(
+		"ElevatorButton") as Button
+	if elevator != null:
+		elevator.visible = not suppressed
+		elevator.disabled = suppressed
+	var elevator_pointer: Label = m.castle_room_stage.get_node_or_null(
+		"ElevatorPointer") as Label
+	if elevator_pointer != null:
+		elevator_pointer.visible = not suppressed
+	for record_value: Variant in m.castle_room_item_sprites.values():
+		var record: Dictionary = record_value as Dictionary
+		var item_data: Dictionary = record.get("data", {}) as Dictionary
+		if bool(item_data.get("rescue_bunny", false)):
+			continue
+		var hotspot: Button = record.get("hotspot") as Button
+		if hotspot != null and is_instance_valid(hotspot):
+			hotspot.disabled = suppressed
+	if m.day_one_castle_dressing != null \
+			and is_instance_valid(m.day_one_castle_dressing):
+		m.day_one_castle_dressing.set_room_bunny_suppressed(
+			"playroom", suppressed)
+
+func _sync_playroom_rescue_stage(announce_next: bool) -> void:
+	if m.castle_room_id != "playroom" or _playroom_rescue_done():
+		_set_playroom_rescue_controls_suppressed(false)
+		return
+	var active_target_id: String = _active_playroom_rescue_target_id()
+	_set_playroom_rescue_controls_suppressed(active_target_id != "")
+	_add_playroom_rescue_pointer()
+	for target_id: String in PLAYROOM_RESCUE_TARGET_ORDER:
+		var record: Dictionary = m.castle_room_item_sprites.get(
+			target_id, {}) as Dictionary
+		var bunny: Sprite2D = record.get("sprite") as Sprite2D
+		if bunny == null or not is_instance_valid(bunny):
+			continue
+		var is_active: bool = target_id == active_target_id
+		if not bunny.has_meta("playroom_rescue_rest_scale"):
+			bunny.set_meta("playroom_rescue_rest_scale", bunny.scale)
+		var rest_scale: Vector2 = bunny.get_meta(
+			"playroom_rescue_rest_scale", bunny.scale) as Vector2
+		bunny.scale = rest_scale * (1.08 if is_active else 0.96)
+		bunny.modulate = Color.WHITE if is_active \
+			else Color(0.74, 0.74, 0.82, 0.68)
+		bunny.set_meta("playroom_rescue_active_target", is_active)
+	var pointer: Sprite2D = m.castle_room_item_effect_layer.get_node_or_null(
+		"BabyEagleRescuePointer") as Sprite2D \
+		if m.castle_room_item_effect_layer != null else null
+	if pointer != null:
+		pointer.visible = active_target_id != ""
+		pointer.set_meta("active_target_id", active_target_id)
+	_tick_playroom_rescue_pointer(0.0)
+	var cleared: Dictionary = m.g.get(
+		"castle_dust_bunnies_cleared", {}) as Dictionary
+	var cleared_count := 0
+	for target_id: String in PLAYROOM_RESCUE_TARGET_ORDER:
+		if bool(cleared.get(target_id, false)):
+			cleared_count += 1
+	var eagle_record: Dictionary = m.castle_room_item_sprites.get(
+		"baby_eagle_rescue", {}) as Dictionary
+	var eagle: Sprite2D = eagle_record.get("sprite") as Sprite2D
+	if eagle != null and is_instance_valid(eagle):
+		if not eagle.has_meta("playroom_rescue_rest_position"):
+			eagle.set_meta("playroom_rescue_rest_position", eagle.position)
+			eagle.set_meta("playroom_rescue_rest_scale", eagle.scale)
+		var rest_position: Vector2 = eagle.get_meta(
+			"playroom_rescue_rest_position", eagle.position) as Vector2
+		var eagle_rest_scale: Vector2 = eagle.get_meta(
+			"playroom_rescue_rest_scale", eagle.scale) as Vector2
+		var response_position: Vector2 = rest_position \
+			+ Vector2(0.0, -18.0 if cleared_count == 1 else 0.0)
+		var response_scale: Vector2 = eagle_rest_scale \
+			* (1.05 if cleared_count == 1 else 1.0)
+		if announce_next and cleared_count == 1:
+			var response: Tween = eagle.create_tween().set_parallel(true)
+			response.tween_property(eagle, "position", response_position,
+				0.28).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			response.tween_property(eagle, "scale", response_scale,
+				0.28).set_trans(Tween.TRANS_SINE)
+			_item_burst(eagle.position, Color(0.54, 0.91, 1.0), 8)
+		else:
+			eagle.position = response_position
+			eagle.scale = response_scale
+	if announce_next and cleared_count == 1:
+		m.show_msg("Baby Eagle",
+			"One puff is gone! Bump the other glowing dust bunny!", "hint")
+		m._say("roshan", "talk", 0.6)
+
+func _tick_playroom_rescue_pointer(_delta: float) -> void:
+	if m.castle_room_id != "playroom" \
+			or m.castle_room_item_effect_layer == null:
+		return
+	var pointer: Sprite2D = m.castle_room_item_effect_layer.get_node_or_null(
+		"BabyEagleRescuePointer") as Sprite2D
+	if pointer == null or not pointer.visible:
+		return
+	var target_id: String = String(pointer.get_meta("active_target_id", ""))
+	var record: Dictionary = m.castle_room_item_sprites.get(
+		target_id, {}) as Dictionary
+	var target: Sprite2D = record.get("sprite") as Sprite2D
+	if target == null or not is_instance_valid(target):
+		pointer.visible = false
+		return
+	var time_now: float = Time.get_ticks_msec() / 1000.0
+	pointer.position = target.position + PLAYROOM_RESCUE_POINTER_OFFSET \
+		+ Vector2(0.0, sin(time_now * 4.0) * 10.0)
+	pointer.rotation = sin(time_now * 2.6) * 0.04
 
 func _check_playroom_rescue_complete() -> void:
 	if m.castle_room_id != "playroom" or _playroom_rescue_done():
@@ -4204,8 +4358,6 @@ func _check_playroom_rescue_complete() -> void:
 	m.stuffie_wins["rescued_eagle"] = true
 	m.day_one_complete_stuffie_rescue()
 	m._write_save()
-	if m.castle_room_action_button != null:
-		m.castle_room_action_button.visible = true
 	var pointer: Node = m.castle_room_item_effect_layer.get_node_or_null(
 		"BabyEagleRescuePointer") \
 		if m.castle_room_item_effect_layer != null else null
@@ -4218,33 +4370,57 @@ func _check_playroom_rescue_complete() -> void:
 	m.show_msg("Baby Eagle",
 		"Chirp! You saved me! Let us learn how stuffie friends come along!",
 		"win")
+	m._say("roshan", "win", 0.45)
 	if eagle == null or not is_instance_valid(eagle):
 		_open_playroom_stuffie_tutorial()
 		return
+	_set_playroom_eagle_standing_pose(eagle)
 	_item_burst(eagle.position, Color(0.54, 0.91, 1.0), 16)
 	var target_color: Color = eagle.modulate
 	target_color.a = 0.0
 	var fly: Tween = eagle.create_tween().set_parallel(true)
-	fly.tween_property(eagle, "position:y", eagle.position.y + 1.25,
-		0.72).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	fly.tween_property(eagle, "scale", eagle.scale * 1.12,
-		0.72).set_trans(Tween.TRANS_SINE)
+	fly.tween_property(eagle, "position",
+		eagle.position + Vector2(115.0, -155.0),
+		0.86).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	fly.tween_property(eagle, "scale", eagle.scale * 1.20,
+		0.86).set_trans(Tween.TRANS_SINE)
 	fly.tween_property(eagle, "modulate", target_color,
-		0.72).set_delay(0.34)
+		0.86).set_delay(0.48)
 	fly.chain().tween_callback(
 		_finish_playroom_eagle_departure.bind(eagle))
 
 func _finish_playroom_eagle_departure(eagle: Sprite2D) -> void:
 	if eagle != null and is_instance_valid(eagle):
 		eagle.queue_free()
-	_open_playroom_stuffie_tutorial()
+	# Hold the focused controls through one settled bright-room beat. This lets
+	# the environmental restoration land before the adoption tutorial replaces
+	# the room with its modal picture choice.
+	var settle_timer: SceneTreeTimer = m.get_tree().create_timer(0.42)
+	settle_timer.timeout.connect(_open_playroom_stuffie_tutorial)
+
+func _set_playroom_eagle_standing_pose(eagle: Sprite2D) -> void:
+	var standing_texture: Texture2D = load(
+		PLAYROOM_RESCUE_STANDING_TEXTURE) as Texture2D
+	if standing_texture == null:
+		return
+	var old_height: float = eagle.texture.get_height() \
+		if eagle.texture != null else standing_texture.get_height()
+	var new_height: float = maxf(standing_texture.get_height(), 1.0)
+	eagle.texture = standing_texture
+	eagle.scale *= old_height / new_height
+	eagle.position += Vector2(0.0, -10.0)
+	eagle.set_meta("rescue_pose", "standing_idle")
 
 func _open_playroom_stuffie_tutorial() -> void:
+	_set_playroom_rescue_controls_suppressed(false)
 	if not is_open() or m.castle_room_id != "playroom" \
 			or m.companion_id != "":
 		return
 	m.g["stuffie_rescue_tutorial"] = true
-	m.g["stuffie_rescue_tutorial_step"] = 0
+	# This rescue already established Baby Eagle's identity. The contained
+	# tutorial therefore focuses the single adoption action instead of asking a
+	# non-reader to repaint her into a visually different generic bird.
+	m.g["stuffie_rescue_tutorial_step"] = 2
 	m._companion_ref().open_picker(true, "eagle", "adopt")
 
 
@@ -4297,7 +4473,7 @@ func _tick_item_affordances(_delta: float) -> void:
 		var sprite: Sprite2D = record.get("sprite") as Sprite2D
 		var hotspot: Button = record.get("hotspot") as Button
 		if sprite != null and is_instance_valid(sprite) and sprite.visible \
-				and hotspot != null and hotspot.visible \
+				and hotspot != null and hotspot.visible and not hotspot.disabled \
 				and not bool(sprite.get_meta("busy", false)):
 			candidate_ids.append(item_id)
 	if candidate_ids.is_empty():

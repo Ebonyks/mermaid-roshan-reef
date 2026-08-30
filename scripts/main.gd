@@ -16,6 +16,8 @@ const DayOneBathroomCleanupLogic = preload(
 	"res://scripts/games/day_one_bathroom_cleanup.gd")
 const DayOneBathroomMovieHandoffLogic = preload(
 	"res://scripts/day_one_bathroom_movie_handoff.gd")
+const DayOneRoomPolishLogic = preload(
+	"res://scripts/games/day_one_room_polish.gd")
 const DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE := \
 	"res://assets/flats/castle/rooms/room_mermaid_pool.png"
 # Mermaid Roshan's Ocean World — Godot phase 2
@@ -324,6 +326,7 @@ var day_one_pool_rumi_met: bool = false
 var day_one_pool_skimmer_mask: int = 0
 var day_one_pool_waterfall_mask: int = 0
 var day_one_pool_seahorse_tugs: int = 0
+var day_one_room_polish_completed: Dictionary = {}
 var day_one_art_collected_materials: Dictionary = {}
 var day_one_art_cleaned_grime: Dictionary = {}
 var day_one_art_desk_unlocked: bool = false
@@ -342,6 +345,7 @@ var _day_one_bathroom_menu_was_open: bool = false
 var _attack_customizer: AttackCustomizer = null
 var _attack_customizer_layer: CanvasLayer = null
 var _day_one_art_studio: DayOneArtStudio = null
+var _day_one_room_polish: DayOneRoomPolish = null
 var day_one_castle_dressing: DayOneCastleDressing = null
 var castle_royal_hall_mist_cards: Array[Sprite2D] = []
 var castle_royal_hall_mist_time := 0.0
@@ -6970,6 +6974,21 @@ func day_one_record_bathroom_tub_drained() -> void:
 	_queue_save()
 
 
+func day_one_room_polish_is_complete(room_id: String) -> bool:
+	return bool(day_one_room_polish_completed.get(room_id, false))
+
+
+func day_one_complete_room_polish(room_id: String) -> bool:
+	if not day_one_is_active() or not DayOneDirector.ROOM_ORDER.has(room_id):
+		return false
+	if day_one_room_polish_is_complete(room_id):
+		return true
+	day_one_room_polish_completed[room_id] = true
+	g["day_one_last_room_polish"] = room_id
+	_write_save()
+	return true
+
+
 ## The basket is the single authorization point for the two cleaning tools.
 ## The old hunt-step key is advanced for save compatibility; new callers can
 ## use this idempotent seam without reviving a cabinet hunt.
@@ -7130,8 +7149,64 @@ func _day_one_sync_castle_dressing() -> void:
 		"boss_back_door_active": director.boss_door_glow,
 		"visible_room_id": castle_room_id,
 	})
+	_sync_day_one_room_polish()
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.refresh_door_states()
+
+
+func _day_one_logical_room_for_castle(room_id: String) -> String:
+	match room_id:
+		"bubble_bath":
+			return "bathroom"
+		"mermaid_pool":
+			return "pool"
+		"playroom":
+			return "stuffie"
+		"craft_room":
+			return "art"
+	return ""
+
+
+func _sync_day_one_room_polish() -> void:
+	var logical_room: String = _day_one_logical_room_for_castle(castle_room_id)
+	var should_show: bool = day_one_is_active() \
+		and castle_room_stage != null and logical_room != "" \
+		and not _day_one_ref().is_room_completed(logical_room) \
+		and not day_one_room_polish_is_complete(logical_room)
+	if not should_show:
+		_clear_day_one_room_polish()
+		return
+	if _day_one_room_polish != null \
+			and is_instance_valid(_day_one_room_polish):
+		if _day_one_room_polish.room_id == logical_room:
+			return
+		_clear_day_one_room_polish()
+	_day_one_room_polish = DayOneRoomPolishLogic.new() as DayOneRoomPolish
+	castle_room_stage.add_child(_day_one_room_polish)
+	_day_one_room_polish.completed.connect(_on_day_one_room_polish_completed)
+	if not _day_one_room_polish.setup(self, logical_room):
+		_clear_day_one_room_polish()
+
+
+func _on_day_one_room_polish_completed(room_id: String,
+		task_id: String) -> void:
+	g["day_one_last_room_polish_task"] = task_id
+	_day_one_room_polish = null
+	# The established room activity was already mounted underneath the blocking
+	# polish layer. Its next pointer is now the only remaining active control.
+	show_msg("Roshan", "Great wipe! Now follow the glowing picture!", "talk")
+	_say("roshan", "talk", 0.55)
+	if room_id == "stuffie":
+		# Rebuild once the pre-clean overlay is gone. This is the first moment the
+		# single active rescue-bunny hand should exist or announce itself.
+		_castle_rooms_ref().show_room("playroom", true)
+
+
+func _clear_day_one_room_polish() -> void:
+	if _day_one_room_polish != null \
+			and is_instance_valid(_day_one_room_polish):
+		_day_one_room_polish.teardown()
+	_day_one_room_polish = null
 
 
 func _sync_day_one_bathroom_cleanup() -> void:
@@ -7234,6 +7309,7 @@ func _sync_day_one_art_studio() -> void:
 
 
 func _day_one_clear_castle_dressing() -> void:
+	_clear_day_one_room_polish()
 	_clear_day_one_bathroom_cleanup()
 	_clear_day_one_bathroom_movie_handoff()
 	_day_one_bathroom_movie_handoff_pending = false

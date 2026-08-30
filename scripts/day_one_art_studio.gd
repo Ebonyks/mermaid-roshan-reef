@@ -65,6 +65,13 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	z_index = 22
 	_build_targets()
 	_build_pointer()
+	if m.day_one_castle_dressing != null \
+			and is_instance_valid(m.day_one_castle_dressing):
+		# The cleanup cards and entry-visible grime own this activity's dirty
+		# hierarchy. Keep the generic ambient bunny from covering Roshan or the
+		# ordered target, then restore it if the activity is torn down unfinished.
+		m.day_one_castle_dressing.set_room_bunny_suppressed(
+			"craft_room", true)
 	refresh_from_state()
 	set_process(true)
 	call_deferred("_announce_current_target")
@@ -73,6 +80,10 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 func teardown() -> void:
 	set_process(false)
 	_customizer_open = false
+	if m != null and m.day_one_castle_dressing != null \
+			and is_instance_valid(m.day_one_castle_dressing):
+		m.day_one_castle_dressing.set_room_bunny_suppressed(
+			"craft_room", false)
 	if _world_visual_layer != null and is_instance_valid(_world_visual_layer):
 		_world_visual_layer.queue_free()
 	_world_visual_layer = null
@@ -86,29 +97,49 @@ func refresh_from_state() -> void:
 	if m == null:
 		return
 	queue_redraw()
+	var active_material_id: String = _next_uncollected_material_id()
+	var active_grime_id: String = "" if active_material_id != "" \
+		else _next_uncleaned_grime_id()
 	for material_id: String in _material_buttons:
 		var material_button: Button = _material_buttons[material_id] as Button
 		var collected: bool = bool(m.day_one_art_collected_materials.get(
 			material_id, false))
-		material_button.visible = not collected
+		var material_active: bool = not collected \
+			and material_id == active_material_id
+		material_button.visible = material_active
 		material_button.mouse_filter = Control.MOUSE_FILTER_STOP \
-			if not collected else Control.MOUSE_FILTER_IGNORE
+			if material_active else Control.MOUSE_FILTER_IGNORE
 		var material_card: Sprite2D = _material_art.get(material_id) as Sprite2D
 		if material_card != null:
 			material_card.visible = not collected
+			var material_tint: Color = material_card.get_meta(
+				"rest_modulate", Color.WHITE) as Color
+			material_tint.a *= 1.0 if material_active else 0.42
+			material_card.modulate = material_tint
 		var material_shadow: Sprite2D = _material_shadows.get(material_id) as Sprite2D
 		if material_shadow != null:
 			material_shadow.visible = not collected
+			var shadow_tint: Color = material_shadow.get_meta(
+				"rest_modulate", material_shadow.modulate) as Color
+			shadow_tint.a *= 1.0 if material_active else 0.42
+			material_shadow.modulate = shadow_tint
 	for grime_id: String in _grime_buttons:
 		var grime_button: Button = _grime_buttons[grime_id] as Button
 		var cleaned: bool = bool(m.day_one_art_cleaned_grime.get(grime_id, false))
-		var materials_ready: bool = _all_materials_collected()
-		grime_button.visible = materials_ready and not cleaned
+		var grime_active: bool = not cleaned and grime_id == active_grime_id
+		grime_button.visible = grime_active
 		grime_button.mouse_filter = Control.MOUSE_FILTER_STOP \
-			if not cleaned else Control.MOUSE_FILTER_IGNORE
+			if grime_active else Control.MOUSE_FILTER_IGNORE
 		var grime_card: Sprite2D = _grime_art.get(grime_id) as Sprite2D
 		if grime_card != null:
-			grime_card.visible = materials_ready and not cleaned
+			# Show the grime from dirty entry. It remains visibly secondary until
+			# the ordered supply pickups are done, then one mark at a time brightens
+			# and becomes responsive under the pointer.
+			grime_card.visible = not cleaned
+			var grime_tint: Color = grime_card.get_meta(
+				"rest_modulate", grime_card.modulate) as Color
+			grime_tint.a *= 1.0 if grime_active else 0.52
+			grime_card.modulate = grime_tint
 	var ready: bool = bool(m.day_one_art_desk_unlocked)
 	if _desk_button != null:
 		_desk_button.visible = ready and not _customizer_open
@@ -129,6 +160,9 @@ func audit_snapshot() -> Dictionary:
 		"grime_art_count": _grime_art.size(),
 		"desk_button": _desk_button != null,
 		"pointer": _pointer != null,
+		"one_active_target": _active_target_count() <= 1,
+		"active_target_count": _active_target_count(),
+		"grime_visible_from_entry": _visible_grime_count() > 0,
 		"canvas_only": true,
 	}
 
@@ -241,6 +275,7 @@ func _make_world_card(card_name: String, texture: Texture2D, center: Vector2,
 	card.scale = art_size * ART_TO_STAGE / texture.get_size()
 	card.z_index = card_z_index
 	card.modulate = tint
+	card.set_meta("rest_modulate", tint)
 	card.rotation = rotation_radians
 	card.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	card.set_meta("source_asset_role", "day_one_cleanup_item")
@@ -282,6 +317,8 @@ func _build_pointer() -> void:
 func _on_material_pressed(material_id: String) -> void:
 	if m == null or bool(m.day_one_art_collected_materials.get(material_id, false)):
 		return
+	if material_id != _next_uncollected_material_id():
+		return
 	m._ui_tap()
 	_spawn_clean_sparkles(_material_center(material_id))
 	_animate_storage_station(material_id)
@@ -294,11 +331,17 @@ func _animate_storage_station(material_id: String) -> void:
 		return
 	var station_id := "paint_table" if material_id in ["brushes", "blue_paint"] \
 		else "palette"
-	(rooms as Object).call("_activate_room_item", station_id)
+	# Day One needs the authored station motion as causal feedback, but the
+	# normal paint-table animation also schedules the Castle Logo activity.
+	# Suppress that follow-up here so the room can finish and visibly settle
+	# before any later optional activity is opened by a new child tap.
+	(rooms as Object).call("_activate_room_item", station_id, false)
 
 
 func _on_grime_pressed(grime_id: String) -> void:
 	if m == null or bool(m.day_one_art_cleaned_grime.get(grime_id, false)):
+		return
+	if grime_id != _next_uncleaned_grime_id() or not _all_materials_collected():
 		return
 	m._ui_tap()
 	_spawn_clean_sparkles(_grime_center(grime_id))
@@ -399,6 +442,49 @@ func _all_materials_collected() -> bool:
 				String(material["id"]), false)):
 			return false
 	return true
+
+
+func _next_uncollected_material_id() -> String:
+	for material: Dictionary in MATERIALS:
+		var material_id: String = String(material["id"])
+		if not bool(m.day_one_art_collected_materials.get(material_id, false)):
+			return material_id
+	return ""
+
+
+func _next_uncleaned_grime_id() -> String:
+	for grime: Dictionary in GRIME:
+		var grime_id: String = String(grime["id"])
+		if not bool(m.day_one_art_cleaned_grime.get(grime_id, false)):
+			return grime_id
+	return ""
+
+
+func _active_target_count() -> int:
+	var count := 0
+	for button_value: Variant in _material_buttons.values():
+		var material_button: Button = button_value as Button
+		if material_button != null and material_button.visible \
+				and material_button.mouse_filter == Control.MOUSE_FILTER_STOP:
+			count += 1
+	for button_value: Variant in _grime_buttons.values():
+		var grime_button: Button = button_value as Button
+		if grime_button != null and grime_button.visible \
+				and grime_button.mouse_filter == Control.MOUSE_FILTER_STOP:
+			count += 1
+	if _desk_button != null and _desk_button.visible \
+			and _desk_button.mouse_filter == Control.MOUSE_FILTER_STOP:
+		count += 1
+	return count
+
+
+func _visible_grime_count() -> int:
+	var count := 0
+	for card_value: Variant in _grime_art.values():
+		var card: Sprite2D = card_value as Sprite2D
+		if card != null and card.visible:
+			count += 1
+	return count
 
 
 func _material_center(material_id: String) -> Vector2:

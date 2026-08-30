@@ -25,6 +25,7 @@ func _capture(name: String) -> void:
 
 
 func _run() -> void:
+	root.size = Vector2i(1280, 720)
 	capture_root = OS.get_environment("DAY_ONE_ART_CAPTURE_OUT")
 	if capture_root == "":
 		capture_root = ProjectSettings.globalize_path("user://day_one_art_studio_shots")
@@ -56,7 +57,18 @@ func _run() -> void:
 	await _frames(18)
 	main._castle_rooms_ref().show_room("craft_room", false)
 	await _frames(12)
-	_check("studio opened", main._open_day_one_art_studio())
+	var polish: DayOneRoomPolish = main._day_one_room_polish
+	_check("new rainbow-spill task mounted first", polish != null
+		and String(polish.audit_snapshot().get("task_id", ""))
+		== "rainbow_paint_spill")
+	await _capture("00a_dirty_rainbow_spill")
+	_check("one tap completes rainbow-spill task", polish != null
+		and polish.probe_complete())
+	await create_timer(1.35).timeout
+	_check("rainbow-spill task saves immediately",
+		main.day_one_room_polish_is_complete("art"))
+	_check("studio opened", main._day_one_art_studio != null
+		or main._open_day_one_art_studio())
 	await _frames(4)
 	var studio: DayOneArtStudio = main._day_one_art_studio
 	_check("studio mounted", studio != null)
@@ -65,21 +77,34 @@ func _run() -> void:
 		quit(1)
 		return
 	await _capture("00_loose_supplies")
+	var entry_snapshot: Dictionary = studio.audit_snapshot()
+	_check("grime is visible from dirty entry",
+		bool(entry_snapshot.get("grime_visible_from_entry", false)))
+	studio._on_material_pressed("pink_paint")
+	_check("inactive material cannot skip the ordered pointer",
+		not bool(main.day_one_art_collected_materials.get("pink_paint", false)))
 
 	for material_id: String in DayOneDirector.ART_MATERIAL_IDS:
-		_check("collect %s" % material_id,
-			main.day_one_record_art_cleanup("material", material_id))
-	studio.refresh_from_state()
+		studio._on_material_pressed(material_id)
+		_check("collect active %s" % material_id,
+			bool(main.day_one_art_collected_materials.get(material_id, false)))
+		_check("exactly one Art target remains active",
+			int(studio.audit_snapshot().get("active_target_count", 0)) == 1)
 	await _capture("01_grime_revealed")
 
+	studio._on_grime_pressed("right_counter")
+	_check("inactive grime cannot skip the ordered pointer",
+		not bool(main.day_one_art_cleaned_grime.get("right_counter", false)))
 	for grime_id: String in ["left_counter", "desk_counter"]:
-		_check("clean %s" % grime_id,
-			main.day_one_record_art_cleanup("grime", grime_id))
-	studio.refresh_from_state()
+		studio._on_grime_pressed(grime_id)
+		_check("clean active %s" % grime_id,
+			bool(main.day_one_art_cleaned_grime.get(grime_id, false)))
+		_check("exactly one Art target remains active",
+			int(studio.audit_snapshot().get("active_target_count", 0)) == 1)
 	await _capture("02_last_grime")
-	_check("clean right_counter",
-		main.day_one_record_art_cleanup("grime", "right_counter"))
-	studio.refresh_from_state()
+	studio._on_grime_pressed("right_counter")
+	_check("clean active right_counter",
+		bool(main.day_one_art_cleaned_grime.get("right_counter", false)))
 	await _capture("03_glowing_desk")
 
 	studio._on_desk_pressed()
@@ -92,15 +117,24 @@ func _run() -> void:
 		customizer.attack_effect = "splashes"
 		customizer._refresh_choices()
 		await _capture("05_customizer_splashes")
-		# Gameplay impacts occur after confirmation, not behind the modal. Hide
-		# only the review surface here so the next capture sees the live FX layer.
-		customizer.visible = false
 
 	var hit_engine := HitEngine.new(main)
 	hit_engine.show_attack_feedback_2d(Vector2(640.0, 360.0),
 		Color(1.0, 0.48, 0.55, 1.0), "splashes")
 	await _frames(4)
 	await _capture("06_splash_attack_frame")
+	if customizer != null:
+		# Use the same public close path as the large picture-only confirm button;
+		# its callback completes the saved room and removes temporary cleanup art.
+		customizer.close()
+	await create_timer(0.42).timeout
+	await _capture("07_whole_room_sparkle")
+	await create_timer(0.72).timeout
+	_check("art room completed after picture confirmation",
+		main._day_one_ref().is_room_completed("art"))
+	_check("completion settles in the clean studio before any optional picker",
+		main.castle_logo_layer == null)
+	await _capture("08_clean_art_room")
 	main.queue_free()
 	await _frames(4)
 	print("DAY_ONE_ART_STUDIO_SHOTS|RESULT: %s failures=%d output=%s" % [

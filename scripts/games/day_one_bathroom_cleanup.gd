@@ -496,8 +496,12 @@ func _finish_drained_room_reveal(filled_plate: Sprite2D,
 
 
 func reveal_clean_room() -> void:
+	# The dirty plate is a complete alternate room image. Hide it before the
+	# clean fixture layers return so the bathtub/sink/toilet are never drawn
+	# twice during the reveal. The pearl ring and fixture sparkles provide the
+	# visible transition without full-frame transparent overdraw.
+	_clear_dirty_room_plate(false)
 	_restore_clean_room_visuals()
-	_clear_dirty_room_plate(true)
 
 
 func _clear_dirty_room_plate(animated: bool) -> void:
@@ -516,6 +520,7 @@ func _clear_dirty_room_plate(animated: bool) -> void:
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		reveal.tween_callback(plate.queue_free)
 	else:
+		plate.visible = false
 		plate.queue_free()
 
 
