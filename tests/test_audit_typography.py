@@ -6,6 +6,8 @@ import struct
 import tempfile
 import unittest
 import zlib
+import subprocess
+import zipfile
 from pathlib import Path
 
 from tools.audit_typography import (
@@ -57,8 +59,18 @@ func typography_role(role: StringName) -> Dictionary:
 \treturn token
 '''
 
+# Keep the synthetic role source aligned with the production role contract;
+# this replacement updates every role without depending on host font files.
+ROLE_SOURCE = ROLE_SOURCE.replace(
+    '\t\t"outline_size": 1, "focus_color": 1, "pressed_color": 1,',
+    '\t\t"outline_size": 1, "focus_color": 1, "pressed_color": 1,\n'
+    '\t\t"hover_pressed_color": 1,')
+ROLE_SOURCE = ROLE_SOURCE.replace(
+    '\ttoken["line_spacing"] = 0',
+    '\ttoken["line_spacing"] = 0\n\ttoken["hover_pressed_color"] = 1')
 
-def _minimal_sfnt() -> bytes:
+
+def _minimal_sfnt(index_to_loc_format: int = 0) -> bytes:
     """Build a tiny deterministic SFNT without relying on an OS font."""
     tables = {
         "cmap": struct.pack(">HHHHI", 0, 1, 3, 1, 12),
@@ -72,7 +84,7 @@ def _minimal_sfnt() -> bytes:
     tables["head"][0:4] = struct.pack(">I", 0x00010000)
     tables["head"][12:16] = struct.pack(">I", 0x5F0F3CF5)
     tables["head"][18:20] = struct.pack(">H", 1024)
-    tables["head"][50:52] = struct.pack(">h", 0)
+    tables["head"][50:52] = struct.pack(">h", index_to_loc_format)
     tables["hhea"][0:4] = struct.pack(">I", 0x00010000)
     tables["hhea"][34:36] = struct.pack(">H", 1)
     # cmap format 6 has a 12-byte subtable for one glyph; the header above
@@ -99,6 +111,20 @@ def _minimal_sfnt() -> bytes:
             ">4sIII", tag.encode("ascii"), checksum, offset, len(data))
     payload.extend(b"\0" * ((4 - len(payload) % 4) % 4))
     return bytes(directory + payload)
+
+
+def _minimal_png(dimensions: tuple[int, int], rgb: tuple[int, int, int]) -> bytes:
+    width, height = dimensions
+    row = bytes((0,)) + bytes(rgb) * width
+    raw = row * height
+
+    def chunk(kind: bytes, payload: bytes) -> bytes:
+        return (struct.pack(">I", len(payload)) + kind + payload
+                + struct.pack(">I", zlib.crc32(kind + payload) & 0xFFFFFFFF))
+
+    ihdr = struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0)
+    return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr)
+            + chunk(b"IDAT", zlib.compress(raw)) + chunk(b"IEND", b""))
 
 
 def _minimal_woff(sfnt: bytes) -> bytes:
@@ -160,6 +186,13 @@ class TypographyAuditTests(unittest.TestCase):
             target = root / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text, encoding="utf-8")
+        subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+        subprocess.run(["git", "config", "user.email", "fixture@example.invalid"],
+                       cwd=root, check=True)
+        subprocess.run(["git", "config", "user.name", "Fixture"],
+                       cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        subprocess.run(["git", "commit", "-qm", "fixture"], cwd=root, check=True)
         manifest_path = root / "manifest.json"
         return root, manifest_path
 
@@ -182,10 +215,18 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertEqual(set(scan_live_glyphs(root)), {"U+2605", "U+2606", "U+2603"})
 
     def test_portable_sfnt_and_woff_fixtures_pass_structural_checks(self) -> None:
-        sfnt = _minimal_sfnt()
-        self.assertTrue(_sfnt_structurally_valid(sfnt))
-        woff = _minimal_woff(sfnt)
-        self.assertEqual(_sfnt_bytes(woff), sfnt)
+        for index_to_loc_format in (0, 1):
+            sfnt = _minimal_sfnt(index_to_loc_format)
+            self.assertTrue(_sfnt_structurally_valid(sfnt))
+            woff = _minimal_woff(sfnt)
+            self.assertEqual(_sfnt_bytes(woff), sfnt)
+
+    def test_invalid_index_to_loc_format_is_rejected(self) -> None:
+        sfnt = bytearray(_minimal_sfnt())
+        sfnt[50:52] = struct.pack(">h", -1)
+        self.assertFalse(_sfnt_structurally_valid(bytes(sfnt)))
+        sfnt[50:52] = struct.pack(">h", 2)
+        self.assertFalse(_sfnt_structurally_valid(bytes(sfnt)))
 
     def test_sfnt_search_fields_and_table_checksum_are_enforced(self) -> None:
         sfnt = bytearray(_minimal_sfnt())
@@ -211,22 +252,51 @@ class TypographyAuditTests(unittest.TestCase):
         font_path.parent.mkdir(parents=True)
         font_path.write_bytes(font)
         font_hash = hashlib.sha256(font).hexdigest()
-        for name, contents in (("screen.png", b"screen"), ("capture.png", b"capture")):
-            (root / name).write_bytes(contents)
-        screen = {"path": "screen.png", "sha256": hashlib.sha256(b"screen").hexdigest()}
-        capture = {"path": "capture.png", "sha256": hashlib.sha256(b"capture").hexdigest()}
+        dimensions = {"base": (1280, 720), "wide": (1600, 720)}
+        image_bytes = {
+            aspect: _minimal_png(size, (20 + index * 30, 40, 80))
+            for index, (aspect, size) in enumerate(dimensions.items())
+        }
+        states = ["default", "longest", "wrapped", "locked", "selected", "missing-glyph"]
+        device_names = ["Lenovo Tab M11", "Samsung Galaxy A10 (older Android phone)"]
+        matrix = []
+        for device_index, device_name in enumerate(device_names):
+            for state_index, state in enumerate(states):
+                for aspect in ("base", "wide"):
+                    rows = f"{device_index}_{state_index}_{aspect}"
+                    screen_path = f"captures/{rows}_screen.png"
+                    capture_path = f"captures/{rows}_capture.png"
+                    (root / screen_path).parent.mkdir(parents=True, exist_ok=True)
+                    (root / screen_path).write_bytes(image_bytes[aspect])
+                    (root / capture_path).write_bytes(image_bytes[aspect])
+                    image_hash = hashlib.sha256(image_bytes[aspect]).hexdigest()
+                    screen = {"path": screen_path, "sha256": image_hash,
+                              "dimensions": list(dimensions[aspect])}
+                    capture = {"path": capture_path, "sha256": image_hash,
+                               "dimensions": list(dimensions[aspect])}
+                    matrix.append({"device": device_name, "state": state,
+                                   "aspect": aspect, "result": "PASS",
+                                   "screen": screen, "capture": capture})
         coverage = {"font_sha256": font_hash, "observed_codepoints": ["U+2605"],
                     "positive_results": {"U+2605": "PASS"}}
         negative = {"font_sha256": font_hash, "codepoint": "U+10FFFF",
                     "purpose": "deliberate missing-glyph negative", "covered": False}
         for name, contents in (("coverage.json", coverage), ("negative.json", negative)):
             (root / name).write_text(json.dumps(contents), encoding="utf-8")
-        states = ["default", "longest", "wrapped", "locked", "selected", "missing-glyph"]
-        results = {state: {"result": "PASS", "screen": screen, "capture": capture} for state in states}
-        device = {"commit": "a" * 40, "apk_sha256": "b" * 64, "font_sha256": font_hash,
+        apk_path = root / "build" / "typography-fixture.apk"
+        apk_path.parent.mkdir(parents=True, exist_ok=True)
+        with zipfile.ZipFile(apk_path, "w", compression=zipfile.ZIP_DEFLATED) as apk:
+            apk.writestr("AndroidManifest.xml", b"<manifest package='fixture'/>")
+        device = {"commit": subprocess.run(
+                      ["git", "rev-parse", "HEAD"], cwd=root, check=True,
+                      capture_output=True, text=True).stdout.strip(),
+                  "apk_path": "build/typography-fixture.apk",
+                  "apk_sha256": hashlib.sha256(apk_path.read_bytes()).hexdigest(),
+                  "font_sha256": font_hash,
                   "date": "2026-08-30", "reviewer": "Typography QA",
-                  "devices": ["Lenovo Tab M11", "older Android phone"],
-                  "states": states, "results": results}
+                  "devices": device_names, "states": states,
+                  "aspect_dimensions": {key: list(value) for key, value in dimensions.items()},
+                  "device_matrix": matrix}
         (root / "device.json").write_text(json.dumps(device), encoding="utf-8")
         data = manifest(["U+2605"])
         authority = data["font_authority"]
@@ -270,7 +340,23 @@ class TypographyAuditTests(unittest.TestCase):
         report = audit(root, manifest_path)
         self.assertEqual(report["status"], "FAIL")
         self.assertFalse(report["font"]["license_ok"])
-        self.assertTrue(any("exact commit" in error for error in report["machine_errors"]))
+        self.assertTrue(any("actual HEAD" in error for error in report["machine_errors"]))
+
+    def test_license_values_and_source_are_exact_and_provenanced(self) -> None:
+        for license_value, source in (("NOT MIT LICENSE", "Project font"),
+                                      ("MIT", "TBD source")):
+            root, manifest_path, data = self._write_verified_fixture()
+            (root / "ASSET_LICENSES.md").write_text(
+                "| Path | Source | License | URL | Modifications |\n"
+                "|---|---|---|---|---|\n"
+                f"| assets/fonts/face.ttf | {source} | {license_value} | "
+                "https://example.invalid/font | none |\n",
+                encoding="utf-8")
+            manifest_path.write_text(json.dumps(data), encoding="utf-8")
+            report = audit(root, manifest_path)
+            self.assertFalse(report["font"]["license_ok"])
+            self.assertTrue(any("provenance" in error.lower()
+                                for error in report["machine_errors"]))
 
     def test_empty_or_fake_font_is_not_evidence(self) -> None:
         root, manifest_path = self.write_tree(

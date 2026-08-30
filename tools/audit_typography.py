@@ -16,6 +16,7 @@ import re
 import struct
 import subprocess
 import zlib
+import zipfile
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -42,6 +43,7 @@ ROLE_FIELDS = {
     "outline_size",
     "focus_color",
     "pressed_color",
+    "hover_pressed_color",
     "disabled_color",
     "wrap_mode",
     "max_lines",
@@ -317,6 +319,10 @@ def validate_roles(root: Path, manifest: dict[str, Any]) -> list[str]:
         missing = sorted(field for field in ROLE_FIELDS if field not in block)
         if missing:
             errors.append(f"role {role} missing fields: {', '.join(missing)}")
+        duplicated = sorted(field for field in ROLE_FIELDS
+                            if len(re.findall(rf'"{re.escape(field)}"\s*:', block)) != 1)
+        if duplicated:
+            errors.append(f"role {role} fields must be single-owned: {', '.join(duplicated)}")
         size_match = re.search(r'"font_size"\s*:\s*(\d+)', block)
         if not size_match:
             errors.append(f"role {role} has no numeric font_size")
@@ -325,7 +331,8 @@ def validate_roles(root: Path, manifest: dict[str, Any]) -> list[str]:
                 f"role {role} font_size {size_match.group(1)} below "
                 f"minimum {expected.get('min_px')}"
             )
-    for marker in ('token["font_authority"]', 'token["fallback_authority"]', 'token["line_spacing"]'):
+    for marker in ('token["font_authority"]', 'token["fallback_authority"]',
+                   'token["line_spacing"]', 'token["hover_pressed_color"]'):
         if marker not in source:
             errors.append(f"shared typography authority missing: {marker}")
     return errors
@@ -498,7 +505,11 @@ def _sfnt_structurally_valid(data: bytes) -> bool:
         return False
     if struct.unpack(">H", head[18:20])[0] < 16 or struct.unpack(">H", head[18:20])[0] > 16384:
         return False
-    if struct.unpack(">h", head[50:52])[0] not in {-1, 0}:
+    # head.indexToLocFormat is a signed 16-bit field, but the OpenType
+    # contract permits only the short (0) and long (1) offset encodings.
+    # Negative values are not a valid third encoding and must not make a
+    # pseudo-font look structurally complete.
+    if struct.unpack(">h", head[50:52])[0] not in {0, 1}:
         return False
     glyphs = struct.unpack(">H", maxp[4:6])[0]
     metrics = struct.unpack(">H", hhea[34:36])[0]
@@ -712,25 +723,126 @@ def _coverage_artifact(root: Path, value: Any, selected_hash: str,
     return True, ""
 
 
+PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+REQUIRED_ASPECTS = {"base", "wide"}
+
+
+def _png_dimensions(path: Path) -> tuple[int, int] | None:
+    """Validate PNG framing/CRC and return its IHDR dimensions."""
+    try:
+        data = path.read_bytes()
+    except OSError:
+        return None
+    if not data.startswith(PNG_SIGNATURE):
+        return None
+    cursor = len(PNG_SIGNATURE)
+    dimensions: tuple[int, int] | None = None
+    saw_idat = False
+    saw_iend = False
+    while cursor < len(data):
+        if cursor + 12 > len(data):
+            return None
+        length = struct.unpack(">I", data[cursor:cursor + 4])[0]
+        end = cursor + 12 + length
+        if end > len(data):
+            return None
+        chunk_type = data[cursor + 4:cursor + 8]
+        chunk = data[cursor + 8:cursor + 8 + length]
+        actual_crc = struct.unpack(">I", data[cursor + 8 + length:end])[0]
+        if zlib.crc32(chunk_type + chunk) & 0xFFFFFFFF != actual_crc:
+            return None
+        if dimensions is None and chunk_type != b"IHDR":
+            return None
+        if chunk_type == b"IHDR":
+            if dimensions is not None or length != 13:
+                return None
+            width, height = struct.unpack(">II", chunk[:8])
+            if width == 0 or height == 0:
+                return None
+            dimensions = (width, height)
+        elif chunk_type == b"IDAT":
+            saw_idat = True
+        elif chunk_type == b"IEND":
+            if length != 0 or saw_iend or not saw_idat or end != len(data):
+                return None
+            saw_iend = True
+            cursor = end
+            break
+        cursor = end
+    if dimensions is None or not saw_idat or not saw_iend or cursor != len(data):
+        return None
+    return dimensions
+
+
+def _git_head(root: Path) -> str | None:
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--verify", "HEAD"], cwd=root,
+            check=True, capture_output=True, text=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    head = result.stdout.strip().lower()
+    return head if HEX40_RE.fullmatch(head) else None
+
+
+def _apk_artifact(root: Path, path_value: Any, expected: Any) -> tuple[bool, str]:
+    if not isinstance(path_value, str) or not path_value.strip():
+        return False, "APK path is missing"
+    digest = str(expected).lower() if isinstance(expected, str) else ""
+    if not HEX64_RE.fullmatch(digest):
+        return False, "APK SHA-256 is missing or invalid"
+    relative = path_value.removeprefix("res://")
+    path = (root / relative).resolve()
+    try:
+        path.relative_to(root.resolve())
+    except ValueError:
+        return False, "APK escapes repository"
+    if not path.is_file() or path.stat().st_size == 0:
+        return False, f"APK missing or empty: {relative}"
+    if _sha256(path) != digest:
+        return False, f"APK hash mismatch: {relative}"
+    try:
+        with zipfile.ZipFile(path) as archive:
+            if archive.testzip() is not None:
+                return False, "APK ZIP has a corrupt member"
+            if "AndroidManifest.xml" not in archive.namelist():
+                return False, "APK ZIP is missing AndroidManifest.xml"
+            if not archive.read("AndroidManifest.xml"):
+                return False, "APK AndroidManifest.xml is empty"
+    except (OSError, zipfile.BadZipFile, KeyError):
+        return False, "APK is not a valid ZIP/APK"
+    return True, ""
+
+
 def _device_artifact(root: Path, value: Any, selected_hash: str) -> tuple[bool, str]:
     payload, reason = _artifact_json(root, value, "device evidence")
     if payload is None:
         return False, reason
     commit = _first_value(payload, ("commit", "git_commit", "source_commit"))
-    apk = _first_value(payload, ("apk", "apk_sha256", "apk_hash"))
+    apk_path = payload.get("apk_path")
+    apk_sha256 = payload.get("apk_sha256")
     font_hash = str(_first_value(payload, (
         "font_sha256", "selected_font_sha256", "font_hash"))).lower()
     devices = _first_value(payload, ("devices", "device"))
     states = _first_value(payload, ("states", "tested_states", "state"))
-    results = _first_value(payload, ("results", "outcomes", "checks"))
+    # A flat state map cannot prove both required aspect owners on both
+    # devices.  The acceptance artifact therefore uses one explicit row per
+    # device/state/aspect tuple.
+    results = _first_value(payload, ("device_matrix", "matrix"))
     date_value = _first_value(payload, ("date", "review_date", "tested_date"))
     reviewer = payload.get("reviewer")
+    actual_head = _git_head(root)
     if (not isinstance(commit, str) or not HEX40_RE.fullmatch(commit.strip())
-            or not isinstance(apk, str) or not HEX64_RE.fullmatch(apk.strip())
+            or actual_head is None or commit.strip().lower() != actual_head
+            or not isinstance(apk_path, str) or not isinstance(apk_sha256, str)
             or not HEX64_RE.fullmatch(font_hash) or font_hash != selected_hash
             or not isinstance(date_value, str) or not _valid_iso_date(date_value)
             or not isinstance(reviewer, str) or not reviewer.strip()):
-        return False, "device evidence requires exact commit/APK/font hashes, ISO date, and reviewer"
+        return False, "device evidence requires actual HEAD, APK path/hash, font hash, ISO date, and reviewer"
+    apk_ok, apk_reason = _apk_artifact(root, apk_path, apk_sha256)
+    if not apk_ok:
+        return False, apk_reason
 
     device_names: list[str] = []
     if isinstance(devices, str):
@@ -741,15 +853,19 @@ def _device_artifact(root: Path, value: Any, selected_hash: str) -> tuple[bool, 
                 device_names.append(item.strip().lower())
             elif isinstance(item, dict):
                 name = _first_value(item, ("name", "device", "model"))
-                if isinstance(name, str) and name.strip():
-                    device_names.append(name.strip().lower())
                 category = _first_value(item, ("category", "class", "tier", "age"))
-                if isinstance(category, str) and category.strip():
-                    device_names.append(category.strip().lower())
+                parts = [part.strip().lower() for part in (name, category)
+                         if isinstance(part, str) and part.strip()]
+                if parts:
+                    # Keep a model and its age/category in one record so an
+                    # `older_phone` category is tied to a named device.
+                    device_names.append(" ".join(parts))
     has_m11 = any("lenovo tab m11" in name for name in device_names)
     has_older = any(
-        ("older" in name and "phone" in name) or "older_phone" in name
-        for name in device_names)
+        "older" in name and ("phone" in name or "android" in name)
+        and len(set(re.findall(r"[a-z0-9]+", name)) - {
+            "older", "android", "phone", "the", "a", "an", "device"
+        }) >= 1 for name in device_names)
     if not has_m11 or not has_older:
         return False, "device evidence must include Lenovo Tab M11 and an older-phone entry"
 
@@ -776,9 +892,65 @@ def _device_artifact(root: Path, value: Any, selected_hash: str) -> tuple[bool, 
         return []
 
     rows = result_rows(results)
-    row_states = {state for state, _item in rows}
-    if len(rows) != len(REQUIRED_DEVICE_STATES) or row_states != REQUIRED_DEVICE_STATES:
-        return False, "device evidence results must cover every required state exactly once"
+    if not isinstance(results, list):
+        return False, "device evidence requires an explicit per-device/state/aspect matrix"
+
+    aspect_dimensions = payload.get("aspect_dimensions", payload.get("aspects"))
+    if not isinstance(aspect_dimensions, dict) or set(aspect_dimensions) != REQUIRED_ASPECTS:
+        return False, "device evidence must declare base and wide aspect dimensions"
+    parsed_aspects: dict[str, tuple[int, int]] = {}
+    for aspect in REQUIRED_ASPECTS:
+        dimensions = aspect_dimensions.get(aspect)
+        if (not isinstance(dimensions, list) or len(dimensions) != 2
+                or any(not isinstance(value, int) or value <= 0 for value in dimensions)):
+            return False, f"device evidence {aspect} aspect dimensions are invalid"
+        parsed_aspects[aspect] = (dimensions[0], dimensions[1])
+    if parsed_aspects["base"] != (1280, 720):
+        return False, "device evidence base aspect must be 1280x720"
+
+    expected_rows = len(REQUIRED_DEVICE_STATES) * 2 * 2
+    if len(rows) != expected_rows:
+        return False, "device evidence matrix must cover every state on both devices and aspects"
+    seen_tuples: set[tuple[str, str, str]] = set()
+    for _state, item in rows:
+        if not isinstance(item, dict):
+            return False, "device evidence matrix rows must be structured objects"
+        device_name = item.get("device", item.get("device_name"))
+        aspect = str(item.get("aspect", item.get("aspect_id", ""))).strip().lower()
+        state = canonical_state(item.get("state", ""))
+        if not isinstance(device_name, str) or not device_name.strip():
+            return False, "device evidence matrix row is missing a device name"
+        if aspect not in REQUIRED_ASPECTS or state not in REQUIRED_DEVICE_STATES:
+            return False, "device evidence matrix row has an invalid state or aspect"
+        key = (device_name.strip().lower(), state, aspect)
+        if key in seen_tuples:
+            return False, "device evidence matrix contains duplicate device/state/aspect rows"
+        seen_tuples.add(key)
+    if len({state for _state, state_item in rows
+            for state in [canonical_state(state_item.get("state", ""))]}) != len(REQUIRED_DEVICE_STATES):
+        return False, "device evidence matrix is missing a required DL-TYPE-12 state"
+    if {aspect for _state, state_item in rows
+            for aspect in [str(state_item.get("aspect", state_item.get("aspect_id", ""))).lower()]} != REQUIRED_ASPECTS:
+        return False, "device evidence matrix is missing a required aspect"
+    for name in ("lenovo tab m11",):
+        if not any(key[0] == name or name in key[0] for key in seen_tuples):
+            return False, "device evidence matrix is missing Lenovo Tab M11 rows"
+    if not any("older" in key[0] and ("phone" in key[0] or "android" in key[0])
+               for key in seen_tuples):
+        return False, "device evidence matrix is missing older-phone rows"
+    matrix_devices = {key[0] for key in seen_tuples}
+    if len(matrix_devices) != 2:
+        return False, "device evidence matrix must contain exactly two named devices"
+    declared_devices = set(device_names)
+    if not all(any(declared == name or declared in name or name in declared
+                   for declared in declared_devices) for name in matrix_devices):
+        return False, "device evidence matrix device names are not declared devices"
+    for device_name in matrix_devices:
+        owned = {(state, aspect) for name, state, aspect in seen_tuples
+                 if name == device_name}
+        if owned != {(state, aspect) for state in REQUIRED_DEVICE_STATES
+                     for aspect in REQUIRED_ASPECTS}:
+            return False, f"device evidence matrix is incomplete for {device_name}"
 
     def external_artifact_ref(role: str, state: str) -> Any:
         containers = (
@@ -806,19 +978,24 @@ def _device_artifact(root: Path, value: Any, selected_hash: str) -> tuple[bool, 
         if isinstance(candidate, dict):
             path = candidate.get("path", candidate.get("ref", candidate.get("reference")))
             digest = candidate.get("sha256", candidate.get("hash"))
+            dimensions = candidate.get("dimensions")
         else:
             path = candidate if isinstance(candidate, str) else None
             digest = item.get(f"{role}_sha256", item.get(f"{role}_hash"))
+            dimensions = item.get(f"{role}_dimensions")
         if not isinstance(path, str) or not path.strip() or not isinstance(digest, str):
             return None
-        return {"path": path, "sha256": digest}
+        return {"path": path, "sha256": digest, "dimensions": dimensions}
 
+    used_paths: set[str] = set()
     for state, item in rows:
         if not isinstance(item, dict):
             return False, f"device evidence {state} result is not structured"
         result = item.get("result", item.get("status", item.get("outcome")))
         if str(result).strip().upper() != "PASS":
             return False, f"device evidence {state} result is not explicitly PASS"
+        aspect = str(item.get("aspect", item.get("aspect_id", ""))).strip().lower()
+        expected_dimensions = parsed_aspects[aspect]
         for role in ("screen", "capture"):
             reference = artifact_ref(item, role, state)
             if reference is None:
@@ -826,6 +1003,18 @@ def _device_artifact(root: Path, value: Any, selected_hash: str) -> tuple[bool, 
             ok, ref_reason = _artifact(root, reference)
             if not ok:
                 return False, f"device evidence {state} {role}: {ref_reason}"
+            relative = str(reference["path"]).removeprefix("res://")
+            if relative in used_paths:
+                return False, f"device evidence {state} reuses a {role} capture path"
+            used_paths.add(relative)
+            declared_dimensions = reference.get("dimensions")
+            if (not isinstance(declared_dimensions, list)
+                    or len(declared_dimensions) != 2
+                    or tuple(declared_dimensions) != expected_dimensions):
+                return False, f"device evidence {state} {role} dimensions do not own {aspect} aspect"
+            actual_dimensions = _png_dimensions((root / relative).resolve())
+            if actual_dimensions != expected_dimensions:
+                return False, f"device evidence {state} {role} is not a valid PNG with declared dimensions"
     return True, ""
 
 
@@ -863,14 +1052,17 @@ def _license_path_matches(cell: str, asset: str) -> bool:
 
 
 def _recognized_license(value: str) -> bool:
-    normalized = value.strip().lower()
-    if not normalized or normalized in {"-", "—", "unknown", "tbd", "missing", "unresolved"}:
-        return False
-    return any(marker in normalized for marker in (
-        "cc0", "public domain", "apache", "mit license", "bsd", "ofl", "sil",
-        "pixabay", "original", "owned by project", "all rights reserved",
-        "project-generated", "synthesized", "free software", "creative commons",
-    ))
+    normalized = re.sub(r"\s+", " ", value.strip()).lower()
+    # Keep this deliberately exact.  Substring checks accepted adversarial
+    # values such as `NOT MIT LICENSE` and silently converted unknown/TBD
+    # provenance into a green authority claim.
+    return normalized in {
+        "mit", "mit license", "apache-2.0", "apache 2.0", "apache license 2.0",
+        "bsd-2-clause", "bsd-3-clause", "isc", "ofl-1.1", "sil ofl 1.1",
+        "cc0-1.0", "cc0", "cc-by-4.0", "cc-by-sa-4.0", "unlicense",
+        "public domain", "public-domain", "gpl-3.0", "gpl-3.0-only",
+        "lgpl-3.0", "lgpl-3.0-only", "mpl-2.0", "zlib", "epl-2.0",
+    }
 
 
 def _license_row_for_asset(root: Path, asset: str) -> bool:
@@ -884,9 +1076,34 @@ def _license_row_for_asset(root: Path, asset: str) -> bool:
     for row in rows:
         source = row.get("source", "").strip()
         license_name = row.get("license", "").strip()
+        url = row.get("url", row.get("source_url", "")).strip()
+        modifications = row.get(
+            "modifications", row.get("modification", row.get("provenance", ""))
+        ).strip()
+        provider_identifier = row.get(
+            "provider", row.get("provider_id", row.get("source_id", ""))
+        ).strip()
+        source_lower = source.lower()
+        source_valid = bool(source) and source_lower not in {
+            "-", "—", "unknown", "tbd", "todo", "pending", "n/a",
+        } and not re.match(r"^(?:unknown|tbd|todo|pending)(?:\b|\s)", source_lower)
+        url_valid = bool(re.fullmatch(r"https?://[^\s|]+", url, re.IGNORECASE)) \
+            or bool(re.fullmatch(r"https?://[^\s|]+", source, re.IGNORECASE))
+        provider_valid = bool(re.search(
+            r"(?:provider|source[_ -]?id|font[_ -]?id)\s*[:=][^\s|]+",
+            source, re.IGNORECASE))
+        provider_valid = provider_valid or (
+            bool(provider_identifier)
+            and provider_identifier.lower() not in {
+                "-", "—", "unknown", "tbd", "todo", "pending", "n/a"
+            }
+        )
+        modification_valid = bool(modifications) and modifications.lower() not in {
+            "-", "—", "unknown", "tbd", "todo", "pending", "n/a",
+        }
         if (_license_path_matches(row.get("path", ""), asset)
-                and source not in {"", "-", "—"}
-                and _recognized_license(license_name)):
+                and source_valid and (url_valid or provider_valid)
+                and modification_valid and _recognized_license(license_name)):
             return True
     return False
 

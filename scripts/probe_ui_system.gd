@@ -166,11 +166,21 @@ func _check_typography_coverage() -> void:
 		var token: Dictionary = StorybookUI.typography_role(role)
 		_check(int(token.get("font_size", 0)) > 0
 			and token.has("outline_color") and token.has("outline_size")
-			and token.has("focus_color") and token.has("disabled_color")
+			and token.has("focus_color") and token.has("pressed_color")
+			and token.has("hover_pressed_color") and token.has("disabled_color")
 			and token.has("wrap_mode") and token.has("max_lines")
 			and token.has("line_spacing") and token.has("font_authority")
 			and token.has("fallback_authority"),
 			"typography role token is complete: %s" % String(role))
+		# typography_role() must return a defensive copy. Mutating one caller's
+		# token may never erase a field from the canonical role or another caller.
+		var mutated: Dictionary = StorybookUI.typography_role(role)
+		mutated.erase("hover_pressed_color")
+		var fresh: Dictionary = StorybookUI.typography_role(role)
+		_check(not mutated.has("hover_pressed_color")
+			and fresh.has("hover_pressed_color")
+			and StorybookUI.TYPOGRAPHY_ROLES[role].has("hover_pressed_color"),
+			"typography role mutation stays isolated: %s" % String(role))
 
 	var picture := Button.new()
 	StorybookUI.style_picture_button(picture)
