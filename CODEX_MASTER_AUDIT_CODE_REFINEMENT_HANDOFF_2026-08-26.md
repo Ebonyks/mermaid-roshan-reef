@@ -61,6 +61,15 @@ behavior for a package:
   `origin/dev`; merge to dev only with the full probe suite green on CI for
   the branch's exact head; never touch `master`
   (`WORKFLOW_BRANCHING_2026-07-18.md`).
+- **Governance home** (owner instruction 2026-08-30): the current copies of
+  this handoff, the master audit, the findings register, design 06 sections
+  18–19, design 08, and the owner guide live on branch
+  `claude/master-audit-game-analysis-qiko9l`; dev's copies are a stale
+  earlier snapshot from its `a0571eea` merge. Read governance at that branch
+  head, and land every governance edit there — the integration lane's
+  ledger/`CHG` rows and Stage R's lifecycle transitions. Implementation
+  branches still fork off fresh `origin/dev` and merge to dev per Branch
+  law; only the governance documents live apart.
 - **Behavior contract:** Stage B packages are behavior-preserving. Exact
   behavior, state ownership, and save compatibility are unchanged; if a
   trusted probe fails after a refactor step, revert the step — never patch

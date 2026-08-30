@@ -213,9 +213,13 @@ returned. Each is self-contained because runs do not share memory.
 **Run 1 — Stage A + R1:**
 
 ```text
-Work the repo Ebonyks/mermaid-roshan-reef from branch dev. You are the
-orchestrator for Stage A of the 2026-08-26 code-refinement round. Read
-first: CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md (your work
+Work the repo Ebonyks/mermaid-roshan-reef. The governance branch is
+claude/master-audit-game-analysis-qiko9l: read every governance document
+named below at that branch head, not from dev (dev's copies are stale),
+and land all governance edits on that branch; implementation branches fork
+off fresh origin/dev as stated below. You are the orchestrator for Stage A
+of the 2026-08-26 code-refinement round. Read first:
+CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md (your work
 orders — obey its Ground rules, Stage 0, and escalation triggers exactly),
 then audit/MASTER_AUDIT_2026-08-26.md, then design/06 section 18.
 
@@ -235,8 +239,8 @@ Then run R1 with an agent that implemented nothing: re-execute every
 package's gate (re-run the named probes and the deliberate-break demo,
 re-measure the gate metrics), verify non-goals by diff and reversibility
 by inverse, and only then apply lifecycle transitions and CHG/ledger
-entries in one serial closing phase, finishing with
-python3 tools/audit_document_authority.py -> ALL OK.
+entries in one serial closing phase on the governance branch, finishing
+with python3 tools/audit_document_authority.py -> ALL OK there.
 
 Deliver: per-package branches/PRs plus one final report naming which agent
 carried each package and which carried R1, each package's verdict, metric
@@ -248,8 +252,12 @@ the owner on any escalation trigger.
 and its R1 verdicts reviewed):
 
 ```text
-Work the repo Ebonyks/mermaid-roshan-reef from branch dev. You are the
-orchestrator for the Mode Platform foundation: migration steps M0, M1, M2
+Work the repo Ebonyks/mermaid-roshan-reef. The governance branch is
+claude/master-audit-game-analysis-qiko9l: read every governance document
+named below at that branch head, not from dev (dev's copies are stale),
+and land all governance edits on that branch; implementation branches fork
+off fresh origin/dev. You are the orchestrator for the Mode Platform
+foundation: migration steps M0, M1, M2
 only (handoff packages WP-C0, WP-C1, WP-C2). Read first:
 design/08_TARGET_ARCHITECTURE.md IN FULL — Stage C implements it and its
 section 4 signatures are normative (a deviation is an escalation, not a
@@ -269,8 +277,8 @@ Then R2 with an agent that implemented none of it: re-execute the three
 gates, run the growth-law spot check (a throwaway branch adds a dummy mode
 as one script + one registry row; the diff must touch nothing else),
 verify shims match their recorded originals, then apply lifecycles and
-CHG/ledger entries serially and finish with
-python3 tools/audit_document_authority.py -> ALL OK.
+CHG/ledger entries serially on the governance branch and finish with
+python3 tools/audit_document_authority.py -> ALL OK there.
 
 The tablet performance wing (owned by Fable) is in flight: change no tier
 thresholds, quality-tier semantics, or capture tooling, and report any
@@ -283,7 +291,11 @@ to the owner on any escalation trigger.
 **Run 3 — C3–C6 + remaining B + R3** (only after Run 2 is merged):
 
 ```text
-Work the repo Ebonyks/mermaid-roshan-reef from branch dev. You are the
+Work the repo Ebonyks/mermaid-roshan-reef. The governance branch is
+claude/master-audit-game-analysis-qiko9l: read every governance document
+named below at that branch head, not from dev (dev's copies are stale),
+and land all governance edits on that branch; implementation branches fork
+off fresh origin/dev. You are the
 orchestrator for the Mode Platform completion: C3, C4, C5, C6 in strict
 serial order, with independent packages WP-B2, WP-B3 (after C2's families
 are gone), WP-B5 (after C4), and WP-B6 interleaved on separate agents.
@@ -295,8 +307,8 @@ implementers, WP-C6's workflow edit exactly in its named bounds.
 Then R3 with a non-implementing agent: re-execute every gate, run the
 growth-law acceptance test (design/08 section 9.1), re-measure the round's
 standing metrics table, verify all shim windows and waivers, then apply
-lifecycles and CHG/ledger entries serially and finish with
-python3 tools/audit_document_authority.py -> ALL OK.
+lifecycles and CHG/ledger entries serially on the governance branch and
+finish with python3 tools/audit_document_authority.py -> ALL OK there.
 
 The tablet performance wing (owned by Fable) is in flight: WP-C4 pooling
 and WP-B5 tier PATHS are yours; tier THRESHOLD VALUES, capture tooling, and
