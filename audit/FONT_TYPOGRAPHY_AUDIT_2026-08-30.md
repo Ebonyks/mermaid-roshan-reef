@@ -4,9 +4,11 @@
 - **Historical inventory source:** `0ddbe65685b7dde09e4d9179d71580ed406bcc13`
   on `codex/font-audit-20260830` (the V1 baseline; it has no runtime role
   plumbing or candidate layout edits)
-- **Current implementation candidate:** uncommitted `codex/font-audit-20260830`
-  worktree at review time; candidate changes are explicitly partial and are not
-  a new authority head
+- **Current implementation source:** committed partial implementation
+  `828e169f` (role/token plumbing, bounded TYPE-C edits, and the initial
+  scanner/probe/test harness), reconciled with review candidate `4e4e66b4`.
+  These commits are implementation history, not a new typography authority
+  head.
 - **Scope:** runtime typography, text controls, semantic glyphs, text layout,
   localization readiness, and `Label3D` typography debt
 - **Document authority:** `SUPPORTING_CURRENT`. Stable requirements are
@@ -18,8 +20,8 @@
 - **Evidence limit:** V1 static source and repository evidence only. No Godot
   render, screenshot, font rasterization, Android package, Lenovo M11, older
   phone, child, accompanying-adult, localization, or owner review was performed
-  in this documentation-only round.
-- **Runtime/asset change:** partial candidate only: shared role/token plumbing,
+  in this source/review round.
+- **Runtime/asset change:** partial implementation only: shared role/token plumbing,
   completed picture-button styling, selected TYPE-C size/layout edits, and
   focused scanner/probe tests. No font asset, default-font authority, glyph
   coverage, device, child, human, or owner acceptance exists.
@@ -35,7 +37,7 @@ licence row, and no glyph-coverage proof. Text therefore uses the exact Godot
 4.7.2 default unless an individual node overrides size/color/outline; semantic
 symbols and emoji have no recorded packaged-coverage result.
 
-The candidate now adds explicit role/token plumbing and a bounded subset of
+The committed implementation now adds explicit role/token plumbing and a bounded subset of
 child-size/layout checks, while deliberately leaving overflow-prone Craft and
 companion surfaces at their audited sizes. This is not evidence that every
 current glyph is missing or unreadable. It is
@@ -60,7 +62,7 @@ child-facing surface.
 | literal `Button.new(` | 84 across 25 files | The earlier “85 `Button.new`” summary was one high |
 | `CheckButton.new(` | 1 in `scripts/dev_mode.gd` | 84 Buttons + 1 CheckButton = 85 button-class controls |
 | `Label3D.new(` | 45 across 13 files | Typography is part of measured true-2D migration debt |
-| `add_theme_font_size_override(` | baseline 45 at `0ddbe656`; current candidate 39 | Some direct size overrides were removed, but size is not yet fully role-owned |
+| `add_theme_font_size_override(` | baseline 45 at `0ddbe656`; committed implementation 39 | Some direct size overrides were removed, but size is not yet fully role-owned |
 | `Label3D.outline_size` assignments | 39 | Most, not all, spatial labels carry local outline treatment |
 
 Representative commands:
@@ -113,7 +115,7 @@ a deterministic fallback policy.
 At historical `0ddbe656`, `StorybookUI.style_button()` owned font size and
 outline, `style_label()` owned font size/color/outline, and
 `style_picture_button()` omitted complete typography state; Wardrobe repaired
-that omission with a local size override. The current candidate adds named role
+that omission with a local size override. Commits `828e169f` and `4e4e66b4` add named role
 tokens and complete picture-button state styling, but its engine/default font
 and fallback remain unresolved, and Opera/Kart/dance/direct HUD clusters still
 need exhaustive role migration and capture evidence.
@@ -226,7 +228,7 @@ rewrite, layout redesign, 3D growth, or acceptance claim.
 
 ## 7. Closure boundary
 
-The current candidate changes shared role plumbing and a bounded subset of
+The committed partial implementation (`828e169f`, reconciled at `4e4e66b4`) changes shared role plumbing and a bounded subset of
 runtime layout values, but changes no font asset or authority and closes none
 of the findings. The save warning is now a 28px child/safety status surface;
 the Wardrobe locked hint uses a bounded 28px right-aligned picture-button

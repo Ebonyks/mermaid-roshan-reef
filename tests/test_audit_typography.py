@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
@@ -119,6 +120,78 @@ class TypographyAuditTests(unittest.TestCase):
         report = audit(root, manifest_path)
         self.assertEqual(report["status"], "FAIL")
         self.assertTrue(any("not a recognized font" in e for e in report["machine_errors"]))
+
+    def test_sfnt_magic_only_pseudo_font_is_not_evidence(self) -> None:
+        root, manifest_path = self.write_tree('var label = "★"\n', {
+            "assets/fonts/pseudo.ttf": "\x00\x01\x00\x00" + "x" * 256,
+        })
+        manifest_path.write_text(json.dumps(manifest(["U+2605"])), encoding="utf-8")
+        report = audit(root, manifest_path)
+        self.assertEqual(report["status"], "FAIL")
+        self.assertTrue(any("not a recognized font" in e for e in report["machine_errors"]))
+
+    def test_binding_must_match_an_observed_runtime_asset(self) -> None:
+        root, manifest_path = self.write_tree(
+            'var label = "★"\nbutton.add_theme_font_override("font", load("res://assets/fonts/other.ttf"))\n',
+            {"assets/fonts/selected.ttf": "not a font", "assets/fonts/other.ttf": "not a font"},
+        )
+        data = manifest(["U+2605"])
+        data["font_authority"]["binding"] = {
+            "status": "PASS", "asset": "assets/fonts/selected.ttf",
+        }
+        manifest_path.write_text(json.dumps(data), encoding="utf-8")
+        report = audit(root, manifest_path)
+        self.assertTrue(any("not a recognized font" in e for e in report["machine_errors"]))
+        self.assertFalse(report["font"]["binding_ok"])
+
+    def test_unhashed_artifact_cannot_support_verified_evidence(self) -> None:
+        root, manifest_path = self.write_tree('var label = "★"\n', {
+            "evidence.json": "{}",
+        })
+        data = manifest(["U+2605"])
+        data["font_authority"].update({
+            "coverage_status": "VERIFIED",
+            "coverage": {"status": "VERIFIED", "positive": {"path": "evidence.json"}, "negative": None},
+        })
+        manifest_path.write_text(json.dumps(data), encoding="utf-8")
+        report = audit(root, manifest_path)
+        self.assertTrue(any("sha256 is missing or invalid" in e for e in report["machine_errors"]))
+
+    def test_malformed_sfnt_directory_is_not_evidence(self) -> None:
+        # A plausible header with a table directory that points outside the
+        # file must not be accepted as a font parser shortcut.
+        malformed = b"\x00\x01\x00\x00" + b"\x00\x01\x00\x10\x00\x01\x00\x00" + b"head" + b"\x00" * 12
+        root, manifest_path = self.write_tree('var label = "★"\n', {
+            "assets/fonts/malformed.ttf": malformed.decode("latin1"),
+        })
+        manifest_path.write_text(json.dumps(manifest(["U+2605"])), encoding="utf-8")
+        report = audit(root, manifest_path)
+        self.assertEqual(report["status"], "FAIL")
+        self.assertTrue(any("not a recognized font" in e for e in report["machine_errors"]))
+
+    def test_unresolved_status_with_populated_paths_never_becomes_pass(self) -> None:
+        evidence = "{}"
+        digest = hashlib.sha256(evidence.encode()).hexdigest()
+        root, manifest_path = self.write_tree('var label = "★"\n', {
+            "coverage.json": evidence,
+            "negative.json": evidence,
+            "device.json": evidence,
+        })
+        data = manifest(["U+2605"])
+        data["font_authority"].update({
+            "coverage": {
+                "status": "UNRESOLVED",
+                "positive": {"path": "coverage.json", "sha256": digest},
+                "negative": {"path": "negative.json", "sha256": digest},
+            },
+            "device_evidence": {
+                "status": "MISSING",
+                "artifact": {"path": "device.json", "sha256": digest},
+            },
+        })
+        manifest_path.write_text(json.dumps(data), encoding="utf-8")
+        report = audit(root, manifest_path)
+        self.assertNotEqual(report["status"], "PASS")
 
     def test_verified_status_without_binding_hash_license_or_artifacts_fails(self) -> None:
         root, manifest_path = self.write_tree('var label = "★"\n')

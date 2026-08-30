@@ -180,11 +180,26 @@ func _check_typography_coverage() -> void:
 		and picture.get_theme_stylebox("focus") != null
 		and picture.get_theme_stylebox("disabled") != null,
 		"picture button has child-size typography, outline, focus, and disabled surfaces")
-	_check(picture.get_theme_color("font_hover_color") == StorybookUI.PURPLE_DEEP
+	_check(picture.has_theme_color_override("font_hover_color")
+		and picture.has_theme_color_override("font_focus_color")
+		and picture.has_theme_color_override("font_pressed_color")
+		and picture.has_theme_color_override("font_disabled_color")
+		and picture.get_theme_color("font_hover_color") == StorybookUI.PURPLE_DEEP
 		and picture.get_theme_color("font_focus_color") == StorybookUI.PURPLE_DEEP
 		and picture.get_theme_color("font_pressed_color") == StorybookUI.PURPLE_DEEP
 		and picture.get_theme_color("font_disabled_color") == Color(0.82, 0.84, 0.9),
 		"picture button covers hover, focus, pressed, and disabled text colors")
+	_check(picture.has_theme_stylebox_override("hover")
+		and picture.has_theme_stylebox_override("pressed"),
+		"picture button owns hover and pressed styleboxes locally")
+	var semantic := Button.new()
+	StorybookUI.style_button(semantic)
+	_check(semantic.has_theme_color_override("font_hover_color")
+		and semantic.has_theme_color_override("font_pressed_color")
+		and semantic.has_theme_stylebox_override("hover")
+		and semantic.has_theme_stylebox_override("pressed"),
+		"text button owns hover/pressed colors and styleboxes locally")
+	semantic.free()
 	_check(String(picture.get_meta("typography_role", ""))
 		== String(StorybookUI.ROLE_CHILD_CONTROL)
 		and String(picture.get_meta("typography_font_authority", ""))
@@ -234,8 +249,10 @@ func _check_type_c_layout_contract() -> void:
 	var forbidden_child_sizes: Array[Dictionary] = [
 		{"path": "res://scripts/craft_studio.gd", "text": "m.craft_status, 30"},
 		{"path": "res://scripts/craft_studio.gd", "text": "else \"secondary\", 30"},
-		{"path": "res://scripts/wardrobe_ui.gd", "text": "font_size\", 20"},
-		{"path": "res://scripts/wardrobe_ui.gd", "text": "font_size\", 15"},
+		# The conditional 20/15 sticker-label sizes above are a deliberate,
+		# audited exception. Reject only an unconditional sub-floor override.
+		{"path": "res://scripts/wardrobe_ui.gd", "text": "font_size\", 20)"},
+		{"path": "res://scripts/wardrobe_ui.gd", "text": "font_size\", 15)"},
 		{"path": "res://scripts/collection_system.gd", "text": "habitat, 22"},
 		{"path": "res://scripts/companion.gd", "text": "card, \"selected\" if id == m.companion_pick_id else \"secondary\", 30"},
 		{"path": "res://scripts/companion.gd", "text": "style_label(atk, 28"},

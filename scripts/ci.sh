@@ -28,7 +28,7 @@ python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.
 	|| { echo "LINT FAIL (:= from Variant)"; exit 1; }
 # Typography is fail-closed for regressions and false evidence, while the
 # current unresolved font/device authority remains an explicit known OPEN.
-python3 -m unittest tests.test_audit_typography \
+python3 -m unittest tests.test_audit_typography tests.test_type_c_layout \
 	|| { echo "TYPOGRAPHY AUDIT CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_typography.py --check \
 	|| { echo "TYPOGRAPHY AUDIT REGRESSION/FALSE EVIDENCE"; exit 1; }
