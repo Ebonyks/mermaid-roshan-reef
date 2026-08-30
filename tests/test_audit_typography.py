@@ -11,8 +11,8 @@ import zipfile
 from pathlib import Path
 
 from tools.audit_typography import (
-    _sfnt_bytes, _sfnt_structurally_valid, audit, inventory_font_assets,
-    scan_live_glyphs,
+    _apk_artifact, _png_dimensions, _sfnt_bytes, _sfnt_structurally_valid,
+    audit, inventory_font_assets, scan_live_glyphs,
 )
 
 
@@ -113,10 +113,17 @@ def _minimal_sfnt(index_to_loc_format: int = 0) -> bytes:
     return bytes(directory + payload)
 
 
-def _minimal_png(dimensions: tuple[int, int], rgb: tuple[int, int, int]) -> bytes:
+def _minimal_png(dimensions: tuple[int, int], rgb: tuple[int, int, int],
+                 seed: int = 0) -> bytes:
     width, height = dimensions
-    row = bytes((0,)) + bytes(rgb) * width
-    raw = row * height
+    # Keep every row valid while making each generated screenshot's pixel
+    # payload distinct.  Repeating one compressed image under unique paths is
+    # not useful device evidence and should be caught by the audit.
+    rows = []
+    for row_index in range(height):
+        first = tuple((component + seed + row_index) % 256 for component in rgb)
+        rows.append(bytes((0,)) + bytes(first) + bytes(rgb) * (width - 1))
+    raw = b"".join(rows)
 
     def chunk(kind: bytes, payload: bytes) -> bytes:
         return (struct.pack(">I", len(payload)) + kind + payload
@@ -125,6 +132,25 @@ def _minimal_png(dimensions: tuple[int, int], rgb: tuple[int, int, int]) -> byte
     ihdr = struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0)
     return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr)
             + chunk(b"IDAT", zlib.compress(raw)) + chunk(b"IEND", b""))
+
+
+def _minimal_binary_manifest() -> bytes:
+    return struct.pack("<HHI", 0x0003, 8, 8)
+
+
+def _minimal_dex() -> bytes:
+    data = bytearray(112)
+    data[:8] = b"dex\n035\0"
+    data[32:36] = struct.pack("<I", len(data))
+    data[36:40] = struct.pack("<I", 112)
+    data[40:44] = struct.pack("<I", 0x12345678)
+    data[12:32] = hashlib.sha1(data[32:]).digest()
+    data[8:12] = struct.pack("<I", zlib.adler32(data[12:]) & 0xFFFFFFFF)
+    return bytes(data)
+
+
+def _minimal_resources() -> bytes:
+    return struct.pack("<HHII", 0x0002, 12, 12, 0)
 
 
 def _minimal_woff(sfnt: bytes) -> bytes:
@@ -253,13 +279,10 @@ class TypographyAuditTests(unittest.TestCase):
         font_path.write_bytes(font)
         font_hash = hashlib.sha256(font).hexdigest()
         dimensions = {"base": (1280, 720), "wide": (1600, 720)}
-        image_bytes = {
-            aspect: _minimal_png(size, (20 + index * 30, 40, 80))
-            for index, (aspect, size) in enumerate(dimensions.items())
-        }
         states = ["default", "longest", "wrapped", "locked", "selected", "missing-glyph"]
         device_names = ["Lenovo Tab M11", "Samsung Galaxy A10 (older Android phone)"]
         matrix = []
+        image_index = 0
         for device_index, device_name in enumerate(device_names):
             for state_index, state in enumerate(states):
                 for aspect in ("base", "wide"):
@@ -267,12 +290,16 @@ class TypographyAuditTests(unittest.TestCase):
                     screen_path = f"captures/{rows}_screen.png"
                     capture_path = f"captures/{rows}_capture.png"
                     (root / screen_path).parent.mkdir(parents=True, exist_ok=True)
-                    (root / screen_path).write_bytes(image_bytes[aspect])
-                    (root / capture_path).write_bytes(image_bytes[aspect])
-                    image_hash = hashlib.sha256(image_bytes[aspect]).hexdigest()
-                    screen = {"path": screen_path, "sha256": image_hash,
+                    size = dimensions[aspect]
+                    screen_bytes = _minimal_png(size, (20, 40, 80), image_index)
+                    image_index += 1
+                    capture_bytes = _minimal_png(size, (20, 40, 80), image_index)
+                    image_index += 1
+                    (root / screen_path).write_bytes(screen_bytes)
+                    (root / capture_path).write_bytes(capture_bytes)
+                    screen = {"path": screen_path, "sha256": hashlib.sha256(screen_bytes).hexdigest(),
                               "dimensions": list(dimensions[aspect])}
-                    capture = {"path": capture_path, "sha256": image_hash,
+                    capture = {"path": capture_path, "sha256": hashlib.sha256(capture_bytes).hexdigest(),
                                "dimensions": list(dimensions[aspect])}
                     matrix.append({"device": device_name, "state": state,
                                    "aspect": aspect, "result": "PASS",
@@ -286,17 +313,36 @@ class TypographyAuditTests(unittest.TestCase):
         apk_path = root / "build" / "typography-fixture.apk"
         apk_path.parent.mkdir(parents=True, exist_ok=True)
         with zipfile.ZipFile(apk_path, "w", compression=zipfile.ZIP_DEFLATED) as apk:
-            apk.writestr("AndroidManifest.xml", b"<manifest package='fixture'/>")
+            apk.writestr("AndroidManifest.xml", _minimal_binary_manifest())
+            apk.writestr("classes.dex", _minimal_dex())
+            apk.writestr("resources.arsc", _minimal_resources())
+            apk.writestr("META-INF/MANIFEST.MF", b"Manifest-Version: 1.0\n")
+            apk.writestr("META-INF/CERT.SF", b"Signature-Version: 1.0\n")
+            apk.writestr("META-INF/CERT.RSA", b"deterministic fixture signature evidence")
+        apk_hash = hashlib.sha256(apk_path.read_bytes()).hexdigest()
+        verification = {
+            "apk_path": "build/typography-fixture.apk", "apk_sha256": apk_hash,
+            "tool": "fixture-apk-verifier", "tool_version": "1.0",
+            "command": "fixture-apk-verifier --check build/typography-fixture.apk",
+            "result": "PASS", "package_id": "com.example.typography.fixture",
+            "package_version": "1.0",
+        }
+        verification_path = root / "apk-verification.json"
+        verification_path.write_text(json.dumps(verification), encoding="utf-8")
         device = {"commit": subprocess.run(
                       ["git", "rev-parse", "HEAD"], cwd=root, check=True,
                       capture_output=True, text=True).stdout.strip(),
-                  "apk_path": "build/typography-fixture.apk",
-                  "apk_sha256": hashlib.sha256(apk_path.read_bytes()).hexdigest(),
+                   "apk_path": "build/typography-fixture.apk",
+                   "apk_sha256": apk_hash,
                   "font_sha256": font_hash,
                   "date": "2026-08-30", "reviewer": "Typography QA",
                   "devices": device_names, "states": states,
                   "aspect_dimensions": {key: list(value) for key, value in dimensions.items()},
-                  "device_matrix": matrix}
+                   "device_matrix": matrix,
+                   "apk_verification": {
+                       "path": "apk-verification.json",
+                       "sha256": hashlib.sha256(verification_path.read_bytes()).hexdigest(),
+                   }}
         (root / "device.json").write_text(json.dumps(device), encoding="utf-8")
         data = manifest(["U+2605"])
         authority = data["font_authority"]
@@ -324,6 +370,114 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertEqual(report["status"], "PASS")
         self.assertTrue(report["font"]["license_ok"])
         self.assertTrue(report["font"]["device_ok"])
+
+    def test_png_crc_correct_invalid_zlib_payload_is_rejected(self) -> None:
+        root, _manifest_path = self.write_tree('var label = "★"\n')
+
+        def chunk(kind: bytes, payload: bytes) -> bytes:
+            return (struct.pack(">I", len(payload)) + kind + payload
+                    + struct.pack(">I", zlib.crc32(kind + payload) & 0xFFFFFFFF))
+
+        ihdr = struct.pack(">IIBBBBB", 2, 1, 8, 2, 0, 0, 0)
+        malformed = (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr)
+                     + chunk(b"IDAT", b"not-a-zlib-stream")
+                     + chunk(b"IEND", b""))
+        path = root / "bad.png"
+        path.write_bytes(malformed)
+        self.assertIsNone(_png_dimensions(path))
+
+    def test_png_rejects_crc_correct_trailing_zlib_payload(self) -> None:
+        root, _manifest_path = self.write_tree('var label = "★"\n')
+
+        def chunk(kind: bytes, payload: bytes) -> bytes:
+            return (struct.pack(">I", len(payload)) + kind + payload
+                    + struct.pack(">I", zlib.crc32(kind + payload) & 0xFFFFFFFF))
+
+        ihdr = struct.pack(">IIBBBBB", 1, 1, 8, 2, 0, 0, 0)
+        stream = zlib.compress(b"\0\x01\x02\x03") + b"trailing"
+        malformed = (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr)
+                     + chunk(b"IDAT", stream) + chunk(b"IEND", b""))
+        path = root / "bad-trailing.png"
+        path.write_bytes(malformed)
+        self.assertIsNone(_png_dimensions(path))
+
+    def test_device_matrix_rejects_duplicate_content_with_distinct_paths(self) -> None:
+        root, manifest_path, data = self._write_verified_fixture()
+        device_path = root / "device.json"
+        device = json.loads(device_path.read_text(encoding="utf-8"))
+        first = device["device_matrix"][0]["screen"]
+        duplicate = device["device_matrix"][1]["screen"]
+        source = root / first["path"]
+        target = root / duplicate["path"]
+        target.write_bytes(source.read_bytes())
+        duplicate["sha256"] = hashlib.sha256(target.read_bytes()).hexdigest()
+        device_path.write_text(json.dumps(device), encoding="utf-8")
+        data["font_authority"]["device_evidence"]["artifact"]["sha256"] = hashlib.sha256(
+            device_path.read_bytes()).hexdigest()
+        manifest_path.write_text(json.dumps(data), encoding="utf-8")
+        report = audit(root, manifest_path)
+        self.assertEqual(report["status"], "FAIL")
+        self.assertTrue(any("capture content SHA-256" in error
+                            for error in report["machine_errors"]))
+
+    def test_device_evidence_requires_sha_bound_apk_verification_record(self) -> None:
+        root, manifest_path, data = self._write_verified_fixture()
+        device_path = root / "device.json"
+        device = json.loads(device_path.read_text(encoding="utf-8"))
+        record_path = root / "apk-verification.json"
+        record = json.loads(record_path.read_text(encoding="utf-8"))
+        record["result"] = "FAIL"
+        record_path.write_text(json.dumps(record), encoding="utf-8")
+        device["apk_verification"]["sha256"] = hashlib.sha256(
+            record_path.read_bytes()).hexdigest()
+        device_path.write_text(json.dumps(device), encoding="utf-8")
+        data["font_authority"]["device_evidence"]["artifact"]["sha256"] = hashlib.sha256(
+            device_path.read_bytes()).hexdigest()
+        manifest_path.write_text(json.dumps(data), encoding="utf-8")
+        report = audit(root, manifest_path)
+        self.assertEqual(report["status"], "FAIL")
+        self.assertTrue(any("verification record" in error
+                            for error in report["machine_errors"]))
+
+    def test_plain_text_manifest_zip_is_not_an_apk(self) -> None:
+        root, _manifest_path = self.write_tree('var label = "★"\n')
+        path = root / "fake.apk"
+        with zipfile.ZipFile(path, "w") as archive:
+            archive.writestr("AndroidManifest.xml", b"<manifest package='fake'/>")
+        ok, reason = _apk_artifact(root, "fake.apk",
+                                   hashlib.sha256(path.read_bytes()).hexdigest())
+        self.assertFalse(ok)
+        self.assertIn("required Android artifact", reason)
+
+    def test_bad_dex_resources_and_signature_are_rejected(self) -> None:
+        root, _manifest_path, _data = self._write_verified_fixture()
+        path = root / "build" / "typography-fixture.apk"
+
+        original_entries = None
+        def entries() -> dict[str, bytes]:
+            with zipfile.ZipFile(path) as archive:
+                return {info.filename: archive.read(info)
+                        for info in archive.infolist()}
+
+        original_entries = entries()
+
+        def check(modified: dict[str, bytes]) -> str:
+            with zipfile.ZipFile(path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+                for name, payload in modified.items():
+                    archive.writestr(name, payload)
+            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            return _apk_artifact(root, "build/typography-fixture.apk", digest)[1]
+
+        bad_dex = dict(original_entries)
+        bad_dex["classes.dex"] = b"dex\n035\0" + b"broken"
+        self.assertIn("classes.dex", check(bad_dex))
+        bad_resources = dict(original_entries)
+        bad_resources["resources.arsc"] = b"\x02\0\x0c\0\x0b\0\0\0" + b"x"
+        self.assertIn("resources.arsc", check(bad_resources))
+        no_signature = dict(original_entries)
+        del no_signature["META-INF/CERT.RSA"]
+        del no_signature["META-INF/CERT.SF"]
+        self.assertIn("signature", check(no_signature))
 
     def test_device_and_license_evidence_reject_forged_strings(self) -> None:
         root, manifest_path, data = self._write_verified_fixture()

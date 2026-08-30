@@ -725,10 +725,27 @@ def _coverage_artifact(root: Path, value: Any, selected_hash: str,
 
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 REQUIRED_ASPECTS = {"base", "wide"}
+_PNG_COLOR_CHANNELS = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}
+_PNG_ALLOWED_BIT_DEPTHS = {
+    0: {1, 2, 4, 8, 16},
+    2: {8, 16},
+    3: {1, 2, 4, 8},
+    4: {8, 16},
+    6: {8, 16},
+}
+_APK_SIG_BLOCK_MAGIC = b"APK Sig Block 42"
+_DEX_MAGICS = {b"dex\n035\0", b"dex\n037\0", b"dex\n038\0",
+               b"dex\n039\0", b"dex\n040\0", b"dex\n041\0"}
 
 
 def _png_dimensions(path: Path) -> tuple[int, int] | None:
-    """Validate PNG framing/CRC and return its IHDR dimensions."""
+    """Validate a complete, non-interlaced PNG and return its dimensions.
+
+    The audit consumes screenshots as evidence, so checking only their chunk
+    framing is insufficient: a CRC-correct IDAT can still contain truncated,
+    trailing, or otherwise invalid zlib data.  Decode the concatenated IDAT
+    stream and account for every scanline byte, including the per-row filter.
+    """
     try:
         data = path.read_bytes()
     except OSError:
@@ -737,6 +754,8 @@ def _png_dimensions(path: Path) -> tuple[int, int] | None:
         return None
     cursor = len(PNG_SIGNATURE)
     dimensions: tuple[int, int] | None = None
+    ihdr: tuple[int, int, int, int, int, int, int] | None = None
+    idat_payload = bytearray()
     saw_idat = False
     saw_iend = False
     while cursor < len(data):
@@ -744,9 +763,13 @@ def _png_dimensions(path: Path) -> tuple[int, int] | None:
             return None
         length = struct.unpack(">I", data[cursor:cursor + 4])[0]
         end = cursor + 12 + length
-        if end > len(data):
+        if end < cursor or end > len(data):
             return None
         chunk_type = data[cursor + 4:cursor + 8]
+        if len(chunk_type) != 4 or not all(
+                (65 <= byte <= 90) or (97 <= byte <= 122)
+                for byte in chunk_type):
+            return None
         chunk = data[cursor + 8:cursor + 8 + length]
         actual_crc = struct.unpack(">I", data[cursor + 8 + length:end])[0]
         if zlib.crc32(chunk_type + chunk) & 0xFFFFFFFF != actual_crc:
@@ -756,12 +779,21 @@ def _png_dimensions(path: Path) -> tuple[int, int] | None:
         if chunk_type == b"IHDR":
             if dimensions is not None or length != 13:
                 return None
-            width, height = struct.unpack(">II", chunk[:8])
-            if width == 0 or height == 0:
+            width, height, bit_depth, color_type, compression, filtering, interlace = struct.unpack(
+                ">IIBBBBB", chunk)
+            if (width == 0 or height == 0
+                    or color_type not in _PNG_COLOR_CHANNELS
+                    or bit_depth not in _PNG_ALLOWED_BIT_DEPTHS[color_type]
+                    or compression != 0 or filtering != 0 or interlace != 0):
                 return None
             dimensions = (width, height)
+            ihdr = (width, height, bit_depth, color_type, compression,
+                    filtering, interlace)
         elif chunk_type == b"IDAT":
+            if saw_iend:
+                return None
             saw_idat = True
+            idat_payload.extend(chunk)
         elif chunk_type == b"IEND":
             if length != 0 or saw_iend or not saw_idat or end != len(data):
                 return None
@@ -770,6 +802,24 @@ def _png_dimensions(path: Path) -> tuple[int, int] | None:
             break
         cursor = end
     if dimensions is None or not saw_idat or not saw_iend or cursor != len(data):
+        return None
+    if ihdr is None:
+        return None
+    width, height, bit_depth, color_type, _compression, _filtering, _interlace = ihdr
+    bits_per_pixel = _PNG_COLOR_CHANNELS[color_type] * bit_depth
+    row_bytes = (width * bits_per_pixel + 7) // 8
+    expected_scanline_bytes = height * (row_bytes + 1)
+    try:
+        decompressor = zlib.decompressobj()
+        scanlines = decompressor.decompress(bytes(idat_payload))
+        scanlines += decompressor.flush()
+    except zlib.error:
+        return None
+    if (not decompressor.eof or decompressor.unused_data
+            or decompressor.unconsumed_tail
+            or len(scanlines) != expected_scanline_bytes):
+        return None
+    if any(scanlines[offset * (row_bytes + 1)] > 4 for offset in range(height)):
         return None
     return dimensions
 
@@ -786,6 +836,127 @@ def _git_head(root: Path) -> str | None:
     return head if HEX40_RE.fullmatch(head) else None
 
 
+def _binary_xml_valid(data: bytes) -> bool:
+    """Check Android's binary-XML file/chunk framing without XML decoding."""
+    if len(data) < 8:
+        return False
+    chunk_type, header_size, declared_size = struct.unpack_from("<HHI", data)
+    if chunk_type != 0x0003 or header_size != 8 or declared_size != len(data):
+        return False
+    cursor = header_size
+    while cursor < len(data):
+        if len(data) - cursor < 8:
+            return False
+        _chunk_type, chunk_header_size, chunk_size = struct.unpack_from(
+            "<HHI", data, cursor)
+        if (chunk_header_size < 8 or chunk_size < chunk_header_size
+                or cursor + chunk_size > len(data)):
+            return False
+        cursor += chunk_size
+    return cursor == len(data)
+
+
+def _dex_valid(data: bytes) -> bool:
+    """Validate the fixed DEX header integrity fields and declared size."""
+    if len(data) < 112 or data[:8] not in _DEX_MAGICS:
+        return False
+    file_size, header_size, endian_tag = struct.unpack_from("<III", data, 32)
+    if file_size != len(data) or header_size != 112 or endian_tag != 0x12345678:
+        return False
+    signature = data[12:32]
+    if signature != hashlib.sha1(data[32:]).digest():
+        return False
+    return struct.unpack_from("<I", data, 8)[0] == (zlib.adler32(data[12:]) & 0xFFFFFFFF)
+
+
+def _resources_table_valid(data: bytes) -> bool:
+    """Validate the resources.arsc table chunk's type, header, and size."""
+    if len(data) < 12:
+        return False
+    chunk_type, header_size, declared_size = struct.unpack_from("<HHI", data)
+    return (chunk_type == 0x0002 and header_size == 12
+            and declared_size == len(data) and declared_size >= header_size)
+
+
+def _zip_path_safe(name: str) -> bool:
+    if not name or "\0" in name or name.startswith(("/", "\\")):
+        return False
+    if re.match(r"^[A-Za-z]:([/\\]|$)", name):
+        return False
+    parts = re.split(r"[/\\]", name)
+    return all(part not in {"", ".", ".."} for part in parts)
+
+
+def _apk_signing_block_valid(data: bytes, central_offset: int) -> bool:
+    """Recognize a well-framed APK v2/v3 signing block before the central dir."""
+    if central_offset < 24:
+        return False
+    footer = data[central_offset - 24:central_offset]
+    if len(footer) != 24:
+        return False
+    size2 = struct.unpack_from("<Q", footer)[0]
+    if footer[8:] != _APK_SIG_BLOCK_MAGIC:
+        return False
+    block_start = central_offset - size2 - 8
+    if block_start < 0 or block_start + 8 > central_offset - 24:
+        return False
+    size1 = struct.unpack_from("<Q", data, block_start)[0]
+    if size1 != size2:
+        return False
+    cursor = block_start + 8
+    pair_end = central_offset - 24
+    found_signer = False
+    while cursor < pair_end:
+        if pair_end - cursor < 12:
+            return False
+        pair_size = struct.unpack_from("<Q", data, cursor)[0]
+        pair_end_item = cursor + 8 + pair_size
+        if pair_size < 4 or pair_end_item > pair_end:
+            return False
+        pair_id = struct.unpack_from("<I", data, cursor + 8)[0]
+        if pair_id in {0x7109871A, 0xF05368C0} and pair_size > 4:
+            found_signer = True
+        cursor = pair_end_item
+    return cursor == pair_end and found_signer
+
+
+def _apk_zip_valid(path: Path) -> tuple[bool, str, set[str], bytes | None]:
+    """Validate ZIP integrity, path safety, and return names/raw bytes."""
+    try:
+        raw = path.read_bytes()
+        with zipfile.ZipFile(path) as archive:
+            infos = archive.infolist()
+            names: set[str] = set()
+            folded_names: set[str] = set()
+            for info in infos:
+                name = info.filename
+                folded = name.casefold()
+                if (not _zip_path_safe(name) or folded in folded_names
+                        or info.flag_bits & 0x1):
+                    return False, "APK ZIP contains duplicate, unsafe, or encrypted paths", set(), None
+                folded_names.add(folded)
+                names.add(name)
+                archive.read(info)
+            if archive.testzip() is not None:
+                return False, "APK ZIP has a corrupt member", set(), None
+            # zipfile tolerates arbitrary trailing bytes.  APK evidence must
+            # bind to the exact archive, including the central-directory end.
+            eocd_offset = raw.rfind(b"PK\x05\x06")
+            if eocd_offset < 0 or eocd_offset + 22 > len(raw):
+                return False, "APK ZIP has no valid end-of-central-directory", set(), None
+            fields = struct.unpack_from("<4s4H2LH", raw, eocd_offset)
+            comment_length = fields[-1]
+            if eocd_offset + 22 + comment_length != len(raw):
+                return False, "APK ZIP has trailing or truncated bytes", set(), None
+            central_size, central_offset = fields[5], fields[6]
+            if (central_offset != archive.start_dir
+                    or central_offset + central_size != eocd_offset):
+                return False, "APK ZIP central-directory bounds are invalid", set(), None
+            return True, "", names, raw
+    except (OSError, RuntimeError, zipfile.BadZipFile, ValueError):
+        return False, "APK is not a valid ZIP/APK", set(), None
+
+
 def _apk_artifact(root: Path, path_value: Any, expected: Any) -> tuple[bool, str]:
     if not isinstance(path_value, str) or not path_value.strip():
         return False, "APK path is missing"
@@ -793,6 +964,10 @@ def _apk_artifact(root: Path, path_value: Any, expected: Any) -> tuple[bool, str
     if not HEX64_RE.fullmatch(digest):
         return False, "APK SHA-256 is missing or invalid"
     relative = path_value.removeprefix("res://")
+    if (not relative or "\0" in relative or relative.startswith(("/", "\\"))
+            or re.match(r"^[A-Za-z]:([/\\]|$)", relative)
+            or any(part in {"", ".", ".."} for part in re.split(r"[/\\]", relative))):
+        return False, "APK path is unsafe"
     path = (root / relative).resolve()
     try:
         path.relative_to(root.resolve())
@@ -802,16 +977,72 @@ def _apk_artifact(root: Path, path_value: Any, expected: Any) -> tuple[bool, str
         return False, f"APK missing or empty: {relative}"
     if _sha256(path) != digest:
         return False, f"APK hash mismatch: {relative}"
+    ok, reason, names, raw = _apk_zip_valid(path)
+    if not ok:
+        return False, reason
+    if raw is None:
+        return False, "APK ZIP bytes are unavailable"
     try:
         with zipfile.ZipFile(path) as archive:
-            if archive.testzip() is not None:
-                return False, "APK ZIP has a corrupt member"
-            if "AndroidManifest.xml" not in archive.namelist():
-                return False, "APK ZIP is missing AndroidManifest.xml"
-            if not archive.read("AndroidManifest.xml"):
-                return False, "APK AndroidManifest.xml is empty"
-    except (OSError, zipfile.BadZipFile, KeyError):
-        return False, "APK is not a valid ZIP/APK"
+            manifest = archive.read("AndroidManifest.xml")
+            dex = archive.read("classes.dex")
+            resources = archive.read("resources.arsc")
+    except (KeyError, OSError, RuntimeError, zipfile.BadZipFile):
+        return False, "APK ZIP is missing a required Android artifact"
+    if not _binary_xml_valid(manifest):
+        return False, "APK AndroidManifest.xml is not valid binary XML"
+    if not _dex_valid(dex):
+        return False, "APK classes.dex header or integrity is invalid"
+    if not _resources_table_valid(resources):
+        return False, "APK resources.arsc table header or size is invalid"
+    signature_pair = (
+        "META-INF/MANIFEST.MF" in names
+        and any(name.upper().startswith("META-INF/") and name.upper().endswith(".SF")
+                and len(name) > len("META-INF/.SF") for name in names)
+        and any(name.upper().startswith("META-INF/") and name.upper().endswith(
+            (".RSA", ".DSA", ".EC")) and len(name) > len("META-INF/.RSA") for name in names)
+    )
+    try:
+        with zipfile.ZipFile(path) as archive:
+            signature_payloads = [archive.read(name) for name in names
+                                  if name.upper().startswith("META-INF/")]
+    except (KeyError, OSError, RuntimeError, zipfile.BadZipFile):
+        return False, "APK signature evidence cannot be read"
+    signature_pair = signature_pair and all(signature_payloads)
+    # The central offset is recovered from the validated EOCD above.
+    eocd_offset = raw.rfind(b"PK\x05\x06")
+    central_offset = struct.unpack_from("<L", raw, eocd_offset + 16)[0]
+    if not signature_pair and not _apk_signing_block_valid(raw, central_offset):
+        return False, "APK has no valid signature evidence"
+    return True, ""
+
+
+def _apk_verification_record(root: Path, value: Any, apk_path: str,
+                             apk_sha256: str) -> tuple[bool, str]:
+    record, reason = _artifact_json(root, value, "APK verification")
+    if record is None:
+        return False, reason
+    bound_hash = str(_first_value(record, ("apk_sha256", "sha256", "apk_hash"))).lower()
+    bound_path = _first_value(record, ("apk_path", "path", "artifact"))
+    tool = _first_value(record, ("tool", "verification_tool"))
+    tool_version = _first_value(record, ("tool_version", "toolVersion", "version"))
+    command = record.get("command")
+    result = str(_first_value(record, ("result", "status", "outcome"))).upper()
+    package_id = _first_value(record, ("package_id", "package", "application_id"))
+    package_version = _first_value(record, (
+        "package_version", "version_name", "app_version", "versionName"))
+    expected_path = apk_path.removeprefix("res://")
+    actual_path = (str(bound_path).removeprefix("res://")
+                   if isinstance(bound_path, str) else "")
+    if (bound_hash != apk_sha256.lower()
+            or actual_path != expected_path
+            or not isinstance(tool, str) or not tool.strip()
+            or not isinstance(tool_version, str) or not tool_version.strip()
+            or not isinstance(command, str) or not command.strip()
+            or result != "PASS"
+            or not isinstance(package_id, str) or not package_id.strip()
+            or not isinstance(package_version, str) or not package_version.strip()):
+        return False, "APK verification record must bind APK path/SHA and declare tool/version, PASS command, package id/version"
     return True, ""
 
 
@@ -843,6 +1074,14 @@ def _device_artifact(root: Path, value: Any, selected_hash: str) -> tuple[bool, 
     apk_ok, apk_reason = _apk_artifact(root, apk_path, apk_sha256)
     if not apk_ok:
         return False, apk_reason
+    verification = _first_value(payload, (
+        "apk_verification", "apk_verification_record", "verification_record",
+        "apk_verification_evidence"))
+    verification_ok, verification_reason = _apk_verification_record(
+        root, verification, apk_path, apk_sha256) if verification is not None else (
+            False, "APK verification record is missing")
+    if not verification_ok:
+        return False, verification_reason
 
     device_names: list[str] = []
     if isinstance(devices, str):
@@ -988,6 +1227,7 @@ def _device_artifact(root: Path, value: Any, selected_hash: str) -> tuple[bool, 
         return {"path": path, "sha256": digest, "dimensions": dimensions}
 
     used_paths: set[str] = set()
+    used_content_hashes: set[str] = set()
     for state, item in rows:
         if not isinstance(item, dict):
             return False, f"device evidence {state} result is not structured"
@@ -1007,6 +1247,10 @@ def _device_artifact(root: Path, value: Any, selected_hash: str) -> tuple[bool, 
             if relative in used_paths:
                 return False, f"device evidence {state} reuses a {role} capture path"
             used_paths.add(relative)
+            content_hash = str(reference["sha256"]).lower()
+            if content_hash in used_content_hashes:
+                return False, f"device evidence {state} reuses capture content SHA-256"
+            used_content_hashes.add(content_hash)
             declared_dimensions = reference.get("dimensions")
             if (not isinstance(declared_dimensions, list)
                     or len(declared_dimensions) != 2
