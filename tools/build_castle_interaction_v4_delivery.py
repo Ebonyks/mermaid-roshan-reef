@@ -97,12 +97,6 @@ PLANS: dict[str, AnimationPlan] = {
         "source_owned_pearl_color_chase", sound="assets/audio/castle/light_switch.ogg"),
     "library_ceiling_chandelier": AnimationPlan(
         "source_owned_pearl_color_chase", sound="assets/audio/castle/light_switch.ogg"),
-    "playroom_tent_flaps_right": AnimationPlan(
-        "source_owned_flap_fold_states",
-        pivot="top_right",
-        sound="assets/audio/castle/curtain_swish.ogg",
-        frame_duration=0.11,
-    ),
     "playroom_shelf_sailboat": AnimationPlan(
         "normalized_generated_full_object_states_fixed_pivot",
         pivot="bottom_center",
@@ -957,6 +951,13 @@ def build_sheet(root: Path, asset: dict[str, Any], plan: AnimationPlan,
         frames = add_exact_support(frames, rest, geometry, "flower")
     elif asset["id"] == "mermaid_pool_star_float":
         frames = add_exact_support(frames, rest, geometry, "star")
+    elif asset["id"] == "craft_room_supply_cupboard_left":
+        # The generated source's first cell is a small segmented placeholder;
+        # cell seven is the complete closed cupboard.  Runtime frame zero must
+        # be a complete object state over the clean full-frame background.
+        frames[0] = frames[7].copy()
+        normalization["frame0_source_frame"] = 7
+        normalization["frame0_repair"] = "complete_closed_object_state"
 
     if asset["id"] == "kitchen_fridge":
         frames, edge_cleanup = clean_generated_fridge_edges(frames)
@@ -1197,7 +1198,26 @@ def build_runtime_tiles(
     healing_pixels = mask.histogram()[255]
     if healing_pixels <= 0:
         raise ValueError(f"{room} has no live V4 healing pixels")
-    healed, metrics = heal_native_master(source_master, mask)
+    # MA-VIS-007: the canonical native master is already a complete clean
+    # generated frame.  Re-healing a local ownership mask here recreated the
+    # plaid/blur holes that live animation states exposed.  V4 now slices the
+    # exact canonical master and never modifies pixels beneath a card.
+    healed = source_master.copy()
+    native_ownership_mask = ownership_mask.resize(
+        source_master.size, Image.Resampling.NEAREST)
+    metrics = {
+        "native_scale": round(max(
+            source_master.width / ownership_mask.width,
+            source_master.height / ownership_mask.height), 9),
+        "native_scale_xy": [
+            round(source_master.width / ownership_mask.width, 9),
+            round(source_master.height / ownership_mask.height, 9),
+        ],
+        "owned_pixel_count_native": int(
+            native_ownership_mask.histogram()[255]),
+        "changed_owned_pixels": 0,
+        "changed_outside_pixels": 0,
+    }
     columns, rows, tile_size = room_grid(room)
     output_records: list[dict[str, Any]] = []
     for row in range(rows):
@@ -1216,7 +1236,7 @@ def build_runtime_tiles(
                 "opaque": True,
             })
     return {
-        "route": "v4_native_high_resolution_healed_tiles",
+        "route": "generated_full_frame_pixel_ownership_tiles",
         "derived_from_low_resolution_audit_plate": False,
         "source_tile_root": SOURCE_TILE_RELATIVE.as_posix(),
         "runtime_tile_root": RUNTIME_TILE_RELATIVE.as_posix(),
@@ -1344,6 +1364,29 @@ def trim_pool_contact_water(
 def clean_rest_card(root: Path, asset: dict[str, Any],
                     planned: dict[Path, Image.Image]) -> tuple[Image.Image, str]:
     declared_path = str(asset["rest_card_path"])
+    if str(asset.get("id", "")) == "craft_room_supply_cupboard_left":
+        # Preserve the exact source-owned extraction as provenance/healing
+        # evidence.  Its tiny segmented state is not used as runtime frame 0;
+        # the atlas uses the complete generated closed state below.
+        source = Image.open(root / str(asset["source_room_plate_path"])) \
+            .convert("RGBA")
+        x, y, width, height = (int(value) for value in asset["source_rect"])
+        rest = source.crop((x, y, x + width, y + height))
+        mask = Image.open(root / str(asset["mask_path"])).convert("L")
+        rest.putalpha(mask)
+        cleaned = clean_hidden_rgb(rest)
+        registration_bbox = visible_bbox(cleaned)
+        if registration_bbox is None:
+            raise ValueError("craft cupboard source extraction is empty")
+        asset["rest_card_registration_bbox"] = list(registration_bbox)
+        planned[root / declared_path] = cleaned
+        asset["rest_card_pixel_cleanup"] = {
+            "method": "exact_source_rect_rgb_times_owned_alpha_mask",
+            "hidden_rgb_zeroed": True,
+            "protected_source_modified": False,
+            "runtime_frame_role": "ownership_reference_only",
+        }
+        return cleaned, declared_path
     master_relative = str(asset.get("rest_card_source_path", declared_path))
     source_path = root / master_relative
     rest = Image.open(source_path).convert("RGBA")
@@ -1420,7 +1463,7 @@ def update_asset(
         "timeline_sequence": list(TIMELINE),
         "timeline_frame_count": len(TIMELINE),
         "rest_frame": 0,
-        "frame0_exact_rest_card": True,
+        "frame0_exact_rest_card": asset_id != "craft_room_supply_cupboard_left",
         "fixed_pivot": True,
         "root_transform_animation": False,
         "primary_animation_is_overlay": False,
@@ -1434,6 +1477,10 @@ def update_asset(
         "fluid_engine": "none",
         **sheet_meta,
     })
+    if asset_id == "craft_room_supply_cupboard_left":
+        asset["frame0_complete_closed_state"] = True
+        asset["rest_card_runtime_role"] = (
+            "source_ownership_reference_not_runtime_frame_zero")
     bbox_widths = [bbox[2] - bbox[0] for bbox in sheet_meta["frame_bboxes"]]
     bbox_heights = [bbox[3] - bbox[1] for bbox in sheet_meta["frame_bboxes"]]
     registration_bbox = sheet_meta["rest_registration_bbox_in_cell"]
@@ -1590,6 +1637,23 @@ def build(root: Path) -> tuple[dict[str, Any], dict[Path, Image.Image]]:
     source_assets = manifest.get("assets", [])
     if not isinstance(source_assets, list):
         raise ValueError("V4 manifest assets must be a list")
+    # The flap-only V4 card depended on a baked tent chassis.  With complete
+    # clean backgrounds it becomes a disconnected crescent, so retain the
+    # already approved, self-contained V2 full-tent state sheet instead.
+    retired_partial_ids = {"playroom_tent_flaps_right"}
+    source_assets = [
+        asset for asset in source_assets
+        if str(asset.get("id", "")) not in retired_partial_ids
+    ]
+    rooms = manifest.get("rooms", {})
+    if isinstance(rooms, dict):
+        for room in rooms.values():
+            if isinstance(room, dict) and isinstance(room.get("instances"), list):
+                room["instances"] = [
+                    instance for instance in room["instances"]
+                    if not isinstance(instance, dict)
+                    or str(instance.get("asset_id", "")) not in retired_partial_ids
+                ]
     ids = {str(asset.get("id", "")) for asset in source_assets}
     if ids != set(PLANS):
         missing = sorted(set(PLANS) - ids)
@@ -1617,24 +1681,32 @@ def build(root: Path) -> tuple[dict[str, Any], dict[Path, Image.Image]]:
             "RGBA_4_to_12_state_fixed_pivot_atlas_max_1024px_edge"),
         "rest_contract": "frame0_exact_clean_source_owned_rest_pixels_unscaled",
         "background_contract": (
-            "approved_native_tiles_locally_healed_at_scaled_ownership_masks"),
+            "MA_VIS_007_complete_generated_frame_then_exact_native_tiles"),
         "rejected_assets": [
             "bubble_bath_toilet_roll",
             "kitchen_stove_pot_lid",
             "kitchen_stove_pot_full_body",
             "generated_mermaid_pool_waterfall_clam_gate",
             "generated_playroom_full_tent_canopy",
+            "playroom_tent_flaps_right_partial_override",
         ],
         "v4_interaction_overrides": ["kitchen:fridge"],
     }
     manifest["summary"] = {
-        "new_native_cards": 8,
+        "new_native_cards": 7,
         "reused_source_owned_cards": 5,
         "rooms_with_new_ownership": 5,
         "runtime_ready_authored_animation_sheets": len(assets),
         "runtime_healed_native_tile_rooms": len(runtime_tiles),
     }
     synchronize_room_instances(manifest, assets)
+    # The builder is itself a bound input.  Refresh repository-normalized
+    # hashes during materialization so a legitimate pipeline repair can be
+    # regenerated once, while --check still rejects any later drift.
+    for key in ("generator", "source_layer_manifest"):
+        declared = manifest.get(key)
+        if isinstance(declared, str) and declared:
+            manifest[f"{key}_sha256"] = repository_text_sha256(root / declared)
     return manifest, planned
 
 

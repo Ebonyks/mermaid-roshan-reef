@@ -22,7 +22,7 @@ const EXPECTED_ROOM_ITEM_IDS := {
 	],
 	"playroom": [
 		"stuffie_nook", "stacking_toy", "blocks", "play_tent",
-		"tent_flaps_right", "shelf_sailboat",
+		"shelf_sailboat",
 	],
 	"craft_room": [
 		"idea_board", "paint_table", "palette", "ribbon_rack",
@@ -53,7 +53,7 @@ const EXPECTED_ROOM_HOTSPOT_NAMES := {
 	],
 	"playroom": [
 		"Touch_stuffie_nook", "Touch_stacking_toy", "Touch_blocks",
-		"Touch_play_tent", "Touch_tent_flaps_right", "Touch_shelf_sailboat",
+		"Touch_play_tent", "Touch_shelf_sailboat",
 	],
 	"craft_room": [
 		"Touch_idea_board", "Touch_paint_table", "Touch_palette",
@@ -73,7 +73,7 @@ const EXPECTED_NATIVE_V4_ITEM_IDS := {
 	"opera_hall": ["pearl_sconce_left", "pearl_sconce_right"],
 	"kitchen": ["fridge"],
 	"library": ["pearl_lamp_right", "ceiling_chandelier"],
-	"playroom": ["tent_flaps_right", "shelf_sailboat"],
+	"playroom": ["shelf_sailboat"],
 	"craft_room": ["supply_cupboard_left"],
 	"mermaid_pool": [
 		"waterfall", "flower_float", "seahorse_fountain", "star_float",
@@ -590,11 +590,11 @@ func _init() -> void:
 			"stage=%s hit=%s" % [
 				str(toilet_stage),
 				str(Rect2(toilet_button.position, toilet_button.size))])
-		var front_card: Sprite2D = main.castle_room_front_layer.get_child(0) as Sprite2D
-		_ck("direct_canvas_depth_order", front_card.z_index
+		_ck("direct_canvas_depth_order", toilet_sprite != null
+			and toilet_sprite.z_index
 			> main.castle_room_background.z_index,
-			"back=%d front=%d" % [main.castle_room_background.z_index,
-				front_card.z_index])
+			"back=%d fixture=%d" % [main.castle_room_background.z_index,
+				toilet_sprite.z_index if toilet_sprite != null else -999])
 		var walk_target := Vector2(260.0, 430.0)
 		rooms._walk_cutout_to(_stage_to_screen(
 			main.castle_room_stage, walk_target))

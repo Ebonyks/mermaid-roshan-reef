@@ -17,7 +17,7 @@ const V2_BASE_PACK := "v2_base"
 const NATIVE_V4_PACK := "v4_native"
 const NATIVE_V4_BEHAVIOR_MODE := "authored_object_states"
 const NATIVE_V4_BACKGROUND_ROUTE := \
-	"v4_native_high_resolution_healed_tiles"
+	"generated_full_frame_pixel_ownership_tiles"
 const RETIRED_V2_ASSET_IDS: Array[String] = [
 	"main_hall_sconce",
 	"main_hall_tapestry",
@@ -101,7 +101,7 @@ func room_background_tile_textures(room_id: String, columns: int, rows: int,
 	_ensure_manifest()
 	# A native route is active only after every tile has decoded at the exact
 	# dimensions declared by the room. Never expose a partial set: source-owned
-	# object cards are unsafe over the unhealed fallback background.
+	# object cards are unsafe over a fallback background that still owns them.
 	_active_native_background_rooms.erase(room_id)
 	var textures: Array[Texture2D] = []
 	var tile_root := String(_native_background_tile_roots.get(room_id, ""))
@@ -183,8 +183,8 @@ func _ensure_manifest() -> void:
 	for room_id_value: Variant in native_entries_by_room:
 		var room_id := String(room_id_value)
 		var room_entries: Array = native_entries_by_room.get(room_id, []) as Array
-		# A source-owned card is safe only with the matching high-resolution healed
-		# room route. Gate the whole room so a partial delivery can neither erase a
+		# A source-owned card is safe only with the matching complete full-frame
+		# clean room route. Gate the whole room so a partial delivery can neither erase a
 		# pending fixture nor draw an animated card over its baked original.
 		if not native_background_roots.has(room_id):
 			rejected_native_v4 += room_entries.size()

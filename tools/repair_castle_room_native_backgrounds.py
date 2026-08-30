@@ -51,6 +51,26 @@ CONTACT_PATH = (
 	ROOT / "audit" / "castle_sprite3d"
 	/ "castle_live_alpha_baseline_repair_contact.png")
 TOOL_PATH = "tools/repair_castle_room_native_backgrounds.py"
+BUBBLE_BATH_FALSE_TUB_HEALS: tuple[dict[str, Any], ...] = (
+	{
+		"instance": "retired_front_left_shell_towel_basket",
+		"path": ROOT / "assets_src" / "castle"
+			/ "bathroom_single_bathtub_2026-08-29"
+			/ "room_bubble_bath_background_r1_c0_healed.png",
+		"sha256": "2befaa3f39ad3af15c42d6eae0fa6f9eceadf87be6e6f0684df44f4dbf4c2a6d",
+		"master_position": (0, 1024),
+		"tile_size": (910, 1024),
+	},
+	{
+		"instance": "retired_front_right_shell_towel_basket",
+		"path": ROOT / "assets_src" / "castle"
+			/ "bathroom_single_bathtub_2026-08-29"
+			/ "room_bubble_bath_background_r1_c3_healed.png",
+		"sha256": "0da1a692deb8fc32b1efefbd55faf9aed3db635e01cc06073f848301184ef7e3",
+		"master_position": (2730, 1024),
+		"tile_size": (910, 1024),
+	},
+)
 
 ROOM_IDS = (
 	"opera_hall",
@@ -547,6 +567,46 @@ def build_expected_baselines() -> dict[str, dict[str, Any]]:
 				master_size, Image.Resampling.NEAREST)
 			repaired.paste(
 				toilet_context_native, (0, 0), toilet_native_mask)
+		if room_id == "bubble_bath":
+			for heal_spec in BUBBLE_BATH_FALSE_TUB_HEALS:
+				heal_path = Path(heal_spec["path"])
+				heal_sha256 = str(heal_spec["sha256"])
+				heal_position = tuple(heal_spec["master_position"])
+				heal_size = tuple(heal_spec["tile_size"])
+				if not heal_path.is_file() or _sha256(heal_path) != heal_sha256:
+					raise ValueError(
+						"reviewed Bubble Bath false-tub heal is missing or changed")
+				false_tub_heal = Image.open(heal_path).convert("RGB")
+				if false_tub_heal.size != heal_size:
+					raise ValueError(
+						"Bubble Bath false-tub heal must remain exactly 910x1024")
+				before_heal = repaired.crop((
+					heal_position[0], heal_position[1],
+					heal_position[0] + heal_size[0],
+					heal_position[1] + heal_size[1],
+				))
+				difference = np.any(
+					np.asarray(before_heal) != np.asarray(false_tub_heal), axis=2)
+				heal_mask = Image.fromarray(
+					(difference.astype(np.uint8) * 255), mode="L")
+				master_heal_mask = Image.new("L", master_size, 0)
+				master_heal_mask.paste(heal_mask, heal_position)
+				legacy_native = ImageChops.lighter(
+					legacy_native, master_heal_mask)
+				final_native = ImageChops.lighter(
+					final_native, master_heal_mask)
+				repaired.paste(false_tub_heal, heal_position)
+				targeted_repairs.append({
+					"room": "bubble_bath",
+					"instance": str(heal_spec["instance"]),
+					"method": "reviewed_imagegen_floor_heal_native_tile_override",
+					"path": _relative(heal_path),
+					"sha256": heal_sha256,
+					"master_position": list(heal_position),
+					"dimensions": list(heal_size),
+					"changed_native_pixels": int(np.count_nonzero(difference)),
+					"protected_originals_modified": False,
+				})
 
 		master_path = ROOT / str(room_record["master"])
 		master_bytes = _png_bytes_preserving_pixels(master_path, repaired)
@@ -719,16 +779,16 @@ def _update_fable(results: dict[str, dict[str, Any]]) -> None:
 		room["upscale_method"] = (
 			"approved full-room whole-canvas Lanczos to native size; prior "
 			"hidden fill retained only inside exact live-alpha ownership")
-		room["native_live_alpha_baseline"] = {
-			"provenance": _relative(PROVENANCE_PATH),
-			"live_alpha_threshold": LIVE_ALPHA_THRESHOLD,
-			"legacy_live_union_pixel_sha256": (
-				record["legacy_live_union"]["raw_pixel_sha256"]),
-			"approved_pixels_restored_outside_live_union": True,
-			"changed_outside_live_union_pixels": (
-				record["repaired_baseline_metrics"]
-				["changed_outside_live_union_pixels"]),
-		}
+		baseline = room["native_live_alpha_baseline"]
+		# Update in place so json.dumps retains the manifest's reviewed order.
+		baseline["approved_pixels_restored_outside_live_union"] = True
+		baseline["changed_outside_live_union_pixels"] = (
+			record["repaired_baseline_metrics"]
+			["changed_outside_live_union_pixels"])
+		baseline["legacy_live_union_pixel_sha256"] = (
+			record["legacy_live_union"]["raw_pixel_sha256"])
+		baseline["live_alpha_threshold"] = LIVE_ALPHA_THRESHOLD
+		baseline["provenance"] = _relative(PROVENANCE_PATH)
 	# Preserve the established manifest's human-reviewed key order; only the
 	# seven room records above are semantically updated.
 	data = (json.dumps(manifest, indent=2) + "\n").encode()
@@ -821,6 +881,15 @@ def _print_metrics(results: dict[str, dict[str, Any]]) -> None:
 
 
 def main() -> int:
+	# MA-VIS-007 supersedes local alpha-mask healing with complete generated
+	# background ownership.  Keep this historical entry point for CI and old
+	# operator commands, but delegate to the sole current builder so it cannot
+	# recreate blurred object-shaped holes.
+	ownership_source = (
+		ROOT / "assets_src/castle/interactive_background_ownership_2026-08-29")
+	if ownership_source.is_dir():
+		from build_interactive_background_ownership import main as ownership_main
+		return ownership_main()
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument(
 		"--check", action="store_true",

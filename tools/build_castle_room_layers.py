@@ -633,7 +633,16 @@ def main() -> None:
 				"crop": list(crop_box),
 			})
 
-		provisional_background = _clean_plate(image, union)
+		# MA-VIS-007: use the reviewed complete background for extraction
+		# comparisons; local synthetic clean plates created visible plaid holes.
+		clean_source = (
+			ROOT / "assets_src/castle/interactive_background_ownership_2026-08-29"
+			/ f"generated_room_{room_id}_background_source.png")
+		if not clean_source.is_file():
+			raise FileNotFoundError(
+				f"authoritative complete clean background missing: {clean_source}")
+		provisional_background = Image.open(clean_source).convert("RGB").resize(
+			CANVAS, Image.Resampling.LANCZOS)
 		unique_masks: list[Image.Image] = []
 		refined_union = Image.new("L", CANVAS, 0)
 		for index, card_record in enumerate(card_records):
@@ -668,7 +677,7 @@ def main() -> None:
 			card_record["alpha_outline_refined"] = True
 
 		background_path = ROOM_DIR / f"room_{room_id}_background.png"
-		background = _clean_plate(image, refined_union)
+		background = provisional_background.copy()
 		background.save(background_path, optimize=True)
 
 		reconstruction = background.convert("RGBA")

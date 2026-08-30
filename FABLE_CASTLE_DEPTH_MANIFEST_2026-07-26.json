@@ -50,7 +50,7 @@
         1024,
         576
       ],
-      "background_sha256": "cb2ea5976be13dde3c54cd2ea11abdcc8adb65671a86c6785bcf56b69e72fdce",
+      "background_sha256": "8a333a0b16643a67fd20c061c11770c7e515df6395eb7790d2617f16e855b70e",
       "card_count": 6,
       "card_overlap_pixels": 0,
       "cards": [
@@ -153,7 +153,7 @@
         3640,
         2048
       ],
-      "master_sha256": "5c1d23651c7f9c09d478b01cd4448bd73d4d85c1842ad1f7844919499c2a93c1",
+      "master_sha256": "ed684642db4a987582b32ef2a292e3400316f6a4b9812ae079e5749ad7b50c32",
       "native_live_alpha_baseline": {
         "approved_pixels_restored_outside_live_union": true,
         "changed_outside_live_union_pixels": 0,
@@ -190,7 +190,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c0.png",
           "row": 0,
-          "sha256": "9526f0eaaa73448f9da97026e5da8632bd237a710c51e58a99596a3c40943f4a"
+          "sha256": "affba4d029b470299b8efa7bd17f9a2cfa65f715c5a7eb49824a7e1473eb4fb2"
         },
         {
           "column": 1,
@@ -212,7 +212,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c1.png",
           "row": 0,
-          "sha256": "6ef0f9296e5815e9d22720402869eaea3ad60f5183171e94b8a435c8eb8223a7"
+          "sha256": "fefd2ea43121f4b71ed7bb9e203e4468e35b102b0e253c7f04817d67f21257f6"
         },
         {
           "column": 2,
@@ -234,7 +234,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c2.png",
           "row": 0,
-          "sha256": "8d4b5a037ad086849a8bc81f20cb7e0b87f8846f5876930758f2d5129031a6f0"
+          "sha256": "9472ff0a88ea99192299e3c0fda6044af5b108fe509c496c33137636caa2b3a6"
         },
         {
           "column": 3,
@@ -256,7 +256,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r0_c3.png",
           "row": 0,
-          "sha256": "7d7de83152ba176090722403f53766c33ad7c1c1fafbc2ef08247be4e72bc5ba"
+          "sha256": "0dfdf96c51cf864e9a46ffb2e0ed45f8b344d00df9be7749c469f1b74147ffcc"
         },
         {
           "column": 0,
@@ -278,7 +278,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c0.png",
           "row": 1,
-          "sha256": "86d4ce581893d25058f24db56d468848084bb3aea69724fe59418719ca0bf0c8"
+          "sha256": "843bf7f7f7decdacbc3f3780a54df61ab54d1a2981517947d4a507d34f254cef"
         },
         {
           "column": 1,
@@ -300,7 +300,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c1.png",
           "row": 1,
-          "sha256": "d4b3a7e6bc6683011bc77ac94f9b913d080c880d8aa4d7ea669dc78b53ff510f"
+          "sha256": "559c830f86e7edaf0f51e3405fe77880caebe95511ba1c7e6d60fcfc7452ccb4"
         },
         {
           "column": 2,
@@ -322,7 +322,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c2.png",
           "row": 1,
-          "sha256": "34beb62e25ac57dbab79aff01fec3c0ff681dcbad44ce069c0a39be6e777317c"
+          "sha256": "67c64a06d47f61534703f625817cc6f708b8e724a5a120f97f3f77248334a510"
         },
         {
           "column": 3,
@@ -344,7 +344,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_bubble_bath_background_r1_c3.png",
           "row": 1,
-          "sha256": "099ee04e50b82e5404fb267f4a8624760c2ba4af633350ef829370ff8997ae9e"
+          "sha256": "486df0347cf7ef50ead1ea7cffb6daa53f563a81f707e6c8ebd58734fe9ed963"
         }
       ],
       "source": "room_bubble_bath.png",
@@ -357,8 +357,14 @@
       "source_tile_rectangles_non_overlapping": true,
       "tile_reconstruction_pixel_exact": true,
       "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
-      "upscale_method": "approved full-room whole-canvas Lanczos to native size; prior hidden fill retained only inside exact live-alpha ownership",
-      "upscaled_from_preserved_source": true
+      "upscale_method": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "upscaled_from_preserved_source": true,
+      "interactive_background_ownership": {
+        "finding": "MA-VIS-007",
+        "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_bubble_bath_background_source.png",
+        "source_sha256": "9ec8d3a2a6205f953a90e06b9c19c9f6833b57269adccb10240ddc8680aedb31",
+        "provenance": "audit/interactive_background_ownership_2026-08-29.json"
+      }
     },
     "craft_room": {
       "active_background_system": "2x4 Sprite2D tile grid",
@@ -369,7 +375,7 @@
         1024,
         576
       ],
-      "background_sha256": "35fc1573b5adea0793bf049ef2ce2c33f6fb89cb2b81c95b18bce04d087214a6",
+      "background_sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
       "card_count": 6,
       "card_overlap_pixels": 0,
       "cards": [
@@ -472,7 +478,7 @@
         3640,
         2048
       ],
-      "master_sha256": "1afd3d5981ff404f4f04a7ad6fe1fbbebbff1e0a69c82300d99a728d348c0771",
+      "master_sha256": "d3b447c641201a212e87b759c210daad16d6162068197a5f538b558a9548796d",
       "native_live_alpha_baseline": {
         "approved_pixels_restored_outside_live_union": true,
         "changed_outside_live_union_pixels": 0,
@@ -509,7 +515,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c0.png",
           "row": 0,
-          "sha256": "5bfde257afc1270a25085eda67ace560142fdd6b43647900c9a49344c71044e9"
+          "sha256": "a7bac7f1207c7fb68f706a6f1702215da771f30e9752e72b33d708de7d4e97d3"
         },
         {
           "column": 1,
@@ -531,7 +537,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c1.png",
           "row": 0,
-          "sha256": "16123d5bc9928cc132e47d1c633cabaf375f05883377a5e9ff913cf82a484604"
+          "sha256": "beb2abb1c5b24a89d13ad2318a2040e28fc624ac14404f3cd85cc1ea4069519d"
         },
         {
           "column": 2,
@@ -553,7 +559,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c2.png",
           "row": 0,
-          "sha256": "e2a17f6ffc6bb38d5724e504e273a630d484f6189ba6bd92c9e2e5add3a95514"
+          "sha256": "8b12029b8dd7f1bd7be4b7f5b33dee7fe7aed240aea155474d26a826f9e1772e"
         },
         {
           "column": 3,
@@ -575,7 +581,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r0_c3.png",
           "row": 0,
-          "sha256": "44d9e81015fc999716d034cd546bf861de7804561e0c62baf86f1342ae2a9907"
+          "sha256": "3d263e7fdaf731fd6da217361ebfcc10a920f1e8caedd9471f3ccee909f3bfbe"
         },
         {
           "column": 0,
@@ -597,7 +603,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c0.png",
           "row": 1,
-          "sha256": "03acd4c50f4c8d30b168ed5979c7192bf67e432b3a83785d962af6e09a1d0228"
+          "sha256": "7aedf83c6bba58e085744bc3e11cb0aa2987f93f3b34a3db33aa9af295daa255"
         },
         {
           "column": 1,
@@ -619,7 +625,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c1.png",
           "row": 1,
-          "sha256": "075759c9a8e5befa69c3362e72bf0c0a2ad7c133e967204f97fd9e3e8f8a4604"
+          "sha256": "41adc48e454d86813de0ff67ea7d724753d07aee5eaea92161cd623eaa3ed9c8"
         },
         {
           "column": 2,
@@ -641,7 +647,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c2.png",
           "row": 1,
-          "sha256": "98d6b59200ad22dffb8391ae50d076fc844ce3c566633995e08cd39680f20749"
+          "sha256": "72bf313d31004123fcf029828e0ae7aa4f60973fb5760e314e59195fadff92fc"
         },
         {
           "column": 3,
@@ -663,7 +669,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_craft_room_background_r1_c3.png",
           "row": 1,
-          "sha256": "d734c4fea9293431358133fcc857713788a5c2e65a571a15add7038f831bca75"
+          "sha256": "3aad0f5d2e0f2a33d6755e7aff253d4123a1f4a4b9dd6899e1dfb63eade551d7"
         }
       ],
       "source": "room_craft_room.png",
@@ -676,8 +682,14 @@
       "source_tile_rectangles_non_overlapping": true,
       "tile_reconstruction_pixel_exact": true,
       "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
-      "upscale_method": "approved full-room whole-canvas Lanczos to native size; prior hidden fill retained only inside exact live-alpha ownership",
-      "upscaled_from_preserved_source": true
+      "upscale_method": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "upscaled_from_preserved_source": true,
+      "interactive_background_ownership": {
+        "finding": "MA-VIS-007",
+        "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_craft_room_background_source.png",
+        "source_sha256": "506ac703fe36ac9e33ddbbf1c6249bec8bcb4c9df806eb54e2d0cfc2d9ddeb48",
+        "provenance": "audit/interactive_background_ownership_2026-08-29.json"
+      }
     },
     "kitchen": {
       "active_background_system": "3x4 Sprite2D tile grid",
@@ -688,7 +700,7 @@
         1024,
         576
       ],
-      "background_sha256": "40c8bfc49c2a764ae11d51508b9273e0e541dea3df576957267779a795d4682f",
+      "background_sha256": "b58bd03a394717ebff381d76e4cb7d03410a463b7b30d2a58065be5a4df8c065",
       "card_count": 9,
       "card_overlap_pixels": 0,
       "cards": [
@@ -844,7 +856,7 @@
         4096,
         2304
       ],
-      "master_sha256": "fd1b7eb402f87b4a09fc0593ee54a9d9855d05c512cd799083068cbfa31d0494",
+      "master_sha256": "84cb819fbbeab05ceeecffa19d9821e5077eb5f74f2c6669767dc3623add9f07",
       "native_live_alpha_baseline": {
         "approved_pixels_restored_outside_live_union": true,
         "changed_outside_live_union_pixels": 0,
@@ -881,7 +893,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c0.png",
           "row": 0,
-          "sha256": "9c15ef2eafd3980980164c5d76005df54ae1eee95c10fa872c69b4971ace1068"
+          "sha256": "3c05ca73febc3baa99c40150b48764177223280b8647fb9d01fc4d9e669ad38b"
         },
         {
           "column": 1,
@@ -903,7 +915,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c1.png",
           "row": 0,
-          "sha256": "22747f928bd58a9e6ae9bccdc2240a06d36669c2f412a0eccf09907946af4f4a"
+          "sha256": "059e9d72f1329fe1259479d4c068a64fcd9d6afc109502f50779c99abcbac827"
         },
         {
           "column": 2,
@@ -925,7 +937,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c2.png",
           "row": 0,
-          "sha256": "87ae6ce373ae80ccd51d324ca65b0a6f8448296bd0352903a89e6b5d4d7d7f44"
+          "sha256": "757c89aaf143d61d4d1e17f4f7c53ac23a2bc7c0fbf36c5bcd980568e1f7fb67"
         },
         {
           "column": 3,
@@ -947,7 +959,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r0_c3.png",
           "row": 0,
-          "sha256": "2b59922d30ebd9ffbfe9b917ec8b68fdcd028105e01ce679a8a69b2ea4de490a"
+          "sha256": "48dc74dc14c228cc68da4e512fe01a80726c614429c429bc14bffe74315e7123"
         },
         {
           "column": 0,
@@ -969,7 +981,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c0.png",
           "row": 1,
-          "sha256": "d78015c0e6b4fa376964c37bf7f4b51551eb103dfc73f69547ed6f497a3779c5"
+          "sha256": "46fa2db95b39365ed42e99dcc9defb9a775e7653f3e1027a6fc22e5d4139ba1f"
         },
         {
           "column": 1,
@@ -991,7 +1003,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c1.png",
           "row": 1,
-          "sha256": "8375a132bdb8b48c6ab88932a80249f19b690dee4d7f96a4feaca1e91690d772"
+          "sha256": "8a49cc80a4a0fcc78979056329398cd35a52ed9f42c912af2d21140a171f299c"
         },
         {
           "column": 2,
@@ -1013,7 +1025,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c2.png",
           "row": 1,
-          "sha256": "5a152c4430e25d2c7302faee2a5f46f7a9d9c3966fe4e63a961dad40db1e21eb"
+          "sha256": "a47facda2e46320ec49959764a95f8385008f807e204a8119d41e455d3cf5f31"
         },
         {
           "column": 3,
@@ -1035,7 +1047,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r1_c3.png",
           "row": 1,
-          "sha256": "38a0c5313c2172df68ba8f38f282191f62730f08e194088e708a0813f48d669b"
+          "sha256": "1da2cb9587a227f9351b0a456ad9fc6baa3a364cc6b7c26e1c28c3d018a8b724"
         },
         {
           "column": 0,
@@ -1057,7 +1069,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c0.png",
           "row": 2,
-          "sha256": "3f59b84a25dbd6807fb13800fda06d42a9ec951ec43d326d36359d1bc663c2f0"
+          "sha256": "e9af86a19c5ef9044ff3d11246040f254513a71f9d1c8b176c613cd6021a1b6b"
         },
         {
           "column": 1,
@@ -1079,7 +1091,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c1.png",
           "row": 2,
-          "sha256": "aa5ed8d587cd122570d0d957628d692ad60f04f7779b5060e61fdca2176a9727"
+          "sha256": "4e390845f8d5a3db4c5a937caa5de1ffb60c0347d2fbf340b9a189509fc13ef8"
         },
         {
           "column": 2,
@@ -1101,7 +1113,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c2.png",
           "row": 2,
-          "sha256": "93b9a98584bbdf89835465a7da1d57192e7616f5e68d652510a3420668f39ece"
+          "sha256": "6c12ef5153102152f7582da654a09cac438d2c50bd0667bae56d2b59511e5cc4"
         },
         {
           "column": 3,
@@ -1123,7 +1135,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_kitchen_background_r2_c3.png",
           "row": 2,
-          "sha256": "23ada8d9518f9ba3ad4c38e5c49ec2377a33c6066ced0bc96f3dbb6f6992c429"
+          "sha256": "0b9a5f3a00979db39da7caf8d8613d9b9bce340f274ef78ab29ca924c5b6dc5e"
         }
       ],
       "source": "room_kitchen.png",
@@ -1136,8 +1148,14 @@
       "source_tile_rectangles_non_overlapping": true,
       "tile_reconstruction_pixel_exact": true,
       "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
-      "upscale_method": "approved full-room whole-canvas Lanczos to native size; prior hidden fill retained only inside exact live-alpha ownership",
-      "upscaled_from_preserved_source": true
+      "upscale_method": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "upscaled_from_preserved_source": true,
+      "interactive_background_ownership": {
+        "finding": "MA-VIS-007",
+        "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_kitchen_background_source.png",
+        "source_sha256": "bf719337f531b436c556c6510cab614dd90825ba8d66903f1b76f88f6bf37466",
+        "provenance": "audit/interactive_background_ownership_2026-08-29.json"
+      }
     },
     "library": {
       "active_background_system": "2x4 Sprite2D tile grid",
@@ -1148,7 +1166,7 @@
         1024,
         576
       ],
-      "background_sha256": "de5526db3220928fcdb2e9cc8afd132788f8c7a68b75f3479214554754734b0d",
+      "background_sha256": "1bd0d93f703c78339da78ef709bdedfae45fce9a03ad734774995ac2ac409974",
       "card_count": 6,
       "card_overlap_pixels": 0,
       "cards": [
@@ -1251,7 +1269,7 @@
         3640,
         2048
       ],
-      "master_sha256": "ff464bf5ace9a1f253ef9509d8a64077865ca812bcfd4ef730c4b6dc176fb014",
+      "master_sha256": "8c4dd2a82a8475a07d188565f9f93acce6a471b61e55cf868555b6661ea618a2",
       "native_live_alpha_baseline": {
         "approved_pixels_restored_outside_live_union": true,
         "changed_outside_live_union_pixels": 0,
@@ -1288,7 +1306,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c0.png",
           "row": 0,
-          "sha256": "e2f49a4260129057c888584aba69a1238bb7ceaf293e280913228bfc2100bf95"
+          "sha256": "d42f48eeb5d0177e1316043eee94e1a096614f45e1f42ce7205ecd573b4c4e74"
         },
         {
           "column": 1,
@@ -1310,7 +1328,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c1.png",
           "row": 0,
-          "sha256": "8d7a1d4f1c71afb65bbd8de040c4083b33c581672138c57dfa41950325087dc1"
+          "sha256": "c228066d86f9e3edc2714be1b257611219473d6086b89204e3423106d4d31e74"
         },
         {
           "column": 2,
@@ -1332,7 +1350,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c2.png",
           "row": 0,
-          "sha256": "c32bc2b58f6a8588d83adef4b3c15b962efed83ac39c4265636d60a049dc9763"
+          "sha256": "a440418326eb2511814838bcf29b530a95f39c4af05b2acda65ec89d857f3536"
         },
         {
           "column": 3,
@@ -1354,7 +1372,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r0_c3.png",
           "row": 0,
-          "sha256": "5c698ba46d9a4d7c456dcab7ecb36dcae992c28a9074c4440b52208102ea2bf1"
+          "sha256": "fedcd873d6519fbda9f79e50583c44a7ac51d0c6548898fa226c9b18e14b61ba"
         },
         {
           "column": 0,
@@ -1376,7 +1394,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c0.png",
           "row": 1,
-          "sha256": "174de271d05ffbca6ee221b7800026cf5a851aa677499e3b8b809cb88e5d8529"
+          "sha256": "e87730bb1460e70fce1f5459116be4e5156405ecb288c511e6e41d17c7871c20"
         },
         {
           "column": 1,
@@ -1398,7 +1416,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c1.png",
           "row": 1,
-          "sha256": "bae6f50968b803df03d86b143cf216491cd02a8ae7b13c11caf6329a6ebb914f"
+          "sha256": "ec67c61df88bee4ce231a85358f57e3b1908c9dbb97eed5295e628707834cdcd"
         },
         {
           "column": 2,
@@ -1420,7 +1438,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c2.png",
           "row": 1,
-          "sha256": "d80ef82f6961122d4aeadf48be92b4ad9d718165f8db8a01ad621d3a73db691b"
+          "sha256": "35359accb08f6c937492c0d2789355504cea90868faf521e9dc91097e68e5332"
         },
         {
           "column": 3,
@@ -1442,7 +1460,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_library_background_r1_c3.png",
           "row": 1,
-          "sha256": "6f7fc8f4d93ed061741c847e2862a701c84edcca12145c5adb62a7c290e0ef1f"
+          "sha256": "19e20c561b82e45b8bda12446b857699ee369fea8e1f064a7206a37a9b863c9c"
         }
       ],
       "source": "room_library.png",
@@ -1455,8 +1473,14 @@
       "source_tile_rectangles_non_overlapping": true,
       "tile_reconstruction_pixel_exact": true,
       "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
-      "upscale_method": "approved full-room whole-canvas Lanczos to native size; prior hidden fill retained only inside exact live-alpha ownership",
-      "upscaled_from_preserved_source": true
+      "upscale_method": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "upscaled_from_preserved_source": true,
+      "interactive_background_ownership": {
+        "finding": "MA-VIS-007",
+        "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_library_background_source.png",
+        "source_sha256": "dea78951144fe242201fbbd0e4e01e5f9f53c20fc5b05777811f82223e7d7066",
+        "provenance": "audit/interactive_background_ownership_2026-08-29.json"
+      }
     },
     "main_hall": {
       "active_background_system": "two 3640x2048 per-screen masters / lossless 7280x2048 panorama / 2x8 unshaded Sprite2D grid",
@@ -2125,7 +2149,7 @@
         1024,
         576
       ],
-      "background_sha256": "f57e144d7cffa08b169c066585ce0612fa591089359c792b1925531a26c781c6",
+      "background_sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
       "card_count": 7,
       "card_overlap_pixels": 0,
       "cards": [
@@ -2251,7 +2275,7 @@
         3640,
         2048
       ],
-      "master_sha256": "cd2d3627c38e5a161855427912bf8f1cf29f855cac8d98f8733b7ef8f878851a",
+      "master_sha256": "70cf179b47b9a3f4b8b7046f8059f9140450bc209be8e630fbf211e9bd0a203b",
       "native_live_alpha_baseline": {
         "approved_pixels_restored_outside_live_union": true,
         "changed_outside_live_union_pixels": 0,
@@ -2288,7 +2312,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c0.png",
           "row": 0,
-          "sha256": "ff976de6ed1378453610f9e54177fac449c266b158d690c56e0226e4b3cdd62a"
+          "sha256": "3d1827d3f83b0fbb515831d7bd34b78fe227817970896556a5e77b54ebb6090f"
         },
         {
           "column": 1,
@@ -2310,7 +2334,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c1.png",
           "row": 0,
-          "sha256": "4afd34512664144f9dbef1adad02f3abe901f61672048052793bb665fac6e347"
+          "sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516"
         },
         {
           "column": 2,
@@ -2332,7 +2356,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c2.png",
           "row": 0,
-          "sha256": "7470a5c1ce79cc91a3e2a0c3891cf29353d3acb82fc58ca65c3f1c580c4608c3"
+          "sha256": "746f17f2060b1e50bbfabf0369628f34cd782d533ff9e145c16839634eabe450"
         },
         {
           "column": 3,
@@ -2354,7 +2378,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r0_c3.png",
           "row": 0,
-          "sha256": "c8d95f9a3d077a0f1a48082172db68f58412d11802b2ef9b80a262edb88d73f2"
+          "sha256": "0295252d806fb02a5d16e362f45f8b79bc588bdfd49a45d1cbf8fdf5aeb9ef7c"
         },
         {
           "column": 0,
@@ -2376,7 +2400,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c0.png",
           "row": 1,
-          "sha256": "1131272bffcc7f9c057956ff778ef0b2da0f5fefe2aa8dc1ea390b630d417728"
+          "sha256": "35d644cc44e22dccbf7cffd846fbecb07cdfb7bc62569074c574bfb948108885"
         },
         {
           "column": 1,
@@ -2398,7 +2422,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c1.png",
           "row": 1,
-          "sha256": "ac02a7749ece6a5e22572d5b0526259dbe8cf0ae4c8b742c7559fa8cc031f569"
+          "sha256": "6b8889b828b2e1062ebac7218f45aed0df579041c0567ed5cca9148d806ec693"
         },
         {
           "column": 2,
@@ -2420,7 +2444,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c2.png",
           "row": 1,
-          "sha256": "6aae98d04bc1bb97aa43dc3ca38139e49ab504be0101e03994ae31cdff3aedc0"
+          "sha256": "cafa0e24d949d75c216fc22d6ab6c59025482424959a58759b809f7c586d735d"
         },
         {
           "column": 3,
@@ -2442,7 +2466,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_mermaid_pool_background_r1_c3.png",
           "row": 1,
-          "sha256": "c72c17d44093c8872c1477278eedd2e807122d006cfed8bff25524b6198638d6"
+          "sha256": "1940861bf7d1e5e67fce5619d969eefb9e41940634260afa793f994be9cfd519"
         }
       ],
       "source": "room_mermaid_pool.png",
@@ -2455,8 +2479,14 @@
       "source_tile_rectangles_non_overlapping": true,
       "tile_reconstruction_pixel_exact": true,
       "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
-      "upscale_method": "approved full-room whole-canvas Lanczos to native size; prior hidden fill retained only inside exact live-alpha ownership",
-      "upscaled_from_preserved_source": true
+      "upscale_method": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "upscaled_from_preserved_source": true,
+      "interactive_background_ownership": {
+        "finding": "MA-VIS-007",
+        "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_mermaid_pool_background_source.png",
+        "source_sha256": "5807a2383e67229b328a3756fbee6fa4036e0ad0b1c090cf65ebd74399d90b87",
+        "provenance": "audit/interactive_background_ownership_2026-08-29.json"
+      }
     },
     "opera_hall": {
       "active_background_system": "2x4 Sprite2D tile grid",
@@ -2467,7 +2497,7 @@
         1024,
         576
       ],
-      "background_sha256": "f5415682c860146392ff9f47c2443406672746e0966f215ff1a78dd25a7849e1",
+      "background_sha256": "ebd074ac85a1b7d479eada4f49e0000690a9e96576a8ae1370525fe68e08116f",
       "card_count": 6,
       "card_overlap_pixels": 0,
       "cards": [
@@ -2570,7 +2600,7 @@
         3640,
         2048
       ],
-      "master_sha256": "39f6d8760fd3da13e39ed07caa1a9d3e8328f0b6e14056b93bfa3466ab968aa1",
+      "master_sha256": "21c33685913d290d8a887f11f6d3a0a4faf8b938f1137cd1e1d9c395cf3a1f77",
       "native_live_alpha_baseline": {
         "approved_pixels_restored_outside_live_union": true,
         "changed_outside_live_union_pixels": 0,
@@ -2607,7 +2637,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c0.png",
           "row": 0,
-          "sha256": "e480e0e071ed6185dd697b70fe3e5877bfb3da2e74b9e60bf19bbe6e7eb2aa23"
+          "sha256": "a18cd59488570b1d5316f5583d7dee778e2dd5395b5aeeff0ef92967a76ed0a4"
         },
         {
           "column": 1,
@@ -2629,7 +2659,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c1.png",
           "row": 0,
-          "sha256": "790ba9664172c5d41e0a8ada4119f982257ce7b0fabfab12d9ef0a9855890eb6"
+          "sha256": "d6a48b9e9171f0f4aa1163e8925b9c57e77afca8567adefd4af9fb67af9cc1e3"
         },
         {
           "column": 2,
@@ -2651,7 +2681,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c2.png",
           "row": 0,
-          "sha256": "7d6dcadadb1d09bf11a76db4b02b65ecb747861e8225584b9d8a11dba62b2a94"
+          "sha256": "63a66a417833a9764c5b6f4bc742b0c043e3cb99edd9616941dd53b8ab807773"
         },
         {
           "column": 3,
@@ -2673,7 +2703,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c3.png",
           "row": 0,
-          "sha256": "e774bfd1c57e339063caf1142b6154f142f511209f526d7cd5389afb2629c079"
+          "sha256": "642ab06337bb726b1fb736ffa10c6b94aadf01550ca1f12ba30421d6a0a4dd86"
         },
         {
           "column": 0,
@@ -2695,7 +2725,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c0.png",
           "row": 1,
-          "sha256": "34212511cb34c93939b82ce737ca4752bf16ca1b481d5d98130eece51d920f4c"
+          "sha256": "422727d745628b237acba5135660f27d8989556abd19168f90bcec869d079a08"
         },
         {
           "column": 1,
@@ -2717,7 +2747,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c1.png",
           "row": 1,
-          "sha256": "c3631419a7877ea3db280a86d672ee8c0c5aa83dc8084e05f42d551eca811b5a"
+          "sha256": "1c75abdeb9b718c55d320b30fb6d5050bca09ff7e01a500156e567d9e9590004"
         },
         {
           "column": 2,
@@ -2739,7 +2769,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c2.png",
           "row": 1,
-          "sha256": "d1bc774daa2c1ef9a54f92034d7a04e98cdce090f489ef09b10050d8873805c0"
+          "sha256": "bdc4d61551082d74e530eb39b46639904b7c372a39daec5255a038da44dc49db"
         },
         {
           "column": 3,
@@ -2761,7 +2791,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c3.png",
           "row": 1,
-          "sha256": "b69aa02c0a9bc246a9e497dab872f831755292ba943d521b86ffcfb4263a0db6"
+          "sha256": "afb10ec7e107b1f2c1d0c6be9ab5244997401d12f41c589365a50d58e481215f"
         }
       ],
       "source": "room_opera_hall.png",
@@ -2774,8 +2804,14 @@
       "source_tile_rectangles_non_overlapping": true,
       "tile_reconstruction_pixel_exact": true,
       "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
-      "upscale_method": "approved full-room whole-canvas Lanczos to native size; prior hidden fill retained only inside exact live-alpha ownership",
-      "upscaled_from_preserved_source": true
+      "upscale_method": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "upscaled_from_preserved_source": true,
+      "interactive_background_ownership": {
+        "finding": "MA-VIS-007",
+        "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_opera_hall_background_source.png",
+        "source_sha256": "21b3645f36914701b697377a11aea0faba5dd830207f571f9c26013ca8383d8d",
+        "provenance": "audit/interactive_background_ownership_2026-08-29.json"
+      }
     },
     "playroom": {
       "active_background_system": "2x4 Sprite2D tile grid",
@@ -2786,7 +2822,7 @@
         1024,
         576
       ],
-      "background_sha256": "f95a320de56eb6b384658fdd3dc487434fd75c9dadedfdd5b41aafe351c1ded2",
+      "background_sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
       "card_count": 6,
       "card_overlap_pixels": 0,
       "cards": [
@@ -2889,7 +2925,7 @@
         3640,
         2048
       ],
-      "master_sha256": "c66a668af1ebf5144ae97cf64444ce99d295d735075207e85462546f50c9d80a",
+      "master_sha256": "0e6073b167bffb7f17558a09f52e1bee94b406ad6e8191e4372716e604202901",
       "native_live_alpha_baseline": {
         "approved_pixels_restored_outside_live_union": true,
         "changed_outside_live_union_pixels": 0,
@@ -2926,7 +2962,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c0.png",
           "row": 0,
-          "sha256": "92822246ba645ad0537da01791c4c8fabcdf5e73599351b166584119fbe31da5"
+          "sha256": "096488900a40cbf648a1d14bc47a0c12b7fed6581b59f3ae64438df68083281d"
         },
         {
           "column": 1,
@@ -2948,7 +2984,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c1.png",
           "row": 0,
-          "sha256": "bf69a0f0dfcfc94c3efc2fbdd02cd196b2991e0d23859beb20ca2576b3ddff07"
+          "sha256": "6f4e4aba1b1088202e029c7789dd72ae3839973ad03188baba70bcf4dd04edee"
         },
         {
           "column": 2,
@@ -2970,7 +3006,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c2.png",
           "row": 0,
-          "sha256": "d84bc10f537fb3df73c306ef18fadc9139cec4097f59e178ea39b72f665ee074"
+          "sha256": "6a53730b073147c28cf9d0592e8a671df9660a167e08e3522f8870caf585e05a"
         },
         {
           "column": 3,
@@ -2992,7 +3028,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r0_c3.png",
           "row": 0,
-          "sha256": "f8e414c230d3311427d4d428315723a595c9b17fdafab1de0c9d3702d16a5b29"
+          "sha256": "843edda8aaa1167aa7f38b9ff0a7b3ce073e44137e8191f966b1dfa2b928268f"
         },
         {
           "column": 0,
@@ -3014,7 +3050,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c0.png",
           "row": 1,
-          "sha256": "e9c0f14a81830aa5b7df842044678f8fb5941de62ea014026ded2da7da25988c"
+          "sha256": "e5d5044e76a9f542ad27229baa135862e4daf86b628b50bdee3a81eb85b4bca7"
         },
         {
           "column": 1,
@@ -3036,7 +3072,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c1.png",
           "row": 1,
-          "sha256": "3367f2e01373cd4bbc3ba2d1f1ddb83b4acd742173798ab99c734b9eb5cbce58"
+          "sha256": "b03d79f00f8bf9848e8d42edfc6a6fbfa37e1ac6e8cebb0df5653c8611661f2a"
         },
         {
           "column": 2,
@@ -3058,7 +3094,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c2.png",
           "row": 1,
-          "sha256": "47186ee72f9642e71e79415a66c7655edee7787dad36bff6913922ab9eedfdb5"
+          "sha256": "b971fbb842904377f5fdd3e91ea48284ba4ec563497d77656719e9e963e5ecdd"
         },
         {
           "column": 3,
@@ -3080,7 +3116,7 @@
           ],
           "path": "assets/flats/castle/rooms/background_tiles/room_playroom_background_r1_c3.png",
           "row": 1,
-          "sha256": "6fdd3e0f56fdf9ccba3e8207e3b0a64bc06c8885799ee311a019d8ea56b12b2b"
+          "sha256": "eb67c27e7d4dc2d0d304390cf83b58aa1be2347c4e466beb35eadd27ae82240f"
         }
       ],
       "source": "room_playroom.png",
@@ -3093,8 +3129,14 @@
       "source_tile_rectangles_non_overlapping": true,
       "tile_reconstruction_pixel_exact": true,
       "upscale_authorization": "Owner 2026-07-29: Upscale as needed in this situation.",
-      "upscale_method": "approved full-room whole-canvas Lanczos to native size; prior hidden fill retained only inside exact live-alpha ownership",
-      "upscaled_from_preserved_source": true
+      "upscale_method": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+      "upscaled_from_preserved_source": true,
+      "interactive_background_ownership": {
+        "finding": "MA-VIS-007",
+        "source": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_playroom_background_source.png",
+        "source_sha256": "779bc3714165916c7fbce3755c7038d56068f48cb379c4ff528fa470041e0c9e",
+        "provenance": "audit/interactive_background_ownership_2026-08-29.json"
+      }
     }
   },
   "runtime_correction_2026_07_29": {

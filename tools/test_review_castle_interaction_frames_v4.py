@@ -115,12 +115,12 @@ class CastleInteractionRepositoryReviewTests(unittest.TestCase):
             review.contact_sheet_evidence(
                 "review.png", changed)["pixel_sha256"])
 
-    def test_shipping_manifest_has_all_thirteen_v4_assets(self) -> None:
+    def test_shipping_manifest_has_all_twelve_v4_assets(self) -> None:
         root = Path(__file__).resolve().parents[1]
         manifest = json.loads(
             (root / review.V4_MANIFEST_RELATIVE).read_text(encoding="utf-8"))
         self.assertEqual(len(manifest["assets"]), review.EXPECTED_V4_ASSET_COUNT)
-        self.assertEqual(len({asset["id"] for asset in manifest["assets"]}), 13)
+        self.assertEqual(len({asset["id"] for asset in manifest["assets"]}), 12)
 
     def test_static_card_placement_uses_alpha_128(self) -> None:
         image = rgba((2, 1), (90, 160, 220, 0))
@@ -173,7 +173,7 @@ return {
                 })
             underlay, evidence = review.reconstruct_logical_underlay(
                 root, "test_room", {
-                    "route": "v4_native_high_resolution_healed_tiles",
+                    "route": "generated_full_frame_pixel_ownership_tiles",
                     "grid": [2, 1],
                     "tile_dimensions": [2, 2],
                     "native_canvas_size": [4, 2],
@@ -206,6 +206,8 @@ return {
             approved, underlay, ownership, primary, [card], asset_z=3.0)
         ahead = review.compose_depth_aware_frame(
             approved, underlay, ownership, primary, [card], asset_z=1.0)
+        self.assertEqual(behind.getpixel((0, 0)), (20, 40, 100, 255))
+        self.assertEqual(ahead.getpixel((0, 0)), (20, 40, 100, 255))
         self.assertEqual(behind.getpixel((2, 1)), (230, 40, 180, 255))
         self.assertEqual(ahead.getpixel((2, 1)), (245, 210, 40, 255))
 

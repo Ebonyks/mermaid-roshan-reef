@@ -2633,6 +2633,12 @@ generations and transparent source masters remain preserved.
 - `assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png` — 1024×576 whole-canvas Lanczos RGBA runtime derivative of the preserved animation-ready v4 filled-room generation above. No protected original was modified or overwritten, and no local masking, compositing, isolated fixture repair, or subject translation was used.
 - `assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png` — 1024×576 whole-canvas Lanczos RGBA runtime derivative of the preserved drained master above, used only after the causal one-tap drain beat. No protected original was modified or overwritten, and no local masking, compositing, isolated fixture repair, or subject translation was used.
 
+## Interactive-card background ownership repair (2026-08-29)
+
+- `assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_{bubble_bath,craft_room,kitchen,library,mermaid_pool,opera_hall,playroom}_background_source.png` — seven project-original, complete opaque room-background edits made with OpenAI built-in ImageGen; license: project original, all rights reserved; URL: none. Each removes extracted interactive/static cards and the prior plaid/blur footprints while preserving the room's storybook identity. Exact prompts, generation IDs, hashes, normalization, and review state are recorded in `audit/interactive_background_ownership_2026-08-29.json`.
+- `assets_src/opera/interactive_background_ownership_2026-08-29/generated_world_detective_missing_crown_source.png` and `generated_world_nursery_empty_bottle_nook_source.png` — project-original, complete opaque OpenAI built-in ImageGen edits; license: project original, all rights reserved; URL: none. The Detective display is empty because its crown is the live missing object; the Nursery bottle nook is empty because its feeding bottle is a live overlay. Exact prompts and provenance are in the same audit manifest.
+- Castle logical backgrounds, native masters, canonical tiles, and V4 runtime tiles, plus the Detective/Nursery promoted natives, 2048-square masters, and runtime tiles — deterministic whole-canvas normalization and exact non-overlapping crops built by `tools/build_interactive_background_ownership.py`; no protected original was modified and no local object patch was generated.
+
 ## Day One Art Studio item art (2026-08-23)
 
 All files in this section are project-original OpenAI built-in ImageGen art or

@@ -7,7 +7,7 @@ const NATIVE_FALLBACK_ITEMS := {
 	"opera_hall": ["pearl_sconce_left", "pearl_sconce_right"],
 	"kitchen": ["fridge"],
 	"library": ["pearl_lamp_right", "ceiling_chandelier"],
-	"playroom": ["tent_flaps_right", "shelf_sailboat"],
+	"playroom": ["shelf_sailboat"],
 	"craft_room": ["supply_cupboard_left"],
 	"mermaid_pool": [
 		"waterfall", "flower_float", "seahorse_fountain", "star_float"],
