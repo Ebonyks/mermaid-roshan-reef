@@ -17,6 +17,10 @@ const DayOneBathroomCleanupLogic = preload(
 const DayOneBathroomMovieHandoffLogic = preload(
 	"res://scripts/day_one_bathroom_movie_handoff.gd")
 const DayTwoTransition2DLogic = preload("res://scripts/day_two_transition_2d.gd")
+const FAIRY_CONSERVATORY_HANDOFF_PATH := \
+	"res://scripts/arena/fairy_conservatory_handoff_2d.gd"
+const FAIRY_CONSERVATORY_DOOR := preload(
+	"res://scripts/arena/fairy_conservatory_door_2d.gd")
 const DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE := \
 	"res://assets/flats/castle/rooms/room_mermaid_pool.png"
 # Mermaid Roshan's Ocean World — Godot phase 2
@@ -245,6 +249,16 @@ var galaxy_from := ""              # world to restore after Butterfly World ("" 
 var galaxy_return_set := false     # stays set across the optional fairy-flight round trip
 var galaxy_return_pos := Vector3.ZERO
 var galaxy_level2_open := false
+# Chapter 3 Moonflower Conservatory route. These flags are additive save
+# state; the transient context keeps a return to the exact owning Castle Hall
+# or Sky Lagoon route without teaching the handoff about either world.
+var chapter3_fairy_door_revealed := false
+var chapter3_fairy_door_opened := false
+var chapter3_fairy_mission_started := false
+var fairy_conservatory_handoff: RefCounted = null
+var fairy_conservatory_return_context: Dictionary = {}
+var fairy_conservatory_galaxy_return := false
+var fairy_conservatory_closing := false
 # Runtime-only Canvas route checkpoint shared by every off-lagoon trip. The
 # generic spatial return positions below remain for older/non-promenade callers.
 var lagoon_trip_return_master_x := -1.0
@@ -2831,8 +2845,11 @@ func _end_kart_game(place: int) -> void:
 			show_msg("Rainbow Road", "The rainbow road dives DOWN and DOWN... to the EMBER FORTRESS!")
 			call_deferred("_start_ember")
 			return
-		show_msg("Rainbow Road", "The rainbow road soars on and on... to ROSHAN GALAXY!")
-		call_deferred("_start_galaxy")
+		# The child-facing Chapter 3 route now has a visible story handoff before
+		# Butterfly World. Keep Ember's junction direct, but let the Rainbow Road
+		# destination open the same Rainbow Stage used by the Castle door.
+		show_msg("Rainbow Road", "The rainbow road soars on and on... to the Butterfly House!")
+		call_deferred("_start_fairy_conservatory_handoff")
 		return
 	var msg := "Ocean Race champion — 1st place!" if place == 1 else "Great racing — you came %d%s!" % [place, suf]
 	show_msg("Ocean Race", msg)
@@ -2849,6 +2866,162 @@ func _end_kart_game(place: int) -> void:
 
 func _start_galaxy() -> void:
 	_fade_cut(_start_galaxy_now)
+
+func _maybe_reveal_fairy_conservatory() -> bool:
+	# `opera_done` is the current stable Chapter 2 authority. A dedicated
+	# Rainbow Candle field can replace this derived cause later without changing
+	# the additive route keys. Persist and announce only once; legacy Butterfly
+	# World saves are already opened and need no reveal interruption.
+	if chapter3_fairy_door_opened or not opera_done:
+		return false
+	if bool(save_data.get("chapter3_fairy_door_revealed", false)):
+		return false
+	chapter3_fairy_door_revealed = true
+	_write_save()
+	_fairy_conservatory_door_ref().call("refresh")
+	return true
+
+func _start_fairy_conservatory_handoff(returning_from_butterfly: bool = false) -> void:
+	_fade_cut(_start_fairy_conservatory_handoff_now.bind(returning_from_butterfly))
+
+func _start_fairy_conservatory_handoff_now(
+		returning_from_butterfly: bool = false) -> void:
+	if fairy_conservatory_handoff != null \
+		and is_instance_valid(fairy_conservatory_handoff):
+		return
+	if not returning_from_butterfly and fairy_conservatory_return_context.is_empty():
+		_capture_fairy_conservatory_return_context()
+	if fairy_conservatory_return_context.is_empty():
+		fairy_conservatory_return_context = {
+			"kind": "ocean",
+			"position": player.position,
+			"hud_visible": hud_layer != null and hud_layer.visible,
+		}
+	chapter3_fairy_door_revealed = true
+	chapter3_fairy_door_opened = true
+	if returning_from_butterfly:
+		chapter3_fairy_mission_started = true
+	_write_save()
+	game = "fairy_conservatory"
+	fairy_conservatory_closing = false
+	if hud_layer != null:
+		hud_layer.visible = false
+	if player != null:
+		player.visible = false
+	_set_world_controls_enabled(false, "fairy_conservatory")
+	var script_value: Variant = load(FAIRY_CONSERVATORY_HANDOFF_PATH)
+	if script_value == null:
+		push_error("Fairy Conservatory handoff script is missing")
+		_end_fairy_conservatory_handoff("back")
+		return
+	fairy_conservatory_handoff = (script_value as Script).new() as RefCounted
+	var started: Variant = fairy_conservatory_handoff.call("start", self,
+		Callable(self, "_end_fairy_conservatory_handoff"), returning_from_butterfly)
+	if started is bool and not bool(started):
+		_end_fairy_conservatory_handoff("back")
+
+func _capture_fairy_conservatory_return_context() -> void:
+	var context := {
+		"kind": "ocean",
+		"position": player.position,
+		"hud_visible": hud_layer != null and hud_layer.visible,
+	}
+	if game == "level2":
+		var phase := String(g.get("phase", ""))
+		if phase == "hall":
+			context = {
+				"kind": "hall",
+				"room": castle_room_id,
+				"position": player.position,
+				"l2_open": l2_open,
+				"hud_visible": hud_layer != null and hud_layer.visible,
+			}
+			if _castle_rooms_ref().is_open():
+				_castle_rooms_ref().suspend()
+		elif phase == "promenade":
+			_capture_lagoon_trip_return()
+			context = {
+				"kind": "level2",
+				"position": player.position,
+				"l2_open": l2_open,
+				"master_x": lagoon_trip_return_master_x,
+				"hud_visible": hud_layer != null and hud_layer.visible,
+			}
+	elif game == "kart" and kart_from == "level2":
+		context = {
+			"kind": "level2",
+			"position": player.position,
+			"l2_open": galaxy_level2_open or l2_open,
+			"master_x": lagoon_trip_return_master_x,
+			"hud_visible": hud_layer != null and hud_layer.visible,
+		}
+		kart_from = ""
+	fairy_conservatory_return_context = context
+
+func _start_galaxy_from_fairy_conservatory() -> void:
+	# Pre-seed Galaxy's generic return tuple so its normal end callback cannot
+	# rebuild a second Lagoon while the handoff owns the outer context.
+	fairy_conservatory_galaxy_return = true
+	galaxy_return_set = true
+	galaxy_from = "fairy_conservatory"
+	galaxy_return_pos *= 0.0
+	galaxy_level2_open = false
+	_start_galaxy()
+
+func _end_fairy_conservatory_handoff(result: Variant = "back") -> void:
+	if fairy_conservatory_closing:
+		return
+	fairy_conservatory_closing = true
+	var outcome := String(result)
+	var handoff := fairy_conservatory_handoff
+	fairy_conservatory_handoff = null
+	if handoff != null and is_instance_valid(handoff):
+		if handoff.has_method("teardown"):
+			handoff.call("teardown")
+	_set_world_controls_enabled(true, "fairy_conservatory")
+	if outcome == "butterfly_house":
+		chapter3_fairy_mission_started = true
+		_write_save()
+		fairy_conservatory_closing = false
+		_start_galaxy_from_fairy_conservatory()
+		return
+	_restore_fairy_conservatory_return_context()
+
+func _restore_fairy_conservatory_return_context() -> void:
+	var context := fairy_conservatory_return_context.duplicate(true)
+	fairy_conservatory_return_context.clear()
+	fairy_conservatory_closing = false
+	game = ""
+	if context.is_empty():
+		_update_hud()
+		return
+	var kind := String(context.get("kind", "ocean"))
+	if kind == "hall":
+		game = "level2"
+		l2_open = bool(context.get("l2_open", l2_open))
+		player.position = context.get("position", player.position)
+		player.vel *= 0.0
+		# The Hall controller remained alive but suspended. Resume the existing
+		# composition without show_room(), which would reset its cross-screen
+		# camera offset to the left edge.
+		_castle_rooms_ref().resume()
+		if hud_layer != null:
+			hud_layer.visible = bool(context.get("hud_visible", false))
+		return
+	if kind == "level2":
+		lagoon_trip_return_master_x = float(context.get("master_x", lagoon_trip_return_master_x))
+		call_deferred("_restore_level2_after_trip", bool(context.get("l2_open", false)),
+			context.get("position", player.position))
+		return
+	player.position = context.get("position", player.position)
+	player.vel *= 0.0
+	player.visible = true
+	if player.cam != null:
+		player.cam.make_current()
+	we_node.environment = world_env
+	_play_music("world")
+	if hud_layer != null:
+		hud_layer.visible = bool(context.get("hud_visible", true))
 
 func _start_galaxy_now() -> void:
 	# A direct courtyard portal and the Rainbow Road both reach this function.
@@ -2885,6 +3058,25 @@ func _end_galaxy(completed: bool) -> void:
 		fairy_pending = false
 		fairy_from_galaxy = true
 		call_deferred("_start_game", fairy_fr)   # straight into the fairy flight
+		return
+	if fairy_conservatory_galaxy_return:
+		# The handoff owns the original Hall/Lagoon context. Keep that tuple intact
+		# through Galaxy (and its optional Fairy Pond detour), then reopen the
+		# handoff's Butterfly House return card instead of rebuilding Sky Lagoon.
+		fairy_conservatory_galaxy_return = false
+		galaxy_from = ""
+		galaxy_return_set = false
+		galaxy_return_pos *= 0.0
+		galaxy_level2_open = false
+		if completed:
+			award_sticker("butterfly")
+			show_msg("Mermaid Rosalina", "You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! 🦋", "win")
+			chapter3_fairy_mission_started = true
+			_write_save()
+		else:
+			show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
+		_update_hud()
+		call_deferred("_start_fairy_conservatory_handoff", true)
 		return
 	if completed:
 		award_sticker("butterfly")
@@ -5315,7 +5507,7 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 			_enter_level2(false, true)
 		"court:galaxy":
 			kart_from = "level2"
-			_start_galaxy()
+			_start_fairy_conservatory_handoff()
 		"court:ember":
 			kart_float_dest = "ember"
 			_start_kart_game(false, "float")
@@ -5352,6 +5544,9 @@ func _touch_open_picture(picture_index: int) -> void:
 		_mg2d_open(String(PIC_GAME[art_key]))
 
 func _leave_current_activity() -> void:
+	if game == "fairy_conservatory" and fairy_conservatory_handoff != null:
+		_end_fairy_conservatory_handoff("back")
+		return
 	_pause_ref()._leave_current_activity()
 
 
@@ -6648,14 +6843,20 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	var castle_rooms: CastleRooms25D = _castle_rooms_ref()
 	castle_rooms.open("main_hall")
 	_day_one_discover_dirty_castle()
+	var fairy_revealed_now := _maybe_reveal_fairy_conservatory()
 	var entry_hint := \
 		"Follow the one golden rainbow door! Foggy doors are resting until it is their turn." \
 		if day_one_is_active() \
 		else "Touch a picture door or the shell elevator to visit a room!"
-	show_msg("Pearl Castle",
-		entry_hint if not from_back
-		else "The secret shell door opens into the Main Hall!",
-		"home")
+	if fairy_revealed_now:
+		show_msg("Pearl Castle",
+			"The castle found a secret sky door! Touch the shining pearl!",
+			"open")
+	else:
+		show_msg("Pearl Castle",
+			entry_hint if not from_back
+			else "The secret shell door opens into the Main Hall!",
+			"home")
 	_say("roshan", "talk", 0.5)
 
 func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
@@ -6778,6 +6979,7 @@ func light_rig() -> LightRig:
 
 var _castle_rooms_25d: CastleRooms25D = null
 var _castle_career_routes: CastleCareerRoutes = null
+var _fairy_conservatory_door: RefCounted = null
 
 func _day_one_ref() -> DayOneDirector:
 	if _day_one_director == null:
@@ -7603,6 +7805,12 @@ func _castle_rooms_ref() -> CastleRooms25D:
 		_castle_rooms_25d = CastleRooms25D.new(self)
 	return _castle_rooms_25d
 
+func _fairy_conservatory_door_ref() -> RefCounted:
+	if _fairy_conservatory_door == null:
+		_fairy_conservatory_door = FAIRY_CONSERVATORY_DOOR.new(self) \
+			as RefCounted
+	return _fairy_conservatory_door
+
 func _castle_career_routes_ref() -> CastleCareerRoutes:
 	if _castle_career_routes == null:
 		_castle_career_routes = CastleCareerRoutes.new(self)
@@ -7632,6 +7840,7 @@ func _tick_castle_rooms(delta: float) -> void:
 		_castle_rooms_ref().open("main_hall")
 	_sync_castle_room_music()
 	_castle_rooms_ref().tick(delta)
+	_fairy_conservatory_door_ref().call("tick")
 	_sync_day_one_bathroom_cleanup()
 	_sync_day_one_pool_route()
 	_castle_career_routes_ref().sync()
@@ -9497,7 +9706,9 @@ func _process(delta: float) -> void:
 	var sky_canvas_active: bool = game == "level2" \
 		and String(g.get("phase", "")) == "promenade"
 	var melody_canvas_active: bool = game == "melody"
+	var fairy_conservatory_canvas_active: bool = game == "fairy_conservatory"
 	var opaque_canvas_active: bool = sky_canvas_active or melody_canvas_active \
+		or fairy_conservatory_canvas_active \
 		or slide_canvas_active
 	# Player creates its compatibility camera deferred during boot. Direct phone
 	# entry can therefore reach Sky before that compatibility camera joins the tree; disarm
@@ -9721,6 +9932,11 @@ func _process(delta: float) -> void:
 		pass   # the KartGame node ticks itself
 	elif game == "galaxy":
 		pass   # the GalaxyLevel node ticks itself
+	elif game == "fairy_conservatory":
+		if fairy_conservatory_handoff != null \
+				and is_instance_valid(fairy_conservatory_handoff) \
+				and fairy_conservatory_handoff.has_method("tick"):
+			fairy_conservatory_handoff.call("tick", delta)
 	elif game == "ember":
 		pass   # the EmberFortressLevel node ticks itself
 	elif game == "combat":
