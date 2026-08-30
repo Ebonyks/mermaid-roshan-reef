@@ -91,23 +91,31 @@ you consciously renew it — silence is not an option, which is the point.
 If you find yourself granting a second waiver for the same field, stop and
 reread §0: that is the old pattern restarting.
 
-## 4. Hold the lane discipline
+## 4. Drive runs, not agents — the one-prompt workflow
 
-- **Single-writer governance** (design/08 §8): implementation agents never
-  edit the master audit, findings register, `CHG` ledger, doc ledger, or
-  design/08. If a Luna branch touches those files, bounce it — even if
-  every edit looks right. The 2026-08-30 dev merge is the cautionary tale:
-  two workstreams editing governance files cost a hand reconciliation.
-- **One package, one agent, one branch.** Don't hand two packages to one
-  agent "since it's there," and don't let two agents share a branch.
-  WP-A3-style workflow changes always merge alone.
-- **Stage R is not optional and not the implementer.** No finding's
-  lifecycle moves on the author's say-so; the re-audit lane re-executes
-  the gate. When you're tempted to skip R "because the report looks
-  thorough" — the report always looks thorough.
-- **The C spine is serial.** Never run two C-steps at once, however
-  tempting the parallelism; the platform's own migration is the one place
-  a race can corrupt the structure it's building.
+You reach the agents through **one kickoff prompt per run**; the
+orchestrator divides its own Luna agents. So the lane rules are not yours
+to manage — they are yours to **put in the prompt and check in the
+result**:
+
+- **One stage per run, never the whole round.** Run 1: Stage A (+ its R1
+  re-audit). Run 2: C0–C2 (+ R2). Run 3: C3–C6 + leftover B (+ R3). A
+  prompt that says "do everything" surrenders your only scope control.
+- **The prompt carries the lane rules** — internal division one package
+  per agent, the C spine serial, workflow changes as their own branch,
+  governance edits once in a closing serial phase, and a re-audit by an
+  internal agent that implemented nothing it reviews. The stage-kickoff
+  prompts live with this guide; reuse them verbatim.
+- **The result must prove the separation.** A run's report has to say
+  which internal agent carried each package and which carried the
+  re-audit. A report that can't say is a bounce — the 2026-08-30 dev merge
+  (two workstreams editing governance files, hand reconciliation) is what
+  unmanaged parallelism costs.
+- **Stage R still never self-certifies.** Whether R runs inside the run
+  (distinct agent) or as its own follow-up run, no finding's lifecycle
+  moves on its implementer's say-so. When you want stronger independence —
+  or the report smells thorough rather than true — make R its own run; the
+  report always looks thorough.
 
 ## 5. Keep the calendar — two recurring rituals
 
@@ -176,12 +184,111 @@ with the replacement habit:
 
 ```text
 PROMPT SUFFIX ....... §1 block on every feature request
-MERGE RITUAL ........ five questions (§2): main diff · ratchet · probe in
-                      both rosters · passive coverage · inverse recorded
+MERGE RITUAL ........ five questions (§2) on whatever a run returns:
+                      main diff · ratchet · probe in both rosters ·
+                      passive coverage · inverse recorded
 WAIVERS ............. owner-only, written, expiring, one per field (§3)
-LANES ............... implementers never touch governance files; Stage R
-                      moves lifecycles; C spine serial (§4)
+RUNS ................ one stage per kickoff prompt; lane rules live in the
+                      prompt; the report must prove implementer/re-auditor
+                      separation (§4)
 CALENDAR ............ close shim windows after each promotion; audit round
                       per wing or monthly; growth-law spot check (§5)
 "I NEED MAIN" ....... registry → service → owner decision → waiver (§6)
+```
+
+## 10. The three kickoff prompts — the whole campaign
+
+One prompt per run, pasted verbatim into Codex, in order; start the next
+only after you've run §2's five questions on what the previous run
+returned. Each is self-contained because runs do not share memory.
+
+**Run 1 — Stage A + R1:**
+
+```text
+Work the repo Ebonyks/mermaid-roshan-reef from branch dev. You are the
+orchestrator for Stage A of the 2026-08-26 code-refinement round. Read
+first: CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md (your work
+orders — obey its Ground rules, Stage 0, and escalation triggers exactly),
+then audit/MASTER_AUDIT_2026-08-26.md, then design/06 section 18.
+
+Divide the six Stage A packages (WP-A1..A6) across your agents, one
+package per agent, one branch per package off fresh origin/dev. WP-A3
+touches a workflow: it gets its own branch and is never batched. Per
+package: Stage 0 re-verify the finding first ("no change needed" with
+evidence is a valid outcome), then implement only that package's Do within
+its Non-goals; replaced entry points become delegating shims, never
+deletions; full local suite (scripts/ci.sh) green before pushing; CI green
+at each branch head. Implementation agents never edit the governance files
+(master audit, findings register, CHG ledger, doc ledger, design/08) —
+each delivers the handoff's reporting format including its exact revert
+inverse.
+
+Then run R1 with an agent that implemented nothing: re-execute every
+package's gate (re-run the named probes and the deliberate-break demo,
+re-measure the gate metrics), verify non-goals by diff and reversibility
+by inverse, and only then apply lifecycle transitions and CHG/ledger
+entries in one serial closing phase, finishing with
+python3 tools/audit_document_authority.py -> ALL OK.
+
+Deliver: per-package branches/PRs plus one final report naming which agent
+carried each package and which carried R1, each package's verdict, metric
+before/after, and inverse. Do not start Stage B or C. Stop and surface to
+the owner on any escalation trigger.
+```
+
+**Run 2 — platform foundation, C0–C2 + R2** (only after Run 1 is merged
+and its R1 verdicts reviewed):
+
+```text
+Work the repo Ebonyks/mermaid-roshan-reef from branch dev. You are the
+orchestrator for the Mode Platform foundation: migration steps M0, M1, M2
+only (handoff packages WP-C0, WP-C1, WP-C2). Read first:
+design/08_TARGET_ARCHITECTURE.md IN FULL — Stage C implements it and its
+section 4 signatures are normative (a deviation is an escalation, not a
+choice) — then the handoff's Ground rules, Stage C entries, and escalation
+triggers.
+
+The spine is strictly serial: C0, then C1, then C2, one agent at a time,
+never concurrent. C0 is pure addition (platform skeleton, ratchet
+report-only, probe_mode_platform in BOTH rosters). C1 pilots dungeon
+through the director with delegating shims — probe transcripts must stay
+byte-stable. C2 migrates the standalone family one mode per commit and
+arms the ratchet in scripts/ci.sh. Behavior identical at every commit;
+full suite green at every head; every replaced entry point is a shim,
+never a deletion; record every inverse.
+
+Then R2 with an agent that implemented none of it: re-execute the three
+gates, run the growth-law spot check (a throwaway branch adds a dummy mode
+as one script + one registry row; the diff must touch nothing else),
+verify shims match their recorded originals, then apply lifecycles and
+CHG/ledger entries serially and finish with
+python3 tools/audit_document_authority.py -> ALL OK.
+
+Deliver: branches/PRs, the final report with agent-per-step and R2
+verdicts, ratchet baselines. Do not start C3+ or Stage B. Stop and surface
+to the owner on any escalation trigger.
+```
+
+**Run 3 — C3–C6 + remaining B + R3** (only after Run 2 is merged):
+
+```text
+Work the repo Ebonyks/mermaid-roshan-reef from branch dev. You are the
+orchestrator for the Mode Platform completion: C3, C4, C5, C6 in strict
+serial order, with independent packages WP-B2, WP-B3 (after C2's families
+are gone), WP-B5 (after C4), and WP-B6 interleaved on separate agents.
+Read first: design/08_TARGET_ARCHITECTURE.md in full, then the handoff.
+All prior rules hold: shims never deletions, behavior identical, suite
+green per head, inverses recorded, governance files untouched by
+implementers, WP-C6's workflow edit exactly in its named bounds.
+
+Then R3 with a non-implementing agent: re-execute every gate, run the
+growth-law acceptance test (design/08 section 9.1), re-measure the round's
+standing metrics table, verify all shim windows and waivers, then apply
+lifecycles and CHG/ledger entries serially and finish with
+python3 tools/audit_document_authority.py -> ALL OK.
+
+Deliver: branches/PRs, the final report with agent-per-package, R3
+verdicts, the metrics table before/after, and the list of shim windows
+awaiting their promotion-cycle closure. Stop and surface to the owner on
+any escalation trigger.
 ```

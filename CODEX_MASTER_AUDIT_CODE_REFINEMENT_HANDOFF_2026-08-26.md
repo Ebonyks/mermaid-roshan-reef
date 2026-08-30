@@ -183,16 +183,28 @@ behavior for a package:
 
 ## Agent assignment (owner direction 2026-08-30; design 08 §8)
 
-Most implementation work is carried by **Luna agents** — one package per
-agent, one branch per package, off fresh `origin/dev`. Stage A's six
-packages may run on six Luna agents concurrently (WP-A3 merges alone,
-never batched with another workflow-touching change). The Stage C spine is
-strictly serial — one agent at a time, C0 through C6 in order. Stage B
-parallelizes behind its stated dependencies. Integration (merging green
-packages, `CHG` entries, ledger rows) is one agent at a time; the Stage R
-re-audit below is performed by an agent that did NOT implement the package
-under review. The contract in this document is agent-neutral: whichever
-agent holds a package obeys all of it.
+The owner drives this round through **single-prompt orchestrated runs**:
+one kickoff prompt per stage, and the orchestrating agent divides the
+packages across its own **Luna agents** — the owner has no per-agent
+access, so every rule below is the orchestrator's to enforce internally.
+
+- One package per internal agent, one branch per package, off fresh
+  `origin/dev`. Stage A's six packages may run concurrently (WP-A3 lands
+  as its own branch, never batched with another workflow-touching change).
+  The Stage C spine is strictly serial — C0 through C6 in order, never
+  concurrent; a C run's kickoff prompt names exactly which steps it may
+  cover. Stage B parallelizes behind its stated dependencies.
+- Governance edits (`CHG` entries, ledger rows) happen once per run,
+  serially, in the run's closing integration phase — never inside an
+  implementation agent's branch.
+- The Stage R re-audit is performed by an internal agent that implemented
+  NONE of the packages it reviews, or by a dedicated follow-up run.
+- The run's final report to the owner states which internal agent carried
+  each package and which carried the re-audit, so the separation is
+  checkable.
+
+The contract in this document is agent-neutral: whichever agent holds a
+package obeys all of it.
 
 ## Stage C packages — the Mode Platform (the remodel; start after A1–A2 merge)
 

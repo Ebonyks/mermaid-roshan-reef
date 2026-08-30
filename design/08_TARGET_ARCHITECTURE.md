@@ -490,22 +490,28 @@ removing the armed gate an audit finding, not a cleanup.
 
 ## 8. Agent assignment — Luna does the work, review is independent
 
-Owner direction 2026-08-30: most of the actual implementation work in this
-project is carried by **Luna agents** (the owner's implementation agent
-pool). The platform contract was already written agent-neutral; this
-section makes the division of labor and its guardrails explicit, because
-the failure mode of parallel agents is already in this repo's history —
-concurrent edits to the shared governance files produced exactly the merge
-reconciliation the 2026-08-30 integration had to perform.
+Owner direction 2026-08-30: most of the actual implementation work is
+carried by **Luna agents** — and the owner reaches them only through
+single-prompt orchestrated runs: **one kickoff prompt per stage; the
+orchestrator (Codex) divides the packages across its own Luna agents and
+holds the lane rules internally.** The owner has no per-agent access, so a
+"lane" below names a role inside a run, not a separately addressed agent,
+and every guardrail in this section must therefore be carried by the
+kickoff prompt itself. The platform contract was already written
+agent-neutral; this section makes the division of labor and its guardrails
+explicit, because the failure mode of parallel agents is already in this
+repo's history — concurrent edits to the shared governance files produced
+exactly the merge reconciliation the 2026-08-30 integration had to
+perform.
 
 **Roles:**
 
-| Lane | Who | Owns |
+| Lane (a role inside a run) | Who | Owns |
 |---|---|---|
-| Implementation | **Luna agents**, one package per agent, one `codex/`- or `luna/`-prefixed branch per package off fresh `origin/dev` | The package's code and probes, its package report, its `CHG` inverse notes — nothing else |
-| Integration | one agent at a time (Codex or Claude, whoever holds the baton) | Merging green packages to dev, resolving cross-package drift, appending `CHG` entries |
-| Re-audit (Stage R) | an agent that did **not** implement the package under review | Spec-conformance verification (§9) and all lifecycle transitions |
-| Owner | the human | The §11 review points, waivers, promotions, and anything an escalation trigger surfaces |
+| Implementation | **Luna agents** the orchestrator spawns, one package per agent, one `codex/`- or `luna/`-prefixed branch per package off fresh `origin/dev` | The package's code and probes, its package report, its `CHG` inverse notes — nothing else |
+| Integration | the orchestrator's single closing phase (serial, after its implementation agents finish) or the owner's next run | Merging green packages, resolving cross-package drift, appending `CHG` entries and ledger rows — governance files edited once per run, serially |
+| Re-audit (Stage R) | a distinct agent inside the run that implemented **none** of the packages it reviews, or a dedicated follow-up run | Spec-conformance verification (§9) and all lifecycle transitions |
+| Owner | the human | One kickoff prompt per stage; the §11 review points, waivers, promotions; judging what a run hands back |
 
 **The single-writer rule (binding):** implementation agents do **not**
 edit the governance files — `audit/MASTER_AUDIT_2026-08-09.md`,
@@ -513,17 +519,21 @@ edit the governance files — `audit/MASTER_AUDIT_2026-08-09.md`,
 `audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md`,
 `design/05_DOC_LEDGER.md`, and this document. They deliver a package
 report (handoff reporting format) in their branch/PR description; the
-integration and re-audit lanes apply the ledger rows, `CHG` entries, and
-lifecycle transitions serially. This removes the governance-file
-merge-conflict class entirely and keeps the doc-authority gate's history
-linear.
+run's closing integration phase applies the ledger rows and `CHG` entries
+once, serially, and only the re-audit role applies lifecycle transitions.
+This removes the governance-file merge-conflict class entirely and keeps
+the doc-authority gate's history linear.
 
-**Parallelism map:** Stage A is six independent packages — six Luna agents
-may run them concurrently (A3 touches a workflow and merges alone, never
+**Parallelism map — and the run boundaries the owner's prompts draw:** one
+stage per kickoff prompt, never the whole round in one run. Stage A is six
+independent packages — the orchestrator may run them on six agents
+concurrently (A3 touches a workflow and lands as its own branch, never
 batched). Stage C is a strict spine — C0 through C6 in order, one agent at
-a time on the spine; C-steps must not run concurrently with each other.
-Stage B packages parallelize behind their stated dependencies. Stage R
-runs after each stage boundary.
+a time, never concurrent with each other; a C run's prompt names exactly
+which steps it may cover. Stage B packages parallelize behind their stated
+dependencies. Stage R runs at each stage boundary, inside the run (distinct
+agent) or as its own follow-up run when the owner wants stronger
+independence.
 
 **What any agent must satisfy** is unchanged and non-negotiable: the
 handoff's Stage 0 review-first pass, the section-9 repair protocol, suite
