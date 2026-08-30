@@ -83,7 +83,7 @@ hashes after the deterministic build.
 
 The two 1280×720 files under `review/` reconstruct the approved 7280×2048 Main
 Hall from its sixteen existing runtime tiles, apply the exact logical center
-and `0.4896` card scale used by `CastleRooms25D`, crop one 1672×941 Hall view,
+and `0.4896` card scale used by `FairyConservatoryDoor2D`, crop one 1672×941 Hall view,
 and resize that whole view to the 1280×720 base canvas. They are placement
 evidence only (`delivery_pixels: false`) and do not replace either runtime door
 card or any accepted Hall pixel.

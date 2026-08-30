@@ -156,16 +156,17 @@ def audit_runtime_contract() -> None:
 	main_path = ROOT / "scripts" / "main.gd"
 	save_path = ROOT / "scripts" / "save_state.gd"
 	castle_path = ROOT / "scripts" / "arena" / "castle_rooms_25d.gd"
+	door_path = ROOT / "scripts" / "arena" / "fairy_conservatory_door_2d.gd"
 	pause_path = ROOT / "scripts" / "pause_menu.gd"
 	route_probe_path = ROOT / "scripts" / "probe_fairy_conservatory_route.gd"
 	handoff_probe_path = ROOT / "scripts" / "probe_fairy_conservatory_handoff.gd"
 	for path in (
-		stage_path, main_path, save_path, castle_path, pause_path,
+		stage_path, main_path, save_path, castle_path, door_path, pause_path,
 		route_probe_path, handoff_probe_path,
 	):
 		check(f"runtime source exists: {path.relative_to(ROOT).as_posix()}", path.is_file())
 	if not all(path.is_file() for path in (
-		stage_path, main_path, save_path, castle_path, pause_path,
+		stage_path, main_path, save_path, castle_path, door_path, pause_path,
 		route_probe_path, handoff_probe_path,
 	)):
 		return
@@ -188,6 +189,7 @@ def audit_runtime_contract() -> None:
 	main = main_path.read_text(encoding="utf-8")
 	save = save_path.read_text(encoding="utf-8")
 	castle = castle_path.read_text(encoding="utf-8")
+	door = door_path.read_text(encoding="utf-8")
 	pause = pause_path.read_text(encoding="utf-8")
 	route_probe = route_probe_path.read_text(encoding="utf-8")
 	handoff_probe = handoff_probe_path.read_text(encoding="utf-8")
@@ -199,10 +201,14 @@ def audit_runtime_contract() -> None:
 		check(f"save schema includes {key}", key in save)
 		check(f"main owns {key}", key in main)
 	check("Main Hall owns one whole door card",
-		"MoonflowerConservatoryDoor" in castle
-		and "FAIRY_CONSERVATORY_CENTER := Vector2(1672.0, 385.0)" in castle)
+		"MoonflowerConservatoryDoor" in door
+		and "DOOR_CENTER := Vector2(1672.0, 385.0)" in door)
 	check("Main Hall route bypasses fake room portal list",
-		'm.call("_start_fairy_conservatory_handoff")' in castle)
+		'm.call("_start_fairy_conservatory_handoff")' in door)
+	check("approved Castle V4 payload stays independent",
+		"MoonflowerConservatory" not in castle)
+	check("Main ticks the independent doorway overlay",
+		'_fairy_conservatory_door_ref().call("tick")' in main)
 	check("Galaxy return recognizes the handoff",
 		"fairy_conservatory_galaxy_return" in main
 		and 'call_deferred("_start_fairy_conservatory_handoff", true)' in main)

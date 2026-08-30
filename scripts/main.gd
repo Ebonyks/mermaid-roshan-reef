@@ -18,6 +18,8 @@ const DayOneBathroomMovieHandoffLogic = preload(
 	"res://scripts/day_one_bathroom_movie_handoff.gd")
 const FAIRY_CONSERVATORY_HANDOFF_PATH := \
 	"res://scripts/arena/fairy_conservatory_handoff_2d.gd"
+const FAIRY_CONSERVATORY_DOOR := preload(
+	"res://scripts/arena/fairy_conservatory_door_2d.gd")
 const DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE := \
 	"res://assets/flats/castle/rooms/room_mermaid_pool.png"
 # Mermaid Roshan's Ocean World — Godot phase 2
@@ -2873,9 +2875,7 @@ func _maybe_reveal_fairy_conservatory() -> bool:
 		return false
 	chapter3_fairy_door_revealed = true
 	_write_save()
-	var castle_rooms: CastleRooms25D = _castle_rooms_ref()
-	if castle_rooms.is_open():
-		castle_rooms.refresh_fairy_conservatory_state()
+	_fairy_conservatory_door_ref().call("refresh")
 	return true
 
 func _start_fairy_conservatory_handoff(returning_from_butterfly: bool = false) -> void:
@@ -6976,6 +6976,7 @@ func light_rig() -> LightRig:
 
 var _castle_rooms_25d: CastleRooms25D = null
 var _castle_career_routes: CastleCareerRoutes = null
+var _fairy_conservatory_door: RefCounted = null
 
 func _day_one_ref() -> DayOneDirector:
 	if _day_one_director == null:
@@ -7761,6 +7762,12 @@ func _castle_rooms_ref() -> CastleRooms25D:
 		_castle_rooms_25d = CastleRooms25D.new(self)
 	return _castle_rooms_25d
 
+func _fairy_conservatory_door_ref() -> RefCounted:
+	if _fairy_conservatory_door == null:
+		_fairy_conservatory_door = FAIRY_CONSERVATORY_DOOR.new(self) \
+			as RefCounted
+	return _fairy_conservatory_door
+
 func _castle_career_routes_ref() -> CastleCareerRoutes:
 	if _castle_career_routes == null:
 		_castle_career_routes = CastleCareerRoutes.new(self)
@@ -7790,6 +7797,7 @@ func _tick_castle_rooms(delta: float) -> void:
 		_castle_rooms_ref().open("main_hall")
 	_sync_castle_room_music()
 	_castle_rooms_ref().tick(delta)
+	_fairy_conservatory_door_ref().call("tick")
 	_sync_day_one_bathroom_cleanup()
 	_sync_day_one_pool_route()
 	_castle_career_routes_ref().sync()
