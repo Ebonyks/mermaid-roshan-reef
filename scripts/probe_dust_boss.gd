@@ -3,9 +3,10 @@ extends SceneTree
 # The showing runs before the fight; taps land damage ONLY while he is
 # airborne with his star flashing, one hit per window; hit 1 turns him dizzy
 # (slower), hit 2 turns him angry (faster), hit 3 ends the fight as friends;
-# a window that closes unhit is not a failure but a mercy step that lengthens
-# the next window and grows her reach. Every hit here comes from a real tap
-# edge on touch_ui, so nothing in this file can win the fight without input.
+# a window that closes unhit is not a failure. Five consecutive misses switch
+# on the slower assist pace, and a landed round resets that streak. Every hit
+# here comes from a real tap edge on touch_ui, so nothing in this file can win
+# the fight without input.
 # Frame pacing differs per machine, so every wait here is on a CONDITION.
 
 var main: ReefMain
@@ -26,6 +27,7 @@ func _init() -> void:
 		await _framing_case()
 		await _showing_case()
 		await _shield_case()
+		await _bump_case()
 		await _first_hit_case()
 		await _second_hit_case()
 		await _mercy_case()
@@ -253,6 +255,22 @@ func _shield_case() -> void:
 	var windup: bool = await _await_state("windup", 3000)
 	_ck("the prowl telegraphs the leap with a wind-up", windup)
 
+# ---- contact feedback: readable, brief and never punitive ------------------
+func _bump_case() -> void:
+	var boss := _boss()
+	var before: Vector2 = _player_local()
+	var hits_before: int = _hits()
+	var misses_before: int = int(main.g.get("db_miss", 0))
+	# Exercise the same helper the live prowl collision calls. Put the contact
+	# just to Roshan's left so the expected recoil has an unambiguous direction.
+	boss._bump_player(before - Vector2(1.0, 0.0))
+	var after: Vector2 = _player_local()
+	_ck("a boss bump visibly pushes Roshan away", after.x > before.x + 2.5)
+	_ck("a boss bump plays Roshan's short boing reaction", main.player.verb == "boing")
+	_ck("a boss bump removes no progress and creates no miss",
+		_hits() == hits_before and int(main.g.get("db_miss", 0)) == misses_before
+		and main.game == "dustboss")
+
 # ---- window 1: the only place damage exists -------------------------------
 func _first_hit_case() -> void:
 	var open_now: bool = await _await_state("vuln", 3000)
@@ -327,21 +345,33 @@ func _second_hit_case() -> void:
 # ---- a window let go: mercy, never failure --------------------------------
 func _mercy_case() -> void:
 	var boss := _boss()
-	# start the ramp from a known step so the check reads the ramp itself and
-	# not whatever retries earlier cases happened to spend
+	# Start from a known streak so the check proves attempts 1-4 are unchanged
+	# and attempt 6 receives the assist switched on by miss five.
 	main.g["db_miss"] = 0
-	var missed_before: int = 0
+	main.g["db_miss_streak"] = 0
 	var window_before: float = boss.window_len()
 	var reach_before: float = boss.reach()
-	var open_now: bool = await _await_state("vuln", 4000)
-	_ck("he opens another window while angry", open_now)
-	# deliberately let this one go by without a tap
-	var back: bool = await _await_state("prowl", 4000)
-	_ck("a window nobody hits simply closes again", back and _hits() == 2)
-	_ck("the missed window is counted as mercy, not as a loss",
-		int(main.g.get("db_miss", 0)) > missed_before and main.game == "dustboss")
-	_ck("mercy makes the next window longer", boss.window_len() > window_before)
-	_ck("mercy makes her reach bigger", boss.reach() > reach_before)
+	var speed_before: float = boss.hop_speed()
+	var windup_before: float = boss.windup_len()
+	var all_missed := true
+	for expected_streak in range(1, DustBossGame.MERCY_TRIGGER_STREAK + 1):
+		var open_now: bool = await _await_state("vuln", 4000)
+		var back: bool = open_now and await _await_state("prowl", 4000)
+		all_missed = all_missed and back and _hits() == 2 \
+			and int(main.g.get("db_miss_streak", 0)) == expected_streak
+		if expected_streak < DustBossGame.MERCY_TRIGGER_STREAK:
+			all_missed = all_missed and is_equal_approx(boss.window_len(), window_before) \
+				and is_equal_approx(boss.reach(), reach_before) \
+				and is_equal_approx(boss.hop_speed(), speed_before)
+	_ck("five windows can pass harmlessly with no loss", all_missed and main.game == "dustboss")
+	_ck("attempts one through four keep the lively opening pace",
+		boss.mercy_tier() == 1)
+	_ck("miss five switches on a longer next window", boss.window_len() > window_before)
+	_ck("miss five widens Roshan's forgiving reach", boss.reach() > reach_before)
+	_ck("miss five slows the boss and lengthens the tell",
+		boss.hop_speed() < speed_before and boss.windup_len() > windup_before)
+	_ck("the first assist tier still requires Roshan's input",
+		boss._free_taps() == 1 and boss._free_taps() < DustBossGame.TAPS_PER_ROUND)
 
 # ---- the third hit ends it as friends -------------------------------------
 func _win_case() -> void:
@@ -349,6 +379,8 @@ func _win_case() -> void:
 	var hit3: bool = await _strike(5)
 	_ck("the fight keeps offering windows until she lands them", hit3)
 	_ck("the third round finishes the fight", _hits() == 3)
+	_ck("a landed round resets the consecutive-miss assist",
+		int(main.g.get("db_miss_streak", -1)) == 0)
 	_ck("the ending is a befriending beat, not a defeat", _state() == "friends")
 	var wait := 0
 	while main.game == "dustboss" and wait < 4000:

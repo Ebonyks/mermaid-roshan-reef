@@ -27,11 +27,13 @@ extends RefCounted
 # convex ring, a camera that never pans, so the boss can never leave the
 # screen and a dragged finger always makes progress.
 #
-# No fail state: he bumps, he never hurts. Every window that closes unhit
-# makes the NEXT window longer and Roshan's reach bigger (the mercy ramp), so
-# the fight always ends in a win — the only variable is how many windows it
-# takes. Satellite rules per CLAUDE.md: logic only, `main` by reference, all
-# state on m.g ("db_*" keys, reclaimed with the rest of the game scratch).
+# No fail state: he bumps, but never hurts. Contact gives Roshan a readable
+# shove and boing before she recovers immediately; it never removes progress.
+# Five windows missed IN A ROW switch the fight to its slower assist pace:
+# longer tells/windows, wider reach and one helping tap. A completed round
+# resets the streak, so the opening feel stays lively for a child who is
+# keeping up. Satellite rules per CLAUDE.md: logic only, `main` by reference,
+# all state on m.g ("db_*" keys, reclaimed with the rest of the game scratch).
 
 # THE DAMAGE CORE IS DustBunnyBossSprite (scripts/dust_bunny_boss_sprite.gd),
 # the approved four-frame animation kit that arrived with Grand Puff's art.
@@ -45,8 +47,9 @@ const TAPS_PER_ROUND := DustBunnyBossSprite.REQUIRED_TAPS # three taps per windo
 
 # Window pacing: the WINDOW length now comes from the animation kit (0.75s,
 # 0.65s final). What this file still owns is the SPACING — how long he prowls
-# between windows, and the mercy ramp that lengthens the window itself when
-# she keeps missing, so the fight can get easier but never fail.
+# between windows, and the assist pace that starts after five consecutive
+# missed windows, so the opening challenge stays intact but cannot become a
+# motor-speed wall.
 const SHOW_T := 6.4            # the showing: he is revealed before he fights
 const WINDUP_T := 0.7          # squash-and-glimmer telegraph before the leap
 const STRUCK_T := 1.4          # the hit reaction (spin, burst, hearts)
@@ -67,16 +70,17 @@ const BOSS_H := 17.0           # on-screen height of the animated CARD. The
 const RADIUS := 26.0           # the ring's circumradius (apothem ≈ 24.0)
 const BOSS_INSET := 4.5        # how far inside the wall the boss may land
 
-const MERCY_WINDOW := 0.30     # +seconds of window per missed window. Smaller
-const MERCY_WINDOW_MAX := 1.5  # than the old ramp because the base window is
-                               # now 0.75s, not 2.6s — but it still doubles the
-                               # window for a child who keeps missing
-const MERCY_REACH := 1.6       # +reach per missed window
+const MERCY_TRIGGER_STREAK := 5 # keep the lively opening for five real tries
+const MERCY_WINDOW_PER_TIER := 1.0 # final window: 0.65s -> 1.65s at tier one
+const MERCY_WINDOW_MAX := 1.5
+const MERCY_REACH_PER_TIER := 4.0
 const MERCY_REACH_MAX := 6.0
-const MERCY_FREE_TAP_AT := 4   # missed windows before the fight starts landing
-                               # taps for her (see _free_taps)
-const MERCY_SLOW := 0.07       # he calms down when she keeps missing
-const MERCY_SLOW_MAX := 0.40
+const MERCY_SLOW_PER_TIER := 0.30 # angry travel drops near the opening pace
+const MERCY_SLOW_MAX := 0.45
+const MERCY_WINDUP_PER_TIER := 0.55 # more time to read squash -> gold star
+const MERCY_WINDUP_MAX := 0.9
+const BUMP_PUSH := 4.0          # visible cause/effect, never damage or lost work
+const PLAYER_INSET := 2.6       # matches the OctagonStage walkable inset
 
 # ---- the boss art contract -------------------------------------------------
 # One cutout per BEAT, not one cutout for the whole fight. Codex delivered the
@@ -116,6 +120,8 @@ func _init(main: ReefMain) -> void:
 func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_hits"] = 0
 	m.g["db_miss"] = 0
+	m.g["db_miss_streak"] = 0
+	m.g["db_bumps"] = 0
 	m.g["db_shield_taps"] = 0
 	m.g["db_window_hit"] = 0
 	m.g["db_win_len"] = 0.0
@@ -185,24 +191,33 @@ func phase() -> int:
 func phase_cfg() -> Dictionary:
 	return PHASES[phase()]
 
-func _mercy() -> int:
-	return int(m.g.get("db_miss", 0))
+func miss_streak() -> int:
+	return int(m.g.get("db_miss_streak", 0))
+
+func mercy_tier() -> int:
+	# Tier one begins on miss five, tier two on miss ten. Using a discrete tier
+	# makes the change legible and keeps attempts one through four identical.
+	return miss_streak() / MERCY_TRIGGER_STREAK
 
 func window_len() -> float:
 	# the vulnerability window: the kit's own number (0.75s, 0.65s in the final
-	# round) plus the mercy ramp this file owns
+	# round) plus the assist tier this file owns
 	var base: float = DustBunnyBossSprite.VULNERABILITY_WINDOW
 	var kit: DustBunnyBossSprite = m.g.get("db_kit") as DustBunnyBossSprite
 	if kit != null and is_instance_valid(kit):
 		base = kit.current_vulnerability_window()
-	return base + minf(MERCY_WINDOW * float(_mercy()), MERCY_WINDOW_MAX)
+	return base + minf(MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
 
 func reach() -> float:
-	return REACH + minf(MERCY_REACH * float(_mercy()), MERCY_REACH_MAX)
+	return REACH + minf(MERCY_REACH_PER_TIER * float(mercy_tier()), MERCY_REACH_MAX)
 
 func hop_speed() -> float:
 	var base: float = float(phase_cfg()["hop_speed"])
-	return base * (1.0 - minf(MERCY_SLOW * float(_mercy()), MERCY_SLOW_MAX))
+	return base * (1.0 - minf(MERCY_SLOW_PER_TIER * float(mercy_tier()), MERCY_SLOW_MAX))
+
+func windup_len() -> float:
+	return WINDUP_T + minf(
+		MERCY_WINDUP_PER_TIER * float(mercy_tier()), MERCY_WINDUP_MAX)
 
 # THE SHOWING — he is revealed before he is ever fought: he swells up out of
 # his dust nest, takes one big parade hop, and demonstrates the tell (the star
@@ -238,10 +253,11 @@ func _tick_prowl(delta: float, st: float, s: Dictionary, tapped: bool) -> void:
 # WIND-UP — the telegraph: he squashes down and the star starts to glimmer.
 func _tick_windup(delta: float, st: float, tapped: bool) -> void:
 	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - delta * 8.0)
-	m.g["db_flash"] = clampf(st / WINDUP_T, 0.0, 1.0) * 0.45   # a glimmer, not the flash
+	var tell_len: float = windup_len()
+	m.g["db_flash"] = clampf(st / tell_len, 0.0, 1.0) * 0.45   # a glimmer, not the flash
 	if tapped:
 		_bounce_off()
-	if st >= WINDUP_T:
+	if st >= tell_len:
 		# he leaps toward Roshan so the skill is TIMING, not aim
 		var here: Vector2 = stage.player_local()
 		m.g["db_from"] = Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
@@ -279,19 +295,21 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 		return
 	var open_now: bool = k.vulnerable
 	m.g["db_flash"] = 1.0 if open_now else 0.0
-	# THE MERCY RAMP, applied to the kit's own clock exactly once per window:
-	# a child who keeps missing gets a longer window, never fewer taps.
+	# THE ASSIST PACE, applied to the kit's own clock exactly once per window.
+	# It is zero for attempts 1-4 and switches on after five consecutive misses.
 	if open_now and not bool(m.g.get("db_mercy_topped", false)):
 		m.g["db_mercy_topped"] = true
-		var bonus: float = minf(MERCY_WINDOW * float(_mercy()), MERCY_WINDOW_MAX)
+		var bonus: float = minf(
+			MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
 		if bonus > 0.0:
 			k.vulnerability_time_left += bonus
 		# A LONGER WINDOW IS NOT ENOUGH FOR THE SLOWEST HAND. Three taps inside
 		# even a mercy-stretched 2.25s window is out of reach for a child whose
 		# reaction is ~4s, and the measured slowpoke control needed 28 windows
 		# and 230s before the composition added this. So deep mercy also GIVES
-		# her taps: the fight lands the first one (and, later, the second) for
-		# her, so the window she finally reads only ever needs one real tap.
+		# her taps: tier one lands the first one (tier two lands the second), so
+		# the window she finally reads still needs her real input but not a fast
+		# three-tap burst.
 		for _free in range(_free_taps()):
 			k.register_vulnerable_tap()
 
@@ -314,22 +332,25 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 		return
 	if not open_now and st > LEAP_UP + 0.35:
 		m.g["db_miss"] = int(m.g.get("db_miss", 0)) + 1
+		m.g["db_miss_streak"] = miss_streak() + 1
 		m.g["db_flash"] = 0.0
 		m.g["db_y"] = 0.0
 		_enter_state("prowl")
 		_pick_hop(true)
-		if int(m.g["db_miss"]) == 1 or int(m.g["db_miss"]) % 3 == 0:
+		var streak: int = miss_streak()
+		if streak == 1 or streak == MERCY_TRIGGER_STREAK:
+			var reminder: String = (
+				"Grand Puff slowed down! Take your time — wait for the BIG GOLD STAR!"
+				if streak == MERCY_TRIGGER_STREAK
+				else "So close! Wait for the next FLASH and tap FAST — three times!"
+			)
 			m.show_msg(String(fr.get("fname", "Dusty Attic")),
-				"So close! Wait for the next FLASH and tap FAST — three times!",
-				"dustboss_again")
+				reminder, "dustboss_again")
 
 func _free_taps() -> int:
-	# 0 normally; 1 after MERCY_FREE_TAP_AT missed windows; 2 after twice that.
-	# Capped at TAPS_PER_ROUND - 1 so a round can never complete itself.
-	var missed: int = _mercy()
-	if missed < MERCY_FREE_TAP_AT:
-		return 0
-	return mini(missed / MERCY_FREE_TAP_AT, TAPS_PER_ROUND - 1)
+	# 0 for attempts 1-4; 1 after miss five; 2 after miss ten. Capped below a
+	# full round so zero-input play can never complete the encounter.
+	return mini(mercy_tier(), TAPS_PER_ROUND - 1)
 
 # THE HIT REACTION — one per landed hit, and where he becomes someone new.
 func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void:
@@ -370,6 +391,7 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 func _land_hit(fr: Dictionary) -> void:
 	var hits: int = int(m.g.get("db_hits", 0)) + 1
 	m.g["db_hits"] = hits
+	m.g["db_miss_streak"] = 0
 	m.g["db_shield_taps"] = 0
 	var boss: Node3D = m.g.get("db_boss") as Node3D
 	if boss != null and is_instance_valid(boss):
@@ -509,13 +531,33 @@ func _hop_move(delta: float, s: Dictionary) -> void:
 	m.g["db_x"] = here.x
 	m.g["db_z"] = here.y
 	m.g["db_y"] = sin(u * PI) * HOP_H
-	# the giggly bump: he shoves nobody over and takes nothing away
+	# The giggly bump has an obvious physical answer, but no health/progress
+	# cost and no control lock. Roshan can steer back immediately.
 	if Vector2(here.x - float(s["px"]), here.y - float(s["pz"])).length() < 3.2 \
 			and float(m.g.get("db_bump_cd", 0.0)) <= 0.0:
 		m.g["db_bump_cd"] = 1.6
-		m._sparkle_burst(m.player.global_position + Vector3(0, 2.4, 0), Color(1.0, 0.88, 0.62))
-		m._say("roshan", "bump", 2.5)
+		_bump_player(here)
 	m.g["db_bump_cd"] = maxf(0.0, float(m.g.get("db_bump_cd", 0.0)) - delta)
+
+func _bump_player(from: Vector2) -> void:
+	var here: Vector2 = stage.player_local()
+	var away: Vector2 = here - from
+	if away.length() < 0.1:
+		var travel: Vector2 = (m.g.get("db_to", Vector2.ZERO) as Vector2) \
+			- (m.g.get("db_from", Vector2.ZERO) as Vector2)
+		away = -travel if travel.length() >= 0.1 else Vector2.DOWN
+	var pushed: Vector2 = stage.clamp_point(
+		here + away.normalized() * BUMP_PUSH, PLAYER_INSET)
+	var r: Node3D = stage.root()
+	if r != null and m.player != null:
+		m.player.position.x = r.position.x + pushed.x
+		m.player.position.z = r.position.z + pushed.y
+		m.player.vel = Vector3.ZERO
+		m.player.play_verb("boing")
+	m.g["db_bumps"] = int(m.g.get("db_bumps", 0)) + 1
+	m._sparkle_burst(m.player.global_position + Vector3(0, 2.4, 0),
+		Color(1.0, 0.88, 0.62))
+	m._say("roshan", "bump", 2.5)
 
 # ---- the beat map ----------------------------------------------------------
 func pose_for_state() -> String:
@@ -735,6 +777,7 @@ func _on_round_done() -> void:
 	# one of the three damage rounds is down: three taps landed inside a window
 	var rounds: int = int(m.g.get("db_hits", 0)) + 1
 	m.g["db_hits"] = rounds
+	m.g["db_miss_streak"] = 0
 	m.g["db_shield_taps"] = 0
 	var boss: Node3D = m.g.get("db_boss") as Node3D
 	if boss != null and is_instance_valid(boss):
