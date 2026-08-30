@@ -46,6 +46,7 @@ extends RefCounted
 # framing and the ending. See BOSS_CONVERGENCE_DECISION_2026-08-02.md.
 const HP := DustBunnyBossSprite.TOTAL_DAMAGE_ROUNDS      # three damage rounds
 const TAPS_PER_ROUND := DustBunnyBossSprite.REQUIRED_TAPS # three taps per window
+const BossSplash2DLogic = preload("res://scripts/boss_splash_2d.gd")
 
 # Window pacing: the WINDOW length now comes from the animation kit (0.75s,
 # 0.65s final). What this file still owns is the SPACING — how long he prowls
@@ -138,12 +139,8 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_flash"] = 0.0
 	_stage_open()
 	_build_boss()
-	_enter_state("showing")
-	# ONE trigger per beat: show_msg already fires _say(speaker, vo) itself
-	# (audio_director.gd), so a paired _say() would speak twice the moment real
-	# clips exist. The event name IS the vo argument.
-	m.show_msg(String(fr.get("fname", "Dusty Attic")),
-		"The GREAT dust bunny wakes up! He is too puffy to bonk...", "dustboss_show")
+	_enter_state("splash")
+	_show_boss_splash(fr)
 
 func action_label() -> String:
 	# the only verb in this fight is a bonk; the shared reef button otherwise
@@ -151,6 +148,9 @@ func action_label() -> String:
 	return "BONK!" if String(m.g.get("db_state", "")) == "vuln" else "WAIT"
 
 func stage_close() -> void:
+	var splash: BossSplash2D = m.g.get("db_splash") as BossSplash2D
+	if splash != null and is_instance_valid(splash):
+		splash.cancel()
 	stage.close()
 
 func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
@@ -165,6 +165,8 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	m.g["db_st"] = float(m.g.get("db_st", 0.0)) + delta
 	var st: float = float(m.g["db_st"])
 	match String(m.g.get("db_state", "showing")):
+		"splash":
+			pass
 		"showing":
 			_tick_showing(st, fr, tapped)
 		"prowl":
@@ -181,6 +183,38 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		return                      # the win banner fired and wiped the scratch
 	_place_boss(delta)
 	_update_hud()
+
+
+func _show_boss_splash(fr: Dictionary) -> void:
+	var splash := BossSplash2DLogic.new() as BossSplash2D
+	if splash == null:
+		_begin_showing(fr)
+		return
+	var badge: Texture2D = load(STAR_TEX) as Texture2D
+	splash.configure(
+		DustBunnyBossSprite.make_sprite_frames(),
+		"GRAND PUFF",
+		"THE GREAT DUST BUNNY",
+		badge)
+	splash.finished.connect(_on_boss_splash_finished.bind(fr), CONNECT_ONE_SHOT)
+	m.add_child(splash)
+	m.g["db_splash"] = splash
+
+
+func _on_boss_splash_finished(fr: Dictionary) -> void:
+	if m.game != "dustboss" or m.g.is_empty():
+		return
+	m.g["db_splash"] = null
+	_begin_showing(fr)
+
+
+func _begin_showing(fr: Dictionary) -> void:
+	_enter_state("showing")
+	# ONE trigger per beat: show_msg already fires _say(speaker, vo) itself
+	# (audio_director.gd), so a paired _say() would speak twice the moment real
+	# clips exist. The event name IS the vo argument.
+	m.show_msg(String(fr.get("fname", "Dusty Attic")),
+		"The GREAT dust bunny wakes up! He is too puffy to bonk...", "dustboss_show")
 
 # ---- the state machine -----------------------------------------------------
 func _enter_state(next_state: String) -> void:
@@ -390,6 +424,7 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 		m.g["db_done"] = true
 		m.pearl_count += 3
 		m._fanfare()
+		m.day_one_complete_boss_and_begin_day_two()
 		m._end_game(true, fr,
 			"The Great Dust Bunny is your friend now! He gave the castle's shine back!")
 

@@ -575,6 +575,8 @@ func _process(delta: float) -> void:
 	_tick_classic_sprite(visual_speed)
 	if "intro_active" in _m0 and _m0.intro_active:
 		return
+	if "day_two_transition_active" in _m0 and _m0.day_two_transition_active:
+		return
 	if "wardrobe_layer" in _m0 and _m0.wardrobe_layer != null:
 		return   # frozen while the dress-up screen is open
 	if "stickers_layer" in _m0 and _m0.stickers_layer != null:

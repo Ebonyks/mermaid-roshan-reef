@@ -46,6 +46,7 @@ const EVENT_ART_DESK_UNLOCKED: String = "art_desk_unlocked"
 const EVENT_ART_CUSTOMIZATION_COMPLETED: String = "art_customization_completed"
 const EVENT_BOSS_DOOR_GLOW: String = "boss_door_glow"
 const EVENT_GIANT_DUST_BUNNY_BOSS: String = "giant_dust_bunny_boss"
+const EVENT_DAY_TWO_BEGINS: String = "day_two_begins"
 const ART_MATERIAL_IDS: Array[String] = [
 	"brushes", "pink_paint", "blue_paint", "paint_cups",
 ]
@@ -429,6 +430,20 @@ func trigger_giant_dust_bunny_boss() -> bool:
 		return false
 	giant_dust_bunny_boss_triggered = true
 	_emit_once(EVENT_GIANT_DUST_BUNNY_BOSS, {"room_id": "art"})
+	return true
+
+
+## The first boss is the terminal Day One gate. This seam is intentionally
+## idempotent: replaying Grand Puff later remains a friendly rematch and can
+## never replay the day transition or relock jobs.
+func complete_day_one_after_boss() -> bool:
+	if not day_one_active:
+		return false
+	day_one_active = false
+	_emit_once(EVENT_DAY_TWO_BEGINS, {
+		"jobs_unlocked": true,
+		"opera_enabled": true,
+	})
 	return true
 
 

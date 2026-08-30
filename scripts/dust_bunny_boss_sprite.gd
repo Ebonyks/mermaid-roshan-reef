@@ -112,7 +112,7 @@ func _ready() -> void:
 	add_to_group(&"dust_bunny_boss")
 	sprite = AnimatedSprite3D.new()
 	sprite.name = "AnimatedDustBunnyBoss"
-	sprite.sprite_frames = _make_frames()
+	sprite.sprite_frames = make_sprite_frames()
 	sprite.position.y = DISPLAY_HEIGHT * 0.5
 	sprite.pixel_size = DISPLAY_HEIGHT / float(FRAME_SIZE.y)
 	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -136,7 +136,7 @@ func _ready() -> void:
 	sprite.play(&"idle")
 
 
-func _make_frames() -> SpriteFrames:
+static func make_sprite_frames() -> SpriteFrames:
 	var frames: SpriteFrames = SpriteFrames.new()
 	if frames.has_animation(&"default"):
 		frames.remove_animation(&"default")

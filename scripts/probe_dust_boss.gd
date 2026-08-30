@@ -25,6 +25,7 @@ func _init() -> void:
 	await _open_case()
 	if main.game == "dustboss":
 		await _framing_case()
+		await _splash_case()
 		await _showing_case()
 		await _shield_case()
 		await _bump_case()
@@ -181,6 +182,32 @@ func _framing_case() -> void:
 	await _frames(20)
 	_ck("the arena keeps the camera while the fight runs",
 		cam.position.distance_to(before) < 1.0)
+
+
+# ---- the reusable boss splash ---------------------------------------------
+func _splash_case() -> void:
+	_ck("the fight opens on the reusable boss splash", _state() == "splash")
+	var splash: BossSplash2D = main.g.get("db_splash") as BossSplash2D
+	_ck("the splash is a true-2D input-blocking canvas",
+		splash != null
+		and splash.get_node_or_null("BossSplashRoot") is Control
+		and splash.get_node_or_null(
+			"BossSplashRoot/BossSplashStage/BossSplashCharacterAnchor/BossSplashCharacter") \
+			is AnimatedSprite2D)
+	if splash != null:
+		_ck("the splash begins with Grand Puff's jump", splash.current_beat() == "jump")
+		var saw_grin := false
+		var saw_flash := false
+		var guard := 0
+		while main.game == "dustboss" and _state() == "splash" and guard < 1200:
+			if splash != null and is_instance_valid(splash):
+				saw_grin = saw_grin or splash.current_beat() == "grin"
+				saw_flash = saw_flash or splash.current_beat() == "flash"
+			guard += 1
+			await process_frame
+		_ck("the splash shows the grin before the vulnerability flash",
+			saw_grin and saw_flash)
+	_ck("the splash hands off to the safe teaching beat", _state() == "showing")
 
 # ---- the art contract ------------------------------------------------------
 func _pose_case() -> void:
@@ -377,6 +404,7 @@ func _mercy_case() -> void:
 # ---- the third hit ends it as friends -------------------------------------
 func _win_case() -> void:
 	var pearls_before: int = main.pearl_count
+	var day_one_before: bool = main.day_one_is_active()
 	var hit3: bool = await _strike(5)
 	_ck("the fight keeps offering windows until she lands them", hit3)
 	_ck("the third round finishes the fight", _hits() == 3)
@@ -392,6 +420,20 @@ func _win_case() -> void:
 	# MEDALS.md is binding: "Bronze = completion. Every finished game earns at
 	# least bronze." The first boss in the game had no medal row at all.
 	_ck("beating the boss earns a medal", int(main.medals.get("dustboss", 0)) >= 1)
+	await _frames(2)
+	_ck("the first victory advances the saved story into Day Two",
+		day_one_before and not main.day_one_is_active()
+		and not main.day_one_jobs_locked() and main.day_one_opera_enabled())
+	_ck("Day Two begins with a picture-first full-screen transition",
+		main.day_two_transition_active
+		and main.day_two_transition_layer != null
+		and main.day_two_transition_layer.get_node_or_null("DayTwoTransitionRoot") != null)
+	var transition_wait := 0
+	while main.day_two_transition_active and transition_wait < 1200:
+		transition_wait += 1
+		await process_frame
+	_ck("the Day Two transition closes automatically without a reading gate",
+		not main.day_two_transition_active and transition_wait < 1200)
 	main.touch_ui.action_down = false
 
 # ---- a second fight, walked beat by beat, to check the pose map ------------
