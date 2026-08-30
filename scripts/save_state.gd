@@ -17,6 +17,8 @@ const BOOL_KEYS: Array[String] = [
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
 	"opera_done", "ember_found", "ember_done", "companion_resting",
 	"lagoon_plane_departed",
+	"day_one_giant_dust_bunny_boss_defeated", "chapter2_active",
+	"chapter2_rainbow_candle_found", "chapter2_stuffie_ballet_done",
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
@@ -41,6 +43,10 @@ const KNOWN_KEYS: Array[String] = [
 	"companion_resting", "companion_bruises",
 	"lagoon_plane_departed",
 	"attack_color", "attack_effect",
+	"day_one_giant_dust_bunny_boss_defeated", "chapter2_active",
+	"chapter2_unlocked_opera_mask", "chapter2_skill_mask",
+	"chapter2_active_objective", "chapter2_rainbow_candle_found",
+	"chapter2_stuffie_ballet_done",
 ]
 
 var m: ReefMain
@@ -155,6 +161,7 @@ func load_save() -> void:
 	# Progress is an effective count of the thirteen live careers. The raw
 	# sixteen-bit mask remains authoritative and retains retired bits verbatim.
 	m.opera_progress = _opera_live_star_count(m.opera_stars)
+	m._chapter_two_ref().restore_state(m.save_data)
 	m.opera_done = bool(m.save_data.get("opera_done", false))
 	# added 2026-07-25 with a {} default — never removed, per save compatibility
 	var pantry_raw: Variant = m.save_data.get("opera_pantry", {})
@@ -204,6 +211,9 @@ func write_save() -> bool:
 	var day_one_state: Dictionary = m._day_one_ref().serialize_state()
 	for day_one_key: String in day_one_state:
 		next_data[day_one_key] = day_one_state[day_one_key]
+	var chapter_two_state: Dictionary = m._chapter_two_ref().serialize_state()
+	for chapter_two_key: String in chapter_two_state:
+		next_data[chapter_two_key] = chapter_two_state[chapter_two_key]
 	var next_generation: int = maxi(m.save_generation, int(next_data.get("save_generation", 0))) + 1
 	next_data["schema_version"] = maxi(int(next_data.get("schema_version", SCHEMA_VERSION)), SCHEMA_VERSION)
 	next_data["won"] = won_d
@@ -466,7 +476,7 @@ func _progress_types_are_valid(data: Dictionary) -> bool:
 	for key: String in ARRAY_KEYS:
 		if data.has(key) and typeof(data[key]) != TYPE_ARRAY:
 			return false
-	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "save_generation"]:
+	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "chapter2_unlocked_opera_mask", "chapter2_skill_mask", "save_generation"]:
 		if data.has(key) and not _is_nonnegative_integer(data[key]):
 			return false
 	return true
@@ -481,7 +491,7 @@ func _known_types_are_valid(data: Dictionary) -> bool:
 	for key: String in ARRAY_KEYS:
 		if data.has(key) and typeof(data[key]) != TYPE_ARRAY:
 			return false
-	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "plays", "save_generation"]:
+	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "plays", "chapter2_unlocked_opera_mask", "chapter2_skill_mask", "save_generation"]:
 		if data.has(key) and not _is_nonnegative_integer(data[key]):
 			return false
 	if data.has("quality"):
@@ -515,6 +525,12 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	var day_one_state: Dictionary = DayOneDirector.normalise_save_patch(raw)
 	for day_one_key: String in day_one_state:
 		data[day_one_key] = day_one_state[day_one_key]
+	var raw_opera_stars := clampi(
+		_nonnegative_int_or_default(raw, "opera_stars", 0), 0, 65535)
+	var chapter_two_state := ChapterTwoDirector.normalise_save_patch(
+		data, raw_opera_stars)
+	for chapter_two_key: String in chapter_two_state:
+		data[chapter_two_key] = chapter_two_state[chapter_two_key]
 	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
 	var version: int = _nonnegative_int_or_default(raw, "schema_version", SCHEMA_VERSION)
 	data["schema_version"] = maxi(version, SCHEMA_VERSION)

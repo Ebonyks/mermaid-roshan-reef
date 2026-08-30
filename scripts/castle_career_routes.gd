@@ -183,6 +183,10 @@ func _rebuild_room() -> void:
 			child.queue_free()
 	if m.day_one_jobs_locked():
 		return
+	# Chapter 2 begins with the Opera House as the only career surface. Castle
+	# room skill uses are supplied by the separate plot-only room controller.
+	if m.chapter2_is_active() and room_id != "opera_hall":
+		return
 	var indices := act_indices_for_room(room_id)
 	if indices.is_empty():
 		return
@@ -303,7 +307,7 @@ func _stop_animator() -> void:
 func _launch(expected_room: String, act_index: int) -> void:
 	if m.day_one_jobs_locked() \
 		or m.castle_room_id != expected_room \
-		or not route_matches(expected_room, act_index) \
+		or not m.chapter2_opera_route_matches(expected_room, act_index) \
 		or m.opera_game != null:
 		return
 	m._start_opera_from_room(act_index, expected_room)

@@ -532,6 +532,11 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition, o
 	win_callback = on_win
 	career_id = String(config.get("costume", "chef"))
 	phases = (PHASES.get(career_id, []) as Array).duplicate(true)
+	if bool(config.get("chapter2_tutorial", false)) and not phases.is_empty():
+		# The opening Opera lessons teach one physical verb and grant a skill.
+		# The complete Ballerina number therefore first occurs later with the
+		# stuffed-animal cast in the Stuffie Room, as the story requests.
+		phases = [(phases[0] as Dictionary).duplicate(true)]
 	steal_index = -1
 	for index in range(phases.size()):
 		var phase := phases[index] as Dictionary
@@ -608,13 +613,15 @@ func _build_world() -> void:
 	backdrop_node.name = "CareerWorldBackdrop"
 	_full_rect(backdrop_node)
 	root.add_child(backdrop_node)
-	backdrop_node.setup(career_id)
+	backdrop_node.setup(career_id, String(config.get("chapter2_scene", "")))
 
 	var shade := ColorRect.new()
 	shade.color = Color(0.0, 0.0, 0.0, 0.0)
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_full_rect(shade)
 	root.add_child(shade)
+	if String(config.get("chapter2_scene", "")) == "stuffie_room":
+		_build_chapter2_stuffie_cast()
 
 	# Floor input sits below diegetic object buttons. Empty floor moves Roshan;
 	# an object button receives the same touch first and creates activity intent.
@@ -627,8 +634,16 @@ func _build_world() -> void:
 	wander_layer.gui_input.connect(_wander_input)
 	root.add_child(wander_layer)
 
-	stage_points = StagePaths.path_points(career_id)
-	station_list = StagePaths.stations(career_id)
+	if String(config.get("chapter2_scene", "")) == "stuffie_room":
+		stage_points = PackedVector2Array([
+			Vector2(86.0, 590.0), Vector2(245.0, 575.0),
+			Vector2(420.0, 560.0), Vector2(610.0, 550.0),
+			Vector2(810.0, 565.0), Vector2(1050.0, 585.0),
+		])
+		station_list = _chapter2_stuffie_ballet_stations()
+	else:
+		stage_points = StagePaths.path_points(career_id)
+		station_list = StagePaths.stations(career_id)
 	# Specialist ballet and boxing surfaces still begin at authored room objects.
 	# The full-canvas lesson starts only after Roshan follows the painted route
 	# and opens that object's invitation, just like every other career.
@@ -802,6 +817,81 @@ func _build_world() -> void:
 	_capture_actor_rest("player", player_actor)
 	_capture_actor_rest("rival", rival_actor)
 	_capture_actor_rest("prop", prop_rect)
+
+
+func _build_chapter2_stuffie_cast() -> void:
+	# Reuse the approved storybook cutouts without modifying the protected
+	# originals. These friends are scenery/cheer partners; Roshan remains the
+	# sole player-controlled Ballerina leading the number.
+	var guests: Array[Dictionary] = [
+		{
+			"id": "doll_cat",
+			"path": "res://assets/book/doll_cat.png",
+			"position": Vector2(1050.0, 420.0),
+			"size": Vector2(150.0, 150.0),
+		},
+		{
+			"id": "doll_bunny",
+			"path": "res://assets/book/doll_bunny.png",
+			"position": Vector2(900.0, 438.0),
+			"size": Vector2(138.0, 138.0),
+		},
+	]
+	for guest_data: Dictionary in guests:
+		var path := String(guest_data.get("path", ""))
+		if not ResourceLoader.exists(path):
+			continue
+		var guest := TextureRect.new()
+		guest.name = "BirthdayGuest_%s" % String(guest_data.get("id", "friend"))
+		guest.position = guest_data.get("position", Vector2.ZERO) as Vector2
+		guest.size = guest_data.get("size", Vector2(140.0, 140.0)) as Vector2
+		guest.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		guest.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		guest.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		guest.texture = load(path) as Texture2D
+		guest.set_meta("chapter2_stuffie_ballet_guest", true)
+		guest.set_meta("protected_source_reused_unmodified", true)
+		root.add_child(guest)
+		guest.pivot_offset = guest.size * 0.5
+		var sway := guest.create_tween().set_loops()
+		sway.tween_property(guest, "rotation", -0.045, 0.64) \
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		sway.tween_property(guest, "rotation", 0.045, 0.64) \
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func _chapter2_stuffie_ballet_stations() -> Array[Dictionary]:
+	# Keep the Ballerina phase IDs stable while anchoring them to real Stuffie
+	# Room props: the nook, stacking toy, and blocks/floor finale.
+	return [
+		{
+			"id": "trifold_mirror",
+			"pos": Vector2(500.0, 500.0),
+			"object_pos": Vector2(475.0, 205.0),
+			"approach_pos": Vector2(500.0, 500.0),
+			"visual_size": Vector2(190.0, 190.0),
+			"hotspot_size": Vector2(210.0, 210.0),
+			"landmark": "the Stuffie friends waiting in their playroom nook",
+		},
+		{
+			"id": "wave_tuffets",
+			"pos": Vector2(350.0, 535.0),
+			"object_pos": Vector2(273.0, 390.0),
+			"approach_pos": Vector2(350.0, 535.0),
+			"visual_size": Vector2(160.0, 160.0),
+			"hotspot_size": Vector2(190.0, 180.0),
+			"landmark": "the rainbow stacking toy beside the dance floor",
+		},
+		{
+			"id": "rose_finale_stage",
+			"pos": Vector2(700.0, 535.0),
+			"object_pos": Vector2(782.0, 430.0),
+			"approach_pos": Vector2(700.0, 535.0),
+			"visual_size": Vector2(178.0, 178.0),
+			"hotspot_size": Vector2(210.0, 190.0),
+			"landmark": "the toy blocks at the edge of the open dance floor",
+		},
+	]
 
 
 func _actor(path: String) -> TextureRect:
@@ -1183,8 +1273,15 @@ func _on_hotspot_pressed(station_index: int) -> void:
 		var hotspot := station_nodes[index] as OperaWorldHotspot2D
 		hotspot.set_focused(index == station_index)
 	var station_id := String(station_list[station_index].get("id", ""))
-	var route := StagePaths.player_route_to_station(
-		career_id, wander_feet, station_id)
+	var route: PackedVector2Array
+	if _is_chapter2_stuffie_scene():
+		var approach: Vector2 = station_list[station_index].get(
+			"approach_pos", station_list[station_index].get(
+				"pos", wander_feet)) as Vector2
+		route = _chapter2_stuffie_route_to(approach, true)
+	else:
+		route = StagePaths.player_route_to_station(
+			career_id, wander_feet, station_id)
 	if route.is_empty():
 		push_warning("No approved Opera route to %s/%s" % [career_id, station_id])
 		_clear_hotspot_intent()
@@ -3356,8 +3453,56 @@ func _wander_input(event: InputEvent) -> void:
 		wander_feet = _hero_feet()
 	# Empty-room input only changes travel. Hotspot buttons sit above this
 	# layer and are the sole source of activity intent.
-	var route := StagePaths.player_route_to_point(career_id, wander_feet, point)
+	var route: PackedVector2Array = _chapter2_stuffie_route_to(point, false) \
+		if _is_chapter2_stuffie_scene() \
+		else StagePaths.player_route_to_point(career_id, wander_feet, point)
 	_begin_wander_route(route)
+
+
+func _is_chapter2_stuffie_scene() -> bool:
+	return String(config.get("chapter2_scene", "")) == "stuffie_room"
+
+
+func _chapter2_stuffie_route_to(target: Vector2,
+		include_target: bool) -> PackedVector2Array:
+	var route := PackedVector2Array()
+	if stage_points.is_empty():
+		return route
+	if stage_points.size() == 1:
+		route = _append_route_point(route, stage_points[0])
+		if include_target:
+			route = _append_route_point(route, target)
+		return route
+	var source_t := StagePaths.nearest_t(stage_points, wander_feet)
+	var destination_t := StagePaths.nearest_t(stage_points, target)
+	route = _append_route_point(
+		route, StagePaths.point_along(stage_points, source_t))
+	if destination_t >= source_t:
+		for point_index in range(stage_points.size()):
+			var point: Vector2 = stage_points[point_index]
+			var point_t := StagePaths.nearest_t(stage_points, point)
+			if point_t > source_t + 0.0001 \
+					and point_t < destination_t - 0.0001:
+				route = _append_route_point(route, point)
+	else:
+		for point_index in range(stage_points.size() - 1, -1, -1):
+			var point: Vector2 = stage_points[point_index]
+			var point_t := StagePaths.nearest_t(stage_points, point)
+			if point_t < source_t - 0.0001 \
+					and point_t > destination_t + 0.0001:
+				route = _append_route_point(route, point)
+	route = _append_route_point(
+		route, StagePaths.point_along(stage_points, destination_t))
+	if include_target:
+		route = _append_route_point(route, target)
+	return route
+
+
+func _append_route_point(route: PackedVector2Array,
+		point: Vector2) -> PackedVector2Array:
+	if route.is_empty() or route[route.size() - 1].distance_to(point) > 0.01:
+		route.append(point)
+	return route
 
 
 func _wander_step(delta: float) -> void:

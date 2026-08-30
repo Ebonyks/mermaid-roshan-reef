@@ -2713,3 +2713,7 @@ files are lossless and leave all approved/protected originals unchanged.
 - `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/05_tub_arrow_guide.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
 - `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/06_whole_room_sparkle.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
 - `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/07_clean_pool_route.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+
+## Chapter 2 rainbow candle references (2026-08-30)
+
+- `assets_src/imagegen/chapter_two_rainbow_candle_2026-08-30/{rainbow_candle_discovery_unlit_reference.png,rainbow_candle_large_flame_later_reference.png}` — project-original OpenAI built-in ImageGen concept references; license: project original, all rights reserved; URL: none. The unlit image is the Chapter 2 discovery design and the large-flame image is reserved exclusively for a future-chapter lighting beat. Both preserved natives are 1254×1254 opaque RGB with a baked checkerboard and are therefore non-runtime references only. Result IDs, SHA-256 hashes, state roles, and runtime handling are recorded in the adjacent `PROVENANCE.md`; no protected original was modified.

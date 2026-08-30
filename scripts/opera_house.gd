@@ -139,6 +139,7 @@ var finish_cb: Callable
 var state := "idle"
 var act: OperaAct = null
 var act_index := -1
+var run_context := ""
 
 
 static func is_live_act_index(index: int) -> bool:
@@ -159,17 +160,21 @@ static func has_all_live_stars(star_mask: int) -> bool:
 	return (star_mask & ACTIVE_STAR_MASK) == ACTIVE_STAR_MASK
 
 
-func start(main: ReefMain, index: int, done_cb: Callable) -> bool:
+func start(main: ReefMain, index: int, done_cb: Callable,
+		config_overrides: Dictionary = {}) -> bool:
 	if state != "idle" or not is_live_act_index(index):
 		push_error("OperaHouse: retired or unknown Opera slot %d" % index)
 		return false
 	var next_config: Dictionary = (ACTS[index] as Dictionary).duplicate(true)
+	for override_key: Variant in config_overrides:
+		next_config[override_key] = config_overrides[override_key]
 	if not OperaAct.supports_config(next_config):
 		push_error("OperaHouse: invalid Canvas career mapping at slot %d" % index)
 		return false
 	m = main
 	finish_cb = done_cb
 	act_index = index
+	run_context = String(next_config.get("chapter2_context", ""))
 	state = "playing"
 	next_config["act_tag"] = String(next_config.get("name", "")) + "  "
 	act = OperaAct.new()
@@ -198,6 +203,7 @@ func _act_won() -> void:
 	m.opera_stars |= bit
 	m.pearl_count += 3 if first_time else 1
 	m.opera_progress = live_star_count(m.opera_stars)
+	m.chapter2_on_opera_completed(finished, run_context)
 	if has_all_live_stars(m.opera_stars) and not m.opera_done:
 		m.opera_done = true
 		m.pearl_count += 50

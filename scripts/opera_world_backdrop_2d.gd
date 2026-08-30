@@ -23,6 +23,7 @@ const PALETTES := {
 }
 
 var career_id := "chef"
+var scene_variant := ""
 var elapsed := 0.0
 var redraw_t := 0.0
 ## When true the career set is framed by the proscenium: arch, curtain swags,
@@ -35,16 +36,53 @@ var stage_mode := false
 var painting: Texture2D = null
 var world_tiles: Array[Texture2D] = []
 var stage_tiles: Array[Texture2D] = []
+var room_variant_tiles: Array[Texture2D] = []
 
 
-func setup(id: String) -> void:
+func setup(id: String, variant: String = "") -> void:
 	career_id = id
+	scene_variant = variant
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if scene_variant == "stuffie_room":
+		painting = null
+		world_tiles.clear()
+		stage_tiles.clear()
+		room_variant_tiles = _load_stuffie_room_tiles()
+		queue_redraw()
+		return
 	var path := "res://assets/opera/worlds/backdrops/world_%s.png" % id
 	painting = load(path) as Texture2D if ResourceLoader.exists(path) else null
 	world_tiles = _load_tile_set("world")
 	stage_tiles = _load_tile_set("stage")
+	room_variant_tiles.clear()
 	queue_redraw()
+
+
+func _load_stuffie_room_tiles() -> Array[Texture2D]:
+	var textures: Array[Texture2D] = []
+	for row in range(2):
+		for column in range(4):
+			var path := "res://assets/flats/castle/rooms/background_tiles/" \
+				+ "room_playroom_background_r%d_c%d.png" % [row, column]
+			if not ResourceLoader.exists(path):
+				return []
+			var texture := load(path) as Texture2D
+			if texture == null:
+				return []
+			textures.append(texture)
+	return textures
+
+
+func _draw_stuffie_room_tiles() -> void:
+	var destination_size := Vector2(size.x / 4.0, size.y / 2.0)
+	for row in range(2):
+		for column in range(4):
+			var destination := Rect2(
+				Vector2(float(column) * destination_size.x,
+					float(row) * destination_size.y),
+				destination_size)
+			draw_texture_rect(room_variant_tiles[row * 4 + column],
+				destination, false)
 
 
 func _load_tile_set(kind: String) -> Array[Texture2D]:
@@ -95,6 +133,11 @@ func _process(delta: float) -> void:
 
 
 func _draw() -> void:
+	if scene_variant == "stuffie_room" and room_variant_tiles.size() == 8:
+		_draw_stuffie_room_tiles()
+		if stage_mode:
+			_draw_spotlights(Color("#f2d66c"))
+		return
 	var palette: Array = PALETTES.get(career_id, PALETTES["chef"])
 	var sky := Color(palette[0])
 	var mid := Color(palette[1])

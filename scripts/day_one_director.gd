@@ -46,6 +46,8 @@ const EVENT_ART_DESK_UNLOCKED: String = "art_desk_unlocked"
 const EVENT_ART_CUSTOMIZATION_COMPLETED: String = "art_customization_completed"
 const EVENT_BOSS_DOOR_GLOW: String = "boss_door_glow"
 const EVENT_GIANT_DUST_BUNNY_BOSS: String = "giant_dust_bunny_boss"
+const EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED: String = \
+	"giant_dust_bunny_boss_defeated"
 const ART_MATERIAL_IDS: Array[String] = [
 	"brushes", "pink_paint", "blue_paint", "paint_cups",
 ]
@@ -65,6 +67,7 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_grok_video_2_seen",
 	"day_one_boss_door_glow",
 	"day_one_giant_dust_bunny_boss_triggered",
+	"day_one_giant_dust_bunny_boss_defeated",
 	"day_one_bathroom_cleanup_step",
 	"day_one_bathroom_supply_hunt_step",
 	"day_one_bathroom_tools_authorized",
@@ -130,6 +133,11 @@ var giant_dust_bunny_boss_triggered: bool:
 		return m.day_one_giant_dust_bunny_boss_triggered
 	set(value):
 		m.day_one_giant_dust_bunny_boss_triggered = value
+var giant_dust_bunny_boss_defeated: bool:
+	get:
+		return m.day_one_giant_dust_bunny_boss_defeated
+	set(value):
+		m.day_one_giant_dust_bunny_boss_defeated = value
 var bathroom_cleanup_step: int:
 	get:
 		return m.day_one_bathroom_cleanup_step
@@ -432,6 +440,19 @@ func trigger_giant_dust_bunny_boss() -> bool:
 	return true
 
 
+func complete_giant_dust_bunny_boss() -> bool:
+	if not day_one_active or not giant_dust_bunny_boss_triggered \
+			or giant_dust_bunny_boss_defeated or not _all_rooms_completed():
+		return false
+	giant_dust_bunny_boss_defeated = true
+	day_one_active = false
+	_emit_once(EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED, {
+		"room_ids": ROOM_ORDER.duplicate(),
+		"castle_clean": true,
+	})
+	return true
+
+
 func event_history() -> Array[Dictionary]:
 	return day_one_event_history.duplicate(true)
 
@@ -458,6 +479,8 @@ func serialize_state() -> Dictionary:
 		"day_one_boss_door_glow": boss_door_glow,
 		"day_one_giant_dust_bunny_boss_triggered": \
 			giant_dust_bunny_boss_triggered,
+		"day_one_giant_dust_bunny_boss_defeated": \
+			giant_dust_bunny_boss_defeated,
 		"day_one_bathroom_cleanup_step": bathroom_cleanup_step,
 		"day_one_bathroom_supply_hunt_step": bathroom_supply_hunt_step,
 		"day_one_bathroom_tools_authorized": bathroom_tools_authorized,
@@ -495,6 +518,8 @@ func _normalise_state(source: Dictionary) -> void:
 	boss_door_glow = bool(normalised.get("day_one_boss_door_glow", false))
 	giant_dust_bunny_boss_triggered = bool(normalised.get(
 		"day_one_giant_dust_bunny_boss_triggered", false))
+	giant_dust_bunny_boss_defeated = bool(normalised.get(
+		"day_one_giant_dust_bunny_boss_defeated", false))
 	bathroom_cleanup_step = int(normalised.get(
 		"day_one_bathroom_cleanup_step", 0))
 	bathroom_supply_hunt_step = int(normalised.get(
@@ -537,6 +562,12 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	var grok_seen: bool = _as_bool_static(source.get(
 		"day_one_grok_video_2_seen", false), false)
 	var all_done: bool = completed.size() == ROOM_ORDER.size()
+	var boss_triggered: bool = all_done and _as_bool_static(source.get(
+		"day_one_giant_dust_bunny_boss_triggered", false), false)
+	var boss_defeated: bool = boss_triggered and _as_bool_static(source.get(
+		"day_one_giant_dust_bunny_boss_defeated", false), false)
+	var day_active: bool = _as_bool_static(source.get(
+		"day_one_active", true), true) and not boss_defeated
 	var bathroom_done: bool = completed.has("bathroom")
 	var pool_done: bool = completed.has("pool")
 	var saved_bathroom_step: int = clampi(int(source.get(
@@ -579,23 +610,20 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	# the next frame from ever losing progress or trapping the child.
 	var art_desk: bool = art_cleanup_done
 	return {
-		"day_one_active": _as_bool_static(source.get(
-			"day_one_active", true), true),
+		"day_one_active": day_active,
 		"day_one_current_room": current,
 		"day_one_completed_rooms": completed,
 		"day_one_cleaned_rooms": cleaned,
-		"day_one_jobs_locked": _as_bool_static(source.get(
-			"day_one_active", true), true),
-		"day_one_opera_enabled": not _as_bool_static(source.get(
-			"day_one_active", true), true),
+		"day_one_jobs_locked": day_active,
+		"day_one_opera_enabled": not day_active,
 		"day_one_arrival_plane_media_seen": _as_bool_static(source.get(
 			"day_one_arrival_plane_media_seen", false), false),
 		"day_one_dirty_castle_discovered": _as_bool_static(source.get(
 			"day_one_dirty_castle_discovered", false), false) or grok_seen,
 		"day_one_grok_video_2_seen": grok_seen,
 		"day_one_boss_door_glow": all_done,
-		"day_one_giant_dust_bunny_boss_triggered": all_done and _as_bool_static(
-			source.get("day_one_giant_dust_bunny_boss_triggered", false), false),
+		"day_one_giant_dust_bunny_boss_triggered": boss_triggered,
+		"day_one_giant_dust_bunny_boss_defeated": boss_defeated,
 		"day_one_bathroom_cleanup_step": saved_bathroom_step,
 		"day_one_bathroom_supply_hunt_step": saved_supply_hunt_step,
 		"day_one_bathroom_tools_authorized": saved_tools_authorized,

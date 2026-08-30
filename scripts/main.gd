@@ -315,6 +315,7 @@ var day_one_dirty_castle_discovered: bool = false
 var day_one_grok_video_2_seen: bool = false
 var day_one_boss_door_glow: bool = false
 var day_one_giant_dust_bunny_boss_triggered: bool = false
+var day_one_giant_dust_bunny_boss_defeated: bool = false
 var day_one_bathroom_cleanup_step: int = 0
 var day_one_bathroom_supply_hunt_step: int = 0
 var day_one_bathroom_tools_authorized: bool = false
@@ -331,6 +332,16 @@ var day_one_art_customization_completed: bool = false
 var day_one_event_seen: Dictionary = {}
 var day_one_event_history: Array[Dictionary] = []
 var _day_one_director: DayOneDirector = null
+var chapter2_active: bool = false
+var chapter2_unlocked_opera_mask: int = 0
+var chapter2_skill_mask: int = 0
+var chapter2_active_objective := ""
+var chapter2_rainbow_candle_found: bool = false
+var chapter2_stuffie_ballet_done: bool = false
+var chapter2_event_seen: Dictionary = {}
+var chapter2_event_history: Array[Dictionary] = []
+var _chapter_two_director: ChapterTwoDirector = null
+var _chapter_two_room_plot: ChapterTwoRoomPlot = null
 var _day_one_bathroom_cleanup: DayOneBathroomCleanup = null
 var _day_one_bathroom_movie_handoff: DayOneBathroomMovieHandoff = null
 var _day_one_bathroom_movie_handoff_pending: bool = false
@@ -409,6 +420,7 @@ var opera_game: OperaHouse = null
 var opera_pending_act_index := -1
 var opera_active_act_index := -1
 var opera_return_room := ""
+var opera_plot_context := ""
 var opera_hud_was_visible := true
 var opera_hud_previous_layer := 0
 var opera_hud_game_was_visible := false
@@ -3176,15 +3188,22 @@ func _start_opera() -> void:
 			and (castle_room_layer == null or not castle_room_layer.visible):
 		_castle_rooms_ref().resume(castle_room_id)
 	if _castle_career_routes_ref().open_opera_venue():
-		show_msg("Pearl Opera House",
-			"The grand foyer is open! Ride a bubble lift and swim into a glowing show door!",
-			"home")
+		if chapter2_is_active():
+			show_msg("Pearl Opera House",
+				"Four glowing foyer doors teach four birthday-party skills!",
+				"home")
+			_say("roshan", "talk", 0.8)
+		else:
+			show_msg("Pearl Opera House",
+				"The grand foyer is open! Ride a bubble lift and swim into a glowing show door!",
+				"home")
 
 
 func _start_opera_from_room(act_index: int, room_id: String) -> void:
 	if not day_one_opera_enabled():
 		opera_pending_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		show_msg("Daddy Mermaid",
 			"The castle jobs are locked until our cleaning adventure is done!",
 			"hint")
@@ -3202,20 +3221,46 @@ func _start_opera_from_room(act_index: int, room_id: String) -> void:
 		and castle_rooms.is_open() and castle_visible \
 		and castle_room_id == room_id
 	if not current_castle_route \
-			or not CastleCareerRoutes.route_matches(room_id, act_index):
+			or not chapter2_opera_route_matches(room_id, act_index):
 		opera_pending_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		return
 	opera_pending_act_index = act_index
 	opera_return_room = room_id
+	opera_plot_context = ""
 	castle_rooms.suspend()
 	_fade_cut(_start_opera_now)
+
+
+func _start_chapter2_plot_opera(act_index: int, room_id: String,
+		plot_context: String) -> bool:
+	if opera_game != null or opera_pending_act_index >= 0 \
+			or not _chapter_two_ref().can_launch_plot_act(
+				room_id, act_index, plot_context):
+		return false
+	var castle_rooms := _castle_rooms_ref()
+	var castle_visible := castle_room_layer != null \
+		and is_instance_valid(castle_room_layer) and castle_room_layer.visible
+	var route_is_live := game == "level2" \
+		and String(g.get("phase", "")) == "hall" \
+		and castle_rooms.is_open() and castle_visible \
+		and castle_room_id == room_id
+	if not route_is_live:
+		return false
+	opera_pending_act_index = act_index
+	opera_return_room = room_id
+	opera_plot_context = plot_context
+	castle_rooms.suspend()
+	_fade_cut(_start_opera_now)
+	return true
 
 func _start_opera_now() -> void:
 	if not day_one_opera_enabled():
 		var blocked_return_room: String = opera_return_room
 		opera_pending_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		if blocked_return_room != "" and _castle_rooms_ref().is_open():
 			_castle_rooms_ref().resume(blocked_return_room)
 		return
@@ -3223,14 +3268,18 @@ func _start_opera_now() -> void:
 	# There is deliberately no no-argument picker or hidden all-career backdoor.
 	var act_index := opera_pending_act_index
 	var return_room := opera_return_room
+	var plot_context := opera_plot_context
 	var castle_rooms := _castle_rooms_ref()
 	var route_still_owned := game == "level2" \
 		and String(g.get("phase", "")) == "hall" \
 		and castle_rooms.is_open() and castle_room_id == return_room \
-		and CastleCareerRoutes.route_matches(return_room, act_index)
+		and (_chapter_two_ref().can_launch_plot_act(
+			return_room, act_index, plot_context) if plot_context != "" \
+			else chapter2_opera_route_matches(return_room, act_index))
 	if opera_game != null or not route_still_owned:
 		opera_pending_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		if return_room != "" and castle_rooms.is_open():
 			castle_rooms.resume(return_room)
 		return
@@ -3257,10 +3306,13 @@ func _start_opera_now() -> void:
 	var next_house := OperaHouse.new()
 	add_child(next_house)
 	if not next_house.start(
-			self, act_index, Callable(self, "_end_opera")):
+			self, act_index, Callable(self, "_end_opera"),
+			_chapter_two_ref().opera_config_overrides(
+				plot_context, act_index)):
 		next_house.queue_free()
 		opera_active_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		_restore_opera_route_state(return_room)
 		show_msg("Roshan",
 			"That career picture is resting. We are safely back in the room!",
@@ -3273,18 +3325,25 @@ func _end_opera(completed: bool) -> void:
 	opera_game = null
 	var return_room := opera_return_room
 	var finished_act := opera_active_act_index
+	var finished_plot_context := opera_plot_context
 	opera_active_act_index = -1
 	opera_return_room = ""
+	opera_plot_context = ""
 	_restore_opera_route_state(return_room)
 	var career_name := "career"
 	if OperaHouse.is_live_act_index(finished_act):
 		career_name = String((OperaHouse.ACTS[finished_act] as Dictionary).get(
 			"career", "career"))
-	show_msg(
-		"Roshan",
-		("%s star saved! Back to our room!" % career_name)
-			if completed else "Back to the room - every career star is safe!",
-		"win" if completed else "home")
+	if completed and finished_plot_context \
+			== ChapterTwoDirector.PLOT_CONTEXT_STUFFIE_BALLET:
+		show_msg("Roshan",
+			"The stuffies danced beautifully! The birthday dance is ready!", "win")
+	else:
+		show_msg(
+			"Roshan",
+			("%s star saved! Back to our room!" % career_name)
+				if completed else "Back to the room - every career star is safe!",
+			"win" if completed else "home")
 
 
 func _restore_opera_route_state(return_room: String) -> void:
@@ -6783,6 +6842,96 @@ func _day_one_ref() -> DayOneDirector:
 	return _day_one_director
 
 
+func _chapter_two_ref() -> ChapterTwoDirector:
+	if _chapter_two_director == null:
+		_chapter_two_director = ChapterTwoDirector.new(self)
+		_chapter_two_director.hook_event.connect(_on_chapter_two_hook_event)
+	return _chapter_two_director
+
+
+func _chapter_two_sync_room_plot() -> void:
+	if castle_room_stage == null or not is_instance_valid(castle_room_stage):
+		return
+	if _chapter_two_room_plot == null \
+			or not is_instance_valid(_chapter_two_room_plot) \
+			or _chapter_two_room_plot.get_parent() != castle_room_stage:
+		if _chapter_two_room_plot != null \
+				and is_instance_valid(_chapter_two_room_plot):
+			_chapter_two_room_plot.queue_free()
+		_chapter_two_room_plot = ChapterTwoRoomPlot.new()
+		castle_room_stage.add_child(_chapter_two_room_plot)
+		_chapter_two_room_plot.setup(self)
+	_chapter_two_room_plot.visible = castle_room_layer != null \
+		and is_instance_valid(castle_room_layer) and castle_room_layer.visible
+	_chapter_two_room_plot.sync(castle_room_id)
+
+
+func chapter2_is_active() -> bool:
+	return _chapter_two_ref().active
+
+
+func chapter2_initial_tutorial_act_indices() -> Array[int]:
+	return _chapter_two_ref().initial_tutorial_act_indices()
+
+
+func chapter2_can_start_opera_act(act_index: int) -> bool:
+	return not chapter2_is_active() \
+		or _chapter_two_ref().can_start_opera_tutorial(act_index)
+
+
+func chapter2_opera_route_matches(room_id: String, act_index: int) -> bool:
+	if not chapter2_is_active():
+		return CastleCareerRoutes.route_matches(room_id, act_index)
+	return room_id == "opera_hall" \
+		and _chapter_two_ref().can_start_opera_tutorial(act_index)
+
+
+func chapter2_show_freeplay_career_routes() -> bool:
+	return not chapter2_is_active()
+
+
+func _chapter_two_live_castle_room(room_id: String) -> bool:
+	return game == "level2" \
+		and String(g.get("phase", "")) == "hall" \
+		and castle_room_layer != null \
+		and is_instance_valid(castle_room_layer) \
+		and castle_room_layer.visible \
+		and castle_room_id == room_id
+
+
+func chapter2_activate_room_plot(room_id: String, plot_action: String) -> bool:
+	if not _chapter_two_live_castle_room(room_id):
+		return false
+	var director := _chapter_two_ref()
+	if director.room_plot_action(room_id) != plot_action:
+		return false
+	match plot_action:
+		ChapterTwoDirector.ACTION_DETECTIVE_SEARCH:
+			if not _castle_rooms_ref().activate_chapter2_plot_prop(
+					"library", "magic_book"):
+				return false
+			if not director.complete_detective_search():
+				return false
+			_chapter_two_sync_room_plot()
+			_write_save()
+			return true
+		ChapterTwoDirector.ACTION_STUFFIE_BALLET:
+			if not _castle_rooms_ref().activate_chapter2_plot_prop(
+					"playroom", "stuffie_nook"):
+				return false
+			return _start_chapter2_plot_opera(
+				ChapterTwoDirector.ACT_BALLERINA, "playroom",
+				ChapterTwoDirector.PLOT_CONTEXT_STUFFIE_BALLET)
+	return false
+
+
+func chapter2_on_opera_completed(act_index: int,
+		plot_context: String = "") -> void:
+	if not chapter2_is_active():
+		return
+	_chapter_two_ref().record_opera_completion(act_index, plot_context)
+
+
 ## The attack customizer is intentionally loaded lazily. This keeps the main
 ## boot path independent of the optional art-room overlay while still giving
 ## every combat mode one owner-facing entry point.
@@ -7553,7 +7702,64 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 			if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 				_castle_rooms_25d.close()
 			_start_game(dust_boss_fr)
+		DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED:
+			_day_one_clear_castle_dressing()
+			_chapter_two_ref().start_after_boss()
 	_queue_save()
+
+
+func _on_chapter_two_hook_event(event_name: String,
+		payload: Dictionary) -> void:
+	g["chapter2_last_event"] = event_name
+	match event_name:
+		ChapterTwoDirector.EVENT_CHAPTER_STARTED:
+			call_deferred("_chapter_two_announce_start")
+		ChapterTwoDirector.EVENT_SKILL_LEARNED:
+			var skill_name := String(payload.get("skill_id", "party")) \
+				.replace("_", " ")
+			show_msg("Roshan",
+				"I learned my %s sparkle!" % skill_name, "win")
+			_say("roshan", "talk", 0.8)
+		ChapterTwoDirector.EVENT_OBJECTIVE_CHANGED:
+			var objective := String(payload.get("objective", ""))
+			match objective:
+				ChapterTwoDirector.OBJECTIVE_FIND_RAINBOW_CANDLE:
+					_set_objective("chapter2_library_detective",
+						load("res://assets/ui/castle_room_buttons_v2/room_library.png") \
+							as Texture2D, "")
+					show_msg("Roshan",
+						"Detective sparkle points to the Royal Library storybook!", "hint")
+					_say("roshan", "talk", 0.8)
+				ChapterTwoDirector.OBJECTIVE_STUFFIE_BALLET:
+					_set_objective("chapter2_stuffie_ballet",
+						load("res://assets/ui/castle_room_buttons_v2/room_playroom.png") \
+							as Texture2D, "")
+					show_msg("Roshan",
+						"The candle is safe and unlit. Now the Stuffie Room needs a dance!",
+						"hint")
+					_say("roshan", "talk", 0.8)
+				_:
+					_set_objective("", null, "")
+		ChapterTwoDirector.EVENT_RAINBOW_CANDLE_FOUND:
+			show_msg("Roshan",
+				"The rainbow candle was inside the magic storybook! It is still unlit.",
+				"win")
+			_say("roshan", "talk", 0.8)
+		ChapterTwoDirector.EVENT_STUFFIE_BALLET_COMPLETED:
+			_say("roshan", "talk", 0.8)
+	_queue_save()
+
+
+func _chapter_two_announce_start() -> void:
+	if not chapter2_is_active():
+		return
+	show_msg("Daddy Mermaid",
+		"The castle is clean! The Opera House is open. Four party lessons are glowing!",
+		"home")
+	_set_objective("chapter2_opera_tutorials",
+		load("res://assets/ui/castle_room_buttons_v2/room_opera_hall.png") \
+			as Texture2D, "")
+	_say("roshan", "talk", 0.8)
 
 func _castle_rooms_ref() -> CastleRooms25D:
 	if _castle_rooms_25d == null:
@@ -8749,6 +8955,8 @@ func _spawn_shooting_star(ppos: Vector3) -> void:
 	tw.tween_callback(star.queue_free)
 
 func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> void:
+	var completed_day_one_boss := win \
+		and String(fr.get("game", "")) == "dustboss"
 	if chime != null:
 		chime.volume_db = -4.0   # restore default chime volume (the fairy game lowers it)
 	_leave_arena()
@@ -8782,6 +8990,8 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	elif String(fr["fname"]) == "Fairy Pond":
 		fairy_cool = 3.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
+	if completed_day_one_boss:
+		_day_one_ref().complete_giant_dust_bunny_boss()
 	show_msg(fr["fname"], txt, "win" if win else vo)
 	_respawn_pearls()   # after the banner: its freshness guard yields to the win message
 	_update_hud()
