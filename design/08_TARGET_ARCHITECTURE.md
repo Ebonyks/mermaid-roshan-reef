@@ -625,6 +625,11 @@ overruled:
 5. **The agent-assignment model** (§8): Luna agents on implementation,
    single-writer governance, independent Stage R review — confirm or
    reassign lanes.
+6. **`@abstract` on the contract's identity method** (engine 4.5 feature;
+   `ENGINE_ADOPTION_4_7_2026-08-30.md` Tier 1): marking
+   `GameMode.mode_id()` abstract turns a mis-declared mode into a
+   load-time error instead of a silent registry miss. The lifecycle
+   methods stay concrete no-ops by design. Recommended: adopt at M0.
 
 ---
 

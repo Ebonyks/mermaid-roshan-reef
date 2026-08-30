@@ -235,7 +235,13 @@ Two obligations follow for every package in this round:
    measured performance (allocation, draw calls, texture residency), state
    the expected delta in your report so the wing can account for it.
    Code-side work the round DOES own is unchanged: WP-C4's pooling and
-   WP-B5's per-surface Speedy paths and budget notes.
+   WP-B5's per-surface Speedy paths and budget notes. The engine-adoption
+   evaluation (`ENGINE_ADOPTION_4_7_2026-08-30.md`) hands the wing its
+   Tier-2 items by name: Perfetto/Tracy tracing as the capture-protocol
+   backbone, Mobile-renderer debanding A/B, edge-to-edge display,
+   16 KB-page verification on an Android 15+ device, F16 precision
+   verification, shader-baker applicability on Android/Vulkan, and the
+   one-time `msaa_2d` ruling.
 
 ## Stage C packages — the Mode Platform (the remodel; start after A1–A2 merge)
 
@@ -311,7 +317,10 @@ cheapest real mode before anything load-bearing moves.
 
 - **Scope:** two high-traffic migrated modes swap `g["…"]` ephemeral keys
   for typed state per design 08 §4.5; the g-key budget ratchets down; the
-  rule applies to every subsequently migrated mode.
+  rule applies to every subsequently migrated mode. Typed state uses
+  typed dictionaries (`Dictionary[K, V]`) and typed members — the
+  engine-adoption evaluation measured 0 typed of 1,789 dictionary
+  declarations; new and migrated state closes that gap as touched.
 - **Gate:** pilot-mode probes + suite green; distinct-key count at or below
   409 and recorded.
 - **Non-goals:** repo-wide migration in one pass.
@@ -415,6 +424,43 @@ the implementation lane with its lifecycle unmoved. WP-R3 additionally runs
 the growth-law acceptance test (design 08 §9.1) and re-measures the round's
 standing metrics table.
 
+## Stage E packages — engine adoption, Tier 1 (any time after Stage A; see `ENGINE_ADOPTION_4_7_2026-08-30.md`)
+
+### WP-E1 — Revalidate the 4.4-era engine-bug protocols (`MA-ENGINE-002`, P2)
+
+- **Scope:** the exit-124 amnesty in `scripts/ci.sh:179-186` and
+  `.github/workflows/probes.yml:196-205` (the probes.yml half is workflow
+  scope — same explicit-task boundary discipline as WP-A3, own branch,
+  called out in the commit message); the NPOT + `compress/mode=2`
+  importer-deadlock protocol; no probe assertions change.
+- **Do:** per `DL-ENGINE-03`, empirically: run the full suite N
+  consecutive times (N ≥ 5) with the amnesty in report-only and record
+  every exit-124; on a throwaway branch import a deliberately NPOT +
+  `compress/mode=2` texture under the 20-minute guard. Zero reproductions
+  → retire the amnesty copies / propose the importer-rule rewording to
+  the owner (CLAUDE/AGENTS edits are explicit-task-only — report, do not
+  self-apply). Reproduced → re-attribute the comments to 4.7.2 with dated
+  observations and a next-bump re-test trigger.
+- **Gate:** the demonstration evidence (run logs, import log) in the
+  package report; suite green; neither protocol still attributes its
+  reason to an engine version the project does not run.
+- **Non-goals:** loosening any failure regex; texture-budget rule changes.
+
+### WP-E2 — Unify exact-version assertions onto the baseline record (`MA-ENGINE-001`, P2)
+
+- **Scope:** `tools/audit_opera_capture.py` version check + its test
+  fixtures; `tools/audit_godot_baseline.py` required-pins list; the seven
+  live rollback narratives in `tools/plan_audit_rollback.py` (one-line
+  then-current-baseline qualifiers, applied by the integration lane).
+- **Do:** the capture tool derives its required version from
+  `tools/godot_baseline.json`; fixtures follow with a drift-negative
+  test; the tool joins the baseline audit's required pins so the class is
+  structurally closed.
+- **Gate:** baseline contract tests + capture-tool tests green; one fresh
+  4.7.2-produced capture manifest demonstrated accepted; suite green.
+- **Non-goals:** touching historical evidence documents' version mentions
+  (they are correct history).
+
 ## Reporting format (per package, into the PR/branch description)
 
 1. Finding re-verification result (Stage 0), with any history correction
@@ -438,7 +484,8 @@ alone) → **WP-R1** → the platform spine, strictly in order and single-agent:
 `C0 → C1 → C2` → **WP-R2** → `C3 → C4 → C5 → C6`. Independent cleanups
 interleave behind it: `B2` any time; `B3` after C2 (so the
 platform-dissolved families are already gone); `B5` after C4 (FxService
-exists); `B6` any time → **WP-R3** (final re-audit + growth-law test +
+exists); `B6` any time; `E1`/`E2` any time after Stage A (E1's workflow
+half merges alone) → **WP-R3** (final re-audit + growth-law test +
 metrics re-measure). If capacity is constrained, strict order:
 A1, A2, A3, A6, A4, A5, R1, C0, C1, C2, R2, B2, C3, C4, B5, C5, B3, C6,
 B6, R3.

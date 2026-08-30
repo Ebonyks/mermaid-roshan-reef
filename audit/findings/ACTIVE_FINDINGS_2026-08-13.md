@@ -1155,3 +1155,49 @@ target-device, child, owner, or accepted-visual result is claimed.
 | closure | Open as of 2026-08-26; no shared harness exists. |
 | relationships | Decomposed from `MA-CODE-002`; classification context `MA-CI-003`; roster context `MA-CI-004`. |
 | history | 2026-08-26: counted at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+
+## MA-ENGINE-001
+
+| Field | Value |
+|---|---|
+| id | `MA-ENGINE-001` |
+| title | Exact-engine-version assertions exist outside baseline governance: the opera capture gate hard-requires 4.7.1-stable and rejects manifests from the actual 4.7.2 baseline binary. |
+| rule_ids | `DL-ENGINE-01`, `DL-QA-01` |
+| domain / zone | Engine baseline governance / `tools/audit_opera_capture.py`, rollback narratives |
+| source | 2026-08-30 engine-adoption evaluation (`ENGINE_ADOPTION_4_7_2026-08-30.md`) repo inventory at the current head. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: the stale pin, its locking test fixtures, and its absence from the baseline tool's required pins are read exactly; no fresh 4.7.2 capture has yet been run against it to demonstrate the rejection live. |
+| reproduction | `tools/audit_opera_capture.py:518-530` hard-codes `"patch": 1` and requires the version string `4.7.1-stable (official)`, erroring "exact official Godot 4.7.1 required"; `tools/tests/test_audit_opera_capture.py:148,473` assert the same string; `tools/audit_godot_baseline.py` enforces `4.7.2-stable` across 13 required files that do not include this tool; `tools/plan_audit_rollback.py` carries 7 live narratives instructing exact-4.7.1 gate reruns. Any capture manifest produced by the pinned 4.7.2 binary fails the gate; current CI stays green only because the gate is exercised against historical 4.7.1-era manifests. |
+| child_impact | Indirect: the next opera capture round under the real baseline fails or, worse, is worked around ad hoc, weakening the visual-evidence chain that protects what she sees. |
+| evidence | File/line anchors above; `tools/godot_baseline.json` (4.7.2-stable, release 2026-08-18); 151 repo-wide `4.7.1` mentions of which most are legitimately historical. |
+| owner_decision | Not required: reading the baseline record is the already-decided governance (`DL-ENGINE-01`). |
+| fix | `audit_opera_capture.py` derives its required version from `tools/godot_baseline.json`; its test fixtures follow; the tool joins `audit_godot_baseline.py` required pins so the drift class is structurally closed; the integration lane adds a then-current-baseline qualifier to the 7 rollback narratives. |
+| surrounding_tests | Baseline contract tests; opera capture tool tests updated with a drift-fixture negative; full suite green; one fresh capture manifest demonstrated accepted under 4.7.2. |
+| acceptance | No literal engine-version assertion remains outside the baseline record or its required-pins list, and a 4.7.2-produced capture manifest passes the gate. |
+| closure | Open as of 2026-08-30; the stale pin is live. |
+| relationships | Sibling of `MA-ENGINE-002`; evidence-chain kin to `MA-VIS-006`. |
+| history | 2026-08-30: confirmed by the engine-adoption inventory; opened `CONFIRMED_OPEN`. |
+
+## MA-ENGINE-002
+
+| Field | Value |
+|---|---|
+| id | `MA-ENGINE-002` |
+| title | Two 4.4-attributed engine-bug protocols run unrevalidated on 4.7.2: the exit-124 amnesty that can convert a genuine hang into a pass, and the NPOT importer-deadlock rule. |
+| rule_ids | `DL-ENGINE-03`, `DL-QA-02`, `DL-QA-07` |
+| domain / zone | CI gate honesty / `scripts/ci.sh`, `.github/workflows/probes.yml`, importer protocol |
+| source | 2026-08-30 engine-adoption evaluation repo inventory. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: both protocols and their 4.4 attributions are read exactly; whether either bug reproduces on 4.7.2 is precisely the unverified question. |
+| reproduction | `scripts/ci.sh:179-186` and `.github/workflows/probes.yml:196-205` accept a timeout-kill (exit 124) as a pass when the transcript tail matches `ALL OK\|RESULT`, with comments attributing the hang to "Godot 4.4 … deadlocks at EXIT" (dated 2026-07-18, never re-observed on the 4.7 line); the NPOT + `compress/mode=2` headless importer-deadlock warning in `CLAUDE.md:94-96`/`AGENTS.md:225-227` with enforcement at `scripts/probe_melody.gd:519-523` and `tools/audit_visual_design.py:1844-1872` likewise dates to the 4.4 era. |
+| child_impact | Indirect but real: the amnesty can green-light a build whose engine genuinely hangs at exit on 4.7.2 — a wedge class on her phone that CI is structured to forgive. |
+| evidence | File/line anchors above; the amnesty fires on the 124 path in both gate copies. |
+| owner_decision | Doc-side wording changes to `CLAUDE.md`/`AGENTS.md` are explicit-task-only: WP-E1 reports results and proposed wording; the owner applies or approves the edits. |
+| fix | Empirical revalidation per `DL-ENGINE-03` (WP-E1): N consecutive full-suite runs with the amnesty in report-only — zero exit hangs retires both copies, a reproduced hang re-attributes the comment to 4.7.2 with the dated observation; one throwaway-branch NPOT + `compress/mode=2` import under the 20-minute guard settles the importer rule the same way. Retirements are their own commits citing the demonstration. |
+| surrounding_tests | Full suite across the observation window; import-step logs retained as evidence; no probe assertion weakened. |
+| acceptance | Neither protocol attributes its reason to an engine version the project does not run; each is either retired on demonstrated evidence or re-dated with a 4.7.2 observation and a re-test trigger for the next bump. |
+| closure | Open as of 2026-08-30; both protocols unrevalidated. |
+| relationships | Sibling of `MA-ENGINE-001`; gate-honesty kin to `MA-CI-007`. |
+| history | 2026-08-30: confirmed by the engine-adoption inventory; opened `CONFIRMED_OPEN`. |

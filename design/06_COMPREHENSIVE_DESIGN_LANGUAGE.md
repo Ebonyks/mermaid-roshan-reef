@@ -1328,3 +1328,40 @@ ever decrease; an increase requires an owner-visible waiver with finding,
 reason, and expiry (`DL-QA-08` shape). Once armed as blocking, removing or
 weakening the gate is a workflow-scope change and an audit finding, not a
 cleanup.
+
+---
+
+## 19. Engine baseline and feature adoption
+
+_Added 2026-08-30 with the Engine adoption wing (master audit section 3.4;
+first evaluation `ENGINE_ADOPTION_4_7_2026-08-30.md`). The motivating
+defects: a capture gate hard-pinned to a superseded patch release outside
+baseline governance, and 4.4-attributed engine-bug amnesties running
+unrevalidated on 4.7.2._
+
+`DL-ENGINE-01` — The engine baseline has one source of truth
+(`tools/godot_baseline.json`, enforced by `tools/audit_godot_baseline.py`).
+Every exact-version assertion in tools, tests, probes, and workflows reads
+that record or is listed in its required pins; a literal version string
+that can drift independently is a defect, not a convenience.
+
+`DL-ENGINE-02` — A baseline bump is not complete when the pin moves. It is
+complete when its adoption evaluation lands: inherited benefits named with
+their verification owners, adoption candidates triaged into packages or
+wings with the same gates as any other work, and irrelevant features
+rejected with reasons — so "updated on paper" can never persist silently.
+
+`DL-ENGINE-03` — An engine-bug workaround (an amnesty, a guard, a
+forbidden-configuration rule) records the engine version it was observed
+on and a re-test trigger. On every baseline bump it is revalidated
+empirically — reproduce it or retire it on demonstrated evidence — and its
+retirement is its own commit citing that evidence. A workaround
+attributing its reason to an engine version the project no longer runs is
+a gate telling a falsehood.
+
+`DL-ENGINE-04` — Engine-feature adoption obeys the standing discipline:
+package-gated, probe-verified, reversible, never for novelty
+(`DL-CODE-06`). Features that land on a surface the project is actively
+retiring (the shrinking 3D remainder under the true-2D migration) are not
+adopted; features that observe the child's device are owner-notified
+before shipping even when fully local.
