@@ -113,9 +113,16 @@ func _init() -> void:
 	main._skip_intro()
 	await process_frame
 	boss = main._game_obj("dustboss", DustBossGame) as DustBossGame
-	if "--controls" in OS.get_cmdline_user_args():
+	var user_args: PackedStringArray = OS.get_cmdline_user_args()
+	if "--controls" in user_args:
 		roster = CONTROLS
 		run_count = CONTROLS.size()
+	for raw_arg: String in user_args:
+		if raw_arg.begins_with("--control="):
+			var control_index: int = clampi(
+				raw_arg.trim_prefix("--control=").to_int(), 0, CONTROLS.size() - 1)
+			roster = [CONTROLS[control_index]]
+			run_count = 1
 	print("DUSTBAL|header runs=%d dt=%.2f band=%d-%ds rounds=%d taps_per_round=%d window_base=%.2f set=%s" % [
 		run_count, DT, int(BAND_LO), int(BAND_HI), DustBossGame.HP,
 		DustBossGame.TAPS_PER_ROUND, DustBunnyBossSprite.VULNERABILITY_WINDOW,
