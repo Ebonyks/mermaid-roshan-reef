@@ -74,6 +74,8 @@ python3 tools/audit_imagine_handoff.py --all \
 	|| { echo "IMAGINE HANDOFF STRUCTURAL AUDIT FAIL"; exit 1; }
 python3 tools/audit_fairy_art_v2.py \
 	|| { echo "FAIRY ART FAIL (texture or GLB contract)"; exit 1; }
+python3 tools/audit_fairy_conservatory_handoff.py \
+	|| { echo "FAIRY CONSERVATORY HANDOFF CONTRACT FAIL"; exit 1; }
 python3 tools/prepare_opera_nursery_art.py --check-only \
 	|| { echo "OPERA NURSERY ART FAIL"; exit 1; }
 python3 tools/prepare_opera_minigame_art.py --check-only \

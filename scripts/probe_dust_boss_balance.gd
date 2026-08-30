@@ -69,6 +69,7 @@ var main: ReefMain
 var boss: DustBossGame
 var roster: Array[Dictionary] = PERSONAS
 var run_count := RUNS
+var roster_label: String = "PERSONAS"
 
 # ---- per-run persona state -------------------------------------------------
 var persona: Dictionary = {}
@@ -88,10 +89,22 @@ var prev_hits := 0
 var windows_open := 0
 var windows_hit := 0
 var windows_missed := 0
+var miss_total := 0
+var miss_streak_current := 0
+var miss_streak_max := 0
 var taps := 0
 var taps_shielded := 0            # tapped while he was not open
 var taps_open_far := 0            # tapped on the flash but out of reach
+var open_too_far_count := 0
+var shield_feedback_count := 0
+var closer_feedback_count := 0
+var open_too_far_distances: Array[float] = []
+var open_too_far_reach_deficits: Array[float] = []
 var latencies: Array[float] = []  # flash-on → landing tap, per landed hit
+var flash_to_first_tap: Array[float] = []
+var shield_flash_to_open: Array[float] = []
+var shield_tap_latency: Array[float] = []
+var shield_flash_tap_latency: Array[float] = []
 var reach_at_hit: Array[float] = []
 var in_reach_at_open := 0         # windows where she was already close enough
 var window_open_t := -1.0
@@ -100,7 +113,39 @@ var longest_dry := 0.0
 var phase_t := [0.0, 0.0, 0.0]
 var state_t := {}                 # state name -> simulated seconds spent
 var bumps := 0
+var bump_displacements: Array[float] = []
 var prev_bump_cd := 0.0
+var prev_bump_count := 0
+var prev_player_local := Vector2.ZERO
+var assisted_taps := 0
+var assist_tier_current := 0
+var assist_tier_max := 0
+var assist_transitions: Array[String] = []
+var preassist_tier_current := 0
+var preassist_tier_max := 0
+var preassist_transitions: Array[String] = []
+var effective_window_min := INF
+var effective_window_max := 0.0
+var effective_window_current := 0.0
+var effective_reach_min := INF
+var effective_reach_max := 0.0
+var effective_reach_current := 0.0
+var effective_windup_min := INF
+var effective_windup_max := 0.0
+var effective_windup_current := 0.0
+var effective_speed_min := INF
+var effective_speed_max := 0.0
+var effective_speed_current := 0.0
+var flash_open_count := 0
+var flash_durations: Array[float] = []
+var shield_flash_count := 0
+var shield_flash_durations: Array[float] = []
+var flash_open_t := -1.0
+var shield_flash_t := -1.0
+var last_flash_close_t := -1.0
+var prev_flash_open := false
+var prev_shield_flash := false
+var flash_first_tap_recorded := false
 var capped := false
 
 func _init() -> void:
@@ -117,17 +162,19 @@ func _init() -> void:
 	if "--controls" in user_args:
 		roster = CONTROLS
 		run_count = CONTROLS.size()
+		roster_label = "CONTROLS"
 	for raw_arg: String in user_args:
 		if raw_arg.begins_with("--control="):
 			var control_index: int = clampi(
 				raw_arg.trim_prefix("--control=").to_int(), 0, CONTROLS.size() - 1)
 			roster = [CONTROLS[control_index]]
 			run_count = 1
+			roster_label = "CONTROL_%d" % control_index
 	print("DUSTBAL|header runs=%d dt=%.2f band=%d-%ds rounds=%d taps_per_round=%d window_base=%.2f set=%s" % [
 		run_count, DT, int(BAND_LO), int(BAND_HI), DustBossGame.HP,
 		DustBossGame.TAPS_PER_ROUND, DustBunnyBossSprite.VULNERABILITY_WINDOW,
-		"controls" if roster == CONTROLS else "personas"])
-	print("DUSTBAL|schema run,persona,fight_s,total_s,windows,hit,missed,taps,shielded,openfar,mercy,lat_med,dry_max,inreach_open,bumps,verdict")
+		roster_label])
+	print("DUSTBAL|schema run,persona,fight_s,total_s,dry_max,windows,hit,missed,miss_total,miss_streak_current,miss_streak_max,taps,shielded,open_too_far_count,open_too_far_cause,shield_feedback_count,closer_feedback_count,assist_tier_current,assist_tier_max,assist_tier_transition_count,assist_tier_transitions,preassist_tier_current,preassist_tier_max,preassist_tier_transition_count,preassist_tier_transitions,assisted_taps,helper_taps,window_eff_current,window_eff_min,window_eff_max,reach_eff_current,reach_eff_min,reach_eff_max,windup_eff_current,windup_eff_min,windup_eff_max,speed_eff_current,speed_eff_min,speed_eff_max,flash_open_count,flash_duration_med,flash_to_first_tap_med,flash_to_hit_med,shield_flash_count,shield_flash_duration_med,shield_flash_to_open_med,shield_flash_to_tap_med,shield_tap_count,shield_tap_latency_med,open_too_far_distance_med,bump_count,bump_displacement_med,bump_displacement_max,verdict")
 	var fights: Array[float] = []
 	var misses: Array[int] = []
 	var tap_counts: Array[int] = []
@@ -141,7 +188,7 @@ func _init() -> void:
 			unfinished += 1
 		else:
 			fights.append(t - fight_t0)
-		misses.append(windows_missed)
+		misses.append(miss_total)
 		tap_counts.append(taps)
 		lat_all.append_array(latencies)
 		_print_run(run)
@@ -177,6 +224,7 @@ func _play_one(_run: int) -> void:
 		main._clear_game()
 	main.game = ""
 	main.set_process(true)
+	_close_timing_intervals()
 
 func _reset_run() -> void:
 	t = 0.0
@@ -186,10 +234,22 @@ func _reset_run() -> void:
 	windows_open = 0
 	windows_hit = 0
 	windows_missed = 0
+	miss_total = 0
+	miss_streak_current = 0
+	miss_streak_max = 0
 	taps = 0
 	taps_shielded = 0
 	taps_open_far = 0
+	open_too_far_count = 0
+	shield_feedback_count = 0
+	closer_feedback_count = 0
+	open_too_far_distances = []
+	open_too_far_reach_deficits = []
 	latencies = []
+	flash_to_first_tap = []
+	shield_flash_to_open = []
+	shield_tap_latency = []
+	shield_flash_tap_latency = []
 	reach_at_hit = []
 	in_reach_at_open = 0
 	window_open_t = -1.0
@@ -198,7 +258,39 @@ func _reset_run() -> void:
 	phase_t = [0.0, 0.0, 0.0]
 	state_t = {}
 	bumps = 0
+	bump_displacements = []
 	prev_bump_cd = 0.0
+	prev_bump_count = 0
+	prev_player_local = Vector2.ZERO
+	assisted_taps = 0
+	assist_tier_current = 0
+	assist_tier_max = 0
+	assist_transitions = []
+	preassist_tier_current = 0
+	preassist_tier_max = 0
+	preassist_transitions = []
+	effective_window_min = INF
+	effective_window_max = 0.0
+	effective_window_current = 0.0
+	effective_reach_min = INF
+	effective_reach_max = 0.0
+	effective_reach_current = 0.0
+	effective_windup_min = INF
+	effective_windup_max = 0.0
+	effective_windup_current = 0.0
+	effective_speed_min = INF
+	effective_speed_max = 0.0
+	effective_speed_current = 0.0
+	flash_open_count = 0
+	flash_durations = []
+	shield_flash_count = 0
+	shield_flash_durations = []
+	flash_open_t = -1.0
+	shield_flash_t = -1.0
+	last_flash_close_t = -1.0
+	prev_flash_open = false
+	prev_shield_flash = false
+	flash_first_tap_recorded = false
 	capped = false
 	gawk_t = 0.0
 	react_t = -1.0
@@ -278,13 +370,23 @@ func _press() -> void:
 		main.touch_ui.action_down = true
 		tap_hold = 2
 		taps += 1
-		if float(main.g.get("db_flash", 0.0)) >= 0.99:
+		var flashing: bool = _flash_is_open()
+		if flashing:
 			var d: float = (Vector2(float(main.g.get("db_x", 0.0)),
 				float(main.g.get("db_z", 0.0))) - _player_local()).length()
-			if d > boss.reach():
+			if not flash_first_tap_recorded and flash_open_t >= 0.0:
+				flash_to_first_tap.append(t - flash_open_t)
+				flash_first_tap_recorded = true
+			if d > _effective_reach():
 				taps_open_far += 1
+				open_too_far_distances.append(d)
+				open_too_far_reach_deficits.append(d - _effective_reach())
 		else:
 			taps_shielded += 1
+			if last_flash_close_t >= 0.0:
+				shield_tap_latency.append(t - last_flash_close_t)
+			if _shield_flash_is_visible() and shield_flash_t >= 0.0:
+				shield_flash_tap_latency.append(t - shield_flash_t)
 	else:
 		tap_hold -= 1
 		if tap_hold <= 0:
@@ -305,12 +407,112 @@ func _player_local() -> Vector2:
 	return Vector2(main.player.position.x - r.position.x,
 		main.player.position.z - r.position.z)
 
+func _g_float(keys: Array[String], fallback: float) -> float:
+	for key: String in keys:
+		if main.g.has(key):
+			var value: Variant = main.g[key]
+			if typeof(value) == TYPE_FLOAT or typeof(value) == TYPE_INT:
+				return float(value)
+	return fallback
+
+func _effective_assist_tier() -> int:
+	if boss != null and boss.has_method("mercy_tier"):
+		return maxi(0, int(boss.mercy_tier()))
+	return maxi(0, int(main.g.get("db_mercy_tier", 0)))
+
+func _effective_preassist_tier() -> int:
+	if boss != null and boss.has_method("preassist_tier"):
+		return maxi(0, int(boss.preassist_tier()))
+	return 0
+
+func _effective_window() -> float:
+	var fallback: float = _g_float(["db_win_len", "db_effective_window"],
+		DustBunnyBossSprite.VULNERABILITY_WINDOW)
+	if main.g.has("db_effective_window"):
+		return maxf(0.0, fallback)
+	if boss != null and boss.has_method("window_len"):
+		return maxf(0.0, float(boss.window_len()))
+	return maxf(0.0, fallback)
+
+func _effective_reach() -> float:
+	var fallback: float = _g_float(["db_effective_reach"], 0.0)
+	if fallback > 0.0:
+		return fallback
+	if boss != null and boss.has_method("reach"):
+		return maxf(0.0, float(boss.reach()))
+	return fallback
+
+func _effective_windup() -> float:
+	var fallback: float = _g_float(["db_effective_windup"], 0.0)
+	if fallback > 0.0:
+		return fallback
+	if boss != null and boss.has_method("windup_len"):
+		return maxf(0.0, float(boss.windup_len()))
+	return fallback
+
+func _effective_speed() -> float:
+	var fallback: float = _g_float(["db_effective_speed"], 0.0)
+	if fallback > 0.0:
+		return fallback
+	if boss != null and boss.has_method("hop_speed"):
+		return maxf(0.0, float(boss.hop_speed()))
+	return fallback
+
+func _flash_is_open() -> bool:
+	return String(main.g.get("db_state", "")) == "vuln" \
+		and float(main.g.get("db_flash", 0.0)) >= 0.99
+
+func _shield_flash_is_visible() -> bool:
+	var flash: float = float(main.g.get("db_flash", 0.0))
+	return flash > 0.01 and flash < 0.99
+
+func _gameplay_assisted_taps() -> int:
+	# Gameplay owns this counter and increments it only after a _free_taps()
+	# insertion is accepted by the animation kit. Tap progress is not a proxy.
+	return maxi(0, int(main.g.get("db_helper_taps_total", 0)))
+
 # ---- metrics ---------------------------------------------------------------
 func _sample() -> void:
 	var st: String = String(main.g.get("db_state", ""))
 	var hits: int = int(main.g.get("db_hits", 0))
+	var current_miss: int = int(main.g.get("db_miss", windows_missed))
+	var current_streak: int = int(main.g.get("db_miss_streak", 0))
+	miss_total = maxi(miss_total, current_miss)
+	miss_streak_current = maxi(0, current_streak)
+	miss_streak_max = maxi(miss_streak_max, miss_streak_current)
 	state_t[st] = float(state_t.get(st, 0.0)) + DT
 	phase_t[clampi(hits, 0, 2)] += DT
+	var tier: int = _effective_assist_tier()
+	if tier != assist_tier_current:
+		assist_transitions.append("%d>%d@%.2f" % [assist_tier_current, tier, t])
+	assist_tier_current = tier
+	assist_tier_max = maxi(assist_tier_max, tier)
+	var gentle_tier: int = _effective_preassist_tier()
+	if gentle_tier != preassist_tier_current:
+		preassist_transitions.append(
+			"%d>%d@%.2f" % [preassist_tier_current, gentle_tier, t])
+	preassist_tier_current = gentle_tier
+	preassist_tier_max = maxi(preassist_tier_max, gentle_tier)
+	var effective_window: float = _effective_window()
+	var effective_reach: float = _effective_reach()
+	var effective_windup: float = _effective_windup()
+	var effective_speed: float = _effective_speed()
+	effective_window_current = effective_window
+	effective_reach_current = effective_reach
+	effective_windup_current = effective_windup
+	effective_speed_current = effective_speed
+	if effective_window > 0.0:
+		effective_window_min = minf(effective_window_min, effective_window)
+		effective_window_max = maxf(effective_window_max, effective_window)
+	if effective_reach > 0.0:
+		effective_reach_min = minf(effective_reach_min, effective_reach)
+		effective_reach_max = maxf(effective_reach_max, effective_reach)
+	if effective_windup > 0.0:
+		effective_windup_min = minf(effective_windup_min, effective_windup)
+		effective_windup_max = maxf(effective_windup_max, effective_windup)
+	if effective_speed > 0.0:
+		effective_speed_min = minf(effective_speed_min, effective_speed)
+		effective_speed_max = maxf(effective_speed_max, effective_speed)
 	if st == "prowl" and fight_t0 < 0.0:
 		fight_t0 = t
 		last_hit_t = t
@@ -329,14 +531,72 @@ func _sample() -> void:
 			- _player_local()).length())
 		longest_dry = maxf(longest_dry, t - last_hit_t)
 		last_hit_t = t
+	# Struck/celebration is authored positive feedback, not interaction drought.
+	# Start the next dry interval when the boss hands control back to prowl.
+	if prev_state == "struck" and st == "prowl":
+		last_hit_t = t
 	if prev_state == "vuln" and st != "vuln" and hits == prev_hits:
 		windows_missed += 1
-	var bump_cd: float = float(main.g.get("db_bump_cd", 0.0))
-	if bump_cd > prev_bump_cd + 0.5:
-		bumps += 1
-	prev_bump_cd = bump_cd
+	miss_total = maxi(miss_total, windows_missed)
+	var flash_now: bool = _flash_is_open()
+	if flash_now and not prev_flash_open:
+		flash_open_count += 1
+		flash_open_t = t
+		flash_first_tap_recorded = false
+		if shield_flash_t >= 0.0:
+			shield_flash_to_open.append(t - shield_flash_t)
+			shield_flash_t = -1.0
+	if not flash_now and prev_flash_open:
+		if flash_open_t >= 0.0:
+			flash_durations.append(maxf(0.0, t - flash_open_t))
+		last_flash_close_t = t
+		flash_open_t = -1.0
+	prev_flash_open = flash_now
+	var shield_flash_now: bool = _shield_flash_is_visible()
+	if shield_flash_now and not prev_shield_flash:
+		shield_flash_count += 1
+		shield_flash_t = t
+	if not shield_flash_now and prev_shield_flash:
+		if shield_flash_t >= 0.0:
+			shield_flash_durations.append(maxf(0.0, t - shield_flash_t))
+		shield_flash_t = -1.0
+	prev_shield_flash = shield_flash_now
+	# Helper taps are reported from gameplay-owned telemetry. Inferring them by
+	# subtracting player taps from accepted progress mislabels quick real taps.
+	assisted_taps = _gameplay_assisted_taps()
+	open_too_far_count = maxi(taps_open_far,
+		int(main.g.get("db_closer_taps", taps_open_far)))
+	shield_feedback_count = maxi(shield_feedback_count,
+		int(main.g.get("db_shield_feedbacks", 0)))
+	closer_feedback_count = maxi(closer_feedback_count,
+		int(main.g.get("db_closer_feedbacks", 0)))
+	var bump_count_now: int = int(main.g.get("db_bumps", -1))
+	var current_player_local: Vector2 = _player_local()
+	if bump_count_now >= 0:
+		var bump_delta: int = bump_count_now - prev_bump_count
+		if bump_delta > 0:
+			var displacement: float = current_player_local.distance_to(prev_player_local)
+			for _bump in range(bump_delta):
+				bump_displacements.append(displacement)
+		bumps = maxi(bumps, bump_count_now)
+		prev_bump_count = bump_count_now
+	else:
+		var bump_cd: float = float(main.g.get("db_bump_cd", 0.0))
+		if bump_cd > prev_bump_cd + 0.5:
+			bumps += 1
+			bump_displacements.append(current_player_local.distance_to(prev_player_local))
+		prev_bump_cd = bump_cd
+	prev_player_local = current_player_local
 	prev_state = st
 	prev_hits = hits
+
+func _close_timing_intervals() -> void:
+	if prev_flash_open and flash_open_t >= 0.0:
+		flash_durations.append(maxf(0.0, t - flash_open_t))
+		flash_open_t = -1.0
+	if prev_shield_flash and shield_flash_t >= 0.0:
+		shield_flash_durations.append(maxf(0.0, t - shield_flash_t))
+		shield_flash_t = -1.0
 
 func _median(values: Array) -> float:
 	if values.is_empty():
@@ -344,6 +604,18 @@ func _median(values: Array) -> float:
 	var copy: Array = values.duplicate()
 	copy.sort()
 	return float(copy[copy.size() / 2])
+
+func _finite_metric(value: float) -> float:
+	return 0.0 if value >= INF * 0.5 else value
+
+func _max_metric(values: Array[float]) -> float:
+	var result := 0.0
+	for value: float in values:
+		result = maxf(result, value)
+	return result
+
+func _transition_text(transitions: Array[String]) -> String:
+	return "none" if transitions.is_empty() else ",".join(transitions)
 
 func _print_run(run: int) -> void:
 	var fight: float = (t - fight_t0) if fight_t0 >= 0.0 else t
@@ -354,11 +626,24 @@ func _print_run(run: int) -> void:
 		verdict = "quick"
 	elif fight > BAND_HI:
 		verdict = "long"
-	print("DUSTBAL|run=%02d persona=%s fight=%.1f total=%.1f windows=%d hit=%d missed=%d taps=%d shielded=%d openfar=%d mercy=%d lat=%.2f dry=%.1f inreach=%d/%d bumps=%d %s" % [
-		run, String(persona["name"]), fight, t, windows_open, windows_hit,
-		windows_missed, taps, taps_shielded, taps_open_far,
-		int(main.g.get("db_miss", windows_missed)) if main.g.has("db_miss") else windows_missed,
-		_median(latencies), longest_dry, in_reach_at_open, windows_open, bumps, verdict])
+	print("DUSTBAL|run=%02d persona=%s fight=%.1f total=%.1f dry_max=%.1f windows=%d hit=%d missed=%d miss_total=%d miss_streak_current=%d miss_streak_max=%d taps=%d shielded=%d openfar=%d open_too_far_count=%d open_too_far_cause=distance_gt_effective_reach shield_feedback_count=%d closer_feedback_count=%d assist_tier_current=%d assist_tier_max=%d assist_tier_transition_count=%d assist_tier_transitions=%s preassist_tier_current=%d preassist_tier_max=%d preassist_tier_transition_count=%d preassist_tier_transitions=%s assisted_taps=%d helper_taps=%d window_eff_current=%.2f window_eff_min=%.2f window_eff_max=%.2f reach_eff_current=%.2f reach_eff_min=%.2f reach_eff_max=%.2f windup_eff_current=%.2f windup_eff_min=%.2f windup_eff_max=%.2f speed_eff_current=%.2f speed_eff_min=%.2f speed_eff_max=%.2f flash_open_count=%d flash_duration_med=%.2f flash_to_first_tap_med=%.2f flash_to_hit_med=%.2f shield_flash_count=%d shield_flash_duration_med=%.2f shield_flash_to_open_med=%.2f shield_flash_to_tap_med=%.2f shield_tap_count=%d shield_tap_latency_med=%.2f open_too_far_distance_med=%.2f bump_count=%d bump_displacement_med=%.2f bump_displacement_max=%.2f %s" % [
+		run, String(persona["name"]), fight, t, longest_dry, windows_open, windows_hit,
+		windows_missed, miss_total, miss_streak_current, miss_streak_max, taps,
+		taps_shielded, taps_open_far, open_too_far_count, shield_feedback_count,
+		closer_feedback_count, assist_tier_current, assist_tier_max,
+		assist_transitions.size(), _transition_text(assist_transitions), preassist_tier_current,
+		preassist_tier_max, preassist_transitions.size(), _transition_text(preassist_transitions),
+		assisted_taps, assisted_taps,
+		effective_window_current, _finite_metric(effective_window_min), effective_window_max,
+		effective_reach_current, _finite_metric(effective_reach_min), effective_reach_max,
+		effective_windup_current, _finite_metric(effective_windup_min), effective_windup_max,
+		effective_speed_current, _finite_metric(effective_speed_min), effective_speed_max,
+		flash_open_count, _median(flash_durations), _median(flash_to_first_tap),
+		_median(latencies), shield_flash_count, _median(shield_flash_durations),
+		_median(shield_flash_to_open), _median(shield_flash_tap_latency), taps_shielded,
+		_median(shield_tap_latency),
+		_median(open_too_far_distances), bumps, _median(bump_displacements),
+		_max_metric(bump_displacements), verdict])
 	print("DUSTBAL|run=%02d phases puffy=%.1f dizzy=%.1f angry=%.1f states showing=%.1f prowl=%.1f windup=%.1f vuln=%.1f struck=%.1f" % [
 		run, phase_t[0], phase_t[1], phase_t[2],
 		float(state_t.get("showing", 0.0)), float(state_t.get("prowl", 0.0)),
@@ -376,9 +661,10 @@ func _print_summary(fights: Array[float], misses: Array[int], tap_counts: Array[
 	var total_miss := 0
 	for mv in misses:
 		total_miss += mv
-	print("DUSTBAL|summary runs=%d finished=%d capped=%d fight_med=%.1f fight_min=%.1f fight_max=%.1f miss_avg=%.2f taps_avg=%.1f lat_med=%.2f" % [
+	print("DUSTBAL|summary runs=%d finished=%d capped=%d fight_med=%.1f fight_min=%.1f fight_max=%.1f miss_total_avg=%.2f miss_avg=%.2f taps_avg=%.1f lat_med=%.2f" % [
 		run_count, run_count - unfinished, unfinished, _median(fights), lo, hi,
-		float(total_miss) / float(run_count), float(total_taps) / float(run_count),
+		float(total_miss) / float(run_count), float(total_miss) / float(run_count),
+		float(total_taps) / float(run_count),
 		_median(lat_all)])
 	var in_band := 0
 	for f in fights:

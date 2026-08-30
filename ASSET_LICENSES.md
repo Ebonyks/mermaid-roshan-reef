@@ -2713,3 +2713,30 @@ files are lossless and leave all approved/protected originals unchanged.
 - `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/05_tub_arrow_guide.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
 - `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/06_whole_room_sparkle.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
 - `assets_src/cinematics/day_one_bathroom_cleaned_v1/handoff_art/runtime_boundary_sequence/07_clean_pool_route.png` — lossless copy of the exact Godot 4.7.1 shot-probe capture; modifications: none.
+
+## Chapter 3 Moonflower Conservatory doorway (2026-08-30)
+
+- `assets_src/castle/fairy_conservatory_chapter3_2026-08-30/raw/moonflower_door_{closed,open}_checker_raw.png` — selected project-original OpenAI built-in ImageGen doorway-architecture sources; license: project original, all rights reserved; URL: none. The open source contributes only the shell frame, narrow edge-on leaves, hinges, floral carvings, and one crown pearl; its generated destination is removed by the deterministic build. Exact prompts, result filenames, rejection history, and delivery-pixel limits are recorded in the adjacent `PROVENANCE.md`.
+- `assets_src/castle/fairy_conservatory_chapter3_2026-08-30/raw/moonflower_door_open_{wide,pond,sky_horizon,generated_garden}_rejected.png` — preserved project-original rejected ImageGen iterations; license: project original, all rights reserved; URL: none. They remain source evidence only and are never runtime destination art.
+- `assets_src/castle/fairy_conservatory_chapter3_2026-08-30/alpha/moonflower_door_{closed,open}_alpha_master.png` — transparent 1024×1024 source masters derived from the selected doorway generations by border-connected neutral-field removal and whole-subject normalization; project original, all rights reserved; URL: none.
+- `assets/flats/castle/fairy_conservatory/moonflower_door_closed.png` — transparent 1024×1024 whole-subject runtime derivative built by `tools/build_fairy_conservatory_door_art.py`; project original, all rights reserved; URL: none. Processing removes the border-connected neutral presentation field, applies one-pixel matte support and a 0.8-pixel feather, and performs uniform whole-object Lanczos normalization.
+- `assets/flats/castle/fairy_conservatory/moonflower_door_open.png` — transparent 1024×1024 project derivative built by `tools/build_fairy_conservatory_door_art.py`; project original plus reused project-runtime artwork, under the same source licenses already recorded for each input; URL: none. The shell architecture is processed as above. The generated placeholder view is removed, then the existing Sky Lagoon v5 tiles, selected Chapter 3 rainbow walkway and Butterfly House cutouts, and `assets/mg/butterfly.png` are composited as whole sprites with a documented 45.7% horizon. The view now truthfully previews the intermediate Rainbow Stage rather than the Fairy Pond. No protected original or accepted hall plate is overwritten.
+- `assets_src/castle/fairy_conservatory_chapter3_2026-08-30/review/moonflower_door_{closed,open}_hall_1280x720.png` — deterministic non-runtime placement composites over the approved 7280×2048 Main Hall master reconstructed from its existing tiles; visual-audit references only, never delivery pixels or replacement hall backgrounds.
+
+## Chapter 3 Rainbow Stage and Butterfly House handoff (2026-08-30)
+
+All generated files in this section are project-original OpenAI built-in
+ImageGen art; license: project original, all rights reserved; URL: none. The
+approved Sky Lagoon background retains its existing project license. Exact
+result IDs, normalized prompt briefs, reference-role limits, native/runtime
+SHA-256 hashes, processing, and review status are recorded in
+`assets_src/fairy_conservatory_handoff_2026-08-30/PROVENANCE.md` and the
+adjacent `asset_manifest.json`.
+
+- `assets_src/fairy_conservatory_handoff_2026-08-30/raw/rainbow_walkway_openai_raw.png` — selected native 1254×1254 RGBA rainbow-causeway generation; modifications: none after generation.
+- `assets_src/fairy_conservatory_handoff_2026-08-30/raw/butterfly_house_openai_raw.png` — selected native 1254×1254 RGB Butterfly House generation on a neutral checker presentation field; modifications: none after generation.
+- `assets/flats/fairy_conservatory_handoff/rainbow_walkway.png` — transparent 1024×1024 whole-subject runtime derivative; native alpha retained and the complete subject uniformly normalized.
+- `assets/flats/fairy_conservatory_handoff/butterfly_house.png` — transparent 1024×1024 whole-subject runtime derivative; only border-connected neutral presentation pixels were removed before uniform normalization.
+- `assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png` — continuous project derivative cropped from the approved 6144×2048 Sky Lagoon v5 panorama reconstructed from its twelve existing runtime tiles; no independent object regeneration or protected-source modification.
+- `assets/flats/fairy_conservatory_handoff/background/handoff_background_r{0..1}_c{0..3}.png` — eight non-overlapping 910×1024 runtime slices of the continuous 3640×2048 handoff master, built by `tools/build_fairy_conservatory_handoff_art.py`.
+- `assets_src/fairy_conservatory_handoff_2026-08-30/review/rainbow_stage_composite_1280x720.png` — deterministic non-runtime placement composite of the approved background, selected whole-sprite walkway/house derivatives, and approved Roshan card; visual-audit reference only, never delivery pixels or a replacement runtime background.
