@@ -79,6 +79,19 @@ func _await_airborne(cap: int) -> bool:
 		await process_frame
 	return false
 
+func _await_helper_taps(expected: int, cap: int) -> bool:
+	# Wait for the gameplay-owned insertion, not just the first airborne frame:
+	# the kit may finish opening on a later process tick than the boss state.
+	var n := 0
+	while n < cap:
+		if main.game != "dustboss":
+			return false
+		if int(main.g.get("db_helper_taps_total", 0)) >= expected:
+			return true
+		n += 1
+		await process_frame
+	return false
+
 func _park(x: float, z: float) -> void:
 	# stand Roshan at a ring-local spot; OctagonStage.tick reads her live
 	# position, so this is placement only — it can never stand in for the tap
@@ -273,12 +286,16 @@ func _showing_case() -> void:
 # ---- shielded: he is a ball of dust ---------------------------------------
 func _shield_case() -> void:
 	var before: int = int(main.g.get("db_shield_taps", 0))
+	var feedback_before: int = int(main.g.get("db_shield_feedbacks", 0))
 	for i in range(4):
 		_park_on_boss()
 		await _tap()
 	_ck("taps while he bounces around land no damage", _hits() == 0)
 	_ck("a shielded tap still answers with a poof",
 		int(main.g.get("db_shield_taps", 0)) > before)
+	_ck("shield feedback is strong but rate-limited",
+		int(main.g.get("db_shield_feedbacks", 0)) - feedback_before >= 1
+		and int(main.g.get("db_shield_feedbacks", 0)) - feedback_before <= 2)
 	var windup: bool = await _await_state("windup", 3000)
 	_ck("the prowl telegraphs the leap with a wind-up", windup)
 
@@ -314,11 +331,20 @@ func _first_hit_case() -> void:
 	var away: Vector2 = (-him).normalized() if him.length() > 0.5 else Vector2(1.0, 0.0)
 	var far_spot: Vector2 = away * (OctagonStage.apothem(DustBossGame.RADIUS) - 3.0)
 	_park(far_spot.x, far_spot.y)
+	var closer_before: int = int(main.g.get("db_closer_feedbacks", 0))
 	await _tap()
 	var gap: float = (Vector2(float(main.g.get("db_x", 0.0)),
 		float(main.g.get("db_z", 0.0))) - _player_local()).length()
 	_ck("an open window still needs her to be near him",
 		gap > boss.reach() and _hits() == 0)
+	_ck("an open-far tap gives a closer picture and voice cue",
+		int(main.g.get("db_closer_feedbacks", 0)) == closer_before + 1)
+	# Mashing the same far spot keeps the one clear cue, without bunching a
+	# second picture/voice response inside its cooldown.
+	for i in range(3):
+		await _tap()
+	_ck("repeated open-too-far taps share the feedback cooldown",
+		int(main.g.get("db_closer_feedbacks", 0)) == closer_before + 1)
 	# HYBRID TOUCH: the finger goes ON him. Route a world tap through main's
 	# own router (the path the touch layer uses) and it must register one of
 	# the window's three taps — not a walk order, and not a whole round.
@@ -352,6 +378,15 @@ func _second_hit_case() -> void:
 		boss.hop_speed() < float(DustBossGame.PHASES[0]["hop_speed"]))
 	_ck("a damage round is three taps, not one",
 		DustBossGame.TAPS_PER_ROUND == 3 and DustBossGame.HP == 3)
+	_ck("landed phases include a brief celebration beat",
+		DustBossGame.PHASE_BEAT_T > 0.0
+		and boss.phase_beat_len(1) == DustBossGame.PHASE_BEAT_T
+		and boss.phase_beat_len(2) == DustBossGame.PHASE_BEAT_T
+		and boss.celebration_beat_len(1) == DustBossGame.CELEBRATION_BEAT_T
+		and boss.celebration_beat_len(2) == DustBossGame.CELEBRATION_BEAT_T)
+	_ck("quick wins have a bounded positive pacing floor",
+		DustBossGame.POSITIVE_PACING_FLOOR >= 38.0
+		and DustBossGame.POSITIVE_PACING_FLOOR < 45.0)
 	var hit2: bool = await _strike(4)
 	_ck("the second window takes the second round", hit2)
 	await _tap()
@@ -373,33 +408,59 @@ func _second_hit_case() -> void:
 # ---- a window let go: mercy, never failure --------------------------------
 func _mercy_case() -> void:
 	var boss := _boss()
-	# Start from a known streak so the check proves attempts 1-4 are unchanged
-	# and attempt 6 receives the assist switched on by miss five.
+	# Start from a known streak so the check proves attempts 1-2 are unchanged,
+	# attempt 3 is the first gentle assist, and miss five owns strong mercy.
 	main.g["db_miss"] = 0
 	main.g["db_miss_streak"] = 0
 	var window_before: float = boss.window_len()
 	var reach_before: float = boss.reach()
 	var speed_before: float = boss.hop_speed()
 	var windup_before: float = boss.windup_len()
+	var prowl_before: float = boss.prowl_len()
 	var all_missed := true
+	var early_lively := true
+	var preassist_started := false
 	for expected_streak in range(1, DustBossGame.MERCY_TRIGGER_STREAK + 1):
 		var open_now: bool = await _await_state("vuln", 4000)
 		var back: bool = open_now and await _await_state("prowl", 4000)
 		all_missed = all_missed and back and _hits() == 2 \
 			and int(main.g.get("db_miss_streak", 0)) == expected_streak
-		if expected_streak < DustBossGame.MERCY_TRIGGER_STREAK:
-			all_missed = all_missed and is_equal_approx(boss.window_len(), window_before) \
+		if expected_streak == DustBossGame.PREASSIST_TRIGGER_STREAK:
+			preassist_started = boss.preassist_tier() == 1 \
+				and boss.window_len() > window_before \
+				and boss.prowl_len() < prowl_before
+		if expected_streak < DustBossGame.PREASSIST_TRIGGER_STREAK:
+			var early_same: bool = is_equal_approx(boss.window_len(), window_before) \
 				and is_equal_approx(boss.reach(), reach_before) \
-				and is_equal_approx(boss.hop_speed(), speed_before)
+				and is_equal_approx(boss.hop_speed(), speed_before) \
+				and is_equal_approx(boss.prowl_len(), prowl_before)
+			all_missed = all_missed and early_same
+			early_lively = early_lively and early_same
 	_ck("five windows can pass harmlessly with no loss", all_missed and main.game == "dustboss")
-	_ck("attempts one through four keep the lively opening pace",
-		boss.mercy_tier() == 1)
+	_ck("misses two through four add only gentle bounded help",
+		preassist_started and boss.mercy_tier() == 1 and boss.preassist_tier() == 2
+		and boss.prowl_len() < prowl_before and boss.reach() > reach_before
+		and boss.landing_radius() < 4.0)
+	_ck("attempts one and two keep the lively opening pace",
+		early_lively and boss.mercy_tier() == 1 and boss.preassist_tier() == 2)
 	_ck("miss five switches on a longer next window", boss.window_len() > window_before)
+	_ck("miss five owns the strong tier exactly",
+		boss.mercy_tier() == 1 and boss.preassist_tier() == 2
+		and is_equal_approx(boss.window_len(), window_before
+			+ DustBossGame.PREASSIST_WINDOW_MAX
+			+ DustBossGame.MERCY_WINDOW_PER_TIER))
 	_ck("miss five widens Roshan's forgiving reach", boss.reach() > reach_before)
 	_ck("miss five slows the boss and lengthens the tell",
 		boss.hop_speed() < speed_before and boss.windup_len() > windup_before)
 	_ck("the first assist tier still requires Roshan's input",
 		boss._free_taps() == 1 and boss._free_taps() < DustBossGame.TAPS_PER_ROUND)
+	var helper_before: int = int(main.g.get("db_helper_taps_total", 0))
+	var mercy_open: bool = await _await_state("vuln", 4000)
+	var assisted_open: bool = mercy_open and await _await_airborne(1200)
+	var helper_inserted: bool = assisted_open \
+		and await _await_helper_taps(helper_before + 1, 1200)
+	_ck("strong mercy inserts one authoritative helper tap",
+		helper_inserted and int(main.g.get("db_helper_taps_total", 0)) == helper_before + 1)
 
 # ---- the third hit ends it as friends -------------------------------------
 func _win_case() -> void:
