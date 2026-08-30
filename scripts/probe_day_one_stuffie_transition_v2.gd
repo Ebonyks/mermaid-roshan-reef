@@ -81,7 +81,17 @@ func _run() -> void:
 		polish != null and String(polish_snapshot.get("task_id", ""))
 		== "loose_stuffing" and bool(polish_snapshot.get("pointer_visible", false))
 		and polish_hit_size == Vector2(290.0, 175.0))
-	await _capture("00_dirty_loose_stuffing")
+	var dirty_display: Control = main.castle_logo_room_display
+	var dirty_banner_nodes: Array = dirty_display.get_meta(
+		"banner_nodes", []) as Array if dirty_display != null else []
+	var dirty_cover_nodes: Array = dirty_display.get_meta(
+		"dirty_cover_nodes", []) as Array if dirty_display != null else []
+	_check("dirty Stuffie hides both room banners behind authored wall patches",
+		dirty_display != null and dirty_banner_nodes.is_empty()
+		and dirty_cover_nodes.size() == 2
+		and String(dirty_display.get_meta("banner_visibility_state", ""))
+		== "hidden_until_settled_clean")
+	await _capture("00_dirty_no_banners_hanging_bunny_pending")
 	_check("one tap saves the new tidy beat", polish != null
 		and polish.probe_complete())
 	await create_timer(1.35).timeout
@@ -94,10 +104,13 @@ func _run() -> void:
 		"eagle_pin_left", {}) as Dictionary
 	var right_record: Dictionary = main.castle_room_item_sprites.get(
 		"eagle_pin_right", {}) as Dictionary
+	var ceiling_record: Dictionary = main.castle_room_item_sprites.get(
+		"ceiling_bunny", {}) as Dictionary
 	var eagle_record: Dictionary = main.castle_room_item_sprites.get(
 		"baby_eagle_rescue", {}) as Dictionary
 	var left: Sprite2D = left_record.get("sprite") as Sprite2D
 	var right: Sprite2D = right_record.get("sprite") as Sprite2D
+	var ceiling: Sprite2D = ceiling_record.get("sprite") as Sprite2D
 	var eagle: Sprite2D = eagle_record.get("sprite") as Sprite2D
 	var pointer: Sprite2D = main.castle_room_item_effect_layer.get_node_or_null(
 		"BabyEagleRescuePointer") as Sprite2D
@@ -106,17 +119,38 @@ func _run() -> void:
 	_check("purpose-built pinned Eagle is live",
 		eagle != null and eagle.texture != null and eagle.texture.resource_path
 		== "res://assets/castle/day_one_stuffie/baby_eagle_pinned.png")
-	_check("Roshan is clear left and one bunny owns the pointer",
+	_check("Roshan is clear left and hanging bunny owns the first pointer",
 		entry_foot.x <= 360.0 and left != null and right != null
+		and ceiling != null
 		and pointer != null and pointer.visible
-		and String(pointer.get_meta("active_target_id", "")) == "eagle_pin_left"
-		and bool(left.get_meta("playroom_rescue_active_target", false))
+		and String(pointer.get_meta("active_target_id", "")) == "ceiling_bunny"
+		and bool(ceiling.get_meta("playroom_rescue_active_target", false))
+		and not bool(left.get_meta("playroom_rescue_active_target", true))
 		and not bool(right.get_meta("playroom_rescue_active_target", true)))
-	await _capture("01_blocked_purpose_built_eagle")
+	_check("hanging bunny uses approved art and a 2D cord",
+		ceiling.texture != null and ceiling.texture.resource_path
+		== "res://assets/castle/dirty_cleanup_2d/critters/"
+		+ "dust_bunnies/dust_bunny_hop.png"
+		and ceiling_record.get("hanging_cord") is Line2D)
+	_check("entry voice and pointer identify the high target",
+		String(pointer.get_meta("announced_target_id", "")) == "ceiling_bunny")
+	await _capture("01_dirty_hanging_bunny_target")
 
-	rooms._explode_dust_bunny("eagle_pin_right")
-	_check("inactive bunny cannot skip order",
-		main.castle_room_item_sprites.has("eagle_pin_right"))
+	rooms._explode_dust_bunny("eagle_pin_left")
+	_check("inactive pin cannot skip the ceiling target",
+		main.castle_room_item_sprites.has("eagle_pin_left")
+		and not bool(main.stuffie_wins.get("rescued_eagle_pin_left", false)))
+	rooms._activate_room_item("ceiling_bunny")
+	await _frames(3)
+	pointer = main.castle_room_item_effect_layer.get_node_or_null(
+		"BabyEagleRescuePointer") as Sprite2D
+	_check("ceiling bunny saves immediately and advances to left pin",
+		bool(main.stuffie_wins.get("rescued_ceiling_bunny", false))
+		and bool((main.save_data.get("stuffie_wins", {}) as Dictionary).get(
+			"rescued_ceiling_bunny", false))
+		and pointer != null and String(pointer.get_meta(
+			"active_target_id", "")) == "eagle_pin_left")
+	await _capture("02_hanging_bunny_resolved")
 	rooms._walk_cutout_to(left.position)
 	await _frames(12)
 	pointer = main.castle_room_item_effect_layer.get_node_or_null(
@@ -129,7 +163,7 @@ func _run() -> void:
 	_check("Eagle visibly responds after first beat", eagle.position.y
 		< (eagle.get_meta("playroom_rescue_rest_position", eagle.position)
 			as Vector2).y)
-	await _capture("02_first_pin_response")
+	await _capture("03_first_pin_response")
 
 	rooms._walk_cutout_to(right.position)
 	await _frames(34)
@@ -141,12 +175,22 @@ func _run() -> void:
 		and String(eagle.get_meta("rescue_pose", "")) == "standing_idle"
 		and eagle.texture != null and eagle.texture.resource_path
 		== "res://assets/castle/day_one_stuffie/baby_eagle_standing_idle.png")
-	await _capture("03_standing_rescue_payoff")
+	await _capture("04_purpose_built_eagle_rescue")
 	await create_timer(0.84).timeout
 	var dressing_snapshot: Dictionary = main.day_one_castle_dressing.audit_snapshot()
 	_check("playroom settles into a bright clean environment before adoption",
 		float(dressing_snapshot.get("visible_dirty_strength", 1.0)) <= 0.05)
-	await _capture("04_settled_clean_playroom")
+	var clean_display: Control = main.castle_logo_room_display
+	var clean_banner_nodes: Array = clean_display.get_meta(
+		"banner_nodes", []) as Array if clean_display != null else []
+	var clean_cover_nodes: Array = clean_display.get_meta(
+		"dirty_cover_nodes", []) as Array if clean_display != null else []
+	_check("settled clean restores both banners exactly once",
+		clean_display != null and clean_banner_nodes.size() == 2
+		and clean_cover_nodes.is_empty()
+		and String(clean_display.get_meta("banner_visibility_state", ""))
+		== "settled_clean")
+	await _capture("05_settled_clean_banners_restored")
 	await create_timer(0.60).timeout
 	_check("focused adoption tutorial follows rescue",
 		main.companion_layer != null and main.companion_pick_id == "eagle"
@@ -177,7 +221,7 @@ func _run() -> void:
 		int(main.g.get("stuffie_rescue_tutorial_step", -1)) == 2
 		and main.companion_stage.find_children(
 			"StuffieSwatch_*", "Button", true, false).is_empty())
-	await _capture("05_focused_adoption_tutorial")
+	await _capture("06_focused_adoption_tutorial")
 
 	main.queue_free()
 	await _frames(4)

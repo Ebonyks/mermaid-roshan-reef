@@ -47,7 +47,8 @@ const EVENT_ART_CUSTOMIZATION_COMPLETED: String = "art_customization_completed"
 const EVENT_BOSS_DOOR_GLOW: String = "boss_door_glow"
 const EVENT_GIANT_DUST_BUNNY_BOSS: String = "giant_dust_bunny_boss"
 const ART_MATERIAL_IDS: Array[String] = [
-	"brushes", "pink_paint", "blue_paint", "paint_cups",
+	"brushes", "pink_paint", "stacked_cups", "blue_paint", "paint_cups",
+	"spare_brushes",
 ]
 const ART_GRIME_IDS: Array[String] = [
 	"left_counter", "desk_counter", "right_counter",
@@ -584,10 +585,20 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_art_collected_materials", {}))
 	var art_grime: Dictionary = _string_bool_map_static(source.get(
 		"day_one_art_cleaned_grime", {}))
+	var legacy_art_cleanup_done: bool = _map_has_every_id_static(
+		art_materials, ["brushes", "pink_paint", "blue_paint", "paint_cups"]) \
+		and _map_has_every_id_static(
+			art_grime, ["left_counter", "desk_counter", "right_counter"])
+	# The corrective layer adds two ordered pickups. Saves that had already
+	# earned the desk (or completed Art) keep that progress monotonically.
+	if legacy_art_cleanup_done and (_as_bool_static(source.get(
+			"day_one_art_desk_unlocked", false), false) or completed.has("art")):
+		art_materials["stacked_cups"] = true
+		art_materials["spare_brushes"] = true
 	var art_cleanup_done: bool = _map_has_every_id_static(
 		art_materials, ART_MATERIAL_IDS) and _map_has_every_id_static(
 		art_grime, ART_GRIME_IDS)
-	# The desk is a derived reward for finishing all seven cleanup actions.
+	# The desk is a derived reward for finishing every ordered cleanup action.
 	# Deriving it on restore prevents a save written between the final scrub and
 	# the next frame from ever losing progress or trapping the child.
 	var art_desk: bool = art_cleanup_done

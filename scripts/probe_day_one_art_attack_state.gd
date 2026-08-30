@@ -28,22 +28,24 @@ func _init() -> void:
 		director.record_art_cleanup("material", material_id)
 	for grime_id: String in DayOneDirector.ART_GRIME_IDS:
 		director.record_art_cleanup("grime", grime_id)
-	_check("all seven cleanup actions unlock the desk",
+	_check("all nine saved cleanup actions unlock the desk",
 		director.art_desk_unlocked and director.art_cleanup_complete())
 	_check("customization is desk-gated",
 		director.complete_art_customization()
 		and director.art_customization_completed)
-	# Move the route to the art room without touching the physical castle.
-	director.complete_tutorial("bathroom")
-	director.complete_activity("pool", "pool_activity")
-	director.complete_activity("stuffie", "stuffie_activity")
+	# Move the focused state probe to Art without invoking Bathroom's separate
+	# live basket/scrub gates, which belong to its integration probe.
+	director.completed_rooms = {
+		"bathroom": true, "pool": true, "stuffie": true,
+	}
+	director.current_room_id = "art"
 	_check("art completion uses the existing room order",
 		director.current_room_id == "art"
 		and director.complete_art_studio()
 		and director.is_room_completed("art"))
 	var saved: Dictionary = director.serialize_state()
 	_check("serialized art state is JSON-safe",
-		(saved.get("day_one_art_collected_materials", {}) as Dictionary).size() == 4
+		(saved.get("day_one_art_collected_materials", {}) as Dictionary).size() == 6
 		and (saved.get("day_one_art_cleaned_grime", {}) as Dictionary).size() == 3
 		and bool(saved.get("day_one_art_desk_unlocked", false))
 		and bool(saved.get("day_one_art_customization_completed", false)))
@@ -73,11 +75,13 @@ func _init() -> void:
 	root.add_child(studio)
 	studio.setup(main, false)
 	var studio_audit: Dictionary = studio.audit_snapshot()
-	_check("studio builds seven large Canvas cleanup targets at castle scale",
-		int(studio_audit.get("material_count", 0)) == 4
+	_check("studio builds ten ordered Canvas cleanup targets at castle scale",
+		int(studio_audit.get("material_count", 0)) == 6
 		and int(studio_audit.get("grime_count", 0)) == 3
-		and int(studio_audit.get("material_art_count", 0)) == 4
+		and int(studio_audit.get("material_art_count", 0)) == 6
 		and int(studio_audit.get("grime_art_count", 0)) == 3
+		and int(studio_audit.get("ordered_interaction_count", 0)) == 11
+		and bool(studio_audit.get("target_table_clearance_pass", false))
 		and bool(studio_audit.get("canvas_only", false))
 		and studio.scale.is_equal_approx(Vector2.ONE * 1.25))
 	var customizer := AttackCustomizer.new()

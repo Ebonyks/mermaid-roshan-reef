@@ -1,0 +1,46 @@
+{
+  "schema": "day_one_craft_table_alpha_cleanup_v2",
+  "method": "Recover RGB only from the approved room_craft_room.png crop. Promote source-card alpha >=224 to opaque; preserve original antialias values within two pixels of that core; union only the broad tabletop/body polygons already reviewed in static_depth_card_refinement.json; zero all other alpha and hidden RGB. Originals remain unchanged.",
+  "core_alpha_threshold": 224,
+  "antialias_fringe_radius_pixels": 2,
+  "entries": [
+    {
+      "source_path": "assets/flats/castle/rooms/room_craft_room_front_left.png",
+      "source_sha256": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a",
+      "approved_rgb_source_path": "assets/flats/castle/rooms/room_craft_room.png",
+      "approved_rgb_source_sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+      "reviewed_mask_manifest_path": "assets_src/castle/depth_cards/static_depth_card_refinement.json",
+      "reviewed_mask_manifest_sha256": "64dff9ee9ff1801b49bea9a242c2c6b2c041115c6dbc872a046a36e8c62b0a58",
+      "reviewed_table_body_polygon_count": 2,
+      "runtime_path": "assets/castle/day_one_room_corrections_2026-08-30/craft_table_front_left_alpha_clean.png",
+      "runtime_sha256": "7719f14fd566179f9175e3cfaea80371235aea1ba5fb6e32cda405a1b81f663c",
+      "dimensions": [
+        304,
+        260
+      ],
+      "source_partial_alpha_pixels": 8291,
+      "runtime_partial_alpha_pixels": 2260,
+      "removed_peripheral_alpha_pixels": 156,
+      "recovered_reviewed_body_pixels": 8648
+    },
+    {
+      "source_path": "assets/flats/castle/rooms/room_craft_room_front_right.png",
+      "source_sha256": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871",
+      "approved_rgb_source_path": "assets/flats/castle/rooms/room_craft_room.png",
+      "approved_rgb_source_sha256": "916522a6fab6691866e8ff768056a5725bfbb76044dba869935eb7b585420eae",
+      "reviewed_mask_manifest_path": "assets_src/castle/depth_cards/static_depth_card_refinement.json",
+      "reviewed_mask_manifest_sha256": "64dff9ee9ff1801b49bea9a242c2c6b2c041115c6dbc872a046a36e8c62b0a58",
+      "reviewed_table_body_polygon_count": 1,
+      "runtime_path": "assets/castle/day_one_room_corrections_2026-08-30/craft_table_front_right_alpha_clean.png",
+      "runtime_sha256": "0edb1e06cee535887ceea4e3e449f6bfe08d7919a806fe333b67b28ab19ef104",
+      "dimensions": [
+        304,
+        260
+      ],
+      "source_partial_alpha_pixels": 6817,
+      "runtime_partial_alpha_pixels": 3687,
+      "removed_peripheral_alpha_pixels": 649,
+      "recovered_reviewed_body_pixels": 3773
+    }
+  ]
+}

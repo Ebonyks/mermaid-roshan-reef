@@ -57,84 +57,121 @@ func _run() -> void:
 	await _frames(18)
 	main._castle_rooms_ref().show_room("craft_room", false)
 	await _frames(12)
-	var polish: DayOneRoomPolish = main._day_one_room_polish
-	_check("new rainbow-spill task mounted first", polish != null
-		and String(polish.audit_snapshot().get("task_id", ""))
-		== "rainbow_paint_spill")
-	await _capture("00a_dirty_rainbow_spill")
-	_check("one tap completes rainbow-spill task", polish != null
-		and polish.probe_complete())
-	await create_timer(1.35).timeout
-	_check("rainbow-spill task saves immediately",
-		main.day_one_room_polish_is_complete("art"))
-	_check("studio opened", main._day_one_art_studio != null
-		or main._open_day_one_art_studio())
-	await _frames(4)
+	_check("shared polish does not create a second rainbow owner",
+		main._day_one_room_polish == null)
 	var studio: DayOneArtStudio = main._day_one_art_studio
 	_check("studio mounted", studio != null)
 	if studio == null:
 		main.queue_free()
 		quit(1)
 		return
-	await _capture("00_loose_supplies")
 	var entry_snapshot: Dictionary = studio.audit_snapshot()
-	_check("grime is visible from dirty entry",
-		bool(entry_snapshot.get("grime_visible_from_entry", false)))
+	_check("dirty entry shows every cleanup family with one active target",
+		bool(entry_snapshot.get("grime_visible_from_entry", false))
+		and int(entry_snapshot.get("material_count", 0)) == 6
+		and int(entry_snapshot.get("grime_count", 0)) == 3
+		and int(entry_snapshot.get("ordered_interaction_count", 0)) == 11
+		and int(entry_snapshot.get("active_target_count", 0)) == 1)
+	_check("rainbow and both tables each have one visual owner",
+		int(entry_snapshot.get("rainbow_owner_count", 0)) == 1
+		and int(entry_snapshot.get("left_table_visual_owner_count", 0)) == 1
+		and int(entry_snapshot.get("right_table_visual_owner_count", 0)) == 1
+		and not bool(entry_snapshot.get("legacy_palette_visual_present", true)))
+	_check("both table owners use the alpha-clean derived cards",
+		bool(entry_snapshot.get("table_alpha_cleanup_pass", false)))
+	_check("all target alpha bounds clear both foreground tables",
+		bool(entry_snapshot.get("target_table_clearance_pass", false)))
+	_check("no persistent rainbow shadow or desk glow owner remains",
+		int(entry_snapshot.get("persistent_glow_count", -1)) == 0
+		and studio.find_child("PaintDeskGlow", true, false) == null)
+	var paint_record: Dictionary = main.castle_room_item_sprites.get(
+		"paint_table", {}) as Dictionary
+	var paint_hotspot: Button = paint_record.get("hotspot") as Button
+	_check("legacy room controls cannot compete during ordered cleanup",
+		paint_hotspot == null or (paint_hotspot.disabled and not paint_hotspot.visible))
+	_check("entry pointer leaves Roshan's face unobscured",
+		bool(entry_snapshot.get("pointer_clear_of_player_face", false)))
+	await _capture("00_dirty_all_clutter_grime_no_overdraw")
+	studio._on_material_pressed("brushes")
+	_check("material cannot skip the rainbow first beat",
+		not bool(main.day_one_art_collected_materials.get("brushes", false)))
+	studio._on_rainbow_pressed()
+	_check("rainbow beat saves before visual feedback",
+		main.day_one_room_polish_is_complete("art")
+		and bool((main.save_data.get("day_one_room_polish_completed", {})
+			as Dictionary).get("art", false)))
+	await create_timer(0.16).timeout
+	await _capture("01_rainbow_floor_wipe_feedback")
+	await create_timer(0.42).timeout
 	studio._on_material_pressed("pink_paint")
 	_check("inactive material cannot skip the ordered pointer",
 		not bool(main.day_one_art_collected_materials.get("pink_paint", false)))
 
+	var material_step: int = 2
 	for material_id: String in DayOneDirector.ART_MATERIAL_IDS:
 		studio._on_material_pressed(material_id)
 		_check("collect active %s" % material_id,
 			bool(main.day_one_art_collected_materials.get(material_id, false)))
+		await create_timer(0.46).timeout
 		_check("exactly one Art target remains active",
 			int(studio.audit_snapshot().get("active_target_count", 0)) == 1)
-	await _capture("01_grime_revealed")
+		_check("material pointer leaves Roshan's face unobscured",
+			bool(studio.audit_snapshot().get(
+				"pointer_clear_of_player_face", false)))
+		await _capture("%02d_ordered_pickup_%s" % [material_step, material_id])
+		material_step += 1
 
 	studio._on_grime_pressed("right_counter")
 	_check("inactive grime cannot skip the ordered pointer",
 		not bool(main.day_one_art_cleaned_grime.get("right_counter", false)))
-	for grime_id: String in ["left_counter", "desk_counter"]:
+	for grime_id: String in DayOneDirector.ART_GRIME_IDS:
 		studio._on_grime_pressed(grime_id)
 		_check("clean active %s" % grime_id,
 			bool(main.day_one_art_cleaned_grime.get(grime_id, false)))
+		await create_timer(0.46).timeout
 		_check("exactly one Art target remains active",
 			int(studio.audit_snapshot().get("active_target_count", 0)) == 1)
-	await _capture("02_last_grime")
-	studio._on_grime_pressed("right_counter")
-	_check("clean active right_counter",
-		bool(main.day_one_art_cleaned_grime.get("right_counter", false)))
-	await _capture("03_glowing_desk")
+		_check("grime pointer leaves Roshan's face unobscured",
+			bool(studio.audit_snapshot().get(
+				"pointer_clear_of_player_face", false)))
+		await _capture("%02d_ordered_scrub_%s" % [material_step, grime_id])
+		material_step += 1
+	_check("desk unlock waits for all ten saved cleanup beats",
+		main.day_one_art_desk_unlocked
+		and (main.save_data.get("day_one_art_collected_materials", {})
+			as Dictionary).size() == 6
+		and (main.save_data.get("day_one_art_cleaned_grime", {})
+			as Dictionary).size() == 3)
+	await _capture("11_desk_ready_single_pointer")
 
 	studio._on_desk_pressed()
 	await _frames(8)
-	await _capture("04_customizer_bubbles")
+	await _capture("12_customizer_bubbles")
 	var customizer: AttackCustomizer = main._attack_customizer
 	_check("customizer mounted", customizer != null)
 	if customizer != null:
 		customizer.attack_color = Color(1.0, 0.48, 0.55, 1.0)
 		customizer.attack_effect = "splashes"
 		customizer._refresh_choices()
-		await _capture("05_customizer_splashes")
+		await _capture("13_customizer_splashes")
 
 	var hit_engine := HitEngine.new(main)
 	hit_engine.show_attack_feedback_2d(Vector2(640.0, 360.0),
 		Color(1.0, 0.48, 0.55, 1.0), "splashes")
 	await _frames(4)
-	await _capture("06_splash_attack_frame")
+	await _capture("14_splash_attack_frame")
 	if customizer != null:
 		# Use the same public close path as the large picture-only confirm button;
 		# its callback completes the saved room and removes temporary cleanup art.
 		customizer.close()
 	await create_timer(0.42).timeout
-	await _capture("07_whole_room_sparkle")
+	await _capture("15_whole_room_reveal")
 	await create_timer(0.72).timeout
 	_check("art room completed after picture confirmation",
 		main._day_one_ref().is_room_completed("art"))
 	_check("completion settles in the clean studio before any optional picker",
 		main.castle_logo_layer == null)
-	await _capture("08_clean_art_room")
+	await _capture("16_settled_clean_art_room")
 	main.queue_free()
 	await _frames(4)
 	print("DAY_ONE_ART_STUDIO_SHOTS|RESULT: %s failures=%d output=%s" % [

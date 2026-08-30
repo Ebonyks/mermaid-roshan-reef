@@ -7033,7 +7033,9 @@ func day_one_record_art_cleanup(kind: String, item_id: String) -> bool:
 		return false
 	var changed: bool = _day_one_ref().record_art_cleanup(kind, item_id)
 	if changed:
-		_queue_save()
+		# Every large picture target is a monotonic child action. Persist before
+		# its visual travel/scrub tween so interruption cannot lose the beat.
+		_write_save()
 	return changed
 
 
@@ -7171,6 +7173,7 @@ func _sync_day_one_room_polish() -> void:
 	var logical_room: String = _day_one_logical_room_for_castle(castle_room_id)
 	var should_show: bool = day_one_is_active() \
 		and castle_room_stage != null and logical_room != "" \
+		and logical_room != "art" \
 		and not _day_one_ref().is_room_completed(logical_room) \
 		and not day_one_room_polish_is_complete(logical_room)
 	if not should_show:

@@ -57,6 +57,12 @@ const ROOM_BANNER_RECTS: Dictionary = {
 		Rect2(1074.0, 145.0, 86.0, 176.0),
 	],
 }
+const PLAYROOM_DIRTY_BANNER_COVERS: Array[Dictionary] = [
+	{"rect": Rect2(105.0, 118.0, 125.0, 235.0),
+		"texture": preload("res://assets/castle/day_one_room_corrections_2026-08-30/playroom_banner_cover_left.png")},
+	{"rect": Rect2(1050.0, 118.0, 130.0, 235.0),
+		"texture": preload("res://assets/castle/day_one_room_corrections_2026-08-30/playroom_banner_cover_right.png")},
+]
 const CRAFT_BOARD_BADGE_RECT := Rect2(578.0, 158.0, 88.0, 88.0)
 
 class LogoPreview extends Control:
@@ -480,6 +486,31 @@ func refresh_room_display() -> void:
 	display.set_meta("castle_room_id", m.castle_room_id)
 	display.set_meta("replaces_design", "purple_shell_banner")
 	m.castle_room_stage.add_child(display)
+	var hide_playroom_banners: bool = m.castle_room_id == "playroom" \
+		and not bool(m.stuffie_wins.get("rescued_eagle", false))
+	if hide_playroom_banners:
+		var cover_nodes: Array[Node] = []
+		for index: int in range(PLAYROOM_DIRTY_BANNER_COVERS.size()):
+			var cover_spec: Dictionary = PLAYROOM_DIRTY_BANNER_COVERS[index]
+			var cover_rect: Rect2 = cover_spec["rect"] as Rect2
+			var cover := TextureRect.new()
+			cover.name = "DirtyBannerWallCover_%d" % index
+			cover.position = cover_rect.position
+			cover.size = cover_rect.size
+			cover.texture = cover_spec["texture"] as Texture2D
+			cover.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			cover.stretch_mode = TextureRect.STRETCH_SCALE
+			cover.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			cover.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+			cover.set_meta("source_asset_role", "banner_free_wall_patch")
+			cover.set_meta("replaces_design", "purple_shell_banner")
+			display.add_child(cover)
+			cover_nodes.append(cover)
+		display.set_meta("banner_nodes", [])
+		display.set_meta("dirty_cover_nodes", cover_nodes)
+		display.set_meta("banner_visibility_state", "hidden_until_settled_clean")
+		m.castle_logo_room_display = display
+		return
 	var banner_nodes: Array[Node] = []
 	for index: int in range(banner_rects.size()):
 		var banner_rect: Rect2 = banner_rects[index] as Rect2
@@ -492,6 +523,8 @@ func refresh_room_display() -> void:
 		display.add_child(banner)
 		banner_nodes.append(banner)
 	display.set_meta("banner_nodes", banner_nodes)
+	display.set_meta("dirty_cover_nodes", [])
+	display.set_meta("banner_visibility_state", "settled_clean")
 	if m.castle_room_id == "craft_room":
 		# Keep the personalized logo as a small pinned badge on the painted board.
 		# It remains input-transparent, so the board keeps its full hotspot.
