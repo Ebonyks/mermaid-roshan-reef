@@ -12,7 +12,9 @@ import argparse
 import datetime as _datetime
 import hashlib
 import json
+import os
 import re
+import shutil
 import struct
 import subprocess
 import zlib
@@ -920,6 +922,37 @@ def _apk_signing_block_valid(data: bytes, central_offset: int) -> bool:
     return cursor == pair_end and found_signer
 
 
+def _der_tlv_end(data: bytes, offset: int = 0) -> int | None:
+    """Return the end of one definite-length DER TLV, or reject it."""
+    if offset + 2 > len(data):
+        return None
+    length_byte = data[offset + 1]
+    cursor = offset + 2
+    if length_byte & 0x80:
+        width = length_byte & 0x7F
+        if width == 0 or width > 4 or cursor + width > len(data):
+            return None
+        if data[cursor] == 0:
+            return None
+        length = int.from_bytes(data[cursor:cursor + width], "big")
+        cursor += width
+    else:
+        length = length_byte
+    if length < 0 or cursor + length != len(data):
+        return None
+    return cursor + length
+
+
+def _pkcs7_signature_valid(data: bytes) -> bool:
+    """Reject empty/text/falsely framed CERT.RSA payloads before the tool run."""
+    if not data or data[0] != 0x30 or _der_tlv_end(data) != len(data):
+        return False
+    # PKCS#7 SignedData is a SEQUENCE containing an OID and a context-tagged
+    # SignedData value. Requiring those tags catches fabricated CERT.RSA bytes
+    # while leaving the cryptographic signature decision to the real verifier.
+    return len(data) >= 8 and 0x06 in data[:64] and any(tag in data[:128] for tag in (0xA0, 0xA1))
+
+
 def _apk_zip_valid(path: Path) -> tuple[bool, str, set[str], bytes | None]:
     """Validate ZIP integrity, path safety, and return names/raw bytes."""
     try:
@@ -1004,10 +1037,19 @@ def _apk_artifact(root: Path, path_value: Any, expected: Any) -> tuple[bool, str
     )
     try:
         with zipfile.ZipFile(path) as archive:
-            signature_payloads = [archive.read(name) for name in names
-                                  if name.upper().startswith("META-INF/")]
+            signature_payloads = {
+                name: archive.read(name) for name in names
+                if name.upper().startswith("META-INF/")
+            }
     except (KeyError, OSError, RuntimeError, zipfile.BadZipFile):
         return False, "APK signature evidence cannot be read"
+    signature_files = [name for name in names if name.upper().startswith("META-INF/")]
+    cert_files = [name for name in signature_files
+                  if name.upper().endswith((".RSA", ".DSA", ".EC"))]
+    if signature_pair and not all(
+            _pkcs7_signature_valid(signature_payloads[name])
+            for name in cert_files):
+        return False, "APK signature certificate payload is malformed"
     signature_pair = signature_pair and all(signature_payloads)
     # The central offset is recovered from the validated EOCD above.
     eocd_offset = raw.rfind(b"PK\x05\x06")
@@ -1015,6 +1057,168 @@ def _apk_artifact(root: Path, path_value: Any, expected: Any) -> tuple[bool, str
     if not signature_pair and not _apk_signing_block_valid(raw, central_offset):
         return False, "APK has no valid signature evidence"
     return True, ""
+
+
+_APK_VERIFIER_NAMES = ("apksigner", "jarsigner")
+_APK_VERIFIER_TIMEOUT_SECONDS = 120
+
+
+def _safe_tool_path(path: Path) -> Path | None:
+    """Return a real executable path, never a path supplied by evidence."""
+    try:
+        resolved = path.resolve()
+        if not resolved.is_file() or not os.access(resolved, os.X_OK):
+            return None
+        return resolved
+    except OSError:
+        return None
+
+
+def _sdk_roots() -> list[Path]:
+    """Return the explicitly approved Android SDK roots.
+
+    Environment variables are only used to locate an SDK; the verifier name
+    is still fixed below and evidence can never select an executable path.
+    """
+    values = [os.environ.get(name, "") for name in ("ANDROID_HOME", "ANDROID_SDK_ROOT")]
+    if os.name == "nt":
+        local_app_data = os.environ.get("LOCALAPPDATA", "")
+        if local_app_data:
+            values.append(str(Path(local_app_data) / "Android" / "Sdk"))
+    roots: list[Path] = []
+    seen: set[str] = set()
+    for value in values:
+        if not value:
+            continue
+        try:
+            root = Path(value).expanduser().resolve()
+        except OSError:
+            continue
+        key = os.path.normcase(str(root))
+        if key not in seen and root.is_dir():
+            seen.add(key)
+            roots.append(root)
+    return roots
+
+
+def _discover_apk_verifier() -> tuple[str, Path] | None:
+    """Find only real, allowlisted APK verification tools.
+
+    `apksigner` is preferred and may be installed in an approved Android SDK
+    build-tools directory. `jarsigner` is the portable fallback. No basename,
+    executable path, or command from an evidence artifact is ever executed.
+    """
+    candidates: list[tuple[str, Path]] = []
+    path_apksigner = shutil.which("apksigner")
+    if path_apksigner:
+        candidates.append(("apksigner", Path(path_apksigner)))
+    for root in _sdk_roots():
+        build_tools = root / "build-tools"
+        if not build_tools.is_dir():
+            continue
+        try:
+            versions = sorted((item for item in build_tools.iterdir() if item.is_dir()),
+                              key=lambda item: item.name, reverse=True)
+        except OSError:
+            versions = []
+        for version in versions:
+            for filename in ("apksigner", "apksigner.bat", "apksigner.cmd", "apksigner.exe"):
+                candidate = version / filename
+                if candidate.exists():
+                    candidates.append(("apksigner", candidate))
+    path_jarsigner = shutil.which("jarsigner")
+    if path_jarsigner:
+        candidates.append(("jarsigner", Path(path_jarsigner)))
+    for name, candidate in candidates:
+        real = _safe_tool_path(candidate)
+        if real is not None:
+            return name, real
+    return None
+
+
+def _run_verifier(name: str, executable: Path, apk: Path,
+                  truststore: Path | None = None) -> tuple[bool, str, str, bytes]:
+    """Execute the selected verifier and return pass, version, text, bytes."""
+    if name not in _APK_VERIFIER_NAMES:
+        return False, "", "APK verifier is not allowlisted", b""
+    def command(args: list[str]) -> list[str]:
+        # Windows SDKs commonly ship apksigner.bat. Calling cmd.exe as the
+        # executable keeps subprocess shell=False while avoiding shell
+        # parsing of any evidence-provided value (all args are internal).
+        if executable.suffix.lower() in {".bat", ".cmd"}:
+            command_line = subprocess.list2cmdline([str(executable), *args])
+            return [os.environ.get("COMSPEC", "cmd.exe"), "/d", "/s", "/c", command_line]
+        return [str(executable), *args]
+    # jarsigner has no public --version switch; -J-version asks its JVM to
+    # print the version while still executing the discovered jarsigner binary.
+    version_args = command(["--version"] if name == "apksigner" else ["-J-version"])
+    verify_args = command(
+        ["verify", "--verbose", "--print-certs", str(apk)]
+        if name == "apksigner" else
+        ["-verify", "-strict", "-certs"]
+        + (["-keystore", str(truststore), "-storepass", "changeit"]
+           if truststore is not None else [])
+        + [str(apk)])
+    try:
+        version_run = subprocess.run(
+            version_args, shell=False, check=False, cwd=apk.parent,
+            capture_output=True, timeout=_APK_VERIFIER_TIMEOUT_SECONDS,
+        )
+        version_bytes = version_run.stdout + version_run.stderr
+        version = version_bytes.decode("utf-8", errors="replace").strip()
+        verify_run = subprocess.run(
+            verify_args, shell=False, check=False, cwd=apk.parent,
+            capture_output=True, timeout=_APK_VERIFIER_TIMEOUT_SECONDS,
+        )
+        output_bytes = verify_run.stdout + verify_run.stderr
+        output = output_bytes.decode("utf-8", errors="replace")
+    except (OSError, subprocess.SubprocessError) as exc:
+        return False, "", f"APK verifier could not execute: {exc}", b""
+    if version_run.returncode != 0 or not version:
+        return False, version, "APK verifier version command failed", output_bytes
+    lowered = output.lower()
+    if name == "apksigner":
+        positive = verify_run.returncode == 0 and any(
+            marker in lowered for marker in (
+                "verified using v1 scheme (jar signing): true",
+                "verified using v2 scheme (apk signing): true",
+                "verified using v3 scheme (apk signing): true",
+                "verified using v4 scheme (apk signing): true",
+            )) and "signer #" in lowered
+    else:
+        positive = verify_run.returncode == 0 and "jar verified." in lowered
+        positive = positive and not any(marker in lowered for marker in (
+            "unsigned", "not parsable", "signature missing", "failed"))
+    if verify_run.returncode != 0:
+        return False, version, "APK cryptographic verification failed: " + output.strip()[-500:], output_bytes
+    if not positive:
+        return False, version, "APK verifier output is not a positive signed/verified result", output_bytes
+    return True, version, output, output_bytes
+
+
+def _record_artifact(root: Path, value: Any, label: str) -> tuple[bytes | None, str]:
+    if not isinstance(value, dict):
+        return None, f"{label} is missing"
+    path_value = value.get("path")
+    expected = str(value.get("sha256", "")).lower()
+    if (not isinstance(path_value, str) or not path_value.strip()
+            or not HEX64_RE.fullmatch(expected)):
+        return None, f"{label} path/SHA-256 is missing or invalid"
+    relative = path_value.removeprefix("res://")
+    if ("\0" in relative or not _zip_path_safe(relative)):
+        return None, f"{label} path is unsafe"
+    path = (root / relative).resolve()
+    try:
+        path.relative_to(root.resolve())
+    except ValueError:
+        return None, f"{label} escapes repository"
+    try:
+        data = path.read_bytes()
+    except OSError:
+        return None, f"{label} is missing: {relative}"
+    if not data or hashlib.sha256(data).hexdigest() != expected:
+        return None, f"{label} hash mismatch: {relative}"
+    return data, ""
 
 
 def _apk_verification_record(root: Path, value: Any, apk_path: str,
@@ -1026,7 +1230,6 @@ def _apk_verification_record(root: Path, value: Any, apk_path: str,
     bound_path = _first_value(record, ("apk_path", "path", "artifact"))
     tool = _first_value(record, ("tool", "verification_tool"))
     tool_version = _first_value(record, ("tool_version", "toolVersion", "version"))
-    command = record.get("command")
     result = str(_first_value(record, ("result", "status", "outcome"))).upper()
     package_id = _first_value(record, ("package_id", "package", "application_id"))
     package_version = _first_value(record, (
@@ -1034,15 +1237,51 @@ def _apk_verification_record(root: Path, value: Any, apk_path: str,
     expected_path = apk_path.removeprefix("res://")
     actual_path = (str(bound_path).removeprefix("res://")
                    if isinstance(bound_path, str) else "")
-    if (bound_hash != apk_sha256.lower()
-            or actual_path != expected_path
-            or not isinstance(tool, str) or not tool.strip()
+    if (bound_hash != apk_sha256.lower() or actual_path != expected_path
+            or not isinstance(tool, str) or tool not in _APK_VERIFIER_NAMES
             or not isinstance(tool_version, str) or not tool_version.strip()
-            or not isinstance(command, str) or not command.strip()
-            or result != "PASS"
-            or not isinstance(package_id, str) or not package_id.strip()
+            or result != "PASS" or not isinstance(package_id, str) or not package_id.strip()
             or not isinstance(package_version, str) or not package_version.strip()):
-        return False, "APK verification record must bind APK path/SHA and declare tool/version, PASS command, package id/version"
+        return False, "APK verification record must bind APK path/SHA and allowlisted tool/version, PASS result, package id/version"
+    discovered = _discover_apk_verifier()
+    if discovered is None:
+        return False, "APK cryptographic verification unavailable: no allowlisted apksigner or jarsigner"
+    discovered_name, executable = discovered
+    if tool != discovered_name:
+        return False, f"APK verification record names {tool!r}, but preferred allowlisted verifier is {discovered_name!r}"
+    executable_path = _first_value(record, ("executable_path", "verifier_path", "tool_path"))
+    executable_sha = str(_first_value(record, (
+        "executable_sha256", "verifier_sha256", "tool_sha256"))).lower()
+    if (not isinstance(executable_path, str)
+            or Path(executable_path).resolve() != executable
+            or not HEX64_RE.fullmatch(executable_sha)
+            or _sha256(executable) != executable_sha):
+        return False, "APK verification record must bind the discovered verifier executable path/SHA-256"
+    apk = (root / expected_path).resolve()
+    truststore: Path | None = None
+    truststore_value = record.get("truststore")
+    if truststore_value is not None:
+        truststore_bytes, truststore_reason = _record_artifact(
+            root, truststore_value, "APK verifier truststore")
+        if truststore_bytes is None:
+            return False, truststore_reason
+        truststore_path = str(truststore_value.get("path", "")).removeprefix("res://")
+        truststore = (root / truststore_path).resolve()
+    actual_ok, actual_version, actual_reason, output_bytes = _run_verifier(
+        discovered_name, executable, apk, truststore)
+    if not actual_ok:
+        return False, actual_reason
+    if tool_version != actual_version:
+        return False, "APK verification record tool version does not match executed verifier"
+    output_sha = str(_first_value(record, ("output_sha256", "verifier_output_sha256"))).lower()
+    if not HEX64_RE.fullmatch(output_sha) or hashlib.sha256(output_bytes).hexdigest() != output_sha:
+        return False, "APK verification record must bind SHA-256 of actual verifier output"
+    output_value = _first_value(record, ("output_artifact", "verifier_output", "output"))
+    artifact_bytes, artifact_reason = _record_artifact(root, output_value, "APK verifier output artifact")
+    if artifact_bytes is None:
+        return False, artifact_reason
+    if artifact_bytes != output_bytes:
+        return False, "APK verifier output artifact does not match actual executed output"
     return True, ""
 
 

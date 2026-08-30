@@ -7,12 +7,14 @@ import tempfile
 import unittest
 import zlib
 import subprocess
+import shutil
 import zipfile
 from pathlib import Path
 
 from tools.audit_typography import (
-    _apk_artifact, _png_dimensions, _sfnt_bytes, _sfnt_structurally_valid,
-    audit, inventory_font_assets, scan_live_glyphs,
+    _apk_artifact, _discover_apk_verifier, _png_dimensions, _run_verifier,
+    _sfnt_bytes, _sfnt_structurally_valid, audit, inventory_font_assets,
+    scan_live_glyphs,
 )
 
 
@@ -316,14 +318,45 @@ class TypographyAuditTests(unittest.TestCase):
             apk.writestr("AndroidManifest.xml", _minimal_binary_manifest())
             apk.writestr("classes.dex", _minimal_dex())
             apk.writestr("resources.arsc", _minimal_resources())
-            apk.writestr("META-INF/MANIFEST.MF", b"Manifest-Version: 1.0\n")
-            apk.writestr("META-INF/CERT.SF", b"Signature-Version: 1.0\n")
-            apk.writestr("META-INF/CERT.RSA", b"deterministic fixture signature evidence")
+        # A nonempty META-INF/CERT.RSA is not cryptographic evidence. Build a
+        # genuine v1-signed fixture with the approved JDK tools instead.
+        jarsigner_path = shutil.which("jarsigner")
+        keytool_path = shutil.which("keytool")
+        verifier = _discover_apk_verifier()
+        if not jarsigner_path or not keytool_path or verifier is None:
+            self.skipTest("no approved keytool/jarsigner or APK verifier is available")
+        keystore = root / "fixture.p12"
+        keytool_run = subprocess.run(
+            [keytool_path, "-genkeypair", "-alias", "fixture", "-keystore", str(keystore),
+             "-storetype", "PKCS12", "-storepass", "changeit", "-keypass", "changeit",
+             "-dname", "CN=Typography Fixture", "-validity", "1", "-keyalg", "RSA",
+             "-noprompt"], capture_output=True, text=True, check=False)
+        if keytool_run.returncode != 0:
+            self.skipTest(f"approved keytool cannot create fixture: {keytool_run.stderr}")
+        sign_run = subprocess.run(
+            [jarsigner_path, "-keystore", str(keystore), "-storetype", "PKCS12",
+             "-storepass", "changeit", "-keypass", "changeit", str(apk_path), "fixture"],
+            capture_output=True, text=True, check=False)
+        if sign_run.returncode != 0:
+            self.skipTest(f"approved jarsigner cannot sign fixture: {sign_run.stderr}")
+        verifier_name, verifier_path = verifier
+        verified, tool_version, reason, verifier_output = _run_verifier(
+            verifier_name, verifier_path, apk_path, keystore)
+        if not verified:
+            self.skipTest(f"approved APK verifier cannot verify fixture: {reason}")
+        output_path = root / "apk-verification-output.txt"
+        output_path.write_bytes(verifier_output)
         apk_hash = hashlib.sha256(apk_path.read_bytes()).hexdigest()
         verification = {
             "apk_path": "build/typography-fixture.apk", "apk_sha256": apk_hash,
-            "tool": "fixture-apk-verifier", "tool_version": "1.0",
-            "command": "fixture-apk-verifier --check build/typography-fixture.apk",
+            "tool": verifier_name, "tool_version": tool_version,
+            "executable_path": str(verifier_path),
+            "executable_sha256": hashlib.sha256(verifier_path.read_bytes()).hexdigest(),
+            "output_sha256": hashlib.sha256(verifier_output).hexdigest(),
+            "output_artifact": {"path": "apk-verification-output.txt",
+                                "sha256": hashlib.sha256(verifier_output).hexdigest()},
+            "truststore": {"path": "fixture.p12",
+                           "sha256": hashlib.sha256(keystore.read_bytes()).hexdigest()},
             "result": "PASS", "package_id": "com.example.typography.fixture",
             "package_version": "1.0",
         }
@@ -370,6 +403,39 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertEqual(report["status"], "PASS")
         self.assertTrue(report["font"]["license_ok"])
         self.assertTrue(report["font"]["device_ok"])
+
+    def test_fabricated_verifier_and_command_cannot_grant_device_authority(self) -> None:
+        root, manifest_path, data = self._write_verified_fixture()
+        record_path = root / "apk-verification.json"
+        record = json.loads(record_path.read_text(encoding="utf-8"))
+        record["tool"] = "fixture-apk-verifier"
+        record["command"] = "echo PASS"
+        record_path.write_text(json.dumps(record), encoding="utf-8")
+        device_path = root / "device.json"
+        device = json.loads(device_path.read_text(encoding="utf-8"))
+        device["apk_verification"]["sha256"] = hashlib.sha256(record_path.read_bytes()).hexdigest()
+        device_path.write_text(json.dumps(device), encoding="utf-8")
+        data["font_authority"]["device_evidence"]["artifact"]["sha256"] = hashlib.sha256(
+            device_path.read_bytes()).hexdigest()
+        manifest_path.write_text(json.dumps(data), encoding="utf-8")
+        report = audit(root, manifest_path)
+        self.assertEqual(report["status"], "FAIL")
+        self.assertTrue(any("allowlisted tool" in error for error in report["machine_errors"]))
+
+    def test_malformed_cert_rsa_is_not_signature_evidence(self) -> None:
+        root, _manifest_path, _data = self._write_verified_fixture()
+        apk_path = root / "build" / "typography-fixture.apk"
+        with zipfile.ZipFile(apk_path) as source:
+            entries = {info.filename: source.read(info) for info in source.infolist()}
+        cert_name = next(name for name in entries if name.upper().endswith(".RSA"))
+        entries[cert_name] = b"deterministic fixture signature evidence"
+        with zipfile.ZipFile(apk_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            for name, payload in entries.items():
+                archive.writestr(name, payload)
+        digest = hashlib.sha256(apk_path.read_bytes()).hexdigest()
+        ok, reason = _apk_artifact(root, "build/typography-fixture.apk", digest)
+        self.assertFalse(ok)
+        self.assertIn("malformed", reason)
 
     def test_png_crc_correct_invalid_zlib_payload_is_rejected(self) -> None:
         root, _manifest_path = self.write_tree('var label = "★"\n')
@@ -475,8 +541,9 @@ class TypographyAuditTests(unittest.TestCase):
         bad_resources["resources.arsc"] = b"\x02\0\x0c\0\x0b\0\0\0" + b"x"
         self.assertIn("resources.arsc", check(bad_resources))
         no_signature = dict(original_entries)
-        del no_signature["META-INF/CERT.RSA"]
-        del no_signature["META-INF/CERT.SF"]
+        for name in list(no_signature):
+            if name.upper().startswith("META-INF/") and name.upper().endswith((".RSA", ".SF")):
+                del no_signature[name]
         self.assertIn("signature", check(no_signature))
 
     def test_device_and_license_evidence_reject_forged_strings(self) -> None:
