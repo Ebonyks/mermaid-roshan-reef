@@ -89,8 +89,9 @@ emitters/25 planner tests/27 manual groups.
 | 04 | [OPEN_WORK.md](04_OPEN_WORK.md) | Current `MA-*` work navigation plus an explicit lifecycle crosswalk for the historical `OW-*` list |
 | 05 | [DOC_LEDGER.md](05_DOC_LEDGER.md) | Exhaustive verified authority/status index: one row for each of 316 Git-declared Markdown paths |
 | 06 | [COMPREHENSIVE_DESIGN_LANGUAGE.md](06_COMPREHENSIVE_DESIGN_LANGUAGE.md) | Stable `DL-*` rules, including the owner's 2026-08-09 true-2D decision and the complete audit contract |
+| 08 | [TARGET_ARCHITECTURE.md](08_TARGET_ARCHITECTURE.md) | The Mode Platform remodel (owner-requested 2026-08-26): the growth law, GameMode/registry/director/services contracts, the structure ratchet, and migration plan M0–M6 |
 | audit | [MASTER_AUDIT_2026-08-09.md](../audit/MASTER_AUDIT_2026-08-09.md) | Current audit-cycle state, synchronized evidence, lifecycle triage, and satisfaction gate |
-| findings | [ACTIVE_FINDINGS_2026-08-13.md](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md) | Full canonical records for all 36 material `MA-*` items, including retained terminal history |
+| findings | [ACTIVE_FINDINGS_2026-08-13.md](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md) | Full canonical records for every material `MA-*` item, including retained terminal history |
 | changes | [MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md](../audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md) | Stable `CHG-*` change groups, benefits/risks, dependencies, evidence, and guarded per-change rollback plans |
 
 `06_COMPREHENSIVE_DESIGN_LANGUAGE.md` is tracked, verified, and
