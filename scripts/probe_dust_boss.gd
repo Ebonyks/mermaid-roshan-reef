@@ -258,6 +258,7 @@ func _shield_case() -> void:
 # ---- contact feedback: readable, brief and never punitive ------------------
 func _bump_case() -> void:
 	var boss := _boss()
+	_park(0.0, 0.0)
 	var before: Vector2 = _player_local()
 	var hits_before: int = _hits()
 	var misses_before: int = int(main.g.get("db_miss", 0))
