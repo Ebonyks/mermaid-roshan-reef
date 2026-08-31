@@ -257,7 +257,9 @@ func _start_dodge() -> void:
 	m.g["db_dodge_attempts"] = int(m.g.get("db_dodge_attempts", 0)) + 1
 	if m.player != null:
 		m.player.play_verb("twirl")
-		m._sparkle_burst(m.player.global_position + Vector3(0, 2.6, 0),
+		var sparkle_pos := m.player.global_position
+		sparkle_pos.y += 2.6
+		m._sparkle_burst(sparkle_pos,
 			Color(0.58, 0.96, 1.0))
 
 func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
@@ -823,7 +825,9 @@ func _dodge_player(from: Vector2) -> void:
 		m.player.vel.x = 0.0
 		m.player.vel.z = 0.0
 		m.player.play_verb("twirl")
-		m._sparkle_burst(m.player.global_position + Vector3(0, 2.6, 0),
+		var sparkle_pos := m.player.global_position
+		sparkle_pos.y += 2.6
+		m._sparkle_burst(sparkle_pos,
 			Color(0.55, 0.96, 1.0))
 	m.g["db_dodges"] = int(m.g.get("db_dodges", 0)) + 1
 	m.g["db_dodge_t"] = 0.0
