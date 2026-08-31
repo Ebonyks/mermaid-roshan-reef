@@ -91,10 +91,11 @@ func _init() -> void:
 	door.refresh()
 	await process_frame
 	var hotspot_layer: Node = main.castle_room_door_hotspot_layer
-	_check("revealed door retains closed relief",
+	_check("plot reveal transforms into the available Butterfly Gate",
 		door.visual_state() == "revealed"
 		and String(door.fairy_conservatory_card.get_meta(
-			"source_asset_path", "")).ends_with("moonflower_door_closed.png"))
+			"source_asset_path", "")).ends_with(
+				"butterfly_gate_available.png"))
 	_check("reveal creates exactly one hotspot",
 		_count_named(hotspot_layer, "MoonflowerConservatoryHotspot") == 1)
 	_check("reveal creates exactly one pointer cue",
@@ -110,10 +111,11 @@ func _init() -> void:
 	door.refresh()
 	door.refresh()
 	await process_frame
-	_check("opened route uses open card",
+	_check("entered route retains the available Butterfly Gate",
 		door.visual_state() == "open"
 		and String(door.fairy_conservatory_card.get_meta(
-			"source_asset_path", "")).ends_with("moonflower_door_open.png"))
+			"source_asset_path", "")).ends_with(
+				"butterfly_gate_available.png"))
 	_check("open route keeps exactly one hotspot",
 		_count_named(hotspot_layer, "MoonflowerConservatoryHotspot") == 1)
 	_check("open route removes the reveal pointer",

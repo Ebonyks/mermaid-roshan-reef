@@ -6,19 +6,21 @@ extends RefCounted
 
 const DoorLanguage := preload("res://scripts/castle_door_language.gd")
 const DoorCue := preload("res://scripts/castle_door_cue.gd")
-const DOOR_CLOSED := \
+const DOOR_DORMANT := \
 	"res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png"
-const DOOR_OPEN := \
-	"res://assets/flats/castle/fairy_conservatory/moonflower_door_open.png"
+const DOOR_AVAILABLE := \
+	"res://assets/flats/castle/fairy_conservatory/butterfly_gate_available.png"
 const HALL_STAGE_SCALE := 1280.0 / 1672.0
 const DOOR_Z := 0.70
-const DOOR_CENTER := Vector2(1672.0, 385.0)
 const DOOR_FOOT := Vector2(1672.0, 620.0)
-const DOOR_ART_SCALE := 0.4896
-const DOOR_CARD_ART_SIZE := Vector2(1024.0, 1024.0) * DOOR_ART_SCALE
-const DOOR_CARD_ART_RECT := Rect2(
-	DOOR_CENTER - DOOR_CARD_ART_SIZE * 0.5, DOOR_CARD_ART_SIZE)
-const DOOR_HOTSPOT_RECT := Rect2(1450.0, 170.0, 444.0, 470.0)
+const DORMANT_CENTER := Vector2(1672.0, 385.0)
+const DORMANT_ART_SCALE := 0.4896
+const AVAILABLE_ART_SCALE := 0.5372
+const AVAILABLE_CENTER := Vector2(
+	1672.0,
+	DOOR_FOOT.y - (992.0 - 512.0) * AVAILABLE_ART_SCALE)
+const DOOR_CARD_ART_RECT := Rect2(1396.0, 87.0, 552.0, 552.0)
+const DOOR_HOTSPOT_RECT := Rect2(1396.0, 142.0, 552.0, 498.0)
 const REVEALED_KEY := "chapter3_fairy_door_revealed"
 const OPENED_KEY := "chapter3_fairy_door_opened"
 
@@ -69,9 +71,9 @@ func _hall_active() -> bool:
 func _build() -> void:
 	_remove_nodes()
 	var state := visual_state()
-	var texture_path := DOOR_OPEN if state == "open" else DOOR_CLOSED
+	var texture_path := _texture_path(state)
 	if not ResourceLoader.exists(texture_path):
-		push_warning("Missing Moonflower Conservatory door card: "
+		push_warning("Missing Fairy Conservatory door card: "
 			+ texture_path)
 		return
 	var texture: Texture2D = load(texture_path) as Texture2D
@@ -81,16 +83,15 @@ func _build() -> void:
 	fairy_conservatory_card.name = "MoonflowerConservatoryDoor"
 	fairy_conservatory_card.texture = texture
 	fairy_conservatory_card.centered = true
-	fairy_conservatory_card.position = _hall_art_to_world(DOOR_CENTER)
-	fairy_conservatory_card.scale = Vector2.ONE \
-		* DOOR_ART_SCALE * HALL_STAGE_SCALE
+	_apply_state_transform(state)
 	fairy_conservatory_card.z_index = int(round(DOOR_Z * 100.0))
 	fairy_conservatory_card.set_meta("source_asset_role",
 		"chapter3_story_door")
 	fairy_conservatory_card.set_meta("source_object_id",
 		"main_hall:moonflower_conservatory")
 	fairy_conservatory_card.set_meta("source_asset_path", texture_path)
-	fairy_conservatory_card.set_meta("source_art_position", DOOR_CENTER)
+	fairy_conservatory_card.set_meta("source_art_position",
+		_art_center(state))
 	fairy_conservatory_card.set_meta("source_foot", DOOR_FOOT)
 	fairy_conservatory_card.set_meta("hall_horizontal_cull", true)
 	fairy_conservatory_card.set_meta("hall_horizontal_cull_kind",
@@ -108,12 +109,13 @@ func _sync() -> void:
 		return
 	var state := visual_state()
 	if state != _render_state:
-		var texture_path := DOOR_OPEN if state == "open" else DOOR_CLOSED
+		var texture_path := _texture_path(state)
 		var texture: Texture2D = load(texture_path) as Texture2D
 		if texture != null:
 			fairy_conservatory_card.texture = texture
 			fairy_conservatory_card.set_meta("source_asset_path",
 				texture_path)
+			_apply_state_transform(state)
 			_render_state = state
 	if state == "revealed" or state == "open":
 		_ensure_hotspot()
@@ -123,6 +125,28 @@ func _sync() -> void:
 		_remove_hotspot()
 	_update_hotspot()
 	fairy_conservatory_card.visible = _door_inside_hall_span()
+
+
+func _texture_path(state: String) -> String:
+	return DOOR_DORMANT if state == "closed" else DOOR_AVAILABLE
+
+
+func _art_center(state: String) -> Vector2:
+	return DORMANT_CENTER if state == "closed" else AVAILABLE_CENTER
+
+
+func _art_scale(state: String) -> float:
+	return DORMANT_ART_SCALE if state == "closed" else AVAILABLE_ART_SCALE
+
+
+func _apply_state_transform(state: String) -> void:
+	if fairy_conservatory_card == null:
+		return
+	var art_center := _art_center(state)
+	fairy_conservatory_card.position = _hall_art_to_world(art_center)
+	fairy_conservatory_card.scale = Vector2.ONE \
+		* _art_scale(state) * HALL_STAGE_SCALE
+	fairy_conservatory_card.set_meta("source_art_position", art_center)
 
 
 func _flag(key: String) -> bool:

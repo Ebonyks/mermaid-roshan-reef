@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "purpose": "Chapter 3 Pearl Castle dormant-to-available Butterfly Gate state correction",
+  "generation_method": "deterministic composite of approved project artwork",
+  "state_mapping": {
+    "closed": "approved minimal Moonflower relief",
+    "revealed": "available Butterfly Gate with sunrise Lily-Pad Fairy World",
+    "open": "same available Butterfly Gate; route entry does not alter its identity"
+  },
+  "approved_inputs": [
+    {
+      "role": "dormant castle door",
+      "path": "assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+      "sha256": "b2634b80054bc03618e89918aea1639db010046c66777cec1e9152c40983de3c"
+    },
+    {
+      "role": "Butterfly Door Gate architecture",
+      "path": "assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+      "sha256": "95bebeeb343be83b465d52b7ee57427bcdce488795f409b285f959a0ea3eba09"
+    },
+    {
+      "role": "sunrise Lily-Pad Fairy World portal view",
+      "path": "assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png",
+      "sha256": "2feba4cc27a27400a5f950df185da5cd48326031e927bc8f1c09857cb2110c78"
+    },
+    {
+      "role": "foreground lily-pad threshold cluster",
+      "path": "assets/fairy/sprites/ornament_lily_cluster.png",
+      "sha256": "56bb7ba1272e1510feb540fb2d5948bbb822f07bbab7dd917cff9d131623b3cf"
+    }
+  ],
+  "excluded_inputs": [
+    "assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+    "the Butterfly House greenhouse corridor formerly visible inside the gate aperture"
+  ],
+  "runtime": {
+    "path": "assets/flats/castle/fairy_conservatory/butterfly_gate_available.png",
+    "sha256": "45531acaf25acbee8e76ff57f7a4e76c16db10b270f8642ca770d34f909e0854",
+    "alpha_master": "assets_src/castle/fairy_conservatory_gate_available_2026-08-30/alpha/butterfly_gate_available_alpha_master.png",
+    "alpha_master_sha256": "45531acaf25acbee8e76ff57f7a4e76c16db10b270f8642ca770d34f909e0854",
+    "audit": {
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "alpha_bbox": [
+        12,
+        117,
+        1012,
+        992
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "visible_alpha_pixels": 725103
+    },
+    "portal_composition": {
+      "location_authority": "Lily-Pad Fairy World / Fairy Pond",
+      "source_dimensions": [
+        3640,
+        2048
+      ],
+      "source_horizon_y": 778,
+      "source_horizon_fraction": 0.3798828125,
+      "portal_dimensions": [
+        249,
+        453
+      ],
+      "portal_horizon_y": 663,
+      "portal_horizon_fraction": 0.37969094922737306,
+      "source_pixel_upscale": false,
+      "crop_alignment": "centered upright portrait crop; whole crop uniformly downsampled",
+      "foreground_lily_cluster": {
+        "path": "assets/fairy/sprites/ornament_lily_cluster.png",
+        "whole_sprite_uniform_edge": 176,
+        "threshold_foot_y": 944
+      },
+      "gate_y_shift": 43,
+      "aperture": {
+        "left": 389,
+        "right": 638,
+        "top": 491,
+        "spring": 613,
+        "bottom": 944
+      },
+      "threshold_matches_aperture_base": true,
+      "rainbow_walkway_delivery_pixels": false,
+      "greenhouse_interior_delivery_pixels": false
+    }
+  },
+  "placement": {
+    "floor_foot": [
+      1672.0,
+      620.0
+    ],
+    "dormant_center": [
+      1672.0,
+      385.0
+    ],
+    "dormant_scale": 0.4896,
+    "available_center": [
+      1672.0,
+      362.144
+    ],
+    "available_scale": 0.5372,
+    "plot_reveal_is_dramatic_state_change": true
+  },
+  "hall_review_inputs": [
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+      "sha256": "317cdef9249c73bae64d8b0e7c6590a78b5a4f71d3187a2c32e5fa435150c1cb"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+      "sha256": "2584ed2636652871e5a7eeb3400243a61a2676cf966b9e9f652463f424467e22"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+      "sha256": "ee46dfa20f4de0140c8dbfb56eacba2d59acdb8eff684c0c45422fd34862b892"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+      "sha256": "802731a92762c849f9c0597b2e75a6dbc0336dbf60032ee9290867cd4ce7d1a1"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+      "sha256": "9bfa44736244ae50fda10461c48cc0ee0cf35f195dd6e3b59364c6c9756cfc82"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png",
+      "sha256": "d1e4652e644bd5354c5bd779242f885cc58ad0f2a6adc61dff4105d7417fc0ae"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png",
+      "sha256": "17e74663ad7b95414453e106265258642f51b820001a99e0f1882352a96012da"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c7.png",
+      "sha256": "0fa83e2c10c68d7c86e97b8d6a8ef19eebc7a01fa8f87a05aeb8a312037209b0"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+      "sha256": "d1e3eab5aa9ce34c9b136343c03709b707e775883177c51244fe1b1dc56d74ec"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+      "sha256": "e775495278b8fbcadca429dececa5445fe6dc5d8327f9758966ac4a5ae615129"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+      "sha256": "c2abbd83f3fce093addd9250c1930ee57d86f4c21e170b2d454121d12b723ea5"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+      "sha256": "3b5ba5dd85ba1bf5969be08a191957e2eb476e741b717aa0e7fb843eb0aee40d"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+      "sha256": "9e180247910d843b535998ad1167371b1990834279a26119714743af59a11203"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png",
+      "sha256": "31b6d8a5dfef47c575b63f953c98240c826f5007ef1fa406ef17a853630ff808"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png",
+      "sha256": "0068537a79a205fa50f3747b37735c591f876ceac92d685abaa3d6f57605c92c"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c7.png",
+      "sha256": "24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41"
+    }
+  ],
+  "reviews": {
+    "dormant": {
+      "path": "assets_src/castle/fairy_conservatory_gate_available_2026-08-30/review/fairy_conservatory_dormant_hall_1280x720.png",
+      "sha256": "929ee58ef59a7959ad09eb82082cdca516eabe0ace5ee440d1a1820325601a9b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "delivery_pixels": false
+    },
+    "available": {
+      "path": "assets_src/castle/fairy_conservatory_gate_available_2026-08-30/review/fairy_conservatory_available_hall_1280x720.png",
+      "sha256": "b3eefcee6868a912d2c063659e13a68d2d5eb50690e74605074adbe0bc22751d",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "delivery_pixels": false
+    }
+  }
+}
