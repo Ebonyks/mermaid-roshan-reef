@@ -47,6 +47,8 @@ extends RefCounted
 const HP := DustBunnyBossSprite.TOTAL_DAMAGE_ROUNDS      # three damage rounds
 const TAPS_PER_ROUND := DustBunnyBossSprite.REQUIRED_TAPS # three taps per window
 const BossSplash2DLogic = preload("res://scripts/boss_splash_2d.gd")
+const ATTIC_BACKDROP := preload(
+	"res://assets/flats/castle/boss/dusty_attic_arena_2048.png")
 
 # Window pacing: the WINDOW length now comes from the animation kit (0.75s,
 # 0.65s final). What this file still owns is the SPACING — how long he prowls
@@ -175,6 +177,13 @@ func stage_close() -> void:
 	var splash: BossSplash2D = m.g.get("db_splash") as BossSplash2D
 	if splash != null and is_instance_valid(splash):
 		splash.cancel()
+	var attic_layer: CanvasLayer = m.g.get("db_attic_layer") as CanvasLayer
+	if attic_layer != null and is_instance_valid(attic_layer):
+		# Canvas ownership is explicit because main.game_nodes is correctly typed
+		# to the remaining spatial compatibility nodes. Hide synchronously so a
+		# same-frame replay cannot flash the retired background, then queue free.
+		attic_layer.visible = false
+		attic_layer.queue_free()
 	stage.close()
 
 func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
@@ -185,6 +194,7 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	# only ever come from a fresh tap edge here, so a zero-input run cannot
 	# scratch him (probe_passive).
 	var s: Dictionary = stage.tick(delta)
+	_tick_attic_canvas(delta, s)
 	var tapped: bool = bool(s["tap"])
 	m.g["db_feedback_cd"] = maxf(0.0,
 		float(m.g.get("db_feedback_cd", 0.0)) - delta)
@@ -801,6 +811,7 @@ func _update_hud() -> void:
 
 # ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:
+	_build_attic_backdrop()
 	stage.open({
 		"origin": m.ARENA_POS + Vector3(0, 2.5, 0),
 		"radius": RADIUS,
@@ -818,46 +829,100 @@ func _stage_open() -> void:
 		"trim_col": Color(0.78, 0.72, 0.88),       # lavender panelling
 		"post_col": Color(0.94, 0.90, 0.99),
 		"post_glow": Color(1.0, 0.88, 0.70),
+		# The generated Pearl Castle attic owns every environment pixel. The
+		# shared stage keeps only movement, containment and camera projection;
+		# its primitive floor/walls/posts would duplicate the painted arena.
+		"canvas_backdrop": true,
 	})
 	m._play_music("race")
-	var r := stage.root()
-	if r == null:
+
+
+func _build_attic_backdrop() -> void:
+	var layer := CanvasLayer.new()
+	layer.name = "DustBossAtticCanvas"
+	# Negative canvas layers render as the environment behind the projected
+	# gameplay cards and the ordinary HUD canvas.
+	layer.layer = -20
+	m.add_child(layer)
+	var backdrop := TextureRect.new()
+	backdrop.name = "DustBossAtticBackdrop"
+	backdrop.texture = ATTIC_BACKDROP
+	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	backdrop.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	# Overscan absorbs the intentionally tiny player-follow response without
+	# ever exposing the clear color at an edge.
+	backdrop.offset_left = -16.0
+	backdrop.offset_top = -16.0
+	backdrop.offset_right = 16.0
+	backdrop.offset_bottom = 16.0
+	backdrop.set_meta("source_asset_role", "dusty_attic_clean_background")
+	backdrop.set_meta("fixed_camera_canvas_background", true)
+	layer.add_child(backdrop)
+	var motes := CPUParticles2D.new()
+	motes.name = "DustBossAtticMotes"
+	motes.position = Vector2(640.0, 360.0)
+	motes.amount = 12
+	motes.lifetime = 5.5
+	motes.preprocess = 5.5
+	motes.emission_shape = CPUParticles2D.EMISSION_SHAPE_RECTANGLE
+	motes.emission_rect_extents = Vector2(610.0, 320.0)
+	motes.direction = Vector2(0.16, -1.0)
+	motes.spread = 18.0
+	motes.gravity = Vector2.ZERO
+	motes.initial_velocity_min = 3.0
+	motes.initial_velocity_max = 8.0
+	motes.scale_amount_min = 0.55
+	motes.scale_amount_max = 1.15
+	motes.color = Color(0.94, 0.90, 1.0, 0.22)
+	motes.texture = _make_dust_mote_texture()
+	layer.add_child(motes)
+	m.g["db_attic_layer"] = layer
+	m.g["db_attic_motes"] = motes
+
+
+func _make_dust_mote_texture() -> GradientTexture2D:
+	var gradient := Gradient.new()
+	gradient.offsets = PackedFloat32Array([0.0, 0.55, 1.0])
+	gradient.colors = PackedColorArray([
+		Color(1.0, 0.98, 1.0, 0.72),
+		Color(0.90, 0.84, 1.0, 0.26),
+		Color(0.82, 0.76, 0.94, 0.0),
+	])
+	var texture := GradientTexture2D.new()
+	texture.width = 24
+	texture.height = 24
+	texture.fill = GradientTexture2D.FILL_RADIAL
+	texture.fill_from = Vector2(0.5, 0.5)
+	texture.fill_to = Vector2(1.0, 0.5)
+	texture.gradient = gradient
+	return texture
+
+
+func _tick_attic_canvas(delta: float, stage_state: Dictionary) -> void:
+	var layer: CanvasLayer = m.g.get("db_attic_layer") as CanvasLayer
+	if layer == null or not is_instance_valid(layer):
 		return
-	# forgotten pearl crates stacked against the wall panels, and low dust
-	# mounds banked in the corners: the room the dust came from
-	for i in range(8):
-		var ang: float = float(i) * PI / 4.0
-		var apo: float = OctagonStage.apothem(RADIUS)
-		if i % 2 == 0:
-			var crate := MeshInstance3D.new()
-			var cm := BoxMesh.new()
-			cm.size = Vector3(5.2, 4.0, 3.4)
-			crate.mesh = cm
-			crate.position = Vector3(cos(ang) * (apo - 2.0), 2.0, sin(ang) * (apo - 2.0))
-			crate.rotation.y = -ang
-			crate.material_override = m._soft_mat(Color(0.86, 0.78, 0.70), 0.05)
-			crate.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			r.add_child(crate)
-		else:
-			var mound := MeshInstance3D.new()
-			var mm := SphereMesh.new()
-			mm.radius = 3.6
-			mm.height = 3.0
-			mound.mesh = mm
-			mound.position = Vector3(cos(ang) * (apo - 1.6), 0.5, sin(ang) * (apo - 1.6))
-			mound.material_override = m._soft_mat(Color(0.80, 0.76, 0.92), 0.08)
-			mound.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			r.add_child(mound)
-	# his nest in the middle of the ring: he rises out of this in the showing
-	var nest := MeshInstance3D.new()
-	var nm := SphereMesh.new()
-	nm.radius = 6.0
-	nm.height = 4.4
-	nest.mesh = nm
-	nest.position = Vector3(0.0, 0.3, -12.0)
-	nest.material_override = m._soft_mat(Color(0.80, 0.76, 0.92), 0.10)
-	nest.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	r.add_child(nest)
+	var player_x: float = float(stage_state.get("px", 0.0))
+	var player_z: float = float(stage_state.get("pz", 0.0))
+	var target_offset := Vector2(
+		clampf(-player_x / RADIUS * 6.0, -6.0, 6.0),
+		clampf(-player_z / RADIUS * 3.0, -3.0, 3.0))
+	layer.offset = layer.offset.lerp(
+		target_offset, 1.0 - exp(-delta * 3.0))
+	var motes: CPUParticles2D = m.g.get("db_attic_motes") as CPUParticles2D
+	if motes == null or not is_instance_valid(motes):
+		return
+	var target_speed: float = 1.0 if bool(stage_state.get("moved", false)) \
+		else 0.58
+	motes.speed_scale = lerpf(
+		motes.speed_scale, target_speed, 1.0 - exp(-delta * 2.0))
+	var target_alpha: float = 0.28 \
+		if String(m.g.get("db_state", "")) == "vuln" else 0.22
+	var tint := motes.modulate
+	tint.a = lerpf(tint.a, target_alpha, 1.0 - exp(-delta * 2.5))
+	motes.modulate = tint
 
 func _build_boss() -> void:
 	var r := stage.root()

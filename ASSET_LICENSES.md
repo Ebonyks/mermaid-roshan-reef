@@ -2740,3 +2740,8 @@ adjacent `asset_manifest.json`.
 - `assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png` — continuous project derivative cropped from the approved 6144×2048 Sky Lagoon v5 panorama reconstructed from its twelve existing runtime tiles; no independent object regeneration or protected-source modification.
 - `assets/flats/fairy_conservatory_handoff/background/handoff_background_r{0..1}_c{0..3}.png` — eight non-overlapping 910×1024 runtime slices of the continuous 3640×2048 handoff master, built by `tools/build_fairy_conservatory_handoff_art.py`.
 - `assets_src/fairy_conservatory_handoff_2026-08-30/review/rainbow_stage_composite_1280x720.png` — deterministic non-runtime placement composite of the approved background, selected whole-sprite walkway/house derivatives, and approved Roshan card; visual-audit reference only, never delivery pixels or a replacement runtime background.
+
+## Grand Puff Dusty Attic arena (2026-08-30)
+
+- `assets_src/imagegen/dust_bunny_boss_arena_2026-08-30/dusty_attic_arena_native_1254.png` — selected project-original OpenAI built-in ImageGen background source; license: project original, all rights reserved; URL: none; modifications: none after generation. Exact prompt, reference roles/hashes, generation gap, and review limits are recorded in the adjacent `PROMPT_AND_PROVENANCE.md`.
+- `assets/flats/castle/boss/dusty_attic_arena_2048.png` — power-of-two runtime master derived from the selected native generation by one uniform whole-canvas Lanczos resize to 2048×2048; license: project original, all rights reserved; URL: none. No crop, mask, compositing, local repair, protected-source pixel insertion, or independently regenerated tile was used.

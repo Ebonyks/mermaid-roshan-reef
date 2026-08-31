@@ -46,10 +46,26 @@ func open(cfg: Dictionary) -> void:
 	m.game_nodes.append(rt)
 	m.g["oc_root"] = rt
 	var radius: float = float(cfg.get("radius", 26.0))
+	if not bool(cfg.get("canvas_backdrop", false)):
+		_build_spatial_dressing(rt, cfg, radius)
+	# park the player just inside the ring, facing the middle, camera fixed
+	var origin: Vector3 = rt.position
+	var start: Vector2 = cfg.get("start", Vector2(0.0, radius * 0.62)) as Vector2
+	m.player.position = origin + Vector3(start.x, float(cfg.get("hover", 1.05)), start.y)
+	m.player.vel = Vector3.ZERO
+	m.player.rotation.y = PI
+	fit_camera()
+
+
+func _build_spatial_dressing(rt: Node3D, cfg: Dictionary,
+		radius: float) -> void:
 	var wall_h: float = float(cfg.get("wall_h", 5.2))
-	var floor_col: Color = cfg.get("floor_col", Color(0.84, 0.78, 0.90)) as Color
-	var trim_col: Color = cfg.get("trim_col", Color(0.72, 0.66, 0.86)) as Color
-	var post_col: Color = cfg.get("post_col", Color(0.95, 0.90, 0.99)) as Color
+	var floor_col: Color = cfg.get(
+		"floor_col", Color(0.84, 0.78, 0.90)) as Color
+	var trim_col: Color = cfg.get(
+		"trim_col", Color(0.72, 0.66, 0.86)) as Color
+	var post_col: Color = cfg.get(
+		"post_col", Color(0.95, 0.90, 0.99)) as Color
 	# the floor IS an octagon: an 8-segment cylinder, rotated so a flat side
 	# faces the camera instead of a vertex
 	var floor_mi := MeshInstance3D.new()
@@ -109,14 +125,6 @@ func open(cfg: Dictionary) -> void:
 		var bead := glow(cfg.get("post_glow", Color(1.0, 0.90, 0.72)) as Color, 6.0)
 		bead.position = post.position + Vector3(0, wall_h * 0.95, 0)
 		rt.add_child(bead)
-	# park the player just inside the ring, facing the middle, camera fixed
-	var origin: Vector3 = rt.position
-	var start: Vector2 = cfg.get("start", Vector2(0.0, radius * 0.62)) as Vector2
-	m.player.position = origin + Vector3(start.x, float(cfg.get("hover", 1.05)), start.y)
-	m.player.vel = Vector3.ZERO
-	m.player.rotation.y = PI
-	fit_camera()
-
 func fit_camera() -> void:
 	# Solve the framing ONCE against the real projection, then let
 	# frame_camera() re-assert the solved pose every tick.
