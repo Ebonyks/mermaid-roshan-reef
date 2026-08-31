@@ -1,6 +1,6 @@
 class_name CastleCareerRoutes
 extends RefCounted
-## Picture-first Castle-room entrances for the thirteen live Opera careers.
+## Picture-first Castle-room entrances for the live Opera careers.
 ##
 ## Owner authority distributes the careers through themed Castle rooms. The
 ## historical Opera save slots remain sparse and stable; this surface only
@@ -20,7 +20,7 @@ const CARD_Y := 18.0
 const ROOM_ACT_INDICES := {
 	"kitchen": [0, 3],
 	"opera_hall": [2, 13, 8],
-	"library": [1],
+	"library": [1, 16],
 	"craft_room": [10],
 	"playroom": [5, 7],
 	"bubble_bath": [15],
@@ -45,6 +45,7 @@ const CAREER_CREST_FILES := {
 	"racer": "opera_crest_racer.png",
 	"popstar": "opera_crest_singer.png",
 	"nursery": "goal_nursery.png",
+	"geologist": "goal_geologist.svg",
 }
 
 var m: ReefMain

@@ -260,11 +260,11 @@ inventory/debt, never authorization to preserve or extend 3D.
 | Dance | tap lanes on beat | Canvas/Control |
 | Critter collection | approach + catch | 2D world cards |
 | Stuffie battle | one-button attack + DODGE QTE | legacy arena → Canvas/Node2D |
-| Opera careers ×13 | 53 career-specific phases across 27 shipping modes | `OperaCareerWorld2D` / Canvas specialist surfaces |
+| Opera careers ×14 | 57 career-specific phases across 28 shipping modes | `OperaCareerWorld2D` / Canvas specialist surfaces |
 
-### The thirteen careers — current content, distributed final home
+### The fourteen careers — current content, distributed final home
 
-Thirteen careers, 53 shipping phases and 27 unique shipping modes form a set
+Fourteen careers, 57 shipping phases and 28 unique shipping modes form a set
 of short, career-specific performances.
 `OPERA_CAREER_COMPETITION_SYSTEM_2026-07-29.md`,
 `OPERA_2D_REBUILD_2026-08-01.md`, and
@@ -284,7 +284,7 @@ them to the Castle rooms whose pictures and objects explain the job:
 |---|---|
 | Royal Kitchen | Pastry Chef, Candy Maker |
 | Opera Hall | Ballerina, Pop Star, Magician |
-| Royal Library | Detective |
+| Royal Library | Detective, Geologist |
 | Craft Room | Painter |
 | Stuffie Playroom | Stuffie Doctor, Boxer |
 | Bubble Bath | Nursery Nurse |
@@ -292,8 +292,9 @@ them to the Castle rooms whose pictures and objects explain the job:
 | Family Dining Room | Farmer |
 | Cloud Movie Lounge | Racer — canonical home selected at `09e5e356` |
 
-Commit `09e5e356` implements this mapping while preserving all thirteen current
-career activities and their stable sparse save/star identities. Opera Hall is
+Commit `09e5e356` implemented the original thirteen-career mapping. Owner
+direction on 2026-08-30 appends Geologist at save bit 16 and adds its Library
+entry without changing any historical career or retired-boss bit. Opera Hall is
 one venue for the three performances, not the front door to every job. The
 native three-floor `OperaLobby2D` is deleted, no hidden/off-room route restores
 it, and every activity returns to its exact launching room. Exact focused probes
@@ -343,6 +344,9 @@ remain open.
   loss. Friendly contact is harmless; zero input never earns progress.
 - **Nursery Nurse (job 13) is cooperative,** not competitive: Nurse Faron is a
   visible partner from the first beat, never framed as an opponent.
+- **Geologist is cooperative,** not competitive: Roshan follows rock layers,
+  brushes a fossil, sorts six shape-and-colour specimens, and lights the final
+  crystal gallery with a visible field-guide imp beside her.
 - Completing a performance yields Warm Cheers / Big Cheers / Standing Ovation
   by pace, accuracy and guided retries. Every completed career earns its star
   regardless.
@@ -350,7 +354,9 @@ remain open.
   finales.** Owner ruling `3d1236fe` cuts all three. The current repair removes
   their cards, gates, required completion bits, and boss runtime while keeping
   stable save slots 4/9/14 as permanent tombstones. Raw legacy bits remain
-  readable and completion masks only `0xBDEF`, the thirteen career slots.
+  readable. The lower sixteen historical bits remain unchanged; Geologist
+  appends at bit 16, making the live completion mask `0x1BDEF` for fourteen
+  careers.
   Focused and full local exact-Godot migration/reward/passive/teardown coverage
   plus exact-head remote CI are green, so `MA-OPERA-011` is
   `FIXED_PENDING_VERIFICATION`; do not convert or rewrite the

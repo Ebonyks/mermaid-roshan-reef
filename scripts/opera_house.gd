@@ -2,16 +2,16 @@ class_name OperaHouse
 extends Node
 ## Canvas-only Opera career lifecycle and stable save-bit authority.
 ##
-## The roster deliberately remains a sixteen-slot table. The three retired
-## floor finales are inert tombstones so every surviving career keeps the bit
-## it has always owned in `opera_stars`.
+## The original sixteen slots remain untouched. The three retired floor
+## finales are inert tombstones; new careers append after them so every
+## surviving career keeps the bit it has always owned in `opera_stars`.
 
 const RETIRED_ACT_INDICES: Array[int] = [4, 9, 14]
-const LIVE_ACT_INDICES: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15]
+const LIVE_ACT_INDICES: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16]
 const RETIRED_STAR_MASK := 0x4210
-const ACTIVE_STAR_MASK := 0xBDEF
+const ACTIVE_STAR_MASK := 0x1BDEF
 const ALL_STARS := ACTIVE_STAR_MASK
-const ACTIVE_ACT_COUNT := 13
+const ACTIVE_ACT_COUNT := 14
 
 const ACTS := [
 	{
@@ -131,6 +131,14 @@ const ACTS := [
 		"voice": "Nursery Nurse Roshan! Work with Nurse Faron to catch the babies, feed them, burp them and tuck every little one into bed!",
 		"win_line": "Roshan and Faron tucked every cozy baby into the Moonbeam Nursery!",
 		"floor_col": Color(0.45, 0.68, 0.66), "trim": Color(1.0, 0.82, 0.70), "curtain": Color(0.48, 0.38, 0.68),
+	},
+	{
+		"save_bit": 16, "name": "The Crystal Cave Discovery", "career": "Geologist",
+		"costume": "geologist", "emoji": "💎", "story": 3, "type": "show",
+		"kind": "geology", "music": "opera_geologist",
+		"voice": "Geologist Roshan! Follow the rock layers, brush out a fossil, sort the bright specimens and light the crystal cave!",
+		"win_line": "Geologist Roshan's crystal collection sparkles in the Castle gallery!",
+		"floor_col": Color(0.36, 0.45, 0.55), "trim": Color(0.62, 0.92, 0.86), "curtain": Color(0.43, 0.29, 0.56),
 	},
 ]
 

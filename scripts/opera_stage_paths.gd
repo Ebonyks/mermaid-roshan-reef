@@ -28,6 +28,16 @@ const SCREEN := Vector2(1280.0, 720.0)
 ## career -> {path: Array[Vector2-as-arrays], stations: [{id, pos, landmark}],
 ## clue_spots: [[x,y]...]} — populated from the visual derivation pass.
 const PATHS: Dictionary = {
+	"geologist": {
+		"path": [[0.06, 0.70], [0.17, 0.69], [0.30, 0.66], [0.43, 0.64], [0.56, 0.66], [0.70, 0.64], [0.83, 0.61], [0.93, 0.58]],
+		"stations": [
+			{"id": "layer_wall", "pos": [0.20, 0.68], "landmark": "broad striped rock wall with three bright sediment layers"},
+			{"id": "fossil_table", "pos": [0.38, 0.64], "landmark": "rounded stone inspection table holding a large spiral fossil"},
+			{"id": "specimen_trays", "pos": [0.65, 0.64], "landmark": "three dark pearl-rimmed specimen trays"},
+			{"id": "crystal_gallery", "pos": [0.91, 0.58], "landmark": "tall aqua and lavender crystal cluster glowing at the cave gallery"},
+		],
+		"clue_spots": [[0.12, 0.22], [0.25, 0.38], [0.36, 0.20], [0.50, 0.42], [0.64, 0.24], [0.76, 0.38], [0.87, 0.20], [0.94, 0.48]],
+	},
 	"chef": {
 		"path": [[0.08, 0.62], [0.17, 0.625], [0.27, 0.615], [0.4, 0.59], [0.5, 0.565], [0.555, 0.52], [0.615, 0.565], [0.7, 0.545], [0.855, 0.55]],
 		"stations": [

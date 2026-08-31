@@ -149,9 +149,10 @@ repacking is `DEFERRED_WITH_REASON`; universal costume layers are
 
 Branch status is not implementation status: current Candymaker is integrated;
 Painter-purpose and Arborist worktrees are uncommitted candidates; Boxer V2 is
-docs-only on a separate branch. None expands the current 13-career table, and
-none changes the owner-directed Castle-room distribution or revives the three
-cut Opera bosses.
+docs-only on a separate branch. Geologist is the sole 2026-08-30 owner-directed
+roster expansion, appended at save bit 16 with a Royal Library route. None of
+the older candidate branches changes that fourteen-career distribution or
+revives the three cut Opera bosses.
 
 The sealed Castle Kitchen controller was deliberately excluded from this
 repair. Its current Chef configuration is valid and covered by focused probes,

@@ -1,6 +1,6 @@
 class_name OperaWorldBackdrop2D
 extends Control
-## Scalable, code-native scenery for the thirteen Opera career worlds.
+## Scalable, code-native scenery for the Opera career worlds.
 ##
 ## The accepted 1024x576 scene keys remain composition references: they do not
 ## meet the project's 2048px-per-playable-screen raster rule. These lightweight
@@ -20,6 +20,7 @@ const PALETTES := {
 	"racer": [Color("#18234a"), Color("#4b5190"), Color("#ef5a59")],
 	"nursery": [Color("#202452"), Color("#88c9bd"), Color("#f4c7a7")],
 	"popstar": [Color("#34164d"), Color("#9c3c8c"), Color("#62d9e8")],
+	"geologist": [Color("#172b4d"), Color("#725b8f"), Color("#72e0d3")],
 }
 
 var career_id := "chef"
@@ -151,6 +152,8 @@ func _draw() -> void:
 			_draw_nursery(mid, accent)
 		"popstar":
 			_draw_popstar(mid, accent)
+		"geologist":
+			_draw_geologist(mid, accent)
 	if stage_mode:
 		# curtains and columns occlude the set — theatrically correct layering
 		_draw_stage_frame(accent)
@@ -422,3 +425,39 @@ func _draw_popstar(mid: Color, accent: Color) -> void:
 		var h := 55.0 + (sin(elapsed * 3.0 + float(i)) + 1.0) * 38.0
 		draw_rect(Rect2(x, 520 - h, 42, h), Color.from_hsv(float(i) / 7.0, 0.55, 1.0), true)
 	draw_circle(Vector2(640, 250), 72, Color(accent, 0.42))
+
+
+func _draw_geologist(mid: Color, accent: Color) -> void:
+	# A readable crystal-cave laboratory: layered walls, a fossil table,
+	# specimen trays and one glowing destination cluster. All geometry stays
+	# broad and sparse enough for the Mobile renderer and a four-year-old.
+	for band in range(5):
+		var y := 150.0 + float(band) * 74.0
+		var color := mid.lightened(0.18 - float(band) * 0.055)
+		draw_polyline(PackedVector2Array([
+			Vector2(0, y + 24), Vector2(220, y - 12),
+			Vector2(470, y + 18), Vector2(760, y - 18),
+			Vector2(1040, y + 12), Vector2(1280, y - 10),
+		]), color, 34.0)
+	# Fossil inspection slab.
+	draw_rect(Rect2(250, 430, 250, 94), Color("#d8bb8b"), true)
+	draw_arc(Vector2(376, 476), 32, -0.3, TAU * 1.65, 38,
+		Color("#875f72"), 11.0)
+	# Three big specimen trays match the specialist sorting surface.
+	for index in range(3):
+		var tray_x := 550.0 + float(index) * 145.0
+		draw_rect(Rect2(tray_x, 452, 110, 74), Color("#2f274e"), true)
+		draw_rect(Rect2(tray_x, 452, 110, 74), accent.lightened(float(index) * 0.08), false, 7.0)
+	# Finale crystal cluster.
+	var base := Vector2(1080, 520)
+	for crystal in range(5):
+		var x := base.x + (float(crystal) - 2.0) * 34.0
+		var height := 80.0 + float((crystal * 31) % 55)
+		var crystal_color := Color.from_hsv(0.46 + float(crystal) * 0.055, 0.42, 1.0)
+		draw_colored_polygon(PackedVector2Array([
+			Vector2(x - 20, base.y), Vector2(x - 14, base.y - height * 0.72),
+			Vector2(x, base.y - height), Vector2(x + 15, base.y - height * 0.70),
+			Vector2(x + 20, base.y),
+		]), crystal_color)
+	var pulse := 58.0 + (sin(elapsed * 2.1) + 1.0) * 10.0
+	draw_arc(Vector2(1080, 420), pulse, 0.0, TAU, 36, Color(accent, 0.55), 8.0)

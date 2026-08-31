@@ -1,6 +1,6 @@
 class_name OperaCompetition
 extends RefCounted
-## Shared competition contract for the thirteen Pearl Opera career worlds.
+## Shared competition contract for the Pearl Opera career worlds.
 ##
 ## The career engine still owns its tactile minigames. This director turns
 ## those verbs into one readable stage contest: Roshan versus a dressed rival,
@@ -116,6 +116,16 @@ const CAREERS := {
 		"par_time": 36.0,
 		"rival_cap": 0.84,
 		"accent": Color(1.0, 0.52, 0.90),
+	},
+	"geologist": {
+		"world": "CRYSTAL CAVE DISCOVERY",
+		"contest": "Discover and display every specimen together",
+		"rival_verb": "labels a specimen",
+		"par_time": 40.0,
+		"rival_cap": 0.82,
+		"cooperative": true,
+		"partner": "Field Guide Imp",
+		"accent": Color(0.48, 0.88, 0.82),
 	},
 }
 

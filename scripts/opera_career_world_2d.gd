@@ -308,6 +308,12 @@ const PHASES := {
 		{"name": "RHYTHM", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm", "voice": "Listen to the three stars, then sing their song back!"},
 		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore", "voice": "Draw one big encore spin for the crowd!"},
 	],
+	"geologist": [
+		{"name": "LAYERS", "mode": "choice", "goal": 3.0, "voice": "Tap the rock layer that matches the glowing sample!"},
+		{"name": "FOSSIL", "mode": "swipe", "goal": 5.0, "voice": "Brush gently across the stone to uncover the spiral fossil!"},
+		{"name": "SORT", "mode": "geology_sort", "widget": "", "goal": 6.0, "voice": "Drag each specimen into the tray with the same shape and color!"},
+		{"name": "CRYSTAL", "mode": "hold", "goal": 4.0, "voice": "Hold the pearl lamp and make the crystal cave sparkle!"},
+	],
 }
 
 const FINALE_START := {
@@ -324,6 +330,7 @@ const FINALE_START := {
 	"racer": 2,
 	"nursery": 4,
 	"popstar": 2,
+	"geologist": 3,
 }
 
 ## Stable landmark IDs keep every task attached to the painted object that
@@ -343,6 +350,7 @@ const PHASE_STATIONS := {
 	"racer": {"TUNE": "pearl_dome_pavilion", "TO THE LINE": "pearl_start_arch", "RACE": "ribbon_finish_arch"},
 	"nursery": {"WASH HANDS": "wash_basin", "CATCH BABIES": "cuddle_cushions", "FEED": "bottle_nook", "BURP": "cuddle_cushions", "BEDTIME": "moon_bed"},
 	"popstar": {"SOUND CHECK": "mic_gazebo", "DANCE": "record_dais", "RHYTHM": "shell_stage", "ENCORE": "shell_stage"},
+	"geologist": {"LAYERS": "layer_wall", "FOSSIL": "fossil_table", "SORT": "specimen_trays", "CRYSTAL": "crystal_gallery"},
 }
 
 ## The specialist rebuild renamed its phases but intentionally reuses the
@@ -381,6 +389,7 @@ const GOAL_PROPS := {
 	"racer": "goal_racer",
 	"popstar": "goal_popstar",
 	"nursery": "goal_nursery",
+	"geologist": "goal_geologist.svg",
 }
 var m: ReefMain
 var config: Dictionary = {}
@@ -669,6 +678,10 @@ func _build_world() -> void:
 	var partner_path := "res://assets/opera/worlds/actors/rival_%s.png" % career_id
 	if career_id == "nursery":
 		partner_path = "res://assets/opera/worlds/actors/faron_nursery.png"
+	elif career_id == "geologist":
+		# The approved detective field-guide imp already carries the magnifier
+		# and explorer coat this collaborative science activity needs.
+		partner_path = "res://assets/opera/worlds/actors/rival_detective.png"
 	rival_actor = _actor(partner_path)
 	rival_actor.size = Vector2(190, 190)   # he is an imp, not her equal in height
 	_place_on_stage(rival_actor, StagePaths.point_along(stage_points, 0.92))
@@ -676,7 +689,10 @@ func _build_world() -> void:
 	_set_finale_visible(false)
 
 	prop_rect = TextureRect.new()
-	var prop_path := "res://assets/opera/worlds/props/%s.png" % String(GOAL_PROPS.get(career_id, ""))
+	var prop_file := String(GOAL_PROPS.get(career_id, ""))
+	if not prop_file.is_empty() and prop_file.get_extension().is_empty():
+		prop_file += ".png"
+	var prop_path := "res://assets/opera/worlds/props/%s" % prop_file
 	if ResourceLoader.exists(prop_path):
 		prop_rect.texture = load(prop_path) as Texture2D
 	prop_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
