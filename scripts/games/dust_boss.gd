@@ -29,6 +29,10 @@ extends RefCounted
 #
 # No fail state: he bumps, but never hurts. Contact gives Roshan a readable
 # shove and boing before she recovers immediately; it never removes progress.
+# A separate picture button adds an OPTIONAL twirl dodge. Incoming hops pulse
+# that button; a timed press turns contact into a sideways swish. Bumps only
+# tune the replay mastery stars (gold through one, silver at two, bronze at
+# three-plus), while a clean run adds a small pearl bonus.
 # Five windows missed IN A ROW switch the fight to its slower assist pace:
 # longer tells/windows, wider reach and one helping tap. A completed round
 # resets the streak but keeps the earned pace for the rest of the encounter;
@@ -46,6 +50,7 @@ extends RefCounted
 # framing and the ending. See BOSS_CONVERGENCE_DECISION_2026-08-02.md.
 const HP := DustBunnyBossSprite.TOTAL_DAMAGE_ROUNDS      # three damage rounds
 const TAPS_PER_ROUND := DustBunnyBossSprite.REQUIRED_TAPS # three taps per window
+const BossSplash2DLogic = preload("res://scripts/boss_splash_2d.gd")
 
 # Window pacing: the WINDOW length now comes from the animation kit (0.75s,
 # 0.65s final). What this file still owns is the SPACING — how long he prowls
@@ -54,10 +59,13 @@ const TAPS_PER_ROUND := DustBunnyBossSprite.REQUIRED_TAPS # three taps per windo
 # motor-speed wall.
 const SHOW_T := 6.4            # the showing: he is revealed before he fights
 const WINDUP_T := 0.7          # squash-and-glimmer telegraph before the leap
-const STRUCK_T := 1.4          # the hit reaction (spin, burst, hearts)
-const DIZZY_T := 2.6           # extra stagger after hit 1 — a free breather
-const ANGRY_T := 1.5           # the puff-up after hit 2
-const WIN_T := 2.6             # befriending beat before the win banner
+const STRUCK_T := 1.8          # the hit reaction (spin, burst, hearts)
+const DIZZY_T := 3.2           # extra stagger after hit 1 — a free breather
+const ANGRY_T := 2.1           # the puff-up after hit 2
+const PHASE_BEAT_T := 2.8      # authored pause before the next lively phase
+const CELEBRATION_BEAT_T := 1.8 # sparkle/voice beat after each landed round
+const WIN_T := 3.4             # befriending beat before the win banner
+const POSITIVE_PACING_FLOOR := 38.0 # quick completions still get a warm ending
 
 const LEAP_UP := 0.34          # seconds of rise at the top of a leap
 const LEAP_H := 7.6            # hover height while he laughs, exposed
@@ -81,8 +89,35 @@ const MERCY_SLOW_PER_TIER := 0.30 # angry travel drops near the opening pace
 const MERCY_SLOW_MAX := 0.45
 const MERCY_WINDUP_PER_TIER := 0.55 # more time to read squash -> gold star
 const MERCY_WINDUP_MAX := 0.9
+const PREASSIST_TRIGGER_STREAK := 2 # gentle help on attempt three after two misses
+const PREASSIST_PROWL_CUT := 1.6    # bounded post-miss pacing, never a rush
+const PREASSIST_PROWL_MAX := 3.2
+const PREASSIST_PROWL_MIN := 0.9
+const PREASSIST_WINDOW_PER_TIER := 4.0 # tier-one aid covers a slow first reaction
+const PREASSIST_WINDOW_MAX := 4.0
+const PREASSIST_LANDING_RADIUS := 2.0 # bias the leap toward rooted/wandering play
+const PREASSIST_LANDING_MIN := 0.85
+const PREASSIST_REACH := 1.25       # extra reach only after two misses
+const FEEDBACK_COOLDOWN := 2.6       # one clear cue, then a quiet learning pause
+const CLOSER_FEEDBACK_COOLDOWN := 2.8
+const BUMP_COOLDOWN_BASE := 4.0      # first boing stays immediate; repeats space out
+const BUMP_COOLDOWN_MISSED := 6.0    # soften repeated bumps in a long miss run
 const BUMP_PUSH := 4.0          # visible cause/effect, never damage or lost work
 const PLAYER_INSET := 2.6       # matches the OctagonStage walkable inset
+const DODGE_ACTIVE_T := 0.82    # long enough to cover even the angry hop
+const DODGE_COOLDOWN := 1.15    # prevents a held button becoming permanent safety
+const DODGE_STEP := 3.8         # a readable sideways swish, not a contact shove
+const BASE_WIN_PEARLS := 3
+const PERFECT_BONUS_PEARLS := 2
+
+const MASTERY_GOLD := 3
+const MASTERY_SILVER := 2
+const MASTERY_BRONZE := 1
+const MASTERY_COLORS: Dictionary = {
+	MASTERY_GOLD: Color(1.0, 0.78, 0.20),
+	MASTERY_SILVER: Color(0.76, 0.86, 0.96),
+	MASTERY_BRONZE: Color(0.83, 0.48, 0.28),
+}
 
 # ---- the boss art contract -------------------------------------------------
 # One cutout per BEAT, not one cutout for the whole fight. Codex delivered the
@@ -125,7 +160,23 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_miss_streak"] = 0
 	m.g["db_mercy_tier"] = 0
 	m.g["db_bumps"] = 0
+	m.g["db_dodges"] = 0
+	m.g["db_dodge_attempts"] = 0
+	m.g["db_dodge_t"] = 0.0
+	m.g["db_dodge_cd"] = 0.0
+	m.g["db_dodge_requested"] = false
+	m.g["db_dodge_prev"] = false
+	m.g["db_dodge_hint"] = false
+	m.g["db_dodge_taught"] = false
+	m.g["db_perfect_bonus"] = false
 	m.g["db_shield_taps"] = 0
+	m.g["db_shield_feedbacks"] = 0
+	m.g["db_closer_taps"] = 0
+	m.g["db_closer_feedbacks"] = 0
+	m.g["db_helper_taps_total"] = 0
+	m.g["db_feedback_cd"] = 0.0
+	m.g["db_closer_cd"] = 0.0
+	m.g["db_bump_cd"] = 0.0
 	m.g["db_window_hit"] = 0
 	m.g["db_win_len"] = 0.0
 	m.g["db_x"] = 0.0
@@ -136,14 +187,13 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_hop_t"] = 0.0
 	m.g["db_spin"] = 0.0
 	m.g["db_flash"] = 0.0
+	m.g["db_active_t"] = 0.0
 	_stage_open()
+	_build_mastery_ui()
 	_build_boss()
-	_enter_state("showing")
-	# ONE trigger per beat: show_msg already fires _say(speaker, vo) itself
-	# (audio_director.gd), so a paired _say() would speak twice the moment real
-	# clips exist. The event name IS the vo argument.
-	m.show_msg(String(fr.get("fname", "Dusty Attic")),
-		"The GREAT dust bunny wakes up! He is too puffy to bonk...", "dustboss_show")
+	_enter_state("splash")
+	_update_mastery_ui()
+	_show_boss_splash(fr)
 
 func action_label() -> String:
 	# the only verb in this fight is a bonk; the shared reef button otherwise
@@ -151,7 +201,66 @@ func action_label() -> String:
 	return "BONK!" if String(m.g.get("db_state", "")) == "vuln" else "WAIT"
 
 func stage_close() -> void:
+	var splash: BossSplash2D = m.g.get("db_splash") as BossSplash2D
+	if splash != null and is_instance_valid(splash):
+		splash.cancel()
+	var mastery_layer: CanvasLayer = m.g.get("db_mastery_layer") as CanvasLayer
+	if mastery_layer != null and is_instance_valid(mastery_layer):
+		mastery_layer.visible = false
+		if mastery_layer.get_parent() != null:
+			mastery_layer.get_parent().remove_child(mastery_layer)
+		mastery_layer.queue_free()
 	stage.close()
+
+static func mastery_tier_for_bumps(bumps: int) -> int:
+	# Bumps are harmless and never gate completion. They only leave an inviting
+	# replay target: one is still gold, two is silver, and three-plus is bronze.
+	if bumps <= 1:
+		return MASTERY_GOLD
+	if bumps == 2:
+		return MASTERY_SILVER
+	return MASTERY_BRONZE
+
+func mastery_tier() -> int:
+	return mastery_tier_for_bumps(int(m.g.get("db_bumps", 0)))
+
+func request_dodge() -> void:
+	# Buttons, keyboard/controller parity and probes all enter through one edge.
+	# The request is consumed in tick so it cannot mutate gameplay while paused.
+	if m.game == "dustboss" and m.g.has("db_state"):
+		m.g["db_dodge_requested"] = true
+
+func _tick_dodge(delta: float) -> void:
+	m.g["db_dodge_t"] = maxf(0.0,
+		float(m.g.get("db_dodge_t", 0.0)) - delta)
+	m.g["db_dodge_cd"] = maxf(0.0,
+		float(m.g.get("db_dodge_cd", 0.0)) - delta)
+	var dodge_down: bool = Input.is_physical_key_pressed(KEY_SHIFT)
+	var pads := Input.get_connected_joypads()
+	if not pads.is_empty():
+		dodge_down = dodge_down or Input.is_joy_button_pressed(
+			int(pads[0]), JOY_BUTTON_B)
+	if dodge_down and not bool(m.g.get("db_dodge_prev", false)):
+		request_dodge()
+	m.g["db_dodge_prev"] = dodge_down
+	if not bool(m.g.get("db_dodge_requested", false)):
+		return
+	m.g["db_dodge_requested"] = false
+	if String(m.g.get("db_state", "")) != "prowl" \
+			or float(m.g.get("db_dodge_cd", 0.0)) > 0.0:
+		return
+	_start_dodge()
+
+func _start_dodge() -> void:
+	m.g["db_dodge_t"] = DODGE_ACTIVE_T
+	m.g["db_dodge_cd"] = DODGE_COOLDOWN
+	m.g["db_dodge_attempts"] = int(m.g.get("db_dodge_attempts", 0)) + 1
+	if m.player != null:
+		m.player.play_verb("twirl")
+		var sparkle_pos := m.player.global_position
+		sparkle_pos.y += 2.6
+		m._sparkle_burst(sparkle_pos,
+			Color(0.58, 0.96, 1.0))
 
 func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	var r := stage.root()
@@ -162,9 +271,18 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	# scratch him (probe_passive).
 	var s: Dictionary = stage.tick(delta)
 	var tapped: bool = bool(s["tap"])
+	_tick_dodge(delta)
+	m.g["db_feedback_cd"] = maxf(0.0,
+		float(m.g.get("db_feedback_cd", 0.0)) - delta)
+	m.g["db_closer_cd"] = maxf(0.0,
+		float(m.g.get("db_closer_cd", 0.0)) - delta)
+	if String(m.g.get("db_state", "showing")) != "showing":
+		m.g["db_active_t"] = float(m.g.get("db_active_t", 0.0)) + delta
 	m.g["db_st"] = float(m.g.get("db_st", 0.0)) + delta
 	var st: float = float(m.g["db_st"])
 	match String(m.g.get("db_state", "showing")):
+		"splash":
+			pass
 		"showing":
 			_tick_showing(st, fr, tapped)
 		"prowl":
@@ -181,11 +299,46 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		return                      # the win banner fired and wiped the scratch
 	_place_boss(delta)
 	_update_hud()
+	_update_mastery_ui()
+
+
+func _show_boss_splash(fr: Dictionary) -> void:
+	var splash := BossSplash2DLogic.new() as BossSplash2D
+	if splash == null:
+		_begin_showing(fr)
+		return
+	var badge: Texture2D = load(STAR_TEX) as Texture2D
+	splash.configure(
+		DustBunnyBossSprite.make_sprite_frames(),
+		"GRAND PUFF",
+		"THE GREAT DUST BUNNY",
+		badge)
+	splash.finished.connect(_on_boss_splash_finished.bind(fr), CONNECT_ONE_SHOT)
+	m.add_child(splash)
+	m.g["db_splash"] = splash
+
+
+func _on_boss_splash_finished(fr: Dictionary) -> void:
+	if m.game != "dustboss" or m.g.is_empty():
+		return
+	m.g["db_splash"] = null
+	_begin_showing(fr)
+
+
+func _begin_showing(fr: Dictionary) -> void:
+	_enter_state("showing")
+	# ONE trigger per beat: show_msg already fires _say(speaker, vo) itself
+	# (audio_director.gd), so a paired _say() would speak twice the moment real
+	# clips exist. The event name IS the vo argument.
+	m.show_msg(String(fr.get("fname", "Dusty Attic")),
+		"The GREAT dust bunny wakes up! He is too puffy to bonk...", "dustboss_show")
 
 # ---- the state machine -----------------------------------------------------
 func _enter_state(next_state: String) -> void:
 	m.g["db_state"] = next_state
 	m.g["db_st"] = 0.0
+	if next_state != "prowl":
+		m.g["db_dodge_hint"] = false
 
 func phase() -> int:
 	# 0 puffy → 1 dizzy → 2 angry; clamped so the winning hit reads as angry
@@ -205,6 +358,13 @@ func mercy_tier() -> int:
 	return maxi(int(m.g.get("db_mercy_tier", 0)),
 		miss_streak() / MERCY_TRIGGER_STREAK)
 
+func preassist_tier() -> int:
+	# This is deliberately separate from mercy_tier(): two misses means the
+	# third attempt is the first gentle assist, while miss five still owns the
+	# exact strong assist (long window, wide reach and free tap). The gentle
+	# tiers only trim dead travel and make the landing easier to read.
+	return clampi(miss_streak() - PREASSIST_TRIGGER_STREAK + 1, 0, 2)
+
 func window_len() -> float:
 	# the vulnerability window: the kit's own number (0.75s, 0.65s in the final
 	# round) plus the assist tier this file owns
@@ -212,10 +372,13 @@ func window_len() -> float:
 	var kit: DustBunnyBossSprite = m.g.get("db_kit") as DustBunnyBossSprite
 	if kit != null and is_instance_valid(kit):
 		base = kit.current_vulnerability_window()
-	return base + minf(MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
+	var gentle: float = minf(
+		PREASSIST_WINDOW_PER_TIER * float(preassist_tier()), PREASSIST_WINDOW_MAX)
+	return base + gentle + minf(MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
 
 func reach() -> float:
-	return REACH + minf(MERCY_REACH_PER_TIER * float(mercy_tier()), MERCY_REACH_MAX)
+	var gentle: float = PREASSIST_REACH * float(preassist_tier())
+	return REACH + gentle + minf(MERCY_REACH_PER_TIER * float(mercy_tier()), MERCY_REACH_MAX)
 
 func hop_speed() -> float:
 	var base: float = float(phase_cfg()["hop_speed"])
@@ -224,6 +387,29 @@ func hop_speed() -> float:
 func windup_len() -> float:
 	return WINDUP_T + minf(
 		MERCY_WINDUP_PER_TIER * float(mercy_tier()), MERCY_WINDUP_MAX)
+
+func prowl_len() -> float:
+	var base: float = float(phase_cfg()["prowl_t"])
+	var cut: float = minf(PREASSIST_PROWL_CUT * float(preassist_tier()),
+		PREASSIST_PROWL_MAX)
+	return maxf(PREASSIST_PROWL_MIN, base - cut)
+
+func landing_radius() -> float:
+	var tier: int = preassist_tier()
+	if tier <= 0:
+		return 4.0
+	return maxf(PREASSIST_LANDING_MIN,
+		PREASSIST_LANDING_RADIUS - 0.55 * float(tier - 1)
+		- 0.35 * float(mercy_tier()))
+
+func bump_cooldown() -> float:
+	return BUMP_COOLDOWN_MISSED if miss_streak() >= PREASSIST_TRIGGER_STREAK else BUMP_COOLDOWN_BASE
+
+func phase_beat_len(rounds: int) -> float:
+	return PHASE_BEAT_T if rounds > 0 and rounds < HP else 0.0
+
+func celebration_beat_len(rounds: int) -> float:
+	return CELEBRATION_BEAT_T if rounds > 0 and rounds < HP else 0.0
 
 # THE SHOWING — he is revealed before he is ever fought: he swells up out of
 # his dust nest, takes one big parade hop, and demonstrates the tell (the star
@@ -253,7 +439,7 @@ func _tick_prowl(delta: float, st: float, s: Dictionary, tapped: bool) -> void:
 	_hop_move(delta, s)
 	if tapped:
 		_bounce_off()
-	if st >= float(phase_cfg()["prowl_t"]):
+	if st >= prowl_len():
 		_enter_state("windup")
 
 # WIND-UP — the telegraph: he squashes down and the star starts to glimmer.
@@ -268,7 +454,8 @@ func _tick_windup(delta: float, st: float, tapped: bool) -> void:
 		var here: Vector2 = stage.player_local()
 		m.g["db_from"] = Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
 		m.g["db_to"] = stage.clamp_point(
-			here + Vector2(randf_range(-4.0, 4.0), randf_range(-4.0, 4.0)), BOSS_INSET)
+			here + Vector2(randf_range(-landing_radius(), landing_radius()),
+			randf_range(-landing_radius(), landing_radius())), BOSS_INSET)
 		m.g["db_window_hit"] = 0
 		m.g["db_win_len"] = window_len()
 		m.g["db_taps_this_round"] = 0
@@ -302,11 +489,16 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 	var open_now: bool = k.vulnerable
 	m.g["db_flash"] = 1.0 if open_now else 0.0
 	# THE ASSIST PACE, applied to the kit's own clock exactly once per window.
-	# It is zero for attempts 1-4 and switches on after five consecutive misses.
+	# Gentle time starts on attempt three (after two misses); strong mercy still
+	# switches on after five consecutive misses. The shared guard prevents either
+	# bonus from being applied twice when the kit's open signal spans frames.
 	if open_now and not bool(m.g.get("db_mercy_topped", false)):
 		m.g["db_mercy_topped"] = true
-		var bonus: float = minf(
+		var gentle_bonus: float = minf(
+			PREASSIST_WINDOW_PER_TIER * float(preassist_tier()), PREASSIST_WINDOW_MAX)
+		var mercy_bonus: float = minf(
 			MERCY_WINDOW_PER_TIER * float(mercy_tier()), MERCY_WINDOW_MAX)
+		var bonus: float = gentle_bonus + mercy_bonus
 		if bonus > 0.0:
 			k.vulnerability_time_left += bonus
 		# A merely doubled short window is not enough for the slowest hand. The
@@ -316,7 +508,15 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 		# the window she finally reads still needs her real input but not a fast
 		# three-tap burst.
 		for _free in range(_free_taps()):
+			# The telemetry is authoritative: count only a helper insertion the kit
+			# actually accepts. Compare its progress because the kit API may be void
+			# in a compatible implementation even when it accepts the tap.
+			var accepted_before: int = k.accepted_taps
 			k.register_vulnerable_tap()
+			var accepted_after: int = k.accepted_taps
+			if accepted_after > accepted_before:
+				m.g["db_helper_taps_total"] = int(
+					m.g.get("db_helper_taps_total", 0)) + accepted_after - accepted_before
 
 	if tapped:
 		if open_now:
@@ -325,9 +525,7 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 				# THE VERB: one of the three quick taps this window wants
 				k.register_vulnerable_tap()
 			else:
-				m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0),
-					Color(1.0, 0.92, 0.62))
-				m.show_msg("Roshan", "Closer! Get under him and tap!", "dustboss_closer")
+				_closer_feedback()
 		else:
 			_bounce_off()
 	# the window closed. Either three taps landed (the kit fired
@@ -344,18 +542,22 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 		_enter_state("prowl")
 		_pick_hop(true)
 		var streak: int = miss_streak()
-		if streak == 1 or streak == MERCY_TRIGGER_STREAK:
+		if streak == 1 or streak == PREASSIST_TRIGGER_STREAK \
+				or streak == MERCY_TRIGGER_STREAK:
 			var reminder: String = (
 				"Grand Puff slowed down! Take your time — wait for the BIG GOLD STAR!"
 				if streak == MERCY_TRIGGER_STREAK
+				else "He is coming closer now — wait for the BIG GOLD STAR!"
+				if streak == PREASSIST_TRIGGER_STREAK
 				else "So close! Wait for the next FLASH and tap FAST — three times!"
 			)
 			m.show_msg(String(fr.get("fname", "Dusty Attic")),
 				reminder, "dustboss_again")
 
 func _free_taps() -> int:
-	# 0 for attempts 1-4; 1 after miss five; 2 after miss ten. Capped below a
-	# full round so zero-input play can never complete the encounter.
+	# Gentle aid changes timing, reach and landing only. Strong mercy begins
+	# exactly after miss five and gives one tap; the result stays below a full
+	# round so zero-input play can never complete the encounter.
 	return mini(mercy_tier(), TAPS_PER_ROUND - 1)
 
 # THE HIT REACTION — one per landed hit, and where he becomes someone new.
@@ -368,7 +570,8 @@ func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void
 	m.g["db_flash"] = 0.0
 	# the kit is playing flinch_3 -> angry; this hold is the breather the child
 	# gets to see what she did before he is moving again
-	var hold: float = STRUCK_T + (DIZZY_T if rounds == 1 else (ANGRY_T if rounds == 2 else 0.0))
+	var hold: float = STRUCK_T + (DIZZY_T if rounds == 1 else (ANGRY_T if rounds == 2 else 0.0)) \
+		+ phase_beat_len(rounds) + celebration_beat_len(rounds)
 	if rounds >= HP:
 		return                     # the friends beat owns the ending
 	if st >= hold:
@@ -386,12 +589,34 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 	# the kit plays the implosion off flinch_3 and reports when the last wisp
 	# is gone; only then is the fight over
 	var done: bool = bool(m.g.get("db_imploded", false))
-	if (done or st >= WIN_T + 2.0) and not bool(m.g.get("db_done", false)):
+	# db_active_t and this state's st both advance every tick. Gate the floor
+	# against the authoritative encounter clock instead of subtracting it into
+	# a second advancing hold (which made the remaining floor shrink twice fast).
+	var floor_met: bool = float(m.g.get("db_active_t", 0.0)) >= POSITIVE_PACING_FLOOR
+	var celebration_ready: bool = st >= WIN_T
+	if ((done and floor_met and celebration_ready) \
+			or (floor_met and st >= WIN_T + 2.0)) \
+			and not bool(m.g.get("db_done", false)):
 		m.g["db_done"] = true
-		m.pearl_count += 3
+		var bumps: int = int(m.g.get("db_bumps", 0))
+		var tier: int = mastery_tier_for_bumps(bumps)
+		var bonus: int = PERFECT_BONUS_PEARLS if bumps == 0 else 0
+		m.g["db_mastery_tier"] = tier
+		m.g["db_perfect_bonus"] = bonus > 0
+		m.g["db_perfect_bonus_pearls"] = bonus
+		m.pearl_count += BASE_WIN_PEARLS + bonus
 		m._fanfare()
-		m._end_game(true, fr,
-			"The Great Dust Bunny is your friend now! He gave the castle's shine back!")
+		m.day_one_complete_boss_and_begin_day_two()
+		m._end_game(true, fr, _victory_message(bumps, tier))
+
+func _victory_message(bumps: int, tier: int) -> String:
+	if bumps == 0:
+		return "PERFECT DODGE! Three gold stars and two bonus pearls — Grand Puff is your friend!"
+	if tier == MASTERY_GOLD:
+		return "Three gold stars! Grand Puff is your friend. Dodge every hop next time for the shining bonus!"
+	if tier == MASTERY_SILVER:
+		return "Two silver stars! Grand Puff is your friend. Dodge one more bump next time to light the gold star!"
+	return "A bronze star! Grand Puff is your friend. Play again and dodge his hops to light more stars!"
 
 # ---- the verbs -------------------------------------------------------------
 func _land_hit(fr: Dictionary) -> void:
@@ -443,8 +668,7 @@ func on_world_tap(screen_pos: Vector2) -> void:
 		if on_him or d <= reach():
 			k.register_vulnerable_tap()
 			return
-		m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0), Color(1.0, 0.92, 0.62))
-		m._say("roshan", "dustboss_closer", 3.0)
+		_closer_feedback()
 		return
 	var st_now: String = String(m.g.get("db_state", ""))
 	if st_now == "showing" or st_now == "struck" or st_now == "friends":
@@ -491,27 +715,59 @@ func _bounce_off() -> void:
 	var live: String = String(m.g.get("db_state", ""))
 	if live == "prowl" or live == "windup" or live == "vuln":
 		m.g["db_wasted"] = int(m.g.get("db_wasted", 0)) + 1
-	if int(m.g["db_shield_taps"]) % 3 == 0:
-		m.show_msg("Roshan", "Too puffy! Wait for him to JUMP and FLASH!", "dustboss_tell")
+	if float(m.g.get("db_feedback_cd", 0.0)) <= 0.0:
+		m.g["db_feedback_cd"] = FEEDBACK_COOLDOWN
+		m.g["db_shield_feedbacks"] = int(m.g.get("db_shield_feedbacks", 0)) + 1
+		m.show_msg("Roshan", "WAIT — dim star means no bonk. BIG GOLD STAR means TAP!",
+			"dustboss_tell")
+
+func _closer_feedback() -> void:
+	# Every far tap still gets a bright positional sparkle, but voice/text is
+	# rate-limited so mashing cannot drown out the one useful instruction.
+	m.g["db_closer_taps"] = int(m.g.get("db_closer_taps", 0)) + 1
+	if float(m.g.get("db_closer_cd", 0.0)) > 0.0:
+		return
+	m.g["db_closer_cd"] = CLOSER_FEEDBACK_COOLDOWN
+	m.g["db_closer_feedbacks"] = int(m.g.get("db_closer_feedbacks", 0)) + 1
+	m._sparkle_burst(m.player.global_position + Vector3(0, 3.0, 0),
+		Color(1.0, 0.92, 0.62))
+	m.show_msg("Roshan", "Come closer! Get under him, then tap the FLASH!",
+		"dustboss_closer")
 
 # ---- prowl motion ----------------------------------------------------------
 func _pick_hop(reset: bool) -> void:
 	var cfg: Dictionary = phase_cfg()
 	var here := Vector2(float(m.g.get("db_x", 0.0)), float(m.g.get("db_z", 0.0)))
+	var player_here: Vector2 = stage.player_local()
 	var ang: float = randf() * TAU
 	var rad: float = sqrt(randf()) * (RADIUS - BOSS_INSET)
 	var want := Vector2(cos(ang) * rad, sin(ang) * rad)
 	# part of the time he bounces AT her — playful, and the bump is harmless
 	if randf() < float(cfg["chase"]):
-		want = stage.player_local()
+		want = player_here
 	var step: float = hop_speed() * float(cfg["hop_gap"])
 	var dv: Vector2 = want - here
 	if dv.length() > step:
 		dv = dv.normalized() * step
 	m.g["db_from"] = here
 	m.g["db_to"] = stage.clamp_point(here + dv, BOSS_INSET)
+	var hop_to: Vector2 = m.g["db_to"] as Vector2
+	var incoming: bool = _point_segment_distance(player_here, here, hop_to) < 4.2
+	m.g["db_dodge_hint"] = incoming
+	if incoming and not bool(m.g.get("db_dodge_taught", false)):
+		m.g["db_dodge_taught"] = true
+		m.show_msg("Roshan",
+			"Grand Puff is hopping at me — tap the glowing TWIRL!",
+			"dustboss_dodge")
 	if reset:
 		m.g["db_hop_t"] = 0.0
+
+func _point_segment_distance(point: Vector2, a: Vector2, b: Vector2) -> float:
+	var ab: Vector2 = b - a
+	if ab.length_squared() <= 0.0001:
+		return point.distance_to(a)
+	var u: float = clampf((point - a).dot(ab) / ab.length_squared(), 0.0, 1.0)
+	return point.distance_to(a + ab * u)
 
 func _hop_move(delta: float, s: Dictionary) -> void:
 	var cfg: Dictionary = phase_cfg()
@@ -541,9 +797,42 @@ func _hop_move(delta: float, s: Dictionary) -> void:
 	# cost and no control lock. Roshan can steer back immediately.
 	if Vector2(here.x - float(s["px"]), here.y - float(s["pz"])).length() < 3.2 \
 			and float(m.g.get("db_bump_cd", 0.0)) <= 0.0:
-		m.g["db_bump_cd"] = 1.6
-		_bump_player(here)
+		m.g["db_bump_cd"] = bump_cooldown()
+		_resolve_player_contact(here)
 	m.g["db_bump_cd"] = maxf(0.0, float(m.g.get("db_bump_cd", 0.0)) - delta)
+
+func _resolve_player_contact(from: Vector2) -> void:
+	if float(m.g.get("db_dodge_t", 0.0)) > 0.0:
+		_dodge_player(from)
+	else:
+		_bump_player(from)
+
+func _dodge_player(from: Vector2) -> void:
+	var here: Vector2 = stage.player_local()
+	var travel: Vector2 = (m.g.get("db_to", Vector2.ZERO) as Vector2) \
+		- (m.g.get("db_from", Vector2.ZERO) as Vector2)
+	if travel.length() < 0.1:
+		travel = from - here
+	if travel.length() < 0.1:
+		travel = Vector2.RIGHT
+	var side := Vector2(-travel.y, travel.x).normalized()
+	var left: Vector2 = stage.clamp_point(here + side * DODGE_STEP, PLAYER_INSET)
+	var right: Vector2 = stage.clamp_point(here - side * DODGE_STEP, PLAYER_INSET)
+	var dodged: Vector2 = left if left.distance_to(here) >= right.distance_to(here) else right
+	if m.player != null:
+		m.player.global_position.x += dodged.x - here.x
+		m.player.global_position.z += dodged.y - here.y
+		m.player.vel.x = 0.0
+		m.player.vel.z = 0.0
+		m.player.play_verb("twirl")
+		var sparkle_pos := m.player.global_position
+		sparkle_pos.y += 2.6
+		m._sparkle_burst(sparkle_pos,
+			Color(0.55, 0.96, 1.0))
+	m.g["db_dodges"] = int(m.g.get("db_dodges", 0)) + 1
+	m.g["db_dodge_t"] = 0.0
+	m.g["db_dodge_hint"] = false
+	m._say("roshan", "dustboss_dodge_yes", 2.5)
 
 func _bump_player(from: Vector2) -> void:
 	var here: Vector2 = stage.player_local()
@@ -661,6 +950,105 @@ func _update_hud() -> void:
 	var open: bool = String(m.g.get("db_state", "")) == "vuln"
 	var lead: String = "⭐ TAP NOW!" if open else "Watch his star…"
 	m.hud_game.text = lead + "   " + m._pips(hits, HP, "💜")
+
+func _build_mastery_ui() -> void:
+	# A picture-only mastery strip stays on the Canvas above the legacy arena.
+	# Filled and outline stars make the next replay goal readable without text;
+	# the diamond is the separate zero-bump bonus target.
+	var layer := CanvasLayer.new()
+	layer.name = "DustBossMasteryLayer"
+	layer.layer = 10
+	m.add_child(layer)
+	m.g["db_mastery_layer"] = layer
+	var root := Control.new()
+	root.name = "DustBossMasteryRoot"
+	root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	layer.add_child(root)
+	var panel := StorybookUI.add_hud_panel(root,
+		Rect2(430.0, 18.0, 420.0, 94.0), StorybookUI.PURPLE,
+		Color(0.98, 0.96, 1.0, 0.94), 34)
+	panel.name = "DustBossMasteryCard"
+	var perfect := Label.new()
+	perfect.name = "PerfectBonusGem"
+	perfect.position = Vector2(14.0, 6.0)
+	perfect.size = Vector2(88.0, 80.0)
+	perfect.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	perfect.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	StorybookUI.style_hud_label(perfect, 48, StorybookUI.PEARL_BLUE, 5)
+	panel.add_child(perfect)
+	m.g["db_perfect_gem"] = perfect
+	var stars := Label.new()
+	stars.name = "MasteryStars"
+	stars.position = Vector2(96.0, 4.0)
+	stars.size = Vector2(308.0, 84.0)
+	stars.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	stars.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	StorybookUI.style_hud_label(stars, 58, StorybookUI.GOLD, 6)
+	panel.add_child(stars)
+	m.g["db_mastery_stars"] = stars
+	var dodge := Button.new()
+	dodge.name = "DustBossDodgeButton"
+	dodge.position = Vector2(1090.0, 314.0)
+	dodge.focus_mode = Control.FOCUS_NONE
+	StorybookUI.style_icon_button(dodge, "↻", "secondary",
+		Vector2(154.0, 154.0), "Twirl away from Grand Puff")
+	dodge.pivot_offset = dodge.size * 0.5
+	dodge.pressed.connect(request_dodge)
+	root.add_child(dodge)
+	m.g["db_dodge_button"] = dodge
+	var pointer := Label.new()
+	pointer.name = "DustBossDodgePointer"
+	pointer.text = "▼"
+	pointer.position = Vector2(1116.0, 242.0)
+	pointer.size = Vector2(102.0, 76.0)
+	pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	StorybookUI.style_hud_label(pointer, 58, StorybookUI.GOLD, 7)
+	root.add_child(pointer)
+	m.g["db_dodge_pointer"] = pointer
+
+func _mastery_stars(tier: int) -> String:
+	var out := ""
+	for i in range(MASTERY_GOLD):
+		out += "★" if i < tier else "☆"
+	return out
+
+func _update_mastery_ui() -> void:
+	var layer: CanvasLayer = m.g.get("db_mastery_layer") as CanvasLayer
+	if layer == null or not is_instance_valid(layer):
+		return
+	var state: String = String(m.g.get("db_state", ""))
+	layer.visible = state != "splash"
+	var bumps: int = int(m.g.get("db_bumps", 0))
+	var tier: int = mastery_tier_for_bumps(bumps)
+	var stars: Label = m.g.get("db_mastery_stars") as Label
+	if stars != null and is_instance_valid(stars):
+		stars.text = _mastery_stars(tier)
+		stars.add_theme_color_override("font_color",
+			MASTERY_COLORS[tier] as Color)
+	var perfect: Label = m.g.get("db_perfect_gem") as Label
+	if perfect != null and is_instance_valid(perfect):
+		perfect.text = "💎" if bumps == 0 else "◇"
+		perfect.modulate = Color.WHITE if bumps == 0 \
+			else Color(0.58, 0.58, 0.68, 0.78)
+	var dodge: Button = m.g.get("db_dodge_button") as Button
+	var pointer: Label = m.g.get("db_dodge_pointer") as Label
+	var dodge_visible: bool = state in ["prowl", "windup", "vuln"]
+	var danger: bool = bool(m.g.get("db_dodge_hint", false)) and state == "prowl"
+	var ready: bool = state == "prowl" \
+		and float(m.g.get("db_dodge_cd", 0.0)) <= 0.0
+	if dodge != null and is_instance_valid(dodge):
+		dodge.visible = dodge_visible
+		dodge.disabled = not ready
+		dodge.text = "⚡\n↻" if danger else "↻"
+		dodge.modulate = Color.WHITE if ready else Color(0.72, 0.72, 0.82, 0.78)
+		var pulse: float = 1.0 + sin(float(m.g.get("db_active_t", 0.0)) \
+			* (10.0 if danger else 2.6)) * (0.10 if danger else 0.025)
+		dodge.scale = Vector2.ONE * pulse
+	if pointer != null and is_instance_valid(pointer):
+		pointer.visible = dodge_visible and danger
+		pointer.position.y = 242.0 + sin(float(m.g.get("db_active_t", 0.0)) * 10.0) * 8.0
 
 # ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:

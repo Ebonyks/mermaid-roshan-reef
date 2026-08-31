@@ -48,6 +48,7 @@ const EVENT_BOSS_DOOR_GLOW: String = "boss_door_glow"
 const EVENT_GIANT_DUST_BUNNY_BOSS: String = "giant_dust_bunny_boss"
 const EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED: String = \
 	"giant_dust_bunny_boss_defeated"
+const EVENT_DAY_TWO_BEGINS: String = "day_two_begins"
 const ART_MATERIAL_IDS: Array[String] = [
 	"brushes", "pink_paint", "blue_paint", "paint_cups",
 ]
@@ -453,6 +454,24 @@ func complete_giant_dust_bunny_boss() -> bool:
 	return true
 
 
+## The first boss is the terminal Day One gate. This seam is intentionally
+## idempotent: replaying Grand Puff later remains a friendly rematch and can
+## never replay the day transition or relock jobs.
+func complete_day_one_after_boss() -> bool:
+	# Day Two presentation is downstream of the recorded giant-boss defeat.
+	# Never let an unlock-only caller deactivate Day One before that terminal
+	# event has started Chapter 2, and never emit the presentation twice.
+	if not giant_dust_bunny_boss_defeated \
+			or bool(day_one_event_seen.get(EVENT_DAY_TWO_BEGINS, false)):
+		return false
+	day_one_active = false
+	_emit_once(EVENT_DAY_TWO_BEGINS, {
+		"jobs_unlocked": true,
+		"opera_enabled": true,
+	})
+	return true
+
+
 func event_history() -> Array[Dictionary]:
 	return day_one_event_history.duplicate(true)
 
@@ -564,8 +583,18 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	var all_done: bool = completed.size() == ROOM_ORDER.size()
 	var boss_triggered: bool = all_done and _as_bool_static(source.get(
 		"day_one_giant_dust_bunny_boss_triggered", false), false)
-	var boss_defeated: bool = boss_triggered and _as_bool_static(source.get(
-		"day_one_giant_dust_bunny_boss_defeated", false), false)
+	# Origin/dev briefly shipped Day Two before the additive boss-defeated key.
+	# Backfill only that exact causal terminal: all four rooms completed, the
+	# boss explicitly triggered, and Day One explicitly inactive. Jobs-unlocked
+	# flags alone are not evidence and unrelated legacy saves remain untouched.
+	var legacy_terminal_day_two: bool = boss_triggered \
+		and source.has("day_one_active") \
+		and not _as_bool_static(source.get("day_one_active", true), true) \
+		and not source.has("day_one_giant_dust_bunny_boss_defeated")
+	var boss_defeated: bool = boss_triggered and (
+		_as_bool_static(source.get(
+			"day_one_giant_dust_bunny_boss_defeated", false), false) \
+		or legacy_terminal_day_two)
 	var day_active: bool = _as_bool_static(source.get(
 		"day_one_active", true), true) and not boss_defeated
 	var bathroom_done: bool = completed.has("bathroom")

@@ -11,7 +11,7 @@ var main: Node3D
 var player: Node3D
 
 const CELEBRATION_BOUNDS := Rect2(Vector2.ZERO, Vector2(1280.0, 720.0))
-const CELEBRATION_MAX_SUBTREE_NODES := 16
+const CELEBRATION_MAX_SUBTREE_NODES := 18
 
 
 func _celebration_layer() -> CanvasLayer:
@@ -78,11 +78,17 @@ func _celebration_contract(layer: CanvasLayer, tier: int) -> bool:
 	var card := layer.get_node_or_null("MedalCelebrationCard") as Panel
 	var glyph := layer.get_node_or_null(
 		"MedalCelebrationCard/MedalCelebrationGlyph") as Label
+	var stars := layer.get_node_or_null(
+		"MedalCelebrationCard/MedalCelebrationStars") as Label
 	var burst := layer.get_node_or_null("MedalCelebrationBurst") as Control
-	if card == null or glyph == null or burst == null \
+	var expected_stars := ""
+	for i in range(MedalSystem.GOLD):
+		expected_stars += "★" if i < tier else "☆"
+	if card == null or glyph == null or stars == null or burst == null \
 			or card.position != Vector2(490.0, 140.0) \
 			or card.size != Vector2(300.0, 230.0) \
 			or glyph.text != String(MedalSystem.GLYPH[tier]) \
+			or stars.text != expected_stars \
 			or burst.position != Vector2(640.0, 255.0) \
 			or not CELEBRATION_BOUNDS.has_point(burst.position):
 		return false
@@ -150,7 +156,8 @@ func _init() -> void:
 		["dungeon", {"rooms": 10}, 3], ["dungeon", {"rooms": 5}, 2], ["dungeon", {"rooms": 1}, 1],
 		["bells", {"oops": 0}, 3], ["bells", {"oops": 2}, 2], ["bells", {"oops": 5}, 1],
 		["dance", {"combo": 12, "hits": 20}, 3], ["dance", {"combo": 6, "hits": 9}, 2], ["dance", {"combo": 1, "hits": 1}, 1],
-		["dustboss", {"wasted": 0}, 3], ["dustboss", {"wasted": 2}, 2], ["dustboss", {"wasted": 9}, 1],
+		["dustboss", {"bumps": 0}, 3], ["dustboss", {"bumps": 1}, 3],
+		["dustboss", {"bumps": 2}, 2], ["dustboss", {"bumps": 3}, 1],
 		["shop", {}, 0],
 	]
 	var tiers_bad := 0

@@ -25,6 +25,8 @@ const BOOL_KEYS: Array[String] = [
 	"chapter2_ember_king_crashed", "chapter2_ember_son_seen",
 	"chapter2_candle_lit",
 	"chapter2_candle_taken", "chapter2_story_complete",
+	"chapter3_fairy_door_revealed",
+	"chapter3_fairy_door_opened", "chapter3_fairy_mission_started",
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
@@ -44,6 +46,7 @@ const KNOWN_KEYS: Array[String] = [
 	"pearls", "pearls_ever", "portal_unlocked", "skin", "level2", "plays", "custom_fish", "custom_friends",
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done", "opera_pantry",
+	"chapter3_fairy_door_revealed", "chapter3_fairy_door_opened", "chapter3_fairy_mission_started",
 	"castle_logo_color", "castle_logo_symbol",
 	"stickers", "owned", "animals", "critters",
 	"companion", "companion_colors", "fish_tokens", "stuffie_wins", "care_points",
@@ -164,6 +167,14 @@ func load_save() -> void:
 	m.medals = saved_medals if saved_medals is Dictionary else {}
 	m.galaxy_unlocked = bool(m.save_data.get("galaxy", false))
 	m.bwd_done = bool(m.save_data.get("bwdone", false))
+	var legacy_fairy_route: bool = m.galaxy_unlocked or m.bwd_done \
+		or bool(m.save_data.get("fairyskin", false))
+	m.chapter3_fairy_door_revealed = bool(m.save_data.get(
+		"chapter3_fairy_door_revealed", false)) or legacy_fairy_route
+	m.chapter3_fairy_door_opened = bool(m.save_data.get(
+		"chapter3_fairy_door_opened", false)) or legacy_fairy_route
+	m.chapter3_fairy_mission_started = bool(m.save_data.get(
+		"chapter3_fairy_mission_started", false)) or legacy_fairy_route
 	m.combat_ice_done = bool(m.save_data.get("combat_ice", false))
 	m.combat_fire_done = bool(m.save_data.get("combat_fire", false))
 	m.combat_tutorial_done = bool(m.save_data.get("combat_tutorial", false))
@@ -256,6 +267,9 @@ func write_save() -> bool:
 	next_data["galaxy"] = m.galaxy_unlocked
 	next_data["bwdone"] = m.bwd_done
 	next_data["fairyskin"] = m.fairy_skin_unlocked
+	next_data["chapter3_fairy_door_revealed"] = m.chapter3_fairy_door_revealed
+	next_data["chapter3_fairy_door_opened"] = m.chapter3_fairy_door_opened
+	next_data["chapter3_fairy_mission_started"] = m.chapter3_fairy_mission_started
 	next_data["combat_ice"] = m.combat_ice_done
 	next_data["combat_fire"] = m.combat_fire_done
 	next_data["combat_tutorial"] = m.combat_tutorial_done
@@ -576,6 +590,12 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["galaxy"] = _bool_or_default(raw, "galaxy", false)
 	data["bwdone"] = _bool_or_default(raw, "bwdone", false)
 	data["fairyskin"] = _bool_or_default(raw, "fairyskin", false)
+	data["chapter3_fairy_door_revealed"] = _bool_or_default(
+		raw, "chapter3_fairy_door_revealed", false)
+	data["chapter3_fairy_door_opened"] = _bool_or_default(
+		raw, "chapter3_fairy_door_opened", false)
+	data["chapter3_fairy_mission_started"] = _bool_or_default(
+		raw, "chapter3_fairy_mission_started", false)
 	data["combat_ice"] = _bool_or_default(raw, "combat_ice", false)
 	data["combat_fire"] = _bool_or_default(raw, "combat_fire", false)
 	data["dungeon_progress"] = clampi(_nonnegative_int_or_default(raw, "dungeon_progress", 0), 0, 10)

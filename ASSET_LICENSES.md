@@ -2735,3 +2735,30 @@ files are lossless and leave all approved/protected originals unchanged.
 - `assets/chapter2/birthday/sky_lagoon_strawberry_single.png` — project-original 1024×1024 RGBA runtime derivative of the single-strawberry pickup native; license: project original, all rights reserved; URL: none. Border-connected checker removal, matte reconstruction, and uniform premultiplied-alpha resize only, reproduced by `tools/prepare_chapter2_birthday_art.py`.
 
 Exact prompts, result IDs, hashes, reference roles, derivation, rejected attempt, and review limits are recorded in `assets_src/imagegen/chapter2_birthday_2026-08-30/PROVENANCE.md`; no protected original was modified.
+## Chapter 3 Moonflower Conservatory doorway (2026-08-30)
+
+- `assets_src/castle/fairy_conservatory_chapter3_2026-08-30/raw/moonflower_door_{closed,open}_checker_raw.png` — selected project-original OpenAI built-in ImageGen doorway-architecture sources; license: project original, all rights reserved; URL: none. The open source contributes only the shell frame, narrow edge-on leaves, hinges, floral carvings, and one crown pearl; its generated destination is removed by the deterministic build. Exact prompts, result filenames, rejection history, and delivery-pixel limits are recorded in the adjacent `PROVENANCE.md`.
+- `assets_src/castle/fairy_conservatory_chapter3_2026-08-30/raw/moonflower_door_open_{wide,pond,sky_horizon,generated_garden}_rejected.png` — preserved project-original rejected ImageGen iterations; license: project original, all rights reserved; URL: none. They remain source evidence only and are never runtime destination art.
+- `assets_src/castle/fairy_conservatory_chapter3_2026-08-30/alpha/moonflower_door_{closed,open}_alpha_master.png` — transparent 1024×1024 source masters derived from the selected doorway generations by border-connected neutral-field removal and whole-subject normalization; project original, all rights reserved; URL: none.
+- `assets/flats/castle/fairy_conservatory/moonflower_door_closed.png` — transparent 1024×1024 whole-subject runtime derivative built by `tools/build_fairy_conservatory_door_art.py`; project original, all rights reserved; URL: none. Processing removes the border-connected neutral presentation field, applies one-pixel matte support and a 0.8-pixel feather, and performs uniform whole-object Lanczos normalization.
+- `assets/flats/castle/fairy_conservatory/moonflower_door_open.png` — transparent 1024×1024 project derivative built by `tools/build_fairy_conservatory_door_art.py`; project original plus project-runtime artwork under the source licenses already recorded for each input; URL: none. The shell architecture is processed as above. The generated placeholder view is removed, then the corrected upright Fairy Pond master, selected Chapter 3 rainbow walkway and Butterfly House cutouts, and `assets/mg/butterfly.png` are composited as whole sprites with a documented 34.6% horizon. The rainbow artwork reaches the architectural opening base exactly at y=965. No protected original or accepted hall plate is overwritten.
+- `assets_src/castle/fairy_conservatory_chapter3_2026-08-30/review/moonflower_door_{closed,open}_hall_1280x720.png` — deterministic non-runtime placement composites over the approved 7280×2048 Main Hall master reconstructed from its existing tiles; visual-audit references only, never delivery pixels or replacement hall backgrounds.
+
+## Chapter 3 Rainbow Stage and Butterfly House handoff (2026-08-30)
+
+All generated files in this section are project-original OpenAI built-in
+ImageGen art; license: project original, all rights reserved; URL: none. The
+approved Lily-Pad Fairy World references retain their existing project
+licenses. Exact result IDs, normalized prompt briefs, reference-role limits,
+native/runtime SHA-256 hashes, processing, and review status are recorded in
+`assets_src/fairy_conservatory_handoff_2026-08-30/PROVENANCE.md` and the
+adjacent `asset_manifest.json`.
+
+- `assets_src/fairy_conservatory_handoff_2026-08-30/raw/rainbow_walkway_openai_raw.png` — selected native 1254×1254 RGBA rainbow-causeway generation; modifications: none after generation.
+- `assets_src/fairy_conservatory_handoff_2026-08-30/raw/butterfly_house_openai_raw.png` — selected native 1254×1254 RGB Butterfly House generation on a neutral checker presentation field; modifications: none after generation.
+- `assets_src/fairy_conservatory_handoff_2026-08-30/raw/fairy_pond_horizon_openai_raw.png` — selected native 1672×941 RGB upright Fairy Pond generation; built-in ImageGen result `exec-f94c58c7-28bd-455d-897c-c0c7a16588a3`; guided by the approved `assets/fairy/pond_panorama.png` location/palette and Fairy v2 water/foliage language; no Sky Lagoon reference; modifications: none after generation.
+- `assets/flats/fairy_conservatory_handoff/rainbow_walkway.png` — transparent 1024×1024 whole-subject runtime derivative; native alpha retained and the complete subject uniformly normalized.
+- `assets/flats/fairy_conservatory_handoff/butterfly_house.png` — transparent 1024×1024 whole-subject runtime derivative; only border-connected neutral presentation pixels were removed before uniform normalization.
+- `assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png` — continuous 16:9 project derivative of the complete selected upright Fairy Pond generation; centered whole-canvas Lanczos normalization only, with no local retouch, object movement, seam blend, independent tile generation, or protected-source modification.
+- `assets/flats/fairy_conservatory_handoff/background/handoff_background_r{0..1}_c{0..3}.png` — eight non-overlapping 910×1024 runtime slices of the continuous 3640×2048 handoff master, built by `tools/build_fairy_conservatory_handoff_art.py`.
+- `assets_src/fairy_conservatory_handoff_2026-08-30/review/rainbow_stage_composite_1280x720.png` — deterministic non-runtime placement composite of the approved background, selected whole-sprite walkway/house derivatives, and approved Roshan card; visual-audit reference only, never delivery pixels or a replacement runtime background.

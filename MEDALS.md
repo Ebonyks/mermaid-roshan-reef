@@ -59,6 +59,7 @@ Times are real seconds of the run; "≤/≥" bounds are inclusive.
 | dungeon | rooms cleared in ONE visit | 10 | ≥ 5 | finish |
 | bells | echo mistakes | 0 | ≤ 2 | finish |
 | dance | best combo streak in a round | ≥ 10 | ≥ 5 | any hit |
+| dustboss | harmless bumps taken | ≤ 1 | 2 | finish |
 
 Unranked on purpose: shop (a store, not a game), the 2D "slide" screen
 (reroutes to the 3D play place = `race`), dungeon combat rooms (they roll

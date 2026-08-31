@@ -187,12 +187,15 @@ func start(main: ReefMain, index: int, done_cb: Callable,
 		next_config["chapter2_tutorial"] = false
 		var scene_config := ChapterTwoAdapter.adapter_config(
 			String(next_config.get("costume", "")), config_overrides)
-		if config_overrides.get("scene_adapter", {}) is Dictionary:
+		var scene_adapter_value: Variant = config_overrides.get(
+			"scene_adapter", null)
+		if scene_adapter_value is Dictionary:
 			# Keep caller-supplied bindings/hooks while filling absent story fields
 			# from the data catalog. Nested phase overrides are validated and
 			# resolved by the adapter before the world receives this config.
+			var scene_adapter_dictionary: Dictionary = scene_adapter_value
 			scene_config.merge(
-				(config_overrides.get("scene_adapter") as Dictionary).duplicate(true),
+				scene_adapter_dictionary.duplicate(true),
 				true)
 		next_config["scene_adapter"] = scene_config
 		next_config["chapter2_scene"] = String(scene_config.get("backdrop", ""))
