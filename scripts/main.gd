@@ -10983,11 +10983,14 @@ func _enter_arena(kind: String) -> void:
 		_arena_floor(Color(0.84, 0.76, 0.68), GTA + "up_cliff_col.jpg", GTA + "up_cliff_nrm.jpg", 0.07)
 	elif kind == "dustboss":     # the castle attic: lavender dusk through one round window
 		grade_profile = "warm_pastel"
+		# Render the bounded negative Canvas layer as the 3D scene background.
+		# A normal negative CanvasLayer still composites over compatibility actors.
+		arena_env.background_mode = Environment.BG_CANVAS
+		arena_env.background_canvas_max_layer = -20
 		arena_env.background_color = Color(0.30, 0.24, 0.42)
 		arena_env.ambient_light_color = Color(0.86, 0.80, 0.98)
 		arena_env.ambient_light_energy = 0.60
 		arena_env.glow_bloom = 0.07
-		_arena_floor(Color(0.80, 0.72, 0.66), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	elif kind == "seek":         # sunny meadow
 		grade_profile = "bright_pastel"
 		arena_env.background_color = Color(0.30, 0.58, 0.78)
