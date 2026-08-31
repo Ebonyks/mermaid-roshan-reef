@@ -29,6 +29,17 @@ remote Sky subprocess still fails requested-Mobile renderer identity after 20
 PASS rows, uploads PNGs only, and supplies no remote JSON/Mobile PASS. No
 target-device, child, owner, or accepted-visual result is claimed.
 
+The 2026-08-26 code-refinement round appended twelve V1 records, bringing the
+register to 48 retained records / 46 active at that checkpoint. The 2026-08-30
+font and typography round uses `0ddbe65685b7dde09e4d9179d71580ed406bcc13` as
+its historical V1 inventory and appends seven V1 `MA-TYPE-*` records below,
+bringing this source/review round to 55 retained / 53 active. Committed partial
+implementation source `828e169f`, reconciled at review candidate `4e4e66b4`,
+adds role plumbing, selected size/layout repairs, and a scanner/probe/test
+harness, but those are partial implementation controls only;
+they do not alter the historical inventory source or grant runtime, font/glyph,
+device, child, human, or owner acceptance.
+
 ## MA-2D-002
 
 | Field | Value |
@@ -1155,3 +1166,164 @@ target-device, child, owner, or accepted-visual result is claimed.
 | closure | Open as of 2026-08-26; no shared harness exists. |
 | relationships | Decomposed from `MA-CODE-002`; classification context `MA-CI-003`; roster context `MA-CI-004`. |
 | history | 2026-08-26: counted at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+
+## MA-TYPE-001
+
+| Field | Value |
+|---|---|
+| id | `MA-TYPE-001` |
+| title | Child-facing text has no explicit project font, default-font Theme, deterministic fallback chain, licence row, or live-glyph coverage authority. |
+| rule_ids | `DL-TYPE-01`, `DL-TYPE-02`, `DL-TYPE-07`, `DL-TYPE-11` |
+| domain / zone | Typography resources and glyph delivery / game-wide UI |
+| source | 2026-08-30 historical V1 inventory at `0ddbe656`; committed partial implementation `828e169f`, reconciled review candidate `4e4e66b4`. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: tracked-path and source-declaration negatives reproduced; no runtime rasterization or missing-glyph test performed. |
+| reproduction | At `0ddbe656`, search tracked paths for `.ttf`, `.otf`, `.woff*`, `.font`, `.fontdata`, and imports; search runtime/config for `FontFile`, `FontVariation`, `SystemFont`, `font_data`, `default_font`, Theme font overrides, and project default-theme assignment; search `ASSET_LICENSES.md` for a font row. Every search is empty while runtime Labels/Buttons remain. |
+| child_impact | A missing, substituted, cramped, or inconsistent glyph can erase a picture cue, lock, route, objective, or adult-support caption on the child's actual device. |
+| evidence | `audit/FONT_TYPOGRAPHY_AUDIT_2026-08-30.md` sections 2 and 4.1; `project.godot`; `ASSET_LICENSES.md`; 96 `Label.new`, 84 literal `Button.new`, one `CheckButton.new`, and 45 `Label3D.new` in non-probe scripts. |
+| owner_decision | Owner selection/acceptance is required for font identity and any bundled-font exception; no third-party font is pre-approved by this finding. |
+| fix | Evaluate candidates without committing binaries; establish embedding/redistribution licence, provenance/hash, live-code-point coverage, cost and device/child legibility; then add one explicit Theme/fallback authority and licence row in the same asset-gated change. |
+| surrounding_tests | Exact font/hash/licence check; complete code-point census with missing-glyph mutation; import/analyzer; 1280×720 and wide-phone captures; start/intro/pause/wardrobe/collection/Opera/Kart; full trusted suite. |
+| acceptance | Every child-facing Canvas text role resolves to the approved explicit authority and deterministic fallback, all live code points render without tofu/substitution at the exact APK, licensing is complete, and device/child/owner gates pass. |
+| closure | Open as of 2026-08-30; the candidate still has no font selection, default-font authority, glyph proof, or higher-level evidence. |
+| relationships | Enables `MA-TYPE-002`–`005`; device closure is `MA-TYPE-007`; protected/asset rules remain higher authority. |
+| history | 2026-08-30: negative repository inventory reproduced at historical `0ddbe656`; opened `CONFIRMED_OPEN` at V1. Commits `828e169f`/`4e4e66b4` add no font asset, binding, or authority and leave this finding open. |
+
+## MA-TYPE-002
+
+| Field | Value |
+|---|---|
+| id | `MA-TYPE-002` |
+| title | Typography is not role-owned: `StorybookUI.style_picture_button()` omits size/font/outline state and multiple UI clusters bypass the shared label/button contract. |
+| rule_ids | `DL-TYPE-03`, `DL-TYPE-04`, `DL-CODE-05` |
+| domain / zone | UI architecture / Storybook overlays, Opera, Kart, dance, HUD |
+| source | 2026-08-30 helper/call-site audit at historical `0ddbe656`; committed partial role plumbing `828e169f`, reconciled at `4e4e66b4`, is tracked separately below and does not close this finding. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: helper properties and direct construction sites read statically; visual divergence not runtime-measured. |
+| reproduction | At historical `0ddbe656`, the picture helper set surfaces and three font colors but no complete typography state, while several clusters bypassed shared styling. Commits `828e169f`/`4e4e66b4` add eight role tokens and complete picture-button state styling, but do not establish a font authority or migrate every bypass cluster. |
+| child_impact | The same kind of choice can change weight, outline, size, and fallback between screens, weakening recognition and making fixes miss siblings. |
+| evidence | `scripts/storybook_ui.gd`; `wardrobe_ui.gd`; `opera_career_world_2d.gd`; `kart.gd`; `games/dance_engine.gd`; 45 local font-size overrides across 14 non-probe files. |
+| owner_decision | Not required for mechanical role plumbing; any visual role change or font identity choice requires owner review. |
+| fix | Define named typography roles, complete every shared helper, and migrate one constructor family at a time without changing copy or layout; local exceptions name scope and expiry. |
+| surrounding_tests | Parser/lint/analyzer; helper unit/static checks; before/after capture diff for each migrated family; focus/pressed/disabled/locked states; full suite. |
+| acceptance | All child-facing text controls request one named role, picture buttons receive the complete role, named bypass clusters delegate or have accepted exceptions, and captures show no accidental behavior/layout regression. |
+| closure | Open as of 2026-08-30; candidate role plumbing is partial and bounded constructor-family migration/capture evidence remains incomplete. |
+| relationships | Depends on `MA-TYPE-001`; size policy is `MA-TYPE-003`; glyph semantics are `MA-TYPE-004`. |
+| history | 2026-08-30: shared-helper gap and representative bypasses confirmed at historical `0ddbe656`; opened `CONFIRMED_OPEN` at V1. Candidate adds role/token plumbing and a complete picture helper but leaves this finding open pending exhaustive migration and evidence. |
+
+## MA-TYPE-003
+
+| Field | Value |
+|---|---|
+| id | `MA-TYPE-003` |
+| title | Child-action and child-state copy has no enforced size/read-dependency role, with current uses from 15–24 px carrying or adjoining semantic information. |
+| rule_ids | `DL-AGE-01`, `DL-TYPE-05`, `DL-TYPE-06`, `DL-UI-07` |
+| domain / zone | Child readability / intro, start menu, Craft, wardrobe/sticker book, collection, companion choices |
+| source | 2026-08-30 small-text/context audit at historical `0ddbe656`; committed partial size/layout edits `828e169f`, reconciled at `4e4e66b4`, remain separate from closure. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: exact sizes, strings, boxes, wrap, voice/picture adjacency read; no device or comprehension evidence. |
+| reproduction | Historical inventory found intro caption 22, new-game note 22, Craft status 21, sticker name/hint 20/15, Critter habitat 22, and several 24px child choices. Candidate raises selected safe surfaces (including the save warning and habitat/dance status) and deliberately leaves overflow-prone Craft/companion surfaces at their audited sizes; no device/child proof or complete 28px enforcement exists. |
+| child_impact | A non-reader may miss status or choice meaning, while an adult cannot reliably assist from tiny caption/hint copy on the real device. |
+| evidence | `scripts/intro_overlay.gd`; `start_menu.gd`; `craft_studio.gd`; `wardrobe_ui.gd`; `collection_system.gd`; audit sections 4.3 and 6 TYPE-C. |
+| owner_decision | Required only for deliberate sub-floor child-facing exceptions; developer-only and truly decorative text remains out of child acceptance scope. |
+| fix | Classify text by role; lift child-action/state copy to at least 28px, keep 22px only for wrapped high-contrast voice/picture-redundant adult captions, and restore picture/voice cues wherever text is carrying meaning alone. |
+| surrounding_tests | Longest/wrapped text captures; touch target remains at least 110×110; voice/picture/pointer route; locked/save warning states; M11/older phone; private child path. |
+| acceptance | No required child meaning is below the child role floor or reading-only, every adult-caption exception meets its contract, and exact-device/child/owner evidence is recorded. |
+| closure | Open as of 2026-08-30; candidate has partial size/layout controls only, with deferred sub-floor surfaces and no device/child acceptance. |
+| relationships | Font authority `MA-TYPE-001`; role plumbing `MA-TYPE-002`; external acceptance `MA-TYPE-007`; voice gaps remain `MA-ACCESS-*`. |
+| history | 2026-08-30: bounded small-text contexts confirmed at historical `0ddbe656` without declaring every sub-28 use defective; commits `828e169f`/`4e4e66b4` retain safe bounded edits and record deferred overflow-prone surfaces, leaving `CONFIRMED_OPEN`. |
+
+## MA-TYPE-004
+
+| Field | Value |
+|---|---|
+| id | `MA-TYPE-004` |
+| title | Critical navigation, category, habitat, care, career, lock, confirmation, progress, and reward meanings use Unicode/emoji without a packaged coverage classification or authored replacement. |
+| rule_ids | `DL-TYPE-07`, `DL-TYPE-11`, `DL-AGE-01`, `DL-READ-02` |
+| domain / zone | Semantic pictograms / game-wide UI and objectives |
+| source | 2026-08-30 live-symbol inventory at historical `0ddbe656`, reconciled with current source head `5bf3b1a4`; committed scanner classification from `828e169f`/`4e4e66b4` and the current `U+26A1` source evidence are implementation evidence only. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: live symbols and semantic uses located; no claim that a specific glyph currently fails on M11. |
+| reproduction | Search non-probe scripts for non-ASCII UI strings and dictionaries. Stars, shells, arrows, locks, checks, category/habitat/care/career emoji and other symbols appear in buttons, labels, objectives, pips, sticker hints and Label3D bubbles; the reconciled head adds one `U+26A1` occurrence in the optional Dust Bunny dodge attention cue. The manifest classifies it as redundant and binds it to the danger-specific pulse, visible pointer, persistent action-button, optional-control, and harmless-contact routes; the absent exact voice asset and generic fallback are explicitly excluded from evidence, and no packaged-font coverage or device matrix exists. |
+| child_impact | If a semantic glyph is absent, monochrome/colored unexpectedly, misaligned, or visually unfamiliar, the non-reader can lose the only apparent route or state cue. |
+| evidence | `scripts/storybook_ui.gd`; `touch_ui.gd`; `collection_system.gd`; `companion.gd`; `wardrobe_ui.gd`; `opera_house.gd`; `main.gd`; `scripts/games/dust_boss.gd:31,32,994,1044,1046-1048,1050`; `scripts/audio_director.gd`; absent `assets/audio/voices/roshan_dustboss_dodge.ogg`; `assets/audio/voice_yay.mp3`; `audit/typography_manifest.json` `glyph_evidence.U+26A1`. Authored Castle room images in `assets/ui/castle_room_buttons_v2/` demonstrate a controlled alternative. |
+| owner_decision | Owner review decides pictogram identity; reuse approved art first and generate only for a named uncovered critical gap. |
+| fix | Classify every live code point decorative/redundant/critical; keep decorative Unicode, prove exact bundled coverage where stable, and replace critical unproved semantics with approved authored textures plus redundant voice/picture state. |
+| surrounding_tests | Complete glyph manifest and missing-glyph mutation; default/locked/selected/disabled/progress captures; touch/voice/pointer tests; M11/older-phone and child recognition; full suite. |
+| acceptance | Every critical semantic has an approved authored icon or exact packaged-font/device proof, no missing-glyph mutation can silently pass, and child/owner review recognizes the cue without reading. |
+| closure | Open as of 2026-08-30; classification and runtime/device proof absent. |
+| relationships | Depends on `MA-TYPE-001`; picture/role plumbing `MA-TYPE-002`; external gate `MA-TYPE-007`. |
+| history | 2026-08-30: semantic inventory confirmed at historical `0ddbe656`; candidate scanner/test harness adds no packaged coverage or device result, so `CONFIRMED_OPEN` remains without asserting a device failure. Reconciled head `5bf3b1a4` adds `U+26A1` to the live inventory; source evidence records it as redundant optional-dodge attention, with the same open font/device acceptance boundary. |
+
+## MA-TYPE-005
+
+| Field | Value |
+|---|---|
+| id | `MA-TYPE-005` |
+| title | Fixed English strings and boxes lack translation keys, role-owned wrap limits, and longest-string or 130%-expansion layout evidence. |
+| rule_ids | `DL-TYPE-08`, `DL-TYPE-09`, `DL-QA-03` |
+| domain / zone | Text layout and localization readiness / game-wide UI |
+| source | 2026-08-30 string/layout audit at historical `0ddbe656`; committed fit checks from `828e169f`, reconciled at `4e4e66b4`, are a separate partial implementation. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: no translation asset/config exists; representative fixed boxes, concatenation, manual line breaks and wrap choices read statically. |
+| reproduction | At historical `0ddbe656`, no `.po`, `.pot`, `.mo`, `.translation`, or `[internationalization]` setting existed. The candidate adds deterministic checks for selected exact-English boxes, but fixed rectangles, hard-coded strings, and no pseudo-locale/capture gate remain game-wide. |
+| child_impact | Expanded or translated text can clip, cover art/targets, hide save meaning, or force adults to guess; layout regressions can also affect current English longest strings. |
+| evidence | `project.godot`; `scripts/intro_overlay.gd`; `start_menu.gd`; `craft_studio.gd`; `wardrobe_ui.gd`; `collection_system.gd`; audit section 4.5. |
+| owner_decision | No second language is required by this finding; owner/language review is required before claiming a locale supported or changing wording/voice semantics. |
+| fix | Add stable keys and named placeholders without changing approved English, declare wrap/max-lines/clip per role, then add longest-English and 130% pseudo-locale capture tests at both aspects. |
+| surrounding_tests | String-key completeness; placeholder validation; pseudo-locale captures; no critical truncation/overlap/target shrink; save-warning and voice-semantic review; full suite. |
+| acceptance | Every player-facing string follows the key/placeholder and role layout contract, both expansion matrices pass, and no locale claim exceeds its font/translation/voice/human evidence. |
+| closure | Open as of 2026-08-30; candidate has focused exact-English fit checks only, with no localization or expansion matrix. |
+| relationships | Role plumbing `MA-TYPE-002`; size/read dependency `MA-TYPE-003`; device acceptance `MA-TYPE-007`. |
+| history | 2026-08-30: missing layer and representative expansion risks confirmed at historical `0ddbe656`; candidate adds bounded exact-English checks but no localization evidence, leaving `CONFIRMED_OPEN`. |
+
+## MA-TYPE-006
+
+| Field | Value |
+|---|---|
+| id | `MA-TYPE-006` |
+| title | Forty-five `Label3D` constructors across thirteen production files keep child-visible typography in the rejected spatial medium. |
+| rule_ids | `DL-TYPE-10`, `DL-MED-01`, `DL-MED-04`, `DL-QA-09` |
+| domain / zone | True-2D migration / game-wide pointers, counters, bubbles, shop and activity labels |
+| source | 2026-08-30 exact `Label3D` census at historical `0ddbe656`, bounded child workstream of `MA-2D-002`; candidate remeasurement remains 45 across 13 files. |
+| severity | P1 |
+| lifecycle | `IN_PROGRESS` |
+| verification | V1 current census plus higher-level sealed GAME2D evidence only; no typography family is newly converted by this round. |
+| reproduction | Search non-probe GDScript for `Label3D.new(`: 45 matches in `arena/sky_lagoon.gd`, `collection_system.gd`, `combat_arena.gd`, `combat_tutorial.gd`, `companion.gd`, `dungeon_puzzle_room.gd`, `galaxy.gd`, `games/dust_boss.gd`, `games/shop.gd`, `kart.gd`, `main.gd`, `reef_districts.gd`, and `stuffie_battle.gd`; 39 assign `outline_size`. |
+| child_impact | Spatial text can inherit camera/depth/scale/occlusion behavior inconsistent with the final Canvas interface, while removal without semantic migration can erase pointers or state cues. |
+| evidence | Exact paths above; `tools/audit_game_2d.py` and `MA-2D-002` own the broader strict-zero inventory; audit section 4.6. |
+| owner_decision | Not required to remove measured 3D debt; visual/semantic changes during conversion require owner review. |
+| fix | Convert one gameplay family at a time to Canvas `Label`/authored icon ownership, preserving role, projected position, size, occlusion, voice/pointer/touch relationship and lifecycle; never add a spatial fallback. |
+| surrounding_tests | Before/after Mobile captures; focused activity and passive probes; pointer/touch/voice; pause/focus/teardown/re-entry; exact Label3D and GAME2D ratchets; full suite. |
+| acceptance | `Label3D.new` reaches zero without new spatial fallback, every migrated semantic remains visible and reachable in Canvas, strict GAME2D reaches its independent zero state, and device/child/owner gates pass. |
+| closure | In progress under the existing game-wide conversion; this documentation round changes no runtime and decrements no count. |
+| relationships | Bounded child workstream of `MA-2D-002`; role/font acceptance also depends on `MA-TYPE-001`, `002`, and `007`; its closure alone cannot close `MA-2D-002`. |
+| history | 2026-08-30: exact 45/13 baseline census reproduced at historical `0ddbe656`; committed implementation `828e169f` reconciled at `4e4e66b4` remains 45/13 and adds no Label3D conversion, so `IN_PROGRESS` is retained without claiming closure. |
+
+## MA-TYPE-007
+
+| Field | Value |
+|---|---|
+| id | `MA-TYPE-007` |
+| title | No current exact-APK M11/older-phone, accompanying-adult, child, or owner typography acceptance matrix exists. |
+| rule_ids | `DL-TYPE-12`, `DL-QA-04`, `DL-QA-05`, `DL-QA-06` |
+| domain / zone | External typography verification / game-wide UI |
+| source | 2026-08-30 evidence-boundary review; no current typography-specific device packet located. |
+| severity | P1 |
+| lifecycle | `BLOCKED_EXTERNAL` |
+| verification | V0 for typography-specific device/human/child acceptance; V1 confirms the repository evidence gap only. |
+| reproduction | At the audited source, inspect canonical evidence for an exact-APK typography matrix covering default/longest/wrapped/locked/selected/missing-glyph states on Lenovo M11 and required older phone plus adult-caption and child comprehension review; none is recorded. |
+| child_impact | Static source cannot prove readable rasterization, line breaks, tofu, baseline, outline, contrast, touch occlusion, adult support, or non-reader recognition on the devices and child that matter. |
+| evidence | Audit metadata and sections 2, 6 TYPE-G, and 7; existing `MA-PERF-001` and `MA-CHILD-001` confirm broader device/child gaps but do not supply typography-specific states. |
+| owner_decision | Owner visual acceptance is required; child observation remains private/safe and records results, not identifying media. |
+| fix | After `MA-TYPE-001`–`006` reach a single candidate, produce the exact-APK capture/device/reviewer matrix and observe the bounded child path; record all failures and exceptions without converting missing evidence to PASS. |
+| surrounding_tests | Machine glyph/layout gates at the same commit; M11/older phone both aspects; adult caption utility; child start/objective/choice/exit path; owner review. |
+| acceptance | The full `DL-TYPE-12` packet is commit/APK/font-hash bound, every state passes without tofu/critical truncation/reading dependency, and owner/child/device outcomes are recorded. |
+| closure | Blocked external as of 2026-08-30; no current packet or session exists. |
+| relationships | Typography-specific child of `MA-PERF-001`, `MA-CHILD-001`, and `MA-RELEASE-001`; blocks terminal closure of `MA-TYPE-001`–`006` where external evidence applies. |
+| history | 2026-08-30: evidence absence confirmed against historical `0ddbe656`; candidate machine checks do not supply an exact-APK/device/human matrix, so `BLOCKED_EXTERNAL` remains at the V0/V1 boundary. |

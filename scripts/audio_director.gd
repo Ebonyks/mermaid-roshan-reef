@@ -17,8 +17,12 @@ func _init(main: ReefMain) -> void:
 func _voice_path(speaker: String, event: String = "", allow_generic: bool = true) -> String:
 	var key := speaker + ("_" + event if event != "" else "")
 	var protected_speaker := speaker in ["faron", "daddy", "chuck"]
+	# Daddy's numbered family recordings remain protected and win through their
+	# exact legacy keys. Synthetic filler is allowed only for a named Daddy event
+	# that has no family recording; never use a generic synthetic Daddy fallback.
+	var allow_exact_filler := not protected_speaker or speaker == "daddy"
 	var candidates: Array[String] = []
-	if not protected_speaker:
+	if allow_exact_filler:
 		candidates.append(FILLER_VOICE_DIR + key + ".ogg")
 	candidates.append(LEGACY_VOICE_DIR + key + ".ogg")
 	if allow_generic and event != "":

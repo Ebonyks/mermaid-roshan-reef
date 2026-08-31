@@ -52,6 +52,11 @@ func _init() -> void:
 		"res://assets/audio/voices/VOICE_MANIFEST.md")
 	var voice_generator := FileAccess.get_file_as_string(
 		"res://tools/make_voices.py")
+	var generic_route_sources := "\n".join([
+		FileAccess.get_file_as_string("res://scripts/carry_system.gd"),
+		FileAccess.get_file_as_string("res://scripts/collection_system.gd"),
+		FileAccess.get_file_as_string("res://scripts/grotto.gd"),
+	])
 	_check("Harper objective filler retains exact generator and ledger provenance",
 		licenses.contains("assets/audio/voices/filler_v1/*.ogg")
 		and licenses.contains("Parler-TTS Mini v1.1")
@@ -66,6 +71,9 @@ func _init() -> void:
 		and voice_generator.contains('"yay":           ("roshan", "Yay!"),')
 		and voice_generator.contains(
 			'"roshan_talk":   ("roshan", "This is so much fun!"),'))
+	_check("generic Roshan reactions route to the talk filler, never Yay",
+		generic_route_sources.count('_say("roshan", "talk")') == 3
+		and not generic_route_sources.contains('_say("roshan", "")'))
 	var expected_events := [
 		"talk", "whale", "ship", "wreck", "beans", "intro1", "intro4",
 		"win", "pearl", "op_popstar_rhythm", "op_racer_tune_up",

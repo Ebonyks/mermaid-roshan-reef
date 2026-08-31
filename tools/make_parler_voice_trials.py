@@ -39,6 +39,7 @@ SPEAKERS = {
     "imp": "Mike",
     "rumi": "Emily",
     "mewsha": "Joy",
+    "daddy": "Will",
 }
 
 # Delivery-only components for the live group cheer.  They are rendered with
@@ -154,6 +155,44 @@ KEY_SPOKEN_SEGMENTS = {
     ],
     "imp_op_chef_bop": ["Fine!", "The cake needed more sugar anyway!"],
     "roshan_op_magician_work": ["Watch closely.", "Magic!"],
+    "rosalina_win": [
+        "You saved the Butterfly World!",
+        "Fairy Roshan is waiting in the castle wardrobe!",
+    ],
+    "roshan_dustboss_dizzy_first": [
+        "He is dizzy!", "His ears are spinning!",
+    ],
+    "roshan_dustboss_dizzy_round": [
+        "Bonk, bonk, bonk! He is all dizzy.", "His ears are spinning!",
+    ],
+    "roshan_dustboss_tell_dim": [
+        "Wait! Do not tap the dim star.", "Tap the big gold star!",
+    ],
+    "roshan_dustboss_dodge": [
+        "The dust boss is coming close!", "Press the twirl button!",
+    ],
+    "roshan_day_two_begins": [
+        "The second day is here!",
+        "Visit castle jobs and the Opera House!",
+    ],
+    "roshan_op_chef_cake_chase": [
+        "The imp captain snatched the cake!", "Bop the crew to the stage door!",
+    ],
+    "roshan_op_candymaker_candy_chase": [
+        "The candy cart rolled away!", "Tap each tiny troublemaker!",
+    ],
+    "roshan_op_doctor_plushy_chase": [
+        "The plushy patient is missing!", "Tap the imp crew!",
+    ],
+    "roshan_op_magician_bunny_chase": [
+        "Find the little lamb!", "Tap each tiny troublemaker!",
+    ],
+    "roshan_op_astronaut_rocket_chase": [
+        "Our rocket rolled away!", "Tap each tiny troublemaker!",
+    ],
+    "roshan_op_popstar_mic_chase": [
+        "The microphone is unplugged!", "Tap the noisy band!",
+    ],
 }
 
 
@@ -171,8 +210,9 @@ def description_for(character: str, mood: str, text: str) -> str:
         "imp": "a youthful, impish masculine cartoon voice with a moderately high natural pitch",
         "rumi": "a warm, friendly youthful feminine voice",
         "mewsha": "a playful, bright feminine storybook-kitty voice",
+        "daddy": "a warm, reassuring adult masculine voice",
     }[character]
-    pronoun = "He" if character in {"wacky", "shop", "imp"} else "She"
+    pronoun = "He" if character in {"wacky", "shop", "imp", "daddy"} else "She"
     pronunciation_hints: list[str] = []
     for token, hint in {
         "Roshan": "ROH-shahn", "Huluu": "hoo-LOO", "Rumi": "ROO-mee",

@@ -125,7 +125,9 @@ func _build_ui() -> void:
 	magic_label.position = Vector2(180, 182)
 	magic_label.size = Vector2(920, 45)
 	magic_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	StorybookUI.style_label(magic_label, 24, StorybookUI.INK_SOFT, 2)
+	StorybookUI.style_label(magic_label, 28, StorybookUI.INK_SOFT, 2,
+		StorybookUI.ROLE_STATUS)
+	magic_label.max_lines_visible = 1
 	root.add_child(magic_label)
 
 	# Buttons are deliberately much larger than their art. A four-year-old can
@@ -198,7 +200,7 @@ func open_demo() -> void:
 	active = true
 	visible = true
 	_start_song()
-	_say_dance("talk")
+	_say_dance("dance_talk")
 
 
 func close_demo() -> void:
@@ -442,7 +444,7 @@ func _finish_round() -> void:
 		title_label.text = "DANCE PARTY!  ★"
 		prompt_label.text = "You made rainbow dance magic!"
 		title_label.visible = true
-		_say_dance("win")
+		_say_dance("dance_win")
 		# a danced round is a completed round — rank the streak (loops forever,
 		# so every round is another shot at gold)
 		main._medal_ref().award_stats("dance", {"combo": best_combo, "hits": happy_hits})

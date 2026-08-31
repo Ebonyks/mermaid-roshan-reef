@@ -63,10 +63,13 @@ func _open_wardrobe() -> void:
 		var b := Button.new()
 		b.name = "WardrobeLook_" + id
 		b.position = Vector2(640, 150.0 + float(si) * 124.0)
-		b.custom_minimum_size = Vector2(450, 110)
-		b.size = Vector2(450, 110)
-		StorybookUI.style_picture_button(b)
-		b.add_theme_font_size_override("font_size", 32)
+		b.custom_minimum_size = Vector2(480, 110)
+		b.size = Vector2(480, 110)
+		StorybookUI.style_picture_button(b, StorybookUI.PAPER,
+			StorybookUI.PURPLE, 28, StorybookUI.ROLE_CHILD_CONTROL, 28)
+		# Reserve the portrait's 96px column while keeping every current label,
+		# including the locked hint, on one readable line at the child floor.
+		b.alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		var portrait := TextureRect.new()
 		portrait.name = "WardrobeLookPreview_" + id
 		portrait.texture = load(String(entry["preview"]))
@@ -99,7 +102,9 @@ func _wardrobe_refresh() -> void:
 		StorybookUI.style_picture_button(bt,
 			Color(0.74, 0.76, 0.84, 0.96) if locked else (
 				StorybookUI.PAPER_COOL if sel else StorybookUI.PAPER),
-			StorybookUI.GOLD if sel else StorybookUI.PURPLE)
+			StorybookUI.GOLD if sel else StorybookUI.PURPLE, 28,
+			StorybookUI.ROLE_CHILD_CONTROL, 28)
+		bt.alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		bt.set_meta("selected", sel)
 		bt.set_meta("locked", locked)
 		bt.text = "🔒 " + String(m._skin_def(eid)["label"]) if locked else ("✔ " if sel else "    ") + String(m._skin_def(eid)["label"])
@@ -216,6 +221,8 @@ func _open_stickers() -> void:
 		cell.add_child(em)
 		var nm := Label.new()
 		nm.text = String(d2["label"]) if earned else String(d2["hint"])
+		# The sticker cell reserves only 72px for this label. Keep the audited
+		# 20/15px sizes until a measured cell redesign can carry two child lines.
 		nm.add_theme_font_size_override("font_size", 20 if earned else 15)
 		nm.add_theme_color_override("font_color", Color(1.0, 0.95, 0.8) if earned else Color(0.7, 0.7, 0.78))
 		nm.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

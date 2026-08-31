@@ -15,6 +15,25 @@ SPEC.loader.exec_module(MODULE)
 
 
 class AudioQualityPolicyTests(unittest.TestCase):
+    def test_everyone_component_rejects_semantic_pitch_and_silence_outliers(self):
+        component = {
+            "character": "evie",
+            "text": "Hooray!",
+            "generation_text": "We did it! Yay!",
+            "selection_evidence": {"selection": {
+                "f0_median_hz": 65.0,
+                "duration_s": 11.9815,
+                "active_duration_s": 0.68,
+                "voiced_frame_fraction": 0.0976,
+                "semantic_gate_expected_words": ["hooray"],
+                "semantic_gate_transcript_words": ["whee", "did", "it", "yay"],
+            }},
+        }
+        issues = MODULE.group_component_issues(component)
+        self.assertTrue(any("F0 out of range" in issue for issue in issues))
+        self.assertTrue(any("active-speech bounds failed" in issue for issue in issues))
+        self.assertTrue(any("semantic identity mismatch" in issue for issue in issues))
+
     def test_protected_inventory_is_explicit(self):
         self.assertEqual(len(MODULE.PROTECTED), 6)
         self.assertNotIn("assets/audio/voice_yay.mp3", MODULE.PROTECTED)
@@ -85,6 +104,9 @@ class AudioQualityPolicyTests(unittest.TestCase):
                         "semantic_gate_schema": 3,
                         "semantic_gate_expected_words": ["yay", "i", "did", "it"],
                         "semantic_gate_transcript_words": ["yay", "i", "did", "it"],
+                        "attempt": 1, "seed": 1,
+                        "source_sha256": "1" * 64,
+                        "selected_raw_sha256": "1" * 64,
                     },
                     "final_ogg_sha256": hashlib.sha256(audio.read_bytes()).hexdigest(),
                     "delivery_metrics": {
@@ -92,25 +114,38 @@ class AudioQualityPolicyTests(unittest.TestCase):
                         "channels": 1, "bit_rate_bps": 96000,
                         "integrated_lufs": -16.0, "true_peak_dbtp": -2.0,
                         "duration_s": 1.0, "decoded_clipped_samples": 0,
-                        "dc_offset": 0.0,
+                        "decoded_peak_linear": 0.2, "dc_offset": 0.0,
                     },
+                    "seed": 1,
+                    "ffmpeg_command": [
+                        "ffmpeg", "-serial_offset",
+                        str(MODULE._expected_ogg_serial("roshan_win")),
+                    ],
                 }],
                 "generation_run_provenance": {"attempt_1": {"attempt": 1}},
             }
             (filler / "FILLER_MANIFEST.json").write_text(
                 json.dumps(payload), encoding="utf-8")
             old_probe, old_loudness = MODULE.probe, MODULE.loudness
+            old_signal, old_serials = MODULE.decoded_signal, MODULE.ogg_serials
             MODULE.probe = lambda _path: {
                 "decode_ok": True, "codec": "vorbis", "sample_rate_hz": 48000,
                 "channels": 1, "bitrate_kbps": 96.0, "duration_seconds": 1.0,
             }
             MODULE.loudness = lambda _path: (-16.0, 1.0, -2.0)
+            MODULE.decoded_signal = lambda _path: {
+                "decode_ok": True, "duration_s": 1.0,
+                "decoded_peak_linear": 0.2, "decoded_clipped_samples": 0,
+                "dc_offset": 0.0,
+            }
+            MODULE.ogg_serials = lambda _path: ({MODULE._expected_ogg_serial("roshan_win")}, None)
             try:
                 state = MODULE.validate_filler_manifest(root, {
                     "roshan_win": ("roshan", "Yay! I did it!"),
                 })
             finally:
                 MODULE.probe, MODULE.loudness = old_probe, old_loudness
+                MODULE.decoded_signal, MODULE.ogg_serials = old_signal, old_serials
         self.assertTrue(state["present"])
         self.assertFalse(state["blocking"], state["issues"])
 
@@ -147,6 +182,121 @@ class AudioQualityPolicyTests(unittest.TestCase):
         self.assertTrue(state["blocking"])
         self.assertTrue(any("unlisted filler OGG" in issue for issue in state["issues"]))
         self.assertTrue(any("hash mismatch" in issue for issue in state["issues"]))
+
+    def test_manifest_only_fake_ogg_cannot_pass_media_evidence(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            filler = root / "assets/audio/voices/filler_v1"
+            filler.mkdir(parents=True)
+            fake = filler / "roshan_win.ogg"
+            fake.write_bytes(b"not an ogg page")
+            payload = {"entries": [{
+                "key": "roshan_win", "character": "roshan",
+                "text": "Yay! I did it!", "status": "PROVISIONAL_SYNTHETIC_FILLER",
+                "selected_attempt": 1, "seed": 1,
+                "generation_text": "Yay! I did it!", "generation_segments": ["Yay! I did it!"],
+                "segment_seeds": [1], "source_wav_sha256": "1" * 64,
+                "speaker_preset": "Laura", "description": "fixture",
+                "selection_metrics": {
+                    "semantic_gate_schema": 3,
+                    "semantic_gate_expected_words": ["yay", "i", "did", "it"],
+                    "semantic_gate_transcript_words": ["yay", "i", "did", "it"],
+                    "attempt": 1, "seed": 1,
+                    "source_sha256": "1" * 64, "selected_raw_sha256": "1" * 64,
+                },
+                "final_ogg_sha256": hashlib.sha256(fake.read_bytes()).hexdigest(),
+                "delivery_metrics": {
+                    "codec": "vorbis", "sample_rate_hz": 48000, "channels": 1,
+                    "bit_rate_bps": 96000, "integrated_lufs": -16.0,
+                    "true_peak_dbtp": -2.0, "duration_s": 1.0,
+                    "decoded_clipped_samples": 0, "decoded_peak_linear": 0.2,
+                    "dc_offset": 0.0,
+                },
+                "ffmpeg_command": [
+                    "ffmpeg", "-serial_offset",
+                    str(MODULE._expected_ogg_serial("roshan_win")),
+                ],
+            }], "generation_run_provenance": {"attempt_1": {"attempt": 1}}}
+            (filler / "FILLER_MANIFEST.json").write_text(
+                json.dumps(payload), encoding="utf-8")
+            old_probe, old_loudness, old_signal = MODULE.probe, MODULE.loudness, MODULE.decoded_signal
+            MODULE.probe = lambda _path: {
+                "decode_ok": True, "codec": "vorbis", "sample_rate_hz": 48000,
+                "channels": 1, "bitrate_kbps": 96.0, "duration_seconds": 1.0,
+            }
+            MODULE.loudness = lambda _path: (-16.0, 1.0, -2.0)
+            MODULE.decoded_signal = lambda _path: {
+                "decode_ok": True, "duration_s": 1.0,
+                "decoded_peak_linear": 0.2, "decoded_clipped_samples": 0,
+                "dc_offset": 0.0,
+            }
+            try:
+                state = MODULE.validate_filler_manifest(root, {
+                    "roshan_win": ("roshan", "Yay! I did it!"),
+                })
+            finally:
+                MODULE.probe, MODULE.loudness, MODULE.decoded_signal = old_probe, old_loudness, old_signal
+        self.assertTrue(state["blocking"])
+        self.assertTrue(any("Ogg parse failed" in issue for issue in state["issues"]))
+
+    def test_selected_source_provenance_mismatch_is_blocking(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            filler = root / "assets/audio/voices/filler_v1"
+            filler.mkdir(parents=True)
+            audio = filler / "roshan_win.ogg"
+            audio.write_bytes(b"fixture ogg")
+            payload = {"entries": [{
+                "key": "roshan_win", "character": "roshan", "text": "Yay! I did it!",
+                "status": "PROVISIONAL_SYNTHETIC_FILLER", "selected_attempt": 2, "seed": 9,
+                "generation_text": "Yay! I did it!", "generation_segments": ["Yay! I did it!"],
+                "segment_seeds": [9], "source_wav_sha256": "1" * 64,
+                "speaker_preset": "Laura", "description": "fixture",
+                "selection_metrics": {
+                    "semantic_gate_schema": 3,
+                    "semantic_gate_expected_words": ["yay", "i", "did", "it"],
+                    "semantic_gate_transcript_words": ["yay", "i", "did", "it"],
+                    "attempt": 1, "seed": 8,
+                    "source_sha256": "2" * 64, "selected_raw_sha256": "2" * 64,
+                },
+                "final_ogg_sha256": hashlib.sha256(audio.read_bytes()).hexdigest(),
+                "delivery_metrics": {
+                    "codec": "vorbis", "sample_rate_hz": 48000, "channels": 1,
+                    "bit_rate_bps": 96000, "integrated_lufs": -16.0,
+                    "true_peak_dbtp": -2.0, "duration_s": 1.0,
+                    "decoded_clipped_samples": 0, "decoded_peak_linear": 0.2,
+                    "dc_offset": 0.0,
+                },
+                "ffmpeg_command": [
+                    "ffmpeg", "-serial_offset",
+                    str(MODULE._expected_ogg_serial("roshan_win")),
+                ],
+            }], "generation_run_provenance": {"attempt_2": {"attempt": 2}}}
+            (filler / "FILLER_MANIFEST.json").write_text(
+                json.dumps(payload), encoding="utf-8")
+            old_probe, old_loudness, old_signal, old_serials = (
+                MODULE.probe, MODULE.loudness, MODULE.decoded_signal, MODULE.ogg_serials)
+            MODULE.probe = lambda _path: {
+                "decode_ok": True, "codec": "vorbis", "sample_rate_hz": 48000,
+                "channels": 1, "bitrate_kbps": 96.0, "duration_seconds": 1.0,
+            }
+            MODULE.loudness = lambda _path: (-16.0, 1.0, -2.0)
+            MODULE.decoded_signal = lambda _path: {
+                "decode_ok": True, "duration_s": 1.0,
+                "decoded_peak_linear": 0.2, "decoded_clipped_samples": 0,
+                "dc_offset": 0.0,
+            }
+            MODULE.ogg_serials = lambda _path: ({MODULE._expected_ogg_serial("roshan_win")}, None)
+            try:
+                state = MODULE.validate_filler_manifest(root, {
+                    "roshan_win": ("roshan", "Yay! I did it!"),
+                })
+            finally:
+                MODULE.probe, MODULE.loudness, MODULE.decoded_signal, MODULE.ogg_serials = (
+                    old_probe, old_loudness, old_signal, old_serials)
+        self.assertTrue(state["blocking"])
+        self.assertTrue(any("source_wav_sha256" in issue for issue in state["issues"]))
+        self.assertTrue(any("selected attempt" in issue for issue in state["issues"]))
 
     def test_filler_manifest_rejects_incomplete_authoritative_cohort(self):
         with tempfile.TemporaryDirectory() as directory:

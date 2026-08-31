@@ -9,7 +9,9 @@ import csv
 import hashlib
 import io
 import json
+import math
 import re
+import struct
 import subprocess
 import sys
 from collections import Counter
@@ -156,11 +158,94 @@ def _metric_mismatch(issues: list[str], label: str, actual: object,
         issues.append(f"{label} missing")
         return
     try:
-        if abs(float(actual) - float(expected)) > tolerance:
+        actual_number = float(actual)
+        expected_number = float(expected)
+        if not math.isfinite(actual_number) or not math.isfinite(expected_number):
+            issues.append(f"{label} is non-finite")
+        elif abs(actual_number - expected_number) > tolerance:
             issues.append(f"{label} mismatch: actual={actual!r} manifest={expected!r}")
     except (TypeError, ValueError):
         if actual != expected:
             issues.append(f"{label} mismatch: actual={actual!r} manifest={expected!r}")
+
+
+def decoded_signal(path: Path) -> dict[str, float | int | str]:
+    """Decode the delivery signal and recompute safety metrics from samples."""
+    result = subprocess.run([
+        "ffmpeg", "-hide_banner", "-loglevel", "error", "-i", str(path),
+        "-f", "f32le", "-ac", "1", "-ar", "48000", "-",
+    ], capture_output=True, check=False)
+    if result.returncode != 0:
+        return {"decode_ok": False, "error": result.stderr.decode(errors="replace").strip()}
+    raw = result.stdout
+    if len(raw) % 4:
+        return {"decode_ok": False, "error": "decoded f32 stream has a partial sample"}
+    samples = [value[0] for value in struct.iter_unpack("<f", raw)]
+    if not samples or any(not math.isfinite(value) for value in samples):
+        return {"decode_ok": False, "error": "decoded signal is empty or non-finite"}
+    peak = max(abs(value) for value in samples)
+    return {
+        "decode_ok": True,
+        "duration_s": round(len(samples) / 48000.0, 6),
+        "decoded_peak_linear": round(peak, 7),
+        "decoded_clipped_samples": sum(abs(value) >= 0.999 for value in samples),
+        "dc_offset": round(sum(samples) / len(samples), 8),
+    }
+
+
+def ogg_serials(path: Path) -> tuple[set[int], str | None]:
+    """Read Ogg page serials so deterministic page evidence is testable."""
+    payload = path.read_bytes()
+    serials: set[int] = set()
+    cursor = 0
+    while cursor < len(payload):
+        if payload[cursor:cursor + 4] != b"OggS" or cursor + 27 > len(payload):
+            return set(), f"invalid Ogg page at byte {cursor}"
+        segment_count = payload[cursor + 26]
+        table_end = cursor + 27 + segment_count
+        if table_end > len(payload):
+            return set(), f"truncated Ogg lacing table at byte {cursor}"
+        page_end = table_end + sum(payload[cursor + 27:table_end])
+        if page_end > len(payload):
+            return set(), f"truncated Ogg page at byte {cursor}"
+        serials.add(int.from_bytes(payload[cursor + 14:cursor + 18], "little"))
+        cursor = page_end
+    return serials, None
+
+
+def _safe_relative(root: Path, value: object) -> Path | None:
+    if not isinstance(value, str) or not value or Path(value).is_absolute():
+        return None
+    candidate = Path(value)
+    if "\\" in value or any(part == ".." for part in candidate.parts):
+        return None
+    return root / candidate
+
+
+def validate_hash_map(root: Path, issues: list[str], label: str,
+                      values: object) -> dict[str, str]:
+    """Validate captured script/artifact hashes and return the valid subset."""
+    if values is None:
+        return {}
+    if not isinstance(values, dict):
+        issues.append(f"{label} must be an object")
+        return {}
+    valid: dict[str, str] = {}
+    for relative, expected in values.items():
+        path = _safe_relative(root, relative)
+        if path is None or not isinstance(expected, str) \
+                or not re.fullmatch(r"[0-9a-fA-F]{64}", expected):
+            issues.append(f"{label} contains invalid hash record: {relative!r}")
+            continue
+        if not path.is_file():
+            issues.append(f"{label} path missing: {relative}")
+            continue
+        actual = sha256(path)
+        if actual.lower() != expected.lower():
+            issues.append(f"{label} mismatch: {relative}")
+            continue
+        valid[str(relative).replace("\\", "/")] = actual
+    return valid
 
 
 def authoritative_filler_lines(root: Path) -> dict[str, tuple[str, str]]:
@@ -184,6 +269,183 @@ def authoritative_filler_lines(root: Path) -> dict[str, tuple[str, str]]:
     }
     expected["everyone"] = ("everyone", "Hooray!")
     return expected
+
+
+def _expected_ogg_serial(key: str) -> int:
+    return int.from_bytes(hashlib.sha256(key.encode("utf-8")).digest()[:4], "big") & 0x7FFFFFFF
+
+
+def _candidate_evidence(root: Path, attempt: int) -> dict[str, dict[str, object]]:
+    """Load optional local candidate rows for stronger source verification."""
+    path = root / "tmp" / "filler_candidates" / "parler" / f"attempt_{attempt}" / "trial_manifest.json"
+    if not path.is_file():
+        return {}
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(rows, list):
+        return {}
+    return {str(row["key"]): row for row in rows if isinstance(row, dict) and isinstance(row.get("key"), str)}
+
+
+def group_component_issues(component: dict[str, object]) -> list[str]:
+    """Return independent blockers for one authored Hooray mix layer."""
+    issues: list[str] = []
+    character = str(component.get("character", ""))
+    selection = component.get("selection_evidence", {}).get("selection", {})
+    f0_ranges = {
+        "roshan": (195.0, 290.0),
+        "huluu": (145.0, 275.0),
+        "evie": (190.0, 340.0),
+    }
+    f0 = float(selection.get("f0_median_hz") or 0.0)
+    duration = float(selection.get("duration_s") or 0.0)
+    active = float(selection.get("active_duration_s") or 0.0)
+    voiced_fraction = float(selection.get("voiced_frame_fraction") or 0.0)
+    if character not in f0_ranges \
+            or not (f0_ranges[character][0] <= f0 <= f0_ranges[character][1]):
+        issues.append(f"everyone.ogg {character} component F0 out of range")
+    if not (0.35 <= active <= 2.5 and 0.35 <= duration <= 4.0 \
+            and active / max(duration, 0.001) >= 0.25 \
+            and voiced_fraction >= 0.20):
+        issues.append(f"everyone.ogg {character} component active-speech bounds failed")
+    if component.get("text") != "Hooray!" \
+            or component.get("generation_text") != "Hooray!" \
+            or selection.get("semantic_gate_expected_words") != ["hooray"] \
+            or selection.get("semantic_gate_transcript_words") != ["hooray"]:
+        issues.append(f"everyone.ogg {character} component semantic identity mismatch")
+    return issues
+
+
+def validate_generation_evidence(root: Path, manifest: dict[str, object],
+                                 entries: list[dict[str, object]],
+                                 generation_runs: dict[str, object],
+                                 issues: list[str]) -> None:
+    """Cross-check captured hashes, selected source metadata, and Ogg proof."""
+    pipeline_hashes = manifest.get("pipeline_script_sha256")
+    if pipeline_hashes is not None:
+        validate_hash_map(root, issues, "pipeline_script_sha256", pipeline_hashes)
+    selection_provenance = manifest.get("selection_provenance")
+    if isinstance(selection_provenance, dict):
+        selector_hash = selection_provenance.get("selector_sha256")
+        if selector_hash is not None:
+            validate_hash_map(
+                root, issues, "selection_provenance.selector_sha256",
+                {"tools/select_filler_voices.py": selector_hash},
+            )
+        report_hash = selection_provenance.get("report_sha256")
+        if report_hash is not None and not isinstance(report_hash, str):
+            issues.append("selection_provenance.report_sha256 is invalid")
+        elif isinstance(report_hash, str) and not re.fullmatch(r"[0-9a-fA-F]{64}", report_hash):
+            issues.append("selection_provenance.report_sha256 is invalid")
+    candidate_cache: dict[int, dict[str, dict[str, object]]] = {}
+    for run_name, record in generation_runs.items():
+        match = re.fullmatch(r"attempt_(\d+)", str(run_name))
+        if not match or not isinstance(record, dict):
+            issues.append(f"invalid generation run record: {run_name!r}")
+            continue
+        attempt = int(match.group(1))
+        if record.get("attempt") is not None and record.get("attempt") != attempt:
+            issues.append(f"generation run attempt mismatch: {run_name}")
+        generator_hash = record.get("generator_sha256")
+        if generator_hash not in (None, "NOT_CAPTURED_AT_GENERATION"):
+            if not isinstance(generator_hash, str) \
+                    or not re.fullmatch(r"[0-9a-fA-F]{64}", generator_hash):
+                issues.append(f"{run_name}.generator_sha256 is invalid")
+            run_path_value = record.get("run_provenance_path")
+            if isinstance(run_path_value, str):
+                run_path = root / run_path_value
+                captured_run_hash = record.get("run_provenance_sha256")
+                if not run_path.is_file():
+                    issues.append(f"{run_name} run provenance is unavailable")
+                else:
+                    if isinstance(captured_run_hash, str) \
+                            and sha256(run_path).lower() != captured_run_hash.lower():
+                        issues.append(f"{run_name} run provenance hash mismatch")
+                    try:
+                        run_payload = json.loads(run_path.read_text(encoding="utf-8"))
+                    except (OSError, json.JSONDecodeError):
+                        issues.append(f"{run_name} run provenance is unreadable")
+                    else:
+                        if run_payload.get("generator_sha256") != generator_hash:
+                            issues.append(f"{run_name} generator hash disagrees with run provenance")
+        candidate_path = root / "tmp" / "filler_candidates" / "parler" / str(run_name) / "trial_manifest.json"
+        captured_manifest_hash = record.get("candidate_manifest_sha256")
+        if captured_manifest_hash is not None:
+            if not isinstance(captured_manifest_hash, str) \
+                    or not re.fullmatch(r"[0-9a-fA-F]{64}", captured_manifest_hash):
+                issues.append(f"{run_name}.candidate_manifest_sha256 is invalid")
+            elif candidate_path.is_file() and sha256(candidate_path).lower() != captured_manifest_hash.lower():
+                issues.append(f"{run_name} candidate manifest hash mismatch")
+        if candidate_path.is_file():
+            candidate_cache[attempt] = _candidate_evidence(root, attempt)
+    for entry in entries:
+        key = str(entry.get("key", ""))
+        name = f"{key}.ogg"
+        if key == "everyone":
+            components = entry.get("components")
+            if not isinstance(components, list):
+                continue
+            component_rows = components
+        else:
+            component_rows = [entry]
+        for component in component_rows:
+            if not isinstance(component, dict):
+                continue
+            attempt = component.get("attempt", component.get("selected_attempt"))
+            seed = component.get("seed")
+            source_hash = component.get("raw_sha256", component.get("source_wav_sha256"))
+            if not isinstance(attempt, int) or attempt < 1:
+                continue
+            run = generation_runs.get(f"attempt_{attempt}")
+            if not isinstance(run, dict):
+                continue
+            if run.get("attempt") is not None and run.get("attempt") != attempt:
+                issues.append(f"{name} attempt disagrees with generation run")
+            candidates = candidate_cache.get(attempt, {})
+            candidate = candidates.get(str(component.get("key", key)))
+            if candidate:
+                if seed is not None and candidate.get("seed") != seed:
+                    issues.append(f"{name} selected seed disagrees with candidate evidence")
+                if source_hash is not None and candidate.get("raw_sha256") != source_hash:
+                    issues.append(f"{name} selected source hash disagrees with candidate evidence")
+                candidate_segments = candidate.get("generation_segments")
+                if isinstance(candidate_segments, list) and candidate_segments:
+                    candidate_generation_text = " ".join(
+                        str(segment) for segment in candidate_segments)
+                else:
+                    candidate_generation_text = candidate.get("generation_text")
+                if component.get("generation_text") is not None \
+                        and candidate_generation_text is not None \
+                        and component.get("generation_text") != candidate_generation_text:
+                    issues.append(f"{name} generation text disagrees with candidate evidence")
+                if component.get("segment_seeds") is not None and candidate.get("segment_seeds") is not None \
+                        and component.get("segment_seeds") != candidate.get("segment_seeds"):
+                    issues.append(f"{name} segment seeds disagree with candidate evidence")
+        if key != "everyone":
+            selection = entry.get("selection_metrics")
+            if isinstance(selection, dict):
+                selected_attempt = entry.get("selected_attempt")
+                if selection.get("attempt") is not None and selection.get("attempt") != selected_attempt:
+                    issues.append(f"{name} selected attempt disagrees with selection metrics")
+                if selection.get("seed") is not None and selection.get("seed") != entry.get("seed"):
+                    issues.append(f"{name} selected seed disagrees with selection metrics")
+                for field in ("source_sha256", "selected_raw_sha256"):
+                    if selection.get(field) is not None and selection.get(field) != entry.get("source_wav_sha256"):
+                        issues.append(f"{name} {field} disagrees with source_wav_sha256")
+        command = entry.get("ffmpeg_command")
+        if not isinstance(command, list) or "-serial_offset" not in command:
+            issues.append(f"{name} lacks explicit deterministic Ogg serial evidence")
+        else:
+            serial_index = command.index("-serial_offset") + 1
+            try:
+                command_serial = int(command[serial_index])
+            except (IndexError, TypeError, ValueError):
+                command_serial = -1
+            serial_key = str(entry.get("final_audio_alias_of") or key)
+            if command_serial != _expected_ogg_serial(serial_key):
+                issues.append(f"{name} deterministic Ogg serial evidence is invalid")
 
 
 def validate_filler_manifest(root: Path,
@@ -243,6 +505,7 @@ def validate_filler_manifest(root: Path,
     if not isinstance(generation_runs, dict):
         issues.append("generation_run_provenance must be an object")
         generation_runs = {}
+    validate_generation_evidence(root, manifest, entries, generation_runs, issues)
     filler_root = root / FILLER_ROOT_REL
     actual_names = {path.name for path in filler_root.glob("*.ogg")}
     for missing in sorted(expected_names - actual_names):
@@ -262,7 +525,12 @@ def validate_filler_manifest(root: Path,
                 issues.append(f"{name} authored text mismatch")
         if entry.get("status") != "PROVISIONAL_SYNTHETIC_FILLER":
             issues.append(f"{name} has invalid provisional status")
-        if entry.get("character") in {"faron", "daddy", "chuck"}:
+        allowed_daddy_fillers = {
+            "daddy_dance_talk", "daddy_dance_win", "daddy_assist_ready",
+        }
+        character = entry.get("character")
+        if character in {"faron", "chuck"} \
+                or (character == "daddy" and key not in allowed_daddy_fillers):
             issues.append(f"{name} contains protected speaker identity")
         if key == "everyone":
             components = entry.get("components")
@@ -281,6 +549,7 @@ def validate_filler_manifest(root: Path,
                                   "raw_sha256", "speaker", "description"):
                         if not component.get(field):
                             issues.append(f"everyone.ogg component missing {field}")
+                    issues.extend(group_component_issues(component))
         else:
             attempt = entry.get("selected_attempt")
             if not isinstance(attempt, int) or attempt < 1:
@@ -308,6 +577,15 @@ def validate_filler_manifest(root: Path,
             issues.append(f"{name} hash mismatch: actual={actual_hash} manifest={expected_hash}")
         meta = probe(path)
         measured_lufs, _lra, measured_peak = loudness(path) if meta.get("decode_ok") else (None, None, None)
+        serials, serial_error = ogg_serials(path)
+        if serial_error:
+            issues.append(f"{name} deterministic Ogg parse failed: {serial_error}")
+        elif len(serials) != 1:
+            issues.append(f"{name} must use one deterministic Ogg serial: {sorted(serials)}")
+        else:
+            serial_key = str(entry.get("final_audio_alias_of") or key)
+            if serials != {_expected_ogg_serial(serial_key)}:
+                issues.append(f"{name} Ogg serial does not match deterministic key")
         delivery = entry.get("delivery_metrics")
         if not isinstance(delivery, dict):
             issues.append(f"{name} has no delivery_metrics")
@@ -315,14 +593,49 @@ def validate_filler_manifest(root: Path,
         if not meta.get("decode_ok"):
             issues.append(f"{name} cannot be decoded: {meta.get('probe_error', 'unknown error')}")
             continue
-        duration = float(delivery.get("duration_s", 0.0) or 0.0)
-        if not 0.25 <= duration <= 30.0:
+        decoded = decoded_signal(path)
+        if not decoded.get("decode_ok"):
+            issues.append(f"{name} decoded signal failed: {decoded.get('error', 'unknown error')}")
+            continue
+        measured_duration = float(decoded["duration_s"])
+        probe_duration = float(meta.get("duration_seconds", 0.0) or 0.0)
+        if abs(measured_duration - probe_duration) > 0.02:
+            issues.append(f"{name} decoded duration disagrees with ffprobe")
+        try:
+            duration = float(delivery.get("duration_s", 0.0) or 0.0)
+        except (TypeError, ValueError):
+            duration = float("nan")
+        if not math.isfinite(duration) or not 0.25 <= duration <= 30.0:
             issues.append(f"{name} duration outside voice bounds: {duration}")
-        if int(delivery.get("decoded_clipped_samples", -1) or 0) != 0:
-            issues.append(f"{name} has decoded clipped samples")
+        if not 0.25 <= measured_duration <= 30.0:
+            issues.append(f"{name} recomputed duration outside voice bounds: {measured_duration}")
+        if abs(measured_duration - duration) > 0.02:
+            issues.append(f"{name} duration disagrees with manifest delivery_metrics")
+        clipped = int(decoded["decoded_clipped_samples"])
+        if clipped != 0:
+            issues.append(f"{name} has decoded clipped samples: {clipped}")
+        try:
+            manifest_clipped = int(delivery.get("decoded_clipped_samples", -1) or 0)
+        except (TypeError, ValueError):
+            manifest_clipped = -1
+        if manifest_clipped != clipped:
+            issues.append(f"{name} decoded clipping count disagrees with manifest")
+        measured_dc = float(decoded["dc_offset"])
+        if not math.isfinite(measured_dc) or abs(measured_dc) > 0.01:
+            issues.append(f"{name} recomputed DC offset is unsafe: {measured_dc}")
         dc_offset = delivery.get("dc_offset")
-        if dc_offset is None or abs(float(dc_offset)) > 0.01:
+        try:
+            manifest_dc = float(dc_offset)
+        except (TypeError, ValueError):
+            manifest_dc = float("nan")
+        if not math.isfinite(manifest_dc) or abs(manifest_dc) > 0.01:
             issues.append(f"{name} has invalid DC offset: {dc_offset!r}")
+        elif abs(measured_dc - manifest_dc) > 0.0001:
+            issues.append(f"{name} DC offset disagrees with manifest")
+        _metric_mismatch(
+            issues, f"{name} decoded_peak_linear", decoded.get("decoded_peak_linear"),
+            delivery.get("decoded_peak_linear"), 0.0001,
+        )
         if meta.get("codec") != "vorbis":
             issues.append(f"{name} codec is not vorbis: {meta.get('codec')!r}")
         if meta.get("sample_rate_hz") != 48000:

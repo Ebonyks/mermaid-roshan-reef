@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "purpose": "Chapter 3 Moonflower Conservatory doorway before/after art",
+  "generator": "OpenAI built-in image generation for doorway architecture; deterministic approved-runtime-art composite for the open view",
+  "processing": {
+    "matte": "border-connected light-neutral presentation removal",
+    "background_minimum_rgb": 232,
+    "background_maximum_channel_spread": 18,
+    "matte_core_erosion_pixels": 1,
+    "matte_feather_radius_pixels": 0.8,
+    "whole_subject_normalization": "fit within 960px on 1024px RGBA canvas",
+    "open_view": "corrected upright Fairy Pond background plus selected Chapter 3 rainbow walkway and Butterfly House cutouts; walkway registered with clipped overscan behind the exact architectural opening base"
+  },
+  "hall_review_inputs": [
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+      "sha256": "317cdef9249c73bae64d8b0e7c6590a78b5a4f71d3187a2c32e5fa435150c1cb"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+      "sha256": "2584ed2636652871e5a7eeb3400243a61a2676cf966b9e9f652463f424467e22"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+      "sha256": "ee46dfa20f4de0140c8dbfb56eacba2d59acdb8eff684c0c45422fd34862b892"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+      "sha256": "802731a92762c849f9c0597b2e75a6dbc0336dbf60032ee9290867cd4ce7d1a1"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+      "sha256": "9bfa44736244ae50fda10461c48cc0ee0cf35f195dd6e3b59364c6c9756cfc82"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png",
+      "sha256": "d1e4652e644bd5354c5bd779242f885cc58ad0f2a6adc61dff4105d7417fc0ae"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png",
+      "sha256": "17e74663ad7b95414453e106265258642f51b820001a99e0f1882352a96012da"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c7.png",
+      "sha256": "0fa83e2c10c68d7c86e97b8d6a8ef19eebc7a01fa8f87a05aeb8a312037209b0"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+      "sha256": "d1e3eab5aa9ce34c9b136343c03709b707e775883177c51244fe1b1dc56d74ec"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+      "sha256": "e775495278b8fbcadca429dececa5445fe6dc5d8327f9758966ac4a5ae615129"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+      "sha256": "c2abbd83f3fce093addd9250c1930ee57d86f4c21e170b2d454121d12b723ea5"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+      "sha256": "3b5ba5dd85ba1bf5969be08a191957e2eb476e741b717aa0e7fb843eb0aee40d"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+      "sha256": "9e180247910d843b535998ad1167371b1990834279a26119714743af59a11203"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png",
+      "sha256": "31b6d8a5dfef47c575b63f953c98240c826f5007ef1fa406ef17a853630ff808"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png",
+      "sha256": "0068537a79a205fa50f3747b37735c591f876ceac92d685abaa3d6f57605c92c"
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c7.png",
+      "sha256": "24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41"
+    }
+  ],
+  "recommended_runtime_placement": {
+    "hall_logical_center": [
+      1672.0,
+      385.0
+    ],
+    "target_visual_height": 470.0,
+    "approach_foot": [
+      1672.0,
+      620.0
+    ],
+    "screen_join_x": 1672.0,
+    "object_role": "single whole Sprite2D card spanning the join"
+  },
+  "states": {
+    "closed": {
+      "raw_source": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/raw/moonflower_door_closed_checker_raw.png",
+      "raw_sha256": "840872dfa5412b2a07d7402227ad72fff4e8ddfc063e16b2661ec92fdefca9a0",
+      "alpha_master": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/alpha/moonflower_door_closed_alpha_master.png",
+      "alpha_master_sha256": "b2634b80054bc03618e89918aea1639db010046c66777cec1e9152c40983de3c",
+      "runtime": "assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+      "runtime_sha256": "b2634b80054bc03618e89918aea1639db010046c66777cec1e9152c40983de3c",
+      "extraction": {
+        "source_dimensions": [
+          1536,
+          1024
+        ],
+        "source_subject_bbox": [
+          406,
+          19,
+          1124,
+          980
+        ],
+        "border_connected_background_pixels": 1000362,
+        "subject_core_pixels": 572502
+      },
+      "audit": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_bbox": [
+          153,
+          32,
+          870,
+          992
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "visible_alpha_pixels": 573776
+      },
+      "hall_review": {
+        "path": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/review/moonflower_door_closed_hall_1280x720.png",
+        "sha256": "8af45401c00da1e42ab7815398b155adca7c685c2ce2f2b116bdf16e4aa02057",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "delivery_pixels": false
+      }
+    },
+    "open": {
+      "raw_source": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/raw/moonflower_door_open_checker_raw.png",
+      "raw_sha256": "ec0330cfb80cab1ff3770d4caf0223e82882307d7f9bda4e1d71e68ec0f79eec",
+      "alpha_master": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/alpha/moonflower_door_open_alpha_master.png",
+      "alpha_master_sha256": "91249bc04439a23a1f9ef0b8bb53d6a89fe51030168713c35bedb37b132e10c6",
+      "runtime": "assets/flats/castle/fairy_conservatory/moonflower_door_open.png",
+      "runtime_sha256": "91249bc04439a23a1f9ef0b8bb53d6a89fe51030168713c35bedb37b132e10c6",
+      "extraction": {
+        "source_dimensions": [
+          1254,
+          1254
+        ],
+        "source_subject_bbox": [
+          227,
+          27,
+          1021,
+          1214
+        ],
+        "border_connected_background_pixels": 757730,
+        "subject_core_pixels": 814786
+      },
+      "audit": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_bbox": [
+          191,
+          32,
+          833,
+          992
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "visible_alpha_pixels": 535646
+      },
+      "hall_review": {
+        "path": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/review/moonflower_door_open_hall_1280x720.png",
+        "sha256": "fc54c3a043c6604feaeea45d562736dbb681c349a2eaa898aa97f58a055c4d96",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "delivery_pixels": false
+      },
+      "approved_runtime_inputs": [
+        {
+          "path": "assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png",
+          "sha256": "2feba4cc27a27400a5f950df185da5cd48326031e927bc8f1c09857cb2110c78"
+        },
+        {
+          "path": "assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+          "sha256": "ef7503286fc2c19fb0dd5301e8062a19580c406cfc9fc758b1900da9d0eaa768"
+        },
+        {
+          "path": "assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+          "sha256": "95bebeeb343be83b465d52b7ee57427bcdce488795f409b285f959a0ea3eba09"
+        },
+        {
+          "path": "assets/mg/butterfly.png",
+          "sha256": "310539d933f1027402eea118c61819c052dd76f0bd2bbb752d87e94327eb0a26"
+        }
+      ],
+      "view_composition": {
+        "method": "deterministic whole-pixel composite from approved runtime art",
+        "horizon_y": 389,
+        "horizon_fraction": 0.3798828125,
+        "destination": "Rainbow Stage causeway ending at the Butterfly House",
+        "location_authority": "Lily-Pad Fairy World / Fairy Pond",
+        "walkway_visible_base_y": 965,
+        "walkway_base_matches_opening_base": true,
+        "walkway_threshold_overdraw_pixels": 28,
+        "threshold_coverage_policy": "walkway alpha >=64 across the full opening width for rows 959 through 965 before architectural clipping",
+        "opening_mask": {
+          "left": 316,
+          "right": 708,
+          "top": 228,
+          "spring": 438,
+          "bottom": 965
+        }
+      }
+    }
+  }
+}

@@ -53,8 +53,6 @@ ASR_WORD_EQUIVALENTS = {
     "dr": "doctor",
     "karim": "kareem",
     "flower": "flour",
-    "bunk": "bonk", "buck": "bonk",
-    "bopped": "bop", "twirlbopped": "twirlbop",
     "shoe": "shoo",
     "bleh": "blegh", "blah": "blegh",
     "em": "them",
@@ -68,12 +66,20 @@ F0_RANGES = {
     "wacky": (75.0, 195.0), "shop": (75.0, 205.0),
     "sparkle": (220.0, 500.0), "rumi": (160.0, 310.0),
     "mewsha": (180.0, 360.0),
+    "daddy": (80.0, 220.0),
 }
 
 EXPECTED_SPEAKERS = {
     "roshan": "Laura", "huluu": "Lea", "evie": "Jenna", "harper": "Lauren",
     "wacky": "Gary", "shop": "Jon", "sparkle": "Tina", "rosalina": "Rose",
     "imp": "Mike", "rumi": "Emily", "mewsha": "Joy",
+    "daddy": "Will",
+}
+
+GROUP_COMPONENTS = {
+    "everyone_roshan": ("roshan", "Hooray!"),
+    "everyone_huluu": ("huluu", "Hooray!"),
+    "everyone_evie": ("evie", "Hooray!"),
 }
 
 
@@ -83,7 +89,7 @@ def load_lines() -> dict[str, tuple[str, str]]:
         raise RuntimeError("could not load tools/make_voices.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    return dict(module.LINES)
+    return dict(module.LINES) | GROUP_COMPONENTS
 
 
 def normalize_words(text: str) -> list[str]:
@@ -211,6 +217,25 @@ def score(character: str, metrics: dict[str, object]) -> float:
     elif float(f0) > high:
         value -= min(0.5, math.log2(float(f0) / high))
     return round(value, 4)
+
+
+def group_signal_gate(key: str, character: str, metrics: dict[str, object]) -> bool:
+    """Reject short group layers that are mostly silence or off-character pitch."""
+    if not key.startswith("everyone_"):
+        return True
+    f0 = metrics.get("f0_median_hz")
+    duration = float(metrics.get("duration_s") or 0.0)
+    active = float(metrics.get("active_duration_s") or 0.0)
+    voiced_fraction = float(metrics.get("voiced_frame_fraction") or 0.0)
+    low, high = F0_RANGES[character]
+    return (
+        f0 is not None
+        and low <= float(f0) <= high
+        and 0.35 <= active <= 2.5
+        and 0.35 <= duration <= 4.0
+        and active / max(duration, 0.001) >= 0.25
+        and voiced_fraction >= 0.20
+    )
 
 
 def main() -> int:
@@ -345,6 +370,7 @@ def main() -> int:
             and float(row.get("selection_score", -999.0)) >= threshold
             and row.get("f0_median_hz") is not None
             and int(row.get("clipped_samples") or 0) == 0
+            and group_signal_gate(key, character, row)
         ]
         chosen = max(eligible, key=lambda row: float(row["selection_score"])) if eligible else None
         if chosen is not None:

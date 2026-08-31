@@ -1328,3 +1328,95 @@ ever decrease; an increase requires an owner-visible waiver with finding,
 reason, and expiry (`DL-QA-08` shape). Once armed as blocking, removing or
 weakening the gate is a workflow-scope change and an audit finding, not a
 cleanup.
+
+---
+
+## 19. Font, typography, glyph, and text-layout contract
+
+_Added 2026-08-30 by `audit/FONT_TYPOGRAPHY_AUDIT_2026-08-30.md`.
+These rules control how the established picture/voice-first Storybook interface
+renders supporting text and semantic glyphs. They do not select a font by
+fiat, make text a required reading route, or weaken `DL-AGE-01`, `DL-UI-03`,
+`DL-SND-01`, or the true-2D medium._
+
+`DL-TYPE-01` — Every child-facing `Control`/Canvas text role MUST resolve
+through one explicit project typography authority: a project Theme and shared
+role helpers with a deterministic primary font and fallback chain. Implicit
+engine-default inheritance is not accepted final control. Retaining an engine-
+bundled face is permitted only when its exact engine/version, coverage, and
+fallback behavior are recorded and reproduced.
+
+`DL-TYPE-02` — No third-party font enters the project until redistribution and
+embedding rights, source URL/provider, exact file hash, modifications, licence
+text/notice duties, live-code-point coverage, APK/decoded-memory cost, and
+phone-size legibility are established. The selected asset and
+`ASSET_LICENSES.md` row land together. A rule requiring selection does not
+invent or pre-approve a font.
+
+`DL-TYPE-03` — The shared typography authority owns named roles at minimum for
+display/title, child control, body/instruction, adult caption, status/toast,
+numeric/progress, and decorative glyph. Each role owns font/fallback, base size,
+color, outline or shadow, line spacing, wrap policy, and disabled/focus states.
+Call sites request a role; they do not recreate those properties ad hoc.
+
+`DL-TYPE-04` — `StorybookUI.style_button()`, `style_picture_button()`, label/
+HUD helpers, and equivalent shared constructors MUST apply the complete role,
+including font/fallback, size, outline, focus, pressed, and disabled treatment.
+Picture-backed buttons do not lose typography coverage. Opera, Kart, dance,
+direct HUD, and future local helpers either delegate to the shared roles or
+carry a scoped recorded exception.
+
+`DL-TYPE-05` — At the 1280×720 base canvas, child-action, child-choice, and
+child-state text MUST be at least 28 px. Genuinely supplemental accompanying-
+adult captions MAY be as small as 22 px when they are wrapped, high-contrast,
+voice/picture redundant, and device-verified. Smaller text is decorative,
+developer-only, or a recorded exception; it MUST NOT carry required child or
+save-safety meaning.
+
+`DL-TYPE-06` — Text never repairs a reading dependency. Every required
+objective, route, confirmation, lock, reward, or safety state remains
+understandable through the applicable picture/diegetic cue, exact voice, and
+large touch affordance. Font size, capitalization, color, tooltip text, or an
+adult caption cannot be the child's only path.
+
+`DL-TYPE-07` — Every live Unicode code point is classified as decorative,
+redundant, or critical. A critical emoji or symbol MUST use an approved authored
+texture/pictogram or have exact packaged-font coverage, stable advance/baseline,
+and Mobile/device evidence. Platform color emoji or unproved fallback glyphs
+MUST NOT be the sole carrier of navigation, category, habitat, care, career,
+lock, confirmation, objective, progress, or reward semantics.
+
+`DL-TYPE-08` — Text containers declare wrap, maximum lines, clipping/ellipsis,
+and alignment by role. Player-facing layout passes the longest approved English
+string and a 130% expansion pseudo-locale at 1280×720 and the required wide-
+phone aspect without overlap, truncation of critical meaning, target shrink,
+or covering the active character/object. Manual line breaks are not a
+substitute for that test.
+
+`DL-TYPE-09` — Player-facing strings use stable translation keys and named
+format placeholders before the project claims localization readiness. Runtime
+sentence concatenation, word-order-dependent fragments, repeated emoji as
+grammar, and hard-coded widths are repaired in bounded batches. No language is
+claimed supported until its translation, font coverage, layout capture, voice/
+semantic decision, and human review exist.
+
+`DL-TYPE-10` — `Label3D` is measured true-2D migration debt. New `Label3D`
+instances are forbidden. Existing families migrate one tested slice at a time
+to Canvas `Label`, `TextureRect`, or authored icon ownership while preserving
+semantic role, visible size, position, occlusion, pointer/voice relationship,
+and lifecycle. A spatial label or spatial fallback cannot satisfy the final
+typography contract.
+
+`DL-TYPE-11` — Machine typography evidence includes an exact constructor/role
+census, font and fallback hashes, licence/provenance rows, complete live-code-
+point coverage with a deliberate missing-glyph negative, longest-string and
+130%-expansion captures, and a zero-new-`Label3D` ratchet. A clean scanner or
+desktop screenshot does not prove phone readability or comprehension.
+
+`DL-TYPE-12` — Final typography acceptance is commit- and APK-bound: Mobile
+captures at 1280×720 and a representative wide-phone aspect, Lenovo Tab M11
+and required older-phone review of default/longest/wrapped/locked/selected/
+missing-glyph states, accompanying-adult caption review, a private observed
+child path, and owner visual acceptance. Record device, build, font hashes,
+screens, reviewer/date, truncation/tofu/baseline/outline result, and any exact
+exception; absent evidence remains open.
