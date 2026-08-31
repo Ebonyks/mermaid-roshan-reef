@@ -263,7 +263,8 @@ func _wardrobe_toast(txt: String) -> void:
 func _wardrobe_done() -> void:
 	m._write_save()
 	if m.voice != null:
-		m.voice.pitch_scale = 1.15; m.voice.play()
+		m.voice.pitch_scale = 1.15
+		m._play_success_yay(m.voice.pitch_scale)
 	_close_wardrobe()
 
 func _close_wardrobe() -> void:

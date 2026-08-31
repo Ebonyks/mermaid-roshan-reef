@@ -4864,7 +4864,7 @@ func _award_crown() -> void:
 	m._write_save()
 	if m.voice != null:
 		m.voice.pitch_scale = 1.15
-		m.voice.play()
+		m._play_success_yay(m.voice.pitch_scale)
 	_burst("★", Color(1.0, 0.78, 0.30))
 	m.show_msg("Pearl Castle",
 		"The Crown Star is yours! This castle is YOURS now — explore every room!",

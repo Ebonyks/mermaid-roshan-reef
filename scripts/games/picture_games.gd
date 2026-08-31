@@ -452,7 +452,7 @@ func _mg_snow_chase_phase() -> void:
 	(m.mg["hud"] as Label).text = "He's ALIVE! Chase him and EAT him!  ← →"
 	if m.voice != null:
 		m.voice.pitch_scale = 1.4
-		m.voice.play()
+		m._play_success_yay(m.voice.pitch_scale)
 	var rosh = _mg_sprite(m.skin_sprite_path(), Vector2(160, 470), Vector2(140, 180))
 	m.mg["chaser"] = rosh
 	m.mg["chaser_x"] = 230.0

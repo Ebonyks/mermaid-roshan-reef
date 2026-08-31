@@ -331,7 +331,8 @@ func _begin_showing(fr: Dictionary) -> void:
 	# (audio_director.gd), so a paired _say() would speak twice the moment real
 	# clips exist. The event name IS the vo argument.
 	m.show_msg(String(fr.get("fname", "Dusty Attic")),
-		"The GREAT dust bunny wakes up! He is too puffy to bonk...", "dustboss_show")
+		"The giant dust bunny woke up! It is too fluffy. Sparkle taps will work!",
+		"dustboss_show")
 
 # ---- the state machine -----------------------------------------------------
 func _enter_state(next_state: String) -> void:
@@ -427,7 +428,8 @@ func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
 	if demo and not bool(m.g.get("db_show_told", false)):
 		m.g["db_show_told"] = true
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"When he JUMPS and his star FLASHES — TAP him!", "dustboss_tell")
+			"When he JUMPS and his star FLASHES — TAP him!",
+			"dustboss_tell_opening")
 	if st >= SHOW_T:
 		m.g["db_flash"] = 0.0
 		_enter_state("prowl")
@@ -551,8 +553,13 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 				if streak == PREASSIST_TRIGGER_STREAK
 				else "So close! Wait for the next FLASH and tap FAST — three times!"
 			)
+			var reminder_voice: String = "dustboss_again_mercy" \
+				if streak == MERCY_TRIGGER_STREAK \
+				else "dustboss_again_closer" \
+				if streak == PREASSIST_TRIGGER_STREAK \
+				else "dustboss_again_miss"
 			m.show_msg(String(fr.get("fname", "Dusty Attic")),
-				reminder, "dustboss_again")
+				reminder, reminder_voice)
 
 func _free_taps() -> int:
 	# Gentle aid changes timing, reach and landing only. Strong mercy begins
@@ -649,7 +656,8 @@ func _land_hit(fr: Dictionary) -> void:
 	_enter_state("struck")
 	if hits == 1:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"BONK! He is all DIZZY — his ears are spinning!", "dustboss_dizzy")
+			"He is dizzy! His ears are spinning!",
+			"dustboss_dizzy_first")
 	else:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
 
@@ -718,8 +726,8 @@ func _bounce_off() -> void:
 	if float(m.g.get("db_feedback_cd", 0.0)) <= 0.0:
 		m.g["db_feedback_cd"] = FEEDBACK_COOLDOWN
 		m.g["db_shield_feedbacks"] = int(m.g.get("db_shield_feedbacks", 0)) + 1
-		m.show_msg("Roshan", "WAIT — dim star means no bonk. BIG GOLD STAR means TAP!",
-			"dustboss_tell")
+		m.show_msg("Roshan", "Wait! Do not tap the dim star. Tap the big gold star!",
+			"dustboss_tell_dim")
 
 func _closer_feedback() -> void:
 	# Every far tap still gets a bright positional sparkle, but voice/text is
@@ -757,7 +765,7 @@ func _pick_hop(reset: bool) -> void:
 	if incoming and not bool(m.g.get("db_dodge_taught", false)):
 		m.g["db_dodge_taught"] = true
 		m.show_msg("Roshan",
-			"Grand Puff is hopping at me — tap the glowing TWIRL!",
+			"The dust boss is coming close! Press the TWIRL button!",
 			"dustboss_dodge")
 	if reset:
 		m.g["db_hop_t"] = 0.0
@@ -1192,7 +1200,8 @@ func _on_round_done() -> void:
 	_enter_state("struck")
 	if rounds == 1:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"BONK BONK BONK! He is all DIZZY — his ears are spinning!", "dustboss_dizzy")
+			"BONK BONK BONK! He is all DIZZY — his ears are spinning!",
+			"dustboss_dizzy_round")
 	else:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
 

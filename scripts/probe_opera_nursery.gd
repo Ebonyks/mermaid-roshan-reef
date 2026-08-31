@@ -198,7 +198,8 @@ func _check_all_phase_reprompts(world: OperaCareerWorld2D) -> void:
 		var speaker_key: String = main._speaker_key(speaker)
 		var vo: String = String(phase.get("vo", "hint"))
 		var cue_key := "%s_%s" % [speaker_key, vo]
-		var expected_path := "res://assets/audio/voices/%s.ogg" % cue_key
+		var expected_path := "res://assets/audio/voices/%s%s.ogg" % [
+			"" if speaker == "Faron" else "filler_v1/", cue_key]
 		main.clear_dialogue()
 		main.said_cool.erase(cue_key)
 		var before: int = main.voice_i
@@ -219,8 +220,11 @@ func _check_timed_reprompt(world: OperaCareerWorld2D, label: String,
 		expected_task_open: bool) -> void:
 	var phase := world.phases[world.phase_index] as Dictionary
 	var speaker_key: String = main._speaker_key(String(phase.get("speaker", "Roshan")))
+	var speaker: String = String(phase.get("speaker", "Roshan"))
 	var vo: String = String(phase.get("vo", "hint"))
 	var cue_key := "%s_%s" % [speaker_key, vo]
+	var expected_path := "res://assets/audio/voices/%s%s.ogg" % [
+		"" if speaker == "Faron" else "filler_v1/", cue_key]
 	main.clear_dialogue()
 	main.said_cool.erase(cue_key)
 	world.reveal_t = 0.0
@@ -232,7 +236,7 @@ func _check_timed_reprompt(world: OperaCareerWorld2D, label: String,
 		world.task_open == expected_task_open)
 	_check(label + " uses active phase identity and exact cue",
 		main.voice_i == before + 1
-		and _last_voice_path() == "res://assets/audio/voices/%s.ogg" % cue_key)
+		and _last_voice_path() == expected_path)
 	main.clear_dialogue()
 
 

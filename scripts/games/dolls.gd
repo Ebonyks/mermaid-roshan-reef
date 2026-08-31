@@ -304,7 +304,7 @@ func _on_baby_caught(_quality: float) -> void:
 	_sync_state()
 	if m.voice != null:
 		m.voice.pitch_scale = 1.0 + randf() * 0.25
-		m.voice.play()
+		m._play_success_yay(m.voice.pitch_scale)
 
 
 func _on_baby_missed() -> void:

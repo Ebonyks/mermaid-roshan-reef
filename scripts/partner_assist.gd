@@ -152,7 +152,8 @@ func on_bubble_tap() -> void:
 		on_super.call(kind)
 
 func _chirp_ready() -> void:
-	m._say("daddy" if kind == "daddy" else _stuffie_speaker(), "talk", 3.0)
+	m._say("daddy" if kind == "daddy" else _stuffie_speaker(),
+		"assist_ready" if kind == "daddy" else "talk", 3.0)
 
 func _stuffie_speaker() -> String:
 	match String(m.companion_id):

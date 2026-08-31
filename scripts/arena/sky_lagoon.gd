@@ -2526,7 +2526,7 @@ func _tick_level2(delta: float, ppos: Vector3) -> void:
 				m.chime.play()
 			if m.voice != null:
 				m.voice.pitch_scale = 1.0 + randf() * 0.2
-				m.voice.play()
+				m._play_success_yay(m.voice.pitch_scale)
 			star.visible = false
 			if got >= 3:
 				m._open_castle_door()

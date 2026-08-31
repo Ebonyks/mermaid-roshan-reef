@@ -269,7 +269,7 @@ func _run() -> void:
 		main.voice_i == voice_i_before + 1
 		and locked_voice_stream != null
 		and locked_voice_stream.resource_path.ends_with(
-			"voices/roshan_talk.ogg")
+			"voices/filler_v1/roshan_talk.ogg")
 		and main.hud_msg != null
 		and "royal mist" in main.hud_msg.text.to_lower(),
 		"voice_i=%d->%d stream=%s caption=%s" % [
