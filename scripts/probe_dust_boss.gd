@@ -25,8 +25,8 @@ func _init() -> void:
 	_prepare_day_one_terminal_boundary()
 	await _open_case()
 	if main.game == "dustboss":
-		await _framing_case()
 		await _splash_case()
+		await _framing_case()
 		await _showing_case()
 		await _mastery_ui_case()
 		await _shield_case()
