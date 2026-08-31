@@ -9,7 +9,7 @@
     "matte_core_erosion_pixels": 1,
     "matte_feather_radius_pixels": 0.8,
     "whole_subject_normalization": "fit within 960px on 1024px RGBA canvas",
-    "open_view": "Sky Lagoon v5 runtime tiles plus selected Chapter 3 rainbow walkway and Butterfly House cutouts; no direct Fairy Pond view"
+    "open_view": "corrected upright Fairy Pond background plus selected Chapter 3 rainbow walkway and Butterfly House cutouts; walkway registered to the exact architectural opening base"
   },
   "hall_review_inputs": [
     {
@@ -145,9 +145,9 @@
       "raw_source": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/raw/moonflower_door_open_checker_raw.png",
       "raw_sha256": "ec0330cfb80cab1ff3770d4caf0223e82882307d7f9bda4e1d71e68ec0f79eec",
       "alpha_master": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/alpha/moonflower_door_open_alpha_master.png",
-      "alpha_master_sha256": "c68e680e7253ad5b2bae5bd08a8b04c44ae64a4cf6e9d251cbce63107ba8d93d",
+      "alpha_master_sha256": "ddfd2dea7850bba9351db3f459b8920233cd6994854a3e52d0dcf8124ae94621",
       "runtime": "assets/flats/castle/fairy_conservatory/moonflower_door_open.png",
-      "runtime_sha256": "c68e680e7253ad5b2bae5bd08a8b04c44ae64a4cf6e9d251cbce63107ba8d93d",
+      "runtime_sha256": "ddfd2dea7850bba9351db3f459b8920233cd6994854a3e52d0dcf8124ae94621",
       "extraction": {
         "source_dimensions": [
           1254,
@@ -183,7 +183,7 @@
       },
       "hall_review": {
         "path": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/review/moonflower_door_open_hall_1280x720.png",
-        "sha256": "f0a19370916b60b64527cf09b59ac22f4bdc53b1ac148f8ee1d68f22a3f352c3",
+        "sha256": "730c24cac43f77998240d0811d7973de3303942503f9edeaec868bbb27db2c77",
         "dimensions": [
           1280,
           720
@@ -192,52 +192,8 @@
       },
       "approved_runtime_inputs": [
         {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
-          "sha256": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
-          "sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
-          "sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
-          "sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
-          "sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
-          "sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
-          "sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
-          "sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
-          "sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
-          "sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
-          "sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4"
-        },
-        {
-          "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
-          "sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21"
+          "path": "assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png",
+          "sha256": "cb90e91791d5f98707806b93ca15b70cf906e9c6f8b97ff72d77cad2c2aef869"
         },
         {
           "path": "assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
@@ -254,9 +210,12 @@
       ],
       "view_composition": {
         "method": "deterministic whole-pixel composite from approved runtime art",
-        "horizon_y": 468,
-        "horizon_fraction": 0.45703125,
+        "horizon_y": 354,
+        "horizon_fraction": 0.345703125,
         "destination": "Rainbow Stage causeway ending at the Butterfly House",
+        "location_authority": "Lily-Pad Fairy World / Fairy Pond",
+        "walkway_visible_base_y": 965,
+        "walkway_base_matches_opening_base": true,
         "opening_mask": {
           "left": 316,
           "right": 708,
