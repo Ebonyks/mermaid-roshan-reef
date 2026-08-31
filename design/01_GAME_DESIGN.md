@@ -436,12 +436,13 @@ candies instead of seven is twice as long and half as good.
   Bronze = completion, always awarded, never denied. **Upgrade-only:** a
   slower replay keeps the better medal. **Win-path only:** `probe_passive`
   asserts that zero-input play can never touch `m.medals`.
-- **Opera stars** — `opera_stars` keeps its stable 16-slot bit namespace so
-  existing saves never shift careers. The thirteen live career slots remain;
-  owner-cut boss slots 4, 9, and 14 are inert tombstones. Completion masks only
-  the live careers (`0xBDEF`), effective `opera_progress` is 0–13, and no floor
-  gate depends on a tombstone. Existing retired bits are preserved raw but never
-  reassigned to a new act.
+- **Opera stars** — `opera_stars` keeps every identity in its historical lower
+  sixteen bits so existing saves never shift careers; Geologist appends at bit
+  16. The fourteen live career slots remain, while owner-cut boss slots 4, 9,
+  and 14 are inert tombstones. Completion masks only the live careers
+  (`0x1BDEF`), effective `opera_progress` is 0–14, and no floor gate depends on
+  a tombstone. Existing retired bits are preserved raw but never reassigned to
+  a new act.
 - **Companion growth** — `fish_tokens`, `care_points`, `stuffie_wins`.
 
 All of it funnels through one `_reward()` director; no mode may write pearls,

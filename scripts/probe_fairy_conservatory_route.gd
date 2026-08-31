@@ -34,9 +34,14 @@ func _init() -> void:
 
 	# Force a fresh pre-reveal state regardless of the isolated probe save.
 	main.opera_done = false
+	main.chapter2_story_complete = false
+	main.chapter2_candle_taken = false
 	main.chapter3_fairy_door_revealed = false
 	main.chapter3_fairy_door_opened = false
 	main.chapter3_fairy_mission_started = false
+	main.galaxy_unlocked = false
+	main.bwd_done = false
+	main.fairy_skin_unlocked = false
 	main.save_data["opera_done"] = false
 	main.save_data["galaxy"] = false
 	main.save_data["bwdone"] = false
@@ -62,17 +67,35 @@ func _init() -> void:
 		door.fairy_conservatory_card != null
 		and String(door.fairy_conservatory_card.get_meta(
 			"source_asset_path", "")).ends_with("moonflower_door_closed.png"))
+	_check("Chapter 3 cannot preempt the birthday candle ending",
+		not main._chapter_three_fairy_reveal_authorized())
+	main.chapter2_candle_taken = true
+	_check("candle take alone is not a completed Chapter 2 story",
+		not main._chapter_three_fairy_reveal_authorized())
+	main.chapter2_candle_taken = false
+	main.chapter2_story_complete = true
+	_check("story flag alone cannot bypass the physical candle take",
+		not main._chapter_three_fairy_reveal_authorized())
+	main.chapter2_story_complete = false
+	main.opera_done = true
+	_check("grandfathered global Opera completion retains its route",
+		main._chapter_three_fairy_reveal_authorized())
+	main.opera_done = false
+	main.chapter2_story_complete = true
+	main.chapter2_candle_taken = true
 
 	# Reveal creates one target and one cue, and repeated refreshes are idempotent.
-	main.chapter3_fairy_door_revealed = true
+	_check("completed Chapter 2 candle story reveals the fairy door",
+		main._maybe_reveal_fairy_conservatory())
 	door.refresh()
 	door.refresh()
 	await process_frame
 	var hotspot_layer: Node = main.castle_room_door_hotspot_layer
-	_check("revealed door retains closed relief",
+	_check("plot reveal transforms into the available Butterfly Gate",
 		door.visual_state() == "revealed"
 		and String(door.fairy_conservatory_card.get_meta(
-			"source_asset_path", "")).ends_with("moonflower_door_closed.png"))
+			"source_asset_path", "")).ends_with(
+				"butterfly_gate_available.png"))
 	_check("reveal creates exactly one hotspot",
 		_count_named(hotspot_layer, "MoonflowerConservatoryHotspot") == 1)
 	_check("reveal creates exactly one pointer cue",
@@ -88,10 +111,11 @@ func _init() -> void:
 	door.refresh()
 	door.refresh()
 	await process_frame
-	_check("opened route uses open card",
+	_check("entered route retains the available Butterfly Gate",
 		door.visual_state() == "open"
 		and String(door.fairy_conservatory_card.get_meta(
-			"source_asset_path", "")).ends_with("moonflower_door_open.png"))
+			"source_asset_path", "")).ends_with(
+				"butterfly_gate_available.png"))
 	_check("open route keeps exactly one hotspot",
 		_count_named(hotspot_layer, "MoonflowerConservatoryHotspot") == 1)
 	_check("open route removes the reveal pointer",

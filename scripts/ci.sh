@@ -26,6 +26,12 @@ python3 -m gdtoolkit.parser $(find scripts -name '*.gd') \
 	|| { echo "PARSE FAIL (gdtoolkit)"; exit 1; }
 python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd \
 	|| { echo "LINT FAIL (:= from Variant)"; exit 1; }
+# Typography is fail-closed for regressions and false evidence, while the
+# current unresolved font/device authority remains an explicit known OPEN.
+python3 -m unittest tests.test_audit_typography tests.test_type_c_layout \
+	|| { echo "TYPOGRAPHY AUDIT CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_typography.py --check \
+	|| { echo "TYPOGRAPHY AUDIT REGRESSION/FALSE EVIDENCE"; exit 1; }
 # Baby Eagle's three paint panels must remain one-hot anatomical cutouts.
 # This also proves the shipped mask still matches the rig/albedo contract.
 python3 -m unittest tools.tests.test_bake_zone_mask \

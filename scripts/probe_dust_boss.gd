@@ -22,12 +22,15 @@ func _init() -> void:
 	await process_frame
 	main._skip_intro()
 	await process_frame
+	_prepare_day_one_terminal_boundary()
 	await _open_case()
 	if main.game == "dustboss":
-		await _framing_case()
 		await _splash_case()
+		await _framing_case()
 		await _showing_case()
+		await _mastery_ui_case()
 		await _shield_case()
+		await _dodge_case()
 		await _bump_case()
 		await _first_hit_case()
 		await _second_hit_case()
@@ -45,6 +48,39 @@ func _ck(label: String, ok: bool) -> void:
 func _frames(n: int) -> void:
 	for i in range(n):
 		await process_frame
+
+
+func _event_count(history: Array[Dictionary], event_name: String) -> int:
+	var count := 0
+	for record: Dictionary in history:
+		if String(record.get("event", "")) == event_name:
+			count += 1
+	return count
+
+
+func _prepare_day_one_terminal_boundary() -> void:
+	# Enter through the legacy physical attic portal below, but make its story
+	# state match the real first-run route: every room is complete and the boss
+	# door has already fired its one-shot trigger. The live DustBoss ending then
+	# owns the terminal director/main seam; this fixture never calls completion.
+	var director: DayOneDirector = main._day_one_ref()
+	# The rendered probe uses the normal user:// save path. Reset only the two
+	# story directors so a developer's already-complete save cannot turn this
+	# first-win integration case into a rematch.
+	director.restore_state({})
+	main._chapter_two_ref().restore_state({})
+	director.bathroom_tools_authorized = true
+	director.bathroom_supply_hunt_step = 2
+	director.bathroom_cleanup_step = 2
+	director.complete_tutorial("bathroom")
+	director.complete_placeholder("pool", "pool_activity")
+	director.complete_activity("stuffie", "stuffie_activity")
+	director.complete_activity("art", "art_activity")
+	director.giant_dust_bunny_boss_triggered = true
+	_ck("the full boss case starts at the valid Day-One terminal boundary",
+		director.day_one_active and director.boss_door_glow
+		and director.giant_dust_bunny_boss_triggered
+		and not director.giant_dust_bunny_boss_defeated)
 
 func _boss() -> DustBossGame:
 	return main._game_obj("dustboss", DustBossGame) as DustBossGame
@@ -299,6 +335,68 @@ func _shield_case() -> void:
 	var windup: bool = await _await_state("windup", 3000)
 	_ck("the prowl telegraphs the leap with a wind-up", windup)
 
+# ---- optional mastery: picture-first, partial, and always replayable -------
+func _mastery_ui_case() -> void:
+	var layer: CanvasLayer = main.g.get("db_mastery_layer") as CanvasLayer
+	var stars: Label = main.g.get("db_mastery_stars") as Label
+	var gem: Label = main.g.get("db_perfect_gem") as Label
+	var dodge: Button = main.g.get("db_dodge_button") as Button
+	_ck("the fight shows three earned-or-empty mastery stars without reading",
+		layer != null and stars != null and stars.text == "★★★")
+	_ck("the clean-run bonus has its own visible diamond target",
+		gem != null and gem.text == "💎")
+	_ck("dodge is a separate picture-first child-sized control",
+		dodge != null and bool(dodge.get_meta("picture_first", false))
+		and dodge.size.x >= 140.0 and dodge.size.y >= 140.0)
+	var attempts_before: int = int(main.g.get("db_dodge_attempts", 0))
+	if dodge != null:
+		dodge.pressed.emit()
+		_boss()._tick_dodge(0.0)
+	_ck("the separate picture button routes one fresh dodge edge",
+		int(main.g.get("db_dodge_attempts", 0)) == attempts_before + 1)
+	main.g["db_dodge_t"] = 0.0
+	main.g["db_dodge_cd"] = 0.0
+	_ck("bump mastery maps 0/1 to gold, 2 to silver, and 3+ to bronze",
+		DustBossGame.mastery_tier_for_bumps(0) == 3
+		and DustBossGame.mastery_tier_for_bumps(1) == 3
+		and DustBossGame.mastery_tier_for_bumps(2) == 2
+		and DustBossGame.mastery_tier_for_bumps(3) == 1
+		and DustBossGame.mastery_tier_for_bumps(9) == 1)
+	main.g["db_bumps"] = 2
+	_boss()._update_mastery_ui()
+	var silver_read: bool = stars != null and stars.text == "★★☆" \
+		and gem != null and gem.text == "◇"
+	main.g["db_bumps"] = 3
+	_boss()._update_mastery_ui()
+	var bronze_read: bool = stars != null and stars.text == "★☆☆"
+	main.g["db_bumps"] = 0
+	_boss()._update_mastery_ui()
+	_ck("missing stars stay outlined so the higher mastery remains visible",
+		silver_read and bronze_read)
+
+# ---- optional dodge: contact becomes a twirl, never a hidden fail state ----
+func _dodge_case() -> void:
+	var boss := _boss()
+	_park(0.0, 0.0)
+	var before: Vector2 = _player_local()
+	var bumps_before: int = int(main.g.get("db_bumps", 0))
+	var dodges_before: int = int(main.g.get("db_dodges", 0))
+	var hits_before: int = _hits()
+	var misses_before: int = int(main.g.get("db_miss", 0))
+	main.g["db_from"] = before - Vector2(1.0, 0.0)
+	main.g["db_to"] = before + Vector2(1.0, 0.0)
+	boss._start_dodge()
+	boss._resolve_player_contact(before - Vector2(1.0, 0.0))
+	var after: Vector2 = _player_local()
+	_ck("a timed dodge moves Roshan sideways with a twirl",
+		after.distance_to(before) > 3.0 and main.player.verb == "twirl")
+	_ck("a dodged contact counts a dodge and not a bump",
+		int(main.g.get("db_dodges", 0)) == dodges_before + 1
+		and int(main.g.get("db_bumps", 0)) == bumps_before)
+	_ck("dodge removes no progress and creates no miss",
+		_hits() == hits_before and int(main.g.get("db_miss", 0)) == misses_before
+		and main.game == "dustboss")
+
 # ---- contact feedback: readable, brief and never punitive ------------------
 func _bump_case() -> void:
 	var boss := _boss()
@@ -464,6 +562,11 @@ func _mercy_case() -> void:
 
 # ---- the third hit ends it as friends -------------------------------------
 func _win_case() -> void:
+	# The contact helpers above intentionally exercised both outcomes. Reset the
+	# mastery-only counter and block incidental prowl contact so this completion
+	# deterministically covers the real zero-bump reward path.
+	main.g["db_bumps"] = 0
+	main.g["db_bump_cd"] = 9999.0
 	var pearls_before: int = main.pearl_count
 	var day_one_before: bool = main.day_one_is_active()
 	var hit3: bool = await _strike(5)
@@ -477,11 +580,40 @@ func _win_case() -> void:
 		wait += 1
 		await process_frame
 	_ck("the win banner closes the fight", main.game == "")
-	_ck("befriending him pays the portal pearls", main.pearl_count >= pearls_before + 3)
+	_ck("a clean victory pays the base pearls plus the no-hit bonus",
+		main.pearl_count >= pearls_before + DustBossGame.BASE_WIN_PEARLS
+		+ DustBossGame.PERFECT_BONUS_PEARLS)
 	# MEDALS.md is binding: "Bronze = completion. Every finished game earns at
 	# least bronze." The first boss in the game had no medal row at all.
-	_ck("beating the boss earns a medal", int(main.medals.get("dustboss", 0)) >= 1)
+	_ck("a clean boss victory earns the three-star gold medal",
+		int(main.medals.get("dustboss", 0)) == MedalSystem.GOLD)
+	var award := main.get_node_or_null("MedalCelebrationLayer") as CanvasLayer
+	var award_stars := award.get_node_or_null(
+		"MedalCelebrationCard/MedalCelebrationStars") as Label if award != null else null
+	_ck("the result shows earned stars and the separate perfect-bonus gem",
+		award != null and bool(award.get_meta("perfect_bonus", false))
+		and award_stars != null and award_stars.text == "★★★"
+		and award.get_node_or_null(
+			"MedalCelebrationCard/PerfectBonusGem") != null)
 	await _frames(2)
+	_ck("the real DustBoss seam records defeat and starts Chapter 2",
+		main.day_one_giant_dust_bunny_boss_defeated
+		and main.chapter2_active
+		and main.chapter2_unlocked_opera_mask
+		== ChapterTwoDirector.FIRST_WAVE_UNLOCK_MASK
+		and _event_count(main.day_one_event_history,
+			DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED) == 1
+		and _event_count(main.chapter2_event_history,
+			ChapterTwoDirector.EVENT_CHAPTER_STARTED) == 1)
+	var repeated_terminal := main.day_one_complete_boss_and_begin_day_two()
+	_ck("repeated terminal callbacks cannot duplicate story events",
+		not repeated_terminal
+		and _event_count(main.day_one_event_history,
+			DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED) == 1
+		and _event_count(main.day_one_event_history,
+			DayOneDirector.EVENT_DAY_TWO_BEGINS) == 1
+		and _event_count(main.chapter2_event_history,
+			ChapterTwoDirector.EVENT_CHAPTER_STARTED) == 1)
 	_ck("the first victory advances the saved story into Day Two",
 		day_one_before and not main.day_one_is_active()
 		and not main.day_one_jobs_locked() and main.day_one_opera_enabled())

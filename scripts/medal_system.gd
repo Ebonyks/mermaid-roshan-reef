@@ -54,13 +54,10 @@ const TIERS := {
 	"dungeon":     {"kind": "more", "key": "rooms", "gold": 10, "silver": 5},
 	"bells":       {"kind": "fewer", "key": "oops", "gold": 0, "silver": 2},
 	"dance":       {"kind": "more", "key": "combo", "gold": 10, "silver": 5},
-	# The boss ranks on READING THE TELL, not on speed: a fast-hit bonus would
-	# reward mashers (measured median latency 0.50s) over children who actually
-	# watch (0.65-0.80s). "wasted" counts taps thrown while he was shielded and
-	# the fight was live. Measured on the 25-persona set: gold 2/25, silver
-	# 9/25, bronze 14/25, and 0 of 5 masher runs above bronze.
-	# (DUST_BUNNY_BOSS_STRESS_TEST_2026-08-02.md §4.1)
-	"dustboss":    {"kind": "fewer", "key": "wasted", "gold": 0, "silver": 2},
+	# Boss contact is harmless, so it is also the optional mastery axis: zero or
+	# one bump earns gold, two earns silver, and three-plus still earns bronze.
+	# Completion and story progress remain unconditional.
+	"dustboss":    {"kind": "fewer", "key": "bumps", "gold": 1, "silver": 2},
 }
 
 var m: ReefMain
@@ -105,7 +102,7 @@ func award_stats(id: String, stats: Dictionary) -> int:
 	var tier: int = evaluate(id, stats)
 	if tier <= 0:
 		return 0
-	_celebrate(tier)
+	_celebrate(tier, id, stats)
 	var best: int = int(m.medals.get(id, 0))
 	if tier > best:
 		m.medals[id] = tier
@@ -139,7 +136,10 @@ func award_from_end_game(game_id: String, g2: Dictionary) -> void:
 		"fairyshoot":
 			award_stats("fairy", {"fails": m.fs_fails, "hits": int(g2.get("hits", 0))})
 		"dustboss":
-			award_stats("dustboss", {"wasted": int(g2.get("db_wasted", 0))})
+			award_stats("dustboss", {
+				"bumps": int(g2.get("db_bumps", 0)),
+				"perfect_bonus": bool(g2.get("db_perfect_bonus", false)),
+			})
 
 func award_from_mg2d(kind: String, mg2: Dictionary) -> void:
 	# 2D picture games are tap toys — the skill axis is pace, so they rank on
@@ -184,7 +184,7 @@ func refresh_friend_glyphs() -> void:
 			legacy_node.queue_free()
 		friend.erase("medal_lab")
 
-func _celebrate(tier: int) -> void:
+func _celebrate(tier: int, id: String = "", stats: Dictionary = {}) -> void:
 	# The centered tier card owns one bounded Canvas celebration. A rapid replay
 	# replaces it synchronously, so neither transparent elements nor tweens can
 	# accumulate while the child keeps tapping through completion screens.
@@ -199,11 +199,34 @@ func _celebrate(tier: int) -> void:
 	var big := Label.new()
 	big.name = "MedalCelebrationGlyph"
 	big.text = String(GLYPH[tier])
-	big.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	StorybookUI.style_hud_label(big, 96, StorybookUI.INK, 8)
+	big.position = Vector2(0.0, 0.0)
+	big.size = Vector2(300.0, 142.0)
+	StorybookUI.style_hud_label(big, 82, StorybookUI.INK, 8)
 	big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	big.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	card.add_child(big)
+	var stars := Label.new()
+	stars.name = "MedalCelebrationStars"
+	stars.text = _star_row(tier)
+	stars.position = Vector2(0.0, 132.0)
+	stars.size = Vector2(300.0, 82.0)
+	stars.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	stars.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	StorybookUI.style_hud_label(stars, 46, TIER_COLOR[tier] as Color, 6)
+	card.add_child(stars)
+	var perfect_bonus: bool = id == "dustboss" \
+		and bool(stats.get("perfect_bonus", false))
+	cl.set_meta("perfect_bonus", perfect_bonus)
+	if perfect_bonus:
+		var gem := Label.new()
+		gem.name = "PerfectBonusGem"
+		gem.text = "💎"
+		gem.position = Vector2(216.0, 4.0)
+		gem.size = Vector2(76.0, 72.0)
+		gem.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		gem.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		StorybookUI.style_hud_label(gem, 45, StorybookUI.PEARL_BLUE, 6)
+		card.add_child(gem)
 	var col: Color = TIER_COLOR[tier]
 	var element_count: int = int(CELEBRATION_ELEMENTS[tier])
 	var burst := Control.new()
@@ -250,6 +273,12 @@ func _celebrate(tier: int) -> void:
 	teardown_tween.tween_interval(CELEBRATION_SECONDS)
 	teardown_tween.tween_callback(cl.queue_free)
 	cl.set_meta("teardown_tween", teardown_tween)
+
+func _star_row(tier: int) -> String:
+	var out := ""
+	for i in range(GOLD):
+		out += "★" if i < tier else "☆"
+	return out
 
 func _retire_celebration() -> void:
 	var previous := m.get_node_or_null(CELEBRATION_LAYER_NAME) as CanvasLayer

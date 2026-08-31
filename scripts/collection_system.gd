@@ -388,8 +388,11 @@ func _draw_book() -> void:
 		var habitat := Label.new()
 		var habitat_id := String(d["habitat"])
 		habitat.text = "%s  %s" % [String(HABITAT_ICON[habitat_id]), String(HABITAT_LABEL[habitat_id])]
-		StorybookUI.style_label(habitat, 22, StorybookUI.INK_SOFT, 2)
+		StorybookUI.style_label(habitat, 28, StorybookUI.INK_SOFT, 2,
+			StorybookUI.ROLE_STATUS)
 		habitat.position = Vector2(28, 134)
+		habitat.size = Vector2(300, 54)
+		habitat.max_lines_visible = 2
 		card.add_child(habitat)
 
 	var help := Label.new()

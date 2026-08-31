@@ -330,6 +330,7 @@ var day_one_dirty_castle_discovered: bool = false
 var day_one_grok_video_2_seen: bool = false
 var day_one_boss_door_glow: bool = false
 var day_one_giant_dust_bunny_boss_triggered: bool = false
+var day_one_giant_dust_bunny_boss_defeated: bool = false
 var day_one_bathroom_cleanup_step: int = 0
 var day_one_bathroom_supply_hunt_step: int = 0
 var day_one_bathroom_tools_authorized: bool = false
@@ -348,6 +349,33 @@ var day_one_event_history: Array[Dictionary] = []
 var day_two_transition_active: bool = false
 var day_two_transition_layer: CanvasLayer = null
 var _day_one_director: DayOneDirector = null
+var comfy_games_state: Dictionary = {}
+var _comfy_games: ComfyGames = null
+var chapter2_active: bool = false
+var chapter2_unlocked_opera_mask: int = 0
+var chapter2_skill_mask: int = 0
+var chapter2_active_objective := ""
+var chapter2_rainbow_candle_found: bool = false
+var chapter2_stuffie_ballet_done: bool = false
+var chapter2_farmer_strawberries_ready: bool = false
+var chapter2_chef_cake_baked: bool = false
+var chapter2_candy_cake_finished: bool = false
+var chapter2_party_piece_mask: int = 0
+var chapter2_strawberry_mask: int = 0
+var chapter2_cake_piece_mask: int = 0
+var chapter2_job_phase_masks: Array[int] = [0, 0, 0, 0, 0, 0, 0, 0]
+var chapter2_party_event_phase: int = 0
+var chapter2_party_started: bool = false
+var chapter2_ember_scout_seen: bool = false
+var chapter2_ember_king_crashed: bool = false
+var chapter2_ember_son_seen: bool = false
+var chapter2_candle_lit: bool = false
+var chapter2_candle_taken: bool = false
+var chapter2_story_complete: bool = false
+var chapter2_event_seen: Dictionary = {}
+var chapter2_event_history: Array[Dictionary] = []
+var _chapter_two_director: ChapterTwoDirector = null
+var _chapter_two_room_plot: ChapterTwoRoomPlot = null
 var _day_one_bathroom_cleanup: DayOneBathroomCleanup = null
 var _day_one_bathroom_movie_handoff: DayOneBathroomMovieHandoff = null
 var _day_one_bathroom_movie_handoff_pending: bool = false
@@ -426,13 +454,14 @@ var opera_game: OperaHouse = null
 var opera_pending_act_index := -1
 var opera_active_act_index := -1
 var opera_return_room := ""
+var opera_plot_context := ""
 var opera_hud_was_visible := true
 var opera_hud_previous_layer := 0
 var opera_hud_game_was_visible := false
 var opera_obj_was_visible := false
 var opera_player_was_visible := true
 var opera_progress := 0            # cleared live Opera careers, 0..14
-var opera_stars := 0               # stable 16-bit mask; retired bits stay preserved
+var opera_stars := 0               # stable 17-slot mask; retired bits stay preserved
 var opera_done := false
 # The rhythm (owner 2026-07-25): every shelled act opens with a RESCUE — imps
 # have someone caged backstage — and the freed friends hand Roshan a GIFT that
@@ -461,6 +490,7 @@ const STICKER_DEFS := [
 	{"id": "shopper", "emoji": "💰", "label": "Big Shopper", "hint": "Buy every treasure in the Pearl Shop!"},
 	{"id": "showtime", "emoji": "🎭", "label": "Showtime Star", "hint": "Perform every show in the Opera House!"},
 	{"id": "volcano", "emoji": "🌋", "label": "Fortress Hero", "hint": "Solve the Ember Fortress dungeon!"},
+	{"id": "super_seeker", "emoji": "🔎", "label": "Super Seeker", "hint": "Find Rumi, Baby Eagle, and Daddy in the Day Two castle game!", "bonus": true},
 	{"id": "superstar", "emoji": "⭐", "label": "SUPER STAR", "hint": "Collect every sticker and every trophy!"},
 ]
 var stickers := {}                 # id -> true (plus hidden "_" progress keys)
@@ -510,7 +540,8 @@ func _check_superstar() -> void:
 		return
 	for d in STICKER_DEFS:
 		var sid := String(d["id"])
-		if sid != "superstar" and not bool(stickers.get(sid, false)):
+		if sid != "superstar" and not bool(d.get("bonus", false)) \
+				and not bool(stickers.get(sid, false)):
 			return
 	if trophies < 5 or not level2_done_once or not fairy_skin_unlocked:
 		return
@@ -2867,12 +2898,19 @@ func _end_kart_game(place: int) -> void:
 func _start_galaxy() -> void:
 	_fade_cut(_start_galaxy_now)
 
+
+func _chapter_three_fairy_reveal_authorized() -> bool:
+	# Grandfather the completed global Opera route, but the birthday story uses
+	# independent rewards. Its dedicated authority is the terminal candle-take
+	# state; neither finding nor lighting the candle can reveal Chapter 3 early.
+	return opera_done or (chapter2_story_complete and chapter2_candle_taken)
+
+
 func _maybe_reveal_fairy_conservatory() -> bool:
-	# `opera_done` is the current stable Chapter 2 authority. A dedicated
-	# Rainbow Candle field can replace this derived cause later without changing
-	# the additive route keys. Persist and announce only once; legacy Butterfly
-	# World saves are already opened and need no reveal interruption.
-	if chapter3_fairy_door_opened or not opera_done:
+	# Persist and announce only once; legacy Butterfly World saves are already
+	# opened and need no reveal interruption.
+	if chapter3_fairy_door_opened \
+			or not _chapter_three_fairy_reveal_authorized():
 		return false
 	if bool(save_data.get("chapter3_fairy_door_revealed", false)):
 		return false
@@ -3371,15 +3409,22 @@ func _start_opera() -> void:
 			and (castle_room_layer == null or not castle_room_layer.visible):
 		_castle_rooms_ref().resume(castle_room_id)
 	if _castle_career_routes_ref().open_opera_venue():
-		show_msg("Pearl Opera House",
-			"The grand foyer is open! Ride a bubble lift and swim into a glowing show door!",
-			"home")
+		if chapter2_is_active():
+			show_msg("Pearl Opera House",
+				"Four glowing career doors are ready to build Mermaid Roshan's birthday party!",
+				"home")
+			_say("roshan", "talk", 0.8)
+		else:
+			show_msg("Pearl Opera House",
+				"The grand foyer is open! Ride a bubble lift and swim into a glowing show door!",
+				"home")
 
 
 func _start_opera_from_room(act_index: int, room_id: String) -> void:
 	if not day_one_opera_enabled():
 		opera_pending_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		show_msg("Daddy Mermaid",
 			"The castle jobs are locked until our cleaning adventure is done!",
 			"hint")
@@ -3397,20 +3442,46 @@ func _start_opera_from_room(act_index: int, room_id: String) -> void:
 		and castle_rooms.is_open() and castle_visible \
 		and castle_room_id == room_id
 	if not current_castle_route \
-			or not CastleCareerRoutes.route_matches(room_id, act_index):
+			or not chapter2_opera_route_matches(room_id, act_index):
 		opera_pending_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		return
 	opera_pending_act_index = act_index
 	opera_return_room = room_id
+	opera_plot_context = ""
 	castle_rooms.suspend()
 	_fade_cut(_start_opera_now)
+
+
+func _start_chapter2_plot_opera(act_index: int, room_id: String,
+		plot_context: String) -> bool:
+	if opera_game != null or opera_pending_act_index >= 0 \
+			or not _chapter_two_ref().can_launch_plot_act(
+				room_id, act_index, plot_context):
+		return false
+	var castle_rooms := _castle_rooms_ref()
+	var castle_visible := castle_room_layer != null \
+		and is_instance_valid(castle_room_layer) and castle_room_layer.visible
+	var route_is_live := game == "level2" \
+		and String(g.get("phase", "")) == "hall" \
+		and castle_rooms.is_open() and castle_visible \
+		and castle_room_id == room_id
+	if not route_is_live:
+		return false
+	opera_pending_act_index = act_index
+	opera_return_room = room_id
+	opera_plot_context = plot_context
+	castle_rooms.suspend()
+	_fade_cut(_start_opera_now)
+	return true
 
 func _start_opera_now() -> void:
 	if not day_one_opera_enabled():
 		var blocked_return_room: String = opera_return_room
 		opera_pending_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		if blocked_return_room != "" and _castle_rooms_ref().is_open():
 			_castle_rooms_ref().resume(blocked_return_room)
 		return
@@ -3418,14 +3489,18 @@ func _start_opera_now() -> void:
 	# There is deliberately no no-argument picker or hidden all-career backdoor.
 	var act_index := opera_pending_act_index
 	var return_room := opera_return_room
+	var plot_context := opera_plot_context
 	var castle_rooms := _castle_rooms_ref()
 	var route_still_owned := game == "level2" \
 		and String(g.get("phase", "")) == "hall" \
 		and castle_rooms.is_open() and castle_room_id == return_room \
-		and CastleCareerRoutes.route_matches(return_room, act_index)
+		and (_chapter_two_ref().can_launch_plot_act(
+			return_room, act_index, plot_context) if plot_context != "" \
+			else chapter2_opera_route_matches(return_room, act_index))
 	if opera_game != null or not route_still_owned:
 		opera_pending_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		if return_room != "" and castle_rooms.is_open():
 			castle_rooms.resume(return_room)
 		return
@@ -3452,10 +3527,13 @@ func _start_opera_now() -> void:
 	var next_house := OperaHouse.new()
 	add_child(next_house)
 	if not next_house.start(
-			self, act_index, Callable(self, "_end_opera")):
+			self, act_index, Callable(self, "_end_opera"),
+			_chapter_two_ref().opera_config_overrides(
+				plot_context, act_index)):
 		next_house.queue_free()
 		opera_active_act_index = -1
 		opera_return_room = ""
+		opera_plot_context = ""
 		_restore_opera_route_state(return_room)
 		show_msg("Roshan",
 			"That career picture is resting. We are safely back in the room!",
@@ -3468,18 +3546,29 @@ func _end_opera(completed: bool) -> void:
 	opera_game = null
 	var return_room := opera_return_room
 	var finished_act := opera_active_act_index
+	var finished_plot_context := opera_plot_context
 	opera_active_act_index = -1
 	opera_return_room = ""
+	opera_plot_context = ""
 	_restore_opera_route_state(return_room)
 	var career_name := "career"
 	if OperaHouse.is_live_act_index(finished_act):
 		career_name = String((OperaHouse.ACTS[finished_act] as Dictionary).get(
 			"career", "career"))
-	show_msg(
-		"Roshan",
-		("%s star saved! Back to our room!" % career_name)
-			if completed else "Back to the room - every career star is safe!",
-		"win" if completed else "home")
+	if completed and finished_plot_context \
+		== ChapterTwoDirector.PLOT_CONTEXT_STUFFIE_BALLET:
+		show_msg("Roshan",
+			"The stuffies danced beautifully! The birthday dance is ready!", "win")
+	elif completed and chapter2_is_active() \
+			and ChapterTwoPartyPlan.is_live_act(finished_act):
+		show_msg("Roshan",
+			"This birthday job is ready! Back to our party!", "win")
+	else:
+		show_msg(
+			"Roshan",
+			("%s star saved! Back to our room!" % career_name)
+				if completed else "Back to the room - every career star is safe!",
+			"win" if completed else "home")
 
 
 func _restore_opera_route_state(return_room: String) -> void:
@@ -6988,6 +7077,187 @@ func _day_one_ref() -> DayOneDirector:
 	return _day_one_director
 
 
+func _comfy_games_ref() -> ComfyGames:
+	if _comfy_games == null:
+		_comfy_games = ComfyGames.new(self)
+	return _comfy_games
+
+
+func comfy_games_refresh_castle_room() -> void:
+	_comfy_games_ref().refresh_castle_room()
+
+
+func comfy_games_clear_castle_room() -> void:
+	if _comfy_games != null:
+		_comfy_games.clear_castle_room()
+
+
+func _chapter_two_ref() -> ChapterTwoDirector:
+	if _chapter_two_director == null:
+		_chapter_two_director = ChapterTwoDirector.new(self)
+		_chapter_two_director.hook_event.connect(_on_chapter_two_hook_event)
+	return _chapter_two_director
+
+
+func _chapter_two_sync_room_plot() -> void:
+	if castle_room_stage == null or not is_instance_valid(castle_room_stage):
+		return
+	if _chapter_two_room_plot == null \
+			or not is_instance_valid(_chapter_two_room_plot) \
+			or _chapter_two_room_plot.get_parent() != castle_room_stage:
+		if _chapter_two_room_plot != null \
+				and is_instance_valid(_chapter_two_room_plot):
+			_chapter_two_room_plot.queue_free()
+		_chapter_two_room_plot = ChapterTwoRoomPlot.new()
+		castle_room_stage.add_child(_chapter_two_room_plot)
+		_chapter_two_room_plot.setup(self)
+	_chapter_two_room_plot.visible = castle_room_layer != null \
+		and is_instance_valid(castle_room_layer) and castle_room_layer.visible
+	_chapter_two_room_plot.sync(castle_room_id)
+
+
+func chapter2_is_active() -> bool:
+	return _chapter_two_ref().active and not _chapter_two_ref().story_complete
+
+
+func chapter2_initial_tutorial_act_indices() -> Array[int]:
+	return _chapter_two_ref().initial_tutorial_act_indices()
+
+
+func chapter2_is_opera_tutorial_phase() -> bool:
+	return _chapter_two_ref().tutorial_phase_is_active()
+
+
+func chapter2_can_start_opera_act(act_index: int) -> bool:
+	return not chapter2_is_active() \
+		or _chapter_two_ref().can_start_chapter2_act(act_index)
+
+
+func chapter2_opera_route_matches(room_id: String, act_index: int) -> bool:
+	if not chapter2_is_active():
+		return CastleCareerRoutes.route_matches(room_id, act_index)
+	var director := _chapter_two_ref()
+	if director.tutorial_phase_is_active():
+		return room_id == "opera_hall" \
+			and director.can_start_opera_tutorial(act_index)
+	var party_entry := ChapterTwoPartyPlan.entry_for_act(act_index)
+	return director.can_start_chapter2_act(act_index) \
+		and String(party_entry.get("room", "")) == room_id
+
+
+func chapter2_show_freeplay_career_routes() -> bool:
+	return not chapter2_is_active()
+
+
+func _chapter_two_live_castle_room(room_id: String) -> bool:
+	return game == "level2" \
+		and String(g.get("phase", "")) == "hall" \
+		and castle_room_layer != null \
+		and is_instance_valid(castle_room_layer) \
+		and castle_room_layer.visible \
+		and castle_room_id == room_id
+
+
+func chapter2_activate_room_plot(room_id: String, plot_action: String) -> bool:
+	if not _chapter_two_live_castle_room(room_id):
+		return false
+	var director := _chapter_two_ref()
+	if director.room_plot_action(room_id) != plot_action:
+		return false
+	match plot_action:
+		ChapterTwoDirector.ACTION_DETECTIVE_SEARCH:
+			if not _castle_rooms_ref().activate_chapter2_plot_prop(
+				"library", "magic_book"):
+				return false
+			# The room prop only reveals the Opera launch. The Detective's full
+			# lens -> storybook board -> candle reveal remains the authored job;
+			# completion records the final candle milestone.
+			return _start_chapter2_plot_opera(
+				ChapterTwoDirector.ACT_DETECTIVE, "library",
+				ChapterTwoDirector.PLOT_CONTEXT_DETECTIVE_CANDLE)
+		ChapterTwoDirector.ACTION_STUFFIE_BALLET:
+			if not _castle_rooms_ref().activate_chapter2_plot_prop(
+					"playroom", "stuffie_nook"):
+				return false
+			return _start_chapter2_plot_opera(
+				ChapterTwoDirector.ACT_BALLERINA, "playroom",
+				ChapterTwoDirector.PLOT_CONTEXT_STUFFIE_BALLET)
+		ChapterTwoDirector.ACTION_START_BIRTHDAY_PARTY:
+			if not director.start_main_hall_party(room_id):
+				return false
+			_chapter_two_sync_room_plot()
+			_write_save()
+			return true
+	return false
+
+
+func chapter2_record_party_contribution(act_index: int) -> bool:
+	var changed := _chapter_two_ref().record_party_contribution(act_index)
+	if changed:
+		_queue_save()
+	return changed
+
+
+## Additive callback seam for scene-specific Opera adapters. It persists a
+## completed physical phase without awarding the global Opera star.
+func chapter2_on_opera_phase_completed(act_index: int, phase_index: int,
+		phase_name: String = "") -> bool:
+	var changed := _chapter_two_ref().record_opera_phase_event(
+		act_index, phase_index, phase_name, true)
+	if changed:
+		_queue_save()
+	return changed
+
+
+func chapter2_on_opera_phase_snapshot(snapshot: Dictionary) -> bool:
+	var act_index := int(snapshot.get("act_index", opera_active_act_index))
+	var changed := _chapter_two_ref().record_opera_phase_snapshot(
+		act_index, snapshot, true)
+	if changed:
+		_queue_save()
+	return changed
+
+
+func chapter2_record_strawberry_pick(pick_index: int) -> bool:
+	var changed := _chapter_two_ref().record_strawberry_pick(pick_index)
+	if changed:
+		_queue_save()
+	return changed
+
+
+func chapter2_record_cake_piece(piece_index: int) -> bool:
+	var changed := _chapter_two_ref().record_cake_piece(piece_index)
+	if changed:
+		_queue_save()
+	return changed
+
+
+func chapter2_party_is_ready() -> bool:
+	return _chapter_two_ref().party_is_ready()
+
+
+func chapter2_next_party_act() -> int:
+	return _chapter_two_ref().next_party_act()
+
+
+func chapter2_start_main_hall_party(room_id: String = "main_hall") -> bool:
+	return _chapter_two_ref().start_main_hall_party(room_id)
+
+
+func chapter2_trigger_ember_king_crash(room_id: String = "main_hall") -> bool:
+	return _chapter_two_ref().trigger_ember_king_crash(room_id)
+
+
+func chapter2_on_opera_completed(act_index: int,
+		plot_context: String = "") -> void:
+	if not chapter2_is_active():
+		return
+	if plot_context != "" or _chapter_two_ref().tutorial_phase_is_active():
+		_chapter_two_ref().record_opera_completion(act_index, plot_context)
+	else:
+		_chapter_two_ref().record_party_contribution(act_index)
+
+
 ## The attack customizer is intentionally loaded lazily. This keeps the main
 ## boot path independent of the optional art-room overlay while still giving
 ## every combat mode one owner-facing entry point.
@@ -7073,11 +7343,17 @@ func day_one_boss_door_ready() -> bool:
 
 
 func day_one_complete_boss_and_begin_day_two() -> bool:
-	if not _day_one_ref().complete_day_one_after_boss():
+	var director: DayOneDirector = _day_one_ref()
+	# The real DustBoss win crosses one atomic story boundary. Record and emit
+	# the boss defeat first; its synchronous hook starts Chapter 2. Only then
+	# emit/present the newer Day Two bridge. Repeated win/end callbacks stop at
+	# the idempotent defeat gate and cannot duplicate either event or transition.
+	if not director.complete_giant_dust_bunny_boss():
 		return false
+	director.complete_day_one_after_boss()
 	# Persist the unlock before presentation. The normal end-game save follows
-	# in the same frame, but this first write protects the terminal story gate
-	# even if the platform backgrounds during the transition.
+	# in the same frame, but this first write protects both the boss boundary
+	# and Chapter 2 activation if the platform backgrounds during transition.
 	_write_save()
 	call_deferred("_show_day_two_transition")
 	return true
@@ -7107,6 +7383,8 @@ func _on_day_two_transition_finished() -> void:
 	day_two_transition_layer = null
 	if touch_ui != null:
 		touch_ui.consume_action()
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		comfy_games_refresh_castle_room()
 	_update_hud()
 
 func day_one_castle_room_is_clean(castle_room: String) -> bool:
@@ -7796,9 +8074,131 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 			if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 				_castle_rooms_25d.close()
 			_start_game(dust_boss_fr)
+		DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED:
+			_day_one_clear_castle_dressing()
+			_chapter_two_ref().start_after_boss()
 		DayOneDirector.EVENT_DAY_TWO_BEGINS:
 			g["day_two_started"] = true
 	_queue_save()
+
+
+func _on_chapter_two_hook_event(event_name: String,
+		payload: Dictionary) -> void:
+	g["chapter2_last_event"] = event_name
+	match event_name:
+		ChapterTwoDirector.EVENT_CHAPTER_STARTED:
+			call_deferred("_chapter_two_announce_start")
+		ChapterTwoDirector.EVENT_SKILL_LEARNED:
+			var skill_name := String(payload.get("skill_id", "party")) \
+				.replace("_", " ")
+			show_msg("",
+				"I learned my %s sparkle!" % skill_name, "win")
+		ChapterTwoDirector.EVENT_OBJECTIVE_CHANGED:
+			var objective := String(payload.get("objective", ""))
+			match objective:
+				ChapterTwoDirector.OBJECTIVE_FIND_RAINBOW_CANDLE:
+					_set_objective("chapter2_library_detective",
+						load("res://assets/ui/castle_room_buttons_v2/room_library.png") \
+							as Texture2D, "")
+					show_msg("",
+						"Detective sparkle points to the Royal Library storybook!", "hint")
+				ChapterTwoDirector.OBJECTIVE_STUFFIE_BALLET:
+					_set_objective("chapter2_stuffie_ballet",
+						load("res://assets/ui/castle_room_buttons_v2/room_playroom.png") \
+							as Texture2D, "")
+					show_msg("",
+						"The Stuffie Room is ready for a birthday dance!",
+						"hint")
+				ChapterTwoDirector.OBJECTIVE_PARTY_PREP:
+					_chapter_two_guide_next_party_piece()
+				ChapterTwoDirector.OBJECTIVE_MAIN_HALL_PARTY:
+					_set_objective("chapter2_main_hall_party",
+						load("res://assets/ui/castle_room_buttons_v2/room_main_hall.png") \
+							as Texture2D, "")
+					show_msg("", "Everything is ready! Come to the Main Hall!", "hint")
+				ChapterTwoDirector.OBJECTIVE_EMBER_KING_CRASH:
+					_set_objective("chapter2_main_hall_party",
+						load("res://assets/ui/castle_room_buttons_v2/room_main_hall.png") \
+							as Texture2D, "")
+					show_msg("",
+						"The rocket lit the rainbow candle! Stay with the gigantic cake and the party!",
+						"hint")
+				_:
+					_set_objective("", null, "")
+		ChapterTwoDirector.EVENT_RAINBOW_CANDLE_FOUND:
+			show_msg("",
+				"The rainbow candle was inside the magic storybook! It is still unlit.",
+				"win")
+		ChapterTwoDirector.EVENT_STUFFIE_BALLET_COMPLETED:
+			show_msg("",
+				"Ballerina Roshan taught the stuffies to dance and play together!",
+				"win")
+		ChapterTwoDirector.EVENT_PARTY_CONTRIBUTION:
+			var contribution_act := int(payload.get("act_index", -1))
+			if contribution_act == ChapterTwoDirector.ACT_FARMER:
+				show_msg("", "Farmer Roshan brought the Sky Lagoon strawberries!", "win")
+			elif contribution_act == ChapterTwoDirector.ACT_CHEF:
+				show_msg("", "Chef Roshan's gigantic birthday cake is ready!", "win")
+			elif contribution_act == ChapterTwoDirector.ACT_CANDY_MAKER:
+				show_msg("", "Candy Maker Roshan finished the cake with candied strawberries!", "win")
+			elif contribution_act == 11:
+				show_msg("",
+					"Astronaut Roshan's little candle-lighting rocket is ready!", "win")
+			if _chapter_two_ref().active_objective \
+					== ChapterTwoDirector.OBJECTIVE_PARTY_PREP:
+				_chapter_two_guide_next_party_piece(String(
+					payload.get("career", "party")).replace("_", " "))
+		ChapterTwoDirector.EVENT_PARTY_READY:
+			_set_objective("chapter2_main_hall_party",
+				load("res://assets/ui/castle_room_buttons_v2/room_main_hall.png") \
+					as Texture2D, "")
+			show_msg("", "Every party piece is ready! Meet in the Main Hall!", "hint")
+		ChapterTwoDirector.EVENT_PARTY_STARTED:
+			show_msg("",
+				"The little rocket lights the rainbow candle beside the gigantic cake!",
+				"home")
+		ChapterTwoDirector.EVENT_EMBER_SCOUT_SEEN:
+			show_msg("", "A little ember silhouette is watching the party!", "hint")
+		ChapterTwoDirector.EVENT_EMBER_KING_CRASHED:
+			_set_objective("chapter3_north_fire_mountain",
+				load("res://assets/opera/worlds/props/goal_astronaut.png") \
+					as Texture2D, "")
+			show_msg("",
+				"The Ember King took the glowing rainbow candle for his own birthday party! His little son's silhouette points to the bright north-star clue!",
+				"hint")
+	_queue_save()
+
+
+func _chapter_two_guide_next_party_piece(completed_career: String = "") -> void:
+	var entry := ChapterTwoPartyPlan.next_incomplete_entry(
+		chapter2_party_piece_mask)
+	if entry.is_empty():
+		return
+	var career_name := String(entry.get("career", "party")).replace("_", " ")
+	var room_id := String(entry.get("room", "main_hall"))
+	var room_name := room_id.replace("_", " ")
+	var location_name := String(entry.get("location_label", room_name))
+	var route_label := String(entry.get("route_label", ""))
+	var icon_path := "res://assets/ui/castle_room_buttons_v2/room_%s.png" % room_id
+	var icon: Texture2D = load(icon_path) as Texture2D \
+		if ResourceLoader.exists(icon_path) else null
+	_set_objective("chapter2_party_prep_%s" % career_name.replace(" ", "_"),
+		icon, "")
+	var celebration := "%s is ready! " % completed_career.capitalize() \
+		if completed_career != "" else ""
+	var route_hint := " Enter through the %s!" % route_label \
+		if not route_label.is_empty() else ""
+	show_msg("", "%sNext party sparkle: %s in the %s!%s" % [
+		celebration, career_name.capitalize(), location_name, route_hint], "hint")
+
+
+func _chapter_two_announce_start() -> void:
+	if not chapter2_is_active():
+		return
+	show_msg("",
+		"The castle is clean! The Opera House is open. Farmer Roshan can gather strawberries first!",
+		"home")
+	_chapter_two_guide_next_party_piece()
 
 func _castle_rooms_ref() -> CastleRooms25D:
 	if _castle_rooms_25d == null:
@@ -7840,6 +8240,7 @@ func _tick_castle_rooms(delta: float) -> void:
 		_castle_rooms_ref().open("main_hall")
 	_sync_castle_room_music()
 	_castle_rooms_ref().tick(delta)
+	_comfy_games_ref().tick_castle_room()
 	_fairy_conservatory_door_ref().call("tick")
 	_sync_day_one_bathroom_cleanup()
 	_sync_day_one_pool_route()
@@ -9001,6 +9402,8 @@ func _spawn_shooting_star(ppos: Vector3) -> void:
 	tw.tween_callback(star.queue_free)
 
 func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> void:
+	var completed_day_one_boss := win \
+		and String(fr.get("game", "")) == "dustboss"
 	if chime != null:
 		chime.volume_db = -4.0   # restore default chime volume (the fairy game lowers it)
 	_leave_arena()
@@ -9034,6 +9437,11 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	elif String(fr["fname"]) == "Fairy Pond":
 		fairy_cool = 3.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
+	if completed_day_one_boss:
+		# DustBoss calls this before entering the generic result pipeline. Keep an
+		# idempotent fallback here for suspend/re-entry or any future terminal
+		# caller that reaches _end_game directly; the second call is a no-op.
+		day_one_complete_boss_and_begin_day_two()
 	show_msg(fr["fname"], txt, "win" if win else vo)
 	_respawn_pearls()   # after the banner: its freshness guard yields to the win message
 	_update_hud()

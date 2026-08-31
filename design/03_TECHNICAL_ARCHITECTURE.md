@@ -272,12 +272,13 @@ under `MA-CODE-002`.
 - `CORE_KEYS = [won, found, pearls, plays]` distinguish a genuine save from an
   empty one.
 - A future-schema save is opened read-only rather than being downgraded.
-- `opera_stars` retains its 16-slot compatibility namespace, but owner-cut
-  boss slots 4, 9, and 14 are permanent inert tombstones. Never compact or
-  reuse those bits; raw legacy bits remain stored, live completion uses mask
-  `0xBDEF`, effective progress is the 0–13 live-bit count, and historical
-  boss-bit/`opera_progress` values must not revoke or miscredit a surviving
-  career (`MA-OPERA-011`).
+- `opera_stars` retains every identity in its historical lower sixteen bits;
+  the owner-directed Geologist career appends at bit 16 without shifting them.
+  Owner-cut boss slots 4, 9, and 14 are permanent inert tombstones. Never
+  compact or reuse those bits; raw legacy bits remain stored, live completion
+  uses mask `0x1BDEF`, effective progress is the 0–14 live-bit count, and
+  historical boss-bit/`opera_progress` values must not revoke or miscredit a
+  surviving career (`MA-OPERA-011`).
 - Gates: `probe_load.gd` (restore), `probe_save_recovery.gd` (corruption),
   `probe_rank.gd` (medal round-trip).
 
