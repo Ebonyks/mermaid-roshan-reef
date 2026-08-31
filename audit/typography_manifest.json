@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "role_source": "scripts/storybook_ui.gd",
+  "font_authority": {
+    "primary": "UNRESOLVED",
+    "fallback": "MISSING",
+    "binding": {"status": "MISSING", "asset": ""},
+    "coverage_status": "UNRESOLVED",
+    "device_evidence_status": "MISSING",
+    "provenance_status": "MISSING",
+    "font_hashes": [],
+    "coverage": {"status": "UNRESOLVED", "positive": null, "negative": null},
+    "device_evidence": {"status": "MISSING", "artifact": null},
+    "license_row": "",
+    "note": "No explicit project font asset/binding, real license row, packaged glyph coverage evidence, or exact-device packet exists in the audited tree. Godot engine/system fallback is not an authority."
+  },
+  "roles": {
+    "display": {"min_px": 1},
+    "title": {"min_px": 1},
+    "child_control": {"min_px": 28},
+    "body": {"min_px": 28},
+    "adult_caption": {"min_px": 22},
+    "status": {"min_px": 28},
+    "numeric_progress": {"min_px": 28},
+    "decorative_glyph": {"min_px": 1}
+  },
+  "adult_caption_exception": {
+    "role": "adult_caption",
+    "min_px": 22,
+    "wrapped": true,
+    "high_contrast": true,
+    "voice_picture_redundant": true,
+    "device_verified": false,
+    "evidence_status": "MISSING"
+  },
+  "label3d_baseline": {
+    "total": 45,
+    "files": {
+      "scripts/arena/sky_lagoon.gd": 7,
+      "scripts/combat_arena.gd": 1,
+      "scripts/combat_tutorial.gd": 1,
+      "scripts/companion.gd": 13,
+      "scripts/collection_system.gd": 2,
+      "scripts/dungeon_puzzle_room.gd": 1,
+      "scripts/galaxy.gd": 2,
+      "scripts/games/dust_boss.gd": 1,
+      "scripts/games/shop.gd": 4,
+      "scripts/kart.gd": 4,
+      "scripts/main.gd": 7,
+      "scripts/reef_districts.gd": 1,
+      "scripts/stuffie_battle.gd": 1
+    },
+    "production_files_with_instances": 13,
+    "note": "The per-file map is the immutable ratchet: a migration may reduce counts, but no file may grow and no new production file may introduce Label3D."
+  },
+  "classification_policy": "Every code point listed below is a maintained allowlist entry. Exact live source references are emitted by the scanner. New code points must be added deliberately with one of the three classifications and reviewed source evidence; no default classification exists.",
+  "glyph_evidence": {
+    "U+26A1": {
+      "classification": "redundant",
+      "role": "optional_dodge_attention",
+      "meaning": "Incoming-hop attention cue on the optional Dust Bunny dodge button; it is not the action, objective, or completion route.",
+      "source_refs": [
+        "scripts/games/dust_boss.gd:1044"
+      ],
+      "redundant_routes": [
+        "scripts/games/dust_boss.gd:31",
+        "scripts/games/dust_boss.gd:32",
+        "scripts/games/dust_boss.gd:994",
+        "scripts/games/dust_boss.gd:1046-1048",
+        "scripts/games/dust_boss.gd:1050"
+      ],
+      "voice_route": {
+        "status": "EXCLUDED",
+        "exact_asset": "assets/audio/voices/roshan_dustboss_dodge.ogg",
+        "fallback_asset": "assets/audio/voice_yay.mp3",
+        "note": "The exact instruction clip is absent and the generic yay fallback is affect-only; no spoken instruction is claimed as classification evidence."
+      },
+      "evidence_note": "The danger-specific scale pulse and visible pointer reinforce the persistent ↻ action affordance on an optional control. Contact is harmless and never removes progress."
+    }
+  },
+  "coverage_negative": {
+    "codepoint": "U+10FFFF",
+    "purpose": "deliberate missing-glyph negative for a future packaged-font coverage test",
+    "status": "PLANNED",
+    "evidence_status": "MISSING"
+  },
+  "glyph_classes": {
+    "decorative": [
+      "U+00B7", "U+00D7", "U+0338", "U+200D", "U+2014", "U+2019", "U+2022", "U+2026", "U+224B", "U+3030", "U+FE0F"
+    ],
+    "redundant": ["U+2161", "U+26A1"],
+    "critical": [
+      "U+2190", "U+2191", "U+2192", "U+2193", "U+2194", "U+2195", "U+2198", "U+21A9", "U+21BA", "U+21BB",
+      "U+2302", "U+25A3", "U+25B2", "U+25B6", "U+25BC", "U+25C0", "U+25C6", "U+25C7", "U+25C9", "U+25CB", "U+25CF", "U+25D2",
+      "U+2600", "U+2605", "U+2606", "U+261D", "U+261E", "U+263E", "U+2640", "U+265B", "U+2661", "U+2662", "U+2665", "U+2667", "U+266A", "U+266B", "U+266C", "U+2691", "U+2699", "U+26AA", "U+26C4", "U+2702", "U+270B", "U+2713", "U+2714", "U+2726", "U+2727", "U+2728", "U+2744", "U+2754", "U+2764", "U+276F", "U+279C", "U+27B6", "U+2B50",
+      "U+1F308", "U+1F30A", "U+1F30B", "U+1F319", "U+1F31F", "U+1F336", "U+1F338", "U+1F34E", "U+1F36C", "U+1F370", "U+1F372", "U+1F37C", "U+1F37D", "U+1F381", "U+1F388", "U+1F38E", "U+1F3A4", "U+1F3A8", "U+1F3A9", "U+1F3AC", "U+1F3AD", "U+1F3BE", "U+1F3C1", "U+1F3C6", "U+1F3CE", "U+1F3E0", "U+1F3F0",
+      "U+1F40B", "U+1F411", "U+1F41A", "U+1F41F", "U+1F420", "U+1F426", "U+1F427", "U+1F431", "U+1F436", "U+1F437", "U+1F43E", "U+1F446", "U+1F447", "U+1F451", "U+1F48E", "U+1F495", "U+1F496", "U+1F497", "U+1F499", "U+1F49C", "U+1F4A4", "U+1F4A6", "U+1F4A7", "U+1F4A8", "U+1F4B0", "U+1F4DA", "U+1F50D", "U+1F512", "U+1F514", "U+1F525", "U+1F590",
+      "U+1F680", "U+1F6C1", "U+1F6CF", "U+1F6E1", "U+1F90D", "U+1F947", "U+1F948", "U+1F949", "U+1F94A", "U+1F955", "U+1F98B", "U+1F9C1", "U+1F9CA", "U+1F9DA", "U+1F9DC", "U+1F9F8", "U+1F9FA", "U+1FA70", "U+1FA79", "U+1FA7A", "U+1FAD0", "U+1FAE7"
+    ]
+  }
+}

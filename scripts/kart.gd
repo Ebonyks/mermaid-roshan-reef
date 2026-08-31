@@ -2116,7 +2116,6 @@ func _build_select_controls() -> void:
 		swatch.size = Vector2(112.0, 112.0)
 		swatch.tooltip_text = String(paint["label"])
 		swatch.text = "*" if bool(paint.get("rainbow", false)) else ""
-		swatch.add_theme_font_size_override("font_size", 58)
 		swatch.pressed.connect(_choose_paint_by_touch.bind(i))
 		_hud_root.add_child(swatch)
 		_paint_choice_buttons.append(swatch)
@@ -2157,7 +2156,8 @@ func _refresh_select_controls() -> void:
 		var paint_button: Button = _paint_choice_buttons[i]
 		paint_button.visible = _state == "select" and _sel_phase == "paint"
 		StorybookUI.style_picture_button(paint_button, _paint_choice_fill(i),
-			StorybookUI.GOLD if paint_selected else StorybookUI.PURPLE, 52)
+			StorybookUI.GOLD if paint_selected else StorybookUI.PURPLE, 52,
+			StorybookUI.ROLE_DECORATIVE_GLYPH, 58)
 		paint_button.set_meta("selected", paint_selected)
 
 func _sel_move() -> int:

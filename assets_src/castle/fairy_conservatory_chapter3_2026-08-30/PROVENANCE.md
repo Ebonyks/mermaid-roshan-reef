@@ -54,13 +54,14 @@ assets; the manifest records each SHA-256:
 - `assets/flats/fairy_conservatory_handoff/butterfly_house.png`
 - `assets/mg/butterfly.png`
 
-The corrected Fairy Pond horizon is authored at `y = 354 / 1024` (34.6% of
+The corrected Fairy Pond horizon is authored at `y = 389 / 1024` (38.0% of
 the complete frame), safely above the 50% maximum. The Butterfly House sits at
 that eye-level destination line and every lily pad remains below the horizon.
-The rainbow causeway's visible bottom is registered at `y = 965`, exactly the
-base of the architectural opening mask, so no grass, water strip, matte, or
-empty band separates the stage art from the door threshold. The generated
-background and both foreground subjects are documented in
+The rainbow causeway overdraws 28 pixels behind the sill and is clipped at
+`y = 965`, exactly the base of the architectural opening mask. Its alpha is at
+least 64 across all 392 opening pixels for every row from 959 through 965, so
+no grass, water strip, matte, or empty band separates the stage art from the
+door threshold. The native-authored background and both foreground subjects are documented in
 `assets_src/fairy_conservatory_handoff_2026-08-30/PROVENANCE.md`; they are
 composited without local warping or object repair. This view previews the
 intermediate Rainbow Stage inside the Lily-Pad Fairy World rather than the
@@ -90,3 +91,8 @@ and `0.4896` card scale used by `FairyConservatoryDoor2D`, crop one 1672×941 Ha
 and resize that whole view to the 1280×720 base canvas. They are placement
 evidence only (`delivery_pixels: false`) and do not replace either runtime door
 card or any accepted Hall pixel.
+
+Independent Sol focused artistic review passed the current open Hall frame on
+2026-08-30: upright Lily-Pad Fairy World perspective, no Sky Lagoon leakage,
+complete threshold coverage without a cyan strip or matte, one crown pearl,
+and a readable causeway to the same Butterfly House shown on the handoff stage.

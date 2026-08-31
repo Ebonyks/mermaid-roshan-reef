@@ -188,7 +188,7 @@ func _build() -> void:
 	confirm.size = Vector2(116.0, 116.0)
 	confirm.focus_mode = Control.FOCUS_NONE
 	StorybookUI.style_picture_button(confirm, StorybookUI.GOLD,
-		StorybookUI.PURPLE, 34)
+		StorybookUI.PURPLE, 34, StorybookUI.ROLE_CHILD_CONTROL)
 	confirm.pressed.connect(close)
 	_card.add_child(confirm)
 	var color_panel := StorybookUI.add_hud_panel(_card, Rect2(34.0, 176.0, 692.0, 142.0), StorybookUI.PEARL_BLUE, StorybookUI.PAPER_COOL, 28)

@@ -3,9 +3,11 @@
 
 The continuous 16:9 stage background is the approved Lily-Pad Fairy World
 redrawn at an upright eye-level perspective.  The walkable rainbow causeway
-and Butterfly House remain separate whole-sprite subjects.  This script
-preserves every native source, normalizes the complete generated background,
-slices it without seams, and records hashes and reference authority.
+and Butterfly House remain separate whole-sprite subjects.  The 3640x2048
+background is assembled from six independently generated 1254-square panels
+at exact 1:1 pixel scale.  Open sky and water overlap between panels, with no
+readable landmark crossing a seam.  The completed master is then sliced
+without seams and its hashes and authority are recorded.
 """
 
 from __future__ import annotations
@@ -16,7 +18,7 @@ import json
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageFilter, ImageOps
+from PIL import Image, ImageFilter
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,7 +33,9 @@ REVIEW_STAGE = REVIEW_ROOT / "rainbow_stage_composite_1280x720.png"
 
 WALKWAY_RAW = RAW_ROOT / "rainbow_walkway_openai_raw.png"
 HOUSE_RAW = RAW_ROOT / "butterfly_house_openai_raw.png"
-BACKGROUND_RAW = RAW_ROOT / "fairy_pond_horizon_openai_raw.png"
+BACKGROUND_PRIOR_RAW = RAW_ROOT / "fairy_pond_horizon_openai_raw.png"
+BACKGROUND_CENTER_REFERENCE = RAW_ROOT / "fairy_pond_native_center_openai_raw.png"
+BACKGROUND_PANEL_ROOT = RAW_ROOT / "background_panels"
 WALKWAY_RUNTIME = RUNTIME_ROOT / "rainbow_walkway.png"
 HOUSE_RUNTIME = RUNTIME_ROOT / "butterfly_house.png"
 BACKGROUND_MASTER = MASTER_ROOT / "handoff_background_master_3640x2048.png"
@@ -51,6 +55,19 @@ SUBJECT_EDGE = 1000
 BACKGROUND_MASTER_SIZE = (3640, 2048)
 BACKGROUND_TILE_SIZE = (910, 1024)
 BACKGROUND_GRID = (4, 2)
+BACKGROUND_PANEL_SIZE = (1254, 1254)
+BACKGROUND_PANEL_STEP = (1193, 794)
+BACKGROUND_PANEL_OVERLAP = (61, 460)
+BACKGROUND_ALIGNED_HORIZON_Y = 480
+BACKGROUND_VERTICAL_BLEND_END = 1190
+BACKGROUND_PANEL_SPECS = (
+	("top_left", "exec-95013e94-cb9e-459f-a7c6-88ce52d70abb", 0, 0, 12),
+	("top_center", "exec-a1798b3a-d111-402b-a08e-455f15694cb2", 1, 0, -64),
+	("top_right", "exec-e3c60551-45fb-46aa-8dd8-38997d075a82", 2, 0, 0),
+	("bottom_left", "exec-11630358-710f-4636-b283-ffe0a1ccc2ab", 0, 1, 0),
+	("bottom_center", "exec-f6352de8-a64d-45b1-b5dc-855e8c9ed7a7", 1, 1, 0),
+	("bottom_right", "exec-039ee267-2c93-4ccf-bf3c-55fcfad0df70", 2, 1, 0),
+)
 
 
 def _hash(path: Path) -> str:
@@ -148,24 +165,153 @@ def _audit_cutout(image: Image.Image) -> dict[str, object]:
 	}
 
 
-def _build_background() -> tuple[list[Path], list[Path], tuple[int, int]]:
-	inputs = [
-		BACKGROUND_RAW,
+def _align_top_panel(source: Image.Image, shift_y: int) -> Image.Image:
+	"""Align generated horizons by cropping or reflecting edge sky, never scaling."""
+	if source.size != BACKGROUND_PANEL_SIZE:
+		raise ValueError(
+			f"bad generated panel size: {source.size} != {BACKGROUND_PANEL_SIZE}")
+	pixels = np.asarray(source.convert("RGB"), dtype=np.uint8)
+	height, width = pixels.shape[:2]
+	aligned = np.empty_like(pixels)
+	if shift_y > 0:
+		# The small reflected strip is open sky only.  No landmark or source
+		# pixel is enlarged, and the 12-pixel strip is outside the stage crop.
+		aligned[:shift_y] = pixels[:shift_y][::-1]
+		aligned[shift_y:] = pixels[:height - shift_y]
+	elif shift_y < 0:
+		crop = -shift_y
+		aligned[:height - crop] = pixels[crop:]
+		aligned[height - crop:] = pixels[-1:]
+	else:
+		aligned[:] = pixels
+	return Image.fromarray(aligned, "RGB")
+
+
+def _horizontal_row(panels: list[Image.Image]) -> Image.Image:
+	"""Join three native panels through their generated open-water overlaps."""
+	if len(panels) != 3:
+		raise ValueError("background row must contain exactly three panels")
+	row = Image.new("RGB", (BACKGROUND_MASTER_SIZE[0], BACKGROUND_PANEL_SIZE[1]))
+	row.paste(panels[0], (0, 0))
+	overlap = BACKGROUND_PANEL_OVERLAP[0]
+	mask_pixels = np.full(
+		(BACKGROUND_PANEL_SIZE[1], BACKGROUND_PANEL_SIZE[0]), 255,
+		dtype=np.uint8,
+	)
+	mask_pixels[:, :overlap] = np.round(
+		np.linspace(0.0, 255.0, overlap, dtype=np.float32),
+	).astype(np.uint8)[None, :]
+	mask = Image.fromarray(mask_pixels, "L")
+	for column, panel in enumerate(panels[1:], start=1):
+		row.paste(panel, (column * BACKGROUND_PANEL_STEP[0], 0), mask)
+	return row
+
+
+def _smooth_rows(values: np.ndarray, radius: int) -> np.ndarray:
+	"""Low-pass a per-row color correction so no painted feature is traced."""
+	window = radius * 2 + 1
+	padded = np.pad(values, ((radius, radius), (0, 0)), mode="edge")
+	cumulative = np.vstack((
+		np.zeros((1, values.shape[1]), dtype=np.float32),
+		np.cumsum(padded, axis=0, dtype=np.float32),
+	))
+	return (cumulative[window:] - cumulative[:-window]) / float(window)
+
+
+def _harmonize_center_edges(
+		left: Image.Image, center: Image.Image, right: Image.Image) -> Image.Image:
+	"""Match only broad edge palette, leaving every generated form intact."""
+	left_pixels = np.asarray(left.convert("RGB"), dtype=np.float32)
+	center_pixels = np.asarray(center.convert("RGB"), dtype=np.float32)
+	right_pixels = np.asarray(right.convert("RGB"), dtype=np.float32)
+	overlap = BACKGROUND_PANEL_OVERLAP[0]
+	left_delta = (
+		left_pixels[:, -overlap:].mean(axis=1)
+		- center_pixels[:, :overlap].mean(axis=1)
+	)
+	right_delta = (
+		right_pixels[:, :overlap].mean(axis=1)
+		- center_pixels[:, -overlap:].mean(axis=1)
+	)
+	left_delta = np.clip(_smooth_rows(left_delta, 42), -72.0, 72.0)
+	right_delta = np.clip(_smooth_rows(right_delta, 42), -72.0, 72.0)
+	left_weight = np.linspace(
+		1.0, 0.0, BACKGROUND_PANEL_SIZE[0], dtype=np.float32)
+	right_weight = 1.0 - left_weight
+	corrected = center_pixels.copy()
+	corrected += left_delta[:, None, :] * left_weight[None, :, None]
+	corrected += right_delta[:, None, :] * right_weight[None, :, None]
+	return Image.fromarray(
+		np.clip(corrected, 0.0, 255.0).astype(np.uint8), "RGB")
+
+
+def _assemble_native_background(
+		top_panels: list[Image.Image], bottom_panels: list[Image.Image]) -> Image.Image:
+	"""Assemble six 1:1 panels into the exact 3640x2048 production master."""
+	top_row = _horizontal_row(top_panels)
+	bottom_row = _horizontal_row(bottom_panels)
+	master = Image.new("RGB", BACKGROUND_MASTER_SIZE)
+	master.paste(top_row, (0, 0))
+	local_blend_end = BACKGROUND_VERTICAL_BLEND_END - BACKGROUND_PANEL_STEP[1]
+	mask_pixels = np.full(
+		(BACKGROUND_PANEL_SIZE[1], BACKGROUND_MASTER_SIZE[0]), 255,
+		dtype=np.uint8,
+	)
+	mask_pixels[:local_blend_end] = np.round(
+		np.linspace(
+			0.0, 255.0, local_blend_end, dtype=np.float32,
+		)[:, None]
+	).astype(np.uint8)
+	mask = Image.fromarray(mask_pixels, "L")
+	master.paste(bottom_row, (0, BACKGROUND_PANEL_STEP[1]), mask)
+	return master
+
+
+def _build_background() -> tuple[list[Path], list[Path], list[dict[str, object]]]:
+	references = [
+		BACKGROUND_PRIOR_RAW,
+		BACKGROUND_CENTER_REFERENCE,
 		FAIRY_POND_REFERENCE,
 		FAIRY_TWILIGHT_REFERENCE,
 		FAIRY_DAWN_REFERENCE,
 	]
-	for path in inputs:
+	for path in references:
 		if not path.is_file():
 			raise FileNotFoundError(path)
-	source = Image.open(BACKGROUND_RAW).convert("RGB")
-	source_dimensions = source.size
-	master = ImageOps.fit(
-		source,
-		BACKGROUND_MASTER_SIZE,
-		method=Image.Resampling.LANCZOS,
-		centering=(0.5, 0.5),
-	)
+	panel_records: list[dict[str, object]] = []
+	top_panels: list[Image.Image] = []
+	bottom_panels: list[Image.Image] = []
+	for name, result_id, column, row, shift_y in BACKGROUND_PANEL_SPECS:
+		path = BACKGROUND_PANEL_ROOT / f"{name}.png"
+		if not path.is_file():
+			raise FileNotFoundError(path)
+		panel = Image.open(path).convert("RGB")
+		if panel.size != BACKGROUND_PANEL_SIZE:
+			raise ValueError(
+				f"bad generated panel size: {path} {panel.size}")
+		if row == 0:
+			prepared = _align_top_panel(panel, shift_y)
+			top_panels.append(prepared)
+		else:
+			prepared = panel
+			bottom_panels.append(prepared)
+		panel_records.append({
+			"name": name,
+			"result_id": result_id,
+			"path": path,
+			"column": column,
+			"row": row,
+			"position": [
+				column * BACKGROUND_PANEL_STEP[0],
+				row * BACKGROUND_PANEL_STEP[1],
+			],
+			"horizon_alignment_shift_y": shift_y,
+		})
+	top_panels[1] = _harmonize_center_edges(
+		top_panels[0], top_panels[1], top_panels[2])
+	bottom_panels[1] = _harmonize_center_edges(
+		bottom_panels[0], bottom_panels[1], bottom_panels[2])
+	master = _assemble_native_background(top_panels, bottom_panels)
 	if master.size != BACKGROUND_MASTER_SIZE:
 		raise ValueError(f"bad background master size: {master.size}")
 	MASTER_ROOT.mkdir(parents=True, exist_ok=True)
@@ -185,7 +331,7 @@ def _build_background() -> tuple[list[Path], list[Path], tuple[int, int]]:
 			path = BACKGROUND_ROOT / f"handoff_background_r{row}_c{column}.png"
 			tile.save(path, format="PNG", optimize=True)
 			outputs.append(path)
-	return inputs, outputs, source_dimensions
+	return references, outputs, panel_records
 
 
 def _place_review_sprite(
@@ -260,7 +406,7 @@ def main() -> None:
 	house = _normalize_subject(Image.open(HOUSE_RAW), remove_field=True)
 	walkway.save(WALKWAY_RUNTIME, format="PNG", optimize=True)
 	house.save(HOUSE_RUNTIME, format="PNG", optimize=True)
-	background_inputs, background_tiles, source_dimensions = _build_background()
+	background_inputs, background_tiles, panel_records = _build_background()
 	_build_review_stage(Image.open(BACKGROUND_MASTER), walkway, house)
 
 	manifest = {
@@ -274,22 +420,59 @@ def main() -> None:
 			"World rather than Sky Lagoon."
 		),
 		"background": {
-			"result_id": "exec-f94c58c7-28bd-455d-897c-c0c7a16588a3",
-			"raw": BACKGROUND_RAW.relative_to(ROOT).as_posix(),
-			"raw_dimensions": list(source_dimensions),
-			"raw_sha256": _hash(BACKGROUND_RAW),
 			"reference_authority": "Lily-Pad Fairy World / Fairy Pond",
 			"reference_inputs": [
 				{"path": path.relative_to(ROOT).as_posix(), "sha256": _hash(path)}
-				for path in background_inputs[1:]
+				for path in background_inputs
 			],
+			"panels": [
+				{
+					"name": str(record["name"]),
+					"result_id": str(record["result_id"]),
+					"path": Path(record["path"]).relative_to(ROOT).as_posix(),
+					"dimensions": list(BACKGROUND_PANEL_SIZE),
+					"sha256": _hash(Path(record["path"])),
+					"row": int(record["row"]),
+					"column": int(record["column"]),
+					"position": list(record["position"]),
+					"horizon_alignment_shift_y": int(
+						record["horizon_alignment_shift_y"]),
+					"scale": 1.0,
+					"role": "native generated full-frame background panel",
+				}
+				for record in panel_records
+			],
+			"panel_prompt_set": {
+				"shared": (
+					"Polished 2D Lily-Pad Fairy World storybook art using the "
+					"approved Fairy Pond palette and rounded painted forms; upright "
+					"eye-level sky-and-water perspective, no Sky Lagoon motifs, no "
+					"characters, no text, and open sky/water at every join."
+				),
+				"top_left": "Left garden bank; open sky and pond toward the right seam.",
+				"top_center": "Open central sky and pond corridor with a clear horizon.",
+				"top_right": "Right garden bank; open sky and pond toward the left seam.",
+				"bottom_left": "Water-only foreground; left bank, open water to the right.",
+				"bottom_center": "Pure open aqua/deep-blue water corridor; no plants.",
+				"bottom_right": "Water-only foreground; right bank, open water to the left.",
+			},
 			"master": {
 				"path": BACKGROUND_MASTER.relative_to(ROOT).as_posix(),
 				"dimensions": list(BACKGROUND_MASTER_SIZE),
 				"sha256": _hash(BACKGROUND_MASTER),
-				"whole_canvas_transform": (
-					"centered ImageOps.fit with Lanczos resampling; no local "
-					"retouch, object move, seam blend, or tile regeneration"
+				"authored_at_target_dimensions": True,
+				"source_pixel_upscale": False,
+				"panel_size": list(BACKGROUND_PANEL_SIZE),
+				"panel_step": list(BACKGROUND_PANEL_STEP),
+				"panel_overlap": list(BACKGROUND_PANEL_OVERLAP),
+				"aligned_horizon_y": BACKGROUND_ALIGNED_HORIZON_Y,
+				"assembly_method": (
+					"six generated full-frame panels placed at native 1:1 scale; "
+					"top horizons aligned by lossless crop or a 12-pixel open-sky "
+					"edge reflection; broad low-frequency center-panel palette "
+					"harmonization preserves all painted forms; linear feathering "
+					"occurs only inside generated open-sky/open-water overlaps; no "
+					"source image is enlarged"
 				),
 			},
 			"runtime_tiles": [
@@ -300,7 +483,10 @@ def main() -> None:
 				}
 				for path in background_tiles
 			],
-			"seam_policy": "single approved master sliced into non-overlapping tiles",
+			"seam_policy": (
+				"generated joins cross open sky/water only; the accepted continuous "
+				"master is then sliced into eight non-overlapping runtime tiles"
+			),
 		},
 		"generated_subjects": {
 			"rainbow_walkway": {

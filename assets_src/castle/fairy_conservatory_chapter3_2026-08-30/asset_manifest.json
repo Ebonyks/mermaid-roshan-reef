@@ -9,7 +9,7 @@
     "matte_core_erosion_pixels": 1,
     "matte_feather_radius_pixels": 0.8,
     "whole_subject_normalization": "fit within 960px on 1024px RGBA canvas",
-    "open_view": "corrected upright Fairy Pond background plus selected Chapter 3 rainbow walkway and Butterfly House cutouts; walkway registered to the exact architectural opening base"
+    "open_view": "corrected upright Fairy Pond background plus selected Chapter 3 rainbow walkway and Butterfly House cutouts; walkway registered with clipped overscan behind the exact architectural opening base"
   },
   "hall_review_inputs": [
     {
@@ -145,9 +145,9 @@
       "raw_source": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/raw/moonflower_door_open_checker_raw.png",
       "raw_sha256": "ec0330cfb80cab1ff3770d4caf0223e82882307d7f9bda4e1d71e68ec0f79eec",
       "alpha_master": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/alpha/moonflower_door_open_alpha_master.png",
-      "alpha_master_sha256": "ddfd2dea7850bba9351db3f459b8920233cd6994854a3e52d0dcf8124ae94621",
+      "alpha_master_sha256": "91249bc04439a23a1f9ef0b8bb53d6a89fe51030168713c35bedb37b132e10c6",
       "runtime": "assets/flats/castle/fairy_conservatory/moonflower_door_open.png",
-      "runtime_sha256": "ddfd2dea7850bba9351db3f459b8920233cd6994854a3e52d0dcf8124ae94621",
+      "runtime_sha256": "91249bc04439a23a1f9ef0b8bb53d6a89fe51030168713c35bedb37b132e10c6",
       "extraction": {
         "source_dimensions": [
           1254,
@@ -183,7 +183,7 @@
       },
       "hall_review": {
         "path": "assets_src/castle/fairy_conservatory_chapter3_2026-08-30/review/moonflower_door_open_hall_1280x720.png",
-        "sha256": "730c24cac43f77998240d0811d7973de3303942503f9edeaec868bbb27db2c77",
+        "sha256": "fc54c3a043c6604feaeea45d562736dbb681c349a2eaa898aa97f58a055c4d96",
         "dimensions": [
           1280,
           720
@@ -193,7 +193,7 @@
       "approved_runtime_inputs": [
         {
           "path": "assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png",
-          "sha256": "cb90e91791d5f98707806b93ca15b70cf906e9c6f8b97ff72d77cad2c2aef869"
+          "sha256": "2feba4cc27a27400a5f950df185da5cd48326031e927bc8f1c09857cb2110c78"
         },
         {
           "path": "assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
@@ -210,12 +210,14 @@
       ],
       "view_composition": {
         "method": "deterministic whole-pixel composite from approved runtime art",
-        "horizon_y": 354,
-        "horizon_fraction": 0.345703125,
+        "horizon_y": 389,
+        "horizon_fraction": 0.3798828125,
         "destination": "Rainbow Stage causeway ending at the Butterfly House",
         "location_authority": "Lily-Pad Fairy World / Fairy Pond",
         "walkway_visible_base_y": 965,
         "walkway_base_matches_opening_base": true,
+        "walkway_threshold_overdraw_pixels": 28,
+        "threshold_coverage_policy": "walkway alpha >=64 across the full opening width for rows 959 through 965 before architectural clipping",
         "opening_mask": {
           "left": 316,
           "right": 708,

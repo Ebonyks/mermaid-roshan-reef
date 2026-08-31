@@ -221,17 +221,22 @@ func _build_new_game_confirmation(stage: Control) -> void:
 	var note := Label.new()
 	note.text = "Your saved adventure will be kept for a grown-up to restore."
 	note.position = Vector2(350, 278)
-	note.size = Vector2(580, 70)
+	note.size = Vector2(580, 132)
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	note.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	StorybookUI.style_label(note, 22, StorybookUI.MUTED, 2)
+	# This warning protects the child's saved progress; it is child/safety copy,
+	# not an adult-caption exception. Keep the exact wording and give its three
+	# wrapped lines enough height at the 1280x720 base canvas.
+	StorybookUI.style_label(note, 28, StorybookUI.INK_SOFT, 2,
+		StorybookUI.ROLE_STATUS)
+	note.max_lines_visible = 3
 	_confirm_root.add_child(note)
 	var keep := _menu_button(
-		_confirm_root, "StartMenuKeepGameButton", "↩  KEEP GAME", Rect2(320, 380, 300, 118), "primary", 30)
+		_confirm_root, "StartMenuKeepGameButton", "↩  KEEP GAME", Rect2(320, 420, 300, 118), "primary", 30)
 	keep.pressed.connect(_cancel_new_game)
 	var start := _menu_button(
-		_confirm_root, "StartMenuConfirmNewGameButton", "★  START NEW", Rect2(660, 380, 300, 118), "gold", 30)
+		_confirm_root, "StartMenuConfirmNewGameButton", "★  START NEW", Rect2(660, 420, 300, 118), "gold", 30)
 	start.pressed.connect(_perform_new_game)
 
 func _continue_game() -> void:

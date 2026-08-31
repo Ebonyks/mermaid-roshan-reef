@@ -100,7 +100,11 @@ func _build_intro() -> void:
 	m.intro_text.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	m.intro_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	m.intro_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	StorybookUI.style_label(m.intro_text, 22, StorybookUI.INK, 2)
+	StorybookUI.style_label(m.intro_text, 22, StorybookUI.INK, 2,
+		StorybookUI.ROLE_ADULT_CAPTION)
+	m.intro_text.set_meta("typography_exception",
+		"adult_caption_voice_picture_redundant")
+	m.intro_text.max_lines_visible = 3
 	caption.add_child(m.intro_text)
 
 	var speaker := Button.new()
