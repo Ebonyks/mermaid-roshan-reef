@@ -92,23 +92,92 @@ func _daddy_case() -> void:
 	await process_frame
 	await process_frame
 	_ck("no pop yet means no daddy bubble", main.castle_partner == null)
+	# An ordinary child pop is the hot save path: one pearl, one debounced
+	# request, and no second award when the same bunny is addressed again.
+	main.save_pending = false
+	main.save_pending_t = 0.0
+	var direct_before: int = main.pearl_count
 	rooms._explode_dust_bunny("sleepy_bunny")
 	await process_frame
+	_ck("ordinary child pop awards one pearl",
+		main.pearl_count == direct_before + 1)
+	_ck("ordinary child pop queues a debounced save",
+		main.save_pending and main.save_pending_t > 0.0)
+	var direct_after: int = main.pearl_count
+	rooms._explode_dust_bunny("sleepy_bunny")
+	await process_frame
+	_ck("ordinary bunny cannot double-award in one visit",
+		main.pearl_count == direct_after)
+	var flushed_pearls: int = main.pearl_count
+	var flushed_ok: bool = main._write_save()
+	_ck("ordinary pop flushes its pending save", flushed_ok
+		and not main.save_pending)
+	_ck("flushed save persists pearls and pearls_ever",
+		int(main.save_data.get("pearls", -1)) == flushed_pearls
+			and int(main.save_data.get("pearls_ever", -1)) == main.pearls_ever
+			and main.pearls_ever >= flushed_pearls)
+	var disk_pearls: int = -1
+	var disk_pearls_ever: int = -1
+	var save_file: FileAccess = FileAccess.open("user://reef_save.json",
+		FileAccess.READ)
+	if save_file != null:
+		var raw_save: Variant = JSON.parse_string(save_file.get_as_text())
+		save_file.close()
+		if raw_save is Dictionary:
+			disk_pearls = int((raw_save as Dictionary).get("pearls", -1))
+			disk_pearls_ever = int((raw_save as Dictionary).get(
+				"pearls_ever", -1))
+	_ck("flushed save reaches disk",
+		disk_pearls == flushed_pearls and disk_pearls_ever == main.pearls_ever)
+	_ck("castle bunny clears remain session-only",
+		not main.save_data.has("castle_dust_bunnies_cleared"))
 	_ck("her first pop invites Daddy",
 		main.castle_partner != null and main.castle_partner.ready())
+	var daddy_before: int = main.pearl_count
 	main.castle_partner.on_bubble_tap()
 	await process_frame
+	var ordinary_after_child: int = 0
+	for item_id_value: Variant in main.g["castle_dust_bunnies_cleared"]:
+		var item_id := String(item_id_value)
+		if item_id != "sleepy_bunny":
+			ordinary_after_child += 1
+	_ck("Daddy partner-pop awards each remaining ordinary bunny once",
+		main.pearl_count == daddy_before + ordinary_after_child)
 	_ck("DADDY SPLASH clears the hall dust", _live_dust_count() == 0)
 	_ck("the splash starts Daddy's rest", not main.castle_partner.ready())
+	var daddy_after: int = main.pearl_count
+	main.castle_partner.cool = 0.0
+	main.castle_partner.on_bubble_tap()
+	await process_frame
+	_ck("repeated Daddy splash cannot double-award this visit",
+		main.pearl_count == daddy_after)
+	# Closing the castle clears only the session bunny map. Reopening therefore
+	# restores the ordinary room offer, while the flushed wallet remains intact.
+	rooms.close()
+	await process_frame
+	rooms.open("main_hall")
+	await process_frame
+	await process_frame
+	var reopen_before: int = main.pearl_count
+	rooms._explode_dust_bunny("sleepy_bunny")
+	await process_frame
+	_ck("close/reopen restores an ordinary bunny",
+		main.pearl_count == reopen_before + 1)
+	var reopen_after: int = main.pearl_count
+	rooms._explode_dust_bunny("sleepy_bunny")
+	_ck("reopened visit still prevents a double award",
+		main.pearl_count == reopen_after)
 	# the rescue pins are HER moment: a splash in the playroom spares them
 	rooms.show_room("playroom", false)
 	await process_frame
 	var pins_before: int = _live_dust_count()
 	_ck("playroom rescue pins spawn", pins_before == 2)
+	var rescue_pearl_before: int = main.pearl_count
 	main.castle_partner.cool = 0.0
 	main.castle_partner.on_bubble_tap()
 	await process_frame
 	_ck("splash never pops the rescue pins", _live_dust_count() == pins_before)
+	_ck("rescue pins remain pearl-free", main.pearl_count == rescue_pearl_before)
 	rooms.close()
 	await process_frame
 	_ck("closing the castle stows the bubble", main.castle_partner == null)

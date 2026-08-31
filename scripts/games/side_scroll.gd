@@ -134,6 +134,27 @@ func close() -> void:
 	if m.player != null:
 		m.player.rotation.z = 0.0
 
+# Keep the emulated-pointer decision separate from the stick/manual channel.
+# TouchScreen events do not reliably synthesize an emulated mouse in headless
+# runs, so this also gives the touch probe a deterministic seam without
+# manufacturing stick_vec or player motion. Reserved controls suppress only
+# pointer steering; the caller still applies its already-read stick input.
+func _catch_pointer_sample(pointer_pressed: bool, pointer_pos: Vector2,
+		current_x: float, half_w: float) -> Dictionary:
+	if not pointer_pressed:
+		return {"x": current_x, "pointing": false}
+	if m.touch_ui != null and m.touch_ui.reserved_zone_hit(pointer_pos):
+		return {"x": current_x, "pointing": false}
+	var vp: Viewport = m.get_viewport()
+	if vp == null:
+		return {"x": current_x, "pointing": false}
+	var vsz: Vector2 = vp.get_visible_rect().size
+	if vsz.x <= 1.0:
+		return {"x": current_x, "pointing": false}
+	var t: float = clampf(pointer_pos.x / vsz.x, 0.0, 1.0)
+	var target_x: float = (t * 2.0 - 1.0) * half_w * 1.05
+	return {"x": lerpf(current_x, target_x, 0.2), "pointing": true}
+
 # ---- catch mode: steer on a line -------------------------------------------
 func tick(delta: float) -> Dictionary:
 	# returns {mx, px, moved} — game code layers objectives on top
@@ -155,17 +176,14 @@ func tick(delta: float) -> Dictionary:
 	mx = clampf(mx, -1.0, 1.0)
 	var x := px()
 	var pointing := false
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		# point-and-she-swims-there: finger/mouse screen x maps to stage x
-		# (touch reaches here through Godot's emulated mouse, same as the old
-		# 2D catcher's drag control)
-		var vp := m.get_viewport()
-		if vp != null:
-			var vsz: Vector2 = vp.get_visible_rect().size
-			if vsz.x > 1.0:
-				var t: float = clampf(vp.get_mouse_position().x / vsz.x, 0.0, 1.0)
-				x = lerpf(x, (t * 2.0 - 1.0) * half_w * 1.05, 0.2)
-				pointing = true
+	var vp: Viewport = m.get_viewport()
+	var pointer_pos := Vector2.ZERO
+	if vp != null:
+		pointer_pos = vp.get_mouse_position()
+	var pointer: Dictionary = _catch_pointer_sample(
+		Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT), pointer_pos, x, half_w)
+	x = float(pointer.get("x", x))
+	pointing = bool(pointer.get("pointing", false))
 	x = clampf(x + mx * float(cfg.get("steer_speed", 24.8)) * delta, -half_w, half_w)
 	m.g["ss_bob"] = float(m.g.get("ss_bob", 0.0)) + delta
 	var hover: float = float(cfg.get("hover", 3.0)) + sin(float(m.g["ss_bob"]) * 2.2) * float(cfg.get("bob_amp", 0.5))

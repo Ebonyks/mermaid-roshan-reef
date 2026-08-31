@@ -77,6 +77,7 @@ var m: ReefMain
 
 # --- audio plumbing -----------------------------------------------------
 var _bus_idx := -1
+var _analyzer_idx := -1
 var _player: AudioStreamPlayer = null
 var _analyzer: AudioEffectSpectrumAnalyzerInstance = null
 var _edges := PackedFloat32Array()
@@ -214,24 +215,30 @@ func _ensure_permission() -> bool:
 
 
 func _ensure_bus() -> void:
-	if _bus_idx >= 0 and _bus_idx < AudioServer.bus_count and AudioServer.get_bus_name(_bus_idx) == "Mic":
-		return
 	var found: int = AudioServer.get_bus_index("Mic")
 	if found < 0:
 		found = AudioServer.bus_count
 		AudioServer.add_bus(found)
 		AudioServer.set_bus_name(found, "Mic")
-		AudioServer.set_bus_send(found, "Master")
 	_bus_idx = found
 	# -80 dB, NOT mute: the analyzer is a bus effect and must still see the
 	# signal, while nothing the microphone hears can ever reach the speaker.
 	# (Playing the mic back into a phone speaker is an instant feedback howl.)
+	AudioServer.set_bus_send(_bus_idx, "Master")
 	AudioServer.set_bus_volume_db(_bus_idx, -80.0)
-	if AudioServer.get_bus_effect_count(_bus_idx) == 0:
+	AudioServer.set_bus_mute(_bus_idx, false)
+	_analyzer_idx = -1
+	for effect_idx in range(AudioServer.get_bus_effect_count(_bus_idx)):
+		var effect: AudioEffect = AudioServer.get_bus_effect(_bus_idx, effect_idx)
+		if effect is AudioEffectSpectrumAnalyzer:
+			_analyzer_idx = effect_idx
+			break
+	if _analyzer_idx < 0:
 		var fx := AudioEffectSpectrumAnalyzer.new()
 		fx.fft_size = AudioEffectSpectrumAnalyzer.FFT_SIZE_1024
 		fx.buffer_length = 0.1
 		AudioServer.add_bus_effect(_bus_idx, fx)
+		_analyzer_idx = AudioServer.get_bus_effect_count(_bus_idx) - 1
 	_analyzer = null
 
 
@@ -277,9 +284,13 @@ func _game_audio_playing() -> bool:
 # Reads one feature frame from the spectrum analyzer into _frame/_frame_db.
 func _read_frame() -> bool:
 	if _analyzer == null:
-		if _bus_idx < 0:
+		if _bus_idx < 0 or _bus_idx >= AudioServer.bus_count \
+				or AudioServer.get_bus_name(_bus_idx) != "Mic":
+			_ensure_bus()
+		if _bus_idx < 0 or _analyzer_idx < 0:
 			return false
-		_analyzer = AudioServer.get_bus_effect_instance(_bus_idx, 0) as AudioEffectSpectrumAnalyzerInstance
+		_analyzer = AudioServer.get_bus_effect_instance(
+			_bus_idx, _analyzer_idx) as AudioEffectSpectrumAnalyzerInstance
 		if _analyzer == null:
 			return false          # the bus has not mixed yet; try again next tick
 	var total := 0.0

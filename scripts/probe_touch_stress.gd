@@ -64,12 +64,78 @@ func _init() -> void:
 		return
 	main._set_touch_mode("hybrid", false)
 	main._populate_touch_interactables()
+	_pointer_reservation_gate()
 	await _agreement_gate()
 	await _lagoon_gate()
 	await _churn_gate()
 	_finish()
 
 # ---------------------------------------------------------------- gate 1 -----
+
+func _pointer_reservation_gate() -> void:
+	# InputEventScreenTouch is deliberately not used for this assertion: Godot's
+	# headless runner does not promise an emulated mouse for synthetic touches.
+	# The side-scroll seam receives the same viewport point and pressed state that
+	# tick() reads, so this checks ownership without manufacturing motion.
+	var stage: SideScrollStage = SideScrollStage.new(main)
+	var screen: Vector2 = get_root().get_viewport().get_visible_rect().size
+	var action: Vector2 = touch.action_zone().get_center()
+	var movement: Vector2 = touch.movement_zone().get_center()
+	var pause: Vector2 = touch.pause_zone().get_center()
+	var open_world := Vector2(screen.x * 0.58, screen.y * 0.32)
+	var current_x := 0.0
+	var half_w := 23.2
+	var action_sample: Dictionary = stage._catch_pointer_sample(
+		true, action, current_x, half_w)
+	var movement_sample: Dictionary = stage._catch_pointer_sample(
+		true, movement, current_x, half_w)
+	var pause_sample: Dictionary = stage._catch_pointer_sample(
+		true, pause, current_x, half_w)
+	var world_sample: Dictionary = stage._catch_pointer_sample(
+		true, open_world, current_x, half_w)
+	var released_sample: Dictionary = stage._catch_pointer_sample(
+		false, open_world, current_x, half_w)
+	var hybrid_ok: bool = not bool(action_sample["pointing"]) \
+		and not bool(movement_sample["pointing"]) \
+		and not bool(pause_sample["pointing"]) \
+		and is_zero_approx(float(action_sample["x"])) \
+		and is_zero_approx(float(movement_sample["x"])) \
+		and is_zero_approx(float(pause_sample["x"])) \
+		and bool(world_sample["pointing"]) \
+		and not is_zero_approx(float(world_sample["x"])) \
+		and not bool(released_sample["pointing"]) \
+		and is_zero_approx(float(released_sample["x"]))
+	if hybrid_ok:
+		_ok("catch_pointer_hybrid_reservation",
+			"action, movement, pause suppress pointer only; open world steers")
+	else:
+		_bad("Hybrid catch pointer ownership failed: action=%s movement=%s " \
+			+ "pause=%s world=%s release=%s" % [action_sample,
+			movement_sample, pause_sample, world_sample, released_sample])
+
+	# Classic keeps the original all-screen pointer vocabulary except for the
+	# separately-owned pause corner. Restore Hybrid before the real touch gates.
+	main._set_touch_mode("classic", false)
+	var classic_action: bool = touch.reserved_zone_hit(action)
+	var classic_movement: bool = touch.reserved_zone_hit(movement)
+	var classic_pause: bool = touch.reserved_zone_hit(pause)
+	var classic_sample: Dictionary = stage._catch_pointer_sample(
+		true, action, current_x, half_w)
+	var classic_ok: bool = not classic_action and not classic_movement \
+		and classic_pause and bool(classic_sample["pointing"])
+	if classic_ok:
+		_ok("catch_pointer_classic_compat", "action and movement remain pointer-owned")
+	else:
+		_bad("Classic catch pointer compatibility failed action=%s movement=%s " \
+			+ "pause=%s sample=%s" % [str(classic_action),
+			str(classic_movement), str(classic_pause), classic_sample])
+	main._set_touch_mode("hybrid", false)
+	var reentry_sample: Dictionary = stage._catch_pointer_sample(
+		true, open_world, current_x, half_w)
+	if bool(reentry_sample["pointing"]):
+		_ok("catch_pointer_reentry", "release is neutral; open-world pointer re-enters")
+	else:
+		_bad("Hybrid pointer did not re-enter open world after mode/focus reset")
 
 func _agreement_gate() -> void:
 	var bay: Rect2 = touch.movement_zone()

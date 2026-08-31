@@ -29,6 +29,7 @@ func _init() -> void:
 	main._skip_intro()
 	await process_frame
 	mic = main._mic_ref()
+	_runtime_audio_repair_case()
 	_teaching_case()
 	_recognition_case()
 	_rejection_case()
@@ -37,6 +38,43 @@ func _init() -> void:
 	await _arena_case()
 	print("MIC|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
+
+
+func _runtime_audio_repair_case() -> void:
+	var mic_idx: int = AudioServer.get_bus_index("Mic")
+	if mic_idx < 0:
+		AudioServer.add_bus()
+		mic_idx = AudioServer.bus_count - 1
+		AudioServer.set_bus_name(mic_idx, "Mic")
+	while AudioServer.get_bus_effect_count(mic_idx) > 0:
+		AudioServer.remove_bus_effect(
+			mic_idx, AudioServer.get_bus_effect_count(mic_idx) - 1)
+	var non_analyzer: AudioEffectCompressor = AudioEffectCompressor.new()
+	AudioServer.add_bus_effect(mic_idx, non_analyzer)
+	var analyzer: AudioEffectSpectrumAnalyzer = AudioEffectSpectrumAnalyzer.new()
+	AudioServer.add_bus_effect(mic_idx, analyzer)
+	AudioServer.set_bus_volume_db(mic_idx, -12.0)
+	AudioServer.set_bus_mute(mic_idx, true)
+	AudioServer.set_bus_send(mic_idx, "SFX")
+	mic._bus_idx = -1
+	mic._ensure_bus()
+	var repaired_idx: int = AudioServer.get_bus_index("Mic")
+	var analyzer_count: int = 0
+	var discovered_idx: int = -1
+	for effect_idx in range(AudioServer.get_bus_effect_count(repaired_idx)):
+		var effect: AudioEffect = AudioServer.get_bus_effect(repaired_idx, effect_idx)
+		if effect is AudioEffectSpectrumAnalyzer:
+			analyzer_count += 1
+			discovered_idx = effect_idx
+	_ck("runtime Mic repair restores safe routing", repaired_idx >= 0 \
+		and is_equal_approx(AudioServer.get_bus_volume_db(repaired_idx), -80.0) \
+		and not AudioServer.is_bus_mute(repaired_idx) \
+		and AudioServer.get_bus_send(repaired_idx) == "Master")
+	_ck("runtime Mic repair finds analyzer after non-analyzer effect", \
+		analyzer_count == 1 and mic._analyzer_idx == discovered_idx \
+		and mic._analyzer_idx > 0)
+	_ck("runtime Mic repair does not add a duplicate analyzer", \
+		AudioServer.get_bus_effect_count(repaired_idx) == 2)
 
 
 func _ck(label: String, ok: bool) -> void:

@@ -26,6 +26,15 @@ func _init() -> void:
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
+	var mic: MicInput = main._mic_ref()
+	var mic_idx: int = AudioServer.get_bus_index("Mic")
+	_check("declared Mic bus is slot 6 before arming", mic_idx == 6)
+	_check("declared Mic bus is muted by volume, not mute", mic_idx >= 0 \
+		and is_equal_approx(AudioServer.get_bus_volume_db(mic_idx), -80.0) \
+		and not AudioServer.is_bus_mute(mic_idx))
+	_check("declared Mic bus sends to Master", mic_idx >= 0 \
+		and AudioServer.get_bus_send(mic_idx) == "Master")
+	mic.arm()
 	for bus_name: String in ["Music", "Voice", "SFX", "Ambience", "UI"]:
 		_check("%s bus exists" % bus_name, AudioServer.get_bus_index(bus_name) >= 0)
 	_check("music is routed", main.music != null and main.music.bus == "Music")

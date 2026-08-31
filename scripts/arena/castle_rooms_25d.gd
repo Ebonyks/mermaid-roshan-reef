@@ -4080,6 +4080,7 @@ func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 	# reward flow and stay pearl-free.
 	if not bool(item_data.get("rescue_bunny", false)):
 		m.pearl_count += 1
+		m._queue_save()
 	if not partner_pop and m.castle_dust_he != null:
 		var chain_level: int = m.castle_dust_he.note_hit_2d(
 			sprite.global_position)
