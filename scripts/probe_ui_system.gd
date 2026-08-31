@@ -158,6 +158,24 @@ func _check_storybook_coverage() -> void:
 	_check(not companion_source.contains("companion_hud_btn")
 		and not companion_source.contains("func open_menu()"),
 		"legacy duplicate Stuffie launcher and care panel stay removed")
+	var comfy_source := FileAccess.get_file_as_string(
+		"res://scripts/comfy_games.gd")
+	_check(not comfy_source.contains("DayTwoComfyInvitation")
+		and not comfy_source.contains("ComfyHideAndSeekProgress")
+		and not comfy_source.contains("ComfyHideAndSeekComplete")
+		and comfy_source.contains("direct_world_character"),
+		"comfy demos use tappable world friends without overlay badges")
+	var chapter_two_plot_source := FileAccess.get_file_as_string(
+		"res://scripts/chapter_two_room_plot.gd")
+	_check(not chapter_two_plot_source.contains("ChapterTwoPlotAbility")
+		and not chapter_two_plot_source.contains("Button.new()")
+		and chapter_two_plot_source.contains("direct_world_art_hotspot"),
+		"Chapter 2 room plots use painted props without an ability overlay")
+	var opera_venue_source := FileAccess.get_file_as_string(
+		"res://scripts/opera_house_venue_2d.gd")
+	_check(not opera_venue_source.contains("BubbleLift")
+		and not opera_venue_source.contains("OperaVenueBack"),
+		"Opera venue keeps direct painted doors and no local lift or Back controls")
 
 func _check_typography_coverage() -> void:
 	var storybook_source: String = FileAccess.get_file_as_string(
