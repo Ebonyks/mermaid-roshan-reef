@@ -7,6 +7,38 @@ extends SceneTree
 var main: Node3D
 var player: Node3D
 
+# The passive gate watches the same durable reward/progress document that
+# SaveState writes. Keep settings, session counters, schema metadata and the
+# retired compatibility flag out of this projection deliberately.
+const REWARD_DOMAIN_KEYS: Array[String] = [
+	"won", "found", "finale", "pearls", "pearls_ever", "portal_unlocked",
+	"skin", "level2", "custom_fish", "custom_friends", "crafts",
+	"castle_logo_color", "castle_logo_symbol", "attack_color", "attack_effect",
+	"galaxy", "bwdone", "fairyskin", "chapter3_fairy_door_revealed",
+	"chapter3_fairy_door_opened", "chapter3_fairy_mission_started",
+	"combat_ice", "combat_fire", "combat_tutorial", "dungeon_progress",
+	"dungeon_done", "ember_found", "ember_progress", "ember_done",
+	"opera_progress", "opera_stars", "opera_done", "opera_pantry",
+	"stickers", "owned", "animals", "critters", "companion",
+	"companion_colors", "fish_tokens", "care_points", "companion_bruises",
+	"lagoon_plane_departed", "stuffie_wins", "medals",
+	"day_one_active", "day_one_current_room", "day_one_completed_rooms",
+	"day_one_cleaned_rooms", "day_one_jobs_locked", "day_one_opera_enabled",
+	"day_one_arrival_plane_media_seen", "day_one_dirty_castle_discovered",
+	"day_one_grok_video_2_seen", "day_one_boss_door_glow",
+	"day_one_giant_dust_bunny_boss_triggered", "day_one_bathroom_cleanup_step",
+	"day_one_bathroom_supply_hunt_step", "day_one_bathroom_tools_authorized",
+	"day_one_bathroom_tub_drained", "day_one_pool_cleanup_step",
+	"day_one_pool_rumi_met", "day_one_pool_skimmer_mask",
+	"day_one_pool_waterfall_mask", "day_one_pool_seahorse_tugs",
+	"day_one_art_collected_materials", "day_one_art_cleaned_grime",
+	"day_one_art_desk_unlocked", "day_one_art_customization_completed",
+]
+const EXCLUDED_SERIALIZER_KEYS: Array[String] = [
+	"schema_version", "save_generation", "plays", "music", "mic", "haptics",
+	"quality", "touch_mode", "companion_resting",
+]
+
 func _init() -> void:
 	seed(20260709)
 	Engine.time_scale = 6.0
@@ -21,6 +53,8 @@ func _init() -> void:
 	player = main.player
 	print("PASSIVE|boot OK")
 	var bad := 0
+	bad += _probe_reward_projection_coverage()
+	bad += _probe_reward_projection_controls()
 	# Ambient critters may sparkle and move, but zero input can never add them.
 	main.critter_collection = {}
 	main.touch_ui.action_down = false
@@ -150,27 +184,155 @@ func _save_fingerprint() -> String:
 	var path := "user://reef_save.json"
 	return FileAccess.get_sha256(path) if FileAccess.file_exists(path) else "absent"
 
+func _copy_projection_value(value: Variant) -> Variant:
+	if value is Dictionary:
+		return (value as Dictionary).duplicate(true)
+	if value is Array:
+		return (value as Array).duplicate(true)
+	return value
+
+func _friend_progress_flags(field: String) -> Dictionary:
+	var flags: Dictionary = {}
+	for friend: Dictionary in main.friends:
+		flags[String(friend.get("fname", ""))] = bool(friend.get(field, false))
+	return flags
+
+func _serializer_field_set() -> Dictionary:
+	var fields: Dictionary = {}
+	for key: String in SaveState.KNOWN_KEYS:
+		fields[key] = true
+	for key: String in SaveState.BOOL_KEYS:
+		fields[key] = true
+	for key: String in SaveState.DICTIONARY_KEYS:
+		fields[key] = true
+	for key: String in SaveState.ARRAY_KEYS:
+		fields[key] = true
+	# _normalise_save is the serializer's complete current field surface,
+	# including additive fields intentionally absent from KNOWN_KEYS.
+	var serializer: SaveState = SaveState.new(main as ReefMain)
+	var normalised: Dictionary = serializer._normalise_save({})
+	for key: String in normalised:
+		fields[key] = true
+	return fields
+
+func _probe_reward_projection_coverage() -> int:
+	var serializer_fields: Dictionary = _serializer_field_set()
+	var uncovered: Array[String] = []
+	for key: String in serializer_fields:
+		if not REWARD_DOMAIN_KEYS.has(key) and not EXCLUDED_SERIALIZER_KEYS.has(key):
+			uncovered.append(key)
+	var stale: Array[String] = []
+	for key: String in REWARD_DOMAIN_KEYS:
+		if not serializer_fields.has(key):
+			stale.append(key)
+	uncovered.sort()
+	stale.sort()
+	var ok: bool = uncovered.is_empty() and stale.is_empty()
+	print("PASSIVE|Reward projection coverage: ",
+		"OK %d serializer fields covered" % serializer_fields.size() if ok else \
+		"FAIL uncovered=%s stale=%s" % [uncovered, stale])
+	return 0 if ok else 1
+
+func _reward_projection() -> Dictionary:
+	var source: Dictionary = SaveState.new(main as ReefMain)._normalise_save(
+		main.save_data)
+	source["won"] = _friend_progress_flags("won")
+	source["found"] = _friend_progress_flags("found")
+	source["finale"] = main.finale_done
+	source["pearls"] = main.pearl_count
+	source["pearls_ever"] = main.pearls_ever
+	source["portal_unlocked"] = main.portal_unlocked
+	source["skin"] = main.skin_id
+	source["level2"] = main.level2_done_once
+	source["custom_fish"] = main.custom_fish
+	source["custom_friends"] = main.custom_friends
+	source["crafts"] = main.craft_unlocks
+	source["castle_logo_color"] = main.castle_logo_color
+	source["castle_logo_symbol"] = main.castle_logo_symbol
+	source["attack_color"] = main.attack_color.to_html(false)
+	source["attack_effect"] = main.attack_effect
+	source["galaxy"] = main.galaxy_unlocked
+	source["bwdone"] = main.bwd_done
+	source["fairyskin"] = main.fairy_skin_unlocked
+	source["chapter3_fairy_door_revealed"] = main.chapter3_fairy_door_revealed
+	source["chapter3_fairy_door_opened"] = main.chapter3_fairy_door_opened
+	source["chapter3_fairy_mission_started"] = main.chapter3_fairy_mission_started
+	source["combat_ice"] = main.combat_ice_done
+	source["combat_fire"] = main.combat_fire_done
+	source["combat_tutorial"] = main.combat_tutorial_done
+	source["dungeon_progress"] = main.dungeon_progress
+	source["dungeon_done"] = main.dungeon_done
+	source["ember_found"] = main.ember_found
+	source["ember_progress"] = main.ember_progress
+	source["ember_done"] = main.ember_done
+	source["opera_progress"] = main.opera_progress
+	source["opera_stars"] = main.opera_stars
+	source["opera_done"] = main.opera_done
+	source["opera_pantry"] = main.opera_pantry
+	source["stickers"] = main.stickers
+	source["owned"] = main.shop_owned
+	source["animals"] = main.animals_owned
+	source["critters"] = main.critter_collection
+	source["companion"] = main.companion_id
+	source["companion_colors"] = main.companion_colors
+	source["fish_tokens"] = main.fish_tokens
+	source["care_points"] = main.care_points
+	source["companion_bruises"] = main.companion_bruises
+	source["stuffie_wins"] = main.stuffie_wins
+	source["medals"] = main.medals
+	# Day One is merged by SaveState.write_save; use its live normalized patch
+	# so its reward/progress state is covered by the same central snapshot.
+	source.merge(main._day_one_ref().serialize_state(), true)
+	var projection: Dictionary = {}
+	for key: String in REWARD_DOMAIN_KEYS:
+		if source.has(key):
+			projection[key] = _copy_projection_value(source[key])
+	return projection
+
+func _probe_reward_projection_controls() -> int:
+	var baseline: Dictionary = _reward_projection()
+	var pearls_before: int = main.pearl_count
+	main.pearl_count = pearls_before + 1
+	var scalar_changed: bool = _reward_projection() != baseline
+	main.pearl_count = pearls_before
+
+	var stickers_before: Dictionary = main.stickers.duplicate(true)
+	main.stickers["_passive_probe_unauthorized"] = true
+	var map_changed: bool = _reward_projection() != baseline
+	main.stickers = stickers_before
+
+	var fish_before: Array = main.custom_fish.duplicate(true)
+	main.custom_fish.append(["_passive_probe_unauthorized"])
+	var array_changed: bool = _reward_projection() != baseline
+	main.custom_fish = fish_before
+
+	var plane_present: bool = main.save_data.has("lagoon_plane_departed")
+	var plane_before: Variant = main.save_data.get("lagoon_plane_departed", false)
+	main.save_data["lagoon_plane_departed"] = not bool(plane_before)
+	var save_only_changed: bool = _reward_projection() != baseline
+	if plane_present:
+		main.save_data["lagoon_plane_departed"] = plane_before
+	else:
+		main.save_data.erase("lagoon_plane_departed")
+
+	var music_before: bool = main.music_on
+	main.music_on = not music_before
+	var setting_ignored: bool = _reward_projection() == baseline
+	main.music_on = music_before
+	var ok: bool = scalar_changed and map_changed and array_changed \
+		and save_only_changed and setting_ignored
+	print("PASSIVE|Reward projection mutation controls: ",
+		"OK scalar/map/array/save-only detect; setting ignored" if ok else \
+		"FAIL scalar=%s map=%s array=%s save_only=%s setting_ignored=%s" \
+		% [scalar_changed, map_changed, array_changed, save_only_changed,
+			setting_ignored])
+	return 0 if ok else 1
+
 func _progress_snapshot() -> Dictionary:
-	var stickers_now: Dictionary = main.stickers
-	var shop_now: Dictionary = main.shop_owned
-	var animals_now: Dictionary = main.animals_owned
-	var medals_now: Dictionary = main.medals
-	return {
-		"pearls": int(main.pearl_count),
-		"trophies": int(main.trophies),
-		"stickers": stickers_now.duplicate(true),
-		"shop": shop_now.duplicate(true),
-		"animals": animals_now.duplicate(true),
-		"medals": medals_now.duplicate(true),
-	}
+	return _reward_projection()
 
 func _progress_unchanged(before: Dictionary) -> bool:
-	return int(main.pearl_count) == int(before["pearls"]) \
-		and int(main.trophies) == int(before["trophies"]) \
-		and main.stickers == before["stickers"] \
-		and main.shop_owned == before["shop"] \
-		and main.animals_owned == before["animals"] \
-		and main.medals == before["medals"]
+	return _reward_projection() == before
 
 func _probe_companion_patient_care() -> int:
 	# The retired 120-second send-home path was a zero-input failure. Cross that
