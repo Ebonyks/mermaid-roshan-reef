@@ -32,6 +32,7 @@ func _init() -> void:
 	_audit_boss_boundary()
 	_audit_tutorial_boundary()
 	_audit_foyer_routes()
+	_audit_cake_visual_progression()
 	_audit_eight_career_sequence()
 	_audit_save_healing()
 
@@ -113,6 +114,93 @@ func _audit_foyer_routes() -> void:
 			ChapterTwoDirector.ACT_BALLERINA) == "playroom"
 		and CastleCareerRoutes.chapter2_foyer_owner_room(
 			ChapterTwoDirector.ACT_DETECTIVE) == "library")
+
+
+func _audit_cake_visual_progression() -> void:
+	var cake := ChapterTwoGiantCake2D.new()
+	cake.setup()
+	cake.apply_milestone_masks(
+		ChapterTwoDirector.STRAWBERRY_REQUIRED_MASK, 0)
+	_check("Farmer hands the same five visible strawberries to the kitchen",
+		cake.stage_id() == "farmer_strawberry_ingredients"
+		and cake.current_cake_accessory_art_path()
+		== ChapterTwoGiantCake2D.STRAWBERRY_SINGLE_TEXTURE
+		and int(cake.get_meta("farmer_ingredient_sprite_count", 0))
+		== ChapterTwoGiantCake2D.FINAL_CANDIED_STRAWBERRY_COUNT)
+	var expected: Array[Dictionary] = [
+		{"mask": 0x01, "stage": "chef_batter_unstirred",
+			"phase": "mix_batter", "path":
+			ChapterTwoGiantCake2D.BATTER_UNSTIRRED_TEXTURE},
+		{"mask": 0x03, "stage": "chef_batter_stirred",
+			"phase": "stir_batter", "path":
+			ChapterTwoGiantCake2D.BATTER_STIRRED_TEXTURE},
+		{"mask": 0x07, "stage": "chef_baked_tiers_unstacked",
+			"phase": "bake_six_rainbow_tiers", "path":
+			ChapterTwoGiantCake2D.BAKED_TIERS_UNSTACKED_TEXTURE},
+		{"mask": 0x0F, "stage": "chef_stacked_unfrosted_cake",
+			"phase": "stack_six_rainbow_tiers", "path":
+			ChapterTwoGiantCake2D.STACKED_UNFROSTED_TEXTURE},
+		{"mask": 0x1F, "stage": "chef_frosted_rainbow_cake",
+			"phase": "frost_six_rainbow_tiers", "path":
+			ChapterTwoGiantCake2D.FROSTED_RAINBOW_TEXTURE},
+	]
+	var staged_art_is_complete := true
+	for stage: Dictionary in expected:
+		cake.apply_milestone_masks(
+			ChapterTwoDirector.STRAWBERRY_REQUIRED_MASK,
+			int(stage.get("mask", 0)))
+		var path := String(stage.get("path", ""))
+		staged_art_is_complete = staged_art_is_complete \
+			and cake.stage_id() == String(stage.get("stage", "")) \
+			and cake.visual_phase_id() == String(stage.get("phase", "")) \
+			and cake.current_cake_stage_art_path() == path \
+			and ResourceLoader.exists(path)
+	_check("Chef visibly builds one persistent cake through five distinct states",
+		staged_art_is_complete
+		and int(cake.get_meta("stage_art_source_count", 0)) == 5
+		and bool(cake.get_meta("stage_art_renderer_is_sprite2d", false))
+		and not bool(cake.get_meta("cake_stage_contains_candle", true)))
+	cake.apply_milestone_masks(
+		ChapterTwoDirector.STRAWBERRY_REQUIRED_MASK, 0x3F)
+	_check("Candy Maker keeps the frosted cake and stages five glazed berries",
+		cake.stage_id() == "candied_strawberries_preplacement"
+		and cake.current_cake_stage_art_path()
+		== ChapterTwoGiantCake2D.FROSTED_RAINBOW_TEXTURE
+		and cake.current_cake_accessory_art_path()
+		== ChapterTwoGiantCake2D.CANDIED_STRAWBERRY_TRAY_TEXTURE
+		and bool(cake.get_meta("candied_tray_is_sprite2d", false)))
+	cake.apply_milestone_masks(
+		ChapterTwoDirector.STRAWBERRY_REQUIRED_MASK, 0x7F)
+	_check("Candy placement reveals the selected runtime cake without a candle",
+		cake.stage_id() == "placed_final"
+		and cake.current_cake_stage_art_path()
+		== ChapterTwoGiantCake2D.FINAL_CAKE_TEXTURE
+		and cake.current_cake_accessory_art_path().is_empty()
+		and bool(cake.get_meta("final_cake_sprite_visible", false))
+		and int(cake.get_meta("final_candied_strawberry_count", 0))
+		== ChapterTwoGiantCake2D.FINAL_CANDIED_STRAWBERRY_COUNT
+		and not bool(cake.get_meta("cake_stage_contains_candle", true)))
+	var chef := ChapterTwoCareerSceneAdapter.resolve("chef")
+	var chef_phases := chef.get("phases", []) as Array
+	var candy := ChapterTwoCareerSceneAdapter.resolve("candymaker")
+	var candy_phases := candy.get("phases", []) as Array
+	var phase_assets_are_truthful := chef_phases.size() == 5 \
+		and candy_phases.size() == 4
+	for phase_index in range(chef_phases.size()):
+		var phase := chef_phases[phase_index] as Dictionary
+		phase_assets_are_truthful = phase_assets_are_truthful \
+			and String(phase.get("cake_stage_asset", "")) \
+			== String(expected[phase_index].get("path", ""))
+	phase_assets_are_truthful = phase_assets_are_truthful \
+		and String((candy_phases[2] as Dictionary).get(
+			"cake_accessory_asset", "")) \
+		== ChapterTwoGiantCake2D.CANDIED_STRAWBERRY_TRAY_TEXTURE \
+		and String((candy_phases[3] as Dictionary).get(
+			"cake_stage_asset", "")) \
+		== ChapterTwoGiantCake2D.FINAL_CAKE_TEXTURE
+	_check("Chef and Candy Maker phase data names the actual resulting art",
+		phase_assets_are_truthful)
+	cake.free()
 
 
 func _audit_eight_career_sequence() -> void:
@@ -364,6 +452,13 @@ func _audit_save_healing() -> void:
 		== 0x0F
 		and int(partial.get("chapter2_party_event_phase", -1))
 		== ChapterTwoDirector.PARTY_EVENT_PREP)
+	var skipped_cake_piece: Dictionary = ChapterTwoDirector.normalise_save_patch({
+		"day_one_giant_dust_bunny_boss_defeated": true,
+		"chapter2_party_piece_mask": 1 << ChapterTwoDirector.ACT_FARMER,
+		"chapter2_cake_piece_mask": 0x5F,
+	}, 0)
+	_check("save healing stores the same contiguous cake rendered after load",
+		int(skipped_cake_piece.get("chapter2_cake_piece_mask", -1)) == 0x1F)
 	var resumable: Dictionary = ChapterTwoDirector.normalise_save_patch({
 		"day_one_giant_dust_bunny_boss_defeated": true,
 		"chapter2_party_piece_mask": 1 << ChapterTwoDirector.ACT_FARMER,

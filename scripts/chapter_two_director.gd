@@ -753,6 +753,9 @@ static func normalise_save_patch(raw: Variant, opera_star_mask: int) -> Dictiona
 		cake_piece_mask |= CAKE_CHEF_PIECE_MASK
 	if (party_mask & (1 << ACT_CANDY_MAKER)) != 0:
 		cake_piece_mask |= CAKE_CANDY_PIECE_MASK
+	# The save and the renderer must agree about the same physical cake. Trim
+	# skipped later bits once here instead of merely hiding them at draw time.
+	cake_piece_mask = _ordered_cake_piece_prefix_static(cake_piece_mask)
 	var phase_masks := _normalise_phase_masks_static(
 		source.get("chapter2_job_phase_masks", []))
 	# A complete scene-specific prop is safe evidence for its legacy party bit;
@@ -866,6 +869,17 @@ static func _ordered_party_prefix_static(raw_mask: int) -> int:
 	for act_index: int in ChapterTwoPartyPlan.GUIDE_ORDER:
 		var bit := 1 << act_index
 		if (raw_mask & bit) == 0:
+			break
+		prefix |= bit
+	return prefix
+
+
+static func _ordered_cake_piece_prefix_static(raw_mask: int) -> int:
+	var prefix := 0
+	var safe_mask := raw_mask & CAKE_PIECE_REQUIRED_MASK
+	for piece_index in range(7):
+		var bit := 1 << piece_index
+		if (safe_mask & bit) == 0:
 			break
 		prefix |= bit
 	return prefix

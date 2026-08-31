@@ -87,13 +87,14 @@ state after exit, focus loss, or app restart. Later states cannot erase earlier
 ones. Malformed/future bits mask away, impossible later event states heal back
 to the highest causally supported phase, and unrelated save keys survive.
 
-The hash-locked final cake candidate is
-`assets/chapter2/birthday/chapter2_grand_candied_strawberry_cake.png`: six
-tiers in top-to-bottom red, orange, yellow, green, blue, violet order, with
-candied strawberries and no baked candle. It passed independent 4.9/5 visual
-QA and 1024×1024 RGBA edge/alpha QA. Exact generation and derivation evidence
-is in the adjacent ImageGen provenance package. Owner/device/child acceptance
-remain separate gates.
+The active final cake candidate is
+`assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png`: six tiers
+in top-to-bottom red, orange, yellow, green, blue, violet order, with exactly
+the five Farmer/Candy Maker strawberries and no baked candle. The earlier
+ten-strawberry 4.9/5 test model remains preserved but is superseded for story
+continuity. Exact hashes, generation, derivation, and review evidence are in
+the 2026-08-31 cake-progression provenance package. Owner/device/child
+acceptance remain separate gates.
 
 ## Blocking acceptance gates
 

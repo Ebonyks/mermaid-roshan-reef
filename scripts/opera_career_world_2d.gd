@@ -414,6 +414,9 @@ var choice_target := 1
 var phase_gap := 0.0
 var phase_complete_t := 0.0
 var phase_advance_pending := false
+const CHAPTER2_FINAL_RESULT_HOLD_SECONDS := 2.2
+var chapter2_final_result_hold_t := 0.0
+var chapter2_final_result_hold_pending := false
 ## One owner per animated stage element. Rest snapshots never come from an
 ## interrupted tween, so rapid input always converges on the same transform.
 var actor_rests: Dictionary = {}
@@ -551,7 +554,6 @@ var chapter2_strawberry_pickups: Array[TextureButton] = []
 var chapter2_strawberry_pickup_texture: Texture2D = null
 var chapter2_single_strawberry_texture: Texture2D = null
 var chapter2_detective_candle_button: Button = null
-var chapter2_candy_cake_texture: Texture2D = null
 
 
 func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
@@ -563,9 +565,12 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 	competition.pause()
 	win_callback = on_win
 	career_id = String(config.get("costume", "chef"))
-	run_context = context.duplicate(true)
+	# Callable bindings are runtime objects. A deep Variant duplicate turns the
+	# nested Chapter 2 callback dictionary into invalid Callables, so copy only
+	# the context shell and leave its immutable callback values intact.
+	run_context = context.duplicate(false)
 	if run_context.is_empty() and config.get("run_context", {}) is Dictionary:
-		run_context = (config.get("run_context", {}) as Dictionary).duplicate(true)
+		run_context = (config.get("run_context", {}) as Dictionary).duplicate(false)
 	var override_config: Dictionary = {}
 	if config.get("phase_overrides", []) is Array:
 		override_config["phase_overrides"] = config.get("phase_overrides", [])
@@ -583,14 +588,15 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		override_config["finale_start"] = int(scene_adapter.get("finale_start", 0))
 	var callbacks: Variant = run_context.get("callbacks", {})
 	if callbacks is Dictionary:
-		adapter_callbacks = (callbacks as Dictionary).duplicate(true)
+		adapter_callbacks = (callbacks as Dictionary).duplicate(false)
 	for event: String in [
 		"scene_ready", "phase_armed", "phase_opened", "phase_completed",
 		"scene_completed", "scene_closed",
 	]:
 		var direct_callback: Variant = run_context.get(event,
 			run_context.get("on_%s" % event, Callable()))
-		if direct_callback is Callable:
+		if direct_callback is Callable \
+				and (direct_callback as Callable).is_valid():
 			adapter_callbacks[event] = direct_callback
 	var supplied_phases := phase_overrides
 	if supplied_phases.is_empty() and config.get("phase_overrides", []) is Array:
@@ -655,14 +661,18 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 
 func _adapter_hook(event: String, payload: Dictionary = {}) -> void:
 	var callback: Variant = adapter_callbacks.get(event, Callable())
-	if not callback is Callable:
+	if not _valid_callback(callback):
 		callback = scene_adapter.get(event, Callable())
-	if not callback is Callable:
+	if not _valid_callback(callback):
 		callback = adapter_callbacks.get("on_%s" % event, Callable())
-	if not callback is Callable:
+	if not _valid_callback(callback):
 		callback = scene_adapter.get("on_%s" % event, Callable())
-	if callback is Callable and (callback as Callable).is_valid():
+	if _valid_callback(callback):
 		(callback as Callable).call(payload.duplicate(true))
+
+
+func _valid_callback(value: Variant) -> bool:
+	return value is Callable and (value as Callable).is_valid()
 
 
 func scene_snapshot() -> Dictionary:
@@ -739,6 +749,13 @@ func _is_chapter2_candymaker_scene() -> bool:
 func _build_chapter2_story_props() -> void:
 	if not _is_chapter2_story_scene():
 		return
+	if career_id in ["farmer", "candymaker"]:
+		var single_berry_path := \
+			"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png"
+		if ResourceLoader.exists(single_berry_path):
+			chapter2_single_strawberry_texture = \
+				load(single_berry_path) as Texture2D
+			set_meta("chapter2_single_strawberry_texture", single_berry_path)
 	if _is_chapter2_cake_scene():
 		chapter2_cake_scene = ChapterTwoCake.new() as ChapterTwoGiantCake2D
 		chapter2_cake_scene.name = "Chapter2PersistentCakeScene"
@@ -748,9 +765,6 @@ func _build_chapter2_story_props() -> void:
 		chapter2_cake_scene.set_meta("scene_specific_art", true)
 		chapter2_cake_scene.set_meta("same_asset_as_party_table", true)
 		root.add_child(chapter2_cake_scene)
-		var cake_path := String(scene_adapter.get("cake_asset", ""))
-		if ResourceLoader.exists(cake_path):
-			chapter2_candy_cake_texture = load(cake_path) as Texture2D
 		_refresh_chapter2_cake_scene()
 	if career_id == "detective":
 		chapter2_candle_scene = ChapterTwoCandle.new() as ChapterTwoRainbowCandle2D
@@ -802,7 +816,8 @@ func _build_chapter2_strawberry_pickups() -> void:
 	if not ResourceLoader.exists(cluster_path) or not ResourceLoader.exists(path):
 		return
 	chapter2_strawberry_pickup_texture = load(cluster_path) as Texture2D
-	chapter2_single_strawberry_texture = load(path) as Texture2D
+	if chapter2_single_strawberry_texture == null:
+		chapter2_single_strawberry_texture = load(path) as Texture2D
 	var positions: Array[Vector2] = [
 		Vector2(180.0, 258.0), Vector2(390.0, 194.0),
 		Vector2(610.0, 270.0), Vector2(830.0, 190.0),
@@ -1854,32 +1869,145 @@ func _draw_chapter2_candy_activity(progress: float) -> void:
 	# All four Candy Maker beats point at strawberries and the carried cake. The
 	# old syrup vat, shape lanes, wrappers and recipient cards are intentionally
 	# not drawn here; the persistent cake node remains the single cake authority.
-	var tray := Rect2(34.0, 36.0, 348.0, 192.0)
-	action_panel.draw_style_box(_chapter2_style_box(Color("#fff4d8"), Color("#9a4d86"), 18), tray)
-	var ingredient_rect := Rect2(54.0, 64.0, 112.0, 112.0)
-	if chapter2_strawberry_pickup_texture != null:
-		action_panel.draw_texture_rect(chapter2_strawberry_pickup_texture,
-			ingredient_rect, false)
 	var phase_name := ""
 	if phase_index >= 0 and phase_index < phases.size():
 		phase_name = String((phases[phase_index] as Dictionary).get("milestone", ""))
-	var berry_colour := Color("#ef668d")
-	if phase_name in ["glaze_strawberries", "place_candied_strawberries"]:
-		berry_colour = Color("#ffb9cf")
+	action_panel.set_meta("chapter2_candy_visible_action",
+		_chapter2_candy_visible_action(phase_name))
+	action_panel.set_meta("chapter2_candy_visible_berry_count", 5)
+	action_panel.set_meta("chapter2_candy_visual_progress", progress)
+	match phase_name:
+		"coat_strawberries":
+			_draw_chapter2_candy_coat(progress)
+		"sort_strawberries":
+			_draw_chapter2_candy_sort(progress)
+		"glaze_strawberries":
+			_draw_chapter2_candy_glaze(progress)
+		"place_candied_strawberries":
+			_draw_chapter2_candy_place(progress)
+		_:
+			_draw_chapter2_candy_coat(progress)
+
+
+func _chapter2_candy_visible_action(milestone: String) -> String:
+	match milestone:
+		"coat_strawberries":
+			return "pitcher_stream_coats_five_berries"
+		"sort_strawberries":
+			return "five_berries_move_into_matching_lanes"
+		"glaze_strawberries":
+			return "glaze_crank_shines_five_berries"
+		"place_candied_strawberries":
+			return "five_berries_move_from_tray_toward_cake"
+	return ""
+
+
+func _draw_chapter2_candy_coat(progress: float) -> void:
+	var panel := Rect2(34.0, 36.0, 348.0, 192.0)
+	action_panel.draw_style_box(
+		_chapter2_style_box(Color("#fff4d8"), Color("#9a4d86"), 18), panel)
+	var positions: Array[Vector2] = [
+		Vector2(156.0, 84.0), Vector2(226.0, 84.0), Vector2(296.0, 84.0),
+		Vector2(190.0, 160.0), Vector2(264.0, 160.0),
+	]
+	var active_index := mini(4, int(floor(progress * 5.0)))
+	var stream_target := positions[active_index]
+	var pitcher := Rect2(54.0, 88.0, 58.0, 72.0)
+	action_panel.draw_style_box(
+		_chapter2_style_box(Color("#c891e8"), Color("#5c3b87"), 14), pitcher)
+	action_panel.draw_circle(Vector2(81.0, 104.0), 13.0, Color("#fff2b0"))
+	action_panel.draw_line(Vector2(111.0, 112.0),
+		stream_target - Vector2(18.0, 10.0), Color("#ffd56a"),
+		8.0 if progress > 0.0 else 3.0, true)
 	for index in range(5):
-		var at := Vector2(212.0 + float(index % 3) * 50.0,
-			86.0 + float(index / 3) * 58.0)
-		action_panel.draw_circle(at, 18.0, berry_colour)
-		action_panel.draw_circle(at - Vector2(5.0, 6.0), 6.0,
-			Color(1.0, 1.0, 1.0, 0.70 if progress > 0.0 else 0.34))
-		action_panel.draw_circle(at + Vector2(0.0, -17.0), 5.0,
+		var coated := clampf(progress * 5.0 - float(index), 0.0, 1.0)
+		_draw_chapter2_candy_berry(positions[index], coated)
+
+
+func _draw_chapter2_candy_sort(progress: float) -> void:
+	var lane_colours: Array[Color] = [
+		Color("#ffb4cf"), Color("#ffd66f"), Color("#8fe3dc"),
+	]
+	for lane in range(3):
+		var lane_rect := Rect2(52.0 + float(lane) * 112.0, 48.0, 88.0, 168.0)
+		action_panel.draw_style_box(_chapter2_style_box(
+			lane_colours[lane].lightened(0.45), lane_colours[lane], 18),
+			lane_rect)
+		action_panel.draw_circle(Vector2(lane_rect.get_center().x, 72.0),
+			8.0, lane_colours[lane])
+	var start_positions: Array[Vector2] = [
+		Vector2(78.0, 72.0), Vector2(143.0, 72.0), Vector2(208.0, 72.0),
+		Vector2(273.0, 72.0), Vector2(338.0, 72.0),
+	]
+	for index in range(5):
+		var lane := index % 3
+		var row := index / 3
+		var target := Vector2(96.0 + float(lane) * 112.0,
+			126.0 + float(row) * 62.0)
+		var move_t := smoothstep(0.0, 1.0,
+			clampf(progress * 5.0 - float(index), 0.0, 1.0))
+		action_panel.draw_line(start_positions[index], target,
+			Color(lane_colours[lane], 0.32), 4.0, true)
+		_draw_chapter2_candy_berry(
+			start_positions[index].lerp(target, move_t), 0.15)
+
+
+func _draw_chapter2_candy_glaze(progress: float) -> void:
+	var tray := Rect2(44.0, 62.0, 328.0, 112.0)
+	action_panel.draw_style_box(
+		_chapter2_style_box(Color("#f7d9ff"), Color("#8958ad"), 24), tray)
+	for index in range(5):
+		var at := Vector2(76.0 + float(index) * 66.0, 116.0)
+		var glossy := clampf(progress * 5.0 - float(index), 0.0, 1.0)
+		_draw_chapter2_candy_berry(at, glossy)
+	var crank := Vector2(208.0, 204.0)
+	action_panel.draw_circle(crank, 22.0, Color("#67408d"))
+	action_panel.draw_circle(crank, 11.0, Color("#fff0a8"))
+	action_panel.draw_arc(crank, 31.0, -PI * 0.5,
+		-PI * 0.5 + TAU * progress, 28, Color("#ffb6e8"), 7.0, true)
+	action_panel.draw_line(crank, crank + Vector2.from_angle(
+		-PI * 0.5 + TAU * progress) * 42.0, Color("#fff6dc"), 6.0, true)
+
+
+func _draw_chapter2_candy_place(progress: float) -> void:
+	var tray := Rect2(38.0, 54.0, 218.0, 164.0)
+	action_panel.draw_style_box(
+		_chapter2_style_box(Color("#f7d9ff"), Color("#8958ad"), 22), tray)
+	action_panel.draw_line(Vector2(258.0, 136.0), Vector2(380.0, 136.0),
+		Color("#fff1a8"), 10.0, true)
+	action_panel.draw_colored_polygon(PackedVector2Array([
+		Vector2(380.0, 136.0), Vector2(354.0, 118.0),
+		Vector2(354.0, 154.0),
+	]), Color("#fff1a8"))
+	var tray_positions: Array[Vector2] = [
+		Vector2(84.0, 92.0), Vector2(146.0, 92.0), Vector2(208.0, 92.0),
+		Vector2(114.0, 166.0), Vector2(178.0, 166.0),
+	]
+	var cake_edge_positions: Array[Vector2] = [
+		Vector2(330.0, 68.0), Vector2(354.0, 100.0), Vector2(330.0, 132.0),
+		Vector2(354.0, 164.0), Vector2(330.0, 196.0),
+	]
+	for index in range(5):
+		var place_t := smoothstep(0.0, 1.0,
+			clampf(progress * 5.0 - float(index), 0.0, 1.0))
+		_draw_chapter2_candy_berry(
+			tray_positions[index].lerp(cake_edge_positions[index], place_t), 1.0)
+
+
+func _draw_chapter2_candy_berry(at: Vector2, glossy: float) -> void:
+	if chapter2_single_strawberry_texture != null:
+		action_panel.draw_texture_rect(chapter2_single_strawberry_texture,
+			Rect2(at - Vector2(25.0, 29.0), Vector2(50.0, 58.0)), false)
+	else:
+		action_panel.draw_circle(at, 20.0, Color("#ef668d"))
+		action_panel.draw_circle(at - Vector2(0.0, 18.0), 6.0,
 			Color("#63bd72"))
-	# A frosting ribbon grows beside the ingredient, making the final two
-	# decorator beats read as decoration rather than candy manufacture.
-	if phase_name in ["glaze_strawberries", "place_candied_strawberries"]:
-		var ribbon_end := 198.0 + 140.0 * progress
-		action_panel.draw_line(Vector2(206.0, 203.0), Vector2(ribbon_end, 203.0),
-			Color("#fff5ff"), 10.0, true)
+	if glossy <= 0.0:
+		return
+	action_panel.draw_arc(at, 25.0, -PI * 0.88, PI * 0.22, 18,
+		Color(1.0, 0.90, 0.56, 0.35 + glossy * 0.55), 4.0, true)
+	action_panel.draw_circle(at - Vector2(8.0, 9.0), 3.0 + glossy * 2.5,
+		Color(1.0, 1.0, 1.0, 0.45 + glossy * 0.45))
 
 
 func _draw_chapter2_detective_activity(progress: float) -> void:
@@ -2160,6 +2288,10 @@ func _arm_phase() -> void:
 func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := false) -> void:
 	var template := _widget_template(phase)
 	var context := "%s_%s" % [template, career_id] if not template.is_empty() else ""
+	# Phase-local cake art must never leak into the next game. In particular,
+	# the Glaze tray disappears when Place On Cake reveals the final cake.
+	surface.set_meta("chapter2_cake_stage_asset", "")
+	surface.set_meta("chapter2_cake_accessory_asset", "")
 	if not String(scene_adapter.get("widget", "")).is_empty():
 		context = String(scene_adapter.get("widget", ""))
 	if phase.has("visual_context"):
@@ -2182,6 +2314,16 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 		var phase_prop := String(phase.get("prop", ""))
 		if ResourceLoader.exists(phase_prop):
 			surface.set_meta("chapter2_prop_path", phase_prop)
+	if phase.has("cake_stage_asset"):
+		var cake_stage_path := String(phase.get("cake_stage_asset", ""))
+		if ResourceLoader.exists(cake_stage_path):
+			surface.set_meta("chapter2_cake_stage_asset", cake_stage_path)
+	if phase.has("cake_accessory_asset"):
+		var cake_accessory_path := String(
+			phase.get("cake_accessory_asset", ""))
+		if ResourceLoader.exists(cake_accessory_path):
+			surface.set_meta("chapter2_cake_accessory_asset",
+				cake_accessory_path)
 	surface.configure(mode_name, accent, choice_target, context)
 	# while she is still wandering, the bound widget shows but its clocks
 	# (oven heat, pipe fuel, echo song) hold still until she arrives
@@ -3029,11 +3171,32 @@ func _advance_completed_phase() -> void:
 		return
 	phase_advance_pending = false
 	phase_complete_t = 0.0
+	var completed_final_cake_phase := _is_chapter2_cake_scene() \
+		and phase_index == phases.size() - 1
 	_adapter_hook("phase_completed", scene_snapshot())
 	_refresh_chapter2_story_props()
 	phase_index += 1
+	if completed_final_cake_phase:
+		# Persist first, refresh the actual story prop, then leave that completed
+		# cake on screen long enough for the child to see what she made. The
+		# ordinary completion hold above shows the pre-persist activity picture.
+		chapter2_final_result_hold_t = CHAPTER2_FINAL_RESULT_HOLD_SECONDS
+		chapter2_final_result_hold_pending = true
+		task_open = false
+		competition.pause()
+		set_meta("chapter2_final_result_hold_active", true)
+		set_meta("chapter2_final_result_hold_seconds",
+			CHAPTER2_FINAL_RESULT_HOLD_SECONDS)
+		return
 	# no forced gap here: the wander window IS the breath between tasks —
 	# the world stays hers until she walks up to the next lit station
+	_arm_phase()
+
+
+func _finish_chapter2_final_result_hold() -> void:
+	chapter2_final_result_hold_pending = false
+	chapter2_final_result_hold_t = 0.0
+	set_meta("chapter2_final_result_hold_active", false)
 	_arm_phase()
 
 
@@ -3975,7 +4138,12 @@ func _draw_lens_layer() -> void:
 
 func _process(delta: float) -> void:
 	elapsed += delta
-	if phase_advance_pending:
+	if chapter2_final_result_hold_pending:
+		chapter2_final_result_hold_t = maxf(0.0,
+			chapter2_final_result_hold_t - delta)
+		if chapter2_final_result_hold_t <= 0.0:
+			_finish_chapter2_final_result_hold()
+	elif phase_advance_pending:
 		phase_complete_t = maxf(0.0, phase_complete_t - delta)
 		if phase_complete_t <= 0.0:
 			_advance_completed_phase()

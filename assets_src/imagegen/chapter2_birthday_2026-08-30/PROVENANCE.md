@@ -1,19 +1,19 @@
 # Chapter 2 birthday cake and Sky Lagoon strawberries — provenance
 
-Status: `SELECTED_RUNTIME_CANDIDATES`; owner/device/child acceptance remains open.
+Status: `STRAWBERRIES_SELECTED`; `TEN_BERRY_CAKE_SUPERSEDED`; owner/device/child acceptance remains open.
 Date: 2026-08-30
 Method: OpenAI built-in `image_gen.imagegen`; project-original art; no external URL.
 
 ## Authority and intended use
 
-- `assets/chapter2/birthday/chapter2_grand_candied_strawberry_cake.png` is the exact cake-image candidate shared by the Candy Maker completion and later Main Hall party presentation. It intentionally contains no candle or flame; those remain separate plot-owned layers.
+- `assets/chapter2/birthday/chapter2_grand_candied_strawberry_cake.png` is the preserved attractive ten-strawberry test model. It intentionally contains no candle or flame, but it is superseded as the active Candy Maker/Main Hall endpoint because Chapter 2 owns exactly five gathered berries. The active five-berry derivative and its generation record live in `assets_src/imagegen/chapter2_cake_progression_2026-08-31/`.
 - `assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png` is the fresh ingredient candidate collected during Farmer Roshan's Sky Lagoon preparation beat.
 - `assets/chapter2/birthday/sky_lagoon_strawberry_single.png` is the exact one-fruit pickup cutout used for each of the five independently saved Farmer pickups. It replaces the rejected Atlas crop that retained visible pieces of the two neighboring berries.
 - Both outputs are ordinary runtime cutouts, not cinematic delivery frames and not owner-accepted final art.
-- The selected cake was generated after the owner rejected the first, shorter edit as not pretty enough, then required a strict rainbow-tier order and a 4.9/5 critical-prop audit bar. The selected six-tier master passed an independent Luna visual review at 4.9/5; owner/device/child final acceptance remains open.
+- The preserved cake was generated after the owner rejected the first, shorter edit as not pretty enough, then required a strict rainbow-tier order and a 4.9/5 critical-prop audit bar. That six-tier master remains valuable visual-development evidence, but later five-to-ten inventory audit supersedes its active story role; owner/device/child final acceptance remains open.
 - Existing project art was inventoried before generation. The Chef cake and worlds were reusable structural/style references, but the repository contained no strawberry-specific art and no sufficiently grand persistent party-cake cutout.
 
-## Selected grand cake
+## Superseded ten-strawberry grand cake test
 
 - Result ID: `exec-85a4d695-63ee-4816-b0a3-050cfed86542`
 - Native: `native/chapter2_grand_candied_strawberry_cake_native.png`

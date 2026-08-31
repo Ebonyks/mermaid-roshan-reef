@@ -187,7 +187,7 @@ func start(main: ReefMain, index: int, done_cb: Callable,
 		return false
 	next_config.merge(config_overrides.duplicate(true), true)
 	if not run_context.is_empty():
-		next_config["run_context"] = run_context.duplicate(true)
+		next_config["run_context"] = run_context.duplicate(false)
 	story_mode = String(next_config.get("reward_policy", "")) == "chapter2_story"
 	if story_mode:
 		# Story careers use the Chapter 2 phase catalog and completion authority;
@@ -211,7 +211,7 @@ func start(main: ReefMain, index: int, done_cb: Callable,
 		var story_context_value: Variant = next_config.get("run_context", null)
 		if story_context_value is Dictionary:
 			var story_context_dictionary: Dictionary = story_context_value
-			story_run_context = story_context_dictionary.duplicate(true)
+			story_run_context = story_context_dictionary.duplicate(false)
 		story_run_context["chapter"] = "chapter2"
 		story_run_context["reward_policy"] = "chapter2_story"
 		next_config["run_context"] = story_run_context
@@ -229,9 +229,9 @@ func start(main: ReefMain, index: int, done_cb: Callable,
 	var configured_context_value: Variant = next_config.get("run_context", null)
 	if configured_context_value is Dictionary:
 		var configured_context_dictionary: Dictionary = configured_context_value
-		self.run_context = configured_context_dictionary.duplicate(true)
+		self.run_context = configured_context_dictionary.duplicate(false)
 	if not run_context.is_empty():
-		self.run_context.merge(run_context.duplicate(true), true)
+		self.run_context.merge(run_context.duplicate(false), true)
 	tutorial_mode = bool(next_config.get("chapter2_tutorial", false))
 	state = "playing"
 	next_config["act_tag"] = String(next_config.get("name", "")) + "  "

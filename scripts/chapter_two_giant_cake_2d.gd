@@ -14,9 +14,9 @@ const ACT_FARMER := 6
 const STATE_VERSION := 1
 const STRAWBERRY_REQUIRED_MASK := 0x1F
 const CAKE_PIECE_REQUIRED_MASK := 0x7F
-const CAKE_BOTTOM_BIT := 1 << 0
-const CAKE_MIDDLE_BIT := 1 << 1
-const CAKE_TOP_BIT := 1 << 2
+const CAKE_MIX_BIT := 1 << 0
+const CAKE_STIR_BIT := 1 << 1
+const CAKE_BAKE_BIT := 1 << 2
 const CAKE_STACKED_BIT := 1 << 3
 const CAKE_FROSTED_BIT := 1 << 4
 const CAKE_CANDIED_BERRIES_BIT := 1 << 5
@@ -30,14 +30,36 @@ const RAINBOW_TIER_NAMES: Array[String] = [
 	"red", "orange", "yellow", "green", "blue", "violet",
 ]
 const FINAL_CAKE_TEXTURE := \
-	"res://assets/chapter2/birthday/chapter2_grand_candied_strawberry_cake.png"
-const STRAWBERRY_CLUSTER_TEXTURE := \
-	"res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png"
+	"res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png"
+const STRAWBERRY_SINGLE_TEXTURE := \
+	"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png"
+const FINAL_CANDIED_STRAWBERRY_COUNT := 5
+const BATTER_UNSTIRRED_TEXTURE := \
+	"res://assets/chapter2/birthday/chapter2_chef_batter_unstirred.png"
+const BATTER_STIRRED_TEXTURE := \
+	"res://assets/chapter2/birthday/chapter2_chef_batter_stirred.png"
+const BAKED_TIERS_UNSTACKED_TEXTURE := \
+	"res://assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png"
+const STACKED_UNFROSTED_TEXTURE := \
+	"res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png"
+const FROSTED_RAINBOW_TEXTURE := \
+	"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png"
+const CANDIED_STRAWBERRY_TRAY_TEXTURE := \
+	"res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png"
+const STAGE_TEXTURE_PATHS := {
+	"mix_batter": BATTER_UNSTIRRED_TEXTURE,
+	"stir_batter": BATTER_STIRRED_TEXTURE,
+	"bake_six_rainbow_tiers": BAKED_TIERS_UNSTACKED_TEXTURE,
+	"stack_six_rainbow_tiers": STACKED_UNFROSTED_TEXTURE,
+	"frost_six_rainbow_tiers": FROSTED_RAINBOW_TEXTURE,
+}
 
 var festive: bool = false
 var strawberry_mask: int = 0
 var cake_piece_mask: int = 0
 var cake_baked: bool = false
+# Compatibility booleans retained for existing save/probe callers. Their
+# physical meanings are Mix, Stir, and Bake respectively.
 var bottom_built: bool = false
 var middle_built: bool = false
 var top_built: bool = false
@@ -49,7 +71,9 @@ var prepared_glossy_berries: bool = false
 var candied_strawberries_glossy: bool = false
 var cake_placed_final: bool = false
 var final_cake_sprite: Sprite2D = null
-var ingredient_cluster_sprite: Sprite2D = null
+var ingredient_strawberry_sprites: Array[Sprite2D] = []
+var stage_art_sprite: Sprite2D = null
+var candied_tray_sprite: Sprite2D = null
 
 
 func setup() -> void:
@@ -62,8 +86,8 @@ func setup() -> void:
 	set_meta("persistent_state_version", STATE_VERSION)
 	set_meta("cake_remains_after_candle_taken", true)
 	_build_approved_art_nodes()
-	_sync_metadata()
 	_sync_approved_sprite_visibility()
+	_sync_metadata()
 	queue_redraw()
 
 
@@ -122,15 +146,15 @@ static func state_from_milestone_masks(new_strawberry_mask: int,
 		"strawberries_required_mask": STRAWBERRY_REQUIRED_MASK,
 		"cake_piece_required_mask": CAKE_PIECE_REQUIRED_MASK,
 		"strawberries_ready": strawberries_ready,
-		"mix_batter": (safe_piece_mask & CAKE_BOTTOM_BIT) != 0,
-		"stir_batter": (safe_piece_mask & CAKE_MIDDLE_BIT) != 0,
-		"bake_six_rainbow_tiers": (safe_piece_mask & CAKE_TOP_BIT) != 0,
+		"mix_batter": (safe_piece_mask & CAKE_MIX_BIT) != 0,
+		"stir_batter": (safe_piece_mask & CAKE_STIR_BIT) != 0,
+		"bake_six_rainbow_tiers": (safe_piece_mask & CAKE_BAKE_BIT) != 0,
 		"stack_six_rainbow_tiers": (safe_piece_mask & CAKE_STACKED_BIT) != 0,
 		"frost_six_rainbow_tiers": (safe_piece_mask & CAKE_FROSTED_BIT) != 0,
-		"cake_baked": (safe_piece_mask & CAKE_TOP_BIT) != 0,
-		"bottom_built": (safe_piece_mask & CAKE_BOTTOM_BIT) != 0,
-		"middle_built": (safe_piece_mask & CAKE_MIDDLE_BIT) != 0,
-		"top_built": (safe_piece_mask & CAKE_TOP_BIT) != 0,
+		"cake_baked": (safe_piece_mask & CAKE_BAKE_BIT) != 0,
+		"bottom_built": (safe_piece_mask & CAKE_MIX_BIT) != 0,
+		"middle_built": (safe_piece_mask & CAKE_STIR_BIT) != 0,
+		"top_built": (safe_piece_mask & CAKE_BAKE_BIT) != 0,
 		"tiers_stacked": (safe_piece_mask & CAKE_STACKED_BIT) != 0,
 		"tiers_built": (safe_piece_mask & CAKE_STACKED_BIT) != 0,
 		"frosting_applied": (safe_piece_mask & CAKE_FROSTED_BIT) != 0,
@@ -152,7 +176,7 @@ static func state_from_party_piece_mask(piece_mask: int) -> Dictionary:
 	var candy_done := (piece_mask & (1 << ACT_CANDY_MAKER)) != 0
 	var legacy_piece_mask := 0
 	if chef_done:
-		legacy_piece_mask = CAKE_BOTTOM_BIT | CAKE_MIDDLE_BIT | CAKE_TOP_BIT \
+		legacy_piece_mask = CAKE_MIX_BIT | CAKE_STIR_BIT | CAKE_BAKE_BIT \
 			| CAKE_STACKED_BIT | CAKE_FROSTED_BIT
 	if candy_done:
 		legacy_piece_mask = CAKE_PIECE_REQUIRED_MASK
@@ -167,8 +191,8 @@ func set_state(state: Dictionary) -> void:
 			int(state.get("strawberry_mask", 0)),
 			int(state.get("cake_piece_mask", 0)))
 		_apply_milestone_state(milestone_state)
-		_sync_metadata()
 		_sync_approved_sprite_visibility()
+		_sync_metadata()
 		queue_redraw()
 		return
 	cake_baked = _state_bool(state, "cake_baked",
@@ -194,8 +218,8 @@ func set_state(state: Dictionary) -> void:
 	cake_placed_final = cake_piece_mask == CAKE_PIECE_REQUIRED_MASK \
 		and strawberry_mask == STRAWBERRY_REQUIRED_MASK \
 		and candied_strawberries_glossy
-	_sync_metadata()
 	_sync_approved_sprite_visibility()
+	_sync_metadata()
 	queue_redraw()
 
 
@@ -203,10 +227,10 @@ func _apply_milestone_state(state: Dictionary) -> void:
 	strawberry_mask = int(state.get("strawberry_mask", 0)) & STRAWBERRY_REQUIRED_MASK
 	cake_piece_mask = _ordered_piece_prefix(
 		int(state.get("cake_piece_mask", 0)))
-	cake_baked = (cake_piece_mask & CAKE_TOP_BIT) != 0
-	bottom_built = (cake_piece_mask & CAKE_BOTTOM_BIT) != 0
-	middle_built = (cake_piece_mask & CAKE_MIDDLE_BIT) != 0
-	top_built = (cake_piece_mask & CAKE_TOP_BIT) != 0
+	cake_baked = (cake_piece_mask & CAKE_BAKE_BIT) != 0
+	bottom_built = (cake_piece_mask & CAKE_MIX_BIT) != 0
+	middle_built = (cake_piece_mask & CAKE_STIR_BIT) != 0
+	top_built = (cake_piece_mask & CAKE_BAKE_BIT) != 0
 	tiers_stacked = (cake_piece_mask & CAKE_STACKED_BIT) != 0
 	tiers_built = tiers_stacked
 	frosting_applied = (cake_piece_mask & CAKE_FROSTED_BIT) != 0
@@ -230,24 +254,24 @@ func add_chef_cake_state() -> void:
 	tiers_stacked = true
 	tiers_built = true
 	frosting_applied = true
-	_sync_metadata()
 	_sync_approved_sprite_visibility()
+	_sync_metadata()
 	queue_redraw()
 
 
 func add_chef_baked_base() -> void:
-	cake_piece_mask |= CAKE_BOTTOM_BIT | CAKE_MIDDLE_BIT | CAKE_TOP_BIT
+	cake_piece_mask |= CAKE_MIX_BIT | CAKE_STIR_BIT | CAKE_BAKE_BIT
 	cake_baked = true
 	bottom_built = true
 	middle_built = true
 	top_built = true
-	_sync_metadata()
 	_sync_approved_sprite_visibility()
+	_sync_metadata()
 	queue_redraw()
 
 
 func add_chef_tier() -> void:
-	cake_piece_mask |= CAKE_BOTTOM_BIT | CAKE_MIDDLE_BIT | CAKE_TOP_BIT \
+	cake_piece_mask |= CAKE_MIX_BIT | CAKE_STIR_BIT | CAKE_BAKE_BIT \
 		| CAKE_STACKED_BIT
 	cake_baked = true
 	bottom_built = true
@@ -255,8 +279,8 @@ func add_chef_tier() -> void:
 	top_built = true
 	tiers_stacked = true
 	tiers_built = true
-	_sync_metadata()
 	_sync_approved_sprite_visibility()
+	_sync_metadata()
 	queue_redraw()
 
 
@@ -269,16 +293,16 @@ func add_chef_frosting() -> void:
 	tiers_stacked = true
 	tiers_built = true
 	frosting_applied = true
-	_sync_metadata()
 	_sync_approved_sprite_visibility()
+	_sync_metadata()
 	queue_redraw()
 
 
 func add_farmer_strawberries() -> void:
 	strawberry_mask = STRAWBERRY_REQUIRED_MASK
 	farmer_strawberries_visible = true
-	_sync_metadata()
 	_sync_approved_sprite_visibility()
+	_sync_metadata()
 	queue_redraw()
 
 
@@ -286,8 +310,8 @@ func add_candy_maker_decoration() -> void:
 	cake_piece_mask |= CAKE_CANDIED_BERRIES_BIT
 	prepared_glossy_berries = true
 	candied_strawberries_glossy = true
-	_sync_metadata()
 	_sync_approved_sprite_visibility()
+	_sync_metadata()
 	queue_redraw()
 
 
@@ -307,8 +331,8 @@ func place_final_cake() -> void:
 	cake_piece_mask |= CAKE_PLACED_BIT
 	cake_placed_final = cake_piece_mask == CAKE_PIECE_REQUIRED_MASK \
 		and strawberry_mask == STRAWBERRY_REQUIRED_MASK
-	_sync_metadata()
 	_sync_approved_sprite_visibility()
+	_sync_metadata()
 	queue_redraw()
 
 
@@ -328,9 +352,9 @@ func persistent_state() -> Dictionary:
 		"tiers_stacked": tiers_stacked,
 		"cake_baked": cake_baked,
 		"cake_ready": cake_baked,
-		"mix_batter": (cake_piece_mask & CAKE_BOTTOM_BIT) != 0,
-		"stir_batter": (cake_piece_mask & CAKE_MIDDLE_BIT) != 0,
-		"bake_six_rainbow_tiers": (cake_piece_mask & CAKE_TOP_BIT) != 0,
+		"mix_batter": (cake_piece_mask & CAKE_MIX_BIT) != 0,
+		"stir_batter": (cake_piece_mask & CAKE_STIR_BIT) != 0,
+		"bake_six_rainbow_tiers": (cake_piece_mask & CAKE_BAKE_BIT) != 0,
 		"stack_six_rainbow_tiers": (cake_piece_mask & CAKE_STACKED_BIT) != 0,
 		"frost_six_rainbow_tiers": (cake_piece_mask & CAKE_FROSTED_BIT) != 0,
 		"tiers_built": tiers_built,
@@ -364,15 +388,15 @@ func stage_id() -> String:
 	if prepared_glossy_berries:
 		return "candied_strawberries_preplacement"
 	if frosting_applied:
-		return "chef_frosting"
+		return "chef_frosted_rainbow_cake"
 	if tiers_stacked:
-		return "tiers_stacked"
+		return "chef_stacked_unfrosted_cake"
 	if top_built:
-		return "chef_top_tier"
+		return "chef_baked_tiers_unstacked"
 	if middle_built:
-		return "chef_middle_tier"
+		return "chef_batter_stirred"
 	if bottom_built:
-		return "chef_bottom_tier"
+		return "chef_batter_unstirred"
 	if strawberry_mask != 0:
 		return "farmer_strawberry_ingredients"
 	return "none"
@@ -404,6 +428,23 @@ func set_festive(is_festive: bool) -> void:
 	queue_redraw()
 
 
+func current_cake_stage_art_path() -> String:
+	if cake_placed_final:
+		return FINAL_CAKE_TEXTURE
+	var phase := visual_phase_id()
+	if phase == "candied_strawberries_preplacement":
+		return FROSTED_RAINBOW_TEXTURE
+	return String(STAGE_TEXTURE_PATHS.get(phase, ""))
+
+
+func current_cake_accessory_art_path() -> String:
+	if prepared_glossy_berries and not cake_placed_final:
+		return CANDIED_STRAWBERRY_TRAY_TEXTURE
+	if strawberry_mask != 0 and cake_piece_mask == 0:
+		return STRAWBERRY_SINGLE_TEXTURE
+	return ""
+
+
 func _draw() -> void:
 	var ink := Color("#402b58")
 	if not has_visual_progress():
@@ -413,7 +454,7 @@ func _draw() -> void:
 	# The approved complete cake is a single Sprite2D only for the final
 	# decorating state. It contains no candle or flame, which remains a sibling
 	# table layer owned by ChapterTwoPartyTable2D.
-	if cake_placed_final and final_cake_sprite != null:
+	if _has_visible_stage_art():
 		return
 
 	# Chef's first two milestones are batter actions, before any cake tier
@@ -495,9 +536,9 @@ func _draw_six_tier_stack(ink: Color, frosted: bool) -> void:
 func _draw_ingredient_tray(ink: Color) -> void:
 	_draw_rounded_layer(Rect2(48.0, 144.0, 264.0, 48.0), 18.0,
 		Color("#f8d783"), ink, 4.0)
-	if farmer_strawberries_visible and ingredient_cluster_sprite == null:
-		for fruit_index in range(4):
-			_draw_strawberry(Vector2(116.0 + float(fruit_index) * 38.0,
+	if farmer_strawberries_visible and ingredient_strawberry_sprites.is_empty():
+		for fruit_index in range(FINAL_CANDIED_STRAWBERRY_COUNT):
+			_draw_strawberry(Vector2(104.0 + float(fruit_index) * 38.0,
 				141.0), candied_strawberries_glossy, ink)
 	if candied_strawberries_glossy:
 		for sparkle_index in range(3):
@@ -581,43 +622,151 @@ func _sync_metadata() -> void:
 	set_meta("cake_remains_after_candle_taken", true)
 	set_meta("true_2d_stateful_assembly", true)
 	set_meta("approved_final_cake_texture", FINAL_CAKE_TEXTURE)
-	set_meta("approved_strawberry_ingredient_texture", STRAWBERRY_CLUSTER_TEXTURE)
+	set_meta("cake_stage_art_path", current_cake_stage_art_path())
+	set_meta("cake_accessory_art_path", current_cake_accessory_art_path())
+	set_meta("approved_stage_texture_paths", STAGE_TEXTURE_PATHS.duplicate())
+	set_meta("approved_candied_strawberry_tray_texture",
+		CANDIED_STRAWBERRY_TRAY_TEXTURE)
+	set_meta("cake_stage_contains_candle", false)
+	set_meta("approved_strawberry_ingredient_texture", STRAWBERRY_SINGLE_TEXTURE)
+	set_meta("farmer_ingredient_sprite_count",
+		ingredient_strawberry_sprites.size())
+	set_meta("final_candied_strawberry_count",
+		FINAL_CANDIED_STRAWBERRY_COUNT)
 	set_meta("final_cake_is_sprite2d", final_cake_sprite != null)
-	set_meta("ingredient_cluster_is_sprite2d", ingredient_cluster_sprite != null)
+	set_meta("ingredient_cluster_is_sprite2d",
+		ingredient_strawberry_sprites.size() == FINAL_CANDIED_STRAWBERRY_COUNT)
+	set_meta("stage_art_source_count", STAGE_TEXTURE_PATHS.size())
+	set_meta("stage_art_renderer_is_sprite2d", stage_art_sprite != null)
+	set_meta("candied_tray_is_sprite2d", candied_tray_sprite != null)
 
 
 func _build_approved_art_nodes() -> void:
-	if ResourceLoader.exists(FINAL_CAKE_TEXTURE):
-		final_cake_sprite = Sprite2D.new()
-		final_cake_sprite.name = "ApprovedGrandCandiedStrawberryCake"
-		final_cake_sprite.texture = load(FINAL_CAKE_TEXTURE) as Texture2D
-		final_cake_sprite.position = Vector2(180.0, 84.0)
-		final_cake_sprite.scale = Vector2.ONE * 0.30
-		final_cake_sprite.z_index = 4
-		final_cake_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
-		final_cake_sprite.set_meta("approved_asset_reuse", true)
-		final_cake_sprite.set_meta("cake_delivery_stage", "candy_maker_final_decorating")
-		final_cake_sprite.set_meta("contains_candle", false)
-		add_child(final_cake_sprite)
-	if ResourceLoader.exists(STRAWBERRY_CLUSTER_TEXTURE):
-		ingredient_cluster_sprite = Sprite2D.new()
-		ingredient_cluster_sprite.name = "ApprovedFarmerStrawberryIngredients"
-		ingredient_cluster_sprite.texture = load(STRAWBERRY_CLUSTER_TEXTURE) as Texture2D
-		ingredient_cluster_sprite.position = Vector2(180.0, 137.0)
-		ingredient_cluster_sprite.scale = Vector2.ONE * 0.115
-		ingredient_cluster_sprite.z_index = 4
-		ingredient_cluster_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
-		ingredient_cluster_sprite.set_meta("approved_asset_reuse", true)
-		ingredient_cluster_sprite.set_meta("ingredient_source", "farmer_roshan")
-		add_child(ingredient_cluster_sprite)
+	stage_art_sprite = Sprite2D.new()
+	stage_art_sprite.name = "CakeProgressionStage"
+	stage_art_sprite.position = Vector2(180.0, 100.0)
+	stage_art_sprite.scale = Vector2.ONE * 0.29
+	stage_art_sprite.z_index = 4
+	stage_art_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	stage_art_sprite.visible = false
+	stage_art_sprite.set_meta("approved_asset_reuse", true)
+	stage_art_sprite.set_meta("contains_candle", false)
+	add_child(stage_art_sprite)
+	final_cake_sprite = Sprite2D.new()
+	final_cake_sprite.name = "ApprovedGrandFiveStrawberryCake"
+	final_cake_sprite.position = Vector2(180.0, 84.0)
+	final_cake_sprite.scale = Vector2.ONE * 0.30
+	final_cake_sprite.z_index = 4
+	final_cake_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	final_cake_sprite.visible = false
+	final_cake_sprite.set_meta("approved_asset_reuse", true)
+	final_cake_sprite.set_meta("cake_delivery_stage", "candy_maker_final_decorating")
+	final_cake_sprite.set_meta("contains_candle", false)
+	add_child(final_cake_sprite)
+	candied_tray_sprite = Sprite2D.new()
+	candied_tray_sprite.name = "ApprovedCandiedStrawberryTray"
+	candied_tray_sprite.position = Vector2(180.0, 184.0)
+	candied_tray_sprite.scale = Vector2.ONE * 0.18
+	candied_tray_sprite.z_index = 5
+	candied_tray_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	candied_tray_sprite.visible = false
+	candied_tray_sprite.set_meta("approved_asset_reuse", true)
+	candied_tray_sprite.set_meta("cake_delivery_stage",
+		"candied_strawberries_preplacement")
+	candied_tray_sprite.set_meta("contains_candle", false)
+	add_child(candied_tray_sprite)
+	var berry_positions: Array[Vector2] = [
+		Vector2(120.0, 148.0), Vector2(150.0, 132.0),
+		Vector2(180.0, 148.0), Vector2(210.0, 132.0),
+		Vector2(240.0, 148.0),
+	]
+	for berry_index in range(FINAL_CANDIED_STRAWBERRY_COUNT):
+		var berry := Sprite2D.new()
+		berry.name = "FarmerStrawberry%02d" % (berry_index + 1)
+		berry.position = berry_positions[berry_index]
+		berry.rotation = -0.12 + float(berry_index) * 0.06
+		berry.scale = Vector2.ONE * 0.06
+		berry.z_index = 4 + berry_index % 2
+		berry.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		berry.visible = false
+		berry.set_meta("approved_asset_reuse", true)
+		berry.set_meta("ingredient_source", "farmer_roshan")
+		berry.set_meta("persistent_strawberry_index", berry_index)
+		ingredient_strawberry_sprites.append(berry)
+		add_child(berry)
 
 
 func _sync_approved_sprite_visibility() -> void:
+	if stage_art_sprite != null:
+		stage_art_sprite.visible = false
+		if cake_placed_final:
+			stage_art_sprite.texture = null
+			stage_art_sprite.remove_meta("stage_texture_path")
 	if final_cake_sprite != null:
-		final_cake_sprite.visible = cake_placed_final
-	if ingredient_cluster_sprite != null:
-		ingredient_cluster_sprite.visible = farmer_strawberries_visible \
-		and not cake_baked
+		if cake_placed_final:
+			_set_sprite_texture(final_cake_sprite, FINAL_CAKE_TEXTURE)
+		final_cake_sprite.visible = cake_placed_final \
+			and final_cake_sprite.texture != null
+		if not final_cake_sprite.visible:
+			final_cake_sprite.texture = null
+	if candied_tray_sprite != null:
+		var tray_visible := prepared_glossy_berries and not cake_placed_final
+		if tray_visible:
+			_set_sprite_texture(candied_tray_sprite,
+				CANDIED_STRAWBERRY_TRAY_TEXTURE)
+		candied_tray_sprite.visible = tray_visible \
+			and candied_tray_sprite.texture != null
+		if not candied_tray_sprite.visible:
+			candied_tray_sprite.texture = null
+	var phase := visual_phase_id()
+	var art_phase := "frost_six_rainbow_tiers" \
+		if phase == "candied_strawberries_preplacement" else phase
+	if stage_art_sprite != null and STAGE_TEXTURE_PATHS.has(art_phase):
+		var stage_path := String(STAGE_TEXTURE_PATHS[art_phase])
+		if ResourceLoader.exists(stage_path):
+			if String(stage_art_sprite.get_meta(
+					"stage_texture_path", "")) != stage_path:
+				stage_art_sprite.texture = load(stage_path) as Texture2D
+				stage_art_sprite.set_meta("stage_texture_path", stage_path)
+			stage_art_sprite.set_meta("cake_delivery_stage", art_phase)
+			stage_art_sprite.visible = not cake_placed_final
+			_configure_stage_sprite(stage_art_sprite, art_phase,
+				prepared_glossy_berries)
+	var ingredients_visible := farmer_strawberries_visible \
+		and cake_piece_mask == 0
+	for berry in ingredient_strawberry_sprites:
+		if ingredients_visible:
+			_set_sprite_texture(berry, STRAWBERRY_SINGLE_TEXTURE)
+		berry.visible = ingredients_visible and berry.texture != null
+		if not berry.visible:
+			berry.texture = null
+
+
+func _set_sprite_texture(sprite: Sprite2D, texture_path: String) -> void:
+	if sprite.texture != null or not ResourceLoader.exists(texture_path):
+		return
+	sprite.texture = load(texture_path) as Texture2D
+
+
+func _configure_stage_sprite(stage_sprite: Sprite2D, phase: String,
+		with_candy_tray: bool) -> void:
+	stage_sprite.position = Vector2(180.0, 100.0)
+	stage_sprite.scale = Vector2.ONE * 0.29
+	if phase == "bake_six_rainbow_tiers":
+		stage_sprite.position = Vector2(180.0, 112.0)
+		stage_sprite.scale = Vector2.ONE * 0.30
+	elif phase in ["stack_six_rainbow_tiers", "frost_six_rainbow_tiers"]:
+		stage_sprite.position = Vector2(180.0, 84.0)
+		stage_sprite.scale = Vector2.ONE * 0.30
+	if with_candy_tray and phase == "frost_six_rainbow_tiers":
+		stage_sprite.position = Vector2(180.0, 62.0)
+		stage_sprite.scale = Vector2.ONE * 0.24
+
+
+func _has_visible_stage_art() -> bool:
+	if final_cake_sprite != null and final_cake_sprite.visible:
+		return true
+	return stage_art_sprite != null and stage_art_sprite.visible
 
 
 func _state_bool(state: Dictionary, key: String, fallback: bool) -> bool:
