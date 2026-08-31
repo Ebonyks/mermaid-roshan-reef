@@ -1,6 +1,6 @@
 class_name OperaGestureSurface
 extends Control
-## One-finger input surface shared by all thirteen 2D Opera career worlds.
+## One-finger input surface shared by all 2D Opera career worlds.
 ##
 ## The surrounding world chooses a gesture mode; this node turns mouse and
 ## touchscreen input into normalized progress without owning career state.
@@ -416,6 +416,8 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 				visual_context = "lanes_ballerina"
 			"candy_sort":
 				visual_context = "lanes_candymaker"
+			"geology_sort":
+				visual_context = "geology_specimens"
 			"paint_reveal":
 				visual_context = "trace_painter"
 			"farm_lob":
@@ -675,7 +677,7 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 			"res://assets/opera/worlds/widgets/widget_crank_doctor_patient.png")
 	if next_mode == "dance_sequence":
 		_dance_restart_show(0.32)
-	if next_mode == "candy_sort":
+	if next_mode in ["candy_sort", "geology_sort"]:
 		_candy_reset_piece(false)
 	if next_mode == "paint_reveal" and paint_reveal_texture == null:
 		paint_reveal_texture = _load_widget_texture(
@@ -854,7 +856,8 @@ func _process(delta: float) -> void:
 		_xray_tick(delta)
 	if mode == "dance_sequence" and not completion_accepted and not armed_only:
 		_dance_tick(delta)
-	if mode == "candy_sort" and not completion_accepted and not armed_only:
+	if mode in ["candy_sort", "geology_sort"] \
+			and not completion_accepted and not armed_only:
 		_candy_tick(delta)
 	if mode == "farm_lob" and not completion_accepted and not armed_only:
 		_farm_tick(delta)
@@ -1009,7 +1012,7 @@ func _press(at: Vector2) -> void:
 			_xray_press(at)
 		"dance_sequence":
 			_dance_press(at)
-		"candy_sort":
+		"candy_sort", "geology_sort":
 			_candy_press(at)
 		"paint_reveal":
 			_paint_press(at)
@@ -1090,7 +1093,7 @@ func _drag(at: Vector2) -> void:
 		_boxer_drag(at)
 		previous_pos = at
 		return
-	if mode == "candy_sort":
+	if mode in ["candy_sort", "geology_sort"]:
 		_candy_drag(at)
 		previous_pos = at
 		return
@@ -1205,7 +1208,7 @@ func _release(at: Vector2) -> void:
 		pour_hold = false
 	if mode == "xray_scan":
 		_xray_release()
-	if mode == "candy_sort":
+	if mode in ["candy_sort", "geology_sort"]:
 		_candy_release(at)
 	if mode == "paint_reveal":
 		_paint_release()
@@ -1295,7 +1298,7 @@ func _draw() -> void:
 		if demo_active:
 			_draw_demo_finger()
 		return
-	if mode == "candy_sort":
+	if mode in ["candy_sort", "geology_sort"]:
 		_draw_candy_sort()
 		if demo_active:
 			_draw_demo_finger()
@@ -4122,7 +4125,7 @@ func _demo_finger_pose() -> Dictionary:
 					pad = int(DANCE_SEQUENCE[dance_show_index])
 				at = Vector2(_dance_pad_rect(pad).get_center().x, size.y * 0.94)
 				pressing = false
-		"candy_sort":
+		"candy_sort", "geology_sort":
 			var candy_target := _candy_bin_rect(candy_type).get_center()
 			var candy_travel := clampf((cycle - 0.35) / 1.45, 0.0, 1.0)
 			candy_travel = candy_travel * candy_travel * (3.0 - 2.0 * candy_travel)
@@ -4549,7 +4552,7 @@ func _candy_release(at: Vector2) -> void:
 		feedback_anchor = _candy_bin_rect(bin).get_center()
 		feedback_positive = true
 		feedback_t = 0.28
-		gesture.emit("candy_sort", 1.0, 1.0)
+		gesture.emit(mode, 1.0, 1.0)
 		if candy_sorted >= CANDY_SEQUENCE.size():
 			candy_complete = true
 			candy_position = _candy_bin_rect(bin).get_center()
@@ -4562,7 +4565,7 @@ func _candy_release(at: Vector2) -> void:
 			feedback_anchor = _candy_bin_rect(bin).get_center()
 			feedback_positive = false
 			feedback_t = 0.28
-			gesture.emit("candy_sort", 0.0, 0.4)
+			gesture.emit(mode, 0.0, 0.4)
 		_candy_reset_piece(false)
 		demo_active = true
 		demo_t = 0.0
@@ -4570,6 +4573,14 @@ func _candy_release(at: Vector2) -> void:
 
 
 func _candy_color(kind: int) -> Color:
+	if mode == "geology_sort":
+		match kind:
+			0:
+				return Color("#f09b72")
+			1:
+				return Color("#69dcd3")
+			_:
+				return Color("#c58be5")
 	match kind:
 		0:
 			return Color("#ef776f")
@@ -4580,6 +4591,35 @@ func _candy_color(kind: int) -> Color:
 
 
 func _draw_candy_shape(center: Vector2, kind: int, radius: float, color: Color) -> void:
+	if mode == "geology_sort":
+		match kind:
+			0:
+				draw_colored_polygon(PackedVector2Array([
+					center + Vector2(-radius, radius * 0.35),
+					center + Vector2(-radius * 0.55, -radius * 0.72),
+					center + Vector2(radius * 0.42, -radius * 0.88),
+					center + Vector2(radius, radius * 0.22),
+					center + Vector2(radius * 0.40, radius * 0.82),
+				]), color)
+				draw_line(center + Vector2(-radius * 0.64, -radius * 0.05),
+					center + Vector2(radius * 0.70, radius * 0.02),
+					color.lightened(0.28), maxf(2.0, radius * 0.14))
+			1:
+				draw_colored_polygon(PackedVector2Array([
+					center + Vector2(0, -radius),
+					center + Vector2(radius * 0.72, -radius * 0.18),
+					center + Vector2(radius * 0.45, radius),
+					center + Vector2(-radius * 0.50, radius * 0.82),
+					center + Vector2(-radius * 0.76, -radius * 0.15),
+				]), color)
+				draw_line(center + Vector2(0, -radius * 0.82),
+					center + Vector2(0, radius * 0.72),
+					color.lightened(0.30), maxf(2.0, radius * 0.12))
+			_:
+				draw_circle(center, radius, color)
+				draw_arc(center, radius * 0.62, -0.3, TAU * 1.62, 28,
+					color.darkened(0.28), maxf(3.0, radius * 0.14))
+		return
 	match kind:
 		0:
 			for petal in range(6):
@@ -4615,8 +4655,8 @@ func _draw_candy_shape(center: Vector2, kind: int, radius: float, color: Color) 
 
 
 func _draw_candy_sort() -> void:
-	# A slow belt gives every piece unlimited chances; crossing the right edge
-	# loops it with no penalty and no queue advance.
+	# A slow belt gives every candy/specimen unlimited chances; crossing the
+	# right edge loops it with no penalty and no queue advance.
 	var belt_y := size.y * 0.24
 	draw_line(Vector2(size.x * 0.07, belt_y + _candy_piece_radius() + 9.0),
 		Vector2(size.x * 0.93, belt_y + _candy_piece_radius() + 9.0),

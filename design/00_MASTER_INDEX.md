@@ -245,18 +245,21 @@ fail renderer identity after 20 PASS rows and provide PNGs only, not remote
 JSON/Mobile PASS. Authoritative visual, exact voice, human listening, device,
 child, owner, and strict-zero 2D evidence remain open.
 
-Current Opera content is 13 careers, 53 phases, and 27 modes with newer
+Current Opera content is 14 careers, 57 phases, and 28 modes with newer
 diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the
-Canvas Racer. Commit `09e5e356` distributes every career to one exact thematic
+Canvas Racer plus cooperative Geologist. Commit `09e5e356` distributed the
+original thirteen careers to exact thematic
 Castle room, selects Movie Lounge as Racer's sole home, deletes the all-career
 lobby, blocks hidden/off-room routes, and returns each activity to its launching
-room. Save identity remains a stable
-16-slot namespace: slots 4/9/14 are inert tombstones, raw legacy bits survive,
-the live completion mask is `0xBDEF`, and effective progress is 0–13. The exact
+room. The 2026-08-30 owner-directed Geologist addition appends at bit 16 and
+launches from the Library. Save identity preserves every historical lower-
+sixteen-bit assignment inside the appended 17-slot namespace: slots 4/9/14 are
+inert tombstones, raw legacy bits survive, the live completion mask is
+`0x1BDEF`, and effective progress is 0–14. The exact
 focused matrix plus full-local runtime `09e5e356` and probe-head `ff068db` gates
 are green, so `MA-OPERA-010`, `MA-OPERA-011`, and `MA-OPERA-012` are
 `FIXED_PENDING_VERIFICATION`, not closed.
-Twenty-two 1280×720 Mobile captures (nine room routes plus thirteen careers)
+The prior twenty-two 1280×720 Mobile captures (nine room routes plus thirteen careers)
 were rendered and visually inspected as diagnostic/review evidence; they are
 not target-device, child, owner, or authoritative visual acceptance. The route
 cards obscure Roshan's lower body/tail in all nine room captures, a residual P2

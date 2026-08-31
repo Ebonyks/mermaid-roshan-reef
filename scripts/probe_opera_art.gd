@@ -3,7 +3,7 @@ extends SceneTree
 ##
 ## A fresh run writes two independent aspect manifests. Each records eight
 ## non-Hall Castle route views, all three physical Opera venue floors, and the
-## thirteen career states entered through the guarded production route callback.
+## live career states entered through the guarded production route callback.
 ## These are machine-review artifacts, never device/child/owner acceptance.
 
 const SCHEMA := "reef.opera.route_capture.v1"

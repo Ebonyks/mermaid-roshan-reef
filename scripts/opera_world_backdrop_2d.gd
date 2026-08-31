@@ -1,6 +1,6 @@
 class_name OperaWorldBackdrop2D
 extends Control
-## Scalable, code-native scenery for the thirteen Opera career worlds.
+## Scalable, code-native scenery for the Opera career worlds.
 ##
 ## The accepted 1024x576 scene keys remain composition references: they do not
 ## meet the project's 2048px-per-playable-screen raster rule. These lightweight
@@ -20,9 +20,12 @@ const PALETTES := {
 	"racer": [Color("#18234a"), Color("#4b5190"), Color("#ef5a59")],
 	"nursery": [Color("#202452"), Color("#88c9bd"), Color("#f4c7a7")],
 	"popstar": [Color("#34164d"), Color("#9c3c8c"), Color("#62d9e8")],
+	"geologist": [Color("#172b4d"), Color("#725b8f"), Color("#72e0d3")],
 }
+const SKY_LAGOON_ROOT := "res://assets/flats/sky_lagoon/main/"
 
 var career_id := "chef"
+var scene_variant := ""
 var elapsed := 0.0
 var redraw_t := 0.0
 ## When true the career set is framed by the proscenium: arch, curtain swags,
@@ -35,16 +38,104 @@ var stage_mode := false
 var painting: Texture2D = null
 var world_tiles: Array[Texture2D] = []
 var stage_tiles: Array[Texture2D] = []
+var room_variant_tiles: Array[Texture2D] = []
+var sky_lagoon_tiles: Array[Texture2D] = []
 
 
-func setup(id: String) -> void:
+func setup(id: String, variant: String = "") -> void:
 	career_id = id
+	scene_variant = variant
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	set_meta("chapter2_scene_variant", scene_variant)
+	set_meta("chapter2_scene_specific_2d", not scene_variant.is_empty())
+	if scene_variant == "stuffie_room":
+		painting = null
+		world_tiles.clear()
+		stage_tiles.clear()
+		room_variant_tiles = _load_stuffie_room_tiles()
+		sky_lagoon_tiles.clear()
+		queue_redraw()
+		return
+	if scene_variant == "sky_lagoon_farmer":
+		painting = null
+		world_tiles.clear()
+		stage_tiles.clear()
+		room_variant_tiles.clear()
+		sky_lagoon_tiles = _load_sky_lagoon_tiles()
+		queue_redraw()
+		return
 	var path := "res://assets/opera/worlds/backdrops/world_%s.png" % id
 	painting = load(path) as Texture2D if ResourceLoader.exists(path) else null
 	world_tiles = _load_tile_set("world")
 	stage_tiles = _load_tile_set("stage")
+	room_variant_tiles.clear()
+	sky_lagoon_tiles.clear()
 	queue_redraw()
+
+
+func _load_sky_lagoon_tiles() -> Array[Texture2D]:
+	var textures: Array[Texture2D] = []
+	# The center meadow is a single contiguous 2x2 crop of the approved 6x2
+	# Sky Lagoon panorama. Keeping the source tiles intact preserves their
+	# authored seams and avoids inventing a separate Farmer background.
+	for row in range(2):
+		for column in range(2, 4):
+			var path := SKY_LAGOON_ROOT \
+				+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png" % [row, column]
+			if not ResourceLoader.exists(path):
+				return []
+			var texture := load(path) as Texture2D
+			if texture == null:
+				return []
+			textures.append(texture)
+	return textures
+
+
+func _load_stuffie_room_tiles() -> Array[Texture2D]:
+	var textures: Array[Texture2D] = []
+	for row in range(2):
+		for column in range(4):
+			var path := "res://assets/flats/castle/rooms/background_tiles/" \
+				+ "room_playroom_background_r%d_c%d.png" % [row, column]
+			if not ResourceLoader.exists(path):
+				return []
+			var texture := load(path) as Texture2D
+			if texture == null:
+				return []
+			textures.append(texture)
+	return textures
+
+
+func _draw_stuffie_room_tiles() -> void:
+	var destination_size := Vector2(size.x / 4.0, size.y / 2.0)
+	for row in range(2):
+		for column in range(4):
+			var destination := Rect2(
+				Vector2(float(column) * destination_size.x,
+					float(row) * destination_size.y),
+				destination_size)
+			draw_texture_rect(room_variant_tiles[row * 4 + column],
+				destination, false)
+
+
+func _draw_sky_lagoon_farmer() -> void:
+	if sky_lagoon_tiles.size() != 4:
+		return
+	var half := size * 0.5
+	for row in range(2):
+		for column in range(2):
+			# Use the same central 576px vertical crop as the accepted flat-world
+			# renderer, keeping sky, flowering meadow, path, and foreground in a
+			# readable 16:9 frame on the fixed 1280x720 canvas.
+			var source := Rect2(0.0, 224.0, 1024.0, 576.0)
+			var destination := Rect2(
+				Vector2(float(column) * half.x, float(row) * half.y), half)
+			draw_texture_rect_region(sky_lagoon_tiles[row * 2 + column],
+				destination, source)
+	# A soft harvest basket makes the task's destination legible without
+	# replacing the approved world art or turning the scene into a card.
+	draw_circle(Vector2(1040.0, 620.0), 48.0, Color("#b87855"))
+	draw_arc(Vector2(1040.0, 618.0), 48.0, PI, TAU, 24, Color("#f0c274"), 8.0)
 
 
 func _load_tile_set(kind: String) -> Array[Texture2D]:
@@ -95,6 +186,14 @@ func _process(delta: float) -> void:
 
 
 func _draw() -> void:
+	if scene_variant == "stuffie_room" and room_variant_tiles.size() == 8:
+		_draw_stuffie_room_tiles()
+		if stage_mode:
+			_draw_spotlights(Color("#f2d66c"))
+		return
+	if scene_variant == "sky_lagoon_farmer":
+		_draw_sky_lagoon_farmer()
+		return
 	var palette: Array = PALETTES.get(career_id, PALETTES["chef"])
 	var sky := Color(palette[0])
 	var mid := Color(palette[1])
@@ -151,6 +250,8 @@ func _draw() -> void:
 			_draw_nursery(mid, accent)
 		"popstar":
 			_draw_popstar(mid, accent)
+		"geologist":
+			_draw_geologist(mid, accent)
 	if stage_mode:
 		# curtains and columns occlude the set — theatrically correct layering
 		_draw_stage_frame(accent)
@@ -422,3 +523,39 @@ func _draw_popstar(mid: Color, accent: Color) -> void:
 		var h := 55.0 + (sin(elapsed * 3.0 + float(i)) + 1.0) * 38.0
 		draw_rect(Rect2(x, 520 - h, 42, h), Color.from_hsv(float(i) / 7.0, 0.55, 1.0), true)
 	draw_circle(Vector2(640, 250), 72, Color(accent, 0.42))
+
+
+func _draw_geologist(mid: Color, accent: Color) -> void:
+	# A readable crystal-cave laboratory: layered walls, a fossil table,
+	# specimen trays and one glowing destination cluster. All geometry stays
+	# broad and sparse enough for the Mobile renderer and a four-year-old.
+	for band in range(5):
+		var y := 150.0 + float(band) * 74.0
+		var color := mid.lightened(0.18 - float(band) * 0.055)
+		draw_polyline(PackedVector2Array([
+			Vector2(0, y + 24), Vector2(220, y - 12),
+			Vector2(470, y + 18), Vector2(760, y - 18),
+			Vector2(1040, y + 12), Vector2(1280, y - 10),
+		]), color, 34.0)
+	# Fossil inspection slab.
+	draw_rect(Rect2(250, 430, 250, 94), Color("#d8bb8b"), true)
+	draw_arc(Vector2(376, 476), 32, -0.3, TAU * 1.65, 38,
+		Color("#875f72"), 11.0)
+	# Three big specimen trays match the specialist sorting surface.
+	for index in range(3):
+		var tray_x := 550.0 + float(index) * 145.0
+		draw_rect(Rect2(tray_x, 452, 110, 74), Color("#2f274e"), true)
+		draw_rect(Rect2(tray_x, 452, 110, 74), accent.lightened(float(index) * 0.08), false, 7.0)
+	# Finale crystal cluster.
+	var base := Vector2(1080, 520)
+	for crystal in range(5):
+		var x := base.x + (float(crystal) - 2.0) * 34.0
+		var height := 80.0 + float((crystal * 31) % 55)
+		var crystal_color := Color.from_hsv(0.46 + float(crystal) * 0.055, 0.42, 1.0)
+		draw_colored_polygon(PackedVector2Array([
+			Vector2(x - 20, base.y), Vector2(x - 14, base.y - height * 0.72),
+			Vector2(x, base.y - height), Vector2(x + 15, base.y - height * 0.70),
+			Vector2(x + 20, base.y),
+		]), crystal_color)
+	var pulse := 58.0 + (sin(elapsed * 2.1) + 1.0) * 10.0
+	draw_arc(Vector2(1080, 420), pulse, 0.0, TAU, 36, Color(accent, 0.55), 8.0)

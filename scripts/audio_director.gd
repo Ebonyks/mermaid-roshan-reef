@@ -218,7 +218,13 @@ func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 			m.hud_msg.text = txt
 			m.hud_msg.visible = true
 			m.msg_timer = 5.0
-		if who != "":
+		m.hud_msg.set_meta("voice_recording_gap",
+			not has_exact and txt != "")
+		m.hud_msg.set_meta("requested_voice_key", vo)
+		# A generic speaker clip or pitched yay cannot truthfully instruct a
+		# nonreader. In Opera, play only the exact semantic recording; otherwise
+		# leave the visual pointer and reading-aid caption present.
+		if who != "" and has_exact:
 			_say(speaker, vo, 0.5)
 		return
 	m.hud_msg.text = txt

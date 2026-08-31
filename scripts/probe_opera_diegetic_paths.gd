@@ -57,10 +57,13 @@ const EXPECTED_STATIONS: Dictionary = {
 	"nursery": [
 		"wash_basin", "cuddle_cushions", "bottle_nook", "moon_bed",
 	],
+	"geologist": [
+		"layer_wall", "fossil_table", "specimen_trays", "crystal_gallery",
+	],
 }
 
 ## Mirrors the shipping PHASE_STATIONS bindings by station ID. Repeated IDs
-## are intentional: this is the full 53-phase playable contract, not merely a
+## are intentional: this is the full 57-phase playable contract, not merely a
 ## set of the 45 physical landmarks those phases share.
 const PLAYABLE_PHASE_STATIONS: Dictionary = {
 	"chef": [
@@ -102,6 +105,7 @@ const PLAYABLE_PHASE_STATIONS: Dictionary = {
 		"cuddle_cushions", "moon_bed",
 	],
 	"popstar": ["mic_gazebo", "record_dais", "shell_stage", "shell_stage"],
+	"geologist": ["layer_wall", "fossil_table", "specimen_trays", "crystal_gallery"],
 }
 
 const SCREEN_BOUNDS := Rect2(Vector2.ZERO, Vector2(1280.0, 720.0))
@@ -395,18 +399,18 @@ func _audit_career(career: String) -> void:
 
 
 func _init() -> void:
-	_ck("exactly 13 careers covered", EXPECTED_STATIONS.size() == 13)
-	_ck("playable bindings cover same 13 careers",
-		PLAYABLE_PHASE_STATIONS.size() == 13)
+	_ck("exactly 14 careers covered", EXPECTED_STATIONS.size() == 14)
+	_ck("playable bindings cover same 14 careers",
+		PLAYABLE_PHASE_STATIONS.size() == 14)
 	for career: String in EXPECTED_STATIONS:
 		_audit_career(career)
-	_ck("all 64 authored stations covered", station_count == 64,
+	_ck("all 68 authored stations covered", station_count == 68,
 		"actual=%d" % station_count)
 	_ck("all raised-landmark exceptions exercised",
 		authored_spur_count >= 8,
 		"actual=%d" % authored_spur_count)
-	_ck("all 53 playable phase anchors exercised",
-		playable_phase_count == 53,
+	_ck("all 57 playable phase anchors exercised",
+		playable_phase_count == 57,
 		"actual=%d" % playable_phase_count)
 	var result := "ALL OK" if failed == 0 else "%d FAIL" % failed
 	print(("OPERA_DIEGETIC_PATHS|result: %s (%d checks, %d careers, " \

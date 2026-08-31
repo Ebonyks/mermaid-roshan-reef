@@ -35,6 +35,7 @@ const EXPECTED_PHASES: Dictionary = {
 	"racer": ["TUNE", "TO THE LINE", "RACE"],
 	"nursery": ["WASH HANDS", "CATCH BABIES", "FEED", "BURP", "BEDTIME"],
 	"popstar": ["SOUND CHECK", "DANCE", "RHYTHM", "ENCORE"],
+	"geologist": ["LAYERS", "FOSSIL", "SORT", "CRYSTAL"],
 }
 
 ## Runtime consumes path, motion, size, presentation and an optional local
@@ -122,6 +123,12 @@ const SPECS: Dictionary = {
 		"RHYTHM": {"path": "res://assets/opera/worlds/widgets/widget_crank_popstar_mover.png", "motion": "pulse", "size": Vector2(128, 128), "presentation": "painted"},
 		"ENCORE": {"path": "res://assets/opera/worlds/props/goal_popstar.png", "motion": "rock", "size": Vector2(142, 142), "presentation": "painted"},
 	},
+	"geologist": {
+		"LAYERS": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "pulse", "size": Vector2(128, 128), "presentation": "painted"},
+		"FOSSIL": {"path": "res://assets/opera/worlds/hotspots/geologist_fossil.svg", "motion": "rock", "size": Vector2(132, 132), "presentation": "painted"},
+		"SORT": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "bounce", "size": Vector2(112, 112), "presentation": "overlay"},
+		"CRYSTAL": {"path": "res://assets/opera/worlds/props/goal_geologist.svg", "motion": "pulse", "size": Vector2(150, 150), "presentation": "painted"},
+	},
 }
 
 ## Exact imported source-canvas dimensions verified against the repository PNGs.
@@ -176,6 +183,9 @@ const ASSET_META: Dictionary = {
 	"res://assets/opera/worlds/props/goal_popstar.png": {"dimensions": Vector2i(512, 512), "role": "object"},
 	"res://assets/opera/worlds/widgets/widget_track_popstar_mover.png": {"dimensions": Vector2i(256, 256), "role": "effect"},
 	"res://assets/opera/worlds/widgets/widget_crank_popstar_mover.png": {"dimensions": Vector2i(256, 256), "role": "object_group"},
+	"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg": {"dimensions": Vector2i(256, 256), "role": "object"},
+	"res://assets/opera/worlds/hotspots/geologist_fossil.svg": {"dimensions": Vector2i(256, 256), "role": "object"},
+	"res://assets/opera/worlds/props/goal_geologist.svg": {"dimensions": Vector2i(256, 256), "role": "object_group"},
 }
 
 

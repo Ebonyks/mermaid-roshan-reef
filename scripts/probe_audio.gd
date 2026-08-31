@@ -13,7 +13,7 @@ const REQUIRED_AREA_MUSIC: Array[String] = [
 	"opera_detective", "opera_ballerina", "opera_candymaker",
 	"opera_doctor", "opera_farmer", "opera_boxer", "opera_magician",
 	"opera_painter", "opera_astronaut", "opera_racer", "opera_popstar",
-	"opera_nursery", "opera_boss_dragon", "opera_boss_phantom",
+	"opera_nursery", "opera_geologist", "opera_boss_dragon", "opera_boss_phantom",
 	"opera_boss_maestro", "northern", "galaxy", "ember",
 	"dungeon_ice", "dungeon_ember", "combat_ice", "combat_fire",
 	"stuffie_battle", "combat_tutorial", "picture_snowman",

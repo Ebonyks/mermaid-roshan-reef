@@ -2,16 +2,17 @@ class_name OperaHouse
 extends Node
 ## Canvas-only Opera career lifecycle and stable save-bit authority.
 ##
-## The roster deliberately remains a sixteen-slot table. The three retired
-## floor finales are inert tombstones so every surviving career keeps the bit
-## it has always owned in `opera_stars`.
+## The original sixteen slots remain untouched. The three retired floor
+## finales are inert tombstones; new careers append after them so every
+## surviving career keeps the bit it has always owned in `opera_stars`.
 
 const RETIRED_ACT_INDICES: Array[int] = [4, 9, 14]
-const LIVE_ACT_INDICES: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15]
+const ChapterTwoAdapter := preload("res://scripts/chapter_two_career_scene_adapter.gd")
+const LIVE_ACT_INDICES: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16]
 const RETIRED_STAR_MASK := 0x4210
-const ACTIVE_STAR_MASK := 0xBDEF
+const ACTIVE_STAR_MASK := 0x1BDEF
 const ALL_STARS := ACTIVE_STAR_MASK
-const ACTIVE_ACT_COUNT := 13
+const ACTIVE_ACT_COUNT := 14
 
 const ACTS := [
 	{
@@ -132,6 +133,14 @@ const ACTS := [
 		"win_line": "Roshan and Faron tucked every cozy baby into the Moonbeam Nursery!",
 		"floor_col": Color(0.45, 0.68, 0.66), "trim": Color(1.0, 0.82, 0.70), "curtain": Color(0.48, 0.38, 0.68),
 	},
+	{
+		"save_bit": 16, "name": "The Crystal Cave Discovery", "career": "Geologist",
+		"costume": "geologist", "emoji": "💎", "story": 3, "type": "show",
+		"kind": "geology", "music": "opera_geologist",
+		"voice": "Geologist Roshan! Follow the rock layers, brush out a fossil, sort the bright specimens and light the crystal cave!",
+		"win_line": "Geologist Roshan's crystal collection sparkles in the Castle gallery!",
+		"floor_col": Color(0.36, 0.45, 0.55), "trim": Color(0.62, 0.92, 0.86), "curtain": Color(0.43, 0.29, 0.56),
+	},
 ]
 
 var m: ReefMain
@@ -139,6 +148,13 @@ var finish_cb: Callable
 var state := "idle"
 var act: OperaAct = null
 var act_index := -1
+var run_context: Dictionary = {}
+var plot_context := ""
+var story_mode := false
+## Chapter 2's four opening lessons teach a single verb and grant a skill.
+## This flag is deliberately independent from run_context: plot performances
+## (such as the Stuffie Ballet) remain full scored Opera runs.
+var tutorial_mode := false
 
 
 static func is_live_act_index(index: int) -> bool:
@@ -159,17 +175,64 @@ static func has_all_live_stars(star_mask: int) -> bool:
 	return (star_mask & ACTIVE_STAR_MASK) == ACTIVE_STAR_MASK
 
 
-func start(main: ReefMain, index: int, done_cb: Callable) -> bool:
+func start(main: ReefMain, index: int, done_cb: Callable,
+		config_overrides: Dictionary = {}, run_context: Dictionary = {}) -> bool:
 	if state != "idle" or not is_live_act_index(index):
 		push_error("OperaHouse: retired or unknown Opera slot %d" % index)
 		return false
 	var next_config: Dictionary = (ACTS[index] as Dictionary).duplicate(true)
+	if not ChapterTwoAdapter.validate_config_overrides(
+		String(next_config.get("costume", "")), config_overrides):
+		push_error("OperaHouse: invalid Chapter 2 config override at slot %d" % index)
+		return false
+	next_config.merge(config_overrides.duplicate(true), true)
+	if not run_context.is_empty():
+		next_config["run_context"] = run_context.duplicate(true)
+	story_mode = String(next_config.get("reward_policy", "")) == "chapter2_story"
+	if story_mode:
+		# Story careers use the Chapter 2 phase catalog and completion authority;
+		# they are not tutorial truncations and never mint Opera freeplay stars.
+		next_config["chapter2_tutorial"] = false
+		var scene_config := ChapterTwoAdapter.adapter_config(
+			String(next_config.get("costume", "")), config_overrides)
+		var scene_adapter_value: Variant = config_overrides.get(
+			"scene_adapter", null)
+		if scene_adapter_value is Dictionary:
+			# Keep caller-supplied bindings/hooks while filling absent story fields
+			# from the data catalog. Nested phase overrides are validated and
+			# resolved by the adapter before the world receives this config.
+			var scene_adapter_dictionary: Dictionary = scene_adapter_value
+			scene_config.merge(
+				scene_adapter_dictionary.duplicate(true),
+				true)
+		next_config["scene_adapter"] = scene_config
+		next_config["chapter2_scene"] = String(scene_config.get("backdrop", ""))
+		var story_run_context: Dictionary = {}
+		var story_context_value: Variant = next_config.get("run_context", null)
+		if story_context_value is Dictionary:
+			var story_context_dictionary: Dictionary = story_context_value
+			story_run_context = story_context_dictionary.duplicate(true)
+		story_run_context["chapter"] = "chapter2"
+		story_run_context["reward_policy"] = "chapter2_story"
+		next_config["run_context"] = story_run_context
+		if main.chapter2_is_active():
+			next_config["chapter2_resume_phase_index"] = \
+				main._chapter_two_ref().resume_phase_index_for_act(index)
 	if not OperaAct.supports_config(next_config):
 		push_error("OperaHouse: invalid Canvas career mapping at slot %d" % index)
 		return false
 	m = main
 	finish_cb = done_cb
 	act_index = index
+	plot_context = String(next_config.get("chapter2_context", ""))
+	self.run_context = {}
+	var configured_context_value: Variant = next_config.get("run_context", null)
+	if configured_context_value is Dictionary:
+		var configured_context_dictionary: Dictionary = configured_context_value
+		self.run_context = configured_context_dictionary.duplicate(true)
+	if not run_context.is_empty():
+		self.run_context.merge(run_context.duplicate(true), true)
+	tutorial_mode = bool(next_config.get("chapter2_tutorial", false))
 	state = "playing"
 	next_config["act_tag"] = String(next_config.get("name", "")) + "  "
 	act = OperaAct.new()
@@ -193,11 +256,19 @@ func _act_won() -> void:
 		push_error("OperaHouse: win callback had no live Opera slot")
 		_finish(false)
 		return
+	if tutorial_mode or story_mode:
+		# Opening Chapter 2 lessons are skill hooks, not Opera performances:
+		# preserve every normal Opera reward and progress counter untouched.
+		m.chapter2_on_opera_completed(finished, plot_context)
+		m._write_save()
+		_finish(true)
+		return
 	var bit := 1 << finished
 	var first_time := (m.opera_stars & bit) == 0
 	m.opera_stars |= bit
 	m.pearl_count += 3 if first_time else 1
 	m.opera_progress = live_star_count(m.opera_stars)
+	m.chapter2_on_opera_completed(finished, plot_context)
 	if has_all_live_stars(m.opera_stars) and not m.opera_done:
 		m.opera_done = true
 		m.pearl_count += 50
