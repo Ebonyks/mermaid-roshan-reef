@@ -48,10 +48,13 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	if path != "":
 		stream = load(path)
 	if stream != null:
+		var protected_exact := speaker in ["faron", "daddy", "chuck"] \
+			and path == LEGACY_VOICE_DIR + key + ".ogg"
 		# Discovery/focus paths can request two semantic keys for the same
 		# character within one frame. Let the first complete; never interrupt a
-		# sentence with a second take from that same speaker.
-		if _active_speaker == speaker and _has_active_speech():
+		# sentence with a second take from that same speaker. An exact protected
+		# family cue remains authoritative and may replace a generic greeting.
+		if _active_speaker == speaker and _has_active_speech() and not protected_exact:
 			return
 		# Different semantic keys can resolve to the same family fallback clip
 		# when an exact take is unavailable. Never restart an
