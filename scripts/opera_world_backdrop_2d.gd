@@ -21,8 +21,10 @@ const PALETTES := {
 	"nursery": [Color("#202452"), Color("#88c9bd"), Color("#f4c7a7")],
 	"popstar": [Color("#34164d"), Color("#9c3c8c"), Color("#62d9e8")],
 }
+const SKY_LAGOON_ROOT := "res://assets/flats/sky_lagoon/main/"
 
 var career_id := "chef"
+var scene_variant := ""
 var elapsed := 0.0
 var redraw_t := 0.0
 ## When true the career set is framed by the proscenium: arch, curtain swags,
@@ -35,16 +37,104 @@ var stage_mode := false
 var painting: Texture2D = null
 var world_tiles: Array[Texture2D] = []
 var stage_tiles: Array[Texture2D] = []
+var room_variant_tiles: Array[Texture2D] = []
+var sky_lagoon_tiles: Array[Texture2D] = []
 
 
-func setup(id: String) -> void:
+func setup(id: String, variant: String = "") -> void:
 	career_id = id
+	scene_variant = variant
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	set_meta("chapter2_scene_variant", scene_variant)
+	set_meta("chapter2_scene_specific_2d", not scene_variant.is_empty())
+	if scene_variant == "stuffie_room":
+		painting = null
+		world_tiles.clear()
+		stage_tiles.clear()
+		room_variant_tiles = _load_stuffie_room_tiles()
+		sky_lagoon_tiles.clear()
+		queue_redraw()
+		return
+	if scene_variant == "sky_lagoon_farmer":
+		painting = null
+		world_tiles.clear()
+		stage_tiles.clear()
+		room_variant_tiles.clear()
+		sky_lagoon_tiles = _load_sky_lagoon_tiles()
+		queue_redraw()
+		return
 	var path := "res://assets/opera/worlds/backdrops/world_%s.png" % id
 	painting = load(path) as Texture2D if ResourceLoader.exists(path) else null
 	world_tiles = _load_tile_set("world")
 	stage_tiles = _load_tile_set("stage")
+	room_variant_tiles.clear()
+	sky_lagoon_tiles.clear()
 	queue_redraw()
+
+
+func _load_sky_lagoon_tiles() -> Array[Texture2D]:
+	var textures: Array[Texture2D] = []
+	# The center meadow is a single contiguous 2x2 crop of the approved 6x2
+	# Sky Lagoon panorama. Keeping the source tiles intact preserves their
+	# authored seams and avoids inventing a separate Farmer background.
+	for row in range(2):
+		for column in range(2, 4):
+			var path := SKY_LAGOON_ROOT \
+				+ "flat_sky_lagoon_main_panorama_v5_tile_r%d_c%d.png" % [row, column]
+			if not ResourceLoader.exists(path):
+				return []
+			var texture := load(path) as Texture2D
+			if texture == null:
+				return []
+			textures.append(texture)
+	return textures
+
+
+func _load_stuffie_room_tiles() -> Array[Texture2D]:
+	var textures: Array[Texture2D] = []
+	for row in range(2):
+		for column in range(4):
+			var path := "res://assets/flats/castle/rooms/background_tiles/" \
+				+ "room_playroom_background_r%d_c%d.png" % [row, column]
+			if not ResourceLoader.exists(path):
+				return []
+			var texture := load(path) as Texture2D
+			if texture == null:
+				return []
+			textures.append(texture)
+	return textures
+
+
+func _draw_stuffie_room_tiles() -> void:
+	var destination_size := Vector2(size.x / 4.0, size.y / 2.0)
+	for row in range(2):
+		for column in range(4):
+			var destination := Rect2(
+				Vector2(float(column) * destination_size.x,
+					float(row) * destination_size.y),
+				destination_size)
+			draw_texture_rect(room_variant_tiles[row * 4 + column],
+				destination, false)
+
+
+func _draw_sky_lagoon_farmer() -> void:
+	if sky_lagoon_tiles.size() != 4:
+		return
+	var half := size * 0.5
+	for row in range(2):
+		for column in range(2):
+			# Use the same central 576px vertical crop as the accepted flat-world
+			# renderer, keeping sky, flowering meadow, path, and foreground in a
+			# readable 16:9 frame on the fixed 1280x720 canvas.
+			var source := Rect2(0.0, 224.0, 1024.0, 576.0)
+			var destination := Rect2(
+				Vector2(float(column) * half.x, float(row) * half.y), half)
+			draw_texture_rect_region(sky_lagoon_tiles[row * 2 + column],
+				destination, source)
+	# A soft harvest basket makes the task's destination legible without
+	# replacing the approved world art or turning the scene into a card.
+	draw_circle(Vector2(1040.0, 620.0), 48.0, Color("#b87855"))
+	draw_arc(Vector2(1040.0, 618.0), 48.0, PI, TAU, 24, Color("#f0c274"), 8.0)
 
 
 func _load_tile_set(kind: String) -> Array[Texture2D]:
@@ -95,6 +185,14 @@ func _process(delta: float) -> void:
 
 
 func _draw() -> void:
+	if scene_variant == "stuffie_room" and room_variant_tiles.size() == 8:
+		_draw_stuffie_room_tiles()
+		if stage_mode:
+			_draw_spotlights(Color("#f2d66c"))
+		return
+	if scene_variant == "sky_lagoon_farmer":
+		_draw_sky_lagoon_farmer()
+		return
 	var palette: Array = PALETTES.get(career_id, PALETTES["chef"])
 	var sky := Color(palette[0])
 	var mid := Color(palette[1])

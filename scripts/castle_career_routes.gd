@@ -80,6 +80,14 @@ static func route_matches(target_room: String, act_index: int) -> bool:
 		and OperaHouse.is_live_act_index(act_index)
 
 
+static func chapter2_foyer_owner_room(act_index: int) -> String:
+	# The foyer cards are a story index for Chapter 2, not an alternate room
+	# owner. Keep this mapping pure so probes can reject hardcoded opera_hall
+	# launches without constructing the full Castle scene.
+	var entry := ChapterTwoPartyPlan.entry_for_act(act_index)
+	return String(entry.get("room", "")) if not entry.is_empty() else ""
+
+
 static func routed_act_indices() -> Array[int]:
 	var result: Array[int] = []
 	for target_room: String in ROOM_ACT_INDICES:
@@ -107,6 +115,14 @@ func sync() -> void:
 		_attach(stage)
 	if room_id != m.castle_room_id:
 		room_id = m.castle_room_id
+		_rebuild_room()
+	elif room_id == "opera_hall" and opera_venue != null \
+			and is_instance_valid(opera_venue) \
+			and opera_venue.is_chapter2_tutorial_mode() \
+			!= _chapter2_tutorial_phase():
+		# Chapter 2 advances its director objective while the room wrapper is
+		# still alive; rebuild the foyer so four lesson doors become the normal
+		# room-distributed Opera surface at the next return.
 		_rebuild_room()
 	var castle_visible := m.castle_room_layer != null \
 		and is_instance_valid(m.castle_room_layer) \
@@ -145,7 +161,7 @@ func guide_current_room() -> bool:
 	if room_id == "opera_hall" and opera_venue != null \
 			and is_instance_valid(opera_venue) and opera_venue.is_open():
 		return opera_venue.guide_current_floor()
-	var act_index := preferred_act_for_room(room_id, m.opera_stars)
+	var act_index := _preferred_act_for_current_room()
 	var button := button_for_act(act_index)
 	if button == null or not button.visible or button.disabled:
 		return false
@@ -183,7 +199,15 @@ func _rebuild_room() -> void:
 			child.queue_free()
 	if m.day_one_jobs_locked():
 		return
+	# Chapter 2 begins with the Opera House as the only career surface. Castle
+	# room skill uses are supplied by the separate plot-only room controller.
+	if _chapter2_tutorial_phase() and room_id != "opera_hall":
+		return
 	var indices := act_indices_for_room(room_id)
+	if m.chapter2_is_active():
+		# Ballerina and Detective remain plot-only room actions. Their Opera
+		# cards must not create a second generic activation route.
+		indices = _chapter2_room_indices(indices)
 	if indices.is_empty():
 		return
 	if room_id == "opera_hall":
@@ -217,6 +241,7 @@ func _rebuild_room() -> void:
 		button.set_meta("career_costume", costume)
 		button.set_meta("screen_hit_size", button.size)
 		button.set_meta("presentation", "room_picture_card")
+		button.set_meta("chapter2_roster", m.chapter2_is_active())
 		StorybookUI.style_picture_button(
 			button, Color(0.94, 0.96, 1.0, 0.98), StorybookUI.GOLD, 42)
 		button.pressed.connect(_launch.bind(room_id, act_index))
@@ -258,12 +283,19 @@ func _rebuild_room() -> void:
 		pearl.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		button.add_child(pearl)
 	_refresh_completion()
-	_highlight(preferred_act_for_room(room_id, m.opera_stars))
+	_highlight(_preferred_act_for_current_room())
 
 func _refresh_completion() -> void:
+	var chapter2_active := m != null and m.chapter2_is_active()
+	var completion_mask := _chapter2_completion_mask() if chapter2_active else m.opera_stars
 	for button: Button in buttons:
 		var act_index := int(button.get_meta("act_index", -1))
-		var complete := act_index >= 0 and (m.opera_stars & (1 << act_index)) != 0
+		var complete := act_index >= 0 \
+			and (completion_mask & (1 << act_index)) != 0
+		if chapter2_active and act_index >= 0:
+			# Only the next sequential party job is launchable. Completed and
+			# later careers stay visible as picture-first surfaces.
+			button.disabled = complete or not m.chapter2_can_start_opera_act(act_index)
 		var pearl := button.get_node_or_null("CareerPearl") as Panel
 		if pearl != null:
 			pearl.set_meta("complete", complete)
@@ -271,6 +303,42 @@ func _refresh_completion() -> void:
 				StorybookUI.GOLD if complete else StorybookUI.LAVENDER,
 				Color(1.0, 0.94, 0.58, 1.0) if complete \
 				else Color(0.88, 0.90, 1.0, 0.96), 18, 3))
+
+
+func _chapter2_completion_mask() -> int:
+	if m == null or not m.chapter2_is_active():
+		return m.opera_stars if m != null else 0
+	return m.chapter2_party_piece_mask
+
+
+func _preferred_act_for_current_room() -> int:
+	if m != null and m.chapter2_is_active():
+		var indices := _chapter2_room_indices(act_indices_for_room(room_id))
+		var completion_mask := _chapter2_completion_mask()
+		for act_index: int in indices:
+			if (completion_mask & (1 << act_index)) == 0:
+				return act_index
+		return indices[0] if not indices.is_empty() else -1
+	return preferred_act_for_room(room_id, m.opera_stars)
+
+
+func _chapter2_room_indices(indices: Array[int]) -> Array[int]:
+	var result: Array[int] = []
+	if m == null or not m.chapter2_is_active():
+		return indices.duplicate()
+	for act_index: int in indices:
+		if not ChapterTwoPartyPlan.is_live_act(act_index):
+			continue
+		if act_index in [ChapterTwoDirector.ACT_BALLERINA,
+				ChapterTwoDirector.ACT_DETECTIVE]:
+			continue
+		result.append(act_index)
+	return result
+
+
+func _chapter2_tutorial_phase() -> bool:
+	return m != null and m.chapter2_is_active() \
+		and m._chapter_two_ref().is_opera_priority()
 
 
 func _highlight(act_index: int) -> void:
@@ -303,7 +371,7 @@ func _stop_animator() -> void:
 func _launch(expected_room: String, act_index: int) -> void:
 	if m.day_one_jobs_locked() \
 		or m.castle_room_id != expected_room \
-		or not route_matches(expected_room, act_index) \
+		or not m.chapter2_opera_route_matches(expected_room, act_index) \
 		or m.opera_game != null:
 		return
 	m._start_opera_from_room(act_index, expected_room)
@@ -326,4 +394,27 @@ func close_opera_venue() -> void:
 
 
 func _launch_opera_venue(act_index: int) -> void:
-	_launch("opera_hall", act_index)
+	if m == null or not m.chapter2_is_active():
+		_launch("opera_hall", act_index)
+		return
+	# Chapter 2's foyer is a story guide, not a second launch owner. The
+	# visible portal cards point to the career's truthful Castle room; sending
+	# every card through opera_hall would either fail the route guard or silently
+	# start the wrong scene. Ballerina and Detective are intentionally absent
+	# from this venue and remain their plot-only room actions.
+	var entry := ChapterTwoPartyPlan.entry_for_act(act_index)
+	var owner_room := chapter2_foyer_owner_room(act_index)
+	if owner_room.is_empty():
+		return
+	if owner_room == "opera_hall":
+		_launch("opera_hall", act_index)
+		return
+	if not m.chapter2_opera_route_matches(owner_room, act_index):
+		return
+	if m.castle_room_id != "opera_hall" or m.opera_game != null:
+		return
+	# Leave the foyer before the room-owned career card is shown. The child can
+	# then activate the same picture-first card in its actual Castle room.
+	m.show_msg("Roshan", "Follow the career picture to the %s!" % String(
+		entry.get("location_label", owner_room.replace("_", " "))), "hint")
+	m._castle_rooms_ref().show_room(owner_room, true)

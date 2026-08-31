@@ -127,7 +127,12 @@ func _win() -> void:
 			win_line += " %s for the nursery team!" % String(performance_result.get("cheer", "Big cheers"))
 		else:
 			win_line += " %s for Mermaid Roshan!" % String(performance_result.get("cheer", "Big cheers"))
-	m.show_msg("Roshan", win_line, "win")
+	# Chapter 2 rewrites the curtain line around its persistent story prop. The
+	# legacy generic win recording is celebratory but does not speak that line,
+	# so keep the truthful reading-aid caption instead of hiding it behind audio.
+	var win_voice := "" if String(config.get("reward_policy", "")) \
+		== "chapter2_story" else "win"
+	m.show_msg("Roshan", win_line, win_voice)
 
 
 func _finish() -> void:

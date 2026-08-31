@@ -22,10 +22,11 @@ func _init() -> void:
 	await process_frame
 	main._skip_intro()
 	await process_frame
+	_prepare_day_one_terminal_boundary()
 	await _open_case()
 	if main.game == "dustboss":
-		await _framing_case()
 		await _splash_case()
+		await _framing_case()
 		await _showing_case()
 		await _mastery_ui_case()
 		await _shield_case()
@@ -47,6 +48,39 @@ func _ck(label: String, ok: bool) -> void:
 func _frames(n: int) -> void:
 	for i in range(n):
 		await process_frame
+
+
+func _event_count(history: Array[Dictionary], event_name: String) -> int:
+	var count := 0
+	for record: Dictionary in history:
+		if String(record.get("event", "")) == event_name:
+			count += 1
+	return count
+
+
+func _prepare_day_one_terminal_boundary() -> void:
+	# Enter through the legacy physical attic portal below, but make its story
+	# state match the real first-run route: every room is complete and the boss
+	# door has already fired its one-shot trigger. The live DustBoss ending then
+	# owns the terminal director/main seam; this fixture never calls completion.
+	var director: DayOneDirector = main._day_one_ref()
+	# The rendered probe uses the normal user:// save path. Reset only the two
+	# story directors so a developer's already-complete save cannot turn this
+	# first-win integration case into a rematch.
+	director.restore_state({})
+	main._chapter_two_ref().restore_state({})
+	director.bathroom_tools_authorized = true
+	director.bathroom_supply_hunt_step = 2
+	director.bathroom_cleanup_step = 2
+	director.complete_tutorial("bathroom")
+	director.complete_placeholder("pool", "pool_activity")
+	director.complete_activity("stuffie", "stuffie_activity")
+	director.complete_activity("art", "art_activity")
+	director.giant_dust_bunny_boss_triggered = true
+	_ck("the full boss case starts at the valid Day-One terminal boundary",
+		director.day_one_active and director.boss_door_glow
+		and director.giant_dust_bunny_boss_triggered
+		and not director.giant_dust_bunny_boss_defeated)
 
 func _boss() -> DustBossGame:
 	return main._game_obj("dustboss", DustBossGame) as DustBossGame
@@ -562,6 +596,24 @@ func _win_case() -> void:
 		and award.get_node_or_null(
 			"MedalCelebrationCard/PerfectBonusGem") != null)
 	await _frames(2)
+	_ck("the real DustBoss seam records defeat and starts Chapter 2",
+		main.day_one_giant_dust_bunny_boss_defeated
+		and main.chapter2_active
+		and main.chapter2_unlocked_opera_mask
+		== ChapterTwoDirector.FIRST_WAVE_UNLOCK_MASK
+		and _event_count(main.day_one_event_history,
+			DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED) == 1
+		and _event_count(main.chapter2_event_history,
+			ChapterTwoDirector.EVENT_CHAPTER_STARTED) == 1)
+	var repeated_terminal := main.day_one_complete_boss_and_begin_day_two()
+	_ck("repeated terminal callbacks cannot duplicate story events",
+		not repeated_terminal
+		and _event_count(main.day_one_event_history,
+			DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED) == 1
+		and _event_count(main.day_one_event_history,
+			DayOneDirector.EVENT_DAY_TWO_BEGINS) == 1
+		and _event_count(main.chapter2_event_history,
+			ChapterTwoDirector.EVENT_CHAPTER_STARTED) == 1)
 	_ck("the first victory advances the saved story into Day Two",
 		day_one_before and not main.day_one_is_active()
 		and not main.day_one_jobs_locked() and main.day_one_opera_enabled())

@@ -16,9 +16,9 @@ ROOT = Path(__file__).resolve().parents[1]
 HANDOFF_ROOT = ROOT / "assets" / "flats" / "fairy_conservatory_handoff"
 HANDOFF_SOURCE = ROOT / "assets_src" / "fairy_conservatory_handoff_2026-08-30"
 DOOR_ROOT = ROOT / "assets" / "flats" / "castle" / "fairy_conservatory"
-DOOR_SOURCE = (
+GATE_SOURCE = (
 	ROOT / "assets_src" / "castle"
-	/ "fairy_conservatory_chapter3_2026-08-30"
+	/ "fairy_conservatory_gate_available_2026-08-30"
 )
 
 failures: list[str] = []
@@ -132,67 +132,15 @@ def audit_background() -> None:
 			and ".resize(" not in assemble_body)
 
 
-def audit_threshold_coverage(open_view: dict[str, object]) -> None:
-	walkway_path = HANDOFF_ROOT / "rainbow_walkway.png"
-	walkway = image(walkway_path)
-	if walkway is None:
-		return
-	walkway = walkway.convert("RGBA")
-	bounds = walkway.getchannel("A").getbbox()
-	if bounds is None:
-		check("rainbow walkway has threshold alpha", False)
-		return
-	walkway = walkway.crop(bounds)
-	scale = 630.0 / max(walkway.size)
-	walkway = walkway.resize(
-		(max(1, round(walkway.width * scale)),
-		 max(1, round(walkway.height * scale))),
-		Image.Resampling.LANCZOS,
-	)
-	alpha = np.asarray(walkway.getchannel("A"), dtype=np.uint8)
-	center_left = round(walkway.width * 0.33)
-	center_right = round(walkway.width * 0.67)
-	center_rows = np.flatnonzero(
-		np.any(alpha[:, center_left:center_right] >= 64, axis=1))
-	if not center_rows.size:
-		check("rainbow walkway has a measurable center foot", False)
-		return
-	opening = open_view.get("opening_mask", {})
-	opening_left = int(opening.get("left", -1))
-	opening_right = int(opening.get("right", -1))
-	opening_bottom = int(opening.get("bottom", -1))
-	overdraw = int(open_view.get("walkway_threshold_overdraw_pixels", -1))
-	center_foot = int(center_rows[-1]) + 1
-	top = opening_bottom - center_foot + overdraw
-	left = 512 - walkway.width // 2
-	coverage = np.zeros((1024, 1024), dtype=np.uint8)
-	y_start = max(0, top)
-	y_end = min(1024, top + walkway.height)
-	x_start = max(0, left)
-	x_end = min(1024, left + walkway.width)
-	coverage[y_start:y_end, x_start:x_end] = alpha[
-		y_start - top:y_end - top,
-		x_start - left:x_end - left,
-	]
-	region = coverage[
-		opening_bottom - 6:opening_bottom + 1,
-		opening_left:opening_right,
-	]
-	covered = int(np.count_nonzero(region >= 64))
-	check("rainbow walkway fully covers the door threshold before clipping",
-		region.size > 0 and covered == region.size,
-		f"covered={covered}/{region.size} overdraw={overdraw}")
-
-
 def audit_manifests() -> None:
 	handoff_manifest_path = HANDOFF_SOURCE / "asset_manifest.json"
-	door_manifest_path = DOOR_SOURCE / "asset_manifest.json"
-	for path in (handoff_manifest_path, door_manifest_path):
+	gate_manifest_path = GATE_SOURCE / "asset_manifest.json"
+	for path in (handoff_manifest_path, gate_manifest_path):
 		check(f"manifest exists: {path.relative_to(ROOT).as_posix()}", path.is_file())
-	if not handoff_manifest_path.is_file() or not door_manifest_path.is_file():
+	if not handoff_manifest_path.is_file() or not gate_manifest_path.is_file():
 		return
 	handoff = json.loads(handoff_manifest_path.read_text(encoding="utf-8"))
-	door = json.loads(door_manifest_path.read_text(encoding="utf-8"))
+	gate = json.loads(gate_manifest_path.read_text(encoding="utf-8"))
 	check("handoff manifest records built-in ImageGen",
 		handoff.get("generation_method") == "OpenAI built-in image generation")
 	background = handoff.get("background", {})
@@ -250,32 +198,62 @@ def audit_manifests() -> None:
 	review = handoff.get("review_only_composite", {})
 	check("placement composite is explicitly non-delivery",
 		review.get("delivery_pixels") is False)
-	open_view = door.get("states", {}).get("open", {}).get("view_composition", {})
-	horizon = float(open_view.get("horizon_fraction", 1.0))
-	check("door horizon is at or below the 50% line", horizon <= 0.5,
+	state_mapping = gate.get("state_mapping", {})
+	check("dormant state remains the approved minimal relief",
+		state_mapping.get("closed") == "approved minimal Moonflower relief")
+	check("plot reveal transforms into the available Butterfly Gate",
+		"Butterfly Gate" in str(state_mapping.get("revealed", "")))
+	runtime_record = gate.get("runtime", {})
+	open_view = runtime_record.get("portal_composition", {})
+	horizon = float(open_view.get("portal_horizon_fraction", 1.0))
+	check("gate portal horizon is at or below the 50% line", horizon <= 0.5,
 		f"fraction={horizon:.4f}")
-	check("door view uses the Lily-Pad Fairy World authority",
+	check("gate portal uses the Lily-Pad Fairy World authority",
 		open_view.get("location_authority")
 		== "Lily-Pad Fairy World / Fairy Pond")
-	opening_bottom = int(open_view.get("opening_mask", {}).get("bottom", -1))
-	walkway_base = int(open_view.get("walkway_visible_base_y", -2))
-	check("rainbow art begins at the exact door-opening base",
-		open_view.get("walkway_base_matches_opening_base") is True
-		and walkway_base == opening_bottom,
-		f"walkway={walkway_base} opening={opening_bottom}")
-	audit_threshold_coverage(open_view)
-	check("door manifest names the Rainbow Stage destination",
-		"Rainbow Stage" in str(open_view.get("destination", "")))
-	for state in ("closed", "open"):
-		record = door.get("states", {}).get(state, {})
-		runtime = ROOT / str(record.get("runtime", ""))
-		check(f"door {state} hash matches manifest",
-			runtime.is_file() and digest(runtime) == record.get("runtime_sha256"))
-		hall_review = record.get("hall_review", {})
+	aperture_bottom = int(open_view.get("aperture", {}).get("bottom", -1))
+	lily_foot = int(open_view.get("foreground_lily_cluster", {}).get(
+		"threshold_foot_y", -2))
+	check("approved lily art begins at the exact gate threshold",
+		open_view.get("threshold_matches_aperture_base") is True
+		and lily_foot == aperture_bottom,
+		f"lily={lily_foot} aperture={aperture_bottom}")
+	check("castle gate excludes rainbow-walkway delivery pixels",
+		open_view.get("rainbow_walkway_delivery_pixels") is False)
+	check("castle gate excludes the old greenhouse-interior pixels",
+		open_view.get("greenhouse_interior_delivery_pixels") is False)
+	approved_roles = {
+		str(record.get("role", "")) for record in gate.get("approved_inputs", [])
+	}
+	check("gate manifest combines the approved facade, sunrise pond, and lily threshold",
+		approved_roles == {
+			"dormant castle door",
+			"Butterfly Door Gate architecture",
+			"sunrise Lily-Pad Fairy World portal view",
+			"foreground lily-pad threshold cluster",
+		})
+	for record in gate.get("approved_inputs", []):
+		input_path = ROOT / str(record.get("path", ""))
+		check(f"gate input hash matches: {input_path.name}",
+			input_path.is_file() and digest(input_path) == record.get("sha256"))
+	gate_builder_path = ROOT / "tools" / "build_fairy_conservatory_gate_art.py"
+	check("corrected gate builder exists", gate_builder_path.is_file())
+	if gate_builder_path.is_file():
+		gate_builder = gate_builder_path.read_text(encoding="utf-8")
+		check("corrected gate builder excludes the rainbow walkway",
+			"WALKWAY_SOURCE" not in gate_builder
+			and "_place_runtime_sprite_center_foot_at_base" not in gate_builder)
+		check("corrected gate builder preserves facade pixels outside the aperture",
+			"Butterfly Gate pixels changed outside the aperture" in gate_builder)
+	runtime = ROOT / str(runtime_record.get("path", ""))
+	check("available Butterfly Gate hash matches manifest",
+		runtime.is_file() and digest(runtime) == runtime_record.get("sha256"))
+	for state in ("dormant", "available"):
+		hall_review = gate.get("reviews", {}).get(state, {})
 		hall_path = ROOT / str(hall_review.get("path", ""))
-		check(f"door {state} Hall review is explicitly non-delivery",
+		check(f"gate {state} Hall review is explicitly non-delivery",
 			hall_review.get("delivery_pixels") is False)
-		check(f"door {state} Hall review hash matches manifest",
+		check(f"gate {state} Hall review hash matches manifest",
 			hall_path.is_file() and digest(hall_path) == hall_review.get("sha256"))
 
 
@@ -330,7 +308,11 @@ def audit_runtime_contract() -> None:
 		check(f"main owns {key}", key in main)
 	check("Main Hall owns one whole door card",
 		"MoonflowerConservatoryDoor" in door
-		and "DOOR_CENTER := Vector2(1672.0, 385.0)" in door)
+		and "DORMANT_CENTER := Vector2(1672.0, 385.0)" in door)
+	check("revealed and entered states use the available Butterfly Gate",
+		'return DOOR_DORMANT if state == "closed" else DOOR_AVAILABLE' in door)
+	check("castle runtime no longer references the superseded rainbow inset",
+		"moonflower_door_open.png" not in door)
 	check("Main Hall route bypasses fake room portal list",
 		'm.call("_start_fairy_conservatory_handoff")' in door)
 	check("approved Castle V4 payload stays independent",
@@ -358,6 +340,7 @@ def audit_runtime_contract() -> None:
 		and '"guided reverse walk completes home"' in handoff_probe)
 	for evidence in (
 		"fresh door is dormant",
+		"plot reveal transforms into the available Butterfly Gate",
 		"reveal creates exactly one hotspot",
 		"open route removes the reveal pointer",
 		"Hall suspend/resume preserves camera offset",
@@ -369,8 +352,8 @@ def audit_ledger() -> None:
 	licenses = (ROOT / "ASSET_LICENSES.md").read_text(encoding="utf-8")
 	for token in (
 		"moonflower_door_closed.png",
-		"moonflower_door_open.png",
-		"moonflower_door_{closed,open}_hall_1280x720.png",
+		"butterfly_gate_available.png",
+		"fairy_conservatory_{dormant,available}_hall_1280x720.png",
 		"rainbow_walkway.png",
 		"butterfly_house.png",
 		"fairy_pond_horizon_openai_raw.png",
@@ -385,7 +368,7 @@ def audit_ledger() -> None:
 
 def main() -> int:
 	closed = audit_cutout(DOOR_ROOT / "moonflower_door_closed.png")
-	opened = audit_cutout(DOOR_ROOT / "moonflower_door_open.png")
+	opened = audit_cutout(DOOR_ROOT / "butterfly_gate_available.png")
 	audit_cutout(HANDOFF_ROOT / "rainbow_walkway.png")
 	audit_cutout(HANDOFF_ROOT / "butterfly_house.png")
 	if closed is not None and opened is not None \
@@ -398,8 +381,9 @@ def main() -> int:
 			check("door states share the same horizontal pivot",
 				abs(closed_center - open_center) <= 1.0,
 				f"closed={closed_center} open={open_center}")
-			check("door states share the same visual height",
-				closed_box[3] - closed_box[1] == open_box[3] - open_box[1])
+			check("door states share the same castle-floor foot",
+				closed_box[3] == open_box[3],
+				f"closed={closed_box[3]} open={open_box[3]}")
 	audit_background()
 	audit_manifests()
 	audit_runtime_contract()

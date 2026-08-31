@@ -46,6 +46,8 @@ const EVENT_ART_DESK_UNLOCKED: String = "art_desk_unlocked"
 const EVENT_ART_CUSTOMIZATION_COMPLETED: String = "art_customization_completed"
 const EVENT_BOSS_DOOR_GLOW: String = "boss_door_glow"
 const EVENT_GIANT_DUST_BUNNY_BOSS: String = "giant_dust_bunny_boss"
+const EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED: String = \
+	"giant_dust_bunny_boss_defeated"
 const EVENT_DAY_TWO_BEGINS: String = "day_two_begins"
 const ART_MATERIAL_IDS: Array[String] = [
 	"brushes", "pink_paint", "blue_paint", "paint_cups",
@@ -66,6 +68,7 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_grok_video_2_seen",
 	"day_one_boss_door_glow",
 	"day_one_giant_dust_bunny_boss_triggered",
+	"day_one_giant_dust_bunny_boss_defeated",
 	"day_one_bathroom_cleanup_step",
 	"day_one_bathroom_supply_hunt_step",
 	"day_one_bathroom_tools_authorized",
@@ -131,6 +134,11 @@ var giant_dust_bunny_boss_triggered: bool:
 		return m.day_one_giant_dust_bunny_boss_triggered
 	set(value):
 		m.day_one_giant_dust_bunny_boss_triggered = value
+var giant_dust_bunny_boss_defeated: bool:
+	get:
+		return m.day_one_giant_dust_bunny_boss_defeated
+	set(value):
+		m.day_one_giant_dust_bunny_boss_defeated = value
 var bathroom_cleanup_step: int:
 	get:
 		return m.day_one_bathroom_cleanup_step
@@ -433,11 +441,28 @@ func trigger_giant_dust_bunny_boss() -> bool:
 	return true
 
 
+func complete_giant_dust_bunny_boss() -> bool:
+	if not day_one_active or not giant_dust_bunny_boss_triggered \
+			or giant_dust_bunny_boss_defeated or not _all_rooms_completed():
+		return false
+	giant_dust_bunny_boss_defeated = true
+	day_one_active = false
+	_emit_once(EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED, {
+		"room_ids": ROOM_ORDER.duplicate(),
+		"castle_clean": true,
+	})
+	return true
+
+
 ## The first boss is the terminal Day One gate. This seam is intentionally
 ## idempotent: replaying Grand Puff later remains a friendly rematch and can
 ## never replay the day transition or relock jobs.
 func complete_day_one_after_boss() -> bool:
-	if not day_one_active:
+	# Day Two presentation is downstream of the recorded giant-boss defeat.
+	# Never let an unlock-only caller deactivate Day One before that terminal
+	# event has started Chapter 2, and never emit the presentation twice.
+	if not giant_dust_bunny_boss_defeated \
+			or bool(day_one_event_seen.get(EVENT_DAY_TWO_BEGINS, false)):
 		return false
 	day_one_active = false
 	_emit_once(EVENT_DAY_TWO_BEGINS, {
@@ -473,6 +498,8 @@ func serialize_state() -> Dictionary:
 		"day_one_boss_door_glow": boss_door_glow,
 		"day_one_giant_dust_bunny_boss_triggered": \
 			giant_dust_bunny_boss_triggered,
+		"day_one_giant_dust_bunny_boss_defeated": \
+			giant_dust_bunny_boss_defeated,
 		"day_one_bathroom_cleanup_step": bathroom_cleanup_step,
 		"day_one_bathroom_supply_hunt_step": bathroom_supply_hunt_step,
 		"day_one_bathroom_tools_authorized": bathroom_tools_authorized,
@@ -510,6 +537,8 @@ func _normalise_state(source: Dictionary) -> void:
 	boss_door_glow = bool(normalised.get("day_one_boss_door_glow", false))
 	giant_dust_bunny_boss_triggered = bool(normalised.get(
 		"day_one_giant_dust_bunny_boss_triggered", false))
+	giant_dust_bunny_boss_defeated = bool(normalised.get(
+		"day_one_giant_dust_bunny_boss_defeated", false))
 	bathroom_cleanup_step = int(normalised.get(
 		"day_one_bathroom_cleanup_step", 0))
 	bathroom_supply_hunt_step = int(normalised.get(
@@ -552,6 +581,22 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	var grok_seen: bool = _as_bool_static(source.get(
 		"day_one_grok_video_2_seen", false), false)
 	var all_done: bool = completed.size() == ROOM_ORDER.size()
+	var boss_triggered: bool = all_done and _as_bool_static(source.get(
+		"day_one_giant_dust_bunny_boss_triggered", false), false)
+	# Origin/dev briefly shipped Day Two before the additive boss-defeated key.
+	# Backfill only that exact causal terminal: all four rooms completed, the
+	# boss explicitly triggered, and Day One explicitly inactive. Jobs-unlocked
+	# flags alone are not evidence and unrelated legacy saves remain untouched.
+	var legacy_terminal_day_two: bool = boss_triggered \
+		and source.has("day_one_active") \
+		and not _as_bool_static(source.get("day_one_active", true), true) \
+		and not source.has("day_one_giant_dust_bunny_boss_defeated")
+	var boss_defeated: bool = boss_triggered and (
+		_as_bool_static(source.get(
+			"day_one_giant_dust_bunny_boss_defeated", false), false) \
+		or legacy_terminal_day_two)
+	var day_active: bool = _as_bool_static(source.get(
+		"day_one_active", true), true) and not boss_defeated
 	var bathroom_done: bool = completed.has("bathroom")
 	var pool_done: bool = completed.has("pool")
 	var saved_bathroom_step: int = clampi(int(source.get(
@@ -594,23 +639,20 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	# the next frame from ever losing progress or trapping the child.
 	var art_desk: bool = art_cleanup_done
 	return {
-		"day_one_active": _as_bool_static(source.get(
-			"day_one_active", true), true),
+		"day_one_active": day_active,
 		"day_one_current_room": current,
 		"day_one_completed_rooms": completed,
 		"day_one_cleaned_rooms": cleaned,
-		"day_one_jobs_locked": _as_bool_static(source.get(
-			"day_one_active", true), true),
-		"day_one_opera_enabled": not _as_bool_static(source.get(
-			"day_one_active", true), true),
+		"day_one_jobs_locked": day_active,
+		"day_one_opera_enabled": not day_active,
 		"day_one_arrival_plane_media_seen": _as_bool_static(source.get(
 			"day_one_arrival_plane_media_seen", false), false),
 		"day_one_dirty_castle_discovered": _as_bool_static(source.get(
 			"day_one_dirty_castle_discovered", false), false) or grok_seen,
 		"day_one_grok_video_2_seen": grok_seen,
 		"day_one_boss_door_glow": all_done,
-		"day_one_giant_dust_bunny_boss_triggered": all_done and _as_bool_static(
-			source.get("day_one_giant_dust_bunny_boss_triggered", false), false),
+		"day_one_giant_dust_bunny_boss_triggered": boss_triggered,
+		"day_one_giant_dust_bunny_boss_defeated": boss_defeated,
 		"day_one_bathroom_cleanup_step": saved_bathroom_step,
 		"day_one_bathroom_supply_hunt_step": saved_supply_hunt_step,
 		"day_one_bathroom_tools_authorized": saved_tools_authorized,
