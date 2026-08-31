@@ -5167,6 +5167,9 @@ func _on_world_press_drag() -> void:
 # WITHOUT firing — opening the pause menu must never land a hit.
 func _on_world_press_cancel() -> void:
 	_cancel_lagoon_navigation()
+	if game == "dustboss":
+		(_game_obj("dustboss", DustBossGame) as DustBossGame).cancel_dodge_motion()
+		return
 	if game == "melody":
 		(_game_obj("melody", MelodyGame) as MelodyGame).cancel_input()
 		return
@@ -5189,6 +5192,9 @@ func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
 			SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
 		return
 	if _world_tap_gated():
+		return
+	if game == "dustboss":
+		(_game_obj("dustboss", DustBossGame) as DustBossGame).on_world_swipe(from, to)
 		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_drag(from, to)

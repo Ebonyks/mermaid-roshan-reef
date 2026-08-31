@@ -62,6 +62,10 @@ func _await_state(want: String, cap: int) -> bool:
 			return false
 		if _state() == want:
 			return true
+		if want != "pounce" and _state() == "pounce":
+			var dodge: DodgeEngine = main.g.get("db_dodge") as DodgeEngine
+			if dodge != null and dodge.available:
+				_boss().on_world_swipe(Vector2(520.0, 420.0), Vector2(650.0, 424.0))
 		n += 1
 		await process_frame
 	return false
@@ -269,6 +273,9 @@ func _showing_case() -> void:
 	_ck("the fight opens with the showing, not the fight", _state() == "showing")
 	_ck("the boss cutout and its head star are built",
 		main.g.get("db_boss") != null and main.g.get("db_star") != null)
+	var guide: DodgeTutorialGuide = main.g.get("db_dodge_guide") as DodgeTutorialGuide
+	_ck("the dodge lesson reuses a true-2D picture-first guide",
+		guide != null and guide.get_node_or_null("DodgeTutorialGuideRoot") is Control)
 	# taps during the reveal teach nothing bad: they cannot scratch him
 	for i in range(4):
 		await _tap()
@@ -296,8 +303,86 @@ func _shield_case() -> void:
 	_ck("shield feedback is strong but rate-limited",
 		int(main.g.get("db_shield_feedbacks", 0)) - feedback_before >= 1
 		and int(main.g.get("db_shield_feedbacks", 0)) - feedback_before <= 2)
+	await _dodge_tutorial_case()
 	var windup: bool = await _await_state("windup", 3000)
-	_ck("the prowl telegraphs the leap with a wind-up", windup)
+	_ck("the dodge pounce recovers into the separate bonk wind-up", windup)
+
+func _dodge_tutorial_case() -> void:
+	var pounce: bool = await _await_state("pounce", 3000)
+	_ck("the prowl opens a separate committed landing pounce", pounce)
+	if not pounce:
+		return
+	var dodge: DodgeEngine = main.g.get("db_dodge") as DodgeEngine
+	_ck("the pounce owns the reusable 2D dodge engine", dodge != null)
+	if dodge == null:
+		return
+	var bumps_before: int = int(main.g.get("db_bumps", 0))
+	var first_attack: int = int(main.g.get("db_dodge_attack_id", 0))
+	while _state() == "pounce":
+		await process_frame
+	_ck("the first safe lesson cannot advance passively",
+		not bool(main.g.get("db_dodge_lesson_done", false))
+		and int(main.g.get("db_bumps", 0)) == bumps_before and _hits() == 0)
+	var replayed: bool = await _await_state("pounce", 3000)
+	_ck("an unanswered lesson replays a fresh committed pounce",
+		replayed and int(main.g.get("db_dodge_attack_id", 0)) == first_attack + 1)
+	if not replayed:
+		return
+	dodge = main.g.get("db_dodge") as DodgeEngine
+	var committed: Vector2 = dodge.landing
+	# Vertical movement is a harmless wrong gesture and cannot graduate the
+	# picture-first lesson or move Roshan.
+	while _state() == "pounce" and not dodge.available:
+		await process_frame
+	var before: Vector2 = _player_local()
+	var rejected: bool = not _boss().on_world_swipe(
+		Vector2(640.0, 430.0), Vector2(646.0, 560.0))
+	_ck("a vertical gesture cannot trigger the lateral dodge",
+		rejected and not bool(main.g.get("db_dodge_lesson_done", false)))
+	_ck("the encounter exposes the same world-swipe owner in Classic preference",
+		main.touch_ui.control_mode == "hybrid")
+	var accepted_before: int = dodge.accepted_count
+	var press := InputEventScreenTouch.new()
+	press.index = 7
+	press.position = Vector2(560.0, 300.0)
+	press.pressed = true
+	main.touch_ui._input(press)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 7
+	drag.position = Vector2(730.0, 304.0)
+	drag.relative = Vector2(170.0, 4.0)
+	main.touch_ui._input(drag)
+	var release := InputEventScreenTouch.new()
+	release.index = 7
+	release.position = drag.position
+	release.pressed = false
+	main.touch_ui._input(release)
+	var accepted: bool = dodge.accepted_count == accepted_before + 1
+	await _frames(3)
+	var partial: Vector2 = _player_local()
+	main._on_world_press_cancel()
+	await _frames(8)
+	var after: Vector2 = _player_local()
+	_ck("a real right swipe graduates the dodge lesson",
+		accepted and bool(main.g.get("db_dodge_lesson_done", false))
+		and int(main.g.get("db_dodge_successes", 0)) == 1)
+	_ck("the dodge begins within one rendered frame and moves laterally",
+		partial.x > before.x + 0.05 and absf(partial.y - before.y) < 0.5)
+	_ck("focus cancellation leaves no stale dash to resume",
+		after.distance_to(partial) < 0.01)
+	_ck("the bunny never re-homes after the swipe",
+		dodge.landing.distance_to(committed) < 0.001)
+	_ck("dodge practice changes no boss progress",
+		_hits() == 0 and int(main.g.get("db_miss", 0)) == 0)
+	var edge: Vector2 = Vector2(OctagonStage.apothem(DustBossGame.RADIUS) - 2.7, 0.0)
+	var fallback_dir: Vector2 = _boss().safe_dodge_direction(edge, Vector2.RIGHT)
+	var fallback: Vector2 = edge
+	for _i in range(21):
+		fallback = _boss().safe_dodge_target(fallback,
+			fallback_dir * (DodgeEngine.DODGE_DISTANCE / 21.0))
+	_ck("an outward wall swipe chooses one inward direction for the full dodge",
+		fallback_dir == Vector2.LEFT and fallback.x < edge.x - 5.0
+		and _boss().stage.clamp_point(fallback, 2.6).distance_to(fallback) < 0.001)
 
 # ---- contact feedback: readable, brief and never punitive ------------------
 func _bump_case() -> void:
@@ -477,6 +562,8 @@ func _win_case() -> void:
 		wait += 1
 		await process_frame
 	_ck("the win banner closes the fight", main.game == "")
+	_ck("fight teardown restores the player's prior touch preference",
+		main.touch_ui.control_mode == main.touch_mode)
 	_ck("befriending him pays the portal pearls", main.pearl_count >= pearls_before + 3)
 	# MEDALS.md is binding: "Bronze = completion. Every finished game earns at
 	# least bronze." The first boss in the game had no medal row at all.

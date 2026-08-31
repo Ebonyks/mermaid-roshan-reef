@@ -7,6 +7,7 @@ extends Node
 ## it has always owned in `opera_stars`.
 
 const RETIRED_ACT_INDICES: Array[int] = [4, 9, 14]
+const ChapterTwoAdapter := preload("res://scripts/chapter_two_career_scene_adapter.gd")
 const LIVE_ACT_INDICES: Array[int] = [0, 1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15]
 const RETIRED_STAR_MASK := 0x4210
 const ACTIVE_STAR_MASK := 0xBDEF
@@ -159,11 +160,20 @@ static func has_all_live_stars(star_mask: int) -> bool:
 	return (star_mask & ACTIVE_STAR_MASK) == ACTIVE_STAR_MASK
 
 
-func start(main: ReefMain, index: int, done_cb: Callable) -> bool:
+func start(main: ReefMain, index: int, done_cb: Callable,
+		config_overrides: Dictionary = {}, run_context: Dictionary = {}) -> bool:
 	if state != "idle" or not is_live_act_index(index):
 		push_error("OperaHouse: retired or unknown Opera slot %d" % index)
 		return false
 	var next_config: Dictionary = (ACTS[index] as Dictionary).duplicate(true)
+	if not ChapterTwoAdapter.validate_config_overrides(
+		String(next_config.get("costume", "")), config_overrides):
+		push_error("OperaHouse: invalid Chapter 2 config override at slot %d" % index)
+		return false
+	if not config_overrides.is_empty():
+		next_config.merge(config_overrides.duplicate(true), true)
+	if not run_context.is_empty():
+		next_config["run_context"] = run_context.duplicate(true)
 	if not OperaAct.supports_config(next_config):
 		push_error("OperaHouse: invalid Canvas career mapping at slot %d" % index)
 		return false

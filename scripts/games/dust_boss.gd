@@ -65,6 +65,10 @@ const POSITIVE_PACING_FLOOR := 38.0 # quick completions still get a warm ending
 
 const LEAP_UP := 0.34          # seconds of rise at the top of a leap
 const LEAP_H := 7.6            # hover height while he laughs, exposed
+const DODGE_WINDUP_T := 1.05   # separate, readable pounce tell for preschool reaction
+const DODGE_POUNCE_T := 0.95   # committed travel; never re-homes after launch
+const DODGE_RECOVER_T := 0.42  # steering returns immediately; bunny catches his breath
+const DODGE_POUNCE_H := 5.4
 const REACH := 12.0            # base tap reach during a window (ring units)
 const HOP_H := 2.4             # prowl hop arc height
 const BOSS_H := 17.0           # on-screen height of the animated CARD. The
@@ -161,8 +165,23 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_spin"] = 0.0
 	m.g["db_flash"] = 0.0
 	m.g["db_active_t"] = 0.0
+	m.g["db_dodge_successes"] = 0
+	m.g["db_dodge_misses"] = 0
+	m.g["db_dodge_swipes_rejected"] = 0
+	m.g["db_dodge_tutorial_seen"] = false
+	m.g["db_dodge_lesson_done"] = false
+	m.g["db_dodge_idle_t"] = 0.0
+	m.g["db_dodge_attack_id"] = 0
+	m.g["db_dodge"] = DodgeEngine.new()
+	if m.touch_ui != null:
+		m.g["db_touch_mode_before"] = m.touch_ui.control_mode
+		# Classic dedicates the first finger to its anywhere-stick and therefore
+		# has no world-swipe verb. This encounter temporarily uses the existing
+		# Hybrid owner map so one world finger can dodge in either preference.
+		m.touch_ui.set_mode("hybrid")
 	_stage_open()
 	_build_boss()
+	_build_dodge_guide()
 	_enter_state("splash")
 	_show_boss_splash(fr)
 
@@ -175,6 +194,15 @@ func stage_close() -> void:
 	var splash: BossSplash2D = m.g.get("db_splash") as BossSplash2D
 	if splash != null and is_instance_valid(splash):
 		splash.cancel()
+	var guide: DodgeTutorialGuide = m.g.get("db_dodge_guide") as DodgeTutorialGuide
+	if guide != null and is_instance_valid(guide):
+		guide.visible = false
+		guide.queue_free()
+	if m.touch_ui != null:
+		m.touch_ui.set_mode(String(m.g.get("db_touch_mode_before", m.touch_mode)))
+	var dodge: DodgeEngine = dodge_engine()
+	if dodge != null:
+		dodge.reset()
 	stage.close()
 
 func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
@@ -186,6 +214,7 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 	# scratch him (probe_passive).
 	var s: Dictionary = stage.tick(delta)
 	var tapped: bool = bool(s["tap"])
+	_tick_dodge_motion(delta)
 	m.g["db_feedback_cd"] = maxf(0.0,
 		float(m.g.get("db_feedback_cd", 0.0)) - delta)
 	m.g["db_closer_cd"] = maxf(0.0,
@@ -201,6 +230,12 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			_tick_showing(st, fr, tapped)
 		"prowl":
 			_tick_prowl(delta, st, s, tapped)
+		"dodge_windup":
+			_tick_dodge_windup(delta, st, tapped)
+		"pounce":
+			_tick_pounce(delta, st, tapped)
+		"dodge_recover":
+			_tick_dodge_recover(st, tapped)
 		"windup":
 			_tick_windup(delta, st, tapped)
 		"vuln":
@@ -339,7 +374,18 @@ func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
 		m.g["db_show_told"] = true
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
 			"When he JUMPS and his star FLASHES — TAP him!", "dustboss_tell")
+	var dodge_demo: bool = st > 1.15 and st < 3.15
+	var guide: DodgeTutorialGuide = m.g.get("db_dodge_guide") as DodgeTutorialGuide
+	if guide != null and is_instance_valid(guide):
+		guide.visible = dodge_demo
+	if dodge_demo and not bool(m.g.get("db_dodge_tutorial_seen", false)):
+		m.g["db_dodge_tutorial_seen"] = true
+		m.show_msg(String(fr.get("fname", "Dusty Attic")),
+			"Grand Puff is landing! Swipe LEFT or RIGHT to scoot away!",
+			"dustboss_dodge_tell")
 	if st >= SHOW_T:
+		if guide != null and is_instance_valid(guide):
+			guide.visible = false
 		m.g["db_flash"] = 0.0
 		_enter_state("prowl")
 		_pick_hop(true)
@@ -351,6 +397,78 @@ func _tick_prowl(delta: float, st: float, s: Dictionary, tapped: bool) -> void:
 	if tapped:
 		_bounce_off()
 	if st >= prowl_len():
+		_enter_state("dodge_windup")
+
+# DODGE WIND-UP — a separate landing lesson. It never overlaps the gold-star
+# bonk window, so one finger always answers one verb. The target commits at
+# launch and never re-homes; ordinary steering away remains a valid dodge.
+func _tick_dodge_windup(delta: float, st: float, tapped: bool) -> void:
+	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - delta * 8.0)
+	m.g["db_flash"] = clampf(st / DODGE_WINDUP_T, 0.0, 1.0) * 0.32
+	if tapped:
+		_bounce_off()
+	if st < DODGE_WINDUP_T:
+		return
+	var here: Vector2 = stage.player_local()
+	m.g["db_from"] = Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
+	m.g["db_to"] = stage.clamp_point(here, BOSS_INSET)
+	var dodge: DodgeEngine = dodge_engine()
+	if dodge != null:
+		m.g["db_dodge_attack_id"] = int(m.g.get("db_dodge_attack_id", 0)) + 1
+		dodge.begin_landing(m.g["db_to"] as Vector2, DODGE_POUNCE_T)
+	_enter_state("pounce")
+	m._say("roshan", "dustboss_dodge_ready", 2.0)
+
+func _tick_pounce(_delta: float, st: float, tapped: bool) -> void:
+	if tapped:
+		_answer_only()
+	var u: float = clampf(st / DODGE_POUNCE_T, 0.0, 1.0)
+	var from: Vector2 = m.g["db_from"] as Vector2
+	var to: Vector2 = m.g["db_to"] as Vector2
+	var boss_here: Vector2 = from.lerp(to, u)
+	m.g["db_x"] = boss_here.x
+	m.g["db_z"] = boss_here.y
+	m.g["db_y"] = sin(u * PI) * DODGE_POUNCE_H
+	var dodge: DodgeEngine = dodge_engine()
+	if dodge == null:
+		if st >= DODGE_POUNCE_T:
+			m.g["db_y"] = 0.0
+			_set_dodge_guide_visible(false)
+			_enter_state("dodge_recover")
+		return
+	dodge.set_threat_position(boss_here)
+	var ready_now: bool = dodge.update_window(DODGE_POUNCE_T - st, stage.player_local())
+	m.g["db_dodge_idle_t"] = (float(m.g.get("db_dodge_idle_t", 0.0)) + _delta) \
+		if ready_now else 0.0
+	_set_dodge_guide_visible(ready_now and int(m.g.get("db_dodge_successes", 0)) == 0 \
+		and float(m.g.get("db_dodge_idle_t", 0.0)) >= 0.18)
+	if st < DODGE_POUNCE_T:
+		return
+	if dodge.landing_resolved:
+		m.g["db_y"] = 0.0
+		_set_dodge_guide_visible(false)
+		_enter_state("dodge_recover")
+		return
+	var lesson_done: bool = bool(m.g.get("db_dodge_lesson_done", false))
+	if dodge.resolve_landing(stage.player_local()):
+		if lesson_done:
+			m.g["db_dodge_misses"] = int(m.g.get("db_dodge_misses", 0)) + 1
+			_bump_player(to)
+	else:
+		_answer_only()
+	_set_dodge_guide_visible(false)
+	m.g["db_y"] = 0.0
+	if not lesson_done and not dodge.accepted:
+		m.show_msg("Roshan", "Swipe with the ghost hand — LEFT or RIGHT!",
+			"dustboss_dodge_tell")
+		_enter_state("dodge_windup")
+		return
+	_enter_state("dodge_recover")
+
+func _tick_dodge_recover(st: float, tapped: bool) -> void:
+	if tapped:
+		_answer_only()
+	if st >= DODGE_RECOVER_T:
 		_enter_state("windup")
 
 # WIND-UP — the telegraph: he squashes down and the star starts to glimmer.
@@ -573,6 +691,68 @@ func on_world_tap(screen_pos: Vector2) -> void:
 		return
 	_bounce_off()
 
+func on_world_swipe(from: Vector2, to: Vector2) -> bool:
+	if m.game != "dustboss" or not m.g.has("db_state"):
+		return false
+	var dodge: DodgeEngine = dodge_engine()
+	if dodge == null:
+		return false
+	if not dodge.try_swipe(from, to):
+		m.g["db_dodge_swipes_rejected"] = dodge.rejected_count
+		return false
+	m.g["db_dodge_successes"] = dodge.accepted_count
+	m.g["db_dodge_lesson_done"] = true
+	m.g["db_dodge_idle_t"] = 0.0
+	_set_dodge_guide_visible(false)
+	if m.player != null:
+		dodge.motion_dir = safe_dodge_direction(stage.player_local(), dodge.motion_dir)
+		m.player.vel.x = 0.0
+		m.player.vel.z = 0.0
+		m.player.play_verb("boing")
+		_answer_only()
+	m._say("roshan", "dustboss_dodge", 1.4)
+	return true
+
+func dodge_engine() -> DodgeEngine:
+	return m.g.get("db_dodge") as DodgeEngine
+
+func _tick_dodge_motion(delta: float) -> void:
+	var dodge: DodgeEngine = dodge_engine()
+	if dodge == null or m.player == null:
+		return
+	var motion: Vector2 = dodge.consume_motion(delta)
+	if motion == Vector2.ZERO:
+		return
+	var before: Vector2 = stage.player_local()
+	var after: Vector2 = safe_dodge_target(before, motion)
+	m.player.global_position.x += after.x - before.x
+	m.player.global_position.z += after.y - before.y
+
+func safe_dodge_target(before: Vector2, motion: Vector2) -> Vector2:
+	return stage.clamp_point(before + motion, PLAYER_INSET)
+
+func safe_dodge_direction(before: Vector2, requested: Vector2) -> Vector2:
+	var full: Vector2 = requested.normalized() * DodgeEngine.DODGE_DISTANCE
+	var preferred: Vector2 = stage.clamp_point(before + full, PLAYER_INSET)
+	var mirrored: Vector2 = stage.clamp_point(before - full, PLAYER_INSET)
+	if (preferred - before).length() < DodgeEngine.DODGE_DISTANCE * 0.35 \
+			and (mirrored - before).length() > (preferred - before).length():
+		return -requested
+	return requested
+
+func cancel_dodge_motion() -> void:
+	var dodge: DodgeEngine = dodge_engine()
+	if dodge != null:
+		dodge.cancel_motion()
+
+func _set_dodge_guide_visible(want: bool) -> void:
+	var guide: DodgeTutorialGuide = m.g.get("db_dodge_guide") as DodgeTutorialGuide
+	if guide != null and is_instance_valid(guide):
+		if want and not guide.visible:
+			guide.restart_demo()
+		else:
+			guide.visible = want
+
 func _screen_hit(screen_pos: Vector2) -> bool:
 	# did the finger land on his card? (generous: the whole cutout plus a ring)
 	var boss: Node3D = m.g.get("db_boss") as Node3D
@@ -713,7 +893,7 @@ func pose_for_state() -> String:
 	var st: String = String(m.g.get("db_state", ""))
 	var rounds: int = int(m.g.get("db_hits", 0))
 	match st:
-		"prowl", "windup":
+		"prowl", "dodge_windup", "pounce", "dodge_recover", "windup":
 			return "angry_jump_final" if rounds >= 2 else "jump"
 		"vuln":
 			return "laugh_vulnerable"
@@ -796,8 +976,17 @@ func _place_boss(delta: float) -> void:
 func _update_hud() -> void:
 	var hits: int = int(m.g.get("db_hits", 0))
 	var open: bool = String(m.g.get("db_state", "")) == "vuln"
-	var lead: String = "⭐ TAP NOW!" if open else "Watch his star…"
+	var dodge: DodgeEngine = dodge_engine()
+	var lead: String = "↔  SWIPE!" if dodge != null and dodge.available \
+		else "⭐ TAP NOW!" if open else "Watch his star…"
 	m.hud_game.text = lead + "   " + m._pips(hits, HP, "💜")
+
+func _build_dodge_guide() -> void:
+	var guide := DodgeTutorialGuide.new()
+	guide.name = "DustBossDodgeTutorialGuide"
+	guide.visible = false
+	m.add_child(guide)
+	m.g["db_dodge_guide"] = guide
 
 # ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:

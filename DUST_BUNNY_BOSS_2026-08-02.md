@@ -98,6 +98,40 @@ seen before he is ever an opponent.
 
 ## 3. The AI state machine
 
+### 2026-08-30 addendum — picture-first landing dodge
+
+Grand Puff now teaches a second, deliberately separate one-finger verb before
+the gold-star bonk window. After prowling, he crouches for a readable 1.05 s,
+commits to Roshan's current position, and makes a 0.95 s pounce. He never
+re-homes after launch. When the moving bunny is actually close, the approved
+combat-tutorial ghost hand loops left and right over a gold HUD gesture track;
+it is intentionally not a false world-space landing marker. A
+mostly horizontal swipe in either direction scoots Roshan 7.5 arena units on
+a 0.34 s eased curve. Ordinary steering out of the ring also avoids contact.
+
+The first pounce is safe practice: it repeats without a bump until the child
+performs one real swipe. Short, vertical, diagonal, early, far-away, repeated,
+or stale gestures are neutral and cannot advance the lesson. The animation
+can re-demonstrate, but it can never score the input itself. After practice,
+a missed close landing produces only the existing comic boing and bounded
+push—no health, pearls, boss progress, save progress, or failure is lost.
+
+The dodge and bonk grammars never overlap:
+
+| State | Picture-first answer | Progress effect |
+| --- | --- | --- |
+| `dodge_windup` | watch the crouch and landing ring | none |
+| `pounce` | swipe left or right, or steer clear | none |
+| `dodge_recover` | steering is already restored | none |
+| `windup` / `vuln` | wait for the gold star, then tap three times | one boss round |
+
+`scripts/dodge_engine.gd` is a pure `Vector2` timing/gesture/motion component;
+the visual lesson is a `CanvasLayer`/`Control` implementation in
+`scripts/dodge_tutorial_guide.gd`. No new 3D node, resource, physics, or art
+was added. The guide directly reuses the approved `ghost_hand.png`, warm halo,
+2.4 s loop, alternating demonstration, voice-plus-picture cue, and neutral
+wrong-input standards from `scripts/combat_tutorial.gd`.
+
 | State | What he does | Can he be hit? |
 | --- | --- | --- |
 | `showing` | rises, parades, demonstrates the tell | no |

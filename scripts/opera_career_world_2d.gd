@@ -17,6 +17,7 @@ const ImpClips := preload("res://scripts/opera_imp_clips.gd")
 const RoshanAnimator := preload("res://scripts/opera_roshan_actor.gd")
 const WorldHotspot := preload("res://scripts/opera_world_hotspot_2d.gd")
 const HotspotCatalog := preload("res://scripts/opera_hotspot_catalog.gd")
+const ChapterTwoAdapter := preload("res://scripts/chapter_two_career_scene_adapter.gd")
 
 ## Detective search geometry. The authored magnifier is a 512px square with
 ## its glass centred near (181, 181); anchoring the art by that point keeps the
@@ -386,6 +387,10 @@ var m: ReefMain
 var config: Dictionary = {}
 var competition: OperaCompetition
 var win_callback: Callable
+var run_context: Dictionary = {}
+var scene_adapter: Dictionary = {}
+var adapter_callbacks: Dictionary = {}
+var using_chapter_two_phases := false
 var career_id := ""
 var phases: Array = []
 var phase_index := 0
@@ -524,14 +529,70 @@ var phase_fill: ProgressBar
 var confetti: Array[ColorRect] = []
 
 
-func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition, on_win: Callable) -> void:
+func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
+		on_win: Callable, phase_overrides: Array = [],
+		scene_adapter_config: Dictionary = {}, context: Dictionary = {}) -> void:
 	m = main
 	config = act_config
 	competition = director
 	competition.pause()
 	win_callback = on_win
 	career_id = String(config.get("costume", "chef"))
-	phases = (PHASES.get(career_id, []) as Array).duplicate(true)
+	run_context = context.duplicate(true)
+	if run_context.is_empty() and config.get("run_context", {}) is Dictionary:
+		run_context = (config.get("run_context", {}) as Dictionary).duplicate(true)
+	var override_config: Dictionary = {}
+	if config.get("phase_overrides", []) is Array:
+		override_config["phase_overrides"] = config.get("phase_overrides", [])
+	if config.get("finale_start", null) != null:
+		override_config["finale_start"] = int(config.get("finale_start", 0))
+	var requested_adapter: Dictionary = scene_adapter_config.duplicate(true)
+	if requested_adapter.is_empty() and config.get("scene_adapter", {}) is Dictionary:
+		requested_adapter = (config.get("scene_adapter", {}) as Dictionary).duplicate(true)
+	scene_adapter = requested_adapter
+	var adapter_phases_variant: Variant = scene_adapter.get(
+		"phase_overrides", scene_adapter.get("phases", null))
+	if phase_overrides.is_empty() and adapter_phases_variant is Array:
+		phase_overrides = (adapter_phases_variant as Array).duplicate(true)
+	if config.get("finale_start", null) == null and scene_adapter.has("finale_start"):
+		override_config["finale_start"] = int(scene_adapter.get("finale_start", 0))
+	var callbacks_variant: Variant = run_context.get("callbacks", {})
+	if callbacks_variant is Dictionary:
+		adapter_callbacks = (callbacks_variant as Dictionary).duplicate(true)
+	for event: String in [
+		"scene_ready", "phase_armed", "phase_opened", "phase_completed",
+		"scene_completed", "scene_closed",
+	]:
+		var direct_callback: Variant = run_context.get(event,
+			run_context.get("on_%s" % event, Callable()))
+		if direct_callback is Callable:
+			adapter_callbacks[event] = direct_callback
+	var supplied_phases := phase_overrides
+	if supplied_phases.is_empty() and config.get("phase_overrides", []) is Array:
+		supplied_phases = config.get("phase_overrides", []) as Array
+	if not supplied_phases.is_empty():
+		override_config["phase_overrides"] = supplied_phases
+	var chapter_marker := String(run_context.get("chapter", "")).to_lower()
+	var chapter_requested := chapter_marker in ["2", "chapter2", "chapter_2"]
+	using_chapter_two_phases = not supplied_phases.is_empty() \
+			or not scene_adapter.is_empty() \
+			or chapter_requested
+	if using_chapter_two_phases:
+		if not ChapterTwoAdapter.validate_config_overrides(career_id, override_config):
+			push_error("OperaCareerWorld2D: rejected invalid Chapter 2 phase override")
+			return
+		var chapter_set := ChapterTwoAdapter.resolve(career_id, override_config)
+		var chapter_phases: Array = chapter_set.get("phases", []) as Array
+		# Careers without a Chapter 2-specific story card keep their established
+		# data table while still accepting the same adapter/context hooks.
+		phases = chapter_phases.duplicate(true) if not chapter_phases.is_empty() \
+			else (PHASES.get(career_id, []) as Array).duplicate(true)
+		if scene_adapter.is_empty():
+			scene_adapter = ChapterTwoAdapter.adapter_config(career_id, override_config)
+		config["chapter_two_scene_id"] = String(chapter_set.get("scene_id", ""))
+		config["chapter_two_finale_start"] = int(chapter_set.get("finale_start", 0))
+	else:
+		phases = (PHASES.get(career_id, []) as Array).duplicate(true)
 	steal_index = -1
 	for index in range(phases.size()):
 		var phase := phases[index] as Dictionary
@@ -543,7 +604,39 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition, o
 	_build_world()
 	# The room is part of every activity. Setup arms the first physical object;
 	# it never bypasses discovery by opening a minigame synchronously.
+	_adapter_hook("scene_ready", scene_snapshot())
 	_arm_phase()
+
+
+func _adapter_hook(event: String, payload: Dictionary = {}) -> void:
+	var callback: Variant = adapter_callbacks.get(event, Callable())
+	if not callback is Callable:
+		callback = scene_adapter.get(event, Callable())
+	if not callback is Callable:
+		callback = adapter_callbacks.get("on_%s" % event, Callable())
+	if not callback is Callable:
+		callback = scene_adapter.get("on_%s" % event, Callable())
+	if callback is Callable and (callback as Callable).is_valid():
+		(callback as Callable).call(payload.duplicate(true))
+
+
+func scene_snapshot() -> Dictionary:
+	var phase_name := ""
+	var milestone := ""
+	if phase_index >= 0 and phase_index < phases.size():
+		var current: Dictionary = phases[phase_index] as Dictionary
+		phase_name = String(current.get("name", ""))
+		milestone = String(current.get("milestone", ""))
+	return {
+		"career": career_id,
+		"scene_id": String(scene_adapter.get("id", config.get("chapter_two_scene_id", ""))),
+		"phase_index": phase_index,
+		"phase_name": phase_name,
+		"milestone": milestone,
+		"phase_progress": phase_progress,
+		"phase_count": phases.size(),
+		"chapter_two": using_chapter_two_phases,
+	}
 
 
 func _full_rect(control: Control) -> void:
@@ -1442,6 +1535,7 @@ func _arm_phase() -> void:
 	idle_t = 0.0
 	var phase := phases[phase_index] as Dictionary
 	var mode_name := String(phase.get("mode", "tap"))
+	_adapter_hook("phase_armed", scene_snapshot())
 	_play_roshan_animation("idle")
 	if mode_name != "bop":
 		_clear_stage_combat()
@@ -1518,6 +1612,7 @@ func _open_task() -> void:
 		player_actor.visible = false
 	if phase_index >= _finale_start() or competition.is_cooperative():
 		_stage_room_finale_partner()
+	_adapter_hook("phase_opened", scene_snapshot())
 	if action_panel.visible:
 		# The activity grows out of the room object Roshan just opened instead
 		# of appearing as an unrelated card at screen centre.
@@ -1986,7 +2081,10 @@ func _register_bop(amount: float, quality: float) -> void:
 
 
 func _finale_start() -> int:
-	return clampi(int(FINALE_START.get(career_id, phases.size() - 1)), 0, maxi(0, phases.size() - 1))
+	var configured := int(FINALE_START.get(career_id, phases.size() - 1))
+	if using_chapter_two_phases:
+		configured = int(config.get("chapter_two_finale_start", configured))
+	return clampi(configured, 0, maxi(0, phases.size() - 1))
 
 
 func in_competition_finale() -> bool:
@@ -2274,6 +2372,7 @@ func _advance_completed_phase() -> void:
 		return
 	phase_advance_pending = false
 	phase_complete_t = 0.0
+	_adapter_hook("phase_completed", scene_snapshot())
 	phase_index += 1
 	# no forced gap here: the wander window IS the breath between tasks —
 	# the world stays hers until she walks up to the next lit station
@@ -2428,6 +2527,9 @@ func update_competition() -> void:
 
 
 func celebrate(result: Dictionary) -> void:
+	var completion_payload := scene_snapshot()
+	completion_payload["result"] = result.duplicate(true)
+	_adapter_hook("scene_completed", completion_payload)
 	active = false
 	competition.pause()
 	_restore_stage_actors()
@@ -3302,6 +3404,7 @@ func _process(delta: float) -> void:
 
 
 func close() -> void:
+	_adapter_hook("scene_closed", scene_snapshot())
 	active = false
 	wander_walking = false
 	wander_route.clear()
