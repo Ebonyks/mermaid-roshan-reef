@@ -861,7 +861,9 @@ class TypographyAuditTests(unittest.TestCase):
         data = json.loads(manifest_path.read_text(encoding="utf-8"))
         report = audit(root, manifest_path)
         source = (root / "scripts/games/dust_boss.gd").read_text(encoding="utf-8")
+        audio_source = (root / "scripts/audio_director.gd").read_text(encoding="utf-8")
         evidence = data["glyph_evidence"]["U+26A1"]
+        voice_route = evidence["voice_route"]
 
         self.assertEqual(evidence["classification"], "redundant")
         self.assertIn("U+26A1", data["glyph_classes"]["redundant"])
@@ -869,18 +871,27 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertEqual(report["glyphs"]["classification_counts"]["redundant"], 2)
         self.assertEqual(report["glyphs"]["unclassified"], [])
         self.assertIn('dodge.text = "⚡\\n↻" if danger else "↻"', source)
-        self.assertIn('"Grand Puff is hopping at me — tap the glowing TWIRL!"', source)
-        self.assertIn('"Twirl away from Grand Puff"', source)
+        self.assertIn("A separate picture button adds an OPTIONAL twirl dodge.", source)
+        self.assertIn('StorybookUI.style_icon_button(dodge, "↻"', source)
+        self.assertIn("* (10.0 if danger else 2.6)", source)
+        self.assertIn("dodge.scale = Vector2.ONE * pulse", source)
         self.assertIn("pointer.visible = dodge_visible and danger", source)
         self.assertEqual(evidence["source_refs"], ["scripts/games/dust_boss.gd:1044"])
         self.assertEqual(
             evidence["redundant_routes"],
             [
-                "scripts/games/dust_boss.gd:760",
-                "scripts/games/dust_boss.gd:995",
+                "scripts/games/dust_boss.gd:31",
+                "scripts/games/dust_boss.gd:994",
+                "scripts/games/dust_boss.gd:1046-1048",
                 "scripts/games/dust_boss.gd:1050",
             ],
         )
+        self.assertEqual(voice_route["status"], "EXCLUDED")
+        self.assertFalse((root / voice_route["exact_asset"]).exists())
+        self.assertTrue((root / voice_route["fallback_asset"]).exists())
+        self.assertIn("elif m.voice != null:", audio_source)
+        self.assertIn("m.voice.play()", audio_source)
+        self.assertNotIn("voiced", evidence["evidence_note"].lower())
 
     def test_label3d_new_file_is_a_machine_failure(self) -> None:
         root, manifest_path = self.write_tree(

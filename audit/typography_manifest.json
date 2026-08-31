@@ -63,11 +63,18 @@
         "scripts/games/dust_boss.gd:1044"
       ],
       "redundant_routes": [
-        "scripts/games/dust_boss.gd:760",
-        "scripts/games/dust_boss.gd:995",
+        "scripts/games/dust_boss.gd:31",
+        "scripts/games/dust_boss.gd:994",
+        "scripts/games/dust_boss.gd:1046-1048",
         "scripts/games/dust_boss.gd:1050"
       ],
-      "evidence_note": "The voiced show_msg tells Roshan to tap the glowing TWIRL, the pulsing dodge button remains the action affordance, and the visible pointer marks that same button while danger is true. A missed dodge is harmless and never gates progress."
+      "voice_route": {
+        "status": "EXCLUDED",
+        "exact_asset": "assets/audio/voices/roshan_dustboss_dodge.ogg",
+        "fallback_asset": "assets/audio/voice_yay.mp3",
+        "note": "The exact instruction clip is absent and the generic yay fallback is affect-only; no spoken instruction is claimed as classification evidence."
+      },
+      "evidence_note": "The danger-specific scale pulse and visible pointer reinforce the persistent ↻ action affordance on an optional control. Contact is harmless and never removes progress."
     }
   },
   "coverage_negative": {

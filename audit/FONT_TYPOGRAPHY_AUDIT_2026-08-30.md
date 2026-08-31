@@ -68,10 +68,12 @@ child-facing surface.
 The reconciled source head `5bf3b1a4` adds one live code point, `U+26A1` (⚡),
 at `scripts/games/dust_boss.gd:1044`. It is classified as **redundant**, not
 critical: it is an optional incoming-hop attention flash on the dodge button,
-while the same state is voiced (`dustboss_dodge`), marked by the visible
-pointer at `dust_boss.gd:1050`, and represented by the action affordance and
-parent hint at `dust_boss.gd:995`. The dodge is harmless and never gates
-progress. The manifest records these exact source routes in `glyph_evidence`;
+while the danger-specific scale pulse at `dust_boss.gd:1046-1048` and visible
+pointer at `dust_boss.gd:1050` reinforce the persistent `↻` action affordance
+at `dust_boss.gd:994`. The control is optional (`dust_boss.gd:31`), and contact
+is harmless and never removes progress. The exact voice asset is absent and
+the generic `yay` fallback is affect-only, so no spoken instruction is claimed.
+The manifest records these exact source routes and the excluded voice route in `glyph_evidence`;
 this is source classification evidence only, not font coverage or device
 acceptance. The live inventory is therefore 148 observed code points: 11
 decorative, 2 redundant, and 135 critical; all 135 critical points remain
@@ -159,8 +161,10 @@ glyph manifest or runtime proof, critical coverage is unconfirmed. Emoji shape,
 color, advance, baseline, and availability must not be assumed. Critical
 meaning uses controlled authored assets or a proved bundled monochrome glyph;
 Unicode may remain redundant decoration. The new Dust Bunny `⚡` cue is kept in
-that redundant class because the optional dodge is simultaneously voiced,
-pointed at, and pulsed; it never carries the only action or progress meaning.
+that redundant class because the optional dodge control has a danger-specific
+scale pulse, visible pointer, and persistent `↻` action affordance; contact is
+harmless and never removes progress. Its absent exact voice asset and generic
+`yay` fallback are explicitly excluded from the classification evidence.
 
 ### 4.5 Fixed English layout has expansion risk
 
