@@ -38,13 +38,15 @@ place reached through the sky.
 
 ## Progression and reveal authority
 
-The intended story cause remains the Rainbow Candle: its light answers a
-wing-chime in the Main Hall and wakes the moonflower relief. This branch does
-not yet contain a persisted Rainbow Candle field, so runtime must not invent or
-silently overload one. The current safe reveal gate is `opera_done`, the
-earliest stable completion authority already present for the Chapter 2 castle
-material. When the Candle director lands, it can replace that derived reveal
-cause without changing the three additive Chapter 3 save keys.
+The intended story cause remains the Rainbow Candle: the party's rainbow-light
+event answers a wing-chime in the Main Hall and wakes the moonflower relief.
+Chapter 2 now persists that complete causal ending as
+`chapter2_story_complete` plus `chapter2_candle_taken`, after the Ember King
+has carried the lit candle away for his own birthday. Runtime requires both
+facts before the fresh Chapter 3 reveal can begin. Older saves that already
+completed the original Opera progression retain access through the
+grandfathered `opera_done` gate; no existing progress is removed and the three
+additive Chapter 3 save keys remain unchanged.
 
 On the first eligible return to Main Hall:
 
