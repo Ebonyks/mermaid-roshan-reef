@@ -8828,23 +8828,6 @@ func _clear_game() -> void:
 			living_layer.visible = slide_canvas_living_was_visible
 		_set_world_controls_enabled(true, "slide_canvas")
 
-func _fail_line() -> String:
-	# in-character failure lines, by game (the on-screen text; the matching
-	# character voice plays via show_msg's "fail" event — drop <speaker>_fail.ogg
-	# into assets/audio/voices to use a real recorded clip)
-	match game:
-		"fetch":      return "Aww... now Chuck is all wet!"
-		"dolls":      return "Oh no, the babies!"
-		"brawl":      return "The imps are extra giggly today! Huluu says come back soon!"
-		"dustboss":   return "The great dust bunny puffed away — he'll bounce back for another game!"
-		"seek":       return "Where did Lamb-a' go?"
-		"melody":     return "Oh no, the colors!"
-		"treasure":   return "Aww, the treasure slipped back into the dark!"
-		"shop":       return "Come back when you've found more pearls!"
-		"fairyshoot": return "Oh no, the shadow bugs got away!"
-		"slide":      return "He's too speedy without magic beans! Toot toot!" if String(g.get("mode", "fish")) == "chase" else "So close! Catch more fish next time!"
-		_:            return "So close! Swim back and try again!"
-
 var pose_t := -1.0        # >=0: trophy curtain-call — player holds a happy pose
 var night_star_t := 4.0   # countdown to the next shooting star over the night lagoon
 
@@ -9000,15 +8983,14 @@ func _spawn_shooting_star(ppos: Vector3) -> void:
 	tw.parallel().tween_property(m, "albedo_color:a", 0.0, 1.3)
 	tw.tween_callback(star.queue_free)
 
-func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> void:
+func _end_game(_win: bool, fr: Dictionary, txt: String) -> void:
 	if chime != null:
 		chime.volume_db = -4.0   # restore default chime volume (the fairy game lowers it)
 	_leave_arena()
-	if win:
-		# ranked BEFORE _clear_game wipes g — every completion earns at least
-		# bronze; MedalSystem persists only upgrades (shop is unranked: no-op)
-		_medal_ref().award_from_end_game(game, g)
-	if win and not fr["won"]:
+	# ranked BEFORE _clear_game wipes g — every completion earns at least
+	# bronze; MedalSystem persists only upgrades (shop is unranked: no-op)
+	_medal_ref().award_from_end_game(game, g)
+	if not fr["won"]:
 		fr["won"] = true
 		trophies += 1
 		_add_won_star(fr)
@@ -9034,7 +9016,7 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	elif String(fr["fname"]) == "Fairy Pond":
 		fairy_cool = 3.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
-	show_msg(fr["fname"], txt, "win" if win else vo)
+	show_msg(fr["fname"], txt, "win")
 	_respawn_pearls()   # after the banner: its freshness guard yields to the win message
 	_update_hud()
 	_clear_game()
