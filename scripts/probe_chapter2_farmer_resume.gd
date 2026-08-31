@@ -19,6 +19,7 @@ const CLUSTER_BERRY_PATH := "res://assets/chapter2/birthday/sky_lagoon_strawberr
 var failures := 0
 var main: ReefMain
 var world: OperaCareerWorld2D
+var cake_result_win_count := 0
 
 
 func _init() -> void:
@@ -59,6 +60,12 @@ func _init() -> void:
 				return pickup.texture_normal == single_berry))
 	for saved_count in range(1, 5):
 		_run_partial_resume_case(saved_count)
+	world.queue_free()
+	await process_frame
+	await _run_final_cake_hold_case("chef", 0x0F, 0x1F,
+		"chef_frosted_rainbow_cake")
+	await _run_final_cake_hold_case("candymaker", 0x3F, 0x7F,
+		"placed_final")
 	main.chapter2_strawberry_mask = ChapterTwoDirector.STRAWBERRY_REQUIRED_MASK
 	var table := TABLE_SCRIPT.new() as ChapterTwoPartyTable2D
 	main.add_child(table)
@@ -75,8 +82,6 @@ func _init() -> void:
 		and int(table.get_meta("chapter2_single_strawberry_token_count", 0)) == 5
 		and bool(table.get_meta("chapter2_summary_icons_avoid_cake", false)))
 	table.free()
-	world.queue_free()
-	await process_frame
 	main.free()
 	print("CHAPTER2_FARMER_RESUME|RESULT: ",
 		"PASS" if failures == 0 else "FAIL",
@@ -112,6 +117,102 @@ func _run_partial_resume_case(saved_count: int) -> void:
 	_check("%s ignores duplicate press without double credit" % label,
 		main.chapter2_strawberry_mask == ChapterTwoDirector.STRAWBERRY_REQUIRED_MASK
 		and is_equal_approx(world.phase_progress, 5.0))
+
+
+func _run_final_cake_hold_case(career: String, initial_mask: int,
+		expected_mask: int, expected_stage: String) -> void:
+	var act_index := ChapterTwoDirector.ACT_CHEF \
+		if career == "chef" else ChapterTwoDirector.ACT_CANDY_MAKER
+	var prior_party_mask := 1 << ChapterTwoDirector.ACT_FARMER
+	var phase_masks := [0x0F, 0x0F, 0, 0, 0, 0, 0, 0]
+	if career == "candymaker":
+		prior_party_mask |= 1 << ChapterTwoDirector.ACT_CHEF
+		phase_masks[1] = 0x1F
+		phase_masks[2] = 0x07
+	var chapter_two: ChapterTwoDirector = main._chapter_two_ref()
+	chapter_two.restore_state({
+		"day_one_giant_dust_bunny_boss_defeated": true,
+		"chapter2_party_piece_mask": prior_party_mask,
+		"chapter2_strawberry_mask": ChapterTwoDirector.STRAWBERRY_REQUIRED_MASK,
+		"chapter2_cake_piece_mask": initial_mask,
+		"chapter2_job_phase_masks": phase_masks,
+	})
+	main.opera_active_act_index = act_index
+	cake_result_win_count = 0
+	var competition := OperaCompetition.new() as OperaCompetition
+	competition.configure(career)
+	var phase_set := ADAPTER_SCRIPT.phase_set(career)
+	world = WORLD_SCRIPT.new() as OperaCareerWorld2D
+	main.add_child(world)
+	world.setup(main, {"costume": career, "chapter": "chapter2",
+		"phase_overrides": phase_set.get("phases", []),
+		"finale_start": int(phase_set.get("finale_start", 0))},
+		competition, Callable(self, "_on_cake_result_win"), [],
+		ADAPTER_SCRIPT.adapter_config(career), chapter_two._story_run_context())
+	await process_frame
+	var phase_callback: Variant = world.adapter_callbacks.get(
+		"phase_completed", Callable())
+	_check("%s owns a valid production-shaped phase callback" % career,
+		phase_callback is Callable and (phase_callback as Callable).is_valid())
+	if career == "candymaker":
+		var candy_berry_texture := \
+			world.chapter2_single_strawberry_texture as Texture2D
+		_check("Candy Maker binds the approved single-strawberry art",
+			candy_berry_texture != null and candy_berry_texture.resource_path \
+				== "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png")
+		var expected_actions: Array[String] = [
+			"pitcher_stream_coats_five_berries",
+			"five_berries_move_into_matching_lanes",
+			"glaze_crank_shines_five_berries",
+			"five_berries_move_from_tray_toward_cake",
+		]
+		var visible_mechanics_are_bound := true
+		for candy_phase in range(expected_actions.size()):
+			world.phase_index = candy_phase
+			world._show_phase()
+			world.phase_fill.value = 50.0
+			world.action_panel.queue_redraw()
+			await process_frame
+			visible_mechanics_are_bound = visible_mechanics_are_bound \
+				and world.action_panel.visible \
+				and world.surface.visible \
+				and world.surface.mouse_filter == Control.MOUSE_FILTER_STOP \
+				and String(world.action_panel.get_meta(
+					"chapter2_candy_visible_action", "")) \
+					== expected_actions[candy_phase] \
+				and int(world.action_panel.get_meta(
+					"chapter2_candy_visible_berry_count", 0)) == 5 \
+				and is_equal_approx(float(world.action_panel.get_meta(
+					"chapter2_candy_visual_progress", 0.0)), 0.5)
+		_check("Candy Maker renders four distinct input-causal berry actions",
+			visible_mechanics_are_bound)
+	world.phase_index = world.phases.size() - 1
+	world.phase_advance_pending = true
+	world._advance_completed_phase()
+	_check("%s persists its final cake mask before closing" % career,
+		main.chapter2_cake_piece_mask == expected_mask)
+	_check("%s refreshes the committed cake picture before closing" % career,
+		world.chapter2_cake_scene != null
+		and world.chapter2_cake_scene.stage_id() == expected_stage)
+	_check("%s starts a plot-owned result hold before closing" % career,
+		world.chapter2_final_result_hold_pending
+		and bool(world.get_meta("chapter2_final_result_hold_active", false))
+		and cake_result_win_count == 0)
+	world._process(1.0)
+	_check("%s keeps the completed cake visible during the result hold" % career,
+		world.chapter2_final_result_hold_pending
+		and world.chapter2_cake_scene.visible
+		and cake_result_win_count == 0)
+	world._process(1.3)
+	_check("%s closes only after the committed cake has held on screen" % career,
+		not world.chapter2_final_result_hold_pending
+		and cake_result_win_count == 1)
+	world.queue_free()
+	await process_frame
+
+
+func _on_cake_result_win() -> void:
+	cake_result_win_count += 1
 
 
 func _check(label: String, ok: bool) -> void:

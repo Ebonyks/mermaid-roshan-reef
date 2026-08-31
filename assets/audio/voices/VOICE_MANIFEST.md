@@ -1,16 +1,66 @@
 # Character voices
 
-The game plays `assets/audio/voices/<name>.ogg` when it exists (per-line override
-like `gabby_win.ogg` first, then `gabby.ogg`), else falls back to the recorded
-"yay" clip pitched per character.
+## Provisional synthetic filler v1 (2026-08-30)
 
-## How these were made (and how to remake them)
+Runtime now prefers `filler_v1/<speaker>_<event>.ogg`, then the corresponding
+legacy path. The 285 live cues comprise all 284 authoritative non-Faron filler
+keys plus the three-preset `everyone.ogg` mix. The three group source layers
+remain provenance-only WAVs and are not separately addressable runtime cues.
+This is a reversible machine-screened
+layer—not confirmed talent, not human-auditioned, and not
+a claimed match to any real person. Faron and the sacred family recordings are
+excluded and remain byte-identical. Three newly authored Daddy event fillers
+use distinct keys; they do not replace or modify `daddy1..3.ogg`.
 
-All scripted lines are generated with **Kokoro-82M** — a free, Apache-2.0 neural
-TTS that runs on CPU — via `tools/make_voices.py`. Each character has a fixed
-voice + pitch so they stay recognisable, and Roshan keeps ONE consistent
-little-girl voice across every clip. Output is silence-trimmed and normalised to
-the project standard (-16 LUFS, -1.5 dBTP).
+Filler candidates use Parler-TTS Mini v1.1 with named synthetic presets and
+mood-specific descriptions. Each line is rendered with a recorded seed and is
+rejected unless local speech recognition preserves every semantic word. Among
+eligible takes, the selector ranks DNSMOS signal quality plus pitch and spectral
+fit. Delivery mastering is 48 kHz mono Ogg Vorbis at 96 kbps, -16 LUFS ±1 and
+no higher than -1.5 dBTP. Exact model revisions, prompts, seeds, raw/final
+SHA-256 hashes and measured results live in `filler_v1/FILLER_MANIFEST.json`.
+
+Rebuild in isolated Python 3.11 environments with:
+
+1. `tools/make_parler_voice_trials.py` (one or more attempts)
+2. `tools/select_filler_voices.py` (exact-word and objective-quality gate)
+3. `tools/master_filler_voices.py` (delivery encode and blocking format gate)
+
+These files are temporary placeholders to replace when consented talent is
+confirmed. Do not train or condition them on family recordings.
+
+`FILLER_MANIFEST.json` schema 2 embeds the candidate evidence even though the
+working candidate tree is ignored: `generation_run_provenance` embeds every
+attempt's available run record, candidate manifest hash, and candidate
+generation rows;
+`candidate_selection_evidence` embeds every selected and rejected candidate's
+ASR/DNSMOS/identity evidence, disposition, rejection reason, and raw-WAV hash.
+Each selected entry records the validated attempt/seed/source tuple. Every
+delivery row's `delivery_metrics.ogg_determinism` contains a byte-identical
+same-input re-encode proof with fixed Ogg serial and page-CRC evidence. The
+three `everyone` components must carry the same strict selection evidence
+before they may be mixed; duration alone is not an acceptance gate.
+
+Provenance limitation: attempts 1 and 2 predate captured run records. Their
+candidate rows preserve text, preset, description, seed, model/tokenizer
+revisions and raw hashes, but their run entries are explicitly marked
+`RECONSTRUCTED_FROM_CANDIDATE_MANIFEST` with
+`generator_sha256: NOT_CAPTURED_AT_GENERATION`. The 120 selected cues from
+those attempts are suitable only for provisional device audition; they do not
+close DL-SND-17's complete-provenance requirement without an owner-approved
+exception or regeneration under captured provenance.
+
+The game first resolves an exact event in `filler_v1`, then uses the protected
+or retained legacy path where policy permits. It does not use the retained
+`voice_yay.mp3` as a generic fallback.
+
+## Legacy Kokoro source path
+
+`tools/make_voices.py` retains the authoritative line table and the former
+Kokoro-82M fallback generator. Kokoro output is not the accepted live filler
+cohort. New provisional candidates must use the Parler candidate/selector/master
+pipeline above so the stricter semantic, quality, provenance, and deterministic
+delivery gates remain enforceable.
 
 To change a line or add a new one: edit the `LINES` table in
 `tools/make_voices.py` and re-run it (setup instructions in the script header).
@@ -22,26 +72,34 @@ New `<speaker>_<event>.ogg` names are picked up by the game automatically —
 no code changes needed. Events used by the game: `talk`, `win`, `fail`,
 plus bespoke ones (`greet`, `intro`, `thanks`, `bark`, `pearl`, `idle1..3`).
 
-## Character voice map
+## Live provisional synthetic preset map
 
-| character | Kokoro voice | pitch | feel |
-|---|---|---|---|
-| Roshan  | af_heart  | 1.24 | 4-6yo girl (consistency critical) |
-| Huluu   | bf_emma   | 1.10 | gentle British princess |
-| Evie    | af_bella  | 1.30 | little kid |
-| Harper  | af_sarah  | 1.18 | big-sister cheer |
-| Faron   | af_nicole | 1.05 | soft, hushed caregiver |
-| Gabby   | af_sky    | 1.22 | bubbly sing-song |
-| Wacky   | am_santa  | 0.98 | grandpa chuckle |
-| Shop    | bm_george | 1.02 | friendly shopkeeper |
-| Sparkle | af_bella  | 1.55 | tiny baby-eagle chirp |
-| everyone | 3-voice mix | — | group "Hooray!" |
+| character | Parler preset | feel |
+|---|---|---|
+| Roshan | Laura | youthful, bright, consistent guide |
+| Huluu | Lea | gentle storybook princess |
+| Evie | Jenna | bubbly youthful friend |
+| Harper | Lauren | warm big-sister voice |
+| Wacky | Gary | kindly older comic voice |
+| Shop | Jon | welcoming adult voice |
+| Sparkle | Tina | tiny bright creature voice |
+| Rosalina | Rose | calm fairy-tale voice |
+| Imps | Mike | impish cartoon voice |
+| Rumi | Emily | warm youthful friend |
+| Mewsha | Joy | playful storybook-kitty voice |
+| Daddy fillers only | Will | warm adult helper; numbered recordings untouched |
+| everyone | Laura + Lea + Jenna | audited, trimmed three-voice mix |
 
 ## SACRED — never regenerate these (real family recordings)
 
 - `daddy1.ogg`, `daddy2.ogg`, `daddy3.ogg`
-- `chuck.ogg`, `chuck_bark.ogg`
-- `../voice_yay.mp3`
+- `chuck.ogg`, `chuck_bark.ogg`, `chuck_whimper.ogg`
+
+The retained legacy `../voice_yay.mp3` is not protected and is no longer live.
+All success-chirp playback uses the machine-screened synthetic
+`filler_v1/yay.ogg`. `filler_v1/roshan_talk.ogg` owns “This is so much fun!”
+with an exact manifest hash and cannot fall back while the filler cohort is
+present.
 
 To improve a real recording instead of replacing it, run it through a free
 speech enhancer (Adobe Podcast Enhance web tool, or locally: resemble-enhance /
@@ -64,8 +122,8 @@ re-rendered from the same Kokoro model and speaker identity using the safer
 limiter: `roshan_op_candymaker_parade.ogg`,
 `roshan_op_magician_rope.ogg`, and
 `roshan_op_popstar_mic_chase.ogg`. Protected Daddy/Chuck recordings and
-`voice_yay.mp3` remain byte-identical. `voice_yay.mp3` is a non-objective
-affect fallback only; it cannot satisfy a spoken instruction.
+the retained legacy `voice_yay.mp3` remain byte-identical. The latter is no
+longer a runtime fallback and cannot satisfy a spoken instruction.
 
 Machine grades cover decode, codec, sample rate, channels, bitrate, duration,
 loudness, true peak, protection, provenance class, and routing evidence. Human

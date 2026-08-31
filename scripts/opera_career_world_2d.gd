@@ -91,7 +91,7 @@ const SLUGS := {
 ## the first on-stage phase.
 const LEGACY_PHASES := {
 	"chef": [
-		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_chef_imps", "voice": "Mischief imps grabbed the spoons! Tap each imp to shoo them off!"},
+		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_chef_imps", "voice": "Mischief imps took the spoons! Tap each imp and send them away!"},
 		{"name": "POUR", "icon": "●", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Grab the pitcher and TIP it — pour the sparkling batter into the bowl!"},
 		{"name": "STIR", "icon": "↻", "mode": "circle", "goal": 4.0, "vo": "op_chef_stir", "voice": "Draw big circles to stir!"},
 		{"name": "BAKE", "icon": "★", "mode": "oven", "goal": 6.0, "vo": "op_chef_bake", "voice": "Watch the cake turn golden — then grab the big mitt and take it out!"},
@@ -109,19 +109,19 @@ const LEGACY_PHASES := {
 		{"name": "ASK ROSALINA", "icon": "?", "mode": "talk", "goal": 1.0, "speaker": "Rosalina", "vo": "op_detective_ask_rosalina", "voice": "He dropped a torn crown ribbon! Show it to Rosalina!", "lines": [
 			{"who": "Rosalina", "text": "That ribbon was floating by the FOUNTAIN!", "vo": "op_detective_hint_fountain", "hold": 2.8},
 			{"who": "Roshan", "text": "The fountain! Come on!", "vo": "op_detective_to_fountain", "hold": 2.0}]},
-		{"name": "FOUNTAIN", "icon": "?", "mode": "lens", "goal": 2.0, "vo": "op_detective_search", "voice": "Look into the fountain water — something glitters down there!"},
+		{"name": "FOUNTAIN", "icon": "?", "mode": "lens", "goal": 2.0, "vo": "op_detective_search_fountain", "voice": "Look into the fountain water — something glitters down there!"},
 		{"name": "ASK CHUCK", "icon": "?", "mode": "talk", "goal": 1.0, "speaker": "Chuck", "vo": "op_detective_ask_chuck", "voice": "A crown jewel! One person left to ask — Chuck!", "lines": [
 			{"who": "Chuck", "text": "I heard giggling under the STAGE STAIRS!", "vo": "op_detective_hint_stairs", "hold": 2.8},
-			{"who": "Roshan", "text": "Shhh... tip-toe, tip-toe...", "vo": "op_detective_tiptoe", "hold": 2.2}]},
-		{"name": "STAIRS", "icon": "?", "mode": "lens", "goal": 1.0, "vo": "op_detective_lens", "voice": "Shine the lens under the stage stairs..."},
-		{"name": "CROWN CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_detective_tiara_chase", "voice": "The imp captain is wearing the crown like a HAT! He bolts — bop the crew!"},
+			{"who": "Roshan", "text": "Quiet steps. Tiptoe, tiptoe.", "vo": "op_detective_tiptoe", "hold": 2.2}]},
+		{"name": "STAIRS", "icon": "?", "mode": "lens", "goal": 1.0, "vo": "op_detective_lens_stairs", "voice": "Shine the lens under the stage stairs..."},
+		{"name": "CROWN CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_detective_tiara_chase", "voice": "The thief ran away! Tap every lookout!"},
 		{"name": "TEAM CORNER", "icon": "!", "mode": "bop", "goal": 6.0, "combat": {"count": 4, "captain": true}, "vo": "op_detective_team_corner", "voice": "The rival detective wants the crown found too! Corner the captain together!"},
 	],
 	"ballerina": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_ballerina_imps", "voice": "Imps are bouncing on the recital tiles! Tap them gently off!"},
 		{"name": "STEPS", "icon": "◆", "mode": "choice", "goal": 7.0, "vo": "op_ballerina_steps", "voice": "Tap the glowing dance step!"},
 		{"name": "RIBBON", "icon": "〰", "mode": "swipe", "goal": 6.5, "vo": "op_ballerina_ribbon", "voice": "Trace the ribbon across the floor!"},
-		{"name": "RIBBON CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_ballerina_ribbon_chase", "voice": "The imp captain tangled the ribbons! Twirl-bop the crew!"},
+		{"name": "RIBBON CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_ballerina_ribbon_chase", "voice": "The ribbon thief ran away! Spin and tap everyone!"},
 		{"name": "TWIRL", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_ballerina_twirl", "voice": "Draw circles for the grand twirl!"},
 	],
 	"candymaker": [
@@ -129,7 +129,7 @@ const LEGACY_PHASES := {
 		{"name": "SYRUP", "icon": "●", "mode": "pourt", "goal": 4.5, "vo": "op_candymaker_syrup", "voice": "Grab the syrup bottle and TIP it over the candy mold!"},
 		{"name": "SORT", "icon": "◆", "mode": "choice", "goal": 7.0, "vo": "op_candymaker_sort", "voice": "Tap the glowing candy chute!"},
 		{"name": "WRAP", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_candymaker_wrap", "voice": "Twist the wrappers in circles!"},
-		{"name": "CANDY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_candymaker_candy_chase", "voice": "The imp captain rolled away the candy cart! Bop the crew!"},
+		{"name": "CANDY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_candymaker_candy_chase", "voice": "The candy cart rolled away! Tap each tiny troublemaker!"},
 		{"name": "SHARE", "icon": "●", "mode": "tap", "goal": 6.0, "vo": "op_candymaker_share", "voice": "The candy cart rolls by — toss a candy to every waving friend!"},
 	],
 	"doctor": [
@@ -137,7 +137,7 @@ const LEGACY_PHASES := {
 		{"name": "WASH", "icon": "●", "mode": "hold", "goal": 4.5, "vo": "op_doctor_wash", "voice": "Hold to wash Doctor Roshan's hands!"},
 		{"name": "FIND", "icon": "?", "mode": "choice", "goal": 6.0, "vo": "op_doctor_find", "voice": "Find the plushy with the glowing ouch!"},
 		{"name": "X-RAY", "icon": "?", "mode": "lens", "goal": 3.0, "vo": "op_doctor_x_ray", "voice": "Slide the X-ray scanner over the plushy to find the cracked bone!"},
-		{"name": "PLUSHY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_doctor_plushy_chase", "voice": "The imp captain borrowed the plushy patient! Bop the crew to the stage!"},
+		{"name": "PLUSHY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_doctor_plushy_chase", "voice": "The plushy patient is missing! Tap the imp crew!"},
 		{"name": "CAST", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_doctor_cast", "voice": "Draw circles to wrap the soft cast!"},
 		{"name": "BANDAGE", "icon": "〰", "mode": "swipe", "goal": 6.5, "vo": "op_doctor_bandage", "voice": "Swipe the stretchy bandage around!"},
 	],
@@ -146,7 +146,7 @@ const LEGACY_PHASES := {
 		{"name": "PLANT", "icon": "◆", "mode": "choice", "goal": 6.0, "vo": "op_farmer_plant", "voice": "Tap the glowing garden row and plant the seed!"},
 		{"name": "FEED", "icon": "★", "mode": "timing", "goal": 6.0, "vo": "op_farmer_feed", "voice": "Tap when the veggie reaches a piggy!"},
 		{"name": "MUD HOP", "icon": "●", "mode": "hold", "goal": 4.0, "vo": "op_farmer_mud_hop", "voice": "Hold to wind up... and make a big mud hop!"},
-		{"name": "PIGGY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_farmer_piggy_chase", "voice": "The imp captain opened the piggy gate! Bop the crew!"},
+		{"name": "PIGGY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_farmer_piggy_chase", "voice": "The piggy gate is open! Tap everyone!"},
 		{"name": "HERD", "icon": "↔", "mode": "swipe", "goal": 7.0, "vo": "op_farmer_herd", "voice": "Sweep back and forth to guide the herd on stage!"},
 		{"name": "PICNIC", "icon": "●", "mode": "tap", "goal": 7.0, "vo": "op_farmer_picnic", "voice": "Tap a snack for every happy piggy!"},
 	],
@@ -163,12 +163,12 @@ const LEGACY_PHASES := {
 		{"name": "VANISH", "icon": "●", "mode": "hold", "goal": 4.2, "vo": "op_magician_vanish", "voice": "Hold the wand to make Lamba vanish!"},
 		{"name": "TRACK", "icon": "?", "mode": "choice", "goal": 6.0, "vo": "op_magician_track", "voice": "Follow the glowing hat through the shuffle!"},
 		{"name": "ROPE", "icon": "〰", "mode": "swipe", "goal": 6.5, "vo": "op_magician_rope", "voice": "Swipe the magic rope into one long ribbon!"},
-		{"name": "LAMBA CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_magician_bunny_chase", "voice": "The imp captain hid Lamba! Bop the crew to the stage!"},
+		{"name": "LAMBA CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_magician_bunny_chase", "voice": "Find the little lamb! Tap each tiny troublemaker!"},
 		{"name": "CABINET", "icon": "〰", "mode": "swipe", "dir": "down", "goal": 6.0, "vo": "op_magician_cabinet", "voice": "Grab the doors and swipe down — pull the magic cabinet open!"},
 		{"name": "PORTAL", "icon": "↻", "mode": "circle", "goal": 4.0, "vo": "op_magician_portal", "voice": "Draw circles to open the giant star portal!"},
 	],
 	"painter": [
-		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_painter_imps", "voice": "Imps splashed the paint pots! Tap each imp!"},
+		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_painter_imps", "voice": "What a paint mess! Tap each one!"},
 		{"name": "SKETCH", "icon": "〰", "mode": "swipe", "goal": 6.5, "vo": "op_painter_sketch", "voice": "Trace the sunrise sketch!"},
 		{"name": "FILL", "icon": "●", "mode": "hold", "goal": 4.5, "vo": "op_painter_fill", "voice": "Hold to fill the glowing shape!"},
 		{"name": "SPLAT", "icon": "●", "mode": "tap", "goal": 7.0, "vo": "op_painter_splat", "voice": "Tap five happy splatters!"},
@@ -181,7 +181,7 @@ const LEGACY_PHASES := {
 		{"name": "PIPES", "icon": "◆", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes", "voice": "Connect the bubble pipes from the fuel tank all the way to the rocket!"},
 		{"name": "PATCH", "icon": "●", "mode": "tap", "goal": 6.0, "vo": "op_astronaut_patch", "voice": "Tap the sparkle leaks to patch them!"},
 		{"name": "VALVE", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_astronaut_valve", "voice": "Draw circles to turn the launch valve!"},
-		{"name": "ROCKET CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_astronaut_rocket_chase", "voice": "The imp captain scooped up the little rocket and pressed the silly button! Bop the crew!"},
+		{"name": "ROCKET CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_astronaut_rocket_chase", "voice": "Our rocket rolled away! Tap each tiny troublemaker!"},
 		{"name": "LAUNCH", "icon": "●", "mode": "hold", "goal": 5.0, "vo": "op_astronaut_launch", "voice": "Hold through the countdown... and launch!"},
 	],
 	"racer": [
@@ -204,7 +204,7 @@ const LEGACY_PHASES := {
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_popstar_imps", "voice": "Imps are drumming on the speakers! Tap each imp!"},
 		{"name": "SOUND CHECK", "icon": "●", "mode": "hold", "goal": 4.5, "vo": "op_popstar_sound_check", "voice": "Hold the microphone for sound check!"},
 		{"name": "DANCE", "icon": "◆", "mode": "choice", "goal": 8.0, "vo": "op_popstar_dance", "voice": "Tap the glowing dance arrow!"},
-		{"name": "MIC CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_popstar_mic_chase", "voice": "The imp captain unplugged the microphone! Bop the mischief band!"},
+		{"name": "MIC CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_popstar_mic_chase", "voice": "The microphone is unplugged! Tap the noisy band!"},
 		{"name": "RHYTHM", "icon": "♪", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm", "voice": "Listen to the stars sing — then tap their song back, as slow as you like!"},
 		{"name": "ENCORE", "icon": "↻", "mode": "circle", "goal": 4.2, "vo": "op_popstar_encore", "voice": "Draw a big encore spin for the crowd!"},
 	],
@@ -232,86 +232,86 @@ const LEGACY_FINALE_START := {
 ## teaching and curtain call. The playable verb belongs to the job. Boxer is
 ## deliberately the only career that resolves its complication with combat.
 ## The old five-beat tables remain above for audit comparison only.
-const BALLET_PHASE_HOLD_SECONDS := 1.75
+const BALLET_PHASE_HOLD_SECONDS := 3.10
 const PHASES := {
 	"chef": [
-		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Tip the sparkling batter into the bowl!"},
-		{"name": "STIR", "mode": "circle", "goal": 2.0, "vo": "op_chef_stir", "voice": "Draw big circles to stir the batter!"},
-		{"name": "BAKE", "mode": "oven", "goal": 6.0, "vo": "op_chef_bake", "voice": "Watch for golden, then take the cake out with the mitt!"},
-		{"name": "FROST", "mode": "swipe", "goal": 6.0, "vo": "op_chef_pipe", "voice": "Trace the frosting ribbon across the cake!"},
-		{"name": "TOP", "mode": "tap", "goal": 7.0, "vo": "op_chef_top", "voice": "Place the bright toppings on the finished cake!"},
+		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour_stage", "voice": "Tip the sparkling batter into the bowl!"},
+		{"name": "STIR", "mode": "circle", "goal": 2.0, "vo": "op_chef_stir_stage", "voice": "Draw big circles to stir the batter!"},
+		{"name": "BAKE", "mode": "oven", "goal": 6.0, "vo": "op_chef_bake_stage", "voice": "Watch for golden, then take the cake out with the mitt!"},
+		{"name": "FROST", "mode": "swipe", "goal": 6.0, "vo": "op_chef_pipe_stage", "voice": "Trace the frosting ribbon across the cake!"},
+		{"name": "TOP", "mode": "tap", "goal": 7.0, "vo": "op_chef_top_stage", "voice": "Place the bright toppings on the finished cake!"},
 	],
 	"detective": [
-		{"name": "SEARCH", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens", "voice": "Sweep the magnifying glass across the painted clues!"},
+		{"name": "SEARCH", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens_stage", "voice": "Sweep the magnifying glass across the painted clues!"},
 		{"name": "CASE BOARD", "mode": "clue_board", "widget": "", "goal": 3.0, "vo": "op_detective_match", "voice": "Match each glowing clue to the case board!"},
 		{"name": "CROWN", "mode": "crown_chest", "widget": "", "goal": 1.0, "vo": "op_detective_name", "voice": "Tap when the spotlight shines on the answer!"},
 	],
 	"ballerina": [
 		{"name": "PEARL MIRROR", "mode": "ballet_pose", "widget": "", "goal": 3.0, "vo": "op_ballerina_watch", "voice": "Watch Roshan hold each ballet pose, then tap the matching pearl mirror!"},
-		{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "widget": "", "goal": 1.0, "vo": "op_ballerina_ribbon", "voice": "Guide the pearl along the glowing ribbon current!"},
-		{"name": "GRAND TWIRL", "mode": "ballet_twirl", "widget": "", "goal": 1.0, "vo": "op_ballerina_twirl", "voice": "Turn the pearl around the shell for the grand twirl!"},
+		{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "widget": "", "goal": 1.0, "vo": "op_ballerina_ribbon_stage", "voice": "Guide the pearl along the glowing ribbon current!"},
+		{"name": "GRAND TWIRL", "mode": "ballet_twirl", "widget": "", "goal": 1.0, "vo": "op_ballerina_twirl_stage", "voice": "Turn the pearl around the shell for the grand twirl!"},
 	],
 	"candymaker": [
-		{"name": "SYRUP", "mode": "pourt", "goal": 5.0, "vo": "op_candymaker_syrup", "voice": "Tip the syrup into the candy mold!"},
-		{"name": "SORT", "mode": "candy_sort", "goal": 6.0, "vo": "op_candymaker_sort", "voice": "Drag each candy into its matching shape box!"},
-		{"name": "WRAP", "mode": "circle", "goal": 1.8, "vo": "op_candymaker_wrap", "voice": "Twist the finished wrappers in circles!"},
-		{"name": "SHARE", "mode": "tap", "goal": 6.0, "vo": "op_candymaker_share", "voice": "Give one finished candy to every waving friend!"},
+		{"name": "SYRUP", "mode": "pourt", "goal": 5.0, "vo": "op_candymaker_syrup_stage", "voice": "Tip the syrup into the candy mold!"},
+		{"name": "SORT", "mode": "candy_sort", "goal": 6.0, "vo": "op_candymaker_sort_stage", "voice": "Drag each candy into its matching shape box!"},
+		{"name": "WRAP", "mode": "circle", "goal": 1.8, "vo": "op_candymaker_wrap_stage", "voice": "Twist the finished wrappers in circles!"},
+		{"name": "SHARE", "mode": "tap", "goal": 6.0, "vo": "op_candymaker_share_stage", "voice": "Give one finished candy to every waving friend!"},
 	],
 	"doctor": [
-		{"name": "WASH", "mode": "hold", "goal": 3.6, "vo": "op_doctor_wash", "voice": "Hold the bubbly basin to wash Doctor Roshan's hands!"},
-		{"name": "FIND", "mode": "choice", "goal": 4.0, "vo": "op_doctor_find", "voice": "Choose the plushy with the glowing ouch!"},
-		{"name": "X-RAY", "mode": "xray_scan", "goal": 2.0, "vo": "op_doctor_x_ray", "voice": "Slide the scanner over the plushy to find the sore spots!"},
-		{"name": "CAST", "mode": "circle", "goal": 1.8, "vo": "op_doctor_cast", "voice": "Draw gentle circles to wrap the soft cast!"},
-		{"name": "BANDAGE", "mode": "swipe", "goal": 5.0, "vo": "op_doctor_bandage", "voice": "Swipe the stretchy bandage around the plushy!"},
+		{"name": "WASH", "mode": "hold", "goal": 3.6, "vo": "op_doctor_wash_stage", "voice": "Hold the bubbly basin to wash Doctor Roshan's hands!"},
+		{"name": "FIND", "mode": "choice", "goal": 4.0, "vo": "op_doctor_find_stage", "voice": "Choose the plushy with the glowing ouch!"},
+		{"name": "X-RAY", "mode": "xray_scan", "goal": 2.0, "vo": "op_doctor_x_ray_stage", "voice": "Slide the scanner over the plushy to find the sore spots!"},
+		{"name": "CAST", "mode": "circle", "goal": 1.8, "vo": "op_doctor_cast_stage", "voice": "Draw gentle circles to wrap the soft cast!"},
+		{"name": "BANDAGE", "mode": "swipe", "goal": 5.0, "vo": "op_doctor_bandage_stage", "voice": "Swipe the stretchy bandage around the plushy!"},
 	],
 	"farmer": [
-		{"name": "PLANT", "mode": "garden_plant", "widget": "", "goal": 5.0, "vo": "op_farmer_plant", "voice": "Plant each seed in the glowing garden bed!"},
-		{"name": "TOSS", "mode": "farm_lob", "goal": 4.0, "vo": "op_farmer_feed", "voice": "Pull back a vegetable and toss it gently to a piggy!"},
-		{"name": "HERD", "mode": "swipe", "goal": 6.0, "vo": "op_farmer_herd", "voice": "Sweep the happy piggies through the barn gate!"},
-		{"name": "PICNIC", "mode": "tap", "goal": 3.0, "vo": "op_farmer_picnic", "voice": "Set one picnic snack beside every piggy!"},
+		{"name": "PLANT", "mode": "garden_plant", "widget": "", "goal": 5.0, "vo": "op_farmer_plant_stage", "voice": "Plant each seed in the glowing garden bed!"},
+		{"name": "TOSS", "mode": "farm_lob", "goal": 4.0, "vo": "op_farmer_feed_stage", "voice": "Pull back a vegetable and toss it gently to a piggy!"},
+		{"name": "HERD", "mode": "swipe", "goal": 6.0, "vo": "op_farmer_herd_stage", "voice": "Sweep the happy piggies through the barn gate!"},
+		{"name": "PICNIC", "mode": "tap", "goal": 3.0, "vo": "op_farmer_picnic_stage", "voice": "Set one picnic snack beside every piggy!"},
 	],
 	"boxer": [
 		{"name": "GLOVE GUIDE", "mode": "boxing_guide", "widget": "", "goal": 2.0, "vo": "op_boxer_work", "voice": "Put a finger on a glove and push it toward the glowing mitt!"},
-		{"name": "JAB PRACTICE", "mode": "boxing_jab", "widget": "", "goal": 4.0, "vo": "op_boxer_jab", "voice": "Jab practice! Punch each glowing training pad!"},
-		{"name": "SOFT GUARD", "mode": "boxing_guard", "widget": "", "goal": 3.0, "vo": "op_boxer_duck", "voice": "Bring a glove into the glowing guard bubble!"},
-		{"name": "TITLE IMP", "mode": "boxing_imp", "widget": "", "goal": 6.0, "vo": "op_boxer_bell_chase", "voice": "The boxer imp rang the bell! Punch when the bright star opens!"},
-		{"name": "BELT", "mode": "boxing_belt", "widget": "", "goal": 1.0, "vo": "op_boxer_belt", "voice": "Punch the glowing championship belt for the curtain call!"},
+		{"name": "JAB PRACTICE", "mode": "boxing_jab", "widget": "", "goal": 4.0, "vo": "op_boxer_jab_stage", "voice": "Jab practice! Punch each glowing training pad!"},
+		{"name": "SOFT GUARD", "mode": "boxing_guard", "widget": "", "goal": 3.0, "vo": "op_boxer_duck_stage", "voice": "Bring a glove into the glowing guard bubble!"},
+		{"name": "TITLE IMP", "mode": "boxing_imp", "widget": "", "goal": 6.0, "vo": "op_boxer_bell_chase_stage", "voice": "The boxer imp rang the bell! Punch when the bright star opens!"},
+		{"name": "BELT", "mode": "boxing_belt", "widget": "", "goal": 1.0, "vo": "op_boxer_belt_stage", "voice": "Punch the glowing championship belt for the curtain call!"},
 	],
 	"magician": [
-		{"name": "VANISH", "mode": "hold", "widget": "", "visual_context": "magic_vanish", "goal": 3.8, "vo": "op_magician_vanish", "voice": "Hold the wand to hide Lamba under a hat!"},
+		{"name": "VANISH", "mode": "hold", "widget": "", "visual_context": "magic_vanish", "goal": 3.8, "vo": "op_magician_vanish_stage", "voice": "Hold the wand to hide Lamba under a hat!"},
 		{"name": "TRACK", "mode": "choice", "goal": 5.0, "vo": "op_magician_track", "voice": "Follow the glowing hat through the shuffle!"},
-		{"name": "ROPE", "mode": "swipe", "goal": 5.0, "vo": "op_magician_rope", "voice": "Swipe the knotted rope into one long ribbon!"},
-		{"name": "CABINET", "mode": "magic_cabinet", "widget": "", "goal": 1.0, "vo": "op_magician_cabinet", "voice": "Swipe down to open the magic cabinet!"},
-		{"name": "PORTAL", "mode": "circle", "goal": 2.0, "vo": "op_magician_portal", "voice": "Draw circles to open the star portal!"},
+		{"name": "ROPE", "mode": "swipe", "goal": 5.0, "vo": "op_magician_rope_stage", "voice": "Swipe the knotted rope into one long ribbon!"},
+		{"name": "CABINET", "mode": "magic_cabinet", "widget": "", "goal": 1.0, "vo": "op_magician_cabinet_stage", "voice": "Swipe down to open the magic cabinet!"},
+		{"name": "PORTAL", "mode": "circle", "goal": 2.0, "vo": "op_magician_portal_stage", "voice": "Draw circles to open the star portal!"},
 	],
 	"painter": [
-		{"name": "PAINT", "mode": "paint_reveal", "goal": 1.0, "vo": "op_painter_sketch", "voice": "Paint across the cloudy canvas to reveal the sunrise!"},
-		{"name": "STAMPS", "mode": "tap", "goal": 5.0, "vo": "op_painter_splat", "voice": "Add any five bright finishing stamps!"},
-		{"name": "GALLERY", "mode": "choice", "goal": 1.0, "vo": "op_painter_reveal", "voice": "Choose the glowing frame and hang your sunrise!"},
+		{"name": "PAINT", "mode": "paint_reveal", "goal": 1.0, "vo": "op_painter_sketch_stage", "voice": "Paint across the cloudy canvas to reveal the sunrise!"},
+		{"name": "STAMPS", "mode": "tap", "goal": 5.0, "vo": "op_painter_splat_stage", "voice": "Add any five bright finishing stamps!"},
+		{"name": "GALLERY", "mode": "choice", "goal": 1.0, "vo": "op_painter_reveal_stage", "voice": "Choose the glowing frame and hang your sunrise!"},
 	],
 	"astronaut": [
-		{"name": "PIPES", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes", "voice": "Connect the fuel tank to the rocket through three pipe boards!"},
-		{"name": "PATCH", "mode": "tap", "goal": 5.0, "vo": "op_astronaut_patch", "voice": "Patch every sparkling leak on the rocket!"},
+		{"name": "PIPES", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes_stage", "voice": "Connect the fuel tank to the rocket through three pipe boards!"},
+		{"name": "PATCH", "mode": "tap", "goal": 5.0, "vo": "op_astronaut_patch_stage", "voice": "Patch every sparkling leak on the rocket!"},
 		{"name": "VALVE", "mode": "circle", "goal": 1.8, "vo": "op_astronaut_valve", "voice": "Draw circles to turn the launch valve!"},
-		{"name": "LAUNCH", "mode": "hold", "goal": 4.5, "vo": "op_astronaut_launch", "voice": "Hold through the countdown and launch!"},
+		{"name": "LAUNCH", "mode": "hold", "goal": 4.5, "vo": "op_astronaut_launch_stage", "voice": "Hold through the countdown and launch!"},
 	],
 	"racer": [
-		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_tune_up", "voice": "Turn the wrench to finish the pit stop!"},
-		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_to_the_line", "voice": "Push the kart to the pearl starting arch!"},
+		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_tune_up_stage", "voice": "Turn the wrench to finish the pit stop!"},
+		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_to_the_line_stage", "voice": "Push the kart to the pearl starting arch!"},
 		{"name": "RACE", "mode": "circle", "widget": "", "goal": 0.9, "vo": "op_racer_lap_two", "voice": "Loop the loop! Draw big racing circles!"},
 	],
 	"nursery": [
-		{"name": "WASH HANDS", "mode": "hold", "widget": "", "visual_context": "nursery_wash", "goal": 3.4, "vo": "op_nursery_wash", "voice": "Hold the bubbly basin to wash your hands first!"},
+		{"name": "WASH HANDS", "mode": "hold", "widget": "", "visual_context": "nursery_wash", "goal": 3.4, "vo": "op_nursery_wash_stage", "voice": "Hold the bubbly basin to wash your hands first!"},
 		{"name": "CATCH BABIES", "mode": "catch", "goal": 5.0, "speaker": "Faron", "vo": "op_nursery_catch", "voice": "Slide the soft cradle under five babies. Pillows keep every miss safe!"},
 		{"name": "FEED", "mode": "hold", "widget": "", "visual_context": "nursery_feed", "goal": 4.0, "speaker": "Faron", "vo": "op_nursery_feed", "voice": "Hold the warm bottle while Roshan and Faron feed each baby!"},
-		{"name": "BURP", "mode": "tap", "widget": "", "visual_context": "nursery_burp", "pace": 0.55, "goal": 4.0, "vo": "op_nursery_burp", "voice": "Pat the baby's back gently and slowly: pat, pat, pat!"},
+		{"name": "BURP", "mode": "tap", "widget": "", "visual_context": "nursery_burp", "pace": 0.55, "goal": 4.0, "vo": "op_nursery_burp_stage", "voice": "Pat the baby's back gently and slowly: pat, pat, pat!"},
 		{"name": "BEDTIME", "mode": "swipe", "widget": "", "visual_context": "nursery_bedtime", "dir": "down", "goal": 3.0, "speaker": "Faron", "vo": "op_nursery_bedtime", "voice": "Swipe each blanket down and tuck every baby into bed!"},
 	],
 	"popstar": [
-		{"name": "SOUND CHECK", "mode": "hold", "goal": 3.8, "vo": "op_popstar_sound_check", "voice": "Hold the microphone while the rainbow note grows!"},
+		{"name": "SOUND CHECK", "mode": "hold", "goal": 3.8, "vo": "op_popstar_sound_check_stage", "voice": "Hold the microphone while the rainbow note grows!"},
 		{"name": "DANCE", "mode": "choice", "goal": 6.0, "vo": "op_popstar_dance", "voice": "Tap the glowing dance arrow!"},
-		{"name": "RHYTHM", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm", "voice": "Listen to the three stars, then sing their song back!"},
-		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore", "voice": "Draw one big encore spin for the crowd!"},
+		{"name": "RHYTHM", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm_stage", "voice": "Listen to the three stars, then sing their song back!"},
+		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore_stage", "voice": "Draw one big encore spin for the crowd!"},
 	],
 	"geologist": [
 		{"name": "LAYERS", "mode": "choice", "widget": "", "goal": 3.0, "voice": "Tap the rock layer that matches the glowing sample!"},
@@ -414,6 +414,9 @@ var choice_target := 1
 var phase_gap := 0.0
 var phase_complete_t := 0.0
 var phase_advance_pending := false
+const CHAPTER2_FINAL_RESULT_HOLD_SECONDS := 2.2
+var chapter2_final_result_hold_t := 0.0
+var chapter2_final_result_hold_pending := false
 ## One owner per animated stage element. Rest snapshots never come from an
 ## interrupted tween, so rapid input always converges on the same transform.
 var actor_rests: Dictionary = {}
@@ -551,7 +554,6 @@ var chapter2_strawberry_pickups: Array[TextureButton] = []
 var chapter2_strawberry_pickup_texture: Texture2D = null
 var chapter2_single_strawberry_texture: Texture2D = null
 var chapter2_detective_candle_button: Button = null
-var chapter2_candy_cake_texture: Texture2D = null
 
 
 func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
@@ -563,9 +565,12 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 	competition.pause()
 	win_callback = on_win
 	career_id = String(config.get("costume", "chef"))
-	run_context = context.duplicate(true)
+	# Callable bindings are runtime objects. A deep Variant duplicate turns the
+	# nested Chapter 2 callback dictionary into invalid Callables, so copy only
+	# the context shell and leave its immutable callback values intact.
+	run_context = context.duplicate(false)
 	if run_context.is_empty() and config.get("run_context", {}) is Dictionary:
-		run_context = (config.get("run_context", {}) as Dictionary).duplicate(true)
+		run_context = (config.get("run_context", {}) as Dictionary).duplicate(false)
 	var override_config: Dictionary = {}
 	if config.get("phase_overrides", []) is Array:
 		override_config["phase_overrides"] = config.get("phase_overrides", [])
@@ -583,14 +588,15 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		override_config["finale_start"] = int(scene_adapter.get("finale_start", 0))
 	var callbacks: Variant = run_context.get("callbacks", {})
 	if callbacks is Dictionary:
-		adapter_callbacks = (callbacks as Dictionary).duplicate(true)
+		adapter_callbacks = (callbacks as Dictionary).duplicate(false)
 	for event: String in [
 		"scene_ready", "phase_armed", "phase_opened", "phase_completed",
 		"scene_completed", "scene_closed",
 	]:
 		var direct_callback: Variant = run_context.get(event,
 			run_context.get("on_%s" % event, Callable()))
-		if direct_callback is Callable:
+		if direct_callback is Callable \
+				and (direct_callback as Callable).is_valid():
 			adapter_callbacks[event] = direct_callback
 	var supplied_phases := phase_overrides
 	if supplied_phases.is_empty() and config.get("phase_overrides", []) is Array:
@@ -655,14 +661,18 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 
 func _adapter_hook(event: String, payload: Dictionary = {}) -> void:
 	var callback: Variant = adapter_callbacks.get(event, Callable())
-	if not callback is Callable:
+	if not _valid_callback(callback):
 		callback = scene_adapter.get(event, Callable())
-	if not callback is Callable:
+	if not _valid_callback(callback):
 		callback = adapter_callbacks.get("on_%s" % event, Callable())
-	if not callback is Callable:
+	if not _valid_callback(callback):
 		callback = scene_adapter.get("on_%s" % event, Callable())
-	if callback is Callable and (callback as Callable).is_valid():
+	if _valid_callback(callback):
 		(callback as Callable).call(payload.duplicate(true))
+
+
+func _valid_callback(value: Variant) -> bool:
+	return value is Callable and (value as Callable).is_valid()
 
 
 func scene_snapshot() -> Dictionary:
@@ -739,6 +749,13 @@ func _is_chapter2_candymaker_scene() -> bool:
 func _build_chapter2_story_props() -> void:
 	if not _is_chapter2_story_scene():
 		return
+	if career_id in ["farmer", "candymaker"]:
+		var single_berry_path := \
+			"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png"
+		if ResourceLoader.exists(single_berry_path):
+			chapter2_single_strawberry_texture = \
+				load(single_berry_path) as Texture2D
+			set_meta("chapter2_single_strawberry_texture", single_berry_path)
 	if _is_chapter2_cake_scene():
 		chapter2_cake_scene = ChapterTwoCake.new() as ChapterTwoGiantCake2D
 		chapter2_cake_scene.name = "Chapter2PersistentCakeScene"
@@ -748,9 +765,6 @@ func _build_chapter2_story_props() -> void:
 		chapter2_cake_scene.set_meta("scene_specific_art", true)
 		chapter2_cake_scene.set_meta("same_asset_as_party_table", true)
 		root.add_child(chapter2_cake_scene)
-		var cake_path := String(scene_adapter.get("cake_asset", ""))
-		if ResourceLoader.exists(cake_path):
-			chapter2_candy_cake_texture = load(cake_path) as Texture2D
 		_refresh_chapter2_cake_scene()
 	if career_id == "detective":
 		chapter2_candle_scene = ChapterTwoCandle.new() as ChapterTwoRainbowCandle2D
@@ -802,7 +816,8 @@ func _build_chapter2_strawberry_pickups() -> void:
 	if not ResourceLoader.exists(cluster_path) or not ResourceLoader.exists(path):
 		return
 	chapter2_strawberry_pickup_texture = load(cluster_path) as Texture2D
-	chapter2_single_strawberry_texture = load(path) as Texture2D
+	if chapter2_single_strawberry_texture == null:
+		chapter2_single_strawberry_texture = load(path) as Texture2D
 	var positions: Array[Vector2] = [
 		Vector2(180.0, 258.0), Vector2(390.0, 194.0),
 		Vector2(610.0, 270.0), Vector2(830.0, 190.0),
@@ -1854,32 +1869,145 @@ func _draw_chapter2_candy_activity(progress: float) -> void:
 	# All four Candy Maker beats point at strawberries and the carried cake. The
 	# old syrup vat, shape lanes, wrappers and recipient cards are intentionally
 	# not drawn here; the persistent cake node remains the single cake authority.
-	var tray := Rect2(34.0, 36.0, 348.0, 192.0)
-	action_panel.draw_style_box(_chapter2_style_box(Color("#fff4d8"), Color("#9a4d86"), 18), tray)
-	var ingredient_rect := Rect2(54.0, 64.0, 112.0, 112.0)
-	if chapter2_strawberry_pickup_texture != null:
-		action_panel.draw_texture_rect(chapter2_strawberry_pickup_texture,
-			ingredient_rect, false)
 	var phase_name := ""
 	if phase_index >= 0 and phase_index < phases.size():
 		phase_name = String((phases[phase_index] as Dictionary).get("milestone", ""))
-	var berry_colour := Color("#ef668d")
-	if phase_name in ["glaze_strawberries", "place_candied_strawberries"]:
-		berry_colour = Color("#ffb9cf")
+	action_panel.set_meta("chapter2_candy_visible_action",
+		_chapter2_candy_visible_action(phase_name))
+	action_panel.set_meta("chapter2_candy_visible_berry_count", 5)
+	action_panel.set_meta("chapter2_candy_visual_progress", progress)
+	match phase_name:
+		"coat_strawberries":
+			_draw_chapter2_candy_coat(progress)
+		"sort_strawberries":
+			_draw_chapter2_candy_sort(progress)
+		"glaze_strawberries":
+			_draw_chapter2_candy_glaze(progress)
+		"place_candied_strawberries":
+			_draw_chapter2_candy_place(progress)
+		_:
+			_draw_chapter2_candy_coat(progress)
+
+
+func _chapter2_candy_visible_action(milestone: String) -> String:
+	match milestone:
+		"coat_strawberries":
+			return "pitcher_stream_coats_five_berries"
+		"sort_strawberries":
+			return "five_berries_move_into_matching_lanes"
+		"glaze_strawberries":
+			return "glaze_crank_shines_five_berries"
+		"place_candied_strawberries":
+			return "five_berries_move_from_tray_toward_cake"
+	return ""
+
+
+func _draw_chapter2_candy_coat(progress: float) -> void:
+	var panel := Rect2(34.0, 36.0, 348.0, 192.0)
+	action_panel.draw_style_box(
+		_chapter2_style_box(Color("#fff4d8"), Color("#9a4d86"), 18), panel)
+	var positions: Array[Vector2] = [
+		Vector2(156.0, 84.0), Vector2(226.0, 84.0), Vector2(296.0, 84.0),
+		Vector2(190.0, 160.0), Vector2(264.0, 160.0),
+	]
+	var active_index := mini(4, int(floor(progress * 5.0)))
+	var stream_target := positions[active_index]
+	var pitcher := Rect2(54.0, 88.0, 58.0, 72.0)
+	action_panel.draw_style_box(
+		_chapter2_style_box(Color("#c891e8"), Color("#5c3b87"), 14), pitcher)
+	action_panel.draw_circle(Vector2(81.0, 104.0), 13.0, Color("#fff2b0"))
+	action_panel.draw_line(Vector2(111.0, 112.0),
+		stream_target - Vector2(18.0, 10.0), Color("#ffd56a"),
+		8.0 if progress > 0.0 else 3.0, true)
 	for index in range(5):
-		var at := Vector2(212.0 + float(index % 3) * 50.0,
-			86.0 + float(index / 3) * 58.0)
-		action_panel.draw_circle(at, 18.0, berry_colour)
-		action_panel.draw_circle(at - Vector2(5.0, 6.0), 6.0,
-			Color(1.0, 1.0, 1.0, 0.70 if progress > 0.0 else 0.34))
-		action_panel.draw_circle(at + Vector2(0.0, -17.0), 5.0,
+		var coated := clampf(progress * 5.0 - float(index), 0.0, 1.0)
+		_draw_chapter2_candy_berry(positions[index], coated)
+
+
+func _draw_chapter2_candy_sort(progress: float) -> void:
+	var lane_colours: Array[Color] = [
+		Color("#ffb4cf"), Color("#ffd66f"), Color("#8fe3dc"),
+	]
+	for lane in range(3):
+		var lane_rect := Rect2(52.0 + float(lane) * 112.0, 48.0, 88.0, 168.0)
+		action_panel.draw_style_box(_chapter2_style_box(
+			lane_colours[lane].lightened(0.45), lane_colours[lane], 18),
+			lane_rect)
+		action_panel.draw_circle(Vector2(lane_rect.get_center().x, 72.0),
+			8.0, lane_colours[lane])
+	var start_positions: Array[Vector2] = [
+		Vector2(78.0, 72.0), Vector2(143.0, 72.0), Vector2(208.0, 72.0),
+		Vector2(273.0, 72.0), Vector2(338.0, 72.0),
+	]
+	for index in range(5):
+		var lane := index % 3
+		var row := index / 3
+		var target := Vector2(96.0 + float(lane) * 112.0,
+			126.0 + float(row) * 62.0)
+		var move_t := smoothstep(0.0, 1.0,
+			clampf(progress * 5.0 - float(index), 0.0, 1.0))
+		action_panel.draw_line(start_positions[index], target,
+			Color(lane_colours[lane], 0.32), 4.0, true)
+		_draw_chapter2_candy_berry(
+			start_positions[index].lerp(target, move_t), 0.15)
+
+
+func _draw_chapter2_candy_glaze(progress: float) -> void:
+	var tray := Rect2(44.0, 62.0, 328.0, 112.0)
+	action_panel.draw_style_box(
+		_chapter2_style_box(Color("#f7d9ff"), Color("#8958ad"), 24), tray)
+	for index in range(5):
+		var at := Vector2(76.0 + float(index) * 66.0, 116.0)
+		var glossy := clampf(progress * 5.0 - float(index), 0.0, 1.0)
+		_draw_chapter2_candy_berry(at, glossy)
+	var crank := Vector2(208.0, 204.0)
+	action_panel.draw_circle(crank, 22.0, Color("#67408d"))
+	action_panel.draw_circle(crank, 11.0, Color("#fff0a8"))
+	action_panel.draw_arc(crank, 31.0, -PI * 0.5,
+		-PI * 0.5 + TAU * progress, 28, Color("#ffb6e8"), 7.0, true)
+	action_panel.draw_line(crank, crank + Vector2.from_angle(
+		-PI * 0.5 + TAU * progress) * 42.0, Color("#fff6dc"), 6.0, true)
+
+
+func _draw_chapter2_candy_place(progress: float) -> void:
+	var tray := Rect2(38.0, 54.0, 218.0, 164.0)
+	action_panel.draw_style_box(
+		_chapter2_style_box(Color("#f7d9ff"), Color("#8958ad"), 22), tray)
+	action_panel.draw_line(Vector2(258.0, 136.0), Vector2(380.0, 136.0),
+		Color("#fff1a8"), 10.0, true)
+	action_panel.draw_colored_polygon(PackedVector2Array([
+		Vector2(380.0, 136.0), Vector2(354.0, 118.0),
+		Vector2(354.0, 154.0),
+	]), Color("#fff1a8"))
+	var tray_positions: Array[Vector2] = [
+		Vector2(84.0, 92.0), Vector2(146.0, 92.0), Vector2(208.0, 92.0),
+		Vector2(114.0, 166.0), Vector2(178.0, 166.0),
+	]
+	var cake_edge_positions: Array[Vector2] = [
+		Vector2(330.0, 68.0), Vector2(354.0, 100.0), Vector2(330.0, 132.0),
+		Vector2(354.0, 164.0), Vector2(330.0, 196.0),
+	]
+	for index in range(5):
+		var place_t := smoothstep(0.0, 1.0,
+			clampf(progress * 5.0 - float(index), 0.0, 1.0))
+		_draw_chapter2_candy_berry(
+			tray_positions[index].lerp(cake_edge_positions[index], place_t), 1.0)
+
+
+func _draw_chapter2_candy_berry(at: Vector2, glossy: float) -> void:
+	if chapter2_single_strawberry_texture != null:
+		action_panel.draw_texture_rect(chapter2_single_strawberry_texture,
+			Rect2(at - Vector2(25.0, 29.0), Vector2(50.0, 58.0)), false)
+	else:
+		action_panel.draw_circle(at, 20.0, Color("#ef668d"))
+		action_panel.draw_circle(at - Vector2(0.0, 18.0), 6.0,
 			Color("#63bd72"))
-	# A frosting ribbon grows beside the ingredient, making the final two
-	# decorator beats read as decoration rather than candy manufacture.
-	if phase_name in ["glaze_strawberries", "place_candied_strawberries"]:
-		var ribbon_end := 198.0 + 140.0 * progress
-		action_panel.draw_line(Vector2(206.0, 203.0), Vector2(ribbon_end, 203.0),
-			Color("#fff5ff"), 10.0, true)
+	if glossy <= 0.0:
+		return
+	action_panel.draw_arc(at, 25.0, -PI * 0.88, PI * 0.22, 18,
+		Color(1.0, 0.90, 0.56, 0.35 + glossy * 0.55), 4.0, true)
+	action_panel.draw_circle(at - Vector2(8.0, 9.0), 3.0 + glossy * 2.5,
+		Color(1.0, 1.0, 1.0, 0.45 + glossy * 0.45))
 
 
 func _draw_chapter2_detective_activity(progress: float) -> void:
@@ -2160,6 +2288,10 @@ func _arm_phase() -> void:
 func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := false) -> void:
 	var template := _widget_template(phase)
 	var context := "%s_%s" % [template, career_id] if not template.is_empty() else ""
+	# Phase-local cake art must never leak into the next game. In particular,
+	# the Glaze tray disappears when Place On Cake reveals the final cake.
+	surface.set_meta("chapter2_cake_stage_asset", "")
+	surface.set_meta("chapter2_cake_accessory_asset", "")
 	if not String(scene_adapter.get("widget", "")).is_empty():
 		context = String(scene_adapter.get("widget", ""))
 	if phase.has("visual_context"):
@@ -2182,6 +2314,16 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 		var phase_prop := String(phase.get("prop", ""))
 		if ResourceLoader.exists(phase_prop):
 			surface.set_meta("chapter2_prop_path", phase_prop)
+	if phase.has("cake_stage_asset"):
+		var cake_stage_path := String(phase.get("cake_stage_asset", ""))
+		if ResourceLoader.exists(cake_stage_path):
+			surface.set_meta("chapter2_cake_stage_asset", cake_stage_path)
+	if phase.has("cake_accessory_asset"):
+		var cake_accessory_path := String(
+			phase.get("cake_accessory_asset", ""))
+		if ResourceLoader.exists(cake_accessory_path):
+			surface.set_meta("chapter2_cake_accessory_asset",
+				cake_accessory_path)
 	surface.configure(mode_name, accent, choice_target, context)
 	# while she is still wandering, the bound widget shows but its clocks
 	# (oven heat, pipe fuel, echo song) hold still until she arrives
@@ -2580,7 +2722,7 @@ func _spawn_stage_captain() -> void:
 	captain_pending = false
 	_spawn_stage_imp(0.5, true, combat_imps.size())
 	if m != null:
-		m.show_msg("Imp Captain", "Hee hee! You'll have to bop ME twice!", "op_captain")
+		m.show_msg("Imp Captain", "Two taps will stop me!", "op_captain_intro")
 
 
 func _combat_input(event: InputEvent) -> void:
@@ -2820,7 +2962,7 @@ func _repeat_ballet_instruction() -> void:
 	if String(phase.get("mode", "")) == "ballet_pose":
 		# The first line asks her to watch; once a portrait is tappable, the
 		# existing family recording clearly hands the turn to the child.
-		m.show_msg("Roshan", "Tap the glowing dance pose!", "op_ballerina_steps")
+		m.show_msg("Roshan", "Tap the glowing dance pose!", "op_ballerina_pose")
 		return
 	_repeat_phase_prompt()
 
@@ -3029,11 +3171,32 @@ func _advance_completed_phase() -> void:
 		return
 	phase_advance_pending = false
 	phase_complete_t = 0.0
+	var completed_final_cake_phase := _is_chapter2_cake_scene() \
+		and phase_index == phases.size() - 1
 	_adapter_hook("phase_completed", scene_snapshot())
 	_refresh_chapter2_story_props()
 	phase_index += 1
+	if completed_final_cake_phase:
+		# Persist first, refresh the actual story prop, then leave that completed
+		# cake on screen long enough for the child to see what she made. The
+		# ordinary completion hold above shows the pre-persist activity picture.
+		chapter2_final_result_hold_t = CHAPTER2_FINAL_RESULT_HOLD_SECONDS
+		chapter2_final_result_hold_pending = true
+		task_open = false
+		competition.pause()
+		set_meta("chapter2_final_result_hold_active", true)
+		set_meta("chapter2_final_result_hold_seconds",
+			CHAPTER2_FINAL_RESULT_HOLD_SECONDS)
+		return
 	# no forced gap here: the wander window IS the breath between tasks —
 	# the world stays hers until she walks up to the next lit station
+	_arm_phase()
+
+
+func _finish_chapter2_final_result_hold() -> void:
+	chapter2_final_result_hold_pending = false
+	chapter2_final_result_hold_t = 0.0
+	set_meta("chapter2_final_result_hold_active", false)
 	_arm_phase()
 
 
@@ -3553,7 +3716,7 @@ func _handle_brain_events() -> void:
 				combat_marks.append({"kind": "taunt", "pos": at, "t": 0.0, "life": 0.7})
 			"rally":
 				if m != null:
-					m.show_msg("Imp Captain", "Crew! Back to me! Hee hee!", "op_captain")
+					m.show_msg("Imp Captain", "Crew! Back to me! Hee hee!", "op_captain_rally")
 			"flee":
 				combat_marks.append({"kind": "dust", "pos": at, "t": 0.0, "life": 0.35})
 
@@ -3975,7 +4138,12 @@ func _draw_lens_layer() -> void:
 
 func _process(delta: float) -> void:
 	elapsed += delta
-	if phase_advance_pending:
+	if chapter2_final_result_hold_pending:
+		chapter2_final_result_hold_t = maxf(0.0,
+			chapter2_final_result_hold_t - delta)
+		if chapter2_final_result_hold_t <= 0.0:
+			_finish_chapter2_final_result_hold()
+	elif phase_advance_pending:
 		phase_complete_t = maxf(0.0, phase_complete_t - delta)
 		if phase_complete_t <= 0.0:
 			_advance_completed_phase()

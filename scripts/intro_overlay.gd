@@ -174,7 +174,7 @@ func _intro_next() -> void:
 		_skip_intro()
 		if m.voice != null:
 			m.voice.pitch_scale = 1.1
-			m.voice.play()
+			m._play_success_yay(m.voice.pitch_scale)
 		return
 	if m.chime != null:
 		m.chime.pitch_scale = 1.0

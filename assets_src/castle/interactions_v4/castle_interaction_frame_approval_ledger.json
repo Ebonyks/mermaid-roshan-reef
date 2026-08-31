@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "6462fb5a6bcc3f906ab27966fb0134b6e22a663e9119bcbf13633c0977db575e",
+  "candidate_payload_sha256": "56c3f2467f11000735f29f0a4a5981952072794c620eb445853fd47f9748946c",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -18,6 +18,15 @@
     "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
     "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
     "candidate_binding_refresh": "Whole-file runtime-layout semantic hash changed only because of the two non-visual Chapter 2 hooks; pixel-identical prior frame review remains applicable.",
+    "owner_acceptance": "pending"
+  },
+  "voice_rollout_binding_revalidation": {
+    "date": "2026-08-31",
+    "reason": "The Crown Star award changed only its success-audio call from direct playback to the serialized synthetic yay helper. It does not alter ROOM_LAYOUTS, card placement, fixture rigs, V4 manifest data, atlas pixels, alpha ownership, z order, or any interaction-frame render input.",
+    "prior_candidate_payload_sha256": "6462fb5a6bcc3f906ab27966fb0134b6e22a663e9119bcbf13633c0977db575e",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
+    "candidate_binding_refresh": "Whole-file runtime-layout semantic hash changed only because of the non-visual success-audio routing call; pixel-identical prior frame review remains applicable.",
     "owner_acceptance": "pending"
   },
   "reviewer": "Codex visual re-review 2026-08-29",

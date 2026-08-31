@@ -112,17 +112,21 @@ func refresh() -> void:
 	var chef_ready := (mask & (1 << ACT_CHEF)) != 0
 	var candle_ready := (mask & (1 << ChapterTwoDirector.ACT_DETECTIVE)) != 0
 	var rocket_ready := (mask & (1 << 11)) != 0
+	var cake_final_ready := bool(cake_state.get("cake_placed_final", false))
 	if giant_cake != null:
 		giant_cake.set_state(cake_state)
 		giant_cake.visible = giant_cake.has_visual_progress()
 		giant_cake.set_festive(m.chapter2_party_started)
 	if party_candle != null:
 		party_candle.visible = candle_ready and not m.chapter2_candle_taken
-		# Before Chef finishes, the found candle rests on the table. Once the
-		# gigantic cake arrives, it moves to the authored top-tier position.
-		party_candle.position = Vector2(591.0, 60.0 if chef_ready else 208.0)
+		# Detective finds the candle only after the decorated cake is complete.
+		# Keep the candle a separate sibling layer and mount it on the top tier
+		# only when Candy Maker's placement milestone is physically present.
+		party_candle.position = Vector2(
+			591.0, 60.0 if cake_final_ready else 208.0)
 		party_candle.set_lit(m.chapter2_candle_lit)
 		party_candle.set_meta("taken_by_ember_king", m.chapter2_candle_taken)
+		party_candle.set_meta("mounted_on_completed_cake", cake_final_ready)
 	if lighting_rocket != null:
 		lighting_rocket.visible = rocket_ready
 		lighting_rocket.set_meta("rocket_ready", rocket_ready)

@@ -491,7 +491,7 @@ const STICKER_DEFS := [
 	{"id": "shopper", "emoji": "💰", "label": "Big Shopper", "hint": "Buy every treasure in the Pearl Shop!"},
 	{"id": "showtime", "emoji": "🎭", "label": "Showtime Star", "hint": "Perform every show in the Opera House!"},
 	{"id": "volcano", "emoji": "🌋", "label": "Fortress Hero", "hint": "Solve the Ember Fortress dungeon!"},
-	{"id": "super_seeker", "emoji": "🔎", "label": "Super Seeker", "hint": "Find Rumi, Baby Eagle, and Daddy in the Day Two castle game!", "bonus": true},
+	{"id": "super_seeker", "emoji": "🔍", "label": "Super Seeker", "hint": "Find Rumi, Baby Eagle, and Daddy in the Day Two castle game!", "bonus": true},
 	{"id": "superstar", "emoji": "⭐", "label": "SUPER STAR", "hint": "Collect every sticker and every trophy!"},
 ]
 var stickers := {}                 # id -> true (plus hidden "_" progress keys)
@@ -1053,7 +1053,7 @@ func _ready() -> void:
 	# here, owner request 2026-07-21: the screen was getting too busy)
 	get_tree().node_added.connect(_hook_button_taps)
 	voice = AudioStreamPlayer.new()
-	voice.stream = load("res://assets/audio/voice_yay.mp3")
+	voice.stream = load("res://assets/audio/voices/filler_v1/yay.ogg")
 	voice.bus = "Voice"
 	add_child(voice)
 	chime = AudioStreamPlayer.new()
@@ -2884,7 +2884,9 @@ func _end_kart_game(place: int) -> void:
 		# The child-facing Chapter 3 route now has a visible story handoff before
 		# Butterfly World. Keep Ember's junction direct, but let the Rainbow Road
 		# destination open the same Rainbow Stage used by the Castle door.
-		show_msg("Rainbow Road", "The rainbow road soars on and on... to the Butterfly House!")
+		show_msg("Rainbow Road",
+			"The rainbow road soars on and on... to the Butterfly House!",
+			"fairy_road")
 		call_deferred("_start_fairy_conservatory_handoff")
 		return
 	var msg := "Ocean Race champion — 1st place!" if place == 1 else "Great racing — you came %d%s!" % [place, suf]
@@ -3120,7 +3122,9 @@ func _end_galaxy(completed: bool) -> void:
 			chapter3_fairy_mission_started = true
 			_write_save()
 		else:
-			show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
+			show_msg("Butterfly World",
+				"Home again! The butterflies will wait for your return...",
+				"fairy_home")
 		_update_hud()
 		call_deferred("_start_fairy_conservatory_handoff", true)
 		return
@@ -3128,7 +3132,9 @@ func _end_galaxy(completed: bool) -> void:
 		award_sticker("butterfly")
 		show_msg("Mermaid Rosalina", "You saved the Butterfly World! FAIRY ROSHAN is waiting in the castle wardrobe! 🦋", "win")
 	else:
-		show_msg("Butterfly World", "Home again! The butterflies will wait for your return...")
+		show_msg("Butterfly World",
+			"Home again! The butterflies will wait for your return...",
+			"fairy_home")
 	_update_hud()
 	var return_world: String = galaxy_from
 	var return_level2_open: bool = galaxy_level2_open or level2_done_once
@@ -3904,6 +3910,9 @@ func _audio_ref() -> AudioDirector:
 
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	_audio_ref()._say(speaker, event, min_gap)
+
+func _play_success_yay(pitch_scale: float = 1.0) -> void:
+	_audio_ref().play_success_yay(pitch_scale)
 
 func _speaker_key(who: String) -> String:
 	return _audio_ref()._speaker_key(who)
@@ -6853,7 +6862,7 @@ func _tick_mg2d(delta: float) -> void:
 			mg["motor_assist"] = true
 			if voice != null:
 				voice.pitch_scale = 1.3
-				voice.play()
+				_play_success_yay(voice.pitch_scale)
 		if assist and stick_intent:
 			mg["rot_acc"] = float(mg["rot_acc"]) + delta * 2.4
 		mg["stall"] = stall
@@ -6970,13 +6979,15 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 	if fairy_revealed_now:
 		show_msg("Pearl Castle",
 			"The castle found a secret sky door! Touch the shining pearl!",
-			"open")
+			"castle_fairy_open")
 	else:
+		var entry_voice: String = "castle_home_back" if from_back \
+			else "castle_home_day_one" if day_one_is_active() \
+			else "castle_home"
 		show_msg("Pearl Castle",
 			entry_hint if not from_back
 			else "The secret shell door opens into the Main Hall!",
-			"home")
-	_say("roshan", "talk", 0.5)
+			entry_voice)
 
 func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
 	# a stained-glass grid of glowing coloured panels (no mermaid)
@@ -7402,7 +7413,7 @@ func _show_day_two_transition() -> void:
 	transition.finished.connect(_on_day_two_transition_finished, CONNECT_ONE_SHOT)
 	add_child(transition)
 	show_msg("Roshan",
-		"A new day! Day Two begins — the castle jobs and Opera House are open!",
+		"The second day is here! Visit castle jobs and the Opera House!",
 		"day_two_begins")
 
 
@@ -8958,7 +8969,7 @@ func _do_finish_level2() -> void:
 	_write_save()
 	if voice != null:
 		voice.pitch_scale = 1.15
-		voice.play()
+		_play_success_yay(voice.pitch_scale)
 	game = ""
 	g = {}
 	hud_game.text = ""
@@ -9382,7 +9393,7 @@ func _creature_greet(node: Node3D) -> void:
 	_sparkle_burst(node.position + Vector3(0, 1.6, 0), Color(0.8, 0.95, 1.0))
 	if voice != null:
 		voice.pitch_scale = 1.35 + randf() * 0.3
-		voice.play()
+		_play_success_yay(voice.pitch_scale)
 
 func _greet_heart(pos: Vector3) -> void:
 	# a crafted friend says hello: floating heart + sparkle + happy chirp
@@ -9402,7 +9413,7 @@ func _greet_heart(pos: Vector3) -> void:
 	_sparkle_burst(pos, Color(1.0, 0.6, 0.8))
 	if voice != null:
 		voice.pitch_scale = 1.3 + randf() * 0.2
-		voice.play()
+		_play_success_yay(voice.pitch_scale)
 
 func _spawn_shooting_star(ppos: Vector3) -> void:
 	# night magic over the lagoon: a bright streak arcs across the sky

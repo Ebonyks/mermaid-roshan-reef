@@ -27,8 +27,8 @@ const BOXING_MODES: Array[String] = [
 ]
 const BOXING_GOALS: Array[float] = [2.0, 4.0, 3.0, 6.0, 1.0]
 const BOXING_VOICES: Array[String] = [
-	"op_boxer_work", "op_boxer_jab", "op_boxer_duck",
-	"op_boxer_bell_chase", "op_boxer_belt",
+	"op_boxer_work", "op_boxer_jab_stage", "op_boxer_duck_stage",
+	"op_boxer_bell_chase_stage", "op_boxer_belt_stage",
 ]
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 
@@ -76,9 +76,9 @@ const BALLERINA_PHASE_CONTRACTS := [
 	{"name": "PEARL MIRROR", "mode": "ballet_pose", "goal": 3.0,
 		"vo": "op_ballerina_watch"},
 	{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "goal": 1.0,
-		"vo": "op_ballerina_ribbon"},
+		"vo": "op_ballerina_ribbon_stage"},
 	{"name": "GRAND TWIRL", "mode": "ballet_twirl", "goal": 1.0,
-		"vo": "op_ballerina_twirl"},
+		"vo": "op_ballerina_twirl_stage"},
 ]
 
 
@@ -351,7 +351,7 @@ func _init() -> void:
 					and String(actual_ballet_phase.get("vo", "")) \
 						== String(expected_ballet_phase.get("vo", "")) \
 					and ResourceLoader.exists(
-						"res://assets/audio/voices/roshan_%s.ogg" \
+						"res://assets/audio/voices/filler_v1/roshan_%s.ogg" \
 						% String(expected_ballet_phase.get("vo", ""))) \
 					and actual_ballet_phase.has("widget") \
 					and String(actual_ballet_phase.get("widget", "missing")).is_empty() \
@@ -559,15 +559,19 @@ func _init() -> void:
 				pearl_mirror_watch_count == 1 and not retired_generic_ballet_mode)
 			_check("ballerina clears any lobby voice before its watch instruction",
 				ballet_silences_entry_voice)
-			var ballet_steps_stream := load(
-				"res://assets/audio/voices/roshan_op_ballerina_steps.ogg") as AudioStream
+			var ballet_watch_stream := load(
+				"res://assets/audio/voices/filler_v1/roshan_op_ballerina_watch.ogg") as AudioStream
 			var ballet_ribbon_stream := load(
-				"res://assets/audio/voices/roshan_op_ballerina_ribbon.ogg") as AudioStream
+				"res://assets/audio/voices/filler_v1/roshan_op_ballerina_ribbon_stage.ogg") as AudioStream
+			var ballet_twirl_stream := load(
+				"res://assets/audio/voices/filler_v1/roshan_op_ballerina_twirl_stage.ogg") as AudioStream
 			_check("ballerina lets each your-turn cue finish before the next phase",
-				ballet_steps_stream != null and ballet_ribbon_stream != null
+				ballet_watch_stream != null and ballet_ribbon_stream != null
+				and ballet_twirl_stream != null
 				and OperaCareerWorld2D.BALLET_PHASE_HOLD_SECONDS \
-					>= maxf(ballet_steps_stream.get_length(),
-						ballet_ribbon_stream.get_length()) + 0.05)
+					>= maxf(ballet_watch_stream.get_length(), maxf(
+						ballet_ribbon_stream.get_length(),
+						ballet_twirl_stream.get_length())) + 0.05)
 		if career == "candymaker":
 			var syrup_goal := 0.0
 			var syrup_phase_index := -1
@@ -1593,7 +1597,7 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 	_check("racer finale makes one exact pooled speech request",
 		main.voice_i == voice_before + 1
 		and voice_path \
-			== "res://assets/audio/voices/roshan_op_racer_lap_two.ogg")
+			== "res://assets/audio/voices/filler_v1/roshan_op_racer_lap_two.ogg")
 	var racer_caption_hidden := not main.hud_msg.visible \
 		and main.hud_msg.text.is_empty() and main.msg_timer <= 0.0
 	var racer_fallback_quiet := main.voice == null or not main.voice.playing
@@ -1841,7 +1845,7 @@ func _exercise_boxing_surface(world: OperaCareerWorld2D, act: OperaAct,
 		voices_complete = voices_complete and not voice_id.is_empty() \
 			and not String(phase.get("voice", "")).is_empty() \
 			and ResourceLoader.exists(
-				"res://assets/audio/voices/roshan_%s.ogg" % voice_id)
+				"res://assets/audio/voices/filler_v1/roshan_%s.ogg" % voice_id)
 	_check("every boxer drill and finale has recorded and visible instruction",
 		voices_complete)
 

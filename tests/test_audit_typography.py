@@ -874,17 +874,17 @@ class TypographyAuditTests(unittest.TestCase):
         source_routes = {
             "scripts/games/dust_boss.gd:31": "# shove and boing before she recovers immediately; it never removes progress.",
             "scripts/games/dust_boss.gd:32": "# A separate picture button adds an OPTIONAL twirl dodge. Incoming hops pulse",
-            "scripts/games/dust_boss.gd:994": '\tStorybookUI.style_icon_button(dodge, "↻", "secondary",',
-            "scripts/games/dust_boss.gd:1046-1048": [
+            "scripts/games/dust_boss.gd:1002": '\tStorybookUI.style_icon_button(dodge, "↻", "secondary",',
+            "scripts/games/dust_boss.gd:1054-1056": [
                 '\t\tvar pulse: float = 1.0 + sin(float(m.g.get("db_active_t", 0.0)) '
                 + "\\",
                 "\t\t\t* (10.0 if danger else 2.6)) * (0.10 if danger else 0.025)",
                 "\t\tdodge.scale = Vector2.ONE * pulse",
             ],
-            "scripts/games/dust_boss.gd:1050": "\t\tpointer.visible = dodge_visible and danger",
+            "scripts/games/dust_boss.gd:1058": "\t\tpointer.visible = dodge_visible and danger",
         }
         glyph_source_routes = {
-            "scripts/games/dust_boss.gd:1044": '\t\tdodge.text = "⚡\\n↻" if danger else "↻"',
+            "scripts/games/dust_boss.gd:1052": '\t\tdodge.text = "⚡\\n↻" if danger else "↻"',
         }
         for route in evidence["source_refs"]:
             expected = glyph_source_routes.get(route)
@@ -902,11 +902,11 @@ class TypographyAuditTests(unittest.TestCase):
             else:
                 self.assertEqual(source_lines[int(line_spec) - 1], expected, route)
         self.assertEqual(set(evidence["redundant_routes"]), set(source_routes))
-        self.assertEqual(voice_route["status"], "EXCLUDED")
-        self.assertFalse((root / voice_route["exact_asset"]).exists())
-        self.assertTrue((root / voice_route["fallback_asset"]).exists())
-        self.assertIn("elif m.voice != null:", audio_source)
-        self.assertIn("m.voice.play()", audio_source)
+        self.assertEqual(voice_route["status"], "INCLUDED")
+        self.assertTrue((root / voice_route["exact_asset"]).exists())
+        self.assertIsNone(voice_route["fallback_asset"])
+        self.assertIn('var path := _voice_path(speaker, event)', audio_source)
+        self.assertIn('const FILLER_VOICE_DIR :=', audio_source)
         self.assertNotIn("voiced", evidence["evidence_note"].lower())
 
     def test_label3d_new_file_is_a_machine_failure(self) -> None:

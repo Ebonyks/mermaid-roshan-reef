@@ -3,24 +3,143 @@
     "ambience": 3,
     "castle_sfx": 15,
     "combat_sfx": 6,
-    "music": 57,
+    "music": 58,
     "sfx": 7,
     "ui": 1,
-    "voice": 214
+    "voice": 499
+  },
+  "cohorts": {
+    "ambience": 3,
+    "castle_sfx": 15,
+    "combat_sfx": 6,
+    "filler_v1": 285,
+    "legacy_voice": 201,
+    "music": 58,
+    "protected_family": 6,
+    "protected_faron": 7,
+    "sfx": 7,
+    "ui": 1
   },
   "decisions": {
     "KEEP_PENDING_HUMAN": 132,
-    "KEEP_PROTECTED": 5,
-    "KEEP_PROTECTED_RESTRICT_FALLBACK": 1,
+    "KEEP_PROTECTED": 13,
     "KEEP_REVIEW_DEVICE": 6,
     "LISTEN_REPLACE_CANDIDATE": 31,
-    "RENDER_TRUE_PEAK_SAFE": 126,
-    "REVIEW_NEW_EXACT_VOICE": 2
+    "RENDER_TRUE_PEAK_SAFE": 120,
+    "REVIEW_NEW_EXACT_VOICE": 2,
+    "REVIEW_PROVISIONAL_FILLER": 285
+  },
+  "filler_manifest": {
+    "blocking": false,
+    "entry_count": 285,
+    "issues": [],
+    "manifest_path": "assets/audio/voices/filler_v1/FILLER_MANIFEST.json",
+    "present": true
   },
   "human_review_state": "OPEN_DEVICE_LISTENING",
-  "inventory_count": 303,
-  "inventory_sha256": "48e596dfcc31da6f9470fd7165147118577526a59bb878843291c2951b1c9332",
-  "protected_count": 6,
+  "inventory_count": 589,
+  "inventory_sha256": "d7218f1c3094c1d23363b1e626b50e3e6879afd108c94a2dcfd54d2c1952e925",
+  "protected_count": 13,
+  "protected_recordings": {
+    "blocking": false,
+    "count": 13,
+    "entries": [
+      {
+        "head_sha256": "ed8f40176d63f18591d8f7fd0c56a8ba672202bdb3b2f939cc8d417934123e4d",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/chuck.ogg",
+        "sha256": "ed8f40176d63f18591d8f7fd0c56a8ba672202bdb3b2f939cc8d417934123e4d",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "674d10df170e13ec23d84c462ab18ee52f13a66d811db96e808f32f25fb8ceb3",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/chuck_bark.ogg",
+        "sha256": "674d10df170e13ec23d84c462ab18ee52f13a66d811db96e808f32f25fb8ceb3",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "9623ce6bc79eb1dbaea3a94276b0d90703f55c1594c3ac0fe52f3b33dda422fa",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/chuck_whimper.ogg",
+        "sha256": "9623ce6bc79eb1dbaea3a94276b0d90703f55c1594c3ac0fe52f3b33dda422fa",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "50224b61893a01a20e553e074602c39332b870973761c9fda85b90cac08170a0",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/daddy1.ogg",
+        "sha256": "50224b61893a01a20e553e074602c39332b870973761c9fda85b90cac08170a0",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "39fbcdc22e7e06176a36dd74f0ed01770af91f3e93eabd088bb4499268a47a83",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/daddy2.ogg",
+        "sha256": "39fbcdc22e7e06176a36dd74f0ed01770af91f3e93eabd088bb4499268a47a83",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "d302b69f80f3856c8156f05e697129987f34bb69d254861b1f5264a222ee7ac3",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/daddy3.ogg",
+        "sha256": "d302b69f80f3856c8156f05e697129987f34bb69d254861b1f5264a222ee7ac3",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "ebb6466fd55f03e26647ea8ac90d23b8f7d4b4afb387ab205b265b400be47240",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron.ogg",
+        "sha256": "ebb6466fd55f03e26647ea8ac90d23b8f7d4b4afb387ab205b265b400be47240",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "5e945ff5cda16b46fa6d5da3abad3ffdc4935ae68af37d90016418ee2d99fb07",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_fail.ogg",
+        "sha256": "5e945ff5cda16b46fa6d5da3abad3ffdc4935ae68af37d90016418ee2d99fb07",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "04f7e8a6dad06c963f70fb744938622e2cfc78aa3e0e553cdaad4381aa6b7dea",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_miss.ogg",
+        "sha256": "04f7e8a6dad06c963f70fb744938622e2cfc78aa3e0e553cdaad4381aa6b7dea",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "9179816430775231074954f779bad8b60e9ff46ae0014998b214d7cfb2463ec3",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_op_nursery_bedtime.ogg",
+        "sha256": "9179816430775231074954f779bad8b60e9ff46ae0014998b214d7cfb2463ec3",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "c45820ad4107135fa636e3bfc5c456452ab772226072945c47242ad6d2f6c190",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_op_nursery_catch.ogg",
+        "sha256": "c45820ad4107135fa636e3bfc5c456452ab772226072945c47242ad6d2f6c190",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "017dfba309bc60aa909a6cb63d92462363acd4164b71b3ed2062a87428990207",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_op_nursery_feed.ogg",
+        "sha256": "017dfba309bc60aa909a6cb63d92462363acd4164b71b3ed2062a87428990207",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "3818a20db7898aa8465be767fa2250c78b01ff48c9608cb354a74ca3511aee3f",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_win.ogg",
+        "sha256": "3818a20db7898aa8465be767fa2250c78b01ff48c9608cb354a74ca3511aee3f",
+        "state": "UNCHANGED"
+      }
+    ],
+    "family_count": 6,
+    "faron_count": 7,
+    "issues": []
+  },
   "required_external_gates": [
     "owner voice identity",
     "Lenovo Tab M11",
@@ -30,9 +149,9 @@
   ],
   "schema": "reef.audio-quality-audit.v1",
   "technical_grades": {
-    "A": 134,
-    "B": 137,
-    "C": 27,
+    "A": 419,
+    "B": 139,
+    "C": 26,
     "D": 5
   }
 }
