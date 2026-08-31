@@ -225,7 +225,7 @@ func mastery_tier() -> int:
 	return mastery_tier_for_bumps(int(m.g.get("db_bumps", 0)))
 
 func request_dodge() -> void:
-	# Buttons, keyboard/controller parity and probes all enter through one edge.
+	# Direct world touch, keyboard/controller parity and probes enter one edge.
 	# The request is consumed in tick so it cannot mutate gameplay while paused.
 	if m.game == "dustboss" and m.g.has("db_state"):
 		m.g["db_dodge_requested"] = true
@@ -661,8 +661,15 @@ func on_world_tap(screen_pos: Vector2) -> void:
 		return
 	var k: DustBunnyBossSprite = kit()
 	var on_him: bool = _screen_hit(screen_pos)
+	var state: String = String(m.g.get("db_state", ""))
+	# Keep the canvas clear: when a hop is aimed at Roshan, a tap on the open
+	# painted floor twirls away. Tapping Grand Puff keeps its existing bonk rule.
+	if not on_him and state == "prowl" \
+			and bool(m.g.get("db_dodge_hint", false)):
+		request_dodge()
+		return
 	if k != null and is_instance_valid(k) and k.vulnerable \
-			and String(m.g.get("db_state", "")) == "vuln":
+			and state == "vuln":
 		var here := Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
 		var d: float = (here - stage.player_local()).length()
 		if on_him or d <= reach():
@@ -670,8 +677,7 @@ func on_world_tap(screen_pos: Vector2) -> void:
 			return
 		_closer_feedback()
 		return
-	var st_now: String = String(m.g.get("db_state", ""))
-	if st_now == "showing" or st_now == "struck" or st_now == "friends":
+	if state == "showing" or state == "struck" or state == "friends":
 		_answer_only()   # same answer as the button — see D4
 		return
 	_bounce_off()
@@ -757,7 +763,7 @@ func _pick_hop(reset: bool) -> void:
 	if incoming and not bool(m.g.get("db_dodge_taught", false)):
 		m.g["db_dodge_taught"] = true
 		m.show_msg("Roshan",
-			"Grand Puff is hopping at me — tap the glowing TWIRL!",
+			"Grand Puff is hopping at me — tap the open floor to TWIRL!",
 			"dustboss_dodge")
 	if reset:
 		m.g["db_hop_t"] = 0.0
@@ -987,26 +993,6 @@ func _build_mastery_ui() -> void:
 	StorybookUI.style_hud_label(stars, 58, StorybookUI.GOLD, 6)
 	panel.add_child(stars)
 	m.g["db_mastery_stars"] = stars
-	var dodge := Button.new()
-	dodge.name = "DustBossDodgeButton"
-	dodge.position = Vector2(1090.0, 314.0)
-	dodge.focus_mode = Control.FOCUS_NONE
-	StorybookUI.style_icon_button(dodge, "↻", "secondary",
-		Vector2(154.0, 154.0), "Twirl away from Grand Puff")
-	dodge.pivot_offset = dodge.size * 0.5
-	dodge.pressed.connect(request_dodge)
-	root.add_child(dodge)
-	m.g["db_dodge_button"] = dodge
-	var pointer := Label.new()
-	pointer.name = "DustBossDodgePointer"
-	pointer.text = "▼"
-	pointer.position = Vector2(1116.0, 242.0)
-	pointer.size = Vector2(102.0, 76.0)
-	pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	StorybookUI.style_hud_label(pointer, 58, StorybookUI.GOLD, 7)
-	root.add_child(pointer)
-	m.g["db_dodge_pointer"] = pointer
 
 func _mastery_stars(tier: int) -> String:
 	var out := ""
@@ -1032,23 +1018,6 @@ func _update_mastery_ui() -> void:
 		perfect.text = "💎" if bumps == 0 else "◇"
 		perfect.modulate = Color.WHITE if bumps == 0 \
 			else Color(0.58, 0.58, 0.68, 0.78)
-	var dodge: Button = m.g.get("db_dodge_button") as Button
-	var pointer: Label = m.g.get("db_dodge_pointer") as Label
-	var dodge_visible: bool = state in ["prowl", "windup", "vuln"]
-	var danger: bool = bool(m.g.get("db_dodge_hint", false)) and state == "prowl"
-	var ready: bool = state == "prowl" \
-		and float(m.g.get("db_dodge_cd", 0.0)) <= 0.0
-	if dodge != null and is_instance_valid(dodge):
-		dodge.visible = dodge_visible
-		dodge.disabled = not ready
-		dodge.text = "⚡\n↻" if danger else "↻"
-		dodge.modulate = Color.WHITE if ready else Color(0.72, 0.72, 0.82, 0.78)
-		var pulse: float = 1.0 + sin(float(m.g.get("db_active_t", 0.0)) \
-			* (10.0 if danger else 2.6)) * (0.10 if danger else 0.025)
-		dodge.scale = Vector2.ONE * pulse
-	if pointer != null and is_instance_valid(pointer):
-		pointer.visible = dodge_visible and danger
-		pointer.position.y = 242.0 + sin(float(m.g.get("db_active_t", 0.0)) * 10.0) * 8.0
 
 # ---- the attic in the round ------------------------------------------------
 func _stage_open() -> void:

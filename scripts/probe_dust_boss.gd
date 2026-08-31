@@ -306,19 +306,16 @@ func _mastery_ui_case() -> void:
 	var layer: CanvasLayer = main.g.get("db_mastery_layer") as CanvasLayer
 	var stars: Label = main.g.get("db_mastery_stars") as Label
 	var gem: Label = main.g.get("db_perfect_gem") as Label
-	var dodge: Button = main.g.get("db_dodge_button") as Button
 	_ck("the fight shows three earned-or-empty mastery stars without reading",
 		layer != null and stars != null and stars.text == "★★★")
 	_ck("the clean-run bonus has its own visible diamond target",
 		gem != null and gem.text == "💎")
-	_ck("dodge is a separate picture-first child-sized control",
-		dodge != null and bool(dodge.get_meta("picture_first", false))
-		and dodge.size.x >= 140.0 and dodge.size.y >= 140.0)
+	_ck("the fight does not add a dodge overlay button",
+		main.g.get("db_dodge_button") == null)
 	var attempts_before: int = int(main.g.get("db_dodge_attempts", 0))
-	if dodge != null:
-		dodge.pressed.emit()
-		_boss()._tick_dodge(0.0)
-	_ck("the separate picture button routes one fresh dodge edge",
+	_boss().request_dodge()
+	_boss()._tick_dodge(0.0)
+	_ck("the direct dodge request routes one fresh edge",
 		int(main.g.get("db_dodge_attempts", 0)) == attempts_before + 1)
 	main.g["db_dodge_t"] = 0.0
 	main.g["db_dodge_cd"] = 0.0

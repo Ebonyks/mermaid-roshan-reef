@@ -2920,6 +2920,8 @@ func _start_fairy_conservatory_handoff_now(
 		_end_fairy_conservatory_handoff("back")
 		return
 	fairy_conservatory_handoff = (script_value as Script).new() as RefCounted
+	_navigation_push("fairy_conservatory", self,
+		Callable(self, "_end_fairy_conservatory_handoff"))
 	var started: Variant = fairy_conservatory_handoff.call("start", self,
 		Callable(self, "_end_fairy_conservatory_handoff"), returning_from_butterfly)
 	if started is bool and not bool(started):
@@ -2977,6 +2979,7 @@ func _end_fairy_conservatory_handoff(result: Variant = "back") -> void:
 	if fairy_conservatory_closing:
 		return
 	fairy_conservatory_closing = true
+	_navigation_remove("fairy_conservatory")
 	var outcome := String(result)
 	var handoff := fairy_conservatory_handoff
 	fairy_conservatory_handoff = null
@@ -7712,10 +7715,6 @@ func _day_one_bathroom_navigation_controls() -> Array[Control]:
 	var candidates: Array[Node] = [
 		castle_room_action_button,
 		castle_room_back_button,
-		castle_room_stage.get_node_or_null("ElevatorButton") \
-			if castle_room_stage != null else null,
-		castle_room_stage.get_node_or_null("ElevatorPointer") \
-			if castle_room_stage != null else null,
 		castle_room_menu_panel,
 	]
 	for candidate: Node in candidates:
