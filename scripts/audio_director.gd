@@ -6,9 +6,29 @@ extends RefCounted
 # (players, pools, cur_track) stays on main; received by reference.
 
 var m: ReefMain
+var _active_speaker := ""
+const FILLER_VOICE_DIR := "res://assets/audio/voices/filler_v1/"
+const LEGACY_VOICE_DIR := "res://assets/audio/voices/"
 
 func _init(main: ReefMain) -> void:
 	m = main
+
+
+func _voice_path(speaker: String, event: String = "", allow_generic: bool = true) -> String:
+	var key := speaker + ("_" + event if event != "" else "")
+	var protected_speaker := speaker in ["faron", "daddy", "chuck"]
+	var candidates: Array[String] = []
+	if not protected_speaker:
+		candidates.append(FILLER_VOICE_DIR + key + ".ogg")
+	candidates.append(LEGACY_VOICE_DIR + key + ".ogg")
+	if allow_generic and event != "":
+		if not protected_speaker:
+			candidates.append(FILLER_VOICE_DIR + speaker + ".ogg")
+		candidates.append(LEGACY_VOICE_DIR + speaker + ".ogg")
+	for path: String in candidates:
+		if ResourceLoader.exists(path):
+			return path
+	return ""
 
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	var key := speaker + "_" + event
@@ -17,34 +37,57 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		if now - float(m.said_cool.get(key, -99.0)) < min_gap:
 			return
 		m.said_cool[key] = now
-	# prefer a real recorded clip for this exact line, then any line for the speaker
+	# Prefer the machine-screened provisional filler for this exact line. Protected
+	# recordings and legacy synthetic clips remain intact as fallback assets.
 	var stream: AudioStream = null
-	var p1 := "res://assets/audio/voices/" + key + ".ogg"
-	var p2 := "res://assets/audio/voices/" + speaker + ".ogg"
-	if ResourceLoader.exists(p1):
-		stream = load(p1)
-	elif ResourceLoader.exists(p2):
-		stream = load(p2)
+	var path := _voice_path(speaker, event)
+	if path != "":
+		stream = load(path)
 	if stream != null:
+		# Discovery/focus paths can request two semantic keys for the same
+		# character within one frame. Let the first complete; never interrupt a
+		# sentence with a second take from that same speaker.
+		if _active_speaker == speaker and _has_active_speech():
+			return
 		# Different semantic keys can resolve to the same family fallback clip
-		# (for example harper_talk and harper_hint -> harper.ogg). Never start an
+		# when an exact take is unavailable. Never restart an
 		# identical recording on a second pool player while the first is audible.
 		for voice_player_value: Variant in m.voice_pool:
 			var active_player := voice_player_value as AudioStreamPlayer
 			if active_player != null and active_player.playing \
 					and active_player.stream == stream:
 				return
+	# Spoken guidance is serial: a new semantic line replaces the prior voice
+	# instead of producing two intelligible-but-cluttered speakers at once.
+	_stop_active_speech()
 	var ap: AudioStreamPlayer = m.voice_pool[m.voice_i % m.voice_pool.size()]
 	m.voice_i += 1
 	if stream != null:
 		ap.stream = stream
 		ap.pitch_scale = 1.0
 		ap.play()
+		_active_speaker = speaker
 	elif m.voice != null:
 		# graceful fallback until real clips are dropped in: the recorded "yay",
 		# pitched to give each character a recognisably different timbre
 		m.voice.pitch_scale = float(m.VOICE_PITCH.get(speaker, 1.0))
 		m.voice.play()
+		_active_speaker = speaker
+
+
+func play_success_yay(pitch_scale: float = 1.0) -> void:
+	# Success chirps share the same serialization contract as spoken guidance.
+	# The stream is the new synthetic filler cue configured by ReefMain, never
+	# the retired voice_yay.mp3 fallback.
+	_stop_active_speech()
+	if m.voice == null:
+		return
+	var path := FILLER_VOICE_DIR + "yay.ogg"
+	if ResourceLoader.exists(path):
+		m.voice.stream = load(path)
+	m.voice.pitch_scale = pitch_scale
+	m.voice.play()
+	_active_speaker = "yay"
 
 
 # ===================== STORY DIALOGUE =====================
@@ -74,6 +117,15 @@ func _stop_active_speech() -> void:
 			voice_player.stop()
 	if m.voice != null:
 		m.voice.stop()
+	_active_speaker = ""
+
+
+func _has_active_speech() -> bool:
+	for voice_player_value: Variant in m.voice_pool:
+		var voice_player := voice_player_value as AudioStreamPlayer
+		if voice_player != null and voice_player.playing:
+			return true
+	return m.voice != null and m.voice.playing
 
 
 func _advance_dialogue() -> void:
@@ -150,8 +202,7 @@ func show_msg(who: String, txt: String, vo: String = "talk") -> void:
 		# "talk" is a generic acknowledgement, not an exact recording of an
 		# arbitrary lobby/boss sentence. Never hide a supplied instruction just
 		# because that one generic clip exists.
-		var has_exact := vo != "talk" and ResourceLoader.exists(
-			"res://assets/audio/voices/" + speaker + "_" + vo + ".ogg")
+		var has_exact := vo != "talk" and _voice_path(speaker, vo, false) != ""
 		m.hud_msg.visible = false
 		if has_exact:
 			# The main HUD loop derives visibility from text every frame. Clear both

@@ -49,9 +49,9 @@ const DADDY_SHA256 := \
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
 const ROSHAN_SHA256 := \
 	"2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523"
-const VOICE_PATH := "res://assets/audio/voices/roshan_op_popstar_rhythm.ogg"
+const VOICE_PATH := "res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const VOICE_SHA256 := \
-	"b8566e49b135e6271e09f6c969af6d8362a8f6582c9c28d93b991741d562b5eb"
+	"6f6839b043dc58647324f1d04df6429ccf3bb197b175bfd89317ff1b9e2ead4d"
 const OBJECTIVE := "Tap each rainbow note in the green!"
 const EXPECTED_COLORS: Array[Color] = [
 	Color(1.0, 0.24, 0.28),

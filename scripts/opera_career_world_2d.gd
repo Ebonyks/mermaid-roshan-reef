@@ -86,7 +86,7 @@ const SLUGS := {
 ## the first on-stage phase.
 const LEGACY_PHASES := {
 	"chef": [
-		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_chef_imps", "voice": "Mischief imps grabbed the spoons! Tap each imp to shoo them off!"},
+		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_chef_imps", "voice": "Mischief imps took the spoons! Tap each imp and send them away!"},
 		{"name": "POUR", "icon": "●", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Grab the pitcher and TIP it — pour the sparkling batter into the bowl!"},
 		{"name": "STIR", "icon": "↻", "mode": "circle", "goal": 4.0, "vo": "op_chef_stir", "voice": "Draw big circles to stir!"},
 		{"name": "BAKE", "icon": "★", "mode": "oven", "goal": 6.0, "vo": "op_chef_bake", "voice": "Watch the cake turn golden — then grab the big mitt and take it out!"},
@@ -104,19 +104,19 @@ const LEGACY_PHASES := {
 		{"name": "ASK ROSALINA", "icon": "?", "mode": "talk", "goal": 1.0, "speaker": "Rosalina", "vo": "op_detective_ask_rosalina", "voice": "He dropped a torn crown ribbon! Show it to Rosalina!", "lines": [
 			{"who": "Rosalina", "text": "That ribbon was floating by the FOUNTAIN!", "vo": "op_detective_hint_fountain", "hold": 2.8},
 			{"who": "Roshan", "text": "The fountain! Come on!", "vo": "op_detective_to_fountain", "hold": 2.0}]},
-		{"name": "FOUNTAIN", "icon": "?", "mode": "lens", "goal": 2.0, "vo": "op_detective_search", "voice": "Look into the fountain water — something glitters down there!"},
+		{"name": "FOUNTAIN", "icon": "?", "mode": "lens", "goal": 2.0, "vo": "op_detective_search_fountain", "voice": "Look into the fountain water — something glitters down there!"},
 		{"name": "ASK CHUCK", "icon": "?", "mode": "talk", "goal": 1.0, "speaker": "Chuck", "vo": "op_detective_ask_chuck", "voice": "A crown jewel! One person left to ask — Chuck!", "lines": [
 			{"who": "Chuck", "text": "I heard giggling under the STAGE STAIRS!", "vo": "op_detective_hint_stairs", "hold": 2.8},
-			{"who": "Roshan", "text": "Shhh... tip-toe, tip-toe...", "vo": "op_detective_tiptoe", "hold": 2.2}]},
-		{"name": "STAIRS", "icon": "?", "mode": "lens", "goal": 1.0, "vo": "op_detective_lens", "voice": "Shine the lens under the stage stairs..."},
-		{"name": "CROWN CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_detective_tiara_chase", "voice": "The imp captain is wearing the crown like a HAT! He bolts — bop the crew!"},
+			{"who": "Roshan", "text": "Quiet steps. Tiptoe, tiptoe.", "vo": "op_detective_tiptoe", "hold": 2.2}]},
+		{"name": "STAIRS", "icon": "?", "mode": "lens", "goal": 1.0, "vo": "op_detective_lens_stairs", "voice": "Shine the lens under the stage stairs..."},
+		{"name": "CROWN CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_detective_tiara_chase", "voice": "The thief ran away! Tap every lookout!"},
 		{"name": "TEAM CORNER", "icon": "!", "mode": "bop", "goal": 6.0, "combat": {"count": 4, "captain": true}, "vo": "op_detective_team_corner", "voice": "The rival detective wants the crown found too! Corner the captain together!"},
 	],
 	"ballerina": [
 		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_ballerina_imps", "voice": "Imps are bouncing on the recital tiles! Tap them gently off!"},
 		{"name": "STEPS", "icon": "◆", "mode": "choice", "goal": 7.0, "vo": "op_ballerina_steps", "voice": "Tap the glowing dance step!"},
 		{"name": "RIBBON", "icon": "〰", "mode": "swipe", "goal": 6.5, "vo": "op_ballerina_ribbon", "voice": "Trace the ribbon across the floor!"},
-		{"name": "RIBBON CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_ballerina_ribbon_chase", "voice": "The imp captain tangled the ribbons! Twirl-bop the crew!"},
+		{"name": "RIBBON CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_ballerina_ribbon_chase", "voice": "The ribbon thief ran away! Spin and tap everyone!"},
 		{"name": "TWIRL", "icon": "↻", "mode": "circle", "goal": 3.6, "vo": "op_ballerina_twirl", "voice": "Draw circles for the grand twirl!"},
 	],
 	"candymaker": [
@@ -141,7 +141,7 @@ const LEGACY_PHASES := {
 		{"name": "PLANT", "icon": "◆", "mode": "choice", "goal": 6.0, "vo": "op_farmer_plant", "voice": "Tap the glowing garden row and plant the seed!"},
 		{"name": "FEED", "icon": "★", "mode": "timing", "goal": 6.0, "vo": "op_farmer_feed", "voice": "Tap when the veggie reaches a piggy!"},
 		{"name": "MUD HOP", "icon": "●", "mode": "hold", "goal": 4.0, "vo": "op_farmer_mud_hop", "voice": "Hold to wind up... and make a big mud hop!"},
-		{"name": "PIGGY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_farmer_piggy_chase", "voice": "The imp captain opened the piggy gate! Bop the crew!"},
+		{"name": "PIGGY CHASE", "icon": "!", "mode": "bop", "goal": 10.0, "combat": {"count": 8, "captain": true}, "vo": "op_farmer_piggy_chase", "voice": "The piggy gate is open! Tap everyone!"},
 		{"name": "HERD", "icon": "↔", "mode": "swipe", "goal": 7.0, "vo": "op_farmer_herd", "voice": "Sweep back and forth to guide the herd on stage!"},
 		{"name": "PICNIC", "icon": "●", "mode": "tap", "goal": 7.0, "vo": "op_farmer_picnic", "voice": "Tap a snack for every happy piggy!"},
 	],
@@ -163,7 +163,7 @@ const LEGACY_PHASES := {
 		{"name": "PORTAL", "icon": "↻", "mode": "circle", "goal": 4.0, "vo": "op_magician_portal", "voice": "Draw circles to open the giant star portal!"},
 	],
 	"painter": [
-		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_painter_imps", "voice": "Imps splashed the paint pots! Tap each imp!"},
+		{"name": "IMPS!", "icon": "!", "mode": "bop", "goal": 5.0, "combat": {"count": 5}, "vo": "op_painter_imps", "voice": "What a paint mess! Tap each one!"},
 		{"name": "SKETCH", "icon": "〰", "mode": "swipe", "goal": 6.5, "vo": "op_painter_sketch", "voice": "Trace the sunrise sketch!"},
 		{"name": "FILL", "icon": "●", "mode": "hold", "goal": 4.5, "vo": "op_painter_fill", "voice": "Hold to fill the glowing shape!"},
 		{"name": "SPLAT", "icon": "●", "mode": "tap", "goal": 7.0, "vo": "op_painter_splat", "voice": "Tap five happy splatters!"},
@@ -227,86 +227,86 @@ const LEGACY_FINALE_START := {
 ## teaching and curtain call. The playable verb belongs to the job. Boxer is
 ## deliberately the only career that resolves its complication with combat.
 ## The old five-beat tables remain above for audit comparison only.
-const BALLET_PHASE_HOLD_SECONDS := 1.75
+const BALLET_PHASE_HOLD_SECONDS := 3.10
 const PHASES := {
 	"chef": [
-		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour", "voice": "Tip the sparkling batter into the bowl!"},
-		{"name": "STIR", "mode": "circle", "goal": 2.0, "vo": "op_chef_stir", "voice": "Draw big circles to stir the batter!"},
-		{"name": "BAKE", "mode": "oven", "goal": 6.0, "vo": "op_chef_bake", "voice": "Watch for golden, then take the cake out with the mitt!"},
-		{"name": "FROST", "mode": "swipe", "goal": 6.0, "vo": "op_chef_pipe", "voice": "Trace the frosting ribbon across the cake!"},
-		{"name": "TOP", "mode": "tap", "goal": 7.0, "vo": "op_chef_top", "voice": "Place the bright toppings on the finished cake!"},
+		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour_stage", "voice": "Tip the sparkling batter into the bowl!"},
+		{"name": "STIR", "mode": "circle", "goal": 2.0, "vo": "op_chef_stir_stage", "voice": "Draw big circles to stir the batter!"},
+		{"name": "BAKE", "mode": "oven", "goal": 6.0, "vo": "op_chef_bake_stage", "voice": "Watch for golden, then take the cake out with the mitt!"},
+		{"name": "FROST", "mode": "swipe", "goal": 6.0, "vo": "op_chef_pipe_stage", "voice": "Trace the frosting ribbon across the cake!"},
+		{"name": "TOP", "mode": "tap", "goal": 7.0, "vo": "op_chef_top_stage", "voice": "Place the bright toppings on the finished cake!"},
 	],
 	"detective": [
-		{"name": "SEARCH", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens", "voice": "Sweep the magnifying glass across the painted clues!"},
+		{"name": "SEARCH", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens_stage", "voice": "Sweep the magnifying glass across the painted clues!"},
 		{"name": "CASE BOARD", "mode": "clue_board", "widget": "", "goal": 3.0, "vo": "op_detective_match", "voice": "Match each glowing clue to the case board!"},
 		{"name": "CROWN", "mode": "crown_chest", "widget": "", "goal": 1.0, "vo": "op_detective_name", "voice": "Tap when the spotlight shines on the answer!"},
 	],
 	"ballerina": [
 		{"name": "PEARL MIRROR", "mode": "ballet_pose", "widget": "", "goal": 3.0, "vo": "op_ballerina_watch", "voice": "Watch Roshan hold each ballet pose, then tap the matching pearl mirror!"},
-		{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "widget": "", "goal": 1.0, "vo": "op_ballerina_ribbon", "voice": "Guide the pearl along the glowing ribbon current!"},
-		{"name": "GRAND TWIRL", "mode": "ballet_twirl", "widget": "", "goal": 1.0, "vo": "op_ballerina_twirl", "voice": "Turn the pearl around the shell for the grand twirl!"},
+		{"name": "RIBBON TRAIL", "mode": "ballet_ribbon", "widget": "", "goal": 1.0, "vo": "op_ballerina_ribbon_stage", "voice": "Guide the pearl along the glowing ribbon current!"},
+		{"name": "GRAND TWIRL", "mode": "ballet_twirl", "widget": "", "goal": 1.0, "vo": "op_ballerina_twirl_stage", "voice": "Turn the pearl around the shell for the grand twirl!"},
 	],
 	"candymaker": [
-		{"name": "SYRUP", "mode": "pourt", "goal": 5.0, "vo": "op_candymaker_syrup", "voice": "Tip the syrup into the candy mold!"},
-		{"name": "SORT", "mode": "candy_sort", "goal": 6.0, "vo": "op_candymaker_sort", "voice": "Drag each candy into its matching shape box!"},
-		{"name": "WRAP", "mode": "circle", "goal": 1.8, "vo": "op_candymaker_wrap", "voice": "Twist the finished wrappers in circles!"},
-		{"name": "SHARE", "mode": "tap", "goal": 6.0, "vo": "op_candymaker_share", "voice": "Give one finished candy to every waving friend!"},
+		{"name": "SYRUP", "mode": "pourt", "goal": 5.0, "vo": "op_candymaker_syrup_stage", "voice": "Tip the syrup into the candy mold!"},
+		{"name": "SORT", "mode": "candy_sort", "goal": 6.0, "vo": "op_candymaker_sort_stage", "voice": "Drag each candy into its matching shape box!"},
+		{"name": "WRAP", "mode": "circle", "goal": 1.8, "vo": "op_candymaker_wrap_stage", "voice": "Twist the finished wrappers in circles!"},
+		{"name": "SHARE", "mode": "tap", "goal": 6.0, "vo": "op_candymaker_share_stage", "voice": "Give one finished candy to every waving friend!"},
 	],
 	"doctor": [
-		{"name": "WASH", "mode": "hold", "goal": 3.6, "vo": "op_doctor_wash", "voice": "Hold the bubbly basin to wash Doctor Roshan's hands!"},
-		{"name": "FIND", "mode": "choice", "goal": 4.0, "vo": "op_doctor_find", "voice": "Choose the plushy with the glowing ouch!"},
-		{"name": "X-RAY", "mode": "xray_scan", "goal": 2.0, "vo": "op_doctor_x_ray", "voice": "Slide the scanner over the plushy to find the sore spots!"},
-		{"name": "CAST", "mode": "circle", "goal": 1.8, "vo": "op_doctor_cast", "voice": "Draw gentle circles to wrap the soft cast!"},
-		{"name": "BANDAGE", "mode": "swipe", "goal": 5.0, "vo": "op_doctor_bandage", "voice": "Swipe the stretchy bandage around the plushy!"},
+		{"name": "WASH", "mode": "hold", "goal": 3.6, "vo": "op_doctor_wash_stage", "voice": "Hold the bubbly basin to wash Doctor Roshan's hands!"},
+		{"name": "FIND", "mode": "choice", "goal": 4.0, "vo": "op_doctor_find_stage", "voice": "Choose the plushy with the glowing ouch!"},
+		{"name": "X-RAY", "mode": "xray_scan", "goal": 2.0, "vo": "op_doctor_x_ray_stage", "voice": "Slide the scanner over the plushy to find the sore spots!"},
+		{"name": "CAST", "mode": "circle", "goal": 1.8, "vo": "op_doctor_cast_stage", "voice": "Draw gentle circles to wrap the soft cast!"},
+		{"name": "BANDAGE", "mode": "swipe", "goal": 5.0, "vo": "op_doctor_bandage_stage", "voice": "Swipe the stretchy bandage around the plushy!"},
 	],
 	"farmer": [
-		{"name": "PLANT", "mode": "garden_plant", "widget": "", "goal": 5.0, "vo": "op_farmer_plant", "voice": "Plant each seed in the glowing garden bed!"},
-		{"name": "TOSS", "mode": "farm_lob", "goal": 4.0, "vo": "op_farmer_feed", "voice": "Pull back a vegetable and toss it gently to a piggy!"},
-		{"name": "HERD", "mode": "swipe", "goal": 6.0, "vo": "op_farmer_herd", "voice": "Sweep the happy piggies through the barn gate!"},
-		{"name": "PICNIC", "mode": "tap", "goal": 3.0, "vo": "op_farmer_picnic", "voice": "Set one picnic snack beside every piggy!"},
+		{"name": "PLANT", "mode": "garden_plant", "widget": "", "goal": 5.0, "vo": "op_farmer_plant_stage", "voice": "Plant each seed in the glowing garden bed!"},
+		{"name": "TOSS", "mode": "farm_lob", "goal": 4.0, "vo": "op_farmer_feed_stage", "voice": "Pull back a vegetable and toss it gently to a piggy!"},
+		{"name": "HERD", "mode": "swipe", "goal": 6.0, "vo": "op_farmer_herd_stage", "voice": "Sweep the happy piggies through the barn gate!"},
+		{"name": "PICNIC", "mode": "tap", "goal": 3.0, "vo": "op_farmer_picnic_stage", "voice": "Set one picnic snack beside every piggy!"},
 	],
 	"boxer": [
 		{"name": "GLOVE GUIDE", "mode": "boxing_guide", "widget": "", "goal": 2.0, "vo": "op_boxer_work", "voice": "Put a finger on a glove and push it toward the glowing mitt!"},
-		{"name": "JAB PRACTICE", "mode": "boxing_jab", "widget": "", "goal": 4.0, "vo": "op_boxer_jab", "voice": "Jab practice! Punch each glowing training pad!"},
-		{"name": "SOFT GUARD", "mode": "boxing_guard", "widget": "", "goal": 3.0, "vo": "op_boxer_duck", "voice": "Bring a glove into the glowing guard bubble!"},
-		{"name": "TITLE IMP", "mode": "boxing_imp", "widget": "", "goal": 6.0, "vo": "op_boxer_bell_chase", "voice": "The boxer imp rang the bell! Punch when the bright star opens!"},
-		{"name": "BELT", "mode": "boxing_belt", "widget": "", "goal": 1.0, "vo": "op_boxer_belt", "voice": "Punch the glowing championship belt for the curtain call!"},
+		{"name": "JAB PRACTICE", "mode": "boxing_jab", "widget": "", "goal": 4.0, "vo": "op_boxer_jab_stage", "voice": "Jab practice! Punch each glowing training pad!"},
+		{"name": "SOFT GUARD", "mode": "boxing_guard", "widget": "", "goal": 3.0, "vo": "op_boxer_duck_stage", "voice": "Bring a glove into the glowing guard bubble!"},
+		{"name": "TITLE IMP", "mode": "boxing_imp", "widget": "", "goal": 6.0, "vo": "op_boxer_bell_chase_stage", "voice": "The boxer imp rang the bell! Punch when the bright star opens!"},
+		{"name": "BELT", "mode": "boxing_belt", "widget": "", "goal": 1.0, "vo": "op_boxer_belt_stage", "voice": "Punch the glowing championship belt for the curtain call!"},
 	],
 	"magician": [
-		{"name": "VANISH", "mode": "hold", "widget": "", "visual_context": "magic_vanish", "goal": 3.8, "vo": "op_magician_vanish", "voice": "Hold the wand to hide Lamba under a hat!"},
+		{"name": "VANISH", "mode": "hold", "widget": "", "visual_context": "magic_vanish", "goal": 3.8, "vo": "op_magician_vanish_stage", "voice": "Hold the wand to hide Lamba under a hat!"},
 		{"name": "TRACK", "mode": "choice", "goal": 5.0, "vo": "op_magician_track", "voice": "Follow the glowing hat through the shuffle!"},
-		{"name": "ROPE", "mode": "swipe", "goal": 5.0, "vo": "op_magician_rope", "voice": "Swipe the knotted rope into one long ribbon!"},
-		{"name": "CABINET", "mode": "magic_cabinet", "widget": "", "goal": 1.0, "vo": "op_magician_cabinet", "voice": "Swipe down to open the magic cabinet!"},
-		{"name": "PORTAL", "mode": "circle", "goal": 2.0, "vo": "op_magician_portal", "voice": "Draw circles to open the star portal!"},
+		{"name": "ROPE", "mode": "swipe", "goal": 5.0, "vo": "op_magician_rope_stage", "voice": "Swipe the knotted rope into one long ribbon!"},
+		{"name": "CABINET", "mode": "magic_cabinet", "widget": "", "goal": 1.0, "vo": "op_magician_cabinet_stage", "voice": "Swipe down to open the magic cabinet!"},
+		{"name": "PORTAL", "mode": "circle", "goal": 2.0, "vo": "op_magician_portal_stage", "voice": "Draw circles to open the star portal!"},
 	],
 	"painter": [
-		{"name": "PAINT", "mode": "paint_reveal", "goal": 1.0, "vo": "op_painter_sketch", "voice": "Paint across the cloudy canvas to reveal the sunrise!"},
-		{"name": "STAMPS", "mode": "tap", "goal": 5.0, "vo": "op_painter_splat", "voice": "Add any five bright finishing stamps!"},
-		{"name": "GALLERY", "mode": "choice", "goal": 1.0, "vo": "op_painter_reveal", "voice": "Choose the glowing frame and hang your sunrise!"},
+		{"name": "PAINT", "mode": "paint_reveal", "goal": 1.0, "vo": "op_painter_sketch_stage", "voice": "Paint across the cloudy canvas to reveal the sunrise!"},
+		{"name": "STAMPS", "mode": "tap", "goal": 5.0, "vo": "op_painter_splat_stage", "voice": "Add any five bright finishing stamps!"},
+		{"name": "GALLERY", "mode": "choice", "goal": 1.0, "vo": "op_painter_reveal_stage", "voice": "Choose the glowing frame and hang your sunrise!"},
 	],
 	"astronaut": [
-		{"name": "PIPES", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes", "voice": "Connect the fuel tank to the rocket through three pipe boards!"},
-		{"name": "PATCH", "mode": "tap", "goal": 5.0, "vo": "op_astronaut_patch", "voice": "Patch every sparkling leak on the rocket!"},
+		{"name": "PIPES", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes_stage", "voice": "Connect the fuel tank to the rocket through three pipe boards!"},
+		{"name": "PATCH", "mode": "tap", "goal": 5.0, "vo": "op_astronaut_patch_stage", "voice": "Patch every sparkling leak on the rocket!"},
 		{"name": "VALVE", "mode": "circle", "goal": 1.8, "vo": "op_astronaut_valve", "voice": "Draw circles to turn the launch valve!"},
-		{"name": "LAUNCH", "mode": "hold", "goal": 4.5, "vo": "op_astronaut_launch", "voice": "Hold through the countdown and launch!"},
+		{"name": "LAUNCH", "mode": "hold", "goal": 4.5, "vo": "op_astronaut_launch_stage", "voice": "Hold through the countdown and launch!"},
 	],
 	"racer": [
-		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_tune_up", "voice": "Turn the wrench to finish the pit stop!"},
-		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_to_the_line", "voice": "Push the kart to the pearl starting arch!"},
+		{"name": "TUNE", "mode": "circle", "goal": 1.8, "vo": "op_racer_tune_up_stage", "voice": "Turn the wrench to finish the pit stop!"},
+		{"name": "TO THE LINE", "mode": "swipe", "goal": 5.0, "vo": "op_racer_to_the_line_stage", "voice": "Push the kart to the pearl starting arch!"},
 		{"name": "RACE", "mode": "circle", "widget": "", "goal": 0.9, "vo": "op_racer_lap_two", "voice": "Loop the loop! Draw big racing circles!"},
 	],
 	"nursery": [
-		{"name": "WASH HANDS", "mode": "hold", "widget": "", "visual_context": "nursery_wash", "goal": 3.4, "vo": "op_nursery_wash", "voice": "Hold the bubbly basin to wash your hands first!"},
+		{"name": "WASH HANDS", "mode": "hold", "widget": "", "visual_context": "nursery_wash", "goal": 3.4, "vo": "op_nursery_wash_stage", "voice": "Hold the bubbly basin to wash your hands first!"},
 		{"name": "CATCH BABIES", "mode": "catch", "goal": 5.0, "speaker": "Faron", "vo": "op_nursery_catch", "voice": "Slide the soft cradle under five babies. Pillows keep every miss safe!"},
 		{"name": "FEED", "mode": "hold", "widget": "", "visual_context": "nursery_feed", "goal": 4.0, "speaker": "Faron", "vo": "op_nursery_feed", "voice": "Hold the warm bottle while Roshan and Faron feed each baby!"},
-		{"name": "BURP", "mode": "tap", "widget": "", "visual_context": "nursery_burp", "pace": 0.55, "goal": 4.0, "vo": "op_nursery_burp", "voice": "Pat the baby's back gently and slowly: pat, pat, pat!"},
+		{"name": "BURP", "mode": "tap", "widget": "", "visual_context": "nursery_burp", "pace": 0.55, "goal": 4.0, "vo": "op_nursery_burp_stage", "voice": "Pat the baby's back gently and slowly: pat, pat, pat!"},
 		{"name": "BEDTIME", "mode": "swipe", "widget": "", "visual_context": "nursery_bedtime", "dir": "down", "goal": 3.0, "speaker": "Faron", "vo": "op_nursery_bedtime", "voice": "Swipe each blanket down and tuck every baby into bed!"},
 	],
 	"popstar": [
-		{"name": "SOUND CHECK", "mode": "hold", "goal": 3.8, "vo": "op_popstar_sound_check", "voice": "Hold the microphone while the rainbow note grows!"},
+		{"name": "SOUND CHECK", "mode": "hold", "goal": 3.8, "vo": "op_popstar_sound_check_stage", "voice": "Hold the microphone while the rainbow note grows!"},
 		{"name": "DANCE", "mode": "choice", "goal": 6.0, "vo": "op_popstar_dance", "voice": "Tap the glowing dance arrow!"},
-		{"name": "RHYTHM", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm", "voice": "Listen to the three stars, then sing their song back!"},
-		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore", "voice": "Draw one big encore spin for the crowd!"},
+		{"name": "RHYTHM", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm_stage", "voice": "Listen to the three stars, then sing their song back!"},
+		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore_stage", "voice": "Draw one big encore spin for the crowd!"},
 	],
 }
 
@@ -1838,7 +1838,7 @@ func _spawn_stage_captain() -> void:
 	captain_pending = false
 	_spawn_stage_imp(0.5, true, combat_imps.size())
 	if m != null:
-		m.show_msg("Imp Captain", "Hee hee! You'll have to bop ME twice!", "op_captain")
+		m.show_msg("Imp Captain", "Two taps will stop me!", "op_captain_intro")
 
 
 func _combat_input(event: InputEvent) -> void:
@@ -2073,7 +2073,7 @@ func _repeat_ballet_instruction() -> void:
 	if String(phase.get("mode", "")) == "ballet_pose":
 		# The first line asks her to watch; once a portrait is tappable, the
 		# existing family recording clearly hands the turn to the child.
-		m.show_msg("Roshan", "Tap the glowing dance pose!", "op_ballerina_steps")
+		m.show_msg("Roshan", "Tap the glowing dance pose!", "op_ballerina_pose")
 		return
 	_repeat_phase_prompt()
 
@@ -2779,7 +2779,7 @@ func _handle_brain_events() -> void:
 				combat_marks.append({"kind": "taunt", "pos": at, "t": 0.0, "life": 0.7})
 			"rally":
 				if m != null:
-					m.show_msg("Imp Captain", "Crew! Back to me! Hee hee!", "op_captain")
+					m.show_msg("Imp Captain", "Crew! Back to me! Hee hee!", "op_captain_rally")
 			"flee":
 				combat_marks.append({"kind": "dust", "pos": at, "t": 0.0, "life": 0.35})
 

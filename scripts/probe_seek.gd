@@ -20,16 +20,24 @@ const COVER_ART := [
 ]
 const MAX_STAGE_NODES := 14
 const TOUCH_INDEX := 63
+const PROBE_SAVE_URI := "user://probe_seek_canvas_save.json"
+const SAVE_SUFFIXES: Array[String] = [
+	"", ".tmp0", ".tmp1", ".tmp", ".old", ".bak", ".bak.tmp", ".bak.old",
+]
 
 var main: ReefMain
 var bad := 0
+var probe_save_path := ""
 
 
 func _init() -> void:
 	seed(20260809)
 	Engine.time_scale = 6.0
+	probe_save_path = ProjectSettings.globalize_path(PROBE_SAVE_URI)
+	_remove_probe_save_artifacts()
 	var packed := load("res://scenes/main.tscn") as PackedScene
 	main = packed.instantiate() as ReefMain
+	main._save_state = SaveState.new(main, probe_save_path)
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
@@ -91,7 +99,7 @@ func _init() -> void:
 		_finish()
 		return
 	_check("available Evie start clip is selected",
-		_voice_pool_has("res://assets/audio/voices/evie.ogg"))
+		_voice_pool_has("res://assets/audio/voices/filler_v1/evie.ogg"))
 	var speech_card := main.speech_layer.get_node_or_null(
 		"HudSpeakerPortraitCard") as Control
 	var speech_bounds := main.speech_portrait.get_global_rect() \
@@ -259,7 +267,7 @@ func _init() -> void:
 		and bool((first_save.get("won", {}) as Dictionary).get(
 			"Evie and Lamb-a'", false)))
 	_check("available exact Evie win clip is selected",
-		_voice_pool_has("res://assets/audio/voices/evie_win.ogg"))
+		_voice_pool_has("res://assets/audio/voices/filler_v1/evie_win.ogg"))
 	_check("win removes Seek and restores controls without game-node mutation",
 		main.game == "" and _active_layer_count() == 0
 		and _game_node_ids().is_empty()
@@ -644,7 +652,7 @@ func _progress_snapshot(friend: Dictionary) -> Dictionary:
 
 
 func _read_save() -> Dictionary:
-	var file := FileAccess.open("user://reef_save.json", FileAccess.READ)
+	var file := FileAccess.open(probe_save_path, FileAccess.READ)
 	if file == null:
 		return {}
 	var parsed: Variant = JSON.parse_string(file.get_as_text())
@@ -686,9 +694,17 @@ func _check(label: String, condition: bool) -> void:
 
 
 func _finish() -> void:
+	_remove_probe_save_artifacts()
 	if bad == 0:
 		print("SEEK|result: ALL OK")
 		quit()
 	else:
 		print("SEEK|result: %d FAIL" % bad)
 		quit(1)
+
+
+func _remove_probe_save_artifacts() -> void:
+	for suffix: String in SAVE_SUFFIXES:
+		var path := probe_save_path + suffix
+		if FileAccess.file_exists(path):
+			DirAccess.remove_absolute(path)

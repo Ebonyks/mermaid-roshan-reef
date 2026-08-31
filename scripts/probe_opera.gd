@@ -393,7 +393,7 @@ func _audit_all_career_lifecycles() -> void:
 				if racer_voice != null and racer_voice.stream != null:
 					racer_voice_path = racer_voice.stream.resource_path
 			_check("Racer exact objective voice replaces its caption fallback",
-				racer_voice_path == "res://assets/audio/voices/roshan_op_racer_tune_up.ogg"
+				racer_voice_path == "res://assets/audio/voices/filler_v1/roshan_op_racer_tune_up_stage.ogg"
 				and not main.hud_msg.visible and main.hud_msg.text.is_empty()
 				and main.hud_layer.layer > act.career_world_2d.layer)
 			main._pause_ref().toggle_pause()

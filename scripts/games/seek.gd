@@ -616,7 +616,7 @@ func tick(delta: float, fr: Dictionary) -> void:
 			m.g["gig_t"] = 2.8
 			if m.voice != null:
 				m.voice.pitch_scale = 1.45 + randf() * 0.15
-				m.voice.play()
+				m._play_success_yay(m.voice.pitch_scale)
 		var button_index := m._btn_pressed()
 		if button_index >= 0:
 			_on_bush_pressed(button_index)
@@ -647,7 +647,7 @@ func _on_bush_pressed(index: int) -> void:
 	surface.begin_reveal(int(m.g["found"]))
 	if m.voice != null:
 		m.voice.pitch_scale = 1.0 + randf() * 0.3
-		m.voice.play()
+		m._play_success_yay(m.voice.pitch_scale)
 
 
 func _seek_hide() -> void:

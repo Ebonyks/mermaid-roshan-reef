@@ -253,7 +253,7 @@ func _tick_fetch(delta: float, fr: Dictionary, ppos: Vector3) -> void:
 			arrow.visible = false
 			if m.voice != null:
 				m.voice.pitch_scale = 1.1
-				m.voice.play()
+				m._play_success_yay(m.voice.pitch_scale)
 		m.g["press_cool"] = maxf(0.0, float(m.g.get("press_cool", 0.0)) - delta)
 	elif String(m.g["phase"]) == "fly":
 		m.hud_game.text = "Wheee!"

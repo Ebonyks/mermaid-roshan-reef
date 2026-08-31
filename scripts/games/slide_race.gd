@@ -14,10 +14,14 @@ const FISH_LANE_LIMIT := 1.0
 const FISH_CATCH_PROGRESS := 0.065
 const FISH_CATCH_LANE := 0.56
 const FISH_OBJECTIVE := "Come slide with us! Grab the fishies!"
-# harper.ogg is 2.043 seconds. Hybrid focus already speaks this exact line;
-# retain a small tail margin so the activation tap cannot start it a second
-# time on another voice-pool player while the first copy is still audible.
-const FISH_OBJECTIVE_VOICE_WINDOW := 2.15
+# The provisional Harper talk/hint takes are 2.4265/2.1943 seconds. Hybrid
+# focus already speaks this exact line; retain a small tail margin so the
+# activation tap cannot overlap it on another voice-pool player.
+const FISH_OBJECTIVE_VOICE_WINDOW := 2.60
+const FISH_OBJECTIVE_VOICE_PATHS: Array[String] = [
+	"res://assets/audio/voices/filler_v1/harper.ogg",
+	"res://assets/audio/voices/filler_v1/harper_hint.ogg",
+]
 
 const FISH_TILE_PATHS: Array[String] = [
 	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
@@ -330,7 +334,18 @@ func _build_canvas_fish(fr: Dictionary) -> void:
 	m.hud_msg.text = ""
 	m.hud_msg.visible = false
 	m.msg_timer = 0.0
-	if not objective_recent:
+	# A first-load build can outlast a short focus take. The timestamp prevents
+	# duplicates while a take is active; the playback check ensures the opaque
+	# activity never opens after that take has already finished in the transition.
+	var objective_active := false
+	for voice_player_value: Variant in m.voice_pool:
+		var voice_player := voice_player_value as AudioStreamPlayer
+		if voice_player != null and voice_player.playing \
+				and voice_player.stream != null \
+				and voice_player.stream.resource_path in FISH_OBJECTIVE_VOICE_PATHS:
+			objective_active = true
+			break
+	if not objective_recent or not objective_active:
 		m._say("harper", "hint", 0.5)
 
 

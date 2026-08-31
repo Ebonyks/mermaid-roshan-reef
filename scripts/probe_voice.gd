@@ -3,14 +3,24 @@ extends SceneTree
 var bad := 0
 
 const MELODY_VOICE_PATH := \
-	"res://assets/audio/voices/roshan_op_popstar_rhythm.ogg"
+	"res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const MELODY_VOICE_SHA256 := \
-	"b8566e49b135e6271e09f6c969af6d8362a8f6582c9c28d93b991741d562b5eb"
+	"6f6839b043dc58647324f1d04df6429ccf3bb197b175bfd89317ff1b9e2ead4d"
 const MELODY_OBJECTIVE := "Tap each rainbow note in the green!"
-const SLIDE_VOICE_PATH := "res://assets/audio/voices/harper.ogg"
-const SLIDE_VOICE_SHA256 := \
-	"a97661d817caee8b9c0237dd79104ca820d78da3f5ca72b2bd473cec26dedc19"
-const SLIDE_VOICE_SECONDS := 2.043
+const YAY_PATH := "res://assets/audio/voices/filler_v1/yay.ogg"
+const YAY_SHA256 := \
+	"66be8684f15000fb917f8d93728e6b43e473935eb7de74bc13f32d57d7246759"
+const ROSHAN_TALK_PATH := "res://assets/audio/voices/filler_v1/roshan_talk.ogg"
+const ROSHAN_TALK_SHA256 := \
+	"bd0cf6fa76e5cff31f35fc4717fb6a54b7bc3a7935ed8f3bf535499cfcfa52da"
+const SLIDE_TALK_PATH := "res://assets/audio/voices/filler_v1/harper.ogg"
+const SLIDE_TALK_SHA256 := \
+	"46dda4a090600ce83a9278f7aa99015a62c542a5ca9951860711973b519936e7"
+const SLIDE_TALK_SECONDS := 2.4265
+const SLIDE_HINT_PATH := "res://assets/audio/voices/filler_v1/harper_hint.ogg"
+const SLIDE_HINT_SHA256 := \
+	"46dda4a090600ce83a9278f7aa99015a62c542a5ca9951860711973b519936e7"
+const SLIDE_HINT_SECONDS := 2.4265
 const SLIDE_OBJECTIVE := "Come slide with us! Grab the fishies!"
 const SLIDE_TOUCH_INDEX := 81
 
@@ -42,12 +52,20 @@ func _init() -> void:
 		"res://assets/audio/voices/VOICE_MANIFEST.md")
 	var voice_generator := FileAccess.get_file_as_string(
 		"res://tools/make_voices.py")
-	_check("Harper objective voice retains exact generator and ledger provenance",
-		licenses.contains("assets/audio/voices/* (all other lines)")
-		and licenses.contains("Kokoro-82M")
-		and voice_manifest.contains("| Harper  | af_sarah  | 1.18 |")
+	_check("Harper objective filler retains exact generator and ledger provenance",
+		licenses.contains("assets/audio/voices/filler_v1/*.ogg")
+		and licenses.contains("Parler-TTS Mini v1.1")
+		and voice_manifest.contains("filler_v1/FILLER_MANIFEST.json")
 		and voice_generator.contains(
 			'"harper":     ("harper", "Come slide with us! Grab the fishies!"),'))
+	_check("Yay and This is so much fun are exact synthetic filler cues",
+		ResourceLoader.exists(YAY_PATH)
+		and FileAccess.get_sha256(YAY_PATH) == YAY_SHA256
+		and ResourceLoader.exists(ROSHAN_TALK_PATH)
+		and FileAccess.get_sha256(ROSHAN_TALK_PATH) == ROSHAN_TALK_SHA256
+		and voice_generator.contains('"yay":           ("roshan", "Yay!"),')
+		and voice_generator.contains(
+			'"roshan_talk":   ("roshan", "This is so much fun!"),'))
 	var expected_events := [
 		"talk", "whale", "ship", "wreck", "beans", "intro1", "intro4",
 		"win", "pearl", "op_popstar_rhythm", "op_racer_tune_up",
@@ -55,7 +73,7 @@ func _init() -> void:
 	]
 	var present := 0
 	for ln: String in expected_events:
-		if ResourceLoader.exists("res://assets/audio/voices/roshan_%s.ogg" % ln):
+		if ResourceLoader.exists("res://assets/audio/voices/filler_v1/roshan_%s.ogg" % ln):
 			present += 1
 	_check("expected Roshan clips present", present == expected_events.size(),
 		"%d / %d" % [present, expected_events.size()])
@@ -78,6 +96,7 @@ func _init() -> void:
 	main.finale_t = -1.0
 	main.intro_active = false
 	main.msg_timer = 5.0
+	main.clear_dialogue()
 
 	whale.position = Vector3(10.0, 0.0, 10.0)
 	ship.position = Vector3(1000.0, 0.0, 1000.0)
@@ -87,6 +106,7 @@ func _init() -> void:
 	var before := main.voice_i
 	main._tick_roshan_reactions(0.0, whale.position)
 	_check_exact_cue(main, "whale", before)
+	main.clear_dialogue()
 
 	whale.position = Vector3(1000.0, 0.0, 1000.0)
 	ship.position = Vector3(20.0, 0.0, 20.0)
@@ -95,6 +115,7 @@ func _init() -> void:
 	before = main.voice_i
 	main._tick_roshan_reactions(0.0, ship.position)
 	_check_exact_cue(main, "ship", before)
+	main.clear_dialogue()
 
 	ship.position = Vector3(1000.0, 0.0, 1000.0)
 	main.wreck_pos = Vector3(30.0, 0.0, 30.0)
@@ -103,6 +124,7 @@ func _init() -> void:
 	before = main.voice_i
 	main._tick_roshan_reactions(0.0, main.wreck_pos)
 	_check_exact_cue(main, "wreck", before)
+	main.clear_dialogue()
 
 	# Avoid award_sticker's separate success cheer so this assertion isolates
 	# the beans cue itself and proves _beans_go emits exactly one spoken line.
@@ -187,7 +209,8 @@ func _check_slide_message_cue(main: ReefMain,
 		return
 
 	# Discovery speaks harper_talk. An immediate focus asks for harper_hint, but
-	# both resolve to harper.ogg; the pool must keep the one active copy. Entry
+	# both keys contain the same immutable take and the same-speaker guard lets
+	# the discovery sentence finish without a restart. Entry
 	# then requests no additional playback: voice plus the persistent steer cues are
 	# the instruction, while the opaque stage intentionally remains text-free.
 	main.clear_dialogue()
@@ -269,7 +292,7 @@ func _check_slide_message_cue(main: ReefMain,
 			"min_gap", -1.0)), 0.5) \
 		and is_equal_approx(float(focus_request.get("min_gap", -1.0)), 0.5) \
 		and focus_stamp >= discovery_stamp \
-		and focus_stamp - discovery_stamp < SLIDE_VOICE_SECONDS
+		and focus_stamp - discovery_stamp < SLIDE_TALK_SECONDS
 	var immediate_playback_exact: bool = \
 		audio.accepted.size() == accepted_before + 1 \
 		and String(accepted_request.get("speaker", "")) == "harper" \
@@ -278,10 +301,12 @@ func _check_slide_message_cue(main: ReefMain,
 		and _playing_pool_count(main) == 1
 	var immediate_stage_exact: bool = \
 		player != null and player.stream != null and player.playing \
-		and _stream_path(player) == SLIDE_VOICE_PATH \
-		and ResourceLoader.exists(SLIDE_VOICE_PATH) \
-		and FileAccess.get_sha256(SLIDE_VOICE_PATH) == SLIDE_VOICE_SHA256 \
-		and absf(player.stream.get_length() - SLIDE_VOICE_SECONDS) < 0.02 \
+		and _stream_path(player) == SLIDE_TALK_PATH \
+		and ResourceLoader.exists(SLIDE_TALK_PATH) \
+		and FileAccess.get_sha256(SLIDE_TALK_PATH) == SLIDE_TALK_SHA256 \
+		and ResourceLoader.exists(SLIDE_HINT_PATH) \
+		and FileAccess.get_sha256(SLIDE_HINT_PATH) == SLIDE_HINT_SHA256 \
+		and absf(player.stream.get_length() - SLIDE_TALK_SECONDS) < 0.02 \
 		and SlideRaceGame.FISH_OBJECTIVE_VOICE_WINDOW \
 			> player.stream.get_length() \
 		and SlideRaceGame.FISH_OBJECTIVE == SLIDE_OBJECTIVE \
@@ -293,7 +318,7 @@ func _check_slide_message_cue(main: ReefMain,
 		immediate_route_exact)
 	_check("discovery and focus request their exact semantic Harper keys",
 		immediate_semantics_exact)
-	_check("discovery, focus, and immediate entry accept one active playback",
+	_check("discovery finishes without a focus or entry restart",
 		immediate_playback_exact)
 	_check("discovery route resolves immutable Harper audio and keeps the opaque stage text-free",
 		immediate_stage_exact)
@@ -307,7 +332,7 @@ func _check_slide_message_cue(main: ReefMain,
 
 	# With discovery already known, focus is the one speaking edge. Delay the
 	# entry by a real 0.85 seconds: longer than the generic 0.5 cooldown but
-	# deliberately shorter than the exact 2.043-second objective recording.
+	# deliberately shorter than the exact objective recording.
 	main._set_touch_mode(main.TOUCH_MODE_HYBRID, false)
 	friend["found"] = true
 	friend["cool"] = 0.0
@@ -372,7 +397,7 @@ func _check_slide_message_cue(main: ReefMain,
 	var delayed_route_exact: bool = \
 		delayed_focus_exact and delayed_entry_target_exact \
 		and delayed_seconds >= 0.75 and delayed_seconds <= 1.0 \
-		and delayed_seconds < SLIDE_VOICE_SECONDS \
+		and delayed_seconds < SLIDE_HINT_SECONDS \
 		and main.game == "slide" and String(main.g.get("mode", "")) == "fish" \
 		and bool(snapshot.get("route_exact", false))
 	var delayed_playback_exact: bool = \
@@ -384,8 +409,8 @@ func _check_slide_message_cue(main: ReefMain,
 		and _playing_pool_count(main) == 1
 	var delayed_stage_exact: bool = \
 		player != null and player.playing \
-		and _stream_path(player) == SLIDE_VOICE_PATH \
-		and FileAccess.get_sha256(SLIDE_VOICE_PATH) == SLIDE_VOICE_SHA256 \
+		and _stream_path(player) == SLIDE_HINT_PATH \
+		and FileAccess.get_sha256(SLIDE_HINT_PATH) == SLIDE_HINT_SHA256 \
 		and SlideRaceGame.FISH_OBJECTIVE == SLIDE_OBJECTIVE \
 		and main.hud_msg.text.is_empty() and not main.hud_msg.visible \
 		and is_zero_approx(main.msg_timer) \
@@ -437,8 +462,8 @@ func _check_slide_message_cue(main: ReefMain,
 		and _playing_pool_count(main) == 1)
 	_check("Classic entry retains exact objective audio, steer cues, and a text-free stage",
 		player != null and player.playing
-		and _stream_path(player) == SLIDE_VOICE_PATH
-		and FileAccess.get_sha256(SLIDE_VOICE_PATH) == SLIDE_VOICE_SHA256
+		and _stream_path(player) == SLIDE_HINT_PATH
+		and FileAccess.get_sha256(SLIDE_HINT_PATH) == SLIDE_HINT_SHA256
 		and SlideRaceGame.FISH_OBJECTIVE == SLIDE_OBJECTIVE
 		and main.hud_msg.text.is_empty() and not main.hud_msg.visible
 		and is_zero_approx(main.msg_timer)
@@ -472,7 +497,7 @@ func _check_slide_message_cue(main: ReefMain,
 		and is_equal_approx(float(retry_request.get("min_gap", -1.0)),
 			SlideRaceGame.FISH_OBJECTIVE_VOICE_WINDOW)
 		and player != null and player.playing
-		and _stream_path(player) == SLIDE_VOICE_PATH
+		and _stream_path(player) == SLIDE_HINT_PATH
 		and _playing_pool_count(main) == 1
 		and main.game == "slide" and not bool(main.g.get("steered", true))
 		and not bool(snapshot.get("completed", true))
@@ -711,13 +736,13 @@ func _check_brawl_message_cues(main: ReefMain, audio: CountingAudioDirector) -> 
 
 
 func _check_dialogue_speech_lifecycle(main: ReefMain) -> void:
-	# Clearing dialogue is also the location-teardown contract: neither an
-	# exact pooled line nor the fallback cheer may leak into the next scene.
+	# Clearing dialogue is also the location-teardown contract. A new fallback
+	# cue first replaces the exact line, then neither may leak into the next scene.
 	main.clear_dialogue()
 	main.said_cool.erase("roshan_talk")
 	main._say("roshan", "talk")
 	main._say("missing_speaker", "missing_event")
-	_check("exact speech is active before clear", _playing_pool_count(main) == 1)
+	_check("fallback speech replaces prior exact speech", _playing_pool_count(main) == 0)
 	_check("fallback speech is active before clear", main.voice != null and main.voice.playing)
 	main.clear_dialogue()
 	_check("clear stops every pooled voice", _playing_pool_count(main) == 0)
@@ -736,21 +761,21 @@ func _check_dialogue_speech_lifecycle(main: ReefMain) -> void:
 	])
 	var first: AudioStreamPlayer = _last_pool_player(main)
 	_check("sequence starts one cue", main.voice_i == before + 1 and _playing_pool_count(main) == 1)
-	_check("sequence starts first exact clip", _stream_path(first) == "res://assets/audio/voices/roshan_talk.ogg")
+	_check("sequence starts first exact clip", _stream_path(first) == "res://assets/audio/voices/filler_v1/roshan_talk.ogg")
 
 	_check("first rapid skip is consumed", main.skip_dialogue())
 	var second: AudioStreamPlayer = _last_pool_player(main)
 	_check("first rapid skip stops prior cue", first != null and not first.playing)
 	_check("first rapid skip starts only next cue",
 		main.voice_i == before + 2 and _playing_pool_count(main) == 1
-		and _stream_path(second) == "res://assets/audio/voices/roshan_intro1.ogg")
+		and _stream_path(second) == "res://assets/audio/voices/filler_v1/roshan_intro1.ogg")
 
 	_check("second rapid skip is consumed", main.skip_dialogue())
 	var third: AudioStreamPlayer = _last_pool_player(main)
 	_check("second rapid skip stops prior cue", second != null and not second.playing)
 	_check("second rapid skip starts only next cue",
 		main.voice_i == before + 3 and _playing_pool_count(main) == 1
-		and _stream_path(third) == "res://assets/audio/voices/roshan_intro4.ogg")
+		and _stream_path(third) == "res://assets/audio/voices/filler_v1/roshan_intro4.ogg")
 
 	_check("final rapid skip is consumed", main.skip_dialogue())
 	_check("sequence exhaustion stops final cue",
@@ -807,7 +832,7 @@ func _push_touch(main: ReefMain, position: Vector2, pressed: bool,
 func _check_named_cue(main: ReefMain, audio: CountingAudioDirector, label: String,
 		speaker: String, event: String, before: int, requests_before: int) -> void:
 	var actual_path: String = _stream_path(_last_pool_player(main))
-	var expected_path := "res://assets/audio/voices/%s_%s.ogg" % [speaker, event]
+	var expected_path := "res://assets/audio/voices/filler_v1/%s_%s.ogg" % [speaker, event]
 	var request: Dictionary = audio.requests[-1] if not audio.requests.is_empty() else {}
 	_check("%s makes one intended request" % label,
 		audio.requests.size() == requests_before + 1
@@ -829,7 +854,7 @@ func _check_exact_cue(main: ReefMain, event: String, before: int) -> void:
 		var player := main.voice_pool[index] as AudioStreamPlayer
 		if player != null and player.stream != null:
 			actual_path = player.stream.resource_path
-	var expected_path := "res://assets/audio/voices/roshan_%s.ogg" % event
+	var expected_path := "res://assets/audio/voices/filler_v1/roshan_%s.ogg" % event
 	_check("%s cue speaks once" % event, main.voice_i == before + 1,
 		"voice_i=%d->%d" % [before, main.voice_i])
 	_check("%s cue resolves exact clip" % event, actual_path == expected_path,

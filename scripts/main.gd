@@ -1000,7 +1000,7 @@ func _ready() -> void:
 	# here, owner request 2026-07-21: the screen was getting too busy)
 	get_tree().node_added.connect(_hook_button_taps)
 	voice = AudioStreamPlayer.new()
-	voice.stream = load("res://assets/audio/voice_yay.mp3")
+	voice.stream = load("res://assets/audio/voices/filler_v1/yay.ogg")
 	voice.bus = "Voice"
 	add_child(voice)
 	chime = AudioStreamPlayer.new()
@@ -3612,6 +3612,9 @@ func _audio_ref() -> AudioDirector:
 
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	_audio_ref()._say(speaker, event, min_gap)
+
+func _play_success_yay(pitch_scale: float = 1.0) -> void:
+	_audio_ref().play_success_yay(pitch_scale)
 
 func _speaker_key(who: String) -> String:
 	return _audio_ref()._speaker_key(who)
@@ -6536,7 +6539,7 @@ func _tick_mg2d(delta: float) -> void:
 			mg["motor_assist"] = true
 			if voice != null:
 				voice.pitch_scale = 1.3
-				voice.play()
+				_play_success_yay(voice.pitch_scale)
 		if assist and stick_intent:
 			mg["rot_acc"] = float(mg["rot_acc"]) + delta * 2.4
 		mg["stall"] = stall
@@ -8280,7 +8283,7 @@ func _do_finish_level2() -> void:
 	_write_save()
 	if voice != null:
 		voice.pitch_scale = 1.15
-		voice.play()
+		_play_success_yay(voice.pitch_scale)
 	game = ""
 	g = {}
 	hud_game.text = ""
@@ -8704,7 +8707,7 @@ func _creature_greet(node: Node3D) -> void:
 	_sparkle_burst(node.position + Vector3(0, 1.6, 0), Color(0.8, 0.95, 1.0))
 	if voice != null:
 		voice.pitch_scale = 1.35 + randf() * 0.3
-		voice.play()
+		_play_success_yay(voice.pitch_scale)
 
 func _greet_heart(pos: Vector3) -> void:
 	# a crafted friend says hello: floating heart + sparkle + happy chirp
@@ -8724,7 +8727,7 @@ func _greet_heart(pos: Vector3) -> void:
 	_sparkle_burst(pos, Color(1.0, 0.6, 0.8))
 	if voice != null:
 		voice.pitch_scale = 1.3 + randf() * 0.2
-		voice.play()
+		_play_success_yay(voice.pitch_scale)
 
 func _spawn_shooting_star(ppos: Vector3) -> void:
 	# night magic over the lagoon: a bright streak arcs across the sky

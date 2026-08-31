@@ -143,7 +143,7 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	# (audio_director.gd), so a paired _say() would speak twice the moment real
 	# clips exist. The event name IS the vo argument.
 	m.show_msg(String(fr.get("fname", "Dusty Attic")),
-		"The GREAT dust bunny wakes up! He is too puffy to bonk...", "dustboss_show")
+		"The giant dust bunny woke up! It is too fluffy. Sparkle taps will work!", "dustboss_show")
 
 func action_label() -> String:
 	# the only verb in this fight is a bonk; the shared reef button otherwise
@@ -241,7 +241,8 @@ func _tick_showing(st: float, fr: Dictionary, tapped: bool) -> void:
 	if demo and not bool(m.g.get("db_show_told", false)):
 		m.g["db_show_told"] = true
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"When he JUMPS and his star FLASHES — TAP him!", "dustboss_tell")
+			"When he JUMPS and his star FLASHES — TAP him!",
+			"dustboss_tell_opening")
 	if st >= SHOW_T:
 		m.g["db_flash"] = 0.0
 		_enter_state("prowl")
@@ -344,14 +345,14 @@ func _tick_vuln(delta: float, st: float, s: Dictionary, tapped: bool, fr: Dictio
 		_enter_state("prowl")
 		_pick_hop(true)
 		var streak: int = miss_streak()
-		if streak == 1 or streak == MERCY_TRIGGER_STREAK:
-			var reminder: String = (
-				"Grand Puff slowed down! Take your time — wait for the BIG GOLD STAR!"
-				if streak == MERCY_TRIGGER_STREAK
-				else "So close! Wait for the next FLASH and tap FAST — three times!"
-			)
+		if streak == 1:
 			m.show_msg(String(fr.get("fname", "Dusty Attic")),
-				reminder, "dustboss_again")
+				"So close! Wait for the next FLASH and tap FAST — three times!",
+				"dustboss_again_miss")
+		elif streak == MERCY_TRIGGER_STREAK:
+			m.show_msg(String(fr.get("fname", "Dusty Attic")),
+				"Grand Puff slowed down! Take your time — wait for the BIG GOLD STAR!",
+				"dustboss_again_mercy")
 
 func _free_taps() -> int:
 	# 0 for attempts 1-4; 1 after miss five; 2 after miss ten. Capped below a
@@ -424,7 +425,8 @@ func _land_hit(fr: Dictionary) -> void:
 	_enter_state("struck")
 	if hits == 1:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"BONK! He is all DIZZY — his ears are spinning!", "dustboss_dizzy")
+			"BONK! He is all DIZZY — his ears are spinning!",
+			"dustboss_dizzy_first")
 	else:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
 
@@ -492,7 +494,8 @@ func _bounce_off() -> void:
 	if live == "prowl" or live == "windup" or live == "vuln":
 		m.g["db_wasted"] = int(m.g.get("db_wasted", 0)) + 1
 	if int(m.g["db_shield_taps"]) % 3 == 0:
-		m.show_msg("Roshan", "Too puffy! Wait for him to JUMP and FLASH!", "dustboss_tell")
+		m.show_msg("Roshan", "Too puffy! Wait for him to JUMP and FLASH!",
+			"dustboss_tell_shielded")
 
 # ---- prowl motion ----------------------------------------------------------
 func _pick_hop(reset: bool) -> void:
@@ -804,7 +807,8 @@ func _on_round_done() -> void:
 	_enter_state("struck")
 	if rounds == 1:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")),
-			"BONK BONK BONK! He is all DIZZY — his ears are spinning!", "dustboss_dizzy")
+			"BONK BONK BONK! He is all DIZZY — his ears are spinning!",
+			"dustboss_dizzy_round")
 	else:
 		m.show_msg(String(fr.get("fname", "Dusty Attic")), "BONK! Two down!", "dustboss_hit")
 

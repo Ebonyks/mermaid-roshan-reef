@@ -1,5 +1,31 @@
 # Character voices
 
+## Provisional synthetic filler v1 (2026-08-30)
+
+Runtime now prefers `filler_v1/<speaker>_<event>.ogg`, then the corresponding
+legacy path. The 271 live cues comprise all 270 non-Faron authored lines plus
+the three-preset `everyone.ogg` mix. This is a reversible machine-screened
+layer—not confirmed talent, not human-auditioned, and not
+a claimed match to any real person. Faron and the sacred family recordings are
+excluded and remain byte-identical.
+
+Filler candidates use Parler-TTS Mini v1.1 with named synthetic presets and
+mood-specific descriptions. Each line is rendered with a recorded seed and is
+rejected unless local speech recognition preserves every semantic word. Among
+eligible takes, the selector ranks DNSMOS signal quality plus pitch and spectral
+fit. Delivery mastering is 48 kHz mono Ogg Vorbis at 96 kbps, -16 LUFS ±1 and
+no higher than -1.5 dBTP. Exact model revisions, prompts, seeds, raw/final
+SHA-256 hashes and measured results live in `filler_v1/FILLER_MANIFEST.json`.
+
+Rebuild in isolated Python 3.11 environments with:
+
+1. `tools/make_parler_voice_trials.py` (one or more attempts)
+2. `tools/select_filler_voices.py` (exact-word and objective-quality gate)
+3. `tools/master_filler_voices.py` (delivery encode and blocking format gate)
+
+These files are temporary placeholders to replace when consented talent is
+confirmed. Do not train or condition them on family recordings.
+
 The game plays `assets/audio/voices/<name>.ogg` when it exists (per-line override
 like `gabby_win.ogg` first, then `gabby.ogg`), else falls back to the recorded
 "yay" clip pitched per character.
@@ -40,8 +66,13 @@ plus bespoke ones (`greet`, `intro`, `thanks`, `bark`, `pearl`, `idle1..3`).
 ## SACRED — never regenerate these (real family recordings)
 
 - `daddy1.ogg`, `daddy2.ogg`, `daddy3.ogg`
-- `chuck.ogg`, `chuck_bark.ogg`
-- `../voice_yay.mp3`
+- `chuck.ogg`, `chuck_bark.ogg`, `chuck_whimper.ogg`
+
+The retained legacy `../voice_yay.mp3` is not protected and is no longer live.
+All success-chirp playback uses the machine-screened synthetic
+`filler_v1/yay.ogg`. `filler_v1/roshan_talk.ogg` owns “This is so much fun!”
+with an exact manifest hash and cannot fall back while the filler cohort is
+present.
 
 To improve a real recording instead of replacing it, run it through a free
 speech enhancer (Adobe Podcast Enhance web tool, or locally: resemble-enhance /
@@ -64,8 +95,8 @@ re-rendered from the same Kokoro model and speaker identity using the safer
 limiter: `roshan_op_candymaker_parade.ogg`,
 `roshan_op_magician_rope.ogg`, and
 `roshan_op_popstar_mic_chase.ogg`. Protected Daddy/Chuck recordings and
-`voice_yay.mp3` remain byte-identical. `voice_yay.mp3` is a non-objective
-affect fallback only; it cannot satisfy a spoken instruction.
+the retained legacy `voice_yay.mp3` remain byte-identical. The latter is no
+longer a runtime fallback and cannot satisfy a spoken instruction.
 
 Machine grades cover decode, codec, sample rate, channels, bitrate, duration,
 loudness, true peak, protection, provenance class, and routing evidence. Human

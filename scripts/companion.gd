@@ -32,7 +32,7 @@ const ROSTER := [
 		"pro": "Speedy wings and a quick peck!"},
 	{"id": "mewsha", "name": "Mewsha", "kind": "cat", "attack": "CLAW",
 		"body": Color(0.95, 0.70, 0.85), "accent": Color(0.60, 0.40, 0.90), "third": Color(0.97, 0.96, 0.93),
-		"hello": "Mewsha pads along beside you now! Swish swish!",
+		"hello": "I'm coming along beside you now! Swish swish!",
 		"pro": "Big brave claw swipes!"},
 	{"id": "lamma", "name": "Lamb-a'", "kind": "lamb", "attack": "BOUNCE",
 		"sprite": "res://assets/sprites/stuffie_studio/lamma.png",

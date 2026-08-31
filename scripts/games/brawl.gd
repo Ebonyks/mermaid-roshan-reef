@@ -180,7 +180,7 @@ func _tick_brawl(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 						m.voice.pitch_scale = 1.4
 					else:
 						m.voice.pitch_scale = 1.0 + 0.15 * float(maxi(int(m.g["chain"]) - 1, 0))
-					m.voice.play()
+					m._play_success_yay(m.voice.pitch_scale)
 		if brain != null:
 			# a miss tells the crew she needs a slower fight; a hit tells it
 			# she is ready for a bolder one
