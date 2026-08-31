@@ -1301,7 +1301,7 @@ def _discover_apk_parser() -> tuple[str, Path] | None:
         path = shutil.which(name)
         if path:
             candidates.append((name, Path(path)))
-    suffixes = ("", ".bat", ".cmd", ".exe") if os.name == "nt" else ("")
+    suffixes = ("", ".bat", ".cmd", ".exe") if os.name == "nt" else ("",)
     for root in _sdk_roots():
         for name in ("apkanalyzer",):
             for tools_root in (root / "cmdline-tools", root / "tools"):

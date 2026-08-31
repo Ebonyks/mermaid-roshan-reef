@@ -9,8 +9,10 @@ import unittest
 import zlib
 import subprocess
 import shutil
+import stat
 import zipfile
 from pathlib import Path
+from unittest.mock import patch
 
 from tools.audit_typography import (
     _apk_artifact, _apk_verification_record, _binary_xml_valid, _discover_apk_parser,
@@ -161,6 +163,72 @@ def _minimal_woff(sfnt: bytes) -> bytes:
     return header + directory + bytes(blobs)
 
 
+def _minimal_binary_manifest() -> bytes:
+    """Build a tiny valid binary Android manifest without Android SDK tools."""
+    strings = ["manifest", "package", "com.example.fixture", "application", "name", "Fixture"]
+    string_bytes = []
+    offsets = []
+    for value in strings:
+        offsets.append(sum(len(item) for item in string_bytes))
+        encoded = value.encode("utf-16le")
+        string_bytes.append(struct.pack("<H", len(value)) + encoded + b"\0\0")
+    string_pool_header_size = 28
+    strings_start = string_pool_header_size + 4 * len(strings)
+    string_pool_size = strings_start + sum(len(item) for item in string_bytes)
+    string_pool = struct.pack(
+        "<HHI5I", 0x0001, string_pool_header_size, string_pool_size,
+        len(strings), 0, 0, strings_start, 0,
+    ) + b"".join(struct.pack("<I", offset) for offset in offsets) + b"".join(string_bytes)
+
+    def start_element(name_index: int, attribute_name: int, value_index: int) -> bytes:
+        node = struct.pack(
+            "<IIIIHHHHHH", 1, 0xFFFFFFFF, 0xFFFFFFFF, name_index,
+            20, 20, 1, 0, 0, 0,
+        )
+        attribute = struct.pack(
+            "<IIIHBBI", 0xFFFFFFFF, attribute_name, value_index,
+            8, 0, 0x03, value_index,
+        )
+        return struct.pack("<HHI", 0x0102, 16, 8 + len(node) + len(attribute)) + node + attribute
+
+    elements = (
+        start_element(0, 1, 2),
+        start_element(3, 4, 5),
+    )
+    payload = string_pool + b"".join(elements)
+    return struct.pack("<HHI", 0x0003, 8, 8 + len(payload)) + payload
+
+
+def _minimal_dex() -> bytes:
+    data = bytearray(112)
+    data[:8] = b"dex\n035\0"
+    struct.pack_into("<III", data, 32, len(data), 112, 0x12345678)
+    data[12:32] = hashlib.sha1(data[32:]).digest()
+    struct.pack_into("<I", data, 8, zlib.adler32(data[12:]) & 0xFFFFFFFF)
+    return bytes(data)
+
+
+def _minimal_apk() -> bytes:
+    """Build a deterministic APK-shaped ZIP accepted by structural checks."""
+    entries = {
+        "AndroidManifest.xml": _minimal_binary_manifest(),
+        "classes.dex": _minimal_dex(),
+        "resources.arsc": struct.pack("<HHI", 0x0002, 12, 12) + b"\0" * 4,
+        "META-INF/MANIFEST.MF": b"Manifest-Version: 1.0\n",
+        "META-INF/CERT.SF": b"Signature-Version: 1.0\n",
+        # Structurally valid PKCS#7-shaped evidence; cryptographic execution is mocked.
+        "META-INF/CERT.RSA": b"\x30\x06\x06\x01\x00\xa0\x01\x00",
+    }
+    with tempfile.SpooledTemporaryFile() as output:
+        with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_STORED) as archive:
+            for name, payload in entries.items():
+                info = zipfile.ZipInfo(name, date_time=(2020, 1, 1, 0, 0, 0))
+                info.compress_type = zipfile.ZIP_STORED
+                archive.writestr(info, payload)
+        output.seek(0)
+        return output.read()
+
+
 def manifest(glyphs: list[str], baseline: dict[str, int] | None = None) -> dict:
     return {
         "schema_version": 1,
@@ -256,15 +324,17 @@ class TypographyAuditTests(unittest.TestCase):
         })
         self.assertEqual(inventory_font_assets(root), ["assets/fonts/face.ttf"])
 
-    def _write_verified_fixture(self) -> tuple[Path, Path, dict]:
-        real_apk_value = os.environ.get("TYPOGRAPHY_TEST_REAL_APK", "").strip()
-        if not real_apk_value:
-            self.skipTest(
-                "real APK positive fixture skipped: set TYPOGRAPHY_TEST_REAL_APK "
-                "to a genuine signed, parser-readable APK")
-        real_apk = Path(real_apk_value).expanduser()
-        if not real_apk.is_file():
-            self.skipTest(f"real APK positive fixture is missing: {real_apk}")
+    def _write_verified_fixture(self, *, deterministic: bool = False) -> tuple[Path, Path, dict]:
+        real_apk: Path | None = None
+        if not deterministic:
+            real_apk_value = os.environ.get("TYPOGRAPHY_TEST_REAL_APK", "").strip()
+            if not real_apk_value:
+                self.skipTest(
+                    "real APK positive fixture skipped: set TYPOGRAPHY_TEST_REAL_APK "
+                    "to a genuine signed, parser-readable APK")
+            real_apk = Path(real_apk_value).expanduser()
+            if not real_apk.is_file():
+                self.skipTest(f"real APK positive fixture is missing: {real_apk}")
         root, manifest_path = self.write_tree(
             'var label = "★"\nbutton.add_theme_font_override("font", load("res://assets/fonts/face.ttf"))\n')
         font = _minimal_sfnt()
@@ -306,25 +376,58 @@ class TypographyAuditTests(unittest.TestCase):
             (root / name).write_text(json.dumps(contents), encoding="utf-8")
         apk_path = root / "build" / "typography-fixture.apk"
         apk_path.parent.mkdir(parents=True, exist_ok=True)
-        apk_path.write_bytes(real_apk.read_bytes())
-        verifier = _discover_apk_verifier()
-        parser = _discover_apk_parser()
-        if verifier is None or parser is None:
-            self.skipTest("real APK positive fixture skipped: approved signer and Android parser are required")
-        apk_ok, apk_reason = _apk_artifact(root, "build/typography-fixture.apk",
-                                           hashlib.sha256(apk_path.read_bytes()).hexdigest())
-        if not apk_ok:
-            self.skipTest(f"real APK positive fixture is not parseable: {apk_reason}")
-        verifier_name, verifier_path = verifier
-        verified, tool_version, reason, verifier_output = _run_verifier(
-            verifier_name, verifier_path, apk_path)
-        if not verified:
-            self.skipTest(f"approved APK verifier cannot verify fixture: {reason}")
-        parser_name, parser_path = parser
-        parsed_ok, parser_version, _parser_text, parser_output, parsed, parser_reason = _run_parser(
-            parser_name, parser_path, apk_path)
-        if not parsed_ok:
-            self.skipTest(f"approved Android parser cannot parse fixture: {parser_reason}")
+        if deterministic:
+            apk_path.write_bytes(_minimal_apk())
+            verifier_name, tool_version, verifier_output = "apksigner", "fixture-verifier 1", b"fixture verifier output"
+            parser_name, parser_version, parser_output = "aapt2", "fixture-parser 1", b"fixture parser output"
+            parsed = {
+                "package_id": "com.example.fixture", "version_code": "7",
+                "version_name": "1.2", "manifest_identity": "manifest",
+                "application_identity": "Fixture",
+            }
+            verifier_path = root / "fixture-apksigner"
+            parser_path = root / "fixture-aapt2"
+            verifier_path.write_bytes(b"deterministic verifier executable")
+            parser_path.write_bytes(b"deterministic parser executable")
+            try:
+                verifier_path.chmod(verifier_path.stat().st_mode | stat.S_IXUSR)
+                parser_path.chmod(parser_path.stat().st_mode | stat.S_IXUSR)
+            except OSError:
+                pass
+            patchers = (
+                patch("tools.audit_typography._discover_apk_verifier",
+                      return_value=(verifier_name, verifier_path)),
+                patch("tools.audit_typography._discover_apk_parser",
+                      return_value=(parser_name, parser_path)),
+                patch("tools.audit_typography._run_verifier",
+                      return_value=(True, tool_version, "", verifier_output)),
+                patch("tools.audit_typography._run_parser",
+                      return_value=(True, parser_version, "", parser_output, parsed, "")),
+            )
+            for patcher in patchers:
+                patcher.start()
+                self.addCleanup(patcher.stop)
+        else:
+            assert real_apk is not None
+            apk_path.write_bytes(real_apk.read_bytes())
+            verifier = _discover_apk_verifier()
+            parser = _discover_apk_parser()
+            if verifier is None or parser is None:
+                self.skipTest("real APK positive fixture skipped: approved signer and Android parser are required")
+            apk_ok, apk_reason = _apk_artifact(root, "build/typography-fixture.apk",
+                                               hashlib.sha256(apk_path.read_bytes()).hexdigest())
+            if not apk_ok:
+                self.skipTest(f"real APK positive fixture is not parseable: {apk_reason}")
+            verifier_name, verifier_path = verifier
+            verified, tool_version, reason, verifier_output = _run_verifier(
+                verifier_name, verifier_path, apk_path)
+            if not verified:
+                self.skipTest(f"approved APK verifier cannot verify fixture: {reason}")
+            parser_name, parser_path = parser
+            parsed_ok, parser_version, _parser_text, parser_output, parsed, parser_reason = _run_parser(
+                parser_name, parser_path, apk_path)
+            if not parsed_ok:
+                self.skipTest(f"approved Android parser cannot parse fixture: {parser_reason}")
         output_path = root / "apk-verification-output.txt"
         output_path.write_bytes(verifier_output)
         parser_output_path = root / "apk-parser-output.txt"
@@ -420,57 +523,49 @@ class TypographyAuditTests(unittest.TestCase):
                 "    A: android:label(0x01010001)=\"Fixture\"\n",
             )["package_id"], "com.example.fixture")
 
-    def test_jarsigner_positive_zip_cannot_grant_android_device_authority(self) -> None:
-        """A real JAR signature on arbitrary ZIP bytes is not an Android APK."""
+    def test_sdk_root_discovers_android_parsers_when_not_on_path(self) -> None:
+        """SDK-root discovery covers all parser names independently of PATH."""
+        with tempfile.TemporaryDirectory() as temporary:
+            sdk_root = Path(temporary)
+            suffix = ".exe" if os.name == "nt" else ""
+            parser_locations = (
+                ("apkanalyzer", Path("cmdline-tools") / "16.0" / "bin"),
+                ("aapt2", Path("build-tools") / "35.0.0"),
+                ("aapt", Path("build-tools") / "35.0.0"),
+            )
+            with patch.dict(os.environ, {"ANDROID_HOME": str(sdk_root),
+                                         "ANDROID_SDK_ROOT": ""}, clear=False), \
+                    patch("tools.audit_typography.shutil.which", return_value=None):
+                for name, relative_directory in parser_locations:
+                    target = sdk_root / relative_directory / f"{name}{suffix}"
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(f"deterministic {name}".encode("ascii"))
+                    try:
+                        target.chmod(target.stat().st_mode | stat.S_IXUSR)
+                    except OSError:
+                        pass
+                    self.assertEqual(_discover_apk_parser(), (name, target.resolve()))
+                    target.unlink()
+
+    def test_signed_zip_fake_cannot_grant_android_device_authority(self) -> None:
+        """Signature-shaped ZIP evidence is still not an Android APK."""
         root, _manifest_path = self.write_tree('var label = "★"\n')
-        jarsigner_path = shutil.which("jarsigner")
-        keytool_path = shutil.which("keytool")
-        if not jarsigner_path or not keytool_path:
-            self.skipTest("JDK jarsigner/keytool unavailable for signed-ZIP negative")
         apk_path = root / "signed.zip"
-        with zipfile.ZipFile(apk_path, "w") as archive:
-            archive.writestr("payload.txt", "not an Android package")
-        keystore = root / "fixture.p12"
-        keytool_run = subprocess.run(
-            [keytool_path, "-genkeypair", "-alias", "fixture", "-keystore", str(keystore),
-             "-storetype", "PKCS12", "-storepass", "changeit", "-keypass", "changeit",
-             "-dname", "CN=Typography Fixture", "-validity", "1", "-keyalg", "RSA",
-             "-noprompt"], capture_output=True, text=True, check=False)
-        if keytool_run.returncode != 0:
-            self.skipTest(f"keytool cannot create signed-ZIP fixture: {keytool_run.stderr}")
-        sign_run = subprocess.run(
-            [jarsigner_path, "-keystore", str(keystore), "-storetype", "PKCS12",
-             "-storepass", "changeit", "-keypass", "changeit", str(apk_path), "fixture"],
-            capture_output=True, text=True, check=False)
-        if sign_run.returncode != 0:
-            self.skipTest(f"jarsigner cannot sign ZIP fixture: {sign_run.stderr}")
-        verified, version, reason, output = _run_verifier(
-            "jarsigner", Path(jarsigner_path), apk_path, keystore)
-        self.assertTrue(verified, reason)
-        output_path = root / "signer-output.txt"
-        output_path.write_bytes(output)
-        apk_hash = hashlib.sha256(apk_path.read_bytes()).hexdigest()
-        record = {
-            "apk_path": "signed.zip", "apk_sha256": apk_hash, "tool": "jarsigner",
-            "tool_version": version, "executable_path": str(Path(jarsigner_path).resolve()),
-            "executable_sha256": hashlib.sha256(Path(jarsigner_path).read_bytes()).hexdigest(),
-            "output_sha256": hashlib.sha256(output).hexdigest(),
-            "output_artifact": {"path": "signer-output.txt",
-                                "sha256": hashlib.sha256(output).hexdigest()},
-            "truststore": {"path": "fixture.p12",
-                           "sha256": hashlib.sha256(keystore.read_bytes()).hexdigest()},
-            "result": "PASS", "package_id": "com.example.fake", "package_version": "1",
-        }
-        record_path = root / "record.json"
-        record_path.write_text(json.dumps(record), encoding="utf-8")
-        ok, reason = _apk_verification_record(
-            root, {"path": "record.json", "sha256": hashlib.sha256(record_path.read_bytes()).hexdigest()},
-            "signed.zip", apk_hash)
+        with zipfile.ZipFile(apk_path, "w", compression=zipfile.ZIP_STORED) as archive:
+            for name, payload in {
+                "payload.txt": b"not an Android package",
+                "META-INF/MANIFEST.MF": b"Manifest-Version: 1.0\n",
+                "META-INF/CERT.SF": b"Signature-Version: 1.0\n",
+                "META-INF/CERT.RSA": b"\x30\x06\x06\x01\x00\xa0\x01\x00",
+            }.items():
+                archive.writestr(name, payload)
+        ok, reason = _apk_artifact(
+            root, "signed.zip", hashlib.sha256(apk_path.read_bytes()).hexdigest())
         self.assertFalse(ok)
-        self.assertRegex(reason.lower(), "android parser|not verified|identity")
+        self.assertIn("required Android artifact", reason)
 
     def test_fabricated_verifier_and_command_cannot_grant_device_authority(self) -> None:
-        root, manifest_path, data = self._write_verified_fixture()
+        root, manifest_path, data = self._write_verified_fixture(deterministic=True)
         record_path = root / "apk-verification.json"
         record = json.loads(record_path.read_text(encoding="utf-8"))
         record["tool"] = "fixture-apk-verifier"
@@ -488,7 +583,7 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertTrue(any("allowlisted tool" in error for error in report["machine_errors"]))
 
     def test_malformed_cert_rsa_is_not_signature_evidence(self) -> None:
-        root, _manifest_path, _data = self._write_verified_fixture()
+        root, _manifest_path, _data = self._write_verified_fixture(deterministic=True)
         apk_path = root / "build" / "typography-fixture.apk"
         with zipfile.ZipFile(apk_path) as source:
             entries = {info.filename: source.read(info) for info in source.infolist()}
@@ -533,7 +628,7 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertIsNone(_png_dimensions(path))
 
     def test_device_matrix_rejects_duplicate_content_with_distinct_paths(self) -> None:
-        root, manifest_path, data = self._write_verified_fixture()
+        root, manifest_path, data = self._write_verified_fixture(deterministic=True)
         device_path = root / "device.json"
         device = json.loads(device_path.read_text(encoding="utf-8"))
         first = device["device_matrix"][0]["screen"]
@@ -552,7 +647,7 @@ class TypographyAuditTests(unittest.TestCase):
                             for error in report["machine_errors"]))
 
     def test_device_evidence_requires_sha_bound_apk_verification_record(self) -> None:
-        root, manifest_path, data = self._write_verified_fixture()
+        root, manifest_path, data = self._write_verified_fixture(deterministic=True)
         device_path = root / "device.json"
         device = json.loads(device_path.read_text(encoding="utf-8"))
         record_path = root / "apk-verification.json"
@@ -581,7 +676,7 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertIn("required Android artifact", reason)
 
     def test_bad_dex_resources_and_signature_are_rejected(self) -> None:
-        root, _manifest_path, _data = self._write_verified_fixture()
+        root, _manifest_path, _data = self._write_verified_fixture(deterministic=True)
         path = root / "build" / "typography-fixture.apk"
 
         original_entries = None
@@ -612,7 +707,7 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertIn("signature", check(no_signature))
 
     def test_device_and_license_evidence_reject_forged_strings(self) -> None:
-        root, manifest_path, data = self._write_verified_fixture()
+        root, manifest_path, data = self._write_verified_fixture(deterministic=True)
         device = json.loads((root / "device.json").read_text(encoding="utf-8"))
         device["commit"] = "latest"
         (root / "device.json").write_text(json.dumps(device), encoding="utf-8")
@@ -631,7 +726,7 @@ class TypographyAuditTests(unittest.TestCase):
     def test_license_values_and_source_are_exact_and_provenanced(self) -> None:
         for license_value, source in (("NOT MIT LICENSE", "Project font"),
                                       ("MIT", "TBD source")):
-            root, manifest_path, data = self._write_verified_fixture()
+            root, manifest_path, data = self._write_verified_fixture(deterministic=True)
             (root / "ASSET_LICENSES.md").write_text(
                 "| Path | Source | License | URL | Modifications |\n"
                 "|---|---|---|---|---|\n"
