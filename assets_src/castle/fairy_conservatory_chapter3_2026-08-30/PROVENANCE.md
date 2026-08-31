@@ -46,22 +46,25 @@ Architecture correction prompt:
 > ornaments on the door leaves, side frames, hinges, or handles. Keep the
 > camera straight-on and isolate the doorway on a plain light field.
 
-The final runtime view inside that architecture reuses these exact project
+The final runtime view inside that architecture uses these exact project
 assets; the manifest records each SHA-256:
 
-- `assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r{0..1}_c{0..5}.png`
+- `assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png`
 - `assets/flats/fairy_conservatory_handoff/rainbow_walkway.png`
 - `assets/flats/fairy_conservatory_handoff/butterfly_house.png`
 - `assets/mg/butterfly.png`
 
-The horizon is authored at `y = 468 / 1024` (45.7% of the complete frame).
-The Butterfly House sits at that eye-level destination line and the rainbow
-causeway widens toward the threshold. Both new subjects are the targeted art
-gaps documented in
+The corrected Fairy Pond horizon is authored at `y = 354 / 1024` (34.6% of
+the complete frame), safely above the 50% maximum. The Butterfly House sits at
+that eye-level destination line and every lily pad remains below the horizon.
+The rainbow causeway's visible bottom is registered at `y = 965`, exactly the
+base of the architectural opening mask, so no grass, water strip, matte, or
+empty band separates the stage art from the door threshold. The generated
+background and both foreground subjects are documented in
 `assets_src/fairy_conservatory_handoff_2026-08-30/PROVENANCE.md`; they are
-scaled only as whole transparent sprites. This view therefore previews the
-intermediate Rainbow Stage instead of falsely opening straight into the Fairy
-Pond.
+composited without local warping or object repair. This view previews the
+intermediate Rainbow Stage inside the Lily-Pad Fairy World rather than the
+unrelated Sky Lagoon location.
 
 ## Rejected iterations retained
 
