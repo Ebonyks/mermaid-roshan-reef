@@ -6,6 +6,20 @@ extends RefCounted
 # no new nodes at hit time, nothing measurable on the M11. Hitstop is data
 # (enemy["hitstop"], owned by HitEngine, honored by each encounter's tick) —
 # never Engine.time_scale, which belongs to the probes.
+#
+# Since the animation-improvement wing (design 06 §20, 2026-08-31) this file
+# is also the shared feedback vocabulary for BOTH canvases: new decorative
+# tweens reuse these primitives instead of hand-rolling the same pattern per
+# site. Everything here is feedback motion under DL-MOT-07 — it never counts
+# as authored character animation.
+
+# Wing bounds (checked by tools/audit_animation_polish.py): decorative
+# motion shorter than MIN_DUR cannot be read on the target panel, longer
+# than MAX_DUR starts feeling like a wait to a four-year-old, and a full
+# scale-pulse cycle under MIN_PULSE_PERIOD approaches flicker territory.
+const MIN_DUR := 0.06
+const MAX_DUR := 1.8
+const MIN_PULSE_PERIOD := 0.30
 
 static var haptics_enabled := true   # parent settings toggle lands later
 
@@ -88,3 +102,88 @@ static func shake(cam: Camera3D, strength: float = 0.06, dur: float = 0.12) -> v
 static func haptic(ms: int) -> void:
 	if haptics_enabled and OS.has_feature("mobile"):
 		Input.vibrate_handheld(ms)
+
+# HUD/card entrance on the 2D canvas: grow + fade in to the node's own rest
+# state, rest-capture and prior-kill per the squash rules above so a rapid
+# replay can never compound. A Control's pivot defaults to its top-left
+# corner, which would swing the card away from its asserted rect during the
+# grow — the pivot is centered so `position`/`size` stay probe-exact.
+static func pop_in(ci: CanvasItem, dur: float = 0.30) -> void:
+	if ci == null or not ci.is_inside_tree():
+		return
+	var ctrl := ci as Control
+	var n2 := ci as Node2D
+	if ctrl == null and n2 == null:
+		return
+	if ctrl != null:
+		ctrl.pivot_offset = ctrl.size * 0.5
+	var rest_scale: Vector2
+	if ci.has_meta("juice_rest_scale2d"):
+		rest_scale = ci.get_meta("juice_rest_scale2d")
+	else:
+		rest_scale = ctrl.scale if ctrl != null else n2.scale
+		ci.set_meta("juice_rest_scale2d", rest_scale)
+	var rest_alpha: float
+	if ci.has_meta("juice_rest_alpha"):
+		rest_alpha = ci.get_meta("juice_rest_alpha")
+	else:
+		rest_alpha = ci.modulate.a
+		ci.set_meta("juice_rest_alpha", rest_alpha)
+	if ci.has_meta("juice_pop_tw"):
+		var old: Tween = ci.get_meta("juice_pop_tw")
+		if old != null and old.is_valid():
+			old.kill()
+	var tw: Tween = ci.create_tween()
+	ci.set_meta("juice_pop_tw", tw)
+	tw.set_parallel(true)
+	tw.tween_property(ci, "scale", rest_scale, dur).from(rest_scale * 0.82).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(ci, "modulate:a", rest_alpha, dur * 0.6).from(0.0)
+
+# Attack/QTE telegraph: gentle puffs that always end at the remembered rest
+# scale. Replaces the raw `set_loops` pattern whose loop targets froze
+# whatever mid-deform scale the build frame happened to see — under a
+# concurrent squash the enemy drifted permanently puffed (stuffie QTE,
+# 2026-08-31). Kills the squash tween too: both write `scale`, and two
+# writers on one property is the drift bug all over again.
+static func pulse3d(node: Node3D, peak: float = 1.18, times: int = 3, half: float = 0.18) -> void:
+	if node == null or not node.is_inside_tree():
+		return
+	var base: Vector3
+	if node.has_meta("juice_rest_scale"):
+		base = node.get_meta("juice_rest_scale")
+	else:
+		base = node.scale
+		node.set_meta("juice_rest_scale", base)
+	for meta_key: StringName in [&"juice_pulse_tw", &"juice_squash_tw"]:
+		if node.has_meta(meta_key):
+			var old: Tween = node.get_meta(meta_key)
+			if old != null and old.is_valid():
+				old.kill()
+	var tw: Tween = node.create_tween().set_loops(times)
+	node.set_meta("juice_pulse_tw", tw)
+	tw.tween_property(node, "scale", base * peak, half).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(node, "scale", base, half).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+# Pickup payoff: a quick pride pop, then shrink out and free. The touched
+# thing acknowledges the touch instead of teleporting out of existence
+# (DL-MOT-04). The caller must already have removed the node from every
+# logic list — after this call it is display-only and cannot be collected
+# twice; state, HUD, and save writes stay exactly where they were.
+static func vanish3d(node: Node3D, dur: float = 0.22) -> void:
+	if node == null:
+		return
+	if not node.is_inside_tree():
+		node.queue_free()   # never strand an off-tree node on the guard path
+		return
+	for meta_key: StringName in [&"juice_pulse_tw", &"juice_squash_tw"]:
+		if node.has_meta(meta_key):
+			var old: Tween = node.get_meta(meta_key)
+			if old != null and old.is_valid():
+				old.kill()
+	var base: Vector3 = node.scale
+	if node.has_meta("juice_rest_scale"):
+		base = node.get_meta("juice_rest_scale")
+	var tw: Tween = node.create_tween()
+	tw.tween_property(node, "scale", base * 1.22, dur * 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tw.tween_property(node, "scale", base * 0.04, dur * 0.65).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	tw.tween_callback(node.queue_free)

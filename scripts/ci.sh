@@ -62,6 +62,12 @@ python3 tools/audit_document_authority.py --stress \
 	|| { echo "DOCUMENT AUTHORITY SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_document_authority.py \
 	|| { echo "DOCUMENT AUTHORITY / CANONICAL FINDING FAIL"; exit 1; }
+# Animation-improvement wing: the shared feedback vocabulary keeps its
+# child-safe bounds and the wing's accepted exemplars stay wired.
+python3 -m unittest tools.tests.test_audit_animation_polish \
+	|| { echo "ANIMATION POLISH CONTRACT TEST FAIL"; exit 1; }
+python3 tools/audit_animation_polish.py \
+	|| { echo "ANIMATION POLISH / EXEMPLAR FAIL"; exit 1; }
 python3 -m unittest tools.tests.test_audit_imagine_handoff \
 	|| { echo "IMAGINE HANDOFF CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_imagine_handoff.py --all \

@@ -204,6 +204,7 @@ func _celebrate(tier: int) -> void:
 	big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	big.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	card.add_child(big)
+	Juice.pop_in(card)   # entrance only — position/size stay probe-exact
 	var col: Color = TIER_COLOR[tier]
 	var element_count: int = int(CELEBRATION_ELEMENTS[tier])
 	var burst := Control.new()
@@ -246,8 +247,12 @@ func _celebrate(tier: int) -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 1.0 + 0.15 * float(tier)
 		m.chime.play()
+	# Exit fade rides inside the same teardown tween and the same total
+	# lifetime, so retirement timing and the probes' teardown meta key are
+	# unchanged — the card simply no longer blinks out of existence.
 	var teardown_tween := cl.create_tween()
-	teardown_tween.tween_interval(CELEBRATION_SECONDS)
+	teardown_tween.tween_interval(CELEBRATION_SECONDS - 0.28)
+	teardown_tween.tween_property(card, "modulate:a", 0.0, 0.28)
 	teardown_tween.tween_callback(cl.queue_free)
 	cl.set_meta("teardown_tween", teardown_tween)
 

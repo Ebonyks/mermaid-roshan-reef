@@ -323,7 +323,9 @@ func _fairy_bloom_start() -> void:
 	# One coherent full-blossom sprite grows outward for the celebration.
 	var bloom: Node3D = _fairy_set_boss_stage("bloom")
 	if bloom != null:
-		bloom.scale = Vector3.ONE * 0.72
+		# seed small: the win moment shows the blossom SWELLING open instead
+		# of snapping in at 0.72; _tick_fairyshoot's eased curve grows it
+		bloom.scale = Vector3.ONE * 0.18
 	m._say("rosalina", "win", 0.0)
 
 func build(fr: Dictionary, origin: Vector3) -> void:
@@ -636,7 +638,10 @@ func _tick_fairyshoot(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		var center: Vector3 = m.g["boss_center"]
 		var bloom_art: Node3D = m.g.get("boss_art")
 		if bloom_art != null and is_instance_valid(bloom_art):
-			bloom_art.scale = Vector3.ONE * lerpf(0.72, 1.0, f)
+			# cubic ease-out: the growth pop lands AT the win moment, then
+			# settles — one writer per property, so no tween may touch this
+			var swell: float = 1.0 - pow(1.0 - f, 3.0)
+			bloom_art.scale = Vector3.ONE * lerpf(0.18, 1.0, swell)
 		if fmod(tt, 0.18) < delta * FS_PACE:
 			m._sparkle_burst(center + Vector3(randf() * 16 - 8, 1.0, randf() * 16 - 8), Color.from_hsv(randf(), 0.4, 1.0))
 		if float(m.g["bloom_t"]) <= 0.0:

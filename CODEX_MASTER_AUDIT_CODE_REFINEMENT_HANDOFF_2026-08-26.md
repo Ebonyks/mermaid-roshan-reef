@@ -235,6 +235,17 @@ Two obligations follow for every package in this round:
    applicable standing wings; a wing gap is reported to the owner as a wing
    request in your package report — never improvised around. Match the
    wing's named exemplars, not your own taste.
+
+   In particular, the **Animation improvement wing is Standing**
+   (2026-08-31; `DL-ANIM-01`–`DL-ANIM-06`, design 06 §20): any feedback or
+   decorative motion your package touches uses the `scripts/juice.gd`
+   vocabulary or an eased in-place curve — never a new hand-rolled copy of
+   a vocabulary pattern, never a per-call `Resource` allocation, always
+   rest-state hygiene — and `tools/audit_animation_polish.py` (in
+   `scripts/ci.sh`) must stay green. Migrate hand-rolled sites only in
+   files you are already touching. Do not add the checker to
+   `probes.yml` yourself: workflows are explicit-task-only, and those two
+   lines are already proposed to the owner.
 2. **The tablet performance wing is IN FLIGHT and owned by Fable.** Its
    scope: target-device/tablet performance measurement, the capture
    protocol, quality-tier threshold values, and device-side tuning — the

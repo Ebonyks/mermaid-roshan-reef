@@ -1201,3 +1201,49 @@ target-device, child, owner, or accepted-visual result is claimed.
 | closure | Open as of 2026-08-30; both protocols unrevalidated. |
 | relationships | Sibling of `MA-ENGINE-001`; gate-honesty kin to `MA-CI-007`. |
 | history | 2026-08-30: confirmed by the engine-adoption inventory; opened `CONFIRMED_OPEN`. |
+
+## MA-ANIM-001
+
+| Field | Value |
+|---|---|
+| id | `MA-ANIM-001` |
+| title | Reward beats celebrate beside the earned object instead of on it: the medal card appeared and vanished instantly, collected pearls were freed on contact, and the fairy bloom snapped to scale at the win moment. |
+| rule_ids | `DL-ANIM-05`, `DL-ANIM-02`, `DL-MOT-04` |
+| domain / zone | Feedback motion / `scripts/medal_system.gd`, `scripts/main.gd` pearl path, `scripts/games/fairy.gd`, day-one completion beats |
+| source | 2026-08-31 animation-improvement evaluation (`ANIMATION_IMPROVEMENT_2026-08-31.md`) mechanism inventory at the current head. |
+| severity | P3 |
+| lifecycle | `FIXED_PENDING_VERIFICATION` |
+| verification | V1 static: the exemplar fixes are read and statically gated (`tools/audit_animation_polish.py`); the full probe suite on CI and an owner device look at the medal/pearl/bloom moments are the pending verification. |
+| reproduction | Pre-fix: `medal_system.gd` celebration card was added at full scale/opacity and freed after a bare interval — the game's highest-value reward moment had no entrance or exit while only its sparkle ring animated; `main.gd` pearl contact ran `p.queue_free()` immediately with all feedback (burst, chime, voice) spawned beside the vanished pearl; `games/fairy.gd` `_fairy_bloom_start` assigned `scale = 0.72` statically so the celebratory growth began with a snap. The critter pop in `collection_system.gd` was the lone counter-example. |
+| child_impact | Cosmetic but central: reward legibility for a non-reader rides on the earned thing itself reacting — celebration beside a vanishing object reads weaker than the same celebration on it. No safety, agency, or fail-state impact either way. |
+| evidence | `ANIMATION_IMPROVEMENT_2026-08-31.md` sections 1–2; fix sites `scripts/medal_system.gd` (`Juice.pop_in` + teardown fade at unchanged total lifetime), `scripts/main.gd` (`Juice.vanish3d(p)` after list removal), `scripts/games/fairy.gd` (0.18 seed + cubic ease-out in the existing per-frame writer). |
+| owner_decision | Not required: additive feedback motion within standing motion rules; state, HUD, and save timing are unchanged by design. |
+| fix | Landed for the exemplar set via the shared vocabulary (`scripts/juice.gd` `pop_in`/`vanish3d` + the eased bloom curve). Remaining beats (day-one room completion and already-clean taps, bathroom supply-hunt completion, remaining hand-rolled pops) follow as-touched per `DL-ANIM-02` — explicitly not a bulk retrofit. |
+| surrounding_tests | `tools/tests/test_audit_animation_polish.py` (7 tests) and the checker in `scripts/ci.sh`; probe_rank's celebration contract fields (rect, counts, meta keys, teardown key and total lifetime) deliberately untouched; full trusted suite must stay green. |
+| acceptance | Suite green on CI at the fix head; medal card enters and exits smoothly, pearls pop-and-shrink on pickup, bloom swells at the win moment on the owner's device; exemplars stay wired per the checker. |
+| closure | Pending CI + owner look as of 2026-08-31. |
+| relationships | Sibling of `MA-ANIM-002`; pattern kin to the accepted `collection_system.gd` pop; subordinate to `DL-MOT-05` agency rules. |
+| history | 2026-08-31: confirmed by the wing inventory; exemplar fixes landed in the same change; opened `FIXED_PENDING_VERIFICATION`. |
+
+## MA-ANIM-002
+
+| Field | Value |
+|---|---|
+| id | `MA-ANIM-002` |
+| title | Decorative motion carries avoidable compute: the universal sparkle burst allocated a fresh mesh and material per call, and the reef's per-frame decorative ticks run ungated under most non-reef modes. |
+| rule_ids | `DL-ANIM-03`, `DL-PERF-03`, `DL-PERF-02` |
+| domain / zone | Decorative-motion compute / `scripts/main.gd` `_sparkle_burst` and `_process` tail ticks (`_tick_life`, `_tick_movers`, `_tick_aquatic`, `_tick_peng_pal`, `_tick_god_rays`, pearl/friend-orb loops) |
+| source | 2026-08-31 animation-improvement evaluation mechanism inventory. |
+| severity | P3 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static: allocation half read and fixed; the ungated-tick cost is inventoried but unmeasured — measurement is the tablet performance wing's, per its scope. |
+| reproduction | Pre-fix `_sparkle_burst` built a `BoxMesh` + `StandardMaterial3D` per call (runtime material creation, a named `DL-PERF-03` hard cost) on the universal reward path — the fairy bloom fires a random-color burst every 0.18 s. The `_process` tail dispatch runs the reef's decorative ticks (14-transform MultiMesh fish loop with 3 trig calls per transform, movers, turtle bone-pose writes, god rays, pearl bob, friend-orb halos) whenever it is reached: only kart returns early, so the reef keeps animating under level2, north, galaxy, ember, combat, stuffie, dungeon, and opera. |
+| child_impact | Indirect: frame-time headroom on the M11-class panel; no visible behavior implicated yet. |
+| evidence | `ANIMATION_IMPROVEMENT_2026-08-31.md` sections 1 and 3; the cached-burst fix in `scripts/main.gd` (shared mesh, quantized capped material cache). |
+| owner_decision | Required before the gating half ships: which modes intentionally keep the living reef visible behind them — gating is a composition decision, not only a perf one. |
+| fix | Allocation half landed (cache, this change). Gating half is a measured package: the tablet performance wing captures frame-time with the ticks on/off per mode; if the cost is real, a state gate lands behind a report-only flag first, honoring the composition answer; per-frame decorative sin writes elsewhere migrate to engine-side loops only where captures show cost (`DL-ANIM-03`). |
+| surrounding_tests | Checker keeps `_sparkle_mats` wired; probes must stay green across any gating change; capture evidence per the tablet wing's protocol. |
+| acceptance | No per-call `Resource` allocation on effect hot paths; each decorative tick either measured-and-kept (visible composition) or gated with the owner's composition answer recorded; measured frame-time delta documented. |
+| closure | Open as of 2026-08-31; allocation half fixed, gating half awaiting measurement and the composition decision. |
+| relationships | Sibling of `MA-ANIM-001`; measurement dependency on `MA-PERF-001` (tablet wing); overlaps the retiring 3D surface of `MA-2D-002` — gating work must not grow that surface. |
+| history | 2026-08-31: confirmed by the wing inventory; `_sparkle_burst` cache landed at opening; ungated-tick half remains open for the tablet wing's measurement. |

@@ -1365,3 +1365,67 @@ package-gated, probe-verified, reversible, never for novelty
 retiring (the shrinking 3D remainder under the true-2D migration) are not
 adopted; features that observe the child's device are owner-notified
 before shipping even when fully local.
+
+---
+
+## 20. Animation improvement — feedback and ambient motion economics
+
+_Added 2026-08-31 with the Animation improvement wing (master audit section
+3.4; evaluation `ANIMATION_IMPROVEMENT_2026-08-31.md`). Scope boundary:
+this family governs the ECONOMICS of feedback and ambient motion — how it
+is produced cheaply, consistently, and within compute budget. It never
+substitutes for section 9: what motion must communicate stays `DL-MOT-*`,
+and per `DL-MOT-07` nothing here counts as authored character animation._
+
+`DL-ANIM-01` — Cheapest-channel-first ladder. New feedback or ambient
+motion is sourced in this order: (1) the shared vocabulary in
+`scripts/juice.gd` or an eased curve on math the site already runs; (2)
+reuse of existing authored cels — holds, ping-pong, pose keys, or
+`SpriteTransition2D` crossfades — under the section 9 atlas gates; (3) new
+authored frames, last, through the full `DL-MOT-02`/`DL-MOT-08` pipeline.
+Skipping a rung is recorded with a reason or it is a finding.
+
+`DL-ANIM-02` — One shared vocabulary. The repeating feedback patterns
+(scale-pop, looping pulse, entrance, vanish-and-free) live as primitives
+in `scripts/juice.gd` with the house easing (`TRANS_SINE`/`TRANS_BACK`
+first; `TRANS_ELASTIC`/`TRANS_BOUNCE` as accents) and child-safe bounds
+(`MIN_DUR`, `MAX_DUR`, `MIN_PULSE_PERIOD`), enforced by
+`tools/audit_animation_polish.py`. New call sites reuse a primitive or
+extend the file; a third hand-rolled copy of a vocabulary pattern is a
+finding. Existing hand-rolled sites migrate as touched, never as a bulk
+retrofit.
+
+`DL-ANIM-03` — Decorative motion is engine-side and allocation-free.
+Prefer Tweens (engine-ticked) over per-frame GDScript trig for new
+decoration; a new per-frame decorative `_process` loop requires a state
+gate that stops it when its subject is not part of the active scene's
+composition. Effect calls on hot paths allocate no fresh `Resource`s
+(materials, meshes, shaders) per call — build once and share, as
+`_sparkle_burst`'s cache does (`DL-PERF-03`).
+
+`DL-ANIM-04` — Rest-state hygiene. Every repeatable effect memoizes the
+rest transform/modulate it restores to and kills the previous tween on the
+same property; one writer per animated property at a time. Reading a
+possibly-mid-deform live value as a tween target is the compounding-drift
+bug class (stuffie QTE telegraph, fixed 2026-08-31) and fails review.
+
+`DL-ANIM-05` — The earned thing acknowledges the touch. A reward beat
+puts motion on the collected/completed object itself — not only spawned
+VFX beside it — per `DL-MOT-04` coherence. Payoff motion is additive and
+display-only: state, counters, HUD, and save writes keep their exact
+pre-animation timing, and nothing waits on a tween (`DL-MOT-05`,
+`DL-AGE-*` no-fail rules).
+
+`DL-ANIM-06` — Approved art moves, it is never repainted by motion.
+Feedback on approved/protected art is transform-only (scale, position,
+rotation, whole-node alpha); no modulate tinting, recoloring, or relighting
+of approved character/book art, and sparkles or shadows arrive as separate
+overlay nodes. UI chrome the game owns may tint freely.
+
+Accepted exemplars (the named previous work future sites are measured
+against): the medal celebration card entrance/exit
+(`scripts/medal_system.gd`), the stuffie QTE telegraph
+(`scripts/stuffie_battle.gd`), the pearl pickup payoff and cached sparkle
+burst (`scripts/main.gd`), the fairy bloom eased curve
+(`scripts/games/fairy.gd`), and the pre-existing critter collection pop
+(`scripts/collection_system.gd`).

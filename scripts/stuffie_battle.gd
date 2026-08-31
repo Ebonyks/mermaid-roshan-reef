@@ -531,10 +531,11 @@ func _qte_begin(enemy: Dictionary) -> void:
 	qte_enemy = enemy
 	qte_t = _qte_window()
 	var node: Node3D = enemy["node"]
-	# the telegraph: the opponent puffs up and blinks warm-white
-	var tw := node.create_tween().set_loops(3)
-	tw.tween_property(node, "scale", node.scale * 1.18, 0.18)
-	tw.tween_property(node, "scale", node.scale, 0.18)
+	# the telegraph: the opponent puffs up and blinks warm-white. Juice owns
+	# the rest scale — the old inline loop froze whatever mid-squash scale the
+	# build frame saw, so a hit landing during the telegraph left the enemy
+	# permanently puffed.
+	Juice.pulse3d(node)
 	m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 3.5, 0), Color(1.0, 0.45, 0.45))
 	if dodge_btn != null:
 		dodge_btn.visible = true

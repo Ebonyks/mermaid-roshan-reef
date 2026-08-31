@@ -8434,6 +8434,16 @@ func _tick_guide(delta: float) -> void:
 			_sparkle_burst(player.position + dir2 * k + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
 	set_meta("guide_t", gt)
 
+# _sparkle_burst cache: mesh and materials are engine resources shared by
+# every live burst, so only the (cheap) particles node is per-call. A fresh
+# StandardMaterial3D per burst put runtime material creation — a DL-PERF-03
+# hard mobile cost — on the universal reward path, where celebrations fire
+# bursts in loops. Colors are quantized to 16 levels per channel (invisible
+# at sparkle size) so the fairy bloom's random-hue bursts can't grow the
+# cache without bound; the size cap is a backstop, never expected to hit.
+var _sparkle_mesh: BoxMesh = null
+var _sparkle_mats: Dictionary = {}
+
 func _sparkle_burst(pos: Vector3, col: Color) -> void:
 	var cp := CPUParticles3D.new()
 	cp.one_shot = true
@@ -8448,12 +8458,21 @@ func _sparkle_burst(pos: Vector3, col: Color) -> void:
 	cp.gravity = Vector3(0, -1.2, 0)
 	cp.scale_amount_min = 0.10
 	cp.scale_amount_max = 0.26
-	var bm := BoxMesh.new()
-	bm.size = Vector3(0.3, 0.3, 0.3)
-	cp.mesh = bm
-	var pm := StandardMaterial3D.new()
-	pm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	pm.albedo_color = col
+	if _sparkle_mesh == null:
+		_sparkle_mesh = BoxMesh.new()
+		_sparkle_mesh.size = Vector3(0.3, 0.3, 0.3)
+	cp.mesh = _sparkle_mesh
+	var key: int = col.to_rgba32() & 0xF0F0F0F0
+	var pm: StandardMaterial3D = null
+	if _sparkle_mats.has(key):
+		pm = _sparkle_mats[key]
+	else:
+		if _sparkle_mats.size() >= 64:
+			_sparkle_mats.clear()   # live bursts keep their refs; next calls refill
+		pm = StandardMaterial3D.new()
+		pm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		pm.albedo_color = Color.hex(key | 0x0F0F0F0F)
+		_sparkle_mats[key] = pm
 	cp.material_override = pm
 	cp.position = pos
 	add_child(cp)
@@ -9612,7 +9631,9 @@ func _process(delta: float) -> void:
 			var h: MeshInstance3D = p.get_meta("halo")
 			if is_instance_valid(h):
 				h.queue_free()
-			p.queue_free()
+			# removed from `pearls` first, so the fading node is display-only
+			# and can never be collected twice; count/HUD/save stay instant
+			Juice.vanish3d(p)
 			pearls.remove_at(i)
 			pearl_count += 1
 			if pearl_count % 25 == 0 and player != null:
