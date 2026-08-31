@@ -72,7 +72,7 @@ sky_lagoon_promenade, courtyard_train, northern_kingdom}`,
 picture_games, side_scroll, brawl, dance_engine}`.
 
 `scripts/castle_career_routes.gd` is the current immutable route registry for
-the thirteen Opera careers. It centralizes room ownership and sparse save-slot
+the fourteen Opera careers. It centralizes room ownership and sparse save-slot
 identity but does not own mutable game state; Castle room controllers and
 `ReefMain` remain the lifecycle owners.
 
@@ -87,11 +87,13 @@ save-restore, report through a `finish_cb`): `kart`, `galaxy`, `combat_arena`,
 remaining spatial mode migrates to Canvas/Node2D while preserving lifecycle
 and behavior.
 
-The current Opera inventory is 13 careers, 53 phases and 27 unique shipping
+The current Opera inventory is 14 careers, 57 phases and 28 unique shipping
 modes under `OperaCareerWorld2D`. Ballerina routes to
 `opera_ballet_surface.gd`, Boxer to `opera_boxing_surface.gd`, and Racer stays
 inside the Canvas gesture surface for Tune, To the Line and its racing-circle
-finale. The current repair collapses `opera_house.gd` and `opera_act.gd` to the
+finale. Geologist appends at save bit 16, launches from the Royal Library, and
+uses the shared gesture surface plus its `geology_sort` specialist mode. The
+current repair collapses `opera_house.gd` and `opera_act.gd` to the
 same Canvas-only lifecycle for ordinary unforced headless and display entry;
 neither controller loads the external kart or a boss engine. Exact focused and
 full local Godot 4.7.1 lifecycle coverage is green, so `MA-OPERA-010` is
@@ -270,12 +272,13 @@ under `MA-CODE-002`.
 - `CORE_KEYS = [won, found, pearls, plays]` distinguish a genuine save from an
   empty one.
 - A future-schema save is opened read-only rather than being downgraded.
-- `opera_stars` retains its 16-slot compatibility namespace, but owner-cut
-  boss slots 4, 9, and 14 are permanent inert tombstones. Never compact or
-  reuse those bits; raw legacy bits remain stored, live completion uses mask
-  `0xBDEF`, effective progress is the 0–13 live-bit count, and historical
-  boss-bit/`opera_progress` values must not revoke or miscredit a surviving
-  career (`MA-OPERA-011`).
+- `opera_stars` retains every identity in its historical lower sixteen bits;
+  the owner-directed Geologist career appends at bit 16 without shifting them.
+  Owner-cut boss slots 4, 9, and 14 are permanent inert tombstones. Never
+  compact or reuse those bits; raw legacy bits remain stored, live completion
+  uses mask `0x1BDEF`, effective progress is the 0–14 live-bit count, and
+  historical boss-bit/`opera_progress` values must not revoke or miscredit a
+  surviving career (`MA-OPERA-011`).
 - Gates: `probe_load.gd` (restore), `probe_save_recovery.gd` (corruption),
   `probe_rank.gd` (medal round-trip).
 

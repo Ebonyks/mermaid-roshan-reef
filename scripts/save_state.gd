@@ -6,8 +6,8 @@ extends RefCounted
 # child's progress.
 
 const SCHEMA_VERSION := 1
-const OPERA_ACTIVE_STAR_MASK := 0xBDEF
-const OPERA_ACTIVE_ACT_COUNT := 13
+const OPERA_ACTIVE_STAR_MASK := 0x1BDEF
+const OPERA_ACTIVE_ACT_COUNT := 14
 const BACKUP_SUFFIX := ".bak"
 const NEW_GAME_ARCHIVE_SUFFIX := ".before_new_game"
 const TEMP_SUFFIX := ".tmp"
@@ -75,7 +75,7 @@ var _warned_future_write_skip := false
 
 static func _opera_live_star_count(star_mask: int) -> int:
 	var total := 0
-	for bit_index in range(16):
+	for bit_index in range(17):
 		var bit := 1 << bit_index
 		if (OPERA_ACTIVE_STAR_MASK & bit) != 0 and (star_mask & bit) != 0:
 			total += 1
@@ -184,9 +184,10 @@ func load_save() -> void:
 	m.ember_found = bool(m.save_data.get("ember_found", false))
 	m.ember_progress = clampi(int(m.save_data.get("ember_progress", 0)), 0, 6)
 	m.ember_done = bool(m.save_data.get("ember_done", false))
-	m.opera_stars = clampi(int(m.save_data.get("opera_stars", 0)), 0, 65535)
-	# Progress is an effective count of the thirteen live careers. The raw
-	# sixteen-bit mask remains authoritative and retains retired bits verbatim.
+	m.opera_stars = clampi(int(m.save_data.get("opera_stars", 0)), 0, 131071)
+	# Progress is an effective count of the live careers. The historical lower
+	# sixteen bits remain authoritative and retain retired bits verbatim;
+	# Geologist appends at bit sixteen so no legacy identity shifts.
 	m.opera_progress = _opera_live_star_count(m.opera_stars)
 	m._chapter_two_ref().restore_state(m.save_data)
 	m.opera_done = bool(m.save_data.get("opera_done", false))
@@ -282,7 +283,7 @@ func write_save() -> bool:
 	next_data["ember_found"] = m.ember_found
 	next_data["ember_progress"] = clampi(m.ember_progress, 0, 6)
 	next_data["ember_done"] = m.ember_done
-	m.opera_stars = clampi(m.opera_stars, 0, 65535)
+	m.opera_stars = clampi(m.opera_stars, 0, 131071)
 	m.opera_progress = _opera_live_star_count(m.opera_stars)
 	next_data["opera_progress"] = m.opera_progress
 	next_data["opera_stars"] = m.opera_stars
@@ -561,7 +562,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	var comfy_state: Dictionary = ComfyGames.normalise_save_patch(raw)
 	data["comfy_games"] = comfy_state
 	var raw_opera_stars := clampi(
-		_nonnegative_int_or_default(raw, "opera_stars", 0), 0, 65535)
+		_nonnegative_int_or_default(raw, "opera_stars", 0), 0, 131071)
 	var chapter_two_state := ChapterTwoDirector.normalise_save_patch(
 		data, raw_opera_stars)
 	for chapter_two_key: String in chapter_two_state:
@@ -623,7 +624,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	var opera_stars: int = clampi(
 		_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1),
 		0,
-		65535
+		131071
 	)
 	data["opera_stars"] = opera_stars
 	data["opera_progress"] = _opera_live_star_count(opera_stars)

@@ -313,6 +313,12 @@ const PHASES := {
 		{"name": "RHYTHM", "mode": "echo", "goal": 3.0, "vo": "op_popstar_rhythm", "voice": "Listen to the three stars, then sing their song back!"},
 		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore", "voice": "Draw one big encore spin for the crowd!"},
 	],
+	"geologist": [
+		{"name": "LAYERS", "mode": "choice", "widget": "", "goal": 3.0, "voice": "Tap the rock layer that matches the glowing sample!"},
+		{"name": "FOSSIL", "mode": "swipe", "widget": "", "goal": 5.0, "voice": "Brush gently across the stone to uncover the spiral fossil!"},
+		{"name": "SORT", "mode": "geology_sort", "widget": "", "goal": 6.0, "voice": "Drag each specimen into the tray with the same shape and color!"},
+		{"name": "CRYSTAL", "mode": "hold", "widget": "", "goal": 4.0, "voice": "Hold the pearl lamp and make the crystal cave sparkle!"},
+	],
 }
 
 const FINALE_START := {
@@ -329,6 +335,7 @@ const FINALE_START := {
 	"racer": 2,
 	"nursery": 4,
 	"popstar": 2,
+	"geologist": 3,
 }
 
 ## Stable landmark IDs keep every task attached to the painted object that
@@ -348,6 +355,7 @@ const PHASE_STATIONS := {
 	"racer": {"TUNE": "pearl_dome_pavilion", "TO THE LINE": "pearl_start_arch", "RACE": "ribbon_finish_arch"},
 	"nursery": {"WASH HANDS": "wash_basin", "CATCH BABIES": "cuddle_cushions", "FEED": "bottle_nook", "BURP": "cuddle_cushions", "BEDTIME": "moon_bed"},
 	"popstar": {"SOUND CHECK": "mic_gazebo", "DANCE": "record_dais", "RHYTHM": "shell_stage", "ENCORE": "shell_stage"},
+	"geologist": {"LAYERS": "layer_wall", "FOSSIL": "fossil_table", "SORT": "specimen_trays", "CRYSTAL": "crystal_gallery"},
 }
 
 ## The specialist rebuild renamed its phases but intentionally reuses the
@@ -386,6 +394,7 @@ const GOAL_PROPS := {
 	"racer": "goal_racer",
 	"popstar": "goal_popstar",
 	"nursery": "goal_nursery",
+	"geologist": "goal_geologist.svg",
 }
 var m: ReefMain
 var config: Dictionary = {}
@@ -1063,7 +1072,10 @@ func _build_world() -> void:
 	rival_bar.visible = false
 	root.add_child(rival_bar)
 
-	player_actor = _actor("res://assets/opera/worlds/actors/roshan_%s.png" % career_id)
+	var player_actor_path := "res://assets/opera/worlds/actors/roshan_%s.png" % career_id
+	if career_id == "geologist":
+		player_actor_path = OperaRoshanActor.ATLAS_PATH % career_id
+	player_actor = _actor(player_actor_path)
 	# scale contract: Roshan is ~1.3x a crew imp, ~1.2x the captain —
 	# a small bit taller, never more than 1.5x (owner 2026-08-03)
 	# The ballet silhouette gets a little more room, while staying below the
@@ -1080,6 +1092,10 @@ func _build_world() -> void:
 	var partner_path := "res://assets/opera/worlds/actors/rival_%s.png" % career_id
 	if career_id == "nursery":
 		partner_path = "res://assets/opera/worlds/actors/faron_nursery.png"
+	elif career_id == "geologist":
+		# The approved detective field-guide imp already carries the magnifier
+		# and explorer coat this collaborative science activity needs.
+		partner_path = "res://assets/opera/worlds/actors/rival_detective.png"
 	rival_actor = _actor(partner_path)
 	rival_actor.size = Vector2(190, 190)   # he is an imp, not her equal in height
 	_place_on_stage(rival_actor, StagePaths.point_along(stage_points, 0.92))
@@ -1089,7 +1105,10 @@ func _build_world() -> void:
 	prop_rect = TextureRect.new()
 	var prop_path := String(scene_adapter.get("prop", ""))
 	if prop_path.is_empty():
-		prop_path = "res://assets/opera/worlds/props/%s.png" % String(GOAL_PROPS.get(career_id, ""))
+		var prop_file := String(GOAL_PROPS.get(career_id, ""))
+		if not prop_file.is_empty() and prop_file.get_extension().is_empty():
+			prop_file += ".png"
+		prop_path = "res://assets/opera/worlds/props/%s" % prop_file
 	# Chef and Candy Maker carry the same stateful cake node above. Do not add
 	# a second generic goal card or let the final cake texture appear before
 	# the saved piece masks say that it is ready.

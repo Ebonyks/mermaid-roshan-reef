@@ -1,5 +1,5 @@
 extends SceneTree
-## Runtime contract for the thirteen Canvas-based Pearl Opera career worlds.
+## Runtime contract for the Canvas-based Pearl Opera career worlds.
 ##
 ## This selects the ordinary Canvas career path used on every renderer. The
 ## companion probe_opera.gd protects stable save slots and real room lifecycle,
@@ -58,6 +58,9 @@ const DIRECT_SURFACE_CONTRACTS := {
 	"racer": {
 		"RACE": {"mode": "circle", "goal": 0.9, "context": ""},
 	},
+	"geologist": {
+		"SORT": {"mode": "geology_sort", "goal": 6.0, "context": "geology_specimens"},
+	},
 }
 
 const RETAINED_ROTATIONS := {
@@ -95,8 +98,8 @@ func _audit_shipping_hotspot_specs() -> void:
 				missing_specs.append("%s/%s -> %s" % [
 					career, phase_name, catalog_name,
 				])
-	_check("all 53 shipping phases resolve through aliases to hotspot art specs",
-		shipping_phase_count == 53 and missing_specs.is_empty())
+	_check("all 57 shipping phases resolve through aliases to hotspot art specs",
+		shipping_phase_count == 57 and missing_specs.is_empty())
 	for missing_spec: String in missing_specs:
 		print("OPERA2D|shipping_hotspot: missing %s" % missing_spec)
 
@@ -226,7 +229,7 @@ func _init() -> void:
 			await _capture_viewport(lobby_shot_out.path_join(
 				"castle_career_routes_%s.png" % route_room))
 	all_card_indices.sort()
-	_check("nine room route sets cover all thirteen live sparse slots once",
+	_check("nine room route sets cover all fourteen live sparse slots once",
 		all_card_indices == OperaHouse.LIVE_ACT_INDICES and all_route_art_ok)
 	_check("Opera Hall has only Ballerina, Pop Star and Magician",
 		CastleCareerRoutes.act_indices_for_room("opera_hall") == [2, 13, 8])
@@ -409,6 +412,7 @@ func _init() -> void:
 			"candymaker": "candy_sort", "doctor": "xray_scan", "farmer": "farm_lob",
 			"boxer": "boxing_guide", "magician": "magic_cabinet", "painter": "paint_reveal",
 			"astronaut": "pipe", "racer": "circle", "nursery": "catch", "popstar": "echo",
+			"geologist": "geology_sort",
 		}
 		_check("%s contains its signature mechanic" % career,
 			modes.has(String(expected_signature.get(career, ""))))
@@ -772,10 +776,18 @@ func _init() -> void:
 		else:
 			_check("%s starts in its job world, off the proscenium" % career,
 				backdrop != null and not backdrop.stage_mode)
-		_check("%s paints the supplied codex career world" % career,
-			backdrop != null and backdrop.world_tiles.size() == 4)
-		_check("%s owns a complete on-stage tile set" % career,
-			backdrop != null and backdrop.stage_tiles.size() == 4)
+		var owns_world_art := backdrop != null and backdrop.world_tiles.size() == 4
+		if career == "geologist":
+			owns_world_art = backdrop != null and backdrop.world_tiles.is_empty() \
+				and backdrop.painting == null
+		_check("%s paints the supplied codex career world" % career, owns_world_art)
+		var owns_stage_art := backdrop != null and backdrop.stage_tiles.size() == 4
+		if career == "geologist":
+			# Geologist is intentionally authored as resolution-independent Canvas
+			# scenery; unlike a raster panorama it has no per-screen pixel minimum.
+			owns_stage_art = backdrop != null and backdrop.stage_tiles.is_empty() \
+				and backdrop.painting == null
+		_check("%s owns complete stage art" % career, owns_stage_art)
 		if not rival_shot_out.is_empty() and not cooperative \
 				and career not in ["ballerina", "boxer"]:
 			await _capture_rival_states(world, career, backdrop)
@@ -900,7 +912,7 @@ func _init() -> void:
 		# those contracts are exercised above instead of requiring reskin assets.
 		var career_widget_contract_complete := widgets_complete \
 			and (widget_count > 0 \
-				or career in ["ballerina", "boxer", "detective", "racer"])
+				or career in ["ballerina", "boxer", "detective", "racer", "geologist"])
 		_check("%s loads every diegetic phase widget" % career,
 			career_widget_contract_complete)
 		widget_contracts_complete = widget_contracts_complete \
@@ -1145,9 +1157,9 @@ func _init() -> void:
 	_check("five early exits and re-entries free every Opera world and restore touch",
 		reentry_clean)
 
-	_check("all thirteen career jobs were exercised", show_count == 13)
-	_check("the current thirteen careers expose exactly fifty-three phases",
-		total_phase_count == 53)
+	_check("all fourteen career jobs were exercised", show_count == 14)
+	_check("the current fourteen careers expose exactly fifty-seven phases",
+		total_phase_count == 57)
 	_check("all shared art-family career widget contracts were exercised",
 		widget_contracts_complete and total_widget_count > 0)
 	_check("every declared direct specialist surface was exercised",

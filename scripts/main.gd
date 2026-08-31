@@ -461,8 +461,8 @@ var opera_hud_previous_layer := 0
 var opera_hud_game_was_visible := false
 var opera_obj_was_visible := false
 var opera_player_was_visible := true
-var opera_progress := 0            # cleared live Opera careers, 0..13
-var opera_stars := 0               # stable 16-bit mask; retired bits stay preserved
+var opera_progress := 0            # cleared live Opera careers, 0..14
+var opera_stars := 0               # stable 17-slot mask; retired bits stay preserved
 var opera_done := false
 # The rhythm (owner 2026-07-25): every shelled act opens with a RESCUE — imps
 # have someone caged backstage — and the freed friends hand Roshan a GIFT that

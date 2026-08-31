@@ -28,7 +28,7 @@ func _init() -> void:
 		int(old_save["opera_progress"]) == 12
 		and int(old_save["opera_stars"]) == (1 << 15) - 1
 		and (int(old_save["opera_stars"]) & (1 << 15)) == 0
-		and OperaHouse.ACTIVE_STAR_MASK == 0xBDEF
+		and OperaHouse.ACTIVE_STAR_MASK == 0x1BDEF
 		and OperaHouse.RETIRED_STAR_MASK == 0x4210)
 	var act := OperaAct.new()
 	get_root().add_child(act)

@@ -84,7 +84,7 @@ func _probe_inventory() -> void:
 		"ember": 1,
 		"ice_dungeon": 10,
 		"ember_dungeon": 6,
-		"opera_act": 13,
+		"opera_act": 14,
 	}
 	var actual_groups: Dictionary = {}
 	var ambient_ids: Dictionary = {}
@@ -133,8 +133,8 @@ func _probe_inventory() -> void:
 		ReefDistricts.REGION_CENTERS.size() == 6
 		and DungeonLevel.ROOMS.size() == 10
 		and EmberFortressLevel.ROOMS.size() == 6
-		and OperaHouse.ACTS.size() == 16
-		and OperaHouse.ACTIVE_ACT_COUNT == 13)
+		and OperaHouse.ACTS.size() == 17
+		and OperaHouse.ACTIVE_ACT_COUNT == 14)
 
 
 func _probe_opera_sparse_stage_routing() -> void:
