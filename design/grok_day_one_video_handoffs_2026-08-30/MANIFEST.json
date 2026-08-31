@@ -1,0 +1,30 @@
+{
+  "schema": "day-one-grok-copy-blocks-v1",
+  "date": "2026-08-30",
+  "shared_block": "00_SHARED_STYLE_AND_CHARACTER_REFERENCE.txt",
+  "operator_rule": "Paste the shared block once, paste one video setup, then run every shot copy block as a separate Grok job.",
+  "claims": {
+    "archive_complete": false,
+    "generation_ready": false,
+    "delivery_accepted": false
+  },
+  "summary": {
+    "videos": 13,
+    "shot_copy_blocks": 70
+  },
+  "videos": [
+    {"id": "D1-C00", "file": "D1-C00_OPENING_FLIGHT.txt", "shots": 6},
+    {"id": "D1-C01", "file": "D1-C01_LAGOON_LANDING_AND_CASTLE_APPROACH.txt", "shots": 4},
+    {"id": "D1-C02", "file": "D1-C02_FIRST_DIRTY_CASTLE_DISCOVERY.txt", "shots": 4},
+    {"id": "D1-C03", "file": "D1-C03_BATHROOM_DIRTY_ENTRY.txt", "shots": 4},
+    {"id": "D1-C04", "file": "D1-C04_BATHROOM_RESTORED.txt", "shots": 4},
+    {"id": "D1-C05", "file": "D1-C05_POOL_DIRTY_DISCOVERY.txt", "shots": 6},
+    {"id": "D1-C06", "file": "D1-C06_POOL_DUAL_PURIFICATION_RUMI_HUG.txt", "shots": 9},
+    {"id": "D1-C07", "file": "D1-C07_STUFFIE_DIRTY_DISCOVERY.txt", "shots": 6},
+    {"id": "D1-C08", "file": "D1-C08_STUFFIE_RESTORATION.txt", "shots": 7},
+    {"id": "D1-C09", "file": "D1-C09_ART_ROOM_DIRTY_DISCOVERY.txt", "shots": 5},
+    {"id": "D1-C10", "file": "D1-C10_ART_ROOM_RESTORED.txt", "shots": 5},
+    {"id": "D1-C11", "file": "D1-C11_GRAND_PUFF_REVEAL.txt", "shots": 4},
+    {"id": "D1-C12", "file": "D1-C12_RESTORED_CASTLE_FINALE.txt", "shots": 6}
+  ]
+}
