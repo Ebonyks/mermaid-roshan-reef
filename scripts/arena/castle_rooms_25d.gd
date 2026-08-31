@@ -1862,6 +1862,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 				"talk")
 		else:
 			m.show_msg("Pearl Castle", String(room["name"]), "home")
+	m._chapter_two_sync_room_plot()
 
 func _room(room_id: String) -> Dictionary:
 	for room: Dictionary in ROOMS:
@@ -2946,6 +2947,21 @@ func _activate_room_item(item_id: String) -> void:
 		sprite.set_meta("launch_activity_after_sequence", launch_activity)
 	_play_sprite_atlas_sequence(sprite, item_data, true,
 		m.castle_room_id == "kitchen" and item_id == "fridge")
+
+
+func activate_chapter2_plot_prop(room_id: String, item_id: String) -> bool:
+	# This narrow bridge lets the Chapter 2 director play an existing authored
+	# prop response without turning ordinary room-item taps into skill uses.
+	var permitted := {
+		"library": "magic_book",
+		"playroom": "stuffie_nook",
+	}
+	if m.castle_room_id != room_id \
+			or String(permitted.get(room_id, "")) != item_id \
+			or not m.castle_room_item_sprites.has(item_id):
+		return false
+	_activate_room_item(item_id)
+	return true
 
 func _activate_roleplay_item(roleplay_action: String, item_id: String,
 		sprite: Sprite2D, item_data: Dictionary) -> void:

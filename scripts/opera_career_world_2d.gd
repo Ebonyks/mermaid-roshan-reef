@@ -20,6 +20,8 @@ const HotspotCatalog := preload("res://scripts/opera_hotspot_catalog.gd")
 const ChapterTwoAdapter := preload("res://scripts/chapter_two_career_scene_adapter.gd")
 const ChapterTwoCake := preload("res://scripts/chapter_two_giant_cake_2d.gd")
 const ChapterTwoCandle := preload("res://scripts/chapter_two_rainbow_candle_2d.gd")
+const CHAPTER2_DETECTIVE_RESULT_ASSET: String = \
+	"res://assets/chapter2/birthday/rainbow_candle_unlit.png"
 
 ## Detective search geometry. The authored magnifier is a 512px square with
 ## its glass centred near (181, 181); anchoring the art by that point keeps the
@@ -538,6 +540,7 @@ var chapter2_candle_scene: ChapterTwoRainbowCandle2D = null
 var chapter2_rumi_scene: Sprite2D = null
 var chapter2_strawberry_pickups: Array[TextureButton] = []
 var chapter2_strawberry_pickup_texture: Texture2D = null
+var chapter2_single_strawberry_texture: Texture2D = null
 var chapter2_detective_candle_button: Button = null
 var chapter2_candy_cake_texture: Texture2D = null
 
@@ -785,10 +788,12 @@ func _build_chapter2_story_props() -> void:
 
 
 func _build_chapter2_strawberry_pickups() -> void:
-	var path := "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png"
-	if not ResourceLoader.exists(path):
+	var cluster_path := "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png"
+	var path := "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png"
+	if not ResourceLoader.exists(cluster_path) or not ResourceLoader.exists(path):
 		return
-	chapter2_strawberry_pickup_texture = load(path) as Texture2D
+	chapter2_strawberry_pickup_texture = load(cluster_path) as Texture2D
+	chapter2_single_strawberry_texture = load(path) as Texture2D
 	var positions: Array[Vector2] = [
 		Vector2(180.0, 258.0), Vector2(390.0, 194.0),
 		Vector2(610.0, 270.0), Vector2(830.0, 190.0),
@@ -797,7 +802,7 @@ func _build_chapter2_strawberry_pickups() -> void:
 	for pick_index in range(positions.size()):
 		var pickup := TextureButton.new()
 		pickup.name = "Chapter2SkyLagoonStrawberry_%02d" % pick_index
-		pickup.texture_normal = chapter2_strawberry_pickup_texture
+		pickup.texture_normal = chapter2_single_strawberry_texture
 		pickup.ignore_texture_size = true
 		pickup.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 		pickup.position = positions[pick_index] - Vector2(62.0, 62.0)
@@ -817,6 +822,8 @@ func _build_chapter2_strawberry_pickups() -> void:
 	set_meta("chapter2_strawberry_pickup_count", chapter2_strawberry_pickups.size())
 	set_meta("chapter2_strawberry_pickup_indices", [0, 1, 2, 3, 4])
 	set_meta("chapter2_strawberry_pickup_texture", path)
+	set_meta("chapter2_strawberry_pickup_visual", "approved_single_strawberry")
+	set_meta("chapter2_strawberry_cluster_asset", cluster_path)
 	_refresh_chapter2_strawberry_pickups()
 
 
@@ -826,6 +833,17 @@ func _is_chapter2_strawberry_pick_phase() -> bool:
 		return false
 	var phase := phases[phase_index] as Dictionary
 	return String(phase.get("milestone", "")) == "gather_strawberries"
+
+
+func _chapter2_strawberry_mask_count() -> int:
+	if m == null:
+		return 0
+	var mask := int(m.chapter2_strawberry_mask) & 0x1F
+	var count := 0
+	for pick_index in range(5):
+		if (mask & (1 << pick_index)) != 0:
+			count += 1
+	return count
 
 
 func _is_chapter2_detective_scene() -> bool:
@@ -844,7 +862,10 @@ func _refresh_chapter2_strawberry_pickups(opened := false) -> void:
 	if chapter2_strawberry_pickups.is_empty():
 		return
 	var saved_mask := int(m.chapter2_strawberry_mask) if m != null else 0
+	var earned_count := _chapter2_strawberry_mask_count()
 	var show := opened and _is_chapter2_strawberry_pick_phase()
+	set_meta("chapter2_strawberry_pick_count", earned_count)
+	set_meta("chapter2_strawberry_mask", saved_mask & 0x1F)
 	for pick_index in range(chapter2_strawberry_pickups.size()):
 		var pickup := chapter2_strawberry_pickups[pick_index]
 		if pickup == null or not is_instance_valid(pickup):
@@ -866,7 +887,9 @@ func _on_chapter2_strawberry_pick(pick_index: int) -> void:
 	if not m.chapter2_record_strawberry_pick(pick_index):
 		_refresh_chapter2_strawberry_pickups(true)
 		return
-	phase_progress = minf(5.0, phase_progress + 1.0)
+	# Recompute from the persisted mask rather than a local counter. This keeps
+	# a quit/re-entry with one through four berries resumable and exact.
+	phase_progress = float(_chapter2_strawberry_mask_count())
 	var pickup := chapter2_strawberry_pickups[pick_index]
 	pickup.disabled = true
 	pickup.modulate = Color(0.42, 0.32, 0.52, 0.38)
@@ -906,7 +929,7 @@ func _on_chapter2_candle_reveal() -> void:
 	_adapter_hook("candle_found", {
 		"result": "unlit_rainbow_candle",
 		"lit": false,
-		"asset": "res://assets/opera/worlds/props/rainbow_candle_unlit.png",
+		"asset": CHAPTER2_DETECTIVE_RESULT_ASSET,
 	})
 	phase_complete_t = 1.1
 	phase_advance_pending = true
@@ -2075,6 +2098,10 @@ func _arm_phase() -> void:
 	phase_progress = 0.0
 	idle_t = 0.0
 	var phase := phases[phase_index] as Dictionary
+	if _is_chapter2_strawberry_pick_phase():
+		# The harvest is five persistent objects, so resume from the saved mask
+		# population instead of restarting a local progress counter at zero.
+		phase_progress = float(_chapter2_strawberry_mask_count())
 	var mode_name := String(phase.get("mode", "tap"))
 	_refresh_chapter2_story_props()
 	_adapter_hook("phase_armed", scene_snapshot())
@@ -2247,6 +2274,8 @@ func _open_task() -> void:
 			surface.swipe_dir = Vector2.UP
 			surface.swipe_require_dir = true
 	phase_fill.value = 0.0
+	if _is_chapter2_strawberry_pick_phase():
+		phase_fill.value = phase_progress / maxf(0.1, float(phase.get("goal", 5.0))) * 100.0
 	action_panel.queue_redraw()
 
 
