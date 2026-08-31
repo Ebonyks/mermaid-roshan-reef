@@ -1244,20 +1244,20 @@ device, child, human, or owner acceptance.
 | title | Critical navigation, category, habitat, care, career, lock, confirmation, progress, and reward meanings use Unicode/emoji without a packaged coverage classification or authored replacement. |
 | rule_ids | `DL-TYPE-07`, `DL-TYPE-11`, `DL-AGE-01`, `DL-READ-02` |
 | domain / zone | Semantic pictograms / game-wide UI and objectives |
-| source | 2026-08-30 live-symbol inventory at historical `0ddbe656`; committed scanner classification from `828e169f`/`4e4e66b4` is implementation evidence only. |
+| source | 2026-08-30 live-symbol inventory at historical `0ddbe656`, reconciled with current source head `5bf3b1a4`; committed scanner classification from `828e169f`/`4e4e66b4` and the current `U+26A1` source evidence are implementation evidence only. |
 | severity | P1 |
 | lifecycle | `CONFIRMED_OPEN` |
 | verification | V1: live symbols and semantic uses located; no claim that a specific glyph currently fails on M11. |
-| reproduction | Search non-probe scripts for non-ASCII UI strings and dictionaries. Stars, shells, arrows, locks, checks, category/habitat/care/career emoji and other symbols appear in buttons, labels, objectives, pips, sticker hints and Label3D bubbles; no live-code-point manifest, glyph test, or device matrix exists. |
+| reproduction | Search non-probe scripts for non-ASCII UI strings and dictionaries. Stars, shells, arrows, locks, checks, category/habitat/care/career emoji and other symbols appear in buttons, labels, objectives, pips, sticker hints and Label3D bubbles; the reconciled head adds one `U+26A1` occurrence in the optional Dust Bunny dodge attention cue. The manifest classifies it as redundant and binds it to the voiced cue, pointer, and action-button routes; no packaged-font coverage or device matrix exists. |
 | child_impact | If a semantic glyph is absent, monochrome/colored unexpectedly, misaligned, or visually unfamiliar, the non-reader can lose the only apparent route or state cue. |
-| evidence | `scripts/storybook_ui.gd`; `touch_ui.gd`; `collection_system.gd`; `companion.gd`; `wardrobe_ui.gd`; `opera_house.gd`; `main.gd`. Authored Castle room images in `assets/ui/castle_room_buttons_v2/` demonstrate a controlled alternative. |
+| evidence | `scripts/storybook_ui.gd`; `touch_ui.gd`; `collection_system.gd`; `companion.gd`; `wardrobe_ui.gd`; `opera_house.gd`; `main.gd`; `scripts/games/dust_boss.gd:760,995,1044,1050`; `audit/typography_manifest.json` `glyph_evidence.U+26A1`. Authored Castle room images in `assets/ui/castle_room_buttons_v2/` demonstrate a controlled alternative. |
 | owner_decision | Owner review decides pictogram identity; reuse approved art first and generate only for a named uncovered critical gap. |
 | fix | Classify every live code point decorative/redundant/critical; keep decorative Unicode, prove exact bundled coverage where stable, and replace critical unproved semantics with approved authored textures plus redundant voice/picture state. |
 | surrounding_tests | Complete glyph manifest and missing-glyph mutation; default/locked/selected/disabled/progress captures; touch/voice/pointer tests; M11/older-phone and child recognition; full suite. |
 | acceptance | Every critical semantic has an approved authored icon or exact packaged-font/device proof, no missing-glyph mutation can silently pass, and child/owner review recognizes the cue without reading. |
 | closure | Open as of 2026-08-30; classification and runtime/device proof absent. |
 | relationships | Depends on `MA-TYPE-001`; picture/role plumbing `MA-TYPE-002`; external gate `MA-TYPE-007`. |
-| history | 2026-08-30: semantic inventory confirmed at historical `0ddbe656`; candidate scanner/test harness adds no packaged coverage or device result, so `CONFIRMED_OPEN` remains without asserting a device failure. |
+| history | 2026-08-30: semantic inventory confirmed at historical `0ddbe656`; candidate scanner/test harness adds no packaged coverage or device result, so `CONFIRMED_OPEN` remains without asserting a device failure. Reconciled head `5bf3b1a4` adds `U+26A1` to the live inventory; source evidence records it as redundant optional-dodge attention, with the same open font/device acceptance boundary. |
 
 ## MA-TYPE-005
 

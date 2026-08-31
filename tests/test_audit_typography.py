@@ -855,6 +855,33 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertIn("U+2603", report["glyphs"]["unclassified"])
         self.assertTrue(any("unclassified live code points" in error for error in report["machine_errors"]))
 
+    def test_optional_dodge_lightning_is_redundant_with_recorded_source_routes(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        manifest_path = root / "audit/typography_manifest.json"
+        data = json.loads(manifest_path.read_text(encoding="utf-8"))
+        report = audit(root, manifest_path)
+        source = (root / "scripts/games/dust_boss.gd").read_text(encoding="utf-8")
+        evidence = data["glyph_evidence"]["U+26A1"]
+
+        self.assertEqual(evidence["classification"], "redundant")
+        self.assertIn("U+26A1", data["glyph_classes"]["redundant"])
+        self.assertNotIn("U+26A1", data["glyph_classes"]["critical"])
+        self.assertEqual(report["glyphs"]["classification_counts"]["redundant"], 2)
+        self.assertEqual(report["glyphs"]["unclassified"], [])
+        self.assertIn('dodge.text = "⚡\\n↻" if danger else "↻"', source)
+        self.assertIn('"Grand Puff is hopping at me — tap the glowing TWIRL!"', source)
+        self.assertIn('"Twirl away from Grand Puff"', source)
+        self.assertIn("pointer.visible = dodge_visible and danger", source)
+        self.assertEqual(evidence["source_refs"], ["scripts/games/dust_boss.gd:1044"])
+        self.assertEqual(
+            evidence["redundant_routes"],
+            [
+                "scripts/games/dust_boss.gd:760",
+                "scripts/games/dust_boss.gd:995",
+                "scripts/games/dust_boss.gd:1050",
+            ],
+        )
+
     def test_label3d_new_file_is_a_machine_failure(self) -> None:
         root, manifest_path = self.write_tree(
             'var label = "★"\nLabel3D.new()\n',

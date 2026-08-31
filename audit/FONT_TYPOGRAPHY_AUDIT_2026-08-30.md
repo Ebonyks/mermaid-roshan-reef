@@ -65,6 +65,18 @@ child-facing surface.
 | `add_theme_font_size_override(` | baseline 45 at `0ddbe656`; committed implementation 39 | Some direct size overrides were removed, but size is not yet fully role-owned |
 | `Label3D.outline_size` assignments | 39 | Most, not all, spatial labels carry local outline treatment |
 
+The reconciled source head `5bf3b1a4` adds one live code point, `U+26A1` (⚡),
+at `scripts/games/dust_boss.gd:1044`. It is classified as **redundant**, not
+critical: it is an optional incoming-hop attention flash on the dodge button,
+while the same state is voiced (`dustboss_dodge`), marked by the visible
+pointer at `dust_boss.gd:1050`, and represented by the action affordance and
+parent hint at `dust_boss.gd:995`. The dodge is harmless and never gates
+progress. The manifest records these exact source routes in `glyph_evidence`;
+this is source classification evidence only, not font coverage or device
+acceptance. The live inventory is therefore 148 observed code points: 11
+decorative, 2 redundant, and 135 critical; all 135 critical points remain
+unresolved while font authority is absent.
+
 Representative commands:
 
 ```text
@@ -146,7 +158,9 @@ cues. Some are redundant decoration; others carry meaning. With no packaged
 glyph manifest or runtime proof, critical coverage is unconfirmed. Emoji shape,
 color, advance, baseline, and availability must not be assumed. Critical
 meaning uses controlled authored assets or a proved bundled monochrome glyph;
-Unicode may remain redundant decoration.
+Unicode may remain redundant decoration. The new Dust Bunny `⚡` cue is kept in
+that redundant class because the optional dodge is simultaneously voiced,
+pointed at, and pulsed; it never carries the only action or progress meaning.
 
 ### 4.5 Fixed English layout has expansion risk
 
