@@ -490,7 +490,7 @@ const STICKER_DEFS := [
 	{"id": "shopper", "emoji": "💰", "label": "Big Shopper", "hint": "Buy every treasure in the Pearl Shop!"},
 	{"id": "showtime", "emoji": "🎭", "label": "Showtime Star", "hint": "Perform every show in the Opera House!"},
 	{"id": "volcano", "emoji": "🌋", "label": "Fortress Hero", "hint": "Solve the Ember Fortress dungeon!"},
-	{"id": "super_seeker", "emoji": "🔎", "label": "Super Seeker", "hint": "Find Rumi, Baby Eagle, and Daddy in the Day Two castle game!", "bonus": true},
+	{"id": "super_seeker", "emoji": "🔍", "label": "Super Seeker", "hint": "Find Rumi, Baby Eagle, and Daddy in the Day Two castle game!", "bonus": true},
 	{"id": "superstar", "emoji": "⭐", "label": "SUPER STAR", "hint": "Collect every sticker and every trophy!"},
 ]
 var stickers := {}                 # id -> true (plus hidden "_" progress keys)
