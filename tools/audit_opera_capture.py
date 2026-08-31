@@ -21,8 +21,14 @@ from typing import Any
 
 from PIL import Image, UnidentifiedImageError
 
+try:
+	import audit_godot_baseline as godot_baseline
+except ModuleNotFoundError:  # imported as tools.audit_opera_capture in tests
+	from tools import audit_godot_baseline as godot_baseline
+
 
 ROOT = Path(__file__).resolve().parents[1]
+BASELINE_PATH = godot_baseline.BASELINE_PATH
 SCHEMA = "reef.opera.route_capture.v1"
 MANIFEST_NAME = "opera_capture_manifest.json"
 ROUTE_ENTRY_METHOD = "guarded_castle_career_route_launch"
@@ -88,6 +94,17 @@ MANIFEST_KEYS = frozenset({
 ENGINE_KEYS = frozenset({
     "major", "minor", "patch", "status", "build", "version_string",
 })
+
+
+def capture_engine_evidence(path: Path = BASELINE_PATH) -> dict[str, Any]:
+    """Return the parsed baseline and its canonical capture identity."""
+    baseline = godot_baseline.load_baseline(path)
+    return {
+        "baseline": baseline,
+        "canonical": godot_baseline.canonical_engine_contract(baseline),
+    }
+
+
 STATE_ROW_KEYS = frozenset({
     "id", "sequence", "kind", "expected_state", "actual_state",
     "state_signature", "input", "status", "failures", "image",
@@ -471,6 +488,7 @@ def _validate_aspect(
     source_signature: dict[str, Any],
     aspect: str,
     dimensions: tuple[int, int],
+    engine_evidence: dict[str, Any],
 ) -> tuple[list[str], str]:
     errors: list[str] = []
     aspect_dir = capture_root / aspect
@@ -514,20 +532,13 @@ def _validate_aspect(
     engine = manifest.get("engine")
     version_string = engine.get("version_string") \
         if type(engine) is dict else None
-    wanted_engine = {
-        "major": 4,
-        "minor": 7,
-        "patch": 1,
-        "status": "stable",
-        "build": "official",
-        "version_string": version_string,
-    }
-    exact_version_string = version_string == "4.7.1-stable (official)"
-    exact_engine = exact_version_string \
-        and strict_equal(engine, wanted_engine) \
+    wanted_engine = engine_evidence["canonical"]
+    exact_engine = strict_equal(engine, wanted_engine) \
         and set(engine) == ENGINE_KEYS
     if not exact_engine:
-        _add(errors, "engine", f"{aspect}: exact official Godot 4.7.1 required")
+        _add(errors, "engine", (
+            f"{aspect}: exact official Godot {wanted_engine['version_string']} required"
+        ))
     if not strict_equal(manifest.get("source_signature"), source_signature):
         _add(errors, "source_signature", f"{aspect}: source closure drift")
     if not strict_equal(manifest.get("expected_state_ids"), expected_ids):
@@ -627,10 +638,15 @@ def _validate_aspect(
 def validate_capture_root(
     capture_root: Path,
     source_root: Path = ROOT,
+    baseline_path: Path = BASELINE_PATH,
 ) -> list[str]:
     errors: list[str] = []
     if not capture_root.is_dir():
         return [f"capture_root: missing directory {capture_root}"]
+    try:
+        engine_evidence = capture_engine_evidence(baseline_path)
+    except godot_baseline.BaselineError as error:
+        return [f"baseline: {error}"]
     root_entries = {path.name for path in capture_root.iterdir()}
     expected_entries = set(ASPECTS)
     missing = sorted(expected_entries - root_entries)
@@ -647,7 +663,7 @@ def validate_capture_root(
     nonces: list[str] = []
     for aspect, dimensions in ASPECTS.items():
         aspect_errors, nonce = _validate_aspect(
-            capture_root, source_signature, aspect, dimensions,
+            capture_root, source_signature, aspect, dimensions, engine_evidence,
         )
         errors.extend(aspect_errors)
         if nonce:

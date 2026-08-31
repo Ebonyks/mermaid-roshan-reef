@@ -139,14 +139,9 @@ class OperaCaptureAuditTests(unittest.TestCase):
                 "viewport": {"width": dimensions[0], "height": dimensions[1]},
                 "capture_method": "same_process_viewport",
                 "rendering_method": "mobile",
-                "engine": {
-                    "major": 4,
-                    "minor": 7,
-                    "patch": 1,
-                    "status": "stable",
-                    "build": "official",
-                    "version_string": "4.7.1-stable (official)",
-                },
+                "engine": copy.deepcopy(
+                    audit.capture_engine_evidence()["canonical"]
+                ),
                 "source_signature": source_signature,
                 "expected_state_ids": expected_ids,
                 "states": states,
@@ -473,6 +468,41 @@ class OperaCaptureAuditTests(unittest.TestCase):
         manifest["engine"]["version_string"] = "4.7.1.stable.official.fixture"
         self._write_manifest("1280x720", manifest)
         self.assertIn("engine", self._codes())
+
+    def test_changed_json_baseline_changes_capture_engine_evidence(self) -> None:
+        baseline = copy.deepcopy(audit.capture_engine_evidence()["baseline"])
+        with tempfile.TemporaryDirectory() as raw_path:
+            path = Path(raw_path) / "godot_baseline.json"
+            path.write_text(json.dumps(baseline), encoding="utf-8")
+            original = audit.capture_engine_evidence(path)
+            baseline["version"] = "4.7.3"
+            baseline["release"] = "4.7.3-stable"
+            for entry in baseline["downloads"].values():
+                entry["filename"] = entry["filename"].replace(
+                    "4.7.2-stable", "4.7.3-stable",
+                )
+            path.write_text(json.dumps(baseline), encoding="utf-8")
+            changed = audit.capture_engine_evidence(path)
+            self.assertEqual(changed["baseline"], baseline)
+            self.assertNotEqual(
+                original["canonical"], changed["canonical"],
+            )
+            self.assertEqual(
+                changed["canonical"]["version_string"],
+                "4.7.3-stable (official)",
+            )
+
+    def test_malformed_or_mismatched_capture_baseline_fails_closed(self) -> None:
+        baseline = copy.deepcopy(audit.capture_engine_evidence()["baseline"])
+        with tempfile.TemporaryDirectory() as raw_path:
+            path = Path(raw_path) / "godot_baseline.json"
+            path.write_text("{not-json", encoding="utf-8")
+            with self.assertRaises(audit.godot_baseline.BaselineError):
+                audit.capture_engine_evidence(path)
+            baseline["release"] = "4.7.1-stable"
+            path.write_text(json.dumps(baseline), encoding="utf-8")
+            with self.assertRaises(audit.godot_baseline.BaselineError):
+                audit.capture_engine_evidence(path)
 
     def test_ancestor_hidden_route_is_forbidden(self) -> None:
         path = self.source_root / "scripts/probe_opera_art.gd"

@@ -71,12 +71,23 @@ try:
 except ModuleNotFoundError:  # imported as tools.audit_visual_design in unit tests
     from tools import audit_game_2d as game_2d
 
+try:
+    import audit_godot_baseline as godot_baseline
+except ModuleNotFoundError:  # imported as tools.audit_visual_design in tests
+    from tools import audit_godot_baseline as godot_baseline
+
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SPEC_PATH = os.path.join(REPO, "tools", "visual_audit_spec.json")
 RUNTIME_FACTS_PATH = os.path.join(REPO, "audit", "visual_runtime_facts.json")
 REPORT_JSON = os.path.join(REPO, "audit", "visual_design_report.json")
 REPORT_MD = os.path.join(REPO, "audit", "visual_design_report.md")
 LICENSES = os.path.join(REPO, "ASSET_LICENSES.md")
+
+
+def _current_engine_contract() -> dict[str, object]:
+    return godot_baseline.canonical_engine_contract(
+        godot_baseline.load_baseline(),
+    )
 
 ERROR, WARN, INFO, MANUAL, SKIP = "ERROR", "WARN", "INFO", "MANUAL", "SKIP"
 SEVERITY_ORDER = {ERROR: 0, WARN: 1, MANUAL: 2, INFO: 3, SKIP: 4}
@@ -1728,18 +1739,31 @@ def _runtime_contract_issues(zone: Zone, block: dict | None = None) -> list[str]
     if run_identity != expected_identity:
         issues.append("runtime evidence run identity is not derivable from its revision/run")
 
+    try:
+        expected_baseline = godot_baseline.load_baseline()
+        expected_engine = godot_baseline.canonical_engine_contract(expected_baseline)
+    except godot_baseline.BaselineError as error:
+        expected_baseline = None
+        expected_engine = None
+        issues.append(f"Godot baseline is unavailable: {error}")
     engine = contract.get("engine")
     if not isinstance(engine, dict):
         issues.append("runtime evidence has no Godot engine identity")
-    else:
+    elif expected_engine is not None:
         exact = (engine.get("major"), engine.get("minor"), engine.get("patch"),
                  str(engine.get("status", "")))
-        if exact != (4, 7, 2, "stable"):
+        wanted = (expected_engine["major"], expected_engine["minor"],
+                  expected_engine["patch"], expected_engine["status"])
+        if exact != wanted:
             issues.append(
-                "runtime evidence was not captured by exactly Godot 4.7.2-stable")
+                f"runtime evidence was not captured by exactly Godot "
+                f"{expected_engine['version_string']}")
         version_string = str(engine.get("version_string", ""))
-        if re.match(r"^4\.7\.2(?:[.-])stable(?:\b|\s|\()", version_string) is None:
-            issues.append("runtime evidence Godot version string is not 4.7.2-stable")
+        if not godot_baseline.engine_version_matches(
+                version_string, expected_baseline):
+            issues.append(
+                f"runtime evidence Godot version string is not "
+                f"{expected_engine['version_string']}")
 
     renderer = contract.get("renderer")
     if not isinstance(renderer, dict) \
@@ -4487,7 +4511,8 @@ func build() -> void:
     run_nonce = "b" * 64
     fresh_challenge = "c" * 64
     run_started_utc = "2026-08-09T12:00:00Z"
-    engine_string = "4.7.2-stable (official fixture)"
+    engine_contract = _current_engine_contract()
+    engine_string = f"{engine_contract['version_string']} fixture"
     run_identity = hashlib.sha256("|".join([
         git_identity["revision"], git_identity["tree"], fresh_challenge,
         source_revision, run_nonce, run_started_utc, engine_string, "mobile",
@@ -4508,7 +4533,10 @@ func build() -> void:
             for role, path in RUNTIME_EVIDENCE_FILES.items()
         },
         "engine": {
-            "major": 4, "minor": 7, "patch": 2, "status": "stable",
+            "major": engine_contract["major"],
+            "minor": engine_contract["minor"],
+            "patch": engine_contract["patch"],
+            "status": engine_contract["status"],
             "version_string": engine_string,
         },
         "renderer": {"actual": "mobile", "project_setting": "mobile"},

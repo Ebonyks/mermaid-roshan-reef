@@ -15,14 +15,29 @@ from typing import Any
 
 REPO = Path(__file__).resolve().parents[1]
 BASELINE_PATH = REPO / "tools" / "godot_baseline.json"
+ENGINE_CONTRACT_KEYS = frozenset({
+	"major", "minor", "patch", "status", "build", "version_string",
+})
+
+
+class BaselineError(ValueError):
+	"""Raised when the structured Godot baseline cannot be trusted."""
 
 
 def load_baseline(path: Path = BASELINE_PATH) -> dict[str, Any]:
-	return json.loads(path.read_text(encoding="utf-8"))
+	try:
+		data = json.loads(path.read_text(encoding="utf-8"))
+	except (OSError, json.JSONDecodeError) as error:
+		raise BaselineError(f"cannot load baseline {path}: {error}") from error
+	if not isinstance(data, dict):
+		raise BaselineError(f"baseline root must be an object: {path}")
+	return data
 
 
 def validate_metadata(data: dict[str, Any]) -> list[str]:
 	errors: list[str] = []
+	if not isinstance(data, dict):
+		return ["baseline root must be an object"]
 	version = str(data.get("version", ""))
 	series = str(data.get("series", ""))
 	status = str(data.get("status", ""))
@@ -58,6 +73,37 @@ def validate_metadata(data: dict[str, Any]) -> list[str]:
 	return errors
 
 
+def canonical_engine_contract(data: dict[str, Any]) -> dict[str, Any]:
+	"""Derive the normalized engine identity used by runtime evidence."""
+	errors = validate_metadata(data)
+	if errors:
+		raise BaselineError("invalid Godot baseline: " + "; ".join(errors))
+	major, minor, patch = (int(part) for part in str(data["version"]).split("."))
+	release = str(data["release"])
+	return {
+		"major": major,
+		"minor": minor,
+		"patch": patch,
+		"status": str(data["status"]),
+		"build": "official",
+		"version_string": f"{release} (official)",
+	}
+
+
+def engine_version_matches(version_string: str, data: dict[str, Any]) -> bool:
+	"""Accept Godot's dotted output and normalized fixture strings alike."""
+	try:
+		canonical = canonical_engine_contract(data)
+	except BaselineError:
+		return False
+	version = re.escape(str(data["version"]))
+	status = re.escape(str(data["status"]))
+	return re.match(
+		rf"^{version}(?:[.-]){status}(?:[.-]official)?(?:\b|\s|\()",
+		str(version_string),
+	) is not None or str(version_string) == canonical["version_string"]
+
+
 def required_pins(data: dict[str, Any]) -> dict[str, list[str]]:
 	version = str(data["version"])
 	series = str(data["series"])
@@ -81,7 +127,7 @@ def required_pins(data: dict[str, Any]) -> dict[str, list[str]]:
 			f"Godot_v{release}_linux.x86_64"],
 		"design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md": [f"exactly Godot {release}"],
 		"tools/audit_visual_design.py": [
-			f"exactly Godot {release}", f'engine_string = "{release} (official fixture)"',
+			"canonical_engine_contract",
 		],
 		"tools/plan_audit_rollback.py": [f"exact Godot {release}"],
 		"tools/visual_audit_spec.json": [f"exactly Godot {release}"],
@@ -125,8 +171,14 @@ def main(argv: list[str] | None = None) -> int:
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument("--godot", help="also verify this Godot executable")
 	args = parser.parse_args(argv)
-	data = load_baseline()
-	errors = validate_metadata(data) + validate_file_pins(REPO, data)
+	try:
+		data = load_baseline()
+	except BaselineError as error:
+		print(f"GODOTBASELINE|FAIL|{error}")
+		return 1
+	errors = validate_metadata(data)
+	if not errors:
+		errors.extend(validate_file_pins(REPO, data))
 	if args.godot:
 		errors.extend(validate_executable(args.godot, data))
 	if errors:
