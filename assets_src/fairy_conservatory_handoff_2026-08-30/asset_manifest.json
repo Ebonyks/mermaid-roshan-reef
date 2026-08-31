@@ -2,56 +2,28 @@
   "schema": 1,
   "purpose": "Chapter 3 Rainbow Stage handoff and Butterfly House landmark",
   "generation_method": "OpenAI built-in image generation",
-  "art_gap": "No approved standalone walkable rainbow causeway or true-2D Butterfly House landmark existed; approved Sky Lagoon art already met the continuous background need and is reused unchanged.",
+  "art_gap": "No approved upright Fairy Pond stage plate, standalone walkable rainbow causeway, or true-2D Butterfly House landmark existed. The background redraw is bound to the approved Lily-Pad Fairy World rather than Sky Lagoon.",
   "background": {
-    "approved_input_tiles": [
+    "result_id": "exec-f94c58c7-28bd-455d-897c-c0c7a16588a3",
+    "raw": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/fairy_pond_horizon_openai_raw.png",
+    "raw_dimensions": [
+      1672,
+      941
+    ],
+    "raw_sha256": "e4919acfb375085889a7237d87b6ce5361a1dcabf397c27dc7ad5beaa82a87ae",
+    "reference_authority": "Lily-Pad Fairy World / Fairy Pond",
+    "reference_inputs": [
       {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
-        "sha256": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb"
+        "path": "assets/fairy/pond_panorama.png",
+        "sha256": "26b6ced234d71797e0013a7d161a33d09695d40aa5c43390126a369d63468a14"
       },
       {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
-        "sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d"
+        "path": "assets_src/fairy_v2/concepts/background_twilight.png",
+        "sha256": "586858ea3e9d05a576ab141fc07b1565423370a927c35872db31a2b25befc873"
       },
       {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
-        "sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850"
-      },
-      {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
-        "sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959"
-      },
-      {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
-        "sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac"
-      },
-      {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
-        "sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c"
-      },
-      {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
-        "sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a"
-      },
-      {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
-        "sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400"
-      },
-      {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
-        "sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28"
-      },
-      {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
-        "sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7"
-      },
-      {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
-        "sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4"
-      },
-      {
-        "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
-        "sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21"
+        "path": "assets_src/fairy_v2/concepts/background_dawn.png",
+        "sha256": "46ced3cacefe298257720001e505f1b7afb0ee1a6e0d7791fa0c91253e11ff1c"
       }
     ],
     "master": {
@@ -60,13 +32,8 @@
         3640,
         2048
       ],
-      "sha256": "5dbcccc461ed6b4e9cd6532757a4e00e37d605a86f1176baebb2ebc04350d7fe",
-      "crop_from_approved_6144x2048_panorama": [
-        1252,
-        0,
-        4892,
-        2048
-      ]
+      "sha256": "cb90e91791d5f98707806b93ca15b70cf906e9c6f8b97ff72d77cad2c2aef869",
+      "whole_canvas_transform": "centered ImageOps.fit with Lanczos resampling; no local retouch, object move, seam blend, or tile regeneration"
     },
     "runtime_tiles": [
       {
@@ -75,7 +42,7 @@
           910,
           1024
         ],
-        "sha256": "986ec92a2e19ddf40b8924294d42deb2e6921a938f16f3db40033d65bfdbfd31"
+        "sha256": "aac51538d9cbfc5cde79f894d9fb928568875d497eaf865b260a43f6dcb43532"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
@@ -83,7 +50,7 @@
           910,
           1024
         ],
-        "sha256": "955fc1d0fa2012c702f9aa1859d7e0d8281eb09fdab2b81469233afb380fa7cd"
+        "sha256": "3af974a0e00db2530d69014b3da56b513a1e8d8685bb46cfcc762196bc17b23f"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
@@ -91,7 +58,7 @@
           910,
           1024
         ],
-        "sha256": "9da754aca0a13a96d24b9ae0b4ad66095b299d436f334553a2d11ca150049e59"
+        "sha256": "d9542f20380df7bb91ec5c0f145bf553aa041517a3e0c5af742c6a771d33728d"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
@@ -99,7 +66,7 @@
           910,
           1024
         ],
-        "sha256": "2ac2c4b81634e7ef1d6bdcab7d9af158c281ef6ad4ceb7dc37b99c3e2a940b0c"
+        "sha256": "7119855295ad00d24aad32593859745188a58c0372aaca17d44d4966e00e246f"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
@@ -107,7 +74,7 @@
           910,
           1024
         ],
-        "sha256": "fa7a7b58755f7e41bfa8c3b8a15886843b436232aa45538378a6b8d95d293862"
+        "sha256": "61639df95ed8ff18e108030e35682efb4e95d3d7f647536ae549dece796cb589"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
@@ -115,7 +82,7 @@
           910,
           1024
         ],
-        "sha256": "d0523e570070c88bfb4e1b55c006a00e034536edfc078c807ff51160864c4dd8"
+        "sha256": "d1956bf192ca08a94d9bb6a85a470b644888d0d8acfb8f1074867517007b72a8"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
@@ -123,7 +90,7 @@
           910,
           1024
         ],
-        "sha256": "8d5356a6351d8f46655fa087fcfce8feb3724c8e64111826f5b26e323f285202"
+        "sha256": "fa30f3abd4aa04c2ae8db3cd1649929e76c0994c415f3b8408a8feecdfb1c42a"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png",
@@ -131,7 +98,7 @@
           910,
           1024
         ],
-        "sha256": "7371fd79b174e3e3288cc34ec80b4237bca42dcce98ee78c935754b7091a477f"
+        "sha256": "e7ffbc1fcf4569eb7d184f3b0cd76625865880fb22925dce76c618f48c6c3068"
       }
     ],
     "seam_policy": "single approved master sliced into non-overlapping tiles"
@@ -200,8 +167,9 @@
       1280,
       720
     ],
-    "sha256": "4d3a989adc5cb1275cffa1f30130e26927c0ccac593f59d5b9114b63bf588693",
+    "sha256": "d38dc18214c37295711cc139effdc092452f845a31378ab18e97d008d36ba22a",
     "delivery_pixels": false,
-    "purpose": "visual placement audit; runtime remains separate Canvas sprites"
+    "purpose": "visual placement audit; runtime remains separate Canvas sprites",
+    "rainbow_path_reaches_stage_base_y": 720
   }
 }

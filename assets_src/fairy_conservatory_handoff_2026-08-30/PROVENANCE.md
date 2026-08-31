@@ -2,21 +2,46 @@
 
 Date: 2026-08-30
 
-Status: selected runtime assets; independent Sol visual/art audit passed
-2026-08-30. Exact Godot 4.7.2 runtime, device, child, owner, and release
-acceptance remain separate pending gates.
+Status: owner-directed Fairy Pond correction selected after local visual and
+static-art review. Exact Godot 4.7.2 runtime, device, child, owner, independent
+Sol re-review, and release acceptance remain separate gates. The earlier Sol
+pass applied only to the subsequently rejected Sky Lagoon version.
 
 ## Scope and gap
 
-The approved Sky Lagoon v5 panorama already supplies the handoff world's sky,
-cloud, distant-island, and color language. It is reused directly as the stage
-background. The repository did not contain a standalone true-2D walkable
-rainbow causeway or a standalone Butterfly House landmark that could be used
-as a physical stage destination. Generation was limited to those two gaps.
+The approved Lily-Pad Fairy World is the location authority. Its existing V5
+panorama and V2 pond plates are orthographic/top-down compositions, so direct
+reuse inside an upright doorway would repeat the rejected perspective error.
+The repository also did not contain a standalone true-2D walkable rainbow
+causeway or Butterfly House landmark. Generation therefore covers the missing
+eye-level Fairy Pond background plus those two foreground gaps.
 
 No file under `assets/book/`, `assets/audio/voices/`, or
 `assets/characters/friends/` was modified. Review references supplied style,
 color, architecture, and perspective only; none contributes delivery pixels.
+
+## Selected correction — upright Fairy Pond background
+
+- Built-in ImageGen result: `exec-f94c58c7-28bd-455d-897c-c0c7a16588a3`
+- Native source: `raw/fairy_pond_horizon_openai_raw.png` (1672×941 RGB)
+- Runtime master: `masters/handoff_background_master_3640x2048.png`
+- Binding location/style reference:
+  - `assets/fairy/pond_panorama.png`: aqua-to-violet water, lily pads,
+    lavender reeds, sparkles, moonlit Fairy Pond identity.
+  - `assets_src/fairy_v2/concepts/background_twilight.png` and
+    `background_dawn.png`: approved Fairy World foliage, outline, and water
+    language.
+- Prompt brief used: Redraw the Lily-Pad Fairy World as a straight-ahead,
+  eye-level pond vista for a 16:9 preschool stage. Keep the sky above a horizon
+  no lower than the frame midpoint, keep every lily pad below that horizon,
+  reserve a broad central water corridor for the rainbow walkway, carry the
+  environment to the exact bottom edge, and exclude Sky Lagoon mountains,
+  cabins, grass, roads, characters, buildings, bridge, HUD, and text.
+- Processing: the complete flattened source is centered and uniformly fit to
+  the 3640×2048 master with Lanczos resampling, then sliced into eight exact
+  non-overlapping runtime tiles. There is no local retouch, object movement,
+  seam blend, or independent tile generation. The selected native source and
+  its hash remain preserved beside the master.
 
 ## Selected generation 1 — rainbow walkway
 
@@ -63,15 +88,14 @@ The prompt briefs above preserve the complete semantic generation request but
 are normalized for local documentation; the Codex task log remains the
 authority for the original tool-call strings.
 
-## Approved reused stage background
+## Corrected continuous stage background
 
-`tools/build_fairy_conservatory_handoff_art.py` reconstructs the approved
-6144×2048 Sky Lagoon v5 panorama from its twelve existing runtime tiles, then
-crops one continuous 3640×2048 16:9 master. It slices that master into a 4×2
-grid of non-overlapping 910×1024 runtime cards. No object is independently
-regenerated across a seam. Input/output SHA-256 hashes, crop coordinates,
-dimensions, matte settings, and runtime paths are recorded in
-`asset_manifest.json`.
+`tools/build_fairy_conservatory_handoff_art.py` normalizes the complete selected
+Fairy Pond redraw to one continuous 3640×2048 16:9 master, then slices that
+master into a 4×2 grid of non-overlapping 910×1024 runtime cards. No object is
+independently regenerated across a seam. Input/output SHA-256 hashes,
+dimensions, whole-canvas transform, reference authority, and runtime paths are
+recorded in `asset_manifest.json`.
 
 ## Review status
 
@@ -80,8 +104,7 @@ dimensions, matte settings, and runtime paths are recorded in
 - Rainbow color order and perspective: passed local visual inspection.
 - Butterfly House landmark readability: passed local visual inspection.
 - Integrated 1280×720 composition, phone-scale target readability, hall-door
-  continuity, and larger-vision scope: passed independent Sol review on
-  2026-08-30. Sol requested deterministic runtime/probe corrections only and
-  found no art flaw requiring regeneration. This scoped visual pass does not
-  grant target-device, child, owner, exact-engine runtime, or release
-  acceptance.
+  continuity, exact threshold registration, Lily-Pad Fairy World identity, and
+  larger-vision scope: passed local correction review on 2026-08-30. This
+  scoped review cannot grant independent Sol, target-device, child, owner,
+  exact-engine runtime, or release acceptance.
