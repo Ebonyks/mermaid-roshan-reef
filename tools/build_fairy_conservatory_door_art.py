@@ -60,12 +60,13 @@ HOUSE_SOURCE = (
 )
 BUTTERFLY_SOURCE = ROOT / "assets" / "mg" / "butterfly.png"
 
-HORIZON_Y = 354
+HORIZON_Y = 389
 OPENING_LEFT = 316
 OPENING_RIGHT = 708
 OPENING_TOP = 228
 OPENING_SPRING = 438
 OPENING_BOTTOM = 965
+WALKWAY_THRESHOLD_OVERDRAW = 28
 HALL_LOGICAL_SIZE = (3344, 941)
 HALL_DOOR_CENTER = (1672, 385)
 HALL_DOOR_CARD_EDGE = round(CANVAS_EDGE * 0.4896)
@@ -246,7 +247,11 @@ def _place_runtime_sprite_center_foot_at_base(
         raise ValueError(f"runtime sprite has no visible center foot: {path}")
     center_foot = int(center_rows[-1]) + 1
     left = center_x - sprite.width // 2
-    top = base_y - center_foot
+    # The selected cutout has a decorative center shell below the broad deck.
+    # Register the deck itself to the sill and let the opening mask clip the
+    # center-shell overscan; otherwise a thin cyan pond strip survives below
+    # the rainbow floor at the physical threshold.
+    top = base_y - center_foot + WALKWAY_THRESHOLD_OVERDRAW
     scene.alpha_composite(sprite, (left, top))
     return (left, top, left + sprite.width, top + center_foot)
 
@@ -401,6 +406,11 @@ def main() -> None:
                 "location_authority": "Lily-Pad Fairy World / Fairy Pond",
                 "walkway_visible_base_y": OPENING_BOTTOM,
                 "walkway_base_matches_opening_base": True,
+                "walkway_threshold_overdraw_pixels": WALKWAY_THRESHOLD_OVERDRAW,
+                "threshold_coverage_policy": (
+                    "walkway alpha >=64 across the full opening width for "
+                    "rows 959 through 965 before architectural clipping"
+                ),
                 "opening_mask": {
                     "left": OPENING_LEFT,
                     "right": OPENING_RIGHT,
@@ -432,7 +442,7 @@ def main() -> None:
             "open_view": (
                 "corrected upright Fairy Pond background plus selected Chapter 3 "
                 "rainbow walkway and Butterfly House cutouts; walkway registered "
-                "to the exact architectural opening base"
+                "with clipped overscan behind the exact architectural opening base"
             ),
         },
         "hall_review_inputs": [

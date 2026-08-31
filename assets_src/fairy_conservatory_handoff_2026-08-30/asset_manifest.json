@@ -4,15 +4,16 @@
   "generation_method": "OpenAI built-in image generation",
   "art_gap": "No approved upright Fairy Pond stage plate, standalone walkable rainbow causeway, or true-2D Butterfly House landmark existed. The background redraw is bound to the approved Lily-Pad Fairy World rather than Sky Lagoon.",
   "background": {
-    "result_id": "exec-f94c58c7-28bd-455d-897c-c0c7a16588a3",
-    "raw": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/fairy_pond_horizon_openai_raw.png",
-    "raw_dimensions": [
-      1672,
-      941
-    ],
-    "raw_sha256": "e4919acfb375085889a7237d87b6ce5361a1dcabf397c27dc7ad5beaa82a87ae",
     "reference_authority": "Lily-Pad Fairy World / Fairy Pond",
     "reference_inputs": [
+      {
+        "path": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/fairy_pond_horizon_openai_raw.png",
+        "sha256": "e4919acfb375085889a7237d87b6ce5361a1dcabf397c27dc7ad5beaa82a87ae"
+      },
+      {
+        "path": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/fairy_pond_native_center_openai_raw.png",
+        "sha256": "461c435bab194f9b77fabeb5fa460c86d9b5c7ae1fae48fb3f30b8ebbb637c17"
+      },
       {
         "path": "assets/fairy/pond_panorama.png",
         "sha256": "26b6ced234d71797e0013a7d161a33d09695d40aa5c43390126a369d63468a14"
@@ -26,14 +27,154 @@
         "sha256": "46ced3cacefe298257720001e505f1b7afb0ee1a6e0d7791fa0c91253e11ff1c"
       }
     ],
+    "panels": [
+      {
+        "name": "top_left",
+        "result_id": "exec-95013e94-cb9e-459f-a7c6-88ce52d70abb",
+        "path": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/background_panels/top_left.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "939be02fb5d37acefd8a1cc7ee20c95bccb0dbbbc48b087ff907edf695adcc3d",
+        "row": 0,
+        "column": 0,
+        "position": [
+          0,
+          0
+        ],
+        "horizon_alignment_shift_y": 12,
+        "scale": 1.0,
+        "role": "native generated full-frame background panel"
+      },
+      {
+        "name": "top_center",
+        "result_id": "exec-a1798b3a-d111-402b-a08e-455f15694cb2",
+        "path": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/background_panels/top_center.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "78f053f2ce8edef46ba7dbc5e1860edb892e98cde3f7e71beaf7c046cd536a76",
+        "row": 0,
+        "column": 1,
+        "position": [
+          1193,
+          0
+        ],
+        "horizon_alignment_shift_y": -64,
+        "scale": 1.0,
+        "role": "native generated full-frame background panel"
+      },
+      {
+        "name": "top_right",
+        "result_id": "exec-e3c60551-45fb-46aa-8dd8-38997d075a82",
+        "path": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/background_panels/top_right.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "eafe7fa675a9da8a6e6a35e14b7412c681a03385241d664565c87244f14c170d",
+        "row": 0,
+        "column": 2,
+        "position": [
+          2386,
+          0
+        ],
+        "horizon_alignment_shift_y": 0,
+        "scale": 1.0,
+        "role": "native generated full-frame background panel"
+      },
+      {
+        "name": "bottom_left",
+        "result_id": "exec-11630358-710f-4636-b283-ffe0a1ccc2ab",
+        "path": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/background_panels/bottom_left.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "b3a08e29c6486cf4066ae49ae93819131ec5c0a0a76ba11ac7b3b8568497bfbb",
+        "row": 1,
+        "column": 0,
+        "position": [
+          0,
+          794
+        ],
+        "horizon_alignment_shift_y": 0,
+        "scale": 1.0,
+        "role": "native generated full-frame background panel"
+      },
+      {
+        "name": "bottom_center",
+        "result_id": "exec-f6352de8-a64d-45b1-b5dc-855e8c9ed7a7",
+        "path": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/background_panels/bottom_center.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "596b22b741c11231e9815c6fca225f081bb03bdcf507d926db1ddf845e35f226",
+        "row": 1,
+        "column": 1,
+        "position": [
+          1193,
+          794
+        ],
+        "horizon_alignment_shift_y": 0,
+        "scale": 1.0,
+        "role": "native generated full-frame background panel"
+      },
+      {
+        "name": "bottom_right",
+        "result_id": "exec-039ee267-2c93-4ccf-bf3c-55fcfad0df70",
+        "path": "assets_src/fairy_conservatory_handoff_2026-08-30/raw/background_panels/bottom_right.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "bde64e29e36f4c1bb9095906dae9d29e0d075f373a95cf10c4c8df6e8c93f76a",
+        "row": 1,
+        "column": 2,
+        "position": [
+          2386,
+          794
+        ],
+        "horizon_alignment_shift_y": 0,
+        "scale": 1.0,
+        "role": "native generated full-frame background panel"
+      }
+    ],
+    "panel_prompt_set": {
+      "shared": "Polished 2D Lily-Pad Fairy World storybook art using the approved Fairy Pond palette and rounded painted forms; upright eye-level sky-and-water perspective, no Sky Lagoon motifs, no characters, no text, and open sky/water at every join.",
+      "top_left": "Left garden bank; open sky and pond toward the right seam.",
+      "top_center": "Open central sky and pond corridor with a clear horizon.",
+      "top_right": "Right garden bank; open sky and pond toward the left seam.",
+      "bottom_left": "Water-only foreground; left bank, open water to the right.",
+      "bottom_center": "Pure open aqua/deep-blue water corridor; no plants.",
+      "bottom_right": "Water-only foreground; right bank, open water to the left."
+    },
     "master": {
       "path": "assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png",
       "dimensions": [
         3640,
         2048
       ],
-      "sha256": "cb90e91791d5f98707806b93ca15b70cf906e9c6f8b97ff72d77cad2c2aef869",
-      "whole_canvas_transform": "centered ImageOps.fit with Lanczos resampling; no local retouch, object move, seam blend, or tile regeneration"
+      "sha256": "2feba4cc27a27400a5f950df185da5cd48326031e927bc8f1c09857cb2110c78",
+      "authored_at_target_dimensions": true,
+      "source_pixel_upscale": false,
+      "panel_size": [
+        1254,
+        1254
+      ],
+      "panel_step": [
+        1193,
+        794
+      ],
+      "panel_overlap": [
+        61,
+        460
+      ],
+      "aligned_horizon_y": 480,
+      "assembly_method": "six generated full-frame panels placed at native 1:1 scale; top horizons aligned by lossless crop or a 12-pixel open-sky edge reflection; broad low-frequency center-panel palette harmonization preserves all painted forms; linear feathering occurs only inside generated open-sky/open-water overlaps; no source image is enlarged"
     },
     "runtime_tiles": [
       {
@@ -42,7 +183,7 @@
           910,
           1024
         ],
-        "sha256": "aac51538d9cbfc5cde79f894d9fb928568875d497eaf865b260a43f6dcb43532"
+        "sha256": "626647407ee1b72ef1b5d49cc37e45e2ba7e04dcfdf6ecfc3ae9de05dd68a0cb"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c1.png",
@@ -50,7 +191,7 @@
           910,
           1024
         ],
-        "sha256": "3af974a0e00db2530d69014b3da56b513a1e8d8685bb46cfcc762196bc17b23f"
+        "sha256": "83a0da2ecccccd71e0ccfd4593c40989429abef67daf67f0be3b73c305cbfaf9"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c2.png",
@@ -58,7 +199,7 @@
           910,
           1024
         ],
-        "sha256": "d9542f20380df7bb91ec5c0f145bf553aa041517a3e0c5af742c6a771d33728d"
+        "sha256": "fbe11c0f6b62b0d117d34a4f2aabbf8c71b8c7c5d8ece270dc75d2af9877f0e9"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r0_c3.png",
@@ -66,7 +207,7 @@
           910,
           1024
         ],
-        "sha256": "7119855295ad00d24aad32593859745188a58c0372aaca17d44d4966e00e246f"
+        "sha256": "0c0310b41a140b10de123c549d93e07bdf8334386eeb57c1034043ee51f96f76"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c0.png",
@@ -74,7 +215,7 @@
           910,
           1024
         ],
-        "sha256": "61639df95ed8ff18e108030e35682efb4e95d3d7f647536ae549dece796cb589"
+        "sha256": "9843684229a6e001770edd93ebe59b35fc9bd024cdd607490c7e7fd63dc5ae6d"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c1.png",
@@ -82,7 +223,7 @@
           910,
           1024
         ],
-        "sha256": "d1956bf192ca08a94d9bb6a85a470b644888d0d8acfb8f1074867517007b72a8"
+        "sha256": "2641ddcf0d7a15811974fa33aa06d5da89db0198dec93b89953745bae31bc7e8"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c2.png",
@@ -90,7 +231,7 @@
           910,
           1024
         ],
-        "sha256": "fa30f3abd4aa04c2ae8db3cd1649929e76c0994c415f3b8408a8feecdfb1c42a"
+        "sha256": "65fcb14971ba6f2e94c279cdd6d99a2702afbfc49f009d325323e715204f828a"
       },
       {
         "path": "assets/flats/fairy_conservatory_handoff/background/handoff_background_r1_c3.png",
@@ -98,10 +239,10 @@
           910,
           1024
         ],
-        "sha256": "e7ffbc1fcf4569eb7d184f3b0cd76625865880fb22925dce76c618f48c6c3068"
+        "sha256": "67bac93a60b7b365156596360ca487257a42d6e40431dc2794ea763712761936"
       }
     ],
-    "seam_policy": "single approved master sliced into non-overlapping tiles"
+    "seam_policy": "generated joins cross open sky/water only; the accepted continuous master is then sliced into eight non-overlapping runtime tiles"
   },
   "generated_subjects": {
     "rainbow_walkway": {
@@ -167,7 +308,7 @@
       1280,
       720
     ],
-    "sha256": "d38dc18214c37295711cc139effdc092452f845a31378ab18e97d008d36ba22a",
+    "sha256": "7b38cd5828449fa244736b6a893f21f5fef13c51722e00c3876cef3d90c9f101",
     "delivery_pixels": false,
     "purpose": "visual placement audit; runtime remains separate Canvas sprites",
     "rainbow_path_reaches_stage_base_y": 720

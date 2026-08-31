@@ -60,6 +60,15 @@ def gd_function_body(source: str, function_name: str) -> str:
 	return source[start:] if next_function < 0 else source[start:next_function]
 
 
+def py_function_body(source: str, function_name: str) -> str:
+	marker = f"def {function_name}("
+	start = source.find(marker)
+	if start < 0:
+		return ""
+	next_function = source.find("\ndef ", start + len(marker))
+	return source[start:] if next_function < 0 else source[start:next_function]
+
+
 def audit_cutout(path: Path) -> Image.Image | None:
 	asset = image(path)
 	if asset is None:
@@ -109,6 +118,70 @@ def audit_background() -> None:
 		source = np.asarray(master.convert("RGB"), dtype=np.uint8)
 		check("background tiles reconstruct the continuous master exactly",
 			rebuilt.shape == source.shape and np.array_equal(rebuilt, source))
+	builder_path = ROOT / "tools" / "build_fairy_conservatory_handoff_art.py"
+	if builder_path.is_file():
+		builder = builder_path.read_text(encoding="utf-8")
+		build_body = py_function_body(builder, "_build_background")
+		align_body = py_function_body(builder, "_align_top_panel")
+		assemble_body = py_function_body(builder, "_assemble_native_background")
+		check("background builder authors the target master without ImageOps.fit",
+			"ImageOps.fit" not in build_body)
+		check("generated background panels are never resized",
+			".resize(" not in build_body
+			and ".resize(" not in align_body
+			and ".resize(" not in assemble_body)
+
+
+def audit_threshold_coverage(open_view: dict[str, object]) -> None:
+	walkway_path = HANDOFF_ROOT / "rainbow_walkway.png"
+	walkway = image(walkway_path)
+	if walkway is None:
+		return
+	walkway = walkway.convert("RGBA")
+	bounds = walkway.getchannel("A").getbbox()
+	if bounds is None:
+		check("rainbow walkway has threshold alpha", False)
+		return
+	walkway = walkway.crop(bounds)
+	scale = 630.0 / max(walkway.size)
+	walkway = walkway.resize(
+		(max(1, round(walkway.width * scale)),
+		 max(1, round(walkway.height * scale))),
+		Image.Resampling.LANCZOS,
+	)
+	alpha = np.asarray(walkway.getchannel("A"), dtype=np.uint8)
+	center_left = round(walkway.width * 0.33)
+	center_right = round(walkway.width * 0.67)
+	center_rows = np.flatnonzero(
+		np.any(alpha[:, center_left:center_right] >= 64, axis=1))
+	if not center_rows.size:
+		check("rainbow walkway has a measurable center foot", False)
+		return
+	opening = open_view.get("opening_mask", {})
+	opening_left = int(opening.get("left", -1))
+	opening_right = int(opening.get("right", -1))
+	opening_bottom = int(opening.get("bottom", -1))
+	overdraw = int(open_view.get("walkway_threshold_overdraw_pixels", -1))
+	center_foot = int(center_rows[-1]) + 1
+	top = opening_bottom - center_foot + overdraw
+	left = 512 - walkway.width // 2
+	coverage = np.zeros((1024, 1024), dtype=np.uint8)
+	y_start = max(0, top)
+	y_end = min(1024, top + walkway.height)
+	x_start = max(0, left)
+	x_end = min(1024, left + walkway.width)
+	coverage[y_start:y_end, x_start:x_end] = alpha[
+		y_start - top:y_end - top,
+		x_start - left:x_end - left,
+	]
+	region = coverage[
+		opening_bottom - 6:opening_bottom + 1,
+		opening_left:opening_right,
+	]
+	covered = int(np.count_nonzero(region >= 64))
+	check("rainbow walkway fully covers the door threshold before clipping",
+		region.size > 0 and covered == region.size,
+		f"covered={covered}/{region.size} overdraw={overdraw}")
 
 
 def audit_manifests() -> None:
@@ -123,13 +196,42 @@ def audit_manifests() -> None:
 	check("handoff manifest records built-in ImageGen",
 		handoff.get("generation_method") == "OpenAI built-in image generation")
 	background = handoff.get("background", {})
-	background_raw = ROOT / str(background.get("raw", ""))
 	check("handoff background is the generated upright Fairy Pond",
 		background.get("reference_authority")
 		== "Lily-Pad Fairy World / Fairy Pond")
-	check("Fairy Pond background raw hash matches manifest",
-		background_raw.is_file()
-		and digest(background_raw) == background.get("raw_sha256"))
+	panels = background.get("panels", [])
+	expected_panels = {
+		"top_left", "top_center", "top_right",
+		"bottom_left", "bottom_center", "bottom_right",
+	}
+	check("handoff records all six native generated panels",
+		len(panels) == 6
+		and {str(record.get("name", "")) for record in panels} == expected_panels)
+	for record in panels:
+		panel_path = ROOT / str(record.get("path", ""))
+		panel = image(panel_path)
+		if panel is None:
+			continue
+		check(f"native panel dimensions match: {panel_path.name}",
+			panel.size == (1254, 1254)
+			and record.get("dimensions") == [1254, 1254], str(panel.size))
+		check(f"native panel hash matches: {panel_path.name}",
+			digest(panel_path) == record.get("sha256"))
+		check(f"native panel remains at 1:1 scale: {panel_path.name}",
+			float(record.get("scale", -1.0)) == 1.0)
+	master_record = background.get("master", {})
+	check("background master is authored at target native dimensions",
+		master_record.get("authored_at_target_dimensions") is True)
+	check("background master forbids source-pixel enlargement",
+		master_record.get("source_pixel_upscale") is False)
+	check("native panel geometry reconstructs the exact master",
+		master_record.get("panel_size") == [1254, 1254]
+		and master_record.get("panel_step") == [1193, 794]
+		and master_record.get("panel_overlap") == [61, 460]
+		and 1254 + 2 * 1193 == 3640
+		and 1254 + 794 == 2048)
+	check("generated panel horizon remains above the 50% line",
+		int(master_record.get("aligned_horizon_y", 2048)) <= 1024)
 	reference_paths = {
 		str(record.get("path", ""))
 		for record in background.get("reference_inputs", [])
@@ -161,6 +263,7 @@ def audit_manifests() -> None:
 		open_view.get("walkway_base_matches_opening_base") is True
 		and walkway_base == opening_bottom,
 		f"walkway={walkway_base} opening={opening_bottom}")
+	audit_threshold_coverage(open_view)
 	check("door manifest names the Rainbow Stage destination",
 		"Rainbow Stage" in str(open_view.get("destination", "")))
 	for state in ("closed", "open"):
@@ -271,6 +374,8 @@ def audit_ledger() -> None:
 		"rainbow_walkway.png",
 		"butterfly_house.png",
 		"fairy_pond_horizon_openai_raw.png",
+		"fairy_pond_native_center_openai_raw.png",
+		"background_panels/{top_left,top_center,top_right,bottom_left,bottom_center,bottom_right}.png",
 		"handoff_background_master_3640x2048.png",
 		"handoff_background_r{0..1}_c{0..3}.png",
 		"rainbow_stage_composite_1280x720.png",

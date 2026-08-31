@@ -1,10 +1,10 @@
 # Fairy Conservatory — early Chapter 3 route
 
 Status: `LOCATION_DECIDED`, `FAIRY_POND_ART_CORRECTED`,
-`RUNTIME_IMPLEMENTED`, `LOCAL_VISUAL_PASS`; exact Godot 4.7.2 CI,
-target-device, child, owner, and release acceptance remain pending. The earlier
-Sol pass covered the owner-rejected Sky Lagoon version and grants no acceptance
-to this correction.
+`RUNTIME_IMPLEMENTED`, `LOCAL_VISUAL_PASS`, `SOL_VISUAL_PASS`; exact Godot
+4.7.2 CI, target-device, child, owner, and release acceptance remain pending.
+The current Sol pass covers the six-panel Lily-Pad Fairy World correction; the
+earlier pass on the owner-rejected Sky Lagoon version remains superseded.
 
 ## Decision
 
@@ -99,13 +99,14 @@ route rather than visibly bypassing the Rainbow Skyway and Butterfly House.
   but there are no duplicate door handles or pearls mirrored on the door
   leaves.
 - Eye-level Fairy Pond composition. The authored destination line is at
-  `y = 354 / 1024` (34.6%), safely above the 50% maximum.
+  `y = 389 / 1024` (38.0%), safely above the 50% maximum.
 - The Rainbow Skyway converges on the Butterfly House at the horizon. No lily
   pad climbs into the sky, no top-down pond is mounted in the doorway, and the
   hall does not open directly into Butterfly World.
-- The visible rainbow artwork reaches `y = 965`, the exact base of the
-  architectural opening. No grass strip, water strip, matte, or empty band
-  separates the stage from the threshold.
+- The rainbow artwork overdraws 28 pixels behind the sill and is clipped at
+  `y = 965`, the exact base of the architectural opening. Walkway alpha covers
+  the complete opening width for rows 959–965, so no grass strip, water strip,
+  matte, or empty band separates the stage from the threshold.
 
 The shell-frame source is project-original built-in ImageGen art. Its obsolete
 generated garden is fully removed by a deterministic opening mask. The view
@@ -142,11 +143,15 @@ the handoff and compete with the actual mission.
 
 ### Stage art
 
-- Background: one complete eye-level Fairy Pond redraw guided by the approved
-  V5 lily-pad panorama and V2 pond foliage/water plates. The complete source
-  is normalized to a continuous 3640×2048 master, then sliced into eight
-  910×1024 cards. No tile or seam object is regenerated independently. Sky
-  Lagoon mountains, cabins, grass, and promenade imagery are excluded.
+- Background: one continuous eye-level Fairy Pond master guided by the
+  approved V5 lily-pad panorama and V2 pond foliage/water plates. The full
+  3640×2048 canvas is assembled from six independently generated 1254×1254
+  panels at exact 1:1 scale. Their joins cross open sky or water only; top
+  horizons are losslessly aligned, and broad low-frequency palette matching
+  prevents a visible plate transition without moving or redrawing any painted
+  form. No source image is enlarged. The master is then sliced into eight
+  910×1024 cards; no runtime tile is generated independently. Sky Lagoon
+  mountains, cabins, grass, and promenade imagery are excluded.
 - `assets/flats/fairy_conservatory_handoff/rainbow_walkway.png`: one-point
   causeway in the established coral, peach, yellow, mint, aqua, and lavender
   order, with Pearl Castle shell/gold/lavender rails.
