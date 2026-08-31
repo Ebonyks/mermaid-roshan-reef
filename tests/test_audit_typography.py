@@ -870,22 +870,38 @@ class TypographyAuditTests(unittest.TestCase):
         self.assertNotIn("U+26A1", data["glyph_classes"]["critical"])
         self.assertEqual(report["glyphs"]["classification_counts"]["redundant"], 2)
         self.assertEqual(report["glyphs"]["unclassified"], [])
-        self.assertIn('dodge.text = "⚡\\n↻" if danger else "↻"', source)
-        self.assertIn("A separate picture button adds an OPTIONAL twirl dodge.", source)
-        self.assertIn('StorybookUI.style_icon_button(dodge, "↻"', source)
-        self.assertIn("* (10.0 if danger else 2.6)", source)
-        self.assertIn("dodge.scale = Vector2.ONE * pulse", source)
-        self.assertIn("pointer.visible = dodge_visible and danger", source)
-        self.assertEqual(evidence["source_refs"], ["scripts/games/dust_boss.gd:1044"])
-        self.assertEqual(
-            evidence["redundant_routes"],
-            [
-                "scripts/games/dust_boss.gd:31",
-                "scripts/games/dust_boss.gd:994",
-                "scripts/games/dust_boss.gd:1046-1048",
-                "scripts/games/dust_boss.gd:1050",
+        source_lines = source.splitlines()
+        source_routes = {
+            "scripts/games/dust_boss.gd:31": "# shove and boing before she recovers immediately; it never removes progress.",
+            "scripts/games/dust_boss.gd:32": "# A separate picture button adds an OPTIONAL twirl dodge. Incoming hops pulse",
+            "scripts/games/dust_boss.gd:994": '\tStorybookUI.style_icon_button(dodge, "↻", "secondary",',
+            "scripts/games/dust_boss.gd:1046-1048": [
+                '\t\tvar pulse: float = 1.0 + sin(float(m.g.get("db_active_t", 0.0)) '
+                + "\\",
+                "\t\t\t* (10.0 if danger else 2.6)) * (0.10 if danger else 0.025)",
+                "\t\tdodge.scale = Vector2.ONE * pulse",
             ],
-        )
+            "scripts/games/dust_boss.gd:1050": "\t\tpointer.visible = dodge_visible and danger",
+        }
+        glyph_source_routes = {
+            "scripts/games/dust_boss.gd:1044": '\t\tdodge.text = "⚡\\n↻" if danger else "↻"',
+        }
+        for route in evidence["source_refs"]:
+            expected = glyph_source_routes.get(route)
+            self.assertIsNotNone(expected, route)
+            _path, line = route.rsplit(":", 1)
+            self.assertEqual(source_lines[int(line) - 1], expected, route)
+        self.assertEqual(set(evidence["source_refs"]), set(glyph_source_routes))
+        for route in evidence["redundant_routes"]:
+            expected = source_routes.get(route)
+            self.assertIsNotNone(expected, route)
+            _path, line_spec = route.rsplit(":", 1)
+            if "-" in line_spec:
+                start, end = (int(value) for value in line_spec.split("-", 1))
+                self.assertEqual(source_lines[start - 1:end], expected, route)
+            else:
+                self.assertEqual(source_lines[int(line_spec) - 1], expected, route)
+        self.assertEqual(set(evidence["redundant_routes"]), set(source_routes))
         self.assertEqual(voice_route["status"], "EXCLUDED")
         self.assertFalse((root / voice_route["exact_asset"]).exists())
         self.assertTrue((root / voice_route["fallback_asset"]).exists())

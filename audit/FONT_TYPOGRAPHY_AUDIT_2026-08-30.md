@@ -70,8 +70,8 @@ at `scripts/games/dust_boss.gd:1044`. It is classified as **redundant**, not
 critical: it is an optional incoming-hop attention flash on the dodge button,
 while the danger-specific scale pulse at `dust_boss.gd:1046-1048` and visible
 pointer at `dust_boss.gd:1050` reinforce the persistent `↻` action affordance
-at `dust_boss.gd:994`. The control is optional (`dust_boss.gd:31`), and contact
-is harmless and never removes progress. The exact voice asset is absent and
+at `dust_boss.gd:994`. The control is optional (`dust_boss.gd:32`), and contact
+is harmless and never removes progress (`dust_boss.gd:31`). The exact voice asset is absent and
 the generic `yay` fallback is affect-only, so no spoken instruction is claimed.
 The manifest records these exact source routes and the excluded voice route in `glyph_evidence`;
 this is source classification evidence only, not font coverage or device
@@ -163,7 +163,8 @@ meaning uses controlled authored assets or a proved bundled monochrome glyph;
 Unicode may remain redundant decoration. The new Dust Bunny `⚡` cue is kept in
 that redundant class because the optional dodge control has a danger-specific
 scale pulse, visible pointer, and persistent `↻` action affordance; contact is
-harmless and never removes progress. Its absent exact voice asset and generic
+harmless and never removes progress. Its optional-control source is
+`dust_boss.gd:32`, and its harmless-contact source is `dust_boss.gd:31`. Its absent exact voice asset and generic
 `yay` fallback are explicitly excluded from the classification evidence.
 
 ### 4.5 Fixed English layout has expansion risk
