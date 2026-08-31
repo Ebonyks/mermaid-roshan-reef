@@ -31,10 +31,10 @@ const PATHS: Dictionary = {
 	"geologist": {
 		"path": [[0.06, 0.70], [0.17, 0.69], [0.30, 0.66], [0.43, 0.64], [0.56, 0.66], [0.70, 0.64], [0.83, 0.61], [0.93, 0.58]],
 		"stations": [
-			{"id": "layer_wall", "pos": [0.20, 0.68], "landmark": "broad striped rock wall with three bright sediment layers"},
-			{"id": "fossil_table", "pos": [0.38, 0.64], "landmark": "rounded stone inspection table holding a large spiral fossil"},
-			{"id": "specimen_trays", "pos": [0.65, 0.64], "landmark": "three dark pearl-rimmed specimen trays"},
-			{"id": "crystal_gallery", "pos": [0.91, 0.58], "landmark": "tall aqua and lavender crystal cluster glowing at the cave gallery"},
+			{"id": "layer_wall", "pos": [0.20, 0.68], "object": [0.20, 0.40], "visual_size": [166.0, 152.0], "hotspot_size": [194.0, 180.0], "spur": [[0.17, 0.69], [0.20, 0.68]], "landmark": "broad striped rock wall with three bright sediment layers"},
+			{"id": "fossil_table", "pos": [0.38, 0.64], "object": [0.38, 0.43], "visual_size": [154.0, 124.0], "hotspot_size": [182.0, 156.0], "spur": [[0.30, 0.66], [0.38, 0.64]], "landmark": "rounded stone inspection table holding a large spiral fossil"},
+			{"id": "specimen_trays", "pos": [0.65, 0.64], "object": [0.65, 0.43], "visual_size": [166.0, 116.0], "hotspot_size": [194.0, 150.0], "spur": [[0.56, 0.66], [0.65, 0.64]], "landmark": "three dark pearl-rimmed specimen trays"},
+			{"id": "crystal_gallery", "pos": [0.91, 0.58], "object": [0.91, 0.30], "visual_size": [154.0, 166.0], "hotspot_size": [182.0, 194.0], "spur": [[0.83, 0.61], [0.91, 0.58]], "landmark": "tall aqua and lavender crystal cluster glowing at the cave gallery"},
 		],
 		"clue_spots": [[0.12, 0.22], [0.25, 0.38], [0.36, 0.20], [0.50, 0.42], [0.64, 0.24], [0.76, 0.38], [0.87, 0.20], [0.94, 0.48]],
 	},

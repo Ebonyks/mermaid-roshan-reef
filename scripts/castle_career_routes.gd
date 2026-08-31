@@ -45,7 +45,7 @@ const CAREER_CREST_FILES := {
 	"racer": "opera_crest_racer.png",
 	"popstar": "opera_crest_singer.png",
 	"nursery": "goal_nursery.png",
-	"geologist": "goal_geologist.svg",
+	"geologist": "opera_crest_geologist.svg",
 }
 
 var m: ReefMain

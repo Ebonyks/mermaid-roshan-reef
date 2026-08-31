@@ -309,10 +309,10 @@ const PHASES := {
 		{"name": "ENCORE", "mode": "circle", "goal": 1.8, "vo": "op_popstar_encore", "voice": "Draw one big encore spin for the crowd!"},
 	],
 	"geologist": [
-		{"name": "LAYERS", "mode": "choice", "goal": 3.0, "voice": "Tap the rock layer that matches the glowing sample!"},
-		{"name": "FOSSIL", "mode": "swipe", "goal": 5.0, "voice": "Brush gently across the stone to uncover the spiral fossil!"},
+		{"name": "LAYERS", "mode": "choice", "widget": "", "goal": 3.0, "voice": "Tap the rock layer that matches the glowing sample!"},
+		{"name": "FOSSIL", "mode": "swipe", "widget": "", "goal": 5.0, "voice": "Brush gently across the stone to uncover the spiral fossil!"},
 		{"name": "SORT", "mode": "geology_sort", "widget": "", "goal": 6.0, "voice": "Drag each specimen into the tray with the same shape and color!"},
-		{"name": "CRYSTAL", "mode": "hold", "goal": 4.0, "voice": "Hold the pearl lamp and make the crystal cave sparkle!"},
+		{"name": "CRYSTAL", "mode": "hold", "widget": "", "goal": 4.0, "voice": "Hold the pearl lamp and make the crystal cave sparkle!"},
 	],
 }
 
@@ -661,7 +661,10 @@ func _build_world() -> void:
 	rival_bar.visible = false
 	root.add_child(rival_bar)
 
-	player_actor = _actor("res://assets/opera/worlds/actors/roshan_%s.png" % career_id)
+	var player_actor_path := "res://assets/opera/worlds/actors/roshan_%s.png" % career_id
+	if career_id == "geologist":
+		player_actor_path = OperaRoshanActor.ATLAS_PATH % career_id
+	player_actor = _actor(player_actor_path)
 	# scale contract: Roshan is ~1.3x a crew imp, ~1.2x the captain —
 	# a small bit taller, never more than 1.5x (owner 2026-08-03)
 	# The ballet silhouette gets a little more room, while staying below the

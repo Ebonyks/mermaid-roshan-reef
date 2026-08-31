@@ -63,7 +63,7 @@ const EXPECTED_STATIONS: Dictionary = {
 }
 
 ## Mirrors the shipping PHASE_STATIONS bindings by station ID. Repeated IDs
-## are intentional: this is the full 53-phase playable contract, not merely a
+## are intentional: this is the full 57-phase playable contract, not merely a
 ## set of the 45 physical landmarks those phases share.
 const PLAYABLE_PHASE_STATIONS: Dictionary = {
 	"chef": [

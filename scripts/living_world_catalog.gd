@@ -5,7 +5,7 @@ extends RefCounted
 # quiet continuous accents and one passive-only surprise. The runtime renderer
 # consumes these rows and the trusted probe audits them independently.
 
-const EXPECTED_STAGE_COUNT := 98
+const EXPECTED_STAGE_COUNT := 99
 
 
 static func build() -> Dictionary:
@@ -461,6 +461,10 @@ static func _add_opera_acts(specs: Dictionary) -> void:
 			"Moon-and-star mobiles sway beside the baby cribs.", "moon",
 			"Tiny dream bubbles drift at an independent pace.", "bubble",
 			"A sleepy golden star settles once above the beds.", "sparkle"],
+		["opera.act.16", "The Crystal Cave Discovery", "scripts/opera_house.gd:ACTS[16]; scripts/opera_career_world_2d.gd",
+			"Crystal points breathe softly beyond the specimen tables.", "sparkle",
+			"Cave bubbles drift at a second quiet rhythm.", "bubble",
+			"One tiny fossil shell makes a gentle discovery turn.", "shell"],
 	])
 
 

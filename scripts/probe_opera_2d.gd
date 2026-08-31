@@ -98,8 +98,8 @@ func _audit_shipping_hotspot_specs() -> void:
 				missing_specs.append("%s/%s -> %s" % [
 					career, phase_name, catalog_name,
 				])
-	_check("all 53 shipping phases resolve through aliases to hotspot art specs",
-		shipping_phase_count == 53 and missing_specs.is_empty())
+	_check("all 57 shipping phases resolve through aliases to hotspot art specs",
+		shipping_phase_count == 57 and missing_specs.is_empty())
 	for missing_spec: String in missing_specs:
 		print("OPERA2D|shipping_hotspot: missing %s" % missing_spec)
 
@@ -776,8 +776,11 @@ func _init() -> void:
 		else:
 			_check("%s starts in its job world, off the proscenium" % career,
 				backdrop != null and not backdrop.stage_mode)
-		_check("%s paints the supplied codex career world" % career,
-			backdrop != null and backdrop.world_tiles.size() == 4)
+		var owns_world_art := backdrop != null and backdrop.world_tiles.size() == 4
+		if career == "geologist":
+			owns_world_art = backdrop != null and backdrop.world_tiles.is_empty() \
+				and backdrop.painting == null
+		_check("%s paints the supplied codex career world" % career, owns_world_art)
 		var owns_stage_art := backdrop != null and backdrop.stage_tiles.size() == 4
 		if career == "geologist":
 			# Geologist is intentionally authored as resolution-independent Canvas
@@ -909,7 +912,7 @@ func _init() -> void:
 		# those contracts are exercised above instead of requiring reskin assets.
 		var career_widget_contract_complete := widgets_complete \
 			and (widget_count > 0 \
-				or career in ["ballerina", "boxer", "detective", "racer"])
+				or career in ["ballerina", "boxer", "detective", "racer", "geologist"])
 		_check("%s loads every diegetic phase widget" % career,
 			career_widget_contract_complete)
 		widget_contracts_complete = widget_contracts_complete \
