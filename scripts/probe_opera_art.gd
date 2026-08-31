@@ -612,25 +612,18 @@ func _capture_non_hall_routes() -> void:
 		)
 
 
-func _navigate_venue_floor(target_floor: int) -> bool:
+func _select_venue_floor_for_capture(target_floor: int) -> bool:
 	var venue: OperaHouseVenue2D = routes.opera_venue
-	for _cycle: int in range(VENUE_FLOOR_ACTS.size()):
-		if venue != null and is_instance_valid(venue) \
-				and venue.floor_index == target_floor and venue.accepting_input:
-			return true
-		var lift := venue.get_node_or_null("BubbleLift1") as Button \
-			if venue != null and is_instance_valid(venue) else null
-		if lift == null or not lift.is_visible_in_tree() or lift.disabled:
-			return false
-		var next_floor := (venue.floor_index + 1) % VENUE_FLOOR_ACTS.size()
-		# Visual-state setup uses the venue's real production lift/tween path.
-		# Viewport input remains mandatory for every windowed career entry. The
-		# trusted probe_opera.gd independently proves raw touch for the lift.
-		venue._ride_lift(0)
-		if not await _wait_venue_floor(next_floor):
-			return false
-	return venue != null and is_instance_valid(venue) \
-		and venue.floor_index == target_floor and venue.accepting_input
+	if venue == null or not is_instance_valid(venue) \
+			or target_floor < 0 or target_floor >= VENUE_FLOOR_ACTS.size():
+		return false
+	# The accepted foyer painting remains three-tiered, but every painted door
+	# is now directly tappable. This visual probe positions Roshan for each art
+	# capture without reviving the removed bubble-lift interaction.
+	venue.floor_index = target_floor
+	venue.refresh(main.opera_stars)
+	await process_frame
+	return venue.floor_index == target_floor and venue.accepting_input
 
 
 func _capture_venue_floors() -> void:
@@ -642,7 +635,7 @@ func _capture_venue_floors() -> void:
 	for floor_index: int in range(VENUE_FLOOR_ACTS.size()):
 		var floor_ready := opened
 		if floor_ready and routes.opera_venue.floor_index != floor_index:
-			floor_ready = await _navigate_venue_floor(floor_index)
+			floor_ready = await _select_venue_floor_for_capture(floor_index)
 		var act_index := VENUE_FLOOR_ACTS[floor_index]
 		var expected := _venue_expected_state(floor_index, act_index)
 		await _capture_state(

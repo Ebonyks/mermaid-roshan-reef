@@ -1663,6 +1663,7 @@ func show_room(room_id: String, announce: bool = true) -> void:
 				"talk")
 		else:
 			m.show_msg("Pearl Castle", String(room["name"]), "home")
+	m._chapter_two_sync_room_plot()
 
 func _room(room_id: String) -> Dictionary:
 	for room: Dictionary in ROOMS:
@@ -2695,7 +2696,8 @@ func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
 	if room_id == "playroom" and item_id == "baby_eagle_rescue":
 		_add_playroom_rescue_pointer()
 
-func _activate_room_item(item_id: String) -> void:
+func _activate_room_item(item_id: String,
+		allow_chapter2_plot_route: bool = true) -> void:
 	if _fridge_close_is_blocked():
 		return
 	var record: Dictionary = m.castle_room_item_sprites.get(item_id, {})
@@ -2705,6 +2707,17 @@ func _activate_room_item(item_id: String) -> void:
 	var item_data: Dictionary = record.get("data", {})
 	if sprite == null or bool(sprite.get_meta("busy", false)):
 		return
+	if allow_chapter2_plot_route:
+		var plot_action := m._chapter_two_ref().room_plot_action(
+			m.castle_room_id)
+		var is_plot_prop := \
+			(m.castle_room_id == "library" and item_id == "magic_book" \
+				and plot_action == ChapterTwoDirector.ACTION_DETECTIVE_SEARCH) \
+			or (m.castle_room_id == "playroom" and item_id == "stuffie_nook" \
+				and plot_action == ChapterTwoDirector.ACTION_STUFFIE_BALLET)
+		if is_plot_prop and m.chapter2_activate_room_plot(
+				m.castle_room_id, plot_action):
+			return
 	if m.castle_room_id == "playroom" and item_id == "stuffie_nook":
 		# The painted toy nook replaces the removed room-wide Stuffies button.
 		activate_current_room()
@@ -2747,6 +2760,21 @@ func _activate_room_item(item_id: String) -> void:
 		sprite.set_meta("launch_activity_after_sequence", launch_activity)
 	_play_sprite_atlas_sequence(sprite, item_data, true,
 		m.castle_room_id == "kitchen" and item_id == "fridge")
+
+
+func activate_chapter2_plot_prop(room_id: String, item_id: String) -> bool:
+	# This narrow bridge lets the Chapter 2 director play an existing authored
+	# prop response without turning ordinary room-item taps into skill uses.
+	var permitted := {
+		"library": "magic_book",
+		"playroom": "stuffie_nook",
+	}
+	if m.castle_room_id != room_id \
+			or String(permitted.get(room_id, "")) != item_id \
+			or not m.castle_room_item_sprites.has(item_id):
+		return false
+	_activate_room_item(item_id, false)
+	return true
 
 func _activate_roleplay_item(roleplay_action: String, item_id: String,
 		sprite: Sprite2D, item_data: Dictionary) -> void:

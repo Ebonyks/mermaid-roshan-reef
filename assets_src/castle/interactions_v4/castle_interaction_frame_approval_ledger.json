@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "7bd0c274b394b9506c88b6370712b48480e9b290073b2a3786a1ae52d7d8f870",
+  "candidate_payload_sha256": "6462fb5a6bcc3f906ab27966fb0134b6e22a663e9119bcbf13633c0977db575e",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -10,6 +10,15 @@
     "owner_acceptance": "pending",
     "candidate_binding_refresh": "Complete cupboard rest card now exactly equals the already reviewed frame-zero pixels; all 96 per-frame review hashes are unchanged.",
     "final_binding_refresh": "Source-ownership reference/rest role separation changed manifest provenance only; all 96 reviewed per-frame hashes remain unchanged."
+  },
+  "chapter2_binding_revalidation": {
+    "date": "2026-08-30",
+    "reason": "Chapter 2 adds a non-visual room-plot synchronization call and a narrowly gated bridge that replays two existing authored prop responses. It does not alter ROOM_LAYOUTS, card placement, fixture rigs, the V4 manifest, atlas pixels, alpha ownership, z order, or any interaction-frame render input.",
+    "prior_candidate_payload_sha256": "7bd0c274b394b9506c88b6370712b48480e9b290073b2a3786a1ae52d7d8f870",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "frame_hash_evidence": "All 96 candidate frame_review_sha256 values exactly equal the existing reviewed ledger values; zero frame mismatches.",
+    "candidate_binding_refresh": "Whole-file runtime-layout semantic hash changed only because of the two non-visual Chapter 2 hooks; pixel-identical prior frame review remains applicable.",
+    "owner_acceptance": "pending"
   },
   "reviewer": "Codex visual re-review 2026-08-29",
   "review_basis": "All 96 current V4 plain and diagnostic composites inspected across three independent absolute-worktree review groups plus primary review; complete V2 Playroom tent reuse verified; Bubble mirror/sink occlusion verified in exact Godot 4.7.2 Forward Mobile dirty and clean runtime captures; automated duplicate, ownership, alpha-scissor, static-z, and full-frame background gates clean. Owner acceptance remains pending.",

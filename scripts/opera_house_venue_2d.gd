@@ -15,30 +15,50 @@ const TILE_ROWS := 2
 const HISTORICAL_LAYOUT_COMMIT := "90d19190"
 const ROSHAN_TEXTURE := \
 	"res://assets/characters/roshan_25d/roshan_base.png"
+const GHOST_HAND_TEXTURE := "res://assets/castle/training/ghost_hand.png"
 const FLOOR_NAMES: Array[String] = [
 	"Lagoon Lights Foyer",
 	"Starlight Balcony",
 	"Grand Gallery",
 ]
-const FLOOR_ACT_INDICES: Array[int] = [2, 8, 13]
+const LEGACY_FLOOR_ACT_INDICES: Array[int] = [2, 8, 13]
 const FLOOR_ACTOR_POSITIONS: Array[Vector2] = [
 	Vector2(584.0, 548.0),
 	Vector2(584.0, 354.0),
 	Vector2(584.0, 166.0),
 ]
-const PORTAL_RECTS := {
+const LEGACY_PORTAL_RECTS := {
 	2: Rect2(674.0, 408.0, 126.0, 166.0),
 	8: Rect2(900.0, 236.0, 126.0, 160.0),
 	13: Rect2(830.0, 63.0, 126.0, 156.0),
 }
+# Four painted foyer doors become the opening Chapter 2 tutorial set. These
+# rectangles are measured from the accepted venue painting; no floating cards
+# or duplicate door art are added.
+const CHAPTER2_PORTAL_RECTS := {
+	0: Rect2(382.0, 408.0, 126.0, 166.0),
+	1: Rect2(526.0, 408.0, 126.0, 166.0),
+	2: Rect2(674.0, 408.0, 126.0, 166.0),
+	3: Rect2(817.0, 408.0, 126.0, 166.0),
+}
+const CHAPTER2_SECOND_WAVE_PORTAL_RECTS := {
+	11: Rect2(382.0, 220.0, 126.0, 156.0),
+	13: Rect2(817.0, 220.0, 126.0, 156.0),
+}
 var m: ReefMain
 var launch_career: Callable
 var buttons: Array[Button] = []
+var active_act_indices: Array[int] = []
+var portal_rects: Dictionary = {}
+var act_floors: Dictionary = {}
+var chapter2_tutorial_mode := false
 var floor_index := 0
 var accepting_input := true
 var actor: TextureRect
 var floor_glow: ColorRect
 var guide_button: Button
+var guide_pointer: Sprite2D
+var guide_pointer_base := Vector2.ZERO
 var motion: Tween
 var elapsed := 0.0
 
@@ -53,19 +73,23 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 	size = CANVAS_SIZE
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	z_index = 42
+	_configure_portals()
 	set_meta("historical_layout_commit", HISTORICAL_LAYOUT_COMMIT)
 	set_meta("true_2d_venue", true)
 	set_meta("historical_floor_count", 3)
 	set_meta("historical_portal_count", 12)
-	set_meta("active_room_owned_portal_count", 3)
-	set_meta("decorative_closed_portal_count", 9)
+	set_meta("active_room_owned_portal_count", active_act_indices.size())
+	set_meta("decorative_closed_portal_count",
+		12 - active_act_indices.size())
 	set_meta("bubble_lift_count", 0)
 	set_meta("floating_portal_decoration_count", 0)
+	set_meta("chapter2_initial_tutorial_mode", chapter2_tutorial_mode)
 	_build_background_tiles()
 	_build_input_blocker()
 	_build_floor_glow()
 	_build_actor()
 	_build_portals()
+	_build_guide_pointer()
 	refresh(star_mask)
 
 
@@ -81,6 +105,8 @@ func close() -> void:
 	m._navigation_remove("opera_venue")
 	accepting_input = false
 	guide_button = null
+	if guide_pointer != null:
+		guide_pointer.visible = false
 	if motion != null and motion.is_valid():
 		motion.kill()
 	motion = null
@@ -91,11 +117,18 @@ func is_open() -> bool:
 	return visible
 
 
+func is_chapter2_tutorial_mode() -> bool:
+	return chapter2_tutorial_mode
+
+
 func career_buttons() -> Array[Button]:
 	# Keep the established room-route order stable even though the physical
 	# venue is built from ground floor upward.
 	var ordered: Array[Button] = []
-	for act_index: int in [2, 13, 8]:
+	var requested_order: Array[int] = active_act_indices.duplicate()
+	if not chapter2_tutorial_mode and not (m != null and m.chapter2_is_active()):
+		requested_order = [2, 13, 8]
+	for act_index: int in requested_order:
 		for button: Button in buttons:
 			if int(button.get_meta("act_index", -1)) == act_index:
 				ordered.append(button)
@@ -106,8 +139,18 @@ func career_buttons() -> Array[Button]:
 func refresh(star_mask: int) -> void:
 	for button: Button in buttons:
 		var act_index := int(button.get_meta("act_index", -1))
-		button.disabled = not accepting_input
-		button.set_meta("complete", (star_mask & (1 << act_index)) != 0)
+		var complete := _portal_is_complete(act_index, star_mask)
+		var chapter2_complete := chapter2_tutorial_mode \
+			or (m != null and m.chapter2_is_active())
+		button.disabled = not accepting_input \
+			or not m.chapter2_can_start_opera_act(act_index) \
+			or (chapter2_complete and complete)
+		button.set_meta("complete", complete)
+		button.set_meta("chapter2_skill_complete",
+			chapter2_tutorial_mode and complete)
+		button.set_meta("chapter2_party_complete",
+			m != null and m.chapter2_is_active() and not chapter2_tutorial_mode \
+			and complete)
 	if actor != null:
 		actor.position = FLOOR_ACTOR_POSITIONS[floor_index]
 	if floor_glow != null:
@@ -117,15 +160,89 @@ func refresh(star_mask: int) -> void:
 
 func guide_current_floor() -> bool:
 	guide_button = null
-	if not visible or not accepting_input or not is_inside_tree():
+	if not visible or not accepting_input:
 		return false
-	var act_index := FLOOR_ACT_INDICES[floor_index]
+	var candidates: Array[Button] = []
 	for button: Button in buttons:
-		if int(button.get_meta("act_index", -1)) == act_index:
+		if not button.disabled:
+			candidates.append(button)
+	for button: Button in candidates:
+		var act_index := int(button.get_meta("act_index", -1))
+		if not _portal_is_complete(act_index, m.opera_stars):
 			guide_button = button
-			button.grab_focus()
+			if button.is_inside_tree():
+				button.grab_focus()
+			_update_guide_pointer()
 			return true
+	if not candidates.is_empty():
+		guide_button = candidates[0]
+		if guide_button.is_inside_tree():
+			guide_button.grab_focus()
+		_update_guide_pointer()
+		return true
+	if guide_pointer != null:
+		guide_pointer.visible = false
 	return false
+
+
+func _portal_is_complete(act_index: int, star_mask: int) -> bool:
+	if act_index < 0:
+		return false
+	var bit := 1 << act_index
+	if chapter2_tutorial_mode:
+		# Opening lessons are deliberately non-star runs. Their door state and
+		# guide progression come from the director's learned-skill mask only.
+		return m != null and (int(m._chapter_two_ref().skill_mask) & bit) != 0
+	if m != null and m.chapter2_is_active():
+		# A plot-only Stuffie Ballet makes act 2 a completed party contribution;
+		# keep its historical Opera Hall portal visible but unavailable. Legacy
+		# Opera stars do not count as birthday prep: a returning save must still
+		# be able to make the Magician and Pop Star party contributions.
+		return (int(m._chapter_two_ref().party_piece_mask) & bit) != 0
+	return (star_mask & bit) != 0
+
+
+func _configure_portals() -> void:
+	# The four-door surface lasts only while the Chapter 2 director is asking
+	# for Opera skill lessons. Candle/ballet plot beats and post-onboarding
+	# free play use the historical room-distributed Opera routes again.
+	chapter2_tutorial_mode = m != null and m.chapter2_is_active() \
+		and m._chapter_two_ref().is_opera_priority()
+	active_act_indices.clear()
+	portal_rects.clear()
+	act_floors.clear()
+	if chapter2_tutorial_mode:
+		active_act_indices = m.chapter2_initial_tutorial_act_indices()
+		for act_index: int in active_act_indices:
+			portal_rects[act_index] = CHAPTER2_PORTAL_RECTS[act_index]
+			act_floors[act_index] = 0
+		return
+	if m != null and m.chapter2_is_active():
+		# The venue shows only the eight-career birthday roster. Ballerina and
+		# Detective remain room-owned plot actions; their normal doors are not
+		# duplicated here. The first wave is supplied by the director mask, and
+		# the second wave appears after Painter completes.
+		for act_index: int in ChapterTwoPartyPlan.GUIDE_ORDER:
+			if act_index in [ChapterTwoDirector.ACT_BALLERINA,
+					ChapterTwoDirector.ACT_DETECTIVE]:
+				continue
+			if (int(m._chapter_two_ref().unlocked_opera_mask) & (1 << act_index)) == 0:
+				continue
+			active_act_indices.append(act_index)
+			var rect: Rect2 = CHAPTER2_PORTAL_RECTS.get(
+				active_act_indices.size() - 1,
+				CHAPTER2_SECOND_WAVE_PORTAL_RECTS.get(act_index,
+					Rect2(0.0, 0.0, 126.0, 156.0)))
+			if active_act_indices.size() > CHAPTER2_PORTAL_RECTS.size():
+				rect = CHAPTER2_SECOND_WAVE_PORTAL_RECTS.get(act_index, rect)
+			portal_rects[act_index] = rect
+			act_floors[act_index] = 0
+		return
+	active_act_indices = LEGACY_FLOOR_ACT_INDICES.duplicate()
+	for legacy_floor in range(active_act_indices.size()):
+		var act_index := active_act_indices[legacy_floor]
+		portal_rects[act_index] = LEGACY_PORTAL_RECTS[act_index]
+		act_floors[act_index] = legacy_floor
 
 
 func _build_background_tiles() -> void:
@@ -197,9 +314,9 @@ func _build_actor() -> void:
 
 
 func _build_portals() -> void:
-	for portal_floor in range(FLOOR_ACT_INDICES.size()):
-		var act_index := FLOOR_ACT_INDICES[portal_floor]
-		var rect: Rect2 = PORTAL_RECTS[act_index]
+	for act_index: int in active_act_indices:
+		var portal_floor := int(act_floors.get(act_index, 0))
+		var rect: Rect2 = portal_rects[act_index]
 		var button := Button.new()
 		button.name = "OperaVenuePortal_%02d" % act_index
 		button.position = rect.position
@@ -214,7 +331,9 @@ func _build_portals() -> void:
 		button.set_meta("act_index", act_index)
 		button.set_meta("castle_room_id", "opera_hall")
 		button.set_meta("floor_index", portal_floor)
-		button.set_meta("presentation", "historical_three_floor_portal")
+		button.set_meta("presentation",
+			"chapter2_initial_tutorial_portal" if chapter2_tutorial_mode \
+			else "historical_three_floor_portal")
 		button.set_meta("opaque_card", false)
 		button.set_meta("painted_door_hit_region", true)
 		button.set_meta("floating_decoration", false)
@@ -223,6 +342,27 @@ func _build_portals() -> void:
 		button.pressed.connect(_choose_career.bind(act_index))
 		add_child(button)
 		buttons.append(button)
+
+
+func _build_guide_pointer() -> void:
+	guide_pointer = Sprite2D.new()
+	guide_pointer.name = "ChapterTwoOperaDoorPointer"
+	guide_pointer.texture = load(GHOST_HAND_TEXTURE) as Texture2D
+	guide_pointer.scale = Vector2.ONE * 0.13
+	guide_pointer.visible = false
+	guide_pointer.z_index = 12
+	guide_pointer.set_meta("visual_pointer", true)
+	guide_pointer.set_meta("replacement_door_art", false)
+	add_child(guide_pointer)
+
+
+func _update_guide_pointer() -> void:
+	if guide_pointer == null or guide_button == null:
+		return
+	guide_pointer_base = guide_button.position + Vector2(
+		guide_button.size.x * 0.5, -10.0)
+	guide_pointer.position = guide_pointer_base
+	guide_pointer.visible = chapter2_tutorial_mode
 
 
 func _style_portal_button(button: Button) -> void:
@@ -253,12 +393,13 @@ func _outline_style(border: Color, fill: Color, width: int,
 
 
 func _choose_career(act_index: int) -> void:
-	if not accepting_input or not PORTAL_RECTS.has(act_index):
+	if not accepting_input or not portal_rects.has(act_index) \
+			or not m.chapter2_can_start_opera_act(act_index):
 		return
-	floor_index = FLOOR_ACT_INDICES.find(act_index)
+	floor_index = int(act_floors.get(act_index, 0))
 	accepting_input = false
 	refresh(m.opera_stars)
-	var rect: Rect2 = PORTAL_RECTS[act_index]
+	var rect: Rect2 = portal_rects[act_index]
 	var target := Vector2(
 		rect.get_center().x - actor.size.x * 0.5,
 		FLOOR_ACTOR_POSITIONS[floor_index].y)
@@ -286,5 +427,8 @@ func _process(delta: float) -> void:
 	elapsed += delta
 	var glow := 0.88 + sin(elapsed * 3.2) * 0.12
 	guide_button.modulate = Color(1.0, 1.0, glow, 1.0)
+	if guide_pointer != null and guide_pointer.visible:
+		guide_pointer.position.y = guide_pointer_base.y \
+			+ sin(elapsed * 4.0) * 10.0
 	if floor_glow != null:
 		floor_glow.modulate.a = 0.72 + sin(elapsed * 2.6) * 0.20

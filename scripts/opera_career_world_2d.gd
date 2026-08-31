@@ -17,6 +17,11 @@ const ImpClips := preload("res://scripts/opera_imp_clips.gd")
 const RoshanAnimator := preload("res://scripts/opera_roshan_actor.gd")
 const WorldHotspot := preload("res://scripts/opera_world_hotspot_2d.gd")
 const HotspotCatalog := preload("res://scripts/opera_hotspot_catalog.gd")
+const ChapterTwoAdapter := preload("res://scripts/chapter_two_career_scene_adapter.gd")
+const ChapterTwoCake := preload("res://scripts/chapter_two_giant_cake_2d.gd")
+const ChapterTwoCandle := preload("res://scripts/chapter_two_rainbow_candle_2d.gd")
+const CHAPTER2_DETECTIVE_RESULT_ASSET: String = \
+	"res://assets/chapter2/birthday/rainbow_candle_unlit.png"
 
 ## Detective search geometry. The authored magnifier is a 512px square with
 ## its glass centred near (181, 181); anchoring the art by that point keeps the
@@ -522,16 +527,108 @@ var last_cheer := ""
 var surface: OperaGestureSurface
 var phase_fill: ProgressBar
 var confetti: Array[ColorRect] = []
+var run_context: Dictionary = {}
+var scene_adapter: Dictionary = {}
+var adapter_callbacks: Dictionary = {}
+var using_chapter_two_phases := false
+var chapter2_guest_nodes: Array[TextureRect] = []
+var chapter2_guest_tweens: Dictionary = {}
+var chapter2_ensemble_bow_started := false
+var chapter2_last_mirror_beat := -1
+var chapter2_cake_scene: ChapterTwoGiantCake2D = null
+var chapter2_candle_scene: ChapterTwoRainbowCandle2D = null
+var chapter2_rumi_scene: Sprite2D = null
+var chapter2_strawberry_pickups: Array[TextureButton] = []
+var chapter2_strawberry_pickup_texture: Texture2D = null
+var chapter2_single_strawberry_texture: Texture2D = null
+var chapter2_detective_candle_button: Button = null
+var chapter2_candy_cake_texture: Texture2D = null
 
 
-func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition, on_win: Callable) -> void:
+func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
+		on_win: Callable, phase_overrides: Array = [],
+		scene_adapter_config: Dictionary = {}, context: Dictionary = {}) -> void:
 	m = main
 	config = act_config
 	competition = director
 	competition.pause()
 	win_callback = on_win
 	career_id = String(config.get("costume", "chef"))
-	phases = (PHASES.get(career_id, []) as Array).duplicate(true)
+	run_context = context.duplicate(true)
+	if run_context.is_empty() and config.get("run_context", {}) is Dictionary:
+		run_context = (config.get("run_context", {}) as Dictionary).duplicate(true)
+	var override_config: Dictionary = {}
+	if config.get("phase_overrides", []) is Array:
+		override_config["phase_overrides"] = config.get("phase_overrides", [])
+	if config.get("finale_start", null) != null:
+		override_config["finale_start"] = int(config.get("finale_start", 0))
+	var requested_adapter: Dictionary = scene_adapter_config.duplicate(true)
+	if requested_adapter.is_empty() and config.get("scene_adapter", {}) is Dictionary:
+		requested_adapter = (config.get("scene_adapter", {}) as Dictionary).duplicate(true)
+	scene_adapter = requested_adapter
+	var adapter_phases: Variant = scene_adapter.get(
+		"phase_overrides", scene_adapter.get("phases", null))
+	if phase_overrides.is_empty() and adapter_phases is Array:
+		phase_overrides = (adapter_phases as Array).duplicate(true)
+	if config.get("finale_start", null) == null and scene_adapter.has("finale_start"):
+		override_config["finale_start"] = int(scene_adapter.get("finale_start", 0))
+	var callbacks: Variant = run_context.get("callbacks", {})
+	if callbacks is Dictionary:
+		adapter_callbacks = (callbacks as Dictionary).duplicate(true)
+	for event: String in [
+		"scene_ready", "phase_armed", "phase_opened", "phase_completed",
+		"scene_completed", "scene_closed",
+	]:
+		var direct_callback: Variant = run_context.get(event,
+			run_context.get("on_%s" % event, Callable()))
+		if direct_callback is Callable:
+			adapter_callbacks[event] = direct_callback
+	var supplied_phases := phase_overrides
+	if supplied_phases.is_empty() and config.get("phase_overrides", []) is Array:
+		supplied_phases = config.get("phase_overrides", []) as Array
+	if not supplied_phases.is_empty():
+		override_config["phase_overrides"] = supplied_phases
+	var chapter_marker := String(run_context.get("chapter", "")).to_lower()
+	var chapter_requested := chapter_marker in ["2", "chapter2", "chapter_2"]
+	using_chapter_two_phases = not supplied_phases.is_empty() \
+			or not scene_adapter.is_empty() \
+			or chapter_requested
+	if using_chapter_two_phases:
+		if not ChapterTwoAdapter.validate_config_overrides(career_id, override_config):
+			push_error("OperaCareerWorld2D: rejected invalid Chapter 2 phase override")
+			return
+		var chapter_set := ChapterTwoAdapter.resolve(career_id, override_config)
+		var chapter_phases: Array = chapter_set.get("phases", []) as Array
+		phases = chapter_phases.duplicate(true) if not chapter_phases.is_empty() \
+			else (PHASES.get(career_id, []) as Array).duplicate(true)
+		if scene_adapter.is_empty():
+			scene_adapter = ChapterTwoAdapter.adapter_config(career_id, override_config)
+		config["chapter_two_scene_id"] = String(scene_adapter.get(
+				"id", chapter_set.get("scene_id", "")))
+		config["chapter_two_finale_start"] = int(chapter_set.get("finale_start", 0))
+		var backdrop_variant := String(scene_adapter.get(
+				"backdrop", chapter_set.get("backdrop", "")))
+		if not backdrop_variant.is_empty():
+			config["chapter2_scene"] = backdrop_variant
+	else:
+		phases = (PHASES.get(career_id, []) as Array).duplicate(true)
+	if bool(config.get("chapter2_tutorial", false)) and not phases.is_empty():
+		# The opening Opera lessons teach one physical verb and grant a skill.
+		# The complete Ballerina number therefore first occurs later with the
+		# stuffed-animal cast in the Stuffie Room, as the story requests.
+		phases = [(phases[0] as Dictionary).duplicate(true)]
+	phase_index = 0
+	if using_chapter_two_phases and not _is_tutorial_run() and not phases.is_empty():
+		# Chapter 2 persists completed physical phases in the director. Re-enter
+		# at the first unfinished phase so a save/resume never replays work the
+		# child already completed.
+		var resume_phase := int(config.get("chapter2_resume_phase_index", 0))
+		phase_index = clampi(resume_phase, 0, phases.size() - 1)
+	if _is_tutorial_run():
+		# The skill lesson is intentionally below the finale threshold. It still
+		# teaches the real surface verb, but never starts a rival clock or curtain
+		# call before the short lesson returns to the Castle.
+		chapter2_last_mirror_beat = -1
 	steal_index = -1
 	for index in range(phases.size()):
 		var phase := phases[index] as Dictionary
@@ -543,7 +640,60 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition, o
 	_build_world()
 	# The room is part of every activity. Setup arms the first physical object;
 	# it never bypasses discovery by opening a minigame synchronously.
+	_adapter_hook("scene_ready", scene_snapshot())
 	_arm_phase()
+
+
+func _adapter_hook(event: String, payload: Dictionary = {}) -> void:
+	var callback: Variant = adapter_callbacks.get(event, Callable())
+	if not callback is Callable:
+		callback = scene_adapter.get(event, Callable())
+	if not callback is Callable:
+		callback = adapter_callbacks.get("on_%s" % event, Callable())
+	if not callback is Callable:
+		callback = scene_adapter.get("on_%s" % event, Callable())
+	if callback is Callable and (callback as Callable).is_valid():
+		(callback as Callable).call(payload.duplicate(true))
+
+
+func scene_snapshot() -> Dictionary:
+	var phase_name := ""
+	var milestone := ""
+	if phase_index >= 0 and phase_index < phases.size():
+		var current: Dictionary = phases[phase_index] as Dictionary
+		phase_name = String(current.get("name", ""))
+		milestone = String(current.get("milestone", ""))
+	var snapshot := {
+		"career": career_id,
+		"scene_id": String(scene_adapter.get("id", config.get("chapter_two_scene_id", ""))),
+		"backdrop": String(scene_adapter.get("backdrop", config.get("chapter2_scene", ""))),
+		"prop": String(scene_adapter.get("prop", "")),
+		"widget": String(scene_adapter.get("widget", "")),
+		"story_object": String(scene_adapter.get("story_object", "")),
+		"mechanic": String(scene_adapter.get("mechanic", "")),
+		"strawberry_asset": String(scene_adapter.get("strawberry_asset", "")),
+		"cake_asset": String(scene_adapter.get("cake_asset", "")),
+		"delivery": String(scene_adapter.get("delivery", "")),
+		"destination": String(scene_adapter.get("destination", "")),
+		"persistent_prop": bool(scene_adapter.get("persistent_prop", false)),
+		"rocket_state": String(scene_adapter.get("rocket_state", "")),
+		"phase_index": phase_index,
+		"phase_name": phase_name,
+		"milestone": milestone,
+		"phase_progress": phase_progress,
+		"phase_count": phases.size(),
+		"chapter_two": using_chapter_two_phases,
+	}
+	if _is_chapter2_story_scene():
+		snapshot["chapter2_visual_contract"] = {
+			"career": career_id,
+			"strawberry_pickup_count": chapter2_strawberry_pickups.size(),
+			"strawberry_mask": int(m.chapter2_strawberry_mask) if m != null else 0,
+			"cake_piece_mask": int(m.chapter2_cake_piece_mask) if m != null else 0,
+			"candle_layer": "separate_unlit_rainbow_candle" if career_id == "detective" else "none",
+			"legacy_reward_art_suppressed": career_id == "detective",
+		}
+	return snapshot
 
 
 func _full_rect(control: Control) -> void:
@@ -563,6 +713,256 @@ func _sync_root_scale() -> void:
 		stage_bleed.position = Vector2.ZERO
 		stage_bleed.size = vs
 	_sync_lens_zoom_surface()
+
+
+func _is_chapter2_story_scene() -> bool:
+	return using_chapter_two_phases and not scene_adapter.is_empty()
+
+
+func _is_chapter2_cake_scene() -> bool:
+	return _is_chapter2_story_scene() and career_id in ["chef", "candymaker"]
+
+
+func _is_chapter2_candymaker_scene() -> bool:
+	return _is_chapter2_story_scene() and career_id == "candymaker"
+
+
+func _build_chapter2_story_props() -> void:
+	if not _is_chapter2_story_scene():
+		return
+	if _is_chapter2_cake_scene():
+		chapter2_cake_scene = ChapterTwoCake.new() as ChapterTwoGiantCake2D
+		chapter2_cake_scene.name = "Chapter2PersistentCakeScene"
+		chapter2_cake_scene.setup()
+		chapter2_cake_scene.position = Vector2(790.0, 200.0)
+		chapter2_cake_scene.z_index = 4
+		chapter2_cake_scene.set_meta("scene_specific_art", true)
+		chapter2_cake_scene.set_meta("same_asset_as_party_table", true)
+		root.add_child(chapter2_cake_scene)
+		var cake_path := String(scene_adapter.get("cake_asset", ""))
+		if ResourceLoader.exists(cake_path):
+			chapter2_candy_cake_texture = load(cake_path) as Texture2D
+		_refresh_chapter2_cake_scene()
+	if career_id == "detective":
+		chapter2_candle_scene = ChapterTwoCandle.new() as ChapterTwoRainbowCandle2D
+		chapter2_candle_scene.name = "Chapter2UnlitCandleReveal"
+		chapter2_candle_scene.setup(false)
+		chapter2_candle_scene.position = Vector2(838.0, 238.0)
+		chapter2_candle_scene.scale = Vector2.ONE * 0.84
+		chapter2_candle_scene.visible = false
+		chapter2_candle_scene.z_index = 5
+		chapter2_candle_scene.set_meta("scene_specific_art", true)
+		chapter2_candle_scene.set_meta("revealed_only_final_phase", true)
+		root.add_child(chapter2_candle_scene)
+		chapter2_detective_candle_button = Button.new()
+		chapter2_detective_candle_button.name = "Chapter2UnlitRainbowCandleTouch"
+		chapter2_detective_candle_button.position = Vector2(760.0, 145.0)
+		chapter2_detective_candle_button.size = Vector2(156.0, 190.0)
+		chapter2_detective_candle_button.flat = true
+		chapter2_detective_candle_button.focus_mode = Control.FOCUS_NONE
+		chapter2_detective_candle_button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		chapter2_detective_candle_button.modulate = Color(1.0, 1.0, 1.0, 0.01)
+		chapter2_detective_candle_button.visible = false
+		chapter2_detective_candle_button.set_meta("chapter2_candle_interaction", true)
+		chapter2_detective_candle_button.set_meta("result_asset", "unlit_rainbow_candle")
+		chapter2_detective_candle_button.pressed.connect(_on_chapter2_candle_reveal)
+		root.add_child(chapter2_detective_candle_button)
+	if career_id == "farmer":
+		_build_chapter2_strawberry_pickups()
+	if career_id == "popstar":
+		var rumi_path := "res://assets/characters/rumi/rumi_eight_pose_runtime.png"
+		if ResourceLoader.exists(rumi_path):
+			chapter2_rumi_scene = Sprite2D.new()
+			chapter2_rumi_scene.name = "Chapter2RumiSoundCheckPartner"
+			chapter2_rumi_scene.texture = load(rumi_path) as Texture2D
+			chapter2_rumi_scene.hframes = 4
+			chapter2_rumi_scene.vframes = 2
+			chapter2_rumi_scene.frame = 0
+			chapter2_rumi_scene.position = Vector2(1040.0, 390.0)
+			chapter2_rumi_scene.scale = Vector2.ONE * 0.52
+			chapter2_rumi_scene.z_index = 4
+			chapter2_rumi_scene.set_meta("scene_specific_art", true)
+			chapter2_rumi_scene.set_meta("sound_check_partner", "rumi")
+			chapter2_rumi_scene.set_meta("protected_source_reused_unmodified", true)
+		root.add_child(chapter2_rumi_scene)
+
+
+func _build_chapter2_strawberry_pickups() -> void:
+	var cluster_path := "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png"
+	var path := "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png"
+	if not ResourceLoader.exists(cluster_path) or not ResourceLoader.exists(path):
+		return
+	chapter2_strawberry_pickup_texture = load(cluster_path) as Texture2D
+	chapter2_single_strawberry_texture = load(path) as Texture2D
+	var positions: Array[Vector2] = [
+		Vector2(180.0, 258.0), Vector2(390.0, 194.0),
+		Vector2(610.0, 270.0), Vector2(830.0, 190.0),
+		Vector2(1040.0, 256.0),
+	]
+	for pick_index in range(positions.size()):
+		var pickup := TextureButton.new()
+		pickup.name = "Chapter2SkyLagoonStrawberry_%02d" % pick_index
+		pickup.texture_normal = chapter2_single_strawberry_texture
+		pickup.ignore_texture_size = true
+		pickup.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+		pickup.position = positions[pick_index] - Vector2(62.0, 62.0)
+		pickup.size = Vector2(124.0, 124.0)
+		pickup.custom_minimum_size = Vector2(96.0, 96.0)
+		pickup.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		pickup.focus_mode = Control.FOCUS_NONE
+		pickup.z_index = 12
+		pickup.visible = false
+		pickup.set_meta("chapter2_strawberry_pickup", true)
+		pickup.set_meta("strawberry_index", pick_index)
+		pickup.set_meta("record_method", "record_strawberry_pick")
+		pickup.set_meta("persistent_pickup", true)
+		pickup.pressed.connect(_on_chapter2_strawberry_pick.bind(pick_index))
+		root.add_child(pickup)
+		chapter2_strawberry_pickups.append(pickup)
+	set_meta("chapter2_strawberry_pickup_count", chapter2_strawberry_pickups.size())
+	set_meta("chapter2_strawberry_pickup_indices", [0, 1, 2, 3, 4])
+	set_meta("chapter2_strawberry_pickup_texture", path)
+	set_meta("chapter2_strawberry_pickup_visual", "approved_single_strawberry")
+	set_meta("chapter2_strawberry_cluster_asset", cluster_path)
+	_refresh_chapter2_strawberry_pickups()
+
+
+func _is_chapter2_strawberry_pick_phase() -> bool:
+	if career_id != "farmer" or not using_chapter_two_phases \
+			or phase_index < 0 or phase_index >= phases.size():
+		return false
+	var phase := phases[phase_index] as Dictionary
+	return String(phase.get("milestone", "")) == "gather_strawberries"
+
+
+func _chapter2_strawberry_mask_count() -> int:
+	if m == null:
+		return 0
+	var mask := int(m.chapter2_strawberry_mask) & 0x1F
+	var count := 0
+	for pick_index in range(5):
+		if (mask & (1 << pick_index)) != 0:
+			count += 1
+	return count
+
+
+func _is_chapter2_detective_scene() -> bool:
+	return _is_chapter2_story_scene() and career_id == "detective"
+
+
+func _is_chapter2_candle_reveal_phase() -> bool:
+	if not _is_chapter2_detective_scene() or phase_index < 0 \
+			or phase_index >= phases.size():
+		return false
+	var phase := phases[phase_index] as Dictionary
+	return String(phase.get("milestone", "")) == "unlit_rainbow_candle_reveal"
+
+
+func _refresh_chapter2_strawberry_pickups(opened := false) -> void:
+	if chapter2_strawberry_pickups.is_empty():
+		return
+	var saved_mask := int(m.chapter2_strawberry_mask) if m != null else 0
+	var earned_count := _chapter2_strawberry_mask_count()
+	var show := opened and _is_chapter2_strawberry_pick_phase()
+	set_meta("chapter2_strawberry_pick_count", earned_count)
+	set_meta("chapter2_strawberry_mask", saved_mask & 0x1F)
+	for pick_index in range(chapter2_strawberry_pickups.size()):
+		var pickup := chapter2_strawberry_pickups[pick_index]
+		if pickup == null or not is_instance_valid(pickup):
+			continue
+		var earned := (saved_mask & (1 << pick_index)) != 0
+		pickup.visible = show
+		pickup.disabled = earned
+		pickup.modulate = Color(0.42, 0.32, 0.52, 0.38) if earned \
+			else Color.WHITE
+		pickup.set_meta("earned", earned)
+		pickup.set_meta("strawberry_mask", saved_mask)
+
+
+func _on_chapter2_strawberry_pick(pick_index: int) -> void:
+	if not _is_chapter2_strawberry_pick_phase() or not task_open \
+			or m == null or pick_index < 0 \
+			or pick_index >= chapter2_strawberry_pickups.size():
+		return
+	if not m.chapter2_record_strawberry_pick(pick_index):
+		_refresh_chapter2_strawberry_pickups(true)
+		return
+	# Recompute from the persisted mask rather than a local counter. This keeps
+	# a quit/re-entry with one through four berries resumable and exact.
+	phase_progress = float(_chapter2_strawberry_mask_count())
+	var pickup := chapter2_strawberry_pickups[pick_index]
+	pickup.disabled = true
+	pickup.modulate = Color(0.42, 0.32, 0.52, 0.38)
+	pickup.set_meta("earned", true)
+	set_meta("chapter2_last_strawberry_pick", pick_index)
+	set_meta("chapter2_strawberry_pick_count", int(round(phase_progress)))
+	_adapter_hook("strawberry_pick", {
+		"pick_index": pick_index,
+		"strawberry_mask": int(m.chapter2_strawberry_mask),
+		"phase_progress": phase_progress,
+	})
+	if phase_progress < 5.0:
+		return
+	if surface != null:
+		surface.accept_completion()
+	phase_complete_t = 1.1
+	phase_advance_pending = true
+
+
+func _on_chapter2_candle_reveal() -> void:
+	if not _is_chapter2_candle_reveal_phase() or not task_open \
+			or m == null or phase_advance_pending:
+		return
+	# The story result is the authored unlit candle, not a generic chest reward.
+	# The director owns the plot gate and save state; this button only supplies
+	# the visible, child-readable touch target for the already revealed candle.
+	if not m._chapter_two_ref().complete_detective_search():
+		_refresh_chapter2_story_props()
+		return
+	m._queue_save()
+	phase_progress = 1.0
+	if phase_fill != null:
+		phase_fill.value = 100.0
+	if surface != null:
+		surface.accept_completion()
+	set_meta("chapter2_detective_result", "unlit_rainbow_candle")
+	_adapter_hook("candle_found", {
+		"result": "unlit_rainbow_candle",
+		"lit": false,
+		"asset": CHAPTER2_DETECTIVE_RESULT_ASSET,
+	})
+	phase_complete_t = 1.1
+	phase_advance_pending = true
+
+
+
+func _refresh_chapter2_cake_scene() -> void:
+	if chapter2_cake_scene == null or not is_instance_valid(chapter2_cake_scene):
+		return
+	var strawberry_mask := int(m.chapter2_strawberry_mask) if m != null else 0
+	var cake_mask := int(m.chapter2_cake_piece_mask) if m != null else 0
+	chapter2_cake_scene.apply_milestone_masks(strawberry_mask, cake_mask)
+	chapter2_cake_scene.visible = true
+	set_meta("chapter2_cake_state", chapter2_cake_scene.persistent_state())
+	set_meta("chapter2_cake_stage", chapter2_cake_scene.stage_id())
+
+
+func _refresh_chapter2_story_props() -> void:
+	_refresh_chapter2_cake_scene()
+	_refresh_chapter2_strawberry_pickups()
+	if chapter2_candle_scene != null and is_instance_valid(chapter2_candle_scene):
+		# The candle is not an ambient room prop. It exists only as the final
+		# detective reveal, and remains unlit until the Main Hall party beat.
+		var final_phase := phases.size() - 1
+		chapter2_candle_scene.visible = career_id == "detective" \
+			and phase_index >= final_phase
+		chapter2_candle_scene.set_lit(false)
+	if chapter2_detective_candle_button != null \
+			and is_instance_valid(chapter2_detective_candle_button):
+		var found := bool(m.chapter2_rainbow_candle_found) if m != null else false
+		chapter2_detective_candle_button.visible = _is_chapter2_candle_reveal_phase() \
+			and task_open and not found and not phase_advance_pending
+		chapter2_detective_candle_button.set_meta("candle_found", found)
 
 
 func _label(text: String, font_size: int, colour: Color = Color.WHITE) -> Label:
@@ -608,13 +1008,16 @@ func _build_world() -> void:
 	backdrop_node.name = "CareerWorldBackdrop"
 	_full_rect(backdrop_node)
 	root.add_child(backdrop_node)
-	backdrop_node.setup(career_id)
+	backdrop_node.setup(career_id, String(config.get("chapter2_scene", "")))
+	_build_chapter2_story_props()
 
 	var shade := ColorRect.new()
 	shade.color = Color(0.0, 0.0, 0.0, 0.0)
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_full_rect(shade)
 	root.add_child(shade)
+	if String(config.get("chapter2_scene", "")) == "stuffie_room":
+		_build_chapter2_stuffie_cast()
 
 	# Floor input sits below diegetic object buttons. Empty floor moves Roshan;
 	# an object button receives the same touch first and creates activity intent.
@@ -627,8 +1030,16 @@ func _build_world() -> void:
 	wander_layer.gui_input.connect(_wander_input)
 	root.add_child(wander_layer)
 
-	stage_points = StagePaths.path_points(career_id)
-	station_list = StagePaths.stations(career_id)
+	if String(config.get("chapter2_scene", "")) == "stuffie_room":
+		stage_points = PackedVector2Array([
+			Vector2(86.0, 590.0), Vector2(245.0, 575.0),
+			Vector2(420.0, 560.0), Vector2(610.0, 550.0),
+			Vector2(810.0, 565.0), Vector2(1050.0, 585.0),
+		])
+		station_list = _chapter2_stuffie_ballet_stations()
+	else:
+		stage_points = StagePaths.path_points(career_id)
+		station_list = StagePaths.stations(career_id)
 	# Specialist ballet and boxing surfaces still begin at authored room objects.
 	# The full-canvas lesson starts only after Roshan follows the painted route
 	# and opens that object's invitation, just like every other career.
@@ -676,7 +1087,14 @@ func _build_world() -> void:
 	_set_finale_visible(false)
 
 	prop_rect = TextureRect.new()
-	var prop_path := "res://assets/opera/worlds/props/%s.png" % String(GOAL_PROPS.get(career_id, ""))
+	var prop_path := String(scene_adapter.get("prop", ""))
+	if prop_path.is_empty():
+		prop_path = "res://assets/opera/worlds/props/%s.png" % String(GOAL_PROPS.get(career_id, ""))
+	# Chef and Candy Maker carry the same stateful cake node above. Do not add
+	# a second generic goal card or let the final cake texture appear before
+	# the saved piece masks say that it is ready.
+	if _is_chapter2_cake_scene() or _is_chapter2_detective_scene():
+		prop_path = ""
 	if ResourceLoader.exists(prop_path):
 		prop_rect.texture = load(prop_path) as Texture2D
 	prop_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -802,6 +1220,175 @@ func _build_world() -> void:
 	_capture_actor_rest("player", player_actor)
 	_capture_actor_rest("rival", rival_actor)
 	_capture_actor_rest("prop", prop_rect)
+
+
+func _build_chapter2_stuffie_cast() -> void:
+	# Reuse the approved storybook cutouts without modifying the protected
+	# originals. These friends are active dance partners: they mirror Roshan's
+	# simple beats while Roshan remains the sole player-controlled leader.
+	chapter2_guest_nodes.clear()
+	chapter2_guest_tweens.clear()
+	chapter2_ensemble_bow_started = false
+	var guests: Array[Dictionary] = [
+		{
+			"id": "doll_cat",
+			"path": "res://assets/book/doll_cat.png",
+			"position": Vector2(1050.0, 420.0),
+			"size": Vector2(150.0, 150.0),
+		},
+		{
+			"id": "doll_bunny",
+			"path": "res://assets/book/doll_bunny.png",
+			"position": Vector2(900.0, 438.0),
+			"size": Vector2(138.0, 138.0),
+		},
+	]
+	for guest_data: Dictionary in guests:
+		var path := String(guest_data.get("path", ""))
+		if not ResourceLoader.exists(path):
+			continue
+		var guest := TextureRect.new()
+		guest.name = "BirthdayGuest_%s" % String(guest_data.get("id", "friend"))
+		guest.position = guest_data.get("position", Vector2.ZERO) as Vector2
+		guest.size = guest_data.get("size", Vector2(140.0, 140.0)) as Vector2
+		guest.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		guest.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		guest.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		guest.texture = load(path) as Texture2D
+		guest.set_meta("chapter2_stuffie_ballet_guest", true)
+		guest.set_meta("protected_source_reused_unmodified", true)
+		guest.set_meta("chapter2_guest_rest_position", guest.position)
+		root.add_child(guest)
+		guest.pivot_offset = guest.size * 0.5
+		chapter2_guest_nodes.append(guest)
+
+
+func _is_tutorial_run() -> bool:
+	return bool(config.get("chapter2_tutorial", false))
+
+
+func _animate_chapter2_guest(guest: TextureRect, target_rotation: float,
+		lift: float, target_scale: float, duration: float) -> void:
+	if guest == null or not is_instance_valid(guest):
+		return
+	var previous := chapter2_guest_tweens.get(guest) as Tween
+	if previous != null and previous.is_valid():
+		previous.kill()
+	var rest_position: Vector2 = guest.get_meta(
+		"chapter2_guest_rest_position", guest.position) as Vector2
+	var tween := guest.create_tween()
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(guest, "rotation", target_rotation, duration)
+	tween.parallel().tween_property(guest, "position",
+		rest_position + Vector2(0.0, -lift), duration)
+	tween.parallel().tween_property(guest, "scale",
+		Vector2.ONE * target_scale, duration)
+	tween.tween_interval(0.10)
+	tween.tween_property(guest, "rotation", 0.0, duration)
+	tween.parallel().tween_property(guest, "position", rest_position, duration)
+	tween.parallel().tween_property(guest, "scale", Vector2.ONE, duration)
+	chapter2_guest_tweens[guest] = tween
+
+
+func _mirror_chapter2_pose(frame: int, demo: bool = false) -> void:
+	if not _is_chapter2_stuffie_scene():
+		return
+	var pose_index := BalletSurface.POSE_FRAMES.find(frame)
+	if pose_index < 0:
+		pose_index = clampi(frame, 0, BalletSurface.POSE_FRAMES.size() - 1)
+	if not demo and chapter2_last_mirror_beat == pose_index:
+		return
+	if not demo:
+		chapter2_last_mirror_beat = pose_index
+	var rotations: Array[float] = [0.14, -0.12, 0.10]
+	var lifts: Array[float] = [9.0, 15.0, 11.0]
+	var turn := rotations[clampi(pose_index, 0, rotations.size() - 1)]
+	var lift := lifts[clampi(pose_index, 0, lifts.size() - 1)]
+	for index in range(chapter2_guest_nodes.size()):
+		var guest := chapter2_guest_nodes[index]
+		var side := -1.0 if index % 2 == 0 else 1.0
+		_animate_chapter2_guest(guest, turn * side, lift, 1.035, 0.24)
+
+
+func _mirror_chapter2_beat(mode: String, progress: float) -> void:
+	if not _is_chapter2_stuffie_scene():
+		return
+	var beat := clampi(int(floor(progress * 4.0)), 0, 3)
+	if mode == "ballet_pose":
+		var pose_index := clampi(int(floor(progress * 3.0)), 0, 2)
+		if chapter2_last_mirror_beat == pose_index:
+			return
+		_mirror_chapter2_pose(BalletSurface.POSE_FRAMES[pose_index], false)
+		return
+	if chapter2_last_mirror_beat == beat:
+		return
+	chapter2_last_mirror_beat = beat
+	var amount := 8.0 + float(beat) * 2.0
+	var turn := 0.08 if mode == "ballet_ribbon" else 0.15
+	for index in range(chapter2_guest_nodes.size()):
+		var guest := chapter2_guest_nodes[index]
+		var side := -1.0 if index % 2 == 0 else 1.0
+		_animate_chapter2_guest(guest, turn * side, amount, 1.045, 0.22)
+
+
+func _chapter2_ensemble_bow() -> void:
+	if not _is_chapter2_stuffie_scene() or chapter2_ensemble_bow_started:
+		return
+	chapter2_ensemble_bow_started = true
+	for index in range(chapter2_guest_nodes.size()):
+		var guest := chapter2_guest_nodes[index]
+		var rest_position: Vector2 = guest.get_meta(
+			"chapter2_guest_rest_position", guest.position) as Vector2
+		var previous := chapter2_guest_tweens.get(guest) as Tween
+		if previous != null and previous.is_valid():
+			previous.kill()
+		var side := -1.0 if index % 2 == 0 else 1.0
+		var bow := guest.create_tween()
+		bow.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		bow.tween_property(guest, "rotation", side * 0.18, 0.28)
+		bow.parallel().tween_property(guest, "position",
+			rest_position + Vector2(0.0, 17.0), 0.28)
+		bow.parallel().tween_property(guest, "scale",
+			Vector2(0.97, 0.90), 0.28)
+		bow.tween_interval(0.22)
+		bow.tween_property(guest, "rotation", 0.0, 0.32)
+		bow.parallel().tween_property(guest, "position", rest_position, 0.32)
+		bow.parallel().tween_property(guest, "scale", Vector2.ONE, 0.32)
+		chapter2_guest_tweens[guest] = bow
+
+
+func _chapter2_stuffie_ballet_stations() -> Array[Dictionary]:
+	# Keep the Ballerina phase IDs stable while anchoring them to real Stuffie
+	# Room props: the nook, stacking toy, and blocks/floor finale.
+	return [
+		{
+			"id": "trifold_mirror",
+			"pos": Vector2(500.0, 500.0),
+			"object_pos": Vector2(475.0, 205.0),
+			"approach_pos": Vector2(500.0, 500.0),
+			"visual_size": Vector2(190.0, 190.0),
+			"hotspot_size": Vector2(210.0, 210.0),
+			"landmark": "the Stuffie friends waiting in their playroom nook",
+		},
+		{
+			"id": "wave_tuffets",
+			"pos": Vector2(350.0, 535.0),
+			"object_pos": Vector2(273.0, 390.0),
+			"approach_pos": Vector2(350.0, 535.0),
+			"visual_size": Vector2(160.0, 160.0),
+			"hotspot_size": Vector2(190.0, 180.0),
+			"landmark": "the rainbow stacking toy beside the dance floor",
+		},
+		{
+			"id": "rose_finale_stage",
+			"pos": Vector2(700.0, 535.0),
+			"object_pos": Vector2(782.0, 430.0),
+			"approach_pos": Vector2(700.0, 535.0),
+			"visual_size": Vector2(178.0, 178.0),
+			"hotspot_size": Vector2(210.0, 190.0),
+			"landmark": "the toy blocks at the edge of the open dance floor",
+		},
+	]
 
 
 func _actor(path: String) -> TextureRect:
@@ -1183,8 +1770,15 @@ func _on_hotspot_pressed(station_index: int) -> void:
 		var hotspot := station_nodes[index] as OperaWorldHotspot2D
 		hotspot.set_focused(index == station_index)
 	var station_id := String(station_list[station_index].get("id", ""))
-	var route := StagePaths.player_route_to_station(
-		career_id, wander_feet, station_id)
+	var route: PackedVector2Array
+	if _is_chapter2_stuffie_scene():
+		var approach: Vector2 = station_list[station_index].get(
+			"approach_pos", station_list[station_index].get(
+				"pos", wander_feet)) as Vector2
+		route = _chapter2_stuffie_route_to(approach, true)
+	else:
+		route = StagePaths.player_route_to_station(
+			career_id, wander_feet, station_id)
 	if route.is_empty():
 		push_warning("No approved Opera route to %s/%s" % [career_id, station_id])
 		_clear_hotspot_intent()
@@ -1215,6 +1809,12 @@ func _draw_activity_focus() -> void:
 	action_panel.draw_arc(Vector2.ZERO, radius * 0.94, -PI * 0.84,
 		-PI * 0.16, 42, Color(0.44, 0.78, 1.0, 0.48), 5.0)
 	action_panel.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	var custom_progress := clampf(float(phase_fill.value) / 100.0, 0.0, 1.0) \
+		if phase_fill != null else 0.0
+	if _is_chapter2_candymaker_scene():
+		_draw_chapter2_candy_activity(custom_progress)
+	elif _is_chapter2_detective_scene():
+		_draw_chapter2_detective_activity(custom_progress)
 	if phase_fill == null:
 		return
 	var progress := clampf(float(phase_fill.value) / 100.0, 0.0, 1.0)
@@ -1229,6 +1829,63 @@ func _draw_activity_focus() -> void:
 		action_panel.draw_circle(at, 8.5 if filled else 6.5, colour)
 		if filled:
 			action_panel.draw_circle(at - Vector2(2.0, 2.0), 2.2, Color.WHITE)
+
+
+func _draw_chapter2_candy_activity(progress: float) -> void:
+	# All four Candy Maker beats point at strawberries and the carried cake. The
+	# old syrup vat, shape lanes, wrappers and recipient cards are intentionally
+	# not drawn here; the persistent cake node remains the single cake authority.
+	var tray := Rect2(34.0, 36.0, 348.0, 192.0)
+	action_panel.draw_style_box(_chapter2_style_box(Color("#fff4d8"), Color("#9a4d86"), 18), tray)
+	var ingredient_rect := Rect2(54.0, 64.0, 112.0, 112.0)
+	if chapter2_strawberry_pickup_texture != null:
+		action_panel.draw_texture_rect(chapter2_strawberry_pickup_texture,
+			ingredient_rect, false)
+	var phase_name := ""
+	if phase_index >= 0 and phase_index < phases.size():
+		phase_name = String((phases[phase_index] as Dictionary).get("milestone", ""))
+	var berry_colour := Color("#ef668d")
+	if phase_name in ["glaze_strawberries", "place_candied_strawberries"]:
+		berry_colour = Color("#ffb9cf")
+	for index in range(5):
+		var at := Vector2(212.0 + float(index % 3) * 50.0,
+			86.0 + float(index / 3) * 58.0)
+		action_panel.draw_circle(at, 18.0, berry_colour)
+		action_panel.draw_circle(at - Vector2(5.0, 6.0), 6.0,
+			Color(1.0, 1.0, 1.0, 0.70 if progress > 0.0 else 0.34))
+		action_panel.draw_circle(at + Vector2(0.0, -17.0), 5.0,
+			Color("#63bd72"))
+	# A frosting ribbon grows beside the ingredient, making the final two
+	# decorator beats read as decoration rather than candy manufacture.
+	if phase_name in ["glaze_strawberries", "place_candied_strawberries"]:
+		var ribbon_end := 198.0 + 140.0 * progress
+		action_panel.draw_line(Vector2(206.0, 203.0), Vector2(ribbon_end, 203.0),
+			Color("#fff5ff"), 10.0, true)
+
+
+func _draw_chapter2_detective_activity(progress: float) -> void:
+	# The story run uses a plain magic-storybook search board. It contains no
+	# crown, tiara, chest, clue-card, or generic reward illustration.
+	var book := Rect2(44.0, 54.0, 328.0, 164.0)
+	action_panel.draw_style_box(_chapter2_style_box(Color("#f4e9ff"), Color("#6a4ab0"), 18), book)
+	action_panel.draw_line(Vector2(208.0, 62.0), Vector2(208.0, 210.0),
+		Color("#c09bdf"), 4.0)
+	for index in range(3):
+		var at := Vector2(100.0 + float(index) * 48.0, 108.0 + float(index % 2) * 54.0)
+		action_panel.draw_circle(at, 10.0 + progress * 4.0,
+			Color(0.98, 0.80, 0.35, 0.72))
+		action_panel.draw_circle(Vector2(294.0 + float(index % 2) * 36.0,
+			112.0 + float(index) * 30.0), 8.0,
+			Color(0.43, 0.90, 0.96, 0.78))
+
+
+func _chapter2_style_box(fill: Color, border: Color, radius: int) -> StyleBoxFlat:
+	var box := StyleBoxFlat.new()
+	box.bg_color = fill
+	box.border_color = border
+	box.set_border_width_all(4)
+	box.set_corner_radius_all(radius)
+	return box
 
 
 func _draw_task_card() -> void:
@@ -1441,7 +2098,13 @@ func _arm_phase() -> void:
 	phase_progress = 0.0
 	idle_t = 0.0
 	var phase := phases[phase_index] as Dictionary
+	if _is_chapter2_strawberry_pick_phase():
+		# The harvest is five persistent objects, so resume from the saved mask
+		# population instead of restarting a local progress counter at zero.
+		phase_progress = float(_chapter2_strawberry_mask_count())
 	var mode_name := String(phase.get("mode", "tap"))
+	_refresh_chapter2_story_props()
+	_adapter_hook("phase_armed", scene_snapshot())
 	_play_roshan_animation("idle")
 	if mode_name != "bop":
 		_clear_stage_combat()
@@ -1460,7 +2123,7 @@ func _arm_phase() -> void:
 	var defer_detective_intro := career_id == "detective" and phase_index == 0 \
 		and mode_name == "lens" and not detective_intro_played
 	if m != null and not defer_detective_intro:
-		m.show_msg(String(phase.get("speaker", "Roshan")), String(phase.get("voice", "Follow the golden sparkle!")), String(phase.get("vo", "hint")))
+		_show_phase_prompt(phase)
 	# Bind static game art while clocks are held. The activity itself stays
 	# closed until the corresponding room object has been selected and reached.
 	if mode_name != "bop" and mode_name != "lens":
@@ -1478,8 +2141,28 @@ func _arm_phase() -> void:
 func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := false) -> void:
 	var template := _widget_template(phase)
 	var context := "%s_%s" % [template, career_id] if not template.is_empty() else ""
+	if not String(scene_adapter.get("widget", "")).is_empty():
+		context = String(scene_adapter.get("widget", ""))
 	if phase.has("visual_context"):
 		context = String(phase.get("visual_context", context))
+	if phase.has("widget_context"):
+		context = String(phase.get("widget_context", context))
+	var strawberry_path := String(scene_adapter.get("strawberry_asset", ""))
+	if ResourceLoader.exists(strawberry_path):
+		surface.set_meta("chapter2_strawberry_asset", strawberry_path)
+	var cake_path := String(scene_adapter.get("cake_asset", ""))
+	if ResourceLoader.exists(cake_path):
+		surface.set_meta("chapter2_cake_asset", cake_path)
+	if not String(scene_adapter.get("widget", "")).is_empty():
+		context = String(scene_adapter.get("widget", ""))
+	if phase.has("piece_path"):
+		var piece_path := String(phase.get("piece_path", ""))
+		if ResourceLoader.exists(piece_path):
+			surface.set_meta("chapter2_piece_path", piece_path)
+	if phase.has("prop"):
+		var phase_prop := String(phase.get("prop", ""))
+		if ResourceLoader.exists(phase_prop):
+			surface.set_meta("chapter2_prop_path", phase_prop)
 	surface.configure(mode_name, accent, choice_target, context)
 	# while she is still wandering, the bound widget shows but its clocks
 	# (oven heat, pipe fuel, echo song) hold still until she arrives
@@ -1518,6 +2201,7 @@ func _open_task() -> void:
 		player_actor.visible = false
 	if phase_index >= _finale_start() or competition.is_cooperative():
 		_stage_room_finale_partner()
+	_adapter_hook("phase_opened", scene_snapshot())
 	if action_panel.visible:
 		# The activity grows out of the room object Roshan just opened instead
 		# of appearing as an unrelated card at screen centre.
@@ -1534,7 +2218,32 @@ func _open_task() -> void:
 	if is_lens:
 		_start_lens_phase(phase)
 	var is_nursery_catch := career_id == "nursery" and mode_name == "catch"
-	surface.visible = not is_nursery_catch
+	var is_strawberry_pick_phase := _is_chapter2_strawberry_pick_phase()
+	var is_chapter2_candle_reveal := _is_chapter2_candle_reveal_phase()
+	# Chapter 2 cake and Detective activities use a transparent input surface
+	# over their real prop art. This keeps the shipped legacy mold, wrapper,
+	# clue-board and crown/chest drawings from contradicting the story while
+	# preserving the same forgiving one-finger gesture completion.
+	surface.visible = not is_nursery_catch and not is_strawberry_pick_phase \
+		and not is_chapter2_candle_reveal
+	if _is_chapter2_candymaker_scene() or _is_chapter2_detective_scene():
+		surface.modulate = Color(1.0, 1.0, 1.0, 0.0)
+	else:
+		surface.modulate = Color.WHITE
+	if is_strawberry_pick_phase:
+		if phase_fill != null:
+			phase_fill.visible = false
+		_refresh_chapter2_strawberry_pickups(true)
+	elif is_chapter2_candle_reveal:
+		if phase_fill != null:
+			phase_fill.visible = false
+		if chapter2_detective_candle_button != null:
+			chapter2_detective_candle_button.visible = true
+		_refresh_chapter2_story_props()
+	else:
+		_refresh_chapter2_strawberry_pickups(false)
+		if chapter2_detective_candle_button != null:
+			chapter2_detective_candle_button.visible = false
 	if nursery_catch != null:
 		nursery_catch.visible = is_nursery_catch
 		if is_nursery_catch:
@@ -1565,6 +2274,8 @@ func _open_task() -> void:
 			surface.swipe_dir = Vector2.UP
 			surface.swipe_require_dir = true
 	phase_fill.value = 0.0
+	if _is_chapter2_strawberry_pick_phase():
+		phase_fill.value = phase_progress / maxf(0.1, float(phase.get("goal", 5.0))) * 100.0
 	action_panel.queue_redraw()
 
 
@@ -1584,11 +2295,23 @@ func _repeat_phase_prompt() -> void:
 	if m == null or phase_index < 0 or phase_index >= phases.size():
 		return
 	var phase := phases[phase_index] as Dictionary
+	_show_phase_prompt(phase)
+
+
+func _show_phase_prompt(phase: Dictionary) -> void:
+	var voice_key := String(phase.get("vo", "hint"))
+	var is_recording_gap := using_chapter_two_phases and voice_key.is_empty()
+	set_meta("chapter2_voice_recording_gap", is_recording_gap)
+	set_meta("chapter2_voice_gap_phase", String(phase.get("name", ""))
+		if is_recording_gap else "")
+	if surface != null:
+		surface.set_meta("chapter2_voice_recording_gap", is_recording_gap)
+		surface.set_meta("chapter2_voice_gap_phase", String(
+			phase.get("name", "")) if is_recording_gap else "")
 	m.show_msg(
 		String(phase.get("speaker", "Roshan")),
 		String(phase.get("voice", "Follow the golden sparkle!")),
-		String(phase.get("vo", "hint"))
-	)
+		voice_key)
 
 
 func _apply_panel_layout(phase: Dictionary) -> void:
@@ -1986,7 +2709,12 @@ func _register_bop(amount: float, quality: float) -> void:
 
 
 func _finale_start() -> int:
-	return clampi(int(FINALE_START.get(career_id, phases.size() - 1)), 0, maxi(0, phases.size() - 1))
+	if _is_tutorial_run():
+		return phases.size()
+	var configured := int(FINALE_START.get(career_id, phases.size() - 1))
+	if using_chapter_two_phases:
+		configured = int(config.get("chapter_two_finale_start", configured))
+	return clampi(configured, 0, maxi(0, phases.size() - 1))
 
 
 func in_competition_finale() -> bool:
@@ -2091,6 +2819,7 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 	if kind == "ballet_pose_cue":
 		if player_animator != null:
 			player_animator.show_pose("work", clampi(int(round(amount)), 0, 3))
+		_mirror_chapter2_pose(clampi(int(round(amount)), 0, 3), true)
 		return
 	if kind == "ballet_ready":
 		idle_t = 0.0
@@ -2130,10 +2859,13 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 			var ribbon_band := mini(BalletSurface.POSE_FRAMES.size() - 1,
 				int(floor(progress * 3.0)))
 			player_animator.show_pose("work", int(BalletSurface.POSE_FRAMES[ribbon_band]))
+		if _is_chapter2_stuffie_scene():
+			_mirror_chapter2_beat(mode, progress)
 	if phase_progress < goal:
 		return
 	surface.accept_completion()
 	if phase_index == phases.size() - 1:
+		_chapter2_ensemble_bow()
 		_play_roshan_animation("cheer")
 		phase_complete_t = 2.2
 	else:
@@ -2166,6 +2898,10 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		# the wind-up's payoff: MUD HOP's actual hop, the sound-check flourish
 		if player_actor != null:
 			_bounce_actor(player_actor, 36.0, 0.5)
+		return
+	# Chapter 2 Farmer's gather beat is five real object touches. The generic
+	# gesture surface must not be able to complete all five with one pump.
+	if _is_chapter2_strawberry_pick_phase():
 		return
 	if phase_advance_pending:
 		_advance_completed_phase()
@@ -2274,6 +3010,8 @@ func _advance_completed_phase() -> void:
 		return
 	phase_advance_pending = false
 	phase_complete_t = 0.0
+	_adapter_hook("phase_completed", scene_snapshot())
+	_refresh_chapter2_story_props()
 	phase_index += 1
 	# no forced gap here: the wander window IS the breath between tasks —
 	# the world stays hers until she walks up to the next lit station
@@ -2428,8 +3166,25 @@ func update_competition() -> void:
 
 
 func celebrate(result: Dictionary) -> void:
+	var completion_payload := scene_snapshot()
+	completion_payload["result"] = result.duplicate(true)
+	_adapter_hook("scene_completed", completion_payload)
 	active = false
 	competition.pause()
+	if _is_tutorial_run():
+		# A lesson returns directly after its skill hook. No proscenium, goal prop,
+		# confetti, or competitive curtain call belongs to the non-star tutorial.
+		_set_finale_visible(false)
+		if action_panel != null:
+			action_panel.visible = false
+		if surface != null:
+			surface.visible = false
+		if lens_layer != null:
+			lens_layer.visible = false
+		if lens_zoom_surface != null:
+			lens_zoom_surface.visible = false
+		_clear_stage_combat()
+		return
 	_restore_stage_actors()
 	if backdrop_node != null:
 		# Room objects own every playable beat; the proscenium returns only for
@@ -3302,6 +4057,7 @@ func _process(delta: float) -> void:
 
 
 func close() -> void:
+	_adapter_hook("scene_closed", scene_snapshot())
 	active = false
 	wander_walking = false
 	wander_route.clear()
@@ -3356,8 +4112,56 @@ func _wander_input(event: InputEvent) -> void:
 		wander_feet = _hero_feet()
 	# Empty-room input only changes travel. Hotspot buttons sit above this
 	# layer and are the sole source of activity intent.
-	var route := StagePaths.player_route_to_point(career_id, wander_feet, point)
+	var route: PackedVector2Array = _chapter2_stuffie_route_to(point, false) \
+		if _is_chapter2_stuffie_scene() \
+		else StagePaths.player_route_to_point(career_id, wander_feet, point)
 	_begin_wander_route(route)
+
+
+func _is_chapter2_stuffie_scene() -> bool:
+	return String(config.get("chapter2_scene", "")) == "stuffie_room"
+
+
+func _chapter2_stuffie_route_to(target: Vector2,
+		include_target: bool) -> PackedVector2Array:
+	var route := PackedVector2Array()
+	if stage_points.is_empty():
+		return route
+	if stage_points.size() == 1:
+		route = _append_route_point(route, stage_points[0])
+		if include_target:
+			route = _append_route_point(route, target)
+		return route
+	var source_t := StagePaths.nearest_t(stage_points, wander_feet)
+	var destination_t := StagePaths.nearest_t(stage_points, target)
+	route = _append_route_point(
+		route, StagePaths.point_along(stage_points, source_t))
+	if destination_t >= source_t:
+		for point_index in range(stage_points.size()):
+			var point: Vector2 = stage_points[point_index]
+			var point_t := StagePaths.nearest_t(stage_points, point)
+			if point_t > source_t + 0.0001 \
+					and point_t < destination_t - 0.0001:
+				route = _append_route_point(route, point)
+	else:
+		for point_index in range(stage_points.size() - 1, -1, -1):
+			var point: Vector2 = stage_points[point_index]
+			var point_t := StagePaths.nearest_t(stage_points, point)
+			if point_t < source_t - 0.0001 \
+					and point_t > destination_t + 0.0001:
+				route = _append_route_point(route, point)
+	route = _append_route_point(
+		route, StagePaths.point_along(stage_points, destination_t))
+	if include_target:
+		route = _append_route_point(route, target)
+	return route
+
+
+func _append_route_point(route: PackedVector2Array,
+		point: Vector2) -> PackedVector2Array:
+	if route.is_empty() or route[route.size() - 1].distance_to(point) > 0.01:
+		route.append(point)
+	return route
 
 
 func _wander_step(delta: float) -> void:

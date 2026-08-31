@@ -16,14 +16,24 @@ const BOOL_KEYS: Array[String] = [
 	"finale", "music", "mic", "level2", "galaxy", "bwdone", "fairyskin",
 	"combat_ice", "combat_fire", "portal_unlocked", "dungeon_done",
 	"opera_done", "ember_found", "ember_done", "companion_resting",
-	"lagoon_plane_departed", "chapter3_fairy_door_revealed",
+	"lagoon_plane_departed",
+	"day_one_giant_dust_bunny_boss_defeated", "chapter2_active",
+	"chapter2_rainbow_candle_found", "chapter2_stuffie_ballet_done",
+	"chapter2_farmer_strawberries_ready", "chapter2_chef_cake_baked",
+	"chapter2_candy_cake_finished",
+	"chapter2_party_started", "chapter2_ember_scout_seen",
+	"chapter2_ember_king_crashed", "chapter2_ember_son_seen",
+	"chapter2_candle_lit",
+	"chapter2_candle_taken", "chapter2_story_complete",
+	"chapter3_fairy_door_revealed",
 	"chapter3_fairy_door_opened", "chapter3_fairy_mission_started",
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
 	"stuffie_wins", "medals",
 ]
-const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends", "companion_colors"]
+const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends", "companion_colors",
+	"chapter2_job_phase_masks"]
 # FROZEN completeness core — never grow this list. A document carrying these
 # is a genuine save; everything else in KNOWN_KEYS defaults on load.
 const CORE_KEYS: Array[String] = ["won", "found", "pearls", "plays"]
@@ -43,6 +53,18 @@ const KNOWN_KEYS: Array[String] = [
 	"companion_resting", "companion_bruises",
 	"lagoon_plane_departed",
 	"attack_color", "attack_effect",
+	"day_one_giant_dust_bunny_boss_defeated", "chapter2_active",
+	"chapter2_unlocked_opera_mask", "chapter2_skill_mask",
+	"chapter2_active_objective", "chapter2_rainbow_candle_found",
+	"chapter2_stuffie_ballet_done", "chapter2_party_piece_mask",
+	"chapter2_farmer_strawberries_ready", "chapter2_chef_cake_baked",
+	"chapter2_candy_cake_finished",
+	"chapter2_strawberry_mask", "chapter2_cake_piece_mask",
+	"chapter2_job_phase_masks", "chapter2_party_event_phase",
+	"chapter2_party_started", "chapter2_ember_scout_seen",
+	"chapter2_ember_king_crashed", "chapter2_ember_son_seen",
+	"chapter2_candle_lit",
+	"chapter2_candle_taken", "chapter2_story_complete",
 ]
 
 var m: ReefMain
@@ -88,6 +110,7 @@ func load_save() -> void:
 		m.save_data = _normalise_save({})
 	m.save_generation = int(m.save_data.get("save_generation", 0))
 	m._day_one_ref().restore_state(m.save_data)
+	m._comfy_games_ref().restore_state(m.save_data)
 	m.finale_done = bool(m.save_data.get("finale", false))
 	m.level2_done_once = bool(m.save_data.get("level2", false))
 	m.plays = int(m.save_data.get("plays", 0)) + 1   # each launch flips day <-> night
@@ -165,6 +188,7 @@ func load_save() -> void:
 	# Progress is an effective count of the thirteen live careers. The raw
 	# sixteen-bit mask remains authoritative and retains retired bits verbatim.
 	m.opera_progress = _opera_live_star_count(m.opera_stars)
+	m._chapter_two_ref().restore_state(m.save_data)
 	m.opera_done = bool(m.save_data.get("opera_done", false))
 	# added 2026-07-25 with a {} default — never removed, per save compatibility
 	var pantry_raw: Variant = m.save_data.get("opera_pantry", {})
@@ -214,6 +238,12 @@ func write_save() -> bool:
 	var day_one_state: Dictionary = m._day_one_ref().serialize_state()
 	for day_one_key: String in day_one_state:
 		next_data[day_one_key] = day_one_state[day_one_key]
+	var comfy_state: Dictionary = m._comfy_games_ref().serialize_state()
+	for comfy_key: String in comfy_state:
+		next_data[comfy_key] = comfy_state[comfy_key]
+	var chapter_two_state: Dictionary = m._chapter_two_ref().serialize_state()
+	for chapter_two_key: String in chapter_two_state:
+		next_data[chapter_two_key] = chapter_two_state[chapter_two_key]
 	var next_generation: int = maxi(m.save_generation, int(next_data.get("save_generation", 0))) + 1
 	next_data["schema_version"] = maxi(int(next_data.get("schema_version", SCHEMA_VERSION)), SCHEMA_VERSION)
 	next_data["won"] = won_d
@@ -479,7 +509,7 @@ func _progress_types_are_valid(data: Dictionary) -> bool:
 	for key: String in ARRAY_KEYS:
 		if data.has(key) and typeof(data[key]) != TYPE_ARRAY:
 			return false
-	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "save_generation"]:
+	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "chapter2_unlocked_opera_mask", "chapter2_skill_mask", "chapter2_party_piece_mask", "chapter2_strawberry_mask", "chapter2_cake_piece_mask", "chapter2_party_event_phase", "save_generation"]:
 		if data.has(key) and not _is_nonnegative_integer(data[key]):
 			return false
 	return true
@@ -494,7 +524,7 @@ func _known_types_are_valid(data: Dictionary) -> bool:
 	for key: String in ARRAY_KEYS:
 		if data.has(key) and typeof(data[key]) != TYPE_ARRAY:
 			return false
-	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "plays", "save_generation"]:
+	for key: String in ["schema_version", "pearls", "pearls_ever", "dungeon_progress", "ember_progress", "opera_progress", "opera_stars", "plays", "chapter2_unlocked_opera_mask", "chapter2_skill_mask", "chapter2_party_piece_mask", "chapter2_strawberry_mask", "chapter2_cake_piece_mask", "chapter2_party_event_phase", "save_generation"]:
 		if data.has(key) and not _is_nonnegative_integer(data[key]):
 			return false
 	if data.has("quality"):
@@ -528,6 +558,14 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	var day_one_state: Dictionary = DayOneDirector.normalise_save_patch(raw)
 	for day_one_key: String in day_one_state:
 		data[day_one_key] = day_one_state[day_one_key]
+	var comfy_state: Dictionary = ComfyGames.normalise_save_patch(raw)
+	data["comfy_games"] = comfy_state
+	var raw_opera_stars := clampi(
+		_nonnegative_int_or_default(raw, "opera_stars", 0), 0, 65535)
+	var chapter_two_state := ChapterTwoDirector.normalise_save_patch(
+		data, raw_opera_stars)
+	for chapter_two_key: String in chapter_two_state:
+		data[chapter_two_key] = chapter_two_state[chapter_two_key]
 	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
 	var version: int = _nonnegative_int_or_default(raw, "schema_version", SCHEMA_VERSION)
 	data["schema_version"] = maxi(version, SCHEMA_VERSION)
