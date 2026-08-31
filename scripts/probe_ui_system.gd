@@ -285,7 +285,11 @@ func _check_type_c_layout_contract() -> void:
 	]
 	var forbidden_child_sizes: Array[Dictionary] = [
 		{"path": "res://scripts/craft_studio.gd", "text": "m.craft_status, 30"},
-		{"path": "res://scripts/craft_studio.gd", "text": "else \"secondary\", 30"},
+		# Match only the locked child-choice call.  The craft rainbow swatch is
+		# a deliberate decorative glyph and also uses the secondary style at
+		# 30px; an unscoped secondary-style marker would reject it.
+		{"path": "res://scripts/craft_studio.gd",
+			"text": "StorybookUI.style_button(button, \"locked\" if locked else \"secondary\", 30,"},
 		# The conditional 20/15 sticker-label sizes above are a deliberate,
 		# audited exception. Reject only an unconditional sub-floor override.
 		{"path": "res://scripts/wardrobe_ui.gd", "text": "font_size\", 20)"},

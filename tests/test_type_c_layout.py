@@ -127,6 +127,37 @@ class TypeCLayoutTests(unittest.TestCase):
 		self.assertIn('font_size", 20 if earned else 15', wardrobe)
 		self.assertIn("reserves only 72px", wardrobe)
 
+	def test_type_c_probe_guard_is_narrow_and_still_catches_child_mutation(self) -> None:
+		craft = _source("scripts/craft_studio.gd")
+		probe = _source("scripts/probe_ui_system.gd")
+		child_call = 'StorybookUI.style_button(button, "locked" if locked else "secondary", '
+		good_call = child_call + "24, 28)"
+		bad_call = child_call + "30, 28)"
+		self.assertIn(good_call, craft)
+		self.assertNotIn(bad_call, craft)
+		# The probe marker is scoped to the child-choice receiver/state, so the
+		# decorative rainbow's legitimate 30px secondary style is not a hit.
+		self.assertIn(
+			'StorybookUI.style_button(button, \\"locked\\" if locked else \\"secondary\\", 30,',
+			probe,
+		)
+		self.assertNotIn('"text": "else \\"secondary\\", 30"', probe)
+		probe_marker = (
+			'StorybookUI.style_button(button, \\"locked\\" if locked else '
+			'\\"secondary\\", 30,'
+		)
+		source_marker = probe_marker.replace('\\"', '"')
+		self.assertNotIn(source_marker, craft)
+		self.assertIn(
+			'StorybookUI.style_button(rainbow, "selected" if _craft_rainbow_selected() else "secondary", 30, 30,',
+			craft,
+		)
+		# Simulate the exact regression that CI's source-level guard is meant to
+		# catch: changing only the locked child call's first size to 30.
+		mutated = craft.replace(good_call, bad_call)
+		self.assertIn(bad_call, mutated)
+		self.assertIn(source_marker, mutated)
+
 
 if __name__ == "__main__":
 	unittest.main()
