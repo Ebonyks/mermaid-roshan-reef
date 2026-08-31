@@ -1,5 +1,11 @@
 # Moonflower Conservatory doorway provenance
 
+> Runtime status correction, 2026-08-30: the dormant closed relief remains
+> active, but the former `moonflower_door_open.png` Rainbow Stage inset is
+> superseded and no longer referenced by the castle runtime. It is retained as
+> provenance evidence only. The accepted plot-available state is documented in
+> `assets_src/castle/fairy_conservatory_gate_available_2026-08-30/`.
+
 The dormant doorway and open architectural frame were created 2026-08-30 with
 the built-in OpenAI image-generation tool. License: project original, all
 rights reserved. URL: none. The final open destination is not generated
