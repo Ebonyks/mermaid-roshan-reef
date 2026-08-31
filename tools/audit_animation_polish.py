@@ -36,18 +36,18 @@ PULSE_PEAK_MAX = 1.35
 
 # Primitives that animate a node and must carry the in-tree guard; the
 # subset that writes `scale` must also touch a juice_rest_scale meta.
-ANIMATED_FUNCS = ("squash", "flash", "shake", "pop_in", "pulse3d", "vanish3d")
-SCALE_FUNCS = ("squash", "pop_in", "pulse3d", "vanish3d")
+ANIMATED_FUNCS = ("squash", "flash", "shake", "pop_in", "pulse", "vanish")
+SCALE_FUNCS = ("squash", "pop_in", "pulse", "vanish")
 
 # The wing's accepted exemplars: (file, required fragment, what it teaches).
 EXEMPLARS = (
 	("scripts/medal_system.gd", "Juice.pop_in(",
 		"HUD entrance pattern on the medal celebration card"),
-	("scripts/stuffie_battle.gd", "Juice.pulse3d(",
+	("scripts/stuffie_battle.gd", "Juice.pulse(",
 		"telegraph loop with rest-scale hygiene on the QTE"),
-	("scripts/main.gd", "Juice.vanish3d(",
+	("scripts/main.gd", "Juice.vanish(",
 		"pickup payoff on the pearl path"),
-	("scripts/main.gd", "_sparkle_mats",
+	("scripts/main.gd", "_sparkle_cache",
 		"cached burst material (no per-call material creation)"),
 	("scripts/games/fairy.gd", "pow(1.0 - f, 3.0)",
 		"eased in-place curve instead of a tween fighting per-frame math"),
@@ -93,7 +93,7 @@ def validate_vocabulary(text: str) -> list[str]:
 			errors.append(f"{name}() writes scale without the rest-scale meta")
 	if min_dur is None or max_dur is None:
 		return errors
-	for name, key in (("pop_in", "dur"), ("vanish3d", "dur"), ("pulse3d", "half")):
+	for name, key in (("pop_in", "dur"), ("vanish", "dur"), ("pulse", "half")):
 		body = bodies.get(name, "")
 		match = re.search(rf"{key}: float = ([0-9.]+)", body)
 		if match is None:
@@ -103,13 +103,13 @@ def validate_vocabulary(text: str) -> list[str]:
 		if key == "half":
 			if value * 2.0 < (min_period or PULSE_PERIOD_MIN):
 				errors.append(
-					f"pulse3d() default cycle {value * 2.0:.2f}s is under MIN_PULSE_PERIOD")
+					f"pulse() default cycle {value * 2.0:.2f}s is under MIN_PULSE_PERIOD")
 		elif not (min_dur <= value <= max_dur):
 			errors.append(f"{name}() default {key}={value} outside [MIN_DUR, MAX_DUR]")
-	peak = re.search(r"peak: float = ([0-9.]+)", bodies.get("pulse3d", ""))
+	peak = re.search(r"peak: float = ([0-9.]+)", bodies.get("pulse", ""))
 	if peak is None or float(peak.group(1)) > PULSE_PEAK_MAX:
 		errors.append(
-			f"pulse3d() default peak missing or over {PULSE_PEAK_MAX} (gentle-motion bound)")
+			f"pulse() default peak missing or over {PULSE_PEAK_MAX} (gentle-motion bound)")
 	return errors
 
 

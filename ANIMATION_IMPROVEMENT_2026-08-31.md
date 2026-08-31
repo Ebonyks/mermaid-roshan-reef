@@ -49,10 +49,10 @@ Zero new assets, zero new frames, engine-side tweens only:
 
 | Site | Pattern taught | Change |
 |---|---|---|
-| `scripts/juice.gd` | The shared vocabulary | `pop_in` (2D entrance), `pulse3d` (telegraph loop), `vanish3d` (pickup payoff) join `squash`/`flash`/`shake`; wing bounds `MIN_DUR`/`MAX_DUR`/`MIN_PULSE_PERIOD` |
+| `scripts/juice.gd` | The shared vocabulary | `pop_in` (2D entrance), `pulse` (telegraph loop), `vanish` (pickup payoff) join `squash`/`flash`/`shake`; wing bounds `MIN_DUR`/`MAX_DUR`/`MIN_PULSE_PERIOD`. `pulse`/`vanish` are canvas-agnostic by design (`Node` + property-path scale as Variant): the same primitives serve today's spatial arenas and the true-2D migration's cards, and they add zero 3D-API tokens to the GAME2D shrinking manifest — the first push proved the gate works by tripping it with 3D-typed signatures, and the rework keeps the manifest exact |
 | `scripts/medal_system.gd` | HUD entrance/exit | Card pops and fades in via `Juice.pop_in`; exit fade rides the existing teardown tween at the same total lifetime; probe-asserted rect, counts, and meta keys unchanged |
-| `scripts/stuffie_battle.gd` | Loop hygiene | Telegraph becomes `Juice.pulse3d(node)` — same 1.18×/3×/0.18 s shape, rest-scale remembered, prior tween killed (fixes the drift bug) |
-| `scripts/main.gd` (pearls) | Payoff on the object | `Juice.vanish3d(p)` replaces instant `queue_free`; the node leaves every logic list first, so count/HUD/save timing is exactly as before |
+| `scripts/stuffie_battle.gd` | Loop hygiene | Telegraph becomes `Juice.pulse(node)` — same 1.18×/3×/0.18 s shape, rest-scale remembered, prior tween killed (fixes the drift bug) |
+| `scripts/main.gd` (pearls) | Payoff on the object | `Juice.vanish(p)` replaces instant `queue_free`; the node leaves every logic list first, so count/HUD/save timing is exactly as before |
 | `scripts/main.gd` (`_sparkle_burst`) | Allocation-free effects | One shared `BoxMesh` + a quantized per-color material cache (capped); only the particles node is per-call |
 | `scripts/games/fairy.gd` | Ease the math you have | Bloom seeds at 0.18 and grows on a cubic ease-out inside the existing per-frame lerp — the pop lands at the win moment; no tween fights the per-frame writer |
 

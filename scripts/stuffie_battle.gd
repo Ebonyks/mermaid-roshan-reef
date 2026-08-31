@@ -535,7 +535,7 @@ func _qte_begin(enemy: Dictionary) -> void:
 	# the rest scale — the old inline loop froze whatever mid-squash scale the
 	# build frame saw, so a hit landing during the telegraph left the enemy
 	# permanently puffed.
-	Juice.pulse3d(node)
+	Juice.pulse(node)
 	m._sparkle_burst((enemy["pos"] as Vector3) + Vector3(0, 3.5, 0), Color(1.0, 0.45, 0.45))
 	if dodge_btn != null:
 		dodge_btn.visible = true

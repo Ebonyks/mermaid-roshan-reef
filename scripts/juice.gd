@@ -140,19 +140,25 @@ static func pop_in(ci: CanvasItem, dur: float = 0.30) -> void:
 	tw.tween_property(ci, "modulate:a", rest_alpha, dur * 0.6).from(0.0)
 
 # Attack/QTE telegraph: gentle puffs that always end at the remembered rest
-# scale. Replaces the raw `set_loops` pattern whose loop targets froze
-# whatever mid-deform scale the build frame happened to see — under a
-# concurrent squash the enemy drifted permanently puffed (stuffie QTE,
-# 2026-08-31). Kills the squash tween too: both write `scale`, and two
-# writers on one property is the drift bug all over again.
-static func pulse3d(node: Node3D, peak: float = 1.18, times: int = 3, half: float = 0.18) -> void:
+# scale. Canvas-agnostic on purpose: the scale flows through the property
+# path as Variant, so one primitive serves today's spatial arenas AND the
+# true-2D migration's cards without pinning a spatial type — which would
+# also expand the GAME2D 3D-API debt this project only shrinks. Replaces
+# the raw `set_loops` pattern whose loop targets froze whatever mid-deform
+# scale the build frame happened to see — under a concurrent squash the
+# enemy drifted permanently puffed (stuffie QTE, 2026-08-31). Kills the
+# squash tween too: both write `scale`, and two writers on one property is
+# the drift bug all over again.
+static func pulse(node: Node, peak: float = 1.18, times: int = 3, half: float = 0.18) -> void:
 	if node == null or not node.is_inside_tree():
 		return
-	var base: Vector3
+	var base: Variant
 	if node.has_meta("juice_rest_scale"):
 		base = node.get_meta("juice_rest_scale")
 	else:
-		base = node.scale
+		base = node.get("scale")
+		if base == null:
+			return   # scale-less node: nothing to pulse
 		node.set_meta("juice_rest_scale", base)
 	for meta_key: StringName in [&"juice_pulse_tw", &"juice_squash_tw"]:
 		if node.has_meta(meta_key):
@@ -166,10 +172,11 @@ static func pulse3d(node: Node3D, peak: float = 1.18, times: int = 3, half: floa
 
 # Pickup payoff: a quick pride pop, then shrink out and free. The touched
 # thing acknowledges the touch instead of teleporting out of existence
-# (DL-MOT-04). The caller must already have removed the node from every
-# logic list — after this call it is display-only and cannot be collected
-# twice; state, HUD, and save writes stay exactly where they were.
-static func vanish3d(node: Node3D, dur: float = 0.22) -> void:
+# (DL-MOT-04). Canvas-agnostic like pulse, and for the same two reasons.
+# The caller must already have removed the node from every logic list —
+# after this call it is display-only and cannot be collected twice; state,
+# HUD, and save writes stay exactly where they were.
+static func vanish(node: Node, dur: float = 0.22) -> void:
 	if node == null:
 		return
 	if not node.is_inside_tree():
@@ -180,9 +187,10 @@ static func vanish3d(node: Node3D, dur: float = 0.22) -> void:
 			var old: Tween = node.get_meta(meta_key)
 			if old != null and old.is_valid():
 				old.kill()
-	var base: Vector3 = node.scale
-	if node.has_meta("juice_rest_scale"):
-		base = node.get_meta("juice_rest_scale")
+	var base: Variant = node.get_meta("juice_rest_scale") if node.has_meta("juice_rest_scale") else node.get("scale")
+	if base == null:
+		node.queue_free()   # scale-less node: skip the flourish, never leak
+		return
 	var tw: Tween = node.create_tween()
 	tw.tween_property(node, "scale", base * 1.22, dur * 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tw.tween_property(node, "scale", base * 0.04, dur * 0.65).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
