@@ -7861,6 +7861,7 @@ func _tick_castle_rooms(delta: float) -> void:
 		_castle_rooms_ref().open("main_hall")
 	_sync_castle_room_music()
 	_castle_rooms_ref().tick(delta)
+	_comfy_games_ref().tick_castle_room()
 	_fairy_conservatory_door_ref().call("tick")
 	_sync_day_one_bathroom_cleanup()
 	_sync_day_one_pool_route()

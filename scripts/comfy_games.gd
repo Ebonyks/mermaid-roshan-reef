@@ -46,6 +46,9 @@ const FRIENDS: Array[Dictionary] = [
 
 var m: ReefMain
 var castle_root: Control = null
+var observed_room_id := ""
+var observed_stage_instance_id := 0
+var observed_day_two_available := false
 
 
 func _init(main: ReefMain) -> void:
@@ -109,8 +112,25 @@ func is_day_two_available() -> bool:
 	return not m.day_one_is_active()
 
 
+func tick_castle_room() -> void:
+	var stage_instance_id := 0
+	if m.castle_room_stage != null and is_instance_valid(m.castle_room_stage):
+		stage_instance_id = m.castle_room_stage.get_instance_id()
+	var available := is_day_two_available()
+	if observed_room_id == m.castle_room_id \
+			and observed_stage_instance_id == stage_instance_id \
+			and observed_day_two_available == available:
+		return
+	refresh_castle_room()
+
+
 func refresh_castle_room() -> void:
 	clear_castle_room()
+	observed_room_id = m.castle_room_id
+	observed_stage_instance_id = m.castle_room_stage.get_instance_id() \
+		if m.castle_room_stage != null \
+		and is_instance_valid(m.castle_room_stage) else 0
+	observed_day_two_available = is_day_two_available()
 	if not is_day_two_available() or m.castle_room_stage == null \
 			or not is_instance_valid(m.castle_room_stage):
 		return

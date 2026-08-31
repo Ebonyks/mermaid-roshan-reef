@@ -1031,7 +1031,6 @@ func cancel_kitchen_recipe() -> void:
 	resume("kitchen")
 
 func close() -> void:
-	m.comfy_games_clear_castle_room()
 	m._day_one_clear_castle_dressing()
 	_clear_day_one_pool_cleanup()
 	_clear_day_one_bathtub_swimmer()
@@ -1855,7 +1854,6 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	_sync_hall_lighting()
 	m._day_one_sync_castle_dressing()
 	_sync_day_one_pool_cleanup(room_id)
-	m.comfy_games_refresh_castle_room()
 	if announce:
 		m._ui_tap()
 		if room_id == "playroom" and not _playroom_rescue_done():
