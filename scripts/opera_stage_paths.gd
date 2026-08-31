@@ -196,6 +196,24 @@ const PATHS: Dictionary = {
 ## the first point is on PATHS[path], and intermediate points follow painted
 ## floor, stairs, or apron space.
 const STATION_NAV: Dictionary = {
+	"geologist": {
+		"layer_wall": {
+			"object": [0.20, 0.40], "visual_size": [166.0, 152.0],
+			"spur": [[0.30, 0.66], [0.35, 0.69]],
+		},
+		"fossil_table": {
+			"object": [0.38, 0.43], "visual_size": [154.0, 124.0],
+			"spur": [[0.56, 0.66], [0.57, 0.68]],
+		},
+		"specimen_trays": {
+			"object": [0.65, 0.43], "visual_size": [166.0, 116.0],
+			"spur": [[0.56, 0.66], [0.51, 0.69]],
+		},
+		"crystal_gallery": {
+			"object": [0.91, 0.30], "visual_size": [154.0, 166.0],
+			"spur": [[0.83, 0.61], [0.76, 0.64]],
+		},
+	},
 	"chef": {
 		"mixing_bowl": {
 			"object": [0.28, 0.42], "visual_size": [126.0, 126.0],

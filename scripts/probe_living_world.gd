@@ -84,7 +84,7 @@ func _probe_inventory() -> void:
 		"ember": 1,
 		"ice_dungeon": 10,
 		"ember_dungeon": 6,
-		"opera_act": 13,
+		"opera_act": 14,
 	}
 	var actual_groups: Dictionary = {}
 	var ambient_ids: Dictionary = {}
