@@ -88,6 +88,7 @@ func load_save() -> void:
 		m.save_data = _normalise_save({})
 	m.save_generation = int(m.save_data.get("save_generation", 0))
 	m._day_one_ref().restore_state(m.save_data)
+	m._comfy_games_ref().restore_state(m.save_data)
 	m.finale_done = bool(m.save_data.get("finale", false))
 	m.level2_done_once = bool(m.save_data.get("level2", false))
 	m.plays = int(m.save_data.get("plays", 0)) + 1   # each launch flips day <-> night
@@ -214,6 +215,9 @@ func write_save() -> bool:
 	var day_one_state: Dictionary = m._day_one_ref().serialize_state()
 	for day_one_key: String in day_one_state:
 		next_data[day_one_key] = day_one_state[day_one_key]
+	var comfy_state: Dictionary = m._comfy_games_ref().serialize_state()
+	for comfy_key: String in comfy_state:
+		next_data[comfy_key] = comfy_state[comfy_key]
 	var next_generation: int = maxi(m.save_generation, int(next_data.get("save_generation", 0))) + 1
 	next_data["schema_version"] = maxi(int(next_data.get("schema_version", SCHEMA_VERSION)), SCHEMA_VERSION)
 	next_data["won"] = won_d
@@ -528,6 +532,8 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	var day_one_state: Dictionary = DayOneDirector.normalise_save_patch(raw)
 	for day_one_key: String in day_one_state:
 		data[day_one_key] = day_one_state[day_one_key]
+	var comfy_state: Dictionary = ComfyGames.normalise_save_patch(raw)
+	data["comfy_games"] = comfy_state
 	var qdef: String = "speedy" if OS.has_feature("mobile") else "sparkly"
 	var version: int = _nonnegative_int_or_default(raw, "schema_version", SCHEMA_VERSION)
 	data["schema_version"] = maxi(version, SCHEMA_VERSION)

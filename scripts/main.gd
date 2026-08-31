@@ -348,6 +348,8 @@ var day_one_event_history: Array[Dictionary] = []
 var day_two_transition_active: bool = false
 var day_two_transition_layer: CanvasLayer = null
 var _day_one_director: DayOneDirector = null
+var comfy_games_state: Dictionary = {}
+var _comfy_games: ComfyGames = null
 var _day_one_bathroom_cleanup: DayOneBathroomCleanup = null
 var _day_one_bathroom_movie_handoff: DayOneBathroomMovieHandoff = null
 var _day_one_bathroom_movie_handoff_pending: bool = false
@@ -461,6 +463,7 @@ const STICKER_DEFS := [
 	{"id": "shopper", "emoji": "💰", "label": "Big Shopper", "hint": "Buy every treasure in the Pearl Shop!"},
 	{"id": "showtime", "emoji": "🎭", "label": "Showtime Star", "hint": "Perform every show in the Opera House!"},
 	{"id": "volcano", "emoji": "🌋", "label": "Fortress Hero", "hint": "Solve the Ember Fortress dungeon!"},
+	{"id": "super_seeker", "emoji": "🔎", "label": "Super Seeker", "hint": "Find Rumi, Baby Eagle, and Daddy in the Day Two castle game!", "bonus": true},
 	{"id": "superstar", "emoji": "⭐", "label": "SUPER STAR", "hint": "Collect every sticker and every trophy!"},
 ]
 var stickers := {}                 # id -> true (plus hidden "_" progress keys)
@@ -510,7 +513,8 @@ func _check_superstar() -> void:
 		return
 	for d in STICKER_DEFS:
 		var sid := String(d["id"])
-		if sid != "superstar" and not bool(stickers.get(sid, false)):
+		if sid != "superstar" and not bool(d.get("bonus", false)) \
+				and not bool(stickers.get(sid, false)):
 			return
 	if trophies < 5 or not level2_done_once or not fairy_skin_unlocked:
 		return
@@ -6988,6 +6992,21 @@ func _day_one_ref() -> DayOneDirector:
 	return _day_one_director
 
 
+func _comfy_games_ref() -> ComfyGames:
+	if _comfy_games == null:
+		_comfy_games = ComfyGames.new(self)
+	return _comfy_games
+
+
+func comfy_games_refresh_castle_room() -> void:
+	_comfy_games_ref().refresh_castle_room()
+
+
+func comfy_games_clear_castle_room() -> void:
+	if _comfy_games != null:
+		_comfy_games.clear_castle_room()
+
+
 ## The attack customizer is intentionally loaded lazily. This keeps the main
 ## boot path independent of the optional art-room overlay while still giving
 ## every combat mode one owner-facing entry point.
@@ -7107,6 +7126,8 @@ func _on_day_two_transition_finished() -> void:
 	day_two_transition_layer = null
 	if touch_ui != null:
 		touch_ui.consume_action()
+	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
+		comfy_games_refresh_castle_room()
 	_update_hud()
 
 func day_one_castle_room_is_clean(castle_room: String) -> bool:
