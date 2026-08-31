@@ -51,4 +51,3 @@ out of the repository.
   handoff validator.
 - `DELIVERY_ACCEPTED`: **false; 0/13 movies**. Grok clips are not accepted
   delivery frames.
-
