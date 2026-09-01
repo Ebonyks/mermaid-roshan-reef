@@ -200,3 +200,10 @@ child-facing return, in the same spirit as the animation wing.
   `MA-PACE-003` (no chapter close; resume retraversal tax), `MA-PACE-004`
   (assistance ladder absent; boss window vs. age), plus a history append
   to `MA-CI-004`.
+- **Executable follow-up** (owner direction, same day):
+  `CODEX_DAY_ONE_PACING_HANDOFF_2026-08-31.md` turns this guide into the
+  Day One pacing round — owner decisions D1–D6, the full voice line
+  script, work packages WP-P1..P7 + WP-PR, the movie slot inventory with
+  runtime fallback beats (`MA-PACE-005`), and the kickoff prompt. The
+  owner reviews the handoff (especially the D1–D6 defaults and the line
+  script), then pastes its kickoff prompt into Codex.

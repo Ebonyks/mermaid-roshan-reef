@@ -1269,7 +1269,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Every required Day One objective resolves an exact semantic clip (no yay fallback on the core path), the sink instruction is audible on a fresh run, and the new clips carry ledger rows. |
 | closure | Open as of 2026-08-31. |
 | relationships | Chapter sibling of `MA-PACE-002/003/004`; rule kin to `MA-CI-004` (the ungated surface); voice-ledger kin to `DL-SND-10` rows. |
-| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: implementation handed to Codex as WP-P1 of `CODEX_DAY_ONE_PACING_HANDOFF_2026-08-31.md` (the full line script is written into the handoff). |
 
 ## MA-PACE-002
 
@@ -1292,7 +1292,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | No same-frame caption overwrite on the Day One path; every room completion produces payoff + next-direction; the boss-door arming is announced where the child is standing. |
 | closure | Open as of 2026-08-31. |
 | relationships | Chapter sibling of `MA-PACE-001/003/004`; grammar kin to `MA-ANIM-001` (payoff on the earned thing). |
-| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: the owner confirmed "more small victories" as the round's key; implementation handed to Codex as WP-P2 (micro-victory kit) and WP-P3 (macro beats). |
 
 ## MA-PACE-003
 
@@ -1315,7 +1315,7 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Post-boss the child stands in the castle with a spoken close and a defined next state; Continue reaches the current objective in ≤ ~15 s of travel; no door is left permanently `BLOCKED` without an owner-recorded story reason. |
 | closure | Open as of 2026-08-31. |
 | relationships | Chapter sibling of `MA-PACE-001/002/004`; resume kin to `DL-AGE-06`; gating kin to the door-language wing (`design/07_CASTLE_DOOR_LANGUAGE.md`). |
-| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: implementation handed to Codex as WP-P4 under owner decision D1 (close-state; default A). |
 
 ## MA-PACE-004
 
@@ -1338,4 +1338,27 @@ target-device, child, owner, or accepted-visual result is claimed.
 | acceptance | Every required Day One objective escalates on idle per `DL-PACE-03`; no declared assist constant is dead; the boss's first-encounter window is ≥1.2 s with the ramp recorded in constants. |
 | closure | Open as of 2026-08-31. |
 | relationships | Chapter sibling of `MA-PACE-001/002/003`; mercy kin to the boss's existing ladder; precedent kin to `DL-INT-08`/`DL-INT-09`. |
-| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. Same day: implementation handed to Codex as WP-P5 under owner decision D5 (window numbers advisory). |
+
+## MA-PACE-005
+
+| Field | Value |
+|---|---|
+| id | `MA-PACE-005` |
+| title | The chapter's planned movie beats are absent with no runtime substitute: media request keys render nothing, the bathroom movie seams fail open silently, and the act-turn and chapter-close moments have no slot at all. |
+| rule_ids | `DL-PACE-04`, `DL-PACE-01`, `DL-PACE-06` |
+| domain / zone | Story pacing / arrival media, castle discovery, bathroom `.ogv` seams, boss-door act turn, chapter close |
+| source | Owner report 2026-08-31 ("a large amount of movies missing for pacing and plot development") converging with the pacing-wing playthrough's media trace. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static: every claim below is read directly from the media seams; no device run is needed to prove absence. |
+| reproduction | `g["day_one_media_request"]` keys `grok_opening_flight` (`day_one_director.gd:394-399`; hook `main.gd:7532-7536`) and `grok_dirty_castle_video_2` (`:402-414`; `main.gd:7537-7542`) set state and render nothing; `day_one_bathroom_movie_handoff.gd:145-152` fails open with no beat when the `.ogv` is absent; no slot exists for the boss-door arming or the chapter close. |
+| child_impact | Direct: the story's establishing, inciting, act-turn, and resolution moments currently play as caption lines or nothing, so the chapter's plot is carried almost entirely by room transformations. |
+| evidence | `DAY_ONE_PACING_REVIEW_2026-08-31.md` timeline rows; the handoff's slot inventory (seven slots with per-slot state). |
+| owner_decision | Media production and acceptance remain the owner's cinematic pipeline under the full-frame rule; this finding binds only the runtime side — named slots with in-engine fallback beats so pacing never waits on media. |
+| fix | WP-P6 of `CODEX_DAY_ONE_PACING_HANDOFF_2026-08-31.md`: a director-owned slot registry implementing the slot contract (play accepted media when present; otherwise a `say_sequence` + camera-hold + Juice fallback beat; report played/fallback state), fallback beats for all seven slots, and the slot inventory delivered to the owner for production. |
+| surrounding_tests | Slot-state assertions in the day-one probes; both bathroom seams proven on play and fallback paths; suite green. |
+| acceptance | With zero movies present every story moment still plays a paced fallback beat; with delivered media present the slot plays it; the inventory table reaches the owner. |
+| closure | Open as of 2026-08-31. |
+| relationships | Chapter sibling of `MA-PACE-001`–`004`; production kin to the cinematic wing (`DL-CIN-*`) without entering its domain; the close-slot depends on `MA-PACE-003`'s return seam. |
+| history | 2026-08-31: opened `CONFIRMED_OPEN` on the owner's report + trace; implementation handed to Codex as WP-P6. |
