@@ -236,6 +236,16 @@ Two obligations follow for every package in this round:
    request in your package report — never improvised around. Match the
    wing's named exemplars, not your own taste.
 
+   The **Pacing and session flow wing is Standing** (2026-08-31;
+   `DL-PACE-01`–`DL-PACE-06`, design 06 §21): any child-facing beat your
+   package touches obeys the one-breath template (payoff → breath → one
+   instruction; no same-frame caption bursts), announces macro transitions
+   on the played path, and respects the idle assistance ladder and
+   reaction-window floors. The Day One improvement guide
+   (`DAY_ONE_PACING_REVIEW_2026-08-31.md` §4) is owner-prioritized work,
+   not this round's scope — do not absorb it into round packages without
+   an explicit owner ask.
+
    In particular, the **Animation improvement wing is Standing**
    (2026-08-31; `DL-ANIM-01`–`DL-ANIM-06`, design 06 §20): any feedback or
    decorative motion your package touches uses the `scripts/juice.gd`

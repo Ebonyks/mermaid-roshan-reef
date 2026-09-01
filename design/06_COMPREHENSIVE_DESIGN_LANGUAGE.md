@@ -1429,3 +1429,63 @@ against): the medal celebration card entrance/exit
 burst (`scripts/main.gd`), the fairy bloom eased curve
 (`scripts/games/fairy.gd`), and the pre-existing critter collection pop
 (`scripts/collection_system.gd`).
+
+---
+
+## 21. Pacing and session flow
+
+_Added 2026-08-31 with the Pacing and session flow wing (master audit
+section 3.4; first evaluation `DAY_ONE_PACING_REVIEW_2026-08-31.md`).
+Scope: the timing, spacing, and rhythm of child-facing beats — how
+instructions, payoffs, transitions, and sessions breathe. It builds on
+section 2 (the child constraint), section 9 (motion grammar), and section
+10 (voice); where those say WHAT a beat must contain, this family says
+WHEN and HOW FAR APART._
+
+`DL-PACE-01` — The one-breath beat template. A completed child action gets
+its payoff on the touched thing (0.5–1 s), a breath (~0.5 s), then at most
+ONE new instruction. Two `show_msg` calls within ~2.5 s of each other are
+a defect outside a `say_sequence` queue — the single caption slot makes
+the second erase the first, and a same-frame burst erases it unread.
+Stacked instructions, instruction-during-payoff, and payoff-less
+completions all fail this rule.
+
+`DL-PACE-02` — Session shape and the resume tax. A chapter or activity
+arc targets roughly three to eight minutes of engaged child time, and
+every completion edge is a safe stop (`DL-AGE-06`): saved immediately,
+resumable to the SAME social space. Resuming costs at most ~15 seconds of
+travel to the current objective; a fixed full-length retraversal on every
+session is a defect, not atmosphere.
+
+`DL-PACE-03` — The assistance ladder is time-based and universal. Every
+required objective escalates on idle: after roughly 8 seconds the current
+instruction is re-spoken; after roughly 16 seconds the pointer or
+demonstration refreshes (the `DL-INT-08` five/ten-second lineage, scaled
+for world play). Pointers point at the CURRENT objective only; permanent
+un-earned pointers and dead assistance constants both fail. Escalation
+never completes the action (`DL-AGE-04`).
+
+`DL-PACE-04` — Macro transitions are announced on the path the child
+actually plays. Room complete, door armed, chapter climax reached: each
+fires a spoken next-destination beat and a visual pointer at the moment
+it happens. A state change that only a debug log or an unused generic
+path announces is a silent transition and a defect.
+
+`DL-PACE-05` — Reaction windows respect first contact. Any timing-gated
+child action opens at no less than ~1.2 seconds on first encounter and
+may narrow on demonstrated success (invisible ramp), never below 0.65
+seconds; mercy remains the floor, not the teacher. `DL-INT-09`'s
+no-required-reaction stance is the default for new mechanics — a
+timing window is an explicit design choice, recorded with its numbers.
+
+`DL-PACE-06` — Beats are truthful. A celebration celebrates something the
+child actually did; a "hunt" of zero real finds, a win line for a
+pre-completed task, or a verb spoken over a different input gesture
+("scrub" voiced over a plain tap) are defects even when the flow works.
+
+Accepted exemplars: the Day One pool's one-instruction-per-phase
+announcement pattern and its room-brightening progress lerp
+(`scripts/games/day_one_pool_cleanup.gd`), and the bathroom's continuous
+non-feeding demonstration ghost (`scripts/games/day_one_bathroom_cleaning.gd`).
+This wing is prose-and-exemplar for now; a deterministic same-frame
+caption-burst lint under `tools/` is a candidate follow-up.

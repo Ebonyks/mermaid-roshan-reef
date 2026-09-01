@@ -899,9 +899,9 @@ target-device, child, owner, or accepted-visual result is claimed.
 | fix | Classify the eight probes per master audit section 11.2; promote the deterministic non-capture ones (at minimum `probe_day_one_director`, `probe_day_one_integration`, `probe_day_one_pool_cleanup`, `probe_start_menu_routing`) into both trusted rosters; capture-style probes become `ADVISORY_CAPTURE`. |
 | surrounding_tests | Each promoted probe runs green three consecutive times locally before promotion; full suite before/after; roster parity check between `ci.sh` and `probes.yml`. |
 | acceptance | Both rosters carry the promoted probes, a deliberately injected Day One routing break turns the gate red, and suite wall time stays inside the workflow ceiling. |
-| closure | Open as of 2026-08-26; no roster change exists. |
-| relationships | Decomposes release risk from `MA-RELEASE-001`; complements `MA-CI-003` classification and `MA-CI-005` passive coverage. |
-| history | 2026-08-26: confirmed by roster cross-check; opened `CONFIRMED_OPEN`. |
+| closure | Open as of 2026-08-26; partial roster growth observed 2026-08-31. |
+| relationships | Decomposes release risk from `MA-RELEASE-001`; complements `MA-CI-003` classification and `MA-CI-005` passive coverage; the ungated surface is the subject of the `MA-PACE-*` chapter review. |
+| history | 2026-08-26: confirmed by roster cross-check; opened `CONFIRMED_OPEN`. 2026-08-31: pacing-wing re-count — the day-one probe family has grown to 13 files (`probe_day_one_*` plus `probe_start_menu_routing`), of which 3 now run in both trusted rosters (`probe_day_one_bathroom_cleanup`, `probe_day_one_bathroom_integration`, `probe_day_one_bathroom_movie_handoff`); the remaining 10 — pool cleanup, director, integration, art studio/attack state, castle dressing, pool/bathroom/art shot probes, and start-menu routing — still gate nothing. Remains `CONFIRMED_OPEN`. |
 
 ## MA-CI-005
 
@@ -1247,3 +1247,95 @@ target-device, child, owner, or accepted-visual result is claimed.
 | closure | Open as of 2026-08-31; allocation half fixed, gating half awaiting measurement and the composition decision. |
 | relationships | Sibling of `MA-ANIM-001`; measurement dependency on `MA-PERF-001` (tablet wing); overlaps the retiring 3D surface of `MA-2D-002` — gating work must not grow that surface. |
 | history | 2026-08-31: confirmed by the wing inventory; `_sparkle_burst` cache landed at opening; ungated-tick half remains open for the tablet wing's measurement. |
+
+## MA-PACE-001
+
+| Field | Value |
+|---|---|
+| id | `MA-PACE-001` |
+| title | Day One's required-objective voice layer is generic or absent: no chapter-specific recordings exist, several speakers have no playable clip at all, and one instruction is structurally caption-only. |
+| rule_ids | `DL-SND-01`, `DL-SND-13`, `DL-AGE-01`, `DL-PACE-01` |
+| domain / zone | Non-reader communication / Day One chapter (bathroom, pool, art, hall wayfinding, dust-bunny boss) |
+| source | 2026-08-31 pacing-wing code-traced playthrough (`DAY_ONE_PACING_REVIEW_2026-08-31.md`) with measured OGG durations for all 213 voice clips. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static, strong: clip inventory measured from the files; the sink-line cooldown collision is deterministic from constants (0.38 s tool travel vs the 0.5 s `show_msg` gap); no device run needed to prove absence. |
+| reproduction | Every Day One instruction voices generic `roshan_talk` (measured 1.05 s) or `roshan_win` (0.84 s); `assets/audio/voices/` contains no `rumi_*` clip (the Rumi reveal at `day_one_pool_cleanup.gd:593-595` falls to the pitched yay), no bare `roshan.ogg` (castle-entry `"home"` vo falls back to yay), no `daddy.ogg` (`daddy1..3.ogg` are sacred but unmatched by the fallback path, so every Daddy Mermaid hint is a yay), and no `dustboss_*` keys (the boss telegraph at `dust_boss.gd:243-244` is caption + yay). "Scrub the sink in little circles!" (`day_one_bathroom_cleaning.gd:811`) always lands 0.38 s after the previous roshan_talk (`:599` tool travel) inside `show_msg`'s 0.5 s gap (`audio_director.gd:16-19,173`) — caption-only on every playthrough. |
+| child_impact | Direct: the chapter's story beat, wayfinding redirects, climax introduction, and the only skill-teaching telegraph are text-locked for a non-reader; play survives on pointers and demos alone. |
+| evidence | Review sections 1 and 3A; measured clip table (213 clips); `tools/make_voices.py` LINES has 122 roshan entries and zero rumi/day-one entries; `VOICE_MANIFEST.md` confirms the Kokoro pipeline and the sacred set. |
+| owner_decision | Not required for TTS lines (the manifest's documented pipeline); required only if any line should instead be a family recording. |
+| fix | One `tools/make_voices.py` batch: ~35 semantic day-one lines plus a Rumi voice row, generated per-line per the manifest; delete the dead trailing `_say` calls the `show_msg` gap suppresses; re-announce the sink line after travel plus remaining cooldown or via its own semantic key. |
+| surrounding_tests | `tools/audit_audio_quality.py` ledger rows for each new clip (`DL-SND-10`/`DL-SND-12`); probe_voice; suite green; device listen per `DL-SND-09`. |
+| acceptance | Every required Day One objective resolves an exact semantic clip (no yay fallback on the core path), the sink instruction is audible on a fresh run, and the new clips carry ledger rows. |
+| closure | Open as of 2026-08-31. |
+| relationships | Chapter sibling of `MA-PACE-002/003/004`; rule kin to `MA-CI-004` (the ungated surface); voice-ledger kin to `DL-SND-10` rows. |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. |
+
+## MA-PACE-002
+
+| Field | Value |
+|---|---|
+| id | `MA-PACE-002` |
+| title | Day One beats stack and skip their breaths: same-frame caption overwrites erase the inciting line, the bathroom opens on three captions in 0.4 s, the art studio fires eight in a row, and completions land without payoff or next-direction beats. |
+| rule_ids | `DL-PACE-01`, `DL-PACE-04`, `DL-MOT-03`, `DL-MOT-04` |
+| domain / zone | Beat spacing / castle entry, bathroom handoff, art studio, bespoke room completions, boss-door arming |
+| source | 2026-08-31 pacing-wing code-traced playthrough; the castle-entry ordering re-verified directly (`main.gd:6647` fires discovery before the `6652` entry line). |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| reproduction | Castle entry: `_day_one_discover_dirty_castle()` (`main.gd:6647` → hook `:7541`) posts "Dust bunnies! This castle needs our help!" and the same call chain immediately overwrites it with the golden-door line (`:6652-6655`) in the one caption slot (`audio_director.gd:169-171`). Bathroom: "Let's clean together!" and "We found both cleaning supplies!" post in the same frame (`day_one_bathroom_cleanup.gd:687-701`), the sink instruction follows at +0.38 s. Art studio: `_announce_current_target()` fires on every tap with zero beat (`day_one_art_studio.gd:308-313`) — eight captions plus an uncooled `_say("roshan","talk")` repeat (`:393`, min_gap 0.0). Missing beats: sink completion goes to the next instruction inside a 0.70 s busy lock with no reward line (`day_one_bathroom_cleaning.gd:517-540`); `day_one_complete_pool_scene`/`_art_scene`/`_stuffie_rescue` (`main.gd:7030-7089`) show nothing — the "All four rooms are clean! The big back door is glowing!" banner exists only on the unused generic path (`main.gd:6939`), so the boss-door arming is silent on the real path. |
+| child_impact | Direct: the inciting story moment is unreadable, instructions blur into churn in the art room, and the chapter's biggest reveal (the glowing back door) is never announced where she plays. |
+| verification | V1 static, deterministic from call order and the single caption slot. |
+| evidence | Review sections 1 and 3B; verbatim message script with anchors in the review's flow table. |
+| owner_decision | Not required: the beats already exist in the generic path or the queue machinery (`say_sequence`, built and unused in Day One). |
+| fix | Apply `DL-PACE-01`: queue castle entry's two lines through `say_sequence`; merge the bathroom openers into one honest line; announce art phases at boundaries only with per-tap chime+Juice feedback; add the sink micro-win inside the existing busy window; move the four-rooms celebration and per-room next-destination lines onto the bespoke completion path (`DL-PACE-04`). |
+| surrounding_tests | probe_day_one_director completion order unchanged; probe_passive unchanged; suite green; a same-frame caption-burst lint is a candidate wing follow-up. |
+| acceptance | No same-frame caption overwrite on the Day One path; every room completion produces payoff + next-direction; the boss-door arming is announced where the child is standing. |
+| closure | Open as of 2026-08-31. |
+| relationships | Chapter sibling of `MA-PACE-001/003/004`; grammar kin to `MA-ANIM-001` (payoff on the earned thing). |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. |
+
+## MA-PACE-003
+
+| Field | Value |
+|---|---|
+| id | `MA-PACE-003` |
+| title | The chapter has no close and every session pays a retraversal tax: winning the boss tears down to reef free-roam with the castle locked behind her, `day_one_active` never clears, and Continue always respawns at the promenade for the full walk. |
+| rule_ids | `DL-PACE-02`, `DL-PACE-04`, `DL-AGE-06` |
+| domain / zone | Chapter structure / boss teardown, door-language gating, start-menu resume |
+| source | 2026-08-31 pacing-wing code-traced playthrough; teardown chain re-verified (`main.gd:8583-8584`, `:10827-10834`). |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| reproduction | `_start_game(dust_boss_fr)` overwrites `g` (`main.gd:8975`), destroying the `phase=="hall"` castle context; `_clear_game` then sets `game=""`, `g={}` (`:8583-8584`) and `_leave_arena_now` teleports to `return_pos` in reef free-roam (`:10827-10834`) — the castle never re-opens itself. `day_one_active` is assigned only at launch (`main.gd:3784`) and by the director setter; completing the boss sets only `day_one_giant_dust_bunny_boss_triggered` (`day_one_director.gd:430`), after which `resolve_act_one` returns `BLOCKED` for all four rooms and `__royal_hall` (`castle_door_language.gd:47-55`; `main.gd:6864-6867`) while jobs and opera stay locked (`main.gd:6858-6862`). Resume: Continue → `_launch_from_start_menu(true)` → `_enter_level2_now` at promenade master x 610 (`start_menu.gd:243-244`; `main.gd:3776-3777`; `sky_lagoon_promenade.gd:261-262`) — 4,702 master px (≈6 s held travel) plus castle re-entry and hall walk, every session; the reef-plane guidance line re-fires each arrival, pointing away from the chapter. |
+| child_impact | Direct: the climax exits to an unrelated space with no celebration arc; the castle she just saved becomes four blocked doors; each short session (the design pillar) opens with the same empty walk. |
+| verification | V1 static on exact teardown/gating code; the experienced-severity half (how it feels) is a device/owner observation by nature. |
+| evidence | Review sections 1 (final rows) and 3C; surveyor trace section 7a/7b anchors. |
+| owner_decision | REQUIRED: what day-one completion unlocks is a story call — clear `day_one_active` into free-play/day-two, or an authored bedtime close with the next chapter gated. The finding binds only that SOME close exists and the boss returns into the castle. |
+| fix | Return the boss exit into the hall over the restored castle with a two-line close (`say_sequence`); introduce an explicit day-one-complete state consumed by door language and the start menu; resume lands at the castle door or hall once `day_one_dirty_castle_discovered`; suppress the reef-plane guidance while Day One is active and undiscovered. |
+| surrounding_tests | probe_day_one_director completion/gating; probe_start_menu_routing resume claims updated with the new resume point; suite green. |
+| acceptance | Post-boss the child stands in the castle with a spoken close and a defined next state; Continue reaches the current objective in ≤ ~15 s of travel; no door is left permanently `BLOCKED` without an owner-recorded story reason. |
+| closure | Open as of 2026-08-31. |
+| relationships | Chapter sibling of `MA-PACE-001/002/004`; resume kin to `DL-AGE-06`; gating kin to the door-language wing (`design/07_CASTLE_DOOR_LANGUAGE.md`). |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. |
+
+## MA-PACE-004
+
+| Field | Value |
+|---|---|
+| id | `MA-PACE-004` |
+| title | Day One ignores the house assistance ladder and opens its only timing mechanic at an adult-grade window: no idle-gated escalation exists in the castle, declared gesture-assist constants are dead, and the boss's first-encounter vulnerability window is 0.75 s with mercy only after five misses. |
+| rule_ids | `DL-PACE-03`, `DL-PACE-05`, `DL-AGE-04`, `DL-INT-08` |
+| domain / zone | Assistance and difficulty pacing / castle idle behavior, bathroom gesture stage, dust-bunny boss |
+| source | 2026-08-31 pacing-wing code-traced playthrough. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| reproduction | Idle voice is disabled whenever `game != ""` (`main.gd:1162-1172` early return), and `_tick_hints` is dead on the Day One route (`first_session` cleared at `main.gd:3780`), so no time-based re-prompt exists anywhere in the castle; pointers are permanent instead of idle-gated (`day_one_art_studio.gd:352-373`; `day_one_bathroom_cleanup.gd:650-658`). `SINK_MAX_GESTURE_SECONDS`/`TUB_MAX_GESTURE_SECONDS` (`day_one_bathroom_cleaning.gd:26-28`) are declared, exported in the audit snapshot, and read by no logic. The boss opens at `VULNERABILITY_WINDOW 0.75` s, `FINAL_ROUND_VULNERABILITY_WINDOW 0.65` s at `1.25×` speed (`dust_bunny_boss_sprite.gd:18-22`), with mercy only from `MERCY_TRIGGER_STREAK 5` (`dust_boss.gd:75-83`) — against `DL-INT-09`'s no-required-reaction precedent and the `DL-INT-08` five/ten-second assistance lineage. |
+| child_impact | Direct: a stuck child gets no spoken help anywhere in the chapter, and the finale's likely first-contact experience is five misses before the game softens. |
+| verification | V1 static from constants; the reaction-time claim about the audience is developmental-norm reasoning, and the exact tuned values are a device/child observation to confirm. |
+| evidence | Review sections 3D and 4 items 7–8; constants anchored above. |
+| owner_decision | Advisory on the exact window numbers (1.2 s first-encounter baseline proposed); the ladder itself is already house law via `DL-INT-08`. |
+| fix | One idle helper on the announce system (≈8 s re-speak, ≈16 s pointer/demo refresh, never completing per `DL-AGE-04`); retire or implement the dead max-gesture constants; boss baseline window 1.2 s (final 1.0 s) narrowing on demonstrated success with mercy as the floor. |
+| surrounding_tests | probe_passive must stay green (escalation pays nothing); probe_day_one_bathroom_bunny beat guards unchanged; dust-boss probe rounds green at the new constants. |
+| acceptance | Every required Day One objective escalates on idle per `DL-PACE-03`; no declared assist constant is dead; the boss's first-encounter window is ≥1.2 s with the ramp recorded in constants. |
+| closure | Open as of 2026-08-31. |
+| relationships | Chapter sibling of `MA-PACE-001/002/003`; mercy kin to the boss's existing ladder; precedent kin to `DL-INT-08`/`DL-INT-09`. |
+| history | 2026-08-31: confirmed by the pacing-wing playthrough; opened `CONFIRMED_OPEN`. |
