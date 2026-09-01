@@ -137,6 +137,51 @@ class Game2DAuditTests(unittest.TestCase):
 		self.assertRegex(str(evidence["sha256"]), r"^[0-9a-f]{64}$")
 		self.assertIn("G2D101", self.finding_ids(game_2d.audit(root, manifest)))
 
+	def test_only_exact_audio_filler_provenance_manifest_is_exempt(self) -> None:
+		temp, root, _manifest = self.fixture(with_debt=False)
+		self.addCleanup(temp.cleanup)
+		legitimate = {
+			"status": "PROVISIONAL_SYNTHETIC_FILLER",
+			"codec_target": "48 kHz mono Ogg Vorbis 96 kbps",
+			"entries": [{
+				"key": "roshan_win",
+				"final_ogg_sha256": "0" * 64,
+				"delivery_metrics": {},
+			}],
+		}
+		exact = root / game_2d.AUDIO_FILLER_PROVENANCE_REL
+		exact.parent.mkdir(parents=True)
+		exact.write_text(json.dumps(legitimate), encoding="utf-8")
+		self.assertTrue(game_2d._is_filler_audio_provenance_manifest(exact))
+		self.assertFalse(game_2d._is_model_or_scan_coverage(exact))
+		self.assertNotIn(
+			game_2d.AUDIO_FILLER_PROVENANCE_REL,
+			game_2d.discover(root).model_files,
+		)
+
+		# A lookalike elsewhere is not covered by the exact-path exception.
+		lookalike = root / "assets/audio/voices/filler_clone/FILLER_MANIFEST.json"
+		lookalike.parent.mkdir(parents=True)
+		lookalike.write_text(json.dumps({
+			**legitimate,
+			"asset": {"version": "2.0"}, "meshes": [],
+		}), encoding="utf-8")
+		self.assertFalse(game_2d._is_filler_audio_provenance_manifest(lookalike))
+		self.assertIn(
+			"assets/audio/voices/filler_clone/FILLER_MANIFEST.json",
+			game_2d.discover(root).model_files,
+		)
+
+		# Even at the exact path, a real model-signature JSON is still debt.
+		exact.write_text(json.dumps({
+			"asset": {"version": "2.0"}, "meshes": [],
+		}), encoding="utf-8")
+		self.assertFalse(game_2d._is_filler_audio_provenance_manifest(exact))
+		self.assertIn(
+			game_2d.AUDIO_FILLER_PROVENANCE_REL,
+			game_2d.discover(root).model_files,
+		)
+
 	def test_zip_and_tar_sniff_disguised_models_and_mark_nested_archives(self) -> None:
 		temp, root, manifest = self.fixture(with_debt=False)
 		self.addCleanup(temp.cleanup)
