@@ -3354,7 +3354,7 @@ func _relax_on_furniture(sprite: Sprite2D,
 		relax_copy = "Cosy story-cushion time! Let's pick a favorite story."
 	elif item_id == "cloud_pouf":
 		relax_copy = "Roshan found the middle cloud pouf for movie night!"
-	m.show_msg("Roshan", relax_copy, "talk")
+	m.show_msg("Roshan", relax_copy, "castle_cosy_seat")
 
 func _toggle_bedside_light(sprite: Sprite2D,
 		item_data: Dictionary) -> void:
@@ -4778,7 +4778,7 @@ func _finish_kitchen_recipe() -> void:
 	kitchen_act = null
 	m.game = "level2"
 	resume("kitchen")
-	m.show_msg("Roshan", "Something delicious is ready!", "win")
+	m.show_msg("Roshan", "Something delicious is ready!", "castle_recipe_ready")
 
 # Suspend the castle, run the sparring class, and come home to the hall.
 # The same cutaway pattern the kitchen and opera hall already use.
