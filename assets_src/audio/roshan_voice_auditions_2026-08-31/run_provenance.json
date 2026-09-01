@@ -1,0 +1,37 @@
+{
+  "attempt": 1,
+  "cuda_version": "12.4",
+  "description_tokenizer": "google/flan-t5-large",
+  "description_tokenizer_artifact_sha256": {
+    "special_tokens_map.json": "5c87151ef0f72a99d1f766a4c418bd2a1f90aaa30a8e22fe5eca9641daebb64f",
+    "spiece.model": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+    "tokenizer.json": "fe2ebbbbde2985be723e0ce18217853e4020c5e9d35bd07be2c27ab9d3ead57a",
+    "tokenizer_config.json": "5d19985330a9123285cc583fc60616d083aa9df7435812b5d8bb3e749f435d56"
+  },
+  "description_tokenizer_revision": "0613663d0d48ea86ba8cb3d7a44f0f65dc596a2a",
+  "device": "cuda:0",
+  "ffmpeg": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+  "generator_sha256": "12981c09b4f74432b5c9d22936d61e273cf0260cdf304dbf33bff12dace1003c",
+  "model": "parler-tts/parler-tts-mini-v1.1",
+  "model_artifact_sha256": {
+    "config.json": "4c244b86830bcd2b092c69d07740182f927a6449f369ae1cf3dc7fef35b58611",
+    "generation_config.json": "86d035c0fd9589d60fb763aad1feafeee2040fb9cf51515a0144816cec4d029d",
+    "model.safetensors": "f85ed0a4953b28f0bd9d3cec9f0e035df2936ba97646f315f54b42bf6ba6d0f9",
+    "special_tokens_map.json": "4859e5dbde90e059988a0a2136d8df3f2773d4d2fc4c4543690028f0b2166e7f",
+    "tokenizer.json": "8b5f3a5080f95e5333930b57181cd2a9bf387632bd7b277af5d4fea59acb58de",
+    "tokenizer.model": "bc8fa773221597d09cfadb23a2b1bd717488a0481505469ea56d42cb044de9b5",
+    "tokenizer_config.json": "47baa70cba964a32daa581a4af50b4f2c77edaa18bec2257660133ab204ca36f"
+  },
+  "model_revision": "fbb2dd281092c5b414ef29cf9d8895f386f1feef",
+  "packages": {
+    "parler-tts": "0.2.2",
+    "soundfile": "0.13.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.46.1"
+  },
+  "parler_code_revision": "d108732cd57788ec86bc857d99a6cabd66663d68",
+  "platform": "Windows-10-10.0.22631-SP0",
+  "purpose": "NON_RUNTIME_SYNTHETIC_ROSHAN_PRESET_AUDITION",
+  "python": "3.10.6 (tags/v3.10.6:9c7b4bd, Aug  1 2022, 21:53:49) [MSC v.1932 64 bit (AMD64)]",
+  "rights": "Apache-2.0 model; named preset synthesis; no voice cloning or reference audio"
+}

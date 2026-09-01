@@ -312,7 +312,7 @@ func _give_next_hint() -> void:
 			continue
 		m.show_msg("Roshan", "I hear a friend near the %s!" \
 			% String(friend["room_name"]), "hint")
-		m._say("roshan", "talk", 0.8)
+		m._say("roshan", "hide_seek_hint", 0.8)
 		return
 
 

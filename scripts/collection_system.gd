@@ -306,7 +306,7 @@ func open_book() -> void:
 		m.player.vel = Vector3.ZERO
 	m.collection_category = "fish"
 	_draw_book()
-	m._say("roshan", "talk")
+	m._say("roshan", "collection_book_open")
 
 
 func close_book() -> void:

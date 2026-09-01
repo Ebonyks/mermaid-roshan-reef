@@ -3,7 +3,7 @@
 ## Provisional synthetic filler v1 (2026-08-30)
 
 Runtime now prefers `filler_v1/<speaker>_<event>.ogg`, then the corresponding
-legacy path. The 285 live cues comprise all 284 authoritative non-Faron filler
+legacy path. The 351 live cues comprise all 350 authoritative non-Faron filler
 keys plus the three-preset `everyone.ogg` mix. The three group source layers
 remain provenance-only WAVs and are not separately addressable runtime cues.
 This is a reversible machine-screened
@@ -76,7 +76,7 @@ plus bespoke ones (`greet`, `intro`, `thanks`, `bark`, `pearl`, `idle1..3`).
 
 | character | Parler preset | feel |
 |---|---|---|
-| Roshan | Laura | youthful, bright, consistent guide |
+| Roshan | Joy | very young, tiny, bright four-year-old register; hard-gated at 225–360 Hz |
 | Huluu | Lea | gentle storybook princess |
 | Evie | Jenna | bubbly youthful friend |
 | Harper | Lauren | warm big-sister voice |
@@ -86,9 +86,9 @@ plus bespoke ones (`greet`, `intro`, `thanks`, `bark`, `pearl`, `idle1..3`).
 | Rosalina | Rose | calm fairy-tale voice |
 | Imps | Mike | impish cartoon voice |
 | Rumi | Emily | warm youthful friend |
-| Mewsha | Joy | playful storybook-kitty voice |
+| Mewsha | Laura | warm playful storybook-kitty voice, distinct from Roshan |
 | Daddy fillers only | Will | warm adult helper; numbered recordings untouched |
-| everyone | Laura + Lea + Jenna | audited, trimmed three-voice mix |
+| everyone | Joy + Lea + Jenna | audited, trimmed three-voice mix |
 
 ## SACRED — never regenerate these (real family recordings)
 

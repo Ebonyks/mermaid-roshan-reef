@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import array
 import hashlib
 import json
 import math
@@ -12,6 +13,7 @@ import shutil
 import struct
 import subprocess
 import tempfile
+import wave
 from pathlib import Path
 
 
@@ -25,11 +27,21 @@ PROTECTED_PATTERNS = (
 )
 LIMITER_LINEAR = 0.668344  # -3.5 dBFS; leaves margin for Vorbis reconstruction.
 PROMPT_WORD_EQUIVALENTS = {
-    "wheee": "whee", "whoooaa": "whoa", "aww": "aw",
-    "blegh": "bleh", "em": "them",
+    "aw": "aww", "ah": "aww", "oh": "aww",
+    "woo": "wow", "wooo": "wow", "woooo": "wow", "wooooo": "wow",
+    "woooow": "wow", "whoooaa": "whoa",
+    "we": "whee", "wee": "whee", "weee": "whee", "wheee": "whee",
+    "teehee": "heehee", "hihi": "heehee", "hehe": "heehee", "hehehe": "heehee",
+    "hulu": "huluu", "huloo": "huluu", "huluo": "huluu", "hulaloo": "huluu",
+    "lamb": "lamba", "lamma": "lamba", "lambda": "lamba", "lemma": "lamba",
+    "plushie": "plushy", "cart": "kart", "card": "kart",
+    "colour": "color", "dr": "doctor", "karim": "kareem",
+    "flower": "flour", "shoe": "shoo",
+    "bleh": "blegh", "blah": "blegh", "em": "them",
+    "tada": "tadaa", "tadah": "tadaa",
 }
 GROUP_F0_RANGES = {
-    "roshan": (195.0, 290.0),
+    "roshan": (225.0, 360.0),
     "huluu": (145.0, 275.0),
     "evie": (190.0, 340.0),
 }
@@ -57,12 +69,35 @@ def canonical_json_sha256(value: object) -> str:
 
 
 def normalize_prompt_words(value: str) -> list[str]:
-    """Normalize only reviewed spelling variants used by authored prompts."""
-    normalized = value.lower().replace("lamb-a'", "lamba").replace("lamb-a", "lamba")
-    return [
+    """Use the selector's narrow reviewed semantic-word normalization."""
+    normalized = value.lower().replace("lamb-a", "lamba")
+    for contraction, expanded in {
+        "he's": "he is", "you'll": "you will", "didn't": "did not",
+        "that's": "that is", "i'm": "i am", "it's": "it is",
+        "let's": "let us", "where's": "where is",
+    }.items():
+        normalized = normalized.replace(contraction, expanded)
+    normalized = normalized.replace("re-laying", "relaying").replace("re laying", "relaying")
+    normalized = normalized.replace("tip-toe", "tiptoe").replace("tee hee", "heehee")
+    normalized = normalized.replace("uh oh", "oh")
+    normalized = re.sub(r"\bmyoo[ -]?sha\b", "mewsha", normalized)
+    normalized = re.sub(r"\bta[ -]?da+a\b", "tadaa", normalized)
+    normalized = re.sub(r"\bsh+h+\b", "shh", normalized)
+    normalized = re.sub(r"\bhee[ -]+hee(?:[ -]+hee)*\b", "heehee", normalized)
+    canonical = [
         PROMPT_WORD_EQUIVALENTS.get(word, word)
         for word in re.findall(r"[a-z0-9]+", normalized)
     ]
+    collapsed: list[str] = []
+    for word in canonical:
+        if word == "shh" and collapsed and collapsed[-1] == "shh":
+            continue
+        if word in {"he", "hee", "heehee"}:
+            if not collapsed or collapsed[-1] != "heehee":
+                collapsed.append("heehee")
+        else:
+            collapsed.append(word)
+    return collapsed
 
 
 def stabilize_ogg_pages(path: Path, serial: int) -> None:
@@ -266,6 +301,51 @@ def master_source(source: Path, destination: Path) -> tuple[
     return metrics, command_provenance
 
 
+def mix_group_pcm16(sources: list[Path], delays_ms: list[int],
+                    destination: Path) -> dict[str, object]:
+    """Deterministically sum mono PCM16 WAVs with fixed sample offsets."""
+    if len(sources) != len(delays_ms) or not sources:
+        raise RuntimeError("group mix sources/delays are invalid")
+    sample_rate = 0
+    decoded: list[array.array[int]] = []
+    for source in sources:
+        with wave.open(str(source), "rb") as handle:
+            if handle.getnchannels() != 1 or handle.getsampwidth() != 2 \
+                    or handle.getcomptype() != "NONE":
+                raise RuntimeError(f"group component is not mono PCM16: {source}")
+            if sample_rate == 0:
+                sample_rate = handle.getframerate()
+            elif handle.getframerate() != sample_rate:
+                raise RuntimeError("group component sample rates do not match")
+            samples = array.array("h")
+            samples.frombytes(handle.readframes(handle.getnframes()))
+            decoded.append(samples)
+    offsets = [round(sample_rate * delay_ms / 1000) for delay_ms in delays_ms]
+    frame_count = max(offset + len(samples) for offset, samples in zip(offsets, decoded))
+    accumulator = [0] * frame_count
+    for offset, samples in zip(offsets, decoded):
+        for index, sample in enumerate(samples):
+            accumulator[offset + index] += int(sample)
+    divisor = len(decoded)
+    mixed = array.array("h", (
+        max(-32768, min(32767, int(value / divisor))) for value in accumulator
+    ))
+    with wave.open(str(destination), "wb") as handle:
+        handle.setnchannels(1)
+        handle.setsampwidth(2)
+        handle.setframerate(sample_rate)
+        handle.writeframes(mixed.tobytes())
+    return {
+        "implementation": "python-stdlib-wave deterministic PCM16 integer mix",
+        "sample_rate_hz": sample_rate,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "delays_ms": delays_ms,
+        "normalization_divisor": divisor,
+        "frame_count": frame_count,
+    }
+
+
 def committed_protected_hashes() -> dict[str, str]:
     voice_dir = ROOT / "assets" / "audio" / "voices"
     paths: set[Path] = set()
@@ -287,7 +367,9 @@ def committed_protected_hashes() -> dict[str, str]:
 
 def candidate_row_with_hash(row: dict[str, object], manifest_path: Path) -> dict[str, object]:
     """Copy one generated row while making its ignored WAV auditable later."""
-    raw_path = Path(str(row.get("raw_path", ""))).resolve()
+    declared_path = Path(str(row.get("raw_path", ""))).resolve()
+    local_path = (manifest_path.parent / declared_path.name).resolve()
+    raw_path = local_path if local_path.is_file() else declared_path
     if not raw_path.is_file():
         raise RuntimeError(
             f"candidate WAV is unavailable; cannot preserve durable evidence: {raw_path}"
@@ -327,7 +409,9 @@ def rejected_candidate_reasons(candidate: dict[str, object], threshold: float,
 
 
 def selection_evidence(report: list[dict[str, object]],
-                       selection_provenance: dict[str, object]) -> dict[str, object]:
+                       selection_provenance: dict[str, object],
+                       local_candidates: dict[tuple[int, str, str], Path]
+                       ) -> dict[str, object]:
     """Embed selected and rejected candidate hashes instead of relying on tmp/."""
     minimum = float(selection_provenance.get("minimum_selection_score", 0.0))
     short_minimum = float(selection_provenance.get("minimum_short_selection_score", minimum))
@@ -338,12 +422,21 @@ def selection_evidence(report: list[dict[str, object]],
         word_count = len(re.findall(r"[A-Za-z0-9]+", expected))
         threshold = short_minimum if word_count <= short_max_words else minimum
         chosen = row.get("chosen")
-        chosen_path = str(Path(str(chosen["path"])).resolve()) if chosen else None
+        chosen_identity = (
+            int(chosen.get("attempt", -1)), str(row["key"]),
+            str(chosen.get("selected_raw_sha256") or chosen.get("source_sha256") or "").lower(),
+        ) if isinstance(chosen, dict) else None
         candidate_records: list[dict[str, object]] = []
         for candidate in row.get("candidates", []):
             if not isinstance(candidate, dict):
                 raise RuntimeError(f"invalid candidate record for {row['key']}")
-            path = Path(str(candidate.get("path", ""))).resolve()
+            identity = (
+                int(candidate.get("attempt", -1)), str(row["key"]),
+                str(candidate.get("source_sha256") or "").lower(),
+            )
+            path = local_candidates.get(
+                identity, Path(str(candidate.get("path", ""))).resolve(),
+            )
             durable = dict(candidate)
             if not path.is_file():
                 raise RuntimeError(
@@ -356,7 +449,7 @@ def selection_evidence(report: list[dict[str, object]],
             durable["path"] = root_relative(path)
             durable["raw_sha256"] = raw_sha
             durable["raw_hash_verified"] = True
-            selected = chosen_path == str(path)
+            selected = chosen_identity == identity
             durable["selection_disposition"] = "SELECTED" if selected else "REJECTED"
             durable["rejection_reasons"] = rejected_candidate_reasons(
                 candidate, threshold, selected,
@@ -387,16 +480,23 @@ def validate_selected_input(row: dict[str, object], chosen: dict[str, object],
         raise RuntimeError(f"selected source key mismatch for {row['key']}")
     if str(source_meta.get("character")) != str(row["character"]):
         raise RuntimeError(f"selected source character mismatch for {row['key']}")
+    catalog_text = str(source_meta.get("text") or "")
+    expected_words = normalize_prompt_words(str(row["expected"]))
+    if normalize_prompt_words(catalog_text) != expected_words:
+        raise RuntimeError(f"selected source catalog text mismatch for {row['key']}")
     generated_segments = source_meta.get("generation_segments")
     if isinstance(generated_segments, list) and generated_segments:
         effective_text = " ".join(str(segment) for segment in generated_segments)
     else:
         effective_text = str(source_meta.get("generation_text") or source_meta.get("text"))
-    if normalize_prompt_words(effective_text) \
-            != normalize_prompt_words(str(row["expected"])):
+    effective_words = normalize_prompt_words(effective_text)
+    semantic_words = chosen.get("semantic_gate_expected_words")
+    authorized_words = [str(word) for word in semantic_words] \
+        if isinstance(semantic_words, list) and semantic_words else expected_words
+    if effective_words != authorized_words:
         raise RuntimeError(f"selected source transcript mismatch for {row['key']}")
     manifest_source = Path(str(source_meta.get("raw_path", ""))).resolve()
-    if manifest_source != source:
+    if manifest_source != source and manifest_source.name != source.name:
         raise RuntimeError(f"selected source path mismatch for {row['key']}")
     for field in ("attempt", "seed"):
         if int(chosen.get(field, -1)) != int(source_meta.get(field, -2)):
@@ -429,6 +529,7 @@ def validate_selected_input(row: dict[str, object], chosen: dict[str, object],
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
+    parser.add_argument("--selection-provenance", type=Path)
     parser.add_argument("--candidates", type=Path, default=DEFAULT_CANDIDATES)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
@@ -436,38 +537,48 @@ def main() -> int:
     incomplete = [row["key"] for row in report if row["status"] != "SELECTED"]
     if incomplete:
         parser.error(f"selection cohort is incomplete ({len(incomplete)} retry lines)")
-    selection_provenance_path = ROOT / "tmp" / "filler_selection_provenance.json"
+    selection_provenance_path = args.selection_provenance
+    if selection_provenance_path is None:
+        selection_provenance_path = args.report.with_name(
+            args.report.name.replace("filler_selection_report", "filler_selection_provenance")
+        )
     if not selection_provenance_path.exists():
         parser.error("selection provenance is missing")
     selection_provenance = json.loads(selection_provenance_path.read_text(encoding="utf-8"))
-    candidate_selection_evidence = selection_evidence(report, selection_provenance)
     provenance: dict[str, dict[str, object]] = {}
+    local_candidates: dict[tuple[int, str, str], Path] = {}
     generation_runs: dict[str, object] = {}
     for manifest_path in sorted(args.candidates.glob("attempt_*/*manifest.json")):
         manifest_bytes = manifest_path.read_bytes()
         manifest_rows = json.loads(manifest_bytes.decode("utf-8"))
         manifest_hash = hashlib.sha256(manifest_bytes).hexdigest()
         durable_rows = [candidate_row_with_hash(row, manifest_path) for row in manifest_rows]
-        for row in manifest_rows:
-            provenance[str(Path(str(row["raw_path"])).resolve())] = row
+        attempts = sorted({int(row["attempt"]) for row in manifest_rows})
+        for row, durable_row in zip(manifest_rows, durable_rows):
+            declared_path = Path(str(row["raw_path"])).resolve()
+            local_path = (manifest_path.parent / declared_path.name).resolve()
+            provenance[str(declared_path)] = row
+            provenance[str(local_path)] = row
+            local_candidates[(
+                int(row["attempt"]), str(row["key"]),
+                str(durable_row["raw_sha256"]).lower(),
+            )] = local_path
         run_path = manifest_path.with_name("run_provenance.json")
         if run_path.exists():
-            run_record = json.loads(run_path.read_text(encoding="utf-8"))
-            run_record["capture_state"] = "CAPTURED_AT_GENERATION"
-            run_record["candidate_manifest_sha256"] = manifest_hash
+            base_run_record = json.loads(run_path.read_text(encoding="utf-8"))
+            base_run_record["capture_state"] = "CAPTURED_AT_GENERATION"
         else:
             # Attempts 1-2 predated run_provenance.json.  Preserve every
             # reproducibility field that was captured in their candidate
             # manifest and explicitly label the one unavailable historical
             # datum instead of silently dropping the runs.
-            attempts = {int(row["attempt"]) for row in manifest_rows}
             models = {str(row["model"]) for row in manifest_rows}
             revisions = {str(row["model_revision"]) for row in manifest_rows}
             tokenizer_revisions = {
                 str(row["description_tokenizer_revision"]) for row in manifest_rows
             }
-            run_record = {
-                "attempt": next(iter(attempts)),
+            base_run_record = {
+                "attempt": attempts[0],
                 "capture_state": "RECONSTRUCTED_FROM_CANDIDATE_MANIFEST",
                 "candidate_manifest_sha256": manifest_hash,
                 "model": next(iter(models)),
@@ -476,17 +587,27 @@ def main() -> int:
                 "parler_code_revision": "d108732cd57788ec86bc857d99a6cabd66663d68",
                 "generator_sha256": "NOT_CAPTURED_AT_GENERATION",
             }
-        run_record["candidate_manifest_path"] = root_relative(manifest_path)
-        run_record["candidate_manifest_sha256"] = manifest_hash
-        run_record["candidate_count"] = len(durable_rows)
-        run_record["candidate_rows_sha256"] = canonical_json_sha256(durable_rows)
-        run_record["candidate_rows"] = durable_rows
-        if run_path.exists():
-            run_record["run_provenance_path"] = root_relative(run_path)
-            run_record["run_provenance_sha256"] = sha256_file(run_path)
-        generation_runs[manifest_path.parent.name] = run_record
+        for attempt in attempts:
+            attempt_rows = [
+                row for row in durable_rows if int(row["attempt"]) == attempt
+            ]
+            run_record = dict(base_run_record)
+            run_record["attempt"] = attempt
+            run_record["source_batch"] = manifest_path.parent.name
+            run_record["candidate_manifest_path"] = root_relative(manifest_path)
+            run_record["candidate_manifest_sha256"] = manifest_hash
+            run_record["candidate_count"] = len(attempt_rows)
+            run_record["candidate_rows_sha256"] = canonical_json_sha256(attempt_rows)
+            run_record["candidate_rows"] = attempt_rows
+            if run_path.exists():
+                run_record["run_provenance_path"] = root_relative(run_path)
+                run_record["run_provenance_sha256"] = sha256_file(run_path)
+            generation_runs[f"attempt_{attempt}"] = run_record
     if not generation_runs:
         parser.error("no candidate generation manifests found")
+    candidate_selection_evidence = selection_evidence(
+        report, selection_provenance, local_candidates,
+    )
     expected_out = (ROOT / "assets" / "audio" / "voices" / "filler_v1").resolve()
     staging_root = (ROOT / "tmp").resolve()
     resolved_out = args.out.resolve()
@@ -506,7 +627,13 @@ def main() -> int:
                 # not independently addressable runtime cues.
                 continue
             chosen = row["chosen"]
-            source = Path(str(chosen["path"])).resolve()
+            source_identity = (
+                int(chosen["attempt"]), str(row["key"]),
+                str(chosen.get("selected_raw_sha256") or chosen.get("source_sha256") or "").lower(),
+            )
+            source = local_candidates.get(source_identity)
+            if source is None:
+                raise RuntimeError(f"selected source has no local candidate mirror: {row['key']}")
             source_sha = sha256_file(source)
             if source_sha != chosen.get("selected_raw_sha256"):
                 raise RuntimeError(f"selected source hash mismatch for {row['key']}")
@@ -599,17 +726,26 @@ def main() -> int:
         component_keys = ["everyone_roshan", "everyone_huluu", "everyone_evie"]
         report_by_key = {str(item["key"]): item for item in report}
         components = []
+        component_source_paths: list[Path] = []
         for component_key in component_keys:
             component_report = report_by_key.get(component_key)
             chosen_component = component_report.get("chosen") \
                 if isinstance(component_report, dict) else None
-            chosen_path = Path(str(chosen_component.get("path"))).resolve() \
-                if isinstance(chosen_component, dict) else None
+            chosen_identity = (
+                int(chosen_component.get("attempt", -1)), component_key,
+                str(chosen_component.get("selected_raw_sha256")
+                    or chosen_component.get("source_sha256") or "").lower(),
+            ) if isinstance(chosen_component, dict) else None
+            chosen_path = local_candidates.get(chosen_identity) \
+                if chosen_identity is not None else None
             components.append(provenance.get(str(chosen_path)) if chosen_path else None)
+            if chosen_path is not None:
+                component_source_paths.append(chosen_path)
         if any(component is None for component in components):
             raise RuntimeError("missing generated component for everyone.ogg")
         component_selection_records: list[dict[str, object]] = []
-        for component_key, component in zip(component_keys, components):
+        for component_key, component, selected_component_path in zip(
+                component_keys, components, component_source_paths):
             selection_record = candidate_selection_evidence.get(component_key)
             if not isinstance(selection_record, dict):
                 raise RuntimeError(
@@ -654,7 +790,7 @@ def main() -> int:
                     or selected_candidate.get("semantic_gate_expected_words") != ["hooray"] \
                     or selected_candidate.get("semantic_gate_transcript_words") != ["hooray"]:
                 raise RuntimeError(f"{component_key} failed exact Hooray semantic identity")
-            component_path = Path(str(component["raw_path"])).resolve()
+            component_path = selected_component_path
             component_sha = sha256_file(component_path)
             if component_sha != selected_candidate.get("raw_sha256"):
                 raise RuntimeError(f"{component_key} selection/source hash mismatch")
@@ -667,7 +803,7 @@ def main() -> int:
                 "raw_path": root_relative(component_path), "raw_sha256": component_sha,
                 "selection": selected_candidate,
             })
-        raw_component_paths = [Path(str(component["raw_path"])) for component in components]
+        raw_component_paths = component_source_paths
         component_paths: list[Path] = []
         component_trim_records: list[dict[str, object]] = []
         trim_filter = (
@@ -702,20 +838,27 @@ def main() -> int:
                 ],
             })
         group_source = stage / "everyone_source.wav"
-        mix_command = [
-            "ffmpeg", "-y", "-hide_banner", "-nostats",
-            "-i", str(component_paths[0]), "-i", str(component_paths[1]),
-            "-i", str(component_paths[2]), "-filter_complex",
-            "[0]adelay=0[a0];[1]adelay=70[a1];[2]adelay=140[a2];"
-            "[a0][a1][a2]amix=inputs=3:duration=longest:normalize=1",
-            "-ac", "1", str(group_source),
-        ]
-        run(mix_command)
+        mix_algorithm = mix_group_pcm16(
+            component_paths, [0, 70, 140], group_source,
+        )
+        group_repeat_source = stage / "everyone_source.determinism.wav"
+        repeat_mix_algorithm = mix_group_pcm16(
+            component_paths, [0, 70, 140], group_repeat_source,
+        )
+        if mix_algorithm != repeat_mix_algorithm:
+            raise RuntimeError("everyone mix algorithm evidence changed between passes")
+        group_source_sha256 = sha256_file(group_source)
+        group_repeat_sha256 = sha256_file(group_repeat_source)
+        if group_source_sha256 != group_repeat_sha256:
+            raise RuntimeError(
+                "non-deterministic everyone source mix: "
+                f"{group_source_sha256} != {group_repeat_sha256}"
+            )
         everyone_path = stage / "everyone.ogg"
         everyone_metrics, everyone_master_command = master_source(group_source, everyone_path)
         component_records = []
-        for component, selection_record in zip(components, component_selection_records):
-            component_path = Path(str(component["raw_path"]))
+        for component, selection_record, component_path in zip(
+                components, component_selection_records, component_source_paths):
             component_records.append({
                 key: value for key, value in component.items() if key != "raw_path"
             } | {
@@ -732,20 +875,20 @@ def main() -> int:
             "component_attempts": sorted({int(item["attempt"]) for item in component_records}),
             "components": component_records,
             "component_mix_input_trims": component_trim_records,
-            "mix_command": [
-                "ffmpeg", "-y", "-hide_banner", "-nostats",
-                "-i", "$EVERYONE_ROSHAN_WAV", "-i", "$EVERYONE_HULUU_WAV",
-                "-i", "$EVERYONE_EVIE_WAV", "-filter_complex",
-                "[0]adelay=0[a0];[1]adelay=70[a1];[2]adelay=140[a2];"
-                "[a0][a1][a2]amix=inputs=3:duration=longest:normalize=1",
-                "-ac", "1", "$GROUP_SOURCE_WAV",
-            ],
-            "source_wav_sha256": hashlib.sha256(group_source.read_bytes()).hexdigest(),
+            "mix_algorithm": mix_algorithm,
+            "mix_determinism": {
+                "verified": True,
+                "method": "deterministic PCM16 integer mix repeated byte-for-byte",
+                "primary_source_wav_sha256": group_source_sha256,
+                "repeat_source_wav_sha256": group_repeat_sha256,
+            },
+            "source_wav_sha256": group_source_sha256,
             "final_ogg_sha256": hashlib.sha256(everyone_path.read_bytes()).hexdigest(),
             "delivery_metrics": everyone_metrics,
             "ffmpeg_command": everyone_master_command,
         })
         group_source.unlink()
+        group_repeat_source.unlink()
         for component_path in component_paths:
             component_path.unlink()
         print(

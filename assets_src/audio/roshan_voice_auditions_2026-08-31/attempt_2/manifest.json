@@ -1,0 +1,36 @@
+[
+  {
+    "attempt": 2,
+    "description": "Joy's voice is a very young, bright, clear feminine storybook-child voice with a very high natural pitch and a small youthful vocal size. She sounds eager, affectionate, playful, and spontaneous, never adult, breathy, sultry, or low. Her delivery has crisp child-readable consonants and naturally varied intonation. She is breathlessly urgent but never frightened, harsh, shouted, or rushed into slurring. The studio recording is very clear, dry, close-up, clean, and free of noise, reverberation, hiss, distortion, robotic cadence, and vocoder artifacts. She speaks the provided line exactly once with no skipped, substituted, repeated, or extra words.",
+    "ffmpeg_command": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\roshan-contextual-voice-20260831\\assets_src\\audio\\roshan_voice_auditions_2026-08-31\\attempt_2\\raw\\joy_child_spark__urgent.wav",
+      "-ac",
+      "1",
+      "-ar",
+      "48000",
+      "-af",
+      "loudnorm=I=-16:TP=-1.5:LRA=11",
+      "-c:a",
+      "libvorbis",
+      "-b:a",
+      "96k",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.worktrees\\roshan-contextual-voice-20260831\\assets_src\\audio\\roshan_voice_auditions_2026-08-31\\attempt_2\\review\\joy_child_spark__urgent.ogg"
+    ],
+    "line_key": "urgent",
+    "model": "parler-tts/parler-tts-mini-v1.1",
+    "model_revision": "fbb2dd281092c5b414ef29cf9d8895f386f1feef",
+    "named_speaker": "Joy",
+    "preset_id": "joy_child_spark",
+    "raw_path": "assets_src/audio/roshan_voice_auditions_2026-08-31/attempt_2/raw/joy_child_spark__urgent.wav",
+    "raw_sha256": "6c2a936239db03a85178975bd5ec8ef4f4cfce113456948dd6b6b4c3f88da764",
+    "review_path": "assets_src/audio/roshan_voice_auditions_2026-08-31/attempt_2/review/joy_child_spark__urgent.ogg",
+    "review_sha256": "202495a374b4e4ea7f37393a9acd94e34e0b6290c0c91baa052c10aa2bd1945a",
+    "sampling_rate_raw": 44100,
+    "seed": 803530959,
+    "status": "OPEN_HUMAN_LISTENING_REVIEW",
+    "text": "Quick! The dust bunnies are getting away!"
+  }
+]

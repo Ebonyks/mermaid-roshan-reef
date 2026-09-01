@@ -382,14 +382,16 @@ func _announce_current_activity() -> void:
 	match ACTIVITY_IDS[_phase]:
 		"pool_surface":
 			m.show_msg("Roshan",
-				"Sweep the skimmer through every piece of trash!", "talk")
+				"Sweep the skimmer through every piece of trash!",
+				"pool_surface_clean")
 		"waterfall":
 			m.show_msg("Roshan",
-				"Pull the trash down from the clogged rainbow waterfall!", "talk")
+				"Pull the trash down from the clogged rainbow waterfall!",
+				"pool_waterfall_clean")
 		"seahorse":
 			m.show_msg("Roshan",
-				"Tap quickly! Let's tug the trash out of the seahorse!", "talk")
-	m._say("roshan", "talk", 0.8)
+				"Tap quickly! Let's tug the trash out of the seahorse!",
+				"pool_seahorse_clean")
 
 
 func _phase_from_legacy_step(step: int) -> int:

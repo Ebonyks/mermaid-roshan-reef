@@ -275,9 +275,12 @@ def _expected_ogg_serial(key: str) -> int:
     return int.from_bytes(hashlib.sha256(key.encode("utf-8")).digest()[:4], "big") & 0x7FFFFFFF
 
 
-def _candidate_evidence(root: Path, attempt: int) -> dict[str, dict[str, object]]:
+def _candidate_evidence(root: Path, attempt: int,
+                        manifest_value: object = None) -> dict[str, dict[str, object]]:
     """Load optional local candidate rows for stronger source verification."""
-    path = root / "tmp" / "filler_candidates" / "parler" / f"attempt_{attempt}" / "trial_manifest.json"
+    path = _safe_relative(root, manifest_value) if manifest_value is not None else None
+    if path is None:
+        path = root / "tmp" / "filler_candidates" / "parler" / f"attempt_{attempt}" / "trial_manifest.json"
     if not path.is_file():
         return {}
     try:
@@ -286,7 +289,11 @@ def _candidate_evidence(root: Path, attempt: int) -> dict[str, dict[str, object]
         return {}
     if not isinstance(rows, list):
         return {}
-    return {str(row["key"]): row for row in rows if isinstance(row, dict) and isinstance(row.get("key"), str)}
+    return {
+        str(row["key"]): row for row in rows
+        if isinstance(row, dict) and isinstance(row.get("key"), str)
+        and int(row.get("attempt", -1)) == attempt
+    }
 
 
 def group_component_issues(component: dict[str, object]) -> list[str]:
@@ -295,7 +302,7 @@ def group_component_issues(component: dict[str, object]) -> list[str]:
     character = str(component.get("character", ""))
     selection = component.get("selection_evidence", {}).get("selection", {})
     f0_ranges = {
-        "roshan": (195.0, 290.0),
+        "roshan": (225.0, 360.0),
         "huluu": (145.0, 275.0),
         "evie": (190.0, 340.0),
     }
@@ -370,7 +377,10 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
                     else:
                         if run_payload.get("generator_sha256") != generator_hash:
                             issues.append(f"{run_name} generator hash disagrees with run provenance")
-        candidate_path = root / "tmp" / "filler_candidates" / "parler" / str(run_name) / "trial_manifest.json"
+        candidate_manifest_value = record.get("candidate_manifest_path")
+        candidate_path = _safe_relative(root, candidate_manifest_value)
+        if candidate_path is None:
+            candidate_path = root / "tmp" / "filler_candidates" / "parler" / str(run_name) / "trial_manifest.json"
         captured_manifest_hash = record.get("candidate_manifest_sha256")
         if captured_manifest_hash is not None:
             if not isinstance(captured_manifest_hash, str) \
@@ -379,7 +389,9 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
             elif candidate_path.is_file() and sha256(candidate_path).lower() != captured_manifest_hash.lower():
                 issues.append(f"{run_name} candidate manifest hash mismatch")
         if candidate_path.is_file():
-            candidate_cache[attempt] = _candidate_evidence(root, attempt)
+            candidate_cache[attempt] = _candidate_evidence(
+                root, attempt, candidate_manifest_value,
+            )
     for entry in entries:
         key = str(entry.get("key", ""))
         name = f"{key}.ogg"

@@ -60,7 +60,10 @@ ASR_WORD_EQUIVALENTS = {
 }
 
 F0_RANGES = {
-    "roshan": (195.0, 290.0), "huluu": (145.0, 275.0),
+    # Roshan's provisional filler is explicitly a four-year-old register.
+    # The 2026-08-31 audition rejected deep urgent takes below 225 Hz and
+    # selected unshifted Joy takes centered around 251-263 Hz.
+    "roshan": (225.0, 360.0), "huluu": (145.0, 275.0),
     "evie": (190.0, 340.0), "harper": (145.0, 285.0),
     "rosalina": (135.0, 260.0), "imp": (135.0, 300.0),
     "wacky": (75.0, 195.0), "shop": (75.0, 205.0),
@@ -70,9 +73,9 @@ F0_RANGES = {
 }
 
 EXPECTED_SPEAKERS = {
-    "roshan": "Laura", "huluu": "Lea", "evie": "Jenna", "harper": "Lauren",
+    "roshan": "Joy", "huluu": "Lea", "evie": "Jenna", "harper": "Lauren",
     "wacky": "Gary", "shop": "Jon", "sparkle": "Tina", "rosalina": "Rose",
-    "imp": "Mike", "rumi": "Emily", "mewsha": "Joy",
+    "imp": "Mike", "rumi": "Emily", "mewsha": "Laura",
     "daddy": "Will",
 }
 
@@ -369,6 +372,11 @@ def main() -> int:
             if (row.get("wer") == 0.0 or row.get("secondary_wer") == 0.0)
             and float(row.get("selection_score", -999.0)) >= threshold
             and row.get("f0_median_hz") is not None
+            and (character != "roshan" or (
+                F0_RANGES["roshan"][0]
+                <= float(row["f0_median_hz"])
+                <= F0_RANGES["roshan"][1]
+            ))
             and int(row.get("clipped_samples") or 0) == 0
             and group_signal_gate(key, character, row)
         ]

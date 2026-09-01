@@ -306,19 +306,23 @@ func _tick_lesson(delta: float) -> void:
 		"tap":
 			var target: Dictionary = _lesson_target()
 			if not target.is_empty() and int(target.get("hp", 3)) < 3:
-				m.show_msg("Roshan", "Bop! Right on the nose!", "win")
+				m.show_msg("Roshan", "Bop! Right on the nose!",
+					"tutorial_first_bop")
 				_begin_lesson("combo")
 		"combo":
 			if _lesson_target().is_empty():
-				m.show_msg("Roshan", "One, two, THREE! Popcorn!", "win")
+				m.show_msg("Roshan", "One, two, THREE! Popcorn!",
+					"tutorial_combo")
 				_spawn_imp(Vector3(2.5, 1.0, -5.0))
 				_begin_lesson("charge")
 		"charge":
 			if _lesson_target().is_empty():
 				if charge_seen > 0:
-					m.show_msg("Roshan", "A full-power bubble POP!", "win")
+					m.show_msg("Roshan", "A full-power bubble POP!",
+						"tutorial_power_pop")
 				else:
-					m.show_msg("Roshan", "Popped! Next time, try HOLDING too!", "win")
+					m.show_msg("Roshan", "Popped! Next time, try HOLDING too!",
+						"tutorial_power_pop")
 				if pa != null:
 					_begin_lesson("partner")
 				else:
@@ -326,7 +330,8 @@ func _tick_lesson(delta: float) -> void:
 					_begin_lesson("wave")
 		"partner":
 			if pa != null and pa.bubble != null and pa.cool > 0.0:
-				m.show_msg("Roshan", "Partner power! Now finish them!", "win")
+				m.show_msg("Roshan", "Partner power! Now finish them!",
+					"tutorial_partner_power")
 				_begin_lesson("wave")
 				# the stampede may have popped the whole practice wave — the
 				# graduation must still be HER pops, so a fresh wave arrives
@@ -372,7 +377,8 @@ func _win() -> void:
 		m.combat_tutorial_done = true
 		m._write_save()
 	m._audio_ref()._fanfare()
-	m.show_msg("Roshan", "You know ALL the moves! Sparring class complete!", "win")
+	m.show_msg("Roshan", "You know ALL the moves! Sparring class complete!",
+		"tutorial_done")
 
 func _finish() -> void:
 	if state == "done":

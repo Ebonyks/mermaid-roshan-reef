@@ -238,7 +238,7 @@ func _craft_pick_kind(kind: String, kind_name: String, price: int, button: Butto
 	if price > 0 and not bool(m.craft_unlocks.get(kind, false)):
 		if m.pearl_count < price:
 			m.craft_status.text = "▣  ◉◉◉\nExplore for more pearls"
-			m._say("roshan", "talk")
+			m._say("roshan", "craft_need_pearls")
 			if m.chime != null:
 				m.chime.pitch_scale = 0.7
 				m.chime.play()

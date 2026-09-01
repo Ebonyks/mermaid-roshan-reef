@@ -2389,7 +2389,7 @@ func _process(delta: float) -> void:
 				_flash_big("ROCKET START!")
 			_rocket_armed = false
 			if _main != null and _main.has_method("_say"):
-				_main._say("roshan", "talk", 10.0)
+				_main._say("roshan", "kart_rocket_start", 10.0)
 		for k0 in _karts:
 			_place_kart(k0, delta)   # pack idles ON the grid through 3-2-1
 		_tick_engine()   # idle rumble builds anticipation through the count

@@ -390,7 +390,7 @@ func _announce_current_target() -> void:
 
 func _speak_cue(message: String, mood: String) -> void:
 	m.show_msg("Roshan", message, mood)
-	m._say("roshan", "talk")
+	m._say("roshan", "art_studio_hint")
 
 
 func _all_materials_collected() -> bool:

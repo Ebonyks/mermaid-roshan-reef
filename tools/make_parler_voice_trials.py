@@ -28,7 +28,11 @@ PARLER_CODE_REVISION = "d108732cd57788ec86bc857d99a6cabd66663d68"
 DEFAULT_OUT = ROOT / "tmp" / "parler_voice_trials"
 
 SPEAKERS = {
-    "roshan": "Laura",
+    # Joy produced the clearest unshifted child register in the 2026-08-31
+    # five-preset audition (median F0 257.2 Hz versus live Laura's 204.8 Hz).
+    # Move the provisional kitty filler off Joy so Roshan keeps a distinct
+    # identity; none of these synthetic placeholders are protected recordings.
+    "roshan": "Joy",
     "huluu": "Lea",
     "evie": "Jenna",
     "harper": "Lauren",
@@ -38,7 +42,7 @@ SPEAKERS = {
     "rosalina": "Rose",
     "imp": "Mike",
     "rumi": "Emily",
-    "mewsha": "Joy",
+    "mewsha": "Laura",
     "daddy": "Will",
 }
 
@@ -62,6 +66,28 @@ MOODS = {
     "comic": "playful and funny, with expressive timing and a harmless cartoon energy",
 }
 
+KEY_MOODS = {
+    # Retry-tail delivery fixes: keep semantics/text fixed while making the
+    # intended attack and melodic shape explicit to the preset synthesizer.
+    "roshan_idle1": "gentle",
+    "roshan_dustboss_win": "celebrate",
+}
+
+ROSHAN_REGISTER_PROFILES = {
+    "baseline": "",
+    "elevated": (
+        " For this retry, Joy uses her lightest natural upper speaking register "
+        "through the whole line, with the small vocal size of an excited four-year-old. "
+        "Keep the pitch clearly higher than an ordinary adult Joy take while remaining "
+        "relaxed, intelligible, and natural, never squeaky, strained, or falsetto."
+    ),
+    "centered": (
+        " For this retry, Joy uses a steady, centered young-child speaking register "
+        "through the whole line. Avoid both a low adult register and an extra-high squeal; "
+        "keep the delivery relaxed, intelligible, and naturally childlike."
+    ),
+}
+
 
 def load_legacy_module():
     spec = importlib.util.spec_from_file_location("legacy_make_voices", ROOT / "tools" / "make_voices.py")
@@ -73,6 +99,8 @@ def load_legacy_module():
 
 
 def mood_for(key: str, text: str) -> str:
+    if key in KEY_MOODS:
+        return KEY_MOODS[key]
     low = f"{key} {text}".lower()
     if key.startswith("imp_"):
         if "_steal" in key or key.endswith("captain"):
@@ -143,6 +171,14 @@ KEY_SPOKEN_TEXT = {
 }
 
 KEY_SPOKEN_SEGMENTS = {
+    "roshan_idle1": ["I love swimming through the reef!"],
+    "roshan_hide_seek_hint": ["Shh!", "I hear a friend hiding nearby!"],
+    "roshan_combat_ice_start": [
+        "Brrr!", "Ice bubbles can freeze the hot trouble!",
+    ],
+    "roshan_dustboss_win": [
+        "Poof!", "The great dust bunny bursts into stars!",
+    ],
     "mewsha_win": ["I'm coming along beside you now!", "Swish swish!"],
     "roshan_op_detective_tiara_chase": [
         "The thief ran away!", "Tap every lookout!",
@@ -176,7 +212,8 @@ KEY_SPOKEN_SEGMENTS = {
         "Visit castle jobs and the Opera House!",
     ],
     "roshan_op_chef_cake_chase": [
-        "The imp captain snatched the cake!", "Bop the crew to the stage door!",
+        "The imp captain snatched the cake!",
+        "Tap the imps near the stage door!",
     ],
     "roshan_op_candymaker_candy_chase": [
         "The candy cart rolled away!", "Tap each tiny troublemaker!",
@@ -193,13 +230,30 @@ KEY_SPOKEN_SEGMENTS = {
     "roshan_op_popstar_mic_chase": [
         "The microphone is unplugged!", "Tap the noisy band!",
     ],
+    "roshan_op_painter_sunrise_chase": [
+        "The imp captain took the sunrise painting!", "Tap the imps!",
+    ],
+    "roshan_op_ballerina_ribbon_stage": [
+        "Guide the pearl.", "Along the glowing ribbon current!",
+    ],
+    "roshan_op_nursery_wash": [
+        "Nursery Nurse Roshan!", "Hold the bubbly basin.",
+        "To wash your hands first!",
+    ],
 }
 
 
-def description_for(character: str, mood: str, text: str) -> str:
+def description_for(
+    character: str, mood: str, text: str, roshan_register_profile: str = "baseline",
+) -> str:
     speaker = SPEAKERS[character]
     identity = {
-        "roshan": "a youthful, bright feminine voice with a moderately high natural pitch",
+        "roshan": (
+            "a very young, tiny, bright feminine storybook-child voice with a "
+            "very high natural pitch and small four-year-old vocal size; she "
+            "sounds playful, curious and spontaneous, never adult, breathy, "
+            "sultry or low"
+        ),
         "huluu": "an elegant, gentle feminine storybook-princess voice",
         "evie": "a bubbly, youthful feminine voice",
         "harper": "a warm big-sister feminine voice",
@@ -209,7 +263,7 @@ def description_for(character: str, mood: str, text: str) -> str:
         "rosalina": "a dreamy, calm feminine fairy-tale voice",
         "imp": "a youthful, impish masculine cartoon voice with a moderately high natural pitch",
         "rumi": "a warm, friendly youthful feminine voice",
-        "mewsha": "a playful, bright feminine storybook-kitty voice",
+        "mewsha": "a playful, warm feminine storybook-kitty voice with a distinct purring smile",
         "daddy": "a warm, reassuring adult masculine voice",
     }[character]
     pronoun = "He" if character in {"wacky", "shop", "imp", "daddy"} else "She"
@@ -237,7 +291,7 @@ def description_for(character: str, mood: str, text: str) -> str:
         " Pronounce " + ", and ".join(pronunciation_hints) + "."
         if pronunciation_hints else ""
     )
-    return (
+    description = (
         f"{speaker}'s voice is {identity}, {MOODS[mood]}. "
         f"{pronoun} speaks the provided line exactly as written, with crisp consonants, "
         "complete words, steady identity and no skipped, substituted, repeated, or extra words. "
@@ -246,16 +300,32 @@ def description_for(character: str, mood: str, text: str) -> str:
         "of background noise, reverberation, hiss, distortion, robotic cadence, and vocoder artifacts."
         + pronunciation
     )
+    if character == "roshan":
+        description += ROSHAN_REGISTER_PROFILES[roshan_register_profile]
+    return description
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--line", action="append", default=[])
+    parser.add_argument("--character", action="append", default=[],
+                        choices=sorted(SPEAKERS))
     parser.add_argument("--keys-file", type=Path)
     parser.add_argument("--missing-from", type=Path)
     parser.add_argument("--attempt", type=int, default=1)
+    parser.add_argument(
+        "--takes-per-key", type=int, default=1,
+        help="Render bounded consecutive deterministic attempts without reloading the model.",
+    )
+    parser.add_argument(
+        "--roshan-register-profile", choices=sorted(ROSHAN_REGISTER_PROFILES),
+        default="baseline",
+        help="Deterministic prompt-only register adjustment for hard-gated Roshan retries.",
+    )
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
+    if args.takes_per_key < 1 or args.takes_per_key > 8:
+        parser.error("--takes-per-key must be between 1 and 8")
     legacy = load_legacy_module()
     requested = set(args.line)
     if args.keys_file:
@@ -279,7 +349,9 @@ def main() -> int:
         parser.error("unknown --line key(s): " + ", ".join(unknown))
     selected = {
         key: value for key, value in catalog.items()
-        if value[0] != "faron" and (not requested or key in requested)
+        if value[0] != "faron"
+        and (not requested or key in requested)
+        and (not args.character or value[0] in set(args.character))
     }
     out_dir = args.out.resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -320,48 +392,61 @@ def main() -> int:
         "ffmpeg": ffmpeg_version,
         "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "attempt": args.attempt,
+        "takes_per_key": args.takes_per_key,
+        "roshan_register_profile": args.roshan_register_profile,
     }
     (out_dir / "run_provenance.json").write_text(
         json.dumps(run_provenance, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     manifest: list[dict[str, object]] = []
     for key, (character, text) in selected.items():
         mood = mood_for(key, text)
-        description = description_for(character, mood, text)
+        description = description_for(
+            character, mood, text, args.roshan_register_profile,
+        )
         spoken_text = KEY_SPOKEN_TEXT.get(key, spoken_text_for(text))
         spoken_segments = KEY_SPOKEN_SEGMENTS.get(key, [spoken_text])
-        seed = seed_for(key, args.attempt)
         description_inputs = description_tokenizer(description, return_tensors="pt").to(device)
-        audio_parts: list[torch.Tensor] = []
-        segment_seeds: list[int] = []
-        for segment_index, segment_text in enumerate(spoken_segments):
-            segment_seed = (seed + segment_index * 104729) & 0x7FFFFFFF
-            segment_seeds.append(segment_seed)
-            set_seed(segment_seed)
-            prompt_inputs = prompt_tokenizer(segment_text, return_tensors="pt").to(device)
-            with torch.inference_mode():
-                generation = model.generate(
-                    input_ids=description_inputs.input_ids,
-                    attention_mask=description_inputs.attention_mask,
-                    prompt_input_ids=prompt_inputs.input_ids,
-                    prompt_attention_mask=prompt_inputs.attention_mask,
-                )
-            if audio_parts:
-                audio_parts.append(torch.zeros(round(model.config.sampling_rate * 0.12)))
-            audio_parts.append(generation.float().cpu().reshape(-1))
-        rendered_audio = torch.cat(audio_parts).numpy()
-        raw_path = out_dir / f"{key}.wav"
-        sf.write(raw_path, rendered_audio, model.config.sampling_rate)
-        manifest.append({
-            "key": key, "character": character, "text": text,
-            "generation_text": spoken_text, "generation_segments": spoken_segments,
-            "segment_seeds": segment_seeds, "mood": mood,
-            "speaker": SPEAKERS[character], "description": description,
-            "seed": seed, "attempt": args.attempt, "raw_path": str(raw_path),
-            "raw_sha256": hashlib.sha256(raw_path.read_bytes()).hexdigest(),
-            "model": MODEL_ID, "model_revision": MODEL_REVISION,
-            "description_tokenizer_revision": DESCRIPTION_TOKENIZER_REVISION,
-        })
-        print(f"PARLER_VOICE|{key}|{mood}|seed={seed}|{raw_path}", flush=True)
+        for take_index in range(args.takes_per_key):
+            take_attempt = args.attempt + take_index
+            seed = seed_for(key, take_attempt)
+            audio_parts: list[torch.Tensor] = []
+            segment_seeds: list[int] = []
+            for segment_index, segment_text in enumerate(spoken_segments):
+                segment_seed = (seed + segment_index * 104729) & 0x7FFFFFFF
+                segment_seeds.append(segment_seed)
+                set_seed(segment_seed)
+                prompt_inputs = prompt_tokenizer(segment_text, return_tensors="pt").to(device)
+                with torch.inference_mode():
+                    generation = model.generate(
+                        input_ids=description_inputs.input_ids,
+                        attention_mask=description_inputs.attention_mask,
+                        prompt_input_ids=prompt_inputs.input_ids,
+                        prompt_attention_mask=prompt_inputs.attention_mask,
+                    )
+                if audio_parts:
+                    audio_parts.append(torch.zeros(round(model.config.sampling_rate * 0.12)))
+                audio_parts.append(generation.float().cpu().reshape(-1))
+            rendered_audio = torch.cat(audio_parts).numpy()
+            suffix = "" if args.takes_per_key == 1 else f"__attempt_{take_attempt}"
+            raw_path = out_dir / f"{key}{suffix}.wav"
+            sf.write(raw_path, rendered_audio, model.config.sampling_rate)
+            manifest.append({
+                "key": key, "character": character, "text": text,
+                "generation_text": spoken_text, "generation_segments": spoken_segments,
+                "segment_seeds": segment_seeds, "mood": mood,
+                "speaker": SPEAKERS[character], "description": description,
+                "roshan_register_profile": (
+                    args.roshan_register_profile if character == "roshan" else None
+                ),
+                "seed": seed, "attempt": take_attempt, "raw_path": str(raw_path),
+                "raw_sha256": hashlib.sha256(raw_path.read_bytes()).hexdigest(),
+                "model": MODEL_ID, "model_revision": MODEL_REVISION,
+                "description_tokenizer_revision": DESCRIPTION_TOKENIZER_REVISION,
+            })
+            print(
+                f"PARLER_VOICE|{key}|{mood}|attempt={take_attempt}|seed={seed}|{raw_path}",
+                flush=True,
+            )
     (out_dir / "trial_manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return 0

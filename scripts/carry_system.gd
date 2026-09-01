@@ -188,7 +188,7 @@ func _action(ppos: Vector3) -> void:
 	m._sparkle_burst((best["node"] as Node3D).position, Color(1.0, 0.9, 0.7))
 	if not hinted:
 		hinted = true
-		m._say("roshan", "talk")   # her delighted generic line, first scoop only
+		m._say("roshan", "carry_first_scoop")
 
 func _throw(s: Dictionary) -> void:
 	var pl: Node3D = m.player

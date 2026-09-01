@@ -69,7 +69,7 @@ func _build() -> void:
 func tick(delta: float, ppos: Vector3) -> void:
 	if not hinted and ppos.distance_to(Vector3(CENTER.x, floor_y + 3.0, CENTER.z)) < 24.0:
 		hinted = true
-		m._say("roshan", "talk")   # her curious line as she discovers the grotto
+		m._say("roshan", "grotto_discovered")
 	for b in blocks:
 		if float(b["move_t"]) >= 0.0:
 			b["move_t"] = float(b["move_t"]) + delta

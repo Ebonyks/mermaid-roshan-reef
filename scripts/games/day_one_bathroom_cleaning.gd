@@ -742,7 +742,8 @@ func _finish_tub() -> void:
 	cleanup_step_completed.emit(2, "tub")
 	finale_started.emit()
 	if m != null and _announcements_enabled:
-		m.show_msg("Roshan", "The bathroom is sparkling!", "win")
+		m.show_msg("Roshan", "The bathroom is sparkling!",
+			"bathroom_cleanup_done")
 		m._say("roshan", "win", 0.6)
 	if _pointer != null:
 		_pointer.visible = false
@@ -808,12 +809,14 @@ func _announce_stage() -> void:
 	if _demo_active or not _announcements_enabled or m == null or _step >= 2:
 		return
 	if _step == 0:
-		m.show_msg("Roshan", "Scrub the sink in little circles!", "talk")
+		m.show_msg("Roshan", "Scrub the sink in little circles!",
+			"bathroom_sink_scrub")
 	elif not _tub_drained:
-		m.show_msg("Roshan", "Tap the tub to drain the dirty water!", "talk")
+		m.show_msg("Roshan", "Tap the tub to drain the dirty water!",
+			"bathroom_tub_drain")
 	else:
-		m.show_msg("Roshan", "Brush the tub back and forth!", "talk")
-	m._say("roshan", "talk", 0.8)
+		m.show_msg("Roshan", "Brush the tub back and forth!",
+			"bathroom_tub_brush")
 
 
 func _update_progress() -> void:
