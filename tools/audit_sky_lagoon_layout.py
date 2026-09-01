@@ -56,6 +56,9 @@ def validate(manifest: dict[str, object]) -> list[str]:
 	castle = cards["castle"]
 	anchor_pixel = tuple(float(value) for value in castle["anchor_pixel"])
 	anchor_master = tuple(float(value) for value in castle["anchor_master"])
+	support_pixels = [tuple(float(value) for value in point)
+		for point in castle.get("support_edge_pixels", [])]
+	support_master: list[tuple[float, float]] = []
 	with Image.open(project_path(str(castle["path"]))) as source:
 		image = source.convert("RGBA")
 		alpha = image.getchannel("A")
@@ -65,12 +68,35 @@ def validate(manifest: dict[str, object]) -> list[str]:
 			errors.append("bridge landing anchor is not on visible castle-card artwork")
 		elif anchor_pixel[1] < bounds[3] - 6:
 			errors.append("bridge landing anchor is not at the visible card tip")
+		scale = float(castle["height_master"]) / float(castle["texture_size"][1])
+		for support_pixel in support_pixels:
+			sample_alpha = alpha.getpixel((round(support_pixel[0]), round(support_pixel[1])))
+			if sample_alpha < 26:
+				errors.append("bridge support edge contains a transparent sample")
+			support_master.append((
+				anchor_master[0] + (support_pixel[0] - anchor_pixel[0]) * scale,
+				anchor_master[1] + (support_pixel[1] - anchor_pixel[1]) * scale,
+			))
 	if castle.get("anchor_id") != "bridge_landing_tip":
 		errors.append("castle is not owned by the visible bridge-tip anchor")
 	if castle.get("terrain_class") != "foreground_stone_landing" or not point_in_polygon(
 		anchor_master, regions["foreground_stone_landing"]
 	):
 		errors.append("bridge landing anchor is outside the reviewed stone socket")
+	minimum_samples = int(castle.get("minimum_support_samples", 0))
+	minimum_span = float(castle.get("minimum_support_span_master", 0.0))
+	if castle.get("support_edge_id") != "bridge_deck_foreground_bearing":
+		errors.append("bridge has no load-bearing support-edge contract")
+	if len(support_master) < minimum_samples or minimum_samples < 4:
+		errors.append("bridge support edge has too few independently sampled contacts")
+	if any(not point_in_polygon(point, regions["foreground_stone_landing"])
+		for point in support_master):
+		errors.append("bridge support edge does not bear continuously on the stone landing")
+	if len(support_master) < 2 or (
+		(support_master[-1][0] - support_master[0][0]) ** 2
+		+ (support_master[-1][1] - support_master[0][1]) ** 2
+	) ** 0.5 < minimum_span or minimum_span < 80.0:
+		errors.append("bridge support overlap is too narrow to read as grounded")
 
 	tall_tree = cards["tall_tree"]
 	if tall_tree.get("enabled") is not False or tall_tree.get("role") != "unsupported_new_dressing":
@@ -127,6 +153,10 @@ def mutation_tests(manifest: dict[str, object]) -> list[str]:
 	mutated["cards"]["castle"]["anchor_master"][1] = 1120.0
 	if not validate(mutated):
 		errors.append("bridge-in-water anchor mutation was accepted")
+	mutated = copy.deepcopy(manifest)
+	mutated["cards"]["castle"]["support_edge_pixels"][0] = [200.0, 992.0]
+	if not validate(mutated):
+		errors.append("partially unsupported bridge-edge mutation was accepted")
 	mutated = copy.deepcopy(manifest)
 	mutated["cards"]["tall_tree"]["enabled"] = True
 	if not validate(mutated):
