@@ -381,19 +381,20 @@ func _announce_current_target() -> void:
 		return
 	for material: Dictionary in MATERIALS:
 		if not bool(m.day_one_art_collected_materials.get(String(material["id"]), false)):
-			_speak_cue("Tap the loose %s!" % String(material["label"]), "talk")
+			_speak_cue("Tap the loose %s!" % String(material["label"]),
+				"art_studio_material_hint")
 			return
 	for grime: Dictionary in GRIME:
 		if not bool(m.day_one_art_cleaned_grime.get(String(grime["id"]), false)):
-			_speak_cue("Now scrub the %s!" % String(grime["label"]), "talk")
+			_speak_cue("Now scrub the %s!" % String(grime["label"]),
+				"art_studio_scrub_hint")
 			return
 	if bool(m.day_one_art_desk_unlocked) and not _customizer_open:
-		_speak_cue("The magic paint desk is glowing! Tap it!", "win")
+		_speak_cue("The magic paint desk is glowing! Tap it!", "art_studio_hint")
 
 
-func _speak_cue(message: String, mood: String) -> void:
-	m.show_msg("Roshan", message, mood)
-	m._say("roshan", "talk")
+func _speak_cue(message: String, cue: String) -> void:
+	m.show_msg("Roshan", message, cue)
 
 
 func _all_materials_collected() -> bool:

@@ -3,13 +3,13 @@
 ## Provisional synthetic filler v1 (2026-08-30)
 
 Runtime now prefers `filler_v1/<speaker>_<event>.ogg`, then the corresponding
-legacy path. The 285 live cues comprise all 284 authoritative non-Faron filler
-keys plus the three-preset `everyone.ogg` mix. The three group source layers
+legacy path. The 360 live cues comprise 359 individually addressable non-Faron
+filler keys plus the three-preset `everyone.ogg` mix. The three group source layers
 remain provenance-only WAVs and are not separately addressable runtime cues.
 This is a reversible machine-screened
 layer—not confirmed talent, not human-auditioned, and not
 a claimed match to any real person. Faron and the sacred family recordings are
-excluded and remain byte-identical. Three newly authored Daddy event fillers
+excluded and remain byte-identical. Six newly authored Daddy event fillers
 use distinct keys; they do not replace or modify `daddy1..3.ogg`.
 
 Filler candidates use Parler-TTS Mini v1.1 with named synthetic presets and
@@ -29,7 +29,7 @@ Rebuild in isolated Python 3.11 environments with:
 These files are temporary placeholders to replace when consented talent is
 confirmed. Do not train or condition them on family recordings.
 
-`FILLER_MANIFEST.json` schema 2 embeds the candidate evidence even though the
+`FILLER_MANIFEST.json` schema 3 embeds the candidate evidence even though the
 working candidate tree is ignored: `generation_run_provenance` embeds every
 attempt's available run record, candidate manifest hash, and candidate
 generation rows;
@@ -45,7 +45,7 @@ Provenance limitation: attempts 1 and 2 predate captured run records. Their
 candidate rows preserve text, preset, description, seed, model/tokenizer
 revisions and raw hashes, but their run entries are explicitly marked
 `RECONSTRUCTED_FROM_CANDIDATE_MANIFEST` with
-`generator_sha256: NOT_CAPTURED_AT_GENERATION`. The 120 selected cues from
+`generator_sha256: NOT_CAPTURED_AT_GENERATION`. The 34 selected live cues from
 those attempts are suitable only for provisional device audition; they do not
 close DL-SND-17's complete-provenance requirement without an owner-approved
 exception or regeneration under captured provenance.
@@ -76,7 +76,7 @@ plus bespoke ones (`greet`, `intro`, `thanks`, `bark`, `pearl`, `idle1..3`).
 
 | character | Parler preset | feel |
 |---|---|---|
-| Roshan | Laura | youthful, bright, consistent guide |
+| Roshan | Joy | very young, tiny, bright four-year-old register; hard-gated at 225–360 Hz |
 | Huluu | Lea | gentle storybook princess |
 | Evie | Jenna | bubbly youthful friend |
 | Harper | Lauren | warm big-sister voice |
@@ -86,9 +86,9 @@ plus bespoke ones (`greet`, `intro`, `thanks`, `bark`, `pearl`, `idle1..3`).
 | Rosalina | Rose | calm fairy-tale voice |
 | Imps | Mike | impish cartoon voice |
 | Rumi | Emily | warm youthful friend |
-| Mewsha | Joy | playful storybook-kitty voice |
+| Mewsha | Laura | warm playful storybook-kitty voice, distinct from Roshan |
 | Daddy fillers only | Will | warm adult helper; numbered recordings untouched |
-| everyone | Laura + Lea + Jenna | audited, trimmed three-voice mix |
+| everyone | Joy + Lea + Jenna | audited, trimmed three-voice mix |
 
 ## SACRED — never regenerate these (real family recordings)
 

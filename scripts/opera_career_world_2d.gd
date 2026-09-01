@@ -233,6 +233,7 @@ const LEGACY_FINALE_START := {
 ## deliberately the only career that resolves its complication with combat.
 ## The old five-beat tables remain above for audit comparison only.
 const BALLET_PHASE_HOLD_SECONDS := 3.10
+const BALLET_VOICE_MARGIN_SECONDS := 0.05
 const PHASES := {
 	"chef": [
 		{"name": "MIX", "mode": "pourt", "goal": 5.0, "vo": "op_chef_pour_stage", "voice": "Tip the sparkling batter into the bowl!"},
@@ -320,6 +321,36 @@ const PHASES := {
 		{"name": "CRYSTAL", "mode": "hold", "widget": "", "goal": 4.0, "voice": "Hold the pearl lamp and make the crystal cave sparkle!"},
 	],
 }
+
+
+func _ballet_voice_length_seconds(event: String) -> float:
+	if event.is_empty():
+		return 0.0
+	var paths: Array[String] = [
+		"res://assets/audio/voices/filler_v1/roshan_" + event + ".ogg",
+		"res://assets/audio/voices/roshan_" + event + ".ogg",
+	]
+	for path: String in paths:
+		if not ResourceLoader.exists(path):
+			continue
+		var stream := load(path) as AudioStream
+		if stream != null:
+			return maxf(0.0, stream.get_length())
+	return 0.0
+
+
+## The between-lesson hold is derived from the exact clips the AudioDirector
+## will play. The baseline remains a deterministic headless fallback, while a
+## newly authored longer take automatically keeps the next phase from speaking
+## over its tail.
+func ballet_voice_hold_seconds() -> float:
+	var hold := BALLET_PHASE_HOLD_SECONDS
+	var ballet_phases: Array = PHASES.get("ballerina", []) as Array
+	for phase_value: Variant in ballet_phases:
+		var phase: Dictionary = phase_value as Dictionary
+		hold = maxf(hold, _ballet_voice_length_seconds(
+			String(phase.get("vo", ""))) + BALLET_VOICE_MARGIN_SECONDS)
+	return hold
 
 const FINALE_START := {
 	"chef": 3,
@@ -3031,7 +3062,7 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 		phase_complete_t = 2.2
 	else:
 		# Let the current instruction/pose settle before the next phase speaks.
-		phase_complete_t = BALLET_PHASE_HOLD_SECONDS
+		phase_complete_t = ballet_voice_hold_seconds()
 	phase_advance_pending = true
 
 

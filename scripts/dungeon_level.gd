@@ -109,7 +109,8 @@ func _begin_room() -> void:
 		puzzle = DungeonPuzzleRoom.new()
 		add_child(puzzle)
 		puzzle.start(m, room, Callable(self, "_puzzle_won"))
-	m.show_msg("Roshan", "%s! Room %d of %d — follow the golden sparkle!" % [String(room["name"]), room_index + 1, rooms.size()], "talk")
+	m.show_msg("Roshan", "%s! Room %d of %d — follow the golden sparkle!" % [String(room["name"]), room_index + 1, rooms.size()],
+		"dungeon_room_enter")
 
 func _combat_won(_battle_kind: String) -> void:
 	arena = null
@@ -150,7 +151,8 @@ func _complete_dungeon() -> void:
 		stars += "★ "
 	progress_label.text = stars.strip_edges()
 	room_label.text = _flavor("hero_title", "DUNGEON\nHERO!")
-	m.show_msg("Roshan", _flavor("complete_msg", "All ten rooms! The dungeon is sparkling and safe!"), "win")
+	m.show_msg("Roshan", _flavor("complete_msg", "All ten rooms! The dungeon is sparkling and safe!"),
+		"dungeon_done")
 	var timer := get_tree().create_timer(3.0)
 	timer.timeout.connect(func(): _finish(true))
 

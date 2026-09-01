@@ -1,0 +1,165 @@
+{
+  "schema": "reef.voice-repetition-binding-audit.v1",
+  "audit_date": "2026-08-31",
+  "scope": {
+    "runtime_roots": ["scripts/", "assets/audio/voices/"],
+    "included": "Static runtime call-site audit of non-Faron speech triggers, resolver fallbacks, and repeated generic Roshan cues.",
+    "excluded_speakers": ["faron"],
+    "protected_paths_not_read_for_content_or_modified": [
+      "assets/audio/voices/",
+      "assets/book/",
+      "assets/characters/friends/"
+    ],
+    "method": "rg line inventory plus resolver/file-existence checks; counts are static call-site counts, not a claim about one playthrough's event frequency. Multiline calls are listed by their opening line."
+  },
+  "resolver_binding": {
+    "source": "scripts/audio_director.gd:13-83,139-190",
+    "requested_key": "<speaker>_<event>",
+    "resolution_order": [
+      "assets/audio/voices/filler_v1/<speaker>_<event>.ogg",
+      "assets/audio/voices/<speaker>_<event>.ogg",
+      "assets/audio/voices/filler_v1/<speaker>.ogg (only when event is non-empty and speaker is not protected)",
+      "assets/audio/voices/<speaker>.ogg",
+      "assets/audio/voices/filler_v1/yay.ogg via play_success_yay, where explicitly called",
+      "VOICE_PITCH fallback on ReefMain.voice when no path resolves"
+    ],
+    "important_findings": [
+      "filler_v1/roshan_talk.ogg and filler_v1/roshan_win.ogg exist, so generic Roshan talk/win calls do not fail closed; they repeatedly play one generic recording.",
+      "The fallback pitch tint is scripts/main.gd:3843 (Roshan 1.18), but it is bypassed whenever an exact filler or legacy path exists; changing pitch alone cannot diversify exact cues.",
+      "_speaker_key() defaults unknown labels to roshan at scripts/audio_director.gd:190, so environment labels can masquerade as Roshan and inherit her generic voice.",
+      "show_msg() additionally emits a second Roshan talk call at several Castle day-one sites after a Daddy/Baby Eagle hint, creating a generic extra cue for one action."
+    ]
+  },
+  "static_summary": {
+    "runtime_script_files_scanned": "scripts/**/*.gd excluding scripts/probe*.gd",
+    "roshan_talk_direct_m_say_sites": 22,
+    "roshan_talk_inline_show_msg_sites": 35,
+    "roshan_talk_static_sites_total": 57,
+    "roshan_win_direct_m_say_sites": 6,
+    "roshan_win_inline_show_msg_sites": 25,
+    "roshan_win_static_sites_total": 31,
+    "roshan_hungry_known_sites": 3,
+    "roshan_oops_known_sites": 2,
+    "unknown_environment_labels_falling_through_to_roshan_sites": 27,
+    "unknown_environment_label_count_basis": "Literal show_msg labels in scripts with no matching _speaker_key branch; multiline calls counted by opening line."
+  },
+  "repetition_clusters": [
+    {
+      "cluster_id": "ros-talk-generic",
+      "current_cue": "roshan_talk",
+      "resolved_asset": "assets/audio/voices/filler_v1/roshan_talk.ogg",
+      "static_site_count": 57,
+      "high_frequency_runtime_contexts": [
+        {"context": "Castle room-entry/blocked-door acknowledgements", "sites": ["scripts/arena/castle_rooms_25d.gd:1718", "scripts/main.gd:7420", "scripts/main.gd:7432", "scripts/main.gd:7450", "scripts/main.gd:7464", "scripts/main.gd:7478"]},
+        {"context": "Castle prop actions and room activation", "sites": ["scripts/arena/castle_rooms_25d.gd:3339", "scripts/arena/castle_rooms_25d.gd:4679", "scripts/arena/castle_rooms_25d.gd:4810", "scripts/arena/castle_rooms_25d.gd:4813", "scripts/arena/castle_rooms_25d.gd:3365", "scripts/arena/castle_rooms_25d.gd:3419"]},
+        {"context": "Cleaning, craft, grotto, collection, companion and general interaction", "sites": ["scripts/games/day_one_bathroom_cleanup.gd:700-716", "scripts/games/day_one_bathroom_cleaning.gd:811-816", "scripts/craft_studio.gd:241", "scripts/grotto.gd:72", "scripts/collection_system.gd:309", "scripts/companion.gd:606-658", "scripts/interaction_director.gd:48"]},
+        {"context": "Combat/tutorial/dungeon instructions", "sites": ["scripts/combat_arena.gd:73-88", "scripts/combat_arena.gd:779", "scripts/combat_arena.gd:850", "scripts/combat_arena.gd:895", "scripts/combat_tutorial.gd:238", "scripts/combat_tutorial.gd:303", "scripts/dungeon_level.gd:118", "scripts/dungeon_puzzle_room.gd:61-492"]}
+      ],
+      "recommended_unique_cue_ids": [
+        "roshan_castle_door_resting",
+        "roshan_castle_kitchen_bubbling",
+        "roshan_castle_library_discovered",
+        "roshan_castle_movie_cuddle",
+        "roshan_castle_bedside_light",
+        "roshan_castle_wardrobe_open",
+        "roshan_collection_critter_found",
+        "roshan_grotto_discovered",
+        "roshan_cleaning_sink_start",
+        "roshan_cleaning_tub_drain",
+        "roshan_dungeon_room_entry",
+        "roshan_dungeon_use_arrow"
+      ],
+      "action": "Replace by semantic trigger, keeping one cue per event and using the existing text/pointer as the source for each exact recording brief. Do not globally alias these IDs back to roshan_talk."
+    },
+    {
+      "cluster_id": "ros-win-generic",
+      "current_cue": "roshan_win",
+      "resolved_asset": "assets/audio/voices/filler_v1/roshan_win.ogg",
+      "static_site_count": 31,
+      "high_frequency_runtime_contexts": [
+        {"context": "Castle rewards and room activities", "sites": ["scripts/arena/castle_rooms_25d.gd:3134-3138", "scripts/arena/castle_rooms_25d.gd:3248-3252", "scripts/arena/castle_rooms_25d.gd:4763", "scripts/arena/castle_rooms_25d.gd:4777", "scripts/arena/castle_rooms_25d.gd:4816-4819", "scripts/main.gd:7436", "scripts/main.gd:7471-7477", "scripts/main.gd:7925"]},
+        {"context": "Combat, dungeon, picture games and kart success", "sites": ["scripts/combat_arena.gd:946-950", "scripts/combat_tutorial.gd:309-375", "scripts/dungeon_level.gd:159-181", "scripts/dungeon_puzzle_room.gd:571", "scripts/games/picture_games.gd:266", "scripts/kart.gd:3270"]},
+        {"context": "Bathroom/craft/global success", "sites": ["scripts/games/day_one_bathroom_cleaning.gd:745-746", "scripts/games/day_one_bathroom_cleanup.gd:687-688", "scripts/castle_logo_studio.gd:433", "scripts/craft_studio.gd:297", "scripts/main.gd:513"]}
+      ],
+      "recommended_unique_cue_ids": [
+        "roshan_castle_dinner_finished",
+        "roshan_castle_nap_wake_moon",
+        "roshan_castle_nap_wake_morning",
+        "roshan_castle_kitchen_recipe_ready",
+        "roshan_castle_pool_ready",
+        "roshan_castle_bath_bubbles",
+        "roshan_castle_crown_won",
+        "roshan_cleaning_bathroom_complete",
+        "roshan_dungeon_complete",
+        "roshan_combat_bubble_pop",
+        "roshan_kart_finish"
+      ],
+      "action": "Reserve roshan_win for a generic optional celebration only; bind success text and action identity to separate exact cues so repeated wins do not sound identical."
+    }
+  ],
+  "binding_gaps": [
+    {
+      "gap_id": "unknown-label-castle-entry",
+      "severity": "P1",
+      "source": "scripts/arena/castle_rooms_25d.gd:1864",
+      "trigger": "Entering any announced Castle room except the rescued-playroom branch.",
+      "current_call": "show_msg(\"Pearl Castle\", String(room[\"name\"]), \"home\")",
+      "current_resolution": "_speaker_key(\"Pearl Castle\") -> roshan; roshan_home has no filler/legacy asset, so this falls through to yay fallback.",
+      "recommended_cue_ids": ["roshan_castle_room_entry_<room_id>", "roshan_castle_room_entry_main_hall", "roshan_castle_room_entry_kitchen", "roshan_castle_room_entry_library"],
+      "brief_examples": ["This castle is so dusty!", "The kitchen door smells yummy!", "Look at all those storybooks!", "The pool is making sparkly waves!"]
+    },
+    {
+      "gap_id": "unknown-label-castle-award",
+      "severity": "P1",
+      "source": "scripts/arena/castle_rooms_25d.gd:4869-4871",
+      "trigger": "Crown Star award in the Royal Hall.",
+      "current_call": "show_msg(\"Pearl Castle\", ..., \"win\")",
+      "current_resolution": "Unknown label falls through to Roshan and resolves to generic roshan_win.",
+      "recommended_cue_ids": ["roshan_castle_crown_star_award"],
+      "brief_examples": ["The Crown Star is ours! Every room is ready for exploring!"]
+    },
+    {
+      "gap_id": "unknown-label-music-room",
+      "severity": "P1",
+      "source": "scripts/main.gd:8353,8361,8399,8405,8411",
+      "trigger": "Music Room start, listen/echo round, success, next round and retry.",
+      "current_resolution": "Music Room is not a speaker key, so default routing uses Roshan; default calls reuse roshan_talk, while win/oops reuse generic Roshan events.",
+      "recommended_cue_ids": ["roshan_music_room_listen", "roshan_music_room_your_turn", "roshan_music_room_success", "roshan_music_room_next_round", "roshan_music_room_retry"]
+    },
+    {
+      "gap_id": "unknown-label-world-return",
+      "severity": "P1",
+      "source": "scripts/main.gd:2876-2888,3117-3129,3356; scripts/arena/sky_lagoon.gd:2472",
+      "trigger": "Rainbow Road destinations, Ocean Race return, Butterfly World return and Ember Fortress return.",
+      "current_resolution": "Rainbow Road, Ocean Race, Butterfly World and Ember Fortress are not speaker keys; generic/default calls route to Roshan and often roshan_talk.",
+      "recommended_cue_ids": ["roshan_rainbow_road_ember_arrival", "roshan_rainbow_road_butterfly_arrival", "roshan_ocean_race_finish", "roshan_butterfly_world_return", "roshan_ember_fortress_return"]
+    },
+    {
+      "gap_id": "unknown-label-opera-floor",
+      "severity": "P2",
+      "source": "scripts/opera_house_venue_2d.gd:492; scripts/main.gd:3419-3426",
+      "trigger": "Bubble-lift floor arrival and Opera venue opening.",
+      "current_resolution": "Pearl Opera House is unknown and routes to Roshan; Chapter Two additionally follows its show_msg(home) with _say(roshan,talk) at scripts/main.gd:3422.",
+      "recommended_cue_ids": ["roshan_opera_floor_arrival", "roshan_opera_chapter_two_open", "roshan_opera_five_doors_open"]
+    },
+    {
+      "gap_id": "paired-day-one-generic",
+      "severity": "P1",
+      "source": "scripts/main.gd:7417-7420,7429-7432,7447-7450,7461-7464,7471-7478",
+      "trigger": "Blocked/resting Castle door, day-one cleanup gate, rescued-stuffie gate and newly glowing door.",
+      "current_call": "A Daddy Mermaid or Baby Eagle hint is followed by _say(\"roshan\", \"talk\").",
+      "current_resolution": "The contextual speaker line is accompanied by an unrelated generic Roshan talk recording; the same clip repeats across all gate states.",
+      "recommended_cue_ids": ["roshan_castle_door_resting", "roshan_castle_clean_first", "roshan_castle_rescue_bunnies", "roshan_castle_new_door_glowing"],
+      "action": "Use a single intentionally authored speaker/cue for each state, or omit the extra Roshan call when the contextual Daddy/Baby Eagle cue is the owner-approved voice."
+    },
+    {
+      "gap_id": "kitchen-menu-generic",
+      "severity": "P2",
+      "source": "scripts/arena/castle_rooms_25d.gd:4669-4679",
+      "trigger": "Kitchen recipe chooser opens and displays its pointer.",
+      "current_resolution": "A bare _say(roshan,talk) plays with no semantic text or exact recipe context.",
+      "recommended_cue_ids": ["roshan_kitchen_menu_open", "roshan_kitchen_choose_recipe"]
+    }
+  ],
+  "non_faron_protection_note": "This report does not recommend editing, replacing, or regenerating any Faron or protected family recording. New IDs are recording briefs/routing targets only; they require owner-authorized child voice acting and separate listening acceptance."
+}

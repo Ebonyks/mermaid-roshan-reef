@@ -15,6 +15,52 @@ SPEC.loader.exec_module(MODULE)
 
 
 class AudioQualityPolicyTests(unittest.TestCase):
+    def test_source_hash_is_stable_across_checkout_line_endings(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "tool.py"
+            path.write_bytes(b"print('one')\r\nprint('two')\r\n")
+            crlf_hash = MODULE.normalized_text_sha256(path)
+            path.write_bytes(b"print('one')\nprint('two')\n")
+            self.assertEqual(MODULE.normalized_text_sha256(path), crlf_hash)
+
+    def test_embedded_generation_rows_support_clean_clone_without_tmp(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            tool = root / "tools" / "generator.py"
+            tool.parent.mkdir(parents=True)
+            tool.write_text("print('voice')\n", encoding="utf-8")
+            candidate_rows = [{"attempt": 3, "key": "roshan_win", "seed": 7}]
+            run = {
+                "attempt": 3,
+                "capture_state": "CAPTURED_AT_GENERATION",
+                "generator_sha256": "1" * 64,
+                "run_provenance_path": "tmp/attempt_3/run_provenance.json",
+                "run_provenance_sha256": "2" * 64,
+                "candidate_manifest_path": "tmp/attempt_3/trial_manifest.json",
+                "candidate_manifest_sha256": "3" * 64,
+                "candidate_count": 1,
+                "candidate_rows": candidate_rows,
+                "candidate_rows_sha256": MODULE.canonical_json_sha256(candidate_rows),
+            }
+            manifest = {
+                "pipeline_hash_mode": "utf8_lf",
+                "pipeline_script_sha256": {
+                    "tools/generator.py": MODULE.normalized_text_sha256(tool),
+                },
+            }
+            issues = []
+            MODULE.validate_generation_evidence(
+                root, manifest, [], {"attempt_3": run}, issues)
+            self.assertEqual(issues, [])
+
+            run["candidate_rows"][0]["seed"] = 8
+            issues = []
+            MODULE.validate_generation_evidence(
+                root, manifest, [], {"attempt_3": run}, issues)
+            self.assertTrue(any(
+                "embedded candidate rows hash mismatch" in issue
+                for issue in issues))
+
     def test_everyone_component_rejects_semantic_pitch_and_silence_outliers(self):
         component = {
             "character": "evie",
@@ -314,6 +360,13 @@ class AudioQualityPolicyTests(unittest.TestCase):
         self.assertTrue(state["blocking"])
         self.assertTrue(any(
             "authoritative filler key missing" in issue for issue in state["issues"]))
+
+    def test_daddy_filler_allowlist_is_contextual_and_bounded(self):
+        self.assertTrue({
+            "daddy_hide_seek_start", "daddy_hide_seek_found", "daddy_hide_seek_visit",
+        }.issubset(MODULE.ALLOWED_DADDY_FILLERS))
+        self.assertNotIn("daddy_talk", MODULE.ALLOWED_DADDY_FILLERS)
+        self.assertNotIn("daddy_win", MODULE.ALLOWED_DADDY_FILLERS)
 
     def test_filler_rows_are_distinct_and_mark_legacy_shadowing(self):
         with tempfile.TemporaryDirectory() as directory:

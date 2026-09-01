@@ -471,7 +471,8 @@ func _note_wrong() -> bool:
 	if wrong_streak >= 2 and not guided:
 		remind_stage = 2
 		guided = true
-		m.show_msg("Roshan", "Watch the golden arrow! Swim under it and tap USE!", "talk")
+		m.show_msg("Roshan", "Watch the golden arrow! Swim under it and tap USE!",
+			"dungeon_arrow")
 		return true
 	return false
 
@@ -486,10 +487,12 @@ func _tick_guidance(delta: float) -> void:
 	elif remind_stage == 1 and idle_t >= 20.0:
 		remind_stage = 2
 		guided = true
-		m.show_msg("Roshan", "Watch the golden arrow! Swim under it and tap USE!", "talk")
+		m.show_msg("Roshan", "Watch the golden arrow! Swim under it and tap USE!",
+			"dungeon_arrow")
 	elif remind_stage == 2 and idle_t >= 32.0:
 		idle_t = 20.0
-		m.show_msg("Roshan", "The golden arrow shows the way — tap USE right under it!", "talk")
+		m.show_msg("Roshan", "The golden arrow shows the way — tap USE right under it!",
+			"dungeon_arrow")
 	pointer.position = _pointer_anchor() + Vector3(0, sin(Time.get_ticks_msec() * 0.004) * 0.35, 0)
 
 func _pointer_anchor() -> Vector3:
@@ -568,7 +571,8 @@ func _solve() -> void:
 	if door != null:
 		var tween := door.create_tween()
 		tween.tween_property(door, "position:y", CENTER.y - 10.0, 0.75).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	m.show_msg("Roshan", "The golden door is open! Swim through!", "win")
+	m.show_msg("Roshan", "The golden door is open! Swim through!",
+		"dungeon_door_open")
 
 func force_solve() -> void:
 	_solve()

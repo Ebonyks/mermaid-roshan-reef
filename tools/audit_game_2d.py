@@ -153,6 +153,12 @@ NON_RUNTIME_DATA_PREFIXES = {
 	"FABLE_OPERA_ANIMATION_REVIEW_KIT_2026-08-03",
 }
 NON_RUNTIME_ROOT_DATA_FILES = {"FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json"}
+# This one JSON is a generated audio provenance ledger.  It is exempt only
+# when its exact path and audio-manifest content both prove that role; other
+# JSON (including model-shaped JSON) remains fail-closed debt.
+AUDIO_FILLER_PROVENANCE_REL = (
+	"assets/audio/voices/filler_v1/FILLER_MANIFEST.json"
+)
 
 # A suffix of 3D catches the Godot class family without maintaining a brittle
 # hand list.  Unambiguous named tokens remain raw debt.  Short class names that
@@ -554,6 +560,34 @@ def _is_model_path(path: Path) -> bool:
 	return path.suffix.lower() in MODEL_EXTENSIONS or bool(NUMBERED_BLEND_RE.search(path.name))
 
 
+def _is_filler_audio_provenance_manifest(path: Path) -> bool:
+	"""Recognise only the committed audio filler provenance document."""
+	parts = path.as_posix().replace("\\", "/").split("/")
+	target = AUDIO_FILLER_PROVENANCE_REL.split("/")
+	if len(parts) < len(target) or parts[-len(target):] != target:
+		return False
+	try:
+		with path.open("r", encoding="utf-8") as stream:
+			document = json.load(stream)
+	except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+		return False
+	if not isinstance(document, dict) \
+			or document.get("status") != "PROVISIONAL_SYNTHETIC_FILLER" \
+			or not isinstance(document.get("entries"), list):
+		return False
+	codec_target = str(document.get("codec_target", "")).lower()
+	if "ogg" not in codec_target or "48 khz" not in codec_target:
+		return False
+	entries = document["entries"]
+	return bool(entries) and all(
+		isinstance(entry, dict)
+		and isinstance(entry.get("key"), str)
+		and isinstance(entry.get("final_ogg_sha256"), str)
+		and isinstance(entry.get("delivery_metrics"), dict)
+		for entry in entries
+	)
+
+
 def _sample_is_model(sample: bytes) -> bool:
 	"""Recognise a model from a bounded, format-aware byte sample."""
 	if any(sample.startswith(prefix) for prefix in MODEL_MAGIC_PREFIXES):
@@ -701,6 +735,8 @@ def _read_model_sample(stream, budget: int) -> bytes:
 
 def _path_model_scan_details(path: Path,
 		detect_zip: bool = False) -> tuple[bytes, bool, bool]:
+	if _is_filler_audio_provenance_manifest(path):
+		return b"", False, False
 	try:
 		size = path.stat().st_size
 		with path.open("rb") as stream:

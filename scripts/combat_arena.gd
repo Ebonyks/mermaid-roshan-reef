@@ -68,22 +68,24 @@ func start(main: ReefMain, battle_kind: String, done_cb: Callable, config: Dicti
 		if mic_live:
 			ice_msg += " Or shout FREEZE!"
 		_build_ice_swarm()
-		m.show_msg("Roshan", ice_msg, "talk")
+		m.show_msg("Roshan", ice_msg, "combat_ice_start")
 	elif kind == "dust":
 		_build_dust_bunny_swarm()
-		m.show_msg("Roshan", "Dust bunnies! Tap each one and give it a sparkling bubble poof!", "talk")
+		m.show_msg("Roshan",
+			"Dust bunnies! Tap each one and give it a sparkling bubble poof!",
+			"combat_dust_start")
 	else:
 		_build_pepper_boss()
 		if kind == "dual":
 			var dual_msg := "Freeze the spinning shell with ICE, then use FIRE when the dragon-turtle peeks out!"
 			if mic_live:
 				dual_msg += " You can shout FREEZE and FIREBALL too!"
-			m.show_msg("Roshan", dual_msg, "talk")
+			m.show_msg("Roshan", dual_msg, "combat_ice_start")
 		else:
 			var fire_msg := "Spicy garden peppers! Tap FIRE when the turtle-lizard peeks out of its shell!"
 			if mic_live:
 				fire_msg += " Or shout FIREBALL!"
-			m.show_msg("Roshan", fire_msg, "talk")
+			m.show_msg("Roshan", fire_msg, "combat_fire_start")
 	he.targets = enemies if kind in ["ice", "dust"] else [boss]
 	m.hit_engines.append(he)   # enemy priority: this battle's taps outrank the world
 	# Partner Assist: the following stuffie brings her SPARKLE STAMPEDE super
@@ -774,7 +776,8 @@ func _hit_boss(power: String = "fire") -> void:
 			boss["attack"] = 0.55
 			m._audio_ref().sfx("combat_freeze")
 			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.55, 0.92, 1.0))
-			m.show_msg("Roshan", "Frozen shell! Now use FIRE on the peeking dragon-turtle!", "talk")
+			m.show_msg("Roshan", "Frozen shell! Now use FIRE on the peeking dragon-turtle!",
+				"combat_fire_start")
 		else:
 			m._audio_ref().sfx("combat_fizzle", 0.9, -8.0)
 			m._sparkle_burst((boss["pos"] as Vector3) + Vector3(0, 4.0, 0), Color(0.65, 0.85, 0.55))
@@ -845,7 +848,8 @@ func _tick_boss(delta: float) -> void:
 			# No fail state: keep presenting the required ice action and repeat
 			# the picture/voice hint until the child freezes the shell.
 			boss["timer"] = 1.5
-			m.show_msg("Roshan", "The shell keeps spinning. Freeze it with ICE!", "talk")
+			m.show_msg("Roshan", "The shell keeps spinning. Freeze it with ICE!",
+				"combat_ice_start")
 		elif float(boss["timer"]) <= 0.0:
 			boss["phase"] = "peek"
 			boss["timer"] = float(encounter.get("peek_time", 4.8))
@@ -890,7 +894,8 @@ func _bump_player(from: Vector3) -> void:
 	m._sparkle_burst(player_pos + Vector3(0, 2.0, 0), Color(0.55, 0.92, 1.0))
 	if bump_cool <= 0.0:
 		bump_cool = 4.0
-		m.show_msg("Roshan", "My bubble shield bounced it away! Keep going!", "talk")
+		m.show_msg("Roshan", "My bubble shield bounced it away! Keep going!",
+			"combat_shield_bounce")
 
 func _tick_pointer() -> void:
 	var target := _nearest_target()
@@ -941,11 +946,14 @@ func _win() -> void:
 		objective.text = "✨  DRAGON-TURTLE TAMED!  ✨"
 	counter.text = "★"
 	if kind == "ice":
-		m.show_msg("Roshan", "Pop pop pop! The frozen imps melted into popcorn!", "win")
+		m.show_msg("Roshan", "Pop pop pop! The frozen imps melted into popcorn!",
+			"combat_ice_done")
 	elif kind == "dust":
-		m.show_msg("Roshan", "Poof! Every dust bunny is sparkling clean!", "win")
+		m.show_msg("Roshan", "Poof! Every dust bunny is sparkling clean!",
+			"combat_dust_done")
 	else:
-		m.show_msg("Roshan", "The spicy peppers did it! The turtle-lizard wants to be friends!", "win")
+		m.show_msg("Roshan", "The spicy peppers did it! The turtle-lizard wants to be friends!",
+			"combat_fire_done")
 
 func _finish() -> void:
 	state = "done"

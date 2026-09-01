@@ -320,7 +320,7 @@ func open() -> void:
 
 	_refresh_controls()
 	m._hook_button_taps(stage)
-	m._say("roshan", "talk", 0.0)
+	m._say("roshan", "castle_logo_open", 0.0)
 
 func _make_preview(preview_name: String, preview_size: Vector2) -> LogoPreview:
 	var preview := LogoPreview.new()
@@ -425,7 +425,7 @@ func finish() -> void:
 	if m.chime != null:
 		m.chime.pitch_scale = 1.35
 		m.chime.play()
-	m._say("roshan", "win", 0.0)
+	m._say("roshan", "castle_logo_saved", 0.0)
 	var preview: Control = m.castle_logo_preview
 	if preview != null:
 		preview.pivot_offset = preview.size * 0.5

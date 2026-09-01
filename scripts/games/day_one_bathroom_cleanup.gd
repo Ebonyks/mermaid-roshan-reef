@@ -684,8 +684,8 @@ func _complete_supply_hunt() -> void:
 	_refresh_guidance()
 	supply_hunt_completed.emit()
 	if _announcements_enabled and m != null:
-		m.show_msg("Roshan", "We found both cleaning supplies!", "win")
-		m._say("roshan", "win", 0.6)
+		m.show_msg("Roshan", "We found both cleaning supplies!",
+			"bathroom_supplies_found")
 	begin_cleaning_handoff()
 
 
@@ -697,8 +697,8 @@ func _on_basket_tapped() -> void:
 	set_meta("basket_tap_voice_sent", _announcements_enabled and m != null)
 	if _announcements_enabled and m != null:
 		m._ui_tap()
-		m.show_msg("Roshan", "Let’s clean together!", "talk")
-		m._say("roshan", "talk", 0.4)
+		m.show_msg("Roshan", "Let’s clean together!",
+			"bathroom_cleanup_start")
 	for index: int in range(MAX_SUPPLIES):
 		_found[index] = true
 		_place_supply_in_basket(index)
@@ -712,8 +712,8 @@ func _on_basket_tapped() -> void:
 func _announce_current_supply() -> void:
 	if not _announcements_enabled or m == null or _hunt_completed:
 		return
-	m.show_msg("Roshan", "Tap the cleaning basket.", "talk")
-	m._say("roshan", "talk", 0.8)
+	m.show_msg("Roshan", "Tap the cleaning basket.",
+		"bathroom_basket_hint")
 
 
 func _spawn_sparkle(center: Vector2) -> void:

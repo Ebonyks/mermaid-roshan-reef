@@ -565,13 +565,15 @@ func _init() -> void:
 				"res://assets/audio/voices/filler_v1/roshan_op_ballerina_ribbon_stage.ogg") as AudioStream
 			var ballet_twirl_stream := load(
 				"res://assets/audio/voices/filler_v1/roshan_op_ballerina_twirl_stage.ogg") as AudioStream
+			var ballet_voice_hold := world.ballet_voice_hold_seconds()
 			_check("ballerina lets each your-turn cue finish before the next phase",
 				ballet_watch_stream != null and ballet_ribbon_stream != null
 				and ballet_twirl_stream != null
-				and OperaCareerWorld2D.BALLET_PHASE_HOLD_SECONDS \
+				and ballet_voice_hold \
 					>= maxf(ballet_watch_stream.get_length(), maxf(
 						ballet_ribbon_stream.get_length(),
-						ballet_twirl_stream.get_length())) + 0.05)
+						ballet_twirl_stream.get_length())) \
+					+ OperaCareerWorld2D.BALLET_VOICE_MARGIN_SECONDS)
 		if career == "candymaker":
 			var syrup_goal := 0.0
 			var syrup_phase_index := -1

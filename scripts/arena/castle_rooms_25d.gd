@@ -1563,15 +1563,14 @@ func _blocked_door_feedback(destination_id: String,
 			_play_item_sfx("castle/curtain_swish.ogg", 0.84)
 			m.show_msg("Roshan",
 				"The royal mist is resting. It will float away for a special royal adventure!",
-				"talk")
+				"castle_mist_resting")
 		return
 	_play_item_sfx("castle/curtain_swish.ogg", 0.78)
 	var room: Dictionary = _room(destination_id)
 	var room_name: String = String(room.get("name", "That room"))
-	m.show_msg("Daddy Mermaid",
+	m.show_msg("Roshan",
 		"%s is resting. Follow the one golden rainbow door together!" \
-			% room_name, "hint")
-	m._say("roshan", "talk", 0.8)
+			% room_name, "castle_door_resting")
 
 func _rebuild_room_links(_room_id: String) -> void:
 	if m.castle_room_link_layer == null:
@@ -1580,6 +1579,24 @@ func _rebuild_room_links(_room_id: String) -> void:
 		m.castle_room_link_layer.remove_child(child)
 		child.queue_free()
 	m.castle_room_link_layer.visible = false
+
+
+func _room_entry_voice(room_id: String) -> String:
+	match room_id:
+		"main_hall": return "castle_main_hall_enter"
+		"opera_hall": return "castle_opera_enter"
+		"kitchen": return "castle_kitchen_enter"
+		"library": return "castle_library_enter"
+		"playroom": return "castle_playroom_enter"
+		"craft_room": return "castle_craft_enter"
+		"mermaid_pool": return "castle_pool_enter"
+		"bubble_bath": return "castle_bath_enter"
+		"dining_room": return "castle_dining_enter"
+		"royal_bedroom": return "castle_bedroom_enter"
+		"sleepover_bedroom": return "castle_sleepover_enter"
+		"movie_lounge": return "castle_movie_enter"
+		"family_gallery": return "castle_gallery_enter"
+	return "castle_main_hall_enter"
 
 func show_room(room_id: String, announce: bool = true) -> void:
 	if _fridge_close_is_blocked():
@@ -1658,11 +1675,12 @@ func show_room(room_id: String, announce: bool = true) -> void:
 	if announce:
 		m._ui_tap()
 		if room_id == "playroom" and not _playroom_rescue_done():
-			m.show_msg("Baby Eagle",
-				"Chirp! Two dust bunnies have me! Swim over and bump both away!",
-				"talk")
+			m.show_msg("Roshan",
+				"Two dusty bunnies! I'll help you, Baby Eagle!",
+				"castle_playroom_rescue_start")
 		else:
-			m.show_msg("Pearl Castle", String(room["name"]), "home")
+			m.show_msg("Roshan", String(room["name"]),
+				_room_entry_voice(room_id))
 	m._chapter_two_sync_room_plot()
 
 func _room(room_id: String) -> Dictionary:
@@ -3149,7 +3167,7 @@ func _relax_on_furniture(sprite: Sprite2D,
 		relax_copy = "Cosy story-cushion time! Let's pick a favorite story."
 	elif item_id == "cloud_pouf":
 		relax_copy = "Roshan found the middle cloud pouf for movie night!"
-	m.show_msg("Roshan", relax_copy, "talk")
+	m.show_msg("Roshan", relax_copy, "castle_cosy_seat")
 
 func _toggle_bedside_light(sprite: Sprite2D,
 		item_data: Dictionary) -> void:
@@ -4481,7 +4499,7 @@ func _open_kitchen_menu() -> void:
 		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	point.tween_property(pointer, "position:y", 125.0, 0.55).set_trans(
 		Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	m._say("roshan", "talk", 0.0)
+	m._say("roshan", "castle_kitchen_menu", 0.0)
 
 func _close_kitchen_menu() -> bool:
 	m._navigation_remove("kitchen_fridge")
@@ -4566,7 +4584,7 @@ func _finish_kitchen_recipe() -> void:
 	kitchen_act = null
 	m.game = "level2"
 	resume("kitchen")
-	m.show_msg("Roshan", "Something delicious is ready!", "win")
+	m.show_msg("Roshan", "Something delicious is ready!", "castle_recipe_ready")
 
 # Suspend the castle, run the sparring class, and come home to the hall.
 # The same cutaway pattern the kitchen and opera hall already use.
@@ -4613,16 +4631,20 @@ func activate_current_room() -> void:
 						portal_data["foot"] as Vector2)
 					break
 		"kitchen":
-			m.show_msg("Roshan", "Something delicious is bubbling!", "talk")
+			m.show_msg("Roshan", "Something delicious is bubbling!",
+				"castle_kitchen_enter")
 			_burst("♡", Color(1.0, 0.50, 0.48))
 		"library":
-			m.show_msg("Roshan", "A whole room of storybooks!", "talk")
+			m.show_msg("Roshan", "A whole room of storybooks!",
+				"castle_library_enter")
 			_burst("✦", Color(0.52, 0.94, 0.78))
 		"pool":
-			m.show_msg("Roshan", "Splash in the mermaid pool!", "win")
+			m.show_msg("Roshan", "Splash in the mermaid pool!",
+				"castle_pool_enter")
 			_burst("○", Color(0.45, 0.90, 1.0))
 		"bath":
-			m.show_msg("Roshan", "Bubble party in the royal bath!", "win")
+			m.show_msg("Roshan", "Bubble party in the royal bath!",
+				"castle_bath_enter")
 			_burst("○", Color(0.66, 0.92, 1.0))
 		"dining":
 			_activate_room_item(
@@ -4672,9 +4694,9 @@ func _award_crown() -> void:
 		m.voice.pitch_scale = 1.15
 		m._play_success_yay(m.voice.pitch_scale)
 	_burst("★", Color(1.0, 0.78, 0.30))
-	m.show_msg("Pearl Castle",
+	m.show_msg("Roshan",
 		"The Crown Star is yours! This castle is YOURS now — explore every room!",
-		"win")
+		"castle_crown_star")
 
 func _burst(_symbol: String, color: Color) -> void:
 	if m.castle_room_item_effect_layer == null:

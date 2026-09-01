@@ -1031,7 +1031,7 @@ func _apply_land_pose(delta: float, speed: float) -> void:
 		land_hops += 1
 		if land_hops == 3 and mh != null and mh.has_method("show_msg"):
 			# one giggle line per session, the first time she really scoots
-			mh.show_msg("Roshan", "Hopping is hard work with a tail!", "talk")
+			mh.show_msg("Roshan", "Hopping is hard work with a tail!", "tail_hop")
 	hop_prev = hop
 	# Bounce the visible sprite, never the physics origin.
 	var node: Node3D = _hop_visual_node()

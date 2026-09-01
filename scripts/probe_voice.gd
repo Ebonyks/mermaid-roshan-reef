@@ -5,14 +5,14 @@ var bad := 0
 const MELODY_VOICE_PATH := \
 	"res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const MELODY_VOICE_SHA256 := \
-	"6f6839b043dc58647324f1d04df6429ccf3bb197b175bfd89317ff1b9e2ead4d"
+	"e2d819527d370aff926302dbfecd6beb9e6c2165024d7abad131a28d90cac4ed"
 const MELODY_OBJECTIVE := "Tap each rainbow note in the green!"
 const YAY_PATH := "res://assets/audio/voices/filler_v1/yay.ogg"
 const YAY_SHA256 := \
-	"66be8684f15000fb917f8d93728e6b43e473935eb7de74bc13f32d57d7246759"
+	"464867230434ae2d1473a3712ce2bad5ac07cdbf1b577fa3eb97a693a82f93b9"
 const ROSHAN_TALK_PATH := "res://assets/audio/voices/filler_v1/roshan_talk.ogg"
 const ROSHAN_TALK_SHA256 := \
-	"bd0cf6fa76e5cff31f35fc4717fb6a54b7bc3a7935ed8f3bf535499cfcfa52da"
+	"1b347e1fee454c32b29796b658aa8aeb058a516157b3164cd53cc62f1015c1ee"
 const SLIDE_TALK_PATH := "res://assets/audio/voices/filler_v1/harper.ogg"
 const SLIDE_TALK_SHA256 := \
 	"46dda4a090600ce83a9278f7aa99015a62c542a5ca9951860711973b519936e7"
@@ -71,13 +71,19 @@ func _init() -> void:
 		and voice_generator.contains('"yay":           ("roshan", "Yay!"),')
 		and voice_generator.contains(
 			'"roshan_talk":   ("roshan", "This is so much fun!"),'))
-	_check("generic Roshan reactions route to the talk filler, never Yay",
-		generic_route_sources.count('_say("roshan", "talk")') == 3
-		and not generic_route_sources.contains('_say("roshan", "")'))
+	_check("common Roshan reactions use distinct contextual cues",
+		generic_route_sources.count('_say("roshan", "talk")') == 0
+		and generic_route_sources.contains(
+			'_say("roshan", "carry_first_scoop")')
+		and generic_route_sources.contains(
+			'_say("roshan", "collection_book_open")')
+		and generic_route_sources.contains(
+			'_say("roshan", "grotto_discovered")'))
 	var expected_events := [
 		"talk", "whale", "ship", "wreck", "beans", "intro1", "intro4",
 		"win", "pearl", "op_popstar_rhythm", "op_racer_tune_up",
-		"op_racer_to_the_line",
+		"op_racer_to_the_line", "castle_main_hall_enter",
+		"bathroom_cleanup_start", "dungeon_room_enter",
 	]
 	var present := 0
 	for ln: String in expected_events:

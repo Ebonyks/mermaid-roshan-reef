@@ -3426,8 +3426,7 @@ func _start_opera() -> void:
 		if chapter2_is_active():
 			show_msg("Pearl Opera House",
 				"Four glowing career doors are ready to build Mermaid Roshan's birthday party!",
-				"home")
-			_say("roshan", "talk", 0.8)
+				"opera_chapter_two_open")
 		else:
 			show_msg("Pearl Opera House",
 				"The grand foyer is open! Tap a glowing show door!",
@@ -7442,10 +7441,9 @@ func day_one_can_enter_castle_room(castle_room: String) -> bool:
 func day_one_try_enter_castle_room(castle_room: String) -> bool:
 	if day_one_can_enter_castle_room(castle_room):
 		return true
-	show_msg("Daddy Mermaid",
-		"That door is resting. Follow the glowing picture door together!",
-		"hint")
-	_say("roshan", "talk", 0.8)
+	show_msg("Roshan",
+		"That door is napping. Let's clean the next room!",
+		"castle_door_resting")
 	return false
 
 func day_one_activate_castle_room(castle_room: String) -> bool:
@@ -7454,15 +7452,14 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
 		castle_room, ""))
 	if logical_room == "":
-		show_msg("Daddy Mermaid",
-			"The castle jobs are resting today. First, let's clean together!",
-			"hint")
-		_say("roshan", "talk", 0.8)
+		show_msg("Roshan",
+			"The job doors are sleeping. Cleaning comes first!",
+			"day_one_jobs_resting")
 		return true
 	var director: DayOneDirector = _day_one_ref()
 	if director.is_room_completed(logical_room):
-		show_msg("Roshan", "This room is sparkly clean!", "win")
-		_say("roshan", "talk", 0.6)
+		show_msg("Roshan", "This room is sparkly clean!",
+			"day_one_room_clean")
 		return true
 	if logical_room == "bathroom":
 		_sync_day_one_bathroom_cleanup()
@@ -7472,10 +7469,9 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 		return true
 	if logical_room == "stuffie":
 		if not bool(stuffie_wins.get("rescued_eagle", false)):
-			show_msg("Baby Eagle",
-				"Bump both dust bunnies away first! I know you can do it!",
-				"talk")
-			_say("roshan", "talk", 0.8)
+			show_msg("Roshan",
+				"I see two dusty bunnies! I'll help Baby Eagle!",
+				"day_one_rescue_bunnies")
 		else:
 			day_one_complete_stuffie_rescue()
 		return true
@@ -7486,10 +7482,8 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 			_open_day_one_art_studio()
 		return true
 	if not director.complete_placeholder(logical_room):
-		show_msg("Daddy Mermaid",
-			"Let's finish the glowing room before opening another door!",
-			"hint")
-		_say("roshan", "talk", 0.8)
+		show_msg("Roshan", "Let's finish this glowy room first!",
+			"day_one_finish_current")
 		return true
 	_castle_rooms_ref().apply_day_one_cleanup(castle_room)
 	_day_one_sync_castle_dressing()
@@ -7498,12 +7492,11 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 		_day_one_arm_boss_door()
 		show_msg("Roshan",
 			"All four rooms are clean! The big back door is glowing!",
-			"win")
+			"day_one_all_rooms_clean")
 	else:
 		show_msg("Roshan",
 			"Dust bunnies cleaned up! A new picture door is glowing!",
-			"win")
-	_say("roshan", "talk", 0.8)
+			"day_one_new_door")
 	return true
 
 func day_one_record_bathroom_cleanup_step(step: int) -> void:
@@ -7950,8 +7943,8 @@ func _show_day_one_pool_route() -> void:
 	pointer_tween.tween_property(hand, "position:y", 12.0, 0.42) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	castle_room_stage.add_child(_day_one_pool_route_button)
-	show_msg("Roshan", "The sparkle pool is ready! Tap the pool picture!", "win")
-	_say("roshan", "talk", 0.8)
+	show_msg("Roshan", "The sparkle pool is ready! Tap the pool picture!",
+		"day_one_pool_ready")
 
 
 func _sync_day_one_pool_route() -> void:
@@ -8520,9 +8513,11 @@ func _end_sleep() -> void:
 		player.vel = Vector3.ZERO
 	_sparkle_burst(player.position + Vector3(0, 2, 0), Color(0.8, 0.9, 1.0))
 	if is_night:
-		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!", "win")
+		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!",
+			"ocean_nap_night")
 	else:
-		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!", "win")
+		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!",
+			"ocean_nap_morning")
 	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
