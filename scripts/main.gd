@@ -612,8 +612,8 @@ var hit_engines: Array = []
 # hit_engines — the castle owns its own touch path; this instance supplies
 # the pop-chain, pips and feel to the dust-bunny pops there.
 var castle_dust_he: HitEngine = null
-# Daddy Mermaid's castle partner bubble (combat wing): staged in by the
-# child's first bunny pop each visit, torn down with the castle.
+# Daddy Mermaid's dormant partner-assist state is staged by the child's first
+# bunny pop each visit and torn down with the castle. It draws no overlay.
 var castle_partner: PartnerAssist = null
 var touch_focus_id := ""
 var touch_focus_ready := false
@@ -9174,7 +9174,7 @@ func _tick_finale(delta: float) -> void:
 
 const HINTS := [
 	"Move with the stick - or the arrow keys!",
-	"Press the big button to swim up!",
+	"Tap the open water to swim up!",
 	"Swim to the glowing light pillars to find friends!"]
 
 func _tick_hints(delta: float) -> void:

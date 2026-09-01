@@ -3,9 +3,9 @@ extends Node3D
 # THE INTRODUCTION TO COMBAT (owner 2026-08-01). When Crown and companion
 # welcomes are complete, walking through the event-ready Royal Hall gate
 # teleports Roshan to a little sparring arena where one
-# friendly imp walks her through every attack, one lesson at a time:
-#   TAP → the 1-2-3 COMBO → the three-stage CHARGE → (partner bubble if a
-#   stuffie follows) → a small graduation wave.
+# friendly imp walks her through every direct interaction, one lesson at a
+# time: TAP → the 1-2-3 COMBO → the three-stage CHARGE → a small graduation
+# wave. The retired partner bubble is not part of the lesson path.
 # Each lesson "pauses" the fight — the imp just waits and bobs, it NEVER
 # attacks here — while a golden pointer and a looping ghost-finger
 # demonstration act out the gesture on screen. The child then performs it
@@ -20,16 +20,15 @@ const ROSHAN_SPRITE_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
 const TRAINING_BACKDROP_PATH := "res://assets/castle/training/training_grotto_backdrop.png"
 const GHOST_HAND_PATH := "res://assets/castle/training/ghost_hand.png"
 const IDLE_REDEMO := 9.0            # the opera ghost-finger revival beat
-const LESSONS := ["tap", "combo", "charge", "partner", "wave"]
+const LESSONS := ["tap", "combo", "charge", "wave"]
 const LESSON_MSG := {
 	"tap": "Tap the imp — right on its nose!",
 	"combo": "Tap tap tap! Three stars pops it!",
 	"charge": "Press and HOLD — let the ring grow, then let go!",
-	"partner": "Your partner is ready! Tap the bubble!",
 	"wave": "Imps everywhere! Show them ALL your moves!",
 }
 const LESSON_DEMO := {
-	"tap": "press", "combo": "drum", "charge": "hold", "partner": "press",
+	"tap": "press", "combo": "drum", "charge": "hold",
 	"wave": "",
 }
 
@@ -42,7 +41,6 @@ var pointer: Label3D = null
 var demo_layer: CanvasLayer = null
 var demo: DemoFinger = null
 var he: HitEngine = null
-var pa: PartnerAssist = null
 var enemies: Array[Dictionary] = []
 var lesson := ""
 var lesson_t := 0.0
@@ -121,8 +119,6 @@ func start(main: ReefMain, done_cb: Callable) -> void:
 	he.targets = enemies
 	m.hit_engines.append(he)
 	_spawn_imp(Vector3(0, 1.0, -6.0))
-	if m.companion_id != "":
-		pa = PartnerAssist.new(m)
 	_begin_lesson("tap")
 
 func _build_environment() -> void:
@@ -240,8 +236,6 @@ func _begin_lesson(next: String) -> void:
 	demo.mode = String(LESSON_DEMO.get(next, ""))
 	demo.visible = demo.mode != ""
 	demo.t = 0.0
-	if next == "partner" and pa != null and pa.bubble == null:
-		pa.attach("stuffie", Callable(self, "_partner_super"))
 
 func _lesson_target() -> Dictionary:
 	for enemy in enemies:
@@ -254,8 +248,6 @@ func _process(delta: float) -> void:
 		return
 	elapsed += delta
 	he.tick(delta)
-	if pa != null:
-		pa.tick(delta)
 	# the sparring imps only bob — the "pause" is that nothing ever rushes her
 	for enemy in enemies:
 		var node_value: Variant = enemy.get("node")
@@ -275,10 +267,6 @@ func _process(delta: float) -> void:
 
 func _tick_pointer_and_demo() -> void:
 	var target: Dictionary = _lesson_target()
-	if lesson == "partner" and pa != null and pa.bubble != null:
-		pointer.visible = false
-		demo.anchor = pa.bubble.position + pa.bubble.size * 0.5
-		return
 	pointer.visible = not target.is_empty() and state == "play"
 	if target.is_empty():
 		demo.anchor = Vector2.ZERO
@@ -320,23 +308,8 @@ func _tick_lesson(delta: float) -> void:
 					m.show_msg("Roshan", "A full-power bubble POP!", "win")
 				else:
 					m.show_msg("Roshan", "Popped! Next time, try HOLDING too!", "win")
-				if pa != null:
-					_begin_lesson("partner")
-				else:
-					_spawn_wave()
-					_begin_lesson("wave")
-		"partner":
-			if pa != null and pa.bubble != null and pa.cool > 0.0:
-				m.show_msg("Roshan", "Partner power! Now finish them!", "win")
-				_begin_lesson("wave")
-				# the stampede may have popped the whole practice wave — the
-				# graduation must still be HER pops, so a fresh wave arrives
-				# when nothing is left standing (alpha audit 2026-08-05: the
-				# class could otherwise complete itself off the partner's work)
-				if _lesson_target().is_empty():
-					_spawn_wave()
-			elif _lesson_target().is_empty() and enemies.size() < 6:
 				_spawn_wave()
+				_begin_lesson("wave")
 		"wave":
 			if _lesson_target().is_empty() and enemies.size() >= 4:
 				_win()
@@ -344,22 +317,6 @@ func _tick_lesson(delta: float) -> void:
 func _spawn_wave() -> void:
 	for offset in [Vector3(-4.0, 1.0, -5.0), Vector3(0.0, 1.0, -8.0), Vector3(4.0, 1.0, -5.0)]:
 		_spawn_imp(offset as Vector3)
-
-# The stuffie's classroom stampede: identical rules to the arena — pops
-# nearest fodder by hp, dizzies nothing here (they are already waiting),
-# grants the Big Taps so her graduation swings feel enormous.
-func _partner_super(_partner_kind: String) -> void:
-	if enemies.is_empty() or state != "play":
-		return
-	var felled := 0
-	for enemy in enemies:
-		if String(enemy["state"]) != "active" or felled >= PartnerAssist.STAMPEDE_POPS:
-			continue
-		enemy["hp"] = 0
-		he.play_death(enemy)
-		felled += 1
-	he.big_taps = PartnerAssist.BIG_TAPS
-	m._sparkle_burst(CENTER + Vector3(0, 3.0, -5.0), Color(0.95, 0.75, 1.0))
 
 func _win() -> void:
 	if state != "play":
@@ -382,8 +339,6 @@ func _finish() -> void:
 	state = "done"
 	m.hit_engines.erase(he)
 	he.teardown()
-	if pa != null:
-		pa.detach()
 	if demo_layer != null and is_instance_valid(demo_layer):
 		demo_layer.queue_free()
 	if prev_env != null:
@@ -403,8 +358,6 @@ func cancel() -> void:
 	state = "done"
 	m.hit_engines.erase(he)
 	he.teardown()
-	if pa != null:
-		pa.detach()
 	if demo_layer != null and is_instance_valid(demo_layer):
 		demo_layer.queue_free()
 	if prev_env != null:

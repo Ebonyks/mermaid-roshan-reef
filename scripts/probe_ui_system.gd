@@ -176,6 +176,24 @@ func _check_storybook_coverage() -> void:
 	_check(not opera_venue_source.contains("BubbleLift")
 		and not opera_venue_source.contains("OperaVenueBack"),
 		"Opera venue keeps direct painted doors and no local lift or Back controls")
+	var partner_source := FileAccess.get_file_as_string(
+		"res://scripts/partner_assist.gd")
+	var tutorial_source := FileAccess.get_file_as_string(
+		"res://scripts/combat_tutorial.gd")
+	var stuffie_battle_source := FileAccess.get_file_as_string(
+		"res://scripts/stuffie_battle.gd")
+	var combat_source := FileAccess.get_file_as_string(
+		"res://scripts/combat_arena.gd")
+	_check(not partner_source.contains("var bubble: Button")
+		and not partner_source.contains("on_bubble_tap")
+		and not tutorial_source.contains("PartnerAssist")
+		and not tutorial_source.contains("Tap the bubble"),
+		"partner combat has no overlay control or unreachable bubble lesson")
+	_check(not stuffie_battle_source.contains("DODGE bubble")
+		and not combat_source.contains("big ICE button")
+		and not combat_source.contains("big CLEAN button")
+		and not player_copy.contains("Press the big button to swim up"),
+		"child prompts describe direct world taps, not removed overlay buttons")
 
 func _check_typography_coverage() -> void:
 	var storybook_source: String = FileAccess.get_file_as_string(

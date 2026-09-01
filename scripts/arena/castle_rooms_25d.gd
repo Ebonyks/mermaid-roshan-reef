@@ -3919,9 +3919,8 @@ func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 			_castle_canvas_shake()
 		if m.castle_partner != null:
 			m.castle_partner.note_child_pop()
-	# Daddy's bubble debuts after her first own pop of the visit (staged
-	# teach): the castle is his home, and his DADDY SPLASH super rests on an
-	# 18 s cooldown between waves of hearts.
+	# Daddy's dormant assist state begins after her first own pop of the visit.
+	# It draws no overlay; a future direct world interaction may expose it.
 	if not partner_pop and m.castle_partner == null and m.castle_room_id == "main_hall":
 		m.castle_partner = PartnerAssist.new(m)
 		m.castle_partner.attach("daddy", Callable(self, "_daddy_splash"))
@@ -3950,8 +3949,8 @@ func _explode_dust_bunny(item_id: String, partner_pop: bool = false) -> void:
 		if not _playroom_rescue_done():
 			m._write_save()
 
-# DADDY SPLASH (PartnerAssist fires this only from the child's tap on his
-# bubble): a wave of hearts pops every ordinary dust bunny in the current
+# DADDY SPLASH (reserved for a future direct world interaction): a wave of
+# hearts pops every ordinary dust bunny in the current
 # room. Rescue pins are deliberately excluded — freeing the Baby Eagle is
 # HER moment ("I know you can do it!"), Daddy never takes it from her.
 func _daddy_splash(_partner_kind: String) -> void:

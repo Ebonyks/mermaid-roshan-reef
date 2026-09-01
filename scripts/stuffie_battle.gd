@@ -3,8 +3,8 @@ extends Node3D
 # THE STUFFIE BATTLE ENGINE — the companion wing's arena mode. The child
 # CONTROLS THE CREATURE (not Roshan): stick to scamper, ONE attack button
 # (PECK for the baby eagle, CLAW for Kitty), and a quick-time DODGE — when an
-# opponent telegraphs, a giant pulsing DODGE bubble appears and any tap inside
-# the forgiving window hops the stuffie clear. Opponents get dizzy and
+# opponent telegraphs, a tap on the open floor during the forgiving window
+# hops the stuffie clear. Opponents get dizzy and
 # BEFRIENDED, never hurt. The battle itself can never be lost. All motion is
 # analytic (probe-friendly, mobile-renderer budget), same Family-B shape as
 # CombatArena.
@@ -99,7 +99,7 @@ func start(main: ReefMain, ladder_index: int, done_cb: Callable) -> void:
 	qte_gap = float(round_cfg.get("attack_gap", 4.0))
 	var atk := attack_word()
 	m.show_msg(String(creature_def.get("name", "Stuffie")),
-		"Play-battle time! Tap %s to bop the imps — and tap the big DODGE bubble when it pops up!" % atk, "talk")
+		"Play-battle time! Tap %s to bop the imps — when one puffs up, tap the open floor to dodge!" % atk, "talk")
 	_update_hud()
 
 func attack_word() -> String:
@@ -418,7 +418,7 @@ func _tick_enemies(delta: float) -> void:
 	# The shared crew brain (scripts/imp_ai.gd) owns SPACING and MOOD here —
 	# who circles, who hangs back once the crew thins, who shows off while
 	# nothing is happening. Attacking stays with the QTE below ("lunges"
-	# off), because the telegraph the child answers is the dodge bubble.
+	# off), because the child answers the telegraph with an open-floor tap.
 	var hero := Vector2(pal_pos.x - CENTER.x, pal_pos.z - CENTER.z)
 	if imp_brain != null:
 		var minds: Array = []
@@ -593,7 +593,7 @@ func _bump_pal(from: Vector3) -> void:
 	pal_pos += away.normalized() * 3.5
 	m._sparkle_burst(pal_pos + Vector3(0, 2.0, 0), Color(0.55, 0.92, 1.0))
 	bruises += 1
-	m.show_msg(String(creature_def.get("name", "Stuffie")), "Ouch, a boo-boo! I'll need a hug after this! Tap the big DODGE bubble!", "talk")
+	m.show_msg(String(creature_def.get("name", "Stuffie")), "Ouch, a boo-boo! I'll need a hug after this! When one puffs up, tap the open floor!", "talk")
 	_update_hud()
 
 # ---------- pointer / HUD / win ----------
@@ -614,7 +614,7 @@ func _update_hud() -> void:
 		counter.text = "★"
 		return
 	if qte_t > 0.0:
-		objective.text = "🛡  TAP THE BIG DODGE BUBBLE!"
+		objective.text = "🛡  TAP THE OPEN FLOOR TO DODGE!"
 	else:
 		objective.text = "%s  tap %s and bop the wigglers — follow the golden arrow!" % ["🐦" if String(creature_def.get("kind", "")) == "bird" else "🐾", attack_word()]
 	var active := 0

@@ -29,8 +29,8 @@ extends RefCounted
 #
 # No fail state: he bumps, but never hurts. Contact gives Roshan a readable
 # shove and boing before she recovers immediately; it never removes progress.
-# A separate picture button adds an OPTIONAL twirl dodge. Incoming hops pulse
-# that button; a timed press turns contact into a sideways swish. Bumps only
+# An open-floor tap adds an OPTIONAL twirl dodge. Incoming hops pulse Roshan;
+# a timed tap turns contact into a sideways swish. Bumps only
 # tune the replay mastery stars (gold through one, silver at two, bronze at
 # three-plus), while a clean run adds a small pearl bonus.
 # Five windows missed IN A ROW switch the fight to its slower assist pace:

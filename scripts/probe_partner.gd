@@ -1,5 +1,5 @@
 extends SceneTree
-# PartnerAssist probe: no persistent partner button is drawn; the optional
+# PartnerAssist probe: no persistent partner control API is drawn; the optional
 # ability state still never fires without an explicit activation (agency).
 # stuffie SPARKLE STAMPEDE pops nearest fodder, dizzies the rest and grants
 # Big Taps; DADDY SPLASH clears ordinary castle dust but never the Baby
@@ -41,7 +41,7 @@ func _no_partner_case() -> void:
 	main._start_combat("ice")
 	await process_frame
 	var arena: CombatArena = main.combat_game
-	_ck("no companion means no bubble", arena != null and arena.pa == null)
+	_ck("no companion means no assist state", arena != null and arena.pa == null)
 	arena.cancel(false)
 	await process_frame
 
@@ -52,16 +52,15 @@ func _stuffie_case() -> void:
 	await process_frame
 	var arena: CombatArena = main.combat_game
 	_ck("stuffie assist has no overlay and attaches ready", arena.pa != null
-		and arena.pa.ready() and arena.pa.bubble == null and arena.pa.layer == null)
+		and arena.pa.ready())
 	for _i in range(30):
 		await process_frame
 	var active := 0
 	for enemy: Dictionary in arena.enemies:
 		if String(enemy["state"]) == "active":
 			active += 1
-	_ck("idle frames never fire the super", active == 8 and arena.pa.ready()
-		and arena.pa.bubble == null)
-	arena.pa.on_bubble_tap()
+	_ck("idle frames never fire the super", active == 8 and arena.pa.ready())
+	arena.pa.activate()
 	await process_frame
 	var popped_or_frozen := 0
 	var stunned := 0
@@ -77,8 +76,8 @@ func _stuffie_case() -> void:
 	_ck("stampede grants Big Taps", arena.he.big_taps == PartnerAssist.BIG_TAPS)
 	_ck("super starts the cooldown", not arena.pa.ready())
 	var cool_before: float = arena.pa.cool
-	arena.pa.on_bubble_tap()
-	_ck("resting bubble refuses a tap", absf(arena.pa.cool - cool_before) < 0.001)
+	arena.pa.activate()
+	_ck("resting assist refuses activation", absf(arena.pa.cool - cool_before) < 0.001)
 	arena.pa.note_child_pop()
 	_ck("her own pop shaves the rest",
 		cool_before - arena.pa.cool >= PartnerAssist.POP_SHAVE - 0.001)
@@ -93,14 +92,12 @@ func _daddy_case() -> void:
 	rooms.open("main_hall")
 	await process_frame
 	await process_frame
-	_ck("no pop yet means no daddy bubble", main.castle_partner == null)
+	_ck("no pop yet means no Daddy assist state", main.castle_partner == null)
 	rooms._explode_dust_bunny("sleepy_bunny")
 	await process_frame
 	_ck("her first pop invites Daddy without an overlay",
-		main.castle_partner != null and main.castle_partner.ready()
-		and main.castle_partner.bubble == null
-		and main.castle_partner.layer == null)
-	main.castle_partner.on_bubble_tap()
+		main.castle_partner != null and main.castle_partner.ready())
+	main.castle_partner.activate()
 	await process_frame
 	_ck("DADDY SPLASH clears the hall dust", _live_dust_count() == 0)
 	_ck("the splash starts Daddy's rest", not main.castle_partner.ready())
@@ -110,12 +107,12 @@ func _daddy_case() -> void:
 	var pins_before: int = _live_dust_count()
 	_ck("playroom rescue pins spawn", pins_before == 2)
 	main.castle_partner.cool = 0.0
-	main.castle_partner.on_bubble_tap()
+	main.castle_partner.activate()
 	await process_frame
 	_ck("splash never pops the rescue pins", _live_dust_count() == pins_before)
 	rooms.close()
 	await process_frame
-	_ck("closing the castle stows the bubble", main.castle_partner == null)
+	_ck("closing the castle stows the assist state", main.castle_partner == null)
 
 func _live_dust_count() -> int:
 	var live := 0
